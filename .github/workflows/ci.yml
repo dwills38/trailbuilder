@@ -1,0 +1,35 @@
+name: CI
+
+# Run the project's guardrails on every push, and on pull requests.
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    name: validate + tests + typecheck
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # Only the typecheck needs dependencies (TypeScript); validate/tests are
+      # zero-dependency. npm ci installs from the committed package-lock.json.
+      - name: Install dev dependencies
+        run: npm ci
+
+      - name: Validate the catalog data
+        run: node validate.js
+
+      - name: Run the test suite
+        run: node tests.js
+
+      - name: Type-check (tsc --noEmit)
+        run: npm run typecheck

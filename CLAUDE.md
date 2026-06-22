@@ -34,6 +34,7 @@ lives in `src/`; the test modules live in `test/`.
 | `test/test-golden.js` | Whole real bikes that must validate clean; a known-bad build that must fail. |
 | `package.json` | Scripts: `test`, `validate`, `typecheck`. Dev-only deps: `typescript`, `@types/node`. |
 | `tsconfig.json` | Type-check config (`checkJs`, `noEmit`). Drives `npm run typecheck`; produces no build output. |
+| `.github/workflows/ci.yml` | GitHub Actions CI — runs `validate`, `tests`, and `typecheck` on every push / PR. |
 | `README.md`, `Getting-Started-Roadmap.md` | Docs. |
 
 (Stray files like `test_compat.js` or `test2.js` from earlier sessions are NOT part of the project; delete them.)
@@ -130,7 +131,8 @@ three fields.
    JS — nothing is compiled or shipped. Full `strict` is on, and `Part` is a per-category
    discriminated union (keyed by `cat`), so tsc catches a part missing a required field, a part
    carrying another category's field, or the wrong category dropped into a build slot.
-3. Switch the home-grown runner to **Vitest** + a GitHub Actions CI that runs validate + tests.
+3. ✅ **GitHub Actions CI** (`.github/workflows/ci.yml`) runs `validate` + `tests` + `typecheck`
+   on every push / PR. (Switching the home-grown runner to **Vitest** is still open.)
 4. Then start adding **real, verified** manufacturers/parts (set the provenance fields).
 5. Parked: **ride categories** (enduro / trail / downhill) to filter the catalog by discipline;
    mullet is already supported.

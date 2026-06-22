@@ -26,6 +26,7 @@ whether they actually fit together. Early prototype.
 | `test/test-pricing.js` | Bundle (groupset/wheelset/etc.) pricing and weight totals. |
 | `test/test-golden.js` | Whole real bikes that must pass; a known-bad build that must fail. |
 | `tsconfig.json` | Type-check settings (`checkJs` + `noEmit`) for `npm run typecheck`. |
+| `.github/workflows/ci.yml` | CI: runs validate + tests + typecheck on every push. |
 | `Getting-Started-Roadmap.md` | The bigger-picture plan. |
 
 ## Run the app
@@ -89,6 +90,12 @@ field name, a price written as a string, a wheel size that isn't a real value, a
 carrying a frame-only field, or the wrong part dropped into a build slot — as you type,
 before the runtime validator ever runs. The shared type definitions live in `src/types.js`
 and mirror `src/schema.js`; update both when you add a field.
+
+## Continuous integration
+
+Once the repo is on GitHub, `.github/workflows/ci.yml` runs the catalog validator, the
+test suite, and the type-check on every push and pull request. Any failure fails the
+build, so broken data, a broken rule, or a type error can't land unnoticed.
 
 ## Put it under version control
 
