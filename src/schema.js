@@ -14,7 +14,14 @@
    lastChecked date that isn't in the future.
    ========================================================================== */
 
+/** @typedef {import('./types.js').Part} Part */
+/** @typedef {import('./types.js').Slot} Slot */
+/** @typedef {import('./types.js').Catalog} Catalog */
+/** @typedef {{type: 'number'|'string'|'bool'|'id'|'fills'|'enumArray', vocab?: string, optional?: boolean, nullable?: boolean}} FieldRule */
+/** @typedef {{has: (id: string) => boolean, catOf: (id: string) => string, slotCat: Object.<string, string>, today: Date}} Ctx */
+
 /* Canonical vocabularies - the only allowed values for each standard. */
+/** @type {Object.<string, string[]>} */
 var VOCAB = {
   wheel:        ['29', '275'],
   wheelConfig:  ['29', '275', 'mullet'],
@@ -36,6 +43,7 @@ var VOCAB = {
 
 /* Per-category field schema. Each field: {type, vocab?, optional?, nullable?}
    type: 'number' | 'string' | 'bool' | 'id' (must reference an existing part) | 'fills' */
+/** @type {Object.<string, Object.<string, FieldRule>>} */
 var SCHEMA = {
   frame: {
     wheelConfigs:{type:'enumArray',vocab:'wheelConfig'}, rearAxle:{type:'string',vocab:'rearAxle'},
@@ -83,12 +91,19 @@ var SCHEMA = {
 var PRESET_CATS = ['groupset','wheelset','brakeset','cockpitset'];
 var COMMON = ['id','cat','brand','model','price','weight','desc','verified','lastChecked','source'];
 
+/** @param {string} cat @returns {boolean} */
 function isPreset(cat){ return PRESET_CATS.indexOf(cat) >= 0; }
+/** @param {*} v @returns {boolean} */
 function isNum(v){ return typeof v === 'number' && !isNaN(v); }
+/** @param {*} v @returns {boolean} */
 function isStr(v){ return typeof v === 'string' && v.length > 0; }
+/** @param {*} v @returns {boolean} */
 function isBool(v){ return typeof v === 'boolean'; }
+/** @param {*} v @returns {boolean} */
 function isObj(v){ return v && typeof v === 'object' && !Array.isArray(v); }
+/** @param {*} v @returns {boolean} */
 function urlOk(v){ return typeof v === 'string' && /^https?:\/\/.+/.test(v); }
+/** @param {*} v @param {Date} today @returns {boolean} */
 function dateOk(v, today){
   if(typeof v !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(v)) return false;
   var d = new Date(v + 'T00:00:00Z');
@@ -97,10 +112,12 @@ function dateOk(v, today){
 }
 
 /* Build a validation context from a catalog ({PARTS, SLOTS}). */
+/** @param {Catalog} C @param {Date} [today] @returns {Ctx} */
 function _ctx(C, today){
-  var ids = {}, catOf = {};
+  /** @type {Object.<string, boolean>} */ var ids = {};
+  /** @type {Object.<string, string>} */ var catOf = {};
   C.PARTS.forEach(function(p){ ids[p.id] = true; catOf[p.id] = p.cat; });
-  var slotCat = {};
+  /** @type {Object.<string, string>} */ var slotCat = {};
   C.SLOTS.forEach(function(s){ slotCat[s.key] = s.cat; });
   return {
     has: function(id){ return !!ids[id]; },
@@ -110,10 +127,14 @@ function _ctx(C, today){
   };
 }
 
-/* Validate ONE part. Returns an array of problem strings (empty = valid). */
+/* Validate ONE part. Returns an array of problem strings (empty = valid).
+   `p` is untrusted input (the whole point is to reject bad data), so it's typed
+   loosely on purpose. */
+/** @param {*} p @param {Ctx} ctx @returns {string[]} */
 function validatePart(p, ctx){
-  var probs = [];
+  /** @type {string[]} */ var probs = [];
   var at = '[' + (p && p.id ? p.id : '?') + ']';
+  /** @param {string} m */
   function bad(m){ probs.push(at + ' ' + m); }
 
   if(!isStr(p.id)) { probs.push('[?] part with missing/blank id'); return probs; }
@@ -182,12 +203,13 @@ function validatePart(p, ctx){
 }
 
 /* Validate a whole catalog ({PARTS, SLOTS}). Returns an array of problems. */
+/** @param {Catalog} C @param {Date} [today] @returns {string[]} */
 function validateCatalog(C, today){
-  var problems = [];
+  /** @type {string[]} */ var problems = [];
   var ctx = _ctx(C, today);
 
   // duplicate ids
-  var seen = {};
+  /** @type {Object.<string, boolean>} */ var seen = {};
   C.PARTS.forEach(function(p){
     if(seen[p.id]) problems.push('[' + p.id + '] duplicate id');
     seen[p.id] = true;

@@ -4,6 +4,7 @@
 var H = require('./test-harness.js');
 var U = require('./test-util.js');
 var C = U.C, B = U.B, test = H.test, eq = H.eq, ok = H.ok;
+/** @param {Object.<string, string>} map @param {Object.<string, string>} [presetBy] */
 function totals(map, presetBy){ return C.buildTotals(B(map), presetBy || {}); }
 
 var GXM = { shifter:'sft-gx-m', derailleur:'dr-gx-m', cassette:'ca-sram-e', chain:'ch-eagle', crankset:'cr-gx' };

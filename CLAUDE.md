@@ -21,6 +21,7 @@ lives in `src/`; the test modules live in `test/`.
 | `index.html` | The app (UI). Plain HTML/CSS/JS, no build step. Loads `src/compat.js` via `<script>`. Open by double-click. |
 | `src/compat.js` | The catalog data (`PARTS`) **and** the compatibility engine (`checkBuild`) + helpers (`compatOf`, `buildTotals`). The heart of the project. |
 | `src/schema.js` | Data schema + validator. The single source of truth for "valid data". |
+| `src/types.js` | Shared JSDoc `@typedef`s (type-checking only; no runtime code). Mirrors `schema.js`. |
 | `validate.js` | CLI: `node validate.js` — checks the whole catalog. |
 | `tests.js` | CLI: `node tests.js` — runs the whole suite. |
 | `test/test-harness.js` | Tiny zero-dependency test runner. |
@@ -31,7 +32,8 @@ lives in `src/`; the test modules live in `test/`.
 | `test/test-greying.js` | The green/red/grey compatibility dots. |
 | `test/test-pricing.js` | Bundle (groupset) pricing + weight totals. |
 | `test/test-golden.js` | Whole real bikes that must validate clean; a known-bad build that must fail. |
-| `package.json` | Scripts: `test` and `validate`. No dependencies. |
+| `package.json` | Scripts: `test`, `validate`, `typecheck`. Dev-only deps: `typescript`, `@types/node`. |
+| `tsconfig.json` | Type-check config (`checkJs`, `noEmit`). Drives `npm run typecheck`; produces no build output. |
 | `README.md`, `Getting-Started-Roadmap.md` | Docs. |
 
 (Stray files like `test_compat.js` or `test2.js` from earlier sessions are NOT part of the project; delete them.)
@@ -46,6 +48,18 @@ node validate.js    # data check — expect "DATA OK - 105 parts, 0 problems"
 ```
 
 (or `npm test` / `npm run validate`). To run the app, open `index.html` in a browser.
+
+### Type-checking (optional, no build step)
+
+The plain JS is type-checked via JSDoc + `checkJs`. One-time `npm install` (pulls the
+dev-only `typescript` + `@types/node`), then:
+
+```
+npm run typecheck   # tsc --noEmit — expect no output, exit 0
+```
+
+It compiles and ships nothing; it only reads the JSDoc types. Shared `@typedef`s live in
+`src/types.js` (mirror `schema.js`).
 
 ## The golden rule
 
@@ -101,16 +115,20 @@ three fields.
 ## Conventions
 
 - Plain browser JavaScript (`var`/`function`), **no build step** — `index.html` loads `src/compat.js`
-  directly. Keep it that way unless deliberately doing the TypeScript migration below.
+  directly. Type-checking is JSDoc-only (`npm run typecheck`); keep shipping plain JS (no bundler/transpile).
 - `schema.js` is the one definition of valid data; the tests delegate to it. Extend the schema
   when you add fields, don't scatter ad-hoc checks.
+- When you add or rename a part field, update BOTH `schema.js` (runtime validator) and `src/types.js`
+  (the JSDoc `Part` type) so the validator and `npm run typecheck` stay in agreement.
 - Keep the UI logic and the engine sharing `compatOf`/`buildTotals` from `compat.js` (don't fork them).
 
 ## Roadmap / good next tasks
 
 1. ✅ **Reorganized into `src/` + `test/`** with `git init` + an initial commit (done — the flat layout was forced by the tool that created it). Entry-point CLIs stay at the root so `node tests.js` / `node validate.js` still work.
-2. **TypeScript type-checking without a build step**: add JSDoc types + a `tsconfig.json` with
-   `checkJs`/`noEmit`, and an `npm run typecheck` (`tsc --noEmit`). Keep shipping plain JS.
+2. ✅ **TypeScript type-checking without a build step** (done): JSDoc types in `src/types.js`,
+   a `tsconfig.json` with `checkJs`/`noEmit`, and `npm run typecheck` (`tsc --noEmit`). Still plain
+   JS — nothing is compiled or shipped. `strictNullChecks` is intentionally off for now (the engine
+   leans on runtime "slot may be empty" guards); tightening it to full `strict` is a good follow-up.
 3. Switch the home-grown runner to **Vitest** + a GitHub Actions CI that runs validate + tests.
 4. Then start adding **real, verified** manufacturers/parts (set the provenance fields).
 5. Parked: **ride categories** (enduro / trail / downhill) to filter the catalog by discipline;

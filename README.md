@@ -14,6 +14,7 @@ whether they actually fit together. Early prototype.
 | `index.html` | The app. Double-click to open in any browser — no install. |
 | `src/compat.js` | The catalog data **and** the compatibility engine + helpers. The heart of the project. |
 | `src/schema.js` | The data schema + validator: defines what a valid part is and rejects malformed data. |
+| `src/types.js` | Shared JSDoc type definitions (for `npm run typecheck`; no runtime code). |
 | `validate.js` | Command-line data check (`npm run validate`). |
 | `tests.js` | Runs the whole test suite. |
 | `test/test-harness.js` | Tiny zero-dependency test runner (no `npm install` needed). |
@@ -24,6 +25,7 @@ whether they actually fit together. Early prototype.
 | `test/test-greying.js` | Checks the green/red/grey compatibility dots. |
 | `test/test-pricing.js` | Bundle (groupset/wheelset/etc.) pricing and weight totals. |
 | `test/test-golden.js` | Whole real bikes that must pass; a known-bad build that must fail. |
+| `tsconfig.json` | Type-check settings (`checkJs` + `noEmit`) for `npm run typecheck`. |
 | `Getting-Started-Roadmap.md` | The bigger-picture plan. |
 
 ## Run the app
@@ -71,6 +73,21 @@ source: "https://www.manufacturer.com/the-spec-page"
 The validator refuses `verified: true` without a real `http(s)` source and a
 `lastChecked` date that isn't in the future — so "verified" always means something.
 
+## Type-check the code (optional)
+
+The code is plain JavaScript, but it's annotated with JSDoc types and checked by
+TypeScript's `tsc` — no build step, nothing compiled, nothing shipped. Install the
+dev tooling once (`npm install`, which pulls `typescript` + `@types/node`), then:
+
+```
+npm run typecheck
+```
+
+No output means success. It catches mistakes like a misspelled field name, a price
+written as a string, or a wheel size that isn't a real value — as you type, before the
+runtime validator ever runs. The shared type definitions live in `src/types.js` and
+mirror `src/schema.js`; update both when you add a field.
+
 ## Put it under version control
 
 From this folder, one time:
@@ -89,7 +106,7 @@ a place a collaborator or coding assistant can work.
 
 1. ✅ Repo + a permanent, runnable test suite.
 2. ✅ Data schema + validator, with optional per-part `verified` + `lastChecked` + `source`.
-3. Move the engine + data to TypeScript so missing/mistyped fields are caught as you type.
+3. ✅ Type-checking via JSDoc + `tsc --noEmit` (`npm run typecheck`) — missing/mistyped fields are caught as you type, no build step. (Optional next: tighten `strictNullChecks` to full `strict`.)
 4. *Then* start adding real, verified manufacturers and parts.
 5. Deploy so real riders can hammer it.
 

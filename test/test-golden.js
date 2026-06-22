@@ -5,6 +5,7 @@
 var H = require('./test-harness.js');
 var U = require('./test-util.js');
 var C = U.C, B = U.B, test = H.test, eq = H.eq;
+/** @param {Object.<string, string>} map */
 var chk = function(map){ return C.checkBuild(B(map)); };
 
 var GOOD = { frame:'fr-megatower', fork:'fk-zeb', shock:'sh-sd-air', frontWheel:'fw-reserve', rearWheel:'rw-reserve',

@@ -4,6 +4,7 @@
 var H = require('./test-harness.js');
 var U = require('./test-util.js');
 var C = U.C, B = U.B, test = H.test, eq = H.eq, some = H.some;
+/** @param {Object.<string, string>} buildMap @param {string} id */
 var stateOf = function(buildMap, id){ return C.compatOf(C.byId(id), B(buildMap)).state; };
 
 test('empty build -> neutral dots', function(){

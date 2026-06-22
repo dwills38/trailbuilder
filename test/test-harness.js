@@ -2,10 +2,13 @@
 /* Tiny zero-dependency test harness. Test files call test(...) to register;
    tests.js requires them all, then calls run(). No npm install needed. */
 
+/** @type {{name: string, fn: () => void}[]} */
 var tests = [];
 
+/** @param {string} name @param {() => void} fn */
 function test(name, fn){ tests.push({ name: name, fn: fn }); }
 
+/** @param {*} actual @param {*} expected @param {string} [msg] */
 function eq(actual, expected, msg){
   if(actual !== expected){
     throw new Error((msg ? msg + ': ' : '') +
@@ -13,19 +16,23 @@ function eq(actual, expected, msg){
   }
 }
 
+/** @param {*} value @param {string} [msg] */
 function ok(value, msg){
   if(!value) throw new Error(msg || ('expected truthy, got ' + JSON.stringify(value)));
 }
 
 // assert that some string in `arr` contains substring `sub`
+/** @param {any[]} arr @param {string} sub @param {string} [msg] */
 function some(arr, sub, msg){
   if(!arr.some(function(x){ return String(x).indexOf(sub) >= 0; })){
     throw new Error((msg ? msg + ': ' : '') + 'no item contained "' + sub + '"');
   }
 }
 
+/** @returns {void} */
 function run(){
-  var pass = 0, fail = 0, failures = [];
+  var pass = 0, fail = 0;
+  /** @type {{name: string, err: string}[]} */ var failures = [];
   tests.forEach(function(t){
     try { t.fn(); pass++; }
     catch(e){ fail++; failures.push({ name: t.name, err: e.message }); }

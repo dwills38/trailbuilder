@@ -5,6 +5,11 @@
   "description": "Enduro mountain-bike build & compatibility checker (prototype)",
   "scripts": {
     "test": "node tests.js",
-    "validate": "node validate.js"
+    "validate": "node validate.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^26.0.0",
+    "typescript": "^6.0.3"
   }
 }

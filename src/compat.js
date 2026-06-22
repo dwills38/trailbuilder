@@ -17,6 +17,17 @@
    before going live (see schema.js for the provenance fields).
    ========================================================================== */
 
+/** @typedef {import('./types.js').Part} Part */
+/** @typedef {import('./types.js').Build} Build */
+/** @typedef {import('./types.js').Group} Group */
+/** @typedef {import('./types.js').Slot} Slot */
+/** @typedef {import('./types.js').PresetBy} PresetBy */
+/** @typedef {import('./types.js').CompatResult} CompatResult */
+/** @typedef {import('./types.js').Totals} Totals */
+/** @typedef {import('./types.js').CompatState} CompatState */
+/** @typedef {import('./types.js').WheelSize} WheelSize */
+
+/** @type {Object.<string, string>} */
 var LABELS = {
   '29': '29in', '275': '27.5in', mullet: 'Mullet (29/27.5)',
   Boost148: 'Boost 148x12', SuperBoost157: 'SuperBoost 157x12', Boost110: 'Boost 15x110',
@@ -29,11 +40,14 @@ var LABELS = {
   'sram-eagle': 'SRAM Eagle (mechanical)', 'sram-transmission': 'SRAM Transmission (AXS)',
   'shimano-12': 'Shimano 12-speed', 'udh-direct': 'Direct mount (UDH)', hanger: 'Standard hanger'
 };
+/** @param {string} k @returns {string} */
 var L = function(k){ return (k in LABELS ? LABELS[k] : k); };
 
 /* front size + rear size for each wheel config */
+/** @type {Object.<string, {front: WheelSize, rear: WheelSize}>} */
 var WHEEL_CONFIG = { '29':{front:'29',rear:'29'}, '275':{front:'275',rear:'275'}, mullet:{front:'29',rear:'275'} };
 
+/** @type {Group[]} */
 var GROUPS = [
   { key:'frame', label:'Frame', icon:'F', slots:[ {key:'frame', label:'Frame', cat:'frame'} ] },
   { key:'fork',  label:'Fork',  icon:'Y', slots:[ {key:'fork', label:'Fork', cat:'fork'} ] },
@@ -62,9 +76,11 @@ var GROUPS = [
       {key:'grips', label:'Grips', cat:'grips', optional:true} ] },
   { key:'saddle', label:'Saddle', icon:'S', slots:[ {key:'saddle', label:'Saddle', cat:'saddle'} ] }
 ];
-var SLOTS = GROUPS.reduce(function(a,g){ return a.concat(g.slots.map(function(s){ return Object.assign({group:g.key}, s); })); }, []);
+/** @type {Slot[]} */
+var SLOTS = GROUPS.reduce(function(a,g){ return a.concat(g.slots.map(function(s){ return Object.assign({group:g.key}, s); })); }, /** @type {Slot[]} */ ([]));
 
 /* ---- SEED catalog (price USD sample, weight grams sample) ---------------- */
+/** @type {Part[]} */
 var PARTS = [
   /* FRAMES (weight = frame only, no shock; wheelConfigs = supported setups) */
   { id:'fr-megatower', cat:'frame', brand:'Santa Cruz', model:'Megatower CC', price:3499, weight:3200, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:220, shockEye:230, shockStroke:65, shockMount:'std', maxForkTravel:170, travel:165, udh:true, bundledShock:null, frameOnly:true },
@@ -202,10 +218,13 @@ var PARTS = [
 ];
 
 /* ---- lookups ------------------------------------------------------------- */
+/** @param {string|null|undefined} id @returns {Part|null} */
 function byId(id){ for (var i=0;i<PARTS.length;i++){ if (PARTS[i].id===id) return PARTS[i]; } return null; }
+/** @param {Part|null|undefined} p @returns {string} */
 function nameOf(p){ return p ? (p.brand+' '+p.model) : ''; }
 
 /* ---- short spec line for a part ----------------------------------------- */
+/** @param {Part} p @returns {string} */
 function specSummary(p){
   switch(p.cat){
     case 'frame': return p.wheelConfigs.map(function(w){return L(w);}).join(' / ')+' . '+p.travel+'mm . '+L(p.rearAxle)+' . shock '+p.shockEye+'x'+p.shockStroke+' '+L(p.shockMount)+(p.udh?' . UDH':'');
@@ -236,8 +255,11 @@ function specSummary(p){
    build keyed by SLOT (frame, fork, shock, frontWheel, rearWheel, frontTire,
    rearTire, ...) -> part object.
    ========================================================================== */
+/** @param {Build} build @returns {CompatResult} */
 function checkBuild(build){
-  var errors=[], warnings=[], infos=[];
+  /** @type {string[]} */ var errors=[];
+  /** @type {string[]} */ var warnings=[];
+  /** @type {string[]} */ var infos=[];
   var b = build || {};
   var frame=b.frame, fork=b.fork, shock=b.shock, fW=b.frontWheel, rW=b.rearWheel, fTire=b.frontTire, rTire=b.rearTire,
       shifter=b.shifter, derailleur=b.derailleur, cassette=b.cassette, chain=b.chain, crankset=b.crankset,
@@ -246,14 +268,15 @@ function checkBuild(build){
 
   /* 1. Wheel sizing: front group + rear group must each be consistent, and the
         front/rear combo must match a config the frame supports (incl. mullet). */
+  /** @param {string[][]} list @param {string} label @returns {string|null} */
   function sizeOf(list, label){
     if(!list.length) return null;
     var ref=list[0][1];
     if(list.some(function(s){ return s[1]!==ref; })){ errors.push(label+' wheel size mismatch: '+list.map(function(s){ return s[0]+' '+L(s[1]); }).join(', ')+'.'); return null; }
     return ref;
   }
-  var frontList=[]; if(fork) frontList.push(['Fork',fork.wheel]); if(fW) frontList.push(['Front wheel',fW.wheel]); if(fTire) frontList.push(['Front tire',fTire.wheel]);
-  var rearList=[];  if(rW) rearList.push(['Rear wheel',rW.wheel]); if(rTire) rearList.push(['Rear tire',rTire.wheel]);
+  var frontList=/** @type {string[][]} */([]); if(fork) frontList.push(['Fork',fork.wheel]); if(fW) frontList.push(['Front wheel',fW.wheel]); if(fTire) frontList.push(['Front tire',fTire.wheel]);
+  var rearList=/** @type {string[][]} */([]);  if(rW) rearList.push(['Rear wheel',rW.wheel]); if(rTire) rearList.push(['Rear tire',rTire.wheel]);
   var frontSize=sizeOf(frontList,'Front'), rearSize=sizeOf(rearList,'Rear');
   if(frame && (frontSize || rearSize)){
     var configs = frame.wheelConfigs || [];
@@ -266,7 +289,7 @@ function checkBuild(build){
   if(frame && rW && frame.rearAxle!==rW.hub) errors.push('Rear axle mismatch: Frame is '+L(frame.rearAxle)+' but Rear wheel hub is '+L(rW.hub)+'.');
 
   /* 3. Drivetrain: one system + one speed */
-  var dt=[['Shifter',shifter],['Derailleur',derailleur],['Cassette',cassette],['Chain',chain]].filter(function(x){return x[1];});
+  var dt=/** @type {Array<[string, Part]>} */([['Shifter',shifter],['Derailleur',derailleur],['Cassette',cassette],['Chain',chain]]).filter(function(x){return x[1];});
   if(dt.length>1){
     var systems=dt.map(function(x){return x[1].system;}).filter(function(v,i,a){return a.indexOf(v)===i;});
     if(systems.length>1) errors.push('Drivetrain mismatch: '+dt.map(function(x){return x[0]+' = '+L(x[1].system);}).join(', ')+'. Shifter, derailleur, cassette and chain must be one system.');
@@ -340,11 +363,14 @@ function checkBuild(build){
    COMPATIBILITY HELPERS (shared by the UI and the test suite)
    build is a map of slotKey -> resolved part object.
    ========================================================================== */
+/** @type {Object.<string, string[]>|null} */
 var _CAT_SLOTS = null;
+/** @returns {Object.<string, string[]>} */
 function _catSlots(){
   if(!_CAT_SLOTS){ _CAT_SLOTS={}; SLOTS.forEach(function(s){ (_CAT_SLOTS[s.cat]=_CAT_SLOTS[s.cat]||[]).push(s.key); }); }
   return _CAT_SLOTS;
 }
+/** @param {Part} part @param {string} slotKey @param {Build} [build] @returns {string|null} */
 function conflictReason(part, slotKey, build){
   var base = Object.assign({}, build || {}); delete base[slotKey];
   var before = checkBuild(base).errors;
@@ -353,6 +379,7 @@ function conflictReason(part, slotKey, build){
   for(var i=0;i<after.length;i++){ if(before.indexOf(after[i])<0) return after[i]; }
   return null;
 }
+/** @param {Part} p @param {Build} [build] @returns {CompatState} */
 function compatOf(p, build){
   build = build || {};
   if(Object.keys(build).length===0) return {state:'n', reason:'Pick some parts first to check fit'};
@@ -375,6 +402,7 @@ function compatOf(p, build){
    A group whose slots exactly match a chosen preset is billed/weighed as the
    bundle; otherwise its parts are summed individually.
    ========================================================================== */
+/** @param {Group} group @param {Build} build @param {PresetBy} [presetBy] @returns {boolean} */
 function bundleActive(group, build, presetBy){
   var pid = presetBy && presetBy[group.key];
   if(!pid) return false;
@@ -387,6 +415,7 @@ function bundleActive(group, build, presetBy){
   }
   return true;
 }
+/** @param {Build} [build] @param {PresetBy} [presetBy] @returns {Totals} */
 function buildTotals(build, presetBy){
   build = build || {}; presetBy = presetBy || {};
   var price = 0, weight = 0, missingWeight = false;

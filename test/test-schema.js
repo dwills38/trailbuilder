@@ -10,8 +10,10 @@ var C = U.C;
 
 var TODAY = new Date('2026-06-21T00:00:00Z');
 var ctx = S._ctx(C, TODAY);
+/** @param {*} part @returns {string[]} */
 function probs(part){ return S.validatePart(part, ctx); }
 // clone a real part and override some fields
+/** @param {string} id @param {Object} [changes] @returns {*} */
 function over(id, changes){ return Object.assign({}, C.byId(id), changes); }
 
 test('a valid real part has no problems', function(){
