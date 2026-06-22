@@ -110,8 +110,9 @@ components. `presetBy` maps groupKey → preset id.
 ## Provenance
 
 Parts may carry `verified: true` + `lastChecked: "YYYY-MM-DD"` + `source: "https://…"`.
-Absence = unverified (still the default for most of the catalog; **3 parts are verified so
-far** — `ca-xt`, `ca-sram-e`, `sh-sd-air` — checked against manufacturer pages). The
+Absence = unverified (still the default for most of the catalog; **7 parts are verified so
+far** — the full SRAM GX Eagle mechanical drivetrain (`ca-sram-e`, `dr-gx-m`, `cr-gx`,
+`ch-eagle`, `sft-gx-m`) plus `ca-xt` and `sh-sd-air` — checked against manufacturer pages). The
 validator **refuses `verified: true` without a real source URL and a non-future date** — so
 "verified" always means something. When you actually confirm a spec against a manufacturer
 page, set the fields to match the source and add those three fields. (`node validate.js`
@@ -138,9 +139,11 @@ reports the verified/unverified counts.)
 3. ✅ **Vitest + GitHub Actions CI** (done): the home-grown runner is replaced by **Vitest**
    (`npm test`, config in `vitest.config.mjs`), and `.github/workflows/ci.yml` runs
    `validate` + `tests` + `typecheck` on every push / PR.
-4. 🚧 **Adding real, verified parts** (in progress): 3 parts verified against manufacturer
-   pages so far (`ca-xt`, `ca-sram-e`, `sh-sd-air`); set `verified`/`lastChecked`/`source` and
-   correct any wrong sample specs while you're there. Most of the catalog is still sample data.
+4. 🚧 **Adding real, verified parts** (in progress): 7 verified so far — a complete SRAM GX
+   Eagle mechanical drivetrain plus a Shimano XT cassette and a RockShox shock. Forks are
+   deliberately still flagged (weights couldn't be pinned reliably — e.g. RockShox's page lists
+   the ZEB 170 at 2550 g vs the ~2100 g cited elsewhere). Set `verified`/`lastChecked`/`source`
+   and fix wrong sample specs while you're there; most of the catalog is still sample data.
 5. Parked: **ride categories** (enduro / trail / downhill) to filter the catalog by discipline;
    mullet is already supported.
 6. Later: accounts + saved builds (Supabase/Firebase), price feeds via retailer affiliate programs, deploy.

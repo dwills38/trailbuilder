@@ -135,7 +135,7 @@ var PARTS = [
 
   /* DRIVETRAIN COMPONENTS */
   { id:'sft-gx-t', cat:'shifter', brand:'SRAM', model:'GX Transmission Pod', price:150, weight:70, system:'sram-transmission', speeds:12 },
-  { id:'sft-gx-m', cat:'shifter', brand:'SRAM', model:'GX Eagle Trigger', price:45, weight:120, system:'sram-eagle', speeds:12 },
+  { id:'sft-gx-m', cat:'shifter', brand:'SRAM', model:'GX Eagle Trigger', price:45, weight:122, system:'sram-eagle', speeds:12, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/sl-gx-1-a2' },
   { id:'sft-xt', cat:'shifter', brand:'Shimano', model:'XT M8100 I-Spec', price:55, weight:115, system:'shimano-12', speeds:12 },
   { id:'sft-slx', cat:'shifter', brand:'Shimano', model:'SLX M7100', price:40, weight:120, system:'shimano-12', speeds:12 },
   { id:'dr-gx-t', cat:'derailleur', brand:'SRAM', model:'GX Transmission', price:400, weight:465, system:'sram-transmission', speeds:12, maxCog:52, mount:'udh-direct' },
@@ -147,7 +147,7 @@ var PARTS = [
   { id:'ca-xt', cat:'cassette', brand:'Shimano', model:'CS-M8100 10-51', price:185, weight:470, system:'shimano-12', speeds:12, freehub:'MicroSpline', range:'10-51', maxCog:51, verified:true, lastChecked:'2026-06-22', source:'https://bike.shimano.com/en-US/product/component/deore-xt-m8100/CS-M8100-12.html' },
   { id:'ca-slx', cat:'cassette', brand:'Shimano', model:'CS-M7100 10-51', price:130, weight:534, system:'shimano-12', speeds:12, freehub:'MicroSpline', range:'10-51', maxCog:51 },
   { id:'ch-flattop', cat:'chain', brand:'SRAM', model:'Flattop (Transmission)', price:45, weight:290, system:'sram-transmission', speeds:12 },
-  { id:'ch-eagle', cat:'chain', brand:'SRAM', model:'Eagle 12-speed', price:30, weight:268, system:'sram-eagle', speeds:12 },
+  { id:'ch-eagle', cat:'chain', brand:'SRAM', model:'Eagle 12-speed', price:30, weight:244, system:'sram-eagle', speeds:12, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/cn-eagl-gx-a1' },
   { id:'ch-shimano', cat:'chain', brand:'Shimano', model:'CN-M8100 12-speed', price:35, weight:252, system:'shimano-12', speeds:12 },
   { id:'cr-gx', cat:'crankset', brand:'SRAM', model:'GX Eagle DUB', price:175, weight:621, bb:'DUB', ring:32, speeds:12, chainline:'Boost', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/fc-gx-1-b1' },
   { id:'cr-x0t', cat:'crankset', brand:'SRAM', model:'X0 Transmission DUB', price:330, weight:460, bb:'DUB', ring:32, speeds:12, chainline:'Boost' },
