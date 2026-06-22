@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TrailBuilder — MTB build & compatibility checker</title>
+<style>
+  :root{
+    --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
+    --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#e8732a;
+    --ok:#1f8a4c; --ok-bg:#e7f5ec; --warn:#b9791b; --warn-bg:#fdf3e1;
+    --err:#c23b3b; --err-bg:#fbeaea; --chip:#eef1ec;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.45}
+  header{background:linear-gradient(135deg,var(--brand-d),var(--brand));color:#fff;padding:22px 24px}
+  header .wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  header h1{margin:0;font-size:24px}
+  header p{margin:4px 0 0;opacity:.9;font-size:14px}
+  .badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:12px;padding:5px 10px;border-radius:999px}
+  main{max-width:1200px;margin:0 auto;padding:18px 24px 60px}
+  .toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+  .toolbar input[type=search]{flex:1;min-width:200px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px;background:#fff}
+  .btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;border-radius:10px;font-size:13px;cursor:pointer;font-weight:600}
+  .btn:hover{border-color:#c7ccc6}
+  .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .chip{background:var(--chip);border:1px solid transparent;border-radius:999px;padding:7px 13px;font-size:13px;cursor:pointer;color:var(--ink-soft);font-weight:600}
+  .chip.active{background:var(--ink);color:#fff}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--ink-soft);margin:0 0 16px}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle;border:1px solid rgba(0,0,0,.15)}
+  .layout{display:grid;grid-template-columns:1fr 350px;gap:22px;align-items:start}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:12px}
+
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px;display:flex;flex-direction:column;gap:6px;position:relative}
+  .pcard .kind{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);font-weight:700}
+  .pcard.kit .kind{color:var(--brand)}
+  .pcard .name{font-weight:700;font-size:14px;padding-right:14px}
+  .pcard .spec{font-size:12px;color:var(--ink-soft);min-height:32px}
+  .pcard .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px}
+  .pcard .price{font-weight:700;font-size:13px}
+  .pcard .price .wt{color:var(--ink-soft);font-weight:500;font-size:11px;margin-left:5px}
+  .pcard .price.zero{color:var(--ink-soft);font-weight:600;font-size:12px}
+  .pcard.selected{border-color:var(--brand);box-shadow:0 0 0 2px rgba(31,111,74,.16)}
+  .pick{border:1px solid var(--brand);color:var(--brand);background:#fff;border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer}
+  .pick:hover{background:#f1f8f4}
+  .pick.in{background:var(--brand);color:#fff}
+  .pick.kit{border-style:dashed}
+  .picks{display:flex;gap:6px}
+  .dot{position:absolute;top:11px;right:11px;width:11px;height:11px;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
+  .dot.g{background:#2aa35a}
+  .dot.r{background:#d23b3b}
+  .dot.n{background:#d2d7d1}
+
+  .side{position:sticky;top:16px;display:flex;flex-direction:column;gap:14px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .panel h2{margin:0 0 8px;font-size:16px}
+  .muted{color:var(--ink-soft);font-size:12px}
+  .meter{height:8px;background:#eceee9;border-radius:99px;overflow:hidden;margin:9px 0 4px}
+  .meter > i{display:block;height:100%;background:var(--brand);width:0;transition:width .2s}
+  .gsub{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink-soft);font-weight:700;margin:12px 0 4px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .gsub .gtot{text-transform:none;letter-spacing:0;font-weight:700;color:var(--ink)}
+  .gsub .kit-tag{background:var(--ok-bg);color:var(--ok);font-size:10px;font-weight:800;padding:1px 5px;border-radius:4px;margin-left:5px}
+  .slot{display:flex;align-items:center;gap:8px;font-size:13px;padding:5px 0;border-bottom:1px dashed #eef0ec}
+  .slot:last-child{border-bottom:none}
+  .slot .sl-main{flex:1;min-width:0}
+  .slot .sl-part{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .slot .sl-empty{color:#aab1aa;font-style:italic;font-weight:500}
+  .slot .pr{font-size:11.5px;color:var(--ink-soft);white-space:nowrap}
+  .slot .x{cursor:pointer;color:var(--ink-soft);border:none;background:none;font-size:15px;line-height:1}
+  .total{display:flex;align-items:baseline;justify-content:space-between;margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+  .total b{font-size:23px}
+  .wrow{display:flex;align-items:baseline;justify-content:space-between;margin-top:4px}
+  .status{display:flex;align-items:center;gap:8px;font-weight:700;border-radius:9px;padding:9px 11px;font-size:14px;margin-bottom:8px}
+  .status.ok{background:var(--ok-bg);color:var(--ok)}
+  .status.warn{background:var(--warn-bg);color:var(--warn)}
+  .status.err{background:var(--err-bg);color:var(--err)}
+  .issue{font-size:12.5px;padding:8px 10px;border-radius:8px;margin-top:7px;display:flex;gap:7px;line-height:1.4}
+  .issue.e{background:var(--err-bg);color:#7e2626}
+  .issue.w{background:var(--warn-bg);color:#7d5414}
+  .issue.i{background:#eef1f4;color:#41505c}
+  .issue .mk{font-weight:800;flex:none}
+  footer{max-width:1200px;margin:0 auto;padding:0 24px 50px;color:var(--ink-soft);font-size:12.5px}
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;font-size:13px;opacity:0;transition:opacity .25s;pointer-events:none}
+  .toast.show{opacity:1}
+  @media (max-width:880px){ .layout{grid-template-columns:1fr} .side{position:static} }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div>
+      <h1>🚵 TrailBuilder</h1>
+      <p>Browse enduro parts, click to add, and it checks fit, price and weight as you build.</p>
+    </div>
+    <span class="badge">Prototype · sample data, verify before trusting</span>
+  </div>
+</header>
+
+<main>
+  <div class="toolbar">
+    <input type="search" id="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" />
+    <button class="btn" id="demoGood">Sample build ✓</button>
+    <button class="btn" id="demoDeal">Frame+shock deal 📦</button>
+    <button class="btn" id="demoMullet">Mullet build 🐟</button>
+    <button class="btn" id="demoBad">Show clashes ✗</button>
+    <button class="btn" id="reset">Reset</button>
+    <button class="btn primary" id="share">Share / save link</button>
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="legend">
+    <span><i style="background:#2aa35a"></i>Fits your current build</span>
+    <span><i style="background:#d23b3b"></i>Won&rsquo;t fit (hover for why)</span>
+    <span><i style="background:#d2d7d1"></i>Nothing selected yet to judge</span>
+  </div>
+
+  <div class="layout">
+    <section><div class="grid" id="catalog"></div></section>
+
+    <aside>
+      <div class="side">
+        <div class="panel">
+          <h2>Compatibility</h2>
+          <div id="report"></div>
+        </div>
+        <div class="panel">
+          <h2>Your build</h2>
+          <div class="muted" id="countLabel">0 of 0 parts chosen</div>
+          <div class="meter"><i id="meterBar"></i></div>
+          <div id="slots"></div>
+          <div class="total"><span class="muted">Sample total</span><b id="total">$0</b></div>
+          <div class="wrow"><span class="muted">Est. weight</span><span id="weight" class="muted">&mdash;</span></div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <p><b>About this prototype.</b> Pick a whole groupset / wheelset / brake set / cockpit kit (green dashed cards) to drop
+  in all the parts at once — that group is then <b>priced as the bundle</b>; swap any single part and it reverts to
+  per-part pricing. Every card shows a compatibility dot (green fits, red won&rsquo;t, grey = nothing selected yet) and a
+  sample weight, and the catalog is sorted compatible-first. Specs, prices and weights are illustrative samples. Logic
+  lives in <code>compat.js</code>; run <code>node validate.js</code> to check the data and <code>node tests.js</code> for
+  the suite. <b>Mullet</b> (29 front / 27.5 rear) builds work on mullet-capable frames — try the <b>Mullet build</b> demo
+  or pick a 27.5 rear wheel + tire on the RAAW Madonna.</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="src/compat.js"></script>
+<script>
+(function(){
+  var build = {};            // slotKey -> part id
+  var presetBy = {};         // groupKey -> preset id (when a kit was quick-filled)
+  var activeGroup = 'frame'; // start the catalog on Frames (the foundation)
+  var search = '';
+  var $ = function(id){ return document.getElementById(id); };
+  var money = function(n){ return '$' + (n||0).toLocaleString(); };
+  var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg)'; };
+
+  var ICONS = {frame:'🚲',fork:'🍴',shock:'🪐',wheels:'🛞',tire:'⚫',drivetrain:'⚙️',brakes:'🛑',dropper:'📐',cockpit:'🔧',saddle:'🪑'};
+  var CATLABEL = {frame:'Frame',fork:'Fork',shock:'Rear Shock',frontwheel:'Front Wheel',rearwheel:'Rear Wheel',
+    tire:'Tires',shifter:'Shifter',derailleur:'Derailleur',cassette:'Cassette',chain:'Chain',crankset:'Crankset',
+    brake:'Brake',rotor:'Rotor',handlebar:'Handlebar',stem:'Stem',grips:'Grips',dropper:'Dropper',saddle:'Saddle',
+    groupset:'Groupset',wheelset:'Wheelset',brakeset:'Brake set',cockpitset:'Cockpit kit'};
+  var catLabel = function(c){ return CATLABEL[c] || c; };
+
+  var CAT_SLOTS = {};   SLOTS.forEach(function(s){ (CAT_SLOTS[s.cat] = CAT_SLOTS[s.cat] || []).push(s.key); });
+  var SLOT_GROUP = {};  SLOTS.forEach(function(s){ SLOT_GROUP[s.key] = s.group; });
+  var PRESET_GROUP = {}; GROUPS.forEach(function(g){ if(g.preset) PRESET_GROUP[g.preset.cat] = g.key; });
+  var groupByKey = {};  GROUPS.forEach(function(g){ groupByKey[g.key] = g; });
+
+  var isPreset = function(p){ return !!p.fills; };
+  function resolved(){ var o={}; Object.keys(build).forEach(function(k){ o[k]=byId(build[k]); }); return o; }
+  function compatFor(p){ return compatOf(p, resolved()); }
+
+  /* ---- chips ---- */
+  function renderChips(){
+    var el = $('chips'); el.innerHTML='';
+    el.appendChild(mkChip('all','All parts'));
+    GROUPS.forEach(function(g){ el.appendChild(mkChip(g.key, (ICONS[g.key]||'')+' '+g.label)); });
+  }
+  function mkChip(key,label){
+    var d=document.createElement('div');
+    d.className='chip'+(activeGroup===key?' active':'');
+    d.textContent=label;
+    d.onclick=function(){ activeGroup=key; renderChips(); renderCatalog(); };
+    return d;
+  }
+
+  /* ---- catalog ---- */
+  function groupCats(g){ var c = g.slots.map(function(s){return s.cat;}); if(g.preset) c.push(g.preset.cat); return c; }
+  function renderCatalog(){
+    var el=$('catalog'); el.innerHTML='';
+    var q=search.trim().toLowerCase();
+    var list=PARTS.filter(function(p){
+      if(activeGroup!=='all'){ if(groupCats(groupByKey[activeGroup]).indexOf(p.cat)<0) return false; }
+      if(q && (p.brand+' '+p.model+' '+catLabel(p.cat)).toLowerCase().indexOf(q)<0) return false;
+      return true;
+    });
+    if(!list.length){ el.innerHTML='<p class="muted">No parts match.</p>'; return; }
+    var meta=list.map(function(p,i){ var c=compatFor(p); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='n'?1:2),pre:isPreset(p)?0:1,i:i}; });
+    meta.sort(function(a,b){ return (a.rank-b.rank) || (a.pre-b.pre) || (a.i-b.i); });
+    meta.forEach(function(m){ el.appendChild(cardEl(m.p, m.c)); });
+  }
+
+  function cardEl(p, compat){
+    var card=document.createElement('div');
+    card.className='pcard'+(isPreset(p)?' kit':'');
+    compat = compat || compatFor(p);
+
+    var priceHtml;
+    if(isPreset(p)){
+      priceHtml = '<span class="price">'+money(p.price)+'<span class="wt"> · '+(p.weight?p.weight+' g · ':'')+'fills '+Object.keys(p.fills).length+'</span></span>';
+    } else {
+      priceHtml = '<span class="price">'+money(p.price)+(typeof p.weight==='number'?'<span class="wt">'+p.weight+' g</span>':'')+'</span>';
+    }
+
+    card.innerHTML =
+      '<span class="dot '+compat.state+'" title="'+String(compat.reason).replace(/"/g,'&quot;')+'"></span>'+
+      '<div class="kind">'+catLabel(p.cat)+'</div>'+
+      '<div class="name">'+p.brand+' '+p.model+'</div>'+
+      '<div class="spec">'+specSummary(p)+'</div>'+
+      '<div class="row">'+priceHtml+'<span class="picks"></span></div>';
+    var picks=card.querySelector('.picks');
+
+    if(isPreset(p)){
+      var b=mkBtn('Quick-fill', false, true);
+      b.onclick=function(){ applyPreset(p.id); };
+      picks.appendChild(b);
+    } else {
+      var slots=CAT_SLOTS[p.cat]||[];
+      if(slots.length===1){
+        var k=slots[0], inB=build[k]===p.id;
+        if(inB) card.classList.add('selected');
+        var btn=mkBtn(inB?'✓ In build':'Add to build', inB, false);
+        btn.onclick=function(){ setSlot(k, inB?null:p.id); };
+        picks.appendChild(btn);
+      } else {
+        slots.forEach(function(k){
+          var side=k.indexOf('front')===0?'Front':'Rear', inB=build[k]===p.id;
+          if(inB) card.classList.add('selected');
+          var btn=mkBtn((inB?'✓ ':'')+side, inB, false);
+          btn.onclick=function(){ setSlot(k, inB?null:p.id); };
+          picks.appendChild(btn);
+        });
+      }
+    }
+    return card;
+  }
+  function mkBtn(text, inState, kit){
+    var b=document.createElement('button');
+    b.className='pick'+(inState?' in':'')+(kit?' kit':'');
+    b.textContent=text; return b;
+  }
+
+  /* ---- mutations ---- */
+  // picking/removing a single component customises its group, so it leaves "kit" pricing
+  function setSlot(slotKey, partId){
+    if(partId){ build[slotKey]=partId; } else { delete build[slotKey]; }
+    delete presetBy[SLOT_GROUP[slotKey]];
+    sync();
+  }
+  function applyPreset(id){
+    var p=byId(id); if(!p||!p.fills) return;
+    Object.keys(p.fills).forEach(function(slot){ build[slot]=p.fills[slot]; });
+    presetBy[PRESET_GROUP[p.cat]] = id;
+    sync(); toast('Filled '+p.brand+' '+p.model+' ('+money(p.price)+' kit)');
+  }
+
+  /* ---- build panel ---- */
+  function renderPanel(){
+    var host=$('slots'); host.innerHTML='';
+    var res=resolved();
+    var required=SLOTS.filter(function(s){return !s.optional;});
+    var filled=0;
+    GROUPS.forEach(function(g){
+      var bundle = (g.preset && bundleActive(g, res, presetBy)) ? byId(presetBy[g.key]) : null;
+      var sumP=0, sumW=0, anyFilled=false;
+      g.slots.forEach(function(slot){
+        var p=res[slot.key];
+        if(p){ anyFilled=true; sumP+=(p.price||0); if(typeof p.weight==='number') sumW+=p.weight; if(!slot.optional) filled++; }
+      });
+      var sub=document.createElement('div'); sub.className='gsub';
+      var totHtml='';
+      if(bundle) totHtml='<span class="gtot">'+money(bundle.price)+' · '+(bundle.weight||0)+' g<span class="kit-tag">KIT</span></span>';
+      else if(anyFilled) totHtml='<span class="gtot">'+money(sumP)+(sumW?' · '+sumW+' g':'')+'</span>';
+      sub.innerHTML='<span>'+(ICONS[g.key]||'')+' '+g.label+'</span>'+totHtml;
+      host.appendChild(sub);
+
+      g.slots.forEach(function(slot){
+        var p=res[slot.key];
+        var row=document.createElement('div'); row.className='slot';
+        var right='';
+        if(p){ right = bundle ? '<span class="pr">in kit</span>'
+                             : '<span class="pr">'+(typeof p.weight==='number'?p.weight+' g · ':'')+money(p.price)+'</span>'; }
+        row.innerHTML='<div class="sl-main"><div class="'+(p?'sl-part':'sl-part sl-empty')+'">'+
+          (p?(p.brand+' '+p.model):('— '+slot.label.toLowerCase()+(slot.optional?' (optional)':'')+' —'))+'</div></div>'+ right;
+        if(p){ var x=document.createElement('button'); x.className='x'; x.title='Remove'; x.textContent='×';
+          x.onclick=function(){ setSlot(slot.key, null); }; row.appendChild(x); }
+        host.appendChild(row);
+      });
+    });
+    var t = buildTotals(res, presetBy);
+    $('total').textContent = money(t.price);
+    $('weight').textContent = t.weight ? (grams(t.weight) + (t.missingWeight?' +':'')) : '—';
+    $('countLabel').textContent = filled+' of '+required.length+' required parts chosen';
+    $('meterBar').style.width = Math.round(filled/required.length*100)+'%';
+  }
+
+  /* ---- report ---- */
+  function renderReport(){
+    var r=checkBuild(resolved());
+    var n=Object.keys(build).length, html='';
+    if(n===0) html='<div class="status warn">Add parts to start checking.</div>';
+    else if(r.errors.length) html='<div class="status err">✗ '+r.errors.length+' problem'+(r.errors.length>1?'s':'')+'</div>';
+    else if(r.warnings.length) html='<div class="status warn">⚠ Works · '+r.warnings.length+' to check</div>';
+    else html='<div class="status ok">✓ All compatible</div>';
+    r.errors.forEach(function(m){ html+='<div class="issue e"><span class="mk">✗</span><span>'+m+'</span></div>'; });
+    r.warnings.forEach(function(m){ html+='<div class="issue w"><span class="mk">⚠</span><span>'+m+'</span></div>'; });
+    r.infos.forEach(function(m){ html+='<div class="issue i"><span class="mk">i</span><span>'+m+'</span></div>'; });
+    $('report').innerHTML=html;
+  }
+
+  function sync(){ renderCatalog(); renderPanel(); renderReport(); writeHash(); }
+
+  /* ---- share / restore (build + presetBy) ---- */
+  function writeHash(){ try{ history.replaceState(null,'','#b='+btoa(encodeURIComponent(JSON.stringify({b:build,p:presetBy})))); }catch(e){} }
+  function readHash(){
+    try{ var m=location.hash.match(/b=([^&]+)/); if(!m) return;
+      var o=JSON.parse(decodeURIComponent(atob(m[1])));
+      var bsrc = (o && o.b) ? o.b : o;            // support old (build-only) links
+      var psrc = (o && o.p) ? o.p : {};
+      Object.keys(bsrc||{}).forEach(function(k){ if(byId(bsrc[k])) build[k]=bsrc[k]; });
+      Object.keys(psrc||{}).forEach(function(k){ if(groupByKey[k] && byId(psrc[k])) presetBy[k]=psrc[k]; });
+    }catch(e){}
+  }
+  function toast(msg){ var t=$('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},2200); }
+
+  /* ---- demos ---- */
+  function loadGood(){
+    build={ frame:'fr-megatower',fork:'fk-zeb',shock:'sh-sd-air',frontWheel:'fw-reserve',rearWheel:'rw-reserve',
+      frontTire:'ti-assegai-29',rearTire:'ti-assegai-29',shifter:'sft-gx-m',derailleur:'dr-gx-m',cassette:'ca-sram-e',chain:'ch-eagle',crankset:'cr-gx',
+      frontBrake:'bk-code',rearBrake:'bk-code',frontRotor:'ro-hs2-200',rearRotor:'ro-hs2-200',
+      handlebar:'hb-fatbar',stem:'st-apex',grips:'gr-oneup',dropper:'dp-oneup',saddle:'sa-volt' };
+    presetBy={ drivetrain:'gs-gx-m', wheels:'ws-reserve', brakes:'bs-code', cockpit:'co-renthal' };
+    sync(); toast('Loaded a fully compatible build (kit pricing on)');
+  }
+  function loadDeal(){
+    build={ frame:'fr-enduro',shock:'sh-genie-oem',fork:'fk-zeb',frontWheel:'fw-roval',rearWheel:'rw-roval',
+      frontTire:'ti-assegai-29',rearTire:'ti-assegai-29',shifter:'sft-gx-m',derailleur:'dr-gx-m',cassette:'ca-sram-e',chain:'ch-eagle',crankset:'cr-gx',
+      frontBrake:'bk-code',rearBrake:'bk-code',frontRotor:'ro-hs2-200',rearRotor:'ro-hs2-200',
+      handlebar:'hb-fatbar',stem:'st-apex',grips:'gr-oneup',dropper:'dp-oneup-349',saddle:'sa-volt' };
+    presetBy={ drivetrain:'gs-gx-m', wheels:'ws-roval', brakes:'bs-code', cockpit:'co-renthal' };
+    sync(); toast('Enduro with its package shock');
+  }
+  function loadBad(){
+    build={ frame:'fr-enduro',fork:'fk-zeb-275',shock:'sh-sd-trun',frontWheel:'fw-i9',rearWheel:'rw-i9',
+      frontTire:'ti-assegai-29',rearTire:'ti-assegai-29',shifter:'sft-gx-t',derailleur:'dr-gx-t',cassette:'ca-xt',chain:'ch-flattop',crankset:'cr-x0t',
+      frontBrake:'bk-xt',rearBrake:'bk-xt',frontRotor:'ro-cl-203',rearRotor:'ro-cl-203',
+      handlebar:'hb-pnw',stem:'st-apex',grips:'gr-oneup',dropper:'dp-pnw',saddle:'sa-volt' };
+    presetBy={};
+    sync(); toast('Loaded a build full of clashes');
+  }
+  function loadMullet(){
+    build={ frame:'fr-madonna',fork:'fk-zeb',shock:'sh-sd-trun',frontWheel:'fw-reserve',rearWheel:'rw-dt275',
+      frontTire:'ti-assegai-29',rearTire:'ti-dhr-275',shifter:'sft-xt',derailleur:'dr-xt',cassette:'ca-xt',chain:'ch-shimano',crankset:'cr-xt',
+      frontBrake:'bk-xt',rearBrake:'bk-xt',frontRotor:'ro-6b-203',rearRotor:'ro-cl-203',
+      handlebar:'hb-fatbar',stem:'st-apex',grips:'gr-oneup',dropper:'dp-oneup',saddle:'sa-volt' };
+    presetBy={};
+    sync(); toast('Mullet build: 29 front / 27.5 rear on the RAAW Madonna');
+  }
+
+  $('search').addEventListener('input', function(e){ search=e.target.value; renderCatalog(); });
+  $('demoGood').onclick=loadGood; $('demoDeal').onclick=loadDeal; $('demoMullet').onclick=loadMullet; $('demoBad').onclick=loadBad;
+  $('reset').onclick=function(){ build={}; presetBy={}; sync(); toast('Build cleared'); };
+  $('share').onclick=function(){ writeHash(); var url=location.href;
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(
+      function(){toast('Build link copied to clipboard');}, function(){toast('Build saved in the address bar');}); }
+    else toast('Build saved in the address bar'); };
+
+  readHash(); renderChips(); sync();
+})();
+</script>
+</body>
+</html>

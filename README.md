@@ -1,0 +1,103 @@
+# TrailBuilder
+
+A "PCPartPicker for enduro mountain bikes" — pick parts, and it checks in real time
+whether they actually fit together. Early prototype.
+
+> **Sample data warning:** every spec and price in `compat.js` is illustrative sample
+> data, approximate and unverified. Don't rely on it until it's been checked against
+> real manufacturer specs.
+
+## What's here
+
+| File | What it is |
+|------|------------|
+| `index.html` | The app. Double-click to open in any browser — no install. |
+| `src/compat.js` | The catalog data **and** the compatibility engine + helpers. The heart of the project. |
+| `src/schema.js` | The data schema + validator: defines what a valid part is and rejects malformed data. |
+| `validate.js` | Command-line data check (`npm run validate`). |
+| `tests.js` | Runs the whole test suite. |
+| `test/test-harness.js` | Tiny zero-dependency test runner (no `npm install` needed). |
+| `test/test-util.js` | Shared test helpers. |
+| `test/test-data.js` | Asserts the real catalog passes the schema validator. |
+| `test/test-schema.js` | Proves the validator catches bad data (negative tests). |
+| `test/test-engine.js` | Checks each compatibility rule fires when it should. |
+| `test/test-greying.js` | Checks the green/red/grey compatibility dots. |
+| `test/test-pricing.js` | Bundle (groupset/wheelset/etc.) pricing and weight totals. |
+| `test/test-golden.js` | Whole real bikes that must pass; a known-bad build that must fail. |
+| `Getting-Started-Roadmap.md` | The bigger-picture plan. |
+
+## Run the app
+
+Open `index.html` in a browser. Keep the `src/` folder next to it — the app loads `src/compat.js`.
+
+## Run the tests
+
+You need [Node.js](https://nodejs.org) installed. Then, from this folder:
+
+```
+node tests.js
+```
+
+(or `npm test`). You'll see a summary like `PASSED - 47 passed, 0 failed`. The command
+exits non-zero if anything fails, so it also works in automated checks later.
+
+**Add a part or change a rule, then run the tests.** If you broke something that used to
+work — a real bike no longer validates, a rule stopped firing — the suite tells you
+immediately instead of a user finding out.
+
+## Check the data
+
+```
+node validate.js
+```
+
+(or `npm run validate`). This runs the schema validator over the whole catalog and
+reports anything malformed — a missing field, a value that isn't a real standard, a
+misspelled field name, a preset pointing at the wrong part, a groupset that mixes
+SRAM and Shimano, and so on. It exits non-zero on any problem, so run it before
+committing data changes. (The test suite runs it too.)
+
+### Marking a part as verified
+
+Every spec is **unverified** until proven. When you've checked a part against a real
+source, add three fields to it in `src/compat.js`:
+
+```js
+verified: true,
+lastChecked: "2026-06-21",
+source: "https://www.manufacturer.com/the-spec-page"
+```
+
+The validator refuses `verified: true` without a real `http(s)` source and a
+`lastChecked` date that isn't in the future — so "verified" always means something.
+
+## Put it under version control
+
+From this folder, one time:
+
+```
+git init
+git add .
+git commit -m "TrailBuilder prototype + test suite"
+```
+
+After that, `git add . && git commit -m "..."` after each change keeps a full history you
+can roll back. Pushing to a free GitHub repo also gets you free hosting (GitHub Pages) and
+a place a collaborator or coding assistant can work.
+
+## What's next (the "solidify" plan)
+
+1. ✅ Repo + a permanent, runnable test suite.
+2. ✅ Data schema + validator, with optional per-part `verified` + `lastChecked` + `source`.
+3. Move the engine + data to TypeScript so missing/mistyped fields are caught as you type.
+4. *Then* start adding real, verified manufacturers and parts.
+5. Deploy so real riders can hammer it.
+
+**Parked (planned, not now):** ride categories — **enduro / trail / downhill** — so the catalog
+and compatibility rules can be filtered by discipline.
+
+## Pricing & weight
+
+Each component has a sample `price` and `weight` (grams). Pick a whole kit (groupset / wheelset /
+brake set / cockpit) and that group is billed and weighed as the **bundle**; swap any single part
+and it reverts to per-part pricing. The build panel shows a running sample total and estimated weight.

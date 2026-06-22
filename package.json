@@ -1,0 +1,10 @@
+{
+  "name": "trailbuilder",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Enduro mountain-bike build & compatibility checker (prototype)",
+  "scripts": {
+    "test": "node tests.js",
+    "validate": "node validate.js"
+  }
+}
