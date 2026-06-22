@@ -102,7 +102,7 @@ var PARTS = [
   { id:'fk-zeb-275', cat:'fork', brand:'RockShox', model:'ZEB Ultimate 27.5 170', price:1099, weight:2100, wheel:'275', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220 },
 
   /* REAR SHOCKS */
-  { id:'sh-sd-air', cat:'shock', brand:'RockShox', model:'Super Deluxe Ultimate (air)', price:549, weight:480, eye:230, stroke:65, mount:'std', spring:'air' },
+  { id:'sh-sd-air', cat:'shock', brand:'RockShox', model:'Super Deluxe Ultimate (air)', price:549, weight:480, eye:230, stroke:65, mount:'std', spring:'air', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/rockshox/models/rs-sdlx-ult-c2' },
   { id:'sh-floatx', cat:'shock', brand:'Fox', model:'Float X Factory', price:549, weight:460, eye:230, stroke:65, mount:'std', spring:'air' },
   { id:'sh-sd-coil', cat:'shock', brand:'RockShox', model:'Super Deluxe Coil', price:499, weight:750, eye:230, stroke:65, mount:'std', spring:'coil' },
   { id:'sh-dhx2', cat:'shock', brand:'Fox', model:'DHX2 Coil', price:599, weight:820, eye:230, stroke:65, mount:'std', spring:'coil' },
@@ -143,8 +143,8 @@ var PARTS = [
   { id:'dr-xt', cat:'derailleur', brand:'Shimano', model:'XT M8100 SGS', price:120, weight:284, system:'shimano-12', speeds:12, maxCog:51, mount:'hanger' },
   { id:'dr-slx', cat:'derailleur', brand:'Shimano', model:'SLX M7100 SGS', price:90, weight:318, system:'shimano-12', speeds:12, maxCog:51, mount:'hanger' },
   { id:'ca-sram-t', cat:'cassette', brand:'SRAM', model:'XS-1275 Transmission 10-52', price:380, weight:440, system:'sram-transmission', speeds:12, freehub:'XD', range:'10-52', maxCog:52 },
-  { id:'ca-sram-e', cat:'cassette', brand:'SRAM', model:'XG-1275 Eagle 10-52', price:215, weight:372, system:'sram-eagle', speeds:12, freehub:'XD', range:'10-52', maxCog:52 },
-  { id:'ca-xt', cat:'cassette', brand:'Shimano', model:'CS-M8100 10-51', price:185, weight:470, system:'shimano-12', speeds:12, freehub:'MicroSpline', range:'10-51', maxCog:51 },
+  { id:'ca-sram-e', cat:'cassette', brand:'SRAM', model:'XG-1275 Eagle 10-52', price:215, weight:450, system:'sram-eagle', speeds:12, freehub:'XD', range:'10-52', maxCog:52, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/cs-xg-1275-b1' },
+  { id:'ca-xt', cat:'cassette', brand:'Shimano', model:'CS-M8100 10-51', price:185, weight:470, system:'shimano-12', speeds:12, freehub:'MicroSpline', range:'10-51', maxCog:51, verified:true, lastChecked:'2026-06-22', source:'https://bike.shimano.com/en-US/product/component/deore-xt-m8100/CS-M8100-12.html' },
   { id:'ca-slx', cat:'cassette', brand:'Shimano', model:'CS-M7100 10-51', price:130, weight:534, system:'shimano-12', speeds:12, freehub:'MicroSpline', range:'10-51', maxCog:51 },
   { id:'ch-flattop', cat:'chain', brand:'SRAM', model:'Flattop (Transmission)', price:45, weight:290, system:'sram-transmission', speeds:12 },
   { id:'ch-eagle', cat:'chain', brand:'SRAM', model:'Eagle 12-speed', price:30, weight:268, system:'sram-eagle', speeds:12 },

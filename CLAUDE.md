@@ -8,8 +8,9 @@ TrailBuilder is a "PCPartPicker for enduro mountain bikes": pick parts and it ch
 real time, whether they fit together, plus running price and weight. It's an early
 prototype that runs entirely in the browser from a small built-in catalog.
 
-**All catalog specs, prices and weights are SAMPLE DATA — approximate and unverified.**
-Do not present them as real. See "Provenance" below.
+**Catalog specs, prices and weights are SAMPLE DATA — approximate and unverified — except
+the few parts that carry provenance fields (`verified:true` + `source`).** Do not present
+unverified specs as real. See "Provenance" below.
 
 ## Files (src/ + test/ layout — these are the project)
 
@@ -109,10 +110,12 @@ components. `presetBy` maps groupKey → preset id.
 ## Provenance
 
 Parts may carry `verified: true` + `lastChecked: "YYYY-MM-DD"` + `source: "https://…"`.
-Absence = unverified (the current default for ALL parts). The validator **refuses
-`verified: true` without a real source URL and a non-future date** — so "verified" always
-means something. When you actually confirm a spec against a manufacturer page, add those
-three fields.
+Absence = unverified (still the default for most of the catalog; **3 parts are verified so
+far** — `ca-xt`, `ca-sram-e`, `sh-sd-air` — checked against manufacturer pages). The
+validator **refuses `verified: true` without a real source URL and a non-future date** — so
+"verified" always means something. When you actually confirm a spec against a manufacturer
+page, set the fields to match the source and add those three fields. (`node validate.js`
+reports the verified/unverified counts.)
 
 ## Conventions
 
@@ -135,7 +138,9 @@ three fields.
 3. ✅ **Vitest + GitHub Actions CI** (done): the home-grown runner is replaced by **Vitest**
    (`npm test`, config in `vitest.config.mjs`), and `.github/workflows/ci.yml` runs
    `validate` + `tests` + `typecheck` on every push / PR.
-4. Then start adding **real, verified** manufacturers/parts (set the provenance fields).
+4. 🚧 **Adding real, verified parts** (in progress): 3 parts verified against manufacturer
+   pages so far (`ca-xt`, `ca-sram-e`, `sh-sd-air`); set `verified`/`lastChecked`/`source` and
+   correct any wrong sample specs while you're there. Most of the catalog is still sample data.
 5. Parked: **ride categories** (enduro / trail / downhill) to filter the catalog by discipline;
    mullet is already supported.
 6. Later: accounts + saved builds (Supabase/Firebase), price feeds via retailer affiliate programs, deploy.

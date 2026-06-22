@@ -3,9 +3,10 @@
 A "PCPartPicker for enduro mountain bikes" — pick parts, and it checks in real time
 whether they actually fit together. Early prototype.
 
-> **Sample data warning:** every spec and price in `src/compat.js` is illustrative sample
-> data, approximate and unverified. Don't rely on it until it's been checked against
-> real manufacturer specs.
+> **Sample data warning:** specs and prices in `src/compat.js` are illustrative sample data —
+> approximate and unverified — **except** the handful of parts now marked `verified` (checked
+> against manufacturer pages, with a `source` link). Don't rely on the rest until it's been
+> checked. `node validate.js` reports how many parts are verified.
 
 ## What's here
 
