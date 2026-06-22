@@ -1,8 +1,7 @@
 'use strict';
 /* ENGINE RULES — each compatibility rule fires (and only fires) when it should. */
-var H = require('./test-harness.js');
 var U = require('./test-util.js');
-var C = U.C, B = U.B, test = H.test, eq = H.eq, some = H.some;
+var C = U.C, B = U.B, eq = U.eq, some = U.some;
 /** @param {Object.<string, string>} map */
 var chk = function(map){ return C.checkBuild(B(map)); };
 

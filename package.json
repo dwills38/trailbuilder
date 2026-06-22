@@ -4,12 +4,14 @@
   "private": true,
   "description": "Enduro mountain-bike build & compatibility checker (prototype)",
   "scripts": {
-    "test": "node tests.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "validate": "node validate.js",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9"
   }
 }

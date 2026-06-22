@@ -5,7 +5,7 @@
     "lib": ["ES2020"],
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "types": ["node"],
+    "types": ["node", "vitest/globals"],
 
     "allowJs": true,
     "checkJs": true,
@@ -17,6 +17,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*.js", "test/**/*.js", "tests.js", "validate.js"],
+  "include": ["src/**/*.js", "test/**/*.js", "validate.js"],
   "exclude": ["node_modules"]
 }

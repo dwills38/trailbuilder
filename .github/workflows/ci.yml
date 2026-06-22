@@ -29,7 +29,7 @@ jobs:
         run: node validate.js
 
       - name: Run the test suite
-        run: node tests.js
+        run: npm test
 
       - name: Type-check (tsc --noEmit)
         run: npm run typecheck

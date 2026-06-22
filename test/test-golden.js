@@ -2,9 +2,8 @@
 /* GOLDEN BUILDS — whole, realistic bikes that must validate clean, plus a
    known-bad build that must fail. These mirror the app's demo buttons, so the
    demos are tested too. If a future edit breaks a real bike, this catches it. */
-var H = require('./test-harness.js');
 var U = require('./test-util.js');
-var C = U.C, B = U.B, test = H.test, eq = H.eq;
+var C = U.C, B = U.B, eq = U.eq;
 /** @param {Object.<string, string>} map */
 var chk = function(map){ return C.checkBuild(B(map)); };
 

@@ -85,6 +85,6 @@ This is your core domain knowledge — the dimensions a real checker must model.
 - Green / red / grey compatibility dots, catalog sorted compatible-first.
 - Component **weights** + **groupset (bundle) pricing** with a running sample total and estimated build weight.
 - **Mullet** (29 front / 27.5 rear) on mullet-capable frames; front and rear tires are separate slots.
-- A real repo: 64-test suite (`node tests.js`) plus a data validator (`node validate.js`) with provenance fields.
+- A real repo: 64-test suite on Vitest (`npm test`) plus a data validator (`node validate.js`) with provenance fields.
 
 *Reminder: all catalog data in the prototype is sample data for demonstration and must be verified before anyone relies on it.*

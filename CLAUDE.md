@@ -13,8 +13,8 @@ Do not present them as real. See "Provenance" below.
 
 ## Files (src/ + test/ layout — these are the project)
 
-Entry points (`tests.js`, `validate.js`, `index.html`) live at the root; the library
-lives in `src/`; the test modules live in `test/`.
+Entry points (`validate.js`, `index.html`) live at the root; tests run on Vitest
+(`npm test`); the library lives in `src/`; the test modules live in `test/`.
 
 | File | Purpose |
 |------|---------|
@@ -23,16 +23,15 @@ lives in `src/`; the test modules live in `test/`.
 | `src/schema.js` | Data schema + validator. The single source of truth for "valid data". |
 | `src/types.js` | Shared JSDoc `@typedef`s — a per-category discriminated union for `Part`, plus `Build`/`Group`/etc. (type-checking only; no runtime code). Mirrors `schema.js`. |
 | `validate.js` | CLI: `node validate.js` — checks the whole catalog. |
-| `tests.js` | CLI: `node tests.js` — runs the whole suite. |
-| `test/test-harness.js` | Tiny zero-dependency test runner. |
-| `test/test-util.js` | Shared test helpers (`C`, `B(map)`). |
+| `vitest.config.mjs` | Vitest config — points the runner at `test/test-*.js` and enables globals. |
+| `test/test-util.js` | Shared test helpers: `C`, `B(map)`, `part(id)`, and the `eq`/`ok`/`some` assertions. |
 | `test/test-data.js` | Asserts the catalog passes the validator. |
 | `test/test-schema.js` | Proves the validator catches bad data (negative tests). |
 | `test/test-engine.js` | Each compatibility rule fires when it should. |
 | `test/test-greying.js` | The green/red/grey compatibility dots. |
 | `test/test-pricing.js` | Bundle (groupset) pricing + weight totals. |
 | `test/test-golden.js` | Whole real bikes that must validate clean; a known-bad build that must fail. |
-| `package.json` | Scripts: `test`, `validate`, `typecheck`. Dev-only deps: `typescript`, `@types/node`. |
+| `package.json` | Scripts: `test` (Vitest), `test:watch`, `validate`, `typecheck`. Dev-only deps: `vitest`, `typescript`, `@types/node`. |
 | `tsconfig.json` | Type-check config (`checkJs`, `noEmit`). Drives `npm run typecheck`; produces no build output. |
 | `.github/workflows/ci.yml` | GitHub Actions CI — runs `validate`, `tests`, and `typecheck` on every push / PR. |
 | `README.md`, `Getting-Started-Roadmap.md` | Docs. |
@@ -41,19 +40,21 @@ lives in `src/`; the test modules live in `test/`.
 
 ## How to run
 
-Requires [Node.js](https://nodejs.org) 18+.
+Requires [Node.js](https://nodejs.org) 18+. Run `npm install` once (dev tooling for the
+tests + type-checker; `validate.js` itself needs no dependencies).
 
 ```
-node tests.js       # full suite — expect "PASSED - N passed, 0 failed"
+npm test            # full suite (Vitest) — expect "Tests  64 passed (64)"
 node validate.js    # data check — expect "DATA OK - 105 parts, 0 problems"
 ```
 
-(or `npm test` / `npm run validate`). To run the app, open `index.html` in a browser.
+(`npm run validate` works too; `npm run test:watch` re-runs Vitest on save.) To run the
+app, open `index.html` in a browser.
 
 ### Type-checking (optional, no build step)
 
 The plain JS is type-checked via JSDoc + `checkJs`. One-time `npm install` (pulls the
-dev-only `typescript` + `@types/node`), then:
+dev dependencies — `typescript`, `@types/node`, `vitest`), then:
 
 ```
 npm run typecheck   # tsc --noEmit — expect no output, exit 0
@@ -64,7 +65,7 @@ It compiles and ships nothing; it only reads the JSDoc types. Shared `@typedef`s
 
 ## The golden rule
 
-**After ANY change to `src/compat.js` or `src/schema.js`, run `node validate.js` AND `node tests.js`. Both must pass before committing.** The whole value of this product is that a "compatible" verdict is true, so the suite is the guardrail — never weaken a test to make a change pass; fix the change.
+**After ANY change to `src/compat.js` or `src/schema.js`, run `node validate.js` AND `npm test`. Both must pass before committing.** The whole value of this product is that a "compatible" verdict is true, so the suite is the guardrail — never weaken a test to make a change pass; fix the change.
 
 ## Data model (what a part looks like)
 
@@ -125,14 +126,15 @@ three fields.
 
 ## Roadmap / good next tasks
 
-1. ✅ **Reorganized into `src/` + `test/`** with `git init` + an initial commit (done — the flat layout was forced by the tool that created it). Entry-point CLIs stay at the root so `node tests.js` / `node validate.js` still work.
+1. ✅ **Reorganized into `src/` + `test/`** with `git init` + an initial commit (done — the flat layout was forced by the tool that created it). `validate.js` stays a root CLI; the test runner later moved to Vitest (`npm test`).
 2. ✅ **TypeScript type-checking without a build step** (done): JSDoc types in `src/types.js`,
    a `tsconfig.json` with `checkJs`/`noEmit`, and `npm run typecheck` (`tsc --noEmit`). Still plain
    JS — nothing is compiled or shipped. Full `strict` is on, and `Part` is a per-category
    discriminated union (keyed by `cat`), so tsc catches a part missing a required field, a part
    carrying another category's field, or the wrong category dropped into a build slot.
-3. ✅ **GitHub Actions CI** (`.github/workflows/ci.yml`) runs `validate` + `tests` + `typecheck`
-   on every push / PR. (Switching the home-grown runner to **Vitest** is still open.)
+3. ✅ **Vitest + GitHub Actions CI** (done): the home-grown runner is replaced by **Vitest**
+   (`npm test`, config in `vitest.config.mjs`), and `.github/workflows/ci.yml` runs
+   `validate` + `tests` + `typecheck` on every push / PR.
 4. Then start adding **real, verified** manufacturers/parts (set the provenance fields).
 5. Parked: **ride categories** (enduro / trail / downhill) to filter the catalog by discipline;
    mullet is already supported.

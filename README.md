@@ -16,9 +16,8 @@ whether they actually fit together. Early prototype.
 | `src/schema.js` | The data schema + validator: defines what a valid part is and rejects malformed data. |
 | `src/types.js` | Shared JSDoc type definitions (for `npm run typecheck`; no runtime code). |
 | `validate.js` | Command-line data check (`npm run validate`). |
-| `tests.js` | Runs the whole test suite. |
-| `test/test-harness.js` | Tiny zero-dependency test runner (no `npm install` needed). |
-| `test/test-util.js` | Shared test helpers. |
+| `vitest.config.mjs` | Vitest config (the test runner). |
+| `test/test-util.js` | Shared test helpers + the `eq`/`ok`/`some` assertions. |
 | `test/test-data.js` | Asserts the real catalog passes the schema validator. |
 | `test/test-schema.js` | Proves the validator catches bad data (negative tests). |
 | `test/test-engine.js` | Checks each compatibility rule fires when it should. |
@@ -35,14 +34,15 @@ Open `index.html` in a browser. Keep the `src/` folder next to it — the app lo
 
 ## Run the tests
 
-You need [Node.js](https://nodejs.org) installed. Then, from this folder:
+The tests run on [Vitest](https://vitest.dev). You need [Node.js](https://nodejs.org);
+install the dev tooling once (`npm install`), then from this folder:
 
 ```
-node tests.js
+npm test
 ```
 
-(or `npm test`). You'll see a summary like `PASSED - 47 passed, 0 failed`. The command
-exits non-zero if anything fails, so it also works in automated checks later.
+You'll see a summary like `Tests  64 passed (64)`. It exits non-zero if anything fails, so
+it also works in CI. `npm run test:watch` re-runs on save while you work.
 
 **Add a part or change a rule, then run the tests.** If you broke something that used to
 work — a real bike no longer validates, a rule stopped firing — the suite tells you
@@ -78,7 +78,7 @@ The validator refuses `verified: true` without a real `http(s)` source and a
 
 The code is plain JavaScript, but it's annotated with JSDoc types and checked by
 TypeScript's `tsc` — no build step, nothing compiled, nothing shipped. Install the
-dev tooling once (`npm install`, which pulls `typescript` + `@types/node`), then:
+dev tooling once (`npm install` — pulls `typescript`, `@types/node`, and `vitest`), then:
 
 ```
 npm run typecheck

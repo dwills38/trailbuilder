@@ -2,10 +2,9 @@
 /* SCHEMA VALIDATOR — prove the validator actually BITES. A validator that never
    fails is worthless, so these feed it deliberately broken data and require it
    to complain. */
-var H = require('./test-harness.js');
 var U = require('./test-util.js');
 var S = require('../src/schema.js');
-var test = H.test, eq = H.eq, some = H.some;
+var eq = U.eq, some = U.some;
 var C = U.C;
 
 var TODAY = new Date('2026-06-21T00:00:00Z');

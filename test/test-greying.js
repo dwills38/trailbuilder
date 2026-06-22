@@ -1,9 +1,8 @@
 'use strict';
 /* DOT / CONFLICT PREDICATE — the compatibility dot the catalog shows
    (g = no conflicts, r = won't fit, n = nothing selected yet). */
-var H = require('./test-harness.js');
 var U = require('./test-util.js');
-var C = U.C, B = U.B, part = U.part, test = H.test, eq = H.eq, some = H.some;
+var C = U.C, B = U.B, part = U.part, eq = U.eq, some = U.some;
 /** @param {Object.<string, string>} buildMap @param {string} id */
 var stateOf = function(buildMap, id){ return C.compatOf(part(id), B(buildMap)).state; };
 

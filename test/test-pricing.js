@@ -1,9 +1,8 @@
 'use strict';
 /* PRICING + WEIGHT — bundle (groupset/wheelset/etc.) pricing replaces the sum of
    components only while the group exactly matches the kit; weights add up. */
-var H = require('./test-harness.js');
 var U = require('./test-util.js');
-var C = U.C, B = U.B, part = U.part, test = H.test, eq = H.eq, ok = H.ok;
+var C = U.C, B = U.B, part = U.part, eq = U.eq, ok = U.ok;
 /** @param {Object.<string, string>} map @param {Object.<string, string>} [presetBy] */
 function totals(map, presetBy){ return C.buildTotals(B(map), presetBy || {}); }
 

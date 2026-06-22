@@ -25,4 +25,30 @@ function part(id){
   return p;
 }
 
-module.exports = { C: C, B: B, part: part };
+/* ---- assertions ---------------------------------------------------------
+   Plain throwing assertions: Vitest reports a thrown Error as a failed test,
+   so these need no test-framework coupling. (Vitest's own `test` is provided
+   as a global via vitest.config.mjs.) */
+
+/** @param {*} actual @param {*} expected @param {string} [msg] */
+function eq(actual, expected, msg){
+  if(actual !== expected){
+    throw new Error((msg ? msg + ': ' : '') +
+      'expected ' + JSON.stringify(expected) + ', got ' + JSON.stringify(actual));
+  }
+}
+
+/** @param {*} value @param {string} [msg] */
+function ok(value, msg){
+  if(!value) throw new Error(msg || ('expected truthy, got ' + JSON.stringify(value)));
+}
+
+// assert that some string in `arr` contains substring `sub`
+/** @param {any[]} arr @param {string} sub @param {string} [msg] */
+function some(arr, sub, msg){
+  if(!arr.some(function(x){ return String(x).indexOf(sub) >= 0; })){
+    throw new Error((msg ? msg + ': ' : '') + 'no item contained "' + sub + '"');
+  }
+}
+
+module.exports = { C: C, B: B, part: part, eq: eq, ok: ok, some: some };
