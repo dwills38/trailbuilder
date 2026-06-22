@@ -49,7 +49,7 @@ node validate.js    # data check — expect "DATA OK - 105 parts, 0 problems"
 
 ## The golden rule
 
-**After ANY change to `compat.js` or `schema.js`, run `node validate.js` AND `node tests.js`. Both must pass before committing.** The whole value of this product is that a "compatible" verdict is true, so the suite is the guardrail — never weaken a test to make a change pass; fix the change.
+**After ANY change to `src/compat.js` or `src/schema.js`, run `node validate.js` AND `node tests.js`. Both must pass before committing.** The whole value of this product is that a "compatible" verdict is true, so the suite is the guardrail — never weaken a test to make a change pass; fix the change.
 
 ## Data model (what a part looks like)
 
@@ -100,7 +100,7 @@ three fields.
 
 ## Conventions
 
-- Plain browser JavaScript (`var`/`function`), **no build step** — `index.html` loads `compat.js`
+- Plain browser JavaScript (`var`/`function`), **no build step** — `index.html` loads `src/compat.js`
   directly. Keep it that way unless deliberately doing the TypeScript migration below.
 - `schema.js` is the one definition of valid data; the tests delegate to it. Extend the schema
   when you add fields, don't scatter ad-hoc checks.

@@ -4,7 +4,7 @@ A plan for turning "PCPartPicker, but for enduro mountain bikes" into a live sit
 
 ## What you have right now
 
-A working prototype: `index.html` plus `compat.js`. Open `index.html` in any browser and you can browse a small catalog of enduro full-suspension parts, add them to a build, and watch it flag incompatibilities in real time (wheel size, axle standards, freehub, rotor mounts, shock fit, dropper diameter, and more). It also totals a sample price, tracks build completeness, and can save/share a build via the URL. There is no install and no server — it all runs in the browser. The specs and prices are illustrative samples, not verified data.
+A working prototype: `index.html` plus `src/compat.js`. Open `index.html` in any browser and you can browse a small catalog of enduro full-suspension parts, add them to a build, and watch it flag incompatibilities in real time (wheel size, axle standards, freehub, rotor mounts, shock fit, dropper diameter, and more). It also totals a sample price, tracks build completeness, and can save/share a build via the URL. There is no install and no server — it all runs in the browser. The specs and prices are illustrative samples, not verified data.
 
 This prototype exists to make the idea concrete and to prove out the one feature that actually matters: the compatibility engine. Everything else is comparatively standard web plumbing.
 
