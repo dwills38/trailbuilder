@@ -83,10 +83,12 @@ dev tooling once (`npm install`, which pulls `typescript` + `@types/node`), then
 npm run typecheck
 ```
 
-No output means success. It catches mistakes like a misspelled field name, a price
-written as a string, or a wheel size that isn't a real value — as you type, before the
-runtime validator ever runs. The shared type definitions live in `src/types.js` and
-mirror `src/schema.js`; update both when you add a field.
+No output means success. It runs in full `strict` mode, and because each part category is
+its own type (a discriminated union keyed by `cat`), it catches mistakes like a misspelled
+field name, a price written as a string, a wheel size that isn't a real value, a fork
+carrying a frame-only field, or the wrong part dropped into a build slot — as you type,
+before the runtime validator ever runs. The shared type definitions live in `src/types.js`
+and mirror `src/schema.js`; update both when you add a field.
 
 ## Put it under version control
 
@@ -106,7 +108,7 @@ a place a collaborator or coding assistant can work.
 
 1. ✅ Repo + a permanent, runnable test suite.
 2. ✅ Data schema + validator, with optional per-part `verified` + `lastChecked` + `source`.
-3. ✅ Type-checking via JSDoc + `tsc --noEmit` (`npm run typecheck`) — missing/mistyped fields are caught as you type, no build step. (Optional next: tighten `strictNullChecks` to full `strict`.)
+3. ✅ Type-checking via JSDoc + `tsc --noEmit` (`npm run typecheck`) — full `strict`, with `Part` modeled as a per-category discriminated union, so missing / mistyped / cross-category fields are caught as you type. No build step.
 4. *Then* start adding real, verified manufacturers and parts.
 5. Deploy so real riders can hammer it.
 

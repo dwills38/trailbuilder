@@ -173,7 +173,8 @@ function validatePart(p, ctx){
       case 'bool': if(!isBool(v)) bad('field "' + field + '" must be true/false'); break;
       case 'enumArray':
         if(!Array.isArray(v) || v.length === 0){ bad('field "' + field + '" must be a non-empty array'); break; }
-        v.forEach(function(it){ if(VOCAB[rule.vocab].indexOf(it) < 0) bad('field "' + field + '" value "' + it + '" not in ' + rule.vocab); });
+        var allowed = rule.vocab ? (VOCAB[rule.vocab] || []) : [];
+        v.forEach(function(it){ if(allowed.indexOf(it) < 0) bad('field "' + field + '" value "' + it + '" not in ' + rule.vocab); });
         break;
       case 'id':
         if(!isStr(v)) { bad('field "' + field + '" must be a part id'); break; }

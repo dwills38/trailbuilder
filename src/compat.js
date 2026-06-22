@@ -18,6 +18,7 @@
    ========================================================================== */
 
 /** @typedef {import('./types.js').Part} Part */
+/** @typedef {import('./types.js').DrivetrainPart} DrivetrainPart */
 /** @typedef {import('./types.js').Build} Build */
 /** @typedef {import('./types.js').Group} Group */
 /** @typedef {import('./types.js').Slot} Slot */
@@ -260,7 +261,7 @@ function checkBuild(build){
   /** @type {string[]} */ var errors=[];
   /** @type {string[]} */ var warnings=[];
   /** @type {string[]} */ var infos=[];
-  var b = build || {};
+  /** @type {Build} */ var b = build || {};
   var frame=b.frame, fork=b.fork, shock=b.shock, fW=b.frontWheel, rW=b.rearWheel, fTire=b.frontTire, rTire=b.rearTire,
       shifter=b.shifter, derailleur=b.derailleur, cassette=b.cassette, chain=b.chain, crankset=b.crankset,
       fBrake=b.frontBrake, rBrake=b.rearBrake, fRotor=b.frontRotor, rRotor=b.rearRotor,
@@ -289,7 +290,10 @@ function checkBuild(build){
   if(frame && rW && frame.rearAxle!==rW.hub) errors.push('Rear axle mismatch: Frame is '+L(frame.rearAxle)+' but Rear wheel hub is '+L(rW.hub)+'.');
 
   /* 3. Drivetrain: one system + one speed */
-  var dt=/** @type {Array<[string, Part]>} */([['Shifter',shifter],['Derailleur',derailleur],['Cassette',cassette],['Chain',chain]]).filter(function(x){return x[1];});
+  /** @type {Array<[string, DrivetrainPart]>} */
+  var dt=[];
+  if(shifter) dt.push(['Shifter',shifter]); if(derailleur) dt.push(['Derailleur',derailleur]);
+  if(cassette) dt.push(['Cassette',cassette]); if(chain) dt.push(['Chain',chain]);
   if(dt.length>1){
     var systems=dt.map(function(x){return x[1].system;}).filter(function(v,i,a){return a.indexOf(v)===i;});
     if(systems.length>1) errors.push('Drivetrain mismatch: '+dt.map(function(x){return x[0]+' = '+L(x[1].system);}).join(', ')+'. Shifter, derailleur, cassette and chain must be one system.');
@@ -367,33 +371,38 @@ function checkBuild(build){
 var _CAT_SLOTS = null;
 /** @returns {Object.<string, string[]>} */
 function _catSlots(){
-  if(!_CAT_SLOTS){ _CAT_SLOTS={}; SLOTS.forEach(function(s){ (_CAT_SLOTS[s.cat]=_CAT_SLOTS[s.cat]||[]).push(s.key); }); }
+  if(!_CAT_SLOTS){
+    /** @type {Object.<string, string[]>} */ var acc = {};
+    SLOTS.forEach(function(s){ (acc[s.cat]=acc[s.cat]||[]).push(s.key); });
+    _CAT_SLOTS = acc;
+  }
   return _CAT_SLOTS;
 }
 /** @param {Part} part @param {string} slotKey @param {Build} [build] @returns {string|null} */
 function conflictReason(part, slotKey, build){
-  var base = Object.assign({}, build || {}); delete base[slotKey];
+  /** @type {Build} */ var base = Object.assign({}, build || {}); delete base[slotKey];
   var before = checkBuild(base).errors;
-  var test = Object.assign({}, base); test[slotKey] = part;
+  /** @type {Build} */ var test = Object.assign({}, base); test[slotKey] = part;
   var after = checkBuild(test).errors;
   for(var i=0;i<after.length;i++){ if(before.indexOf(after[i])<0) return after[i]; }
   return null;
 }
 /** @param {Part} p @param {Build} [build] @returns {CompatState} */
 function compatOf(p, build){
-  build = build || {};
-  if(Object.keys(build).length===0) return {state:'n', reason:'Pick some parts first to check fit'};
-  if(p.fills){
-    var before = checkBuild(build).errors;
-    var test = Object.assign({}, build);
-    Object.keys(p.fills).forEach(function(s){ test[s]=byId(p.fills[s]); });
+  /** @type {Build} */ var bld = build || {};
+  if(Object.keys(bld).length===0) return {state:'n', reason:'Pick some parts first to check fit'};
+  if('fills' in p && p.fills){
+    var pf = p.fills;
+    var before = checkBuild(bld).errors;
+    /** @type {Build} */ var test = Object.assign({}, bld);
+    Object.keys(pf).forEach(function(s){ test[s]=/** @type {Part} */(byId(pf[s])); });
     var after = checkBuild(test).errors;
     if(after.length>before.length){ var extra = after.filter(function(e){ return before.indexOf(e)<0; }); return {state:'r', reason:(extra[0]||'Conflicts with your current build')}; }
     return {state:'g', reason:'No conflicts with your current build'};
   }
   var slots = _catSlots()[p.cat] || [];
-  var reasons = [];
-  for(var i=0;i<slots.length;i++){ var r = conflictReason(p, slots[i], build); if(r){ reasons.push(r); } else { return {state:'g', reason:'No conflicts with your current build'}; } }
+  /** @type {string[]} */ var reasons = [];
+  for(var i=0;i<slots.length;i++){ var r = conflictReason(p, slots[i], bld); if(r){ reasons.push(r); } else { return {state:'g', reason:'No conflicts with your current build'}; } }
   return {state:'r', reason:(reasons[0]||'Conflicts with your current build')};
 }
 
@@ -407,11 +416,12 @@ function bundleActive(group, build, presetBy){
   var pid = presetBy && presetBy[group.key];
   if(!pid) return false;
   var preset = byId(pid);
-  if(!preset || !preset.fills) return false;
-  var slots = Object.keys(preset.fills);
+  if(!preset || !('fills' in preset) || !preset.fills) return false;
+  var fills = preset.fills;
+  var slots = Object.keys(fills);
   for(var i=0;i<slots.length;i++){
     var chosen = build[slots[i]];
-    if(!chosen || chosen.id !== preset.fills[slots[i]]) return false;
+    if(!chosen || chosen.id !== fills[slots[i]]) return false;
   }
   return true;
 }
@@ -422,8 +432,10 @@ function buildTotals(build, presetBy){
   GROUPS.forEach(function(g){
     if(g.preset && bundleActive(g, build, presetBy)){
       var preset = byId(presetBy[g.key]);
-      price += (preset.price || 0);
-      if(typeof preset.weight === 'number') weight += preset.weight; else missingWeight = true;
+      if(preset){
+        price += (preset.price || 0);
+        if(typeof preset.weight === 'number') weight += preset.weight; else missingWeight = true;
+      }
     } else {
       g.slots.forEach(function(s){
         var p = build[s.key];

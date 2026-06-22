@@ -3,7 +3,7 @@
    components only while the group exactly matches the kit; weights add up. */
 var H = require('./test-harness.js');
 var U = require('./test-util.js');
-var C = U.C, B = U.B, test = H.test, eq = H.eq, ok = H.ok;
+var C = U.C, B = U.B, part = U.part, test = H.test, eq = H.eq, ok = H.ok;
 /** @param {Object.<string, string>} map @param {Object.<string, string>} [presetBy] */
 function totals(map, presetBy){ return C.buildTotals(B(map), presetBy || {}); }
 
@@ -37,7 +37,7 @@ test('bundleActive is true only when every fill matches', function(){
   ok(!C.bundleActive(wheels, B({ frontWheel:'fw-reserve', rearWheel:'rw-i9' }), { wheels:'ws-reserve' }));
 });
 test('bundle weight uses the kit weight when active', function(){
-  eq(totals(GXM, { drivetrain:'gs-gx-m' }).weight, C.byId('gs-gx-m').weight);
+  eq(totals(GXM, { drivetrain:'gs-gx-m' }).weight, part('gs-gx-m').weight);
 });
 test('a complete build totals positive price and weight, nothing missing', function(){
   var map = { frame:'fr-megatower', fork:'fk-zeb', shock:'sh-sd-air', frontWheel:'fw-reserve', rearWheel:'rw-reserve',

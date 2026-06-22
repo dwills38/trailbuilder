@@ -21,7 +21,7 @@ lives in `src/`; the test modules live in `test/`.
 | `index.html` | The app (UI). Plain HTML/CSS/JS, no build step. Loads `src/compat.js` via `<script>`. Open by double-click. |
 | `src/compat.js` | The catalog data (`PARTS`) **and** the compatibility engine (`checkBuild`) + helpers (`compatOf`, `buildTotals`). The heart of the project. |
 | `src/schema.js` | Data schema + validator. The single source of truth for "valid data". |
-| `src/types.js` | Shared JSDoc `@typedef`s (type-checking only; no runtime code). Mirrors `schema.js`. |
+| `src/types.js` | Shared JSDoc `@typedef`s — a per-category discriminated union for `Part`, plus `Build`/`Group`/etc. (type-checking only; no runtime code). Mirrors `schema.js`. |
 | `validate.js` | CLI: `node validate.js` — checks the whole catalog. |
 | `tests.js` | CLI: `node tests.js` — runs the whole suite. |
 | `test/test-harness.js` | Tiny zero-dependency test runner. |
@@ -59,7 +59,7 @@ npm run typecheck   # tsc --noEmit — expect no output, exit 0
 ```
 
 It compiles and ships nothing; it only reads the JSDoc types. Shared `@typedef`s live in
-`src/types.js` (mirror `schema.js`).
+`src/types.js` — `Part` is a per-category discriminated union that mirrors `schema.js`.
 
 ## The golden rule
 
@@ -127,8 +127,9 @@ three fields.
 1. ✅ **Reorganized into `src/` + `test/`** with `git init` + an initial commit (done — the flat layout was forced by the tool that created it). Entry-point CLIs stay at the root so `node tests.js` / `node validate.js` still work.
 2. ✅ **TypeScript type-checking without a build step** (done): JSDoc types in `src/types.js`,
    a `tsconfig.json` with `checkJs`/`noEmit`, and `npm run typecheck` (`tsc --noEmit`). Still plain
-   JS — nothing is compiled or shipped. `strictNullChecks` is intentionally off for now (the engine
-   leans on runtime "slot may be empty" guards); tightening it to full `strict` is a good follow-up.
+   JS — nothing is compiled or shipped. Full `strict` is on, and `Part` is a per-category
+   discriminated union (keyed by `cat`), so tsc catches a part missing a required field, a part
+   carrying another category's field, or the wrong category dropped into a build slot.
 3. Switch the home-grown runner to **Vitest** + a GitHub Actions CI that runs validate + tests.
 4. Then start adding **real, verified** manufacturers/parts (set the provenance fields).
 5. Parked: **ride categories** (enduro / trail / downhill) to filter the catalog by discipline;

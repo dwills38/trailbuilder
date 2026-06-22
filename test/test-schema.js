@@ -55,21 +55,21 @@ test('preset with a dangling fill reference is caught', function(){
   some(probs(p), 'fw-nope');
 });
 test('catalog-level: a duplicate id is caught', function(){
-  var cat = { PARTS: C.PARTS.concat([ C.byId('fr-megatower') ]), SLOTS: C.SLOTS };
+  var cat = { PARTS: C.PARTS.concat([ U.part('fr-megatower') ]), SLOTS: C.SLOTS };
   some(S.validateCatalog(cat, TODAY), 'duplicate');
 });
 test('catalog-level: a groupset that mixes systems is caught', function(){
-  var bad = Object.assign({}, C.byId('gs-gx-t'));
+  var bad = /** @type {any} */ (Object.assign({}, C.byId('gs-gx-t')));
   bad.id = 'gs-bad';
   bad.fills = Object.assign({}, bad.fills, { cassette:'ca-xt' }); // Shimano cassette in a SRAM Transmission group
   var cat = { PARTS: C.PARTS.concat([ bad ]), SLOTS: C.SLOTS };
   some(S.validateCatalog(cat, TODAY), 'system');
 });
 test('catalog-level: a frame bundling a non-fitting shock is caught', function(){
-  var f = Object.assign({}, C.byId('fr-megatower'), { id:'fr-badbundle', bundledShock:'sh-sd-trun' }); // 205x65 trunnion != 230x65 std
+  var f = /** @type {any} */ (Object.assign({}, C.byId('fr-megatower'), { id:'fr-badbundle', bundledShock:'sh-sd-trun' })); // 205x65 trunnion != 230x65 std
   some(S.validateCatalog({ PARTS: C.PARTS.concat([ f ]), SLOTS: C.SLOTS }, TODAY), 'does not fit');
 });
 test('catalog-level: an OEM shock with a broken back-link is caught', function(){
-  var s = Object.assign({}, C.byId('sh-genie-oem'), { id:'sh-badoem', forFrame:'fr-megatower' }); // megatower does not bundle it
+  var s = /** @type {any} */ (Object.assign({}, C.byId('sh-genie-oem'), { id:'sh-badoem', forFrame:'fr-megatower' })); // megatower does not bundle it
   some(S.validateCatalog({ PARTS: C.PARTS.concat([ s ]), SLOTS: C.SLOTS }, TODAY), 'bidirectional');
 });

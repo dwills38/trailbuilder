@@ -5,14 +5,14 @@
    -----------------------------------------------------------------------------
    These types MIRROR schema.js, which is the runtime source of truth for "valid
    data". When you add or change a field in schema.js's SCHEMA/VOCAB, update the
-   matching field here so `npm run typecheck` and the validator stay in agreement.
+   matching variant below so `npm run typecheck` and the validator stay in
+   agreement.
 
-   `Part` is a single umbrella type: the common fields are always present, and
-   every category-specific field is optional (the validator enforces which
-   fields each category actually requires). That keeps the engine code — which
-   reads e.g. `frame.wheelConfigs` or `shock.eye` — simple to type, while still
-   catching misspelled field names (excess-property errors) and wrong value
-   types as you write data.
+   `Part` is a DISCRIMINATED UNION keyed by `cat`: each category has its own
+   variant with its required fields. Switching on `part.cat` (see specSummary) or
+   reading a typed build slot (see Build) narrows to the exact variant, so the
+   engine gets precise field types and tsc rejects, say, a fork carrying a frame
+   field or a part missing a required one.
    ========================================================================== */
 
 /** @typedef {'frame'|'fork'|'shock'|'frontwheel'|'rearwheel'|'tire'|'shifter'|'derailleur'|'cassette'|'chain'|'crankset'|'brake'|'rotor'|'handlebar'|'stem'|'grips'|'dropper'|'saddle'|'groupset'|'wheelset'|'brakeset'|'cockpitset'} Category */
@@ -35,11 +35,10 @@
 /** @typedef {'alu'|'carbon'} Material */
 
 /**
- * A catalog part. `id`..`price` are always present; everything below is
- * category-specific and therefore optional on this umbrella type.
- * @typedef {Object} Part
+ * Fields every part shares. `weight` and the provenance fields are optional
+ * (absence of provenance means "unverified" — see schema.js).
+ * @typedef {Object} CommonFields
  * @property {string} id
- * @property {Category} cat
  * @property {string} brand
  * @property {string} model
  * @property {number} price
@@ -48,71 +47,46 @@
  * @property {boolean} [verified]
  * @property {string} [lastChecked]
  * @property {string} [source]
- *
- * @property {WheelConfig[]} [wheelConfigs]
- * @property {RearAxle} [rearAxle]
- * @property {Tapered} [headset]
- * @property {FrameBb|CrankBb} [bb]
- * @property {number} [seatTube]
- * @property {BrakeMount} [brakeMount]
- * @property {number} [maxRotorR]
- * @property {number} [shockEye]
- * @property {number} [shockStroke]
- * @property {ShockMount} [shockMount]
- * @property {number} [maxForkTravel]
- * @property {number} [travel]
- * @property {boolean} [udh]
- * @property {boolean} [frameOnly]
- * @property {string|null} [bundledShock]
- *
- * @property {WheelSize} [wheel]
- * @property {FrontAxle} [axle]
- * @property {Tapered} [steerer]
- * @property {number} [maxRotorF]
- *
- * @property {number} [eye]
- * @property {number} [stroke]
- * @property {ShockMount|DerailMount|BrakeMount|RotorMount} [mount]
- * @property {Spring} [spring]
- * @property {boolean} [oemOnly]
- * @property {string} [forFrame]
- *
- * @property {FrontAxle|RearAxle} [hub]
- * @property {Freehub} [freehub]
- * @property {RotorMount} [rotorMount]
- * @property {number} [intWidth]
- * @property {number} [maxTire]
- *
- * @property {number} [width]
- *
- * @property {DriveSystem} [system]
- * @property {number} [speeds]
- * @property {number} [maxCog]
- * @property {string} [range]
- * @property {string} [chainline]
- * @property {number} [ring]
- *
- * @property {number} [pistons]
- * @property {number} [size]
- *
- * @property {number} [clamp]
- * @property {number} [rise]
- * @property {Material} [material]
- * @property {number} [length]
- *
- * @property {number} [diameter]
- * @property {number} [drop]
- *
- * @property {Object.<string, string>} [fills]
  */
 
+/** @typedef {CommonFields & {cat: 'frame', wheelConfigs: WheelConfig[], rearAxle: RearAxle, headset: Tapered, bb: FrameBb, seatTube: number, brakeMount: BrakeMount, maxRotorR: number, shockEye: number, shockStroke: number, shockMount: ShockMount, maxForkTravel: number, travel: number, udh: boolean, frameOnly: boolean, bundledShock?: (string|null)}} FramePart */
+/** @typedef {CommonFields & {cat: 'fork', wheel: WheelSize, travel: number, axle: FrontAxle, steerer: Tapered, brakeMount: BrakeMount, maxRotorF: number}} ForkPart */
+/** @typedef {CommonFields & {cat: 'shock', eye: number, stroke: number, mount: ShockMount, spring: Spring, oemOnly?: boolean, forFrame?: string}} ShockPart */
+/** @typedef {CommonFields & {cat: 'frontwheel', wheel: WheelSize, hub: FrontAxle, rotorMount: RotorMount, intWidth: number, maxTire: number}} FrontWheelPart */
+/** @typedef {CommonFields & {cat: 'rearwheel', wheel: WheelSize, hub: RearAxle, freehub: Freehub, rotorMount: RotorMount, intWidth: number, maxTire: number}} RearWheelPart */
+/** @typedef {CommonFields & {cat: 'tire', wheel: WheelSize, width: number}} TirePart */
+/** @typedef {CommonFields & {cat: 'shifter', system: DriveSystem, speeds: number}} ShifterPart */
+/** @typedef {CommonFields & {cat: 'derailleur', system: DriveSystem, speeds: number, maxCog: number, mount: DerailMount}} DerailleurPart */
+/** @typedef {CommonFields & {cat: 'cassette', system: DriveSystem, speeds: number, freehub: Freehub, range: string, maxCog: number}} CassettePart */
+/** @typedef {CommonFields & {cat: 'chain', system: DriveSystem, speeds: number}} ChainPart */
+/** @typedef {CommonFields & {cat: 'crankset', bb: CrankBb, ring: number, speeds: number, chainline?: string}} CranksetPart */
+/** @typedef {CommonFields & {cat: 'brake', mount: BrakeMount, pistons: number}} BrakePart */
+/** @typedef {CommonFields & {cat: 'rotor', size: number, mount: RotorMount}} RotorPart */
+/** @typedef {CommonFields & {cat: 'handlebar', clamp: number, width?: number, rise?: number, material?: Material}} HandlebarPart */
+/** @typedef {CommonFields & {cat: 'stem', clamp: number, length?: number}} StemPart */
+/** @typedef {CommonFields & {cat: 'grips'}} GripsPart */
+/** @typedef {CommonFields & {cat: 'dropper', diameter: number, drop: number}} DropperPart */
+/** @typedef {CommonFields & {cat: 'saddle'}} SaddlePart */
+/** @typedef {CommonFields & {cat: 'groupset', fills: Object.<string, string>}} GroupsetPart */
+/** @typedef {CommonFields & {cat: 'wheelset', fills: Object.<string, string>}} WheelsetPart */
+/** @typedef {CommonFields & {cat: 'brakeset', fills: Object.<string, string>}} BrakesetPart */
+/** @typedef {CommonFields & {cat: 'cockpitset', fills: Object.<string, string>}} CockpitsetPart */
+
+/** A drivetrain component (the four parts that share `system` + `speeds`).
+ * @typedef {ShifterPart|DerailleurPart|CassettePart|ChainPart} DrivetrainPart */
+
+/** A preset (the four kinds that carry `fills`).
+ * @typedef {GroupsetPart|WheelsetPart|BrakesetPart|CockpitsetPart} PresetPart */
+
+/** Any catalog part.
+ * @typedef {FramePart|ForkPart|ShockPart|FrontWheelPart|RearWheelPart|TirePart|ShifterPart|DerailleurPart|CassettePart|ChainPart|CranksetPart|BrakePart|RotorPart|HandlebarPart|StemPart|GripsPart|DropperPart|SaddlePart|PresetPart} Part */
+
 /**
- * A build: a map of slotKey -> resolved Part. Slots are: frame, fork, shock,
- * frontWheel, rearWheel, frontTire, rearTire, shifter, derailleur, cassette,
- * chain, crankset, frontBrake, rearBrake, frontRotor, rearRotor, handlebar,
- * stem, grips, dropper, saddle.
- * @typedef {Object.<string, Part>} Build
- */
+ * A build: slotKey -> resolved Part. Each named slot is typed to its exact
+ * category variant (so the engine reads e.g. `build.frame.wheelConfigs` with no
+ * casts), while the string index signature lets the helpers read/write slots by
+ * a dynamic key.
+ * @typedef {{[slot: string]: (Part|undefined)} & {frame?: FramePart, fork?: ForkPart, shock?: ShockPart, frontWheel?: FrontWheelPart, rearWheel?: RearWheelPart, frontTire?: TirePart, rearTire?: TirePart, shifter?: ShifterPart, derailleur?: DerailleurPart, cassette?: CassettePart, chain?: ChainPart, crankset?: CranksetPart, frontBrake?: BrakePart, rearBrake?: BrakePart, frontRotor?: RotorPart, rearRotor?: RotorPart, handlebar?: HandlebarPart, stem?: StemPart, grips?: GripsPart, dropper?: DropperPart, saddle?: SaddlePart}} Build */
 
 /** @typedef {Object.<string, string>} PresetBy  groupKey -> preset id */
 
@@ -155,9 +129,10 @@
  */
 
 /**
- * The minimum a catalog needs to be validated / queried: parts + slot list.
+ * A catalog handed to the validator. The parts are UNTRUSTED here (validating
+ * them is the whole point), so they are typed loosely as `any[]`.
  * @typedef {Object} Catalog
- * @property {Part[]} PARTS
+ * @property {any[]} PARTS
  * @property {Slot[]} SLOTS
  */
 

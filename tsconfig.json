@@ -12,7 +12,6 @@
     "noEmit": true,
 
     "strict": true,
-    "strictNullChecks": false,
     "useUnknownInCatchVariables": false,
 
     "skipLibCheck": true,
