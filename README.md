@@ -26,7 +26,7 @@ whether they actually fit together. Early prototype.
 | `test/test-pricing.js` | Bundle (groupset/wheelset/etc.) pricing and weight totals. |
 | `test/test-golden.js` | Whole real bikes that must pass; a known-bad build that must fail. |
 | `tsconfig.json` | Type-check settings (`checkJs` + `noEmit`) for `npm run typecheck`. |
-| `.github/workflows/ci.yml` | CI: runs validate + tests + typecheck on every push. |
+| `.github/workflows/ci.yml` | CI: runs validate + tests + typecheck on every push and PR. |
 | `Getting-Started-Roadmap.md` | The bigger-picture plan. |
 
 ## Run the app
@@ -117,8 +117,9 @@ a place a collaborator or coding assistant can work.
 1. ✅ Repo + a permanent, runnable test suite.
 2. ✅ Data schema + validator, with optional per-part `verified` + `lastChecked` + `source`.
 3. ✅ Type-checking via JSDoc + `tsc --noEmit` (`npm run typecheck`) — full `strict`, with `Part` modeled as a per-category discriminated union, so missing / mistyped / cross-category fields are caught as you type. No build step.
-4. *Then* start adding real, verified manufacturers and parts.
-5. Deploy so real riders can hammer it.
+4. ✅ Vitest test runner + GitHub Actions CI — `validate` + `tests` + `typecheck` on every push / PR.
+5. 🚧 Adding real, verified manufacturers and parts — **7 verified so far** (a full SRAM GX Eagle drivetrain plus an XT cassette and a RockShox shock); the rest is still sample data.
+6. Deploy so real riders can hammer it.
 
 **Parked (planned, not now):** ride categories — **enduro / trail / downhill** — so the catalog
 and compatibility rules can be filtered by discipline.

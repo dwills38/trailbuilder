@@ -167,6 +167,9 @@
   var $ = function(id){ return document.getElementById(id); };
   var money = function(n){ return '$' + (n||0).toLocaleString(); };
   var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg)'; };
+  // Escape text before interpolating into innerHTML (covers element AND attribute context).
+  // Catalog data is repo-controlled today, but parts may be crowdsourced later — escape regardless.
+  var esc = function(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); };
 
   var ICONS = {frame:'🚲',fork:'🍴',shock:'🪐',wheels:'🛞',tire:'⚫',drivetrain:'⚙️',brakes:'🛑',dropper:'📐',cockpit:'🔧',saddle:'🪑'};
   var CATLABEL = {frame:'Frame',fork:'Fork',shock:'Rear Shock',frontwheel:'Front Wheel',rearwheel:'Rear Wheel',
@@ -192,8 +195,8 @@
   }
   function provHtml(p){
     if(!p.fills && p.verified===true && p.source){
-      var when = p.lastChecked ? (' on '+p.lastChecked) : '';
-      var url = String(p.source).replace(/"/g,'&quot;');
+      var when = p.lastChecked ? (' on '+esc(p.lastChecked)) : '';
+      var url = esc(p.source);
       return '<div class="prov"><a class="ver" href="'+url+'" target="_blank" rel="noopener noreferrer"'+
         ' title="Spec checked against the manufacturer'+when+' — click for the source">✓ Verified</a></div>';
     }
@@ -246,10 +249,10 @@
     }
 
     card.innerHTML =
-      '<span class="dot '+compat.state+'" title="'+String(compat.reason).replace(/"/g,'&quot;')+'"></span>'+
+      '<span class="dot '+compat.state+'" title="'+esc(compat.reason)+'"></span>'+
       '<div class="kind">'+catLabel(p.cat)+'</div>'+
-      '<div class="name">'+p.brand+' '+p.model+'</div>'+
-      '<div class="spec">'+specSummary(p)+'</div>'+
+      '<div class="name">'+esc(p.brand)+' '+esc(p.model)+'</div>'+
+      '<div class="spec">'+esc(specSummary(p))+'</div>'+
       provHtml(p)+
       '<div class="row">'+priceHtml+'<span class="picks"></span></div>';
     var picks=card.querySelector('.picks');
@@ -324,7 +327,7 @@
         var right='';
         if(p){ right = bundle ? '<span class="pr">in kit</span>'
                              : '<span class="pr">'+(typeof p.weight==='number'?p.weight+' g · ':'')+money(p.price)+'</span>'; }
-        var nm = p ? (p.brand+' '+p.model + (p.verified===true?' <span class="vchk" title="Verified against the manufacturer'+(p.lastChecked?' on '+p.lastChecked:'')+'">✓</span>':''))
+        var nm = p ? (esc(p.brand)+' '+esc(p.model) + (p.verified===true && p.source?' <span class="vchk" title="Verified against the manufacturer'+(p.lastChecked?' on '+esc(p.lastChecked):'')+'">✓</span>':''))
                    : ('— '+slot.label.toLowerCase()+(slot.optional?' (optional)':'')+' —');
         row.innerHTML='<div class="sl-main"><div class="'+(p?'sl-part':'sl-part sl-empty')+'">'+nm+'</div></div>'+ right;
         if(p){ var x=document.createElement('button'); x.className='x'; x.title='Remove'; x.textContent='×';
