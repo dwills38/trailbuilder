@@ -151,7 +151,7 @@ var PARTS = [
   { id:'ch-shimano', cat:'chain', brand:'Shimano', model:'CN-M8100 12-speed', price:35, weight:252, system:'shimano-12', speeds:12 },
   { id:'cr-gx', cat:'crankset', brand:'SRAM', model:'GX Eagle DUB', price:175, weight:621, bb:'DUB', ring:32, speeds:12, chainline:'Boost', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/fc-gx-1-b1' },
   { id:'cr-x0t', cat:'crankset', brand:'SRAM', model:'X0 Transmission DUB', price:330, weight:460, bb:'DUB', ring:32, speeds:12, chainline:'Boost' },
-  { id:'cr-xt', cat:'crankset', brand:'Shimano', model:'XT M8100', price:200, weight:535, bb:'SH24', ring:32, speeds:12, chainline:'Boost' },
+  { id:'cr-xt', cat:'crankset', brand:'Shimano', model:'XT M8100', price:200, weight:624, bb:'SH24', ring:32, speeds:12, chainline:'Boost' },
   { id:'cr-rf', cat:'crankset', brand:'Race Face', model:'Aeffect R DUB', price:160, weight:640, bb:'DUB', ring:30, speeds:12, chainline:'Boost' },
 
   /* BRAKES (single caliper+lever; usable front or rear) */
