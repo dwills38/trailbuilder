@@ -53,6 +53,12 @@
   .dot.r{background:#d23b3b}
   .dot.n{background:#d2d7d1}
 
+  .pcard .prov{font-size:11px;margin-top:1px;min-height:17px}
+  .prov .ver{display:inline-flex;align-items:center;gap:3px;background:var(--ok-bg);color:var(--ok);font-weight:700;padding:1px 7px;border-radius:999px;text-decoration:none;border:1px solid rgba(31,138,76,.25)}
+  .prov a.ver:hover{text-decoration:underline}
+  .prov .est{color:#9aa39b;font-weight:600}
+  .slot .vchk{color:var(--ok);font-weight:800;margin-left:3px;font-size:12px}
+
   .side{position:sticky;top:16px;display:flex;flex-direction:column;gap:14px}
   .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
   .panel h2{margin:0 0 8px;font-size:16px}
@@ -94,7 +100,7 @@
       <h1>🚵 TrailBuilder</h1>
       <p>Browse enduro parts, click to add, and it checks fit, price and weight as you build.</p>
     </div>
-    <span class="badge">Prototype · sample data, verify before trusting</span>
+    <span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span>
   </div>
 </header>
 
@@ -113,6 +119,7 @@
     <span><i style="background:#2aa35a"></i>Fits your current build</span>
     <span><i style="background:#d23b3b"></i>Won&rsquo;t fit (hover for why)</span>
     <span><i style="background:#d2d7d1"></i>Nothing selected yet to judge</span>
+    <span><span style="color:#1f8a4c;font-weight:800">✓ Verified</span> = checked vs manufacturer spec (else <span style="color:#9aa39b;font-weight:600">≈ estimate</span>)</span>
   </div>
 
   <div class="layout">
@@ -141,7 +148,8 @@
   <p><b>About this prototype.</b> Pick a whole groupset / wheelset / brake set / cockpit kit (green dashed cards) to drop
   in all the parts at once — that group is then <b>priced as the bundle</b>; swap any single part and it reverts to
   per-part pricing. Every card shows a compatibility dot (green fits, red won&rsquo;t, grey = nothing selected yet) and a
-  sample weight, and the catalog is sorted compatible-first. Specs, prices and weights are illustrative samples. Logic
+  sample weight, and the catalog is sorted compatible-first. Specs, prices and weights are illustrative samples unless a
+  part shows a green <b>✓ Verified</b> badge (checked against the manufacturer, with a source link). Logic
   lives in <code>src/compat.js</code>; run <code>node validate.js</code> to check the data and <code>npm test</code> for
   the suite. <b>Mullet</b> (29 front / 27.5 rear) builds work on mullet-capable frames — try the <b>Mullet build</b> demo
   or pick a 27.5 rear wheel + tire on the RAAW Madonna.</p>
@@ -175,6 +183,25 @@
   var isPreset = function(p){ return !!p.fills; };
   function resolved(){ var o={}; Object.keys(build).forEach(function(k){ o[k]=byId(build[k]); }); return o; }
   function compatFor(p){ return compatOf(p, resolved()); }
+
+  /* ---- provenance: verified vs sample data ---- */
+  // A kit counts as verified only when every part it fills is itself verified.
+  function partVerified(p){
+    if(p.fills){ var ks=Object.keys(p.fills); return ks.length>0 && ks.every(function(s){ var c=byId(p.fills[s]); return !!(c && c.verified===true); }); }
+    return p.verified===true;
+  }
+  function provHtml(p){
+    if(!p.fills && p.verified===true && p.source){
+      var when = p.lastChecked ? (' on '+p.lastChecked) : '';
+      var url = String(p.source).replace(/"/g,'&quot;');
+      return '<div class="prov"><a class="ver" href="'+url+'" target="_blank" rel="noopener noreferrer"'+
+        ' title="Spec checked against the manufacturer'+when+' — click for the source">✓ Verified</a></div>';
+    }
+    if(p.fills && partVerified(p)){
+      return '<div class="prov"><span class="ver" title="Every part in this kit is verified against a manufacturer spec">✓ Verified</span></div>';
+    }
+    return '<div class="prov"><span class="est" title="Sample data — approximate, not yet checked against a manufacturer spec">≈ estimate</span></div>';
+  }
 
   /* ---- chips ---- */
   function renderChips(){
@@ -223,6 +250,7 @@
       '<div class="kind">'+catLabel(p.cat)+'</div>'+
       '<div class="name">'+p.brand+' '+p.model+'</div>'+
       '<div class="spec">'+specSummary(p)+'</div>'+
+      provHtml(p)+
       '<div class="row">'+priceHtml+'<span class="picks"></span></div>';
     var picks=card.querySelector('.picks');
 
@@ -296,8 +324,9 @@
         var right='';
         if(p){ right = bundle ? '<span class="pr">in kit</span>'
                              : '<span class="pr">'+(typeof p.weight==='number'?p.weight+' g · ':'')+money(p.price)+'</span>'; }
-        row.innerHTML='<div class="sl-main"><div class="'+(p?'sl-part':'sl-part sl-empty')+'">'+
-          (p?(p.brand+' '+p.model):('— '+slot.label.toLowerCase()+(slot.optional?' (optional)':'')+' —'))+'</div></div>'+ right;
+        var nm = p ? (p.brand+' '+p.model + (p.verified===true?' <span class="vchk" title="Verified against the manufacturer'+(p.lastChecked?' on '+p.lastChecked:'')+'">✓</span>':''))
+                   : ('— '+slot.label.toLowerCase()+(slot.optional?' (optional)':'')+' —');
+        row.innerHTML='<div class="sl-main"><div class="'+(p?'sl-part':'sl-part sl-empty')+'">'+nm+'</div></div>'+ right;
         if(p){ var x=document.createElement('button'); x.className='x'; x.title='Remove'; x.textContent='×';
           x.onclick=function(){ setSlot(slot.key, null); }; row.appendChild(x); }
         host.appendChild(row);
