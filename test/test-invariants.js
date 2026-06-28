@@ -1,0 +1,133 @@
+'use strict';
+/* ENGINE FORTRESS — properties that must hold for EVERY part and a large number
+   of pseudo-random builds. These don't assert specific compatibility verdicts
+   (test-engine.js does that); they lock down the engine's structural contract:
+   it never throws, never returns malformed output, is deterministic, and every
+   preset/lookup is internally consistent. A regression that crashes the engine
+   or makes a verdict non-deterministic gets caught here. */
+var U = require('./test-util.js');
+var C = U.C, B = U.B, eq = U.eq, ok = U.ok;
+
+/** @typedef {import('../src/types.js').Part} Part */
+/** @typedef {import('../src/types.js').Build} Build */
+
+/* ---- helpers ------------------------------------------------------------- */
+/** @type {Object.<string, Part[]>} */
+var byCat = {};
+C.PARTS.forEach(function(p){ (byCat[p.cat] = byCat[p.cat] || []).push(p); });
+
+// deterministic PRNG (LCG) so any fuzz failure is reproducible from its seed
+/** @param {number} seed @returns {() => number} */
+function rng(seed){ var s = seed >>> 0; return function(){ s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+
+/** Build a pseudo-random (possibly partial, possibly nonsensical) build.
+ * @param {() => number} rand @returns {Build} */
+function randomBuild(rand){
+  /** @type {Build} */ var b = {};
+  C.SLOTS.forEach(function(s){
+    if(rand() < 0.5){ var list = byCat[s.cat] || []; if(list.length) b[s.key] = list[Math.floor(rand() * list.length)]; }
+  });
+  return b;
+}
+
+/** @param {{errors:string[],warnings:string[],infos:string[]}} r */
+function assertResultShape(r){
+  ok(r && Array.isArray(r.errors) && Array.isArray(r.warnings) && Array.isArray(r.infos), 'checkBuild result shape');
+}
+
+var FUZZ = 300;
+
+/* ---- lookups & display --------------------------------------------------- */
+test('byId round-trips every catalog part, and returns null for unknown ids', function(){
+  C.PARTS.forEach(function(p){ eq(C.byId(p.id), p, 'byId('+p.id+')'); });
+  eq(C.byId('definitely-not-a-real-id'), null);
+  eq(C.byId(''), null);
+});
+test('part ids are unique', function(){
+  /** @type {Object.<string, boolean>} */ var seen = {};
+  C.PARTS.forEach(function(p){ ok(!seen[p.id], 'duplicate id '+p.id); seen[p.id] = true; });
+});
+test('nameOf and specSummary return non-empty strings for every part (never throw)', function(){
+  C.PARTS.forEach(function(p){
+    var n = C.nameOf(p); ok(typeof n === 'string' && n.length > 0, 'nameOf '+p.id);
+    var s = C.specSummary(p); ok(typeof s === 'string' && s.length > 0, 'specSummary '+p.id);
+  });
+});
+
+/* ---- checkBuild contract -------------------------------------------------- */
+test('checkBuild on an empty build is clean and well-formed', function(){
+  var r = C.checkBuild({});
+  assertResultShape(r);
+  eq(r.errors.length, 0); eq(r.warnings.length, 0); eq(r.infos.length, 0);
+});
+test('checkBuild never throws and is deterministic over '+FUZZ+' random builds', function(){
+  var rand = rng(20260628);
+  for(var i = 0; i < FUZZ; i++){
+    var b = randomBuild(rand);
+    var a = C.checkBuild(b), c = C.checkBuild(b);
+    assertResultShape(a);
+    eq(JSON.stringify(a), JSON.stringify(c), 'checkBuild deterministic (seed iter '+i+')');
+  }
+});
+
+/* ---- compatOf contract ---------------------------------------------------- */
+test('compatOf is neutral on an empty build for every part', function(){
+  C.PARTS.forEach(function(p){ eq(C.compatOf(p, {}).state, 'n', 'compatOf('+p.id+', {})'); });
+});
+test('compatOf returns a valid state + reason, never throws, over random builds', function(){
+  var rand = rng(777);
+  for(var i = 0; i < FUZZ; i++){
+    var b = randomBuild(rand);
+    var p = C.PARTS[Math.floor(rand() * C.PARTS.length)];
+    var c = C.compatOf(p, b);
+    ok(c && /^[grn]$/.test(c.state), 'state for '+p.id+' iter '+i);
+    ok(typeof c.reason === 'string' && c.reason.length > 0, 'reason for '+p.id+' iter '+i);
+  }
+});
+
+/* ---- buildTotals contract ------------------------------------------------- */
+test('buildTotals on an empty build is zeroed', function(){
+  var t = C.buildTotals({}, {});
+  eq(t.price, 0); eq(t.weight, 0); eq(t.missingWeight, false);
+});
+test('buildTotals never throws and stays non-negative over random builds', function(){
+  var rand = rng(31337);
+  for(var i = 0; i < FUZZ; i++){
+    var t = C.buildTotals(randomBuild(rand), {});
+    ok(typeof t.price === 'number' && t.price >= 0, 'price >= 0 iter '+i);
+    ok(typeof t.weight === 'number' && t.weight >= 0, 'weight >= 0 iter '+i);
+    ok(typeof t.missingWeight === 'boolean', 'missingWeight bool iter '+i);
+  }
+});
+
+/* ---- presets are internally consistent ----------------------------------- */
+test("every preset's own parts are mutually compatible (its fills build cleanly)", function(){
+  C.PARTS.forEach(function(p){
+    if(!('fills' in p) || !p.fills) return;
+    var r = C.checkBuild(B(p.fills));
+    eq(r.errors.length, 0, p.id+' fills have internal conflicts: '+r.errors.join('; '));
+  });
+});
+test('every preset is billed as its bundle price when its exact fills are chosen', function(){
+  /** @type {Object.<string, string>} */ var presetGroup = {};
+  C.GROUPS.forEach(function(g){ if(g.preset) presetGroup[g.preset.cat] = g.key; });
+  C.PARTS.forEach(function(p){
+    if(!('fills' in p) || !p.fills) return;
+    var gkey = presetGroup[p.cat]; ok(gkey, p.id+' preset maps to a group');
+    /** @type {Object.<string, string>} */ var presetBy = {}; presetBy[gkey] = p.id;
+    eq(C.buildTotals(B(p.fills), presetBy).price, p.price, p.id+' bundle price');
+  });
+});
+test("every preset fill points at an existing part of the slot's category", function(){
+  /** @type {Object.<string, string>} */ var slotCat = {};
+  C.SLOTS.forEach(function(s){ slotCat[s.key] = s.cat; });
+  C.PARTS.forEach(function(p){
+    if(!('fills' in p) || !p.fills) return;
+    var fills = p.fills;
+    Object.keys(fills).forEach(function(slot){
+      var c = C.byId(fills[slot]);
+      ok(c, p.id+' fills '+slot+' -> missing part '+fills[slot]);
+      ok(c && slotCat[slot] === c.cat, p.id+' fills '+slot+' expects '+slotCat[slot]+' got '+(c && c.cat));
+    });
+  });
+});
