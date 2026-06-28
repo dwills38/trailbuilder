@@ -167,9 +167,7 @@
   var $ = function(id){ return document.getElementById(id); };
   var money = function(n){ return '$' + (n||0).toLocaleString(); };
   var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg)'; };
-  // Escape text before interpolating into innerHTML (covers element AND attribute context).
-  // Catalog data is repo-controlled today, but parts may be crowdsourced later — escape regardless.
-  var esc = function(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); };
+  // esc() (HTML-escape) and partVerified() are shared from compat.js — one tested source of truth.
 
   var ICONS = {frame:'🚲',fork:'🍴',shock:'🪐',wheels:'🛞',tire:'⚫',drivetrain:'⚙️',brakes:'🛑',dropper:'📐',cockpit:'🔧',saddle:'🪑'};
   var CATLABEL = {frame:'Frame',fork:'Fork',shock:'Rear Shock',frontwheel:'Front Wheel',rearwheel:'Rear Wheel',
@@ -187,12 +185,7 @@
   function resolved(){ var o={}; Object.keys(build).forEach(function(k){ o[k]=byId(build[k]); }); return o; }
   function compatFor(p){ return compatOf(p, resolved()); }
 
-  /* ---- provenance: verified vs sample data ---- */
-  // A kit counts as verified only when every part it fills is itself verified.
-  function partVerified(p){
-    if(p.fills){ var ks=Object.keys(p.fills); return ks.length>0 && ks.every(function(s){ var c=byId(p.fills[s]); return !!(c && c.verified===true); }); }
-    return p.verified===true;
-  }
+  /* ---- provenance badge (esc + partVerified are shared from compat.js) ---- */
   function provHtml(p){
     if(!p.fills && p.verified===true && p.source){
       var when = p.lastChecked ? (' on '+esc(p.lastChecked)) : '';

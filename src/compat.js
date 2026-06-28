@@ -449,9 +449,34 @@ function buildTotals(build, presetBy){
   return { price:price, weight:weight, missingWeight:missingWeight };
 }
 
+/* =============================================================================
+   SHARED DISPLAY / PROVENANCE HELPERS (used by both the UI and the tests, so the
+   "verified" badge logic and HTML-escaping have one tested source of truth)
+   ========================================================================== */
+/** Escape a value for safe interpolation into HTML (element AND attribute text).
+ * @param {*} s @returns {string} */
+function esc(s){
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+/** Is this part verified against a manufacturer source? A preset/kit counts as
+ * verified only when every part it fills is itself verified.
+ * @param {Part|null|undefined} p @returns {boolean} */
+function partVerified(p){
+  if(!p) return false;
+  if('fills' in p && p.fills){
+    var ks = Object.keys(p.fills);
+    return ks.length > 0 && ks.every(function(s){ var c = byId(p.fills[s]); return !!(c && c.verified === true); });
+  }
+  return p.verified === true;
+}
+
 /* ---- Export for Node tests (ignored by the browser) ---------------------- */
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { PARTS:PARTS, GROUPS:GROUPS, SLOTS:SLOTS, LABELS:LABELS, WHEEL_CONFIG:WHEEL_CONFIG,
     byId:byId, nameOf:nameOf, specSummary:specSummary, checkBuild:checkBuild,
-    conflictReason:conflictReason, compatOf:compatOf, bundleActive:bundleActive, buildTotals:buildTotals };
+    conflictReason:conflictReason, compatOf:compatOf, bundleActive:bundleActive, buildTotals:buildTotals,
+    esc:esc, partVerified:partVerified };
 }
