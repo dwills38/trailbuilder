@@ -111,9 +111,11 @@ components. `presetBy` maps groupKey → preset id.
 ## Provenance
 
 Parts may carry `verified: true` + `lastChecked: "YYYY-MM-DD"` + `source: "https://…"`.
-Absence = unverified (still the default for most of the catalog; **7 parts are verified so
+Absence = unverified (still the default for most of the catalog; **11 parts are verified so
 far** — the full SRAM GX Eagle mechanical drivetrain (`ca-sram-e`, `dr-gx-m`, `cr-gx`,
-`ch-eagle`, `sft-gx-m`) plus `ca-xt` and `sh-sd-air` — checked against manufacturer pages). The
+`ch-eagle`, `sft-gx-m`), most of the GX Eagle Transmission drivetrain (`dr-gx-t`, `ca-sram-t`,
+`ch-flattop`, `cr-x0t` — the AXS pod `sft-gx-t` has no clean model page so it stays sample),
+plus `ca-xt` and `sh-sd-air` — checked against manufacturer pages). The
 validator **refuses `verified: true` without a real source URL and a non-future date** — so
 "verified" always means something. When you actually confirm a spec against a manufacturer
 page, set the fields to match the source and add those three fields. (`node validate.js`
@@ -140,8 +142,9 @@ reports the verified/unverified counts.)
 3. ✅ **Vitest + GitHub Actions CI** (done): the home-grown runner is replaced by **Vitest**
    (`npm test`, config in `vitest.config.mjs`), and `.github/workflows/ci.yml` runs
    `validate` + `tests` + `typecheck` on every push / PR.
-4. 🚧 **Adding real, verified parts** (in progress): 7 verified so far — a complete SRAM GX
-   Eagle mechanical drivetrain plus a Shimano XT cassette and a RockShox shock. Forks are
+4. 🚧 **Adding real, verified parts** (in progress): 11 verified so far — the SRAM GX Eagle
+   mechanical drivetrain and most of the GX Eagle Transmission drivetrain, plus a Shimano XT
+   cassette and a RockShox shock. Forks are
    deliberately still flagged (weights couldn't be pinned reliably — e.g. RockShox's page lists
    the ZEB 170 at 2550 g vs the ~2100 g cited elsewhere). Set `verified`/`lastChecked`/`source`
    and fix wrong sample specs while you're there; most of the catalog is still sample data.
