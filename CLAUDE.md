@@ -101,6 +101,30 @@ rotor interface (6-bolt/Center Lock) vs hub; rotor size vs frame/fork max; steer
 fork travel vs frame max; dropper diameter vs seat tube; tire width vs wheel clearance;
 bar/stem clamp; rear-shock fit (eye×stroke + mount); frame+shock bundling (incl. OEM-only).
 Returns `{errors, warnings, infos}`. Errors = won't fit; warnings = works but check; infos = notes.
+(The all-clear in the app reads "No conflicts found", not "All compatible" — it means no conflict
+among the dimensions we check, not a guarantee. Don't reword it to overclaim.)
+
+### Coverage roadmap (candidate rules — evaluated, deliberately deferred)
+
+The engine only checks the dimensions above; a green verdict is only as complete as that list.
+**The bar for adding a rule: it must be backed by manufacturer compatibility docs and tested — a
+false "won't fit" OR a false "fits" is worse than a missing rule.** Candidates considered:
+
+- **Frame rear-tire clearance** (`rTire.width` vs a new optional `frame.maxTire`): a real gotcha,
+  but needs per-frame clearance data we don't have. Safe to add as an optional warning once the
+  data exists (dormant until then).
+- **Tire vs internal-rim-width range** (too-narrow tire on a wide rim): real, but the thresholds
+  are fuzzy/standards-dependent — needs sourcing; would be a soft warning.
+- **Oversize-rotor adapter** needed when a rotor exceeds the native mount: today rule 10 already
+  *warns* on exceeding the max; an adapter *info* could be added. Low priority.
+- **Crankset chainline vs frame (Boost vs SuperBoost) — REJECTED for now.** Too nuanced: our own
+  `fr-enduro` (Specialized Enduro) is SuperBoost-157 yet intentionally uses a Boost-chainline
+  crank, so a naive "SuperBoost frame needs a SuperBoost crank" rule would fire a FALSE error.
+  Needs real per-frame data + domain-expert input before it's safe.
+
+Tests + types + the validator catch regressions and crashes (see `test/test-invariants.js`), but
+they prove the engine is *self-consistent*, not that the rules are *right for the real world* —
+that needs a mechanic/engineer review and real-rider feedback.
 
 ## Pricing & weight
 

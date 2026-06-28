@@ -345,10 +345,10 @@
     if(n===0) html='<div class="status warn">Add parts to start checking.</div>';
     else if(r.errors.length) html='<div class="status err">✗ '+r.errors.length+' problem'+(r.errors.length>1?'s':'')+'</div>';
     else if(r.warnings.length) html='<div class="status warn">⚠ Works · '+r.warnings.length+' to check</div>';
-    else html='<div class="status ok">✓ All compatible</div>';
-    r.errors.forEach(function(m){ html+='<div class="issue e"><span class="mk">✗</span><span>'+m+'</span></div>'; });
-    r.warnings.forEach(function(m){ html+='<div class="issue w"><span class="mk">⚠</span><span>'+m+'</span></div>'; });
-    r.infos.forEach(function(m){ html+='<div class="issue i"><span class="mk">i</span><span>'+m+'</span></div>'; });
+    else html='<div class="status ok">✓ No conflicts found</div>';
+    r.errors.forEach(function(m){ html+='<div class="issue e"><span class="mk">✗</span><span>'+esc(m)+'</span></div>'; });
+    r.warnings.forEach(function(m){ html+='<div class="issue w"><span class="mk">⚠</span><span>'+esc(m)+'</span></div>'; });
+    r.infos.forEach(function(m){ html+='<div class="issue i"><span class="mk">i</span><span>'+esc(m)+'</span></div>'; });
     $('report').innerHTML=html;
   }
 
