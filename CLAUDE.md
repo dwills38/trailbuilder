@@ -121,6 +121,16 @@ validator **refuses `verified: true` without a real source URL and a non-future 
 page, set the fields to match the source and add those three fields. (`node validate.js`
 reports the verified/unverified counts.)
 
+**Verifiability by brand (learned the hard way — saves re-discovering it):** SRAM publishes
+exact component weights on its model pages (`sram.com/en/sram/models/<slug>`), so SRAM
+drivetrain is cleanly verifiable. **Shimano does NOT publish component weights**, and **SRAM
+does not publish *rotor* weights** — for those, interfaces can be confirmed but the weight
+can't, so they stay unverified (e.g. `cr-xt`, the HS2 rotors). Forks/frames are
+year-variable, and tires/brakes are casing/config-dependent, so their weights are ambiguous
+too. **Open product decision:** whether to accept a reputable third-party *measured* weight
+as a source so a part can count as verified (today the bar is "manufacturer page only").
+The `✓ Verified only` filter in the app (built on `partVerified`) shows just the verified set.
+
 ## Conventions
 
 - Plain browser JavaScript (`var`/`function`), **no build step** — `index.html` loads `src/compat.js`
