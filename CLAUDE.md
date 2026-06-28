@@ -35,6 +35,7 @@ Entry points (`validate.js`, `index.html`) live at the root; tests run on Vitest
 | `package.json` | Scripts: `test` (Vitest), `test:watch`, `validate`, `typecheck`. Dev-only deps: `vitest`, `typescript`, `@types/node`. |
 | `tsconfig.json` | Type-check config (`checkJs`, `noEmit`). Drives `npm run typecheck`; produces no build output. |
 | `.github/workflows/ci.yml` | GitHub Actions CI — runs `validate`, `tests`, and `typecheck` on every push / PR. |
+| `.github/workflows/deploy.yml` | GitHub Actions — deploys the static app (`index.html` + `src/`) to GitHub Pages on push to `main`, after `validate` + `tests` pass. Needs a public remote + Pages source = "GitHub Actions". |
 | `README.md`, `Getting-Started-Roadmap.md` | Docs. |
 
 (Stray files like `test_compat.js` or `test2.js` from earlier sessions are NOT part of the project; delete them.)
@@ -146,4 +147,6 @@ reports the verified/unverified counts.)
    and fix wrong sample specs while you're there; most of the catalog is still sample data.
 5. Parked: **ride categories** (enduro / trail / downhill) to filter the catalog by discipline;
    mullet is already supported.
-6. Later: accounts + saved builds (Supabase/Firebase), price feeds via retailer affiliate programs, deploy.
+6. 🚧 **Deploy** — a GitHub Pages workflow (`.github/workflows/deploy.yml`) is ready; push to a
+   public GitHub remote and set Pages source to "GitHub Actions" to go live. Later: accounts +
+   saved builds (Supabase/Firebase), price feeds via retailer affiliate programs.

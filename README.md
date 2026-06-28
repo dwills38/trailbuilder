@@ -112,6 +112,28 @@ After that, `git add . && git commit -m "..."` after each change keeps a full hi
 can roll back. Pushing to a free GitHub repo also gets you free hosting (GitHub Pages) and
 a place a collaborator or coding assistant can work.
 
+## Deploy (GitHub Pages)
+
+The app is plain static files (no build step), so it hosts on GitHub Pages for free.
+`.github/workflows/deploy.yml` publishes `index.html` + `src/` on every push to `main` —
+but only after `validate` and the tests pass, so a broken build never goes live.
+
+One-time setup:
+
+1. Create a GitHub repo and push (it must be **public** for free Pages):
+
+   ```
+   gh repo create trailbuilder --public --source=. --push
+   ```
+
+   (or make an empty repo on github.com, then `git remote add origin <url>` and
+   `git push -u origin main`).
+
+2. In the repo: **Settings → Pages → Build and deployment → Source: “GitHub Actions”**.
+
+The next push then deploys, and the site goes live at
+`https://<your-user>.github.io/trailbuilder/` (the workflow run summary prints the URL).
+
 ## What's next (the "solidify" plan)
 
 1. ✅ Repo + a permanent, runnable test suite.
@@ -119,7 +141,7 @@ a place a collaborator or coding assistant can work.
 3. ✅ Type-checking via JSDoc + `tsc --noEmit` (`npm run typecheck`) — full `strict`, with `Part` modeled as a per-category discriminated union, so missing / mistyped / cross-category fields are caught as you type. No build step.
 4. ✅ Vitest test runner + GitHub Actions CI — `validate` + `tests` + `typecheck` on every push / PR.
 5. 🚧 Adding real, verified manufacturers and parts — **7 verified so far** (a full SRAM GX Eagle drivetrain plus an XT cassette and a RockShox shock); the rest is still sample data.
-6. Deploy so real riders can hammer it.
+6. 🚧 Deploy so real riders can hammer it — the GitHub Pages workflow is ready (`.github/workflows/deploy.yml`); it just needs a public GitHub remote and Pages enabled (see **Deploy** above).
 
 **Parked (planned, not now):** ride categories — **enduro / trail / downhill** — so the catalog
 and compatibility rules can be filtered by discipline.

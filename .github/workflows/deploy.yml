@@ -1,0 +1,62 @@
+name: Deploy to GitHub Pages
+
+# Publishes the static app (index.html + src/) to GitHub Pages on every push to
+# main — but only after the data validator and the test suite pass, so a broken
+# build can never go live. One-time setup: in the repo, Settings -> Pages ->
+# "Build and deployment" -> Source: "GitHub Actions".
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment; newer pushes supersede in-flight ones.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # Never publish a broken build: data + tests must pass first.
+      - name: Install dev dependencies
+        run: npm ci
+      - name: Validate the catalog data
+        run: node validate.js
+      - name: Run the test suite
+        run: npm test
+
+      # Stage only the static app — not test/, docs, or config.
+      - name: Stage the static site
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          cp -r src _site/
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
