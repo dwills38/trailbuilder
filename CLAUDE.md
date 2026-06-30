@@ -1,6 +1,7 @@
 # CLAUDE.md — TrailBuilder
 
 Context for Claude Code working on this project. Read this before making changes.
+**Current status + immediate next steps: see [`NEXT-STEPS.md`](NEXT-STEPS.md).**
 
 ## What this is
 
