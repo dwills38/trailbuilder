@@ -43,3 +43,12 @@ test('a red dot carries an explanatory reason', function(){
   var c = C.compatOf(part('sh-sd-trun'), B({frame:'fr-megatower'}));
   eq(c.state, 'r'); some([c.reason], 'Shock');
 });
+test('a preset that swaps one conflict for another is RED, not green', function(){
+  // Base build has a drivetrain-system mismatch (SRAM shifter + Shimano derailleur).
+  // Applying the SRAM Eagle groupset fixes that mismatch but its XD cassette clashes
+  // with the MicroSpline rear wheel -> a NEW conflict. Error COUNT is unchanged, so a
+  // count-based dot would wrongly show green; the honest verdict is red.
+  var bld = B({ rearWheel:'rw-i9', shifter:'sft-gx-m', derailleur:'dr-xt' });
+  var c = C.compatOf(part('gs-gx-m'), bld);
+  eq(c.state, 'r'); some([c.reason], 'Freehub');
+});

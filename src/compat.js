@@ -403,8 +403,11 @@ function compatOf(p, build){
     var before = checkBuild(bld).errors;
     /** @type {Build} */ var test = Object.assign({}, bld);
     Object.keys(pf).forEach(function(s){ test[s]=/** @type {Part} */(byId(pf[s])); });
-    var after = checkBuild(test).errors;
-    if(after.length>before.length){ var extra = after.filter(function(e){ return before.indexOf(e)<0; }); return {state:'r', reason:(extra[0]||'Conflicts with your current build')}; }
+    // Red if applying the preset INTRODUCES a conflict - detected by new-error set
+    // membership, NOT error count, so a preset that swaps one conflict for another
+    // still shows red (mirrors the single-part path in conflictReason).
+    var extra = checkBuild(test).errors.filter(function(e){ return before.indexOf(e)<0; });
+    if(extra.length){ return {state:'r', reason:extra[0]}; }
     return {state:'g', reason:'No conflicts with your current build'};
   }
   var slots = _catSlots()[p.cat] || [];

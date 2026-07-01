@@ -69,6 +69,21 @@ test('checkBuild never throws and is deterministic over '+FUZZ+' random builds',
     eq(JSON.stringify(a), JSON.stringify(c), 'checkBuild deterministic (seed iter '+i+')');
   }
 });
+test('checkBuild messages are clean strings - non-empty, never "undefined"/"NaN" - over '+FUZZ+' builds', function(){
+  // A rule that interpolates a missing/misread field leaks "undefined" or "NaN"
+  // into the verdict text; this catches that class of bug over the whole catalog.
+  var rand = rng(0xBADF00D);
+  for(var i = 0; i < FUZZ; i++){
+    var r = C.checkBuild(randomBuild(rand));
+    assertResultShape(r);
+    [r.errors, r.warnings, r.infos].forEach(function(arr){
+      arr.forEach(function(m){
+        ok(typeof m === 'string' && m.length > 0, 'message non-empty (iter '+i+')');
+        ok(m.indexOf('undefined') < 0 && m.indexOf('NaN') < 0, 'clean message (iter '+i+'): '+m);
+      });
+    });
+  }
+});
 
 /* ---- compatOf contract ---------------------------------------------------- */
 test('compatOf is neutral on an empty build for every part', function(){
@@ -82,6 +97,38 @@ test('compatOf returns a valid state + reason, never throws, over random builds'
     var c = C.compatOf(p, b);
     ok(c && /^[grn]$/.test(c.state), 'state for '+p.id+' iter '+i);
     ok(typeof c.reason === 'string' && c.reason.length > 0, 'reason for '+p.id+' iter '+i);
+  }
+});
+test('a green dot never hides a newly-introduced conflict, over '+FUZZ+' builds', function(){
+  // Dot honesty: if compatOf says green, there must be a real placement that adds NO
+  // new error (by set membership, not error count). Catches a false "fits" - the
+  // worst kind of wrong verdict - for both single parts and presets.
+  /** @type {Object.<string, string[]>} */ var slotKeys = {};
+  C.SLOTS.forEach(function(s){ (slotKeys[s.cat] = slotKeys[s.cat] || []).push(s.key); });
+  /** @param {string[]} before @param {string[]} after @returns {number} */
+  function newCount(before, after){ return after.filter(function(e){ return before.indexOf(e) < 0; }).length; }
+  var rand = rng(24680);
+  for(var i = 0; i < FUZZ; i++){
+    var bld = randomBuild(rand);
+    if(Object.keys(bld).length === 0) continue;
+    var p = C.PARTS[Math.floor(rand() * C.PARTS.length)];
+    if(C.compatOf(p, bld).state !== 'g') continue;
+    var clean = false;
+    if('fills' in p && p.fills){
+      var pf = p.fills;
+      var before = C.checkBuild(bld).errors;
+      /** @type {Build} */ var test = Object.assign({}, bld);
+      Object.keys(pf).forEach(function(s){ test[s] = /** @type {Part} */ (C.byId(pf[s])); });
+      clean = newCount(before, C.checkBuild(test).errors) === 0;
+    } else {
+      var slots = slotKeys[p.cat] || [];
+      clean = slots.some(function(sk){
+        /** @type {Build} */ var base = Object.assign({}, bld); delete base[sk];
+        /** @type {Build} */ var t = Object.assign({}, base); t[sk] = p;
+        return newCount(C.checkBuild(base).errors, C.checkBuild(t).errors) === 0;
+      });
+    }
+    ok(clean, 'green dot but every placement adds a conflict: '+p.id+' (iter '+i+')');
   }
 });
 
