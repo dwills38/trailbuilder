@@ -23,11 +23,14 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
 
 ## Next 1–3 steps (priority order)
 
-1. **Deploy a beta + add an in-app "report a wrong verdict / part" button.** Real usage is the only
-   thing that validates the rules and turns the community into QA. _Needs you:_ push to GitHub
-   (`gh repo create trailbuilder --public --source=. --push`) and set Pages source to "GitHub
-   Actions" (`.github/workflows/deploy.yml` is ready). The report-issue mechanism can be built now so
-   it ships with the first deploy.
+1. **Deploy a beta.** The in-app **"⚐ Report a wrong verdict" button is built** (`index.html`): a modal
+   that auto-builds a complete, reproducible report — the verdict shown + the full build list + a
+   share link that reopens the exact build — and copies it to the clipboard. **One wiring step left:**
+   set `REPORT_REPO` in `index.html` to `"owner/repo"` and the modal *also* offers a pre-filled GitHub
+   issue (labelled `wrong-verdict`); until then it falls back to copy-to-clipboard (works locally).
+   _Needs you:_ push to GitHub (`gh repo create trailbuilder --public --source=. --push`) and set Pages
+   source to "GitHub Actions" (`.github/workflows/deploy.yml` is ready). Real usage is the only thing
+   that validates the rules and turns the community into QA.
 2. **Domain-expert rule review.** A mechanic/engineer sanity-checks the 17 rules + the verified
    specs. Irreplaceable for "the community can rely on it." _Needs a real wrench._
 3. **Then: grow coverage + verified data.** Add the data-dependent rules from CLAUDE.md's "Coverage

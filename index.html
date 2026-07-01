@@ -90,6 +90,23 @@
   footer{max-width:1200px;margin:0 auto;padding:0 24px 50px;color:var(--ink-soft);font-size:12.5px}
   .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;font-size:13px;opacity:0;transition:opacity .25s;pointer-events:none}
   .toast.show{opacity:1}
+
+  /* report a wrong verdict */
+  .report-cta{margin-top:10px;text-align:right}
+  .report-cta button{border:none;background:none;color:var(--ink-soft);font-size:12px;cursor:pointer;text-decoration:underline;padding:4px 2px;font-weight:600}
+  .report-cta button:hover{color:var(--err)}
+  dialog#reportModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog#reportModal::backdrop{background:rgba(18,28,22,.45)}
+  .rm-head{padding:18px 20px 4px}
+  .rm-head h2{margin:0 0 5px;font-size:18px}
+  .rm-head p{margin:0;font-size:13px;color:var(--ink-soft)}
+  .rm-body{padding:10px 20px 4px;display:flex;flex-direction:column;gap:12px}
+  .rm-body label{font-size:12px;font-weight:700;color:var(--ink-soft);display:block;margin-bottom:5px}
+  .rm-body select,.rm-body textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink)}
+  .rm-body textarea{resize:vertical;min-height:74px;line-height:1.4}
+  .rm-details summary{cursor:pointer;font-size:12px;font-weight:700;color:var(--ink-soft)}
+  .rm-preview{background:var(--bg);border:1px solid var(--line);border-radius:9px;font-size:11.5px;line-height:1.45;color:var(--ink-soft);max-height:170px;overflow:auto;margin:8px 0 0;padding:10px 12px;white-space:pre-wrap;word-break:break-word}
+  .rm-foot{display:flex;gap:8px;justify-content:flex-end;padding:14px 20px 18px;flex-wrap:wrap}
   @media (max-width:880px){ .layout{grid-template-columns:1fr} .side{position:static} }
 </style>
 </head>
@@ -131,6 +148,7 @@
         <div class="panel">
           <h2>Compatibility</h2>
           <div id="report"></div>
+          <div class="report-cta"><button type="button" id="reportBtn" hidden>⚐ Report a wrong verdict</button></div>
         </div>
         <div class="panel">
           <h2>Your build</h2>
@@ -157,6 +175,37 @@
 </footer>
 
 <div class="toast" id="toast"></div>
+
+<dialog id="reportModal" aria-labelledby="rmTitle">
+  <div class="rm-head">
+    <h2 id="rmTitle">⚐ Report a wrong verdict</h2>
+    <p>Spotted a fit we got wrong, or a wrong spec? Real builds are how these rules get checked. This sends a description of your <b>current build</b> — no account needed.</p>
+  </div>
+  <div class="rm-body">
+    <div>
+      <label for="reportKind">What&rsquo;s off?</label>
+      <select id="reportKind">
+        <option value="false-fit">It says these parts fit, but they don&rsquo;t</option>
+        <option value="false-clash">It flags a conflict, but they actually work</option>
+        <option value="bad-spec">A part&rsquo;s spec / price / weight is wrong</option>
+        <option value="other">Something else</option>
+      </select>
+    </div>
+    <div>
+      <label for="reportNotes">Details <span style="font-weight:500">(which parts, and what you expected)</span></label>
+      <textarea id="reportNotes" placeholder="e.g. The SRAM Transmission derailleur is flagged incompatible with the RAAW Madonna, but the Madonna is UDH and it bolts straight on."></textarea>
+    </div>
+    <details class="rm-details">
+      <summary>Preview the report</summary>
+      <pre class="rm-preview" id="reportPreview"></pre>
+    </details>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="reportCancel">Cancel</button>
+    <button type="button" class="btn" id="reportCopy">Copy report</button>
+    <button type="button" class="btn primary" id="reportGithub" hidden>Open a GitHub issue</button>
+  </div>
+</dialog>
 
 <script src="src/compat.js"></script>
 <script>
@@ -350,6 +399,76 @@
     r.warnings.forEach(function(m){ html+='<div class="issue w"><span class="mk">⚠</span><span>'+esc(m)+'</span></div>'; });
     r.infos.forEach(function(m){ html+='<div class="issue i"><span class="mk">i</span><span>'+esc(m)+'</span></div>'; });
     $('report').innerHTML=html;
+    $('reportBtn').hidden = (n===0);   // nothing to report on an empty build
+  }
+
+  /* ---- report a wrong verdict ----------------------------------------------
+     Static app, no backend: hand the user a complete, reproducible report and
+     let them send it. Set REPORT_REPO to "owner/repo" once the GitHub repo
+     exists (NEXT-STEPS.md step 1) and the modal also offers a pre-filled GitHub
+     issue; until then "Copy report" works locally and pre-deploy. */
+  var REPORT_REPO = '';   // e.g. 'douglaswills/trailbuilder'
+  var KIND_LABEL = {
+    'false-fit'  : 'Says it fits, but it doesn’t',
+    'false-clash': 'Flags a conflict, but it works',
+    'bad-spec'   : 'Wrong part spec / price / weight',
+    'other'      : 'Something else' };
+  function padLabel(s){ s=String(s); while(s.length<16){ s+=' '; } return s; }
+
+  function buildReportText(kind, notes){
+    var res=resolved(), r=checkBuild(res), n=Object.keys(build).length, lines=[];
+    var verdict = n===0 ? 'No parts chosen'
+      : r.errors.length   ? ('✗ '+r.errors.length+' problem'+(r.errors.length>1?'s':''))
+      : r.warnings.length ? ('⚠ Works, '+r.warnings.length+' to check')
+      : '✓ No conflicts found';
+    lines.push('What’s off:  '+(KIND_LABEL[kind]||kind));
+    if(notes && notes.trim()){ lines.push('Details:     '+notes.trim()); }
+    lines.push('');
+    lines.push('Verdict the app showed:  '+verdict);
+    r.errors.forEach(function(m){ lines.push('   ✗ '+m); });
+    r.warnings.forEach(function(m){ lines.push('   ⚠ '+m); });
+    r.infos.forEach(function(m){ lines.push('   i  '+m); });
+    lines.push('');
+    lines.push('Build:');
+    SLOTS.forEach(function(s){ var p=res[s.key];
+      if(p){ lines.push('   '+padLabel(s.label)+' '+p.brand+' '+p.model+' ['+p.id+']'+(partVerified(p)?'  ✓verified':'')); } });
+    lines.push('');
+    writeHash();
+    lines.push('Reproduce (opens this exact build):');
+    lines.push('   '+location.href);
+    lines.push('');
+    lines.push('— Reported from TrailBuilder prototype, '+new Date().toISOString().slice(0,10));
+    return lines.join('\n');
+  }
+  function refreshReportPreview(){ $('reportPreview').textContent = buildReportText($('reportKind').value, $('reportNotes').value); }
+  function openReport(){
+    if(!Object.keys(build).length){ toast('Add a part first, then you can flag its verdict'); return; }
+    var r=checkBuild(resolved());
+    $('reportKind').value = r.errors.length ? 'false-clash' : 'false-fit';   // default to the most likely complaint
+    refreshReportPreview();
+    $('reportGithub').hidden = !REPORT_REPO;
+    $('reportModal').showModal();
+  }
+  function copyReport(){
+    var txt=$('reportPreview').textContent;
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ toast('Report copied — paste it into an email or issue'); }, function(){ fallbackCopyReport(txt); });
+    } else { fallbackCopyReport(txt); }
+  }
+  function fallbackCopyReport(txt){
+    try{ var ta=document.createElement('textarea'); ta.value=txt; ta.style.position='fixed'; ta.style.top='-1000px'; document.body.appendChild(ta);
+      ta.focus(); ta.select(); var ok=document.execCommand('copy'); document.body.removeChild(ta);
+      toast(ok?'Report copied to clipboard':'Select the preview text and press Ctrl+C to copy'); }
+    catch(e){ toast('Select the preview text and press Ctrl+C to copy'); }
+  }
+  function openReportGitHub(){
+    if(!REPORT_REPO) return;
+    var kind=$('reportKind').value;
+    var url='https://github.com/'+REPORT_REPO+'/issues/new?labels=wrong-verdict'+
+            '&title='+encodeURIComponent('Wrong verdict: '+(KIND_LABEL[kind]||'report'))+
+            '&body='+encodeURIComponent(buildReportText(kind, $('reportNotes').value));
+    window.open(url, '_blank', 'noopener');
+    $('reportModal').close();
   }
 
   function sync(){ renderCatalog(); renderPanel(); renderReport(); writeHash(); }
@@ -409,6 +528,14 @@
     if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(
       function(){toast('Build link copied to clipboard');}, function(){toast('Build saved in the address bar');}); }
     else toast('Build saved in the address bar'); };
+
+  $('reportBtn').onclick=openReport;
+  $('reportCancel').onclick=function(){ $('reportModal').close(); };
+  $('reportKind').onchange=refreshReportPreview;
+  $('reportNotes').addEventListener('input', refreshReportPreview);
+  $('reportCopy').onclick=copyReport;
+  $('reportGithub').onclick=openReportGitHub;
+  $('reportModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });   // click backdrop to dismiss
 
   readHash(); renderChips(); sync();
 })();
