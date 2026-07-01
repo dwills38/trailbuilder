@@ -97,6 +97,12 @@ var PARTS = [
   { id:'fr-giga', cat:'frame', brand:'Nukeproof', model:'Giga 290', price:3400, weight:3500, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:220, shockEye:205, shockStroke:65, shockMount:'trunnion', maxForkTravel:180, travel:170, udh:false, bundledShock:null, frameOnly:true },
   { id:'fr-process', cat:'frame', brand:'Kona', model:'Process 153', price:3000, weight:3600, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:203, shockEye:230, shockStroke:65, shockMount:'std', maxForkTravel:170, travel:153, udh:false, bundledShock:null, frameOnly:true },
   { id:'fr-rallon', cat:'frame', brand:'Orbea', model:'Rallon M-Team', price:5000, weight:3300, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:203, shockEye:205, shockStroke:65, shockMount:'trunnion', maxForkTravel:170, travel:160, udh:false, bundledShock:null, frameOnly:true },
+  { id:'fr-altitude', cat:'frame', brand:'Rocky Mountain', model:'Altitude C70', price:4500, weight:3400, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:30.9, brakeMount:'PM', maxRotorR:203, shockEye:205, shockStroke:65, shockMount:'trunnion', maxForkTravel:170, travel:160, udh:true, bundledShock:null, frameOnly:true },
+  { id:'fr-metasx', cat:'frame', brand:'Commencal', model:'Meta SX', price:2600, weight:3700, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:220, shockEye:205, shockStroke:65, shockMount:'trunnion', maxForkTravel:180, travel:170, udh:true, bundledShock:null, frameOnly:true },
+  { id:'fr-spindrift', cat:'frame', brand:'Propain', model:'Spindrift CF', price:3600, weight:3400, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:220, shockEye:230, shockStroke:65, shockMount:'std', maxForkTravel:180, travel:170, udh:true, bundledShock:null, frameOnly:true },
+  { id:'fr-hd6', cat:'frame', brand:'Ibis', model:'HD6', price:3999, weight:3300, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:203, shockEye:230, shockStroke:65, shockMount:'std', maxForkTravel:170, travel:165, udh:false, bundledShock:null, frameOnly:true },
+  { id:'fr-dreadnought', cat:'frame', brand:'Forbidden', model:'Dreadnought', price:3700, weight:3500, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:30.9, brakeMount:'PM', maxRotorR:203, shockEye:205, shockStroke:65, shockMount:'trunnion', maxForkTravel:180, travel:154, udh:true, bundledShock:null, frameOnly:true },
+  { id:'fr-sb160', cat:'frame', brand:'Yeti', model:'SB160', price:5500, weight:3200, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:203, shockEye:230, shockStroke:65, shockMount:'std', maxForkTravel:170, travel:160, udh:false, bundledShock:null, frameOnly:true },
 
   /* FORKS (front only; wheel = front size) */
   { id:'fk-zeb', cat:'fork', brand:'RockShox', model:'ZEB Ultimate 170', price:1099, weight:2150, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220 },
@@ -116,6 +122,11 @@ var PARTS = [
   { id:'fk-rxf36', cat:'fork', brand:'Öhlins', model:'RXF36 m.2 160', price:1150, weight:2000, wheel:'29', travel:160, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
   { id:'fk-domain', cat:'fork', brand:'RockShox', model:'Domain RC 170', price:500, weight:2500, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:200 },
   { id:'fk-mattoc', cat:'fork', brand:'Manitou', model:'Mattoc Pro 160', price:800, weight:1950, wheel:'29', travel:160, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
+  { id:'fk-mrp', cat:'fork', brand:'MRP', model:'Ribbon Air 160', price:850, weight:2000, wheel:'29', travel:160, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
+  { id:'fk-durolux', cat:'fork', brand:'SR Suntour', model:'Durolux R2C2 170', price:450, weight:2400, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
+  { id:'fk-xfusion', cat:'fork', brand:'X-Fusion', model:'Trace 36 HLR 170', price:600, weight:2250, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
+  { id:'fk-dt535', cat:'fork', brand:'DT Swiss', model:'F 535 One 160', price:1000, weight:2100, wheel:'29', travel:160, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
+  { id:'fk-push', cat:'fork', brand:'Push', model:'Nine.One Coil 160', price:2000, weight:2400, wheel:'29', travel:160, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
 
   /* REAR SHOCKS */
   { id:'sh-sd-air', cat:'shock', brand:'RockShox', model:'Super Deluxe Ultimate (air)', price:549, weight:480, eye:230, stroke:65, mount:'std', spring:'air', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/rockshox/models/rs-sdlx-ult-c2' },
@@ -133,6 +144,10 @@ var PARTS = [
   { id:'sh-kitsuma', cat:'shock', brand:'Cane Creek', model:'Kitsuma Coil', price:600, weight:760, eye:230, stroke:65, mount:'std', spring:'coil' },
   { id:'sh-x2-std', cat:'shock', brand:'Fox', model:'Float X2 (230x65)', price:649, weight:530, eye:230, stroke:65, mount:'std', spring:'air' },
   { id:'sh-vivid-trun', cat:'shock', brand:'RockShox', model:'Vivid (trunnion)', price:600, weight:520, eye:205, stroke:65, mount:'trunnion', spring:'air' },
+  { id:'sh-marzocchi-cr', cat:'shock', brand:'Marzocchi', model:'Bomber CR (coil)', price:400, weight:780, eye:230, stroke:65, mount:'std', spring:'coil' },
+  { id:'sh-jade', cat:'shock', brand:'DVO', model:'Jade X (coil)', price:550, weight:770, eye:230, stroke:65, mount:'std', spring:'coil' },
+  { id:'sh-mara', cat:'shock', brand:'Manitou', model:'Mara Pro (air)', price:500, weight:490, eye:230, stroke:65, mount:'std', spring:'air' },
+  { id:'sh-elevensix', cat:'shock', brand:'Push', model:'Eleven Six (coil)', price:1150, weight:750, eye:230, stroke:65, mount:'std', spring:'coil' },
 
   /* FRONT WHEELS */
   { id:'fw-dt', cat:'frontwheel', brand:'DT Swiss', model:'EX 1700 front', price:350, weight:1000, wheel:'29', hub:'Boost110', rotorMount:'CL', intWidth:30, maxTire:2.5 },
@@ -150,6 +165,10 @@ var PARTS = [
   { id:'fw-hunt', cat:'frontwheel', brand:'Hunt', model:'Enduro Wide front', price:350, weight:980, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6 },
   { id:'fw-spank', cat:'frontwheel', brand:'Spank', model:'359 front', price:300, weight:1000, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:31, maxTire:2.6 },
   { id:'fw-mt500', cat:'frontwheel', brand:'Shimano', model:'MT500 front', price:150, weight:1050, wheel:'29', hub:'Boost110', rotorMount:'CL', intWidth:30, maxTire:2.5 },
+  { id:'fw-rf', cat:'frontwheel', brand:'Race Face', model:'Turbine SL front', price:500, weight:900, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6 },
+  { id:'fw-bontrager', cat:'frontwheel', brand:'Bontrager', model:'Line Pro 30 front', price:550, weight:910, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6 },
+  { id:'fw-mavic', cat:'frontwheel', brand:'Mavic', model:'Deemax front', price:600, weight:950, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6 },
+  { id:'fw-giant', cat:'frontwheel', brand:'Giant', model:'TRX 0 front', price:700, weight:890, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.5 },
 
   /* REAR WHEELS (rw-dt275 is the common mullet rear) */
   { id:'rw-dt', cat:'rearwheel', brand:'DT Swiss', model:'EX 1700 rear', price:400, weight:1150, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'CL', intWidth:30, maxTire:2.5 },
@@ -167,6 +186,10 @@ var PARTS = [
   { id:'rw-hunt', cat:'rearwheel', brand:'Hunt', model:'Enduro Wide rear', price:450, weight:1150, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:30, maxTire:2.6 },
   { id:'rw-spank', cat:'rearwheel', brand:'Spank', model:'359 rear', price:400, weight:1180, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:31, maxTire:2.6 },
   { id:'rw-mt500', cat:'rearwheel', brand:'Shimano', model:'MT510 rear', price:200, weight:1250, wheel:'29', hub:'Boost148', freehub:'HG', rotorMount:'CL', intWidth:30, maxTire:2.5 },
+  { id:'rw-rf', cat:'rearwheel', brand:'Race Face', model:'Turbine SL rear', price:600, weight:1050, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.6 },
+  { id:'rw-bontrager', cat:'rearwheel', brand:'Bontrager', model:'Line Pro 30 rear', price:650, weight:1060, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:30, maxTire:2.6 },
+  { id:'rw-mavic', cat:'rearwheel', brand:'Mavic', model:'Deemax rear', price:700, weight:1100, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.6 },
+  { id:'rw-giant', cat:'rearwheel', brand:'Giant', model:'TRX 0 rear', price:800, weight:1040, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.5 },
 
   /* TIRES (each a size-specific model; front + rear chosen separately) */
   { id:'ti-assegai-29', cat:'tire', brand:'Maxxis', model:'Assegai 29x2.5', price:90, weight:1320, wheel:'29', width:2.5 },
@@ -188,6 +211,12 @@ var PARTS = [
   { id:'ti-argotal-29', cat:'tire', brand:'Continental', model:'Argotal 29x2.4', price:80, weight:1240, wheel:'29', width:2.4 },
   { id:'ti-mazza-29', cat:'tire', brand:'Vittoria', model:'Mazza 29x2.4', price:70, weight:1230, wheel:'29', width:2.4 },
   { id:'ti-mary-275', cat:'tire', brand:'Schwalbe', model:'Magic Mary 27.5x2.4', price:85, weight:1240, wheel:'275', width:2.4 },
+  { id:'ti-aggressor-29', cat:'tire', brand:'Maxxis', model:'Aggressor 29x2.3', price:70, weight:1100, wheel:'29', width:2.3 },
+  { id:'ti-vigilante-29', cat:'tire', brand:'WTB', model:'Vigilante 29x2.5', price:75, weight:1250, wheel:'29', width:2.5 },
+  { id:'ti-judge-29', cat:'tire', brand:'WTB', model:'Judge 29x2.4', price:80, weight:1300, wheel:'29', width:2.4 },
+  { id:'ti-hellkat-29', cat:'tire', brand:'Kenda', model:'Hellkat 29x2.4', price:65, weight:1280, wheel:'29', width:2.4 },
+  { id:'ti-newton-29', cat:'tire', brand:'Goodyear', model:'Newton MTF 29x2.4', price:75, weight:1240, wheel:'29', width:2.4 },
+  { id:'ti-dh22-29', cat:'tire', brand:'Michelin', model:'DH22 29x2.4', price:85, weight:1400, wheel:'29', width:2.4 },
 
   /* DRIVETRAIN COMPONENTS */
   { id:'sft-gx-t', cat:'shifter', brand:'SRAM', model:'GX Transmission Pod', price:150, weight:70, system:'sram-transmission', speeds:12 },
@@ -199,6 +228,7 @@ var PARTS = [
   { id:'sft-nx', cat:'shifter', brand:'SRAM', model:'NX Eagle Trigger', price:38, weight:130, system:'sram-eagle', speeds:12 },
   { id:'sft-xtr', cat:'shifter', brand:'Shimano', model:'XTR M9100', price:130, weight:110, system:'shimano-12', speeds:12 },
   { id:'sft-deore', cat:'shifter', brand:'Shimano', model:'Deore M6100', price:30, weight:125, system:'shimano-12', speeds:12 },
+  { id:'sft-gx-axs', cat:'shifter', brand:'SRAM', model:'GX Eagle AXS Controller', price:150, weight:90, system:'sram-eagle', speeds:12 },
   { id:'dr-gx-t', cat:'derailleur', brand:'SRAM', model:'GX Transmission', price:400, weight:470, system:'sram-transmission', speeds:12, maxCog:52, mount:'udh-direct', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/rd-gx-e-b1' },
   { id:'dr-gx-m', cat:'derailleur', brand:'SRAM', model:'GX Eagle', price:135, weight:290, system:'sram-eagle', speeds:12, maxCog:52, mount:'hanger', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/rd-gx-1-b2' },
   { id:'dr-xt', cat:'derailleur', brand:'Shimano', model:'XT M8100 SGS', price:120, weight:284, system:'shimano-12', speeds:12, maxCog:51, mount:'hanger' },
@@ -209,6 +239,7 @@ var PARTS = [
   { id:'dr-x01', cat:'derailleur', brand:'SRAM', model:'X01 Eagle', price:290, weight:276, system:'sram-eagle', speeds:12, maxCog:52, mount:'hanger' },
   { id:'dr-xtr', cat:'derailleur', brand:'Shimano', model:'XTR M9100 SGS', price:290, weight:241, system:'shimano-12', speeds:12, maxCog:51, mount:'hanger' },
   { id:'dr-deore', cat:'derailleur', brand:'Shimano', model:'Deore M6100 SGS', price:60, weight:322, system:'shimano-12', speeds:12, maxCog:51, mount:'hanger' },
+  { id:'dr-gx-axs', cat:'derailleur', brand:'SRAM', model:'GX Eagle AXS', price:380, weight:350, system:'sram-eagle', speeds:12, maxCog:52, mount:'hanger' },
   { id:'ca-sram-t', cat:'cassette', brand:'SRAM', model:'XS-1275 Transmission 10-52', price:380, weight:445, system:'sram-transmission', speeds:12, freehub:'XD', range:'10-52', maxCog:52, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/cs-xs-1275-a1' },
   { id:'ca-sram-e', cat:'cassette', brand:'SRAM', model:'XG-1275 Eagle 10-52', price:215, weight:450, system:'sram-eagle', speeds:12, freehub:'XD', range:'10-52', maxCog:52, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/cs-xg-1275-b1' },
   { id:'ca-xt', cat:'cassette', brand:'Shimano', model:'CS-M8100 10-51', price:185, weight:470, system:'shimano-12', speeds:12, freehub:'MicroSpline', range:'10-51', maxCog:51, verified:true, lastChecked:'2026-06-22', source:'https://bike.shimano.com/en-US/product/component/deore-xt-m8100/CS-M8100-12.html' },
@@ -235,6 +266,7 @@ var PARTS = [
   { id:'cr-xtr', cat:'crankset', brand:'Shimano', model:'XTR M9100', price:400, weight:530, bb:'SH24', ring:32, speeds:12, chainline:'Boost' },
   { id:'cr-deore', cat:'crankset', brand:'Shimano', model:'Deore M6100', price:75, weight:685, bb:'SH24', ring:30, speeds:12, chainline:'Boost' },
   { id:'cr-e13', cat:'crankset', brand:'e*thirteen', model:'Plus DUB', price:200, weight:640, bb:'DUB', ring:32, speeds:12, chainline:'Boost' },
+  { id:'cr-eewings', cat:'crankset', brand:'Cane Creek', model:'eeWings AllMountain', price:500, weight:400, bb:'DUB', ring:32, speeds:12, chainline:'Boost' },
 
   /* BRAKES (single caliper+lever; usable front or rear) */
   { id:'bk-code', cat:'brake', brand:'SRAM', model:'Code RSC', price:140, weight:290, mount:'PM', pistons:4 },
@@ -254,6 +286,10 @@ var PARTS = [
   { id:'bk-g2', cat:'brake', brand:'SRAM', model:'G2 RSC', price:160, weight:275, mount:'PM', pistons:4 },
   { id:'bk-hope-e4', cat:'brake', brand:'Hope', model:'Tech 4 E4', price:200, weight:280, mount:'PM', pistons:4 },
   { id:'bk-trail-evo', cat:'brake', brand:'TRP', model:'Trail EVO', price:130, weight:295, mount:'PM', pistons:4 },
+  { id:'bk-trickstuff', cat:'brake', brand:'Trickstuff', model:'Maxima', price:900, weight:280, mount:'PM', pistons:4 },
+  { id:'bk-db8', cat:'brake', brand:'SRAM', model:'DB8', price:100, weight:320, mount:'PM', pistons:4 },
+  { id:'bk-deore-4', cat:'brake', brand:'Shimano', model:'Deore M6120 4-piston', price:60, weight:315, mount:'PM', pistons:4 },
+  { id:'bk-mt-trail', cat:'brake', brand:'Magura', model:'MT Trail Sport', price:130, weight:290, mount:'PM', pistons:4 },
 
   /* ROTORS (usable front or rear) */
   { id:'ro-hs2-200', cat:'rotor', brand:'SRAM', model:'HS2 200mm', price:55, weight:150, size:200, mount:'sixbolt' },
@@ -270,6 +306,9 @@ var PARTS = [
   { id:'ro-trp-203', cat:'rotor', brand:'TRP', model:'203mm (6-bolt)', price:40, weight:175, size:203, mount:'sixbolt' },
   { id:'ro-magura-220', cat:'rotor', brand:'Magura', model:'MDR-P 220mm (6-bolt)', price:50, weight:200, size:220, mount:'sixbolt' },
   { id:'ro-hope-220', cat:'rotor', brand:'Hope', model:'Floating 220mm (6-bolt)', price:55, weight:205, size:220, mount:'sixbolt' },
+  { id:'ro-centerline-180', cat:'rotor', brand:'SRAM', model:'CenterLine 180mm (CL)', price:40, weight:130, size:180, mount:'CL' },
+  { id:'ro-trickstuff-203', cat:'rotor', brand:'Trickstuff', model:'Dächle 203mm (6-bolt)', price:90, weight:150, size:203, mount:'sixbolt' },
+  { id:'ro-formula-220', cat:'rotor', brand:'Formula', model:'220mm (6-bolt)', price:55, weight:205, size:220, mount:'sixbolt' },
 
   /* COCKPIT COMPONENTS */
   { id:'hb-fatbar', cat:'handlebar', brand:'Renthal', model:'Fatbar 35', price:120, weight:320, clamp:35, width:800, rise:30, material:'alu' },
@@ -284,6 +323,10 @@ var PARTS = [
   { id:'hb-chromag', cat:'handlebar', brand:'Chromag', model:'Fubars OSX 31.8', price:85, weight:340, clamp:31.8, width:800, rise:25, material:'alu' },
   { id:'hb-nukeproof', cat:'handlebar', brand:'Nukeproof', model:'Horizon V2 35', price:75, weight:325, clamp:35, width:800, rise:25, material:'alu' },
   { id:'hb-cb', cat:'handlebar', brand:'Crankbrothers', model:'Synthesis Enduro 35', price:170, weight:230, clamp:35, width:800, rise:20, material:'carbon' },
+  { id:'hb-easton', cat:'handlebar', brand:'Easton', model:'Haven 35', price:150, weight:240, clamp:35, width:800, rise:20, material:'carbon' },
+  { id:'hb-answer', cat:'handlebar', brand:'Answer', model:'ProTaper 35', price:70, weight:330, clamp:35, width:800, rise:25, material:'alu' },
+  { id:'hb-pro', cat:'handlebar', brand:'PRO', model:'Tharsis 35', price:160, weight:235, clamp:35, width:800, rise:20, material:'carbon' },
+  { id:'hb-truvativ', cat:'handlebar', brand:'Truvativ', model:'Descendant 35', price:120, weight:250, clamp:35, width:800, rise:20, material:'carbon' },
   { id:'st-apex', cat:'stem', brand:'Renthal', model:'Apex 35', price:80, weight:120, clamp:35, length:40 },
   { id:'st-oneup', cat:'stem', brand:'OneUp', model:'Stem 35', price:60, weight:130, clamp:35, length:35 },
   { id:'st-pnw', cat:'stem', brand:'PNW', model:'Range 31.8', price:45, weight:110, clamp:31.8, length:40 },
@@ -296,6 +339,10 @@ var PARTS = [
   { id:'st-hope', cat:'stem', brand:'Hope', model:'AM 35', price:100, weight:120, clamp:35, length:50 },
   { id:'st-i9', cat:'stem', brand:'Industry Nine', model:'A35', price:150, weight:115, clamp:35, length:40 },
   { id:'st-thomson', cat:'stem', brand:'Thomson', model:'Elite X4 31.8', price:110, weight:145, clamp:31.8, length:50 },
+  { id:'st-wolftooth', cat:'stem', brand:'Wolf Tooth', model:'35', price:110, weight:130, clamp:35, length:40 },
+  { id:'st-funn', cat:'stem', brand:'Funn', model:'RSX 35', price:60, weight:140, clamp:35, length:45 },
+  { id:'st-straitline', cat:'stem', brand:'Straitline', model:'35', price:130, weight:125, clamp:35, length:50 },
+  { id:'st-pro', cat:'stem', brand:'PRO', model:'Tharsis 35', price:100, weight:130, clamp:35, length:45 },
   { id:'gr-oneup', cat:'grips', brand:'OneUp', model:'Lock-On Grips', price:20, weight:100 },
   { id:'gr-esi', cat:'grips', brand:'ESI', model:'Chunky', price:18, weight:60 },
   { id:'gr-pnw', cat:'grips', brand:'PNW', model:'Loam Grips', price:22, weight:110 },
@@ -307,6 +354,10 @@ var PARTS = [
   { id:'gr-renthal', cat:'grips', brand:'Renthal', model:'Traction', price:25, weight:115 },
   { id:'gr-lizard', cat:'grips', brand:'Lizard Skins', model:'Charger Evo', price:18, weight:100 },
   { id:'gr-wtb', cat:'grips', brand:'WTB', model:'Wafflegrip', price:20, weight:120 },
+  { id:'gr-rf', cat:'grips', brand:'Race Face', model:'Half Nelson', price:22, weight:105 },
+  { id:'gr-deity', cat:'grips', brand:'Deity', model:'Knuckleduster', price:20, weight:115 },
+  { id:'gr-sdg', cat:'grips', brand:'SDG', model:'Slater', price:20, weight:100 },
+  { id:'gr-supacaz', cat:'grips', brand:'Supacaz', model:'Grizips', price:25, weight:110 },
 
   /* DROPPER POSTS */
   { id:'dp-reverb', cat:'dropper', brand:'RockShox', model:'Reverb AXS', price:800, weight:700, diameter:31.6, drop:170 },
@@ -322,6 +373,10 @@ var PARTS = [
   { id:'dp-fallline', cat:'dropper', brand:'9point8', model:'Fall Line R', price:300, weight:560, diameter:31.6, drop:175 },
   { id:'dp-kslev', cat:'dropper', brand:'KS', model:'LEV Integra', price:300, weight:595, diameter:31.6, drop:175 },
   { id:'dp-pnw-349', cat:'dropper', brand:'PNW', model:'Loam 34.9', price:220, weight:650, diameter:34.9, drop:200 },
+  { id:'dp-tellis', cat:'dropper', brand:'SDG', model:'Tellis', price:200, weight:595, diameter:31.6, drop:170 },
+  { id:'dp-rf', cat:'dropper', brand:'Race Face', model:'Turbine R', price:300, weight:600, diameter:31.6, drop:175 },
+  { id:'dp-e13', cat:'dropper', brand:'e*thirteen', model:'Vario Infinite', price:280, weight:630, diameter:31.6, drop:180 },
+  { id:'dp-command', cat:'dropper', brand:'Specialized', model:'Command Post', price:250, weight:600, diameter:30.9, drop:160 },
 
   /* SADDLES */
   { id:'sa-volt', cat:'saddle', brand:'WTB', model:'Volt', price:90, weight:260 },
@@ -336,6 +391,10 @@ var PARTS = [
   { id:'sa-alpaca', cat:'saddle', brand:'Fizik', model:'Terra Alpaca', price:100, weight:235 },
   { id:'sa-rf', cat:'saddle', brand:'Race Face', model:'Aeffect', price:60, weight:270 },
   { id:'sa-chromag', cat:'saddle', brand:'Chromag', model:'Trailmaster', price:120, weight:290 },
+  { id:'sa-bontrager', cat:'saddle', brand:'Bontrager', model:'Arvada', price:80, weight:260 },
+  { id:'sa-selle', cat:'saddle', brand:'Selle Italia', model:'Model X', price:90, weight:270 },
+  { id:'sa-pnw', cat:'saddle', brand:'PNW', model:'Loam', price:60, weight:265 },
+  { id:'sa-dmr', cat:'saddle', brand:'DMR', model:'OiOi', price:40, weight:300 },
 
   /* PRESETS (bundle price + bundle weight; fills maps slot -> component id) */
   { id:'gs-gx-t', cat:'groupset', brand:'SRAM', model:'GX Eagle Transmission', desc:'AXS . 12-spd . needs UDH frame', price:1099, weight:1725, fills:{ shifter:'sft-gx-t', derailleur:'dr-gx-t', cassette:'ca-sram-t', chain:'ch-flattop', crankset:'cr-x0t' } },
