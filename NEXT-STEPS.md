@@ -2,7 +2,7 @@
 
 _A living snapshot. Architecture/conventions live in `CLAUDE.md`; full history in `git log`._
 
-## Where we are (as of 2026-06-30)
+## Where we are (as of 2026-07-01)
 
 TrailBuilder — "PCPartPicker for enduro mountain bikes": pick parts, get real-time
 fit / price / weight checks. Plain static app (`index.html` + `src/`), no build step.
@@ -10,15 +10,18 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
 **Solid foundation, honestly-scoped prototype:**
 
 - **Layout & tooling:** `src/` + `test/`; full-`strict` JSDoc type-checking (`npm run typecheck`);
-  Vitest (`npm test` — **83 tests**); GitHub Actions CI; and a GitHub Pages deploy workflow that's
+  Vitest (`npm test` — **89 tests**); GitHub Actions CI; and a GitHub Pages deploy workflow that's
   ready but **not yet deployed** (no git remote / `gh` in this environment).
-- **Engine:** 17 compatibility rules + a regression/fuzz **fortress** (`test/test-invariants.js`),
-  proven crash-free and deterministic. Verdicts are *self-consistent* — **not yet validated against
-  the real world** (no expert review, no real riders).
-- **Data:** 105 parts, **11 verified** against manufacturer pages (most of two SRAM drivetrains);
-  the rest is clearly-badged sample data. Provenance shows in the app (✓ Verified badges with
-  source links + an "✓ Verified only" filter). The all-clear reads "No conflicts found", not
-  "All compatible" — on purpose.
+- **Engine:** 18 compatibility rules + a regression/fuzz **fortress** (`test/test-invariants.js`),
+  proven crash-free, deterministic, and now **dot-honest** — a false-green preset dot (a "fits" that
+  didn't) was found by audit and fixed, and an invariant guarantees a green dot never hides a
+  newly-introduced conflict, plus clean verdict messages (no `undefined`/`NaN`). Verdicts are
+  *self-consistent* — **not yet validated against the real world** (no expert review, no real riders).
+- **Data:** 105 parts on `main`, **11 verified** against manufacturer pages (most of two SRAM
+  drivetrains); the rest is clearly-badged sample data. (A `more-sample-parts` branch adds ~37 more
+  unverified sample parts across 18 new brands for beta breadth — **unmerged, pending review**.)
+  Provenance shows in the app (✓ Verified badges with source links + an "✓ Verified only" filter).
+  The all-clear reads "No conflicts found", not "All compatible" — on purpose.
 - **Try it:** open `TrailBuilder-sample.html` (generated standalone, double-click) or `index.html`.
 
 ## Next 1–3 steps (priority order)
@@ -31,7 +34,7 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
    _Needs you:_ push to GitHub (`gh repo create trailbuilder --public --source=. --push`) and set Pages
    source to "GitHub Actions" (`.github/workflows/deploy.yml` is ready). Real usage is the only thing
    that validates the rules and turns the community into QA.
-2. **Domain-expert rule review.** A mechanic/engineer sanity-checks the 17 rules + the verified
+2. **Domain-expert rule review.** A mechanic/engineer sanity-checks the 18 rules + the verified
    specs. Irreplaceable for "the community can rely on it." _Needs a real wrench._
 3. **Then: grow coverage + verified data.** The rear-tire-vs-frame-clearance rule (optional
    `frame.maxTire`) is now **scaffolded + dormant** (rule 18 + tests in `test/test-engine.js`) — the
