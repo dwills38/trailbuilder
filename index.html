@@ -176,7 +176,7 @@
   part shows a green <b>✓ Verified</b> badge (checked against the manufacturer, with a source link). Logic
   lives in <code>src/compat.js</code>; run <code>node validate.js</code> to check the data and <code>npm test</code> for
   the suite. <b>Mullet</b> (29 front / 27.5 rear) builds work on mullet-capable frames — try the <b>Mullet build</b> demo
-  or pick a 27.5 rear wheel + tire on the RAAW Madonna.</p>
+  or pick a 27.5 rear wheel + tire on the YT Capra.</p>
 </footer>
 
 <div class="toast" id="toast"></div>
@@ -528,7 +528,7 @@
     sync(); toast('Loaded a fully compatible build (kit pricing on)');
   }
   function loadDeal(){
-    build={ frame:'fr-enduro',shock:'sh-genie-oem',fork:'fk-zeb',frontWheel:'fw-roval',rearWheel:'rw-roval',
+    build={ frame:'fr-enduro',shock:'sh-vivid-oem',fork:'fk-zeb',frontWheel:'fw-roval',rearWheel:'rw-roval',
       frontTire:'ti-assegai-29',rearTire:'ti-assegai-29',shifter:'sft-gx-m',derailleur:'dr-gx-m',cassette:'ca-sram-e',chain:'ch-eagle',crankset:'cr-gx',
       frontBrake:'bk-code',rearBrake:'bk-code',frontRotor:'ro-hs2-200',rearRotor:'ro-hs2-200',
       handlebar:'hb-fatbar',stem:'st-apex',grips:'gr-oneup',dropper:'dp-oneup-349',saddle:'sa-volt' };
@@ -544,12 +544,12 @@
     sync(); toast('Loaded a build full of clashes');
   }
   function loadMullet(){
-    build={ frame:'fr-madonna',fork:'fk-zeb',shock:'sh-sd-trun',frontWheel:'fw-reserve',rearWheel:'rw-dt275',
+    build={ frame:'fr-capra',fork:'fk-zeb',shock:'sh-sd-air',frontWheel:'fw-reserve',rearWheel:'rw-dt275',
       frontTire:'ti-assegai-29',rearTire:'ti-dhr-275',shifter:'sft-xt',derailleur:'dr-xt',cassette:'ca-xt',chain:'ch-shimano',crankset:'cr-xt',
       frontBrake:'bk-xt',rearBrake:'bk-xt',frontRotor:'ro-6b-203',rearRotor:'ro-cl-203',
       handlebar:'hb-fatbar',stem:'st-apex',grips:'gr-oneup',dropper:'dp-oneup',saddle:'sa-volt' };
     presetBy={};
-    sync(); toast('Mullet build: 29 front / 27.5 rear on the RAAW Madonna');
+    sync(); toast('Mullet build: 29 front / 27.5 rear on the YT Capra');
   }
 
   $('search').addEventListener('input', function(e){ search=e.target.value; renderCatalog(); });

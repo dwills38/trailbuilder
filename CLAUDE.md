@@ -122,9 +122,9 @@ false "won't fit" OR a false "fits" is worse than a missing rule.** Candidates c
   are fuzzy/standards-dependent — needs sourcing; would be a soft warning.
 - **Oversize-rotor adapter** needed when a rotor exceeds the native mount: today rule 10 already
   *warns* on exceeding the max; an adapter *info* could be added. Low priority.
-- **Crankset chainline vs frame (Boost vs SuperBoost) — REJECTED for now.** Too nuanced: our own
-  `fr-enduro` (Specialized Enduro) is SuperBoost-157 yet intentionally uses a Boost-chainline
-  crank, so a naive "SuperBoost frame needs a SuperBoost crank" rule would fire a FALSE error.
+- **Crankset chainline vs frame (Boost vs SuperBoost) — REJECTED for now.** Too nuanced: SuperBoost
+  frames (e.g. `fr-firebird`, the Pivot Firebird) are commonly ridden with Boost-chainline cranks,
+  so a naive "SuperBoost frame needs a SuperBoost crank" rule would fire a FALSE error.
   Needs real per-frame data + domain-expert input before it's safe.
 
 Tests + types + the validator catch regressions and crashes (see `test/test-invariants.js`), but
@@ -140,11 +140,12 @@ components. `presetBy` maps groupKey → preset id.
 ## Provenance
 
 Parts may carry `verified: true` + `lastChecked: "YYYY-MM-DD"` + `source: "https://…"`.
-Absence = unverified (still the default for most of the catalog; **11 parts are verified so
+Absence = unverified (still the default for most of the catalog; **12 parts are verified so
 far** — the full SRAM GX Eagle mechanical drivetrain (`ca-sram-e`, `dr-gx-m`, `cr-gx`,
 `ch-eagle`, `sft-gx-m`), most of the GX Eagle Transmission drivetrain (`dr-gx-t`, `ca-sram-t`,
 `ch-flattop`, `cr-x0t` — the AXS pod `sft-gx-t` has no clean model page so it stays sample),
-plus `ca-xt` and `sh-sd-air` — checked against manufacturer pages). The
+plus `ca-xt`, `sh-sd-air` and the `fr-madonna` frame (RAAW publishes a full spec sheet) —
+checked against manufacturer pages). The
 validator **refuses `verified: true` without a real source URL and a non-future date** — so
 "verified" always means something. When you actually confirm a spec against a manufacturer
 page, set the fields to match the source and add those three fields. (`node validate.js`

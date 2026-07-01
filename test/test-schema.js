@@ -69,6 +69,6 @@ test('catalog-level: a frame bundling a non-fitting shock is caught', function()
   some(S.validateCatalog({ PARTS: C.PARTS.concat([ f ]), SLOTS: C.SLOTS }, TODAY), 'does not fit');
 });
 test('catalog-level: an OEM shock with a broken back-link is caught', function(){
-  var s = /** @type {any} */ (Object.assign({}, C.byId('sh-genie-oem'), { id:'sh-badoem', forFrame:'fr-megatower' })); // megatower does not bundle it
+  var s = /** @type {any} */ (Object.assign({}, C.byId('sh-vivid-oem'), { id:'sh-badoem', forFrame:'fr-megatower' })); // megatower does not bundle it
   some(S.validateCatalog({ PARTS: C.PARTS.concat([ s ]), SLOTS: C.SLOTS }, TODAY), 'bidirectional');
 });

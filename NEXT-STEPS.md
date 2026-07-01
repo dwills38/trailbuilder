@@ -17,11 +17,14 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
   didn't) was found by audit and fixed, and an invariant guarantees a green dot never hides a
   newly-introduced conflict, plus clean verdict messages (no `undefined`/`NaN`). Verdicts are
   *self-consistent* — **not yet validated against the real world** (no expert review, no real riders).
-- **Data:** 105 parts on `main`, **11 verified** against manufacturer pages (most of two SRAM
-  drivetrains); the rest is clearly-badged sample data. (A `more-sample-parts` branch adds ~37 more
-  unverified sample parts across 18 new brands for beta breadth — **unmerged, pending review**.)
-  Provenance shows in the app (✓ Verified badges with source links + an "✓ Verified only" filter).
-  The all-clear reads "No conflicts found", not "All compatible" — on purpose.
+- **Data:** 307 parts across ~95 brands, **12 verified** against manufacturer pages (most of two
+  SRAM drivetrains + the RAAW Madonna frame); the rest is clearly-badged sample data. **All 19
+  frames' verdict-driving specs (axle, shock size/mount, UDH, BB, seat tube) were web-sourced
+  2026-07-01** — 14 frames had wrong sample specs fixed (notably: the Specialized Enduro is Boost
+  148 + UDH + 205x60 trunnion, not SuperBoost; the Madonna V2.2 is 29-only and NOT UDH stock).
+  Weights/prices remain approximate. Provenance shows in the app (✓ Verified badges with source
+  links + an "✓ Verified only" filter). The all-clear reads "No conflicts found", not "All
+  compatible" — on purpose.
 - **Try it:** open `TrailBuilder-sample.html` (generated standalone, double-click) or `index.html`.
 
 ## Next 1–3 steps (priority order)

@@ -19,10 +19,10 @@ test('Megatower: a wrong-size shock is red', function(){
   eq(stateOf({frame:'fr-megatower'}, 'sh-floatx-60'), 'r');
 });
 test('Enduro: a fitting (package) shock stays green', function(){
-  eq(stateOf({frame:'fr-enduro'}, 'sh-floatx-60'), 'g');
+  eq(stateOf({frame:'fr-enduro'}, 'sh-sdu-2056'), 'g');
 });
 test('Enduro: its own OEM shock is green', function(){
-  eq(stateOf({frame:'fr-enduro'}, 'sh-genie-oem'), 'g');
+  eq(stateOf({frame:'fr-enduro'}, 'sh-vivid-oem'), 'g');
 });
 test('Enduro: a wrong-size shock is red', function(){
   eq(stateOf({frame:'fr-enduro'}, 'sh-sd-air'), 'r');
@@ -34,7 +34,7 @@ test('Center Lock rotor with two 6-bolt wheels -> red', function(){
   eq(stateOf({frontWheel:'fw-reserve', rearWheel:'rw-reserve'}, 'ro-cl-203'), 'r');
 });
 test('groupset preset red on a non-UDH frame', function(){
-  eq(stateOf({frame:'fr-enduro'}, 'gs-gx-t'), 'r');
+  eq(stateOf({frame:'fr-process'}, 'gs-gx-t'), 'r');
 });
 test('groupset preset green on a UDH frame', function(){
   eq(stateOf({frame:'fr-megatower'}, 'gs-gx-t'), 'g');

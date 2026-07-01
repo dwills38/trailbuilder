@@ -15,16 +15,16 @@ test('29-only frame rejects a 27.5 front (fork) -> error', function(){
   some(chk({frame:'fr-megatower', fork:'fk-zeb-275'}).errors, 'wheel');
 });
 test('mullet (29 front + 27.5 rear) is allowed on a mullet-capable frame', function(){
-  eq(chk({frame:'fr-madonna', fork:'fk-zeb', frontWheel:'fw-reserve', rearWheel:'rw-dt275', frontTire:'ti-assegai-29', rearTire:'ti-dhr-275'}).errors.length, 0);
+  eq(chk({frame:'fr-capra', fork:'fk-zeb', frontWheel:'fw-reserve', rearWheel:'rw-dt275', frontTire:'ti-assegai-29', rearTire:'ti-dhr-275'}).errors.length, 0);
 });
 test('mullet is rejected on a 29-only frame', function(){
   some(chk({frame:'fr-megatower', fork:'fk-zeb', frontWheel:'fw-reserve', rearWheel:'rw-dt275', frontTire:'ti-assegai-29', rearTire:'ti-dhr-275'}).errors, 'Unsupported wheel setup');
 });
 test('SuperBoost frame + Boost rear wheel -> rear axle error', function(){
-  some(chk({frame:'fr-enduro', rearWheel:'rw-reserve'}).errors, 'Rear axle');
+  some(chk({frame:'fr-firebird', rearWheel:'rw-reserve'}).errors, 'Rear axle');
 });
 test('SuperBoost frame + SuperBoost wheel -> ok', function(){
-  eq(chk({frame:'fr-enduro', rearWheel:'rw-roval'}).errors.length, 0);
+  eq(chk({frame:'fr-firebird', rearWheel:'rw-i9-157'}).errors.length, 0);
 });
 test('Shimano cassette on XD wheel -> freehub error', function(){
   some(chk({cassette:'ca-xt', rearWheel:'rw-roval'}).errors, 'Freehub');
@@ -33,7 +33,7 @@ test('SRAM shifter + Shimano derailleur -> system mismatch', function(){
   some(chk({shifter:'sft-gx-m', derailleur:'dr-xt'}).errors, 'Drivetrain mismatch');
 });
 test('Transmission derailleur needs a UDH frame', function(){
-  some(chk({frame:'fr-strive', derailleur:'dr-gx-t'}).errors, 'UDH');
+  some(chk({frame:'fr-process', derailleur:'dr-gx-t'}).errors, 'UDH');
 });
 test('Transmission derailleur is fine on a UDH frame', function(){
   eq(chk({frame:'fr-megatower', derailleur:'dr-gx-t'}).errors.length, 0);
@@ -54,10 +54,10 @@ test('trunnion shock on a standard-mount frame -> mount error', function(){
   some(chk({frame:'fr-megatower', shock:'sh-sd-trun'}).errors, 'mount');
 });
 test('OEM shock cannot go on the wrong frame -> error', function(){
-  some(chk({frame:'fr-megatower', shock:'sh-genie-oem'}).errors, 'OEM');
+  some(chk({frame:'fr-megatower', shock:'sh-vivid-oem'}).errors, 'OEM');
 });
 test('package-only frame + a different (but fitting) shock -> warning, not error', function(){
-  var r = chk({frame:'fr-enduro', shock:'sh-floatx-60'});
+  var r = chk({frame:'fr-enduro', shock:'sh-sdu-2056'});
   eq(r.errors.length, 0); some(r.warnings, 'package-only');
 });
 test('over-travel fork (180 on a 170-rated frame) -> warning', function(){
