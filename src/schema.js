@@ -51,7 +51,8 @@ var SCHEMA = {
     seatTube:{type:'number'}, brakeMount:{type:'string',vocab:'brakeMount'},
     maxRotorR:{type:'number'}, shockEye:{type:'number'}, shockStroke:{type:'number'},
     shockMount:{type:'string',vocab:'shockMount'}, maxForkTravel:{type:'number'}, travel:{type:'number'},
-    udh:{type:'bool'}, frameOnly:{type:'bool'}, bundledShock:{type:'id',optional:true,nullable:true}
+    udh:{type:'bool'}, frameOnly:{type:'bool'}, maxTire:{type:'number',optional:true},
+    bundledShock:{type:'id',optional:true,nullable:true}
   },
   fork: {
     wheel:{type:'string',vocab:'wheel'}, travel:{type:'number'}, axle:{type:'string',vocab:'frontAxle'},

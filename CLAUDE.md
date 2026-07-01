@@ -93,13 +93,14 @@ A build is a map of slotKey → part id. Slots: `frame, fork, shock, frontWheel,
 frontTire, rearTire, shifter, derailleur, cassette, chain, crankset, frontBrake, rearBrake,
 frontRotor, rearRotor, handlebar, stem, grips, dropper, saddle`. (`GROUPS`/`SLOTS` in `compat.js`.)
 
-## Compatibility engine (`checkBuild`) — 17 rule areas
+## Compatibility engine (`checkBuild`) — 18 rule areas
 
 Wheel-size by front/rear group vs frame `wheelConfigs` (incl. mullet = 29 front / 27.5 rear);
 front & rear axles; drivetrain one-system + one-speed; SRAM Transmission needs a UDH frame;
 cassette range vs derailleur capacity; cassette freehub vs rear wheel; brake caliper mounts;
 rotor interface (6-bolt/Center Lock) vs hub; rotor size vs frame/fork max; steerer/headset;
 fork travel vs frame max; dropper diameter vs seat tube; tire width vs wheel clearance;
+rear-tire width vs frame clearance (rule 18 — dormant until a frame declares `maxTire`);
 bar/stem clamp; rear-shock fit (eye×stroke + mount); frame+shock bundling (incl. OEM-only).
 Returns `{errors, warnings, infos}`. Errors = won't fit; warnings = works but check; infos = notes.
 (The all-clear in the app reads "No conflicts found", not "All compatible" — it means no conflict
@@ -111,9 +112,12 @@ The engine only checks the dimensions above; a green verdict is only as complete
 **The bar for adding a rule: it must be backed by manufacturer compatibility docs and tested — a
 false "won't fit" OR a false "fits" is worse than a missing rule.** Candidates considered:
 
-- **Frame rear-tire clearance** (`rTire.width` vs a new optional `frame.maxTire`): a real gotcha,
-  but needs per-frame clearance data we don't have. Safe to add as an optional warning once the
-  data exists (dormant until then).
+- **Frame rear-tire clearance** (`rTire.width` vs optional `frame.maxTire`): ✅ **added as rule 18** —
+  a dormant optional *warning*. It fires only when a frame declares `maxTire`, and no frame does yet,
+  so it can't produce a wrong verdict on the current catalog. **To activate:** add a sourced per-frame
+  `maxTire` (manufacturer clearance spec). `test/test-engine.js` proves it fires when tripped, stays
+  silent within clearance, and stays dormant without data. This is the template for the data-dependent
+  candidates below: land the rule + tests dormant, activate it when sourced data arrives.
 - **Tire vs internal-rim-width range** (too-narrow tire on a wide rim): real, but the thresholds
   are fuzzy/standards-dependent — needs sourcing; would be a soft warning.
 - **Oversize-rotor adapter** needed when a rotor exceeds the native mount: today rule 10 already

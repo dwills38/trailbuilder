@@ -33,9 +33,12 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
    that validates the rules and turns the community into QA.
 2. **Domain-expert rule review.** A mechanic/engineer sanity-checks the 17 rules + the verified
    specs. Irreplaceable for "the community can rely on it." _Needs a real wrench._
-3. **Then: grow coverage + verified data.** Add the data-dependent rules from CLAUDE.md's "Coverage
-   roadmap" (e.g. optional `frame.maxTire` + a rear-tire-clearance check), and decide the
-   measured-weight source policy that unblocks Shimano / rotors / forks.
+3. **Then: grow coverage + verified data.** The rear-tire-vs-frame-clearance rule (optional
+   `frame.maxTire`) is now **scaffolded + dormant** (rule 18 + tests in `test/test-engine.js`) — the
+   only thing left to switch it on is *sourced per-frame `maxTire` data*. Land the other
+   data-dependent candidates from CLAUDE.md's "Coverage roadmap" the same way (rule + tests dormant,
+   activate on data), and decide the measured-weight source policy that unblocks Shimano / rotors /
+   forks.
 
 **The bar, always:** a wrong verdict (false "fits" OR false "won't fit") is worse than a missing
 rule. Only add rules backed by manufacturer docs + tests, and keep `npm test`, `node validate.js`,

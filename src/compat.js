@@ -360,6 +360,13 @@ function checkBuild(build){
   }
   if(shock && shock.oemOnly){ var host=byId(shock.forFrame); if(!frame || frame.id!==shock.forFrame) errors.push('OEM shock: the '+nameOf(shock)+' is only available bundled with the '+nameOf(host)+' - it is not sold separately.'); }
 
+  /* 18. Rear tire vs FRAME clearance (optional frame.maxTire, warning). The
+        frame/swingarm complement to rule 14's rim-clearance check. DORMANT until
+        a frame carries a sourced maxTire - a missing rule beats a wrong one, so
+        it stays silent on the current catalog (no frame sets maxTire yet). */
+  if(rTire && frame && typeof frame.maxTire==='number' && rTire.width>frame.maxTire)
+    warnings.push('Rear tire clearance: '+rTire.width+'in tire is wider than '+nameOf(frame)+'\'s '+frame.maxTire+'in frame max.');
+
   return { errors:errors, warnings:warnings, infos:infos };
 }
 
