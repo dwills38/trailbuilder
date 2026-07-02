@@ -128,6 +128,14 @@
 <main>
   <div class="toolbar">
     <input type="search" id="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" />
+    <select class="btn" id="sortBy" title="Sort the catalog">
+      <option value="featured">Sort: Best match</option>
+      <option value="name">Name A–Z</option>
+      <option value="price-asc">Price: low → high</option>
+      <option value="price-desc">Price: high → low</option>
+      <option value="weight-asc">Weight: light → heavy</option>
+      <option value="weight-desc">Weight: heavy → light</option>
+    </select>
     <button class="btn" id="verifiedOnly" title="Show only parts verified against a manufacturer spec">✓ Verified only</button>
     <button class="btn" id="demoGood">Sample build ✓</button>
     <button class="btn" id="demoDeal">Frame+shock deal 📦</button>
@@ -172,7 +180,8 @@
   <p><b>About this prototype.</b> Pick a whole groupset / wheelset / brake set / cockpit kit (green dashed cards) to drop
   in all the parts at once — that group is then <b>priced as the bundle</b>; swap any single part and it reverts to
   per-part pricing. Every card shows a compatibility dot (green fits, red won&rsquo;t, grey = nothing selected yet) and a
-  sample weight, and the catalog is sorted compatible-first. Specs, prices and weights are illustrative samples unless a
+  sample weight, and the catalog is sorted compatible-first (use the <b>Sort</b> menu to reorder by
+  name, price or weight). Specs, prices and weights are illustrative samples unless a
   part shows a green <b>✓ Verified</b> badge (checked against the manufacturer, with a source link). Logic
   lives in <code>src/compat.js</code>; run <code>node validate.js</code> to check the data and <code>npm test</code> for
   the suite. <b>Mullet</b> (29 front / 27.5 rear) builds work on mullet-capable frames — try the <b>Mullet build</b> demo
@@ -219,6 +228,7 @@
   var presetBy = {};         // groupKey -> preset id (when a kit was quick-filled)
   var activeGroup = 'frame'; // start the catalog on Frames (the foundation)
   var activeSub = 'all';     // active sub-category within a group ('all' = whole group)
+  var sortBy = 'featured';   // catalog order: featured (compatible-first) | name | price | weight
   var search = '';
   var verifiedOnly = false;  // when on, show only manufacturer-verified parts/kits
   var $ = function(id){ return document.getElementById(id); };
@@ -309,7 +319,18 @@
     });
     if(!list.length){ el.innerHTML='<p class="muted">'+(verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':'No parts match.')+'</p>'; return; }
     var meta=list.map(function(p,i){ var c=compatFor(p); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='n'?1:2),pre:isPreset(p)?0:1,i:i}; });
-    meta.sort(function(a,b){ return (a.rank-b.rank) || (a.pre-b.pre) || (a.i-b.i); });
+    // "Best match" keeps the compatible-first order; explicit sorts are pure
+    // (the dot still shows fit). Missing weights sink to the bottom either way.
+    var wt=function(p,missing){ return typeof p.weight==='number' ? p.weight : missing; };
+    var SORTS={
+      featured:      function(a,b){ return (a.rank-b.rank) || (a.pre-b.pre) || (a.i-b.i); },
+      name:          function(a,b){ return (a.p.brand+' '+a.p.model).localeCompare(b.p.brand+' '+b.p.model) || (a.i-b.i); },
+      'price-asc':   function(a,b){ return ((a.p.price||0)-(b.p.price||0)) || (a.i-b.i); },
+      'price-desc':  function(a,b){ return ((b.p.price||0)-(a.p.price||0)) || (a.i-b.i); },
+      'weight-asc':  function(a,b){ return (wt(a.p,Infinity)-wt(b.p,Infinity)) || (a.i-b.i); },
+      'weight-desc': function(a,b){ return (wt(b.p,-Infinity)-wt(a.p,-Infinity)) || (a.i-b.i); }
+    };
+    meta.sort(SORTS[sortBy] || SORTS.featured);
     meta.forEach(function(m){ el.appendChild(cardEl(m.p, m.c)); });
   }
 
@@ -553,6 +574,7 @@
   }
 
   $('search').addEventListener('input', function(e){ search=e.target.value; renderCatalog(); });
+  $('sortBy').onchange=function(){ sortBy=this.value; renderCatalog(); };
   $('verifiedOnly').onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary', verifiedOnly); renderCatalog(); };
   $('demoGood').onclick=loadGood; $('demoDeal').onclick=loadDeal; $('demoMullet').onclick=loadMullet; $('demoBad').onclick=loadBad;
   $('reset').onclick=function(){ build={}; presetBy={}; sync(); toast('Build cleared'); };
