@@ -47,8 +47,8 @@ Requires [Node.js](https://nodejs.org) 18+. Run `npm install` once (dev tooling 
 tests + type-checker; `validate.js` itself needs no dependencies).
 
 ```
-npm test            # full suite (Vitest) — expect "Tests  64 passed (64)"
-node validate.js    # data check — expect "DATA OK - 105 parts, 0 problems"
+npm test            # full suite (Vitest) — expect "Tests  89 passed (89)"
+node validate.js    # data check — expect "DATA OK - 307 parts, 0 problems (12 verified, ...)"
 ```
 
 (`npm run validate` works too; `npm run test:watch` re-runs Vitest on save.) To run the
@@ -182,12 +182,15 @@ The `✓ Verified only` filter in the app (built on `partVerified`) shows just t
 3. ✅ **Vitest + GitHub Actions CI** (done): the home-grown runner is replaced by **Vitest**
    (`npm test`, config in `vitest.config.mjs`), and `.github/workflows/ci.yml` runs
    `validate` + `tests` + `typecheck` on every push / PR.
-4. 🚧 **Adding real, verified parts** (in progress): 11 verified so far — the SRAM GX Eagle
-   mechanical drivetrain and most of the GX Eagle Transmission drivetrain, plus a Shimano XT
-   cassette and a RockShox shock. Forks are
-   deliberately still flagged (weights couldn't be pinned reliably — e.g. RockShox's page lists
-   the ZEB 170 at 2550 g vs the ~2100 g cited elsewhere). Set `verified`/`lastChecked`/`source`
-   and fix wrong sample specs while you're there; most of the catalog is still sample data.
+4. 🚧 **Adding real, verified parts** (in progress): 12 verified so far — the SRAM GX Eagle
+   mechanical drivetrain and most of the GX Eagle Transmission drivetrain, a Shimano XT
+   cassette, a RockShox shock, and the RAAW Madonna frame. **All 19 frames' verdict-driving
+   specs (axle, shock size/mount, UDH, BB, seat tube) were web-sourced 2026-07-01** — 14 frames
+   had wrong sample specs corrected, but only the Madonna is marked `verified` (direct
+   manufacturer-page confirmation; the bar for `verified:true`). Forks are deliberately still
+   flagged (weights couldn't be pinned reliably — e.g. RockShox's page lists the ZEB 170 at
+   2550 g vs the ~2100 g cited elsewhere). Set `verified`/`lastChecked`/`source` and fix wrong
+   sample specs while you're there; most of the catalog is still sample data.
 5. Parked: **ride categories** (enduro / trail / downhill) to filter the catalog by discipline;
    mullet is already supported.
 6. 🚧 **Deploy** — a GitHub Pages workflow (`.github/workflows/deploy.yml`) is ready; push to a

@@ -25,7 +25,12 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
   Weights/prices remain approximate. Provenance shows in the app (✓ Verified badges with source
   links + an "✓ Verified only" filter). The all-clear reads "No conflicts found", not "All
   compatible" — on purpose.
-- **Try it:** open `TrailBuilder-sample.html` (generated standalone, double-click) or `index.html`.
+- **UI:** category chips + **sub-category chips** (e.g. Drivetrain → Groupset/Shifter/…), a **Sort
+  menu** (best match / name / price / weight), search, an "✓ Verified only" filter, kit quick-fill
+  with bundle pricing, shareable build links, four demo builds, and the **⚐ Report a wrong verdict**
+  modal (see step 1).
+- **Try it:** open `index.html` (double-click — no build step). (`TrailBuilder-sample.html` is a
+  stale generated snapshot from an early session — don't trust it; safe to delete.)
 
 ## Next 1–3 steps (priority order)
 
