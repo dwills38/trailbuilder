@@ -17,8 +17,9 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
   didn't) was found by audit and fixed, and an invariant guarantees a green dot never hides a
   newly-introduced conflict, plus clean verdict messages (no `undefined`/`NaN`). Verdicts are
   *self-consistent* — **not yet validated against the real world** (no expert review, no real riders).
-- **Data:** 307 parts across ~95 brands, **12 verified** against manufacturer pages (most of two
-  SRAM drivetrains + the RAAW Madonna frame); the rest is clearly-badged sample data. **All 19
+- **Data:** 307 parts across ~95 brands, **20 verified** against manufacturer pages (SRAM
+  GX/X01/NX Eagle + most Transmission drivetrain parts, two RockShox shocks, a Shimano XT
+  cassette, + the RAAW Madonna frame); the rest is clearly-badged sample data. **All 19
   frames' verdict-driving specs (axle, shock size/mount, UDH, BB, seat tube) were web-sourced
   2026-07-01** — 14 frames had wrong sample specs fixed (notably: the Specialized Enduro is Boost
   148 + UDH + 205x60 trunnion, not SuperBoost; the Madonna V2.2 is 29-only and NOT UDH stock).

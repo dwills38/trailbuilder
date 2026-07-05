@@ -48,7 +48,7 @@ tests + type-checker; `validate.js` itself needs no dependencies).
 
 ```
 npm test            # full suite (Vitest) — expect "Tests  89 passed (89)"
-node validate.js    # data check — expect "DATA OK - 307 parts, 0 problems (12 verified, ...)"
+node validate.js    # data check — expect "DATA OK - 307 parts, 0 problems (20 verified, ...)"
 ```
 
 (`npm run validate` works too; `npm run test:watch` re-runs Vitest on save.) To run the
@@ -140,12 +140,12 @@ components. `presetBy` maps groupKey → preset id.
 ## Provenance
 
 Parts may carry `verified: true` + `lastChecked: "YYYY-MM-DD"` + `source: "https://…"`.
-Absence = unverified (still the default for most of the catalog; **12 parts are verified so
-far** — the full SRAM GX Eagle mechanical drivetrain (`ca-sram-e`, `dr-gx-m`, `cr-gx`,
-`ch-eagle`, `sft-gx-m`), most of the GX Eagle Transmission drivetrain (`dr-gx-t`, `ca-sram-t`,
-`ch-flattop`, `cr-x0t` — the AXS pod `sft-gx-t` has no clean model page so it stays sample),
-plus `ca-xt`, `sh-sd-air` and the `fr-madonna` frame (RAAW publishes a full spec sheet) —
-checked against manufacturer pages). The
+Absence = unverified (still the default for most of the catalog; **20 parts are verified so
+far**, all against manufacturer pages — the SRAM GX Eagle mechanical, X01/NX Eagle, and most
+GX/X0 Transmission drivetrain parts (the AXS pods have no clean model pages so they stay
+sample; the X01 derailleur/crank pages list no weight, so they stay sample too), two RockShox
+shocks (`sh-sd-air`, `sh-vivid`), a Shimano XT cassette (`ca-xt`), and the `fr-madonna` frame
+(RAAW publishes a full spec sheet)). The
 validator **refuses `verified: true` without a real source URL and a non-future date** — so
 "verified" always means something. When you actually confirm a spec against a manufacturer
 page, set the fields to match the source and add those three fields. (`node validate.js`
@@ -182,9 +182,9 @@ The `✓ Verified only` filter in the app (built on `partVerified`) shows just t
 3. ✅ **Vitest + GitHub Actions CI** (done): the home-grown runner is replaced by **Vitest**
    (`npm test`, config in `vitest.config.mjs`), and `.github/workflows/ci.yml` runs
    `validate` + `tests` + `typecheck` on every push / PR.
-4. 🚧 **Adding real, verified parts** (in progress): 12 verified so far — the SRAM GX Eagle
-   mechanical drivetrain and most of the GX Eagle Transmission drivetrain, a Shimano XT
-   cassette, a RockShox shock, and the RAAW Madonna frame. **All 19 frames' verdict-driving
+4. 🚧 **Adding real, verified parts** (in progress): 20 verified so far — SRAM GX/X01/NX Eagle
+   and most Transmission drivetrain parts, two RockShox shocks, a Shimano XT
+   cassette, and the RAAW Madonna frame. **All 19 frames' verdict-driving
    specs (axle, shock size/mount, UDH, BB, seat tube) were web-sourced 2026-07-01** — 14 frames
    had wrong sample specs corrected, but only the Madonna is marked `verified` (direct
    manufacturer-page confirmation; the bar for `verified:true`). Forks are deliberately still
