@@ -10,16 +10,17 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
 **Solid foundation, honestly-scoped prototype:**
 
 - **Layout & tooling:** `src/` + `test/`; full-`strict` JSDoc type-checking (`npm run typecheck`);
-  Vitest (`npm test` — **89 tests**); GitHub Actions CI; and a GitHub Pages deploy workflow that's
+  Vitest (`npm test` — **90 tests**); GitHub Actions CI; and a GitHub Pages deploy workflow that's
   ready but **not yet deployed** (no git remote / `gh` in this environment).
 - **Engine:** 18 compatibility rules + a regression/fuzz **fortress** (`test/test-invariants.js`),
   proven crash-free, deterministic, and now **dot-honest** — a false-green preset dot (a "fits" that
   didn't) was found by audit and fixed, and an invariant guarantees a green dot never hides a
   newly-introduced conflict, plus clean verdict messages (no `undefined`/`NaN`). Verdicts are
   *self-consistent* — **not yet validated against the real world** (no expert review, no real riders).
-- **Data:** 307 parts across ~95 brands, **20 verified** against manufacturer pages (SRAM
-  GX/X01/NX Eagle + most Transmission drivetrain parts, two RockShox shocks, a Shimano XT
-  cassette, + the RAAW Madonna frame); the rest is clearly-badged sample data. **All 19
+- **Data:** 324 parts across ~100 brands — **now including 17 pedals** (a whole new category +
+  build slot) — with **27 verified** against manufacturer pages (SRAM GX/X01/NX Eagle + most
+  Transmission drivetrain parts, two RockShox shocks, a Shimano XT cassette, seven pedals, + the
+  RAAW Madonna frame); the rest is clearly-badged sample data. **All 19
   frames' verdict-driving specs (axle, shock size/mount, UDH, BB, seat tube) were web-sourced
   2026-07-01** — 14 frames had wrong sample specs fixed (notably: the Specialized Enduro is Boost
   148 + UDH + 205x60 trunnion, not SuperBoost; the Madonna V2.2 is 29-only and NOT UDH stock).
@@ -28,8 +29,9 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
   compatible" — on purpose.
 - **UI:** category chips + **sub-category chips** (e.g. Drivetrain → Groupset/Shifter/…), a **Sort
   menu** (best match / name / price / weight), search, an "✓ Verified only" filter, kit quick-fill
-  with bundle pricing, shareable build links, four demo builds, and the **⚐ Report a wrong verdict**
-  modal (see step 1).
+  with bundle pricing, shareable build links, four demo builds, the **⚐ Report a wrong verdict**
+  modal (see step 1), and a **📋 View complete build** summary modal that appears once every
+  required slot is filled (full part list w/ kit pricing + totals + copy/share).
 - **Try it:** open `index.html` (double-click — no build step). (`TrailBuilder-sample.html` is a
   stale generated snapshot from an early session — don't trust it; safe to delete.)
 
@@ -51,6 +53,10 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
    data-dependent candidates from CLAUDE.md's "Coverage roadmap" the same way (rule + tests dormant,
    activate on data), and decide the measured-weight source policy that unblocks Shimano / rotors /
    forks.
+
+**Planned (post-beta, not started):** accounts/login with **saved builds**, an **owned-parts
+inventory**, and a **past-builds garage** (likely Supabase/Firebase — first backend, so it comes
+after the static beta ships and the report loop proves the rules).
 
 **The bar, always:** a wrong verdict (false "fits" OR false "won't fit") is worse than a missing
 rule. Only add rules backed by manufacturer docs + tests, and keep `npm test`, `node validate.js`,

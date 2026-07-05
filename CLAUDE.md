@@ -47,8 +47,8 @@ Requires [Node.js](https://nodejs.org) 18+. Run `npm install` once (dev tooling 
 tests + type-checker; `validate.js` itself needs no dependencies).
 
 ```
-npm test            # full suite (Vitest) — expect "Tests  89 passed (89)"
-node validate.js    # data check — expect "DATA OK - 307 parts, 0 problems (20 verified, ...)"
+npm test            # full suite (Vitest) — expect "Tests  90 passed (90)"
+node validate.js    # data check — expect "DATA OK - 324 parts, 0 problems (27 verified, ...)"
 ```
 
 (`npm run validate` works too; `npm run test:watch` re-runs Vitest on save.) To run the
@@ -84,14 +84,14 @@ Category-specific fields (enforced by `schema.js` → `SCHEMA`, using vocabulari
 - **crankset**: `bb`, `ring`, `speeds`.
 - **brake**: `mount`, `pistons`.   **rotor**: `size`, `mount`.
 - **handlebar/stem**: `clamp` (+ optional dims).  **grips/saddle**: just the common fields.
-- **dropper**: `diameter`, `drop`.
+- **dropper**: `diameter`, `drop`.  **pedal**: `style` (`flat`/`clip`) — pairs; 9/16" thread fits every crank, so no compat rules.
 - **presets** (`groupset`/`wheelset`/`brakeset`/`cockpitset`): `price`, `weight`, and `fills` (slotKey → part id).
 
 ### Build slots
 
 A build is a map of slotKey → part id. Slots: `frame, fork, shock, frontWheel, rearWheel,
 frontTire, rearTire, shifter, derailleur, cassette, chain, crankset, frontBrake, rearBrake,
-frontRotor, rearRotor, handlebar, stem, grips, dropper, saddle`. (`GROUPS`/`SLOTS` in `compat.js`.)
+frontRotor, rearRotor, handlebar, stem, grips, dropper, saddle, pedals`. (`GROUPS`/`SLOTS` in `compat.js`.)
 
 ## Compatibility engine (`checkBuild`) — 18 rule areas
 
@@ -140,12 +140,14 @@ components. `presetBy` maps groupKey → preset id.
 ## Provenance
 
 Parts may carry `verified: true` + `lastChecked: "YYYY-MM-DD"` + `source: "https://…"`.
-Absence = unverified (still the default for most of the catalog; **20 parts are verified so
+Absence = unverified (still the default for most of the catalog; **27 parts are verified so
 far**, all against manufacturer pages — the SRAM GX Eagle mechanical, X01/NX Eagle, and most
 GX/X0 Transmission drivetrain parts (the AXS pods have no clean model pages so they stay
 sample; the X01 derailleur/crank pages list no weight, so they stay sample too), two RockShox
-shocks (`sh-sd-air`, `sh-vivid`), a Shimano XT cassette (`ca-xt`), and the `fr-madonna` frame
-(RAAW publishes a full spec sheet)). The
+shocks (`sh-sd-air`, `sh-vivid`), a Shimano XT cassette (`ca-xt`), the `fr-madonna` frame
+(RAAW publishes a full spec sheet), and seven pedals — OneUp, Race Face, Crankbrothers, Time;
+pedal brands generally publish pair weights, so pedals verify well. Shimano pedal pages
+blocked fetching, so `pd-xt`/`pd-saint` stay sample). The
 validator **refuses `verified: true` without a real source URL and a non-future date** — so
 "verified" always means something. When you actually confirm a spec against a manufacturer
 page, set the fields to match the source and add those three fields. (`node validate.js`
@@ -182,9 +184,9 @@ The `✓ Verified only` filter in the app (built on `partVerified`) shows just t
 3. ✅ **Vitest + GitHub Actions CI** (done): the home-grown runner is replaced by **Vitest**
    (`npm test`, config in `vitest.config.mjs`), and `.github/workflows/ci.yml` runs
    `validate` + `tests` + `typecheck` on every push / PR.
-4. 🚧 **Adding real, verified parts** (in progress): 20 verified so far — SRAM GX/X01/NX Eagle
+4. 🚧 **Adding real, verified parts** (in progress): 27 verified so far — SRAM GX/X01/NX Eagle
    and most Transmission drivetrain parts, two RockShox shocks, a Shimano XT
-   cassette, and the RAAW Madonna frame. **All 19 frames' verdict-driving
+   cassette, seven pedals, and the RAAW Madonna frame. **All 19 frames' verdict-driving
    specs (axle, shock size/mount, UDH, BB, seat tube) were web-sourced 2026-07-01** — 14 frames
    had wrong sample specs corrected, but only the Madonna is marked `verified` (direct
    manufacturer-page confirmation; the bar for `verified:true`). Forks are deliberately still
@@ -194,5 +196,6 @@ The `✓ Verified only` filter in the app (built on `partVerified`) shows just t
 5. Parked: **ride categories** (enduro / trail / downhill) to filter the catalog by discipline;
    mullet is already supported.
 6. 🚧 **Deploy** — a GitHub Pages workflow (`.github/workflows/deploy.yml`) is ready; push to a
-   public GitHub remote and set Pages source to "GitHub Actions" to go live. Later: accounts +
-   saved builds (Supabase/Firebase), price feeds via retailer affiliate programs.
+   public GitHub remote and set Pages source to "GitHub Actions" to go live. Later (planned,
+   post-beta): **accounts/login with saved builds, an owned-parts inventory, and a past-builds
+   garage** (Supabase/Firebase), plus price feeds via retailer affiliate programs.

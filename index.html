@@ -111,6 +111,15 @@
   .rm-details summary{cursor:pointer;font-size:12px;font-weight:700;color:var(--ink-soft)}
   .rm-preview{background:var(--bg);border:1px solid var(--line);border-radius:9px;font-size:11.5px;line-height:1.45;color:var(--ink-soft);max-height:170px;overflow:auto;margin:8px 0 0;padding:10px 12px;white-space:pre-wrap;word-break:break-word}
   .rm-foot{display:flex;gap:8px;justify-content:flex-end;padding:14px 20px 18px;flex-wrap:wrap}
+
+  /* complete-build summary */
+  .viewbuild{width:100%;margin-top:10px}
+  .bm-row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-size:12.5px;padding:4px 0;border-bottom:1px dashed #eef0ec}
+  .bm-row .bl{color:var(--ink-soft);flex:none;width:104px;font-size:11px;text-transform:uppercase;letter-spacing:.3px}
+  .bm-row .bp{flex:1;font-weight:600}
+  .bm-row .br{color:var(--ink-soft);white-space:nowrap;font-size:11.5px}
+  .bm-gsub{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink-soft);font-weight:700;margin:10px 0 2px}
+  .bm-total{display:flex;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-weight:700}
   @media (max-width:880px){ .layout{grid-template-columns:1fr} .side{position:static} }
 </style>
 </head>
@@ -170,6 +179,7 @@
           <div id="slots"></div>
           <div class="total"><span class="muted">Sample total</span><b id="total">$0</b></div>
           <div class="wrow"><span class="muted">Est. weight</span><span id="weight" class="muted">&mdash;</span></div>
+          <button type="button" class="btn primary viewbuild" id="viewBuild" hidden>📋 View complete build</button>
         </div>
       </div>
     </aside>
@@ -221,6 +231,24 @@
   </div>
 </dialog>
 
+<dialog id="buildModal" aria-labelledby="bmTitle">
+  <div class="rm-head">
+    <h2 id="bmTitle">📋 Complete build</h2>
+    <p>Every slot filled — here&rsquo;s the whole bike, with kit pricing where a full set is selected.</p>
+  </div>
+  <div class="rm-body">
+    <div id="bmVerdict"></div>
+    <div id="bmRows"></div>
+    <div class="bm-total"><span>Sample total</span><span id="bmPrice"></span></div>
+    <div class="wrow"><span class="muted">Est. weight</span><span id="bmWeight" class="muted"></span></div>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="bmClose">Close</button>
+    <button type="button" class="btn" id="bmCopy">Copy summary</button>
+    <button type="button" class="btn primary" id="bmShare">Copy share link</button>
+  </div>
+</dialog>
+
 <script src="src/compat.js"></script>
 <script>
 (function(){
@@ -236,10 +264,10 @@
   var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg)'; };
   // esc() (HTML-escape) and partVerified() are shared from compat.js — one tested source of truth.
 
-  var ICONS = {frame:'🚲',fork:'🍴',shock:'🪐',wheels:'🛞',tire:'⚫',drivetrain:'⚙️',brakes:'🛑',dropper:'📐',cockpit:'🔧',saddle:'🪑'};
+  var ICONS = {frame:'🚲',fork:'🍴',shock:'🪐',wheels:'🛞',tire:'⚫',drivetrain:'⚙️',brakes:'🛑',dropper:'📐',cockpit:'🔧',saddle:'🪑',pedals:'👟'};
   var CATLABEL = {frame:'Frame',fork:'Fork',shock:'Rear Shock',frontwheel:'Front Wheel',rearwheel:'Rear Wheel',
     tire:'Tires',shifter:'Shifter',derailleur:'Derailleur',cassette:'Cassette',chain:'Chain',crankset:'Crankset',
-    brake:'Brake',rotor:'Rotor',handlebar:'Handlebar',stem:'Stem',grips:'Grips',dropper:'Dropper',saddle:'Saddle',
+    brake:'Brake',rotor:'Rotor',handlebar:'Handlebar',stem:'Stem',grips:'Grips',dropper:'Dropper',saddle:'Saddle',pedal:'Pedals',
     groupset:'Groupset',wheelset:'Wheelset',brakeset:'Brake set',cockpitset:'Cockpit kit'};
   var catLabel = function(c){ return CATLABEL[c] || c; };
 
@@ -438,6 +466,7 @@
     $('weight').textContent = t.weight ? (grams(t.weight) + (t.missingWeight?' +':'')) : '—';
     $('countLabel').textContent = filled+' of '+required.length+' required parts chosen';
     $('meterBar').style.width = Math.round(filled/required.length*100)+'%';
+    $('viewBuild').hidden = (filled !== required.length);   // appears once the build is complete
   }
 
   /* ---- report ---- */
@@ -524,6 +553,50 @@
     $('reportModal').close();
   }
 
+  /* ---- complete-build summary (appears when every required slot is filled) */
+  function copyText(txt, okMsg){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(function(){ toast(okMsg); }, function(){ fallbackCopyReport(txt); });
+    } else { fallbackCopyReport(txt); }
+  }
+  function buildSummaryText(){
+    var res=resolved(), r=checkBuild(res), t=buildTotals(res, presetBy), lines=[];
+    lines.push('TrailBuilder complete build — '+(r.errors.length? (r.errors.length+' problem(s)') : r.warnings.length? ('works, '+r.warnings.length+' to check') : 'no conflicts found'));
+    GROUPS.forEach(function(g){
+      var bundle=(g.preset && bundleActive(g,res,presetBy)) ? byId(presetBy[g.key]) : null;
+      if(bundle) lines.push(g.label+' — '+bundle.brand+' '+bundle.model+' kit, '+money(bundle.price));
+      g.slots.forEach(function(s){ var p=res[s.key]; if(!p) return;
+        lines.push('   '+padLabel(s.label)+' '+p.brand+' '+p.model+(bundle?'':('  '+money(p.price)+(typeof p.weight==='number'?' / '+p.weight+' g':'')))); });
+    });
+    lines.push('');
+    var w = t.weight ? grams(t.weight)+(t.missingWeight?' +':'') : '—';
+    lines.push('Sample total: '+money(t.price)+'   Est. weight: '+w);
+    writeHash();
+    lines.push('Reopen this build: '+location.href);
+    return lines.join('\n');
+  }
+  function openBuildModal(){
+    var res=resolved(), r=checkBuild(res), t=buildTotals(res, presetBy);
+    $('bmVerdict').innerHTML = r.errors.length ? '<div class="status err">✗ '+r.errors.length+' problem'+(r.errors.length>1?'s':'')+'</div>'
+      : r.warnings.length ? '<div class="status warn">⚠ Works · '+r.warnings.length+' to check</div>'
+      : '<div class="status ok">✓ No conflicts found</div>';
+    var rows='';
+    GROUPS.forEach(function(g){
+      var bundle=(g.preset && bundleActive(g,res,presetBy)) ? byId(presetBy[g.key]) : null;
+      rows+='<div class="bm-gsub">'+(ICONS[g.key]||'')+' '+esc(g.label)+(bundle?' <span class="kit-tag">KIT · '+esc(bundle.brand+' '+bundle.model)+' · '+money(bundle.price)+'</span>':'')+'</div>';
+      g.slots.forEach(function(s){
+        var p=res[s.key]; if(!p) return;
+        rows+='<div class="bm-row"><span class="bl">'+esc(s.label)+'</span><span class="bp">'+esc(p.brand+' '+p.model)+
+          (partVerified(p)?' <span class="vchk" title="Verified against the manufacturer">✓</span>':'')+'</span><span class="br">'+
+          (bundle?'in kit':(money(p.price)+(typeof p.weight==='number'?' · '+p.weight+' g':'')))+'</span></div>';
+      });
+    });
+    $('bmRows').innerHTML=rows;
+    $('bmPrice').textContent = money(t.price);
+    $('bmWeight').textContent = t.weight ? (grams(t.weight)+(t.missingWeight?' +':'')) : '—';
+    $('buildModal').showModal();
+  }
+
   function sync(){ renderCatalog(); renderPanel(); renderReport(); writeHash(); }
 
   /* ---- share / restore (build + presetBy) ---- */
@@ -544,7 +617,7 @@
     build={ frame:'fr-megatower',fork:'fk-zeb',shock:'sh-sd-air',frontWheel:'fw-reserve',rearWheel:'rw-reserve',
       frontTire:'ti-assegai-29',rearTire:'ti-assegai-29',shifter:'sft-gx-m',derailleur:'dr-gx-m',cassette:'ca-sram-e',chain:'ch-eagle',crankset:'cr-gx',
       frontBrake:'bk-code',rearBrake:'bk-code',frontRotor:'ro-hs2-200',rearRotor:'ro-hs2-200',
-      handlebar:'hb-fatbar',stem:'st-apex',grips:'gr-oneup',dropper:'dp-oneup',saddle:'sa-volt' };
+      handlebar:'hb-fatbar',stem:'st-apex',grips:'gr-oneup',dropper:'dp-oneup',saddle:'sa-volt',pedals:'pd-oneup-al' };
     presetBy={ drivetrain:'gs-gx-m', wheels:'ws-reserve', brakes:'bs-code', cockpit:'co-renthal' };
     sync(); toast('Loaded a fully compatible build (kit pricing on)');
   }
@@ -552,7 +625,7 @@
     build={ frame:'fr-enduro',shock:'sh-vivid-oem',fork:'fk-zeb',frontWheel:'fw-roval',rearWheel:'rw-roval',
       frontTire:'ti-assegai-29',rearTire:'ti-assegai-29',shifter:'sft-gx-m',derailleur:'dr-gx-m',cassette:'ca-sram-e',chain:'ch-eagle',crankset:'cr-gx',
       frontBrake:'bk-code',rearBrake:'bk-code',frontRotor:'ro-hs2-200',rearRotor:'ro-hs2-200',
-      handlebar:'hb-fatbar',stem:'st-apex',grips:'gr-oneup',dropper:'dp-oneup-349',saddle:'sa-volt' };
+      handlebar:'hb-fatbar',stem:'st-apex',grips:'gr-oneup',dropper:'dp-oneup-349',saddle:'sa-volt',pedals:'pd-mallet-e' };
     presetBy={ drivetrain:'gs-gx-m', wheels:'ws-roval', brakes:'bs-code', cockpit:'co-renthal' };
     sync(); toast('Enduro with its package shock');
   }
@@ -560,7 +633,7 @@
     build={ frame:'fr-enduro',fork:'fk-zeb-275',shock:'sh-sd-trun',frontWheel:'fw-i9',rearWheel:'rw-i9',
       frontTire:'ti-assegai-29',rearTire:'ti-assegai-29',shifter:'sft-gx-t',derailleur:'dr-gx-t',cassette:'ca-xt',chain:'ch-flattop',crankset:'cr-x0t',
       frontBrake:'bk-xt',rearBrake:'bk-xt',frontRotor:'ro-cl-203',rearRotor:'ro-cl-203',
-      handlebar:'hb-pnw',stem:'st-apex',grips:'gr-oneup',dropper:'dp-pnw',saddle:'sa-volt' };
+      handlebar:'hb-pnw',stem:'st-apex',grips:'gr-oneup',dropper:'dp-pnw',saddle:'sa-volt',pedals:'pd-stamp7' };
     presetBy={};
     sync(); toast('Loaded a build full of clashes');
   }
@@ -568,7 +641,7 @@
     build={ frame:'fr-capra',fork:'fk-zeb',shock:'sh-sd-air',frontWheel:'fw-reserve',rearWheel:'rw-dt275',
       frontTire:'ti-assegai-29',rearTire:'ti-dhr-275',shifter:'sft-xt',derailleur:'dr-xt',cassette:'ca-xt',chain:'ch-shimano',crankset:'cr-xt',
       frontBrake:'bk-xt',rearBrake:'bk-xt',frontRotor:'ro-6b-203',rearRotor:'ro-cl-203',
-      handlebar:'hb-fatbar',stem:'st-apex',grips:'gr-oneup',dropper:'dp-oneup',saddle:'sa-volt' };
+      handlebar:'hb-fatbar',stem:'st-apex',grips:'gr-oneup',dropper:'dp-oneup',saddle:'sa-volt',pedals:'pd-chester' };
     presetBy={};
     sync(); toast('Mullet build: 29 front / 27.5 rear on the YT Capra');
   }
@@ -582,6 +655,12 @@
     if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(
       function(){toast('Build link copied to clipboard');}, function(){toast('Build saved in the address bar');}); }
     else toast('Build saved in the address bar'); };
+
+  $('viewBuild').onclick=openBuildModal;
+  $('bmClose').onclick=function(){ $('buildModal').close(); };
+  $('bmCopy').onclick=function(){ copyText(buildSummaryText(), 'Build summary copied'); };
+  $('bmShare').onclick=function(){ writeHash(); copyText(location.href, 'Build link copied'); };
+  $('buildModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
 
   $('reportBtn').onclick=openReport;
   $('reportCancel').onclick=function(){ $('reportModal').close(); };

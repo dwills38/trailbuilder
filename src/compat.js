@@ -39,7 +39,8 @@ var LABELS = {
   BSA73: 'BSA threaded 73', PF92: 'PressFit 92', T47: 'T47 threaded',
   DUB: 'SRAM DUB', SH24: 'Shimano 24mm', PM: 'Post mount',
   'sram-eagle': 'SRAM Eagle (mechanical)', 'sram-transmission': 'SRAM Transmission (AXS)',
-  'shimano-12': 'Shimano 12-speed', 'udh-direct': 'Direct mount (UDH)', hanger: 'Standard hanger'
+  'shimano-12': 'Shimano 12-speed', 'udh-direct': 'Direct mount (UDH)', hanger: 'Standard hanger',
+  flat: 'Flat', clip: 'Clipless'
 };
 /** @param {string} k @returns {string} */
 var L = function(k){ return (k in LABELS ? LABELS[k] : k); };
@@ -75,7 +76,8 @@ var GROUPS = [
       {key:'handlebar', label:'Handlebar', cat:'handlebar'},
       {key:'stem', label:'Stem', cat:'stem'},
       {key:'grips', label:'Grips', cat:'grips', optional:true} ] },
-  { key:'saddle', label:'Saddle', icon:'S', slots:[ {key:'saddle', label:'Saddle', cat:'saddle'} ] }
+  { key:'saddle', label:'Saddle', icon:'S', slots:[ {key:'saddle', label:'Saddle', cat:'saddle'} ] },
+  { key:'pedals', label:'Pedals', icon:'E', slots:[ {key:'pedals', label:'Pedals', cat:'pedal'} ] }
 ];
 /** @type {Slot[]} */
 var SLOTS = GROUPS.reduce(function(a,g){ return a.concat(g.slots.map(function(s){ return Object.assign({group:g.key}, s); })); }, /** @type {Slot[]} */ ([]));
@@ -399,6 +401,25 @@ var PARTS = [
   { id:'sa-pnw', cat:'saddle', brand:'PNW', model:'Loam', price:60, weight:265 },
   { id:'sa-dmr', cat:'saddle', brand:'DMR', model:'OiOi', price:40, weight:300 },
 
+  /* PEDALS (sold in pairs; 9/16in thread fits every crank - no compat rules) */
+  { id:'pd-oneup-al', cat:'pedal', brand:'OneUp', model:'Aluminum Pedal', price:150, weight:386, style:'flat', verified:true, lastChecked:'2026-07-01', source:'https://www.oneupcomponents.com/products/aluminum-pedal' },
+  { id:'pd-oneup-comp', cat:'pedal', brand:'OneUp', model:'Composite Pedal', price:50, weight:355, style:'flat', verified:true, lastChecked:'2026-07-01', source:'https://www.oneupcomponents.com/products/comp-pedal' },
+  { id:'pd-chester', cat:'pedal', brand:'Race Face', model:'Chester (Large)', price:61, weight:355, style:'flat', verified:true, lastChecked:'2026-07-01', source:'https://www.raceface.com/products/chester-pedal' },
+  { id:'pd-atlas', cat:'pedal', brand:'Race Face', model:'Atlas', price:198, weight:386, style:'flat', verified:true, lastChecked:'2026-07-01', source:'https://www.raceface.com/products/atlas-pedal' },
+  { id:'pd-stamp7', cat:'pedal', brand:'Crankbrothers', model:'Stamp 7 (Large)', price:200, weight:375, style:'flat', verified:true, lastChecked:'2026-07-01', source:'https://www.crankbrothers.com/products/stamp-7-large' },
+  { id:'pd-mallet-e', cat:'pedal', brand:'Crankbrothers', model:'Mallet Enduro', price:200, weight:424, style:'clip', verified:true, lastChecked:'2026-07-01', source:'https://www.crankbrothers.com/products/mallet-e' },
+  { id:'pd-speciale', cat:'pedal', brand:'Time', model:'Speciale 12 (Large)', price:385, weight:360, style:'clip', verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/time-sport/models/pd-spc-12-b1' },
+  { id:'pd-xt', cat:'pedal', brand:'Shimano', model:'XT PD-M8120 Trail', price:120, weight:438, style:'clip' },
+  { id:'pd-saint', cat:'pedal', brand:'Shimano', model:'Saint PD-M820', price:180, weight:546, style:'clip' },
+  { id:'pd-tmac', cat:'pedal', brand:'Deity', model:'TMAC', price:185, weight:409, style:'flat' },
+  { id:'pd-vault', cat:'pedal', brand:'DMR', model:'Vault', price:180, weight:430, style:'flat' },
+  { id:'pd-dagga', cat:'pedal', brand:'Chromag', model:'Dagga', price:185, weight:465, style:'flat' },
+  { id:'pd-horizon', cat:'pedal', brand:'Nukeproof', model:'Horizon Pro', price:100, weight:430, style:'flat' },
+  { id:'pd-f22', cat:'pedal', brand:'Hope', model:'F22', price:260, weight:349, style:'flat' },
+  { id:'pd-ht-t2', cat:'pedal', brand:'HT', model:'T2', price:135, weight:368, style:'clip' },
+  { id:'pd-loam', cat:'pedal', brand:'PNW', model:'Loam Pedal', price:99, weight:420, style:'flat' },
+  { id:'pd-stamp1', cat:'pedal', brand:'Crankbrothers', model:'Stamp 1 (composite)', price:60, weight:329, style:'flat' },
+
   /* PRESETS (bundle price + bundle weight; fills maps slot -> component id) */
   { id:'gs-gx-t', cat:'groupset', brand:'SRAM', model:'GX Eagle Transmission', desc:'AXS . 12-spd . needs UDH frame', price:1099, weight:1725, fills:{ shifter:'sft-gx-t', derailleur:'dr-gx-t', cassette:'ca-sram-t', chain:'ch-flattop', crankset:'cr-x0t' } },
   { id:'gs-gx-m', cat:'groupset', brand:'SRAM', model:'GX Eagle (mechanical)', desc:'mechanical . 12-spd . XD', price:545, weight:1670, fills:{ shifter:'sft-gx-m', derailleur:'dr-gx-m', cassette:'ca-sram-e', chain:'ch-eagle', crankset:'cr-gx' } },
@@ -448,6 +469,7 @@ function specSummary(p){
     case 'grips': return 'lock-on';
     case 'dropper': return p.diameter+'mm . '+p.drop+'mm drop';
     case 'saddle': return 'saddle';
+    case 'pedal': return L(p.style)+' . pair';
     case 'groupset': case 'wheelset': case 'brakeset': case 'cockpitset': return p.desc || 'preset';
     default: return '';
   }

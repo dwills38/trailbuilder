@@ -38,7 +38,8 @@ var VOCAB = {
   system:       ['sram-eagle', 'sram-transmission', 'shimano-12'],
   derailMount:  ['hanger', 'udh-direct'],
   spring:       ['air', 'coil'],
-  material:     ['alu', 'carbon']
+  material:     ['alu', 'carbon'],
+  pedalStyle:   ['flat', 'clip']
 };
 
 /* Per-category field schema. Each field: {type, vocab?, optional?, nullable?}
@@ -83,6 +84,7 @@ var SCHEMA = {
   grips: {},
   dropper: { diameter:{type:'number'}, drop:{type:'number'} },
   saddle: {},
+  pedal: { style:{type:'string',vocab:'pedalStyle'} },
   groupset:  { fills:{type:'fills'} },
   wheelset:  { fills:{type:'fills'} },
   brakeset:  { fills:{type:'fills'} },

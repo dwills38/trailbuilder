@@ -15,7 +15,7 @@
    field or a part missing a required one.
    ========================================================================== */
 
-/** @typedef {'frame'|'fork'|'shock'|'frontwheel'|'rearwheel'|'tire'|'shifter'|'derailleur'|'cassette'|'chain'|'crankset'|'brake'|'rotor'|'handlebar'|'stem'|'grips'|'dropper'|'saddle'|'groupset'|'wheelset'|'brakeset'|'cockpitset'} Category */
+/** @typedef {'frame'|'fork'|'shock'|'frontwheel'|'rearwheel'|'tire'|'shifter'|'derailleur'|'cassette'|'chain'|'crankset'|'brake'|'rotor'|'handlebar'|'stem'|'grips'|'dropper'|'saddle'|'pedal'|'groupset'|'wheelset'|'brakeset'|'cockpitset'} Category */
 
 /* ---- vocabularies (mirror VOCAB in schema.js) ---------------------------- */
 /** @typedef {'29'|'275'} WheelSize */
@@ -33,6 +33,7 @@
 /** @typedef {'hanger'|'udh-direct'} DerailMount */
 /** @typedef {'air'|'coil'} Spring */
 /** @typedef {'alu'|'carbon'} Material */
+/** @typedef {'flat'|'clip'} PedalStyle */
 
 /**
  * Fields every part shares. `weight` and the provenance fields are optional
@@ -67,6 +68,7 @@
 /** @typedef {CommonFields & {cat: 'grips'}} GripsPart */
 /** @typedef {CommonFields & {cat: 'dropper', diameter: number, drop: number}} DropperPart */
 /** @typedef {CommonFields & {cat: 'saddle'}} SaddlePart */
+/** @typedef {CommonFields & {cat: 'pedal', style: PedalStyle}} PedalPart */
 /** @typedef {CommonFields & {cat: 'groupset', fills: Object.<string, string>}} GroupsetPart */
 /** @typedef {CommonFields & {cat: 'wheelset', fills: Object.<string, string>}} WheelsetPart */
 /** @typedef {CommonFields & {cat: 'brakeset', fills: Object.<string, string>}} BrakesetPart */
@@ -79,14 +81,14 @@
  * @typedef {GroupsetPart|WheelsetPart|BrakesetPart|CockpitsetPart} PresetPart */
 
 /** Any catalog part.
- * @typedef {FramePart|ForkPart|ShockPart|FrontWheelPart|RearWheelPart|TirePart|ShifterPart|DerailleurPart|CassettePart|ChainPart|CranksetPart|BrakePart|RotorPart|HandlebarPart|StemPart|GripsPart|DropperPart|SaddlePart|PresetPart} Part */
+ * @typedef {FramePart|ForkPart|ShockPart|FrontWheelPart|RearWheelPart|TirePart|ShifterPart|DerailleurPart|CassettePart|ChainPart|CranksetPart|BrakePart|RotorPart|HandlebarPart|StemPart|GripsPart|DropperPart|SaddlePart|PedalPart|PresetPart} Part */
 
 /**
  * A build: slotKey -> resolved Part. Each named slot is typed to its exact
  * category variant (so the engine reads e.g. `build.frame.wheelConfigs` with no
  * casts), while the string index signature lets the helpers read/write slots by
  * a dynamic key.
- * @typedef {{[slot: string]: (Part|undefined)} & {frame?: FramePart, fork?: ForkPart, shock?: ShockPart, frontWheel?: FrontWheelPart, rearWheel?: RearWheelPart, frontTire?: TirePart, rearTire?: TirePart, shifter?: ShifterPart, derailleur?: DerailleurPart, cassette?: CassettePart, chain?: ChainPart, crankset?: CranksetPart, frontBrake?: BrakePart, rearBrake?: BrakePart, frontRotor?: RotorPart, rearRotor?: RotorPart, handlebar?: HandlebarPart, stem?: StemPart, grips?: GripsPart, dropper?: DropperPart, saddle?: SaddlePart}} Build */
+ * @typedef {{[slot: string]: (Part|undefined)} & {frame?: FramePart, fork?: ForkPart, shock?: ShockPart, frontWheel?: FrontWheelPart, rearWheel?: RearWheelPart, frontTire?: TirePart, rearTire?: TirePart, shifter?: ShifterPart, derailleur?: DerailleurPart, cassette?: CassettePart, chain?: ChainPart, crankset?: CranksetPart, frontBrake?: BrakePart, rearBrake?: BrakePart, frontRotor?: RotorPart, rearRotor?: RotorPart, handlebar?: HandlebarPart, stem?: StemPart, grips?: GripsPart, dropper?: DropperPart, saddle?: SaddlePart, pedals?: PedalPart}} Build */
 
 /** @typedef {Object.<string, string>} PresetBy  groupKey -> preset id */
 
