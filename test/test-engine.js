@@ -79,7 +79,14 @@ test('rear tire within the frame max -> no clearance warning', function(){
   eq(C.checkBuild(bld).warnings.filter(function(w){ return w.indexOf('frame max')>=0; }).length, 0);
 });
 test('frame clearance rule stays dormant when the frame declares no maxTire', function(){
-  var bld = B({frame:'fr-madonna'});
+  var bld = B({frame:'fr-capra'});   // no sourced maxTire on the Capra (yet)
   bld.rearTire = /** @type {TirePart} */ (Object.assign({}, part('ti-assegai-29'), {width:3.0}));  // absurdly wide, still silent
+  eq(C.checkBuild(bld).warnings.filter(function(w){ return w.indexOf('frame max')>=0; }).length, 0);
+});
+test('frame clearance rule is ACTIVE on sourced frames (Madonna 2.6in + 2.6in tire is fine)', function(){
+  var bld = B({frame:'fr-madonna'});
+  bld.rearTire = /** @type {TirePart} */ (Object.assign({}, part('ti-assegai-29'), {width:2.8}));
+  some(C.checkBuild(bld).warnings, 'frame max');   // 2.8 > sourced 2.6 -> warns
+  bld.rearTire = /** @type {TirePart} */ (Object.assign({}, part('ti-assegai-29'), {width:2.5}));
   eq(C.checkBuild(bld).warnings.filter(function(w){ return w.indexOf('frame max')>=0; }).length, 0);
 });

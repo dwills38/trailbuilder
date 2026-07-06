@@ -112,12 +112,13 @@ The engine only checks the dimensions above; a green verdict is only as complete
 **The bar for adding a rule: it must be backed by manufacturer compatibility docs and tested — a
 false "won't fit" OR a false "fits" is worse than a missing rule.** Candidates considered:
 
-- **Frame rear-tire clearance** (`rTire.width` vs optional `frame.maxTire`): ✅ **added as rule 18** —
-  a dormant optional *warning*. It fires only when a frame declares `maxTire`, and no frame does yet,
-  so it can't produce a wrong verdict on the current catalog. **To activate:** add a sourced per-frame
-  `maxTire` (manufacturer clearance spec). `test/test-engine.js` proves it fires when tripped, stays
-  silent within clearance, and stays dormant without data. This is the template for the data-dependent
-  candidates below: land the rule + tests dormant, activate it when sourced data arrives.
+- **Frame rear-tire clearance** (`rTire.width` vs optional `frame.maxTire`): ✅ **added as rule 18,
+  ACTIVATED 2026-07-06 for 6 frames** with manufacturer-published clearances (Madonna 2.6, Slash 2.5,
+  Megatower 2.5 stock setting, Spire 2.6, SB160 2.6, HD6 2.5). The other 13 frames publish no explicit
+  max, so the rule stays dormant for them — a missing rule beats a wrong one. `test/test-engine.js`
+  proves it fires when tripped, stays silent within clearance, and stays dormant without data. This is
+  the template for the data-dependent candidates below: land the rule + tests dormant, activate per
+  part as sourced data arrives.
 - **Tire vs internal-rim-width range** (too-narrow tire on a wide rim): real, but the thresholds
   are fuzzy/standards-dependent — needs sourcing; would be a soft warning.
 - **Oversize-rotor adapter** needed when a rotor exceeds the native mount: today rule 10 already
