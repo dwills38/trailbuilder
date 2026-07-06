@@ -1,24 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-06T16:53:59.327Z",
+ "updated": "2026-07-06T20:59:13.748Z",
  "batchSize": 25,
- "lastCompleted": "fr-spire",
+ "lastCompleted": "fr-hd6",
  "currentCategory": "frame",
  "queue": [
-  "fr-megatower",
-  "fr-enduro",
-  "fr-capra",
-  "fr-strive",
-  "fr-slash",
-  "fr-range",
-  "fr-reign",
-  "fr-firebird",
-  "fr-giga",
-  "fr-process",
-  "fr-rallon",
-  "fr-altitude",
-  "fr-spindrift",
   "fr-dreadnought",
   "ti-assegai-29",
   "ti-dhr-29",
@@ -100,6 +87,7 @@
   "sh-mara",
   "sh-elevensix",
   "sh-sdu-2056",
+  "sh-sdu-230625",
   "sh-floatx-2062",
   "fk-zeb",
   "fk-38-170",
@@ -280,49 +268,49 @@
  "parts": {
   "fr-megatower": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-06T20:38:38.510Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Manufacturer support page (santacruzbicycles.com Megatower 2 MY24) confirms 230x62.5 std shock (catalog had 65 - FIXED), Boost148, BSA73 threaded, 31.6 post, PM, UDH, 2.5 max tire, 170mm fork (180 ok); frame page states 7.17 lbs + \\ MSRP (price FIXED) but weight doesn't state size or shock inclusion - weight bar not met."
   },
   "fr-enduro": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-06T20:39:30.203Z",
+   "error": "specialized.com returns HTTP 403 to fetches (bot block) - manufacturer page unreachable this session; specs untouched (web-sourced 2026-07-01). Retry with different tooling/session.",
    "source": null,
    "note": null
   },
   "fr-capra": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-06T20:40:42.312Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "yt-industries.com Capra Core 4 page publishes only complete-bike weight (15.9 kg), no frame weight, no shock size/UDH/axle details, no USD price on fetched page. SRAM DUB Pressfit BB consistent with cataloged PF92. Nothing to fix; weight bar not met."
   },
   "fr-strive": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-06T20:42:59.381Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canyon.com/en-us/mountain-bikes/enduro-bikes/strive/cfr/strive-cfr/3195.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-slash": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-06T20:44:20.937Z",
+   "error": "trekbikes.com pages are client-side rendered - WebFetch returns nav/header only, no specs (tried Slash Frameset p/21969 + Slash 9.9 p/24331). Needs a real browser session to verify. Specs untouched.",
    "source": null,
    "note": null
   },
   "fr-range": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-06T20:45:11.149Z",
+   "error": "norco.com pages client-side rendered - WebFetch gets title only (tried 2023 Range C1 + 2023 Range Frame Kit). Needs a real browser session. Specs untouched.",
    "source": null,
    "note": null
   },
@@ -344,49 +332,49 @@
   },
   "fr-reign": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-06T20:46:10.015Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "giant-bicycles.com Reign Advanced Frameset 2025 page confirms 205x62.5 trunnion, 12x148, 160mm, 27.5/29 rear compat, and states max tire 2.5in (ADDED - rule 18 now active on 7 frames) + frameset MSRP \\ (price FIXED). Giant policy: no published weights ('have your local dealer weigh it') - weight bar unmeetable."
   },
   "fr-firebird": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-06T20:47:43.160Z",
+   "error": "pivotcycles.com spec sections (Build Specs/Product Details) are JS-rendered - WebFetch gets marketing shell only (tried /en-us/bikes/firebird + /en/products/firebird-frame). Needs a real browser. Specs untouched.",
    "source": null,
    "note": null
   },
   "fr-giga": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-06T20:49:18.515Z",
+   "error": "Nukeproof web presence is down post-CRC-collapse: us.nukeproof.com DNS dead, nukeproof.com HTTP 500, nukeproofco.com DNS dead (2026-07-06). Frame-spec page exists in search index (claims 3880g MD, 205x60, BSA73) but couldn't be fetched - retry when brand relaunch stabilizes.",
    "source": null,
    "note": null
   },
   "fr-process": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-06T20:50:43.220Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "konaworld.com Process 153 CR/DL Frame page states \\ USD frameset MSRP (price FIXED) + 29/mullet flip-chip (matches wheelConfigs) but NO frame weight and no interface details on page - weight bar not met."
   },
   "fr-rallon": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-06T20:53:08.329Z",
+   "error": "orbea.com returns HTTP 403 to fetches (bot block) on both /en-us/m/rallon and /us-en/bicycles/mountain/rallon/. Note for retry: current Rallon gen appears to be 180/170mm 'GravityLink' (search index) vs cataloged prior-gen M-Team 170/160 - recheck which gen to catalog when reachable.",
    "source": null,
    "note": null
   },
   "fr-altitude": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-06T20:54:58.636Z",
+   "error": "bikes.com frameset page renders only marketing/geometry (travel 160, 29/MX flip-chip confirmed); the tech page is JS-rendered nav only. No weight/interface specs fetchable - needs a real browser session.",
    "source": null,
    "note": null
   },
@@ -400,24 +388,24 @@
   },
   "fr-spindrift": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-06T20:55:41.752Z",
+   "error": "propain-bikes.com returns HTTP 403 on frameset pages (US + EU); service subdomain has FAQ links only, no specs. Retry with a real browser. Specs untouched.",
    "source": null,
    "note": null
   },
   "fr-hd6": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-06T16:40:38.943Z",
+   "updated": "2026-07-06T20:57:58.943Z",
    "error": null,
    "source": null,
-   "note": "Ibis publishes only 'sub 6 lbs w/o shock' - no precise frame-only weight; sample weight corrected to 2700g"
+   "note": "ibiscycles.com HD6 page confirms ALL interfaces: 230x65 std, BSA73, 34.9 post, 148 rear, 220 max rotor (catalog had 203 - FIXED), UDH, 2.5 max tire, 180-190mm fork, mullet-only, \\ MSRP. Weight stated only WITH shock (7.7 lbs / 3.5 kg size L w/ X2); catalog convention is frame-only, so weight bar not met on a technicality. Candidate for verification if a with-shock policy lands."
   },
   "fr-dreadnought": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "InProgress",
+   "updated": "2026-07-06T20:59:13.747Z",
    "error": null,
    "source": null,
    "note": null
@@ -2765,6 +2753,14 @@
    "error": null,
    "source": "https://raawmtb.com/en-us/pages/madonna-v3-2",
    "note": "auto-promoted: already verified in catalog"
+  },
+  "sh-sdu-230625": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T20:38:38.509Z",
+   "error": null,
+   "source": null,
+   "note": null
   }
  }
 }

@@ -7,7 +7,7 @@ var C = U.C, B = U.B, eq = U.eq;
 /** @param {Object.<string, string>} map */
 var chk = function(map){ return C.checkBuild(B(map)); };
 
-var GOOD = { frame:'fr-megatower', fork:'fk-zeb', shock:'sh-sd-air', frontWheel:'fw-reserve', rearWheel:'rw-reserve',
+var GOOD = { frame:'fr-megatower', fork:'fk-zeb', shock:'sh-sdu-230625', frontWheel:'fw-reserve', rearWheel:'rw-reserve',
   frontTire:'ti-assegai-29', rearTire:'ti-assegai-29', shifter:'sft-gx-m', derailleur:'dr-gx-m', cassette:'ca-sram-e', chain:'ch-eagle', crankset:'cr-gx',
   frontBrake:'bk-code', rearBrake:'bk-code', frontRotor:'ro-hs2-200', rearRotor:'ro-hs2-200',
   handlebar:'hb-fatbar', stem:'st-apex', grips:'gr-oneup', dropper:'dp-oneup', saddle:'sa-volt', pedals:'pd-oneup-al' };
@@ -44,11 +44,11 @@ test('known-bad: the deliberate clash build reports 7 errors', function(){
   eq(chk(CLASH).errors.length, 7);
 });
 
-var XT = { frame:'fr-megatower', fork:'fk-zeb', shock:'sh-sd-air', frontWheel:'fw-i9', rearWheel:'rw-i9', frontTire:'ti-assegai-29', rearTire:'ti-assegai-29',
+var XT = { frame:'fr-megatower', fork:'fk-zeb', shock:'sh-sdu-230625', frontWheel:'fw-i9', rearWheel:'rw-i9', frontTire:'ti-assegai-29', rearTire:'ti-assegai-29',
   shifter:'sft-xt', derailleur:'dr-xt', cassette:'ca-xt', chain:'ch-shimano', crankset:'cr-xt',
   frontBrake:'bk-xt', rearBrake:'bk-xt', frontRotor:'ro-6b-203', rearRotor:'ro-6b-203',
   handlebar:'hb-fatbar', stem:'st-apex', grips:'gr-oneup', dropper:'dp-oneup', saddle:'sa-volt', pedals:'pd-xt' };
-var SLX = { frame:'fr-megatower', fork:'fk-zeb', shock:'sh-sd-air', frontWheel:'fw-i9', rearWheel:'rw-i9', frontTire:'ti-assegai-29', rearTire:'ti-assegai-29',
+var SLX = { frame:'fr-megatower', fork:'fk-zeb', shock:'sh-sdu-230625', frontWheel:'fw-i9', rearWheel:'rw-i9', frontTire:'ti-assegai-29', rearTire:'ti-assegai-29',
   shifter:'sft-slx', derailleur:'dr-slx', cassette:'ca-slx', chain:'ch-shimano', crankset:'cr-rf',
   frontBrake:'bk-slx', rearBrake:'bk-slx', frontRotor:'ro-6b-203', rearRotor:'ro-6b-203',
   handlebar:'hb-pnw', stem:'st-pnw', grips:'gr-pnw', dropper:'dp-oneup', saddle:'sa-ergon', pedals:'pd-chester' };

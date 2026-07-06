@@ -39,7 +39,7 @@ test('bundle weight uses the kit weight when active', function(){
   eq(totals(GXM, { drivetrain:'gs-gx-m' }).weight, part('gs-gx-m').weight);
 });
 test('a complete build totals positive price and weight, nothing missing', function(){
-  var map = { frame:'fr-megatower', fork:'fk-zeb', shock:'sh-sd-air', frontWheel:'fw-reserve', rearWheel:'rw-reserve',
+  var map = { frame:'fr-megatower', fork:'fk-zeb', shock:'sh-sdu-230625', frontWheel:'fw-reserve', rearWheel:'rw-reserve',
     frontTire:'ti-assegai-29', rearTire:'ti-assegai-29', shifter:'sft-gx-m', derailleur:'dr-gx-m', cassette:'ca-sram-e', chain:'ch-eagle', crankset:'cr-gx',
     frontBrake:'bk-code', rearBrake:'bk-code', frontRotor:'ro-hs2-200', rearRotor:'ro-hs2-200',
     handlebar:'hb-fatbar', stem:'st-apex', grips:'gr-oneup', dropper:'dp-oneup', saddle:'sa-volt' };

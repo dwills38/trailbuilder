@@ -10,7 +10,7 @@ test('empty build -> neutral dots', function(){
   eq(C.compatOf(part('sh-sd-air'), {}).state, 'n');
 });
 test('Megatower: a fitting shock is green', function(){
-  eq(stateOf({frame:'fr-megatower'}, 'sh-sd-air'), 'g');
+  eq(stateOf({frame:'fr-megatower'}, 'sh-sdu-230625'), 'g');
 });
 test('Megatower: a trunnion shock is red', function(){
   eq(stateOf({frame:'fr-megatower'}, 'sh-sd-trun'), 'r');
