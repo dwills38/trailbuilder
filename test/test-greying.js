@@ -43,6 +43,28 @@ test('a red dot carries an explanatory reason', function(){
   var c = C.compatOf(part('sh-sd-trun'), B({frame:'fr-megatower'}));
   eq(c.state, 'r'); some([c.reason], 'Shock');
 });
+/* REVIEW.md #4 — the preset path must clear the slots it fills BEFORE computing
+   the baseline, or a pre-existing byte-identical error string masks the preset's
+   own conflict. This fired at the worst moment: the user's wheel doesn't fit,
+   they browse wheelset kits to fix it, and every incompatible kit showed green. */
+test('preset dot: incompatible wheelset is RED even when the same error already exists', function(){
+  // fr-firebird is SuperBoost 157; the Boost rw-dt already in the build raises the
+  // byte-identical rear-axle error that the Boost ws-reserve kit would add.
+  var c = C.compatOf(part('ws-reserve'), B({frame:'fr-firebird', rearWheel:'rw-dt'}));
+  eq(c.state, 'r'); some([c.reason], 'Rear axle');
+});
+test('preset dot: masking via a KEPT part (XD cassette + MicroSpline kit) is also red', function(){
+  // Here the pre-existing freehub error comes from the cassette x the OLD wheel;
+  // the preset's own wheels re-create it byte-identically (string names only the
+  // cassette), so the un-cleared baseline filtered it as "not new".
+  eq(C.compatOf(part('ws-i9'), B({cassette:'ca-sram-e', rearWheel:'rw-cb'})).state, 'r');
+});
+test('preset dot: a kit that REPLACES the offending part and fixes the conflict is green', function(){
+  // MicroSpline cassette vs XD wheel -> freehub error; the MicroSpline ws-i9 kit
+  // resolves it. The cleared baseline must not count the old wheel's error
+  // against the preset.
+  eq(C.compatOf(part('ws-i9'), B({frame:'fr-megatower', cassette:'ca-xt', rearWheel:'rw-reserve'})).state, 'g');
+});
 test('a preset that swaps one conflict for another is RED, not green', function(){
   // Base build has a drivetrain-system mismatch (SRAM shifter + Shimano derailleur).
   // Applying the SRAM Eagle groupset fixes that mismatch but its XD cassette clashes

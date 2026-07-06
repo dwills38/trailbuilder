@@ -650,12 +650,19 @@ function compatOf(p, build){
   if(Object.keys(bld).length===0) return {state:'n', reason:'Pick some parts first to check fit'};
   if('fills' in p && p.fills){
     var pf = p.fills;
-    var before = checkBuild(bld).errors;
-    /** @type {Build} */ var test = Object.assign({}, bld);
+    // Baseline = the build with every slot the preset fills CLEARED first
+    // (mirrors the single-part path, where conflictReason deletes the tested
+    // slot). Diffing against the un-cleared build let a pre-existing error
+    // string mask the preset's own byte-identical conflict -> false green on
+    // exactly the kits a user browses to FIX a misfit (REVIEW.md #4).
+    /** @type {Build} */ var base = Object.assign({}, bld);
+    Object.keys(pf).forEach(function(s){ delete base[s]; });
+    var before = checkBuild(base).errors;
+    /** @type {Build} */ var test = Object.assign({}, base);
     Object.keys(pf).forEach(function(s){ test[s]=/** @type {Part} */(byId(pf[s])); });
     // Red if applying the preset INTRODUCES a conflict - detected by new-error set
     // membership, NOT error count, so a preset that swaps one conflict for another
-    // still shows red (mirrors the single-part path in conflictReason).
+    // still shows red.
     var extra = checkBuild(test).errors.filter(function(e){ return before.indexOf(e)<0; });
     if(extra.length){ return {state:'r', reason:extra[0]}; }
     return {state:'g', reason:'No conflicts with your current build'};

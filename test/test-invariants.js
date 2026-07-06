@@ -116,10 +116,14 @@ test('a green dot never hides a newly-introduced conflict, over '+FUZZ+' builds'
     var clean = false;
     if('fills' in p && p.fills){
       var pf = p.fills;
-      var before = C.checkBuild(bld).errors;
-      /** @type {Build} */ var test = Object.assign({}, bld);
+      // Baseline clears the slots the preset fills (same contract as the
+      // single-part branch below) - diffing against the un-cleared build would
+      // excuse errors masked by a byte-identical pre-existing string (REVIEW #4).
+      /** @type {Build} */ var pbase = Object.assign({}, bld);
+      Object.keys(pf).forEach(function(s){ delete pbase[s]; });
+      /** @type {Build} */ var test = Object.assign({}, pbase);
       Object.keys(pf).forEach(function(s){ test[s] = /** @type {Part} */ (C.byId(pf[s])); });
-      clean = newCount(before, C.checkBuild(test).errors) === 0;
+      clean = newCount(C.checkBuild(pbase).errors, C.checkBuild(test).errors) === 0;
     } else {
       var slots = slotKeys[p.cat] || [];
       clean = slots.some(function(sk){
