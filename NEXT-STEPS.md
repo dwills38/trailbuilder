@@ -17,10 +17,13 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
   didn't) was found by audit and fixed, and an invariant guarantees a green dot never hides a
   newly-introduced conflict, plus clean verdict messages (no `undefined`/`NaN`). Verdicts are
   *self-consistent* — **not yet validated against the real world** (no expert review, no real riders).
-- **Data:** 324 parts across ~100 brands — **now including 17 pedals** (a whole new category +
-  build slot) — with **27 verified** against manufacturer pages (SRAM GX/X01/NX Eagle + most
-  Transmission drivetrain parts, two RockShox shocks, a Shimano XT cassette, seven pedals, + the
-  RAAW Madonna frame); the rest is clearly-badged sample data. **All 19
+- **Data:** 324 parts across ~100 brands with **35 verified** against manufacturer pages (SRAM
+  GX/X01/NX Eagle + most Transmission drivetrain parts, two RockShox shocks, a Shimano XT
+  cassette, seven pedals, Synthesis wheels, four droppers, + the RAAW Madonna frame); the rest is
+  clearly-badged sample data. **2026-07-06 data-integrity sweep:** all 19 wheel families' interfaces
+  web-checked (2 wrong: Synthesis rear width, Bontrager stock freehub), dropper/cockpit specs
+  spot-checked (PNW Loam 170 didn't exist → 175), and **rule 18 is ACTIVE on 6 frames** with
+  manufacturer-published tire clearances (dormant on the 13 that don't publish one). **All 19
   frames' verdict-driving specs (axle, shock size/mount, UDH, BB, seat tube) were web-sourced
   2026-07-01** — 14 frames had wrong sample specs fixed (notably: the Specialized Enduro is Boost
   148 + UDH + 205x60 trunnion, not SuperBoost; the Madonna V2.2 is 29-only and NOT UDH stock).
@@ -47,12 +50,12 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
    that validates the rules and turns the community into QA.
 2. **Domain-expert rule review.** A mechanic/engineer sanity-checks the 18 rules + the verified
    specs. Irreplaceable for "the community can rely on it." _Needs a real wrench._
-3. **Then: grow coverage + verified data.** The rear-tire-vs-frame-clearance rule (optional
-   `frame.maxTire`) is now **scaffolded + dormant** (rule 18 + tests in `test/test-engine.js`) — the
-   only thing left to switch it on is *sourced per-frame `maxTire` data*. Land the other
-   data-dependent candidates from CLAUDE.md's "Coverage roadmap" the same way (rule + tests dormant,
-   activate on data), and decide the measured-weight source policy that unblocks Shimano / rotors /
-   forks.
+3. **Then: grow coverage + verified data.** The rear-tire-vs-frame-clearance rule (`frame.maxTire`)
+   is now **live on 6 frames** (manufacturer clearances; the other 13 stay dormant until their
+   makers publish one). Next: land the other data-dependent candidates from CLAUDE.md's "Coverage
+   roadmap" the same way (rule + tests dormant, activate on data), keep converting sample parts to
+   verified (SRAM shock variants + remaining cockpit are the easiest wins), and decide the
+   measured-weight source policy that unblocks Shimano / rotors / forks.
 
 **Planned (post-beta, not started):** accounts/login with **saved builds**, an **owned-parts
 inventory**, and a **past-builds garage** (likely Supabase/Firebase — first backend, so it comes
