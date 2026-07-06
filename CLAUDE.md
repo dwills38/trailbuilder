@@ -33,7 +33,10 @@ Entry points (`validate.js`, `index.html`) live at the root; tests run on Vitest
 | `test/test-greying.js` | The green/red/grey compatibility dots. |
 | `test/test-pricing.js` | Bundle (groupset) pricing + weight totals. |
 | `test/test-golden.js` | Whole real bikes that must validate clean; a known-bad build that must fail. |
-| `package.json` | Scripts: `test` (Vitest), `test:watch`, `validate`, `typecheck`. Dev-only deps: `vitest`, `typescript`, `@types/node`. |
+| `package.json` | Scripts: `test` (Vitest), `test:watch`, `validate`, `typecheck`, `verify:status/next/report`. Dev-only deps: `vitest`, `typescript`, `@types/node`. |
+| `tools/verify-job.js` | **Resumable verification job runner** (state only, zero deps): queue/checkpoints for the part-verification grind. `init`, `status`, `next`, `start`, `complete`, `reset`, `retry`, `report`. Never reprocesses Verified parts without `--force`. |
+| `tools/VERIFY-PROTOCOL.md` | The **verification logic** (the bar, per-part loop, batching, skip policy) — kept separate from the runner so any AI model/session can resume the job with no code changes. **Read this before verifying parts.** |
+| `tools/verification-job.json` | The job state (committed): per-part status (Pending/InProgress/Verified/Failed/Skipped), timestamps, errors, queue. Atomic writes; auto-syncs with the catalog on every run. |
 | `tsconfig.json` | Type-check config (`checkJs`, `noEmit`). Drives `npm run typecheck`; produces no build output. |
 | `.github/workflows/ci.yml` | GitHub Actions CI — runs `validate`, `tests`, and `typecheck` on every push / PR. |
 | `.github/workflows/deploy.yml` | GitHub Actions — deploys the static app (`index.html` + `src/`) to GitHub Pages on push to `main`, after `validate` + `tests` pass. Needs a public remote + Pages source = "GitHub Actions". |

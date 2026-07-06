@@ -1,0 +1,2758 @@
+{
+ "version": 1,
+ "created": "2026-07-06T16:27:03.850Z",
+ "updated": "2026-07-06T16:27:28.090Z",
+ "batchSize": 25,
+ "lastCompleted": null,
+ "currentCategory": "frame",
+ "queue": [
+  "fr-megatower",
+  "fr-enduro",
+  "fr-capra",
+  "fr-strive",
+  "fr-slash",
+  "fr-range",
+  "fr-spire",
+  "fr-reign",
+  "fr-firebird",
+  "fr-giga",
+  "fr-process",
+  "fr-rallon",
+  "fr-altitude",
+  "fr-metasx",
+  "fr-spindrift",
+  "fr-hd6",
+  "fr-dreadnought",
+  "fr-sb160",
+  "ti-assegai-29",
+  "ti-dhr-29",
+  "ti-kryp-29",
+  "ti-mary-29",
+  "ti-assegai-275",
+  "ti-dhr-275",
+  "ti-dhf-29",
+  "ti-betty-29",
+  "ti-wild-29",
+  "ti-scorpion-29",
+  "ti-kryp-275",
+  "ti-dissector-29",
+  "ti-hr2-29",
+  "ti-shorty-29",
+  "ti-butcher-29",
+  "ti-hansdampf-29",
+  "ti-argotal-29",
+  "ti-mazza-29",
+  "ti-mary-275",
+  "ti-aggressor-29",
+  "ti-vigilante-29",
+  "ti-judge-29",
+  "ti-hellkat-29",
+  "ti-newton-29",
+  "ti-dh22-29",
+  "fw-dt",
+  "fw-reserve",
+  "fw-i9",
+  "fw-roval",
+  "fw-dt275",
+  "fw-hope",
+  "fw-wao",
+  "fw-enve",
+  "fw-zipp",
+  "fw-newmen",
+  "fw-stans",
+  "fw-hunt",
+  "fw-spank",
+  "fw-mt500",
+  "fw-rf",
+  "fw-bontrager",
+  "fw-mavic",
+  "fw-giant",
+  "rw-dt",
+  "rw-reserve",
+  "rw-i9",
+  "rw-roval",
+  "rw-i9-157",
+  "rw-dt275",
+  "rw-hope",
+  "rw-wao",
+  "rw-enve",
+  "rw-zipp",
+  "rw-newmen",
+  "rw-stans",
+  "rw-hunt",
+  "rw-spank",
+  "rw-mt500",
+  "rw-rf",
+  "rw-bontrager",
+  "rw-mavic",
+  "rw-giant",
+  "sh-floatx",
+  "sh-sd-coil",
+  "sh-dhx2",
+  "sh-sd-trun",
+  "sh-x2-trun",
+  "sh-floatx-60",
+  "sh-vivid-oem",
+  "sh-vivid-coil",
+  "sh-storia",
+  "sh-ttx",
+  "sh-kitsuma",
+  "sh-x2-std",
+  "sh-vivid-trun",
+  "sh-marzocchi-cr",
+  "sh-jade",
+  "sh-mara",
+  "sh-elevensix",
+  "sh-sdu-2056",
+  "sh-floatx-2062",
+  "fk-zeb",
+  "fk-38-170",
+  "fk-38-180",
+  "fk-lyrik",
+  "fk-z1",
+  "fk-zeb-275",
+  "fk-ohlins",
+  "fk-mezzer",
+  "fk-onyx",
+  "fk-36",
+  "fk-zeb-180",
+  "fk-helm",
+  "fk-ext-era",
+  "fk-selva",
+  "fk-rxf36",
+  "fk-domain",
+  "fk-mattoc",
+  "fk-mrp",
+  "fk-durolux",
+  "fk-xfusion",
+  "fk-dt535",
+  "fk-push",
+  "hb-fatbar",
+  "hb-oneup",
+  "hb-pnw",
+  "hb-rf",
+  "hb-burgtec",
+  "hb-deity",
+  "hb-spank",
+  "hb-oneup-alu",
+  "hb-title",
+  "hb-chromag",
+  "hb-nukeproof",
+  "hb-cb",
+  "hb-easton",
+  "hb-answer",
+  "hb-pro",
+  "hb-truvativ",
+  "st-apex",
+  "st-oneup",
+  "st-pnw",
+  "st-rf",
+  "st-burgtec",
+  "st-deity",
+  "st-spank",
+  "st-chromag",
+  "st-nukeproof",
+  "st-hope",
+  "st-i9",
+  "st-thomson",
+  "st-wolftooth",
+  "st-funn",
+  "st-straitline",
+  "st-pro",
+  "gr-oneup",
+  "gr-esi",
+  "gr-pnw",
+  "gr-odi",
+  "gr-ergon",
+  "gr-dmr",
+  "gr-chromag",
+  "gr-sensus",
+  "gr-renthal",
+  "gr-lizard",
+  "gr-wtb",
+  "gr-rf",
+  "gr-deity",
+  "gr-sdg",
+  "gr-supacaz",
+  "dp-reverb",
+  "dp-transfer",
+  "dp-revive",
+  "dp-resolve",
+  "dp-highline",
+  "dp-revive-349",
+  "dp-transfer-neo",
+  "dp-fallline",
+  "dp-kslev",
+  "dp-tellis",
+  "dp-rf",
+  "dp-e13",
+  "dp-command",
+  "sa-volt",
+  "sa-ergon",
+  "sa-bridge",
+  "sa-belair",
+  "sa-fizik",
+  "sa-silverado",
+  "sa-scoop",
+  "sa-radar",
+  "sa-prologo",
+  "sa-alpaca",
+  "sa-rf",
+  "sa-chromag",
+  "sa-bontrager",
+  "sa-selle",
+  "sa-pnw",
+  "sa-dmr",
+  "pd-xt",
+  "pd-saint",
+  "pd-tmac",
+  "pd-vault",
+  "pd-dagga",
+  "pd-horizon",
+  "pd-f22",
+  "pd-ht-t2",
+  "pd-loam",
+  "pd-stamp1",
+  "bk-code",
+  "bk-code-s",
+  "bk-xt",
+  "bk-dominion",
+  "bk-mt7",
+  "bk-slx",
+  "bk-maven",
+  "bk-hope",
+  "bk-trp",
+  "bk-cura",
+  "bk-saint",
+  "bk-xtr",
+  "bk-zee",
+  "bk-mt5",
+  "bk-g2",
+  "bk-hope-e4",
+  "bk-trail-evo",
+  "bk-trickstuff",
+  "bk-db8",
+  "bk-deore-4",
+  "bk-mt-trail",
+  "ro-hs2-200",
+  "ro-hs2-220",
+  "ro-cl-203",
+  "ro-cl-180",
+  "ro-6b-203",
+  "ro-6b-220",
+  "ro-hope-203",
+  "ro-magura-203",
+  "ro-cl-220",
+  "ro-hs2-180",
+  "ro-rt76-203",
+  "ro-trp-203",
+  "ro-magura-220",
+  "ro-hope-220",
+  "ro-centerline-180",
+  "ro-trickstuff-203",
+  "ro-formula-220",
+  "sft-gx-t",
+  "sft-xt",
+  "sft-slx",
+  "sft-x0-t",
+  "sft-xx-t",
+  "sft-xtr",
+  "sft-deore",
+  "sft-gx-axs",
+  "dr-xt",
+  "dr-slx",
+  "dr-x01",
+  "dr-xtr",
+  "dr-deore",
+  "dr-gx-axs",
+  "ca-slx",
+  "ca-xtr",
+  "ca-deore",
+  "ch-shimano",
+  "ch-xtr",
+  "ch-deore",
+  "cr-xt",
+  "cr-rf",
+  "cr-x0",
+  "cr-slx",
+  "cr-xx-t",
+  "cr-xtr",
+  "cr-deore",
+  "cr-e13",
+  "cr-eewings"
+ ],
+ "parts": {
+  "fr-megatower": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-enduro": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-capra": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-strive": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-slash": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-range": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-spire": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-madonna": {
+   "cat": "frame",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://raawmtb.com/en-us/pages/madonna-v2-2",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fr-reign": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-firebird": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-giga": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-process": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-rallon": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-altitude": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-metasx": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-spindrift": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-hd6": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-dreadnought": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-sb160": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-assegai-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-dhr-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-kryp-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-mary-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-assegai-275": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-dhr-275": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-dhf-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-betty-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-wild-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-scorpion-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-kryp-275": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-dissector-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-hr2-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-shorty-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-butcher-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-hansdampf-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-argotal-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-mazza-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-mary-275": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-aggressor-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-vigilante-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-judge-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-hellkat-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-newton-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-dh22-29": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-dt": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-reserve": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-i9": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-roval": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-dt275": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-hope": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-wao": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-cb": {
+   "cat": "frontwheel",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.crankbrothers.com/products/synthesis-enduro-carbon-front-wheel",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fw-enve": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-zipp": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-newmen": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-stans": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-hunt": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-spank": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-mt500": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-rf": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-bontrager": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-mavic": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-giant": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-dt": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-reserve": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-i9": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-roval": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-i9-157": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-dt275": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-hope": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-wao": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-cb": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.crankbrothers.com/products/synthesis-enduro-carbon-rear-wheel",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-enve": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-zipp": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-newmen": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-stans": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-hunt": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-spank": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-mt500": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-rf": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-bontrager": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-mavic": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-giant": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-sd-air": {
+   "cat": "shock",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/rockshox/models/rs-sdlx-ult-c2",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "sh-floatx": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-sd-coil": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-dhx2": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-sd-trun": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-x2-trun": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-floatx-60": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-vivid-oem": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-vivid": {
+   "cat": "shock",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/rockshox/models/rs-vivd-ult-c1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "sh-vivid-coil": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-storia": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-ttx": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-kitsuma": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-x2-std": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-vivid-trun": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-marzocchi-cr": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-jade": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-mara": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-elevensix": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-sdu-2056": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-floatx-2062": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-zeb": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-38-170": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-38-180": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-lyrik": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-z1": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-zeb-275": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-ohlins": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-mezzer": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-onyx": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-36": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-zeb-180": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-helm": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-ext-era": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-selva": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-rxf36": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-domain": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-mattoc": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-mrp": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-durolux": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-xfusion": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-dt535": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-push": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-fatbar": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-oneup": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-pnw": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-rf": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-burgtec": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-deity": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-spank": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-oneup-alu": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-title": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-chromag": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-nukeproof": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-cb": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-easton": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-answer": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-pro": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-truvativ": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-apex": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-oneup": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-pnw": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-rf": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-burgtec": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-deity": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-spank": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-chromag": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-nukeproof": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-hope": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-i9": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-thomson": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-wolftooth": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-funn": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-straitline": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-pro": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-oneup": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-esi": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-pnw": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-odi": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-ergon": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-dmr": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-chromag": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-sensus": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-renthal": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-lizard": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-wtb": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-rf": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-deity": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-sdg": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-supacaz": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-reverb": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-oneup": {
+   "cat": "dropper",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.oneupcomponents.com/products/dropper-post-v2",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dp-transfer": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-revive": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-pnw": {
+   "cat": "dropper",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.pnwcomponents.com/products/loam-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dp-oneup-349": {
+   "cat": "dropper",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.oneupcomponents.com/products/dropper-post-v2",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dp-resolve": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-highline": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-revive-349": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-transfer-neo": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-fallline": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-kslev": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-pnw-349": {
+   "cat": "dropper",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.pnwcomponents.com/products/loam-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dp-tellis": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-rf": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-e13": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-command": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-volt": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-ergon": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-bridge": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-belair": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-fizik": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-silverado": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-scoop": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-radar": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-prologo": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-alpaca": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-rf": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-chromag": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-bontrager": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-selle": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-pnw": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-dmr": {
+   "cat": "saddle",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "pd-oneup-al": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.oneupcomponents.com/products/aluminum-pedal",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-oneup-comp": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.oneupcomponents.com/products/comp-pedal",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-chester": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.raceface.com/products/chester-pedal",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-atlas": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.raceface.com/products/atlas-pedal",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-stamp7": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.crankbrothers.com/products/stamp-7-large",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-mallet-e": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.crankbrothers.com/products/mallet-e",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-speciale": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/time-sport/models/pd-spc-12-b1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-xt": {
+   "cat": "pedal",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "pd-saint": {
+   "cat": "pedal",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "pd-tmac": {
+   "cat": "pedal",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "pd-vault": {
+   "cat": "pedal",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "pd-dagga": {
+   "cat": "pedal",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "pd-horizon": {
+   "cat": "pedal",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "pd-f22": {
+   "cat": "pedal",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "pd-ht-t2": {
+   "cat": "pedal",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "pd-loam": {
+   "cat": "pedal",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "pd-stamp1": {
+   "cat": "pedal",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-code": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-code-s": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-xt": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-dominion": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-mt7": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-slx": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-maven": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-hope": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-trp": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-cura": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-saint": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-xtr": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-zee": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-mt5": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-g2": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-hope-e4": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-trail-evo": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-trickstuff": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-db8": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-deore-4": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-mt-trail": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-hs2-200": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-hs2-220": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-cl-203": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-cl-180": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-6b-203": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-6b-220": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-hope-203": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-magura-203": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-cl-220": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-hs2-180": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-rt76-203": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-trp-203": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-magura-220": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-hope-220": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-centerline-180": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-trickstuff-203": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-formula-220": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sft-gx-t": {
+   "cat": "shifter",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sft-gx-m": {
+   "cat": "shifter",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/sl-gx-1-a2",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "sft-xt": {
+   "cat": "shifter",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sft-slx": {
+   "cat": "shifter",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sft-x0-t": {
+   "cat": "shifter",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sft-xx-t": {
+   "cat": "shifter",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sft-nx": {
+   "cat": "shifter",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/sl-nx-1-b1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "sft-xtr": {
+   "cat": "shifter",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sft-deore": {
+   "cat": "shifter",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sft-gx-axs": {
+   "cat": "shifter",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dr-gx-t": {
+   "cat": "derailleur",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/rd-gx-e-b1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dr-gx-m": {
+   "cat": "derailleur",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/rd-gx-1-b2",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dr-xt": {
+   "cat": "derailleur",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dr-slx": {
+   "cat": "derailleur",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dr-x0-t": {
+   "cat": "derailleur",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/rd-x0-e-b1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dr-xx-t": {
+   "cat": "derailleur",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/rd-xx-e-b1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dr-nx": {
+   "cat": "derailleur",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/rd-nx-1-b1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dr-x01": {
+   "cat": "derailleur",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dr-xtr": {
+   "cat": "derailleur",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dr-deore": {
+   "cat": "derailleur",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dr-gx-axs": {
+   "cat": "derailleur",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ca-sram-t": {
+   "cat": "cassette",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cs-xs-1275-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ca-sram-e": {
+   "cat": "cassette",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cs-xg-1275-b1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ca-xt": {
+   "cat": "cassette",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://bike.shimano.com/en-US/product/component/deore-xt-m8100/CS-M8100-12.html",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ca-slx": {
+   "cat": "cassette",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ca-xx-t": {
+   "cat": "cassette",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cs-xs-1299-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ca-x01": {
+   "cat": "cassette",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cs-xg-1295-b1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ca-nx": {
+   "cat": "cassette",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cs-pg-1230-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ca-xtr": {
+   "cat": "cassette",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ca-deore": {
+   "cat": "cassette",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ch-flattop": {
+   "cat": "chain",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cn-ttyp-gx-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ch-eagle": {
+   "cat": "chain",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cn-eagl-gx-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ch-shimano": {
+   "cat": "chain",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ch-x01": {
+   "cat": "chain",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cn-eagl-x01-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ch-xtr": {
+   "cat": "chain",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ch-deore": {
+   "cat": "chain",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cr-gx": {
+   "cat": "crankset",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/fc-gx-1-b1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "cr-x0t": {
+   "cat": "crankset",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/fc-x0-d1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "cr-xt": {
+   "cat": "crankset",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cr-rf": {
+   "cat": "crankset",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cr-x0": {
+   "cat": "crankset",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cr-slx": {
+   "cat": "crankset",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cr-xx-t": {
+   "cat": "crankset",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cr-nx": {
+   "cat": "crankset",
+   "status": "Verified",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/fc-nx-1-c1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "cr-xtr": {
+   "cat": "crankset",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cr-deore": {
+   "cat": "crankset",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cr-e13": {
+   "cat": "crankset",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cr-eewings": {
+   "cat": "crankset",
+   "status": "Pending",
+   "updated": "2026-07-06T16:27:03.851Z",
+   "error": null,
+   "source": null,
+   "note": null
+  }
+ }
+}
