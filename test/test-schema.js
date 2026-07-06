@@ -33,6 +33,12 @@ test('wrong type is caught', function(){
 test('dangling id reference is caught', function(){
   some(probs(over('fr-enduro', { bundledShock:'sh-nope' })), 'bundledShock');
 });
+test('shifter missing actuation is caught', function(){
+  var p = over('sft-gx-m'); delete p.actuation; some(probs(p), 'actuation');
+});
+test('actuation value outside the vocab is caught', function(){
+  some(probs(over('dr-gx-axs', { actuation:'hydraulic' })), 'actuation');
+});
 test('verified:true without a source is caught', function(){
   some(probs(over('fr-megatower', { verified:true })), 'source');
 });

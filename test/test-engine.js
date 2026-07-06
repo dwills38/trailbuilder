@@ -32,6 +32,18 @@ test('Shimano cassette on XD wheel -> freehub error', function(){
 test('SRAM shifter + Shimano derailleur -> system mismatch', function(){
   some(chk({shifter:'sft-gx-m', derailleur:'dr-xt'}).errors, 'Drivetrain mismatch');
 });
+
+/* Rule 3b — actuation (REVIEW.md #1). Cable vs wireless share system:'sram-eagle',
+   so before the actuation field this pairing passed totally clean. */
+test('mechanical trigger + AXS (wireless) derailleur, same system -> actuation error', function(){
+  some(chk({shifter:'sft-gx-m', derailleur:'dr-gx-axs'}).errors, 'Actuation mismatch');
+});
+test('AXS controller + mechanical derailleur -> actuation error (reverse direction)', function(){
+  some(chk({shifter:'sft-gx-axs', derailleur:'dr-gx-m'}).errors, 'Actuation mismatch');
+});
+test('AXS Eagle drivetrain sharing Eagle cassette/chain stays clean (no system-vocab split)', function(){
+  eq(chk({shifter:'sft-gx-axs', derailleur:'dr-gx-axs', cassette:'ca-sram-e', chain:'ch-eagle'}).errors.length, 0);
+});
 test('Transmission derailleur needs a UDH frame', function(){
   some(chk({frame:'fr-process', derailleur:'dr-gx-t'}).errors, 'UDH');
 });

@@ -36,6 +36,7 @@ var VOCAB = {
   crankBb:      ['DUB', 'SH24'],
   brakeMount:   ['PM'],
   system:       ['sram-eagle', 'sram-transmission', 'shimano-12'],
+  actuation:    ['cable', 'electronic'],
   derailMount:  ['hanger', 'udh-direct'],
   spring:       ['air', 'coil'],
   material:     ['alu', 'carbon'],
@@ -72,8 +73,8 @@ var SCHEMA = {
     rotorMount:{type:'string',vocab:'rotorMount'}, intWidth:{type:'number'}, maxTire:{type:'number'}
   },
   tire: { wheel:{type:'string',vocab:'wheel'}, width:{type:'number'} },
-  shifter: { system:{type:'string',vocab:'system'}, speeds:{type:'number'} },
-  derailleur: { system:{type:'string',vocab:'system'}, speeds:{type:'number'}, maxCog:{type:'number'}, mount:{type:'string',vocab:'derailMount'} },
+  shifter: { system:{type:'string',vocab:'system'}, speeds:{type:'number'}, actuation:{type:'string',vocab:'actuation'} },
+  derailleur: { system:{type:'string',vocab:'system'}, speeds:{type:'number'}, actuation:{type:'string',vocab:'actuation'}, maxCog:{type:'number'}, mount:{type:'string',vocab:'derailMount'} },
   cassette: { system:{type:'string',vocab:'system'}, speeds:{type:'number'}, freehub:{type:'string',vocab:'freehub'}, range:{type:'string'}, maxCog:{type:'number'} },
   chain: { system:{type:'string',vocab:'system'}, speeds:{type:'number'} },
   crankset: { bb:{type:'string',vocab:'crankBb'}, ring:{type:'number'}, speeds:{type:'number'}, chainline:{type:'string',optional:true} },

@@ -38,8 +38,9 @@ var LABELS = {
   tapered: 'Tapered (1.5-1.125)',
   BSA73: 'BSA threaded 73', PF92: 'PressFit 92', T47: 'T47 threaded',
   DUB: 'SRAM DUB', SH24: 'Shimano 24mm', PM: 'Post mount',
-  'sram-eagle': 'SRAM Eagle (mechanical)', 'sram-transmission': 'SRAM Transmission (AXS)',
+  'sram-eagle': 'SRAM Eagle 12-speed', 'sram-transmission': 'SRAM Transmission (AXS)',
   'shimano-12': 'Shimano 12-speed', 'udh-direct': 'Direct mount (UDH)', hanger: 'Standard hanger',
+  cable: 'mechanical (cable)', electronic: 'electronic (wireless)',
   flat: 'Flat', clip: 'Clipless'
 };
 /** @param {string} k @returns {string} */
@@ -227,27 +228,27 @@ var PARTS = [
   { id:'ti-dh22-29', cat:'tire', brand:'Michelin', model:'DH22 29x2.4', price:85, weight:1400, wheel:'29', width:2.4 },
 
   /* DRIVETRAIN COMPONENTS */
-  { id:'sft-gx-t', cat:'shifter', brand:'SRAM', model:'GX Transmission Pod', price:150, weight:70, system:'sram-transmission', speeds:12 },
-  { id:'sft-gx-m', cat:'shifter', brand:'SRAM', model:'GX Eagle Trigger', price:45, weight:122, system:'sram-eagle', speeds:12, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/sl-gx-1-a2' },
-  { id:'sft-xt', cat:'shifter', brand:'Shimano', model:'XT M8100 I-Spec', price:55, weight:115, system:'shimano-12', speeds:12 },
-  { id:'sft-slx', cat:'shifter', brand:'Shimano', model:'SLX M7100', price:40, weight:120, system:'shimano-12', speeds:12 },
-  { id:'sft-x0-t', cat:'shifter', brand:'SRAM', model:'X0 Transmission Pod', price:175, weight:75, system:'sram-transmission', speeds:12 },
-  { id:'sft-xx-t', cat:'shifter', brand:'SRAM', model:'XX SL Transmission Pod', price:200, weight:70, system:'sram-transmission', speeds:12 },
-  { id:'sft-nx', cat:'shifter', brand:'SRAM', model:'NX Eagle Trigger', price:50, weight:112, system:'sram-eagle', speeds:12, verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/sl-nx-1-b1' },
-  { id:'sft-xtr', cat:'shifter', brand:'Shimano', model:'XTR M9100', price:130, weight:110, system:'shimano-12', speeds:12 },
-  { id:'sft-deore', cat:'shifter', brand:'Shimano', model:'Deore M6100', price:30, weight:125, system:'shimano-12', speeds:12 },
-  { id:'sft-gx-axs', cat:'shifter', brand:'SRAM', model:'GX Eagle AXS Controller', price:150, weight:90, system:'sram-eagle', speeds:12 },
-  { id:'dr-gx-t', cat:'derailleur', brand:'SRAM', model:'GX Transmission', price:400, weight:470, system:'sram-transmission', speeds:12, maxCog:52, mount:'udh-direct', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/rd-gx-e-b1' },
-  { id:'dr-gx-m', cat:'derailleur', brand:'SRAM', model:'GX Eagle', price:135, weight:290, system:'sram-eagle', speeds:12, maxCog:52, mount:'hanger', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/rd-gx-1-b2' },
-  { id:'dr-xt', cat:'derailleur', brand:'Shimano', model:'XT M8100 SGS', price:120, weight:284, system:'shimano-12', speeds:12, maxCog:51, mount:'hanger' },
-  { id:'dr-slx', cat:'derailleur', brand:'Shimano', model:'SLX M7100 SGS', price:90, weight:318, system:'shimano-12', speeds:12, maxCog:51, mount:'hanger' },
-  { id:'dr-x0-t', cat:'derailleur', brand:'SRAM', model:'X0 Eagle Transmission', price:605, weight:466, system:'sram-transmission', speeds:12, maxCog:52, mount:'udh-direct', verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/rd-x0-e-b1' },
-  { id:'dr-xx-t', cat:'derailleur', brand:'SRAM', model:'XX Eagle Transmission', price:715, weight:450, system:'sram-transmission', speeds:12, maxCog:52, mount:'udh-direct', verified:true, lastChecked:'2026-07-06', source:'https://www.sram.com/en/sram/models/rd-xx-e-b1' },
-  { id:'dr-nx', cat:'derailleur', brand:'SRAM', model:'NX Eagle', price:125, weight:339, system:'sram-eagle', speeds:12, maxCog:50, mount:'hanger', verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/rd-nx-1-b1' },
-  { id:'dr-x01', cat:'derailleur', brand:'SRAM', model:'X01 Eagle', price:235, weight:276, system:'sram-eagle', speeds:12, maxCog:52, mount:'hanger' },
-  { id:'dr-xtr', cat:'derailleur', brand:'Shimano', model:'XTR M9100 SGS', price:290, weight:241, system:'shimano-12', speeds:12, maxCog:51, mount:'hanger' },
-  { id:'dr-deore', cat:'derailleur', brand:'Shimano', model:'Deore M6100 SGS', price:60, weight:322, system:'shimano-12', speeds:12, maxCog:51, mount:'hanger' },
-  { id:'dr-gx-axs', cat:'derailleur', brand:'SRAM', model:'GX Eagle AXS', price:430, weight:350, system:'sram-eagle', speeds:12, maxCog:52, mount:'hanger' },
+  { id:'sft-gx-t', cat:'shifter', brand:'SRAM', model:'GX Transmission Pod', price:150, weight:70, system:'sram-transmission', speeds:12, actuation:'electronic' },
+  { id:'sft-gx-m', cat:'shifter', brand:'SRAM', model:'GX Eagle Trigger', price:45, weight:122, system:'sram-eagle', speeds:12, actuation:'cable', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/sl-gx-1-a2' },
+  { id:'sft-xt', cat:'shifter', brand:'Shimano', model:'XT M8100 I-Spec', price:55, weight:115, system:'shimano-12', speeds:12, actuation:'cable' },
+  { id:'sft-slx', cat:'shifter', brand:'Shimano', model:'SLX M7100', price:40, weight:120, system:'shimano-12', speeds:12, actuation:'cable' },
+  { id:'sft-x0-t', cat:'shifter', brand:'SRAM', model:'X0 Transmission Pod', price:175, weight:75, system:'sram-transmission', speeds:12, actuation:'electronic' },
+  { id:'sft-xx-t', cat:'shifter', brand:'SRAM', model:'XX SL Transmission Pod', price:200, weight:70, system:'sram-transmission', speeds:12, actuation:'electronic' },
+  { id:'sft-nx', cat:'shifter', brand:'SRAM', model:'NX Eagle Trigger', price:50, weight:112, system:'sram-eagle', speeds:12, actuation:'cable', verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/sl-nx-1-b1' },
+  { id:'sft-xtr', cat:'shifter', brand:'Shimano', model:'XTR M9100', price:130, weight:110, system:'shimano-12', speeds:12, actuation:'cable' },
+  { id:'sft-deore', cat:'shifter', brand:'Shimano', model:'Deore M6100', price:30, weight:125, system:'shimano-12', speeds:12, actuation:'cable' },
+  { id:'sft-gx-axs', cat:'shifter', brand:'SRAM', model:'GX Eagle AXS Controller', price:150, weight:90, system:'sram-eagle', speeds:12, actuation:'electronic' },
+  { id:'dr-gx-t', cat:'derailleur', brand:'SRAM', model:'GX Transmission', price:400, weight:470, system:'sram-transmission', speeds:12, actuation:'electronic', maxCog:52, mount:'udh-direct', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/rd-gx-e-b1' },
+  { id:'dr-gx-m', cat:'derailleur', brand:'SRAM', model:'GX Eagle', price:135, weight:290, system:'sram-eagle', speeds:12, actuation:'cable', maxCog:52, mount:'hanger', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/rd-gx-1-b2' },
+  { id:'dr-xt', cat:'derailleur', brand:'Shimano', model:'XT M8100 SGS', price:120, weight:284, system:'shimano-12', speeds:12, actuation:'cable', maxCog:51, mount:'hanger' },
+  { id:'dr-slx', cat:'derailleur', brand:'Shimano', model:'SLX M7100 SGS', price:90, weight:318, system:'shimano-12', speeds:12, actuation:'cable', maxCog:51, mount:'hanger' },
+  { id:'dr-x0-t', cat:'derailleur', brand:'SRAM', model:'X0 Eagle Transmission', price:605, weight:466, system:'sram-transmission', speeds:12, actuation:'electronic', maxCog:52, mount:'udh-direct', verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/rd-x0-e-b1' },
+  { id:'dr-xx-t', cat:'derailleur', brand:'SRAM', model:'XX Eagle Transmission', price:715, weight:450, system:'sram-transmission', speeds:12, actuation:'electronic', maxCog:52, mount:'udh-direct', verified:true, lastChecked:'2026-07-06', source:'https://www.sram.com/en/sram/models/rd-xx-e-b1' },
+  { id:'dr-nx', cat:'derailleur', brand:'SRAM', model:'NX Eagle', price:125, weight:339, system:'sram-eagle', speeds:12, actuation:'cable', maxCog:50, mount:'hanger', verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/rd-nx-1-b1' },
+  { id:'dr-x01', cat:'derailleur', brand:'SRAM', model:'X01 Eagle', price:235, weight:276, system:'sram-eagle', speeds:12, actuation:'cable', maxCog:52, mount:'hanger' },
+  { id:'dr-xtr', cat:'derailleur', brand:'Shimano', model:'XTR M9100 SGS', price:290, weight:241, system:'shimano-12', speeds:12, actuation:'cable', maxCog:51, mount:'hanger' },
+  { id:'dr-deore', cat:'derailleur', brand:'Shimano', model:'Deore M6100 SGS', price:60, weight:322, system:'shimano-12', speeds:12, actuation:'cable', maxCog:51, mount:'hanger' },
+  { id:'dr-gx-axs', cat:'derailleur', brand:'SRAM', model:'GX Eagle AXS', price:430, weight:350, system:'sram-eagle', speeds:12, actuation:'electronic', maxCog:52, mount:'hanger' },
   { id:'ca-sram-t', cat:'cassette', brand:'SRAM', model:'XS-1275 Transmission 10-52', price:380, weight:445, system:'sram-transmission', speeds:12, freehub:'XD', range:'10-52', maxCog:52, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/cs-xs-1275-a1' },
   { id:'ca-sram-e', cat:'cassette', brand:'SRAM', model:'XG-1275 Eagle 10-52', price:215, weight:450, system:'sram-eagle', speeds:12, freehub:'XD', range:'10-52', maxCog:52, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/cs-xg-1275-b1' },
   { id:'ca-xt', cat:'cassette', brand:'Shimano', model:'CS-M8100 10-51', price:185, weight:470, system:'shimano-12', speeds:12, freehub:'MicroSpline', range:'10-51', maxCog:51, verified:true, lastChecked:'2026-06-22', source:'https://bike.shimano.com/en-US/product/component/deore-xt-m8100/CS-M8100-12.html' },
@@ -460,8 +461,8 @@ function specSummary(p){
     case 'frontwheel': return L(p.wheel)+' . '+L(p.hub)+' . '+L(p.rotorMount)+' . '+p.intWidth+'mm';
     case 'rearwheel': return L(p.wheel)+' . '+L(p.hub)+' . '+L(p.freehub)+' . '+L(p.rotorMount);
     case 'tire': return L(p.wheel)+' . '+p.width+'in';
-    case 'shifter': return L(p.system)+' . '+p.speeds+'s';
-    case 'derailleur': return L(p.system)+' . '+p.speeds+'s . '+p.maxCog+'T max . '+L(p.mount);
+    case 'shifter': return L(p.system)+' . '+p.speeds+'s . '+L(p.actuation);
+    case 'derailleur': return L(p.system)+' . '+p.speeds+'s . '+L(p.actuation)+' . '+p.maxCog+'T max . '+L(p.mount);
     case 'cassette': return L(p.freehub)+' . '+p.range+' . '+p.speeds+'s';
     case 'chain': return L(p.system)+' . '+p.speeds+'s';
     case 'crankset': return L(p.bb)+' . '+p.ring+'T . '+p.speeds+'s';
@@ -527,6 +528,13 @@ function checkBuild(build){
     var speeds=dt.map(function(x){return x[1].speeds;}).filter(function(v,i,a){return a.indexOf(v)===i;});
     if(speeds.length>1) errors.push('Speed mismatch: '+dt.map(function(x){return x[0]+' '+x[1].speeds+'s';}).join(', ')+'. All must be the same speed count.');
   }
+  /* 3b. Actuation: a cable trigger cannot control a wireless (AXS) derailleur and
+        an AXS controller cannot pull a cable - no adapter exists. Checked as its
+        own field because `system` is genuinely shared across the divide (Eagle
+        cassettes/chains fit both mechanical and AXS Eagle), so splitting the
+        system vocab would false-red them (REVIEW.md #1). */
+  if(shifter && derailleur && shifter.actuation!==derailleur.actuation)
+    errors.push('Actuation mismatch: '+nameOf(shifter)+' is '+L(shifter.actuation)+' but '+nameOf(derailleur)+' is '+L(derailleur.actuation)+'. A cable shifter cannot control a wireless derailleur (and vice versa).');
 
   /* 4. SRAM Transmission needs a UDH frame */
   if(derailleur && derailleur.mount==='udh-direct'){
