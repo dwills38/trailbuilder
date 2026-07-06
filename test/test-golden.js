@@ -52,7 +52,7 @@ var SLX = { frame:'fr-megatower', fork:'fk-zeb', shock:'sh-sd-air', frontWheel:'
   shifter:'sft-slx', derailleur:'dr-slx', cassette:'ca-slx', chain:'ch-shimano', crankset:'cr-rf',
   frontBrake:'bk-slx', rearBrake:'bk-slx', frontRotor:'ro-6b-203', rearRotor:'ro-6b-203',
   handlebar:'hb-pnw', stem:'st-pnw', grips:'gr-pnw', dropper:'dp-oneup', saddle:'sa-ergon', pedals:'pd-chester' };
-var SPIRE_T = { frame:'fr-spire', fork:'fk-zeb', shock:'sh-sd-air', frontWheel:'fw-reserve', rearWheel:'rw-reserve', frontTire:'ti-assegai-29', rearTire:'ti-assegai-29',
+var SPIRE_T = { frame:'fr-spire', fork:'fk-zeb', shock:'sh-sd-trun', frontWheel:'fw-reserve', rearWheel:'rw-reserve', frontTire:'ti-assegai-29', rearTire:'ti-assegai-29',
   shifter:'sft-gx-t', derailleur:'dr-gx-t', cassette:'ca-sram-t', chain:'ch-flattop', crankset:'cr-x0t',
   frontBrake:'bk-code', rearBrake:'bk-code', frontRotor:'ro-hs2-200', rearRotor:'ro-hs2-200',
   handlebar:'hb-fatbar', stem:'st-apex', grips:'gr-oneup', dropper:'dp-oneup', saddle:'sa-volt', pedals:'pd-speciale' };

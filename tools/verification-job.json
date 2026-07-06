@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-06T16:27:28.090Z",
+ "updated": "2026-07-06T16:41:44.951Z",
  "batchSize": 25,
- "lastCompleted": null,
+ "lastCompleted": "fr-spire",
  "currentCategory": "frame",
  "queue": [
   "fr-megatower",
@@ -12,18 +12,14 @@
   "fr-strive",
   "fr-slash",
   "fr-range",
-  "fr-spire",
   "fr-reign",
   "fr-firebird",
   "fr-giga",
   "fr-process",
   "fr-rallon",
   "fr-altitude",
-  "fr-metasx",
   "fr-spindrift",
-  "fr-hd6",
   "fr-dreadnought",
-  "fr-sb160",
   "ti-assegai-29",
   "ti-dhr-29",
   "ti-kryp-29",
@@ -332,11 +328,11 @@
   },
   "fr-spire": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-06T16:41:44.950Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "transitionbikes.com support page confirms all specs (205x65 TRUNNION - corrected from wrong 230x65 std! maxRotor 223) but publishes no frame weight"
   },
   "fr-madonna": {
    "cat": "frame",
@@ -396,11 +392,11 @@
   },
   "fr-metasx": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-06T16:40:38.893Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.commencal.com/ad/en/tech-meta-sx-v5.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-spindrift": {
    "cat": "frame",
@@ -412,11 +408,11 @@
   },
   "fr-hd6": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-06T16:40:38.943Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Ibis publishes only 'sub 6 lbs w/o shock' - no precise frame-only weight; sample weight corrected to 2700g"
   },
   "fr-dreadnought": {
    "cat": "frame",
@@ -428,11 +424,11 @@
   },
   "fr-sb160": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-06T16:40:38.894Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Yeti pages block fetching (403); third-party 3806g includes shock - cannot meet frame-only manufacturer bar"
   },
   "ti-assegai-29": {
    "cat": "tire",
@@ -2753,6 +2749,22 @@
    "error": null,
    "source": null,
    "note": null
+  },
+  "fr-madonna-v3": {
+   "cat": "frame",
+   "status": "Verified",
+   "updated": "2026-07-06T16:29:54.547Z",
+   "error": null,
+   "source": "https://raawmtb.com/en-us/pages/madonna-v3",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fr-madonna-v32": {
+   "cat": "frame",
+   "status": "Verified",
+   "updated": "2026-07-06T16:29:54.547Z",
+   "error": null,
+   "source": "https://raawmtb.com/en-us/pages/madonna-v3-2",
+   "note": "auto-promoted: already verified in catalog"
   }
  }
 }

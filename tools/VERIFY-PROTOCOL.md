@@ -48,9 +48,12 @@ For each work order from `next`:
 4. Gate: `node validate.js` must stay at 0 problems (it enforces the
    provenance rules). If the edit touched anything the engine reads, also run
    `npm test`.
-5. `node tools/verify-job.js complete <id> Verified --source <url>`
-   (or `... Failed --error "..."` / `... Skipped --note "why"`)
-   State is written atomically to disk before the next part begins.
+5. `node tools/verify-job.js complete <id> Failed --error "..."` or
+   `... Skipped --note "why"`. For **Verified** outcomes you usually don't
+   need `complete` at all: the runner auto-promotes any part whose catalog
+   entry gained `verified:true` (the catalog is the source of truth), and
+   will refuse a redundant manual complete. State is written atomically to
+   disk before the next part begins either way.
 
 Outcome meanings: **Verified** = bar met. **Failed** = transient (fetch error,
 conflicting sources) — retry later via `reset --failed`. **Skipped** = the bar

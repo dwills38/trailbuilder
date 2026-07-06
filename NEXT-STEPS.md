@@ -17,7 +17,9 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
   didn't) was found by audit and fixed, and an invariant guarantees a green dot never hides a
   newly-introduced conflict, plus clean verdict messages (no `undefined`/`NaN`). Verdicts are
   *self-consistent* — **not yet validated against the real world** (no expert review, no real riders).
-- **Data:** 324 parts across ~100 brands with **35 verified** against manufacturer pages (SRAM
+- **Data:** 326 parts across ~100 brands with **38 verified** against manufacturer pages —
+  verification is now a **resumable checkpointed job** (`tools/verify-job.js` +
+  `tools/VERIFY-PROTOCOL.md`; any session/model resumes via `npm run verify:status`). (SRAM
   GX/X01/NX Eagle + most Transmission drivetrain parts, two RockShox shocks, a Shimano XT
   cassette, seven pedals, Synthesis wheels, four droppers, + the RAAW Madonna frame); the rest is
   clearly-badged sample data. **2026-07-06 data-integrity sweep:** all 19 wheel families' interfaces

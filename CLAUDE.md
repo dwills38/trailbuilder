@@ -50,8 +50,8 @@ Requires [Node.js](https://nodejs.org) 18+. Run `npm install` once (dev tooling 
 tests + type-checker; `validate.js` itself needs no dependencies).
 
 ```
-npm test            # full suite (Vitest) — expect "Tests  90 passed (90)"
-node validate.js    # data check — expect "DATA OK - 324 parts, 0 problems (35 verified, ...)"
+npm test            # full suite (Vitest) — expect "Tests  91 passed (91)"
+node validate.js    # data check — expect "DATA OK - 326 parts, 0 problems (38 verified, ...)"
 ```
 
 (`npm run validate` works too; `npm run test:watch` re-runs Vitest on save.) To run the
@@ -144,15 +144,16 @@ components. `presetBy` maps groupKey → preset id.
 ## Provenance
 
 Parts may carry `verified: true` + `lastChecked: "YYYY-MM-DD"` + `source: "https://…"`.
-Absence = unverified (still the default for most of the catalog; **35 parts are verified so
+Absence = unverified (still the default for most of the catalog; **38 parts are verified so
 far**, all against manufacturer pages — the SRAM GX Eagle mechanical, X01/NX Eagle, and most
 GX/X0/XX Transmission drivetrain parts (the AXS pods have no clean model pages so they stay
 sample; the X01/GX-AXS derailleur and X01 crank pages list no weight, so they stay sample
-too), two RockShox shocks (`sh-sd-air`, `sh-vivid`), a Shimano XT cassette (`ca-xt`), the
-`fr-madonna` frame (RAAW publishes a full spec sheet), seven pedals (OneUp, Race Face,
-Crankbrothers, Time — pedal brands publish pair weights; Shimano pedal pages blocked
-fetching), the Crankbrothers Synthesis Enduro wheel pair, and four droppers (OneUp V3,
-PNW Loam — both publish per-size weights)). The
+too), two RockShox shocks (`sh-sd-air`, `sh-vivid`), a Shimano XT cassette (`ca-xt`), four
+frames — all three RAAW Madonnas (V2.2/V3/V3.2; RAAW publishes full spec sheets) and the
+Commencal Meta SX V5 (tech page) — seven pedals (OneUp, Race Face, Crankbrothers, Time;
+Shimano pedal pages blocked fetching), the Crankbrothers Synthesis Enduro wheel pair, and
+four droppers (OneUp V3, PNW Loam — both publish per-size weights)). **The verification grind
+is a resumable job: see `tools/VERIFY-PROTOCOL.md` + `npm run verify:status`.** The
 validator **refuses `verified: true` without a real source URL and a non-future date** — so
 "verified" always means something. When you actually confirm a spec against a manufacturer
 page, set the fields to match the source and add those three fields. (`node validate.js`
