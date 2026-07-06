@@ -1,24 +1,17 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-06T20:59:13.748Z",
+ "updated": "2026-07-06T21:04:20.097Z",
  "batchSize": 25,
  "lastCompleted": "fr-hd6",
- "currentCategory": "frame",
+ "currentCategory": "tire",
  "queue": [
-  "fr-dreadnought",
-  "ti-assegai-29",
-  "ti-dhr-29",
   "ti-kryp-29",
   "ti-mary-29",
-  "ti-assegai-275",
-  "ti-dhr-275",
-  "ti-dhf-29",
   "ti-betty-29",
   "ti-wild-29",
   "ti-scorpion-29",
   "ti-kryp-275",
-  "ti-dissector-29",
   "ti-hr2-29",
   "ti-shorty-29",
   "ti-butcher-29",
@@ -404,11 +397,11 @@
   },
   "fr-dreadnought": {
    "cat": "frame",
-   "status": "InProgress",
-   "updated": "2026-07-06T20:59:13.747Z",
+   "status": "Verified",
+   "updated": "2026-07-06T21:01:44.916Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://forbiddenbike.com/faqs/dreadnought-faqs/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-sb160": {
    "cat": "frame",
@@ -420,24 +413,24 @@
   },
   "ti-assegai-29": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-06T21:03:09.882Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/assegai/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-dhr-29": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-06T21:04:20.096Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/minion-dhr-ii/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-kryp-29": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "InProgress",
+   "updated": "2026-07-06T21:04:20.097Z",
    "error": null,
    "source": null,
    "note": null
@@ -452,27 +445,27 @@
   },
   "ti-assegai-275": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-06T21:03:09.883Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/assegai/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-dhr-275": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-06T21:04:20.097Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/minion-dhr-ii/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-dhf-29": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-06T21:04:20.097Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/minion-dhf/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-betty-29": {
    "cat": "tire",
@@ -508,11 +501,11 @@
   },
   "ti-dissector-29": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-06T21:04:20.097Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/dissector/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-hr2-29": {
    "cat": "tire",
