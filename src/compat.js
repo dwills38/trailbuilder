@@ -111,22 +111,22 @@ var PARTS = [
   { id:'fr-sb160', cat:'frame', brand:'Yeti', model:'SB160', price:5500, weight:3200, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:203, shockEye:230, shockStroke:65, shockMount:'std', maxForkTravel:170, travel:160, udh:true, maxTire:2.6, bundledShock:null, frameOnly:true },
 
   /* FORKS (front only; wheel = front size) */
-  { id:'fk-zeb', cat:'fork', brand:'RockShox', model:'ZEB Ultimate 170', price:1099, weight:2150, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220 },
+  { id:'fk-zeb', cat:'fork', brand:'RockShox', model:'ZEB Ultimate 170', price:1099, weight:2150, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220, minRotorF:200 },
   { id:'fk-38-170', cat:'fork', brand:'Fox', model:'38 Factory 170', price:1299, weight:2180, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220 },
   { id:'fk-38-180', cat:'fork', brand:'Fox', model:'38 Factory 180', price:1349, weight:2200, wheel:'29', travel:180, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:230 },
   { id:'fk-lyrik', cat:'fork', brand:'RockShox', model:'Lyrik Ultimate 160', price:999, weight:1900, wheel:'29', travel:160, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:200 },
   { id:'fk-z1', cat:'fork', brand:'Marzocchi', model:'Bomber Z1 170', price:699, weight:2200, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220 },
-  { id:'fk-zeb-275', cat:'fork', brand:'RockShox', model:'ZEB Ultimate 27.5 170', price:1099, weight:2100, wheel:'275', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220 },
+  { id:'fk-zeb-275', cat:'fork', brand:'RockShox', model:'ZEB Ultimate 27.5 170', price:1099, weight:2100, wheel:'275', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220, minRotorF:200 },
   { id:'fk-ohlins', cat:'fork', brand:'Öhlins', model:'RXF38 m.2 170', price:1250, weight:2200, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220 },
   { id:'fk-mezzer', cat:'fork', brand:'Manitou', model:'Mezzer Pro 170', price:900, weight:2050, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
   { id:'fk-onyx', cat:'fork', brand:'DVO', model:'Onyx SC D1 170', price:1150, weight:2250, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
   { id:'fk-36', cat:'fork', brand:'Fox', model:'36 Factory 160', price:1099, weight:1960, wheel:'29', travel:160, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
-  { id:'fk-zeb-180', cat:'fork', brand:'RockShox', model:'ZEB Ultimate 180', price:1149, weight:2200, wheel:'29', travel:180, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220 },
+  { id:'fk-zeb-180', cat:'fork', brand:'RockShox', model:'ZEB Ultimate 180', price:1149, weight:2200, wheel:'29', travel:180, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220, minRotorF:200 },
   { id:'fk-helm', cat:'fork', brand:'Cane Creek', model:'Helm MkII Air 170', price:900, weight:2150, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
   { id:'fk-ext-era', cat:'fork', brand:'EXT', model:'Era V2 170', price:1600, weight:2300, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220 },
   { id:'fk-selva', cat:'fork', brand:'Formula', model:'Selva S 160', price:850, weight:2050, wheel:'29', travel:160, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
   { id:'fk-rxf36', cat:'fork', brand:'Öhlins', model:'RXF36 m.2 160', price:1150, weight:2000, wheel:'29', travel:160, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
-  { id:'fk-domain', cat:'fork', brand:'RockShox', model:'Domain RC 170', price:500, weight:2500, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:200 },
+  { id:'fk-domain', cat:'fork', brand:'RockShox', model:'Domain RC 170', price:500, weight:2500, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220, minRotorF:200 },
   { id:'fk-mattoc', cat:'fork', brand:'Manitou', model:'Mattoc Pro 160', price:800, weight:1950, wheel:'29', travel:160, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
   { id:'fk-mrp', cat:'fork', brand:'MRP', model:'Ribbon Air 160', price:850, weight:2000, wheel:'29', travel:160, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
   { id:'fk-durolux', cat:'fork', brand:'SR Suntour', model:'Durolux R2C2 170', price:450, weight:2400, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203 },
@@ -566,9 +566,16 @@ function checkBuild(build){
   if(fRotor && fW && fRotor.mount!==fW.rotorMount) errors.push('Front rotor interface mismatch: '+L(fRotor.mount)+' rotor on '+L(fW.rotorMount)+' front hub.');
   if(rRotor && rW && rRotor.mount!==rW.rotorMount) errors.push('Rear rotor interface mismatch: '+L(rRotor.mount)+' rotor on '+L(rW.rotorMount)+' rear hub.');
 
-  /* 10. Rotor size vs frame/fork max (warnings) */
+  /* 10. Rotor size vs frame/fork max (warnings) - plus MINIMUM vs the fork's
+        native mount (error). Post-mount adapters only space the caliper UP, so
+        a rotor below the fork's native mount size is physically unmountable -
+        no adapter exists. minRotorF is optional per the rule-18 dormant-until-
+        sourced template: populated only from fetched manufacturer specs
+        (REVIEW.md #3). */
   if(fRotor && fork && fRotor.size>fork.maxRotorF) warnings.push('Front rotor: '+fRotor.size+'mm exceeds the fork max of '+fork.maxRotorF+'mm.');
   if(rRotor && frame && rRotor.size>frame.maxRotorR) warnings.push('Rear rotor: '+rRotor.size+'mm exceeds the frame max of '+frame.maxRotorR+'mm.');
+  if(fRotor && fork && typeof fork.minRotorF==='number' && fRotor.size<fork.minRotorF)
+    errors.push('Front rotor too small: '+fRotor.size+'mm is below the '+nameOf(fork)+' minimum of '+fork.minRotorF+'mm (its native mount size). Post-mount adapters only space the caliper up, so no adapter can make a smaller rotor fit.');
 
   /* 11. Steerer / headset */
   if(fork && frame && fork.steerer!==frame.headset) errors.push('Steerer mismatch: Fork is '+L(fork.steerer)+' but Frame headset is '+L(frame.headset)+'.');

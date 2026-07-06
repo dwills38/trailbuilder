@@ -59,7 +59,8 @@ var SCHEMA = {
   },
   fork: {
     wheel:{type:'string',vocab:'wheel'}, travel:{type:'number'}, axle:{type:'string',vocab:'frontAxle'},
-    steerer:{type:'string',vocab:'steerer'}, brakeMount:{type:'string',vocab:'brakeMount'}, maxRotorF:{type:'number'}
+    steerer:{type:'string',vocab:'steerer'}, brakeMount:{type:'string',vocab:'brakeMount'}, maxRotorF:{type:'number'},
+    minRotorF:{type:'number',optional:true}
   },
   shock: {
     eye:{type:'number'}, stroke:{type:'number'}, mount:{type:'string',vocab:'shockMount'}, spring:{type:'string',vocab:'spring'},

@@ -68,6 +68,18 @@ test('cassette bigger than derailleur capacity -> error', function(){
 test('Center Lock rotor on a 6-bolt front hub -> interface error', function(){
   some(chk({fork:'fk-zeb', frontWheel:'fw-reserve', frontRotor:'ro-cl-203'}).errors, 'rotor interface');
 });
+
+/* Rule 10 minimum (REVIEW.md #3). The ZEB/Domain have a 200mm-native post mount
+   (sram.com); adapters only space the caliper UP, so a 180 rotor is unmountable. */
+test('180mm rotor on a ZEB (200mm minimum) -> error, not silence', function(){
+  some(chk({fork:'fk-zeb', frontRotor:'ro-hs2-180'}).errors, 'rotor too small');
+});
+test('200mm rotor on a ZEB meets the minimum -> clean', function(){
+  eq(chk({fork:'fk-zeb', frontRotor:'ro-hs2-200'}).errors.length, 0);
+});
+test('min-rotor rule stays dormant on forks without a sourced minRotorF', function(){
+  eq(chk({fork:'fk-36', frontRotor:'ro-hs2-180'}).errors.length, 0);
+});
 test('bar/stem clamp mismatch (35 vs 31.8) -> error', function(){
   some(chk({handlebar:'hb-pnw', stem:'st-apex'}).errors, 'clamp');
 });

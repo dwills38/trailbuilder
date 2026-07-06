@@ -53,7 +53,7 @@
  */
 
 /** @typedef {CommonFields & {cat: 'frame', wheelConfigs: WheelConfig[], rearAxle: RearAxle, headset: Tapered, bb: FrameBb, seatTube: number, brakeMount: BrakeMount, maxRotorR: number, shockEye: number, shockStroke: number, shockMount: ShockMount, maxForkTravel: number, travel: number, udh: boolean, frameOnly: boolean, maxTire?: number, bundledShock?: (string|null)}} FramePart */
-/** @typedef {CommonFields & {cat: 'fork', wheel: WheelSize, travel: number, axle: FrontAxle, steerer: Tapered, brakeMount: BrakeMount, maxRotorF: number}} ForkPart */
+/** @typedef {CommonFields & {cat: 'fork', wheel: WheelSize, travel: number, axle: FrontAxle, steerer: Tapered, brakeMount: BrakeMount, maxRotorF: number, minRotorF?: number}} ForkPart */
 /** @typedef {CommonFields & {cat: 'shock', eye: number, stroke: number, mount: ShockMount, spring: Spring, oemOnly?: boolean, forFrame?: string}} ShockPart */
 /** @typedef {CommonFields & {cat: 'frontwheel', wheel: WheelSize, hub: FrontAxle, rotorMount: RotorMount, intWidth: number, maxTire: number}} FrontWheelPart */
 /** @typedef {CommonFields & {cat: 'rearwheel', wheel: WheelSize, hub: RearAxle, freehub: Freehub, rotorMount: RotorMount, intWidth: number, maxTire: number}} RearWheelPart */
