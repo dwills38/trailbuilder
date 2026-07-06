@@ -10,11 +10,15 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
 **Solid foundation, honestly-scoped prototype:**
 
 - **Layout & tooling:** `src/` + `test/`; full-`strict` JSDoc type-checking (`npm run typecheck`);
-  Vitest (`npm test` — **91 tests**); GitHub Actions CI; and a GitHub Pages deploy workflow that's
+  Vitest (`npm test` — **112 tests**); GitHub Actions CI; and a GitHub Pages deploy workflow that's
   ready but **not yet deployed** (no git remote / `gh` in this environment).
-- **Engine:** 18 compatibility rules + a regression/fuzz **fortress** (`test/test-invariants.js`),
+- **Engine:** 19 compatibility rules + a regression/fuzz **fortress** (`test/test-invariants.js`),
   proven crash-free, deterministic, and **dot-honest** — a green dot never hides a newly-introduced
-  conflict, with clean verdict messages. Verdicts are *self-consistent* — **not yet validated
+  conflict, with clean verdict messages. A 2026-07-06 adversarial audit (**`REVIEW.md`**) found 5
+  Critical false-greens — all fixed same day (actuation, T-Type chainring, minimum rotor, preset-dot
+  baseline, shifter clamp) — and left its **Major findings (#6–#9) open for a follow-up pass**
+  (warning-blind dots, SRAM-mullet catalog trap, direction-blind shock-stroke/dropper rules).
+  Verdicts are *self-consistent* — **not yet validated
   against the real world** (no expert review, no real riders).
 - **Data:** 327 parts across ~100 brands with **46 verified** against manufacturer pages —
   verification is a **resumable checkpointed job** (`tools/verify-job.js` + `tools/VERIFY-PROTOCOL.md`;
@@ -51,7 +55,7 @@ be playful.
    `REPORT_REPO` in `index.html` to `"owner/repo"` so the built-in **⚐ Report a wrong verdict** modal
    upgrades from copy-to-clipboard to pre-filled GitHub issues (labelled `wrong-verdict`). Real usage
    is the only thing that validates the rules and turns the community into QA.
-2. **Domain-expert rule review.** A mechanic/engineer sanity-checks the 18 rules + verified specs.
+2. **Domain-expert rule review.** A mechanic/engineer sanity-checks the 19 rules + verified specs.
    Irreplaceable for "the community can rely on it" — and it also unblocks the Phase 4 ride-character
    features (they need an expert-blessed vocabulary).
 3. **Keep the verification grind running** (resumable job — next up: Continental/Schwalbe/Michelin/

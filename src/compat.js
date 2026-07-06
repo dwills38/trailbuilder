@@ -612,8 +612,8 @@ function checkBuild(build){
 
   /* 18. Rear tire vs FRAME clearance (optional frame.maxTire, warning). The
         frame/swingarm complement to rule 14's rim-clearance check. Fires only
-        where a frame carries a manufacturer-sourced maxTire (activated for 6
-        frames on 2026-07-06); frames without published clearance stay silent -
+        where a frame carries a manufacturer-sourced maxTire (10 catalog frames
+        as of 2026-07-06); frames without published clearance stay silent -
         a missing rule beats a wrong one. */
   if(rTire && frame && typeof frame.maxTire==='number' && rTire.width>frame.maxTire)
     warnings.push('Rear tire clearance: '+rTire.width+'in tire is wider than '+nameOf(frame)+'\'s '+frame.maxTire+'in frame max.');

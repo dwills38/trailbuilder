@@ -50,8 +50,8 @@ Requires [Node.js](https://nodejs.org) 18+. Run `npm install` once (dev tooling 
 tests + type-checker; `validate.js` itself needs no dependencies).
 
 ```
-npm test            # full suite (Vitest) — expect "Tests  91 passed (91)"
-node validate.js    # data check — expect "DATA OK - 326 parts, 0 problems (38 verified, ...)"
+npm test            # full suite (Vitest) — expect "Tests  112 passed (112)"
+node validate.js    # data check — expect "DATA OK - 327 parts, 0 problems (46 verified, ...)"
 ```
 
 (`npm run validate` works too; `npm run test:watch` re-runs Vitest on save.) To run the
@@ -79,13 +79,13 @@ Every part: `id, cat, brand, model, price` (USD, sample), and usually `weight` (
 Category-specific fields (enforced by `schema.js` → `SCHEMA`, using vocabularies in `VOCAB`):
 
 - **frame**: `wheelConfigs` (array of `'29'`/`'275'`/`'mullet'`), `rearAxle`, `headset`, `bb`, `seatTube`, `brakeMount`, `maxRotorR`, `shockEye`, `shockStroke`, `shockMount`, `maxForkTravel`, `travel`, `udh` (bool), `frameOnly` (bool), `bundledShock` (id or null).
-- **fork**: `wheel`, `travel`, `axle`, `steerer`, `brakeMount`, `maxRotorF`.
+- **fork**: `wheel`, `travel`, `axle`, `steerer`, `brakeMount`, `maxRotorF`, optional `minRotorF` (native-mount minimum; sourced forks only).
 - **shock**: `eye`, `stroke`, `mount`, `spring`; optional `oemOnly` + `forFrame`.
 - **frontwheel / rearwheel**: `wheel`, `hub`, (`freehub` rear only), `rotorMount`, `intWidth`, `maxTire`.
 - **tire**: `wheel`, `width`. (Front and rear tires are separate build slots, both drawn from `cat:'tire'`.)
-- **shifter / derailleur / cassette / chain**: `system` (`sram-eagle`/`sram-transmission`/`shimano-12`), `speeds`; derailleur also `maxCog`,`mount`; cassette also `freehub`,`range`,`maxCog`.
-- **crankset**: `bb`, `ring`, `speeds`.
-- **brake**: `mount`, `pistons`.   **rotor**: `size`, `mount`.
+- **shifter / derailleur / cassette / chain**: `system` (`sram-eagle`/`sram-transmission`/`shimano-12`), `speeds`; shifter + derailleur also `actuation` (`cable`/`electronic` — same system, but a trigger can't drive an AXS mech); shifter optional `clampType` (`ispec-ev`/`matchmaker`/`band`/`pod`); derailleur also `maxCog`,`mount`; cassette also `freehub`,`range`,`maxCog`.
+- **crankset**: `bb`, `ring`, `ringStd` (`t-type`/`standard-12`), `speeds`.
+- **brake**: `mount`, `pistons`, optional `leverClamp` (`ispec-ev`/`matchmaker`).   **rotor**: `size`, `mount`.
 - **handlebar/stem**: `clamp` (+ optional dims).  **grips/saddle**: just the common fields.
 - **dropper**: `diameter`, `drop`.  **pedal**: `style` (`flat`/`clip`) — pairs; 9/16" thread fits every crank, so no compat rules.
 - **presets** (`groupset`/`wheelset`/`brakeset`/`cockpitset`): `price`, `weight`, and `fills` (slotKey → part id).
@@ -96,15 +96,19 @@ A build is a map of slotKey → part id. Slots: `frame, fork, shock, frontWheel,
 frontTire, rearTire, shifter, derailleur, cassette, chain, crankset, frontBrake, rearBrake,
 frontRotor, rearRotor, handlebar, stem, grips, dropper, saddle, pedals`. (`GROUPS`/`SLOTS` in `compat.js`.)
 
-## Compatibility engine (`checkBuild`) — 18 rule areas
+## Compatibility engine (`checkBuild`) — 19 rule areas
 
 Wheel-size by front/rear group vs frame `wheelConfigs` (incl. mullet = 29 front / 27.5 rear);
-front & rear axles; drivetrain one-system + one-speed; SRAM Transmission needs a UDH frame;
+front & rear axles; drivetrain one-system + one-speed + shifter/derailleur actuation (cable vs
+AXS wireless) + T-Type chainring vs Transmission chain; SRAM Transmission needs a UDH frame;
 cassette range vs derailleur capacity; cassette freehub vs rear wheel; brake caliper mounts;
-rotor interface (6-bolt/Center Lock) vs hub; rotor size vs frame/fork max; steerer/headset;
+rotor interface (6-bolt/Center Lock) vs hub; rotor size vs frame/fork max AND vs the fork's
+native-mount minimum (error; sourced forks only); steerer/headset;
 fork travel vs frame max; dropper diameter vs seat tube; tire width vs wheel clearance;
 rear-tire width vs frame clearance (rule 18 — dormant until a frame declares `maxTire`);
-bar/stem clamp; rear-shock fit (eye×stroke + mount); frame+shock bundling (incl. OEM-only).
+bar/stem clamp; rear-shock fit (eye×stroke + mount); frame+shock bundling (incl. OEM-only);
+shifter clamp vs brake lever integration (rule 19 — I-Spec EV/MatchMaker, dormant until parts
+are tagged).
 Returns `{errors, warnings, infos}`. Errors = won't fit; warnings = works but check; infos = notes.
 (The all-clear in the app reads "No conflicts found", not "All compatible" — it means no conflict
 among the dimensions we check, not a guarantee. Don't reword it to overclaim.)
@@ -116,12 +120,16 @@ The engine only checks the dimensions above; a green verdict is only as complete
 false "won't fit" OR a false "fits" is worse than a missing rule.** Candidates considered:
 
 - **Frame rear-tire clearance** (`rTire.width` vs optional `frame.maxTire`): ✅ **added as rule 18,
-  ACTIVATED 2026-07-06 for 6 frames** with manufacturer-published clearances (Madonna 2.6, Slash 2.5,
-  Megatower 2.5 stock setting, Spire 2.6, SB160 2.6, HD6 2.5). The other 13 frames publish no explicit
+  ACTIVATED 2026-07-06, now live on 10 catalog frames (8 models)** with manufacturer-published
+  clearances (the three Madonnas 2.6, Slash 2.5, Megatower 2.5 stock setting, Spire 2.6, SB160 2.6,
+  HD6 2.5, Reign 2.5, Dreadnought 2.6). The other frames publish no explicit
   max, so the rule stays dormant for them — a missing rule beats a wrong one. `test/test-engine.js`
   proves it fires when tripped, stays silent within clearance, and stays dormant without data. This is
   the template for the data-dependent candidates below: land the rule + tests dormant, activate per
-  part as sourced data arrives.
+  part as sourced data arrives. The 2026-07-06 correctness audit (`REVIEW.md`) used the same template
+  to land actuation, T-Type chainring, minimum-rotor and shifter-clamp checks (its 5 Criticals);
+  its Major findings (#6–#9: warning-blind dots, the SRAM-mullet catalog trap, direction-blind
+  shock-stroke and dropper rules) are still open for a follow-up pass.
 - **Tire vs internal-rim-width range** (too-narrow tire on a wide rim): real, but the thresholds
   are fuzzy/standards-dependent — needs sourcing; would be a soft warning.
 - **Oversize-rotor adapter** needed when a rotor exceeds the native mount: today rule 10 already
@@ -144,15 +152,17 @@ components. `presetBy` maps groupKey → preset id.
 ## Provenance
 
 Parts may carry `verified: true` + `lastChecked: "YYYY-MM-DD"` + `source: "https://…"`.
-Absence = unverified (still the default for most of the catalog; **38 parts are verified so
+Absence = unverified (still the default for most of the catalog; **46 parts are verified so
 far**, all against manufacturer pages — the SRAM GX Eagle mechanical, X01/NX Eagle, and most
 GX/X0/XX Transmission drivetrain parts (the AXS pods have no clean model pages so they stay
 sample; the X01/GX-AXS derailleur and X01 crank pages list no weight, so they stay sample
-too), two RockShox shocks (`sh-sd-air`, `sh-vivid`), a Shimano XT cassette (`ca-xt`), four
-frames — all three RAAW Madonnas (V2.2/V3/V3.2; RAAW publishes full spec sheets) and the
-Commencal Meta SX V5 (tech page) — seven pedals (OneUp, Race Face, Crankbrothers, Time;
-Shimano pedal pages blocked fetching), the Crankbrothers Synthesis Enduro wheel pair, and
-four droppers (OneUp V3, PNW Loam — both publish per-size weights)). **The verification grind
+too), two RockShox shocks (`sh-sd-air`, `sh-vivid`), a Shimano XT cassette (`ca-xt`), six
+frames — all three RAAW Madonnas (V2.2/V3/V3.2; RAAW publishes full spec sheets), the
+Commencal Meta SX V5 (tech page), the Canyon Strive CFR and the Forbidden Dreadnought —
+seven pedals (OneUp, Race Face, Crankbrothers, Time; Shimano pedal pages blocked fetching),
+the Crankbrothers Synthesis Enduro wheel pair, four droppers (OneUp V3, PNW Loam — both
+publish per-size weights), and six Maxxis tires (Maxxis publishes per-SKU weights; each
+pinned to a stock casing/compound)). **The verification grind
 is a resumable job: see `tools/VERIFY-PROTOCOL.md` + `npm run verify:status`.** The
 validator **refuses `verified: true` without a real source URL and a non-future date** — so
 "verified" always means something. When you actually confirm a spec against a manufacturer
@@ -191,10 +201,11 @@ The `✓ Verified only` filter in the app (built on `partVerified`) shows just t
    (`npm test`, config in `vitest.config.mjs`), and `.github/workflows/ci.yml` runs
    `validate` + `tests` + `typecheck` on every push / PR.
 4. 🚧 **Adding real, verified parts** (in progress — now a resumable checkpointed job: run
-   `npm run verify:status`, then follow `tools/VERIFY-PROTOCOL.md`): 38 verified so far — SRAM
+   `npm run verify:status`, then follow `tools/VERIFY-PROTOCOL.md`): 46 verified so far — SRAM
    GX/X01/NX Eagle and most Transmission drivetrain parts, two RockShox shocks, a Shimano XT
-   cassette, seven pedals, Synthesis wheels, four droppers, and four frames (all three RAAW
-   Madonnas incl. the new V3/V3.2, + the Commencal Meta SX V5). All 21 frames' verdict-driving
+   cassette, seven pedals, Synthesis wheels, four droppers, six Maxxis tires, and six frames
+   (all three RAAW Madonnas incl. the new V3/V3.2, the Commencal Meta SX V5, the Canyon Strive
+   CFR and the Forbidden Dreadnought). All 21 frames' verdict-driving
    specs (axle, shock size/mount, UDH, BB, seat tube) are web-sourced; most frame makers publish
    no frame-only weight, so those end `Skipped` in the job state with a reason. Forks are
    deliberately still flagged (weights couldn't be pinned reliably — e.g. RockShox's page lists
