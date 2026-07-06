@@ -42,6 +42,9 @@ test('actuation value outside the vocab is caught', function(){
 test('crankset missing ringStd is caught', function(){
   var p = over('cr-xt'); delete p.ringStd; some(probs(p), 'ringStd');
 });
+test('brake leverClamp outside its own (narrower) vocab is caught', function(){
+  some(probs(over('bk-code', { leverClamp:'band' })), 'leverClamp');
+});
 test('verified:true without a source is caught', function(){
   some(probs(over('fr-megatower', { verified:true })), 'source');
 });

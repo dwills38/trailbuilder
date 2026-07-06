@@ -32,6 +32,8 @@
 /** @typedef {'sram-eagle'|'sram-transmission'|'shimano-12'} DriveSystem */
 /** @typedef {'cable'|'electronic'} Actuation */
 /** @typedef {'t-type'|'standard-12'} RingStd */
+/** @typedef {'ispec-ev'|'matchmaker'|'band'|'pod'} ShifterClamp */
+/** @typedef {'ispec-ev'|'matchmaker'} LeverClamp */
 /** @typedef {'hanger'|'udh-direct'} DerailMount */
 /** @typedef {'air'|'coil'} Spring */
 /** @typedef {'alu'|'carbon'} Material */
@@ -58,12 +60,12 @@
 /** @typedef {CommonFields & {cat: 'frontwheel', wheel: WheelSize, hub: FrontAxle, rotorMount: RotorMount, intWidth: number, maxTire: number}} FrontWheelPart */
 /** @typedef {CommonFields & {cat: 'rearwheel', wheel: WheelSize, hub: RearAxle, freehub: Freehub, rotorMount: RotorMount, intWidth: number, maxTire: number}} RearWheelPart */
 /** @typedef {CommonFields & {cat: 'tire', wheel: WheelSize, width: number}} TirePart */
-/** @typedef {CommonFields & {cat: 'shifter', system: DriveSystem, speeds: number, actuation: Actuation}} ShifterPart */
+/** @typedef {CommonFields & {cat: 'shifter', system: DriveSystem, speeds: number, actuation: Actuation, clampType?: ShifterClamp}} ShifterPart */
 /** @typedef {CommonFields & {cat: 'derailleur', system: DriveSystem, speeds: number, actuation: Actuation, maxCog: number, mount: DerailMount}} DerailleurPart */
 /** @typedef {CommonFields & {cat: 'cassette', system: DriveSystem, speeds: number, freehub: Freehub, range: string, maxCog: number}} CassettePart */
 /** @typedef {CommonFields & {cat: 'chain', system: DriveSystem, speeds: number}} ChainPart */
 /** @typedef {CommonFields & {cat: 'crankset', bb: CrankBb, ring: number, ringStd: RingStd, speeds: number, chainline?: string}} CranksetPart */
-/** @typedef {CommonFields & {cat: 'brake', mount: BrakeMount, pistons: number}} BrakePart */
+/** @typedef {CommonFields & {cat: 'brake', mount: BrakeMount, pistons: number, leverClamp?: LeverClamp}} BrakePart */
 /** @typedef {CommonFields & {cat: 'rotor', size: number, mount: RotorMount}} RotorPart */
 /** @typedef {CommonFields & {cat: 'handlebar', clamp: number, width?: number, rise?: number, material?: Material}} HandlebarPart */
 /** @typedef {CommonFields & {cat: 'stem', clamp: number, length?: number}} StemPart */

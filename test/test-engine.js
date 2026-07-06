@@ -83,6 +83,26 @@ test('min-rotor rule stays dormant on forks without a sourced minRotorF', functi
 test('bar/stem clamp mismatch (35 vs 31.8) -> error', function(){
   some(chk({handlebar:'hb-pnw', stem:'st-apex'}).errors, 'clamp');
 });
+
+/* Rule 19 — shifter mounting vs brake lever integration (REVIEW.md #5). The
+   I-Spec EV XT shifter has no bar clamp of its own; on MatchMaker (SRAM) levers
+   it attaches to nothing as specced. Warning (band SKUs / adapters exist). */
+test('I-Spec EV shifter + MatchMaker (SRAM) brakes -> mount warning, not silence', function(){
+  var r = chk({shifter:'sft-xt', frontBrake:'bk-code', rearBrake:'bk-code'});
+  eq(r.errors.length, 0); some(r.warnings, 'Shifter mount');
+});
+test('I-Spec EV shifter + I-Spec EV brakes -> silent', function(){
+  eq(chk({shifter:'sft-xt', frontBrake:'bk-xt', rearBrake:'bk-xt'}).warnings.length, 0);
+});
+test('one matching lever is enough (mixed brakes) -> silent', function(){
+  eq(chk({shifter:'sft-xt', frontBrake:'bk-code', rearBrake:'bk-xt'}).warnings.length, 0);
+});
+test('shifter-mount rule stays dormant when the brakes are untagged', function(){
+  eq(chk({shifter:'sft-xt', frontBrake:'bk-hope', rearBrake:'bk-hope'}).warnings.length, 0);
+});
+test('AXS pod shifter (own clamp) never triggers the mount warning', function(){
+  eq(chk({shifter:'sft-gx-t', frontBrake:'bk-code', rearBrake:'bk-code'}).warnings.length, 0);
+});
 test('dropper diameter mismatch (31.6 in a 34.9 frame) -> error', function(){
   some(chk({frame:'fr-enduro', dropper:'dp-oneup'}).errors, 'Dropper diameter');
 });

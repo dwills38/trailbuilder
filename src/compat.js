@@ -42,6 +42,7 @@ var LABELS = {
   'shimano-12': 'Shimano 12-speed', 'udh-direct': 'Direct mount (UDH)', hanger: 'Standard hanger',
   cable: 'mechanical (cable)', electronic: 'electronic (wireless)',
   't-type': 'T-Type', 'standard-12': 'standard 12-speed',
+  'ispec-ev': 'I-Spec EV', matchmaker: 'MatchMaker X', band: 'band clamp', pod: 'AXS pod',
   flat: 'Flat', clip: 'Clipless'
 };
 /** @param {string} k @returns {string} */
@@ -229,16 +230,16 @@ var PARTS = [
   { id:'ti-dh22-29', cat:'tire', brand:'Michelin', model:'DH22 29x2.4', price:85, weight:1400, wheel:'29', width:2.4 },
 
   /* DRIVETRAIN COMPONENTS */
-  { id:'sft-gx-t', cat:'shifter', brand:'SRAM', model:'GX Transmission Pod', price:150, weight:70, system:'sram-transmission', speeds:12, actuation:'electronic' },
+  { id:'sft-gx-t', cat:'shifter', brand:'SRAM', model:'GX Transmission Pod', price:150, weight:70, system:'sram-transmission', speeds:12, actuation:'electronic', clampType:'pod' },
   { id:'sft-gx-m', cat:'shifter', brand:'SRAM', model:'GX Eagle Trigger', price:45, weight:122, system:'sram-eagle', speeds:12, actuation:'cable', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/sl-gx-1-a2' },
-  { id:'sft-xt', cat:'shifter', brand:'Shimano', model:'XT M8100 I-Spec', price:55, weight:115, system:'shimano-12', speeds:12, actuation:'cable' },
+  { id:'sft-xt', cat:'shifter', brand:'Shimano', model:'XT M8100 I-Spec', price:55, weight:115, system:'shimano-12', speeds:12, actuation:'cable', clampType:'ispec-ev' },
   { id:'sft-slx', cat:'shifter', brand:'Shimano', model:'SLX M7100', price:40, weight:120, system:'shimano-12', speeds:12, actuation:'cable' },
-  { id:'sft-x0-t', cat:'shifter', brand:'SRAM', model:'X0 Transmission Pod', price:175, weight:75, system:'sram-transmission', speeds:12, actuation:'electronic' },
-  { id:'sft-xx-t', cat:'shifter', brand:'SRAM', model:'XX SL Transmission Pod', price:200, weight:70, system:'sram-transmission', speeds:12, actuation:'electronic' },
+  { id:'sft-x0-t', cat:'shifter', brand:'SRAM', model:'X0 Transmission Pod', price:175, weight:75, system:'sram-transmission', speeds:12, actuation:'electronic', clampType:'pod' },
+  { id:'sft-xx-t', cat:'shifter', brand:'SRAM', model:'XX SL Transmission Pod', price:200, weight:70, system:'sram-transmission', speeds:12, actuation:'electronic', clampType:'pod' },
   { id:'sft-nx', cat:'shifter', brand:'SRAM', model:'NX Eagle Trigger', price:50, weight:112, system:'sram-eagle', speeds:12, actuation:'cable', verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/sl-nx-1-b1' },
   { id:'sft-xtr', cat:'shifter', brand:'Shimano', model:'XTR M9100', price:130, weight:110, system:'shimano-12', speeds:12, actuation:'cable' },
   { id:'sft-deore', cat:'shifter', brand:'Shimano', model:'Deore M6100', price:30, weight:125, system:'shimano-12', speeds:12, actuation:'cable' },
-  { id:'sft-gx-axs', cat:'shifter', brand:'SRAM', model:'GX Eagle AXS Controller', price:150, weight:90, system:'sram-eagle', speeds:12, actuation:'electronic' },
+  { id:'sft-gx-axs', cat:'shifter', brand:'SRAM', model:'GX Eagle AXS Controller', price:150, weight:90, system:'sram-eagle', speeds:12, actuation:'electronic', clampType:'pod' },
   { id:'dr-gx-t', cat:'derailleur', brand:'SRAM', model:'GX Transmission', price:400, weight:470, system:'sram-transmission', speeds:12, actuation:'electronic', maxCog:52, mount:'udh-direct', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/rd-gx-e-b1' },
   { id:'dr-gx-m', cat:'derailleur', brand:'SRAM', model:'GX Eagle', price:135, weight:290, system:'sram-eagle', speeds:12, actuation:'cable', maxCog:52, mount:'hanger', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/rd-gx-1-b2' },
   { id:'dr-xt', cat:'derailleur', brand:'Shimano', model:'XT M8100 SGS', price:120, weight:284, system:'shimano-12', speeds:12, actuation:'cable', maxCog:51, mount:'hanger' },
@@ -279,26 +280,26 @@ var PARTS = [
   { id:'cr-eewings', cat:'crankset', brand:'Cane Creek', model:'eeWings AllMountain', price:500, weight:400, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost' },
 
   /* BRAKES (single caliper+lever; usable front or rear) */
-  { id:'bk-code', cat:'brake', brand:'SRAM', model:'Code RSC', price:140, weight:290, mount:'PM', pistons:4 },
-  { id:'bk-code-s', cat:'brake', brand:'SRAM', model:'Code Stealth', price:150, weight:290, mount:'PM', pistons:4 },
-  { id:'bk-xt', cat:'brake', brand:'Shimano', model:'XT M8120 4-piston', price:150, weight:295, mount:'PM', pistons:4 },
+  { id:'bk-code', cat:'brake', brand:'SRAM', model:'Code RSC', price:140, weight:290, mount:'PM', pistons:4, leverClamp:'matchmaker' },
+  { id:'bk-code-s', cat:'brake', brand:'SRAM', model:'Code Stealth', price:150, weight:290, mount:'PM', pistons:4, leverClamp:'matchmaker' },
+  { id:'bk-xt', cat:'brake', brand:'Shimano', model:'XT M8120 4-piston', price:150, weight:295, mount:'PM', pistons:4, leverClamp:'ispec-ev' },
   { id:'bk-dominion', cat:'brake', brand:'Hayes', model:'Dominion A4', price:190, weight:310, mount:'PM', pistons:4 },
   { id:'bk-mt7', cat:'brake', brand:'Magura', model:'MT7', price:160, weight:280, mount:'PM', pistons:4 },
-  { id:'bk-slx', cat:'brake', brand:'Shimano', model:'SLX M7120 4-piston', price:100, weight:305, mount:'PM', pistons:4 },
-  { id:'bk-maven', cat:'brake', brand:'SRAM', model:'Maven Ultimate', price:260, weight:315, mount:'PM', pistons:4 },
+  { id:'bk-slx', cat:'brake', brand:'Shimano', model:'SLX M7120 4-piston', price:100, weight:305, mount:'PM', pistons:4, leverClamp:'ispec-ev' },
+  { id:'bk-maven', cat:'brake', brand:'SRAM', model:'Maven Ultimate', price:260, weight:315, mount:'PM', pistons:4, leverClamp:'matchmaker' },
   { id:'bk-hope', cat:'brake', brand:'Hope', model:'Tech 4 V4', price:210, weight:300, mount:'PM', pistons:4 },
   { id:'bk-trp', cat:'brake', brand:'TRP', model:'DH-R EVO', price:170, weight:315, mount:'PM', pistons:4 },
   { id:'bk-cura', cat:'brake', brand:'Formula', model:'Cura 4', price:180, weight:280, mount:'PM', pistons:4 },
   { id:'bk-saint', cat:'brake', brand:'Shimano', model:'Saint M820', price:190, weight:340, mount:'PM', pistons:4 },
-  { id:'bk-xtr', cat:'brake', brand:'Shimano', model:'XTR M9120 4-piston', price:250, weight:270, mount:'PM', pistons:4 },
+  { id:'bk-xtr', cat:'brake', brand:'Shimano', model:'XTR M9120 4-piston', price:250, weight:270, mount:'PM', pistons:4, leverClamp:'ispec-ev' },
   { id:'bk-zee', cat:'brake', brand:'Shimano', model:'Zee M640', price:110, weight:320, mount:'PM', pistons:4 },
   { id:'bk-mt5', cat:'brake', brand:'Magura', model:'MT5', price:110, weight:290, mount:'PM', pistons:4 },
-  { id:'bk-g2', cat:'brake', brand:'SRAM', model:'G2 RSC', price:160, weight:275, mount:'PM', pistons:4 },
+  { id:'bk-g2', cat:'brake', brand:'SRAM', model:'G2 RSC', price:160, weight:275, mount:'PM', pistons:4, leverClamp:'matchmaker' },
   { id:'bk-hope-e4', cat:'brake', brand:'Hope', model:'Tech 4 E4', price:200, weight:280, mount:'PM', pistons:4 },
   { id:'bk-trail-evo', cat:'brake', brand:'TRP', model:'Trail EVO', price:130, weight:295, mount:'PM', pistons:4 },
   { id:'bk-trickstuff', cat:'brake', brand:'Trickstuff', model:'Maxima', price:900, weight:280, mount:'PM', pistons:4 },
   { id:'bk-db8', cat:'brake', brand:'SRAM', model:'DB8', price:100, weight:320, mount:'PM', pistons:4 },
-  { id:'bk-deore-4', cat:'brake', brand:'Shimano', model:'Deore M6120 4-piston', price:60, weight:315, mount:'PM', pistons:4 },
+  { id:'bk-deore-4', cat:'brake', brand:'Shimano', model:'Deore M6120 4-piston', price:60, weight:315, mount:'PM', pistons:4, leverClamp:'ispec-ev' },
   { id:'bk-mt-trail', cat:'brake', brand:'Magura', model:'MT Trail Sport', price:130, weight:290, mount:'PM', pistons:4 },
 
   /* ROTORS (usable front or rear) */
@@ -462,12 +463,12 @@ function specSummary(p){
     case 'frontwheel': return L(p.wheel)+' . '+L(p.hub)+' . '+L(p.rotorMount)+' . '+p.intWidth+'mm';
     case 'rearwheel': return L(p.wheel)+' . '+L(p.hub)+' . '+L(p.freehub)+' . '+L(p.rotorMount);
     case 'tire': return L(p.wheel)+' . '+p.width+'in';
-    case 'shifter': return L(p.system)+' . '+p.speeds+'s . '+L(p.actuation);
+    case 'shifter': return L(p.system)+' . '+p.speeds+'s . '+L(p.actuation)+(p.clampType?' . '+L(p.clampType):'');
     case 'derailleur': return L(p.system)+' . '+p.speeds+'s . '+L(p.actuation)+' . '+p.maxCog+'T max . '+L(p.mount);
     case 'cassette': return L(p.freehub)+' . '+p.range+' . '+p.speeds+'s';
     case 'chain': return L(p.system)+' . '+p.speeds+'s';
     case 'crankset': return L(p.bb)+' . '+p.ring+'T . '+p.speeds+'s . '+L(p.ringStd)+' ring';
-    case 'brake': return L(p.mount)+' . '+p.pistons+'-piston';
+    case 'brake': return L(p.mount)+' . '+p.pistons+'-piston'+(p.leverClamp?' . '+L(p.leverClamp):'');
     case 'rotor': return p.size+'mm . '+L(p.mount);
     case 'handlebar': return p.clamp+'mm clamp . '+p.width+'mm . '+p.material;
     case 'stem': return p.clamp+'mm clamp . '+p.length+'mm';
@@ -616,6 +617,21 @@ function checkBuild(build){
         a missing rule beats a wrong one. */
   if(rTire && frame && typeof frame.maxTire==='number' && rTire.width>frame.maxTire)
     warnings.push('Rear tire clearance: '+rTire.width+'in tire is wider than '+nameOf(frame)+'\'s '+frame.maxTire+'in frame max.');
+
+  /* 19. Shifter mounting vs brake lever integration (optional fields - dormant
+        until parts carry them, per the rule-18 template). An I-Spec EV or
+        MatchMaker shifter ships with NO handlebar clamp of its own and only
+        bolts to a matching brake lever; band-clamp and AXS-pod shifters mount
+        independently. Warning, not error: band-clamp SKUs and ShiftMount-style
+        adapters exist (REVIEW.md #5). One matching lever is enough - the
+        shifter pairs with that side. */
+  if(shifter && (shifter.clampType==='ispec-ev' || shifter.clampType==='matchmaker')){
+    var sClamp = shifter.clampType;
+    /** @type {string[]} */ var lClamps = [];
+    [fBrake, rBrake].forEach(function(bk){ if(bk && bk.leverClamp) lClamps.push(bk.leverClamp); });
+    if(lClamps.length && lClamps.indexOf(sClamp)<0)
+      warnings.push('Shifter mount: '+nameOf(shifter)+' is a '+L(sClamp)+' lever-integrated shifter (no bar clamp of its own), but the brake levers are '+L(lClamps[0])+'. You need the band-clamp version or a ShiftMount-style adapter to mount it.');
+  }
 
   return { errors:errors, warnings:warnings, infos:infos };
 }
