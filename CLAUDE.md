@@ -190,15 +190,17 @@ The `✓ Verified only` filter in the app (built on `partVerified`) shows just t
 3. ✅ **Vitest + GitHub Actions CI** (done): the home-grown runner is replaced by **Vitest**
    (`npm test`, config in `vitest.config.mjs`), and `.github/workflows/ci.yml` runs
    `validate` + `tests` + `typecheck` on every push / PR.
-4. 🚧 **Adding real, verified parts** (in progress): 35 verified so far — SRAM GX/X01/NX Eagle
-   and most Transmission drivetrain parts, two RockShox shocks, a Shimano XT cassette, seven
-   pedals, Synthesis wheels, four droppers, and the RAAW Madonna frame. **All 19 frames' verdict-driving
-   specs (axle, shock size/mount, UDH, BB, seat tube) were web-sourced 2026-07-01** — 14 frames
-   had wrong sample specs corrected, but only the Madonna is marked `verified` (direct
-   manufacturer-page confirmation; the bar for `verified:true`). Forks are deliberately still
-   flagged (weights couldn't be pinned reliably — e.g. RockShox's page lists the ZEB 170 at
-   2550 g vs the ~2100 g cited elsewhere). Set `verified`/`lastChecked`/`source` and fix wrong
-   sample specs while you're there; most of the catalog is still sample data.
+4. 🚧 **Adding real, verified parts** (in progress — now a resumable checkpointed job: run
+   `npm run verify:status`, then follow `tools/VERIFY-PROTOCOL.md`): 38 verified so far — SRAM
+   GX/X01/NX Eagle and most Transmission drivetrain parts, two RockShox shocks, a Shimano XT
+   cassette, seven pedals, Synthesis wheels, four droppers, and four frames (all three RAAW
+   Madonnas incl. the new V3/V3.2, + the Commencal Meta SX V5). All 21 frames' verdict-driving
+   specs (axle, shock size/mount, UDH, BB, seat tube) are web-sourced; most frame makers publish
+   no frame-only weight, so those end `Skipped` in the job state with a reason. Forks are
+   deliberately still flagged (weights couldn't be pinned reliably — e.g. RockShox's page lists
+   the ZEB 170 at 2550 g vs the ~2100 g cited elsewhere). **Lesson that keeps paying: search-result
+   summaries lie; only a fetched manufacturer page counts** (that's how the Spire's trunnion shock
+   and the Meta SX's real 4.08 kg weight were caught). Most of the catalog is still sample data.
 5. Parked: **ride categories** (enduro / trail / downhill) to filter the catalog by discipline;
    mullet is already supported.
 6. 🚧 **Deploy** — a GitHub Pages workflow (`.github/workflows/deploy.yml`) is ready; push to a
