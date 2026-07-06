@@ -41,6 +41,7 @@ var LABELS = {
   'sram-eagle': 'SRAM Eagle 12-speed', 'sram-transmission': 'SRAM Transmission (AXS)',
   'shimano-12': 'Shimano 12-speed', 'udh-direct': 'Direct mount (UDH)', hanger: 'Standard hanger',
   cable: 'mechanical (cable)', electronic: 'electronic (wireless)',
+  't-type': 'T-Type', 'standard-12': 'standard 12-speed',
   flat: 'Flat', clip: 'Clipless'
 };
 /** @param {string} k @returns {string} */
@@ -264,18 +265,18 @@ var PARTS = [
   { id:'ch-x01', cat:'chain', brand:'SRAM', model:'X01 Eagle 12-speed', price:75, weight:239, system:'sram-eagle', speeds:12, verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/cn-eagl-x01-a1' },
   { id:'ch-xtr', cat:'chain', brand:'Shimano', model:'CN-M9100 12-speed', price:50, weight:242, system:'shimano-12', speeds:12 },
   { id:'ch-deore', cat:'chain', brand:'Shimano', model:'CN-M6100 12-speed', price:25, weight:266, system:'shimano-12', speeds:12 },
-  { id:'cr-gx', cat:'crankset', brand:'SRAM', model:'GX Eagle DUB', price:175, weight:621, bb:'DUB', ring:32, speeds:12, chainline:'Boost', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/fc-gx-1-b1' },
-  { id:'cr-x0t', cat:'crankset', brand:'SRAM', model:'X0 Transmission DUB', price:330, weight:685, bb:'DUB', ring:32, speeds:12, chainline:'Boost', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/fc-x0-d1' },
-  { id:'cr-xt', cat:'crankset', brand:'Shimano', model:'XT M8100', price:200, weight:624, bb:'SH24', ring:32, speeds:12, chainline:'Boost' },
-  { id:'cr-rf', cat:'crankset', brand:'Race Face', model:'Aeffect R DUB', price:160, weight:640, bb:'DUB', ring:30, speeds:12, chainline:'Boost' },
-  { id:'cr-x0', cat:'crankset', brand:'SRAM', model:'X01 Eagle DUB', price:415, weight:615, bb:'DUB', ring:32, speeds:12, chainline:'Boost' },
-  { id:'cr-slx', cat:'crankset', brand:'Shimano', model:'SLX M7100', price:130, weight:645, bb:'SH24', ring:32, speeds:12, chainline:'Boost' },
-  { id:'cr-xx-t', cat:'crankset', brand:'SRAM', model:'XX SL Transmission DUB', price:500, weight:600, bb:'DUB', ring:32, speeds:12, chainline:'Boost' },
-  { id:'cr-nx', cat:'crankset', brand:'SRAM', model:'NX Eagle DUB', price:125, weight:638, bb:'DUB', ring:32, speeds:12, chainline:'Boost', verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/fc-nx-1-c1' },
-  { id:'cr-xtr', cat:'crankset', brand:'Shimano', model:'XTR M9100', price:400, weight:530, bb:'SH24', ring:32, speeds:12, chainline:'Boost' },
-  { id:'cr-deore', cat:'crankset', brand:'Shimano', model:'Deore M6100', price:75, weight:685, bb:'SH24', ring:30, speeds:12, chainline:'Boost' },
-  { id:'cr-e13', cat:'crankset', brand:'e*thirteen', model:'Plus DUB', price:200, weight:640, bb:'DUB', ring:32, speeds:12, chainline:'Boost' },
-  { id:'cr-eewings', cat:'crankset', brand:'Cane Creek', model:'eeWings AllMountain', price:500, weight:400, bb:'DUB', ring:32, speeds:12, chainline:'Boost' },
+  { id:'cr-gx', cat:'crankset', brand:'SRAM', model:'GX Eagle DUB', price:175, weight:621, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/fc-gx-1-b1' },
+  { id:'cr-x0t', cat:'crankset', brand:'SRAM', model:'X0 Transmission DUB', price:330, weight:685, bb:'DUB', ring:32, ringStd:'t-type', speeds:12, chainline:'Boost', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/fc-x0-d1' },
+  { id:'cr-xt', cat:'crankset', brand:'Shimano', model:'XT M8100', price:200, weight:624, bb:'SH24', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost' },
+  { id:'cr-rf', cat:'crankset', brand:'Race Face', model:'Aeffect R DUB', price:160, weight:640, bb:'DUB', ring:30, ringStd:'standard-12', speeds:12, chainline:'Boost' },
+  { id:'cr-x0', cat:'crankset', brand:'SRAM', model:'X01 Eagle DUB', price:415, weight:615, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost' },
+  { id:'cr-slx', cat:'crankset', brand:'Shimano', model:'SLX M7100', price:130, weight:645, bb:'SH24', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost' },
+  { id:'cr-xx-t', cat:'crankset', brand:'SRAM', model:'XX SL Transmission DUB', price:500, weight:600, bb:'DUB', ring:32, ringStd:'t-type', speeds:12, chainline:'Boost' },
+  { id:'cr-nx', cat:'crankset', brand:'SRAM', model:'NX Eagle DUB', price:125, weight:638, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost', verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/fc-nx-1-c1' },
+  { id:'cr-xtr', cat:'crankset', brand:'Shimano', model:'XTR M9100', price:400, weight:530, bb:'SH24', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost' },
+  { id:'cr-deore', cat:'crankset', brand:'Shimano', model:'Deore M6100', price:75, weight:685, bb:'SH24', ring:30, ringStd:'standard-12', speeds:12, chainline:'Boost' },
+  { id:'cr-e13', cat:'crankset', brand:'e*thirteen', model:'Plus DUB', price:200, weight:640, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost' },
+  { id:'cr-eewings', cat:'crankset', brand:'Cane Creek', model:'eeWings AllMountain', price:500, weight:400, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost' },
 
   /* BRAKES (single caliper+lever; usable front or rear) */
   { id:'bk-code', cat:'brake', brand:'SRAM', model:'Code RSC', price:140, weight:290, mount:'PM', pistons:4 },
@@ -465,7 +466,7 @@ function specSummary(p){
     case 'derailleur': return L(p.system)+' . '+p.speeds+'s . '+L(p.actuation)+' . '+p.maxCog+'T max . '+L(p.mount);
     case 'cassette': return L(p.freehub)+' . '+p.range+' . '+p.speeds+'s';
     case 'chain': return L(p.system)+' . '+p.speeds+'s';
-    case 'crankset': return L(p.bb)+' . '+p.ring+'T . '+p.speeds+'s';
+    case 'crankset': return L(p.bb)+' . '+p.ring+'T . '+p.speeds+'s . '+L(p.ringStd)+' ring';
     case 'brake': return L(p.mount)+' . '+p.pistons+'-piston';
     case 'rotor': return p.size+'mm . '+L(p.mount);
     case 'handlebar': return p.clamp+'mm clamp . '+p.width+'mm . '+p.material;
@@ -535,6 +536,12 @@ function checkBuild(build){
         system vocab would false-red them (REVIEW.md #1). */
   if(shifter && derailleur && shifter.actuation!==derailleur.actuation)
     errors.push('Actuation mismatch: '+nameOf(shifter)+' is '+L(shifter.actuation)+' but '+nameOf(derailleur)+' is '+L(derailleur.actuation)+'. A cable shifter cannot control a wireless derailleur (and vice versa).');
+  /* 3c. Chainring standard: SRAM documents T-Type Flattop chains (unique link
+        shape, pin size, larger rollers) as NOT compatible with non-T-Type rings.
+        One-directional on purpose - T-Type rings ARE backward-compatible with
+        Eagle chains, so the reverse must stay silent (REVIEW.md #2). */
+  if(chain && crankset && chain.system==='sram-transmission' && crankset.ringStd!=='t-type')
+    errors.push('Chainring mismatch: '+nameOf(chain)+' is a T-Type Flattop chain, but '+nameOf(crankset)+' has a '+L(crankset.ringStd)+' chainring. SRAM documents Flattop chains as incompatible with non-T-Type rings.');
 
   /* 4. SRAM Transmission needs a UDH frame */
   if(derailleur && derailleur.mount==='udh-direct'){

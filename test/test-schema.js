@@ -39,6 +39,9 @@ test('shifter missing actuation is caught', function(){
 test('actuation value outside the vocab is caught', function(){
   some(probs(over('dr-gx-axs', { actuation:'hydraulic' })), 'actuation');
 });
+test('crankset missing ringStd is caught', function(){
+  var p = over('cr-xt'); delete p.ringStd; some(probs(p), 'ringStd');
+});
 test('verified:true without a source is caught', function(){
   some(probs(over('fr-megatower', { verified:true })), 'source');
 });

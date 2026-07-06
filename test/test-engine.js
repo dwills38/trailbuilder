@@ -44,6 +44,18 @@ test('AXS controller + mechanical derailleur -> actuation error (reverse directi
 test('AXS Eagle drivetrain sharing Eagle cassette/chain stays clean (no system-vocab split)', function(){
   eq(chk({shifter:'sft-gx-axs', derailleur:'dr-gx-axs', cassette:'ca-sram-e', chain:'ch-eagle'}).errors.length, 0);
 });
+
+/* Rule 3c — T-Type chainring (REVIEW.md #2). SRAM-documented hard incompatibility,
+   one-directional: Flattop chain needs a T-Type ring; T-Type ring runs Eagle chains fine. */
+test('Transmission Flattop chain + non-T-Type crank -> chainring error', function(){
+  some(chk({chain:'ch-flattop', crankset:'cr-xt'}).errors, 'Chainring mismatch');
+});
+test('Transmission Flattop chain + T-Type crank -> clean', function(){
+  eq(chk({chain:'ch-flattop', crankset:'cr-x0t'}).errors.length, 0);
+});
+test('T-Type crank + Eagle chain -> clean (backward-compatible per SRAM, no reverse error)', function(){
+  eq(chk({chain:'ch-eagle', crankset:'cr-x0t'}).errors.length, 0);
+});
 test('Transmission derailleur needs a UDH frame', function(){
   some(chk({frame:'fr-process', derailleur:'dr-gx-t'}).errors, 'UDH');
 });

@@ -31,6 +31,7 @@
 /** @typedef {'PM'} BrakeMount */
 /** @typedef {'sram-eagle'|'sram-transmission'|'shimano-12'} DriveSystem */
 /** @typedef {'cable'|'electronic'} Actuation */
+/** @typedef {'t-type'|'standard-12'} RingStd */
 /** @typedef {'hanger'|'udh-direct'} DerailMount */
 /** @typedef {'air'|'coil'} Spring */
 /** @typedef {'alu'|'carbon'} Material */
@@ -61,7 +62,7 @@
 /** @typedef {CommonFields & {cat: 'derailleur', system: DriveSystem, speeds: number, actuation: Actuation, maxCog: number, mount: DerailMount}} DerailleurPart */
 /** @typedef {CommonFields & {cat: 'cassette', system: DriveSystem, speeds: number, freehub: Freehub, range: string, maxCog: number}} CassettePart */
 /** @typedef {CommonFields & {cat: 'chain', system: DriveSystem, speeds: number}} ChainPart */
-/** @typedef {CommonFields & {cat: 'crankset', bb: CrankBb, ring: number, speeds: number, chainline?: string}} CranksetPart */
+/** @typedef {CommonFields & {cat: 'crankset', bb: CrankBb, ring: number, ringStd: RingStd, speeds: number, chainline?: string}} CranksetPart */
 /** @typedef {CommonFields & {cat: 'brake', mount: BrakeMount, pistons: number}} BrakePart */
 /** @typedef {CommonFields & {cat: 'rotor', size: number, mount: RotorMount}} RotorPart */
 /** @typedef {CommonFields & {cat: 'handlebar', clamp: number, width?: number, rise?: number, material?: Material}} HandlebarPart */
