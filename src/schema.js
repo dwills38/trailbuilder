@@ -99,6 +99,26 @@ var SCHEMA = {
 var PRESET_CATS = ['groupset','wheelset','brakeset','cockpitset'];
 var COMMON = ['id','cat','brand','model','price','weight','desc','verified','lastChecked','source'];
 
+/* Id convention (DATA-MODEL-REVIEW.md section 3.1): ids are APPEND-ONLY - never
+   renamed, never reused; corrections retire the old id into ALIASES (compat.js).
+   Shape: <prefix>-<brand>-<model...>[-<gen>][-<variant tokens, fixed per-category
+   order>], all lowercase [a-z0-9-]. The brand is ONE token: lowercased, diacritics
+   folded, punctuation dropped ("Öhlins" -> ohlins, "e*thirteen" -> ethirteen). */
+/** @type {Object.<string, string>} */
+var ID_PREFIX = {
+  frame:'fr', fork:'fk', shock:'sh', frontwheel:'fw', rearwheel:'rw', tire:'ti',
+  shifter:'sft', derailleur:'dr', cassette:'ca', chain:'ch', crankset:'cr',
+  brake:'bk', rotor:'ro', handlebar:'hb', stem:'st', grips:'gr', dropper:'dp',
+  saddle:'sa', pedal:'pd', groupset:'gs', wheelset:'ws', brakeset:'bs', cockpitset:'co'
+};
+var ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+/** One-token brand slug for the id's second token. @param {*} brand @returns {string} */
+function brandSlug(brand){
+  return String(brand == null ? '' : brand)
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
 /** @param {string} cat @returns {boolean} */
 function isPreset(cat){ return PRESET_CATS.indexOf(cat) >= 0; }
 /** @param {*} v @returns {boolean} */
@@ -149,6 +169,14 @@ function validatePart(p, ctx){
   if(!isStr(p.cat) || !SCHEMA[p.cat]) { bad('unknown category "' + p.cat + '"'); return probs; }
   if(!isStr(p.brand)) bad('missing brand');
   if(!isStr(p.model)) bad('missing model');
+
+  // id convention (see ID_PREFIX above): charset + category prefix + enough tokens
+  if(!ID_RE.test(p.id)) bad('id must be lowercase [a-z0-9] tokens separated by "-"');
+  else {
+    var idToks = p.id.split('-');
+    if(idToks[0] !== ID_PREFIX[p.cat]) bad('id prefix "' + idToks[0] + '-" does not match category "' + p.cat + '" (expected "' + ID_PREFIX[p.cat] + '-")');
+    if(idToks.length < 3) bad('id needs at least <prefix>-<brand>-<model> tokens');
+  }
 
   if(!('price' in p)) bad('missing price');
   else if(!(isNum(p.price) && p.price >= 0)) bad('price must be a number >= 0');
@@ -271,7 +299,23 @@ function validateCatalog(C, today){
   return problems;
 }
 
+/* Non-fatal lints - consistency warnings that should never block data entry
+   mid-batch. validate.js prints them without failing; the test suite keeps the
+   SHIPPED catalog lint-clean (test-ids.js). */
+/** @param {Catalog} C @returns {string[]} */
+function lintCatalog(C){
+  /** @type {string[]} */ var warnings = [];
+  C.PARTS.forEach(function(p){
+    if(!isStr(p.id) || !ID_RE.test(p.id)) return; // the hard validator already complains
+    var toks = p.id.split('-');
+    if(toks.length >= 2 && toks[1] !== brandSlug(p.brand))
+      warnings.push('[' + p.id + '] id brand token "' + toks[1] + '" is not the brand slug "' + brandSlug(p.brand) + '" (brand: ' + p.brand + ')');
+  });
+  return warnings;
+}
+
 if(typeof module !== 'undefined' && module.exports){
-  module.exports = { VOCAB:VOCAB, SCHEMA:SCHEMA, PRESET_CATS:PRESET_CATS,
+  module.exports = { VOCAB:VOCAB, SCHEMA:SCHEMA, PRESET_CATS:PRESET_CATS, ID_PREFIX:ID_PREFIX,
+    brandSlug:brandSlug, lintCatalog:lintCatalog,
     validatePart:validatePart, validateCatalog:validateCatalog, _ctx:_ctx };
 }

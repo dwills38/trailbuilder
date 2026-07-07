@@ -32,14 +32,14 @@ test('esc neutralizes a markup-bearing source URL that still passes the validato
 
 /* ---- partVerified(): the ✓ badge predicate ------------------------------- */
 test('partVerified is true for a verified component', function(){
-  ok(C.partVerified(C.byId('ca-sram-e')));   // SRAM XG-1275 cassette — verified
+  ok(C.partVerified(C.byId('ca-sram-xg1275')));   // SRAM XG-1275 cassette — verified
 });
 test('partVerified is false for an unverified component', function(){
-  ok(!C.partVerified(C.byId('fk-zeb')));      // RockShox ZEB fork — sample/estimate
+  ok(!C.partVerified(C.byId('fk-rockshox-zeb-ultimate-29-170')));      // RockShox ZEB fork — sample/estimate
 });
 test('a kit is verified only when EVERY filled part is verified', function(){
-  ok(C.partVerified(C.byId('gs-gx-m')), 'GX Eagle mech kit: all 5 fills verified');
-  ok(!C.partVerified(C.byId('gs-xt')), 'XT kit: only the cassette is verified');
+  ok(C.partVerified(C.byId('gs-sram-gx-eagle')), 'GX Eagle mech kit: all 5 fills verified');
+  ok(!C.partVerified(C.byId('gs-shimano-xt-m8100')), 'XT kit: only the cassette is verified');
 });
 test('partVerified is false for null and for a kit with no fills', function(){
   ok(!C.partVerified(null));

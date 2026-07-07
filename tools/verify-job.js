@@ -32,7 +32,9 @@
 
    Idempotency guarantees:
      - init merges: existing statuses are preserved; new catalog parts join as
-       Pending; parts removed from the catalog are dropped from state.
+       Pending; parts removed from the catalog are TOMBSTONED (history kept,
+       excluded from queue/counts); state keyed by a retired id migrates to the
+       current id via the ALIASES map (ids are append-only - see src/compat.js).
      - A part that is verified:true in the CATALOG is auto-promoted to Verified
        in state (the catalog is the source of truth; no duplicate work).
      - `complete` REFUSES to change a Verified part unless --force is given.
@@ -77,6 +79,15 @@ function save(state) { // atomic: write temp, then rename over the old file
 
 /* Merge the live catalog into state. Never downgrades work already done. */
 function sync(state) {
+  // Ids are append-only (see ALIASES in src/compat.js): state keyed by a retired
+  // id migrates to the current id, PRESERVING its status/history.
+  Object.keys(state.parts).forEach(function (old) {
+    var cur = C.ALIASES && C.ALIASES[old];
+    if (!cur) return;
+    if (!state.parts[cur]) { state.parts[cur] = state.parts[old]; }
+    delete state.parts[old];
+  });
+  if (state.lastCompleted && C.ALIASES && C.ALIASES[state.lastCompleted]) state.lastCompleted = C.ALIASES[state.lastCompleted];
   var seen = {};
   workUnits().forEach(function (p) {
     seen[p.id] = true;
@@ -85,6 +96,7 @@ function sync(state) {
     }
     var s = state.parts[p.id];
     s.cat = p.cat;
+    if (s.tombstoned) { delete s.tombstoned; s.updated = now(); } // id came back
     if (p.verified === true && s.status !== 'Verified') { // catalog is source of truth
       s.status = 'Verified'; s.source = p.source || null; s.error = null; s.updated = now();
       s.note = s.note || 'auto-promoted: already verified in catalog';
@@ -93,8 +105,20 @@ function sync(state) {
       s.status = 'Pending'; s.note = 'WARNING: catalog lost verified flag - recheck'; s.updated = now();
     }
   });
-  Object.keys(state.parts).forEach(function (id) { if (!seen[id]) delete state.parts[id]; }); // dropped from catalog
+  // Dropped from the catalog: TOMBSTONE, never delete — the state is the grind's
+  // institutional memory (who verified what, why a part was skipped). Tombstoned
+  // parts leave the queue and the counts but keep their history.
+  Object.keys(state.parts).forEach(function (id) {
+    var s = state.parts[id];
+    if (!seen[id] && !s.tombstoned) { s.tombstoned = now(); s.updated = now(); }
+  });
   rebuildQueue(state);
+}
+
+/* Resolve a user-supplied (possibly retired) id to the state key it lives under. */
+function resolveId(state, id) {
+  if (id && !state.parts[id] && C.ALIASES && C.ALIASES[id] && state.parts[C.ALIASES[id]]) return C.ALIASES[id];
+  return id;
 }
 
 function rebuildQueue(state) { // queue = remaining work: InProgress first (crash recovery), then Pending
@@ -110,8 +134,11 @@ function rebuildQueue(state) { // queue = remaining work: InProgress first (cras
 }
 
 function counts(state) {
-  var c = { Pending: 0, InProgress: 0, Verified: 0, Failed: 0, Skipped: 0, total: 0 };
-  Object.keys(state.parts).forEach(function (id) { c[state.parts[id].status]++; c.total++; });
+  var c = { Pending: 0, InProgress: 0, Verified: 0, Failed: 0, Skipped: 0, Tombstoned: 0, total: 0 };
+  Object.keys(state.parts).forEach(function (id) {
+    if (state.parts[id].tombstoned) { c.Tombstoned++; return; } // retired ids: history only
+    c[state.parts[id].status]++; c.total++;
+  });
   c.processed = c.Verified + c.Failed + c.Skipped;
   c.pct = c.total ? Math.round(c.processed / c.total * 100) : 0;
   return c;
@@ -126,6 +153,7 @@ function summary(state) {
   console.log('InProgress ' + c.InProgress);
   console.log('Remaining  ' + (c.Pending + c.InProgress) + ' (queue)');
   console.log('Progress   ' + c.processed + '/' + c.total + ' processed (~' + c.pct + '% complete)');
+  if (c.Tombstoned) console.log('Tombstoned ' + c.Tombstoned + ' (retired ids - history kept, not counted)');
   console.log('Current category: ' + (state.currentCategory || '(done)') + '   Last completed: ' + (state.lastCompleted || '(none)'));
   if (state.queue.length) console.log('Next up: ' + state.queue.slice(0, 5).join(', ') + (state.queue.length > 5 ? ' ... (+' + (state.queue.length - 5) + ')' : ''));
 }
@@ -169,7 +197,7 @@ if (cmd === 'init') {
 
 } else if (cmd === 'start') {
   var state = requireState();
-  var id = process.argv[3];
+  var id = resolveId(state, process.argv[3]);
   if (!id || !state.parts[id]) { console.error('Unknown part id: ' + id); process.exit(1); }
   if (state.parts[id].status === 'Verified' && !has('--force')) { console.error(id + ' is already Verified - refusing without --force.'); process.exit(1); }
   state.parts[id].status = 'InProgress'; state.parts[id].updated = now();
@@ -178,7 +206,7 @@ if (cmd === 'init') {
 
 } else if (cmd === 'complete') {
   var state = requireState();
-  var id = process.argv[3], status = process.argv[4];
+  var id = resolveId(state, process.argv[3]), status = process.argv[4];
   if (!id || !state.parts[id]) { console.error('Unknown part id: ' + id); process.exit(1); }
   if (['Verified', 'Failed', 'Skipped'].indexOf(status) < 0) { console.error('Status must be Verified | Failed | Skipped'); process.exit(1); }
   var prev = state.parts[id].status;
@@ -198,9 +226,9 @@ if (cmd === 'init') {
   var state = requireState();
   var target = process.argv[3];
   var ids = [];
-  if (target === '--failed') ids = Object.keys(state.parts).filter(function (id) { return state.parts[id].status === 'Failed'; });
-  else if (target === '--skipped') ids = Object.keys(state.parts).filter(function (id) { return state.parts[id].status === 'Skipped'; });
-  else if (target && state.parts[target]) ids = [target];
+  if (target === '--failed') ids = Object.keys(state.parts).filter(function (id) { return state.parts[id].status === 'Failed' && !state.parts[id].tombstoned; });
+  else if (target === '--skipped') ids = Object.keys(state.parts).filter(function (id) { return state.parts[id].status === 'Skipped' && !state.parts[id].tombstoned; });
+  else if (target && state.parts[resolveId(state, target)]) ids = [resolveId(state, target)];
   else { console.error('Usage: reset --failed | --skipped | <part-id> [--force]'); process.exit(1); }
   var blocked = ids.filter(function (id) { return state.parts[id].status === 'Verified' && !has('--force'); });
   if (blocked.length) { console.error('Refusing to reset Verified parts without --force: ' + blocked.join(', ')); process.exit(1); }
@@ -210,7 +238,7 @@ if (cmd === 'init') {
 
 } else if (cmd === 'retry') {
   var state = requireState();
-  var failed = Object.keys(state.parts).filter(function (id) { return state.parts[id].status === 'Failed'; });
+  var failed = Object.keys(state.parts).filter(function (id) { return state.parts[id].status === 'Failed' && !state.parts[id].tombstoned; });
   if (!failed.length) { console.log('No failed parts.'); process.exit(0); }
   console.log('Failed parts (' + failed.length + '):');
   failed.forEach(function (id) { console.log('  ' + id + '  - ' + (state.parts[id].error || '(no error recorded)')); });
@@ -227,13 +255,13 @@ if (cmd === 'init') {
   console.log('  Skipped (policy) ' + c.Skipped);
   console.log('  Failed           ' + c.Failed);
   console.log('Success rate       ' + (c.processed ? Math.round(c.Verified / c.processed * 100) : 0) + '% of processed');
-  var failed = Object.keys(state.parts).filter(function (id) { return state.parts[id].status === 'Failed'; });
+  var failed = Object.keys(state.parts).filter(function (id) { return state.parts[id].status === 'Failed' && !state.parts[id].tombstoned; });
   if (failed.length) {
     console.log('\nFailed items:');
     failed.forEach(function (id) { console.log('  ' + id + '  - ' + (state.parts[id].error || '(no error recorded)')); });
     console.log('\nRetry command:  node tools/verify-job.js reset --failed');
   }
-  var skipped = Object.keys(state.parts).filter(function (id) { return state.parts[id].status === 'Skipped'; });
+  var skipped = Object.keys(state.parts).filter(function (id) { return state.parts[id].status === 'Skipped' && !state.parts[id].tombstoned; });
   if (skipped.length) {
     console.log('\nSkipped (policy - e.g. manufacturer publishes no weight):');
     skipped.forEach(function (id) { console.log('  ' + id + '  - ' + (state.parts[id].note || '(no reason recorded)')); });

@@ -11,5 +11,8 @@ if(problems.length){
   problems.forEach(function(p){ console.log('  - ' + p); });
   process.exit(1);
 }
+var warnings = S.lintCatalog(C);   // non-fatal: style/consistency, never blocks entry
+warnings.forEach(function(w){ console.log('  warn: ' + w); });
 var verified = C.PARTS.filter(function(p){ return p.verified === true; }).length;
-console.log('DATA OK - ' + C.PARTS.length + ' parts, 0 problems (' + verified + ' verified, ' + (C.PARTS.length - verified) + ' unverified).');
+console.log('DATA OK - ' + C.PARTS.length + ' parts, 0 problems' + (warnings.length ? ', ' + warnings.length + ' warning(s)' : '') +
+  ' (' + verified + ' verified, ' + (C.PARTS.length - verified) + ' unverified).');

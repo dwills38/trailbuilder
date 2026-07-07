@@ -7,25 +7,25 @@ var C = U.C, B = U.B, eq = U.eq;
 /** @param {Object.<string, string>} map */
 var chk = function(map){ return C.checkBuild(B(map)); };
 
-var GOOD = { frame:'fr-megatower', fork:'fk-zeb', shock:'sh-sdu-230625', frontWheel:'fw-reserve', rearWheel:'rw-reserve',
-  frontTire:'ti-assegai-29', rearTire:'ti-assegai-29', shifter:'sft-gx-m', derailleur:'dr-gx-m', cassette:'ca-sram-e', chain:'ch-eagle', crankset:'cr-gx',
-  frontBrake:'bk-code', rearBrake:'bk-code', frontRotor:'ro-hs2-200', rearRotor:'ro-hs2-200',
-  handlebar:'hb-fatbar', stem:'st-apex', grips:'gr-oneup', dropper:'dp-oneup', saddle:'sa-volt', pedals:'pd-oneup-al' };
+var GOOD = { frame:'fr-santacruz-megatower-cc', fork:'fk-rockshox-zeb-ultimate-29-170', shock:'sh-rockshox-super-deluxe-ultimate-230x62p5', frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-reserve-30-hd-29',
+  frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-29-25-exop-mg', shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle',
+  frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-316-210', saddle:'sa-wtb-volt', pedals:'pd-oneup-aluminum' };
 
-var DEAL = { frame:'fr-enduro', shock:'sh-vivid-oem', fork:'fk-zeb', frontWheel:'fw-roval', rearWheel:'rw-roval',
-  frontTire:'ti-assegai-29', rearTire:'ti-assegai-29', shifter:'sft-gx-m', derailleur:'dr-gx-m', cassette:'ca-sram-e', chain:'ch-eagle', crankset:'cr-gx',
-  frontBrake:'bk-code', rearBrake:'bk-code', frontRotor:'ro-hs2-200', rearRotor:'ro-hs2-200',
-  handlebar:'hb-fatbar', stem:'st-apex', grips:'gr-oneup', dropper:'dp-oneup-349', saddle:'sa-volt', pedals:'pd-mallet-e' };
+var DEAL = { frame:'fr-specialized-enduro-sworks', shock:'sh-rockshox-vivid-ultimate-oem-205x60-trun', fork:'fk-rockshox-zeb-ultimate-29-170', frontWheel:'fw-roval-traverse-hd-29', rearWheel:'rw-roval-traverse-hd-29',
+  frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-29-25-exop-mg', shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle',
+  frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-349-210', saddle:'sa-wtb-volt', pedals:'pd-crankbrothers-mallet-enduro' };
 
-var MADONNA = { frame:'fr-madonna', fork:'fk-zeb', shock:'sh-sd-trun', frontWheel:'fw-reserve', rearWheel:'rw-reserve',
-  frontTire:'ti-assegai-29', rearTire:'ti-assegai-29', shifter:'sft-gx-m', derailleur:'dr-gx-m', cassette:'ca-sram-e', chain:'ch-eagle', crankset:'cr-gx',
-  frontBrake:'bk-code', rearBrake:'bk-code', frontRotor:'ro-hs2-200', rearRotor:'ro-hs2-200',
-  handlebar:'hb-fatbar', stem:'st-apex', grips:'gr-oneup', dropper:'dp-oneup', saddle:'sa-volt', pedals:'pd-atlas' };
+var MADONNA = { frame:'fr-raaw-madonna-v22', fork:'fk-rockshox-zeb-ultimate-29-170', shock:'sh-rockshox-super-deluxe-205x65-trun', frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-reserve-30-hd-29',
+  frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-29-25-exop-mg', shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle',
+  frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-316-210', saddle:'sa-wtb-volt', pedals:'pd-raceface-atlas' };
 
-var CLASH = { frame:'fr-enduro', fork:'fk-zeb-275', shock:'sh-sd-trun', frontWheel:'fw-i9', rearWheel:'rw-i9',
-  frontTire:'ti-assegai-29', rearTire:'ti-assegai-29', shifter:'sft-gx-t', derailleur:'dr-gx-t', cassette:'ca-xt', chain:'ch-flattop', crankset:'cr-x0t',
-  frontBrake:'bk-xt', rearBrake:'bk-xt', frontRotor:'ro-cl-203', rearRotor:'ro-cl-203',
-  handlebar:'hb-pnw', stem:'st-apex', grips:'gr-oneup', dropper:'dp-pnw', saddle:'sa-volt', pedals:'pd-stamp7' };
+var CLASH = { frame:'fr-specialized-enduro-sworks', fork:'fk-rockshox-zeb-ultimate-275-170', shock:'sh-rockshox-super-deluxe-205x65-trun', frontWheel:'fw-industrynine-enduro-s-29', rearWheel:'rw-industrynine-enduro-s-29',
+  frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-29-25-exop-mg', shifter:'sft-sram-gx-transmission', derailleur:'dr-sram-gx-transmission', cassette:'ca-shimano-xt-m8100-1051', chain:'ch-sram-gx-flattop', crankset:'cr-sram-x0-transmission',
+  frontBrake:'bk-shimano-xt-m8120', rearBrake:'bk-shimano-xt-m8120', frontRotor:'ro-shimano-rtmt800-203-cl', rearRotor:'ro-shimano-rtmt800-203-cl',
+  handlebar:'hb-pnw-range-318', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-pnw-loam-309-175', saddle:'sa-wtb-volt', pedals:'pd-crankbrothers-stamp-7-large' };
 
 test('golden: Santa Cruz Megatower trail build is fully compatible', function(){
   var r = chk(GOOD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
@@ -44,18 +44,18 @@ test('known-bad: the deliberate clash build reports 7 errors', function(){
   eq(chk(CLASH).errors.length, 7);
 });
 
-var XT = { frame:'fr-megatower', fork:'fk-zeb', shock:'sh-sdu-230625', frontWheel:'fw-i9', rearWheel:'rw-i9', frontTire:'ti-assegai-29', rearTire:'ti-assegai-29',
-  shifter:'sft-xt', derailleur:'dr-xt', cassette:'ca-xt', chain:'ch-shimano', crankset:'cr-xt',
-  frontBrake:'bk-xt', rearBrake:'bk-xt', frontRotor:'ro-6b-203', rearRotor:'ro-6b-203',
-  handlebar:'hb-fatbar', stem:'st-apex', grips:'gr-oneup', dropper:'dp-oneup', saddle:'sa-volt', pedals:'pd-xt' };
-var SLX = { frame:'fr-megatower', fork:'fk-zeb', shock:'sh-sdu-230625', frontWheel:'fw-i9', rearWheel:'rw-i9', frontTire:'ti-assegai-29', rearTire:'ti-assegai-29',
-  shifter:'sft-slx', derailleur:'dr-slx', cassette:'ca-slx', chain:'ch-shimano', crankset:'cr-rf',
-  frontBrake:'bk-slx', rearBrake:'bk-slx', frontRotor:'ro-6b-203', rearRotor:'ro-6b-203',
-  handlebar:'hb-pnw', stem:'st-pnw', grips:'gr-pnw', dropper:'dp-oneup', saddle:'sa-ergon', pedals:'pd-chester' };
-var SPIRE_T = { frame:'fr-spire', fork:'fk-zeb', shock:'sh-sd-trun', frontWheel:'fw-reserve', rearWheel:'rw-reserve', frontTire:'ti-assegai-29', rearTire:'ti-assegai-29',
-  shifter:'sft-gx-t', derailleur:'dr-gx-t', cassette:'ca-sram-t', chain:'ch-flattop', crankset:'cr-x0t',
-  frontBrake:'bk-code', rearBrake:'bk-code', frontRotor:'ro-hs2-200', rearRotor:'ro-hs2-200',
-  handlebar:'hb-fatbar', stem:'st-apex', grips:'gr-oneup', dropper:'dp-oneup', saddle:'sa-volt', pedals:'pd-speciale' };
+var XT = { frame:'fr-santacruz-megatower-cc', fork:'fk-rockshox-zeb-ultimate-29-170', shock:'sh-rockshox-super-deluxe-ultimate-230x62p5', frontWheel:'fw-industrynine-enduro-s-29', rearWheel:'rw-industrynine-enduro-s-29', frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-29-25-exop-mg',
+  shifter:'sft-shimano-xt-m8100', derailleur:'dr-shimano-xt-m8100-sgs', cassette:'ca-shimano-xt-m8100-1051', chain:'ch-shimano-xt-m8100', crankset:'cr-shimano-xt-m8100',
+  frontBrake:'bk-shimano-xt-m8120', rearBrake:'bk-shimano-xt-m8120', frontRotor:'ro-hayes-dseries-203-6b', rearRotor:'ro-hayes-dseries-203-6b',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-316-210', saddle:'sa-wtb-volt', pedals:'pd-shimano-xt-m8120' };
+var SLX = { frame:'fr-santacruz-megatower-cc', fork:'fk-rockshox-zeb-ultimate-29-170', shock:'sh-rockshox-super-deluxe-ultimate-230x62p5', frontWheel:'fw-industrynine-enduro-s-29', rearWheel:'rw-industrynine-enduro-s-29', frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-29-25-exop-mg',
+  shifter:'sft-shimano-slx-m7100', derailleur:'dr-shimano-slx-m7100-sgs', cassette:'ca-shimano-slx-m7100-1051', chain:'ch-shimano-xt-m8100', crankset:'cr-raceface-aeffect-r',
+  frontBrake:'bk-shimano-slx-m7120', rearBrake:'bk-shimano-slx-m7120', frontRotor:'ro-hayes-dseries-203-6b', rearRotor:'ro-hayes-dseries-203-6b',
+  handlebar:'hb-pnw-range-318', stem:'st-pnw-range-318', grips:'gr-pnw-loam', dropper:'dp-oneup-v3-316-210', saddle:'sa-ergon-sm-enduro', pedals:'pd-raceface-chester' };
+var SPIRE_T = { frame:'fr-transition-spire-alloy', fork:'fk-rockshox-zeb-ultimate-29-170', shock:'sh-rockshox-super-deluxe-205x65-trun', frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-reserve-30-hd-29', frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-29-25-exop-mg',
+  shifter:'sft-sram-gx-transmission', derailleur:'dr-sram-gx-transmission', cassette:'ca-sram-xs1275', chain:'ch-sram-gx-flattop', crankset:'cr-sram-x0-transmission',
+  frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-316-210', saddle:'sa-wtb-volt', pedals:'pd-time-speciale-12-large' };
 
 test('golden: Shimano XT build (Micro Spline, 6-bolt) is fully compatible', function(){
   var r = chk(XT); eq(r.errors.length, 0); eq(r.warnings.length, 0);
@@ -69,10 +69,10 @@ test('golden: Transition Spire + SRAM Transmission (UDH) is fully compatible', f
   var r = chk(SPIRE_T); eq(r.errors.length, 0); eq(r.warnings.length, 0);
 });
 
-var MULLET = { frame:'fr-capra', fork:'fk-zeb', shock:'sh-sd-air', frontWheel:'fw-reserve', rearWheel:'rw-dt275',
-  frontTire:'ti-assegai-29', rearTire:'ti-dhr-275', shifter:'sft-xt', derailleur:'dr-xt', cassette:'ca-xt', chain:'ch-shimano', crankset:'cr-xt',
-  frontBrake:'bk-xt', rearBrake:'bk-xt', frontRotor:'ro-6b-203', rearRotor:'ro-cl-203',
-  handlebar:'hb-fatbar', stem:'st-apex', grips:'gr-oneup', dropper:'dp-oneup', saddle:'sa-volt', pedals:'pd-chester' };
+var MULLET = { frame:'fr-yt-capra-core4', fork:'fk-rockshox-zeb-ultimate-29-170', shock:'sh-rockshox-super-deluxe-ultimate-230x65', frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-dtswiss-e-1900-275',
+  frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-minion-dhr-ii-275-24-exop-mt', shifter:'sft-shimano-xt-m8100', derailleur:'dr-shimano-xt-m8100-sgs', cassette:'ca-shimano-xt-m8100-1051', chain:'ch-shimano-xt-m8100', crankset:'cr-shimano-xt-m8100',
+  frontBrake:'bk-shimano-xt-m8120', rearBrake:'bk-shimano-xt-m8120', frontRotor:'ro-hayes-dseries-203-6b', rearRotor:'ro-shimano-rtmt800-203-cl',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-316-210', saddle:'sa-wtb-volt', pedals:'pd-raceface-chester' };
 test('golden: mullet (29 front / 27.5 rear) on a mullet-capable frame is fully compatible', function(){
   var r = chk(MULLET); eq(r.errors.length, 0); eq(r.warnings.length, 0);
 });

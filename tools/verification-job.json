@@ -1,273 +1,265 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-06T21:04:20.097Z",
+ "updated": "2026-07-07T02:42:45.619Z",
  "batchSize": 25,
- "lastCompleted": "fr-hd6",
+ "lastCompleted": "fr-ibis-hd6",
  "currentCategory": "tire",
  "queue": [
-  "ti-kryp-29",
-  "ti-mary-29",
-  "ti-betty-29",
-  "ti-wild-29",
-  "ti-scorpion-29",
-  "ti-kryp-275",
-  "ti-hr2-29",
-  "ti-shorty-29",
-  "ti-butcher-29",
-  "ti-hansdampf-29",
-  "ti-argotal-29",
-  "ti-mazza-29",
-  "ti-mary-275",
-  "ti-aggressor-29",
-  "ti-vigilante-29",
-  "ti-judge-29",
-  "ti-hellkat-29",
-  "ti-newton-29",
-  "ti-dh22-29",
-  "fw-dt",
-  "fw-reserve",
-  "fw-i9",
-  "fw-roval",
-  "fw-dt275",
-  "fw-hope",
-  "fw-wao",
-  "fw-enve",
-  "fw-zipp",
-  "fw-newmen",
-  "fw-stans",
-  "fw-hunt",
-  "fw-spank",
-  "fw-mt500",
-  "fw-rf",
-  "fw-bontrager",
-  "fw-mavic",
-  "fw-giant",
-  "rw-dt",
-  "rw-reserve",
-  "rw-i9",
-  "rw-roval",
-  "rw-i9-157",
-  "rw-dt275",
-  "rw-hope",
-  "rw-wao",
-  "rw-enve",
-  "rw-zipp",
-  "rw-newmen",
-  "rw-stans",
-  "rw-hunt",
-  "rw-spank",
-  "rw-mt500",
-  "rw-rf",
-  "rw-bontrager",
-  "rw-mavic",
-  "rw-giant",
-  "sh-floatx",
-  "sh-sd-coil",
-  "sh-dhx2",
-  "sh-sd-trun",
-  "sh-x2-trun",
-  "sh-floatx-60",
-  "sh-vivid-oem",
-  "sh-vivid-coil",
-  "sh-storia",
-  "sh-ttx",
-  "sh-kitsuma",
-  "sh-x2-std",
-  "sh-vivid-trun",
-  "sh-marzocchi-cr",
-  "sh-jade",
-  "sh-mara",
-  "sh-elevensix",
-  "sh-sdu-2056",
-  "sh-sdu-230625",
-  "sh-floatx-2062",
-  "fk-zeb",
-  "fk-38-170",
-  "fk-38-180",
-  "fk-lyrik",
-  "fk-z1",
-  "fk-zeb-275",
-  "fk-ohlins",
-  "fk-mezzer",
-  "fk-onyx",
-  "fk-36",
-  "fk-zeb-180",
-  "fk-helm",
-  "fk-ext-era",
-  "fk-selva",
-  "fk-rxf36",
-  "fk-domain",
-  "fk-mattoc",
-  "fk-mrp",
-  "fk-durolux",
-  "fk-xfusion",
-  "fk-dt535",
-  "fk-push",
-  "hb-fatbar",
-  "hb-oneup",
-  "hb-pnw",
-  "hb-rf",
-  "hb-burgtec",
-  "hb-deity",
-  "hb-spank",
-  "hb-oneup-alu",
-  "hb-title",
-  "hb-chromag",
-  "hb-nukeproof",
-  "hb-cb",
-  "hb-easton",
-  "hb-answer",
-  "hb-pro",
-  "hb-truvativ",
-  "st-apex",
-  "st-oneup",
-  "st-pnw",
-  "st-rf",
-  "st-burgtec",
-  "st-deity",
-  "st-spank",
-  "st-chromag",
-  "st-nukeproof",
-  "st-hope",
-  "st-i9",
-  "st-thomson",
-  "st-wolftooth",
-  "st-funn",
-  "st-straitline",
-  "st-pro",
-  "gr-oneup",
-  "gr-esi",
-  "gr-pnw",
-  "gr-odi",
-  "gr-ergon",
-  "gr-dmr",
-  "gr-chromag",
-  "gr-sensus",
-  "gr-renthal",
-  "gr-lizard",
-  "gr-wtb",
-  "gr-rf",
-  "gr-deity",
-  "gr-sdg",
-  "gr-supacaz",
-  "dp-reverb",
-  "dp-transfer",
-  "dp-revive",
-  "dp-resolve",
-  "dp-highline",
-  "dp-revive-349",
-  "dp-transfer-neo",
-  "dp-fallline",
-  "dp-kslev",
-  "dp-tellis",
-  "dp-rf",
-  "dp-e13",
-  "dp-command",
-  "sa-volt",
-  "sa-ergon",
-  "sa-bridge",
-  "sa-belair",
-  "sa-fizik",
-  "sa-silverado",
-  "sa-scoop",
-  "sa-radar",
-  "sa-prologo",
-  "sa-alpaca",
-  "sa-rf",
-  "sa-chromag",
-  "sa-bontrager",
-  "sa-selle",
-  "sa-pnw",
-  "sa-dmr",
-  "pd-xt",
-  "pd-saint",
-  "pd-tmac",
-  "pd-vault",
-  "pd-dagga",
-  "pd-horizon",
-  "pd-f22",
+  "ti-continental-kryptotal-29-24",
+  "ti-schwalbe-magic-mary-29-24",
+  "ti-schwalbe-big-betty-29-24",
+  "ti-michelin-wild-enduro-mh-29-24",
+  "ti-pirelli-scorpion-enduro-29-25",
+  "ti-continental-kryptotal-275-24",
+  "ti-maxxis-high-roller-ii-29-24",
+  "ti-maxxis-shorty-29-25",
+  "ti-specialized-butcher-t9-29-23",
+  "ti-schwalbe-hans-dampf-29-235",
+  "ti-continental-argotal-29-24",
+  "ti-vittoria-mazza-29-24",
+  "ti-schwalbe-magic-mary-275-24",
+  "ti-maxxis-aggressor-29-23",
+  "ti-wtb-vigilante-29-25",
+  "ti-wtb-judge-29-24",
+  "ti-kenda-hellkat-29-24",
+  "ti-goodyear-newton-mtf-29-24",
+  "ti-michelin-dh22-29-24",
+  "fw-dtswiss-ex-1700-29",
+  "fw-reserve-30-hd-29",
+  "fw-industrynine-enduro-s-29",
+  "fw-roval-traverse-hd-29",
+  "fw-dtswiss-e-1900-275",
+  "fw-hope-fortus-30-29",
+  "fw-weareone-union-29",
+  "fw-enve-am30-29",
+  "fw-zipp-3zero-moto-29",
+  "fw-newmen-advanced-sl-a30-29",
+  "fw-stans-flow-ex3-29",
+  "fw-hunt-enduro-wide-29",
+  "fw-spank-359-29",
+  "fw-shimano-mt500-29",
+  "fw-raceface-turbine-sl-29",
+  "fw-bontrager-line-pro-30-29",
+  "fw-mavic-deemax-29",
+  "fw-giant-trx-0-29",
+  "rw-dtswiss-ex-1700-29",
+  "rw-reserve-30-hd-29",
+  "rw-industrynine-enduro-s-29",
+  "rw-roval-traverse-hd-29",
+  "rw-industrynine-enduro-s-29-157",
+  "rw-dtswiss-e-1900-275",
+  "rw-hope-fortus-30-29",
+  "rw-weareone-union-29",
+  "rw-enve-am30-29",
+  "rw-zipp-3zero-moto-29",
+  "rw-newmen-advanced-sl-a30-29",
+  "rw-stans-flow-ex3-29",
+  "rw-hunt-enduro-wide-29",
+  "rw-spank-359-29",
+  "rw-shimano-mt510-29",
+  "rw-raceface-turbine-sl-29",
+  "rw-bontrager-line-pro-30-29",
+  "rw-mavic-deemax-29",
+  "rw-giant-trx-0-29",
+  "sh-fox-float-x-factory-230x65",
+  "sh-rockshox-super-deluxe-coil-230x65",
+  "sh-fox-dhx2-230x65",
+  "sh-rockshox-super-deluxe-205x65-trun",
+  "sh-fox-float-x2-205x65-trun",
+  "sh-fox-float-x-230x60",
+  "sh-rockshox-vivid-ultimate-oem-205x60-trun",
+  "sh-rockshox-vivid-coil-230x65",
+  "sh-ext-storia-v3-230x65",
+  "sh-ohlins-ttx22-m2-230x65",
+  "sh-canecreek-kitsuma-coil-230x65",
+  "sh-fox-float-x2-230x65",
+  "sh-rockshox-vivid-205x65-trun",
+  "sh-marzocchi-bomber-cr-230x65",
+  "sh-dvo-jade-x-230x65",
+  "sh-manitou-mara-pro-230x65",
+  "sh-push-elevensix-230x65",
+  "sh-rockshox-super-deluxe-ultimate-205x60-trun",
+  "sh-rockshox-super-deluxe-ultimate-230x62p5",
+  "sh-fox-float-x-205x62p5-trun",
+  "fk-rockshox-zeb-ultimate-29-170",
+  "fk-fox-38-factory-29-170",
+  "fk-fox-38-factory-29-180",
+  "fk-rockshox-lyrik-ultimate-29-160",
+  "fk-marzocchi-bomber-z1-29-170",
+  "fk-rockshox-zeb-ultimate-275-170",
+  "fk-ohlins-rxf38-m2-29-170",
+  "fk-manitou-mezzer-pro-29-170",
+  "fk-dvo-onyx-sc-d1-29-170",
+  "fk-fox-36-factory-29-160",
+  "fk-rockshox-zeb-ultimate-29-180",
+  "fk-canecreek-helm-mkii-air-29-170",
+  "fk-ext-era-v2-29-170",
+  "fk-formula-selva-s-29-160",
+  "fk-ohlins-rxf36-m2-29-160",
+  "fk-rockshox-domain-rc-29-170",
+  "fk-manitou-mattoc-pro-29-160",
+  "fk-mrp-ribbon-air-29-160",
+  "fk-srsuntour-durolux-r2c2-29-170",
+  "fk-xfusion-trace-36-hlr-29-170",
+  "fk-dtswiss-f-535-one-29-160",
+  "fk-push-nineone-coil-29-160",
+  "hb-renthal-fatbar-35",
+  "hb-oneup-carbon-35",
+  "hb-pnw-range-318",
+  "hb-raceface-next-r-35",
+  "hb-burgtec-ridewide-enduro-35",
+  "hb-deity-skywire-35",
+  "hb-spank-spike-800-318",
+  "hb-oneup-aluminum-35",
+  "hb-title-ah2-35",
+  "hb-chromag-fubars-osx-318",
+  "hb-nukeproof-horizon-v2-35",
+  "hb-crankbrothers-synthesis-enduro-35",
+  "hb-easton-haven-35",
+  "hb-answer-protaper-35",
+  "hb-pro-tharsis-35",
+  "hb-truvativ-descendant-35",
+  "st-renthal-apex-35",
+  "st-oneup-stem-35",
+  "st-pnw-range-318",
+  "st-raceface-aeffect-r-35",
+  "st-burgtec-enduro-mk3-35",
+  "st-deity-copperhead-35",
+  "st-spank-spike-318",
+  "st-chromag-ranger-v2-35",
+  "st-nukeproof-horizon-35",
+  "st-hope-am-35",
+  "st-industrynine-a35",
+  "st-thomson-elite-x4-318",
+  "st-wolftooth-35",
+  "st-funn-rsx-35",
+  "st-straitline-35",
+  "st-pro-tharsis-35",
+  "gr-oneup-lockon",
+  "gr-esi-chunky",
+  "gr-pnw-loam",
+  "gr-odi-elite-pro",
+  "gr-ergon-ge1-evo",
+  "gr-dmr-deathgrip",
+  "gr-chromag-squarewave",
+  "gr-sensus-swayze",
+  "gr-renthal-traction",
+  "gr-lizardskins-charger-evo",
+  "gr-wtb-wafflegrip",
+  "gr-raceface-half-nelson",
+  "gr-deity-knuckleduster",
+  "gr-sdg-slater",
+  "gr-supacaz-grizips",
+  "dp-rockshox-reverb-axs-316-170",
+  "dp-fox-transfer-factory-316-175",
+  "dp-bikeyoke-revive-316-185",
+  "dp-wolftooth-resolve-316-200",
+  "dp-crankbrothers-highline-7-316-170",
+  "dp-bikeyoke-revive-349-185",
+  "dp-fox-transfer-neo-316-175",
+  "dp-9point8-fall-line-r-316-175",
+  "dp-ks-lev-integra-316-175",
+  "dp-sdg-tellis-316-170",
+  "dp-raceface-turbine-r-316-175",
+  "dp-ethirteen-vario-infinite-316-180",
+  "dp-specialized-command-post-309-160",
+  "sa-wtb-volt",
+  "sa-ergon-sm-enduro",
+  "sa-specialized-bridge",
+  "sa-sdg-belair-v3",
+  "sa-fizik-terra-aidon-x3",
+  "sa-wtb-silverado",
+  "sa-fabric-scoop-radius",
+  "sa-sdg-radar",
+  "sa-prologo-dimension",
+  "sa-fizik-terra-alpaca",
+  "sa-raceface-aeffect",
+  "sa-chromag-trailmaster",
+  "sa-bontrager-arvada",
+  "sa-selleitalia-model-x",
+  "sa-pnw-loam",
+  "sa-dmr-oioi",
+  "pd-shimano-xt-m8120",
+  "pd-shimano-saint-m820",
+  "pd-deity-tmac",
+  "pd-dmr-vault",
+  "pd-chromag-dagga",
+  "pd-nukeproof-horizon-pro",
+  "pd-hope-f22",
   "pd-ht-t2",
-  "pd-loam",
-  "pd-stamp1",
-  "bk-code",
-  "bk-code-s",
-  "bk-xt",
-  "bk-dominion",
-  "bk-mt7",
-  "bk-slx",
-  "bk-maven",
-  "bk-hope",
-  "bk-trp",
-  "bk-cura",
-  "bk-saint",
-  "bk-xtr",
-  "bk-zee",
-  "bk-mt5",
-  "bk-g2",
-  "bk-hope-e4",
-  "bk-trail-evo",
-  "bk-trickstuff",
-  "bk-db8",
-  "bk-deore-4",
-  "bk-mt-trail",
-  "ro-hs2-200",
-  "ro-hs2-220",
-  "ro-cl-203",
-  "ro-cl-180",
-  "ro-6b-203",
-  "ro-6b-220",
-  "ro-hope-203",
-  "ro-magura-203",
-  "ro-cl-220",
-  "ro-hs2-180",
-  "ro-rt76-203",
-  "ro-trp-203",
-  "ro-magura-220",
-  "ro-hope-220",
-  "ro-centerline-180",
-  "ro-trickstuff-203",
-  "ro-formula-220",
-  "sft-gx-t",
-  "sft-xt",
-  "sft-slx",
-  "sft-x0-t",
-  "sft-xx-t",
-  "sft-xtr",
-  "sft-deore",
-  "sft-gx-axs",
-  "dr-xt",
-  "dr-slx",
-  "dr-x01",
-  "dr-xtr",
-  "dr-deore",
-  "dr-gx-axs",
-  "ca-slx",
-  "ca-xtr",
-  "ca-deore",
-  "ch-shimano",
-  "ch-xtr",
-  "ch-deore",
-  "cr-xt",
-  "cr-rf",
-  "cr-x0",
-  "cr-slx",
-  "cr-xx-t",
-  "cr-xtr",
-  "cr-deore",
-  "cr-e13",
-  "cr-eewings"
+  "pd-pnw-loam",
+  "pd-crankbrothers-stamp-1",
+  "bk-sram-code-rsc",
+  "bk-sram-code-stealth",
+  "bk-shimano-xt-m8120",
+  "bk-hayes-dominion-a4",
+  "bk-magura-mt7",
+  "bk-shimano-slx-m7120",
+  "bk-sram-maven-ultimate",
+  "bk-hope-tech-4-v4",
+  "bk-trp-dhr-evo",
+  "bk-formula-cura-4",
+  "bk-shimano-saint-m820",
+  "bk-shimano-xtr-m9120",
+  "bk-shimano-zee-m640",
+  "bk-magura-mt5",
+  "bk-sram-g2-rsc",
+  "bk-hope-tech-4-e4",
+  "bk-trp-trail-evo",
+  "bk-trickstuff-maxima",
+  "bk-sram-db8",
+  "bk-shimano-deore-m6120",
+  "bk-magura-mt-trail-sport",
+  "ro-sram-hs2-200-6b",
+  "ro-sram-hs2-220-6b",
+  "ro-shimano-rtmt800-203-cl",
+  "ro-shimano-rtmt800-180-cl",
+  "ro-hayes-dseries-203-6b",
+  "ro-galfer-220-6b",
+  "ro-hope-floating-203-6b",
+  "ro-magura-mdrp-203-6b",
+  "ro-shimano-rtmt900-220-cl",
+  "ro-sram-hs2-180-6b",
+  "ro-shimano-smrt76-203-6b",
+  "ro-trp-203-6b",
+  "ro-magura-mdrp-220-6b",
+  "ro-hope-floating-220-6b",
+  "ro-sram-centerline-180-cl",
+  "ro-trickstuff-dachle-203-6b",
+  "ro-formula-220-6b",
+  "sft-sram-gx-transmission",
+  "sft-shimano-xt-m8100",
+  "sft-shimano-slx-m7100",
+  "sft-sram-x0-transmission",
+  "sft-sram-xx-sl-transmission",
+  "sft-shimano-xtr-m9100",
+  "sft-shimano-deore-m6100",
+  "sft-sram-gx-eagle-axs",
+  "dr-shimano-xt-m8100-sgs",
+  "dr-shimano-slx-m7100-sgs",
+  "dr-sram-x01-eagle",
+  "dr-shimano-xtr-m9100-sgs",
+  "dr-shimano-deore-m6100-sgs",
+  "dr-sram-gx-eagle-axs",
+  "ca-shimano-slx-m7100-1051",
+  "ca-shimano-xtr-m9100-1051",
+  "ca-shimano-deore-m6100-1051",
+  "ch-shimano-xt-m8100",
+  "ch-shimano-xtr-m9100",
+  "ch-shimano-deore-m6100",
+  "cr-shimano-xt-m8100",
+  "cr-raceface-aeffect-r",
+  "cr-sram-x01-eagle",
+  "cr-shimano-slx-m7100",
+  "cr-sram-xx-sl-transmission",
+  "cr-shimano-xtr-m9100",
+  "cr-shimano-deore-m6100",
+  "cr-ethirteen-plus",
+  "cr-canecreek-eewings-allmountain"
  ],
  "parts": {
-  "fr-megatower": {
-   "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-06T20:38:38.510Z",
-   "error": null,
-   "source": null,
-   "note": "Manufacturer support page (santacruzbicycles.com Megatower 2 MY24) confirms 230x62.5 std shock (catalog had 65 - FIXED), Boost148, BSA73 threaded, 31.6 post, PM, UDH, 2.5 max tire, 170mm fork (180 ok); frame page states 7.17 lbs + \\ MSRP (price FIXED) but weight doesn't state size or shock inclusion - weight bar not met."
-  },
-  "fr-enduro": {
+  "fr-specialized-enduro-sworks": {
    "cat": "frame",
    "status": "Failed",
    "updated": "2026-07-06T20:39:30.203Z",
@@ -275,7 +267,7 @@
    "source": null,
    "note": null
   },
-  "fr-capra": {
+  "fr-yt-capra-core4": {
    "cat": "frame",
    "status": "Skipped",
    "updated": "2026-07-06T20:40:42.312Z",
@@ -283,7 +275,7 @@
    "source": null,
    "note": "yt-industries.com Capra Core 4 page publishes only complete-bike weight (15.9 kg), no frame weight, no shock size/UDH/axle details, no USD price on fetched page. SRAM DUB Pressfit BB consistent with cataloged PF92. Nothing to fix; weight bar not met."
   },
-  "fr-strive": {
+  "fr-canyon-strive-cfr": {
    "cat": "frame",
    "status": "Verified",
    "updated": "2026-07-06T20:42:59.381Z",
@@ -291,7 +283,7 @@
    "source": "https://www.canyon.com/en-us/mountain-bikes/enduro-bikes/strive/cfr/strive-cfr/3195.html",
    "note": "auto-promoted: already verified in catalog"
   },
-  "fr-slash": {
+  "fr-trek-slash": {
    "cat": "frame",
    "status": "Failed",
    "updated": "2026-07-06T20:44:20.937Z",
@@ -299,7 +291,7 @@
    "source": null,
    "note": null
   },
-  "fr-range": {
+  "fr-norco-range-c1": {
    "cat": "frame",
    "status": "Failed",
    "updated": "2026-07-06T20:45:11.149Z",
@@ -307,7 +299,7 @@
    "source": null,
    "note": null
   },
-  "fr-spire": {
+  "fr-transition-spire-alloy": {
    "cat": "frame",
    "status": "Skipped",
    "updated": "2026-07-06T16:41:44.950Z",
@@ -315,7 +307,7 @@
    "source": null,
    "note": "transitionbikes.com support page confirms all specs (205x65 TRUNNION - corrected from wrong 230x65 std! maxRotor 223) but publishes no frame weight"
   },
-  "fr-madonna": {
+  "fr-raaw-madonna-v22": {
    "cat": "frame",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -323,7 +315,7 @@
    "source": "https://raawmtb.com/en-us/pages/madonna-v2-2",
    "note": "auto-promoted: already verified in catalog"
   },
-  "fr-reign": {
+  "fr-giant-reign-advanced": {
    "cat": "frame",
    "status": "Skipped",
    "updated": "2026-07-06T20:46:10.015Z",
@@ -331,7 +323,7 @@
    "source": null,
    "note": "giant-bicycles.com Reign Advanced Frameset 2025 page confirms 205x62.5 trunnion, 12x148, 160mm, 27.5/29 rear compat, and states max tire 2.5in (ADDED - rule 18 now active on 7 frames) + frameset MSRP \\ (price FIXED). Giant policy: no published weights ('have your local dealer weigh it') - weight bar unmeetable."
   },
-  "fr-firebird": {
+  "fr-pivot-firebird": {
    "cat": "frame",
    "status": "Failed",
    "updated": "2026-07-06T20:47:43.160Z",
@@ -339,7 +331,7 @@
    "source": null,
    "note": null
   },
-  "fr-giga": {
+  "fr-nukeproof-giga-290": {
    "cat": "frame",
    "status": "Failed",
    "updated": "2026-07-06T20:49:18.515Z",
@@ -347,7 +339,7 @@
    "source": null,
    "note": null
   },
-  "fr-process": {
+  "fr-kona-process-153": {
    "cat": "frame",
    "status": "Skipped",
    "updated": "2026-07-06T20:50:43.220Z",
@@ -355,7 +347,7 @@
    "source": null,
    "note": "konaworld.com Process 153 CR/DL Frame page states \\ USD frameset MSRP (price FIXED) + 29/mullet flip-chip (matches wheelConfigs) but NO frame weight and no interface details on page - weight bar not met."
   },
-  "fr-rallon": {
+  "fr-orbea-rallon-mteam": {
    "cat": "frame",
    "status": "Failed",
    "updated": "2026-07-06T20:53:08.329Z",
@@ -363,7 +355,7 @@
    "source": null,
    "note": null
   },
-  "fr-altitude": {
+  "fr-rockymountain-altitude-c70": {
    "cat": "frame",
    "status": "Failed",
    "updated": "2026-07-06T20:54:58.636Z",
@@ -371,7 +363,7 @@
    "source": null,
    "note": null
   },
-  "fr-metasx": {
+  "fr-commencal-meta-sx-v5": {
    "cat": "frame",
    "status": "Verified",
    "updated": "2026-07-06T16:40:38.893Z",
@@ -379,7 +371,7 @@
    "source": "https://www.commencal.com/ad/en/tech-meta-sx-v5.html",
    "note": "auto-promoted: already verified in catalog"
   },
-  "fr-spindrift": {
+  "fr-propain-spindrift-cf": {
    "cat": "frame",
    "status": "Failed",
    "updated": "2026-07-06T20:55:41.752Z",
@@ -387,7 +379,7 @@
    "source": null,
    "note": null
   },
-  "fr-hd6": {
+  "fr-ibis-hd6": {
    "cat": "frame",
    "status": "Skipped",
    "updated": "2026-07-06T20:57:58.943Z",
@@ -395,7 +387,7 @@
    "source": null,
    "note": "ibiscycles.com HD6 page confirms ALL interfaces: 230x65 std, BSA73, 34.9 post, 148 rear, 220 max rotor (catalog had 203 - FIXED), UDH, 2.5 max tire, 180-190mm fork, mullet-only, \\ MSRP. Weight stated only WITH shock (7.7 lbs / 3.5 kg size L w/ X2); catalog convention is frame-only, so weight bar not met on a technicality. Candidate for verification if a with-shock policy lands."
   },
-  "fr-dreadnought": {
+  "fr-forbidden-dreadnought": {
    "cat": "frame",
    "status": "Verified",
    "updated": "2026-07-06T21:01:44.916Z",
@@ -403,7 +395,7 @@
    "source": "https://forbiddenbike.com/faqs/dreadnought-faqs/",
    "note": "auto-promoted: already verified in catalog"
   },
-  "fr-sb160": {
+  "fr-yeti-sb160": {
    "cat": "frame",
    "status": "Skipped",
    "updated": "2026-07-06T16:40:38.894Z",
@@ -411,7 +403,7 @@
    "source": null,
    "note": "Yeti pages block fetching (403); third-party 3806g includes shock - cannot meet frame-only manufacturer bar"
   },
-  "ti-assegai-29": {
+  "ti-maxxis-assegai-29-25-exop-mg": {
    "cat": "tire",
    "status": "Verified",
    "updated": "2026-07-06T21:03:09.882Z",
@@ -419,7 +411,7 @@
    "source": "https://www.maxxis.com/us/tire/assegai/",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ti-dhr-29": {
+  "ti-maxxis-minion-dhr-ii-29-24-exop-mt": {
    "cat": "tire",
    "status": "Verified",
    "updated": "2026-07-06T21:04:20.096Z",
@@ -427,7 +419,7 @@
    "source": "https://www.maxxis.com/us/tire/minion-dhr-ii/",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ti-kryp-29": {
+  "ti-continental-kryptotal-29-24": {
    "cat": "tire",
    "status": "InProgress",
    "updated": "2026-07-06T21:04:20.097Z",
@@ -435,7 +427,7 @@
    "source": null,
    "note": null
   },
-  "ti-mary-29": {
+  "ti-schwalbe-magic-mary-29-24": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -443,7 +435,7 @@
    "source": null,
    "note": null
   },
-  "ti-assegai-275": {
+  "ti-maxxis-assegai-275-25-exop-mg": {
    "cat": "tire",
    "status": "Verified",
    "updated": "2026-07-06T21:03:09.883Z",
@@ -451,7 +443,7 @@
    "source": "https://www.maxxis.com/us/tire/assegai/",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ti-dhr-275": {
+  "ti-maxxis-minion-dhr-ii-275-24-exop-mt": {
    "cat": "tire",
    "status": "Verified",
    "updated": "2026-07-06T21:04:20.097Z",
@@ -459,7 +451,7 @@
    "source": "https://www.maxxis.com/us/tire/minion-dhr-ii/",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ti-dhf-29": {
+  "ti-maxxis-minion-dhf-29-25-exop-mg": {
    "cat": "tire",
    "status": "Verified",
    "updated": "2026-07-06T21:04:20.097Z",
@@ -467,7 +459,7 @@
    "source": "https://www.maxxis.com/us/tire/minion-dhf/",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ti-betty-29": {
+  "ti-schwalbe-big-betty-29-24": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -475,7 +467,7 @@
    "source": null,
    "note": null
   },
-  "ti-wild-29": {
+  "ti-michelin-wild-enduro-mh-29-24": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -483,7 +475,7 @@
    "source": null,
    "note": null
   },
-  "ti-scorpion-29": {
+  "ti-pirelli-scorpion-enduro-29-25": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -491,7 +483,7 @@
    "source": null,
    "note": null
   },
-  "ti-kryp-275": {
+  "ti-continental-kryptotal-275-24": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -499,7 +491,7 @@
    "source": null,
    "note": null
   },
-  "ti-dissector-29": {
+  "ti-maxxis-dissector-29-24-exop-mt": {
    "cat": "tire",
    "status": "Verified",
    "updated": "2026-07-06T21:04:20.097Z",
@@ -507,7 +499,7 @@
    "source": "https://www.maxxis.com/us/tire/dissector/",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ti-hr2-29": {
+  "ti-maxxis-high-roller-ii-29-24": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -515,7 +507,7 @@
    "source": null,
    "note": null
   },
-  "ti-shorty-29": {
+  "ti-maxxis-shorty-29-25": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -523,7 +515,7 @@
    "source": null,
    "note": null
   },
-  "ti-butcher-29": {
+  "ti-specialized-butcher-t9-29-23": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -531,7 +523,7 @@
    "source": null,
    "note": null
   },
-  "ti-hansdampf-29": {
+  "ti-schwalbe-hans-dampf-29-235": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -539,7 +531,7 @@
    "source": null,
    "note": null
   },
-  "ti-argotal-29": {
+  "ti-continental-argotal-29-24": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -547,7 +539,7 @@
    "source": null,
    "note": null
   },
-  "ti-mazza-29": {
+  "ti-vittoria-mazza-29-24": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -555,7 +547,7 @@
    "source": null,
    "note": null
   },
-  "ti-mary-275": {
+  "ti-schwalbe-magic-mary-275-24": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -563,7 +555,7 @@
    "source": null,
    "note": null
   },
-  "ti-aggressor-29": {
+  "ti-maxxis-aggressor-29-23": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -571,7 +563,7 @@
    "source": null,
    "note": null
   },
-  "ti-vigilante-29": {
+  "ti-wtb-vigilante-29-25": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -579,7 +571,7 @@
    "source": null,
    "note": null
   },
-  "ti-judge-29": {
+  "ti-wtb-judge-29-24": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -587,7 +579,7 @@
    "source": null,
    "note": null
   },
-  "ti-hellkat-29": {
+  "ti-kenda-hellkat-29-24": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -595,7 +587,7 @@
    "source": null,
    "note": null
   },
-  "ti-newton-29": {
+  "ti-goodyear-newton-mtf-29-24": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -603,7 +595,7 @@
    "source": null,
    "note": null
   },
-  "ti-dh22-29": {
+  "ti-michelin-dh22-29-24": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -611,7 +603,7 @@
    "source": null,
    "note": null
   },
-  "fw-dt": {
+  "fw-dtswiss-ex-1700-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -619,7 +611,7 @@
    "source": null,
    "note": null
   },
-  "fw-reserve": {
+  "fw-reserve-30-hd-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -627,7 +619,7 @@
    "source": null,
    "note": null
   },
-  "fw-i9": {
+  "fw-industrynine-enduro-s-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -635,7 +627,7 @@
    "source": null,
    "note": null
   },
-  "fw-roval": {
+  "fw-roval-traverse-hd-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -643,7 +635,7 @@
    "source": null,
    "note": null
   },
-  "fw-dt275": {
+  "fw-dtswiss-e-1900-275": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -651,7 +643,7 @@
    "source": null,
    "note": null
   },
-  "fw-hope": {
+  "fw-hope-fortus-30-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -659,7 +651,7 @@
    "source": null,
    "note": null
   },
-  "fw-wao": {
+  "fw-weareone-union-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -667,7 +659,7 @@
    "source": null,
    "note": null
   },
-  "fw-cb": {
+  "fw-crankbrothers-synthesis-enduro-29": {
    "cat": "frontwheel",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -675,7 +667,7 @@
    "source": "https://www.crankbrothers.com/products/synthesis-enduro-carbon-front-wheel",
    "note": "auto-promoted: already verified in catalog"
   },
-  "fw-enve": {
+  "fw-enve-am30-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -683,7 +675,7 @@
    "source": null,
    "note": null
   },
-  "fw-zipp": {
+  "fw-zipp-3zero-moto-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -691,7 +683,7 @@
    "source": null,
    "note": null
   },
-  "fw-newmen": {
+  "fw-newmen-advanced-sl-a30-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -699,7 +691,7 @@
    "source": null,
    "note": null
   },
-  "fw-stans": {
+  "fw-stans-flow-ex3-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -707,7 +699,7 @@
    "source": null,
    "note": null
   },
-  "fw-hunt": {
+  "fw-hunt-enduro-wide-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -715,7 +707,7 @@
    "source": null,
    "note": null
   },
-  "fw-spank": {
+  "fw-spank-359-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -723,7 +715,7 @@
    "source": null,
    "note": null
   },
-  "fw-mt500": {
+  "fw-shimano-mt500-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -731,7 +723,7 @@
    "source": null,
    "note": null
   },
-  "fw-rf": {
+  "fw-raceface-turbine-sl-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -739,7 +731,7 @@
    "source": null,
    "note": null
   },
-  "fw-bontrager": {
+  "fw-bontrager-line-pro-30-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -747,7 +739,7 @@
    "source": null,
    "note": null
   },
-  "fw-mavic": {
+  "fw-mavic-deemax-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -755,7 +747,7 @@
    "source": null,
    "note": null
   },
-  "fw-giant": {
+  "fw-giant-trx-0-29": {
    "cat": "frontwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -763,7 +755,7 @@
    "source": null,
    "note": null
   },
-  "rw-dt": {
+  "rw-dtswiss-ex-1700-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -771,7 +763,7 @@
    "source": null,
    "note": null
   },
-  "rw-reserve": {
+  "rw-reserve-30-hd-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -779,7 +771,7 @@
    "source": null,
    "note": null
   },
-  "rw-i9": {
+  "rw-industrynine-enduro-s-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -787,7 +779,7 @@
    "source": null,
    "note": null
   },
-  "rw-roval": {
+  "rw-roval-traverse-hd-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -795,7 +787,7 @@
    "source": null,
    "note": null
   },
-  "rw-i9-157": {
+  "rw-industrynine-enduro-s-29-157": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -803,7 +795,7 @@
    "source": null,
    "note": null
   },
-  "rw-dt275": {
+  "rw-dtswiss-e-1900-275": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -811,7 +803,7 @@
    "source": null,
    "note": null
   },
-  "rw-hope": {
+  "rw-hope-fortus-30-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -819,7 +811,7 @@
    "source": null,
    "note": null
   },
-  "rw-wao": {
+  "rw-weareone-union-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -827,7 +819,7 @@
    "source": null,
    "note": null
   },
-  "rw-cb": {
+  "rw-crankbrothers-synthesis-enduro-29": {
    "cat": "rearwheel",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -835,7 +827,7 @@
    "source": "https://www.crankbrothers.com/products/synthesis-enduro-carbon-rear-wheel",
    "note": "auto-promoted: already verified in catalog"
   },
-  "rw-enve": {
+  "rw-enve-am30-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -843,7 +835,7 @@
    "source": null,
    "note": null
   },
-  "rw-zipp": {
+  "rw-zipp-3zero-moto-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -851,7 +843,7 @@
    "source": null,
    "note": null
   },
-  "rw-newmen": {
+  "rw-newmen-advanced-sl-a30-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -859,7 +851,7 @@
    "source": null,
    "note": null
   },
-  "rw-stans": {
+  "rw-stans-flow-ex3-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -867,7 +859,7 @@
    "source": null,
    "note": null
   },
-  "rw-hunt": {
+  "rw-hunt-enduro-wide-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -875,7 +867,7 @@
    "source": null,
    "note": null
   },
-  "rw-spank": {
+  "rw-spank-359-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -883,7 +875,7 @@
    "source": null,
    "note": null
   },
-  "rw-mt500": {
+  "rw-shimano-mt510-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -891,7 +883,7 @@
    "source": null,
    "note": null
   },
-  "rw-rf": {
+  "rw-raceface-turbine-sl-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -899,7 +891,7 @@
    "source": null,
    "note": null
   },
-  "rw-bontrager": {
+  "rw-bontrager-line-pro-30-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -907,7 +899,7 @@
    "source": null,
    "note": null
   },
-  "rw-mavic": {
+  "rw-mavic-deemax-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -915,7 +907,7 @@
    "source": null,
    "note": null
   },
-  "rw-giant": {
+  "rw-giant-trx-0-29": {
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -923,7 +915,7 @@
    "source": null,
    "note": null
   },
-  "sh-sd-air": {
+  "sh-rockshox-super-deluxe-ultimate-230x65": {
    "cat": "shock",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -931,7 +923,7 @@
    "source": "https://www.sram.com/en/rockshox/models/rs-sdlx-ult-c2",
    "note": "auto-promoted: already verified in catalog"
   },
-  "sh-floatx": {
+  "sh-fox-float-x-factory-230x65": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -939,7 +931,7 @@
    "source": null,
    "note": null
   },
-  "sh-sd-coil": {
+  "sh-rockshox-super-deluxe-coil-230x65": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -947,7 +939,7 @@
    "source": null,
    "note": null
   },
-  "sh-dhx2": {
+  "sh-fox-dhx2-230x65": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -955,7 +947,7 @@
    "source": null,
    "note": null
   },
-  "sh-sd-trun": {
+  "sh-rockshox-super-deluxe-205x65-trun": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -963,7 +955,7 @@
    "source": null,
    "note": null
   },
-  "sh-x2-trun": {
+  "sh-fox-float-x2-205x65-trun": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -971,7 +963,7 @@
    "source": null,
    "note": null
   },
-  "sh-floatx-60": {
+  "sh-fox-float-x-230x60": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -979,7 +971,7 @@
    "source": null,
    "note": null
   },
-  "sh-vivid-oem": {
+  "sh-rockshox-vivid-ultimate-oem-205x60-trun": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -987,7 +979,7 @@
    "source": null,
    "note": null
   },
-  "sh-vivid": {
+  "sh-rockshox-vivid-ultimate-230x65": {
    "cat": "shock",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -995,7 +987,7 @@
    "source": "https://www.sram.com/en/rockshox/models/rs-vivd-ult-c1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "sh-vivid-coil": {
+  "sh-rockshox-vivid-coil-230x65": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1003,7 +995,7 @@
    "source": null,
    "note": null
   },
-  "sh-storia": {
+  "sh-ext-storia-v3-230x65": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1011,7 +1003,7 @@
    "source": null,
    "note": null
   },
-  "sh-ttx": {
+  "sh-ohlins-ttx22-m2-230x65": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1019,7 +1011,7 @@
    "source": null,
    "note": null
   },
-  "sh-kitsuma": {
+  "sh-canecreek-kitsuma-coil-230x65": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1027,7 +1019,7 @@
    "source": null,
    "note": null
   },
-  "sh-x2-std": {
+  "sh-fox-float-x2-230x65": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1035,7 +1027,7 @@
    "source": null,
    "note": null
   },
-  "sh-vivid-trun": {
+  "sh-rockshox-vivid-205x65-trun": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1043,7 +1035,7 @@
    "source": null,
    "note": null
   },
-  "sh-marzocchi-cr": {
+  "sh-marzocchi-bomber-cr-230x65": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1051,7 +1043,7 @@
    "source": null,
    "note": null
   },
-  "sh-jade": {
+  "sh-dvo-jade-x-230x65": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1059,7 +1051,7 @@
    "source": null,
    "note": null
   },
-  "sh-mara": {
+  "sh-manitou-mara-pro-230x65": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1067,7 +1059,7 @@
    "source": null,
    "note": null
   },
-  "sh-elevensix": {
+  "sh-push-elevensix-230x65": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1075,7 +1067,7 @@
    "source": null,
    "note": null
   },
-  "sh-sdu-2056": {
+  "sh-rockshox-super-deluxe-ultimate-205x60-trun": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1083,7 +1075,7 @@
    "source": null,
    "note": null
   },
-  "sh-floatx-2062": {
+  "sh-fox-float-x-205x62p5-trun": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1091,7 +1083,7 @@
    "source": null,
    "note": null
   },
-  "fk-zeb": {
+  "fk-rockshox-zeb-ultimate-29-170": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1099,7 +1091,7 @@
    "source": null,
    "note": null
   },
-  "fk-38-170": {
+  "fk-fox-38-factory-29-170": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1107,7 +1099,7 @@
    "source": null,
    "note": null
   },
-  "fk-38-180": {
+  "fk-fox-38-factory-29-180": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1115,7 +1107,7 @@
    "source": null,
    "note": null
   },
-  "fk-lyrik": {
+  "fk-rockshox-lyrik-ultimate-29-160": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1123,7 +1115,7 @@
    "source": null,
    "note": null
   },
-  "fk-z1": {
+  "fk-marzocchi-bomber-z1-29-170": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1131,7 +1123,7 @@
    "source": null,
    "note": null
   },
-  "fk-zeb-275": {
+  "fk-rockshox-zeb-ultimate-275-170": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1139,7 +1131,7 @@
    "source": null,
    "note": null
   },
-  "fk-ohlins": {
+  "fk-ohlins-rxf38-m2-29-170": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1147,7 +1139,7 @@
    "source": null,
    "note": null
   },
-  "fk-mezzer": {
+  "fk-manitou-mezzer-pro-29-170": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1155,7 +1147,7 @@
    "source": null,
    "note": null
   },
-  "fk-onyx": {
+  "fk-dvo-onyx-sc-d1-29-170": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1163,7 +1155,7 @@
    "source": null,
    "note": null
   },
-  "fk-36": {
+  "fk-fox-36-factory-29-160": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1171,7 +1163,7 @@
    "source": null,
    "note": null
   },
-  "fk-zeb-180": {
+  "fk-rockshox-zeb-ultimate-29-180": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1179,7 +1171,7 @@
    "source": null,
    "note": null
   },
-  "fk-helm": {
+  "fk-canecreek-helm-mkii-air-29-170": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1187,7 +1179,7 @@
    "source": null,
    "note": null
   },
-  "fk-ext-era": {
+  "fk-ext-era-v2-29-170": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1195,7 +1187,7 @@
    "source": null,
    "note": null
   },
-  "fk-selva": {
+  "fk-formula-selva-s-29-160": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1203,7 +1195,7 @@
    "source": null,
    "note": null
   },
-  "fk-rxf36": {
+  "fk-ohlins-rxf36-m2-29-160": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1211,7 +1203,7 @@
    "source": null,
    "note": null
   },
-  "fk-domain": {
+  "fk-rockshox-domain-rc-29-170": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1219,7 +1211,7 @@
    "source": null,
    "note": null
   },
-  "fk-mattoc": {
+  "fk-manitou-mattoc-pro-29-160": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1227,7 +1219,7 @@
    "source": null,
    "note": null
   },
-  "fk-mrp": {
+  "fk-mrp-ribbon-air-29-160": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1235,7 +1227,7 @@
    "source": null,
    "note": null
   },
-  "fk-durolux": {
+  "fk-srsuntour-durolux-r2c2-29-170": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1243,7 +1235,7 @@
    "source": null,
    "note": null
   },
-  "fk-xfusion": {
+  "fk-xfusion-trace-36-hlr-29-170": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1251,7 +1243,7 @@
    "source": null,
    "note": null
   },
-  "fk-dt535": {
+  "fk-dtswiss-f-535-one-29-160": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1259,7 +1251,7 @@
    "source": null,
    "note": null
   },
-  "fk-push": {
+  "fk-push-nineone-coil-29-160": {
    "cat": "fork",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1267,7 +1259,7 @@
    "source": null,
    "note": null
   },
-  "hb-fatbar": {
+  "hb-renthal-fatbar-35": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1275,7 +1267,7 @@
    "source": null,
    "note": null
   },
-  "hb-oneup": {
+  "hb-oneup-carbon-35": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1283,7 +1275,7 @@
    "source": null,
    "note": null
   },
-  "hb-pnw": {
+  "hb-pnw-range-318": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1291,7 +1283,7 @@
    "source": null,
    "note": null
   },
-  "hb-rf": {
+  "hb-raceface-next-r-35": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1299,7 +1291,7 @@
    "source": null,
    "note": null
   },
-  "hb-burgtec": {
+  "hb-burgtec-ridewide-enduro-35": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1307,7 +1299,7 @@
    "source": null,
    "note": null
   },
-  "hb-deity": {
+  "hb-deity-skywire-35": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1315,7 +1307,7 @@
    "source": null,
    "note": null
   },
-  "hb-spank": {
+  "hb-spank-spike-800-318": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1323,7 +1315,7 @@
    "source": null,
    "note": null
   },
-  "hb-oneup-alu": {
+  "hb-oneup-aluminum-35": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1331,7 +1323,7 @@
    "source": null,
    "note": null
   },
-  "hb-title": {
+  "hb-title-ah2-35": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1339,7 +1331,7 @@
    "source": null,
    "note": null
   },
-  "hb-chromag": {
+  "hb-chromag-fubars-osx-318": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1347,7 +1339,7 @@
    "source": null,
    "note": null
   },
-  "hb-nukeproof": {
+  "hb-nukeproof-horizon-v2-35": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1355,7 +1347,7 @@
    "source": null,
    "note": null
   },
-  "hb-cb": {
+  "hb-crankbrothers-synthesis-enduro-35": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1363,7 +1355,7 @@
    "source": null,
    "note": null
   },
-  "hb-easton": {
+  "hb-easton-haven-35": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1371,7 +1363,7 @@
    "source": null,
    "note": null
   },
-  "hb-answer": {
+  "hb-answer-protaper-35": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1379,7 +1371,7 @@
    "source": null,
    "note": null
   },
-  "hb-pro": {
+  "hb-pro-tharsis-35": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1387,7 +1379,7 @@
    "source": null,
    "note": null
   },
-  "hb-truvativ": {
+  "hb-truvativ-descendant-35": {
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1395,7 +1387,7 @@
    "source": null,
    "note": null
   },
-  "st-apex": {
+  "st-renthal-apex-35": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1403,7 +1395,7 @@
    "source": null,
    "note": null
   },
-  "st-oneup": {
+  "st-oneup-stem-35": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1411,7 +1403,7 @@
    "source": null,
    "note": null
   },
-  "st-pnw": {
+  "st-pnw-range-318": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1419,7 +1411,7 @@
    "source": null,
    "note": null
   },
-  "st-rf": {
+  "st-raceface-aeffect-r-35": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1427,7 +1419,7 @@
    "source": null,
    "note": null
   },
-  "st-burgtec": {
+  "st-burgtec-enduro-mk3-35": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1435,7 +1427,7 @@
    "source": null,
    "note": null
   },
-  "st-deity": {
+  "st-deity-copperhead-35": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1443,7 +1435,7 @@
    "source": null,
    "note": null
   },
-  "st-spank": {
+  "st-spank-spike-318": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1451,7 +1443,7 @@
    "source": null,
    "note": null
   },
-  "st-chromag": {
+  "st-chromag-ranger-v2-35": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1459,7 +1451,7 @@
    "source": null,
    "note": null
   },
-  "st-nukeproof": {
+  "st-nukeproof-horizon-35": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1467,7 +1459,7 @@
    "source": null,
    "note": null
   },
-  "st-hope": {
+  "st-hope-am-35": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1475,7 +1467,7 @@
    "source": null,
    "note": null
   },
-  "st-i9": {
+  "st-industrynine-a35": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1483,7 +1475,7 @@
    "source": null,
    "note": null
   },
-  "st-thomson": {
+  "st-thomson-elite-x4-318": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1491,7 +1483,7 @@
    "source": null,
    "note": null
   },
-  "st-wolftooth": {
+  "st-wolftooth-35": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1499,7 +1491,7 @@
    "source": null,
    "note": null
   },
-  "st-funn": {
+  "st-funn-rsx-35": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1507,7 +1499,7 @@
    "source": null,
    "note": null
   },
-  "st-straitline": {
+  "st-straitline-35": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1515,7 +1507,7 @@
    "source": null,
    "note": null
   },
-  "st-pro": {
+  "st-pro-tharsis-35": {
    "cat": "stem",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1523,7 +1515,7 @@
    "source": null,
    "note": null
   },
-  "gr-oneup": {
+  "gr-oneup-lockon": {
    "cat": "grips",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1531,7 +1523,7 @@
    "source": null,
    "note": null
   },
-  "gr-esi": {
+  "gr-esi-chunky": {
    "cat": "grips",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1539,7 +1531,7 @@
    "source": null,
    "note": null
   },
-  "gr-pnw": {
+  "gr-pnw-loam": {
    "cat": "grips",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1547,7 +1539,7 @@
    "source": null,
    "note": null
   },
-  "gr-odi": {
+  "gr-odi-elite-pro": {
    "cat": "grips",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1555,7 +1547,7 @@
    "source": null,
    "note": null
   },
-  "gr-ergon": {
+  "gr-ergon-ge1-evo": {
    "cat": "grips",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1563,7 +1555,7 @@
    "source": null,
    "note": null
   },
-  "gr-dmr": {
+  "gr-dmr-deathgrip": {
    "cat": "grips",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1571,7 +1563,7 @@
    "source": null,
    "note": null
   },
-  "gr-chromag": {
+  "gr-chromag-squarewave": {
    "cat": "grips",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1579,7 +1571,7 @@
    "source": null,
    "note": null
   },
-  "gr-sensus": {
+  "gr-sensus-swayze": {
    "cat": "grips",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1587,7 +1579,7 @@
    "source": null,
    "note": null
   },
-  "gr-renthal": {
+  "gr-renthal-traction": {
    "cat": "grips",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1595,7 +1587,7 @@
    "source": null,
    "note": null
   },
-  "gr-lizard": {
+  "gr-lizardskins-charger-evo": {
    "cat": "grips",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1603,7 +1595,7 @@
    "source": null,
    "note": null
   },
-  "gr-wtb": {
+  "gr-wtb-wafflegrip": {
    "cat": "grips",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1611,7 +1603,7 @@
    "source": null,
    "note": null
   },
-  "gr-rf": {
+  "gr-raceface-half-nelson": {
    "cat": "grips",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1619,7 +1611,7 @@
    "source": null,
    "note": null
   },
-  "gr-deity": {
+  "gr-deity-knuckleduster": {
    "cat": "grips",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1627,7 +1619,7 @@
    "source": null,
    "note": null
   },
-  "gr-sdg": {
+  "gr-sdg-slater": {
    "cat": "grips",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1635,7 +1627,7 @@
    "source": null,
    "note": null
   },
-  "gr-supacaz": {
+  "gr-supacaz-grizips": {
    "cat": "grips",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1643,7 +1635,7 @@
    "source": null,
    "note": null
   },
-  "dp-reverb": {
+  "dp-rockshox-reverb-axs-316-170": {
    "cat": "dropper",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1651,7 +1643,7 @@
    "source": null,
    "note": null
   },
-  "dp-oneup": {
+  "dp-oneup-v3-316-210": {
    "cat": "dropper",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1659,7 +1651,7 @@
    "source": "https://www.oneupcomponents.com/products/dropper-post-v2",
    "note": "auto-promoted: already verified in catalog"
   },
-  "dp-transfer": {
+  "dp-fox-transfer-factory-316-175": {
    "cat": "dropper",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1667,7 +1659,7 @@
    "source": null,
    "note": null
   },
-  "dp-revive": {
+  "dp-bikeyoke-revive-316-185": {
    "cat": "dropper",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1675,7 +1667,7 @@
    "source": null,
    "note": null
   },
-  "dp-pnw": {
+  "dp-pnw-loam-309-175": {
    "cat": "dropper",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1683,7 +1675,7 @@
    "source": "https://www.pnwcomponents.com/products/loam-dropper-post",
    "note": "auto-promoted: already verified in catalog"
   },
-  "dp-oneup-349": {
+  "dp-oneup-v3-349-210": {
    "cat": "dropper",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1691,7 +1683,7 @@
    "source": "https://www.oneupcomponents.com/products/dropper-post-v2",
    "note": "auto-promoted: already verified in catalog"
   },
-  "dp-resolve": {
+  "dp-wolftooth-resolve-316-200": {
    "cat": "dropper",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1699,7 +1691,7 @@
    "source": null,
    "note": null
   },
-  "dp-highline": {
+  "dp-crankbrothers-highline-7-316-170": {
    "cat": "dropper",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1707,7 +1699,7 @@
    "source": null,
    "note": null
   },
-  "dp-revive-349": {
+  "dp-bikeyoke-revive-349-185": {
    "cat": "dropper",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1715,7 +1707,7 @@
    "source": null,
    "note": null
   },
-  "dp-transfer-neo": {
+  "dp-fox-transfer-neo-316-175": {
    "cat": "dropper",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1723,7 +1715,7 @@
    "source": null,
    "note": null
   },
-  "dp-fallline": {
+  "dp-9point8-fall-line-r-316-175": {
    "cat": "dropper",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1731,7 +1723,7 @@
    "source": null,
    "note": null
   },
-  "dp-kslev": {
+  "dp-ks-lev-integra-316-175": {
    "cat": "dropper",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1739,7 +1731,7 @@
    "source": null,
    "note": null
   },
-  "dp-pnw-349": {
+  "dp-pnw-loam-349-200": {
    "cat": "dropper",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1747,7 +1739,7 @@
    "source": "https://www.pnwcomponents.com/products/loam-dropper-post",
    "note": "auto-promoted: already verified in catalog"
   },
-  "dp-tellis": {
+  "dp-sdg-tellis-316-170": {
    "cat": "dropper",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1755,7 +1747,7 @@
    "source": null,
    "note": null
   },
-  "dp-rf": {
+  "dp-raceface-turbine-r-316-175": {
    "cat": "dropper",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1763,7 +1755,7 @@
    "source": null,
    "note": null
   },
-  "dp-e13": {
+  "dp-ethirteen-vario-infinite-316-180": {
    "cat": "dropper",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1771,7 +1763,7 @@
    "source": null,
    "note": null
   },
-  "dp-command": {
+  "dp-specialized-command-post-309-160": {
    "cat": "dropper",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1779,7 +1771,7 @@
    "source": null,
    "note": null
   },
-  "sa-volt": {
+  "sa-wtb-volt": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1787,7 +1779,7 @@
    "source": null,
    "note": null
   },
-  "sa-ergon": {
+  "sa-ergon-sm-enduro": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1795,7 +1787,7 @@
    "source": null,
    "note": null
   },
-  "sa-bridge": {
+  "sa-specialized-bridge": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1803,7 +1795,7 @@
    "source": null,
    "note": null
   },
-  "sa-belair": {
+  "sa-sdg-belair-v3": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1811,7 +1803,7 @@
    "source": null,
    "note": null
   },
-  "sa-fizik": {
+  "sa-fizik-terra-aidon-x3": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1819,7 +1811,7 @@
    "source": null,
    "note": null
   },
-  "sa-silverado": {
+  "sa-wtb-silverado": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1827,7 +1819,7 @@
    "source": null,
    "note": null
   },
-  "sa-scoop": {
+  "sa-fabric-scoop-radius": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1835,7 +1827,7 @@
    "source": null,
    "note": null
   },
-  "sa-radar": {
+  "sa-sdg-radar": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1843,7 +1835,7 @@
    "source": null,
    "note": null
   },
-  "sa-prologo": {
+  "sa-prologo-dimension": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1851,7 +1843,7 @@
    "source": null,
    "note": null
   },
-  "sa-alpaca": {
+  "sa-fizik-terra-alpaca": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1859,7 +1851,7 @@
    "source": null,
    "note": null
   },
-  "sa-rf": {
+  "sa-raceface-aeffect": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1867,7 +1859,7 @@
    "source": null,
    "note": null
   },
-  "sa-chromag": {
+  "sa-chromag-trailmaster": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1875,7 +1867,7 @@
    "source": null,
    "note": null
   },
-  "sa-bontrager": {
+  "sa-bontrager-arvada": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1883,7 +1875,7 @@
    "source": null,
    "note": null
   },
-  "sa-selle": {
+  "sa-selleitalia-model-x": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1891,7 +1883,7 @@
    "source": null,
    "note": null
   },
-  "sa-pnw": {
+  "sa-pnw-loam": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1899,7 +1891,7 @@
    "source": null,
    "note": null
   },
-  "sa-dmr": {
+  "sa-dmr-oioi": {
    "cat": "saddle",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1907,7 +1899,7 @@
    "source": null,
    "note": null
   },
-  "pd-oneup-al": {
+  "pd-oneup-aluminum": {
    "cat": "pedal",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1915,7 +1907,7 @@
    "source": "https://www.oneupcomponents.com/products/aluminum-pedal",
    "note": "auto-promoted: already verified in catalog"
   },
-  "pd-oneup-comp": {
+  "pd-oneup-composite": {
    "cat": "pedal",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1923,7 +1915,7 @@
    "source": "https://www.oneupcomponents.com/products/comp-pedal",
    "note": "auto-promoted: already verified in catalog"
   },
-  "pd-chester": {
+  "pd-raceface-chester": {
    "cat": "pedal",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1931,7 +1923,7 @@
    "source": "https://www.raceface.com/products/chester-pedal",
    "note": "auto-promoted: already verified in catalog"
   },
-  "pd-atlas": {
+  "pd-raceface-atlas": {
    "cat": "pedal",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1939,7 +1931,7 @@
    "source": "https://www.raceface.com/products/atlas-pedal",
    "note": "auto-promoted: already verified in catalog"
   },
-  "pd-stamp7": {
+  "pd-crankbrothers-stamp-7-large": {
    "cat": "pedal",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1947,7 +1939,7 @@
    "source": "https://www.crankbrothers.com/products/stamp-7-large",
    "note": "auto-promoted: already verified in catalog"
   },
-  "pd-mallet-e": {
+  "pd-crankbrothers-mallet-enduro": {
    "cat": "pedal",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1955,7 +1947,7 @@
    "source": "https://www.crankbrothers.com/products/mallet-e",
    "note": "auto-promoted: already verified in catalog"
   },
-  "pd-speciale": {
+  "pd-time-speciale-12-large": {
    "cat": "pedal",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1963,7 +1955,7 @@
    "source": "https://www.sram.com/en/time-sport/models/pd-spc-12-b1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "pd-xt": {
+  "pd-shimano-xt-m8120": {
    "cat": "pedal",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1971,7 +1963,7 @@
    "source": null,
    "note": null
   },
-  "pd-saint": {
+  "pd-shimano-saint-m820": {
    "cat": "pedal",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1979,7 +1971,7 @@
    "source": null,
    "note": null
   },
-  "pd-tmac": {
+  "pd-deity-tmac": {
    "cat": "pedal",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1987,7 +1979,7 @@
    "source": null,
    "note": null
   },
-  "pd-vault": {
+  "pd-dmr-vault": {
    "cat": "pedal",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -1995,7 +1987,7 @@
    "source": null,
    "note": null
   },
-  "pd-dagga": {
+  "pd-chromag-dagga": {
    "cat": "pedal",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2003,7 +1995,7 @@
    "source": null,
    "note": null
   },
-  "pd-horizon": {
+  "pd-nukeproof-horizon-pro": {
    "cat": "pedal",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2011,7 +2003,7 @@
    "source": null,
    "note": null
   },
-  "pd-f22": {
+  "pd-hope-f22": {
    "cat": "pedal",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2027,7 +2019,7 @@
    "source": null,
    "note": null
   },
-  "pd-loam": {
+  "pd-pnw-loam": {
    "cat": "pedal",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2035,7 +2027,7 @@
    "source": null,
    "note": null
   },
-  "pd-stamp1": {
+  "pd-crankbrothers-stamp-1": {
    "cat": "pedal",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2043,7 +2035,7 @@
    "source": null,
    "note": null
   },
-  "bk-code": {
+  "bk-sram-code-rsc": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2051,7 +2043,7 @@
    "source": null,
    "note": null
   },
-  "bk-code-s": {
+  "bk-sram-code-stealth": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2059,7 +2051,7 @@
    "source": null,
    "note": null
   },
-  "bk-xt": {
+  "bk-shimano-xt-m8120": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2067,7 +2059,7 @@
    "source": null,
    "note": null
   },
-  "bk-dominion": {
+  "bk-hayes-dominion-a4": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2075,7 +2067,7 @@
    "source": null,
    "note": null
   },
-  "bk-mt7": {
+  "bk-magura-mt7": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2083,7 +2075,7 @@
    "source": null,
    "note": null
   },
-  "bk-slx": {
+  "bk-shimano-slx-m7120": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2091,7 +2083,7 @@
    "source": null,
    "note": null
   },
-  "bk-maven": {
+  "bk-sram-maven-ultimate": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2099,7 +2091,7 @@
    "source": null,
    "note": null
   },
-  "bk-hope": {
+  "bk-hope-tech-4-v4": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2107,7 +2099,7 @@
    "source": null,
    "note": null
   },
-  "bk-trp": {
+  "bk-trp-dhr-evo": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2115,7 +2107,7 @@
    "source": null,
    "note": null
   },
-  "bk-cura": {
+  "bk-formula-cura-4": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2123,7 +2115,7 @@
    "source": null,
    "note": null
   },
-  "bk-saint": {
+  "bk-shimano-saint-m820": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2131,7 +2123,7 @@
    "source": null,
    "note": null
   },
-  "bk-xtr": {
+  "bk-shimano-xtr-m9120": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2139,7 +2131,7 @@
    "source": null,
    "note": null
   },
-  "bk-zee": {
+  "bk-shimano-zee-m640": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2147,7 +2139,7 @@
    "source": null,
    "note": null
   },
-  "bk-mt5": {
+  "bk-magura-mt5": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2155,7 +2147,7 @@
    "source": null,
    "note": null
   },
-  "bk-g2": {
+  "bk-sram-g2-rsc": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2163,7 +2155,7 @@
    "source": null,
    "note": null
   },
-  "bk-hope-e4": {
+  "bk-hope-tech-4-e4": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2171,7 +2163,7 @@
    "source": null,
    "note": null
   },
-  "bk-trail-evo": {
+  "bk-trp-trail-evo": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2179,7 +2171,7 @@
    "source": null,
    "note": null
   },
-  "bk-trickstuff": {
+  "bk-trickstuff-maxima": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2187,7 +2179,7 @@
    "source": null,
    "note": null
   },
-  "bk-db8": {
+  "bk-sram-db8": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2195,7 +2187,7 @@
    "source": null,
    "note": null
   },
-  "bk-deore-4": {
+  "bk-shimano-deore-m6120": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2203,7 +2195,7 @@
    "source": null,
    "note": null
   },
-  "bk-mt-trail": {
+  "bk-magura-mt-trail-sport": {
    "cat": "brake",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2211,7 +2203,7 @@
    "source": null,
    "note": null
   },
-  "ro-hs2-200": {
+  "ro-sram-hs2-200-6b": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2219,7 +2211,7 @@
    "source": null,
    "note": null
   },
-  "ro-hs2-220": {
+  "ro-sram-hs2-220-6b": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2227,7 +2219,7 @@
    "source": null,
    "note": null
   },
-  "ro-cl-203": {
+  "ro-shimano-rtmt800-203-cl": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2235,7 +2227,7 @@
    "source": null,
    "note": null
   },
-  "ro-cl-180": {
+  "ro-shimano-rtmt800-180-cl": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2243,7 +2235,7 @@
    "source": null,
    "note": null
   },
-  "ro-6b-203": {
+  "ro-hayes-dseries-203-6b": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2251,7 +2243,7 @@
    "source": null,
    "note": null
   },
-  "ro-6b-220": {
+  "ro-galfer-220-6b": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2259,7 +2251,7 @@
    "source": null,
    "note": null
   },
-  "ro-hope-203": {
+  "ro-hope-floating-203-6b": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2267,7 +2259,7 @@
    "source": null,
    "note": null
   },
-  "ro-magura-203": {
+  "ro-magura-mdrp-203-6b": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2275,7 +2267,7 @@
    "source": null,
    "note": null
   },
-  "ro-cl-220": {
+  "ro-shimano-rtmt900-220-cl": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2283,7 +2275,7 @@
    "source": null,
    "note": null
   },
-  "ro-hs2-180": {
+  "ro-sram-hs2-180-6b": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2291,7 +2283,7 @@
    "source": null,
    "note": null
   },
-  "ro-rt76-203": {
+  "ro-shimano-smrt76-203-6b": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2299,7 +2291,7 @@
    "source": null,
    "note": null
   },
-  "ro-trp-203": {
+  "ro-trp-203-6b": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2307,7 +2299,7 @@
    "source": null,
    "note": null
   },
-  "ro-magura-220": {
+  "ro-magura-mdrp-220-6b": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2315,7 +2307,7 @@
    "source": null,
    "note": null
   },
-  "ro-hope-220": {
+  "ro-hope-floating-220-6b": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2323,7 +2315,7 @@
    "source": null,
    "note": null
   },
-  "ro-centerline-180": {
+  "ro-sram-centerline-180-cl": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2331,7 +2323,7 @@
    "source": null,
    "note": null
   },
-  "ro-trickstuff-203": {
+  "ro-trickstuff-dachle-203-6b": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2339,7 +2331,7 @@
    "source": null,
    "note": null
   },
-  "ro-formula-220": {
+  "ro-formula-220-6b": {
    "cat": "rotor",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2347,7 +2339,7 @@
    "source": null,
    "note": null
   },
-  "sft-gx-t": {
+  "sft-sram-gx-transmission": {
    "cat": "shifter",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2355,7 +2347,7 @@
    "source": null,
    "note": null
   },
-  "sft-gx-m": {
+  "sft-sram-gx-eagle": {
    "cat": "shifter",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2363,7 +2355,7 @@
    "source": "https://www.sram.com/en/sram/models/sl-gx-1-a2",
    "note": "auto-promoted: already verified in catalog"
   },
-  "sft-xt": {
+  "sft-shimano-xt-m8100": {
    "cat": "shifter",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2371,7 +2363,7 @@
    "source": null,
    "note": null
   },
-  "sft-slx": {
+  "sft-shimano-slx-m7100": {
    "cat": "shifter",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2379,7 +2371,7 @@
    "source": null,
    "note": null
   },
-  "sft-x0-t": {
+  "sft-sram-x0-transmission": {
    "cat": "shifter",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2387,7 +2379,7 @@
    "source": null,
    "note": null
   },
-  "sft-xx-t": {
+  "sft-sram-xx-sl-transmission": {
    "cat": "shifter",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2395,7 +2387,7 @@
    "source": null,
    "note": null
   },
-  "sft-nx": {
+  "sft-sram-nx-eagle": {
    "cat": "shifter",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2403,7 +2395,7 @@
    "source": "https://www.sram.com/en/sram/models/sl-nx-1-b1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "sft-xtr": {
+  "sft-shimano-xtr-m9100": {
    "cat": "shifter",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2411,7 +2403,7 @@
    "source": null,
    "note": null
   },
-  "sft-deore": {
+  "sft-shimano-deore-m6100": {
    "cat": "shifter",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2419,7 +2411,7 @@
    "source": null,
    "note": null
   },
-  "sft-gx-axs": {
+  "sft-sram-gx-eagle-axs": {
    "cat": "shifter",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2427,7 +2419,7 @@
    "source": null,
    "note": null
   },
-  "dr-gx-t": {
+  "dr-sram-gx-transmission": {
    "cat": "derailleur",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2435,7 +2427,7 @@
    "source": "https://www.sram.com/en/sram/models/rd-gx-e-b1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "dr-gx-m": {
+  "dr-sram-gx-eagle": {
    "cat": "derailleur",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2443,7 +2435,7 @@
    "source": "https://www.sram.com/en/sram/models/rd-gx-1-b2",
    "note": "auto-promoted: already verified in catalog"
   },
-  "dr-xt": {
+  "dr-shimano-xt-m8100-sgs": {
    "cat": "derailleur",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2451,7 +2443,7 @@
    "source": null,
    "note": null
   },
-  "dr-slx": {
+  "dr-shimano-slx-m7100-sgs": {
    "cat": "derailleur",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2459,7 +2451,7 @@
    "source": null,
    "note": null
   },
-  "dr-x0-t": {
+  "dr-sram-x0-transmission": {
    "cat": "derailleur",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2467,7 +2459,7 @@
    "source": "https://www.sram.com/en/sram/models/rd-x0-e-b1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "dr-xx-t": {
+  "dr-sram-xx-transmission": {
    "cat": "derailleur",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2475,7 +2467,7 @@
    "source": "https://www.sram.com/en/sram/models/rd-xx-e-b1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "dr-nx": {
+  "dr-sram-nx-eagle": {
    "cat": "derailleur",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2483,7 +2475,7 @@
    "source": "https://www.sram.com/en/sram/models/rd-nx-1-b1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "dr-x01": {
+  "dr-sram-x01-eagle": {
    "cat": "derailleur",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2491,7 +2483,7 @@
    "source": null,
    "note": null
   },
-  "dr-xtr": {
+  "dr-shimano-xtr-m9100-sgs": {
    "cat": "derailleur",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2499,7 +2491,7 @@
    "source": null,
    "note": null
   },
-  "dr-deore": {
+  "dr-shimano-deore-m6100-sgs": {
    "cat": "derailleur",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2507,7 +2499,7 @@
    "source": null,
    "note": null
   },
-  "dr-gx-axs": {
+  "dr-sram-gx-eagle-axs": {
    "cat": "derailleur",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2515,7 +2507,7 @@
    "source": null,
    "note": null
   },
-  "ca-sram-t": {
+  "ca-sram-xs1275": {
    "cat": "cassette",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2523,7 +2515,7 @@
    "source": "https://www.sram.com/en/sram/models/cs-xs-1275-a1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ca-sram-e": {
+  "ca-sram-xg1275": {
    "cat": "cassette",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2531,7 +2523,7 @@
    "source": "https://www.sram.com/en/sram/models/cs-xg-1275-b1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ca-xt": {
+  "ca-shimano-xt-m8100-1051": {
    "cat": "cassette",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2539,7 +2531,7 @@
    "source": "https://bike.shimano.com/en-US/product/component/deore-xt-m8100/CS-M8100-12.html",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ca-slx": {
+  "ca-shimano-slx-m7100-1051": {
    "cat": "cassette",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2547,7 +2539,7 @@
    "source": null,
    "note": null
   },
-  "ca-xx-t": {
+  "ca-sram-xs1299": {
    "cat": "cassette",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2555,7 +2547,7 @@
    "source": "https://www.sram.com/en/sram/models/cs-xs-1299-a1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ca-x01": {
+  "ca-sram-xg1295": {
    "cat": "cassette",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2563,7 +2555,7 @@
    "source": "https://www.sram.com/en/sram/models/cs-xg-1295-b1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ca-nx": {
+  "ca-sram-pg1230": {
    "cat": "cassette",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2571,7 +2563,7 @@
    "source": "https://www.sram.com/en/sram/models/cs-pg-1230-a1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ca-xtr": {
+  "ca-shimano-xtr-m9100-1051": {
    "cat": "cassette",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2579,7 +2571,7 @@
    "source": null,
    "note": null
   },
-  "ca-deore": {
+  "ca-shimano-deore-m6100-1051": {
    "cat": "cassette",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2587,7 +2579,7 @@
    "source": null,
    "note": null
   },
-  "ch-flattop": {
+  "ch-sram-gx-flattop": {
    "cat": "chain",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2595,7 +2587,7 @@
    "source": "https://www.sram.com/en/sram/models/cn-ttyp-gx-a1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ch-eagle": {
+  "ch-sram-gx-eagle": {
    "cat": "chain",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2603,7 +2595,7 @@
    "source": "https://www.sram.com/en/sram/models/cn-eagl-gx-a1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ch-shimano": {
+  "ch-shimano-xt-m8100": {
    "cat": "chain",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2611,7 +2603,7 @@
    "source": null,
    "note": null
   },
-  "ch-x01": {
+  "ch-sram-x01-eagle": {
    "cat": "chain",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2619,7 +2611,7 @@
    "source": "https://www.sram.com/en/sram/models/cn-eagl-x01-a1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ch-xtr": {
+  "ch-shimano-xtr-m9100": {
    "cat": "chain",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2627,7 +2619,7 @@
    "source": null,
    "note": null
   },
-  "ch-deore": {
+  "ch-shimano-deore-m6100": {
    "cat": "chain",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2635,7 +2627,7 @@
    "source": null,
    "note": null
   },
-  "cr-gx": {
+  "cr-sram-gx-eagle": {
    "cat": "crankset",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2643,7 +2635,7 @@
    "source": "https://www.sram.com/en/sram/models/fc-gx-1-b1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "cr-x0t": {
+  "cr-sram-x0-transmission": {
    "cat": "crankset",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2651,7 +2643,7 @@
    "source": "https://www.sram.com/en/sram/models/fc-x0-d1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "cr-xt": {
+  "cr-shimano-xt-m8100": {
    "cat": "crankset",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2659,7 +2651,7 @@
    "source": null,
    "note": null
   },
-  "cr-rf": {
+  "cr-raceface-aeffect-r": {
    "cat": "crankset",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2667,7 +2659,7 @@
    "source": null,
    "note": null
   },
-  "cr-x0": {
+  "cr-sram-x01-eagle": {
    "cat": "crankset",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2675,7 +2667,7 @@
    "source": null,
    "note": null
   },
-  "cr-slx": {
+  "cr-shimano-slx-m7100": {
    "cat": "crankset",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2683,7 +2675,7 @@
    "source": null,
    "note": null
   },
-  "cr-xx-t": {
+  "cr-sram-xx-sl-transmission": {
    "cat": "crankset",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2691,7 +2683,7 @@
    "source": null,
    "note": null
   },
-  "cr-nx": {
+  "cr-sram-nx-eagle": {
    "cat": "crankset",
    "status": "Verified",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2699,7 +2691,7 @@
    "source": "https://www.sram.com/en/sram/models/fc-nx-1-c1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "cr-xtr": {
+  "cr-shimano-xtr-m9100": {
    "cat": "crankset",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2707,7 +2699,7 @@
    "source": null,
    "note": null
   },
-  "cr-deore": {
+  "cr-shimano-deore-m6100": {
    "cat": "crankset",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2715,7 +2707,7 @@
    "source": null,
    "note": null
   },
-  "cr-e13": {
+  "cr-ethirteen-plus": {
    "cat": "crankset",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2723,7 +2715,7 @@
    "source": null,
    "note": null
   },
-  "cr-eewings": {
+  "cr-canecreek-eewings-allmountain": {
    "cat": "crankset",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2731,7 +2723,7 @@
    "source": null,
    "note": null
   },
-  "fr-madonna-v3": {
+  "fr-raaw-madonna-v3": {
    "cat": "frame",
    "status": "Verified",
    "updated": "2026-07-06T16:29:54.547Z",
@@ -2739,7 +2731,7 @@
    "source": "https://raawmtb.com/en-us/pages/madonna-v3",
    "note": "auto-promoted: already verified in catalog"
   },
-  "fr-madonna-v32": {
+  "fr-raaw-madonna-v32": {
    "cat": "frame",
    "status": "Verified",
    "updated": "2026-07-06T16:29:54.547Z",
@@ -2747,13 +2739,21 @@
    "source": "https://raawmtb.com/en-us/pages/madonna-v3-2",
    "note": "auto-promoted: already verified in catalog"
   },
-  "sh-sdu-230625": {
+  "sh-rockshox-super-deluxe-ultimate-230x62p5": {
    "cat": "shock",
    "status": "Pending",
    "updated": "2026-07-06T20:38:38.509Z",
    "error": null,
    "source": null,
    "note": null
+  },
+  "fr-santacruz-megatower-cc": {
+   "cat": "frame",
+   "status": "Skipped",
+   "updated": "2026-07-06T20:38:38.510Z",
+   "error": null,
+   "source": null,
+   "note": "Manufacturer support page (santacruzbicycles.com Megatower 2 MY24) confirms 230x62.5 std shock (catalog had 65 - FIXED), Boost148, BSA73 threaded, 31.6 post, PM, UDH, 2.5 max tire, 170mm fork (180 ok); frame page states 7.17 lbs + \\ MSRP (price FIXED) but weight doesn't state size or shock inclusion - weight bar not met."
   }
  }
 }

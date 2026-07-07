@@ -137,7 +137,7 @@ false "won't fit" OR a false "fits" is worse than a missing rule.** Candidates c
 - **Oversize-rotor adapter** needed when a rotor exceeds the native mount: today rule 10 already
   *warns* on exceeding the max; an adapter *info* could be added. Low priority.
 - **Crankset chainline vs frame (Boost vs SuperBoost) — REJECTED for now.** Too nuanced: SuperBoost
-  frames (e.g. `fr-firebird`, the Pivot Firebird) are commonly ridden with Boost-chainline cranks,
+  frames (e.g. `fr-pivot-firebird`) are commonly ridden with Boost-chainline cranks,
   so a naive "SuperBoost frame needs a SuperBoost crank" rule would fire a FALSE error.
   Needs real per-frame data + domain-expert input before it's safe.
 
@@ -158,7 +158,7 @@ Absence = unverified (still the default for most of the catalog; **46 parts are 
 far**, all against manufacturer pages — the SRAM GX Eagle mechanical, X01/NX Eagle, and most
 GX/X0/XX Transmission drivetrain parts (the AXS pods have no clean model pages so they stay
 sample; the X01/GX-AXS derailleur and X01 crank pages list no weight, so they stay sample
-too), two RockShox shocks (`sh-sd-air`, `sh-vivid`), a Shimano XT cassette (`ca-xt`), six
+too), two RockShox shocks (the Super Deluxe Ultimate air + Vivid air), a Shimano XT cassette, six
 frames — all three RAAW Madonnas (V2.2/V3/V3.2; RAAW publishes full spec sheets), the
 Commencal Meta SX V5 (tech page), the Canyon Strive CFR and the Forbidden Dreadnought —
 seven pedals (OneUp, Race Face, Crankbrothers, Time; Shimano pedal pages blocked fetching),
@@ -175,7 +175,7 @@ reports the verified/unverified counts.)
 exact component weights on its model pages (`sram.com/en/sram/models/<slug>`), so SRAM
 drivetrain is cleanly verifiable. **Shimano does NOT publish component weights**, and **SRAM
 does not publish *rotor* weights** — for those, interfaces can be confirmed but the weight
-can't, so they stay unverified (e.g. `cr-xt`, the HS2 rotors). Forks/frames are
+can't, so they stay unverified (e.g. the XT crank `cr-shimano-xt-m8100`, the HS2 rotors). Forks/frames are
 year-variable, and tires/brakes are casing/config-dependent, so their weights are ambiguous
 too. **Open product decision:** whether to accept a reputable third-party *measured* weight
 as a source so a part can count as verified (today the bar is "manufacturer page only").
@@ -187,6 +187,12 @@ The `✓ Verified only` filter in the app (built on `partVerified`) shows just t
   directly. Type-checking is JSDoc-only (`npm run typecheck`); keep shipping plain JS (no bundler/transpile).
 - `schema.js` is the one definition of valid data; the tests delegate to it. Extend the schema
   when you add fields, don't scatter ad-hoc checks.
+- **Ids are brand-qualified and APPEND-ONLY** (`<prefix>-<brand>-<model…>[-gen][-variants]`,
+  e.g. `fk-rockshox-zeb-ultimate-29-170`; enforced by the validator + `lintCatalog`). Never rename
+  or reuse an id — share links, `tools/verification-job.json` and catalog cross-refs all key on
+  them. A correction retires the old id into `ALIASES` (compat.js); `readHash` and the verify-job
+  sync resolve through `canonicalId()`. The verify-job sync **tombstones** state for ids that left
+  the catalog instead of deleting it. (Migrated 2026-07-06, pre-deploy; DATA-MODEL-REVIEW.md §3.1.)
 - When you add or rename a part field, update BOTH `schema.js` (runtime validator) and `src/types.js`
   (the JSDoc `Part` type) so the validator and `npm run typecheck` stay in agreement.
 - Keep the UI logic and the engine sharing `compatOf`/`buildTotals` from `compat.js` (don't fork them).
