@@ -1263,6 +1263,11 @@ function bundleActive(group, build, presetBy){
   if(!pid) return false;
   var preset = byId(pid);
   if(!preset || !('fills' in preset) || !preset.fills) return false;
+  // The preset must BELONG to this group (REVIEW.md #25): without this check a
+  // crafted/corrupted share link could bill the wheels group as a $545
+  // groupset, double-count the drivetrain and never count the wheels -
+  // silently corrupting the headline totals. readHash is hardened the same way.
+  if(!group.preset || preset.cat !== group.preset.cat) return false;
   var fills = preset.fills;
   var slots = Object.keys(fills);
   for(var i=0;i<slots.length;i++){

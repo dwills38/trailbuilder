@@ -35,6 +35,16 @@ test('bundleActive is true only when every fill matches', function(){
   ok(C.bundleActive(wheels, B({ frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-reserve-30-hd-29' }), { wheels:'ws-reserve-30-hd-29' }));
   ok(!C.bundleActive(wheels, B({ frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-industrynine-enduro-s-29' }), { wheels:'ws-reserve-30-hd-29' }));
 });
+test('REVIEW #25: a preset from the WRONG group never activates (share-link corruption guard)', function(){
+  // A drivetrain groupset shoved under the wheels group key (reachable via a
+  // crafted/corrupted share link before readHash was hardened) used to bill
+  // the wheels group as the $545 kit, double-count the drivetrain and never
+  // count the wheels. bundleActive now requires preset.cat === group.preset.cat.
+  var wheels = C.GROUPS.filter(function(g){ return g.key === 'wheels'; })[0];
+  ok(!C.bundleActive(wheels, B(GXM), { wheels:'gs-sram-gx-eagle' }));
+  var t = totals(Object.assign({}, GXM, { frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-reserve-30-hd-29' }), { wheels:'gs-sram-gx-eagle' });
+  eq(t.price, GXM_SUM + 800 + 900);   // everything a la carte; nothing double-counted or dropped
+});
 test('bundle weight is DERIVED from the fills when the kit is active', function(){
   // kits never store a weight (a stored figure drifts into physically
   // impossible bundles - REVIEW.md #12); the bundle weighs what its parts weigh
