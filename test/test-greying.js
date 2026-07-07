@@ -97,7 +97,7 @@ test('REVIEW #13 regression: a 29in REAR tire on a mullet-only frame is a new co
 test('oversize rotor (220 vs 203-max fork AND frame) is YELLOW at pick time, not green', function(){
   // Both rotor slots must be constrained: with only a fork, the rear placement
   // is unconstrained and the dot legitimately reports that clean best placement.
-  var c = C.compatOf(part('ro-sram-hs2-220-6b'), B({fork:'fk-manitou-mezzer-pro-29-170', frame:'fr-yeti-sb160'}));
+  var c = C.compatOf(part('ro-sram-hs2-220-6b'), B({fork:'fk-dvo-onyx-sc-d1-29-170', frame:'fr-yeti-sb160'}));
   eq(c.state, 'w'); some([c.reason], 'exceeds the fork max');
 });
 test('over-travel fork (180 on a 170-rated frame) is YELLOW at pick time', function(){
@@ -109,9 +109,9 @@ test('lever-integrated shifter with mismatched brake levers is YELLOW at pick ti
   eq(c.state, 'w'); some([c.reason], 'Shifter mount');
 });
 test('preset dot: a kit that adds a new warning (no error) is YELLOW', function(){
-  // XT brakeset carries 203mm rotors; the Lyrik's max is 200 -> rotor-max warning.
-  var c = C.compatOf(part('bs-shimano-xt-m8120'), B({fork:'fk-rockshox-lyrik-ultimate-29-160'}));
-  eq(c.state, 'w'); some([c.reason], 'exceeds the fork max');
+  // XT brakeset carries 203mm rotors; the Meta SX V5's rear max is 200 -> rotor-max warning.
+  var c = C.compatOf(part('bs-shimano-xt-m8120'), B({frame:'fr-commencal-meta-sx-v5'}));
+  eq(c.state, 'w'); some([c.reason], 'exceeds the frame max');
 });
 test('a pre-existing warning does not turn an unrelated part yellow', function(){
   // Build already warns (over-travel fork); a fitting shock adds nothing new.
