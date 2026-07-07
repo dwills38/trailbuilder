@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T19:38:33.066Z",
+ "updated": "2026-07-07T19:57:02.791Z",
  "batchSize": 25,
- "lastCompleted": "ro-formula-220-6b",
+ "lastCompleted": "sft-sram-xx-sl-transmission",
  "currentCategory": "fork",
  "queue": [
   "fk-rockshox-lyrik-ultimate-29-160",
@@ -75,20 +75,14 @@
   "bk-sram-db8",
   "bk-shimano-deore-m6120",
   "bk-magura-mt-trail-sport",
-  "sft-sram-gx-transmission",
   "sft-shimano-xt-m8100",
   "sft-shimano-slx-m7100",
-  "sft-sram-x0-transmission",
-  "sft-sram-xx-sl-transmission",
   "sft-shimano-xtr-m9100",
   "sft-shimano-deore-m6100",
-  "sft-sram-gx-eagle-axs",
   "dr-shimano-xt-m8100-sgs",
   "dr-shimano-slx-m7100-sgs",
-  "dr-sram-x01-eagle",
   "dr-shimano-xtr-m9100-sgs",
   "dr-shimano-deore-m6100-sgs",
-  "dr-sram-gx-eagle-axs",
   "ca-shimano-slx-m7100-1051",
   "ca-shimano-xtr-m9100-1051",
   "ca-shimano-deore-m6100-1051",
@@ -2052,11 +2046,11 @@
   },
   "sft-sram-gx-transmission": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:56:53.981Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "No dedicated manufacturer page found for a Transmission-tier-specific Pod Controller weight; groupset pages list the Pod as a component but without its own weight. Third-party 68-71g figures exist but couldn't be confirmed as specific to the Transmission (T-Type) Pod vs the older Eagle AXS pod -- same generation-confusion risk as the sibling row above. Bar not met."
   },
   "sft-sram-gx-eagle": {
    "cat": "shifter",
@@ -2084,19 +2078,19 @@
   },
   "sft-sram-x0-transmission": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:56:54.031Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same issue as GX Transmission Pod: no confirmed manufacturer weight for this specific tier's Pod controller, and third-party figures are ambiguous about which generation/tier they measure. Bar not met."
   },
   "sft-sram-xx-sl-transmission": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:56:54.085Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "XX SL uses the distinct, lighter AXS Pod Ultimate controller (EC-AXS-PODU-D1) -- confirmed to exist on sram.com but no weight published there, and no third-party measured figure found for it specifically (only the heavier standard Pod's weight turned up in searches). Bar not met."
   },
   "sft-sram-nx-eagle": {
    "cat": "shifter",
@@ -2124,11 +2118,11 @@
   },
   "sft-sram-gx-eagle-axs": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:56:53.932Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "SRAM has apparently redesigned/renamed this product line -- the old model-code URL pattern (EC-GX-AXS-A1) 404s, and the closest current match (AXS Rocker Controller, EC-AXS-ROCK-A1) may be a different/newer generic part, not confirmed as the same SKU. Third-party 68g figures found are for the older pod-style controller, which may not match this row anymore. Bar not met -- needs a fresh look at SRAM's current AXS controller lineup before this row can be trusted."
   },
   "dr-sram-gx-transmission": {
    "cat": "derailleur",
@@ -2188,11 +2182,11 @@
   },
   "dr-sram-x01-eagle": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T19:56:53.931Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/sram/models/rd-x0-1-b2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dr-shimano-xtr-m9100-sgs": {
    "cat": "derailleur",
@@ -2212,11 +2206,11 @@
   },
   "dr-sram-gx-eagle-axs": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T19:56:53.932Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/sram/models/rd-gx-1e-a1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ca-sram-xs1275": {
    "cat": "cassette",
