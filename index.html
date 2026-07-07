@@ -264,7 +264,7 @@
   var verifiedOnly = false;  // when on, show only manufacturer-verified parts/kits
   var $ = function(id){ return document.getElementById(id); };
   var money = function(n){ return '$' + (n||0).toLocaleString(); };
-  var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg)'; };
+  var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg / ' + (g/453.592).toFixed(2) + ' lb)'; };
   // esc() (HTML-escape) and partVerified() are shared from compat.js — one tested source of truth.
 
   var ICONS = {frame:'🚲',fork:'🍴',shock:'🪐',wheels:'🛞',tire:'⚫',drivetrain:'⚙️',brakes:'🛑',dropper:'📐',cockpit:'🔧',saddle:'🪑',pedals:'👟'};
