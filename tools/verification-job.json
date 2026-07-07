@@ -1,16 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T20:16:23.255Z",
+ "updated": "2026-07-07T20:19:48.657Z",
  "batchSize": 25,
- "lastCompleted": "fk-fox-36-factory-29-160",
+ "lastCompleted": "fk-rockshox-zeb-ultimate-29-180",
  "currentCategory": "fork",
  "queue": [
-  "fk-rockshox-zeb-ultimate-275-170",
-  "fk-ohlins-rxf38-m2-29-170",
-  "fk-dvo-onyx-sc-d1-29-170",
-  "fk-rockshox-zeb-ultimate-29-180",
-  "fk-formula-selva-s-29-160",
   "fk-ohlins-rxf36-m2-29-160",
   "fk-rockshox-domain-rc-29-170",
   "fk-manitou-mattoc-pro-29-160",
@@ -820,19 +815,19 @@
   },
   "fk-rockshox-zeb-ultimate-275-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:19:48.607Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same class-wide RockShox weight-ambiguity already logged for this fork family: sram.com's ZEB model page only gives one weight tied to a different config (190mm/29in), not this 27.5/170 row. Bar not met."
   },
   "fk-ohlins-rxf38-m2-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T20:19:48.559Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-rxf38-m-2-air-ttx18-29-44-170",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-mezzer-pro-29-170": {
    "cat": "fork",
@@ -844,11 +839,11 @@
   },
   "fk-dvo-onyx-sc-d1-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:19:48.560Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "dvosuspension.com product pages don't yield weight via fetch (cart-page content only, or general product listing without specs table). No third-party measured figure found either. Bar not met."
   },
   "fk-fox-36-factory-29-160": {
    "cat": "fork",
@@ -860,11 +855,11 @@
   },
   "fk-rockshox-zeb-ultimate-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:19:48.657Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same as the 275/170 sibling: no clean per-travel weight on the ZEB model page. Bar not met."
   },
   "fk-canecreek-helm-mkii-air-29-170": {
    "cat": "fork",
@@ -884,11 +879,11 @@
   },
   "fk-formula-selva-s-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T20:19:48.559Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mountain-bike/selva-s/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-ohlins-rxf36-m2-29-160": {
    "cat": "fork",
