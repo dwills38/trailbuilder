@@ -38,10 +38,17 @@
 /** @typedef {'air'|'coil'} Spring */
 /** @typedef {'alu'|'carbon'} Material */
 /** @typedef {'flat'|'clip'} PedalStyle */
+/** @typedef {'exo'|'exo-plus'|'doubledown'|'dh'} Casing */
+/** @typedef {'dual'|'3c-maxxterra'|'3c-maxxgrip'} Compound */
+
+/** Per-size frame data (sizes are a sub-object, not variant rows — schema.js).
+ * @typedef {Object.<string, {seatTubeLen?: number, maxInsert?: number}>} FrameSizes */
 
 /**
  * Fields every part shares. `weight` and the provenance fields are optional
- * (absence of provenance means "unverified" — see schema.js).
+ * (absence of provenance means "unverified" — see schema.js). The flat-SKU
+ * identity kit (family/gen/modelYear/mfgPn) is optional in schema and
+ * template-mandatory for new rows (tools/DATA-ENTRY-TEMPLATE.md).
  * @typedef {Object} CommonFields
  * @property {string} id
  * @property {string} brand
@@ -52,14 +59,18 @@
  * @property {boolean} [verified]
  * @property {string} [lastChecked]
  * @property {string} [source]
+ * @property {string} [family]     generation-agnostic platform slug ('rockshox-zeb')
+ * @property {string} [gen]        maker's generation code ('B1', 'V3.2') — free string
+ * @property {number} [modelYear]
+ * @property {string} [mfgPn]      manufacturer part number / model code
  */
 
-/** @typedef {CommonFields & {cat: 'frame', wheelConfigs: WheelConfig[], rearAxle: RearAxle, headset: Tapered, bb: FrameBb, seatTube: number, brakeMount: BrakeMount, maxRotorR: number, shockEye: number, shockStroke: number, shockMount: ShockMount, maxForkTravel: number, travel: number, udh: boolean, frameOnly: boolean, maxTire?: number, bundledShock?: (string|null)}} FramePart */
+/** @typedef {CommonFields & {cat: 'frame', wheelConfigs: WheelConfig[], rearAxle: RearAxle, headset: Tapered, bb: FrameBb, seatTube: number, brakeMount: BrakeMount, maxRotorR: number, shockEye: number, shockStroke: number, shockMount: ShockMount, maxForkTravel: number, travel: number, udh: boolean, frameOnly: boolean, maxTire?: number, bundledShock?: (string|null), sizes?: FrameSizes}} FramePart */
 /** @typedef {CommonFields & {cat: 'fork', wheel: WheelSize, travel: number, axle: FrontAxle, steerer: Tapered, brakeMount: BrakeMount, maxRotorF: number, minRotorF?: number}} ForkPart */
 /** @typedef {CommonFields & {cat: 'shock', eye: number, stroke: number, mount: ShockMount, spring: Spring, oemOnly?: boolean, forFrame?: string}} ShockPart */
 /** @typedef {CommonFields & {cat: 'frontwheel', wheel: WheelSize, hub: FrontAxle, rotorMount: RotorMount, intWidth: number, maxTire: number}} FrontWheelPart */
 /** @typedef {CommonFields & {cat: 'rearwheel', wheel: WheelSize, hub: RearAxle, freehub: Freehub, rotorMount: RotorMount, intWidth: number, maxTire: number}} RearWheelPart */
-/** @typedef {CommonFields & {cat: 'tire', wheel: WheelSize, width: number}} TirePart */
+/** @typedef {CommonFields & {cat: 'tire', wheel: WheelSize, width: number, casing?: Casing, compound?: Compound}} TirePart */
 /** @typedef {CommonFields & {cat: 'shifter', system: DriveSystem, speeds: number, actuation: Actuation, clampType?: ShifterClamp}} ShifterPart */
 /** @typedef {CommonFields & {cat: 'derailleur', system: DriveSystem, speeds: number, actuation: Actuation, maxCog: number, mount: DerailMount}} DerailleurPart */
 /** @typedef {CommonFields & {cat: 'cassette', system: DriveSystem, speeds: number, freehub: Freehub, range: string, maxCog: number}} CassettePart */

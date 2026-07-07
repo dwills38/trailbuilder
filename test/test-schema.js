@@ -45,6 +45,26 @@ test('crankset missing ringStd is caught', function(){
 test('brake leverClamp outside its own (narrower) vocab is caught', function(){
   some(probs(over('bk-sram-code-rsc', { leverClamp:'band' })), 'leverClamp');
 });
+test('bad family slug is caught (must be lowercase slug)', function(){
+  some(probs(over('fr-raaw-madonna-v3', { family:'RAAW Madonna' })), 'family');
+});
+test('modelYear outside the sane range is caught', function(){
+  some(probs(over('fr-raaw-madonna-v3', { modelYear:190 })), 'modelYear');
+});
+test('tire casing outside the vocab is caught', function(){
+  some(probs(over('ti-maxxis-assegai-29-25-exop-mg', { casing:'super-gravity' })), 'casing');
+});
+test('frame sizes with an unknown per-size key is caught', function(){
+  some(probs(over('fr-raaw-madonna-v3', { sizes:{ M:{ maxInser:280 } } })), 'unknown key');
+});
+test('frame sizes with a non-positive value is caught', function(){
+  some(probs(over('fr-raaw-madonna-v3', { sizes:{ M:{ maxInsert:0 } } })), 'positive');
+});
+test('a valid frame sizes map passes', function(){
+  // unverified fixture on purpose: the frozen test date predates the verified
+  // rows' lastChecked, which would add an unrelated provenance problem
+  eq(probs(over('fr-santacruz-megatower-cc', { sizes:{ S:{ seatTubeLen:395, maxInsert:220 }, M:{ maxInsert:245 } } })).length, 0);
+});
 test('id with the wrong category prefix is caught', function(){
   some(probs(over('fr-santacruz-megatower-cc', { id:'fk-santacruz-megatower-cc' })), 'prefix');
 });

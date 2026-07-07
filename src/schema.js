@@ -17,7 +17,7 @@
 /** @typedef {import('./types.js').Part} Part */
 /** @typedef {import('./types.js').Slot} Slot */
 /** @typedef {import('./types.js').Catalog} Catalog */
-/** @typedef {{type: 'number'|'string'|'bool'|'id'|'fills'|'enumArray', vocab?: string, optional?: boolean, nullable?: boolean}} FieldRule */
+/** @typedef {{type: 'number'|'string'|'bool'|'id'|'fills'|'enumArray'|'sizes', vocab?: string, optional?: boolean, nullable?: boolean}} FieldRule */
 /** @typedef {{has: (id: string) => boolean, catOf: (id: string) => string, slotCat: Object.<string, string>, today: Date}} Ctx */
 
 /* Canonical vocabularies - the only allowed values for each standard. */
@@ -43,7 +43,13 @@ var VOCAB = {
   derailMount:  ['hanger', 'udh-direct'],
   spring:       ['air', 'coil'],
   material:     ['alu', 'carbon'],
-  pedalStyle:   ['flat', 'clip']
+  pedalStyle:   ['flat', 'clip'],
+  /* Tire SKU axes (DATA-MODEL-REVIEW section 3 item 5): brand-NATIVE names, not a
+     cross-brand toughness tier. Maxxis values seeded now (tires are the next
+     verification batch); Schwalbe / Continental / Specialized values get
+     enumerated per brand when their batch starts - never invented mid-batch. */
+  casing:       ['exo', 'exo-plus', 'doubledown', 'dh'],
+  compound:     ['dual', '3c-maxxterra', '3c-maxxgrip']
 };
 
 /* Per-category field schema. Each field: {type, vocab?, optional?, nullable?}
@@ -57,7 +63,11 @@ var SCHEMA = {
     maxRotorR:{type:'number'}, shockEye:{type:'number'}, shockStroke:{type:'number'},
     shockMount:{type:'string',vocab:'shockMount'}, maxForkTravel:{type:'number'}, travel:{type:'number'},
     udh:{type:'bool'}, frameOnly:{type:'bool'}, maxTire:{type:'number',optional:true},
-    bundledShock:{type:'id',optional:true,nullable:true}
+    bundledShock:{type:'id',optional:true,nullable:true},
+    /* per-size data lives in a sub-object, NOT variant rows (sizes share price/
+       interfaces; review section 3 item 6). Keys are the maker's own size names
+       (S-XXL, S1-S6, ...) - deliberately a free string, not a vocab. */
+    sizes:{type:'sizes',optional:true}
   },
   fork: {
     wheel:{type:'string',vocab:'wheel'}, travel:{type:'number'}, axle:{type:'string',vocab:'frontAxle'},
@@ -76,7 +86,8 @@ var SCHEMA = {
     wheel:{type:'string',vocab:'wheel'}, hub:{type:'string',vocab:'rearAxle'}, freehub:{type:'string',vocab:'freehub'},
     rotorMount:{type:'string',vocab:'rotorMount'}, intWidth:{type:'number'}, maxTire:{type:'number'}
   },
-  tire: { wheel:{type:'string',vocab:'wheel'}, width:{type:'number'} },
+  tire: { wheel:{type:'string',vocab:'wheel'}, width:{type:'number'},
+    casing:{type:'string',vocab:'casing',optional:true}, compound:{type:'string',vocab:'compound',optional:true} },
   shifter: { system:{type:'string',vocab:'system'}, speeds:{type:'number'}, actuation:{type:'string',vocab:'actuation'}, clampType:{type:'string',vocab:'shifterClamp',optional:true} },
   derailleur: { system:{type:'string',vocab:'system'}, speeds:{type:'number'}, actuation:{type:'string',vocab:'actuation'}, maxCog:{type:'number'}, mount:{type:'string',vocab:'derailMount'} },
   cassette: { system:{type:'string',vocab:'system'}, speeds:{type:'number'}, freehub:{type:'string',vocab:'freehub'}, range:{type:'string'}, maxCog:{type:'number'} },
@@ -97,7 +108,14 @@ var SCHEMA = {
 };
 
 var PRESET_CATS = ['groupset','wheelset','brakeset','cockpitset'];
-var COMMON = ['id','cat','brand','model','price','weight','desc','verified','lastChecked','source'];
+/* Common fields every category may carry. family/gen/modelYear/mfgPn are the
+   flat-SKU supporting kit (review section 3): family = generation-agnostic
+   platform slug ("rockshox-zeb"); gen = maker's generation code (free string -
+   'B1', 'V3.2', 'm.2'); modelYear = number; mfgPn = the manufacturer part
+   number / model code when the source spec table shows one. All optional in
+   schema, template-mandatory for NEW rows (tools/DATA-ENTRY-TEMPLATE.md). */
+var COMMON = ['id','cat','brand','model','price','weight','desc','verified','lastChecked','source',
+  'family','gen','modelYear','mfgPn'];
 
 /* Id convention (DATA-MODEL-REVIEW.md section 3.1): ids are APPEND-ONLY - never
    renamed, never reused; corrections retire the old id into ALIASES (compat.js).
@@ -192,6 +210,14 @@ function validatePart(p, ctx){
     if('lastChecked' in p && p.lastChecked != null && !/^\d{4}-\d{2}-\d{2}$/.test(p.lastChecked)) bad('lastChecked must be YYYY-MM-DD');
   }
 
+  // identity / grouping fields (optional on every category - see COMMON above)
+  if('family' in p && p.family != null && !(isStr(p.family) && ID_RE.test(p.family)))
+    bad('family must be a lowercase slug like "rockshox-zeb"');
+  if('gen' in p && p.gen != null && !isStr(p.gen)) bad('gen must be a non-empty string');
+  if('mfgPn' in p && p.mfgPn != null && !isStr(p.mfgPn)) bad('mfgPn must be a non-empty string');
+  if('modelYear' in p && p.modelYear != null && !(isNum(p.modelYear) && p.modelYear >= 1980 && p.modelYear <= 2100))
+    bad('modelYear must be a number between 1980 and 2100');
+
   // schema fields
   var spec = SCHEMA[p.cat];
   Object.keys(spec).forEach(function(field){
@@ -215,6 +241,17 @@ function validatePart(p, ctx){
       case 'id':
         if(!isStr(v)) { bad('field "' + field + '" must be a part id'); break; }
         if(!ctx.has(v)) bad('field "' + field + '" references unknown part "' + v + '"');
+        break;
+      case 'sizes':
+        if(!isObj(v)) { bad('sizes must be an object of sizeName -> {seatTubeLen?, maxInsert?}'); break; }
+        Object.keys(v).forEach(function(name){
+          var sv = v[name];
+          if(!isObj(sv)){ bad('sizes["' + name + '"] must be an object'); return; }
+          Object.keys(sv).forEach(function(k){
+            if(k !== 'seatTubeLen' && k !== 'maxInsert'){ bad('sizes["' + name + '"] unknown key "' + k + '"'); return; }
+            if(!(isNum(sv[k]) && sv[k] > 0)) bad('sizes["' + name + '"].' + k + ' must be a positive number (mm)');
+          });
+        });
         break;
       case 'fills':
         if(!isObj(v)) { bad('fills must be an object'); break; }
@@ -310,6 +347,8 @@ function lintCatalog(C){
     var toks = p.id.split('-');
     if(toks.length >= 2 && toks[1] !== brandSlug(p.brand))
       warnings.push('[' + p.id + '] id brand token "' + toks[1] + '" is not the brand slug "' + brandSlug(p.brand) + '" (brand: ' + p.brand + ')');
+    if(typeof p.family === 'string' && p.family.split('-')[0] !== brandSlug(p.brand))
+      warnings.push('[' + p.id + '] family "' + p.family + '" does not start with the brand slug "' + brandSlug(p.brand) + '"');
   });
   return warnings;
 }
