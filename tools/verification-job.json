@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T20:32:36.325Z",
+ "updated": "2026-07-07T20:40:14.568Z",
  "batchSize": 25,
  "lastCompleted": "st-pro-tharsis-35",
  "currentCategory": "dropper",
@@ -781,14 +781,6 @@
    "source": "https://www.sram.com/en/rockshox/models/fs-lyrk-ult-d2",
    "note": "auto-promoted: already verified in catalog"
   },
-  "fk-marzocchi-bomber-z1-29-170": {
-   "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:16:23.098Z",
-   "error": null,
-   "source": null,
-   "note": "Marzocchi's current Bomber Z1 product page only lists 100/150/160mm travel options -- no 170mm variant exists in their current lineup. This catalog row (170mm) may be based on a nonexistent/discontinued config; page also lists a fixed 180mm max rotor and 2109g weight untied to any specific travel, neither of which cleanly matches this row. Flagging for a data-entry decision rather than silently correcting travel to 160."
-  },
   "fk-rockshox-zeb-ultimate-275-170": {
    "cat": "fork",
    "status": "Skipped",
@@ -837,14 +829,6 @@
    "source": null,
    "note": "Same as the 275/170 sibling: no clean per-travel weight on the ZEB model page. Bar not met."
   },
-  "fk-canecreek-helm-mkii-air-29-170": {
-   "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:16:23.154Z",
-   "error": null,
-   "source": null,
-   "note": "Cane Creek's own product page confirms the Helm MkII 170mm travel option is ONLY available in 27.5in wheel size -- the 29in Air version tops out at 160mm. This catalog row (29in/170mm) appears to be a nonexistent combination, same pattern as the Marzocchi Bomber Z1 170 and Galfer/RT-MT900 220mm rotors flagged earlier. Needs a data-entry decision (likely: correct to 29/160 as a new id, or 275/170 as a separate row) rather than a silent fix."
-  },
   "fk-ext-era-v2-29-170": {
    "cat": "fork",
    "status": "Skipped",
@@ -876,14 +860,6 @@
    "error": null,
    "source": null,
    "note": "sram.com spec-sheet PDFs (2022/2023/2024 Front Suspension Specifications) exist but weight wasn't extractable from the text-only fetch of those documents. Same RockShox weight-ambiguity pattern already logged repeatedly in this job."
-  },
-  "fk-manitou-mattoc-pro-29-160": {
-   "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:21:47.529Z",
-   "error": null,
-   "source": null,
-   "note": "Hayes' current Mattoc Pro page only lists 29in travel options up to 150mm (110/120/130/140/150) -- no 160mm variant exists in the current lineup. Likely another nonexistent-SKU catalog row, same pattern as the Marzocchi Bomber Z1 170 and Cane Creek Helm 170/29in flagged in the previous batch. Flagging for a data-entry decision."
   },
   "fk-mrp-ribbon-air-29-160": {
    "cat": "fork",
@@ -1013,14 +989,6 @@
    "source": null,
    "note": "us.nukeproof.com DNS-fails (getaddrinfo ENOTFOUND), same domain instability already logged for Nukeproof elsewhere in this job."
   },
-  "hb-crankbrothers-synthesis-enduro-35": {
-   "cat": "handlebar",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:26:36.209Z",
-   "error": null,
-   "source": null,
-   "note": "IMPORTANT: Crankbrothers does not appear to make a handlebar under the Synthesis name at all -- Synthesis is their WHEEL line (Synthesis Enduro Alloy/Carbon wheels, actively sold). Their actual handlebar line was 'Cobalt', now discontinued. This catalog row may be an entirely fictitious part conflating the wheel and handlebar product lines -- flagging prominently for a data-entry review rather than treating as a normal Skip; this looks like the kind of fabricated-part issue CLAUDE.md's entry template exists to prevent."
-  },
   "hb-easton-haven-35": {
    "cat": "handlebar",
    "status": "Skipped",
@@ -1148,14 +1116,6 @@
    "error": null,
    "source": null,
    "note": "Thomson's site confirms the Elite X4 exists in both 31.8mm and 35mm clamp, multiple lengths (40-130mm), but no single page gives a clean per-length weight table -- only an ambiguous customer-review figure (149g, unclear length). Bar not met."
-  },
-  "st-wolftooth-35": {
-   "cat": "stem",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:32:36.172Z",
-   "error": null,
-   "source": null,
-   "note": "IMPORTANT: Wolf Tooth Components does not appear to make a stem at all -- their catalog under 'stems'/'components' only shows stem CAPS (Ultralight Stem Cap, MK0 Stem Cap, Compression Plug) and unrelated small parts, no actual stem product. This catalog row may be entirely fictitious, same class of issue as hb-crankbrothers-synthesis-enduro-35 flagged earlier this session. Flagging prominently for a data-entry review rather than a normal sourcing Skip."
   },
   "st-funn-rsx-35": {
    "cat": "stem",
@@ -1909,14 +1869,6 @@
    "source": "https://hayesbicycle.com/products/d-series-rotor",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ro-galfer-220-6b": {
-   "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:24:58.126Z",
-   "error": null,
-   "source": null,
-   "note": "Galfer's current 6-bolt lineup has no 220mm size -- their sizes run 140/160/180/200/203/223mm. This catalog row may be based on a nonexistent SKU (closest real size is 223mm); flagging for a data-entry decision (correct to 223 as a new id, since size is engine-read and ids are append-only) rather than silently guessing a weight for a product that may not exist."
-  },
   "ro-hope-floating-203-6b": {
    "cat": "rotor",
    "status": "Skipped",
@@ -1932,14 +1884,6 @@
    "error": null,
    "source": null,
    "note": "magura.com's only fetchable MDR-P page is the CL (Center Lock) variant (226g@203mm) -- not a confirmed match for this 6-bolt SKU's weight; no dedicated 6-bolt manufacturer page found. Bar not met."
-  },
-  "ro-shimano-rtmt900-220-cl": {
-   "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:38:32.704Z",
-   "error": null,
-   "source": null,
-   "note": "Shimano's RT-MT900 (XTR) appears to top out at 203mm (140/160/180/203mm sizes found) -- no 220mm size turned up anywhere, manufacturer or retailer. Likely a nonexistent SKU in this catalog row; flag for a data-entry correction rather than guessing a weight for a size that may not exist."
   },
   "ro-sram-hs2-180-6b": {
    "cat": "rotor",
@@ -2580,6 +2524,46 @@
    "error": null,
    "source": null,
    "note": "No frame-only weight published anywhere -- only complete-bike weights found in reviews (41.5lb build, varies hugely by component spec). Interfaces already sourced from the manufacturer page and correct. Bar not met for weight; row stays as labeled sample-data weight pending a future measured-weight pass."
+  },
+  "fk-marzocchi-bomber-z1-29-160": {
+   "cat": "fork",
+   "status": "Verified",
+   "updated": "2026-07-07T20:39:20.730Z",
+   "error": null,
+   "source": "https://bike.marzocchi.com/products/bomber-z1",
+   "note": "Marzocchi's current Bomber Z1 product page only lists 100/150/160mm travel options -- no 170mm variant exists in their current lineup. This catalog row (170mm) may be based on a nonexistent/discontinued config; page also lists a fixed 180mm max rotor and 2109g weight untied to any specific travel, neither of which cleanly matches this row. Flagging for a data-entry decision rather than silently correcting travel to 160."
+  },
+  "fk-canecreek-helm-mkii-air-29-160": {
+   "cat": "fork",
+   "status": "Verified",
+   "updated": "2026-07-07T20:39:20.731Z",
+   "error": null,
+   "source": "https://www.canecreek.com/products/helm-mkii",
+   "note": "Cane Creek's own product page confirms the Helm MkII 170mm travel option is ONLY available in 27.5in wheel size -- the 29in Air version tops out at 160mm. This catalog row (29in/170mm) appears to be a nonexistent combination, same pattern as the Marzocchi Bomber Z1 170 and Galfer/RT-MT900 220mm rotors flagged earlier. Needs a data-entry decision (likely: correct to 29/160 as a new id, or 275/170 as a separate row) rather than a silent fix."
+  },
+  "fk-manitou-mattoc-pro-29-150": {
+   "cat": "fork",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:21:47.529Z",
+   "error": null,
+   "source": null,
+   "note": "Hayes' current Mattoc Pro page only lists 29in travel options up to 150mm (110/120/130/140/150) -- no 160mm variant exists in the current lineup. Likely another nonexistent-SKU catalog row, same pattern as the Marzocchi Bomber Z1 170 and Cane Creek Helm 170/29in flagged in the previous batch. Flagging for a data-entry decision."
+  },
+  "ro-galfer-223-6b": {
+   "cat": "rotor",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:24:58.126Z",
+   "error": null,
+   "source": null,
+   "note": "Galfer's current 6-bolt lineup has no 220mm size -- their sizes run 140/160/180/200/203/223mm. This catalog row may be based on a nonexistent SKU (closest real size is 223mm); flagging for a data-entry decision (correct to 223 as a new id, since size is engine-read and ids are append-only) rather than silently guessing a weight for a product that may not exist."
+  },
+  "ro-shimano-rtmt900-203-cl": {
+   "cat": "rotor",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:38:32.704Z",
+   "error": null,
+   "source": null,
+   "note": "Shimano's RT-MT900 (XTR) appears to top out at 203mm (140/160/180/203mm sizes found) -- no 220mm size turned up anywhere, manufacturer or retailer. Likely a nonexistent SKU in this catalog row; flag for a data-entry correction rather than guessing a weight for a size that may not exist."
   }
  }
 }
