@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T17:57:17.868Z",
+ "updated": "2026-07-07T18:26:56.553Z",
  "batchSize": 25,
- "lastCompleted": "fk-fox-38-factory-29-180",
+ "lastCompleted": "hb-burgtec-ridewide-enduro-35",
  "currentCategory": "fork",
  "queue": [
   "fk-rockshox-lyrik-ultimate-29-160",
@@ -25,14 +25,6 @@
   "fk-xfusion-trace-36-hlr-29-170",
   "fk-dtswiss-f-535-one-29-160",
   "fk-push-nineone-coil-29-160",
-  "hb-renthal-fatbar-35",
-  "hb-oneup-carbon-35",
-  "hb-pnw-range-318",
-  "hb-raceface-next-r-35",
-  "hb-burgtec-ridewide-enduro-35",
-  "hb-deity-skywire-35",
-  "hb-spank-spike-800-318",
-  "hb-oneup-aluminum-35",
   "hb-title-ah2-35",
   "hb-chromag-fubars-osx-318",
   "hb-nukeproof-horizon-v2-35",
@@ -1043,67 +1035,67 @@
   },
   "hb-renthal-fatbar-35": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T18:12:17.337Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.renthal.com/cycle/index.php?route=product/product&product_id=4767",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-oneup-carbon-35": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T18:14:49.825Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.oneupcomponents.com/products/v2-carbon-handlebar",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-pnw-range-318": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T18:14:56.643Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "PNW's current site only serves Gen 4 spec data (800mm width, 25/38/50mm rise) -- our catalog row is the older Gen 3 780mm/30mm-rise config and the Gen 3 product page is no longer live (redirects to Gen 4 content with no per-config weight table). A 334g figure surfaced in search summaries but was never confirmed on a fetched manufacturer page -- bar not met, do not guess."
   },
   "hb-raceface-next-r-35": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T18:14:56.642Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://au.raceface.com/products/next-r-35-handlebar",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-burgtec-ridewide-enduro-35": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T18:26:02.517Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "burgtec.co.uk product page returns 404 to WebFetch (likely bot-blocked/JS-rendered, consistent with other blocked domains logged in this job). Search summaries only surfaced weight for the CARBON RideWide Enduro (258g) not this alloy SKU. Bar not met -- interfaces left as-is (unconfirmed)."
   },
   "hb-deity-skywire-35": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T18:26:02.517Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.deitycomponents.com/skywire_carbon_handlebar_25mm.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-spank-spike-800-318": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T18:26:56.552Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spike-800-vibrocore%E2%84%A2-bar",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-oneup-aluminum-35": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T18:26:56.553Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.oneupcomponents.com/products/aluminum-handlebar",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-title-ah2-35": {
    "cat": "handlebar",
