@@ -1,19 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T20:19:48.657Z",
+ "updated": "2026-07-07T20:21:47.785Z",
  "batchSize": 25,
- "lastCompleted": "fk-rockshox-zeb-ultimate-29-180",
- "currentCategory": "fork",
+ "lastCompleted": "fk-push-nineone-coil-29-160",
+ "currentCategory": "handlebar",
  "queue": [
-  "fk-ohlins-rxf36-m2-29-160",
-  "fk-rockshox-domain-rc-29-170",
-  "fk-manitou-mattoc-pro-29-160",
-  "fk-mrp-ribbon-air-29-160",
-  "fk-srsuntour-durolux-r2c2-29-170",
-  "fk-xfusion-trace-36-hlr-29-170",
-  "fk-dtswiss-f-535-one-29-160",
-  "fk-push-nineone-coil-29-160",
   "hb-title-ah2-35",
   "hb-chromag-fubars-osx-318",
   "hb-nukeproof-horizon-v2-35",
@@ -887,67 +879,67 @@
   },
   "fk-ohlins-rxf36-m2-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T20:21:47.479Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-ohlins-rxf36-m-2-air-ttx18-29-51-160",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-domain-rc-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:21:47.479Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "sram.com spec-sheet PDFs (2022/2023/2024 Front Suspension Specifications) exist but weight wasn't extractable from the text-only fetch of those documents. Same RockShox weight-ambiguity pattern already logged repeatedly in this job."
   },
   "fk-manitou-mattoc-pro-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:21:47.529Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Hayes' current Mattoc Pro page only lists 29in travel options up to 150mm (110/120/130/140/150) -- no 160mm variant exists in the current lineup. Likely another nonexistent-SKU catalog row, same pattern as the Marzocchi Bomber Z1 170 and Cane Creek Helm 170/29in flagged in the previous batch. Flagging for a data-entry decision."
   },
   "fk-mrp-ribbon-air-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:21:47.579Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "MRP's current fork lineup (mrpbike.com/collections/forks) doesn't show a product called 'Ribbon Air' -- only Ribbon LT, Ribbon LT Coil, and Ribbon SL. This may be a discontinued/renamed model; no live page found to source from."
   },
   "fk-srsuntour-durolux-r2c2-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:21:47.629Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "SR Suntour's site only gives a line-wide 'starting from 2250g' figure for the whole Durolux family, not a config-specific weight for this row. Bar not met."
   },
   "fk-xfusion-trace-36-hlr-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:21:47.679Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "x-fusionshox.com 500-errors on fetch; the one third-party figure found (2000g) is a search-summary-only lb-to-g conversion, never confirmed on a fetched page. Bar not met."
   },
   "fk-dtswiss-f-535-one-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:21:47.729Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss's product page gives only a line-wide 'from 2090g' figure, not confirmed specific to the 29in/160mm config. DT Swiss usually publishes clean per-matnr specs via their support pages (worked for wheels in an earlier session) -- worth trying that route in a follow-up rather than the general product page."
   },
   "fk-push-nineone-coil-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:21:47.784Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "PUSH's current site shows 'Nine One V2' -- the catalog's plain 'Nine.One Coil' may be an older generation with no live page. No weight found for either. Bar not met."
   },
   "hb-renthal-fatbar-35": {
    "cat": "handlebar",
