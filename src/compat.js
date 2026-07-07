@@ -406,8 +406,8 @@ var PARTS = [
   { id:'gr-renthal-traction', cat:'grips', brand:'Renthal', model:'Traction', family:'renthal-traction', price:25, weight:115 },
   { id:'gr-lizardskins-charger-evo', cat:'grips', brand:'Lizard Skins', model:'Charger Evo', family:'lizardskins-charger', price:18, weight:100 },
   { id:'gr-wtb-wafflegrip', cat:'grips', brand:'WTB', model:'Wafflegrip', family:'wtb-wafflegrip', price:20, weight:120 },
-  { id:'gr-raceface-half-nelson', cat:'grips', brand:'Race Face', model:'Half Nelson', family:'raceface-half-nelson', price:22, weight:105 },
-  { id:'gr-deity-knuckleduster', cat:'grips', brand:'Deity', model:'Knuckleduster', family:'deity-knuckleduster', price:20, weight:115 },
+  { id:'gr-raceface-half-nelson', cat:'grips', brand:'Race Face', model:'Half Nelson', family:'raceface-half-nelson', price:29, weight:92, verified:true, lastChecked:'2026-07-07', source:'https://www.raceface.com/products/half-nelson-grip' },
+  { id:'gr-deity-knuckleduster', cat:'grips', brand:'Deity', model:'Knuckleduster', family:'deity-knuckleduster', price:28, weight:101, verified:true, lastChecked:'2026-07-07', source:'https://www.deitycomponents.com/knuckleduster-grips.html' },
   { id:'gr-sdg-slater', cat:'grips', brand:'SDG', model:'Slater', family:'sdg-slater', price:20, weight:100 },
   { id:'gr-supacaz-grizips', cat:'grips', brand:'Supacaz', model:'Grizips', family:'supacaz-grizips', price:25, weight:110 },
 
