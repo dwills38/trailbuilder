@@ -844,11 +844,33 @@ function specSummary(p){
    build keyed by SLOT (frame, fork, shock, frontWheel, rearWheel, frontTire,
    rearTire, ...) -> part object.
    ========================================================================== */
+/* Structured verdicts (DATA-MODEL-REVIEW 5.1-18): every finding carries a
+   stable ruleId + the slot keys involved, replacing string identity. The
+   REVIEW.md #4/#13 maskings were BYTE-IDENTICAL STRINGS raised by different
+   conflicts; the dots now diff on verdictKey (ruleId+slots+msg), which cannot
+   collide across different slot sets. msg stays the display string (and
+   toString), so the UI/report code keeps interpolating verdicts unchanged.
+   `fix` is reserved for the "fits with adapter X" tier - adapter facts are
+   properties of standards PAIRS and belong in a future engine-side table,
+   never on parts. */
+/** @typedef {import('./types.js').Verdict} VerdictShape */
+/** @constructor @param {string} ruleId @param {string[]} slots @param {string} msg @param {{kind: string, name: string}} [fix] */
+function Verdict(ruleId, slots, msg, fix){ this.ruleId=ruleId; this.slots=slots; this.msg=msg; this.fix=fix; }
+Verdict.prototype.toString = function(){ return this.msg; };
+/** Identity for conflict diffing. @param {VerdictShape} v @returns {string} */
+function verdictKey(v){ return v.ruleId+'|'+v.slots.join('+')+'|'+v.msg; }
+
 /** @param {Build} build @returns {CompatResult} */
 function checkBuild(build){
-  /** @type {string[]} */ var errors=[];
-  /** @type {string[]} */ var warnings=[];
-  /** @type {string[]} */ var infos=[];
+  /** @type {VerdictShape[]} */ var errors=[];
+  /** @type {VerdictShape[]} */ var warnings=[];
+  /** @type {VerdictShape[]} */ var infos=[];
+  /** @param {string} ruleId @param {string[]} slots @param {string} msg */
+  function err(ruleId, slots, msg){ errors.push(new Verdict(ruleId, slots, msg)); }
+  /** @param {string} ruleId @param {string[]} slots @param {string} msg */
+  function warn(ruleId, slots, msg){ warnings.push(new Verdict(ruleId, slots, msg)); }
+  /** @param {string} ruleId @param {string[]} slots @param {string} msg */
+  function info(ruleId, slots, msg){ infos.push(new Verdict(ruleId, slots, msg)); }
   /** @type {Build} */ var b = build || {};
   var frame=b.frame, fork=b.fork, shock=b.shock, fW=b.frontWheel, rW=b.rearWheel, fTire=b.frontTire, rTire=b.rearTire,
       shifter=b.shifter, derailleur=b.derailleur, cassette=b.cassette, chain=b.chain, crankset=b.crankset,
@@ -857,36 +879,38 @@ function checkBuild(build){
 
   /* 1. Wheel sizing: front group + rear group must each be consistent, and the
         front/rear combo must match a config the frame supports (incl. mullet). */
-  /** @param {string[][]} list @param {string} label @returns {string|null} */
-  function sizeOf(list, label){
+  /** list entries: [display label, wheel size, slot key]
+   * @param {string[][]} list @param {string} label @param {string} ruleId @returns {string|null} */
+  function sizeOf(list, label, ruleId){
     if(!list.length) return null;
     var ref=list[0][1];
-    if(list.some(function(s){ return s[1]!==ref; })){ errors.push(label+' wheel size mismatch: '+list.map(function(s){ return s[0]+' '+L(s[1]); }).join(', ')+'.'); return null; }
+    if(list.some(function(s){ return s[1]!==ref; })){ err(ruleId, list.map(function(s){ return s[2]; }), label+' wheel size mismatch: '+list.map(function(s){ return s[0]+' '+L(s[1]); }).join(', ')+'.'); return null; }
     return ref;
   }
-  var frontList=/** @type {string[][]} */([]); if(fork) frontList.push(['Fork',fork.wheel]); if(fW) frontList.push(['Front wheel',fW.wheel]); if(fTire) frontList.push(['Front tire',fTire.wheel]);
-  var rearList=/** @type {string[][]} */([]);  if(rW) rearList.push(['Rear wheel',rW.wheel]); if(rTire) rearList.push(['Rear tire',rTire.wheel]);
-  var frontSize=sizeOf(frontList,'Front'), rearSize=sizeOf(rearList,'Rear');
+  var frontList=/** @type {string[][]} */([]); if(fork) frontList.push(['Fork',fork.wheel,'fork']); if(fW) frontList.push(['Front wheel',fW.wheel,'frontWheel']); if(fTire) frontList.push(['Front tire',fTire.wheel,'frontTire']);
+  var rearList=/** @type {string[][]} */([]);  if(rW) rearList.push(['Rear wheel',rW.wheel,'rearWheel']); if(rTire) rearList.push(['Rear tire',rTire.wheel,'rearTire']);
+  var frontSize=sizeOf(frontList,'Front','front-wheel-size'), rearSize=sizeOf(rearList,'Rear','rear-wheel-size');
   if(frame && (frontSize || rearSize)){
     var configs = frame.wheelConfigs || [];
     var okCfg = configs.some(function(cfg){ var c=WHEEL_CONFIG[cfg]; return c && (!frontSize||frontSize===c.front) && (!rearSize||rearSize===c.rear); });
-    if(!okCfg) errors.push('Unsupported wheel setup: '+nameOf(frame)+' supports '+configs.map(function(w){return L(w);}).join(' / ')+', but this build is front '+(frontSize?L(frontSize):'(any)')+' / rear '+(rearSize?L(rearSize):'(any)')+'.');
+    if(!okCfg) err('wheel-config', ['frame'].concat(frontList.concat(rearList).map(function(s){ return s[2]; })), 'Unsupported wheel setup: '+nameOf(frame)+' supports '+configs.map(function(w){return L(w);}).join(' / ')+', but this build is front '+(frontSize?L(frontSize):'(any)')+' / rear '+(rearSize?L(rearSize):'(any)')+'.');
   }
 
   /* 2. Axles */
-  if(fork && fW && fork.axle!==fW.hub) errors.push('Front axle mismatch: Fork is '+L(fork.axle)+' but Front wheel hub is '+L(fW.hub)+'.');
-  if(frame && rW && frame.rearAxle!==rW.hub) errors.push('Rear axle mismatch: Frame is '+L(frame.rearAxle)+' but Rear wheel hub is '+L(rW.hub)+'.');
+  if(fork && fW && fork.axle!==fW.hub) err('front-axle', ['fork','frontWheel'], 'Front axle mismatch: Fork is '+L(fork.axle)+' but Front wheel hub is '+L(fW.hub)+'.');
+  if(frame && rW && frame.rearAxle!==rW.hub) err('rear-axle', ['frame','rearWheel'], 'Rear axle mismatch: Frame is '+L(frame.rearAxle)+' but Rear wheel hub is '+L(rW.hub)+'.');
 
   /* 3. Drivetrain: one system + one speed */
   /** @type {Array<[string, DrivetrainPart]>} */
   var dt=[];
   if(shifter) dt.push(['Shifter',shifter]); if(derailleur) dt.push(['Derailleur',derailleur]);
   if(cassette) dt.push(['Cassette',cassette]); if(chain) dt.push(['Chain',chain]);
+  var dtSlots=dt.map(function(x){ return x[0].toLowerCase(); });   // slot keys happen to equal the lowercased labels
   if(dt.length>1){
     var systems=dt.map(function(x){return x[1].system;}).filter(function(v,i,a){return a.indexOf(v)===i;});
-    if(systems.length>1) errors.push('Drivetrain mismatch: '+dt.map(function(x){return x[0]+' = '+L(x[1].system);}).join(', ')+'. Shifter, derailleur, cassette and chain must be one system.');
+    if(systems.length>1) err('drivetrain-system', dtSlots, 'Drivetrain mismatch: '+dt.map(function(x){return x[0]+' = '+L(x[1].system);}).join(', ')+'. Shifter, derailleur, cassette and chain must be one system.');
     var speeds=dt.map(function(x){return x[1].speeds;}).filter(function(v,i,a){return a.indexOf(v)===i;});
-    if(speeds.length>1) errors.push('Speed mismatch: '+dt.map(function(x){return x[0]+' '+x[1].speeds+'s';}).join(', ')+'. All must be the same speed count.');
+    if(speeds.length>1) err('drivetrain-speeds', dtSlots, 'Speed mismatch: '+dt.map(function(x){return x[0]+' '+x[1].speeds+'s';}).join(', ')+'. All must be the same speed count.');
   }
   /* 3b. Actuation: a cable trigger cannot control a wireless (AXS) derailleur and
         an AXS controller cannot pull a cable - no adapter exists. Checked as its
@@ -894,7 +918,7 @@ function checkBuild(build){
         cassettes/chains fit both mechanical and AXS Eagle), so splitting the
         system vocab would false-red them (REVIEW.md #1). */
   if(shifter && derailleur && shifter.actuation!==derailleur.actuation)
-    errors.push('Actuation mismatch: '+nameOf(shifter)+' is '+L(shifter.actuation)+' but '+nameOf(derailleur)+' is '+L(derailleur.actuation)+'. A cable shifter cannot control a wireless derailleur (and vice versa).');
+    err('actuation', ['shifter','derailleur'], 'Actuation mismatch: '+nameOf(shifter)+' is '+L(shifter.actuation)+' but '+nameOf(derailleur)+' is '+L(derailleur.actuation)+'. A cable shifter cannot control a wireless derailleur (and vice versa).');
   /* 3c. Chainring standard: SRAM documents T-Type Flattop chains (unique link
         shape, pin size, larger rollers) as NOT compatible with non-T-Type rings.
         One-directional on purpose - T-Type rings ARE backward-compatible with
@@ -903,33 +927,33 @@ function checkBuild(build){
         armsets): no ring to clash with, so it gets an INFO, not a false red. */
   if(chain && crankset && chain.system==='sram-transmission'){
     if(crankset.ringStd===null)
-      infos.push('Chainring: '+nameOf(crankset)+' is sold without a chainring - fit a T-Type (8-bolt) ring to run the '+nameOf(chain)+'.');
+      info('chainring-standard', ['chain','crankset'], 'Chainring: '+nameOf(crankset)+' is sold without a chainring - fit a T-Type (8-bolt) ring to run the '+nameOf(chain)+'.');
     else if(crankset.ringStd!=='t-type')
-      errors.push('Chainring mismatch: '+nameOf(chain)+' is a T-Type Flattop chain, but '+nameOf(crankset)+' has a '+L(crankset.ringStd)+' chainring. SRAM documents Flattop chains as incompatible with non-T-Type rings.');
+      err('chainring-standard', ['chain','crankset'], 'Chainring mismatch: '+nameOf(chain)+' is a T-Type Flattop chain, but '+nameOf(crankset)+' has a '+L(crankset.ringStd)+' chainring. SRAM documents Flattop chains as incompatible with non-T-Type rings.');
   }
 
   /* 4. SRAM Transmission needs a UDH frame */
   if(derailleur && derailleur.mount==='udh-direct'){
-    if(frame && !frame.udh) errors.push('Frame not UDH: '+nameOf(derailleur)+' is a direct-mount (UDH) Transmission derailleur, but '+nameOf(frame)+' has a standard hanger.');
-    else if(!frame) infos.push('Heads-up: '+nameOf(derailleur)+' is a Transmission derailleur and needs a UDH / Transmission-compatible frame.');
+    if(frame && !frame.udh) err('udh', ['frame','derailleur'], 'Frame not UDH: '+nameOf(derailleur)+' is a direct-mount (UDH) Transmission derailleur, but '+nameOf(frame)+' has a standard hanger.');
+    else if(!frame) info('udh', ['derailleur'], 'Heads-up: '+nameOf(derailleur)+' is a Transmission derailleur and needs a UDH / Transmission-compatible frame.');
   }
 
   /* 5. Cassette range vs derailleur capacity */
-  if(cassette && derailleur && cassette.maxCog>derailleur.maxCog) errors.push('Cassette too big: '+cassette.maxCog+'T cassette exceeds the '+nameOf(derailleur)+' max of '+derailleur.maxCog+'T.');
+  if(cassette && derailleur && cassette.maxCog>derailleur.maxCog) err('cassette-capacity', ['cassette','derailleur'], 'Cassette too big: '+cassette.maxCog+'T cassette exceeds the '+nameOf(derailleur)+' max of '+derailleur.maxCog+'T.');
 
   /* 6. Freehub: cassette vs rear wheel */
-  if(cassette && rW && cassette.freehub!==rW.freehub) errors.push('Freehub mismatch: '+nameOf(cassette)+' needs a '+L(cassette.freehub)+' freehub, but Rear wheel has '+L(rW.freehub)+'.');
+  if(cassette && rW && cassette.freehub!==rW.freehub) err('freehub', ['cassette','rearWheel'], 'Freehub mismatch: '+nameOf(cassette)+' needs a '+L(cassette.freehub)+' freehub, but Rear wheel has '+L(rW.freehub)+'.');
 
   /* 7. Crank / BB advisory */
-  if(crankset && frame) infos.push('Bottom bracket: '+nameOf(crankset)+' uses a '+L(crankset.bb)+' spindle - pair it with the right BB for this frame\'s '+L(frame.bb)+' shell (BB usually sold separately).');
+  if(crankset && frame) info('bb-advisory', ['crankset','frame'], 'Bottom bracket: '+nameOf(crankset)+' uses a '+L(crankset.bb)+' spindle - pair it with the right BB for this frame\'s '+L(frame.bb)+' shell (BB usually sold separately).');
 
   /* 8. Brake caliper mounts */
-  if(fBrake && fork && fBrake.mount!==fork.brakeMount) errors.push('Front brake mount mismatch: Brake is '+L(fBrake.mount)+' but Fork is '+L(fork.brakeMount)+'.');
-  if(rBrake && frame && rBrake.mount!==frame.brakeMount) errors.push('Rear brake mount mismatch: Brake is '+L(rBrake.mount)+' but Frame is '+L(frame.brakeMount)+'.');
+  if(fBrake && fork && fBrake.mount!==fork.brakeMount) err('front-brake-mount', ['frontBrake','fork'], 'Front brake mount mismatch: Brake is '+L(fBrake.mount)+' but Fork is '+L(fork.brakeMount)+'.');
+  if(rBrake && frame && rBrake.mount!==frame.brakeMount) err('rear-brake-mount', ['rearBrake','frame'], 'Rear brake mount mismatch: Brake is '+L(rBrake.mount)+' but Frame is '+L(frame.brakeMount)+'.');
 
   /* 9. Rotor interface vs wheel hubs */
-  if(fRotor && fW && fRotor.mount!==fW.rotorMount) errors.push('Front rotor interface mismatch: '+L(fRotor.mount)+' rotor on '+L(fW.rotorMount)+' front hub.');
-  if(rRotor && rW && rRotor.mount!==rW.rotorMount) errors.push('Rear rotor interface mismatch: '+L(rRotor.mount)+' rotor on '+L(rW.rotorMount)+' rear hub.');
+  if(fRotor && fW && fRotor.mount!==fW.rotorMount) err('front-rotor-interface', ['frontRotor','frontWheel'], 'Front rotor interface mismatch: '+L(fRotor.mount)+' rotor on '+L(fW.rotorMount)+' front hub.');
+  if(rRotor && rW && rRotor.mount!==rW.rotorMount) err('rear-rotor-interface', ['rearRotor','rearWheel'], 'Rear rotor interface mismatch: '+L(rRotor.mount)+' rotor on '+L(rW.rotorMount)+' rear hub.');
 
   /* 10. Rotor size vs frame/fork max (warnings) - plus MINIMUM vs the fork's
         native mount (error). Post-mount adapters only space the caliper UP, so
@@ -937,36 +961,36 @@ function checkBuild(build){
         no adapter exists. minRotorF is optional per the rule-18 dormant-until-
         sourced template: populated only from fetched manufacturer specs
         (REVIEW.md #3). */
-  if(fRotor && fork && fRotor.size>fork.maxRotorF) warnings.push('Front rotor: '+fRotor.size+'mm exceeds the fork max of '+fork.maxRotorF+'mm.');
-  if(rRotor && frame && rRotor.size>frame.maxRotorR) warnings.push('Rear rotor: '+rRotor.size+'mm exceeds the frame max of '+frame.maxRotorR+'mm.');
+  if(fRotor && fork && fRotor.size>fork.maxRotorF) warn('front-rotor-max', ['frontRotor','fork'], 'Front rotor: '+fRotor.size+'mm exceeds the fork max of '+fork.maxRotorF+'mm.');
+  if(rRotor && frame && rRotor.size>frame.maxRotorR) warn('rear-rotor-max', ['rearRotor','frame'], 'Rear rotor: '+rRotor.size+'mm exceeds the frame max of '+frame.maxRotorR+'mm.');
   if(fRotor && fork && typeof fork.minRotorF==='number' && fRotor.size<fork.minRotorF)
-    errors.push('Front rotor too small: '+fRotor.size+'mm is below the '+nameOf(fork)+' minimum of '+fork.minRotorF+'mm (its native mount size). Post-mount adapters only space the caliper up, so no adapter can make a smaller rotor fit.');
+    err('front-rotor-min', ['frontRotor','fork'], 'Front rotor too small: '+fRotor.size+'mm is below the '+nameOf(fork)+' minimum of '+fork.minRotorF+'mm (its native mount size). Post-mount adapters only space the caliper up, so no adapter can make a smaller rotor fit.');
 
   /* 11. Steerer / headset */
-  if(fork && frame && fork.steerer!==frame.headset) errors.push('Steerer mismatch: Fork is '+L(fork.steerer)+' but Frame headset is '+L(frame.headset)+'.');
+  if(fork && frame && fork.steerer!==frame.headset) err('steerer', ['fork','frame'], 'Steerer mismatch: Fork is '+L(fork.steerer)+' but Frame headset is '+L(frame.headset)+'.');
 
   /* 12. Fork travel vs frame rating (warning) */
-  if(fork && frame && fork.travel>frame.maxForkTravel) warnings.push('Fork travel: '+fork.travel+'mm exceeds the frame recommended max of '+frame.maxForkTravel+'mm.');
+  if(fork && frame && fork.travel>frame.maxForkTravel) warn('fork-travel', ['fork','frame'], 'Fork travel: '+fork.travel+'mm exceeds the frame recommended max of '+frame.maxForkTravel+'mm.');
 
   /* 13. Dropper diameter vs seat tube */
-  if(dropper && frame && dropper.diameter!==frame.seatTube) errors.push('Dropper diameter mismatch: Frame seat tube is '+frame.seatTube+'mm but Dropper is '+dropper.diameter+'mm.');
+  if(dropper && frame && dropper.diameter!==frame.seatTube) err('dropper-diameter', ['dropper','frame'], 'Dropper diameter mismatch: Frame seat tube is '+frame.seatTube+'mm but Dropper is '+dropper.diameter+'mm.');
 
   /* 14. Tire width vs wheel clearance (per wheel, warnings) */
-  if(fTire && fW && fTire.width>fW.maxTire) warnings.push('Front tire clearance: '+fTire.width+'in tire is wider than the front wheel\'s '+fW.maxTire+'in max.');
-  if(rTire && rW && rTire.width>rW.maxTire) warnings.push('Rear tire clearance: '+rTire.width+'in tire is wider than the rear wheel\'s '+rW.maxTire+'in max.');
+  if(fTire && fW && fTire.width>fW.maxTire) warn('front-tire-rim', ['frontTire','frontWheel'], 'Front tire clearance: '+fTire.width+'in tire is wider than the front wheel\'s '+fW.maxTire+'in max.');
+  if(rTire && rW && rTire.width>rW.maxTire) warn('rear-tire-rim', ['rearTire','rearWheel'], 'Rear tire clearance: '+rTire.width+'in tire is wider than the rear wheel\'s '+rW.maxTire+'in max.');
 
   /* 15. Handlebar / stem clamp */
-  if(bar && stem && bar.clamp!==stem.clamp) errors.push('Bar/stem clamp mismatch: Handlebar is '+bar.clamp+'mm but Stem is '+stem.clamp+'mm.');
+  if(bar && stem && bar.clamp!==stem.clamp) err('bar-stem-clamp', ['handlebar','stem'], 'Bar/stem clamp mismatch: Handlebar is '+bar.clamp+'mm but Stem is '+stem.clamp+'mm.');
 
   /* 16. Rear shock physical fit vs frame. Hardtails carry NO shock block
         (schema cross-rule), so they get their own message instead of a
         nonsense "needs undefinedxundefined" comparison. */
   if(shock && frame){
     if(frame.suspension==='hardtail'){
-      errors.push('Hardtail: '+nameOf(frame)+' has no rear-shock mount - remove the '+nameOf(shock)+'.');
+      err('hardtail-shock', ['shock','frame'], 'Hardtail: '+nameOf(frame)+' has no rear-shock mount - remove the '+nameOf(shock)+'.');
     } else {
-      if(shock.eye!==frame.shockEye || shock.stroke!==frame.shockStroke) errors.push('Shock size mismatch: Frame needs '+frame.shockEye+'x'+frame.shockStroke+'mm but Shock is '+shock.eye+'x'+shock.stroke+'mm.');
-      if(shock.mount!==frame.shockMount) errors.push('Shock mount mismatch: Frame uses a '+L(frame.shockMount)+' shock but Shock is '+L(shock.mount)+'.');
+      if(shock.eye!==frame.shockEye || shock.stroke!==frame.shockStroke) err('shock-size', ['shock','frame'], 'Shock size mismatch: Frame needs '+frame.shockEye+'x'+frame.shockStroke+'mm but Shock is '+shock.eye+'x'+shock.stroke+'mm.');
+      if(shock.mount!==frame.shockMount) err('shock-mount', ['shock','frame'], 'Shock mount mismatch: Frame uses a '+L(frame.shockMount)+' shock but Shock is '+L(shock.mount)+'.');
     }
   }
 
@@ -974,16 +998,16 @@ function checkBuild(build){
         forbids bundledShock on hardtails) */
   if(frame && frame.suspension==='full' && frame.bundledShock){
     var inc = byId(frame.bundledShock), incName = nameOf(inc);
-    if(!shock){ infos.push('Frame package: '+nameOf(frame)+' is sold as a frame+shock'+(frame.frameOnly?' (frame-only also available)':' package only')+' with the '+incName+'. Add it under Rear Shock, or pick another.'); }
-    else if(shock.id===frame.bundledShock){ infos.push('Package match: you are using the '+incName+' that '+nameOf(frame)+' ships with.'); }
-    else if(frame.frameOnly===false){ warnings.push('Frame is package-only: '+nameOf(frame)+' is sold only as a frame+shock bundle with the '+incName+'. You can run the '+nameOf(shock)+', but you will still have to buy the bundle (and pay for the '+incName+') since the frame is not sold bare.'); }
-    else { infos.push('Note: '+nameOf(frame)+' ships with the '+incName+', but is also sold frame-only - running the '+nameOf(shock)+' is fine.'); }
+    if(!shock){ info('bundled-shock', ['frame'], 'Frame package: '+nameOf(frame)+' is sold as a frame+shock'+(frame.frameOnly?' (frame-only also available)':' package only')+' with the '+incName+'. Add it under Rear Shock, or pick another.'); }
+    else if(shock.id===frame.bundledShock){ info('bundled-shock', ['frame','shock'], 'Package match: you are using the '+incName+' that '+nameOf(frame)+' ships with.'); }
+    else if(frame.frameOnly===false){ warn('package-only', ['frame','shock'], 'Frame is package-only: '+nameOf(frame)+' is sold only as a frame+shock bundle with the '+incName+'. You can run the '+nameOf(shock)+', but you will still have to buy the bundle (and pay for the '+incName+') since the frame is not sold bare.'); }
+    else { info('bundled-shock', ['frame','shock'], 'Note: '+nameOf(frame)+' ships with the '+incName+', but is also sold frame-only - running the '+nameOf(shock)+' is fine.'); }
   }
   if(shock && shock.oemOnly){
     var hostIds = shock.forFrames || [];
     if(!frame || hostIds.indexOf(frame.id)<0){
       var hostNames = hostIds.map(function(id){ return nameOf(byId(id)); }).join(' / ');
-      errors.push('OEM shock: the '+nameOf(shock)+' is only available bundled with the '+hostNames+' - it is not sold separately.');
+      err('oem-shock', frame ? ['shock','frame'] : ['shock'], 'OEM shock: the '+nameOf(shock)+' is only available bundled with the '+hostNames+' - it is not sold separately.');
     }
   }
 
@@ -993,7 +1017,7 @@ function checkBuild(build){
         as of 2026-07-06); frames without published clearance stay silent -
         a missing rule beats a wrong one. */
   if(rTire && frame && typeof frame.maxTire==='number' && rTire.width>frame.maxTire)
-    warnings.push('Rear tire clearance: '+rTire.width+'in tire is wider than '+nameOf(frame)+'\'s '+frame.maxTire+'in frame max.');
+    warn('rear-tire-frame', ['rearTire','frame'], 'Rear tire clearance: '+rTire.width+'in tire is wider than '+nameOf(frame)+'\'s '+frame.maxTire+'in frame max.');
 
   /* 19. Shifter mounting vs brake lever integration (optional fields - dormant
         until parts carry them, per the rule-18 template). A lever-integrated
@@ -1008,10 +1032,14 @@ function checkBuild(build){
   if(shifter && shifter.clampType && LEVER_INTEGRATED.indexOf(shifter.clampType)>=0){
     var sClamp = shifter.clampType;
     /** @type {string[]} */ var lClamps = [];
-    [fBrake, rBrake].forEach(function(bk){ if(bk && bk.leverAccepts) lClamps = lClamps.concat(bk.leverAccepts); });
+    /** @type {string[]} */ var lSlots = ['shifter'];
+    [[fBrake,'frontBrake'], [rBrake,'rearBrake']].forEach(function(pair){
+      var bk = /** @type {import('./types.js').BrakePart|undefined} */ (pair[0]);
+      if(bk && bk.leverAccepts){ lClamps = lClamps.concat(bk.leverAccepts); lSlots.push(/** @type {string} */ (pair[1])); }
+    });
     if(lClamps.length && lClamps.indexOf(sClamp)<0){
       var uniq = lClamps.filter(function(v,i,a){ return a.indexOf(v)===i; }).map(function(c){ return L(c); }).join(' / ');
-      warnings.push('Shifter mount: '+nameOf(shifter)+' is a '+L(sClamp)+' lever-integrated shifter (no bar clamp of its own), but the brake levers take '+uniq+'. You need the band-clamp version or a ShiftMount-style adapter to mount it.');
+      warn('shifter-mount', lSlots, 'Shifter mount: '+nameOf(shifter)+' is a '+L(sClamp)+' lever-integrated shifter (no bar clamp of its own), but the brake levers take '+uniq+'. You need the band-clamp version or a ShiftMount-style adapter to mount it.');
     }
   }
 
@@ -1036,10 +1064,12 @@ function _catSlots(){
 /** @param {Part} part @param {string} slotKey @param {Build} [build] @returns {string|null} */
 function conflictReason(part, slotKey, build){
   /** @type {Build} */ var base = Object.assign({}, build || {}); delete base[slotKey];
-  var before = checkBuild(base).errors;
+  // Diff by verdictKey (ruleId+slots+msg), NOT message text: two different
+  // conflicts can raise byte-identical strings (REVIEW.md #4/#13's maskings).
+  var before = checkBuild(base).errors.map(verdictKey);
   /** @type {Build} */ var test = Object.assign({}, base); test[slotKey] = part;
   var after = checkBuild(test).errors;
-  for(var i=0;i<after.length;i++){ if(before.indexOf(after[i])<0) return after[i]; }
+  for(var i=0;i<after.length;i++){ if(before.indexOf(verdictKey(after[i]))<0) return String(after[i]); }
   return null;
 }
 /** @param {Part} p @param {Build} [build] @returns {CompatState} */
@@ -1055,14 +1085,14 @@ function compatOf(p, build){
     // exactly the kits a user browses to FIX a misfit (REVIEW.md #4).
     /** @type {Build} */ var base = Object.assign({}, bld);
     Object.keys(pf).forEach(function(s){ delete base[s]; });
-    var before = checkBuild(base).errors;
+    var before = checkBuild(base).errors.map(verdictKey);
     /** @type {Build} */ var test = Object.assign({}, base);
     Object.keys(pf).forEach(function(s){ test[s]=/** @type {Part} */(byId(pf[s])); });
-    // Red if applying the preset INTRODUCES a conflict - detected by new-error set
-    // membership, NOT error count, so a preset that swaps one conflict for another
-    // still shows red.
-    var extra = checkBuild(test).errors.filter(function(e){ return before.indexOf(e)<0; });
-    if(extra.length){ return {state:'r', reason:extra[0]}; }
+    // Red if applying the preset INTRODUCES a conflict - detected by new-verdict
+    // set membership (verdictKey, not message text and not error count), so a
+    // preset that swaps one conflict for another still shows red.
+    var extra = checkBuild(test).errors.filter(function(e){ return before.indexOf(verdictKey(e))<0; });
+    if(extra.length){ return {state:'r', reason:String(extra[0])}; }
     return {state:'g', reason:'No conflicts with your current build'};
   }
   var slots = _catSlots()[p.cat] || [];
@@ -1165,7 +1195,7 @@ function partVerified(p){
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { PARTS:PARTS, GROUPS:GROUPS, SLOTS:SLOTS, LABELS:LABELS, WHEEL_CONFIG:WHEEL_CONFIG,
     ALIASES:ALIASES, canonicalId:canonicalId,
-    byId:byId, nameOf:nameOf, specSummary:specSummary, checkBuild:checkBuild,
+    byId:byId, nameOf:nameOf, specSummary:specSummary, checkBuild:checkBuild, verdictKey:verdictKey,
     conflictReason:conflictReason, compatOf:compatOf, bundleActive:bundleActive, buildTotals:buildTotals,
     esc:esc, partVerified:partVerified, partWeight:partWeight };
 }

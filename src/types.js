@@ -160,10 +160,22 @@
  */
 
 /**
+ * One structured engine finding. `msg` is the display string (also returned by
+ * toString, so string interpolation keeps working); `ruleId`+`slots` give the
+ * conflict a real identity for diffing (see verdictKey in compat.js). `fix` is
+ * reserved for the "fits with adapter X" tier.
+ * @typedef {Object} Verdict
+ * @property {string} ruleId
+ * @property {string[]} slots
+ * @property {string} msg
+ * @property {{kind: string, name: string}} [fix]
+ */
+
+/**
  * @typedef {Object} CompatResult
- * @property {string[]} errors    won't fit
- * @property {string[]} warnings  works but check
- * @property {string[]} infos     notes
+ * @property {Verdict[]} errors    won't fit
+ * @property {Verdict[]} warnings  works but check
+ * @property {Verdict[]} infos     notes
  */
 
 /**

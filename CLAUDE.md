@@ -116,7 +116,12 @@ bar/stem clamp; rear-shock fit (eye×stroke + mount, with a hardtail guard: a sh
 `suspension:'hardtail'` frame errors cleanly); frame+shock bundling (incl. OEM-only);
 shifter clamp vs brake lever integration (rule 19 — I-Spec EV/MatchMaker, dormant until parts
 are tagged).
-Returns `{errors, warnings, infos}`. Errors = won't fit; warnings = works but check; infos = notes.
+Returns `{errors, warnings, infos}` of **structured verdicts** `{ruleId, slots, msg, fix?}` that
+stringify to their message (so UI/report interpolation just works). Conflict identity for the
+dots is `verdictKey` (ruleId+slots+msg) — never raw message text, which two different conflicts
+can share byte-identically (the REVIEW.md #4/#13 maskings). `fix` is reserved for a future
+"fits with adapter X" tier (adapter facts are engine-side pair data, never part fields).
+Errors = won't fit; warnings = works but check; infos = notes.
 (The all-clear in the app reads "No conflicts found", not "All compatible" — it means no conflict
 among the dimensions we check, not a guarantee. Don't reword it to overclaim.)
 

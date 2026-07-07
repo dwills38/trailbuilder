@@ -133,7 +133,7 @@ test('hardtail frame + a shock -> one clean hardtail error, never "undefinedxund
   bld.frame = hardtail();
   var r = C.checkBuild(bld);
   some(r.errors, 'Hardtail');
-  eq(r.errors.filter(function(e){ return e.indexOf('undefined') >= 0; }).length, 0, 'no undefined leaked');
+  eq(r.errors.filter(function(e){ return String(e).indexOf('undefined') >= 0; }).length, 0, 'no undefined leaked');
 });
 test('hardtail frame without a shock -> silent (no shock-fit noise)', function(){
   /** @type {import('../src/types.js').Build} */ var bld = {};
@@ -169,17 +169,17 @@ test('rear tire within the frame max -> no clearance warning', function(){
   var bld = B({frame:'fr-raaw-madonna-v22'});
   bld.frame = /** @type {FramePart} */ (Object.assign({}, bld.frame, {maxTire:2.6}));
   bld.rearTire = /** @type {TirePart} */ (Object.assign({}, part('ti-maxxis-assegai-29-25-exop-mg'), {width:2.5}));
-  eq(C.checkBuild(bld).warnings.filter(function(w){ return w.indexOf('frame max')>=0; }).length, 0);
+  eq(C.checkBuild(bld).warnings.filter(function(w){ return String(w).indexOf('frame max')>=0; }).length, 0);
 });
 test('frame clearance rule stays dormant when the frame declares no maxTire', function(){
   var bld = B({frame:'fr-yt-capra-core4'});   // no sourced maxTire on the Capra (yet)
   bld.rearTire = /** @type {TirePart} */ (Object.assign({}, part('ti-maxxis-assegai-29-25-exop-mg'), {width:3.0}));  // absurdly wide, still silent
-  eq(C.checkBuild(bld).warnings.filter(function(w){ return w.indexOf('frame max')>=0; }).length, 0);
+  eq(C.checkBuild(bld).warnings.filter(function(w){ return String(w).indexOf('frame max')>=0; }).length, 0);
 });
 test('frame clearance rule is ACTIVE on sourced frames (Madonna 2.6in + 2.6in tire is fine)', function(){
   var bld = B({frame:'fr-raaw-madonna-v22'});
   bld.rearTire = /** @type {TirePart} */ (Object.assign({}, part('ti-maxxis-assegai-29-25-exop-mg'), {width:2.8}));
   some(C.checkBuild(bld).warnings, 'frame max');   // 2.8 > sourced 2.6 -> warns
   bld.rearTire = /** @type {TirePart} */ (Object.assign({}, part('ti-maxxis-assegai-29-25-exop-mg'), {width:2.5}));
-  eq(C.checkBuild(bld).warnings.filter(function(w){ return w.indexOf('frame max')>=0; }).length, 0);
+  eq(C.checkBuild(bld).warnings.filter(function(w){ return String(w).indexOf('frame max')>=0; }).length, 0);
 });

@@ -30,9 +30,23 @@ function randomBuild(rand){
   return b;
 }
 
-/** @param {{errors:string[],warnings:string[],infos:string[]}} r */
+/** @typedef {import('../src/types.js').Verdict} Verdict */
+
+/** @param {{errors:Verdict[],warnings:Verdict[],infos:Verdict[]}} r */
 function assertResultShape(r){
   ok(r && Array.isArray(r.errors) && Array.isArray(r.warnings) && Array.isArray(r.infos), 'checkBuild result shape');
+}
+/** @type {Object.<string, boolean>} */
+var VALID_SLOTS = {};
+C.SLOTS.forEach(function(s){ VALID_SLOTS[s.key] = true; });
+/** Every verdict must be structurally sound AND display-clean. @param {Verdict} v @param {string} at */
+function assertVerdict(v, at){
+  ok(typeof v.ruleId === 'string' && v.ruleId.length > 0, 'ruleId ' + at);
+  ok(Array.isArray(v.slots) && v.slots.length > 0, 'slots ' + at);
+  v.slots.forEach(function(s){ ok(VALID_SLOTS[s], 'unknown slot "' + s + '" in ' + v.ruleId + ' ' + at); });
+  var m = String(v);
+  ok(typeof v.msg === 'string' && v.msg.length > 0 && m === v.msg, 'msg/toString ' + at);
+  ok(m.indexOf('undefined') < 0 && m.indexOf('NaN') < 0 && m.indexOf('[object') < 0, 'clean message ' + at + ': ' + m);
 }
 
 var FUZZ = 300;
@@ -69,18 +83,16 @@ test('checkBuild never throws and is deterministic over '+FUZZ+' random builds',
     eq(JSON.stringify(a), JSON.stringify(c), 'checkBuild deterministic (seed iter '+i+')');
   }
 });
-test('checkBuild messages are clean strings - non-empty, never "undefined"/"NaN" - over '+FUZZ+' builds', function(){
+test('every verdict is structurally sound with a clean message, over '+FUZZ+' builds', function(){
   // A rule that interpolates a missing/misread field leaks "undefined" or "NaN"
-  // into the verdict text; this catches that class of bug over the whole catalog.
+  // into the verdict text; a rule with a bad ruleId/slots list breaks the dot
+  // diffing. This catches both classes over the whole catalog.
   var rand = rng(0xBADF00D);
   for(var i = 0; i < FUZZ; i++){
     var r = C.checkBuild(randomBuild(rand));
     assertResultShape(r);
     [r.errors, r.warnings, r.infos].forEach(function(arr){
-      arr.forEach(function(m){
-        ok(typeof m === 'string' && m.length > 0, 'message non-empty (iter '+i+')');
-        ok(m.indexOf('undefined') < 0 && m.indexOf('NaN') < 0, 'clean message (iter '+i+'): '+m);
-      });
+      arr.forEach(function(v){ assertVerdict(v, '(iter '+i+')'); });
     });
   }
 });
@@ -105,8 +117,13 @@ test('a green dot never hides a newly-introduced conflict, over '+FUZZ+' builds'
   // worst kind of wrong verdict - for both single parts and presets.
   /** @type {Object.<string, string[]>} */ var slotKeys = {};
   C.SLOTS.forEach(function(s){ (slotKeys[s.cat] = slotKeys[s.cat] || []).push(s.key); });
-  /** @param {string[]} before @param {string[]} after @returns {number} */
-  function newCount(before, after){ return after.filter(function(e){ return before.indexOf(e) < 0; }).length; }
+  // Diff by verdictKey, matching the engine's own dot diffing (string identity
+  // was the REVIEW #4/#13 masking bug).
+  /** @param {Verdict[]} before @param {Verdict[]} after @returns {number} */
+  function newCount(before, after){
+    var keys = before.map(C.verdictKey);
+    return after.filter(function(e){ return keys.indexOf(C.verdictKey(e)) < 0; }).length;
+  }
   var rand = rng(24680);
   for(var i = 0; i < FUZZ; i++){
     var bld = randomBuild(rand);

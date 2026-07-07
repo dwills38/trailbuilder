@@ -2,7 +2,7 @@
 /* DOT / CONFLICT PREDICATE — the compatibility dot the catalog shows
    (g = no conflicts, r = won't fit, n = nothing selected yet). */
 var U = require('./test-util.js');
-var C = U.C, B = U.B, part = U.part, eq = U.eq, some = U.some;
+var C = U.C, B = U.B, part = U.part, eq = U.eq, ok = U.ok, some = U.some;
 /** @param {Object.<string, string>} buildMap @param {string} id */
 var stateOf = function(buildMap, id){ return C.compatOf(part(id), B(buildMap)).state; };
 
@@ -64,6 +64,15 @@ test('preset dot: a kit that REPLACES the offending part and fixes the conflict 
   // resolves it. The cleared baseline must not count the old wheel's error
   // against the preset.
   eq(C.compatOf(part('ws-industrynine-enduro-s-29'), B({frame:'fr-santacruz-megatower-cc', cassette:'ca-shimano-xt-m8100-1051', rearWheel:'rw-reserve-30-hd-29'})).state, 'g');
+});
+test('REVIEW #13 regression: a 29in REAR tire on a mullet-only frame is a new conflict, even though the 29in rear wheel already raised the byte-identical message', function(){
+  // With string identity this was masked (same "Unsupported wheel setup" text
+  // before and after); verdictKey includes the slots involved, so the tire's
+  // participation makes it a distinct conflict.
+  var bld = B({frame:'fr-commencal-meta-sx-v5', rearWheel:'rw-dtswiss-ex-1700-29'});
+  var r = C.conflictReason(part('ti-maxxis-assegai-29-25-exop-mg'), 'rearTire', bld);
+  ok(r !== null, 'rear placement must surface the conflict');
+  some([r], 'Unsupported wheel setup');
 });
 test('a preset that swaps one conflict for another is RED, not green', function(){
   // Base build has a drivetrain-system mismatch (SRAM shifter + Shimano derailleur).
