@@ -139,6 +139,38 @@
   .cmp-row .cmp-k{color:var(--ink-soft);font-size:11px;text-transform:uppercase;letter-spacing:.3px}
   .cmp-row.cmp-diff{background:var(--warn-bg);border-radius:6px}
   @media (max-width:880px){ .layout{grid-template-columns:1fr} .side{position:static} }
+
+  /* 🤘 RAD mode — purely cosmetic easter egg, zero honesty-bar risk (see CLAUDE.md roadmap) */
+  html.rad{
+    --ink:#f4eaff; --ink-soft:#c9a6ff; --line:#ff2fd0; --bg:#150029;
+    --card:#22093f; --brand:#ff2fd0; --brand-d:#a3007f; --accent:#00e5ff;
+    --ok:#39ff14; --ok-bg:#0a2e12; --warn:#ffe600; --warn-bg:#332b00;
+    --err:#ff2020; --err-bg:#330000; --chip:#3a1466;
+  }
+  html.rad body{background:
+    repeating-linear-gradient(45deg,#1a0033 0 2px,transparent 2px 40px),
+    repeating-linear-gradient(-45deg,#1a0033 0 2px,transparent 2px 40px),
+    var(--bg);
+  }
+  html.rad header{background:
+    repeating-conic-gradient(#000 0% 25%,#ff2fd0 0% 50%) 50% / 34px 34px;
+    box-shadow:inset 0 0 0 999px rgba(21,0,41,.72);
+  }
+  html.rad header h1,html.rad .rm-head h2{font-family:Impact,"Arial Black","Segoe UI Black",sans-serif;
+    letter-spacing:.5px;text-shadow:0 0 6px var(--accent),0 0 14px var(--brand)}
+  html.rad .pcard{box-shadow:0 0 0 1px var(--line)}
+  html.rad .pcard.selected{box-shadow:0 0 0 2px var(--accent),0 0 16px rgba(0,229,255,.5)}
+  html.rad .btn.primary{background:linear-gradient(90deg,var(--brand),var(--accent));border-color:transparent;color:#150029;font-weight:800}
+  html.rad #radMode{background:linear-gradient(90deg,var(--brand),var(--accent));color:#150029;border-color:transparent;font-weight:800}
+  #radBar{background:linear-gradient(90deg,#ff2fd0,#00e5ff,#39ff14)}
+  /* several controls hardcode a white background (fine against dark --ink text in
+     normal mode) — RAD mode flips --ink light, so those need a dark bg or the text
+     goes near-invisible */
+  html.rad .btn,html.rad .toolbar input[type=search],html.rad .chip.sub,html.rad .pick,
+  html.rad .rm-body select,html.rad .rm-body textarea,html.rad .rm-body input[type=text]{
+    background:var(--card);color:var(--ink)}
+  html.rad .pick{color:var(--brand)}
+  html.rad .chip.active{background:var(--brand);color:#150029}
 </style>
 </head>
 <body>
@@ -164,6 +196,7 @@
       <option value="weight-desc">Weight: heavy → light</option>
     </select>
     <button class="btn" id="verifiedOnly" title="Show only parts verified against a manufacturer spec">✓ Verified only</button>
+    <button class="btn" id="radMode" title="It's a joke, dude. Purely cosmetic.">🤘 RAD mode</button>
     <button class="btn" id="demoBudget">Budget build 💵</button>
     <button class="btn" id="demoMid">Mid-range build ⚙️</button>
     <button class="btn" id="demoHighEnd">High-end build 💎</button>
@@ -200,6 +233,8 @@
           <div id="slots"></div>
           <div class="total"><span class="muted">Sample total</span><b id="total">$0</b></div>
           <div class="wrow"><span class="muted">Est. weight</span><span id="weight" class="muted">&mdash;</span></div>
+          <div class="wrow" id="radRow" hidden><span class="muted">🤘 Radness</span><span id="radLabel" class="muted">&mdash;</span></div>
+          <div class="meter" id="radMeterWrap" hidden><i id="radBar"></i></div>
           <button type="button" class="btn primary viewbuild" id="viewBuild" hidden>📋 View complete build</button>
         </div>
       </div>
@@ -550,6 +585,28 @@
     $('countLabel').textContent = filled+' of '+required.length+' required parts chosen';
     $('meterBar').style.width = Math.round(filled/required.length*100)+'%';
     $('viewBuild').hidden = (filled !== required.length);   // appears once the build is complete
+    renderRadness(res, t, filled);
+  }
+
+  /* ---- 🤘 RAD mode radness meter — a joke stat, never a real spec claim ---- */
+  var RAD_TIERS = [
+    [20,'Mild. Very mild.'],[40,'Getting rad'],[60,'Radical!'],
+    [80,'Gnarly, dude!'],[95,'Triple X-Treme'],[101,'TOTALLY TUBULAR 🤘🔥']
+  ];
+  function radnessScore(res, totals, filled){
+    if(!filled) return 0;
+    var frameTravel=(res.frame&&res.frame.travel)||0, forkTravel=(res.fork&&res.fork.travel)||0;
+    var kg = totals.weight ? totals.weight/1000 : 0;
+    return Math.max(0, Math.min(100, Math.round(frameTravel*0.3 + forkTravel*0.3 + filled*2 + kg*0.5)));
+  }
+  function renderRadness(res, totals, filled){
+    var on = document.documentElement.classList.contains('rad');
+    $('radRow').hidden = !on; $('radMeterWrap').hidden = !on;
+    if(!on) return;
+    var score = radnessScore(res, totals, filled);
+    var tier = RAD_TIERS.filter(function(t){ return score < t[0]; })[0] || RAD_TIERS[RAD_TIERS.length-1];
+    $('radLabel').textContent = score+'% — '+tier[1];
+    $('radBar').style.width = score+'%';
   }
 
   /* ---- report ---- */
@@ -827,6 +884,13 @@
   $('search').addEventListener('input', function(e){ search=e.target.value; renderCatalog(); });
   $('sortBy').onchange=function(){ sortBy=this.value; renderCatalog(); };
   $('verifiedOnly').onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary', verifiedOnly); renderCatalog(); };
+  $('radMode').onclick=function(){
+    var on = document.documentElement.classList.toggle('rad');
+    this.classList.toggle('primary', on);
+    this.textContent = on ? '🤘 RAD mode: ON' : '🤘 RAD mode';
+    renderPanel();
+    toast(on ? 'RAD mode engaged. Purely cosmetic — this changes nothing about fit.' : 'Back to normal. Booooring.');
+  };
   $('demoBudget').onclick=loadBudget; $('demoMid').onclick=loadMid; $('demoHighEnd').onclick=loadHighEnd; $('demoMullet').onclick=loadMullet; $('demoBad').onclick=loadBad;
   $('reset').onclick=function(){ build={}; presetBy={}; sync(); toast('Build cleared'); };
   $('share').onclick=function(){ writeHash(); var url=location.href;
