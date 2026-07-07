@@ -2,7 +2,7 @@
 
 _A living snapshot. Architecture/conventions live in `CLAUDE.md`; full history in `git log`._
 
-## Where we are (as of 2026-07-06)
+## Where we are (as of 2026-07-07)
 
 TrailBuilder — "PCPartPicker for enduro mountain bikes": pick parts, get real-time
 fit / price / weight checks. Plain static app (`index.html` + `src/`), no build step.
@@ -10,17 +10,21 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
 **Solid foundation, honestly-scoped prototype:**
 
 - **Layout & tooling:** `src/` + `test/`; full-`strict` JSDoc type-checking (`npm run typecheck`);
-  Vitest (`npm test` — **160 tests**); GitHub Actions CI; and a GitHub Pages deploy workflow that's
+  Vitest (`npm test` — **174 tests**); GitHub Actions CI; and a GitHub Pages deploy workflow that's
   ready but **not yet deployed** (no git remote / `gh` in this environment).
 - **Engine:** 19 compatibility rules + a regression/fuzz **fortress** (`test/test-invariants.js`),
   proven crash-free, deterministic, and **dot-honest** — a green dot never hides a newly-introduced
   conflict, with clean verdict messages. A 2026-07-06 adversarial audit (**`REVIEW.md`**) found 5
   Critical false-greens — all fixed same day (actuation, T-Type chainring, minimum rotor, preset-dot
-  baseline, shifter clamp) — and left its **Major findings (#6–#9) open for a follow-up pass**
-  (warning-blind dots, SRAM-mullet catalog trap, direction-blind shock-stroke/dropper rules).
+  baseline, shifter clamp) — and its **Major findings (#6–#9) were fixed 2026-07-07** (one commit
+  each, branch `review-majors-6-9`): **warning-visible yellow dots** (four states, honest legend,
+  "N thing(s) to check" wording), the **XD 27.5 rear wheel + kit** that breaks the SRAM-mullet
+  catalog trap (golden Meta SX Transmission build pinned), and **direction-aware shock-stroke and
+  dropper rules** (impossible direction = error; manufacturer-supported direction = quantified
+  warning). The REVIEW **Minors** are the remaining backlog.
   Verdicts are *self-consistent* — **not yet validated
   against the real world** (no expert review, no real riders).
-- **Data:** 327 parts across ~100 brands with **46 verified** against manufacturer pages —
+- **Data:** 329 parts across ~100 brands with **46 verified** against manufacturer pages —
   verification is a **resumable checkpointed job** (`tools/verify-job.js` + `tools/VERIFY-PROTOCOL.md`;
   any session resumes via `npm run verify:status`). Verified so far: SRAM GX/X01/NX Eagle + most
   Transmission drivetrain parts, two RockShox shocks, a Shimano XT cassette, seven pedals, Synthesis
@@ -94,9 +98,11 @@ first hardtail/DH frame), the `frameSize` share-hash key (readHash tolerates new
 category (§5.1-19 — decide with its own commit; the crankBb groundwork is in), and the
 "fits with adapter X" data (the `fix` field + verdict structure are ready).
 
-Separate open queue: **REVIEW.md Majors #6–#9** (warning-visible dots, SRAM-mullet catalog trap,
-direction-aware shock-stroke/dropper rules) — see the chip / REVIEW.md §3. (The #4/#13
-string-masking ROOT CAUSE is fixed by the verdict objects; the #6–#9 behaviors are still open.)
+Separate queue — **REVIEW.md Majors #6–#9: ✅ DONE 2026-07-07** (four commits, one per Major, on
+`review-majors-6-9`): warning-visible dots, the SRAM-mullet catalog fix, direction-aware
+shock-stroke/dropper rules. The REVIEW **Minors** (#10–#28: adapter-solvable rotor direction,
+under-forking, coil approval, fork tire clearance, dropper insertion, BB category…) are the
+remaining engine backlog.
 
 ## Phase 1 — Quick wins on the static app *(no backend, days-not-weeks each)*
 

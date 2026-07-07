@@ -2,6 +2,12 @@
 
 **Date:** 2026-07-06 · **Scope:** `src/compat.js` (`checkBuild` rules 1–18 + helpers `compatOf`/`conflictReason`/`buildTotals`/`bundleActive`/`partVerified`), `src/schema.js`, verdict wording in `index.html`, docs. **Audit only — no code or data was changed.**
 
+**Status (2026-07-07):** the 5 **Criticals** were fixed on audit day; the 4 **Majors (#6–#9)** were
+fixed 2026-07-07 (one commit each, branch `review-majors-6-9`): warning-visible yellow dots +
+honest legend/verdict wording (#6), the XD 27.5 rear wheel + kit that breaks the SRAM-mullet trap
+(#7), direction-aware shock stroke (#8) and dropper diameter (#9). The **Minors and
+Nice-to-haves below remain open** unless a finding says otherwise.
+
 **Baseline at audit time:** `npm test` → 91/91 pass; `node validate.js` → `DATA OK - 327 parts, 0 problems (46 verified, 281 unverified)`. (Note: the request said `node tests.js`; that file does not exist — the suite runs on Vitest via `npm test` per CLAUDE.md.)
 
 **Method:** every claim about engine behavior below was demonstrated by actually executing the quoted build through `checkBuild`/`compatOf` (probe scripts, not code inspection alone), and every finding then went through an independent adversarial verification pass that re-ran the build and checked the real-world claim against manufacturer sources. 54 raw findings were merged to 29; 28 confirmed, 1 **refuted** (kept below — the refutation prevents a future false-red rule). Severity scale: **Critical** = false green (engine silent or green on a combo that doesn't work), **Major** = false red on a real correct build, or crash, **Minor**, **Nice-to-have**.
