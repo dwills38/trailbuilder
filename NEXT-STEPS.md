@@ -29,11 +29,11 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
   any session resumes via `npm run verify:status`). Verified so far: SRAM GX/X01/NX Eagle + most
   Transmission drivetrain parts, two RockShox shocks, a Shimano XT cassette, seven pedals, Synthesis
   wheels, four droppers, **six frames** (all three RAAW Madonnas, Commencal Meta SX V5, Canyon Strive
-  CFR, Forbidden Dreadnought), and **the whole tire category — 19 tires across 8 brands**
+  CFR, Forbidden Dreadnought), and **the whole tire category — 22 tires across 8 brands**
   (2026-07-07 batch: Continental from the maker's Tire Range 2025/26 PDF, Schwalbe from
   schwalbetires.com's JS tables via a real browser session, Pirelli/Vittoria/WTB/Kenda/Goodyear
   from their product pages; each pinned to ONE purchasable casing/compound SKU with new ids +
-  ALIASES. **The batch caught five fictional sample sizes** — Pirelli 29x2.5, Maxxis HR II 29x2.4 and
+  ALIASES. **The batch caught four fictional sample sizes** — Pirelli 29x2.5, Maxxis HR II 29x2.4 and
   Shorty 29x2.5, Goodyear MTF 29x2.4 don't exist — and per-brand casing/compound vocab is now
   enumerated in `VOCAB` for 8 brands. Michelin + Specialized tires sit in the retry queue:
   JS-rendered/bot-blocked pages, need a browser session with those domains allowed). The rear-tire-clearance rule (18) is **active on 8 frame models

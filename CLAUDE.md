@@ -178,7 +178,7 @@ frames — all three RAAW Madonnas (V2.2/V3/V3.2; RAAW publishes full spec sheet
 Commencal Meta SX V5 (tech page), the Canyon Strive CFR and the Forbidden Dreadnought —
 seven pedals (OneUp, Race Face, Crankbrothers, Time; Shimano pedal pages blocked fetching),
 the Crankbrothers Synthesis Enduro wheel pair, four droppers (OneUp V3, PNW Loam — both
-publish per-size weights), and **the whole tire category — 19 tires across 8 brands**
+publish per-size weights), and **the whole tire category — 22 tires across 8 brands**
 (Maxxis, Continental via its Tire Range PDF, Schwalbe via schwalbetires.com's tables,
 Pirelli, Vittoria, WTB, Kenda, Goodyear — each pinned to one purchasable casing/compound
 SKU; Michelin + Specialized sit in the retry queue: JS-rendered/bot-blocked pages)).
@@ -231,7 +231,7 @@ The `✓ Verified only` filter in the app (built on `partVerified`) shows just t
 4. 🚧 **Adding real, verified parts** (in progress — now a resumable checkpointed job: run
    `npm run verify:status`, then follow `tools/VERIFY-PROTOCOL.md`): 62 verified so far — SRAM
    GX/X01/NX Eagle and most Transmission drivetrain parts, two RockShox shocks, a Shimano XT
-   cassette, seven pedals, Synthesis wheels, four droppers, the whole tire category (19
+   cassette, seven pedals, Synthesis wheels, four droppers, the whole tire category (22
    tires, 8 brands; Michelin/Specialized in the retry queue), and six frames
    (all three RAAW Madonnas incl. the new V3/V3.2, the Commencal Meta SX V5, the Canyon Strive
    CFR and the Forbidden Dreadnought). All 21 frames' verdict-driving
