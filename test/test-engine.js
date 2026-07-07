@@ -284,3 +284,49 @@ test('frame clearance rule is ACTIVE on sourced frames (Madonna 2.6in + 2.6in ti
   bld.rearTire = /** @type {TirePart} */ (Object.assign({}, part('ti-maxxis-assegai-29-25-exop-mg'), {width:2.5}));
   eq(C.checkBuild(bld).warnings.filter(function(w){ return String(w).indexOf('frame max')>=0; }).length, 0);
 });
+
+/* REVIEW.md #16: with the verified Big Betty 29x2.6 in the catalog, rules 14
+   and 18 are finally triggerable by REAL part combinations - these pin that
+   they can actually fire outside synthetic probes. */
+test('REVIEW #16: rule 14 fires with real parts (2.6in tire on a 2.5in-max rim)', function(){
+  some(chk({frontTire:'ti-schwalbe-big-betty-29-26-sg-as', frontWheel:'fw-dtswiss-ex-1700-29'}).warnings, 'wider than the front wheel');
+});
+test('REVIEW #16: rule 18 fires with real parts (2.6in rear tire vs the Slash 2.5in frame max)', function(){
+  some(chk({frame:'fr-trek-slash', rearTire:'ti-schwalbe-big-betty-29-26-sg-as', rearWheel:'rw-reserve-30-hd-29'}).warnings, 'frame max');
+});
+test('REVIEW #16: the 2.6in tire is fine on 2.6in-clearance parts (no false warning)', function(){
+  var r = chk({frame:'fr-raaw-madonna-v3', rearTire:'ti-schwalbe-big-betty-29-26-sg-as', rearWheel:'rw-reserve-30-hd-29'});
+  eq(r.warnings.length, 0);
+});
+
+/* REVIEW.md #15: rules 2-front/8/11 are dead code TODAY - every catalog part
+   is Boost110/PM/tapered and the validator rejects anything else, so no
+   constructible build can fire them. The single-valued vocabs are deliberate
+   (they widen only when a real part needs it), but the checks must stay
+   correct for that day - synthetic probes pin each one. */
+test('front-axle check fires on a synthetic non-Boost fork (dead rule pinned)', function(){
+  var bld = B({frontWheel:'fw-reserve-30-hd-29'});
+  bld.fork = /** @type {any} */ (Object.assign({}, part('fk-fox-36-factory-29-160'), {axle:'20x110'}));
+  some(C.checkBuild(bld).errors, 'Front axle mismatch');
+});
+test('brake-mount checks fire on synthetic flat-mount brakes (dead rule pinned)', function(){
+  var bld = B({fork:'fk-fox-36-factory-29-160', frame:'fr-santacruz-megatower-cc'});
+  bld.frontBrake = /** @type {any} */ (Object.assign({}, part('bk-sram-code-rsc'), {mount:'FM'}));
+  bld.rearBrake = /** @type {any} */ (Object.assign({}, part('bk-sram-code-rsc'), {mount:'FM'}));
+  var r = C.checkBuild(bld);
+  some(r.errors, 'Front brake mount mismatch');
+  some(r.errors, 'Rear brake mount mismatch');
+});
+test('steerer check fires on a synthetic straight-steerer fork (dead rule pinned)', function(){
+  var bld = B({frame:'fr-santacruz-megatower-cc'});
+  bld.fork = /** @type {any} */ (Object.assign({}, part('fk-fox-36-factory-29-160'), {steerer:'straight'}));
+  some(C.checkBuild(bld).errors, 'Steerer mismatch');
+});
+
+/* REVIEW.md 5b/#27: the SuperBoost-frame + Boost-crank NON-rule is deliberate
+   and verified correct (commonly ridden; a naive chainline rule would be a
+   false red - see the coverage roadmap's documented rejection). This pin stops
+   a future session from "helpfully" adding it. chainline is display-only bait. */
+test('SuperBoost frame + Boost-chainline crank stays clean (deliberate non-rule, pinned)', function(){
+  eq(chk({frame:'fr-pivot-firebird', crankset:'cr-sram-gx-eagle'}).errors.length, 0);
+});

@@ -238,6 +238,10 @@ var PARTS = [
   /* Big Betty 29x2.4 ships Super Trail on schwalbetires.com - no Super Gravity
      in this size (that config exists in 27.5x2.4 / 29x2.6 only). */
   { id:'ti-schwalbe-big-betty-29-24-st-as', cat:'tire', brand:'Schwalbe', model:'Big Betty 29x2.4 Super Trail ADDIX Soft', family:'schwalbe-big-betty', disciplines:['enduro'], price:102, weight:1125, wheel:'29', width:2.4, casing:'super-trail', compound:'addix-soft', mfgPn:'11654155', verified:true, lastChecked:'2026-07-07', source:'https://www.schwalbetires.com/Big-Betty' },
+  /* The catalog's first >2.5in tire - makes rules 14 (rim clearance) and 18
+     (frame clearance) triggerable with REAL parts instead of synthetic probes
+     (REVIEW.md #16). Same fetched source table as the 2.4 row. */
+  { id:'ti-schwalbe-big-betty-29-26-sg-as', cat:'tire', brand:'Schwalbe', model:'Big Betty 29x2.6 Super Gravity ADDIX Soft', family:'schwalbe-big-betty', disciplines:['enduro'], price:108, weight:1370, wheel:'29', width:2.6, casing:'super-gravity', compound:'addix-soft', mfgPn:'11654158', verified:true, lastChecked:'2026-07-07', source:'https://www.schwalbetires.com/Big-Betty' },
   { id:'ti-michelin-wild-enduro-mh-29-24', cat:'tire', brand:'Michelin', model:'Wild Enduro MH 29x2.4', family:'michelin-wild-enduro', disciplines:['enduro'], price:80, weight:1290, wheel:'29', width:2.4 },
   /* The old sample row said 29x2.5 - Pirelli makes NO 29x2.5 Scorpion Enduro
      (sizes are 2.4 / 2.6, per the fetched catalogue page). Size corrected with
