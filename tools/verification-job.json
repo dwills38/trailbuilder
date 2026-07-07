@@ -1,24 +1,17 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T14:12:28.953Z",
+ "updated": "2026-07-07T14:26:39.971Z",
  "batchSize": 25,
- "lastCompleted": "fr-ibis-hd6",
+ "lastCompleted": "ti-michelin-dh22-29-24",
  "currentCategory": "tire",
  "queue": [
-  "ti-michelin-wild-enduro-mh-29-24",
-  "ti-pirelli-scorpion-enduro-29-25",
-  "ti-maxxis-high-roller-ii-29-24",
-  "ti-maxxis-shorty-29-25",
   "ti-specialized-butcher-t9-29-23",
-  "ti-schwalbe-hans-dampf-29-235",
   "ti-vittoria-mazza-29-24",
-  "ti-maxxis-aggressor-29-23",
   "ti-wtb-vigilante-29-25",
   "ti-wtb-judge-29-24",
   "ti-kenda-hellkat-29-24",
   "ti-goodyear-newton-mtf-29-24",
-  "ti-michelin-dh22-29-24",
   "fw-dtswiss-ex-1700-29",
   "fw-reserve-30-hd-29",
   "fw-industrynine-enduro-s-29",
@@ -440,17 +433,9 @@
   },
   "ti-michelin-wild-enduro-mh-29-24": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "ti-pirelli-scorpion-enduro-29-25": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T14:19:27.133Z",
+   "error": "michelinman.com product pages are JS-rendered; WebFetch gets nav shell only and the Chrome extension blocks the domain - needs a browser session with michelinman.com allowed",
    "source": null,
    "note": null
   },
@@ -462,22 +447,6 @@
    "source": "https://www.maxxis.com/us/tire/dissector/",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ti-maxxis-high-roller-ii-29-24": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "ti-maxxis-shorty-29-25": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
   "ti-specialized-butcher-t9-29-23": {
    "cat": "tire",
    "status": "Pending",
@@ -486,23 +455,7 @@
    "source": null,
    "note": null
   },
-  "ti-schwalbe-hans-dampf-29-235": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
   "ti-vittoria-mazza-29-24": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "ti-maxxis-aggressor-29-23": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -544,9 +497,9 @@
   },
   "ti-michelin-dh22-29-24": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T14:19:27.208Z",
+   "error": "same michelinman.com JS/domain-block blocker as the Wild Enduro MH",
    "source": null,
    "note": null
   },
@@ -2756,6 +2709,46 @@
    "updated": "2026-07-07T14:12:28.952Z",
    "error": null,
    "source": "https://www.schwalbetires.com/Magic-Mary",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-schwalbe-hans-dampf-29-235-sg-as": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T14:19:27.097Z",
+   "error": null,
+   "source": "https://www.schwalbetires.com/Hans-Dampf",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-pirelli-scorpion-enduro-s-29-24-hw-sgg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T14:26:39.970Z",
+   "error": null,
+   "source": "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/scorpion-enduro-s",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-high-roller-ii-29-25-dd-mt": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T14:26:39.971Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/high-roller-ii/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-shorty-29-24-dd-mg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T14:26:39.971Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/shorty/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-aggressor-29-23-dd-dual": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T14:26:39.971Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/aggressor/",
    "note": "auto-promoted: already verified in catalog"
   }
  }

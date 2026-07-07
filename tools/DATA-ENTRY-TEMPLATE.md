@@ -60,7 +60,7 @@ provenance trio differ per SKU, so the SKU is the row.
 | fork | wheel, travel | `fk-rockshox-zeb-ultimate-29-170` |
 | shock | eye×stroke, `trun` (trunnion only) | `sh-rockshox-super-deluxe-ultimate-205x60-trun` |
 | wheel | wheel size, hub oddity (`157`), freehub when it splits a row (`xd`) | `rw-industrynine-enduro-s-29-157`, `rw-dtswiss-e-1900-275-xd` |
-| tire | wheel, width, casing, compound | `ti-maxxis-assegai-29-25-exop-mg` (Maxxis: exop=EXO+, mg=MaxxGrip, mt=MaxxTerra, dd=DoubleDown · Schwalbe: sg=Super Gravity, st=Super Trail, as=ADDIX Soft, aus=ADDIX Ultra Soft · Continental: full words, e.g. `-enduro-soft`) |
+| tire | wheel, width, casing, compound | `ti-maxxis-assegai-29-25-exop-mg` (Maxxis: exop=EXO+, mg=MaxxGrip, mt=MaxxTerra, dd=DoubleDown · Schwalbe: sg=Super Gravity, st=Super Trail, as=ADDIX Soft, aus=ADDIX Ultra Soft · Pirelli: hw=HardWALL, pw=ProWALL, sgg=SmartGRIP Gravity · Continental: full words, e.g. `-enduro-soft`) |
 | rotor | size, mount (`6b`/`cl`) | `ro-sram-hs2-200-6b` |
 | bar/stem | clamp (`35`/`318`) | `hb-renthal-fatbar-35` |
 | dropper | diameter, drop | `dp-oneup-v3-316-210` |

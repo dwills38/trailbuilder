@@ -173,7 +173,7 @@ test('lint: a typo-sized rotor (2003mm) warns', function(){
   some(S.lintCatalog({ PARTS: C.PARTS.concat([bad]), SLOTS: C.SLOTS }), 'not a known value');
 });
 test('lint: two rows identical apart from the id warn as a duplicate SKU', function(){
-  var dup = /** @type {any} */ (Object.assign({}, C.byId('ti-maxxis-shorty-29-25'), { id:'ti-maxxis-shorty-29-25-dup' }));
+  var dup = /** @type {any} */ (Object.assign({}, U.part('ti-maxxis-shorty-29-24-dd-mg'), { id:'ti-maxxis-shorty-29-24-dd-mg-dup' }));
   some(S.lintCatalog({ PARTS: C.PARTS.concat([dup]), SLOTS: C.SLOTS }), 'duplicate SKU');
 });
 test('lint: a wheelset kit mixing wheel sizes warns', function(){

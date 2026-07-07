@@ -79,10 +79,12 @@ var VOCAB = {
      AND Endurance), so they stay two free axes. */
   casing:       ['exo', 'exo-plus', 'doubledown', 'dh',            // Maxxis
                  'trail', 'enduro', 'downhill',                    // Continental
-                 'super-ground', 'super-trail', 'super-gravity', 'super-downhill'],   // Schwalbe (2026-07-07, schwalbetires.com)
+                 'super-ground', 'super-trail', 'super-gravity', 'super-downhill',    // Schwalbe (2026-07-07, schwalbetires.com)
+                 'hardwall', 'prowall'],                           // Pirelli (2026-07-07, pirelli.com)
   compound:     ['dual', '3c-maxxterra', '3c-maxxgrip',            // Maxxis
                  'endurance', 'soft', 'supersoft',                 // Continental
-                 'addix', 'addix-speedgrip', 'addix-soft', 'addix-ultra-soft'],       // Schwalbe
+                 'addix', 'addix-speedgrip', 'addix-soft', 'addix-ultra-soft',        // Schwalbe
+                 'smartgrip', 'smartgrip-gravity'],                // Pirelli
   /* disciplines (DATA-MODEL-REVIEW section 4): filter/annotation ONLY - it must
      NEVER feed checkBuild (a DH tire physically fits an enduro bike; structural
      DH constraints are real fields: crown/axle/steerer). Absence = universal.
