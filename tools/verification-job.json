@@ -1,17 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T20:29:49.812Z",
+ "updated": "2026-07-07T20:32:36.325Z",
  "batchSize": 25,
- "lastCompleted": "st-hope-am-35",
- "currentCategory": "stem",
+ "lastCompleted": "st-pro-tharsis-35",
+ "currentCategory": "dropper",
  "queue": [
-  "st-nukeproof-horizon-35",
-  "st-thomson-elite-x4-318",
-  "st-wolftooth-35",
-  "st-funn-rsx-35",
-  "st-straitline-35",
-  "st-pro-tharsis-35",
   "dp-rockshox-reverb-axs-316-170",
   "dp-fox-transfer-factory-316-175",
   "dp-bikeyoke-revive-316-185",
@@ -1125,11 +1119,11 @@
   },
   "st-nukeproof-horizon-35": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:31:01.050Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "us.nukeproof.com DNS-fails, same known domain instability logged repeatedly in this job (post-CRC-collapse). Not re-attempting."
   },
   "st-hope-am-35": {
    "cat": "stem",
@@ -1149,43 +1143,43 @@
   },
   "st-thomson-elite-x4-318": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:32:36.224Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Thomson's site confirms the Elite X4 exists in both 31.8mm and 35mm clamp, multiple lengths (40-130mm), but no single page gives a clean per-length weight table -- only an ambiguous customer-review figure (149g, unclear length). Bar not met."
   },
   "st-wolftooth-35": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:32:36.172Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "IMPORTANT: Wolf Tooth Components does not appear to make a stem at all -- their catalog under 'stems'/'components' only shows stem CAPS (Ultralight Stem Cap, MK0 Stem Cap, Compression Plug) and unrelated small parts, no actual stem product. This catalog row may be entirely fictitious, same class of issue as hb-crankbrothers-synthesis-enduro-35 flagged earlier this session. Flagging prominently for a data-entry review rather than a normal sourcing Skip."
   },
   "st-funn-rsx-35": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T20:32:36.171Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://funnmtb.com/products/rsx/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-straitline-35": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:32:36.274Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Ambiguous naming: third-party listings show 'SSC Stem 35mm' alongside '31.8 0d x 35mm' variants, suggesting '35mm' in this product line may refer to STEM LENGTH, not clamp diameter (unlike this catalog row's clamp:35 assumption). Straitline's own site wasn't reachable to disambiguate (Pinkbike review 403-blocked). Flag for a data-entry review of the clamp field before further verification."
   },
   "st-pro-tharsis-35": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:32:36.324Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same PRO Tharsis line-splitting issue as its handlebar sibling (hb-pro-tharsis-35): multiple distinct SKUs, no plain match for this generic catalog row. Bar not met."
   },
   "gr-oneup-lockon": {
    "cat": "grips",

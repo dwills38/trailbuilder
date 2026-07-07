@@ -393,7 +393,7 @@ var PARTS = [
   { id:'st-industrynine-a35', cat:'stem', brand:'Industry Nine', model:'A35', family:'industrynine-a35', price:175, weight:135, clamp:35, length:40, verified:true, lastChecked:'2026-07-07', source:'https://industrynine.com/products/mt' },
   { id:'st-thomson-elite-x4-318', cat:'stem', brand:'Thomson', model:'Elite X4 31.8', family:'thomson-elite-x4', price:110, weight:145, clamp:31.8, length:50 },
   { id:'st-wolftooth-35', cat:'stem', brand:'Wolf Tooth', model:'35', family:'wolftooth-stem', price:110, weight:130, clamp:35, length:40 },
-  { id:'st-funn-rsx-35', cat:'stem', brand:'Funn', model:'RSX 35', family:'funn-rsx', price:60, weight:140, clamp:35, length:45 },
+  { id:'st-funn-rsx-35', cat:'stem', brand:'Funn', model:'RSX 35', family:'funn-rsx', price:80, weight:137, clamp:35, length:45, verified:true, lastChecked:'2026-07-07', source:'https://funnmtb.com/products/rsx/' },
   { id:'st-straitline-35', cat:'stem', brand:'Straitline', model:'35', price:130, weight:125, clamp:35, length:50 },
   { id:'st-pro-tharsis-35', cat:'stem', brand:'PRO', model:'Tharsis 35', family:'pro-tharsis', price:100, weight:130, clamp:35, length:45 },
   { id:'gr-oneup-lockon', cat:'grips', brand:'OneUp', model:'Lock-On Grips', family:'oneup-lockon', price:27, weight:97, verified:true, lastChecked:'2026-07-07', source:'https://www.oneupcomponents.com/products/grips' },
