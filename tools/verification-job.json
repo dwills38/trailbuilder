@@ -1,29 +1,13 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T16:13:55.903Z",
+ "updated": "2026-07-07T16:42:13.963Z",
  "batchSize": 25,
- "lastCompleted": "rw-hunt-enduro-wide-29",
+ "lastCompleted": "rw-giant-trx-0-29",
  "currentCategory": "frontwheel",
  "queue": [
-  "fw-roval-traverse-hd-29",
-  "fw-weareone-union-29",
-  "fw-newmen-advanced-sl-a30-29",
-  "fw-stans-flow-ex3-29",
-  "fw-spank-359-29",
   "fw-shimano-mt500-29",
-  "fw-bontrager-line-pro-30-29",
-  "fw-mavic-deemax-29",
-  "fw-giant-trx-0-29",
-  "rw-roval-traverse-hd-29",
-  "rw-weareone-union-29",
-  "rw-newmen-advanced-sl-a30-29",
-  "rw-stans-flow-ex3-29",
-  "rw-spank-359-29",
   "rw-shimano-mt510-29",
-  "rw-bontrager-line-pro-30-29",
-  "rw-mavic-deemax-29",
-  "rw-giant-trx-0-29",
   "sh-fox-float-x-factory-230x65",
   "sh-rockshox-super-deluxe-coil-230x65",
   "sh-fox-dhx2-230x65",
@@ -463,9 +447,9 @@
   },
   "fw-roval-traverse-hd-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:42:13.528Z",
+   "error": "rovalcomponents.com 301-redirects into specialized.com (known 403 bot-block + extension-blocked domain)",
    "source": null,
    "note": null
   },
@@ -487,9 +471,9 @@
   },
   "fw-weareone-union-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:35:42.178Z",
+   "error": "weareonecomposites.com product URLs 404 to fetches and the wheelset-comparison page is password-protected; domain blocked in the extension - needs a browser/session with access",
    "source": null,
    "note": null
   },
@@ -519,19 +503,19 @@
   },
   "fw-newmen-advanced-sl-a30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:42:13.213Z",
+   "error": "newmen-components.de shows rim-only weights (434g); complete-wheel specs live in a JS Konfigurator - needs a browser session",
    "source": null,
    "note": null
   },
   "fw-stans-flow-ex3-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T16:42:13.177Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://stans.com/products/flow-ex3-wheelset",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-hunt-enduro-wide-29": {
    "cat": "frontwheel",
@@ -543,9 +527,9 @@
   },
   "fw-spank-359-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:42:13.370Z",
+   "error": "spank-ind.com product URLs 404 and the 359 wheelset is not in the search index - needs the right URL or a browser session",
    "source": null,
    "note": null
   },
@@ -567,25 +551,25 @@
   },
   "fw-bontrager-line-pro-30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:42:13.686Z",
+   "error": "Bontrager lives on trekbikes.com - known client-side-rendered blocker from the frames batch",
    "source": null,
    "note": null
   },
   "fw-mavic-deemax-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T16:42:13.177Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mavic.com/en-us/p/deemax-enduro-sl-29-rv2305",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-giant-trx-0-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:42:13.841Z",
+   "error": "giant-bicycles.com product URLs 404 to fetches (JS app) - needs a browser session",
    "source": null,
    "note": null
   },
@@ -615,9 +599,9 @@
   },
   "rw-roval-traverse-hd-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:42:13.604Z",
+   "error": "same Roval->specialized.com blocker",
    "source": null,
    "note": null
   },
@@ -647,9 +631,9 @@
   },
   "rw-weareone-union-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:35:42.253Z",
+   "error": "same weareonecomposites.com blocker",
    "source": null,
    "note": null
   },
@@ -679,19 +663,19 @@
   },
   "rw-newmen-advanced-sl-a30-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:42:13.289Z",
+   "error": "same newmen Konfigurator blocker",
    "source": null,
    "note": null
   },
   "rw-stans-flow-ex3-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T16:42:13.177Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://stans.com/products/flow-ex3-wheelset",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-hunt-enduro-wide-29": {
    "cat": "rearwheel",
@@ -703,9 +687,9 @@
   },
   "rw-spank-359-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:42:13.451Z",
+   "error": "same spank-ind.com blocker",
    "source": null,
    "note": null
   },
@@ -727,25 +711,25 @@
   },
   "rw-bontrager-line-pro-30-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:42:13.763Z",
+   "error": "same trekbikes.com blocker",
    "source": null,
    "note": null
   },
   "rw-mavic-deemax-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T16:42:13.177Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mavic.com/en-us/p/deemax-enduro-sl-29-rv2305",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-giant-trx-0-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:42:13.922Z",
+   "error": "same giant-bicycles.com blocker",
    "source": null,
    "note": null
   },
