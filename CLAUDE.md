@@ -94,7 +94,7 @@ Category-specific fields (enforced by `schema.js` → `SCHEMA`, using vocabulari
 - **brake**: `mount`, `pistons`, optional `leverAccepts` (array of `ispec-ev`/`ispec-ii`/`ispec-b`/`matchmaker` — real levers accept several standards).   **rotor**: `size`, `mount`.
 - **handlebar/stem**: `clamp` (+ optional dims).  **grips/saddle**: just the common fields.
 - **dropper**: `diameter`, `drop`.  **pedal**: `style` (`flat`/`clip`) — pairs; 9/16" thread fits every crank, so no compat rules.
-- **presets** (`groupset`/`wheelset`/`brakeset`/`cockpitset`): `price`, `weight`, and `fills` (slotKey → part id).
+- **presets** (`groupset`/`wheelset`/`brakeset`/`cockpitset`): `price` and `fills` (slotKey → part id). **Weight is always derived from the fills** (`partWeight`) — storing it is a validator error; price may be stored because real bundle discounts exist (≤-sum lint guards it).
 
 ### Build slots
 
@@ -153,8 +153,8 @@ that needs a mechanic/engineer review and real-rider feedback.
 ## Pricing & weight
 
 `buildTotals(build, presetBy)`: a group whose slots exactly match a chosen preset is billed
-and weighed as the **bundle**; swap any single part and that group reverts to summing
-components. `presetBy` maps groupKey → preset id.
+at the **bundle price** (weight is derived from the fills either way); swap any single part
+and that group reverts to summing components. `presetBy` maps groupKey → preset id.
 
 ## Provenance
 

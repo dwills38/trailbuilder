@@ -35,8 +35,22 @@ test('bundleActive is true only when every fill matches', function(){
   ok(C.bundleActive(wheels, B({ frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-reserve-30-hd-29' }), { wheels:'ws-reserve-30-hd-29' }));
   ok(!C.bundleActive(wheels, B({ frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-industrynine-enduro-s-29' }), { wheels:'ws-reserve-30-hd-29' }));
 });
-test('bundle weight uses the kit weight when active', function(){
-  eq(totals(GXM, { drivetrain:'gs-sram-gx-eagle' }).weight, part('gs-sram-gx-eagle').weight);
+test('bundle weight is DERIVED from the fills when the kit is active', function(){
+  // kits never store a weight (a stored figure drifts into physically
+  // impossible bundles - REVIEW.md #12); the bundle weighs what its parts weigh
+  var sum = 122 + 290 + 450 + 244 + 621;   // shifter+derailleur+cassette+chain+crank
+  eq(totals(GXM, { drivetrain:'gs-sram-gx-eagle' }).weight, sum);
+  eq(C.partWeight(part('gs-sram-gx-eagle')), sum);
+});
+test('partWeight: component uses its own figure, kit derives, unknown is null', function(){
+  eq(C.partWeight(part('fk-rockshox-zeb-ultimate-29-170')), 2150);
+  eq(C.partWeight(null), null);
+  eq(C.partWeight(/** @type {any} */({ id:'x', cat:'groupset', brand:'B', model:'M', price:0, fills:{} })), null);
+});
+test('no preset stores a weight (always derived)', function(){
+  C.PARTS.forEach(function(p){
+    if('fills' in p && p.fills) ok(!('weight' in p), p.id + ' stores a weight');
+  });
 });
 test('a complete build totals positive price and weight, nothing missing', function(){
   var map = { frame:'fr-santacruz-megatower-cc', fork:'fk-rockshox-zeb-ultimate-29-170', shock:'sh-rockshox-super-deluxe-ultimate-230x62p5', frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-reserve-30-hd-29',

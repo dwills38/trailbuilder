@@ -438,24 +438,24 @@ var PARTS = [
   { id:'pd-crankbrothers-stamp-1', cat:'pedal', brand:'Crankbrothers', model:'Stamp 1 (composite)', family:'crankbrothers-stamp', price:60, weight:329, style:'flat' },
 
   /* PRESETS (bundle price + bundle weight; fills maps slot -> component id) */
-  { id:'gs-sram-gx-transmission', cat:'groupset', brand:'SRAM', model:'GX Eagle Transmission', family:'sram-gx-transmission', desc:'AXS . 12-spd . needs UDH frame', price:1099, weight:1725, fills:{ shifter:'sft-sram-gx-transmission', derailleur:'dr-sram-gx-transmission', cassette:'ca-sram-xs1275', chain:'ch-sram-gx-flattop', crankset:'cr-sram-x0-transmission' } },
-  { id:'gs-sram-gx-eagle', cat:'groupset', brand:'SRAM', model:'GX Eagle (mechanical)', family:'sram-gx-eagle', desc:'mechanical . 12-spd . XD', price:545, weight:1670, fills:{ shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle' } },
-  { id:'gs-shimano-xt-m8100', cat:'groupset', brand:'Shimano', model:'XT M8100', family:'shimano-xt-m8100', desc:'mechanical . 12-spd . Micro Spline', price:559, weight:1656, fills:{ shifter:'sft-shimano-xt-m8100', derailleur:'dr-shimano-xt-m8100-sgs', cassette:'ca-shimano-xt-m8100-1051', chain:'ch-shimano-xt-m8100', crankset:'cr-shimano-xt-m8100' } },
-  { id:'gs-shimano-slx-m7100', cat:'groupset', brand:'Shimano', model:'SLX M7100', family:'shimano-slx-m7100', desc:'mechanical . 12-spd . Micro Spline', price:419, weight:1864, fills:{ shifter:'sft-shimano-slx-m7100', derailleur:'dr-shimano-slx-m7100-sgs', cassette:'ca-shimano-slx-m7100-1051', chain:'ch-shimano-xt-m8100', crankset:'cr-raceface-aeffect-r' } },
+  { id:'gs-sram-gx-transmission', cat:'groupset', brand:'SRAM', model:'GX Eagle Transmission', family:'sram-gx-transmission', desc:'AXS . 12-spd . needs UDH frame', price:1099, fills:{ shifter:'sft-sram-gx-transmission', derailleur:'dr-sram-gx-transmission', cassette:'ca-sram-xs1275', chain:'ch-sram-gx-flattop', crankset:'cr-sram-x0-transmission' } },
+  { id:'gs-sram-gx-eagle', cat:'groupset', brand:'SRAM', model:'GX Eagle (mechanical)', family:'sram-gx-eagle', desc:'mechanical . 12-spd . XD', price:545, fills:{ shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle' } },
+  { id:'gs-shimano-xt-m8100', cat:'groupset', brand:'Shimano', model:'XT M8100', family:'shimano-xt-m8100', desc:'mechanical . 12-spd . Micro Spline', price:559, fills:{ shifter:'sft-shimano-xt-m8100', derailleur:'dr-shimano-xt-m8100-sgs', cassette:'ca-shimano-xt-m8100-1051', chain:'ch-shimano-xt-m8100', crankset:'cr-shimano-xt-m8100' } },
+  { id:'gs-shimano-slx-m7100', cat:'groupset', brand:'Shimano', model:'SLX M7100', family:'shimano-slx-m7100', desc:'mechanical . 12-spd . Micro Spline', price:419, fills:{ shifter:'sft-shimano-slx-m7100', derailleur:'dr-shimano-slx-m7100-sgs', cassette:'ca-shimano-slx-m7100-1051', chain:'ch-shimano-xt-m8100', crankset:'cr-raceface-aeffect-r' } },
 
-  { id:'ws-dtswiss-ex-1700-29', cat:'wheelset', brand:'DT Swiss', model:'EX 1700', family:'dtswiss-ex-1700', desc:'29 . Boost . XD . Center Lock', price:700, weight:2150, fills:{ frontWheel:'fw-dtswiss-ex-1700-29', rearWheel:'rw-dtswiss-ex-1700-29' } },
-  { id:'ws-reserve-30-hd-29', cat:'wheelset', brand:'Reserve', model:'30 HD', family:'reserve-30-hd', desc:'29 . Boost . XD . 6-bolt', price:1599, weight:1880, fills:{ frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-reserve-30-hd-29' } },
-  { id:'ws-industrynine-enduro-s-29', cat:'wheelset', brand:'Industry Nine', model:'Enduro S', family:'industrynine-enduro-s', desc:'29 . Boost . Micro Spline . 6-bolt', price:1700, weight:2030, fills:{ frontWheel:'fw-industrynine-enduro-s-29', rearWheel:'rw-industrynine-enduro-s-29' } },
-  { id:'ws-roval-traverse-hd-29', cat:'wheelset', brand:'Roval', model:'Traverse HD', family:'roval-traverse-hd', desc:'29 . Boost . XD . 6-bolt', price:1600, weight:1801, fills:{ frontWheel:'fw-roval-traverse-hd-29', rearWheel:'rw-roval-traverse-hd-29' } },
-  { id:'ws-dtswiss-e-1900-275', cat:'wheelset', brand:'DT Swiss', model:'E 1900 27.5', family:'dtswiss-e-1900', desc:'27.5 . Boost . Micro Spline . CL', price:500, weight:2250, fills:{ frontWheel:'fw-dtswiss-e-1900-275', rearWheel:'rw-dtswiss-e-1900-275' } },
+  { id:'ws-dtswiss-ex-1700-29', cat:'wheelset', brand:'DT Swiss', model:'EX 1700', family:'dtswiss-ex-1700', desc:'29 . Boost . XD . Center Lock', price:700, fills:{ frontWheel:'fw-dtswiss-ex-1700-29', rearWheel:'rw-dtswiss-ex-1700-29' } },
+  { id:'ws-reserve-30-hd-29', cat:'wheelset', brand:'Reserve', model:'30 HD', family:'reserve-30-hd', desc:'29 . Boost . XD . 6-bolt', price:1599, fills:{ frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-reserve-30-hd-29' } },
+  { id:'ws-industrynine-enduro-s-29', cat:'wheelset', brand:'Industry Nine', model:'Enduro S', family:'industrynine-enduro-s', desc:'29 . Boost . Micro Spline . 6-bolt', price:1700, fills:{ frontWheel:'fw-industrynine-enduro-s-29', rearWheel:'rw-industrynine-enduro-s-29' } },
+  { id:'ws-roval-traverse-hd-29', cat:'wheelset', brand:'Roval', model:'Traverse HD', family:'roval-traverse-hd', desc:'29 . Boost . XD . 6-bolt', price:1600, fills:{ frontWheel:'fw-roval-traverse-hd-29', rearWheel:'rw-roval-traverse-hd-29' } },
+  { id:'ws-dtswiss-e-1900-275', cat:'wheelset', brand:'DT Swiss', model:'E 1900 27.5', family:'dtswiss-e-1900', desc:'27.5 . Boost . Micro Spline . CL', price:500, fills:{ frontWheel:'fw-dtswiss-e-1900-275', rearWheel:'rw-dtswiss-e-1900-275' } },
 
-  { id:'bs-sram-code-rsc', cat:'brakeset', brand:'SRAM', model:'Code RSC set', family:'sram-code', desc:'200/200 . 6-bolt', price:360, weight:880, fills:{ frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b' } },
-  { id:'bs-shimano-xt-m8120', cat:'brakeset', brand:'Shimano', model:'XT M8120 set', family:'shimano-xt-m8120', desc:'203/203 . Center Lock', price:379, weight:920, fills:{ frontBrake:'bk-shimano-xt-m8120', rearBrake:'bk-shimano-xt-m8120', frontRotor:'ro-shimano-rtmt800-203-cl', rearRotor:'ro-shimano-rtmt800-203-cl' } },
-  { id:'bs-hayes-dominion-a4', cat:'brakeset', brand:'Hayes', model:'Dominion A4 set', family:'hayes-dominion', desc:'203/203 . 6-bolt', price:440, weight:960, fills:{ frontBrake:'bk-hayes-dominion-a4', rearBrake:'bk-hayes-dominion-a4', frontRotor:'ro-hayes-dseries-203-6b', rearRotor:'ro-hayes-dseries-203-6b' } },
+  { id:'bs-sram-code-rsc', cat:'brakeset', brand:'SRAM', model:'Code RSC set', family:'sram-code', desc:'200/200 . 6-bolt', price:360, fills:{ frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b' } },
+  { id:'bs-shimano-xt-m8120', cat:'brakeset', brand:'Shimano', model:'XT M8120 set', family:'shimano-xt-m8120', desc:'203/203 . Center Lock', price:379, fills:{ frontBrake:'bk-shimano-xt-m8120', rearBrake:'bk-shimano-xt-m8120', frontRotor:'ro-shimano-rtmt800-203-cl', rearRotor:'ro-shimano-rtmt800-203-cl' } },
+  { id:'bs-hayes-dominion-a4', cat:'brakeset', brand:'Hayes', model:'Dominion A4 set', family:'hayes-dominion', desc:'203/203 . 6-bolt', price:440, fills:{ frontBrake:'bk-hayes-dominion-a4', rearBrake:'bk-hayes-dominion-a4', frontRotor:'ro-hayes-dseries-203-6b', rearRotor:'ro-hayes-dseries-203-6b' } },
 
-  { id:'co-renthal-fatbar-apex', cat:'cockpitset', brand:'Renthal', model:'Fatbar + Apex', desc:'35mm . alu bar', price:200, weight:540, fills:{ handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon' } },
-  { id:'co-oneup-carbon', cat:'cockpitset', brand:'OneUp', model:'Carbon Bar + Stem', desc:'35mm . carbon bar', price:220, weight:450, fills:{ handlebar:'hb-oneup-carbon-35', stem:'st-oneup-stem-35', grips:'gr-oneup-lockon' } },
-  { id:'co-pnw-range', cat:'cockpitset', brand:'PNW', model:'Range cockpit', desc:'31.8mm . alu bar', price:120, weight:520, fills:{ handlebar:'hb-pnw-range-318', stem:'st-pnw-range-318', grips:'gr-pnw-loam' } }
+  { id:'co-renthal-fatbar-apex', cat:'cockpitset', brand:'Renthal', model:'Fatbar + Apex', desc:'35mm . alu bar', price:200, fills:{ handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon' } },
+  { id:'co-oneup-carbon', cat:'cockpitset', brand:'OneUp', model:'Carbon Bar + Stem', desc:'35mm . carbon bar', price:220, fills:{ handlebar:'hb-oneup-carbon-35', stem:'st-oneup-stem-35', grips:'gr-oneup-lockon' } },
+  { id:'co-pnw-range', cat:'cockpitset', brand:'PNW', model:'Range cockpit', desc:'31.8mm . alu bar', price:120, fills:{ handlebar:'hb-pnw-range-318', stem:'st-pnw-range-318', grips:'gr-pnw-loam' } }
 ];
 
 /* ---- legacy id aliases ----------------------------------------------------
@@ -1099,7 +1099,10 @@ function buildTotals(build, presetBy){
       var preset = byId(presetBy[g.key]);
       if(preset){
         price += (preset.price || 0);
-        if(typeof preset.weight === 'number') weight += preset.weight; else missingWeight = true;
+        // bundle weight is DERIVED from the fills - kits never store a weight
+        // (a stored figure drifts into impossible bundles, REVIEW.md #12)
+        var pw = partWeight(preset);
+        if(pw != null) weight += pw; else missingWeight = true;
       }
     } else {
       g.slots.forEach(function(s){
@@ -1126,6 +1129,26 @@ function esc(s){
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
 
+/** Effective weight of a part in grams. Presets/kits DERIVE their weight from
+ * the parts they fill (weight is never stored on a kit - a stored figure
+ * drifts into physically impossible bundles, REVIEW.md #12); components use
+ * their own figure. Returns null when unknown or incomplete.
+ * @param {Part|null|undefined} p @returns {number|null} */
+function partWeight(p){
+  if(!p) return null;
+  if('fills' in p && p.fills){
+    var ks = Object.keys(p.fills), sum = 0;
+    if(!ks.length) return null;
+    for(var i=0;i<ks.length;i++){
+      var c = byId(p.fills[ks[i]]);
+      if(!c || typeof c.weight !== 'number') return null;
+      sum += c.weight;
+    }
+    return sum;
+  }
+  return (typeof p.weight === 'number') ? p.weight : null;
+}
+
 /** Is this part verified against a manufacturer source? A preset/kit counts as
  * verified only when every part it fills is itself verified.
  * @param {Part|null|undefined} p @returns {boolean} */
@@ -1144,5 +1167,5 @@ if (typeof module !== 'undefined' && module.exports) {
     ALIASES:ALIASES, canonicalId:canonicalId,
     byId:byId, nameOf:nameOf, specSummary:specSummary, checkBuild:checkBuild,
     conflictReason:conflictReason, compatOf:compatOf, bundleActive:bundleActive, buildTotals:buildTotals,
-    esc:esc, partVerified:partVerified };
+    esc:esc, partVerified:partVerified, partWeight:partWeight };
 }

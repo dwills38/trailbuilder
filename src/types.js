@@ -20,7 +20,7 @@
 /* ---- vocabularies (mirror VOCAB in schema.js) ---------------------------- */
 /** @typedef {'29'|'275'} WheelSize */
 /** @typedef {'29'|'275'|'mullet'} WheelConfig */
-/** @typedef {'Boost148'|'SuperBoost157'} RearAxle */
+/** @typedef {'Boost148'|'SuperBoost157'|'142x12'} RearAxle */
 /** @typedef {'Boost110'} FrontAxle */
 /** @typedef {'XD'|'MicroSpline'|'HG'} Freehub */
 /** @typedef {'sixbolt'|'CL'} RotorMount */
@@ -29,14 +29,15 @@
 /** @typedef {'BSA73'|'PF92'|'T47'} FrameBb */
 /** @typedef {'DUB'|'24mm'|'30mm'|'p3'} CrankBb */
 /** @typedef {'PM'} BrakeMount */
-/** @typedef {'sram-eagle'|'sram-transmission'|'shimano-12'} DriveSystem */
+/** @typedef {'sram-eagle'|'sram-transmission'|'shimano-12'|'shimano-linkglide'|'shimano-11'|'shimano-10'|'sram-11'} DriveSystem */
 /** @typedef {'cable'|'electronic'} Actuation */
 /** @typedef {'t-type'|'standard-12'} RingStd */
 /** @typedef {'ispec-ev'|'ispec-ii'|'ispec-b'|'matchmaker'|'band'|'pod'} ShifterClamp */
 /** @typedef {'ispec-ev'|'ispec-ii'|'ispec-b'|'matchmaker'} LeverClamp */
 /** @typedef {'hanger'|'udh-direct'} DerailMount */
 /** @typedef {'air'|'coil'} Spring */
-/** @typedef {'alu'|'carbon'} Material */
+/** @typedef {'alu'|'carbon'|'steel'|'ti'} Material */
+/** @typedef {'ZS44/28.6'|'ZS56/28.6'|'ZS56/40'|'IS41/28.6'|'IS42/28.6'|'IS52/40'|'EC34/28.6'|'EC44/40'} HeadTube */
 /** @typedef {'flat'|'clip'} PedalStyle */
 /** @typedef {'exo'|'exo-plus'|'doubledown'|'dh'} Casing */
 /** @typedef {'dual'|'3c-maxxterra'|'3c-maxxgrip'} Compound */
@@ -84,6 +85,8 @@
  * @property {boolean} frameOnly
  * @property {number} [maxTire]
  * @property {FrameSizes} [sizes]
+ * @property {HeadTube} [headTubeUpper]   SHIS capture field — rule 11 still consumes `headset`
+ * @property {HeadTube} [headTubeLower]
  */
 /** @typedef {CommonFields & FrameShared & {cat: 'frame', suspension: 'full', shockEye: number, shockStroke: number, shockMount: ShockMount, travel: number, bundledShock?: (string|null)}} FullSusFramePart */
 /** @typedef {CommonFields & FrameShared & {cat: 'frame', suspension: 'hardtail'}} HardtailFramePart */

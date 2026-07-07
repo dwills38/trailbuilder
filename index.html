@@ -349,7 +349,7 @@
     var meta=list.map(function(p,i){ var c=compatFor(p); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='n'?1:2),pre:isPreset(p)?0:1,i:i}; });
     // "Best match" keeps the compatible-first order; explicit sorts are pure
     // (the dot still shows fit). Missing weights sink to the bottom either way.
-    var wt=function(p,missing){ return typeof p.weight==='number' ? p.weight : missing; };
+    var wt=function(p,missing){ var w=partWeight(p); return w!=null ? w : missing; };   // kits derive weight from fills
     var SORTS={
       featured:      function(a,b){ return (a.rank-b.rank) || (a.pre-b.pre) || (a.i-b.i); },
       name:          function(a,b){ return (a.p.brand+' '+a.p.model).localeCompare(b.p.brand+' '+b.p.model) || (a.i-b.i); },
@@ -369,7 +369,8 @@
 
     var priceHtml;
     if(isPreset(p)){
-      priceHtml = '<span class="price">'+money(p.price)+'<span class="wt"> · '+(p.weight?p.weight+' g · ':'')+'fills '+Object.keys(p.fills).length+'</span></span>';
+      var kw = partWeight(p);   // derived from fills, never stored on a kit
+      priceHtml = '<span class="price">'+money(p.price)+'<span class="wt"> · '+(kw!=null?kw+' g · ':'')+'fills '+Object.keys(p.fills).length+'</span></span>';
     } else {
       priceHtml = '<span class="price">'+money(p.price)+(typeof p.weight==='number'?'<span class="wt">'+p.weight+' g</span>':'')+'</span>';
     }
@@ -442,7 +443,7 @@
       });
       var sub=document.createElement('div'); sub.className='gsub';
       var totHtml='';
-      if(bundle) totHtml='<span class="gtot">'+money(bundle.price)+' · '+(bundle.weight||0)+' g<span class="kit-tag">KIT</span></span>';
+      if(bundle) totHtml='<span class="gtot">'+money(bundle.price)+' · '+(partWeight(bundle)||0)+' g<span class="kit-tag">KIT</span></span>';
       else if(anyFilled) totHtml='<span class="gtot">'+money(sumP)+(sumW?' · '+sumW+' g':'')+'</span>';
       sub.innerHTML='<span>'+(ICONS[g.key]||'')+' '+g.label+'</span>'+totHtml;
       host.appendChild(sub);

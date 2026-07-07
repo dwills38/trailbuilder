@@ -127,6 +127,31 @@ test('preset with a dangling fill reference is caught', function(){
   var p = over('ws-roval-traverse-hd-29', { fills:{ frontWheel:'fw-nope', rearWheel:'rw-roval-traverse-hd-29' } });
   some(probs(p), 'fw-nope');
 });
+test('a stored preset weight is caught (bundle weight is derived from fills)', function(){
+  some(probs(over('gs-sram-gx-eagle', { weight:1670 })), 'derived');
+});
+test('a headTube value outside the SHIS vocab is caught', function(){
+  some(probs(over('fr-santacruz-megatower-cc', { headTubeUpper:'ZS49/28.6' })), 'headTube');
+});
+test('the inert widened system values are accepted (LinkGlide cassette validates)', function(){
+  var p = over('ca-sram-pg1230', { system:'shimano-linkglide', minCog:11 });
+  eq(probs(p).filter(function(x){ return x.indexOf('system') >= 0; }).length, 0);
+});
+
+/* ---- lintCatalog: warn-only guards (never block entry, never ship a typo) */
+test('lint: a typo-sized rotor (2003mm) warns', function(){
+  var bad = /** @type {any} */ (Object.assign({}, C.byId('ro-sram-hs2-200-6b'), { id:'ro-sram-hs2-2003-6b', size:2003 }));
+  some(S.lintCatalog({ PARTS: C.PARTS.concat([bad]), SLOTS: C.SLOTS }), 'not a known value');
+});
+test('lint: two rows identical apart from the id warn as a duplicate SKU', function(){
+  var dup = /** @type {any} */ (Object.assign({}, C.byId('ti-maxxis-shorty-29-25'), { id:'ti-maxxis-shorty-29-25-dup' }));
+  some(S.lintCatalog({ PARTS: C.PARTS.concat([dup]), SLOTS: C.SLOTS }), 'duplicate SKU');
+});
+test('lint: a wheelset kit mixing wheel sizes warns', function(){
+  var bad = /** @type {any} */ (Object.assign({}, C.byId('ws-dtswiss-ex-1700-29'), {
+    id:'ws-dtswiss-mixed-29', fills:{ frontWheel:'fw-dtswiss-ex-1700-29', rearWheel:'rw-dtswiss-e-1900-275' } }));
+  some(S.lintCatalog({ PARTS: C.PARTS.concat([bad]), SLOTS: C.SLOTS }), 'mix wheel sizes');
+});
 test('catalog-level: a duplicate id is caught', function(){
   var cat = { PARTS: C.PARTS.concat([ U.part('fr-santacruz-megatower-cc') ]), SLOTS: C.SLOTS };
   some(S.validateCatalog(cat, TODAY), 'duplicate');

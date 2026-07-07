@@ -25,13 +25,21 @@
 var VOCAB = {
   wheel:        ['29', '275'],
   wheelConfig:  ['29', '275', 'mullet'],
-  rearAxle:     ['Boost148', 'SuperBoost157'],
+  /* Do NOT add a '157DH' value: 12x157 is ONE fitment standard (DH hubs are
+     SuperBoost157 - fact-checked, DATA-MODEL-REVIEW section 2); a split would
+     create false "won't fit" verdicts. 142x12 is pre-Boost, inert until parts
+     carry it. */
+  rearAxle:     ['Boost148', 'SuperBoost157', '142x12'],
   frontAxle:    ['Boost110'],
-  freehub:      ['XD', 'MicroSpline', 'HG'],
-  rotorMount:   ['sixbolt', 'CL'],
-  shockMount:   ['std', 'trunnion'],
+  freehub:      ['XD', 'MicroSpline', 'HG'],   // 'HG' = MTB-length HG spline (a road expansion must SPLIT, not conflate)
+  rotorMount:   ['sixbolt', 'CL'],             // audited 2026-07: market-complete for MTB
+  shockMount:   ['std', 'trunnion'],           // audited 2026-07: market-complete ('bearing' eyelets may join when a bearing-eyelet row lands)
   headset:      ['tapered'],
   steerer:      ['tapered'],
+  /* PF92 covers the BB92/89.5 PressFit family. T47 SEMANTICS ARE UNDEFINED:
+     85.5-internal vs 68/73-external T47 are different products - pin the
+     meaning (likely split values) BEFORE the first real T47 frame enters.
+     (The one previous 'T47' row was a data error - no MTB Slash uses T47.) */
   frameBb:      ['BSA73', 'PF92', 'T47'],
   /* crankBb is the SPINDLE INTERFACE, not a brand (DATA-MODEL-REVIEW 5.1-5):
      DUB (28.99mm), 24mm (Shimano Hollowtech II + Race Face Cinch steel + ...),
@@ -40,17 +48,27 @@ var VOCAB = {
      vocab (DUB|SH24) forced two fictitious catalog products - never again. */
   crankBb:      ['DUB', '24mm', '30mm', 'p3'],
   brakeMount:   ['PM'],
-  system:       ['sram-eagle', 'sram-transmission', 'shimano-12'],
-  actuation:    ['cable', 'electronic'],
+  /* LinkGlide is deliberately its own system: Shimano documents it as HG-only
+     and incompatible with Hyperglide+ 12s. The 10/11-speed values are INERT
+     (equality-checked only) until parts carry them; sram-dh-7 waits on the
+     rule-3 chain-width redesign (a 7s DH mech runs an 11s chain). */
+  system:       ['sram-eagle', 'sram-transmission', 'shimano-12',
+                 'shimano-linkglide', 'shimano-11', 'shimano-10', 'sram-11'],
+  actuation:    ['cable', 'electronic'],       // audited 2026-07: market-complete for shifter/derailleur ('hydraulic' joins only with dropper.actuation)
   ringStd:      ['t-type', 'standard-12'],
   /* I-Spec II / I-Spec B are older, mutually-incompatible Shimano standards
      (Saint/Zee are I-Spec B; M8000-era is I-Spec II - neither mates with EV) */
   shifterClamp: ['ispec-ev', 'ispec-ii', 'ispec-b', 'matchmaker', 'band', 'pod'],
   leverClamp:   ['ispec-ev', 'ispec-ii', 'ispec-b', 'matchmaker'],
-  derailMount:  ['hanger', 'udh-direct'],
-  spring:       ['air', 'coil'],
-  material:     ['alu', 'carbon'],
-  pedalStyle:   ['flat', 'clip'],
+  derailMount:  ['hanger', 'udh-direct'],      // audited 2026-07: market-complete (proprietary-hanger frames are udh:false + 'hanger')
+  spring:       ['air', 'coil'],               // audited 2026-07: market-complete
+  material:     ['alu', 'carbon', 'steel', 'ti'],   // steel/ti unblock whole brands (Cotic, Starling, Ti bars/rails)
+  pedalStyle:   ['flat', 'clip'],              // audited 2026-07: market-complete; pedals need no compat rule (9/16"-20 universal)
+  /* SHIS head-tube capture pair (upper/lower) - ILLUSTRATIVE list, extend as
+     sourced (the fact-check itself had to add ZS56/28.6, RAAW's own upper).
+     Capture-only for a future headset category; rule 11 keeps consuming the
+     `headset` steerer-fit field, whose semantics stay pinned. */
+  headTube:     ['ZS44/28.6', 'ZS56/28.6', 'ZS56/40', 'IS41/28.6', 'IS42/28.6', 'IS52/40', 'EC34/28.6', 'EC44/40'],
   /* Tire SKU axes (DATA-MODEL-REVIEW section 3 item 5): brand-NATIVE names, not a
      cross-brand toughness tier. Maxxis values seeded now (tires are the next
      verification batch); Schwalbe / Continental / Specialized values get
@@ -83,6 +101,7 @@ var SCHEMA = {
     shockMount:{type:'string',vocab:'shockMount',optional:true}, travel:{type:'number',optional:true},
     maxForkTravel:{type:'number'},
     udh:{type:'bool'}, frameOnly:{type:'bool'}, maxTire:{type:'number',optional:true},
+    headTubeUpper:{type:'string',vocab:'headTube',optional:true}, headTubeLower:{type:'string',vocab:'headTube',optional:true},
     bundledShock:{type:'id',optional:true,nullable:true},
     /* per-size data lives in a sub-object, NOT variant rows (sizes share price/
        interfaces; review section 3 item 6). Keys are the maker's own size names
@@ -233,6 +252,10 @@ function validatePart(p, ctx){
   if(!('price' in p)) bad('missing price');
   else if(!(isNum(p.price) && p.price >= 0)) bad('price must be a number >= 0 (USD MSRP)');
   if('weight' in p && !(isNum(p.weight) && p.weight >= 0)) bad('weight must be a number >= 0 (grams)');
+  // preset weight is ALWAYS derived from its fills (a stored figure drifts into
+  // physically impossible bundles - REVIEW.md #12); price MAY be stored because
+  // real bundle discounts exist (guarded by the <=-sum lint below)
+  if(isPreset(p.cat) && 'weight' in p) bad('preset weight is derived from fills - do not store it');
 
   // provenance
   if('verified' in p && !isBool(p.verified)) bad('verified must be true/false');
@@ -405,12 +428,31 @@ function validateCatalog(C, today){
   return problems;
 }
 
+/* KNOWN_VALUES: free-number fields deliberately stay numbers (a brand-new real
+   standard must never block entry), but a typo'd size must never ship silently
+   either - so unknown values WARN instead of failing (DATA-MODEL-REVIEW
+   5.1-17). Extend the list when a new real standard is sourced. */
+/** @type {Object.<string, number[]>} */
+var KNOWN_VALUES = {
+  rotorSize:    [140, 160, 180, 183, 200, 203, 205, 220, 223],
+  postDiameter: [27.2, 30.9, 31.6, 34.9],       // seat tubes + dropper diameters
+  barClamp:     [25.4, 31.8, 35],
+  speeds:       [9, 10, 11, 12, 13]
+};
+
 /* Non-fatal lints - consistency warnings that should never block data entry
    mid-batch. validate.js prints them without failing; the test suite keeps the
    SHIPPED catalog lint-clean (test-ids.js). */
 /** @param {Catalog} C @returns {string[]} */
 function lintCatalog(C){
   /** @type {string[]} */ var warnings = [];
+  /** @param {*} p @param {string} field @param {number[]} list */
+  function known(p, field, list){
+    var v = p[field];
+    if(isNum(v) && list.indexOf(v) < 0)
+      warnings.push('[' + p.id + '] ' + field + ' ' + v + ' is not a known value (typo?) - known: ' + list.join(', '));
+  }
+  /** @type {Object.<string, any[]>} */ var famGroups = {};
   C.PARTS.forEach(function(p){
     if(!isStr(p.id) || !ID_RE.test(p.id)) return; // the hard validator already complains
     var toks = p.id.split('-');
@@ -418,7 +460,43 @@ function lintCatalog(C){
       warnings.push('[' + p.id + '] id brand token "' + toks[1] + '" is not the brand slug "' + brandSlug(p.brand) + '" (brand: ' + p.brand + ')');
     if(typeof p.family === 'string' && p.family.split('-')[0] !== brandSlug(p.brand))
       warnings.push('[' + p.id + '] family "' + p.family + '" does not start with the brand slug "' + brandSlug(p.brand) + '"');
+
+    // free-number typo guards
+    if(p.cat === 'rotor') known(p, 'size', KNOWN_VALUES.rotorSize);
+    if(p.cat === 'dropper') known(p, 'diameter', KNOWN_VALUES.postDiameter);
+    if(p.cat === 'frame') known(p, 'seatTube', KNOWN_VALUES.postDiameter);
+    if(p.cat === 'handlebar' || p.cat === 'stem') known(p, 'clamp', KNOWN_VALUES.barClamp);
+    if(['shifter','derailleur','cassette','chain','crankset'].indexOf(p.cat) >= 0) known(p, 'speeds', KNOWN_VALUES.speeds);
+
+    if(typeof p.family === 'string') (famGroups[p.cat + '|' + p.family] = famGroups[p.cat + '|' + p.family] || []).push(p);
   });
+
+  // sibling-differ: two same-category rows sharing a family must differ in at
+  // least one field besides the id - otherwise one is a copy-paste duplicate
+  Object.keys(famGroups).forEach(function(key){
+    var group = famGroups[key];
+    for(var i = 0; i < group.length; i++){
+      for(var j = i + 1; j < group.length; j++){
+        var a = Object.assign({}, group[i]), b = Object.assign({}, group[j]);
+        delete a.id; delete b.id;
+        if(JSON.stringify(a) === JSON.stringify(b))
+          warnings.push('[' + group[i].id + '] and [' + group[j].id + '] are identical apart from their ids (duplicate SKU?)');
+      }
+    }
+  });
+
+  // wheelset fills should agree on wheel size and brand (a mixed kit is
+  // almost always a fills typo; a future deliberate mullet kit can revisit)
+  C.PARTS.filter(function(p){ return p.cat === 'wheelset' && isObj(p.fills); }).forEach(function(p){
+    var parts = Object.keys(p.fills).map(function(slot){
+      return C.PARTS.filter(function(x){ return x.id === p.fills[slot]; })[0];
+    }).filter(Boolean);
+    var sizes = parts.map(function(w){ return w.wheel; }).filter(function(v, i, a){ return a.indexOf(v) === i; });
+    var brands = parts.map(function(w){ return w.brand; }).filter(function(v, i, a){ return a.indexOf(v) === i; });
+    if(sizes.length > 1) warnings.push('[' + p.id + '] wheelset fills mix wheel sizes: ' + sizes.join(', '));
+    if(brands.length > 1) warnings.push('[' + p.id + '] wheelset fills mix brands: ' + brands.join(', '));
+  });
+
   return warnings;
 }
 
