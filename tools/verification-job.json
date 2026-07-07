@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T19:20:40.352Z",
+ "updated": "2026-07-07T19:24:58.126Z",
  "batchSize": 25,
- "lastCompleted": "pd-pnw-loam",
+ "lastCompleted": "ro-galfer-220-6b",
  "currentCategory": "fork",
  "queue": [
   "fk-rockshox-lyrik-ultimate-29-160",
@@ -75,11 +75,6 @@
   "bk-sram-db8",
   "bk-shimano-deore-m6120",
   "bk-magura-mt-trail-sport",
-  "ro-shimano-rtmt800-203-cl",
-  "ro-shimano-rtmt800-180-cl",
-  "ro-hayes-dseries-203-6b",
-  "ro-galfer-220-6b",
-  "ro-hope-floating-203-6b",
   "ro-magura-mdrp-203-6b",
   "ro-shimano-rtmt900-220-cl",
   "ro-shimano-smrt76-203-6b",
@@ -1946,43 +1941,43 @@
   },
   "ro-shimano-rtmt800-203-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:24:57.967Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com 403-blocks fetch; ride.shimano.com has no RT-MT800 page. Third-party figures for 203mm range wildly (147g-165g) across sources -- exactly the conflicting-summary trap. Bar not met."
   },
   "ro-shimano-rtmt800-180-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:24:58.020Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same as the 203mm sibling: no fetchable manufacturer page, conflicting third-party figures (120-132g). Bar not met."
   },
   "ro-hayes-dseries-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T19:24:57.966Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/d-series-rotor",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-galfer-220-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:24:58.126Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Galfer's current 6-bolt lineup has no 220mm size -- their sizes run 140/160/180/200/203/223mm. This catalog row may be based on a nonexistent SKU (closest real size is 223mm); flagging for a data-entry decision (correct to 223 as a new id, since size is engine-read and ids are append-only) rather than silently guessing a weight for a product that may not exist."
   },
   "ro-hope-floating-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:24:58.070Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Hope's product page only states weight for the 180mm size (146g); the 203mm figure isn't listed, and the linked Rotor Tech Book PDF is image-based/unreadable via fetch. Bar not met."
   },
   "ro-magura-mdrp-203-6b": {
    "cat": "rotor",

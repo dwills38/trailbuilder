@@ -348,7 +348,7 @@ var PARTS = [
   { id:'ro-sram-hs2-220-6b', cat:'rotor', brand:'SRAM', model:'HS2 220mm', family:'sram-hs2', price:60, weight:185, size:220, mount:'sixbolt' },
   { id:'ro-shimano-rtmt800-203-cl', cat:'rotor', brand:'Shimano', model:'RT-MT800 203mm (CL)', family:'shimano-rtmt800', price:55, weight:165, size:203, mount:'CL' },
   { id:'ro-shimano-rtmt800-180-cl', cat:'rotor', brand:'Shimano', model:'RT-MT800 180mm (CL)', family:'shimano-rtmt800', price:50, weight:120, size:180, mount:'CL' },
-  { id:'ro-hayes-dseries-203-6b', cat:'rotor', brand:'Hayes', model:'D-Series 203mm', family:'hayes-dseries', price:45, weight:170, size:203, mount:'sixbolt' },
+  { id:'ro-hayes-dseries-203-6b', cat:'rotor', brand:'Hayes', model:'D-Series 203mm', family:'hayes-dseries', price:60, weight:199, size:203, mount:'sixbolt', verified:true, lastChecked:'2026-07-07', source:'https://hayesbicycle.com/products/d-series-rotor' },
   { id:'ro-galfer-220-6b', cat:'rotor', brand:'Galfer', model:'220mm 6-bolt', price:65, weight:200, size:220, mount:'sixbolt' },
   { id:'ro-hope-floating-203-6b', cat:'rotor', brand:'Hope', model:'Floating 203mm (6-bolt)', family:'hope-floating', price:50, weight:175, size:203, mount:'sixbolt' },
   { id:'ro-magura-mdrp-203-6b', cat:'rotor', brand:'Magura', model:'MDR-P 203mm (6-bolt)', family:'magura-mdrp', price:45, weight:170, size:203, mount:'sixbolt' },
