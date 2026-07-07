@@ -85,7 +85,9 @@ test('modelYear outside the sane range is caught', function(){
   some(probs(over('fr-raaw-madonna-v3', { modelYear:190 })), 'modelYear');
 });
 test('tire casing outside the vocab is caught', function(){
-  some(probs(over('ti-maxxis-assegai-29-25-exop-mg', { casing:'super-gravity' })), 'casing');
+  // (probe value must stay fictional: 'super-gravity' sat here until it became
+  // a REAL vocab value in the Schwalbe verification batch)
+  some(probs(over('ti-maxxis-assegai-29-25-exop-mg', { casing:'not-a-real-casing' })), 'casing');
 });
 test('frame sizes with an unknown per-size key is caught', function(){
   some(probs(over('fr-raaw-madonna-v3', { sizes:{ M:{ maxInser:280 } } })), 'unknown key');

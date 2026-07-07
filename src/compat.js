@@ -46,7 +46,11 @@ var LABELS = {
   matchmaker: 'MatchMaker X', band: 'band clamp', pod: 'AXS pod',
   flat: 'Flat', clip: 'Clipless',
   exo: 'EXO', 'exo-plus': 'EXO+', doubledown: 'DoubleDown', dh: 'DH casing',
-  dual: 'Dual', '3c-maxxterra': '3C MaxxTerra', '3c-maxxgrip': '3C MaxxGrip'
+  dual: 'Dual', '3c-maxxterra': '3C MaxxTerra', '3c-maxxgrip': '3C MaxxGrip',
+  trail: 'Trail casing', enduro: 'Enduro casing', downhill: 'Downhill casing',
+  endurance: 'Endurance', soft: 'Soft', supersoft: 'SuperSoft',
+  'super-ground': 'Super Ground', 'super-trail': 'Super Trail', 'super-gravity': 'Super Gravity', 'super-downhill': 'Super Downhill',
+  addix: 'ADDIX', 'addix-speedgrip': 'ADDIX Speedgrip', 'addix-soft': 'ADDIX Soft', 'addix-ultra-soft': 'ADDIX Ultra Soft'
 };
 /** @param {string} k @returns {string} */
 var L = function(k){ return (k in LABELS ? LABELS[k] : k); };
@@ -221,23 +225,25 @@ var PARTS = [
   /* TIRES (each a size-specific model; front + rear chosen separately) */
   { id:'ti-maxxis-assegai-29-25-exop-mg', cat:'tire', brand:'Maxxis', model:'Assegai 29x2.5 EXO+ MaxxGrip', family:'maxxis-assegai', disciplines:['enduro'], price:90, weight:1219, wheel:'29', width:2.5, casing:'exo-plus', compound:'3c-maxxgrip', verified:true, lastChecked:'2026-07-06', source:'https://www.maxxis.com/us/tire/assegai/' },
   { id:'ti-maxxis-minion-dhr-ii-29-24-exop-mt', cat:'tire', brand:'Maxxis', model:'Minion DHR II 29x2.4 EXO+ MaxxTerra', family:'maxxis-minion-dhr-ii', disciplines:['enduro'], price:85, weight:1125, wheel:'29', width:2.4, casing:'exo-plus', compound:'3c-maxxterra', verified:true, lastChecked:'2026-07-06', source:'https://www.maxxis.com/us/tire/minion-dhr-ii/' },
-  { id:'ti-continental-kryptotal-29-24', cat:'tire', brand:'Continental', model:'Kryptotal 29x2.4', family:'continental-kryptotal', disciplines:['enduro'], price:80, weight:1280, wheel:'29', width:2.4 },
-  { id:'ti-schwalbe-magic-mary-29-24', cat:'tire', brand:'Schwalbe', model:'Magic Mary 29x2.4', family:'schwalbe-magic-mary', disciplines:['enduro'], price:85, weight:1300, wheel:'29', width:2.4 },
+  { id:'ti-continental-kryptotal-fr-29-24-enduro-soft', cat:'tire', brand:'Continental', model:'Kryptotal-Fr 29x2.4 Enduro Soft', family:'continental-kryptotal-fr', disciplines:['enduro'], price:80, weight:1165, wheel:'29', width:2.4, casing:'enduro', compound:'soft', mfgPn:'0150696', desc:'price = sample (Continental publishes EUR RRP only, no US MSRP)', verified:true, lastChecked:'2026-07-07', source:'https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf', sourceType:'manufacturer-doc' },
+  { id:'ti-schwalbe-magic-mary-29-24-sg-as', cat:'tire', brand:'Schwalbe', model:'Magic Mary 29x2.4 Super Gravity ADDIX Soft', family:'schwalbe-magic-mary', disciplines:['enduro'], price:108, weight:1280, wheel:'29', width:2.4, casing:'super-gravity', compound:'addix-soft', mfgPn:'11600615.03', verified:true, lastChecked:'2026-07-07', source:'https://www.schwalbetires.com/Magic-Mary' },
   { id:'ti-maxxis-assegai-275-25-exop-mg', cat:'tire', brand:'Maxxis', model:'Assegai 27.5x2.5 EXO+ MaxxGrip', family:'maxxis-assegai', disciplines:['enduro'], price:90, weight:1139, wheel:'275', width:2.5, casing:'exo-plus', compound:'3c-maxxgrip', verified:true, lastChecked:'2026-07-06', source:'https://www.maxxis.com/us/tire/assegai/' },
   { id:'ti-maxxis-minion-dhr-ii-275-24-exop-mt', cat:'tire', brand:'Maxxis', model:'Minion DHR II 27.5x2.4 EXO+ MaxxTerra', family:'maxxis-minion-dhr-ii', disciplines:['enduro'], price:85, weight:1055, wheel:'275', width:2.4, casing:'exo-plus', compound:'3c-maxxterra', verified:true, lastChecked:'2026-07-06', source:'https://www.maxxis.com/us/tire/minion-dhr-ii/' },
   { id:'ti-maxxis-minion-dhf-29-25-exop-mg', cat:'tire', brand:'Maxxis', model:'Minion DHF 29x2.5 EXO+ MaxxGrip', family:'maxxis-minion-dhf', disciplines:['enduro'], price:90, weight:1162, wheel:'29', width:2.5, casing:'exo-plus', compound:'3c-maxxgrip', verified:true, lastChecked:'2026-07-06', source:'https://www.maxxis.com/us/tire/minion-dhf/' },
-  { id:'ti-schwalbe-big-betty-29-24', cat:'tire', brand:'Schwalbe', model:'Big Betty 29x2.4', family:'schwalbe-big-betty', disciplines:['enduro'], price:85, weight:1310, wheel:'29', width:2.4 },
+  /* Big Betty 29x2.4 ships Super Trail on schwalbetires.com - no Super Gravity
+     in this size (that config exists in 27.5x2.4 / 29x2.6 only). */
+  { id:'ti-schwalbe-big-betty-29-24-st-as', cat:'tire', brand:'Schwalbe', model:'Big Betty 29x2.4 Super Trail ADDIX Soft', family:'schwalbe-big-betty', disciplines:['enduro'], price:102, weight:1125, wheel:'29', width:2.4, casing:'super-trail', compound:'addix-soft', mfgPn:'11654155', verified:true, lastChecked:'2026-07-07', source:'https://www.schwalbetires.com/Big-Betty' },
   { id:'ti-michelin-wild-enduro-mh-29-24', cat:'tire', brand:'Michelin', model:'Wild Enduro MH 29x2.4', family:'michelin-wild-enduro', disciplines:['enduro'], price:80, weight:1290, wheel:'29', width:2.4 },
   { id:'ti-pirelli-scorpion-enduro-29-25', cat:'tire', brand:'Pirelli', model:'Scorpion Enduro 29x2.5', family:'pirelli-scorpion-enduro', disciplines:['enduro'], price:75, weight:1270, wheel:'29', width:2.5 },
-  { id:'ti-continental-kryptotal-275-24', cat:'tire', brand:'Continental', model:'Kryptotal 27.5x2.4', family:'continental-kryptotal', disciplines:['enduro'], price:80, weight:1230, wheel:'275', width:2.4 },
+  { id:'ti-continental-kryptotal-re-275-24-enduro-soft', cat:'tire', brand:'Continental', model:'Kryptotal-Re 27.5x2.4 Enduro Soft', family:'continental-kryptotal-re', disciplines:['enduro'], price:80, weight:1095, wheel:'275', width:2.4, casing:'enduro', compound:'soft', mfgPn:'0150632', desc:'price = sample (Continental publishes EUR RRP only, no US MSRP)', verified:true, lastChecked:'2026-07-07', source:'https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf', sourceType:'manufacturer-doc' },
   { id:'ti-maxxis-dissector-29-24-exop-mt', cat:'tire', brand:'Maxxis', model:'Dissector 29x2.4 EXO+ MaxxTerra', family:'maxxis-dissector', disciplines:['enduro'], price:80, weight:1022, wheel:'29', width:2.4, casing:'exo-plus', compound:'3c-maxxterra', verified:true, lastChecked:'2026-07-06', source:'https://www.maxxis.com/us/tire/dissector/' },
   { id:'ti-maxxis-high-roller-ii-29-24', cat:'tire', brand:'Maxxis', model:'High Roller II 29x2.4', family:'maxxis-high-roller-ii', disciplines:['enduro'], price:80, weight:1200, wheel:'29', width:2.4 },
   { id:'ti-maxxis-shorty-29-25', cat:'tire', brand:'Maxxis', model:'Shorty 29x2.5', family:'maxxis-shorty', disciplines:['enduro'], price:90, weight:1350, wheel:'29', width:2.5 },
   { id:'ti-specialized-butcher-t9-29-23', cat:'tire', brand:'Specialized', model:'Butcher T9 29x2.3', family:'specialized-butcher', disciplines:['enduro'], price:75, weight:1150, wheel:'29', width:2.3 },
   { id:'ti-schwalbe-hans-dampf-29-235', cat:'tire', brand:'Schwalbe', model:'Hans Dampf 29x2.35', family:'schwalbe-hans-dampf', disciplines:['enduro'], price:75, weight:1180, wheel:'29', width:2.35 },
-  { id:'ti-continental-argotal-29-24', cat:'tire', brand:'Continental', model:'Argotal 29x2.4', family:'continental-argotal', disciplines:['enduro'], price:80, weight:1240, wheel:'29', width:2.4 },
+  { id:'ti-continental-argotal-29-24-enduro-soft', cat:'tire', brand:'Continental', model:'Argotal 29x2.4 Enduro Soft', family:'continental-argotal', disciplines:['enduro'], price:80, weight:1165, wheel:'29', width:2.4, casing:'enduro', compound:'soft', mfgPn:'0150686', desc:'price = sample (Continental publishes EUR RRP only, no US MSRP)', verified:true, lastChecked:'2026-07-07', source:'https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf', sourceType:'manufacturer-doc' },
   { id:'ti-vittoria-mazza-29-24', cat:'tire', brand:'Vittoria', model:'Mazza 29x2.4', family:'vittoria-mazza', disciplines:['enduro'], price:70, weight:1230, wheel:'29', width:2.4 },
-  { id:'ti-schwalbe-magic-mary-275-24', cat:'tire', brand:'Schwalbe', model:'Magic Mary 27.5x2.4', family:'schwalbe-magic-mary', disciplines:['enduro'], price:85, weight:1240, wheel:'275', width:2.4 },
+  { id:'ti-schwalbe-magic-mary-275-24-sg-as', cat:'tire', brand:'Schwalbe', model:'Magic Mary 27.5x2.4 Super Gravity ADDIX Soft', family:'schwalbe-magic-mary', disciplines:['enduro'], price:108, weight:1205, wheel:'275', width:2.4, casing:'super-gravity', compound:'addix-soft', mfgPn:'11600511.03', verified:true, lastChecked:'2026-07-07', source:'https://www.schwalbetires.com/Magic-Mary' },
   { id:'ti-maxxis-aggressor-29-23', cat:'tire', brand:'Maxxis', model:'Aggressor 29x2.3', family:'maxxis-aggressor', disciplines:['enduro'], price:70, weight:1100, wheel:'29', width:2.3 },
   { id:'ti-wtb-vigilante-29-25', cat:'tire', brand:'WTB', model:'Vigilante 29x2.5', family:'wtb-vigilante', disciplines:['enduro'], price:75, weight:1250, wheel:'29', width:2.5 },
   { id:'ti-wtb-judge-29-24', cat:'tire', brand:'WTB', model:'Judge 29x2.4', family:'wtb-judge', disciplines:['enduro'], price:80, weight:1300, wheel:'29', width:2.4 },
@@ -580,23 +586,23 @@ var ALIASES = {
   'rw-giant': 'rw-giant-trx-0-29',
   'ti-assegai-29': 'ti-maxxis-assegai-29-25-exop-mg',
   'ti-dhr-29': 'ti-maxxis-minion-dhr-ii-29-24-exop-mt',
-  'ti-kryp-29': 'ti-continental-kryptotal-29-24',
-  'ti-mary-29': 'ti-schwalbe-magic-mary-29-24',
+  'ti-kryp-29': 'ti-continental-kryptotal-fr-29-24-enduro-soft',   // flattened: canonicalId is single-hop
+  'ti-mary-29': 'ti-schwalbe-magic-mary-29-24-sg-as',   // flattened
   'ti-assegai-275': 'ti-maxxis-assegai-275-25-exop-mg',
   'ti-dhr-275': 'ti-maxxis-minion-dhr-ii-275-24-exop-mt',
   'ti-dhf-29': 'ti-maxxis-minion-dhf-29-25-exop-mg',
-  'ti-betty-29': 'ti-schwalbe-big-betty-29-24',
+  'ti-betty-29': 'ti-schwalbe-big-betty-29-24-st-as',   // flattened
   'ti-wild-29': 'ti-michelin-wild-enduro-mh-29-24',
   'ti-scorpion-29': 'ti-pirelli-scorpion-enduro-29-25',
-  'ti-kryp-275': 'ti-continental-kryptotal-275-24',
+  'ti-kryp-275': 'ti-continental-kryptotal-re-275-24-enduro-soft',   // flattened
   'ti-dissector-29': 'ti-maxxis-dissector-29-24-exop-mt',
   'ti-hr2-29': 'ti-maxxis-high-roller-ii-29-24',
   'ti-shorty-29': 'ti-maxxis-shorty-29-25',
   'ti-butcher-29': 'ti-specialized-butcher-t9-29-23',
   'ti-hansdampf-29': 'ti-schwalbe-hans-dampf-29-235',
-  'ti-argotal-29': 'ti-continental-argotal-29-24',
+  'ti-argotal-29': 'ti-continental-argotal-29-24-enduro-soft',   // flattened
   'ti-mazza-29': 'ti-vittoria-mazza-29-24',
-  'ti-mary-275': 'ti-schwalbe-magic-mary-275-24',
+  'ti-mary-275': 'ti-schwalbe-magic-mary-275-24-sg-as',   // flattened
   'ti-aggressor-29': 'ti-maxxis-aggressor-29-23',
   'ti-vigilante-29': 'ti-wtb-vigilante-29-25',
   'ti-judge-29': 'ti-wtb-judge-29-24',
@@ -799,7 +805,15 @@ var ALIASES = {
   'bs-dominion': 'bs-hayes-dominion-a4',
   'co-renthal': 'co-renthal-fatbar-apex',
   'co-oneup': 'co-oneup-carbon',
-  'co-pnw': 'co-pnw-range'
+  'co-pnw': 'co-pnw-range',
+  /* 2026-07-07 tire-verification pinning: generic tire rows retired into their
+     verified per-SKU configs (casing/compound pinned per the flat-SKU model). */
+  'ti-continental-kryptotal-29-24': 'ti-continental-kryptotal-fr-29-24-enduro-soft',
+  'ti-continental-kryptotal-275-24': 'ti-continental-kryptotal-re-275-24-enduro-soft',
+  'ti-continental-argotal-29-24': 'ti-continental-argotal-29-24-enduro-soft',
+  'ti-schwalbe-magic-mary-29-24': 'ti-schwalbe-magic-mary-29-24-sg-as',
+  'ti-schwalbe-magic-mary-275-24': 'ti-schwalbe-magic-mary-275-24-sg-as',
+  'ti-schwalbe-big-betty-29-24': 'ti-schwalbe-big-betty-29-24-st-as'
 };
 /** Resolve a possibly-legacy part id to its current catalog id.
  * @param {string|null|undefined} id @returns {string|null|undefined} */

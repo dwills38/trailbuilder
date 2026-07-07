@@ -70,11 +70,19 @@ var VOCAB = {
      `headset` steerer-fit field, whose semantics stay pinned. */
   headTube:     ['ZS44/28.6', 'ZS56/28.6', 'ZS56/40', 'IS41/28.6', 'IS42/28.6', 'IS52/40', 'EC34/28.6', 'EC44/40'],
   /* Tire SKU axes (DATA-MODEL-REVIEW section 3 item 5): brand-NATIVE names, not a
-     cross-brand toughness tier. Maxxis values seeded now (tires are the next
-     verification batch); Schwalbe / Continental / Specialized values get
-     enumerated per brand when their batch starts - never invented mid-batch. */
-  casing:       ['exo', 'exo-plus', 'doubledown', 'dh'],
-  compound:     ['dual', '3c-maxxterra', '3c-maxxgrip'],
+     cross-brand toughness tier. Maxxis values seeded first; Schwalbe /
+     Specialized etc. get enumerated per brand when their batch starts - never
+     invented mid-batch.
+     Continental enumerated 2026-07-07 from the maker's Tire Range 2025/26 PDF:
+     casings Trail/Enduro/Downhill x compounds Endurance/Soft/SuperSoft -
+     NOT strictly coupled (Downhill ships in Soft AND SuperSoft; Trail in Soft
+     AND Endurance), so they stay two free axes. */
+  casing:       ['exo', 'exo-plus', 'doubledown', 'dh',            // Maxxis
+                 'trail', 'enduro', 'downhill',                    // Continental
+                 'super-ground', 'super-trail', 'super-gravity', 'super-downhill'],   // Schwalbe (2026-07-07, schwalbetires.com)
+  compound:     ['dual', '3c-maxxterra', '3c-maxxgrip',            // Maxxis
+                 'endurance', 'soft', 'supersoft',                 // Continental
+                 'addix', 'addix-speedgrip', 'addix-soft', 'addix-ultra-soft'],       // Schwalbe
   /* disciplines (DATA-MODEL-REVIEW section 4): filter/annotation ONLY - it must
      NEVER feed checkBuild (a DH tire physically fits an enduro bike; structural
      DH constraints are real fields: crown/axle/steerer). Absence = universal.

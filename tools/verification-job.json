@@ -1,24 +1,18 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T13:12:11.287Z",
+ "updated": "2026-07-07T14:12:28.953Z",
  "batchSize": 25,
  "lastCompleted": "fr-ibis-hd6",
  "currentCategory": "tire",
  "queue": [
-  "ti-continental-kryptotal-29-24",
-  "ti-schwalbe-magic-mary-29-24",
-  "ti-schwalbe-big-betty-29-24",
   "ti-michelin-wild-enduro-mh-29-24",
   "ti-pirelli-scorpion-enduro-29-25",
-  "ti-continental-kryptotal-275-24",
   "ti-maxxis-high-roller-ii-29-24",
   "ti-maxxis-shorty-29-25",
   "ti-specialized-butcher-t9-29-23",
   "ti-schwalbe-hans-dampf-29-235",
-  "ti-continental-argotal-29-24",
   "ti-vittoria-mazza-29-24",
-  "ti-schwalbe-magic-mary-275-24",
   "ti-maxxis-aggressor-29-23",
   "ti-wtb-vigilante-29-25",
   "ti-wtb-judge-29-24",
@@ -420,22 +414,6 @@
    "source": "https://www.maxxis.com/us/tire/minion-dhr-ii/",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ti-continental-kryptotal-29-24": {
-   "cat": "tire",
-   "status": "InProgress",
-   "updated": "2026-07-06T21:04:20.097Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "ti-schwalbe-magic-mary-29-24": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
   "ti-maxxis-assegai-275-25-exop-mg": {
    "cat": "tire",
    "status": "Verified",
@@ -460,14 +438,6 @@
    "source": "https://www.maxxis.com/us/tire/minion-dhf/",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ti-schwalbe-big-betty-29-24": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
   "ti-michelin-wild-enduro-mh-29-24": {
    "cat": "tire",
    "status": "Pending",
@@ -477,14 +447,6 @@
    "note": null
   },
   "ti-pirelli-scorpion-enduro-29-25": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "ti-continental-kryptotal-275-24": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -532,23 +494,7 @@
    "source": null,
    "note": null
   },
-  "ti-continental-argotal-29-24": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
   "ti-vittoria-mazza-29-24": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "ti-schwalbe-magic-mary-275-24": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-06T16:27:03.851Z",
@@ -2763,6 +2709,54 @@
    "error": null,
    "source": null,
    "note": null
+  },
+  "ti-continental-kryptotal-fr-29-24-enduro-soft": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T13:43:00.448Z",
+   "error": null,
+   "source": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-continental-kryptotal-re-275-24-enduro-soft": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T13:43:00.449Z",
+   "error": null,
+   "source": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-continental-argotal-29-24-enduro-soft": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T13:43:00.449Z",
+   "error": null,
+   "source": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-schwalbe-magic-mary-29-24-sg-as": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T14:12:28.952Z",
+   "error": null,
+   "source": "https://www.schwalbetires.com/Magic-Mary",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-schwalbe-big-betty-29-24-st-as": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T14:12:28.952Z",
+   "error": null,
+   "source": "https://www.schwalbetires.com/Big-Betty",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-schwalbe-magic-mary-275-24-sg-as": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T14:12:28.952Z",
+   "error": null,
+   "source": "https://www.schwalbetires.com/Magic-Mary",
+   "note": "auto-promoted: already verified in catalog"
   }
  }
 }
