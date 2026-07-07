@@ -446,7 +446,7 @@ var PARTS = [
   { id:'sa-bontrager-arvada', cat:'saddle', brand:'Bontrager', model:'Arvada', family:'bontrager-arvada', price:80, weight:260 },
   { id:'sa-selleitalia-model-x', cat:'saddle', brand:'Selle Italia', model:'Model X', family:'selleitalia-model-x', price:90, weight:270 },
   { id:'sa-pnw-loam', cat:'saddle', brand:'PNW', model:'Loam', family:'pnw-loam', price:60, weight:265 },
-  { id:'sa-dmr-oioi', cat:'saddle', brand:'DMR', model:'OiOi', family:'dmr-oioi', price:40, weight:300 },
+  { id:'sa-dmr-oioi', cat:'saddle', brand:'DMR', model:'OiOi', family:'dmr-oioi', price:40, weight:270, verified:true, lastChecked:'2026-07-07', source:'https://dmrbikes.com/products/dmr-oioi-saddle' },
 
   /* PEDALS (sold in pairs; 9/16in thread fits every crank - no compat rules) */
   { id:'pd-oneup-aluminum', cat:'pedal', brand:'OneUp', model:'Aluminum Pedal', family:'oneup-aluminum', price:150, weight:386, style:'flat', verified:true, lastChecked:'2026-07-01', source:'https://www.oneupcomponents.com/products/aluminum-pedal' },
