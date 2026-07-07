@@ -462,10 +462,10 @@ var PARTS = [
   { id:'pd-dmr-vault', cat:'pedal', brand:'DMR', model:'Vault', family:'dmr-vault', price:180, weight:430, style:'flat', verified:true, lastChecked:'2026-07-07', source:'https://dmrbikes.com/products/dmr-vault-pedal' },
   { id:'pd-chromag-dagga', cat:'pedal', brand:'Chromag', model:'Dagga', family:'chromag-dagga', price:208, weight:480, style:'flat', verified:true, lastChecked:'2026-07-07', source:'https://us.chromagbikes.com/products/pedals-dagga' },
   { id:'pd-nukeproof-horizon-pro', cat:'pedal', brand:'Nukeproof', model:'Horizon Pro', family:'nukeproof-horizon', price:100, weight:430, style:'flat' },
-  { id:'pd-hope-f22', cat:'pedal', brand:'Hope', model:'F22', family:'hope-f22', price:260, weight:349, style:'flat' },
+  { id:'pd-hope-f22', cat:'pedal', brand:'Hope', model:'F22', family:'hope-f22', price:260, weight:360, style:'flat', verified:true, lastChecked:'2026-07-07', source:'https://www.hopetech.com/products/drivetrain/pedals/f22-flat-pedal/' },
   { id:'pd-ht-t2', cat:'pedal', brand:'HT', model:'T2', family:'ht-t2', price:135, weight:368, style:'clip' },
-  { id:'pd-pnw-loam', cat:'pedal', brand:'PNW', model:'Loam Pedal', family:'pnw-loam', price:99, weight:420, style:'flat' },
-  { id:'pd-crankbrothers-stamp-1', cat:'pedal', brand:'Crankbrothers', model:'Stamp 1 (composite)', family:'crankbrothers-stamp', price:60, weight:329, style:'flat' },
+  { id:'pd-pnw-loam', cat:'pedal', brand:'PNW', model:'Loam Pedal Gen 2', family:'pnw-loam', price:99, weight:420, style:'flat' },
+  { id:'pd-crankbrothers-stamp-1', cat:'pedal', brand:'Crankbrothers', model:'Stamp 1 Gen 2 (composite)', family:'crankbrothers-stamp', price:65, weight:348, style:'flat', verified:true, lastChecked:'2026-07-07', source:'https://www.crankbrothers.com/products/stamp-1-gen-2-large' },
 
   /* PRESETS (bundle price + bundle weight; fills maps slot -> component id) */
   { id:'gs-sram-gx-transmission', cat:'groupset', brand:'SRAM', model:'GX Eagle Transmission', family:'sram-gx-transmission', desc:'AXS . 12-spd . needs UDH frame', price:1099, fills:{ shifter:'sft-sram-gx-transmission', derailleur:'dr-sram-gx-transmission', cassette:'ca-sram-xs1275', chain:'ch-sram-gx-flattop', crankset:'cr-sram-x0-transmission' } },
