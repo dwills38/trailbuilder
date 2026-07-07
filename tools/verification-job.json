@@ -1,16 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T17:20:16.331Z",
+ "updated": "2026-07-07T17:57:17.868Z",
  "batchSize": 25,
- "lastCompleted": "ro-sram-hs2-220-6b",
- "currentCategory": "shock",
+ "lastCompleted": "fk-fox-38-factory-29-180",
+ "currentCategory": "fork",
  "queue": [
-  "sh-ohlins-ttx22-m2-230x65",
-  "sh-marzocchi-bomber-cr-230x65",
-  "fk-rockshox-zeb-ultimate-29-170",
-  "fk-fox-38-factory-29-170",
-  "fk-fox-38-factory-29-180",
   "fk-rockshox-lyrik-ultimate-29-160",
   "fk-marzocchi-bomber-z1-29-170",
   "fk-rockshox-zeb-ultimate-275-170",
@@ -792,11 +787,11 @@
   },
   "sh-ohlins-ttx22-m2-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T17:54:59.866Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Ohlins publishes no weight on the product page for this SKU; third-party reviews only give inconsistent, non-matching figures (450g damper-only stated generically for 'the TTX', 486g for a different size/mount 205x65 trunnion, 869g for a different stroke 230x60 incl. spring+hardware) -- no reputable measured weight for the exact 230x65 std-mount SKU without spring. Bar not met."
   },
   "sh-canecreek-kitsuma-coil-230x65": {
    "cat": "shock",
@@ -824,11 +819,11 @@
   },
   "sh-marzocchi-bomber-cr-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T17:54:59.915Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Marzocchi publishes no weight for this SKU. Third-party figures are inconsistent/unsourced for search-summary reads (824g for a different size 200x50 incl. spring per MBR; unverified 390g claims for 230x65 body-only with no fetchable source). No reputable measured weight found for the exact 230x65 SKU without spring. Bar not met."
   },
   "sh-dvo-jade-x-230x65": {
    "cat": "shock",
@@ -872,27 +867,27 @@
   },
   "fk-rockshox-zeb-ultimate-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T17:57:09.083Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar not met: RockShox's own model page (sram.com/en/rockshox/models/fs-zeb-ult-a3) only states a baseline weight tied to the 190mm-travel/Maxle-Stealth config, not a distinct 170mm figure; this is the same weight-ambiguity previously logged for this fork family (2550g page figure vs ~2100g cited elsewhere). Interfaces (axle Boost110, tapered steerer, PM, maxRotorF 220, minRotorF 200) match the manufacturer page and were left as-is -- already correct, no edit needed."
   },
   "fk-fox-38-factory-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T17:57:09.133Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar not met: ridefox.com product page only gives a starting-weight figure tied to a specific config (180mm/Grip X2/Kabolt-X), not a clean per-travel weight; the linked FOX spec-sheet detail is an image/PDF not extractable via fetch. Possible spec correction (NOT applied -- low confidence from a summarized fetch, needs a direct page read): brake mount may be '200mm direct PM, up to 230mm compatible' vs catalog's maxRotorF:220 -- flag for a follow-up session with real spec-sheet access, do not change without confirming."
   },
   "fk-fox-38-factory-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T17:57:09.183Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same as fk-fox-38-factory-29-170: no clean per-travel manufacturer weight fetchable; spec-sheet PDFs not extractable via WebFetch. Possible maxRotorF discrepancy (220 vs page's 'up to 230 compatible') flagged, not applied -- needs direct verification."
   },
   "fk-rockshox-lyrik-ultimate-29-160": {
    "cat": "fork",
