@@ -311,7 +311,7 @@ var PARTS = [
   { id:'cr-sram-gx-eagle', cat:'crankset', brand:'SRAM', model:'GX Eagle DUB', family:'sram-gx-eagle', gen:'B1', mfgPn:'FC-GX-1-B1', price:175, weight:621, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:52, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/fc-gx-1-b1' },
   { id:'cr-sram-x0-transmission', cat:'crankset', brand:'SRAM', model:'X0 Transmission DUB', family:'sram-x0-transmission', gen:'D1', mfgPn:'FC-X0-D1', price:330, weight:685, bb:'DUB', ring:32, ringStd:'t-type', speeds:12, chainline:55, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/fc-x0-d1' },
   { id:'cr-shimano-xt-m8100', cat:'crankset', brand:'Shimano', model:'XT M8100', family:'shimano-xt-m8100', price:200, weight:624, bb:'24mm', ring:32, ringStd:'standard-12', speeds:12, chainline:52 },
-  { id:'cr-raceface-aeffect-r', cat:'crankset', brand:'Race Face', model:'Aeffect R', family:'raceface-aeffect-r', price:160, weight:640, bb:'24mm', ringStd:null, speeds:12, chainline:52 },
+  { id:'cr-raceface-aeffect-r', cat:'crankset', brand:'Race Face', model:'Aeffect R', family:'raceface-aeffect-r', price:149, weight:632, bb:'24mm', ring:32, ringStd:'standard-12', speeds:12, chainline:52, verified:true, lastChecked:'2026-07-07', source:'https://www.raceface.com/products/aeffect-r-crankset' },
   { id:'cr-sram-x01-eagle', cat:'crankset', brand:'SRAM', model:'X01 Eagle DUB', family:'sram-x01-eagle', price:415, weight:615, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:52 },
   { id:'cr-shimano-slx-m7100', cat:'crankset', brand:'Shimano', model:'SLX M7100', family:'shimano-slx-m7100', price:130, weight:645, bb:'24mm', ring:32, ringStd:'standard-12', speeds:12, chainline:52 },
   { id:'cr-sram-xx-sl-transmission', cat:'crankset', brand:'SRAM', model:'XX SL Transmission DUB', family:'sram-xx-sl-transmission', price:500, weight:600, bb:'DUB', ring:32, ringStd:'t-type', speeds:12, chainline:55 },
@@ -319,7 +319,7 @@ var PARTS = [
   { id:'cr-shimano-xtr-m9100', cat:'crankset', brand:'Shimano', model:'XTR M9100', family:'shimano-xtr-m9100', price:400, weight:530, bb:'24mm', ring:32, ringStd:'standard-12', speeds:12, chainline:52 },
   { id:'cr-shimano-deore-m6100', cat:'crankset', brand:'Shimano', model:'Deore M6100', family:'shimano-deore-m6100', price:75, weight:685, bb:'24mm', ring:30, ringStd:'standard-12', speeds:12, chainline:52 },
   { id:'cr-ethirteen-plus', cat:'crankset', brand:'e*thirteen', model:'Plus', family:'ethirteen-plus', price:200, weight:640, bb:'p3', ring:32, ringStd:'standard-12', speeds:12, chainline:52 },
-  { id:'cr-canecreek-eewings-allmountain', cat:'crankset', brand:'Cane Creek', model:'eeWings AllMountain', family:'canecreek-eewings', price:500, weight:400, bb:'30mm', ringStd:null, speeds:12, chainline:52 },
+  { id:'cr-canecreek-eewings-allmountain', cat:'crankset', brand:'Cane Creek', model:'eeWings AllMountain', family:'canecreek-eewings', price:1250, weight:398, bb:'30mm', ringStd:null, speeds:12, chainline:52, verified:true, lastChecked:'2026-07-07', source:'https://www.canecreek.com/products/eewings' },
 
   /* BRAKES (single caliper+lever; usable front or rear) */
   { id:'bk-sram-code-rsc', cat:'brake', brand:'SRAM', model:'Code RSC', family:'sram-code', price:140, weight:290, mount:'PM', pistons:4, leverAccepts:['matchmaker'] },
@@ -342,7 +342,7 @@ var PARTS = [
   { id:'bk-trickstuff-maxima', cat:'brake', brand:'Trickstuff', model:'Maxima', family:'trickstuff-maxima', price:900, weight:280, mount:'PM', pistons:4 },
   { id:'bk-sram-db8', cat:'brake', brand:'SRAM', model:'DB8', family:'sram-db8', price:100, weight:320, mount:'PM', pistons:4 },
   { id:'bk-shimano-deore-m6120', cat:'brake', brand:'Shimano', model:'Deore M6120 4-piston', family:'shimano-deore-m6120', price:60, weight:315, mount:'PM', pistons:4, leverAccepts:['ispec-ev'] },
-  { id:'bk-magura-mt-trail-sport', cat:'brake', brand:'Magura', model:'MT Trail Sport', family:'magura-mt-trail', price:130, weight:290, mount:'PM', pistons:4 },
+  { id:'bk-magura-mt-trail-sport', cat:'brake', brand:'Magura', model:'MT Trail Sport', family:'magura-mt-trail', price:227, weight:255, desc:'255 g front, 230 g rear (2-piston) -- front figure used (Magura)', mount:'PM', pistons:4, verified:true, lastChecked:'2026-07-07', source:'https://magura.com/product/mt-trail-sport/' },
 
   /* ROTORS (usable front or rear) */
   { id:'ro-sram-hs2-200-6b', cat:'rotor', brand:'SRAM', model:'HS2 200mm', family:'sram-hs2', mfgPn:'RT-HS-2-A1', price:55, weight:206, size:200, mount:'sixbolt', desc:'weight = BikeRadar measured 200mm 6-bolt test sample (SRAM publishes no rotor weights); price = sample (SRAM lists a 60-75 USD range)', verified:true, lastChecked:'2026-07-07', source:'https://www.sram.com/en/sram/models/rt-hs-2-a1', sourceType:'measured', weightSource:'https://www.bikeradar.com/reviews/components/brakes/disc-brake-rotors/sram-hs2-disc-rotor-review' },

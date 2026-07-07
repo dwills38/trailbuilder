@@ -52,7 +52,11 @@ test('an HG cassette claiming a 10T cog is caught (HG floor is 11T)', function()
   some(probs(over('ca-sram-pg1230', { minCog:10 })), 'HG');
 });
 test('an armset-only crank (ringStd:null, no ring) is valid data', function(){
+  // Strip provenance fields: this test is about the ringStd:null/no-ring SHAPE,
+  // not about whichever verification date the live row happens to carry (which
+  // drifts as sessions verify parts with today's real date against the fixed TODAY above).
   var p = over('cr-canecreek-eewings-allmountain');
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.sourceType; delete p.weightSource;
   eq(probs(p).length, 0, 'eeWings row should validate');
 });
 test('a string chainline is caught (must be mm)', function(){

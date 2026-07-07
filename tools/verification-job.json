@@ -1,18 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T21:02:25.566Z",
+ "updated": "2026-07-07T21:07:55.564Z",
  "batchSize": 25,
- "lastCompleted": "cr-shimano-deore-m6100",
- "currentCategory": "brake",
- "queue": [
-  "bk-magura-mt-trail-sport",
-  "cr-raceface-aeffect-r",
-  "cr-sram-x01-eagle",
-  "cr-sram-xx-sl-transmission",
-  "cr-ethirteen-plus",
-  "cr-canecreek-eewings-allmountain"
- ],
+ "lastCompleted": "cr-ethirteen-plus",
+ "currentCategory": null,
+ "queue": [],
  "parts": {
   "fr-specialized-enduro-sworks": {
    "cat": "frame",
@@ -1768,11 +1761,11 @@
   },
   "bk-magura-mt-trail-sport": {
    "cat": "brake",
-   "status": "InProgress",
-   "updated": "2026-07-07T21:02:25.323Z",
+   "status": "Verified",
+   "updated": "2026-07-07T21:07:55.463Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://magura.com/product/mt-trail-sport/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-sram-hs2-200-6b": {
    "cat": "rotor",
@@ -2208,19 +2201,19 @@
   },
   "cr-raceface-aeffect-r": {
    "cat": "crankset",
-   "status": "InProgress",
-   "updated": "2026-07-07T21:02:25.371Z",
+   "status": "Verified",
+   "updated": "2026-07-07T21:07:55.464Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.raceface.com/products/aeffect-r-crankset",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-sram-x01-eagle": {
    "cat": "crankset",
-   "status": "InProgress",
-   "updated": "2026-07-07T21:02:25.421Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:07:55.464Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "sram.com model page (FC-X0-1-C3) has a full spec table but no weight field, consistent with SRAM's inconsistent crankset weight-publishing pattern. Bar not met."
   },
   "cr-shimano-slx-m7100": {
    "cat": "crankset",
@@ -2232,11 +2225,11 @@
   },
   "cr-sram-xx-sl-transmission": {
    "cat": "crankset",
-   "status": "InProgress",
-   "updated": "2026-07-07T21:02:25.471Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:07:55.519Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "sram.com pages for XX SL Transmission/Eagle SL cranksets emphasize marketing claims (lightest ISO-certified crank) but no numeric weight found on any model page. Bar not met."
   },
   "cr-sram-nx-eagle": {
    "cat": "crankset",
@@ -2264,19 +2257,19 @@
   },
   "cr-ethirteen-plus": {
    "cat": "crankset",
-   "status": "InProgress",
-   "updated": "2026-07-07T21:02:25.521Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:07:55.563Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "IMPORTANT: 'e13 Plus' doesn't match any current e*thirteen product as a standard pedal crankset. The closest name match, 'e*spec Plus Cranks', is actually an E-BIKE MOTOR-INTERFACE crank arm system (Bosch CX Gen4 / Brose S Mag / Shimano EP8 specific) with no chainring of its own -- structurally different from this catalog row (which has ring:32, ringStd:'standard-12', a normal pedal-bike spec). This looks like a data-entry mismatch, not just an unsourced part -- flag for a data-entry review rather than further weight sourcing."
   },
   "cr-canecreek-eewings-allmountain": {
    "cat": "crankset",
-   "status": "InProgress",
-   "updated": "2026-07-07T21:02:25.566Z",
+   "status": "Verified",
+   "updated": "2026-07-07T21:07:55.464Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/eewings",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-raaw-madonna-v3": {
    "cat": "frame",
