@@ -1,29 +1,15 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T21:00:57.132Z",
+ "updated": "2026-07-07T21:02:25.566Z",
  "batchSize": 25,
- "lastCompleted": "bk-sram-db8",
+ "lastCompleted": "cr-shimano-deore-m6100",
  "currentCategory": "brake",
  "queue": [
   "bk-magura-mt-trail-sport",
-  "dr-shimano-xt-m8100-sgs",
-  "dr-shimano-slx-m7100-sgs",
-  "dr-shimano-xtr-m9100-sgs",
-  "dr-shimano-deore-m6100-sgs",
-  "ca-shimano-slx-m7100-1051",
-  "ca-shimano-xtr-m9100-1051",
-  "ca-shimano-deore-m6100-1051",
-  "ch-shimano-xt-m8100",
-  "ch-shimano-xtr-m9100",
-  "ch-shimano-deore-m6100",
-  "cr-shimano-xt-m8100",
   "cr-raceface-aeffect-r",
   "cr-sram-x01-eagle",
-  "cr-shimano-slx-m7100",
   "cr-sram-xx-sl-transmission",
-  "cr-shimano-xtr-m9100",
-  "cr-shimano-deore-m6100",
   "cr-ethirteen-plus",
   "cr-canecreek-eewings-allmountain"
  ],
@@ -1782,8 +1768,8 @@
   },
   "bk-magura-mt-trail-sport": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "InProgress",
+   "updated": "2026-07-07T21:02:25.323Z",
    "error": null,
    "source": null,
    "note": null
@@ -2006,19 +1992,19 @@
   },
   "dr-shimano-xt-m8100-sgs": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:02:13.182Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "dr-shimano-slx-m7100-sgs": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:02:13.282Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "dr-sram-x0-transmission": {
    "cat": "derailleur",
@@ -2054,19 +2040,19 @@
   },
   "dr-shimano-xtr-m9100-sgs": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:02:13.382Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "dr-shimano-deore-m6100-sgs": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:02:13.481Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "dr-sram-gx-eagle-axs": {
    "cat": "derailleur",
@@ -2102,11 +2088,11 @@
   },
   "ca-shimano-slx-m7100-1051": {
    "cat": "cassette",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:02:13.582Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "ca-sram-xs1299": {
    "cat": "cassette",
@@ -2134,19 +2120,19 @@
   },
   "ca-shimano-xtr-m9100-1051": {
    "cat": "cassette",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:02:13.682Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "ca-shimano-deore-m6100-1051": {
    "cat": "cassette",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:02:13.782Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "ch-sram-gx-flattop": {
    "cat": "chain",
@@ -2166,11 +2152,11 @@
   },
   "ch-shimano-xt-m8100": {
    "cat": "chain",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:02:13.882Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "ch-sram-x01-eagle": {
    "cat": "chain",
@@ -2182,19 +2168,19 @@
   },
   "ch-shimano-xtr-m9100": {
    "cat": "chain",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:02:13.988Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "ch-shimano-deore-m6100": {
    "cat": "chain",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:02:14.084Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "cr-sram-gx-eagle": {
    "cat": "crankset",
@@ -2214,40 +2200,40 @@
   },
   "cr-shimano-xt-m8100": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:02:14.182Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "cr-raceface-aeffect-r": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "InProgress",
+   "updated": "2026-07-07T21:02:25.371Z",
    "error": null,
    "source": null,
    "note": null
   },
   "cr-sram-x01-eagle": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "InProgress",
+   "updated": "2026-07-07T21:02:25.421Z",
    "error": null,
    "source": null,
    "note": null
   },
   "cr-shimano-slx-m7100": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:02:14.282Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "cr-sram-xx-sl-transmission": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "InProgress",
+   "updated": "2026-07-07T21:02:25.471Z",
    "error": null,
    "source": null,
    "note": null
@@ -2262,32 +2248,32 @@
   },
   "cr-shimano-xtr-m9100": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:02:14.388Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "cr-shimano-deore-m6100": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:02:14.482Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "cr-ethirteen-plus": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "InProgress",
+   "updated": "2026-07-07T21:02:25.521Z",
    "error": null,
    "source": null,
    "note": null
   },
   "cr-canecreek-eewings-allmountain": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "InProgress",
+   "updated": "2026-07-07T21:02:25.566Z",
    "error": null,
    "source": null,
    "note": null
