@@ -147,8 +147,9 @@
       <option value="weight-desc">Weight: heavy → light</option>
     </select>
     <button class="btn" id="verifiedOnly" title="Show only parts verified against a manufacturer spec">✓ Verified only</button>
-    <button class="btn" id="demoGood">Sample build ✓</button>
-    <button class="btn" id="demoDeal">Frame+shock deal 📦</button>
+    <button class="btn" id="demoBudget">Budget build 💵</button>
+    <button class="btn" id="demoMid">Mid-range build ⚙️</button>
+    <button class="btn" id="demoHighEnd">High-end build 💎</button>
     <button class="btn" id="demoMullet">Mullet build 🐟</button>
     <button class="btn" id="demoBad">Show clashes ✗</button>
     <button class="btn" id="reset">Reset</button>
@@ -625,21 +626,32 @@
   function toast(msg){ var t=$('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},2200); }
 
   /* ---- demos ---- */
-  function loadGood(){
+  // Three price tiers, each a fully compatible build (0 errors/warnings) using real
+  // catalog prices and, where one exists, real bundle pricing. Picked and verified via
+  // checkBuild()/buildTotals() in a throwaway node script, not hand-guessed.
+  function loadBudget(){
+    build={ frame:'fr-raaw-madonna-v32',fork:'fk-srsuntour-durolux-r2c2-29-170',shock:'sh-rockshox-super-deluxe-205x65-trun',frontWheel:'fw-dtswiss-ex-1700-29',rearWheel:'rw-dtswiss-ex-1700-29',
+      frontTire:'ti-kenda-hellkat-29-24-aec-dl',rearTire:'ti-kenda-hellkat-29-24-aec-dl',shifter:'sft-sram-gx-eagle',derailleur:'dr-sram-gx-eagle',cassette:'ca-sram-xg1275',chain:'ch-sram-gx-eagle',crankset:'cr-sram-gx-eagle',
+      frontBrake:'bk-shimano-xt-m8120',rearBrake:'bk-shimano-xt-m8120',frontRotor:'ro-shimano-rtmt800-203-cl',rearRotor:'ro-shimano-rtmt800-203-cl',
+      handlebar:'hb-pnw-range-318',stem:'st-pnw-range-318',grips:'gr-pnw-loam',dropper:'dp-ethirteen-vario-infinite-316-180',saddle:'sa-dmr-oioi',pedals:'pd-oneup-composite' };
+    presetBy={ drivetrain:'gs-sram-gx-eagle', wheels:'ws-dtswiss-ex-1700-29', brakes:'bs-shimano-xt-m8120', cockpit:'co-pnw-range' };
+    sync(); toast('Budget build loaded — ~$5.9k, still fully compatible');
+  }
+  function loadMid(){
     build={ frame:'fr-santacruz-megatower-cc',fork:'fk-rockshox-zeb-ultimate-29-170',shock:'sh-rockshox-super-deluxe-ultimate-230x62p5',frontWheel:'fw-reserve-30-hd-29',rearWheel:'rw-reserve-30-hd-29',
       frontTire:'ti-maxxis-assegai-29-25-exop-mg',rearTire:'ti-maxxis-assegai-29-25-exop-mg',shifter:'sft-sram-gx-eagle',derailleur:'dr-sram-gx-eagle',cassette:'ca-sram-xg1275',chain:'ch-sram-gx-eagle',crankset:'cr-sram-gx-eagle',
       frontBrake:'bk-sram-code-rsc',rearBrake:'bk-sram-code-rsc',frontRotor:'ro-sram-hs2-200-6b',rearRotor:'ro-sram-hs2-200-6b',
       handlebar:'hb-renthal-fatbar-35',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',dropper:'dp-oneup-v3-316-210',saddle:'sa-wtb-volt',pedals:'pd-oneup-aluminum' };
     presetBy={ drivetrain:'gs-sram-gx-eagle', wheels:'ws-reserve-30-hd-29', brakes:'bs-sram-code-rsc', cockpit:'co-renthal-fatbar-apex' };
-    sync(); toast('Loaded a fully compatible build (kit pricing on)');
+    sync(); toast('Mid-range build loaded — ~$9.2k, kit pricing on');
   }
-  function loadDeal(){
-    build={ frame:'fr-specialized-enduro-sworks',shock:'sh-rockshox-vivid-ultimate-oem-205x60-trun',fork:'fk-rockshox-zeb-ultimate-29-170',frontWheel:'fw-roval-traverse-hd-29',rearWheel:'rw-roval-traverse-hd-29',
-      frontTire:'ti-maxxis-assegai-29-25-exop-mg',rearTire:'ti-maxxis-assegai-29-25-exop-mg',shifter:'sft-sram-gx-eagle',derailleur:'dr-sram-gx-eagle',cassette:'ca-sram-xg1275',chain:'ch-sram-gx-eagle',crankset:'cr-sram-gx-eagle',
-      frontBrake:'bk-sram-code-rsc',rearBrake:'bk-sram-code-rsc',frontRotor:'ro-sram-hs2-200-6b',rearRotor:'ro-sram-hs2-200-6b',
-      handlebar:'hb-renthal-fatbar-35',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',dropper:'dp-oneup-v3-349-210',saddle:'sa-wtb-volt',pedals:'pd-crankbrothers-mallet-enduro' };
-    presetBy={ drivetrain:'gs-sram-gx-eagle', wheels:'ws-roval-traverse-hd-29', brakes:'bs-sram-code-rsc', cockpit:'co-renthal-fatbar-apex' };
-    sync(); toast('Enduro with its package shock');
+  function loadHighEnd(){
+    build={ frame:'fr-yeti-sb160',fork:'fk-ext-era-v2-29-170',shock:'sh-push-elevensix-230x65',frontWheel:'fw-reserve-30-hd-29',rearWheel:'rw-reserve-30-hd-29',
+      frontTire:'ti-schwalbe-magic-mary-29-24-sg-as',rearTire:'ti-schwalbe-magic-mary-29-24-sg-as',shifter:'sft-sram-xx-sl-transmission',derailleur:'dr-sram-xx-transmission',cassette:'ca-sram-xs1299',chain:'ch-sram-gx-flattop',crankset:'cr-sram-xx-sl-transmission',
+      frontBrake:'bk-trickstuff-maxima',rearBrake:'bk-trickstuff-maxima',frontRotor:'ro-trickstuff-dachle-203-6b',rearRotor:'ro-trickstuff-dachle-203-6b',
+      handlebar:'hb-oneup-carbon-35',stem:'st-oneup-stem-35',grips:'gr-oneup-lockon',dropper:'dp-bikeyoke-revive-316-185',saddle:'sa-fizik-terra-aidon-x3',pedals:'pd-time-speciale-12-large' };
+    presetBy={ cockpit:'co-oneup-carbon' };
+    sync(); toast('High-end build loaded — ~$15.4k, wireless Transmission');
   }
   function loadBad(){
     build={ frame:'fr-specialized-enduro-sworks',fork:'fk-rockshox-zeb-ultimate-275-170',shock:'sh-rockshox-super-deluxe-205x65-trun',frontWheel:'fw-industrynine-enduro-s-29',rearWheel:'rw-industrynine-enduro-s-29',
@@ -661,7 +673,7 @@
   $('search').addEventListener('input', function(e){ search=e.target.value; renderCatalog(); });
   $('sortBy').onchange=function(){ sortBy=this.value; renderCatalog(); };
   $('verifiedOnly').onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary', verifiedOnly); renderCatalog(); };
-  $('demoGood').onclick=loadGood; $('demoDeal').onclick=loadDeal; $('demoMullet').onclick=loadMullet; $('demoBad').onclick=loadBad;
+  $('demoBudget').onclick=loadBudget; $('demoMid').onclick=loadMid; $('demoHighEnd').onclick=loadHighEnd; $('demoMullet').onclick=loadMullet; $('demoBad').onclick=loadBad;
   $('reset').onclick=function(){ build={}; presetBy={}; sync(); toast('Build cleared'); };
   $('share').onclick=function(){ writeHash(); var url=location.href;
     if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(
