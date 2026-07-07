@@ -76,6 +76,14 @@
  * @property {PartStatus} [status]         absent = current
  * @property {string} [supersededBy]       id of the newer generation (id-validated)
  * @property {SoldWithout[]} [soldWithout] what the quoted weight/price excludes
+ * @property {string} [image]              product photo URL — Phase 2, display-only, NEVER feeds checkBuild
+ * @property {string[]} [colors]           hex codes ('#1f6f4a') — display-only, NEVER feeds checkBuild
+ * @property {RetailerLink[]} [retailerLinks] display-only, NEVER feeds checkBuild
+ */
+
+/** @typedef {Object} RetailerLink
+ * @property {string} label
+ * @property {string} url
  */
 
 /* Frame is itself a discriminated union on `suspension` (mirrors the schema.js

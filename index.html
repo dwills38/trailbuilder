@@ -131,6 +131,11 @@
   .pm-tag{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:2px 9px;font-size:11px;color:var(--ink-soft)}
   .pm-placeholder{border:1px dashed var(--line);border-radius:9px;padding:14px;text-align:center;color:var(--ink-soft);font-size:12.5px}
   .pm-note{font-size:11.5px;color:var(--ink-soft);font-style:italic;margin:0}
+  .pm-swatch{width:16px;height:16px;border-radius:50%;border:1px solid var(--line);display:inline-block;vertical-align:middle;margin-right:4px}
+  .pm-photo{width:100%;max-height:260px;object-fit:cover;border-radius:9px;display:block}
+  .pm-retailers{display:flex;flex-direction:column;gap:6px}
+  .pm-retailer-link{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:9px;padding:8px 12px;font-size:12.5px;font-weight:600;color:var(--brand);text-decoration:none}
+  .pm-retailer-link:hover{border-color:var(--brand)}
 
   /* build comparison */
   dialog#compareModal{max-width:640px}
@@ -315,10 +320,11 @@
     <div id="pmProv"></div>
     <div id="pmIdentity" class="pm-identity"></div>
     <div id="pmTags" class="pm-tags"></div>
+    <div id="pmColors" class="pm-tags"></div>
     <div id="pmFields"></div>
     <p id="pmNote" class="pm-note" hidden></p>
-    <div class="pm-placeholder">📷 Product image — coming in a later phase</div>
-    <div class="pm-placeholder">🔗 Retailer links — coming in a later phase</div>
+    <div id="pmImage"></div>
+    <div id="pmRetailers"></div>
   </div>
   <div class="rm-foot">
     <button type="button" class="btn" id="pmClose">Close</button>
@@ -381,7 +387,8 @@
     diameter:'Post diameter (mm)',drop:'Drop (mm)',style:'Pedal style'
   };
   var PM_BLACKLIST = {id:1,cat:1,brand:1,model:1,price:1,weight:1,verified:1,lastChecked:1,source:1,sourceType:1,
-    weightSource:1,archiveUrl:1,desc:1,fills:1,status:1,supersededBy:1,disciplines:1,family:1,gen:1,mfgPn:1};
+    weightSource:1,archiveUrl:1,desc:1,fills:1,status:1,supersededBy:1,disciplines:1,family:1,gen:1,mfgPn:1,
+    image:1,colors:1,retailerLinks:1};
 
   var CAT_SLOTS = {};   SLOTS.forEach(function(s){ (CAT_SLOTS[s.cat] = CAT_SLOTS[s.cat] || []).push(s.key); });
   var SLOT_GROUP = {};  SLOTS.forEach(function(s){ SLOT_GROUP[s.key] = s.group; });
@@ -748,6 +755,9 @@
     if(p.mfgPn) idBits.push('mfg P/N: '+p.mfgPn);
     $('pmIdentity').textContent = idBits.join(' · ');
     $('pmTags').innerHTML = (p.disciplines||[]).map(function(d){ return '<span class="pm-tag">'+esc(d)+'</span>'; }).join('');
+    $('pmColors').innerHTML = (p.colors||[]).map(function(c){
+      return '<span class="pm-swatch" style="background:'+esc(c)+'" title="'+esc(c)+'"></span>';
+    }).join('');
     var rows = '<div class="pm-row"><span class="pm-k">Price</span><span class="pm-v">'+money(p.price)+'</span></div>';
     var w = partWeight(p);
     if(w!=null) rows += '<div class="pm-row"><span class="pm-k">Weight</span><span class="pm-v">'+w+' g</span></div>';
@@ -764,6 +774,14 @@
     $('pmFields').innerHTML = rows;
     if(p.desc && !p.fills){ $('pmNote').textContent = p.desc; $('pmNote').hidden = false; }   // kit desc is already shown as the spec line
     else { $('pmNote').hidden = true; }
+    $('pmImage').innerHTML = p.image
+      ? '<img class="pm-photo" src="'+esc(p.image)+'" alt="'+esc(p.brand+' '+p.model)+'" loading="lazy">'
+      : '<div class="pm-placeholder">📷 Product image — coming as more parts get one</div>';
+    $('pmRetailers').innerHTML = (p.retailerLinks && p.retailerLinks.length)
+      ? p.retailerLinks.map(function(r){
+          return '<a class="pm-retailer-link" href="'+esc(r.url)+'" target="_blank" rel="noopener noreferrer nofollow">'+esc(r.label)+' <span>↗</span></a>';
+        }).join('')
+      : '<div class="pm-placeholder">🔗 Retailer links — coming as more parts get one</div>';
     $('partModal').showModal();
   }
 

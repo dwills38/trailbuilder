@@ -173,6 +173,31 @@ test('a bogus archiveUrl is caught', function(){
   some(probs(over('fr-canyon-strive-cfr', { archiveUrl:'notaurl' })), 'archiveUrl');
 });
 
+/* ---- Phase 2 display-only fields: image / colors / retailerLinks ---- */
+test('a valid image/colors/retailerLinks part has no problems', function(){
+  var p = over('fr-santacruz-megatower-cc', {
+    image:'https://example.com/megatower.jpg',
+    colors:['#1f6f4a','#000'],
+    retailerLinks:[{label:'Competitive Cyclist', url:'https://example.com/buy'}]
+  });
+  eq(probs(p).length, 0);
+});
+test('a non-URL image is caught', function(){
+  some(probs(over('fr-santacruz-megatower-cc', { image:'not-a-url' })), 'image');
+});
+test('an empty colors array is caught', function(){
+  some(probs(over('fr-santacruz-megatower-cc', { colors:[] })), 'colors');
+});
+test('a non-hex colors value is caught', function(){
+  some(probs(over('fr-santacruz-megatower-cc', { colors:['forest green'] })), 'colors');
+});
+test('a retailerLinks entry missing url is caught', function(){
+  some(probs(over('fr-santacruz-megatower-cc', { retailerLinks:[{label:'REI'}] })), 'url');
+});
+test('a retailerLinks entry with an unknown key is caught', function(){
+  some(probs(over('fr-santacruz-megatower-cc', { retailerLinks:[{label:'REI', url:'https://example.com', price:100}] })), 'unknown key');
+});
+
 /* ---- lintCatalog: warn-only guards (never block entry, never ship a typo) */
 test('lint: a typo-sized rotor (2003mm) warns', function(){
   var bad = /** @type {any} */ (Object.assign({}, C.byId('ro-sram-hs2-200-6b'), { id:'ro-sram-hs2-2003-6b', size:2003 }));

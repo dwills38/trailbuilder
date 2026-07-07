@@ -203,7 +203,8 @@ var PRESET_CATS = ['groupset','wheelset','brakeset','cockpitset'];
    schema, template-mandatory for NEW rows (tools/DATA-ENTRY-TEMPLATE.md). */
 var COMMON = ['id','cat','brand','model','price','weight','desc','verified','lastChecked','source',
   'family','gen','modelYear','mfgPn','disciplines',
-  'sourceType','weightSource','archiveUrl','status','supersededBy','soldWithout'];
+  'sourceType','weightSource','archiveUrl','status','supersededBy','soldWithout',
+  'image','colors','retailerLinks'];
 
 /* Id convention (DATA-MODEL-REVIEW.md section 3.1): ids are APPEND-ONLY - never
    renamed, never reused; corrections retire the old id into ALIASES (compat.js).
@@ -237,6 +238,8 @@ function isBool(v){ return typeof v === 'boolean'; }
 function isObj(v){ return v && typeof v === 'object' && !Array.isArray(v); }
 /** @param {*} v @returns {boolean} */
 function urlOk(v){ return typeof v === 'string' && /^https?:\/\/.+/.test(v); }
+/** @param {*} v @returns {boolean} */
+function hexColorOk(v){ return typeof v === 'string' && /^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/.test(v); }
 /** @param {*} v @param {Date} today @returns {boolean} */
 function dateOk(v, today){
   if(typeof v !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(v)) return false;
@@ -316,6 +319,26 @@ function validatePart(p, ctx){
     if(!Array.isArray(p.disciplines) || p.disciplines.length === 0) bad('disciplines must be a non-empty array');
     else p.disciplines.forEach(function(/** @type {*} */ d){
       if(VOCAB.discipline.indexOf(d) < 0) bad('disciplines value "' + d + '" not in discipline [' + VOCAB.discipline.join(', ') + ']');
+    });
+  }
+
+  // Phase 2 display-only fields (DATA-MODEL-REVIEW roadmap): never feed
+  // checkBuild - a part with the wrong color or a dead retailer link still fits
+  // the same as one without either.
+  if('image' in p && p.image != null && !urlOk(p.image)) bad('image must be a valid http(s) URL');
+  if('colors' in p && p.colors != null){
+    if(!Array.isArray(p.colors) || p.colors.length === 0) bad('colors must be a non-empty array of hex codes');
+    else p.colors.forEach(function(/** @type {*} */ c){
+      if(!hexColorOk(c)) bad('colors value "' + c + '" must be a hex code like "#1f6f4a"');
+    });
+  }
+  if('retailerLinks' in p && p.retailerLinks != null){
+    if(!Array.isArray(p.retailerLinks) || p.retailerLinks.length === 0) bad('retailerLinks must be a non-empty array');
+    else p.retailerLinks.forEach(function(/** @type {*} */ r){
+      if(!isObj(r)) { bad('retailerLinks entries must be objects {label, url}'); return; }
+      if(!isStr(r.label)) bad('retailerLinks entry missing a non-empty "label"');
+      if(!urlOk(r.url)) bad('retailerLinks entry "' + (r.label||'?') + '" needs a valid http(s) "url"');
+      Object.keys(r).forEach(function(k){ if(k!=='label' && k!=='url') bad('retailerLinks entry has unknown key "' + k + '"'); });
     });
   }
 
