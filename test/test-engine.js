@@ -140,8 +140,18 @@ test('hardtail frame without a shock -> silent (no shock-fit noise)', function()
   bld.frame = hardtail();
   eq(C.checkBuild(bld).errors.length, 0);
 });
-test('dropper diameter mismatch (31.6 in a 34.9 frame) -> error', function(){
-  some(chk({frame:'fr-specialized-enduro-sworks', dropper:'dp-oneup-v3-316-210'}).errors, 'Dropper diameter');
+/* Rule 13 direction (REVIEW.md #9): bigger post in a smaller tube = physically
+   impossible; smaller post in a bigger tube = everyday reducing-shim build. */
+test('dropper bigger than the seat tube -> error (impossible direction)', function(){
+  some(chk({frame:'fr-santacruz-megatower-cc', dropper:'dp-oneup-v3-349-210'}).errors, 'Dropper too big');
+});
+test('smaller dropper in a bigger seat tube -> shim warning, not a false red', function(){
+  var r = chk({frame:'fr-specialized-enduro-sworks', dropper:'dp-oneup-v3-316-210'});
+  eq(r.errors.length, 0); some(r.warnings, 'reducing shim');
+});
+test('exact-diameter dropper -> silent', function(){
+  var r = chk({frame:'fr-santacruz-megatower-cc', dropper:'dp-oneup-v3-316-210'});
+  eq(r.errors.length, 0); eq(r.warnings.length, 0);
 });
 test('trunnion shock on a standard-mount frame -> mount error', function(){
   some(chk({frame:'fr-santacruz-megatower-cc', shock:'sh-rockshox-super-deluxe-205x65-trun'}).errors, 'mount');

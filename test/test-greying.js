@@ -110,6 +110,11 @@ test('a pre-existing warning does not turn an unrelated part yellow', function()
   // Build already warns (over-travel fork); a fitting shock adds nothing new.
   eq(stateOf({frame:'fr-canyon-strive-cfr', fork:'fk-fox-38-factory-29-180'}, 'sh-rockshox-vivid-ultimate-230x65'), 'g');
 });
+test('REVIEW #9: a smaller (shimable) dropper is YELLOW; a bigger one stays red', function(){
+  var c = C.compatOf(part('dp-pnw-loam-309-175'), B({frame:'fr-santacruz-megatower-cc'}));   // 30.9 in 31.6
+  eq(c.state, 'w'); some([c.reason], 'shim');
+  eq(stateOf({frame:'fr-canyon-strive-cfr'}, 'dp-oneup-v3-316-210'), 'r');                   // 31.6 in 30.9
+});
 test('REVIEW #7: on a mullet frame + SRAM cassette, the XD 27.5 rear wheel is green (the MicroSpline one stays honestly red)', function(){
   var bld = {frame:'fr-commencal-meta-sx-v5', cassette:'ca-sram-xs1275'};
   eq(stateOf(bld, 'rw-dtswiss-e-1900-275-xd'), 'g');

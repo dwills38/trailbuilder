@@ -110,7 +110,8 @@ AXS wireless) + T-Type chainring vs Transmission chain; SRAM Transmission needs 
 cassette range vs derailleur capacity; cassette freehub vs rear wheel; brake caliper mounts;
 rotor interface (6-bolt/Center Lock) vs hub; rotor size vs frame/fork max AND vs the fork's
 native-mount minimum (error; sourced forks only); steerer/headset;
-fork travel vs frame max; dropper diameter vs seat tube; tire width vs wheel clearance;
+fork travel vs frame max; dropper diameter vs seat tube (direction-aware: too big = error,
+smaller = reducing-shim warning); tire width vs wheel clearance;
 rear-tire width vs frame clearance (rule 18 — dormant until a frame declares `maxTire`);
 bar/stem clamp; rear-shock fit (eye-to-eye + mount + **direction-aware stroke**: longer stroke =
 error, shorter same-eye stroke = quantified less-travel warning; hardtail guard: a shock on a

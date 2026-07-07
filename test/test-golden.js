@@ -36,13 +36,16 @@ test('golden: Specialized Enduro + its package shock is compatible', function(){
 test('golden: RAAW Madonna build is fully compatible', function(){
   var r = chk(MADONNA); eq(r.errors.length, 0); eq(r.warnings.length, 0);
 });
-test('known-bad: the deliberate clash build reports 7 errors', function(){
+test('known-bad: the deliberate clash build reports 6 errors + the shim warning', function(){
   // After sourcing real frame specs (Enduro = Boost 148 + UDH + 205x60 trunnion),
   // the rear-axle, not-UDH and shock-mount clashes disappeared; what remains:
-  // front wheel size, drivetrain system, rotor interface x2, dropper diameter,
-  // bar/stem clamp, shock stroke too long (205x65 in a 205x60 frame - the
-  // over-rotation direction stays an error under the REVIEW #8 split).
-  eq(chk(CLASH).errors.length, 7);
+  // front wheel size, drivetrain system, rotor interface x2, bar/stem clamp,
+  // shock stroke too long (205x65 in a 205x60 frame - the over-rotation
+  // direction stays an error under the REVIEW #8 split). The 30.9-in-34.9
+  // dropper is the shimable direction, a WARNING since the REVIEW #9 split.
+  var r = chk(CLASH);
+  eq(r.errors.length, 6);
+  U.some(r.warnings, 'reducing shim');
 });
 
 var XT = { frame:'fr-santacruz-megatower-cc', fork:'fk-rockshox-zeb-ultimate-29-170', shock:'sh-rockshox-super-deluxe-ultimate-230x62p5', frontWheel:'fw-industrynine-enduro-s-29', rearWheel:'rw-industrynine-enduro-s-29', frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-29-25-exop-mg',

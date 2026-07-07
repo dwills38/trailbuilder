@@ -980,8 +980,18 @@ function checkBuild(build){
         warranty (REVIEW.md #6 wording fix). */
   if(fork && frame && fork.travel>frame.maxForkTravel) warn('fork-travel', ['fork','frame'], 'Fork travel: '+fork.travel+'mm exceeds the frame\'s rated max of '+frame.maxForkTravel+'mm.');
 
-  /* 13. Dropper diameter vs seat tube */
-  if(dropper && frame && dropper.diameter!==frame.seatTube) err('dropper-diameter', ['dropper','frame'], 'Dropper diameter mismatch: Frame seat tube is '+frame.seatTube+'mm but Dropper is '+dropper.diameter+'mm.');
+  /* 13. Dropper diameter vs seat tube - DIRECTION-AWARE (REVIEW.md #9): a
+        bigger post in a smaller tube is physically impossible (error); a
+        smaller post in a bigger tube is a common, shop-approved build with a
+        reducing shim (Problem Solvers / Wolf Tooth; PNW's own sizing guide
+        endorses shimming) -> warning naming the shim, not a false red. */
+  if(dropper && frame){
+    if(dropper.diameter>frame.seatTube){
+      err('dropper-diameter', ['dropper','frame'], 'Dropper too big: Frame seat tube is '+frame.seatTube+'mm but Dropper is '+dropper.diameter+'mm - a bigger post cannot fit a smaller tube.');
+    } else if(dropper.diameter<frame.seatTube){
+      warn('dropper-shim', ['dropper','frame'], 'Dropper shim needed: a '+dropper.diameter+'mm post in a '+frame.seatTube+'mm seat tube works with a '+frame.seatTube+'-to-'+dropper.diameter+'mm reducing shim (sold separately).');
+    }
+  }
 
   /* 14. Tire width vs wheel clearance (per wheel, warnings) */
   if(fTire && fW && fTire.width>fW.maxTire) warn('front-tire-rim', ['frontTire','frontWheel'], 'Front tire clearance: '+fTire.width+'in tire is wider than the front wheel\'s '+fW.maxTire+'in max.');
