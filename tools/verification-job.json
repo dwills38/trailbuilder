@@ -1,46 +1,26 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T15:07:36.569Z",
+ "updated": "2026-07-07T16:13:55.903Z",
  "batchSize": 25,
- "lastCompleted": "ti-specialized-butcher-t9-29-23",
+ "lastCompleted": "rw-hunt-enduro-wide-29",
  "currentCategory": "frontwheel",
  "queue": [
-  "fw-dtswiss-ex-1700-29",
-  "fw-reserve-30-hd-29",
-  "fw-industrynine-enduro-s-29",
   "fw-roval-traverse-hd-29",
-  "fw-dtswiss-e-1900-275",
-  "fw-hope-fortus-30-29",
   "fw-weareone-union-29",
-  "fw-enve-am30-29",
-  "fw-zipp-3zero-moto-29",
   "fw-newmen-advanced-sl-a30-29",
   "fw-stans-flow-ex3-29",
-  "fw-hunt-enduro-wide-29",
   "fw-spank-359-29",
   "fw-shimano-mt500-29",
-  "fw-raceface-turbine-sl-29",
   "fw-bontrager-line-pro-30-29",
   "fw-mavic-deemax-29",
   "fw-giant-trx-0-29",
-  "rw-dtswiss-ex-1700-29",
-  "rw-reserve-30-hd-29",
-  "rw-industrynine-enduro-s-29",
   "rw-roval-traverse-hd-29",
-  "rw-industrynine-enduro-s-29-157",
-  "rw-dtswiss-e-1900-275",
-  "rw-dtswiss-e-1900-275-xd",
-  "rw-hope-fortus-30-29",
   "rw-weareone-union-29",
-  "rw-enve-am30-29",
-  "rw-zipp-3zero-moto-29",
   "rw-newmen-advanced-sl-a30-29",
   "rw-stans-flow-ex3-29",
-  "rw-hunt-enduro-wide-29",
   "rw-spank-359-29",
   "rw-shimano-mt510-29",
-  "rw-raceface-turbine-sl-29",
   "rw-bontrager-line-pro-30-29",
   "rw-mavic-deemax-29",
   "rw-giant-trx-0-29",
@@ -459,25 +439,25 @@
   },
   "fw-dtswiss-ex-1700-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T15:59:07.938Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/support/product-support?matnr=WEX1700BEIXSA11691",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-reserve-30-hd-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T15:59:07.976Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "reservewheels.com/products/30-hd-carbon confirms interfaces (Boost 15x110, 6-bolt, 30mm internal, XD; set USD 1799) but publishes WHEELSET weight only (1791g DT350) - no per-wheel figure, weight bar not met. Interfaces match the catalog row; nothing to fix."
   },
   "fw-industrynine-enduro-s-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:02:54.645Z",
+   "error": "industrynine.com is a JS storefront (collection pages render 'No products found' to fetches, product URLs 404/redirect) and the Chrome extension blocks the domain - needs a browser session with industrynine.com allowed",
    "source": null,
    "note": null
   },
@@ -491,19 +471,19 @@
   },
   "fw-dtswiss-e-1900-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T15:51:10.944Z",
+   "error": "E 1900 SPLINE 27.5 matnrs in the search index (W0E1900BGIXSO07018 etc.) return 'no information on our website' - config retired; the live product page is a JS configurator and the extension blocks dtswiss.com. Needs a browser session with dtswiss.com allowed.",
    "source": null,
    "note": null
   },
   "fw-hope-fortus-30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T16:10:43.901Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_DATA_2019.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-weareone-union-29": {
    "cat": "frontwheel",
@@ -523,19 +503,19 @@
   },
   "fw-enve-am30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T16:13:38.016Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.enve.com/products/am30",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-zipp-3zero-moto-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T16:10:43.942Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "sram.com WH-MOTO-30-B1 confirms interfaces (15x110, 6-bolt, 30mm, XD offered; USD 950-1050) but publishes WHEELSET weight only (1965g lightest config) - no per-wheel figure. Interfaces match the row."
   },
   "fw-newmen-advanced-sl-a30-29": {
    "cat": "frontwheel",
@@ -555,11 +535,11 @@
   },
   "fw-hunt-enduro-wide-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T16:13:38.053Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "us.huntbikewheels.com publishes SET weight only (2105g, USD 649) - per-wheel bar not met. Interfaces confirmed (110x15, 6-bolt, XD/MicroSpline offered); CORRECTED intWidth 30->33 (mixed 33F/31R rims)."
   },
   "fw-spank-359-29": {
    "cat": "frontwheel",
@@ -579,9 +559,9 @@
   },
   "fw-raceface-turbine-sl-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:11:56.541Z",
+   "error": "raceface.com Turbine page returns ambiguous weights (29 'front 1829g/rear 1865g' - per-wheel impossible for 30mm alloy, likely per-set per config) and the current line is Turbine/Turbine R while the row says Turbine SL (XC line) - needs a judgment pass with clearer data + decide which platform this row should pin to",
    "source": null,
    "note": null
   },
@@ -611,25 +591,25 @@
   },
   "rw-dtswiss-ex-1700-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T15:51:10.875Z",
+   "error": "dtswiss.com product pages redirect-loop WebFetch and the Chrome extension blocks the domain; support pages work per matnr but only the Shimano-MicroSpline rear (1038g, WEX1700TED2SA11692) is indexed - the catalog row is the XD config, whose exact matnr/weight was not reachable. Interfaces confirmed (CL, 12/148, 30mm); retry to pin the Sram-variant weight.",
    "source": null,
    "note": null
   },
   "rw-reserve-30-hd-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T15:59:08.054Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "same page: wheelset weight only (1791g DT350), no per-wheel figure. Interfaces (Boost 12x148, XD, 6-bolt, 30mm) match the row."
   },
   "rw-industrynine-enduro-s-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:02:54.720Z",
+   "error": "same industrynine.com blocker",
    "source": null,
    "note": null
   },
@@ -643,27 +623,27 @@
   },
   "rw-industrynine-enduro-s-29-157": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:02:54.799Z",
+   "error": "same industrynine.com blocker (also confirm the Super Boost 157 option + freehub when reachable)",
    "source": null,
    "note": null
   },
   "rw-dtswiss-e-1900-275": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T15:51:11.023Z",
+   "error": "same E 1900 27.5 blocker (retired matnrs + JS configurator + domain blocked)",
    "source": null,
    "note": null
   },
   "rw-hope-fortus-30-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T16:10:43.902Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_DATA_2019.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-weareone-union-29": {
    "cat": "rearwheel",
@@ -683,19 +663,19 @@
   },
   "rw-enve-am30-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T16:13:38.017Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.enve.com/products/am30",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-zipp-3zero-moto-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T16:10:44.018Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "same WH-MOTO-30-B1 page: set weight only. Interfaces (12x148, XD, 6-bolt, 30mm) match the row."
   },
   "rw-newmen-advanced-sl-a30-29": {
    "cat": "rearwheel",
@@ -715,11 +695,11 @@
   },
   "rw-hunt-enduro-wide-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T16:13:38.132Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "same page: set weight only. Interfaces confirmed (148x12, 6-bolt, MicroSpline offered); CORRECTED intWidth 30->31."
   },
   "rw-spank-359-29": {
    "cat": "rearwheel",
@@ -739,9 +719,9 @@
   },
   "rw-raceface-turbine-sl-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:11:56.618Z",
+   "error": "same raceface.com ambiguity",
    "source": null,
    "note": null
   },
@@ -2611,9 +2591,9 @@
   },
   "rw-dtswiss-e-1900-275-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-07T13:12:11.287Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T15:51:11.093Z",
+   "error": "same E 1900 27.5 blocker (retired matnrs + JS configurator + domain blocked)",
    "source": null,
    "note": null
   },
