@@ -1,17 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T14:26:39.971Z",
+ "updated": "2026-07-07T14:36:37.232Z",
  "batchSize": 25,
- "lastCompleted": "ti-michelin-dh22-29-24",
- "currentCategory": "tire",
+ "lastCompleted": "ti-specialized-butcher-t9-29-23",
+ "currentCategory": "frontwheel",
  "queue": [
-  "ti-specialized-butcher-t9-29-23",
-  "ti-vittoria-mazza-29-24",
-  "ti-wtb-vigilante-29-25",
-  "ti-wtb-judge-29-24",
-  "ti-kenda-hellkat-29-24",
-  "ti-goodyear-newton-mtf-29-24",
   "fw-dtswiss-ex-1700-29",
   "fw-reserve-30-hd-29",
   "fw-industrynine-enduro-s-29",
@@ -449,49 +443,9 @@
   },
   "ti-specialized-butcher-t9-29-23": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "ti-vittoria-mazza-29-24": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "ti-wtb-vigilante-29-25": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "ti-wtb-judge-29-24": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "ti-kenda-hellkat-29-24": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "ti-goodyear-newton-mtf-29-24": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T14:29:03.896Z",
+   "error": "specialized.com bot-blocks WebFetch (known 403) and the Chrome extension disallows the domain - needs a browser session with specialized.com allowed",
    "source": null,
    "note": null
   },
@@ -2749,6 +2703,46 @@
    "updated": "2026-07-07T14:26:39.971Z",
    "error": null,
    "source": "https://www.maxxis.com/us/tire/aggressor/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-mazza-29-24-enduro-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T14:36:37.231Z",
+   "error": null,
+   "source": "https://vittoria.com/products/mazza-enduro",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-wtb-vigilante-29-25-sg2-tritec": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T14:36:37.231Z",
+   "error": null,
+   "source": "https://www.wtb.com/products/vigilante-sg1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-wtb-judge-29-24-sg1-tritec": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T14:36:37.231Z",
+   "error": null,
+   "source": "https://www.wtb.com/products/judge-sg1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-kenda-hellkat-29-24-aec-dl": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T14:36:37.231Z",
+   "error": null,
+   "source": "https://bicycle.kendatire.com/en-eu/find-a-tire/bicycle/mtb/hellkat/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-goodyear-newton-mtf-29-25-enduro-grip3s": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-07T14:36:37.231Z",
+   "error": null,
+   "source": "https://goodyearbike.com/products/newton-mtf",
    "note": "auto-promoted: already verified in catalog"
   }
  }

@@ -51,7 +51,11 @@ var LABELS = {
   endurance: 'Endurance', soft: 'Soft', supersoft: 'SuperSoft',
   'super-ground': 'Super Ground', 'super-trail': 'Super Trail', 'super-gravity': 'Super Gravity', 'super-downhill': 'Super Downhill',
   addix: 'ADDIX', 'addix-speedgrip': 'ADDIX Speedgrip', 'addix-soft': 'ADDIX Soft', 'addix-ultra-soft': 'ADDIX Ultra Soft',
-  hardwall: 'HardWALL', prowall: 'ProWALL', smartgrip: 'SmartGRIP', 'smartgrip-gravity': 'SmartGRIP Gravity'
+  hardwall: 'HardWALL', prowall: 'ProWALL', smartgrip: 'SmartGRIP', 'smartgrip-gravity': 'SmartGRIP Gravity',
+  '4c-graphene': '4C Graphene',
+  'tcs-light-sg2': 'TCS Light SG2', 'tcs-tough-sg1': 'TCS Tough SG1', tritec: 'TriTec',
+  atc: 'ATC (trail casing)', aec: 'AEC (enduro casing)', agc: 'AGC (gravity casing)',
+  'dual-layer': 'Dual Layer', grip3s: 'Grip3S'
 };
 /** @param {string} k @returns {string} */
 var L = function(k){ return (k in LABELS ? LABELS[k] : k); };
@@ -249,13 +253,17 @@ var PARTS = [
   { id:'ti-specialized-butcher-t9-29-23', cat:'tire', brand:'Specialized', model:'Butcher T9 29x2.3', family:'specialized-butcher', disciplines:['enduro'], price:75, weight:1150, wheel:'29', width:2.3 },
   { id:'ti-schwalbe-hans-dampf-29-235-sg-as', cat:'tire', brand:'Schwalbe', model:'Hans Dampf 29x2.35 Super Gravity ADDIX Soft', family:'schwalbe-hans-dampf', disciplines:['enduro'], price:108, weight:1165, wheel:'29', width:2.35, casing:'super-gravity', compound:'addix-soft', mfgPn:'11601109.01', verified:true, lastChecked:'2026-07-07', source:'https://www.schwalbetires.com/Hans-Dampf' },
   { id:'ti-continental-argotal-29-24-enduro-soft', cat:'tire', brand:'Continental', model:'Argotal 29x2.4 Enduro Soft', family:'continental-argotal', disciplines:['enduro'], price:80, weight:1165, wheel:'29', width:2.4, casing:'enduro', compound:'soft', mfgPn:'0150686', desc:'price = sample (Continental publishes EUR RRP only, no US MSRP)', verified:true, lastChecked:'2026-07-07', source:'https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf', sourceType:'manufacturer-doc' },
-  { id:'ti-vittoria-mazza-29-24', cat:'tire', brand:'Vittoria', model:'Mazza 29x2.4', family:'vittoria-mazza', disciplines:['enduro'], price:70, weight:1230, wheel:'29', width:2.4 },
+  { id:'ti-vittoria-mazza-29-24-enduro-4c', cat:'tire', brand:'Vittoria', model:'Mazza Enduro 29x2.4', family:'vittoria-mazza', disciplines:['enduro'], price:96.99, weight:1375, wheel:'29', width:2.4, casing:'enduro', compound:'4c-graphene', verified:true, lastChecked:'2026-07-07', source:'https://vittoria.com/products/mazza-enduro' },
   { id:'ti-schwalbe-magic-mary-275-24-sg-as', cat:'tire', brand:'Schwalbe', model:'Magic Mary 27.5x2.4 Super Gravity ADDIX Soft', family:'schwalbe-magic-mary', disciplines:['enduro'], price:108, weight:1205, wheel:'275', width:2.4, casing:'super-gravity', compound:'addix-soft', mfgPn:'11600511.03', verified:true, lastChecked:'2026-07-07', source:'https://www.schwalbetires.com/Magic-Mary' },
   { id:'ti-maxxis-aggressor-29-23-dd-dual', cat:'tire', brand:'Maxxis', model:'Aggressor 29x2.3 DD Dual', family:'maxxis-aggressor', disciplines:['enduro'], price:70, weight:1205, wheel:'29', width:2.3, casing:'doubledown', compound:'dual', mfgPn:'TB96882100', desc:'price = sample (maxxis.com spec table lists no MSRP)', verified:true, lastChecked:'2026-07-07', source:'https://www.maxxis.com/us/tire/aggressor/' },
-  { id:'ti-wtb-vigilante-29-25', cat:'tire', brand:'WTB', model:'Vigilante 29x2.5', family:'wtb-vigilante', disciplines:['enduro'], price:75, weight:1250, wheel:'29', width:2.5 },
-  { id:'ti-wtb-judge-29-24', cat:'tire', brand:'WTB', model:'Judge 29x2.4', family:'wtb-judge', disciplines:['enduro'], price:80, weight:1300, wheel:'29', width:2.4 },
-  { id:'ti-kenda-hellkat-29-24', cat:'tire', brand:'Kenda', model:'Hellkat 29x2.4', family:'kenda-hellkat', disciplines:['enduro'], price:65, weight:1280, wheel:'29', width:2.4 },
-  { id:'ti-goodyear-newton-mtf-29-24', cat:'tire', brand:'Goodyear', model:'Newton MTF 29x2.4', family:'goodyear-newton-mtf', disciplines:['enduro'], price:75, weight:1240, wheel:'29', width:2.4 },
+  { id:'ti-wtb-vigilante-29-25-sg2-tritec', cat:'tire', brand:'WTB', model:'Vigilante 29x2.5 TCS Light SG2', family:'wtb-vigilante', disciplines:['enduro'], price:75, weight:1107, wheel:'29', width:2.5, casing:'tcs-light-sg2', compound:'tritec', mfgPn:'W010-0922', desc:'price = sample (wtb.com shows a sale price, not MSRP)', verified:true, lastChecked:'2026-07-07', source:'https://www.wtb.com/products/vigilante-sg1' },
+  /* Judge pinned to the TCS Tough config: the Light SG2 weight is listed TBD
+     on wtb.com, so only the Tough config meets the weight bar. */
+  { id:'ti-wtb-judge-29-24-sg1-tritec', cat:'tire', brand:'WTB', model:'Judge 29x2.4 TCS Tough SG1', family:'wtb-judge', disciplines:['enduro'], price:80, weight:1621, wheel:'29', width:2.4, casing:'tcs-tough-sg1', compound:'tritec', mfgPn:'W010-1065', desc:'price = sample (wtb.com shows a sale price, not MSRP)', verified:true, lastChecked:'2026-07-07', source:'https://www.wtb.com/products/judge-sg1' },
+  { id:'ti-kenda-hellkat-29-24-aec-dl', cat:'tire', brand:'Kenda', model:'Hellkat 29x2.4 AEC', family:'kenda-hellkat', disciplines:['enduro'], price:65, weight:1075, wheel:'29', width:2.4, casing:'aec', compound:'dual-layer', mfgPn:'07785850', desc:'price = sample (kendatire.com lists no MSRP); weight = maker table 1075 +/- 54 g', verified:true, lastChecked:'2026-07-07', source:'https://bicycle.kendatire.com/en-eu/find-a-tire/bicycle/mtb/hellkat/' },
+  /* Goodyear makes NO 29x2.4 Newton MTF (2.5 only, per the fetched maker
+     table) - another fictional sample size, corrected with the pin. */
+  { id:'ti-goodyear-newton-mtf-29-25-enduro-grip3s', cat:'tire', brand:'Goodyear', model:'Newton MTF 29x2.5 Enduro', family:'goodyear-newton-mtf', disciplines:['enduro'], price:75, weight:1280, wheel:'29', width:2.5, casing:'enduro', compound:'grip3s', mfgPn:'GR.015.64.622.V004.R', desc:'price = sample (goodyearbike.com shows one line price, not per-SKU MSRP); size corrected from fictional 29x2.4', verified:true, lastChecked:'2026-07-07', source:'https://goodyearbike.com/products/newton-mtf' },
   { id:'ti-michelin-dh22-29-24', cat:'tire', brand:'Michelin', model:'DH22 29x2.4', family:'michelin-dh22', disciplines:['enduro'], price:85, weight:1400, wheel:'29', width:2.4 },
 
   /* DRIVETRAIN COMPONENTS */
@@ -608,13 +616,13 @@ var ALIASES = {
   'ti-butcher-29': 'ti-specialized-butcher-t9-29-23',
   'ti-hansdampf-29': 'ti-schwalbe-hans-dampf-29-235-sg-as',   // flattened
   'ti-argotal-29': 'ti-continental-argotal-29-24-enduro-soft',   // flattened
-  'ti-mazza-29': 'ti-vittoria-mazza-29-24',
+  'ti-mazza-29': 'ti-vittoria-mazza-29-24-enduro-4c',   // flattened
   'ti-mary-275': 'ti-schwalbe-magic-mary-275-24-sg-as',   // flattened
   'ti-aggressor-29': 'ti-maxxis-aggressor-29-23-dd-dual',   // flattened
-  'ti-vigilante-29': 'ti-wtb-vigilante-29-25',
-  'ti-judge-29': 'ti-wtb-judge-29-24',
-  'ti-hellkat-29': 'ti-kenda-hellkat-29-24',
-  'ti-newton-29': 'ti-goodyear-newton-mtf-29-24',
+  'ti-vigilante-29': 'ti-wtb-vigilante-29-25-sg2-tritec',   // flattened
+  'ti-judge-29': 'ti-wtb-judge-29-24-sg1-tritec',           // flattened
+  'ti-hellkat-29': 'ti-kenda-hellkat-29-24-aec-dl',              // flattened
+  'ti-newton-29': 'ti-goodyear-newton-mtf-29-25-enduro-grip3s',  // flattened
   'ti-dh22-29': 'ti-michelin-dh22-29-24',
   'sft-gx-t': 'sft-sram-gx-transmission',
   'sft-gx-m': 'sft-sram-gx-eagle',
@@ -825,7 +833,12 @@ var ALIASES = {
   'ti-pirelli-scorpion-enduro-29-25': 'ti-pirelli-scorpion-enduro-s-29-24-hw-sgg',
   'ti-maxxis-high-roller-ii-29-24': 'ti-maxxis-high-roller-ii-29-25-dd-mt',
   'ti-maxxis-shorty-29-25': 'ti-maxxis-shorty-29-24-dd-mg',
-  'ti-maxxis-aggressor-29-23': 'ti-maxxis-aggressor-29-23-dd-dual'
+  'ti-maxxis-aggressor-29-23': 'ti-maxxis-aggressor-29-23-dd-dual',
+  'ti-vittoria-mazza-29-24': 'ti-vittoria-mazza-29-24-enduro-4c',
+  'ti-wtb-vigilante-29-25': 'ti-wtb-vigilante-29-25-sg2-tritec',
+  'ti-wtb-judge-29-24': 'ti-wtb-judge-29-24-sg1-tritec',
+  'ti-kenda-hellkat-29-24': 'ti-kenda-hellkat-29-24-aec-dl',
+  'ti-goodyear-newton-mtf-29-24': 'ti-goodyear-newton-mtf-29-25-enduro-grip3s'
 };
 /** Resolve a possibly-legacy part id to its current catalog id.
  * @param {string|null|undefined} id @returns {string|null|undefined} */

@@ -24,13 +24,19 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
   warning). The REVIEW **Minors** are the remaining backlog.
   Verdicts are *self-consistent* — **not yet validated
   against the real world** (no expert review, no real riders).
-- **Data:** 329 parts across ~100 brands with **46 verified** against manufacturer pages —
+- **Data:** 329 parts across ~100 brands with **62 verified** against manufacturer pages/documents —
   verification is a **resumable checkpointed job** (`tools/verify-job.js` + `tools/VERIFY-PROTOCOL.md`;
   any session resumes via `npm run verify:status`). Verified so far: SRAM GX/X01/NX Eagle + most
   Transmission drivetrain parts, two RockShox shocks, a Shimano XT cassette, seven pedals, Synthesis
   wheels, four droppers, **six frames** (all three RAAW Madonnas, Commencal Meta SX V5, Canyon Strive
-  CFR, Forbidden Dreadnought), and **six Maxxis tires** (pinned to a stock casing/compound, since
-  Maxxis publishes per-SKU weights). The rear-tire-clearance rule (18) is **active on 8 frame models
+  CFR, Forbidden Dreadnought), and **the whole tire category — 19 tires across 8 brands**
+  (2026-07-07 batch: Continental from the maker's Tire Range 2025/26 PDF, Schwalbe from
+  schwalbetires.com's JS tables via a real browser session, Pirelli/Vittoria/WTB/Kenda/Goodyear
+  from their product pages; each pinned to ONE purchasable casing/compound SKU with new ids +
+  ALIASES. **The batch caught five fictional sample sizes** — Pirelli 29x2.5, Maxxis HR II 29x2.4 and
+  Shorty 29x2.5, Goodyear MTF 29x2.4 don't exist — and per-brand casing/compound vocab is now
+  enumerated in `VOCAB` for 8 brands. Michelin + Specialized tires sit in the retry queue:
+  JS-rendered/bot-blocked pages, need a browser session with those domains allowed). The rear-tire-clearance rule (18) is **active on 8 frame models
   (10 catalog entries)** with manufacturer-published clearances. The verification sweeps keep catching
   real spec bugs (Megatower runs 230x62.5 not 230x65; Dreadnought seatpost is 31.6 not 30.9; HD6 max
   rotor is 220 not 203) — **the lesson that keeps paying: search-result summaries lie; only a fetched

@@ -54,7 +54,7 @@ tests + type-checker; `validate.js` itself needs no dependencies).
 
 ```
 npm test            # full suite (Vitest) — expect "Tests  174 passed (174)"
-node validate.js    # data check — expect "DATA OK - 329 parts, 0 problems (46 verified, ...)"
+node validate.js    # data check — expect "DATA OK - 329 parts, 0 problems (62 verified, ...)"
 ```
 
 (`npm run validate` works too; `npm run test:watch` re-runs Vitest on save.) To run the
@@ -169,8 +169,8 @@ and that group reverts to summing components. `presetBy` maps groupKey → prese
 ## Provenance
 
 Parts may carry `verified: true` + `lastChecked: "YYYY-MM-DD"` + `source: "https://…"`.
-Absence = unverified (still the default for most of the catalog; **46 parts are verified so
-far**, all against manufacturer pages — the SRAM GX Eagle mechanical, X01/NX Eagle, and most
+Absence = unverified (still the default for most of the catalog; **62 parts are verified so
+far**, all against manufacturer pages/documents — the SRAM GX Eagle mechanical, X01/NX Eagle, and most
 GX/X0/XX Transmission drivetrain parts (the AXS pods have no clean model pages so they stay
 sample; the X01/GX-AXS derailleur and X01 crank pages list no weight, so they stay sample
 too), two RockShox shocks (the Super Deluxe Ultimate air + Vivid air), a Shimano XT cassette, six
@@ -178,8 +178,11 @@ frames — all three RAAW Madonnas (V2.2/V3/V3.2; RAAW publishes full spec sheet
 Commencal Meta SX V5 (tech page), the Canyon Strive CFR and the Forbidden Dreadnought —
 seven pedals (OneUp, Race Face, Crankbrothers, Time; Shimano pedal pages blocked fetching),
 the Crankbrothers Synthesis Enduro wheel pair, four droppers (OneUp V3, PNW Loam — both
-publish per-size weights), and six Maxxis tires (Maxxis publishes per-SKU weights; each
-pinned to a stock casing/compound)). **The verification grind
+publish per-size weights), and **the whole tire category — 19 tires across 8 brands**
+(Maxxis, Continental via its Tire Range PDF, Schwalbe via schwalbetires.com's tables,
+Pirelli, Vittoria, WTB, Kenda, Goodyear — each pinned to one purchasable casing/compound
+SKU; Michelin + Specialized sit in the retry queue: JS-rendered/bot-blocked pages)).
+**The verification grind
 is a resumable job: see `tools/VERIFY-PROTOCOL.md` + `npm run verify:status`.** The
 validator **refuses `verified: true` without a real source URL and a non-future date** — so
 "verified" always means something. When you actually confirm a spec against a manufacturer
@@ -226,9 +229,10 @@ The `✓ Verified only` filter in the app (built on `partVerified`) shows just t
    (`npm test`, config in `vitest.config.mjs`), and `.github/workflows/ci.yml` runs
    `validate` + `tests` + `typecheck` on every push / PR.
 4. 🚧 **Adding real, verified parts** (in progress — now a resumable checkpointed job: run
-   `npm run verify:status`, then follow `tools/VERIFY-PROTOCOL.md`): 46 verified so far — SRAM
+   `npm run verify:status`, then follow `tools/VERIFY-PROTOCOL.md`): 62 verified so far — SRAM
    GX/X01/NX Eagle and most Transmission drivetrain parts, two RockShox shocks, a Shimano XT
-   cassette, seven pedals, Synthesis wheels, four droppers, six Maxxis tires, and six frames
+   cassette, seven pedals, Synthesis wheels, four droppers, the whole tire category (19
+   tires, 8 brands; Michelin/Specialized in the retry queue), and six frames
    (all three RAAW Madonnas incl. the new V3/V3.2, the Commencal Meta SX V5, the Canyon Strive
    CFR and the Forbidden Dreadnought). All 21 frames' verdict-driving
    specs (axle, shock size/mount, UDH, BB, seat tube) are web-sourced; most frame makers publish

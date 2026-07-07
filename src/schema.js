@@ -80,11 +80,17 @@ var VOCAB = {
   casing:       ['exo', 'exo-plus', 'doubledown', 'dh',            // Maxxis
                  'trail', 'enduro', 'downhill',                    // Continental
                  'super-ground', 'super-trail', 'super-gravity', 'super-downhill',    // Schwalbe (2026-07-07, schwalbetires.com)
-                 'hardwall', 'prowall'],                           // Pirelli (2026-07-07, pirelli.com)
+                 'hardwall', 'prowall',                            // Pirelli (2026-07-07, pirelli.com)
+                 'tcs-light-sg2', 'tcs-tough-sg1',                 // WTB (2026-07-07, wtb.com)
+                 'atc', 'aec', 'agc'],                             // Kenda (2026-07-07, kendatire.com; Goodyear reuses trail/enduro/downhill)
   compound:     ['dual', '3c-maxxterra', '3c-maxxgrip',            // Maxxis
                  'endurance', 'soft', 'supersoft',                 // Continental
                  'addix', 'addix-speedgrip', 'addix-soft', 'addix-ultra-soft',        // Schwalbe
-                 'smartgrip', 'smartgrip-gravity'],                // Pirelli
+                 'smartgrip', 'smartgrip-gravity',                 // Pirelli
+                 '4c-graphene',                                    // Vittoria (casing reuses trail/enduro/downhill - Vittoria's own tier names)
+                 'tritec',                                         // WTB
+                 'dual-layer',                                     // Kenda
+                 'grip3s'],                                        // Goodyear
   /* disciplines (DATA-MODEL-REVIEW section 4): filter/annotation ONLY - it must
      NEVER feed checkBuild (a DH tire physically fits an enduro bike; structural
      DH constraints are real fields: crown/axle/steerer). Absence = universal.
