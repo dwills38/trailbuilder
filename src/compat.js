@@ -912,8 +912,8 @@ function checkBuild(build){
   /** @type {VerdictShape[]} */ var infos=[];
   /** @param {string} ruleId @param {string[]} slots @param {string} msg */
   function err(ruleId, slots, msg){ errors.push(new Verdict(ruleId, slots, msg)); }
-  /** @param {string} ruleId @param {string[]} slots @param {string} msg */
-  function warn(ruleId, slots, msg){ warnings.push(new Verdict(ruleId, slots, msg)); }
+  /** @param {string} ruleId @param {string[]} slots @param {string} msg @param {{kind: string, name: string}} [fix] */
+  function warn(ruleId, slots, msg, fix){ warnings.push(new Verdict(ruleId, slots, msg, fix)); }
   /** @param {string} ruleId @param {string[]} slots @param {string} msg */
   function info(ruleId, slots, msg){ infos.push(new Verdict(ruleId, slots, msg)); }
   /** @type {Build} */ var b = build || {};
@@ -939,6 +939,15 @@ function checkBuild(build){
     var configs = frame.wheelConfigs || [];
     var okCfg = configs.some(function(cfg){ var c=WHEEL_CONFIG[cfg]; return c && (!frontSize||frontSize===c.front) && (!rearSize||rearSize===c.rear); });
     if(!okCfg) err('wheel-config', ['frame'].concat(frontList.concat(rearList).map(function(s){ return s[2]; })), 'Unsupported wheel setup: '+nameOf(frame)+' supports '+configs.map(function(w){return L(w);}).join(' / ')+', but this build is front '+(frontSize?L(frontSize):'(any)')+' / rear '+(rearSize?L(rearSize):'(any)')+'.');
+  }
+  /* Frameless guard (REVIEW.md #18): with BOTH ends known and no frame picked,
+     reject a pair that satisfies no config in the model - a reverse mullet
+     (27.5 front / 29 rear) fits nothing in the model or in reality. A legit
+     in-progress mullet (29 front / 27.5 rear) matches 'mullet' and stays
+     silent - verified against every real config. */
+  if(!frame && frontSize && rearSize){
+    var anyCfg = Object.keys(WHEEL_CONFIG).some(function(cfg){ var c=WHEEL_CONFIG[cfg]; return frontSize===c.front && rearSize===c.rear; });
+    if(!anyCfg) err('wheel-config', frontList.concat(rearList).map(function(s){ return s[2]; }), 'Unsupported wheel setup: front '+L(frontSize)+' / rear '+L(rearSize)+' matches no configuration (29/29, 27.5/27.5, or mullet = 29 front / 27.5 rear).');
   }
 
   /* 2. Axles */
@@ -996,9 +1005,24 @@ function checkBuild(build){
   if(fBrake && fork && fBrake.mount!==fork.brakeMount) err('front-brake-mount', ['frontBrake','fork'], 'Front brake mount mismatch: Brake is '+L(fBrake.mount)+' but Fork is '+L(fork.brakeMount)+'.');
   if(rBrake && frame && rBrake.mount!==frame.brakeMount) err('rear-brake-mount', ['rearBrake','frame'], 'Rear brake mount mismatch: Brake is '+L(rBrake.mount)+' but Frame is '+L(frame.brakeMount)+'.');
 
-  /* 9. Rotor interface vs wheel hubs */
-  if(fRotor && fW && fRotor.mount!==fW.rotorMount) err('front-rotor-interface', ['frontRotor','frontWheel'], 'Front rotor interface mismatch: '+L(fRotor.mount)+' rotor on '+L(fW.rotorMount)+' front hub.');
-  if(rRotor && rW && rRotor.mount!==rW.rotorMount) err('rear-rotor-interface', ['rearRotor','rearWheel'], 'Rear rotor interface mismatch: '+L(rRotor.mount)+' rotor on '+L(rW.rotorMount)+' rear hub.');
+  /* 9. Rotor interface vs wheel hubs - DIRECTION-AWARE (REVIEW.md #10): a
+        6-bolt rotor mounts on a Center Lock hub with the hub maker's own
+        adapter (Shimano SM-RTAD05/RTAD10 - one-piece rotors only), an
+        everyday shop fix -> warning carrying the adapter as a structured
+        `fix` (the first use of the reserved adapter tier). The reverse -
+        a Center Lock rotor on a 6-bolt hub - has no adapter -> error. */
+  if(fRotor && fW && fRotor.mount!==fW.rotorMount){
+    if(fRotor.mount==='sixbolt' && fW.rotorMount==='CL')
+      warn('front-rotor-interface', ['frontRotor','frontWheel'], 'Front rotor: 6-bolt rotor on a Center Lock front hub needs a Center Lock adapter (e.g. Shimano SM-RTAD05; fits one-piece rotors only).', {kind:'adapter', name:'Shimano SM-RTAD05'});
+    else
+      err('front-rotor-interface', ['frontRotor','frontWheel'], 'Front rotor interface mismatch: '+L(fRotor.mount)+' rotor on '+L(fW.rotorMount)+' front hub - no adapter exists for this direction.');
+  }
+  if(rRotor && rW && rRotor.mount!==rW.rotorMount){
+    if(rRotor.mount==='sixbolt' && rW.rotorMount==='CL')
+      warn('rear-rotor-interface', ['rearRotor','rearWheel'], 'Rear rotor: 6-bolt rotor on a Center Lock rear hub needs a Center Lock adapter (e.g. Shimano SM-RTAD05; fits one-piece rotors only).', {kind:'adapter', name:'Shimano SM-RTAD05'});
+    else
+      err('rear-rotor-interface', ['rearRotor','rearWheel'], 'Rear rotor interface mismatch: '+L(rRotor.mount)+' rotor on '+L(rW.rotorMount)+' rear hub - no adapter exists for this direction.');
+  }
 
   /* 10. Rotor size vs frame/fork max (warnings) - plus MINIMUM vs the fork's
         native mount (error). Post-mount adapters only space the caliper UP, so
@@ -1076,9 +1100,14 @@ function checkBuild(build){
   }
   if(shock && shock.oemOnly){
     var hostIds = shock.forFrames || [];
-    if(!frame || hostIds.indexOf(frame.id)<0){
-      var hostNames = hostIds.map(function(id){ return nameOf(byId(id)); }).join(' / ');
-      err('oem-shock', frame ? ['shock','frame'] : ['shock'], 'OEM shock: the '+nameOf(shock)+' is only available bundled with the '+hostNames+' - it is not sold separately.');
+    var hostNames = hostIds.map(function(id){ return nameOf(byId(id)); }).join(' / ');
+    /* Frameless case downgrades to info, mirroring rule 4's convention (a
+       Transmission derailleur with no frame is an info, not a red) - the
+       build isn't wrong yet, it just needs the right frame (REVIEW.md #17). */
+    if(!frame){
+      info('oem-shock', ['shock'], 'Heads-up: the '+nameOf(shock)+' is OEM-only - it ships with the '+hostNames+' and is not sold separately, so plan on that frame.');
+    } else if(hostIds.indexOf(frame.id)<0){
+      err('oem-shock', ['shock','frame'], 'OEM shock: the '+nameOf(shock)+' is only available bundled with the '+hostNames+' - it is not sold separately.');
     }
   }
 

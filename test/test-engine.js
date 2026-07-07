@@ -20,6 +20,18 @@ test('mullet (29 front + 27.5 rear) is allowed on a mullet-capable frame', funct
 test('mullet is rejected on a 29-only frame', function(){
   some(chk({frame:'fr-santacruz-megatower-cc', fork:'fk-rockshox-zeb-ultimate-29-170', frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-dtswiss-e-1900-275', frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-minion-dhr-ii-275-24-exop-mt'}).errors, 'Unsupported wheel setup');
 });
+
+/* Rule 1 frameless guard (REVIEW.md #18): a reverse mullet satisfies no
+   config in the model or reality, even before a frame is picked. */
+test('frameless reverse-mullet (27.5 front / 29 rear) -> error', function(){
+  some(chk({fork:'fk-rockshox-zeb-ultimate-275-170', rearWheel:'rw-dtswiss-ex-1700-29'}).errors, 'matches no configuration');
+});
+test('frameless legit mullet-in-progress (29 front / 27.5 rear) stays silent', function(){
+  eq(chk({fork:'fk-rockshox-zeb-ultimate-29-170', rearWheel:'rw-dtswiss-e-1900-275'}).errors.length, 0);
+});
+test('frameless matching pair (29/29) stays silent', function(){
+  eq(chk({fork:'fk-rockshox-zeb-ultimate-29-170', rearWheel:'rw-dtswiss-ex-1700-29'}).errors.length, 0);
+});
 test('SuperBoost frame + Boost rear wheel -> rear axle error', function(){
   some(chk({frame:'fr-pivot-firebird', rearWheel:'rw-reserve-30-hd-29'}).errors, 'Rear axle');
 });
@@ -75,6 +87,22 @@ test('cassette bigger than derailleur capacity -> error', function(){
 });
 test('Center Lock rotor on a 6-bolt front hub -> interface error', function(){
   some(chk({fork:'fk-rockshox-zeb-ultimate-29-170', frontWheel:'fw-reserve-30-hd-29', frontRotor:'ro-shimano-rtmt800-203-cl'}).errors, 'rotor interface');
+});
+
+/* Rule 9 direction (REVIEW.md #10): 6-bolt-on-Center-Lock is an everyday
+   adapter fix (Shimano SM-RTAD05, one-piece rotors); the reverse has no
+   adapter. The adapter rides on the verdict as the first structured `fix`. */
+test('6-bolt rotor on a Center Lock hub -> adapter warning with a structured fix, not a red', function(){
+  var r = chk({frontWheel:'fw-dtswiss-ex-1700-29', frontRotor:'ro-sram-hs2-200-6b'});
+  eq(r.errors.length, 0);
+  some(r.warnings, 'Center Lock adapter');
+  var w = r.warnings.filter(function(v){ return v.ruleId === 'front-rotor-interface'; })[0];
+  eq(w && w.fix && w.fix.kind, 'adapter');
+  eq(w && w.fix && w.fix.name, 'Shimano SM-RTAD05');
+});
+test('6-bolt rotor on a Center Lock REAR hub -> same adapter warning', function(){
+  var r = chk({rearWheel:'rw-dtswiss-e-1900-275', rearRotor:'ro-sram-hs2-200-6b'});
+  eq(r.errors.length, 0); some(r.warnings, 'Center Lock adapter');
 });
 
 /* Rule 10 minimum (REVIEW.md #3). The ZEB/Domain have a 200mm-native post mount
@@ -174,6 +202,10 @@ test('eye-to-eye mismatch stays an error regardless of stroke', function(){
 });
 test('OEM shock cannot go on the wrong frame -> error', function(){
   some(chk({frame:'fr-santacruz-megatower-cc', shock:'sh-rockshox-vivid-ultimate-oem-205x60-trun'}).errors, 'OEM');
+});
+test('OEM shock with NO frame picked -> info, not a red (rule 4 frameless convention, REVIEW.md #17)', function(){
+  var r = chk({shock:'sh-rockshox-vivid-ultimate-oem-205x60-trun', fork:'fk-rockshox-zeb-ultimate-29-170'});
+  eq(r.errors.length, 0); some(r.infos, 'OEM-only');
 });
 test('package-only frame + a different (but fitting) shock -> warning, not error', function(){
   var r = chk({frame:'fr-specialized-enduro-sworks', shock:'sh-rockshox-super-deluxe-ultimate-205x60-trun'});

@@ -42,6 +42,13 @@ test('shared-cat rotor that fits front OR rear -> green', function(){
 test('Center Lock rotor with two 6-bolt wheels -> red', function(){
   eq(stateOf({frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-reserve-30-hd-29'}, 'ro-shimano-rtmt800-203-cl'), 'r');
 });
+test('6-bolt rotor with two Center Lock wheels -> YELLOW (adapter direction, REVIEW #10)', function(){
+  var c = C.compatOf(part('ro-sram-hs2-200-6b'), B({frontWheel:'fw-dtswiss-ex-1700-29', rearWheel:'rw-dtswiss-ex-1700-29'}));
+  eq(c.state, 'w'); some([c.reason], 'adapter');
+});
+test('OEM shock with no frame picked -> green dot + info, not red (REVIEW #17)', function(){
+  eq(stateOf({fork:'fk-rockshox-zeb-ultimate-29-170'}, 'sh-rockshox-vivid-ultimate-oem-205x60-trun'), 'g');
+});
 test('groupset preset red on a non-UDH frame', function(){
   eq(stateOf({frame:'fr-kona-process-153'}, 'gs-sram-gx-transmission'), 'r');
 });
