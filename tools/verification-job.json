@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T21:47:25.652Z",
+ "updated": "2026-07-07T22:00:41.600Z",
  "batchSize": 25,
- "lastCompleted": "cr-ethirteen-plus",
+ "lastCompleted": "rw-dtswiss-ex-1700-29",
  "currentCategory": null,
  "queue": [],
  "parts": {
@@ -346,8 +346,8 @@
   "fw-raceface-turbine-sl-29": {
    "cat": "frontwheel",
    "status": "Failed",
-   "updated": "2026-07-07T16:11:56.541Z",
-   "error": "raceface.com Turbine page returns ambiguous weights (29 'front 1829g/rear 1865g' - per-wheel impossible for 30mm alloy, likely per-set per config) and the current line is Turbine/Turbine R while the row says Turbine SL (XC line) - needs a judgment pass with clearer data + decide which platform this row should pin to",
+   "updated": "2026-07-07T21:57:25.367Z",
+   "error": "Confirmed Turbine SL is a real, current, 29in-only product (not a naming mismatch as previously flagged) -- au.raceface.com gives a wheelset-level weight (1635g, ambiguously worded 'per wheel' but almost certainly the pair total given the number) with no clean front/rear split found on any raceface.com regional page. Retains Failed status pending a front/rear breakdown.",
    "source": null,
    "note": null
   },
@@ -378,8 +378,8 @@
   "rw-dtswiss-ex-1700-29": {
    "cat": "rearwheel",
    "status": "Failed",
-   "updated": "2026-07-07T15:51:10.875Z",
-   "error": "dtswiss.com product pages redirect-loop WebFetch and the Chrome extension blocks the domain; support pages work per matnr but only the Shimano-MicroSpline rear (1038g, WEX1700TED2SA11692) is indexed - the catalog row is the XD config, whose exact matnr/weight was not reachable. Interfaces confirmed (CL, 12/148, 30mm); retry to pin the Sram-variant weight.",
+   "updated": "2026-07-07T22:00:41.599Z",
+   "error": "Retried: found a plausible matnr (WEX1700TED2SA11692) via search claiming SRAM XD, but the DT Swiss support page for it actually shows Shimano 12-Speed freehub (ASL12), not XD -- another search-summary-lies trap. The real XD matnr wasn't found (bike24's XD listing 403-blocks fetch). Interfaces stay as previously confirmed (CL, 12/148, 30mm); still needs the correct XD-specific matnr, ideally via a browser session on dtswiss.com's own configurator.",
    "source": null,
    "note": null
   },
