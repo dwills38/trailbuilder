@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T19:24:58.126Z",
+ "updated": "2026-07-07T19:38:33.066Z",
  "batchSize": 25,
- "lastCompleted": "ro-galfer-220-6b",
+ "lastCompleted": "ro-formula-220-6b",
  "currentCategory": "fork",
  "queue": [
   "fk-rockshox-lyrik-ultimate-29-160",
@@ -75,15 +75,6 @@
   "bk-sram-db8",
   "bk-shimano-deore-m6120",
   "bk-magura-mt-trail-sport",
-  "ro-magura-mdrp-203-6b",
-  "ro-shimano-rtmt900-220-cl",
-  "ro-shimano-smrt76-203-6b",
-  "ro-trp-203-6b",
-  "ro-magura-mdrp-220-6b",
-  "ro-hope-floating-220-6b",
-  "ro-sram-centerline-180-cl",
-  "ro-trickstuff-dachle-203-6b",
-  "ro-formula-220-6b",
   "sft-sram-gx-transmission",
   "sft-shimano-xt-m8100",
   "sft-shimano-slx-m7100",
@@ -1981,19 +1972,19 @@
   },
   "ro-magura-mdrp-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:38:32.651Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "magura.com's only fetchable MDR-P page is the CL (Center Lock) variant (226g@203mm) -- not a confirmed match for this 6-bolt SKU's weight; no dedicated 6-bolt manufacturer page found. Bar not met."
   },
   "ro-shimano-rtmt900-220-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:38:32.704Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Shimano's RT-MT900 (XTR) appears to top out at 203mm (140/160/180/203mm sizes found) -- no 220mm size turned up anywhere, manufacturer or retailer. Likely a nonexistent SKU in this catalog row; flag for a data-entry correction rather than guessing a weight for a size that may not exist."
   },
   "ro-sram-hs2-180-6b": {
    "cat": "rotor",
@@ -2005,59 +1996,59 @@
   },
   "ro-shimano-smrt76-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:38:32.754Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com page exists but wasn't fetched cleanly this session; third-party figures conflict (192g vs 209g depending on hardware). Bar not met."
   },
   "ro-trp-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:38:32.807Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "TRP's 203mm rotor line splits into several distinct models (TR25, TR33, TR42, TR43, RC04E, RS05E, RS06E) with weights ranging 196-242g -- this generic 'TRP 203mm' catalog row doesn't match any single real SKU. Bar not met without picking one first."
   },
   "ro-magura-mdrp-220-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:38:32.857Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same issue as the 203mm Magura sibling: only the CL variant page is fetchable, and it doesn't even list a 220mm size. Bar not met."
   },
   "ro-hope-floating-220-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:38:32.907Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Hope's floating-6-bolt page doesn't list a 220mm weight in fetched content (only partial data extracted); the tech-book PDF is unreadable via fetch. Bar not met."
   },
   "ro-sram-centerline-180-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:38:32.962Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "SRAM's own model page confirms the 180mm CL size exists but publishes no weight. Bar not met."
   },
   "ro-trickstuff-dachle-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:38:33.012Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "No weight found for this rotor anywhere; trickstuff.de's installation-instructions PDF is the only technical doc surfaced and wasn't extractable via fetch. Bar not met."
   },
   "ro-formula-220-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:38:33.065Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "formula-brake.com store connection reset on fetch; no other manufacturer source found. Bar not met."
   },
   "sft-sram-gx-transmission": {
    "cat": "shifter",
