@@ -1,17 +1,12 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T20:26:36.265Z",
+ "updated": "2026-07-07T20:29:49.812Z",
  "batchSize": 25,
- "lastCompleted": "hb-easton-haven-35",
- "currentCategory": "handlebar",
+ "lastCompleted": "st-hope-am-35",
+ "currentCategory": "stem",
  "queue": [
-  "hb-answer-protaper-35",
-  "hb-pro-tharsis-35",
-  "hb-truvativ-descendant-35",
   "st-nukeproof-horizon-35",
-  "st-hope-am-35",
-  "st-industrynine-a35",
   "st-thomson-elite-x4-318",
   "st-wolftooth-35",
   "st-funn-rsx-35",
@@ -1042,27 +1037,27 @@
   },
   "hb-answer-protaper-35": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:29:49.710Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "answerproducts.com's current ProTaper lineup (720 AM, 780 DH Expert, 685 XC/Trail) has no plain '35' model matching this generic catalog row's naming -- ambiguous which real SKU this represents. Bar not met without picking one first."
   },
   "hb-pro-tharsis-35": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:29:49.759Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "PRO's Tharsis line splits into many distinct SKUs (3Five Flat, 3Five Flat Top, 3Five Riser, 3Five Mini Rise, 3Five High Rise, EVO Riser) with weights from 130g up -- the generic 'Tharsis 35' catalog row doesn't match any single real product, and the specific riser page fetched 404s. Bar not met."
   },
   "hb-truvativ-descendant-35": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T20:29:49.709Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/truvativ/models/hb-desc-rc5-a1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-renthal-apex-35": {
    "cat": "stem",
@@ -1138,19 +1133,19 @@
   },
   "st-hope-am-35": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:29:49.812Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Hope's current stem lineup (Gravity, TR, XC, RX, Direct Mount) has no 'AM' stem -- only a 2014-dated instructions PDF turned up, suggesting this is a long-discontinued model with no live page to source from. Flag for a data-entry decision."
   },
   "st-industrynine-a35": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T20:29:49.710Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/mt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-thomson-elite-x4-318": {
    "cat": "stem",
