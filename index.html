@@ -107,8 +107,8 @@
   .report-cta{margin-top:10px;text-align:right}
   .report-cta button{border:none;background:none;color:var(--ink-soft);font-size:12px;cursor:pointer;text-decoration:underline;padding:4px 2px;font-weight:600}
   .report-cta button:hover{color:var(--err)}
-  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
-  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop{background:rgba(18,28,22,.45)}
+  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop{background:rgba(18,28,22,.45)}
   .rm-head{padding:18px 20px 4px}
   .rm-head h2{margin:0 0 5px;font-size:18px}
   .rm-head p{margin:0;font-size:13px;color:var(--ink-soft)}
@@ -147,6 +147,9 @@
 
   /* build comparison */
   dialog#compareModal{max-width:640px}
+  dialog#specCardModal{max-width:680px}
+  .sc-preview-wrap{border:1px solid var(--line);border-radius:9px;overflow:hidden;line-height:0}
+  .sc-preview-wrap svg{width:100%;height:auto;display:block}
   .cmp-row{display:grid;grid-template-columns:100px 1fr 1fr;gap:10px;font-size:12.5px;padding:5px 0;border-bottom:1px dashed #eef0ec;align-items:baseline}
   .cmp-row.cmp-head{font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.3px;color:var(--ink-soft);border-bottom:1px solid var(--line)}
   .cmp-row .cmp-k{color:var(--ink-soft);font-size:11px;text-transform:uppercase;letter-spacing:.3px}
@@ -249,6 +252,7 @@
           <div class="wrow" id="radRow" hidden><span class="muted">🤘 Radness</span><span id="radLabel" class="muted">&mdash;</span></div>
           <div class="meter" id="radMeterWrap" hidden><i id="radBar"></i></div>
           <button type="button" class="btn primary viewbuild" id="viewBuild" hidden>📋 View complete build</button>
+          <button type="button" class="btn viewbuild" id="shareImageBtn" hidden>🖼️ Spec-card image</button>
         </div>
       </div>
     </aside>
@@ -357,6 +361,20 @@
   </div>
 </dialog>
 
+<dialog id="specCardModal" aria-labelledby="scTitle">
+  <div class="rm-head">
+    <h2 id="scTitle">🖼️ Spec-card image</h2>
+    <p>A shareable graphic of your build — download it to post or send. Specs are illustrative sample data unless a part shows ✓ Verified in the app.</p>
+  </div>
+  <div class="rm-body">
+    <div id="scPreviewWrap" class="sc-preview-wrap"></div>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="scClose">Close</button>
+    <button type="button" class="btn primary" id="scDownload">Download PNG</button>
+  </div>
+</dialog>
+
 <script src="src/compat.js"></script>
 <script>
 (function(){
@@ -390,9 +408,11 @@
     saddle: '<path d="M9,29 Q9,17 24,15 Q39,17 39,25 Q39,31 30,33 L15,33 Q9,32 9,29 Z M17,33 L17,40 M31,33 L31,40"/>',
     pedals: '<rect x="9" y="20" width="30" height="8" rx="2"/><circle cx="24" cy="24" r="3"/><path d="M13,20 L13,16 M19,20 L19,16 M29,20 L29,16 M35,20 L35,16"/>'
   };
-  function placeholderIcon(groupKey){
+  function placeholderIcon(groupKey, color){
     var inner = PLACEHOLDER_PATHS[groupKey] || PLACEHOLDER_PATHS.frame;
-    return '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">'+inner+'</svg>';
+    // color defaults to currentColor for in-page use; the spec-card export passes
+    // a fixed hex since a standalone serialized SVG has no CSS "color" to inherit
+    return '<svg viewBox="0 0 48 48" fill="none" stroke="'+(color||'currentColor')+'" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">'+inner+'</svg>';
   }
   var CATLABEL = {frame:'Frame',fork:'Fork',shock:'Rear Shock',frontwheel:'Front Wheel',rearwheel:'Rear Wheel',
     tire:'Tires',shifter:'Shifter',derailleur:'Derailleur',cassette:'Cassette',chain:'Chain',crankset:'Crankset',
@@ -627,6 +647,7 @@
     $('countLabel').textContent = filled+' of '+required.length+' required parts chosen';
     $('meterBar').style.width = Math.round(filled/required.length*100)+'%';
     $('viewBuild').hidden = (filled !== required.length);   // appears once the build is complete
+    $('shareImageBtn').hidden = (Object.keys(build).length === 0);   // works on a partial build too
     renderRadness(res, t, filled);
   }
 
@@ -869,6 +890,84 @@
     $('cmpResult').innerHTML = rows;
   }
 
+  /* ---- spec-card share image (Phase 4, "start here" per the roadmap) — a
+     self-contained SVG (fixed hex colors, not CSS vars — it has to look right
+     serialized outside the page) rasterized client-side to a PNG download. */
+  function scTruncate(s, n){ return s.length > n ? s.slice(0, n-1)+'…' : s; }
+  function scRow(x, y, g, res){
+    var bundle = (g.preset && bundleActive(g, res, presetBy)) ? byId(presetBy[g.key]) : null;
+    var anyFilled = g.slots.some(function(s){ return res[s.key]; });
+    if(!anyFilled) return '';
+    var text = bundle ? (bundle.brand+' '+bundle.model)
+      : g.slots.map(function(s){ var p=res[s.key]; return p ? (p.brand+' '+p.model) : null; }).filter(Boolean).join(' / ');
+    text = scTruncate(text, 42) + (bundle ? ' (kit)' : '');
+    var icon = placeholderIcon(g.key, '#1f6f4a').replace('<svg ', '<svg width="20" height="20" ');
+    return '<circle cx="'+(x+18)+'" cy="'+(y+18)+'" r="18" fill="#e7f5ec"/>'
+      + '<g transform="translate('+(x+8)+','+(y+8)+')">'+icon+'</g>'
+      + '<text x="'+(x+46)+'" y="'+(y+14)+'" font-size="10.5" font-weight="700" letter-spacing=".5" fill="#8a948c" font-family="system-ui,Arial,sans-serif">'+esc(g.label.toUpperCase())+'</text>'
+      + '<text x="'+(x+46)+'" y="'+(y+31)+'" font-size="15" font-weight="700" fill="#1c2321" font-family="system-ui,Arial,sans-serif">'+esc(text)+'</text>';
+  }
+  function buildSpecCardSvg(){
+    var res = resolved(), t = buildTotals(res, presetBy), r = checkBuild(res);
+    var verdict = r.errors.length ? { label:(r.errors.length+' problem'+(r.errors.length>1?'s':'')), bg:'#fbeaea', fg:'#c23b3b' }
+      : r.warnings.length ? { label:(r.warnings.length+' thing'+(r.warnings.length>1?'s':'')+' to check'), bg:'#fdf3e1', fg:'#b9791b' }
+      : { label:'No conflicts found', bg:'#e7f5ec', fg:'#1f8a4c' };
+    var W=1200, H=630, colX=[40,620], rowH=68, startY=150;
+    var col=0, row=0, rowsHtml='';
+    GROUPS.forEach(function(g){
+      var html = scRow(colX[col], startY+row*rowH, g, res);
+      if(!html) return;
+      rowsHtml += html; row++;
+      if(row>=6){ row=0; col=1; }
+    });
+    if(!rowsHtml){
+      rowsHtml = '<text x="'+(W/2)+'" y="'+(H/2)+'" font-size="18" fill="#9aa39b" text-anchor="middle" font-family="system-ui,Arial,sans-serif">Pick some parts, then come back for your spec card</text>';
+    }
+    var weightText = t.weight ? ((t.weight/1000).toFixed(2)+' kg / '+(t.weight/453.592).toFixed(1)+' lb') : '—';
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'">'
+      + '<defs><linearGradient id="scHdr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16523a"/><stop offset="1" stop-color="#1f6f4a"/></linearGradient></defs>'
+      + '<rect width="'+W+'" height="'+H+'" fill="#f6f7f4"/>'
+      + '<rect width="'+W+'" height="96" fill="url(#scHdr)"/>'
+      + '<text x="40" y="44" font-size="26" font-weight="800" fill="#fff" font-family="system-ui,Arial,sans-serif">🚵 TrailBuilder</text>'
+      + '<text x="40" y="72" font-size="14" fill="rgba(255,255,255,.85)" font-family="system-ui,Arial,sans-serif">My enduro build — dwills38.github.io/trailbuilder</text>'
+      + '<rect x="'+(W-280)+'" y="30" width="240" height="36" rx="18" fill="'+verdict.bg+'"/>'
+      + '<text x="'+(W-160)+'" y="53" font-size="14" font-weight="800" fill="'+verdict.fg+'" text-anchor="middle" font-family="system-ui,Arial,sans-serif">'+esc(verdict.label)+'</text>'
+      + rowsHtml
+      + '<line x1="0" y1="'+(H-70)+'" x2="'+W+'" y2="'+(H-70)+'" stroke="#e3e6e2"/>'
+      + '<text x="40" y="'+(H-30)+'" font-size="13" fill="#566058" font-family="system-ui,Arial,sans-serif">SAMPLE TOTAL</text>'
+      + '<text x="40" y="'+(H-8)+'" font-size="26" font-weight="800" fill="#1c2321" font-family="system-ui,Arial,sans-serif">'+esc(money(t.price))+'</text>'
+      + '<text x="260" y="'+(H-30)+'" font-size="13" fill="#566058" font-family="system-ui,Arial,sans-serif">EST. WEIGHT</text>'
+      + '<text x="260" y="'+(H-8)+'" font-size="20" font-weight="700" fill="#1c2321" font-family="system-ui,Arial,sans-serif">'+esc(weightText)+'</text>'
+      + '<text x="'+(W-40)+'" y="'+(H-24)+'" font-size="12" fill="#9aa39b" text-anchor="end" font-family="system-ui,Arial,sans-serif">Sample data unless a part shows ✓ Verified</text>'
+      + '</svg>';
+  }
+  function openSpecCardModal(){
+    $('scPreviewWrap').innerHTML = buildSpecCardSvg();
+    $('specCardModal').showModal();
+  }
+  function downloadSpecCard(){
+    var svgEl = $('scPreviewWrap').querySelector('svg');
+    if(!svgEl) return;
+    var svgStr = new XMLSerializer().serializeToString(svgEl);
+    var url = URL.createObjectURL(new Blob([svgStr], {type:'image/svg+xml;charset=utf-8'}));
+    var img = new Image();
+    img.onload = function(){
+      var canvas = document.createElement('canvas');
+      canvas.width = 1200; canvas.height = 630;
+      canvas.getContext('2d').drawImage(img, 0, 0, 1200, 630);
+      URL.revokeObjectURL(url);
+      canvas.toBlob(function(blob){
+        if(!blob){ toast('Could not render the image in this browser.'); return; }
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob); a.download = 'trailbuilder-build.png';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        toast('Spec-card image downloaded');
+      });
+    };
+    img.onerror = function(){ toast('Could not render the image — try a different browser.'); };
+    img.src = url;
+  }
+
   function sync(){ renderCatalog(); renderPanel(); renderReport(); writeHash(); }
 
   /* ---- share / restore (build + presetBy) ---- */
@@ -965,6 +1064,11 @@
   $('cmpInput').addEventListener('keydown', function(e){ if(e.key==='Enter') runCompare(); });
   $('cmpClose').onclick=function(){ $('compareModal').close(); };
   $('compareModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
+
+  $('shareImageBtn').onclick=openSpecCardModal;
+  $('scClose').onclick=function(){ $('specCardModal').close(); };
+  $('scDownload').onclick=downloadSpecCard;
+  $('specCardModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
 
   $('reportBtn').onclick=openReport;
   $('reportCancel').onclick=function(){ $('reportModal').close(); };
