@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T18:41:38.483Z",
+ "updated": "2026-07-07T18:44:15.068Z",
  "batchSize": 25,
- "lastCompleted": "st-burgtec-enduro-mk3-35",
+ "lastCompleted": "gr-odi-elite-pro",
  "currentCategory": "fork",
  "queue": [
   "fk-rockshox-lyrik-ultimate-29-160",
@@ -41,11 +41,6 @@
   "st-funn-rsx-35",
   "st-straitline-35",
   "st-pro-tharsis-35",
-  "gr-oneup-lockon",
-  "gr-esi-chunky",
-  "gr-pnw-loam",
-  "gr-odi-elite-pro",
-  "gr-ergon-ge1-evo",
   "gr-dmr-deathgrip",
   "gr-chromag-squarewave",
   "gr-sensus-swayze",
@@ -1283,43 +1278,43 @@
   },
   "gr-oneup-lockon": {
    "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T18:44:15.067Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.oneupcomponents.com/products/grips",
+   "note": "auto-promoted: already verified in catalog"
   },
   "gr-esi-chunky": {
    "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T18:44:15.067Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://esigrips.com/products/chunky",
+   "note": "auto-promoted: already verified in catalog"
   },
   "gr-pnw-loam": {
    "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T18:44:15.067Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.pnwcomponents.com/products/loam-grips",
+   "note": "auto-promoted: already verified in catalog"
   },
   "gr-odi-elite-pro": {
    "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T18:44:15.067Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "ODI's own product page lists no weight. Third-party figures (BikeRadar/MBR-derived 102g) are ambiguous about whether that's per-grip or per-pair -- a 2x difference that matters, and no fetched page disambiguates it. Bar not met."
   },
   "gr-ergon-ge1-evo": {
    "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T18:44:15.067Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ergonbike.shop/products/ergon-ge1-evo",
+   "note": "auto-promoted: already verified in catalog"
   },
   "gr-dmr-deathgrip": {
    "cat": "grips",
