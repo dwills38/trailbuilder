@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T16:59:31.185Z",
+ "updated": "2026-07-07T17:20:16.331Z",
  "batchSize": 25,
- "lastCompleted": "sh-manitou-mara-pro-230x65",
+ "lastCompleted": "ro-sram-hs2-220-6b",
  "currentCategory": "shock",
  "queue": [
   "sh-ohlins-ttx22-m2-230x65",
@@ -137,8 +137,6 @@
   "bk-sram-db8",
   "bk-shimano-deore-m6120",
   "bk-magura-mt-trail-sport",
-  "ro-sram-hs2-200-6b",
-  "ro-sram-hs2-220-6b",
   "ro-shimano-rtmt800-203-cl",
   "ro-shimano-rtmt800-180-cl",
   "ro-hayes-dseries-203-6b",
@@ -146,7 +144,6 @@
   "ro-hope-floating-203-6b",
   "ro-magura-mdrp-203-6b",
   "ro-shimano-rtmt900-220-cl",
-  "ro-sram-hs2-180-6b",
   "ro-shimano-smrt76-203-6b",
   "ro-trp-203-6b",
   "ro-magura-mdrp-220-6b",
@@ -1995,17 +1992,17 @@
   },
   "ro-sram-hs2-200-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T17:08:03.414Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/sram/models/rt-hs-2-a1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-sram-hs2-220-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T17:14:09.418Z",
+   "error": "no reputable MEASURED 220mm figure found (BikeRadar/MBR measured 200/180 only; Amazon's 249g is a retailer listing - rejected by policy). Interfaces manufacturer-confirmed on RT-HS-2-A1.",
    "source": null,
    "note": null
   },
@@ -2067,11 +2064,11 @@
   },
   "ro-sram-hs2-180-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T17:08:03.451Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "MBR measured a 180 HS2 at 170g but their test unit's MOUNT is unstated - exact-SKU measured bar not met. Weight corrected 125->170 as a better sample; interfaces manufacturer-confirmed (sram.com RT-HS-2-A1: 180 exists in 6-bolt, 2.0mm). Revisit if a mount-stated measurement appears."
   },
   "ro-shimano-smrt76-203-6b": {
    "cat": "rotor",

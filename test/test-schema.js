@@ -145,7 +145,9 @@ test('verified:true resting on a retailer source is caught', function(){
   some(probs(over('fr-santacruz-megatower-cc', { verified:true, source:'https://x.com/s', lastChecked:'2025-01-01', sourceType:'retailer' })), 'retailer');
 });
 test('sourceType measured without a weightSource URL is caught', function(){
-  some(probs(over('ro-sram-hs2-200-6b', { sourceType:'measured' })), 'weightSource');
+  // weightSource must be knocked out explicitly: the real HS2 200 row now
+  // carries one (it IS a measured-verified rotor since the measured pass).
+  some(probs(over('ro-sram-hs2-200-6b', { sourceType:'measured', weightSource:null })), 'weightSource');
 });
 test('a measured-weight verified part passes (the policy that unblocks rotors)', function(){
   eq(probs(over('ro-sram-hs2-200-6b', { verified:true, source:'https://www.sram.com/en/sram/models/rt-hs2', lastChecked:'2025-01-01',

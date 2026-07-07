@@ -344,7 +344,7 @@ var PARTS = [
   { id:'bk-magura-mt-trail-sport', cat:'brake', brand:'Magura', model:'MT Trail Sport', family:'magura-mt-trail', price:130, weight:290, mount:'PM', pistons:4 },
 
   /* ROTORS (usable front or rear) */
-  { id:'ro-sram-hs2-200-6b', cat:'rotor', brand:'SRAM', model:'HS2 200mm', family:'sram-hs2', price:55, weight:150, size:200, mount:'sixbolt' },
+  { id:'ro-sram-hs2-200-6b', cat:'rotor', brand:'SRAM', model:'HS2 200mm', family:'sram-hs2', mfgPn:'RT-HS-2-A1', price:55, weight:206, size:200, mount:'sixbolt', desc:'weight = BikeRadar measured 200mm 6-bolt test sample (SRAM publishes no rotor weights); price = sample (SRAM lists a 60-75 USD range)', verified:true, lastChecked:'2026-07-07', source:'https://www.sram.com/en/sram/models/rt-hs-2-a1', sourceType:'measured', weightSource:'https://www.bikeradar.com/reviews/components/brakes/disc-brake-rotors/sram-hs2-disc-rotor-review' },
   { id:'ro-sram-hs2-220-6b', cat:'rotor', brand:'SRAM', model:'HS2 220mm', family:'sram-hs2', price:60, weight:185, size:220, mount:'sixbolt' },
   { id:'ro-shimano-rtmt800-203-cl', cat:'rotor', brand:'Shimano', model:'RT-MT800 203mm (CL)', family:'shimano-rtmt800', price:55, weight:165, size:203, mount:'CL' },
   { id:'ro-shimano-rtmt800-180-cl', cat:'rotor', brand:'Shimano', model:'RT-MT800 180mm (CL)', family:'shimano-rtmt800', price:50, weight:120, size:180, mount:'CL' },
@@ -353,7 +353,7 @@ var PARTS = [
   { id:'ro-hope-floating-203-6b', cat:'rotor', brand:'Hope', model:'Floating 203mm (6-bolt)', family:'hope-floating', price:50, weight:175, size:203, mount:'sixbolt' },
   { id:'ro-magura-mdrp-203-6b', cat:'rotor', brand:'Magura', model:'MDR-P 203mm (6-bolt)', family:'magura-mdrp', price:45, weight:170, size:203, mount:'sixbolt' },
   { id:'ro-shimano-rtmt900-220-cl', cat:'rotor', brand:'Shimano', model:'RT-MT900 220mm (CL)', family:'shimano-rtmt900', price:60, weight:190, size:220, mount:'CL' },
-  { id:'ro-sram-hs2-180-6b', cat:'rotor', brand:'SRAM', model:'HS2 180mm', family:'sram-hs2', price:50, weight:125, size:180, mount:'sixbolt' },
+  { id:'ro-sram-hs2-180-6b', cat:'rotor', brand:'SRAM', model:'HS2 180mm', family:'sram-hs2', mfgPn:'RT-HS-2-A1', price:50, weight:170, size:180, mount:'sixbolt' },   // weight corrected 125->170 per MBR's measured 180 (their test unit's mount is unstated, so this stays UNVERIFIED - exact-SKU bar not met)
   { id:'ro-shimano-smrt76-203-6b', cat:'rotor', brand:'Shimano', model:'SM-RT76 203mm (6-bolt)', family:'shimano-smrt76', price:35, weight:180, size:203, mount:'sixbolt' },
   { id:'ro-trp-203-6b', cat:'rotor', brand:'TRP', model:'203mm (6-bolt)', price:40, weight:175, size:203, mount:'sixbolt' },
   { id:'ro-magura-mdrp-220-6b', cat:'rotor', brand:'Magura', model:'MDR-P 220mm (6-bolt)', family:'magura-mdrp', price:50, weight:200, size:220, mount:'sixbolt' },
