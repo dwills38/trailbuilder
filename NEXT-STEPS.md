@@ -10,7 +10,7 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
 **Solid foundation, honestly-scoped prototype:**
 
 - **Layout & tooling:** `src/` + `test/`; full-`strict` JSDoc type-checking (`npm run typecheck`);
-  Vitest (`npm test` — **174 tests**); GitHub Actions CI; and a GitHub Pages deploy workflow that's
+  Vitest (`npm test` — **198 tests**); GitHub Actions CI; and a GitHub Pages deploy workflow that's
   ready but **not yet deployed** (no git remote / `gh` in this environment).
 - **Engine:** 19 compatibility rules + a regression/fuzz **fortress** (`test/test-invariants.js`),
   proven crash-free, deterministic, and **dot-honest** — a green dot never hides a newly-introduced
@@ -21,15 +21,22 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
   "N thing(s) to check" wording), the **XD 27.5 rear wheel + kit** that breaks the SRAM-mullet
   catalog trap (golden Meta SX Transmission build pinned), and **direction-aware shock-stroke and
   dropper rules** (impossible direction = error; manufacturer-supported direction = quantified
-  warning). The REVIEW **Minors** are the remaining backlog.
+  warning). **The REVIEW Minors were swept the same day** (branch `review-minors-sweep`, four
+  commits): rotor adapter direction with the first structured `fix` (#10), honest kit badge (#11),
+  three dormant sourced-data rules — under-forking, coil approval, fork tire clearance
+  (#14/#21/#22), dead-rule pins (#15), a real 2.6″ tire activating rules 14/18 (#16), OEM
+  frameless convention (#17), frameless reverse-mullet guard (#18), long-drop insertion info
+  (#23), the reachable preset↔group totals-corruption fix (#25), and the SuperBoost non-rule pin
+  (#27). **REVIEW.md is fully retired** except two deliberate deferrals: the real insertion-depth
+  check (needs a frame-size concept) and the BB category (§5.1-19, its own decision).
   Verdicts are *self-consistent* — **not yet validated
   against the real world** (no expert review, no real riders).
-- **Data:** 329 parts across ~100 brands with **62 verified** against manufacturer pages/documents —
+- **Data:** 330 parts across ~100 brands with **63 verified** against manufacturer pages/documents —
   verification is a **resumable checkpointed job** (`tools/verify-job.js` + `tools/VERIFY-PROTOCOL.md`;
   any session resumes via `npm run verify:status`). Verified so far: SRAM GX/X01/NX Eagle + most
   Transmission drivetrain parts, two RockShox shocks, a Shimano XT cassette, seven pedals, Synthesis
   wheels, four droppers, **six frames** (all three RAAW Madonnas, Commencal Meta SX V5, Canyon Strive
-  CFR, Forbidden Dreadnought), and **the whole tire category — 22 tires across 8 brands**
+  CFR, Forbidden Dreadnought), and **the whole tire category — 23 tires across 8 brands**
   (2026-07-07 batch: Continental from the maker's Tire Range 2025/26 PDF, Schwalbe from
   schwalbetires.com's JS tables via a real browser session, Pirelli/Vittoria/WTB/Kenda/Goodyear
   from their product pages; each pinned to ONE purchasable casing/compound SKU with new ids +
@@ -104,11 +111,10 @@ first hardtail/DH frame), the `frameSize` share-hash key (readHash tolerates new
 category (§5.1-19 — decide with its own commit; the crankBb groundwork is in), and the
 "fits with adapter X" data (the `fix` field + verdict structure are ready).
 
-Separate queue — **REVIEW.md Majors #6–#9: ✅ DONE 2026-07-07** (four commits, one per Major, on
-`review-majors-6-9`): warning-visible dots, the SRAM-mullet catalog fix, direction-aware
-shock-stroke/dropper rules. The REVIEW **Minors** (#10–#28: adapter-solvable rotor direction,
-under-forking, coil approval, fork tire clearance, dropper insertion, BB category…) are the
-remaining engine backlog.
+Separate queue — **REVIEW.md: ✅ FULLY RETIRED 2026-07-07.** Majors #6–#9 (four commits on
+`review-majors-6-9`) and the Minors sweep (four commits on `review-minors-sweep`) are all landed.
+Deliberately deferred, documented in REVIEW.md's status header: the real insertion-depth check
+(needs a frame-size concept) and the BB category (DATA-MODEL-REVIEW §5.1-19, its own decision).
 
 ## Phase 1 — Quick wins on the static app *(no backend, days-not-weeks each)*
 

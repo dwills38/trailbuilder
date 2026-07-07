@@ -53,8 +53,8 @@ Requires [Node.js](https://nodejs.org) 18+. Run `npm install` once (dev tooling 
 tests + type-checker; `validate.js` itself needs no dependencies).
 
 ```
-npm test            # full suite (Vitest) — expect "Tests  174 passed (174)"
-node validate.js    # data check — expect "DATA OK - 329 parts, 0 problems (62 verified, ...)"
+npm test            # full suite (Vitest) — expect "Tests  198 passed (198)"
+node validate.js    # data check — expect "DATA OK - 330 parts, 0 problems (63 verified, ...)"
 ```
 
 (`npm run validate` works too; `npm run test:watch` re-runs Vitest on save.) To run the
@@ -104,25 +104,32 @@ frontRotor, rearRotor, handlebar, stem, grips, dropper, saddle, pedals`. (`GROUP
 
 ## Compatibility engine (`checkBuild`) — 19 rule areas
 
-Wheel-size by front/rear group vs frame `wheelConfigs` (incl. mullet = 29 front / 27.5 rear);
+Wheel-size by front/rear group vs frame `wheelConfigs` (incl. mullet = 29 front / 27.5 rear,
+plus a frameless guard rejecting pairs that match no config — reverse mullet);
 front & rear axles; drivetrain one-system + one-speed + shifter/derailleur actuation (cable vs
 AXS wireless) + T-Type chainring vs Transmission chain; SRAM Transmission needs a UDH frame;
 cassette range vs derailleur capacity; cassette freehub vs rear wheel; brake caliper mounts;
-rotor interface (6-bolt/Center Lock) vs hub; rotor size vs frame/fork max AND vs the fork's
-native-mount minimum (error; sourced forks only); steerer/headset;
-fork travel vs frame max; dropper diameter vs seat tube (direction-aware: too big = error,
-smaller = reducing-shim warning); tire width vs wheel clearance;
+rotor interface vs hub (direction-aware: Center-Lock rotor on a 6-bolt hub = error;
+6-bolt rotor on a Center-Lock hub = adapter warning carrying a structured `fix`); rotor size vs
+frame/fork max AND vs the fork's native-mount minimum (error; sourced forks only); steerer/headset;
+fork travel vs frame rated max AND sourced approved minimum (under-forking — dormant until a
+frame declares `minForkTravel`); dropper diameter vs seat tube (direction-aware: too big = error,
+smaller = reducing-shim warning; ≥200 mm drop adds an insertion-depth info);
+tire width vs wheel clearance AND vs fork chassis clearance (dormant until forks carry `maxTire`);
 rear-tire width vs frame clearance (rule 18 — dormant until a frame declares `maxTire`);
 bar/stem clamp; rear-shock fit (eye-to-eye + mount + **direction-aware stroke**: longer stroke =
-error, shorter same-eye stroke = quantified less-travel warning; hardtail guard: a shock on a
-`suspension:'hardtail'` frame errors cleanly); frame+shock bundling (incl. OEM-only);
+error, shorter same-eye stroke = quantified less-travel warning; maker-stated coil approval —
+dormant until a frame declares `coilApproved:false`; hardtail guard: a shock on a
+`suspension:'hardtail'` frame errors cleanly); frame+shock bundling (incl. OEM-only — an OEM
+shock with NO frame picked is an info, mirroring rule 4's frameless convention);
 shifter clamp vs brake lever integration (rule 19 — I-Spec EV/MatchMaker, dormant until parts
 are tagged).
 Returns `{errors, warnings, infos}` of **structured verdicts** `{ruleId, slots, msg, fix?}` that
 stringify to their message (so UI/report interpolation just works). Conflict identity for the
 dots is `verdictKey` (ruleId+slots+msg) — never raw message text, which two different conflicts
-can share byte-identically (the REVIEW.md #4/#13 maskings). `fix` is reserved for a future
-"fits with adapter X" tier (adapter facts are engine-side pair data, never part fields).
+can share byte-identically (the REVIEW.md #4/#13 maskings). `fix` is the structured "fits with
+adapter X" tier — first live use: `{kind:'adapter', name:'Shimano SM-RTAD05'}` on the
+6-bolt-rotor-on-Center-Lock-hub warning (adapter facts are engine-side pair data, never part fields).
 Errors = won't fit; warnings = works but check; infos = notes.
 The pick-time dot (`compatOf`) has **four states** (REVIEW #6): green = adds no new error or
 warning, **yellow = fits but adds a new warning** (the warning is the hover reason), red = adds a
@@ -178,7 +185,7 @@ frames — all three RAAW Madonnas (V2.2/V3/V3.2; RAAW publishes full spec sheet
 Commencal Meta SX V5 (tech page), the Canyon Strive CFR and the Forbidden Dreadnought —
 seven pedals (OneUp, Race Face, Crankbrothers, Time; Shimano pedal pages blocked fetching),
 the Crankbrothers Synthesis Enduro wheel pair, four droppers (OneUp V3, PNW Loam — both
-publish per-size weights), and **the whole tire category — 22 tires across 8 brands**
+publish per-size weights), and **the whole tire category — 23 tires across 8 brands**
 (Maxxis, Continental via its Tire Range PDF, Schwalbe via schwalbetires.com's tables,
 Pirelli, Vittoria, WTB, Kenda, Goodyear — each pinned to one purchasable casing/compound
 SKU; Michelin + Specialized sit in the retry queue: JS-rendered/bot-blocked pages)).
@@ -231,7 +238,7 @@ The `✓ Verified only` filter in the app (built on `partVerified`) shows just t
 4. 🚧 **Adding real, verified parts** (in progress — now a resumable checkpointed job: run
    `npm run verify:status`, then follow `tools/VERIFY-PROTOCOL.md`): 62 verified so far — SRAM
    GX/X01/NX Eagle and most Transmission drivetrain parts, two RockShox shocks, a Shimano XT
-   cassette, seven pedals, Synthesis wheels, four droppers, the whole tire category (22
+   cassette, seven pedals, Synthesis wheels, four droppers, the whole tire category (23
    tires, 8 brands; Michelin/Specialized in the retry queue), and six frames
    (all three RAAW Madonnas incl. the new V3/V3.2, the Commencal Meta SX V5, the Canyon Strive
    CFR and the Forbidden Dreadnought). All 21 frames' verdict-driving

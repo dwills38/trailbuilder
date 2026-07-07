@@ -5,8 +5,15 @@
 **Status (2026-07-07):** the 5 **Criticals** were fixed on audit day; the 4 **Majors (#6–#9)** were
 fixed 2026-07-07 (one commit each, branch `review-majors-6-9`): warning-visible yellow dots +
 honest legend/verdict wording (#6), the XD 27.5 rear wheel + kit that breaks the SRAM-mullet trap
-(#7), direction-aware shock stroke (#8) and dropper diameter (#9). The **Minors and
-Nice-to-haves below remain open** unless a finding says otherwise.
+(#7), direction-aware shock stroke (#8) and dropper diameter (#9).
+
+**Minors swept 2026-07-07** (branch `review-minors-sweep`): #10 (rotor adapter direction + first
+`fix`-field use), #11 (kit badge), #14/#21/#22 (dormant under-fork / coil-approval / fork-clearance
+rules), #15 (dead-rule pins), #16 (real 2.6″ tire activates rules 14/18), #17 (OEM frameless info),
+#18 (frameless reverse-mullet guard), #23 (near-term insertion info), #25 (preset↔group binding +
+readHash hardening), #27 (SuperBoost non-rule pin). Already fixed earlier: #12/#13 (gate), #19/#20
+(gate), #24/#28 (gate + doc upkeep). **Still deferred by design:** #23's real insertion check
+(needs a frame-size concept), #26 (BB category — its own decision, DATA-MODEL-REVIEW §5.1-19).
 
 **Baseline at audit time:** `npm test` → 91/91 pass; `node validate.js` → `DATA OK - 327 parts, 0 problems (46 verified, 281 unverified)`. (Note: the request said `node tests.js`; that file does not exist — the suite runs on Vitest via `npm test` per CLAUDE.md.)
 
