@@ -41,6 +41,8 @@ Entry points (`validate.js`, `index.html`) live at the root; tests run on Vitest
 | `.github/workflows/ci.yml` | GitHub Actions CI — runs `validate`, `tests`, and `typecheck` on every push / PR. |
 | `.github/workflows/deploy.yml` | GitHub Actions — deploys the static app (`index.html` + `src/`) to GitHub Pages on push to `main`, after `validate` + `tests` pass. Needs a public remote + Pages source = "GitHub Actions". |
 | `README.md`, `Getting-Started-Roadmap.md` | Docs. |
+| `REVIEW.md` | 2026-07-06 correctness audit of the engine (5 Criticals fixed same day; **Majors #6–#9 still open**). |
+| `DATA-MODEL-REVIEW.md` | 2026-07-06 data-model audit for catalog scale. **§5.1 is the pre-mass-entry gate** (id migration, entry template, semantic fixes, vocab widening) — read before entering parts in bulk. |
 
 (Stray files like `test_compat.js` or `test2.js` from earlier sessions are NOT part of the project; delete them.)
 

@@ -33,6 +33,11 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
   manufacturer page counts.** Known blockers in the retry queue: Specialized/Orbea (bot-block 403),
   Trek/Norco/Pivot/Rocky Mountain/Propain (JS-rendered spec pages — need a real browser session),
   Nukeproof (domains down post-CRC-collapse). Most of the catalog is still clearly-badged sample data.
+- **Data model:** audited for scale on 2026-07-06 (**`DATA-MODEL-REVIEW.md`** — 10 auditors +
+  adversarial fact-check, review-only). The two structural decisions are made on paper (flat
+  one-row-per-SKU variants + brand-qualified append-only ids; optional `disciplines` tag + frame
+  `suspension` discriminator) and §5.1 of that doc is now the **pre-mass-entry gate**: none of the
+  DO-BEFORE items are implemented yet, and the legacy id migration is only cheap **before deploy**.
 - **UI:** category + sub-category chips, Sort menu, search, "✓ Verified only" filter, kit quick-fill
   with bundle pricing, shareable build links, four demo builds, the **⚐ Report a wrong verdict**
   modal, and a **📋 View complete build** summary modal (full part list w/ kit pricing + totals +
@@ -60,7 +65,29 @@ be playful.
    features (they need an expert-blessed vocabulary).
 3. **Keep the verification grind running** (resumable job — next up: Continental/Schwalbe/Michelin/
    Pirelli tires, which all publish weights; decide the measured-weight source policy that unblocks
-   Shimano / rotors / forks).
+   Shimano / rotors / forks). **⚠ Gate: do not start the tire batch before the tire
+   `casing`/`compound` fields and the data-entry template exist** (DATA-MODEL-REVIEW.md §5.1 items
+   1/4) — every tire row entered without them is a guaranteed retouch.
+
+## Phase 0.5 — Pre-mass-entry gate *(DATA-MODEL-REVIEW.md §5.1 — do before the catalog grows)*
+
+The full list with what/why/example/effort lives in `DATA-MODEL-REVIEW.md`; headline order:
+
+1. **Id migration + conventions** (brand-qualified append-only ids, ALIASES map, verify-job
+   tombstoning) — **the window closes at deploy**; no external share links exist yet.
+2. **`tools/DATA-ENTRY-TEMPLATE.md`** + flat-SKU split policy + `family`/`gen`/`modelYear`/`mfgPn`.
+3. **`disciplines` tag + `'enduro'` backfill; `suspension` discriminator** (hardtails unenterable today).
+4. **Semantic fixes while rows are few:** crankBb spindle-interface fix (+ 3 mis-tagged cranks,
+   §8 of the review), ring/ringStd nullable (kills a live rule-3c false red), range→minCog,
+   chainline→number, leverClamp→array, forFrame→forFrames, price-semantics pin.
+5. **Vocab widening bundle + KNOWN_VALUES lints** (review §6 table).
+6. **Provenance policy:** measured-weight decision + sourceType; archive snapshots; the rotor
+   category can never verify under the current bar — decide before its batch.
+7. **Structured verdict objects** (engine, code-only) — also the natural foundation for the
+   REVIEW.md Majors #6 dot work, so sequence them together.
+
+Separate open queue: **REVIEW.md Majors #6–#9** (warning-visible dots, SRAM-mullet catalog trap,
+direction-aware shock-stroke/dropper rules) — see the chip / REVIEW.md §3.
 
 ## Phase 1 — Quick wins on the static app *(no backend, days-not-weeks each)*
 
