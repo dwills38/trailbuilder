@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T21:07:55.564Z",
+ "updated": "2026-07-07T21:47:25.652Z",
  "batchSize": 25,
  "lastCompleted": "cr-ethirteen-plus",
  "currentCategory": null,
@@ -1070,14 +1070,6 @@
    "error": null,
    "source": "https://funnmtb.com/products/rsx/",
    "note": "auto-promoted: already verified in catalog"
-  },
-  "st-straitline-35": {
-   "cat": "stem",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:32:36.274Z",
-   "error": null,
-   "source": null,
-   "note": "Ambiguous naming: third-party listings show 'SSC Stem 35mm' alongside '31.8 0d x 35mm' variants, suggesting '35mm' in this product line may refer to STEM LENGTH, not clamp diameter (unlike this catalog row's clamp:35 assumption). Straitline's own site wasn't reachable to disambiguate (Pinkbike review 403-blocked). Flag for a data-entry review of the clamp field before further verification."
   },
   "st-pro-tharsis-35": {
    "cat": "stem",
@@ -2510,6 +2502,14 @@
    "error": null,
    "source": null,
    "note": "CORRECTED drop 175->180 (ridefox.com confirms Transfer options are 120/150/180/210/240mm only -- 175mm doesn't exist, same nonexistent-SKU pattern as several forks/rotors this session; retired old id into ALIASES). No clean single weight found for the 180mm/31.6 Factory config -- only a range (608g manufacturer-ish vs 640g measured, neither directly fetched). Bar not met for weight; interfaces now correct."
+  },
+  "st-straitline-318": {
+   "cat": "stem",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:32:36.274Z",
+   "error": null,
+   "source": null,
+   "note": "Ambiguous naming: third-party listings show 'SSC Stem 35mm' alongside '31.8 0d x 35mm' variants, suggesting '35mm' in this product line may refer to STEM LENGTH, not clamp diameter (unlike this catalog row's clamp:35 assumption). Straitline's own site wasn't reachable to disambiguate (Pinkbike review 403-blocked). Flag for a data-entry review of the clamp field before further verification."
   }
  }
 }
