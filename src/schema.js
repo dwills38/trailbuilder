@@ -81,7 +81,17 @@ var VOCAB = {
      'ebike' is deliberately NOT a value - e-enduro/e-trail/e-XC all exist, so
      e-bike is an orthogonal later flag, not a discipline. */
   discipline:   ['xc', 'trail', 'enduro', 'dh'],
-  suspension:   ['full', 'hardtail']
+  suspension:   ['full', 'hardtail'],
+  /* Provenance policy (DATA-MODEL-REVIEW 5.1-13, decided 2026-07): absent =
+     manufacturer. 'measured' = a reputable third-party MEASURED figure and is
+     accepted for WEIGHT ONLY (interfaces stay manufacturer-sourced; the
+     measured URL goes in weightSource) - this is what makes the rotor
+     category verifiable at all (SRAM publishes no rotor weights).
+     'retailer' exists so below-the-bar provenance can be stated honestly -
+     the validator REJECTS it on verified rows. */
+  sourceType:   ['manufacturer', 'manufacturer-doc', 'measured', 'retailer'],
+  status:       ['current', 'discontinued', 'recalled'],   // absent = current
+  soldWithout:  ['battery', 'charger', 'spring', 'rotor', 'mounting-hardware']
 };
 
 /* Per-category field schema. Each field: {type, vocab?, optional?, nullable?}
@@ -165,7 +175,8 @@ var PRESET_CATS = ['groupset','wheelset','brakeset','cockpitset'];
    number / model code when the source spec table shows one. All optional in
    schema, template-mandatory for NEW rows (tools/DATA-ENTRY-TEMPLATE.md). */
 var COMMON = ['id','cat','brand','model','price','weight','desc','verified','lastChecked','source',
-  'family','gen','modelYear','mfgPn','disciplines'];
+  'family','gen','modelYear','mfgPn','disciplines',
+  'sourceType','weightSource','archiveUrl','status','supersededBy','soldWithout'];
 
 /* Id convention (DATA-MODEL-REVIEW.md section 3.1): ids are APPEND-ONLY - never
    renamed, never reused; corrections retire the old id into ALIASES (compat.js).
@@ -278,6 +289,29 @@ function validatePart(p, ctx){
     if(!Array.isArray(p.disciplines) || p.disciplines.length === 0) bad('disciplines must be a non-empty array');
     else p.disciplines.forEach(function(/** @type {*} */ d){
       if(VOCAB.discipline.indexOf(d) < 0) bad('disciplines value "' + d + '" not in discipline [' + VOCAB.discipline.join(', ') + ']');
+    });
+  }
+
+  // provenance policy + lifecycle (see the sourceType comment in VOCAB)
+  if('sourceType' in p && p.sourceType != null){
+    if(!isStr(p.sourceType) || VOCAB.sourceType.indexOf(p.sourceType) < 0)
+      bad('sourceType "' + p.sourceType + '" not in [' + VOCAB.sourceType.join(', ') + ']');
+    if(p.verified === true && p.sourceType === 'retailer') bad('verified:true cannot rest on a retailer source');
+    if(p.sourceType === 'measured' && !urlOk(p.weightSource)) bad('sourceType "measured" requires a weightSource URL (the measured figure must be auditable)');
+  }
+  if('weightSource' in p && p.weightSource != null && !urlOk(p.weightSource)) bad('weightSource must be a valid http(s) URL');
+  if('archiveUrl' in p && p.archiveUrl != null && !urlOk(p.archiveUrl)) bad('archiveUrl must be a valid http(s) URL');
+  if('status' in p && p.status != null && (!isStr(p.status) || VOCAB.status.indexOf(p.status) < 0))
+    bad('status "' + p.status + '" not in [' + VOCAB.status.join(', ') + ']');
+  if('supersededBy' in p && p.supersededBy != null){
+    if(!isStr(p.supersededBy)) bad('supersededBy must be a part id');
+    else if(!ctx.has(p.supersededBy)) bad('supersededBy references unknown part "' + p.supersededBy + '"');
+    else if(p.supersededBy === p.id) bad('a part cannot supersede itself');
+  }
+  if('soldWithout' in p && p.soldWithout != null){
+    if(!Array.isArray(p.soldWithout) || p.soldWithout.length === 0) bad('soldWithout must be a non-empty array');
+    else p.soldWithout.forEach(function(/** @type {*} */ s){
+      if(VOCAB.soldWithout.indexOf(s) < 0) bad('soldWithout value "' + s + '" not in [' + VOCAB.soldWithout.join(', ') + ']');
     });
   }
 

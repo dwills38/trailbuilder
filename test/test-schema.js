@@ -138,6 +138,33 @@ test('the inert widened system values are accepted (LinkGlide cassette validates
   eq(probs(p).filter(function(x){ return x.indexOf('system') >= 0; }).length, 0);
 });
 
+/* ---- provenance policy + lifecycle (Gate 6) ------------------------------ */
+test('verified:true resting on a retailer source is caught', function(){
+  some(probs(over('fr-santacruz-megatower-cc', { verified:true, source:'https://x.com/s', lastChecked:'2025-01-01', sourceType:'retailer' })), 'retailer');
+});
+test('sourceType measured without a weightSource URL is caught', function(){
+  some(probs(over('ro-sram-hs2-200-6b', { sourceType:'measured' })), 'weightSource');
+});
+test('a measured-weight verified part passes (the policy that unblocks rotors)', function(){
+  eq(probs(over('ro-sram-hs2-200-6b', { verified:true, source:'https://www.sram.com/en/sram/models/rt-hs2', lastChecked:'2025-01-01',
+    sourceType:'measured', weightSource:'https://weights.example/hs2-200' })).length, 0);
+});
+test('a bad status value is caught', function(){
+  some(probs(over('fr-santacruz-megatower-cc', { status:'sold-out' })), 'status');
+});
+test('a dangling supersededBy is caught', function(){
+  some(probs(over('fr-raaw-madonna-v22', { supersededBy:'fr-raaw-madonna-v4' })), 'supersededBy');
+});
+test('a part superseding itself is caught', function(){
+  some(probs(over('fr-raaw-madonna-v22', { supersededBy:'fr-raaw-madonna-v22' })), 'supersede');
+});
+test('a bad soldWithout value is caught', function(){
+  some(probs(over('dr-sram-gx-transmission', { soldWithout:['battery','tools'] })), 'soldWithout');
+});
+test('a bogus archiveUrl is caught', function(){
+  some(probs(over('fr-canyon-strive-cfr', { archiveUrl:'notaurl' })), 'archiveUrl');
+});
+
 /* ---- lintCatalog: warn-only guards (never block entry, never ship a typo) */
 test('lint: a typo-sized rotor (2003mm) warns', function(){
   var bad = /** @type {any} */ (Object.assign({}, C.byId('ro-sram-hs2-200-6b'), { id:'ro-sram-hs2-2003-6b', size:2003 }));

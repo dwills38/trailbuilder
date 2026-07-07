@@ -43,6 +43,9 @@
 /** @typedef {'dual'|'3c-maxxterra'|'3c-maxxgrip'} Compound */
 /** @typedef {'xc'|'trail'|'enduro'|'dh'} Discipline */
 /** @typedef {'full'|'hardtail'} Suspension */
+/** @typedef {'manufacturer'|'manufacturer-doc'|'measured'|'retailer'} SourceType */
+/** @typedef {'current'|'discontinued'|'recalled'} PartStatus */
+/** @typedef {'battery'|'charger'|'spring'|'rotor'|'mounting-hardware'} SoldWithout */
 
 /** Per-size frame data (sizes are a sub-object, not variant rows — schema.js).
  * @typedef {Object.<string, {seatTubeLen?: number, maxInsert?: number}>} FrameSizes */
@@ -67,6 +70,12 @@
  * @property {number} [modelYear]
  * @property {string} [mfgPn]      manufacturer part number / model code
  * @property {Discipline[]} [disciplines]  filter/annotation only — NEVER feeds checkBuild; absence = universal
+ * @property {SourceType} [sourceType]     absent = manufacturer; 'measured' is weight-only (see schema.js)
+ * @property {string} [weightSource]       URL of the measured-weight source (required when sourceType:'measured')
+ * @property {string} [archiveUrl]         snapshot of the source page (source rot is real)
+ * @property {PartStatus} [status]         absent = current
+ * @property {string} [supersededBy]       id of the newer generation (id-validated)
+ * @property {SoldWithout[]} [soldWithout] what the quoted weight/price excludes
  */
 
 /* Frame is itself a discriminated union on `suspension` (mirrors the schema.js

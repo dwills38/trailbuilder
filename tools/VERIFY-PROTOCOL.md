@@ -21,16 +21,37 @@ A part may be marked `verified:true` in `src/compat.js` ONLY when **all** hold:
 
 1. You **fetched the manufacturer's own product/spec page** (not a retailer,
    not a review) in this session and it confirms the part's interface specs.
-2. The page states a **weight** for the part (the config you catalog). If the
-   maker publishes no weight, the part CANNOT be verified — mark it `Skipped`
-   with a note (this is policy, not failure). Known: Shimano publishes no
-   component weights; SRAM publishes none for rotors; fork weights are
-   unreliable; brake weights are hose/config-dependent.
-3. You set the catalog fields **to match the source** (price = MSRP, weight,
-   and every interface field), using the vocabularies in `src/schema.js`.
+   **Interfaces are ALWAYS manufacturer-sourced — no exceptions.**
+2. The part has a trustworthy **weight** for the config you catalog — either:
+   - **(a)** the manufacturer page states it (the default; leave `sourceType`
+     absent), or
+   - **(b)** *(policy decided 2026-07, DATA-MODEL-REVIEW §5.1-13)* a
+     **reputable third-party MEASURED weight** exists for the exact SKU: set
+     `sourceType:'measured'` + `weightSource:'https://…'` (the measured
+     figure's URL — validator-enforced). This is for the categories whose
+     makers publish no weights (Shimano components, **SRAM rotors — this is
+     what makes the rotor batch verifiable at all**); prefer (a) whenever it
+     exists. "Reputable measured" = a scale photo / lab-measured figure for
+     the exact SKU (e.g. a major outlet's verified-weight database), never a
+     retailer listing — `sourceType:'retailer'` is validator-REJECTED on
+     verified rows.
+   If neither exists, the part CANNOT be verified — mark it `Skipped` with a
+   note (policy, not failure). Fork weights are generation-ambiguous; brake
+   weights are hose/config-dependent — note the quoted config in `desc`
+   (weight-basis conventions live in DATA-ENTRY-TEMPLATE.md §5, e.g. coil
+   shocks weigh in WITHOUT spring; `soldWithout` records what's excluded).
+3. You set the catalog fields **to match the source** (price = US MSRP in USD,
+   weight, and every interface field), using the vocabularies in
+   `src/schema.js` — plus the capture-opportunistically fields the page shows
+   anyway (`family`/`gen`/`mfgPn`, frame `maxTire`/`sizes`, `status` if
+   discontinued/recalled, `supersededBy` when a newer generation exists).
 4. You add all three provenance fields: `verified:true`,
    `lastChecked:'YYYY-MM-DD'` (today, never future), `source:'https://…'`
    (the fetched manufacturer URL).
+5. **Archive step (source rot is real — a stored OneUp URL silently started
+   serving the next generation's page):** when practical, save the page to
+   the Wayback Machine (`https://web.archive.org/save/<url>`) and record the
+   snapshot in `archiveUrl`. Optional, but do it for load-bearing sources.
 
 Corrections without verification are still valuable: if a spec is wrong but
 the weight bar can't be met, fix the spec, leave the part unverified, and

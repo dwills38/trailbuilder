@@ -179,11 +179,13 @@ reports the verified/unverified counts.)
 **Verifiability by brand (learned the hard way — saves re-discovering it):** SRAM publishes
 exact component weights on its model pages (`sram.com/en/sram/models/<slug>`), so SRAM
 drivetrain is cleanly verifiable. **Shimano does NOT publish component weights**, and **SRAM
-does not publish *rotor* weights** — for those, interfaces can be confirmed but the weight
-can't, so they stay unverified (e.g. the XT crank `cr-shimano-xt-m8100`, the HS2 rotors). Forks/frames are
-year-variable, and tires/brakes are casing/config-dependent, so their weights are ambiguous
-too. **Open product decision:** whether to accept a reputable third-party *measured* weight
-as a source so a part can count as verified (today the bar is "manufacturer page only").
+does not publish *rotor* weights** — interfaces can be confirmed but not the maker's weight.
+**Policy (decided 2026-07, DATA-MODEL-REVIEW §5.1-13):** a reputable third-party *measured*
+weight is accepted **for the weight only** — `sourceType:'measured'` + a `weightSource` URL
+(validator-enforced); interfaces stay manufacturer-sourced, and `sourceType:'retailer'` is
+rejected on verified rows. That unblocks the Shimano/rotor/fork classes (see
+`tools/VERIFY-PROTOCOL.md`). Optional `archiveUrl` records a Wayback snapshot (source rot is
+real); optional `status`/`supersededBy` capture lifecycle (the Madonna generations are chained).
 The `✓ Verified only` filter in the app (built on `partVerified`) shows just the verified set.
 
 ## Conventions

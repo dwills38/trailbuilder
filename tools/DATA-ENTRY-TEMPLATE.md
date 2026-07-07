@@ -117,9 +117,11 @@ mapping ships a false verdict.
   rear-brake figure: "362 g rear, organic pads, no rotor").
 - **Tires:** per-SKU published weight only (the whole point of the casing/
   compound axes).
-- **Pedals/grips:** per pair. **Wheels:** per wheel (wheelset presets sum).
-- A `soldWithout` field for this lands with the provenance gate (Phase 0.5
-  item 6); until then the basis goes in `desc`.
+- **Pedals/grips:** per pair. **Wheels:** per wheel (kit weights are always
+  derived from the fills — never stored).
+- Record what the quoted figure excludes in `soldWithout`
+  (`battery`/`charger`/`spring`/`rotor`/`mounting-hardware`) and note the
+  quoted config in `desc`.
 
 ## 6. Capture opportunistically (the page-visit asymmetry)
 
@@ -138,10 +140,15 @@ that exist; DATA-MODEL-REVIEW §5.2 lists the rest (they land through Phase
 
 - `verified:true` requires `source` (real URL) + `lastChecked` (not future) —
   validator-enforced.
-- **Only a FETCHED manufacturer page counts. Search-result summaries lie** —
-  they've been wrong about shock sizes, seatpost diameters and rotor maxes in
-  this very catalog.
-- Third-party measured weights: **not accepted today** (open policy decision —
-  Phase 0.5 item 6).
+- **Only a FETCHED manufacturer page counts for interfaces. Search-result
+  summaries lie** — they've been wrong about shock sizes, seatpost diameters
+  and rotor maxes in this very catalog.
+- **Measured-weight policy (decided 2026-07):** a reputable third-party
+  measured weight is accepted **for the weight only** — set
+  `sourceType:'measured'` + `weightSource` URL (validator-enforced).
+  Interfaces stay manufacturer-sourced; `sourceType:'retailer'` is rejected on
+  verified rows. Full rules in VERIFY-PROTOCOL.md.
+- Capture `status` (`discontinued`/`recalled`) and `supersededBy` while on the
+  page; `archiveUrl` a Wayback snapshot for load-bearing sources.
 - New parts enter as **unverified sample data** unless verified in the same
   sitting; they join the verify-job queue automatically (`npm run verify:status`).
