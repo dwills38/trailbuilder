@@ -45,6 +45,26 @@ test('crankset missing ringStd is caught', function(){
 test('brake leverClamp outside its own (narrower) vocab is caught', function(){
   some(probs(over('bk-sram-code-rsc', { leverClamp:'band' })), 'leverClamp');
 });
+test('a frame without the suspension discriminator is caught', function(){
+  var p = over('fr-santacruz-megatower-cc'); delete p.suspension; some(probs(p), 'suspension');
+});
+test('a full-suspension frame missing its shock block is caught', function(){
+  var p = over('fr-santacruz-megatower-cc'); delete p.shockEye; some(probs(p), 'shockEye');
+});
+test('a hardtail carrying shock fields is caught', function(){
+  some(probs(over('fr-santacruz-megatower-cc', { suspension:'hardtail' })), 'must not carry');
+});
+test('a valid hardtail frame passes (hardtails are enterable now)', function(){
+  var p = over('fr-santacruz-megatower-cc', { suspension:'hardtail' });
+  delete p.shockEye; delete p.shockStroke; delete p.shockMount; delete p.travel; delete p.bundledShock;
+  eq(probs(p).length, 0);
+});
+test('a disciplines value outside the vocab is caught (ebike is deliberately not one)', function(){
+  some(probs(over('fr-santacruz-megatower-cc', { disciplines:['enduro','ebike'] })), 'disciplines');
+});
+test('an empty disciplines array is caught (absence already means universal)', function(){
+  some(probs(over('fr-santacruz-megatower-cc', { disciplines:[] })), 'disciplines');
+});
 test('bad family slug is caught (must be lowercase slug)', function(){
   some(probs(over('fr-raaw-madonna-v3', { family:'RAAW Madonna' })), 'family');
 });

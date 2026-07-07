@@ -49,7 +49,14 @@ var VOCAB = {
      verification batch); Schwalbe / Continental / Specialized values get
      enumerated per brand when their batch starts - never invented mid-batch. */
   casing:       ['exo', 'exo-plus', 'doubledown', 'dh'],
-  compound:     ['dual', '3c-maxxterra', '3c-maxxgrip']
+  compound:     ['dual', '3c-maxxterra', '3c-maxxgrip'],
+  /* disciplines (DATA-MODEL-REVIEW section 4): filter/annotation ONLY - it must
+     NEVER feed checkBuild (a DH tire physically fits an enduro bike; structural
+     DH constraints are real fields: crown/axle/steerer). Absence = universal.
+     'ebike' is deliberately NOT a value - e-enduro/e-trail/e-XC all exist, so
+     e-bike is an orthogonal later flag, not a discipline. */
+  discipline:   ['xc', 'trail', 'enduro', 'dh'],
+  suspension:   ['full', 'hardtail']
 };
 
 /* Per-category field schema. Each field: {type, vocab?, optional?, nullable?}
@@ -60,8 +67,14 @@ var SCHEMA = {
     wheelConfigs:{type:'enumArray',vocab:'wheelConfig'}, rearAxle:{type:'string',vocab:'rearAxle'},
     headset:{type:'string',vocab:'headset'}, bb:{type:'string',vocab:'frameBb'},
     seatTube:{type:'number'}, brakeMount:{type:'string',vocab:'brakeMount'},
-    maxRotorR:{type:'number'}, shockEye:{type:'number'}, shockStroke:{type:'number'},
-    shockMount:{type:'string',vocab:'shockMount'}, maxForkTravel:{type:'number'}, travel:{type:'number'},
+    maxRotorR:{type:'number'},
+    /* the suspension discriminator (DATA-MODEL-REVIEW section 4): the shock
+       block is required for 'full' and FORBIDDEN for 'hardtail' - enforced by
+       a cross-rule below, which is why the four fields are schema-optional */
+    suspension:{type:'string',vocab:'suspension'},
+    shockEye:{type:'number',optional:true}, shockStroke:{type:'number',optional:true},
+    shockMount:{type:'string',vocab:'shockMount',optional:true}, travel:{type:'number',optional:true},
+    maxForkTravel:{type:'number'},
     udh:{type:'bool'}, frameOnly:{type:'bool'}, maxTire:{type:'number',optional:true},
     bundledShock:{type:'id',optional:true,nullable:true},
     /* per-size data lives in a sub-object, NOT variant rows (sizes share price/
@@ -115,7 +128,7 @@ var PRESET_CATS = ['groupset','wheelset','brakeset','cockpitset'];
    number / model code when the source spec table shows one. All optional in
    schema, template-mandatory for NEW rows (tools/DATA-ENTRY-TEMPLATE.md). */
 var COMMON = ['id','cat','brand','model','price','weight','desc','verified','lastChecked','source',
-  'family','gen','modelYear','mfgPn'];
+  'family','gen','modelYear','mfgPn','disciplines'];
 
 /* Id convention (DATA-MODEL-REVIEW.md section 3.1): ids are APPEND-ONLY - never
    renamed, never reused; corrections retire the old id into ALIASES (compat.js).
@@ -217,6 +230,12 @@ function validatePart(p, ctx){
   if('mfgPn' in p && p.mfgPn != null && !isStr(p.mfgPn)) bad('mfgPn must be a non-empty string');
   if('modelYear' in p && p.modelYear != null && !(isNum(p.modelYear) && p.modelYear >= 1980 && p.modelYear <= 2100))
     bad('modelYear must be a number between 1980 and 2100');
+  if('disciplines' in p && p.disciplines != null){
+    if(!Array.isArray(p.disciplines) || p.disciplines.length === 0) bad('disciplines must be a non-empty array');
+    else p.disciplines.forEach(function(/** @type {*} */ d){
+      if(VOCAB.discipline.indexOf(d) < 0) bad('disciplines value "' + d + '" not in discipline [' + VOCAB.discipline.join(', ') + ']');
+    });
+  }
 
   // schema fields
   var spec = SCHEMA[p.cat];
@@ -267,6 +286,18 @@ function validatePart(p, ctx){
 
   // cross-rule: an OEM-only shock must name the frame it ships with
   if(p.cat === 'shock' && p.oemOnly === true && !isStr(p.forFrame)) bad('oemOnly shock must set forFrame');
+
+  // cross-rule: the suspension discriminator gates the frame's shock block
+  if(p.cat === 'frame'){
+    var shockBlock = ['shockEye', 'shockStroke', 'shockMount', 'travel'];
+    if(p.suspension === 'full'){
+      shockBlock.forEach(function(f){ if(!(f in p) || p[f] == null) bad('full-suspension frame is missing "' + f + '"'); });
+    }
+    if(p.suspension === 'hardtail'){
+      shockBlock.forEach(function(f){ if(f in p && p[f] != null) bad('hardtail frame must not carry "' + f + '"'); });
+      if(p.bundledShock != null) bad('hardtail frame cannot bundle a shock');
+    }
+  }
 
   // unknown / misspelled fields
   Object.keys(p).forEach(function(k){

@@ -40,6 +40,8 @@
 /** @typedef {'flat'|'clip'} PedalStyle */
 /** @typedef {'exo'|'exo-plus'|'doubledown'|'dh'} Casing */
 /** @typedef {'dual'|'3c-maxxterra'|'3c-maxxgrip'} Compound */
+/** @typedef {'xc'|'trail'|'enduro'|'dh'} Discipline */
+/** @typedef {'full'|'hardtail'} Suspension */
 
 /** Per-size frame data (sizes are a sub-object, not variant rows — schema.js).
  * @typedef {Object.<string, {seatTubeLen?: number, maxInsert?: number}>} FrameSizes */
@@ -63,9 +65,29 @@
  * @property {string} [gen]        maker's generation code ('B1', 'V3.2') — free string
  * @property {number} [modelYear]
  * @property {string} [mfgPn]      manufacturer part number / model code
+ * @property {Discipline[]} [disciplines]  filter/annotation only — NEVER feeds checkBuild; absence = universal
  */
 
-/** @typedef {CommonFields & {cat: 'frame', wheelConfigs: WheelConfig[], rearAxle: RearAxle, headset: Tapered, bb: FrameBb, seatTube: number, brakeMount: BrakeMount, maxRotorR: number, shockEye: number, shockStroke: number, shockMount: ShockMount, maxForkTravel: number, travel: number, udh: boolean, frameOnly: boolean, maxTire?: number, bundledShock?: (string|null), sizes?: FrameSizes}} FramePart */
+/* Frame is itself a discriminated union on `suspension` (mirrors the schema.js
+   cross-rule): a full-sus frame REQUIRES the shock block; a hardtail cannot
+   carry any of it, so tsc rejects reading frame.shockEye without narrowing. */
+/** @typedef {Object} FrameShared
+ * @property {WheelConfig[]} wheelConfigs
+ * @property {RearAxle} rearAxle
+ * @property {Tapered} headset
+ * @property {FrameBb} bb
+ * @property {number} seatTube
+ * @property {BrakeMount} brakeMount
+ * @property {number} maxRotorR
+ * @property {number} maxForkTravel
+ * @property {boolean} udh
+ * @property {boolean} frameOnly
+ * @property {number} [maxTire]
+ * @property {FrameSizes} [sizes]
+ */
+/** @typedef {CommonFields & FrameShared & {cat: 'frame', suspension: 'full', shockEye: number, shockStroke: number, shockMount: ShockMount, travel: number, bundledShock?: (string|null)}} FullSusFramePart */
+/** @typedef {CommonFields & FrameShared & {cat: 'frame', suspension: 'hardtail'}} HardtailFramePart */
+/** @typedef {FullSusFramePart|HardtailFramePart} FramePart */
 /** @typedef {CommonFields & {cat: 'fork', wheel: WheelSize, travel: number, axle: FrontAxle, steerer: Tapered, brakeMount: BrakeMount, maxRotorF: number, minRotorF?: number}} ForkPart */
 /** @typedef {CommonFields & {cat: 'shock', eye: number, stroke: number, mount: ShockMount, spring: Spring, oemOnly?: boolean, forFrame?: string}} ShockPart */
 /** @typedef {CommonFields & {cat: 'frontwheel', wheel: WheelSize, hub: FrontAxle, rotorMount: RotorMount, intWidth: number, maxTire: number}} FrontWheelPart */

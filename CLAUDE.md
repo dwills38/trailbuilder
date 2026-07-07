@@ -78,14 +78,17 @@ It compiles and ships nothing; it only reads the JSDoc types. Shared `@typedef`s
 
 ## Data model (what a part looks like)
 
-Every part: `id, cat, brand, model, price` (USD, sample), and usually `weight` (grams, sample).
+Every part: `id, cat, brand, model, price` (USD MSRP, sample), and usually `weight` (grams, sample);
+plus the optional identity kit `family` (platform slug — backfilled catalog-wide), `gen`, `modelYear`,
+`mfgPn`, and `disciplines` (enumArray of `xc/trail/enduro/dh` — **filter/annotation only, never feeds
+`checkBuild`**; absence = universal; backfilled `['enduro']` on frame/fork/wheels/tires).
 Category-specific fields (enforced by `schema.js` → `SCHEMA`, using vocabularies in `VOCAB`):
 
-- **frame**: `wheelConfigs` (array of `'29'`/`'275'`/`'mullet'`), `rearAxle`, `headset`, `bb`, `seatTube`, `brakeMount`, `maxRotorR`, `shockEye`, `shockStroke`, `shockMount`, `maxForkTravel`, `travel`, `udh` (bool), `frameOnly` (bool), `bundledShock` (id or null).
+- **frame**: `wheelConfigs` (array of `'29'`/`'275'`/`'mullet'`), `rearAxle`, `headset`, `bb`, `seatTube`, `brakeMount`, `maxRotorR`, **`suspension`** (`'full'`/`'hardtail'` discriminator: the shock block `shockEye`/`shockStroke`/`shockMount`/`travel` is required for full and forbidden for hardtail — cross-rule), `maxForkTravel`, `udh` (bool), `frameOnly` (bool), `bundledShock` (id or null), optional `sizes` (per-size map → `{seatTubeLen?, maxInsert?}`).
 - **fork**: `wheel`, `travel`, `axle`, `steerer`, `brakeMount`, `maxRotorF`, optional `minRotorF` (native-mount minimum; sourced forks only).
 - **shock**: `eye`, `stroke`, `mount`, `spring`; optional `oemOnly` + `forFrame`.
 - **frontwheel / rearwheel**: `wheel`, `hub`, (`freehub` rear only), `rotorMount`, `intWidth`, `maxTire`.
-- **tire**: `wheel`, `width`. (Front and rear tires are separate build slots, both drawn from `cat:'tire'`.)
+- **tire**: `wheel`, `width`, optional `casing`/`compound` (brand-native SKU axes; template-mandatory for new rows). (Front and rear tires are separate build slots, both drawn from `cat:'tire'`.)
 - **shifter / derailleur / cassette / chain**: `system` (`sram-eagle`/`sram-transmission`/`shimano-12`), `speeds`; shifter + derailleur also `actuation` (`cable`/`electronic` — same system, but a trigger can't drive an AXS mech); shifter optional `clampType` (`ispec-ev`/`matchmaker`/`band`/`pod`); derailleur also `maxCog`,`mount`; cassette also `freehub`,`range`,`maxCog`.
 - **crankset**: `bb`, `ring`, `ringStd` (`t-type`/`standard-12`), `speeds`.
 - **brake**: `mount`, `pistons`, optional `leverClamp` (`ispec-ev`/`matchmaker`).   **rotor**: `size`, `mount`.
@@ -109,7 +112,8 @@ rotor interface (6-bolt/Center Lock) vs hub; rotor size vs frame/fork max AND vs
 native-mount minimum (error; sourced forks only); steerer/headset;
 fork travel vs frame max; dropper diameter vs seat tube; tire width vs wheel clearance;
 rear-tire width vs frame clearance (rule 18 — dormant until a frame declares `maxTire`);
-bar/stem clamp; rear-shock fit (eye×stroke + mount); frame+shock bundling (incl. OEM-only);
+bar/stem clamp; rear-shock fit (eye×stroke + mount, with a hardtail guard: a shock on a
+`suspension:'hardtail'` frame errors cleanly); frame+shock bundling (incl. OEM-only);
 shifter clamp vs brake lever integration (rule 19 — I-Spec EV/MatchMaker, dormant until parts
 are tagged).
 Returns `{errors, warnings, infos}`. Errors = won't fit; warnings = works but check; infos = notes.

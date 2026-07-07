@@ -103,6 +103,28 @@ test('shifter-mount rule stays dormant when the brakes are untagged', function()
 test('AXS pod shifter (own clamp) never triggers the mount warning', function(){
   eq(chk({shifter:'sft-sram-gx-transmission', frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc'}).warnings.length, 0);
 });
+/* Rule 16 hardtail guard — no catalog hardtail exists yet (the suspension
+   discriminator UNBLOCKS entering them), so these drive it with a synthetic
+   one, exactly like the dormant rule-18 tests below. */
+/** @returns {FramePart} */
+function hardtail(){
+  var f = /** @type {any} */ (Object.assign({}, part('fr-raaw-madonna-v3')));
+  delete f.shockEye; delete f.shockStroke; delete f.shockMount; delete f.travel; delete f.bundledShock;
+  f.suspension = 'hardtail';
+  return /** @type {FramePart} */ (f);
+}
+test('hardtail frame + a shock -> one clean hardtail error, never "undefinedxundefined"', function(){
+  var bld = B({shock:'sh-rockshox-super-deluxe-ultimate-230x65'});
+  bld.frame = hardtail();
+  var r = C.checkBuild(bld);
+  some(r.errors, 'Hardtail');
+  eq(r.errors.filter(function(e){ return e.indexOf('undefined') >= 0; }).length, 0, 'no undefined leaked');
+});
+test('hardtail frame without a shock -> silent (no shock-fit noise)', function(){
+  /** @type {import('../src/types.js').Build} */ var bld = {};
+  bld.frame = hardtail();
+  eq(C.checkBuild(bld).errors.length, 0);
+});
 test('dropper diameter mismatch (31.6 in a 34.9 frame) -> error', function(){
   some(chk({frame:'fr-specialized-enduro-sworks', dropper:'dp-oneup-v3-316-210'}).errors, 'Dropper diameter');
 });
