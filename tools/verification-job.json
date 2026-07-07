@@ -1,16 +1,12 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T20:40:14.568Z",
+ "updated": "2026-07-07T20:46:30.084Z",
  "batchSize": 25,
- "lastCompleted": "st-pro-tharsis-35",
+ "lastCompleted": "dp-wolftooth-resolve-316-200",
  "currentCategory": "dropper",
  "queue": [
-  "dp-rockshox-reverb-axs-316-170",
-  "dp-fox-transfer-factory-316-175",
   "dp-bikeyoke-revive-316-185",
-  "dp-wolftooth-resolve-316-200",
-  "dp-crankbrothers-highline-7-316-170",
   "dp-bikeyoke-revive-349-185",
   "dp-fox-transfer-neo-316-175",
   "dp-9point8-fall-line-r-316-175",
@@ -1263,11 +1259,11 @@
   },
   "dp-rockshox-reverb-axs-316-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:46:30.033Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "sram.com publishes no weight on Reverb AXS model pages (confirmed pattern for SRAM electronic parts this session) and the PDF spec sheet is image-based/unreadable. Third-party figures conflict heavily across generations (Gen1 170mm ~657-768g depending on what's included; Gen2 is a different, longer-travel product) -- not safe to pick one. Bar not met."
   },
   "dp-oneup-v3-316-210": {
    "cat": "dropper",
@@ -1277,18 +1273,10 @@
    "source": "https://www.oneupcomponents.com/products/dropper-post-v2",
    "note": "auto-promoted: already verified in catalog"
   },
-  "dp-fox-transfer-factory-316-175": {
-   "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
   "dp-bikeyoke-revive-316-185": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "InProgress",
+   "updated": "2026-07-07T20:42:22.847Z",
    "error": null,
    "source": null,
    "note": null
@@ -1311,19 +1299,19 @@
   },
   "dp-wolftooth-resolve-316-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:46:30.083Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "wolftoothcomponents.com product and tech-docs pages both return only header/nav content via fetch (JS-rendered), truncating before the spec table. A 563g figure for 200x31.6 surfaced in search only, never confirmed on a fetched page. Bar not met."
   },
   "dp-crankbrothers-highline-7-316-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T20:46:29.978Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.crankbrothers.com/products/highline-7-dropper",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bikeyoke-revive-349-185": {
    "cat": "dropper",
@@ -2564,6 +2552,14 @@
    "error": null,
    "source": null,
    "note": "Shimano's RT-MT900 (XTR) appears to top out at 203mm (140/160/180/203mm sizes found) -- no 220mm size turned up anywhere, manufacturer or retailer. Likely a nonexistent SKU in this catalog row; flag for a data-entry correction rather than guessing a weight for a size that may not exist."
+  },
+  "dp-fox-transfer-factory-316-180": {
+   "cat": "dropper",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:46:29.979Z",
+   "error": null,
+   "source": null,
+   "note": "CORRECTED drop 175->180 (ridefox.com confirms Transfer options are 120/150/180/210/240mm only -- 175mm doesn't exist, same nonexistent-SKU pattern as several forks/rotors this session; retired old id into ALIASES). No clean single weight found for the 180mm/31.6 Factory config -- only a range (608g manufacturer-ish vs 640g measured, neither directly fetched). Bar not met for weight; interfaces now correct."
   }
  }
 }
