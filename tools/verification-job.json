@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T18:53:36.663Z",
+ "updated": "2026-07-07T19:04:00.085Z",
  "batchSize": 25,
- "lastCompleted": "sa-specialized-bridge",
+ "lastCompleted": "sa-bontrager-arvada",
  "currentCategory": "fork",
  "queue": [
   "fk-rockshox-lyrik-ultimate-29-160",
@@ -54,14 +54,6 @@
   "dp-raceface-turbine-r-316-175",
   "dp-ethirteen-vario-infinite-316-180",
   "dp-specialized-command-post-309-160",
-  "sa-wtb-silverado",
-  "sa-fabric-scoop-radius",
-  "sa-sdg-radar",
-  "sa-prologo-dimension",
-  "sa-fizik-terra-alpaca",
-  "sa-raceface-aeffect",
-  "sa-chromag-trailmaster",
-  "sa-bontrager-arvada",
   "sa-selleitalia-model-x",
   "sa-pnw-loam",
   "sa-dmr-oioi",
@@ -1559,67 +1551,67 @@
   },
   "sa-wtb-silverado": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T19:02:22.339Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.wtb.com/products/silverado",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-fabric-scoop-radius": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T19:02:22.340Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://fabric.cc/products/scoop-sport-radius",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-sdg-radar": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T19:02:22.340Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/radar-mtn-ti-alloy",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-prologo-dimension": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:03:59.925Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Prologo's 'Dimension' line splits into several distinct SKUs (R2, Tri, Tri CPC, AGX, 143) with no plain base model matching this generic catalog row -- ambiguous which one this represents. Bar not met without picking a real SKU first."
   },
   "sa-fizik-terra-alpaca": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:03:59.979Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "fizik.com product pages 404 to WebFetch for this SKU (X5). A 238g/$99.99 figure surfaced in search summaries only, never confirmed on a fetched manufacturer page. Bar not met."
   },
   "sa-raceface-aeffect": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:04:00.035Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Race Face has discontinued the Aeffect saddle -- no live manufacturer page exists to source interfaces/weight from (raceface.com no longer lists it). Retailer-only figures (234g) don't meet the bar; sourceType:'measured' doesn't apply either since this isn't a third-party measured weight, just a retailer spec copy."
   },
   "sa-chromag-trailmaster": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T19:03:59.924Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://us.chromagbikes.com/products/saddles-trailmaster-dt-19",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-bontrager-arvada": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:04:00.085Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "trekbikes.com is JS-rendered and returns only nav/breadcrumb content to WebFetch, consistent with the known Trek blocker already logged in this job. Bar not met."
   },
   "sa-selleitalia-model-x": {
    "cat": "saddle",
