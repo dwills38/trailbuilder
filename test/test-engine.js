@@ -215,6 +215,49 @@ test('over-travel fork (180 on a 170-rated frame) -> warning', function(){
   some(chk({frame:'fr-canyon-strive-cfr', fork:'fk-fox-38-factory-29-180'}).warnings, 'Fork travel');
 });
 
+/* Dormant sourced-data rules (REVIEW.md #14/#21/#22) - no catalog part carries
+   the fields yet, so each is driven synthetically (the rule-18 template) and
+   proven dormant on real parts. */
+test('under-forking warns when the frame declares a sourced minForkTravel', function(){
+  var bld = B({fork:'fk-fox-36-factory-29-160'});
+  bld.frame = /** @type {FramePart} */ (Object.assign({}, part('fr-propain-spindrift-cf'), {minForkTravel:170}));
+  some(C.checkBuild(bld).warnings, 'Under-forked');
+});
+test('under-forking stays dormant without minForkTravel (high-pivot frames would false-fire on a heuristic)', function(){
+  // Dreadnought: 154mm travel, commonly forked at 170+ - a 160 fork must stay silent.
+  eq(chk({frame:'fr-forbidden-dreadnought', fork:'fk-fox-36-factory-29-160'}).warnings.length, 0);
+});
+test('coil shock warns when the frame is maker-stated NOT coil-compatible', function(){
+  var bld = B({shock:'sh-ext-storia-v3-230x65'});
+  bld.frame = /** @type {FramePart} */ (Object.assign({}, part('fr-yt-capra-core4'), {coilApproved:false}));
+  some(C.checkBuild(bld).warnings, 'not coil-compatible');
+});
+test('air shock stays silent on a not-coil-compatible frame; coil stays silent when approval is unknown', function(){
+  var bld = B({shock:'sh-rockshox-super-deluxe-ultimate-230x65'});
+  bld.frame = /** @type {FramePart} */ (Object.assign({}, part('fr-yt-capra-core4'), {coilApproved:false}));
+  eq(C.checkBuild(bld).warnings.length, 0);
+  eq(chk({frame:'fr-yt-capra-core4', shock:'sh-ext-storia-v3-230x65'}).warnings.length, 0);   // no field -> dormant
+});
+test('front tire wider than the fork chassis max -> warning (fork.maxTire set)', function(){
+  var bld = B({frontTire:'ti-maxxis-assegai-29-25-exop-mg'});
+  bld.fork = /** @type {import('../src/types.js').ForkPart} */ (Object.assign({}, part('fk-fox-36-factory-29-160'), {maxTire:2.4}));
+  some(C.checkBuild(bld).warnings, 'chassis max');
+});
+test('fork tire clearance stays dormant without a sourced fork.maxTire', function(){
+  eq(chk({fork:'fk-fox-36-factory-29-160', frontTire:'ti-maxxis-assegai-29-25-exop-mg'}).warnings.length, 0);
+});
+
+/* REVIEW.md #23 near-term tier: no frame-size concept yet, so a long-drop post
+   gets an INFO nudge toward the maker's insertion calculator - never a verdict. */
+test('long-drop dropper (>=200mm) with a frame -> insertion info, zero errors/warnings', function(){
+  var r = chk({frame:'fr-santacruz-megatower-cc', dropper:'dp-oneup-v3-316-210'});
+  eq(r.errors.length, 0); eq(r.warnings.length, 0);
+  some(r.infos, 'insertion');
+});
+test('short-drop dropper -> no insertion info', function(){
+  eq(chk({frame:'fr-santacruz-megatower-cc', dropper:'dp-rockshox-reverb-axs-316-170'}).infos.filter(function(i){ return String(i).indexOf('insertion')>=0; }).length, 0);
+});
+
 /* Rule 18 — rear tire vs FRAME clearance. Dormant on the current catalog (no
    frame declares maxTire), so these drive it with a cloned frame that does. */
 test('rear tire wider than the frame max -> clearance warning (frame.maxTire set)', function(){

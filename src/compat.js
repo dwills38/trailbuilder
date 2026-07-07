@@ -1042,6 +1042,12 @@ function checkBuild(build){
         makers publish it as a rated limit and exceeding it can void the frame
         warranty (REVIEW.md #6 wording fix). */
   if(fork && frame && fork.travel>frame.maxForkTravel) warn('fork-travel', ['fork','frame'], 'Fork travel: '+fork.travel+'mm exceeds the frame\'s rated max of '+frame.maxForkTravel+'mm.');
+  /* 12b. UNDER-forking (REVIEW.md #14) - dormant until a frame carries a
+        maker-published minForkTravel (~1 degree head-angle steepening per
+        20mm). Sourced data only: a travel-based heuristic would false-fire
+        on high-pivot frames (Dreadnought: 154mm travel, ships at 170). */
+  if(fork && frame && typeof frame.minForkTravel==='number' && fork.travel<frame.minForkTravel)
+    warn('fork-travel-min', ['fork','frame'], 'Under-forked: '+fork.travel+'mm fork is below '+nameOf(frame)+'\'s approved minimum of '+frame.minForkTravel+'mm - steepens the geometry (~1° per 20mm) and leaves the frame outside the maker\'s approved range.');
 
   /* 13. Dropper diameter vs seat tube - DIRECTION-AWARE (REVIEW.md #9): a
         bigger post in a smaller tube is physically impossible (error); a
@@ -1054,11 +1060,23 @@ function checkBuild(build){
     } else if(dropper.diameter<frame.seatTube){
       warn('dropper-shim', ['dropper','frame'], 'Dropper shim needed: a '+dropper.diameter+'mm post in a '+frame.seatTube+'mm seat tube works with a '+frame.seatTube+'-to-'+dropper.diameter+'mm reducing shim (sold separately).');
     }
+    /* 13b. Insertion depth (REVIEW.md #23, near-term tier): fit for long-drop
+          posts is decided by post length vs per-size usable insertion, and the
+          app has no frame-size concept yet - so a >=200mm drop gets an INFO
+          nudge, never a verdict. The real check needs frame.sizes.maxInsert +
+          a size picker (deferred with the frameSize share-hash key). */
+    if(dropper.drop>=200)
+      info('dropper-insertion', ['dropper','frame'], 'Long-drop post: the '+nameOf(dropper)+' ('+dropper.drop+'mm) needs deep seat-tube insertion - check the maker\'s insertion calculator for your '+nameOf(frame)+' frame size.');
   }
 
   /* 14. Tire width vs wheel clearance (per wheel, warnings) */
   if(fTire && fW && fTire.width>fW.maxTire) warn('front-tire-rim', ['frontTire','frontWheel'], 'Front tire clearance: '+fTire.width+'in tire is wider than the front wheel\'s '+fW.maxTire+'in max.');
   if(rTire && rW && rTire.width>rW.maxTire) warn('rear-tire-rim', ['rearTire','rearWheel'], 'Rear tire clearance: '+rTire.width+'in tire is wider than the rear wheel\'s '+rW.maxTire+'in max.');
+  /* 14b. Front tire vs FORK crown/arch clearance (REVIEW.md #22) - the
+        fork-side twin of rule 18, dormant until a fork carries a
+        maker-published maxTire (Fox/RockShox publish per chassis). */
+  if(fTire && fork && typeof fork.maxTire==='number' && fTire.width>fork.maxTire)
+    warn('front-tire-fork', ['frontTire','fork'], 'Front tire clearance: '+fTire.width+'in tire is wider than '+nameOf(fork)+'\'s '+fork.maxTire+'in chassis max.');
 
   /* 15. Handlebar / stem clamp */
   if(bar && stem && bar.clamp!==stem.clamp) err('bar-stem-clamp', ['handlebar','stem'], 'Bar/stem clamp mismatch: Handlebar is '+bar.clamp+'mm but Stem is '+stem.clamp+'mm.');
@@ -1086,6 +1104,12 @@ function checkBuild(build){
         warn('shock-stroke-short', ['shock','frame'], 'Shorter-stroke shock: '+shock.eye+'x'+shock.stroke+'mm in a '+frame.shockEye+'x'+frame.shockStroke+'mm frame bolts in (same eye-to-eye) but gives ~'+redTravel+'mm rear travel instead of '+frame.travel+'mm - confirm bottom-out clearance / frame-maker approval.');
       }
       if(shock.mount!==frame.shockMount) err('shock-mount', ['shock','frame'], 'Shock mount mismatch: Frame uses a '+L(frame.shockMount)+' shock but Shock is '+L(shock.mount)+'.');
+      /* 16b. Coil approval (REVIEW.md #21) - dormant until a frame carries a
+            maker STATEMENT (coilApproved:false, e.g. Ibis's "leverage ratio
+            ... not coil-compatible"). Never inferred from leverage curves;
+            absence of the field means unknown, and unknown stays silent. */
+      if(frame.coilApproved===false && shock.spring==='coil')
+        warn('coil-approval', ['shock','frame'], 'Coil shock: '+nameOf(frame)+'\'s maker states this frame is not coil-compatible (leverage curve) - the '+nameOf(shock)+' is a coil.');
     }
   }
 

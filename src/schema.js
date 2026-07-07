@@ -126,6 +126,13 @@ var SCHEMA = {
     shockEye:{type:'number',optional:true}, shockStroke:{type:'number',optional:true},
     shockMount:{type:'string',vocab:'shockMount',optional:true}, travel:{type:'number',optional:true},
     maxForkTravel:{type:'number'},
+    /* dormant-until-sourced (rule-18 template): minForkTravel = the maker's
+       published approved-fork floor (REVIEW #14 - never a heuristic, a
+       travel-based guess would false-fire on high-pivot frames like the
+       Dreadnought); coilApproved:false = the maker states the frame is NOT
+       coil-compatible (REVIEW #21 - manufacturer statements only, never
+       leverage-curve guesses; absence means unknown, not approved). */
+    minForkTravel:{type:'number',optional:true}, coilApproved:{type:'bool',optional:true},
     udh:{type:'bool'}, frameOnly:{type:'bool'}, maxTire:{type:'number',optional:true},
     headTubeUpper:{type:'string',vocab:'headTube',optional:true}, headTubeLower:{type:'string',vocab:'headTube',optional:true},
     bundledShock:{type:'id',optional:true,nullable:true},
@@ -137,7 +144,11 @@ var SCHEMA = {
   fork: {
     wheel:{type:'string',vocab:'wheel'}, travel:{type:'number'}, axle:{type:'string',vocab:'frontAxle'},
     steerer:{type:'string',vocab:'steerer'}, brakeMount:{type:'string',vocab:'brakeMount'}, maxRotorF:{type:'number'},
-    minRotorF:{type:'number',optional:true}
+    minRotorF:{type:'number',optional:true},
+    /* dormant-until-sourced: crown/arch tire clearance from the maker's chassis
+       spec (Fox/RockShox publish per chassis) - the fork-side twin of
+       frame.maxTire (REVIEW #22). */
+    maxTire:{type:'number',optional:true}
   },
   shock: {
     eye:{type:'number'}, stroke:{type:'number'}, mount:{type:'string',vocab:'shockMount'}, spring:{type:'string',vocab:'spring'},
