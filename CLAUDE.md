@@ -54,7 +54,7 @@ tests + type-checker; `validate.js` itself needs no dependencies).
 
 ```
 npm test            # full suite (Vitest) — expect "Tests  112 passed (112)"
-node validate.js    # data check — expect "DATA OK - 327 parts, 0 problems (46 verified, ...)"
+node validate.js    # data check — expect "DATA OK - 329 parts, 0 problems (46 verified, ...)"
 ```
 
 (`npm run validate` works too; `npm run test:watch` re-runs Vitest on save.) To run the

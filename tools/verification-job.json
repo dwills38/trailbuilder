@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T02:42:45.619Z",
+ "updated": "2026-07-07T13:12:11.287Z",
  "batchSize": 25,
  "lastCompleted": "fr-ibis-hd6",
  "currentCategory": "tire",
@@ -49,6 +49,7 @@
   "rw-roval-traverse-hd-29",
   "rw-industrynine-enduro-s-29-157",
   "rw-dtswiss-e-1900-275",
+  "rw-dtswiss-e-1900-275-xd",
   "rw-hope-fortus-30-29",
   "rw-weareone-union-29",
   "rw-enve-am30-29",
@@ -2754,6 +2755,14 @@
    "error": null,
    "source": null,
    "note": "Manufacturer support page (santacruzbicycles.com Megatower 2 MY24) confirms 230x62.5 std shock (catalog had 65 - FIXED), Boost148, BSA73 threaded, 31.6 post, PM, UDH, 2.5 max tire, 170mm fork (180 ok); frame page states 7.17 lbs + \\ MSRP (price FIXED) but weight doesn't state size or shock inclusion - weight bar not met."
+  },
+  "rw-dtswiss-e-1900-275-xd": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-07T13:12:11.287Z",
+   "error": null,
+   "source": null,
+   "note": null
   }
  }
 }

@@ -106,6 +106,11 @@ test('a pre-existing warning does not turn an unrelated part yellow', function()
   // Build already warns (over-travel fork); a fitting shock adds nothing new.
   eq(stateOf({frame:'fr-canyon-strive-cfr', fork:'fk-fox-38-factory-29-180'}, 'sh-rockshox-vivid-ultimate-230x65'), 'g');
 });
+test('REVIEW #7: on a mullet frame + SRAM cassette, the XD 27.5 rear wheel is green (the MicroSpline one stays honestly red)', function(){
+  var bld = {frame:'fr-commencal-meta-sx-v5', cassette:'ca-sram-xs1275'};
+  eq(stateOf(bld, 'rw-dtswiss-e-1900-275-xd'), 'g');
+  eq(stateOf(bld, 'rw-dtswiss-e-1900-275'), 'r');   // freehub mismatch is real for THIS config
+});
 test('a preset that swaps one conflict for another is RED, not green', function(){
   // Base build has a drivetrain-system mismatch (SRAM shifter + Shimano derailleur).
   // Applying the SRAM Eagle groupset fixes that mismatch but its XD cassette clashes

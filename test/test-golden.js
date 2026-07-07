@@ -77,6 +77,19 @@ test('golden: mullet (29 front / 27.5 rear) on a mullet-capable frame is fully c
   var r = chk(MULLET); eq(r.errors.length, 0); eq(r.warnings.length, 0);
 });
 
+/* REVIEW.md #7 — the SRAM-cassette mullet trap. Before the XD 27.5 rear wheel
+   existed, NO error-free SRAM-cassette build was possible on the mullet-only
+   frames (Meta SX / HD6): all SRAM cassettes are XD/HG and the only 27.5 rear
+   wheel was MicroSpline. The Meta SX ships stock with SRAM - the red was a
+   false claim about the real world. This build must stay green forever. */
+var META_T = { frame:'fr-commencal-meta-sx-v5', fork:'fk-rockshox-zeb-ultimate-29-170', shock:'sh-rockshox-vivid-ultimate-230x65', frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-dtswiss-e-1900-275-xd',
+  frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-minion-dhr-ii-275-24-exop-mt', shifter:'sft-sram-gx-transmission', derailleur:'dr-sram-gx-transmission', cassette:'ca-sram-xs1275', chain:'ch-sram-gx-flattop', crankset:'cr-sram-x0-transmission',
+  frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-centerline-180-cl',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-349-210', saddle:'sa-wtb-volt', pedals:'pd-oneup-aluminum' };
+test('golden: SRAM Transmission mullet on the Meta SX (XD 27.5 rear) is fully compatible', function(){
+  var r = chk(META_T); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+
 test('golden: every demo build fills every required slot (complete builds)', function(){
   var required = C.SLOTS.filter(function(s){ return !s.optional; });
   [GOOD, DEAL, MADONNA, MULLET].forEach(function(bld){

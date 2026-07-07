@@ -198,6 +198,11 @@ var PARTS = [
   { id:'rw-roval-traverse-hd-29', cat:'rearwheel', brand:'Roval', model:'Traverse HD rear', family:'roval-traverse-hd', disciplines:['enduro'], price:900, weight:995, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.6 },
   { id:'rw-industrynine-enduro-s-29-157', cat:'rearwheel', brand:'Industry Nine', model:'Enduro S 157 rear', family:'industrynine-enduro-s', disciplines:['enduro'], price:950, weight:1090, wheel:'29', hub:'SuperBoost157', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.6 },
   { id:'rw-dtswiss-e-1900-275', cat:'rearwheel', brand:'DT Swiss', model:'E 1900 27.5 rear', family:'dtswiss-e-1900', disciplines:['enduro'], price:300, weight:1200, wheel:'275', hub:'Boost148', freehub:'MicroSpline', rotorMount:'CL', intWidth:30, maxTire:2.5 },
+  /* The XD-freehub config of the same wheel (DT sells both bodies). Without it
+     every SRAM-cassette mullet build was IMPOSSIBLE - the only 27.5 rear wheel
+     was MicroSpline, a catalog-completeness false red on the canonical modern
+     enduro spec (REVIEW.md #7). */
+  { id:'rw-dtswiss-e-1900-275-xd', cat:'rearwheel', brand:'DT Swiss', model:'E 1900 27.5 rear (XD)', family:'dtswiss-e-1900', disciplines:['enduro'], price:300, weight:1200, wheel:'275', hub:'Boost148', freehub:'XD', rotorMount:'CL', intWidth:30, maxTire:2.5 },
   { id:'rw-hope-fortus-30-29', cat:'rearwheel', brand:'Hope', model:'Fortus 30 rear', family:'hope-fortus', disciplines:['enduro'], price:550, weight:1100, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.6 },
   { id:'rw-weareone-union-29', cat:'rearwheel', brand:'We Are One', model:'Union rear', family:'weareone-union', disciplines:['enduro'], price:950, weight:1050, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.6 },
   { id:'rw-crankbrothers-synthesis-enduro-29', cat:'rearwheel', brand:'Crankbrothers', model:'Synthesis Enduro rear', family:'crankbrothers-synthesis-enduro', disciplines:['enduro'], price:850, weight:1087, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:29.5, maxTire:2.6, verified:true, lastChecked:'2026-07-06', source:'https://www.crankbrothers.com/products/synthesis-enduro-carbon-rear-wheel' },
@@ -448,6 +453,7 @@ var PARTS = [
   { id:'ws-industrynine-enduro-s-29', cat:'wheelset', brand:'Industry Nine', model:'Enduro S', family:'industrynine-enduro-s', desc:'29 . Boost . Micro Spline . 6-bolt', price:1700, fills:{ frontWheel:'fw-industrynine-enduro-s-29', rearWheel:'rw-industrynine-enduro-s-29' } },
   { id:'ws-roval-traverse-hd-29', cat:'wheelset', brand:'Roval', model:'Traverse HD', family:'roval-traverse-hd', desc:'29 . Boost . XD . 6-bolt', price:1600, fills:{ frontWheel:'fw-roval-traverse-hd-29', rearWheel:'rw-roval-traverse-hd-29' } },
   { id:'ws-dtswiss-e-1900-275', cat:'wheelset', brand:'DT Swiss', model:'E 1900 27.5', family:'dtswiss-e-1900', desc:'27.5 . Boost . Micro Spline . CL', price:500, fills:{ frontWheel:'fw-dtswiss-e-1900-275', rearWheel:'rw-dtswiss-e-1900-275' } },
+  { id:'ws-dtswiss-e-1900-275-xd', cat:'wheelset', brand:'DT Swiss', model:'E 1900 27.5 (XD)', family:'dtswiss-e-1900', desc:'27.5 . Boost . XD . CL', price:500, fills:{ frontWheel:'fw-dtswiss-e-1900-275', rearWheel:'rw-dtswiss-e-1900-275-xd' } },
 
   { id:'bs-sram-code-rsc', cat:'brakeset', brand:'SRAM', model:'Code RSC set', family:'sram-code', desc:'200/200 . 6-bolt', price:360, fills:{ frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b' } },
   { id:'bs-shimano-xt-m8120', cat:'brakeset', brand:'Shimano', model:'XT M8120 set', family:'shimano-xt-m8120', desc:'203/203 . Center Lock', price:379, fills:{ frontBrake:'bk-shimano-xt-m8120', rearBrake:'bk-shimano-xt-m8120', frontRotor:'ro-shimano-rtmt800-203-cl', rearRotor:'ro-shimano-rtmt800-203-cl' } },
