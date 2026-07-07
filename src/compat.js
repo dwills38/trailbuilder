@@ -422,7 +422,7 @@ var PARTS = [
   { id:'dp-bikeyoke-revive-349-185', cat:'dropper', brand:'BikeYoke', model:'Revive 34.9', family:'bikeyoke-revive', price:400, weight:640, diameter:34.9, drop:185 },
   { id:'dp-fox-transfer-neo-316-175', cat:'dropper', brand:'Fox', model:'Transfer Neo (wireless)', family:'fox-transfer-neo', price:900, weight:660, diameter:31.6, drop:175 },
   { id:'dp-9point8-fall-line-r-316-175', cat:'dropper', brand:'9point8', model:'Fall Line R', family:'9point8-fall-line', price:300, weight:560, diameter:31.6, drop:175 },
-  { id:'dp-ks-lev-integra-316-175', cat:'dropper', brand:'KS', model:'LEV Integra', family:'ks-lev-integra', price:300, weight:595, diameter:31.6, drop:175 },
+  { id:'dp-ks-lev-integra-316-175', cat:'dropper', brand:'KS', model:'LEV Integra', family:'ks-lev-integra', price:300, weight:490, diameter:31.6, drop:175, verified:true, lastChecked:'2026-07-07', source:'https://kssuspension.com/products/dropper-seat-posts/lev-integra/' },
   { id:'dp-pnw-loam-349-200', cat:'dropper', brand:'PNW', model:'Loam 34.9', family:'pnw-loam', price:229, weight:636, diameter:34.9, drop:200, verified:true, lastChecked:'2026-07-06', source:'https://www.pnwcomponents.com/products/loam-dropper-post' },
   { id:'dp-sdg-tellis-316-170', cat:'dropper', brand:'SDG', model:'Tellis', family:'sdg-tellis', price:200, weight:595, diameter:31.6, drop:170 },
   { id:'dp-raceface-turbine-r-316-175', cat:'dropper', brand:'Race Face', model:'Turbine R', family:'raceface-turbine-r', price:300, weight:600, diameter:31.6, drop:175 },
