@@ -89,7 +89,10 @@ be playful.
    is the only thing that validates the rules and turns the community into QA.
 2. **Domain-expert rule review.** A mechanic/engineer sanity-checks the 19 rules + verified specs.
    Irreplaceable for "the community can rely on it" — and it also unblocks the Phase 4 ride-character
-   features (they need an expert-blessed vocabulary).
+   features (they need an expert-blessed vocabulary). **The review packet is ready:
+   [`EXPERT-REVIEW-DOSSIER.md`](EXPERT-REVIEW-DOSSIER.md)** — every rule's claim, tier, sources and
+   open questions in mechanic language (~2-3h review, no code reading). Recruit the reviewer and
+   hand them that file.
 3. **Keep the verification grind running** (resumable job — next up: Continental/Schwalbe/Michelin/
    Pirelli tires, which all publish weights). **✅ Gate cleared (2026-07-07):** the tire
    `casing`/`compound` fields and `tools/DATA-ENTRY-TEMPLATE.md` exist — the tire batch is a go
