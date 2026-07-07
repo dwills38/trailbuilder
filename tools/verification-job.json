@@ -1,19 +1,14 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T20:51:27.320Z",
+ "updated": "2026-07-07T20:54:08.797Z",
  "batchSize": 25,
- "lastCompleted": "dp-specialized-command-post-309-160",
+ "lastCompleted": "bk-hope-tech-4-v4",
  "currentCategory": "brake",
  "queue": [
-  "bk-sram-code-rsc",
-  "bk-sram-code-stealth",
   "bk-shimano-xt-m8120",
-  "bk-hayes-dominion-a4",
-  "bk-magura-mt7",
   "bk-shimano-slx-m7120",
   "bk-sram-maven-ultimate",
-  "bk-hope-tech-4-v4",
   "bk-trp-dhr-evo",
   "bk-formula-cura-4",
   "bk-shimano-saint-m820",
@@ -1642,19 +1637,19 @@
   },
   "bk-sram-code-rsc": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:54:08.700Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "sram.com model/service pages list no weight for Code RSC. Third-party measured figures conflict wildly by what's included (294g caliper-only vs 411-443g full lever+caliper+hose+pads setups) -- not safe to pick one without knowing which config this catalog row represents. Bar not met."
   },
   "bk-sram-code-stealth": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:54:08.749Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same issue as Code RSC, plus Code Stealth itself splits into Ultimate/Silver/Bronze tiers with meaningfully different weights (291-628g depending on config and what's measured) -- this generic 'Code Stealth' row doesn't match one specific tier. Bar not met."
   },
   "bk-shimano-xt-m8120": {
    "cat": "brake",
@@ -1666,19 +1661,19 @@
   },
   "bk-hayes-dominion-a4": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T20:54:08.699Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/dominion-a4-brake-kit",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-magura-mt7": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T20:54:08.700Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://magura.com/product/mt7-pro/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-shimano-slx-m7120": {
    "cat": "brake",
@@ -1698,11 +1693,11 @@
   },
   "bk-hope-tech-4-v4": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:54:08.796Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "hopetech.com's Tech 4 V4 page gives GBP RRP but no weight, piston count, or mount type. Bar not met."
   },
   "bk-trp-dhr-evo": {
    "cat": "brake",
