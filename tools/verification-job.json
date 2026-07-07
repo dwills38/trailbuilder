@@ -1,21 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T20:58:18.691Z",
+ "updated": "2026-07-07T21:00:57.132Z",
  "batchSize": 25,
- "lastCompleted": "bk-shimano-slx-m7120",
+ "lastCompleted": "bk-sram-db8",
  "currentCategory": "brake",
  "queue": [
-  "bk-shimano-saint-m820",
-  "bk-shimano-xtr-m9120",
-  "bk-shimano-zee-m640",
-  "bk-magura-mt5",
-  "bk-sram-g2-rsc",
-  "bk-hope-tech-4-e4",
-  "bk-trp-trail-evo",
-  "bk-trickstuff-maxima",
-  "bk-sram-db8",
-  "bk-shimano-deore-m6120",
   "bk-magura-mt-trail-sport",
   "dr-shimano-xt-m8100-sgs",
   "dr-shimano-slx-m7100-sgs",
@@ -1712,83 +1702,83 @@
   },
   "bk-shimano-saint-m820": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:58:45.659Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established pattern this session across pedals/rotors/shifters/brakes). Not re-attempting individually."
   },
   "bk-shimano-xtr-m9120": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:58:45.758Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established pattern this session across pedals/rotors/shifters/brakes). Not re-attempting individually."
   },
   "bk-shimano-zee-m640": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:58:45.862Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established pattern this session across pedals/rotors/shifters/brakes). Not re-attempting individually."
   },
   "bk-magura-mt5": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T21:00:57.031Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://magura.com/product/mt5/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-sram-g2-rsc": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T21:00:57.032Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/db-g2-rsc-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-hope-tech-4-e4": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:00:57.077Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same Hope pattern as Tech 4 V4 and AM stem: no weight published on their product pages. Bar not met."
   },
   "bk-trp-trail-evo": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T21:00:57.032Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/trail-evo",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-trickstuff-maxima": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:00:57.032Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "trickstuff.de redirects to trickstuff.com homepage, no product detail page reachable via fetch; a 301g search-summary figure (with hose/pads, no rotor) was never confirmed on a fetched page. Bar not met."
   },
   "bk-sram-db8": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T21:00:57.131Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "sram.com model page has a full spec table but no weight field at all (confirmed via direct fetch), consistent with SRAM sometimes omitting weight (Code/DB8) vs sometimes publishing it (Maven, G2 RSC). Bar not met."
   },
   "bk-shimano-deore-m6120": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:58:45.963Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bike.shimano.com systemically 403-blocked (established pattern this session across pedals/rotors/shifters/brakes). Not re-attempting individually."
   },
   "bk-magura-mt-trail-sport": {
    "cat": "brake",
