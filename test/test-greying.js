@@ -1,6 +1,7 @@
 'use strict';
 /* DOT / CONFLICT PREDICATE — the compatibility dot the catalog shows
-   (g = no conflicts, r = won't fit, n = nothing selected yet). */
+   (g = no conflicts, w = fits but adds a warning, r = won't fit,
+   n = nothing selected yet). */
 var U = require('./test-util.js');
 var C = U.C, B = U.B, part = U.part, eq = U.eq, ok = U.ok, some = U.some;
 /** @param {Object.<string, string>} buildMap @param {string} id */
@@ -18,8 +19,12 @@ test('Megatower: a trunnion shock is red', function(){
 test('Megatower: a wrong-size shock is red', function(){
   eq(stateOf({frame:'fr-santacruz-megatower-cc'}, 'sh-fox-float-x-230x60'), 'r');
 });
-test('Enduro: a fitting (package) shock stays green', function(){
-  eq(stateOf({frame:'fr-specialized-enduro-sworks'}, 'sh-rockshox-super-deluxe-ultimate-205x60-trun'), 'g');
+test('Enduro: a fitting non-package shock is YELLOW (package-only warning), not green', function(){
+  // The Enduro is sold frame+shock only; a different (fitting) shock raises the
+  // rule-17 package-only WARNING. Pre-REVIEW-#6 the dot ignored warnings and
+  // showed this as a clean green fit.
+  var c = C.compatOf(part('sh-rockshox-super-deluxe-ultimate-205x60-trun'), B({frame:'fr-specialized-enduro-sworks'}));
+  eq(c.state, 'w'); some([c.reason], 'package-only');
 });
 test('Enduro: its own OEM shock is green', function(){
   eq(stateOf({frame:'fr-specialized-enduro-sworks'}, 'sh-rockshox-vivid-ultimate-oem-205x60-trun'), 'g');
@@ -73,6 +78,33 @@ test('REVIEW #13 regression: a 29in REAR tire on a mullet-only frame is a new co
   var r = C.conflictReason(part('ti-maxxis-assegai-29-25-exop-mg'), 'rearTire', bld);
   ok(r !== null, 'rear placement must surface the conflict');
   some([r], 'Unsupported wheel setup');
+});
+/* REVIEW.md #6 — the dot layer used to diff ERRORS only, so every warning-class
+   rule (over-max rotor, over-travel fork, shifter clamp...) rendered as a green
+   "fits" at pick time. A part/preset that adds a new warning (but no error) now
+   dots YELLOW with the warning as its reason. */
+test('oversize rotor (220 vs 203-max fork AND frame) is YELLOW at pick time, not green', function(){
+  // Both rotor slots must be constrained: with only a fork, the rear placement
+  // is unconstrained and the dot legitimately reports that clean best placement.
+  var c = C.compatOf(part('ro-sram-hs2-220-6b'), B({fork:'fk-manitou-mezzer-pro-29-170', frame:'fr-yeti-sb160'}));
+  eq(c.state, 'w'); some([c.reason], 'exceeds the fork max');
+});
+test('over-travel fork (180 on a 170-rated frame) is YELLOW at pick time', function(){
+  var c = C.compatOf(part('fk-fox-38-factory-29-180'), B({frame:'fr-canyon-strive-cfr'}));
+  eq(c.state, 'w'); some([c.reason], 'Fork travel');
+});
+test('lever-integrated shifter with mismatched brake levers is YELLOW at pick time', function(){
+  var c = C.compatOf(part('sft-shimano-xt-m8100'), B({frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc'}));
+  eq(c.state, 'w'); some([c.reason], 'Shifter mount');
+});
+test('preset dot: a kit that adds a new warning (no error) is YELLOW', function(){
+  // XT brakeset carries 203mm rotors; the Lyrik's max is 200 -> rotor-max warning.
+  var c = C.compatOf(part('bs-shimano-xt-m8120'), B({fork:'fk-rockshox-lyrik-ultimate-29-160'}));
+  eq(c.state, 'w'); some([c.reason], 'exceeds the fork max');
+});
+test('a pre-existing warning does not turn an unrelated part yellow', function(){
+  // Build already warns (over-travel fork); a fitting shock adds nothing new.
+  eq(stateOf({frame:'fr-canyon-strive-cfr', fork:'fk-fox-38-factory-29-180'}, 'sh-rockshox-vivid-ultimate-230x65'), 'g');
 });
 test('a preset that swaps one conflict for another is RED, not green', function(){
   // Base build has a drivetrain-system mismatch (SRAM shifter + Shimano derailleur).

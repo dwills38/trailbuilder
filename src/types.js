@@ -187,7 +187,7 @@
 
 /**
  * @typedef {Object} CompatState
- * @property {'g'|'r'|'n'} state  green / red / neutral
+ * @property {'g'|'w'|'r'|'n'} state  green / yellow (fits, but adds a warning) / red / neutral
  * @property {string} reason
  */
 

@@ -30,7 +30,7 @@ Entry points (`validate.js`, `index.html`) live at the root; tests run on Vitest
 | `test/test-data.js` | Asserts the catalog passes the validator. |
 | `test/test-schema.js` | Proves the validator catches bad data (negative tests). |
 | `test/test-engine.js` | Each compatibility rule fires when it should. |
-| `test/test-greying.js` | The green/red/grey compatibility dots. |
+| `test/test-greying.js` | The green/yellow/red/grey compatibility dots (yellow = fits, but adds a warning). |
 | `test/test-pricing.js` | Bundle (groupset) pricing + weight totals. |
 | `test/test-golden.js` | Whole real bikes that must validate clean; a known-bad build that must fail. |
 | `package.json` | Scripts: `test` (Vitest), `test:watch`, `validate`, `typecheck`, `verify:status/next/report`. Dev-only deps: `vitest`, `typescript`, `@types/node`. |
@@ -122,6 +122,9 @@ dots is `verdictKey` (ruleId+slots+msg) — never raw message text, which two di
 can share byte-identically (the REVIEW.md #4/#13 maskings). `fix` is reserved for a future
 "fits with adapter X" tier (adapter facts are engine-side pair data, never part fields).
 Errors = won't fit; warnings = works but check; infos = notes.
+The pick-time dot (`compatOf`) has **four states** (REVIEW #6): green = adds no new error or
+warning, **yellow = fits but adds a new warning** (the warning is the hover reason), red = adds a
+new error, grey = nothing selected. Multi-slot parts dot their best placement.
 (The all-clear in the app reads "No conflicts found", not "All compatible" — it means no conflict
 among the dimensions we check, not a guarantee. Don't reword it to overclaim.)
 

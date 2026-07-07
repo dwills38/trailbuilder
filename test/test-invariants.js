@@ -107,14 +107,15 @@ test('compatOf returns a valid state + reason, never throws, over random builds'
     var b = randomBuild(rand);
     var p = C.PARTS[Math.floor(rand() * C.PARTS.length)];
     var c = C.compatOf(p, b);
-    ok(c && /^[grn]$/.test(c.state), 'state for '+p.id+' iter '+i);
+    ok(c && /^[gwrn]$/.test(c.state), 'state for '+p.id+' iter '+i);
     ok(typeof c.reason === 'string' && c.reason.length > 0, 'reason for '+p.id+' iter '+i);
   }
 });
-test('a green dot never hides a newly-introduced conflict, over '+FUZZ+' builds', function(){
-  // Dot honesty: if compatOf says green, there must be a real placement that adds NO
-  // new error (by set membership, not error count). Catches a false "fits" - the
-  // worst kind of wrong verdict - for both single parts and presets.
+test('a green or yellow dot never hides a newly-introduced error (and green hides no warning), over '+FUZZ+' builds', function(){
+  // Dot honesty: if compatOf says green there must be a real placement that adds
+  // NO new error AND no new warning; yellow needs a placement that adds no new
+  // error (by set membership, not count). Catches a false "fits" - the worst
+  // kind of wrong verdict - for both single parts and presets (REVIEW #4/#6).
   /** @type {Object.<string, string[]>} */ var slotKeys = {};
   C.SLOTS.forEach(function(s){ (slotKeys[s.cat] = slotKeys[s.cat] || []).push(s.key); });
   // Diff by verdictKey, matching the engine's own dot diffing (string identity
@@ -129,7 +130,15 @@ test('a green dot never hides a newly-introduced conflict, over '+FUZZ+' builds'
     var bld = randomBuild(rand);
     if(Object.keys(bld).length === 0) continue;
     var p = C.PARTS[Math.floor(rand() * C.PARTS.length)];
-    if(C.compatOf(p, bld).state !== 'g') continue;
+    var state = C.compatOf(p, bld).state;
+    if(state !== 'g' && state !== 'w') continue;
+    /** A placement is honest for this state: no new error; green also no new warning.
+     * @param {Build} base @param {Build} t @returns {boolean} */
+    function honest(base, t){
+      var before = C.checkBuild(base), after = C.checkBuild(t);
+      if(newCount(before.errors, after.errors) !== 0) return false;
+      return state === 'w' || newCount(before.warnings, after.warnings) === 0;
+    }
     var clean = false;
     if('fills' in p && p.fills){
       var pf = p.fills;
@@ -140,16 +149,16 @@ test('a green dot never hides a newly-introduced conflict, over '+FUZZ+' builds'
       Object.keys(pf).forEach(function(s){ delete pbase[s]; });
       /** @type {Build} */ var test = Object.assign({}, pbase);
       Object.keys(pf).forEach(function(s){ test[s] = /** @type {Part} */ (C.byId(pf[s])); });
-      clean = newCount(C.checkBuild(pbase).errors, C.checkBuild(test).errors) === 0;
+      clean = honest(pbase, test);
     } else {
       var slots = slotKeys[p.cat] || [];
       clean = slots.some(function(sk){
         /** @type {Build} */ var base = Object.assign({}, bld); delete base[sk];
         /** @type {Build} */ var t = Object.assign({}, base); t[sk] = p;
-        return newCount(C.checkBuild(base).errors, C.checkBuild(t).errors) === 0;
+        return honest(base, t);
       });
     }
-    ok(clean, 'green dot but every placement adds a conflict: '+p.id+' (iter '+i+')');
+    ok(clean, state+' dot but every placement adds a conflict: '+p.id+' (iter '+i+')');
   }
 });
 

@@ -54,6 +54,7 @@
   .picks{display:flex;gap:6px}
   .dot{position:absolute;top:11px;right:11px;width:11px;height:11px;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
   .dot.g{background:#2aa35a}
+  .dot.w{background:#e0a52e}
   .dot.r{background:#d23b3b}
   .dot.n{background:#d2d7d1}
 
@@ -156,7 +157,8 @@
   <div class="chips" id="chips"></div>
   <div class="chips subchips" id="subchips"></div>
   <div class="legend">
-    <span><i style="background:#2aa35a"></i>Fits your current build</span>
+    <span><i style="background:#2aa35a"></i>No conflict found</span>
+    <span><i style="background:#e0a52e"></i>Check first &mdash; adds a warning (hover for why)</span>
     <span><i style="background:#d23b3b"></i>Won&rsquo;t fit (hover for why)</span>
     <span><i style="background:#d2d7d1"></i>Nothing selected yet to judge</span>
     <span><span style="color:#1f8a4c;font-weight:800">✓ Verified</span> = checked vs manufacturer spec (else <span style="color:#9aa39b;font-weight:600">≈ estimate</span>)</span>
@@ -189,7 +191,8 @@
 <footer>
   <p><b>About this prototype.</b> Pick a whole groupset / wheelset / brake set / cockpit kit (green dashed cards) to drop
   in all the parts at once — that group is then <b>priced as the bundle</b>; swap any single part and it reverts to
-  per-part pricing. Every card shows a compatibility dot (green fits, red won&rsquo;t, grey = nothing selected yet) and a
+  per-part pricing. Every card shows a compatibility dot (green = no conflict found, yellow = check the warning first,
+  red won&rsquo;t fit, grey = nothing selected yet) and a
   sample weight, and the catalog is sorted compatible-first (use the <b>Sort</b> menu to reorder by
   name, price or weight). Specs, prices and weights are illustrative samples unless a
   part shows a green <b>✓ Verified</b> badge (checked against the manufacturer, with a source link). Logic
@@ -346,7 +349,7 @@
       return true;
     });
     if(!list.length){ el.innerHTML='<p class="muted">'+(verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':'No parts match.')+'</p>'; return; }
-    var meta=list.map(function(p,i){ var c=compatFor(p); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='n'?1:2),pre:isPreset(p)?0:1,i:i}; });
+    var meta=list.map(function(p,i){ var c=compatFor(p); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='w'?1:c.state==='n'?2:3),pre:isPreset(p)?0:1,i:i}; });
     // "Best match" keeps the compatible-first order; explicit sorts are pure
     // (the dot still shows fit). Missing weights sink to the bottom either way.
     var wt=function(p,missing){ var w=partWeight(p); return w!=null ? w : missing; };   // kits derive weight from fills
@@ -476,7 +479,7 @@
     var n=Object.keys(build).length, html='';
     if(n===0) html='<div class="status warn">Add parts to start checking.</div>';
     else if(r.errors.length) html='<div class="status err">✗ '+r.errors.length+' problem'+(r.errors.length>1?'s':'')+'</div>';
-    else if(r.warnings.length) html='<div class="status warn">⚠ Works · '+r.warnings.length+' to check</div>';
+    else if(r.warnings.length) html='<div class="status warn">⚠ '+r.warnings.length+' thing'+(r.warnings.length>1?'s':'')+' to check</div>';
     else html='<div class="status ok">✓ No conflicts found</div>';
     r.errors.forEach(function(m){ html+='<div class="issue e"><span class="mk">✗</span><span>'+esc(m)+'</span></div>'; });
     r.warnings.forEach(function(m){ html+='<div class="issue w"><span class="mk">⚠</span><span>'+esc(m)+'</span></div>'; });
@@ -502,7 +505,7 @@
     var res=resolved(), r=checkBuild(res), n=Object.keys(build).length, lines=[];
     var verdict = n===0 ? 'No parts chosen'
       : r.errors.length   ? ('✗ '+r.errors.length+' problem'+(r.errors.length>1?'s':''))
-      : r.warnings.length ? ('⚠ Works, '+r.warnings.length+' to check')
+      : r.warnings.length ? ('⚠ '+r.warnings.length+' thing(s) to check')
       : '✓ No conflicts found';
     lines.push('What’s off:  '+(KIND_LABEL[kind]||kind));
     if(notes && notes.trim()){ lines.push('Details:     '+notes.trim()); }
@@ -562,7 +565,7 @@
   }
   function buildSummaryText(){
     var res=resolved(), r=checkBuild(res), t=buildTotals(res, presetBy), lines=[];
-    lines.push('TrailBuilder complete build — '+(r.errors.length? (r.errors.length+' problem(s)') : r.warnings.length? ('works, '+r.warnings.length+' to check') : 'no conflicts found'));
+    lines.push('TrailBuilder complete build — '+(r.errors.length? (r.errors.length+' problem(s)') : r.warnings.length? (r.warnings.length+' thing(s) to check') : 'no conflicts found'));
     GROUPS.forEach(function(g){
       var bundle=(g.preset && bundleActive(g,res,presetBy)) ? byId(presetBy[g.key]) : null;
       if(bundle) lines.push(g.label+' — '+bundle.brand+' '+bundle.model+' kit, '+money(bundle.price));
@@ -579,7 +582,7 @@
   function openBuildModal(){
     var res=resolved(), r=checkBuild(res), t=buildTotals(res, presetBy);
     $('bmVerdict').innerHTML = r.errors.length ? '<div class="status err">✗ '+r.errors.length+' problem'+(r.errors.length>1?'s':'')+'</div>'
-      : r.warnings.length ? '<div class="status warn">⚠ Works · '+r.warnings.length+' to check</div>'
+      : r.warnings.length ? '<div class="status warn">⚠ '+r.warnings.length+' thing'+(r.warnings.length>1?'s':'')+' to check</div>'
       : '<div class="status ok">✓ No conflicts found</div>';
     var rows='';
     GROUPS.forEach(function(g){

@@ -969,8 +969,10 @@ function checkBuild(build){
   /* 11. Steerer / headset */
   if(fork && frame && fork.steerer!==frame.headset) err('steerer', ['fork','frame'], 'Steerer mismatch: Fork is '+L(fork.steerer)+' but Frame headset is '+L(frame.headset)+'.');
 
-  /* 12. Fork travel vs frame rating (warning) */
-  if(fork && frame && fork.travel>frame.maxForkTravel) warn('fork-travel', ['fork','frame'], 'Fork travel: '+fork.travel+'mm exceeds the frame recommended max of '+frame.maxForkTravel+'mm.');
+  /* 12. Fork travel vs frame rating (warning). "Rated max", not "recommended":
+        makers publish it as a rated limit and exceeding it can void the frame
+        warranty (REVIEW.md #6 wording fix). */
+  if(fork && frame && fork.travel>frame.maxForkTravel) warn('fork-travel', ['fork','frame'], 'Fork travel: '+fork.travel+'mm exceeds the frame\'s rated max of '+frame.maxForkTravel+'mm.');
 
   /* 13. Dropper diameter vs seat tube */
   if(dropper && frame && dropper.diameter!==frame.seatTube) err('dropper-diameter', ['dropper','frame'], 'Dropper diameter mismatch: Frame seat tube is '+frame.seatTube+'mm but Dropper is '+dropper.diameter+'mm.');
@@ -1061,17 +1063,28 @@ function _catSlots(){
   }
   return _CAT_SLOTS;
 }
-/** @param {Part} part @param {string} slotKey @param {Build} [build] @returns {string|null} */
-function conflictReason(part, slotKey, build){
+/** Diff one placement of a part into a slot: the first NEW error and the first
+ * NEW warning it introduces (null = none of that class). Diffs by verdictKey
+ * (ruleId+slots+msg), NOT message text: two different conflicts can raise
+ * byte-identical strings (REVIEW.md #4/#13's maskings).
+ * @param {Part} part @param {string} slotKey @param {Build} [build]
+ * @returns {{error: (string|null), warning: (string|null)}} */
+function placementDiff(part, slotKey, build){
   /** @type {Build} */ var base = Object.assign({}, build || {}); delete base[slotKey];
-  // Diff by verdictKey (ruleId+slots+msg), NOT message text: two different
-  // conflicts can raise byte-identical strings (REVIEW.md #4/#13's maskings).
-  var before = checkBuild(base).errors.map(verdictKey);
+  var before = checkBuild(base);
+  var beforeE = before.errors.map(verdictKey), beforeW = before.warnings.map(verdictKey);
   /** @type {Build} */ var test = Object.assign({}, base); test[slotKey] = part;
-  var after = checkBuild(test).errors;
-  for(var i=0;i<after.length;i++){ if(before.indexOf(verdictKey(after[i]))<0) return String(after[i]); }
-  return null;
+  var after = checkBuild(test);
+  /** @type {string|null} */ var e = null;
+  /** @type {string|null} */ var w = null;
+  for(var i=0;i<after.errors.length;i++){ if(beforeE.indexOf(verdictKey(after.errors[i]))<0){ e = String(after.errors[i]); break; } }
+  for(var j=0;j<after.warnings.length;j++){ if(beforeW.indexOf(verdictKey(after.warnings[j]))<0){ w = String(after.warnings[j]); break; } }
+  return { error:e, warning:w };
 }
+/** First NEW error this placement introduces (errors only - the dot goes
+ * through placementDiff so new WARNINGS surface as yellow too, REVIEW.md #6).
+ * @param {Part} part @param {string} slotKey @param {Build} [build] @returns {string|null} */
+function conflictReason(part, slotKey, build){ return placementDiff(part, slotKey, build).error; }
 /** @param {Part} p @param {Build} [build] @returns {CompatState} */
 function compatOf(p, build){
   /** @type {Build} */ var bld = build || {};
@@ -1079,26 +1092,42 @@ function compatOf(p, build){
   if('fills' in p && p.fills){
     var pf = p.fills;
     // Baseline = the build with every slot the preset fills CLEARED first
-    // (mirrors the single-part path, where conflictReason deletes the tested
+    // (mirrors the single-part path, where placementDiff deletes the tested
     // slot). Diffing against the un-cleared build let a pre-existing error
     // string mask the preset's own byte-identical conflict -> false green on
     // exactly the kits a user browses to FIX a misfit (REVIEW.md #4).
     /** @type {Build} */ var base = Object.assign({}, bld);
     Object.keys(pf).forEach(function(s){ delete base[s]; });
-    var before = checkBuild(base).errors.map(verdictKey);
+    var before = checkBuild(base);
+    var beforeE = before.errors.map(verdictKey), beforeW = before.warnings.map(verdictKey);
     /** @type {Build} */ var test = Object.assign({}, base);
     Object.keys(pf).forEach(function(s){ test[s]=/** @type {Part} */(byId(pf[s])); });
+    var after = checkBuild(test);
     // Red if applying the preset INTRODUCES a conflict - detected by new-verdict
     // set membership (verdictKey, not message text and not error count), so a
     // preset that swaps one conflict for another still shows red.
-    var extra = checkBuild(test).errors.filter(function(e){ return before.indexOf(verdictKey(e))<0; });
+    var extra = after.errors.filter(function(e){ return beforeE.indexOf(verdictKey(e))<0; });
     if(extra.length){ return {state:'r', reason:String(extra[0])}; }
+    // Yellow if it introduces no error but >=1 new warning: warning-class
+    // misfits (over-max rotor, over-travel fork...) used to render as green
+    // "fits" at pick time and only flag AFTER being added (REVIEW.md #6).
+    var extraW = after.warnings.filter(function(w){ return beforeW.indexOf(verdictKey(w))<0; });
+    if(extraW.length){ return {state:'w', reason:String(extraW[0])}; }
     return {state:'g', reason:'No conflicts with your current build'};
   }
   var slots = _catSlots()[p.cat] || [];
-  /** @type {string[]} */ var reasons = [];
-  for(var i=0;i<slots.length;i++){ var r = conflictReason(p, slots[i], bld); if(r){ reasons.push(r); } else { return {state:'g', reason:'No conflicts with your current build'}; } }
-  return {state:'r', reason:(reasons[0]||'Conflicts with your current build')};
+  /** @type {string|null} */ var firstErr = null;
+  /** @type {string|null} */ var firstWarn = null;
+  for(var i=0;i<slots.length;i++){
+    var d = placementDiff(p, slots[i], bld);
+    if(!d.error && !d.warning) return {state:'g', reason:'No conflicts with your current build'};
+    if(!d.error){ if(firstWarn===null) firstWarn = d.warning; }
+    else if(firstErr===null){ firstErr = d.error; }
+  }
+  // A part that fits SOME slot with only a warning outranks one that errors
+  // everywhere (multi-slot cats - tires/brakes/rotors - dot their best slot).
+  if(firstWarn!==null) return {state:'w', reason:firstWarn};
+  return {state:'r', reason:(firstErr||'Conflicts with your current build')};
 }
 
 /* =============================================================================
@@ -1196,6 +1225,6 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = { PARTS:PARTS, GROUPS:GROUPS, SLOTS:SLOTS, LABELS:LABELS, WHEEL_CONFIG:WHEEL_CONFIG,
     ALIASES:ALIASES, canonicalId:canonicalId,
     byId:byId, nameOf:nameOf, specSummary:specSummary, checkBuild:checkBuild, verdictKey:verdictKey,
-    conflictReason:conflictReason, compatOf:compatOf, bundleActive:bundleActive, buildTotals:buildTotals,
+    placementDiff:placementDiff, conflictReason:conflictReason, compatOf:compatOf, bundleActive:bundleActive, buildTotals:buildTotals,
     esc:esc, partVerified:partVerified, partWeight:partWeight };
 }
