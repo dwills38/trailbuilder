@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T19:57:02.791Z",
+ "updated": "2026-07-07T19:57:59.320Z",
  "batchSize": 25,
- "lastCompleted": "sft-sram-xx-sl-transmission",
+ "lastCompleted": "sft-shimano-deore-m6100",
  "currentCategory": "fork",
  "queue": [
   "fk-rockshox-lyrik-ultimate-29-160",
@@ -75,10 +75,6 @@
   "bk-sram-db8",
   "bk-shimano-deore-m6120",
   "bk-magura-mt-trail-sport",
-  "sft-shimano-xt-m8100",
-  "sft-shimano-slx-m7100",
-  "sft-shimano-xtr-m9100",
-  "sft-shimano-deore-m6100",
   "dr-shimano-xt-m8100-sgs",
   "dr-shimano-slx-m7100-sgs",
   "dr-shimano-xtr-m9100-sgs",
@@ -2062,19 +2058,19 @@
   },
   "sft-shimano-xt-m8100": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:57:59.175Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "ride.shimano.com (which worked for pedals) only stocks pedals/wheels/footwear/apparel, not shifters -- no product page found there. bike.shimano.com spec pages 403-block fetch (established pattern this session). Bar not met without a working manufacturer fetch path for Shimano groupset components."
   },
   "sft-shimano-slx-m7100": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:57:59.220Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same blocker as XT M8100: no shifter listing on ride.shimano.com, bike.shimano.com blocked. Bar not met."
   },
   "sft-sram-x0-transmission": {
    "cat": "shifter",
@@ -2102,19 +2098,19 @@
   },
   "sft-shimano-xtr-m9100": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:57:59.270Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same blocker. Bar not met."
   },
   "sft-shimano-deore-m6100": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:57:59.320Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same blocker. Bar not met."
   },
   "sft-sram-gx-eagle-axs": {
    "cat": "shifter",
