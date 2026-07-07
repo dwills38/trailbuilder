@@ -1,16 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T20:54:08.797Z",
+ "updated": "2026-07-07T20:58:18.691Z",
  "batchSize": 25,
- "lastCompleted": "bk-hope-tech-4-v4",
+ "lastCompleted": "bk-shimano-slx-m7120",
  "currentCategory": "brake",
  "queue": [
-  "bk-shimano-xt-m8120",
-  "bk-shimano-slx-m7120",
-  "bk-sram-maven-ultimate",
-  "bk-trp-dhr-evo",
-  "bk-formula-cura-4",
   "bk-shimano-saint-m820",
   "bk-shimano-xtr-m9120",
   "bk-shimano-zee-m640",
@@ -1653,11 +1648,11 @@
   },
   "bk-shimano-xt-m8120": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:58:18.641Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same systemic bike.shimano.com 403-block already logged repeatedly this session (pedals, rotors, shifters). No usable third-party figure found either. Bar not met."
   },
   "bk-hayes-dominion-a4": {
    "cat": "brake",
@@ -1677,19 +1672,19 @@
   },
   "bk-shimano-slx-m7120": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:58:18.691Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same bike.shimano.com blocker. Third-party 'complete set' figures (~917g for front+rear) don't cleanly decompose to a single-brake weight matching this row. Bar not met."
   },
   "bk-sram-maven-ultimate": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T20:58:18.641Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/sram/models/db-mvn-ult-a1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-hope-tech-4-v4": {
    "cat": "brake",
@@ -1701,19 +1696,19 @@
   },
   "bk-trp-dhr-evo": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T20:58:18.641Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/dh-r-evo",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-formula-cura-4": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T20:58:18.641Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mtb-brakes/cura4/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-shimano-saint-m820": {
    "cat": "brake",
