@@ -1,16 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T20:48:56.946Z",
+ "updated": "2026-07-07T20:51:27.320Z",
  "batchSize": 25,
- "lastCompleted": "dp-sdg-tellis-316-170",
- "currentCategory": "dropper",
+ "lastCompleted": "dp-specialized-command-post-309-160",
+ "currentCategory": "brake",
  "queue": [
-  "dp-bikeyoke-revive-349-185",
-  "dp-fox-transfer-neo-316-175",
-  "dp-raceface-turbine-r-316-175",
-  "dp-ethirteen-vario-infinite-316-180",
-  "dp-specialized-command-post-309-160",
   "bk-sram-code-rsc",
   "bk-sram-code-stealth",
   "bk-shimano-xt-m8120",
@@ -1311,19 +1306,19 @@
   },
   "dp-bikeyoke-revive-349-185": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:51:27.212Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same as the 31.6mm Revive sibling: bikeyoke.com configurator doesn't render weight via fetch. Bar not met."
   },
   "dp-fox-transfer-neo-316-175": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T20:51:27.211Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-neo-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-9point8-fall-line-r-316-175": {
    "cat": "dropper",
@@ -1359,27 +1354,27 @@
   },
   "dp-raceface-turbine-r-316-175": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:51:27.264Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Shares internals with the Fox Transfer Factory per Race Face's own description, but no distinct weight published on raceface.com for the 175mm config. Bar not met."
   },
   "dp-ethirteen-vario-infinite-316-180": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T20:51:27.212Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ethirteen.com/products/vario-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-specialized-command-post-309-160": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T20:51:27.320Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "specialized.com is a known bot-blocked domain (403, logged earlier this session for the Bridge saddle). Third-party figures only cover a 125mm/other-diameter config, not this row's 30.9/160. Bar not met."
   },
   "sa-wtb-volt": {
    "cat": "saddle",

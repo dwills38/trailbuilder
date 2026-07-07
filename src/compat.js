@@ -420,13 +420,13 @@ var PARTS = [
   { id:'dp-wolftooth-resolve-316-200', cat:'dropper', brand:'Wolf Tooth', model:'Resolve', family:'wolftooth-resolve', price:300, weight:640, diameter:31.6, drop:200 },
   { id:'dp-crankbrothers-highline-7-316-170', cat:'dropper', brand:'Crankbrothers', model:'Highline 7', family:'crankbrothers-highline', price:290, weight:604, diameter:31.6, drop:170, verified:true, lastChecked:'2026-07-07', source:'https://www.crankbrothers.com/products/highline-7-dropper' },
   { id:'dp-bikeyoke-revive-349-185', cat:'dropper', brand:'BikeYoke', model:'Revive 34.9', family:'bikeyoke-revive', price:400, weight:640, diameter:34.9, drop:185 },
-  { id:'dp-fox-transfer-neo-316-175', cat:'dropper', brand:'Fox', model:'Transfer Neo (wireless)', family:'fox-transfer-neo', price:900, weight:660, diameter:31.6, drop:175 },
+  { id:'dp-fox-transfer-neo-316-175', cat:'dropper', brand:'Fox', model:'Transfer Neo (wireless)', family:'fox-transfer-neo', price:900, weight:696, diameter:31.6, drop:175, verified:true, lastChecked:'2026-07-07', source:'https://ridefox.com/products/fox-transfer-neo-seatpost', sourceType:'measured', weightSource:'https://www.bikeperfect.com/reviews/fox-transfer-neo-dropper-post-review' },
   { id:'dp-9point8-fall-line-r-316-175', cat:'dropper', brand:'9point8', model:'Fall Line R', family:'9point8-fall-line', price:300, weight:560, diameter:31.6, drop:175 },
   { id:'dp-ks-lev-integra-316-175', cat:'dropper', brand:'KS', model:'LEV Integra', family:'ks-lev-integra', price:300, weight:490, diameter:31.6, drop:175, verified:true, lastChecked:'2026-07-07', source:'https://kssuspension.com/products/dropper-seat-posts/lev-integra/' },
   { id:'dp-pnw-loam-349-200', cat:'dropper', brand:'PNW', model:'Loam 34.9', family:'pnw-loam', price:229, weight:636, diameter:34.9, drop:200, verified:true, lastChecked:'2026-07-06', source:'https://www.pnwcomponents.com/products/loam-dropper-post' },
   { id:'dp-sdg-tellis-316-170', cat:'dropper', brand:'SDG', model:'Tellis', family:'sdg-tellis', price:200, weight:595, diameter:31.6, drop:170 },
   { id:'dp-raceface-turbine-r-316-175', cat:'dropper', brand:'Race Face', model:'Turbine R', family:'raceface-turbine-r', price:300, weight:600, diameter:31.6, drop:175 },
-  { id:'dp-ethirteen-vario-infinite-316-180', cat:'dropper', brand:'e*thirteen', model:'Vario Infinite', family:'ethirteen-vario', price:280, weight:630, diameter:31.6, drop:180 },
+  { id:'dp-ethirteen-vario-infinite-316-180', cat:'dropper', brand:'e*thirteen', model:'Vario Infinite', family:'ethirteen-vario', price:190, weight:652, diameter:31.6, drop:180, verified:true, lastChecked:'2026-07-07', source:'https://www.ethirteen.com/products/vario-dropper-post' },
   { id:'dp-specialized-command-post-309-160', cat:'dropper', brand:'Specialized', model:'Command Post', family:'specialized-command-post', price:250, weight:600, diameter:30.9, drop:160 },
 
   /* SADDLES */
