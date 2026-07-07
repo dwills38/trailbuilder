@@ -1,33 +1,17 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T16:42:13.963Z",
+ "updated": "2026-07-07T16:55:12.970Z",
  "batchSize": 25,
- "lastCompleted": "rw-giant-trx-0-29",
- "currentCategory": "frontwheel",
+ "lastCompleted": "sh-rockshox-vivid-ultimate-oem-205x60-trun",
+ "currentCategory": "shock",
  "queue": [
-  "fw-shimano-mt500-29",
-  "rw-shimano-mt510-29",
-  "sh-fox-float-x-factory-230x65",
-  "sh-rockshox-super-deluxe-coil-230x65",
-  "sh-fox-dhx2-230x65",
-  "sh-rockshox-super-deluxe-205x65-trun",
-  "sh-fox-float-x2-205x65-trun",
-  "sh-fox-float-x-230x60",
-  "sh-rockshox-vivid-ultimate-oem-205x60-trun",
-  "sh-rockshox-vivid-coil-230x65",
-  "sh-ext-storia-v3-230x65",
   "sh-ohlins-ttx22-m2-230x65",
   "sh-canecreek-kitsuma-coil-230x65",
-  "sh-fox-float-x2-230x65",
-  "sh-rockshox-vivid-205x65-trun",
   "sh-marzocchi-bomber-cr-230x65",
   "sh-dvo-jade-x-230x65",
   "sh-manitou-mara-pro-230x65",
   "sh-push-elevensix-230x65",
-  "sh-rockshox-super-deluxe-ultimate-205x60-trun",
-  "sh-rockshox-super-deluxe-ultimate-230x62p5",
-  "sh-fox-float-x-205x62p5-trun",
   "fk-rockshox-zeb-ultimate-29-170",
   "fk-fox-38-factory-29-170",
   "fk-fox-38-factory-29-180",
@@ -535,9 +519,9 @@
   },
   "fw-shimano-mt500-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:48:05.846Z",
+   "error": "Shimano publishes no component weights - verifiable only via the measured-weight policy (sourceType:'measured' + weightSource); queue for the high-effort measured pass alongside rotors",
    "source": null,
    "note": null
   },
@@ -695,9 +679,9 @@
   },
   "rw-shimano-mt510-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:48:05.927Z",
+   "error": "same Shimano measured-weight-pass item",
    "source": null,
    "note": null
   },
@@ -743,59 +727,51 @@
   },
   "sh-fox-float-x-factory-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "sh-rockshox-super-deluxe-coil-230x65": {
-   "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:55:10.230Z",
+   "error": "Fox publishes no shock weights (tech.ridefox.com spec sheets are dimensional drawings only) - measured-weight pass",
    "source": null,
    "note": null
   },
   "sh-fox-dhx2-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:55:10.384Z",
+   "error": "same Fox blocker - measured pass",
    "source": null,
    "note": null
   },
   "sh-rockshox-super-deluxe-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:55:10.687Z",
+   "error": "SRAM quotes ONE weight per model with a stated basis (SDU C2: 480g at 230x65); this configs weight is unpublished - needs per-size data or a measured figure",
    "source": null,
    "note": null
   },
   "sh-fox-float-x2-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:55:10.458Z",
+   "error": "same Fox blocker - measured pass",
    "source": null,
    "note": null
   },
   "sh-fox-float-x-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:55:10.310Z",
+   "error": "same Fox no-published-weights blocker - measured pass",
    "source": null,
    "note": null
   },
   "sh-rockshox-vivid-ultimate-oem-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T16:55:11.134Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "OEM bundle-only row by design (price 0, oemOnly, ships with the Specialized Enduro) - no retail page exists; retail Vivid specs live on the retail rows"
   },
   "sh-rockshox-vivid-ultimate-230x65": {
    "cat": "shock",
@@ -807,17 +783,17 @@
   },
   "sh-rockshox-vivid-coil-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:55:10.980Z",
+   "error": "rs-vivc-ult-d1 page lists sizes and USD 709-719 but NO weight; retry the C1 page",
    "source": null,
    "note": null
   },
   "sh-ext-storia-v3-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:55:11.061Z",
+   "error": "extremeshox.com product URL 404s to fetches - needs the right URL or a browser session",
    "source": null,
    "note": null
   },
@@ -839,17 +815,17 @@
   },
   "sh-fox-float-x2-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:55:10.530Z",
+   "error": "same Fox blocker - measured pass",
    "source": null,
    "note": null
   },
   "sh-rockshox-vivid-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:55:10.910Z",
+   "error": "same SRAM single-basis limitation (Vivid air C1 quote is 670g at 230x65)",
    "source": null,
    "note": null
   },
@@ -887,17 +863,17 @@
   },
   "sh-rockshox-super-deluxe-ultimate-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:55:10.761Z",
+   "error": "same SRAM single-basis limitation (quoted basis is 230x65)",
    "source": null,
    "note": null
   },
   "sh-fox-float-x-205x62p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:55:10.611Z",
+   "error": "same Fox blocker - measured pass",
    "source": null,
    "note": null
   },
@@ -2559,9 +2535,9 @@
   },
   "sh-rockshox-super-deluxe-ultimate-230x62p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T20:38:38.509Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:55:10.830Z",
+   "error": "same SRAM single-basis limitation - 62.5 stroke weight unpublished",
    "source": null,
    "note": null
   },
@@ -2715,6 +2691,14 @@
    "updated": "2026-07-07T15:07:36.569Z",
    "error": null,
    "source": "https://www.schwalbetires.com/Big-Betty",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "sh-rockshox-super-deluxe-coil-ultimate-230x65": {
+   "cat": "shock",
+   "status": "Verified",
+   "updated": "2026-07-07T16:55:10.196Z",
+   "error": null,
+   "source": "https://www.sram.com/en/rockshox/models/rs-sdlc-ult-b1",
    "note": "auto-promoted: already verified in catalog"
   }
  }

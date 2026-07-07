@@ -158,7 +158,7 @@ var PARTS = [
   /* REAR SHOCKS */
   { id:'sh-rockshox-super-deluxe-ultimate-230x65', cat:'shock', brand:'RockShox', model:'Super Deluxe Ultimate (air)', family:'rockshox-super-deluxe', gen:'C2', mfgPn:'RS-SDLX-ULT-C2', price:549, weight:480, eye:230, stroke:65, mount:'std', spring:'air', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/rockshox/models/rs-sdlx-ult-c2' },
   { id:'sh-fox-float-x-factory-230x65', cat:'shock', brand:'Fox', model:'Float X Factory', family:'fox-float-x', price:549, weight:460, eye:230, stroke:65, mount:'std', spring:'air' },
-  { id:'sh-rockshox-super-deluxe-coil-230x65', cat:'shock', brand:'RockShox', model:'Super Deluxe Coil', family:'rockshox-super-deluxe', price:499, weight:750, eye:230, stroke:65, mount:'std', spring:'coil' },
+  { id:'sh-rockshox-super-deluxe-coil-ultimate-230x65', cat:'shock', brand:'RockShox', model:'Super Deluxe Coil Ultimate', family:'rockshox-super-deluxe', gen:'B1', mfgPn:'RS-SDLC-ULT-B1', price:499, weight:902, eye:230, stroke:65, mount:'std', spring:'coil', desc:'weight = SRAM quote 902 g at 230x65 std INCLUDING a 350 lb spring (SRAM publishes no damper-only figure; deviates from the without-spring convention - noted per template); price = sample', verified:true, lastChecked:'2026-07-07', source:'https://www.sram.com/en/rockshox/models/rs-sdlc-ult-b1' },
   { id:'sh-fox-dhx2-230x65', cat:'shock', brand:'Fox', model:'DHX2 Coil', family:'fox-dhx2', price:599, weight:820, eye:230, stroke:65, mount:'std', spring:'coil' },
   { id:'sh-rockshox-super-deluxe-205x65-trun', cat:'shock', brand:'RockShox', model:'Super Deluxe (trunnion)', family:'rockshox-super-deluxe', price:549, weight:470, eye:205, stroke:65, mount:'trunnion', spring:'air' },
   { id:'sh-fox-float-x2-205x65-trun', cat:'shock', brand:'Fox', model:'Float X2 (trunnion)', family:'fox-float-x2', price:649, weight:520, eye:205, stroke:65, mount:'trunnion', spring:'air' },
@@ -544,7 +544,7 @@ var ALIASES = {
   'fk-push': 'fk-push-nineone-coil-29-160',
   'sh-sd-air': 'sh-rockshox-super-deluxe-ultimate-230x65',
   'sh-floatx': 'sh-fox-float-x-factory-230x65',
-  'sh-sd-coil': 'sh-rockshox-super-deluxe-coil-230x65',
+  'sh-sd-coil': 'sh-rockshox-super-deluxe-coil-ultimate-230x65',   // flattened
   'sh-dhx2': 'sh-fox-dhx2-230x65',
   'sh-sd-trun': 'sh-rockshox-super-deluxe-205x65-trun',
   'sh-x2-trun': 'sh-fox-float-x2-205x65-trun',
@@ -842,7 +842,8 @@ var ALIASES = {
   'ti-wtb-vigilante-29-25': 'ti-wtb-vigilante-29-25-sg2-tritec',
   'ti-wtb-judge-29-24': 'ti-wtb-judge-29-24-sg1-tritec',
   'ti-kenda-hellkat-29-24': 'ti-kenda-hellkat-29-24-aec-dl',
-  'ti-goodyear-newton-mtf-29-24': 'ti-goodyear-newton-mtf-29-25-enduro-grip3s'
+  'ti-goodyear-newton-mtf-29-24': 'ti-goodyear-newton-mtf-29-25-enduro-grip3s',
+  'sh-rockshox-super-deluxe-coil-230x65': 'sh-rockshox-super-deluxe-coil-ultimate-230x65'
 };
 /** Resolve a possibly-legacy part id to its current catalog id.
  * @param {string|null|undefined} id @returns {string|null|undefined} */
