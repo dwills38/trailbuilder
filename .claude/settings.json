@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node validate.js)",
+      "Bash(npm test *)",
+      "mcp__Claude_Preview__preview_eval",
+      "Bash(npm run typecheck)",
+      "mcp__Claude_Preview__preview_console_logs",
+      "mcp__claude-in-chrome__navigate",
+      "Bash(node tools/verify-job.js status)",
+      "mcp__Claude_Preview__preview_screenshot",
+      "Bash(node tools/verify-job.js next *)",
+      "Bash(npx tsc --version)",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "mcp__claude-in-chrome__get_page_text"
+    ]
+  }
+}
