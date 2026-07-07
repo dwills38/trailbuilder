@@ -10,7 +10,7 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
 **Solid foundation, honestly-scoped prototype:**
 
 - **Layout & tooling:** `src/` + `test/`; full-`strict` JSDoc type-checking (`npm run typecheck`);
-  Vitest (`npm test` — **112 tests**); GitHub Actions CI; and a GitHub Pages deploy workflow that's
+  Vitest (`npm test` — **160 tests**); GitHub Actions CI; and a GitHub Pages deploy workflow that's
   ready but **not yet deployed** (no git remote / `gh` in this environment).
 - **Engine:** 19 compatibility rules + a regression/fuzz **fortress** (`test/test-invariants.js`),
   proven crash-free, deterministic, and **dot-honest** — a green dot never hides a newly-introduced
@@ -33,11 +33,21 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
   manufacturer page counts.** Known blockers in the retry queue: Specialized/Orbea (bot-block 403),
   Trek/Norco/Pivot/Rocky Mountain/Propain (JS-rendered spec pages — need a real browser session),
   Nukeproof (domains down post-CRC-collapse). Most of the catalog is still clearly-badged sample data.
-- **Data model:** audited for scale on 2026-07-06 (**`DATA-MODEL-REVIEW.md`** — 10 auditors +
-  adversarial fact-check, review-only). The two structural decisions are made on paper (flat
-  one-row-per-SKU variants + brand-qualified append-only ids; optional `disciplines` tag + frame
-  `suspension` discriminator) and §5.1 of that doc is now the **pre-mass-entry gate**: none of the
-  DO-BEFORE items are implemented yet, and the legacy id migration is only cheap **before deploy**.
+- **Data model: the pre-mass-entry gate is LANDED** (2026-07-07, seven commits on the
+  2026-07-06 **`DATA-MODEL-REVIEW.md`** audit): brand-qualified **append-only ids** (all 327
+  migrated pre-deploy; `ALIASES` + `canonicalId` keep old share links + verify-job state working;
+  the job sync now **tombstones** instead of deleting), the **flat-SKU kit**
+  (`family` backfilled catalog-wide, `gen`/`mfgPn` where sources pin them, tire
+  `casing`/`compound`, `frame.sizes`) + **`tools/DATA-ENTRY-TEMPLATE.md`**, the `disciplines`
+  tag (`['enduro']` backfilled) + frame `suspension` discriminator (hardtails enterable, rule-16
+  guard), the semantic fixes (crankBb as spindle interface — the two fictitious cranks are now
+  real parts; nullable `ringStd` killed the live eeWings false red; `minCog`; numeric
+  `chainline`; `leverAccepts` arrays + I-Spec II/B; `forFrames`), the §6 vocab widening +
+  `KNOWN_VALUES`/sibling/wheelset warn-lints + **derived kit weights** (REVIEW #12 root fix),
+  the **provenance policy decision** (measured weights count for WEIGHT only via
+  `sourceType:'measured'` + `weightSource`; retailer rejected; `archiveUrl`; `status`/
+  `supersededBy` — Madonnas chained; `soldWithout`), and **structured verdict objects**
+  (`{ruleId, slots, msg, fix?}` — the REVIEW #4/#13 masking class is dead; adapter tier enabled).
 - **UI:** category + sub-category chips, Sort menu, search, "✓ Verified only" filter, kit quick-fill
   with bundle pricing, shareable build links, four demo builds, the **⚐ Report a wrong verdict**
   modal, and a **📋 View complete build** summary modal (full part list w/ kit pricing + totals +
@@ -64,30 +74,29 @@ be playful.
    Irreplaceable for "the community can rely on it" — and it also unblocks the Phase 4 ride-character
    features (they need an expert-blessed vocabulary).
 3. **Keep the verification grind running** (resumable job — next up: Continental/Schwalbe/Michelin/
-   Pirelli tires, which all publish weights; decide the measured-weight source policy that unblocks
-   Shimano / rotors / forks). **⚠ Gate: do not start the tire batch before the tire
-   `casing`/`compound` fields and the data-entry template exist** (DATA-MODEL-REVIEW.md §5.1 items
-   1/4) — every tire row entered without them is a guaranteed retouch.
+   Pirelli tires, which all publish weights). **✅ Gate cleared (2026-07-07):** the tire
+   `casing`/`compound` fields and `tools/DATA-ENTRY-TEMPLATE.md` exist — the tire batch is a go
+   (enumerate each brand's casing/compound values in VOCAB when its batch starts). The
+   measured-weight policy is also decided (`sourceType:'measured'`, weight only), which unblocks
+   the Shimano / rotor / fork classes — see `tools/VERIFY-PROTOCOL.md`.
 
-## Phase 0.5 — Pre-mass-entry gate *(DATA-MODEL-REVIEW.md §5.1 — do before the catalog grows)*
+## Phase 0.5 — Pre-mass-entry gate ✅ *(DONE 2026-07-07 — seven commits, one per item)*
 
-The full list with what/why/example/effort lives in `DATA-MODEL-REVIEW.md`; headline order:
+All seven items of the DATA-MODEL-REVIEW.md §5.1 gate landed in order (ids → template/flat-SKU
+kit → disciplines/suspension → semantic fixes → vocab+lints → provenance policy → structured
+verdicts), plus the §8 catalog-error fix list (Slash BSA73, Giga UDH, Maven 362 g, fictitious
+cranks realized, OneUp V3 source URLs re-verified). Every commit kept `npm test`,
+`node validate.js` and `npm run typecheck` green; the suite grew 112 → 160 tests. **Mass data
+entry is unblocked** — read `tools/DATA-ENTRY-TEMPLATE.md` before creating rows.
 
-1. **Id migration + conventions** (brand-qualified append-only ids, ALIASES map, verify-job
-   tombstoning) — **the window closes at deploy**; no external share links exist yet.
-2. **`tools/DATA-ENTRY-TEMPLATE.md`** + flat-SKU split policy + `family`/`gen`/`modelYear`/`mfgPn`.
-3. **`disciplines` tag + `'enduro'` backfill; `suspension` discriminator** (hardtails unenterable today).
-4. **Semantic fixes while rows are few:** crankBb spindle-interface fix (+ 3 mis-tagged cranks,
-   §8 of the review), ring/ringStd nullable (kills a live rule-3c false red), range→minCog,
-   chainline→number, leverClamp→array, forFrame→forFrames, price-semantics pin.
-5. **Vocab widening bundle + KNOWN_VALUES lints** (review §6 table).
-6. **Provenance policy:** measured-weight decision + sourceType; archive snapshots; the rotor
-   category can never verify under the current bar — decide before its batch.
-7. **Structured verdict objects** (engine, code-only) — also the natural foundation for the
-   REVIEW.md Majors #6 dot work, so sequence them together.
+Deferred by design (documented in place): conditional slot-requiredness implementation (with the
+first hardtail/DH frame), the `frameSize` share-hash key (readHash tolerates new keys), the BB
+category (§5.1-19 — decide with its own commit; the crankBb groundwork is in), and the
+"fits with adapter X" data (the `fix` field + verdict structure are ready).
 
 Separate open queue: **REVIEW.md Majors #6–#9** (warning-visible dots, SRAM-mullet catalog trap,
-direction-aware shock-stroke/dropper rules) — see the chip / REVIEW.md §3.
+direction-aware shock-stroke/dropper rules) — see the chip / REVIEW.md §3. (The #4/#13
+string-masking ROOT CAUSE is fixed by the verdict objects; the #6–#9 behaviors are still open.)
 
 ## Phase 1 — Quick wins on the static app *(no backend, days-not-weeks each)*
 
