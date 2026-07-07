@@ -1,17 +1,13 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T16:55:12.970Z",
+ "updated": "2026-07-07T16:59:31.185Z",
  "batchSize": 25,
- "lastCompleted": "sh-rockshox-vivid-ultimate-oem-205x60-trun",
+ "lastCompleted": "sh-manitou-mara-pro-230x65",
  "currentCategory": "shock",
  "queue": [
   "sh-ohlins-ttx22-m2-230x65",
-  "sh-canecreek-kitsuma-coil-230x65",
   "sh-marzocchi-bomber-cr-230x65",
-  "sh-dvo-jade-x-230x65",
-  "sh-manitou-mara-pro-230x65",
-  "sh-push-elevensix-230x65",
   "fk-rockshox-zeb-ultimate-29-170",
   "fk-fox-38-factory-29-170",
   "fk-fox-38-factory-29-180",
@@ -807,9 +803,9 @@
   },
   "sh-canecreek-kitsuma-coil-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:59:30.068Z",
+   "error": "canecreek.com product URL and the KITSUMA-COIL-USER-SPEC.pdf both 404 to fetches - needs current URLs or a browser session",
    "source": null,
    "note": null
   },
@@ -839,25 +835,25 @@
   },
   "sh-dvo-jade-x-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:59:30.144Z",
+   "error": "dvosuspension.com product URL renders a cart page to fetches (JS storefront) - needs a browser session",
    "source": null,
    "note": null
   },
   "sh-manitou-mara-pro-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:59:30.295Z",
+   "error": "hayesbicycle.com publishes 425g but with NO size basis, and the size table suggests 230x65 may be TRUNNION-only - our row says standard eyelet. Confirm the config exists before verifying (possible fabricated config); price listed USD 629.99 list",
    "source": null,
    "note": null
   },
   "sh-push-elevensix-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-07T16:59:30.218Z",
+   "error": "pushindustries.com product URL 404s to fetches - needs the current URL or a browser session",
    "source": null,
    "note": null
   },
