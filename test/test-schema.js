@@ -42,8 +42,21 @@ test('actuation value outside the vocab is caught', function(){
 test('crankset missing ringStd is caught', function(){
   var p = over('cr-shimano-xt-m8100'); delete p.ringStd; some(probs(p), 'ringStd');
 });
-test('brake leverClamp outside its own (narrower) vocab is caught', function(){
-  some(probs(over('bk-sram-code-rsc', { leverClamp:'band' })), 'leverClamp');
+test('brake leverAccepts outside its own (narrower) vocab is caught', function(){
+  some(probs(over('bk-sram-code-rsc', { leverAccepts:['band'] })), 'leverAccepts');
+});
+test('cassette with minCog >= maxCog is caught', function(){
+  some(probs(over('ca-sram-xg1275', { minCog:52 })), 'minCog');
+});
+test('an HG cassette claiming a 10T cog is caught (HG floor is 11T)', function(){
+  some(probs(over('ca-sram-pg1230', { minCog:10 })), 'HG');
+});
+test('an armset-only crank (ringStd:null, no ring) is valid data', function(){
+  var p = over('cr-canecreek-eewings-allmountain');
+  eq(probs(p).length, 0, 'eeWings row should validate');
+});
+test('a string chainline is caught (must be mm)', function(){
+  some(probs(over('cr-sram-gx-eagle', { chainline:'Boost' })), 'chainline');
 });
 test('a frame without the suspension discriminator is caught', function(){
   var p = over('fr-santacruz-megatower-cc'); delete p.suspension; some(probs(p), 'suspension');
@@ -130,6 +143,6 @@ test('catalog-level: a frame bundling a non-fitting shock is caught', function()
   some(S.validateCatalog({ PARTS: C.PARTS.concat([ f ]), SLOTS: C.SLOTS }, TODAY), 'does not fit');
 });
 test('catalog-level: an OEM shock with a broken back-link is caught', function(){
-  var s = /** @type {any} */ (Object.assign({}, C.byId('sh-rockshox-vivid-ultimate-oem-205x60-trun'), { id:'sh-badoem', forFrame:'fr-santacruz-megatower-cc' })); // megatower does not bundle it
+  var s = /** @type {any} */ (Object.assign({}, C.byId('sh-rockshox-vivid-ultimate-oem-205x60-trun'), { id:'sh-badoem', forFrames:['fr-santacruz-megatower-cc'] })); // megatower does not bundle it
   some(S.validateCatalog({ PARTS: C.PARTS.concat([ s ]), SLOTS: C.SLOTS }, TODAY), 'bidirectional');
 });

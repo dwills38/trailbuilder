@@ -56,6 +56,14 @@ test('Transmission Flattop chain + T-Type crank -> clean', function(){
 test('T-Type crank + Eagle chain -> clean (backward-compatible per SRAM, no reverse error)', function(){
   eq(chk({chain:'ch-sram-gx-eagle', crankset:'cr-sram-x0-transmission'}).errors.length, 0);
 });
+test('armset-only crank (ringStd null) + Flattop chain -> info, not a false red', function(){
+  // eeWings ship without a ring; current 8-bolt arms pair with SRAM T-Type
+  // rings (canecreek.com), so erroring them was a false "won't fit" (REVIEW.md
+  // / DATA-MODEL-REVIEW 5.1-6 - the fabricated ringStd made this fire).
+  var r = chk({chain:'ch-sram-gx-flattop', crankset:'cr-canecreek-eewings-allmountain'});
+  eq(r.errors.length, 0);
+  some(r.infos, 'sold without a chainring');
+});
 test('Transmission derailleur needs a UDH frame', function(){
   some(chk({frame:'fr-kona-process-153', derailleur:'dr-sram-gx-transmission'}).errors, 'UDH');
 });
@@ -96,6 +104,13 @@ test('I-Spec EV shifter + I-Spec EV brakes -> silent', function(){
 });
 test('one matching lever is enough (mixed brakes) -> silent', function(){
   eq(chk({shifter:'sft-shimano-xt-m8100', frontBrake:'bk-sram-code-rsc', rearBrake:'bk-shimano-xt-m8120'}).warnings.length, 0);
+});
+test('I-Spec EV shifter + I-Spec B levers (Saint) -> mount warning (generations do not mate)', function(){
+  var r = chk({shifter:'sft-shimano-xt-m8100', frontBrake:'bk-shimano-saint-m820', rearBrake:'bk-shimano-saint-m820'});
+  eq(r.errors.length, 0); some(r.warnings, 'Shifter mount');
+});
+test('I-Spec EV shifter + Hayes Dominion (multi-standard Peacemaker clamp) -> silent', function(){
+  eq(chk({shifter:'sft-shimano-xt-m8100', frontBrake:'bk-hayes-dominion-a4', rearBrake:'bk-hayes-dominion-a4'}).warnings.length, 0);
 });
 test('shifter-mount rule stays dormant when the brakes are untagged', function(){
   eq(chk({shifter:'sft-shimano-xt-m8100', frontBrake:'bk-hope-tech-4-v4', rearBrake:'bk-hope-tech-4-v4'}).warnings.length, 0);

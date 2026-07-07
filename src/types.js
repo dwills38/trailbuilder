@@ -27,13 +27,13 @@
 /** @typedef {'std'|'trunnion'} ShockMount */
 /** @typedef {'tapered'} Tapered */
 /** @typedef {'BSA73'|'PF92'|'T47'} FrameBb */
-/** @typedef {'DUB'|'SH24'} CrankBb */
+/** @typedef {'DUB'|'24mm'|'30mm'|'p3'} CrankBb */
 /** @typedef {'PM'} BrakeMount */
 /** @typedef {'sram-eagle'|'sram-transmission'|'shimano-12'} DriveSystem */
 /** @typedef {'cable'|'electronic'} Actuation */
 /** @typedef {'t-type'|'standard-12'} RingStd */
-/** @typedef {'ispec-ev'|'matchmaker'|'band'|'pod'} ShifterClamp */
-/** @typedef {'ispec-ev'|'matchmaker'} LeverClamp */
+/** @typedef {'ispec-ev'|'ispec-ii'|'ispec-b'|'matchmaker'|'band'|'pod'} ShifterClamp */
+/** @typedef {'ispec-ev'|'ispec-ii'|'ispec-b'|'matchmaker'} LeverClamp */
 /** @typedef {'hanger'|'udh-direct'} DerailMount */
 /** @typedef {'air'|'coil'} Spring */
 /** @typedef {'alu'|'carbon'} Material */
@@ -89,16 +89,16 @@
 /** @typedef {CommonFields & FrameShared & {cat: 'frame', suspension: 'hardtail'}} HardtailFramePart */
 /** @typedef {FullSusFramePart|HardtailFramePart} FramePart */
 /** @typedef {CommonFields & {cat: 'fork', wheel: WheelSize, travel: number, axle: FrontAxle, steerer: Tapered, brakeMount: BrakeMount, maxRotorF: number, minRotorF?: number}} ForkPart */
-/** @typedef {CommonFields & {cat: 'shock', eye: number, stroke: number, mount: ShockMount, spring: Spring, oemOnly?: boolean, forFrame?: string}} ShockPart */
+/** @typedef {CommonFields & {cat: 'shock', eye: number, stroke: number, mount: ShockMount, spring: Spring, oemOnly?: boolean, forFrames?: string[]}} ShockPart */
 /** @typedef {CommonFields & {cat: 'frontwheel', wheel: WheelSize, hub: FrontAxle, rotorMount: RotorMount, intWidth: number, maxTire: number}} FrontWheelPart */
 /** @typedef {CommonFields & {cat: 'rearwheel', wheel: WheelSize, hub: RearAxle, freehub: Freehub, rotorMount: RotorMount, intWidth: number, maxTire: number}} RearWheelPart */
 /** @typedef {CommonFields & {cat: 'tire', wheel: WheelSize, width: number, casing?: Casing, compound?: Compound}} TirePart */
 /** @typedef {CommonFields & {cat: 'shifter', system: DriveSystem, speeds: number, actuation: Actuation, clampType?: ShifterClamp}} ShifterPart */
 /** @typedef {CommonFields & {cat: 'derailleur', system: DriveSystem, speeds: number, actuation: Actuation, maxCog: number, mount: DerailMount}} DerailleurPart */
-/** @typedef {CommonFields & {cat: 'cassette', system: DriveSystem, speeds: number, freehub: Freehub, range: string, maxCog: number}} CassettePart */
+/** @typedef {CommonFields & {cat: 'cassette', system: DriveSystem, speeds: number, freehub: Freehub, minCog: number, maxCog: number}} CassettePart */
 /** @typedef {CommonFields & {cat: 'chain', system: DriveSystem, speeds: number}} ChainPart */
-/** @typedef {CommonFields & {cat: 'crankset', bb: CrankBb, ring: number, ringStd: RingStd, speeds: number, chainline?: string}} CranksetPart */
-/** @typedef {CommonFields & {cat: 'brake', mount: BrakeMount, pistons: number, leverClamp?: LeverClamp}} BrakePart */
+/** @typedef {CommonFields & {cat: 'crankset', bb: CrankBb, ring?: number, ringStd: (RingStd|null), speeds: number, chainline?: number}} CranksetPart */
+/** @typedef {CommonFields & {cat: 'brake', mount: BrakeMount, pistons: number, leverAccepts?: LeverClamp[]}} BrakePart */
 /** @typedef {CommonFields & {cat: 'rotor', size: number, mount: RotorMount}} RotorPart */
 /** @typedef {CommonFields & {cat: 'handlebar', clamp: number, width?: number, rise?: number, material?: Material}} HandlebarPart */
 /** @typedef {CommonFields & {cat: 'stem', clamp: number, length?: number}} StemPart */

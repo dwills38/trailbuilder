@@ -37,12 +37,13 @@ var LABELS = {
   std: 'Standard eyelet', trunnion: 'Trunnion',
   tapered: 'Tapered (1.5-1.125)',
   BSA73: 'BSA threaded 73', PF92: 'PressFit 92', T47: 'T47 threaded',
-  DUB: 'SRAM DUB', SH24: 'Shimano 24mm', PM: 'Post mount',
+  DUB: 'SRAM DUB', '24mm': '24 mm spindle', '30mm': '30 mm spindle', p3: 'e*thirteen P3', PM: 'Post mount',
   'sram-eagle': 'SRAM Eagle 12-speed', 'sram-transmission': 'SRAM Transmission (AXS)',
   'shimano-12': 'Shimano 12-speed', 'udh-direct': 'Direct mount (UDH)', hanger: 'Standard hanger',
   cable: 'mechanical (cable)', electronic: 'electronic (wireless)',
   't-type': 'T-Type', 'standard-12': 'standard 12-speed',
-  'ispec-ev': 'I-Spec EV', matchmaker: 'MatchMaker X', band: 'band clamp', pod: 'AXS pod',
+  'ispec-ev': 'I-Spec EV', 'ispec-ii': 'I-Spec II', 'ispec-b': 'I-Spec B',
+  matchmaker: 'MatchMaker X', band: 'band clamp', pod: 'AXS pod',
   flat: 'Flat', clip: 'Clipless',
   exo: 'EXO', 'exo-plus': 'EXO+', doubledown: 'DoubleDown', dh: 'DH casing',
   dual: 'Dual', '3c-maxxterra': '3C MaxxTerra', '3c-maxxgrip': '3C MaxxGrip'
@@ -103,7 +104,7 @@ var PARTS = [
   { id:'fr-specialized-enduro-sworks', cat:'frame', brand:'Specialized', model:'Enduro S-Works', family:'specialized-enduro', disciplines:['enduro'], price:3000, weight:3300, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:34.9, brakeMount:'PM', maxRotorR:220, suspension:'full', shockEye:205, shockStroke:60, shockMount:'trunnion', maxForkTravel:170, travel:170, udh:true, bundledShock:'sh-rockshox-vivid-ultimate-oem-205x60-trun', frameOnly:false },
   { id:'fr-yt-capra-core4', cat:'frame', brand:'YT', model:'Capra Core 4', family:'yt-capra', disciplines:['enduro'], price:4299, weight:3400, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'PF92', seatTube:31.6, brakeMount:'PM', maxRotorR:220, suspension:'full', shockEye:230, shockStroke:65, shockMount:'std', maxForkTravel:180, travel:170, udh:true, bundledShock:null, frameOnly:true },
   { id:'fr-canyon-strive-cfr', cat:'frame', brand:'Canyon', model:'Strive CFR', family:'canyon-strive', disciplines:['enduro'], price:4999, weight:2005, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:30.9, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:230, shockStroke:65, shockMount:'std', maxForkTravel:170, travel:160, udh:true, bundledShock:null, frameOnly:true, verified:true, lastChecked:'2026-07-06', source:'https://www.canyon.com/en-us/mountain-bikes/enduro-bikes/strive/cfr/strive-cfr/3195.html' },
-  { id:'fr-trek-slash', cat:'frame', brand:'Trek', model:'Slash 9.9', family:'trek-slash', disciplines:['enduro'], price:6000, weight:3300, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'T47', seatTube:31.6, brakeMount:'PM', maxRotorR:220, suspension:'full', shockEye:230, shockStroke:65, shockMount:'std', maxForkTravel:190, travel:170, udh:true, maxTire:2.5, bundledShock:null, frameOnly:true },
+  { id:'fr-trek-slash', cat:'frame', brand:'Trek', model:'Slash 9.9', family:'trek-slash', disciplines:['enduro'], price:6000, weight:3300, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:220, suspension:'full', shockEye:230, shockStroke:65, shockMount:'std', maxForkTravel:190, travel:170, udh:true, maxTire:2.5, bundledShock:null, frameOnly:true },
   { id:'fr-norco-range-c1', cat:'frame', brand:'Norco', model:'Range C1', family:'norco-range', disciplines:['enduro'], price:5200, weight:3500, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'PF92', seatTube:31.6, brakeMount:'PM', maxRotorR:220, suspension:'full', shockEye:205, shockStroke:62.5, shockMount:'trunnion', maxForkTravel:180, travel:170, udh:true, bundledShock:null, frameOnly:true },
   { id:'fr-transition-spire-alloy', cat:'frame', brand:'Transition', model:'Spire Alloy', family:'transition-spire', disciplines:['enduro'], price:3199, weight:3900, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:223, suspension:'full', shockEye:205, shockStroke:65, shockMount:'trunnion', maxForkTravel:180, travel:170, udh:true, maxTire:2.6, bundledShock:null, frameOnly:true },
   { id:'fr-raaw-madonna-v22', cat:'frame', brand:'RAAW', model:'Madonna V2.2', family:'raaw-madonna', disciplines:['enduro'], gen:'V2.2', price:2899, weight:3900, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:205, shockStroke:65, shockMount:'trunnion', maxForkTravel:170, travel:160, udh:false, maxTire:2.6, bundledShock:null, frameOnly:true, verified:true, lastChecked:'2026-07-06', source:'https://raawmtb.com/en-us/pages/madonna-v2-2' },
@@ -111,7 +112,7 @@ var PARTS = [
   { id:'fr-raaw-madonna-v32', cat:'frame', brand:'RAAW', model:'Madonna V3.2', family:'raaw-madonna', disciplines:['enduro'], gen:'V3.2', price:2733, weight:3900, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:220, suspension:'full', shockEye:205, shockStroke:65, shockMount:'trunnion', maxForkTravel:170, travel:160, udh:true, maxTire:2.6, bundledShock:null, frameOnly:true, verified:true, lastChecked:'2026-07-06', source:'https://raawmtb.com/en-us/pages/madonna-v3-2' },
   { id:'fr-giant-reign-advanced', cat:'frame', brand:'Giant', model:'Reign Advanced', family:'giant-reign', disciplines:['enduro'], price:3900, weight:3300, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'PF92', seatTube:30.9, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:205, shockStroke:62.5, shockMount:'trunnion', maxForkTravel:170, travel:160, udh:true, maxTire:2.5, bundledShock:null, frameOnly:true },
   { id:'fr-pivot-firebird', cat:'frame', brand:'Pivot', model:'Firebird', family:'pivot-firebird', disciplines:['enduro'], price:5200, weight:3200, wheelConfigs:['29','mullet'], rearAxle:'SuperBoost157', headset:'tapered', bb:'PF92', seatTube:31.6, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:230, shockStroke:65, shockMount:'std', maxForkTravel:170, travel:162, udh:true, bundledShock:null, frameOnly:true },
-  { id:'fr-nukeproof-giga-290', cat:'frame', brand:'Nukeproof', model:'Giga 290', family:'nukeproof-giga', disciplines:['enduro'], price:3400, weight:3500, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:220, suspension:'full', shockEye:205, shockStroke:60, shockMount:'trunnion', maxForkTravel:180, travel:170, udh:false, bundledShock:null, frameOnly:true },
+  { id:'fr-nukeproof-giga-290', cat:'frame', brand:'Nukeproof', model:'Giga 290', family:'nukeproof-giga', disciplines:['enduro'], price:3400, weight:3500, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:220, suspension:'full', shockEye:205, shockStroke:60, shockMount:'trunnion', maxForkTravel:180, travel:170, udh:true, bundledShock:null, frameOnly:true },
   { id:'fr-kona-process-153', cat:'frame', brand:'Kona', model:'Process 153', family:'kona-process', disciplines:['enduro'], price:3499, weight:3600, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:205, shockStroke:60, shockMount:'trunnion', maxForkTravel:170, travel:153, udh:false, bundledShock:null, frameOnly:true },
   { id:'fr-orbea-rallon-mteam', cat:'frame', brand:'Orbea', model:'Rallon M-Team', family:'orbea-rallon', disciplines:['enduro'], price:5000, weight:3300, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:230, shockStroke:60, shockMount:'std', maxForkTravel:170, travel:160, udh:true, bundledShock:null, frameOnly:true },
   { id:'fr-rockymountain-altitude-c70', cat:'frame', brand:'Rocky Mountain', model:'Altitude C70', family:'rockymountain-altitude', disciplines:['enduro'], price:4500, weight:3400, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:30.9, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:230, shockStroke:60, shockMount:'std', maxForkTravel:170, travel:160, udh:true, bundledShock:null, frameOnly:true },
@@ -153,7 +154,7 @@ var PARTS = [
   { id:'sh-rockshox-super-deluxe-205x65-trun', cat:'shock', brand:'RockShox', model:'Super Deluxe (trunnion)', family:'rockshox-super-deluxe', price:549, weight:470, eye:205, stroke:65, mount:'trunnion', spring:'air' },
   { id:'sh-fox-float-x2-205x65-trun', cat:'shock', brand:'Fox', model:'Float X2 (trunnion)', family:'fox-float-x2', price:649, weight:520, eye:205, stroke:65, mount:'trunnion', spring:'air' },
   { id:'sh-fox-float-x-230x60', cat:'shock', brand:'Fox', model:'Float X (230x60)', family:'fox-float-x', price:549, weight:450, eye:230, stroke:60, mount:'std', spring:'air' },
-  { id:'sh-rockshox-vivid-ultimate-oem-205x60-trun', cat:'shock', brand:'RockShox', model:'Vivid Ultimate (OEM, Enduro)', family:'rockshox-vivid', price:0, weight:520, eye:205, stroke:60, mount:'trunnion', spring:'air', oemOnly:true, forFrame:'fr-specialized-enduro-sworks' },
+  { id:'sh-rockshox-vivid-ultimate-oem-205x60-trun', cat:'shock', brand:'RockShox', model:'Vivid Ultimate (OEM, Enduro)', family:'rockshox-vivid', price:0, weight:520, eye:205, stroke:60, mount:'trunnion', spring:'air', oemOnly:true, forFrames:['fr-specialized-enduro-sworks'] },
   { id:'sh-rockshox-vivid-ultimate-230x65', cat:'shock', brand:'RockShox', model:'Vivid Ultimate (air)', family:'rockshox-vivid', gen:'C1', mfgPn:'RS-VIVD-ULT-C1', price:699, weight:670, eye:230, stroke:65, mount:'std', spring:'air', verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/rockshox/models/rs-vivd-ult-c1' },
   { id:'sh-rockshox-vivid-coil-230x65', cat:'shock', brand:'RockShox', model:'Vivid Coil', family:'rockshox-vivid', price:500, weight:790, eye:230, stroke:65, mount:'std', spring:'coil' },
   { id:'sh-ext-storia-v3-230x65', cat:'shock', brand:'EXT', model:'Storia V3 (coil)', family:'ext-storia', price:850, weight:800, eye:230, stroke:65, mount:'std', spring:'coil' },
@@ -261,55 +262,55 @@ var PARTS = [
   { id:'dr-shimano-xtr-m9100-sgs', cat:'derailleur', brand:'Shimano', model:'XTR M9100 SGS', family:'shimano-xtr-m9100', price:290, weight:241, system:'shimano-12', speeds:12, actuation:'cable', maxCog:51, mount:'hanger' },
   { id:'dr-shimano-deore-m6100-sgs', cat:'derailleur', brand:'Shimano', model:'Deore M6100 SGS', family:'shimano-deore-m6100', price:60, weight:322, system:'shimano-12', speeds:12, actuation:'cable', maxCog:51, mount:'hanger' },
   { id:'dr-sram-gx-eagle-axs', cat:'derailleur', brand:'SRAM', model:'GX Eagle AXS', family:'sram-gx-eagle-axs', price:430, weight:350, system:'sram-eagle', speeds:12, actuation:'electronic', maxCog:52, mount:'hanger' },
-  { id:'ca-sram-xs1275', cat:'cassette', brand:'SRAM', model:'XS-1275 Transmission 10-52', family:'sram-xs1275', gen:'A1', mfgPn:'CS-XS-1275-A1', price:380, weight:445, system:'sram-transmission', speeds:12, freehub:'XD', range:'10-52', maxCog:52, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/cs-xs-1275-a1' },
-  { id:'ca-sram-xg1275', cat:'cassette', brand:'SRAM', model:'XG-1275 Eagle 10-52', family:'sram-xg1275', gen:'B1', mfgPn:'CS-XG-1275-B1', price:215, weight:450, system:'sram-eagle', speeds:12, freehub:'XD', range:'10-52', maxCog:52, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/cs-xg-1275-b1' },
-  { id:'ca-shimano-xt-m8100-1051', cat:'cassette', brand:'Shimano', model:'CS-M8100 10-51', family:'shimano-xt-m8100', mfgPn:'CS-M8100-12', price:185, weight:470, system:'shimano-12', speeds:12, freehub:'MicroSpline', range:'10-51', maxCog:51, verified:true, lastChecked:'2026-06-22', source:'https://bike.shimano.com/en-US/product/component/deore-xt-m8100/CS-M8100-12.html' },
-  { id:'ca-shimano-slx-m7100-1051', cat:'cassette', brand:'Shimano', model:'CS-M7100 10-51', family:'shimano-slx-m7100', price:130, weight:534, system:'shimano-12', speeds:12, freehub:'MicroSpline', range:'10-51', maxCog:51 },
-  { id:'ca-sram-xs1299', cat:'cassette', brand:'SRAM', model:'XS-1299 Transmission 10-52', family:'sram-xs1299', gen:'A1', mfgPn:'CS-XS-1299-A1', price:660, weight:350, system:'sram-transmission', speeds:12, freehub:'XD', range:'10-52', maxCog:52, verified:true, lastChecked:'2026-07-06', source:'https://www.sram.com/en/sram/models/cs-xs-1299-a1' },
-  { id:'ca-sram-xg1295', cat:'cassette', brand:'SRAM', model:'XG-1295 X01 Eagle 10-52', family:'sram-xg1295', gen:'B1', mfgPn:'CS-XG-1295-B1', price:455, weight:350, system:'sram-eagle', speeds:12, freehub:'XD', range:'10-52', maxCog:52, verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/cs-xg-1295-b1' },
-  { id:'ca-sram-pg1230', cat:'cassette', brand:'SRAM', model:'PG-1230 NX Eagle 11-50', family:'sram-pg1230', gen:'A1', mfgPn:'CS-PG-1230-A1', price:120, weight:615, system:'sram-eagle', speeds:12, freehub:'HG', range:'11-50', maxCog:50, verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/cs-pg-1230-a1' },
-  { id:'ca-shimano-xtr-m9100-1051', cat:'cassette', brand:'Shimano', model:'CS-M9100 10-51', family:'shimano-xtr-m9100', price:380, weight:367, system:'shimano-12', speeds:12, freehub:'MicroSpline', range:'10-51', maxCog:51 },
-  { id:'ca-shimano-deore-m6100-1051', cat:'cassette', brand:'Shimano', model:'CS-M6100 10-51', family:'shimano-deore-m6100', price:70, weight:593, system:'shimano-12', speeds:12, freehub:'MicroSpline', range:'10-51', maxCog:51 },
+  { id:'ca-sram-xs1275', cat:'cassette', brand:'SRAM', model:'XS-1275 Transmission 10-52', family:'sram-xs1275', gen:'A1', mfgPn:'CS-XS-1275-A1', price:380, weight:445, system:'sram-transmission', speeds:12, freehub:'XD', minCog:10, maxCog:52, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/cs-xs-1275-a1' },
+  { id:'ca-sram-xg1275', cat:'cassette', brand:'SRAM', model:'XG-1275 Eagle 10-52', family:'sram-xg1275', gen:'B1', mfgPn:'CS-XG-1275-B1', price:215, weight:450, system:'sram-eagle', speeds:12, freehub:'XD', minCog:10, maxCog:52, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/cs-xg-1275-b1' },
+  { id:'ca-shimano-xt-m8100-1051', cat:'cassette', brand:'Shimano', model:'CS-M8100 10-51', family:'shimano-xt-m8100', mfgPn:'CS-M8100-12', price:185, weight:470, system:'shimano-12', speeds:12, freehub:'MicroSpline', minCog:10, maxCog:51, verified:true, lastChecked:'2026-06-22', source:'https://bike.shimano.com/en-US/product/component/deore-xt-m8100/CS-M8100-12.html' },
+  { id:'ca-shimano-slx-m7100-1051', cat:'cassette', brand:'Shimano', model:'CS-M7100 10-51', family:'shimano-slx-m7100', price:130, weight:534, system:'shimano-12', speeds:12, freehub:'MicroSpline', minCog:10, maxCog:51 },
+  { id:'ca-sram-xs1299', cat:'cassette', brand:'SRAM', model:'XS-1299 Transmission 10-52', family:'sram-xs1299', gen:'A1', mfgPn:'CS-XS-1299-A1', price:660, weight:350, system:'sram-transmission', speeds:12, freehub:'XD', minCog:10, maxCog:52, verified:true, lastChecked:'2026-07-06', source:'https://www.sram.com/en/sram/models/cs-xs-1299-a1' },
+  { id:'ca-sram-xg1295', cat:'cassette', brand:'SRAM', model:'XG-1295 X01 Eagle 10-52', family:'sram-xg1295', gen:'B1', mfgPn:'CS-XG-1295-B1', price:455, weight:350, system:'sram-eagle', speeds:12, freehub:'XD', minCog:10, maxCog:52, verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/cs-xg-1295-b1' },
+  { id:'ca-sram-pg1230', cat:'cassette', brand:'SRAM', model:'PG-1230 NX Eagle 11-50', family:'sram-pg1230', gen:'A1', mfgPn:'CS-PG-1230-A1', price:120, weight:615, system:'sram-eagle', speeds:12, freehub:'HG', minCog:11, maxCog:50, verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/cs-pg-1230-a1' },
+  { id:'ca-shimano-xtr-m9100-1051', cat:'cassette', brand:'Shimano', model:'CS-M9100 10-51', family:'shimano-xtr-m9100', price:380, weight:367, system:'shimano-12', speeds:12, freehub:'MicroSpline', minCog:10, maxCog:51 },
+  { id:'ca-shimano-deore-m6100-1051', cat:'cassette', brand:'Shimano', model:'CS-M6100 10-51', family:'shimano-deore-m6100', price:70, weight:593, system:'shimano-12', speeds:12, freehub:'MicroSpline', minCog:10, maxCog:51 },
   { id:'ch-sram-gx-flattop', cat:'chain', brand:'SRAM', model:'Flattop (Transmission)', family:'sram-gx-flattop', gen:'A1', mfgPn:'CN-TTYP-GX-A1', price:45, weight:285, system:'sram-transmission', speeds:12, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/cn-ttyp-gx-a1' },
   { id:'ch-sram-gx-eagle', cat:'chain', brand:'SRAM', model:'GX Eagle 12-speed', family:'sram-gx-eagle', gen:'A1', mfgPn:'CN-EAGL-GX-A1', price:30, weight:244, system:'sram-eagle', speeds:12, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/cn-eagl-gx-a1' },
   { id:'ch-shimano-xt-m8100', cat:'chain', brand:'Shimano', model:'CN-M8100 12-speed', family:'shimano-xt-m8100', price:35, weight:252, system:'shimano-12', speeds:12 },
   { id:'ch-sram-x01-eagle', cat:'chain', brand:'SRAM', model:'X01 Eagle 12-speed', family:'sram-x01-eagle', gen:'A1', mfgPn:'CN-EAGL-X01-A1', price:75, weight:239, system:'sram-eagle', speeds:12, verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/cn-eagl-x01-a1' },
   { id:'ch-shimano-xtr-m9100', cat:'chain', brand:'Shimano', model:'CN-M9100 12-speed', family:'shimano-xtr-m9100', price:50, weight:242, system:'shimano-12', speeds:12 },
   { id:'ch-shimano-deore-m6100', cat:'chain', brand:'Shimano', model:'CN-M6100 12-speed', family:'shimano-deore-m6100', price:25, weight:266, system:'shimano-12', speeds:12 },
-  { id:'cr-sram-gx-eagle', cat:'crankset', brand:'SRAM', model:'GX Eagle DUB', family:'sram-gx-eagle', gen:'B1', mfgPn:'FC-GX-1-B1', price:175, weight:621, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/fc-gx-1-b1' },
-  { id:'cr-sram-x0-transmission', cat:'crankset', brand:'SRAM', model:'X0 Transmission DUB', family:'sram-x0-transmission', gen:'D1', mfgPn:'FC-X0-D1', price:330, weight:685, bb:'DUB', ring:32, ringStd:'t-type', speeds:12, chainline:'Boost', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/fc-x0-d1' },
-  { id:'cr-shimano-xt-m8100', cat:'crankset', brand:'Shimano', model:'XT M8100', family:'shimano-xt-m8100', price:200, weight:624, bb:'SH24', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost' },
-  { id:'cr-raceface-aeffect-r', cat:'crankset', brand:'Race Face', model:'Aeffect R DUB', family:'raceface-aeffect-r', price:160, weight:640, bb:'DUB', ring:30, ringStd:'standard-12', speeds:12, chainline:'Boost' },
-  { id:'cr-sram-x01-eagle', cat:'crankset', brand:'SRAM', model:'X01 Eagle DUB', family:'sram-x01-eagle', price:415, weight:615, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost' },
-  { id:'cr-shimano-slx-m7100', cat:'crankset', brand:'Shimano', model:'SLX M7100', family:'shimano-slx-m7100', price:130, weight:645, bb:'SH24', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost' },
-  { id:'cr-sram-xx-sl-transmission', cat:'crankset', brand:'SRAM', model:'XX SL Transmission DUB', family:'sram-xx-sl-transmission', price:500, weight:600, bb:'DUB', ring:32, ringStd:'t-type', speeds:12, chainline:'Boost' },
-  { id:'cr-sram-nx-eagle', cat:'crankset', brand:'SRAM', model:'NX Eagle DUB', family:'sram-nx-eagle', gen:'C1', mfgPn:'FC-NX-1-C1', price:125, weight:638, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost', verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/fc-nx-1-c1' },
-  { id:'cr-shimano-xtr-m9100', cat:'crankset', brand:'Shimano', model:'XTR M9100', family:'shimano-xtr-m9100', price:400, weight:530, bb:'SH24', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost' },
-  { id:'cr-shimano-deore-m6100', cat:'crankset', brand:'Shimano', model:'Deore M6100', family:'shimano-deore-m6100', price:75, weight:685, bb:'SH24', ring:30, ringStd:'standard-12', speeds:12, chainline:'Boost' },
-  { id:'cr-ethirteen-plus', cat:'crankset', brand:'e*thirteen', model:'Plus DUB', family:'ethirteen-plus', price:200, weight:640, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost' },
-  { id:'cr-canecreek-eewings-allmountain', cat:'crankset', brand:'Cane Creek', model:'eeWings AllMountain', family:'canecreek-eewings', price:500, weight:400, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:'Boost' },
+  { id:'cr-sram-gx-eagle', cat:'crankset', brand:'SRAM', model:'GX Eagle DUB', family:'sram-gx-eagle', gen:'B1', mfgPn:'FC-GX-1-B1', price:175, weight:621, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:52, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/fc-gx-1-b1' },
+  { id:'cr-sram-x0-transmission', cat:'crankset', brand:'SRAM', model:'X0 Transmission DUB', family:'sram-x0-transmission', gen:'D1', mfgPn:'FC-X0-D1', price:330, weight:685, bb:'DUB', ring:32, ringStd:'t-type', speeds:12, chainline:55, verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/sram/models/fc-x0-d1' },
+  { id:'cr-shimano-xt-m8100', cat:'crankset', brand:'Shimano', model:'XT M8100', family:'shimano-xt-m8100', price:200, weight:624, bb:'24mm', ring:32, ringStd:'standard-12', speeds:12, chainline:52 },
+  { id:'cr-raceface-aeffect-r', cat:'crankset', brand:'Race Face', model:'Aeffect R', family:'raceface-aeffect-r', price:160, weight:640, bb:'24mm', ringStd:null, speeds:12, chainline:52 },
+  { id:'cr-sram-x01-eagle', cat:'crankset', brand:'SRAM', model:'X01 Eagle DUB', family:'sram-x01-eagle', price:415, weight:615, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:52 },
+  { id:'cr-shimano-slx-m7100', cat:'crankset', brand:'Shimano', model:'SLX M7100', family:'shimano-slx-m7100', price:130, weight:645, bb:'24mm', ring:32, ringStd:'standard-12', speeds:12, chainline:52 },
+  { id:'cr-sram-xx-sl-transmission', cat:'crankset', brand:'SRAM', model:'XX SL Transmission DUB', family:'sram-xx-sl-transmission', price:500, weight:600, bb:'DUB', ring:32, ringStd:'t-type', speeds:12, chainline:55 },
+  { id:'cr-sram-nx-eagle', cat:'crankset', brand:'SRAM', model:'NX Eagle DUB', family:'sram-nx-eagle', gen:'C1', mfgPn:'FC-NX-1-C1', price:125, weight:638, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:52, verified:true, lastChecked:'2026-07-01', source:'https://www.sram.com/en/sram/models/fc-nx-1-c1' },
+  { id:'cr-shimano-xtr-m9100', cat:'crankset', brand:'Shimano', model:'XTR M9100', family:'shimano-xtr-m9100', price:400, weight:530, bb:'24mm', ring:32, ringStd:'standard-12', speeds:12, chainline:52 },
+  { id:'cr-shimano-deore-m6100', cat:'crankset', brand:'Shimano', model:'Deore M6100', family:'shimano-deore-m6100', price:75, weight:685, bb:'24mm', ring:30, ringStd:'standard-12', speeds:12, chainline:52 },
+  { id:'cr-ethirteen-plus', cat:'crankset', brand:'e*thirteen', model:'Plus', family:'ethirteen-plus', price:200, weight:640, bb:'p3', ring:32, ringStd:'standard-12', speeds:12, chainline:52 },
+  { id:'cr-canecreek-eewings-allmountain', cat:'crankset', brand:'Cane Creek', model:'eeWings AllMountain', family:'canecreek-eewings', price:500, weight:400, bb:'30mm', ringStd:null, speeds:12, chainline:52 },
 
   /* BRAKES (single caliper+lever; usable front or rear) */
-  { id:'bk-sram-code-rsc', cat:'brake', brand:'SRAM', model:'Code RSC', family:'sram-code', price:140, weight:290, mount:'PM', pistons:4, leverClamp:'matchmaker' },
-  { id:'bk-sram-code-stealth', cat:'brake', brand:'SRAM', model:'Code Stealth', family:'sram-code', price:150, weight:290, mount:'PM', pistons:4, leverClamp:'matchmaker' },
-  { id:'bk-shimano-xt-m8120', cat:'brake', brand:'Shimano', model:'XT M8120 4-piston', family:'shimano-xt-m8120', price:150, weight:295, mount:'PM', pistons:4, leverClamp:'ispec-ev' },
-  { id:'bk-hayes-dominion-a4', cat:'brake', brand:'Hayes', model:'Dominion A4', family:'hayes-dominion', price:190, weight:310, mount:'PM', pistons:4 },
+  { id:'bk-sram-code-rsc', cat:'brake', brand:'SRAM', model:'Code RSC', family:'sram-code', price:140, weight:290, mount:'PM', pistons:4, leverAccepts:['matchmaker'] },
+  { id:'bk-sram-code-stealth', cat:'brake', brand:'SRAM', model:'Code Stealth', family:'sram-code', price:150, weight:290, mount:'PM', pistons:4, leverAccepts:['matchmaker'] },
+  { id:'bk-shimano-xt-m8120', cat:'brake', brand:'Shimano', model:'XT M8120 4-piston', family:'shimano-xt-m8120', price:150, weight:295, mount:'PM', pistons:4, leverAccepts:['ispec-ev'] },
+  { id:'bk-hayes-dominion-a4', cat:'brake', brand:'Hayes', model:'Dominion A4', family:'hayes-dominion', price:190, weight:310, mount:'PM', pistons:4, leverAccepts:['ispec-ev','ispec-ii','matchmaker'] },
   { id:'bk-magura-mt7', cat:'brake', brand:'Magura', model:'MT7', family:'magura-mt7', price:160, weight:280, mount:'PM', pistons:4 },
-  { id:'bk-shimano-slx-m7120', cat:'brake', brand:'Shimano', model:'SLX M7120 4-piston', family:'shimano-slx-m7120', price:100, weight:305, mount:'PM', pistons:4, leverClamp:'ispec-ev' },
-  { id:'bk-sram-maven-ultimate', cat:'brake', brand:'SRAM', model:'Maven Ultimate', family:'sram-maven', price:260, weight:315, mount:'PM', pistons:4, leverClamp:'matchmaker' },
+  { id:'bk-shimano-slx-m7120', cat:'brake', brand:'Shimano', model:'SLX M7120 4-piston', family:'shimano-slx-m7120', price:100, weight:305, mount:'PM', pistons:4, leverAccepts:['ispec-ev'] },
+  { id:'bk-sram-maven-ultimate', cat:'brake', brand:'SRAM', model:'Maven Ultimate', family:'sram-maven', price:260, weight:362, desc:'362 g = rear brake, organic pads, no rotor (SRAM figure)', mount:'PM', pistons:4, leverAccepts:['matchmaker'] },
   { id:'bk-hope-tech-4-v4', cat:'brake', brand:'Hope', model:'Tech 4 V4', family:'hope-tech-4', price:210, weight:300, mount:'PM', pistons:4 },
   { id:'bk-trp-dhr-evo', cat:'brake', brand:'TRP', model:'DH-R EVO', family:'trp-dhr-evo', price:170, weight:315, mount:'PM', pistons:4 },
   { id:'bk-formula-cura-4', cat:'brake', brand:'Formula', model:'Cura 4', family:'formula-cura', price:180, weight:280, mount:'PM', pistons:4 },
-  { id:'bk-shimano-saint-m820', cat:'brake', brand:'Shimano', model:'Saint M820', family:'shimano-saint-m820', price:190, weight:340, mount:'PM', pistons:4 },
-  { id:'bk-shimano-xtr-m9120', cat:'brake', brand:'Shimano', model:'XTR M9120 4-piston', family:'shimano-xtr-m9120', price:250, weight:270, mount:'PM', pistons:4, leverClamp:'ispec-ev' },
-  { id:'bk-shimano-zee-m640', cat:'brake', brand:'Shimano', model:'Zee M640', family:'shimano-zee-m640', price:110, weight:320, mount:'PM', pistons:4 },
+  { id:'bk-shimano-saint-m820', cat:'brake', brand:'Shimano', model:'Saint M820', family:'shimano-saint-m820', price:190, weight:340, mount:'PM', pistons:4, leverAccepts:['ispec-b'] },
+  { id:'bk-shimano-xtr-m9120', cat:'brake', brand:'Shimano', model:'XTR M9120 4-piston', family:'shimano-xtr-m9120', price:250, weight:270, mount:'PM', pistons:4, leverAccepts:['ispec-ev'] },
+  { id:'bk-shimano-zee-m640', cat:'brake', brand:'Shimano', model:'Zee M640', family:'shimano-zee-m640', price:110, weight:320, mount:'PM', pistons:4, leverAccepts:['ispec-b'] },
   { id:'bk-magura-mt5', cat:'brake', brand:'Magura', model:'MT5', family:'magura-mt5', price:110, weight:290, mount:'PM', pistons:4 },
-  { id:'bk-sram-g2-rsc', cat:'brake', brand:'SRAM', model:'G2 RSC', family:'sram-g2', price:160, weight:275, mount:'PM', pistons:4, leverClamp:'matchmaker' },
+  { id:'bk-sram-g2-rsc', cat:'brake', brand:'SRAM', model:'G2 RSC', family:'sram-g2', price:160, weight:275, mount:'PM', pistons:4, leverAccepts:['matchmaker'] },
   { id:'bk-hope-tech-4-e4', cat:'brake', brand:'Hope', model:'Tech 4 E4', family:'hope-tech-4', price:200, weight:280, mount:'PM', pistons:4 },
   { id:'bk-trp-trail-evo', cat:'brake', brand:'TRP', model:'Trail EVO', family:'trp-trail-evo', price:130, weight:295, mount:'PM', pistons:4 },
   { id:'bk-trickstuff-maxima', cat:'brake', brand:'Trickstuff', model:'Maxima', family:'trickstuff-maxima', price:900, weight:280, mount:'PM', pistons:4 },
   { id:'bk-sram-db8', cat:'brake', brand:'SRAM', model:'DB8', family:'sram-db8', price:100, weight:320, mount:'PM', pistons:4 },
-  { id:'bk-shimano-deore-m6120', cat:'brake', brand:'Shimano', model:'Deore M6120 4-piston', family:'shimano-deore-m6120', price:60, weight:315, mount:'PM', pistons:4, leverClamp:'ispec-ev' },
+  { id:'bk-shimano-deore-m6120', cat:'brake', brand:'Shimano', model:'Deore M6120 4-piston', family:'shimano-deore-m6120', price:60, weight:315, mount:'PM', pistons:4, leverAccepts:['ispec-ev'] },
   { id:'bk-magura-mt-trail-sport', cat:'brake', brand:'Magura', model:'MT Trail Sport', family:'magura-mt-trail', price:130, weight:290, mount:'PM', pistons:4 },
 
   /* ROTORS (usable front or rear) */
@@ -820,14 +821,16 @@ function specSummary(p){
     case 'tire': return L(p.wheel)+' . '+p.width+'in'+(p.casing?' . '+L(p.casing):'')+(p.compound?' . '+L(p.compound):'');
     case 'shifter': return L(p.system)+' . '+p.speeds+'s . '+L(p.actuation)+(p.clampType?' . '+L(p.clampType):'');
     case 'derailleur': return L(p.system)+' . '+p.speeds+'s . '+L(p.actuation)+' . '+p.maxCog+'T max . '+L(p.mount);
-    case 'cassette': return L(p.freehub)+' . '+p.range+' . '+p.speeds+'s';
+    case 'cassette': return L(p.freehub)+' . '+p.minCog+'-'+p.maxCog+'T . '+p.speeds+'s';   // range string derived, never stored
     case 'chain': return L(p.system)+' . '+p.speeds+'s';
-    case 'crankset': return L(p.bb)+' . '+p.ring+'T . '+p.speeds+'s . '+L(p.ringStd)+' ring';
-    case 'brake': return L(p.mount)+' . '+p.pistons+'-piston'+(p.leverClamp?' . '+L(p.leverClamp):'');
+    case 'crankset': return L(p.bb)+(typeof p.ring==='number'?' . '+p.ring+'T':'')+' . '+p.speeds+'s . '
+      +(p.ringStd ? L(p.ringStd)+' ring' : 'ring sold separately');
+    case 'brake': return L(p.mount)+' . '+p.pistons+'-piston'
+      +(p.leverAccepts && p.leverAccepts.length ? ' . '+p.leverAccepts.map(function(c){return L(c);}).join('/') : '');
     case 'rotor': return p.size+'mm . '+L(p.mount);
     case 'handlebar': return p.clamp+'mm clamp . '+p.width+'mm . '+p.material;
     case 'stem': return p.clamp+'mm clamp . '+p.length+'mm';
-    case 'grips': return 'lock-on';
+    case 'grips': return 'grips';   // honest: an attach field (lock-on/slide-on) is on the capture list; 'lock-on' was false for slide-on silicone grips
     case 'dropper': return p.diameter+'mm . '+p.drop+'mm drop';
     case 'saddle': return 'saddle';
     case 'pedal': return L(p.style)+' . pair';
@@ -895,9 +898,15 @@ function checkBuild(build){
   /* 3c. Chainring standard: SRAM documents T-Type Flattop chains (unique link
         shape, pin size, larger rollers) as NOT compatible with non-T-Type rings.
         One-directional on purpose - T-Type rings ARE backward-compatible with
-        Eagle chains, so the reverse must stay silent (REVIEW.md #2). */
-  if(chain && crankset && chain.system==='sram-transmission' && crankset.ringStd!=='t-type')
-    errors.push('Chainring mismatch: '+nameOf(chain)+' is a T-Type Flattop chain, but '+nameOf(crankset)+' has a '+L(crankset.ringStd)+' chainring. SRAM documents Flattop chains as incompatible with non-T-Type rings.');
+        Eagle chains, so the reverse must stay silent (REVIEW.md #2).
+        ringStd:null = armset-only crank, ring user-fitted (eeWings, Race Face
+        armsets): no ring to clash with, so it gets an INFO, not a false red. */
+  if(chain && crankset && chain.system==='sram-transmission'){
+    if(crankset.ringStd===null)
+      infos.push('Chainring: '+nameOf(crankset)+' is sold without a chainring - fit a T-Type (8-bolt) ring to run the '+nameOf(chain)+'.');
+    else if(crankset.ringStd!=='t-type')
+      errors.push('Chainring mismatch: '+nameOf(chain)+' is a T-Type Flattop chain, but '+nameOf(crankset)+' has a '+L(crankset.ringStd)+' chainring. SRAM documents Flattop chains as incompatible with non-T-Type rings.');
+  }
 
   /* 4. SRAM Transmission needs a UDH frame */
   if(derailleur && derailleur.mount==='udh-direct'){
@@ -970,7 +979,13 @@ function checkBuild(build){
     else if(frame.frameOnly===false){ warnings.push('Frame is package-only: '+nameOf(frame)+' is sold only as a frame+shock bundle with the '+incName+'. You can run the '+nameOf(shock)+', but you will still have to buy the bundle (and pay for the '+incName+') since the frame is not sold bare.'); }
     else { infos.push('Note: '+nameOf(frame)+' ships with the '+incName+', but is also sold frame-only - running the '+nameOf(shock)+' is fine.'); }
   }
-  if(shock && shock.oemOnly){ var host=byId(shock.forFrame); if(!frame || frame.id!==shock.forFrame) errors.push('OEM shock: the '+nameOf(shock)+' is only available bundled with the '+nameOf(host)+' - it is not sold separately.'); }
+  if(shock && shock.oemOnly){
+    var hostIds = shock.forFrames || [];
+    if(!frame || hostIds.indexOf(frame.id)<0){
+      var hostNames = hostIds.map(function(id){ return nameOf(byId(id)); }).join(' / ');
+      errors.push('OEM shock: the '+nameOf(shock)+' is only available bundled with the '+hostNames+' - it is not sold separately.');
+    }
+  }
 
   /* 18. Rear tire vs FRAME clearance (optional frame.maxTire, warning). The
         frame/swingarm complement to rule 14's rim-clearance check. Fires only
@@ -981,18 +996,23 @@ function checkBuild(build){
     warnings.push('Rear tire clearance: '+rTire.width+'in tire is wider than '+nameOf(frame)+'\'s '+frame.maxTire+'in frame max.');
 
   /* 19. Shifter mounting vs brake lever integration (optional fields - dormant
-        until parts carry them, per the rule-18 template). An I-Spec EV or
-        MatchMaker shifter ships with NO handlebar clamp of its own and only
-        bolts to a matching brake lever; band-clamp and AXS-pod shifters mount
-        independently. Warning, not error: band-clamp SKUs and ShiftMount-style
+        until parts carry them, per the rule-18 template). A lever-integrated
+        shifter (I-Spec EV/II/B, MatchMaker) ships with NO handlebar clamp of
+        its own and only bolts to a lever that accepts its standard - the
+        I-Spec generations are mutually incompatible. A lever may accept
+        SEVERAL standards via the maker's own clamps (leverAccepts is an
+        array). Warning, not error: band-clamp SKUs and ShiftMount-style
         adapters exist (REVIEW.md #5). One matching lever is enough - the
         shifter pairs with that side. */
-  if(shifter && (shifter.clampType==='ispec-ev' || shifter.clampType==='matchmaker')){
+  var LEVER_INTEGRATED = ['ispec-ev','ispec-ii','ispec-b','matchmaker'];
+  if(shifter && shifter.clampType && LEVER_INTEGRATED.indexOf(shifter.clampType)>=0){
     var sClamp = shifter.clampType;
     /** @type {string[]} */ var lClamps = [];
-    [fBrake, rBrake].forEach(function(bk){ if(bk && bk.leverClamp) lClamps.push(bk.leverClamp); });
-    if(lClamps.length && lClamps.indexOf(sClamp)<0)
-      warnings.push('Shifter mount: '+nameOf(shifter)+' is a '+L(sClamp)+' lever-integrated shifter (no bar clamp of its own), but the brake levers are '+L(lClamps[0])+'. You need the band-clamp version or a ShiftMount-style adapter to mount it.');
+    [fBrake, rBrake].forEach(function(bk){ if(bk && bk.leverAccepts) lClamps = lClamps.concat(bk.leverAccepts); });
+    if(lClamps.length && lClamps.indexOf(sClamp)<0){
+      var uniq = lClamps.filter(function(v,i,a){ return a.indexOf(v)===i; }).map(function(c){ return L(c); }).join(' / ');
+      warnings.push('Shifter mount: '+nameOf(shifter)+' is a '+L(sClamp)+' lever-integrated shifter (no bar clamp of its own), but the brake levers take '+uniq+'. You need the band-clamp version or a ShiftMount-style adapter to mount it.');
+    }
   }
 
   return { errors:errors, warnings:warnings, infos:infos };

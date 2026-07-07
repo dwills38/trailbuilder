@@ -95,6 +95,9 @@ The traps that produce wrong rows if mapped naively:
 | "Super Boost" / "DH 157" hub | `SuperBoost157` | a new `157DH` value (refuted — one fitment standard) |
 | Maxxis "EXO+", "3C MaxxGrip" | `casing:'exo-plus'`, `compound:'3c-maxxgrip'` (brand-native values) | a cross-brand toughness tier |
 | Continental Kryptotal tiers | casing+compound come COUPLED (Trail=Endurance, Enduro=Soft, DH=SuperSoft) — enumerate the brand's values in VOCAB before its batch | mixing freely |
+| "24mm steel spindle" / Hollowtech II / Cinch steel | `bb:'24mm'` (spindle interface) | `DUB` or a brand name |
+| "30mm spindle" (eeWings, Cinch alu, Hope) | `bb:'30mm'` | `DUB` (28.99 mm ≠ 30 mm) |
+| "rings sold separately" / armset-only crank | omit `ring`, set `ringStd:null` | fabricating a ring standard (made a live false red) |
 | "56/56 Zero stack" headset | `headset:'tapered'` still (steerer-fit field) | repurposing `headset` for SHIS |
 | Trunnion sizes (185/205/225×…) | `mount:'trunnion'` | guessing from eye number |
 

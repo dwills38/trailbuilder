@@ -86,12 +86,12 @@ Category-specific fields (enforced by `schema.js` → `SCHEMA`, using vocabulari
 
 - **frame**: `wheelConfigs` (array of `'29'`/`'275'`/`'mullet'`), `rearAxle`, `headset`, `bb`, `seatTube`, `brakeMount`, `maxRotorR`, **`suspension`** (`'full'`/`'hardtail'` discriminator: the shock block `shockEye`/`shockStroke`/`shockMount`/`travel` is required for full and forbidden for hardtail — cross-rule), `maxForkTravel`, `udh` (bool), `frameOnly` (bool), `bundledShock` (id or null), optional `sizes` (per-size map → `{seatTubeLen?, maxInsert?}`).
 - **fork**: `wheel`, `travel`, `axle`, `steerer`, `brakeMount`, `maxRotorF`, optional `minRotorF` (native-mount minimum; sourced forks only).
-- **shock**: `eye`, `stroke`, `mount`, `spring`; optional `oemOnly` + `forFrame`.
+- **shock**: `eye`, `stroke`, `mount`, `spring`; optional `oemOnly` + `forFrames` (array — OEM shocks ship across multiple frames).
 - **frontwheel / rearwheel**: `wheel`, `hub`, (`freehub` rear only), `rotorMount`, `intWidth`, `maxTire`.
 - **tire**: `wheel`, `width`, optional `casing`/`compound` (brand-native SKU axes; template-mandatory for new rows). (Front and rear tires are separate build slots, both drawn from `cat:'tire'`.)
-- **shifter / derailleur / cassette / chain**: `system` (`sram-eagle`/`sram-transmission`/`shimano-12`), `speeds`; shifter + derailleur also `actuation` (`cable`/`electronic` — same system, but a trigger can't drive an AXS mech); shifter optional `clampType` (`ispec-ev`/`matchmaker`/`band`/`pod`); derailleur also `maxCog`,`mount`; cassette also `freehub`,`range`,`maxCog`.
-- **crankset**: `bb`, `ring`, `ringStd` (`t-type`/`standard-12`), `speeds`.
-- **brake**: `mount`, `pistons`, optional `leverClamp` (`ispec-ev`/`matchmaker`).   **rotor**: `size`, `mount`.
+- **shifter / derailleur / cassette / chain**: `system` (`sram-eagle`/`sram-transmission`/`shimano-12`), `speeds`; shifter + derailleur also `actuation` (`cable`/`electronic` — same system, but a trigger can't drive an AXS mech); shifter optional `clampType` (`ispec-ev`/`ispec-ii`/`ispec-b`/`matchmaker`/`band`/`pod`); derailleur also `maxCog`,`mount`; cassette also `freehub`,`minCog`,`maxCog` (numeric — the display range is derived; HG floor is 11T, validator-enforced).
+- **crankset**: `bb` (spindle interface: `DUB`/`24mm`/`30mm`/`p3`), optional `ring`, nullable `ringStd` (`t-type`/`standard-12`/null = ring sold separately), `speeds`, optional `chainline` (number, mm — display-only).
+- **brake**: `mount`, `pistons`, optional `leverAccepts` (array of `ispec-ev`/`ispec-ii`/`ispec-b`/`matchmaker` — real levers accept several standards).   **rotor**: `size`, `mount`.
 - **handlebar/stem**: `clamp` (+ optional dims).  **grips/saddle**: just the common fields.
 - **dropper**: `diameter`, `drop`.  **pedal**: `style` (`flat`/`clip`) — pairs; 9/16" thread fits every crank, so no compat rules.
 - **presets** (`groupset`/`wheelset`/`brakeset`/`cockpitset`): `price`, `weight`, and `fills` (slotKey → part id).

@@ -17,7 +17,7 @@
 /** @typedef {import('./types.js').Part} Part */
 /** @typedef {import('./types.js').Slot} Slot */
 /** @typedef {import('./types.js').Catalog} Catalog */
-/** @typedef {{type: 'number'|'string'|'bool'|'id'|'fills'|'enumArray'|'sizes', vocab?: string, optional?: boolean, nullable?: boolean}} FieldRule */
+/** @typedef {{type: 'number'|'string'|'bool'|'id'|'idArray'|'fills'|'enumArray'|'sizes', vocab?: string, optional?: boolean, nullable?: boolean}} FieldRule */
 /** @typedef {{has: (id: string) => boolean, catOf: (id: string) => string, slotCat: Object.<string, string>, today: Date}} Ctx */
 
 /* Canonical vocabularies - the only allowed values for each standard. */
@@ -33,13 +33,20 @@ var VOCAB = {
   headset:      ['tapered'],
   steerer:      ['tapered'],
   frameBb:      ['BSA73', 'PF92', 'T47'],
-  crankBb:      ['DUB', 'SH24'],
+  /* crankBb is the SPINDLE INTERFACE, not a brand (DATA-MODEL-REVIEW 5.1-5):
+     DUB (28.99mm), 24mm (Shimano Hollowtech II + Race Face Cinch steel + ...),
+     30mm (BB30-class: eeWings, Race Face Cinch alu, Hope), p3 (e*thirteen).
+     DUB-Wide is a CHAINLINE, not a new spindle value. The old too-narrow
+     vocab (DUB|SH24) forced two fictitious catalog products - never again. */
+  crankBb:      ['DUB', '24mm', '30mm', 'p3'],
   brakeMount:   ['PM'],
   system:       ['sram-eagle', 'sram-transmission', 'shimano-12'],
   actuation:    ['cable', 'electronic'],
   ringStd:      ['t-type', 'standard-12'],
-  shifterClamp: ['ispec-ev', 'matchmaker', 'band', 'pod'],
-  leverClamp:   ['ispec-ev', 'matchmaker'],
+  /* I-Spec II / I-Spec B are older, mutually-incompatible Shimano standards
+     (Saint/Zee are I-Spec B; M8000-era is I-Spec II - neither mates with EV) */
+  shifterClamp: ['ispec-ev', 'ispec-ii', 'ispec-b', 'matchmaker', 'band', 'pod'],
+  leverClamp:   ['ispec-ev', 'ispec-ii', 'ispec-b', 'matchmaker'],
   derailMount:  ['hanger', 'udh-direct'],
   spring:       ['air', 'coil'],
   material:     ['alu', 'carbon'],
@@ -89,7 +96,7 @@ var SCHEMA = {
   },
   shock: {
     eye:{type:'number'}, stroke:{type:'number'}, mount:{type:'string',vocab:'shockMount'}, spring:{type:'string',vocab:'spring'},
-    oemOnly:{type:'bool',optional:true}, forFrame:{type:'id',optional:true}
+    oemOnly:{type:'bool',optional:true}, forFrames:{type:'idArray',optional:true}
   },
   frontwheel: {
     wheel:{type:'string',vocab:'wheel'}, hub:{type:'string',vocab:'frontAxle'},
@@ -103,10 +110,21 @@ var SCHEMA = {
     casing:{type:'string',vocab:'casing',optional:true}, compound:{type:'string',vocab:'compound',optional:true} },
   shifter: { system:{type:'string',vocab:'system'}, speeds:{type:'number'}, actuation:{type:'string',vocab:'actuation'}, clampType:{type:'string',vocab:'shifterClamp',optional:true} },
   derailleur: { system:{type:'string',vocab:'system'}, speeds:{type:'number'}, actuation:{type:'string',vocab:'actuation'}, maxCog:{type:'number'}, mount:{type:'string',vocab:'derailMount'} },
-  cassette: { system:{type:'string',vocab:'system'}, speeds:{type:'number'}, freehub:{type:'string',vocab:'freehub'}, range:{type:'string'}, maxCog:{type:'number'} },
+  /* cassette: minCog is numeric because it drives a REAL freehub constraint
+     (a 10T cog needs XD/MicroSpline; the HG spline floor is 11T) - the display
+     string ("10-52") is derived, never stored (DATA-MODEL-REVIEW 5.1-7) */
+  cassette: { system:{type:'string',vocab:'system'}, speeds:{type:'number'}, freehub:{type:'string',vocab:'freehub'}, minCog:{type:'number'}, maxCog:{type:'number'} },
   chain: { system:{type:'string',vocab:'system'}, speeds:{type:'number'} },
-  crankset: { bb:{type:'string',vocab:'crankBb'}, ring:{type:'number'}, ringStd:{type:'string',vocab:'ringStd'}, speeds:{type:'number'}, chainline:{type:'string',optional:true} },
-  brake: { mount:{type:'string',vocab:'brakeMount'}, pistons:{type:'number'}, leverClamp:{type:'string',vocab:'leverClamp',optional:true} },
+  /* crankset: ring/ringStd are OPTIONAL/NULLABLE because armset-only cranks
+     ship without a ring (Race Face, eeWings) - a required value forces
+     fabricated data and produced a live false red (DATA-MODEL-REVIEW 5.1-6).
+     ringStd:null = "ring sold separately / user-fitted". chainline is a
+     NUMBER in mm (Boost=52, T-Type=55), display-only for now. */
+  crankset: { bb:{type:'string',vocab:'crankBb'}, ring:{type:'number',optional:true}, ringStd:{type:'string',vocab:'ringStd',nullable:true}, speeds:{type:'number'}, chainline:{type:'number',optional:true} },
+  /* brake: real levers accept MULTIPLE shifter-mount standards via the maker's
+     own clamps (Hayes Peacemaker = I-Spec II/EV + MatchMaker), so this is an
+     array (DATA-MODEL-REVIEW 5.1-9) */
+  brake: { mount:{type:'string',vocab:'brakeMount'}, pistons:{type:'number'}, leverAccepts:{type:'enumArray',vocab:'leverClamp',optional:true} },
   rotor: { size:{type:'number'}, mount:{type:'string',vocab:'rotorMount'} },
   handlebar: { clamp:{type:'number'}, width:{type:'number',optional:true}, rise:{type:'number',optional:true}, material:{type:'string',vocab:'material',optional:true} },
   stem: { clamp:{type:'number'}, length:{type:'number',optional:true} },
@@ -209,8 +227,11 @@ function validatePart(p, ctx){
     if(idToks.length < 3) bad('id needs at least <prefix>-<brand>-<model> tokens');
   }
 
+  // price semantics are PINNED: manufacturer US MSRP in USD - never street
+  // prices, never converted currencies (DATA-MODEL-REVIEW 5.1-12). Mixed
+  // meanings across thousands of rows can never be untangled later.
   if(!('price' in p)) bad('missing price');
-  else if(!(isNum(p.price) && p.price >= 0)) bad('price must be a number >= 0');
+  else if(!(isNum(p.price) && p.price >= 0)) bad('price must be a number >= 0 (USD MSRP)');
   if('weight' in p && !(isNum(p.weight) && p.weight >= 0)) bad('weight must be a number >= 0 (grams)');
 
   // provenance
@@ -261,6 +282,13 @@ function validatePart(p, ctx){
         if(!isStr(v)) { bad('field "' + field + '" must be a part id'); break; }
         if(!ctx.has(v)) bad('field "' + field + '" references unknown part "' + v + '"');
         break;
+      case 'idArray':
+        if(!Array.isArray(v) || v.length === 0){ bad('field "' + field + '" must be a non-empty array of part ids'); break; }
+        v.forEach(function(/** @type {*} */ ref){
+          if(!isStr(ref)) { bad('field "' + field + '" entries must be part ids'); return; }
+          if(!ctx.has(ref)) bad('field "' + field + '" references unknown part "' + ref + '"');
+        });
+        break;
       case 'sizes':
         if(!isObj(v)) { bad('sizes must be an object of sizeName -> {seatTubeLen?, maxInsert?}'); break; }
         Object.keys(v).forEach(function(name){
@@ -284,8 +312,16 @@ function validatePart(p, ctx){
     }
   });
 
-  // cross-rule: an OEM-only shock must name the frame it ships with
-  if(p.cat === 'shock' && p.oemOnly === true && !isStr(p.forFrame)) bad('oemOnly shock must set forFrame');
+  // cross-rule: an OEM-only shock must name the frame(s) it ships with
+  if(p.cat === 'shock' && p.oemOnly === true && (!Array.isArray(p.forFrames) || p.forFrames.length === 0))
+    bad('oemOnly shock must set forFrames');
+
+  // cross-rule: minCog drives a real freehub constraint (10T needs XD/
+  // MicroSpline; the HG spline floor is 11T - why NX tops out at 11-50)
+  if(p.cat === 'cassette'){
+    if(isNum(p.minCog) && isNum(p.maxCog) && p.minCog >= p.maxCog) bad('minCog must be smaller than maxCog');
+    if(p.freehub === 'HG' && isNum(p.minCog) && p.minCog < 11) bad('HG freehub floor is an 11T cog (a 10T cassette needs XD or MicroSpline)');
+  }
 
   // cross-rule: the suspension discriminator gates the frame's shock block
   if(p.cat === 'frame'){
@@ -341,11 +377,13 @@ function validateCatalog(C, today){
       problems.push('[' + f.id + '] bundledShock ' + s.id + ' does not fit the frame (frame needs ' + f.shockEye + 'x' + f.shockStroke + ' ' + f.shockMount + ')');
   });
 
-  // an OEM-only shock must point back to a frame that actually bundles it (bidirectional)
+  // an OEM-only shock must point back to frames that actually bundle it (bidirectional)
   C.PARTS.filter(function(p){ return p.cat === 'shock' && p.oemOnly; }).forEach(function(s){
-    var f = C.PARTS.filter(function(x){ return x.id === s.forFrame; })[0];
-    if(!f || f.cat !== 'frame'){ problems.push('[' + s.id + '] oemOnly forFrame "' + s.forFrame + '" is not a frame'); return; }
-    if(f.bundledShock !== s.id) problems.push('[' + s.id + '] oemOnly shock is not referenced by ' + f.id + '.bundledShock (bidirectional link broken)');
+    (Array.isArray(s.forFrames) ? s.forFrames : []).forEach(function(/** @type {*} */ fid){
+      var f = C.PARTS.filter(function(x){ return x.id === fid; })[0];
+      if(!f || f.cat !== 'frame'){ problems.push('[' + s.id + '] oemOnly forFrames entry "' + fid + '" is not a frame'); return; }
+      if(f.bundledShock !== s.id) problems.push('[' + s.id + '] oemOnly shock is not referenced by ' + f.id + '.bundledShock (bidirectional link broken)');
+    });
   });
 
   // a preset's bundle price should not exceed the sum of its components (data smell)
