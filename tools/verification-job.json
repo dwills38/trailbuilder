@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T18:50:41.518Z",
+ "updated": "2026-07-07T18:53:20.051Z",
  "batchSize": 25,
- "lastCompleted": "gr-supacaz-grizips",
+ "lastCompleted": "sa-specialized-bridge",
  "currentCategory": "fork",
  "queue": [
   "fk-rockshox-lyrik-ultimate-29-160",
@@ -54,11 +54,6 @@
   "dp-raceface-turbine-r-316-175",
   "dp-ethirteen-vario-infinite-316-180",
   "dp-specialized-command-post-309-160",
-  "sa-wtb-volt",
-  "sa-ergon-sm-enduro",
-  "sa-specialized-bridge",
-  "sa-sdg-belair-v3",
-  "sa-fizik-terra-aidon-x3",
   "sa-wtb-silverado",
   "sa-fabric-scoop-radius",
   "sa-sdg-radar",
@@ -1524,43 +1519,43 @@
   },
   "sa-wtb-volt": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T18:53:19.992Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.wtb.com/products/volt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-ergon-sm-enduro": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T18:53:19.992Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Ergon publishes CroMo/foam/shell materials but no weight on either the base or Comp SM Enduro product pages (ergonbike.shop). ergon-bike.com itself SSL-errors on fetch. Bar not met."
   },
   "sa-specialized-bridge": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T18:53:20.050Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "specialized.com 403-blocks WebFetch (consistent with the known bot-block already logged for this domain). No standalone 'Bridge' model exists in the current lineup either -- only Bridge Sport and Bridge Comp with MIMIC -- so this row's model name may also need reconciling once the domain is reachable via a real browser session."
   },
   "sa-sdg-belair-v3": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T18:53:19.992Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/bel-air-v3-lux-alloy",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-fizik-terra-aidon-x3": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-06T16:27:03.851Z",
+   "status": "Verified",
+   "updated": "2026-07-07T18:53:19.992Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.fizik.com/us_en/terra-aidon-x3.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-wtb-silverado": {
    "cat": "saddle",

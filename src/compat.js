@@ -431,11 +431,11 @@ var PARTS = [
   { id:'dp-specialized-command-post-309-160', cat:'dropper', brand:'Specialized', model:'Command Post', family:'specialized-command-post', price:250, weight:600, diameter:30.9, drop:160 },
 
   /* SADDLES */
-  { id:'sa-wtb-volt', cat:'saddle', brand:'WTB', model:'Volt', family:'wtb-volt', price:90, weight:260 },
+  { id:'sa-wtb-volt', cat:'saddle', brand:'WTB', model:'Volt', family:'wtb-volt', price:65, weight:292, verified:true, lastChecked:'2026-07-07', source:'https://www.wtb.com/products/volt' },
   { id:'sa-ergon-sm-enduro', cat:'saddle', brand:'Ergon', model:'SM Enduro', family:'ergon-sm-enduro', price:130, weight:240 },
   { id:'sa-specialized-bridge', cat:'saddle', brand:'Specialized', model:'Bridge', family:'specialized-bridge', price:150, weight:250 },
-  { id:'sa-sdg-belair-v3', cat:'saddle', brand:'SDG', model:'Bel-Air V3', family:'sdg-belair', price:100, weight:245 },
-  { id:'sa-fizik-terra-aidon-x3', cat:'saddle', brand:'Fizik', model:'Terra Aidon X3', family:'fizik-terra-aidon', price:120, weight:230 },
+  { id:'sa-sdg-belair-v3', cat:'saddle', brand:'SDG', model:'Bel-Air V3', family:'sdg-belair', price:105, weight:236, verified:true, lastChecked:'2026-07-07', source:'https://sdgcomponents.com/products/bel-air-v3-lux-alloy' },
+  { id:'sa-fizik-terra-aidon-x3', cat:'saddle', brand:'Fizik', model:'Terra Aidon X3', family:'fizik-terra-aidon', price:175, weight:249, verified:true, lastChecked:'2026-07-07', source:'https://www.fizik.com/us_en/terra-aidon-x3.html' },
   { id:'sa-wtb-silverado', cat:'saddle', brand:'WTB', model:'Silverado', family:'wtb-silverado', price:80, weight:265 },
   { id:'sa-fabric-scoop-radius', cat:'saddle', brand:'Fabric', model:'Scoop Radius', family:'fabric-scoop', price:60, weight:280 },
   { id:'sa-sdg-radar', cat:'saddle', brand:'SDG', model:'Radar', family:'sdg-radar', price:90, weight:250 },
