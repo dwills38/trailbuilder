@@ -38,6 +38,13 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:12px}
 
   .pcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px;display:flex;flex-direction:column;gap:6px;position:relative;cursor:pointer}
+  .pcard-head{display:flex;align-items:flex-start;gap:10px}
+  .pcard-headtext{flex:1;min-width:0}
+  .pcard-thumb{flex:none;width:44px;height:44px;border-radius:10px;background:var(--chip);display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .pcard-thumb img{width:100%;height:100%;object-fit:cover}
+  .pcard-thumb svg{width:24px;height:24px;color:var(--ink-soft)}
+  .pcard.kit .pcard-thumb{background:var(--ok-bg)}
+  .pcard.kit .pcard-thumb svg{color:var(--ok)}
   .pcard .kind{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);font-weight:700}
   .pcard.kit .kind{color:var(--brand)}
   .pcard .name{font-weight:700;font-size:14px;padding-right:14px}
@@ -129,7 +136,8 @@
   .pm-identity{font-size:11.5px;color:var(--ink-soft)}
   .pm-tags{display:flex;gap:6px;flex-wrap:wrap}
   .pm-tag{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:2px 9px;font-size:11px;color:var(--ink-soft)}
-  .pm-placeholder{border:1px dashed var(--line);border-radius:9px;padding:14px;text-align:center;color:var(--ink-soft);font-size:12.5px}
+  .pm-placeholder{border:1px dashed var(--line);border-radius:9px;padding:22px 14px;text-align:center;color:var(--ink-soft);font-size:12.5px}
+  .pm-placeholder svg{width:52px;height:52px;color:var(--ink-soft);margin-bottom:8px}
   .pm-note{font-size:11.5px;color:var(--ink-soft);font-style:italic;margin:0}
   .pm-swatch{width:16px;height:16px;border-radius:50%;border:1px solid var(--line);display:inline-block;vertical-align:middle;margin-right:4px}
   .pm-photo{width:100%;max-height:260px;object-fit:cover;border-radius:9px;display:block}
@@ -365,6 +373,27 @@
   // esc() (HTML-escape) and partVerified() are shared from compat.js — one tested source of truth.
 
   var ICONS = {frame:'🚲',fork:'🍴',shock:'🪐',wheels:'🛞',tire:'⚫',drivetrain:'⚙️',brakes:'🛑',dropper:'📐',cockpit:'🔧',saddle:'🪑',pedals:'👟'};
+
+  /* ---- clean per-category placeholder line-art (Phase 2, until real product
+     photos are licensed) — one simple stroke icon per GROUPS key, themeable via
+     currentColor so it follows light/dark/RAD mode automatically ---- */
+  var PLACEHOLDER_PATHS = {
+    frame: '<circle cx="12" cy="38" r="7"/><circle cx="36" cy="38" r="7"/><path d="M12,38 L26,14 L36,38 L20,38 L12,38 M26,14 L26,8 M36,38 L30,16"/>',
+    fork: '<path d="M16,10 L16,38 M32,10 L32,38 M14,10 L34,10 M24,10 L24,3"/>',
+    shock: '<circle cx="24" cy="7" r="4"/><circle cx="24" cy="41" r="4"/><path d="M24,11 L24,37 M17,16 L31,16 M17,23 L31,23 M17,30 L31,30"/>',
+    wheels: '<circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="3"/><path d="M24,24 L24,7 M24,24 L37,32 M24,24 L11,32"/>',
+    tire: '<circle cx="24" cy="24" r="17"/><circle cx="24" cy="24" r="9"/><path d="M24,3 L24,7 M24,41 L24,45 M3,24 L7,24 M41,24 L45,24"/>',
+    drivetrain: '<circle cx="24" cy="24" r="12"/><circle cx="24" cy="24" r="4"/><path d="M24,8 L24,12 M24,36 L24,40 M8,24 L12,24 M36,24 L40,24 M13,13 L16,16 M32,32 L35,35 M35,13 L32,16 M16,32 L13,35"/>',
+    brakes: '<circle cx="22" cy="24" r="15"/><circle cx="22" cy="17" r="1.6"/><circle cx="22" cy="31" r="1.6"/><circle cx="15" cy="24" r="1.6"/><circle cx="29" cy="24" r="1.6"/><path d="M35,17 L44,17 L44,31 L35,31 Z"/>',
+    dropper: '<ellipse cx="24" cy="8" rx="11" ry="3.2"/><path d="M24,11 L24,40 M17,26 L31,26"/>',
+    cockpit: '<path d="M6,13 L42,13 M24,13 L24,30 M16,30 L32,30 L24,40 Z"/>',
+    saddle: '<path d="M9,29 Q9,17 24,15 Q39,17 39,25 Q39,31 30,33 L15,33 Q9,32 9,29 Z M17,33 L17,40 M31,33 L31,40"/>',
+    pedals: '<rect x="9" y="20" width="30" height="8" rx="2"/><circle cx="24" cy="24" r="3"/><path d="M13,20 L13,16 M19,20 L19,16 M29,20 L29,16 M35,20 L35,16"/>'
+  };
+  function placeholderIcon(groupKey){
+    var inner = PLACEHOLDER_PATHS[groupKey] || PLACEHOLDER_PATHS.frame;
+    return '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">'+inner+'</svg>';
+  }
   var CATLABEL = {frame:'Frame',fork:'Fork',shock:'Rear Shock',frontwheel:'Front Wheel',rearwheel:'Rear Wheel',
     tire:'Tires',shifter:'Shifter',derailleur:'Derailleur',cassette:'Cassette',chain:'Chain',crankset:'Crankset',
     brake:'Brake',rotor:'Rotor',handlebar:'Handlebar',stem:'Stem',grips:'Grips',dropper:'Dropper',saddle:'Saddle',pedal:'Pedals',
@@ -394,6 +423,7 @@
   var SLOT_GROUP = {};  SLOTS.forEach(function(s){ SLOT_GROUP[s.key] = s.group; });
   var PRESET_GROUP = {}; GROUPS.forEach(function(g){ if(g.preset) PRESET_GROUP[g.preset.cat] = g.key; });
   var groupByKey = {};  GROUPS.forEach(function(g){ groupByKey[g.key] = g; });
+  var CAT_GROUP = {};   SLOTS.forEach(function(s){ CAT_GROUP[s.cat] = s.group; }); Object.keys(PRESET_GROUP).forEach(function(c){ CAT_GROUP[c] = PRESET_GROUP[c]; });
 
   var isPreset = function(p){ return !!p.fills; };
   function resolved(){ var o={}; Object.keys(build).forEach(function(k){ o[k]=byId(build[k]); }); return o; }
@@ -497,10 +527,15 @@
       priceHtml = '<span class="price">'+money(p.price)+(typeof p.weight==='number'?'<span class="wt">'+p.weight+' g</span>':'')+'</span>';
     }
 
+    var thumbHtml = p.image
+      ? '<div class="pcard-thumb"><img src="'+esc(p.image)+'" alt="" loading="lazy"></div>'
+      : '<div class="pcard-thumb">'+placeholderIcon(CAT_GROUP[p.cat])+'</div>';
+
     card.innerHTML =
       '<span class="dot '+compat.state+'" title="'+esc(compat.reason)+'"></span>'+
-      '<div class="kind">'+catLabel(p.cat)+'</div>'+
-      '<div class="name">'+esc(p.brand)+' '+esc(p.model)+'</div>'+
+      '<div class="pcard-head">'+thumbHtml+
+        '<div class="pcard-headtext"><div class="kind">'+catLabel(p.cat)+'</div>'+
+        '<div class="name">'+esc(p.brand)+' '+esc(p.model)+'</div></div></div>'+
       '<div class="spec">'+esc(specSummary(p))+'</div>'+
       provHtml(p)+
       '<div class="row">'+priceHtml+'<span class="picks"></span></div>';
@@ -776,7 +811,7 @@
     else { $('pmNote').hidden = true; }
     $('pmImage').innerHTML = p.image
       ? '<img class="pm-photo" src="'+esc(p.image)+'" alt="'+esc(p.brand+' '+p.model)+'" loading="lazy">'
-      : '<div class="pm-placeholder">📷 Product image — coming as more parts get one</div>';
+      : '<div class="pm-placeholder">'+placeholderIcon(CAT_GROUP[p.cat])+'<div>Product photo not licensed yet — placeholder illustration</div></div>';
     $('pmRetailers').innerHTML = (p.retailerLinks && p.retailerLinks.length)
       ? p.retailerLinks.map(function(r){
           return '<a class="pm-retailer-link" href="'+esc(r.url)+'" target="_blank" rel="noopener noreferrer nofollow">'+esc(r.label)+' <span>↗</span></a>';
