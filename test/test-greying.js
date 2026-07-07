@@ -16,8 +16,12 @@ test('Megatower: a fitting shock is green', function(){
 test('Megatower: a trunnion shock is red', function(){
   eq(stateOf({frame:'fr-santacruz-megatower-cc'}, 'sh-rockshox-super-deluxe-205x65-trun'), 'r');
 });
-test('Megatower: a wrong-size shock is red', function(){
-  eq(stateOf({frame:'fr-santacruz-megatower-cc'}, 'sh-fox-float-x-230x60'), 'r');
+test('Megatower: a longer-stroke shock is red', function(){
+  eq(stateOf({frame:'fr-santacruz-megatower-cc'}, 'sh-rockshox-super-deluxe-ultimate-230x65'), 'r');
+});
+test('Megatower: a shorter-stroke same-eye shock is YELLOW - bolts in with less travel (REVIEW #8)', function(){
+  var c = C.compatOf(part('sh-fox-float-x-230x60'), B({frame:'fr-santacruz-megatower-cc'}));
+  eq(c.state, 'w'); some([c.reason], 'Shorter-stroke');
 });
 test('Enduro: a fitting non-package shock is YELLOW (package-only warning), not green', function(){
   // The Enduro is sold frame+shock only; a different (fitting) shock raises the

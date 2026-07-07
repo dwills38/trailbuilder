@@ -40,7 +40,8 @@ test('known-bad: the deliberate clash build reports 7 errors', function(){
   // After sourcing real frame specs (Enduro = Boost 148 + UDH + 205x60 trunnion),
   // the rear-axle, not-UDH and shock-mount clashes disappeared; what remains:
   // front wheel size, drivetrain system, rotor interface x2, dropper diameter,
-  // bar/stem clamp, shock size (205x65 in a 205x60 frame).
+  // bar/stem clamp, shock stroke too long (205x65 in a 205x60 frame - the
+  // over-rotation direction stays an error under the REVIEW #8 split).
   eq(chk(CLASH).errors.length, 7);
 });
 

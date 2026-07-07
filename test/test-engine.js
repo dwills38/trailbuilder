@@ -146,6 +146,22 @@ test('dropper diameter mismatch (31.6 in a 34.9 frame) -> error', function(){
 test('trunnion shock on a standard-mount frame -> mount error', function(){
   some(chk({frame:'fr-santacruz-megatower-cc', shock:'sh-rockshox-super-deluxe-205x65-trun'}).errors, 'mount');
 });
+
+/* Rule 16 stroke direction (REVIEW.md #8). Fit is set by eye-to-eye + mount;
+   makers sell the same 230 body in 57.5/60/62.5/65 strokes and RockShox
+   supports stroke-spacer reduction, so a SHORTER stroke bolts in with less
+   travel (warning), while a LONGER stroke can over-rotate the linkage (error). */
+test('shorter-stroke shock, matching eye+mount -> quantified warning, not a false red', function(){
+  // Megatower runs 230x62.5; the Float X 230x60 gives ~158mm instead of 165mm.
+  var r = chk({frame:'fr-santacruz-megatower-cc', shock:'sh-fox-float-x-230x60'});
+  eq(r.errors.length, 0); some(r.warnings, '~158mm');
+});
+test('longer-stroke shock, matching eye -> error (over-rotation direction)', function(){
+  some(chk({frame:'fr-santacruz-megatower-cc', shock:'sh-rockshox-vivid-ultimate-230x65'}).errors, 'stroke too long');
+});
+test('eye-to-eye mismatch stays an error regardless of stroke', function(){
+  some(chk({frame:'fr-yt-capra-core4', shock:'sh-rockshox-super-deluxe-ultimate-205x60-trun'}).errors, 'Shock size mismatch');
+});
 test('OEM shock cannot go on the wrong frame -> error', function(){
   some(chk({frame:'fr-santacruz-megatower-cc', shock:'sh-rockshox-vivid-ultimate-oem-205x60-trun'}).errors, 'OEM');
 });

@@ -992,12 +992,26 @@ function checkBuild(build){
 
   /* 16. Rear shock physical fit vs frame. Hardtails carry NO shock block
         (schema cross-rule), so they get their own message instead of a
-        nonsense "needs undefinedxundefined" comparison. */
+        nonsense "needs undefinedxundefined" comparison.
+        Stroke is DIRECTION-AWARE (REVIEW.md #8): physical fit is set by
+        eye-to-eye + mount. A LONGER stroke over-rotates the linkage /
+        bottoms the shock on the frame -> error. A SHORTER stroke with
+        matching eye+mount sweeps a strict subset of the designed range -
+        makers sell the same body in several strokes and RockShox supports
+        stroke-spacer reduction - so it bolts in with less travel: warning,
+        quantified, not a false red. */
   if(shock && frame){
     if(frame.suspension==='hardtail'){
       err('hardtail-shock', ['shock','frame'], 'Hardtail: '+nameOf(frame)+' has no rear-shock mount - remove the '+nameOf(shock)+'.');
     } else {
-      if(shock.eye!==frame.shockEye || shock.stroke!==frame.shockStroke) err('shock-size', ['shock','frame'], 'Shock size mismatch: Frame needs '+frame.shockEye+'x'+frame.shockStroke+'mm but Shock is '+shock.eye+'x'+shock.stroke+'mm.');
+      if(shock.eye!==frame.shockEye){
+        err('shock-size', ['shock','frame'], 'Shock size mismatch: Frame needs '+frame.shockEye+'x'+frame.shockStroke+'mm but Shock is '+shock.eye+'x'+shock.stroke+'mm.');
+      } else if(shock.stroke>frame.shockStroke){
+        err('shock-stroke-over', ['shock','frame'], 'Shock stroke too long: '+nameOf(shock)+' is '+shock.eye+'x'+shock.stroke+'mm but '+nameOf(frame)+' is designed for '+frame.shockEye+'x'+frame.shockStroke+'mm - the extra stroke can over-rotate the linkage or bottom the shock on the frame.');
+      } else if(shock.stroke<frame.shockStroke){
+        var redTravel = Math.round(frame.travel*shock.stroke/frame.shockStroke);
+        warn('shock-stroke-short', ['shock','frame'], 'Shorter-stroke shock: '+shock.eye+'x'+shock.stroke+'mm in a '+frame.shockEye+'x'+frame.shockStroke+'mm frame bolts in (same eye-to-eye) but gives ~'+redTravel+'mm rear travel instead of '+frame.travel+'mm - confirm bottom-out clearance / frame-maker approval.');
+      }
       if(shock.mount!==frame.shockMount) err('shock-mount', ['shock','frame'], 'Shock mount mismatch: Frame uses a '+L(frame.shockMount)+' shock but Shock is '+L(shock.mount)+'.');
     }
   }
