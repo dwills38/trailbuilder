@@ -91,6 +91,26 @@ test('an unknown front axle value is still caught', function(){
 test('20x110 Boost and 20x110 non-Boost are distinct valid values (never conflate)', function(){
   eq(probs(over('fk-rockshox-zeb-ultimate-29-170', { axle:'20x110-nonboost' })).length, 0);
 });
+test('a valid fronthub/rearhub/rim part has no problems', function(){
+  eq(probs(C.byId('fh-dtswiss-350-boost110')).length, 0);
+  eq(probs(C.byId('rh-dtswiss-350-boost148-xd')).length, 0);
+  eq(probs(C.byId('rm-dtswiss-ex511-29')).length, 0);
+});
+test('fronthub missing hub is caught', function(){
+  var p = over('fh-dtswiss-350-boost110'); delete p.hub; some(probs(p), 'hub');
+});
+test('rearhub missing freehub is caught', function(){
+  var p = over('rh-dtswiss-350-boost148-xd'); delete p.freehub; some(probs(p), 'freehub');
+});
+test('rearhub freehub value outside the vocab is caught', function(){
+  some(probs(over('rh-dtswiss-350-boost148-xd', { freehub:'SRAM-XD' })), 'freehub');
+});
+test('rim missing wheel size is caught', function(){
+  var p = over('rm-dtswiss-ex511-29'); delete p.wheel; some(probs(p), 'wheel');
+});
+test('rim wheel size outside the vocab is caught', function(){
+  some(probs(over('rm-dtswiss-ex511-29', { wheel:'26' })), 'wheel');
+});
 test('FM (flat mount) is valid brakeMount vocab; unknown mounts still rejected', function(){
   var p = over('bk-magura-mt7', { mount:'FM' });
   delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise

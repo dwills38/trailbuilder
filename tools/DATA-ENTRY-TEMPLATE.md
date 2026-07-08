@@ -42,7 +42,10 @@ provenance trio differ per SKU, so the SKU is the row.
 
 - **Charset:** lowercase `[a-z0-9]` tokens joined by `-` (validator-enforced).
 - **Prefix** = the category's entry in `ID_PREFIX` (schema.js): fr fk sh fw rw
-  ti sft dr ca ch cr bk ro hb st gr dp sa pd gs ws bs co.
+  fh rh rm ti sft dr ca ch cr bk ro hb st gr dp sa pd gs ws bs co.
+  (`fh`/`rh`/`rim` are the build-your-own-wheel alternate to `fw`/`rw` — a
+  hub or rim row only makes sense for a brand that actually sells that
+  component separately; everyone else stays a complete `fw`/`rw` wheel.)
 - **Brand** = ONE token: lowercase, diacritics folded, punctuation dropped —
   `Öhlins → ohlins`, `e*thirteen → ethirteen`, `DT Swiss → dtswiss`
   (`brandSlug()` in schema.js; the lint warns on mismatch).
@@ -60,6 +63,9 @@ provenance trio differ per SKU, so the SKU is the row.
 | fork | wheel, travel | `fk-rockshox-zeb-ultimate-29-170` |
 | shock | eye×stroke, `trun` (trunnion only) | `sh-rockshox-super-deluxe-ultimate-205x60-trun` |
 | wheel | wheel size, hub oddity (`157`), freehub when it splits a row (`xd`) | `rw-industrynine-enduro-s-29-157`, `rw-dtswiss-e-1900-275-xd` |
+| front hub | axle spec, rotor mount when a model splits by it | `fh-dtswiss-350-boost110` |
+| rear hub | axle spec, freehub, rotor mount when a model splits by it | `rh-dtswiss-350-boost148-xd` |
+| rim | wheel size, internal width when a model splits by it | `rm-dtswiss-ex1700-29` |
 | tire | wheel, width, casing, compound | `ti-maxxis-assegai-29-25-exop-mg` (Maxxis: exop=EXO+, mg=MaxxGrip, mt=MaxxTerra, dd=DoubleDown · Schwalbe: sg=Super Gravity, st=Super Trail, as=ADDIX Soft, aus=ADDIX Ultra Soft · Pirelli: hw=HardWALL, pw=ProWALL, sgg=SmartGRIP Gravity · Continental: full words, e.g. `-enduro-soft`) |
 | rotor | size, mount (`6b`/`cl`) | `ro-sram-hs2-200-6b` |
 | bar/stem | clamp (`35`/`318`) | `hb-renthal-fatbar-35` |

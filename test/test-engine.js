@@ -354,3 +354,59 @@ test('a matched straight-dc pair (dual-crown fork on a DH frame) is silent on ru
 test('SuperBoost frame + Boost-chainline crank stays clean (deliberate non-rule, pinned)', function(){
   eq(chk({frame:'fr-pivot-firebird', crankset:'cr-sram-gx-eagle'}).errors.length, 0);
 });
+
+/* Build-your-own-wheel (fronthub/rearhub/rim): effectiveWheel() must make a
+   hub+rim pair behave IDENTICALLY to the complete wheel it mirrors, for every
+   rule that reads front/rear wheel fields. The DT Swiss EX 1700 platform pins
+   this - fh-dtswiss-350-boost110 + rm-dtswiss-ex511-29 carry the exact same
+   hub/rotorMount/wheel/intWidth/maxTire as fw-dtswiss-ex-1700-29, and likewise
+   for the rear hub + rim vs rw-dtswiss-ex-1700-29. */
+test('hub+rim vs complete wheel: identical verdicts on a clean build', function(){
+  var combined = chk({frame:'fr-santacruz-megatower-cc', fork:'fk-rockshox-zeb-ultimate-29-170',
+    frontWheel:'fw-dtswiss-ex-1700-29', rearWheel:'rw-dtswiss-ex-1700-29',
+    cassette:'ca-sram-xg1275'});
+  var split = chk({frame:'fr-santacruz-megatower-cc', fork:'fk-rockshox-zeb-ultimate-29-170',
+    frontHub:'fh-dtswiss-350-boost110', frontRim:'rm-dtswiss-ex511-29',
+    rearHub:'rh-dtswiss-350-boost148-xd', rearRim:'rm-dtswiss-ex511-29',
+    cassette:'ca-sram-xg1275'});
+  eq(split.errors.length, combined.errors.length, 'same error count');
+  eq(split.warnings.length, combined.warnings.length, 'same warning count');
+  eq(combined.errors.length, 0, 'sanity: the combined build itself is clean');
+});
+test('hub+rim: wheel-size rule fires the same way as the complete wheel (29-only frame + 27.5 rim)', function(){
+  var viaWheel = chk({frame:'fr-santacruz-megatower-cc', frontWheel:'fw-dtswiss-e-1900-275'});
+  var bld = B({frame:'fr-santacruz-megatower-cc', frontHub:'fh-dtswiss-350-boost110'});
+  bld.frontRim = /** @type {any} */ (Object.assign({}, part('rm-dtswiss-ex511-29'), {wheel:'275'}));
+  var viaHubRim = C.checkBuild(bld);
+  some(viaWheel.errors, 'wheel');
+  some(viaHubRim.errors, 'wheel');
+  eq(viaHubRim.errors.length, viaWheel.errors.length, 'hub+rim raises the same wheel-size error as the complete wheel');
+});
+test('hub+rim: front axle mismatch fires via the hub (fork vs fronthub.hub)', function(){
+  var bld = B({frontHub:'fh-dtswiss-350-boost110', frontRim:'rm-dtswiss-ex511-29'});
+  bld.fork = /** @type {any} */ (Object.assign({}, part('fk-fox-36-factory-29-160'), {axle:'20x110'}));
+  some(C.checkBuild(bld).errors, 'Front axle');
+});
+test('hub+rim: rear axle mismatch fires via the hub (frame vs rearhub.hub)', function(){
+  some(chk({frame:'fr-pivot-firebird', rearHub:'rh-dtswiss-350-boost148-xd', rearRim:'rm-dtswiss-ex511-29'}).errors, 'Rear axle');
+});
+test('hub+rim: freehub mismatch fires via the rear hub (cassette vs rearhub.freehub)', function(){
+  some(chk({cassette:'ca-shimano-xt-m8100-1051', rearHub:'rh-dtswiss-350-boost148-xd', rearRim:'rm-dtswiss-ex511-29'}).errors, 'Freehub');
+});
+test('hub+rim: rotor interface fires via the hub (Center Lock rotor vs the fronthub\'s 6-bolt rotorMount)', function(){
+  some(chk({frontRotor:'ro-shimano-rtmt800-203-cl', frontHub:'fh-hope-pro5-boost110', frontRim:'rm-hope-fortus30-29'}).errors, 'rotor interface');
+});
+test('hub+rim: tire clearance fires via the rim (tire.width vs rim.maxTire)', function(){
+  some(chk({frontTire:'ti-schwalbe-big-betty-29-26-sg-as', frontHub:'fh-dtswiss-350-boost110', frontRim:'rm-dtswiss-ex511-29'}).warnings, 'wider than the front wheel');
+});
+test('hub+rim: a half-filled side (hub only, no rim) is treated as no wheel yet, not a false green', function(){
+  var r = chk({frame:'fr-santacruz-megatower-cc', frontHub:'fh-dtswiss-350-boost110'});
+  eq(r.errors.length, 0, 'no wheel-size verdict should fire on an incomplete pair');
+});
+test('mutual completeness: wheelPositionFilled treats hub+rim as satisfying the frontWheel/rearWheel position', function(){
+  var bld = B({frontHub:'fh-dtswiss-350-boost110', frontRim:'rm-dtswiss-ex511-29'});
+  eq(C.wheelPositionFilled(bld, 'frontWheel'), true);
+  eq(C.wheelPositionFilled(B({frontHub:'fh-dtswiss-350-boost110'}), 'frontWheel'), false, 'hub alone is not enough');
+  eq(C.wheelPositionFilled(B({frontWheel:'fw-dtswiss-ex-1700-29'}), 'frontWheel'), true, 'the complete wheel still satisfies it directly');
+  eq(C.wheelPositionFilled({}, 'shock'), false, 'a slot with no alternates just reduces to !!build[key]');
+});

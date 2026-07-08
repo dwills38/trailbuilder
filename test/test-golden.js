@@ -36,6 +36,21 @@ test('golden: Specialized Enduro + its package shock is compatible', function(){
 test('golden: RAAW Madonna build is fully compatible', function(){
   var r = chk(MADONNA); eq(r.errors.length, 0); eq(r.warnings.length, 0);
 });
+
+// Same bike as GOOD, but the wheels are built from separate hub+rim parts
+// instead of a complete wheelset (DT Swiss 350 hubs + EX 511 rims) - proves
+// the build-your-own-wheel path resolves through every rule GOOD exercises.
+// DT Swiss 350 hubs are Center Lock, so the rotors swap to a CL model
+// (vs GOOD's 6-bolt Reserve wheels) - otherwise this would correctly warn
+// on the CL-adapter rule, which isn't what this test is proving.
+var GOOD_SPLIT_WHEELS = { frame:'fr-santacruz-megatower-cc', fork:'fk-rockshox-zeb-ultimate-29-170', shock:'sh-rockshox-super-deluxe-ultimate-230x62p5',
+  frontHub:'fh-dtswiss-350-boost110', frontRim:'rm-dtswiss-ex511-29', rearHub:'rh-dtswiss-350-boost148-xd', rearRim:'rm-dtswiss-ex511-29',
+  frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-29-25-exop-mg', shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle',
+  frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-shimano-rtmt800-203-cl', rearRotor:'ro-shimano-rtmt800-203-cl',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-316-210', saddle:'sa-wtb-volt', pedals:'pd-oneup-aluminum' };
+test('golden: same Megatower build, wheels built from hub+rim instead of a complete wheelset', function(){
+  var r = chk(GOOD_SPLIT_WHEELS); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
 test('known-bad: the deliberate clash build reports 6 errors + the shim warning', function(){
   // After sourcing real frame specs (Enduro = Boost 148 + UDH + 205x60 trunnion),
   // the rear-axle, not-UDH and shock-mount clashes disappeared; what remains:
@@ -98,10 +113,12 @@ test('golden: every demo build fills every required slot (complete builds)', fun
   [GOOD, DEAL, MADONNA, MULLET].forEach(function(bld){
     var m = /** @type {Object.<string, string>} */ (bld);
     // requiredness is frame-aware (slotRequired) — for these full-sus
-    // non-DH builds it must equal the old !optional rule
+    // non-DH builds it must equal the old !optional rule, except altOf slots
+    // (frontHub/frontRim/rearHub/rearRim), which are never independently
+    // required — only their altOf target (frontWheel/rearWheel) counts.
     var frame = C.byId(m.frame);
     var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
-    eq(required.length, C.SLOTS.filter(function(s){ return !s.optional; }).length,
+    eq(required.length, C.SLOTS.filter(function(s){ return !s.optional && !s.altOf; }).length,
        'an enduro full-sus frame must not change requiredness');
     required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
   });
@@ -343,6 +360,6 @@ test('slotRequired: DH-discipline frame exempts the dropper slot (completeness o
   eq(C.slotRequired(dropperSlot, frame), false, 'DH: dropper not required');
   eq(C.slotRequired(shockSlot, frame), true, 'DH full-sus: shock still required');
 });
-test('slotRequired: no frame chosen = universal default (all non-optional required)', function(){
-  C.SLOTS.forEach(function(s){ eq(C.slotRequired(s, null), !s.optional, s.key); });
+test('slotRequired: no frame chosen = universal default (all non-optional, non-altOf required)', function(){
+  C.SLOTS.forEach(function(s){ eq(C.slotRequired(s, null), !s.optional && !s.altOf, s.key); });
 });
