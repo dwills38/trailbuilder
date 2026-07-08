@@ -258,6 +258,10 @@
     </div>
     <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
       <span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span>
+      <!-- Community link. Points at GitHub Discussions (FORUM_URL, derived from
+           REPORT_REPO). Hidden if unset, same feature-gate pattern as reportGithub. -->
+      <a class="btn" id="communityLink" target="_blank" rel="noopener"
+         title="Ask questions & share builds — TrailBuilder Discussions" hidden>💬 Community</a>
       <!-- Account control (Phase 3). Hidden entirely until Supabase config is set
            (ACCOUNTS_ENABLED). renderAccount() toggles logged-in vs logged-out. -->
       <div class="acctbox" id="acctBox" hidden>
@@ -921,6 +925,9 @@
      exists (NEXT-STEPS.md step 1) and the modal also offers a pre-filled GitHub
      issue; until then "Copy report" works locally and pre-deploy. */
   var REPORT_REPO = 'dwills38/trailbuilder';
+  /* Community forum = GitHub Discussions on the same repo. Derived from
+     REPORT_REPO so it stays in sync; repoint here if the forum ever moves. */
+  var FORUM_URL = REPORT_REPO ? 'https://github.com/'+REPORT_REPO+'/discussions' : '';
   var KIND_LABEL = {
     'false-fit'  : 'Says it fits, but it doesn’t',
     'false-clash': 'Flags a conflict, but it works',
@@ -1568,6 +1575,8 @@
   // Wire auth state -> account UI. When accounts are unconfigured this no-ops.
   if(typeof initAccount === 'function'){ initAccount(function(u){ renderAccount(); refreshOwned(); if(u && $('authModal').open){ $('authModal').close(); } if(!u){ closeInventoryPage(); } }); }
   renderAccount();
+  (function initCommunity(){ var a=$('communityLink'); if(!a) return;
+    if(FORUM_URL){ a.href=FORUM_URL; a.hidden=false; } else { a.hidden=true; } })();
 })();
 </script>
 </body>
