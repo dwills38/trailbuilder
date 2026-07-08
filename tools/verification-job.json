@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T16:33:28.702Z",
+ "updated": "2026-07-08T16:37:20.054Z",
  "batchSize": 25,
- "lastCompleted": "fw-shimano-mt500-29",
+ "lastCompleted": "fr-cotic-solaris",
  "currentCategory": "frame",
  "queue": [
   "fr-specialized-enduro-sworks",
@@ -15,7 +15,6 @@
   "fr-rockymountain-altitude-c70",
   "fr-propain-spindrift-cf",
   "fr-canyon-spectral-cf",
-  "fr-commencal-supreme-dh-v5",
   "fr-canyon-sender-cfr",
   "fr-yt-tues-cf-29",
   "fr-santacruz-v10-8",
@@ -25,7 +24,6 @@
   "fr-trek-fuel-ex-c-gen6",
   "fr-santacruz-hightower-3",
   "fr-canyon-neuron-cf",
-  "fr-cotic-solaris",
   "fr-scott-scale-rc-sl",
   "fr-canyon-lux-world-cup-cf",
   "ti-maxxis-assegai-29-25-dh-mg",
@@ -2659,11 +2657,11 @@
   },
   "fr-commencal-supreme-dh-v5": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T16:37:09.253Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight 5,3kg MAKER-CONFIRMED (23CSUP1) but verification DEFERRED: maker complete-bike page (23SUPR) states rear hub 157x12mm (native SuperBoost157 + 157->150 conversion kit A22WHADAPDHV5), so catalog rearAxle 150x12 is WRONG and travel is 220 not 200. Correcting rearAxle->SuperBoost157 breaks the DH-race golden (its rear wheel is 12x150) - needs a 157 DH rear wheel added first. Scoped follow-up; finding recorded in the row desc."
   },
   "fr-canyon-sender-cfr": {
    "cat": "frame",
@@ -2779,11 +2777,11 @@
   },
   "fr-cotic-solaris": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T16:37:20.053Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Re-fetched cotic.co.uk Solaris page 2026-07-08: interfaces re-confirmed (Burgtec 12x148, BSA73, 31.6 post, PM7 180-rotor-only, ZS44/EC44 head tube, UDH on 2025 gloss) but the page states NO frame weight for any size (C1-C5). Niche Reynolds-853 steel frame; no reputable editorial measured frame weight exists. Weight bar not met - Skip (interfaces good, nothing to fix)."
   },
   "fr-scott-scale-rc-sl": {
    "cat": "frame",
