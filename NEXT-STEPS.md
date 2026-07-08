@@ -289,6 +289,28 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   homepage only). **Next pass:** more frames from fetchable makers, Epic HT/Spark/
   Genius only with maker docs (integrated-shock/FM minefields), 27.5 XC tires if a 27.5 XC frame
   ever lands, drift-checker script (Phase 2), mullet-rear wheels (still parked).
+  **Frame-holdouts pass (`catalog-frames-holdouts`, +2 rows → 451 parts / 280 tests):** the
+  **Specialized Epic 8 family — both prior brake-mount holdouts CLEARED.** The Epic HT skip (the
+  rear brake mount was "stated nowhere fetched") is resolved by a *stock-caliper* pin: every Epic 8
+  trim ships a SRAM **Level/Code** caliper, which is **post-mount** (SRAM makes no flat-mount MTB
+  caliper), so the frame is PM — a sound inference, documented in each row. (1) **`fr-specialized-epic-8`**
+  (full-sus XC): 120 mm rear + **RockShox SIDLuxe 190×45 STANDARD** mount from the FETCHED Specialized
+  Epic 8/EVO 2024 owner manual (*"...Solo Air, 190x45mm"*) corroborated by the FETCHED Vital EVO spec
+  table (FOX FLOAT 190×45) — and that shock **already exists in-catalog** (`sh-rockshox-sidluxe-ultimate-190x45`),
+  so it's buildable out of the box; 12×148 Boost + SRAM DUB BSA73 threaded + 30.9 post + UDH from those
+  fetched sources; maxForkTravel 130 (Flow); maxTire omitted (base clears ~2.35, EVO 2.4 — left dormant
+  vs a false green). (2) **`fr-specialized-epic-hardtail`**: SRAM Level TL 2-piston + 160 mm rotor per
+  FETCHED BikeRadar → PM; FACT 11m, 12×148 Boost, DUB BSA73, 30.9 post, UDH. Engine-verified: the Epic 8
+  accepts its 190×45 std shock clean, rejects a 205×60 trunnion on both size+mount, and the hardtail
+  fires the rear-shock-guard error when a shock is picked. **Scott Spark/Genius re-evaluated and SKIPPED**
+  per the bar: proprietary integrated **Nude T165×45 + TwinLoc**, no maker aftermarket-shock policy — a
+  standard 165×45 trunnion physically bolts in but the frame is built around the custom Nude (reservoir
+  clearance / geometry-adjust), so claiming "fits" risks a wrong verdict. Enter only if a maker doc ever
+  pins the aftermarket policy. **Note:** this pass rode into a **concurrent-session branch race** (the
+  shared working tree was switched under it to `tools-drift-checker` mid-edit) — recovered cleanly by
+  saving the isolated diff as a patch, restoring the shared tree, and re-applying onto a fresh checkout
+  of latest main. Lesson: with multiple sessions on one working dir, keep each change to a saveable diff
+  and re-verify `git branch --show-current` before every commit.
 - ✅ **Drift checker DONE (`tools/drift-check.js`, branch `tools-drift-checker`, MERGED+PUSHED
   2026-07-08).** Zero-dep, resumable, style-matched to `verify-job.js`: re-fetches every
   `verified:true` part's `source` URL (plain `https`/`http`, follows redirects, 12s timeout) and
