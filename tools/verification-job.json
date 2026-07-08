@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T17:45:58.103Z",
+ "updated": "2026-07-08T18:11:32.737Z",
  "batchSize": 25,
- "lastCompleted": "sh-manitou-mara-pro-230x65-trun",
+ "lastCompleted": "sh-rockshox-super-deluxe-ultimate-230x62p5",
  "currentCategory": "shock",
  "queue": [
   "sh-rockshox-super-deluxe-205x65-trun",
@@ -14,8 +14,6 @@
   "sh-fox-float-x2-perf-elite-205x60-trun",
   "sh-rockshox-vivid-205x65-trun",
   "sh-dvo-jade-x-230x65",
-  "sh-rockshox-super-deluxe-ultimate-205x60-trun",
-  "sh-rockshox-super-deluxe-ultimate-230x62p5",
   "sh-ext-storia-v3-205x65-trun",
   "sh-canecreek-kitsuma-coil-205x65-trun",
   "sh-marzocchi-bomber-cr-205x65-trun",
@@ -728,11 +726,11 @@
   },
   "sh-rockshox-super-deluxe-ultimate-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:11:24.088Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "sram.com Super Deluxe Ultimate model page (RS-SDLX-ULT-C2) fetched 2026-07-08: lists 205x60 trunnion as an available size (interface OK) but publishes only ONE weight (458g @ 210x50 std) - no per-size weight, and no reputable 3rd-party measured figure for this exact SKU. Weight bar cannot be met; row stays sample. Price range shown $659-$689 without per-config mapping."
   },
   "sh-fox-float-x-205x62p5-trun": {
    "cat": "shock",
@@ -2328,11 +2326,11 @@
   },
   "sh-rockshox-super-deluxe-ultimate-230x62p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:11:32.736Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "sram.com Super Deluxe Ultimate model page (RS-SDLX-ULT-C2) fetched 2026-07-08: lists 230x62.5 std among available sizes (interface OK) but publishes only ONE weight (458g @ 210x50 std) - no per-size weight, no reputable 3rd-party measured figure for this exact SKU. Weight bar cannot be met; row stays sample."
   },
   "fr-santacruz-megatower-cc": {
    "cat": "frame",
