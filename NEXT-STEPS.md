@@ -197,13 +197,27 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   What stays manual: the *judgment* step — the grind keeps catching wrong specs a naive scraper would
   write through as truth. New products arrive as **unverified** and join the existing queue.
 
-## Phase 3 — Accounts & the garage *(first backend: Supabase/Firebase — not started)*
+## Phase 3 — Accounts & the garage *(backend chosen: **Supabase**; code built, awaiting keys)*
 
-- **Login + saved builds** (the share-link format already encodes a build, so migration is clean).
-- **Garage:** in-progress vs **completed builds**, plus an **owned-parts inventory** — inventory
-  then powers "build around what I own" filtering.
-- **Full build comparison** across saved builds (the Phase 1 lite version, via pasted links, is done).
-- **Blocked on Douglas:** pick Supabase vs Firebase before this is worth scoping at all.
+- 🚧 **Login + saved builds + inventory — BUILT and shipped INERT (branch `phase3-accounts`).**
+  Backend decision made (**Supabase**, 2026-07-08). The whole feature is implemented behind an
+  `ACCOUNTS_ENABLED` gate that is false until keys are set, so it's live-safe to merge:
+  - `src/vendor/supabase.min.js` — vendored `@supabase/supabase-js` v2.110.1 UMD, loaded via a
+    classic `<script>` (honors no-build-step / no-CDN). `src/config.js` — publishable URL + anon
+    key (placeholders) + the `ACCOUNTS_ENABLED` gate (same committed-constant pattern as `REPORT_REPO`).
+  - `src/account.js` — async auth + builds + inventory data-access (PKCE so the OAuth callback lands
+    in `?code=`, never colliding with the `#b=` build hash). `supabase/schema.sql` — `builds` +
+    `inventory` tables with **owner-only RLS**. Saved-build payload is the same `{b,p}` as a share
+    link, re-validated through `sanitizeShare` on load (id-migration safety for free).
+  - UI: header account control, auth/garage/inventory modals, "⭑ Save to garage" — all gated,
+    following the existing `<dialog>`/`sync()` patterns. Garage rows show a live verdict dot + totals.
+  - `test/test-account-serialize.js` proves the garage↔share payload contract. Verified inert in the
+    browser (account UI hidden, no console errors, no visual regression); validate/tests/typecheck green.
+- 🔑 **Blocked on Douglas — the only thing left to go live: [`supabase/SETUP.md`](supabase/SETUP.md).**
+  Create the Supabase project, run `schema.sql`, enable GitHub OAuth (+ magic link), set the redirect
+  URLs, and paste the Project URL + anon key into `src/config.js`. Then E2E test per SETUP §6 and ship.
+- **Full build comparison** across saved builds (the Phase 1 lite version, via pasted links, is done)
+  — a natural follow-up once builds live in the garage.
 
 ## Phase 4 — Community & ride character *(the ambitious tier)*
 

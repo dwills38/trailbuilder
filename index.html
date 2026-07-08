@@ -107,8 +107,26 @@
   .report-cta{margin-top:10px;text-align:right}
   .report-cta button{border:none;background:none;color:var(--ink-soft);font-size:12px;cursor:pointer;text-decoration:underline;padding:4px 2px;font-weight:600}
   .report-cta button:hover{color:var(--err)}
-  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
-  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop{background:rgba(18,28,22,.45)}
+  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#inventoryModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop,dialog#authModal::backdrop,dialog#garageModal::backdrop,dialog#inventoryModal::backdrop{background:rgba(18,28,22,.45)}
+  /* account control (header) + garage/inventory lists */
+  .acctbox{display:flex;align-items:center;gap:10px}
+  .acctbox .btn{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff}
+  .acctbox .btn:hover{background:rgba(255,255,255,.26)}
+  .acct-email{color:#fff;font-size:13px;font-weight:600;opacity:.95;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .glist{display:flex;flex-direction:column;gap:8px;max-height:52vh;overflow:auto}
+  .grow{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:9px 11px}
+  .grow .gmain{flex:1;min-width:0}
+  .grow .gname{font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .grow .gmeta{font-size:12px;color:var(--ink-soft)}
+  .grow .gacts{display:flex;gap:6px;flex-wrap:wrap}
+  .grow .gacts button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 8px;font-size:12px;cursor:pointer;font-weight:600;color:var(--ink)}
+  .gpill{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px;background:var(--chip);color:var(--ink-soft)}
+  .gpill.done{background:var(--ok-bg);color:var(--ok)}
+  .gdot{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:middle;margin-right:4px}
+  .gempty{color:var(--ink-soft);font-size:13px;padding:14px 2px;text-align:center}
+  .qty{display:inline-flex;align-items:center;gap:6px}
+  .qty button{width:24px;height:24px;line-height:1;padding:0}
   .rm-head{padding:18px 20px 4px}
   .rm-head h2{margin:0 0 5px;font-size:18px}
   .rm-head p{margin:0;font-size:13px;color:var(--ink-soft)}
@@ -218,7 +236,18 @@
       <h1>🚵 TrailBuilder</h1>
       <p>Browse enduro parts, click to add, and it checks fit, price and weight as you build.</p>
     </div>
-    <span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span>
+    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span>
+      <!-- Account control (Phase 3). Hidden entirely until Supabase config is set
+           (ACCOUNTS_ENABLED). renderAccount() toggles logged-in vs logged-out. -->
+      <div class="acctbox" id="acctBox" hidden>
+        <button class="btn" id="acctLogin" hidden>Log in</button>
+        <span class="acct-email" id="acctEmail" hidden></span>
+        <button class="btn" id="acctGarage" hidden title="Your saved builds">🅖 Garage</button>
+        <button class="btn" id="acctInventory" hidden title="Parts you own">🧰 Inventory</button>
+        <button class="btn" id="acctLogout" hidden>Log out</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -243,6 +272,7 @@
     <button class="btn" id="demoBad">Show clashes ✗</button>
     <button class="btn" id="reset">Reset</button>
     <button class="btn" id="compareBtn">⚖ Compare builds</button>
+    <button class="btn" id="saveGarage" hidden title="Save this build to your garage">⭑ Save to garage</button>
     <button class="btn primary" id="share">Share / save link</button>
   </div>
   <div class="chips" id="discChips" title="Filter by riding discipline — parts without a discipline tag are universal and always show"></div>
@@ -399,6 +429,61 @@
   </div>
 </dialog>
 
+<dialog id="authModal" aria-labelledby="authTitle">
+  <div class="rm-head">
+    <h2 id="authTitle">Log in to TrailBuilder</h2>
+    <p>Save builds to your garage and track the parts you own. We only store your builds and inventory — nothing else.</p>
+  </div>
+  <div class="rm-body">
+    <button type="button" class="btn primary" id="authGithub" style="width:100%">Sign in with GitHub</button>
+    <div style="text-align:center;color:var(--ink-soft);font-size:12px">or a magic link by email</div>
+    <div>
+      <label for="authEmail">Email</label>
+      <input type="text" id="authEmail" placeholder="you@example.com" autocomplete="email">
+    </div>
+    <p id="authMsg" class="pm-note" hidden></p>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="authClose">Cancel</button>
+    <button type="button" class="btn primary" id="authEmailBtn">Send magic link</button>
+  </div>
+</dialog>
+
+<dialog id="garageModal" aria-labelledby="garageTitle">
+  <div class="rm-head">
+    <h2 id="garageTitle">🅖 Your garage</h2>
+    <p>Saved builds. Load one to keep working on it, mark a build complete, or remove it.</p>
+  </div>
+  <div class="rm-body">
+    <div id="garageList" class="glist"></div>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="garageClose">Close</button>
+    <button type="button" class="btn primary" id="garageSaveCurrent">⭑ Save current build</button>
+  </div>
+</dialog>
+
+<dialog id="inventoryModal" aria-labelledby="invTitle">
+  <div class="rm-head">
+    <h2 id="invTitle">🧰 Your parts inventory</h2>
+    <p>Parts you own. Later this powers a &ldquo;build around what I own&rdquo; filter.</p>
+  </div>
+  <div class="rm-body">
+    <div id="invList" class="glist"></div>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="invClose">Close</button>
+    <button type="button" class="btn" id="invAddBuild" title="Add every part in your current build">＋ Add current build&rsquo;s parts</button>
+  </div>
+</dialog>
+
+<!-- Account layer (Phase 3). Load order matters: the vendored Supabase client and
+     config must precede account.js, and all of them precede the inline app script.
+     With placeholder config (ACCOUNTS_ENABLED=false) these are inert and all
+     account UI stays hidden — the app runs exactly as before. -->
+<script src="src/vendor/supabase.min.js"></script>
+<script src="src/config.js"></script>
+<script src="src/account.js"></script>
 <script src="src/compat.js"></script>
 <script>
 (function(){
@@ -1010,6 +1095,140 @@
     img.src = url;
   }
 
+  /* ================= Account: auth + garage + inventory (Phase 3) =================
+     All gated on _acctReady (Supabase configured). While unconfigured every entry
+     point no-ops and renderAccount() keeps the whole account UI hidden, so the app
+     is byte-for-byte the logged-out prototype. Saved-build payloads are the SAME
+     {b,p} shape as share links and are re-validated through sanitizeShare() on load
+     (canonicalId migration + slot-category guards), exactly like readHash(). */
+  var _acctReady = (typeof accountsReady === 'function') && accountsReady();
+
+  function renderAccount(){
+    var box = $('acctBox');
+    if(!_acctReady){ box.hidden = true; $('saveGarage').hidden = true; return; }
+    box.hidden = false;
+    var u = (typeof currentUser === 'function') ? currentUser() : null;
+    var inU = !!u;
+    $('acctLogin').hidden = inU;
+    $('acctEmail').hidden = !inU;  $('acctEmail').textContent = inU ? (u.email || 'Signed in') : '';
+    $('acctGarage').hidden = !inU;
+    $('acctInventory').hidden = !inU;
+    $('acctLogout').hidden = !inU;
+    $('saveGarage').hidden = !inU;
+  }
+
+  function authErr(e){ var m = $('authMsg'); m.hidden = false; m.textContent = (e && e.message) || 'Something went wrong.'; }
+  function openAuth(){ if(!_acctReady) return; $('authMsg').hidden = true; $('authEmail').value = ''; $('authModal').showModal(); }
+  function doGithub(){ signInWithGitHub().catch(authErr); }
+  function doEmail(){
+    var email = ($('authEmail').value || '').trim();
+    if(!email){ authErr({message:'Enter your email first.'}); return; }
+    signInWithEmail(email).then(function(){
+      var m = $('authMsg'); m.hidden = false; m.textContent = 'Check your email for a magic sign-in link.';
+    }).catch(authErr);
+  }
+
+  /* Resolve a stored {b,p} payload the same way readHash does. Returns a resolved
+     (slotKey -> part object) build + presetBy for engine calls. */
+  function _resolveData(data){
+    var clean = sanitizeShare((data && data.b) || {}, (data && data.p) || {});
+    var r = {}; Object.keys(clean.build).forEach(function(k){ r[k] = byId(clean.build[k]); });
+    return { resolved: r, clean: clean };
+  }
+  function loadBuildData(data){
+    try{
+      var c = _resolveData(data).clean;
+      build = {}; presetBy = {};
+      Object.keys(c.build).forEach(function(k){ build[k] = c.build[k]; });
+      Object.keys(c.presetBy).forEach(function(k){ presetBy[k] = c.presetBy[k]; });
+      sync();
+    }catch(e){}
+  }
+  function buildVerdictDot(data){
+    try{
+      var v = checkBuild(_resolveData(data).resolved);
+      if(v.errors.length)   return {color:'#d23b3b', label:v.errors.length + ' conflict(s)'};
+      if(v.warnings.length) return {color:'#e0a52e', label:v.warnings.length + ' to check'};
+      return {color:'#2aa35a', label:'No conflicts'};
+    }catch(e){ return {color:'var(--chip)', label:''}; }
+  }
+  function buildTotalsFor(data){
+    try{ var d = _resolveData(data); return buildTotals(d.resolved, d.clean.presetBy); }
+    catch(e){ return {price:0, weight:0}; }
+  }
+
+  function openGarage(){ if(!_acctReady || !currentUser()) return; $('garageModal').showModal(); renderGarage(); }
+  function renderGarage(){
+    var el = $('garageList'); el.innerHTML = '<div class="gempty">Loading…</div>';
+    listBuilds().then(function(rows){
+      if(!rows || !rows.length){ el.innerHTML = '<div class="gempty">No saved builds yet. Build a bike, then “⭑ Save to garage”.</div>'; return; }
+      el.innerHTML = '';
+      rows.forEach(function(row){
+        var dot = buildVerdictDot(row.data), tot = buildTotalsFor(row.data), done = row.status === 'completed';
+        var div = document.createElement('div'); div.className = 'grow';
+        div.innerHTML =
+          '<div class="gmain">'+
+            '<div class="gname">'+esc(row.name || 'Untitled build')+' <span class="gpill'+(done?' done':'')+'">'+(done?'completed':'in progress')+'</span></div>'+
+            '<div class="gmeta"><span class="gdot" style="background:'+dot.color+'"></span>'+esc(dot.label)+' · '+money(tot.price||0)+(tot.weight?(' · '+(tot.weight/1000).toFixed(2)+' kg'):'')+'</div>'+
+          '</div>'+
+          '<div class="gacts">'+
+            '<button data-a="load">Load</button><button data-a="rename">Rename</button>'+
+            '<button data-a="toggle">'+(done?'Reopen':'Complete')+'</button><button data-a="del">Delete</button>'+
+          '</div>';
+        div.querySelector('[data-a=load]').onclick = function(){ loadBuildData(row.data); $('garageModal').close(); toast('Loaded “'+(row.name||'build')+'”'); };
+        div.querySelector('[data-a=rename]').onclick = function(){ var n = prompt('Rename build', row.name || 'Untitled build'); if(n==null) return; updateBuild(row.id,{name:n}).then(renderGarage).catch(function(e){ toast(e.message||'Rename failed'); }); };
+        div.querySelector('[data-a=toggle]').onclick = function(){ updateBuild(row.id,{status: done?'in_progress':'completed'}).then(renderGarage).catch(function(e){ toast(e.message||'Update failed'); }); };
+        div.querySelector('[data-a=del]').onclick = function(){ if(!confirm('Delete “'+(row.name||'build')+'”?')) return; deleteBuild(row.id).then(renderGarage).catch(function(e){ toast(e.message||'Delete failed'); }); };
+        el.appendChild(div);
+      });
+    }).catch(function(e){ el.innerHTML = '<div class="gempty">Could not load builds: '+esc(e.message||'')+'</div>'; });
+  }
+  function saveCurrentToGarage(){
+    if(!_acctReady || !currentUser()) return;
+    if(!Object.keys(build).length){ toast('Add some parts first'); return; }
+    var name = prompt('Name this build', 'My build'); if(name==null) return;
+    saveBuild(name, {b:build, p:presetBy}, 'in_progress').then(function(){
+      toast('Saved to garage'); if($('garageModal').open) renderGarage();
+    }).catch(function(e){ toast(e.message||'Save failed'); });
+  }
+
+  function openInventory(){ if(!_acctReady || !currentUser()) return; $('inventoryModal').showModal(); renderInventory(); }
+  function renderInventory(){
+    var el = $('invList'); el.innerHTML = '<div class="gempty">Loading…</div>';
+    listInventory().then(function(rows){
+      if(!rows || !rows.length){ el.innerHTML = '<div class="gempty">No parts yet. Use “＋ Add current build’s parts”.</div>'; return; }
+      rows.sort(function(a,b){ var pa=byId(canonicalId(a.part_id)), pb=byId(canonicalId(b.part_id)); return ((pa&&pa.cat)||'').localeCompare((pb&&pb.cat)||''); });
+      el.innerHTML = '';
+      rows.forEach(function(row){
+        var p = byId(canonicalId(row.part_id));
+        var div = document.createElement('div'); div.className = 'grow';
+        div.innerHTML =
+          '<div class="gmain"><div class="gname">'+esc(p?nameOf(p):row.part_id)+'</div>'+
+          '<div class="gmeta">'+esc(p?catLabel(p.cat):'unknown part')+'</div></div>'+
+          '<div class="qty"><button class="btn" data-a="dec">−</button><span>'+row.qty+'</span><button class="btn" data-a="inc">+</button></div>'+
+          '<div class="gacts"><button data-a="del">Remove</button></div>';
+        div.querySelector('[data-a=inc]').onclick = function(){ setInventoryQty(row.id, row.qty+1).then(renderInventory).catch(function(e){ toast(e.message||'Failed'); }); };
+        div.querySelector('[data-a=dec]').onclick = function(){ (row.qty<=1 ? removeInventoryItem(row.id) : setInventoryQty(row.id, row.qty-1)).then(renderInventory).catch(function(e){ toast(e.message||'Failed'); }); };
+        div.querySelector('[data-a=del]').onclick = function(){ removeInventoryItem(row.id).then(renderInventory).catch(function(e){ toast(e.message||'Failed'); }); };
+        el.appendChild(div);
+      });
+    }).catch(function(e){ el.innerHTML = '<div class="gempty">Could not load inventory: '+esc(e.message||'')+'</div>'; });
+  }
+  function addBuildToInventory(){
+    if(!_acctReady || !currentUser()) return;
+    // Count occurrences per part id — paired slots (2 tires, 2 brakes, 2 rotors) mean
+    // the rider owns 2 of that part, so upsert the true count, not 1. Idempotent:
+    // re-adding the same build sets the same count rather than doubling.
+    var counts = {};
+    Object.keys(build).forEach(function(k){ var id = build[k]; if(id){ counts[id] = (counts[id]||0) + 1; } });
+    var uniq = Object.keys(counts);
+    if(!uniq.length){ toast('Add some parts first'); return; }
+    var chain = Promise.resolve();
+    uniq.forEach(function(id){ chain = chain.then(function(){ return addInventoryItem(id, counts[id]); }); });
+    chain.then(function(){ toast('Added '+uniq.length+' part(s) to inventory'); renderInventory(); })
+         .catch(function(e){ toast(e.message||'Add failed'); });
+  }
+
   function sync(){ renderCatalog(); renderPanel(); renderReport(); writeHash(); }
 
   /* ---- share / restore (build + presetBy) ---- */
@@ -1136,7 +1355,28 @@
   $('reportGithub').onclick=openReportGitHub;
   $('reportModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });   // click backdrop to dismiss
 
+  /* account controls (Phase 3) — inert while accounts are unconfigured */
+  $('acctLogin').onclick = openAuth;
+  $('acctLogout').onclick = function(){ signOut().then(function(){ toast('Logged out'); }).catch(function(e){ toast(e.message||'Logout failed'); }); };
+  $('acctGarage').onclick = openGarage;
+  $('acctInventory').onclick = openInventory;
+  $('saveGarage').onclick = saveCurrentToGarage;
+  $('authClose').onclick = function(){ $('authModal').close(); };
+  $('authGithub').onclick = doGithub;
+  $('authEmailBtn').onclick = doEmail;
+  $('authEmail').addEventListener('keydown', function(e){ if(e.key==='Enter') doEmail(); });
+  $('authModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
+  $('garageClose').onclick = function(){ $('garageModal').close(); };
+  $('garageSaveCurrent').onclick = saveCurrentToGarage;
+  $('garageModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
+  $('invClose').onclick = function(){ $('inventoryModal').close(); };
+  $('invAddBuild').onclick = addBuildToInventory;
+  $('inventoryModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
+
   readHash(); renderDiscChips(); renderChips(); renderSubChips(); sync();
+  // Wire auth state -> account UI. When accounts are unconfigured this no-ops.
+  if(typeof initAccount === 'function'){ initAccount(function(u){ renderAccount(); if(u && $('authModal').open){ $('authModal').close(); } }); }
+  renderAccount();
 })();
 </script>
 </body>
