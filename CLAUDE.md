@@ -54,9 +54,13 @@ Requires [Node.js](https://nodejs.org) 18+. Run `npm install` once (dev tooling 
 tests + type-checker; `validate.js` itself needs no dependencies).
 
 ```
-npm test            # full suite (Vitest) — expect "Tests  198 passed (198)"
-node validate.js    # data check — expect "DATA OK - 330 parts, 0 problems (63 verified, ...)"
+npm test            # full suite (Vitest) — expect "Tests  N passed (N)", 0 failures
+node validate.js    # data check — expect "DATA OK - N parts, 0 problems (N verified, ...)"
 ```
+
+(Don't expect specific counts — they move with nearly every catalog/test commit, and
+hardcoded ones here have gone stale before. The contract is: **every** test passes and
+validate reports **0 problems**; both commands print the live counts.)
 
 (`npm run validate` works too; `npm run test:watch` re-runs Vitest on save.) To run the
 app, open `index.html` in a browser.
@@ -177,8 +181,10 @@ and that group reverts to summing components. `presetBy` maps groupKey → prese
 ## Provenance
 
 Parts may carry `verified: true` + `lastChecked: "YYYY-MM-DD"` + `source: "https://…"`.
-Absence = unverified (still the default for most of the catalog; **62 parts are verified so
-far**, all against manufacturer pages/documents — the SRAM GX Eagle mechanical, X01/NX Eagle, and most
+Absence = unverified (still the default for much of the catalog; `node validate.js` prints
+the live verified count and `npm run verify:status` the full job state — **don't trust a
+number written here, they drift**. Everything verified is against manufacturer pages/documents;
+highlights from the early batches: the SRAM GX Eagle mechanical, X01/NX Eagle, and most
 GX/X0/XX Transmission drivetrain parts (the AXS pods have no clean model pages so they stay
 sample; the X01/GX-AXS derailleur and X01 crank pages list no weight, so they stay sample
 too), two RockShox shocks (the Super Deluxe Ultimate air + Vivid air), a Shimano XT cassette, six
@@ -237,7 +243,8 @@ The `✓ Verified only` filter in the app (built on `partVerified`) shows just t
    (`npm test`, config in `vitest.config.mjs`), and `.github/workflows/ci.yml` runs
    `validate` + `tests` + `typecheck` on every push / PR.
 4. 🚧 **Adding real, verified parts** (in progress — now a resumable checkpointed job: run
-   `npm run verify:status`, then follow `tools/VERIFY-PROTOCOL.md`): 62 verified so far — SRAM
+   `npm run verify:status`, then follow `tools/VERIFY-PROTOCOL.md` — the status command has
+   the live counts): highlights of the verified set so far — SRAM
    GX/X01/NX Eagle and most Transmission drivetrain parts, two RockShox shocks, a Shimano XT
    cassette, seven pedals, Synthesis wheels, four droppers, the whole tire category (23
    tires, 8 brands; Michelin/Specialized in the retry queue), and six frames
