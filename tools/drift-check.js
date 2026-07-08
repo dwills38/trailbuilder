@@ -28,6 +28,13 @@
    noise — it was never there — so that token is skipped and the report notes
    e.g. "price: sample-grade, skipped" (see sampleGradeFields below). The
    other token is still checked normally.
+
+   Price matching tolerates storefront formatting noise (psychological ".99"
+   pricing, space-grouped thousands with cents — see priceRoughlyMatches) and,
+   if still not found, a page reading as spec/FAQ/dealer-network content (a
+   tech-spec sheet, an FAQ, a dealer-only brand's listing — see
+   looksLikeSpecOrFaqPage) is skipped too, noted as "price: no price field on
+   this page (spec/FAQ content), skipped" rather than flagged as drift.
      - unfetchable    blocked (403/429), a bot-check/JS-shell page came back,
                       or the host is a documented standing blocker — NOT
                       retried automatically (see "Retrying" below)
@@ -120,6 +127,59 @@ function hasAnyToken(text, tokens) {
   return tokens.some(function (t) { return text.indexOf(t) >= 0; });
 }
 
+// Any comma- or space-grouped decimal number (optional cents): "4,999",
+// "1 369.50", "107.85". Deliberately generic — the catalog only stores
+// whole-dollar prices, so any such number that rounds to the same dollar
+// counts as a match regardless of separator/cents style (see priceRoughlyMatches).
+var PRICE_NUMBER_RE = /\d{1,3}(?:[,\s]\d{3})*(?:\.\d{1,2})?/g;
+
+/** Storefronts rarely echo a catalogued whole-dollar price back verbatim:
+ *  psychological ".99" pricing ($1,099.99 vs a catalogued $1,100), or a
+ *  space-grouped-thousands format with cents (Öhlins' "$1 369.50" vs $1,370).
+ *  Scans for ANY price-shaped number in the text and accepts it if rounding
+ *  to the nearest whole dollar matches the catalogued price — catching those
+ *  formatting variants without loosening real drift (a genuinely different
+ *  price rounds to a different dollar and still won't match).
+ *  @param {string} text @param {number} price @returns {boolean} */
+function priceRoughlyMatches(text, price) {
+  var target = Math.round(price);
+  var matches = text.match(PRICE_NUMBER_RE);
+  if (!matches) return false;
+  return matches.some(function (m) {
+    var n = parseFloat(m.replace(/[,\s]/g, ''));
+    return !isNaN(n) && Math.round(n) === target;
+  });
+}
+
+var CURRENCY_FIGURE_RE = /[$£€]\s?\d|\d[\d,.\s]*\s?(?:USD|GBP|EUR)\b/i;
+
+/** @param {string} text @returns {boolean} */
+function hasCurrencyFigure(text) {
+  return CURRENCY_FIGURE_RE.test(text);
+}
+
+// Explicit spec/FAQ/dealer-network marker phrases — a page that says one of
+// these AND shows no currency figure at all is almost certainly a page TYPE
+// that never carries a purchase price (a tech-spec sheet, an FAQ, a
+// dealer-only brand's product page), not a product listing that lost its
+// price. Deliberately requires the positive marker (see looksLikeSpecOrFaqPage)
+// so a normal listing whose price silently vanished (discontinued, etc.)
+// still reports as changed.
+var SPEC_OR_FAQ_MARKER_RE = /frequently asked questions|\bfaqs?\b|\btech(?:nical)? specs?\b|\bspecifications\b|authorized dealer network/i;
+
+/** A catalogued price that's genuinely absent from a spec-sheet/FAQ/
+ *  dealer-network page isn't drift — it's the checker looking at a page
+ *  type that never had a price field to begin with (Commencal's
+ *  `/tech-*.html` pages, a brand FAQ page, a dealer-only brand's product
+ *  page). Narrow on purpose: requires an explicit marker phrase, not just
+ *  "no price found" — a normal product page whose price disappeared (e.g.
+ *  discontinued) has neither a marker nor a price and must still flag as
+ *  changed, so absence alone can't be the signal.
+ *  @param {string} html @returns {boolean} */
+function looksLikeSpecOrFaqPage(html) {
+  return SPEC_OR_FAQ_MARKER_RE.test(html) && !hasCurrencyFigure(html);
+}
+
 /** Which of a part's price/weight does its desc document as sample-grade
  *  (never sourced from the page)? Matches the catalog's established desc
  *  conventions — a field-name list ending "= sample" ("price = sample (...)",
@@ -151,25 +211,34 @@ function sampleGradeFields(part) {
  *  whenever present (always, per schema); weight only if the part has one
  *  (frame-only rows, presets, etc. may not). A field the desc documents as
  *  sample-grade (see sampleGradeFields) is skipped — its absence from the
- *  page is expected, not drift — and noted instead of checked.
+ *  page is expected, not drift — and noted instead of checked. Price also
+ *  tolerates storefront formatting noise (see priceRoughlyMatches) and, if
+ *  still not found, a page that reads as spec/FAQ/dealer-network content
+ *  (see looksLikeSpecOrFaqPage) is skipped too rather than flagged as drift.
  *  @param {string} html @param {{price?:number, weight?:number, desc?:string}} part
  *  @returns {{status:'ok'|'changed', checks:{field:string,found:boolean}[], note:?string}} */
 function classifyContent(html, part) {
   var sample = sampleGradeFields(part);
   var checks = [];
-  var skipped = [];
+  var notes = [];
   if (typeof part.price === 'number') {
-    if (sample.price) skipped.push('price');
-    else checks.push({ field: 'price', found: hasAnyToken(html, priceTokens(part.price)) });
+    if (sample.price) {
+      notes.push('price: sample-grade, skipped');
+    } else {
+      var priceFound = hasAnyToken(html, priceTokens(part.price)) || priceRoughlyMatches(html, part.price);
+      if (!priceFound && looksLikeSpecOrFaqPage(html)) {
+        notes.push('price: no price field on this page (spec/FAQ content), skipped');
+      } else {
+        checks.push({ field: 'price', found: priceFound });
+      }
+    }
   }
   if (typeof part.weight === 'number') {
-    if (sample.weight) skipped.push('weight');
+    if (sample.weight) notes.push('weight: sample-grade, skipped');
     else checks.push({ field: 'weight', found: hasAnyToken(html, weightTokens(part.weight)) });
   }
   var missing = checks.filter(function (c) { return !c.found; }).map(function (c) { return c.field; });
-  var notes = [];
-  if (missing.length) notes.push('not found on page: ' + missing.join(', '));
-  skipped.forEach(function (f) { notes.push(f + ': sample-grade, skipped'); });
+  if (missing.length) notes.unshift('not found on page: ' + missing.join(', '));
   return {
     status: missing.length ? 'changed' : 'ok',
     checks: checks,
@@ -423,6 +492,7 @@ if (require.main === module) {
 
 module.exports = {
   priceTokens: priceTokens, weightTokens: weightTokens, hasAnyToken: hasAnyToken,
+  priceRoughlyMatches: priceRoughlyMatches, looksLikeSpecOrFaqPage: looksLikeSpecOrFaqPage,
   sampleGradeFields: sampleGradeFields,
   classifyContent: classifyContent, classifyResult: classifyResult,
   isKnownUnfetchableHost: isKnownUnfetchableHost, hostOf: hostOf

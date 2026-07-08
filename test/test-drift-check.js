@@ -183,6 +183,110 @@ test('classifyResult: a normal 200 page missing the specs is changed', function 
   eq(r.status, 'changed');
 });
 
+/* ---- priceRoughlyMatches -------------------------------------------------- */
+/* Fixture strings are the literal page-content snippets quoted in
+   tools/DRIFT-TRIAGE-2026-07-08.md's (b) table — real storefront formatting
+   the exact-token matcher missed. */
+
+test('priceRoughlyMatches: ".99" psychological pricing rounds up to the catalogued dollar (Cane Creek Helm)', function () {
+  ok(D.priceRoughlyMatches('Regular price Sale price$1,099.99', 1100));
+});
+test('priceRoughlyMatches: ".99" pricing again (Cane Creek eeWings)', function () {
+  ok(D.priceRoughlyMatches('Regular price Sale price$1,249.99', 1250));
+});
+test('priceRoughlyMatches: "Prices from :" / "Ex Tax" label with decimal rounding (Renthal Fatbar)', function () {
+  ok(D.priceRoughlyMatches('Prices from : $107.85 Ex Tax: $107.85', 108));
+});
+test('priceRoughlyMatches: space-grouped thousands with cents (Öhlins RXF36)', function () {
+  ok(D.priceRoughlyMatches('$1 369.50', 1370));
+});
+test('priceRoughlyMatches: does not swallow real drift (SRAM XS-1275 $380 -> $275)', function () {
+  ok(!D.priceRoughlyMatches('MSRP $275.00 USD, shown twice on the SRAM model page. MSRP $275.00 USD.', 380));
+});
+test('priceRoughlyMatches: does not swallow a small genuine move (RAAW Yalla V2 +$2)', function () {
+  ok(!D.priceRoughlyMatches('$2,926.00', 2924));
+});
+test('priceRoughlyMatches: false when the text has no price-shaped number at all', function () {
+  ok(!D.priceRoughlyMatches('Frame weight: 3200g.', 4999));
+});
+
+/* ---- looksLikeSpecOrFaqPage ------------------------------------------------ */
+
+test('looksLikeSpecOrFaqPage: an FAQ page with no currency figure (Forbidden Dreadnought)', function () {
+  ok(D.looksLikeSpecOrFaqPage('<h1>Dreadnought FAQs</h1><p>Frequently asked questions about sizing, geometry and warranty.</p>'));
+});
+test('looksLikeSpecOrFaqPage: a tech-specs page with no currency figure (Commencal Meta SX V5)', function () {
+  ok(D.looksLikeSpecOrFaqPage('<h1>FRS Tech Specs</h1><p>Travel: 160mm. Headset: ZS44/ZS56. BB: PF92.</p>'));
+});
+test('looksLikeSpecOrFaqPage: a dealer-network product page with no currency figure (Formula Selva S)', function () {
+  ok(D.looksLikeSpecOrFaqPage("<p>Available through Formula's authorized dealer network. Full specifications below.</p>"));
+});
+test('looksLikeSpecOrFaqPage: false when a marker phrase appears alongside an actual price', function () {
+  ok(!D.looksLikeSpecOrFaqPage('<h1>Tech Specs</h1><p>MSRP $199</p>'));
+});
+test('looksLikeSpecOrFaqPage: false with no price AND no marker phrase (a normal listing must still flag as changed)', function () {
+  ok(!D.looksLikeSpecOrFaqPage('Frame weight: 3200g.'));
+});
+
+/* ---- classifyContent: the triage's former false positives, end-to-end ---- */
+
+test('classifyContent: Cane Creek Helm MkII Air .99 pricing is ok', function () {
+  var r = D.classifyContent('Regular price Sale price$1,099.99', { price: 1100 });
+  eq(r.status, 'ok');
+});
+test('classifyContent: Cane Creek eeWings .99 pricing (also "Sold out") is ok', function () {
+  var r = D.classifyContent('Regular price Sale price$1,249.99 Sold out', { price: 1250 });
+  eq(r.status, 'ok');
+});
+test('classifyContent: Renthal Fatbar 35 rounding + "Prices from :" / "Ex Tax" label is ok', function () {
+  var r = D.classifyContent('Prices from : $107.85 Ex Tax: $107.85', { price: 108 });
+  eq(r.status, 'ok');
+});
+test('classifyContent: Öhlins RXF36 space-thousands-with-cents is ok', function () {
+  var r = D.classifyContent('<p>$1 369.50</p>', { price: 1370 });
+  eq(r.status, 'ok');
+});
+test('classifyContent: Commencal Meta SX V5 tech-specs page (no price on page) is ok, noted as skipped', function () {
+  var r = D.classifyContent('<h1>FRS Tech Specs</h1><p>Travel: 160mm. Headset: ZS44/ZS56. BB: PF92.</p>', { price: 2600 });
+  eq(r.status, 'ok');
+  ok(!!r.note && r.note.indexOf('price: no price field on this page') >= 0);
+  eq(r.checks.length, 0);
+});
+test('classifyContent: Forbidden Dreadnought FAQ page (no price on page) is ok, noted as skipped', function () {
+  var r = D.classifyContent('<h1>Dreadnought FAQs</h1><p>Frequently asked questions about sizing, geometry and warranty.</p>', { price: 3700 });
+  eq(r.status, 'ok');
+  ok(!!r.note && r.note.indexOf('price: no price field on this page') >= 0);
+});
+test('classifyContent: Formula Selva S dealer-network page (no price on page) is ok, noted as skipped', function () {
+  var r = D.classifyContent("<p>Available through Formula's authorized dealer network. Full specifications below.</p>", { price: 850 });
+  eq(r.status, 'ok');
+  ok(!!r.note && r.note.indexOf('price: no price field on this page') >= 0);
+});
+test('classifyContent: a spec-marker page that DOES show a different price still flags as changed', function () {
+  var r = D.classifyContent('<h1>Tech Specs</h1><p>MSRP $199</p>', { price: 250 });
+  eq(r.status, 'changed');
+  ok(!!r.note && r.note.indexOf('not found on page: price') >= 0);
+});
+
+/* ---- classifyContent: genuine drift from the triage must still flag ------ */
+
+test('classifyContent: SRAM XS-1275 real drift ($380 -> $275) still flags as changed', function () {
+  var r = D.classifyContent('MSRP $275.00 USD, shown twice on the SRAM model page. MSRP $275.00 USD.', { price: 380 });
+  eq(r.status, 'changed');
+});
+test('classifyContent: Hope F22 real drift ($260 -> ~$203 USD-equivalent) still flags as changed', function () {
+  var r = D.classifyContent('£155.00 / €194.70 / $202.76 (ex tax)', { price: 260 });
+  eq(r.status, 'changed');
+});
+test('classifyContent: RAAW Yalla V2 small genuine move (+$2) still flags as changed', function () {
+  var r = D.classifyContent('<p>$2,926.00</p>', { price: 2924 });
+  eq(r.status, 'changed');
+});
+test('classifyContent: RAAW Jibb small genuine move (+$2) still flags as changed', function () {
+  var r = D.classifyContent('<p>from $1,263.00</p>', { price: 1261 });
+  eq(r.status, 'changed');
+});
+
 /* ---- known-unfetchable host matching ------------------------------------- */
 
 test('isKnownUnfetchableHost matches an exact host', function () {
