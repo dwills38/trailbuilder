@@ -113,7 +113,7 @@ var VOCAB = {
                  'hardwall', 'prowall',                            // Pirelli (2026-07-07, pirelli.com)
                  'tcs-light-sg2', 'tcs-tough-sg1',                 // WTB (2026-07-07, wtb.com)
                  'atc', 'aec', 'agc'],                             // Kenda (2026-07-07, kendatire.com; Goodyear reuses trail/enduro/downhill)
-  compound:     ['dual', '3c-maxxterra', '3c-maxxgrip',            // Maxxis
+  compound:     ['dual', '3c-maxxterra', '3c-maxxgrip', 'maxxspeed',   // Maxxis (maxxspeed = XC race compound, Aspen page 2026-07-08)
                  'endurance', 'soft', 'supersoft',                 // Continental
                  'addix', 'addix-speedgrip', 'addix-soft', 'addix-ultra-soft',        // Schwalbe
                  'smartgrip', 'smartgrip-gravity',                 // Pirelli

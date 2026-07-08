@@ -40,7 +40,7 @@
 /** @typedef {'ZS44/28.6'|'ZS56/28.6'|'ZS56/40'|'IS41/28.6'|'IS42/28.6'|'IS52/40'|'EC34/28.6'|'EC44/40'} HeadTube */
 /** @typedef {'flat'|'clip'} PedalStyle */
 /** @typedef {'exo'|'exo-plus'|'doubledown'|'dh'|'trail'|'enduro'|'downhill'|'super-ground'|'super-trail'|'super-gravity'|'super-downhill'|'hardwall'|'prowall'|'tcs-light-sg2'|'tcs-tough-sg1'|'atc'|'aec'|'agc'} Casing */
-/** @typedef {'dual'|'3c-maxxterra'|'3c-maxxgrip'|'endurance'|'soft'|'supersoft'|'addix'|'addix-speedgrip'|'addix-soft'|'addix-ultra-soft'|'smartgrip'|'smartgrip-gravity'|'4c-graphene'|'tritec'|'dual-layer'|'grip3s'} Compound */
+/** @typedef {'dual'|'3c-maxxterra'|'3c-maxxgrip'|'maxxspeed'|'endurance'|'soft'|'supersoft'|'addix'|'addix-speedgrip'|'addix-soft'|'addix-ultra-soft'|'smartgrip'|'smartgrip-gravity'|'4c-graphene'|'tritec'|'dual-layer'|'grip3s'} Compound */
 /** @typedef {'xc'|'trail'|'enduro'|'dh'} Discipline */
 /** @typedef {'full'|'hardtail'} Suspension */
 /** @typedef {'manufacturer'|'manufacturer-doc'|'measured'|'retailer'} SourceType */
