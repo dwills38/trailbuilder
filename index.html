@@ -58,6 +58,9 @@
   .pick:hover{background:#f1f8f4}
   .pick.in{background:var(--brand);color:#fff}
   .pick.kit{border-style:dashed}
+  /* inventory pick — muted/secondary so it reads distinct from the accent "Add to build" */
+  .pick.inv{border-color:var(--ink-soft);color:var(--ink-soft)}
+  .pick.inv:hover{background:#f2f3f1}
   .picks{display:flex;gap:6px}
   .dot{position:absolute;top:11px;right:11px;width:11px;height:11px;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
   .dot.g{background:#2aa35a}
@@ -711,6 +714,19 @@
           btn.onclick=function(){ setSlot(k, inB?null:p.id); };
           picks.appendChild(btn);
         });
+      }
+      // "Own it" — add this part to the logged-in user's inventory. Only shown when
+      // accounts are on AND signed in (mirrors the header inventory gating); a
+      // logged-out or unconfigured app never renders it, so the prototype is unchanged.
+      if(_acctReady && typeof currentUser==='function' && currentUser()){
+        var inv=mkBtn('🧰 Own', false, false); inv.className='pick inv';
+        inv.title='Add to your parts inventory';
+        inv.onclick=function(){
+          addInventoryItem(p.id, 1)
+            .then(function(){ toast(p.brand+' '+p.model+' added to inventory'); })
+            .catch(function(e){ toast((e&&e.message)||'Could not add to inventory'); });
+        };
+        picks.appendChild(inv);
       }
     }
     // opens the detail modal; ignores clicks on the pick buttons and the verified-source link
@@ -1406,7 +1422,7 @@
 
   readHash(); renderDiscChips(); renderChips(); renderSubChips(); sync();
   // Wire auth state -> account UI. When accounts are unconfigured this no-ops.
-  if(typeof initAccount === 'function'){ initAccount(function(u){ renderAccount(); if(u && $('authModal').open){ $('authModal').close(); } }); }
+  if(typeof initAccount === 'function'){ initAccount(function(u){ renderAccount(); renderCatalog(); if(u && $('authModal').open){ $('authModal').close(); } }); }
   renderAccount();
 })();
 </script>
