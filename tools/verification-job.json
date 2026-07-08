@@ -1,12 +1,15 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T20:23:31.753Z",
+ "updated": "2026-07-08T20:44:32.454Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
  "queue": [
   "fr-commencal-clash-v3",
+  "fr-canyon-grand-canyon-al",
+  "rw-dtswiss-ex-1700-29-hg",
+  "rw-hope-fortus-30-29-hg",
   "rw-dtswiss-fr-1500-275-157",
   "sh-rockshox-super-deluxe-205x65-trun",
   "sh-rockshox-vivid-coil-230x65",
@@ -33,6 +36,8 @@
   "sh-ohlins-ttx22-m2-225x75-trun",
   "sh-rockshox-super-deluxe-ultimate-210x55",
   "sh-rockshox-super-deluxe-ultimate-185x55-trun",
+  "dp-wolftooth-resolve-309-200",
+  "dp-9point8-fall-line-r-309-150",
   "dp-fox-transfer-factory-349-180",
   "dp-fox-transfer-sl-309-100",
   "dp-fox-transfer-factory-309-180",
@@ -3520,6 +3525,126 @@
    "updated": "2026-07-08T20:23:31.753Z",
    "error": null,
    "source": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-ohlins-rxf36-m-2-air-ttx18-27-5-38-170",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fr-raaw-madonna-r": {
+   "cat": "frame",
+   "status": "Verified",
+   "updated": "2026-07-08T20:44:32.453Z",
+   "error": null,
+   "source": "https://raawmtb.com/en-us/pages/madonna-r",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fr-canyon-grand-canyon-al": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-08T20:44:32.453Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-maxxis-minion-dhf-29-25-dh-mg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-08T20:44:32.453Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/minion-dhf/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-minion-dhr-ii-29-25-dh-mg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-08T20:44:32.453Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/minion-dhr-ii/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-dtswiss-ex-1700-29-hg": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-08T20:44:32.453Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-hope-fortus-30-29-hg": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-08T20:44:32.453Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-ohlins-dh38-m2-29-200": {
+   "cat": "fork",
+   "status": "Verified",
+   "updated": "2026-07-08T20:44:32.453Z",
+   "error": null,
+   "source": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-dh38-m-2-air-ttx18-29-27-5-200",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fk-ohlins-dh38-m2-275-200": {
+   "cat": "fork",
+   "status": "Verified",
+   "updated": "2026-07-08T20:44:32.453Z",
+   "error": null,
+   "source": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-dh38-m-2-air-ttx18-29-27-5-200",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hb-renthal-fatbar-318": {
+   "cat": "handlebar",
+   "status": "Verified",
+   "updated": "2026-07-08T20:44:32.453Z",
+   "error": null,
+   "source": "https://www.renthal.com/cycle/index.php?route=product/product&product_id=4771",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hb-raceface-turbine-318": {
+   "cat": "handlebar",
+   "status": "Verified",
+   "updated": "2026-07-08T20:44:32.453Z",
+   "error": null,
+   "source": "https://www.raceface.com/products/turbine-handlebar-31-8",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "st-deity-copperhead-318": {
+   "cat": "stem",
+   "status": "Verified",
+   "updated": "2026-07-08T20:44:32.453Z",
+   "error": null,
+   "source": "https://www.deitycomponents.com/store/p21/DEITY_COPPERHEAD_STEM_///_50mm_LENGTH.html",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dp-wolftooth-resolve-309-200": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-08T20:44:32.453Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-crankbrothers-highline-7-309-170": {
+   "cat": "dropper",
+   "status": "Verified",
+   "updated": "2026-07-08T20:44:32.453Z",
+   "error": null,
+   "source": "https://www.crankbrothers.com/products/highline-7-dropper",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dp-9point8-fall-line-r-309-150": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-08T20:44:32.453Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-ks-lev-integra-309-175": {
+   "cat": "dropper",
+   "status": "Verified",
+   "updated": "2026-07-08T20:44:32.453Z",
+   "error": null,
+   "source": "https://kssuspension.com/products/dropper-seat-posts/lev-integra/",
    "note": "auto-promoted: already verified in catalog"
   }
  }
