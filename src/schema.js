@@ -67,7 +67,10 @@ var VOCAB = {
      DUB-Wide is a CHAINLINE, not a new spindle value. The old too-narrow
      vocab (DUB|SH24) forced two fictitious catalog products - never again. */
   crankBb:      ['DUB', '24mm', '30mm', 'p3'],
-  brakeMount:   ['PM'],
+  /* 'FM' = flat mount rear - modern XC frames (2021+ Canyon Exceed per
+     BikeRadar: "Canyon has adopted the Flat Mount standard for the rear
+     brake caliper"); FM and PM calipers do NOT interchange without adapters. */
+  brakeMount:   ['PM', 'FM'],
   /* LinkGlide is deliberately its own system: Shimano documents it as HG-only
      and incompatible with Hyperglide+ 12s. The 10/11-speed values are INERT
      (equality-checked only) until parts carry them.

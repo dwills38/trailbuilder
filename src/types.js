@@ -28,7 +28,7 @@
 /** @typedef {'tapered'|'straight-dc'} SteererFit */
 /** @typedef {'BSA73'|'PF92'|'T47'|'PF107'|'BSA83'} FrameBb */
 /** @typedef {'DUB'|'24mm'|'30mm'|'p3'} CrankBb */
-/** @typedef {'PM'} BrakeMount */
+/** @typedef {'PM'|'FM'} BrakeMount */
 /** @typedef {'sram-eagle'|'sram-transmission'|'shimano-12'|'shimano-linkglide'|'shimano-11'|'shimano-10'|'sram-11'|'sram-dh-7'} DriveSystem */
 /** @typedef {'cable'|'electronic'} Actuation */
 /** @typedef {'t-type'|'standard-12'} RingStd */
