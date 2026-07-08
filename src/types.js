@@ -20,13 +20,13 @@
 /* ---- vocabularies (mirror VOCAB in schema.js) ---------------------------- */
 /** @typedef {'29'|'275'} WheelSize */
 /** @typedef {'29'|'275'|'mullet'} WheelConfig */
-/** @typedef {'Boost148'|'SuperBoost157'|'142x12'} RearAxle */
+/** @typedef {'Boost148'|'SuperBoost157'|'142x12'|'150x12'} RearAxle */
 /** @typedef {'Boost110'|'20x110'|'20x110-nonboost'} FrontAxle */
 /** @typedef {'XD'|'MicroSpline'|'HG'} Freehub */
 /** @typedef {'sixbolt'|'CL'} RotorMount */
 /** @typedef {'std'|'trunnion'} ShockMount */
 /** @typedef {'tapered'|'straight-dc'} SteererFit */
-/** @typedef {'BSA73'|'PF92'|'T47'} FrameBb */
+/** @typedef {'BSA73'|'PF92'|'T47'|'PF107'} FrameBb */
 /** @typedef {'DUB'|'24mm'|'30mm'|'p3'} CrankBb */
 /** @typedef {'PM'} BrakeMount */
 /** @typedef {'sram-eagle'|'sram-transmission'|'shimano-12'|'shimano-linkglide'|'shimano-11'|'shimano-10'|'sram-11'|'sram-dh-7'} DriveSystem */

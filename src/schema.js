@@ -29,7 +29,9 @@ var VOCAB = {
      SuperBoost157 - fact-checked, DATA-MODEL-REVIEW section 2); a split would
      create false "won't fit" verdicts. 142x12 is pre-Boost, inert until parts
      carry it. */
-  rearAxle:     ['Boost148', 'SuperBoost157', '142x12'],
+  /* '150x12' = the pre-Boost/classic DH rear (Commencal Supreme DH V5 per
+     Vital's spec table - 12x150; distinct from SuperBoost157). */
+  rearAxle:     ['Boost148', 'SuperBoost157', '142x12', '150x12'],
   /* 20x110 = the MODERN dual-crown standard, 20x110 BOOST (BoxXer D1, Fox 40
      2025). '20x110-nonboost' = the legacy/standard DH spacing some forks still
      use (Marzocchi Bomber 58 - maker page states "20x110 DH (non-Boost)").
@@ -54,7 +56,9 @@ var VOCAB = {
      85.5-internal vs 68/73-external T47 are different products - pin the
      meaning (likely split values) BEFORE the first real T47 frame enters.
      (The one previous 'T47' row was a data error - no MTB Slash uses T47.) */
-  frameBb:      ['BSA73', 'PF92', 'T47'],
+  /* PF107 = the 107mm-wide DH press-fit shell (Supreme DH V5's own page:
+     "Press Fit BB 107mm") - pairs with DH cranks' DUB PF 104.5/107 BBs. */
+  frameBb:      ['BSA73', 'PF92', 'T47', 'PF107'],
   /* crankBb is the SPINDLE INTERFACE, not a brand (DATA-MODEL-REVIEW 5.1-5):
      DUB (28.99mm), 24mm (Shimano Hollowtech II + Race Face Cinch steel + ...),
      30mm (BB30-class: eeWings, Race Face Cinch alu, Hope), p3 (e*thirteen).
