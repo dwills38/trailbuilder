@@ -332,6 +332,12 @@ test('a tapered fork on a straight-dc (DH) frame fires rule 11 the other way', f
   bld.frame = /** @type {any} */ (Object.assign({}, part('fr-santacruz-megatower-cc'), {headset:'straight-dc'}));
   some(C.checkBuild(bld).errors, 'Steerer mismatch');
 });
+test('rule 3 rejects mixing a 7-speed DH shifter with a 12-speed derailleur', function(){
+  var bld = B({derailleur:'dr-sram-gx-eagle'});   // sram-eagle 12s
+  bld.shifter = /** @type {any} */ (Object.assign({}, part('sft-sram-gx-eagle'), {system:'sram-dh-7', speeds:7}));
+  var r = C.checkBuild(bld);
+  some(r.errors, 'system', 'mixing sram-dh-7 with sram-eagle must error');
+});
 test('a matched straight-dc pair (dual-crown fork on a DH frame) is silent on rule 11', function(){
   var bld = /** @type {any} */ ({
     frame: Object.assign({}, part('fr-santacruz-megatower-cc'), {headset:'straight-dc'}),

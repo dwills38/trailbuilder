@@ -60,10 +60,17 @@ var VOCAB = {
   brakeMount:   ['PM'],
   /* LinkGlide is deliberately its own system: Shimano documents it as HG-only
      and incompatible with Hyperglide+ 12s. The 10/11-speed values are INERT
-     (equality-checked only) until parts carry them; sram-dh-7 waits on the
-     rule-3 chain-width redesign (a 7s DH mech runs an 11s chain). */
+     (equality-checked only) until parts carry them.
+     sram-dh-7 (DECIDED 2026-07-08, supersedes the earlier "waits on a rule-3
+     chain-width redesign" note): the 7s DH group's chain physically is an
+     11-speed-width chain (SRAM specs PC-X01 for the X01 DH group), so the DH
+     chain row carries system:'sram-dh-7'/speeds:7 as COMPATIBILITY TOKENS with
+     the physical truth in desc. Rule 3 then passes a full 7s group and rejects
+     mixing with 12s parts - no engine change. Revisit only if a second
+     mixed-chain-width system appears. */
   system:       ['sram-eagle', 'sram-transmission', 'shimano-12',
-                 'shimano-linkglide', 'shimano-11', 'shimano-10', 'sram-11'],
+                 'shimano-linkglide', 'shimano-11', 'shimano-10', 'sram-11',
+                 'sram-dh-7'],
   actuation:    ['cable', 'electronic'],       // audited 2026-07: market-complete for shifter/derailleur ('hydraulic' joins only with dropper.actuation)
   ringStd:      ['t-type', 'standard-12'],
   /* I-Spec II / I-Spec B are older, mutually-incompatible Shimano standards

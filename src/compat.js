@@ -38,7 +38,7 @@ var LABELS = {
   tapered: 'Tapered (1.5-1.125)', 'straight-dc': 'Straight 1.125 (dual-crown)',
   BSA73: 'BSA threaded 73', PF92: 'PressFit 92', T47: 'T47 threaded',
   DUB: 'SRAM DUB', '24mm': '24 mm spindle', '30mm': '30 mm spindle', p3: 'e*thirteen P3', PM: 'Post mount',
-  'sram-eagle': 'SRAM Eagle 12-speed', 'sram-transmission': 'SRAM Transmission (AXS)',
+  'sram-eagle': 'SRAM Eagle 12-speed', 'sram-transmission': 'SRAM Transmission (AXS)', 'sram-dh-7': 'SRAM DH 7-speed',
   'shimano-12': 'Shimano 12-speed', 'udh-direct': 'Direct mount (UDH)', hanger: 'Standard hanger',
   cable: 'mechanical (cable)', electronic: 'electronic (wireless)',
   't-type': 'T-Type', 'standard-12': 'standard 12-speed',
