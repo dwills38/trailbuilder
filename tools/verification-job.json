@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T17:27:54.401Z",
+ "updated": "2026-07-08T17:32:37.723Z",
  "batchSize": 25,
- "lastCompleted": "rw-shimano-mt510-29",
+ "lastCompleted": "sh-manitou-mara-pro-205x60-trun",
  "currentCategory": "shock",
  "queue": [
   "sh-rockshox-super-deluxe-205x65-trun",
@@ -14,7 +14,6 @@
   "sh-fox-float-x2-perf-elite-205x60-trun",
   "sh-rockshox-vivid-205x65-trun",
   "sh-dvo-jade-x-230x65",
-  "sh-manitou-mara-pro-230x65",
   "sh-rockshox-super-deluxe-ultimate-205x60-trun",
   "sh-rockshox-super-deluxe-ultimate-230x62p5",
   "sh-ohlins-ttx22-m2-205x65-trun",
@@ -22,17 +21,13 @@
   "sh-canecreek-kitsuma-coil-205x65-trun",
   "sh-marzocchi-bomber-cr-205x65-trun",
   "sh-dvo-jade-x-205x65-trun",
-  "sh-manitou-mara-pro-205x65-trun",
   "sh-ext-storia-v3-205x60-trun",
   "sh-ext-storia-v3-205x62p5-trun",
   "sh-ext-storia-v3-230x60",
   "sh-ext-storia-v3-230x62p5",
-  "sh-manitou-mara-pro-205x60-trun",
   "sh-rockshox-sidluxe-ultimate-190x45",
   "sh-rockshox-sidluxe-ultimate-210x50",
   "sh-fox-float-sl-factory-190x45",
-  "sh-rockshox-vivid-ultimate-dh-250x75",
-  "sh-rockshox-vivid-ultimate-225x75-trun",
   "sh-rockshox-vivid-coil-ultimate-dh-250x75",
   "sh-rockshox-super-deluxe-ultimate-dh-250x72p5",
   "sh-rockshox-super-deluxe-ultimate-210x55",
@@ -726,11 +721,11 @@
   },
   "sh-manitou-mara-pro-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:32:37.553Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DATA CONTRADICTION (chip task_0d30d4b4): fetched hayesbicycle.com Mara Pro page lists 230x65 as TRUNNION-only; no 230x65 standard/eyelet Mara Pro exists (eyelet sizes are 216x63/222x68/250x70). Row mount:std is wrong -> potential FALSE-GREEN on a std 230x65 frame. Not in any golden/demo. desc note added; append-only correction needed. Resolves memory flag 'Mara 230x65 std possibly fabricated'."
   },
   "sh-push-elevensix-230x65": {
    "cat": "shock",
@@ -3062,11 +3057,11 @@
   },
   "sh-manitou-mara-pro-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:32:37.603Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DATA CONTRADICTION (chip task_0d30d4b4): fetched hayesbicycle.com Mara Pro page - trunnion sizes are 165x40/165x45/185x50/205x60/225x75/230x60/230x65; NO 205x65 trunnion. Likely fabricated (prior velomine SKU mislabeled/discontinued). desc note added; needs retirement to ALIASES."
   },
   "sh-ext-storia-v3-205x60-trun": {
    "cat": "shock",
@@ -3102,11 +3097,11 @@
   },
   "sh-manitou-mara-pro-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:32:37.669Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "VALID size confirmed: fetched hayesbicycle.com Mara Pro page lists 205x60 trunnion (MSRP $629.99). But maker publishes a single 425g figure (not per-size) that conflicts with the ~490-500g reality for this size, so per-size weight can't be pinned - left unverified. The one real Mara Pro row of the three."
   },
   "sh-rockshox-sidluxe-ultimate-190x45": {
    "cat": "shock",
@@ -3134,19 +3129,19 @@
   },
   "sh-rockshox-vivid-ultimate-dh-250x75": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:30:17.483Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "sram.com RS-VIVD-ULT-C1 fetched: confirms 250x75 std size EXISTS (same C1 platform; 'DH' is just the size descriptor), MSRP 699-799 (catalog 769 in range) - no contradiction. sram gives only a 230x65 reference weight, not per-size; 250x75 weight (750 sample) unverifiable per-size. Weight bar unmeetable via sram."
   },
   "sh-rockshox-vivid-ultimate-225x75-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:30:17.433Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "sram.com RS-VIVD-ULT-C1 fetched: confirms 225x75(TR) size EXISTS in the Vivid Ultimate C1 lineup, MSRP range 699-799 (catalog 699 in range), gen C1 - no contradiction. But sram lists ONE reference weight (670g @ 230x65 std, no hardware), NOT per-size; the catalogued 225x75-trunnion weight (670g sample) is not maker-confirmed for that config. Per-size weight bar unmeetable via sram (needs editorial measured)."
   },
   "sh-rockshox-vivid-coil-ultimate-dh-250x75": {
    "cat": "shock",
