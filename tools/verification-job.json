@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T16:22:21.242Z",
+ "updated": "2026-07-08T16:33:28.702Z",
  "batchSize": 25,
  "lastCompleted": "fw-shimano-mt500-29",
  "currentCategory": "frame",
@@ -20,17 +20,13 @@
   "fr-yt-tues-cf-29",
   "fr-santacruz-v10-8",
   "fr-trek-session-8-29",
-  "fr-commencal-frs",
   "fr-canyon-exceed-cf",
-  "fr-commencal-meta-v5",
   "fr-specialized-stumpjumper-15",
   "fr-trek-fuel-ex-c-gen6",
   "fr-santacruz-hightower-3",
   "fr-canyon-neuron-cf",
-  "fr-commencal-meta-ht-v3",
   "fr-cotic-solaris",
   "fr-scott-scale-rc-sl",
-  "fr-commencal-tempo",
   "fr-canyon-lux-world-cup-cf",
   "ti-maxxis-assegai-29-25-dh-mg",
   "ti-continental-cross-king-29-22-protection-blackchili",
@@ -2711,11 +2707,11 @@
   },
   "fr-commencal-frs": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T16:33:28.701Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.commencal.com/us/en/frame-commencal-frs-pure-white/FT4FRS3.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-canyon-exceed-cf": {
    "cat": "frame",
@@ -2735,11 +2731,11 @@
   },
   "fr-commencal-meta-v5": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T16:33:28.702Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.commencal.com/us/en/frame-commencal-meta-2-2023/23CMETATR2.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-specialized-stumpjumper-15": {
    "cat": "frame",
@@ -2775,11 +2771,11 @@
   },
   "fr-commencal-meta-ht-v3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T16:33:28.702Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.commencal.com/us/en/commencal-meta-ht-v3-hardtail-mtb-frame-2025-us/FT5MHTV31.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-cotic-solaris": {
    "cat": "frame",
@@ -2807,11 +2803,11 @@
   },
   "fr-commencal-tempo": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T16:33:28.702Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.commencal.com/us/en/frame-commencal-tempo-2-2023/23CMETATC2.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-canyon-lux-world-cup-cf": {
    "cat": "frame",
