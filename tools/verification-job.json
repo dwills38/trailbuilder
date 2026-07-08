@@ -1,11 +1,13 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T18:11:32.737Z",
+ "updated": "2026-07-08T18:46:45.675Z",
  "batchSize": 25,
- "lastCompleted": "sh-rockshox-super-deluxe-ultimate-230x62p5",
- "currentCategory": "shock",
+ "lastCompleted": "fk-manitou-mezzer-pro-29-180",
+ "currentCategory": "fork",
  "queue": [
+  "fk-rockshox-boxxer-ultimate-29-200",
+  "fk-rockshox-boxxer-ultimate-275-200",
   "sh-rockshox-super-deluxe-205x65-trun",
   "sh-rockshox-vivid-coil-230x65",
   "sh-ext-storia-v3-230x65",
@@ -29,14 +31,6 @@
   "sh-rockshox-super-deluxe-ultimate-dh-250x72p5",
   "sh-rockshox-super-deluxe-ultimate-210x55",
   "sh-rockshox-super-deluxe-ultimate-185x55-trun",
-  "fk-rockshox-zeb-ultimate-29-160",
-  "fk-fox-38-factory-29-160",
-  "fk-ohlins-rxf38-m2-29-160",
-  "fk-ohlins-rxf38-m2-29-180",
-  "fk-manitou-mezzer-pro-29-160",
-  "fk-manitou-mezzer-pro-29-180",
-  "fk-rockshox-boxxer-ultimate-29-200",
-  "fk-rockshox-boxxer-ultimate-275-200",
   "fk-rockshox-pike-ultimate-29-130",
   "fk-rockshox-pike-ultimate-29-140",
   "fk-rockshox-sid-ultimate-29-120",
@@ -3158,64 +3152,64 @@
   },
   "fk-rockshox-zeb-ultimate-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:37:33.797Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Re-fetched sram.com model page fs-zeb-ult-a1: interfaces all confirm (15x110 Boost, tapered steerer, 160 is a listed travel option, maxRotor 220 / minRotor 200). But maker publishes only ONE weight (2265g for 190mm/1.5-taper config), not per-travel; no editorial teardown measured the exact 160mm 29 SKU (reviews measured 170mm=2358g or cite the 190mm claim). Weight wall - interfaces manufacturer-sourced but 160mm weight unverifiable."
   },
   "fk-fox-38-factory-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:42:50.417Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight wall. ridefox.com/products/fox-38-factory-grip-x2 lists only a single STARTING WEIGHT for the 180 config (2360g), not a 160-specific weight; no editorial teardown measured the exact 160mm 29 SKU. NOTE: current ridefox page is the newer 2027 GripX2 gen (200mm direct post mount, $1,369) whereas our cataloged rows are the 2025 gen (180mm direct mount per FOX tech DB, $1,299) - minRotorF:180 is CORRECT for the cataloged generation, not an error. Different gen = cannot cross-verify the sample row against the current page."
   },
   "fk-ohlins-rxf38-m2-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T18:42:50.417Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-rxf38-m-2-air-ttx18-29-44-160",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-ohlins-rxf38-m2-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T18:42:50.417Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-rxf38-m-2-air-ttx18-29-44-180",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-mezzer-pro-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T18:46:26.352Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/mezzer-pro-g2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-mezzer-pro-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:46:26.352Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "CANNOT verify - contradictory config. Fetched hayesbicycle.com/products/mezzer-pro-g2: the Mezzer Pro G2 comes in 150/160/170 only (adjustable 140-170), so a 180mm G2 does not exist. Row's gen:G2 tag was REMOVED as incorrect (append-only field fix, certain); flagged in desc that a 180mm Mezzer Pro is the ORIGINAL generation needing its own verification. Left unverified/sample - did not guess original-gen weight/maxRotor."
   },
   "fk-rockshox-boxxer-ultimate-29-200": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "InProgress",
+   "updated": "2026-07-08T18:46:45.613Z",
    "error": null,
    "source": null,
    "note": null
   },
   "fk-rockshox-boxxer-ultimate-275-200": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "InProgress",
+   "updated": "2026-07-08T18:46:45.674Z",
    "error": null,
    "source": null,
    "note": null
