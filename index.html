@@ -269,6 +269,9 @@
     <button class="btn" id="demoMid">Mid-range build ⚙️</button>
     <button class="btn" id="demoHighEnd">High-end build 💎</button>
     <button class="btn" id="demoMullet">Mullet build 🐟</button>
+    <button class="btn" id="demoDH">DH build ⛰️</button>
+    <button class="btn" id="demoTrail">Trail build 🌲</button>
+    <button class="btn" id="demoXC">XC build 🐇</button>
     <button class="btn" id="demoBad">Show clashes ✗</button>
     <button class="btn" id="reset">Reset</button>
     <button class="btn" id="compareBtn">⚖ Compare builds</button>
@@ -1284,6 +1287,33 @@
     presetBy={};
     sync(); toast('Loaded a build full of clashes');
   }
+  // Per-discipline demos (2026-07-08, pass 4). Each mirrors a golden-pinned build
+  // in test/test-golden.js (DH_BUILD / TRAIL_BUILD / the XC pair), so "0 conflicts"
+  // is enforced by the suite, not hand-checked here.
+  function loadDH(){
+    build={ frame:'fr-commencal-supreme-dh-v5',fork:'fk-rockshox-boxxer-ultimate-29-200',shock:'sh-rockshox-vivid-ultimate-dh-250x75',frontWheel:'fw-dtswiss-fr-1500-29',rearWheel:'rw-dtswiss-fr-1500-29-150',
+      frontTire:'ti-maxxis-assegai-29-25-dh-mg',rearTire:'ti-maxxis-assegai-29-25-dh-mg',shifter:'sft-sram-x01-dh',derailleur:'dr-sram-x01-dh',cassette:'ca-sram-xg795',chain:'ch-sram-pc-xx1',crankset:'cr-sram-x01-dh',
+      frontBrake:'bk-sram-maven-ultimate',rearBrake:'bk-sram-maven-ultimate',frontRotor:'ro-sram-hs2-220-6b',rearRotor:'ro-sram-hs2-220-6b',
+      handlebar:'hb-renthal-fatbar-35',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',saddle:'sa-wtb-volt',pedals:'pd-oneup-composite' };
+    presetBy={};
+    sync(); toast('DH race build — ~$9.0k, dual-crown + 7-speed, no dropper needed');
+  }
+  function loadTrail(){
+    build={ frame:'fr-specialized-stumpjumper-15',fork:'fk-fox-36-factory-29-160',shock:'sh-rockshox-super-deluxe-ultimate-210x55',frontWheel:'fw-raceface-turbine-sl-29',rearWheel:'rw-raceface-turbine-sl-29',
+      frontTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt',rearTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt',shifter:'sft-sram-gx-eagle',derailleur:'dr-sram-gx-eagle',cassette:'ca-sram-xg1275',chain:'ch-sram-gx-eagle',crankset:'cr-sram-gx-eagle',
+      frontBrake:'bk-shimano-xt-m8120',rearBrake:'bk-shimano-xt-m8120',frontRotor:'ro-sram-hs2-200-6b',rearRotor:'ro-sram-hs2-200-6b',
+      handlebar:'hb-renthal-fatbar-35',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',dropper:'dp-fox-transfer-factory-349-180',saddle:'sa-wtb-volt',pedals:'pd-oneup-composite' };
+    presetBy={ drivetrain:'gs-sram-gx-eagle' };
+    sync(); toast('Trail build — ~$7.4k, Stumpjumper 15 with GX kit pricing');
+  }
+  function loadXC(){
+    build={ frame:'fr-canyon-lux-world-cup-cf',fork:'fk-rockshox-sid-ultimate-29-120',shock:'sh-rockshox-sidluxe-ultimate-210x50',frontWheel:'fw-dtswiss-ex-1700-29',rearWheel:'rw-dtswiss-ex-1700-29-ms',
+      frontTire:'ti-schwalbe-racing-ray-29-235-sr-as',rearTire:'ti-schwalbe-racing-ralph-29-235-sr-as',shifter:'sft-shimano-xtr-m9100',derailleur:'dr-shimano-xtr-m9100-sgs',cassette:'ca-shimano-xtr-m9100-1051',chain:'ch-shimano-xtr-m9100',crankset:'cr-shimano-xtr-m9100',
+      frontBrake:'bk-shimano-xtr-m9120',rearBrake:'bk-shimano-xtr-m9110-fm',frontRotor:'ro-shimano-rtmt800-180-cl',rearRotor:'ro-sram-centerline-x-160-cl',
+      handlebar:'hb-oneup-carbon-35',stem:'st-oneup-stem-35',grips:'gr-oneup-lockon',dropper:'dp-fox-transfer-factory-309-180',saddle:'sa-wtb-volt',pedals:'pd-crankbrothers-mallet-enduro' };
+    presetBy={};
+    sync(); toast('XC race build — ~$8.3k / 11.1 kg, flat-mount rear + 160mm rotor');
+  }
   function loadMullet(){
     build={ frame:'fr-yt-capra-core4',fork:'fk-rockshox-zeb-ultimate-29-170',shock:'sh-rockshox-super-deluxe-ultimate-230x65',frontWheel:'fw-reserve-30-hd-29',rearWheel:'rw-dtswiss-e-1900-275',
       frontTire:'ti-maxxis-assegai-29-25-exop-mg',rearTire:'ti-maxxis-minion-dhr-ii-275-24-exop-mt',shifter:'sft-shimano-xt-m8100',derailleur:'dr-shimano-xt-m8100-sgs',cassette:'ca-shimano-xt-m8100-1051',chain:'ch-shimano-xt-m8100',crankset:'cr-shimano-xt-m8100',
@@ -1321,6 +1351,7 @@
     toast(on ? 'Roadie mode engaged — ride with pride! 🏳️‍🌈 Purely cosmetic, changes nothing about fit.' : 'Back to normal.');
   };
   $('demoBudget').onclick=loadBudget; $('demoMid').onclick=loadMid; $('demoHighEnd').onclick=loadHighEnd; $('demoMullet').onclick=loadMullet; $('demoBad').onclick=loadBad;
+  $('demoDH').onclick=loadDH; $('demoTrail').onclick=loadTrail; $('demoXC').onclick=loadXC;
   $('reset').onclick=function(){ build={}; presetBy={}; sync(); toast('Build cleared'); };
   $('share').onclick=function(){ writeHash(); var url=location.href;
     if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(

@@ -192,6 +192,26 @@ test('golden: the XC full-sus build fills every required slot', function(){
   required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
 });
 
+/* The first complete TRAIL build (2026-07-08, pass 4): Stumpjumper 15 +
+   Fox 36 160 + Super Deluxe 210x55 + Turbine SL (XD) + DHR II 2.4s + GX
+   Eagle + XT 4-piston w/ 200mm 6-bolt rotors + a 34.9 dropper (the
+   Stumpjumper seat tube). Backs the UI's Trail demo button. Must stay green. */
+var TRAIL_BUILD = { frame:'fr-specialized-stumpjumper-15', fork:'fk-fox-36-factory-29-160', shock:'sh-rockshox-super-deluxe-ultimate-210x55',
+  frontWheel:'fw-raceface-turbine-sl-29', rearWheel:'rw-raceface-turbine-sl-29',
+  frontTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt', rearTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt',
+  shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle',
+  frontBrake:'bk-shimano-xt-m8120', rearBrake:'bk-shimano-xt-m8120', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-fox-transfer-factory-349-180', saddle:'sa-wtb-volt', pedals:'pd-oneup-composite' };
+test('golden: a complete TRAIL build (Stumpjumper 15, 210x55) is fully compatible', function(){
+  var r = chk(TRAIL_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+test('golden: the trail build fills every required slot', function(){
+  var m = /** @type {Object.<string, string>} */ (TRAIL_BUILD);
+  var frame = C.byId(m.frame);
+  var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
+  required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
+});
+
 test('slotRequired: hardtail frame exempts the shock slot (completeness only)', function(){
   var frame = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { suspension:'hardtail' }));
   delete frame.shockEye; delete frame.shockStroke; delete frame.shockMount; delete frame.travel; delete frame.bundledShock;
