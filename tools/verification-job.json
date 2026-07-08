@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T17:36:04.992Z",
+ "updated": "2026-07-08T17:45:58.103Z",
  "batchSize": 25,
- "lastCompleted": "sh-ohlins-ttx22-m2-205x65-trun",
+ "lastCompleted": "sh-manitou-mara-pro-230x65-trun",
  "currentCategory": "shock",
  "queue": [
   "sh-rockshox-super-deluxe-205x65-trun",
@@ -717,14 +717,6 @@
    "error": null,
    "source": null,
    "note": null
-  },
-  "sh-manitou-mara-pro-230x65": {
-   "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:32:37.553Z",
-   "error": null,
-   "source": null,
-   "note": "DATA CONTRADICTION (chip task_0d30d4b4): fetched hayesbicycle.com Mara Pro page lists 230x65 as TRUNNION-only; no 230x65 standard/eyelet Mara Pro exists (eyelet sizes are 216x63/222x68/250x70). Row mount:std is wrong -> potential FALSE-GREEN on a std 230x65 frame. Not in any golden/demo. desc note added; append-only correction needed. Resolves memory flag 'Mara 230x65 std possibly fabricated'."
   },
   "sh-push-elevensix-230x65": {
    "cat": "shock",
@@ -3054,14 +3046,6 @@
    "source": null,
    "note": null
   },
-  "sh-manitou-mara-pro-205x65-trun": {
-   "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:32:37.603Z",
-   "error": null,
-   "source": null,
-   "note": "DATA CONTRADICTION (chip task_0d30d4b4): fetched hayesbicycle.com Mara Pro page - trunnion sizes are 165x40/165x45/185x50/205x60/225x75/230x60/230x65; NO 205x65 trunnion. Likely fabricated (prior velomine SKU mislabeled/discontinued). desc note added; needs retirement to ALIASES."
-  },
   "sh-ext-storia-v3-205x60-trun": {
    "cat": "shock",
    "status": "Pending",
@@ -3493,6 +3477,14 @@
    "error": null,
    "source": null,
    "note": "hopetech.com/products/wheels/trail/fortus-30-pro-5 fetched: confirms 30mm internal, freehub incl MicroSpline+XD, CL or 6-bolt, 148 Boost + 150/157 (matches catalog, no contradiction), rear wheel RRP $425. Hope publishes NO per-wheel weight (page lists none); only review wheelset totals (~2130-2305g pair) exist. Weight bar unmeetable."
+  },
+  "sh-manitou-mara-pro-230x65-trun": {
+   "cat": "shock",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:45:58.103Z",
+   "error": null,
+   "source": "https://hayesbicycle.com/products/mara-pro",
+   "note": "Correction row for retired sh-manitou-mara-pro-230x65 (mount std -> trunnion per fetched maker page). Interfaces + MSRP + SKU maker-confirmed 2026-07-08, but Manitou publishes a single 425g model-level weight (size unstated) so the per-size weight bar is unmet - same call as the 205x60 sibling. Do not retry unless Manitou publishes per-size weights."
   }
  }
 }

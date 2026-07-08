@@ -260,7 +260,12 @@ var PARTS = [
   { id:'sh-rockshox-vivid-205x65-trun', cat:'shock', brand:'RockShox', model:'Vivid (trunnion)', family:'rockshox-vivid', price:600, weight:520, eye:205, stroke:65, mount:'trunnion', spring:'air' },
   { id:'sh-marzocchi-bomber-cr-230x65', cat:'shock', brand:'Marzocchi', model:'Bomber CR (coil)', family:'marzocchi-bomber-cr', price:400, weight:780, eye:230, stroke:65, mount:'std', spring:'coil' },
   { id:'sh-dvo-jade-x-230x65', cat:'shock', brand:'DVO', model:'Jade X (coil)', family:'dvo-jade-x', price:550, weight:770, eye:230, stroke:65, mount:'std', spring:'coil' },
-  { id:'sh-manitou-mara-pro-230x65', cat:'shock', brand:'Manitou', model:'Mara Pro (air)', family:'manitou-mara', price:500, weight:490, eye:230, stroke:65, mount:'std', spring:'air', desc:'DATA CONTRADICTION (flagged 2026-07-08, chip task pending): the FETCHED Hayes Bicycle Mara Pro page lists 230x65 as a TRUNNION-only size - there is NO 230x65 standard/eyelet Mara Pro (its eyelet sizes are 216x63/222x68/250x70). So this row mount:std is wrong (the real 230x65 Mara is trunnion). POTENTIAL FALSE-GREEN: a std-mount 230x65 frame would show this shock as compatible. NOT auto-fixed - mount change alters compat + identity, and this id is aliased sh-mara (may be in demos/goldens). Maker weight is a single 425g figure (not the 490 here). Needs an append-only correction.' },
+  /* --- 2026-07-08 append-only correction (re-fetched hayesbicycle.com same day to confirm the sweep flag):
+     sh-manitou-mara-pro-230x65 (mount:'std') RETIRED to ALIASES -> the trunnion row below. The maker page
+     lists 230x65 as a TRUNNION size only (eyelet sizes are 216x63/222x68/250x70), so the std row was a
+     false-green risk on std-mount 230x65 frames. Share links resolve through the alias and now correctly
+     error on std-mount frames (the fit never existed). --- */
+  { id:'sh-manitou-mara-pro-230x65-trun', cat:'shock', brand:'Manitou', model:'Mara Pro (230x65 trunnion)', family:'manitou-mara', mfgPn:'192-36852-A020', price:629.99, weight:425, eye:230, stroke:65, mount:'trunnion', spring:'air', desc:'corrects retired sh-manitou-mara-pro-230x65: interfaces + 629.99 MSRP + SKU from the fetched hayesbicycle.com Mara Pro page (2026-07-08). Weight 425g is the maker single model-level figure with the size unstated, so the per-size weight bar is unmet and the row stays UNVERIFIED - same call as the 205x60 sibling.' },
   { id:'sh-push-elevensix-230x65', cat:'shock', brand:'Push', model:'Eleven Six (coil)', family:'push-elevensix', price:1300, weight:750, eye:230, stroke:65, mount:'std', spring:'coil',
     desc:'price = fetched pushindustries.com (2026-07-08); weight = sample. Push sells this per bike-model fitment (a "Bike Manufacturer" selector on the product page), not as a generic 230x65 SKU with a published spec sheet, so no weight is publishable for this generic row.' },
   { id:'sh-rockshox-super-deluxe-ultimate-205x60-trun', cat:'shock', brand:'RockShox', model:'Super Deluxe Ultimate (205x60 trunnion)', family:'rockshox-super-deluxe', price:549, weight:465, eye:205, stroke:60, mount:'trunnion', spring:'air' },
@@ -272,7 +277,11 @@ var PARTS = [
   { id:'sh-canecreek-kitsuma-coil-205x65-trun', cat:'shock', brand:'Cane Creek', model:'Kitsuma Coil (205x65 trunnion)', family:'canecreek-kitsuma', price:600, weight:750, eye:205, stroke:65, mount:'trunnion', spring:'coil', desc:'sample specs; 205x65 trunnion existence confirmed via canecreek.com Kitsuma Coil product page (SKU BCD0070) and Jenson USA listing' },
   { id:'sh-marzocchi-bomber-cr-205x65-trun', cat:'shock', brand:'Marzocchi', model:'Bomber CR (205x65 trunnion)', family:'marzocchi-bomber-cr', price:400, weight:770, eye:205, stroke:65, mount:'trunnion', spring:'coil', desc:'sample specs; 205x65 trunnion existence confirmed via multiple retailer listings (Worldwide Cyclery, Bike24; part RS0471)' },
   { id:'sh-dvo-jade-x-205x65-trun', cat:'shock', brand:'DVO', model:'Jade X (205x65 trunnion)', family:'dvo-jade-x', price:550, weight:760, eye:205, stroke:65, mount:'trunnion', spring:'coil', desc:'sample specs; 205x65 trunnion existence confirmed via Jenson USA, bike-components.de and eBay 205x65 trunnion listings' },
-  { id:'sh-manitou-mara-pro-205x65-trun', cat:'shock', brand:'Manitou', model:'Mara Pro (205x65 trunnion)', family:'manitou-mara', price:550, weight:500, eye:205, stroke:65, mount:'trunnion', spring:'air', desc:'DATA CONTRADICTION (flagged 2026-07-08, chip task pending): the FETCHED Hayes Bicycle Mara Pro page lists Mara Pro TRUNNION sizes as 165x40/165x45/185x50/205x60/225x75/230x60/230x65 - there is NO 205x65 trunnion. The prior velomine.com SKU that "confirmed" it appears mislabeled/discontinued vs the maker page. Likely FABRICATED size. NOT auto-fixed (append-only id encodes 205x65). Maker weight is a single 425g figure. Needs decision + likely retirement to ALIASES.' },
+  /* --- 2026-07-08: sh-manitou-mara-pro-205x65-trun RETIRED to ALIASES with no successor row - the size was
+     FABRICATED (re-fetched hayesbicycle.com same day: Mara Pro trunnion sizes are 165x40/165x45/185x50/
+     205x60/225x75/230x60/230x65 - no 205x65; the velomine listing that once "confirmed" it was mislabeled).
+     Aliased to the closest real config (205x60 trunnion, below) so share links keep resolving - same eye and
+     mount, 5mm shorter stroke, which the engine surfaces as a quantified less-travel warning where it matters. --- */
   /* --- catalog-breadth: EXT Storia fills the remaining single-brand shock combos; every size below is on the fetched extremeshox.com Storia V3 size list. Manitou 205x60 trunnion is a widely-stocked SKU. --- */
   { id:'sh-ext-storia-v3-205x60-trun', cat:'shock', brand:'EXT', model:'Storia V3 (205x60 trunnion)', family:'ext-storia', price:850, weight:790, eye:205, stroke:60, mount:'trunnion', spring:'coil', desc:'sample specs; existence confirmed via fetched extremeshox.com Storia V3 size list (metric trunnion 205/60)' },
   { id:'sh-ext-storia-v3-205x62p5-trun', cat:'shock', brand:'EXT', model:'Storia V3 (205x62.5 trunnion)', family:'ext-storia', price:850, weight:790, eye:205, stroke:62.5, mount:'trunnion', spring:'coil', desc:'sample specs; existence confirmed via fetched extremeshox.com Storia V3 size list (metric trunnion 205/62.5)' },
@@ -774,7 +783,9 @@ var ALIASES = {
   'sh-vivid-trun': 'sh-rockshox-vivid-205x65-trun',
   'sh-marzocchi-cr': 'sh-marzocchi-bomber-cr-230x65',
   'sh-jade': 'sh-dvo-jade-x-230x65',
-  'sh-mara': 'sh-manitou-mara-pro-230x65',
+  'sh-mara': 'sh-manitou-mara-pro-230x65-trun',   // flattened (2026-07-08 mount correction)
+  'sh-manitou-mara-pro-230x65': 'sh-manitou-mara-pro-230x65-trun',   // 2026-07-08: mount was wrong - maker lists 230x65 as trunnion-only
+  'sh-manitou-mara-pro-205x65-trun': 'sh-manitou-mara-pro-205x60-trun',   // 2026-07-08: fabricated size (absent from the maker size list); closest real config
   'sh-elevensix': 'sh-push-elevensix-230x65',
   'sh-sdu-2056': 'sh-rockshox-super-deluxe-ultimate-205x60-trun',
   'sh-sdu-230625': 'sh-rockshox-super-deluxe-ultimate-230x62p5',
