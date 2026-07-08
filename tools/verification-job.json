@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T00:58:28.032Z",
+ "updated": "2026-07-08T01:02:14.784Z",
  "batchSize": 25,
- "lastCompleted": "ro-sram-hs2-220-6b",
+ "lastCompleted": "fw-shimano-mt500-29",
  "currentCategory": "frame",
  "queue": [
   "fr-specialized-enduro-sworks",
@@ -23,7 +23,6 @@
   "fw-weareone-union-29",
   "fw-newmen-advanced-sl-a30-29",
   "fw-spank-359-29",
-  "fw-shimano-mt500-29",
   "fw-raceface-turbine-sl-29",
   "fw-bontrager-line-pro-30-29",
   "fw-giant-trx-0-29",
@@ -381,11 +380,11 @@
   },
   "fw-shimano-mt500-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T01:02:14.783Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Confirmed 2026-07-08: Shimano publishes no component weight (consistent with the known Shimano policy). Every per-wheel figure found (gambacicli.com 988g, bike24.com 'weighed' 940g for 27.5in) traces to a retailer product page, not an editorial outlet's own scale test -- rejected by policy regardless of a retailer's own weighed-it claim. Queue for a real measured-weight pass with an editorial source (BikeRadar/MBR/Bikerumor teardown), none found this session."
   },
   "fw-raceface-turbine-sl-29": {
    "cat": "frontwheel",
