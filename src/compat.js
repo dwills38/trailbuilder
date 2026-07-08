@@ -31,14 +31,14 @@
 /** @type {Object.<string, string>} */
 var LABELS = {
   '29': '29in', '275': '27.5in', mullet: 'Mullet (29/27.5)',
-  Boost148: 'Boost 148x12', SuperBoost157: 'SuperBoost 157x12', Boost110: 'Boost 15x110',
+  Boost148: 'Boost 148x12', SuperBoost157: 'SuperBoost 157x12', Boost110: 'Boost 15x110', '20x110': '20x110 Boost (DH)', '20x110-nonboost': '20x110 standard (DH, non-Boost)',
   XD: 'SRAM XD', MicroSpline: 'Shimano Micro Spline', HG: 'Shimano HG',
   sixbolt: '6-bolt', CL: 'Center Lock',
   std: 'Standard eyelet', trunnion: 'Trunnion',
-  tapered: 'Tapered (1.5-1.125)',
-  BSA73: 'BSA threaded 73', PF92: 'PressFit 92', T47: 'T47 threaded',
+  tapered: 'Tapered (1.5-1.125)', 'straight-dc': 'Straight 1.125 (dual-crown)',
+  BSA73: 'BSA threaded 73', PF92: 'PressFit 92', T47: 'T47 threaded', PF107: 'PressFit 107 (DH)', '150x12': '150x12 (DH, pre-Boost)',
   DUB: 'SRAM DUB', '24mm': '24 mm spindle', '30mm': '30 mm spindle', p3: 'e*thirteen P3', PM: 'Post mount',
-  'sram-eagle': 'SRAM Eagle 12-speed', 'sram-transmission': 'SRAM Transmission (AXS)',
+  'sram-eagle': 'SRAM Eagle 12-speed', 'sram-transmission': 'SRAM Transmission (AXS)', 'sram-dh-7': 'SRAM DH 7-speed',
   'shimano-12': 'Shimano 12-speed', 'udh-direct': 'Direct mount (UDH)', hanger: 'Standard hanger',
   cable: 'mechanical (cable)', electronic: 'electronic (wireless)',
   't-type': 'T-Type', 'standard-12': 'standard 12-speed',
@@ -64,14 +64,13 @@ var L = function(k){ return (k in LABELS ? LABELS[k] : k); };
 /** @type {Object.<string, {front: WheelSize, rear: WheelSize}>} */
 var WHEEL_CONFIG = { '29':{front:'29',rear:'29'}, '275':{front:'275',rear:'275'}, mullet:{front:'29',rear:'275'} };
 
-/* Slot requiredness is currently universal (every slot except grips counts
-   toward "complete"). DESIGN, decided 2026-07 (DATA-MODEL-REVIEW section 4):
-   when the first hardtail or DH frame lands, requiredness becomes a function
-   of the selected frame - a `requiredIf(frame)` predicate per slot (hardtail
-   => shock not required; DH => dropper not required). index.html's
-   completeness math and the golden completeness test both read SLOTS, so they
-   follow automatically. Not implemented early: every current frame is
-   full-suspension, so it would be dead code the tests can't honestly cover. */
+/* Slot requiredness is a function of the selected frame (the DATA-MODEL-REVIEW
+   section 4 design, IMPLEMENTED 2026-07-08 with the first hardtail/DH frames):
+   hardtail => shock not required; DH-discipline frame => dropper not required
+   (race DH runs rigid posts; there is no seatpost category). This feeds ONLY
+   the UI completeness math ("N of M required parts") - `disciplines` still
+   never feeds checkBuild verdicts (rule 16 separately ERRORS a shock ON a
+   hardtail). See slotRequired() below GROUPS/SLOTS. */
 /** @type {Group[]} */
 var GROUPS = [
   { key:'frame', label:'Frame', icon:'F', slots:[ {key:'frame', label:'Frame', cat:'frame'} ] },
@@ -105,6 +104,19 @@ var GROUPS = [
 /** @type {Slot[]} */
 var SLOTS = GROUPS.reduce(function(a,g){ return a.concat(g.slots.map(function(s){ return Object.assign({group:g.key}, s); })); }, /** @type {Slot[]} */ ([]));
 
+/* Is this slot required for a "complete" build, given the chosen frame?
+   UI-completeness only - never a fit verdict. No frame chosen = the universal
+   default (every non-optional slot required). */
+/** @param {Slot} slot @param {Part|null|undefined} frame @returns {boolean} */
+function slotRequired(slot, frame){
+  if(slot.optional) return false;
+  if(frame && frame.cat === 'frame'){
+    if(slot.key === 'shock' && frame.suspension === 'hardtail') return false;
+    if(slot.key === 'dropper' && (frame.disciplines || []).indexOf('dh') >= 0) return false;
+  }
+  return true;
+}
+
 /* ---- SEED catalog (price USD sample, weight grams sample) ---------------- */
 /** @type {Part[]} */
 var PARTS = [
@@ -131,6 +143,10 @@ var PARTS = [
   { id:'fr-forbidden-dreadnought', cat:'frame', brand:'Forbidden', model:'Dreadnought', family:'forbidden-dreadnought', disciplines:['enduro'], price:3700, weight:3350, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:205, shockStroke:65, shockMount:'trunnion', maxForkTravel:180, travel:154, udh:true, maxTire:2.6, bundledShock:null, frameOnly:true, verified:true, lastChecked:'2026-07-06', source:'https://forbiddenbike.com/faqs/dreadnought-faqs/' },
   { id:'fr-yeti-sb160', cat:'frame', brand:'Yeti', model:'SB160', family:'yeti-sb160', disciplines:['enduro'], price:5500, weight:3200, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:230, shockStroke:65, shockMount:'std', maxForkTravel:170, travel:160, udh:true, maxTire:2.6, bundledShock:null, frameOnly:true },
   { id:'fr-frameworks-enduro', cat:'frame', brand:'Frameworks', model:'Enduro', family:'frameworks-enduro', modelYear:2026, disciplines:['enduro'], price:3999, weight:3500, wheelConfigs:['mullet'], rearAxle:'Boost148', headset:'tapered', headTubeUpper:'ZS44/28.6', headTubeLower:'ZS56/40', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:200, suspension:'full', shockEye:230, shockStroke:65, shockMount:'std', maxForkTravel:170, travel:172, udh:true, bundledShock:'sh-fox-float-x2-230x65', frameOnly:false },
+  /* --- discipline expansion, Canyon sweep (2026-07-08): the first TRAIL frame. All interfaces from the FETCHED canyon.com Spectral CF 8 spec page (140/150mm, 29+mullet flip chip, 12x148, 34.9 post, BSA73, tapered, 200mm max rotors) + UDH per Vital's 2025 spec listing. Shock size 230x60 corroborated via mtbr hardware thread (the spec page names the Super Deluxe Select+ but not its size). Lux World Cup XC frame DELIBERATELY SKIPPED this pass: its rear BRAKE MOUNT is stated nowhere fetched (modern XC frames increasingly use flat mount - entering 'PM' unverified risks a false green); revisit with its geometry PDF + the SIDLuxe 210x50. --- */
+  { id:'fr-canyon-spectral-cf', cat:'frame', brand:'Canyon', model:'Spectral CF', family:'canyon-spectral', disciplines:['trail'], price:2999, weight:2900, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:34.9, brakeMount:'PM', maxRotorR:200, suspension:'full', shockEye:230, shockStroke:60, shockMount:'std', maxForkTravel:160, travel:140, udh:true, bundledShock:null, frameOnly:false, desc:'price/weight/maxForkTravel = sample (sold as a complete bike, $5,099; stock fork 150mm); interfaces from the fetched canyon.com Spectral CF 8 spec page; 230x60 via mtbr hardware corroboration; UDH per Vital 2025 spec' },
+  /* --- discipline expansion, Commencal sweep (2026-07-08): the first DH frame. Interfaces from the FETCHED commencal.com frame page (23CSUP1: ZS56/ZS56 straight head tube, 250x75, PF107, 31.6 post, 223 max rotor, 5.3 kg, no UDH, 29+mixed) with the rear spacing from Vital's V5 spec table (12x150 - Commencal's own page only lists the 200mm axle HARDWARE length; the 2026 Supreme moved to 157, a different generation). --- */
+  { id:'fr-commencal-supreme-dh-v5', cat:'frame', brand:'Commencal', model:'Supreme DH V5', family:'commencal-supreme-dh', gen:'V5', disciplines:['dh'], price:2800, weight:5300, wheelConfigs:['29','mullet'], rearAxle:'150x12', headset:'straight-dc', headTubeUpper:'ZS56/28.6', headTubeLower:'ZS56/40', bb:'PF107', seatTube:31.6, brakeMount:'PM', maxRotorR:223, suspension:'full', shockEye:250, shockStroke:75, shockMount:'std', maxForkTravel:203, travel:200, udh:false, bundledShock:null, frameOnly:true, desc:'price + maxForkTravel = sample; headTube capture = ZS56/ZS56 per the fetched page (straight-dc steerer fit); rear 12x150 per Vital spec table (see comment above)' },
 
   /* FORKS (front only; wheel = front size) */
   { id:'fk-rockshox-zeb-ultimate-29-170', cat:'fork', brand:'RockShox', model:'ZEB Ultimate 170', family:'rockshox-zeb', disciplines:['enduro'], price:1099, weight:2150, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220, minRotorF:200 },
@@ -162,6 +178,16 @@ var PARTS = [
   { id:'fk-ohlins-rxf38-m2-29-180', cat:'fork', brand:'Öhlins', model:'RXF38 m.2 180', family:'ohlins-rxf38', disciplines:['enduro'], price:1395, weight:2340, wheel:'29', travel:180, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220, desc:'sample specs (mirror 170 sibling); 180mm existence confirmed via ohlins.com model page am-rxf38-m-2-air-ttx18-29-44-180' },
   { id:'fk-manitou-mezzer-pro-29-160', cat:'fork', brand:'Manitou', model:'Mezzer Pro 160', family:'manitou-mezzer', gen:'G2', disciplines:['enduro'], price:1200, weight:2010, wheel:'29', travel:160, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:223, desc:'sample specs (mirror 170 sibling); 160mm existence confirmed via retailer listings (The Lost Co., Modern Bike 29 160mm) — Mezzer ships 140-180 in 10mm steps' },
   { id:'fk-manitou-mezzer-pro-29-180', cat:'fork', brand:'Manitou', model:'Mezzer Pro 180', family:'manitou-mezzer', gen:'G2', disciplines:['enduro'], price:1200, weight:2050, wheel:'29', travel:180, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:223, desc:'sample specs (mirror 170 sibling); 180mm existence confirmed via retailer listings (Tree Fort Bikes 160-180mm) — Mezzer ships with an 180mm air shaft' },
+  /* --- discipline expansion, SRAM/RockShox sweep (2026-07-08): DH dual-crown + XC + trail forks. Existence per row from fetched sram.com model/series pages; specs sample unless noted. --- */
+  { id:'fk-rockshox-boxxer-ultimate-29-200', cat:'fork', brand:'RockShox', model:'BoXXer Ultimate 200 (29)', family:'rockshox-boxxer', gen:'D1', mfgPn:'FS-BXR-ULT-D1', disciplines:['dh'], price:1800, weight:2680, wheel:'29', travel:200, axle:'20x110', steerer:'straight-dc', brakeMount:'PM', maxRotorF:220, desc:'sample specs; existence + 20x110 Boost + straight 1-1/8 steerer + 200mm confirmed via fetched sram.com model page fs-bxr-ult-d1 and retailer listings (The Lost Co. 29 52mm offset)' },
+  { id:'fk-rockshox-boxxer-ultimate-275-200', cat:'fork', brand:'RockShox', model:'BoXXer Ultimate 200 (27.5)', family:'rockshox-boxxer', gen:'D1', mfgPn:'FS-BXR-ULT-D1', disciplines:['dh'], price:1800, weight:2660, wheel:'275', travel:200, axle:'20x110', steerer:'straight-dc', brakeMount:'PM', maxRotorF:220, desc:'sample specs; 27.5 existence confirmed via retailer listings (Marblehead Cycle 27.5 48mm offset) off the same fs-bxr-ult-d1 platform' },
+  { id:'fk-rockshox-pike-ultimate-29-130', cat:'fork', brand:'RockShox', model:'Pike Ultimate 130', family:'rockshox-pike', gen:'C2', mfgPn:'FS-PIKE-ULT-C2', disciplines:['trail'], price:1099, weight:1940, wheel:'29', travel:130, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:200, desc:'sample specs; existence confirmed via sram.com model page fs-pike-ult-c2 (Pike = 120/130/140mm, 29+27.5, 15x110 Boost)' },
+  { id:'fk-rockshox-pike-ultimate-29-140', cat:'fork', brand:'RockShox', model:'Pike Ultimate 140', family:'rockshox-pike', gen:'C2', mfgPn:'FS-PIKE-ULT-C2', disciplines:['trail'], price:1099, weight:1950, wheel:'29', travel:140, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:200, desc:'sample specs; 140mm option confirmed via the same fetched Pike sources (120/130/140mm travel options)' },
+  { id:'fk-rockshox-sid-ultimate-29-120', cat:'fork', brand:'RockShox', model:'SID Ultimate 120', family:'rockshox-sid', gen:'D1', mfgPn:'FS-SID-ULT3-D1', disciplines:['xc'], price:999, weight:1476, wheel:'29', travel:120, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:200, maxTire:2.6, desc:'sample specs; existence confirmed via sram.com model page fs-sid-ult3-d1 + Bike24/Pro Bike Supply listings (29, 120mm, 15x110); maxTire 2.6 per Pinkbike first-ride' },
+  /* --- discipline expansion, Fox/Marzocchi sweep (2026-07-08): direct Fox pages are fetch-blocked, so existence per row is via retailer listings; bike.marzocchi.com DOES fetch. Sample specs. --- */
+  { id:'fk-fox-40-factory-29-203', cat:'fork', brand:'Fox', model:'40 Factory 203 (29)', family:'fox-40', modelYear:2025, disciplines:['dh'], price:1900, weight:2750, wheel:'29', travel:203, axle:'20x110', steerer:'straight-dc', brakeMount:'PM', maxRotorF:220, desc:'sample specs; existence confirmed via retailer listings (The Lost Co. / Pro’s Closet / Two Hoosiers: 2025 Fox 40 Factory Grip X2, 29, 203mm, 20x110 Boost)' },
+  { id:'fk-marzocchi-bomber-58-275-200', cat:'fork', brand:'Marzocchi', model:'Bomber 58 200 (27.5)', family:'marzocchi-bomber-58', disciplines:['dh'], price:1149, weight:2900, wheel:'275', travel:200, axle:'20x110-nonboost', steerer:'straight-dc', brakeMount:'PM', maxRotorF:203, desc:'existence + specs frame from FETCHED bike.marzocchi.com/products/bomber-58 (27.5 only, 200mm, "20x110 DH (non-Boost)", 1.125in steerer, max rotor 203, $1,149); weight = sample (page lists none)' },
+  { id:'fk-fox-34-factory-29-140', cat:'fork', brand:'Fox', model:'34 Factory 140', family:'fox-34', modelYear:2025, disciplines:['trail'], price:1099, weight:1780, wheel:'29', travel:140, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203, desc:'sample specs; existence confirmed via retailer listings (Two Hoosiers / Amazon / Worldwide Cyclery: 2025 Fox 34 Factory Grip X, 29, 140mm)' },
 
   /* REAR SHOCKS */
   { id:'sh-rockshox-super-deluxe-ultimate-230x65', cat:'shock', brand:'RockShox', model:'Super Deluxe Ultimate (air)', family:'rockshox-super-deluxe', gen:'C2', mfgPn:'RS-SDLX-ULT-C2', price:549, weight:480, eye:230, stroke:65, mount:'std', spring:'air', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/rockshox/models/rs-sdlx-ult-c2' },
@@ -200,6 +226,13 @@ var PARTS = [
   { id:'sh-ext-storia-v3-230x60', cat:'shock', brand:'EXT', model:'Storia V3 (230x60)', family:'ext-storia', price:850, weight:800, eye:230, stroke:60, mount:'std', spring:'coil', desc:'sample specs; existence confirmed via fetched extremeshox.com Storia V3 size list (metric standard 230/60)' },
   { id:'sh-ext-storia-v3-230x62p5', cat:'shock', brand:'EXT', model:'Storia V3 (230x62.5)', family:'ext-storia', price:850, weight:800, eye:230, stroke:62.5, mount:'std', spring:'coil', desc:'sample specs; existence confirmed via fetched extremeshox.com Storia V3 size list (metric standard 230/62.5)' },
   { id:'sh-manitou-mara-pro-205x60-trun', cat:'shock', brand:'Manitou', model:'Mara Pro (205x60 trunnion)', family:'manitou-mara', price:550, weight:500, eye:205, stroke:60, mount:'trunnion', spring:'air', desc:'sample specs; 205x60 trunnion existence confirmed via multiple retailer listings (Pro Bike Supply, Mojo Cyclery; Manitou SKU B-AP5591)' },
+  /* --- discipline expansion, SRAM/RockShox sweep: XC shock --- */
+  { id:'sh-rockshox-sidluxe-ultimate-190x45', cat:'shock', brand:'RockShox', model:'SIDLuxe Ultimate (190x45)', family:'rockshox-sidluxe', gen:'A2', disciplines:['xc'], price:549, weight:250, eye:190, stroke:45, mount:'std', spring:'air', desc:'sample specs; existence confirmed via sram.com SIDLuxe series page + retailer listings (Pro Bike Supply 190x45 SoloAir std A2)' },
+  /* --- discipline expansion, Fox/Marzocchi sweep: XC/trail shock --- */
+  { id:'sh-fox-float-sl-factory-190x45', cat:'shock', brand:'Fox', model:'Float SL Factory (190x45)', family:'fox-float-sl', modelYear:2025, disciplines:['xc','trail'], price:569, weight:260, eye:190, stroke:45, mount:'std', spring:'air', desc:'sample specs; existence confirmed via Pro Bike Supply listing (2025 Float SL Factory, metric 190x45, EVOL LV, 3-position)' },
+  /* --- discipline expansion, Commencal sweep: DH shocks for the Supreme's 250x75 --- */
+  { id:'sh-rockshox-vivid-ultimate-dh-250x75', cat:'shock', brand:'RockShox', model:'Vivid Ultimate DH (250x75 air)', family:'rockshox-vivid', gen:'C1', disciplines:['dh'], price:769, weight:750, eye:250, stroke:75, mount:'std', spring:'air', desc:'sample weight; existence + $769-from price confirmed via retailer listings (Universal Cycles, Worldwide Cyclery, The Lost Co. - Vivid Ultimate DH RC2T 250x75 C1)' },
+  { id:'sh-rockshox-vivid-coil-ultimate-dh-250x75', cat:'shock', brand:'RockShox', model:'Vivid Coil Ultimate DH (250x75)', family:'rockshox-vivid', gen:'C1', disciplines:['dh'], price:649, weight:900, eye:250, stroke:75, mount:'std', spring:'coil', desc:'sample weight (basis unknown - RockShox coil quotes have included a spring before); existence + $649-from price via retailer listings (Universal Cycles, Worldwide Cyclery - Vivid Coil Ultimate DH RC2 250x75 C1)' },
 
   /* FRONT WHEELS */
   { id:'fw-dtswiss-ex-1700-29', cat:'frontwheel', brand:'DT Swiss', model:'EX 1700 SPLINE front', family:'dtswiss-ex-1700', disciplines:['enduro'], price:350, weight:940, wheel:'29', hub:'Boost110', rotorMount:'CL', intWidth:30, maxTire:2.5, mfgPn:'WEX1700BEIXSA11691', desc:'price = sample (DT support page lists no MSRP); maxTire = sample guidance, not maker-published', verified:true, lastChecked:'2026-07-07', source:'https://www.dtswiss.com/en/support/product-support?matnr=WEX1700BEIXSA11691' },
@@ -221,6 +254,8 @@ var PARTS = [
   { id:'fw-bontrager-line-pro-30-29', cat:'frontwheel', brand:'Bontrager', model:'Line Pro 30 front', family:'bontrager-line-pro', disciplines:['enduro'], price:550, weight:910, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6 },
   { id:'fw-mavic-deemax-29', cat:'frontwheel', brand:'Mavic', model:'Deemax Enduro SL front', family:'mavic-deemax', disciplines:['enduro'], price:600, weight:920, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6, desc:'price = sample (Mavic lists set price only, USD 1209); maxTire = sample guidance', verified:true, lastChecked:'2026-07-07', source:'https://www.mavic.com/en-us/p/deemax-enduro-sl-29-rv2305' },
   { id:'fw-giant-trx-0-29', cat:'frontwheel', brand:'Giant', model:'TRX 0 front', family:'giant-trx', disciplines:['enduro'], price:700, weight:760, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.5 },
+  /* --- discipline expansion, DT Swiss FR sweep (2026-07-08): DH wheels for the dual-crown forks + DH frames --- */
+  { id:'fw-dtswiss-fr-1500-29', cat:'frontwheel', brand:'DT Swiss', model:'FR 1500 Classic front (20x110)', family:'dtswiss-fr-1500', disciplines:['dh'], price:576, weight:1100, wheel:'29', hub:'20x110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6, desc:'sample specs (FR 541 rim, 240 hub); existence + 20x110 Boost confirmed via dtswiss.com FR 1500 Classic page + retailer listings (Worldwide Cyclery, r2-bike)' },
 
   /* REAR WHEELS (rw-dtswiss-e-1900-275 is the common mullet rear) */
   { id:'rw-dtswiss-ex-1700-29', cat:'rearwheel', brand:'DT Swiss', model:'EX 1700 rear', family:'dtswiss-ex-1700', disciplines:['enduro'], price:400, weight:1150, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'CL', intWidth:30, maxTire:2.5 },
@@ -256,9 +291,14 @@ var PARTS = [
   { id:'rw-stans-flow-ex3-29-ms', cat:'rearwheel', brand:'Stans', model:'Flow EX3 rear (Micro Spline)', family:'stans-flow-ex3', disciplines:['enduro'], price:505, weight:1159, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:29, maxTire:2.6, desc:'sample specs (mirror XD sibling); Micro Spline existence confirmed via retailer 29 Micro Spline listings (The Lost Co., Fanatik; Neo hub freehub option)' },
   { id:'rw-spank-359-29-ms', cat:'rearwheel', brand:'Spank', model:'359 rear (Micro Spline)', family:'spank-359', disciplines:['enduro'], price:400, weight:1180, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:31, maxTire:2.6, desc:'sample specs (mirror XD sibling); Micro Spline existence confirmed via Hex Drive hub freehub option (Worldwide Cyclery, Modern Bike Micro Spline listings)' },
   { id:'rw-enve-am30-29-ms', cat:'rearwheel', brand:'ENVE', model:'AM30 rear (Micro Spline)', family:'enve-am30', disciplines:['enduro'], price:770, weight:1000, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:30, maxTire:2.6, desc:'sample specs (mirror XD sibling; I9 1/1 hub); Micro Spline existence confirmed via enve.com (HG/Micro Spline/XD options) and Pro Bike Supply Micro Spline listing' },
+  /* --- discipline expansion, DT Swiss FR sweep: DH rears (the FR 1500 Classic rear is sold in 148 Boost / 150 / 157 axles per dtswiss.com + Enduro-MTB review) --- */
+  { id:'rw-dtswiss-fr-1500-29-157', cat:'rearwheel', brand:'DT Swiss', model:'FR 1500 Classic rear (157)', family:'dtswiss-fr-1500', disciplines:['dh'], price:576, weight:1200, wheel:'29', hub:'SuperBoost157', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.6, desc:'sample specs; existence confirmed via Pro Bike Supply/Modern Bike listings (29, 12x157, 6-bolt, XD; bike24 notes an HG freehub in the box for compact DH cassettes)' },
+  { id:'rw-dtswiss-fr-1500-29-150', cat:'rearwheel', brand:'DT Swiss', model:'FR 1500 Classic rear (150)', family:'dtswiss-fr-1500', disciplines:['dh'], price:576, weight:1200, wheel:'29', hub:'150x12', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.6, desc:'sample specs; 12x150 axle option confirmed via dtswiss.com FR 1500 Classic axle options (148 Boost / 150 / 157) + Enduro-MTB review; XD entered as the family-standard fitted freehub - confirm freehub as shipped when verifying' },
 
   /* TIRES (each a size-specific model; front + rear chosen separately) */
   { id:'ti-maxxis-assegai-29-25-exop-mg', cat:'tire', brand:'Maxxis', model:'Assegai 29x2.5 EXO+ MaxxGrip', family:'maxxis-assegai', disciplines:['enduro'], price:90, weight:1219, wheel:'29', width:2.5, casing:'exo-plus', compound:'3c-maxxgrip', verified:true, lastChecked:'2026-07-06', source:'https://www.maxxis.com/us/tire/assegai/' },
+  /* --- discipline expansion: DH-casing tire (first row on the existing 'dh' casing vocab) --- */
+  { id:'ti-maxxis-assegai-29-25-dh-mg', cat:'tire', brand:'Maxxis', model:'Assegai 29x2.5 DH MaxxGrip', family:'maxxis-assegai', disciplines:['dh'], price:95, weight:1315, wheel:'29', width:2.5, casing:'dh', compound:'3c-maxxgrip', desc:'sample weight; existence confirmed via maxxis.com Assegai page + retailer listings (TBS/Modern Bike: 29x2.5 WT, 2-ply DH casing, 3C MaxxGrip, ~$95)' },
   { id:'ti-maxxis-minion-dhr-ii-29-24-exop-mt', cat:'tire', brand:'Maxxis', model:'Minion DHR II 29x2.4 EXO+ MaxxTerra', family:'maxxis-minion-dhr-ii', disciplines:['enduro'], price:85, weight:1125, wheel:'29', width:2.4, casing:'exo-plus', compound:'3c-maxxterra', verified:true, lastChecked:'2026-07-06', source:'https://www.maxxis.com/us/tire/minion-dhr-ii/' },
   { id:'ti-continental-kryptotal-fr-29-24-enduro-soft', cat:'tire', brand:'Continental', model:'Kryptotal-Fr 29x2.4 Enduro Soft', family:'continental-kryptotal-fr', disciplines:['enduro'], price:80, weight:1165, wheel:'29', width:2.4, casing:'enduro', compound:'soft', mfgPn:'0150696', desc:'price = sample (Continental publishes EUR RRP only, no US MSRP)', verified:true, lastChecked:'2026-07-07', source:'https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf', sourceType:'manufacturer-doc' },
   { id:'ti-schwalbe-magic-mary-29-24-sg-as', cat:'tire', brand:'Schwalbe', model:'Magic Mary 29x2.4 Super Gravity ADDIX Soft', family:'schwalbe-magic-mary', disciplines:['enduro'], price:108, weight:1280, wheel:'29', width:2.4, casing:'super-gravity', compound:'addix-soft', mfgPn:'11600615.03', verified:true, lastChecked:'2026-07-07', source:'https://www.schwalbetires.com/Magic-Mary' },
@@ -349,6 +389,18 @@ var PARTS = [
   { id:'cr-shimano-deore-m6100', cat:'crankset', brand:'Shimano', model:'Deore M6100', family:'shimano-deore-m6100', price:75, weight:685, bb:'24mm', ring:30, ringStd:'standard-12', speeds:12, chainline:52 },
   { id:'cr-ethirteen-plus', cat:'crankset', brand:'e*thirteen', model:'TRS+ (P3, CS3)', family:'ethirteen-plus', desc:'Legacy CS3-era P3-spindle crank; superseded by the CS4 TRS Race Carbon line -- e*thirteen no longer sells a "Plus"-branded pedal crank, so weight/price stay sample-data', price:200, weight:640, bb:'p3', ring:32, ringStd:'standard-12', speeds:12, chainline:52 },
   { id:'cr-canecreek-eewings-allmountain', cat:'crankset', brand:'Cane Creek', model:'eeWings AllMountain', family:'canecreek-eewings', price:1250, weight:398, bb:'30mm', ringStd:null, speeds:12, chainline:52, verified:true, lastChecked:'2026-07-07', source:'https://www.canecreek.com/products/eewings' },
+  /* --- discipline expansion, SRAM/RockShox sweep: the X01 DH 7-speed group.
+     All model codes + prices from the fetched sram.com X01 DH series page
+     (SL-X0-DH-A2 / RD-X0-1DH-A3 / CS-XG-795-A1 / FC-X0-1DH-B1). The chain is
+     the schema.js sram-dh-7 token decision in action: SRAM's own XG-795 page
+     says "compatible with all SRAM 11-speed chains", so the PC-XX1 row carries
+     system:'sram-dh-7'/speeds:7 as compatibility tokens with the physical
+     truth in desc. --- */
+  { id:'sft-sram-x01-dh', cat:'shifter', brand:'SRAM', model:'X01 DH Trigger (7s)', family:'sram-x01-dh', gen:'A2', mfgPn:'SL-X0-DH-A2', disciplines:['dh'], price:165, weight:120, system:'sram-dh-7', speeds:7, actuation:'cable', clampType:'matchmaker', desc:'price + code from fetched sram.com model page sl-x0-dh-a2 (discrete clamp, MatchMaker X compatible); weight = sample (page lists none)' },
+  { id:'dr-sram-x01-dh', cat:'derailleur', brand:'SRAM', model:'X01 DH X-Horizon (7s)', family:'sram-x01-dh', gen:'A3', mfgPn:'RD-X0-1DH-A3', disciplines:['dh'], price:300, weight:240, system:'sram-dh-7', speeds:7, actuation:'cable', maxCog:24, mount:'hanger', desc:'price + code from fetched sram.com pages (rd-x0-1dh-a3); weight = sample' },
+  { id:'ca-sram-xg795', cat:'cassette', brand:'SRAM', model:'XG-795 Mini Block 10-24', family:'sram-xg795', gen:'A1', mfgPn:'CS-XG-795-A1', disciplines:['dh'], price:335, weight:136, system:'sram-dh-7', speeds:7, freehub:'XD', minCog:10, maxCog:24, verified:true, lastChecked:'2026-07-08', source:'https://www.sram.com/en/sram/models/cs-xg-795-a1', desc:'10-12-14-16-18-21-24T X-Dome; XD driver; page states compatibility with all SRAM 11-speed chains' },
+  { id:'ch-sram-pc-xx1', cat:'chain', brand:'SRAM', model:'PC-XX1 Hard Chrome (DH group)', family:'sram-pc-xx1', disciplines:['dh'], price:60, weight:258, system:'sram-dh-7', speeds:7, desc:'PHYSICALLY an 11-speed chain - SRAM specs its 11s chains for the 7s DH group (XG-795 page: "compatible with all SRAM 11-speed chains"); system/speeds here are compatibility tokens per the schema.js sram-dh-7 decision. Existence: sram.com cn-x-1-a1 sibling + Jenson/REI PC-XX1 listings. Sample price/weight' },
+  { id:'cr-sram-x01-dh', cat:'crankset', brand:'SRAM', model:'X01 DH DUB (7s)', family:'sram-x01-dh', gen:'B1', mfgPn:'FC-X0-1DH-B1', disciplines:['dh'], price:415, weight:650, bb:'DUB', ring:34, ringStd:'standard-12', speeds:7, chainline:55, desc:'price + code + DUB spindle + 32/34/36T options from fetched sram.com model page fc-x0-1dh-b1 (DH DUB BB widths 83/104.5 - pair the right DUB BB); weight/chainline = sample; ringStd standard-12 = the generic non-T-Type 1x ring token' },
 
   /* BRAKES (single caliper+lever; usable front or rear) */
   { id:'bk-sram-code-rsc', cat:'brake', brand:'SRAM', model:'Code RSC', family:'sram-code', price:140, weight:290, mount:'PM', pistons:4, leverAccepts:['matchmaker'] },
@@ -1426,7 +1478,7 @@ function partVerified(p){
 
 /* ---- Export for Node tests (ignored by the browser) ---------------------- */
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { PARTS:PARTS, GROUPS:GROUPS, SLOTS:SLOTS, LABELS:LABELS, WHEEL_CONFIG:WHEEL_CONFIG,
+  module.exports = { PARTS:PARTS, GROUPS:GROUPS, SLOTS:SLOTS, LABELS:LABELS, WHEEL_CONFIG:WHEEL_CONFIG, slotRequired:slotRequired,
     ALIASES:ALIASES, canonicalId:canonicalId,
     byId:byId, nameOf:nameOf, specSummary:specSummary, checkBuild:checkBuild, verdictKey:verdictKey,
     placementDiff:placementDiff, conflictReason:conflictReason, compatOf:compatOf, bundleActive:bundleActive, buildTotals:buildTotals,

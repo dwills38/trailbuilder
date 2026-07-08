@@ -20,16 +20,16 @@
 /* ---- vocabularies (mirror VOCAB in schema.js) ---------------------------- */
 /** @typedef {'29'|'275'} WheelSize */
 /** @typedef {'29'|'275'|'mullet'} WheelConfig */
-/** @typedef {'Boost148'|'SuperBoost157'|'142x12'} RearAxle */
-/** @typedef {'Boost110'} FrontAxle */
+/** @typedef {'Boost148'|'SuperBoost157'|'142x12'|'150x12'} RearAxle */
+/** @typedef {'Boost110'|'20x110'|'20x110-nonboost'} FrontAxle */
 /** @typedef {'XD'|'MicroSpline'|'HG'} Freehub */
 /** @typedef {'sixbolt'|'CL'} RotorMount */
 /** @typedef {'std'|'trunnion'} ShockMount */
-/** @typedef {'tapered'} Tapered */
-/** @typedef {'BSA73'|'PF92'|'T47'} FrameBb */
+/** @typedef {'tapered'|'straight-dc'} SteererFit */
+/** @typedef {'BSA73'|'PF92'|'T47'|'PF107'} FrameBb */
 /** @typedef {'DUB'|'24mm'|'30mm'|'p3'} CrankBb */
 /** @typedef {'PM'} BrakeMount */
-/** @typedef {'sram-eagle'|'sram-transmission'|'shimano-12'|'shimano-linkglide'|'shimano-11'|'shimano-10'|'sram-11'} DriveSystem */
+/** @typedef {'sram-eagle'|'sram-transmission'|'shimano-12'|'shimano-linkglide'|'shimano-11'|'shimano-10'|'sram-11'|'sram-dh-7'} DriveSystem */
 /** @typedef {'cable'|'electronic'} Actuation */
 /** @typedef {'t-type'|'standard-12'} RingStd */
 /** @typedef {'ispec-ev'|'ispec-ii'|'ispec-b'|'matchmaker'|'band'|'pod'} ShifterClamp */
@@ -92,7 +92,7 @@
 /** @typedef {Object} FrameShared
  * @property {WheelConfig[]} wheelConfigs
  * @property {RearAxle} rearAxle
- * @property {Tapered} headset
+ * @property {SteererFit} headset
  * @property {FrameBb} bb
  * @property {number} seatTube
  * @property {BrakeMount} brakeMount
@@ -110,7 +110,7 @@
 /** @typedef {CommonFields & FrameShared & {cat: 'frame', suspension: 'full', shockEye: number, shockStroke: number, shockMount: ShockMount, travel: number, bundledShock?: (string|null)}} FullSusFramePart */
 /** @typedef {CommonFields & FrameShared & {cat: 'frame', suspension: 'hardtail'}} HardtailFramePart */
 /** @typedef {FullSusFramePart|HardtailFramePart} FramePart */
-/** @typedef {CommonFields & {cat: 'fork', wheel: WheelSize, travel: number, axle: FrontAxle, steerer: Tapered, brakeMount: BrakeMount, maxRotorF: number, minRotorF?: number, maxTire?: number}} ForkPart */
+/** @typedef {CommonFields & {cat: 'fork', wheel: WheelSize, travel: number, axle: FrontAxle, steerer: SteererFit, brakeMount: BrakeMount, maxRotorF: number, minRotorF?: number, maxTire?: number}} ForkPart */
 /** @typedef {CommonFields & {cat: 'shock', eye: number, stroke: number, mount: ShockMount, spring: Spring, oemOnly?: boolean, forFrames?: string[]}} ShockPart */
 /** @typedef {CommonFields & {cat: 'frontwheel', wheel: WheelSize, hub: FrontAxle, rotorMount: RotorMount, intWidth: number, maxTire: number}} FrontWheelPart */
 /** @typedef {CommonFields & {cat: 'rearwheel', wheel: WheelSize, hub: RearAxle, freehub: Freehub, rotorMount: RotorMount, intWidth: number, maxTire: number}} RearWheelPart */

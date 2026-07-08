@@ -173,6 +173,25 @@ Nothing left on this list — every Phase 1 item shipped and is live.
     all sell 27.5). Also parked: 150/190mm fork travels, alternate-freehub *fronts* (fronts have no freehub),
     dropper drop-length options (display-only). Research per `tools/DATA-ENTRY-TEMPLATE.md`; branch is green
     on every commit (validate + tests + typecheck), one commit per category. **Does not need Douglas.**
+- 🚧 **Discipline expansion (DH / Trail / XC) — STARTED 2026-07-08, branch `catalog-disciplines`
+  (NOT merged).** Schema prep is fully landed (5 commits): `frontAxle` += 20x110 Boost **and**
+  20x110-nonboost (they're different fitment standards — Bomber 58's own page says "non-Boost"),
+  `steerer`/`headset` += `straight-dc` (dual-crown), `system` += `sram-dh-7` (chain-token decision
+  recorded in schema.js — SRAM's own XG-795 page: "compatible with all SRAM 11-speed chains"),
+  `rearAxle` += 150x12, `frameBb` += PF107, **frame-aware slot requiredness** (`slotRequired`:
+  hardtail → no shock; DH frame → no dropper), and **discipline filter chips** in the UI.
+  Five manufacturer sweeps landed (+23 rows, 382 parts): SRAM/RockShox (BoxXer 29+27.5, Pike
+  130/140, SID 120, SIDLuxe 190x45, the full **X01 DH 7-speed group** — XG-795 verified against
+  its fetched page), Fox/Marzocchi (40, Bomber 58, 34 140, Float SL 190x45), Commencal (**Supreme
+  DH V5 — the first DH frame**, + Vivid DH 250x75 air/coil), DT Swiss (FR 1500 20x110 front +
+  157/150 rears), Maxxis (Assegai DH-casing), Canyon (**Spectral CF — the first trail frame**).
+  **A complete DH race build now verdicts clean end-to-end and is golden-pinned** (0 errors,
+  $9,026/17.3 kg, dropper exempt). Deliberately skipped, documented in-row/in-commit: Canyon Lux
+  WC (rear brake mount unfetchable — flat-mount false-green risk; goes in next pass with the
+  SIDLuxe 210x50), Commencal Meta V5 (210x55 spec was search-summary-only), SID SL (travel
+  unconfirmed), 26" (out of scope). **Next pass:** XC frames (fetch geometry PDFs for brake
+  mounts — likely `brakeMount` += 'FM'), trail frames w/ 210x55 (Jibb/Meta V5 + a 210x55 shock),
+  XC tires/wheels/hardtails, demo builds per discipline.
 - ⬜ **Semi-automated product data scripts.** A drift checker that re-fetches verified parts' source
   URLs for spec/price changes, and browser automation for the JS-rendered/bot-blocked retry queue.
   What stays manual: the *judgment* step — the grind keeps catching wrong specs a naive scraper would

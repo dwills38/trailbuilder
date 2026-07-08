@@ -76,6 +76,21 @@ test('a valid hardtail frame passes (hardtails are enterable now)', function(){
   delete p.shockEye; delete p.shockStroke; delete p.shockMount; delete p.travel; delete p.bundledShock;
   eq(probs(p).length, 0);
 });
+test('sram-dh-7 is valid system vocab (7-speed DH group enterable)', function(){
+  var p = over('sft-sram-gx-eagle', { system:'sram-dh-7', speeds:7 });
+  delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise, same as the eeWings test
+  eq(probs(p).length, 0);
+});
+test('a 20x110 dual-crown DH front axle is valid vocab (fork + front hub)', function(){
+  eq(probs(over('fk-rockshox-zeb-ultimate-29-170', { axle:'20x110' })).length, 0);
+  eq(probs(over('fw-dtswiss-ex-1700-29', { hub:'20x110', verified:undefined, lastChecked:undefined, source:undefined })).filter(function(m){ return m.indexOf('hub')>=0; }).length, 0);
+});
+test('an unknown front axle value is still caught', function(){
+  some(probs(over('fk-rockshox-zeb-ultimate-29-170', { axle:'20x100' })), 'axle');
+});
+test('20x110 Boost and 20x110 non-Boost are distinct valid values (never conflate)', function(){
+  eq(probs(over('fk-rockshox-zeb-ultimate-29-170', { axle:'20x110-nonboost' })).length, 0);
+});
 test('a disciplines value outside the vocab is caught (ebike is deliberately not one)', function(){
   some(probs(over('fr-santacruz-megatower-cc', { disciplines:['enduro','ebike'] })), 'disciplines');
 });

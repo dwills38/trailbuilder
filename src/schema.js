@@ -29,18 +29,36 @@ var VOCAB = {
      SuperBoost157 - fact-checked, DATA-MODEL-REVIEW section 2); a split would
      create false "won't fit" verdicts. 142x12 is pre-Boost, inert until parts
      carry it. */
-  rearAxle:     ['Boost148', 'SuperBoost157', '142x12'],
-  frontAxle:    ['Boost110'],
+  /* '150x12' = the pre-Boost/classic DH rear (Commencal Supreme DH V5 per
+     Vital's spec table - 12x150; distinct from SuperBoost157). */
+  rearAxle:     ['Boost148', 'SuperBoost157', '142x12', '150x12'],
+  /* 20x110 = the MODERN dual-crown standard, 20x110 BOOST (BoxXer D1, Fox 40
+     2025). '20x110-nonboost' = the legacy/standard DH spacing some forks still
+     use (Marzocchi Bomber 58 - maker page states "20x110 DH (non-Boost)").
+     Same axle dimensions but the Boost variant repositions the rotor/flanges,
+     so they are DIFFERENT fitment standards - conflating them would produce
+     false "fits" on fork+wheel pairs. And 15x110 Boost110 is a third thing. */
+  frontAxle:    ['Boost110', '20x110', '20x110-nonboost'],
   freehub:      ['XD', 'MicroSpline', 'HG'],   // 'HG' = MTB-length HG spline (a road expansion must SPLIT, not conflate)
   rotorMount:   ['sixbolt', 'CL'],             // audited 2026-07: market-complete for MTB
   shockMount:   ['std', 'trunnion'],           // audited 2026-07: market-complete ('bearing' eyelets may join when a bearing-eyelet row lands)
-  headset:      ['tapered'],
-  steerer:      ['tapered'],
+  /* 'straight-dc' = the straight 1.125in steerer of dual-crown DH forks
+     (Boxxer, Fox 40, Dorado). On a FRAME, headset:'straight-dc' means "the
+     stock headset accepts a dual-crown straight steerer" (same steerer-FIT
+     semantics as 'tapered' - the template's SHIS note still applies). Rule 11
+     compares fork.steerer vs frame.headset by equality, so the two lists must
+     stay in lockstep. Consequence (documented 2026-07-08): a tapered
+     single-crown fork on a DH frame reds out - true with the stock cups; a
+     future adapter-tier warning can soften it if expert review wants that. */
+  headset:      ['tapered', 'straight-dc'],
+  steerer:      ['tapered', 'straight-dc'],
   /* PF92 covers the BB92/89.5 PressFit family. T47 SEMANTICS ARE UNDEFINED:
      85.5-internal vs 68/73-external T47 are different products - pin the
      meaning (likely split values) BEFORE the first real T47 frame enters.
      (The one previous 'T47' row was a data error - no MTB Slash uses T47.) */
-  frameBb:      ['BSA73', 'PF92', 'T47'],
+  /* PF107 = the 107mm-wide DH press-fit shell (Supreme DH V5's own page:
+     "Press Fit BB 107mm") - pairs with DH cranks' DUB PF 104.5/107 BBs. */
+  frameBb:      ['BSA73', 'PF92', 'T47', 'PF107'],
   /* crankBb is the SPINDLE INTERFACE, not a brand (DATA-MODEL-REVIEW 5.1-5):
      DUB (28.99mm), 24mm (Shimano Hollowtech II + Race Face Cinch steel + ...),
      30mm (BB30-class: eeWings, Race Face Cinch alu, Hope), p3 (e*thirteen).
@@ -50,10 +68,17 @@ var VOCAB = {
   brakeMount:   ['PM'],
   /* LinkGlide is deliberately its own system: Shimano documents it as HG-only
      and incompatible with Hyperglide+ 12s. The 10/11-speed values are INERT
-     (equality-checked only) until parts carry them; sram-dh-7 waits on the
-     rule-3 chain-width redesign (a 7s DH mech runs an 11s chain). */
+     (equality-checked only) until parts carry them.
+     sram-dh-7 (DECIDED 2026-07-08, supersedes the earlier "waits on a rule-3
+     chain-width redesign" note): the 7s DH group's chain physically is an
+     11-speed-width chain (SRAM specs PC-X01 for the X01 DH group), so the DH
+     chain row carries system:'sram-dh-7'/speeds:7 as COMPATIBILITY TOKENS with
+     the physical truth in desc. Rule 3 then passes a full 7s group and rejects
+     mixing with 12s parts - no engine change. Revisit only if a second
+     mixed-chain-width system appears. */
   system:       ['sram-eagle', 'sram-transmission', 'shimano-12',
-                 'shimano-linkglide', 'shimano-11', 'shimano-10', 'sram-11'],
+                 'shimano-linkglide', 'shimano-11', 'shimano-10', 'sram-11',
+                 'sram-dh-7'],
   actuation:    ['cable', 'electronic'],       // audited 2026-07: market-complete for shifter/derailleur ('hydraulic' joins only with dropper.actuation)
   ringStd:      ['t-type', 'standard-12'],
   /* I-Spec II / I-Spec B are older, mutually-incompatible Shimano standards
@@ -521,7 +546,7 @@ var KNOWN_VALUES = {
   rotorSize:    [140, 160, 180, 183, 200, 203, 205, 220, 223],
   postDiameter: [27.2, 30.9, 31.6, 34.9],       // seat tubes + dropper diameters
   barClamp:     [25.4, 31.8, 35],
-  speeds:       [9, 10, 11, 12, 13]
+  speeds:       [7, 9, 10, 11, 12, 13]   // 7 = SRAM DH groups (XG-795 etc.), sourced 2026-07-08
 };
 
 /* Non-fatal lints - consistency warnings that should never block data entry
