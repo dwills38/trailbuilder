@@ -222,11 +222,26 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   the EX 1700 pair. Browser-verified on a fresh preview server (all three buttons → "No
   conflicts found", 0 console errors). Skipped-documented: **Lux Trail CF** (fetched canyon.com
   spec lists 160 F / 180 R rotors — backwards from every convention, no second source; entering
-  FM+maxRotor on contradictory data risks a wrong verdict), Race King (above). **Next pass:**
-  a 160 mm 6-BOLT rotor (would let the XC demo run the light XCT 11 wheels), a fetchable
-  20x110-STANDARD 27.5 front for the Bomber 58, another XC hardtail (Scale/Epic HT via
-  Vital/BikeRadar), 27.5 tire breadth for the FRS (only Assegai fits today), the parked
-  mullet-rear wheel variants.
+  FM+maxRotor on contradictory data risks a wrong verdict), Race King (above).
+  **Pass 5 (`catalog-disciplines-5`, 3 commits, +7 rows → 420 parts / 150 verified / 254 tests):**
+  (1) **160 mm 6-bolt rotor** (CenterLine, fetched WWC) → **the XC demo + golden now run the
+  verified 700 g-front Synthesis XCT 11 wheels** ($9,941 / 10.6 kg, browser-verified).
+  (2) **27.5 DH tire breadth for the FRS**: verified DHF + DHR II 27.5x2.5 DH MaxxGrip (fetched
+  maxxis.com SKU tables; classic F/R pairing) + **verified Magic Mary 27.5x2.4 Super Downhill**
+  (fetched schwalbetires.com SKU 11654180) — the FRS went from 1 tire to 4 across 2 brands; the
+  FR 1500 27.5 front (fetched WWC) makes its front wheel 2-brand too. (3) **Second XC hardtail:
+  Scott Scale RC SL** (847 g) — scott-sports.com product pages FETCH (new discovery); PM rear
+  with direct 160-rotor bosses per fetched BikeRadar; 31.6/PF92/UDH per fetched Vital.
+  (4) **SID SL Ultimate 100** (fetched Wheel & Sprocket; native PM160 → first XC `minRotorF`;
+  the sram.com model page 404s). **Bomber 58 unlock: DRY this pass** — Sun Ringlé Düroc (Hayes'
+  own page: Boost only), Halo Chaos (100 mm or 110 Boost), Spank (sells the HEX 20x110-std hub
+  but no complete wheel): no fetchable 20x110-STANDARD 27.5 front wheel exists in current
+  production; the fork stays catalogued + buildable-blocked, documented in both wheel descs.
+  **Next pass:** more trail breadth (a 140-150 mm fork tier + 34.9-post trail droppers are thin),
+  a 27.5 DH rear tire for mullet DH builds is NOT needed (29F/27.5R DH rears wait on the parked
+  mullet-rear wheels), XC kit/preset (the XC demo has no bundle pricing), Epic HT / Spark
+  (Spark/Genius integrated-shock frames are a fit-data minefield — enter only with maker docs),
+  drift-checker script (Phase 2).
 - ⬜ **Semi-automated product data scripts.** A drift checker that re-fetches verified parts' source
   URLs for spec/price changes, and browser automation for the JS-rendered/bot-blocked retry queue.
   What stays manual: the *judgment* step — the grind keeps catching wrong specs a naive scraper would
