@@ -1,16 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T17:14:23.114Z",
+ "updated": "2026-07-08T17:20:17.089Z",
  "batchSize": 25,
- "lastCompleted": "fr-canyon-lux-world-cup-cf",
- "currentCategory": "tire",
+ "lastCompleted": "ti-specialized-butcher-t9-29-23",
+ "currentCategory": "frontwheel",
  "queue": [
-  "ti-maxxis-assegai-29-25-dh-mg",
-  "ti-continental-cross-king-29-22-protection-blackchili",
-  "ti-michelin-wild-enduro-mh-29-24",
-  "ti-specialized-butcher-t9-29-23",
-  "ti-michelin-dh22-29-24",
   "fw-industrynine-enduro-s-29",
   "fw-roval-traverse-hd-29",
   "fw-dtswiss-e-1900-275",
@@ -301,11 +296,11 @@
   },
   "ti-michelin-wild-enduro-mh-29-24": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:18:53.217Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DATA MISMATCH flagged (chip task_f7b43d5a): Wild Enduro MH Racing Line is 29x2.50-only per ~6 independent retailer listings; 29x2.40 is the MS (Mixed Soft) variant, so MH+2.4 is not a real SKU. Not auto-fixed (id append-only encodes 2.4; identity change is a judgment call). desc note added. michelinman.com JS-rendered/unfetchable; can't verify weight anyway. Needs browser access + append-only correction."
   },
   "ti-maxxis-dissector-29-24-exop-mt": {
    "cat": "tire",
@@ -317,19 +312,19 @@
   },
   "ti-specialized-butcher-t9-29-23": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:20:17.034Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "specialized.com 403-blocked (still); no fetchable maker spec page. weight 1150 sample; retailer weights policy-REJECTED; no editorial measured weight found. casing/compound not yet on the row. Weight bar unmeetable."
   },
   "ti-michelin-dh22-29-24": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:20:16.871Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "michelinman.com JS-rendered (unfetchable spec table). The Loam Wolf (editorial, non-retailer) MEASURED the WIRE-BEAD DH22 29x2.4 at 1510g avg (MAGI-X DH); the folding Racing Line differs (~1340g per retailer). Catalog row is casing-unspecified (weight 1400 sample) - pinning a weight needs a casing decision + likely a Michelin casing vocab token first. Deferred rather than guess a casing. Editorial figure recorded for a future pinned pass."
   },
   "fw-dtswiss-ex-1700-29": {
    "cat": "frontwheel",
@@ -2797,11 +2792,11 @@
   },
   "ti-maxxis-assegai-29-25-dh-mg": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T17:16:43.702Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/assegai/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-maxxis-assegai-275-25-dh-mg": {
    "cat": "tire",
@@ -2877,11 +2872,11 @@
   },
   "ti-continental-cross-king-29-22-protection-blackchili": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:20:16.923Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "continental-tires.com product pages 404/unfetchable; Tire Range PDF exceeds fetch size (per desc). Interfaces (casing/compound/mfgPn) already sourced from fetched WWC listing; weight 630g is a retailer figure (policy-REJECTED), no editorial measured weight for this light XC tire. Weight bar unmeetable."
   },
   "ti-schwalbe-magic-mary-275-24-sdh-aus": {
    "cat": "tire",
