@@ -129,6 +129,27 @@ test('golden: the DH build fills every required slot (dropper exempt via slotReq
   required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
 });
 
+/* The first complete FULL-27.5 DH build (2026-07-08, pass 4): FRS (the only
+   275-config DH frame) + BoXXer 27.5 dual-crown + Vivid DH 250x75 + Synthesis
+   DH 27.5 front (20x110) + FR 1500 27.5 rear (12x150) + 27.5 DH-casing
+   Assegai + the X01 DH 7-speed group. Locks the 275 wheelConfig into the DH
+   vocab chain; rotors are 200mm (the FRS maxRotorR is 203). Must stay green. */
+var DH_275_BUILD = { frame:'fr-commencal-frs', fork:'fk-rockshox-boxxer-ultimate-275-200', shock:'sh-rockshox-vivid-ultimate-dh-250x75',
+  frontWheel:'fw-crankbrothers-synthesis-dh11-275', rearWheel:'rw-dtswiss-fr-1500-275-150',
+  frontTire:'ti-maxxis-assegai-275-25-dh-mg', rearTire:'ti-maxxis-assegai-275-25-dh-mg',
+  shifter:'sft-sram-x01-dh', derailleur:'dr-sram-x01-dh', cassette:'ca-sram-xg795', chain:'ch-sram-pc-xx1', crankset:'cr-sram-x01-dh',
+  frontBrake:'bk-sram-maven-ultimate', rearBrake:'bk-sram-maven-ultimate', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', saddle:'sa-wtb-volt', pedals:'pd-oneup-composite' };
+test('golden: a complete FULL-27.5 DH park build (FRS) is fully compatible', function(){
+  var r = chk(DH_275_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+test('golden: the 27.5 DH build fills every required slot', function(){
+  var m = /** @type {Object.<string, string>} */ (DH_275_BUILD);
+  var frame = C.byId(m.frame);
+  var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
+  required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
+});
+
 /* The first complete XC HARDTAIL race build (2026-07-08): Exceed CF (flat-mount
    rear, no shock) + SID 120 + Micro Spline wheel + verified Aspen tires + XTR
    with an FM rear caliper + 30.9 dropper. Locks the hardtail machinery (no
