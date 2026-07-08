@@ -20,6 +20,14 @@
      - ok            price/weight strings still found on the page
      - changed        page fetched fine, but a catalogued number wasn't found
                       (spec or price likely moved — go re-verify by hand)
+
+   Sample-grade skip: a verified row's desc can document that its price or
+   weight was never page-sourced (the catalog conventions: "price = sample
+   (...)", "price/weight/... = sample", "converted sample", "weight = sample
+   (page lists none)"). Looking for such a number on the page is guaranteed
+   noise — it was never there — so that token is skipped and the report notes
+   e.g. "price: sample-grade, skipped" (see sampleGradeFields below). The
+   other token is still checked normally.
      - unfetchable    blocked (403/429), a bot-check/JS-shell page came back,
                       or the host is a documented standing blocker — NOT
                       retried automatically (see "Retrying" below)
@@ -112,21 +120,60 @@ function hasAnyToken(text, tokens) {
   return tokens.some(function (t) { return text.indexOf(t) >= 0; });
 }
 
+/** Which of a part's price/weight does its desc document as sample-grade
+ *  (never sourced from the page)? Matches the catalog's established desc
+ *  conventions — a field-name list ending "= sample" ("price = sample (...)",
+ *  "price/weight/maxForkTravel = sample", "price + maxForkTravel = sample"),
+ *  the "stay(s) sample" variant ("weight/price stay sample-data"), and the
+ *  converted-currency form ("price (GBP 1,199 frame-only, converted sample)").
+ *  A field sourced elsewhere in the same desc is NOT caught: in
+ *  "price = fetched ...; weight = sample" only weight matches, because the
+ *  list left of "= sample" cannot cross '=', ';', '(' etc.
+ *  @param {{desc?:string}} part @returns {{price:boolean, weight:boolean}} */
+function sampleGradeFields(part) {
+  var d = part.desc || '';
+  var fields = { price: false, weight: false };
+  function markList(list) {
+    var names = list.toLowerCase().split(/[/+\s]+/);
+    if (names.indexOf('price') >= 0) fields.price = true;
+    if (names.indexOf('weight') >= 0) fields.weight = true;
+  }
+  var m;
+  var eqRe = /([A-Za-z][\w/+ ]*?)\s*=\s*sample/g;
+  while ((m = eqRe.exec(d))) markList(m[1]);
+  var stayRe = /([A-Za-z][\w/+ ]*?)\s+stays?\s+sample/g;
+  while ((m = stayRe.exec(d))) markList(m[1]);
+  if (/price\s*\([^)]*converted sample/i.test(d)) fields.price = true;
+  return fields;
+}
+
 /** Does the fetched page still say what the catalog says? Price is checked
  *  whenever present (always, per schema); weight only if the part has one
- *  (frame-only rows, presets, etc. may not).
- *  @param {string} html @param {{price?:number, weight?:number}} part
+ *  (frame-only rows, presets, etc. may not). A field the desc documents as
+ *  sample-grade (see sampleGradeFields) is skipped — its absence from the
+ *  page is expected, not drift — and noted instead of checked.
+ *  @param {string} html @param {{price?:number, weight?:number, desc?:string}} part
  *  @returns {{status:'ok'|'changed', checks:{field:string,found:boolean}[], note:?string}} */
 function classifyContent(html, part) {
+  var sample = sampleGradeFields(part);
   var checks = [];
-  if (typeof part.price === 'number') checks.push({ field: 'price', found: hasAnyToken(html, priceTokens(part.price)) });
-  if (typeof part.weight === 'number') checks.push({ field: 'weight', found: hasAnyToken(html, weightTokens(part.weight)) });
-  var allFound = checks.every(function (c) { return c.found; });
+  var skipped = [];
+  if (typeof part.price === 'number') {
+    if (sample.price) skipped.push('price');
+    else checks.push({ field: 'price', found: hasAnyToken(html, priceTokens(part.price)) });
+  }
+  if (typeof part.weight === 'number') {
+    if (sample.weight) skipped.push('weight');
+    else checks.push({ field: 'weight', found: hasAnyToken(html, weightTokens(part.weight)) });
+  }
   var missing = checks.filter(function (c) { return !c.found; }).map(function (c) { return c.field; });
+  var notes = [];
+  if (missing.length) notes.push('not found on page: ' + missing.join(', '));
+  skipped.forEach(function (f) { notes.push(f + ': sample-grade, skipped'); });
   return {
-    status: allFound ? 'ok' : 'changed',
+    status: missing.length ? 'changed' : 'ok',
     checks: checks,
-    note: allFound ? null : ('not found on page: ' + missing.join(', '))
+    note: notes.length ? notes.join('; ') : null
   };
 }
 
@@ -376,6 +423,7 @@ if (require.main === module) {
 
 module.exports = {
   priceTokens: priceTokens, weightTokens: weightTokens, hasAnyToken: hasAnyToken,
+  sampleGradeFields: sampleGradeFields,
   classifyContent: classifyContent, classifyResult: classifyResult,
   isKnownUnfetchableHost: isKnownUnfetchableHost, hostOf: hostOf
 };
