@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-08T16:24:53.199Z",
- "updated": "2026-07-08T16:25:05.163Z",
+ "updated": "2026-07-08T17:11:23.262Z",
  "limitDefault": 20,
  "results": {
   "fr-canyon-strive-cfr": {
@@ -90,1228 +90,2575 @@
    ]
   },
   "fr-forbidden-dreadnought": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "changed",
+   "httpStatus": 200,
+   "note": "not found on page: price",
+   "checkedAt": "2026-07-08T17:06:29.388Z",
    "url": "https://forbiddenbike.com/faqs/dreadnought-faqs/",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": false
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fr-raaw-yalla-v2": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "changed",
+   "httpStatus": 200,
+   "note": "not found on page: price",
+   "checkedAt": "2026-07-08T17:06:30.579Z",
    "url": "https://raawmtb.com/en-us/pages/yalla-v2",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": false
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fk-rockshox-lyrik-ultimate-29-160": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:06:31.591Z",
    "url": "https://www.sram.com/en/rockshox/models/fs-lyrk-ult-d2",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fk-marzocchi-bomber-z1-29-160": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:06:32.511Z",
    "url": "https://bike.marzocchi.com/products/bomber-z1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fk-ohlins-rxf38-m2-29-170": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:06:33.259Z",
    "url": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-rxf38-m-2-air-ttx18-29-44-170",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fk-manitou-mezzer-pro-29-170": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:06:34.119Z",
    "url": "https://hayesbicycle.com/products/mezzer-pro-g2",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fk-canecreek-helm-mkii-air-29-160": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "changed",
+   "httpStatus": 200,
+   "note": "not found on page: price",
+   "checkedAt": "2026-07-08T17:06:35.532Z",
    "url": "https://www.canecreek.com/products/helm-mkii",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": false
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fk-formula-selva-s-29-160": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "changed",
+   "httpStatus": 200,
+   "note": "not found on page: price",
+   "checkedAt": "2026-07-08T17:06:37.431Z",
    "url": "https://www.rideformula.com/products/mountain-bike/selva-s/",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": false
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fk-ohlins-rxf36-m2-29-160": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "changed",
+   "httpStatus": 200,
+   "note": "not found on page: price",
+   "checkedAt": "2026-07-08T17:06:37.906Z",
    "url": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-ohlins-rxf36-m-2-air-ttx18-29-51-160",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": false
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fk-ohlins-rxf34-m2-29-120": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:06:39.230Z",
    "url": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-rxf34-m-2-air-otx18-29-44-120",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "sh-rockshox-super-deluxe-ultimate-230x65": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:06:40.743Z",
    "url": "https://www.sram.com/en/rockshox/models/rs-sdlx-ult-c2",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "sh-rockshox-super-deluxe-coil-ultimate-230x65": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:06:41.602Z",
    "url": "https://www.sram.com/en/rockshox/models/rs-sdlc-ult-b1",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "sh-rockshox-vivid-ultimate-230x65": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:06:42.946Z",
    "url": "https://www.sram.com/en/rockshox/models/rs-vivd-ult-c1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fw-dtswiss-ex-1700-29": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:06:45.125Z",
    "url": "https://www.dtswiss.com/en/support/product-support?matnr=WEX1700BEIXSA11691",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fw-hope-fortus-30-29": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:06:46.050Z",
    "url": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_DATA_2019.pdf",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fw-crankbrothers-synthesis-enduro-29": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:06:47.421Z",
    "url": "https://www.crankbrothers.com/products/synthesis-enduro-carbon-front-wheel",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fw-enve-am30-29": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:06:48.861Z",
    "url": "https://www.enve.com/products/am30",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fw-stans-flow-ex3-29": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:06:50.145Z",
    "url": "https://stans.com/products/flow-ex3-wheelset",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fw-mavic-deemax-29": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:06:52.884Z",
    "url": "https://www.mavic.com/en-us/p/deemax-enduro-sl-29-rv2305",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fw-crankbrothers-synthesis-xct11-29": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:06:53.788Z",
    "url": "https://www.crankbrothers.com/products/synthesis-xct-11-carbon-front-wheel",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fw-crankbrothers-synthesis-dh11-29": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:04.156Z",
    "url": "https://www.crankbrothers.com/products/synthesis-dh-11-carbon-front-wheel",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "fw-crankbrothers-synthesis-dh11-275": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:04.929Z",
    "url": "https://www.crankbrothers.com/products/synthesis-dh-11-carbon-front-wheel",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "rw-hope-fortus-30-29": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:07:05.494Z",
    "url": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_DATA_2019.pdf",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "rw-crankbrothers-synthesis-enduro-29": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:06.285Z",
    "url": "https://www.crankbrothers.com/products/synthesis-enduro-carbon-rear-wheel",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "rw-enve-am30-29": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:07.373Z",
    "url": "https://www.enve.com/products/am30",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "rw-stans-flow-ex3-29": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:08.413Z",
    "url": "https://stans.com/products/flow-ex3-wheelset",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "rw-mavic-deemax-29": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:07:09.562Z",
    "url": "https://www.mavic.com/en-us/p/deemax-enduro-sl-29-rv2305",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "rw-crankbrothers-synthesis-xct11-29-ms": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:10.286Z",
    "url": "https://www.crankbrothers.com/products/synthesis-xct-11-carbon-rear-wheel",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "rw-crankbrothers-synthesis-xct11-29-xd": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:10.959Z",
    "url": "https://www.crankbrothers.com/products/synthesis-xct-11-carbon-rear-wheel",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-assegai-29-25-exop-mg": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:11.630Z",
    "url": "https://www.maxxis.com/us/tire/assegai/",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-assegai-275-25-dh-mg": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:07:12.029Z",
    "url": "https://www.maxxis.com/us/tire/assegai/",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-aspen-29-24-exo-dual": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:07:12.419Z",
    "url": "https://www.maxxis.com/us/tire/aspen/",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-aspen-29-225-exo-ms": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:07:12.798Z",
    "url": "https://www.maxxis.com/us/tire/aspen/",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-vittoria-mezcal-29-24-xc-race-graphene-silica": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:13.726Z",
    "url": "https://vittoria.com/products/mezcal-xc-race",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-vittoria-mezcal-29-225-xc-race-graphene-silica": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:14.408Z",
    "url": "https://vittoria.com/products/mezcal-xc-race",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-rekon-race-29-225-exo-dual": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:07:14.860Z",
    "url": "https://www.maxxis.com/us/tire/rekon-race/",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-rekon-race-29-24-exo-dual": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:07:15.240Z",
    "url": "https://www.maxxis.com/us/tire/rekon-race/",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-schwalbe-racing-ralph-29-235-sr-as": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "weight: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:07:17.554Z",
    "url": "https://www.schwalbetires.com/Racing-Ralph-11654053.01",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    }
+   ]
   },
   "ti-schwalbe-racing-ray-29-235-sr-as": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "weight: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:07:19.345Z",
    "url": "https://www.schwalbetires.com/Racing-Ray-11654052.01",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-minion-dhr-ii-29-24-exop-mt": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:19.768Z",
    "url": "https://www.maxxis.com/us/tire/minion-dhr-ii/",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-continental-kryptotal-fr-29-24-enduro-soft": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:07:50.158Z",
    "url": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-schwalbe-magic-mary-29-24-sg-as": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:51.254Z",
    "url": "https://www.schwalbetires.com/Magic-Mary",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-schwalbe-magic-mary-275-24-sdh-aus": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:51.830Z",
    "url": "https://www.schwalbetires.com/magic-mary-11654180",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-assegai-275-25-exop-mg": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:52.303Z",
    "url": "https://www.maxxis.com/us/tire/assegai/",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-minion-dhr-ii-275-24-exop-mt": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:52.678Z",
    "url": "https://www.maxxis.com/us/tire/minion-dhr-ii/",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-minion-dhf-29-25-exop-mg": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:53.065Z",
    "url": "https://www.maxxis.com/us/tire/minion-dhf/",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-minion-dhf-275-25-dh-mg": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:07:53.423Z",
    "url": "https://www.maxxis.com/us/tire/minion-dhf/",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-minion-dhr-ii-275-25-dh-mg": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:07:53.806Z",
    "url": "https://www.maxxis.com/us/tire/minion-dhr-ii/",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-schwalbe-big-betty-29-24-st-as": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "changed",
+   "httpStatus": 200,
+   "note": "not found on page: price",
+   "checkedAt": "2026-07-08T17:07:55.002Z",
    "url": "https://www.schwalbetires.com/Big-Betty",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": false
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-schwalbe-big-betty-29-26-sg-as": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:07:55.574Z",
    "url": "https://www.schwalbetires.com/Big-Betty",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-pirelli-scorpion-enduro-s-29-24-hw-sgg": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:07:56.806Z",
    "url": "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/scorpion-enduro-s",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-continental-kryptotal-re-275-24-enduro-soft": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:08:34.436Z",
    "url": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-dissector-29-24-exop-mt": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:08:34.965Z",
    "url": "https://www.maxxis.com/us/tire/dissector/",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-high-roller-ii-29-25-dd-mt": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:08:37.445Z",
    "url": "https://www.maxxis.com/us/tire/high-roller-ii/",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-shorty-29-24-dd-mg": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:08:40.044Z",
    "url": "https://www.maxxis.com/us/tire/shorty/",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-schwalbe-hans-dampf-29-235-sg-as": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:08:41.149Z",
    "url": "https://www.schwalbetires.com/Hans-Dampf",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-continental-argotal-29-24-enduro-soft": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:09:05.970Z",
    "url": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-vittoria-mazza-29-24-enduro-4c": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:06.762Z",
    "url": "https://vittoria.com/products/mazza-enduro",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-schwalbe-magic-mary-275-24-sg-as": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:07.847Z",
    "url": "https://www.schwalbetires.com/Magic-Mary",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-maxxis-aggressor-29-23-dd-dual": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:09:08.412Z",
    "url": "https://www.maxxis.com/us/tire/aggressor/",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-wtb-vigilante-29-25-sg2-tritec": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:09:23.145Z",
    "url": "https://www.wtb.com/products/vigilante-sg1",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-wtb-judge-29-24-sg1-tritec": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:09:23.992Z",
    "url": "https://www.wtb.com/products/judge-sg1",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-kenda-hellkat-29-24-aec-dl": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:09:25.997Z",
    "url": "https://bicycle.kendatire.com/en-eu/find-a-tire/bicycle/mtb/hellkat/",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ti-goodyear-newton-mtf-29-25-enduro-grip3s": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:09:26.824Z",
    "url": "https://goodyearbike.com/products/newton-mtf",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "sft-sram-gx-eagle": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:28.168Z",
    "url": "https://www.sram.com/en/sram/models/sl-gx-1-a2",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "sft-sram-nx-eagle": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:28.963Z",
    "url": "https://www.sram.com/en/sram/models/sl-nx-1-b1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "dr-sram-gx-transmission": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:29.567Z",
    "url": "https://www.sram.com/en/sram/models/rd-gx-e-b1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "dr-sram-gx-eagle": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:30.302Z",
    "url": "https://www.sram.com/en/sram/models/rd-gx-1-b2",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "dr-sram-x0-transmission": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:30.887Z",
    "url": "https://www.sram.com/en/sram/models/rd-x0-e-b1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "dr-sram-xx-transmission": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:31.512Z",
    "url": "https://www.sram.com/en/sram/models/rd-xx-e-b1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "dr-sram-nx-eagle": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:32.315Z",
    "url": "https://www.sram.com/en/sram/models/rd-nx-1-b1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "dr-sram-x01-eagle": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:33.023Z",
    "url": "https://www.sram.com/en/sram/models/rd-x0-1-b2",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "dr-sram-gx-eagle-axs": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:33.627Z",
    "url": "https://www.sram.com/en/sram/models/rd-gx-1e-a1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ca-sram-xs1275": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "changed",
+   "httpStatus": 200,
+   "note": "not found on page: price",
+   "checkedAt": "2026-07-08T17:09:34.309Z",
    "url": "https://www.sram.com/en/sram/models/cs-xs-1275-a1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": false
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ca-sram-xg1275": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:35.099Z",
    "url": "https://www.sram.com/en/sram/models/cs-xg-1275-b1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ca-shimano-xt-m8100-1051": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "unfetchable",
+   "httpStatus": 403,
+   "note": "blocked (HTTP 403)",
+   "checkedAt": "2026-07-08T17:09:35.595Z",
    "url": "https://bike.shimano.com/en-US/product/component/deore-xt-m8100/CS-M8100-12.html",
    "checks": null
   },
   "ca-sram-xs1299": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:36.247Z",
    "url": "https://www.sram.com/en/sram/models/cs-xs-1299-a1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ca-sram-xg1295": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:37.439Z",
    "url": "https://www.sram.com/en/sram/models/cs-xg-1295-b1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ca-sram-pg1230": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:38.363Z",
    "url": "https://www.sram.com/en/sram/models/cs-pg-1230-a1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ch-sram-gx-flattop": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:38.971Z",
    "url": "https://www.sram.com/en/sram/models/cn-ttyp-gx-a1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ch-sram-gx-eagle": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:44.007Z",
    "url": "https://www.sram.com/en/sram/models/cn-eagl-gx-a1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ch-sram-x01-eagle": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:44.633Z",
    "url": "https://www.sram.com/en/sram/models/cn-eagl-x01-a1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "cr-sram-gx-eagle": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:45.346Z",
    "url": "https://www.sram.com/en/sram/models/fc-gx-1-b1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "cr-sram-x0-transmission": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:46.230Z",
    "url": "https://www.sram.com/en/sram/models/fc-x0-d1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "cr-raceface-aeffect-r": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:47.054Z",
    "url": "https://www.raceface.com/products/aeffect-r-crankset",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "cr-sram-nx-eagle": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:47.974Z",
    "url": "https://www.sram.com/en/sram/models/fc-nx-1-c1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "cr-canecreek-eewings-allmountain": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "changed",
+   "httpStatus": 200,
+   "note": "not found on page: price",
+   "checkedAt": "2026-07-08T17:09:48.987Z",
    "url": "https://www.canecreek.com/products/eewings",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": false
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ca-sram-xg795": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:49.566Z",
    "url": "https://www.sram.com/en/sram/models/cs-xg-795-a1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "bk-sram-level-ultimate-stealth": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:09:50.678Z",
    "url": "https://www.sram.com/en/sram/models/db-lvl-ult2-c1",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "bk-hayes-dominion-a4": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:51.566Z",
    "url": "https://hayesbicycle.com/products/dominion-a4-brake-kit",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "bk-magura-mt7": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:53.561Z",
    "url": "https://magura.com/product/mt7-pro/",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "bk-sram-maven-ultimate": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:54.242Z",
    "url": "https://www.sram.com/en/sram/models/db-mvn-ult-a1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "bk-trp-dhr-evo": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:55.038Z",
    "url": "https://trpcycling.com/products/dh-r-evo",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "bk-formula-cura-4": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:56.262Z",
    "url": "https://www.rideformula.com/products/mtb-brakes/cura4/",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "bk-magura-mt5": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:57.634Z",
    "url": "https://magura.com/product/mt5/",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "bk-sram-g2-rsc": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:58.474Z",
    "url": "https://www.sram.com/en/service/models/db-g2-rsc-a2",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "bk-trp-trail-evo": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:09:59.038Z",
    "url": "https://trpcycling.com/products/trail-evo",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "bk-magura-mt-trail-sport": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:00.434Z",
    "url": "https://magura.com/product/mt-trail-sport/",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ro-sram-hs2-200-6b": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:10:01.213Z",
    "url": "https://www.sram.com/en/sram/models/rt-hs-2-a1",
-   "checks": null
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "ro-hayes-dseries-203-6b": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:04.602Z",
    "url": "https://hayesbicycle.com/products/d-series-rotor",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "hb-renthal-fatbar-35": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "changed",
+   "httpStatus": 200,
+   "note": "not found on page: price",
+   "checkedAt": "2026-07-08T17:10:11.596Z",
    "url": "https://www.renthal.com/cycle/index.php?route=product/product&product_id=4767",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": false
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "hb-oneup-carbon-35": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:12.672Z",
    "url": "https://www.oneupcomponents.com/products/v2-carbon-handlebar",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "hb-raceface-next-r-35": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:13.749Z",
    "url": "https://au.raceface.com/products/next-r-35-handlebar",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "hb-deity-skywire-35": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:14.421Z",
    "url": "https://www.deitycomponents.com/skywire_carbon_handlebar_25mm.html",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "hb-spank-spike-800-318": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:15.308Z",
    "url": "https://spank-ind.com/products/spike-800-vibrocore%E2%84%A2-bar",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "hb-oneup-aluminum-35": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:16.001Z",
    "url": "https://www.oneupcomponents.com/products/aluminum-handlebar",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "hb-chromag-fubars-osx-318": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:17.629Z",
    "url": "https://us.chromagbikes.com/products/osx",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "hb-truvativ-descendant-35": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:18.291Z",
    "url": "https://www.sram.com/en/truvativ/models/hb-desc-rc5-a1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "st-renthal-apex-35": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:19.211Z",
    "url": "https://www.renthal.com/cycle/apex",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "st-oneup-stem-35": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:20.037Z",
    "url": "https://www.oneupcomponents.com/products/stem",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "st-raceface-aeffect-r-35": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:20.808Z",
    "url": "https://www.raceface.com/products/aeffect-r-stem",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "st-deity-copperhead-35": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:21.984Z",
    "url": "https://www.deitycomponents.com/store/p299/COPPERHEAD_35_50_STORE.html",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "st-spank-spike-318": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:22.639Z",
    "url": "https://spank-ind.com/products/spike-race-stem",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "st-industrynine-a35": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:23.572Z",
    "url": "https://industrynine.com/products/mt",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "st-funn-rsx-35": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:24.472Z",
    "url": "https://funnmtb.com/products/rsx/",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "gr-oneup-lockon": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:25.263Z",
    "url": "https://www.oneupcomponents.com/products/grips",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "gr-esi-chunky": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:26.212Z",
    "url": "https://esigrips.com/products/chunky",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "gr-pnw-loam": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:27.305Z",
    "url": "https://www.pnwcomponents.com/products/loam-grips",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "gr-ergon-ge1-evo": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:28.137Z",
    "url": "https://ergonbike.shop/products/ergon-ge1-evo",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "gr-dmr-deathgrip": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:29.179Z",
    "url": "https://dmrbikes.com/products/dmr-deathgrip-race-grips",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "gr-chromag-squarewave": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:34.962Z",
    "url": "https://us.chromagbikes.com/products/grips-squarewave",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "gr-raceface-half-nelson": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:36.616Z",
    "url": "https://www.raceface.com/products/half-nelson-grip",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "gr-deity-knuckleduster": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:37.292Z",
    "url": "https://www.deitycomponents.com/knuckleduster-grips.html",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "dp-oneup-v3-316-210": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:38.480Z",
    "url": "https://www.oneupcomponents.com/products/dropper-post-v3",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "dp-pnw-loam-309-175": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:39.368Z",
    "url": "https://www.pnwcomponents.com/products/loam-dropper-post",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "dp-oneup-v3-349-210": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:40.433Z",
    "url": "https://www.oneupcomponents.com/products/dropper-post-v3",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "dp-crankbrothers-highline-7-316-170": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:41.432Z",
    "url": "https://www.crankbrothers.com/products/highline-7-dropper",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "dp-fox-transfer-neo-316-175": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:42.589Z",
    "url": "https://ridefox.com/products/fox-transfer-neo-seatpost",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "dp-ks-lev-integra-316-175": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:45.260Z",
    "url": "https://kssuspension.com/products/dropper-seat-posts/lev-integra/",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "dp-pnw-loam-349-200": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:45.782Z",
    "url": "https://www.pnwcomponents.com/products/loam-dropper-post",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "dp-ethirteen-vario-infinite-316-180": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:47.165Z",
    "url": "https://www.ethirteen.com/products/vario-dropper-post",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "sa-wtb-volt": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:47.953Z",
    "url": "https://www.wtb.com/products/volt",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "sa-sdg-belair-v3": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:48.937Z",
    "url": "https://sdgcomponents.com/products/bel-air-v3-lux-alloy",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "sa-fizik-terra-aidon-x3": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:50.400Z",
    "url": "https://www.fizik.com/us_en/terra-aidon-x3.html",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "sa-wtb-silverado": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:51.017Z",
    "url": "https://www.wtb.com/products/silverado",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "sa-fabric-scoop-radius": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:52.105Z",
    "url": "https://fabric.cc/products/scoop-sport-radius",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "sa-sdg-radar": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:52.838Z",
    "url": "https://sdgcomponents.com/products/radar-mtn-ti-alloy",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "sa-chromag-trailmaster": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:54.246Z",
    "url": "https://us.chromagbikes.com/products/saddles-trailmaster-dt-19",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "sa-dmr-oioi": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:54.954Z",
    "url": "https://dmrbikes.com/products/dmr-oioi-saddle",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "pd-oneup-aluminum": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:10:55.798Z",
    "url": "https://www.oneupcomponents.com/products/aluminum-pedal",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "pd-oneup-composite": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:11:00.681Z",
    "url": "https://www.oneupcomponents.com/products/comp-pedal",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "pd-raceface-chester": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:11:01.541Z",
    "url": "https://www.raceface.com/products/chester-pedal",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "pd-raceface-atlas": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:11:02.202Z",
    "url": "https://www.raceface.com/products/atlas-pedal",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "pd-crankbrothers-stamp-7-large": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:11:03.136Z",
    "url": "https://www.crankbrothers.com/products/stamp-7-large",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "pd-crankbrothers-mallet-enduro": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:11:03.871Z",
    "url": "https://www.crankbrothers.com/products/mallet-e",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "pd-crankbrothers-eggbeater-3": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:11:04.550Z",
    "url": "https://www.crankbrothers.com/products/eggbeater-3",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "pd-time-speciale-12-large": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:11:05.454Z",
    "url": "https://www.sram.com/en/time-sport/models/pd-spc-12-b1",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "pd-shimano-xt-m8120": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:11:06.339Z",
    "url": "https://ride.shimano.com/products/pd-m8120",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "pd-deity-tmac": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:11:06.929Z",
    "url": "https://www.deitycomponents.com/tmac-signature-pedals.html",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "pd-dmr-vault": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:11:07.775Z",
    "url": "https://dmrbikes.com/products/dmr-vault-pedal",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "pd-chromag-dagga": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:11:09.562Z",
    "url": "https://us.chromagbikes.com/products/pedals-dagga",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "pd-hope-f22": {
-   "status": "pending",
-   "httpStatus": null,
-   "note": null,
-   "checkedAt": null,
+   "status": "changed",
+   "httpStatus": 200,
+   "note": "not found on page: price",
+   "checkedAt": "2026-07-08T17:11:10.324Z",
    "url": "https://www.hopetech.com/products/drivetrain/pedals/f22-flat-pedal/",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": false
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   },
   "pd-crankbrothers-stamp-1": {
-   "status": "pending",
-   "httpStatus": null,
+   "status": "ok",
+   "httpStatus": 200,
    "note": null,
-   "checkedAt": null,
+   "checkedAt": "2026-07-08T17:11:11.151Z",
    "url": "https://www.crankbrothers.com/products/stamp-1-gen-2-large",
-   "checks": null
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
+  },
+  "fr-privateer-161-g2": {
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:11:12.373Z",
+   "url": "https://privateerbikes.com/products/privateer-161-frameset",
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
+  },
+  "fr-commencal-frs": {
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:11:13.990Z",
+   "url": "https://www.commencal.com/us/en/frame-commencal-frs-pure-white/FT4FRS3.html",
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
+  },
+  "fr-raaw-jibb": {
+   "status": "changed",
+   "httpStatus": 200,
+   "note": "not found on page: price",
+   "checkedAt": "2026-07-08T17:11:14.913Z",
+   "url": "https://raawmtb.com/en-us/pages/jibb",
+   "checks": [
+    {
+     "field": "price",
+     "found": false
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
+  },
+  "fr-commencal-meta-v5": {
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:11:15.650Z",
+   "url": "https://www.commencal.com/us/en/frame-commencal-meta-2-2023/23CMETATR2.html",
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
+  },
+  "fr-commencal-meta-ht-v3": {
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:11:16.411Z",
+   "url": "https://www.commencal.com/us/en/commencal-meta-ht-v3-hardtail-mtb-frame-2025-us/FT5MHTV31.html",
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
+  },
+  "fr-privateer-141-g2": {
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:11:17.069Z",
+   "url": "https://privateerbikes.com/products/privateer-141-frameset",
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
+  },
+  "fr-commencal-tempo": {
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T17:11:17.794Z",
+   "url": "https://www.commencal.com/us/en/frame-commencal-tempo-2-2023/23CMETATC2.html",
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
   }
  }
 }

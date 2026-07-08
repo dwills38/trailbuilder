@@ -347,6 +347,22 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   back up, whether that's real drift or just a documented sample field). **Still open (not started
   this pass):** browser automation for the JS-rendered/bot-blocked retry queue (a separate,
   heavier-weight problem than plain-https drift checking).
+  **First full run over all 165 verified parts, 2026-07-08 (`drift/first-full-run`):** 150 `ok`,
+  14 `changed` (all on price, zero on weight), 1 `unfetchable` (bike.shimano.com — confirmed
+  genuine 403, not currently in `KNOWN_UNFETCHABLE_HOSTS`), 0 fetch failures. Every `changed` row
+  hand-triaged by re-fetching its source — full breakdown in
+  [`tools/DRIFT-TRIAGE-2026-07-08.md`](tools/DRIFT-TRIAGE-2026-07-08.md). Headline: **4 real
+  drift candidates for the verification queue** (SRAM XS-1275 cassette $380→$275 on SRAM's own
+  page; Hope F22 pedal $260→~$203 USD-equiv; RAAW Yalla V2 + Jibb each +$2, likely one blanket
+  price bump; Schwalbe Big Betty needs its configurator re-checked, "from $49" teaser vs our
+  $102 SKU isn't a clean comparison), **1 ambiguous status signal** (Canyon Strive CFR now shows
+  "Sold out" across all sizes + member-gated pricing — needs a real browser session, not a
+  plain fetch, to tell sold-out-temporarily from discontinued), **1 expected supersession
+  artifact** (RAAW Madonna V3's source URL now serves V3.2 content — matches the row's own
+  `supersededBy`, no action needed), and **8 matcher-pattern gaps, not real drift** (mostly
+  `.99`-ending prices vs a whole-dollar catalog value, a space-thousands-separator format on
+  Öhlins' site, and three source URLs that are spec/FAQ pages which never carried a price at
+  all). No catalog rows were edited by this pass — triage findings are a queue, not a fix.
 
 ## Phase 3 — Accounts & the garage *(backend chosen: **Supabase**; code built, awaiting keys)*
 
