@@ -95,9 +95,33 @@ test('golden: SRAM Transmission mullet on the Meta SX (XD 27.5 rear) is fully co
 });
 
 test('golden: every demo build fills every required slot (complete builds)', function(){
-  var required = C.SLOTS.filter(function(s){ return !s.optional; });
   [GOOD, DEAL, MADONNA, MULLET].forEach(function(bld){
     var m = /** @type {Object.<string, string>} */ (bld);
+    // requiredness is frame-aware (slotRequired) — for these full-sus
+    // non-DH builds it must equal the old !optional rule
+    var frame = C.byId(m.frame);
+    var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
+    eq(required.length, C.SLOTS.filter(function(s){ return !s.optional; }).length,
+       'an enduro full-sus frame must not change requiredness');
     required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
   });
+});
+
+test('slotRequired: hardtail frame exempts the shock slot (completeness only)', function(){
+  var frame = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { suspension:'hardtail' }));
+  delete frame.shockEye; delete frame.shockStroke; delete frame.shockMount; delete frame.travel; delete frame.bundledShock;
+  var shockSlot = C.SLOTS.filter(function(s){ return s.key==='shock'; })[0];
+  var dropperSlot = C.SLOTS.filter(function(s){ return s.key==='dropper'; })[0];
+  eq(C.slotRequired(shockSlot, frame), false, 'hardtail: shock not required');
+  eq(C.slotRequired(dropperSlot, frame), true, 'hardtail: dropper still required');
+});
+test('slotRequired: DH-discipline frame exempts the dropper slot (completeness only)', function(){
+  var frame = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { disciplines:['dh'] }));
+  var shockSlot = C.SLOTS.filter(function(s){ return s.key==='shock'; })[0];
+  var dropperSlot = C.SLOTS.filter(function(s){ return s.key==='dropper'; })[0];
+  eq(C.slotRequired(dropperSlot, frame), false, 'DH: dropper not required');
+  eq(C.slotRequired(shockSlot, frame), true, 'DH full-sus: shock still required');
+});
+test('slotRequired: no frame chosen = universal default (all non-optional required)', function(){
+  C.SLOTS.forEach(function(s){ eq(C.slotRequired(s, null), !s.optional, s.key); });
 });

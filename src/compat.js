@@ -64,14 +64,13 @@ var L = function(k){ return (k in LABELS ? LABELS[k] : k); };
 /** @type {Object.<string, {front: WheelSize, rear: WheelSize}>} */
 var WHEEL_CONFIG = { '29':{front:'29',rear:'29'}, '275':{front:'275',rear:'275'}, mullet:{front:'29',rear:'275'} };
 
-/* Slot requiredness is currently universal (every slot except grips counts
-   toward "complete"). DESIGN, decided 2026-07 (DATA-MODEL-REVIEW section 4):
-   when the first hardtail or DH frame lands, requiredness becomes a function
-   of the selected frame - a `requiredIf(frame)` predicate per slot (hardtail
-   => shock not required; DH => dropper not required). index.html's
-   completeness math and the golden completeness test both read SLOTS, so they
-   follow automatically. Not implemented early: every current frame is
-   full-suspension, so it would be dead code the tests can't honestly cover. */
+/* Slot requiredness is a function of the selected frame (the DATA-MODEL-REVIEW
+   section 4 design, IMPLEMENTED 2026-07-08 with the first hardtail/DH frames):
+   hardtail => shock not required; DH-discipline frame => dropper not required
+   (race DH runs rigid posts; there is no seatpost category). This feeds ONLY
+   the UI completeness math ("N of M required parts") - `disciplines` still
+   never feeds checkBuild verdicts (rule 16 separately ERRORS a shock ON a
+   hardtail). See slotRequired() below GROUPS/SLOTS. */
 /** @type {Group[]} */
 var GROUPS = [
   { key:'frame', label:'Frame', icon:'F', slots:[ {key:'frame', label:'Frame', cat:'frame'} ] },
@@ -104,6 +103,19 @@ var GROUPS = [
 ];
 /** @type {Slot[]} */
 var SLOTS = GROUPS.reduce(function(a,g){ return a.concat(g.slots.map(function(s){ return Object.assign({group:g.key}, s); })); }, /** @type {Slot[]} */ ([]));
+
+/* Is this slot required for a "complete" build, given the chosen frame?
+   UI-completeness only - never a fit verdict. No frame chosen = the universal
+   default (every non-optional slot required). */
+/** @param {Slot} slot @param {Part|null|undefined} frame @returns {boolean} */
+function slotRequired(slot, frame){
+  if(slot.optional) return false;
+  if(frame && frame.cat === 'frame'){
+    if(slot.key === 'shock' && frame.suspension === 'hardtail') return false;
+    if(slot.key === 'dropper' && (frame.disciplines || []).indexOf('dh') >= 0) return false;
+  }
+  return true;
+}
 
 /* ---- SEED catalog (price USD sample, weight grams sample) ---------------- */
 /** @type {Part[]} */
@@ -1426,7 +1438,7 @@ function partVerified(p){
 
 /* ---- Export for Node tests (ignored by the browser) ---------------------- */
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { PARTS:PARTS, GROUPS:GROUPS, SLOTS:SLOTS, LABELS:LABELS, WHEEL_CONFIG:WHEEL_CONFIG,
+  module.exports = { PARTS:PARTS, GROUPS:GROUPS, SLOTS:SLOTS, LABELS:LABELS, WHEEL_CONFIG:WHEEL_CONFIG, slotRequired:slotRequired,
     ALIASES:ALIASES, canonicalId:canonicalId,
     byId:byId, nameOf:nameOf, specSummary:specSummary, checkBuild:checkBuild, verdictKey:verdictKey,
     placementDiff:placementDiff, conflictReason:conflictReason, compatOf:compatOf, bundleActive:bundleActive, buildTotals:buildTotals,

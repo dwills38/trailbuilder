@@ -634,14 +634,16 @@
   function renderPanel(){
     var host=$('slots'); host.innerHTML='';
     var res=resolved();
-    var required=SLOTS.filter(function(s){return !s.optional;});
+    // requiredness is frame-aware (hardtail: no shock; DH frame: no dropper) —
+    // completeness display only, never a fit verdict (slotRequired, compat.js)
+    var required=SLOTS.filter(function(s){return slotRequired(s, res.frame);});
     var filled=0;
     GROUPS.forEach(function(g){
       var bundle = (g.preset && bundleActive(g, res, presetBy)) ? byId(presetBy[g.key]) : null;
       var sumP=0, sumW=0, anyFilled=false;
       g.slots.forEach(function(slot){
         var p=res[slot.key];
-        if(p){ anyFilled=true; sumP+=(p.price||0); if(typeof p.weight==='number') sumW+=p.weight; if(!slot.optional) filled++; }
+        if(p){ anyFilled=true; sumP+=(p.price||0); if(typeof p.weight==='number') sumW+=p.weight; if(slotRequired(slot, res.frame)) filled++; }
       });
       var sub=document.createElement('div'); sub.className='gsub';
       var totHtml='';
@@ -657,7 +659,7 @@
         if(p){ right = bundle ? '<span class="pr">in kit</span>'
                              : '<span class="pr">'+(typeof p.weight==='number'?p.weight+' g · ':'')+money(p.price)+'</span>'; }
         var nm = p ? (esc(p.brand)+' '+esc(p.model) + (p.verified===true && p.source?' <span class="vchk" title="Verified against the manufacturer'+(p.lastChecked?' on '+esc(p.lastChecked):'')+'">✓</span>':''))
-                   : ('— '+slot.label.toLowerCase()+(slot.optional?' (optional)':'')+' —');
+                   : ('— '+slot.label.toLowerCase()+(slot.optional?' (optional)':(!slotRequired(slot,res.frame)?' (not needed for this frame)':''))+' —');
         row.innerHTML='<div class="sl-main"><div class="'+(p?'sl-part':'sl-part sl-empty')+'">'+nm+'</div></div>'+ right;
         if(p){ var x=document.createElement('button'); x.className='x'; x.title='Remove'; x.textContent='×';
           x.onclick=function(){ setSlot(slot.key, null); }; row.appendChild(x); }
