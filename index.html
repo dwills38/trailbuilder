@@ -188,6 +188,10 @@
   .cmp-row.cmp-head{font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.3px;color:var(--ink-soft);border-bottom:1px solid var(--line)}
   .cmp-row .cmp-k{color:var(--ink-soft);font-size:11px;text-transform:uppercase;letter-spacing:.3px}
   .cmp-row.cmp-diff{background:var(--warn-bg);border-radius:6px}
+  .cmp-picks{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:4px 0 2px}
+  .cmp-picks select{flex:1;min-width:120px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;color:var(--ink)}
+  .cmp-vs{color:var(--ink-soft);font-size:12px;font-weight:700}
+  .cmp-or{text-align:center;color:var(--ink-soft);font-size:11px;margin:12px 0 4px}
   @media (max-width:880px){ .layout{grid-template-columns:1fr} .side{position:static} }
 
   /* 🤘 RAD mode — purely cosmetic easter egg, zero honesty-bar risk (see CLAUDE.md roadmap) */
@@ -433,10 +437,19 @@
 <dialog id="compareModal" aria-labelledby="cmpTitle">
   <div class="rm-head">
     <h2 id="cmpTitle">⚖ Compare two builds</h2>
-    <p>Paste another build&rsquo;s share link (or just the <code>#b=&hellip;</code> part) to compare it against your
-    current build, side by side. Nothing is saved or sent anywhere — no login needed.</p>
+    <p>Compare two builds side by side. Signed in, pick any two of your saved garage builds (or one against your
+    current build); or paste any build&rsquo;s share link — no login needed.</p>
   </div>
   <div class="rm-body">
+    <div id="cmpGarageBlock" hidden>
+      <label>Compare saved builds</label>
+      <div class="cmp-picks">
+        <select id="cmpSelA" aria-label="First build to compare"></select>
+        <span class="cmp-vs">vs</span>
+        <select id="cmpSelB" aria-label="Second build to compare"></select>
+      </div>
+      <div class="cmp-or">— or paste a share link —</div>
+    </div>
     <label for="cmpInput">Other build&rsquo;s share link</label>
     <input type="text" id="cmpInput" placeholder="https://…/#b=…">
     <p id="cmpError" class="pm-note" hidden></p>
@@ -1039,6 +1052,22 @@
     var names = g.slots.map(function(s){ var p=res[s.key]; return p ? (p.brand+' '+p.model) : '—'; });
     return names.join(' / ');
   }
+  /* Render a side-by-side comparison of two builds. a/b = {res, presetBy, label}
+     where res is a resolved (slotKey -> part object) map. Shared by the pasted-link
+     compare and the saved-garage-builds compare. */
+  function renderComparison(a, b){
+    var rA = checkBuild(a.res), rB = checkBuild(b.res);
+    var tA = buildTotals(a.res, a.presetBy), tB = buildTotals(b.res, b.presetBy);
+    var rows = '<div class="cmp-row cmp-head"><span></span><span>'+esc(a.label)+'</span><span>'+esc(b.label)+'</span></div>'
+      + '<div class="cmp-row"><span class="cmp-k">Verdict</span><span>'+esc(verdictText(rA))+'</span><span>'+esc(verdictText(rB))+'</span></div>'
+      + '<div class="cmp-row"><span class="cmp-k">Price</span><span>'+money(tA.price)+'</span><span>'+money(tB.price)+'</span></div>'
+      + '<div class="cmp-row"><span class="cmp-k">Weight</span><span>'+(tA.weight?grams(tA.weight):'—')+'</span><span>'+(tB.weight?grams(tB.weight):'—')+'</span></div>';
+    GROUPS.forEach(function(g){
+      var nA = groupNames(a.res, a.presetBy, g), nB = groupNames(b.res, b.presetBy, g);
+      rows += '<div class="cmp-row'+(nA!==nB?' cmp-diff':'')+'"><span class="cmp-k">'+(ICONS[g.key]||'')+' '+esc(g.label)+'</span><span>'+esc(nA)+'</span><span>'+esc(nB)+'</span></div>';
+    });
+    $('cmpResult').innerHTML = rows;
+  }
   function runCompare(){
     var parsed = parseShareLink($('cmpInput').value);
     if(!parsed){
@@ -1046,19 +1075,43 @@
       $('cmpError').hidden = false; $('cmpResult').innerHTML=''; return;
     }
     $('cmpError').hidden = true;
-    var resA = resolved(), resB = {};
-    Object.keys(parsed.build).forEach(function(k){ resB[k]=byId(parsed.build[k]); });
-    var rA = checkBuild(resA), rB = checkBuild(resB);
-    var tA = buildTotals(resA, presetBy), tB = buildTotals(resB, parsed.presetBy);
-    var rows = '<div class="cmp-row cmp-head"><span></span><span>Your build</span><span>Pasted build</span></div>'
-      + '<div class="cmp-row"><span class="cmp-k">Verdict</span><span>'+esc(verdictText(rA))+'</span><span>'+esc(verdictText(rB))+'</span></div>'
-      + '<div class="cmp-row"><span class="cmp-k">Price</span><span>'+money(tA.price)+'</span><span>'+money(tB.price)+'</span></div>'
-      + '<div class="cmp-row"><span class="cmp-k">Weight</span><span>'+(tA.weight?grams(tA.weight):'—')+'</span><span>'+(tB.weight?grams(tB.weight):'—')+'</span></div>';
-    GROUPS.forEach(function(g){
-      var nA = groupNames(resA, presetBy, g), nB = groupNames(resB, parsed.presetBy, g);
-      rows += '<div class="cmp-row'+(nA!==nB?' cmp-diff':'')+'"><span class="cmp-k">'+(ICONS[g.key]||'')+' '+esc(g.label)+'</span><span>'+esc(nA)+'</span><span>'+esc(nB)+'</span></div>';
-    });
-    $('cmpResult').innerHTML = rows;
+    var resB = {}; Object.keys(parsed.build).forEach(function(k){ resB[k]=byId(parsed.build[k]); });
+    renderComparison(
+      { res:resolved(), presetBy:presetBy, label:'Your build' },
+      { res:resB, presetBy:parsed.presetBy, label:'Pasted build' }
+    );
+  }
+  /* ---- compare saved garage builds (signed-in). The dropdowns are populated
+     on modal open; picking either side re-renders. "Current build" is always an
+     option so you can diff a saved build against what you're building now. ---- */
+  var _cmpBuilds = [];   // garage builds cached for the compare dropdowns
+  function cmpSource(key){
+    if(key==='current') return { res:resolved(), presetBy:presetBy, label:'Current build' };
+    var b = _cmpBuilds.filter(function(x){ return String(x.id)===String(key); })[0];
+    if(!b) return null;
+    var d = _resolveData(b.data);
+    return { res:d.resolved, presetBy:d.clean.presetBy, label:(b.name||'Untitled build') };
+  }
+  function populateCompareGarage(){
+    var block = $('cmpGarageBlock');
+    if(!_acctReady || !currentUser()){ block.hidden = true; _cmpBuilds = []; return; }
+    listBuilds().then(function(rows){
+      _cmpBuilds = rows || [];
+      if(_cmpBuilds.length < 1){ block.hidden = true; return; }
+      var opts = '<option value="current">Current build</option>'
+        + _cmpBuilds.map(function(b){ return '<option value="'+esc(b.id)+'">'+esc(b.name||'Untitled build')+'</option>'; }).join('');
+      $('cmpSelA').innerHTML = opts; $('cmpSelB').innerHTML = opts;
+      $('cmpSelA').value = 'current';
+      $('cmpSelB').value = _cmpBuilds[0].id;   // default: current vs the newest saved build
+      block.hidden = false;
+      runGarageCompare();
+    }).catch(function(){ block.hidden = true; });
+  }
+  function runGarageCompare(){
+    var a = cmpSource($('cmpSelA').value), b = cmpSource($('cmpSelB').value);
+    if(!a || !b) return;
+    $('cmpError').hidden = true;
+    renderComparison(a, b);
   }
 
   /* ---- spec-card share image (Phase 4, "start here" per the roadmap) — a
@@ -1430,9 +1483,11 @@
   $('pmClose').onclick=function(){ $('partModal').close(); };
   $('partModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
 
-  $('compareBtn').onclick=function(){ $('cmpInput').value=''; $('cmpResult').innerHTML=''; $('cmpError').hidden=true; $('compareModal').showModal(); $('cmpInput').focus(); };
+  $('compareBtn').onclick=function(){ $('cmpInput').value=''; $('cmpResult').innerHTML=''; $('cmpError').hidden=true; populateCompareGarage(); $('compareModal').showModal(); };
   $('cmpGo').onclick=runCompare;
   $('cmpInput').addEventListener('keydown', function(e){ if(e.key==='Enter') runCompare(); });
+  $('cmpSelA').onchange=runGarageCompare;
+  $('cmpSelB').onchange=runGarageCompare;
   $('cmpClose').onclick=function(){ $('compareModal').close(); };
   $('compareModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
 
