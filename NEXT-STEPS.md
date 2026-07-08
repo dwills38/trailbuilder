@@ -167,12 +167,22 @@ Nothing left on this list — every Phase 1 item shipped and is live.
     universal, zero fit-variance), cranksets (`bb` feeds an info advisory, not an error; T-Type already has
     2 cranks), and handlebars (clamp is covered on both 31.8 and 35, and 35 is the enduro standard with 12
     bars; the remaining bar variance is display-only rise/width). Adding rows there is cosmetic padding.
-  - ⏸ **Deferred (deprioritized this session):** 27.5 / mullet **rear** wheels — 16 frames support mullet
-    but only DT Swiss has a 27.5 rear, so mullet rear choice is DT-Swiss-only. Real gap, but mullet is the
-    less common case; pick it up later (existence already scoped: We Are One, Stan's, Hope, Spank, DT Swiss
-    all sell 27.5). Also parked: 150/190mm fork travels, alternate-freehub *fronts* (fronts have no freehub),
-    dropper drop-length options (display-only). Research per `tools/DATA-ENTRY-TEMPLATE.md`; branch is green
-    on every commit (validate + tests + typecheck), one commit per category. **Does not need Douglas.**
+  - ✅ **27.5 / mullet rear wheels UN-PARKED (`catalog-mullet-rears`, +7 rows → 449 parts / 158
+    verified / 258 tests).** The mullet rear choice had collapsed to one brand (DT Swiss E 1900) even
+    though ~16 frames support mullet. Added Boost 148 27.5 rears in XD and/or Micro Spline for the four
+    other brands already known to sell them: **We Are One Union** (XD; fetched vitalmtb.com spec page:
+    12x148 Boost or 12x157, 30mm internal, Centerlock/6-bolt), **Spank 359** (XD + Micro Spline; fetched
+    spank-ind.com manufacturer page: 12x148 Boost, HG/XD/Microspline, 6-bolt, 30.5mm internal, $449.99),
+    **Stan's Flow EX3** (XD + Micro Spline; stans.com's own 148 configs show "coming soon", so existence
+    leans on fetched retailer SKU pages — thelostco.com XD at the sibling's exact $505, REI's "27.5 Boost
+    Micro Spline" listing title, corroborated by Colorado Cyclist/Bikeman/Modern Bike), and **Hope Fortus
+    30** (XD + Micro Spline, Pro 4/Pro 5 per the existing 29 sibling convention; fetched
+    bikewheelsdirect.com configurator: Boost 148x12, XD/Microspline/HG, 6-bolt/Centerlock — hopetech.com's
+    own page confirms 27.5 + 148 Boost exist but doesn't break specs out per wheel size). Mullet rear
+    choice is now **5 brands** instead of 1. All sample data (unverified) mirroring each brand's existing
+    29" sibling row for weight/price except where a fetched page stated a 27.5-specific number (Spank's
+    30.5mm internal + $449.99; Stan's $505 exact match). Also still parked: 150/190mm fork travels,
+    alternate-freehub *fronts* (fronts have no freehub), dropper drop-length options (display-only).
 - 🚧 **Discipline expansion (DH / Trail / XC) — pass 1 MERGED+DEPLOYED 2026-07-08; pass 2 on
   branch `catalog-disciplines-2` (NOT merged).** Pass 1 (`catalog-disciplines`, 11 commits):
   all the schema machinery (`frontAxle` 20x110 Boost + non-Boost, `steerer`/`headset`
