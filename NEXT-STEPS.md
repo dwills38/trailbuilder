@@ -289,10 +289,28 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   homepage only). **Next pass:** more frames from fetchable makers, Epic HT/Spark/
   Genius only with maker docs (integrated-shock/FM minefields), 27.5 XC tires if a 27.5 XC frame
   ever lands, drift-checker script (Phase 2), mullet-rear wheels (still parked).
-- ⬜ **Semi-automated product data scripts.** A drift checker that re-fetches verified parts' source
-  URLs for spec/price changes, and browser automation for the JS-rendered/bot-blocked retry queue.
-  What stays manual: the *judgment* step — the grind keeps catching wrong specs a naive scraper would
-  write through as truth. New products arrive as **unverified** and join the existing queue.
+- ✅ **Drift checker DONE (`tools/drift-check.js`, branch `tools-drift-checker`, MERGED+PUSHED
+  2026-07-08).** Zero-dep, resumable, style-matched to `verify-job.js`: re-fetches every
+  `verified:true` part's `source` URL (plain `https`/`http`, follows redirects, 12s timeout) and
+  checks whether its price/weight still appear on the page as plain-text substrings (multiple
+  number formats: grams, kg 1/2dp, lbs 1dp+rounded, comma-grouped price). Dispositions: `ok` /
+  `changed` (a catalogued number wasn't found — go re-verify by hand) / `unfetchable` (403/429,
+  a JS-challenge shell, or a documented standing-blocked host — not retried by default) /
+  `fetch failed` (transient — DNS/timeout/5xx — retryable via `reset --failed`). **Never writes to
+  the catalog** — same judgment-stays-manual principle as the verify grind; it's a signal, not an
+  autocorrector. State + a committed report live in `tools/drift-report.json`; `npm run
+  verify:drift` runs the next batch (default 20, `--limit n`). 22 fixture-based unit tests
+  (`test/test-drift-check.js`) cover the token-matching + classification logic with no network;
+  `tools/drift-check.js` is `// @ts-nocheck` + excluded from `tsconfig.json`'s `include` (same
+  non-goal as `verify-job.js`, which was never in scope either — both are Node CLI scripts over
+  dynamic external data, not the pure logic the typecheck gate exists to protect). **Smoke-tested
+  live against the real catalog**: of the first 8 verified parts checked, RAAW's 3 Madonnas came
+  back `ok`, but Canyon (Strive CFR) and Commencal (Meta SX V5) came back `changed` on price —
+  turns out correctly, since those rows document their price as sample/currency-converted, not
+  page-sourced (the checker is doing its job: flagging catalog claims the page doesn't literally
+  back up, whether that's real drift or just a documented sample field). **Still open (not started
+  this pass):** browser automation for the JS-rendered/bot-blocked retry queue (a separate,
+  heavier-weight problem than plain-https drift checking).
 
 ## Phase 3 — Accounts & the garage *(backend chosen: **Supabase**; code built, awaiting keys)*
 
