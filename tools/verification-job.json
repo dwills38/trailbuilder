@@ -1,78 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T16:45:17.325Z",
+ "updated": "2026-07-08T17:36:04.992Z",
  "batchSize": 25,
- "lastCompleted": "fr-cotic-solaris",
- "currentCategory": "frame",
+ "lastCompleted": "sh-ohlins-ttx22-m2-205x65-trun",
+ "currentCategory": "shock",
  "queue": [
-  "fr-specialized-enduro-sworks",
-  "fr-trek-slash",
-  "fr-norco-range-c1",
-  "fr-pivot-firebird",
-  "fr-nukeproof-giga-290",
-  "fr-orbea-rallon-mteam",
-  "fr-rockymountain-altitude-c70",
-  "fr-propain-spindrift-cf",
-  "fr-canyon-spectral-cf",
-  "fr-canyon-sender-cfr",
-  "fr-yt-tues-cf-29",
-  "fr-santacruz-v10-8",
-  "fr-trek-session-8-29",
-  "fr-canyon-exceed-cf",
-  "fr-specialized-stumpjumper-15",
-  "fr-trek-fuel-ex-c-gen6",
-  "fr-santacruz-hightower-3",
-  "fr-canyon-neuron-cf",
-  "fr-scott-scale-rc-sl",
-  "fr-canyon-lux-world-cup-cf",
-  "ti-maxxis-assegai-29-25-dh-mg",
-  "ti-continental-cross-king-29-22-protection-blackchili",
-  "ti-michelin-wild-enduro-mh-29-24",
-  "ti-specialized-butcher-t9-29-23",
-  "ti-michelin-dh22-29-24",
-  "fw-industrynine-enduro-s-29",
-  "fw-roval-traverse-hd-29",
-  "fw-dtswiss-e-1900-275",
-  "fw-weareone-union-29",
-  "fw-newmen-advanced-sl-a30-29",
-  "fw-spank-359-29",
-  "fw-raceface-turbine-sl-29",
-  "fw-bontrager-line-pro-30-29",
-  "fw-giant-trx-0-29",
-  "fw-dtswiss-fr-1500-29",
-  "fw-dtswiss-fr-1500-275",
-  "rw-dtswiss-ex-1700-29",
-  "rw-industrynine-enduro-s-29",
-  "rw-roval-traverse-hd-29",
-  "rw-industrynine-enduro-s-29-157",
-  "rw-dtswiss-e-1900-275",
-  "rw-dtswiss-e-1900-275-xd",
-  "rw-weareone-union-29",
-  "rw-newmen-advanced-sl-a30-29",
-  "rw-spank-359-29",
-  "rw-shimano-mt510-29",
-  "rw-raceface-turbine-sl-29",
-  "rw-bontrager-line-pro-30-29",
-  "rw-giant-trx-0-29",
-  "rw-dtswiss-ex-1700-29-ms",
-  "rw-reserve-30-hd-29-ms",
-  "rw-raceface-turbine-sl-29-ms",
-  "rw-hope-fortus-30-29-ms",
-  "rw-stans-flow-ex3-29-ms",
-  "rw-spank-359-29-ms",
-  "rw-enve-am30-29-ms",
-  "rw-dtswiss-fr-1500-29-157",
-  "rw-dtswiss-fr-1500-29-150",
-  "rw-dtswiss-fr-1500-275-150",
-  "rw-crankbrothers-synthesis-dh11-29-157",
-  "rw-weareone-union-275",
-  "rw-spank-359-275",
-  "rw-spank-359-275-ms",
-  "rw-stans-flow-ex3-275",
-  "rw-stans-flow-ex3-275-ms",
-  "rw-hope-fortus-30-275",
-  "rw-hope-fortus-30-275-ms",
   "sh-rockshox-super-deluxe-205x65-trun",
   "sh-rockshox-vivid-coil-230x65",
   "sh-ext-storia-v3-230x65",
@@ -81,25 +14,19 @@
   "sh-fox-float-x2-perf-elite-205x60-trun",
   "sh-rockshox-vivid-205x65-trun",
   "sh-dvo-jade-x-230x65",
-  "sh-manitou-mara-pro-230x65",
   "sh-rockshox-super-deluxe-ultimate-205x60-trun",
   "sh-rockshox-super-deluxe-ultimate-230x62p5",
-  "sh-ohlins-ttx22-m2-205x65-trun",
   "sh-ext-storia-v3-205x65-trun",
   "sh-canecreek-kitsuma-coil-205x65-trun",
   "sh-marzocchi-bomber-cr-205x65-trun",
   "sh-dvo-jade-x-205x65-trun",
-  "sh-manitou-mara-pro-205x65-trun",
   "sh-ext-storia-v3-205x60-trun",
   "sh-ext-storia-v3-205x62p5-trun",
   "sh-ext-storia-v3-230x60",
   "sh-ext-storia-v3-230x62p5",
-  "sh-manitou-mara-pro-205x60-trun",
   "sh-rockshox-sidluxe-ultimate-190x45",
   "sh-rockshox-sidluxe-ultimate-210x50",
   "sh-fox-float-sl-factory-190x45",
-  "sh-rockshox-vivid-ultimate-dh-250x75",
-  "sh-rockshox-vivid-ultimate-225x75-trun",
   "sh-rockshox-vivid-coil-ultimate-dh-250x75",
   "sh-rockshox-super-deluxe-ultimate-dh-250x72p5",
   "sh-rockshox-super-deluxe-ultimate-210x55",
@@ -137,11 +64,11 @@
  "parts": {
   "fr-specialized-enduro-sworks": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:07:09.250Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "specialized.com 403-blocked (still); Specialized publishes complete-bike weights only, no frame-only figure; no editorial teardown weight for the frameset found (Pinkbike/BikeRadar give only relative savings). Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-yt-capra-core4": {
    "cat": "frame",
@@ -161,19 +88,19 @@
   },
   "fr-trek-slash": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:09:54.412Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "trekbikes.com frameset page fetches only a nav/JS shell (specs are client-rendered); no frame-only weight obtainable; editorial outlets weigh complete bikes only. Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-norco-range-c1": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:09:54.509Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "norco.com framekit page fetches only a title/nav shell (JS-rendered specs); no frame-only weight; editorial gives complete-bike weights only. Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-transition-spire-alloy": {
    "cat": "frame",
@@ -201,19 +128,19 @@
   },
   "fr-pivot-firebird": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:09:54.635Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "pivotcycles.com/en-us/bikes/firebird fetches but frame weight is behind JS expandable spec sections (not in fetched content); Pivot publishes no bare-frame weight; no editorial teardown weight. Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-nukeproof-giga-290": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:51.081Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Nukeproof (in administration 2023, brand dormant) - no fetchable current product page; sold as complete bikes only, no frame-only weight; no editorial teardown weight. Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-kona-process-153": {
    "cat": "frame",
@@ -225,19 +152,19 @@
   },
   "fr-orbea-rallon-mteam": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:51.136Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "orbea.com 403-blocked to WebFetch (still); Orbea sells complete bikes / Rallon frameset weight not published, no editorial teardown weight. Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-rockymountain-altitude-c70": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:51.198Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bikes.com (Rocky Mountain) fetch-blocked; complete-bike weights only, no frame-only figure; no editorial teardown weight. Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-commencal-meta-sx-v5": {
    "cat": "frame",
@@ -249,11 +176,11 @@
   },
   "fr-propain-spindrift-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:51.257Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "propain-bikes.com 403-blocked to WebFetch (still); custom-config direct brand, no published frame-only weight; no editorial teardown weight. Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-ibis-hd6": {
    "cat": "frame",
@@ -321,11 +248,11 @@
   },
   "ti-michelin-wild-enduro-mh-29-24": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:18:53.217Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DATA MISMATCH flagged (chip task_f7b43d5a): Wild Enduro MH Racing Line is 29x2.50-only per ~6 independent retailer listings; 29x2.40 is the MS (Mixed Soft) variant, so MH+2.4 is not a real SKU. Not auto-fixed (id append-only encodes 2.4; identity change is a judgment call). desc note added. michelinman.com JS-rendered/unfetchable; can't verify weight anyway. Needs browser access + append-only correction."
   },
   "ti-maxxis-dissector-29-24-exop-mt": {
    "cat": "tire",
@@ -337,19 +264,19 @@
   },
   "ti-specialized-butcher-t9-29-23": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:20:17.034Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "specialized.com 403-blocked (still); no fetchable maker spec page. weight 1150 sample; retailer weights policy-REJECTED; no editorial measured weight found. casing/compound not yet on the row. Weight bar unmeetable."
   },
   "ti-michelin-dh22-29-24": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:20:16.871Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "michelinman.com JS-rendered (unfetchable spec table). The Loam Wolf (editorial, non-retailer) MEASURED the WIRE-BEAD DH22 29x2.4 at 1510g avg (MAGI-X DH); the folding Racing Line differs (~1340g per retailer). Catalog row is casing-unspecified (weight 1400 sample) - pinning a weight needs a casing decision + likely a Michelin casing vocab token first. Deferred rather than guess a casing. Editorial figure recorded for a future pinned pass."
   },
   "fw-dtswiss-ex-1700-29": {
    "cat": "frontwheel",
@@ -369,27 +296,27 @@
   },
   "fw-industrynine-enduro-s-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:41.913Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Industry Nine domain (industrynine.com) is on the standing fetch-block list; per-wheel weight obtainable only from the blocked maker page. Interfaces (hub/rotor/intWidth) already sourced. No editorial per-wheel measured weight. Weight bar unmeetable."
   },
   "fw-roval-traverse-hd-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.213Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Roval (specialized.com/roval) is fetch-blocked (403, standing block); per-wheel weight only on the blocked page. Interfaces already sourced. Weight bar unmeetable."
   },
   "fw-dtswiss-e-1900-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.413Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "fw-hope-fortus-30-29": {
    "cat": "frontwheel",
@@ -401,11 +328,11 @@
   },
   "fw-weareone-union-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.416Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "We Are One (weareone.bike) is on the standing fetch-block list; per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched vitalmtb spec for the Union). Weight bar unmeetable."
   },
   "fw-crankbrothers-synthesis-enduro-29": {
    "cat": "frontwheel",
@@ -433,11 +360,11 @@
   },
   "fw-newmen-advanced-sl-a30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.715Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Newmen (newmen-components.de) is on the standing fetch-block list; per-wheel weight only on the blocked page. Interfaces already sourced. Weight bar unmeetable."
   },
   "fw-stans-flow-ex3-29": {
    "cat": "frontwheel",
@@ -457,11 +384,11 @@
   },
   "fw-spank-359-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.913Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Spank (spank-ind.com) re-tested this session: 403 (was fetchable in a prior pass, now blocked - confirms standing block). Per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched spank-ind.com). Weight bar unmeetable."
   },
   "fw-shimano-mt500-29": {
    "cat": "frontwheel",
@@ -473,19 +400,19 @@
   },
   "fw-raceface-turbine-sl-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:26:14.303Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "raceface.ca Turbine SL page fetched: intWidth CORRECTED 30->25 (maker + SKU confirm). RF publishes only a 1635g WHEELSET total, no per-wheel weight - can't verify individual front row. Interfaces confirmed."
   },
   "fw-bontrager-line-pro-30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.424Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Bontrager (trekbikes.com/bontrager) is on the standing fetch-block list (JS/blocked); per-wheel weight only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "fw-mavic-deemax-29": {
    "cat": "frontwheel",
@@ -497,19 +424,19 @@
   },
   "fw-giant-trx-0-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.624Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Giant (giant-bicycles.com) is on the standing fetch-block list; per-wheel weight only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-dtswiss-ex-1700-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.713Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-reserve-30-hd-29": {
    "cat": "rearwheel",
@@ -521,35 +448,35 @@
   },
   "rw-industrynine-enduro-s-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.013Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Industry Nine domain (industrynine.com) is on the standing fetch-block list; per-wheel weight obtainable only from the blocked maker page. Interfaces (hub/rotor/intWidth) already sourced. No editorial per-wheel measured weight. Weight bar unmeetable."
   },
   "rw-roval-traverse-hd-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.313Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Roval (specialized.com/roval) is fetch-blocked (403, standing block); per-wheel weight only on the blocked page. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-industrynine-enduro-s-29-157": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.113Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Industry Nine domain (industrynine.com) is on the standing fetch-block list; per-wheel weight obtainable only from the blocked maker page. Interfaces (hub/rotor/intWidth) already sourced. No editorial per-wheel measured weight. Weight bar unmeetable."
   },
   "rw-dtswiss-e-1900-275": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.813Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-hope-fortus-30-29": {
    "cat": "rearwheel",
@@ -561,11 +488,11 @@
   },
   "rw-weareone-union-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.516Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "We Are One (weareone.bike) is on the standing fetch-block list; per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched vitalmtb spec for the Union). Weight bar unmeetable."
   },
   "rw-crankbrothers-synthesis-enduro-29": {
    "cat": "rearwheel",
@@ -593,11 +520,11 @@
   },
   "rw-newmen-advanced-sl-a30-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.815Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Newmen (newmen-components.de) is on the standing fetch-block list; per-wheel weight only on the blocked page. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-stans-flow-ex3-29": {
    "cat": "rearwheel",
@@ -617,35 +544,35 @@
   },
   "rw-spank-359-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.013Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Spank (spank-ind.com) re-tested this session: 403 (was fetchable in a prior pass, now blocked - confirms standing block). Per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched spank-ind.com). Weight bar unmeetable."
   },
   "rw-shimano-mt510-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:54.348Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "'Shimano MT510' is an OEM wheel built on the FH-MT510 hub (440g hub); Shimano does not publish a complete WH-MT510 wheel weight (policy: Shimano publishes no component weights) - no WH-MT510 complete-wheel spec page exists. Weight bar unmeetable."
   },
   "rw-raceface-turbine-sl-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:26:14.359Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "raceface.ca fetched: intWidth CORRECTED 30->25. Only wheelset total (1635g) published, no per-wheel weight. Interfaces confirmed (Boost148, XD, 6-bolt)."
   },
   "rw-bontrager-line-pro-30-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.522Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Bontrager (trekbikes.com/bontrager) is on the standing fetch-block list (JS/blocked); per-wheel weight only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-mavic-deemax-29": {
    "cat": "rearwheel",
@@ -657,11 +584,11 @@
   },
   "rw-giant-trx-0-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.724Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Giant (giant-bicycles.com) is on the standing fetch-block list; per-wheel weight only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "sh-rockshox-super-deluxe-ultimate-230x65": {
    "cat": "shock",
@@ -746,10 +673,10 @@
   "sh-ohlins-ttx22-m2-230x65": {
    "cat": "shock",
    "status": "Skipped",
-   "updated": "2026-07-07T17:54:59.866Z",
+   "updated": "2026-07-08T17:36:04.880Z",
    "error": null,
    "source": null,
-   "note": "Ohlins publishes no weight on the product page for this SKU; third-party reviews only give inconsistent, non-matching figures (450g damper-only stated generically for 'the TTX', 486g for a different size/mount 205x65 trunnion, 869g for a different stroke 230x60 incl. spring+hardware) -- no reputable measured weight for the exact 230x65 std-mount SKU without spring. Bar not met."
+   "note": "ohlins.com product page fetched (MTBM 2232 sibling): states NO weight, so weight bar unmeetable. WEIGHT-BASIS FLAG (chip task_6a19c936): the ~780 sample is a WITH-spring figure; Ohlins body is ~486g without spring per convention. desc note added."
   },
   "sh-canecreek-kitsuma-coil-230x65": {
    "cat": "shock",
@@ -793,11 +720,11 @@
   },
   "sh-manitou-mara-pro-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:32:37.553Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DATA CONTRADICTION (chip task_0d30d4b4): fetched hayesbicycle.com Mara Pro page lists 230x65 as TRUNNION-only; no 230x65 standard/eyelet Mara Pro exists (eyelet sizes are 216x63/222x68/250x70). Row mount:std is wrong -> potential FALSE-GREEN on a std 230x65 frame. Not in any golden/demo. desc note added; append-only correction needed. Resolves memory flag 'Mara 230x65 std possibly fabricated'."
   },
   "sh-push-elevensix-230x65": {
    "cat": "shock",
@@ -2425,11 +2352,11 @@
   },
   "rw-dtswiss-e-1900-275-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.918Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "ti-continental-kryptotal-fr-29-24-enduro-soft": {
    "cat": "tire",
@@ -2649,11 +2576,11 @@
   },
   "fr-canyon-spectral-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:14:22.703Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Interfaces sourced from fetched canyon.com Spectral CF 8 spec page (prior pass); canyon.com pages are JS-rendered overviews with no frame-only weight (sold as complete bike). No editorial teardown weight. Weight bar unmeetable."
   },
   "fr-commencal-supreme-dh-v5": {
    "cat": "frame",
@@ -2665,35 +2592,35 @@
   },
   "fr-canyon-sender-cfr": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:14:22.765Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "canyon.com Sender page re-fetched: JS marketing overview, no frameset weight, no frameset-only option surfaced. Interfaces sourced from Vital spec table (prior pass). Weight bar unmeetable."
   },
   "fr-yt-tues-cf-29": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:14:22.823Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "yt-industries.com re-fetched: JS overview, only travel figures; no frame weight (sold as complete bike, 15.2-15.4kg). Interfaces sourced from yt page + bikes.fan/99spokes (prior pass). Weight bar unmeetable."
   },
   "fr-santacruz-v10-8": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:10:34.496Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "santacruzbicycles.com/en-US/v10 fetches: confirms 208mm rear / 200 fork / 29+MX (matches catalog wheelConfigs+travel), frame-only sold at 3949 USD, no contradiction found. But SC publishes no bare-frame weight and no editorial teardown weight exists. Interfaces corroborated; weight bar unmeetable."
   },
   "fr-trek-session-8-29": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:51.315Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "trekbikes.com fetches only JS/nav shell; frame weight not obtainable; editorial weighs complete bikes. Interfaces already sourced (Vital 2022 spec table per desc). Weight bar unmeetable."
   },
   "fr-raaw-yalla-v2": {
    "cat": "frame",
@@ -2713,11 +2640,11 @@
   },
   "fr-canyon-exceed-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:14:22.876Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Interfaces sourced from fetched BikeRadar + canyon.com listing (prior pass); canyon.com is JS overview with no frame-only weight. CFR frame ~835g is a maker claim, not measured/fetched-page-confirmed. Weight bar unmeetable."
   },
   "fr-raaw-jibb": {
    "cat": "frame",
@@ -2737,35 +2664,35 @@
   },
   "fr-specialized-stumpjumper-15": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:51.453Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "specialized.com 403-blocked; complete-bike weights only, no frame-only figure; no editorial teardown weight. Interfaces already sourced (Flow/BikeRadar per desc). Weight bar unmeetable."
   },
   "fr-trek-fuel-ex-c-gen6": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:51.390Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "trekbikes.com fetches only JS/nav shell; no frame-only weight; editorial weighs complete bikes. Interfaces already sourced. Weight bar unmeetable."
   },
   "fr-santacruz-hightower-3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:14:22.931Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "santacruzbicycles.com/hightower fetched: confirms 150 rear / 160 front / 29 (matches catalog, no contradiction). SC publishes no bare-frame weight; spec table is JS-rendered. No editorial teardown weight. Weight bar unmeetable."
   },
   "fr-canyon-neuron-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:14:22.989Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Interfaces sourced from fetched canyon.com Neuron CF 8 spec (prior pass); JS overview, no frame-only weight (2460g figure is complete-bike/sample). Weight bar unmeetable."
   },
   "fr-commencal-meta-ht-v3": {
    "cat": "frame",
@@ -2785,11 +2712,11 @@
   },
   "fr-scott-scale-rc-sl": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:26.751Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "scott-sports.com frame page fetched: confirms BB92(=PF92) + 12x148 Boost; BikeRadar 2023 review confirms PM rear direct-mount + 160 rear rotor (all match catalog, no contradiction). Weight 847g is Scott's CLAIM relayed by BikeRadar (reviewer: 'Scott says'), NOT independently measured and NOT surfaced on the fetched maker page (JS spec table) - fails both weight-bar paths. Interfaces corroborated; weight unverifiable."
   },
   "fr-privateer-141-g2": {
    "cat": "frame",
@@ -2809,19 +2736,19 @@
   },
   "fr-canyon-lux-world-cup-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:14:23.042Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Interfaces sourced from fetched MBR review + sram.com (prior pass); canyon.com JS overview, no frame-only weight. No editorial teardown weight for the bare frame. Weight bar unmeetable."
   },
   "ti-maxxis-assegai-29-25-dh-mg": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T17:16:43.702Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/assegai/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-maxxis-assegai-275-25-dh-mg": {
    "cat": "tire",
@@ -2897,11 +2824,11 @@
   },
   "ti-continental-cross-king-29-22-protection-blackchili": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:20:16.923Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "continental-tires.com product pages 404/unfetchable; Tire Range PDF exceeds fetch size (per desc). Interfaces (casing/compound/mfgPn) already sourced from fetched WWC listing; weight 630g is a retailer figure (policy-REJECTED), no editorial measured weight for this light XC tire. Weight bar unmeetable."
   },
   "ti-schwalbe-magic-mary-275-24-sdh-aus": {
    "cat": "tire",
@@ -2937,19 +2864,19 @@
   },
   "fw-dtswiss-fr-1500-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.513Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "fw-dtswiss-fr-1500-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.613Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "fw-crankbrothers-synthesis-dh11-29": {
    "cat": "frontwheel",
@@ -2969,59 +2896,59 @@
   },
   "rw-dtswiss-ex-1700-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.018Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-reserve-30-hd-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:26:14.470Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "reservewheels.com/products/30-hd-carbon fetched: confirms 30mm internal (matches), Boost 15x110F/12x148R, XD/6-bolt, DT350 hub (supports Micro Spline) - no contradiction. But only WHEELSET totals published (1791g DT350 / 1894g e13), no per-wheel weight. Weight bar unmeetable."
   },
   "rw-raceface-turbine-sl-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:26:14.416Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "raceface.ca fetched: intWidth CORRECTED 30->25; Micro Spline freehub option confirmed. Only wheelset total (1635g), no per-wheel weight."
   },
   "rw-hope-fortus-30-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:53.643Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "hopetech.com/products/wheels/trail/fortus-30-pro-5 fetched: confirms 30mm internal, freehub incl MicroSpline+XD, CL or 6-bolt, 148 Boost + 150/157 (matches catalog, no contradiction), rear wheel RRP $425. Hope publishes NO per-wheel weight (page lists none); only review wheelset totals (~2130-2305g pair) exist. Weight bar unmeetable."
   },
   "rw-stans-flow-ex3-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:53.948Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Stan's Flow EX3 is a RIM; complete-wheel weight is build/hub-dependent and not published by Stan's as a single figure (rim ~535g only). Existence/interfaces sourced from retailer SKUs (prior pass). No published complete-wheel weight. Weight bar unmeetable."
   },
   "rw-spank-359-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.113Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Spank (spank-ind.com) re-tested this session: 403 (was fetchable in a prior pass, now blocked - confirms standing block). Per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched spank-ind.com). Weight bar unmeetable."
   },
   "rw-enve-am30-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:54.243Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "ENVE sells the AM30 as a WHEELSET (pair weight only); no per-wheel rear weight published. Interfaces sourced prior pass. Weight bar unmeetable (per-wheel)."
   },
   "rw-crankbrothers-synthesis-xct11-29-ms": {
    "cat": "rearwheel",
@@ -3041,35 +2968,35 @@
   },
   "rw-dtswiss-fr-1500-29-157": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.118Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-dtswiss-fr-1500-29-150": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.218Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-dtswiss-fr-1500-275-150": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.318Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-crankbrothers-synthesis-dh11-29-157": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T17:26:14.098Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.crankbrothers.com/products/synthesis-dh-11-carbon-rear-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x-perf-elite-185x55-trun": {
    "cat": "shock",
@@ -3089,11 +3016,11 @@
   },
   "sh-ohlins-ttx22-m2-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:36:04.936Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "205x65 trunnion existence confirmed (ohlins.com model page, art MTBM 2228); but ohlins.com states no weight (bar unmeetable). WEIGHT-BASIS FLAG (chip task_6a19c936): 770 is with-spring; body ~486g without spring. desc note added."
   },
   "sh-ext-storia-v3-205x65-trun": {
    "cat": "shock",
@@ -3129,11 +3056,11 @@
   },
   "sh-manitou-mara-pro-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:32:37.603Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DATA CONTRADICTION (chip task_0d30d4b4): fetched hayesbicycle.com Mara Pro page - trunnion sizes are 165x40/165x45/185x50/205x60/225x75/230x60/230x65; NO 205x65 trunnion. Likely fabricated (prior velomine SKU mislabeled/discontinued). desc note added; needs retirement to ALIASES."
   },
   "sh-ext-storia-v3-205x60-trun": {
    "cat": "shock",
@@ -3169,11 +3096,11 @@
   },
   "sh-manitou-mara-pro-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:32:37.669Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "VALID size confirmed: fetched hayesbicycle.com Mara Pro page lists 205x60 trunnion (MSRP $629.99). But maker publishes a single 425g figure (not per-size) that conflicts with the ~490-500g reality for this size, so per-size weight can't be pinned - left unverified. The one real Mara Pro row of the three."
   },
   "sh-rockshox-sidluxe-ultimate-190x45": {
    "cat": "shock",
@@ -3201,19 +3128,19 @@
   },
   "sh-rockshox-vivid-ultimate-dh-250x75": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:30:17.483Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "sram.com RS-VIVD-ULT-C1 fetched: confirms 250x75 std size EXISTS (same C1 platform; 'DH' is just the size descriptor), MSRP 699-799 (catalog 769 in range) - no contradiction. sram gives only a 230x65 reference weight, not per-size; 250x75 weight (750 sample) unverifiable per-size. Weight bar unmeetable via sram."
   },
   "sh-rockshox-vivid-ultimate-225x75-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:30:17.433Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "sram.com RS-VIVD-ULT-C1 fetched: confirms 225x75(TR) size EXISTS in the Vivid Ultimate C1 lineup, MSRP range 699-799 (catalog 699 in range), gen C1 - no contradiction. But sram lists ONE reference weight (670g @ 230x65 std, no hardware), NOT per-size; the catalogued 225x75-trunnion weight (670g sample) is not maker-confirmed for that config. Per-size weight bar unmeetable via sram (needs editorial measured)."
   },
   "sh-rockshox-vivid-coil-ultimate-dh-250x75": {
    "cat": "shock",
@@ -3513,59 +3440,59 @@
   },
   "rw-weareone-union-275": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:18:11.231Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.612Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "We Are One (weareone.bike) is on the standing fetch-block list; per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched vitalmtb spec for the Union). Weight bar unmeetable."
   },
   "rw-spank-359-275": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:18:11.232Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.207Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Spank (spank-ind.com) re-tested this session: 403 (was fetchable in a prior pass, now blocked - confirms standing block). Per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched spank-ind.com). Weight bar unmeetable."
   },
   "rw-spank-359-275-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:18:11.232Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.318Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Spank (spank-ind.com) re-tested this session: 403 (was fetchable in a prior pass, now blocked - confirms standing block). Per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched spank-ind.com). Weight bar unmeetable."
   },
   "rw-stans-flow-ex3-275": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:18:11.232Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:54.048Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Stan's Flow EX3 is a RIM; complete-wheel weight is build/hub-dependent and not published by Stan's as a single figure (rim ~535g only). Existence/interfaces sourced from retailer SKUs (prior pass). No published complete-wheel weight. Weight bar unmeetable."
   },
   "rw-stans-flow-ex3-275-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:18:11.232Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:54.148Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Stan's Flow EX3 is a RIM; complete-wheel weight is build/hub-dependent and not published by Stan's as a single figure (rim ~535g only). Existence/interfaces sourced from retailer SKUs (prior pass). No published complete-wheel weight. Weight bar unmeetable."
   },
   "rw-hope-fortus-30-275": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:18:11.232Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:53.743Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "hopetech.com/products/wheels/trail/fortus-30-pro-5 fetched: confirms 30mm internal, freehub incl MicroSpline+XD, CL or 6-bolt, 148 Boost + 150/157 (matches catalog, no contradiction), rear wheel RRP $425. Hope publishes NO per-wheel weight (page lists none); only review wheelset totals (~2130-2305g pair) exist. Weight bar unmeetable."
   },
   "rw-hope-fortus-30-275-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:18:11.232Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:53.843Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "hopetech.com/products/wheels/trail/fortus-30-pro-5 fetched: confirms 30mm internal, freehub incl MicroSpline+XD, CL or 6-bolt, 148 Boost + 150/157 (matches catalog, no contradiction), rear wheel RRP $425. Hope publishes NO per-wheel weight (page lists none); only review wheelset totals (~2130-2305g pair) exist. Weight bar unmeetable."
   }
  }
 }
