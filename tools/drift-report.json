@@ -1,14 +1,14 @@
 {
  "version": 1,
  "created": "2026-07-08T16:24:53.199Z",
- "updated": "2026-07-08T17:11:23.262Z",
+ "updated": "2026-07-08T18:39:02.520Z",
  "limitDefault": 20,
  "results": {
   "fr-canyon-strive-cfr": {
    "status": "changed",
    "httpStatus": 200,
    "note": "not found on page: price",
-   "checkedAt": "2026-07-08T16:25:00.504Z",
+   "checkedAt": "2026-07-08T18:36:01.901Z",
    "url": "https://www.canyon.com/en-us/mountain-bikes/enduro-bikes/strive/cfr/strive-cfr/3195.html",
    "checks": [
     {
@@ -25,7 +25,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T16:25:01.411Z",
+   "checkedAt": "2026-07-08T18:36:02.912Z",
    "url": "https://raawmtb.com/en-us/pages/madonna-v2-2",
    "checks": [
     {
@@ -42,7 +42,7 @@
    "status": "changed",
    "httpStatus": 200,
    "note": "not found on page: price",
-   "checkedAt": "2026-07-08T16:25:02.256Z",
+   "checkedAt": "2026-07-08T18:36:03.779Z",
    "url": "https://raawmtb.com/en-us/pages/madonna-v3",
    "checks": [
     {
@@ -59,7 +59,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T16:25:03.415Z",
+   "checkedAt": "2026-07-08T18:36:04.747Z",
    "url": "https://raawmtb.com/en-us/pages/madonna-v3-2",
    "checks": [
     {
@@ -73,16 +73,12 @@
    ]
   },
   "fr-commencal-meta-sx-v5": {
-   "status": "changed",
+   "status": "ok",
    "httpStatus": 200,
-   "note": "not found on page: price",
-   "checkedAt": "2026-07-08T16:25:05.163Z",
+   "note": "price: no price field on this page (spec/FAQ content), skipped",
+   "checkedAt": "2026-07-08T18:36:06.286Z",
    "url": "https://www.commencal.com/ad/en/tech-meta-sx-v5.html",
    "checks": [
-    {
-     "field": "price",
-     "found": false
-    },
     {
      "field": "weight",
      "found": true
@@ -90,16 +86,12 @@
    ]
   },
   "fr-forbidden-dreadnought": {
-   "status": "changed",
+   "status": "ok",
    "httpStatus": 200,
-   "note": "not found on page: price",
-   "checkedAt": "2026-07-08T17:06:29.388Z",
+   "note": "price: no price field on this page (spec/FAQ content), skipped",
+   "checkedAt": "2026-07-08T18:36:06.850Z",
    "url": "https://forbiddenbike.com/faqs/dreadnought-faqs/",
    "checks": [
-    {
-     "field": "price",
-     "found": false
-    },
     {
      "field": "weight",
      "found": true
@@ -107,15 +99,15 @@
    ]
   },
   "fr-raaw-yalla-v2": {
-   "status": "changed",
+   "status": "ok",
    "httpStatus": 200,
-   "note": "not found on page: price",
-   "checkedAt": "2026-07-08T17:06:30.579Z",
+   "note": null,
+   "checkedAt": "2026-07-08T18:36:07.763Z",
    "url": "https://raawmtb.com/en-us/pages/yalla-v2",
    "checks": [
     {
      "field": "price",
-     "found": false
+     "found": true
     },
     {
      "field": "weight",
@@ -127,7 +119,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:06:31.591Z",
+   "checkedAt": "2026-07-08T18:36:08.766Z",
    "url": "https://www.sram.com/en/rockshox/models/fs-lyrk-ult-d2",
    "checks": [
     {
@@ -144,7 +136,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:06:32.511Z",
+   "checkedAt": "2026-07-08T18:36:09.783Z",
    "url": "https://bike.marzocchi.com/products/bomber-z1",
    "checks": [
     {
@@ -161,7 +153,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:06:33.259Z",
+   "checkedAt": "2026-07-08T18:36:10.409Z",
    "url": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-rxf38-m-2-air-ttx18-29-44-170",
    "checks": [
     {
@@ -178,7 +170,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:06:34.119Z",
+   "checkedAt": "2026-07-08T18:36:11.206Z",
    "url": "https://hayesbicycle.com/products/mezzer-pro-g2",
    "checks": [
     {
@@ -192,15 +184,15 @@
    ]
   },
   "fk-canecreek-helm-mkii-air-29-160": {
-   "status": "changed",
+   "status": "ok",
    "httpStatus": 200,
-   "note": "not found on page: price",
-   "checkedAt": "2026-07-08T17:06:35.532Z",
+   "note": null,
+   "checkedAt": "2026-07-08T18:36:12.177Z",
    "url": "https://www.canecreek.com/products/helm-mkii",
    "checks": [
     {
      "field": "price",
-     "found": false
+     "found": true
     },
     {
      "field": "weight",
@@ -209,16 +201,12 @@
    ]
   },
   "fk-formula-selva-s-29-160": {
-   "status": "changed",
+   "status": "ok",
    "httpStatus": 200,
-   "note": "not found on page: price",
-   "checkedAt": "2026-07-08T17:06:37.431Z",
+   "note": "price: no price field on this page (spec/FAQ content), skipped",
+   "checkedAt": "2026-07-08T18:36:13.582Z",
    "url": "https://www.rideformula.com/products/mountain-bike/selva-s/",
    "checks": [
-    {
-     "field": "price",
-     "found": false
-    },
     {
      "field": "weight",
      "found": true
@@ -226,15 +214,15 @@
    ]
   },
   "fk-ohlins-rxf36-m2-29-160": {
-   "status": "changed",
+   "status": "ok",
    "httpStatus": 200,
-   "note": "not found on page: price",
-   "checkedAt": "2026-07-08T17:06:37.906Z",
+   "note": null,
+   "checkedAt": "2026-07-08T18:36:13.999Z",
    "url": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-ohlins-rxf36-m-2-air-ttx18-29-51-160",
    "checks": [
     {
      "field": "price",
-     "found": false
+     "found": true
     },
     {
      "field": "weight",
@@ -246,7 +234,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:06:39.230Z",
+   "checkedAt": "2026-07-08T18:36:14.766Z",
    "url": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-rxf34-m-2-air-otx18-29-44-120",
    "checks": [
     {
@@ -263,7 +251,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:06:40.743Z",
+   "checkedAt": "2026-07-08T18:36:16.422Z",
    "url": "https://www.sram.com/en/rockshox/models/rs-sdlx-ult-c2",
    "checks": [
     {
@@ -280,7 +268,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:06:41.602Z",
+   "checkedAt": "2026-07-08T18:36:17.263Z",
    "url": "https://www.sram.com/en/rockshox/models/rs-sdlc-ult-b1",
    "checks": [
     {
@@ -293,7 +281,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:06:42.946Z",
+   "checkedAt": "2026-07-08T18:36:18.643Z",
    "url": "https://www.sram.com/en/rockshox/models/rs-vivd-ult-c1",
    "checks": [
     {
@@ -310,7 +298,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:06:45.125Z",
+   "checkedAt": "2026-07-08T18:36:20.172Z",
    "url": "https://www.dtswiss.com/en/support/product-support?matnr=WEX1700BEIXSA11691",
    "checks": [
     {
@@ -323,7 +311,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:06:46.050Z",
+   "checkedAt": "2026-07-08T18:36:20.792Z",
    "url": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_DATA_2019.pdf",
    "checks": [
     {
@@ -336,7 +324,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:06:47.421Z",
+   "checkedAt": "2026-07-08T18:36:21.835Z",
    "url": "https://www.crankbrothers.com/products/synthesis-enduro-carbon-front-wheel",
    "checks": [
     {
@@ -353,7 +341,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:06:48.861Z",
+   "checkedAt": "2026-07-08T18:36:23.491Z",
    "url": "https://www.enve.com/products/am30",
    "checks": [
     {
@@ -370,7 +358,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:06:50.145Z",
+   "checkedAt": "2026-07-08T18:36:24.471Z",
    "url": "https://stans.com/products/flow-ex3-wheelset",
    "checks": [
     {
@@ -383,7 +371,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:06:52.884Z",
+   "checkedAt": "2026-07-08T18:36:26.722Z",
    "url": "https://www.mavic.com/en-us/p/deemax-enduro-sl-29-rv2305",
    "checks": [
     {
@@ -396,7 +384,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:06:53.788Z",
+   "checkedAt": "2026-07-08T18:36:27.606Z",
    "url": "https://www.crankbrothers.com/products/synthesis-xct-11-carbon-front-wheel",
    "checks": [
     {
@@ -413,7 +401,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:04.156Z",
+   "checkedAt": "2026-07-08T18:36:28.354Z",
    "url": "https://www.crankbrothers.com/products/synthesis-dh-11-carbon-front-wheel",
    "checks": [
     {
@@ -430,7 +418,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:04.929Z",
+   "checkedAt": "2026-07-08T18:36:29.021Z",
    "url": "https://www.crankbrothers.com/products/synthesis-dh-11-carbon-front-wheel",
    "checks": [
     {
@@ -447,7 +435,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:07:05.494Z",
+   "checkedAt": "2026-07-08T18:36:29.782Z",
    "url": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_DATA_2019.pdf",
    "checks": [
     {
@@ -460,7 +448,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:06.285Z",
+   "checkedAt": "2026-07-08T18:36:30.534Z",
    "url": "https://www.crankbrothers.com/products/synthesis-enduro-carbon-rear-wheel",
    "checks": [
     {
@@ -477,7 +465,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:07.373Z",
+   "checkedAt": "2026-07-08T18:36:31.262Z",
    "url": "https://www.enve.com/products/am30",
    "checks": [
     {
@@ -494,7 +482,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:08.413Z",
+   "checkedAt": "2026-07-08T18:36:32.226Z",
    "url": "https://stans.com/products/flow-ex3-wheelset",
    "checks": [
     {
@@ -511,7 +499,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:07:09.562Z",
+   "checkedAt": "2026-07-08T18:36:34.318Z",
    "url": "https://www.mavic.com/en-us/p/deemax-enduro-sl-29-rv2305",
    "checks": [
     {
@@ -524,7 +512,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:10.286Z",
+   "checkedAt": "2026-07-08T18:36:34.985Z",
    "url": "https://www.crankbrothers.com/products/synthesis-xct-11-carbon-rear-wheel",
    "checks": [
     {
@@ -541,7 +529,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:10.959Z",
+   "checkedAt": "2026-07-08T18:36:35.396Z",
    "url": "https://www.crankbrothers.com/products/synthesis-xct-11-carbon-rear-wheel",
    "checks": [
     {
@@ -558,7 +546,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:11.630Z",
+   "checkedAt": "2026-07-08T18:36:36.028Z",
    "url": "https://www.maxxis.com/us/tire/assegai/",
    "checks": [
     {
@@ -575,7 +563,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:07:12.029Z",
+   "checkedAt": "2026-07-08T18:36:36.439Z",
    "url": "https://www.maxxis.com/us/tire/assegai/",
    "checks": [
     {
@@ -588,7 +576,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:07:12.419Z",
+   "checkedAt": "2026-07-08T18:36:36.791Z",
    "url": "https://www.maxxis.com/us/tire/aspen/",
    "checks": [
     {
@@ -601,7 +589,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:07:12.798Z",
+   "checkedAt": "2026-07-08T18:36:37.141Z",
    "url": "https://www.maxxis.com/us/tire/aspen/",
    "checks": [
     {
@@ -614,7 +602,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:13.726Z",
+   "checkedAt": "2026-07-08T18:36:38.330Z",
    "url": "https://vittoria.com/products/mezcal-xc-race",
    "checks": [
     {
@@ -631,7 +619,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:14.408Z",
+   "checkedAt": "2026-07-08T18:36:38.752Z",
    "url": "https://vittoria.com/products/mezcal-xc-race",
    "checks": [
     {
@@ -648,7 +636,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:07:14.860Z",
+   "checkedAt": "2026-07-08T18:36:44.002Z",
    "url": "https://www.maxxis.com/us/tire/rekon-race/",
    "checks": [
     {
@@ -661,7 +649,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:07:15.240Z",
+   "checkedAt": "2026-07-08T18:36:44.333Z",
    "url": "https://www.maxxis.com/us/tire/rekon-race/",
    "checks": [
     {
@@ -674,7 +662,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "weight: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:07:17.554Z",
+   "checkedAt": "2026-07-08T18:36:45.631Z",
    "url": "https://www.schwalbetires.com/Racing-Ralph-11654053.01",
    "checks": [
     {
@@ -687,7 +675,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "weight: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:07:19.345Z",
+   "checkedAt": "2026-07-08T18:36:46.185Z",
    "url": "https://www.schwalbetires.com/Racing-Ray-11654052.01",
    "checks": [
     {
@@ -700,7 +688,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:19.768Z",
+   "checkedAt": "2026-07-08T18:36:46.537Z",
    "url": "https://www.maxxis.com/us/tire/minion-dhr-ii/",
    "checks": [
     {
@@ -717,7 +705,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:07:50.158Z",
+   "checkedAt": "2026-07-08T18:36:50.383Z",
    "url": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
    "checks": [
     {
@@ -730,7 +718,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:51.254Z",
+   "checkedAt": "2026-07-08T18:36:51.187Z",
    "url": "https://www.schwalbetires.com/Magic-Mary",
    "checks": [
     {
@@ -747,7 +735,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:51.830Z",
+   "checkedAt": "2026-07-08T18:36:54.965Z",
    "url": "https://www.schwalbetires.com/magic-mary-11654180",
    "checks": [
     {
@@ -764,7 +752,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:52.303Z",
+   "checkedAt": "2026-07-08T18:36:55.450Z",
    "url": "https://www.maxxis.com/us/tire/assegai/",
    "checks": [
     {
@@ -781,7 +769,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:52.678Z",
+   "checkedAt": "2026-07-08T18:36:55.785Z",
    "url": "https://www.maxxis.com/us/tire/minion-dhr-ii/",
    "checks": [
     {
@@ -798,7 +786,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:53.065Z",
+   "checkedAt": "2026-07-08T18:36:56.102Z",
    "url": "https://www.maxxis.com/us/tire/minion-dhf/",
    "checks": [
     {
@@ -815,7 +803,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:07:53.423Z",
+   "checkedAt": "2026-07-08T18:36:56.435Z",
    "url": "https://www.maxxis.com/us/tire/minion-dhf/",
    "checks": [
     {
@@ -828,7 +816,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:07:53.806Z",
+   "checkedAt": "2026-07-08T18:36:56.754Z",
    "url": "https://www.maxxis.com/us/tire/minion-dhr-ii/",
    "checks": [
     {
@@ -841,7 +829,7 @@
    "status": "changed",
    "httpStatus": 200,
    "note": "not found on page: price",
-   "checkedAt": "2026-07-08T17:07:55.002Z",
+   "checkedAt": "2026-07-08T18:36:57.548Z",
    "url": "https://www.schwalbetires.com/Big-Betty",
    "checks": [
     {
@@ -858,7 +846,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:07:55.574Z",
+   "checkedAt": "2026-07-08T18:36:58.106Z",
    "url": "https://www.schwalbetires.com/Big-Betty",
    "checks": [
     {
@@ -875,7 +863,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:07:56.806Z",
+   "checkedAt": "2026-07-08T18:36:59.306Z",
    "url": "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/scorpion-enduro-s",
    "checks": [
     {
@@ -888,7 +876,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:08:34.436Z",
+   "checkedAt": "2026-07-08T18:37:02.608Z",
    "url": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
    "checks": [
     {
@@ -901,7 +889,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:08:34.965Z",
+   "checkedAt": "2026-07-08T18:37:03.100Z",
    "url": "https://www.maxxis.com/us/tire/dissector/",
    "checks": [
     {
@@ -918,7 +906,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:08:37.445Z",
+   "checkedAt": "2026-07-08T18:37:04.245Z",
    "url": "https://www.maxxis.com/us/tire/high-roller-ii/",
    "checks": [
     {
@@ -931,7 +919,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:08:40.044Z",
+   "checkedAt": "2026-07-08T18:37:04.624Z",
    "url": "https://www.maxxis.com/us/tire/shorty/",
    "checks": [
     {
@@ -944,7 +932,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:08:41.149Z",
+   "checkedAt": "2026-07-08T18:37:05.711Z",
    "url": "https://www.schwalbetires.com/Hans-Dampf",
    "checks": [
     {
@@ -961,7 +949,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:09:05.970Z",
+   "checkedAt": "2026-07-08T18:37:09.360Z",
    "url": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
    "checks": [
     {
@@ -974,7 +962,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:06.762Z",
+   "checkedAt": "2026-07-08T18:37:10.207Z",
    "url": "https://vittoria.com/products/mazza-enduro",
    "checks": [
     {
@@ -991,7 +979,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:07.847Z",
+   "checkedAt": "2026-07-08T18:37:11.024Z",
    "url": "https://www.schwalbetires.com/Magic-Mary",
    "checks": [
     {
@@ -1008,7 +996,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:09:08.412Z",
+   "checkedAt": "2026-07-08T18:37:11.509Z",
    "url": "https://www.maxxis.com/us/tire/aggressor/",
    "checks": [
     {
@@ -1021,7 +1009,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:09:23.145Z",
+   "checkedAt": "2026-07-08T18:37:12.501Z",
    "url": "https://www.wtb.com/products/vigilante-sg1",
    "checks": [
     {
@@ -1034,7 +1022,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:09:23.992Z",
+   "checkedAt": "2026-07-08T18:37:13.221Z",
    "url": "https://www.wtb.com/products/judge-sg1",
    "checks": [
     {
@@ -1047,7 +1035,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:09:25.997Z",
+   "checkedAt": "2026-07-08T18:37:14.637Z",
    "url": "https://bicycle.kendatire.com/en-eu/find-a-tire/bicycle/mtb/hellkat/",
    "checks": [
     {
@@ -1060,7 +1048,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:09:26.824Z",
+   "checkedAt": "2026-07-08T18:37:15.528Z",
    "url": "https://goodyearbike.com/products/newton-mtf",
    "checks": [
     {
@@ -1073,7 +1061,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:28.168Z",
+   "checkedAt": "2026-07-08T18:37:16.622Z",
    "url": "https://www.sram.com/en/sram/models/sl-gx-1-a2",
    "checks": [
     {
@@ -1090,7 +1078,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:28.963Z",
+   "checkedAt": "2026-07-08T18:37:17.368Z",
    "url": "https://www.sram.com/en/sram/models/sl-nx-1-b1",
    "checks": [
     {
@@ -1107,7 +1095,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:29.567Z",
+   "checkedAt": "2026-07-08T18:37:17.973Z",
    "url": "https://www.sram.com/en/sram/models/rd-gx-e-b1",
    "checks": [
     {
@@ -1124,7 +1112,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:30.302Z",
+   "checkedAt": "2026-07-08T18:37:18.723Z",
    "url": "https://www.sram.com/en/sram/models/rd-gx-1-b2",
    "checks": [
     {
@@ -1141,7 +1129,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:30.887Z",
+   "checkedAt": "2026-07-08T18:37:19.363Z",
    "url": "https://www.sram.com/en/sram/models/rd-x0-e-b1",
    "checks": [
     {
@@ -1158,7 +1146,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:31.512Z",
+   "checkedAt": "2026-07-08T18:37:20.024Z",
    "url": "https://www.sram.com/en/sram/models/rd-xx-e-b1",
    "checks": [
     {
@@ -1175,7 +1163,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:32.315Z",
+   "checkedAt": "2026-07-08T18:37:20.778Z",
    "url": "https://www.sram.com/en/sram/models/rd-nx-1-b1",
    "checks": [
     {
@@ -1192,7 +1180,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:33.023Z",
+   "checkedAt": "2026-07-08T18:37:21.556Z",
    "url": "https://www.sram.com/en/sram/models/rd-x0-1-b2",
    "checks": [
     {
@@ -1209,7 +1197,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:33.627Z",
+   "checkedAt": "2026-07-08T18:37:22.180Z",
    "url": "https://www.sram.com/en/sram/models/rd-gx-1e-a1",
    "checks": [
     {
@@ -1223,15 +1211,15 @@
    ]
   },
   "ca-sram-xs1275": {
-   "status": "changed",
+   "status": "ok",
    "httpStatus": 200,
-   "note": "not found on page: price",
-   "checkedAt": "2026-07-08T17:09:34.309Z",
+   "note": null,
+   "checkedAt": "2026-07-08T18:37:22.831Z",
    "url": "https://www.sram.com/en/sram/models/cs-xs-1275-a1",
    "checks": [
     {
      "field": "price",
-     "found": false
+     "found": true
     },
     {
      "field": "weight",
@@ -1243,7 +1231,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:35.099Z",
+   "checkedAt": "2026-07-08T18:37:23.582Z",
    "url": "https://www.sram.com/en/sram/models/cs-xg-1275-b1",
    "checks": [
     {
@@ -1260,7 +1248,7 @@
    "status": "unfetchable",
    "httpStatus": 403,
    "note": "blocked (HTTP 403)",
-   "checkedAt": "2026-07-08T17:09:35.595Z",
+   "checkedAt": "2026-07-08T18:37:30.638Z",
    "url": "https://bike.shimano.com/en-US/product/component/deore-xt-m8100/CS-M8100-12.html",
    "checks": null
   },
@@ -1268,7 +1256,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:36.247Z",
+   "checkedAt": "2026-07-08T18:37:31.340Z",
    "url": "https://www.sram.com/en/sram/models/cs-xs-1299-a1",
    "checks": [
     {
@@ -1285,7 +1273,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:37.439Z",
+   "checkedAt": "2026-07-08T18:37:32.114Z",
    "url": "https://www.sram.com/en/sram/models/cs-xg-1295-b1",
    "checks": [
     {
@@ -1302,7 +1290,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:38.363Z",
+   "checkedAt": "2026-07-08T18:37:32.890Z",
    "url": "https://www.sram.com/en/sram/models/cs-pg-1230-a1",
    "checks": [
     {
@@ -1319,7 +1307,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:38.971Z",
+   "checkedAt": "2026-07-08T18:37:33.454Z",
    "url": "https://www.sram.com/en/sram/models/cn-ttyp-gx-a1",
    "checks": [
     {
@@ -1336,7 +1324,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:44.007Z",
+   "checkedAt": "2026-07-08T18:37:34.138Z",
    "url": "https://www.sram.com/en/sram/models/cn-eagl-gx-a1",
    "checks": [
     {
@@ -1353,7 +1341,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:44.633Z",
+   "checkedAt": "2026-07-08T18:37:35.034Z",
    "url": "https://www.sram.com/en/sram/models/cn-eagl-x01-a1",
    "checks": [
     {
@@ -1370,7 +1358,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:45.346Z",
+   "checkedAt": "2026-07-08T18:37:35.777Z",
    "url": "https://www.sram.com/en/sram/models/fc-gx-1-b1",
    "checks": [
     {
@@ -1387,7 +1375,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:46.230Z",
+   "checkedAt": "2026-07-08T18:37:36.453Z",
    "url": "https://www.sram.com/en/sram/models/fc-x0-d1",
    "checks": [
     {
@@ -1404,7 +1392,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:47.054Z",
+   "checkedAt": "2026-07-08T18:37:37.334Z",
    "url": "https://www.raceface.com/products/aeffect-r-crankset",
    "checks": [
     {
@@ -1421,7 +1409,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:47.974Z",
+   "checkedAt": "2026-07-08T18:37:38.191Z",
    "url": "https://www.sram.com/en/sram/models/fc-nx-1-c1",
    "checks": [
     {
@@ -1435,15 +1423,15 @@
    ]
   },
   "cr-canecreek-eewings-allmountain": {
-   "status": "changed",
+   "status": "ok",
    "httpStatus": 200,
-   "note": "not found on page: price",
-   "checkedAt": "2026-07-08T17:09:48.987Z",
+   "note": null,
+   "checkedAt": "2026-07-08T18:37:39.293Z",
    "url": "https://www.canecreek.com/products/eewings",
    "checks": [
     {
      "field": "price",
-     "found": false
+     "found": true
     },
     {
      "field": "weight",
@@ -1455,7 +1443,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:49.566Z",
+   "checkedAt": "2026-07-08T18:37:39.926Z",
    "url": "https://www.sram.com/en/sram/models/cs-xg-795-a1",
    "checks": [
     {
@@ -1472,7 +1460,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:09:50.678Z",
+   "checkedAt": "2026-07-08T18:37:40.905Z",
    "url": "https://www.sram.com/en/sram/models/db-lvl-ult2-c1",
    "checks": [
     {
@@ -1485,7 +1473,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:51.566Z",
+   "checkedAt": "2026-07-08T18:37:42.085Z",
    "url": "https://hayesbicycle.com/products/dominion-a4-brake-kit",
    "checks": [
     {
@@ -1502,7 +1490,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:53.561Z",
+   "checkedAt": "2026-07-08T18:37:44.110Z",
    "url": "https://magura.com/product/mt7-pro/",
    "checks": [
     {
@@ -1519,7 +1507,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:54.242Z",
+   "checkedAt": "2026-07-08T18:37:44.778Z",
    "url": "https://www.sram.com/en/sram/models/db-mvn-ult-a1",
    "checks": [
     {
@@ -1536,7 +1524,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:55.038Z",
+   "checkedAt": "2026-07-08T18:37:45.509Z",
    "url": "https://trpcycling.com/products/dh-r-evo",
    "checks": [
     {
@@ -1553,7 +1541,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:56.262Z",
+   "checkedAt": "2026-07-08T18:37:46.702Z",
    "url": "https://www.rideformula.com/products/mtb-brakes/cura4/",
    "checks": [
     {
@@ -1570,7 +1558,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:57.634Z",
+   "checkedAt": "2026-07-08T18:37:48.115Z",
    "url": "https://magura.com/product/mt5/",
    "checks": [
     {
@@ -1587,7 +1575,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:58.474Z",
+   "checkedAt": "2026-07-08T18:37:48.857Z",
    "url": "https://www.sram.com/en/service/models/db-g2-rsc-a2",
    "checks": [
     {
@@ -1604,7 +1592,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:09:59.038Z",
+   "checkedAt": "2026-07-08T18:37:49.412Z",
    "url": "https://trpcycling.com/products/trail-evo",
    "checks": [
     {
@@ -1621,7 +1609,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:00.434Z",
+   "checkedAt": "2026-07-08T18:37:50.783Z",
    "url": "https://magura.com/product/mt-trail-sport/",
    "checks": [
     {
@@ -1638,7 +1626,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:10:01.213Z",
+   "checkedAt": "2026-07-08T18:37:51.583Z",
    "url": "https://www.sram.com/en/sram/models/rt-hs-2-a1",
    "checks": [
     {
@@ -1651,7 +1639,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:04.602Z",
+   "checkedAt": "2026-07-08T18:37:52.292Z",
    "url": "https://hayesbicycle.com/products/d-series-rotor",
    "checks": [
     {
@@ -1665,15 +1653,15 @@
    ]
   },
   "hb-renthal-fatbar-35": {
-   "status": "changed",
+   "status": "ok",
    "httpStatus": 200,
-   "note": "not found on page: price",
-   "checkedAt": "2026-07-08T17:10:11.596Z",
+   "note": null,
+   "checkedAt": "2026-07-08T18:37:53.102Z",
    "url": "https://www.renthal.com/cycle/index.php?route=product/product&product_id=4767",
    "checks": [
     {
      "field": "price",
-     "found": false
+     "found": true
     },
     {
      "field": "weight",
@@ -1685,7 +1673,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:12.672Z",
+   "checkedAt": "2026-07-08T18:37:54.201Z",
    "url": "https://www.oneupcomponents.com/products/v2-carbon-handlebar",
    "checks": [
     {
@@ -1702,7 +1690,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:13.749Z",
+   "checkedAt": "2026-07-08T18:37:55.349Z",
    "url": "https://au.raceface.com/products/next-r-35-handlebar",
    "checks": [
     {
@@ -1719,7 +1707,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:14.421Z",
+   "checkedAt": "2026-07-08T18:37:56.064Z",
    "url": "https://www.deitycomponents.com/skywire_carbon_handlebar_25mm.html",
    "checks": [
     {
@@ -1736,7 +1724,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:15.308Z",
+   "checkedAt": "2026-07-08T18:37:57.101Z",
    "url": "https://spank-ind.com/products/spike-800-vibrocore%E2%84%A2-bar",
    "checks": [
     {
@@ -1753,7 +1741,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:16.001Z",
+   "checkedAt": "2026-07-08T18:37:57.939Z",
    "url": "https://www.oneupcomponents.com/products/aluminum-handlebar",
    "checks": [
     {
@@ -1770,7 +1758,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:17.629Z",
+   "checkedAt": "2026-07-08T18:37:59.481Z",
    "url": "https://us.chromagbikes.com/products/osx",
    "checks": [
     {
@@ -1787,7 +1775,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:18.291Z",
+   "checkedAt": "2026-07-08T18:38:00.461Z",
    "url": "https://www.sram.com/en/truvativ/models/hb-desc-rc5-a1",
    "checks": [
     {
@@ -1804,7 +1792,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:19.211Z",
+   "checkedAt": "2026-07-08T18:38:01.448Z",
    "url": "https://www.renthal.com/cycle/apex",
    "checks": [
     {
@@ -1821,7 +1809,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:20.037Z",
+   "checkedAt": "2026-07-08T18:38:02.350Z",
    "url": "https://www.oneupcomponents.com/products/stem",
    "checks": [
     {
@@ -1838,7 +1826,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:20.808Z",
+   "checkedAt": "2026-07-08T18:38:03.428Z",
    "url": "https://www.raceface.com/products/aeffect-r-stem",
    "checks": [
     {
@@ -1855,7 +1843,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:21.984Z",
+   "checkedAt": "2026-07-08T18:38:04.344Z",
    "url": "https://www.deitycomponents.com/store/p299/COPPERHEAD_35_50_STORE.html",
    "checks": [
     {
@@ -1872,7 +1860,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:22.639Z",
+   "checkedAt": "2026-07-08T18:38:05.080Z",
    "url": "https://spank-ind.com/products/spike-race-stem",
    "checks": [
     {
@@ -1889,7 +1877,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:23.572Z",
+   "checkedAt": "2026-07-08T18:38:06.207Z",
    "url": "https://industrynine.com/products/mt",
    "checks": [
     {
@@ -1906,7 +1894,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:24.472Z",
+   "checkedAt": "2026-07-08T18:38:07.347Z",
    "url": "https://funnmtb.com/products/rsx/",
    "checks": [
     {
@@ -1923,7 +1911,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:25.263Z",
+   "checkedAt": "2026-07-08T18:38:08.441Z",
    "url": "https://www.oneupcomponents.com/products/grips",
    "checks": [
     {
@@ -1940,7 +1928,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:26.212Z",
+   "checkedAt": "2026-07-08T18:38:09.661Z",
    "url": "https://esigrips.com/products/chunky",
    "checks": [
     {
@@ -1957,7 +1945,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:27.305Z",
+   "checkedAt": "2026-07-08T18:38:11.005Z",
    "url": "https://www.pnwcomponents.com/products/loam-grips",
    "checks": [
     {
@@ -1974,7 +1962,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:28.137Z",
+   "checkedAt": "2026-07-08T18:38:11.847Z",
    "url": "https://ergonbike.shop/products/ergon-ge1-evo",
    "checks": [
     {
@@ -1991,7 +1979,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:29.179Z",
+   "checkedAt": "2026-07-08T18:38:12.712Z",
    "url": "https://dmrbikes.com/products/dmr-deathgrip-race-grips",
    "checks": [
     {
@@ -2008,7 +1996,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:34.962Z",
+   "checkedAt": "2026-07-08T18:38:21.090Z",
    "url": "https://us.chromagbikes.com/products/grips-squarewave",
    "checks": [
     {
@@ -2025,7 +2013,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:36.616Z",
+   "checkedAt": "2026-07-08T18:38:21.884Z",
    "url": "https://www.raceface.com/products/half-nelson-grip",
    "checks": [
     {
@@ -2042,7 +2030,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:37.292Z",
+   "checkedAt": "2026-07-08T18:38:22.451Z",
    "url": "https://www.deitycomponents.com/knuckleduster-grips.html",
    "checks": [
     {
@@ -2059,7 +2047,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:38.480Z",
+   "checkedAt": "2026-07-08T18:38:23.365Z",
    "url": "https://www.oneupcomponents.com/products/dropper-post-v3",
    "checks": [
     {
@@ -2076,7 +2064,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:39.368Z",
+   "checkedAt": "2026-07-08T18:38:24.156Z",
    "url": "https://www.pnwcomponents.com/products/loam-dropper-post",
    "checks": [
     {
@@ -2093,7 +2081,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:40.433Z",
+   "checkedAt": "2026-07-08T18:38:24.613Z",
    "url": "https://www.oneupcomponents.com/products/dropper-post-v3",
    "checks": [
     {
@@ -2110,7 +2098,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:41.432Z",
+   "checkedAt": "2026-07-08T18:38:25.447Z",
    "url": "https://www.crankbrothers.com/products/highline-7-dropper",
    "checks": [
     {
@@ -2127,7 +2115,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:42.589Z",
+   "checkedAt": "2026-07-08T18:38:26.707Z",
    "url": "https://ridefox.com/products/fox-transfer-neo-seatpost",
    "checks": [
     {
@@ -2144,7 +2132,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:45.260Z",
+   "checkedAt": "2026-07-08T18:38:28.490Z",
    "url": "https://kssuspension.com/products/dropper-seat-posts/lev-integra/",
    "checks": [
     {
@@ -2161,7 +2149,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:45.782Z",
+   "checkedAt": "2026-07-08T18:38:29.004Z",
    "url": "https://www.pnwcomponents.com/products/loam-dropper-post",
    "checks": [
     {
@@ -2178,7 +2166,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:47.165Z",
+   "checkedAt": "2026-07-08T18:38:30.031Z",
    "url": "https://www.ethirteen.com/products/vario-dropper-post",
    "checks": [
     {
@@ -2195,7 +2183,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:47.953Z",
+   "checkedAt": "2026-07-08T18:38:31.011Z",
    "url": "https://www.wtb.com/products/volt",
    "checks": [
     {
@@ -2212,7 +2200,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:48.937Z",
+   "checkedAt": "2026-07-08T18:38:32.206Z",
    "url": "https://sdgcomponents.com/products/bel-air-v3-lux-alloy",
    "checks": [
     {
@@ -2229,7 +2217,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:50.400Z",
+   "checkedAt": "2026-07-08T18:38:33.527Z",
    "url": "https://www.fizik.com/us_en/terra-aidon-x3.html",
    "checks": [
     {
@@ -2246,7 +2234,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:51.017Z",
+   "checkedAt": "2026-07-08T18:38:34.511Z",
    "url": "https://www.wtb.com/products/silverado",
    "checks": [
     {
@@ -2263,7 +2251,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:52.105Z",
+   "checkedAt": "2026-07-08T18:38:35.834Z",
    "url": "https://fabric.cc/products/scoop-sport-radius",
    "checks": [
     {
@@ -2280,7 +2268,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:52.838Z",
+   "checkedAt": "2026-07-08T18:38:36.646Z",
    "url": "https://sdgcomponents.com/products/radar-mtn-ti-alloy",
    "checks": [
     {
@@ -2297,7 +2285,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:54.246Z",
+   "checkedAt": "2026-07-08T18:38:38.276Z",
    "url": "https://us.chromagbikes.com/products/saddles-trailmaster-dt-19",
    "checks": [
     {
@@ -2314,7 +2302,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:54.954Z",
+   "checkedAt": "2026-07-08T18:38:39.034Z",
    "url": "https://dmrbikes.com/products/dmr-oioi-saddle",
    "checks": [
     {
@@ -2331,7 +2319,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:10:55.798Z",
+   "checkedAt": "2026-07-08T18:38:39.863Z",
    "url": "https://www.oneupcomponents.com/products/aluminum-pedal",
    "checks": [
     {
@@ -2348,7 +2336,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:11:00.681Z",
+   "checkedAt": "2026-07-08T18:38:40.548Z",
    "url": "https://www.oneupcomponents.com/products/comp-pedal",
    "checks": [
     {
@@ -2365,7 +2353,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:11:01.541Z",
+   "checkedAt": "2026-07-08T18:38:41.307Z",
    "url": "https://www.raceface.com/products/chester-pedal",
    "checks": [
     {
@@ -2382,7 +2370,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:11:02.202Z",
+   "checkedAt": "2026-07-08T18:38:42.002Z",
    "url": "https://www.raceface.com/products/atlas-pedal",
    "checks": [
     {
@@ -2399,7 +2387,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:11:03.136Z",
+   "checkedAt": "2026-07-08T18:38:42.758Z",
    "url": "https://www.crankbrothers.com/products/stamp-7-large",
    "checks": [
     {
@@ -2416,7 +2404,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:11:03.871Z",
+   "checkedAt": "2026-07-08T18:38:43.393Z",
    "url": "https://www.crankbrothers.com/products/mallet-e",
    "checks": [
     {
@@ -2433,7 +2421,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:11:04.550Z",
+   "checkedAt": "2026-07-08T18:38:44.070Z",
    "url": "https://www.crankbrothers.com/products/eggbeater-3",
    "checks": [
     {
@@ -2450,7 +2438,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:11:05.454Z",
+   "checkedAt": "2026-07-08T18:38:44.857Z",
    "url": "https://www.sram.com/en/time-sport/models/pd-spc-12-b1",
    "checks": [
     {
@@ -2467,7 +2455,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:11:06.339Z",
+   "checkedAt": "2026-07-08T18:38:45.590Z",
    "url": "https://ride.shimano.com/products/pd-m8120",
    "checks": [
     {
@@ -2484,7 +2472,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:11:06.929Z",
+   "checkedAt": "2026-07-08T18:38:46.142Z",
    "url": "https://www.deitycomponents.com/tmac-signature-pedals.html",
    "checks": [
     {
@@ -2501,7 +2489,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:11:07.775Z",
+   "checkedAt": "2026-07-08T18:38:46.878Z",
    "url": "https://dmrbikes.com/products/dmr-vault-pedal",
    "checks": [
     {
@@ -2518,7 +2506,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:11:09.562Z",
+   "checkedAt": "2026-07-08T18:38:48.210Z",
    "url": "https://us.chromagbikes.com/products/pedals-dagga",
    "checks": [
     {
@@ -2535,7 +2523,7 @@
    "status": "changed",
    "httpStatus": 200,
    "note": "not found on page: price",
-   "checkedAt": "2026-07-08T17:11:10.324Z",
+   "checkedAt": "2026-07-08T18:38:48.933Z",
    "url": "https://www.hopetech.com/products/drivetrain/pedals/f22-flat-pedal/",
    "checks": [
     {
@@ -2552,7 +2540,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": null,
-   "checkedAt": "2026-07-08T17:11:11.151Z",
+   "checkedAt": "2026-07-08T18:38:49.594Z",
    "url": "https://www.crankbrothers.com/products/stamp-1-gen-2-large",
    "checks": [
     {
@@ -2569,7 +2557,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:11:12.373Z",
+   "checkedAt": "2026-07-08T18:38:50.905Z",
    "url": "https://privateerbikes.com/products/privateer-161-frameset",
    "checks": [
     {
@@ -2582,7 +2570,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:11:13.990Z",
+   "checkedAt": "2026-07-08T18:38:52.667Z",
    "url": "https://www.commencal.com/us/en/frame-commencal-frs-pure-white/FT4FRS3.html",
    "checks": [
     {
@@ -2592,15 +2580,15 @@
    ]
   },
   "fr-raaw-jibb": {
-   "status": "changed",
+   "status": "ok",
    "httpStatus": 200,
-   "note": "not found on page: price",
-   "checkedAt": "2026-07-08T17:11:14.913Z",
+   "note": null,
+   "checkedAt": "2026-07-08T18:38:53.406Z",
    "url": "https://raawmtb.com/en-us/pages/jibb",
    "checks": [
     {
      "field": "price",
-     "found": false
+     "found": true
     },
     {
      "field": "weight",
@@ -2612,7 +2600,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:11:15.650Z",
+   "checkedAt": "2026-07-08T18:38:54.421Z",
    "url": "https://www.commencal.com/us/en/frame-commencal-meta-2-2023/23CMETATR2.html",
    "checks": [
     {
@@ -2625,7 +2613,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:11:16.411Z",
+   "checkedAt": "2026-07-08T18:38:55.331Z",
    "url": "https://www.commencal.com/us/en/commencal-meta-ht-v3-hardtail-mtb-frame-2025-us/FT5MHTV31.html",
    "checks": [
     {
@@ -2638,7 +2626,7 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:11:17.069Z",
+   "checkedAt": "2026-07-08T18:38:56.078Z",
    "url": "https://privateerbikes.com/products/privateer-141-frameset",
    "checks": [
     {
@@ -2651,8 +2639,38 @@
    "status": "ok",
    "httpStatus": 200,
    "note": "price: sample-grade, skipped",
-   "checkedAt": "2026-07-08T17:11:17.794Z",
+   "checkedAt": "2026-07-08T18:38:57.114Z",
    "url": "https://www.commencal.com/us/en/frame-commencal-tempo-2-2023/23CMETATC2.html",
+   "checks": [
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
+  },
+  "rw-crankbrothers-synthesis-dh11-29-157": {
+   "status": "ok",
+   "httpStatus": 200,
+   "note": null,
+   "checkedAt": "2026-07-08T18:38:57.890Z",
+   "url": "https://www.crankbrothers.com/products/synthesis-dh-11-carbon-rear-wheel",
+   "checks": [
+    {
+     "field": "price",
+     "found": true
+    },
+    {
+     "field": "weight",
+     "found": true
+    }
+   ]
+  },
+  "ti-maxxis-assegai-29-25-dh-mg": {
+   "status": "ok",
+   "httpStatus": 200,
+   "note": "price: sample-grade, skipped",
+   "checkedAt": "2026-07-08T18:38:58.325Z",
+   "url": "https://www.maxxis.com/us/tire/assegai/",
    "checks": [
     {
      "field": "weight",
