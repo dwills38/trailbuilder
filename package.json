@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit",
     "verify:status": "node tools/verify-job.js status",
     "verify:next": "node tools/verify-job.js next",
-    "verify:report": "node tools/verify-job.js report"
+    "verify:report": "node tools/verify-job.js report",
+    "verify:drift": "node tools/drift-check.js run"
   },
   "devDependencies": {
     "@types/node": "^26.0.0",
