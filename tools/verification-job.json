@@ -1,17 +1,61 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-07T22:00:41.600Z",
+ "updated": "2026-07-08T00:58:28.032Z",
  "batchSize": 25,
- "lastCompleted": "rw-dtswiss-ex-1700-29",
- "currentCategory": null,
- "queue": [],
+ "lastCompleted": "ro-sram-hs2-220-6b",
+ "currentCategory": "frame",
+ "queue": [
+  "fr-specialized-enduro-sworks",
+  "fr-trek-slash",
+  "fr-norco-range-c1",
+  "fr-pivot-firebird",
+  "fr-nukeproof-giga-290",
+  "fr-orbea-rallon-mteam",
+  "fr-rockymountain-altitude-c70",
+  "fr-propain-spindrift-cf",
+  "ti-michelin-wild-enduro-mh-29-24",
+  "ti-specialized-butcher-t9-29-23",
+  "ti-michelin-dh22-29-24",
+  "fw-industrynine-enduro-s-29",
+  "fw-roval-traverse-hd-29",
+  "fw-dtswiss-e-1900-275",
+  "fw-weareone-union-29",
+  "fw-newmen-advanced-sl-a30-29",
+  "fw-spank-359-29",
+  "fw-shimano-mt500-29",
+  "fw-raceface-turbine-sl-29",
+  "fw-bontrager-line-pro-30-29",
+  "fw-giant-trx-0-29",
+  "rw-dtswiss-ex-1700-29",
+  "rw-industrynine-enduro-s-29",
+  "rw-roval-traverse-hd-29",
+  "rw-industrynine-enduro-s-29-157",
+  "rw-dtswiss-e-1900-275",
+  "rw-dtswiss-e-1900-275-xd",
+  "rw-weareone-union-29",
+  "rw-newmen-advanced-sl-a30-29",
+  "rw-spank-359-29",
+  "rw-shimano-mt510-29",
+  "rw-raceface-turbine-sl-29",
+  "rw-bontrager-line-pro-30-29",
+  "rw-giant-trx-0-29",
+  "sh-rockshox-super-deluxe-205x65-trun",
+  "sh-rockshox-vivid-coil-230x65",
+  "sh-ext-storia-v3-230x65",
+  "sh-canecreek-kitsuma-coil-230x65",
+  "sh-rockshox-vivid-205x65-trun",
+  "sh-dvo-jade-x-230x65",
+  "sh-manitou-mara-pro-230x65",
+  "sh-rockshox-super-deluxe-ultimate-205x60-trun",
+  "sh-rockshox-super-deluxe-ultimate-230x62p5"
+ ],
  "parts": {
   "fr-specialized-enduro-sworks": {
    "cat": "frame",
-   "status": "Failed",
-   "updated": "2026-07-06T20:39:30.203Z",
-   "error": "specialized.com returns HTTP 403 to fetches (bot block) - manufacturer page unreachable this session; specs untouched (web-sourced 2026-07-01). Retry with different tooling/session.",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -33,17 +77,17 @@
   },
   "fr-trek-slash": {
    "cat": "frame",
-   "status": "Failed",
-   "updated": "2026-07-06T20:44:20.937Z",
-   "error": "trekbikes.com pages are client-side rendered - WebFetch returns nav/header only, no specs (tried Slash Frameset p/21969 + Slash 9.9 p/24331). Needs a real browser session to verify. Specs untouched.",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "fr-norco-range-c1": {
    "cat": "frame",
-   "status": "Failed",
-   "updated": "2026-07-06T20:45:11.149Z",
-   "error": "norco.com pages client-side rendered - WebFetch gets title only (tried 2023 Range C1 + 2023 Range Frame Kit). Needs a real browser session. Specs untouched.",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -73,17 +117,17 @@
   },
   "fr-pivot-firebird": {
    "cat": "frame",
-   "status": "Failed",
-   "updated": "2026-07-06T20:47:43.160Z",
-   "error": "pivotcycles.com spec sections (Build Specs/Product Details) are JS-rendered - WebFetch gets marketing shell only (tried /en-us/bikes/firebird + /en/products/firebird-frame). Needs a real browser. Specs untouched.",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "fr-nukeproof-giga-290": {
    "cat": "frame",
-   "status": "Failed",
-   "updated": "2026-07-06T20:49:18.515Z",
-   "error": "Nukeproof web presence is down post-CRC-collapse: us.nukeproof.com DNS dead, nukeproof.com HTTP 500, nukeproofco.com DNS dead (2026-07-06). Frame-spec page exists in search index (claims 3880g MD, 205x60, BSA73) but couldn't be fetched - retry when brand relaunch stabilizes.",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -97,17 +141,17 @@
   },
   "fr-orbea-rallon-mteam": {
    "cat": "frame",
-   "status": "Failed",
-   "updated": "2026-07-06T20:53:08.329Z",
-   "error": "orbea.com returns HTTP 403 to fetches (bot block) on both /en-us/m/rallon and /us-en/bicycles/mountain/rallon/. Note for retry: current Rallon gen appears to be 180/170mm 'GravityLink' (search index) vs cataloged prior-gen M-Team 170/160 - recheck which gen to catalog when reachable.",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "fr-rockymountain-altitude-c70": {
    "cat": "frame",
-   "status": "Failed",
-   "updated": "2026-07-06T20:54:58.636Z",
-   "error": "bikes.com frameset page renders only marketing/geometry (travel 160, 29/MX flip-chip confirmed); the tech page is JS-rendered nav only. No weight/interface specs fetchable - needs a real browser session.",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -121,9 +165,9 @@
   },
   "fr-propain-spindrift-cf": {
    "cat": "frame",
-   "status": "Failed",
-   "updated": "2026-07-06T20:55:41.752Z",
-   "error": "propain-bikes.com returns HTTP 403 on frameset pages (US + EU); service subdomain has FAQ links only, no specs. Retry with a real browser. Specs untouched.",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -193,9 +237,9 @@
   },
   "ti-michelin-wild-enduro-mh-29-24": {
    "cat": "tire",
-   "status": "Failed",
-   "updated": "2026-07-07T14:19:27.133Z",
-   "error": "michelinman.com product pages are JS-rendered; WebFetch gets nav shell only and the Chrome extension blocks the domain - needs a browser session with michelinman.com allowed",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -209,17 +253,17 @@
   },
   "ti-specialized-butcher-t9-29-23": {
    "cat": "tire",
-   "status": "Failed",
-   "updated": "2026-07-07T14:29:03.896Z",
-   "error": "specialized.com bot-blocks WebFetch (known 403) and the Chrome extension disallows the domain - needs a browser session with specialized.com allowed",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "ti-michelin-dh22-29-24": {
    "cat": "tire",
-   "status": "Failed",
-   "updated": "2026-07-07T14:19:27.208Z",
-   "error": "same michelinman.com JS/domain-block blocker as the Wild Enduro MH",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -241,25 +285,25 @@
   },
   "fw-industrynine-enduro-s-29": {
    "cat": "frontwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:02:54.645Z",
-   "error": "industrynine.com is a JS storefront (collection pages render 'No products found' to fetches, product URLs 404/redirect) and the Chrome extension blocks the domain - needs a browser session with industrynine.com allowed",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "fw-roval-traverse-hd-29": {
    "cat": "frontwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:42:13.528Z",
-   "error": "rovalcomponents.com 301-redirects into specialized.com (known 403 bot-block + extension-blocked domain)",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "fw-dtswiss-e-1900-275": {
    "cat": "frontwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T15:51:10.944Z",
-   "error": "E 1900 SPLINE 27.5 matnrs in the search index (W0E1900BGIXSO07018 etc.) return 'no information on our website' - config retired; the live product page is a JS configurator and the extension blocks dtswiss.com. Needs a browser session with dtswiss.com allowed.",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -273,9 +317,9 @@
   },
   "fw-weareone-union-29": {
    "cat": "frontwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:35:42.178Z",
-   "error": "weareonecomposites.com product URLs 404 to fetches and the wheelset-comparison page is password-protected; domain blocked in the extension - needs a browser/session with access",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -305,9 +349,9 @@
   },
   "fw-newmen-advanced-sl-a30-29": {
    "cat": "frontwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:42:13.213Z",
-   "error": "newmen-components.de shows rim-only weights (434g); complete-wheel specs live in a JS Konfigurator - needs a browser session",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -329,33 +373,33 @@
   },
   "fw-spank-359-29": {
    "cat": "frontwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:42:13.370Z",
-   "error": "spank-ind.com product URLs 404 and the 359 wheelset is not in the search index - needs the right URL or a browser session",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "fw-shimano-mt500-29": {
    "cat": "frontwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:48:05.846Z",
-   "error": "Shimano publishes no component weights - verifiable only via the measured-weight policy (sourceType:'measured' + weightSource); queue for the high-effort measured pass alongside rotors",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "fw-raceface-turbine-sl-29": {
    "cat": "frontwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T21:57:25.367Z",
-   "error": "Confirmed Turbine SL is a real, current, 29in-only product (not a naming mismatch as previously flagged) -- au.raceface.com gives a wheelset-level weight (1635g, ambiguously worded 'per wheel' but almost certainly the pair total given the number) with no clean front/rear split found on any raceface.com regional page. Retains Failed status pending a front/rear breakdown.",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "fw-bontrager-line-pro-30-29": {
    "cat": "frontwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:42:13.686Z",
-   "error": "Bontrager lives on trekbikes.com - known client-side-rendered blocker from the frames batch",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -369,17 +413,17 @@
   },
   "fw-giant-trx-0-29": {
    "cat": "frontwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:42:13.841Z",
-   "error": "giant-bicycles.com product URLs 404 to fetches (JS app) - needs a browser session",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "rw-dtswiss-ex-1700-29": {
    "cat": "rearwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T22:00:41.599Z",
-   "error": "Retried: found a plausible matnr (WEX1700TED2SA11692) via search claiming SRAM XD, but the DT Swiss support page for it actually shows Shimano 12-Speed freehub (ASL12), not XD -- another search-summary-lies trap. The real XD matnr wasn't found (bike24's XD listing 403-blocks fetch). Interfaces stay as previously confirmed (CL, 12/148, 30mm); still needs the correct XD-specific matnr, ideally via a browser session on dtswiss.com's own configurator.",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -393,33 +437,33 @@
   },
   "rw-industrynine-enduro-s-29": {
    "cat": "rearwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:02:54.720Z",
-   "error": "same industrynine.com blocker",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "rw-roval-traverse-hd-29": {
    "cat": "rearwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:42:13.604Z",
-   "error": "same Roval->specialized.com blocker",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "rw-industrynine-enduro-s-29-157": {
    "cat": "rearwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:02:54.799Z",
-   "error": "same industrynine.com blocker (also confirm the Super Boost 157 option + freehub when reachable)",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "rw-dtswiss-e-1900-275": {
    "cat": "rearwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T15:51:11.023Z",
-   "error": "same E 1900 27.5 blocker (retired matnrs + JS configurator + domain blocked)",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -433,9 +477,9 @@
   },
   "rw-weareone-union-29": {
    "cat": "rearwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:35:42.253Z",
-   "error": "same weareonecomposites.com blocker",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -465,9 +509,9 @@
   },
   "rw-newmen-advanced-sl-a30-29": {
    "cat": "rearwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:42:13.289Z",
-   "error": "same newmen Konfigurator blocker",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -489,33 +533,33 @@
   },
   "rw-spank-359-29": {
    "cat": "rearwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:42:13.451Z",
-   "error": "same spank-ind.com blocker",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "rw-shimano-mt510-29": {
    "cat": "rearwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:48:05.927Z",
-   "error": "same Shimano measured-weight-pass item",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "rw-raceface-turbine-sl-29": {
    "cat": "rearwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:11:56.618Z",
-   "error": "same raceface.com ambiguity",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "rw-bontrager-line-pro-30-29": {
    "cat": "rearwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:42:13.763Z",
-   "error": "same trekbikes.com blocker",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -529,9 +573,9 @@
   },
   "rw-giant-trx-0-29": {
    "cat": "rearwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T16:42:13.922Z",
-   "error": "same giant-bicycles.com blocker",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -545,43 +589,43 @@
   },
   "sh-fox-float-x-factory-230x65": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:55:10.230Z",
-   "error": "Fox publishes no shock weights (tech.ridefox.com spec sheets are dimensional drawings only) - measured-weight pass",
+   "status": "Skipped",
+   "updated": "2026-07-08T00:57:18.453Z",
+   "error": null,
    "source": null,
-   "note": null
+   "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-fox-dhx2-230x65": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:55:10.384Z",
-   "error": "same Fox blocker - measured pass",
+   "status": "Skipped",
+   "updated": "2026-07-08T00:57:18.509Z",
+   "error": null,
    "source": null,
-   "note": null
+   "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-rockshox-super-deluxe-205x65-trun": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:55:10.687Z",
-   "error": "SRAM quotes ONE weight per model with a stated basis (SDU C2: 480g at 230x65); this configs weight is unpublished - needs per-size data or a measured figure",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "sh-fox-float-x2-205x65-trun": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:55:10.458Z",
-   "error": "same Fox blocker - measured pass",
+   "status": "Skipped",
+   "updated": "2026-07-08T00:57:18.564Z",
+   "error": null,
    "source": null,
-   "note": null
+   "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-fox-float-x-230x60": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:55:10.310Z",
-   "error": "same Fox no-published-weights blocker - measured pass",
+   "status": "Skipped",
+   "updated": "2026-07-08T00:57:18.620Z",
+   "error": null,
    "source": null,
-   "note": null
+   "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-rockshox-vivid-ultimate-oem-205x60-trun": {
    "cat": "shock",
@@ -601,17 +645,17 @@
   },
   "sh-rockshox-vivid-coil-230x65": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:55:10.980Z",
-   "error": "rs-vivc-ult-d1 page lists sizes and USD 709-719 but NO weight; retry the C1 page",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "sh-ext-storia-v3-230x65": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:55:11.061Z",
-   "error": "extremeshox.com product URL 404s to fetches - needs the right URL or a browser session",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -625,25 +669,25 @@
   },
   "sh-canecreek-kitsuma-coil-230x65": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:59:30.068Z",
-   "error": "canecreek.com product URL and the KITSUMA-COIL-USER-SPEC.pdf both 404 to fetches - needs current URLs or a browser session",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "sh-fox-float-x2-230x65": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:55:10.530Z",
-   "error": "same Fox blocker - measured pass",
+   "status": "Skipped",
+   "updated": "2026-07-08T00:57:18.686Z",
+   "error": null,
    "source": null,
-   "note": null
+   "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-rockshox-vivid-205x65-trun": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:55:10.910Z",
-   "error": "same SRAM single-basis limitation (Vivid air C1 quote is 670g at 230x65)",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -657,43 +701,43 @@
   },
   "sh-dvo-jade-x-230x65": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:59:30.144Z",
-   "error": "dvosuspension.com product URL renders a cart page to fetches (JS storefront) - needs a browser session",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "sh-manitou-mara-pro-230x65": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:59:30.295Z",
-   "error": "hayesbicycle.com publishes 425g but with NO size basis, and the size table suggests 230x65 may be TRUNNION-only - our row says standard eyelet. Confirm the config exists before verifying (possible fabricated config); price listed USD 629.99 list",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "sh-push-elevensix-230x65": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:59:30.218Z",
-   "error": "pushindustries.com product URL 404s to fetches - needs the current URL or a browser session",
+   "status": "Skipped",
+   "updated": "2026-07-08T00:50:20.358Z",
+   "error": null,
    "source": null,
-   "note": null
+   "note": "Price corrected to $1300 (fetched pushindustries.com 2026-07-08, real browser session). Weight bar not met: Push sells this shock per bike-model fitment, not as a generic SKU with a published spec sheet."
   },
   "sh-rockshox-super-deluxe-ultimate-205x60-trun": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:55:10.761Z",
-   "error": "same SRAM single-basis limitation (quoted basis is 230x65)",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
   "sh-fox-float-x-205x62p5-trun": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:55:10.611Z",
-   "error": "same Fox blocker - measured pass",
+   "status": "Skipped",
+   "updated": "2026-07-08T00:57:18.747Z",
+   "error": null,
    "source": null,
-   "note": null
+   "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "fk-rockshox-zeb-ultimate-29-170": {
    "cat": "fork",
@@ -1769,11 +1813,11 @@
   },
   "ro-sram-hs2-220-6b": {
    "cat": "rotor",
-   "status": "Failed",
-   "updated": "2026-07-07T17:14:09.418Z",
-   "error": "no reputable MEASURED 220mm figure found (BikeRadar/MBR measured 200/180 only; Amazon's 249g is a retailer listing - rejected by policy). Interfaces manufacturer-confirmed on RT-HS-2-A1.",
+   "status": "Skipped",
+   "updated": "2026-07-08T00:58:28.031Z",
+   "error": null,
    "source": null,
-   "note": null
+   "note": "Confirmed 2026-07-08: BikeRadar measured 200mm (206g) and MBR measured 180mm (170g) only -- no reputable measured 220mm figure exists anywhere searched. Retailer listings (Amazon 260g, Bikeparts.com 270g CL) rejected by policy. Interfaces remain manufacturer-confirmed on RT-HS-2-A1. Bar not met."
   },
   "ro-shimano-rtmt800-203-cl": {
    "cat": "rotor",
@@ -2281,9 +2325,9 @@
   },
   "sh-rockshox-super-deluxe-ultimate-230x62p5": {
    "cat": "shock",
-   "status": "Failed",
-   "updated": "2026-07-07T16:55:10.830Z",
-   "error": "same SRAM single-basis limitation - 62.5 stroke weight unpublished",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
@@ -2297,9 +2341,9 @@
   },
   "rw-dtswiss-e-1900-275-xd": {
    "cat": "rearwheel",
-   "status": "Failed",
-   "updated": "2026-07-07T15:51:11.093Z",
-   "error": "same E 1900 27.5 blocker (retired matnrs + JS configurator + domain blocked)",
+   "status": "Pending",
+   "updated": "2026-07-08T00:48:59.049Z",
+   "error": null,
    "source": null,
    "note": null
   },
