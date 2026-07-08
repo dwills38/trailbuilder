@@ -302,6 +302,7 @@
   <div class="chips" id="discChips" title="Filter by riding discipline — parts without a discipline tag are universal and always show"></div>
   <div class="chips" id="chips"></div>
   <div class="chips subchips" id="subchips"></div>
+  <div class="chips subchips" id="wheelSizeChips" title="Filter by wheel size — only affects wheels &amp; tires"></div>
   <div class="legend">
     <span><i style="background:#2aa35a"></i>No conflict found</span>
     <span><i style="background:#e0a52e"></i>Check first &mdash; adds a warning (hover for why)</span>
@@ -529,6 +530,7 @@
   var ownedOnly = false;     // when on, show only parts in the signed-in user's inventory
   var ownedIds = {};         // canonicalId(part_id) -> true, cache kept fresh by refreshOwned() (renderCatalog stays sync)
   var disciplineFilter = 'all';  // 'all' | xc | trail | enduro | dh — display filter only (disciplines never feeds verdicts)
+  var wheelSizeFilter = 'all';   // 'all' | '29' | '275' — display filter only, applies to any part carrying a .wheel field
   var $ = function(id){ return document.getElementById(id); };
   var money = function(n){ return '$' + (n||0).toLocaleString(); };
   var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg / ' + (g/453.592).toFixed(2) + ' lb)'; };
@@ -645,7 +647,7 @@
     var d=document.createElement('div');
     d.className='chip'+(activeGroup===key?' active':'');
     d.textContent=label;
-    d.onclick=function(){ activeGroup=key; activeSub='all'; renderChips(); renderSubChips(); renderCatalog(); };
+    d.onclick=function(){ activeGroup=key; activeSub='all'; wheelSizeFilter='all'; renderChips(); renderSubChips(); renderWheelSizeChips(); renderCatalog(); };
     return d;
   }
 
@@ -674,6 +676,21 @@
     return d;
   }
 
+  /* ---- wheel-size chips (display filter only, wheels + tires groups) ---- */
+  var WHEEL_SIZE_LABELS = { all:'All sizes', '29':'29"', '275':'27.5"' };
+  function renderWheelSizeChips(){
+    var el = $('wheelSizeChips');
+    if(activeGroup!=='wheels' && activeGroup!=='tire'){ el.style.display='none'; return; }
+    el.style.display=''; el.innerHTML='';
+    ['all','29','275'].forEach(function(k){
+      var d=document.createElement('div');
+      d.className='chip sub'+(wheelSizeFilter===k?' active':'');
+      d.textContent=WHEEL_SIZE_LABELS[k];
+      d.onclick=function(){ wheelSizeFilter=k; renderWheelSizeChips(); renderCatalog(); };
+      el.appendChild(d);
+    });
+  }
+
   /* ---- catalog ---- */
   function groupCats(g){ var c = g.slots.map(function(s){return s.cat;}); if(g.preset) c.push(g.preset.cat); return c; }
   function renderCatalog(){
@@ -686,6 +703,7 @@
       if(verifiedOnly && !partVerified(p)) return false;
       if(ownedOnly && !ownedIds[canonicalId(p.id)]) return false;
       if(disciplineFilter!=='all' && p.disciplines && p.disciplines.indexOf(disciplineFilter)<0) return false;
+      if(wheelSizeFilter!=='all' && p.wheel && p.wheel!==wheelSizeFilter) return false;
       return true;
     });
     if(!list.length){ el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':'No parts match.')+'</p>'; return; }
@@ -1521,7 +1539,7 @@
   $('invBack').onclick = closeInventoryPage;
   $('invAddBuild').onclick = addBuildToInventory;
 
-  readHash(); renderDiscChips(); renderChips(); renderSubChips(); sync();
+  readHash(); renderDiscChips(); renderChips(); renderSubChips(); renderWheelSizeChips(); sync();
   // Wire auth state -> account UI. When accounts are unconfigured this no-ops.
   if(typeof initAccount === 'function'){ initAccount(function(u){ renderAccount(); refreshOwned(); if(u && $('authModal').open){ $('authModal').close(); } if(!u){ closeInventoryPage(); } }); }
   renderAccount();
