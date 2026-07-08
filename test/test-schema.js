@@ -76,6 +76,13 @@ test('a valid hardtail frame passes (hardtails are enterable now)', function(){
   delete p.shockEye; delete p.shockStroke; delete p.shockMount; delete p.travel; delete p.bundledShock;
   eq(probs(p).length, 0);
 });
+test('a 20x110 dual-crown DH front axle is valid vocab (fork + front hub)', function(){
+  eq(probs(over('fk-rockshox-zeb-ultimate-29-170', { axle:'20x110' })).length, 0);
+  eq(probs(over('fw-dtswiss-ex-1700-29', { hub:'20x110', verified:undefined, lastChecked:undefined, source:undefined })).filter(function(m){ return m.indexOf('hub')>=0; }).length, 0);
+});
+test('an unknown front axle value is still caught', function(){
+  some(probs(over('fk-rockshox-zeb-ultimate-29-170', { axle:'20x100' })), 'axle');
+});
 test('a disciplines value outside the vocab is caught (ebike is deliberately not one)', function(){
   some(probs(over('fr-santacruz-megatower-cc', { disciplines:['enduro','ebike'] })), 'disciplines');
 });

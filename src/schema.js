@@ -30,7 +30,9 @@ var VOCAB = {
      create false "won't fit" verdicts. 142x12 is pre-Boost, inert until parts
      carry it. */
   rearAxle:     ['Boost148', 'SuperBoost157', '142x12'],
-  frontAxle:    ['Boost110'],
+  /* 20x110 = the dual-crown DH standard (Boxxer, Fox 40 - both 20x110 Boost).
+     15x110 Boost110 and 20x110 are different axles - never conflate. */
+  frontAxle:    ['Boost110', '20x110'],
   freehub:      ['XD', 'MicroSpline', 'HG'],   // 'HG' = MTB-length HG spline (a road expansion must SPLIT, not conflate)
   rotorMount:   ['sixbolt', 'CL'],             // audited 2026-07: market-complete for MTB
   shockMount:   ['std', 'trunnion'],           // audited 2026-07: market-complete ('bearing' eyelets may join when a bearing-eyelet row lands)
