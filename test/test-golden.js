@@ -257,6 +257,29 @@ test('golden: the Meta TR V4 build fills every required slot', function(){
   required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
 });
 
+/* First complete MULLET DH build (catalog-expand-9, 2026-07-08): Supreme DH
+   V5.2 running 29 front / 27.5 rear - previously impossible, since every
+   SuperBoost157 rear wheel in-catalog was 29in-only (a real 0-brand gap
+   across five DH frames: Firebird, Supreme DH V5/V5.2, Sender CFR, V10 8).
+   Exercises the new rw-dtswiss-fr-1500-275-157 rear wheel + the new Ohlins
+   TTX22 250x75 shock together. Must stay green. */
+var MULLET_DH_BUILD = { frame:'fr-commencal-supreme-dh-v52', fork:'fk-rockshox-boxxer-ultimate-29-200', shock:'sh-ohlins-ttx22-m2-250x75',
+  frontWheel:'fw-dtswiss-fr-1500-29', rearWheel:'rw-dtswiss-fr-1500-275-157',
+  frontTire:'ti-maxxis-assegai-29-25-dh-mg', rearTire:'ti-maxxis-assegai-275-25-dh-mg',
+  shifter:'sft-sram-x01-dh', derailleur:'dr-sram-x01-dh', cassette:'ca-sram-xg795', chain:'ch-sram-pc-xx1', crankset:'cr-sram-x01-dh',
+  frontBrake:'bk-sram-maven-ultimate', rearBrake:'bk-sram-maven-ultimate', frontRotor:'ro-sram-hs2-220-6b', rearRotor:'ro-sram-hs2-220-6b',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', saddle:'sa-wtb-volt', pedals:'pd-oneup-composite' };
+test('golden: a complete MULLET DH build (Supreme DH V5.2, 29 front/27.5 rear) is fully compatible', function(){
+  var r = chk(MULLET_DH_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+test('golden: the mullet DH build fills every required slot (dropper exempt via slotRequired)', function(){
+  var m = /** @type {Object.<string, string>} */ (MULLET_DH_BUILD);
+  var frame = C.byId(m.frame);
+  var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
+  eq(required.some(function(s){ return s.key==='dropper'; }), false, 'dropper must be exempt on a DH frame');
+  required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
+});
+
 test('slotRequired: hardtail frame exempts the shock slot (completeness only)', function(){
   var frame = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { suspension:'hardtail' }));
   delete frame.shockEye; delete frame.shockStroke; delete frame.shockMount; delete frame.travel; delete frame.bundledShock;
