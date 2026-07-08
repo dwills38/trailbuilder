@@ -1,18 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T17:12:51.453Z",
+ "updated": "2026-07-08T17:14:23.114Z",
  "batchSize": 25,
- "lastCompleted": "fr-specialized-stumpjumper-15",
- "currentCategory": "frame",
+ "lastCompleted": "fr-canyon-lux-world-cup-cf",
+ "currentCategory": "tire",
  "queue": [
-  "fr-canyon-spectral-cf",
-  "fr-canyon-sender-cfr",
-  "fr-yt-tues-cf-29",
-  "fr-canyon-exceed-cf",
-  "fr-santacruz-hightower-3",
-  "fr-canyon-neuron-cf",
-  "fr-canyon-lux-world-cup-cf",
   "ti-maxxis-assegai-29-25-dh-mg",
   "ti-continental-cross-king-29-22-protection-blackchili",
   "ti-michelin-wild-enduro-mh-29-24",
@@ -2636,11 +2629,11 @@
   },
   "fr-canyon-spectral-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:14:22.703Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Interfaces sourced from fetched canyon.com Spectral CF 8 spec page (prior pass); canyon.com pages are JS-rendered overviews with no frame-only weight (sold as complete bike). No editorial teardown weight. Weight bar unmeetable."
   },
   "fr-commencal-supreme-dh-v5": {
    "cat": "frame",
@@ -2652,19 +2645,19 @@
   },
   "fr-canyon-sender-cfr": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:14:22.765Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "canyon.com Sender page re-fetched: JS marketing overview, no frameset weight, no frameset-only option surfaced. Interfaces sourced from Vital spec table (prior pass). Weight bar unmeetable."
   },
   "fr-yt-tues-cf-29": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:14:22.823Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "yt-industries.com re-fetched: JS overview, only travel figures; no frame weight (sold as complete bike, 15.2-15.4kg). Interfaces sourced from yt page + bikes.fan/99spokes (prior pass). Weight bar unmeetable."
   },
   "fr-santacruz-v10-8": {
    "cat": "frame",
@@ -2700,11 +2693,11 @@
   },
   "fr-canyon-exceed-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:14:22.876Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Interfaces sourced from fetched BikeRadar + canyon.com listing (prior pass); canyon.com is JS overview with no frame-only weight. CFR frame ~835g is a maker claim, not measured/fetched-page-confirmed. Weight bar unmeetable."
   },
   "fr-raaw-jibb": {
    "cat": "frame",
@@ -2740,19 +2733,19 @@
   },
   "fr-santacruz-hightower-3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:14:22.931Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "santacruzbicycles.com/hightower fetched: confirms 150 rear / 160 front / 29 (matches catalog, no contradiction). SC publishes no bare-frame weight; spec table is JS-rendered. No editorial teardown weight. Weight bar unmeetable."
   },
   "fr-canyon-neuron-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:14:22.989Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Interfaces sourced from fetched canyon.com Neuron CF 8 spec (prior pass); JS overview, no frame-only weight (2460g figure is complete-bike/sample). Weight bar unmeetable."
   },
   "fr-commencal-meta-ht-v3": {
    "cat": "frame",
@@ -2796,11 +2789,11 @@
   },
   "fr-canyon-lux-world-cup-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:14:23.042Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Interfaces sourced from fetched MBR review + sram.com (prior pass); canyon.com JS overview, no frame-only weight. No editorial teardown weight for the bare frame. Weight bar unmeetable."
   },
   "ti-maxxis-assegai-29-25-dh-mg": {
    "cat": "tire",
