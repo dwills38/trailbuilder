@@ -110,8 +110,20 @@
   .report-cta{margin-top:10px;text-align:right}
   .report-cta button{border:none;background:none;color:var(--ink-soft);font-size:12px;cursor:pointer;text-decoration:underline;padding:4px 2px;font-weight:600}
   .report-cta button:hover{color:var(--err)}
-  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#inventoryModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
-  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop,dialog#authModal::backdrop,dialog#garageModal::backdrop,dialog#inventoryModal::backdrop{background:rgba(18,28,22,.45)}
+  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop,dialog#authModal::backdrop,dialog#garageModal::backdrop{background:rgba(18,28,22,.45)}
+  /* Inventory page (Phase 3): a full-width view, not a modal. body.inv-page hides
+     the builder and reveals this; toggled by the header 🧰 Inventory button. */
+  #inventoryPage{display:none}
+  body.inv-page .toolbar,body.inv-page .chips,body.inv-page .subchips,body.inv-page .legend,body.inv-page .layout{display:none}
+  body.inv-page #inventoryPage{display:block}
+  .invpage-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .invpage-head h2{flex:1;margin:0;font-size:20px}
+  .invpage-sub{color:var(--ink-soft);font-size:13px;margin:6px 0 16px}
+  .invlist{display:flex;flex-direction:column;gap:8px}
+  .invlist .grow.clickable{cursor:pointer}
+  .invlist .grow.clickable:hover{border-color:var(--brand);background:#f7faf8}
+  .invlist .gprice{font-weight:700;font-size:13px;white-space:nowrap}
   /* account control (header) + garage/inventory lists */
   .acctbox{display:flex;align-items:center;gap:10px}
   .acctbox .btn{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff}
@@ -317,6 +329,19 @@
       </div>
     </aside>
   </div>
+
+  <!-- Inventory as its own full-width page (Phase 3). Shown when body has .inv-page
+       (toggled by the header 🧰 Inventory button); the builder view is hidden by CSS
+       while it's active. Rows are a clickable list -> the part-detail pop-out. -->
+  <section id="inventoryPage" aria-label="Your parts inventory">
+    <div class="invpage-head">
+      <button type="button" class="btn" id="invBack">← Back to builder</button>
+      <h2>🧰 Your parts inventory</h2>
+      <button type="button" class="btn" id="invAddBuild" title="Add every part in your current build">＋ Add current build&rsquo;s parts</button>
+    </div>
+    <p class="invpage-sub">Parts you own. Click a row for full details. Later this powers a &ldquo;build around what I own&rdquo; filter.</p>
+    <div id="invList" class="invlist"></div>
+  </section>
 </main>
 
 <footer>
@@ -466,20 +491,6 @@
   <div class="rm-foot">
     <button type="button" class="btn" id="garageClose">Close</button>
     <button type="button" class="btn primary" id="garageSaveCurrent">⭑ Save current build</button>
-  </div>
-</dialog>
-
-<dialog id="inventoryModal" aria-labelledby="invTitle">
-  <div class="rm-head">
-    <h2 id="invTitle">🧰 Your parts inventory</h2>
-    <p>Parts you own. Later this powers a &ldquo;build around what I own&rdquo; filter.</p>
-  </div>
-  <div class="rm-body">
-    <div id="invList" class="glist"></div>
-  </div>
-  <div class="rm-foot">
-    <button type="button" class="btn" id="invClose">Close</button>
-    <button type="button" class="btn" id="invAddBuild" title="Add every part in your current build">＋ Add current build&rsquo;s parts</button>
   </div>
 </dialog>
 
@@ -1211,7 +1222,8 @@
     }).catch(function(e){ toast(e.message||'Save failed'); });
   }
 
-  function openInventory(){ if(!_acctReady || !currentUser()) return; $('inventoryModal').showModal(); renderInventory(); }
+  function openInventory(){ if(!_acctReady || !currentUser()) return; document.body.classList.add('inv-page'); window.scrollTo(0,0); renderInventory(); }
+  function closeInventoryPage(){ document.body.classList.remove('inv-page'); }
   function renderInventory(){
     var el = $('invList'); el.innerHTML = '<div class="gempty">Loading…</div>';
     listInventory().then(function(rows){
@@ -1220,15 +1232,18 @@
       el.innerHTML = '';
       rows.forEach(function(row){
         var p = byId(canonicalId(row.part_id));
-        var div = document.createElement('div'); div.className = 'grow';
+        var div = document.createElement('div'); div.className = 'grow'+(p?' clickable':'');
         div.innerHTML =
           '<div class="gmain"><div class="gname">'+esc(p?nameOf(p):row.part_id)+'</div>'+
-          '<div class="gmeta">'+esc(p?catLabel(p.cat):'unknown part')+'</div></div>'+
+          '<div class="gmeta">'+esc(p?catLabel(p.cat):'unknown part')+(p&&typeof p.weight==='number'?' · '+p.weight+' g':'')+'</div></div>'+
+          (p?'<div class="gprice">'+money(p.price)+'</div>':'')+
           '<div class="qty"><button class="btn" data-a="dec">−</button><span>'+row.qty+'</span><button class="btn" data-a="inc">+</button></div>'+
           '<div class="gacts"><button data-a="del">Remove</button></div>';
-        div.querySelector('[data-a=inc]').onclick = function(){ setInventoryQty(row.id, row.qty+1).then(renderInventory).catch(function(e){ toast(e.message||'Failed'); }); };
-        div.querySelector('[data-a=dec]').onclick = function(){ (row.qty<=1 ? removeInventoryItem(row.id) : setInventoryQty(row.id, row.qty-1)).then(renderInventory).catch(function(e){ toast(e.message||'Failed'); }); };
-        div.querySelector('[data-a=del]').onclick = function(){ removeInventoryItem(row.id).then(renderInventory).catch(function(e){ toast(e.message||'Failed'); }); };
+        // row opens the part-detail pop-out; the qty/remove controls stop propagation so they don't
+        if(p){ div.onclick = function(){ openPartModal(p); }; }
+        div.querySelector('[data-a=inc]').onclick = function(e){ e.stopPropagation(); setInventoryQty(row.id, row.qty+1).then(renderInventory).catch(function(e){ toast(e.message||'Failed'); }); };
+        div.querySelector('[data-a=dec]').onclick = function(e){ e.stopPropagation(); (row.qty<=1 ? removeInventoryItem(row.id) : setInventoryQty(row.id, row.qty-1)).then(renderInventory).catch(function(e){ toast(e.message||'Failed'); }); };
+        div.querySelector('[data-a=del]').onclick = function(e){ e.stopPropagation(); removeInventoryItem(row.id).then(renderInventory).catch(function(e){ toast(e.message||'Failed'); }); };
         el.appendChild(div);
       });
     }).catch(function(e){ el.innerHTML = '<div class="gempty">Could not load inventory: '+esc(e.message||'')+'</div>'; });
@@ -1416,13 +1431,12 @@
   $('garageClose').onclick = function(){ $('garageModal').close(); };
   $('garageSaveCurrent').onclick = saveCurrentToGarage;
   $('garageModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
-  $('invClose').onclick = function(){ $('inventoryModal').close(); };
+  $('invBack').onclick = closeInventoryPage;
   $('invAddBuild').onclick = addBuildToInventory;
-  $('inventoryModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
 
   readHash(); renderDiscChips(); renderChips(); renderSubChips(); sync();
   // Wire auth state -> account UI. When accounts are unconfigured this no-ops.
-  if(typeof initAccount === 'function'){ initAccount(function(u){ renderAccount(); renderCatalog(); if(u && $('authModal').open){ $('authModal').close(); } }); }
+  if(typeof initAccount === 'function'){ initAccount(function(u){ renderAccount(); renderCatalog(); if(u && $('authModal').open){ $('authModal').close(); } if(!u){ closeInventoryPage(); } }); }
   renderAccount();
 })();
 </script>
