@@ -1,24 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T17:22:44.781Z",
+ "updated": "2026-07-08T17:27:54.401Z",
  "batchSize": 25,
- "lastCompleted": "rw-giant-trx-0-29",
- "currentCategory": "frontwheel",
+ "lastCompleted": "rw-shimano-mt510-29",
+ "currentCategory": "shock",
  "queue": [
-  "fw-raceface-turbine-sl-29",
-  "rw-shimano-mt510-29",
-  "rw-raceface-turbine-sl-29",
-  "rw-reserve-30-hd-29-ms",
-  "rw-raceface-turbine-sl-29-ms",
-  "rw-hope-fortus-30-29-ms",
-  "rw-stans-flow-ex3-29-ms",
-  "rw-enve-am30-29-ms",
-  "rw-crankbrothers-synthesis-dh11-29-157",
-  "rw-stans-flow-ex3-275",
-  "rw-stans-flow-ex3-275-ms",
-  "rw-hope-fortus-30-275",
-  "rw-hope-fortus-30-275-ms",
   "sh-rockshox-super-deluxe-205x65-trun",
   "sh-rockshox-vivid-coil-230x65",
   "sh-ext-storia-v3-230x65",
@@ -419,11 +406,11 @@
   },
   "fw-raceface-turbine-sl-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:26:14.303Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "raceface.ca Turbine SL page fetched: intWidth CORRECTED 30->25 (maker + SKU confirm). RF publishes only a 1635g WHEELSET total, no per-wheel weight - can't verify individual front row. Interfaces confirmed."
   },
   "fw-bontrager-line-pro-30-29": {
    "cat": "frontwheel",
@@ -571,19 +558,19 @@
   },
   "rw-shimano-mt510-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:54.348Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "'Shimano MT510' is an OEM wheel built on the FH-MT510 hub (440g hub); Shimano does not publish a complete WH-MT510 wheel weight (policy: Shimano publishes no component weights) - no WH-MT510 complete-wheel spec page exists. Weight bar unmeetable."
   },
   "rw-raceface-turbine-sl-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:26:14.359Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "raceface.ca fetched: intWidth CORRECTED 30->25. Only wheelset total (1635g) published, no per-wheel weight. Interfaces confirmed (Boost148, XD, 6-bolt)."
   },
   "rw-bontrager-line-pro-30-29": {
    "cat": "rearwheel",
@@ -2923,35 +2910,35 @@
   },
   "rw-reserve-30-hd-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:26:14.470Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "reservewheels.com/products/30-hd-carbon fetched: confirms 30mm internal (matches), Boost 15x110F/12x148R, XD/6-bolt, DT350 hub (supports Micro Spline) - no contradiction. But only WHEELSET totals published (1791g DT350 / 1894g e13), no per-wheel weight. Weight bar unmeetable."
   },
   "rw-raceface-turbine-sl-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:26:14.416Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "raceface.ca fetched: intWidth CORRECTED 30->25; Micro Spline freehub option confirmed. Only wheelset total (1635g), no per-wheel weight."
   },
   "rw-hope-fortus-30-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:53.643Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "hopetech.com/products/wheels/trail/fortus-30-pro-5 fetched: confirms 30mm internal, freehub incl MicroSpline+XD, CL or 6-bolt, 148 Boost + 150/157 (matches catalog, no contradiction), rear wheel RRP $425. Hope publishes NO per-wheel weight (page lists none); only review wheelset totals (~2130-2305g pair) exist. Weight bar unmeetable."
   },
   "rw-stans-flow-ex3-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:53.948Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Stan's Flow EX3 is a RIM; complete-wheel weight is build/hub-dependent and not published by Stan's as a single figure (rim ~535g only). Existence/interfaces sourced from retailer SKUs (prior pass). No published complete-wheel weight. Weight bar unmeetable."
   },
   "rw-spank-359-29-ms": {
    "cat": "rearwheel",
@@ -2963,11 +2950,11 @@
   },
   "rw-enve-am30-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:54.243Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "ENVE sells the AM30 as a WHEELSET (pair weight only); no per-wheel rear weight published. Interfaces sourced prior pass. Weight bar unmeetable (per-wheel)."
   },
   "rw-crankbrothers-synthesis-xct11-29-ms": {
    "cat": "rearwheel",
@@ -3011,11 +2998,11 @@
   },
   "rw-crankbrothers-synthesis-dh11-29-157": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T17:26:14.098Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.crankbrothers.com/products/synthesis-dh-11-carbon-rear-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x-perf-elite-185x55-trun": {
    "cat": "shock",
@@ -3483,35 +3470,35 @@
   },
   "rw-stans-flow-ex3-275": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:18:11.232Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:54.048Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Stan's Flow EX3 is a RIM; complete-wheel weight is build/hub-dependent and not published by Stan's as a single figure (rim ~535g only). Existence/interfaces sourced from retailer SKUs (prior pass). No published complete-wheel weight. Weight bar unmeetable."
   },
   "rw-stans-flow-ex3-275-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:18:11.232Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:54.148Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Stan's Flow EX3 is a RIM; complete-wheel weight is build/hub-dependent and not published by Stan's as a single figure (rim ~535g only). Existence/interfaces sourced from retailer SKUs (prior pass). No published complete-wheel weight. Weight bar unmeetable."
   },
   "rw-hope-fortus-30-275": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:18:11.232Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:53.743Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "hopetech.com/products/wheels/trail/fortus-30-pro-5 fetched: confirms 30mm internal, freehub incl MicroSpline+XD, CL or 6-bolt, 148 Boost + 150/157 (matches catalog, no contradiction), rear wheel RRP $425. Hope publishes NO per-wheel weight (page lists none); only review wheelset totals (~2130-2305g pair) exist. Weight bar unmeetable."
   },
   "rw-hope-fortus-30-275-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:18:11.232Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:27:53.843Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "hopetech.com/products/wheels/trail/fortus-30-pro-5 fetched: confirms 30mm internal, freehub incl MicroSpline+XD, CL or 6-bolt, 148 Boost + 150/157 (matches catalog, no contradiction), rear wheel RRP $425. Hope publishes NO per-wheel weight (page lists none); only review wheelset totals (~2130-2305g pair) exist. Weight bar unmeetable."
   }
  }
 }
