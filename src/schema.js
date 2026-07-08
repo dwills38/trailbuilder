@@ -60,7 +60,7 @@ var VOCAB = {
      "Press Fit BB 107mm") - pairs with DH cranks' DUB PF 104.5/107 BBs.
      BSA83 = the 83mm threaded DH shell (Sender CFR - confirmed BSA 83;
      distinct from BSA73, needs the matching 83mm BB cups). */
-  frameBb:      ['BSA73', 'PF92', 'T47', 'PF107', 'BSA83'],
+  frameBb:      ['BSA73', 'PF92', 'T47', 'PF107', 'BSA83', 'BSA68'],   // BSA68 = the classic 68mm threaded shell (Meta HT V3's own page, 2026-07-08 - hardtails still ship it)
   /* crankBb is the SPINDLE INTERFACE, not a brand (DATA-MODEL-REVIEW 5.1-5):
      DUB (28.99mm), 24mm (Shimano Hollowtech II + Race Face Cinch steel + ...),
      30mm (BB30-class: eeWings, Race Face Cinch alu, Hope), p3 (e*thirteen).
