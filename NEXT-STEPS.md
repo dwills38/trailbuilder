@@ -147,14 +147,32 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   a retailer/affiliate image feed, or staying on placeholders. **Blocked on Douglas** (licensing call).
 - ⬜ **Retailer links → affiliate programs.** Also the legitimate answer for **price feeds** and
   images. **Blocked on Douglas** (which program(s) to join).
-- 🚨 **NEW, highest-value open item (found 2026-07-08): catalog breadth.** Most brands have only
-  ONE SKU cataloged — add the missing size/mount variants, starting with shocks (7 of 9 brands are
-  single-SKU 230×65-std-only; a Madonna V3.2 owner currently can't pick an Öhlins/EXT/Cane Creek/
-  Marzocchi/DVO/Manitou shock because none of them have a 205×65-trunnion row yet, even though those
-  brands make one in real life). Same narrowness in forks (10/14 single-SKU), front wheels (17/18!),
-  handlebars (13/14), droppers (9/13). Real research per `tools/DATA-ENTRY-TEMPLATE.md`, sample data
-  until the verification grind catches it (same convention as the rest of the catalog) — **does not
-  need Douglas, a session can start this unprompted.**
+- 🚧 **Catalog breadth (started 2026-07-08, branch `catalog-breadth` — NOT merged).** Most brands had
+  only ONE SKU cataloged, collapsing real choice on almost any frame. Worked the categories with a
+  genuine **fit-collapse** (a real compatibility rule was falsely narrowing choice), 30 rows added as
+  sample data, each variant's existence confirmed via a fetched manufacturer/retailer page:
+  - ✅ **Shocks (+11).** The motivating case is fixed: a Madonna V3.2 (205×65 trunnion) now takes
+    Öhlins / EXT / Cane Creek / Marzocchi / DVO / Manitou (was RockShox+Fox only → 8 brands). EXT
+    Storia + Manitou also fill the four other single-brand eye×stroke×mount combos; every frame
+    shock-combo now has ≥2 brands.
+  - ✅ **Rear wheels (+7 Micro Spline).** Was 13 XD brands vs 4 Micro Spline, so Shimano drivetrains
+    (~half the market) had almost no compatible wheel. Added factory Micro Spline freehub variants of
+    DT Swiss EX 1700, Reserve 30 HD, Race Face Turbine SL, Hope Fortus 30, Stan's Flow EX3, Spank 359,
+    ENVE AM30 → Shimano Micro Spline cassettes now fit **11** rear-wheel brands (was 4).
+  - ✅ **Forks (+6 travel options).** ~11 frames are 160mm design travel but the big 38mm forks were
+    cataloged only at 170. Added ZEB 160, Fox 38 160, Öhlins RXF38 160+180, Manitou Mezzer 160+180.
+  - ✅ **Droppers (+6 diameters).** 31.6 was well-covered (12 platforms) but 34.9 had 3 and 30.9 had 2.
+    Added Fox Transfer, RockShox Reverb AXS and SDG Tellis in 34.9 + 30.9 → 34.9 now 6 platforms, 30.9 now 5.
+  - ⏸ **Deliberately NOT expanded — no real fit-collapse:** brakes (all catalog brakes are PM / 4-piston —
+    universal, zero fit-variance), cranksets (`bb` feeds an info advisory, not an error; T-Type already has
+    2 cranks), and handlebars (clamp is covered on both 31.8 and 35, and 35 is the enduro standard with 12
+    bars; the remaining bar variance is display-only rise/width). Adding rows there is cosmetic padding.
+  - ⏸ **Deferred (deprioritized this session):** 27.5 / mullet **rear** wheels — 16 frames support mullet
+    but only DT Swiss has a 27.5 rear, so mullet rear choice is DT-Swiss-only. Real gap, but mullet is the
+    less common case; pick it up later (existence already scoped: We Are One, Stan's, Hope, Spank, DT Swiss
+    all sell 27.5). Also parked: 150/190mm fork travels, alternate-freehub *fronts* (fronts have no freehub),
+    dropper drop-length options (display-only). Research per `tools/DATA-ENTRY-TEMPLATE.md`; branch is green
+    on every commit (validate + tests + typecheck), one commit per category. **Does not need Douglas.**
 - ⬜ **Semi-automated product data scripts.** A drift checker that re-fetches verified parts' source
   URLs for spec/price changes, and browser automation for the JS-rendered/bot-blocked retry queue.
   What stays manual: the *judgment* step — the grind keeps catching wrong specs a naive scraper would
