@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T18:58:56.819Z",
+ "updated": "2026-07-08T20:00:30.632Z",
  "batchSize": 25,
- "lastCompleted": "cr-sram-x01-dh",
+ "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "shock",
  "queue": [
   "sh-rockshox-super-deluxe-205x65-trun",
@@ -35,10 +35,7 @@
   "dp-rockshox-reverb-axs-349-170",
   "dp-rockshox-reverb-axs-309-170",
   "dp-sdg-tellis-349-170",
-  "dp-sdg-tellis-309-170",
-  "bk-shimano-xtr-m9110-fm",
-  "ro-sram-centerline-x-160-cl",
-  "ro-sram-centerline-160-6b"
+  "dp-sdg-tellis-309-170"
  ],
  "parts": {
   "fr-specialized-enduro-sworks": {
@@ -3331,11 +3328,11 @@
   },
   "bk-shimano-xtr-m9110-fm": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T20:00:22.400Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Shimano interface wall re-confirmed 2026-07-08: bike.shimano.com AND si.shimano.com both HTTP 403, so BR-M9110 mount/piston/rotor specs cannot be manufacturer-sourced (bar rule 1). Shimano also publishes no component weight; no editorial teardown for this flat-mount 2-piston SKU. In-catalog interfaces are from a prior bike.shimano.com listing + retailers; row stays unverified. Bar not met."
   },
   "bk-sram-level-ultimate-stealth": {
    "cat": "brake",
@@ -3347,19 +3344,19 @@
   },
   "ro-sram-centerline-x-160-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T20:00:30.555Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Interface maker-confirmed (sram.com rt-cln-x-a2: 160mm Center Lock, two-piece alloy/steel). Weight wall re-confirmed 2026-07-08: SRAM publishes no rotor weight; only Weight Weenies forum measurements (117-118g) and retailer listings exist, neither a reputable editorial teardown / major-outlet verified-weight DB, so the measured-weight bar (DATA-MODEL-REVIEW 5.1-13) is not met. Same wall as HS2 220/180 siblings. Bar not met."
   },
   "ro-sram-centerline-160-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T20:00:30.631Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Interface from fetched Worldwide Cyclery listing (160mm 6-bolt, one-piece). Weight wall re-confirmed 2026-07-08: SRAM publishes no rotor weight; only retailer figures (114g) + Weight Weenies forum posts, not a major-outlet measured source. Bar not met."
   },
   "sft-sram-x01-dh": {
    "cat": "shifter",
