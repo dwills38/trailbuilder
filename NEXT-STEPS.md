@@ -2,16 +2,19 @@
 
 _A living snapshot. Architecture/conventions live in `CLAUDE.md`; full history in `git log`._
 
-## Where we are (as of 2026-07-07)
+## Where we are (as of 2026-07-08)
 
 TrailBuilder — "PCPartPicker for enduro mountain bikes": pick parts, get real-time
 fit / price / weight checks. Plain static app (`index.html` + `src/`), no build step.
 
+**🚀 LIVE: [dwills38.github.io/trailbuilder](https://dwills38.github.io/trailbuilder/)** — public,
+no login, safe to share with anyone. Repo: [github.com/dwills38/trailbuilder](https://github.com/dwills38/trailbuilder).
+
 **Solid foundation, honestly-scoped prototype:**
 
 - **Layout & tooling:** `src/` + `test/`; full-`strict` JSDoc type-checking (`npm run typecheck`);
-  Vitest (`npm test` — **198 tests**); GitHub Actions CI; and a GitHub Pages deploy workflow that's
-  ready but **not yet deployed** (no git remote / `gh` in this environment).
+  Vitest (`npm test` — **204 tests**); GitHub Actions CI; **deployed** via GitHub Pages
+  (`.github/workflows/deploy.yml`, gated on validate+tests, green on every push to `main`).
 - **Engine:** 19 compatibility rules + a regression/fuzz **fortress** (`test/test-invariants.js`),
   proven crash-free, deterministic, and **dot-honest** — a green dot never hides a newly-introduced
   conflict, with clean verdict messages. A 2026-07-06 adversarial audit (**`REVIEW.md`**) found 5
@@ -31,25 +34,25 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
   check (needs a frame-size concept) and the BB category (§5.1-19, its own decision).
   Verdicts are *self-consistent* — **not yet validated
   against the real world** (no expert review, no real riders).
-- **Data:** 330 parts across ~100 brands with **63 verified** against manufacturer pages/documents —
-  verification is a **resumable checkpointed job** (`tools/verify-job.js` + `tools/VERIFY-PROTOCOL.md`;
-  any session resumes via `npm run verify:status`). Verified so far: SRAM GX/X01/NX Eagle + most
-  Transmission drivetrain parts, two RockShox shocks, a Shimano XT cassette, seven pedals, Synthesis
-  wheels, four droppers, **six frames** (all three RAAW Madonnas, Commencal Meta SX V5, Canyon Strive
-  CFR, Forbidden Dreadnought), and **the whole tire category — 23 tires across 8 brands**
-  (2026-07-07 batch: Continental from the maker's Tire Range 2025/26 PDF, Schwalbe from
-  schwalbetires.com's JS tables via a real browser session, Pirelli/Vittoria/WTB/Kenda/Goodyear
-  from their product pages; each pinned to ONE purchasable casing/compound SKU with new ids +
-  ALIASES. **The batch caught four fictional sample sizes** — Pirelli 29x2.5, Maxxis HR II 29x2.4 and
-  Shorty 29x2.5, Goodyear MTF 29x2.4 don't exist — and per-brand casing/compound vocab is now
-  enumerated in `VOCAB` for 8 brands. Michelin + Specialized tires sit in the retry queue:
-  JS-rendered/bot-blocked pages, need a browser session with those domains allowed). The rear-tire-clearance rule (18) is **active on 8 frame models
-  (10 catalog entries)** with manufacturer-published clearances. The verification sweeps keep catching
-  real spec bugs (Megatower runs 230x62.5 not 230x65; Dreadnought seatpost is 31.6 not 30.9; HD6 max
-  rotor is 220 not 203) — **the lesson that keeps paying: search-result summaries lie; only a fetched
-  manufacturer page counts.** Known blockers in the retry queue: Specialized/Orbea (bot-block 403),
-  Trek/Norco/Pivot/Rocky Mountain/Propain (JS-rendered spec pages — need a real browser session),
-  Nukeproof (domains down post-CRC-collapse). Most of the catalog is still clearly-badged sample data.
+- **Data:** 329 parts across ~100 brands. Verification is a **resumable checkpointed job**
+  (`tools/verify-job.js` + `tools/VERIFY-PROTOCOL.md`; any session resumes via `npm run verify:status`)
+  and is now **271/313 processed (87%)**: 136 Verified against manufacturer pages/documents, 134
+  Skipped with a documented reason (maker publishes no weight, no reputable third-party measured
+  figure exists, etc.), 42 still in the retry queue. **The remaining 42 are a real tooling wall, not
+  more grinding**: both WebFetch and browser automation are blocked on nearly every bike-brand domain
+  (Trek, Norco, Pivot, Rocky Mountain, Specialized, Industry Nine, DT Swiss's configurator, Roval,
+  We Are One, Newmen, Spank, Bontrager, Giant) — confirmed still true as of 2026-07-08.
+  `pushindustries.com` was a rare exception (caught a real price drift on the Push Eleven Six shock).
+  **Hard-won policy, keeps paying:** a retailer's own "we weighed it" claim is still REJECTED as a
+  verified-weight source — only an editorial outlet with no sales interest counts (Bikerumor/MBR/
+  BikeRadar teardown, not Bike24/Commencal/Amazon). Search-result summaries also keep lying (four
+  fictional tire sizes caught in the tire batch, wrong shock/seatpost/rotor specs caught elsewhere) —
+  only a fetched manufacturer page counts.
+- **🚨 Catalog breadth gap (found 2026-07-08, not yet worked):** most brands only have ONE SKU
+  cataloged (one size/mount/config), so picking almost any frame narrows real choices to whichever
+  1–2 brands happen to fit. Quantified: shocks 7/9 brands single-SKU, forks 10/14, front wheels
+  **17/18**, handlebars 13/14, droppers 9/13, cranksets 3/5, brakes 3/8. This is the single biggest
+  thing between "prototype" and "feels like a real parts picker" — see the Phase 2 addition below.
 - **Data model: the pre-mass-entry gate is LANDED** (2026-07-07, seven commits on the
   2026-07-06 **`DATA-MODEL-REVIEW.md`** audit): brand-qualified **append-only ids** (all 327
   migrated pre-deploy; `ALIASES` + `canonicalId` keep old share links + verify-job state working;
@@ -66,10 +69,16 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
   `supersededBy` — Madonnas chained; `soldWithout`), and **structured verdict objects**
   (`{ruleId, slots, msg, fix?}` — the REVIEW #4/#13 masking class is dead; adapter tier enabled).
 - **UI:** category + sub-category chips, Sort menu, search, "✓ Verified only" filter, kit quick-fill
-  with bundle pricing, shareable build links, four demo builds, the **⚐ Report a wrong verdict**
-  modal, and a **📋 View complete build** summary modal (full part list w/ kit pricing + totals +
-  copy/share).
-- **Try it:** open `index.html` (double-click — no build step). (`TrailBuilder-sample.html` is a
+  with bundle pricing, shareable build links, the **⚐ Report a wrong verdict** modal (live GitHub
+  issues), and a **📋 View complete build** summary modal. **All of Phase 1 shipped 2026-07-07/08**
+  (see below) plus a Phase 2 quick hit: clickable part cards → a full-spec detail modal, budget/
+  mid/high-end sample builds (real pricing, 0 conflicts each), lite build comparison via pasted
+  share links, a downloadable spec-card share image, per-category placeholder illustrations
+  (`image`/`colors`/`retailerLinks` schema fields exist and the UI is wired for them — no real data
+  entered yet), and two purely-cosmetic theme toggles: **🤘 RAD mode** and **🏳️‍🌈 Roadie mode**
+  (mutually exclusive, zero effect on any verdict).
+- **Try it:** live at [dwills38.github.io/trailbuilder](https://dwills38.github.io/trailbuilder/), or
+  open `index.html` locally (double-click — no build step). (`TrailBuilder-sample.html` is a
   stale generated snapshot from an early session — don't trust it; safe to delete.)
 
 ---
@@ -80,25 +89,18 @@ fit / price / weight checks. Plain static app (`index.html` + `src/`), no build 
 Anything that *claims* something about fit or ride quality needs a source; everything else can
 be playful.
 
-## Phase 0 — Ship the beta *(unchanged, still first — needs Douglas)*
+## Phase 0 — Ship the beta
 
-1. **Deploy.** Douglas creates the GitHub repo (`gh repo create trailbuilder --public --source=. --push`)
-   and sets Pages source → "GitHub Actions" (`.github/workflows/deploy.yml` is ready). Then set
-   `REPORT_REPO` in `index.html` to `"owner/repo"` so the built-in **⚐ Report a wrong verdict** modal
-   upgrades from copy-to-clipboard to pre-filled GitHub issues (labelled `wrong-verdict`). Real usage
-   is the only thing that validates the rules and turns the community into QA.
-2. **Domain-expert rule review.** A mechanic/engineer sanity-checks the 19 rules + verified specs.
-   Irreplaceable for "the community can rely on it" — and it also unblocks the Phase 4 ride-character
-   features (they need an expert-blessed vocabulary). **The review packet is ready:
-   [`EXPERT-REVIEW-DOSSIER.md`](EXPERT-REVIEW-DOSSIER.md)** — every rule's claim, tier, sources and
-   open questions in mechanic language (~2-3h review, no code reading). Recruit the reviewer and
-   hand them that file.
-3. **Keep the verification grind running** (resumable job — next up: Continental/Schwalbe/Michelin/
-   Pirelli tires, which all publish weights). **✅ Gate cleared (2026-07-07):** the tire
-   `casing`/`compound` fields and `tools/DATA-ENTRY-TEMPLATE.md` exist — the tire batch is a go
-   (enumerate each brand's casing/compound values in VOCAB when its batch starts). The
-   measured-weight policy is also decided (`sourceType:'measured'`, weight only), which unblocks
-   the Shimano / rotor / fork classes — see `tools/VERIFY-PROTOCOL.md`.
+1. **Deploy. ✅ DONE 2026-07-07.** Live at dwills38.github.io/trailbuilder; CI + deploy workflows
+   green; `REPORT_REPO` wired so **⚐ Report a wrong verdict** files real GitHub issues.
+2. **Domain-expert rule review — packet ready, still needs Douglas.** **The review packet is ready:
+   [`EXPERT-REVIEW-DOSSIER.pdf`](EXPERT-REVIEW-DOSSIER.pdf)** (print-ready PDF generated 2026-07-07,
+   `scripts/build_dossier_pdf.py`) — every rule's claim, tier, sources and open questions in mechanic
+   language (~2-3h review, no code reading). **Still open: recruit the reviewer and hand them the
+   PDF.** Nothing else can happen on this until that human step happens.
+3. **Verification grind — 87% processed, hit a real wall.** 271/313 parts have a final disposition
+   (136 Verified, 134 Skipped-documented). The remaining 42 need either a differently-configured
+   browser session or Douglas manually fetching a few blocked pages — see the "Data" bullet above.
 
 ## Phase 0.5 — Pre-mass-entry gate ✅ *(DONE 2026-07-07 — seven commits, one per item)*
 
@@ -119,39 +121,52 @@ Separate queue — **REVIEW.md: ✅ FULLY RETIRED 2026-07-07.** Majors #6–#9 (
 Deliberately deferred, documented in REVIEW.md's status header: the real insertion-depth check
 (needs a frame-size concept) and the BB category (DATA-MODEL-REVIEW §5.1-19, its own decision).
 
-## Phase 1 — Quick wins on the static app *(no backend, days-not-weeks each)*
+## Phase 1 — Quick wins on the static app ✅ *(ALL DONE 2026-07-07/08)*
 
-- **Weight in lbs** alongside grams/kg on the build summary. *(Trivial.)*
-- **Sample builds: budget / mid / high-end.** Recast the demo builds as price tiers using real
-  bundle pricing.
-- **Clickable part cards → detail view.** Modal with full specs, provenance badge + source link,
-  and empty slots for image/retailer links so Phase 2 drops straight in.
-- **Build comparison, lite.** Compare two builds side-by-side (totals, weights, verdicts) by
-  pasting share links — no login needed. Graduates to saved-builds comparison in Phase 3.
-- **🤘 RAD mode.** Easter-egg toggle: neon/checkerboard 1986 theme (the movie *RAD*), maybe a
-  "radness meter" on the finished build. Zero honesty-bar risk because it's openly a joke.
+- ✅ **Weight in lbs** alongside grams/kg on the build summary.
+- ✅ **Sample builds: budget / mid / high-end.** Real bundle pricing, 0 conflicts each
+  ($5.9k / $9.2k / $15.4k).
+- ✅ **Clickable part cards → detail view.** Full specs, provenance badge + source link; generic
+  field renderer auto-covers new schema fields (image/colors/retailerLinks slot in with no UI change).
+- ✅ **Build comparison, lite.** Paste a share link, see it side-by-side (verdict/price/weight/
+  per-group diff) with your current build.
+- ✅ **🤘 RAD mode** — neon/checkerboard theme + a joke radness meter. Plus a second toggle not
+  originally planned: **🏳️‍🌈 Roadie mode** (pride-flag theme), mutually exclusive with RAD mode.
+
+Nothing left on this list — every Phase 1 item shipped and is live.
 
 ## Phase 2 — Richer catalog + data pipeline
 
-- **Schema additions:** `image`, `colors[]`, `retailerLinks[]` per part (update `schema.js` +
-  `src/types.js` together, per convention). Colors are display-only — no compat impact.
-- **Product pictures.** Manufacturer photos are copyrighted; realistic paths: manufacturer-hosted
-  images where brands permit embedding, retailer/affiliate image feeds (licensed for exactly this),
-  or clean per-category placeholder illustrations until then.
-- **Retailer links → affiliate programs.** Also the legitimate answer for **price feeds** and images.
-- **Semi-automated product data scripts.** What can be automated: *fetching and flagging* — a drift
-  checker that re-fetches verified parts' source URLs for spec/price changes, and browser automation
-  for the JS-rendered/bot-blocked sites in the retry queue. What stays manual: the *judgment* step —
-  the grind keeps catching wrong specs that a naive scraper would write through as truth. New
-  products arrive as **unverified** and join the existing verification queue; fully-automatic
-  ingestion also has ToS/legal friction, so the long-term answer is affiliate/retailer API feeds.
+- ✅ **Schema additions DONE 2026-07-08:** `image`, `colors[]`, `retailerLinks[]` per part
+  (`schema.js` + `src/types.js`, 6 negative tests). Display-only, no compat impact. The part-detail
+  modal already renders real data when present.
+- ✅ **Placeholder illustrations DONE 2026-07-08:** 11 clean hand-drawn stroke-icon SVGs (one per
+  part group) show on every card and in the detail modal until a real photo exists.
+- ✅ **Build image, first rung DONE 2026-07-08:** downloadable spec-card share image (SVG→canvas→PNG).
+- ⬜ **Real product photos.** Manufacturer photos are copyrighted; needs manufacturer permission,
+  a retailer/affiliate image feed, or staying on placeholders. **Blocked on Douglas** (licensing call).
+- ⬜ **Retailer links → affiliate programs.** Also the legitimate answer for **price feeds** and
+  images. **Blocked on Douglas** (which program(s) to join).
+- 🚨 **NEW, highest-value open item (found 2026-07-08): catalog breadth.** Most brands have only
+  ONE SKU cataloged — add the missing size/mount variants, starting with shocks (7 of 9 brands are
+  single-SKU 230×65-std-only; a Madonna V3.2 owner currently can't pick an Öhlins/EXT/Cane Creek/
+  Marzocchi/DVO/Manitou shock because none of them have a 205×65-trunnion row yet, even though those
+  brands make one in real life). Same narrowness in forks (10/14 single-SKU), front wheels (17/18!),
+  handlebars (13/14), droppers (9/13). Real research per `tools/DATA-ENTRY-TEMPLATE.md`, sample data
+  until the verification grind catches it (same convention as the rest of the catalog) — **does not
+  need Douglas, a session can start this unprompted.**
+- ⬜ **Semi-automated product data scripts.** A drift checker that re-fetches verified parts' source
+  URLs for spec/price changes, and browser automation for the JS-rendered/bot-blocked retry queue.
+  What stays manual: the *judgment* step — the grind keeps catching wrong specs a naive scraper would
+  write through as truth. New products arrive as **unverified** and join the existing queue.
 
-## Phase 3 — Accounts & the garage *(first backend: Supabase/Firebase)*
+## Phase 3 — Accounts & the garage *(first backend: Supabase/Firebase — not started)*
 
 - **Login + saved builds** (the share-link format already encodes a build, so migration is clean).
 - **Garage:** in-progress vs **completed builds**, plus an **owned-parts inventory** — inventory
   then powers "build around what I own" filtering.
-- **Full build comparison** across saved builds.
+- **Full build comparison** across saved builds (the Phase 1 lite version, via pasted links, is done).
+- **Blocked on Douglas:** pick Supabase vs Firebase before this is worth scoping at all.
 
 ## Phase 4 — Community & ride character *(the ambitious tier)*
 
@@ -165,14 +180,19 @@ Deliberately deferred, documented in REVIEW.md's status header: the real inserti
   have (the "SB160 less plush than Megatower" comparison is subjective-review territory). Plan:
   add geometry fields to the schema first, ship transparent "character hints" derived only from
   real specs, and treat a numeric uphill-efficiency score as **parked** until there's defensible data.
-- **Image of the final build.** In order of realism: a shareable spec-card graphic of the build
-  (start here); composited part photos; clearly-labeled AI-generated render.
+- **Image of the final build.** In order of realism: ✅ a shareable spec-card graphic of the build
+  (**DONE 2026-07-08**, moved up from Phase 4 as a Phase 1/2 quick hit); composited part photos
+  (needs Phase 2 photos first); clearly-labeled AI-generated render.
 
 ---
 
-**Sequencing:** Phase 0 step 1 is the whole ballgame — every feature gets better feedback once
-strangers can use the app. While that waits on repo creation, Phase 1 is pure momentum and makes
-the beta demo dramatically better.
+**Sequencing, updated 2026-07-08:** Phase 0 is deployed and live — that part of the ballgame is won.
+What's left splits cleanly into two buckets: **things only Douglas can unblock** (expert-review
+reviewer, image/affiliate licensing, Supabase-vs-Firebase) and **things a session can pick up
+unprompted** (catalog breadth expansion — the highest-value one — and the remaining verification
+retry queue, though that one's hit a real tooling wall). Catalog breadth is the current top
+recommendation: it's the thing actually limiting what people can build today, and doesn't wait on
+anyone.
 
 **The bar, always:** a wrong verdict (false "fits" OR false "won't fit") is worse than a missing
 rule. Only add rules backed by manufacturer docs + tests, and keep `npm test`, `node validate.js`,

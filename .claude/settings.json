@@ -12,7 +12,13 @@
       "Bash(node tools/verify-job.js next *)",
       "Bash(npx tsc --version)",
       "mcp__claude-in-chrome__tabs_context_mcp",
-      "mcp__claude-in-chrome__get_page_text"
+      "mcp__claude-in-chrome__get_page_text",
+      "Bash(node tools/verify-job.js status *)",
+      "Bash(node tools/verify-job.js report *)",
+      "Bash(node tools/verify-job.js retry *)",
+      "Bash(gh run watch *)",
+      "mcp__Claude_Preview__preview_inspect",
+      "mcp__Claude_Preview__preview_snapshot"
     ]
   }
 }
