@@ -13,7 +13,7 @@
  * To go live: paste the Project URL + anon key from the Supabase dashboard
  * (Settings -> API), run supabase/schema.sql, and set the Auth redirect URLs.
  */
-var SUPABASE_URL = '';        // e.g. 'https://abcdefgh.supabase.co'
-var SUPABASE_ANON_KEY = '';   // e.g. 'eyJhbGciOiJIUzI1NiIsInR5cCI6...'
+var SUPABASE_URL = 'https://pabiaerjadeeggwoslng.supabase.co';
+var SUPABASE_ANON_KEY = 'sb_publishable_s9F1GKfy_8MwRtDrBcWN3w_BUB4qrdS';   // publishable/anon key - RLS owner-scopes every row, safe to commit
 
 var ACCOUNTS_ENABLED = !!(SUPABASE_URL && SUPABASE_ANON_KEY);
