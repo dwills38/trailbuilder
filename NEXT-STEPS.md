@@ -251,10 +251,19 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   (no fetched source states its rear brake mount — Vital + two BikeRadar reviews all silent; same
   discipline as the Lux Trail skip), Commencal Clash (URL 404s). Fork-tier note: the pass-5 claim
   that 140-150 forks were thin was wrong — Pike 130/140, Fox 34 140, Mattoc 150 already cover it.
-  **Next pass:** more trail/DH frames from fetchable makers (commencal tech pages, canyon,
-  raawmtb, scott now too), Epic HT/Spark/Genius only with maker docs (integrated-shock/FM
-  minefields), 27.5 XC tires if a 27.5 XC frame ever lands, drift-checker script (Phase 2),
-  mullet-rear wheels (still parked).
+  **Pass 7 (`catalog-disciplines-7`, 3 commits, +5 rows → 432 parts / 154 verified / 254 tests):**
+  (1) **RAAW Yalla!! V2 — VERIFIED** (fetched raawmtb.com spec page, Madonna precedent): the
+  first TRUNNION DH frame, first UDH/T-Type DH frame, seventh DH frame (198 mm, 225x75 trunnion,
+  148x12 Boost rear — V1 was 157, BSA83, PM 223 max, 2.6 maker maxTire, 4.2 kg, $2,924) + its
+  shock size (Vivid Ultimate 225x75 trunnion, fetched WWC) so the slot isn't a dead end.
+  (2) **Commencal Meta HT V3 — the first trail/AM hardtail** (fetched commencal.com frame page;
+  **vocab widened: frameBb += BSA68**, the classic 68 mm threaded shell; 29 M-XL + mullet-on-S,
+  UDH, PM 200, 64 mm maker maxTire → rule 18 active, 2.32 kg alu). (3) **Commencal T.E.M.P.O.**
+  — the 125 mm downcountry tier (fetched tech-tempo page: 210x50, PF92, UDH, maker maxTire).
+  (4) **FR 1500 DH wheelset preset** → the DH demo now loads with wheels-kit pricing
+  (browser-verified, $9,026). **Next pass:** more frames from fetchable makers, Epic HT/Spark/
+  Genius only with maker docs (integrated-shock/FM minefields), 27.5 XC tires if a 27.5 XC frame
+  ever lands, drift-checker script (Phase 2), mullet-rear wheels (still parked).
 - ⬜ **Semi-automated product data scripts.** A drift checker that re-fetches verified parts' source
   URLs for spec/price changes, and browser automation for the JS-rendered/bot-blocked retry queue.
   What stays manual: the *judgment* step — the grind keeps catching wrong specs a naive scraper would
