@@ -363,6 +363,43 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   `.99`-ending prices vs a whole-dollar catalog value, a space-thousands-separator format on
   Öhlins' site, and three source URLs that are spec/FAQ pages which never carried a price at
   all). No catalog rows were edited by this pass — triage findings are a queue, not a fix.
+  **Catalog-expand-9 (branch `catalog-expand-9`, worktree-isolated, PUSHED not merged — coordinator
+  lands it): +7 rows on a 449-part / 319-test baseline → 456 parts / 177 verified / 325 tests.**
+  Scoped OUT of drivetrain/brakes/rotors (a concurrent verification session owns those rows this
+  pass). **Three more Commencal frames**, all from re-fetched commencal.com pages found via the
+  `commencal.com/us/en/` nav (the Clash URL that 404'd in pass 6 is superseded by a new one):
+  **Supreme DH V5.2** (verified — a new DH gen confirming the same 157×12 SuperBoost hub the V5
+  sibling was corrected to in an earlier pass; V5 marked `supersededBy`), **Clash V3** (the first
+  full-27.5 ENDURO frame — every prior full-27.5 row was DH; golden-pinned on SRAM GX Transmission
+  + the existing DT Swiss E 1900 27.5 wheels), **Meta TR V4** (verified — a new trail platform whose
+  210×55 std shock size and 34.9 post exactly match the Stumpjumper 15, so the existing TRAIL_BUILD
+  parts list carries over unchanged onto it; golden-pinned). Other fetchable makers came up dry this
+  pass: Cotic's newer platforms (Jeht, BFe) use an **IS brake mount** our schema doesn't model
+  (would need brake-side changes, off-limits this pass) and Flare's specs are still "TBC"; Canyon
+  Torque is e-bike-only now; Scott Ransom uses the same proprietary Nude/TracLoc integrated shock as
+  the already-skipped Spark/Genius (skipped for the same no-aftermarket-shock-policy reason,
+  consistently); Scott Gambler isn't in the fetchable US catalog. **A quick coverage sweep (every
+  frame's shock/wheel/fork combo vs cataloged brands) found three real fit-collapses, not just
+  cosmetic gaps, and fixed each with a fetched-source addition**: (1) 250×75 std DH shock was
+  RockShox-only across all six DH frames that use it, and 225×75 trunnion (Yalla V2) was too — added
+  **Öhlins TTX22 M.2** at both sizes (fetched ohlins.com, $929.50 each, weight unpublished so left
+  unverified, same basis as the existing 230×65 sibling). (2) SuperBoost157 + 27.5 (the mullet rear
+  config) had **zero** wheel options at all — five DH frames (Firebird, Supreme DH V5/V5.2, Sender
+  CFR, V10 8) were unbuildable in mullet. Fixed by adding `rw-dtswiss-fr-1500-275-157`: its own 150
+  sibling's already-fetched Universal Cycles listing states the wheel *ships* with a 157 hub and 150
+  end caps in the box, so 157 is the native config. Golden-pinned a full mullet DH build (Supreme DH
+  V5.2, 29 front/27.5 rear) exercising the new wheel + new Öhlins shock together. (3) Boost110/27.5/
+  170 (the Clash V3 + Propain Spindrift CF fork slot) was RockShox ZEB-only — added **Öhlins RXF36
+  m.2 27.5 170** (verified, fetched ohlins.com travel selector, 15×110, 180–205mm rotor range,
+  2150g, $1,369.50). All three new frames + all breadth fixes browser-verified against a
+  worktree-rooted preview server (`window.PARTS` shows 456, `window.checkBuild()` on the Clash V3
+  build returns 0/0). **Next pass:** more frames from fetchable makers if any remain unexplored: RAAW
+  and Privateer's lineups are now fully cataloged (3 and 2 platforms respectively), Commencal's
+  Meta SX V4 / Meta HT V2 are older gens superseded by the V5/V3 rows already in-catalog so were
+  skipped; Cotic Jeht/BFe need an `IS` brakeMount vocab addition (pair with a brake-category pass);
+  Fox ridefox.com product-page URLs 404'd on every guessed slug this pass (unlike the earlier
+  session's successful fetch) — worth a retry with a fresh URL discovery path to fill the remaining
+  210×50/210×55-std second-shock-brand gap (3–4 frames, lower priority than the three fixed above).
 
 ## Phase 3 — Accounts & the garage *(backend chosen: **Supabase**; code built, awaiting keys)*
 
