@@ -35,7 +35,9 @@
   .legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--ink-soft);margin:0 0 16px}
   .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle;border:1px solid rgba(0,0,0,.15)}
   .layout{display:grid;grid-template-columns:1fr 350px;gap:22px;align-items:start}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:12px}
+  .layout > *{min-width:0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:12px;min-width:0}
+  .pcard{min-width:0}
 
   .pcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px;display:flex;flex-direction:column;gap:6px;position:relative;cursor:pointer}
   .pcard-head{display:flex;align-items:flex-start;gap:10px}
@@ -111,8 +113,14 @@
   .report-cta{margin-top:10px;text-align:right}
   .report-cta button{border:none;background:none;color:var(--ink-soft);font-size:12px;cursor:pointer;text-decoration:underline;padding:4px 2px;font-weight:600}
   .report-cta button:hover{color:var(--err)}
-  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);max-height:calc(100vh - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  /* Scoped to [open] so display:flex only ever applies while the dialog is actually
+     showing — the UA stylesheet's dialog:not([open]){display:none} must stay in charge
+     when closed, or the dialog would render invisibly-but-present in the layout. */
+  dialog#reportModal[open],dialog#buildModal[open],dialog#partModal[open],dialog#compareModal[open],dialog#specCardModal[open],dialog#authModal[open],dialog#garageModal[open]{display:flex;flex-direction:column;overflow:hidden}
   dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop,dialog#authModal::backdrop,dialog#garageModal::backdrop{background:rgba(18,28,22,.45)}
+  .rm-head,.rm-foot{flex:none}
+  .rm-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
   /* Inventory page (Phase 3): a full-width view, not a modal. body.inv-page hides
      the builder and reveals this; toggled by the header 🧰 Inventory button. */
   #inventoryPage{display:none}
@@ -193,6 +201,30 @@
   .cmp-vs{color:var(--ink-soft);font-size:12px;font-weight:700}
   .cmp-or{text-align:center;color:var(--ink-soft);font-size:11px;margin:12px 0 4px}
   @media (max-width:880px){ .layout{grid-template-columns:1fr} .side{position:static} }
+
+  /* Mobile touch targets + small-viewport tightening. Scoped to ≤768px so desktop
+     density is untouched; ≤480px adds a further squeeze for the smallest phones. */
+  @media (max-width:768px){
+    header{padding:18px 16px}
+    header h1{font-size:21px}
+    main{padding:14px 16px 44px}
+    footer{padding:0 16px 40px}
+    .toolbar,.chips{gap:8px}
+    .btn,.chip{min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:10px 14px}
+    .chip.sub{min-height:38px;padding:8px 13px}
+    .pick{min-height:40px;padding:9px 13px;display:inline-flex;align-items:center;justify-content:center}
+    .report-cta button{padding:10px 2px}
+    .rm-details summary{padding:6px 0}
+    .slot .x{min-width:32px;min-height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:17px}
+    .qty button{width:34px;height:34px}
+    .grow .gacts button{min-height:36px;padding:7px 10px}
+    dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal{width:calc(100% - 20px)}
+  }
+  @media (max-width:480px){
+    header h1{font-size:19px}
+    header p{font-size:13px}
+    .badge{font-size:11px}
+  }
 
   /* 🤘 RAD mode — purely cosmetic easter egg, zero honesty-bar risk (see CLAUDE.md roadmap) */
   html.rad{
