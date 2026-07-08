@@ -245,6 +245,7 @@
     <button class="btn" id="compareBtn">⚖ Compare builds</button>
     <button class="btn primary" id="share">Share / save link</button>
   </div>
+  <div class="chips" id="discChips" title="Filter by riding discipline — parts without a discipline tag are universal and always show"></div>
   <div class="chips" id="chips"></div>
   <div class="chips subchips" id="subchips"></div>
   <div class="legend">
@@ -408,6 +409,7 @@
   var sortBy = 'featured';   // catalog order: featured (compatible-first) | name | price | weight
   var search = '';
   var verifiedOnly = false;  // when on, show only manufacturer-verified parts/kits
+  var disciplineFilter = 'all';  // 'all' | xc | trail | enduro | dh — display filter only (disciplines never feeds verdicts)
   var $ = function(id){ return document.getElementById(id); };
   var money = function(n){ return '$' + (n||0).toLocaleString(); };
   var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg / ' + (g/453.592).toFixed(2) + ' lb)'; };
@@ -495,6 +497,22 @@
     el.appendChild(mkChip('all','All parts'));
     GROUPS.forEach(function(g){ el.appendChild(mkChip(g.key, (ICONS[g.key]||'')+' '+g.label)); });
   }
+
+  /* ---- discipline chips (display filter only — disciplines never feeds
+     verdicts; a part without the tag is universal and always shows).
+     Own label map: L() must not be used here — 'dh'/'trail'/'enduro' collide
+     with the tire-casing labels in LABELS. ---- */
+  var DISC_LABELS = { all:'All disciplines', xc:'🐇 XC', trail:'🌲 Trail', enduro:'⛰️ Enduro', dh:'⬇️ DH' };
+  function renderDiscChips(){
+    var el = $('discChips'); el.innerHTML='';
+    ['all','xc','trail','enduro','dh'].forEach(function(k){
+      var d=document.createElement('div');
+      d.className='chip'+(disciplineFilter===k?' active':'');
+      d.textContent=DISC_LABELS[k];
+      d.onclick=function(){ disciplineFilter=k; renderDiscChips(); renderCatalog(); };
+      el.appendChild(d);
+    });
+  }
   function mkChip(key,label){
     var d=document.createElement('div');
     d.className='chip'+(activeGroup===key?' active':'');
@@ -538,6 +556,7 @@
       if(activeGroup!=='all' && activeSub!=='all' && p.cat!==activeSub) return false;
       if(q && (p.brand+' '+p.model+' '+catLabel(p.cat)).toLowerCase().indexOf(q)<0) return false;
       if(verifiedOnly && !partVerified(p)) return false;
+      if(disciplineFilter!=='all' && p.disciplines && p.disciplines.indexOf(disciplineFilter)<0) return false;
       return true;
     });
     if(!list.length){ el.innerHTML='<p class="muted">'+(verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':'No parts match.')+'</p>'; return; }
@@ -1117,7 +1136,7 @@
   $('reportGithub').onclick=openReportGitHub;
   $('reportModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });   // click backdrop to dismiss
 
-  readHash(); renderChips(); renderSubChips(); sync();
+  readHash(); renderDiscChips(); renderChips(); renderSubChips(); sync();
 })();
 </script>
 </body>
