@@ -425,8 +425,11 @@ Nothing left on this list — every Phase 1 item shipped and is live.
 
 ## Phase 4 — Community & ride character *(the ambitious tier)*
 
-- **Forum:** don't build one at first — turn on **GitHub Discussions** at beta launch (free, zero
-  code, zero moderation tooling) and only build an in-app forum if the community outgrows it.
+- ✅ **Forum — DONE 2026-07-08.** GitHub **Discussions** enabled on the repo (free, zero code, zero
+  moderation tooling) and surfaced in-app via a header **💬 Community** link (`FORUM_URL` derived from
+  `REPORT_REPO` → `/discussions`, feature-gated like the report link). Deployed live. Only build a
+  bespoke in-app forum if the community outgrows Discussions; the convention-clean upgrade path if it
+  ever wants to be *embedded* is Giscus (Discussions-backed), which would need a no-CDN exception.
 - **AI ride-character summary** of a finished build (climbing efficiency, descending capability,
   suspension feel, best-suited rider/terrain) — with guardrails: generated from *objective* build
   facts (travel, weight, tire casing/compound, geometry once added), clearly labeled as opinion,
@@ -438,6 +441,45 @@ Nothing left on this list — every Phase 1 item shipped and is live.
 - **Image of the final build.** In order of realism: ✅ a shareable spec-card graphic of the build
   (**DONE 2026-07-08**, moved up from Phase 4 as a Phase 1/2 quick hit); composited part photos
   (needs Phase 2 photos first); clearly-labeled AI-generated render.
+
+### Native mobile app — PLAN (decided 2026-07-08: *plan now, build later*)
+
+Douglas wants a real **App Store / Play Store** app (not just a PWA). The good news: the app is a
+static site, so a native app **wraps the existing web app — no rewrite**. The honest news: a store
+app is **not** low-hanging fruit, and its blockers are all human-gated (like the expert review and
+image licensing). This is the concrete plan to pick up when those inputs are ready.
+
+**Key insight:** every cheap native path is *built on top of* PWA groundwork (manifest + service
+worker + icons). So the **PWA is the foundation for the native app, not an alternative to it** — and
+a PWA alone already delivers "installable on the phone home screen + works offline at the trailhead,"
+which is ~80% of what most people mean by "have it on my phone," with **zero** accounts, fees, review,
+or Mac. Recommended sequence puts value ahead of blockers:
+
+1. **PWA foundation** *(no blockers — a session can do this anytime; the actual low-hanging fruit)*:
+   `manifest.webmanifest` (name, `theme-color`, `display:standalone`, `start_url`), **192 + 512 (+
+   maskable) PNG icons** + `apple-touch-icon`, and a **service worker** caching the app shell + catalog
+   for offline. Registered via a classic `<script>` (honors no-CDN/no-build). Ships with the existing
+   GitHub Pages deploy. *Icon note:* need real PNGs — generate from an SVG (rasterize via the headless
+   preview canvas or an installed tool); the existing hand-drawn stroke SVGs are a starting point.
+2. **Android / Play Store** *(cheap, no Mac)*: wrap the PWA as a **Trusted Web Activity** via
+   **Bubblewrap** or **PWABuilder**. Buildable on Windows (Android SDK). **On Douglas:** Play Console
+   account (**$25 one-time**), an app signing key, and a store listing (icon, screenshots, **privacy
+   policy URL — required because the app has accounts/Supabase**).
+3. **iOS / App Store** *(the expensive tail)*: **Capacitor** (or PWABuilder) WKWebView wrapper.
+   **On Douglas:** Apple Developer Program (**$99/yr**); a **Mac + Xcode OR a paid cloud-build**
+   (Codemagic / EAS Build / GitHub macOS runners / Ionic Appflow) — *he's on Windows, so iOS cannot be
+   built locally*; plus **review-hardening to pass Apple Guideline 4.2** ("minimum functionality" —
+   Apple rejects bare website wrappers, so add offline + native share/nav, maybe push) and a privacy
+   policy. Google Play is far more lenient here.
+
+**Tooling call when we build:** **Capacitor** is the standard wrapper for an existing web app (real
+iOS+Android projects, native-plugin access) but introduces **npm build tooling + native project dirs**
+— a deliberate break from "no build step" **for the native target only** (the web app stays no-build;
+Capacitor just copies the static files into the shell). PWABuilder/TWA is lighter for Android-only.
+
+**Blocked on Douglas (the whole thing waits on these):** Apple ($99/yr) + Google ($25) accounts; a
+Mac or paid cloud-build for iOS; sign-off on a build step for the native target; a privacy-policy page;
+store assets (icons, screenshots). A session can build **step 1 (PWA)** with none of these.
 
 ---
 
