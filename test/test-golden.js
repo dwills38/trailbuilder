@@ -171,16 +171,18 @@ test('golden: the XC hardtail fills every required slot (shock exempt via slotRe
   required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
 });
 
-/* The first complete XC FULL-SUSPENSION race build (2026-07-08, pass 4):
-   Lux World Cup (the first flat-mount FULL-SUS frame, 160mm rear max) +
-   SID 120 + SIDLuxe 210x50 + verified Racing Ray front / Racing Ralph rear
-   (Schwalbe's front/rear-specific XC pairing) + XTR with the FM rear caliper
-   + a 160 CL rear rotor + 30.9 dropper. Must stay green. */
+/* The first complete XC FULL-SUSPENSION race build (2026-07-08, pass 4;
+   pass 5 moved it onto the verified Synthesis XCT 11 wheels - 6-bolt hubs,
+   so rotors went 6-bolt too, incl. the new 160mm 6-bolt rear): Lux World Cup
+   (the first flat-mount FULL-SUS frame, 160mm rear max) + SID 120 + SIDLuxe
+   210x50 + verified Racing Ray front / Racing Ralph rear (Schwalbe's
+   front/rear-specific XC pairing) + XTR with the FM rear caliper + 30.9
+   dropper. Must stay green. */
 var XC_FS_BUILD = { frame:'fr-canyon-lux-world-cup-cf', fork:'fk-rockshox-sid-ultimate-29-120', shock:'sh-rockshox-sidluxe-ultimate-210x50',
-  frontWheel:'fw-dtswiss-ex-1700-29', rearWheel:'rw-dtswiss-ex-1700-29-ms',
+  frontWheel:'fw-crankbrothers-synthesis-xct11-29', rearWheel:'rw-crankbrothers-synthesis-xct11-29-ms',
   frontTire:'ti-schwalbe-racing-ray-29-235-sr-as', rearTire:'ti-schwalbe-racing-ralph-29-235-sr-as',
   shifter:'sft-shimano-xtr-m9100', derailleur:'dr-shimano-xtr-m9100-sgs', cassette:'ca-shimano-xtr-m9100-1051', chain:'ch-shimano-xtr-m9100', crankset:'cr-shimano-xtr-m9100',
-  frontBrake:'bk-shimano-xtr-m9120', rearBrake:'bk-shimano-xtr-m9110-fm', frontRotor:'ro-shimano-rtmt800-180-cl', rearRotor:'ro-sram-centerline-x-160-cl',
+  frontBrake:'bk-shimano-xtr-m9120', rearBrake:'bk-shimano-xtr-m9110-fm', frontRotor:'ro-sram-hs2-180-6b', rearRotor:'ro-sram-centerline-160-6b',
   handlebar:'hb-oneup-carbon-35', stem:'st-oneup-stem-35', grips:'gr-oneup-lockon', dropper:'dp-fox-transfer-factory-309-180', saddle:'sa-wtb-volt', pedals:'pd-crankbrothers-mallet-enduro' };
 test('golden: a complete XC full-suspension race build (flat-mount rear, 210x50) is fully compatible', function(){
   var r = chk(XC_FS_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
