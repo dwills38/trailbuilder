@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T18:11:32.737Z",
+ "updated": "2026-07-08T18:58:56.819Z",
  "batchSize": 25,
- "lastCompleted": "sh-rockshox-super-deluxe-ultimate-230x62p5",
+ "lastCompleted": "cr-sram-x01-dh",
  "currentCategory": "shock",
  "queue": [
   "sh-rockshox-super-deluxe-205x65-trun",
@@ -29,21 +29,6 @@
   "sh-rockshox-super-deluxe-ultimate-dh-250x72p5",
   "sh-rockshox-super-deluxe-ultimate-210x55",
   "sh-rockshox-super-deluxe-ultimate-185x55-trun",
-  "fk-rockshox-zeb-ultimate-29-160",
-  "fk-fox-38-factory-29-160",
-  "fk-ohlins-rxf38-m2-29-160",
-  "fk-ohlins-rxf38-m2-29-180",
-  "fk-manitou-mezzer-pro-29-160",
-  "fk-manitou-mezzer-pro-29-180",
-  "fk-rockshox-boxxer-ultimate-29-200",
-  "fk-rockshox-boxxer-ultimate-275-200",
-  "fk-rockshox-pike-ultimate-29-130",
-  "fk-rockshox-pike-ultimate-29-140",
-  "fk-rockshox-sid-ultimate-29-120",
-  "fk-rockshox-sid-sl-ultimate-29-100",
-  "fk-fox-40-factory-29-203",
-  "fk-marzocchi-bomber-58-275-200",
-  "fk-fox-34-factory-29-140",
   "dp-fox-transfer-factory-349-180",
   "dp-fox-transfer-sl-309-100",
   "dp-fox-transfer-factory-309-180",
@@ -53,11 +38,7 @@
   "dp-sdg-tellis-309-170",
   "bk-shimano-xtr-m9110-fm",
   "ro-sram-centerline-x-160-cl",
-  "ro-sram-centerline-160-6b",
-  "sft-sram-x01-dh",
-  "dr-sram-x01-dh",
-  "ch-sram-pc-xx1",
-  "cr-sram-x01-dh"
+  "ro-sram-centerline-160-6b"
  ],
  "parts": {
   "fr-specialized-enduro-sworks": {
@@ -3158,91 +3139,91 @@
   },
   "fk-rockshox-zeb-ultimate-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:37:33.797Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Re-fetched sram.com model page fs-zeb-ult-a1: interfaces all confirm (15x110 Boost, tapered steerer, 160 is a listed travel option, maxRotor 220 / minRotor 200). But maker publishes only ONE weight (2265g for 190mm/1.5-taper config), not per-travel; no editorial teardown measured the exact 160mm 29 SKU (reviews measured 170mm=2358g or cite the 190mm claim). Weight wall - interfaces manufacturer-sourced but 160mm weight unverifiable."
   },
   "fk-fox-38-factory-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:42:50.417Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight wall. ridefox.com/products/fox-38-factory-grip-x2 lists only a single STARTING WEIGHT for the 180 config (2360g), not a 160-specific weight; no editorial teardown measured the exact 160mm 29 SKU. NOTE: current ridefox page is the newer 2027 GripX2 gen (200mm direct post mount, $1,369) whereas our cataloged rows are the 2025 gen (180mm direct mount per FOX tech DB, $1,299) - minRotorF:180 is CORRECT for the cataloged generation, not an error. Different gen = cannot cross-verify the sample row against the current page."
   },
   "fk-ohlins-rxf38-m2-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T18:42:50.417Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-rxf38-m-2-air-ttx18-29-44-160",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-ohlins-rxf38-m2-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T18:42:50.417Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-rxf38-m-2-air-ttx18-29-44-180",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-mezzer-pro-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T18:46:26.352Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/mezzer-pro-g2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-mezzer-pro-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:46:26.352Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "CANNOT verify - contradictory config. Fetched hayesbicycle.com/products/mezzer-pro-g2: the Mezzer Pro G2 comes in 150/160/170 only (adjustable 140-170), so a 180mm G2 does not exist. Row's gen:G2 tag was REMOVED as incorrect (append-only field fix, certain); flagged in desc that a 180mm Mezzer Pro is the ORIGINAL generation needing its own verification. Left unverified/sample - did not guess original-gen weight/maxRotor."
   },
   "fk-rockshox-boxxer-ultimate-29-200": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T18:48:44.742Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-bxr-ult-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-ultimate-275-200": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T18:48:44.742Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-bxr-ult-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-ultimate-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:50:23.104Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight wall for 130. sram.com fs-pike-ult-c2 states a weight only for the 29/140 config (1887g), not 130; no editorial teardown of the exact 130 SKU. Interfaces confirmed + corrected the shared maxRotorF error (200->220 per maker) and added minRotorF:180 + price 1149 (correction without verification). Left unverified (sample weight)."
   },
   "fk-rockshox-pike-ultimate-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T18:50:23.104Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-pike-ult-c2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-sid-ultimate-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-08T18:51:53.065Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-sid-ult3-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-ohlins-rxf34-m2-29-120": {
    "cat": "fork",
@@ -3254,35 +3235,35 @@
   },
   "fk-rockshox-sid-sl-ultimate-29-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:52:44.861Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "sram.com model page fs-sids-ult2-d1 still 404s to WebFetch (bot-blocked; the SID SL service/model pages remain unfetchable). Weight is off-road.cc review-claimed (1326g), not maker-published nor a clean editorial measured figure for the exact 100mm SKU (their 1385g test was uncut-steerer + axle). Interfaces already documented as sample; maxRotorF:180 left as the conservative documented value (a search summary cited 200 but no fetchable maker page confirms - not acting on a summary). Weight wall + unfetchable page."
   },
   "fk-fox-40-factory-29-203": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:54:16.383Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight wall + gen mismatch. ridefox.com/products/fox-40-factory-grip-x2 gives a STARTING WEIGHT for the 27.5 config only (2745g), not our 29; and that page is the newer GripX2 gen ($1,999) while our row is modelYear 2025 ($1,900). No editorial teardown of the exact 29/203 2025 SKU. Interfaces (20x110, 1-1/8 straight DC) documented; left unverified."
   },
   "fk-marzocchi-bomber-58-275-200": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:55:23.311Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight wall. Re-fetched bike.marzocchi.com/products/bomber-58: all interfaces confirm and MATCH the row (27.5, 20x110 DH non-Boost, 1-1/8 straight DC, max rotor 203, $1,149) but the page lists NO weight. No editorial teardown measured it either (Vital lists N/A; Loam Wolf review gives no gram figure). Interfaces manufacturer-sourced/correct; weight stays sample, unverified."
   },
   "fk-fox-34-factory-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:54:16.444Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight wall. Fox 34 standard product page 404s to WebFetch on every slug tried (fox-34-factory, -grip-x). Fox publishes only a per-config starting weight and the 34 spans 3 variants (standard 34 / Step-Cast / SL) with different weights, so the exact 29/140 standard-34 Factory weight is unverifiable; current gen also differs from the cataloged modelYear 2025. Price $1,099 matches the standard 34 Factory. Interfaces documented via retailer; left unverified."
   },
   "dp-fox-transfer-factory-349-180": {
    "cat": "dropper",
@@ -3382,19 +3363,19 @@
   },
   "sft-sram-x01-dh": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:58:56.510Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight wall. Re-fetched sram.com model page sl-x0-dh-a2: confirms speeds 7, MatchMaker X, discrete clamp, $165 - but page lists NO weight (SRAM does not publish DH-group component weights). No editorial teardown. Interfaces correct; weight stays sample."
   },
   "dr-sram-x01-dh": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:58:56.569Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight wall. Re-fetched sram.com rd-x0-1dh-a3: confirms speeds 7, $300, Max Cog 25T - page lists NO weight. Corrected maxCog 24->25 per maker (correction without verification; still >= XG-795 24T, no fit change). Weight stays sample."
   },
   "ca-sram-xg795": {
    "cat": "cassette",
@@ -3406,19 +3387,19 @@
   },
   "ch-sram-pc-xx1": {
    "cat": "chain",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:58:56.655Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight wall. PC-XX1 (11s, used as the DH-7 group chain) has NO live sram.com model page (only the different PC-X1 / cn-x-1-a1 sibling); its only weights are retailer listings (252/258g) which the provenance bar REJECTS. No editorial measured figure for this discontinued chain. Interfaces documented; weight stays sample."
   },
   "cr-sram-x01-dh": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:58:56.739Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight wall. Re-fetched sram.com fc-x0-1dh-b1: confirms DUB, 32/34/36T rings, chainline options 49/52/56.5, BB 83/104.5/107, $415 - but weight is only marketing (under 800g, no exact figure). Corrected display-only chainline 55->56.5 (real DH 83 config). Weight stays sample."
   },
   "rw-weareone-union-275": {
    "cat": "rearwheel",
