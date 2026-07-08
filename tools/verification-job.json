@@ -1,30 +1,17 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T16:45:17.325Z",
+ "updated": "2026-07-08T17:12:51.453Z",
  "batchSize": 25,
- "lastCompleted": "fr-cotic-solaris",
+ "lastCompleted": "fr-specialized-stumpjumper-15",
  "currentCategory": "frame",
  "queue": [
-  "fr-specialized-enduro-sworks",
-  "fr-trek-slash",
-  "fr-norco-range-c1",
-  "fr-pivot-firebird",
-  "fr-nukeproof-giga-290",
-  "fr-orbea-rallon-mteam",
-  "fr-rockymountain-altitude-c70",
-  "fr-propain-spindrift-cf",
   "fr-canyon-spectral-cf",
   "fr-canyon-sender-cfr",
   "fr-yt-tues-cf-29",
-  "fr-santacruz-v10-8",
-  "fr-trek-session-8-29",
   "fr-canyon-exceed-cf",
-  "fr-specialized-stumpjumper-15",
-  "fr-trek-fuel-ex-c-gen6",
   "fr-santacruz-hightower-3",
   "fr-canyon-neuron-cf",
-  "fr-scott-scale-rc-sl",
   "fr-canyon-lux-world-cup-cf",
   "ti-maxxis-assegai-29-25-dh-mg",
   "ti-continental-cross-king-29-22-protection-blackchili",
@@ -137,11 +124,11 @@
  "parts": {
   "fr-specialized-enduro-sworks": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:07:09.250Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "specialized.com 403-blocked (still); Specialized publishes complete-bike weights only, no frame-only figure; no editorial teardown weight for the frameset found (Pinkbike/BikeRadar give only relative savings). Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-yt-capra-core4": {
    "cat": "frame",
@@ -161,19 +148,19 @@
   },
   "fr-trek-slash": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:09:54.412Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "trekbikes.com frameset page fetches only a nav/JS shell (specs are client-rendered); no frame-only weight obtainable; editorial outlets weigh complete bikes only. Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-norco-range-c1": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:09:54.509Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "norco.com framekit page fetches only a title/nav shell (JS-rendered specs); no frame-only weight; editorial gives complete-bike weights only. Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-transition-spire-alloy": {
    "cat": "frame",
@@ -201,19 +188,19 @@
   },
   "fr-pivot-firebird": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:09:54.635Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "pivotcycles.com/en-us/bikes/firebird fetches but frame weight is behind JS expandable spec sections (not in fetched content); Pivot publishes no bare-frame weight; no editorial teardown weight. Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-nukeproof-giga-290": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:51.081Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Nukeproof (in administration 2023, brand dormant) - no fetchable current product page; sold as complete bikes only, no frame-only weight; no editorial teardown weight. Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-kona-process-153": {
    "cat": "frame",
@@ -225,19 +212,19 @@
   },
   "fr-orbea-rallon-mteam": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:51.136Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "orbea.com 403-blocked to WebFetch (still); Orbea sells complete bikes / Rallon frameset weight not published, no editorial teardown weight. Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-rockymountain-altitude-c70": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:51.198Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bikes.com (Rocky Mountain) fetch-blocked; complete-bike weights only, no frame-only figure; no editorial teardown weight. Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-commencal-meta-sx-v5": {
    "cat": "frame",
@@ -249,11 +236,11 @@
   },
   "fr-propain-spindrift-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:51.257Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "propain-bikes.com 403-blocked to WebFetch (still); custom-config direct brand, no published frame-only weight; no editorial teardown weight. Interfaces already web-sourced. Weight bar unmeetable."
   },
   "fr-ibis-hd6": {
    "cat": "frame",
@@ -2681,19 +2668,19 @@
   },
   "fr-santacruz-v10-8": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:10:34.496Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "santacruzbicycles.com/en-US/v10 fetches: confirms 208mm rear / 200 fork / 29+MX (matches catalog wheelConfigs+travel), frame-only sold at 3949 USD, no contradiction found. But SC publishes no bare-frame weight and no editorial teardown weight exists. Interfaces corroborated; weight bar unmeetable."
   },
   "fr-trek-session-8-29": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:51.315Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "trekbikes.com fetches only JS/nav shell; frame weight not obtainable; editorial weighs complete bikes. Interfaces already sourced (Vital 2022 spec table per desc). Weight bar unmeetable."
   },
   "fr-raaw-yalla-v2": {
    "cat": "frame",
@@ -2737,19 +2724,19 @@
   },
   "fr-specialized-stumpjumper-15": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:51.453Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "specialized.com 403-blocked; complete-bike weights only, no frame-only figure; no editorial teardown weight. Interfaces already sourced (Flow/BikeRadar per desc). Weight bar unmeetable."
   },
   "fr-trek-fuel-ex-c-gen6": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:51.390Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "trekbikes.com fetches only JS/nav shell; no frame-only weight; editorial weighs complete bikes. Interfaces already sourced. Weight bar unmeetable."
   },
   "fr-santacruz-hightower-3": {
    "cat": "frame",
@@ -2785,11 +2772,11 @@
   },
   "fr-scott-scale-rc-sl": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:12:26.751Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "scott-sports.com frame page fetched: confirms BB92(=PF92) + 12x148 Boost; BikeRadar 2023 review confirms PM rear direct-mount + 160 rear rotor (all match catalog, no contradiction). Weight 847g is Scott's CLAIM relayed by BikeRadar (reviewer: 'Scott says'), NOT independently measured and NOT surfaced on the fetched maker page (JS spec table) - fails both weight-bar paths. Interfaces corroborated; weight unverifiable."
   },
   "fr-privateer-141-g2": {
    "cat": "frame",
