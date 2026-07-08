@@ -1,49 +1,20 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T17:20:17.089Z",
+ "updated": "2026-07-08T17:22:44.781Z",
  "batchSize": 25,
- "lastCompleted": "ti-specialized-butcher-t9-29-23",
+ "lastCompleted": "rw-giant-trx-0-29",
  "currentCategory": "frontwheel",
  "queue": [
-  "fw-industrynine-enduro-s-29",
-  "fw-roval-traverse-hd-29",
-  "fw-dtswiss-e-1900-275",
-  "fw-weareone-union-29",
-  "fw-newmen-advanced-sl-a30-29",
-  "fw-spank-359-29",
   "fw-raceface-turbine-sl-29",
-  "fw-bontrager-line-pro-30-29",
-  "fw-giant-trx-0-29",
-  "fw-dtswiss-fr-1500-29",
-  "fw-dtswiss-fr-1500-275",
-  "rw-dtswiss-ex-1700-29",
-  "rw-industrynine-enduro-s-29",
-  "rw-roval-traverse-hd-29",
-  "rw-industrynine-enduro-s-29-157",
-  "rw-dtswiss-e-1900-275",
-  "rw-dtswiss-e-1900-275-xd",
-  "rw-weareone-union-29",
-  "rw-newmen-advanced-sl-a30-29",
-  "rw-spank-359-29",
   "rw-shimano-mt510-29",
   "rw-raceface-turbine-sl-29",
-  "rw-bontrager-line-pro-30-29",
-  "rw-giant-trx-0-29",
-  "rw-dtswiss-ex-1700-29-ms",
   "rw-reserve-30-hd-29-ms",
   "rw-raceface-turbine-sl-29-ms",
   "rw-hope-fortus-30-29-ms",
   "rw-stans-flow-ex3-29-ms",
-  "rw-spank-359-29-ms",
   "rw-enve-am30-29-ms",
-  "rw-dtswiss-fr-1500-29-157",
-  "rw-dtswiss-fr-1500-29-150",
-  "rw-dtswiss-fr-1500-275-150",
   "rw-crankbrothers-synthesis-dh11-29-157",
-  "rw-weareone-union-275",
-  "rw-spank-359-275",
-  "rw-spank-359-275-ms",
   "rw-stans-flow-ex3-275",
   "rw-stans-flow-ex3-275-ms",
   "rw-hope-fortus-30-275",
@@ -344,27 +315,27 @@
   },
   "fw-industrynine-enduro-s-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:41.913Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Industry Nine domain (industrynine.com) is on the standing fetch-block list; per-wheel weight obtainable only from the blocked maker page. Interfaces (hub/rotor/intWidth) already sourced. No editorial per-wheel measured weight. Weight bar unmeetable."
   },
   "fw-roval-traverse-hd-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.213Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Roval (specialized.com/roval) is fetch-blocked (403, standing block); per-wheel weight only on the blocked page. Interfaces already sourced. Weight bar unmeetable."
   },
   "fw-dtswiss-e-1900-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.413Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "fw-hope-fortus-30-29": {
    "cat": "frontwheel",
@@ -376,11 +347,11 @@
   },
   "fw-weareone-union-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.416Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "We Are One (weareone.bike) is on the standing fetch-block list; per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched vitalmtb spec for the Union). Weight bar unmeetable."
   },
   "fw-crankbrothers-synthesis-enduro-29": {
    "cat": "frontwheel",
@@ -408,11 +379,11 @@
   },
   "fw-newmen-advanced-sl-a30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.715Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Newmen (newmen-components.de) is on the standing fetch-block list; per-wheel weight only on the blocked page. Interfaces already sourced. Weight bar unmeetable."
   },
   "fw-stans-flow-ex3-29": {
    "cat": "frontwheel",
@@ -432,11 +403,11 @@
   },
   "fw-spank-359-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.913Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Spank (spank-ind.com) re-tested this session: 403 (was fetchable in a prior pass, now blocked - confirms standing block). Per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched spank-ind.com). Weight bar unmeetable."
   },
   "fw-shimano-mt500-29": {
    "cat": "frontwheel",
@@ -456,11 +427,11 @@
   },
   "fw-bontrager-line-pro-30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.424Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Bontrager (trekbikes.com/bontrager) is on the standing fetch-block list (JS/blocked); per-wheel weight only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "fw-mavic-deemax-29": {
    "cat": "frontwheel",
@@ -472,19 +443,19 @@
   },
   "fw-giant-trx-0-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.624Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Giant (giant-bicycles.com) is on the standing fetch-block list; per-wheel weight only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-dtswiss-ex-1700-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.713Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-reserve-30-hd-29": {
    "cat": "rearwheel",
@@ -496,35 +467,35 @@
   },
   "rw-industrynine-enduro-s-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.013Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Industry Nine domain (industrynine.com) is on the standing fetch-block list; per-wheel weight obtainable only from the blocked maker page. Interfaces (hub/rotor/intWidth) already sourced. No editorial per-wheel measured weight. Weight bar unmeetable."
   },
   "rw-roval-traverse-hd-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.313Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Roval (specialized.com/roval) is fetch-blocked (403, standing block); per-wheel weight only on the blocked page. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-industrynine-enduro-s-29-157": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.113Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Industry Nine domain (industrynine.com) is on the standing fetch-block list; per-wheel weight obtainable only from the blocked maker page. Interfaces (hub/rotor/intWidth) already sourced. No editorial per-wheel measured weight. Weight bar unmeetable."
   },
   "rw-dtswiss-e-1900-275": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.813Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-hope-fortus-30-29": {
    "cat": "rearwheel",
@@ -536,11 +507,11 @@
   },
   "rw-weareone-union-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.516Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "We Are One (weareone.bike) is on the standing fetch-block list; per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched vitalmtb spec for the Union). Weight bar unmeetable."
   },
   "rw-crankbrothers-synthesis-enduro-29": {
    "cat": "rearwheel",
@@ -568,11 +539,11 @@
   },
   "rw-newmen-advanced-sl-a30-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.815Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Newmen (newmen-components.de) is on the standing fetch-block list; per-wheel weight only on the blocked page. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-stans-flow-ex3-29": {
    "cat": "rearwheel",
@@ -592,11 +563,11 @@
   },
   "rw-spank-359-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.013Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Spank (spank-ind.com) re-tested this session: 403 (was fetchable in a prior pass, now blocked - confirms standing block). Per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched spank-ind.com). Weight bar unmeetable."
   },
   "rw-shimano-mt510-29": {
    "cat": "rearwheel",
@@ -616,11 +587,11 @@
   },
   "rw-bontrager-line-pro-30-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.522Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Bontrager (trekbikes.com/bontrager) is on the standing fetch-block list (JS/blocked); per-wheel weight only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-mavic-deemax-29": {
    "cat": "rearwheel",
@@ -632,11 +603,11 @@
   },
   "rw-giant-trx-0-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.724Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Giant (giant-bicycles.com) is on the standing fetch-block list; per-wheel weight only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "sh-rockshox-super-deluxe-ultimate-230x65": {
    "cat": "shock",
@@ -2400,11 +2371,11 @@
   },
   "rw-dtswiss-e-1900-275-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.918Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "ti-continental-kryptotal-fr-29-24-enduro-soft": {
    "cat": "tire",
@@ -2912,19 +2883,19 @@
   },
   "fw-dtswiss-fr-1500-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.513Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "fw-dtswiss-fr-1500-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:42.613Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "fw-crankbrothers-synthesis-dh11-29": {
    "cat": "frontwheel",
@@ -2944,11 +2915,11 @@
   },
   "rw-dtswiss-ex-1700-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.018Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-reserve-30-hd-29-ms": {
    "cat": "rearwheel",
@@ -2984,11 +2955,11 @@
   },
   "rw-spank-359-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.113Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Spank (spank-ind.com) re-tested this session: 403 (was fetchable in a prior pass, now blocked - confirms standing block). Per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched spank-ind.com). Weight bar unmeetable."
   },
   "rw-enve-am30-29-ms": {
    "cat": "rearwheel",
@@ -3016,27 +2987,27 @@
   },
   "rw-dtswiss-fr-1500-29-157": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.118Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-dtswiss-fr-1500-29-150": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.218Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-dtswiss-fr-1500-275-150": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.318Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-crankbrothers-synthesis-dh11-29-157": {
    "cat": "rearwheel",
@@ -3488,27 +3459,27 @@
   },
   "rw-weareone-union-275": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:18:11.231Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:43.612Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "We Are One (weareone.bike) is on the standing fetch-block list; per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched vitalmtb spec for the Union). Weight bar unmeetable."
   },
   "rw-spank-359-275": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:18:11.232Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.207Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Spank (spank-ind.com) re-tested this session: 403 (was fetchable in a prior pass, now blocked - confirms standing block). Per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched spank-ind.com). Weight bar unmeetable."
   },
   "rw-spank-359-275-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T16:18:11.232Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T17:22:44.318Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Spank (spank-ind.com) re-tested this session: 403 (was fetchable in a prior pass, now blocked - confirms standing block). Per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched spank-ind.com). Weight bar unmeetable."
   },
   "rw-stans-flow-ex3-275": {
    "cat": "rearwheel",
