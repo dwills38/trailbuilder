@@ -36,8 +36,16 @@ var VOCAB = {
   freehub:      ['XD', 'MicroSpline', 'HG'],   // 'HG' = MTB-length HG spline (a road expansion must SPLIT, not conflate)
   rotorMount:   ['sixbolt', 'CL'],             // audited 2026-07: market-complete for MTB
   shockMount:   ['std', 'trunnion'],           // audited 2026-07: market-complete ('bearing' eyelets may join when a bearing-eyelet row lands)
-  headset:      ['tapered'],
-  steerer:      ['tapered'],
+  /* 'straight-dc' = the straight 1.125in steerer of dual-crown DH forks
+     (Boxxer, Fox 40, Dorado). On a FRAME, headset:'straight-dc' means "the
+     stock headset accepts a dual-crown straight steerer" (same steerer-FIT
+     semantics as 'tapered' - the template's SHIS note still applies). Rule 11
+     compares fork.steerer vs frame.headset by equality, so the two lists must
+     stay in lockstep. Consequence (documented 2026-07-08): a tapered
+     single-crown fork on a DH frame reds out - true with the stock cups; a
+     future adapter-tier warning can soften it if expert review wants that. */
+  headset:      ['tapered', 'straight-dc'],
+  steerer:      ['tapered', 'straight-dc'],
   /* PF92 covers the BB92/89.5 PressFit family. T47 SEMANTICS ARE UNDEFINED:
      85.5-internal vs 68/73-external T47 are different products - pin the
      meaning (likely split values) BEFORE the first real T47 frame enters.

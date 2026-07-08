@@ -322,6 +322,24 @@ test('steerer check fires on a synthetic straight-steerer fork (dead rule pinned
   bld.fork = /** @type {any} */ (Object.assign({}, part('fk-fox-36-factory-29-160'), {steerer:'straight'}));
   some(C.checkBuild(bld).errors, 'Steerer mismatch');
 });
+test('a dual-crown (straight-dc) fork on a tapered frame fires rule 11', function(){
+  var bld = B({frame:'fr-santacruz-megatower-cc'});   // headset: tapered
+  bld.fork = /** @type {any} */ (Object.assign({}, part('fk-fox-36-factory-29-160'), {steerer:'straight-dc'}));
+  some(C.checkBuild(bld).errors, 'Steerer mismatch');
+});
+test('a tapered fork on a straight-dc (DH) frame fires rule 11 the other way', function(){
+  var bld = B({fork:'fk-fox-36-factory-29-160'});     // steerer: tapered
+  bld.frame = /** @type {any} */ (Object.assign({}, part('fr-santacruz-megatower-cc'), {headset:'straight-dc'}));
+  some(C.checkBuild(bld).errors, 'Steerer mismatch');
+});
+test('a matched straight-dc pair (dual-crown fork on a DH frame) is silent on rule 11', function(){
+  var bld = /** @type {any} */ ({
+    frame: Object.assign({}, part('fr-santacruz-megatower-cc'), {headset:'straight-dc'}),
+    fork:  Object.assign({}, part('fk-fox-36-factory-29-160'), {steerer:'straight-dc'})
+  });
+  var msgs = C.checkBuild(bld).errors.map(String).filter(function(m){ return m.indexOf('Steerer')>=0; });
+  eq(msgs.length, 0, 'no steerer error for a matched dual-crown pair');
+});
 
 /* REVIEW.md 5b/#27: the SuperBoost-frame + Boost-crank NON-rule is deliberate
    and verified correct (commonly ridden; a naive chainline rule would be a

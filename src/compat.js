@@ -35,7 +35,7 @@ var LABELS = {
   XD: 'SRAM XD', MicroSpline: 'Shimano Micro Spline', HG: 'Shimano HG',
   sixbolt: '6-bolt', CL: 'Center Lock',
   std: 'Standard eyelet', trunnion: 'Trunnion',
-  tapered: 'Tapered (1.5-1.125)',
+  tapered: 'Tapered (1.5-1.125)', 'straight-dc': 'Straight 1.125 (dual-crown)',
   BSA73: 'BSA threaded 73', PF92: 'PressFit 92', T47: 'T47 threaded',
   DUB: 'SRAM DUB', '24mm': '24 mm spindle', '30mm': '30 mm spindle', p3: 'e*thirteen P3', PM: 'Post mount',
   'sram-eagle': 'SRAM Eagle 12-speed', 'sram-transmission': 'SRAM Transmission (AXS)',

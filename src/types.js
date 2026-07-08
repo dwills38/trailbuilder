@@ -25,7 +25,7 @@
 /** @typedef {'XD'|'MicroSpline'|'HG'} Freehub */
 /** @typedef {'sixbolt'|'CL'} RotorMount */
 /** @typedef {'std'|'trunnion'} ShockMount */
-/** @typedef {'tapered'} Tapered */
+/** @typedef {'tapered'|'straight-dc'} SteererFit */
 /** @typedef {'BSA73'|'PF92'|'T47'} FrameBb */
 /** @typedef {'DUB'|'24mm'|'30mm'|'p3'} CrankBb */
 /** @typedef {'PM'} BrakeMount */
@@ -92,7 +92,7 @@
 /** @typedef {Object} FrameShared
  * @property {WheelConfig[]} wheelConfigs
  * @property {RearAxle} rearAxle
- * @property {Tapered} headset
+ * @property {SteererFit} headset
  * @property {FrameBb} bb
  * @property {number} seatTube
  * @property {BrakeMount} brakeMount
@@ -110,7 +110,7 @@
 /** @typedef {CommonFields & FrameShared & {cat: 'frame', suspension: 'full', shockEye: number, shockStroke: number, shockMount: ShockMount, travel: number, bundledShock?: (string|null)}} FullSusFramePart */
 /** @typedef {CommonFields & FrameShared & {cat: 'frame', suspension: 'hardtail'}} HardtailFramePart */
 /** @typedef {FullSusFramePart|HardtailFramePart} FramePart */
-/** @typedef {CommonFields & {cat: 'fork', wheel: WheelSize, travel: number, axle: FrontAxle, steerer: Tapered, brakeMount: BrakeMount, maxRotorF: number, minRotorF?: number, maxTire?: number}} ForkPart */
+/** @typedef {CommonFields & {cat: 'fork', wheel: WheelSize, travel: number, axle: FrontAxle, steerer: SteererFit, brakeMount: BrakeMount, maxRotorF: number, minRotorF?: number, maxTire?: number}} ForkPart */
 /** @typedef {CommonFields & {cat: 'shock', eye: number, stroke: number, mount: ShockMount, spring: Spring, oemOnly?: boolean, forFrames?: string[]}} ShockPart */
 /** @typedef {CommonFields & {cat: 'frontwheel', wheel: WheelSize, hub: FrontAxle, rotorMount: RotorMount, intWidth: number, maxTire: number}} FrontWheelPart */
 /** @typedef {CommonFields & {cat: 'rearwheel', wheel: WheelSize, hub: RearAxle, freehub: Freehub, rotorMount: RotorMount, intWidth: number, maxTire: number}} RearWheelPart */
