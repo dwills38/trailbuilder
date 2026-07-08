@@ -1345,6 +1345,38 @@ function partWeight(p){
   return (typeof p.weight === 'number') ? p.weight : null;
 }
 
+/** Sanitize the decoded payload of a "#b=" share link (also the build-comparison
+ * paste box). Ids resolve through canonicalId first (ids are append-only, so a
+ * link minted before an id retired must keep working). A build entry survives
+ * only when the slot key is a real slot, the part exists, AND the part's
+ * category matches the slot's expected category — without the category check a
+ * stale/corrupted/crafted link can inject e.g. a tire into the fork slot and
+ * checkBuild emits nonsense ("Steerer mismatch: Fork is undefined…") instead of
+ * the link being cleanly rejected. A preset survives only when it belongs to
+ * the group it claims (REVIEW.md #25 — a crafted link could otherwise bill one
+ * group as another's kit). Unknown keys are dropped, never crashed on, so links
+ * minted by a newer app version still load what they can.
+ * @param {Object.<string, *>|null|undefined} bsrc raw slotKey -> part id
+ * @param {Object.<string, *>|null|undefined} psrc raw groupKey -> preset id
+ * @returns {{build: Object.<string, string>, presetBy: Object.<string, string>}} */
+function sanitizeShare(bsrc, psrc){
+  /** @type {Object.<string, string>} */ var build = {};
+  /** @type {Object.<string, string>} */ var presetBy = {};
+  /** @type {Object.<string, string>} */ var slotCat = {};
+  SLOTS.forEach(function(s){ slotCat[s.key] = s.cat; });
+  Object.keys(bsrc || {}).forEach(function(k){
+    var id = canonicalId((bsrc || {})[k]); var p = typeof id === 'string' ? byId(id) : null;
+    if(typeof id === 'string' && p && slotCat[k] && p.cat === slotCat[k]) build[k] = id;
+  });
+  Object.keys(psrc || {}).forEach(function(k){
+    var id = canonicalId((psrc || {})[k]); var p = typeof id === 'string' ? byId(id) : null;
+    var g = null;
+    for(var i = 0; i < GROUPS.length; i++){ if(GROUPS[i].key === k){ g = GROUPS[i]; break; } }
+    if(typeof id === 'string' && g && g.preset && p && p.cat === g.preset.cat) presetBy[k] = id;
+  });
+  return { build: build, presetBy: presetBy };
+}
+
 /** Is this part verified against a manufacturer source? A preset/kit counts as
  * verified only when every part it fills is itself verified.
  * @param {Part|null|undefined} p @returns {boolean} */
@@ -1363,5 +1395,5 @@ if (typeof module !== 'undefined' && module.exports) {
     ALIASES:ALIASES, canonicalId:canonicalId,
     byId:byId, nameOf:nameOf, specSummary:specSummary, checkBuild:checkBuild, verdictKey:verdictKey,
     placementDiff:placementDiff, conflictReason:conflictReason, compatOf:compatOf, bundleActive:bundleActive, buildTotals:buildTotals,
-    esc:esc, partVerified:partVerified, partWeight:partWeight };
+    esc:esc, partVerified:partVerified, partWeight:partWeight, sanitizeShare:sanitizeShare };
 }

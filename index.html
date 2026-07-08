@@ -872,12 +872,10 @@
       var o = JSON.parse(decodeURIComponent(atob(m[1])));
       var bsrc = (o && o.b) ? o.b : o;
       var psrc = (o && o.p) ? o.p : {};
-      var build2={}, presetBy2={};
-      Object.keys(bsrc||{}).forEach(function(k){ var id=canonicalId(bsrc[k]); if(byId(id)) build2[k]=id; });
-      Object.keys(psrc||{}).forEach(function(k){ var id=canonicalId(psrc[k]); var g=groupByKey[k], p=byId(id);
-        if(g && g.preset && p && p.cat===g.preset.cat) presetBy2[k]=id; });
-      if(!Object.keys(build2).length) return null;
-      return {build:build2, presetBy:presetBy2};
+      // Same tested sanitizer as readHash: slot-category + preset-group guards.
+      var clean = sanitizeShare(bsrc, psrc);
+      if(!Object.keys(clean.build).length) return null;
+      return {build:clean.build, presetBy:clean.presetBy};
     }catch(e){ return null; }
   }
   function verdictText(r){
@@ -1000,13 +998,12 @@
       var o=JSON.parse(decodeURIComponent(atob(m[1])));
       var bsrc = (o && o.b) ? o.b : o;            // support old (build-only) links
       var psrc = (o && o.p) ? o.p : {};
-      // canonicalId: ids are append-only; a link minted before an id retired
-      // resolves through the ALIASES map instead of silently dropping the part
-      Object.keys(bsrc||{}).forEach(function(k){ var id=canonicalId(bsrc[k]); if(byId(id)) build[k]=id; });
-      // Preset must belong to the group it claims (REVIEW.md #25): a crafted/
-      // corrupted link could otherwise bill one group as another's kit.
-      Object.keys(psrc||{}).forEach(function(k){ var id=canonicalId(psrc[k]); var g=groupByKey[k], p=byId(id);
-        if(g && g.preset && p && p.cat===g.preset.cat) presetBy[k]=id; });
+      // sanitizeShare (compat.js, tested): canonicalId resolution, slot-category
+      // guard (a crafted link can't inject a tire into the fork slot), and the
+      // preset-belongs-to-its-group guard (REVIEW.md #25).
+      var clean = sanitizeShare(bsrc, psrc);
+      Object.keys(clean.build).forEach(function(k){ build[k]=clean.build[k]; });
+      Object.keys(clean.presetBy).forEach(function(k){ presetBy[k]=clean.presetBy[k]; });
     }catch(e){}
   }
   function toast(msg){ var t=$('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},2200); }
