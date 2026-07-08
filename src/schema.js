@@ -538,7 +538,7 @@ var KNOWN_VALUES = {
   rotorSize:    [140, 160, 180, 183, 200, 203, 205, 220, 223],
   postDiameter: [27.2, 30.9, 31.6, 34.9],       // seat tubes + dropper diameters
   barClamp:     [25.4, 31.8, 35],
-  speeds:       [9, 10, 11, 12, 13]
+  speeds:       [7, 9, 10, 11, 12, 13]   // 7 = SRAM DH groups (XG-795 etc.), sourced 2026-07-08
 };
 
 /* Non-fatal lints - consistency warnings that should never block data entry
