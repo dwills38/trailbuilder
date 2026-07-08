@@ -215,6 +215,48 @@ test('golden: the trail build fills every required slot', function(){
   required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
 });
 
+/* The first complete full-27.5 ENDURO build (catalog-expand-9, 2026-07-08):
+   Commencal Clash V3 (full 27.5, not DH) + ZEB 27.5 170 + Super Deluxe Ultimate
+   230x65 std + DT Swiss E 1900 27.5 front/rear (XD) + two in-catalog 27.5
+   enduro-casing tires + SRAM GX Transmission (UDH). Everything needed already
+   existed in-catalog before this frame landed - no new shock/wheel/fork rows
+   were needed. Must stay green. */
+var CLASH_V3_BUILD = { frame:'fr-commencal-clash-v3', fork:'fk-rockshox-zeb-ultimate-275-170', shock:'sh-rockshox-super-deluxe-ultimate-230x65',
+  frontWheel:'fw-dtswiss-e-1900-275', rearWheel:'rw-dtswiss-e-1900-275-xd',
+  frontTire:'ti-maxxis-assegai-275-25-exop-mg', rearTire:'ti-maxxis-minion-dhr-ii-275-24-exop-mt',
+  shifter:'sft-sram-gx-transmission', derailleur:'dr-sram-gx-transmission', cassette:'ca-sram-xs1275', chain:'ch-sram-gx-flattop', crankset:'cr-sram-x0-transmission',
+  frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-shimano-rtmt800-203-cl', rearRotor:'ro-shimano-rtmt800-203-cl',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-349-210', saddle:'sa-wtb-volt', pedals:'pd-crankbrothers-mallet-enduro' };
+test('golden: a complete full-27.5 ENDURO build (Clash V3) is fully compatible', function(){
+  var r = chk(CLASH_V3_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+test('golden: the Clash V3 build fills every required slot', function(){
+  var m = /** @type {Object.<string, string>} */ (CLASH_V3_BUILD);
+  var frame = C.byId(m.frame);
+  var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
+  required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
+});
+
+/* Second complete TRAIL build (catalog-expand-9, 2026-07-08): Commencal Meta
+   TR V4 shares its 210x55 std shock size and 34.9 seatpost with the existing
+   Stumpjumper 15 TRAIL_BUILD, so the same fork/wheel/tire/drivetrain/dropper
+   selection carries over unchanged onto the new frame. Must stay green. */
+var META_TR_BUILD = { frame:'fr-commencal-meta-tr-v4', fork:'fk-fox-36-factory-29-160', shock:'sh-rockshox-super-deluxe-ultimate-210x55',
+  frontWheel:'fw-raceface-turbine-sl-29', rearWheel:'rw-raceface-turbine-sl-29',
+  frontTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt', rearTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt',
+  shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle',
+  frontBrake:'bk-shimano-xt-m8120', rearBrake:'bk-shimano-xt-m8120', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-fox-transfer-factory-349-180', saddle:'sa-wtb-volt', pedals:'pd-oneup-composite' };
+test('golden: a complete TRAIL build (Meta TR V4, 210x55) is fully compatible', function(){
+  var r = chk(META_TR_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+test('golden: the Meta TR V4 build fills every required slot', function(){
+  var m = /** @type {Object.<string, string>} */ (META_TR_BUILD);
+  var frame = C.byId(m.frame);
+  var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
+  required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
+});
+
 test('slotRequired: hardtail frame exempts the shock slot (completeness only)', function(){
   var frame = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { suspension:'hardtail' }));
   delete frame.shockEye; delete frame.shockStroke; delete frame.shockMount; delete frame.travel; delete frame.bundledShock;
