@@ -190,9 +190,18 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   **golden-pinned complete XC hardtail build** ($6,690 / 10.2 kg). Skipped-documented: Canyon
   Lux WC (brake mount still unfetchable — needs its own manual/PDF), Schwalbe XC tires (URL
   pattern changed; Super Race casing needs vocab when entered), SID SL, 26".
-  **Next pass:** Lux WC + SIDLuxe 210x50, Schwalbe/Conti XC tires, XC/DH wheels breadth
-  (20x110-nonboost front for the Bomber 58 has no wheel yet), more trail frames (Hightower,
-  Stumpjumper, Fuel EX via retailer existence), demo builds per discipline in the UI.
+  **Pass 3 (`catalog-disciplines-3`, 2 commits, +6 rows → 401 parts / 141 verified):** trail
+  frames 3→6 (**Stumpjumper 15, Fuel EX C Gen 6, Hightower 3** — all picked because their shock
+  sizes already existed in-catalog; the Fuel EX correctly rejects std-mount shocks, trunnion
+  guard), **Synthesis DH 11 29 wheels** (front verified vs crankbrothers.com — second DH wheel
+  brand), **verified Racing Ralph** (schwalbetires.com SKU page fetched; casing += super-race,
+  compound += addix-speed). Browser-verified: 34 frames (DH 5 / Trail 6 / XC 1), the Exceed's
+  shock slot shows "not needed for this frame". Held-documented: the 20x110-STANDARD 27.5
+  Synthesis front exists (Amazon SKU) but is a dead-end part until a full-27.5 DH frame lands
+  (the Bomber 58 remains buildable-blocked). **Next pass:** Lux WC (brake mount still needs a
+  manual/PDF) + SIDLuxe 210x50, a full-27.5 DH frame (unlocks the Bomber 58 + non-Boost wheel),
+  Racing Ray + Conti XC tires, XC wheels (lighter/narrower), more XC hardtails/FS frames,
+  demo builds per discipline in the UI.
 - ⬜ **Semi-automated product data scripts.** A drift checker that re-fetches verified parts' source
   URLs for spec/price changes, and browser automation for the JS-rendered/bot-blocked retry queue.
   What stays manual: the *judgment* step — the grind keeps catching wrong specs a naive scraper would
