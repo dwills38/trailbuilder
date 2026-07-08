@@ -57,8 +57,10 @@ var VOCAB = {
      meaning (likely split values) BEFORE the first real T47 frame enters.
      (The one previous 'T47' row was a data error - no MTB Slash uses T47.) */
   /* PF107 = the 107mm-wide DH press-fit shell (Supreme DH V5's own page:
-     "Press Fit BB 107mm") - pairs with DH cranks' DUB PF 104.5/107 BBs. */
-  frameBb:      ['BSA73', 'PF92', 'T47', 'PF107'],
+     "Press Fit BB 107mm") - pairs with DH cranks' DUB PF 104.5/107 BBs.
+     BSA83 = the 83mm threaded DH shell (Sender CFR - confirmed BSA 83;
+     distinct from BSA73, needs the matching 83mm BB cups). */
+  frameBb:      ['BSA73', 'PF92', 'T47', 'PF107', 'BSA83'],
   /* crankBb is the SPINDLE INTERFACE, not a brand (DATA-MODEL-REVIEW 5.1-5):
      DUB (28.99mm), 24mm (Shimano Hollowtech II + Race Face Cinch steel + ...),
      30mm (BB30-class: eeWings, Race Face Cinch alu, Hope), p3 (e*thirteen).
