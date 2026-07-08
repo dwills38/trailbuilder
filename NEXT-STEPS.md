@@ -237,11 +237,24 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   own page: Boost only), Halo Chaos (100 mm or 110 Boost), Spank (sells the HEX 20x110-std hub
   but no complete wheel): no fetchable 20x110-STANDARD 27.5 front wheel exists in current
   production; the fork stays catalogued + buildable-blocked, documented in both wheel descs.
-  **Next pass:** more trail breadth (a 140-150 mm fork tier + 34.9-post trail droppers are thin),
-  a 27.5 DH rear tire for mullet DH builds is NOT needed (29F/27.5R DH rears wait on the parked
-  mullet-rear wheels), XC kit/preset (the XC demo has no bundle pricing), Epic HT / Spark
-  (Spark/Genius integrated-shock frames are a fit-data minefield — enter only with maker docs),
-  drift-checker script (Phase 2).
+  **Pass 6 (`catalog-disciplines-6`, 3 commits, +7 rows → 427 parts / 153 verified / 254 tests):**
+  (1) **XC kit pricing**: `gs-shimano-xtr-m9100` groupset preset + `ws-crankbrothers-synthesis-xct11-29-ms/-xd`
+  wheelset presets (crankbrothers sells the pair at $2,400 = component sum) → the XC demo button
+  now loads with drivetrain+wheels+cockpit bundles on: **$9,784 / 10.6 kg**, browser-verified.
+  (2) **Canyon Neuron CF** — the 130 mm trail tier (fetched canyon.com CF 8 spec: 210x50 M-XL,
+  12x148, 30.9, BSA73, 2460 g; the XS/S sizes run 27.5 + 190x45, a different config — documented,
+  not conflated; maxRotorR 180 = maker-demonstrated stock; udh:false per the Jibb precedent).
+  (3) **Verified Rekon Race x2** (fetched maxxis.com table: TB00046300 2.25/737 g, TB00211100
+  2.4/814 g) — third XC tire family. (4) **Verified Öhlins RXF34 m.2 120** (fetched ohlins.com:
+  1698 g, $1,309, brake dim 180–203 → both minRotorF and maxRotorF maker-stated) — the
+  XC/downcountry fork choice was RockShox-only. Skipped-documented: **Specialized Epic Hardtail**
+  (no fetched source states its rear brake mount — Vital + two BikeRadar reviews all silent; same
+  discipline as the Lux Trail skip), Commencal Clash (URL 404s). Fork-tier note: the pass-5 claim
+  that 140-150 forks were thin was wrong — Pike 130/140, Fox 34 140, Mattoc 150 already cover it.
+  **Next pass:** more trail/DH frames from fetchable makers (commencal tech pages, canyon,
+  raawmtb, scott now too), Epic HT/Spark/Genius only with maker docs (integrated-shock/FM
+  minefields), 27.5 XC tires if a 27.5 XC frame ever lands, drift-checker script (Phase 2),
+  mullet-rear wheels (still parked).
 - ⬜ **Semi-automated product data scripts.** A drift checker that re-fetches verified parts' source
   URLs for spec/price changes, and browser automation for the JS-rendered/bot-blocked retry queue.
   What stays manual: the *judgment* step — the grind keeps catching wrong specs a naive scraper would
