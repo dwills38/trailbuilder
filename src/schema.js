@@ -110,11 +110,12 @@ var VOCAB = {
   casing:       ['exo', 'exo-plus', 'doubledown', 'dh',            // Maxxis
                  'trail', 'enduro', 'downhill',                    // Continental
                  'super-race', 'super-ground', 'super-trail', 'super-gravity', 'super-downhill',    // Schwalbe (2026-07-07/08, schwalbetires.com; super-race = XC race casing)
+                 'protection',                                     // Continental XC line (2026-07-08, fetched WWC listing; RaceSport/ShieldWall exist - add when a row needs them)
                  'hardwall', 'prowall',                            // Pirelli (2026-07-07, pirelli.com)
                  'tcs-light-sg2', 'tcs-tough-sg1',                 // WTB (2026-07-07, wtb.com)
                  'atc', 'aec', 'agc'],                             // Kenda (2026-07-07, kendatire.com; Goodyear reuses trail/enduro/downhill)
   compound:     ['dual', '3c-maxxterra', '3c-maxxgrip', 'maxxspeed',   // Maxxis (maxxspeed = XC race compound, Aspen page 2026-07-08)
-                 'endurance', 'soft', 'supersoft',                 // Continental
+                 'endurance', 'soft', 'supersoft', 'blackchili',   // Continental (blackchili = the XC line's compound, 2026-07-08)
                  'addix', 'addix-speed', 'addix-speedgrip', 'addix-soft', 'addix-ultra-soft',        // Schwalbe (addix-speed = XC race compound, fetched 2026-07-08)
                  'smartgrip', 'smartgrip-gravity',                 // Pirelli
                  '4c-graphene',                                    // Vittoria (casing reuses trail/enduro/downhill - Vittoria's own tier names)
