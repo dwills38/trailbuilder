@@ -129,6 +129,27 @@ test('golden: the DH build fills every required slot (dropper exempt via slotReq
   required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
 });
 
+/* The first complete FULL-27.5 DH build (2026-07-08, pass 4): FRS (the only
+   275-config DH frame) + BoXXer 27.5 dual-crown + Vivid DH 250x75 + Synthesis
+   DH 27.5 front (20x110) + FR 1500 27.5 rear (12x150) + 27.5 DH-casing
+   Assegai + the X01 DH 7-speed group. Locks the 275 wheelConfig into the DH
+   vocab chain; rotors are 200mm (the FRS maxRotorR is 203). Must stay green. */
+var DH_275_BUILD = { frame:'fr-commencal-frs', fork:'fk-rockshox-boxxer-ultimate-275-200', shock:'sh-rockshox-vivid-ultimate-dh-250x75',
+  frontWheel:'fw-crankbrothers-synthesis-dh11-275', rearWheel:'rw-dtswiss-fr-1500-275-150',
+  frontTire:'ti-maxxis-assegai-275-25-dh-mg', rearTire:'ti-maxxis-assegai-275-25-dh-mg',
+  shifter:'sft-sram-x01-dh', derailleur:'dr-sram-x01-dh', cassette:'ca-sram-xg795', chain:'ch-sram-pc-xx1', crankset:'cr-sram-x01-dh',
+  frontBrake:'bk-sram-maven-ultimate', rearBrake:'bk-sram-maven-ultimate', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', saddle:'sa-wtb-volt', pedals:'pd-oneup-composite' };
+test('golden: a complete FULL-27.5 DH park build (FRS) is fully compatible', function(){
+  var r = chk(DH_275_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+test('golden: the 27.5 DH build fills every required slot', function(){
+  var m = /** @type {Object.<string, string>} */ (DH_275_BUILD);
+  var frame = C.byId(m.frame);
+  var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
+  required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
+});
+
 /* The first complete XC HARDTAIL race build (2026-07-08): Exceed CF (flat-mount
    rear, no shock) + SID 120 + Micro Spline wheel + verified Aspen tires + XTR
    with an FM rear caliper + 30.9 dropper. Locks the hardtail machinery (no
@@ -147,6 +168,47 @@ test('golden: the XC hardtail fills every required slot (shock exempt via slotRe
   var frame = C.byId(m.frame);
   var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
   eq(required.some(function(s){ return s.key==='shock'; }), false, 'shock must be exempt on a hardtail');
+  required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
+});
+
+/* The first complete XC FULL-SUSPENSION race build (2026-07-08, pass 4):
+   Lux World Cup (the first flat-mount FULL-SUS frame, 160mm rear max) +
+   SID 120 + SIDLuxe 210x50 + verified Racing Ray front / Racing Ralph rear
+   (Schwalbe's front/rear-specific XC pairing) + XTR with the FM rear caliper
+   + a 160 CL rear rotor + 30.9 dropper. Must stay green. */
+var XC_FS_BUILD = { frame:'fr-canyon-lux-world-cup-cf', fork:'fk-rockshox-sid-ultimate-29-120', shock:'sh-rockshox-sidluxe-ultimate-210x50',
+  frontWheel:'fw-dtswiss-ex-1700-29', rearWheel:'rw-dtswiss-ex-1700-29-ms',
+  frontTire:'ti-schwalbe-racing-ray-29-235-sr-as', rearTire:'ti-schwalbe-racing-ralph-29-235-sr-as',
+  shifter:'sft-shimano-xtr-m9100', derailleur:'dr-shimano-xtr-m9100-sgs', cassette:'ca-shimano-xtr-m9100-1051', chain:'ch-shimano-xtr-m9100', crankset:'cr-shimano-xtr-m9100',
+  frontBrake:'bk-shimano-xtr-m9120', rearBrake:'bk-shimano-xtr-m9110-fm', frontRotor:'ro-shimano-rtmt800-180-cl', rearRotor:'ro-sram-centerline-x-160-cl',
+  handlebar:'hb-oneup-carbon-35', stem:'st-oneup-stem-35', grips:'gr-oneup-lockon', dropper:'dp-fox-transfer-factory-309-180', saddle:'sa-wtb-volt', pedals:'pd-crankbrothers-mallet-enduro' };
+test('golden: a complete XC full-suspension race build (flat-mount rear, 210x50) is fully compatible', function(){
+  var r = chk(XC_FS_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+test('golden: the XC full-sus build fills every required slot', function(){
+  var m = /** @type {Object.<string, string>} */ (XC_FS_BUILD);
+  var frame = C.byId(m.frame);
+  var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
+  required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
+});
+
+/* The first complete TRAIL build (2026-07-08, pass 4): Stumpjumper 15 +
+   Fox 36 160 + Super Deluxe 210x55 + Turbine SL (XD) + DHR II 2.4s + GX
+   Eagle + XT 4-piston w/ 200mm 6-bolt rotors + a 34.9 dropper (the
+   Stumpjumper seat tube). Backs the UI's Trail demo button. Must stay green. */
+var TRAIL_BUILD = { frame:'fr-specialized-stumpjumper-15', fork:'fk-fox-36-factory-29-160', shock:'sh-rockshox-super-deluxe-ultimate-210x55',
+  frontWheel:'fw-raceface-turbine-sl-29', rearWheel:'rw-raceface-turbine-sl-29',
+  frontTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt', rearTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt',
+  shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle',
+  frontBrake:'bk-shimano-xt-m8120', rearBrake:'bk-shimano-xt-m8120', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-fox-transfer-factory-349-180', saddle:'sa-wtb-volt', pedals:'pd-oneup-composite' };
+test('golden: a complete TRAIL build (Stumpjumper 15, 210x55) is fully compatible', function(){
+  var r = chk(TRAIL_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+test('golden: the trail build fills every required slot', function(){
+  var m = /** @type {Object.<string, string>} */ (TRAIL_BUILD);
+  var frame = C.byId(m.frame);
+  var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
   required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
 });
 

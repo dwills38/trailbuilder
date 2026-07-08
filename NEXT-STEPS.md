@@ -198,10 +198,35 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   compound += addix-speed). Browser-verified: 34 frames (DH 5 / Trail 6 / XC 1), the Exceed's
   shock slot shows "not needed for this frame". Held-documented: the 20x110-STANDARD 27.5
   Synthesis front exists (Amazon SKU) but is a dead-end part until a full-27.5 DH frame lands
-  (the Bomber 58 remains buildable-blocked). **Next pass:** Lux WC (brake mount still needs a
-  manual/PDF) + SIDLuxe 210x50, a full-27.5 DH frame (unlocks the Bomber 58 + non-Boost wheel),
-  Racing Ray + Conti XC tires, XC wheels (lighter/narrower), more XC hardtails/FS frames,
-  demo builds per discipline in the UI.
+  (the Bomber 58 remains buildable-blocked).
+  **Pass 4 (`catalog-disciplines-4`, 4 commits, +8 rows → 413 parts / 147 verified / 254 tests):**
+  the queue's four priorities all landed. (1) **The first FULL-27.5 DH frame — Commencal FRS**
+  (fetched commencal.com FT4FRS3 page: 200mm, 250x75 std, 12x150, PF107, ZS44/ZS56, PM/203,
+  "UDH hanger: No", 4.22 kg) + its ecosystem: **verified Synthesis DH 27.5 front** (865 g,
+  crankbrothers.com), FR 1500 27.5 rear in 12x150 (fetched Universal Cycles; ships 12x157 with
+  12x150 end caps in box), **verified 27.5 DH Assegai** (TB00017200) → **golden full-27.5 DH
+  build pinned**. ⚠️ Correction: the crankbrothers page lists BOTH Synthesis DH fronts as
+  20x110 **Boost** — pass 3's Amazon-sourced "20x110 STANDARD" note was REFUTED, so **the
+  Bomber 58 (non-Boost) is still wheel-blocked** (needs a fetchable 20x110-standard 27.5 front;
+  none found yet). (2) **The Lux World Cup blocker cleared**: fetched MBR review states the
+  rear is a **160 mm flat mount** (and fetched bike-magazin.de on the new 2026/27 gen confirms
+  by contrast — it "returns to post-mount"). Entered `fr-canyon-lux-world-cup-cf` (the first
+  XC FULL-SUS + first FM full-sus) + SIDLuxe 210x50 + the first 160 mm rotor (CenterLine X,
+  fetched sram.com) + **verified Racing Ray front** (schwalbetires.com SKU 11654052.01) →
+  **golden XC full-sus build pinned**. (3) XC breadth: **Conti Cross King** (vocab widened:
+  casing += `protection`, compound += `blackchili`; Race King skipped — no fetchable page left,
+  404/404/403) + **verified Synthesis XCT 11 wheels** (700 g front; MS + XD rear rows).
+  (4) **Per-discipline demo buttons in the UI** (DH ⛰️ / Trail 🌲 / XC 🐇), each mirroring a
+  golden — including a **new TRAIL golden** (Stumpjumper 15 + SD 210x55 + GX + XT). checkBuild
+  caught the XC demo's first draft (CL rotors on the XCT 11's 6-bolt hubs) — demo switched to
+  the EX 1700 pair. Browser-verified on a fresh preview server (all three buttons → "No
+  conflicts found", 0 console errors). Skipped-documented: **Lux Trail CF** (fetched canyon.com
+  spec lists 160 F / 180 R rotors — backwards from every convention, no second source; entering
+  FM+maxRotor on contradictory data risks a wrong verdict), Race King (above). **Next pass:**
+  a 160 mm 6-BOLT rotor (would let the XC demo run the light XCT 11 wheels), a fetchable
+  20x110-STANDARD 27.5 front for the Bomber 58, another XC hardtail (Scale/Epic HT via
+  Vital/BikeRadar), 27.5 tire breadth for the FRS (only Assegai fits today), the parked
+  mullet-rear wheel variants.
 - ⬜ **Semi-automated product data scripts.** A drift checker that re-fetches verified parts' source
   URLs for spec/price changes, and browser automation for the JS-rendered/bot-blocked retry queue.
   What stays manual: the *judgment* step — the grind keeps catching wrong specs a naive scraper would
