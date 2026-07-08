@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T18:55:23.312Z",
+ "updated": "2026-07-08T18:58:56.819Z",
  "batchSize": 25,
- "lastCompleted": "fk-marzocchi-bomber-58-275-200",
+ "lastCompleted": "cr-sram-x01-dh",
  "currentCategory": "shock",
  "queue": [
   "sh-rockshox-super-deluxe-205x65-trun",
@@ -38,11 +38,7 @@
   "dp-sdg-tellis-309-170",
   "bk-shimano-xtr-m9110-fm",
   "ro-sram-centerline-x-160-cl",
-  "ro-sram-centerline-160-6b",
-  "sft-sram-x01-dh",
-  "dr-sram-x01-dh",
-  "ch-sram-pc-xx1",
-  "cr-sram-x01-dh"
+  "ro-sram-centerline-160-6b"
  ],
  "parts": {
   "fr-specialized-enduro-sworks": {
@@ -3367,19 +3363,19 @@
   },
   "sft-sram-x01-dh": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:58:56.510Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight wall. Re-fetched sram.com model page sl-x0-dh-a2: confirms speeds 7, MatchMaker X, discrete clamp, $165 - but page lists NO weight (SRAM does not publish DH-group component weights). No editorial teardown. Interfaces correct; weight stays sample."
   },
   "dr-sram-x01-dh": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:58:56.569Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight wall. Re-fetched sram.com rd-x0-1dh-a3: confirms speeds 7, $300, Max Cog 25T - page lists NO weight. Corrected maxCog 24->25 per maker (correction without verification; still >= XG-795 24T, no fit change). Weight stays sample."
   },
   "ca-sram-xg795": {
    "cat": "cassette",
@@ -3391,19 +3387,19 @@
   },
   "ch-sram-pc-xx1": {
    "cat": "chain",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:58:56.655Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight wall. PC-XX1 (11s, used as the DH-7 group chain) has NO live sram.com model page (only the different PC-X1 / cn-x-1-a1 sibling); its only weights are retailer listings (252/258g) which the provenance bar REJECTS. No editorial measured figure for this discontinued chain. Interfaces documented; weight stays sample."
   },
   "cr-sram-x01-dh": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Skipped",
+   "updated": "2026-07-08T18:58:56.739Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight wall. Re-fetched sram.com fc-x0-1dh-b1: confirms DUB, 32/34/36T rings, chainline options 49/52/56.5, BB 83/104.5/107, $415 - but weight is only marketing (under 800g, no exact figure). Corrected display-only chainline 55->56.5 (real DH 83 config). Weight stays sample."
   },
   "rw-weareone-union-275": {
    "cat": "rearwheel",
