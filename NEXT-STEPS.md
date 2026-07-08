@@ -270,7 +270,13 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   SKUs). **SRAM Level Ultimate Stealth VERIFIED** (sram.com model page, 254 g maker-published)
   — the XC post-mount brake choice was Shimano-only. **Vittoria Mezcal XC Race 29x2.4 + 2.25
   both VERIFIED** (vittoria.com; vocab widened: casing += `xc-race`, compound +=
-  `graphene-silica`). **Next pass:** more frames from fetchable makers, Epic HT/Spark/
+  `graphene-silica`). **Addendum D3 (landed directly on main, gates green pre-commit; +3 rows
+  → 442 parts / 158 verified):** the **first STEEL frame — Cotic Solaris** (Reynolds 853 trail
+  hardtail; **cotic.co.uk fetches — new discovery**; its PM7 mount takes a 180 mm rotor ONLY,
+  and the frame-side rotor *minimum* is un-modeled — noted in the row), the Fox **Transfer SL**
+  30.9/100 XC dropper (~330 g vs the ~600 g trail posts), and the **verified Eggbeater 3**
+  (280 g/pair, crankbrothers.com). Skipped: **Bird** (bird.bike swallows deep product URLs —
+  homepage only). **Next pass:** more frames from fetchable makers, Epic HT/Spark/
   Genius only with maker docs (integrated-shock/FM minefields), 27.5 XC tires if a 27.5 XC frame
   ever lands, drift-checker script (Phase 2), mullet-rear wheels (still parked).
 - ⬜ **Semi-automated product data scripts.** A drift checker that re-fetches verified parts' source
