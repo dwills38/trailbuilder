@@ -72,6 +72,7 @@
   .prov .ver{display:inline-flex;align-items:center;gap:3px;background:var(--ok-bg);color:var(--ok);font-weight:700;padding:1px 7px;border-radius:999px;text-decoration:none;border:1px solid rgba(31,138,76,.25)}
   .prov a.ver:hover{text-decoration:underline}
   .prov .est{color:#9aa39b;font-weight:600}
+  .prov .owned{display:inline-flex;align-items:center;gap:3px;background:var(--chip);color:var(--brand);font-weight:700;padding:1px 7px;border-radius:999px;border:1px solid var(--line);margin-left:5px}
   .slot .vchk{color:var(--ok);font-weight:800;margin-left:3px;font-size:12px}
 
   .side{position:sticky;top:16px;display:flex;flex-direction:column;gap:14px}
@@ -278,6 +279,7 @@
       <option value="weight-desc">Weight: heavy → light</option>
     </select>
     <button class="btn" id="verifiedOnly" title="Show only parts verified against a manufacturer spec">✓ Verified only</button>
+    <button class="btn" id="ownedOnly" hidden title="Show only parts in your inventory">🧰 Owned only</button>
     <button class="btn" id="radMode" title="It's a joke, dude. Purely cosmetic.">🤘 RAD mode</button>
     <button class="btn" id="roadieMode" title="Ride with pride. Purely cosmetic.">🏳️‍🌈 Roadie mode</button>
     <button class="btn" id="demoBudget">Budget build 💵</button>
@@ -511,6 +513,8 @@
   var sortBy = 'featured';   // catalog order: featured (compatible-first) | name | price | weight
   var search = '';
   var verifiedOnly = false;  // when on, show only manufacturer-verified parts/kits
+  var ownedOnly = false;     // when on, show only parts in the signed-in user's inventory
+  var ownedIds = {};         // canonicalId(part_id) -> true, cache kept fresh by refreshOwned() (renderCatalog stays sync)
   var disciplineFilter = 'all';  // 'all' | xc | trail | enduro | dh — display filter only (disciplines never feeds verdicts)
   var $ = function(id){ return document.getElementById(id); };
   var money = function(n){ return '$' + (n||0).toLocaleString(); };
@@ -576,21 +580,30 @@
   function resolved(){ var o={}; Object.keys(build).forEach(function(k){ o[k]=byId(build[k]); }); return o; }
   function compatFor(p){ return compatOf(p, resolved()); }
 
-  /* ---- provenance badge (esc + partVerified are shared from compat.js) ---- */
-  function provHtml(p){
+  /* ---- provenance badge (esc + partVerified are shared from compat.js) ----
+     `extra` (optional) is appended inline after the verified/estimate badge —
+     used by cardEl to add the owned badge on the same line. */
+  function provHtml(p, extra){
+    var body;
     if(!p.fills && p.verified===true && p.source){
       var when = p.lastChecked ? (' on '+esc(p.lastChecked)) : '';
       var url = esc(p.source);
-      return '<div class="prov"><a class="ver" href="'+url+'" target="_blank" rel="noopener noreferrer"'+
-        ' title="Spec checked against the manufacturer'+when+' — click for the source">✓ Verified</a></div>';
-    }
-    if(p.fills && partVerified(p)){
+      body = '<a class="ver" href="'+url+'" target="_blank" rel="noopener noreferrer"'+
+        ' title="Spec checked against the manufacturer'+when+' — click for the source">✓ Verified</a>';
+    } else if(p.fills && partVerified(p)){
       // Honest badge for kits (REVIEW.md #11): the PARTS are verified and the
       // kit weight is derived from them, but the bundle PRICE is its own
       // unverified number - never claim more than that.
-      return '<div class="prov"><span class="ver" title="Every part in this kit is verified against a manufacturer spec; kit weight is derived from those parts. The bundle price is an estimate.">✓ Parts verified</span></div>';
+      body = '<span class="ver" title="Every part in this kit is verified against a manufacturer spec; kit weight is derived from those parts. The bundle price is an estimate.">✓ Parts verified</span>';
+    } else {
+      body = '<span class="est" title="Sample data — approximate, not yet checked against a manufacturer spec">≈ estimate</span>';
     }
-    return '<div class="prov"><span class="est" title="Sample data — approximate, not yet checked against a manufacturer spec">≈ estimate</span></div>';
+    return '<div class="prov">'+body+(extra||'')+'</div>';
+  }
+  /* Small pill marking a part already in the signed-in user's inventory
+     (ownedIds cache, kept fresh by refreshOwned()). '' when not owned/not signed in. */
+  function ownedBadgeHtml(p){
+    return ownedIds[canonicalId(p.id)] ? '<span class="owned" title="You already own this part">🧰 Owned</span>' : '';
   }
 
   /* ---- chips ---- */
@@ -658,10 +671,11 @@
       if(activeGroup!=='all' && activeSub!=='all' && p.cat!==activeSub) return false;
       if(q && (p.brand+' '+p.model+' '+catLabel(p.cat)).toLowerCase().indexOf(q)<0) return false;
       if(verifiedOnly && !partVerified(p)) return false;
+      if(ownedOnly && !ownedIds[canonicalId(p.id)]) return false;
       if(disciplineFilter!=='all' && p.disciplines && p.disciplines.indexOf(disciplineFilter)<0) return false;
       return true;
     });
-    if(!list.length){ el.innerHTML='<p class="muted">'+(verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':'No parts match.')+'</p>'; return; }
+    if(!list.length){ el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':'No parts match.')+'</p>'; return; }
     var meta=list.map(function(p,i){ var c=compatFor(p); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='w'?1:c.state==='n'?2:3),pre:isPreset(p)?0:1,i:i}; });
     // "Best match" keeps the compatible-first order; explicit sorts are pure
     // (the dot still shows fit). Missing weights sink to the bottom either way.
@@ -701,7 +715,7 @@
         '<div class="pcard-headtext"><div class="kind">'+catLabel(p.cat)+'</div>'+
         '<div class="name">'+esc(p.brand)+' '+esc(p.model)+'</div></div></div>'+
       '<div class="spec">'+esc(specSummary(p))+'</div>'+
-      provHtml(p)+
+      provHtml(p, ownedBadgeHtml(p))+
       '<div class="row">'+priceHtml+'<span class="picks"></span></div>';
     var picks=card.querySelector('.picks');
 
@@ -734,7 +748,7 @@
         inv.title='Add to your parts inventory';
         inv.onclick=function(){
           addInventoryItem(p.id, 1)
-            .then(function(){ toast(p.brand+' '+p.model+' added to inventory'); })
+            .then(function(){ toast(p.brand+' '+p.model+' added to inventory'); refreshOwned(); })
             .catch(function(e){ toast((e&&e.message)||'Could not add to inventory'); });
         };
         picks.appendChild(inv);
@@ -1135,7 +1149,7 @@
 
   function renderAccount(){
     var box = $('acctBox');
-    if(!_acctReady){ box.hidden = true; $('saveGarage').hidden = true; return; }
+    if(!_acctReady){ box.hidden = true; $('saveGarage').hidden = true; $('ownedOnly').hidden = true; ownedOnly = false; return; }
     box.hidden = false;
     var u = (typeof currentUser === 'function') ? currentUser() : null;
     var inU = !!u;
@@ -1145,6 +1159,23 @@
     $('acctInventory').hidden = !inU;
     $('acctLogout').hidden = !inU;
     $('saveGarage').hidden = !inU;
+    $('ownedOnly').hidden = !inU;
+    if(!inU){ ownedOnly = false; ownedIds = {}; }
+    $('ownedOnly').classList.toggle('primary', ownedOnly);
+  }
+
+  /* Refresh the owned-parts cache from the server, then re-render the catalog.
+     renderCatalog() itself stays SYNCHRONOUS (it reads ownedIds, not the network) —
+     this is the only place that awaits listInventory(). Call after login, after any
+     inventory add/remove, and when the "Owned only" filter is first switched on. */
+  function refreshOwned(){
+    if(!_acctReady || !currentUser()){ ownedIds = {}; renderCatalog(); return; }
+    listInventory().then(function(rows){
+      var m = {};
+      (rows||[]).forEach(function(row){ m[canonicalId(row.part_id)] = true; });
+      ownedIds = m;
+      renderCatalog();
+    }).catch(function(){ renderCatalog(); });
   }
 
   function authErr(e){ var m = $('authMsg'); m.hidden = false; m.textContent = (e && e.message) || 'Something went wrong.'; }
@@ -1241,9 +1272,9 @@
           '<div class="gacts"><button data-a="del">Remove</button></div>';
         // row opens the part-detail pop-out; the qty/remove controls stop propagation so they don't
         if(p){ div.onclick = function(){ openPartModal(p); }; }
-        div.querySelector('[data-a=inc]').onclick = function(e){ e.stopPropagation(); setInventoryQty(row.id, row.qty+1).then(renderInventory).catch(function(e){ toast(e.message||'Failed'); }); };
-        div.querySelector('[data-a=dec]').onclick = function(e){ e.stopPropagation(); (row.qty<=1 ? removeInventoryItem(row.id) : setInventoryQty(row.id, row.qty-1)).then(renderInventory).catch(function(e){ toast(e.message||'Failed'); }); };
-        div.querySelector('[data-a=del]').onclick = function(e){ e.stopPropagation(); removeInventoryItem(row.id).then(renderInventory).catch(function(e){ toast(e.message||'Failed'); }); };
+        div.querySelector('[data-a=inc]').onclick = function(e){ e.stopPropagation(); setInventoryQty(row.id, row.qty+1).then(function(){ renderInventory(); refreshOwned(); }).catch(function(e){ toast(e.message||'Failed'); }); };
+        div.querySelector('[data-a=dec]').onclick = function(e){ e.stopPropagation(); (row.qty<=1 ? removeInventoryItem(row.id) : setInventoryQty(row.id, row.qty-1)).then(function(){ renderInventory(); refreshOwned(); }).catch(function(e){ toast(e.message||'Failed'); }); };
+        div.querySelector('[data-a=del]').onclick = function(e){ e.stopPropagation(); removeInventoryItem(row.id).then(function(){ renderInventory(); refreshOwned(); }).catch(function(e){ toast(e.message||'Failed'); }); };
         el.appendChild(div);
       });
     }).catch(function(e){ el.innerHTML = '<div class="gempty">Could not load inventory: '+esc(e.message||'')+'</div>'; });
@@ -1259,7 +1290,7 @@
     if(!uniq.length){ toast('Add some parts first'); return; }
     var chain = Promise.resolve();
     uniq.forEach(function(id){ chain = chain.then(function(){ return addInventoryItem(id, counts[id]); }); });
-    chain.then(function(){ toast('Added '+uniq.length+' part(s) to inventory'); renderInventory(); })
+    chain.then(function(){ toast('Added '+uniq.length+' part(s) to inventory'); renderInventory(); refreshOwned(); })
          .catch(function(e){ toast(e.message||'Add failed'); });
   }
 
@@ -1357,6 +1388,7 @@
   $('search').addEventListener('input', function(e){ search=e.target.value; renderCatalog(); });
   $('sortBy').onchange=function(){ sortBy=this.value; renderCatalog(); };
   $('verifiedOnly').onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary', verifiedOnly); renderCatalog(); };
+  $('ownedOnly').onclick=function(){ ownedOnly=!ownedOnly; this.classList.toggle('primary', ownedOnly); if(ownedOnly) refreshOwned(); else renderCatalog(); };
   // RAD mode and Roadie mode are both full cosmetic reskins — running both at once
   // would just look broken, so turning one on turns the other off.
   function setRad(on){
@@ -1436,7 +1468,7 @@
 
   readHash(); renderDiscChips(); renderChips(); renderSubChips(); sync();
   // Wire auth state -> account UI. When accounts are unconfigured this no-ops.
-  if(typeof initAccount === 'function'){ initAccount(function(u){ renderAccount(); renderCatalog(); if(u && $('authModal').open){ $('authModal').close(); } if(!u){ closeInventoryPage(); } }); }
+  if(typeof initAccount === 'function'){ initAccount(function(u){ renderAccount(); refreshOwned(); if(u && $('authModal').open){ $('authModal').close(); } if(!u){ closeInventoryPage(); } }); }
   renderAccount();
 })();
 </script>
