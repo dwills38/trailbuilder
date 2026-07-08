@@ -261,7 +261,16 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   UDH, PM 200, 64 mm maker maxTire → rule 18 active, 2.32 kg alu). (3) **Commencal T.E.M.P.O.**
   — the 125 mm downcountry tier (fetched tech-tempo page: 210x50, PF92, UDH, maker maxTire).
   (4) **FR 1500 DH wheelset preset** → the DH demo now loads with wheels-kit pricing
-  (browser-verified, $9,026). **Next pass:** more frames from fetchable makers, Epic HT/Spark/
+  (browser-verified, $9,026).
+  **Pass 8 (`catalog-disciplines-8`, 2 commits, +7 rows → 439 parts / 157 verified / 254 tests):**
+  **privateerbikes.com FETCHES (new discovery)** — both Gen 2 framesets entered from their own
+  pages: **161 G2** (enduro, 205x60 trunnion, UDH explicitly NO — flip chips, 2.5 design tire)
+  and **141 G2** (trail, 185x55 trunnion = the Jibb size), each with its bundled custom-tuned
+  Fox shock as a new row (Float X2 PE 205x60-trun / Float X PE 185x55-trun — both also retail
+  SKUs). **SRAM Level Ultimate Stealth VERIFIED** (sram.com model page, 254 g maker-published)
+  — the XC post-mount brake choice was Shimano-only. **Vittoria Mezcal XC Race 29x2.4 + 2.25
+  both VERIFIED** (vittoria.com; vocab widened: casing += `xc-race`, compound +=
+  `graphene-silica`). **Next pass:** more frames from fetchable makers, Epic HT/Spark/
   Genius only with maker docs (integrated-shock/FM minefields), 27.5 XC tires if a 27.5 XC frame
   ever lands, drift-checker script (Phase 2), mullet-rear wheels (still parked).
 - ⬜ **Semi-automated product data scripts.** A drift checker that re-fetches verified parts' source
