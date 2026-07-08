@@ -107,6 +107,28 @@ test('golden: every demo build fills every required slot (complete builds)', fun
   });
 });
 
+/* The first complete DOWNHILL build (2026-07-08): Supreme DH V5 + BoxXer
+   dual-crown + Vivid DH 250x75 + FR 1500 DH wheels (20x110 / 12x150) + DH
+   casing tires + the X01 DH 7-speed group. Locks the discipline-expansion
+   vocab (20x110, straight-dc, sram-dh-7, 150x12, PF107) together end-to-end.
+   No dropper - the DH frame exempts it (slotRequired). Must stay green. */
+var DH_BUILD = { frame:'fr-commencal-supreme-dh-v5', fork:'fk-rockshox-boxxer-ultimate-29-200', shock:'sh-rockshox-vivid-ultimate-dh-250x75',
+  frontWheel:'fw-dtswiss-fr-1500-29', rearWheel:'rw-dtswiss-fr-1500-29-150',
+  frontTire:'ti-maxxis-assegai-29-25-dh-mg', rearTire:'ti-maxxis-assegai-29-25-dh-mg',
+  shifter:'sft-sram-x01-dh', derailleur:'dr-sram-x01-dh', cassette:'ca-sram-xg795', chain:'ch-sram-pc-xx1', crankset:'cr-sram-x01-dh',
+  frontBrake:'bk-sram-maven-ultimate', rearBrake:'bk-sram-maven-ultimate', frontRotor:'ro-sram-hs2-220-6b', rearRotor:'ro-sram-hs2-220-6b',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', saddle:'sa-wtb-volt', pedals:'pd-oneup-composite' };
+test('golden: a complete DH race build (dual-crown, 7-speed, no dropper) is fully compatible', function(){
+  var r = chk(DH_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+test('golden: the DH build fills every required slot (dropper exempt via slotRequired)', function(){
+  var m = /** @type {Object.<string, string>} */ (DH_BUILD);
+  var frame = C.byId(m.frame);
+  var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
+  eq(required.some(function(s){ return s.key==='dropper'; }), false, 'dropper must be exempt on a DH frame');
+  required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
+});
+
 test('slotRequired: hardtail frame exempts the shock slot (completeness only)', function(){
   var frame = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { suspension:'hardtail' }));
   delete frame.shockEye; delete frame.shockStroke; delete frame.shockMount; delete frame.travel; delete frame.bundledShock;
