@@ -27,6 +27,7 @@
 /** @typedef {import('./types.js').Totals} Totals */
 /** @typedef {import('./types.js').CompatState} CompatState */
 /** @typedef {import('./types.js').WheelSize} WheelSize */
+/** @typedef {import('./types.js').EffectiveWheel} EffectiveWheel */
 
 /** @type {Object.<string, string>} */
 var LABELS = {
@@ -78,7 +79,16 @@ var GROUPS = [
   { key:'shock', label:'Rear Shock', icon:'O', slots:[ {key:'shock', label:'Rear Shock', cat:'shock'} ] },
   { key:'wheels', label:'Wheels', icon:'W', preset:{cat:'wheelset', label:'wheelset'}, slots:[
       {key:'frontWheel', label:'Front Wheel', cat:'frontwheel'},
-      {key:'rearWheel',  label:'Rear Wheel',  cat:'rearwheel'} ] },
+      {key:'rearWheel',  label:'Rear Wheel',  cat:'rearwheel'},
+      /* build-your-own-wheel alternate path (hub+rim instead of a complete
+         wheel) - `altOf` marks these as satisfying the named canonical slot
+         instead of being independently required; see effectiveWheel() and
+         wheelPositionFilled() below, and setSlot()'s mutex clearing in
+         index.html. Only a handful of brands sell hub+rim separately. */
+      {key:'frontHub', label:'Front Hub', cat:'fronthub', altOf:'frontWheel'},
+      {key:'frontRim', label:'Front Rim', cat:'rim', altOf:'frontWheel'},
+      {key:'rearHub',  label:'Rear Hub',  cat:'rearhub', altOf:'rearWheel'},
+      {key:'rearRim',  label:'Rear Rim',  cat:'rim', altOf:'rearWheel'} ] },
   { key:'tire', label:'Tires', icon:'T', slots:[
       {key:'frontTire', label:'Front Tire', cat:'tire'},
       {key:'rearTire',  label:'Rear Tire',  cat:'tire'} ] },
@@ -110,11 +120,23 @@ var SLOTS = GROUPS.reduce(function(a,g){ return a.concat(g.slots.map(function(s)
 /** @param {Slot} slot @param {Part|null|undefined} frame @returns {boolean} */
 function slotRequired(slot, frame){
   if(slot.optional) return false;
+  if(slot.altOf) return false;   // an alternate-path slot (e.g. frontHub/frontRim) is never independently required - only its altOf target counts, via wheelPositionFilled()
   if(frame && frame.cat === 'frame'){
     if(slot.key === 'shock' && frame.suspension === 'hardtail') return false;
     if(slot.key === 'dropper' && (frame.disciplines || []).indexOf('dh') >= 0) return false;
   }
   return true;
+}
+
+/** Slot keys that are an alternate path to filling `primaryKey` (GROUPS' `altOf` tag). @param {string} primaryKey @returns {string[]} */
+function altSlotsOf(primaryKey){
+  return SLOTS.filter(function(s){ return s.altOf === primaryKey; }).map(function(s){ return s.key; });
+}
+/** Is `primaryKey` filled directly, or via every one of its alternate slots (e.g. frontWheel via frontHub+frontRim)? Generalizes to `!!build[primaryKey]` for any slot with no alternates. @param {Build} build @param {string} primaryKey @returns {boolean} */
+function wheelPositionFilled(build, primaryKey){
+  if(build[primaryKey]) return true;
+  var alts = altSlotsOf(primaryKey);
+  return alts.length>0 && alts.every(function(k){ return !!build[k]; });
 }
 
 /* ---- SEED catalog (price USD sample, weight grams sample) ---------------- */
@@ -406,6 +428,45 @@ var PARTS = [
   { id:'rw-stans-flow-ex3-275-ms', cat:'rearwheel', brand:'Stans', model:'Flow EX3 rear 27.5 (Micro Spline)', family:'stans-flow-ex3', disciplines:['enduro'], price:505, weight:1159, wheel:'275', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:30, maxTire:2.6, desc:'sample specs (mirror XD sibling); "Stan\'s NoTubes Flow EX3 6-Bolt 27.5 Boost Micro Spline Rear Wheel" - REI listing title, corroborated by thelostco.com and Colorado Cyclist SKU pages for the same 27.5/148/Micro Spline configuration' },
   { id:'rw-hope-fortus-30-275', cat:'rearwheel', brand:'Hope', model:'Fortus 30 Pro 4 rear 27.5', family:'hope-fortus', gen:'Pro 4', disciplines:['enduro'], price:550, weight:1270, wheel:'275', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.8, desc:'sample specs (mirror 29 XD sibling); 27.5 Fortus 30W Boost 148x12 rear with SRAM XD/Shimano Microspline/HG freehub options and 6-bolt or Centerlock mount - from the fetched bikewheelsdirect.com configurator (hopetech.com\'s own Fortus 30 page confirms 27.5/29 + 148 Boost/150mm axle options without a size-specific breakdown)' },
   { id:'rw-hope-fortus-30-275-ms', cat:'rearwheel', brand:'Hope', model:'Fortus 30 Pro 5 rear 27.5 (Micro Spline)', family:'hope-fortus', gen:'Pro 5', disciplines:['enduro'], price:550, weight:1270, wheel:'275', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:30, maxTire:2.8, desc:'sample specs (mirror XD sibling; Pro 5 hub, matching the 29 Micro Spline sibling\'s convention); Shimano Microspline freehub option on the same fetched bikewheelsdirect.com 27.5 Fortus 30W configurator' },
+
+  /* FRONT/REAR HUBS + RIMS - the build-your-own-wheel alternate path (fronthub/
+     rearhub/rim cats, additive alongside the complete wheels above). Only for
+     brands confirmed via a fetched page to sell a standalone hub AND/OR rim as
+     its own purchasable SKU (not every "wheel brand" does - e.g. Stan's only
+     sells the rim standalone, never a complete hub, so it gets a rim row only;
+     Race Face's Turbine SL wheelset has no standalone version of its own rim,
+     so its rim row is the ARC line instead, its actual standalone rim product,
+     at the matching 25mm internal width). Hub axle/freehub/rotor-mount and rim
+     wheel-size/intWidth/maxTire mirror the already-cataloged complete wheel of
+     the same platform above. */
+  { id:'fh-dtswiss-350-boost110', cat:'fronthub', brand:'DT Swiss', model:'350 front hub', family:'dtswiss-350', price:89, weight:142, hub:'Boost110', rotorMount:'CL', desc:'price = sample (DT Swiss doesn\'t publish the exact 110 Boost Center Lock SKU\'s combined price+weight page); 142g from a fetched retailer spec table, $89 mirrors the fetched wheelbuilder.com 350 Classic CL front hub (non-Boost) listing', source:'https://wheelbuilder.com/dt-swiss-350-classic-center-lock-disc-brake-front-hub/' },
+  { id:'rh-dtswiss-350-boost148-xd', cat:'rearhub', brand:'DT Swiss', model:'350 rear hub (XD)', family:'dtswiss-350', price:199, weight:272, hub:'Boost148', freehub:'XD', rotorMount:'CL', source:'https://wheelbuilder.com/dt-swiss-350-classic-boost-center-lock-disc-brake-rear-hub/', desc:'272g/$199 from a fetched wheelbuilder.com listing for this exact 148 Boost Center Lock SKU; the 350\'s freehub body is a tool-free swap (XD/Micro Spline/HG), so weight/price mirror across the freehub siblings below' },
+  { id:'rh-dtswiss-350-boost148-ms', cat:'rearhub', brand:'DT Swiss', model:'350 rear hub (Micro Spline)', family:'dtswiss-350', price:199, weight:272, hub:'Boost148', freehub:'MicroSpline', rotorMount:'CL', desc:'weight/price mirror the XD sibling (tool-free freehub-body swap, same hub)' },
+  { id:'rh-dtswiss-350-boost148-hg', cat:'rearhub', brand:'DT Swiss', model:'350 rear hub (Shimano HG)', family:'dtswiss-350', price:199, weight:272, hub:'Boost148', freehub:'HG', rotorMount:'CL', desc:'weight/price mirror the XD sibling (tool-free freehub-body swap, same hub)' },
+  { id:'rm-dtswiss-ex511-29', cat:'rim', brand:'DT Swiss', model:'EX 511 rim (29)', family:'dtswiss-ex511', price:174, weight:570, wheel:'29', intWidth:30, maxTire:2.5, source:'https://www.dtswiss.com/en/components/rims-mtb/enduro/ex-511', desc:'the rim the EX 1700 wheelset is built on ("EX 1700 Spline is built with the 30mm wide EX 511 Enduro rims", dtswiss.com); 29in weight + "from $174" price both fetched (dtswiss.com + fanatikbike.com agree on $174/174.90)' },
+
+  { id:'fh-hope-pro5-boost110', cat:'fronthub', brand:'Hope', model:'Pro 5 front hub', family:'hope-pro5', price:131, weight:187, hub:'Boost110', rotorMount:'sixbolt', source:'https://www.hopetech.com/products/hubs/mountain-bike/pro-5-110mm-boost-front/', desc:'187g (6-Bolt) + $130.81 ex-tax both from the fetched hopetech.com Pro 5 110mm Boost Front page (it also lists a 140g Center Lock option)' },
+  { id:'rh-hope-pro5-boost148-xd', cat:'rearhub', brand:'Hope', model:'Pro 5 rear hub (XD)', family:'hope-pro5', price:265, weight:270, hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', desc:'price from hopetech.com ($265 rear, search-corroborated); weight is a sample estimate in the same range as its DT Swiss/I9 rear-hub peers (a single combined weight+price page for this exact config didn\'t surface) - Pro 5 offers HG/XD/Micro Spline via a tool-free freehub-body swap, so weight/price mirror across the siblings below' },
+  { id:'rh-hope-pro5-boost148-ms', cat:'rearhub', brand:'Hope', model:'Pro 5 rear hub (Micro Spline)', family:'hope-pro5', price:265, weight:270, hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', desc:'weight/price mirror the XD sibling (tool-free freehub-body swap, same hub)' },
+  { id:'rh-hope-pro5-boost148-hg', cat:'rearhub', brand:'Hope', model:'Pro 5 rear hub (Shimano HG)', family:'hope-pro5', price:265, weight:270, hub:'Boost148', freehub:'HG', rotorMount:'sixbolt', desc:'weight/price mirror the XD sibling (tool-free freehub-body swap, same hub)' },
+  { id:'rm-hope-fortus30-29', cat:'rim', brand:'Hope', model:'Fortus 30 rim (29)', family:'hope-fortus', price:127, weight:720, wheel:'29', intWidth:30, maxTire:2.8, desc:'720g 29in rim weight is search-corroborated (matches the 26/27.5in siblings\' known progression); price approximates the fetched hopetech.com "£100 per rim" SC quote (~$127)' },
+
+  { id:'fh-industrynine-hydraclassic-boost110', cat:'fronthub', brand:'Industry Nine', model:'Hydra Classic front hub', family:'industrynine-hydra-classic', price:215, weight:160, hub:'Boost110', rotorMount:'sixbolt', desc:'weight/price are search-corroborated (155-165g / $215 range, no single combined-spec page surfaced) - a real standalone SKU (industrynine.com sells Hydra Classic hubs a la carte)' },
+  { id:'rh-industrynine-hydraclassic-boost148-ms', cat:'rearhub', brand:'Industry Nine', model:'Hydra Classic rear hub (Micro Spline)', family:'industrynine-hydra-classic', price:460, weight:270, hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', source:'https://wheelbuilder.com/industry-nine-hydra-classic-iso-boost-rear-hub/', desc:'270g/$460 from a fetched wheelbuilder.com listing for this exact 148 Boost rear hub (page confirms Shimano HG/SRAM XD/Shimano Micro Spline freehub options)' },
+  { id:'rh-industrynine-hydraclassic-superboost157-xd', cat:'rearhub', brand:'Industry Nine', model:'Hydra Classic rear hub (SuperBoost157, XD)', family:'industrynine-hydra-classic', price:460, weight:270, hub:'SuperBoost157', freehub:'XD', rotorMount:'sixbolt', desc:'weight/price mirror the Boost148 sibling (same hub family, SuperBoost157 is the same hub shell on a wider spoke flange, per the fetched wheelbuilder.com page\'s axle-option list); matches the existing rw-industrynine-enduro-s-29-157 wheel\'s exact axle+freehub combo' },
+  { id:'rm-industrynine-endurosv2-29', cat:'rim', brand:'Industry Nine', model:'Enduro S V2 alloy rim (29)', family:'industrynine-enduro-s', price:200, weight:580, wheel:'29', intWidth:30, maxTire:2.6, desc:'580g / 30.5mm internal (rounded to the existing 30mm wheel row\'s value) from search coverage of the V2 alloy rim (a distinct rim-only SKU/price wasn\'t found on industrynine.com - price is a same-tier sample estimate)' },
+
+  { id:'fh-spank-hex-boost110', cat:'fronthub', brand:'Spank', model:'Hex Straightpull front hub', family:'spank-hex', price:130, weight:136, hub:'Boost110', rotorMount:'sixbolt', source:'https://spank-ind.com/products/spank-hex-straightpull-front-hub', desc:'136g/$129.99 from the fetched spank-ind.com product page (Boost 15x110, 6-bolt)' },
+  { id:'rh-spank-hex-boost148-xd', cat:'rearhub', brand:'Spank', model:'Hex J-Type rear hub (XD)', family:'spank-hex', price:250, weight:310, hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', source:'https://spank-ind.com/products/spank-hex-j-type-rear-hub', desc:'310g (Boost R148 XD row) / $249.99 from the fetched spank-ind.com spec table (HG/XD/Micro Spline alloy driver options listed at the same price)' },
+  { id:'rh-spank-hex-boost148-ms', cat:'rearhub', brand:'Spank', model:'Hex J-Type rear hub (Micro Spline)', family:'spank-hex', price:250, weight:315, hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', desc:'weight is the same fetched spec table\'s Micro Spline row (mid-300s vs the XD row\'s 310g); price matches the table\'s flat $249.99 across driver options' },
+  { id:'rm-spank-359-29', cat:'rim', brand:'Spank', model:'359 rim (29)', family:'spank-359', price:115, weight:505, wheel:'29', intWidth:31, maxTire:2.6, source:'https://spank-ind.com/products/spank-359-rim', desc:'505g / $114.99 search-corroborated (Modern Bike, LoamLabs both list the standalone spank-ind.com SKU at $114.99); the 30.5mm internal width spec rounds to the existing 359 wheel rows\' 31mm value' },
+
+  { id:'fh-raceface-vault-boost110', cat:'fronthub', brand:'Race Face', model:'Vault front hub', family:'raceface-vault', price:175, weight:177, hub:'Boost110', rotorMount:'sixbolt', desc:'177g/$175 search-corroborated (nsmb.com/pinkbike/bikemag coverage of the standalone-hub launch); the fetched raceface.com product page confirms the 15x110 Boost front axle option but doesn\'t break out front-only price' },
+  { id:'rh-raceface-vault-boost148-xd', cat:'rearhub', brand:'Race Face', model:'Vault rear hub (XD)', family:'raceface-vault', price:325, weight:305, hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', source:'https://www.raceface.com/products/vault-j-bend-hub-28h', desc:'305g/$325 search-corroborated; the fetched raceface.com page confirms 12x148 Boost XD-R and HG-R axle options directly (weight is a lightest-config figure on that same page)' },
+  { id:'rh-raceface-vault-boost148-ms', cat:'rearhub', brand:'Race Face', model:'Vault rear hub (Micro Spline)', family:'raceface-vault', price:325, weight:305, hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', desc:'weight/price mirror the XD sibling; Micro Spline is a separate $95 freehub-body swap confirmed via a fetched raceface.com/bikepacking.com product page ("fits all Race Face VAULT rear hubs")' },
+  { id:'rm-raceface-arc25-29', cat:'rim', brand:'Race Face', model:'ARC Offset 25 rim (29)', family:'raceface-arc', price:100, weight:450, wheel:'29', intWidth:25, maxTire:2.6, desc:'the standalone rim line (raceface.com sells ARC Offset rims a la carte; the Turbine SL wheelset itself has no separately-sold rim) at the 25mm internal width matching the existing Turbine SL wheel rows; $94.99-99.99 / 450g at 25mm from search coverage of the ARC Offset lineup, a 30mm sibling (515g/$109.99) confirmed via a fetched fanatikbike.com listing' },
+
+  { id:'rm-stans-flowex3-29', cat:'rim', brand:'Stans', model:'Flow EX3 rim (29)', family:'stans-flow-ex3', price:140, weight:618, wheel:'29', intWidth:29, maxTire:2.6, verified:true, lastChecked:'2026-07-08', source:'https://stans.com/products/flow-ex3-rim', desc:'Stan\'s sells this rim standalone but never a complete hub (only axles/freehub-kit spare parts, confirmed via stans.com\'s own Neo Hub Parts collection) - so Stan\'s gets a rim row only; pair it with any other brand\'s hub for a custom build, same as real wheelbuilding' },
 
   /* TIRES (each a size-specific model; front + rear chosen separately) */
   { id:'ti-maxxis-assegai-29-25-exop-mg', cat:'tire', brand:'Maxxis', model:'Assegai 29x2.5 EXO+ MaxxGrip', family:'maxxis-assegai', disciplines:['enduro'], price:90, weight:1219, wheel:'29', width:2.5, casing:'exo-plus', compound:'3c-maxxgrip', verified:true, lastChecked:'2026-07-06', source:'https://www.maxxis.com/us/tire/assegai/' },
@@ -1128,6 +1189,9 @@ function specSummary(p){
     case 'shock': return p.eye+'x'+p.stroke+' . '+L(p.mount)+' . '+p.spring+(p.oemOnly?' . OEM-only':'');
     case 'frontwheel': return L(p.wheel)+' . '+L(p.hub)+' . '+L(p.rotorMount)+' . '+p.intWidth+'mm';
     case 'rearwheel': return L(p.wheel)+' . '+L(p.hub)+' . '+L(p.freehub)+' . '+L(p.rotorMount);
+    case 'fronthub': return L(p.hub)+' . '+L(p.rotorMount);
+    case 'rearhub': return L(p.hub)+' . '+L(p.freehub)+' . '+L(p.rotorMount);
+    case 'rim': return L(p.wheel)+' . '+p.intWidth+'mm . max '+p.maxTire+'in';
     case 'tire': return L(p.wheel)+' . '+p.width+'in'+(p.casing?' . '+L(p.casing):'')+(p.compound?' . '+L(p.compound):'');
     case 'shifter': return L(p.system)+' . '+p.speeds+'s . '+L(p.actuation)+(p.clampType?' . '+L(p.clampType):'');
     case 'derailleur': return L(p.system)+' . '+p.speeds+'s . '+L(p.actuation)+' . '+p.maxCog+'T max . '+L(p.mount);
@@ -1195,6 +1259,27 @@ function resolveBuild(build){
   return out;
 }
 
+/* Build-your-own-wheel support (fronthub/rearhub/rim, additive alongside the
+   complete frontwheel/rearwheel parts - see GROUPS' `altOf` tag). Every rule
+   below reads the front/rear wheel's fields off ONE local (fW/rW); this
+   resolver is the single pivot point that lets those rules stay unchanged
+   whether the user picked a complete wheel or a hub+rim pair. Returns null if
+   neither path is fully filled - callers already treat a missing wheel as
+   "nothing to check yet". */
+/** @param {Build} b @param {'front'|'rear'} side @returns {EffectiveWheel|null} */
+function effectiveWheel(b, side){
+  if(side==='front'){
+    if(b.frontWheel) return b.frontWheel;
+    var fh=b.frontHub, fr=b.frontRim;
+    if(!fh || !fr) return null;
+    return { wheel:fr.wheel, hub:fh.hub, rotorMount:fh.rotorMount, intWidth:fr.intWidth, maxTire:fr.maxTire };
+  }
+  if(b.rearWheel) return b.rearWheel;
+  var rh=b.rearHub, rr=b.rearRim;
+  if(!rh || !rr) return null;
+  return { wheel:rr.wheel, hub:rh.hub, freehub:rh.freehub, rotorMount:rh.rotorMount, intWidth:rr.intWidth, maxTire:rr.maxTire };
+}
+
 /** @param {Build} build @returns {CompatResult} */
 function checkBuild(build){
   /** @type {VerdictShape[]} */ var errors=[];
@@ -1207,7 +1292,7 @@ function checkBuild(build){
   /** @param {string} ruleId @param {string[]} slots @param {string} msg */
   function info(ruleId, slots, msg){ infos.push(new Verdict(ruleId, slots, msg)); }
   /** @type {Build} */ var b = resolveBuild(build);
-  var frame=b.frame, fork=b.fork, shock=b.shock, fW=b.frontWheel, rW=b.rearWheel, fTire=b.frontTire, rTire=b.rearTire,
+  var frame=b.frame, fork=b.fork, shock=b.shock, fW=effectiveWheel(b,'front'), rW=effectiveWheel(b,'rear'), fTire=b.frontTire, rTire=b.rearTire,
       shifter=b.shifter, derailleur=b.derailleur, cassette=b.cassette, chain=b.chain, crankset=b.crankset,
       fBrake=b.frontBrake, rBrake=b.rearBrake, fRotor=b.frontRotor, rRotor=b.rearRotor,
       bar=b.handlebar, stem=b.stem, dropper=b.dropper;
@@ -1286,7 +1371,7 @@ function checkBuild(build){
   if(cassette && derailleur && cassette.maxCog>derailleur.maxCog) err('cassette-capacity', ['cassette','derailleur'], 'Cassette too big: '+cassette.maxCog+'T cassette exceeds the '+nameOf(derailleur)+' max of '+derailleur.maxCog+'T.');
 
   /* 6. Freehub: cassette vs rear wheel */
-  if(cassette && rW && cassette.freehub!==rW.freehub) err('freehub', ['cassette','rearWheel'], 'Freehub mismatch: '+nameOf(cassette)+' needs a '+L(cassette.freehub)+' freehub, but Rear wheel has '+L(rW.freehub)+'.');
+  if(cassette && rW && cassette.freehub!==rW.freehub) err('freehub', ['cassette','rearWheel'], 'Freehub mismatch: '+nameOf(cassette)+' needs a '+L(cassette.freehub)+' freehub, but Rear wheel has '+L(/** @type {string} */ (rW.freehub))+'.');
 
   /* 7. Crank / BB advisory */
   if(crankset && frame) info('bb-advisory', ['crankset','frame'], 'Bottom bracket: '+nameOf(crankset)+' uses a '+L(crankset.bb)+' spindle - pair it with the right BB for this frame\'s '+L(frame.bb)+' shell (BB usually sold separately).');
@@ -1672,6 +1757,7 @@ function partVerified(p){
 /* ---- Export for Node tests (ignored by the browser) ---------------------- */
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { PARTS:PARTS, GROUPS:GROUPS, SLOTS:SLOTS, LABELS:LABELS, WHEEL_CONFIG:WHEEL_CONFIG, slotRequired:slotRequired,
+    altSlotsOf:altSlotsOf, wheelPositionFilled:wheelPositionFilled, effectiveWheel:effectiveWheel,
     ALIASES:ALIASES, canonicalId:canonicalId,
     byId:byId, nameOf:nameOf, specSummary:specSummary, checkBuild:checkBuild, verdictKey:verdictKey,
     placementDiff:placementDiff, conflictReason:conflictReason, compatOf:compatOf, bundleActive:bundleActive, buildTotals:buildTotals,

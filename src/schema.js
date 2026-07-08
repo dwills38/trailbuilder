@@ -194,6 +194,18 @@ var SCHEMA = {
     wheel:{type:'string',vocab:'wheel'}, hub:{type:'string',vocab:'rearAxle'}, freehub:{type:'string',vocab:'freehub'},
     rotorMount:{type:'string',vocab:'rotorMount'}, intWidth:{type:'number'}, maxTire:{type:'number'}
   },
+  /* fronthub/rearhub/rim: a hub+rim build-your-own-wheel path, additive
+     alongside frontwheel/rearwheel (complete pre-built wheels) - only the
+     brands that actually sell hubs and rims separately (DT Swiss, Hope,
+     Industry Nine, Spank, Stan's, Race Face) get these; everyone else keeps
+     working as a complete wheel. rim is one category (like tire) since the
+     same rim is usable front or rear; front/rear hub stay separate cats
+     (like frontwheel/rearwheel) since only the rear hub carries a freehub. */
+  fronthub: { hub:{type:'string',vocab:'frontAxle'}, rotorMount:{type:'string',vocab:'rotorMount'} },
+  rearhub: {
+    hub:{type:'string',vocab:'rearAxle'}, freehub:{type:'string',vocab:'freehub'}, rotorMount:{type:'string',vocab:'rotorMount'}
+  },
+  rim: { wheel:{type:'string',vocab:'wheel'}, intWidth:{type:'number'}, maxTire:{type:'number'} },
   tire: { wheel:{type:'string',vocab:'wheel'}, width:{type:'number'},
     casing:{type:'string',vocab:'casing',optional:true}, compound:{type:'string',vocab:'compound',optional:true} },
   shifter: { system:{type:'string',vocab:'system'}, speeds:{type:'number'}, actuation:{type:'string',vocab:'actuation'}, clampType:{type:'string',vocab:'shifterClamp',optional:true} },
@@ -246,6 +258,7 @@ var COMMON = ['id','cat','brand','model','price','weight','desc','verified','las
 /** @type {Object.<string, string>} */
 var ID_PREFIX = {
   frame:'fr', fork:'fk', shock:'sh', frontwheel:'fw', rearwheel:'rw', tire:'ti',
+  fronthub:'fh', rearhub:'rh', rim:'rm',
   shifter:'sft', derailleur:'dr', cassette:'ca', chain:'ch', crankset:'cr',
   brake:'bk', rotor:'ro', handlebar:'hb', stem:'st', grips:'gr', dropper:'dp',
   saddle:'sa', pedal:'pd', groupset:'gs', wheelset:'ws', brakeset:'bs', cockpitset:'co'

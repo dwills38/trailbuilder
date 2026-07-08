@@ -15,7 +15,7 @@
    field or a part missing a required one.
    ========================================================================== */
 
-/** @typedef {'frame'|'fork'|'shock'|'frontwheel'|'rearwheel'|'tire'|'shifter'|'derailleur'|'cassette'|'chain'|'crankset'|'brake'|'rotor'|'handlebar'|'stem'|'grips'|'dropper'|'saddle'|'pedal'|'groupset'|'wheelset'|'brakeset'|'cockpitset'} Category */
+/** @typedef {'frame'|'fork'|'shock'|'frontwheel'|'rearwheel'|'fronthub'|'rearhub'|'rim'|'tire'|'shifter'|'derailleur'|'cassette'|'chain'|'crankset'|'brake'|'rotor'|'handlebar'|'stem'|'grips'|'dropper'|'saddle'|'pedal'|'groupset'|'wheelset'|'brakeset'|'cockpitset'} Category */
 
 /* ---- vocabularies (mirror VOCAB in schema.js) ---------------------------- */
 /** @typedef {'29'|'275'} WheelSize */
@@ -114,6 +114,9 @@
 /** @typedef {CommonFields & {cat: 'shock', eye: number, stroke: number, mount: ShockMount, spring: Spring, oemOnly?: boolean, forFrames?: string[]}} ShockPart */
 /** @typedef {CommonFields & {cat: 'frontwheel', wheel: WheelSize, hub: FrontAxle, rotorMount: RotorMount, intWidth: number, maxTire: number}} FrontWheelPart */
 /** @typedef {CommonFields & {cat: 'rearwheel', wheel: WheelSize, hub: RearAxle, freehub: Freehub, rotorMount: RotorMount, intWidth: number, maxTire: number}} RearWheelPart */
+/** @typedef {CommonFields & {cat: 'fronthub', hub: FrontAxle, rotorMount: RotorMount}} FrontHubPart */
+/** @typedef {CommonFields & {cat: 'rearhub', hub: RearAxle, freehub: Freehub, rotorMount: RotorMount}} RearHubPart */
+/** @typedef {CommonFields & {cat: 'rim', wheel: WheelSize, intWidth: number, maxTire: number}} RimPart */
 /** @typedef {CommonFields & {cat: 'tire', wheel: WheelSize, width: number, casing?: Casing, compound?: Compound}} TirePart */
 /** @typedef {CommonFields & {cat: 'shifter', system: DriveSystem, speeds: number, actuation: Actuation, clampType?: ShifterClamp}} ShifterPart */
 /** @typedef {CommonFields & {cat: 'derailleur', system: DriveSystem, speeds: number, actuation: Actuation, maxCog: number, mount: DerailMount}} DerailleurPart */
@@ -140,14 +143,16 @@
  * @typedef {GroupsetPart|WheelsetPart|BrakesetPart|CockpitsetPart} PresetPart */
 
 /** Any catalog part.
- * @typedef {FramePart|ForkPart|ShockPart|FrontWheelPart|RearWheelPart|TirePart|ShifterPart|DerailleurPart|CassettePart|ChainPart|CranksetPart|BrakePart|RotorPart|HandlebarPart|StemPart|GripsPart|DropperPart|SaddlePart|PedalPart|PresetPart} Part */
+ * @typedef {FramePart|ForkPart|ShockPart|FrontWheelPart|RearWheelPart|FrontHubPart|RearHubPart|RimPart|TirePart|ShifterPart|DerailleurPart|CassettePart|ChainPart|CranksetPart|BrakePart|RotorPart|HandlebarPart|StemPart|GripsPart|DropperPart|SaddlePart|PedalPart|PresetPart} Part */
 
 /**
  * A build: slotKey -> resolved Part. Each named slot is typed to its exact
  * category variant (so the engine reads e.g. `build.frame.wheelConfigs` with no
  * casts), while the string index signature lets the helpers read/write slots by
- * a dynamic key.
- * @typedef {{[slot: string]: (Part|undefined)} & {frame?: FramePart, fork?: ForkPart, shock?: ShockPart, frontWheel?: FrontWheelPart, rearWheel?: RearWheelPart, frontTire?: TirePart, rearTire?: TirePart, shifter?: ShifterPart, derailleur?: DerailleurPart, cassette?: CassettePart, chain?: ChainPart, crankset?: CranksetPart, frontBrake?: BrakePart, rearBrake?: BrakePart, frontRotor?: RotorPart, rearRotor?: RotorPart, handlebar?: HandlebarPart, stem?: StemPart, grips?: GripsPart, dropper?: DropperPart, saddle?: SaddlePart, pedals?: PedalPart}} Build */
+ * a dynamic key. frontHub/frontRim/rearHub/rearRim are the build-your-own-wheel
+ * alternate path to frontWheel/rearWheel (see GROUPS' `altOf` in compat.js) -
+ * both are optional and mutually exclusive per side, enforced by the UI.
+ * @typedef {{[slot: string]: (Part|undefined)} & {frame?: FramePart, fork?: ForkPart, shock?: ShockPart, frontWheel?: FrontWheelPart, rearWheel?: RearWheelPart, frontHub?: FrontHubPart, frontRim?: RimPart, rearHub?: RearHubPart, rearRim?: RimPart, frontTire?: TirePart, rearTire?: TirePart, shifter?: ShifterPart, derailleur?: DerailleurPart, cassette?: CassettePart, chain?: ChainPart, crankset?: CranksetPart, frontBrake?: BrakePart, rearBrake?: BrakePart, frontRotor?: RotorPart, rearRotor?: RotorPart, handlebar?: HandlebarPart, stem?: StemPart, grips?: GripsPart, dropper?: DropperPart, saddle?: SaddlePart, pedals?: PedalPart}} Build */
 
 /** @typedef {Object.<string, string>} PresetBy  groupKey -> preset id */
 
@@ -158,7 +163,16 @@
  * @property {Category} cat
  * @property {string} [group]
  * @property {boolean} [optional]
+ * @property {string} [altOf] marks this slot as an alternate path to filling
+ *   the named slot key instead of being independently required (e.g.
+ *   frontHub/frontRim are an altOf:'frontWheel' pair) - see slotRequired()
+ *   and wheelPositionFilled() in compat.js.
  */
+
+/** The wheel-shaped view checkBuild's rules read, whether it came from a
+ * complete FrontWheelPart/RearWheelPart or was synthesized from a hub+rim
+ * pair by effectiveWheel() (compat.js). freehub is only ever set on the rear.
+ * @typedef {{wheel: WheelSize, hub: (FrontAxle|RearAxle), rotorMount: RotorMount, freehub?: Freehub, intWidth: number, maxTire: number}} EffectiveWheel */
 
 /**
  * @typedef {Object} Group

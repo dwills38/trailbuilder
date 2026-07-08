@@ -559,6 +559,7 @@
     return '<svg viewBox="0 0 48 48" fill="none" stroke="'+(color||'currentColor')+'" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">'+inner+'</svg>';
   }
   var CATLABEL = {frame:'Frame',fork:'Fork',shock:'Rear Shock',frontwheel:'Front Wheel',rearwheel:'Rear Wheel',
+    fronthub:'Front Hub',rearhub:'Rear Hub',rim:'Rim',
     tire:'Tires',shifter:'Shifter',derailleur:'Derailleur',cassette:'Cassette',chain:'Chain',crankset:'Crankset',
     brake:'Brake',rotor:'Rotor',handlebar:'Handlebar',stem:'Stem',grips:'Grips',dropper:'Dropper',saddle:'Saddle',pedal:'Pedals',
     groupset:'Groupset',wheelset:'Wheelset',brakeset:'Brake set',cockpitset:'Cockpit kit'};
@@ -782,6 +783,15 @@
   function setSlot(slotKey, partId){
     if(partId){ build[slotKey]=partId; } else { delete build[slotKey]; }
     delete presetBy[SLOT_GROUP[slotKey]];
+    if(partId){
+      // build-your-own-wheel mutual exclusion: picking a complete wheel clears
+      // its hub+rim alternate slots, and picking a hub or rim clears the
+      // complete-wheel slot it's an alternate to (GROUPS' `altOf`, compat.js) —
+      // otherwise buildTotals would sum both paths for the same side.
+      var slotDef = SLOTS.filter(function(s){ return s.key===slotKey; })[0];
+      if(slotDef && slotDef.altOf) delete build[slotDef.altOf];
+      else altSlotsOf(slotKey).forEach(function(k){ delete build[k]; });
+    }
     sync();
   }
   function applyPreset(id){
@@ -804,7 +814,11 @@
       var sumP=0, sumW=0, anyFilled=false;
       g.slots.forEach(function(slot){
         var p=res[slot.key];
-        if(p){ anyFilled=true; sumP+=(p.price||0); if(typeof p.weight==='number') sumW+=p.weight; if(slotRequired(slot, res.frame)) filled++; }
+        if(p){ anyFilled=true; sumP+=(p.price||0); if(typeof p.weight==='number') sumW+=p.weight; }
+        // wheelPositionFilled (compat.js) treats a slot with hub+rim alternates as
+        // filled either directly or via both alternates — reduces to !!p for any
+        // ordinary slot, so this is the one check for both cases.
+        if(slotRequired(slot, res.frame) && wheelPositionFilled(res, slot.key)) filled++;
       });
       var sub=document.createElement('div'); sub.className='gsub';
       var totHtml='';
@@ -819,8 +833,12 @@
         var right='';
         if(p){ right = bundle ? '<span class="pr">in kit</span>'
                              : '<span class="pr">'+(typeof p.weight==='number'?p.weight+' g · ':'')+money(p.price)+'</span>'; }
+        var altNote = slot.altOf ? ' (optional — or pick a complete wheel above)'
+                    : altSlotsOf(slot.key).length ? (wheelPositionFilled(res,slot.key)?' (using hub + rim instead, below)':' (or build from hub + rim, below)')
+                    : '';
         var nm = p ? (esc(p.brand)+' '+esc(p.model) + (p.verified===true && p.source?' <span class="vchk" title="Verified against the manufacturer'+(p.lastChecked?' on '+esc(p.lastChecked):'')+'">✓</span>':''))
-                   : ('— '+slot.label.toLowerCase()+(slot.optional?' (optional)':(!slotRequired(slot,res.frame)?' (not needed for this frame)':''))+' —');
+                   : (altNote ? ('— '+slot.label.toLowerCase()+altNote+' —')
+                     : ('— '+slot.label.toLowerCase()+(slot.optional?' (optional)':(!slotRequired(slot,res.frame)?' (not needed for this frame)':''))+' —'));
         row.innerHTML='<div class="sl-main"><div class="'+(p?'sl-part':'sl-part sl-empty')+'">'+nm+'</div></div>'+ right;
         if(p){ var x=document.createElement('button'); x.className='x'; x.title='Remove'; x.textContent='×';
           x.onclick=function(){ setSlot(slot.key, null); }; row.appendChild(x); }
