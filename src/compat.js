@@ -1103,6 +1103,31 @@ Verdict.prototype.toString = function(){ return this.msg; };
 /** Identity for conflict diffing. @param {VerdictShape} v @returns {string} */
 function verdictKey(v){ return v.ruleId+'|'+v.slots.join('+')+'|'+v.msg; }
 
+/* Input guard (pass-4 regression, 2026-07-08): checkBuild/buildTotals take a
+   map of slotKey -> resolved Part OBJECT. A caller passing id STRINGS used to
+   trip no rule at all - every field read on a string is undefined - so a
+   rotor-mismatch build came back 0 errors / 0 warnings: a silent false
+   all-clear, the one verdict this product must never give. String values now
+   resolve through canonicalId()+byId() (the same forgiving-input path as
+   ALIASES and share links); a string that matches no catalog part THROWS,
+   because dropping it would just re-create the silent green. */
+/** @param {Build|Object.<string, Part|string|null|undefined>|null|undefined} build @returns {Build} */
+function resolveBuild(build){
+  var src = build || {};
+  /** @type {Build} */ var out = {};
+  Object.keys(src).forEach(function(k){
+    var v = src[k];
+    if(typeof v === 'string'){
+      var p = byId(canonicalId(v));
+      if(!p) throw new TypeError('build.'+k+' is the string "'+v+'", which matches no catalog part id - pass part objects (byId(id)), not ids.');
+      out[k] = p;
+    } else if(v){
+      out[k] = v;
+    }
+  });
+  return out;
+}
+
 /** @param {Build} build @returns {CompatResult} */
 function checkBuild(build){
   /** @type {VerdictShape[]} */ var errors=[];
@@ -1114,7 +1139,7 @@ function checkBuild(build){
   function warn(ruleId, slots, msg, fix){ warnings.push(new Verdict(ruleId, slots, msg, fix)); }
   /** @param {string} ruleId @param {string[]} slots @param {string} msg */
   function info(ruleId, slots, msg){ infos.push(new Verdict(ruleId, slots, msg)); }
-  /** @type {Build} */ var b = build || {};
+  /** @type {Build} */ var b = resolveBuild(build);
   var frame=b.frame, fork=b.fork, shock=b.shock, fW=b.frontWheel, rW=b.rearWheel, fTire=b.frontTire, rTire=b.rearTire,
       shifter=b.shifter, derailleur=b.derailleur, cassette=b.cassette, chain=b.chain, crankset=b.crankset,
       fBrake=b.frontBrake, rBrake=b.rearBrake, fRotor=b.frontRotor, rRotor=b.rearRotor,
@@ -1476,7 +1501,7 @@ function bundleActive(group, build, presetBy){
 }
 /** @param {Build} [build] @param {PresetBy} [presetBy] @returns {Totals} */
 function buildTotals(build, presetBy){
-  build = build || {}; presetBy = presetBy || {};
+  build = resolveBuild(build); presetBy = presetBy || {};
   var price = 0, weight = 0, missingWeight = false;
   GROUPS.forEach(function(g){
     if(g.preset && bundleActive(g, build, presetBy)){

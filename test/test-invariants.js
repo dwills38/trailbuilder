@@ -177,6 +177,46 @@ test('buildTotals never throws and stays non-negative over random builds', funct
   }
 });
 
+/* ---- input guard: id-STRING builds can never silently green ---------------
+   Pass-4 regression (2026-07-08): a throwaway script passed the build map as
+   slotKey -> id STRING instead of resolved part objects; every field read on a
+   string is undefined, so NO rule fired and a rotor-mismatch build was reported
+   clean - a silent false all-clear. checkBuild/buildTotals now resolve string
+   values through canonicalId()+byId() and THROW on a string matching nothing. */
+test('checkBuild on an id-STRING build finds the same conflicts as the resolved build (no silent green)', function(){
+  // Center Lock rotor on a 6-bolt front hub - a known-bad combo pinned in test-engine.js.
+  var ids = { fork:'fk-rockshox-zeb-ultimate-29-170', frontWheel:'fw-reserve-30-hd-29', frontRotor:'ro-shimano-rtmt800-203-cl' };
+  var viaStrings = C.checkBuild(/** @type {any} */ (ids));
+  var viaObjects = C.checkBuild(B(ids));
+  ok(viaStrings.errors.length > 0, 'string-valued build must not come back clean');
+  eq(JSON.stringify(viaStrings), JSON.stringify(viaObjects), 'string and object builds must agree');
+});
+test('buildTotals on an id-STRING build matches the resolved-object totals', function(){
+  var ids = { frame:'fr-santacruz-megatower-cc', fork:'fk-rockshox-zeb-ultimate-29-170' };
+  var viaStrings = C.buildTotals(/** @type {any} */ (ids), {});
+  var viaObjects = C.buildTotals(B(ids), {});
+  ok(viaStrings.price > 0, 'totals must be non-trivial');
+  eq(JSON.stringify(viaStrings), JSON.stringify(viaObjects), 'string and object totals must agree');
+});
+test('a legacy ALIASES id string resolves to its canonical part (ids are append-only)', function(){
+  var legacy = 'sh-rockshox-super-deluxe-coil-230x65';   // retired id, kept alive in ALIASES
+  var canon = /** @type {string} */ (C.canonicalId(legacy));
+  ok(canon !== legacy && !!C.byId(canon), 'test premise: legacy id has a live canonical target');
+  var viaAlias = C.checkBuild(/** @type {any} */ ({frame:'fr-raaw-madonna-v22', shock:legacy}));
+  var viaCanon = C.checkBuild(B({frame:'fr-raaw-madonna-v22', shock:canon}));
+  eq(JSON.stringify(viaAlias), JSON.stringify(viaCanon), 'alias and canonical builds must agree');
+});
+test('checkBuild and buildTotals THROW on a string matching no part - never a silent green', function(){
+  /** @param {() => void} fn @param {string} at */
+  function throws(fn, at){
+    try{ fn(); }
+    catch(e){ ok(String(e).indexOf('matches no catalog part') >= 0, at+' error names the problem: '+e); return; }
+    throw new Error(at+': expected a throw for an unresolvable id string');
+  }
+  throws(function(){ C.checkBuild(/** @type {any} */ ({frame:'fr-definitely-not-a-real-id'})); }, 'checkBuild');
+  throws(function(){ C.buildTotals(/** @type {any} */ ({frame:'fr-definitely-not-a-real-id'}), {}); }, 'buildTotals');
+});
+
 /* ---- presets are internally consistent ----------------------------------- */
 test("every preset's own parts are mutually compatible (its fills build cleanly)", function(){
   C.PARTS.forEach(function(p){
