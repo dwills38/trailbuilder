@@ -284,6 +284,7 @@
     </select>
     <button class="btn" id="verifiedOnly" title="Show only parts verified against a manufacturer spec">✓ Verified only</button>
     <button class="btn" id="ownedOnly" hidden title="Show only parts in your inventory">🧰 Owned only</button>
+    <button class="btn" id="compatibleOnly" title="Hide parts that would clash with your current build (parts with no build yet always show)">🟢 Compatible only</button>
     <button class="btn" id="radMode" title="It's a joke, dude. Purely cosmetic.">🤘 RAD mode</button>
     <button class="btn" id="roadieMode" title="Ride with pride. Purely cosmetic.">🏳️‍🌈 Roadie mode</button>
     <button class="btn" id="demoBudget">Budget build 💵</button>
@@ -528,6 +529,7 @@
   var verifiedOnly = false;  // when on, show only manufacturer-verified parts/kits
   var ownedOnly = false;     // when on, show only parts in the signed-in user's inventory
   var ownedIds = {};         // canonicalId(part_id) -> true, cache kept fresh by refreshOwned() (renderCatalog stays sync)
+  var compatibleOnly = false;  // when on, hide parts whose compat dot would be red (state 'r'); yellow still shows (it still fits)
   var disciplineFilter = 'all';  // 'all' | xc | trail | enduro | dh — display filter only (disciplines never feeds verdicts)
   var $ = function(id){ return document.getElementById(id); };
   var money = function(n){ return '$' + (n||0).toLocaleString(); };
@@ -686,9 +688,13 @@
       if(verifiedOnly && !partVerified(p)) return false;
       if(ownedOnly && !ownedIds[canonicalId(p.id)]) return false;
       if(disciplineFilter!=='all' && p.disciplines && p.disciplines.indexOf(disciplineFilter)<0) return false;
+      // compatibleOnly hides red (would-clash) parts only — yellow still fits,
+      // it just adds a warning to check; with nothing built yet everything is
+      // state 'n' (grey), so the filter is a no-op until a build exists.
+      if(compatibleOnly && compatFor(p).state==='r') return false;
       return true;
     });
-    if(!list.length){ el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':'No parts match.')+'</p>'; return; }
+    if(!list.length){ el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>'; return; }
     var meta=list.map(function(p,i){ var c=compatFor(p); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='w'?1:c.state==='n'?2:3),pre:isPreset(p)?0:1,i:i}; });
     // "Best match" keeps the compatible-first order; explicit sorts are pure
     // (the dot still shows fit). Missing weights sink to the bottom either way.
@@ -1441,6 +1447,7 @@
   $('search').addEventListener('input', function(e){ search=e.target.value; renderCatalog(); });
   $('sortBy').onchange=function(){ sortBy=this.value; renderCatalog(); };
   $('verifiedOnly').onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary', verifiedOnly); renderCatalog(); };
+  $('compatibleOnly').onclick=function(){ compatibleOnly=!compatibleOnly; this.classList.toggle('primary', compatibleOnly); renderCatalog(); };
   $('ownedOnly').onclick=function(){ ownedOnly=!ownedOnly; this.classList.toggle('primary', ownedOnly); if(ownedOnly) refreshOwned(); else renderCatalog(); };
   // RAD mode and Roadie mode are both full cosmetic reskins — running both at once
   // would just look broken, so turning one on turns the other off.
