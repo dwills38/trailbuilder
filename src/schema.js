@@ -57,15 +57,20 @@ var VOCAB = {
      meaning (likely split values) BEFORE the first real T47 frame enters.
      (The one previous 'T47' row was a data error - no MTB Slash uses T47.) */
   /* PF107 = the 107mm-wide DH press-fit shell (Supreme DH V5's own page:
-     "Press Fit BB 107mm") - pairs with DH cranks' DUB PF 104.5/107 BBs. */
-  frameBb:      ['BSA73', 'PF92', 'T47', 'PF107'],
+     "Press Fit BB 107mm") - pairs with DH cranks' DUB PF 104.5/107 BBs.
+     BSA83 = the 83mm threaded DH shell (Sender CFR - confirmed BSA 83;
+     distinct from BSA73, needs the matching 83mm BB cups). */
+  frameBb:      ['BSA73', 'PF92', 'T47', 'PF107', 'BSA83'],
   /* crankBb is the SPINDLE INTERFACE, not a brand (DATA-MODEL-REVIEW 5.1-5):
      DUB (28.99mm), 24mm (Shimano Hollowtech II + Race Face Cinch steel + ...),
      30mm (BB30-class: eeWings, Race Face Cinch alu, Hope), p3 (e*thirteen).
      DUB-Wide is a CHAINLINE, not a new spindle value. The old too-narrow
      vocab (DUB|SH24) forced two fictitious catalog products - never again. */
   crankBb:      ['DUB', '24mm', '30mm', 'p3'],
-  brakeMount:   ['PM'],
+  /* 'FM' = flat mount rear - modern XC frames (2021+ Canyon Exceed per
+     BikeRadar: "Canyon has adopted the Flat Mount standard for the rear
+     brake caliper"); FM and PM calipers do NOT interchange without adapters. */
+  brakeMount:   ['PM', 'FM'],
   /* LinkGlide is deliberately its own system: Shimano documents it as HG-only
      and incompatible with Hyperglide+ 12s. The 10/11-speed values are INERT
      (equality-checked only) until parts carry them.
@@ -108,7 +113,7 @@ var VOCAB = {
                  'hardwall', 'prowall',                            // Pirelli (2026-07-07, pirelli.com)
                  'tcs-light-sg2', 'tcs-tough-sg1',                 // WTB (2026-07-07, wtb.com)
                  'atc', 'aec', 'agc'],                             // Kenda (2026-07-07, kendatire.com; Goodyear reuses trail/enduro/downhill)
-  compound:     ['dual', '3c-maxxterra', '3c-maxxgrip',            // Maxxis
+  compound:     ['dual', '3c-maxxterra', '3c-maxxgrip', 'maxxspeed',   // Maxxis (maxxspeed = XC race compound, Aspen page 2026-07-08)
                  'endurance', 'soft', 'supersoft',                 // Continental
                  'addix', 'addix-speedgrip', 'addix-soft', 'addix-ultra-soft',        // Schwalbe
                  'smartgrip', 'smartgrip-gravity',                 // Pirelli

@@ -129,6 +129,27 @@ test('golden: the DH build fills every required slot (dropper exempt via slotReq
   required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
 });
 
+/* The first complete XC HARDTAIL race build (2026-07-08): Exceed CF (flat-mount
+   rear, no shock) + SID 120 + Micro Spline wheel + verified Aspen tires + XTR
+   with an FM rear caliper + 30.9 dropper. Locks the hardtail machinery (no
+   shock block, shock slot exempt) + the FM vocab end-to-end. Must stay green. */
+var XC_BUILD = { frame:'fr-canyon-exceed-cf', fork:'fk-rockshox-sid-ultimate-29-120',
+  frontWheel:'fw-dtswiss-ex-1700-29', rearWheel:'rw-dtswiss-ex-1700-29-ms',
+  frontTire:'ti-maxxis-aspen-29-24-exo-dual', rearTire:'ti-maxxis-aspen-29-24-exo-dual',
+  shifter:'sft-shimano-xtr-m9100', derailleur:'dr-shimano-xtr-m9100-sgs', cassette:'ca-shimano-xtr-m9100-1051', chain:'ch-shimano-xtr-m9100', crankset:'cr-shimano-xtr-m9100',
+  frontBrake:'bk-shimano-xtr-m9120', rearBrake:'bk-shimano-xtr-m9110-fm', frontRotor:'ro-shimano-rtmt800-180-cl', rearRotor:'ro-shimano-rtmt800-180-cl',
+  handlebar:'hb-oneup-carbon-35', stem:'st-oneup-stem-35', grips:'gr-oneup-lockon', dropper:'dp-fox-transfer-factory-309-180', saddle:'sa-wtb-volt', pedals:'pd-crankbrothers-mallet-enduro' };
+test('golden: a complete XC hardtail race build (flat-mount rear, no shock) is fully compatible', function(){
+  var r = chk(XC_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+test('golden: the XC hardtail fills every required slot (shock exempt via slotRequired)', function(){
+  var m = /** @type {Object.<string, string>} */ (XC_BUILD);
+  var frame = C.byId(m.frame);
+  var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
+  eq(required.some(function(s){ return s.key==='shock'; }), false, 'shock must be exempt on a hardtail');
+  required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
+});
+
 test('slotRequired: hardtail frame exempts the shock slot (completeness only)', function(){
   var frame = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { suspension:'hardtail' }));
   delete frame.shockEye; delete frame.shockStroke; delete frame.shockMount; delete frame.travel; delete frame.bundledShock;
