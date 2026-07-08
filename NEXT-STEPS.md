@@ -311,6 +311,20 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   saving the isolated diff as a patch, restoring the shared tree, and re-applying onto a fresh checkout
   of latest main. Lesson: with multiple sessions on one working dir, keep each change to a saveable diff
   and re-verify `git branch --show-current` before every commit.
+- ✅ **Supreme DH V5 rear-axle correction DONE (branch `fix/supreme-dh-axle`, awaiting coordinator merge).**
+  The confirmed catalog error (`fr-commencal-supreme-dh-v5` had `rearAxle:'150x12'` + `travel:200`,
+  but the FETCHED commencal.com complete-bike page 23SUPR states native `157x12` SuperBoost + 220mm
+  rear travel; the earlier 150/200 came from a Vital table describing the frame run with Commencal's
+  157→150 conversion kit A22WHADAPDHV5) is fixed: frame → `rearAxle:'SuperBoost157'` + `travel:220`,
+  desc quotes the source and documents the conversion-kit nuance (a 12x150 wheel physically fits via
+  the kit but reads as an axle error under one-native-axle modeling — a known limitation, not a real
+  incompatibility). The DH golden (`DH_BUILD`) and UI DH demo (`loadDH`) moved to the existing
+  `rw-dtswiss-fr-1500-29-157` (SuperBoost157/XD/6-bolt, natural pair for the build's DT Swiss FR 1500
+  front); added a `ws-dtswiss-fr-1500-29-157` wheelset preset ($1,152, mirrors the 150 kit) so the
+  demo keeps its kit pricing. Golden stays **0 errors / 0 warnings** unweakened; gates green
+  (450 parts / 0 problems, 295 tests, typecheck clean); browser-verified against a worktree-rooted
+  server — DH demo → "No conflicts found", wheels slot reads "FR 1500 Classic rear (157)". Frame id
+  NOT renamed (append-only; field correction, precedent = Slash BSA73 / Giga UDH).
 - ✅ **Drift checker DONE (`tools/drift-check.js`, branch `tools-drift-checker`, MERGED+PUSHED
   2026-07-08).** Zero-dep, resumable, style-matched to `verify-job.js`: re-fetches every
   `verified:true` part's `source` URL (plain `https`/`http`, follows redirects, 12s timeout) and

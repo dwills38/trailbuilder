@@ -108,12 +108,13 @@ test('golden: every demo build fills every required slot (complete builds)', fun
 });
 
 /* The first complete DOWNHILL build (2026-07-08): Supreme DH V5 + BoxXer
-   dual-crown + Vivid DH 250x75 + FR 1500 DH wheels (20x110 / 12x150) + DH
+   dual-crown + Vivid DH 250x75 + FR 1500 DH wheels (20x110 / 12x157) + DH
    casing tires + the X01 DH 7-speed group. Locks the discipline-expansion
-   vocab (20x110, straight-dc, sram-dh-7, 150x12, PF107) together end-to-end.
+   vocab (20x110, straight-dc, sram-dh-7, SuperBoost157, PF107) together end-to-end.
+   (Rear axle corrected 2026-07-08 to native SuperBoost157 - see the frame row desc.)
    No dropper - the DH frame exempts it (slotRequired). Must stay green. */
 var DH_BUILD = { frame:'fr-commencal-supreme-dh-v5', fork:'fk-rockshox-boxxer-ultimate-29-200', shock:'sh-rockshox-vivid-ultimate-dh-250x75',
-  frontWheel:'fw-dtswiss-fr-1500-29', rearWheel:'rw-dtswiss-fr-1500-29-150',
+  frontWheel:'fw-dtswiss-fr-1500-29', rearWheel:'rw-dtswiss-fr-1500-29-157',
   frontTire:'ti-maxxis-assegai-29-25-dh-mg', rearTire:'ti-maxxis-assegai-29-25-dh-mg',
   shifter:'sft-sram-x01-dh', derailleur:'dr-sram-x01-dh', cassette:'ca-sram-xg795', chain:'ch-sram-pc-xx1', crankset:'cr-sram-x01-dh',
   frontBrake:'bk-sram-maven-ultimate', rearBrake:'bk-sram-maven-ultimate', frontRotor:'ro-sram-hs2-220-6b', rearRotor:'ro-sram-hs2-220-6b',
