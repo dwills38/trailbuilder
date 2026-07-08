@@ -88,6 +88,9 @@ test('a 20x110 dual-crown DH front axle is valid vocab (fork + front hub)', func
 test('an unknown front axle value is still caught', function(){
   some(probs(over('fk-rockshox-zeb-ultimate-29-170', { axle:'20x100' })), 'axle');
 });
+test('20x110 Boost and 20x110 non-Boost are distinct valid values (never conflate)', function(){
+  eq(probs(over('fk-rockshox-zeb-ultimate-29-170', { axle:'20x110-nonboost' })).length, 0);
+});
 test('a disciplines value outside the vocab is caught (ebike is deliberately not one)', function(){
   some(probs(over('fr-santacruz-megatower-cc', { disciplines:['enduro','ebike'] })), 'disciplines');
 });

@@ -31,7 +31,7 @@
 /** @type {Object.<string, string>} */
 var LABELS = {
   '29': '29in', '275': '27.5in', mullet: 'Mullet (29/27.5)',
-  Boost148: 'Boost 148x12', SuperBoost157: 'SuperBoost 157x12', Boost110: 'Boost 15x110', '20x110': '20x110 (DH)',
+  Boost148: 'Boost 148x12', SuperBoost157: 'SuperBoost 157x12', Boost110: 'Boost 15x110', '20x110': '20x110 Boost (DH)', '20x110-nonboost': '20x110 standard (DH, non-Boost)',
   XD: 'SRAM XD', MicroSpline: 'Shimano Micro Spline', HG: 'Shimano HG',
   sixbolt: '6-bolt', CL: 'Center Lock',
   std: 'Standard eyelet', trunnion: 'Trunnion',
@@ -180,6 +180,10 @@ var PARTS = [
   { id:'fk-rockshox-pike-ultimate-29-130', cat:'fork', brand:'RockShox', model:'Pike Ultimate 130', family:'rockshox-pike', gen:'C2', mfgPn:'FS-PIKE-ULT-C2', disciplines:['trail'], price:1099, weight:1940, wheel:'29', travel:130, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:200, desc:'sample specs; existence confirmed via sram.com model page fs-pike-ult-c2 (Pike = 120/130/140mm, 29+27.5, 15x110 Boost)' },
   { id:'fk-rockshox-pike-ultimate-29-140', cat:'fork', brand:'RockShox', model:'Pike Ultimate 140', family:'rockshox-pike', gen:'C2', mfgPn:'FS-PIKE-ULT-C2', disciplines:['trail'], price:1099, weight:1950, wheel:'29', travel:140, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:200, desc:'sample specs; 140mm option confirmed via the same fetched Pike sources (120/130/140mm travel options)' },
   { id:'fk-rockshox-sid-ultimate-29-120', cat:'fork', brand:'RockShox', model:'SID Ultimate 120', family:'rockshox-sid', gen:'D1', mfgPn:'FS-SID-ULT3-D1', disciplines:['xc'], price:999, weight:1476, wheel:'29', travel:120, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:200, maxTire:2.6, desc:'sample specs; existence confirmed via sram.com model page fs-sid-ult3-d1 + Bike24/Pro Bike Supply listings (29, 120mm, 15x110); maxTire 2.6 per Pinkbike first-ride' },
+  /* --- discipline expansion, Fox/Marzocchi sweep (2026-07-08): direct Fox pages are fetch-blocked, so existence per row is via retailer listings; bike.marzocchi.com DOES fetch. Sample specs. --- */
+  { id:'fk-fox-40-factory-29-203', cat:'fork', brand:'Fox', model:'40 Factory 203 (29)', family:'fox-40', modelYear:2025, disciplines:['dh'], price:1900, weight:2750, wheel:'29', travel:203, axle:'20x110', steerer:'straight-dc', brakeMount:'PM', maxRotorF:220, desc:'sample specs; existence confirmed via retailer listings (The Lost Co. / Pro’s Closet / Two Hoosiers: 2025 Fox 40 Factory Grip X2, 29, 203mm, 20x110 Boost)' },
+  { id:'fk-marzocchi-bomber-58-275-200', cat:'fork', brand:'Marzocchi', model:'Bomber 58 200 (27.5)', family:'marzocchi-bomber-58', disciplines:['dh'], price:1149, weight:2900, wheel:'275', travel:200, axle:'20x110-nonboost', steerer:'straight-dc', brakeMount:'PM', maxRotorF:203, desc:'existence + specs frame from FETCHED bike.marzocchi.com/products/bomber-58 (27.5 only, 200mm, "20x110 DH (non-Boost)", 1.125in steerer, max rotor 203, $1,149); weight = sample (page lists none)' },
+  { id:'fk-fox-34-factory-29-140', cat:'fork', brand:'Fox', model:'34 Factory 140', family:'fox-34', modelYear:2025, disciplines:['trail'], price:1099, weight:1780, wheel:'29', travel:140, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203, desc:'sample specs; existence confirmed via retailer listings (Two Hoosiers / Amazon / Worldwide Cyclery: 2025 Fox 34 Factory Grip X, 29, 140mm)' },
 
   /* REAR SHOCKS */
   { id:'sh-rockshox-super-deluxe-ultimate-230x65', cat:'shock', brand:'RockShox', model:'Super Deluxe Ultimate (air)', family:'rockshox-super-deluxe', gen:'C2', mfgPn:'RS-SDLX-ULT-C2', price:549, weight:480, eye:230, stroke:65, mount:'std', spring:'air', verified:true, lastChecked:'2026-06-22', source:'https://www.sram.com/en/rockshox/models/rs-sdlx-ult-c2' },
@@ -220,6 +224,8 @@ var PARTS = [
   { id:'sh-manitou-mara-pro-205x60-trun', cat:'shock', brand:'Manitou', model:'Mara Pro (205x60 trunnion)', family:'manitou-mara', price:550, weight:500, eye:205, stroke:60, mount:'trunnion', spring:'air', desc:'sample specs; 205x60 trunnion existence confirmed via multiple retailer listings (Pro Bike Supply, Mojo Cyclery; Manitou SKU B-AP5591)' },
   /* --- discipline expansion, SRAM/RockShox sweep: XC shock --- */
   { id:'sh-rockshox-sidluxe-ultimate-190x45', cat:'shock', brand:'RockShox', model:'SIDLuxe Ultimate (190x45)', family:'rockshox-sidluxe', gen:'A2', disciplines:['xc'], price:549, weight:250, eye:190, stroke:45, mount:'std', spring:'air', desc:'sample specs; existence confirmed via sram.com SIDLuxe series page + retailer listings (Pro Bike Supply 190x45 SoloAir std A2)' },
+  /* --- discipline expansion, Fox/Marzocchi sweep: XC/trail shock --- */
+  { id:'sh-fox-float-sl-factory-190x45', cat:'shock', brand:'Fox', model:'Float SL Factory (190x45)', family:'fox-float-sl', modelYear:2025, disciplines:['xc','trail'], price:569, weight:260, eye:190, stroke:45, mount:'std', spring:'air', desc:'sample specs; existence confirmed via Pro Bike Supply listing (2025 Float SL Factory, metric 190x45, EVOL LV, 3-position)' },
 
   /* FRONT WHEELS */
   { id:'fw-dtswiss-ex-1700-29', cat:'frontwheel', brand:'DT Swiss', model:'EX 1700 SPLINE front', family:'dtswiss-ex-1700', disciplines:['enduro'], price:350, weight:940, wheel:'29', hub:'Boost110', rotorMount:'CL', intWidth:30, maxTire:2.5, mfgPn:'WEX1700BEIXSA11691', desc:'price = sample (DT support page lists no MSRP); maxTire = sample guidance, not maker-published', verified:true, lastChecked:'2026-07-07', source:'https://www.dtswiss.com/en/support/product-support?matnr=WEX1700BEIXSA11691' },

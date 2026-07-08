@@ -21,7 +21,7 @@
 /** @typedef {'29'|'275'} WheelSize */
 /** @typedef {'29'|'275'|'mullet'} WheelConfig */
 /** @typedef {'Boost148'|'SuperBoost157'|'142x12'} RearAxle */
-/** @typedef {'Boost110'|'20x110'} FrontAxle */
+/** @typedef {'Boost110'|'20x110'|'20x110-nonboost'} FrontAxle */
 /** @typedef {'XD'|'MicroSpline'|'HG'} Freehub */
 /** @typedef {'sixbolt'|'CL'} RotorMount */
 /** @typedef {'std'|'trunnion'} ShockMount */
