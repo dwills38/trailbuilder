@@ -257,6 +257,54 @@ test('golden: the Meta TR V4 build fills every required slot', function(){
   required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
 });
 
+/* catalog-expand-A: RAAW Madonna R - a concurrent sibling to the V3.2 (165mm
+   rear vs 160), sold side by side per RAAW's own comparison page. Shares the
+   205x65 trunnion shock size already in-catalog. Must stay green. */
+var MADONNA_R_BUILD = { frame:'fr-raaw-madonna-r', fork:'fk-rockshox-zeb-ultimate-29-170', shock:'sh-rockshox-super-deluxe-205x65-trun',
+  frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-reserve-30-hd-29',
+  frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-29-25-exop-mg',
+  shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle',
+  frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-316-210', saddle:'sa-wtb-volt', pedals:'pd-raceface-atlas' };
+test('golden: a complete RAAW Madonna R build (165mm, 205x65 trunnion) is fully compatible', function(){
+  var r = chk(MADONNA_R_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+test('golden: the Madonna R build fills every required slot', function(){
+  var m = /** @type {Object.<string, string>} */ (MADONNA_R_BUILD);
+  var frame = C.byId(m.frame);
+  var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
+  required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
+});
+
+/* catalog-expand-A: Canyon Grand Canyon AL - the first BUDGET alloy trail
+   hardtail (Exceed CF/Scale RC SL are both XC race carbon). Center Lock hub
+   interface per the fetched spec (Center Lock rotors, not 6-bolt). Must stay
+   green. */
+var GRAND_CANYON_BUILD = { frame:'fr-canyon-grand-canyon-al', fork:'fk-rockshox-sid-ultimate-29-120',
+  frontWheel:'fw-dtswiss-ex-1700-29', rearWheel:'rw-dtswiss-ex-1700-29-ms',
+  frontTire:'ti-maxxis-aspen-29-24-exo-dual', rearTire:'ti-maxxis-aspen-29-24-exo-dual',
+  shifter:'sft-shimano-xt-m8100', derailleur:'dr-shimano-xt-m8100-sgs', cassette:'ca-shimano-xt-m8100-1051', chain:'ch-shimano-xt-m8100', crankset:'cr-shimano-xt-m8100',
+  frontBrake:'bk-shimano-xt-m8120', rearBrake:'bk-shimano-xt-m8120', frontRotor:'ro-shimano-rtmt800-180-cl', rearRotor:'ro-shimano-rtmt800-180-cl',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-316-210', saddle:'sa-wtb-volt', pedals:'pd-oneup-composite' };
+test('golden: a complete Canyon Grand Canyon AL hardtail build (Center Lock) is fully compatible', function(){
+  var r = chk(GRAND_CANYON_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+test('golden: the Grand Canyon AL build fills every required slot (shock exempt via slotRequired)', function(){
+  var m = /** @type {Object.<string, string>} */ (GRAND_CANYON_BUILD);
+  var frame = C.byId(m.frame);
+  var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
+  eq(required.some(function(s){ return s.key==='shock'; }), false, 'shock must be exempt on a hardtail');
+  required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
+});
+
+/* catalog-expand-A: Öhlins DH38 m.2 as a drop-in alternative to the RockShox
+   BoXXer on the Supreme DH V5 - the DH fork brand choice was RockShox/Fox/
+   Marzocchi only before this pass. Must stay green. */
+var DH38_BUILD = Object.assign({}, DH_BUILD, { fork:'fk-ohlins-dh38-m2-29-200', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b' });
+test('golden: the Öhlins DH38 m.2 fork drop-in on the DH build is fully compatible', function(){
+  var r = chk(DH38_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+
 /* First complete MULLET DH build (catalog-expand-9, 2026-07-08): Supreme DH
    V5.2 running 29 front / 27.5 rear - previously impossible, since every
    SuperBoost157 rear wheel in-catalog was 29in-only (a real 0-brand gap
