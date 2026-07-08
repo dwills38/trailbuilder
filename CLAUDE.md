@@ -23,6 +23,10 @@ Entry points (`validate.js`, `index.html`) live at the root; tests run on Vitest
 | `index.html` | The app (UI). Plain HTML/CSS/JS, no build step. Loads `src/compat.js` via `<script>`. Open by double-click. |
 | `src/compat.js` | The catalog data (`PARTS`) **and** the compatibility engine (`checkBuild`) + helpers (`compatOf`, `buildTotals`). The heart of the project. |
 | `src/schema.js` | Data schema + validator. The single source of truth for "valid data". |
+| `src/config.js` | **Phase 3 accounts.** Publishable Supabase URL + anon key (placeholders until set) + the `ACCOUNTS_ENABLED` gate. Same committed-constant pattern as `REPORT_REPO`. |
+| `src/account.js` | **Phase 3 accounts.** Async auth + saved-builds + inventory data-access over the Supabase client. Browser glue (not typechecked, like the inline app script). Loads before `compat.js`. |
+| `src/vendor/supabase.min.js` | **Vendored** `@supabase/supabase-js` UMD (v2.110.1) — loaded via a classic `<script>` to keep the no-build-step/no-CDN convention. Exposes `window.supabase`. Do not hand-edit. |
+| `supabase/schema.sql` | **Phase 3.** `builds` + `inventory` tables with owner-only RLS + `updated_at` trigger. Run once in the Supabase SQL editor. `supabase/SETUP.md` is the owner's turn-on checklist. |
 | `src/types.js` | Shared JSDoc `@typedef`s — a per-category discriminated union for `Part`, plus `Build`/`Group`/etc. (type-checking only; no runtime code). Mirrors `schema.js`. |
 | `validate.js` | CLI: `node validate.js` — checks the whole catalog. |
 | `vitest.config.mjs` | Vitest config — points the runner at `test/test-*.js` and enables globals. |
@@ -219,6 +223,15 @@ The `✓ Verified only` filter in the app (built on `partVerified`) shows just t
 
 - Plain browser JavaScript (`var`/`function`), **no build step** — `index.html` loads `src/compat.js`
   directly. Type-checking is JSDoc-only (`npm run typecheck`); keep shipping plain JS (no bundler/transpile).
+- **Third-party libraries are VENDORED, not CDN-loaded** (Phase 3 set the precedent with
+  `src/vendor/supabase.min.js`): commit the UMD build, load it via a classic `<script>`, record its
+  version + source URL in a header comment. No `import`/ESM, no runtime CDN fetch. Browser-only glue
+  (`src/account.js`, `src/vendor/**`) is excluded from `npm run typecheck` — same reason the inline
+  `index.html` script isn't checked (DOM + cross-file script globals); the pure logic stays checked.
+- **External-service config is a committed constant** (`REPORT_REPO`; `SUPABASE_URL`/`ANON_KEY` in
+  `src/config.js`). Only publishable values — the Supabase anon key is safe because every row is
+  owner-scoped by RLS. Never commit a secret (e.g. a `service_role` key). Feature-gate UI on the
+  config being present (`ACCOUNTS_ENABLED`, mirroring `$('reportGithub').hidden = !REPORT_REPO`).
 - `schema.js` is the one definition of valid data; the tests delegate to it. Extend the schema
   when you add fields, don't scatter ad-hoc checks.
 - **Ids are brand-qualified and APPEND-ONLY** (`<prefix>-<brand>-<model…>[-gen][-variants]`,
