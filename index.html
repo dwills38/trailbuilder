@@ -1195,11 +1195,16 @@
   }
   function addBuildToInventory(){
     if(!_acctReady || !currentUser()) return;
-    var ids = Object.keys(build).map(function(k){ return build[k]; }).filter(Boolean);
-    if(!ids.length){ toast('Add some parts first'); return; }
+    // Count occurrences per part id — paired slots (2 tires, 2 brakes, 2 rotors) mean
+    // the rider owns 2 of that part, so upsert the true count, not 1. Idempotent:
+    // re-adding the same build sets the same count rather than doubling.
+    var counts = {};
+    Object.keys(build).forEach(function(k){ var id = build[k]; if(id){ counts[id] = (counts[id]||0) + 1; } });
+    var uniq = Object.keys(counts);
+    if(!uniq.length){ toast('Add some parts first'); return; }
     var chain = Promise.resolve();
-    ids.forEach(function(id){ chain = chain.then(function(){ return addInventoryItem(id, 1); }); });
-    chain.then(function(){ toast('Added '+ids.length+' part(s) to inventory'); renderInventory(); })
+    uniq.forEach(function(id){ chain = chain.then(function(){ return addInventoryItem(id, counts[id]); }); });
+    chain.then(function(){ toast('Added '+uniq.length+' part(s) to inventory'); renderInventory(); })
          .catch(function(e){ toast(e.message||'Add failed'); });
   }
 
@@ -1349,7 +1354,7 @@
 
   readHash(); renderChips(); renderSubChips(); sync();
   // Wire auth state -> account UI. When accounts are unconfigured this no-ops.
-  if(typeof initAccount === 'function'){ initAccount(function(){ renderAccount(); }); }
+  if(typeof initAccount === 'function'){ initAccount(function(u){ renderAccount(); if(u && $('authModal').open){ $('authModal').close(); } }); }
   renderAccount();
 })();
 </script>
