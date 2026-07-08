@@ -187,6 +187,28 @@
     background:var(--card);color:var(--ink)}
   html.rad .pick{color:var(--brand)}
   html.rad .chip.active{background:var(--brand);color:#150029}
+
+  /* 🏳️‍🌈 Roadie mode — purely cosmetic easter egg, same honesty-bar-zero rule as RAD
+     mode: never touches a verdict, never claims anything about fit. Stays on the
+     light base palette (unlike RAD) so none of RAD's white-bg/light-text fixes
+     are needed here — just a rainbow wash over the accent colors. */
+  html.roadie{
+    --brand:#7c3aed; --brand-d:#5b21b6; --accent:#ec4899; --line:#e9d5ff; --chip:#f5eeff;
+  }
+  html.roadie header{
+    background:linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787);
+  }
+  html.roadie header h1,html.roadie header p,html.roadie .badge{text-shadow:0 1px 3px rgba(0,0,0,.35)}
+  html.roadie .pcard{position:relative;overflow:hidden}
+  html.roadie .pcard::after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;
+    background:linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787)}
+  html.roadie .pcard.selected{box-shadow:0 0 0 2px var(--accent),0 0 14px rgba(236,72,153,.35)}
+  html.roadie .btn.primary{background:linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787);
+    border-color:transparent;color:#fff;font-weight:800;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+  html.roadie #roadieMode{background:linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787);
+    color:#fff;border-color:transparent;font-weight:800;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+  html.roadie .chip.active{background:var(--brand);color:#fff}
+  html.roadie #radBar{background:linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787)}
 </style>
 </head>
 <body>
@@ -213,6 +235,7 @@
     </select>
     <button class="btn" id="verifiedOnly" title="Show only parts verified against a manufacturer spec">✓ Verified only</button>
     <button class="btn" id="radMode" title="It's a joke, dude. Purely cosmetic.">🤘 RAD mode</button>
+    <button class="btn" id="roadieMode" title="Ride with pride. Purely cosmetic.">🏳️‍🌈 Roadie mode</button>
     <button class="btn" id="demoBudget">Budget build 💵</button>
     <button class="btn" id="demoMid">Mid-range build ⚙️</button>
     <button class="btn" id="demoHighEnd">High-end build 💎</button>
@@ -1036,12 +1059,29 @@
   $('search').addEventListener('input', function(e){ search=e.target.value; renderCatalog(); });
   $('sortBy').onchange=function(){ sortBy=this.value; renderCatalog(); };
   $('verifiedOnly').onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary', verifiedOnly); renderCatalog(); };
+  // RAD mode and Roadie mode are both full cosmetic reskins — running both at once
+  // would just look broken, so turning one on turns the other off.
+  function setRad(on){
+    document.documentElement.classList.toggle('rad', on);
+    $('radMode').classList.toggle('primary', on);
+    $('radMode').textContent = on ? '🤘 RAD mode: ON' : '🤘 RAD mode';
+  }
+  function setRoadie(on){
+    document.documentElement.classList.toggle('roadie', on);
+    $('roadieMode').classList.toggle('primary', on);
+    $('roadieMode').textContent = on ? '🏳️‍🌈 Roadie mode: ON' : '🏳️‍🌈 Roadie mode';
+  }
   $('radMode').onclick=function(){
-    var on = document.documentElement.classList.toggle('rad');
-    this.classList.toggle('primary', on);
-    this.textContent = on ? '🤘 RAD mode: ON' : '🤘 RAD mode';
+    var on = !document.documentElement.classList.contains('rad');
+    setRad(on); if(on) setRoadie(false);
     renderPanel();
     toast(on ? 'RAD mode engaged. Purely cosmetic — this changes nothing about fit.' : 'Back to normal. Booooring.');
+  };
+  $('roadieMode').onclick=function(){
+    var on = !document.documentElement.classList.contains('roadie');
+    setRoadie(on); if(on) setRad(false);
+    renderPanel();
+    toast(on ? 'Roadie mode engaged — ride with pride! 🏳️‍🌈 Purely cosmetic, changes nothing about fit.' : 'Back to normal.');
   };
   $('demoBudget').onclick=loadBudget; $('demoMid').onclick=loadMid; $('demoHighEnd').onclick=loadHighEnd; $('demoMullet').onclick=loadMullet; $('demoBad').onclick=loadBad;
   $('reset').onclick=function(){ build={}; presetBy={}; sync(); toast('Build cleared'); };
