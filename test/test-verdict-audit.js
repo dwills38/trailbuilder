@@ -1,13 +1,13 @@
 'use strict';
 /* VERDICT AUDIT (2026-07-09) — regression cases from tools/VERDICT-AUDIT-2026-07-09.md.
-   Two kinds of tests live here:
-     * PERMANENT GUARDS — properties that must always hold (curated presets are
-       internally compatible; real clashes are always flagged; the engine never
-       hands out a silent false "fits"). These protect the whole catalog as it grows.
-     * TRIP-WIRES — they PIN a currently-WRONG verdict caused by bad data (Finding 1:
-       forks whose `maxRotorF` holds the native post-mount size, not the true max).
-       They are green today because the bug is live; when the catalog is corrected
-       they FAIL ON PURPOSE, pointing whoever fixed the data back here to delete them.
+   All tests here are PERMANENT GUARDS — properties that must always hold (curated
+   presets are internally compatible; real clashes are always flagged; the engine
+   never hands out a silent false "fits"; and Finding 1's native-mount conflation
+   stays fixed). These protect the whole catalog as it grows.
+     * Finding 1 (forks whose `maxRotorF` held the native post-mount size, not the
+       true adapter max) was FIXED on 2026-07-09 — see PERMANENT GUARD 4 below. The
+       original TRIP-WIRES that pinned the wrong state were removed when the fix
+       landed and replaced with the regression guard.
    Run with `npm test`. See the audit doc for the full write-up. */
 /** @typedef {import('../src/types.js').ForkPart} ForkPart */
 /** @typedef {import('../src/types.js').CompatResult} CompatResult */
@@ -84,36 +84,33 @@ test('mullet build on a mullet-capable frame -> no wheel-config error', function
 });
 
 /* ===========================================================================
-   TRIP-WIRES — Finding 1 (KNOWN WRONG VERDICT, pending a data fix).
-   These forks store the fork's NATIVE post-mount size in `maxRotorF` instead of
-   its true adapter maximum, so rule 10 falsely warns that a STANDARD front rotor
-   exceeds the fork's max. The asserts below pin that wrong state.
-
-   >>> WHEN THE CATALOG IS FIXED (maxRotorF raised to the real max, e.g. 203, and
-   >>> the native size moved to minRotorF), THESE TESTS WILL FAIL. That is the
-   >>> intended signal: delete this whole block — the false warning is gone.
-   See tools/VERDICT-AUDIT-2026-07-09.md #1.
+   PERMANENT GUARD 4 — Finding 1 stays FIXED (no regression to the native-mount
+   conflation). The Marzocchi Bomber Z1/Z2 and Manitou Mattoc Pro forks once
+   stored their NATIVE post-mount size in `maxRotorF` (160/180), so rule 10 falsely
+   warned that a STANDARD front rotor exceeded the fork's max. The fix (2026-07-09,
+   see tools/VERDICT-AUDIT-2026-07-09.md #1) raised `maxRotorF` to the true adapter
+   max (203) and moved the native mount to `minRotorF`. These guards catch a
+   re-introduction. (The original trip-wires that PINNED the wrong state were
+   deleted here when the fix landed, per their own instructions.)
    ======================================================================== */
-test('[KNOWN-BAD DATA] Bomber Z2 maxRotorF is the native 160mm, not the real 203mm max', function(){
-  eq(fork('fk-marzocchi-bomber-z2-29-140').maxRotorF, 160,
-    'If this failed, the data was fixed — delete the Finding-1 trip-wire block.');
+test('Bomber Z2 + standard 180mm front rotor fits clean (no false front-rotor-max)', function(){
+  var r = chk({ fork: 'fk-marzocchi-bomber-z2-29-140', frontWheel: 'fw-reserve-30-hd-29', frontRotor: 'ro-sram-hs2-180-6b' });
+  ok(!has(r, 'warnings', 'front-rotor-max'), 'a 180mm rotor must not warn on a Z2 (203mm adapter max)');
+  ok(!has(r, 'errors', 'front-rotor-min'), 'a 180mm rotor is above the Z2 160mm native mount');
 });
-test('[KNOWN-BAD VERDICT] Bomber Z2 + standard 180mm front rotor wrongly warns (rule 10)', function(){
-  // Real world: the Z2 has a 160mm post mount and accepts 203mm with a standard
-  // adapter, so a 180mm rotor fits fine. The engine currently warns because the
-  // catalog capped maxRotorF at the native 160mm.
-  ok(has(chk({ fork: 'fk-marzocchi-bomber-z2-29-140', frontWheel: 'fw-reserve-30-hd-29', frontRotor: 'ro-sram-hs2-180-6b' }), 'warnings', 'front-rotor-max'),
-    'Expected the (currently-wrong) front-rotor-max warning; if it is gone, the data was fixed — delete this block.');
+test('Bomber Z1 + standard 203mm front rotor fits clean (no false front-rotor-max)', function(){
+  ok(!has(chk({ fork: 'fk-marzocchi-bomber-z1-29-160', frontWheel: 'fw-reserve-30-hd-29', frontRotor: 'ro-hayes-dseries-203-6b' }), 'warnings', 'front-rotor-max'),
+    'a 203mm rotor must not warn on a Z1 (203mm adapter max)');
 });
-test('[KNOWN-BAD DATA] Manitou Mattoc Pro maxRotorF is the native 160mm, not its real max', function(){
-  eq(fork('fk-manitou-mattoc-pro-29-140').maxRotorF, 160,
-    'If this failed, the data was fixed — delete the Finding-1 trip-wire block.');
+test('Manitou Mattoc Pro + standard 180mm front rotor fits clean (no false front-rotor-max)', function(){
+  ok(!has(chk({ fork: 'fk-manitou-mattoc-pro-29-140', frontWheel: 'fw-reserve-30-hd-29', frontRotor: 'ro-sram-hs2-180-6b' }), 'warnings', 'front-rotor-max'),
+    'a 180mm rotor must not warn on a Mattoc Pro (203mm adapter max)');
 });
-test('[KNOWN-BAD DATA] Bomber Z1 (160mm) maxRotorF is the native 180mm, not the real 203mm max', function(){
-  eq(fork('fk-marzocchi-bomber-z1-29-160').maxRotorF, 180,
-    'If this failed, the data was fixed — delete the Finding-1 trip-wire block.');
-});
-test('[KNOWN-BAD VERDICT] Bomber Z1 + standard 203mm front rotor wrongly warns (rule 10)', function(){
-  ok(has(chk({ fork: 'fk-marzocchi-bomber-z1-29-160', frontWheel: 'fw-reserve-30-hd-29', frontRotor: 'ro-hayes-dseries-203-6b' }), 'warnings', 'front-rotor-max'),
-    'Expected the (currently-wrong) front-rotor-max warning; if it is gone, the data was fixed — delete this block.');
+test('the corrected forks carry a minRotorF equal to their native post mount', function(){
+  eq(fork('fk-marzocchi-bomber-z2-29-140').minRotorF, 160, 'Z2 native mount');
+  eq(fork('fk-marzocchi-bomber-z2-29-140').maxRotorF, 203, 'Z2 adapter max');
+  eq(fork('fk-manitou-mattoc-pro-29-140').minRotorF, 160, 'Mattoc native mount');
+  eq(fork('fk-manitou-mattoc-pro-29-140').maxRotorF, 203, 'Mattoc adapter max');
+  eq(fork('fk-marzocchi-bomber-z1-29-160').minRotorF, 180, 'Z1 native mount');
+  eq(fork('fk-marzocchi-bomber-z1-29-160').maxRotorF, 203, 'Z1 adapter max');
 });

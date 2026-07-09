@@ -29,7 +29,7 @@ verdicts. The one real, confirmed wrong verdict is a **false "won't fit"–class
 
 ## Findings (most severe first)
 
-### 1. [CONFIRMED] Fork `maxRotorF` holds the *native post-mount* size, not the *maximum* → false `front-rotor-max` warning on ordinary trail/enduro builds
+### 1. [RESOLVED 2026-07-09] Fork `maxRotorF` holds the *native post-mount* size, not the *maximum* → false `front-rotor-max` warning on ordinary trail/enduro builds
 
 **The verdict that's wrong.** Rule 10 warns when `frontRotor.size > fork.maxRotorF`
 ("Front rotor: 180mm exceeds the fork max of 160mm."). On a set of forks, `maxRotorF`
@@ -83,6 +83,16 @@ red — but it is a genuinely wrong verdict, it fires on the single most common 
 and it sits on parts flagged as verified. Ranked #1 because it is the only *confirmed*
 wrong verdict in the audit.
 
+**RESOLVED 2026-07-09** (branch `fix-fork-maxrotorf`). Re-verified each row against its
+manufacturer page (Marzocchi / Hayes) plus The Lost Co.'s fork post-mount database and WWC,
+then corrected all 19 rows: `maxRotorF` raised to the true adapter max **203**, the native
+mount moved to `minRotorF` (Z2/Mattoc **160**, Z1 **180**). Families fixed:
+`fk-marzocchi-bomber-z2-*` (5), `fk-manitou-mattoc-pro-*` (10), `fk-marzocchi-bomber-z1-*`
+(all 4 — the two 160 mm rows Probe E flagged plus the 150 mm and 100 mm rows that carried
+the identical page-wide conflation). `node tools/verdict-audit-harness.js` Probe E no longer
+flags these three families; the Finding-1 trip-wires in `test/test-verdict-audit.js` were
+replaced with a permanent regression guard (PERMANENT GUARD 4).
+
 ---
 
 ### 2. [LEAD — same pattern, needs per-fork confirmation] Bigger-chassis forks at `maxRotorF` 180/200
@@ -103,6 +113,15 @@ The 32 mm XC forks that report a 180 cap (`fk-fox-32-sc-*`, `fk-dvo-sapphire-32-
 **Action:** verify each family's true max rotor against the maker page; correct any that
 capped at the native mount.
 
+**RESOLVED 2026-07-09 — no change needed; all three flags are *correct*, not false.**
+Fetched each maker page: the Öhlins RXF38 **m.3** page states "Brake dim: 200 mm" (a genuine
+fixed 200 mm direct mount — the catalog's `min=max=200` is accurate, and a 203 mm rotor really
+is over it), and the Cane Creek Helm MkII page states a **180 mm** native mount / **200 mm** max
+with an adapter — exactly the catalog's `minRotorF:180 / maxRotorF:200`. The DVO Onyx SC is a
+documented, deliberate fixed 180 mm direct mount (DVO specs no larger adapter; see its row
+comment). The report's "likely 203+" figures were higher than the makers' actual published
+maxes, so these Probe-E flags are conservative-correct warnings. Left unchanged.
+
 ---
 
 ### 3. [LEAD — low confidence] XC-frame `maxRotorR = 160`
@@ -112,6 +131,16 @@ rotor at 160 mm. If that is the *native* mount rather than the frame's real max,
 ordinary 180 mm rear rotor would false-warn (rule 10, `rear-rotor-max`). **However**, XC
 race frames genuinely do often cap the rear at 160 mm, so this may be correct as-is. Left
 as a lead: confirm against the three maker pages before touching.
+
+**Reviewed 2026-07-09 — left as-is (documented).** The Mondraker F-Podium's 160 mm is verified
+against its manual. For the two unverified frames, search results *suggest* the Canyon Lux World
+Cup takes 160/180 mm (interchangeable mount) and the Scott Scale RC takes up to 180 mm **except
+on small sizes, capped at 160 mm** — but these are search summaries, not fetched maker spec pages
+(which this project does not treat as sufficient to change a verdict-driving field), and the
+engine's single-value `maxRotorR` cannot represent the Scott per-size 160/180 split without
+risking a false "fits" on a small frame. Since 160 mm is the conservative value that never
+false-fits, and per the brief's "don't guess" rule, both were left unchanged pending a fetched,
+per-size-aware maker source.
 
 ---
 
