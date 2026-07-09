@@ -57,3 +57,21 @@ Supabase → **Authentication → URL Configuration**:
 - To rotate keys later, just edit `src/config.js` — nothing else references them.
 - Everything a user stores is owner-scoped by RLS; a logged-out visitor (and any other user)
   can't read or write someone else's builds/inventory.
+
+## 7. Turn on the built-in forum (Phase 4, optional)
+
+The forum (`src/forum.js`) reuses this same project — no new keys — but ships **inert** behind
+`FORUM_ENABLED` in `src/config.js` until you've run its migration:
+
+1. Left nav → **SQL Editor** → **New query**. Paste the entire contents of `schema.sql` again
+   (it's re-runnable — the forum tables were appended to the bottom) and **Run**. Confirm
+   **Table Editor** now also shows `forum_threads` and `forum_posts`, RLS enabled, and that
+   `forum_threads` has one pinned row: "Welcome to TrailBuilder Discussions".
+2. Edit `src/config.js`: set `var FORUM_ENABLED = true;`.
+3. Commit + push. The header's **💬 Community** button now opens the in-app forum page
+   instead of linking out to GitHub Discussions.
+4. Test: open the app logged out — the welcome thread should be readable. Log in, **＋ New
+   thread**, post one, open it, post a reply. Reads stay open to everyone; only signed-in
+   users can post, and only the author can edit/delete their own posts (enforced by RLS,
+   same owner-only pattern as builds/inventory above — see the "forum threads/posts"
+   policies in `schema.sql`).

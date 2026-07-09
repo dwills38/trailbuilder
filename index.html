@@ -113,12 +113,12 @@
   .report-cta{margin-top:10px;text-align:right}
   .report-cta button{border:none;background:none;color:var(--ink-soft);font-size:12px;cursor:pointer;text-decoration:underline;padding:4px 2px;font-weight:600}
   .report-cta button:hover{color:var(--err)}
-  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);max-height:calc(100vh - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);max-height:calc(100vh - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
   /* Scoped to [open] so display:flex only ever applies while the dialog is actually
      showing — the UA stylesheet's dialog:not([open]){display:none} must stay in charge
      when closed, or the dialog would render invisibly-but-present in the layout. */
-  dialog#reportModal[open],dialog#buildModal[open],dialog#partModal[open],dialog#compareModal[open],dialog#specCardModal[open],dialog#authModal[open],dialog#garageModal[open]{display:flex;flex-direction:column;overflow:hidden}
-  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop,dialog#authModal::backdrop,dialog#garageModal::backdrop{background:rgba(18,28,22,.45)}
+  dialog#reportModal[open],dialog#buildModal[open],dialog#partModal[open],dialog#compareModal[open],dialog#specCardModal[open],dialog#authModal[open],dialog#garageModal[open],dialog#forumNewThreadModal[open]{display:flex;flex-direction:column;overflow:hidden}
+  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop,dialog#authModal::backdrop,dialog#garageModal::backdrop,dialog#forumNewThreadModal::backdrop{background:rgba(18,28,22,.45)}
   .rm-head,.rm-foot{flex:none}
   .rm-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
   /* Inventory page (Phase 3): a full-width view, not a modal. body.inv-page hides
@@ -133,6 +133,19 @@
   .invlist .grow.clickable{cursor:pointer}
   .invlist .grow.clickable:hover{border-color:var(--brand);background:#f7faf8}
   .invlist .gprice{font-weight:700;font-size:13px;white-space:nowrap}
+  /* Forum page (Phase 4, FORUM_ENABLED): same full-width-view convention as the
+     inventory page above. body.forum-page hides the builder and reveals this. */
+  #forumPage{display:none}
+  body.forum-page .toolbar,body.forum-page .chips,body.forum-page .subchips,body.forum-page .legend,body.forum-page .layout{display:none}
+  body.forum-page #forumPage{display:block}
+  .linklike{background:none;border:none;padding:0;color:var(--brand);font-weight:600;text-decoration:underline;cursor:pointer;font:inherit}
+  .linklike:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  .forum-form{margin-top:14px}
+  .forum-form label{font-size:12px;font-weight:700;color:var(--ink-soft);display:block;margin-bottom:5px}
+  .forum-form textarea,.forum-form input[type=text]{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink)}
+  .forum-form textarea{resize:vertical;min-height:74px;line-height:1.4}
+  .forum-thread-body{white-space:pre-wrap;font-size:14px;line-height:1.5;margin:10px 0}
+  .forum-post .gmain > div:last-child{white-space:pre-wrap;font-size:13px;margin-top:2px}
   /* account control (header) + garage/inventory lists */
   .acctbox{display:flex;align-items:center;gap:10px}
   .acctbox .btn{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff}
@@ -218,7 +231,7 @@
     .slot .x{min-width:32px;min-height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:17px}
     .qty button{width:34px;height:34px}
     .grow .gacts button{min-height:36px;padding:7px 10px}
-    dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal{width:calc(100% - 20px)}
+    dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal{width:calc(100% - 20px)}
   }
   @media (max-width:480px){
     header h1{font-size:19px}
@@ -290,10 +303,15 @@
     </div>
     <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
       <span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span>
-      <!-- Community link. Points at GitHub Discussions (FORUM_URL, derived from
-           REPORT_REPO). Hidden if unset, same feature-gate pattern as reportGithub. -->
+      <!-- Community. When the built-in forum is live (FORUM_ENABLED), this is an
+           in-app toggle to the forum page; otherwise it falls back to the GitHub
+           Discussions link (FORUM_URL, derived from REPORT_REPO) it will replace.
+           Hidden if neither is available, same feature-gate pattern as reportGithub. -->
       <a class="btn" id="communityLink" target="_blank" rel="noopener"
-         title="Ask questions & share builds — TrailBuilder Discussions" hidden>💬 Community</a>
+         title="Ask questions & share builds — TrailBuilder Discussions"
+         aria-label="Community — ask questions & share builds on TrailBuilder Discussions (opens in a new tab)" hidden>💬 Community</a>
+      <button type="button" class="btn" id="forumNavBtn"
+        title="Bug reports, build questions, feature requests" hidden>💬 Community</button>
       <!-- Account control (Phase 3). Hidden entirely until Supabase config is set
            (ACCOUNTS_ENABLED). renderAccount() toggles logged-in vs logged-out. -->
       <div class="acctbox" id="acctBox" hidden>
@@ -385,6 +403,40 @@
     </div>
     <p class="invpage-sub">Parts you own. Click a row for full details. Later this powers a &ldquo;build around what I own&rdquo; filter.</p>
     <div id="invList" class="invlist"></div>
+  </section>
+
+  <!-- Forum as its own full-width page (Phase 4, FORUM_ENABLED). Same convention
+       as the inventory page above: toggled by the header 💬 Community button,
+       builder view hidden by CSS while it's active. Read-only for logged-out
+       visitors; posting requires sign-in. -->
+  <section id="forumPage" aria-label="TrailBuilder Discussions">
+    <div class="invpage-head">
+      <button type="button" class="btn" id="forumBack">← Back to builder</button>
+      <h2>💬 TrailBuilder Discussions</h2>
+      <button type="button" class="btn primary" id="forumNewThread" hidden>＋ New thread</button>
+    </div>
+    <p class="invpage-sub" id="forumSignInHint" hidden>Read-only right now —
+      <button type="button" class="linklike" id="forumSignInLink">sign in</button> to start a thread.</p>
+
+    <div id="forumThreadList" class="invlist" aria-live="polite"></div>
+
+    <div id="forumThreadDetail" hidden>
+      <button type="button" class="btn" id="forumDetailBack">← All threads</button>
+      <h3 id="forumDetailTitle"></h3>
+      <p class="invpage-sub" id="forumDetailMeta"></p>
+      <p class="forum-thread-body" id="forumDetailBody"></p>
+      <div id="forumPostList" aria-live="polite"></div>
+      <div class="forum-form" id="forumReplyBox" hidden>
+        <label for="forumReplyInput">Reply</label>
+        <textarea id="forumReplyInput" placeholder="Write a reply…"></textarea>
+        <div class="rm-foot" style="padding:10px 0 0;justify-content:flex-start">
+          <button type="button" class="btn primary" id="forumReplySubmit">Post reply</button>
+        </div>
+        <p id="forumReplyStatus" role="status" aria-live="polite" class="invpage-sub"></p>
+      </div>
+      <p class="invpage-sub" id="forumReplySignInHint" hidden>
+        <button type="button" class="linklike" id="forumReplySignInLink">Sign in</button> to reply.</p>
+    </div>
   </section>
 </main>
 
@@ -547,13 +599,38 @@
   </div>
 </dialog>
 
-<!-- Account layer (Phase 3). Load order matters: the vendored Supabase client and
-     config must precede account.js, and all of them precede the inline app script.
-     With placeholder config (ACCOUNTS_ENABLED=false) these are inert and all
-     account UI stays hidden — the app runs exactly as before. -->
+<dialog id="forumNewThreadModal" aria-labelledby="fntTitle" role="dialog" aria-modal="true">
+  <div class="rm-head">
+    <h2 id="fntTitle">＋ New thread</h2>
+    <p>Start a discussion — bug report, build question, feature request.</p>
+  </div>
+  <div class="rm-body">
+    <div>
+      <label for="fntTitleInput">Title</label>
+      <input type="text" id="fntTitleInput" placeholder="e.g. Fork travel vs frame max — is this right?">
+    </div>
+    <div>
+      <label for="fntBodyInput">Message</label>
+      <textarea id="fntBodyInput" placeholder="Details…"></textarea>
+    </div>
+    <p id="fntStatus" role="status" aria-live="polite"></p>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="fntCancel">Cancel</button>
+    <button type="button" class="btn primary" id="fntSubmit">Post thread</button>
+  </div>
+</dialog>
+
+<!-- Account layer (Phase 3) + forum layer (Phase 4). Load order matters: the
+     vendored Supabase client and config must precede account.js, forum.js
+     reuses account.js's client so it loads right after, and all of them
+     precede the inline app script. With placeholder config
+     (ACCOUNTS_ENABLED=false / FORUM_ENABLED=false) these are inert and all
+     account/forum UI stays hidden — the app runs exactly as before. -->
 <script src="src/vendor/supabase.min.js"></script>
 <script src="src/config.js"></script>
 <script src="src/account.js"></script>
+<script src="src/forum.js"></script>
 <script src="src/compat.js"></script>
 <script>
 (function(){
@@ -1428,6 +1505,121 @@
          .catch(function(e){ toast(e.message||'Add failed'); });
   }
 
+  /* ================= Forum: threads + replies (Phase 4) =================
+     Gated on _forumReady (FORUM_ENABLED + Supabase configured — see
+     src/forum.js). Reads are open to logged-out visitors; posting a thread or
+     reply requires sign-in, same gating style as saveGarage. Mirrors the
+     inventory full-page pattern (openInventory/closeInventoryPage above). */
+  var _forumReady = (typeof forumReady === 'function') && forumReady();
+  var _forumCurrentThread = null;   // id of the thread currently open in detail view, or null
+
+  function openForum(){
+    if(!_forumReady) return;
+    document.body.classList.add('forum-page');
+    window.scrollTo(0,0);
+    closeForumThread();
+    renderForumNav();
+    renderForumThreads();
+  }
+  function closeForum(){ document.body.classList.remove('forum-page'); }
+
+  function renderForumNav(){
+    var inU = _forumReady && typeof currentUser==='function' && !!currentUser();
+    $('forumNewThread').hidden = !inU;
+    $('forumSignInHint').hidden = inU;
+  }
+
+  /* No profiles table (out of scope) — author_id is a bare uuid with no name
+     attached, so this can only distinguish "you" / "a member" / the system
+     seed thread (author_id null), not show real names. */
+  function forumAuthorLabel(authorId){
+    if(!authorId) return 'TrailBuilder team';
+    var u = (typeof currentUser==='function') ? currentUser() : null;
+    if(u && u.id === authorId) return 'You';
+    return 'Member';
+  }
+
+  function renderForumThreads(){
+    var el = $('forumThreadList'); el.innerHTML = '<div class="gempty">Loading…</div>';
+    listThreads().then(function(rows){
+      if(!rows || !rows.length){ el.innerHTML = '<div class="gempty">No threads yet.</div>'; return; }
+      el.innerHTML = '';
+      rows.forEach(function(row){
+        var div = document.createElement('div'); div.className = 'grow clickable';
+        div.innerHTML =
+          '<div class="gmain"><div class="gname">'+(row.pinned?'📌 ':'')+esc(row.title)+'</div>'+
+          '<div class="gmeta">'+esc(forumAuthorLabel(row.author_id))+' · '+new Date(row.created_at).toLocaleDateString()+'</div></div>';
+        div.onclick = function(){ openForumThread(row.id); };
+        el.appendChild(div);
+      });
+    }).catch(function(e){ el.innerHTML = '<div class="gempty">Could not load threads: '+esc(e.message||'')+'</div>'; });
+  }
+
+  function openForumThread(id){
+    _forumCurrentThread = id;
+    $('forumThreadList').hidden = true; $('forumNewThread').hidden = true; $('forumSignInHint').hidden = true;
+    $('forumThreadDetail').hidden = false;
+    getThread(id).then(function(row){
+      $('forumDetailTitle').textContent = row.title;
+      $('forumDetailMeta').textContent = forumAuthorLabel(row.author_id)+' · '+new Date(row.created_at).toLocaleDateString();
+      $('forumDetailBody').textContent = row.body;
+      renderForumPosts(id);
+      var inU = typeof currentUser==='function' && !!currentUser();
+      $('forumReplyBox').hidden = !inU;
+      $('forumReplyInput').value = '';
+      $('forumReplyStatus').textContent = '';
+      $('forumReplySignInHint').hidden = inU;
+    }).catch(function(e){ toast(e.message||'Could not load thread'); closeForumThread(); });
+  }
+
+  function closeForumThread(){
+    _forumCurrentThread = null;
+    $('forumThreadDetail').hidden = true;
+    $('forumThreadList').hidden = false;
+    renderForumNav();
+  }
+
+  function renderForumPosts(threadId){
+    var el = $('forumPostList'); el.innerHTML = '<div class="gempty">Loading…</div>';
+    listPosts(threadId).then(function(rows){
+      if(!rows || !rows.length){ el.innerHTML = '<p class="invpage-sub">No replies yet.</p>'; return; }
+      el.innerHTML = '';
+      rows.forEach(function(row){
+        var div = document.createElement('div'); div.className = 'grow forum-post';
+        div.innerHTML =
+          '<div class="gmain"><div class="gmeta">'+esc(forumAuthorLabel(row.author_id))+' · '+new Date(row.created_at).toLocaleDateString()+'</div>'+
+          '<div>'+esc(row.body)+'</div></div>';
+        el.appendChild(div);
+      });
+    }).catch(function(e){ el.innerHTML = '<p class="invpage-sub">Could not load replies: '+esc(e.message||'')+'</p>'; });
+  }
+
+  function submitForumReply(){
+    if(!_forumCurrentThread) return;
+    var body = ($('forumReplyInput').value||'').trim();
+    if(!body) return;
+    var status = $('forumReplyStatus');
+    createPost(_forumCurrentThread, body).then(function(){
+      $('forumReplyInput').value = ''; status.textContent = 'Reply posted.';
+      renderForumPosts(_forumCurrentThread);
+    }).catch(function(e){ status.textContent = e.message || 'Could not post reply.'; });
+  }
+
+  function openForumNewThread(){
+    if(!_forumReady || !(typeof currentUser==='function' && currentUser())) return;
+    $('fntTitleInput').value = ''; $('fntBodyInput').value = ''; $('fntStatus').textContent = '';
+    $('forumNewThreadModal').showModal();
+  }
+  function submitForumNewThread(){
+    var title = ($('fntTitleInput').value||'').trim();
+    var body = ($('fntBodyInput').value||'').trim();
+    var status = $('fntStatus');
+    if(!title || !body){ status.textContent = 'Title and message are both required.'; return; }
+    createThread(title, body).then(function(){
+      $('forumNewThreadModal').close(); renderForumThreads();
+    }).catch(function(e){ status.textContent = e.message || 'Could not post thread.'; });
+  }
+
   function sync(){ renderCatalog(); renderPanel(); renderReport(); writeHash(); }
 
   /* ---- share / restore (build + presetBy) ---- */
@@ -1603,12 +1795,40 @@
   $('invBack').onclick = closeInventoryPage;
   $('invAddBuild').onclick = addBuildToInventory;
 
+  /* forum controls (Phase 4) — inert while the forum is unconfigured */
+  $('forumNavBtn').onclick = openForum;
+  $('forumBack').onclick = closeForum;
+  $('forumSignInLink').onclick = openAuth;
+  $('forumDetailBack').onclick = closeForumThread;
+  $('forumNewThread').onclick = openForumNewThread;
+  $('forumReplySubmit').onclick = submitForumReply;
+  $('forumReplySignInLink').onclick = openAuth;
+  $('fntCancel').onclick = function(){ $('forumNewThreadModal').close(); };
+  $('fntSubmit').onclick = submitForumNewThread;
+  $('forumNewThreadModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
+
   readHash(); renderDiscChips(); renderChips(); renderSubChips(); renderWheelSizeChips(); sync();
   // Wire auth state -> account UI. When accounts are unconfigured this no-ops.
-  if(typeof initAccount === 'function'){ initAccount(function(u){ renderAccount(); refreshOwned(); if(u && $('authModal').open){ $('authModal').close(); } if(!u){ closeInventoryPage(); } }); }
+  if(typeof initAccount === 'function'){
+    initAccount(function(u){
+      renderAccount(); refreshOwned();
+      if(u && $('authModal').open){ $('authModal').close(); }
+      if(!u){ closeInventoryPage(); }
+      if(document.body.classList.contains('forum-page')){
+        renderForumNav();
+        if(_forumCurrentThread){ openForumThread(_forumCurrentThread); }
+      }
+    });
+  }
   renderAccount();
-  (function initCommunity(){ var a=$('communityLink'); if(!a) return;
-    if(FORUM_URL){ a.href=FORUM_URL; a.hidden=false; } else { a.hidden=true; } })();
+  // Community: the in-app forum toggle takes over once FORUM_ENABLED; otherwise
+  // fall back to the GitHub Discussions link it will eventually replace.
+  (function initCommunity(){
+    var a = $('communityLink'), f = $('forumNavBtn');
+    if(_forumReady){ f.hidden = false; a.hidden = true; }
+    else if(FORUM_URL){ a.href = FORUM_URL; a.hidden = false; f.hidden = true; }
+    else { a.hidden = true; f.hidden = true; }
+  })();
 })();
 </script>
 </body>

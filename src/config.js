@@ -17,3 +17,12 @@ var SUPABASE_URL = 'https://pabiaerjadeeggwoslng.supabase.co';
 var SUPABASE_ANON_KEY = 'sb_publishable_s9F1GKfy_8MwRtDrBcWN3w_BUB4qrdS';   // publishable/anon key - RLS owner-scopes every row, safe to commit
 
 var ACCOUNTS_ENABLED = !!(SUPABASE_URL && SUPABASE_ANON_KEY);
+
+/* Phase 4: the built-in forum (threads + replies). Piggybacks on the SAME
+ * Supabase project/auth as accounts above — no new keys, just two new tables
+ * (forum_threads/forum_posts, appended to supabase/schema.sql). Stays false
+ * (and all forum UI hidden, falling back to the GitHub Discussions link) until
+ * that migration has been run against the live project — see
+ * supabase/SETUP.md step 7. Flip to true once it has.
+ */
+var FORUM_ENABLED = false;
