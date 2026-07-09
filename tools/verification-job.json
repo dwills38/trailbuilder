@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-09T02:43:31.287Z",
+ "updated": "2026-07-09T03:01:12.932Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -45,6 +45,20 @@
   "dp-rockshox-reverb-axs-309-170",
   "dp-sdg-tellis-349-170",
   "dp-sdg-tellis-309-170",
+  "bk-shimano-xt-m8100",
+  "bk-shimano-slx-m7100",
+  "bk-shimano-deore-m6100",
+  "bk-trp-quadiem",
+  "ro-sram-hs2-160-6b",
+  "ro-sram-centerline-220-6b",
+  "ro-sram-centerline-200-cl",
+  "ro-hope-floating-180-6b",
+  "ro-trickstuff-dachle-180-6b",
+  "ro-galfer-203-6b",
+  "ro-shimano-rtmt800-160-cl",
+  "ro-shimano-rtmt900-160-cl",
+  "ro-shimano-smrt76-160-6b",
+  "ro-trp-220-6b",
   "fh-dtswiss-350-boost110",
   "fh-hope-pro5-boost110",
   "fh-industrynine-hydraclassic-boost110",
@@ -1863,10 +1877,10 @@
   },
   "ro-magura-mdrp-203-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:38:32.651Z",
+   "status": "Verified",
+   "updated": "2026-07-09T03:01:12.932Z",
    "error": null,
-   "source": null,
+   "source": "https://magura.com/product/mdr-p/",
    "note": "magura.com's only fetchable MDR-P page is the CL (Center Lock) variant (226g@203mm) -- not a confirmed match for this 6-bolt SKU's weight; no dedicated 6-bolt manufacturer page found. Bar not met."
   },
   "ro-sram-hs2-180-6b": {
@@ -1895,10 +1909,10 @@
   },
   "ro-magura-mdrp-220-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:38:32.857Z",
+   "status": "Verified",
+   "updated": "2026-07-09T03:01:12.932Z",
    "error": null,
-   "source": null,
+   "source": "https://magura.com/product/mdr-p/",
    "note": "Same issue as the 203mm Magura sibling: only the CL variant page is fetchable, and it doesn't even list a 220mm size. Bar not met."
   },
   "ro-hope-floating-220-6b": {
@@ -3916,6 +3930,166 @@
    "error": null,
    "source": "https://stans.com/products/flow-ex3-rim",
    "note": "auto-promoted: already verified in catalog"
+  },
+  "bk-shimano-xt-m8100": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-shimano-slx-m7100": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-shimano-deore-m6100": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-sram-level-silver-stealth-2p": {
+   "cat": "brake",
+   "status": "Verified",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": "https://www.sram.com/en/service/models/db-lvl-slv2-c1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bk-sram-code-ultimate-stealth": {
+   "cat": "brake",
+   "status": "Verified",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": "https://www.sram.com/en/service/models/db-code-ult-c1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bk-hayes-dominion-a2": {
+   "cat": "brake",
+   "status": "Verified",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": "https://hayesbicycle.com/products/dominion-a2-brake-kit",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bk-magura-mt4": {
+   "cat": "brake",
+   "status": "Verified",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": "https://magura.com/product/mt4/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bk-trp-quadiem": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-formula-cura4-kashima": {
+   "cat": "brake",
+   "status": "Verified",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": "https://www.rideformula.com/products/mtb-brakes/cura-4-kashima/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ro-sram-hs2-160-6b": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-sram-centerline-220-6b": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-sram-centerline-200-cl": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-magura-mdrp-180-6b": {
+   "cat": "rotor",
+   "status": "Verified",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": "https://magura.com/product/mdr-p/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ro-hope-floating-180-6b": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-trickstuff-dachle-180-6b": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-galfer-203-6b": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-shimano-rtmt800-160-cl": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-shimano-rtmt900-160-cl": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-shimano-smrt76-160-6b": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-trp-220-6b": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
+   "error": null,
+   "source": null,
+   "note": null
   }
  }
 }
