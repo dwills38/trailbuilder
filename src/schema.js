@@ -59,8 +59,12 @@ var VOCAB = {
   /* PF107 = the 107mm-wide DH press-fit shell (Supreme DH V5's own page:
      "Press Fit BB 107mm") - pairs with DH cranks' DUB PF 104.5/107 BBs.
      BSA83 = the 83mm threaded DH shell (Sender CFR - confirmed BSA 83;
-     distinct from BSA73, needs the matching 83mm BB cups). */
-  frameBb:      ['BSA73', 'PF92', 'T47', 'PF107', 'BSA83', 'BSA68'],   // BSA68 = the classic 68mm threaded shell (Meta HT V3's own page, 2026-07-08 - hardtails still ship it)
+     distinct from BSA73, needs the matching 83mm BB cups).
+     PF865 = the 86.5mm-wide press-fit shell (Canyon Lux World Cup CFR AXS's
+     own page: "Ceramicspeed Coated BB (SRAM)" / "PF 86,5" - a road-derived
+     narrower shell used on some XC frames, genuinely distinct from the 92mm
+     PF92 family per the comment above; verify-frames-2, 2026-07-09). */
+  frameBb:      ['BSA73', 'PF92', 'T47', 'PF107', 'BSA83', 'BSA68', 'PF865'],   // BSA68 = the classic 68mm threaded shell (Meta HT V3's own page, 2026-07-08 - hardtails still ship it)
   /* crankBb is the SPINDLE INTERFACE, not a brand (DATA-MODEL-REVIEW 5.1-5):
      DUB (28.99mm), 24mm (Shimano Hollowtech II + Race Face Cinch steel + ...),
      30mm (BB30-class: eeWings, Race Face Cinch alu, Hope), p3 (e*thirteen).
