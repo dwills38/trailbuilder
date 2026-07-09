@@ -131,17 +131,27 @@ var VOCAB = {
                  'super-race', 'super-ground', 'super-trail', 'super-gravity', 'super-downhill',    // Schwalbe (2026-07-07/08, schwalbetires.com; super-race = XC race casing)
                  'protection',                                     // Continental XC line (2026-07-08, fetched WWC listing; RaceSport/ShieldWall exist - add when a row needs them)
                  'hardwall', 'prowall',                            // Pirelli (2026-07-07, pirelli.com)
-                 'tcs-light-sg2', 'tcs-tough-sg1',                 // WTB (2026-07-07, wtb.com)
+                 'tcs-light-sg2', 'tcs-tough-sg1', 'tcs-tough',    // WTB (2026-07-07/08, wtb.com; plain 'tcs-tough' = the dual-ply E25 tier with no SG guard layer, distinct from the SG1-reinforced tier)
                  'atc', 'aec', 'agc',                              // Kenda (2026-07-07, kendatire.com; Goodyear reuses trail/enduro/downhill)
-                 'xc-race'],                                       // Vittoria XC-line version tier (2026-07-08, vittoria.com Mezcal XC Race; the gravity line reuses trail/enduro/downhill)
-  compound:     ['dual', '3c-maxxterra', '3c-maxxgrip', 'maxxspeed',   // Maxxis (maxxspeed = XC race compound, Aspen page 2026-07-08)
+                 'xc-race',                                        // Vittoria XC-line version tier (2026-07-08, vittoria.com Mezcal XC Race; the gravity line reuses trail/enduro/downhill)
+                 'gravity-shield',                                 // Michelin Racing Line (2026-07-08, retailer-aggregated SKU copy - michelinman.com truncates to nav-only; Performance Line has no named casing, left unset)
+                 'grid-trail', 'grid-gravity',                     // Specialized (2026-07-08; specialized.com is 403-blocked for WebFetch, sourced via bikeradar/jensonusa/retailer aggregation)
+                 'trc', 'grc', 'xcc',                              // Onza (2026-07-08, fetched onza-tires.com SKU tables; TRC=Trail Ready Casing, GRC=Gravity Ready Casing, XCC=XC Casing)
+                 'enduro-core', 'synthesis', 'gravity-core', 'gxe-core', 'dh-core', 'wire-bead', 'folding-tlr',  // Vee Tire Co (2026-07-08, fetched veetireco.de SKU tables - Vee's own regional storefront; wire-bead/folding-tlr are Crown Gem's bead-construction axis, the table's own "Casing" column)
+                 'inner-strength', 'core-strength'],               // Bontrager (2026-07-08; trekbikes.com is JS-rendered/nav-only for WebFetch, sourced via bikerumor's fetched press-release spec table)
+  compound:     ['dual', '3c-maxxterra', '3c-maxxgrip', 'maxxspeed', 'maxxterra', '3c-maxxspeed',   // Maxxis (maxxspeed = XC race compound, Aspen page 2026-07-08; bare 'maxxterra'/'3c-maxxspeed' are genuinely distinct SKUs from their 3C/plain siblings per the fetched maxxis.com Rekon/Forekaster/Ikon tables, 2026-07-08)
                  'endurance', 'soft', 'supersoft', 'blackchili',   // Continental (blackchili = the XC line's compound, 2026-07-08)
                  'addix', 'addix-speed', 'addix-speedgrip', 'addix-soft', 'addix-ultra-soft',        // Schwalbe (addix-speed = XC race compound, fetched 2026-07-08)
                  'smartgrip', 'smartgrip-gravity',                 // Pirelli
                  '4c-graphene', 'graphene-silica',                 // Vittoria (casing reuses trail/enduro/downhill - Vittoria's own tier names; graphene-silica = the XC Race Formulation, 2026-07-08)
                  'tritec',                                         // WTB
                  'dual-layer',                                     // Kenda
-                 'grip3s'],                                        // Goodyear
+                 'grip3s',                                         // Goodyear
+                 'magix', 'magix-mh', 'magix-ms', 'magix-dh',      // Michelin (2026-07-08; Magi-X base compound name + MH/MS hardness tiers + the DH-specific "Magi-X DH Compound"; retailer/press-aggregated, michelinman.com unfetchable)
+                 'gripton-t7', 'gripton-t9',                       // Specialized (2026-07-08; GRIPTON T7/T9 compound tiers, retailer-aggregated)
+                 'soft-50', 'medium-60', 'single-60a',             // Onza (2026-07-08, fetched onza-tires.com - the maker's own "Soft 50"/"Medium Compound 60"/"Single 60a" durometer-named compounds)
+                 'tackee', 'top40', 'mpc', 'dcc',                  // Vee Tire Co (2026-07-08, fetched veetireco.de - Tackee dual-compound, TOP40 gravity-race compound, Crown Gem's MPC/DCC compounds)
+                 'tm-speed', 'tm-grip'],                           // Bontrager (2026-07-08; TM-Speed/TM-Grip proprietary compounds, bikerumor-aggregated)
   /* disciplines (DATA-MODEL-REVIEW section 4): filter/annotation ONLY - it must
      NEVER feed checkBuild (a DH tire physically fits an enduro bike; structural
      DH constraints are real fields: crown/axle/steerer). Absence = universal.
