@@ -246,6 +246,14 @@ test('a retailerLinks entry missing url is caught', function(){
 test('a retailerLinks entry with an unknown key is caught', function(){
   some(probs(over('fr-santacruz-megatower-cc', { retailerLinks:[{label:'REI', url:'https://example.com', price:100}] })), 'unknown key');
 });
+test('pedalStyle vocab widened for real dual-sided pedals: hybrid is a valid style', function(){
+  var p = over('pd-oneup-aluminum', { style:'hybrid' });
+  delete p.verified; delete p.lastChecked; delete p.source;
+  eq(probs(p).length, 0, 'hybrid should validate now that real dual-sided flat/clip pedals (Double Shot 3, HT D1/GD1) are cataloged');
+});
+test('pedalStyle still rejects a value outside its (now 3-value) vocab', function(){
+  some(probs(over('pd-oneup-aluminum', { style:'toe-clip' })), 'style');
+});
 
 /* ---- lintCatalog: warn-only guards (never block entry, never ship a typo) */
 test('lint: a typo-sized rotor (2003mm) warns', function(){
