@@ -51,6 +51,14 @@ test('cassette with minCog >= maxCog is caught', function(){
 test('an HG cassette claiming a 10T cog is caught (HG floor is 11T)', function(){
   some(probs(over('ca-sram-pg1230', { minCog:10 })), 'HG');
 });
+test('the real SRAM XS-1270 (integrated 10T-on-HG design) is a valid allowlisted exception', function(){
+  var p = over('ca-sram-xs1270');
+  delete p.verified; delete p.lastChecked; delete p.source;
+  eq(probs(p).length, 0, 'XS-1270 row should validate despite freehub:HG + minCog:10');
+});
+test('the HG-10T exception is scoped to the real mfgPn, not a blanket loosening', function(){
+  some(probs(over('ca-sram-xs1270', { mfgPn:'CS-XS-9999-A1' })), 'HG');
+});
 test('an armset-only crank (ringStd:null, no ring) is valid data', function(){
   // Strip provenance fields: this test is about the ringStd:null/no-ring SHAPE,
   // not about whichever verification date the live row happens to carry (which

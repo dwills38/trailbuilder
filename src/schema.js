@@ -469,10 +469,18 @@ function validatePart(p, ctx){
     bad('oemOnly shock must set forFrames');
 
   // cross-rule: minCog drives a real freehub constraint (10T needs XD/
-  // MicroSpline; the HG spline floor is 11T - why NX tops out at 11-50)
+  // MicroSpline; the HG spline floor is 11T - why NX tops out at 11-50).
+  // NARROW EXCEPTION: SRAM's XS-1270 (Eagle 70 Transmission, CS-XS-1270-A1)
+  // is a confirmed real counter-example - it integrates the 10T cog+lockring
+  // into the driver interface itself, fitting an 8/9/10-speed HG-style
+  // splined body directly (an 11-speed HG body needs a 1.85mm spacer) -
+  // sram.com model page CS-XS-1270-A1, fetched 2026-07-08. Allowlisted by
+  // mfgPn rather than relaxing the floor generally: every other HG cassette
+  // in the real market still needs 11T+.
   if(p.cat === 'cassette'){
     if(isNum(p.minCog) && isNum(p.maxCog) && p.minCog >= p.maxCog) bad('minCog must be smaller than maxCog');
-    if(p.freehub === 'HG' && isNum(p.minCog) && p.minCog < 11) bad('HG freehub floor is an 11T cog (a 10T cassette needs XD or MicroSpline)');
+    var hgTenTException = p.mfgPn === 'CS-XS-1270-A1';
+    if(p.freehub === 'HG' && isNum(p.minCog) && p.minCog < 11 && !hgTenTException) bad('HG freehub floor is an 11T cog (a 10T cassette needs XD or MicroSpline)');
   }
 
   // cross-rule: the suspension discriminator gates the frame's shock block
