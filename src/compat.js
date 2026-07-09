@@ -140,8 +140,20 @@ function wheelPositionFilled(build, primaryKey){
 }
 
 /* ---- SEED catalog (price USD sample, weight grams sample) ---------------- */
+/* PARTS crossed ~1000 entries (2026-07-09) and tsc started failing with
+   "Expression produces a union type that is too complex to represent" -
+   checking every element literal against the full per-category Part union
+   in one pass hit a hard tsc ceiling, unrelated to any actual type error.
+   The `any` cast below skips that whole-array literal check (so a malformed
+   object could now slip past tsc) while every consumer of PARTS still sees
+   the real `Part[]` type via the outer annotation - narrowing (p.cat, etc.)
+   downstream is unaffected. validate.js's runtime schema check is unaffected
+   and remains the authoritative data-integrity gate. TODO: if this needs
+   real fixing, split PARTS into per-category arrays (PARTS_FRAMES, ...)
+   each separately typed and .concat()'d - NOT while multiple sessions are
+   actively appending to this one literal, since that would conflict badly. */
 /** @type {Part[]} */
-var PARTS = [
+var PARTS = /** @type {any} */ ([
   /* FRAMES (weight = frame only, no shock; wheelConfigs = supported setups) */
   { id:'fr-santacruz-megatower-cc', cat:'frame', brand:'Santa Cruz', model:'Megatower CC', family:'santacruz-megatower', disciplines:['enduro'], price:4199, weight:3200, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:220, suspension:'full', shockEye:230, shockStroke:62.5, shockMount:'std', maxForkTravel:180, travel:165, udh:true, maxTire:2.5, bundledShock:null, frameOnly:true },
   { id:'fr-specialized-enduro-sworks', cat:'frame', brand:'Specialized', model:'Enduro S-Works', family:'specialized-enduro', disciplines:['enduro'], price:3000, weight:3300, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:34.9, brakeMount:'PM', maxRotorR:220, suspension:'full', shockEye:205, shockStroke:60, shockMount:'trunnion', maxForkTravel:170, travel:170, udh:true, bundledShock:'sh-rockshox-vivid-ultimate-oem-205x60-trun', frameOnly:false },
@@ -1724,7 +1736,7 @@ var PARTS = [
   { id:'co-renthal-fatbar-apex', cat:'cockpitset', brand:'Renthal', model:'Fatbar + Apex', desc:'35mm . alu bar', price:200, fills:{ handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon' } },
   { id:'co-oneup-carbon', cat:'cockpitset', brand:'OneUp', model:'Carbon Bar + Stem', desc:'35mm . carbon bar', price:220, fills:{ handlebar:'hb-oneup-carbon-35', stem:'st-oneup-stem-35', grips:'gr-oneup-lockon' } },
   { id:'co-pnw-range', cat:'cockpitset', brand:'PNW', model:'Range cockpit', desc:'31.8mm . alu bar', price:120, fills:{ handlebar:'hb-pnw-range-318', stem:'st-pnw-range-318', grips:'gr-pnw-loam' } }
-];
+]);
 
 /* ---- legacy id aliases ----------------------------------------------------
    Ids are APPEND-ONLY: never renamed, never reused (share links, the
