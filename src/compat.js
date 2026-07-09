@@ -56,7 +56,15 @@ var LABELS = {
   '4c-graphene': '4C Graphene', 'graphene-silica': 'Graphene + Silica', 'xc-race': 'XC Race casing',
   'tcs-light-sg2': 'TCS Light SG2', 'tcs-tough-sg1': 'TCS Tough SG1', tritec: 'TriTec',
   atc: 'ATC (trail casing)', aec: 'AEC (enduro casing)', agc: 'AGC (gravity casing)',
-  'dual-layer': 'Dual Layer', grip3s: 'Grip3S'
+  'dual-layer': 'Dual Layer', grip3s: 'Grip3S',
+  maxxterra: 'MaxxTerra', '3c-maxxspeed': '3C MaxxSpeed',
+  'gravity-shield': 'Gravity Shield', magix: 'Magi-X', 'magix-mh': 'Magi-X (Mixed Hard)', 'magix-ms': 'Magi-X (Mixed Soft)', 'magix-dh': 'Magi-X DH',
+  'grid-trail': 'GRID TRAIL', 'grid-gravity': 'GRID GRAVITY', 'gripton-t7': 'GRIPTON T7', 'gripton-t9': 'GRIPTON T9',
+  trc: 'TRC (Trail Ready Casing)', grc: 'GRC (Gravity Ready Casing)', xcc: 'XCC (XC Casing)',
+  'soft-50': 'Soft 50', 'medium-60': 'Medium 60', 'single-60a': 'Single 60a',
+  'enduro-core': 'Enduro Core', synthesis: 'Synthesis', 'gravity-core': 'Gravity Core', 'gxe-core': 'GXE Core', 'dh-core': 'DH Core', 'wire-bead': 'Wire Bead', 'folding-tlr': 'Folding Bead TLR',
+  tackee: 'Tackee', top40: 'TOP40', mpc: 'MPC', dcc: 'DCC',
+  'tcs-tough': 'TCS Tough', 'inner-strength': 'Inner Strength', 'core-strength': 'Core Strength', 'tm-speed': 'TM-Speed', 'tm-grip': 'TM-Grip'
 };
 /** @param {string} k @returns {string} */
 var L = function(k){ return (k in LABELS ? LABELS[k] : k); };
