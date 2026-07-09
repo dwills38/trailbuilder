@@ -38,7 +38,7 @@
 /** @typedef {'air'|'coil'} Spring */
 /** @typedef {'alu'|'carbon'|'steel'|'ti'} Material */
 /** @typedef {'ZS44/28.6'|'ZS56/28.6'|'ZS56/40'|'IS41/28.6'|'IS42/28.6'|'IS52/40'|'EC34/28.6'|'EC44/40'} HeadTube */
-/** @typedef {'flat'|'clip'} PedalStyle */
+/** @typedef {'flat'|'clip'|'hybrid'} PedalStyle */
 /** @typedef {'exo'|'exo-plus'|'doubledown'|'dh'|'trail'|'enduro'|'downhill'|'protection'|'super-race'|'super-ground'|'super-trail'|'super-gravity'|'super-downhill'|'hardwall'|'prowall'|'tcs-light-sg2'|'tcs-tough-sg1'|'atc'|'aec'|'agc'|'xc-race'} Casing */
 /** @typedef {'dual'|'3c-maxxterra'|'3c-maxxgrip'|'maxxspeed'|'addix-speed'|'endurance'|'soft'|'supersoft'|'blackchili'|'addix'|'addix-speedgrip'|'addix-soft'|'addix-ultra-soft'|'smartgrip'|'smartgrip-gravity'|'4c-graphene'|'graphene-silica'|'tritec'|'dual-layer'|'grip3s'} Compound */
 /** @typedef {'xc'|'trail'|'enduro'|'dh'} Discipline */

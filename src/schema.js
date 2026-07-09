@@ -93,7 +93,9 @@ var VOCAB = {
   derailMount:  ['hanger', 'udh-direct'],      // audited 2026-07: market-complete (proprietary-hanger frames are udh:false + 'hanger')
   spring:       ['air', 'coil'],               // audited 2026-07: market-complete
   material:     ['alu', 'carbon', 'steel', 'ti'],   // steel/ti unblock whole brands (Cotic, Starling, Ti bars/rails)
-  pedalStyle:   ['flat', 'clip'],              // audited 2026-07: market-complete; pedals need no compat rule (9/16"-20 universal)
+  pedalStyle:   ['flat', 'clip', 'hybrid'],    // widened 2026-07-08 (catalog-pedals-breadth-2): real dual-sided flat/clip pedals exist
+                                                // (Crankbrothers Double Shot 3, HT D1/GD1) - a "market-complete" flat/clip split was
+                                                // wrong. Pedals still need no compat rule (9/16"-20 universal).
   /* SHIS head-tube capture pair (upper/lower) - ILLUSTRATIVE list, extend as
      sourced (the fact-check itself had to add ZS56/28.6, RAAW's own upper).
      Capture-only for a future headset category; rule 11 keeps consuming the
