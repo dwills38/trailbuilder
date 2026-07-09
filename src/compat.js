@@ -1330,6 +1330,39 @@ var PARTS_RAW = [
   { id:'ca-shimano-cues-lg700-1150', cat:'cassette', brand:'Shimano', model:'CUES CS-LG700-11 11-50 LinkGlide', family:'shimano-cues-u6000', mfgPn:'CS-LG700-11', price:110, weight:612, system:'shimano-linkglide', speeds:11, freehub:'HG', minCog:11, maxCog:50, desc:'11-50T LinkGlide (11-13-15-17-20-23-26-30-36-43-50), HG freehub - bike.shimano.com CS-LG700-11 page. ~612g (widely-listed) + price = sample (Shimano publishes no component weight)' },
   { id:'ch-shimano-cues-lg500', cat:'chain', brand:'Shimano', model:'CUES CN-LG500 LinkGlide 11-speed', family:'shimano-cues-u6000', mfgPn:'CN-LG500', price:30, weight:290, system:'shimano-linkglide', speeds:11, desc:'LinkGlide 10/11-speed chain (126 links) - bike.shimano.com CN-LG500 page. weight + price = sample (Shimano publishes no component weight)' },
 
+  /* --- catalog-drivetrain-breadth-3 (2026-07-09): CUES U8000, the TOP LinkGlide
+     tier (11s), above the U6000 already here. Shadow RD+ mech + alloy shifter; it
+     shares the CS-LG700-11 cassette + CN-LG500 chain already catalogued (the U6000
+     rows), so only the shifter + derailleur are new. Interfaces cross-checked
+     across retailers (Worldwide Cyclery/Universal Cycles/Bike24/Amazon);
+     bike.shimano.com 403s WebFetch and Shimano publishes no component weights, so
+     UNVERIFIED sample price/weight - same convention as the U6000 rows. --- */
+  { id:'sft-shimano-cues-u8000-11', cat:'shifter', brand:'Shimano', model:'CUES SL-U8000 11-speed', family:'shimano-cues-u8000', mfgPn:'SL-U8000-11R', price:52, weight:118, system:'shimano-linkglide', speeds:11, actuation:'cable', clampType:'band', desc:'top-tier 11s Rapidfire Plus, band clamp (an I-Spec II SL-U8000-IR variant also exists); pairs the CS-LG700-11 cassette + CN-LG500 chain already catalogued. interfaces cross-checked (bike.shimano.com 403s); sample price/weight' },
+  { id:'dr-shimano-cues-u8000', cat:'derailleur', brand:'Shimano', model:'CUES RD-U8000 GS 11-speed', family:'shimano-cues-u8000', mfgPn:'RD-U8000', price:85, weight:302, system:'shimano-linkglide', speeds:11, actuation:'cable', maxCog:50, mount:'hanger', desc:'Shadow RD+ 11-speed LinkGlide mech, GS cage, for 11-50T, standard hanger (lighter build than the U6000). interfaces cross-checked (Universal Cycles/Bike24; bike.shimano.com 403s); sample price/weight' },
+
+  /* --- catalog-drivetrain-breadth-3: CUES U4000, the ENTRY LinkGlide tier (9s) -
+     the first 9-speed on the shimano-linkglide system. HG freehub. CN-LG500 is
+     the single Shimano LinkGlide chain (officially 10/11-speed, already catalogued
+     as the 11s U6000 chain); this adds a speeds:9 sibling row of that SAME physical
+     chain as a compatibility token (sram-dh-7 precedent) so a 9s U4000 build
+     completes without a false speed verdict. Interfaces cross-checked across
+     retailers; bike.shimano.com 403s, so UNVERIFIED sample price/weight. --- */
+  { id:'sft-shimano-cues-u4000-9', cat:'shifter', brand:'Shimano', model:'CUES SL-U4000 9-speed', family:'shimano-cues-u4000', mfgPn:'SL-U4000-9R', price:29, weight:120, system:'shimano-linkglide', speeds:9, actuation:'cable', clampType:'band', desc:'entry 9s Rapidfire Plus with optical gear display, band clamp; interfaces cross-checked across retailers (bike.shimano.com 403s); sample price/weight' },
+  { id:'dr-shimano-cues-u4000-gs', cat:'derailleur', brand:'Shimano', model:'CUES RD-U4000 GS 9-speed', family:'shimano-cues-u4000', mfgPn:'RD-U4000', price:60, weight:330, system:'shimano-linkglide', speeds:9, actuation:'cable', maxCog:46, mount:'hanger', desc:'Shadow RD 9-speed LinkGlide mech, GS medium cage, for 11-41/46T (max 46), 35T wrap, standard hanger; interfaces cross-checked (Universal Cycles/Bike24); sample price/weight' },
+  { id:'ca-shimano-cues-lg300-9-1146', cat:'cassette', brand:'Shimano', model:'CUES CS-LG300-9 11-46 LinkGlide', family:'shimano-cues-u4000', mfgPn:'CS-LG300-9', price:42, weight:520, system:'shimano-linkglide', speeds:9, freehub:'HG', minCog:11, maxCog:46, desc:'9-speed LinkGlide cassette on a standard HG freehub; sold in 11-36/11-41/11-46T - this is the 11-46 SKU (pairs the RD-U4000 max 46); interfaces cross-checked (Walmart/Modern Bike/Amazon); sample price/weight' },
+  { id:'ch-shimano-cues-lg500-9', cat:'chain', brand:'Shimano', model:'CUES CN-LG500 LinkGlide (9-speed)', family:'shimano-cues-u4000', mfgPn:'CN-LG500', price:30, weight:290, system:'shimano-linkglide', speeds:9, desc:'the SAME physical chain as ch-shimano-cues-lg500 (CN-LG500 is the single Shimano LinkGlide chain, spec-listed across all CUES 9/10/11-speed groups); tagged speeds:9 as a compatibility token (sram-dh-7 precedent) so a 9s U4000 build completes without a false speed verdict; sample price/weight' },
+
+  /* --- catalog-drivetrain-breadth-3: SRAM SX Eagle, the entry 12s MECHANICAL
+     Eagle (below NX). Its PG-1210 cassette runs on a standard HG freehub (11-50T,
+     like the NX PG-1230), not XD. Shifter + derailleur price/interfaces from
+     FETCHED sram.com model pages, so verified; PG-1210 freehub=HG is cross-checked
+     (bikeradar/off.road.cc) as the sram.com cluster wording was ambiguous, so the
+     cassette stays unverified. SX uses the standard SRAM Eagle chain (already
+     covered by ch-sram-gx-eagle), so no new chain row. --- */
+  { id:'sft-sram-sx-eagle', cat:'shifter', brand:'SRAM', model:'SX Eagle Trigger', family:'sram-sx-eagle', gen:'A1', mfgPn:'SL-SX-1-A1', price:40, weight:120, system:'sram-eagle', speeds:12, actuation:'cable', clampType:'band', verified:true, lastChecked:'2026-07-09', source:'https://www.sram.com/en/sram/models/sl-sx-1-a1', desc:'X-Actuation cable trigger, discrete bar clamp; price + interfaces from the fetched sram.com model page; weight = sample (page lists none)' },
+  { id:'dr-sram-sx-eagle', cat:'derailleur', brand:'SRAM', model:'SX Eagle', family:'sram-sx-eagle', gen:'B1', mfgPn:'RD-SX-1-B1', price:100, weight:337, system:'sram-eagle', speeds:12, actuation:'cable', maxCog:50, mount:'hanger', verified:true, lastChecked:'2026-07-09', source:'https://www.sram.com/en/sram/models/rd-sx-1-b1', desc:'X-Horizon budget mech on a standard derailleur hanger (not Full Mount), 11-50T (max 50); price + interfaces from the fetched sram.com model page; weight = sample' },
+  { id:'ca-sram-pg1210', cat:'cassette', brand:'SRAM', model:'PG-1210 SX Eagle 11-50', family:'sram-sx-eagle', gen:'A1', mfgPn:'CS-PG-1210-A1', price:65, weight:620, system:'sram-eagle', speeds:12, freehub:'HG', minCog:11, maxCog:50, desc:'budget 12s Eagle cassette on a standard HG freehub (11-50T) - HG confirmed via bikeradar + off.road.cc SX tech specs (the sram.com page cluster wording was ambiguous, so this stays unverified); sibling of the HG NX PG-1230; price + weight = sample retailer figures' },
+
   /* Shimano SLX 12-speed chain - completes the SLX M7100 tier (the SLX groupset
      preset reuses the XT chain; the SLX-branded CN-M7100 is a real SKU). */
   { id:'ch-shimano-slx-m7100', cat:'chain', brand:'Shimano', model:'CN-M7100 12-speed', family:'shimano-slx-m7100', mfgPn:'CN-M7100', price:30, weight:252, system:'shimano-12', speeds:12, desc:'Shimano 12-speed HYPERGLIDE+ chain, SLX tier (interchangeable with the XT/XTR/Deore 12s chains). weight + price = sample (Shimano publishes no component weight)' },
