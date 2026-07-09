@@ -2268,7 +2268,15 @@ var PARTS_RAW = [
   { id:'hb-deity-skywire-35', cat:'handlebar', brand:'Deity', model:'Skywire 35', family:'deity-skywire', price:180, weight:226, clamp:35, width:800, rise:25, material:'carbon', verified:true, lastChecked:'2026-07-07', source:'https://www.deitycomponents.com/skywire_carbon_handlebar_25mm.html' },
   { id:'hb-spank-spike-800-318', cat:'handlebar', brand:'Spank', model:'Spike 800 Vibrocore', family:'spank-spike-800', price:115, weight:350, clamp:31.8, width:800, rise:30, material:'alu', verified:true, lastChecked:'2026-07-07', source:'https://spank-ind.com/products/spike-800-vibrocore%E2%84%A2-bar' },
   { id:'hb-oneup-aluminum-35', cat:'handlebar', brand:'OneUp', model:'Aluminum 35', family:'oneup-aluminum', price:90, weight:318, clamp:35, width:800, rise:20, material:'alu', verified:true, lastChecked:'2026-07-07', source:'https://www.oneupcomponents.com/products/aluminum-handlebar' },
-  { id:'hb-title-ah2-35', cat:'handlebar', brand:'Title', model:'FORM Carbon 35', family:'title-ah2', price:150, weight:194, clamp:35, width:800, rise:25, material:'carbon' },
+  /* --- 2026-07-09 audit-cockpit correction: hb-title-ah2-35 (family 'title-ah2', $150) was fabricated
+     - Title's real lineup has no "AH2" line/family slug, and no SKU at $150. Its real current 35mm-clamp
+     carbon bar is FORM Carbon 35 (25mm rise: 194g; a 35mm-rise/196g sibling also exists), confirmed via
+     the FETCHED titlemtb.com/products/form-carbon-35-handlebars manufacturer page (lists $259.95/$219.95
+     CAD for the 35mm-rise SKU - Title MTB is a Canadian brand) and the FETCHED worldwidecyclery.com
+     25mm-rise product page ($214.95 USD, matching weight/clamp/width). Retired to the new
+     hb-title-form-carbon-35 below; kept unverified per the CAD-manufacturer/USD-retailer
+     sourceType:'retailer' policy (same convention as the catalog's other Title AH1/ST1 rows). --- */
+  { id:'hb-title-form-carbon-35', cat:'handlebar', brand:'Title', model:'FORM Carbon 35 (25mm rise)', family:'title-form-carbon', price:214.95, weight:194, clamp:35, width:800, rise:25, material:'carbon', desc:'87mm clamp width (DM1-compatible), 9° backsweep/5° upsweep; also offered in 35mm rise (196g) at a higher price, per the fetched titlemtb.com/products/form-carbon-35-handlebars manufacturer page. That page itself lists the price in CAD (Title MTB is a Canadian brand); the $214.95 USD figure is a fetched US retailer price (worldwidecyclery.com) rather than a manufacturer-published USD MSRP - kept unverified for that reason, same caveat as the catalog\'s AH1/ST1 rows' },
   { id:'hb-chromag-fubars-osx-318', cat:'handlebar', brand:'Chromag', model:'Fubars OSX 31.8', family:'chromag-fubars-osx', price:112, weight:325, clamp:31.8, width:800, rise:25, material:'alu', verified:true, lastChecked:'2026-07-07', source:'https://us.chromagbikes.com/products/osx' },
   { id:'hb-nukeproof-horizon-v2-35', cat:'handlebar', brand:'Nukeproof', model:'Horizon V2 35', family:'nukeproof-horizon', price:75, weight:325, clamp:35, width:800, rise:25, material:'alu' },
   { id:'hb-easton-haven-35', cat:'handlebar', brand:'Easton', model:'Haven 35', family:'easton-haven', price:150, weight:240, clamp:35, width:800, rise:20, material:'carbon' },
@@ -3109,7 +3117,7 @@ var PARTS_RAW = [
   { id:'co-nukeproof-horizon', cat:'cockpitset', brand:'Nukeproof', model:'Horizon (35mm, all-Nukeproof)', desc:'35mm . alu bar', price:138, fills:{ handlebar:'hb-nukeproof-horizon-v2-35', stem:'st-nukeproof-horizon-35', grips:'gr-dmr-deathgrip' } },
   { id:'co-protaper-a25', cat:'cockpitset', brand:'ProTaper', model:'A25 cockpit (35mm)', desc:'35mm . alu bar . DH-specific grip', price:171, fills:{ handlebar:'hb-protaper-a25-35', stem:'st-raceface-aeffect-r-35', grips:'gr-ergon-gdh' } },
   { id:'co-easton-haven', cat:'cockpitset', brand:'Easton', model:'Haven (35mm)', desc:'35mm . carbon bar', price:237, fills:{ handlebar:'hb-easton-haven-35', stem:'st-oneup-stem-35', grips:'gr-lizardskins-charger-evo' } },
-  { id:'co-title-ah2', cat:'cockpitset', brand:'Title', model:'FORM Carbon AH2 (35mm)', desc:'35mm . carbon bar', price:260, fills:{ handlebar:'hb-title-ah2-35', stem:'st-chromag-hifi-35', grips:'gr-esi-chunky' } },
+  { id:'co-title-formcarbon', cat:'cockpitset', brand:'Title', model:'FORM Carbon (35mm)', desc:'35mm . carbon bar', price:320, fills:{ handlebar:'hb-title-form-carbon-35', stem:'st-chromag-hifi-35', grips:'gr-esi-chunky' } },
   { id:'co-truvativ-descendant', cat:'cockpitset', brand:'Truvativ', model:'Descendant (35mm)', desc:'35mm . carbon bar', price:213, fills:{ handlebar:'hb-truvativ-descendant-35', stem:'st-oneup-stem-35', grips:'gr-esi-chunky' } },
   { id:'co-protaper-a76', cat:'cockpitset', brand:'ProTaper', model:'A76 (31.8mm, all-ProTaper)', desc:'31.8mm . alu bar', price:198, fills:{ handlebar:'hb-protaper-a76-318', stem:'st-protaper-mtbstem-318', grips:'gr-protaper-meathammer' } },
   { id:'co-spank-oozy35', cat:'cockpitset', brand:'Spank', model:'OOZY 35 (35mm, all-Spank)', desc:'35mm . alu bar', price:186, fills:{ handlebar:'hb-spank-oozy-35', stem:'st-spank-split-35', grips:'gr-wtb-wafflegrip' } },
@@ -3361,7 +3369,8 @@ var ALIASES = {
   'hb-deity': 'hb-deity-skywire-35',
   'hb-spank': 'hb-spank-spike-800-318',
   'hb-oneup-alu': 'hb-oneup-aluminum-35',
-  'hb-title': 'hb-title-ah2-35',
+  'hb-title': 'hb-title-form-carbon-35',
+  'hb-title-ah2-35': 'hb-title-form-carbon-35',   // 2026-07-09 RETIRED (audit-cockpit): no "AH2"/$150 SKU exists - see the comment above hb-title-form-carbon-35
   'hb-chromag': 'hb-chromag-fubars-osx-318',
   'hb-nukeproof': 'hb-nukeproof-horizon-v2-35',
   'hb-easton': 'hb-easton-haven-35',
@@ -3468,6 +3477,7 @@ var ALIASES = {
   'co-oneup': 'co-oneup-carbon',
   'co-pnw': 'co-pnw-range',
   'co-answer-ergon': 'co-protaper-a25',   // 2026-07-09 RETIRED (catalog-final-cleanup): the id baked in the 'Answer' mislabel too - see hb-answer-protaper-35's retirement comment for the research
+  'co-title-ah2': 'co-title-formcarbon',   // 2026-07-09 RETIRED (audit-cockpit): see hb-title-ah2-35's retirement comment
   /* 2026-07-07 tire-verification pinning: generic tire rows retired into their
      verified per-SKU configs (casing/compound pinned per the flat-SKU model). */
   'ti-continental-kryptotal-29-24': 'ti-continental-kryptotal-fr-29-24-enduro-soft',
