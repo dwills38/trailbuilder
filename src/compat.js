@@ -257,18 +257,20 @@ var PARTS = [
      see fr-canyon-lux-world-cup-cf), so the PM pin was reverted as unsound. No fetched source
      states the mount word for the Epic itself, so per the bar (Lux Trail precedent) the frames
      stay OUT regardless of the point below.
-     CORRECTION (catalog-brakes-flatmount pass, 2026-07-08): independently re-verified against
-     SRAM's own support article "Is SRAM offering Flat Mount MTB brakes?" (support.sram.com) -
-     SRAM has NEVER shipped a flat-mount MTB caliper; every SRAM MTB brake (Level/Code/DB8/Maven)
-     is post-mount, full stop. So the premise this revert leaned on was actually TRUE, not false.
-     The Lux World Cup CF's frame-side FM tab is real (independently MBR-confirmed), but its stock
-     SRAM Level Silver caliper - itself cataloged as mount:'PM', sram.com-verified - almost
-     certainly rides an FM-to-PM adapter (a standard, widely-sold part; see e.g. TRP's own "Flat
-     Mount to Post Mount Adapter"), not a native SRAM FM caliper. Do NOT use "ships a SRAM caliper"
-     as evidence a frame is FM or PM either direction - it's adapter-bridgeable both ways and
-     proves nothing about the frame's native mount. (The real, confirmed FM MTB brake brands
-     landed this pass: Shimano XTR BR-M9110, bk-shimano-xtr-m9110-fm; Hope XCR Pro X2 Flatmount,
-     bk-hope-xcrpro-x2-fm.)
+     CLARIFICATION (catalog-brakes-flatmount pass, 2026-07-08): re-verified against SRAM's own
+     documents. SRAM DOES make flat-mount MTB calipers, but OEM-ONLY: its "Disc Brake Caliper
+     Mounting Specifications for Road and MTB" PDF (GEN.0000000005232 Rev V, 2025) lists Level
+     Ultimate / Level TLM / S-300 under "Flat Mount Caliper Configurations -> MTB" (flat-tab
+     calipers, F20/FD20 brackets); the support article "Is SRAM offering Flat Mount MTB brakes?"
+     only says none are sold AFTERMARKET. So an FM SRAM MTB caliper exists (cataloged this pass as
+     the OEM bk-sram-level-ultimate-fm) - "SRAM never shipped one" would be an overstatement. The
+     earlier "Level Silver on a flat-mount rear" wording was still IMPRECISE though: Level Silver
+     Stealth is POST mount (bk-sram-level-silver-stealth-2p); the FM SRAM MTB calipers are the
+     Level Ultimate/TLM and S-300. Bottom line for the Epic frames: do NOT infer a frame's native
+     mount from its stock caliper - FM and PM are adapter-bridgeable both ways - so the Epic frames
+     stay OUT until a source states the mount word. (Confirmed FM MTB brakes landed this pass:
+     Shimano XTR BR-M9110 bk-shimano-xtr-m9110-fm; Hope XCR Pro X2 Flatmount bk-hope-xcrpro-x2-fm;
+     SRAM Level Ultimate FM bk-sram-level-ultimate-fm (OEM); Magura MT8 SL FM bk-magura-mt8-sl-fm.)
      SALVAGE for whoever re-enters the Epic frames once the mount is pinned - all from the FETCHED
      2024 Epic/Epic EVO owner manual (media.specialized.com/support/collateral/
      2024_EPIC_EPIC_EVO_USER_MANUAL_ENGLISH.pdf, 25MB - download + pdftotext, WebFetch chokes):
@@ -717,20 +719,30 @@ var PARTS = [
   /* BRAKES (single caliper+lever; usable front or rear) */
   /* --- discipline expansion pass 2: the first flat-mount brake (XC) --- */
   { id:'bk-shimano-xtr-m9110-fm', cat:'brake', brand:'Shimano', model:'XTR BR-M9110 (flat mount)', family:'shimano-xtr-m9100', mfgPn:'BR-M9110', disciplines:['xc'], price:300, weight:220, mount:'FM', pistons:2, leverAccepts:['ispec-ev'], desc:'sample price/weight (per-brake, lever+caliper basis); existence confirmed via bike.shimano.com product listing (BR-M9110 flat-mount 2-piston, 140/160 rotors) + Bike24/Competitive Cyclist; sold as I-Spec EV lever + FM caliper J-kit' },
-  /* --- catalog-brakes-flatmount pass: second FM MTB brand (the Exceed CF / Lux World Cup CF flat-mount rear
-     slot was Shimano-only). Independently verified SRAM has NEVER shipped a flat-mount MTB caliper (see the
-     correction on the stale Epic-history comment above) before researching alternatives; Hope's XCR Pro X2 is
-     the real find - hopetech.com's own XC lineup page sells it in both post-mount AND flat-mount ("XCR Pro X2
-     Flatmount"), 2-piston (X2 naming = Hope's 2-piston XC caliper, mirrored by the already-cataloged 4-piston
-     Tech 4 E4). TRP (EVO/Slate/Spyke MTB lineup has no FM SKU; TRP's actual FM products - HY/RD, Spyre - are
-     road/gravel/CX only), Magura (current mt4 page states postmount only; an "MT4 Flatmount" turns up on 2019-era
-     retailer listings/product photos, but is absent from Magura's own current spec page - reads as discontinued,
-     not live), and Formula (the flat-mount Cura variant is "Cura Road", which rideformula.com explicitly brands
-     "Road and Gravel", not MTB) were all checked and do NOT clear the bar. Trickstuff's C22 caliper also ships
-     in FM (per bike-components.de/BIKE24/r2-bike + a live trickstuff.com/c22flatmount URL) and is used in their
-     XC/marathon-marketed Piccola Carbon system, but no trickstuff.com page actually renders FM-specific specs
-     for this session to cite directly - left OUT pending a session with live/JS-capable browsing to confirm. */
+  /* --- catalog-brakes-flatmount pass (extended): the FM MTB slot (Exceed CF / Lux World Cup CF flat-mount
+     rear) was Shimano-only. FM MTB is a genuinely rare format - most flat-mount calipers are drop-bar/gravel.
+     Real, manufacturer-confirmed FM MTB brakes, added this pass alongside the existing Shimano XTR M9110:
+       - Hope XCR Pro X2 Flatmount (bk-hope-xcrpro-x2-fm) - hopetech.com sells the X2 caliper in post- and
+         flat-mount; aftermarket, verified.
+       - Magura MT8 SL FM (bk-magura-mt8-sl-fm) - a LIVE aftermarket flat-mount XC brake on Magura's own US
+         shop ("MT8 SL FLAT MOUNT", part 8728-0900-093, 185 g, 2-piston). (An earlier note here called Magura
+         FM "discontinued" after checking only the MT4 page; the current MT8 SL FM corrects that.)
+       - SRAM Level Ultimate FM (bk-sram-level-ultimate-fm) - OEM-only. SRAM DOES make flat-mount MTB calipers:
+         its own "Disc Brake Caliper Mounting Specifications for Road and MTB" PDF (GEN.0000000005232 Rev V,
+         2025) lists Level Ultimate / Level TLM / S-300 under "Flat Mount Caliper Configurations -> MTB"
+         (flat-tab calipers, F20/FD20 brackets). SRAM just does not sell them aftermarket (support.sram.com
+         "Is SRAM offering Flat Mount MTB brakes?"). So "SRAM never shipped an FM MTB caliper" is an
+         overstatement - corrected on the Epic-history comment above too.
+     CHECKED AND EXCLUDED per each maker's own site: TRP (EVO X / Slate / Trail EVO / DH-R EVO all POST mount;
+     TRP's only flat-mount is road/gravel HY-RD/Spyre), Formula (its flat-mount Cura is the road/gravel "Cura
+     Road"; the MTB Cura is PM), Magura MT4 / MT C4 (post mount, or urban/allroad not MTB). Trickstuff C22/
+     Piccola does sell an FM caliper (XC/marathon) but its FM interface could not be pinned on a fetchable
+     Trickstuff page (JS webshop) - held OUT per the bar. Rule 8 (brake mount) is a HARD ERROR, so every FM
+     claim is pinned to a fetched manufacturer source; OEM/web-shop-only rows keep sample price/weight and stay
+     UNVERIFIED. */
   { id:'bk-hope-xcrpro-x2-fm', cat:'brake', brand:'Hope', model:'XCR Pro X2 (Flat Mount)', family:'hope-xcr-pro', disciplines:['xc'], price:274.70, weight:225, mount:'FM', pistons:2, desc:'225g rear, measured without caliper bolts or rotor (road.cc review); mount + model + "$274.70 (ex tax)" USD RRP all from hopetech.com\'s own XCR Pro X2 Flatmount product page - Hope sells the same X2 caliper in post-mount too (bk-hope-tech-4-e4 sibling line); no leverAccepts - Hope levers are a dedicated clamp, not shared with shifters (Tech 4 E4 precedent)', verified:true, lastChecked:'2026-07-08', source:'https://www.hopetech.com/products/brakes/xc/xcr-pro-x2-flatmount/', sourceType:'measured', weightSource:'https://road.cc/offroad/content/review/brakes/hope-xcr-pro-x2-brakes-review-12309' },
+  { id:'bk-sram-level-ultimate-fm', cat:'brake', brand:'SRAM', model:'Level Ultimate FM (flat mount, OEM)', family:'sram-level', disciplines:['xc'], price:285, weight:250, mount:'FM', pistons:2, leverAccepts:['matchmaker'], desc:'OEM-only flat-mount caliper - not sold aftermarket (support.sram.com "Is SRAM offering Flat Mount MTB brakes?"), so price/weight are SAMPLE (price mirrors the PM Level Ultimate Stealth sibling; weight a sample). The FLAT-MOUNT interface (the only engine-read field) is MANUFACTURER-documented: SRAM "Disc Brake Caliper Mounting Specifications for Road and MTB" (GEN.0000000005232 Rev V, 2025) lists "Level Ultimate" (with Level TLM + S-300) under Flat Mount Caliper Configurations -> MTB - flat-tab calipers using the F20/FD20 brackets. This is the OEM caliper on flat-mount XC frames such as the Canyon Lux World Cup. 2-piston, MatchMaker lever family. UNVERIFIED (OEM, no aftermarket price/weight to source). Source: https://www.sram.com/globalassets/document-hierarchy/frame-fit-specifications/aftermarket/disc-brake-caliper-mounting-specifications-for-road-and-mtb.pdf' },
+  { id:'bk-magura-mt8-sl-fm', cat:'brake', brand:'Magura', model:'MT8 SL FM (flat mount)', family:'magura-mt8', mfgPn:'8728-0900-093', disciplines:['xc'], price:260, weight:185, mount:'FM', pistons:2, desc:'185 g = full brake (1-finger HC Carbolay lever + forged flat-mount caliper, no rotor/adapter, figure from the Magura USA shop; the PM MT8 SL is 195 g); FM caliper takes up to a 180 mm rotor. price = sample (premium XC race brake). Live aftermarket flat-mount 2-piston XC brake: Magura USA official shop lists "MT8 SL FLAT MOUNT, 1-FINGER HC CARBOLAY LEVER BLADE", part 8728-0900-093 (https://www.magurausa-shop.com/product.htm?pid=276178&cat=11906); the base magura.com MT8 page still shows only postmount. No leverAccepts - Magura uses a dedicated bar clamp (matches the other Magura rows). Kept UNVERIFIED (interface from the maker web-shop, not a spec page; price sample).' },
   /* --- discipline expansion pass 8: second XC brake brand (the XC PM choice was Shimano-only) --- */
   { id:'bk-sram-level-ultimate-stealth', cat:'brake', brand:'SRAM', model:'Level Ultimate Stealth (2-piston)', family:'sram-level', gen:'C1', mfgPn:'DB-LVL-ULT2-C1', disciplines:['xc'], price:285, weight:254, mount:'PM', pistons:2, leverAccepts:['matchmaker'], verified:true, lastChecked:'2026-07-08', source:'https://www.sram.com/en/sram/models/db-lvl-ult2-c1', desc:'price = sample (page lists a range, ~$285/wheel street); 254g = the maker-published figure (rear, with pads, no hardware - basis noted per template); PM caliper brackets + 2-piston from the fetched sram.com model page; MatchMaker = SRAM Stealth-lever family standard (page defers to service docs)' },
   { id:'bk-sram-code-rsc', cat:'brake', brand:'SRAM', model:'Code RSC', family:'sram-code', price:140, weight:290, mount:'PM', pistons:4, leverAccepts:['matchmaker'] },
