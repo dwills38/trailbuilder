@@ -138,7 +138,11 @@ var VOCAB = {
                  'grid-trail', 'grid-gravity',                     // Specialized (2026-07-08; specialized.com is 403-blocked for WebFetch, sourced via bikeradar/jensonusa/retailer aggregation)
                  'trc', 'grc', 'xcc',                              // Onza (2026-07-08, fetched onza-tires.com SKU tables; TRC=Trail Ready Casing, GRC=Gravity Ready Casing, XCC=XC Casing)
                  'enduro-core', 'synthesis', 'gravity-core', 'gxe-core', 'dh-core', 'wire-bead', 'folding-tlr',  // Vee Tire Co (2026-07-08, fetched veetireco.de SKU tables - Vee's own regional storefront; wire-bead/folding-tlr are Crown Gem's bead-construction axis, the table's own "Casing" column)
-                 'inner-strength', 'core-strength'],               // Bontrager (2026-07-08; trekbikes.com is JS-rendered/nav-only for WebFetch, sourced via bikerumor's fetched press-release spec table)
+                 'inner-strength', 'core-strength',                // Bontrager (2026-07-08; trekbikes.com is JS-rendered/nav-only for WebFetch, sourced via bikerumor's fetched press-release spec table)
+                 'high-output', 'super-tough',                     // Panaracer (tire-breadth-3, 2026-07-08/09, fetched panaracer.com + panaracerusa.com: "HO"/"ST" are the maker's OWN tier abbreviations printed on the tire/product name itself, e.g. "Aliso HO", "Romero ST")
+                 'durable', 'ultra-durable', 'light-and-supple',  // Teravail (tire-breadth-3; fetched teravail.com casing-tier names - Ultra Durable adds a 1/2-ply of 120tpi + apex wedges over Durable)
+                 'tough',                                          // Terrene (tire-breadth-3, fetched terrenetires.com/pages/tech - Terrene's own casing-tier name; the lighter 'Light' tier exists but no row here uses it)
+                 'tr', 'emc'],                                      // Kenda Havok Pro (tire-breadth-3, fetched bicycle.kendatire.com spec table - the sheet's own "Protection" column values: TR = plain tubeless-ready folding, EMC = e-MTB-certified reinforced folding; a third Wire/non-tubeless config exists but isn't catalogued (no distinct casing name, just "Wire" bead))
   compound:     ['dual', '3c-maxxterra', '3c-maxxgrip', 'maxxspeed', 'maxxterra', '3c-maxxspeed',   // Maxxis (maxxspeed = XC race compound, Aspen page 2026-07-08; bare 'maxxterra'/'3c-maxxspeed' are genuinely distinct SKUs from their 3C/plain siblings per the fetched maxxis.com Rekon/Forekaster/Ikon tables, 2026-07-08)
                  'endurance', 'soft', 'supersoft', 'blackchili',   // Continental (blackchili = the XC line's compound, 2026-07-08)
                  'addix', 'addix-speed', 'addix-speedgrip', 'addix-soft', 'addix-ultra-soft',        // Schwalbe (addix-speed = XC race compound, fetched 2026-07-08)
@@ -151,7 +155,12 @@ var VOCAB = {
                  'gripton-t7', 'gripton-t9',                       // Specialized (2026-07-08; GRIPTON T7/T9 compound tiers, retailer-aggregated)
                  'soft-50', 'medium-60', 'single-60a',             // Onza (2026-07-08, fetched onza-tires.com - the maker's own "Soft 50"/"Medium Compound 60"/"Single 60a" durometer-named compounds)
                  'tackee', 'top40', 'mpc', 'dcc',                  // Vee Tire Co (2026-07-08, fetched veetireco.de - Tackee dual-compound, TOP40 gravity-race compound, Crown Gem's MPC/DCC compounds)
-                 'tm-speed', 'tm-grip'],                           // Bontrager (2026-07-08; TM-Speed/TM-Grip proprietary compounds, bikerumor-aggregated)
+                 'tm-speed', 'tm-grip',                            // Bontrager (2026-07-08; TM-Speed/TM-Grip proprietary compounds, bikerumor-aggregated)
+                 'triple-compound', 'zsg-natural',                 // Panaracer (tire-breadth-3, fetched panaracer.com spec tables - Triple Compound is the current Aliso/Romero/DriverPro tech; ZSG Natural is DriverPro's older/narrower-size compound, also used on the legacy Rampage)
+                 'grip', 'grip-plus',                              // Teravail (tire-breadth-3, fetched teravail.com - the maker's own "Grip"/"Grip Plus" compound names; a third "Fast" compound exists but no row here uses it)
+                 '62a-51a', '56a-48a',                             // Terrene (tire-breadth-3; terrenetires.com/pages/tech states Terrene names compounds by durometer pairing, not a marketing name - 62a-51a is the standard Chunk tread, 56a-48a the softer "Tough/Grip" tread)
+                 'grip-compound',                                  // Continental Magnotal (tire-breadth-3, fetched continental-tires.com product page + retailer listings; named distinctly from Teravail's 'grip' - different brand, different rubber. Magnotal's other tier reuses the existing 'soft' value shared with Kryptotal)
+                 'dtc'],                                           // Kenda Dual Tread Compound (tire-breadth-3, fetched Nevegal2 spec sheet + Havok Pro page - both call out a hard-center/soft-shoulder "Dual Tread Compound"; kept distinct from Maxxis/Vittoria's unrelated 'dual' per the brand-native rule)
   /* disciplines (DATA-MODEL-REVIEW section 4): filter/annotation ONLY - it must
      NEVER feed checkBuild (a DH tire physically fits an enduro bike; structural
      DH constraints are real fields: crown/axle/steerer). Absence = universal.
