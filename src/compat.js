@@ -2788,20 +2788,26 @@ var PARTS_RAW = [
 
   /* SADDLES */
   { id:'sa-wtb-volt', cat:'saddle', brand:'WTB', model:'Volt', family:'wtb-volt', price:65, weight:292, verified:true, lastChecked:'2026-07-07', source:'https://www.wtb.com/products/volt' },
-  { id:'sa-ergon-sm-enduro', cat:'saddle', brand:'Ergon', model:'SM Enduro', family:'ergon-sm-enduro', price:130, weight:240 },
-  { id:'sa-specialized-bridge', cat:'saddle', brand:'Specialized', model:'Bridge', family:'specialized-bridge', price:150, weight:250 },
+  { id:'sa-ergon-sm-enduro', cat:'saddle', brand:'Ergon', model:'SM Enduro', family:'ergon-sm-enduro', price:89.95, weight:240, desc:'audit-cockpit 2026-07-09: price corrected 130->89.95 via the FETCHED ergonbike.shop/products/ergon-sm-enduro-men page - the $130 sample was actually HIGHER than the Comp trim\'s real $114.95 (see sibling row sa-ergon-sm-enduro-comp), which is backwards for the base tier. That page does not publish weight, so 240g stays an approximate sample, kept unverified' },
+  { id:'sa-specialized-bridge', cat:'saddle', brand:'Specialized', model:'Bridge Comp with MIMIC', family:'specialized-bridge', price:150, weight:321, desc:'audit-cockpit 2026-07-09: the plain "Bridge" name is ambiguous across Specialized\'s Sport/Comp tiers - $150 matches the Bridge Comp (chromoly rails/MIMIC) tier specifically (confirmed $149.99 via multiple retailer listings), not the cheaper $60-70 Bridge Sport; model name corrected to disambiguate. Weight corrected 250->321g (155mm, Specialized\'s claimed figure) - 250g was too light for any Bridge tier found (Sport is 317-325g). specialized.com blocked direct fetch (403); kept unverified' },
   { id:'sa-sdg-belair-v3', cat:'saddle', brand:'SDG', model:'Bel-Air V3', family:'sdg-belair', price:105, weight:236, verified:true, lastChecked:'2026-07-07', source:'https://sdgcomponents.com/products/bel-air-v3-lux-alloy' },
   { id:'sa-fizik-terra-aidon-x3', cat:'saddle', brand:'Fizik', model:'Terra Aidon X3', family:'fizik-terra-aidon', price:175, weight:249, verified:true, lastChecked:'2026-07-07', source:'https://www.fizik.com/us_en/terra-aidon-x3.html' },
   { id:'sa-wtb-silverado', cat:'saddle', brand:'WTB', model:'Silverado', family:'wtb-silverado', price:65, weight:308, verified:true, lastChecked:'2026-07-07', source:'https://www.wtb.com/products/silverado' },
   { id:'sa-fabric-scoop-radius', cat:'saddle', brand:'Fabric', model:'Scoop Sport Radius', family:'fabric-scoop', price:53, weight:306, verified:true, lastChecked:'2026-07-08', source:'https://fabric.cc/products/scoop-sport-radius', desc:'Re-fetched 2026-07-08 (US locale via country=US) during the catalog-saddles-breadth-2 pass: weight confirmed at 306g, but price now reads $53 (was $60 at the 2026-07-07 verification) - real drift, updated in place.' },
   { id:'sa-sdg-radar', cat:'saddle', brand:'SDG', model:'Radar Ti-Alloy', family:'sdg-radar', price:100, weight:230, verified:true, lastChecked:'2026-07-07', source:'https://sdgcomponents.com/products/radar-mtn-ti-alloy' },
-  { id:'sa-prologo-dimension', cat:'saddle', brand:'Prologo', model:'Dimension', family:'prologo-dimension', price:110, weight:245 },
-  { id:'sa-fizik-terra-alpaca', cat:'saddle', brand:'Fizik', model:'Terra Alpaca', family:'fizik-terra-alpaca', price:100, weight:235 },
-  { id:'sa-raceface-aeffect', cat:'saddle', brand:'Race Face', model:'Aeffect', family:'raceface-aeffect', price:60, weight:270 },
+  { id:'sa-prologo-dimension', cat:'saddle', brand:'Prologo', model:'Dimension', family:'prologo-dimension', price:110, weight:245, desc:'audit-cockpit 2026-07-09: real product line confirmed (multiple rail-material trims: T4.0/Tirox/Nack/CPC), weight/price both land within the sourced trim range (150-229g, $90-220) via retailer listings (bikeinn.com, biketiresdirect.com); exact trim not pinned, kept unverified' },
+  { id:'sa-fizik-terra-alpaca', cat:'saddle', brand:'Fizik', model:'Terra Alpaca', family:'fizik-terra-alpaca', price:100, weight:235, desc:'audit-cockpit 2026-07-09: matches the real Terra Alpaca X5 almost exactly (238g/$99.99) per fizik.com and multiple corroborating retailers (racycles.com, jensonusa.com); kept unverified (no direct manufacturer fetch)' },
+  { id:'sa-raceface-aeffect', cat:'saddle', brand:'Race Face', model:'Aeffect', family:'raceface-aeffect', price:89.90, weight:240, desc:'audit-cockpit 2026-07-09: price corrected 60->89.90 and weight corrected 270->240g per multiple corroborating retailer/review figures (vitalmtb.com spec guide, outdoorgearlab.com, jensonusa.com - claimed 240g/actual ~231g). Note: Race Face has discontinued this saddle, per enduro-mtb.com; kept unverified' },
   { id:'sa-chromag-trailmaster', cat:'saddle', brand:'Chromag', model:'Trailmaster DT', family:'chromag-trailmaster', price:99, weight:305, verified:true, lastChecked:'2026-07-07', source:'https://us.chromagbikes.com/products/saddles-trailmaster-dt-19' },
-  { id:'sa-bontrager-arvada', cat:'saddle', brand:'Bontrager', model:'Arvada', family:'bontrager-arvada', price:80, weight:260 },
-  { id:'sa-selleitalia-model-x', cat:'saddle', brand:'Selle Italia', model:'Model X', family:'selleitalia-model-x', price:90, weight:270 },
-  { id:'sa-pnw-loam', cat:'saddle', brand:'PNW', model:'Loam', family:'pnw-loam', price:60, weight:265 },
+  { id:'sa-bontrager-arvada', cat:'saddle', brand:'Bontrager', model:'Arvada', family:'bontrager-arvada', price:80, weight:260, desc:'audit-cockpit 2026-07-09: real product line confirmed (Comp/Elite/Pro trims via trekbikes.com); weight/price fall between the sourced Comp (294-307g, ~$75) and Elite (216-230g, ~$57-70) trims - exact trim not pinned, kept unverified' },
+  { id:'sa-selleitalia-model-x', cat:'saddle', brand:'Selle Italia', model:'Model X', family:'selleitalia-model-x', price:65, weight:310, desc:'audit-cockpit 2026-07-09: price corrected 90->65 (real listings run $50-70, e.g. velo.outsideonline.com\'s "$50" review, gambacicli.com); weight corrected 270->310g (Selle Italia\'s own Green Superflow figure is 315g; a lighter EVO trim is 292g) per road.cc and multiple retailers. Kept unverified' },
+  /* --- 2026-07-09 audit-cockpit REMOVAL: sa-pnw-loam ('PNW Loam' saddle, $60/265g) was fabricated -
+     PNW Components makes no saddle at all (confirmed: their "Loam" name is used for a dropper post,
+     stem, grips and lever, never a saddle; pnwcomponents.com's full site index has no saddle
+     collection/product). No real PNW saddle exists to retire this into, so the row is deleted outright
+     rather than aliased to an unrelated substitute; the id was not referenced by any preset or golden
+     test (grep-confirmed). Old share links containing sa-pnw-loam will silently drop the unknown id
+     (readHash's documented behavior) rather than resolve to a real product. --- */
   { id:'sa-dmr-oioi', cat:'saddle', brand:'DMR', model:'OiOi', family:'dmr-oioi', price:40, weight:270, verified:true, lastChecked:'2026-07-07', source:'https://dmrbikes.com/products/dmr-oioi-saddle' },
   /* --- catalog-cockpit (2026-07-08): WTB + Ergon saddle breadth --- */
   { id:'sa-wtb-koda-ti', cat:'saddle', brand:'WTB', model:'Koda (Titanium, Medium)', family:'wtb-koda', mfgPn:'W065-0611', price:65, weight:218, verified:true, lastChecked:'2026-07-08', source:'https://www.wtb.com/products/koda', desc:'Titanium, Medium-width (145mm) SKU - 218g, from the fetched wtb.com spec table (also offered in Cromoly 306g and Steel 315g, Medium or Wide widths)' },
@@ -3451,7 +3457,8 @@ var ALIASES = {
   'sa-chromag': 'sa-chromag-trailmaster',
   'sa-bontrager': 'sa-bontrager-arvada',
   'sa-selle': 'sa-selleitalia-model-x',
-  'sa-pnw': 'sa-pnw-loam',
+  // 'sa-pnw'/'sa-pnw-loam' intentionally NOT aliased: 2026-07-09 audit-cockpit removed the row as a
+  // fabrication (PNW makes no saddle) and there is no real PNW saddle to redirect old links to.
   'sa-dmr': 'sa-dmr-oioi',
   'pd-oneup-al': 'pd-oneup-aluminum',
   'pd-oneup-comp': 'pd-oneup-composite',
