@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-08T20:44:32.454Z",
+ "updated": "2026-07-09T02:43:31.287Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -44,7 +44,29 @@
   "dp-rockshox-reverb-axs-349-170",
   "dp-rockshox-reverb-axs-309-170",
   "dp-sdg-tellis-349-170",
-  "dp-sdg-tellis-309-170"
+  "dp-sdg-tellis-309-170",
+  "fh-dtswiss-350-boost110",
+  "fh-hope-pro5-boost110",
+  "fh-industrynine-hydraclassic-boost110",
+  "fh-spank-hex-boost110",
+  "fh-raceface-vault-boost110",
+  "rh-dtswiss-350-boost148-xd",
+  "rh-dtswiss-350-boost148-ms",
+  "rh-dtswiss-350-boost148-hg",
+  "rh-hope-pro5-boost148-xd",
+  "rh-hope-pro5-boost148-ms",
+  "rh-hope-pro5-boost148-hg",
+  "rh-industrynine-hydraclassic-boost148-ms",
+  "rh-industrynine-hydraclassic-superboost157-xd",
+  "rh-spank-hex-boost148-xd",
+  "rh-spank-hex-boost148-ms",
+  "rh-raceface-vault-boost148-xd",
+  "rh-raceface-vault-boost148-ms",
+  "rm-dtswiss-ex511-29",
+  "rm-hope-fortus30-29",
+  "rm-industrynine-endurosv2-29",
+  "rm-spank-359-29",
+  "rm-raceface-arc25-29"
  ],
  "parts": {
   "fr-specialized-enduro-sworks": {
@@ -2279,14 +2301,6 @@
    "source": null,
    "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
-  "cr-ethirteen-plus": {
-   "cat": "crankset",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:07:55.563Z",
-   "error": null,
-   "source": null,
-   "note": "IMPORTANT: 'e13 Plus' doesn't match any current e*thirteen product as a standard pedal crankset. The closest name match, 'e*spec Plus Cranks', is actually an E-BIKE MOTOR-INTERFACE crank arm system (Bosch CX Gen4 / Brose S Mag / Shimano EP8 specific) with no chainring of its own -- structurally different from this catalog row (which has ring:32, ringStd:'standard-12', a normal pedal-bike spec). This looks like a data-entry mismatch, not just an unsourced part -- flag for a data-entry review rather than further weight sourcing."
-  },
   "cr-canecreek-eewings-allmountain": {
    "cat": "crankset",
    "status": "Verified",
@@ -3645,6 +3659,262 @@
    "updated": "2026-07-08T20:44:32.453Z",
    "error": null,
    "source": "https://kssuspension.com/products/dropper-seat-posts/lev-integra/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "cr-ethirteen-trs-race-carbon": {
+   "cat": "crankset",
+   "status": "Verified",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": "https://www.ethirteen.com/products/trs-race-carbon-cranks-gen4",
+   "note": "IMPORTANT: 'e13 Plus' doesn't match any current e*thirteen product as a standard pedal crankset. The closest name match, 'e*spec Plus Cranks', is actually an E-BIKE MOTOR-INTERFACE crank arm system (Bosch CX Gen4 / Brose S Mag / Shimano EP8 specific) with no chainring of its own -- structurally different from this catalog row (which has ring:32, ringStd:'standard-12', a normal pedal-bike spec). This looks like a data-entry mismatch, not just an unsourced part -- flag for a data-entry review rather than further weight sourcing."
+  },
+  "sft-sram-eagle90-transmission": {
+   "cat": "shifter",
+   "status": "Verified",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/sl-90-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "sft-sram-eagle70-transmission": {
+   "cat": "shifter",
+   "status": "Verified",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/sl-70-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dr-sram-eagle90-transmission": {
+   "cat": "derailleur",
+   "status": "Verified",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/rd-90-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dr-sram-eagle70-transmission": {
+   "cat": "derailleur",
+   "status": "Verified",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/rd-70-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ca-sram-xs1270": {
+   "cat": "cassette",
+   "status": "Verified",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cs-xs-1270-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ch-sram-eagle70-flattop": {
+   "cat": "chain",
+   "status": "Verified",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cn-ttyp-70-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "cr-sram-eagle90-transmission": {
+   "cat": "crankset",
+   "status": "Verified",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/fc-90-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "cr-sram-eagle70-transmission": {
+   "cat": "crankset",
+   "status": "Verified",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/fc-70-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fh-dtswiss-350-boost110": {
+   "cat": "fronthub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fh-hope-pro5-boost110": {
+   "cat": "fronthub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fh-industrynine-hydraclassic-boost110": {
+   "cat": "fronthub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fh-spank-hex-boost110": {
+   "cat": "fronthub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fh-raceface-vault-boost110": {
+   "cat": "fronthub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-dtswiss-350-boost148-xd": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-dtswiss-350-boost148-ms": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-dtswiss-350-boost148-hg": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-hope-pro5-boost148-xd": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-hope-pro5-boost148-ms": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-hope-pro5-boost148-hg": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-industrynine-hydraclassic-boost148-ms": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-industrynine-hydraclassic-superboost157-xd": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-spank-hex-boost148-xd": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-spank-hex-boost148-ms": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-raceface-vault-boost148-xd": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-raceface-vault-boost148-ms": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rm-dtswiss-ex511-29": {
+   "cat": "rim",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rm-hope-fortus30-29": {
+   "cat": "rim",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rm-industrynine-endurosv2-29": {
+   "cat": "rim",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rm-spank-359-29": {
+   "cat": "rim",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rm-raceface-arc25-29": {
+   "cat": "rim",
+   "status": "Pending",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rm-stans-flowex3-29": {
+   "cat": "rim",
+   "status": "Verified",
+   "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": "https://stans.com/products/flow-ex3-rim",
    "note": "auto-promoted: already verified in catalog"
   }
  }
