@@ -1950,6 +1950,146 @@ var PARTS_RAW = [
   { id:'ro-formula-monolithic-180-cl', cat:'rotor', brand:'Formula', model:'Monolithic 180mm (CL)', family:'formula-monolithic', price:48, weight:194, size:180, mount:'CL', desc:'194g/$47.95 from the bikecomponents-us.com spec listing ("35mm spline-lock" Center Lock interface) -- retailer spec table, stays unverified' },
   { id:'ro-formula-monolithic-203-cl', cat:'rotor', brand:'Formula', model:'Monolithic 203mm (CL)', family:'formula-monolithic', price:52, weight:228, size:203, mount:'CL', desc:'228g from the same bikecomponents-us.com spec listing as the cataloged 180mm CL sibling' },
 
+  /* --- catalog-rotors-breadth-3 pass: TEKTRO (new brand - Tektro is the parent company
+     selling direct through trpcycling.com/dealer.trpcycling.com's storefront alongside its
+     TRP subsidiary; a brake-caliper pass tonight added Tektro's Orion/Gemini calipers, so
+     these are matching Tektro-branded rotors). All sizes/mounts/prices FETCHED directly
+     from individual trpcycling.com product pages; Tektro (like SRAM/Shimano) does not
+     publish rotor weights, so weight stays sample/scaled throughout (never verified:true
+     for these rows). Four fit-distinct lines: TR-54 (thick 2.3mm 6-bolt), TR-52 (standard
+     1.8mm 6-bolt), TR-45 (thick 2.3mm Center Lock), TR-35 (standard 1.8mm Center Lock).
+     Excluded: TR-27 (SR Suntour hub-motor e-bike mount pattern, doesn't map to this
+     catalog's sixbolt/CL rotorMount vocab); TR-1/TR-7/TR-16/TR-53 (four differently-named
+     but spec-identical 203mm-only 1.8mm 6-bolt $32.99 OEM SKUs, redundant with TR-52's
+     203mm variant below - nothing engine-relevant differs); TR-29 (140mm, priced
+     identically to RS01M's 140mm variant below - reads as a legacy/duplicate listing of
+     the same underlying product under an old name). --- */
+  { id:'ro-tektro-tr54-160-6b', cat:'rotor', brand:'Tektro', model:'TR-54 160mm (6-bolt)', family:'tektro-tr54', price:43.99, weight:130, size:160, mount:'sixbolt', desc:'2.3mm thick 6-bolt rotor, sizes/mount/price FETCHED from trpcycling.com/products/tr-54 (160/180/203mm, all $43.99); weight not published - sample, scaled from the same-thickness-class Formula Monolithic 6-bolt siblings already cataloged (162g@180/208g@203)' },
+  { id:'ro-tektro-tr54-180-6b', cat:'rotor', brand:'Tektro', model:'TR-54 180mm (6-bolt)', family:'tektro-tr54', price:43.99, weight:162, size:180, mount:'sixbolt', desc:'sample weight (see 160mm sibling); size/mount/price FETCHED from trpcycling.com/products/tr-54' },
+  { id:'ro-tektro-tr54-203-6b', cat:'rotor', brand:'Tektro', model:'TR-54 203mm (6-bolt)', family:'tektro-tr54', price:43.99, weight:208, size:203, mount:'sixbolt', desc:'sample weight (see 160mm sibling); size/mount/price FETCHED from trpcycling.com/products/tr-54' },
+  { id:'ro-tektro-tr52-160-6b', cat:'rotor', brand:'Tektro', model:'TR-52 160mm (6-bolt)', family:'tektro-tr52', mfgPn:'ABRT000214', price:32.99, weight:140, size:160, mount:'sixbolt', desc:'1.8mm thick 6-bolt rotor, sizes/mount/price/SKU FETCHED from trpcycling.com/products/tr-52 (160/180/203mm, all $32.99); weight not published - sample, scaled from the same-thickness-class Shimano SM-RT76 6-bolt siblings already cataloged. Tektro also sells four spec-identical 203mm-only OEM SKUs at this exact price (TR-1/TR-7/TR-16/TR-53, part numbers ABRT000068/000080/000124/000157) - not entered separately since nothing engine-relevant differs from this row\'s 203mm sibling' },
+  { id:'ro-tektro-tr52-180-6b', cat:'rotor', brand:'Tektro', model:'TR-52 180mm (6-bolt)', family:'tektro-tr52', mfgPn:'ABRT000214', price:32.99, weight:165, size:180, mount:'sixbolt', desc:'sample weight (see 160mm sibling); size/mount/price/SKU FETCHED from trpcycling.com/products/tr-52' },
+  { id:'ro-tektro-tr52-203-6b', cat:'rotor', brand:'Tektro', model:'TR-52 203mm (6-bolt)', family:'tektro-tr52', mfgPn:'ABRT000214', price:32.99, weight:180, size:203, mount:'sixbolt', desc:'sample weight (see 160mm sibling); size/mount/price/SKU FETCHED from trpcycling.com/products/tr-52' },
+  { id:'ro-tektro-tr45-180-cl', cat:'rotor', brand:'Tektro', model:'TR-45 180mm (CL)', family:'tektro-tr45', mfgPn:'C1600231', price:54.99, weight:165, size:180, mount:'CL', desc:'2.3mm thick Center Lock rotor (lockring NOT included), sizes/mount/price/SKU FETCHED from trpcycling.com/products/tr-45 (180/203mm, both $54.99); weight not published - sample, scaled from the same-thickness-class TR-54 sibling above' },
+  { id:'ro-tektro-tr45-203-cl', cat:'rotor', brand:'Tektro', model:'TR-45 203mm (CL)', family:'tektro-tr45', mfgPn:'C1600231', price:54.99, weight:210, size:203, mount:'CL', desc:'sample weight (see 180mm sibling); size/mount/price/SKU FETCHED from trpcycling.com/products/tr-45' },
+  { id:'ro-tektro-tr35-140-cl', cat:'rotor', brand:'Tektro', model:'TR-35 140mm (CL)', family:'tektro-tr35', mfgPn:'C1600182', price:43.99, weight:110, size:140, mount:'CL', desc:'1.8mm thick Center Lock rotor (lockring NOT included), sizes/mount/price/SKU FETCHED from trpcycling.com/products/tr-35 (140/160/180mm, all $43.99); weight not published - sample, scaled from the same-thickness-class TR-52 sibling above' },
+  { id:'ro-tektro-tr35-160-cl', cat:'rotor', brand:'Tektro', model:'TR-35 160mm (CL)', family:'tektro-tr35', mfgPn:'C1600182', price:43.99, weight:140, size:160, mount:'CL', desc:'sample weight (see 140mm sibling); size/mount/price/SKU FETCHED from trpcycling.com/products/tr-35' },
+  { id:'ro-tektro-tr35-180-cl', cat:'rotor', brand:'Tektro', model:'TR-35 180mm (CL)', family:'tektro-tr35', mfgPn:'C1600182', price:43.99, weight:165, size:180, mount:'CL', desc:'sample weight (see 140mm sibling); size/mount/price/SKU FETCHED from trpcycling.com/products/tr-35' },
+
+  /* --- catalog-rotors-breadth-3 pass: CLARKS (new brand - the brake-caliper pass tonight
+     added the Clarks M4 caliper; these are matching Clarks rotors). Three fit-distinct
+     single-piece lines confirmed via clarkscyclesystems.com + multiple US retailer listings
+     (Modern Bike, Triton Cycles, Trek Bike Shops of Florida etc.): CL-01 (standard 1.8mm
+     6-bolt), CLE-01 (e-bike-rated 2.3mm 6-bolt - the ONLY Clarks rotor with a manufacturer-
+     published per-size weight table, so these rows are VERIFIED), and C-CL (Center Lock,
+     aluminum splined carrier, "Shimano compatible" per Clarks' own category page). Clarks
+     also sells a 2-piece "floating" sub-line (CFR-06/CFR-13FA and other regionally
+     inconsistent codes) - held OUT this pass, its per-size specs couldn't be pinned
+     confidently across Clarks' UK (clarks.bike) vs US (clarkscyclesystems.com) product
+     catalogs. Price = retailer street-price aggregate (Clarks publishes no USD MSRP on its
+     own site), so price stays sample throughout even on the verified CLE-01 rows. --- */
+  { id:'ro-clarks-cl01-140-6b', cat:'rotor', brand:'Clarks', model:'CL-01 140mm (6-bolt)', family:'clarks-cl01', price:14, weight:87, size:140, mount:'sixbolt', desc:'standard-duty 1.8mm single-piece rotor, 140/160/180/203mm + 6-bolt confirmed via clarkscyclesystems.com\'s single-piece-rotors category page + multiple US retailer listings (Modern Bike, Cambria Bike, Planet Cyclery); weight/price = sample (retailer aggregate ~$16 at 160mm, ~106g at 160mm per a non-manufacturer listing) - other sizes scaled using the CLE-01 sibling line\'s own per-size ratio below' },
+  { id:'ro-clarks-cl01-160-6b', cat:'rotor', brand:'Clarks', model:'CL-01 160mm (6-bolt)', family:'clarks-cl01', price:16, weight:106, size:160, mount:'sixbolt', desc:'106g and ~$16 per non-manufacturer retailer listings (Modern Bike); Clarks\' own page publishes no per-size weight for this (non-E) line' },
+  { id:'ro-clarks-cl01-180-6b', cat:'rotor', brand:'Clarks', model:'CL-01 180mm (6-bolt)', family:'clarks-cl01', price:19, weight:132, size:180, mount:'sixbolt', desc:'sample weight/price (see 160mm sibling)' },
+  { id:'ro-clarks-cl01-203-6b', cat:'rotor', brand:'Clarks', model:'CL-01 203mm (6-bolt)', family:'clarks-cl01', price:22, weight:164, size:203, mount:'sixbolt', desc:'sample weight/price (see 160mm sibling)' },
+  { id:'ro-clarks-cle01-140-6b', cat:'rotor', brand:'Clarks', model:'CLE-01 E-Bike 140mm (6-bolt)', family:'clarks-cle01', price:16, weight:126, size:140, mount:'sixbolt', verified:true, lastChecked:'2026-07-09', source:'https://www.clarkscyclesystems.com/single-piece-rotors/cle-01', desc:'2.3mm e-bike-rated single-piece rotor; 126/153/191/237g for 140/160/180/203mm are Clarks\' OWN per-size published weights (clarkscyclesystems.com product page); price = sample retailer aggregate (Clarks publishes no USD MSRP)' },
+  { id:'ro-clarks-cle01-160-6b', cat:'rotor', brand:'Clarks', model:'CLE-01 E-Bike 160mm (6-bolt)', family:'clarks-cle01', price:18, weight:153, size:160, mount:'sixbolt', verified:true, lastChecked:'2026-07-09', source:'https://www.clarkscyclesystems.com/single-piece-rotors/cle-01', desc:'153g = Clarks\' own published weight; price = sample retailer aggregate' },
+  { id:'ro-clarks-cle01-180-6b', cat:'rotor', brand:'Clarks', model:'CLE-01 E-Bike 180mm (6-bolt)', family:'clarks-cle01', price:19, weight:191, size:180, mount:'sixbolt', verified:true, lastChecked:'2026-07-09', source:'https://www.clarkscyclesystems.com/single-piece-rotors/cle-01', desc:'191g = Clarks\' own published weight; price = sample retailer aggregate' },
+  { id:'ro-clarks-cle01-203-6b', cat:'rotor', brand:'Clarks', model:'CLE-01 E-Bike 203mm (6-bolt)', family:'clarks-cle01', price:22, weight:237, size:203, mount:'sixbolt', verified:true, lastChecked:'2026-07-09', source:'https://www.clarkscyclesystems.com/single-piece-rotors/cle-01', desc:'237g = Clarks\' own published weight; price = sample retailer aggregate' },
+  { id:'ro-clarks-ccl-140-cl', cat:'rotor', brand:'Clarks', model:'C-CL 140mm (Centre Lock)', family:'clarks-ccl', price:20, weight:95, size:140, mount:'CL', desc:'Center Lock single-piece rotor, aluminum 6061 splined carrier + SUS410 stainless braking surface, "Shimano compatible" per Clarks\' own Floating & Centre Lock Rotors category page; 140-203mm range + Centre Lock mount confirmed via that page plus independent Amazon (140mm)/Rarewaves (160mm) listings; weight/price = sample (no manufacturer or retailer weight found for any size) - estimated a touch above the CL-01 6-bolt siblings for the added carrier hardware' },
+  { id:'ro-clarks-ccl-160-cl', cat:'rotor', brand:'Clarks', model:'C-CL 160mm (Centre Lock)', family:'clarks-ccl', price:23, weight:115, size:160, mount:'CL', desc:'sample weight/price (see 140mm sibling)' },
+  { id:'ro-clarks-ccl-180-cl', cat:'rotor', brand:'Clarks', model:'C-CL 180mm (Centre Lock)', family:'clarks-ccl', price:26, weight:140, size:180, mount:'CL', desc:'sample weight/price (see 140mm sibling)' },
+  { id:'ro-clarks-ccl-203-cl', cat:'rotor', brand:'Clarks', model:'C-CL 203mm (Centre Lock)', family:'clarks-ccl', price:30, weight:170, size:203, mount:'CL', desc:'sample weight/price (see 140mm sibling)' },
+
+  /* --- catalog-rotors-breadth-3 pass: Trickstuff completeness check against
+     trickstuff.com's own brake-discs category page, which lists exactly THREE current
+     rotor lines: Dächle Disc HD, Dächle Disc UL (both already fully cataloged - HD at
+     160/180/203mm, UL at 140/160/180/203mm) and a THIRD line entirely missing from the
+     catalog - Downhill Disc (223mm only, the brand's big-rotor DH/e-MTB option), added
+     below. NOTE: the plain "Dächle 203mm/180mm (6-bolt)" rows already cataloged (family
+     trickstuff-dachle, unverified, prices $90/$80) reference a product whose own
+     trickstuff.com URL now 404s and whose weights (150g/130g) match neither of the two
+     current named lines (HD: 195g/150g, UL: 152g/119g) at those sizes - likely a stale/
+     renamed legacy sample predating the HD/UL split. Left AS-IS this pass (out of scope:
+     retiring it via ALIASES would ripple into the bs-trickstuff-maxima brakeset preset, a
+     cat:'brakeset' row, out of bounds for a rotor-only pass) - flagging here for later. --- */
+  { id:'ro-trickstuff-downhill-223-6b', cat:'rotor', brand:'Trickstuff', model:'Downhill Disc 223mm (6-bolt)', family:'trickstuff-downhill', mfgPn:'BKDSV23IN0000S', disciplines:['dh'], price:80, weight:217, size:223, mount:'sixbolt', verified:true, lastChecked:'2026-07-09', source:'https://www.trickstuff.com/en/brake-parts-and-tools/brake-discs/downhill-disc', desc:'Trickstuff\'s dedicated big-rotor DH/e-MTB line - a third current rotor line alongside the cataloged Dächle HD/UL, sold in only one size (223mm). 217g + IS 6-bolt + part BKDSV23IN0000S are Trickstuff\'s own published figures; price = sample USD conversion from the page\'s "from EUR 74" (no USD price published)' },
+
+  /* --- catalog-rotors-breadth-3 pass: Galfer "Disc Shark" - a two-piece 6-bolt rotor line
+     entirely separate from the cataloged single-piece Wave line, confirmed via galfer.com's
+     brake-discs catalog page plus independent retailer corroboration (Worldwide Cyclery's
+     203mm listing: 174g/$147.08, matching the catalog page's 175g almost exactly). 180/
+     203/223mm, 6-bolt only (multiple US retailers and a Pinkbike review all describe Shark
+     as 6-bolt-only). A "Shark Center-Lock 140/160mm" pair also appeared on the same
+     galfer.com catalog-page fetch, but no independent retailer corroborates it and that
+     page proved unreliable elsewhere for this brand (it also showed two DIFFERENT weights,
+     110g and 141g, for the SAME already-verified DB002WCL part number already cataloged) -
+     so the CL Shark variant and a couple of other ambiguous "Fixed Disc W" SKU variants
+     from that same fetch were held OUT rather than risk entering fabricated rows. --- */
+  { id:'ro-galfer-shark-180-6b', cat:'rotor', brand:'Galfer', model:'Shark 180mm (6-bolt)', family:'galfer-shark', mfgPn:'DB143FLW', disciplines:['enduro','dh'], price:130, weight:165, size:180, mount:'sixbolt', desc:'2-piece floating rotor (aluminum carrier + laser-cut stainless braking ring), distinct from the cataloged single-piece Wave line; 165g from the FETCHED galfer.com brake-discs catalog page; price estimated proportionally from the corroborated 203mm/$147 sibling (no 180mm retailer price found)' },
+  { id:'ro-galfer-shark-203-6b', cat:'rotor', brand:'Galfer', model:'Shark 203mm (6-bolt)', family:'galfer-shark', mfgPn:'DB144FLW', disciplines:['enduro','dh'], price:147, weight:174, size:203, mount:'sixbolt', desc:'174g/$147.08 per Worldwide Cyclery\'s own listing (independently matching galfer.com\'s own catalog-page figure of 175g) - a retailer figure, not a manufacturer page, so stays unverified per the retailer-weight policy despite the strong corroboration' },
+  { id:'ro-galfer-shark-223-6b', cat:'rotor', brand:'Galfer', model:'Shark 223mm (6-bolt)', family:'galfer-shark', mfgPn:'DB147FLW', disciplines:['dh'], price:156, weight:195, size:223, mount:'sixbolt', desc:'195g from the FETCHED galfer.com brake-discs catalog page; $156 from a CAD-to-USD retailer conversion (Pinkbike review + multiple shop listings confirm 223mm as Galfer\'s flagship DH Shark size)' },
+
+  /* --- catalog-rotors-breadth-3 pass: Shimano SM-RT66 (SLX/Deore-tier 6-bolt, sits below
+     the cataloged RT-MT800/900 Center-Lock-only enduro/XC tiers and alongside the cataloged
+     SM-RT76 - RT66 is a CURRENT 6-bolt SLX/Deore rotor per Shimano's own bike.shimano.com
+     product page (403s on WebFetch, the known wall - confirmed instead via Jenson/Vital
+     MTB/evo/Fanatik Bike listings, all describing it as SLX/Deore, IS 6-bolt, 160/180/203/
+     220mm) and SM-RT30 (Center Lock, resin-pad-only entry tier below the cataloged
+     RT-MT800 - confirmed via bike.shimano.com's own EU product URL slug + multiple
+     retailer listings, 160/180/203mm). Both fill genuine size-range/tier gaps this
+     catalog's Shimano 6-bolt/CL lineup previously lacked. Shimano publishes no rotor
+     weights (the known wall) so these stay sample throughout, same convention as every
+     other Shimano rotor row already cataloged. --- */
+  { id:'ro-shimano-smrt66-160-6b', cat:'rotor', brand:'Shimano', model:'SM-RT66 160mm (6-bolt)', family:'shimano-smrt66', mfgPn:'SM-RT66', price:30, weight:114, size:160, mount:'sixbolt', desc:'114g = retailer-reported figure (Dialed Cycling Lab and others; not a single reputable measured source, stays unverified); 160/180/203/220mm SLX/Deore-tier 6-bolt confirmed via Jenson USA/Vital MTB/evo/Fanatik Bike listings (Shimano itself publishes no rotor weights, and bike.shimano.com 403s on fetch)' },
+  { id:'ro-shimano-smrt66-180-6b', cat:'rotor', brand:'Shimano', model:'SM-RT66 180mm (6-bolt)', family:'shimano-smrt66', mfgPn:'SM-RT66', price:32, weight:154, size:180, mount:'sixbolt', desc:'154g = retailer-reported figure (see 160mm sibling)' },
+  { id:'ro-shimano-smrt66-203-6b', cat:'rotor', brand:'Shimano', model:'SM-RT66 203mm (6-bolt)', family:'shimano-smrt66', mfgPn:'SM-RT66', price:35, weight:192, size:203, mount:'sixbolt', desc:'192g = retailer-reported figure (see 160mm sibling)' },
+  { id:'ro-shimano-smrt66-220-6b', cat:'rotor', brand:'Shimano', model:'SM-RT66 220mm (6-bolt)', family:'shimano-smrt66', mfgPn:'SM-RT66', price:38, weight:230, size:220, mount:'sixbolt', desc:'sample weight (scaled from the 203mm/192g sibling - no retailer weight found specifically for 220mm); size confirmed via Worldwide Cyclery/mtbr forum listings' },
+  { id:'ro-shimano-smrt30-160-cl', cat:'rotor', brand:'Shimano', model:'SM-RT30 160mm (CL)', family:'shimano-smrt30', mfgPn:'SM-RT30', price:18, weight:182, size:160, mount:'CL', desc:'Shimano\'s entry-level Center-Lock rotor, resin-pad ONLY (not modeled - this catalog has no rotor pad-compound field; note for a future schema pass). 182g including lockring per multiple retailer spec listings (Gambacicli, Condor Cycles); size range (160/180/203mm) confirmed via bike.shimano.com\'s own EU product URL (product/component/tourney-tx800/SM-RT30.html - a Tourney-tier budget component) plus Merlin Cycles/BIKE24/Amazon listings' },
+  { id:'ro-shimano-smrt30-180-cl', cat:'rotor', brand:'Shimano', model:'SM-RT30 180mm (CL)', family:'shimano-smrt30', mfgPn:'SM-RT30', price:20, weight:206, size:180, mount:'CL', desc:'206g including lockring per multiple retailer spec listings (see 160mm sibling)' },
+  { id:'ro-shimano-smrt30-203-cl', cat:'rotor', brand:'Shimano', model:'SM-RT30 203mm (CL)', family:'shimano-smrt30', mfgPn:'SM-RT30', price:23, weight:230, size:203, mount:'CL', desc:'sample weight (scaled from the 180mm/206g sibling - no retailer weight found specifically for 203mm); size confirmed via Amazon/CCACHE/Alchemy Online listings' },
+
+  /* --- catalog-rotors-breadth-3 pass: TRP-branded (not Tektro) rotors beyond the cataloged
+     RS05E/TR25/TR33/TR42 - trpcycling.com's own /collections/rotors page lists a much wider
+     current lineup than what was previously cataloged. All sizes/mounts/prices/SKUs
+     FETCHED from individual trpcycling.com product pages (collection-page table extraction
+     proved unreliable for the numeric-suffixed TR-xx names - e.g. it mis-paired "Mount:
+     25mm" from the TR25 model NUMBER, already known-good in this catalog as Center Lock -
+     so every row below was confirmed on its OWN product page, not the collection listing).
+     Six new fit-distinct lines: RS01E (thick 2.3mm 6-bolt e-bike, MANUFACTURER-PUBLISHED
+     per-size weights - fully verified), RS06E Allround (thick 2.3mm 6-bolt e-bike,
+     manufacturer weights for 203/220mm), RC04E (thick 2.3mm Center Lock e-bike,
+     2-piece), RS02M (standard 1.8mm 6-bolt, "Rust Block" branding), RC03M (standard 1.8mm
+     Center Lock, 2-piece), RS01M (standard 1.8mm 6-bolt budget tier, "same track/spyder as
+     RS01E"), and TR43 (standard 1.8mm 6-bolt, 2-piece floating aluminum-center design -
+     distinct construction from the solid RS02M/RS01M). Excluded: TR31 (Stromer e-bike-
+     specific proprietary mount) and TR203-49 (Rohloff-hub-specific mount) - neither maps
+     to a standard 6-bolt/CL MTB fitment. TR29 also excluded - priced identically to
+     RS01M's 140mm variant ($26.49 sale/$39.99 regular), reads as a legacy/duplicate
+     listing of the same product. --- */
+  { id:'ro-trp-rs01e-180-6b', cat:'rotor', brand:'TRP', model:'RS01E 180mm (6-bolt)', family:'trp-rs01e', mfgPn:'ABRT000158', price:65.99, weight:187, size:180, mount:'sixbolt', verified:true, lastChecked:'2026-07-09', source:'https://trpcycling.com/products/rs01e', desc:'2.3mm e-bike-rated 6-bolt rotor ("47% increased torsional stiffness, 8% better cooling" vs. prior models); 187/238/279/283g for 180/203/220/223mm are TRP\'s OWN per-size published weights' },
+  { id:'ro-trp-rs01e-203-6b', cat:'rotor', brand:'TRP', model:'RS01E 203mm (6-bolt)', family:'trp-rs01e', mfgPn:'ABRT000158', price:65.99, weight:238, size:203, mount:'sixbolt', verified:true, lastChecked:'2026-07-09', source:'https://trpcycling.com/products/rs01e', desc:'238g = TRP\'s own published weight' },
+  { id:'ro-trp-rs01e-220-6b', cat:'rotor', brand:'TRP', model:'RS01E 220mm (6-bolt)', family:'trp-rs01e', mfgPn:'ABRT000158', price:65.99, weight:279, size:220, mount:'sixbolt', verified:true, lastChecked:'2026-07-09', source:'https://trpcycling.com/products/rs01e', desc:'279g = TRP\'s own published weight' },
+  { id:'ro-trp-rs01e-223-6b', cat:'rotor', brand:'TRP', model:'RS01E 223mm (6-bolt)', family:'trp-rs01e', mfgPn:'ABRT000158', price:65.99, weight:283, size:223, mount:'sixbolt', verified:true, lastChecked:'2026-07-09', source:'https://trpcycling.com/products/rs01e', desc:'283g = TRP\'s own published weight' },
+  { id:'ro-trp-rs06e-180-6b', cat:'rotor', brand:'TRP', model:'RS06E Allround 180mm (6-bolt)', family:'trp-rs06e', mfgPn:'ABRT000262', price:65.99, weight:190, size:180, mount:'sixbolt', desc:'2.3mm e-bike-rated 6-bolt rotor ("new hole pattern...optimized for trail, E-MTB, and park"); 180mm weight not published - sample, scaled proportionally from the verified 203mm/222g sibling using the RS01E family\'s own 180-to-203 ratio' },
+  { id:'ro-trp-rs06e-203-6b', cat:'rotor', brand:'TRP', model:'RS06E Allround 203mm (6-bolt)', family:'trp-rs06e', mfgPn:'ABRT000262', price:65.99, weight:222, size:203, mount:'sixbolt', verified:true, lastChecked:'2026-07-09', source:'https://trpcycling.com/products/rs06e-allround-rotor-2-3mm-180-223mm', desc:'222g = TRP\'s own published weight' },
+  { id:'ro-trp-rs06e-220-6b', cat:'rotor', brand:'TRP', model:'RS06E Allround 220mm (6-bolt)', family:'trp-rs06e', mfgPn:'ABRT000262', price:65.99, weight:256, size:220, mount:'sixbolt', verified:true, lastChecked:'2026-07-09', source:'https://trpcycling.com/products/rs06e-allround-rotor-2-3mm-180-223mm', desc:'256g = TRP\'s own published weight' },
+  { id:'ro-trp-rc04e-180-cl', cat:'rotor', brand:'TRP', model:'RC04E 180mm (CL)', family:'trp-rc04e', mfgPn:'ABRT000199', price:50.99, weight:180, size:180, mount:'CL', desc:'2.3mm e-bike-rated 2-piece Center Lock rotor (lockring sold separately); size/mount/price/SKU FETCHED from trpcycling.com/products/rc04e-2-3mm-180-203mm; weight not published - sample, estimated close to the same-thickness 6-bolt RS01E sibling' },
+  { id:'ro-trp-rc04e-203-cl', cat:'rotor', brand:'TRP', model:'RC04E 203mm (CL)', family:'trp-rc04e', mfgPn:'ABRT000199', price:50.99, weight:230, size:203, mount:'CL', desc:'sample weight (see 180mm sibling)' },
+  { id:'ro-trp-rs02m-140-6b', cat:'rotor', brand:'TRP', model:'RS02M 140mm (6-bolt)', family:'trp-rs02m', mfgPn:'ABRT000164', price:47.49, weight:100, size:140, mount:'sixbolt', desc:'standard 1.8mm 6-bolt "Rust Block" rotor; size/mount/price/SKU FETCHED from trpcycling.com/products/rs02m (140/160/180/203mm, all $47.49); 160mm/128g per a CyclingUpgrades listed weight (retailer, not TRP\'s own page, stays sample) - other sizes scaled from it' },
+  { id:'ro-trp-rs02m-160-6b', cat:'rotor', brand:'TRP', model:'RS02M 160mm (6-bolt)', family:'trp-rs02m', mfgPn:'ABRT000164', price:47.49, weight:128, size:160, mount:'sixbolt', desc:'128g per a CyclingUpgrades listing (retailer, stays sample); size/mount/price/SKU FETCHED from trpcycling.com/products/rs02m' },
+  { id:'ro-trp-rs02m-180-6b', cat:'rotor', brand:'TRP', model:'RS02M 180mm (6-bolt)', family:'trp-rs02m', mfgPn:'ABRT000164', price:47.49, weight:155, size:180, mount:'sixbolt', desc:'sample weight (see 160mm sibling)' },
+  { id:'ro-trp-rs02m-203-6b', cat:'rotor', brand:'TRP', model:'RS02M 203mm (6-bolt)', family:'trp-rs02m', mfgPn:'ABRT000164', price:47.49, weight:185, size:203, mount:'sixbolt', desc:'sample weight (see 160mm sibling)' },
+  { id:'ro-trp-rc03m-160-cl', cat:'rotor', brand:'TRP', model:'RC03M 160mm (CL)', family:'trp-rc03m', mfgPn:'ABRT000201', price:79.49, weight:135, size:160, mount:'CL', desc:'standard 1.8mm 2-piece Center Lock rotor (lockring sold separately); size/mount/price/SKU FETCHED from trpcycling.com/products/rc03m-1-8mm-160-203mm (160/180/203mm); weight not published - sample, estimated close to the same-thickness 6-bolt RS02M sibling' },
+  { id:'ro-trp-rc03m-180-cl', cat:'rotor', brand:'TRP', model:'RC03M 180mm (CL)', family:'trp-rc03m', mfgPn:'ABRT000201', price:79.49, weight:160, size:180, mount:'CL', desc:'sample weight (see 160mm sibling)' },
+  { id:'ro-trp-rc03m-203-cl', cat:'rotor', brand:'TRP', model:'RC03M 203mm (CL)', family:'trp-rc03m', mfgPn:'ABRT000201', price:79.49, weight:190, size:203, mount:'CL', desc:'sample weight (see 160mm sibling)' },
+  { id:'ro-trp-rs01m-140-6b', cat:'rotor', brand:'TRP', model:'RS01M 140mm (6-bolt)', family:'trp-rs01m', mfgPn:'ABRT000142', price:39.99, weight:98, size:140, mount:'sixbolt', desc:'budget-tier standard 1.8mm 6-bolt rotor, "same track and spyder design as RS01E" per trpcycling.com; size/mount/SKU FETCHED from trpcycling.com/products/rs02m-1-8mm-140-203mm-copy (140/160/180/203mm); price = the page\'s regular price ($39.99, currently on sale at $26.49); weight not published - sample, estimated close to the same-thickness RS02M sibling' },
+  { id:'ro-trp-rs01m-160-6b', cat:'rotor', brand:'TRP', model:'RS01M 160mm (6-bolt)', family:'trp-rs01m', mfgPn:'ABRT000142', price:39.99, weight:125, size:160, mount:'sixbolt', desc:'sample weight (see 140mm sibling)' },
+  { id:'ro-trp-rs01m-180-6b', cat:'rotor', brand:'TRP', model:'RS01M 180mm (6-bolt)', family:'trp-rs01m', mfgPn:'ABRT000142', price:39.99, weight:150, size:180, mount:'sixbolt', desc:'sample weight (see 140mm sibling)' },
+  { id:'ro-trp-rs01m-203-6b', cat:'rotor', brand:'TRP', model:'RS01M 203mm (6-bolt)', family:'trp-rs01m', mfgPn:'ABRT000142', price:39.99, weight:180, size:203, mount:'sixbolt', desc:'sample weight (see 140mm sibling)' },
+  { id:'ro-trp-tr43-160-6b', cat:'rotor', brand:'TRP', model:'TR43 160mm (6-bolt)', family:'trp-tr43', mfgPn:'AART000096', price:54.99, weight:135, size:160, mount:'sixbolt', desc:'1.8mm 2-piece floating rotor with an aluminum center ("superior heat dissipation...excellent stiffness", six slots to shed water/mud/debris) - distinct construction from the solid RS01M/RS02M; size/mount/price/SKU FETCHED from trpcycling.com/products/tr43-1-8-160-203mm (160/203mm ONLY - no 180mm despite the page title\'s "160-203mm" range wording); weight not published - sample, estimated between the solid RS02M and the lighter floating Hope Floating siblings already cataloged' },
+  { id:'ro-trp-tr43-203-6b', cat:'rotor', brand:'TRP', model:'TR43 203mm (6-bolt)', family:'trp-tr43', mfgPn:'AART000096', price:54.99, weight:185, size:203, mount:'sixbolt', desc:'sample weight (see 160mm sibling)' },
+
   /* COCKPIT COMPONENTS */
   { id:'hb-renthal-fatbar-35', cat:'handlebar', brand:'Renthal', model:'Fatbar 35', family:'renthal-fatbar', price:108, weight:305, clamp:35, width:800, rise:30, material:'alu', verified:true, lastChecked:'2026-07-07', source:'https://www.renthal.com/cycle/index.php?route=product/product&product_id=4767' },
   { id:'hb-oneup-carbon-35', cat:'handlebar', brand:'OneUp', model:'Carbon 35', family:'oneup-carbon', price:160, weight:235, clamp:35, width:800, rise:20, material:'carbon', verified:true, lastChecked:'2026-07-07', source:'https://www.oneupcomponents.com/products/v2-carbon-handlebar' },
