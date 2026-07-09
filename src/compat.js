@@ -276,6 +276,42 @@ var PARTS = [
      2024_EPIC_EPIC_EVO_USER_MANUAL_ENGLISH.pdf, 25MB - download + pdftotext, WebFetch chokes):
      SIDLuxe 190x45 std shock (already in-catalog), min/max REAR ROTOR 160/180 (manufacturer!),
      min front rotor 180, max tire 29x2.4, BSA threaded, UDH, 30.9 post, 12x148. --- */
+  /* --- catalog-frames-breadth-a (2026-07-08): first NICOLAI + GEOMETRON rows. The G1 is ONE
+     Nicolai-built 7020-T6 alu chassis sold under two brands with different geometry-spec/pricing
+     (Nicolai G1 = the German maker own spec, frame-only; Geometron G1 = Chris Porter / Geometron
+     longer-slacker spec, sold frame+shock). Same physical interfaces, so the verdict fields are
+     identical - two rows because both are brands not previously in the catalog. Entered UNVERIFIED
+     (weight + USD-converted price = sample; seatTube 30.9 is from the maker G1-GPI build spec +
+     Vital/bike-components corroboration, not a maker frame-spec table) - every OTHER verdict field
+     is from a fetched maker page, cited per row. Buildable now: 230x65 STANDARD-eyelet shock
+     matches many in-catalog rows (SD Ultimate / Float X / Vivid / EXT Storia / Ohlins TTX22 230x65).
+     FOUR OF THE FIVE BRIEFED BRANDS DELIBERATELY NOT ENTERED THIS PASS - salvage notes:
+     - Banshee (Titan/Prime/Spitfire/Rune/Phantom V3.2, Legend, Enigma): bansheebikes.com FAQ states
+       "All our bikes are IS rear brake mount". 'IS' is NOT in VOCAB.brakeMount and test-schema.js
+       asserts IS must stay rejected (same documented blocker as the Cotic Jeht/BFe above). Otherwise
+       clean + fetched: 7005-T6 alu, modular 142/148 Boost dropouts, 30.9 post (V3.2), 205x65 trunnion
+       shock (Titan). Enter once a session with authority over the brake vocab+test widens it.
+     - Guerrilla Gravity (Gnarvana/Smash/Trail Pistol, modular Revved carbon): ridegg.com spec tables
+       list rear brake mount "ISO" (= IS/International Standard) across the shared platform - same
+       vocab-gap blocker. Otherwise fetched + in-catalog-buildable: Gnarvana 160mm 230x65 std (8x20f/
+       8x35r eyelet), Smash 145mm 230x60, Trail Pistol 120mm 210x50, all 73mm BSA, 30.9 post, 29-only,
+       UDH, 29x2.5 max tire, ~$3,295 frameset.
+     - Pole (Stamina 140/160/180): pole has pivoted to the Hiisi e-BIKE (Maxon motor) as its only
+       current model; the Stamina line is a discontinued "Legacy Bikes 2014-2024" archive with no
+       fetchable spec/product pages (store URLs 404). No maker source -> out.
+     - Starling (Murmur/Swoop/Twist/Sturn/Mega Murmur, steel): starlingcycles.com returns HTTP 403 to
+       WebFetch across the whole domain, so no maker page can be fetched to meet the bar. From search
+       (NOT sufficient to enter): 73mm BSA threaded, 180mm post mount (up to 203), ISCG05, adjustable
+       120/135/150/165mm travel via a movable shock mount (so the shock size is config-dependent). Needs
+       a real browser session.
+     - Nicolai S16 (Saturn 16) + G18 Hammer + Argon GAM/GTB hardtails: the HTML pages state Postmount +
+       BSA-threaded but NOT the rear axle / shock eye / seatpost / max rotor (those live only in
+       per-frame Google-Sheets "tech sheets" whose data tabs do not render to WebFetch - the CSV export
+       returns only the table-of-contents tab). The S16 axle in particular could not be confirmed
+       (a fetch summary guessed "142x12" but the page says "not stated"), so entering it would risk a
+       false spec. Blocked on the unfetchable tech sheets, not on the vocab. --- */
+  { id:'fr-nicolai-g1', cat:'frame', brand:'Nicolai', model:'G1', family:'nicolai-g1', disciplines:['enduro'], price:3349, weight:3700, wheelConfigs:['29','275','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:30.9, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:230, shockStroke:65, shockMount:'std', maxForkTravel:180, travel:175, udh:true, bundledShock:null, frameOnly:true, desc:'interfaces from fetched nicolai-bicycles.com/g1-frame + /g1-gpi-frame pages: "148 x 12 mm Steckachse" (Boost148), "ZS56-Steuerrohr" head tube + Hope tapered integral (tapered steerer fit), "73 mm BSA" threaded BB, "SRAM UDH Standard" + T-Type (udh:true), 29/27.5/mullet via Mutatoren, 7020-T6 alu, EUR 3,099 frame-only. Shock 230x65 STANDARD eyelet (Fox DHX2 Factory / EXT Storia, spherical eyelet bearings) giving 162/175mm rear via a reversible chip - travel:175 (long chip) entered; a 250x75 std option gives 182/200mm (not this row). Rear brake "Postmount", 180mm and Nicolai condones up to 203 with an adapter (g1-gpi page) -> PM / maxRotorR 203. seatTube 30.9 from the maker G1-GPI build spec (BikeYoke Divine 30,9) + Vital/bike-components (consistent across all G1 variants). maxForkTravel 180 = sample (marketed 170mm enduro; the same chassis is Geometron-approved to 190 - see fr-geometron-g1). price EUR 3,099 -> ~$3,349 USD sample conversion; weight = sample (Nicolai publishes no frame weight on the HTML page; the tech sheet is an unfetchable Google Sheet). UNVERIFIED pending the tech-sheet interface table.' },
+  { id:'fr-geometron-g1', cat:'frame', brand:'Geometron', model:'G1', family:'geometron-g1', disciplines:['enduro'], price:4799, weight:3700, wheelConfigs:['29','275','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:30.9, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:230, shockStroke:65, shockMount:'std', maxForkTravel:190, travel:175, udh:true, bundledShock:null, frameOnly:false, desc:'same Nicolai-built chassis as fr-nicolai-g1, sold by Geometron (Chris Porter) with its own longer/slacker geometry spec, as frame+shock. Interfaces from the fetched geometronbikes.co.uk/bikes/g1-2 page: "230x65mm shock - 162/175mm travel" STANDARD eyelet (EXT Storia V4, spherical eyelet bearings) -> travel:175 (long chip; a 210x55 short and 250x75 long option also exist, not this row); "NICOLAI THRU AXLE (BOOST 148MMX12MM)"; "ZS56 / ZS56" + Hope tapered integral (tapered steerer fit); "Threaded 73mm wide bottom bracket (BSA standard)"; "27.5 / 29 / Mullet"; "SRAM UDH standard" (udh:true); handcrafted aluminium, Germany. maxForkTravel 190 = maker-documented (the page lists a 160-190mm EXT ERA V2 fork option for this chassis). Rear brake mount + max rotor are not on the Geometron page -> PM / 203 taken from the Nicolai maker G1-GPI page (identical chassis, "Postmount", 203 w/ adapter). seatTube 30.9 per the Nicolai build spec + Vital/bike-components. Ships as frame+shock (EXT Storia V4 230x65, a V4 gen not separately catalogued -> bundledShock:null, frameOnly:false). price GBP 3,749 frame+shock -> ~$4,799 USD sample conversion; weight = sample (not published). UNVERIFIED pending a maker spec table.' },
 
   /* FORKS (front only; wheel = front size) */
   { id:'fk-rockshox-zeb-ultimate-29-170', cat:'fork', brand:'RockShox', model:'ZEB Ultimate 170', family:'rockshox-zeb', disciplines:['enduro'], price:1099, weight:2150, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220, minRotorF:200 },
