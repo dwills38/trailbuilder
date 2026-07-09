@@ -4,11 +4,29 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>TrailBuilder — MTB build & compatibility checker</title>
+<meta name="description" content="Pick enduro mountain bike parts and see, in real time, whether they fit together — plus running price and weight. A free prototype build checker." />
+
+<!-- Social preview (Open Graph + Twitter Card) — no image tag: the catalog has no
+     licensed site-level image yet (see CLAUDE.md Provenance/roadmap), and an og:image
+     pointing nowhere is worse than none. Add one here once image licensing lands. -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="TrailBuilder — MTB build & compatibility checker" />
+<meta property="og:description" content="Pick enduro mountain bike parts and see, in real time, whether they fit together — plus running price and weight." />
+<meta property="og:url" content="https://dwills38.github.io/trailbuilder/" />
+<meta property="og:site_name" content="TrailBuilder" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="TrailBuilder — MTB build & compatibility checker" />
+<meta name="twitter:description" content="Pick enduro mountain bike parts and see, in real time, whether they fit together — plus running price and weight." />
 <style>
   :root{
     --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
-    --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#e8732a;
-    --ok:#1f8a4c; --ok-bg:#e7f5ec; --warn:#b9791b; --warn-bg:#fdf3e1;
+    --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
+    /* --ok/--warn darkened from the original #1f8a4c/#b9791b — those failed WCAG AA
+       (~3.9:1 / 3.3:1) for the small badge/status text that uses them as a text
+       color. The compat-dot fill colors (.dot.g/.w/.r/.n, legend swatches) are
+       separate hardcoded hex and untouched — this only affects text legibility. */
+    --ok:#166534; --ok-bg:#e7f5ec; --warn:#92400e; --warn-bg:#fdf3e1;
     --err:#c23b3b; --err-bg:#fbeaea; --chip:#eef1ec;
   }
   *{box-sizing:border-box}
@@ -26,8 +44,12 @@
   .btn:hover{border-color:#c7ccc6}
   .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
   .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-  .chip{background:var(--chip);border:1px solid transparent;border-radius:999px;padding:7px 13px;font-size:13px;cursor:pointer;color:var(--ink-soft);font-weight:600}
+  /* chips are <button> elements (keyboard-operable filter toggles), reset to the
+     pill look they had as plain divs; font/appearance already match — see the
+     pre-existing .btn buttons elsewhere in the toolbar for the same convention. */
+  .chip{background:var(--chip);border:1px solid transparent;border-radius:999px;padding:7px 13px;font-size:13px;cursor:pointer;color:var(--ink-soft);font-weight:600;font-family:inherit}
   .chip.active{background:var(--ink);color:#fff}
+  .chip:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
   .subchips{margin-top:-4px}
   .chip.sub{background:#fff;border-color:var(--line);color:var(--ink-soft);font-size:12px;padding:5px 11px}
   .chip.sub:hover{border-color:#c7ccc6}
@@ -49,7 +71,12 @@
   .pcard.kit .pcard-thumb svg{color:var(--ok)}
   .pcard .kind{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);font-weight:700}
   .pcard.kit .kind{color:var(--brand)}
-  .pcard .name{font-weight:700;font-size:14px;padding-right:14px}
+  /* .name is a <button> (keyboard-operable "view details" trigger, a sibling of the
+     other pick buttons rather than nesting a button inside a card-level role=button,
+     which ARIA disallows) reset to look like the plain text label it replaced. */
+  .pcard .name{font-weight:700;font-size:14px;padding-right:14px;display:block;width:100%;
+    background:none;border:none;margin:0;text-align:left;color:inherit;font-family:inherit;cursor:pointer}
+  .pcard .name:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:4px}
   .pcard .spec{font-size:12px;color:var(--ink-soft);min-height:32px}
   .pcard .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:4px}
   .pcard .price{font-weight:700;font-size:13px}
@@ -73,7 +100,8 @@
   .pcard .prov{font-size:11px;margin-top:1px;min-height:17px}
   .prov .ver{display:inline-flex;align-items:center;gap:3px;background:var(--ok-bg);color:var(--ok);font-weight:700;padding:1px 7px;border-radius:999px;text-decoration:none;border:1px solid rgba(31,138,76,.25)}
   .prov a.ver:hover{text-decoration:underline}
-  .prov .est{color:#9aa39b;font-weight:600}
+  /* was #9aa39b (~2.6:1 on white — fails WCAG AA); ink-soft passes at ~6.5:1 */
+  .prov .est{color:var(--ink-soft);font-weight:600}
   .prov .owned{display:inline-flex;align-items:center;gap:3px;background:var(--chip);color:var(--brand);font-weight:700;padding:1px 7px;border-radius:999px;border:1px solid var(--line);margin-left:5px}
   .slot .vchk{color:var(--ok);font-weight:800;margin-left:3px;font-size:12px}
 
@@ -90,7 +118,8 @@
   .slot:last-child{border-bottom:none}
   .slot .sl-main{flex:1;min-width:0}
   .slot .sl-part{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .slot .sl-empty{color:#aab1aa;font-style:italic;font-weight:500}
+  /* was #aab1aa (~2.2:1 on white — fails WCAG AA); ink-soft passes at ~6.5:1 */
+  .slot .sl-empty{color:var(--ink-soft);font-style:italic;font-weight:500}
   .slot .pr{font-size:11.5px;color:var(--ink-soft);white-space:nowrap}
   .slot .x{cursor:pointer;color:var(--ink-soft);border:none;background:none;font-size:15px;line-height:1}
   .total{display:flex;align-items:baseline;justify-content:space-between;margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
@@ -293,7 +322,8 @@
       <!-- Community link. Points at GitHub Discussions (FORUM_URL, derived from
            REPORT_REPO). Hidden if unset, same feature-gate pattern as reportGithub. -->
       <a class="btn" id="communityLink" target="_blank" rel="noopener"
-         title="Ask questions & share builds — TrailBuilder Discussions" hidden>💬 Community</a>
+         title="Ask questions & share builds — TrailBuilder Discussions"
+         aria-label="Community — ask questions & share builds on TrailBuilder Discussions (opens in a new tab)" hidden>💬 Community</a>
       <!-- Account control (Phase 3). Hidden entirely until Supabase config is set
            (ACCOUNTS_ENABLED). renderAccount() toggles logged-in vs logged-out. -->
       <div class="acctbox" id="acctBox" hidden>
@@ -309,8 +339,8 @@
 
 <main>
   <div class="toolbar">
-    <input type="search" id="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" />
-    <select class="btn" id="sortBy" title="Sort the catalog">
+    <input type="search" id="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" aria-label="Search parts by brand or model" />
+    <select class="btn" id="sortBy" title="Sort the catalog" aria-label="Sort the catalog">
       <option value="featured">Sort: Best match</option>
       <option value="name">Name A–Z</option>
       <option value="price-asc">Price: low → high</option>
@@ -318,11 +348,11 @@
       <option value="weight-asc">Weight: light → heavy</option>
       <option value="weight-desc">Weight: heavy → light</option>
     </select>
-    <button class="btn" id="verifiedOnly" title="Show only parts verified against a manufacturer spec">✓ Verified only</button>
-    <button class="btn" id="ownedOnly" hidden title="Show only parts in your inventory">🧰 Owned only</button>
-    <button class="btn" id="compatibleOnly" title="Hide parts that would clash with your current build (parts with no build yet always show)">🟢 Compatible only</button>
-    <button class="btn" id="radMode" title="It's a joke, dude. Purely cosmetic.">🤘 RAD mode</button>
-    <button class="btn" id="roadieMode" title="Ride with pride. Purely cosmetic.">🏳️‍🌈 Roadie mode</button>
+    <button class="btn" id="verifiedOnly" title="Show only parts verified against a manufacturer spec" aria-pressed="false">✓ Verified only</button>
+    <button class="btn" id="ownedOnly" hidden title="Show only parts in your inventory" aria-pressed="false">🧰 Owned only</button>
+    <button class="btn" id="compatibleOnly" title="Hide parts that would clash with your current build (parts with no build yet always show)" aria-pressed="false">🟢 Compatible only</button>
+    <button class="btn" id="radMode" title="It's a joke, dude. Purely cosmetic." aria-pressed="false">🤘 RAD mode</button>
+    <button class="btn" id="roadieMode" title="Ride with pride. Purely cosmetic." aria-pressed="false">🏳️‍🌈 Roadie mode</button>
     <button class="btn" id="demoBudget">Budget build 💵</button>
     <button class="btn" id="demoMid">Mid-range build ⚙️</button>
     <button class="btn" id="demoHighEnd">High-end build 💎</button>
@@ -336,16 +366,16 @@
     <button class="btn" id="saveGarage" hidden title="Save this build to your garage">⭑ Save to garage</button>
     <button class="btn primary" id="share">Share / save link</button>
   </div>
-  <div class="chips" id="discChips" title="Filter by riding discipline — parts without a discipline tag are universal and always show"></div>
-  <div class="chips" id="chips"></div>
-  <div class="chips subchips" id="subchips"></div>
-  <div class="chips subchips" id="wheelSizeChips" title="Filter by wheel size — only affects wheels &amp; tires"></div>
+  <div class="chips" id="discChips" role="group" aria-label="Filter by riding discipline — parts without a discipline tag are universal and always show" title="Filter by riding discipline — parts without a discipline tag are universal and always show"></div>
+  <div class="chips" id="chips" role="group" aria-label="Filter by component category"></div>
+  <div class="chips subchips" id="subchips" role="group" aria-label="Filter by component type"></div>
+  <div class="chips subchips" id="wheelSizeChips" role="group" aria-label="Filter by wheel size — only affects wheels &amp; tires" title="Filter by wheel size — only affects wheels &amp; tires"></div>
   <div class="legend">
-    <span><i style="background:#2aa35a"></i>No conflict found</span>
-    <span><i style="background:#e0a52e"></i>Check first &mdash; adds a warning (hover for why)</span>
-    <span><i style="background:#d23b3b"></i>Won&rsquo;t fit (hover for why)</span>
-    <span><i style="background:#d2d7d1"></i>Nothing selected yet to judge</span>
-    <span><span style="color:#1f8a4c;font-weight:800">✓ Verified</span> = checked vs manufacturer spec (else <span style="color:#9aa39b;font-weight:600">≈ estimate</span>)</span>
+    <span><i style="background:#2aa35a" aria-hidden="true"></i>No conflict found</span>
+    <span><i style="background:#e0a52e" aria-hidden="true"></i>Check first &mdash; adds a warning (hover for why)</span>
+    <span><i style="background:#d23b3b" aria-hidden="true"></i>Won&rsquo;t fit (hover for why)</span>
+    <span><i style="background:#d2d7d1" aria-hidden="true"></i>Nothing selected yet to judge</span>
+    <span><span style="color:var(--ok);font-weight:800">✓ Verified</span> = checked vs manufacturer spec (else <span style="color:var(--ink-soft);font-weight:600">≈ estimate</span>)</span>
   </div>
 
   <div class="layout">
@@ -355,7 +385,7 @@
       <div class="side">
         <div class="panel">
           <h2>Compatibility</h2>
-          <div id="report"></div>
+          <div id="report" role="status" aria-live="polite"></div>
           <div class="report-cta"><button type="button" id="reportBtn" hidden>⚐ Report a wrong verdict</button></div>
         </div>
         <div class="panel">
@@ -401,9 +431,9 @@
   or pick a 27.5 rear wheel + tire on the YT Capra.</p>
 </footer>
 
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
-<dialog id="reportModal" aria-labelledby="rmTitle">
+<dialog id="reportModal" aria-labelledby="rmTitle" role="dialog" aria-modal="true">
   <div class="rm-head">
     <h2 id="rmTitle">⚐ Report a wrong verdict</h2>
     <p>Spotted a fit we got wrong, or a wrong spec? Real builds are how these rules get checked. This sends a description of your <b>current build</b> — no account needed.</p>
@@ -434,7 +464,7 @@
   </div>
 </dialog>
 
-<dialog id="buildModal" aria-labelledby="bmTitle">
+<dialog id="buildModal" aria-labelledby="bmTitle" role="dialog" aria-modal="true">
   <div class="rm-head">
     <h2 id="bmTitle">📋 Complete build</h2>
     <p>Every slot filled — here&rsquo;s the whole bike, with kit pricing where a full set is selected.</p>
@@ -452,7 +482,7 @@
   </div>
 </dialog>
 
-<dialog id="partModal" aria-labelledby="pmTitle">
+<dialog id="partModal" aria-labelledby="pmTitle" role="dialog" aria-modal="true">
   <div class="rm-head">
     <h2 id="pmTitle"></h2>
     <p id="pmSpec" class="muted"></p>
@@ -472,7 +502,7 @@
   </div>
 </dialog>
 
-<dialog id="compareModal" aria-labelledby="cmpTitle">
+<dialog id="compareModal" aria-labelledby="cmpTitle" role="dialog" aria-modal="true">
   <div class="rm-head">
     <h2 id="cmpTitle">⚖ Compare two builds</h2>
     <p>Compare two builds side by side. Signed in, pick any two of your saved garage builds (or one against your
@@ -499,7 +529,7 @@
   </div>
 </dialog>
 
-<dialog id="specCardModal" aria-labelledby="scTitle">
+<dialog id="specCardModal" aria-labelledby="scTitle" role="dialog" aria-modal="true">
   <div class="rm-head">
     <h2 id="scTitle">🖼️ Spec-card image</h2>
     <p>A shareable graphic of your build — download it to post or send. Specs are illustrative sample data unless a part shows ✓ Verified in the app.</p>
@@ -513,7 +543,7 @@
   </div>
 </dialog>
 
-<dialog id="authModal" aria-labelledby="authTitle">
+<dialog id="authModal" aria-labelledby="authTitle" role="dialog" aria-modal="true">
   <div class="rm-head">
     <h2 id="authTitle">Log in to TrailBuilder</h2>
     <p>Save builds to your garage and track the parts you own. We only store your builds and inventory — nothing else.</p>
@@ -533,7 +563,7 @@
   </div>
 </dialog>
 
-<dialog id="garageModal" aria-labelledby="garageTitle">
+<dialog id="garageModal" aria-labelledby="garageTitle" role="dialog" aria-modal="true">
   <div class="rm-head">
     <h2 id="garageTitle">🅖 Your garage</h2>
     <p>Saved builds. Load one to keep working on it, mark a build complete, or remove it.</p>
@@ -595,8 +625,10 @@
   function placeholderIcon(groupKey, color){
     var inner = PLACEHOLDER_PATHS[groupKey] || PLACEHOLDER_PATHS.frame;
     // color defaults to currentColor for in-page use; the spec-card export passes
-    // a fixed hex since a standalone serialized SVG has no CSS "color" to inherit
-    return '<svg viewBox="0 0 48 48" fill="none" stroke="'+(color||'currentColor')+'" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">'+inner+'</svg>';
+    // a fixed hex since a standalone serialized SVG has no CSS "color" to inherit.
+    // aria-hidden: purely decorative — the adjacent "kind" label (e.g. "Frame")
+    // already names the category in text, so this stays out of the AT tree.
+    return '<svg viewBox="0 0 48 48" fill="none" stroke="'+(color||'currentColor')+'" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+inner+'</svg>';
   }
   var CATLABEL = {frame:'Frame',fork:'Fork',shock:'Rear Shock',frontwheel:'Front Wheel',rearwheel:'Rear Wheel',
     fronthub:'Front Hub',rearhub:'Rear Hub',rim:'Rim',
@@ -675,16 +707,22 @@
   function renderDiscChips(){
     var el = $('discChips'); el.innerHTML='';
     ['all','xc','trail','enduro','dh'].forEach(function(k){
-      var d=document.createElement('div');
+      var d=document.createElement('button');
+      d.type='button';
       d.className='chip'+(disciplineFilter===k?' active':'');
+      d.setAttribute('aria-pressed', disciplineFilter===k ? 'true' : 'false');
       d.textContent=DISC_LABELS[k];
       d.onclick=function(){ disciplineFilter=k; renderDiscChips(); renderCatalog(); };
       el.appendChild(d);
     });
   }
+  // chips are <button>s (not divs) so they're keyboard-focusable and Enter/Space-
+  // activatable for free; aria-pressed marks which one is active in the group.
   function mkChip(key,label){
-    var d=document.createElement('div');
+    var d=document.createElement('button');
+    d.type='button';
     d.className='chip'+(activeGroup===key?' active':'');
+    d.setAttribute('aria-pressed', activeGroup===key ? 'true' : 'false');
     d.textContent=label;
     d.onclick=function(){ activeGroup=key; activeSub='all'; wheelSizeFilter='all'; renderChips(); renderSubChips(); renderWheelSizeChips(); renderCatalog(); };
     return d;
@@ -708,8 +746,10 @@
     cats.forEach(function(c){ el.appendChild(mkSubChip(c, catLabel(c))); });
   }
   function mkSubChip(key,label){
-    var d=document.createElement('div');
+    var d=document.createElement('button');
+    d.type='button';
     d.className='chip sub'+(activeSub===key?' active':'');
+    d.setAttribute('aria-pressed', activeSub===key ? 'true' : 'false');
     d.textContent=label;
     d.onclick=function(){ activeSub=key; renderSubChips(); renderCatalog(); };
     return d;
@@ -722,8 +762,10 @@
     if(activeGroup!=='wheels' && activeGroup!=='tire'){ el.style.display='none'; return; }
     el.style.display=''; el.innerHTML='';
     ['all','29','275'].forEach(function(k){
-      var d=document.createElement('div');
+      var d=document.createElement('button');
+      d.type='button';
       d.className='chip sub'+(wheelSizeFilter===k?' active':'');
+      d.setAttribute('aria-pressed', wheelSizeFilter===k ? 'true' : 'false');
       d.textContent=WHEEL_SIZE_LABELS[k];
       d.onclick=function(){ wheelSizeFilter=k; renderWheelSizeChips(); renderCatalog(); };
       el.appendChild(d);
@@ -784,13 +826,17 @@
       : '<div class="pcard-thumb">'+placeholderIcon(CAT_GROUP[p.cat])+'</div>';
 
     card.innerHTML =
-      '<span class="dot '+compat.state+'" title="'+esc(compat.reason)+'"></span>'+
+      '<span class="dot '+compat.state+'" role="img" aria-label="Compatibility: '+esc(compat.reason)+'" title="'+esc(compat.reason)+'"></span>'+
       '<div class="pcard-head">'+thumbHtml+
         '<div class="pcard-headtext"><div class="kind">'+catLabel(p.cat)+'</div>'+
-        '<div class="name">'+esc(p.brand)+' '+esc(p.model)+'</div></div></div>'+
+        // .name is a <button> — the keyboard-reachable way to open the detail modal
+        // (a sibling of the pick buttons below, not nested inside one — ARIA
+        // disallows focusable descendants of a role=button container).
+        '<button type="button" class="name" aria-label="View details for '+esc(p.brand+' '+p.model)+'">'+esc(p.brand)+' '+esc(p.model)+'</button></div></div>'+
       '<div class="spec">'+esc(specSummary(p))+'</div>'+
       provHtml(p, ownedBadgeHtml(p))+
       '<div class="row">'+priceHtml+'<span class="picks"></span></div>';
+    card.querySelector('.name').onclick=function(e){ e.stopPropagation(); openPartModal(p); };
     var picks=card.querySelector('.picks');
 
     if(isPreset(p)){
@@ -834,6 +880,7 @@
   }
   function mkBtn(text, inState, kit){
     var b=document.createElement('button');
+    b.type='button';
     b.className='pick'+(inState?' in':'')+(kit?' kit':'');
     b.textContent=text; return b;
   }
@@ -1079,7 +1126,7 @@
     $('pmIdentity').textContent = idBits.join(' · ');
     $('pmTags').innerHTML = (p.disciplines||[]).map(function(d){ return '<span class="pm-tag">'+esc(d)+'</span>'; }).join('');
     $('pmColors').innerHTML = (p.colors||[]).map(function(c){
-      return '<span class="pm-swatch" style="background:'+esc(c)+'" title="'+esc(c)+'"></span>';
+      return '<span class="pm-swatch" style="background:'+esc(c)+'" role="img" aria-label="Color option: '+esc(c)+'" title="'+esc(c)+'"></span>';
     }).join('');
     var rows = '<div class="pm-row"><span class="pm-k">Price</span><span class="pm-v">'+money(p.price)+'</span></div>';
     var w = partWeight(p);
@@ -1102,7 +1149,7 @@
       : '<div class="pm-placeholder">'+placeholderIcon(CAT_GROUP[p.cat])+'<div>Product photo not licensed yet — placeholder illustration</div></div>';
     $('pmRetailers').innerHTML = (p.retailerLinks && p.retailerLinks.length)
       ? p.retailerLinks.map(function(r){
-          return '<a class="pm-retailer-link" href="'+esc(r.url)+'" target="_blank" rel="noopener noreferrer nofollow">'+esc(r.label)+' <span>↗</span></a>';
+          return '<a class="pm-retailer-link" href="'+esc(r.url)+'" target="_blank" rel="noopener noreferrer nofollow" aria-label="'+esc(r.label)+' (opens in a new tab)">'+esc(r.label)+' <span aria-hidden="true">↗</span></a>';
         }).join('')
       : '<div class="pm-placeholder">🔗 Retailer links — coming as more parts get one</div>';
     $('partModal').showModal();
@@ -1296,6 +1343,7 @@
     $('ownedOnly').hidden = !inU;
     if(!inU){ ownedOnly = false; ownedIds = {}; }
     $('ownedOnly').classList.toggle('primary', ownedOnly);
+    $('ownedOnly').setAttribute('aria-pressed', String(ownedOnly));
   }
 
   /* Refresh the owned-parts cache from the server, then re-render the catalog.
@@ -1364,7 +1412,7 @@
         div.innerHTML =
           '<div class="gmain">'+
             '<div class="gname">'+esc(row.name || 'Untitled build')+' <span class="gpill'+(done?' done':'')+'">'+(done?'completed':'in progress')+'</span></div>'+
-            '<div class="gmeta"><span class="gdot" style="background:'+dot.color+'"></span>'+esc(dot.label)+' · '+money(tot.price||0)+(tot.weight?(' · '+(tot.weight/1000).toFixed(2)+' kg'):'')+'</div>'+
+            '<div class="gmeta"><span class="gdot" style="background:'+dot.color+'" aria-hidden="true"></span>'+esc(dot.label)+' · '+money(tot.price||0)+(tot.weight?(' · '+(tot.weight/1000).toFixed(2)+' kg'):'')+'</div>'+
           '</div>'+
           '<div class="gacts">'+
             '<button data-a="load">Load</button><button data-a="rename">Rename</button>'+
@@ -1521,19 +1569,21 @@
 
   $('search').addEventListener('input', function(e){ search=e.target.value; renderCatalog(); });
   $('sortBy').onchange=function(){ sortBy=this.value; renderCatalog(); };
-  $('verifiedOnly').onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary', verifiedOnly); renderCatalog(); };
-  $('compatibleOnly').onclick=function(){ compatibleOnly=!compatibleOnly; this.classList.toggle('primary', compatibleOnly); renderCatalog(); };
-  $('ownedOnly').onclick=function(){ ownedOnly=!ownedOnly; this.classList.toggle('primary', ownedOnly); if(ownedOnly) refreshOwned(); else renderCatalog(); };
+  $('verifiedOnly').onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary', verifiedOnly); this.setAttribute('aria-pressed', String(verifiedOnly)); renderCatalog(); };
+  $('compatibleOnly').onclick=function(){ compatibleOnly=!compatibleOnly; this.classList.toggle('primary', compatibleOnly); this.setAttribute('aria-pressed', String(compatibleOnly)); renderCatalog(); };
+  $('ownedOnly').onclick=function(){ ownedOnly=!ownedOnly; this.classList.toggle('primary', ownedOnly); this.setAttribute('aria-pressed', String(ownedOnly)); if(ownedOnly) refreshOwned(); else renderCatalog(); };
   // RAD mode and Roadie mode are both full cosmetic reskins — running both at once
   // would just look broken, so turning one on turns the other off.
   function setRad(on){
     document.documentElement.classList.toggle('rad', on);
     $('radMode').classList.toggle('primary', on);
+    $('radMode').setAttribute('aria-pressed', String(on));
     $('radMode').textContent = on ? '🤘 RAD mode: ON' : '🤘 RAD mode';
   }
   function setRoadie(on){
     document.documentElement.classList.toggle('roadie', on);
     $('roadieMode').classList.toggle('primary', on);
+    $('roadieMode').setAttribute('aria-pressed', String(on));
     $('roadieMode').textContent = on ? '🏳️‍🌈 Roadie mode: ON' : '🏳️‍🌈 Roadie mode';
   }
   $('radMode').onclick=function(){
