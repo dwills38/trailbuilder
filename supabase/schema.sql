@@ -77,3 +77,73 @@ drop trigger if exists builds_touch on public.builds;
 create trigger builds_touch
   before update on public.builds
   for each row execute function public.touch_updated_at();
+
+-- ---------------------------------------------------------------------------
+-- Phase 4: built-in forum (threads + replies). Piggybacks on the SAME
+-- Supabase auth as builds/inventory above — no separate login. Unlike those
+-- owner-scoped tables, reads are open to EVERYONE (anon + authenticated) so
+-- logged-out visitors can browse; only signed-in users can post, and only the
+-- author can edit/delete their own posts. `author_id` is nullable so a
+-- system-seeded thread — like the welcome post below — can exist with no
+-- human author; the app shows those as "TrailBuilder team".
+-- ---------------------------------------------------------------------------
+create table if not exists public.forum_threads (
+  id         uuid primary key default gen_random_uuid(),
+  author_id  uuid references auth.users(id) on delete set null default auth.uid(),
+  title      text not null,
+  body       text not null,
+  pinned     boolean not null default false,
+  created_at timestamptz not null default now()
+);
+
+create table if not exists public.forum_posts (
+  id         uuid primary key default gen_random_uuid(),
+  thread_id  uuid not null references public.forum_threads(id) on delete cascade,
+  author_id  uuid references auth.users(id) on delete set null default auth.uid(),
+  body       text not null,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists forum_threads_pinned_created_idx on public.forum_threads (pinned desc, created_at desc);
+create index if not exists forum_posts_thread_created_idx    on public.forum_posts (thread_id, created_at asc);
+
+alter table public.forum_threads enable row level security;
+alter table public.forum_posts   enable row level security;
+
+drop policy if exists "forum threads read"   on public.forum_threads;
+drop policy if exists "forum threads insert" on public.forum_threads;
+drop policy if exists "forum threads modify" on public.forum_threads;
+drop policy if exists "forum threads delete" on public.forum_threads;
+drop policy if exists "forum posts read"     on public.forum_posts;
+drop policy if exists "forum posts insert"   on public.forum_posts;
+drop policy if exists "forum posts modify"   on public.forum_posts;
+drop policy if exists "forum posts delete"   on public.forum_posts;
+
+create policy "forum threads read" on public.forum_threads
+  for select using (true);
+create policy "forum threads insert" on public.forum_threads
+  for insert to authenticated with check (auth.uid() = author_id);
+create policy "forum threads modify" on public.forum_threads
+  for update to authenticated using (auth.uid() = author_id) with check (auth.uid() = author_id);
+create policy "forum threads delete" on public.forum_threads
+  for delete to authenticated using (auth.uid() = author_id);
+
+create policy "forum posts read" on public.forum_posts
+  for select using (true);
+create policy "forum posts insert" on public.forum_posts
+  for insert to authenticated with check (auth.uid() = author_id);
+create policy "forum posts modify" on public.forum_posts
+  for update to authenticated using (auth.uid() = author_id) with check (auth.uid() = author_id);
+create policy "forum posts delete" on public.forum_posts
+  for delete to authenticated using (auth.uid() = author_id);
+
+-- Seed: one pinned welcome thread, authored by the system (no human author).
+-- Guarded by title so re-running this migration doesn't duplicate it.
+insert into public.forum_threads (author_id, title, body, pinned)
+select null,
+  'Welcome to TrailBuilder Discussions',
+  'Bug reports, build questions, feature requests — post away. Real builds are how the compatibility rules get checked, so if something looks wrong, say so.',
+  true
+where not exists (
+  select 1 from public.forum_threads where title = 'Welcome to TrailBuilder Discussions'
+);
