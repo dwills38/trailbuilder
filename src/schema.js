@@ -81,9 +81,26 @@ var VOCAB = {
      the physical truth in desc. Rule 3 then passes a full 7s group and rejects
      mixing with 12s parts - no engine change. Revisit only if a second
      mixed-chain-width system appears. */
+  /* Budget wide-range 1x systems, each its OWN cable-pull standard (added
+     2026-07-08, sourced from the makers' own model pages):
+       microshift-advent    = microSHIFT Advent 9-speed. The Advent shifter's
+                              own page states "Not compatible with Shimano or
+                              SRAM."
+       microshift-advent-x  = microSHIFT Advent X 10-speed (the SL-M9605-R page
+                              lists it as also driving the microSHIFT Sword 10s
+                              group, and again "Not compatible with Shimano or
+                              SRAM").
+       box-prime-9          = Box Components Prime 9 (9-speed). A proprietary
+                              Prime 9 pull; the Box derailleur page lists
+                              compatibility only with Box Prime 9 shifters.
+     All three run a STANDARD HG freehub + a standard 9/10-speed chain (only the
+     shifter+derailleur pull is proprietary), so their cassettes carry
+     freehub:'HG'. Distinct systems keep a cross-brand pairing (e.g. a Box
+     shifter on a microSHIFT mech) an honest error instead of a false green. */
   system:       ['sram-eagle', 'sram-transmission', 'shimano-12',
                  'shimano-linkglide', 'shimano-11', 'shimano-10', 'sram-11',
-                 'sram-dh-7'],
+                 'sram-dh-7',
+                 'microshift-advent', 'microshift-advent-x', 'box-prime-9'],
   actuation:    ['cable', 'electronic'],       // audited 2026-07: market-complete for shifter/derailleur ('hydraulic' joins only with dropper.actuation)
   ringStd:      ['t-type', 'standard-12'],
   /* I-Spec II / I-Spec B are older, mutually-incompatible Shimano standards

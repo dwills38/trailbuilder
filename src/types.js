@@ -29,7 +29,7 @@
 /** @typedef {'BSA73'|'PF92'|'T47'|'PF107'|'BSA83'|'BSA68'} FrameBb */
 /** @typedef {'DUB'|'24mm'|'30mm'|'p3'} CrankBb */
 /** @typedef {'PM'|'FM'} BrakeMount */
-/** @typedef {'sram-eagle'|'sram-transmission'|'shimano-12'|'shimano-linkglide'|'shimano-11'|'shimano-10'|'sram-11'|'sram-dh-7'} DriveSystem */
+/** @typedef {'sram-eagle'|'sram-transmission'|'shimano-12'|'shimano-linkglide'|'shimano-11'|'shimano-10'|'sram-11'|'sram-dh-7'|'microshift-advent'|'microshift-advent-x'|'box-prime-9'} DriveSystem */
 /** @typedef {'cable'|'electronic'} Actuation */
 /** @typedef {'t-type'|'standard-12'} RingStd */
 /** @typedef {'ispec-ev'|'ispec-ii'|'ispec-b'|'matchmaker'|'band'|'pod'} ShifterClamp */
