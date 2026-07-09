@@ -48,8 +48,8 @@ collapse them, so they are out of scope for this report:
 |---|---|---|---|---|
 | Fork | 14 brands / 44 options | 0 | 0 | 54 |
 | Rear shock | 10 brands / 51 options | 7 | 9 | 38 |
-| Front wheel | 19 brands / 28 options | 0 | 0 | 54 |
-| Rear wheel | 20 brands / 72 options | 0 | 0 | 54 |
+| Front wheel | 20 brands / 32 options | 0 | 0 | 54 |
+| Rear wheel | 20 brands / 80 options | 0 | 0 | 54 |
 | Front tire | 10 brands / 62 options | 0 | 0 | 54 |
 | Rear tire | 10 brands / 62 options | 0 | 0 | 54 |
 | Rear derailleur | 2 brands / 14 options | 0 | 0 | 54 |
@@ -87,7 +87,7 @@ expected rather than an actual gap.
 ## Notes
 
 - "Compatible brands" / "options" denominators are catalog-wide totals for that
-  category (Fork=14br/44opt, Rear shock=10br/51opt, Front wheel=19br/28opt, Rear wheel=20br/72opt, Front tire=10br/62opt, Rear tire=10br/62opt, Rear derailleur=2br/14opt, Rear brake=8br/32opt, Dropper post=13br/28opt).
+  category (Fork=14br/44opt, Rear shock=10br/51opt, Front wheel=20br/32opt, Rear wheel=20br/80opt, Front tire=10br/62opt, Rear tire=10br/62opt, Rear derailleur=2br/14opt, Rear brake=8br/32opt, Dropper post=13br/28opt).
 - A warned-but-compatible part (e.g. a shorter-stroke shock, a tire past a
   frame's published max) still counts toward the compatible total above -
   it fits, it just carries a caveat. Per-row warned counts are omitted from
