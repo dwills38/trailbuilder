@@ -114,3 +114,41 @@ test('the corrected forks carry a minRotorF equal to their native post mount', f
   eq(fork('fk-marzocchi-bomber-z1-29-160').minRotorF, 180, 'Z1 native mount');
   eq(fork('fk-marzocchi-bomber-z1-29-160').maxRotorF, 203, 'Z1 adapter max');
 });
+
+/* ===========================================================================
+   PERMANENT GUARD 5 — SECOND-PASS (2026-07-09). The deeper re-audit
+   (tools/VERDICT-AUDIT-2-2026-07-09.md) found NO false-green, but it stress-
+   tested the catalog's newer, faster-grown regions that the first pass did not
+   cover: all three rear-axle standards (Boost148 / SuperBoost157 / 150x12), the
+   microSHIFT / Box budget drivetrains, XC flat-mount brakes, and the correct
+   builds in each. These guards pin that coverage so a future catalog edit can't
+   silently regress it. No existing case above was modified. */
+
+/* --- real clashes in the newer regions must ERROR (no false "fits") --- */
+test('150x12 rear wheel on a SuperBoost157 DH frame -> rear-axle error (150 != 157)', function(){
+  ok(has(chk({ frame: 'fr-commencal-supreme-dh-v5', rearWheel: 'rw-dtswiss-fr-1500-29-150' }), 'errors', 'rear-axle'));
+});
+test('Boost148 rear wheel on a SuperBoost157 DH frame -> rear-axle error', function(){
+  ok(has(chk({ frame: 'fr-commencal-supreme-dh-v5', rearWheel: 'rw-dtswiss-ex-1700-29' }), 'errors', 'rear-axle'));
+});
+test('SuperBoost157 rear wheel on a 150x12 DH frame (YT Tues) -> rear-axle error', function(){
+  ok(has(chk({ frame: 'fr-yt-tues-cf-29', rearWheel: 'rw-dtswiss-fr-1500-29-157' }), 'errors', 'rear-axle'));
+});
+test('microSHIFT Advent shifter + Box Prime 9 derailleur -> drivetrain-system error', function(){
+  ok(has(chk({ shifter: 'sft-microshift-advent-m9295', derailleur: 'dr-box-three-prime-9' }), 'errors', 'drivetrain-system'));
+});
+test('Box Prime 9 shifter + SRAM Eagle derailleur -> drivetrain-system error', function(){
+  ok(has(chk({ shifter: 'sft-box-three-prime-9', derailleur: 'dr-sram-gx-eagle' }), 'errors', 'drivetrain-system'));
+});
+test('flat-mount XC caliper on a post-mount fork -> front-brake-mount error', function(){
+  ok(has(chk({ fork: 'fk-rockshox-zeb-ultimate-29-170', frontBrake: 'bk-shimano-xtr-m9110-fm' }), 'errors', 'front-brake-mount'));
+});
+
+/* --- and the correct builds in those regions must stay clean (no false "won't fit") --- */
+test('a complete same-system microSHIFT Advent X group is conflict-free', function(){
+  var r = chk({ shifter: 'sft-microshift-advent-x-m9605', derailleur: 'dr-microshift-advent-x-m6205', cassette: 'ca-microshift-advent-x-h104-1148', chain: 'ch-kmc-x10' });
+  eq(r.errors.length, 0, 'Advent X group errors: ' + r.errors.join(' | '));
+});
+test('a SuperBoost157 rear wheel on the SuperBoost157 Supreme DH V5 -> no rear-axle error', function(){
+  ok(!has(chk({ frame: 'fr-commencal-supreme-dh-v5', rearWheel: 'rw-dtswiss-fr-1500-29-157' }), 'errors', 'rear-axle'));
+});
