@@ -40,7 +40,9 @@ var LABELS = {
   BSA73: 'BSA threaded 73', BSA68: 'BSA threaded 68', PF92: 'PressFit 92', T47: 'T47 threaded', PF107: 'PressFit 107 (DH)', BSA83: 'BSA threaded 83 (DH)', '150x12': '150x12 (DH, pre-Boost)',
   DUB: 'SRAM DUB', '24mm': '24 mm spindle', '30mm': '30 mm spindle', p3: 'e*thirteen P3', PM: 'Post mount', FM: 'Flat mount',
   'sram-eagle': 'SRAM Eagle 12-speed', 'sram-transmission': 'SRAM Transmission (AXS)', 'sram-dh-7': 'SRAM DH 7-speed',
-  'shimano-12': 'Shimano 12-speed', 'udh-direct': 'Direct mount (UDH)', hanger: 'Standard hanger',
+  'shimano-12': 'Shimano 12-speed', 'shimano-linkglide': 'Shimano LinkGlide (CUES)',
+  'microshift-advent': 'microSHIFT Advent 9-speed', 'microshift-advent-x': 'microSHIFT Advent X 10-speed', 'box-prime-9': 'Box Prime 9 (9-speed)',
+  'udh-direct': 'Direct mount (UDH)', hanger: 'Standard hanger',
   cable: 'mechanical (cable)', electronic: 'electronic (wireless)',
   't-type': 'T-Type', 'standard-12': 'standard 12-speed',
   'ispec-ev': 'I-Spec EV', 'ispec-ii': 'I-Spec II', 'ispec-b': 'I-Spec B',
@@ -701,6 +703,60 @@ var PARTS = [
   { id:'cr-sram-eagle70-transmission', cat:'crankset', brand:'SRAM', model:'Eagle 70 Transmission DUB', family:'sram-eagle70-transmission', gen:'A1', mfgPn:'FC-70-A1', price:100, weight:895, bb:'DUB', ring:32, ringStd:'t-type', speeds:12, chainline:55, verified:true, lastChecked:'2026-07-08', source:'https://www.sram.com/en/sram/models/fc-70-a1', desc:'sram.com spec table: "Weight Based On: Engineering Estimate 170/32TST/2G/DUB wide (-41g/1G)" - steel-only tier (no aluminum ring option, unlike Eagle 90); also sold in 155-175mm lengths and a 30T ring - one representative config is cataloged.' },
   { id:'ch-sram-eagle70-flattop', cat:'chain', brand:'SRAM', model:'Eagle 70 Transmission Flattop', family:'sram-eagle70-flattop', gen:'A1', mfgPn:'CN-TTYP-70-A1', price:40, weight:270, system:'sram-transmission', speeds:12, verified:true, lastChecked:'2026-07-08', source:'https://www.sram.com/en/sram/models/cn-ttyp-70-a1', desc:'270g is sram.coms own "Weight Based On Engineering Estimate 114 Links" basis figure; sold pre-cut at 126 or 128 links (trim to fit) - not a contradiction, just a different weight-test basis than the as-sold length' },
   { id:'ca-sram-xs1270', cat:'cassette', brand:'SRAM', model:'XS-1270 Eagle Transmission 10-52', family:'sram-xs1270', gen:'A1', mfgPn:'CS-XS-1270-A1', price:235, weight:565, system:'sram-transmission', speeds:12, freehub:'HG', minCog:10, maxCog:52, verified:true, lastChecked:'2026-07-08', source:'https://www.sram.com/en/sram/models/cs-xs-1270-a1', desc:'notable exception, confirmed on sram.coms own model page (fetched twice to be sure): "Splined 8, 9, 10 Speed driver body compatible" with a full 10-52t range - SRAM integrates the 10T cog+lockring into the driver interface itself, the first cassette to put a 10T cog on a standard HG-style splined body (an 11-speed HG body needs a 1.85mm spacer). NOT an XD cassette despite the "XS" naming. schema.js carries a narrow mfgPn-scoped exception to its usual HG-floor-is-11T validator rule for this exact SKU.' },
+
+  /* --- catalog-drivetrain-breadth-2 (2026-07-09): budget wide-range 1x groups
+     that were wholly absent - microSHIFT Advent X (10s) + Advent (9s), Box
+     Components Prime 9 (9s, Box One + Box Three tiers), and Shimano CUES
+     LinkGlide (11s, activating the long-inert shimano-linkglide system). Every
+     verdict-driving field (system/speeds/actuation/maxCog/freehub) is off the
+     maker's own model page (microshift.com, boxcomponents.com, bike.shimano.com
+     via its CUES pages). Each budget 1x pull is its OWN system value (schema.js
+     comment) - the makers' pages state outright these do NOT interchange with
+     Shimano/SRAM, so distinct systems keep cross-brand pairings honest errors.
+     Box publishes weight+MSRP on-page -> verified; microSHIFT publishes no price
+     and Shimano no component weights -> those stay unverified sample, provenance
+     in desc (same policy as the existing Shimano 12s rows). --- */
+
+  /* microSHIFT Advent X (10-speed, microshift-advent-x, cable, HG freehub).
+     microSHIFT sells NO chain (maker: Advent X "works with 10-speed chains on
+     the market"), so a standard KMC X10 carries the system as a compatibility
+     token - same pattern as ch-sram-pc-xx1 for the DH group. */
+  { id:'sft-microshift-advent-x-m9605', cat:'shifter', brand:'microSHIFT', model:'Advent X Trail Trigger Pro', family:'microshift-advent-x', mfgPn:'SL-M9605-R', price:32, weight:120, system:'microshift-advent-x', speeds:10, actuation:'cable', clampType:'band', desc:'10-speed, 120g + band clamp from the fetched microshift.com SL-M9605-R page (states "Not compatible with Shimano or SRAM"; shares the pull with the microSHIFT Sword 10s group). price = sample (microSHIFT publishes no MSRP on its model pages)' },
+  { id:'dr-microshift-advent-x-m6205', cat:'derailleur', brand:'microSHIFT', model:'Advent X RD-M6205AM (clutch)', family:'microshift-advent-x', mfgPn:'RD-M6205AM', price:72, weight:313, system:'microshift-advent-x', speeds:10, actuation:'cable', maxCog:48, mount:'hanger', desc:'Max Cog 46-48T + 41T capacity + 313g from the fetched microshift.com RD-M6205AM page ("Compatible with ADVENT X 10-speed drivetrains only"). price = sample (no maker MSRP)' },
+  { id:'ca-microshift-advent-x-h104-1148', cat:'cassette', brand:'microSHIFT', model:'Advent X CS-H104 11-48', family:'microshift-advent-x', mfgPn:'CS-H104', price:55, weight:424, system:'microshift-advent-x', speeds:10, freehub:'HG', minCog:11, maxCog:48, desc:'11-48T (11-13-15-18-21-24-28-34-40-48), standard HG freehub - fetched microshift.com CS-H104 page. weight ~424g (maker group-total figure) + price = sample' },
+  { id:'ch-kmc-x10', cat:'chain', brand:'KMC', model:'X10 10-speed', family:'kmc-x10', price:20, weight:268, system:'microshift-advent-x', speeds:10, desc:'A standard, ubiquitous 10-speed HG chain (KMC X10, ~268g/114L). microSHIFT sells no chain and Advent X is the only 10-speed group in the catalog, so this real, physically-compatible chain carries system:microshift-advent-x as a COMPATIBILITY TOKEN (precedent: ch-sram-pc-xx1 for the 7s DH group). A KMC X10 fits any 10-speed drivetrain. weight/price = sample' },
+
+  /* microSHIFT Advent (9-speed, microshift-advent, cable, HG freehub). */
+  { id:'sft-microshift-advent-m9295', cat:'shifter', brand:'microSHIFT', model:'Advent Trail Trigger Pro', family:'microshift-advent', mfgPn:'SL-M9295-R', price:28, weight:130, system:'microshift-advent', speeds:9, actuation:'cable', clampType:'band', desc:'9-speed from the fetched microshift.com SL-M9295-R page ("Compatible with microSHIFT ADVENT rear derailleur"; "Not compatible with Shimano or SRAM"). weight + price = sample (no maker MSRP/weight on the model page)' },
+  { id:'dr-microshift-advent-m6195l', cat:'derailleur', brand:'microSHIFT', model:'Advent RD-M6195L (long-cage clutch)', family:'microshift-advent', mfgPn:'RD-M6195L', price:42, weight:290, system:'microshift-advent', speeds:9, actuation:'cable', maxCog:46, mount:'hanger', desc:'"Compatible with 11-46T 9-speed cassettes" -> Max Cog 46T, 47T capacity, cable, ratchet-and-pawl clutch - fetched microshift.com RD-M6195L page. weight + price = sample (page lists neither)' },
+  { id:'ca-microshift-advent-h093-1146', cat:'cassette', brand:'microSHIFT', model:'Advent CS-H093 11-46', family:'microshift-advent', mfgPn:'CS-H093', price:45, weight:480, system:'microshift-advent', speeds:9, freehub:'HG', minCog:11, maxCog:46, desc:'11-46T 9-speed, standard HG freehub - microshift.com Advent group/CS-H093 page. weight + price = sample' },
+  { id:'ch-kmc-x9', cat:'chain', brand:'KMC', model:'X9 9-speed', family:'kmc-x9', price:18, weight:277, system:'microshift-advent', speeds:9, desc:'A standard 9-speed chain (KMC X9, ~277g/116L) carrying system:microshift-advent as a COMPATIBILITY TOKEN - microSHIFT sells no chain and Advent "works with any 9-speed chain" (maker). Physically fits any 9-speed drivetrain; Box Prime 9 has its own Box chain, so this token is scoped to the microSHIFT Advent group. weight/price = sample' },
+
+  /* Box Components Prime 9 (9-speed, box-prime-9, cable, HG freehub). Box
+     publishes weight + US MSRP on its own product pages -> verified. Box One
+     and Box Three share the same Prime 9 cassette + chain (Box One is the
+     premium forged shifter/derailleur), mirroring how the maker sells them. */
+  { id:'sft-box-three-prime-9', cat:'shifter', brand:'Box', model:'Box Three Prime 9 Multi Shift', family:'box-prime-9', price:47.99, weight:128, system:'box-prime-9', speeds:9, actuation:'cable', clampType:'band', verified:true, lastChecked:'2026-07-09', source:'https://boxcomponents.com/products/box-three-prime-9-shifters', desc:'9-speed, 128g, $47.99 MSRP, extruded band clamp - boxcomponents.com product page. Prime 9 pull (not Shimano/SRAM)' },
+  { id:'dr-box-three-prime-9', cat:'derailleur', brand:'Box', model:'Box Three Prime 9 X-Wide', family:'box-prime-9', price:83.99, weight:290, system:'box-prime-9', speeds:9, actuation:'cable', maxCog:50, mount:'hanger', verified:true, lastChecked:'2026-07-09', source:'https://boxcomponents.com/products/box-three-prime-9-rear-derailleurs', desc:'11-50T max, 9-speed, 290g, $83.99 MSRP, non-direct-mount hanger, limited-slip clutch - boxcomponents.com product page (compatible only with Box Prime 9 shifters)' },
+  { id:'ca-box-three-prime-9-1150', cat:'cassette', brand:'Box', model:'Box Three Prime 9 11-50', family:'box-prime-9', price:76.99, weight:660, system:'box-prime-9', speeds:9, freehub:'HG', minCog:11, maxCog:50, verified:true, lastChecked:'2026-07-09', source:'https://boxcomponents.com/products/box-three-prime-9-cassette-black', desc:'11-50T 9-speed, HG freehub body, 660g, $76.99 MSRP - boxcomponents.com product page (steel cogs)' },
+  { id:'ch-box-three-prime-9-126', cat:'chain', brand:'Box', model:'Box Three Prime 9 126L', family:'box-prime-9', price:22.99, weight:305, system:'box-prime-9', speeds:9, verified:true, lastChecked:'2026-07-09', source:'https://boxcomponents.com/products/box-three-prime-9-chains', desc:'9-speed, 126 links, 305g, $22.99 MSRP - boxcomponents.com product page' },
+  { id:'sft-box-one-prime-9', cat:'shifter', brand:'Box', model:'Box One Prime 9 Multi Shift', family:'box-prime-9', price:81.99, weight:130, system:'box-prime-9', speeds:9, actuation:'cable', clampType:'band', verified:true, lastChecked:'2026-07-09', source:'https://boxcomponents.com/products/box-one-prime-9-shifters', desc:'9-speed, 130g, $81.99 MSRP, hinged machined clamp (premium tier) - boxcomponents.com product page' },
+  { id:'dr-box-one-prime-9', cat:'derailleur', brand:'Box', model:'Box One Prime 9 X-Wide', family:'box-prime-9', price:165.74, weight:290, system:'box-prime-9', speeds:9, actuation:'cable', maxCog:50, mount:'hanger', verified:true, lastChecked:'2026-07-09', source:'https://boxcomponents.com/products/box-one-prime-9-rear-derailleurs', desc:'11-50T max, 9-speed, 290g, $165.74 MSRP, forged aluminium, non-direct-mount hanger (premium tier) - boxcomponents.com product page' },
+
+  /* Shimano CUES LinkGlide U6000 (11-speed, shimano-linkglide, cable, HG). The
+     first parts on the long-inert shimano-linkglide system. Shimano publishes
+     no component weights and bike.shimano.com 403s WebFetch -> unverified
+     sample, interfaces from the maker's CUES pages (via search). LinkGlide is
+     documented by Shimano as HG-only and NOT interchangeable with Hyperglide+
+     12s, which is exactly why it is its own system. */
+  { id:'sft-shimano-cues-u6000-11', cat:'shifter', brand:'Shimano', model:'CUES SL-U6000 11-speed', family:'shimano-cues-u6000', mfgPn:'SL-U6000-11R', price:42, weight:120, system:'shimano-linkglide', speeds:11, actuation:'cable', clampType:'band', desc:'11-speed Rapidfire Plus, band clamp, "only compatible with Shimano CUES LINKGLIDE rear derailleurs of matching speed" - bike.shimano.com SL-U6000-11R page. weight + price = sample (Shimano publishes no component weight; page 403s WebFetch)' },
+  { id:'dr-shimano-cues-u6000-11-gs', cat:'derailleur', brand:'Shimano', model:'CUES RD-U6000 GS 11-speed', family:'shimano-cues-u6000', mfgPn:'RD-U6000', price:55, weight:315, system:'shimano-linkglide', speeds:11, actuation:'cable', maxCog:50, mount:'hanger', desc:'Max low sprocket 50T, 39T total capacity (1x11), Shadow RD+ - bike.shimano.com RD-U6000 page. weight + price = sample (Shimano publishes no component weight)' },
+  { id:'ca-shimano-cues-lg700-1150', cat:'cassette', brand:'Shimano', model:'CUES CS-LG700-11 11-50 LinkGlide', family:'shimano-cues-u6000', mfgPn:'CS-LG700-11', price:110, weight:612, system:'shimano-linkglide', speeds:11, freehub:'HG', minCog:11, maxCog:50, desc:'11-50T LinkGlide (11-13-15-17-20-23-26-30-36-43-50), HG freehub - bike.shimano.com CS-LG700-11 page. ~612g (widely-listed) + price = sample (Shimano publishes no component weight)' },
+  { id:'ch-shimano-cues-lg500', cat:'chain', brand:'Shimano', model:'CUES CN-LG500 LinkGlide 11-speed', family:'shimano-cues-u6000', mfgPn:'CN-LG500', price:30, weight:290, system:'shimano-linkglide', speeds:11, desc:'LinkGlide 10/11-speed chain (126 links) - bike.shimano.com CN-LG500 page. weight + price = sample (Shimano publishes no component weight)' },
+
+  /* Shimano SLX 12-speed chain - completes the SLX M7100 tier (the SLX groupset
+     preset reuses the XT chain; the SLX-branded CN-M7100 is a real SKU). */
+  { id:'ch-shimano-slx-m7100', cat:'chain', brand:'Shimano', model:'CN-M7100 12-speed', family:'shimano-slx-m7100', mfgPn:'CN-M7100', price:30, weight:252, system:'shimano-12', speeds:12, desc:'Shimano 12-speed HYPERGLIDE+ chain, SLX tier (interchangeable with the XT/XTR/Deore 12s chains). weight + price = sample (Shimano publishes no component weight)' },
 
   /* BRAKES (single caliper+lever; usable front or rear) */
   /* --- discipline expansion pass 2: the first flat-mount brake (XC) --- */

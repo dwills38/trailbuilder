@@ -45,6 +45,31 @@ test('SRAM shifter + Shimano derailleur -> system mismatch', function(){
   some(chk({shifter:'sft-sram-gx-eagle', derailleur:'dr-shimano-xt-m8100-sgs'}).errors, 'Drivetrain mismatch');
 });
 
+/* Rule 3 — budget wide-range 1x systems (microSHIFT Advent X/Advent, Box Prime 9,
+   Shimano CUES LinkGlide) added 2026-07-09. Each is its OWN cable-pull standard;
+   a coherent group is clean, and any cross-brand pairing must be an honest error. */
+test('microSHIFT Advent X 10s group (shifter/derailleur/cassette/chain) -> clean', function(){
+  eq(chk({shifter:'sft-microshift-advent-x-m9605', derailleur:'dr-microshift-advent-x-m6205', cassette:'ca-microshift-advent-x-h104-1148', chain:'ch-kmc-x10'}).errors.length, 0);
+});
+test('microSHIFT Advent 9s group -> clean', function(){
+  eq(chk({shifter:'sft-microshift-advent-m9295', derailleur:'dr-microshift-advent-m6195l', cassette:'ca-microshift-advent-h093-1146', chain:'ch-kmc-x9'}).errors.length, 0);
+});
+test('Box Prime 9 group (Box One shifter + Box Three mech/cassette/chain, one system) -> clean', function(){
+  eq(chk({shifter:'sft-box-one-prime-9', derailleur:'dr-box-three-prime-9', cassette:'ca-box-three-prime-9-1150', chain:'ch-box-three-prime-9-126'}).errors.length, 0);
+});
+test('Shimano CUES LinkGlide 11s group -> clean', function(){
+  eq(chk({shifter:'sft-shimano-cues-u6000-11', derailleur:'dr-shimano-cues-u6000-11-gs', cassette:'ca-shimano-cues-lg700-1150', chain:'ch-shimano-cues-lg500'}).errors.length, 0);
+});
+test('microSHIFT shifter + Box Prime 9 derailleur (both 9s, different pull) -> system mismatch', function(){
+  some(chk({shifter:'sft-microshift-advent-m9295', derailleur:'dr-box-three-prime-9'}).errors, 'Drivetrain mismatch');
+});
+test('microSHIFT Advent X shifter + Shimano 12s derailleur -> system mismatch (not a false green)', function(){
+  some(chk({shifter:'sft-microshift-advent-x-m9605', derailleur:'dr-shimano-xt-m8100-sgs'}).errors, 'Drivetrain mismatch');
+});
+test('Box Prime 9 cassette on a Shimano MicroSpline wheel -> freehub error (HG cassette)', function(){
+  some(chk({cassette:'ca-box-three-prime-9-1150', rearWheel:'rw-industrynine-enduro-s-29'}).errors, 'Freehub');
+});
+
 /* Rule 3b — actuation (REVIEW.md #1). Cable vs wireless share system:'sram-eagle',
    so before the actuation field this pairing passed totally clean. */
 test('mechanical trigger + AXS (wireless) derailleur, same system -> actuation error', function(){
