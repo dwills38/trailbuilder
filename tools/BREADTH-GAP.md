@@ -47,7 +47,7 @@ collapse them, so they are out of scope for this report:
 | Category | Catalog brands / options | Frames -> 0 compat. brands | Frames -> 1 compat. brand | Frames -> 2+ (fine) |
 |---|---|---|---|---|
 | Fork | 14 brands / 108 options | 0 | 0 | 111 |
-| Rear shock | 11 brands / 93 options | 19 | 0 | 92 |
+| Rear shock | 11 brands / 96 options | 14 | 5 | 92 |
 | Front wheel | 20 brands / 32 options | 0 | 0 | 111 |
 | Rear wheel | 20 brands / 80 options | 0 | 0 | 111 |
 | Front tire | 14 brands / 115 options | 0 | 0 | 111 |
@@ -65,30 +65,30 @@ expected rather than an actual gap.
 
 | # | Frame | Category | Blocking field(s) (fail count) | Compatible brands | Compatible / total options | Note |
 |---|---|---|---|---|---|---|
-| 1 | Canyon Exceed CF | Rear shock | suspension:hardtail (no shock mount at all) (93); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 | expected - hardtail, no shock mount by design, not a catalog gap |
-| 2 | Canyon Grand Canyon AL | Rear shock | suspension:hardtail (no shock mount at all) (93); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 | expected - hardtail, no shock mount by design, not a catalog gap |
-| 3 | Canyon Stoic | Rear shock | suspension:hardtail (no shock mount at all) (93); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 | expected - hardtail, no shock mount by design, not a catalog gap |
-| 4 | Commencal Meta HT V3 | Rear shock | suspension:hardtail (no shock mount at all) (93); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 | expected - hardtail, no shock mount by design, not a catalog gap |
-| 5 | Cotic Solaris | Rear shock | suspension:hardtail (no shock mount at all) (93); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 | expected - hardtail, no shock mount by design, not a catalog gap |
-| 6 | Evil Following LS | Rear shock | shockEye × shockStroke (93); shockMount (52); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 |  |
-| 7 | Forbidden Heathen | Rear shock | suspension:hardtail (no shock mount at all) (93); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 | expected - hardtail, no shock mount by design, not a catalog gap |
-| 8 | GT Zaskar FS | Rear shock | shockEye × shockStroke (88); shockMount (41); shockStroke (too long for this eye size) (5); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 |  |
-| 9 | Ibis DV9 | Rear shock | suspension:hardtail (no shock mount at all) (93); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 | expected - hardtail, no shock mount by design, not a catalog gap |
-| 10 | Merida Big Trail 500 | Rear shock | suspension:hardtail (no shock mount at all) (93); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 | expected - hardtail, no shock mount by design, not a catalog gap |
-| 11 | Mondraker F-Podium | Rear shock | shockEye × shockStroke (93); shockMount (52); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 |  |
-| 12 | Rocky Mountain Growler | Rear shock | suspension:hardtail (no shock mount at all) (93); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 | expected - hardtail, no shock mount by design, not a catalog gap |
-| 13 | Santa Cruz Bronson 5 | Rear shock | shockEye × shockStroke (68); shockMount (41); shockStroke (too long for this eye size) (25); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 |  |
-| 14 | Santa Cruz Chameleon 8 | Rear shock | suspension:hardtail (no shock mount at all) (93); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 | expected - hardtail, no shock mount by design, not a catalog gap |
-| 15 | Scott Scale RC SL | Rear shock | suspension:hardtail (no shock mount at all) (93); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 | expected - hardtail, no shock mount by design, not a catalog gap |
-| 16 | Specialized Fuse 29 | Rear shock | suspension:hardtail (no shock mount at all) (93); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 | expected - hardtail, no shock mount by design, not a catalog gap |
-| 17 | Trek Roscoe Gen 3 | Rear shock | suspension:hardtail (no shock mount at all) (93); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 | expected - hardtail, no shock mount by design, not a catalog gap |
-| 18 | Yeti ARC | Rear shock | suspension:hardtail (no shock mount at all) (93); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 | expected - hardtail, no shock mount by design, not a catalog gap |
-| 19 | Yeti ASR | Rear shock | shockEye × shockStroke (88); shockMount (41); shockStroke (too long for this eye size) (5); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 93 |  |
+| 1 | Canyon Exceed CF | Rear shock | suspension:hardtail (no shock mount at all) (96); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 96 | expected - hardtail, no shock mount by design, not a catalog gap |
+| 2 | Canyon Grand Canyon AL | Rear shock | suspension:hardtail (no shock mount at all) (96); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 96 | expected - hardtail, no shock mount by design, not a catalog gap |
+| 3 | Canyon Stoic | Rear shock | suspension:hardtail (no shock mount at all) (96); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 96 | expected - hardtail, no shock mount by design, not a catalog gap |
+| 4 | Commencal Meta HT V3 | Rear shock | suspension:hardtail (no shock mount at all) (96); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 96 | expected - hardtail, no shock mount by design, not a catalog gap |
+| 5 | Cotic Solaris | Rear shock | suspension:hardtail (no shock mount at all) (96); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 96 | expected - hardtail, no shock mount by design, not a catalog gap |
+| 6 | Forbidden Heathen | Rear shock | suspension:hardtail (no shock mount at all) (96); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 96 | expected - hardtail, no shock mount by design, not a catalog gap |
+| 7 | Ibis DV9 | Rear shock | suspension:hardtail (no shock mount at all) (96); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 96 | expected - hardtail, no shock mount by design, not a catalog gap |
+| 8 | Merida Big Trail 500 | Rear shock | suspension:hardtail (no shock mount at all) (96); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 96 | expected - hardtail, no shock mount by design, not a catalog gap |
+| 9 | Rocky Mountain Growler | Rear shock | suspension:hardtail (no shock mount at all) (96); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 96 | expected - hardtail, no shock mount by design, not a catalog gap |
+| 10 | Santa Cruz Chameleon 8 | Rear shock | suspension:hardtail (no shock mount at all) (96); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 96 | expected - hardtail, no shock mount by design, not a catalog gap |
+| 11 | Scott Scale RC SL | Rear shock | suspension:hardtail (no shock mount at all) (96); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 96 | expected - hardtail, no shock mount by design, not a catalog gap |
+| 12 | Specialized Fuse 29 | Rear shock | suspension:hardtail (no shock mount at all) (96); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 96 | expected - hardtail, no shock mount by design, not a catalog gap |
+| 13 | Trek Roscoe Gen 3 | Rear shock | suspension:hardtail (no shock mount at all) (96); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 96 | expected - hardtail, no shock mount by design, not a catalog gap |
+| 14 | Yeti ARC | Rear shock | suspension:hardtail (no shock mount at all) (96); bundledShock / OEM-only forFrames (1) | 0 / 11 - (none) | 0 / 96 | expected - hardtail, no shock mount by design, not a catalog gap |
+| 15 | Evil Following LS | Rear shock | shockEye × shockStroke (95); shockMount (54); bundledShock / OEM-only forFrames (1) | 1 / 11 - Manitou | 1 / 96 |  |
+| 16 | GT Zaskar FS | Rear shock | shockEye × shockStroke (90); shockMount (42); shockStroke (too long for this eye size) (5); bundledShock / OEM-only forFrames (1) | 1 / 11 - DVO | 1 / 96 |  |
+| 17 | Mondraker F-Podium | Rear shock | shockEye × shockStroke (95); shockMount (54); bundledShock / OEM-only forFrames (1) | 1 / 11 - Manitou | 1 / 96 |  |
+| 18 | Santa Cruz Bronson 5 | Rear shock | shockEye × shockStroke (70); shockMount (42); shockStroke (too long for this eye size) (25); bundledShock / OEM-only forFrames (1) | 1 / 11 - EXT | 1 / 96 |  |
+| 19 | Yeti ASR | Rear shock | shockEye × shockStroke (90); shockMount (42); shockStroke (too long for this eye size) (5); bundledShock / OEM-only forFrames (1) | 1 / 11 - DVO | 1 / 96 |  |
 
 ## Notes
 
 - "Compatible brands" / "options" denominators are catalog-wide totals for that
-  category (Fork=14br/108opt, Rear shock=11br/93opt, Front wheel=20br/32opt, Rear wheel=20br/80opt, Front tire=14br/115opt, Rear tire=14br/115opt, Rear derailleur=4br/19opt, Rear brake=8br/35opt, Dropper post=13br/196opt).
+  category (Fork=14br/108opt, Rear shock=11br/96opt, Front wheel=20br/32opt, Rear wheel=20br/80opt, Front tire=14br/115opt, Rear tire=14br/115opt, Rear derailleur=4br/19opt, Rear brake=8br/35opt, Dropper post=13br/196opt).
 - A warned-but-compatible part (e.g. a shorter-stroke shock, a tire past a
   frame's published max) still counts toward the compatible total above -
   it fits, it just carries a caveat. Per-row warned counts are omitted from
