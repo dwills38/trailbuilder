@@ -1,22 +1,18 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-09T13:40:38.883Z",
+ "updated": "2026-07-09T15:23:10.947Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
  "queue": [
   "fr-commencal-clash-v3",
-  "fr-canyon-grand-canyon-al",
   "fr-specialized-stumpjumper-evo",
   "fr-specialized-status-2-170",
   "fr-specialized-demo-race",
   "fr-trek-top-fuel-gen4",
-  "fr-canyon-stoic",
   "fr-trek-roscoe-gen3",
   "fr-specialized-fuse-29",
-  "fr-polygon-siskiu-t8-29",
-  "fr-polygon-siskiu-t8-275",
   "fr-cannondale-jekyll",
   "fr-pivot-switchblade-v2",
   "ti-michelin-wildenduro-racingline-29-25-gs-mh",
@@ -47,16 +43,11 @@
   "ti-panaracer-driverpro-275-24-triple",
   "ti-panaracer-driverpro-275-26-triple",
   "ti-teravail-kessel-29-24-dur-grip",
-  "ti-teravail-kessel-29-24-ultradur-grip",
   "ti-teravail-kessel-29-26-dur-grip",
   "ti-teravail-kessel-275-25-dur-gripplus",
   "ti-teravail-honcho-275-24-ls-grip",
   "ti-teravail-honcho-275-24-dur-grip",
   "ti-teravail-honcho-275-26-ls-grip",
-  "ti-terrene-chunk-275-26-tough-6251",
-  "ti-terrene-chunk-275-26-tough-5648",
-  "ti-terrene-chunk-29-26-tough-6251",
-  "ti-terrene-chunk-29-26-tough-5648",
   "ti-continental-magnotal-29-24-trail-gripc",
   "ti-continental-magnotal-29-26-trail-soft",
   "ti-continental-kryptotal-re-29-26-enduro-soft",
@@ -693,7 +684,6 @@
   "fh-industrynine-hydra2-20x110-nonboost",
   "fh-spank-hex-boost110",
   "fh-raceface-vault-boost110",
-  "fh-chrisking-iso-6bolt-boost110",
   "fh-onyx-vesper-iso-boost110",
   "rh-dtswiss-350-boost148-xd",
   "rh-dtswiss-350-boost148-ms",
@@ -707,9 +697,6 @@
   "rh-spank-hex-boost148-ms",
   "rh-raceface-vault-boost148-xd",
   "rh-raceface-vault-boost148-ms",
-  "rh-chrisking-boost-6bolt-148-xd",
-  "rh-chrisking-boost-6bolt-148-ms",
-  "rh-chrisking-boost-6bolt-148-hg",
   "rh-onyx-vesper-boost148-xd",
   "rh-onyx-vesper-boost148-ms",
   "rh-onyx-vesper-boost148-hg",
@@ -3181,10 +3168,10 @@
   },
   "fr-commencal-supreme-dh-v5": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-08T16:37:09.253Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.945Z",
    "error": null,
-   "source": null,
+   "source": "https://www.commencal.com/us/en/frame-commencal-supreme-dh-v5-chalk/23CSUP1.html",
    "note": "Weight 5,3kg MAKER-CONFIRMED (23CSUP1) but verification DEFERRED: maker complete-bike page (23SUPR) states rear hub 157x12mm (native SuperBoost157 + 157->150 conversion kit A22WHADAPDHV5), so catalog rearAxle 150x12 is WRONG and travel is 220 not 200. Correcting rearAxle->SuperBoost157 breaks the DH-race golden (its rear wheel is 12x150) - needs a 157 DH rear wheel added first. Scoped follow-up; finding recorded in the row desc."
   },
   "fr-canyon-sender-cfr": {
@@ -3205,10 +3192,10 @@
   },
   "fr-santacruz-v10-8": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:10:34.496Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
+   "source": "https://www.santacruzbicycles.com/pages/product-support/v10-8-my24",
    "note": "santacruzbicycles.com/en-US/v10 fetches: confirms 208mm rear / 200 fork / 29+MX (matches catalog wheelConfigs+travel), frame-only sold at 3949 USD, no contradiction found. But SC publishes no bare-frame weight and no editorial teardown weight exists. Interfaces corroborated; weight bar unmeetable."
   },
   "fr-trek-session-8-29": {
@@ -3277,18 +3264,18 @@
   },
   "fr-santacruz-hightower-3": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:14:22.931Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
+   "source": "https://www.santacruzbicycles.com/pages/product-support/hightower-3-my24",
    "note": "santacruzbicycles.com/hightower fetched: confirms 150 rear / 160 front / 29 (matches catalog, no contradiction). SC publishes no bare-frame weight; spec table is JS-rendered. No editorial teardown weight. Weight bar unmeetable."
   },
   "fr-canyon-neuron-cf": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:14:22.989Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
+   "source": "https://www.canyon.com/en-us/mountain-bikes/trail-bikes/neuron/cf/neuron-cf-8/3170.html",
    "note": "Interfaces sourced from fetched canyon.com Neuron CF 8 spec (prior pass); JS overview, no frame-only weight (2460g figure is complete-bike/sample). Weight bar unmeetable."
   },
   "fr-commencal-meta-ht-v3": {
@@ -3301,10 +3288,10 @@
   },
   "fr-cotic-solaris": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-08T16:37:20.053Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
+   "source": "https://www.cotic.co.uk/product/solaris",
    "note": "Re-fetched cotic.co.uk Solaris page 2026-07-08: interfaces re-confirmed (Burgtec 12x148, BSA73, 31.6 post, PM7 180-rotor-only, ZS44/EC44 head tube, UDH on 2025 gloss) but the page states NO frame weight for any size (C1-C5). Niche Reynolds-853 steel frame; no reputable editorial measured frame weight exists. Weight bar not met - Skip (interfaces good, nothing to fix)."
   },
   "fr-scott-scale-rc-sl": {
@@ -3333,10 +3320,10 @@
   },
   "fr-canyon-lux-world-cup-cf": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:14:23.042Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
+   "source": "https://www.canyon.com/en-us/mountain-bikes/cross-country-bikes/lux/cfr/lux-world-cup-cfr-axs/4002.html",
    "note": "Interfaces sourced from fetched MBR review + sram.com (prior pass); canyon.com JS overview, no frame-only weight. No editorial teardown weight for the bare frame. Weight bar unmeetable."
   },
   "ti-maxxis-assegai-29-25-dh-mg": {
@@ -3493,10 +3480,10 @@
   },
   "rw-dtswiss-ex-1700-29-ms": {
    "cat": "rearwheel",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:22:43.018Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
+   "source": "https://www.dtswiss.com/en/support/product-support?matnr=WEX1700TED2SA11692",
    "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-reserve-30-hd-29-ms": {
@@ -3525,10 +3512,10 @@
   },
   "rw-stans-flow-ex3-29-ms": {
    "cat": "rearwheel",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:27:53.948Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
+   "source": "https://stans.com/products/flow-ex3-wheelset",
    "note": "Stan's Flow EX3 is a RIM; complete-wheel weight is build/hub-dependent and not published by Stan's as a single figure (rim ~535g only). Existence/interfaces sourced from retailer SKUs (prior pass). No published complete-wheel weight. Weight bar unmeetable."
   },
   "rw-spank-359-29-ms": {
@@ -3541,10 +3528,10 @@
   },
   "rw-enve-am30-29-ms": {
    "cat": "rearwheel",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:27:54.243Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
+   "source": "https://www.enve.com/products/am30",
    "note": "ENVE sells the AM30 as a WHEELSET (pair weight only); no per-wheel rear weight published. Interfaces sourced prior pass. Weight bar unmeetable (per-wheel)."
   },
   "rw-crankbrothers-synthesis-xct11-29-ms": {
@@ -4053,18 +4040,18 @@
   },
   "rw-stans-flow-ex3-275": {
    "cat": "rearwheel",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:27:54.048Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
+   "source": "https://stans.com/products/flow-ex3-wheelset",
    "note": "Stan's Flow EX3 is a RIM; complete-wheel weight is build/hub-dependent and not published by Stan's as a single figure (rim ~535g only). Existence/interfaces sourced from retailer SKUs (prior pass). No published complete-wheel weight. Weight bar unmeetable."
   },
   "rw-stans-flow-ex3-275-ms": {
    "cat": "rearwheel",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:27:54.148Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
+   "source": "https://stans.com/products/flow-ex3-wheelset",
    "note": "Stan's Flow EX3 is a RIM; complete-wheel weight is build/hub-dependent and not published by Stan's as a single figure (rim ~535g only). Existence/interfaces sourced from retailer SKUs (prior pass). No published complete-wheel weight. Weight bar unmeetable."
   },
   "rw-hope-fortus-30-275": {
@@ -4157,11 +4144,11 @@
   },
   "fr-canyon-grand-canyon-al": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T20:44:32.453Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canyon.com/en-gb/mountain-bikes/trail-bikes/grand-canyon/grand-canyon-al/grand-canyon-al-7/4160.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-maxxis-minion-dhf-29-25-dh-mg": {
    "cat": "tire",
@@ -4853,11 +4840,11 @@
   },
   "fr-canyon-stoic": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canyon.com/en-us/mountain-bikes/trail-bikes/stoic/stoic-4/3339.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-trek-roscoe-gen3": {
    "cat": "frame",
@@ -5261,19 +5248,19 @@
   },
   "fr-polygon-siskiu-t8-29": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.polygonbikes.com/us/siskiu-t8",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-polygon-siskiu-t8-275": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.polygonbikes.com/us/siskiu-t8",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-diamondback-release-29": {
    "cat": "frame",
@@ -6133,11 +6120,11 @@
   },
   "ti-teravail-kessel-29-24-ultradur-grip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.teravail.com/products/kessel-tire",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-teravail-kessel-29-26-dur-grip": {
    "cat": "tire",
@@ -6181,35 +6168,35 @@
   },
   "ti-terrene-chunk-275-26-tough-6251": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.terrenetires.com/products/chunk-275x26-light-folding",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-terrene-chunk-275-26-tough-5648": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.terrenetires.com/products/chunk-275x26-tough-folding",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-terrene-chunk-29-26-tough-6251": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.terrenetires.com/products/chunk-29x26-tough-folding",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-terrene-chunk-29-26-tough-5648": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.terrenetires.com/products/chunk-29x26-light-folding",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-continental-magnotal-29-24-trail-gripc": {
    "cat": "tire",
@@ -13853,11 +13840,11 @@
   },
   "fh-chrisking-iso-6bolt-boost110": {
    "cat": "fronthub",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.883Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://chrisking.com/products/iso-ab-front-110-x-15mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fh-onyx-vesper-iso-boost110": {
    "cat": "fronthub",
@@ -13869,27 +13856,27 @@
   },
   "rh-chrisking-boost-6bolt-148-xd": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.883Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://chrisking.com/products/boost-6-bolt-rear",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rh-chrisking-boost-6bolt-148-ms": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.883Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://chrisking.com/products/boost-6-bolt-rear",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rh-chrisking-boost-6bolt-148-hg": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.883Z",
+   "status": "Verified",
+   "updated": "2026-07-09T15:23:10.946Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://chrisking.com/products/boost-6-bolt-rear",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rh-onyx-vesper-boost148-xd": {
    "cat": "rearhub",
