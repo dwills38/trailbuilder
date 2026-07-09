@@ -199,7 +199,10 @@ test('dropper bigger than the seat tube -> error (impossible direction)', functi
   some(chk({frame:'fr-santacruz-megatower-cc', dropper:'dp-oneup-v3-349-210'}).errors, 'Dropper too big');
 });
 test('smaller dropper in a bigger seat tube -> shim warning, not a false red', function(){
-  var r = chk({frame:'fr-specialized-enduro-sworks', dropper:'dp-oneup-v3-316-210'});
+  // Enduro S-Works is a real 31.6mm seat tube; a 30.9mm post is the smaller-in-bigger
+  // (shimable) direction. (Was a 31.6 post in the old, wrong 34.9 tube; the frame's real
+  // 31.6 diameter made that an exact match, so this now uses a genuinely-smaller post.)
+  var r = chk({frame:'fr-specialized-enduro-sworks', dropper:'dp-pnw-loam-309-175'});
   eq(r.errors.length, 0); some(r.warnings, 'reducing shim');
 });
 test('exact-diameter dropper -> silent', function(){

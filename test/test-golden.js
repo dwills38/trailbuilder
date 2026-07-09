@@ -12,10 +12,13 @@ var GOOD = { frame:'fr-santacruz-megatower-cc', fork:'fk-rockshox-zeb-ultimate-2
   frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
   handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-316-210', saddle:'sa-wtb-volt', pedals:'pd-oneup-aluminum' };
 
+// Enduro S-Works is a real 31.6mm seat tube, so DEAL runs a 31.6mm dropper (exact match,
+// clean). Was a 34.9mm post, which was only clean against the old, wrong 34.9 seat tube;
+// on the corrected 31.6 tube a 34.9 post is genuinely too big (dropper-diameter error).
 var DEAL = { frame:'fr-specialized-enduro-sworks', shock:'sh-rockshox-vivid-ultimate-oem-205x60-trun', fork:'fk-rockshox-zeb-ultimate-29-170', frontWheel:'fw-roval-traverse-hd-29', rearWheel:'rw-roval-traverse-hd-29',
   frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-29-25-exop-mg', shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle',
   frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
-  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-349-210', saddle:'sa-wtb-volt', pedals:'pd-crankbrothers-mallet-enduro' };
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-316-210', saddle:'sa-wtb-volt', pedals:'pd-crankbrothers-mallet-enduro' };
 
 var MADONNA = { frame:'fr-raaw-madonna-v22', fork:'fk-rockshox-zeb-ultimate-29-170', shock:'sh-rockshox-super-deluxe-205x65-trun', frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-reserve-30-hd-29',
   frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-29-25-exop-mg', shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle',
@@ -56,7 +59,7 @@ test('known-bad: the deliberate clash build reports 6 errors + the shim warning'
   // the rear-axle, not-UDH and shock-mount clashes disappeared; what remains:
   // front wheel size, drivetrain system, rotor interface x2, bar/stem clamp,
   // shock stroke too long (205x65 in a 205x60 frame - the over-rotation
-  // direction stays an error under the REVIEW #8 split). The 30.9-in-34.9
+  // direction stays an error under the REVIEW #8 split). The 30.9-in-31.6
   // dropper is the shimable direction, a WARNING since the REVIEW #9 split.
   var r = chk(CLASH);
   eq(r.errors.length, 6);
