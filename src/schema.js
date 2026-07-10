@@ -192,7 +192,11 @@ var SCHEMA = {
     wheelConfigs:{type:'enumArray',vocab:'wheelConfig'}, rearAxle:{type:'string',vocab:'rearAxle'},
     headset:{type:'string',vocab:'headset'}, bb:{type:'string',vocab:'frameBb'},
     seatTube:{type:'number'}, brakeMount:{type:'string',vocab:'brakeMount'},
-    maxRotorR:{type:'number'},
+    /* minRotorR (dossier known-gaps verdict, 2026-07-10): the frame's native
+       post-mount rotor FLOOR - dormant-until-sourced (rule-18 template), maker
+       statements only (Cotic Solaris: "PM7 Post Mount (180mm rotor only)").
+       Rule 10b errors below it - adapters only space calipers up. */
+    maxRotorR:{type:'number'}, minRotorR:{type:'number',optional:true},
     /* the suspension discriminator (DATA-MODEL-REVIEW section 4): the shock
        block is required for 'full' and FORBIDDEN for 'hardtail' - enforced by
        a cross-rule below, which is why the four fields are schema-optional */

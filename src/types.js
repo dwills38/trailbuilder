@@ -97,6 +97,7 @@
  * @property {number} seatTube
  * @property {BrakeMount} brakeMount
  * @property {number} maxRotorR
+ * @property {number} [minRotorR]  frame native post-mount rotor floor (rule 10b errors below; dormant until maker-sourced)
  * @property {number} maxForkTravel
  * @property {number} [minForkTravel]  maker-published approved-fork floor (dormant until sourced)
  * @property {number} [designForkTravel]  maker-STATED design fork travel (rule 12c warns >20mm below; dormant until sourced)
