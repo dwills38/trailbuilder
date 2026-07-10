@@ -408,6 +408,7 @@
   <div class="chips" id="chips" role="group" aria-label="Filter by component category"></div>
   <div class="chips subchips" id="subchips" role="group" aria-label="Filter by component type"></div>
   <div class="chips subchips" id="wheelSizeChips" role="group" aria-label="Filter by wheel size — only affects wheels &amp; tires" title="Filter by wheel size — only affects wheels &amp; tires"></div>
+  <div class="chips subchips" id="tireWidthChips" role="group" aria-label="Filter tires by width" title="Filter tires by width"></div>
   <div class="legend">
     <span><i style="background:#2aa35a" aria-hidden="true"></i>No conflict found</span>
     <span><i style="background:#e0a52e" aria-hidden="true"></i>Check first &mdash; adds a warning (hover for why)</span>
@@ -696,6 +697,7 @@
   var compatibleOnly = false;  // when on, hide parts whose compat dot would be red (state 'r'); yellow still shows (it still fits)
   var disciplineFilter = 'all';  // 'all' | xc | trail | enduro | dh — display filter only (disciplines never feeds verdicts)
   var wheelSizeFilter = 'all';   // 'all' | '29' | '275' — display filter only, applies to any part carrying a .wheel field
+  var tireWidthFilter = 'all';   // 'all' | a numeric tire width (2.4, 2.5, …) — display filter only, tires group only; chip set derives from the catalog
   var $ = function(id){ return document.getElementById(id); };
   var money = function(n){ return '$' + (n||0).toLocaleString(); };
   var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg / ' + (g/453.592).toFixed(2) + ' lb)'; };
@@ -822,7 +824,7 @@
     d.className='chip'+(activeGroup===key?' active':'');
     d.setAttribute('aria-pressed', activeGroup===key ? 'true' : 'false');
     d.textContent=label;
-    d.onclick=function(){ activeGroup=key; activeSub='all'; wheelSizeFilter='all'; renderChips(); renderSubChips(); renderWheelSizeChips(); renderCatalog(); };
+    d.onclick=function(){ activeGroup=key; activeSub='all'; wheelSizeFilter='all'; tireWidthFilter='all'; renderChips(); renderSubChips(); renderWheelSizeChips(); renderTireWidthChips(); renderCatalog(); };
     return d;
   }
 
@@ -870,6 +872,28 @@
     });
   }
 
+  /* ---- tire-width chips (display filter only, tires group; the chip set is
+     derived from the catalog so new widths appear without a code change) ---- */
+  function tireWidths(){
+    var seen={}, out=[];
+    PARTS.forEach(function(p){ if(p.cat==='tire' && typeof p.width==='number' && !seen[p.width]){ seen[p.width]=1; out.push(p.width); } });
+    return out.sort(function(a,b){ return a-b; });
+  }
+  function renderTireWidthChips(){
+    var el = $('tireWidthChips');
+    if(activeGroup!=='tire'){ el.style.display='none'; return; }
+    el.style.display=''; el.innerHTML='';
+    ['all'].concat(tireWidths()).forEach(function(k){
+      var d=document.createElement('button');
+      d.type='button';
+      d.className='chip sub'+(tireWidthFilter===k?' active':'');
+      d.setAttribute('aria-pressed', tireWidthFilter===k ? 'true' : 'false');
+      d.textContent = k==='all' ? 'All widths' : k+'"';
+      d.onclick=function(){ tireWidthFilter=k; renderTireWidthChips(); renderCatalog(); };
+      el.appendChild(d);
+    });
+  }
+
   /* ---- catalog ---- */
   function groupCats(g){ var c = g.slots.map(function(s){return s.cat;}); if(g.preset) c.push(g.preset.cat); return c; }
   function renderCatalog(){
@@ -887,6 +911,7 @@
       // state 'n' (grey), so the filter is a no-op until a build exists.
       if(compatibleOnly && compatFor(p).state==='r') return false;
       if(wheelSizeFilter!=='all' && p.wheel && p.wheel!==wheelSizeFilter) return false;
+      if(tireWidthFilter!=='all' && p.cat==='tire' && p.width!==tireWidthFilter) return false;
       return true;
     });
     if(!list.length){ el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>'; return; }
@@ -1883,7 +1908,7 @@
   $('fntSubmit').onclick = submitForumNewThread;
   $('forumNewThreadModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
 
-  readHash(); renderDiscChips(); renderChips(); renderSubChips(); renderWheelSizeChips(); sync();
+  readHash(); renderDiscChips(); renderChips(); renderSubChips(); renderWheelSizeChips(); renderTireWidthChips(); sync();
   // Wire auth state -> account UI. When accounts are unconfigured this no-ops.
   if(typeof initAccount === 'function'){
     initAccount(function(u){
