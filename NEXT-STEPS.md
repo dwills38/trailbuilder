@@ -79,8 +79,9 @@ no login, safe to share with anyone. Repo: [github.com/dwills38/trailbuilder](ht
   mid/high-end sample builds (real pricing, 0 conflicts each), lite build comparison via pasted
   share links, a downloadable spec-card share image, per-category placeholder illustrations
   (`image`/`colors`/`retailerLinks` schema fields exist and the UI is wired for them — no real data
-  entered yet), and two purely-cosmetic theme toggles: **🤘 RAD mode** and **🏳️‍🌈 Roadie mode**
-  (mutually exclusive, zero effect on any verdict).
+  entered yet), the purely-cosmetic **🤘 RAD mode** easter egg, and a real **🌙 Dark mode**
+  (persisted, follows the OS preference on first visit; mutually exclusive with RAD, zero
+  effect on any verdict — it replaced the earlier Roadie-mode easter egg 2026-07-10).
 - **Try it:** live at [dwills38.github.io/trailbuilder](https://dwills38.github.io/trailbuilder/), or
   open `index.html` locally (double-click — no build step). (`TrailBuilder-sample.html` is a
   stale generated snapshot from an early session — don't trust it; safe to delete.)
@@ -140,8 +141,11 @@ Deliberately deferred, documented in REVIEW.md's status header: the real inserti
   field renderer auto-covers new schema fields (image/colors/retailerLinks slot in with no UI change).
 - ✅ **Build comparison, lite.** Paste a share link, see it side-by-side (verdict/price/weight/
   per-group diff) with your current build.
-- ✅ **🤘 RAD mode** — neon/checkerboard theme + a joke radness meter. Plus a second toggle not
-  originally planned: **🏳️‍🌈 Roadie mode** (pride-flag theme), mutually exclusive with RAD mode.
+- ✅ **🤘 RAD mode** — neon/checkerboard theme + a joke radness meter. (A second easter-egg
+  toggle, 🏳️‍🌈 Roadie mode, shipped here originally — replaced 2026-07-10 by the real
+  **🌙 Dark mode** below.)
+- ✅ **🌙 Dark mode** — full dark palette, persisted in localStorage, follows the OS
+  prefers-color-scheme on first visit, mutually exclusive with RAD mode.
 
 Nothing left on this list — every Phase 1 item shipped and is live.
 
