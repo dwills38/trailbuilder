@@ -182,6 +182,11 @@
   .forum-form textarea{resize:vertical;min-height:74px;line-height:1.4}
   .forum-thread-body{white-space:pre-wrap;font-size:14px;line-height:1.5;margin:10px 0}
   .forum-post .gmain > div:last-child{white-space:pre-wrap;font-size:13px;margin-top:2px}
+  /* forum category filter chips (Phase 4b): own container class, NOT .chips —
+     body.forum-page hides .chips (the builder's filter rows) above. The buttons
+     inside reuse .chip, so theming (light/dark/RAD via the CSS vars), the
+     focus-visible ring and the ≤768px touch targets all come free. */
+  .forum-cats{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
   /* account control (header) + garage/inventory lists */
   .acctbox{display:flex;align-items:center;gap:10px}
   .acctbox .btn{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff}
@@ -476,6 +481,11 @@
     <p class="invpage-sub" id="forumSignInHint" hidden>Read-only right now —
       <button type="button" class="linklike" id="forumSignInLink">sign in</button> to start a thread.</p>
 
+    <!-- Category filter chips (Phase 4b). Stays hidden until the live DB has the
+         category column (feature-detected — forumHasCategories in src/forum.js),
+         so this UI is safe to deploy before the schema migration runs. -->
+    <div class="forum-cats" id="forumCatChips" role="group" aria-label="Filter threads by category" hidden></div>
+
     <div id="forumThreadList" class="invlist" aria-live="polite"></div>
 
     <div id="forumThreadDetail" hidden>
@@ -666,6 +676,13 @@
     <div>
       <label for="fntTitleInput">Title</label>
       <input type="text" id="fntTitleInput" placeholder="e.g. Fork travel vs frame max — is this right?" autofocus>
+    </div>
+    <!-- Category (Phase 4b): a select always has a value so the pick is required
+         by construction; defaults to General (or the active list filter). Hidden
+         pre-migration, same feature-detect as the filter chips. -->
+    <div id="fntCategoryField" hidden>
+      <label for="fntCategory">Category</label>
+      <select id="fntCategory"></select>
     </div>
     <div>
       <label for="fntBodyInput">Message</label>
@@ -1616,6 +1633,9 @@
      inventory full-page pattern (openInventory/closeInventoryPage above). */
   var _forumReady = (typeof forumReady === 'function') && forumReady();
   var _forumCurrentThread = null;   // id of the thread currently open in detail view, or null
+  var _forumCatsOn = false;         // does the live DB have the category column yet? (feature-detected — forumHasCategories)
+  var _forumCategoryFilter = 'all'; // active thread-list filter: 'all' | a FORUM_CATEGORIES key
+  var _forumThreadRows = null;      // last-fetched thread rows so chip clicks re-filter without a refetch (null = fetch in flight/failed)
 
   function openForum(){
     if(!_forumReady) return;
@@ -1624,8 +1644,57 @@
     closeForumThread();
     renderForumNav();
     renderForumThreads();
+    // Category UI appears only once the DB column exists (deploy-order safety —
+    // supabase/SETUP.md §8). Re-checked on every open, so it lights up by
+    // itself right after the owner runs the migration.
+    forumHasCategories().then(function(on){
+      if(on === _forumCatsOn) return;
+      _forumCatsOn = on;
+      renderForumCatChips();
+      fillForumCategoryPicker();
+      renderForumThreadList();   // re-draw so the rows pick up their category pills
+    });
   }
   function closeForum(){ document.body.classList.remove('forum-page'); }
+
+  /* category filter chips — same button conventions as the builder's chip rows
+     (renderDiscChips): real <button>s, aria-pressed marks the active one. */
+  function renderForumCatChips(){
+    var el = $('forumCatChips');
+    el.hidden = !_forumCatsOn;
+    el.innerHTML = '';
+    if(!_forumCatsOn) return;
+    var mk = function(key, label, title){
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'chip' + (_forumCategoryFilter===key ? ' active' : '');
+      d.setAttribute('aria-pressed', _forumCategoryFilter===key ? 'true' : 'false');
+      if(title){ d.title = title; }
+      d.textContent = label;
+      d.onclick = function(){ _forumCategoryFilter = key; renderForumCatChips(); renderForumThreadList(); };
+      el.appendChild(d);
+    };
+    mk('all', 'All categories', '');
+    FORUM_CATEGORIES.forEach(function(c){ mk(c.key, c.label, c.desc); });
+  }
+
+  /* the little category label on a thread row / the open thread — unknown or
+     missing categories (legacy pre-migration threads) render as General via
+     forumCategoryOf; hidden entirely while the DB has no category column */
+  function forumCatPill(row){
+    if(!_forumCatsOn) return '';
+    return '<span class="gpill">'+esc(forumCategory(forumCategoryOf(row)).label)+'</span> · ';
+  }
+
+  function fillForumCategoryPicker(){
+    var sel = $('fntCategory'); sel.innerHTML = '';
+    if(!_forumCatsOn) return;
+    FORUM_CATEGORIES.forEach(function(c){
+      var o = document.createElement('option');
+      o.value = c.key; o.textContent = c.label; o.title = c.desc;
+      sel.appendChild(o);
+    });
+  }
 
   function renderForumNav(){
     var inU = _forumReady && typeof currentUser==='function' && !!currentUser();
@@ -1645,27 +1714,46 @@
 
   function renderForumThreads(){
     var el = $('forumThreadList'); el.innerHTML = '<div class="gempty">Loading…</div>';
+    _forumThreadRows = null;
     listThreads().then(function(rows){
-      if(!rows || !rows.length){ el.innerHTML = '<div class="gempty">No threads yet.</div>'; return; }
-      el.innerHTML = '';
-      rows.forEach(function(row){
-        var div = document.createElement('div'); div.className = 'grow clickable';
-        div.innerHTML =
-          '<div class="gmain"><div class="gname">'+(row.pinned?'📌 ':'')+esc(row.title)+'</div>'+
-          '<div class="gmeta">'+esc(forumAuthorLabel(row.author_id))+' · '+new Date(row.created_at).toLocaleDateString()+'</div></div>';
-        div.onclick = function(){ openForumThread(row.id); };
-        el.appendChild(div);
-      });
+      _forumThreadRows = rows || [];
+      renderForumThreadList();
     }).catch(function(e){ el.innerHTML = '<div class="gempty">Could not load threads: '+esc(e.message||'')+'</div>'; });
+  }
+
+  /* draw the cached rows through the active category filter — chip clicks
+     re-filter without hitting the network again */
+  function renderForumThreadList(){
+    if(_forumThreadRows === null) return;   // fetch in flight/failed — leave the Loading/error state alone
+    var el = $('forumThreadList');
+    var rows = _forumThreadRows.filter(function(r){
+      return _forumCategoryFilter==='all' || forumCategoryOf(r)===_forumCategoryFilter;
+    });
+    if(!rows.length){
+      el.innerHTML = '<div class="gempty">'+(_forumThreadRows.length ? 'No threads in this category yet.' : 'No threads yet.')+'</div>';
+      return;
+    }
+    el.innerHTML = '';
+    rows.forEach(function(row){
+      var div = document.createElement('div'); div.className = 'grow clickable';
+      div.innerHTML =
+        '<div class="gmain"><div class="gname">'+(row.pinned?'📌 ':'')+esc(row.title)+'</div>'+
+        '<div class="gmeta">'+forumCatPill(row)+esc(forumAuthorLabel(row.author_id))+' · '+new Date(row.created_at).toLocaleDateString()+'</div></div>';
+      div.onclick = function(){ openForumThread(row.id); };
+      el.appendChild(div);
+    });
   }
 
   function openForumThread(id){
     _forumCurrentThread = id;
     $('forumThreadList').hidden = true; $('forumNewThread').hidden = true; $('forumSignInHint').hidden = true;
+    $('forumCatChips').hidden = true;
     $('forumThreadDetail').hidden = false;
     getThread(id).then(function(row){
       $('forumDetailTitle').textContent = row.title;
-      $('forumDetailMeta').textContent = forumAuthorLabel(row.author_id)+' · '+new Date(row.created_at).toLocaleDateString();
+      // same esc()-composed innerHTML pattern as the list rows: the category
+      // pill (when live) + author + date
+      $('forumDetailMeta').innerHTML = forumCatPill(row)+esc(forumAuthorLabel(row.author_id))+' · '+new Date(row.created_at).toLocaleDateString();
       $('forumDetailBody').textContent = row.body;
       renderForumPosts(id);
       var inU = typeof currentUser==='function' && !!currentUser();
@@ -1680,6 +1768,7 @@
     _forumCurrentThread = null;
     $('forumThreadDetail').hidden = true;
     $('forumThreadList').hidden = false;
+    renderForumCatChips();   // re-sync the chips row (hidden while a thread was open)
     renderForumNav();
   }
 
@@ -1712,6 +1801,12 @@
   function openForumNewThread(){
     if(!_forumReady || !(typeof currentUser==='function' && currentUser())) return;
     $('fntTitleInput').value = ''; $('fntBodyInput').value = ''; $('fntStatus').textContent = '';
+    // Category defaults to the active list filter (you post into what you're
+    // looking at), else General. The whole field stays hidden pre-migration.
+    $('fntCategoryField').hidden = !_forumCatsOn;
+    if(_forumCatsOn){
+      $('fntCategory').value = _forumCategoryFilter !== 'all' ? _forumCategoryFilter : FORUM_DEFAULT_CATEGORY;
+    }
     $('forumNewThreadModal').showModal();
   }
   function submitForumNewThread(){
@@ -1719,7 +1814,12 @@
     var body = ($('fntBodyInput').value||'').trim();
     var status = $('fntStatus');
     if(!title || !body){ status.textContent = 'Title and message are both required.'; return; }
-    createThread(title, body).then(function(){
+    // Send a category only once the DB column exists (pre-migration inserts
+    // that name it would be rejected); a select always has a value.
+    var category = _forumCatsOn ? ($('fntCategory').value || FORUM_DEFAULT_CATEGORY) : null;
+    createThread(title, body, category).then(function(){
+      // jump the filter to the new thread's category so the fresh post is visible
+      if(category){ _forumCategoryFilter = category; renderForumCatChips(); }
       $('forumNewThreadModal').close(); renderForumThreads();
     }).catch(function(e){ status.textContent = e.message || 'Could not post thread.'; });
   }

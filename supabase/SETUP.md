@@ -75,3 +75,23 @@ The forum (`src/forum.js`) reuses this same project — no new keys — but ship
    users can post, and only the author can edit/delete their own posts (enforced by RLS,
    same owner-only pattern as builds/inventory above — see the "forum threads/posts"
    policies in `schema.sql`).
+
+## 8. Forum categories (Phase 4b — after the forum is live)
+
+Threads carry a category (📣 Announcements, 🧩 Build help & compatibility, the riding
+disciplines, …). The vocabulary is the committed `FORUM_CATEGORIES` constant in
+[`../src/forum.js`](../src/forum.js); the database only stores the key. Rollout order is
+deliberately safe in both directions — the deployed UI **feature-detects** the column and
+hides all category UI until it exists:
+
+1. **SQL first** (safe under the currently-deployed UI): SQL Editor → paste the entire
+   `schema.sql` again → **Run**. Confirm in Table Editor: `forum_threads` has a `category`
+   column, existing threads show `general`, and the pinned welcome thread shows
+   `announcements`.
+2. Merge + push the category UI — CI + deploy run as usual.
+3. 60-second smoke test, logged in: **＋ New thread** → pick a category → post → the list's
+   category chips filter to it → the welcome thread shows under 📣 Announcements. Logged
+   out, the list + chips render read-only as always.
+
+Until step 1 runs, the deployed category UI stays hidden and the forum behaves exactly as
+before; threads posted pre-migration simply render as 💬 General afterwards.

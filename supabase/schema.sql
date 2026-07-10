@@ -92,6 +92,7 @@ create table if not exists public.forum_threads (
   author_id  uuid references auth.users(id) on delete set null default auth.uid(),
   title      text not null,
   body       text not null,
+  category   text not null default 'general',  -- Phase 4b; vocab is app-side (FORUM_CATEGORIES in src/forum.js) — see the categories stanza at the bottom
   pinned     boolean not null default false,
   created_at timestamptz not null default now()
 );
@@ -139,6 +140,11 @@ create policy "forum posts delete" on public.forum_posts
 
 -- Seed: one pinned welcome thread, authored by the system (no human author).
 -- Guarded by title so re-running this migration doesn't duplicate it.
+-- NOTE: deliberately does NOT reference the category column — on a live
+-- pre-category database this statement runs BEFORE the Phase 4b alter below,
+-- and Postgres validates an INSERT's column list even when the guarded select
+-- yields no rows, so naming the column here would fail the whole re-run.
+-- The Phase 4b stanza re-categorizes this thread instead.
 insert into public.forum_threads (author_id, title, body, pinned)
 select null,
   'Welcome to TrailBuilder Discussions',
@@ -147,3 +153,30 @@ select null,
 where not exists (
   select 1 from public.forum_threads where title = 'Welcome to TrailBuilder Discussions'
 );
+
+-- ---------------------------------------------------------------------------
+-- Phase 4b: forum categories. ONE text column on forum_threads; the category
+-- vocabulary (keys, emoji labels, descriptions, order) is a committed
+-- app-side constant — FORUM_CATEGORIES in src/forum.js — the same
+-- committed-constant pattern as REPORT_REPO / src/config.js, so relabeling
+-- or reordering a category never needs a migration. No CHECK constraint on
+-- purpose: the app treats any unknown/missing value as 'general', so a stray
+-- value degrades gracefully in the UI instead of hard-failing inserts if the
+-- app and schema ever deploy out of step.
+--
+-- ADDITIVE + BACKWARD-COMPATIBLE: the pre-category deployed UI selects * and
+-- inserts an explicit column list without category, so it keeps working
+-- unchanged after this runs (new threads land as 'general' via the default).
+-- Existing live rows get 'general' from the column default too; the seeded
+-- welcome thread is then moved to its real home, 'announcements'.
+-- ---------------------------------------------------------------------------
+alter table public.forum_threads
+  add column if not exists category text not null default 'general';
+
+-- Re-categorize the seeded welcome thread (title-guarded, like the seed
+-- itself). Also guarded on category='general' so a deliberate manual
+-- re-categorization later survives re-runs of this file.
+update public.forum_threads
+   set category = 'announcements'
+ where title = 'Welcome to TrailBuilder Discussions'
+   and category = 'general';
