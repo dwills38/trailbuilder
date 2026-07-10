@@ -313,6 +313,9 @@
   @media (max-width:480px){
     header h1{font-size:19px}
     .badge{font-size:11px}
+    /* keep the sticky header to two rows on small phones: the ☰ and Share
+       buttons drop their long labels (aria-label/title keep the full names) */
+    .hdr-long{display:none}
   }
 
   /* ===== Left-rail layout chrome (approved mockup B, implemented 2026-07-10) =====
@@ -346,7 +349,9 @@
      guided-flow jump clear of the sticky header. */
   .cat-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px;scroll-margin-top:70px}
   .cat-tools{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
-  .catcount{margin:0}
+  /* scroll-margin must sit on the element scrollIntoView is CALLED ON — the
+     guided-flow jump targets #catCount, so the count line carries it too */
+  .catcount{margin:0;scroll-margin-top:70px}
   /* ⋯ overflow menu (theme toggles + low-frequency build actions) */
   .menu{position:relative;display:inline-block}
   .menu-pop{position:absolute;right:0;top:calc(100% + 6px);background:var(--card);border:1px solid var(--line);
@@ -370,7 +375,7 @@
     body.rail-open #railBackdrop{display:block;position:fixed;inset:0;background:rgba(15,22,17,.45);z-index:60}
     header .wrap{flex-wrap:wrap}
     header input[type=search]{order:5;flex-basis:100%}
-    .cat-head{scroll-margin-top:118px}
+    .cat-head,.catcount{scroll-margin-top:140px}   /* clears the 2-row wrapped header */
   }
   /* mobile sticky build bar — mirrors the panel verdict + totals (renderReport
      wording, never reworded); tapping jumps to the build panel */
@@ -473,10 +478,10 @@
 <body>
 <header>
   <div class="wrap">
-    <button type="button" class="btn" id="railToggle" aria-expanded="true" aria-controls="rail" title="Show / hide the filter rail">☰ Filters</button>
+    <button type="button" class="btn" id="railToggle" aria-expanded="true" aria-controls="rail" aria-label="Show / hide the filter rail" title="Show / hide the filter rail">☰<span class="hdr-long"> Filters</span></button>
     <h1>🚵 TrailBuilder</h1>
     <input type="search" id="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" aria-label="Search parts by brand or model" />
-    <button class="btn primary" id="share">Share / save link</button>
+    <button class="btn primary" id="share" title="Copy a link that restores this exact build">Share<span class="hdr-long"> / save link</span></button>
     <div class="menu">
       <button type="button" class="btn" id="moreMenuBtn" aria-haspopup="true" aria-expanded="false" aria-label="More options" title="More options">⋯</button>
       <div class="menu-pop" id="moreMenuPop" hidden>
@@ -2264,7 +2269,10 @@
     function closeDrawer(){
       if(!drawerOpen()) return;
       document.body.classList.remove('rail-open'); railAria();
-      if(lastFocus && lastFocus.focus) lastFocus.focus();
+      // restore focus where it was; fall back to the toggle so keyboard users
+      // never land on <body> after Escape
+      var target=(lastFocus && lastFocus!==document.body && lastFocus.focus) ? lastFocus : railBtn;
+      target.focus();
       lastFocus=null;
     }
     railBtn.onclick=function(){
@@ -2272,6 +2280,15 @@
       else{ document.body.classList.toggle('rail-hidden'); railAria(); }
     };
     railAria();
+    // crossing the breakpoint changes what "open" means (drawer vs collapse) —
+    // drop any drawer state and re-sync the toggle's aria-expanded. Also hooked
+    // to window resize: some environments reflow media queries without firing
+    // matchMedia change events, and the recompute is idempotent and cheap.
+    // (Nothing typeable lives in the drawer, so phone keyboard resizes are moot.)
+    var onMq=function(){ if(!railMq.matches) document.body.classList.remove('rail-open'); railAria(); };
+    if(railMq.addEventListener) railMq.addEventListener('change', onMq);
+    else if(railMq.addListener) railMq.addListener(onMq);
+    window.addEventListener('resize', onMq);
     railBd.onclick=closeDrawer;
     document.addEventListener('keydown', function(e){
       if(!railMq.matches || !drawerOpen()) return;
@@ -2283,11 +2300,19 @@
       if(e.shiftKey && (a===first || !rail.contains(a))){ e.preventDefault(); last.focus(); }
       else if(!e.shiftKey && (a===last || !rail.contains(a))){ e.preventDefault(); first.focus(); }
     });
-    // picking a category from the phone drawer closes it so the catalog is visible
+    // picking a category or loading a sample build from the phone drawer closes
+    // it so the result is visible (the Show toggles keep it open on purpose —
+    // people flip several in a row)
     $('chips').addEventListener('click', function(e){
       if(railMq.matches && e.target.closest('.chip')) closeDrawer();
     });
-    $('mobileBar').onclick=function(){ var s=document.querySelector('.side'); if(s) s.scrollIntoView({behavior:'smooth', block:'start'}); };
+    document.querySelector('.rail-samples').addEventListener('click', function(e){
+      if(railMq.matches && e.target.closest('.btn')) closeDrawer();
+    });
+    // instant jump, not smooth: the catalog page is thousands of px tall on
+    // phones — an animated scroll that far is slow, and the guided-flow work
+    // already established instant jumps as the reliable pattern here
+    $('mobileBar').onclick=function(){ var s=document.querySelector('.side'); if(s) s.scrollIntoView({block:'start'}); };
   })();
 
   $('viewBuild').onclick=openBuildModal;
