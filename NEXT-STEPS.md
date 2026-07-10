@@ -97,11 +97,17 @@ be playful.
 
 1. **Deploy. ✅ DONE 2026-07-07.** Live at dwills38.github.io/trailbuilder; CI + deploy workflows
    green; `REPORT_REPO` wired so **⚐ Report a wrong verdict** files real GitHub issues.
-2. **Domain-expert rule review — packet ready, still needs Douglas.** **The review packet is ready:
-   [`EXPERT-REVIEW-DOSSIER.pdf`](EXPERT-REVIEW-DOSSIER.pdf)** (print-ready PDF generated 2026-07-07,
-   `scripts/build_dossier_pdf.py`) — every rule's claim, tier, sources and open questions in mechanic
-   language (~2-3h review, no code reading). **Still open: recruit the reviewer and hand them the
-   PDF.** Nothing else can happen on this until that human step happens.
+2. **Domain-expert rule review — ✅ COMPLETE 2026-07-10.** All 19 rule areas, all 4 deliberate
+   NON-rules and the known-gaps ranking were verdicted by Douglas (rule-by-rule, same day) and
+   every resolution applied + merged the same day: 11 rules confirmed as-is; refinements landed
+   for the SRAM AXS-controller false red (rule 3a), the UDH retrofit-kit warning tier (rule 4),
+   the BB category with exact shell/spindle checks (rule 7), sourced-strict fork-travel tiers
+   (rule 12 — min/design data across ~15 makers), the 180 mm insertion threshold (rule 13), the
+   dormant too-narrow-tire floor (rule 14c), the de-estimated stroke warning (rule 16), and the
+   frame-side native rotor floor (rule 10b, Cotic Solaris activated). **The durable record is the
+   annotated [`EXPERT-REVIEW-DOSSIER.md`](EXPERT-REVIEW-DOSSIER.md)** — every section carries its
+   Review verdict inline. Gaps ranked: dropper-insertion-vs-frame-size + curved-seat-tube checks =
+   nice-to-have backlog; chain-length/e-bike = parked; no unlisted misfits reported.
 3. **Verification grind — 87% processed, hit a real wall.** 271/313 parts have a final disposition
    (136 Verified, 134 Skipped-documented). The remaining 42 need either a differently-configured
    browser session or Douglas manually fetching a few blocked pages — see the "Data" bullet above.
