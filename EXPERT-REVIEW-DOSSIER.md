@@ -206,6 +206,7 @@ warning? Should shorter-stroke mention stroke spacers specifically?
 **Claims:** package-only frames (e.g. Specialized Enduro) warn when you pick a different
 shock ("you'll still pay for the bundle"); OEM-only shocks error on the wrong frame and
 give an info when no frame is picked yet.
+**Review verdict (2026-07-10): ✓ CONFIRMED — no change.** Verdict received via Douglas.
 
 ### 18. Rear tire vs frame clearance
 **Claims:** rear tire wider than the frame's published max = warning. ACTIVE on 10 catalog
