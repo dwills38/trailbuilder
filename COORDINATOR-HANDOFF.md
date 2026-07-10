@@ -165,3 +165,19 @@ npm run verify:status   # verification-job state + live counts (re-sync once per
 ```
 
 **Definition of green:** `validate` 0 problems **AND** all tests pass **AND** `tsc` clean **AND** CI + Deploy both success for the pushed HEAD. Anything less is not landable.
+
+---
+
+## 8. Session log — 2026-07-10 overnight (coordinator)
+
+**Launched as the "overnight parts-grind orchestrator" (template prompt: aggressive all-night catalog EXPANSION + interleaved audit, self-merge to main).** On reading this handoff, found the template's expansion mandate directly conflicts with §5's deliberate **HOLD on big expansion** (pending mechanic findings) and Douglas's anti-waste-burn preference. The high-value queue is drained (mechanic-blocked + wall-limited); the catalog is green + verdict-clean.
+
+**Decision: did NOT spin the 8-worker expansion fleet.** Running ~7h of prod-deploying workers against a same-day HOLD is the credit waste-burn Douglas has said he does not want, and it is a hard-to-reverse call that is genuinely his. Instead:
+- Did the safe, non-controversial, green-gated work both the prompt's quality-spirit and this handoff endorse: refreshed stale docs (NEXT-STEPS.md → 1772/758/380 + Phase-3-LIVE; MEMORY.md + a new `expansion-hold` memory; this file), fixed the prescribed `drift-check.js` giant-bicycles.com skip (3 verified Giant frames were silently skipped — removed the host per the comment's own rule), re-synced `verification-job.json`.
+- Put the expansion-vs-hold decision to Douglas (AskUserQuestion) with a recommendation to KEEP HOLDING until the mechanic findings land or he explicitly greenlights expansion.
+
+**Concurrency note:** at ~00:34 (mid-session) `coord/main`/`origin/main` advanced `dc3079c` → `10101ef` ("Add COORDINATOR-HANDOFF.md") — the prior coordinator committing this file as its final act. It has been stable since; treated as "prior coordinator finished, I am sole actor." Stayed fetch-before-push throughout.
+
+**If Douglas greenlights expansion:** the template's partition/cadence/worker-prompts are sound — spin the fleet per §3/§4 rules (worktree isolation, fetch-before-push, all-3-gates + `node tools/verdict-audit-harness.js` before every push, THE BAR against fabrication). If he keeps the hold, resume only when mechanic findings arrive (apply via `tools/MECHANIC-FINDINGS-INTAKE.md`).
+
+**Verdict-audit harness Section E** still flags 3 fork families (canecreek-helm=200, dvo-onyx-sc=180, ohlins-rxf38=200 maxRotorF < std 203mm). These are WARNINGS (not errors), sourced, and plausibly correct (makers genuinely cap there); left as-is — a false warning here is low-severity and pinning exact maxes needs the bot-blocked canecreek/dvo domains. Confirm opportunistically, don't force.

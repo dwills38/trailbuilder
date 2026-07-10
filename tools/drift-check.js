@@ -77,12 +77,14 @@ var USER_AGENT = 'TrailBuilder-DriftCheck/1.0 (+https://github.com/dwills38/trai
 // or JS-only shells to automated fetchers. This is a fast-path only — skips the
 // network call entirely — never the sole reason a part is treated as unfetchable;
 // runtime 403/429 + JS-shell detection (see classifyResult) covers everything else.
-// None of these currently back a verified part's `source` (grep-verified 2026-07-08);
+// None of these currently back a verified part's `source` (grep-verified 2026-07-10);
 // keep it that way — if a host here ever becomes a real source, delete it from this
-// list rather than let it silently skip checks.
+// list rather than let it silently skip checks. (2026-07-10: giant-bicycles.com was
+// removed for exactly this reason — 3 verified Giant frames now source it, so it must
+// be drift-checked at runtime, not silently pre-skipped.)
 var KNOWN_UNFETCHABLE_HOSTS = [
   'trekbikes.com', 'norco.com', 'pivotcycles.com', 'specialized.com',
-  'giant-bicycles.com', 'roval.com', 'newmen-components.com', 'bontrager.com',
+  'roval.com', 'newmen-components.com', 'bontrager.com',
   'pinkbike.com', 'nsmb.com', 'support.sram.com', 'bird.bike'
 ];
 

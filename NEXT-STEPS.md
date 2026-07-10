@@ -2,7 +2,11 @@
 
 _A living snapshot. Architecture/conventions live in `CLAUDE.md`; full history in `git log`._
 
-## Where we are (as of 2026-07-08)
+## Where we are (as of 2026-07-10)
+
+> **Live state (2026-07-10):** **1772 parts / 758 verified / 380 tests**; `node validate.js` 0 problems, `tsc` clean; CI + GitHub Pages green (origin/main `dc3079c`). **Phase 3 accounts are LIVE** (Supabase, `ACCOUNTS_ENABLED` true, E2E-confirmed 2026-07-08); the built-in forum ships but stays INERT behind `FORUM_ENABLED=false` until the forum migration is run. Catalog is verdict-clean (two verdict-audit rounds -> 0 false-greens). _The detailed 2026-07-08 snapshot below predates the large 2026-07-08->09 catalog grind (~494->1772 parts); trust the live gates over its inline figures._
+>
+> **Focus (2026-07-10):** big catalog **expansion is on HOLD** pending the mechanic dossier review (new rows should enter against final rules/vocab); the top-priority work — applying the mechanic's findings — is human-blocked/async. See `COORDINATOR-HANDOFF.md`.
 
 TrailBuilder — "PCPartPicker for enduro mountain bikes": pick parts, get real-time
 fit / price / weight checks. Plain static app (`index.html` + `src/`), no build step.
@@ -13,7 +17,7 @@ no login, safe to share with anyone. Repo: [github.com/dwills38/trailbuilder](ht
 **Solid foundation, honestly-scoped prototype:**
 
 - **Layout & tooling:** `src/` + `test/`; full-`strict` JSDoc type-checking (`npm run typecheck`);
-  Vitest (`npm test` — **204 tests**); GitHub Actions CI; **deployed** via GitHub Pages
+  Vitest (`npm test` — **380 tests**); GitHub Actions CI; **deployed** via GitHub Pages
   (`.github/workflows/deploy.yml`, gated on validate+tests, green on every push to `main`).
 - **Engine:** 19 compatibility rules + a regression/fuzz **fortress** (`test/test-invariants.js`),
   proven crash-free, deterministic, and **dot-honest** — a green dot never hides a newly-introduced
@@ -34,11 +38,11 @@ no login, safe to share with anyone. Repo: [github.com/dwills38/trailbuilder](ht
   check (needs a frame-size concept) and the BB category (§5.1-19, its own decision).
   Verdicts are *self-consistent* — **not yet validated
   against the real world** (no expert review, no real riders).
-- **Data:** 329 parts across ~100 brands. Verification is a **resumable checkpointed job**
+- **Data:** 1772 parts (sample + verified). Verification is a **resumable checkpointed job**
   (`tools/verify-job.js` + `tools/VERIFY-PROTOCOL.md`; any session resumes via `npm run verify:status`)
   and is now **271/313 processed (87%)**: 136 Verified against manufacturer pages/documents, 134
   Skipped with a documented reason (maker publishes no weight, no reputable third-party measured
-  figure exists, etc.), 42 still in the retry queue. **The remaining 42 are a real tooling wall, not
+  figure exists, etc.), 701 still queued. **Much of the remaining queue is a real tooling wall, not
   more grinding**: both WebFetch and browser automation are blocked on nearly every bike-brand domain
   (Trek, Norco, Pivot, Rocky Mountain, Specialized, Industry Nine, DT Swiss's configurator, Roval,
   We Are One, Newmen, Spank, Bontrager, Giant) — confirmed still true as of 2026-07-08.
@@ -401,9 +405,9 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   session's successful fetch) — worth a retry with a fresh URL discovery path to fill the remaining
   210×50/210×55-std second-shock-brand gap (3–4 frames, lower priority than the three fixed above).
 
-## Phase 3 — Accounts & the garage *(backend chosen: **Supabase**; code built, awaiting keys)*
+## Phase 3 — Accounts & the garage *(**Supabase — LIVE**; accounts + garage + inventory shipped, E2E-confirmed 2026-07-08)*
 
-- 🚧 **Login + saved builds + inventory — BUILT and shipped INERT (branch `phase3-accounts`).**
+- ✅ **Login + saved builds + inventory — LIVE** (merged from `phase3-accounts`; `ACCOUNTS_ENABLED` true, keys set in `src/config.js`).
   Backend decision made (**Supabase**, 2026-07-08). The whole feature is implemented behind an
   `ACCOUNTS_ENABLED` gate that is false until keys are set, so it's live-safe to merge:
   - `src/vendor/supabase.min.js` — vendored `@supabase/supabase-js` v2.110.1 UMD, loaded via a
@@ -417,7 +421,7 @@ Nothing left on this list — every Phase 1 item shipped and is live.
     following the existing `<dialog>`/`sync()` patterns. Garage rows show a live verdict dot + totals.
   - `test/test-account-serialize.js` proves the garage↔share payload contract. Verified inert in the
     browser (account UI hidden, no console errors, no visual regression); validate/tests/typecheck green.
-- 🔑 **Blocked on Douglas — the only thing left to go live: [`supabase/SETUP.md`](supabase/SETUP.md).**
+- ✅ **Went live 2026-07-08** — [`supabase/SETUP.md`](supabase/SETUP.md) completed (Supabase project created, `schema.sql` run, GitHub OAuth + magic link enabled, redirect URLs set, keys in `src/config.js`); E2E-confirmed.
   Create the Supabase project, run `schema.sql`, enable GitHub OAuth (+ magic link), set the redirect
   URLs, and paste the Project URL + anon key into `src/config.js`. Then E2E test per SETUP §6 and ship.
 - **Full build comparison** across saved builds (the Phase 1 lite version, via pasted links, is done)
