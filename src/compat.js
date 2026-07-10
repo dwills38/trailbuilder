@@ -3683,8 +3683,23 @@ function checkBuild(build){
   if(cassette) dt.push(['Cassette',cassette]); if(chain) dt.push(['Chain',chain]);
   var dtSlots=dt.map(function(x){ return x[0].toLowerCase(); });   // slot keys happen to equal the lowercased labels
   if(dt.length>1){
-    var systems=dt.map(function(x){return x[1].system;}).filter(function(v,i,a){return a.indexOf(v)===i;});
-    if(systems.length>1) err('drivetrain-system', dtSlots, 'Drivetrain mismatch: '+dt.map(function(x){return x[0]+' = '+L(x[1].system);}).join(', ')+'. Shifter, derailleur, cassette and chain must be one system.');
+    /* 3a AXS-controller exception (dossier rule 3 review, 2026-07-10): SRAM
+          documents that ALL AXS controllers work with ALL AXS derailleurs -
+          "you can use the new Eagle Transmission Pod Controllers with Eagle
+          AXS Drivetrain, or the Eagle Drivetrain controller with Eagle
+          Transmission" (support.sram.com articles 13820865674011 +
+          13820000105371; browser-verified 2026-07-10 - the host is
+          fetch-walled to tooling). An ELECTRONIC shifter in a SRAM AXS family
+          is a protocol-level controller: exempt from the one-system set (its
+          real constraint is 3b actuation). Mech/cassette/chain still must be
+          one system, and the exemption does NOT cross to non-SRAM systems -
+          a Pod driving a Shimano drivetrain stays an honest error. */
+    var axsCtrl = !!(shifter && shifter.actuation==='electronic' && (shifter.system==='sram-eagle'||shifter.system==='sram-transmission'));
+    var dtSys = axsCtrl ? dt.filter(function(x){ return x[1]!==shifter; }) : dt;
+    var systems=dtSys.map(function(x){return x[1].system;}).filter(function(v,i,a){return a.indexOf(v)===i;});
+    if(systems.length>1) err('drivetrain-system', dtSys.map(function(x){ return x[0].toLowerCase(); }), 'Drivetrain mismatch: '+dtSys.map(function(x){return x[0]+' = '+L(x[1].system);}).join(', ')+'. Shifter, derailleur, cassette and chain must be one system.');
+    else if(axsCtrl && systems.length===1 && systems[0]!=='sram-eagle' && systems[0]!=='sram-transmission')
+      err('drivetrain-system', dtSlots, 'Drivetrain mismatch: '+dt.map(function(x){return x[0]+' = '+L(x[1].system);}).join(', ')+'. An AXS controller only drives SRAM AXS derailleurs.');
     var speeds=dt.map(function(x){return x[1].speeds;}).filter(function(v,i,a){return a.indexOf(v)===i;});
     if(speeds.length>1) err('drivetrain-speeds', dtSlots, 'Speed mismatch: '+dt.map(function(x){return x[0]+' '+x[1].speeds+'s';}).join(', ')+'. All must be the same speed count.');
   }
