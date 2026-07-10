@@ -285,10 +285,19 @@ test('over-travel fork (180 on a 170-rated frame) -> warning', function(){
 /* Dormant sourced-data rules (REVIEW.md #14/#21/#22) - no catalog part carries
    the fields yet, so each is driven synthetically (the rule-18 template) and
    proven dormant on real parts. */
-test('under-forking warns when the frame declares a sourced minForkTravel', function(){
+test('under-forking ERRORS when the frame declares a sourced minForkTravel (sourced-strict, dossier rule 12 verdict)', function(){
   var bld = B({fork:'fk-fox-36-factory-29-160'});
   bld.frame = /** @type {FramePart} */ (Object.assign({}, part('fr-propain-spindrift-cf'), {minForkTravel:170}));
-  some(C.checkBuild(bld).warnings, 'Under-forked');
+  some(C.checkBuild(bld).errors, 'Under-forked');
+});
+test('over the top of a maker-published range ERRORS; inside the range is clean (Ibis Ripmo 150-170)', function(){
+  some(chk({frame:'fr-ibis-ripmo-v3', fork:'fk-fox-38-factory-29-180'}).errors, 'maker-approved range');
+  eq(chk({frame:'fr-ibis-ripmo-v3', fork:'fk-fox-36-factory-29-160'}).errors.length, 0);
+});
+test('over-max stays a WARNING on a frame without a published range (sample-value safety)', function(){
+  var r = chk({frame:'fr-canyon-strive-cfr', fork:'fk-fox-38-factory-29-180'});
+  eq(r.errors.filter(function(e){ return String(e).indexOf('Fork travel')>=0; }).length, 0);
+  some(r.warnings, 'Fork travel');
 });
 test('under-forking stays dormant without minForkTravel (high-pivot frames would false-fire on a heuristic)', function(){
   // Dreadnought: 154mm travel, commonly forked at 170+ - a 160 fork must stay silent.
@@ -308,9 +317,9 @@ test('design-travel under-forking stays silent at 20mm under (a real deliberate 
 test('12c is suppressed when 12b (approved minimum) already fired for the same pair', function(){
   var bld = B({fork:'fk-fox-36-factory-29-140'});
   bld.frame = /** @type {FramePart} */ (Object.assign({}, part('fr-propain-spindrift-cf'), {minForkTravel:170, designForkTravel:180}));
-  var w = C.checkBuild(bld).warnings;
-  some(w, 'approved minimum');
-  eq(w.filter(function(x){ return String(x).indexOf('designed around')>=0; }).length, 0);
+  var r = C.checkBuild(bld);
+  some(r.errors, 'maker-approved minimum');   // 12b, promoted to error (sourced-strict)
+  eq(r.warnings.filter(function(x){ return String(x).indexOf('designed around')>=0; }).length, 0);
 });
 test('coil shock warns when the frame is maker-stated NOT coil-compatible', function(){
   var bld = B({shock:'sh-ext-storia-v3-230x65'});

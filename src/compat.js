@@ -3785,16 +3785,32 @@ function checkBuild(build){
   /* 11. Steerer / headset */
   if(fork && frame && fork.steerer!==frame.headset) err('steerer', ['fork','frame'], 'Steerer mismatch: Fork is '+L(fork.steerer)+' but Frame headset is '+L(frame.headset)+'.');
 
-  /* 12. Fork travel vs frame rating (warning). "Rated max", not "recommended":
-        makers publish it as a rated limit and exceeding it can void the frame
-        warranty (REVIEW.md #6 wording fix). */
-  if(fork && frame && fork.travel>frame.maxForkTravel) warn('fork-travel', ['fork','frame'], 'Fork travel: '+fork.travel+'mm exceeds the frame\'s rated max of '+frame.maxForkTravel+'mm.');
-  /* 12b. UNDER-forking (REVIEW.md #14) - dormant until a frame carries a
+  /* 12. Fork travel vs frame rating - SOURCED-STRICT tiers (dossier rule 12
+        review verdict, 2026-07-10: "stick with the manufacturers recommended
+        size as compatible... any forks under or over what the manufacturer
+        recommends should be incompatible"). Where the maker publishes an
+        APPROVED RANGE (minForkTravel exists only when maker-published, and
+        the backfill records its top as maxForkTravel - Ibis "compatible with
+        150-170mm", Forbidden "160mm minimum up to 180mm maximum", HD6 "rated
+        for 180-190mm", SC V10 "Fork Compatibility: 200-203mm"), a fork
+        OUTSIDE the range is a hard ERROR in both directions. Frames WITHOUT
+        a published range keep the softer tiers: over rated max = warning
+        (~40 frames' maxForkTravel is still a permissive sample - a hard red
+        from a guessed number would be a false "won't fit"; promote per-frame
+        as ranges get sourced), and >20mm under design = the 12c warning
+        below (no maker prohibition = no red). */
+  var forkRange = !!(frame && typeof frame.minForkTravel==='number');
+  if(fork && frame && fork.travel>frame.maxForkTravel){
+    if(forkRange) err('fork-travel', ['fork','frame'], 'Fork travel: '+fork.travel+'mm is over '+nameOf(frame)+'\'s maker-approved range of '+frame.minForkTravel+'-'+frame.maxForkTravel+'mm.');
+    else warn('fork-travel', ['fork','frame'], 'Fork travel: '+fork.travel+'mm exceeds the frame\'s rated max of '+frame.maxForkTravel+'mm.');
+  }
+  /* 12b. UNDER-forking (REVIEW.md #14) - fires only when a frame carries a
         maker-published minForkTravel (~1 degree head-angle steepening per
         20mm). Sourced data only: a travel-based heuristic would false-fire
-        on high-pivot frames (Dreadnought: 154mm travel, ships at 170). */
+        on high-pivot frames (Dreadnought: 154mm travel, ships at 170).
+        Promoted warning -> ERROR by the same 2026-07-10 verdict. */
   if(fork && frame && typeof frame.minForkTravel==='number' && fork.travel<frame.minForkTravel)
-    warn('fork-travel-min', ['fork','frame'], 'Under-forked: '+fork.travel+'mm fork is below '+nameOf(frame)+'\'s approved minimum of '+frame.minForkTravel+'mm - steepens the geometry (~1° per 20mm) and leaves the frame outside the maker\'s approved range.');
+    err('fork-travel-min', ['fork','frame'], 'Under-forked: '+fork.travel+'mm fork is below '+nameOf(frame)+'\'s maker-approved minimum of '+frame.minForkTravel+'mm - outside the approved range (steepens the geometry ~1° per 20mm).');
   /* 12c. DESIGN-travel under-fork (warning, 20mm grace) - dormant until a
         frame carries a maker-STATED designForkTravel ("geometry numbers are
         based around a 170mm travel fork"). This is design intent, NOT an
