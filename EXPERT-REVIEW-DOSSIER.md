@@ -292,6 +292,9 @@ mutually incompatible; a lever may accept several standards; one matching lever 
 1. **SuperBoost frame + Boost-chainline crank: NO error.** Commonly ridden (e.g. Firebird
    with Boost cranks); a naive chainline rule would be a false red. Pinned by a test so a
    future session can't add it. The `chainline` field is display-only bait. **Agree?**
+   **Review verdict (2026-07-10): ✓ AGREED — the non-rule stands.** Verdict via Douglas;
+   matches the research pass (`DOSSIER-OPEN-QUESTIONS-RESEARCH.md` §N1 confirmed-keep-silent).
+   The pinning test stays the guard.
 2. **52T-max derailleur + 10-50 cassette: NO error** (see rule 5 — SRAM documents backward
    compatibility; an auditor's proposed rule was refuted and recorded).
 3. **Ride discipline (XC/trail/enduro/DH) NEVER gates fit** — a DH tire physically fits an
