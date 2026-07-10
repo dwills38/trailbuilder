@@ -44,10 +44,16 @@ var FORUM_CATEGORIES = [
   { key:'suspension',        label:'🛠️ Suspension setup',           desc:'Sag, pressures, tokens, rebound — dialing in forks and shocks' },
   { key:'drivetrain-brakes', label:'⚙️ Drivetrain & brakes',        desc:'Shifting, bleeds, pads and rotors — setup and maintenance' },
   { key:'wheels-tires',      label:'🛞 Wheels & tires',             desc:'Tire choice, pressures, inserts, tubeless and rims' },
+  { key:'maintenance',       label:'🔧 Maintenance & repair',       desc:'Wrenching, creaks, bearings, torque specs and workshop questions' },
   { key:'xc',                label:'🐇 XC',                         desc:'Cross-country riding, bikes and racing' },
   { key:'trail',             label:'🌲 Trail',                      desc:'Trail riding and trail bikes' },
   { key:'enduro',            label:'⛰️ Enduro',                     desc:'Enduro riding, racing and bikes' },
   { key:'dh',                label:'⬇️ DH',                         desc:'Downhill riding, racing and bikes' },
+  { key:'emtb',              label:'⚡ E-MTB',                      desc:'E-mountain bikes — riding, motors, batteries and builds' },
+  { key:'trails-parks',      label:'🗺️ Trails & bike parks',        desc:'Where to ride — park conditions, laps, trip reports and local spots' },
+  { key:'racing-events',     label:'🏁 Racing & events',            desc:'Race chat, results, group rides and meetups' },
+  { key:'skills',            label:'🎯 Skills & technique',         desc:'Cornering, jumps, braking, line choice and riding fitness' },
+  { key:'gear-apparel',      label:'🎒 Gear & apparel',             desc:'Helmets, pads, shoes, packs and everything you wear' },
   { key:'general',           label:'💬 General',                    desc:'Anything else — the default home for new threads' },
   { key:'site-feedback',     label:'🐞 Site feedback & bugs',       desc:'Bug reports, wrong or missing verdicts, data fixes and feature ideas' }
 ];
