@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-10T17:44:03.495Z",
+ "updated": "2026-07-10T17:48:56.424Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -153,14 +153,11 @@
   "sh-marzocchi-bomber-cr-205x65-trun",
   "sh-dvo-jade-x-205x65-trun",
   "sh-dvo-topaz-gen1-200x57",
-  "sh-ohlins-ttx22-m2-250x75",
-  "sh-ohlins-ttx22-m2-225x75-trun",
   "sh-formula-mod-250x75",
   "sh-formula-mod-225x75-trun",
   "sh-canecreek-kitsuma-coil-185x50-trun",
   "sh-dvo-topaz-gen3-185x50-trun",
   "sh-manitou-mara-pro-185x50-trun",
-  "sh-ohlins-txc1air-185x50-trun",
   "sh-xfusion-h3c-185x50-trun",
   "sh-marzocchi-bomber-cr-210x50",
   "sh-dvo-topaz-gen3-210x50",
@@ -169,24 +166,18 @@
   "sh-dvo-topaz-gen3-210x55",
   "sh-canecreek-air-il-210x55",
   "sh-formula-mod-250x72p5",
-  "sh-ohlins-ttx22-m2-250x72p5",
   "sh-marzocchi-bomber-cr-230x60",
   "sh-dvo-topaz-gen3-230x60",
-  "sh-ohlins-ttx22-m2-230x60",
   "sh-dvo-topaz-gen3-230x62p5",
-  "sh-ohlins-ttx22-m2-230x62p5",
   "sh-dvo-topaz-gen3-190x45",
   "sh-canecreek-air-il-190x45",
   "sh-marzocchi-bomber-cr-250x75",
   "sh-dvo-topaz-gen3-205x60-trun",
   "sh-canecreek-kitsuma-coil-205x60-trun",
   "sh-marzocchi-bomber-cr-205x60-trun",
-  "sh-ohlins-ttx22-m2-205x60-trun",
   "sh-dvo-topaz-gen3-205x62p5-trun",
   "sh-canecreek-kitsuma-coil-205x62p5-trun",
   "sh-marzocchi-bomber-cr-205x62p5-trun",
-  "sh-ohlins-ttx22-m2-205x62p5-trun",
-  "sh-ohlins-txc2air-190x45",
   "sh-marzocchi-bomber-cr-225x75-trun",
   "sh-canecreek-kitsuma-air-230x60",
   "sh-canecreek-kitsuma-air-205x60-trun",
@@ -1285,10 +1276,10 @@
   },
   "sh-ohlins-ttx22-m2-230x65": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:36:04.880Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:48:56.422Z",
    "error": null,
-   "source": null,
+   "source": "https://ohlins.com/mountain-bike/rear-shocks/ttx22m-2-coil-230x65-am",
    "note": "ohlins.com product page fetched (MTBM 2232 sibling): states NO weight, so weight bar unmeetable. WEIGHT-BASIS FLAG (chip task_6a19c936): the ~780 sample is a WITH-spring figure; Ohlins body is ~486g without spring per convention. desc note added."
   },
   "sh-canecreek-kitsuma-coil-230x65": {
@@ -3574,10 +3565,10 @@
   },
   "sh-ohlins-ttx22-m2-205x65-trun": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:36:04.936Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:48:56.423Z",
    "error": null,
-   "source": null,
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx22m-2-coil-tm-205x65-am",
    "note": "205x65 trunnion existence confirmed (ohlins.com model page, art MTBM 2228); but ohlins.com states no weight (bar unmeetable). WEIGHT-BASIS FLAG (chip task_6a19c936): 770 is with-spring; body ~486g without spring. desc note added."
   },
   "sh-ext-storia-v3-205x65-trun": {
@@ -4086,19 +4077,19 @@
   },
   "sh-ohlins-ttx22-m2-250x75": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T20:23:31.753Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:48:56.423Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx22m-2-coil-250x75-am",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-225x75-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T20:23:31.753Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:48:56.423Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx22m-2-coil-tm-225x75-am",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-ohlins-rxf36-m2-275-170": {
    "cat": "fork",
@@ -7374,11 +7365,11 @@
   },
   "sh-ohlins-txc1air-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:48:56.423Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/txc1air-tm-185x50-r",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-xfusion-h3c-185x50-trun": {
    "cat": "shock",
@@ -7486,11 +7477,11 @@
   },
   "sh-ohlins-ttx22-m2-250x72p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:48:56.423Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx22m-2-coil-250x75-am",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-rockshox-super-deluxe-ultimate-230x60": {
    "cat": "shock",
@@ -7518,11 +7509,11 @@
   },
   "sh-ohlins-ttx22-m2-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:48:56.423Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ohlins.com/mountain-bike/rear-shocks/ttx22m-2-coil-230x65-am",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-230x62p5": {
    "cat": "shock",
@@ -7534,11 +7525,11 @@
   },
   "sh-ohlins-ttx22-m2-230x62p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:48:56.423Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ohlins.com/mountain-bike/rear-shocks/ttx22m-2-coil-230x65-am",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-190x45": {
    "cat": "shock",
@@ -7598,11 +7589,11 @@
   },
   "sh-ohlins-ttx22-m2-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:48:56.423Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx22m-2-coil-tm-205x65-am",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-205x62p5-trun": {
    "cat": "shock",
@@ -7630,19 +7621,19 @@
   },
   "sh-ohlins-ttx22-m2-205x62p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:48:56.423Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx22m-2-coil-tm-205x65-am",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-txc2air-190x45": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:48:56.423Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/txc2air-190x45-r",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-dhx2-225x75-trun": {
    "cat": "shock",
