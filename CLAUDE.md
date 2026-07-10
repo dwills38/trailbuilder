@@ -116,7 +116,9 @@ frontRotor, rearRotor, handlebar, stem, grips, dropper, saddle, pedals`. (`GROUP
 Wheel-size by front/rear group vs frame `wheelConfigs` (incl. mullet = 29 front / 27.5 rear,
 plus a frameless guard rejecting pairs that match no config — reverse mullet);
 front & rear axles; drivetrain one-system + one-speed + shifter/derailleur actuation (cable vs
-AXS wireless) + T-Type chainring vs Transmission chain; SRAM Transmission needs a UDH frame;
+AXS wireless) + T-Type chainring vs Transmission chain (electronic SRAM controllers are exempt
+from one-system — SRAM documents all AXS controllers drive all AXS derailleurs — but stay
+red on non-SRAM systems); SRAM Transmission needs a UDH frame;
 cassette range vs derailleur capacity; cassette freehub vs rear wheel; brake caliper mounts;
 rotor interface vs hub (direction-aware: Center-Lock rotor on a 6-bolt hub = error;
 6-bolt rotor on a Center-Lock hub = adapter warning carrying a structured `fix`); rotor size vs

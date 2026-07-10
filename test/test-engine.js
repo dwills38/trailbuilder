@@ -82,6 +82,24 @@ test('AXS Eagle drivetrain sharing Eagle cassette/chain stays clean (no system-v
   eq(chk({shifter:'sft-sram-gx-eagle-axs', derailleur:'dr-sram-gx-eagle-axs', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle'}).errors.length, 0);
 });
 
+/* Rule 3a AXS-controller exception (dossier rule 3 review, 2026-07-10): SRAM documents
+   that ALL AXS controllers work with ALL AXS derailleurs - "the new Eagle Transmission
+   Pod Controllers with Eagle AXS Drivetrain, or the Eagle Drivetrain controller with
+   Eagle Transmission" (support.sram.com articles 13820865674011 + 13820000105371).
+   The one-system check must not red-flag either pairing; everything else stays an error. */
+test('Transmission Pod controller + Eagle AXS drivetrain -> clean (SRAM: all AXS controllers work with all AXS derailleurs)', function(){
+  eq(chk({shifter:'sft-sram-gx-transmission', derailleur:'dr-sram-gx-eagle-axs', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle'}).errors.length, 0);
+});
+test('Eagle AXS controller + Transmission drivetrain -> clean (the reverse pairing)', function(){
+  eq(chk({shifter:'sft-sram-gx-eagle-axs', derailleur:'dr-sram-gx-transmission', cassette:'ca-sram-xs1275', chain:'ch-sram-gx-flattop'}).errors.length, 0);
+});
+test('the AXS exemption does not cross systems: Pod + Shimano cassette/chain is still a system error', function(){
+  some(chk({shifter:'sft-sram-gx-transmission', cassette:'ca-shimano-xt-m8100-1051', chain:'ch-shimano-deore-m6100'}).errors, 'Drivetrain mismatch');
+});
+test('mechanical Eagle trigger + Transmission mech stays an error (the exemption is electronic-only)', function(){
+  some(chk({shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-transmission'}).errors, 'Drivetrain mismatch');
+});
+
 /* Rule 3c — T-Type chainring (REVIEW.md #2). SRAM-documented hard incompatibility,
    one-directional: Flattop chain needs a T-Type ring; T-Type ring runs Eagle chains fine. */
 test('Transmission Flattop chain + non-T-Type crank -> chainring error', function(){
