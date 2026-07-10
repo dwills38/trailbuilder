@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-10T17:54:15.563Z",
+ "updated": "2026-07-10T17:56:37.766Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -147,24 +147,12 @@
   "rw-weareone-strife-29-157-xd",
   "rw-weareone-strife-275-148-xd",
   "rw-weareone-strife-275-157-xd",
-  "sh-dvo-jade-x-230x65",
-  "sh-dvo-jade-x-205x65-trun",
-  "sh-dvo-topaz-gen1-200x57",
   "sh-formula-mod-250x75",
   "sh-formula-mod-225x75-trun",
-  "sh-dvo-topaz-gen3-185x50-trun",
   "sh-manitou-mara-pro-185x50-trun",
   "sh-xfusion-h3c-185x50-trun",
-  "sh-dvo-topaz-gen3-210x50",
-  "sh-dvo-topaz-gen3-210x55",
   "sh-formula-mod-250x72p5",
-  "sh-dvo-topaz-gen3-230x60",
-  "sh-dvo-topaz-gen3-230x62p5",
-  "sh-dvo-topaz-gen3-190x45",
-  "sh-dvo-topaz-gen3-205x60-trun",
-  "sh-dvo-topaz-gen3-205x62p5-trun",
   "sh-manitou-mara-pro-165x45-trun",
-  "sh-dvo-topaz-gen3-190x40",
   "fk-rockshox-zeb-select-29-170",
   "fk-rockshox-zeb-select-29-160",
   "fk-rockshox-lyrik-select-29-160",
@@ -1296,11 +1284,11 @@
   },
   "sh-dvo-jade-x-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:56:37.765Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade-x/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-push-elevensix-230x65": {
    "cat": "shock",
@@ -3577,11 +3565,11 @@
   },
   "sh-dvo-jade-x-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:56:37.765Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade-x/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-storia-v3-205x60-trun": {
    "cat": "shock",
@@ -7241,11 +7229,11 @@
   },
   "sh-dvo-topaz-gen1-200x57": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:56:37.765Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-arma-230x65": {
    "cat": "shock",
@@ -7321,11 +7309,11 @@
   },
   "sh-dvo-topaz-gen3-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:56:37.765Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-manitou-mara-pro-185x50-trun": {
    "cat": "shock",
@@ -7377,11 +7365,11 @@
   },
   "sh-dvo-topaz-gen3-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:56:37.765Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-air-il-210x50": {
    "cat": "shock",
@@ -7417,11 +7405,11 @@
   },
   "sh-dvo-topaz-gen3-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:56:37.765Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-air-il-210x55": {
    "cat": "shock",
@@ -7481,11 +7469,11 @@
   },
   "sh-dvo-topaz-gen3-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:56:37.765Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-230x60": {
    "cat": "shock",
@@ -7497,11 +7485,11 @@
   },
   "sh-dvo-topaz-gen3-230x62p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:56:37.765Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-230x62p5": {
    "cat": "shock",
@@ -7513,11 +7501,11 @@
   },
   "sh-dvo-topaz-gen3-190x45": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:56:37.765Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-air-il-190x45": {
    "cat": "shock",
@@ -7545,11 +7533,11 @@
   },
   "sh-dvo-topaz-gen3-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:56:37.765Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-kitsuma-coil-205x60-trun": {
    "cat": "shock",
@@ -7577,11 +7565,11 @@
   },
   "sh-dvo-topaz-gen3-205x62p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:56:37.765Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-kitsuma-coil-205x62p5-trun": {
    "cat": "shock",
@@ -7641,11 +7629,11 @@
   },
   "sh-dvo-topaz-gen3-190x40": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:56:37.765Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-arma-230x57p5": {
    "cat": "shock",
