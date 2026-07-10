@@ -93,7 +93,7 @@ plus the optional identity kit `family` (platform slug — backfilled catalog-wi
 `checkBuild`**; absence = universal; backfilled `['enduro']` on frame/fork/wheels/tires).
 Category-specific fields (enforced by `schema.js` → `SCHEMA`, using vocabularies in `VOCAB`):
 
-- **frame**: `wheelConfigs` (array of `'29'`/`'275'`/`'mullet'`), `rearAxle`, `headset`, `bb`, `seatTube`, `brakeMount`, `maxRotorR`, **`suspension`** (`'full'`/`'hardtail'` discriminator: the shock block `shockEye`/`shockStroke`/`shockMount`/`travel` is required for full and forbidden for hardtail — cross-rule), `maxForkTravel`, `udh` (bool), `frameOnly` (bool), `bundledShock` (id or null), optional `sizes` (per-size map → `{seatTubeLen?, maxInsert?}`).
+- **frame**: `wheelConfigs` (array of `'29'`/`'275'`/`'mullet'`), `rearAxle`, `headset`, `bb`, `seatTube`, `brakeMount`, `maxRotorR`, **`suspension`** (`'full'`/`'hardtail'` discriminator: the shock block `shockEye`/`shockStroke`/`shockMount`/`travel` is required for full and forbidden for hardtail — cross-rule), `maxForkTravel`, optional sourced `minForkTravel` (maker-approved floor) + `designForkTravel` (maker-stated design travel), `udh` (bool), `frameOnly` (bool), `bundledShock` (id or null), optional `sizes` (per-size map → `{seatTubeLen?, maxInsert?}`).
 - **fork**: `wheel`, `travel`, `axle`, `steerer`, `brakeMount`, `maxRotorF`, optional `minRotorF` (native-mount minimum; sourced forks only).
 - **shock**: `eye`, `stroke`, `mount`, `spring`; optional `oemOnly` + `forFrames` (array — OEM shocks ship across multiple frames).
 - **frontwheel / rearwheel**: `wheel`, `hub`, (`freehub` rear only), `rotorMount`, `intWidth`, `maxTire`.
@@ -121,8 +121,10 @@ cassette range vs derailleur capacity; cassette freehub vs rear wheel; brake cal
 rotor interface vs hub (direction-aware: Center-Lock rotor on a 6-bolt hub = error;
 6-bolt rotor on a Center-Lock hub = adapter warning carrying a structured `fix`); rotor size vs
 frame/fork max AND vs the fork's native-mount minimum (error; sourced forks only); steerer/headset;
-fork travel vs frame rated max AND sourced approved minimum (under-forking — dormant until a
-frame declares `minForkTravel`); dropper diameter vs seat tube (direction-aware: too big = error,
+fork travel vs frame rated max AND sourced approved minimum (under-forking — live per-frame as
+`minForkTravel` is sourced) AND vs maker-stated design travel (rule 12c: warns >20 mm below
+`designForkTravel`, 20 mm grace for deliberate builds, suppressed when the 12b floor already
+fired; threshold flagged for the mechanic review); dropper diameter vs seat tube (direction-aware: too big = error,
 smaller = reducing-shim warning; ≥200 mm drop adds an insertion-depth info);
 tire width vs wheel clearance AND vs fork chassis clearance (dormant until forks carry `maxTire`);
 rear-tire width vs frame clearance (rule 18 — dormant until a frame declares `maxTire`);
