@@ -104,9 +104,19 @@ test('20x110 Boost and 20x110 non-Boost are distinct valid values (never conflat
   eq(probs(f).length, 0);
 });
 test('a valid fronthub/rearhub/rim part has no problems', function(){
-  eq(probs(C.byId('fh-dtswiss-350-boost110')).length, 0);
-  eq(probs(C.byId('rh-dtswiss-350-boost148-xd')).length, 0);
-  eq(probs(C.byId('rm-dtswiss-ex511-29')).length, 0);
+  // Strip provenance fields: this test is about the fronthub/rearhub/rim SHAPE,
+  // not whichever verification date these rows carry (which drifts as sessions
+  // verify parts with today's real date against the fixed TODAY above) -
+  // provenance-date noise, same as the eeWings/sram-dh-7 tests.
+  var fh = over('fh-dtswiss-350-boost110');
+  delete fh.verified; delete fh.lastChecked; delete fh.source; delete fh.sourceType; delete fh.weightSource;
+  eq(probs(fh).length, 0);
+  var rh = over('rh-dtswiss-350-boost148-xd');
+  delete rh.verified; delete rh.lastChecked; delete rh.source; delete rh.sourceType; delete rh.weightSource;
+  eq(probs(rh).length, 0);
+  var rm = over('rm-dtswiss-ex511-29');
+  delete rm.verified; delete rm.lastChecked; delete rm.source;
+  eq(probs(rm).length, 0);
 });
 test('fronthub missing hub is caught', function(){
   var p = over('fh-dtswiss-350-boost110'); delete p.hub; some(probs(p), 'hub');
