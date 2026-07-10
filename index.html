@@ -492,7 +492,7 @@
   <div class="rm-body">
     <div>
       <label for="reportKind">What&rsquo;s off?</label>
-      <select id="reportKind">
+      <select id="reportKind" autofocus>
         <option value="false-fit">It says these parts fit, but they don&rsquo;t</option>
         <option value="false-clash">It flags a conflict, but they actually work</option>
         <option value="bad-spec">A part&rsquo;s spec / price / weight is wrong</option>
@@ -527,7 +527,7 @@
     <div class="wrow"><span class="muted">Est. weight</span><span id="bmWeight" class="muted"></span></div>
   </div>
   <div class="rm-foot">
-    <button type="button" class="btn" id="bmClose">Close</button>
+    <button type="button" class="btn" id="bmClose" autofocus>Close</button>
     <button type="button" class="btn" id="bmCopy">Copy summary</button>
     <button type="button" class="btn primary" id="bmShare">Copy share link</button>
   </div>
@@ -549,7 +549,7 @@
     <div id="pmRetailers"></div>
   </div>
   <div class="rm-foot">
-    <button type="button" class="btn" id="pmClose">Close</button>
+    <button type="button" class="btn" id="pmClose" autofocus>Close</button>
   </div>
 </dialog>
 
@@ -570,7 +570,7 @@
       <div class="cmp-or">— or paste a share link —</div>
     </div>
     <label for="cmpInput">Other build&rsquo;s share link</label>
-    <input type="text" id="cmpInput" placeholder="https://…/#b=…">
+    <input type="text" id="cmpInput" placeholder="https://…/#b=…" autofocus>
     <p id="cmpError" class="pm-note" hidden></p>
     <div id="cmpResult"></div>
   </div>
@@ -589,7 +589,7 @@
     <div id="scPreviewWrap" class="sc-preview-wrap"></div>
   </div>
   <div class="rm-foot">
-    <button type="button" class="btn" id="scClose">Close</button>
+    <button type="button" class="btn" id="scClose" autofocus>Close</button>
     <button type="button" class="btn primary" id="scDownload">Download PNG</button>
   </div>
 </dialog>
@@ -600,7 +600,7 @@
     <p>Save builds to your garage and track the parts you own. We only store your builds and inventory — nothing else.</p>
   </div>
   <div class="rm-body">
-    <button type="button" class="btn primary" id="authGithub" style="width:100%">Sign in with GitHub</button>
+    <button type="button" class="btn primary" id="authGithub" style="width:100%" autofocus>Sign in with GitHub</button>
     <div style="text-align:center;color:var(--ink-soft);font-size:12px">or a magic link by email</div>
     <div>
       <label for="authEmail">Email</label>
@@ -623,7 +623,7 @@
     <div id="garageList" class="glist"></div>
   </div>
   <div class="rm-foot">
-    <button type="button" class="btn" id="garageClose">Close</button>
+    <button type="button" class="btn" id="garageClose" autofocus>Close</button>
     <button type="button" class="btn primary" id="garageSaveCurrent">⭑ Save current build</button>
   </div>
 </dialog>
@@ -636,7 +636,7 @@
   <div class="rm-body">
     <div>
       <label for="fntTitleInput">Title</label>
-      <input type="text" id="fntTitleInput" placeholder="e.g. Fork travel vs frame max — is this right?">
+      <input type="text" id="fntTitleInput" placeholder="e.g. Fork travel vs frame max — is this right?" autofocus>
     </div>
     <div>
       <label for="fntBodyInput">Message</label>
