@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-10T18:20:59.649Z",
+ "updated": "2026-07-10T18:39:07.809Z",
  "batchSize": 25,
- "lastCompleted": "ro-clarks-ccl-203-cl",
+ "lastCompleted": "bk-clarks-m4",
  "currentCategory": "frame",
  "queue": [
   "fr-commencal-clash-v3",
@@ -539,21 +539,6 @@
   "pd-look-trailroc",
   "pd-vpcomponents-x93",
   "pd-vpcomponents-vx6001",
-  "bk-sram-level-ultimate-fm",
-  "bk-magura-mt8-sl-fm",
-  "bk-sram-maven-silver",
-  "bk-sram-maven-bronze",
-  "bk-shimano-xt-m8100",
-  "bk-shimano-slx-m7100",
-  "bk-shimano-deore-m6100",
-  "bk-trp-quadiem",
-  "bk-trickstuff-direttissima",
-  "bk-trickstuff-piccola-carbon",
-  "bk-trp-evo-expert",
-  "bk-trp-evo-comp",
-  "bk-trp-slate-t4",
-  "bk-clarks-m4",
-  "ro-galfer-shark-223-6b",
   "sft-microshift-advent-x-m9605",
   "sft-microshift-advent-m9295",
   "sft-shimano-cues-u6000-11",
@@ -2148,10 +2133,10 @@
   "bk-sram-code-rsc": {
    "cat": "brake",
    "status": "Skipped",
-   "updated": "2026-07-07T20:54:08.700Z",
+   "updated": "2026-07-10T18:26:36.558Z",
    "error": null,
    "source": null,
-   "note": "sram.com model/service pages list no weight for Code RSC. Third-party measured figures conflict wildly by what's included (294g caliper-only vs 411-443g full lever+caliper+hose+pads setups) -- not safe to pick one without knowing which config this catalog row represents. Bar not met."
+   "note": "mount confirmed PM-adapter-compatible via the FETCHED sram.com/en/service/models/db-code-rsc-a1 page, but it omits piston count and weight (unlike the sibling db-code-slv-c1 page which gave 317g); no other manufacturer page found with RSC-specific figures - stays sample, bar unmet"
   },
   "bk-sram-code-stealth": {
    "cat": "brake",
@@ -2163,10 +2148,10 @@
   },
   "bk-shimano-xt-m8120": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:58:18.641Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:31:40.822Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
    "note": "Same systemic bike.shimano.com 403-block already logged repeatedly this session (pedals, rotors, shifters). No usable third-party figure found either. Bar not met."
   },
   "bk-hayes-dominion-a4": {
@@ -2187,10 +2172,10 @@
   },
   "bk-shimano-slx-m7120": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:58:18.691Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:31:40.822Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
    "note": "Same bike.shimano.com blocker. Third-party 'complete set' figures (~917g for front+rear) don't cleanly decompose to a single-brake weight matching this row. Bar not met."
   },
   "bk-sram-maven-ultimate": {
@@ -2204,10 +2189,10 @@
   "bk-hope-tech-4-v4": {
    "cat": "brake",
    "status": "Skipped",
-   "updated": "2026-07-07T20:54:08.796Z",
+   "updated": "2026-07-10T18:34:29.589Z",
    "error": null,
    "source": null,
-   "note": "hopetech.com's Tech 4 V4 page gives GBP RRP but no weight, piston count, or mount type. Bar not met."
+   "note": "mount(PM)+pistons(4) already correct (well-established for the whole Tech 4 line); hopetech.com's V4 product page and Brake Tech Book PDF (fetched + rendered to images, 32pp) cover mounting/fitting but neither publishes a per-model weight/piston spec table - weight bar unmet"
   },
   "bk-trp-dhr-evo": {
    "cat": "brake",
@@ -2227,27 +2212,27 @@
   },
   "bk-shimano-saint-m820": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:58:45.659Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:31:40.822Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established pattern this session across pedals/rotors/shifters/brakes). Not re-attempting individually."
   },
   "bk-shimano-xtr-m9120": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:58:45.758Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:31:40.822Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established pattern this session across pedals/rotors/shifters/brakes). Not re-attempting individually."
   },
   "bk-shimano-zee-m640": {
    "cat": "brake",
    "status": "Skipped",
-   "updated": "2026-07-07T20:58:45.862Z",
+   "updated": "2026-07-10T18:31:41.210Z",
    "error": null,
    "source": null,
-   "note": "bike.shimano.com systemically 403-blocked (established pattern this session across pedals/rotors/shifters/brakes). Not re-attempting individually."
+   "note": "BR-M640 (Zee) does not appear anywhere in the FETCHED Shimano 2024-2025 Specifications Handbook - only the Zee CRANKSET (FC-M640/FC-M645) survives in Shimano's current catalog, the Zee brake caliper itself appears to have been dropped from Shimano's current lineup; no current manufacturer page found to confirm or correct mount/pistons/weight - stays sample"
   },
   "bk-magura-mt5": {
    "cat": "brake",
@@ -2268,10 +2253,10 @@
   "bk-hope-tech-4-e4": {
    "cat": "brake",
    "status": "Skipped",
-   "updated": "2026-07-07T21:00:57.077Z",
+   "updated": "2026-07-10T18:34:29.671Z",
    "error": null,
    "source": null,
-   "note": "Same Hope pattern as Tech 4 V4 and AM stem: no weight published on their product pages. Bar not met."
+   "note": "same as V4 sibling: mount/pistons already correct, no fetchable Hope page publishes E4 weight"
   },
   "bk-trp-trail-evo": {
    "cat": "brake",
@@ -2284,26 +2269,26 @@
   "bk-trickstuff-maxima": {
    "cat": "brake",
    "status": "Skipped",
-   "updated": "2026-07-07T21:00:57.032Z",
+   "updated": "2026-07-10T18:37:31.061Z",
    "error": null,
    "source": null,
-   "note": "trickstuff.de redirects to trickstuff.com homepage, no product detail page reachable via fetch; a 301g search-summary figure (with hose/pads, no rotor) was never confirmed on a fetched page. Bar not met."
+   "note": "mount(PM)+pistons(4) confirmed via the FETCHED trickstuff.com Maxima page - already correct; the page only publishes a per-SET weight (from 540g), not a per-brake figure, so the existing 280g sample stays unverified (540/2=270g is close but not a clean manufacturer per-SKU number)"
   },
   "bk-sram-db8": {
    "cat": "brake",
    "status": "Skipped",
-   "updated": "2026-07-07T21:00:57.131Z",
+   "updated": "2026-07-10T18:26:36.480Z",
    "error": null,
    "source": null,
-   "note": "sram.com model page has a full spec table but no weight field at all (confirmed via direct fetch), consistent with SRAM sometimes omitting weight (Code/DB8) vs sometimes publishing it (Maven, G2 RSC). Bar not met."
+   "note": "mount confirmed PM-adapter-compatible via the FETCHED sram.com/en/service/models/db-db8-a1 page, but that page (and the db-db8-a1 product page) omit piston count and weight; no other manufacturer page found with those figures - weight/pistons stay sample, bar unmet for full verification"
   },
   "bk-shimano-deore-m6120": {
    "cat": "brake",
    "status": "Skipped",
-   "updated": "2026-07-07T20:58:45.963Z",
+   "updated": "2026-07-10T18:31:41.130Z",
    "error": null,
    "source": null,
-   "note": "bike.shimano.com systemically 403-blocked (established pattern this session across pedals/rotors/shifters/brakes). Not re-attempting individually."
+   "note": "same Deore-tier brake table as BR-M6100 - mount/pistons already correct but no weight published; weight bar unmet, stays sample"
   },
   "bk-magura-mt-trail-sport": {
    "cat": "brake",
@@ -3851,10 +3836,10 @@
   },
   "bk-shimano-xtr-m9110-fm": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-08T20:00:22.400Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:31:40.821Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
    "note": "Shimano interface wall re-confirmed 2026-07-08: bike.shimano.com AND si.shimano.com both HTTP 403, so BR-M9110 mount/piston/rotor specs cannot be manufacturer-sourced (bar rule 1). Shimano also publishes no component weight; no editorial teardown for this flat-mount 2-piston SKU. In-catalog interfaces are from a prior bike.shimano.com listing + retailers; row stays unverified. Bar not met."
   },
   "bk-sram-level-ultimate-stealth": {
@@ -4419,27 +4404,27 @@
   },
   "bk-shimano-xt-m8100": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T03:01:12.932Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:31:40.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-shimano-slx-m7100": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T03:01:12.932Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:31:40.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-shimano-deore-m6100": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T03:01:12.932Z",
+   "status": "Skipped",
+   "updated": "2026-07-10T18:31:41.049Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mount(PM)+pistons(2) confirmed correct via the FETCHED Shimano 2024-2025 Specifications Handbook Brake table (BR-M6100), but its Average-weight row is entirely blank for the whole Deore/BR-MT5xx/MT4xx tier group (unlike XT/SLX/XTR/Saint which all publish kit weights) - weight bar unmet, stays sample"
   },
   "bk-sram-level-silver-stealth-2p": {
    "cat": "brake",
@@ -4475,11 +4460,11 @@
   },
   "bk-trp-quadiem": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T03:01:12.932Z",
+   "status": "Skipped",
+   "updated": "2026-07-10T18:36:22.247Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "the trpcycling.com/product/quadiem-2/ page and the dealer.trpcycling.com quadiem_manual.pdf both now 404 - the product appears to have been pulled from TRP's current lineup since the prior session's fetch; could not re-confirm mount independently today, fields stay sample per the existing honest note"
   },
   "bk-formula-cura4-kashima": {
    "cat": "brake",
@@ -12075,51 +12060,51 @@
   },
   "bk-sram-level-ultimate-fm": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-10T18:26:36.400Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mount (FM) already manufacturer-sourced from a prior session (SRAM Caliper Mounting Specifications PDF); OEM-only caliper with no aftermarket product page to source price/weight/piston-count from - bar genuinely unmeetable, left as documented sample"
   },
   "bk-magura-mt8-sl-fm": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-10T18:38:07.870Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "tried several magura.com product-detail URLs this session (all 404, likely JS-routed / stale ids); could not improve on the existing well-documented note (interface sourced from the Magura USA web-shop, not a spec page) - stays as documented"
   },
   "bk-sram-maven-silver": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:26:36.179Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/sram/models/db-mvn-slv-a1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-sram-maven-bronze": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:26:36.180Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/sram/models/db-mvn-brz-a1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-trickstuff-direttissima": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-10T18:37:31.141Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "re-fetched trickstuff.com today - confirms the existing well-researched note exactly (per-set from 520g, no per-brake manufacturer figure); no new data to add"
   },
   "bk-trickstuff-piccola-carbon": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-10T18:37:31.222Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "re-fetched trickstuff.com today - confirms the existing well-researched note exactly (per-set from 340g, no per-brake manufacturer figure); no new data to add"
   },
   "bk-hayes-dominion-t4": {
    "cat": "brake",
@@ -12155,19 +12140,19 @@
   },
   "bk-trp-evo-expert": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-10T18:36:22.323Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "searched again this session for an EVO Expert-specific installation/manual PDF (dealer.trpcycling.com, tektro.com) confirming post-mount independently of the shared EVO platform inference - none found (only EVO X/PRO manuals exist); weight/price already manufacturer-sourced, mount stays inferred-not-confirmed per the existing note"
   },
   "bk-trp-evo-comp": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-10T18:36:22.398Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "same search outcome as EVO Expert - no EVO Comp-specific manual found confirming post-mount independently; stays as documented"
   },
   "bk-trp-slate-evo": {
    "cat": "brake",
@@ -12179,11 +12164,11 @@
   },
   "bk-trp-slate-t4": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-10T18:36:22.486Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "already correctly marked status:discontinued/supersededBy in a prior session (trpcycling.com page 404s); no current manufacturer page exists to verify against, stays sample by design"
   },
   "bk-tektro-orion-hdm745": {
    "cat": "brake",
@@ -12203,11 +12188,11 @@
   },
   "bk-clarks-m4": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-10T18:39:07.809Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "clarkscyclesystems.com has no standalone M4 product page (only a spare-parts page and a Specifications hub page that doesn't itself list the M4 in-line) - could not pin mount/piston/weight to a single fetched spec page; retailer consensus (post mount, 4x16mm pistons) matches the existing sample fields but that is not a manufacturer source, stays unverified"
   },
   "ro-sram-hs2-160-cl": {
    "cat": "rotor",
@@ -12963,11 +12948,11 @@
   },
   "ro-galfer-shark-223-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:26:36.180Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://galfer.com/bike/products/brake-discs/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-smrt66-160-6b": {
    "cat": "rotor",
