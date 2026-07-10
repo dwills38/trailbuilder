@@ -42,7 +42,7 @@ provenance trio differ per SKU, so the SKU is the row.
 
 - **Charset:** lowercase `[a-z0-9]` tokens joined by `-` (validator-enforced).
 - **Prefix** = the category's entry in `ID_PREFIX` (schema.js): fr fk sh fw rw
-  fh rh rm ti sft dr ca ch cr bb bk ro hb st gr dp sa pd gs ws bs co.
+  fh rh rm ti sft dr ca ch cr bb hs bk ro hb st gr dp sa pd gs ws bs co.
   (`bb` variant-token order: shell, then spindle — `bb-hope-pf41-92-30mm`.)
   (`fh`/`rh`/`rim` are the build-your-own-wheel alternate to `fw`/`rw` — a
   hub or rim row only makes sense for a brand that actually sells that
@@ -71,6 +71,7 @@ provenance trio differ per SKU, so the SKU is the row.
 | rotor | size, mount (`6b`/`cl`) | `ro-sram-hs2-200-6b` |
 | bar/stem | clamp (`35`/`318`) | `hb-renthal-fatbar-35` |
 | dropper | diameter, drop | `dp-oneup-v3-316-210` |
+| headset | upper bore, lower bore (`zs44`/`ec44`/`is52`…, the S.H.I.S. token before the slash); a steerer token only when a maker sells same-bore SKUs split by steerer | `hs-canecreek-40-zs44-zs56` |
 | cassette | cog range when the code doesn't pin it (`1051`) | `ca-shimano-xt-m8100-1051` |
 | derailleur | cage (`sgs`/`gs`) | `dr-shimano-xt-m8100-sgs` |
 
@@ -105,7 +106,9 @@ The traps that produce wrong rows if mapped naively:
 | "24mm steel spindle" / Hollowtech II / Cinch steel | `bb:'24mm'` (spindle interface) | `DUB` or a brand name |
 | "30mm spindle" (eeWings, Cinch alu, Hope) | `bb:'30mm'` | `DUB` (28.99 mm ≠ 30 mm) |
 | "rings sold separately" / armset-only crank | omit `ring`, set `ringStd:null` | fabricating a ring standard (made a live false red) |
-| "56/56 Zero stack" headset | `headset:'tapered'` still (steerer-fit field) | repurposing `headset` for SHIS |
+| "56/56 Zero stack" headset (on a FRAME page) | `headset:'tapered'` still (steerer-fit field) + the bores into `headTubeUpper`/`headTubeLower` | repurposing `headset` for SHIS |
+| Headset ROWS: "uppers and lowers sold separately" (Wolf Tooth ZS, Hope Pick N Mix) | NOT a row — v1 catalogs COMPLETE headsets only (one purchasable upper+lower SKU) | pairing two separates into a fictitious complete SKU |
+| Headset ROWS: "fits 1-1/8 to 1.5 tapered steerers" | `steerer:'tapered'` + the page's S.H.I.S. pair into `upper`/`lower` (suffixes must agree — validator cross-rule) | inventing /30 codes for a tapered product |
 | Trunnion sizes (185/205/225×…) | `mount:'trunnion'` | guessing from eye number |
 
 When a REAL part needs a value the vocab lacks (a steel crank spindle, a

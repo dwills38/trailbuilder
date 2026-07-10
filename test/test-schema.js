@@ -301,3 +301,32 @@ test('catalog-level: an OEM shock with a broken back-link is caught', function()
   var s = /** @type {any} */ (Object.assign({}, C.byId('sh-rockshox-vivid-ultimate-oem-205x60-trun'), { id:'sh-badoem', forFrames:['fr-santacruz-megatower-cc'] })); // megatower does not bundle it
   some(S.validateCatalog({ PARTS: C.PARTS.concat([ s ]), SLOTS: C.SLOTS }, TODAY), 'bidirectional');
 });
+
+/* ---- headset category (2026-07-10) — synthetic literal so these negatives
+   are self-contained (they predate the first catalog rows) */
+/** A valid complete tapered headset; each test breaks one thing. @returns {*} */
+function hsOk(){
+  return { id:'hs-canecreek-40-zs44-zs56', cat:'headset', brand:'Cane Creek', model:'40',
+    family:'canecreek-40', price:70, weight:126, upper:'ZS44/28.6', lower:'ZS56/40', steerer:'tapered' };
+}
+test('a valid headset has no problems', function(){
+  eq(probs(hsOk()).length, 0);
+});
+test('headset missing steerer is caught', function(){
+  var p = hsOk(); delete p.steerer; some(probs(p), 'steerer');
+});
+test('headset upper outside the headTube vocab is caught', function(){
+  some(probs(Object.assign(hsOk(), { upper:'ZS99/28.6' })), 'upper');
+});
+test('headset steerer outside the steerer vocab is caught', function(){
+  some(probs(Object.assign(hsOk(), { steerer:'threaded-1in' })), 'steerer');
+});
+test('cross-rule: tapered headset with a /28.6 lower (straight crown race) is caught', function(){
+  some(probs(Object.assign(hsOk(), { lower:'ZS56/28.6' })), 'needs a /40 lower');
+});
+test('cross-rule: straight-dc headset with a /40 lower (tapered crown race) is caught', function(){
+  some(probs(Object.assign(hsOk(), { steerer:'straight-dc' })), 'needs a /30 lower');
+});
+test('headset id must carry the hs- prefix', function(){
+  some(probs(Object.assign(hsOk(), { id:'st-canecreek-40-zs44-zs56' })), 'prefix');
+});

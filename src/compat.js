@@ -119,6 +119,12 @@ var GROUPS = [
      slot is optional: completeness (slotRequired) is unchanged - rule 7's
      "BB sold separately" advisory is the nudge until one is picked. */
   { key:'bb', label:'Bottom Bracket', icon:'X', slots:[ {key:'bb', label:'Bottom Bracket', cat:'bb', optional:true} ] },
+  /* Headset mirrors the BB group exactly (and for the same buildTotals reason:
+     inside the cockpit group its price/weight would vanish whenever a
+     cockpitset bundle is active, since bundleActive skips non-fill slots).
+     Optional slot: completeness unchanged - frames often SHIP with a headset,
+     so rule 20c only nudges (info), it never blocks. */
+  { key:'headset', label:'Headset', icon:'H', slots:[ {key:'headset', label:'Headset', cat:'headset', optional:true} ] },
   { key:'dropper', label:'Dropper Post', icon:'P', slots:[ {key:'dropper', label:'Dropper Post', cat:'dropper'} ] },
   { key:'cockpit', label:'Cockpit', icon:'C', preset:{cat:'cockpitset', label:'cockpit'}, slots:[
       {key:'handlebar', label:'Handlebar', cat:'handlebar'},
@@ -1872,6 +1878,42 @@ var PARTS_RAW = [
   { id:'bb-raceface-bsa73-30mm', cat:'bb', brand:'Race Face', model:'BSA CINCH 30mm', family:'raceface-bsa-cinch', price:65.99, weight:87, shell:'BSA73', spindle:'30mm', verified:true, lastChecked:'2026-07-10', source:'https://www.raceface.com/products/bsa-cinch-30mm', desc:'same fetched raceface.com page as the BSA68 sibling - the 68/73mm variant applied to its 73mm shell (RFs stated weight/price basis); a second-brand 30mm-spindle BSA73 option alongside bb-hope-threaded-bsa73-30mm, per the dossier rule-7 review naming Race Face as a high-value BSA/PF92 target.' },
   { id:'bb-raceface-bsa83-30mm', cat:'bb', brand:'Race Face', model:'BSA CINCH 30mm (83)', family:'raceface-bsa-cinch', price:65.99, weight:87, shell:'BSA83', spindle:'30mm', verified:true, lastChecked:'2026-07-10', source:'https://www.raceface.com/products/bsa-cinch-30mm', desc:'same fetched raceface.com page as the BSA68/BSA73 siblings - the separately-listed "83mm" shell option (RF gives one weight/price basis across the products shell variants, per the pages copy). First generic-30mm-spindle BB in a BSA83 DH shell (only bb-sram-dub-bsa83 existed before, DUB-only) - pairs the Praxis DH9 (bb:30mm) with the Session/Tues/Yalla/Demo Race frames the rule-7 starter set flagged as a DH-shell 24/30mm gap.' },
   { id:'bb-raceface-pf92-24mm', cat:'bb', brand:'Race Face', model:'BB92 24mm', family:'raceface-bb92-cinch', price:65.99, weight:95, shell:'PF92', spindle:'24mm', verified:true, lastChecked:'2026-07-10', source:'https://www.raceface.com/products/bb92-24mm', desc:'fetched raceface.com product page: Press Fit 92mm shell (41mm bore, also sold in 89/92, 104/107 and 121/124mm widths), 24mm (Shimano-spindle) cups, 95g, single-row sealed bearings. Second-brand 24mm-spindle PF92 option alongside bb-hope-pf41-92-24mm, per the dossier rule-7 reviews Race Face/PF92 target.' },
+
+  /* --- headset category starter set (2026-07-10; the rule-7/BB starter set is
+     the template). COMPLETE headsets only (one purchasable upper+lower SKU).
+     Every interface (upper/lower S.H.I.S. + steerer acceptance) is off the
+     maker's own product page / storefront product JSON, fetched this pass.
+     Coverage: the five S.H.I.S. bore combos the 51 SHIS-carrying catalog
+     frames declare (ZS44|ZS56 x28, ZS56|ZS56 x11, IS41|IS52 x8, IS42|IS52 x2,
+     ZS44|EC44 x2) each get a Cane Creek 40 (economy) row + a premium sibling.
+     Weight basis: Cane Creek's per-variant storefront figures track its
+     published specs (Hellbender 70 states 145g outright; the 40 ZS44|ZS56
+     matches the widely-cited ~145g) -> entered as maker-stated. Chris King's
+     storefront shows a flat 205g on every colorway of BOTH models = a
+     shipping-weight placeholder, so CK rows carry NO weight rather than a
+     wrong one. SKIPPED brands, documented: Wolf Tooth Premium ZS = uppers/
+     lowers sold separately per its own page (not a complete SKU; the GeoShift
+     angle-adjust line is excluded from v1 by design); Hope = MTB completes
+     are Pick N Mix top/bottom combos (separates; shop.hopetech.com 404s to
+     tooling) and the fetched Conventional complete page publishes no S.H.I.S.
+     codes (1-1/8 only); FSA fullspeedahead.com = HTTP 403 bot-block; Acros
+     acros.de = 404 (URL structure unknown this pass); Chris King straight-
+     steerer + DH configs (and every /30-crown lower) = no fetched complete
+     SKU yet, so the straight-dc headset class stays absent and the headTube
+     vocab keeps no /30 values for now. */
+  { id:'hs-canecreek-40-zs44-zs56', cat:'headset', brand:'Cane Creek', model:'40 ZS44/ZS56', family:'canecreek-40', mfgPn:'BAA0533K', price:89.99, weight:145, upper:'ZS44/28.6', lower:'ZS56/40', steerer:'tapered', verified:true, lastChecked:'2026-07-10', source:'https://canecreek.com/products/40', desc:'fetched canecreek.com storefront product data: ZS/ZS Complete 44/28.6 | 56/40, $89.99, 145g per-variant maker figure (matches the commonly cited 40-series complete weight); sealed cartridge ZN40 bearings, 6000-series alloy cups. The catalogs single most fitted headset: 28 frames declare the ZS44|ZS56 pair (Ibis Ripmo/HD6, Giant Reign, Privateer, Knolly, Vitus, Forbidden Druid...).' },
+  { id:'hs-canecreek-40-zs56-zs56', cat:'headset', brand:'Cane Creek', model:'40 ZS56/ZS56', family:'canecreek-40', mfgPn:'BAA2202K', price:74.99, weight:181, upper:'ZS56/28.6', lower:'ZS56/40', steerer:'tapered', verified:true, lastChecked:'2026-07-10', source:'https://canecreek.com/products/40', desc:'fetched canecreek.com storefront product data: ZS/ZS Complete 56/28.6 | 56/40, $74.99, 181g per-variant maker figure. Fits the 56/56 Zero Stack head tubes 11 catalog frames declare (Transition Spire/Patrol, Commencal Meta V5/Clash/Supreme tubes, RAAW Yalla V2...; the straight-dc Supremes still need a /30-crown lower for a dual-crown fork - rule 20a keeps this tapered row honest there).' },
+  { id:'hs-canecreek-40-is41-is52', cat:'headset', brand:'Cane Creek', model:'40 IS41/IS52', family:'canecreek-40', mfgPn:'BAA0785K', price:69.99, weight:122, upper:'IS41/28.6', lower:'IS52/40', steerer:'tapered', verified:true, lastChecked:'2026-07-10', source:'https://canecreek.com/products/40', desc:'fetched canecreek.com storefront product data: IS/IS Complete Tall Cover 41/28.6 | 52/40, $69.99, 122g per-variant maker figure (a short-cover sibling BAA0741K 118g and Yeti-specific wide-cover variants exist on the same page, not yet cataloged). Fits the IS41|IS52 integrated head tubes 8 catalog frames declare (Yeti SB120-SB165/ARC/ASR, Ibis DV9).' },
+  { id:'hs-canecreek-40-is42-is52', cat:'headset', brand:'Cane Creek', model:'40 IS42/IS52', family:'canecreek-40', mfgPn:'BAA0784K', price:69.99, weight:127, upper:'IS42/28.6', lower:'IS52/40', steerer:'tapered', verified:true, lastChecked:'2026-07-10', source:'https://canecreek.com/products/40', desc:'fetched canecreek.com storefront product data: IS/IS Complete Tall Cover 42/28.6 | 52/40, $69.99, 127g per-variant maker figure (short-cover sibling BAA0783K). Fits the IS42|IS52 head tubes the Transition Smuggler/Spur carbon frames declare.' },
+  { id:'hs-canecreek-40-zs44-ec44', cat:'headset', brand:'Cane Creek', model:'40 ZS44/EC44', family:'canecreek-40', mfgPn:'BAA0717K', price:89.99, weight:150, upper:'ZS44/28.6', lower:'EC44/40', steerer:'tapered', verified:true, lastChecked:'2026-07-10', source:'https://canecreek.com/products/40', desc:'fetched canecreek.com storefront product data: ZS/EC Complete 44/28.6 | 44/40, $89.99, 150g per-variant maker figure. The external-lower-cup combo the steel crowd runs: Cotic Solaris and Forbidden Heathen declare ZS44|EC44.' },
+  { id:'hs-canecreek-hellbender-70-zs44-zs56', cat:'headset', brand:'Cane Creek', model:'Hellbender 70 ZS44/ZS56', family:'canecreek-hellbender-70', mfgPn:'BAA1186K', price:124.99, weight:145, upper:'ZS44/28.6', lower:'ZS56/40', steerer:'tapered', verified:true, lastChecked:'2026-07-10', source:'https://canecreek.com/products/hellbender-70', desc:'fetched canecreek.com storefront product data: ZS/ZS Complete 44/28.6 | 56/40, $124.99, maker-stated 145g; premium stainless Hellbender bearings, machined 6061 T-6 cups, dual-lip lower seals; 6 anodized colors (black SKU carried as mfgPn per the color=no-split policy).' },
+  { id:'hs-canecreek-hellbender-70-zs56-zs56', cat:'headset', brand:'Cane Creek', model:'Hellbender 70 ZS56/ZS56', family:'canecreek-hellbender-70', mfgPn:'BAA2279K', price:129.99, weight:145, upper:'ZS56/28.6', lower:'ZS56/40', steerer:'tapered', verified:true, lastChecked:'2026-07-10', source:'https://canecreek.com/products/hellbender-70', desc:'fetched canecreek.com storefront product data: ZS/ZS Complete 56/28.6 | 56/40, $129.99, maker-stated 145g (variant shown out of stock at fetch time; list price carried per the BB-rows convention). The premium option for the 56/56 Zero Stack frames (Spire, Patrol, Meta V5...).' },
+  { id:'hs-canecreek-hellbender-70-is41-is52', cat:'headset', brand:'Cane Creek', model:'Hellbender 70 IS41/IS52', family:'canecreek-hellbender-70', mfgPn:'BAA1188K', price:107.99, weight:145, upper:'IS41/28.6', lower:'IS52/40', steerer:'tapered', verified:true, lastChecked:'2026-07-10', source:'https://canecreek.com/products/hellbender-70', desc:'fetched canecreek.com storefront product data: IS/IS Complete 41/28.6 | 52/40, $107.99, maker-stated 145g. Premium integrated option for the Yeti/Ibis IS41|IS52 fleet.' },
+  { id:'hs-canecreek-hellbender-70-is42-is52', cat:'headset', brand:'Cane Creek', model:'Hellbender 70 IS42/IS52', family:'canecreek-hellbender-70', mfgPn:'BAA1189K', price:107.99, weight:145, upper:'IS42/28.6', lower:'IS52/40', steerer:'tapered', verified:true, lastChecked:'2026-07-10', source:'https://canecreek.com/products/hellbender-70', desc:'fetched canecreek.com storefront product data: IS/IS Complete 42/28.6 | 52/40, $107.99, maker-stated 145g (a Specialized Levo/Evo-specific IS42 variant BAA2247K also exists on the page, not cataloged). Fits the Transition Smuggler/Spur IS42|IS52 head tubes.' },
+  { id:'hs-canecreek-hellbender-70-zs44-ec44', cat:'headset', brand:'Cane Creek', model:'Hellbender 70 ZS44/EC44', family:'canecreek-hellbender-70', mfgPn:'BAA1187K', price:129.99, weight:145, upper:'ZS44/28.6', lower:'EC44/40', steerer:'tapered', verified:true, lastChecked:'2026-07-10', source:'https://canecreek.com/products/hellbender-70', desc:'fetched canecreek.com storefront product data: ZS/EC Complete 44/28.6 | 44/40, $129.99, maker-stated 145g. Premium sibling for the ZS44|EC44 steel frames (Cotic Solaris, Forbidden Heathen).' },
+  { id:'hs-chrisking-inset-2-zs44-zs56', cat:'headset', brand:'Chris King', model:'InSet 2', family:'chrisking-inset', mfgPn:'BAB1', price:210, upper:'ZS44/28.6', lower:'ZS56/40', steerer:'tapered', verified:true, lastChecked:'2026-07-10', source:'https://chrisking.com/products/headset-inset-2', desc:'fetched chrisking.com product page/storefront data: InSet 2, ZS44/28.6 upper | ZS56/40 lower, "1-1/8in to 1.5in tapered steerer", $210 (black BAB1; 11 colorways, two-tone/50th trims $240), GripLock retention, made in Portland, lifetime warranty. NO WEIGHT stored: the storefront shows a flat 205g on every colorway of every InSet model - a shipping-weight placeholder, not a product spec (the InSet 2 is commonly cited around 100g); a measured weight can land later under the sourceType:measured policy.' },
+  { id:'hs-chrisking-inset-7-zs44-ec44', cat:'headset', brand:'Chris King', model:'InSet 7', family:'chrisking-inset', mfgPn:'BCB1', price:210, upper:'ZS44/28.6', lower:'EC44/40', steerer:'tapered', verified:true, lastChecked:'2026-07-10', source:'https://chrisking.com/products/headset-inset-7', desc:'fetched chrisking.com product page/storefront data: InSet 7, ZS44/28.6 upper | EC44/40 external lower, "1-1/8in to 1.5in tapered steerer", $210 (black BCB1; same colorway/trim spread as the InSet 2), GripLock retention. NO WEIGHT stored - same flat-205g shipping placeholder as the InSet 2, see that rows note.' },
+
   { id:'ca-sram-xs1270', cat:'cassette', brand:'SRAM', model:'XS-1270 Eagle Transmission 10-52', family:'sram-xs1270', gen:'A1', mfgPn:'CS-XS-1270-A1', price:235, weight:565, system:'sram-transmission', speeds:12, freehub:'HG', minCog:10, maxCog:52, verified:true, lastChecked:'2026-07-08', source:'https://www.sram.com/en/sram/models/cs-xs-1270-a1', desc:'notable exception, confirmed on sram.coms own model page (fetched twice to be sure): "Splined 8, 9, 10 Speed driver body compatible" with a full 10-52t range - SRAM integrates the 10T cog+lockring into the driver interface itself, the first cassette to put a 10T cog on a standard HG-style splined body (an 11-speed HG body needs a 1.85mm spacer). NOT an XD cassette despite the "XS" naming. schema.js carries a narrow mfgPn-scoped exception to its usual HG-floor-is-11T validator rule for this exact SKU.' },
 
   /* --- catalog-drivetrain-breadth-2 (2026-07-09): budget wide-range 1x groups
@@ -3720,6 +3762,7 @@ function specSummary(p){
     case 'cassette': return L(p.freehub)+' . '+p.minCog+'-'+p.maxCog+'T . '+p.speeds+'s';   // range string derived, never stored
     case 'chain': return L(p.system)+' . '+p.speeds+'s';
     case 'bb': return L(p.shell)+' shell . '+L(p.spindle)+' spindle';
+    case 'headset': return p.upper+' / '+p.lower+' . '+L(p.steerer);   // S.H.I.S. codes self-label
     case 'crankset': return L(p.bb)+(typeof p.ring==='number'?' . '+p.ring+'T':'')+' . '+p.speeds+'s . '
       +(p.ringStd ? L(p.ringStd)+' ring' : 'ring sold separately');
     case 'brake': return L(p.mount)+' . '+p.pistons+'-piston'
@@ -3803,6 +3846,16 @@ function effectiveWheel(b, side){
   return { wheel:rr.wheel, hub:rh.hub, freehub:rh.freehub, rotorMount:rh.rotorMount, intWidth:rr.intWidth, maxTire:rr.maxTire, minTire:rr.minTire };
 }
 
+/** The head-tube-side token of an S.H.I.S. code ('ZS56/28.6' -> 'ZS56'): cup
+ * family + bore, the part of the code that is a FRAME fact. Rule 20b compares
+ * only this token - the number after the slash is the steerer interface at
+ * that assembly, which is the headset row's own consistency (validator
+ * cross-rule) + rule 20a's business. The frame backfill's suffixes assume the
+ * common tapered assembly (a straight-dc frame like the Supreme DH records
+ * ZS56/40), so a full-code match would false-red a real DH headset whose
+ * bores fit. @param {string} code @returns {string} */
+function shisBore(code){ return String(code).split('/')[0]; }
+
 /** @param {Build} build @returns {CompatResult} */
 function checkBuild(build){
   /** @type {VerdictShape[]} */ var errors=[];
@@ -3818,7 +3871,7 @@ function checkBuild(build){
   var frame=b.frame, fork=b.fork, shock=b.shock, fW=effectiveWheel(b,'front'), rW=effectiveWheel(b,'rear'), fTire=b.frontTire, rTire=b.rearTire,
       shifter=b.shifter, derailleur=b.derailleur, cassette=b.cassette, chain=b.chain, crankset=b.crankset,
       fBrake=b.frontBrake, rBrake=b.rearBrake, fRotor=b.frontRotor, rRotor=b.rearRotor,
-      bar=b.handlebar, stem=b.stem, dropper=b.dropper, bb=b.bb;
+      bar=b.handlebar, stem=b.stem, dropper=b.dropper, bb=b.bb, hset=b.headset;   // hset: 'headset' would shadow nothing, but frame.headset (steerer-fit) reads too alike
 
   /* 1. Wheel sizing: front group + rear group must each be consistent, and the
         front/rear combo must match a config the frame supports (incl. mullet). */
@@ -4150,6 +4203,34 @@ function checkBuild(build){
       var uniq = lClamps.filter(function(v,i,a){ return a.indexOf(v)===i; }).map(function(c){ return L(c); }).join(' / ');
       warn('shifter-mount', lSlots, 'Shifter mount: '+nameOf(shifter)+' is a '+L(sClamp)+' lever-integrated shifter (no bar clamp of its own), but the brake levers take '+uniq+'. You need the band-clamp version or a ShiftMount-style adapter to mount it.');
     }
+  }
+
+  /* 20. Headset (headset-category pass, 2026-07-10; rule 7/BB is the template).
+        20a - steerer acceptance vs the fork, ACTIVE: exact equality, the same
+        semantics as rule 11 (which keeps consuming frame.headset for the
+        no-headset-picked path; its documented crown-race-reducer softening
+        stays THE expert-review question for both). 20b - cup vs head tube,
+        rule-18 dormant-until-sourced template: fires only where a frame
+        carries a fetched headTubeUpper/headTubeLower (51 frames at landing),
+        and compares S.H.I.S. BORE TOKENS only (see shisBore - the suffix is
+        steerer business, and the backfill's suffixes assume tapered
+        assemblies). Cup-in-bore is press-fit exact: a 44mm cup rattles in a
+        56mm bore, a 56 cannot press into a 44, an IS bearing has no seat in a
+        ZS tube - so a bore mismatch is an ERROR, no adapter tier exists.
+        20c - advisory info once frame+fork are picked: unlike BBs, frames
+        OFTEN ship with a headset, so the wording nudges a check instead of
+        claiming sold-separately. */
+  if(hset && fork && hset.steerer!==fork.steerer)
+    err('headset-steerer', ['headset','fork'], 'Headset steerer mismatch: '+nameOf(hset)+' accepts a '+L(hset.steerer)+' steerer but '+nameOf(fork)+' is '+L(fork.steerer)+'.');
+  if(hset && frame && typeof frame.headTubeUpper==='string' && shisBore(hset.upper)!==shisBore(frame.headTubeUpper))
+    err('headset-upper', ['headset','frame'], 'Headset upper cup mismatch: '+nameOf(hset)+' upper is '+hset.upper+' but '+nameOf(frame)+'\'s upper head tube is '+shisBore(frame.headTubeUpper)+' (S.H.I.S.) - cups press in at their exact bore only.');
+  if(hset && frame && typeof frame.headTubeLower==='string' && shisBore(hset.lower)!==shisBore(frame.headTubeLower))
+    err('headset-lower', ['headset','frame'], 'Headset lower cup mismatch: '+nameOf(hset)+' lower is '+hset.lower+' but '+nameOf(frame)+'\'s lower head tube is '+shisBore(frame.headTubeLower)+' (S.H.I.S.) - cups press in at their exact bore only.');
+  if(!hset && frame && fork){
+    if(typeof frame.headTubeUpper==='string' && typeof frame.headTubeLower==='string')
+      info('headset-advisory', ['frame','fork'], 'Headset: '+nameOf(frame)+' takes '+shisBore(frame.headTubeUpper)+' upper / '+shisBore(frame.headTubeLower)+' lower cups (S.H.I.S.) to mount the fork - many frames ship with one; pick one here if yours does not.');
+    else
+      info('headset-advisory', ['frame','fork'], 'Headset: mounting the '+nameOf(fork)+' in '+nameOf(frame)+' needs a headset - many frames ship with one; pick one here if yours does not.');
   }
 
   return { errors:errors, warnings:warnings, infos:infos };

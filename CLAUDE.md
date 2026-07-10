@@ -101,6 +101,7 @@ Category-specific fields (enforced by `schema.js` → `SCHEMA`, using vocabulari
 - **shifter / derailleur / cassette / chain**: `system` (`sram-eagle`/`sram-transmission`/`shimano-12`), `speeds`; shifter + derailleur also `actuation` (`cable`/`electronic` — same system, but a trigger can't drive an AXS mech); shifter optional `clampType` (`ispec-ev`/`ispec-ii`/`ispec-b`/`matchmaker`/`band`/`pod`); derailleur also `maxCog`,`mount`; cassette also `freehub`,`minCog`,`maxCog` (numeric — the display range is derived; HG floor is 11T, validator-enforced).
 - **crankset**: `bb` (spindle interface: `DUB`/`24mm`/`30mm`/`p3`), optional `ring`, nullable `ringStd` (`t-type`/`standard-12`/null = ring sold separately), `speeds`, optional `chainline` (number, mm — display-only).
 - **bb** (the bottom bracket itself, added at the dossier rule-7 review): `shell` (frame standard, frameBb vocab) + `spindle` (crank interface, crankBb vocab) — both exact-match rule-7 error checks once a BB is picked. Its own single-slot GROUP (never a drivetrain slot: buildTotals skips a bundled group's non-fill slots) and the slot is `optional` (completeness unchanged; the sold-separately advisory nudges until one is picked).
+- **headset** (added 2026-07-10; the bb category is the template): `upper`/`lower` (the assemblies' S.H.I.S. codes, headTube vocab — the token before the slash is the head-tube bore, the frame fact; the number after it is the steerer side) + `steerer` (same vocab as fork.steerer). **Complete headsets only** (one purchasable upper+lower SKU); a validator cross-rule rejects a steerer value contradicting the codes' suffixes. Own optional single-slot GROUP like bb (same buildTotals reason vs the cockpitset bundle). Frames capture the head-tube side in optional sourced `headTubeUpper`/`headTubeLower` — rule 20b compares **bore tokens only** (frame-side suffixes assume the tapered assembly).
 - **brake**: `mount`, `pistons`, optional `leverAccepts` (array of `ispec-ev`/`ispec-ii`/`ispec-b`/`matchmaker` — real levers accept several standards).   **rotor**: `size`, `mount`.
 - **handlebar/stem**: `clamp` (+ optional dims).  **grips/saddle**: just the common fields.
 - **dropper**: `diameter`, `drop`.  **pedal**: `style` (`flat`/`clip`) — pairs; 9/16" thread fits every crank, so no compat rules.
@@ -109,10 +110,10 @@ Category-specific fields (enforced by `schema.js` → `SCHEMA`, using vocabulari
 ### Build slots
 
 A build is a map of slotKey → part id. Slots: `frame, fork, shock, frontWheel, rearWheel,
-frontTire, rearTire, shifter, derailleur, cassette, chain, crankset, bb, frontBrake, rearBrake,
+frontTire, rearTire, shifter, derailleur, cassette, chain, crankset, bb, headset, frontBrake, rearBrake,
 frontRotor, rearRotor, handlebar, stem, grips, dropper, saddle, pedals`. (`GROUPS`/`SLOTS` in `compat.js`.)
 
-## Compatibility engine (`checkBuild`) — 19 rule areas
+## Compatibility engine (`checkBuild`) — 20 rule areas
 
 Wheel-size by front/rear group vs frame `wheelConfigs` (incl. mullet = 29 front / 27.5 rear,
 plus a frameless guard rejecting pairs that match no config — reverse mullet);
@@ -137,7 +138,10 @@ dormant until a frame declares `coilApproved:false`; hardtail guard: a shock on 
 `suspension:'hardtail'` frame errors cleanly); frame+shock bundling (incl. OEM-only — an OEM
 shock with NO frame picked is an info, mirroring rule 4's frameless convention);
 shifter clamp vs brake lever integration (rule 19 — I-Spec EV/MatchMaker, dormant until parts
-are tagged).
+are tagged); headset (rule 20 — 20a steerer-acceptance vs fork ACTIVE with rule-11 semantics,
+20b cup vs frame head-tube S.H.I.S. **bore tokens** dormant-until-sourced and live on the
+51 SHIS-carrying frames, 20c pick-a-headset advisory info once frame+fork are chosen — frames
+often ship with one, so it nudges, never claims sold-separately).
 Returns `{errors, warnings, infos}` of **structured verdicts** `{ruleId, slots, msg, fix?}` that
 stringify to their message (so UI/report interpolation just works). Conflict identity for the
 dots is `verdictKey` (ruleId+slots+msg) — never raw message text, which two different conflicts
