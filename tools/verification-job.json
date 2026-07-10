@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-10T19:29:35.115Z",
+ "updated": "2026-07-10T21:24:18.908Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -27,12 +27,6 @@
   "ti-specialized-butcher-29-26-gridtrail-t9",
   "ti-specialized-eliminator-29-23-gridtrail-t7",
   "ti-specialized-hillbilly-29-24-gridgravity-t9",
-  "ti-continental-xynotal-29-24-trail-endurance",
-  "ti-continental-xynotal-29-24-enduro-soft",
-  "ti-cst-bft-275-225-dual",
-  "ti-cst-bft-275-24-dual",
-  "ti-cst-bft-275-26-dual",
-  "ti-cst-bft-29-225-dual",
   "ti-cst-camber-29-225",
   "ti-bontrager-xr1-29-22-innerstrength-tmspeed",
   "ti-bontrager-xr5-29-25-tmgrip",
@@ -44,26 +38,12 @@
   "ti-panaracer-driverpro-275-222-zsg",
   "ti-panaracer-driverpro-275-24-triple",
   "ti-panaracer-driverpro-275-26-triple",
-  "ti-teravail-kessel-29-24-dur-grip",
-  "ti-teravail-kessel-29-26-dur-grip",
-  "ti-teravail-kessel-275-25-dur-gripplus",
   "ti-teravail-honcho-275-24-ls-grip",
   "ti-teravail-honcho-275-24-dur-grip",
   "ti-teravail-honcho-275-26-ls-grip",
-  "ti-continental-magnotal-29-24-trail-gripc",
-  "ti-continental-magnotal-29-26-trail-soft",
-  "ti-continental-kryptotal-re-29-26-enduro-soft",
-  "ti-continental-kryptotal-fr-29-24-trail-endurance",
-  "ti-continental-kryptotal-re-29-26-trail-endurance",
-  "ti-continental-kryptotal-re-29-24-downhill-supersoft",
-  "ti-continental-kryptotal-fr-29-24-downhill-supersoft",
-  "ti-continental-kryptotal-fr-29-26-enduro-soft",
   "fw-weareone-union-275",
-  "fw-spank-359-275",
   "fw-ethirteen-lg1r-29",
   "fw-ethirteen-lg1r-275",
-  "fw-spank-359-29-20x110",
-  "fw-spank-359-275-20x110",
   "fw-zipp-3zero-moto-275",
   "fw-roval-control-sl-29",
   "fw-roval-control-sl-29-cl",
@@ -102,18 +82,10 @@
   "rw-ethirteen-lg1r-29-157-hg",
   "rw-ethirteen-lg1r-275-157-xd",
   "rw-ethirteen-lg1r-275-157-hg",
-  "rw-spank-spike369-29-150-xd",
   "rw-spank-spike369-29-150-ms",
-  "rw-spank-spike369-275-150-xd",
   "rw-spank-spike369-275-150-ms",
-  "rw-spank-spike369-29-157-xd",
   "rw-spank-spike369-29-157-ms",
-  "rw-spank-spike369-275-157-xd",
   "rw-spank-spike369-275-157-ms",
-  "rw-spank-spike369-29-150-hg",
-  "rw-spank-spike369-275-150-hg",
-  "rw-spank-spike369-29-157-hg",
-  "rw-spank-spike369-275-157-hg",
   "rw-zipp-3zero-moto-275-xd",
   "rw-zipp-3zero-moto-29-hg",
   "rw-zipp-3zero-moto-275-hg",
@@ -195,22 +167,13 @@
   "fk-fox-32-sc-factory-275-100",
   "hb-thomson-elite-35",
   "hb-thomson-elite-trail-318",
-  "hb-title-ah1-318",
-  "hb-title-ah1-35",
-  "st-deity-cavity-318",
   "st-thomson-elite-x4-35",
-  "st-renthal-duo-318",
   "st-chromag-riza-35",
   "st-pro-tharsis-trail-318",
-  "st-title-st1-318",
-  "st-title-st1-35",
   "gr-wolftooth-fatpaw",
-  "gr-odi-ruffian-v21",
   "gr-odi-rogue-v21",
-  "gr-odi-vans-v21",
   "gr-odi-ag2",
   "gr-ergon-gd1-evo",
-  "gr-renthal-ultratacky-pushon",
   "gr-sdg-thrice-31",
   "dp-fox-transfer-factory-309-240",
   "dp-pro-koryak-70-272-70",
@@ -233,11 +196,10 @@
   "bk-trp-evo-comp",
   "bk-hope-evo-gr4",
   "bk-hope-evo-tr4",
+  "ro-shimano-rtmt900-203-cl",
   "ro-sram-hs2-160-6b",
   "ro-sram-centerline-220-6b",
   "ro-sram-centerline-200-cl",
-  "ro-galfer-203-6b",
-  "ro-shimano-rtmt800-160-cl",
   "ro-shimano-smrt76-160-6b",
   "ro-sram-hs2-160-cl",
   "ro-sram-hs2-180-cl",
@@ -252,7 +214,7 @@
   "ro-sram-centerline-x-160-6b",
   "ro-sram-centerline-x-180-6b",
   "ro-sram-centerline-x-180-cl",
-  "ro-shimano-rtmt800-140-cl",
+  "ro-shimano-rtmt900-180-cl",
   "ro-shimano-smrt76-180-6b",
   "ro-formula-monolithic-160-6b",
   "ro-formula-monolithic-180-6b",
@@ -278,70 +240,42 @@
   "ro-clarks-ccl-160-cl",
   "ro-clarks-ccl-180-cl",
   "ro-clarks-ccl-203-cl",
-  "ro-galfer-shark-180-6b",
-  "ro-galfer-shark-203-6b",
-  "ro-galfer-shark-223-6b",
   "ro-shimano-smrt30-203-cl",
-  "sft-microshift-advent-x-m9605",
   "sft-microshift-advent-m9295",
   "sft-shimano-cues-u6000-11",
-  "sft-shimano-cues-u8000-11",
   "sft-shimano-cues-u4000-9",
-  "dr-microshift-advent-x-m6205",
   "dr-microshift-advent-m6195l",
   "dr-shimano-cues-u6000-11-gs",
   "dr-shimano-cues-u8000",
   "dr-shimano-cues-u4000-gs",
   "ca-microshift-advent-x-h104-1148",
   "ca-microshift-advent-h093-1146",
-  "ca-shimano-cues-lg700-1150",
   "ca-shimano-cues-lg300-9-1146",
   "ca-sram-pg1210",
-  "ch-kmc-x10",
-  "ch-kmc-x9",
-  "ch-shimano-cues-lg500",
-  "ch-shimano-cues-lg500-9",
-  "ch-shimano-slx-m7100",
-  "cr-shimano-xt-m8120",
-  "cr-shimano-slx-m7120",
   "cr-shimano-deore-m6120",
-  "cr-shimano-xtr-m9200",
-  "cr-shimano-xtr-m9220",
-  "cr-shimano-xt-m8200",
-  "cr-shimano-saint-m820",
   "cr-truvativ-descendant-dh",
   "cr-truvativ-descendant-tld-colab",
   "cr-truvativ-descendant-tld-colab-dh",
-  "fh-dtswiss-350-boost110",
-  "fh-hope-pro5-boost110",
   "fh-industrynine-hydraclassic-boost110",
   "fh-industrynine-hydra2-20x110",
   "fh-industrynine-hydra2-20x110-nonboost",
-  "fh-spank-hex-boost110",
-  "fh-raceface-vault-boost110",
   "fh-onyx-vesper-iso-boost110",
-  "rh-dtswiss-350-boost148-xd",
   "rh-dtswiss-350-boost148-ms",
   "rh-dtswiss-350-boost148-hg",
-  "rh-hope-pro5-boost148-xd",
-  "rh-hope-pro5-boost148-ms",
-  "rh-hope-pro5-boost148-hg",
   "rh-industrynine-hydraclassic-boost148-ms",
   "rh-industrynine-hydraclassic-superboost157-xd",
-  "rh-spank-hex-boost148-xd",
-  "rh-spank-hex-boost148-ms",
   "rh-raceface-vault-boost148-xd",
   "rh-raceface-vault-boost148-ms",
   "rh-onyx-vesper-boost148-xd",
   "rh-onyx-vesper-boost148-ms",
   "rh-onyx-vesper-boost148-hg",
-  "rm-dtswiss-ex511-29",
   "rm-industrynine-endurosv2-29",
   "rm-industrynine-endurosv2-275",
   "rm-spank-359-29",
   "rm-weareone-union-29",
   "rm-raceface-arc25-29",
-  "bb-ethirteen-pf92-p3"
+  "bb-ethirteen-pf92-p3",
+  "bb-ethirteen-bsa68-p3"
  ],
  "parts": {
   "fr-specialized-enduro-sworks": {
@@ -658,10 +592,10 @@
   },
   "fw-spank-359-29": {
    "cat": "frontwheel",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:22:43.913Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
+   "source": "https://spank-ind.com/products/spank-359-vibrocore%E2%84%A2-front-wheel",
    "note": "Spank (spank-ind.com) re-tested this session: 403 (was fetchable in a prior pass, now blocked - confirms standing block). Per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched spank-ind.com). Weight bar unmeetable."
   },
   "fw-shimano-mt500-29": {
@@ -2763,11 +2697,11 @@
   },
   "ro-shimano-rtmt900-203-cl": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T19:29:35.115Z",
+   "status": "Pending",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
    "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
-   "note": "Shimano's RT-MT900 (XTR) appears to top out at 203mm (140/160/180/203mm sizes found) -- no 220mm size turned up anywhere, manufacturer or retailer. Likely a nonexistent SKU in this catalog row; flag for a data-entry correction rather than guessing a weight for a size that may not exist."
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "dp-fox-transfer-factory-316-180": {
    "cat": "dropper",
@@ -3963,19 +3897,19 @@
   },
   "fh-dtswiss-350-boost110": {
    "cat": "fronthub",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/support/product-support?matnr=H350BCIXR32SA9067S",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fh-hope-pro5-boost110": {
    "cat": "fronthub",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/products/hubs/mountain-bike/pro-5-110mm-boost-front/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fh-industrynine-hydraclassic-boost110": {
    "cat": "fronthub",
@@ -3987,27 +3921,27 @@
   },
   "fh-spank-hex-boost110": {
    "cat": "fronthub",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spank-hex-straightpull-front-hub",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fh-raceface-vault-boost110": {
    "cat": "fronthub",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.raceface.com/products/vault-j-bend-hub-32h",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rh-dtswiss-350-boost148-xd": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/support/product-support?matnr=H35PTCDRR28SA8949S",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rh-dtswiss-350-boost148-ms": {
    "cat": "rearhub",
@@ -4027,27 +3961,27 @@
   },
   "rh-hope-pro5-boost148-xd": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/products/hubs/mountain-bike/pro-5-148mm-boost-rear/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rh-hope-pro5-boost148-ms": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/products/hubs/mountain-bike/pro-5-148mm-boost-rear/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rh-hope-pro5-boost148-hg": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/products/hubs/mountain-bike/pro-5-148mm-boost-rear/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rh-industrynine-hydraclassic-boost148-ms": {
    "cat": "rearhub",
@@ -4067,19 +4001,19 @@
   },
   "rh-spank-hex-boost148-xd": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spank-hex-j-type-rear-hub",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rh-spank-hex-boost148-ms": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spank-hex-j-type-rear-hub",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rh-raceface-vault-boost148-xd": {
    "cat": "rearhub",
@@ -4099,11 +4033,11 @@
   },
   "rm-dtswiss-ex511-29": {
    "cat": "rim",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/support/product-support?matnr=RDEX51CDPW32SA6298",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rm-hope-fortus30-29": {
    "cat": "rim",
@@ -4267,19 +4201,19 @@
   },
   "ro-galfer-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T03:01:12.932Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://galfer.com/bike/products/brake-discs/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-rtmt800-160-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T03:01:12.932Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-rtmt900-160-cl": {
    "cat": "rotor",
@@ -5235,19 +5169,19 @@
   },
   "ti-continental-xynotal-29-24-trail-endurance": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-continental-xynotal-29-24-enduro-soft": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-wtb-trailboss-29-24-sg2-tritec": {
    "cat": "tire",
@@ -5563,35 +5497,35 @@
   },
   "ti-cst-bft-275-225-dual": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://shop.csttires.com/products/bft-1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-cst-bft-275-24-dual": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://shop.csttires.com/products/bft-1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-cst-bft-275-26-dual": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://shop.csttires.com/products/bft-1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-cst-bft-29-225-dual": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://shop.csttires.com/products/bft-1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-cst-camber-29-225": {
    "cat": "tire",
@@ -5747,11 +5681,11 @@
   },
   "ti-teravail-kessel-29-24-dur-grip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.teravail.com/products/kessel-tire",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-teravail-kessel-29-24-ultradur-grip": {
    "cat": "tire",
@@ -5763,19 +5697,19 @@
   },
   "ti-teravail-kessel-29-26-dur-grip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.teravail.com/products/kessel-tire",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-teravail-kessel-275-25-dur-gripplus": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.teravail.com/products/kessel-tire",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-teravail-honcho-275-24-ls-grip": {
    "cat": "tire",
@@ -5835,67 +5769,67 @@
   },
   "ti-continental-magnotal-29-24-trail-gripc": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-continental-magnotal-29-26-trail-soft": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-continental-kryptotal-re-29-26-enduro-soft": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-continental-kryptotal-fr-29-24-trail-endurance": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-continental-kryptotal-re-29-26-trail-endurance": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-continental-kryptotal-re-29-24-downhill-supersoft": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-continental-kryptotal-fr-29-24-downhill-supersoft": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-continental-kryptotal-fr-29-26-enduro-soft": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-kenda-nevegal2-29-26-atc-dtc": {
    "cat": "tire",
@@ -5987,11 +5921,11 @@
   },
   "fw-spank-359-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spank-359-vibrocore%E2%84%A2-front-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-ethirteen-lg1r-29": {
    "cat": "frontwheel",
@@ -6011,19 +5945,19 @@
   },
   "fw-spank-359-29-20x110": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spank-359-vibrocore%E2%84%A2-front-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-spank-359-275-20x110": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spank-359-vibrocore%E2%84%A2-front-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-ibis-s35-i9-29": {
    "cat": "frontwheel",
@@ -6387,11 +6321,11 @@
   },
   "rw-spank-spike369-29-150-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spank-spike-369-vibrocore-rear-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-spank-spike369-29-150-ms": {
    "cat": "rearwheel",
@@ -6403,11 +6337,11 @@
   },
   "rw-spank-spike369-275-150-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spank-spike-369-vibrocore-rear-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-spank-spike369-275-150-ms": {
    "cat": "rearwheel",
@@ -6419,11 +6353,11 @@
   },
   "rw-spank-spike369-29-157-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spank-spike-369-vibrocore-rear-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-spank-spike369-29-157-ms": {
    "cat": "rearwheel",
@@ -6435,11 +6369,11 @@
   },
   "rw-spank-spike369-275-157-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spank-spike-369-vibrocore-rear-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-spank-spike369-275-157-ms": {
    "cat": "rearwheel",
@@ -6451,35 +6385,35 @@
   },
   "rw-spank-spike369-29-150-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spank-spike-369-vibrocore-rear-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-spank-spike369-275-150-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spank-spike-369-vibrocore-rear-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-spank-spike369-29-157-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spank-spike-369-vibrocore-rear-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-spank-spike369-275-157-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spank-spike-369-vibrocore-rear-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-enve-m5pro-29-xd": {
    "cat": "rearwheel",
@@ -8771,19 +8705,19 @@
   },
   "hb-title-ah1-318": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://titlemtb.com/products/ah1-31-8-handlebars",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-title-ah1-35": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://titlemtb.com/products/ah1-35-handlebars",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-ethirteen-race-carbon-35": {
    "cat": "handlebar",
@@ -8803,11 +8737,11 @@
   },
   "st-deity-cavity-318": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://deitycomponents.com/cavity-50-stem.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-chromag-hifi-318": {
    "cat": "stem",
@@ -8827,11 +8761,11 @@
   },
   "st-renthal-duo-318": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.renthal.com/cycle/duo-50",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-chromag-riza-318": {
    "cat": "stem",
@@ -8883,19 +8817,19 @@
   },
   "st-title-st1-318": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://titlemtb.com/products/st1-31-8",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-title-st1-35": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://titlemtb.com/products/st1-35-stem",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-ethirteen-base-35": {
    "cat": "stem",
@@ -8907,11 +8841,11 @@
   },
   "gr-odi-ruffian-v21": {
    "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.odigrips.com/products/ruffian-v2-1-lock-on-grips-135mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "gr-odi-rogue-v21": {
    "cat": "grips",
@@ -8923,11 +8857,11 @@
   },
   "gr-odi-vans-v21": {
    "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.odigrips.com/products/vans-v2-1-lock-on-grips-135mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "gr-odi-ag2": {
    "cat": "grips",
@@ -8995,11 +8929,11 @@
   },
   "gr-renthal-ultratacky-pushon": {
    "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.renthal.com/cycle/push-on-ultratacky",
+   "note": "auto-promoted: already verified in catalog"
   },
   "gr-chromag-clutch": {
    "cat": "grips",
@@ -12331,11 +12265,11 @@
   },
   "ro-shimano-rtmt800-140-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-rtmt900-140-cl": {
    "cat": "rotor",
@@ -12347,11 +12281,11 @@
   },
   "ro-shimano-rtmt900-180-cl": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T19:29:35.115Z",
+   "status": "Pending",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
    "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "ro-shimano-smrt76-180-6b": {
    "cat": "rotor",
@@ -12675,27 +12609,27 @@
   },
   "ro-galfer-shark-180-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://galfer.com/bike/products/brake-discs/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-galfer-shark-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://galfer.com/bike/products/brake-discs/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-galfer-shark-223-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://galfer.com/bike/products/brake-discs/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-smrt66-160-6b": {
    "cat": "rotor",
@@ -12947,11 +12881,11 @@
   },
   "sft-microshift-advent-x-m9605": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.microshift.com/models/sl-m9605-r/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sft-microshift-advent-m9295": {
    "cat": "shifter",
@@ -12987,11 +12921,11 @@
   },
   "sft-shimano-cues-u8000-11": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sft-shimano-cues-u4000-9": {
    "cat": "shifter",
@@ -13011,11 +12945,11 @@
   },
   "dr-microshift-advent-x-m6205": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.microshift.com/models/rd-m6205am/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dr-microshift-advent-m6195l": {
    "cat": "derailleur",
@@ -13099,11 +13033,11 @@
   },
   "ca-shimano-cues-lg700-1150": {
    "cat": "cassette",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ca-shimano-cues-lg300-9-1146": {
    "cat": "cassette",
@@ -13123,19 +13057,19 @@
   },
   "ch-kmc-x10": {
    "cat": "chain",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://kmcchain.us/products/x10",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ch-kmc-x9": {
    "cat": "chain",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://kmcchain.us/products/x9",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ch-box-three-prime-9-126": {
    "cat": "chain",
@@ -13147,27 +13081,27 @@
   },
   "ch-shimano-cues-lg500": {
    "cat": "chain",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ch-shimano-cues-lg500-9": {
    "cat": "chain",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ch-shimano-slx-m7100": {
    "cat": "chain",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-hope-evo": {
    "cat": "crankset",
@@ -13299,19 +13233,19 @@
   },
   "cr-shimano-xt-m8120": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-shimano-slx-m7120": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-shimano-deore-m6120": {
    "cat": "crankset",
@@ -13323,35 +13257,35 @@
   },
   "cr-shimano-xtr-m9200": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-shimano-xtr-m9220": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-shimano-xt-m8200": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-shimano-saint-m820": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-truvativ-descendant-6k": {
    "cat": "crankset",
@@ -14032,6 +13966,182 @@
    "error": null,
    "source": null,
    "note": null
+  },
+  "bb-sram-dub-bsa68": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/bb-dub-bsa-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-sram-dub-pf865": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/bb-dub-pf-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-hope-threaded-bsa83-24mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.907Z",
+   "error": null,
+   "source": "https://www.hopetech.com/products/drivetrain/bottom-bracket/threaded-bottom-bracket/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-hope-pf41-865-24mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://www.hopetech.com/products/drivetrain/bottom-bracket/press-fit-pf41-bottom-bracket/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-hope-pf41-107-30mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://www.hopetech.com/products/drivetrain/bottom-bracket/press-fit-pf41-bottom-bracket/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-ethirteen-bsa68-p3": {
+   "cat": "bb",
+   "status": "Pending",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bb-raceface-pf107-24mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://www.raceface.com/products/bb92-24mm",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-wheelsmfg-pf865-24mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://wheelsmfg.com/products/bb86-92-bb-for-24mm-shimano-cranks",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-wheelsmfg-pf865-30mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://wheelsmfg.com/products/bb86-to-30mm-kit-for-pressfit-86-92-bottom-bracket-with-flanged-dual-row-black-oxide-sealed-bearings",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-wheelsmfg-pf107-30mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://wheelsmfg.com/products/bb86-to-30mm-kit-for-pressfit-86-92-bottom-bracket-with-flanged-dual-row-black-oxide-sealed-bearings",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-canecreek-40-zs44-zs56": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://canecreek.com/products/40",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-canecreek-40-zs56-zs56": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://canecreek.com/products/40",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-canecreek-40-is41-is52": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://canecreek.com/products/40",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-canecreek-40-is42-is52": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://canecreek.com/products/40",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-canecreek-40-zs44-ec44": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://canecreek.com/products/40",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-canecreek-hellbender-70-zs44-zs56": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://canecreek.com/products/hellbender-70",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-canecreek-hellbender-70-zs56-zs56": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://canecreek.com/products/hellbender-70",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-canecreek-hellbender-70-is41-is52": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://canecreek.com/products/hellbender-70",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-canecreek-hellbender-70-is42-is52": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://canecreek.com/products/hellbender-70",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-canecreek-hellbender-70-zs44-ec44": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://canecreek.com/products/hellbender-70",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-chrisking-inset-2-zs44-zs56": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://chrisking.com/products/headset-inset-2",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-chrisking-inset-7-zs44-ec44": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-10T21:24:18.908Z",
+   "error": null,
+   "source": "https://chrisking.com/products/headset-inset-7",
+   "note": "auto-promoted: already verified in catalog"
   }
  }
 }

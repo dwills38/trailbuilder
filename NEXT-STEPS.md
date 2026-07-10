@@ -175,6 +175,18 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   modal are already built and waiting). Coordinator pre-builds the privacy/affiliate-
   disclosure page programs require. Manufacturer-direct permission emails = slower parallel
   path, only if a key brand is missing from the networks.
+- **Bike-park stickers (queued 2026-07-10; DEPENDS ON THE DOMAIN — print the real URL, not
+  github.io).** Design: QR code + site name, ~3in die-cut; QR at error-correction level H
+  with a proper quiet zone (survives scuffs/mud, allows a small center logo), human-readable
+  domain prominent for the non-scanners, high-contrast dark-on-light QR. Production spec
+  (Douglas's hard requirement: NO stickers that fight the backing): die-cut LAMINATED VINYL,
+  outdoor/weatherproof 3yr+ grade, **crack-and-peel / split-liner backing** (this is the
+  thing that makes them peel clean), MATTE laminate (gloss glare can break QR scans in sun).
+  Vendor shortlist: Sticker Mule (easy-peel reputation, frequent 100-pack deals), StickerApp,
+  StickerGiant. Order a small sample run first, scan-test a sticker on a curved surface
+  before the bulk order. A design session produces print-ready art (300dpi+, bleed per
+  vendor template) when the domain exists. Etiquette note: target sticker walls/boards and
+  spots parks allow.
 
 ## Phase 2 — Richer catalog + data pipeline
 
