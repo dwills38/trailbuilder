@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-10T17:32:26.653Z",
+ "updated": "2026-07-10T17:40:49.303Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -149,8 +149,6 @@
   "rw-weareone-strife-275-157-xd",
   "sh-ext-storia-v3-230x65",
   "sh-canecreek-kitsuma-coil-230x65",
-  "sh-fox-float-x-perf-elite-185x55-trun",
-  "sh-fox-float-x2-perf-elite-205x60-trun",
   "sh-dvo-jade-x-230x65",
   "sh-ext-storia-v3-205x65-trun",
   "sh-canecreek-kitsuma-coil-205x65-trun",
@@ -160,9 +158,6 @@
   "sh-ext-storia-v3-205x62p5-trun",
   "sh-ext-storia-v3-230x60",
   "sh-ext-storia-v3-230x62p5",
-  "sh-fox-float-sl-factory-190x45",
-  "sh-fox-float-x-factory-230x57p5",
-  "sh-fox-float-dps-performance-200x57",
   "sh-dvo-topaz-gen1-200x57",
   "sh-ohlins-ttx22-m2-250x75",
   "sh-ohlins-ttx22-m2-225x75-trun",
@@ -172,19 +167,16 @@
   "sh-ext-arma-225x75-trun",
   "sh-formula-mod-250x75",
   "sh-formula-mod-225x75-trun",
-  "sh-fox-float-x-factory-185x50-trun",
   "sh-canecreek-kitsuma-coil-185x50-trun",
   "sh-dvo-topaz-gen3-185x50-trun",
   "sh-manitou-mara-pro-185x50-trun",
   "sh-ext-storia-v3-185x50-trun",
   "sh-ohlins-txc1air-185x50-trun",
   "sh-xfusion-h3c-185x50-trun",
-  "sh-fox-float-x-factory-210x50",
   "sh-marzocchi-bomber-cr-210x50",
   "sh-dvo-topaz-gen3-210x50",
   "sh-canecreek-air-il-210x50",
   "sh-ext-storia-v3-210x50",
-  "sh-fox-float-x-factory-210x55",
   "sh-marzocchi-bomber-cr-210x55",
   "sh-dvo-topaz-gen3-210x55",
   "sh-canecreek-air-il-210x55",
@@ -199,7 +191,6 @@
   "sh-ohlins-ttx22-m2-230x62p5",
   "sh-dvo-topaz-gen3-190x45",
   "sh-canecreek-air-il-190x45",
-  "sh-fox-dhx2-250x75",
   "sh-marzocchi-bomber-cr-250x75",
   "sh-dvo-topaz-gen3-205x60-trun",
   "sh-canecreek-kitsuma-coil-205x60-trun",
@@ -210,7 +201,6 @@
   "sh-marzocchi-bomber-cr-205x62p5-trun",
   "sh-ohlins-ttx22-m2-205x62p5-trun",
   "sh-ohlins-txc2air-190x45",
-  "sh-fox-dhx2-225x75-trun",
   "sh-marzocchi-bomber-cr-225x75-trun",
   "sh-canecreek-kitsuma-air-230x60",
   "sh-canecreek-kitsuma-air-205x60-trun",
@@ -1238,18 +1228,18 @@
   },
   "sh-fox-float-x-factory-230x65": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T00:57:18.453Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/fox-float-x-factory",
    "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-fox-dhx2-230x65": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T00:57:18.509Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/dhx2-factory",
    "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-rockshox-super-deluxe-205x65-trun": {
@@ -1262,18 +1252,18 @@
   },
   "sh-fox-float-x2-205x65-trun": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T00:57:18.564Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/float-x2-performance-elite",
    "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-fox-float-x-230x60": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T00:57:18.620Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/fox-float-x-factory",
    "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-rockshox-vivid-ultimate-oem-205x60-trun": {
@@ -1326,10 +1316,10 @@
   },
   "sh-fox-float-x2-230x65": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T00:57:18.686Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/float-x2-performance-elite",
    "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-rockshox-vivid-205x65-trun": {
@@ -1374,10 +1364,10 @@
   },
   "sh-fox-float-x-205x62p5-trun": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T00:57:18.747Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/fox-float-x-factory",
    "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "fk-rockshox-zeb-ultimate-29-170": {
@@ -3583,19 +3573,19 @@
   },
   "sh-fox-float-x-perf-elite-185x55-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-x-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x2-perf-elite-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/float-x2-performance-elite",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-205x65-trun": {
    "cat": "shock",
@@ -3695,11 +3685,11 @@
   },
   "sh-fox-float-sl-factory-190x45": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-sl-performance",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-rockshox-vivid-ultimate-dh-250x75": {
    "cat": "shock",
@@ -7279,19 +7269,19 @@
   },
   "sh-fox-float-x-factory-230x57p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-x-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-dps-performance-200x57": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-dps-performance",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-200x57": {
    "cat": "shock",
@@ -7359,11 +7349,11 @@
   },
   "sh-fox-float-x-factory-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-x-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-kitsuma-coil-185x50-trun": {
    "cat": "shock",
@@ -7415,11 +7405,11 @@
   },
   "sh-fox-float-x-factory-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-x-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-marzocchi-bomber-cr-210x50": {
    "cat": "shock",
@@ -7455,11 +7445,11 @@
   },
   "sh-fox-float-x-factory-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-x-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-marzocchi-bomber-cr-210x55": {
    "cat": "shock",
@@ -7583,11 +7573,11 @@
   },
   "sh-fox-dhx2-250x75": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/dhx2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-marzocchi-bomber-cr-250x75": {
    "cat": "shock",
@@ -7671,11 +7661,11 @@
   },
   "sh-fox-dhx2-225x75-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:40:49.302Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/dhx2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-marzocchi-bomber-cr-225x75-trun": {
    "cat": "shock",
