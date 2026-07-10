@@ -218,6 +218,9 @@ test('a part superseding itself is caught', function(){
 test('a bad soldWithout value is caught', function(){
   some(probs(over('dr-sram-gx-transmission', { soldWithout:['battery','tools'] })), 'soldWithout');
 });
+test('a non-string udhRetrofitKit is caught', function(){
+  some(probs(over('fr-raaw-madonna-v22', { udhRetrofitKit:123 })), 'udhRetrofitKit');
+});
 test('a bogus archiveUrl is caught', function(){
   some(probs(over('fr-canyon-strive-cfr', { archiveUrl:'notaurl' })), 'archiveUrl');
 });

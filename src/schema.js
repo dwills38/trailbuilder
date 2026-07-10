@@ -211,7 +211,11 @@ var SCHEMA = {
        coil-compatible (REVIEW #21 - manufacturer statements only, never
        leverage-curve guesses; absence means unknown, not approved). */
     minForkTravel:{type:'number',optional:true}, designForkTravel:{type:'number',optional:true}, coilApproved:{type:'bool',optional:true},
-    udh:{type:'bool'}, frameOnly:{type:'bool'}, maxTire:{type:'number',optional:true},
+    /* udhRetrofitKit (dossier rule 4 review, 2026-07-10): the maker-documented
+       UDH conversion kit's name, only for non-UDH frames whose maker sells one
+       (RAAW UDH Retrofit Kit: Jibb V1 / Madonna V2 / V2.2). Sourced only;
+       presence downgrades rule 4's error to the adapter-tier warning. */
+    udh:{type:'bool'}, udhRetrofitKit:{type:'string',optional:true}, frameOnly:{type:'bool'}, maxTire:{type:'number',optional:true},
     headTubeUpper:{type:'string',vocab:'headTube',optional:true}, headTubeLower:{type:'string',vocab:'headTube',optional:true},
     bundledShock:{type:'id',optional:true,nullable:true},
     /* per-size data lives in a sub-object, NOT variant rows (sizes share price/

@@ -102,6 +102,7 @@
  * @property {number} [designForkTravel]  maker-STATED design fork travel (rule 12c warns >20mm below; dormant until sourced)
  * @property {boolean} [coilApproved]  false = maker states NOT coil-compatible (absence = unknown)
  * @property {boolean} udh
+ * @property {string} [udhRetrofitKit]  maker-documented UDH retrofit kit name (rule 4 warns with a structured fix instead of erroring; dormant until sourced)
  * @property {boolean} frameOnly
  * @property {number} [maxTire]
  * @property {FrameSizes} [sizes]
