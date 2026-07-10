@@ -40,7 +40,7 @@
 /** @typedef {'ZS44/28.6'|'ZS56/28.6'|'ZS56/40'|'IS41/28.6'|'IS42/28.6'|'IS52/40'|'EC34/28.6'|'EC44/40'} HeadTube */
 /** @typedef {'flat'|'clip'|'hybrid'} PedalStyle */
 /** @typedef {'exo'|'exo-plus'|'doubledown'|'dh'|'trail'|'enduro'|'downhill'|'protection'|'super-race'|'super-ground'|'super-trail'|'super-gravity'|'super-downhill'|'hardwall'|'prowall'|'tcs-light-sg2'|'tcs-tough-sg1'|'tcs-tough'|'atc'|'aec'|'agc'|'xc-race'|'gravity-shield'|'grid-trail'|'grid-gravity'|'trc'|'grc'|'xcc'|'enduro-core'|'synthesis'|'gravity-core'|'gxe-core'|'dh-core'|'wire-bead'|'folding-tlr'|'inner-strength'|'core-strength'} Casing */
-/** @typedef {'dual'|'3c-maxxterra'|'3c-maxxgrip'|'maxxspeed'|'maxxterra'|'3c-maxxspeed'|'addix-speed'|'endurance'|'soft'|'supersoft'|'blackchili'|'addix'|'addix-speedgrip'|'addix-soft'|'addix-ultra-soft'|'smartgrip'|'smartgrip-gravity'|'4c-graphene'|'graphene-silica'|'tritec'|'dual-layer'|'grip3s'|'magix'|'magix-mh'|'magix-ms'|'magix-dh'|'gripton-t7'|'gripton-t9'|'soft-50'|'medium-60'|'single-60a'|'tackee'|'top40'|'mpc'|'dcc'|'tm-speed'|'tm-grip'} Compound */
+/** @typedef {'dual'|'3c-maxxterra'|'3c-maxxgrip'|'maxxspeed'|'maxxterra'|'3c-maxxspeed'|'addix-speed'|'endurance'|'soft'|'supersoft'|'blackchili'|'addix'|'addix-speedgrip'|'addix-soft'|'addix-ultra-soft'|'smartgrip'|'smartgrip-gravity'|'4c-graphene'|'graphene-silica'|'tritec'|'dual-layer'|'grip3s'|'grip3'|'magix'|'magix-mh'|'magix-ms'|'magix-dh'|'gripton-t7'|'gripton-t9'|'soft-50'|'medium-60'|'single-60a'|'tackee'|'top40'|'mpc'|'dcc'|'tm-speed'|'tm-grip'} Compound */
 /** @typedef {'xc'|'trail'|'enduro'|'dh'} Discipline */
 /** @typedef {'full'|'hardtail'} Suspension */
 /** @typedef {'manufacturer'|'manufacturer-doc'|'measured'|'retailer'} SourceType */
