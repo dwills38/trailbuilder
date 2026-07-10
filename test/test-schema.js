@@ -59,6 +59,15 @@ test('the real SRAM XS-1270 (integrated 10T-on-HG design) is a valid allowlisted
 test('the HG-10T exception is scoped to the real mfgPn, not a blanket loosening', function(){
   some(probs(over('ca-sram-xs1270', { mfgPn:'CS-XS-9999-A1' })), 'HG');
 });
+test('a cassette claiming freehub integrated is caught (wheel/hub-side value only)', function(){
+  // 'integrated' marks a wheel whose driver IS a built-in cassette (e*thirteen
+  // LG1r DH) - a purchasable cassette row carrying it would be nonsense data.
+  some(probs(over('ca-sram-xg1275', { freehub:'integrated' })), 'integrated');
+});
+test('a rear wheel with freehub integrated is valid data (e*thirteen LG1r DH)', function(){
+  var p = over('rw-reserve-30-hd-29', { freehub:'integrated' });
+  eq(probs(p).length, 0, 'integrated is a legal rearwheel freehub value');
+});
 test('an armset-only crank (ringStd:null, no ring) is valid data', function(){
   // Strip provenance fields: this test is about the ringStd:null/no-ring SHAPE,
   // not about whichever verification date the live row happens to carry (which

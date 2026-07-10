@@ -39,7 +39,15 @@ var VOCAB = {
      so they are DIFFERENT fitment standards - conflating them would produce
      false "fits" on fork+wheel pairs. And 15x110 Boost110 is a third thing. */
   frontAxle:    ['Boost110', '20x110', '20x110-nonboost'],
-  freehub:      ['XD', 'MicroSpline', 'HG'],   // 'HG' = MTB-length HG spline (a road expansion must SPLIT, not conflate)
+  /* 'integrated' = the driver IS a built-in cassette, no freehub body exposed
+     (e*thirteen LG1r DH rear - "Freehub Mount: Integrated 7 Speed Cassette",
+     fetched ethirteen.eu 2026-07-10), so NO separate cassette mounts and no
+     adapter tier exists (engine rule 6b hard-errors any picked cassette).
+     Wheel/hub-side value ONLY - a cassette row can never carry it (cross-rule
+     below). Today the token means exactly the e*thirteen 7-speed (9-24T)
+     driver; a future integrated wheel with a different built-in cassette must
+     SPLIT the token, not conflate (the HG road convention). */
+  freehub:      ['XD', 'MicroSpline', 'HG', 'integrated'],   // 'HG' = MTB-length HG spline (a road expansion must SPLIT, not conflate)
   rotorMount:   ['sixbolt', 'CL'],             // audited 2026-07: market-complete for MTB
   shockMount:   ['std', 'trunnion'],           // audited 2026-07: market-complete ('bearing' eyelets may join when a bearing-eyelet row lands)
   /* 'straight-dc' = the straight 1.125in steerer of dual-crown DH forks
@@ -564,6 +572,10 @@ function validatePart(p, ctx){
     if(isNum(p.minCog) && isNum(p.maxCog) && p.minCog >= p.maxCog) bad('minCog must be smaller than maxCog');
     var hgTenTException = p.mfgPn === 'CS-XS-1270-A1';
     if(p.freehub === 'HG' && isNum(p.minCog) && p.minCog < 11 && !hgTenTException) bad('HG freehub floor is an 11T cog (a 10T cassette needs XD or MicroSpline)');
+    // cross-rule: 'integrated' marks a WHEEL/HUB whose driver is a built-in
+    // cassette (e*thirteen LG1r DH) - a separate cassette row carrying it is
+    // nonsense data (there is no such mount to buy a cassette for).
+    if(p.freehub === 'integrated') bad('freehub integrated is a wheel/hub-side value (the driver IS the cassette) - a cassette row cannot carry it');
   }
 
   // cross-rule: the suspension discriminator gates the frame's shock block

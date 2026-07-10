@@ -70,6 +70,37 @@ test('Box Prime 9 cassette on a Shimano MicroSpline wheel -> freehub error (HG c
   some(chk({cassette:'ca-box-three-prime-9-1150', rearWheel:'rw-industrynine-enduro-s-29'}).errors, 'Freehub');
 });
 
+/* Rule 6b — integrated-cassette rear wheels (e*thirteen LG1r DH, 2026-07-10).
+   The wheel's driver IS a built-in 7-speed cassette ("Freehub Mount:
+   Integrated 7 Speed Cassette" per the fetched ethirteen.eu page) - no
+   freehub body exists, so no separate cassette can ever mount. The
+   pre-correction catalog carried freehub:XD/HG on these rows, which
+   false-greened exactly the pairings below. */
+test('any cassette on an integrated-cassette wheel -> its own hard error (the killed false green)', function(){
+  // ca-sram-xg1275 is XD - the exact pairing the old freehub:XD data let through clean
+  var r = chk({cassette:'ca-sram-xg1275', rearWheel:'rw-ethirteen-lg1r-29-150-xd'});
+  some(r.errors, 'Integrated cassette');
+  eq(r.errors.filter(function(e){ return e.ruleId==='freehub'; }).length, 0, 'the generic mismatch must not double-fire');
+  var v = r.errors.filter(function(e){ return e.ruleId==='freehub-integrated'; })[0];
+  eq(v.slots.join('+'), 'cassette+rearWheel');
+});
+test('an HG cassette on an ex-HG integrated wheel row -> still the hard error (nothing mounts)', function(){
+  some(chk({cassette:'ca-sram-pg1230', rearWheel:'rw-ethirteen-lg1r-275-150-hg'}).errors, 'Integrated cassette');
+});
+test('integrated-cassette wheel with NO cassette -> info (built-in 7s), zero errors', function(){
+  var r = chk({rearWheel:'rw-ethirteen-lg1r-29-150-xd'});
+  eq(r.errors.length, 0);
+  some(r.infos, 'Integrated cassette');
+  var v = r.infos.filter(function(i){ return i.ruleId==='freehub-integrated'; })[0];
+  eq(v.slots.join('+'), 'rearWheel');
+});
+test('a normal wheel keeps the generic mismatch wording and never the integrated verdicts', function(){
+  var r = chk({cassette:'ca-shimano-xt-m8100-1051', rearWheel:'rw-roval-traverse-hd-29'});
+  some(r.errors, 'Freehub mismatch');
+  eq(r.errors.filter(function(e){ return e.ruleId==='freehub-integrated'; }).length, 0);
+  eq(r.infos.filter(function(i){ return i.ruleId==='freehub-integrated'; }).length, 0, 'no integrated info on normal wheels');
+});
+
 /* Rule 3b — actuation (REVIEW.md #1). Cable vs wireless share system:'sram-eagle',
    so before the actuation field this pairing passed totally clean. */
 test('mechanical trigger + AXS (wireless) derailleur, same system -> actuation error', function(){

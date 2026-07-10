@@ -1081,7 +1081,8 @@
      directly — so only a direct pick ever advances, never a bulk load, and a
      removal (partId null) never does either.
      The pick that COMPLETES its group's required slots (slotRequired is
-     frame-aware: hardtail needs no shock, DH no dropper; optional slots — bb,
+     frame-aware: hardtail needs no shock, DH no dropper; and rear-wheel-aware:
+     an integrated-cassette wheel needs no cassette; optional slots — bb,
      headset, grips — and the hub/rim alternates never gate) advances the
      catalog to the next group in GROUPS order that still needs a required
      part, wrapping past the end so picking pedals first still leads back to
@@ -1099,7 +1100,8 @@
     b.setAttribute('aria-pressed', String(on));
   }
   function groupNeedsParts(g, res){
-    return g.slots.some(function(s){ return slotRequired(s, res.frame) && !wheelPositionFilled(res, s.key); });
+    var eRW = effectiveWheel(res, 'rear');   // integrated-cassette wheel => cassette slot not needed (slotRequired, compat.js)
+    return g.slots.some(function(s){ return slotRequired(s, res.frame, eRW) && !wheelPositionFilled(res, s.key); });
   }
   function guidedAdvance(slotKey, wasComplete){
     if(wasComplete) return false;   // swap inside an already-complete group — user is refining, stay put
@@ -1160,9 +1162,11 @@
   function renderPanel(){
     var host=$('slots'); host.innerHTML='';
     var res=resolved();
-    // requiredness is frame-aware (hardtail: no shock; DH frame: no dropper) —
-    // completeness display only, never a fit verdict (slotRequired, compat.js)
-    var required=SLOTS.filter(function(s){return slotRequired(s, res.frame);});
+    // requiredness is frame-aware (hardtail: no shock; DH frame: no dropper) and
+    // rear-wheel-aware (integrated-cassette wheel: no cassette) — completeness
+    // display only, never a fit verdict (slotRequired, compat.js)
+    var eRW=effectiveWheel(res,'rear');
+    var required=SLOTS.filter(function(s){return slotRequired(s, res.frame, eRW);});
     var filled=0;
     GROUPS.forEach(function(g){
       var bundle = (g.preset && bundleActive(g, res, presetBy)) ? byId(presetBy[g.key]) : null;
@@ -1173,7 +1177,7 @@
         // wheelPositionFilled (compat.js) treats a slot with hub+rim alternates as
         // filled either directly or via both alternates — reduces to !!p for any
         // ordinary slot, so this is the one check for both cases.
-        if(slotRequired(slot, res.frame) && wheelPositionFilled(res, slot.key)) filled++;
+        if(slotRequired(slot, res.frame, eRW) && wheelPositionFilled(res, slot.key)) filled++;
       });
       var sub=document.createElement('div'); sub.className='gsub';
       var totHtml='';
@@ -1193,7 +1197,7 @@
                     : '';
         var nm = p ? (esc(p.brand)+' '+esc(p.model) + (p.verified===true && p.source?' <span class="vchk" title="Verified against the manufacturer'+(p.lastChecked?' on '+esc(p.lastChecked):'')+'">✓</span>':''))
                    : (altNote ? ('— '+slot.label.toLowerCase()+altNote+' —')
-                     : ('— '+slot.label.toLowerCase()+(slot.optional?' (optional)':(!slotRequired(slot,res.frame)?' (not needed for this frame)':''))+' —'));
+                     : ('— '+slot.label.toLowerCase()+(slot.optional?' (optional)':(!slotRequired(slot,res.frame,eRW)?(slot.key==='cassette'?' (built into the rear wheel)':' (not needed for this frame)'):''))+' —'));
         row.innerHTML='<div class="sl-main"><div class="'+(p?'sl-part':'sl-part sl-empty')+'">'+nm+'</div></div>'+ right;
         if(p){ var x=document.createElement('button'); x.className='x'; x.title='Remove'; x.textContent='×';
           x.onclick=function(){ setSlot(slot.key, null); }; row.appendChild(x); }

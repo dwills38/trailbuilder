@@ -22,7 +22,12 @@
 /** @typedef {'29'|'275'|'mullet'} WheelConfig */
 /** @typedef {'Boost148'|'SuperBoost157'|'142x12'|'150x12'} RearAxle */
 /** @typedef {'Boost110'|'20x110'|'20x110-nonboost'} FrontAxle */
-/** @typedef {'XD'|'MicroSpline'|'HG'} Freehub */
+/** Wheel/hub-side driver interface. 'integrated' = the driver IS a built-in
+ * cassette (e*thirteen LG1r DH rear), so no separate cassette mounts - legal
+ * on rearwheel/rearhub rows only, never on a cassette (schema cross-rule;
+ * CassetteFreehub mirrors that restriction for tsc).
+ * @typedef {'XD'|'MicroSpline'|'HG'|'integrated'} Freehub */
+/** @typedef {'XD'|'MicroSpline'|'HG'} CassetteFreehub */
 /** @typedef {'sixbolt'|'CL'} RotorMount */
 /** @typedef {'std'|'trunnion'} ShockMount */
 /** @typedef {'tapered'|'straight-dc'} SteererFit */
@@ -123,7 +128,7 @@
 /** @typedef {CommonFields & {cat: 'tire', wheel: WheelSize, width: number, casing?: Casing, compound?: Compound}} TirePart */
 /** @typedef {CommonFields & {cat: 'shifter', system: DriveSystem, speeds: number, actuation: Actuation, clampType?: ShifterClamp}} ShifterPart */
 /** @typedef {CommonFields & {cat: 'derailleur', system: DriveSystem, speeds: number, actuation: Actuation, maxCog: number, mount: DerailMount}} DerailleurPart */
-/** @typedef {CommonFields & {cat: 'cassette', system: DriveSystem, speeds: number, freehub: Freehub, minCog: number, maxCog: number}} CassettePart */
+/** @typedef {CommonFields & {cat: 'cassette', system: DriveSystem, speeds: number, freehub: CassetteFreehub, minCog: number, maxCog: number}} CassettePart */
 /** @typedef {CommonFields & {cat: 'chain', system: DriveSystem, speeds: number}} ChainPart */
 /** @typedef {CommonFields & {cat: 'crankset', bb: CrankBb, ring?: number, ringStd: (RingStd|null), speeds: number, chainline?: number}} CranksetPart */
 /** @typedef {CommonFields & {cat: 'bb', shell: FrameBb, spindle: CrankBb}} BbPart  the bottom bracket itself: shell = frame standard, spindle = crank bore (rule 7 exact checks) */
