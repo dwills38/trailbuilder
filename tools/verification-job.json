@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-10T18:20:59.649Z",
+ "updated": "2026-07-10T14:44:36.260Z",
  "batchSize": 25,
- "lastCompleted": "ro-clarks-ccl-203-cl",
+ "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
  "queue": [
   "fr-commencal-clash-v3",
@@ -553,7 +553,100 @@
   "bk-trp-evo-comp",
   "bk-trp-slate-t4",
   "bk-clarks-m4",
+  "ro-sram-hs2-160-6b",
+  "ro-sram-centerline-220-6b",
+  "ro-sram-centerline-200-cl",
+  "ro-hope-floating-180-6b",
+  "ro-trickstuff-dachle-180-6b",
+  "ro-galfer-203-6b",
+  "ro-shimano-rtmt800-160-cl",
+  "ro-shimano-rtmt900-160-cl",
+  "ro-shimano-smrt76-160-6b",
+  "ro-trp-220-6b",
+  "ro-sram-hs2-160-cl",
+  "ro-sram-hs2-180-cl",
+  "ro-sram-hs2-200-cl",
+  "ro-sram-hs2-220-cl",
+  "ro-sram-centerline-140-6b",
+  "ro-sram-centerline-160-cl",
+  "ro-sram-centerline-180-6b",
+  "ro-sram-centerline-200-6b",
+  "ro-sram-centerline-x-140-6b",
+  "ro-sram-centerline-x-140-cl",
+  "ro-sram-centerline-x-160-6b",
+  "ro-sram-centerline-x-180-6b",
+  "ro-sram-centerline-x-180-cl",
+  "ro-hope-floating-140-6b",
+  "ro-hope-floating-160-6b",
+  "ro-hope-floating-200-6b",
+  "ro-hope-floating-140-cl",
+  "ro-hope-floating-160-cl",
+  "ro-hope-floating-200-cl",
+  "ro-hope-floating-203-cl",
+  "ro-hope-floating-220-cl",
+  "ro-shimano-rtmt800-140-cl",
+  "ro-shimano-rtmt900-140-cl",
+  "ro-shimano-rtmt900-180-cl",
+  "ro-shimano-smrt76-180-6b",
+  "ro-trp-tr25-140-cl",
+  "ro-trp-tr33-140-6b",
+  "ro-trp-tr33-160-6b",
+  "ro-trp-tr33-180-6b",
+  "ro-trp-tr33-203-6b",
+  "ro-trp-tr42-180-6b",
+  "ro-trp-tr42-203-6b",
+  "ro-formula-monolithic-160-6b",
+  "ro-formula-monolithic-180-6b",
+  "ro-formula-monolithic-203-6b",
+  "ro-formula-monolithic-180-cl",
+  "ro-formula-monolithic-203-cl",
+  "ro-tektro-tr54-160-6b",
+  "ro-tektro-tr54-180-6b",
+  "ro-tektro-tr54-203-6b",
+  "ro-tektro-tr52-160-6b",
+  "ro-tektro-tr52-180-6b",
+  "ro-tektro-tr52-203-6b",
+  "ro-tektro-tr45-180-cl",
+  "ro-tektro-tr45-203-cl",
+  "ro-tektro-tr35-140-cl",
+  "ro-tektro-tr35-160-cl",
+  "ro-tektro-tr35-180-cl",
+  "ro-clarks-cl01-140-6b",
+  "ro-clarks-cl01-160-6b",
+  "ro-clarks-cl01-180-6b",
+  "ro-clarks-cl01-203-6b",
+  "ro-clarks-ccl-140-cl",
+  "ro-clarks-ccl-160-cl",
+  "ro-clarks-ccl-180-cl",
+  "ro-clarks-ccl-203-cl",
+  "ro-galfer-shark-180-6b",
+  "ro-galfer-shark-203-6b",
   "ro-galfer-shark-223-6b",
+  "ro-shimano-smrt66-160-6b",
+  "ro-shimano-smrt66-180-6b",
+  "ro-shimano-smrt66-203-6b",
+  "ro-shimano-smrt66-220-6b",
+  "ro-shimano-smrt30-160-cl",
+  "ro-shimano-smrt30-180-cl",
+  "ro-shimano-smrt30-203-cl",
+  "ro-shimano-smrt56-160-6b",
+  "ro-shimano-smrt56-180-6b",
+  "ro-trp-rs06e-180-6b",
+  "ro-trp-rc04e-180-cl",
+  "ro-trp-rc04e-203-cl",
+  "ro-trp-rs02m-140-6b",
+  "ro-trp-rs02m-160-6b",
+  "ro-trp-rs02m-180-6b",
+  "ro-trp-rs02m-203-6b",
+  "ro-trp-rc03m-160-cl",
+  "ro-trp-rc03m-180-cl",
+  "ro-trp-rc03m-203-cl",
+  "ro-trp-rs01m-140-6b",
+  "ro-trp-rs01m-160-6b",
+  "ro-trp-rs01m-180-6b",
+  "ro-trp-rs01m-203-6b",
+  "ro-trp-tr43-160-6b",
+  "ro-trp-tr43-203-6b",
   "sft-microshift-advent-x-m9605",
   "sft-microshift-advent-m9295",
   "sft-shimano-cues-u6000-11",
@@ -2324,25 +2417,25 @@
   "ro-sram-hs2-220-6b": {
    "cat": "rotor",
    "status": "Skipped",
-   "updated": "2026-07-10T18:02:50.596Z",
+   "updated": "2026-07-08T00:58:28.031Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via fetched sram.com/en/sram/models/rt-hs-2-a1 (160/180/200/220mm, 6-bolt+CL) - already correct, no edit needed; no per-SKU measured weight found (BikeRadar only weighed 200mm-6b=206g; MBR's 180mm figure has no stated mount; pinkbike.com is a KNOWN_UNFETCHABLE_HOSTS host)"
+   "note": "Confirmed 2026-07-08: BikeRadar measured 200mm (206g) and MBR measured 180mm (170g) only -- no reputable measured 220mm figure exists anywhere searched. Retailer listings (Amazon 260g, Bikeparts.com 270g CL) rejected by policy. Interfaces remain manufacturer-confirmed on RT-HS-2-A1. Bar not met."
   },
   "ro-shimano-rtmt800-203-cl": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:09:22.095Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:24:57.967Z",
    "error": null,
-   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
+   "source": null,
    "note": "bike.shimano.com 403-blocks fetch; ride.shimano.com has no RT-MT800 page. Third-party figures for 203mm range wildly (147g-165g) across sources -- exactly the conflicting-summary trap. Bar not met."
   },
   "ro-shimano-rtmt800-180-cl": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:09:22.096Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:24:58.020Z",
    "error": null,
-   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
+   "source": null,
    "note": "Same as the 203mm sibling: no fetchable manufacturer page, conflicting third-party figures (120-132g). Bar not met."
   },
   "ro-hayes-dseries-203-6b": {
@@ -2355,10 +2448,10 @@
   },
   "ro-hope-floating-203-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.017Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:24:58.070Z",
    "error": null,
-   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
+   "source": null,
    "note": "Hope's product page only states weight for the 180mm size (146g); the 203mm figure isn't listed, and the linked Rotor Tech Book PDF is image-based/unreadable via fetch. Bar not met."
   },
   "ro-magura-mdrp-203-6b": {
@@ -2372,25 +2465,25 @@
   "ro-sram-hs2-180-6b": {
    "cat": "rotor",
    "status": "Skipped",
-   "updated": "2026-07-10T18:02:50.671Z",
+   "updated": "2026-07-07T17:08:03.451Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via sram.com model page - already correct; weight bar unmet (MBR quotes 170g for 180mm but mount unstated, so it does not pin this exact SKU)"
+   "note": "MBR measured a 180 HS2 at 170g but their test unit's MOUNT is unstated - exact-SKU measured bar not met. Weight corrected 125->170 as a better sample; interfaces manufacturer-confirmed (sram.com RT-HS-2-A1: 180 exists in 6-bolt, 2.0mm). Revisit if a mount-stated measurement appears."
   },
   "ro-shimano-smrt76-203-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:09:22.096Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:38:32.754Z",
    "error": null,
-   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
+   "source": null,
    "note": "bike.shimano.com page exists but wasn't fetched cleanly this session; third-party figures conflict (192g vs 209g depending on hardware). Bar not met."
   },
   "ro-trp-203-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:18:39.795Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:38:32.807Z",
    "error": null,
-   "source": "https://trpcycling.com/products/rs05e-race-rotor-2-3mm-203-220mm-1",
+   "source": null,
    "note": "TRP's 203mm rotor line splits into several distinct models (TR25, TR33, TR42, TR43, RC04E, RS05E, RS06E) with weights ranging 196-242g -- this generic 'TRP 203mm' catalog row doesn't match any single real SKU. Bar not met without picking one first."
   },
   "ro-magura-mdrp-220-6b": {
@@ -2403,35 +2496,35 @@
   },
   "ro-hope-floating-220-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.017Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:38:32.907Z",
    "error": null,
-   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
+   "source": null,
    "note": "Hope's floating-6-bolt page doesn't list a 220mm weight in fetched content (only partial data extracted); the tech-book PDF is unreadable via fetch. Bar not met."
   },
   "ro-sram-centerline-180-cl": {
    "cat": "rotor",
    "status": "Skipped",
-   "updated": "2026-07-10T18:04:28.759Z",
+   "updated": "2026-07-07T19:38:32.962Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via fetched sram.com/en/sram/models/rt-cln-a2 (CenterLine: 140/160/180/200/220mm, 6-bolt+CL) and rt-cln-x-a2 (CenterLine X: 140/160/180mm only, 6-bolt+CL) - already correct, no edit needed; SRAM publishes no rotor weight on either model page (weight section absent) and no exact-SKU-pinned editorial measured weight was found (BikeRadar's 188g CenterLine-200 figure has no stated mount; Vital MTB's per-size weight table self-labels as manufacturer spec, not an independent measurement, and SRAM's own page shows none, so it fails the sourceType:measured bar)"
+   "note": "SRAM's own model page confirms the 180mm CL size exists but publishes no weight. Bar not met."
   },
   "ro-trickstuff-dachle-203-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:15:45.278Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:38:33.012Z",
    "error": null,
-   "source": "https://www.trickstuff.com/en/brake-parts-and-tools/brake-discs/daechle-disc-ul",
+   "source": null,
    "note": "No weight found for this rotor anywhere; trickstuff.de's installation-instructions PDF is the only technical doc surfaced and wasn't extractable via fetch. Bar not met."
   },
   "ro-formula-220-6b": {
    "cat": "rotor",
    "status": "Skipped",
-   "updated": "2026-07-10T18:15:45.758Z",
+   "updated": "2026-07-07T19:38:33.065Z",
    "error": null,
    "source": null,
-   "note": "rideformula.com has no fetchable per-SKU rotor spec page (product listing pages return marketing copy only, no size/weight table); no other Formula-hosted spec doc found - interfaces left as sample, no reputable measured-weight source located either"
+   "note": "formula-brake.com store connection reset on fetch; no other manufacturer source found. Bar not met."
   },
   "sft-sram-gx-transmission": {
    "cat": "shifter",
@@ -3027,18 +3120,18 @@
   },
   "ro-galfer-223-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:13:37.259Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:24:58.126Z",
    "error": null,
-   "source": "https://galfer.com/bike/products/brake-discs/",
+   "source": null,
    "note": "Galfer's current 6-bolt lineup has no 220mm size -- their sizes run 140/160/180/200/203/223mm. This catalog row may be based on a nonexistent SKU (closest real size is 223mm); flagging for a data-entry decision (correct to 223 as a new id, since size is engine-read and ids are append-only) rather than silently guessing a weight for a product that may not exist."
   },
   "ro-shimano-rtmt900-203-cl": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:09:22.096Z",
+   "status": "Skipped",
+   "updated": "2026-07-07T19:38:32.704Z",
    "error": null,
-   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
+   "source": null,
    "note": "Shimano's RT-MT900 (XTR) appears to top out at 203mm (140/160/180/203mm sizes found) -- no 220mm size turned up anywhere, manufacturer or retailer. Likely a nonexistent SKU in this catalog row; flag for a data-entry correction rather than guessing a weight for a size that may not exist."
   },
   "dp-fox-transfer-factory-316-180": {
@@ -3868,18 +3961,18 @@
   "ro-sram-centerline-x-160-cl": {
    "cat": "rotor",
    "status": "Skipped",
-   "updated": "2026-07-10T18:04:28.837Z",
+   "updated": "2026-07-08T20:00:30.555Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via fetched sram.com/en/sram/models/rt-cln-a2 (CenterLine: 140/160/180/200/220mm, 6-bolt+CL) and rt-cln-x-a2 (CenterLine X: 140/160/180mm only, 6-bolt+CL) - already correct, no edit needed; SRAM publishes no rotor weight on either model page (weight section absent) and no exact-SKU-pinned editorial measured weight was found (BikeRadar's 188g CenterLine-200 figure has no stated mount; Vital MTB's per-size weight table self-labels as manufacturer spec, not an independent measurement, and SRAM's own page shows none, so it fails the sourceType:measured bar)"
+   "note": "Interface maker-confirmed (sram.com rt-cln-x-a2: 160mm Center Lock, two-piece alloy/steel). Weight wall re-confirmed 2026-07-08: SRAM publishes no rotor weight; only Weight Weenies forum measurements (117-118g) and retailer listings exist, neither a reputable editorial teardown / major-outlet verified-weight DB, so the measured-weight bar (DATA-MODEL-REVIEW 5.1-13) is not met. Same wall as HS2 220/180 siblings. Bar not met."
   },
   "ro-sram-centerline-160-6b": {
    "cat": "rotor",
    "status": "Skipped",
-   "updated": "2026-07-10T18:04:28.913Z",
+   "updated": "2026-07-08T20:00:30.631Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via fetched sram.com/en/sram/models/rt-cln-a2 (CenterLine: 140/160/180/200/220mm, 6-bolt+CL) and rt-cln-x-a2 (CenterLine X: 140/160/180mm only, 6-bolt+CL) - already correct, no edit needed; SRAM publishes no rotor weight on either model page (weight section absent) and no exact-SKU-pinned editorial measured weight was found (BikeRadar's 188g CenterLine-200 figure has no stated mount; Vital MTB's per-size weight table self-labels as manufacturer spec, not an independent measurement, and SRAM's own page shows none, so it fails the sourceType:measured bar)"
+   "note": "Interface from fetched Worldwide Cyclery listing (160mm 6-bolt, one-piece). Weight wall re-confirmed 2026-07-08: SRAM publishes no rotor weight; only retailer figures (114g) + Weight Weenies forum posts, not a major-outlet measured source. Bar not met."
   },
   "sft-sram-x01-dh": {
    "cat": "shifter",
@@ -4491,27 +4584,27 @@
   },
   "ro-sram-hs2-160-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:02:50.749Z",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via sram.com model page - already correct; no measured weight found for 160mm HS2 in any editorial source searched"
+   "note": null
   },
   "ro-sram-centerline-220-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:04:28.989Z",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via fetched sram.com/en/sram/models/rt-cln-a2 (CenterLine: 140/160/180/200/220mm, 6-bolt+CL) and rt-cln-x-a2 (CenterLine X: 140/160/180mm only, 6-bolt+CL) - already correct, no edit needed; SRAM publishes no rotor weight on either model page (weight section absent) and no exact-SKU-pinned editorial measured weight was found (BikeRadar's 188g CenterLine-200 figure has no stated mount; Vital MTB's per-size weight table self-labels as manufacturer spec, not an independent measurement, and SRAM's own page shows none, so it fails the sourceType:measured bar)"
+   "note": null
   },
   "ro-sram-centerline-200-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:04:29.063Z",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via fetched sram.com/en/sram/models/rt-cln-a2 (CenterLine: 140/160/180/200/220mm, 6-bolt+CL) and rt-cln-x-a2 (CenterLine X: 140/160/180mm only, 6-bolt+CL) - already correct, no edit needed; SRAM publishes no rotor weight on either model page (weight section absent) and no exact-SKU-pinned editorial measured weight was found (BikeRadar's 188g CenterLine-200 figure has no stated mount; Vital MTB's per-size weight table self-labels as manufacturer spec, not an independent measurement, and SRAM's own page shows none, so it fails the sourceType:measured bar)"
+   "note": null
   },
   "ro-magura-mdrp-180-6b": {
    "cat": "rotor",
@@ -4523,59 +4616,59 @@
   },
   "ro-hope-floating-180-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.017Z",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
    "error": null,
-   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-trickstuff-dachle-180-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:15:45.278Z",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
    "error": null,
-   "source": "https://www.trickstuff.com/en/brake-parts-and-tools/brake-discs/daechle-disc-ul",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-galfer-203-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:13:37.260Z",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
    "error": null,
-   "source": "https://galfer.com/bike/products/brake-discs/",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-shimano-rtmt800-160-cl": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:09:22.096Z",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
    "error": null,
-   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-shimano-rtmt900-160-cl": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:09:22.096Z",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
    "error": null,
-   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-shimano-smrt76-160-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:09:22.096Z",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
    "error": null,
-   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-trp-220-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:18:39.795Z",
+   "status": "Pending",
+   "updated": "2026-07-09T03:01:12.932Z",
    "error": null,
-   "source": "https://trpcycling.com/products/rs05e-race-rotor-2-3mm-203-220mm-1",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ti-michelin-wildenduro-racingline-29-24-gs-ms": {
    "cat": "tire",
@@ -12211,107 +12304,107 @@
   },
   "ro-sram-hs2-160-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:02:50.826Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via sram.com model page - already correct; no measured weight found for 160mm CL HS2"
+   "note": null
   },
   "ro-sram-hs2-180-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:02:50.902Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via sram.com model page - already correct; no measured weight found for 180mm CL HS2"
+   "note": null
   },
   "ro-sram-hs2-200-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:02:50.976Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via sram.com model page - already correct; no measured weight found for 200mm CL HS2 (only 200-6b was weighed by BikeRadar)"
+   "note": null
   },
   "ro-sram-hs2-220-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:02:51.051Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via sram.com model page - already correct; no measured weight found for 220mm CL HS2"
+   "note": null
   },
   "ro-sram-centerline-140-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:04:29.143Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via fetched sram.com/en/sram/models/rt-cln-a2 (CenterLine: 140/160/180/200/220mm, 6-bolt+CL) and rt-cln-x-a2 (CenterLine X: 140/160/180mm only, 6-bolt+CL) - already correct, no edit needed; SRAM publishes no rotor weight on either model page (weight section absent) and no exact-SKU-pinned editorial measured weight was found (BikeRadar's 188g CenterLine-200 figure has no stated mount; Vital MTB's per-size weight table self-labels as manufacturer spec, not an independent measurement, and SRAM's own page shows none, so it fails the sourceType:measured bar)"
+   "note": null
   },
   "ro-sram-centerline-160-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:04:29.219Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via fetched sram.com/en/sram/models/rt-cln-a2 (CenterLine: 140/160/180/200/220mm, 6-bolt+CL) and rt-cln-x-a2 (CenterLine X: 140/160/180mm only, 6-bolt+CL) - already correct, no edit needed; SRAM publishes no rotor weight on either model page (weight section absent) and no exact-SKU-pinned editorial measured weight was found (BikeRadar's 188g CenterLine-200 figure has no stated mount; Vital MTB's per-size weight table self-labels as manufacturer spec, not an independent measurement, and SRAM's own page shows none, so it fails the sourceType:measured bar)"
+   "note": null
   },
   "ro-sram-centerline-180-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:04:29.299Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via fetched sram.com/en/sram/models/rt-cln-a2 (CenterLine: 140/160/180/200/220mm, 6-bolt+CL) and rt-cln-x-a2 (CenterLine X: 140/160/180mm only, 6-bolt+CL) - already correct, no edit needed; SRAM publishes no rotor weight on either model page (weight section absent) and no exact-SKU-pinned editorial measured weight was found (BikeRadar's 188g CenterLine-200 figure has no stated mount; Vital MTB's per-size weight table self-labels as manufacturer spec, not an independent measurement, and SRAM's own page shows none, so it fails the sourceType:measured bar)"
+   "note": null
   },
   "ro-sram-centerline-200-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:04:29.372Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via fetched sram.com/en/sram/models/rt-cln-a2 (CenterLine: 140/160/180/200/220mm, 6-bolt+CL) and rt-cln-x-a2 (CenterLine X: 140/160/180mm only, 6-bolt+CL) - already correct, no edit needed; SRAM publishes no rotor weight on either model page (weight section absent) and no exact-SKU-pinned editorial measured weight was found (BikeRadar's 188g CenterLine-200 figure has no stated mount; Vital MTB's per-size weight table self-labels as manufacturer spec, not an independent measurement, and SRAM's own page shows none, so it fails the sourceType:measured bar)"
+   "note": null
   },
   "ro-sram-centerline-x-140-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:04:29.447Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via fetched sram.com/en/sram/models/rt-cln-a2 (CenterLine: 140/160/180/200/220mm, 6-bolt+CL) and rt-cln-x-a2 (CenterLine X: 140/160/180mm only, 6-bolt+CL) - already correct, no edit needed; SRAM publishes no rotor weight on either model page (weight section absent) and no exact-SKU-pinned editorial measured weight was found (BikeRadar's 188g CenterLine-200 figure has no stated mount; Vital MTB's per-size weight table self-labels as manufacturer spec, not an independent measurement, and SRAM's own page shows none, so it fails the sourceType:measured bar)"
+   "note": null
   },
   "ro-sram-centerline-x-140-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:04:29.522Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via fetched sram.com/en/sram/models/rt-cln-a2 (CenterLine: 140/160/180/200/220mm, 6-bolt+CL) and rt-cln-x-a2 (CenterLine X: 140/160/180mm only, 6-bolt+CL) - already correct, no edit needed; SRAM publishes no rotor weight on either model page (weight section absent) and no exact-SKU-pinned editorial measured weight was found (BikeRadar's 188g CenterLine-200 figure has no stated mount; Vital MTB's per-size weight table self-labels as manufacturer spec, not an independent measurement, and SRAM's own page shows none, so it fails the sourceType:measured bar)"
+   "note": null
   },
   "ro-sram-centerline-x-160-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:04:29.597Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via fetched sram.com/en/sram/models/rt-cln-a2 (CenterLine: 140/160/180/200/220mm, 6-bolt+CL) and rt-cln-x-a2 (CenterLine X: 140/160/180mm only, 6-bolt+CL) - already correct, no edit needed; SRAM publishes no rotor weight on either model page (weight section absent) and no exact-SKU-pinned editorial measured weight was found (BikeRadar's 188g CenterLine-200 figure has no stated mount; Vital MTB's per-size weight table self-labels as manufacturer spec, not an independent measurement, and SRAM's own page shows none, so it fails the sourceType:measured bar)"
+   "note": null
   },
   "ro-sram-centerline-x-180-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:04:29.672Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via fetched sram.com/en/sram/models/rt-cln-a2 (CenterLine: 140/160/180/200/220mm, 6-bolt+CL) and rt-cln-x-a2 (CenterLine X: 140/160/180mm only, 6-bolt+CL) - already correct, no edit needed; SRAM publishes no rotor weight on either model page (weight section absent) and no exact-SKU-pinned editorial measured weight was found (BikeRadar's 188g CenterLine-200 figure has no stated mount; Vital MTB's per-size weight table self-labels as manufacturer spec, not an independent measurement, and SRAM's own page shows none, so it fails the sourceType:measured bar)"
+   "note": null
   },
   "ro-sram-centerline-x-180-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:04:29.746Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "interfaces confirmed via fetched sram.com/en/sram/models/rt-cln-a2 (CenterLine: 140/160/180/200/220mm, 6-bolt+CL) and rt-cln-x-a2 (CenterLine X: 140/160/180mm only, 6-bolt+CL) - already correct, no edit needed; SRAM publishes no rotor weight on either model page (weight section absent) and no exact-SKU-pinned editorial measured weight was found (BikeRadar's 188g CenterLine-200 figure has no stated mount; Vital MTB's per-size weight table self-labels as manufacturer spec, not an independent measurement, and SRAM's own page shows none, so it fails the sourceType:measured bar)"
+   "note": null
   },
   "ro-hayes-dseries-160-6b": {
    "cat": "rotor",
@@ -12339,43 +12432,43 @@
   },
   "ro-hope-floating-140-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.017Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
-   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-hope-floating-160-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.017Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
-   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-hope-floating-200-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.017Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
-   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-hope-floating-140-cl": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.017Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
-   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-hope-floating-160-cl": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.017Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
-   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-hope-floating-180-cl": {
    "cat": "rotor",
@@ -12387,27 +12480,27 @@
   },
   "ro-hope-floating-200-cl": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.017Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
-   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-hope-floating-203-cl": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.017Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
-   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-hope-floating-220-cl": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.018Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
-   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-magura-mdrp-180-cl": {
    "cat": "rotor",
@@ -12603,35 +12696,35 @@
   },
   "ro-shimano-rtmt800-140-cl": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:09:22.096Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
-   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-shimano-rtmt900-140-cl": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:09:22.096Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
-   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-shimano-rtmt900-180-cl": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:09:22.096Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
-   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-shimano-smrt76-180-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:09:22.096Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
-   "source": "https://productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-trp-tr25-160-cl": {
    "cat": "rotor",
@@ -12659,219 +12752,219 @@
   },
   "ro-trp-tr25-140-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:41.581Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-tr33-140-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:41.655Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-tr33-160-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:41.735Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-tr33-180-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:41.817Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-tr33-203-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:41.892Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-tr42-180-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:41.972Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-tr42-203-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:42.045Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-formula-monolithic-160-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:15:45.836Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "rideformula.com has no fetchable per-SKU rotor spec page (product listing pages return marketing copy only, no size/weight table); no other Formula-hosted spec doc found - interfaces left as sample, no reputable measured-weight source located either"
+   "note": null
   },
   "ro-formula-monolithic-180-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:15:45.911Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "rideformula.com has no fetchable per-SKU rotor spec page (product listing pages return marketing copy only, no size/weight table); no other Formula-hosted spec doc found - interfaces left as sample, no reputable measured-weight source located either"
+   "note": null
   },
   "ro-formula-monolithic-203-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:15:45.991Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "rideformula.com has no fetchable per-SKU rotor spec page (product listing pages return marketing copy only, no size/weight table); no other Formula-hosted spec doc found - interfaces left as sample, no reputable measured-weight source located either"
+   "note": null
   },
   "ro-formula-monolithic-180-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:15:46.067Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "rideformula.com has no fetchable per-SKU rotor spec page (product listing pages return marketing copy only, no size/weight table); no other Formula-hosted spec doc found - interfaces left as sample, no reputable measured-weight source located either"
+   "note": null
   },
   "ro-formula-monolithic-203-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:15:46.150Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "rideformula.com has no fetchable per-SKU rotor spec page (product listing pages return marketing copy only, no size/weight table); no other Formula-hosted spec doc found - interfaces left as sample, no reputable measured-weight source located either"
+   "note": null
   },
   "ro-tektro-tr54-160-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:01.336Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com (Tektro USA distributor) individual product pages - already correct, no edit needed; no weight figure published on any of these pages and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-tektro-tr54-180-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:01.410Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com (Tektro USA distributor) individual product pages - already correct, no edit needed; no weight figure published on any of these pages and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-tektro-tr54-203-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:01.484Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com (Tektro USA distributor) individual product pages - already correct, no edit needed; no weight figure published on any of these pages and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-tektro-tr52-160-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:01.559Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com (Tektro USA distributor) individual product pages - already correct, no edit needed; no weight figure published on any of these pages and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-tektro-tr52-180-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:01.641Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com (Tektro USA distributor) individual product pages - already correct, no edit needed; no weight figure published on any of these pages and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-tektro-tr52-203-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:01.715Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com (Tektro USA distributor) individual product pages - already correct, no edit needed; no weight figure published on any of these pages and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-tektro-tr45-180-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:01.789Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com (Tektro USA distributor) individual product pages - already correct, no edit needed; no weight figure published on any of these pages and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-tektro-tr45-203-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:01.873Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com (Tektro USA distributor) individual product pages - already correct, no edit needed; no weight figure published on any of these pages and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-tektro-tr35-140-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:01.961Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com (Tektro USA distributor) individual product pages - already correct, no edit needed; no weight figure published on any of these pages and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-tektro-tr35-160-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:02.046Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com (Tektro USA distributor) individual product pages - already correct, no edit needed; no weight figure published on any of these pages and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-tektro-tr35-180-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:02.128Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com (Tektro USA distributor) individual product pages - already correct, no edit needed; no weight figure published on any of these pages and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-clarks-cl01-140-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:54.900Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "clarkscyclesystems.com's current product catalog does not expose a CL-01 or C-CL product page under those model codes (only CLE-01/CL-07/CL-027 found); the category landing pages (single-piece-rotors, floating-rotors) give no per-model size/weight table either - could not confirm these exact SKUs still exist without risking a mismatch to a different current model, so left as sample per THE BAR"
+   "note": null
   },
   "ro-clarks-cl01-160-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:54.981Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "clarkscyclesystems.com's current product catalog does not expose a CL-01 or C-CL product page under those model codes (only CLE-01/CL-07/CL-027 found); the category landing pages (single-piece-rotors, floating-rotors) give no per-model size/weight table either - could not confirm these exact SKUs still exist without risking a mismatch to a different current model, so left as sample per THE BAR"
+   "note": null
   },
   "ro-clarks-cl01-180-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:55.061Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "clarkscyclesystems.com's current product catalog does not expose a CL-01 or C-CL product page under those model codes (only CLE-01/CL-07/CL-027 found); the category landing pages (single-piece-rotors, floating-rotors) give no per-model size/weight table either - could not confirm these exact SKUs still exist without risking a mismatch to a different current model, so left as sample per THE BAR"
+   "note": null
   },
   "ro-clarks-cl01-203-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:55.133Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "clarkscyclesystems.com's current product catalog does not expose a CL-01 or C-CL product page under those model codes (only CLE-01/CL-07/CL-027 found); the category landing pages (single-piece-rotors, floating-rotors) give no per-model size/weight table either - could not confirm these exact SKUs still exist without risking a mismatch to a different current model, so left as sample per THE BAR"
+   "note": null
   },
   "ro-clarks-cle01-140-6b": {
    "cat": "rotor",
@@ -12907,35 +13000,35 @@
   },
   "ro-clarks-ccl-140-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:55.217Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "clarkscyclesystems.com's current product catalog does not expose a CL-01 or C-CL product page under those model codes (only CLE-01/CL-07/CL-027 found); the category landing pages (single-piece-rotors, floating-rotors) give no per-model size/weight table either - could not confirm these exact SKUs still exist without risking a mismatch to a different current model, so left as sample per THE BAR"
+   "note": null
   },
   "ro-clarks-ccl-160-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:55.294Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "clarkscyclesystems.com's current product catalog does not expose a CL-01 or C-CL product page under those model codes (only CLE-01/CL-07/CL-027 found); the category landing pages (single-piece-rotors, floating-rotors) give no per-model size/weight table either - could not confirm these exact SKUs still exist without risking a mismatch to a different current model, so left as sample per THE BAR"
+   "note": null
   },
   "ro-clarks-ccl-180-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:55.372Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "clarkscyclesystems.com's current product catalog does not expose a CL-01 or C-CL product page under those model codes (only CLE-01/CL-07/CL-027 found); the category landing pages (single-piece-rotors, floating-rotors) give no per-model size/weight table either - could not confirm these exact SKUs still exist without risking a mismatch to a different current model, so left as sample per THE BAR"
+   "note": null
   },
   "ro-clarks-ccl-203-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:20:55.450Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "clarkscyclesystems.com's current product catalog does not expose a CL-01 or C-CL product page under those model codes (only CLE-01/CL-07/CL-027 found); the category landing pages (single-piece-rotors, floating-rotors) give no per-model size/weight table either - could not confirm these exact SKUs still exist without risking a mismatch to a different current model, so left as sample per THE BAR"
+   "note": null
   },
   "ro-trickstuff-downhill-223-6b": {
    "cat": "rotor",
@@ -12947,19 +13040,19 @@
   },
   "ro-galfer-shark-180-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:13:37.260Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
-   "source": "https://galfer.com/bike/products/brake-discs/",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-galfer-shark-203-6b": {
    "cat": "rotor",
-   "status": "Verified",
-   "updated": "2026-07-10T18:13:37.260Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
-   "source": "https://galfer.com/bike/products/brake-discs/",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "ro-galfer-shark-223-6b": {
    "cat": "rotor",
@@ -12971,75 +13064,75 @@
   },
   "ro-shimano-smrt66-160-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:09:33.498Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "the FETCHED Shimano 2024-2025 Specifications Handbook PDF (productinfo.shimano.com) Disc Brake Rotor tables give no Average-weight figure for SM-RT66/SM-RT56 (row present but blank, unlike SM-RT76/RT-MT800/900 which are populated); no reputable editorial measured-weight source found either - weight bar unmet, fields left as sample"
+   "note": null
   },
   "ro-shimano-smrt66-180-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:09:33.580Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "the FETCHED Shimano 2024-2025 Specifications Handbook PDF (productinfo.shimano.com) Disc Brake Rotor tables give no Average-weight figure for SM-RT66/SM-RT56 (row present but blank, unlike SM-RT76/RT-MT800/900 which are populated); no reputable editorial measured-weight source found either - weight bar unmet, fields left as sample"
+   "note": null
   },
   "ro-shimano-smrt66-203-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:09:33.657Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "the FETCHED Shimano 2024-2025 Specifications Handbook PDF (productinfo.shimano.com) Disc Brake Rotor tables give no Average-weight figure for SM-RT66/SM-RT56 (row present but blank, unlike SM-RT76/RT-MT800/900 which are populated); no reputable editorial measured-weight source found either - weight bar unmet, fields left as sample"
+   "note": null
   },
   "ro-shimano-smrt66-220-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:09:33.732Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "the FETCHED Shimano 2024-2025 Specifications Handbook PDF (productinfo.shimano.com) Disc Brake Rotor tables give no Average-weight figure for SM-RT66/SM-RT56 (row present but blank, unlike SM-RT76/RT-MT800/900 which are populated); no reputable editorial measured-weight source found either - weight bar unmet, fields left as sample"
+   "note": null
   },
   "ro-shimano-smrt30-160-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:09:33.961Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "the FETCHED Shimano 2024-2025 Specifications Handbook PDF Disc Brake Rotor table (SM-RT64/RT56/RT54/RT30/RT26/RT10 group) has an entirely blank Average-weight row for this whole tier; no reputable editorial measured-weight source found - weight bar unmet, fields left as sample"
+   "note": null
   },
   "ro-shimano-smrt30-180-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:09:34.039Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "the FETCHED Shimano 2024-2025 Specifications Handbook PDF Disc Brake Rotor table (SM-RT64/RT56/RT54/RT30/RT26/RT10 group) has an entirely blank Average-weight row for this whole tier; no reputable editorial measured-weight source found - weight bar unmet, fields left as sample"
+   "note": null
   },
   "ro-shimano-smrt30-203-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:09:34.122Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "the FETCHED Shimano 2024-2025 Specifications Handbook PDF Disc Brake Rotor table (SM-RT64/RT56/RT54/RT30/RT26/RT10 group) has an entirely blank Average-weight row for this whole tier; no reputable editorial measured-weight source found - weight bar unmet, fields left as sample"
+   "note": null
   },
   "ro-shimano-smrt56-160-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:09:33.807Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "the FETCHED Shimano 2024-2025 Specifications Handbook PDF (productinfo.shimano.com) Disc Brake Rotor tables give no Average-weight figure for SM-RT66/SM-RT56 (row present but blank, unlike SM-RT76/RT-MT800/900 which are populated); no reputable editorial measured-weight source found either - weight bar unmet, fields left as sample"
+   "note": null
   },
   "ro-shimano-smrt56-180-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:09:33.881Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "the FETCHED Shimano 2024-2025 Specifications Handbook PDF (productinfo.shimano.com) Disc Brake Rotor tables give no Average-weight figure for SM-RT66/SM-RT56 (row present but blank, unlike SM-RT76/RT-MT800/900 which are populated); no reputable editorial measured-weight source found either - weight bar unmet, fields left as sample"
+   "note": null
   },
   "ro-trp-rs01e-180-6b": {
    "cat": "rotor",
@@ -13075,11 +13168,11 @@
   },
   "ro-trp-rs06e-180-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:42.118Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-rs06e-203-6b": {
    "cat": "rotor",
@@ -13099,123 +13192,123 @@
   },
   "ro-trp-rc04e-180-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:42.200Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-rc04e-203-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:42.274Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-rs02m-140-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:42.356Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-rs02m-160-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:42.430Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-rs02m-180-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:42.509Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-rs02m-203-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:42.581Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-rc03m-160-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:42.662Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-rc03m-180-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:42.743Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-rc03m-203-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:42.819Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-rs01m-140-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:42.898Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-rs01m-160-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:42.976Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-rs01m-180-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:43.055Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-rs01m-203-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:43.133Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-tr43-160-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:43.208Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "ro-trp-tr43-203-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-10T18:18:43.289Z",
+   "status": "Pending",
+   "updated": "2026-07-09T13:40:38.882Z",
    "error": null,
    "source": null,
-   "note": "mount+size interfaces confirmed via FETCHED trpcycling.com individual product pages (each model's own product page, not just the collection listing) - already correct, no edit needed; no weight figure published on any of these product pages (only RS05E's page gives per-size weight, already verified separately) and no reputable editorial measured-weight source found - weight bar unmet"
+   "note": null
   },
   "sft-microshift-advent-x-m9605": {
    "cat": "shifter",
@@ -13824,70 +13917,6 @@
    "error": null,
    "source": null,
    "note": null
-  },
-  "bb-sram-dub-bsa73": {
-   "cat": "bb",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.018Z",
-   "error": null,
-   "source": "https://www.sram.com/en/sram/models/bb-dub-bsa-a1",
-   "note": "auto-promoted: already verified in catalog"
-  },
-  "bb-sram-dub-bsa83": {
-   "cat": "bb",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.018Z",
-   "error": null,
-   "source": "https://www.sram.com/en/sram/models/bb-dub-bsa-a1",
-   "note": "auto-promoted: already verified in catalog"
-  },
-  "bb-sram-dub-pf92": {
-   "cat": "bb",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.018Z",
-   "error": null,
-   "source": "https://www.sram.com/en/sram/models/bb-dub-pf-a1",
-   "note": "auto-promoted: already verified in catalog"
-  },
-  "bb-sram-dub-pf107": {
-   "cat": "bb",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.018Z",
-   "error": null,
-   "source": "https://www.sram.com/en/sram/models/bb-dub-pf-a1",
-   "note": "auto-promoted: already verified in catalog"
-  },
-  "bb-hope-threaded-bsa73-24mm": {
-   "cat": "bb",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.018Z",
-   "error": null,
-   "source": "https://www.hopetech.com/products/drivetrain/bottom-bracket/threaded-bottom-bracket/",
-   "note": "auto-promoted: already verified in catalog"
-  },
-  "bb-hope-threaded-bsa73-30mm": {
-   "cat": "bb",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.018Z",
-   "error": null,
-   "source": "https://www.hopetech.com/products/drivetrain/bottom-bracket/threaded-bottom-bracket/",
-   "note": "auto-promoted: already verified in catalog"
-  },
-  "bb-hope-pf41-92-24mm": {
-   "cat": "bb",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.018Z",
-   "error": null,
-   "source": "https://www.hopetech.com/products/drivetrain/bottom-bracket/press-fit-pf41-bottom-bracket/",
-   "note": "auto-promoted: already verified in catalog"
-  },
-  "bb-hope-pf41-92-30mm": {
-   "cat": "bb",
-   "status": "Verified",
-   "updated": "2026-07-10T17:58:36.018Z",
-   "error": null,
-   "source": "https://www.hopetech.com/products/drivetrain/bottom-bracket/press-fit-pf41-bottom-bracket/",
-   "note": "auto-promoted: already verified in catalog"
   }
  }
 }
