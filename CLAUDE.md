@@ -96,7 +96,7 @@ Category-specific fields (enforced by `schema.js` → `SCHEMA`, using vocabulari
 - **frame**: `wheelConfigs` (array of `'29'`/`'275'`/`'mullet'`), `rearAxle`, `headset`, `bb`, `seatTube`, `brakeMount`, `maxRotorR`, **`suspension`** (`'full'`/`'hardtail'` discriminator: the shock block `shockEye`/`shockStroke`/`shockMount`/`travel` is required for full and forbidden for hardtail — cross-rule), `maxForkTravel`, optional sourced `minForkTravel` (maker-approved floor) + `designForkTravel` (maker-stated design travel), `udh` (bool), `frameOnly` (bool), `bundledShock` (id or null), optional `sizes` (per-size map → `{seatTubeLen?, maxInsert?}`).
 - **fork**: `wheel`, `travel`, `axle`, `steerer`, `brakeMount`, `maxRotorF`, optional `minRotorF` (native-mount minimum; sourced forks only).
 - **shock**: `eye`, `stroke`, `mount`, `spring`; optional `oemOnly` + `forFrames` (array — OEM shocks ship across multiple frames).
-- **frontwheel / rearwheel**: `wheel`, `hub`, (`freehub` rear only), `rotorMount`, `intWidth`, `maxTire`.
+- **frontwheel / rearwheel**: `wheel`, `hub`, (`freehub` rear only — `'integrated'` = the driver IS a built-in 7-speed cassette, e*thirteen LG1r DH; wheel/hub-side value, forbidden on cassettes by a cross-rule), `rotorMount`, `intWidth`, `maxTire`.
 - **tire**: `wheel`, `width`, optional `casing`/`compound` (brand-native SKU axes; template-mandatory for new rows). (Front and rear tires are separate build slots, both drawn from `cat:'tire'`.)
 - **shifter / derailleur / cassette / chain**: `system` (`sram-eagle`/`sram-transmission`/`shimano-12`), `speeds`; shifter + derailleur also `actuation` (`cable`/`electronic` — same system, but a trigger can't drive an AXS mech); shifter optional `clampType` (`ispec-ev`/`ispec-ii`/`ispec-b`/`matchmaker`/`band`/`pod`); derailleur also `maxCog`,`mount`; cassette also `freehub`,`minCog`,`maxCog` (numeric — the display range is derived; HG floor is 11T, validator-enforced).
 - **crankset**: `bb` (spindle interface: `DUB`/`24mm`/`30mm`/`p3`), optional `ring`, nullable `ringStd` (`t-type`/`standard-12`/null = ring sold separately), `speeds`, optional `chainline` (number, mm — display-only).
@@ -121,7 +121,10 @@ front & rear axles; drivetrain one-system + one-speed + shifter/derailleur actua
 AXS wireless) + T-Type chainring vs Transmission chain (electronic SRAM controllers are exempt
 from one-system — SRAM documents all AXS controllers drive all AXS derailleurs — but stay
 red on non-SRAM systems); SRAM Transmission needs a UDH frame;
-cassette range vs derailleur capacity; cassette freehub vs rear wheel; brake caliper mounts;
+cassette range vs derailleur capacity; cassette freehub vs rear wheel (incl. 6b: an
+integrated-cassette wheel — the LG1r DH driver IS a built-in 7-speed cassette — hard-errors ANY
+picked cassette in its own words, drops a built-in-cassette info when cassette-less, and
+`slotRequired` exempts the cassette slot from completeness, hardtail-shock style); brake caliper mounts;
 rotor interface vs hub (direction-aware: Center-Lock rotor on a 6-bolt hub = error;
 6-bolt rotor on a Center-Lock hub = adapter warning carrying a structured `fix`); rotor size vs
 frame/fork max AND vs the fork's native-mount minimum (error; sourced forks only); steerer/headset;
