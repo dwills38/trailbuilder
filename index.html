@@ -300,28 +300,49 @@
   html.rad .pick{color:var(--brand)}
   html.rad .chip.active{background:var(--brand);color:#150029}
 
-  /* 🏳️‍🌈 Roadie mode — purely cosmetic easter egg, same honesty-bar-zero rule as RAD
-     mode: never touches a verdict, never claims anything about fit. Stays on the
-     light base palette (unlike RAD) so none of RAD's white-bg/light-text fixes
-     are needed here — just a rainbow wash over the accent colors. */
-  html.roadie{
-    --brand:#7c3aed; --brand-d:#5b21b6; --accent:#ec4899; --line:#e9d5ff; --chip:#f5eeff;
+  /* 🌙 Dark mode — a real theme, not an easter egg: the light palette re-derived
+     for dark backgrounds. Same honesty-bar-zero rule as RAD mode: never touches
+     a verdict. The choice persists in localStorage ('tb-theme'); a first visit
+     follows the OS prefers-color-scheme, applied pre-paint by the tiny head
+     script below the styles so there is no white flash. --brand stays the light
+     palette's green: it is used as a white-text button background, and a
+     brighter green would drop that text below AA contrast. */
+  html.dark{
+    color-scheme:dark;
+    --ink:#e6ebe7; --ink-soft:#a8b3ab; --line:#3a423d; --bg:#161a18;
+    --card:#1f2522; --brand-d:#123f2b; --accent:#e0703c;
+    --ok:#7fd6a2; --ok-bg:#17301f; --warn:#e8b25c; --warn-bg:#33270f;
+    --err:#e57575; --err-bg:#331717; --chip:#262d29;
   }
-  html.roadie header{
-    background:linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787);
-  }
-  html.roadie header h1,html.roadie header p,html.roadie .badge{text-shadow:0 1px 3px rgba(0,0,0,.35)}
-  html.roadie .pcard{position:relative;overflow:hidden}
-  html.roadie .pcard::after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;
-    background:linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787)}
-  html.roadie .pcard.selected{box-shadow:0 0 0 2px var(--accent),0 0 14px rgba(236,72,153,.35)}
-  html.roadie .btn.primary{background:linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787);
-    border-color:transparent;color:#fff;font-weight:800;text-shadow:0 1px 2px rgba(0,0,0,.35)}
-  html.roadie #roadieMode{background:linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787);
-    color:#fff;border-color:transparent;font-weight:800;text-shadow:0 1px 2px rgba(0,0,0,.35)}
-  html.roadie .chip.active{background:var(--brand);color:#fff}
-  html.roadie #radBar{background:linear-gradient(90deg,#e40303,#ff8c00,#ffed00,#008026,#004dff,#750787)}
+  /* the same hardcoded-white controls RAD mode has to fix, plus the hovers that
+     hardcode near-white tints */
+  html.dark .btn,html.dark .toolbar input[type=search],html.dark .chip.sub,
+  html.dark .rm-body select,html.dark .rm-body textarea,html.dark .rm-body input[type=text],
+  html.dark .forum-form textarea,html.dark .forum-form input[type=text],
+  html.dark .grow .gacts button,html.dark .cmp-picks select{
+    background:var(--card);color:var(--ink)}
+  html.dark .btn:hover{border-color:#4d5750}
+  html.dark .chip.sub:hover{border-color:#4d5750}
+  html.dark .pick{background:var(--card);color:#6fcf97}
+  html.dark .pick:hover{background:#243029}
+  html.dark .pick.inv:hover{background:#2a302c}
+  html.dark .invlist .grow.clickable:hover{background:#223028}
+  html.dark .chip.active{color:var(--bg)}
+  html.dark .legend i{border-color:rgba(255,255,255,.25)}
+  /* dialogs otherwise fall back to the UA's color-scheme:dark canvas (#121212) —
+     pin them to the card surface so modals match the rest of the theme */
+  html.dark dialog{background:var(--card);color:var(--ink);border-color:var(--line)}
 </style>
+<script>
+/* Apply the saved (or first-visit OS-preferred) theme BEFORE first paint so a
+   dark-mode user never sees a white flash. Button state syncs in the main
+   script at the end of the body. */
+(function(){
+  var t=null; try{ t=localStorage.getItem('tb-theme'); }catch(e){}
+  if(t==='dark' || (t===null && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches))
+    document.documentElement.classList.add('dark');
+})();
+</script>
 </head>
 <body>
 <header>
@@ -369,7 +390,7 @@
     <button class="btn" id="ownedOnly" hidden title="Show only parts in your inventory" aria-pressed="false">🧰 Owned only</button>
     <button class="btn" id="compatibleOnly" title="Hide parts that would clash with your current build (parts with no build yet always show)" aria-pressed="false">🟢 Compatible only</button>
     <button class="btn" id="radMode" title="It's a joke, dude. Purely cosmetic." aria-pressed="false">🤘 RAD mode</button>
-    <button class="btn" id="roadieMode" title="Ride with pride. Purely cosmetic." aria-pressed="false">🏳️‍🌈 Roadie mode</button>
+    <button class="btn" id="darkMode" title="Toggle the dark theme" aria-pressed="false">🌙 Dark mode</button>
     <button class="btn" id="demoBudget">Budget build 💵</button>
     <button class="btn" id="demoMid">Mid-range build ⚙️</button>
     <button class="btn" id="demoHighEnd">High-end build 💎</button>
@@ -1764,32 +1785,37 @@
   $('verifiedOnly').onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary', verifiedOnly); this.setAttribute('aria-pressed', String(verifiedOnly)); renderCatalog(); };
   $('compatibleOnly').onclick=function(){ compatibleOnly=!compatibleOnly; this.classList.toggle('primary', compatibleOnly); this.setAttribute('aria-pressed', String(compatibleOnly)); renderCatalog(); };
   $('ownedOnly').onclick=function(){ ownedOnly=!ownedOnly; this.classList.toggle('primary', ownedOnly); this.setAttribute('aria-pressed', String(ownedOnly)); if(ownedOnly) refreshOwned(); else renderCatalog(); };
-  // RAD mode and Roadie mode are both full cosmetic reskins — running both at once
-  // would just look broken, so turning one on turns the other off.
+  // RAD mode is a full cosmetic reskin and dark mode is a full palette swap —
+  // running both at once would just look broken, so turning one on turns the
+  // other off. Only dark mode persists (RAD stays a per-visit joke).
   function setRad(on){
     document.documentElement.classList.toggle('rad', on);
     $('radMode').classList.toggle('primary', on);
     $('radMode').setAttribute('aria-pressed', String(on));
     $('radMode').textContent = on ? '🤘 RAD mode: ON' : '🤘 RAD mode';
   }
-  function setRoadie(on){
-    document.documentElement.classList.toggle('roadie', on);
-    $('roadieMode').classList.toggle('primary', on);
-    $('roadieMode').setAttribute('aria-pressed', String(on));
-    $('roadieMode').textContent = on ? '🏳️‍🌈 Roadie mode: ON' : '🏳️‍🌈 Roadie mode';
+  function setDark(on){
+    document.documentElement.classList.toggle('dark', on);
+    $('darkMode').classList.toggle('primary', on);
+    $('darkMode').setAttribute('aria-pressed', String(on));
+    $('darkMode').textContent = on ? '🌙 Dark mode: ON' : '🌙 Dark mode';
   }
   $('radMode').onclick=function(){
     var on = !document.documentElement.classList.contains('rad');
-    setRad(on); if(on) setRoadie(false);
+    setRad(on); if(on) setDark(false);
     renderPanel();
     toast(on ? 'RAD mode engaged. Purely cosmetic — this changes nothing about fit.' : 'Back to normal. Booooring.');
   };
-  $('roadieMode').onclick=function(){
-    var on = !document.documentElement.classList.contains('roadie');
-    setRoadie(on); if(on) setRad(false);
+  $('darkMode').onclick=function(){
+    var on = !document.documentElement.classList.contains('dark');
+    setDark(on); if(on) setRad(false);
+    try{ localStorage.setItem('tb-theme', on ? 'dark' : 'light'); }catch(e){}
     renderPanel();
-    toast(on ? 'Roadie mode engaged — ride with pride! 🏳️‍🌈 Purely cosmetic, changes nothing about fit.' : 'Back to normal.');
+    toast(on ? 'Dark mode on 🌙' : 'Back to light mode.');
   };
+  // The head script may have applied the saved/OS theme pre-paint — sync the
+  // button state to match.
+  if(document.documentElement.classList.contains('dark')) setDark(true);
   $('demoBudget').onclick=loadBudget; $('demoMid').onclick=loadMid; $('demoHighEnd').onclick=loadHighEnd; $('demoMullet').onclick=loadMullet; $('demoBad').onclick=loadBad;
   $('demoDH').onclick=loadDH; $('demoTrail').onclick=loadTrail; $('demoXC').onclick=loadXC;
   $('reset').onclick=function(){ build={}; presetBy={}; sync(); toast('Build cleared'); };
