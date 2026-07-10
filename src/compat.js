@@ -113,6 +113,12 @@ var GROUPS = [
       {key:'rearBrake', label:'Rear Brake', cat:'brake'},
       {key:'frontRotor', label:'Front Rotor', cat:'rotor'},
       {key:'rearRotor', label:'Rear Rotor', cat:'rotor'} ] },
+  /* BB is its OWN group (not a drivetrain slot) on purpose: buildTotals skips a
+     bundled group's non-fill slots, so a BB inside the drivetrain group would
+     silently vanish from the totals whenever a groupset bundle is active. The
+     slot is optional: completeness (slotRequired) is unchanged - rule 7's
+     "BB sold separately" advisory is the nudge until one is picked. */
+  { key:'bb', label:'Bottom Bracket', icon:'X', slots:[ {key:'bb', label:'Bottom Bracket', cat:'bb', optional:true} ] },
   { key:'dropper', label:'Dropper Post', icon:'P', slots:[ {key:'dropper', label:'Dropper Post', cat:'dropper'} ] },
   { key:'cockpit', label:'Cockpit', icon:'C', preset:{cat:'cockpitset', label:'cockpit'}, slots:[
       {key:'handlebar', label:'Handlebar', cat:'handlebar'},
@@ -1786,6 +1792,21 @@ var PARTS_RAW = [
   { id:'dr-sram-eagle70-transmission', cat:'derailleur', brand:'SRAM', model:'Eagle 70 Transmission', family:'sram-eagle70-transmission', gen:'A1', mfgPn:'RD-70-A1', price:140, weight:415, system:'sram-transmission', speeds:12, actuation:'cable', maxCog:52, mount:'udh-direct', verified:true, lastChecked:'2026-07-08', source:'https://www.sram.com/en/sram/models/rd-70-a1', desc:'"Full Mount" per sram.com = udh-direct (same mapping as the rest of the Transmission family)' },
   { id:'cr-sram-eagle70-transmission', cat:'crankset', brand:'SRAM', model:'Eagle 70 Transmission DUB', family:'sram-eagle70-transmission', gen:'A1', mfgPn:'FC-70-A1', price:100, weight:895, bb:'DUB', ring:32, ringStd:'t-type', speeds:12, chainline:55, verified:true, lastChecked:'2026-07-08', source:'https://www.sram.com/en/sram/models/fc-70-a1', desc:'sram.com spec table: "Weight Based On: Engineering Estimate 170/32TST/2G/DUB wide (-41g/1G)" - steel-only tier (no aluminum ring option, unlike Eagle 90); also sold in 155-175mm lengths and a 30T ring - one representative config is cataloged.' },
   { id:'ch-sram-eagle70-flattop', cat:'chain', brand:'SRAM', model:'Eagle 70 Transmission Flattop', family:'sram-eagle70-flattop', gen:'A1', mfgPn:'CN-TTYP-70-A1', price:40, weight:270, system:'sram-transmission', speeds:12, verified:true, lastChecked:'2026-07-08', source:'https://www.sram.com/en/sram/models/cn-ttyp-70-a1', desc:'270g is sram.coms own "Weight Based On Engineering Estimate 114 Links" basis figure; sold pre-cut at 126 or 128 links (trim to fit) - not a contradiction, just a different weight-test basis than the as-sold length' },
+
+  /* BOTTOM BRACKETS (dossier rule 7 review, 2026-07-10 - the category exists so
+     spindle-x-shell servability is proven by purchasable rows, not guessed).
+     Starter set covers the high-traffic pairs in the live catalog:
+     BSA73 x {DUB, 24mm, 30mm}, PF92 x {DUB, 24mm, 30mm}, BSA83/PF107 x DUB (DH).
+     Not yet covered (advisory still handles them): p3 spindles (e13 - source
+     pending), 24/30mm in the DH shells, BSA68/PF865/T47. */
+  { id:'bb-sram-dub-bsa73', cat:'bb', brand:'SRAM', model:'DUB BSA 73', family:'sram-dub-bsa', gen:'A1', mfgPn:'BB-DUB-BSA-A1', price:45, weight:76, shell:'BSA73', spindle:'DUB', verified:true, lastChecked:'2026-07-10', source:'https://www.sram.com/en/sram/models/bb-dub-bsa-a1', desc:'fetched sram.com model page: DUB BSA threaded, shell widths "BSA 68, BSA 73, BSA 83, BSA 100" (this row = the 73mm MTB config); weight 76g MAKER-STATED (basis: BSA with spacers for a 68mm shell); price = the page range low ($45-$290 spans trims/bearing options).' },
+  { id:'bb-sram-dub-bsa83', cat:'bb', brand:'SRAM', model:'DUB BSA 83', family:'sram-dub-bsa', gen:'A1', mfgPn:'BB-DUB-BSA-A1', price:45, weight:76, shell:'BSA83', spindle:'DUB', verified:true, lastChecked:'2026-07-10', source:'https://www.sram.com/en/sram/models/bb-dub-bsa-a1', desc:'same fetched sram.com model page as the 73mm sibling - the 83mm DH-shell config of BB-DUB-BSA-A1 ("BSA 68, BSA 73, BSA 83, BSA 100"); weight 76g is the page figure at its 68mm basis (83mm runs slightly heavier, not separately published); price = page range low.' },
+  { id:'bb-sram-dub-pf92', cat:'bb', brand:'SRAM', model:'DUB PressFit 92', family:'sram-dub-pf', gen:'A1', mfgPn:'BB-DUB-PF-A1', price:50, weight:72, shell:'PF92', spindle:'DUB', verified:true, lastChecked:'2026-07-10', source:'https://www.sram.com/en/sram/models/bb-dub-pf-a1', desc:'fetched sram.com model page: DUB PressFit, fits "PF 86.5, PF 89.5, PF 92, PF 104.5, PF 107, PF 121" shells (this row = the 92mm MTB config); weight 72g MAKER-STATED (BB92 basis); price = page range low ($50-$290 spans bearing options).' },
+  { id:'bb-sram-dub-pf107', cat:'bb', brand:'SRAM', model:'DUB PressFit 107', family:'sram-dub-pf', gen:'A1', mfgPn:'BB-DUB-PF-A1', price:50, weight:72, shell:'PF107', spindle:'DUB', verified:true, lastChecked:'2026-07-10', source:'https://www.sram.com/en/sram/models/bb-dub-pf-a1', desc:'same fetched sram.com model page as the PF92 sibling - the 107mm DH-shell config of BB-DUB-PF-A1; weight 72g is the page figure at its BB92 basis; price = page range low.' },
+  { id:'bb-hope-threaded-bsa73-24mm', cat:'bb', brand:'Hope', model:'Threaded BB 68/73 24mm', family:'hope-threaded-bb', price:143.90, weight:110, shell:'BSA73', spindle:'24mm', verified:true, lastChecked:'2026-07-10', source:'https://www.hopetech.com/products/drivetrain/bottom-bracket/threaded-bottom-bracket/', desc:'fetched hopetech.com threaded-BB page: 24mm-axle (Shimano-spindle) variant, "suitable for 68, 73, 83, 100 and 120mm width" shells (this row = 73mm MTB); weight 110g and $143.90 RRP ex-tax MAKER-STATED; stainless cartridge bearings in stainless races, bearings replaceable.' },
+  { id:'bb-hope-threaded-bsa73-30mm', cat:'bb', brand:'Hope', model:'Threaded BB 68/73 30mm', family:'hope-threaded-bb', price:143.90, weight:102, shell:'BSA73', spindle:'30mm', verified:true, lastChecked:'2026-07-10', source:'https://www.hopetech.com/products/drivetrain/bottom-bracket/threaded-bottom-bracket/', desc:'fetched hopetech.com threaded-BB page: 30mm-axle variant of the same product line (68-120mm widths; this row = 73mm MTB); weight 102g and $143.90 RRP ex-tax MAKER-STATED; needs the HTT188 fitting tool (sold separately).' },
+  { id:'bb-hope-pf41-92-24mm', cat:'bb', brand:'Hope', model:'PF41 BB92 24mm', family:'hope-pf41', price:156.98, weight:112, shell:'PF92', spindle:'24mm', verified:true, lastChecked:'2026-07-10', source:'https://www.hopetech.com/products/drivetrain/bottom-bracket/press-fit-pf41-bottom-bracket/', desc:'fetched hopetech.com PF41 page: 24mm-axle press-fit for "BB92, BB89.5, & BB86.5" shells (this row = BB92/PF92 MTB); weight 112g and $156.98 RRP ex-tax MAKER-STATED. Proves 24mm-spindle cranks are servable in PF92 shells (the dossier rule-7 Ask).' },
+  { id:'bb-hope-pf41-92-30mm', cat:'bb', brand:'Hope', model:'PF41 BB92 30mm', family:'hope-pf41', price:124.27, weight:77, shell:'PF92', spindle:'30mm', verified:true, lastChecked:'2026-07-10', source:'https://www.hopetech.com/products/drivetrain/bottom-bracket/press-fit-pf41-bottom-bracket/', desc:'fetched hopetech.com PF41 page: 30mm-axle press-fit, "89.5, 92, 104.5, 107 and 121mm widths" (this row = 92mm/PF92 MTB; a 107mm config also exists, not yet cataloged); weight 77g and $124.27 RRP ex-tax MAKER-STATED; ships with convertors for 29mm axles. Proves 30mm-spindle cranks are servable in PF92 shells (the dossier rule-7 Ask - a real warning there would have been FALSE).' },
   { id:'ca-sram-xs1270', cat:'cassette', brand:'SRAM', model:'XS-1270 Eagle Transmission 10-52', family:'sram-xs1270', gen:'A1', mfgPn:'CS-XS-1270-A1', price:235, weight:565, system:'sram-transmission', speeds:12, freehub:'HG', minCog:10, maxCog:52, verified:true, lastChecked:'2026-07-08', source:'https://www.sram.com/en/sram/models/cs-xs-1270-a1', desc:'notable exception, confirmed on sram.coms own model page (fetched twice to be sure): "Splined 8, 9, 10 Speed driver body compatible" with a full 10-52t range - SRAM integrates the 10T cog+lockring into the driver interface itself, the first cassette to put a 10T cog on a standard HG-style splined body (an 11-speed HG body needs a 1.85mm spacer). NOT an XD cassette despite the "XS" naming. schema.js carries a narrow mfgPn-scoped exception to its usual HG-floor-is-11T validator rule for this exact SKU.' },
 
   /* --- catalog-drivetrain-breadth-2 (2026-07-09): budget wide-range 1x groups
@@ -3544,6 +3565,7 @@ function specSummary(p){
     case 'derailleur': return L(p.system)+' . '+p.speeds+'s . '+L(p.actuation)+' . '+p.maxCog+'T max . '+L(p.mount);
     case 'cassette': return L(p.freehub)+' . '+p.minCog+'-'+p.maxCog+'T . '+p.speeds+'s';   // range string derived, never stored
     case 'chain': return L(p.system)+' . '+p.speeds+'s';
+    case 'bb': return L(p.shell)+' shell . '+L(p.spindle)+' spindle';
     case 'crankset': return L(p.bb)+(typeof p.ring==='number'?' . '+p.ring+'T':'')+' . '+p.speeds+'s . '
       +(p.ringStd ? L(p.ringStd)+' ring' : 'ring sold separately');
     case 'brake': return L(p.mount)+' . '+p.pistons+'-piston'
@@ -3642,7 +3664,7 @@ function checkBuild(build){
   var frame=b.frame, fork=b.fork, shock=b.shock, fW=effectiveWheel(b,'front'), rW=effectiveWheel(b,'rear'), fTire=b.frontTire, rTire=b.rearTire,
       shifter=b.shifter, derailleur=b.derailleur, cassette=b.cassette, chain=b.chain, crankset=b.crankset,
       fBrake=b.frontBrake, rBrake=b.rearBrake, fRotor=b.frontRotor, rRotor=b.rearRotor,
-      bar=b.handlebar, stem=b.stem, dropper=b.dropper;
+      bar=b.handlebar, stem=b.stem, dropper=b.dropper, bb=b.bb;
 
   /* 1. Wheel sizing: front group + rear group must each be consistent, and the
         front/rear combo must match a config the frame supports (incl. mullet). */
@@ -3745,8 +3767,17 @@ function checkBuild(build){
   /* 6. Freehub: cassette vs rear wheel */
   if(cassette && rW && cassette.freehub!==rW.freehub) err('freehub', ['cassette','rearWheel'], 'Freehub mismatch: '+nameOf(cassette)+' needs a '+L(cassette.freehub)+' freehub, but Rear wheel has '+L(/** @type {string} */ (rW.freehub))+'.');
 
-  /* 7. Crank / BB advisory */
-  if(crankset && frame) info('bb-advisory', ['crankset','frame'], 'Bottom bracket: '+nameOf(crankset)+' uses a '+L(crankset.bb)+' spindle - pair it with the right BB for this frame\'s '+L(frame.bb)+' shell (BB usually sold separately).');
+  /* 7. Crank / BB. With a real BB picked, both interfaces are exact checks
+        (dossier rule 7 review 2026-07-10 - the BB category exists so
+        servability is proven by purchasable rows instead of guessed):
+        the BB's shell must match the frame, its spindle bore must match the
+        crank. With no BB picked, the original sold-separately advisory
+        stands (the bb slot is optional, never completeness-blocking). */
+  if(bb && frame && bb.shell!==frame.bb)
+    err('bb-shell', ['bb','frame'], 'BB shell mismatch: '+nameOf(bb)+' fits a '+L(bb.shell)+' shell but '+nameOf(frame)+' has a '+L(frame.bb)+' shell.');
+  if(bb && crankset && bb.spindle!==crankset.bb)
+    err('bb-spindle', ['bb','crankset'], 'BB spindle mismatch: '+nameOf(bb)+' takes a '+L(bb.spindle)+' spindle but '+nameOf(crankset)+' is '+L(crankset.bb)+'.');
+  if(!bb && crankset && frame) info('bb-advisory', ['crankset','frame'], 'Bottom bracket: '+nameOf(crankset)+' uses a '+L(crankset.bb)+' spindle - pair it with the right BB for this frame\'s '+L(frame.bb)+' shell (BB usually sold separately).');
 
   /* 8. Brake caliper mounts */
   if(fBrake && fork && fBrake.mount!==fork.brakeMount) err('front-brake-mount', ['frontBrake','fork'], 'Front brake mount mismatch: Brake is '+L(fBrake.mount)+' but Fork is '+L(fork.brakeMount)+'.');

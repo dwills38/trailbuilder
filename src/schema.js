@@ -271,6 +271,11 @@ var SCHEMA = {
      ringStd:null = "ring sold separately / user-fitted". chainline is a
      NUMBER in mm (Boost=52, T-Type=55), display-only for now. */
   crankset: { bb:{type:'string',vocab:'crankBb'}, ring:{type:'number',optional:true}, ringStd:{type:'string',vocab:'ringStd',nullable:true}, speeds:{type:'number'}, chainline:{type:'number',optional:true} },
+  /* bb = the bottom bracket itself (dossier rule 7 review, 2026-07-10):
+     shell = the frame standard it threads/presses into (frameBb vocab);
+     spindle = the crank interface its bore takes (crankBb vocab). Both are
+     exact-match engine checks (rule 7) once a BB is picked. */
+  bb: { shell:{type:'string',vocab:'frameBb'}, spindle:{type:'string',vocab:'crankBb'} },
   /* brake: real levers accept MULTIPLE shifter-mount standards via the maker's
      own clamps (Hayes Peacemaker = I-Spec II/EV + MatchMaker), so this is an
      array (DATA-MODEL-REVIEW 5.1-9) */
@@ -311,7 +316,7 @@ var ID_PREFIX = {
   fronthub:'fh', rearhub:'rh', rim:'rm',
   shifter:'sft', derailleur:'dr', cassette:'ca', chain:'ch', crankset:'cr',
   brake:'bk', rotor:'ro', handlebar:'hb', stem:'st', grips:'gr', dropper:'dp',
-  saddle:'sa', pedal:'pd', groupset:'gs', wheelset:'ws', brakeset:'bs', cockpitset:'co'
+  saddle:'sa', pedal:'pd', bb:'bb', groupset:'gs', wheelset:'ws', brakeset:'bs', cockpitset:'co'
 };
 var ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 /** One-token brand slug for the id's second token. @param {*} brand @returns {string} */

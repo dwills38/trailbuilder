@@ -126,6 +126,27 @@ test('Transmission derailleur is fine on a UDH frame', function(){
   eq(chk({frame:'fr-santacruz-megatower-cc', derailleur:'dr-sram-gx-transmission'}).errors.length, 0);
 });
 
+/* Rule 7 - the BB category (dossier rule 7 review, 2026-07-10): with a real BB
+   picked both interfaces are exact checks; without one the sold-separately
+   advisory stands (the bb slot is optional, never completeness-blocking). */
+test('BB shell mismatch (PF92 BB in a BSA73 frame) -> error', function(){
+  some(chk({frame:'fr-raaw-madonna-v32', bb:'bb-sram-dub-pf92'}).errors, 'BB shell mismatch');
+});
+test('BB spindle mismatch (DUB BB + 30mm-spindle crank) -> error', function(){
+  some(chk({bb:'bb-sram-dub-bsa73', crankset:'cr-hope-evo'}).errors, 'BB spindle mismatch');
+});
+test('matching BB (shell + spindle both right) -> clean, and the advisory is suppressed', function(){
+  var r = chk({frame:'fr-raaw-madonna-v32', bb:'bb-sram-dub-bsa73', crankset:'cr-sram-gx-eagle'});
+  eq(r.errors.length, 0);
+  eq(r.infos.filter(function(x){ return String(x).indexOf('sold separately')>=0; }).length, 0);
+});
+test('no BB picked -> the rule 7 sold-separately advisory still fires', function(){
+  some(chk({frame:'fr-raaw-madonna-v32', crankset:'cr-sram-gx-eagle'}).infos, 'sold separately');
+});
+test('a 30mm crank in a PF92 frame is servable (Hope PF41) - the dossier rule-7 Ask, proven clean', function(){
+  eq(chk({frame:'fr-commencal-meta-v5', bb:'bb-hope-pf41-92-30mm', crankset:'cr-hope-evo'}).errors.length, 0);
+});
+
 /* Rule 4 retrofit tier (dossier rule 4 review, 2026-07-10): a maker-documented
    UDH retrofit kit ("a UDH retrofit kit to give your existing Jibb V1, Madonna
    V2, or Madonna V2.2 compatibility" - raawmtb.com) downgrades the hard error
