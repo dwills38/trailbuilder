@@ -112,6 +112,29 @@
   .prov .owned{display:inline-flex;align-items:center;gap:3px;background:var(--chip);color:var(--brand);font-weight:700;padding:1px 7px;border-radius:999px;border:1px solid var(--line);margin-left:5px}
   .slot .vchk{color:var(--ok);font-weight:800;margin-left:3px;font-size:12px}
 
+  /* Cards ⇄ List catalog view (from mockup D). The dense list is pure CSS on
+     #catalog's .list class — renderCatalog/cardEl emit IDENTICAL DOM in both
+     views, so row and card content can never drift apart. Colors all come from
+     the theme variables, so dark and RAD restyle rows for free. flex-wrap is
+     the no-horizontal-scroll guarantee: a row whose badges/price/buttons don't
+     fit the column wraps onto a second line instead of overflowing sideways. */
+  .viewseg{display:inline-flex}
+  .viewseg .btn:first-child{border-radius:10px 0 0 10px}
+  .viewseg .btn:last-child{border-radius:0 10px 10px 0;margin-left:-1px}
+  .grid.list{display:flex;flex-direction:column;gap:6px}
+  .list .pcard{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:8px 12px 8px 30px}
+  .list .pcard .dot{left:11px;right:auto;top:50%;margin-top:-5.5px}
+  .list .pcard-head{flex:0 1 250px;min-width:0;align-items:center}
+  .list .pcard-thumb{width:34px;height:34px;border-radius:8px}
+  .list .pcard-thumb svg{width:19px;height:19px}
+  .list .pcard .kind{font-size:10px}
+  .list .pcard .name{font-size:13px;padding-right:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .list .pcard .spec{flex:1 1 auto;min-width:0;min-height:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:12px}
+  .list .pcard .prov{flex:none;margin:0;min-height:0}
+  .list .pcard .row{margin:0 0 0 auto;flex:none;gap:12px}
+  .list .pcard .price{white-space:nowrap}
+  .list .pcard .price .wt{white-space:nowrap}
+
   .side{position:sticky;top:16px;display:flex;flex-direction:column;gap:14px}
   .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
   .panel h2{margin:0 0 8px;font-size:16px}
@@ -268,6 +291,13 @@
     .qty button{width:34px;height:34px}
     .grow .gacts button{min-height:36px;padding:7px 10px}
     dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal{width:calc(100% - 20px)}
+    /* list rows on phones: the spec line drops, the name column flexes; wide
+       rows (kits' "fills" tail, Front|Rear pickers) wrap to a second line
+       rather than force sideways scroll */
+    .list .pcard{padding:8px 10px 8px 26px;gap:6px 8px}
+    .list .pcard-head{flex:1 1 160px}
+    .list .pcard .spec{display:none}
+    .list .pcard .prov .ver,.list .pcard .prov .est{font-size:10px}
   }
   @media (max-width:480px){
     header h1{font-size:19px}
@@ -396,6 +426,10 @@
     <button class="btn" id="verifiedOnly" title="Show only parts verified against a manufacturer spec" aria-pressed="false">✓ Verified only</button>
     <button class="btn" id="ownedOnly" hidden title="Show only parts in your inventory" aria-pressed="false">🧰 Owned only</button>
     <button class="btn" id="compatibleOnly" title="Hide parts that would clash with your current build (parts with no build yet always show)" aria-pressed="false">🟢 Compatible only</button>
+    <span class="viewseg" role="group" aria-label="Catalog view">
+      <button class="btn" id="viewCards" aria-pressed="false" title="Card grid">▦ Cards</button>
+      <button class="btn primary" id="viewList" aria-pressed="true" title="Dense list — same parts, one row each">☰ List</button>
+    </span>
     <button class="btn" id="radMode" title="It's a joke, dude. Purely cosmetic." aria-pressed="false">🤘 RAD mode</button>
     <button class="btn" id="darkMode" title="Toggle the dark theme" aria-pressed="false">🌙 Dark mode</button>
     <button class="btn" id="demoBudget">Budget build 💵</button>
@@ -705,6 +739,10 @@
   var disciplineFilter = 'all';  // 'all' | xc | trail | enduro | dh — display filter only (disciplines never feeds verdicts)
   var wheelSizeFilter = 'all';   // 'all' | '29' | '275' — display filter only, applies to any part carrying a .wheel field
   var tireWidthFilter = 'all';   // 'all' | a numeric tire width (2.4, 2.5, …) — display filter only, tires group only; chip set derives from the catalog
+  // Catalog view: 'list' (default) | 'cards' — presentation only; both views share
+  // the render pipeline and cardEl DOM. Persists in localStorage ('tb-view', same
+  // pattern as 'tb-theme'), read here at init so the first render has no view flash.
+  var viewMode = 'list'; try{ if(localStorage.getItem('tb-view')==='cards') viewMode='cards'; }catch(e){}
   var $ = function(id){ return document.getElementById(id); };
   var money = function(n){ return '$' + (n||0).toLocaleString(); };
   var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg / ' + (g/453.592).toFixed(2) + ' lb)'; };
@@ -908,6 +946,7 @@
   function groupCats(g){ var c = g.slots.map(function(s){return s.cat;}); if(g.preset) c.push(g.preset.cat); return c; }
   function renderCatalog(){
     var el=$('catalog'); el.innerHTML='';
+    el.classList.toggle('list', viewMode==='list');   // dense-list view is pure CSS on this class
     var q=search.trim().toLowerCase();
     var list=PARTS.filter(function(p){
       if(activeGroup!=='all'){ if(groupCats(groupByKey[activeGroup]).indexOf(p.cat)<0) return false; }
@@ -1820,6 +1859,22 @@
   $('verifiedOnly').onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary', verifiedOnly); this.setAttribute('aria-pressed', String(verifiedOnly)); renderCatalog(); };
   $('compatibleOnly').onclick=function(){ compatibleOnly=!compatibleOnly; this.classList.toggle('primary', compatibleOnly); this.setAttribute('aria-pressed', String(compatibleOnly)); renderCatalog(); };
   $('ownedOnly').onclick=function(){ ownedOnly=!ownedOnly; this.classList.toggle('primary', ownedOnly); this.setAttribute('aria-pressed', String(ownedOnly)); if(ownedOnly) refreshOwned(); else renderCatalog(); };
+  // Cards ⇄ List view toggle — presentation only: same filter+sort pipeline, same
+  // cardEl DOM; switching swaps #catalog's .list class and re-renders. Build,
+  // filters, search and sort are untouched. Persistence writes only on a click so
+  // visitors who never touch the toggle keep following the app default.
+  function setView(m){
+    viewMode = m;
+    $('viewCards').classList.toggle('primary', m==='cards');
+    $('viewCards').setAttribute('aria-pressed', String(m==='cards'));
+    $('viewList').classList.toggle('primary', m==='list');
+    $('viewList').setAttribute('aria-pressed', String(m==='list'));
+  }
+  $('viewCards').onclick=function(){ setView('cards'); try{ localStorage.setItem('tb-view','cards'); }catch(e){} renderCatalog(); };
+  $('viewList').onclick=function(){ setView('list'); try{ localStorage.setItem('tb-view','list'); }catch(e){} renderCatalog(); };
+  // viewMode was read from localStorage at init, before the first catalog render —
+  // sync the two buttons to it (the markup ships with List pressed, the default).
+  setView(viewMode);
   // RAD mode is a full cosmetic reskin and dark mode is a full palette swap —
   // running both at once would just look broken, so turning one on turns the
   // other off. Only dark mode persists (RAD stays a per-visit joke).
