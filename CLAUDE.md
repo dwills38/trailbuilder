@@ -100,6 +100,7 @@ Category-specific fields (enforced by `schema.js` → `SCHEMA`, using vocabulari
 - **tire**: `wheel`, `width`, optional `casing`/`compound` (brand-native SKU axes; template-mandatory for new rows). (Front and rear tires are separate build slots, both drawn from `cat:'tire'`.)
 - **shifter / derailleur / cassette / chain**: `system` (`sram-eagle`/`sram-transmission`/`shimano-12`), `speeds`; shifter + derailleur also `actuation` (`cable`/`electronic` — same system, but a trigger can't drive an AXS mech); shifter optional `clampType` (`ispec-ev`/`ispec-ii`/`ispec-b`/`matchmaker`/`band`/`pod`); derailleur also `maxCog`,`mount`; cassette also `freehub`,`minCog`,`maxCog` (numeric — the display range is derived; HG floor is 11T, validator-enforced).
 - **crankset**: `bb` (spindle interface: `DUB`/`24mm`/`30mm`/`p3`), optional `ring`, nullable `ringStd` (`t-type`/`standard-12`/null = ring sold separately), `speeds`, optional `chainline` (number, mm — display-only).
+- **bb** (the bottom bracket itself, added at the dossier rule-7 review): `shell` (frame standard, frameBb vocab) + `spindle` (crank interface, crankBb vocab) — both exact-match rule-7 error checks once a BB is picked. Its own single-slot GROUP (never a drivetrain slot: buildTotals skips a bundled group's non-fill slots) and the slot is `optional` (completeness unchanged; the sold-separately advisory nudges until one is picked).
 - **brake**: `mount`, `pistons`, optional `leverAccepts` (array of `ispec-ev`/`ispec-ii`/`ispec-b`/`matchmaker` — real levers accept several standards).   **rotor**: `size`, `mount`.
 - **handlebar/stem**: `clamp` (+ optional dims).  **grips/saddle**: just the common fields.
 - **dropper**: `diameter`, `drop`.  **pedal**: `style` (`flat`/`clip`) — pairs; 9/16" thread fits every crank, so no compat rules.
@@ -108,7 +109,7 @@ Category-specific fields (enforced by `schema.js` → `SCHEMA`, using vocabulari
 ### Build slots
 
 A build is a map of slotKey → part id. Slots: `frame, fork, shock, frontWheel, rearWheel,
-frontTire, rearTire, shifter, derailleur, cassette, chain, crankset, frontBrake, rearBrake,
+frontTire, rearTire, shifter, derailleur, cassette, chain, crankset, bb, frontBrake, rearBrake,
 frontRotor, rearRotor, handlebar, stem, grips, dropper, saddle, pedals`. (`GROUPS`/`SLOTS` in `compat.js`.)
 
 ## Compatibility engine (`checkBuild`) — 19 rule areas

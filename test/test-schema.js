@@ -283,6 +283,12 @@ test('catalog-level: a groupset that mixes systems is caught', function(){
   var cat = { PARTS: C.PARTS.concat([ bad ]), SLOTS: C.SLOTS };
   some(S.validateCatalog(cat, TODAY), 'system');
 });
+test('a BB with a shell outside the frameBb vocab is caught', function(){
+  some(probs(over('bb-sram-dub-bsa73', { shell:'BSA99' })), 'shell');
+});
+test('a BB missing its spindle is caught', function(){
+  var p = over('bb-sram-dub-bsa73'); delete p.spindle; some(probs(p), 'spindle');
+});
 test('catalog-level: a frame bundling a non-fitting shock is caught', function(){
   var f = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { id:'fr-badbundle', bundledShock:'sh-rockshox-super-deluxe-205x65-trun' })); // 205x65 trunnion != 230x65 std
   some(S.validateCatalog({ PARTS: C.PARTS.concat([ f ]), SLOTS: C.SLOTS }, TODAY), 'does not fit');

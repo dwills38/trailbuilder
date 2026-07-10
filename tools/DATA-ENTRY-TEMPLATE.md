@@ -42,7 +42,8 @@ provenance trio differ per SKU, so the SKU is the row.
 
 - **Charset:** lowercase `[a-z0-9]` tokens joined by `-` (validator-enforced).
 - **Prefix** = the category's entry in `ID_PREFIX` (schema.js): fr fk sh fw rw
-  fh rh rm ti sft dr ca ch cr bk ro hb st gr dp sa pd gs ws bs co.
+  fh rh rm ti sft dr ca ch cr bb bk ro hb st gr dp sa pd gs ws bs co.
+  (`bb` variant-token order: shell, then spindle — `bb-hope-pf41-92-30mm`.)
   (`fh`/`rh`/`rim` are the build-your-own-wheel alternate to `fw`/`rw` — a
   hub or rim row only makes sense for a brand that actually sells that
   component separately; everyone else stays a complete `fw`/`rw` wheel.)
