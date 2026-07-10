@@ -71,6 +71,21 @@ in the error message.)
   on purpose: SRAM documents T-Type rings as backward-compatible with Eagle chains.
   Cranks sold without rings (eeWings, Race Face armsets) get an info, not an error.
 **Ask:** is 3c's one-directionality right? Any real-world T-Type ring + Eagle chain problems?
+**Review verdict (2026-07-10): ✓ CONFIRMED (3a/3b/3c) — with one scope finding spun out of
+the reviewer's SRAM citation.** Verdict received via Douglas, who supplied SRAM's own support
+text (support.sram.com article 13820865674011 "Can I mix SRAM Eagle AXS Transmission
+components with Eagle Drivetrain components", browser-read; the host is fetch-walled to
+tooling): *"Eagle Transmission T-Type chainrings are compatible with Eagle chains... However,
+Non-T-Type Eagle Drivetrain chainrings are incompatible with Eagle Transmission T-Type
+chains"* — direct SRAM confirmation of 3c's one-directionality, strengthening the cited
+basis. **The same article's second exception — "All AXS controllers will work with all AXS
+derailleurs... the new Eagle Transmission Pod Controllers with Eagle AXS Drivetrain, or the
+Eagle Drivetrain controller with Eagle Transmission" (corroborated by article 13820000105371)
+— exposed a 3a FALSE RED:** the one-system check red-flagged Pod + Eagle-AXS-mech (and the
+reverse), both SRAM-documented as working; reproduced against the live catalog 2026-07-10.
+Fix applied as its own finding/commit: electronic SRAM (AXS-family) shifters are exempt from
+the one-system set (their real constraint is 3b actuation); mech/cassette/chain still one
+system; the exemption does NOT cross to non-SRAM systems.
 
 ### 4. SRAM Transmission needs UDH
 **Claims:** a direct-mount (UDH) Transmission derailleur on a non-UDH frame = error; with no
