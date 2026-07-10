@@ -39,14 +39,20 @@
   [hidden]{display:none!important}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
        color:var(--ink);background:var(--bg);line-height:1.45}
-  header{background:linear-gradient(135deg,var(--brand-d),var(--brand));color:#fff;padding:22px 24px}
-  header .wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  header h1{margin:0;font-size:24px}
-  header p{margin:4px 0 0;opacity:.9;font-size:14px}
+  /* Sticky compact header (left-rail layout, approved mockup B): ☰ Filters ·
+     title · search · Share · ⋯ menu. The tagline + prototype badge live in the
+     honesty strip right below, which never hides — the sample-data disclaimer
+     must stay visible on every scroll position. */
+  header{background:linear-gradient(135deg,var(--brand-d),var(--brand));color:#fff;padding:10px 24px;position:sticky;top:0;z-index:40}
+  header .wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  header h1{margin:0;font-size:19px;white-space:nowrap}
+  header .btn{white-space:nowrap}
+  /* 16px stops iOS Safari auto-zooming the page when the search field is focused */
+  header input[type=search]{flex:1;min-width:120px;padding:9px 12px;border:none;border-radius:10px;font-size:16px;background:#fff;color:#1c2321}
   .badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:12px;padding:5px 10px;border-radius:999px}
+  .honesty-strip{background:#10271b;color:#cfe8d8;font-size:12px;padding:6px 12px;text-align:center}
+  .honesty-strip .badge{border-color:rgba(255,255,255,.25)}
   main{max-width:1200px;margin:0 auto;padding:18px 24px 60px}
-  .toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
-  .toolbar input[type=search]{flex:1;min-width:200px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;font-size:14px;background:#fff}
   .btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;border-radius:10px;font-size:13px;cursor:pointer;font-weight:600}
   .btn:hover{border-color:#c7ccc6}
   .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
@@ -63,7 +69,7 @@
   .chip.sub.active{background:var(--brand);border-color:var(--brand);color:#fff}
   .legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--ink-soft);margin:0 0 16px}
   .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle;border:1px solid rgba(0,0,0,.15)}
-  .layout{display:grid;grid-template-columns:1fr 350px;gap:22px;align-items:start}
+  .layout{display:grid;grid-template-columns:250px minmax(0,1fr) 350px;gap:22px;align-items:start}
   .layout > *{min-width:0}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:12px;min-width:0}
   .pcard{min-width:0}
@@ -135,7 +141,7 @@
   .list .pcard .price{white-space:nowrap}
   .list .pcard .price .wt{white-space:nowrap}
 
-  .side{position:sticky;top:16px;display:flex;flex-direction:column;gap:14px}
+  .side{position:sticky;top:80px;display:flex;flex-direction:column;gap:14px}
   .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
   .panel h2{margin:0 0 8px;font-size:16px}
   .muted{color:var(--ink-soft);font-size:12px}
@@ -183,7 +189,7 @@
   /* Inventory page (Phase 3): a full-width view, not a modal. body.inv-page hides
      the builder and reveals this; toggled by the header 🧰 Inventory button. */
   #inventoryPage{display:none}
-  body.inv-page .toolbar,body.inv-page .chips,body.inv-page .subchips,body.inv-page .legend,body.inv-page .layout{display:none}
+  body.inv-page .layout,body.inv-page #railToggle,body.inv-page #search,body.inv-page #share,body.inv-page .menu{display:none}
   body.inv-page #inventoryPage{display:block}
   .invpage-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   .invpage-head h2{flex:1;margin:0;font-size:20px}
@@ -195,7 +201,7 @@
   /* Forum page (Phase 4, FORUM_ENABLED): same full-width-view convention as the
      inventory page above. body.forum-page hides the builder and reveals this. */
   #forumPage{display:none}
-  body.forum-page .toolbar,body.forum-page .chips,body.forum-page .subchips,body.forum-page .legend,body.forum-page .layout{display:none}
+  body.forum-page .layout,body.forum-page #railToggle,body.forum-page #search,body.forum-page #share,body.forum-page .menu{display:none}
   body.forum-page #forumPage{display:block}
   .linklike{background:none;border:none;padding:0;color:var(--brand);font-weight:600;text-decoration:underline;cursor:pointer;font:inherit}
   .linklike:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
@@ -277,7 +283,7 @@
   .cmp-picks select{flex:1;min-width:120px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;color:var(--ink)}
   .cmp-vs{color:var(--ink-soft);font-size:12px;font-weight:700}
   .cmp-or{text-align:center;color:var(--ink-soft);font-size:11px;margin:12px 0 4px}
-  @media (max-width:880px){ .layout{grid-template-columns:1fr} .side{position:static} }
+  @media (max-width:880px){ .layout{display:block} .side{position:static} }
 
   /* Mobile touch targets + small-viewport tightening. Scoped to ≤768px so desktop
      density is untouched; ≤480px adds a further squeeze for the smallest phones. */
@@ -286,7 +292,7 @@
     header h1{font-size:21px}
     main{padding:14px 16px 44px}
     footer{padding:0 16px 40px}
-    .toolbar,.chips{gap:8px}
+    .chips{gap:8px}
     .btn,.chip{min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:10px 14px}
     .chip.sub{min-height:38px;padding:8px 13px}
     .pick{min-height:40px;padding:9px 13px;display:inline-flex;align-items:center;justify-content:center}
@@ -306,9 +312,83 @@
   }
   @media (max-width:480px){
     header h1{font-size:19px}
-    header p{font-size:13px}
     .badge{font-size:11px}
   }
+
+  /* ===== Left-rail layout chrome (approved mockup B, implemented 2026-07-10) =====
+     Category + discipline + Show toggles + sample builds + legend + community/
+     account live in a collapsible left rail; contextual sub-filters stay at the
+     top of the catalog column; low-frequency actions live in the header's ⋯
+     menu. Everything colors through the CSS variables so dark/RAD inherit. */
+  #rail{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;align-self:start;
+    position:sticky;top:70px;max-height:calc(100vh - 86px);overflow:auto}
+  .rail-h{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft);font-weight:800;margin:16px 0 6px}
+  .rail-h:first-child{margin-top:0}
+  #rail .chips{flex-direction:column;align-items:stretch;gap:2px;margin-bottom:4px}
+  #rail .chip{display:flex;justify-content:flex-start;border-radius:9px;background:none;text-align:left}
+  #rail .chip:hover{background:var(--chip)}
+  #rail .chip.active{background:var(--ink);color:var(--card)}
+  .rail-toggles{display:flex;flex-direction:column;gap:6px}
+  .rail-toggles .btn{text-align:left}
+  .rail-samples{margin-top:16px}
+  .rail-samples summary{cursor:pointer;font-size:12.5px;font-weight:800;color:var(--ink-soft)}
+  .rail-samples .rail-toggles{margin-top:8px}
+  .rail-hint{font-size:11px;color:var(--ink-soft);margin-top:6px}
+  .legend-rail{flex-direction:column;align-items:flex-start;gap:8px;margin:0}
+  .rail-foot{margin-top:16px;border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:6px}
+  .rail-foot .acctbox{flex-direction:column;align-items:stretch}
+  /* the acctbox buttons are styled for the gradient header (translucent white) —
+     inside the rail they need the normal card-button look in every theme */
+  .rail-foot .btn,.rail-foot .acctbox .btn{background:var(--card);border:1px solid var(--line);color:var(--ink);text-align:left}
+  .rail-foot .acctbox .btn:hover{background:var(--chip)}
+  .rail-foot .acct-email{color:var(--ink)}
+  /* catalog column head: count line + view toggle + sort. scroll-margin keeps the
+     guided-flow jump clear of the sticky header. */
+  .cat-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px;scroll-margin-top:70px}
+  .cat-tools{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .catcount{margin:0}
+  /* ⋯ overflow menu (theme toggles + low-frequency build actions) */
+  .menu{position:relative;display:inline-block}
+  .menu-pop{position:absolute;right:0;top:calc(100% + 6px);background:var(--card);border:1px solid var(--line);
+    border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.18);padding:6px;display:flex;flex-direction:column;
+    gap:4px;min-width:200px;z-index:80}
+  .menu-pop .btn{width:100%;text-align:left;border-color:transparent;background:none;color:var(--ink)}
+  .menu-pop .btn:hover{background:var(--chip)}
+  .menu-pop .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  /* desktop: ☰ collapses the rail and the catalog reflows wider */
+  @media (min-width:881px){
+    body.rail-hidden #rail{display:none}
+    body.rail-hidden .layout{grid-template-columns:minmax(0,1fr) 350px}
+  }
+  /* phones: the rail is an off-canvas drawer — ☰ opens it; backdrop, Escape and
+     picking a category close it; focus is trapped inside while open */
+  #railBackdrop{display:none}
+  @media (max-width:880px){
+    #rail{position:fixed;left:0;top:0;bottom:0;width:min(85vw,320px);z-index:70;border-radius:0;max-height:none;
+      transform:translateX(-105%);transition:transform .2s ease}
+    body.rail-open #rail{transform:none;box-shadow:0 0 40px rgba(0,0,0,.35)}
+    body.rail-open #railBackdrop{display:block;position:fixed;inset:0;background:rgba(15,22,17,.45);z-index:60}
+    header .wrap{flex-wrap:wrap}
+    header input[type=search]{order:5;flex-basis:100%}
+    .cat-head{scroll-margin-top:118px}
+  }
+  /* mobile sticky build bar — mirrors the panel verdict + totals (renderReport
+     wording, never reworded); tapping jumps to the build panel */
+  #mobileBar{display:none}
+  @media (max-width:880px){
+    #mobileBar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;align-items:center;gap:9px;width:100%;
+      border:none;border-top:1px solid var(--line);background:var(--card);color:var(--ink);
+      padding:12px 14px calc(12px + env(safe-area-inset-bottom));font:inherit;font-size:13px;cursor:pointer;
+      box-shadow:0 -8px 24px rgba(0,0,0,.10);text-align:left}
+    #mobileBar .mb-v{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}
+    #mobileBar.ok .mb-v{color:var(--ok)} #mobileBar.warn .mb-v{color:var(--warn)} #mobileBar.err .mb-v{color:var(--err)}
+    #mobileBar .mb-t{font-weight:800;white-space:nowrap}
+    #mobileBar .mb-w{color:var(--ink-soft);font-size:11.5px;white-space:nowrap}
+    #mobileBar .mb-go{color:var(--brand);font-weight:800;font-size:12px;white-space:nowrap}
+    main{padding-bottom:92px}
+    footer{padding-bottom:118px}
+  }
+  body.inv-page #mobileBar,body.forum-page #mobileBar{display:none}
 
   /* 🤘 RAD mode — purely cosmetic easter egg, zero honesty-bar risk (see CLAUDE.md roadmap) */
   html.rad{
@@ -336,11 +416,13 @@
   /* several controls hardcode a white background (fine against dark --ink text in
      normal mode) — RAD mode flips --ink light, so those need a dark bg or the text
      goes near-invisible */
-  html.rad .btn,html.rad .toolbar input[type=search],html.rad .chip.sub,html.rad .pick,
+  html.rad .btn,html.rad header input[type=search],html.rad .chip.sub,html.rad .pick,
   html.rad .rm-body select,html.rad .rm-body textarea,html.rad .rm-body input[type=text]{
     background:var(--card);color:var(--ink)}
   html.rad .pick{color:var(--brand)}
   html.rad .chip.active{background:var(--brand);color:#150029}
+  html.rad #rail .chip.active{background:var(--brand);color:#150029}
+  html.rad .honesty-strip{background:#1c0836}
 
   /* 🌙 Dark mode — a real theme, not an easter egg: the light palette re-derived
      for dark backgrounds. Same honesty-bar-zero rule as RAD mode: never touches
@@ -358,11 +440,13 @@
   }
   /* the same hardcoded-white controls RAD mode has to fix, plus the hovers that
      hardcode near-white tints */
-  html.dark .btn,html.dark .toolbar input[type=search],html.dark .chip.sub,
+  html.dark .btn,html.dark header input[type=search],html.dark .chip.sub,
   html.dark .rm-body select,html.dark .rm-body textarea,html.dark .rm-body input[type=text],
   html.dark .forum-form textarea,html.dark .forum-form input[type=text],
   html.dark .grow .gacts button,html.dark .cmp-picks select{
     background:var(--card);color:var(--ink)}
+  html.dark header input[type=search]{border:1px solid var(--line)}
+  html.dark .honesty-strip{background:#0b1d13}
   html.dark .btn:hover{border-color:#4d5750}
   html.dark .chip.sub:hover{border-color:#4d5750}
   html.dark .pick{background:var(--card);color:#6fcf97}
@@ -389,82 +473,107 @@
 <body>
 <header>
   <div class="wrap">
-    <div>
-      <h1>🚵 TrailBuilder</h1>
-      <p>Browse enduro parts, click to add, and it checks fit, price and weight as you build.</p>
-    </div>
-    <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-      <span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span>
-      <!-- Community. When the built-in forum is live (FORUM_ENABLED), this is an
-           in-app toggle to the forum page; otherwise it falls back to the GitHub
-           Discussions link (FORUM_URL, derived from REPORT_REPO) it will replace.
-           Hidden if neither is available, same feature-gate pattern as reportGithub. -->
-      <a class="btn" id="communityLink" target="_blank" rel="noopener"
-         title="Ask questions & share builds — TrailBuilder Discussions"
-         aria-label="Community — ask questions & share builds on TrailBuilder Discussions (opens in a new tab)" hidden>💬 Community</a>
-      <button type="button" class="btn" id="forumNavBtn"
-        title="Bug reports, build questions, feature requests" hidden>💬 Community</button>
-      <!-- Account control (Phase 3). Hidden entirely until Supabase config is set
-           (ACCOUNTS_ENABLED). renderAccount() toggles logged-in vs logged-out. -->
-      <div class="acctbox" id="acctBox" hidden>
-        <button class="btn" id="acctLogin" hidden>Log in</button>
-        <span class="acct-email" id="acctEmail" hidden></span>
-        <button class="btn" id="acctGarage" hidden title="Your saved builds">🅖 Garage</button>
-        <button class="btn" id="acctInventory" hidden title="Parts you own">🧰 Inventory</button>
-        <button class="btn" id="acctLogout" hidden>Log out</button>
+    <button type="button" class="btn" id="railToggle" aria-expanded="true" aria-controls="rail" title="Show / hide the filter rail">☰ Filters</button>
+    <h1>🚵 TrailBuilder</h1>
+    <input type="search" id="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" aria-label="Search parts by brand or model" />
+    <button class="btn primary" id="share">Share / save link</button>
+    <div class="menu">
+      <button type="button" class="btn" id="moreMenuBtn" aria-haspopup="true" aria-expanded="false" aria-label="More options" title="More options">⋯</button>
+      <div class="menu-pop" id="moreMenuPop" hidden>
+        <button class="btn" id="darkMode" title="Toggle the dark theme" aria-pressed="false">🌙 Dark mode</button>
+        <button class="btn" id="radMode" title="It's a joke, dude. Purely cosmetic." aria-pressed="false">🤘 RAD mode</button>
+        <button class="btn" id="compareBtn">⚖ Compare builds</button>
+        <button class="btn" id="saveGarage" hidden title="Save this build to your garage">⭑ Save to garage</button>
+        <button class="btn" id="demoBad">Show clashes ✗</button>
+        <button class="btn" id="reset">Reset</button>
       </div>
     </div>
   </div>
 </header>
+<!-- The honesty badge keeps its own always-visible strip: the compact header has
+     no room, and the sample-data disclaimer must never hide or demote. Community
+     and account controls now live at the rail foot. -->
+<div class="honesty-strip"><span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span> Browse enduro parts, click to add, and it checks fit, price and weight as you build.</div>
 
 <main>
-  <div class="toolbar">
-    <input type="search" id="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" aria-label="Search parts by brand or model" />
-    <select class="btn" id="sortBy" title="Sort the catalog" aria-label="Sort the catalog">
-      <option value="featured">Sort: Best match</option>
-      <option value="name">Name A–Z</option>
-      <option value="price-asc">Price: low → high</option>
-      <option value="price-desc">Price: high → low</option>
-      <option value="weight-asc">Weight: light → heavy</option>
-      <option value="weight-desc">Weight: heavy → light</option>
-    </select>
-    <button class="btn" id="verifiedOnly" title="Show only parts verified against a manufacturer spec" aria-pressed="false">✓ Verified only</button>
-    <button class="btn" id="ownedOnly" hidden title="Show only parts in your inventory" aria-pressed="false">🧰 Owned only</button>
-    <button class="btn" id="compatibleOnly" title="Hide parts that would clash with your current build (parts with no build yet always show)" aria-pressed="false">🟢 Compatible only</button>
-    <span class="viewseg" role="group" aria-label="Catalog view">
-      <button class="btn" id="viewCards" aria-pressed="false" title="Card grid">▦ Cards</button>
-      <button class="btn primary" id="viewList" aria-pressed="true" title="Dense list — same parts, one row each">☰ List</button>
-    </span>
-    <button class="btn" id="radMode" title="It's a joke, dude. Purely cosmetic." aria-pressed="false">🤘 RAD mode</button>
-    <button class="btn" id="darkMode" title="Toggle the dark theme" aria-pressed="false">🌙 Dark mode</button>
-    <button class="btn" id="demoBudget">Budget build 💵</button>
-    <button class="btn" id="demoMid">Mid-range build ⚙️</button>
-    <button class="btn" id="demoHighEnd">High-end build 💎</button>
-    <button class="btn" id="demoMullet">Mullet build 🐟</button>
-    <button class="btn" id="demoDH">DH build ⛰️</button>
-    <button class="btn" id="demoTrail">Trail build 🌲</button>
-    <button class="btn" id="demoXC">XC build 🐇</button>
-    <button class="btn" id="demoBad">Show clashes ✗</button>
-    <button class="btn" id="reset">Reset</button>
-    <button class="btn" id="compareBtn">⚖ Compare builds</button>
-    <button class="btn" id="saveGarage" hidden title="Save this build to your garage">⭑ Save to garage</button>
-    <button class="btn primary" id="share">Share / save link</button>
-  </div>
-  <div class="chips" id="discChips" role="group" aria-label="Filter by riding discipline — parts without a discipline tag are universal and always show" title="Filter by riding discipline — parts without a discipline tag are universal and always show"></div>
-  <div class="chips" id="chips" role="group" aria-label="Filter by component category"></div>
-  <div class="chips subchips" id="subchips" role="group" aria-label="Filter by component type"></div>
-  <div class="chips subchips" id="wheelSizeChips" role="group" aria-label="Filter by wheel size — only affects wheels &amp; tires" title="Filter by wheel size — only affects wheels &amp; tires"></div>
-  <div class="chips subchips" id="tireWidthChips" role="group" aria-label="Filter tires by width" title="Filter tires by width"></div>
-  <div class="legend">
-    <span><i style="background:#2aa35a" aria-hidden="true"></i>No conflict found</span>
-    <span><i style="background:#e0a52e" aria-hidden="true"></i>Check first &mdash; adds a warning (hover for why)</span>
-    <span><i style="background:#d23b3b" aria-hidden="true"></i>Won&rsquo;t fit (hover for why)</span>
-    <span><i style="background:#d2d7d1" aria-hidden="true"></i>Nothing selected yet to judge</span>
-    <span><span style="color:var(--ok);font-weight:800">✓ Verified</span> = checked vs manufacturer spec (else <span style="color:var(--ink-soft);font-weight:600">≈ estimate</span>)</span>
-  </div>
-
   <div class="layout">
-    <section><div class="grid" id="catalog"></div></section>
+    <nav id="rail" aria-label="Catalog filters and tools">
+      <div class="rail-h">Category</div>
+      <div class="chips" id="chips" role="group" aria-label="Filter by component category"></div>
+      <div class="rail-h">Discipline</div>
+      <div class="chips" id="discChips" role="group" aria-label="Filter by riding discipline — parts without a discipline tag are universal and always show" title="Filter by riding discipline — parts without a discipline tag are universal and always show"></div>
+      <div class="rail-h">Show</div>
+      <div class="rail-toggles">
+        <button class="btn" id="verifiedOnly" title="Show only parts verified against a manufacturer spec" aria-pressed="false">✓ Verified only</button>
+        <button class="btn" id="ownedOnly" hidden title="Show only parts in your inventory" aria-pressed="false">🧰 Owned only</button>
+        <button class="btn" id="compatibleOnly" title="Hide parts that would clash with your current build (parts with no build yet always show)" aria-pressed="false">🟢 Compatible only</button>
+      </div>
+      <details class="rail-samples">
+        <summary>🚵 Sample builds</summary>
+        <div class="rail-toggles">
+          <button class="btn" id="demoBudget">Budget build 💵</button>
+          <button class="btn" id="demoMid">Mid-range build ⚙️</button>
+          <button class="btn" id="demoHighEnd">High-end build 💎</button>
+          <button class="btn" id="demoMullet">Mullet build 🐟</button>
+          <button class="btn" id="demoDH">DH build ⛰️</button>
+          <button class="btn" id="demoTrail">Trail build 🌲</button>
+          <button class="btn" id="demoXC">XC build 🐇</button>
+        </div>
+        <div class="rail-hint">Each loads a complete build — your current picks are replaced.</div>
+      </details>
+      <div class="rail-h">Legend</div>
+      <div class="legend legend-rail">
+        <span><i style="background:#2aa35a" aria-hidden="true"></i>No conflicts found</span>
+        <span><i style="background:#e0a52e" aria-hidden="true"></i>Check first &mdash; adds a warning (hover for why)</span>
+        <span><i style="background:#d23b3b" aria-hidden="true"></i>Won&rsquo;t fit (hover for why)</span>
+        <span><i style="background:#d2d7d1" aria-hidden="true"></i>Nothing selected yet to judge</span>
+        <span><span style="color:var(--ok);font-weight:800">✓ Verified</span> = checked vs manufacturer spec (else <span style="color:var(--ink-soft);font-weight:600">≈ estimate</span>)</span>
+      </div>
+      <div class="rail-foot">
+        <!-- Community. When the built-in forum is live (FORUM_ENABLED), this is an
+             in-app toggle to the forum page; otherwise it falls back to the GitHub
+             Discussions link (FORUM_URL, derived from REPORT_REPO) it will replace.
+             Hidden if neither is available, same feature-gate pattern as reportGithub. -->
+        <a class="btn" id="communityLink" target="_blank" rel="noopener"
+           title="Ask questions & share builds — TrailBuilder Discussions"
+           aria-label="Community — ask questions & share builds on TrailBuilder Discussions (opens in a new tab)" hidden>💬 Community</a>
+        <button type="button" class="btn" id="forumNavBtn"
+          title="Bug reports, build questions, feature requests" hidden>💬 Community</button>
+        <!-- Account control (Phase 3). Hidden entirely until Supabase config is set
+             (ACCOUNTS_ENABLED). renderAccount() toggles logged-in vs logged-out. -->
+        <div class="acctbox" id="acctBox" hidden>
+          <button class="btn" id="acctLogin" hidden>Log in</button>
+          <span class="acct-email" id="acctEmail" hidden></span>
+          <button class="btn" id="acctGarage" hidden title="Your saved builds">🅖 Garage</button>
+          <button class="btn" id="acctInventory" hidden title="Parts you own">🧰 Inventory</button>
+          <button class="btn" id="acctLogout" hidden>Log out</button>
+        </div>
+      </div>
+    </nav>
+
+    <section aria-label="Parts catalog">
+      <div class="chips subchips" id="subchips" role="group" aria-label="Filter by component type"></div>
+      <div class="chips subchips" id="wheelSizeChips" role="group" aria-label="Filter by wheel size — only affects wheels &amp; tires" title="Filter by wheel size — only affects wheels &amp; tires"></div>
+      <div class="chips subchips" id="tireWidthChips" role="group" aria-label="Filter tires by width" title="Filter tires by width"></div>
+      <div class="cat-head">
+        <div class="catcount muted" id="catCount" aria-live="polite"></div>
+        <div class="cat-tools">
+          <span class="viewseg" role="group" aria-label="Catalog view">
+            <button class="btn" id="viewCards" aria-pressed="false" title="Card grid">▦ Cards</button>
+            <button class="btn primary" id="viewList" aria-pressed="true" title="Dense list — same parts, one row each">☰ List</button>
+          </span>
+          <select class="btn" id="sortBy" title="Sort the catalog" aria-label="Sort the catalog">
+            <option value="featured">Sort: Best match</option>
+            <option value="name">Name A–Z</option>
+            <option value="price-asc">Price: low → high</option>
+            <option value="price-desc">Price: high → low</option>
+            <option value="weight-asc">Weight: light → heavy</option>
+            <option value="weight-desc">Weight: heavy → light</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid" id="catalog"></div>
+    </section>
 
     <aside>
       <div class="side">
@@ -478,8 +587,8 @@
           <div class="muted" id="countLabel">0 of 0 parts chosen</div>
           <div class="meter"><i id="meterBar"></i></div>
           <div id="slots"></div>
-          <div class="total"><span class="muted">Sample total</span><b id="total">$0</b></div>
-          <div class="wrow"><span class="muted">Est. weight</span><span id="weight" class="muted">&mdash;</span></div>
+          <div class="total"><span class="muted">Sample total</span><b id="total" title="Approximate — catalog data is sample unless a part shows ✓ Verified">$0</b></div>
+          <div class="wrow"><span class="muted">Est. weight</span><span id="weight" class="muted" title="Approximate — catalog data is sample unless a part shows ✓ Verified">&mdash;</span></div>
           <div class="wrow" id="radRow" hidden><span class="muted">🤘 Radness</span><span id="radLabel" class="muted">&mdash;</span></div>
           <div class="meter" id="radMeterWrap" hidden><i id="radBar"></i></div>
           <button type="button" class="btn primary viewbuild" id="viewBuild" hidden>📋 View complete build</button>
@@ -545,7 +654,7 @@
 <footer>
   <p><b>About this prototype.</b> Pick a whole groupset / wheelset / brake set / cockpit kit (green dashed cards) to drop
   in all the parts at once — that group is then <b>priced as the bundle</b>; swap any single part and it reverts to
-  per-part pricing. Every card shows a compatibility dot (green = no conflict found, yellow = check the warning first,
+  per-part pricing. Every card shows a compatibility dot (green = no conflicts found, yellow = check the warning first,
   red won&rsquo;t fit, grey = nothing selected yet) and a
   sample weight, and the catalog is sorted compatible-first (use the <b>Sort</b> menu to reorder by
   name, price or weight). Specs, prices and weights are illustrative samples unless a
@@ -554,6 +663,17 @@
   the suite. <b>Mullet</b> (29 front / 27.5 rear) builds work on mullet-capable frames — try the <b>Mullet build</b> demo
   or pick a 27.5 rear wheel + tire on the YT Capra.</p>
 </footer>
+
+<!-- Backdrop for the phone filter drawer -->
+<div id="railBackdrop" aria-hidden="true"></div>
+
+<!-- Mobile sticky build bar (≤880px only): verdict + totals mirror, tap = jump to panel -->
+<button type="button" id="mobileBar" aria-label="Build summary — tap to jump to the build panel">
+  <span class="mb-v" id="mbVerdict">No parts yet</span>
+  <span class="mb-t" id="mbTotal">≈ $0</span>
+  <span class="mb-w" id="mbWeight">—</span>
+  <span class="mb-go">View ▸</span>
+</button>
 
 <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
@@ -765,7 +885,7 @@
   var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg / ' + (g/453.592).toFixed(2) + ' lb)'; };
   // esc() (HTML-escape) and partVerified() are shared from compat.js — one tested source of truth.
 
-  var ICONS = {frame:'🚲',fork:'🍴',shock:'🪐',wheels:'🛞',tire:'⚫',drivetrain:'⚙️',brakes:'🛑',dropper:'📐',cockpit:'🔧',saddle:'🪑',pedals:'👟'};
+  var ICONS = {frame:'🚲',fork:'🍴',shock:'🪐',wheels:'🛞',tire:'⚫',drivetrain:'⚙️',brakes:'🛑',bb:'🔩',headset:'🎧',dropper:'📐',cockpit:'🔧',saddle:'🪑',pedals:'👟'};
 
   /* ---- clean per-category placeholder line-art (Phase 2, until real product
      photos are licensed) — one simple stroke icon per GROUPS key, themeable via
@@ -980,6 +1100,9 @@
       if(tireWidthFilter!=='all' && p.cat==='tire' && p.width!==tireWidthFilter) return false;
       return true;
     });
+    // count line above the catalog — set before the empty-state return so it
+    // honestly reads "Showing 0 of N parts" when every part is filtered out
+    $('catCount').textContent = 'Showing '+list.length+' of '+PARTS.length+' parts';
     if(!list.length){ el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>'; return; }
     var meta=list.map(function(p,i){ var c=compatFor(p); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='w'?1:c.state==='n'?2:3),pre:isPreset(p)?0:1,i:i}; });
     // "Best match" keeps the compatible-first order; explicit sorts are pure
@@ -1146,8 +1269,12 @@
     // scroll only after sync() has re-rendered: an animated scroll aimed at the
     // pre-render layout dies when the list shrinks under it (found on mobile —
     // the page height collapses mid-animation and the jump strands mid-page),
-    // so this is an instant jump against the final layout.
-    if(advanced) $('chips').scrollIntoView({block:'start'});
+    // so this is an instant jump against the final layout. The target is the
+    // catalog head (count line): the chips now live in the left rail, which is
+    // sticky on desktop and off-canvas on phones — the catalog head is what
+    // shows the new group either way (.cat-head's scroll-margin-top clears the
+    // sticky header).
+    if(advanced) $('catCount').scrollIntoView({block:'start'});
   }
   function applyPreset(id){
     var p=byId(id); if(!p||!p.fills) return;
@@ -1922,7 +2049,23 @@
     }).catch(function(e){ status.textContent = e.message || 'Could not post thread.'; });
   }
 
-  function sync(){ renderCatalog(); renderPanel(); renderReport(); writeHash(); }
+  function sync(){ renderCatalog(); renderPanel(); renderReport(); updateMobileBar(); writeHash(); }
+
+  /* ---- mobile sticky build bar: mirrors the panel verdict and totals so
+     they're visible above the fold on phones. Verdict wording matches
+     renderReport exactly — never reworded. ---- */
+  function updateMobileBar(){
+    var el=$('mobileBar'); if(!el) return;
+    var res=resolved(), r=checkBuild(res), t=buildTotals(res, presetBy), n=Object.keys(build).length;
+    var v = n===0 ? 'No parts yet'
+      : r.errors.length ? ('✗ '+r.errors.length+' problem'+(r.errors.length>1?'s':''))
+      : r.warnings.length ? ('⚠ '+r.warnings.length+' thing'+(r.warnings.length>1?'s':'')+' to check')
+      : '✓ No conflicts found';
+    $('mbVerdict').textContent = v;
+    $('mbTotal').textContent = '≈ ' + money(t.price);
+    $('mbWeight').textContent = t.weight ? ('≈ '+(t.weight/1000).toFixed(2)+' kg') : '—';
+    el.className = n===0 ? '' : (r.errors.length ? 'err' : r.warnings.length ? 'warn' : 'ok');
+  }
 
   /* ---- share / restore (build + presetBy) ---- */
   function writeHash(){ try{ history.replaceState(null,'','#b='+btoa(encodeURIComponent(JSON.stringify({b:build,p:presetBy})))); }catch(e){} }
@@ -2078,6 +2221,74 @@
     if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(
       function(){toast('Build link copied to clipboard');}, function(){toast('Build saved in the address bar');}); }
     else toast('Build saved in the address bar'); };
+
+  /* ---- layout chrome: ⋯ overflow menu, filter rail / phone drawer, mobile
+     build bar. Presentation only — every control inside keeps its id and its
+     wiring above; nothing here reads or writes build state. ---- */
+  (function(){
+    var btn=$('moreMenuBtn'), pop=$('moreMenuPop');
+    function closeMenu(){ pop.hidden=true; btn.setAttribute('aria-expanded','false'); }
+    btn.onclick=function(e){
+      e.stopPropagation();
+      var open=pop.hidden;
+      pop.hidden=!open;
+      btn.setAttribute('aria-expanded', String(open));
+    };
+    document.addEventListener('click', function(e){
+      if(!pop.hidden && !pop.contains(e.target) && e.target!==btn) closeMenu();
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key==='Escape' && !pop.hidden){ closeMenu(); btn.focus(); }
+    });
+  })();
+  (function(){
+    var rail=$('rail'), railBtn=$('railToggle'), railBd=$('railBackdrop');
+    var railMq=window.matchMedia('(max-width:880px)');
+    var lastFocus=null;
+    function drawerOpen(){ return document.body.classList.contains('rail-open'); }
+    function railIsOpen(){
+      return railMq.matches ? drawerOpen() : !document.body.classList.contains('rail-hidden');
+    }
+    function railAria(){ railBtn.setAttribute('aria-expanded', String(railIsOpen())); }
+    // everything currently operable in the rail (skips hidden account controls)
+    function focusables(){
+      return Array.prototype.filter.call(
+        rail.querySelectorAll('button,a[href],select,input,summary'),
+        function(el){ return !el.hidden && el.offsetParent!==null; });
+    }
+    function openDrawer(){
+      lastFocus=document.activeElement;
+      document.body.classList.add('rail-open'); railAria();
+      var f=focusables(); if(f.length) f[0].focus();
+    }
+    function closeDrawer(){
+      if(!drawerOpen()) return;
+      document.body.classList.remove('rail-open'); railAria();
+      if(lastFocus && lastFocus.focus) lastFocus.focus();
+      lastFocus=null;
+    }
+    railBtn.onclick=function(){
+      if(railMq.matches){ if(drawerOpen()) closeDrawer(); else openDrawer(); }
+      else{ document.body.classList.toggle('rail-hidden'); railAria(); }
+    };
+    railAria();
+    railBd.onclick=closeDrawer;
+    document.addEventListener('keydown', function(e){
+      if(!railMq.matches || !drawerOpen()) return;
+      if(e.key==='Escape'){ closeDrawer(); return; }
+      if(e.key!=='Tab') return;
+      // focus trap: while the drawer is open, Tab cycles inside it
+      var f=focusables(); if(!f.length) return;
+      var first=f[0], last=f[f.length-1], a=document.activeElement;
+      if(e.shiftKey && (a===first || !rail.contains(a))){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && (a===last || !rail.contains(a))){ e.preventDefault(); first.focus(); }
+    });
+    // picking a category from the phone drawer closes it so the catalog is visible
+    $('chips').addEventListener('click', function(e){
+      if(railMq.matches && e.target.closest('.chip')) closeDrawer();
+    });
+    $('mobileBar').onclick=function(){ var s=document.querySelector('.side'); if(s) s.scrollIntoView({behavior:'smooth', block:'start'}); };
+  })();
 
   $('viewBuild').onclick=openBuildModal;
   $('bmClose').onclick=function(){ $('buildModal').close(); };
