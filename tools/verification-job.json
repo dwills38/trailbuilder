@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-10T17:40:49.303Z",
+ "updated": "2026-07-10T17:44:03.495Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -147,41 +147,27 @@
   "rw-weareone-strife-29-157-xd",
   "rw-weareone-strife-275-148-xd",
   "rw-weareone-strife-275-157-xd",
-  "sh-ext-storia-v3-230x65",
   "sh-canecreek-kitsuma-coil-230x65",
   "sh-dvo-jade-x-230x65",
-  "sh-ext-storia-v3-205x65-trun",
   "sh-canecreek-kitsuma-coil-205x65-trun",
   "sh-marzocchi-bomber-cr-205x65-trun",
   "sh-dvo-jade-x-205x65-trun",
-  "sh-ext-storia-v3-205x60-trun",
-  "sh-ext-storia-v3-205x62p5-trun",
-  "sh-ext-storia-v3-230x60",
-  "sh-ext-storia-v3-230x62p5",
   "sh-dvo-topaz-gen1-200x57",
   "sh-ohlins-ttx22-m2-250x75",
   "sh-ohlins-ttx22-m2-225x75-trun",
-  "sh-ext-arma-230x65",
-  "sh-ext-arma-205x65-trun",
-  "sh-ext-arma-250x75",
-  "sh-ext-arma-225x75-trun",
   "sh-formula-mod-250x75",
   "sh-formula-mod-225x75-trun",
   "sh-canecreek-kitsuma-coil-185x50-trun",
   "sh-dvo-topaz-gen3-185x50-trun",
   "sh-manitou-mara-pro-185x50-trun",
-  "sh-ext-storia-v3-185x50-trun",
   "sh-ohlins-txc1air-185x50-trun",
   "sh-xfusion-h3c-185x50-trun",
   "sh-marzocchi-bomber-cr-210x50",
   "sh-dvo-topaz-gen3-210x50",
   "sh-canecreek-air-il-210x50",
-  "sh-ext-storia-v3-210x50",
   "sh-marzocchi-bomber-cr-210x55",
   "sh-dvo-topaz-gen3-210x55",
   "sh-canecreek-air-il-210x55",
-  "sh-ext-storia-v3-210x55",
-  "sh-ext-arma-250x72p5",
   "sh-formula-mod-250x72p5",
   "sh-ohlins-ttx22-m2-250x72p5",
   "sh-marzocchi-bomber-cr-230x60",
@@ -208,7 +194,6 @@
   "sh-canecreek-coilil-185x50-trun",
   "sh-manitou-mara-pro-165x45-trun",
   "sh-dvo-topaz-gen3-190x40",
-  "sh-ext-arma-230x57p5",
   "fk-rockshox-zeb-select-29-170",
   "fk-rockshox-zeb-select-29-160",
   "fk-rockshox-lyrik-select-29-160",
@@ -1292,11 +1277,11 @@
   },
   "sh-ext-storia-v3-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:44:03.493Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-230x65": {
    "cat": "shock",
@@ -3597,11 +3582,11 @@
   },
   "sh-ext-storia-v3-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:44:03.494Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-kitsuma-coil-205x65-trun": {
    "cat": "shock",
@@ -3629,35 +3614,35 @@
   },
   "sh-ext-storia-v3-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:44:03.494Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-storia-v3-205x62p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:44:03.494Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-storia-v3-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:44:03.494Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-storia-v3-230x62p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:44:03.494Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-manitou-mara-pro-205x60-trun": {
    "cat": "shock",
@@ -7293,35 +7278,35 @@
   },
   "sh-ext-arma-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:44:03.494Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/arma-v4/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-arma-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:44:03.494Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/arma-v4/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-arma-250x75": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:44:03.494Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/arma-v4/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-arma-225x75-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:44:03.494Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/arma-v4/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-formula-mod-250x75": {
    "cat": "shock",
@@ -7381,11 +7366,11 @@
   },
   "sh-ext-storia-v3-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:44:03.494Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-txc1air-185x50-trun": {
    "cat": "shock",
@@ -7437,11 +7422,11 @@
   },
   "sh-ext-storia-v3-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:44:03.494Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x-factory-210x55": {
    "cat": "shock",
@@ -7477,19 +7462,19 @@
   },
   "sh-ext-storia-v3-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:44:03.494Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-arma-250x72p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:44:03.494Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/arma-v4/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-formula-mod-250x72p5": {
    "cat": "shock",
@@ -7693,11 +7678,11 @@
   },
   "sh-ext-arma-230x57p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:44:03.494Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/arma-v4/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-select-29-170": {
    "cat": "fork",
