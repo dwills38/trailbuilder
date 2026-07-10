@@ -154,7 +154,7 @@ var VOCAB = {
                  '4c-graphene', 'graphene-silica',                 // Vittoria (casing reuses trail/enduro/downhill - Vittoria's own tier names; graphene-silica = the XC Race Formulation, 2026-07-08)
                  'tritec',                                         // WTB
                  'dual-layer',                                     // Kenda
-                 'grip3s',                                         // Goodyear
+                 'grip3s', 'grip3',                                // Goodyear (Grip3S = softer FRONT/MTF compound; Grip3 = harder REAR/MTR compound - a genuine F/R split per goodyearbike.com)
                  'magix', 'magix-mh', 'magix-ms', 'magix-dh',      // Michelin (2026-07-08; Magi-X base compound name + MH/MS hardness tiers + the DH-specific "Magi-X DH Compound"; retailer/press-aggregated, michelinman.com unfetchable)
                  'gripton-t7', 'gripton-t9',                       // Specialized (2026-07-08; GRIPTON T7/T9 compound tiers, retailer-aggregated)
                  'soft-50', 'medium-60', 'single-60a',             // Onza (2026-07-08, fetched onza-tires.com - the maker's own "Soft 50"/"Medium Compound 60"/"Single 60a" durometer-named compounds)
