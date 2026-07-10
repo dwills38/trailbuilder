@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-10T17:19:35.769Z",
+ "updated": "2026-07-10T18:05:22.818Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -149,94 +149,7 @@
   "rw-weareone-strife-29-157-xd",
   "rw-weareone-strife-275-148-xd",
   "rw-weareone-strife-275-157-xd",
-  "sh-rockshox-super-deluxe-selectplus-210x55",
-  "sh-rockshox-super-deluxe-selectplus-205x60-trun",
-  "sh-rockshox-super-deluxe-selectplus-230x65",
-  "sh-rockshox-super-deluxe-205x65-trun",
-  "sh-rockshox-vivid-coil-230x65",
-  "sh-ext-storia-v3-230x65",
-  "sh-canecreek-kitsuma-coil-230x65",
-  "sh-fox-float-x-perf-elite-185x55-trun",
-  "sh-fox-float-x2-perf-elite-205x60-trun",
-  "sh-rockshox-vivid-205x65-trun",
-  "sh-dvo-jade-x-230x65",
-  "sh-ext-storia-v3-205x65-trun",
-  "sh-canecreek-kitsuma-coil-205x65-trun",
-  "sh-marzocchi-bomber-cr-205x65-trun",
-  "sh-dvo-jade-x-205x65-trun",
-  "sh-ext-storia-v3-205x60-trun",
-  "sh-ext-storia-v3-205x62p5-trun",
-  "sh-ext-storia-v3-230x60",
-  "sh-ext-storia-v3-230x62p5",
-  "sh-rockshox-sidluxe-ultimate-190x45",
-  "sh-rockshox-sidluxe-ultimate-210x50",
-  "sh-fox-float-sl-factory-190x45",
-  "sh-rockshox-sidluxe-ultimate-165x45-trun",
-  "sh-rockshox-sidluxe-ultimate-190x40",
-  "sh-fox-float-x-factory-230x57p5",
-  "sh-fox-float-dps-performance-200x57",
-  "sh-dvo-topaz-gen1-200x57",
-  "sh-rockshox-vivid-coil-ultimate-dh-250x75",
-  "sh-rockshox-super-deluxe-ultimate-dh-250x72p5",
-  "sh-ohlins-ttx22-m2-250x75",
-  "sh-ohlins-ttx22-m2-225x75-trun",
-  "sh-rockshox-super-deluxe-ultimate-210x55",
-  "sh-rockshox-super-deluxe-ultimate-185x55-trun",
-  "sh-ext-arma-230x65",
-  "sh-ext-arma-205x65-trun",
-  "sh-ext-arma-250x75",
-  "sh-ext-arma-225x75-trun",
-  "sh-formula-mod-250x75",
-  "sh-formula-mod-225x75-trun",
-  "sh-rockshox-super-deluxe-ultimate-185x50-trun",
-  "sh-fox-float-x-factory-185x50-trun",
-  "sh-canecreek-kitsuma-coil-185x50-trun",
-  "sh-dvo-topaz-gen3-185x50-trun",
-  "sh-manitou-mara-pro-185x50-trun",
-  "sh-ext-storia-v3-185x50-trun",
-  "sh-ohlins-txc1air-185x50-trun",
   "sh-xfusion-h3c-185x50-trun",
-  "sh-fox-float-x-factory-210x50",
-  "sh-marzocchi-bomber-cr-210x50",
-  "sh-dvo-topaz-gen3-210x50",
-  "sh-canecreek-air-il-210x50",
-  "sh-ext-storia-v3-210x50",
-  "sh-fox-float-x-factory-210x55",
-  "sh-marzocchi-bomber-cr-210x55",
-  "sh-dvo-topaz-gen3-210x55",
-  "sh-canecreek-air-il-210x55",
-  "sh-ext-storia-v3-210x55",
-  "sh-ext-arma-250x72p5",
-  "sh-formula-mod-250x72p5",
-  "sh-ohlins-ttx22-m2-250x72p5",
-  "sh-rockshox-super-deluxe-ultimate-230x60",
-  "sh-marzocchi-bomber-cr-230x60",
-  "sh-dvo-topaz-gen3-230x60",
-  "sh-ohlins-ttx22-m2-230x60",
-  "sh-dvo-topaz-gen3-230x62p5",
-  "sh-ohlins-ttx22-m2-230x62p5",
-  "sh-dvo-topaz-gen3-190x45",
-  "sh-canecreek-air-il-190x45",
-  "sh-fox-dhx2-250x75",
-  "sh-marzocchi-bomber-cr-250x75",
-  "sh-dvo-topaz-gen3-205x60-trun",
-  "sh-canecreek-kitsuma-coil-205x60-trun",
-  "sh-marzocchi-bomber-cr-205x60-trun",
-  "sh-ohlins-ttx22-m2-205x60-trun",
-  "sh-dvo-topaz-gen3-205x62p5-trun",
-  "sh-canecreek-kitsuma-coil-205x62p5-trun",
-  "sh-marzocchi-bomber-cr-205x62p5-trun",
-  "sh-ohlins-ttx22-m2-205x62p5-trun",
-  "sh-ohlins-txc2air-190x45",
-  "sh-fox-dhx2-225x75-trun",
-  "sh-marzocchi-bomber-cr-225x75-trun",
-  "sh-canecreek-kitsuma-air-230x60",
-  "sh-canecreek-kitsuma-air-205x60-trun",
-  "sh-canecreek-coilil-210x50",
-  "sh-canecreek-coilil-185x50-trun",
-  "sh-manitou-mara-pro-165x45-trun",
-  "sh-dvo-topaz-gen3-190x40",
-  "sh-ext-arma-230x57p5",
   "fk-rockshox-zeb-select-29-170",
   "fk-rockshox-zeb-select-29-160",
   "fk-rockshox-lyrik-select-29-160",
@@ -393,159 +306,13 @@
   "gr-ergon-gd1-evo",
   "gr-renthal-ultratacky-pushon",
   "gr-sdg-thrice-31",
-  "dp-wolftooth-resolve-309-200",
-  "dp-9point8-fall-line-r-309-150",
-  "dp-fox-transfer-factory-349-180",
-  "dp-fox-transfer-sl-309-100",
-  "dp-fox-transfer-factory-309-180",
-  "dp-rockshox-reverb-axs-349-170",
-  "dp-rockshox-reverb-axs-309-170",
-  "dp-sdg-tellis-349-170",
-  "dp-sdg-tellis-309-170",
-  "dp-bikeyoke-revive-309-125",
-  "dp-bikeyoke-revive-309-160",
-  "dp-bikeyoke-revive-309-185",
-  "dp-bikeyoke-revive-309-213",
-  "dp-bikeyoke-revive-316-125",
-  "dp-bikeyoke-revive-316-160",
-  "dp-bikeyoke-revive-316-213",
-  "dp-bikeyoke-revive-349-125",
-  "dp-bikeyoke-revive-349-160",
-  "dp-bikeyoke-revive-349-213",
-  "dp-fox-transfer-factory-309-120",
-  "dp-fox-transfer-factory-309-150",
-  "dp-fox-transfer-factory-309-210",
   "dp-fox-transfer-factory-309-240",
-  "dp-fox-transfer-factory-316-120",
-  "dp-fox-transfer-factory-316-150",
-  "dp-fox-transfer-factory-316-210",
-  "dp-fox-transfer-factory-316-240",
-  "dp-fox-transfer-factory-349-120",
-  "dp-fox-transfer-factory-349-150",
-  "dp-fox-transfer-factory-349-210",
-  "dp-fox-transfer-factory-349-240",
-  "dp-fox-transfer-sl-272-50",
-  "dp-fox-transfer-sl-272-70",
-  "dp-fox-transfer-sl-309-75",
-  "dp-fox-transfer-sl-316-75",
-  "dp-fox-transfer-sl-316-100",
-  "dp-fox-transfer-sl-316-125",
-  "dp-fox-transfer-sl-316-150",
-  "dp-fox-transfer-neo-309-125",
-  "dp-fox-transfer-neo-309-150",
-  "dp-fox-transfer-neo-309-175",
-  "dp-fox-transfer-neo-309-200",
-  "dp-fox-transfer-neo-309-225",
-  "dp-fox-transfer-neo-316-100",
-  "dp-fox-transfer-neo-316-125",
-  "dp-fox-transfer-neo-316-150",
-  "dp-fox-transfer-neo-316-200",
-  "dp-fox-transfer-neo-316-225",
-  "dp-fox-transfer-neo-349-125",
-  "dp-fox-transfer-neo-349-150",
-  "dp-fox-transfer-neo-349-175",
-  "dp-fox-transfer-neo-349-225",
-  "dp-rockshox-reverb-axs-b1-309-100",
-  "dp-rockshox-reverb-axs-b1-309-125",
-  "dp-rockshox-reverb-axs-b1-309-150",
-  "dp-rockshox-reverb-axs-b1-309-175",
-  "dp-rockshox-reverb-axs-b1-309-200",
-  "dp-rockshox-reverb-axs-b1-309-225",
-  "dp-rockshox-reverb-axs-b1-309-250",
-  "dp-rockshox-reverb-axs-b1-316-100",
-  "dp-rockshox-reverb-axs-b1-316-125",
-  "dp-rockshox-reverb-axs-b1-316-150",
-  "dp-rockshox-reverb-axs-b1-316-175",
-  "dp-rockshox-reverb-axs-b1-316-225",
-  "dp-rockshox-reverb-axs-b1-316-250",
-  "dp-rockshox-reverb-axs-b1-349-100",
-  "dp-rockshox-reverb-axs-b1-349-125",
-  "dp-rockshox-reverb-axs-b1-349-150",
-  "dp-rockshox-reverb-axs-b1-349-175",
-  "dp-rockshox-reverb-axs-b1-349-200",
-  "dp-rockshox-reverb-axs-b1-349-225",
-  "dp-rockshox-reverb-axs-b1-349-250",
-  "dp-pnw-loam-349-150",
-  "dp-wolftooth-resolve-309-125",
-  "dp-wolftooth-resolve-309-160",
-  "dp-wolftooth-resolve-309-242",
-  "dp-wolftooth-resolve-316-125",
-  "dp-wolftooth-resolve-316-160",
-  "dp-wolftooth-resolve-316-242",
-  "dp-wolftooth-resolve-349-160",
-  "dp-wolftooth-resolve-349-200",
-  "dp-wolftooth-resolve-349-242",
-  "dp-raceface-turbine-r-309-125",
-  "dp-raceface-turbine-r-309-150",
-  "dp-raceface-turbine-r-309-175",
-  "dp-raceface-turbine-r-309-200",
-  "dp-raceface-turbine-r-316-125",
-  "dp-raceface-turbine-r-316-150",
-  "dp-raceface-turbine-r-316-200",
-  "dp-sdg-tellis-316-75",
-  "dp-sdg-tellis-316-100",
-  "dp-sdg-tellis-316-125",
-  "dp-sdg-tellis-316-150",
-  "dp-sdg-tellis-316-200",
-  "dp-sdg-tellis-316-230",
-  "dp-sdg-tellis-309-75",
-  "dp-sdg-tellis-309-100",
-  "dp-sdg-tellis-309-125",
-  "dp-sdg-tellis-309-150",
-  "dp-sdg-tellis-309-200",
-  "dp-sdg-tellis-309-230",
-  "dp-sdg-tellis-349-75",
-  "dp-sdg-tellis-349-100",
-  "dp-sdg-tellis-349-125",
-  "dp-sdg-tellis-349-150",
-  "dp-sdg-tellis-349-200",
-  "dp-sdg-tellis-349-230",
-  "dp-rockshox-reverb-stealth-309-100",
-  "dp-rockshox-reverb-stealth-309-125",
-  "dp-rockshox-reverb-stealth-309-150",
-  "dp-rockshox-reverb-stealth-309-200",
-  "dp-rockshox-reverb-stealth-316-100",
-  "dp-rockshox-reverb-stealth-316-125",
-  "dp-rockshox-reverb-stealth-316-150",
-  "dp-rockshox-reverb-stealth-316-175",
-  "dp-rockshox-reverb-stealth-316-200",
-  "dp-rockshox-reverb-stealth-349-100",
-  "dp-rockshox-reverb-stealth-349-125",
-  "dp-rockshox-reverb-stealth-349-150",
-  "dp-rockshox-reverb-stealth-349-175",
-  "dp-rockshox-reverb-stealth-349-200",
   "dp-pro-koryak-70-272-70",
   "dp-pro-koryak-150-309-150",
   "dp-pro-koryak-150-316-150",
   "dp-pro-koryak-170-309-170",
   "dp-pro-koryak-170-316-170",
-  "dp-bontrager-line-elite-316-100",
-  "dp-bontrager-line-elite-316-130",
-  "dp-bontrager-line-elite-316-150",
-  "dp-bontrager-line-elite-316-170",
-  "dp-bontrager-line-elite-349-100",
   "dp-bontrager-line-elite-349-130",
-  "dp-bontrager-line-elite-349-150",
-  "dp-bontrager-line-elite-349-170",
-  "dp-bontrager-line-elite-349-200",
-  "dp-tranzx-edp01-316-150",
-  "dp-tranzx-edp01-316-170",
-  "dp-tranzx-edp01-316-200",
-  "dp-tranzx-edp01-309-150",
-  "dp-tranzx-edp01-309-170",
-  "dp-tranzx-edp01-309-200",
-  "dp-tranzx-kitsuma-air-316-170",
-  "dp-tranzx-kitsuma-air-316-200",
-  "dp-tranzx-kitsuma-air-309-170",
-  "dp-tranzx-kitsuma-air-309-200",
-  "dp-tranzx-kitsuma-272-90",
-  "dp-tranzx-kitsuma-272-110",
-  "dp-tranzx-kitsuma-309-125",
-  "dp-tranzx-kitsuma-309-150",
-  "dp-tranzx-kitsuma-309-170",
-  "dp-tranzx-kitsuma-316-125",
-  "dp-tranzx-kitsuma-316-150",
-  "dp-tranzx-kitsuma-316-170",
   "sa-ergon-sm-enduro-comp",
   "sa-ergon-sm-enduro-pro-ti",
   "sa-specialized-power-comp",
@@ -1256,50 +1023,50 @@
   },
   "sh-fox-float-x-factory-230x65": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T00:57:18.453Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/fox-float-x-factory",
    "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-fox-dhx2-230x65": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T00:57:18.509Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/dhx2-factory",
    "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-rockshox-super-deluxe-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-sdlx-sel-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x2-205x65-trun": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T00:57:18.564Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/float-x2-performance-elite",
    "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-fox-float-x-230x60": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T00:57:18.620Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/fox-float-x-factory",
    "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-rockshox-vivid-ultimate-oem-205x60-trun": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-07T16:55:11.134Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/rockshox/models/rs-vivd-ult-c1",
    "note": "OEM bundle-only row by design (price 0, oemOnly, ships with the Specialized Enduro) - no retail page exists; retail Vivid specs live on the retail rows"
   },
   "sh-rockshox-vivid-ultimate-230x65": {
@@ -1312,90 +1079,90 @@
   },
   "sh-rockshox-vivid-coil-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-vivc-bse-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-storia-v3-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-230x65": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:36:04.880Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://ohlins.com/mountain-bike/rear-shocks/ttx22m-2-coil-230x65-am",
    "note": "ohlins.com product page fetched (MTBM 2232 sibling): states NO weight, so weight bar unmeetable. WEIGHT-BASIS FLAG (chip task_6a19c936): the ~780 sample is a WITH-spring figure; Ohlins body is ~486g without spring per convention. desc note added."
   },
   "sh-canecreek-kitsuma-coil-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/kitsuma-coil",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x2-230x65": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T00:57:18.686Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/float-x2-performance-elite",
    "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-rockshox-vivid-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-vivd-sel-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-marzocchi-bomber-cr-230x65": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-07T17:54:59.915Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
    "note": "Marzocchi publishes no weight for this SKU. Third-party figures are inconsistent/unsourced for search-summary reads (824g for a different size 200x50 incl. spring per MBR; unverified 390g claims for 230x65 body-only with no fetchable source). No reputable measured weight found for the exact 230x65 SKU without spring. Bar not met."
   },
   "sh-dvo-jade-x-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T00:48:59.049Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade-x/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-push-elevensix-230x65": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T00:50:20.358Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://www.pushindustries.com/products/elevensix",
    "note": "Price corrected to $1300 (fetched pushindustries.com 2026-07-08, real browser session). Weight bar not met: Push sells this shock per bike-model fitment, not as a generic SKU with a published spec sheet."
   },
   "sh-rockshox-super-deluxe-ultimate-205x60-trun": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T18:11:24.088Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/rockshox/models/rs-sdlx-ult-c2",
    "note": "sram.com Super Deluxe Ultimate model page (RS-SDLX-ULT-C2) fetched 2026-07-08: lists 205x60 trunnion as an available size (interface OK) but publishes only ONE weight (458g @ 210x50 std) - no per-size weight, and no reputable 3rd-party measured figure for this exact SKU. Weight bar cannot be met; row stays sample. Price range shown $659-$689 without per-config mapping."
   },
   "sh-fox-float-x-205x62p5-trun": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T00:57:18.747Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/fox-float-x-factory",
    "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "fk-rockshox-zeb-ultimate-29-170": {
@@ -1880,10 +1647,10 @@
   },
   "dp-rockshox-reverb-axs-316-170": {
    "cat": "dropper",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:46:30.033Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/service/models/sp-rvb-axs-a1",
    "note": "sram.com publishes no weight on Reverb AXS model pages (confirmed pattern for SRAM electronic parts this session) and the PDF spec sheet is image-based/unreadable. Third-party figures conflict heavily across generations (Gen1 170mm ~657-768g depending on what's included; Gen2 is a different, longer-travel product) -- not safe to pick one. Bar not met."
   },
   "dp-oneup-v3-316-210": {
@@ -1896,10 +1663,10 @@
   },
   "dp-bikeyoke-revive-316-185": {
    "cat": "dropper",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:48:56.847Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://bikeyoke.com/en/revive-3.0/revt",
    "note": "bikeyoke.com's product configurator page doesn't render weight in fetched content (needs the linked PDF download or JS interaction); a 575g figure recurs in search summaries attributed to 'BikeYoke's official dimensions doc' but was never confirmed on a page I fetched directly. Bar not met."
   },
   "dp-pnw-loam-309-175": {
@@ -1920,10 +1687,10 @@
   },
   "dp-wolftooth-resolve-316-200": {
    "cat": "dropper",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:46:30.083Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://www.wolftoothcomponents.com/products/resolve-dropper-post",
    "note": "wolftoothcomponents.com product and tech-docs pages both return only header/nav content via fetch (JS-rendered), truncating before the spec table. A 563g figure for 200x31.6 surfaced in search only, never confirmed on a fetched page. Bar not met."
   },
   "dp-crankbrothers-highline-7-316-170": {
@@ -1936,10 +1703,10 @@
   },
   "dp-bikeyoke-revive-349-185": {
    "cat": "dropper",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:51:27.212Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://bikeyoke.com/en/revive-3.0/revt",
    "note": "Same as the 31.6mm Revive sibling: bikeyoke.com configurator doesn't render weight via fetch. Bar not met."
   },
   "dp-fox-transfer-neo-316-175": {
@@ -1968,18 +1735,18 @@
   },
   "dp-sdg-tellis-316-170": {
    "cat": "dropper",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:48:56.946Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
    "note": "sdgcomponents.com's Tellis V1 page gives price (70, differs from catalog's 00 -- possibly a newer V2 was assumed) but no weight for any size. Bar not met."
   },
   "dp-raceface-turbine-r-316-175": {
    "cat": "dropper",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:51:27.264Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://web.archive.org/web/2024/https://www.raceface.com/products/turbine-r-dropper-seatpost",
    "note": "Shares internals with the Fox Transfer Factory per Race Face's own description, but no distinct weight published on raceface.com for the 175mm config. Bar not met."
   },
   "dp-ethirteen-vario-infinite-316-180": {
@@ -2937,10 +2704,10 @@
   },
   "sh-rockshox-super-deluxe-ultimate-230x62p5": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T18:11:32.736Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/rockshox/models/rs-sdlx-ult-c2",
    "note": "sram.com Super Deluxe Ultimate model page (RS-SDLX-ULT-C2) fetched 2026-07-08: lists 230x62.5 std among available sizes (interface OK) but publishes only ONE weight (458g @ 210x50 std) - no per-size weight, no reputable 3rd-party measured figure for this exact SKU. Weight bar cannot be met; row stays sample."
   },
   "fr-santacruz-megatower-cc": {
@@ -3153,10 +2920,10 @@
   },
   "dp-fox-transfer-factory-316-180": {
    "cat": "dropper",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:46:29.979Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/fox-transfer-seatpost",
    "note": "CORRECTED drop 175->180 (ridefox.com confirms Transfer options are 120/150/180/210/240mm only -- 175mm doesn't exist, same nonexistent-SKU pattern as several forks/rotors this session; retired old id into ALIASES). No clean single weight found for the 180mm/31.6 Factory config -- only a range (608g manufacturer-ish vs 640g measured, neither directly fetched). Bar not met for weight; interfaces now correct."
   },
   "st-straitline-318": {
@@ -3601,171 +3368,171 @@
   },
   "sh-fox-float-x-perf-elite-185x55-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-x-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x2-perf-elite-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/float-x2-performance-elite",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-205x65-trun": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:36:04.936Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx22m-2-coil-tm-205x65-am",
    "note": "205x65 trunnion existence confirmed (ohlins.com model page, art MTBM 2228); but ohlins.com states no weight (bar unmeetable). WEIGHT-BASIS FLAG (chip task_6a19c936): 770 is with-spring; body ~486g without spring. desc note added."
   },
   "sh-ext-storia-v3-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-kitsuma-coil-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/kitsuma-coil",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-marzocchi-bomber-cr-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-x-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade-x/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-storia-v3-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-storia-v3-205x62p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-storia-v3-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-storia-v3-230x62p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-manitou-mara-pro-205x60-trun": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:32:37.669Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://hayesbicycle.com/products/mara-pro",
    "note": "VALID size confirmed: fetched hayesbicycle.com Mara Pro page lists 205x60 trunnion (MSRP $629.99). But maker publishes a single 425g figure (not per-size) that conflicts with the ~490-500g reality for this size, so per-size weight can't be pinned - left unverified. The one real Mara Pro row of the three."
   },
   "sh-rockshox-sidluxe-ultimate-190x45": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-sidl-ult3-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-rockshox-sidluxe-ultimate-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-sidl-ult3-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-sl-factory-190x45": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-sl-performance",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-rockshox-vivid-ultimate-dh-250x75": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:30:17.483Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/rockshox/models/rs-vivd-ult-c1",
    "note": "sram.com RS-VIVD-ULT-C1 fetched: confirms 250x75 std size EXISTS (same C1 platform; 'DH' is just the size descriptor), MSRP 699-799 (catalog 769 in range) - no contradiction. sram gives only a 230x65 reference weight, not per-size; 250x75 weight (750 sample) unverifiable per-size. Weight bar unmeetable via sram."
   },
   "sh-rockshox-vivid-ultimate-225x75-trun": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:30:17.433Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/rockshox/models/rs-vivd-ult-c1",
    "note": "sram.com RS-VIVD-ULT-C1 fetched: confirms 225x75(TR) size EXISTS in the Vivid Ultimate C1 lineup, MSRP range 699-799 (catalog 699 in range), gen C1 - no contradiction. But sram lists ONE reference weight (670g @ 230x65 std, no hardware), NOT per-size; the catalogued 225x75-trunnion weight (670g sample) is not maker-confirmed for that config. Per-size weight bar unmeetable via sram (needs editorial measured)."
   },
   "sh-rockshox-vivid-coil-ultimate-dh-250x75": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-vivc-udh-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-rockshox-super-deluxe-ultimate-dh-250x72p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-sdlx-uldh-b2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-rockshox-super-deluxe-ultimate-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-sdlx-ult-c2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-rockshox-super-deluxe-ultimate-185x55-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-sdlx-ult-c2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-ultimate-29-160": {
    "cat": "fork",
@@ -3897,59 +3664,59 @@
   },
   "dp-fox-transfer-factory-349-180": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-sl-309-100": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-sl-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-factory-309-180": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-349-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-axs-a1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-309-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-axs-a1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-349-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-309-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "pd-crankbrothers-eggbeater-3": {
    "cat": "pedal",
@@ -4089,8 +3856,8 @@
   },
   "sh-manitou-mara-pro-230x65-trun": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:45:58.103Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
    "source": "https://hayesbicycle.com/products/mara-pro",
    "note": "Correction row for retired sh-manitou-mara-pro-230x65 (mount std -> trunnion per fetched maker page). Interfaces + MSRP + SKU maker-confirmed 2026-07-08, but Manitou publishes a single 425g model-level weight (size unstated) so the per-size weight bar is unmet - same call as the 205x60 sibling. Do not retry unless Manitou publishes per-size weights."
@@ -4129,19 +3896,19 @@
   },
   "sh-ohlins-ttx22-m2-250x75": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T20:23:31.753Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx22m-2-coil-250x75-am",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-225x75-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T20:23:31.753Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx22m-2-coil-tm-225x75-am",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-ohlins-rxf36-m2-275-170": {
    "cat": "fork",
@@ -4241,11 +4008,11 @@
   },
   "dp-wolftooth-resolve-309-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-08T20:44:32.453Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.wolftoothcomponents.com/products/resolve-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-crankbrothers-highline-7-309-170": {
    "cat": "dropper",
@@ -4257,11 +4024,11 @@
   },
   "dp-9point8-fall-line-r-309-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-08T20:44:32.453Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://9point8.ca/pages/fall-line-r-stroke-dropper-seatpost-specs",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-ks-lev-integra-309-175": {
    "cat": "dropper",
@@ -7257,171 +7024,171 @@
   },
   "sh-rockshox-super-deluxe-selectplus-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-sdlx-selp-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-rockshox-super-deluxe-selectplus-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-sdlx-selp-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-rockshox-super-deluxe-selectplus-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-sdlx-selp-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-rockshox-sidluxe-ultimate-165x45-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-sidl-ult3-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-rockshox-sidluxe-ultimate-190x40": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-sidl-ult3-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x-factory-230x57p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-x-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-dps-performance-200x57": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-dps-performance",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-200x57": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-arma-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/arma-v4/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-arma-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/arma-v4/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-arma-250x75": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/arma-v4/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-arma-225x75-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/arma-v4/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-formula-mod-250x75": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mtb-shocks/mod-dh/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-formula-mod-225x75-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mtb-shocks/mod-dh/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-rockshox-super-deluxe-ultimate-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-sdlx-ult-c2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x-factory-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-x-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-kitsuma-coil-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/kitsuma-coil",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-manitou-mara-pro-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/mara-pro",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-storia-v3-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-txc1air-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/txc1air-tm-185x50-r",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-xfusion-h3c-185x50-trun": {
    "cat": "shock",
@@ -7433,299 +7200,299 @@
   },
   "sh-fox-float-x-factory-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-x-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-marzocchi-bomber-cr-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-air-il-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/air-il",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-storia-v3-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x-factory-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-x-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-marzocchi-bomber-cr-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-air-il-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/air-il",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-storia-v3-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/ext-storia/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-arma-250x72p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/arma-v4/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-formula-mod-250x72p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mtb-shocks/mod-dh/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-250x72p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx22m-2-coil-250x75-am",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-rockshox-super-deluxe-ultimate-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/rs-sdlx-ult-c2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-marzocchi-bomber-cr-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ohlins.com/mountain-bike/rear-shocks/ttx22m-2-coil-230x65-am",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-230x62p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-230x62p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ohlins.com/mountain-bike/rear-shocks/ttx22m-2-coil-230x65-am",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-190x45": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-air-il-190x45": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/air-il",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-dhx2-250x75": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/dhx2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-marzocchi-bomber-cr-250x75": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-kitsuma-coil-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/kitsuma-coil",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-marzocchi-bomber-cr-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx22m-2-coil-tm-205x65-am",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-205x62p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-kitsuma-coil-205x62p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/kitsuma-coil",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-marzocchi-bomber-cr-205x62p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-205x62p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx22m-2-coil-tm-205x65-am",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-txc2air-190x45": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/txc2air-190x45-r",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-dhx2-225x75-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/dhx2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-marzocchi-bomber-cr-225x75-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-manitou-mara-pro-165x45-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/mara-pro",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-190x40": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-arma-230x57p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://extremeshox.com/product/arma-v4/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-select-29-170": {
    "cat": "fork",
@@ -9569,83 +9336,83 @@
   },
   "dp-bikeyoke-revive-309-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bikeyoke.com/en/revive-3.0/revt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bikeyoke-revive-309-160": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bikeyoke.com/en/revive-3.0/revt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bikeyoke-revive-309-185": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bikeyoke.com/en/revive-3.0/revt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bikeyoke-revive-309-213": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bikeyoke.com/en/revive-3.0/revt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bikeyoke-revive-316-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bikeyoke.com/en/revive-3.0/revt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bikeyoke-revive-316-160": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bikeyoke.com/en/revive-3.0/revt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bikeyoke-revive-316-213": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bikeyoke.com/en/revive-3.0/revt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bikeyoke-revive-349-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bikeyoke.com/en/revive-3.0/revt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bikeyoke-revive-349-160": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bikeyoke.com/en/revive-3.0/revt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bikeyoke-revive-349-213": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bikeyoke.com/en/revive-3.0/revt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-oneup-v3-309-90": {
    "cat": "dropper",
@@ -9777,27 +9544,27 @@
   },
   "dp-fox-transfer-factory-309-120": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-factory-309-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-factory-309-210": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-factory-309-240": {
    "cat": "dropper",
@@ -9809,123 +9576,123 @@
   },
   "dp-fox-transfer-factory-316-120": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-factory-316-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-factory-316-210": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-factory-316-240": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-factory-349-120": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-factory-349-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-factory-349-210": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-factory-349-240": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-sl-272-50": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-sl-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-sl-272-70": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-sl-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-sl-309-75": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-sl-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-sl-316-75": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-sl-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-sl-316-100": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-sl-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-sl-316-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-sl-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-sl-316-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-sl-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-neo-309-100": {
    "cat": "dropper",
@@ -9937,107 +9704,107 @@
   },
   "dp-fox-transfer-neo-309-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-neo-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-neo-309-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-neo-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-neo-309-175": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-neo-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-neo-309-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-neo-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-neo-309-225": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-neo-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-neo-316-100": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-neo-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-neo-316-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-neo-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-neo-316-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-neo-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-neo-316-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-neo-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-neo-316-225": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-neo-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-neo-349-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-neo-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-neo-349-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-neo-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-neo-349-175": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-neo-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-fox-transfer-neo-349-200": {
    "cat": "dropper",
@@ -10049,99 +9816,99 @@
   },
   "dp-fox-transfer-neo-349-225": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-transfer-neo-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-309-100": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-309-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-309-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-309-175": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-309-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-309-225": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-309-250": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-316-100": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-316-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-316-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-316-175": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-316-200": {
    "cat": "dropper",
@@ -10153,75 +9920,75 @@
   },
   "dp-rockshox-reverb-axs-b1-316-225": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-316-250": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-349-100": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-349-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-349-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-349-175": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-349-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-349-225": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-axs-b1-349-250": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-pnw-loam-309-125": {
    "cat": "dropper",
@@ -10305,11 +10072,11 @@
   },
   "dp-pnw-loam-349-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.pnwcomponents.com/products/loam-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-pnw-loam-349-175": {
    "cat": "dropper",
@@ -10329,75 +10096,75 @@
   },
   "dp-wolftooth-resolve-309-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.wolftoothcomponents.com/products/resolve-dropper-post-rev2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-wolftooth-resolve-309-160": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.wolftoothcomponents.com/products/resolve-dropper-post-rev2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-wolftooth-resolve-309-242": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.wolftoothcomponents.com/products/resolve-dropper-post-rev2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-wolftooth-resolve-316-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.wolftoothcomponents.com/products/resolve-dropper-post-rev2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-wolftooth-resolve-316-160": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.wolftoothcomponents.com/products/resolve-dropper-post-rev2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-wolftooth-resolve-316-242": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.wolftoothcomponents.com/products/resolve-dropper-post-rev2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-wolftooth-resolve-349-160": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.wolftoothcomponents.com/products/resolve-dropper-post-rev2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-wolftooth-resolve-349-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.wolftoothcomponents.com/products/resolve-dropper-post-rev2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-wolftooth-resolve-349-242": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.wolftoothcomponents.com/products/resolve-dropper-post-rev2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-crankbrothers-highline-7-309-100": {
    "cat": "dropper",
@@ -10457,203 +10224,203 @@
   },
   "dp-raceface-turbine-r-309-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/2024/https://www.raceface.com/products/turbine-r-dropper-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-raceface-turbine-r-309-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/2024/https://www.raceface.com/products/turbine-r-dropper-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-raceface-turbine-r-309-175": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/2024/https://www.raceface.com/products/turbine-r-dropper-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-raceface-turbine-r-309-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/2024/https://www.raceface.com/products/turbine-r-dropper-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-raceface-turbine-r-316-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/2024/https://www.raceface.com/products/turbine-r-dropper-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-raceface-turbine-r-316-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/2024/https://www.raceface.com/products/turbine-r-dropper-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-raceface-turbine-r-316-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/2024/https://www.raceface.com/products/turbine-r-dropper-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-316-75": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-316-100": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-316-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-316-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-316-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-316-230": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-309-75": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-309-100": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-309-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-309-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-309-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-309-230": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-349-75": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-349-100": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-349-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-349-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-349-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-sdg-tellis-349-230": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/tellis-v2-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-ks-lev-integra-309-65": {
    "cat": "dropper",
@@ -10769,27 +10536,27 @@
   },
   "dp-rockshox-reverb-stealth-309-100": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-s-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-stealth-309-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-s-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-stealth-309-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-s-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-stealth-309-175": {
    "cat": "dropper",
@@ -10801,91 +10568,91 @@
   },
   "dp-rockshox-reverb-stealth-309-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-s-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-stealth-316-100": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-s-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-stealth-316-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-s-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-stealth-316-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-s-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-stealth-316-175": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-s-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-stealth-316-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-s-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-stealth-349-100": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-s-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-stealth-349-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-s-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-stealth-349-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-s-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-stealth-349-175": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-s-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-rockshox-reverb-stealth-349-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/sp-rvb-s-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-pro-koryak-70-272-70": {
    "cat": "dropper",
@@ -10945,43 +10712,43 @@
   },
   "dp-bontrager-line-elite-316-100": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-seatposts-accessories/bike-seatposts/bontrager-line-elite-dropper-seatpost/p/22689/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bontrager-line-elite-316-130": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-seatposts-accessories/bike-seatposts/bontrager-line-elite-dropper-seatpost/p/22689/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bontrager-line-elite-316-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-seatposts-accessories/bike-seatposts/bontrager-line-elite-dropper-seatpost/p/22689/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bontrager-line-elite-316-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-seatposts-accessories/bike-seatposts/bontrager-line-elite-dropper-seatpost/p/22689/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bontrager-line-elite-349-100": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-seatposts-accessories/bike-seatposts/bontrager-line-elite-34-9-dropper-seatpost/p/32843/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bontrager-line-elite-349-130": {
    "cat": "dropper",
@@ -10993,75 +10760,75 @@
   },
   "dp-bontrager-line-elite-349-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-seatposts-accessories/bike-seatposts/bontrager-line-elite-34-9-dropper-seatpost/p/32843/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bontrager-line-elite-349-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-seatposts-accessories/bike-seatposts/bontrager-line-elite-34-9-dropper-seatpost/p/32843/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bontrager-line-elite-349-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-seatposts-accessories/bike-seatposts/bontrager-line-elite-34-9-dropper-seatpost/p/32843/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-edp01-316-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/edp01-electronic-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-edp01-316-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/edp01-electronic-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-edp01-316-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/edp01-electronic-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-edp01-309-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/edp01-electronic-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-edp01-309-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/edp01-electronic-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-edp01-309-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/edp01-electronic-dropper-post",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-kitsuma-air-316-150": {
    "cat": "dropper",
@@ -11073,19 +10840,19 @@
   },
   "dp-tranzx-kitsuma-air-316-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/kitsuma-air",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-kitsuma-air-316-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/kitsuma-air",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-kitsuma-air-309-150": {
    "cat": "dropper",
@@ -11097,83 +10864,83 @@
   },
   "dp-tranzx-kitsuma-air-309-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/kitsuma-air",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-kitsuma-air-309-200": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/kitsuma-air",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-kitsuma-272-90": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/kitsuma-air-1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-kitsuma-272-110": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/kitsuma-air-1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-kitsuma-309-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/kitsuma-air-1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-kitsuma-309-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/kitsuma-air-1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-kitsuma-309-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/kitsuma-air-1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-kitsuma-316-125": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/kitsuma-air-1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-kitsuma-316-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/kitsuma-air-1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-kitsuma-316-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://na.tranzx.com/products/kitsuma-air-1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-hot-lap-316-50": {
    "cat": "dropper",
@@ -14017,35 +13784,35 @@
   },
   "sh-canecreek-kitsuma-air-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-10T16:54:08.064Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://canecreek.com/product/db-kitsuma-air/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-kitsuma-air-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-10T16:54:08.064Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://canecreek.com/product/db-kitsuma-air/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-coilil-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-10T16:54:08.064Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/coil-il",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-canecreek-coilil-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-10T16:54:08.064Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:05:22.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/coil-il",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-base-29-140": {
    "cat": "fork",
