@@ -146,6 +146,7 @@ p3 spindles (e*13 sourcing pending), 24/30 mm in DH shells, BSA68/PF865/T47.
 so the check can't fire (pinned synthetically). **Post-mount SIZE (PM160/180/200 native) is
 NOT modeled** — the protection comes from rule 10's min/max rotor checks instead.
 **Ask:** is delegating PM-size protection to rotor min/max sufficient, or does it leak?
+**Review verdict (2026-07-10): ✓ CONFIRMED ("this is good") — no change.** Verdict via Douglas.
 
 ### 9. Rotor interface vs hub — direction-aware
 **Claims:** a Center Lock rotor on a 6-bolt hub = error, no adapter exists. A 6-bolt rotor
@@ -153,6 +154,16 @@ on a Center Lock hub = **warning** naming the adapter (Shimano SM-RTAD05-class, 
 rotors only) — an everyday shop fix, so a hard red was a false "won't fit".
 **Ask:** the adapter caveat says one-piece rotors only (not Hope floating / two-piece) —
 right? Is warning the right tier or should adapters be a quieter info?
+**Review verdict (2026-07-10): ✓ warning tier CONFIRMED; one-piece-only caveat verified to
+manual-text level** ("Warning is correct, please verify yourself on the one-piece rotors only"
+— Douglas). Verification (coordinator, same day): Shimano's SM-RTAD05 dealer's-manual text is
+consistently quoted across multiple independent surfaces as *"cannot be used with the 6-bolt
+disc brake rotor that is installed with an aluminum adapter (SM-RT86/RT76)"* — i.e. two-piece/
+alloy-carrier rotors are excluded, matching the engine's "one-piece rotors only" message.
+Residual: the manual's ORIGIN hosts (si.shimano.com PDFs, manual mirrors) are all fetch-walled
+(403), so this is corroborated manual text, not a fetched primary — a physical box/manual check
+remains the bench-level close-out (also flagged in `DOSSIER-OPEN-QUESTIONS-RESEARCH.md` §9).
+No change to code or message.
 
 ### 10. Rotor size — max (warning) and native-mount minimum (error)
 **Claims:** rotor above the frame/fork's published max = warning ("exceeds the max").
@@ -161,6 +172,9 @@ so a 180 rotor on a 200-native ZEB/Domain mount physically cannot work (sram.com
 "Minimum Rotor Size: 200mm" for those forks; populated only where fetched).
 **Ask:** should over-max be promoted to error? It's a manufacturer structural limit, but
 it *mounts* — we kept it a warning and made warnings visible as yellow dots. Judgment call.
+**Review verdict (2026-07-10): ✓ CONFIRMED — "overmax should be a warning, below native size
+should be an error/incompatible"** (Douglas) — exactly the current tiers; no change. (The
+reviewer's accompanying fork-travel directive is recorded under rule 12.)
 
 ### 11. Steerer / headset
 **Claims:** fork steerer must match frame (everything current is tapered 1.5–1.125;
@@ -184,6 +198,9 @@ endorses shimming). Posts with ≥200 mm drop additionally get an INFO pointing 
 maker's insertion calculator, because the app has no frame-size concept yet and insertion
 depth is the most common real dropper misfit we cannot check.
 **Ask:** shim = warning, too-big = error — right? Is the 200 mm info threshold sensible?
+**Review verdict (2026-07-10): ✓ directions confirmed; threshold moved 200 → 180 mm** ("I
+would make the threshold 180mm" — Douglas). Applied on branch
+`dossier-findings-13-14-16`; boundary pinned (180 fires, 175 silent).
 
 ### 14. Tire vs rim width + fork crown clearance
 **Claims:** tire wider than the wheel's max = warning (active — 2.6" tires exist in the
@@ -193,6 +210,12 @@ warning, dormant until forks carry sourced data (Fox/RockShox publish per chassi
 deferred pending sourcing).
 **Ask:** rim maxTire values are partly sample guidance, not maker data (flagged per row) —
 how much do you trust ETRTO-style width guidance as a default?
+**Review verdict (2026-07-10): ~ ADD the too-narrow direction as a soft warning** ("put a soft
+warning if the tire width is out of range on what the rim recommends" — Douglas). Applied on
+branch `dossier-findings-13-14-16`: new sourced-dormant `minTire` on wheels/rims (rule 14c
+warning), maker recommendations only — the ETRTO-default question stays answered conservatively
+(no derived defaults; the fuzzy-threshold deferral stands until makers' own floors are sourced
+per row).
 
 ### 15. Handlebar / stem clamp
 **Claims:** 31.8 vs 35 mm mismatch = error. No known caveats; both live in the catalog.
@@ -211,6 +234,13 @@ reduction, so a red was a false "won't fit". A coil shock on a frame whose maker
 leverage-curve guesses). Hardtails cleanly reject any shock.
 **Ask:** travel is estimated linearly (frame travel × stroke ratio) — close enough for a
 warning? Should shorter-stroke mention stroke spacers specifically?
+**Review verdict (2026-07-10): ~ directions confirmed; STOP estimating the reduced travel**
+("don't estimate the travel, find out what travel the frames ship with" — Douglas). Applied on
+branch `dossier-findings-13-14-16`: the shorter-stroke warning no longer computes a linear
+frame.travel×stroke figure (wrong on progressive linkages); it names the frame's designed
+travel and defers to the maker's supported strokes. Follow-up data work: quantify only from
+maker-stated reduced-travel figures where published (e.g. Transition's "170mm rear, 160 with a
+205x60 shock"). Stroke-spacer wording not requested; unchanged.
 
 ### 17. Frame + shock bundling / OEM-only
 **Claims:** package-only frames (e.g. Specialized Enduro) warn when you pick a different
@@ -240,6 +270,7 @@ clamp of its own) paired with brakes that accept none of its standards = warning
 the band-clamp version or a ShiftMount-style adapter"). I-Spec generations are treated as
 mutually incompatible; a lever may accept several standards; one matching lever is enough.
 **Ask:** generation matrix right? Adapter-tier wording fair?
+**Review verdict (2026-07-10): ✓ CONFIRMED ("this seems good") — no change.** Verdict via Douglas.
 
 ---
 
