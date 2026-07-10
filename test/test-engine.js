@@ -147,6 +147,62 @@ test('a 30mm crank in a PF92 frame is servable (Hope PF41) - the dossier rule-7 
   eq(chk({frame:'fr-commencal-meta-v5', bb:'bb-hope-pf41-92-30mm', crankset:'cr-hope-evo'}).errors.length, 0);
 });
 
+/* Rule 20 - the headset category (2026-07-10; rule 7/BB is the template).
+   20a (ACTIVE): steerer acceptance vs the fork, exact equality like rule 11.
+   20b (dormant-until-sourced): cup vs head tube where a frame carries fetched
+   headTubeUpper/headTubeLower - S.H.I.S. BORE TOKENS only (the suffix is
+   steerer business; the frame backfill's suffixes assume tapered assemblies).
+   20c: the pick-a-headset advisory info once frame+fork are chosen. */
+test('rule 20a: tapered headset + dual-crown (straight) fork -> steerer error', function(){
+  some(chk({fork:'fk-rockshox-boxxer-ultimate-29-200', headset:'hs-canecreek-40-zs44-zs56'}).errors, 'Headset steerer mismatch');
+});
+test('rule 20b: IS-cup headset in a ZS head tube -> upper AND lower cup errors', function(){
+  var r = chk({frame:'fr-giant-reign-advanced', headset:'hs-canecreek-40-is41-is52'});
+  eq(r.errors.filter(function(e){ return e.ruleId==='headset-upper'; }).length, 1);
+  eq(r.errors.filter(function(e){ return e.ruleId==='headset-lower'; }).length, 1);
+});
+test('rule 20b: matching cups (ZS44|ZS56 headset, ZS44|ZS56 frame) -> clean', function(){
+  eq(chk({frame:'fr-giant-reign-advanced', headset:'hs-canecreek-40-zs44-zs56'}).errors.length, 0);
+});
+test('rule 20b is DORMANT on a frame without sourced head-tube data', function(){
+  // the Megatower carries no headTubeUpper/Lower - even a deliberately wrong
+  // cup combo must stay silent there (a missing rule beats a wrong one)
+  eq(chk({frame:'fr-santacruz-megatower-cc', headset:'hs-canecreek-40-is41-is52'}).errors.length, 0);
+});
+test('rule 20 clean sweep: frame + fork + matching headset -> no errors, advisory suppressed', function(){
+  var r = chk({frame:'fr-giant-reign-advanced', fork:'fk-rockshox-zeb-ultimate-29-170', headset:'hs-canecreek-40-zs44-zs56'});
+  eq(r.errors.length, 0);
+  eq(r.infos.filter(function(x){ return x.ruleId==='headset-advisory'; }).length, 0);
+});
+test('rule 20b compares BORE tokens, not full codes: a straight-dc ZS56 headset fits the Supreme DH', function(){
+  // The Supreme DH's backfilled SHIS pair is ZS56/28.6 | ZS56/40 - the /40
+  // suffix is a tapered-assembly artifact of the shared vocab, but the BORES
+  // (ZS56|ZS56) are the frame fact. A real DH headset for it would be
+  // ZS56/28.6 | ZS56/30 - no fetched complete SKU exists yet (see the catalog
+  // block comment), so this build synthesizes one to pin the semantics: cups
+  // must NOT red on the suffix (that would be a false "won't fit"), and 20a
+  // must pass it with the dual-crown BoXXer.
+  var dc = /** @type {any} */ (Object.assign({}, part('hs-canecreek-40-zs56-zs56'), { id:'hs-synthetic-dc-zs56', lower:'ZS56/30', steerer:'straight-dc' }));
+  var b = /** @type {any} */ (U.B({frame:'fr-commencal-supreme-dh-v5', fork:'fk-rockshox-boxxer-ultimate-29-200'}));
+  b.headset = dc;
+  eq(C.checkBuild(b).errors.length, 0);
+});
+test('rule 20a reverse direction: that synthetic straight-dc headset on a tapered fork -> steerer error', function(){
+  var dc = /** @type {any} */ (Object.assign({}, part('hs-canecreek-40-zs56-zs56'), { id:'hs-synthetic-dc-zs56', lower:'ZS56/30', steerer:'straight-dc' }));
+  var b = /** @type {any} */ (U.B({fork:'fk-rockshox-zeb-ultimate-29-170'}));
+  b.headset = dc;
+  some(C.checkBuild(b).errors, 'Headset steerer mismatch');
+});
+test('rule 20c: frame+fork with sourced head-tube data -> advisory names the cups', function(){
+  var r = chk({frame:'fr-giant-reign-advanced', fork:'fk-rockshox-zeb-ultimate-29-170'});
+  some(r.infos, 'ZS44 upper / ZS56 lower');
+});
+test('rule 20c: frame+fork without head-tube data -> generic advisory, never a verdict', function(){
+  var r = chk({frame:'fr-santacruz-megatower-cc', fork:'fk-rockshox-zeb-ultimate-29-170'});
+  eq(r.infos.filter(function(x){ return x.ruleId==='headset-advisory'; }).length, 1);
+  eq(r.errors.length, 0);
+});
+
 /* Rule 4 retrofit tier (dossier rule 4 review, 2026-07-10): a maker-documented
    UDH retrofit kit ("a UDH retrofit kit to give your existing Jibb V1, Madonna
    V2, or Madonna V2.2 compatibility" - raawmtb.com) downgrades the hard error

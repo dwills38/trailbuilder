@@ -136,3 +136,17 @@ test('a preset that swaps one conflict for another is RED, not green', function(
   var c = C.compatOf(part('gs-sram-gx-eagle'), bld);
   eq(c.state, 'r'); some([c.reason], 'Freehub');
 });
+/* Rule 20 (headset category) dots: cup mismatch is red where the frame carries
+   sourced S.H.I.S. data, matching cups are green, and a frame WITHOUT the data
+   keeps every headset green (dormant - a missing rule beats a wrong one). */
+test('headset dot: IS-cup headset on a ZS-head-tube frame is red, matching cups green', function(){
+  var c = C.compatOf(part('hs-canecreek-40-is41-is52'), B({frame:'fr-giant-reign-advanced'}));
+  eq(c.state, 'r'); some([c.reason], 'cup mismatch');
+  eq(stateOf({frame:'fr-giant-reign-advanced'}, 'hs-canecreek-40-zs44-zs56'), 'g');
+});
+test('headset dot: any headset stays green on a frame without sourced head-tube data', function(){
+  eq(stateOf({frame:'fr-santacruz-megatower-cc'}, 'hs-canecreek-40-is41-is52'), 'g');
+});
+test('headset dot: tapered headset is red against a dual-crown (straight) fork', function(){
+  eq(stateOf({fork:'fk-rockshox-boxxer-ultimate-29-200'}, 'hs-canecreek-hellbender-70-zs56-zs56'), 'r');
+});

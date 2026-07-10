@@ -144,7 +144,9 @@ hr('D. ADVERSARIAL (builds that must clash - a MISS here is a false "fits")');
     { n: '34.9 dropper in 31.6 seat tube', b: { frame: 'fr-raaw-jibb', dropper: 'dp-oneup-v3-349-210' }, e: 'dropper-diameter' },
     { n: 'CL rotor on 6-bolt front hub', b: { fork: 'fk-rockshox-zeb-ultimate-29-170', frontWheel: 'fw-reserve-30-hd-29', frontRotor: 'ro-shimano-rtmt800-203-cl' }, e: 'front-rotor-interface' },
     { n: 'DH straight-dc frame + single-crown fork', b: { frame: 'fr-commencal-supreme-dh-v5', fork: 'fk-rockshox-zeb-ultimate-29-170' }, e: 'steerer' },
-    { n: 'hardtail frame + rear shock', b: { frame: 'fr-commencal-meta-ht-v3', shock: 'sh-rockshox-super-deluxe-ultimate-230x65' }, e: 'hardtail-shock' }
+    { n: 'hardtail frame + rear shock', b: { frame: 'fr-commencal-meta-ht-v3', shock: 'sh-rockshox-super-deluxe-ultimate-230x65' }, e: 'hardtail-shock' },
+    { n: 'IS-cup headset pressed into a ZS head tube', b: { frame: 'fr-giant-reign-advanced', headset: 'hs-canecreek-40-is41-is52' }, e: 'headset-upper' },
+    { n: 'tapered headset + dual-crown (straight) fork', b: { fork: 'fk-rockshox-boxxer-ultimate-29-200', headset: 'hs-canecreek-40-zs44-zs56' }, e: 'headset-steerer' }
   ];
   var miss = 0;
   cases.forEach(function(c){
