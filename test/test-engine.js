@@ -197,6 +197,19 @@ test('200mm rotor on a ZEB meets the minimum -> clean', function(){
 test('min-rotor rule stays dormant on forks without a sourced minRotorF', function(){
   eq(chk({fork:'fk-fox-36-factory-29-160', frontRotor:'ro-sram-hs2-180-6b'}).errors.length, 0);
 });
+
+/* Rule 10b - FRAME-side native rotor floor (dossier known-gaps verdict,
+   2026-07-10: "use post-mount native size too"). The Cotic Solaris' own page
+   states "PM7 Post Mount (180mm rotor only)" - a 160 rear rotor cannot mount. */
+test('160mm rear rotor on the Solaris (180mm-only PM7 mount) -> error, not silence', function(){
+  some(chk({frame:'fr-cotic-solaris', rearRotor:'ro-clarks-cl01-160-6b'}).errors, 'Rear rotor too small');
+});
+test('180mm rear rotor on the Solaris meets its native mount exactly -> clean', function(){
+  eq(chk({frame:'fr-cotic-solaris', rearRotor:'ro-sram-hs2-180-6b'}).errors.length, 0);
+});
+test('frame rotor floor stays dormant without a sourced minRotorR', function(){
+  eq(chk({frame:'fr-raaw-madonna-v32', rearRotor:'ro-clarks-cl01-160-6b'}).errors.length, 0);
+});
 test('bar/stem clamp mismatch (35 vs 31.8) -> error', function(){
   some(chk({handlebar:'hb-pnw-range-318', stem:'st-renthal-apex-35'}).errors, 'clamp');
 });
