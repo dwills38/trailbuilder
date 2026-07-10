@@ -4,7 +4,7 @@ _A living snapshot. Architecture/conventions live in `CLAUDE.md`; full history i
 
 ## Where we are (as of 2026-07-10)
 
-> **Live state (2026-07-10):** **1772 parts / 758 verified / 380 tests**; `node validate.js` 0 problems, `tsc` clean; CI + GitHub Pages green (origin/main `dc3079c`). **Phase 3 accounts are LIVE** (Supabase, `ACCOUNTS_ENABLED` true, E2E-confirmed 2026-07-08); the built-in forum ships but stays INERT behind `FORUM_ENABLED=false` until the forum migration is run. Catalog is verdict-clean (two verdict-audit rounds -> 0 false-greens). _The detailed 2026-07-08 snapshot below predates the large 2026-07-08->09 catalog grind (~494->1772 parts); trust the live gates over its inline figures._
+> **Live state (2026-07-10):** **1772 parts / 758 verified / 380 tests**; `node validate.js` 0 problems, `tsc` clean; CI + GitHub Pages green (origin/main `dc3079c`). **Phase 3 accounts are LIVE** (Supabase, `ACCOUNTS_ENABLED` true, E2E-confirmed 2026-07-08); **the built-in forum is LIVE too** (2026-07-10: Douglas ran the SETUP.md §7 migration, `FORUM_ENABLED` flipped true — the 💬 Community button now opens the in-app forum; GitHub Discussions remains as an archive). Catalog is verdict-clean (two verdict-audit rounds -> 0 false-greens). _The detailed 2026-07-08 snapshot below predates the large 2026-07-08->09 catalog grind (~494->1772 parts); trust the live gates over its inline figures._
 >
 > **Focus (2026-07-10):** big catalog **expansion is on HOLD** pending the mechanic dossier review (new rows should enter against final rules/vocab); the top-priority work — applying the mechanic's findings — is human-blocked/async. See `COORDINATOR-HANDOFF.md`.
 

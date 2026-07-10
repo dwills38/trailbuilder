@@ -24,5 +24,9 @@ var ACCOUNTS_ENABLED = !!(SUPABASE_URL && SUPABASE_ANON_KEY);
  * (and all forum UI hidden, falling back to the GitHub Discussions link) until
  * that migration has been run against the live project — see
  * supabase/SETUP.md step 7. Flip to true once it has.
+ *
+ * LIVE since 2026-07-10: Douglas ran the §7 migration (forum_threads/
+ * forum_posts + pinned welcome thread confirmed), so the flag is on and the
+ * Community button opens the in-app forum instead of GitHub Discussions.
  */
-var FORUM_ENABLED = false;
+var FORUM_ENABLED = true;
