@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-10T17:51:51.909Z",
+ "updated": "2026-07-10T17:54:15.563Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -148,7 +148,6 @@
   "rw-weareone-strife-275-148-xd",
   "rw-weareone-strife-275-157-xd",
   "sh-dvo-jade-x-230x65",
-  "sh-marzocchi-bomber-cr-205x65-trun",
   "sh-dvo-jade-x-205x65-trun",
   "sh-dvo-topaz-gen1-200x57",
   "sh-formula-mod-250x75",
@@ -156,21 +155,14 @@
   "sh-dvo-topaz-gen3-185x50-trun",
   "sh-manitou-mara-pro-185x50-trun",
   "sh-xfusion-h3c-185x50-trun",
-  "sh-marzocchi-bomber-cr-210x50",
   "sh-dvo-topaz-gen3-210x50",
-  "sh-marzocchi-bomber-cr-210x55",
   "sh-dvo-topaz-gen3-210x55",
   "sh-formula-mod-250x72p5",
-  "sh-marzocchi-bomber-cr-230x60",
   "sh-dvo-topaz-gen3-230x60",
   "sh-dvo-topaz-gen3-230x62p5",
   "sh-dvo-topaz-gen3-190x45",
-  "sh-marzocchi-bomber-cr-250x75",
   "sh-dvo-topaz-gen3-205x60-trun",
-  "sh-marzocchi-bomber-cr-205x60-trun",
   "sh-dvo-topaz-gen3-205x62p5-trun",
-  "sh-marzocchi-bomber-cr-205x62p5-trun",
-  "sh-marzocchi-bomber-cr-225x75-trun",
   "sh-manitou-mara-pro-165x45-trun",
   "sh-dvo-topaz-gen3-190x40",
   "fk-rockshox-zeb-select-29-170",
@@ -1296,10 +1288,10 @@
   },
   "sh-marzocchi-bomber-cr-230x65": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-07T17:54:59.915Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:54:15.562Z",
    "error": null,
-   "source": null,
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
    "note": "Marzocchi publishes no weight for this SKU. Third-party figures are inconsistent/unsourced for search-summary reads (824g for a different size 200x50 incl. spring per MBR; unverified 390g claims for 230x65 body-only with no fetchable source). No reputable measured weight found for the exact 230x65 SKU without spring. Bar not met."
   },
   "sh-dvo-jade-x-230x65": {
@@ -3577,11 +3569,11 @@
   },
   "sh-marzocchi-bomber-cr-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-08T16:14:42.842Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:54:15.562Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-x-205x65-trun": {
    "cat": "shock",
@@ -7377,11 +7369,11 @@
   },
   "sh-marzocchi-bomber-cr-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:54:15.562Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-210x50": {
    "cat": "shock",
@@ -7417,11 +7409,11 @@
   },
   "sh-marzocchi-bomber-cr-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:54:15.562Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-210x55": {
    "cat": "shock",
@@ -7481,11 +7473,11 @@
   },
   "sh-marzocchi-bomber-cr-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:54:15.562Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-230x60": {
    "cat": "shock",
@@ -7545,11 +7537,11 @@
   },
   "sh-marzocchi-bomber-cr-250x75": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:54:15.562Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-205x60-trun": {
    "cat": "shock",
@@ -7569,11 +7561,11 @@
   },
   "sh-marzocchi-bomber-cr-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:54:15.562Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-205x60-trun": {
    "cat": "shock",
@@ -7601,11 +7593,11 @@
   },
   "sh-marzocchi-bomber-cr-205x62p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:54:15.562Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-205x62p5-trun": {
    "cat": "shock",
@@ -7633,11 +7625,11 @@
   },
   "sh-marzocchi-bomber-cr-225x75-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T17:54:15.562Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-cr-rear-shock",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-manitou-mara-pro-165x45-trun": {
    "cat": "shock",
