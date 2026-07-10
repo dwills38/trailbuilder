@@ -30,6 +30,13 @@
     --err:#c23b3b; --err-bg:#fbeaea; --chip:#eef1ec;
   }
   *{box-sizing:border-box}
+  /* [hidden] hardening: several rules set an explicit display (.acctbox{display:flex},
+     the ≤768px .btn,.chip{display:inline-flex} touch-target rule) which silently overrides
+     the hidden attribute — on phones the logged-out Garage/Inventory/Log out/forum buttons
+     leak visible and the nowrap .acctbox row forces horizontal overflow. Author display
+     always beats the UA's [hidden]{display:none}, so pin it. (Dialogs are unaffected:
+     they toggle via the open attribute, not hidden.) */
+  [hidden]{display:none!important}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
        color:var(--ink);background:var(--bg);line-height:1.45}
   header{background:linear-gradient(135deg,var(--brand-d),var(--brand));color:#fff;padding:22px 24px}
