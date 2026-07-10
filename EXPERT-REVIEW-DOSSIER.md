@@ -49,6 +49,15 @@ spacing must match rear hub (Boost 148 vs SuperBoost 157 mismatch = error).
 **Tier:** error. **Note:** the front check can't currently fire (every catalog part is
 Boost 110) — it's pinned by synthetic tests for the day the vocabulary widens.
 **Ask:** SuperBoost frame + Boost rear wheel = error with no adapter path — correct?
+**Review verdict (2026-07-10): ✓ CONFIRMED — the error tier stands, no change.** Verdict
+received via Douglas with the adapter-kit evidence in hand: the pre-research pass surfaced
+(and the coordinator live-verified) the Problem Solvers Super Booster kit — "adapts a 148 x
+12mm rear hub to a 157 x 12mm spaced frame (Boost to SuperBoost)", "Requires re-dishing the
+rear wheel 4.5mm to the non-drive side". A 4.5 mm re-dish is wheel-building work, not a
+bolt-on adapter, so the red is kept rather than softened to a fix-carrying warning. The Ask's
+"no adapter path" wording is superseded: a purchasable path EXISTS; it is deliberately not
+treated as adapter-tier. (Optional future nicety, not required by this verdict: name the kit
+in the error message.)
 
 ### 3. Drivetrain family — three checks
 - **3a. One system, one speed count** across shifter/derailleur/cassette/chain
