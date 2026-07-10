@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-10T18:05:22.818Z",
+ "updated": "2026-07-10T19:29:35.115Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -150,19 +150,9 @@
   "rw-weareone-strife-275-148-xd",
   "rw-weareone-strife-275-157-xd",
   "sh-xfusion-h3c-185x50-trun",
-  "fk-rockshox-zeb-select-29-170",
-  "fk-rockshox-zeb-select-29-160",
-  "fk-rockshox-lyrik-select-29-160",
-  "fk-rockshox-lyrik-select-29-150",
-  "fk-rockshox-pike-select-29-140",
-  "fk-rockshox-pike-select-29-130",
   "fk-rockshox-pike-base-29-140",
   "fk-rockshox-pike-base-29-120",
   "fk-rockshox-pike-base-275-130",
-  "fk-fox-36-performance-elite-29-160",
-  "fk-fox-36-performance-elite-29-150",
-  "fk-fox-38-performance-elite-29-180",
-  "fk-fox-38-performance-elite-29-170",
   "fk-dvo-onyx-sc-d1-29-160",
   "fk-dvo-onyx-sc-d1-29-180",
   "fk-dvo-onyx-sc-d1-275-160",
@@ -186,107 +176,23 @@
   "fk-dvo-onyx-d1-38-29-180",
   "fk-dvo-onyx-dc-275-203",
   "fk-dvo-onyx-dc-29-203",
-  "fk-canecreek-helm-mkii-air-29-120",
-  "fk-canecreek-helm-mkii-air-29-130",
-  "fk-canecreek-helm-mkii-air-29-140",
-  "fk-canecreek-helm-mkii-air-29-150",
-  "fk-canecreek-helm-mkii-air-275-130",
-  "fk-canecreek-helm-mkii-air-275-140",
-  "fk-canecreek-helm-mkii-air-275-150",
-  "fk-canecreek-helm-mkii-air-275-160",
-  "fk-canecreek-helm-mkii-air-275-170",
   "fk-ext-era-v2-29-140",
   "fk-ext-era-v2-29-150",
   "fk-ext-era-v2-29-160",
   "fk-ext-vaia-29-200",
   "fk-ext-vaia-29-170",
-  "fk-formula-selva-s-29-120",
-  "fk-formula-selva-s-29-130",
-  "fk-formula-selva-s-29-140",
-  "fk-formula-selva-s-29-150",
-  "fk-formula-selva-s-29-170",
-  "fk-formula-selva-s-275-120",
-  "fk-formula-selva-s-275-130",
-  "fk-formula-selva-s-275-140",
-  "fk-formula-selva-s-275-150",
-  "fk-formula-selva-s-275-160",
-  "fk-formula-selva-s-275-170",
-  "fk-formula-selva-s-275-180",
-  "fk-rockshox-domain-rc-29-150",
-  "fk-rockshox-domain-rc-29-160",
-  "fk-rockshox-domain-rc-29-180",
-  "fk-rockshox-domain-rc-275-150",
-  "fk-rockshox-domain-rc-275-160",
-  "fk-rockshox-domain-rc-275-170",
-  "fk-rockshox-domain-rc-275-180",
   "fk-rockshox-domain-gold-r-29-160",
   "fk-rockshox-domain-gold-r-275-160",
   "fk-rockshox-domain-gold-r-29-180",
-  "fk-manitou-machete-29-80",
-  "fk-manitou-machete-29-120",
-  "fk-manitou-machete-275-80",
-  "fk-manitou-machete-275-120",
-  "fk-xfusion-trace-36-hlr-29-140",
-  "fk-xfusion-trace-36-hlr-29-160",
-  "fk-rockshox-sid-sl-ultimate-29-110",
-  "fk-rockshox-lyrik-ultimate-275-160",
-  "fk-rockshox-pike-ultimate-275-140",
-  "fk-mrp-ribbon-lt-29-160",
-  "fk-mrp-ribbon-lt-29-140",
-  "fk-mrp-ribbon-lt-29-150",
-  "fk-mrp-ribbon-lt-29-170",
-  "fk-rockshox-pike-ultimate-29-120",
-  "fk-rockshox-pike-ultimate-275-120",
-  "fk-rockshox-pike-ultimate-275-130",
-  "fk-rockshox-lyrik-ultimate-29-140",
-  "fk-rockshox-lyrik-ultimate-29-150",
-  "fk-rockshox-lyrik-ultimate-275-140",
-  "fk-rockshox-lyrik-ultimate-275-150",
-  "fk-rockshox-sid-ultimate-29-110",
-  "fk-rockshox-zeb-ultimate-29-150",
-  "fk-rockshox-zeb-ultimate-275-150",
-  "fk-rockshox-zeb-ultimate-275-160",
-  "fk-rockshox-zeb-ultimate-275-180",
   "fk-fox-34-factory-29-120",
   "fk-fox-34-factory-29-130",
-  "fk-fox-36-factory-29-130",
-  "fk-fox-36-factory-29-140",
-  "fk-fox-36-factory-29-150",
-  "fk-fox-36-factory-29-170",
-  "fk-fox-36-factory-275-130",
-  "fk-fox-36-factory-275-140",
-  "fk-fox-36-factory-275-150",
-  "fk-fox-36-factory-275-160",
-  "fk-fox-36-factory-275-170",
   "fk-fox-38-factory-29-150",
   "fk-fox-38-factory-275-150",
-  "fk-fox-38-factory-275-160",
-  "fk-fox-38-factory-275-170",
-  "fk-fox-38-factory-275-180",
   "fk-fox-36-sl-factory-29-120",
   "fk-fox-36-sl-factory-29-130",
   "fk-fox-36-sl-factory-29-140",
   "fk-fox-32-sc-factory-29-100",
   "fk-fox-32-sc-factory-275-100",
-  "fk-xfusion-rc32-275-80",
-  "fk-xfusion-rc32-275-100",
-  "fk-xfusion-rc32-275-120",
-  "fk-xfusion-rc32-275-130",
-  "fk-xfusion-rc32-29-80",
-  "fk-xfusion-rc32-29-100",
-  "fk-xfusion-rc32-29-120",
-  "fk-xfusion-rc32-29-130",
-  "fk-xfusion-sweep-boost-hlr-275-120",
-  "fk-xfusion-sweep-boost-hlr-275-140",
-  "fk-xfusion-sweep-boost-hlr-275-160",
-  "fk-xfusion-slide-boost-hlr-29-100",
-  "fk-xfusion-slide-boost-hlr-29-120",
-  "fk-xfusion-slide-boost-hlr-29-140",
-  "fk-xfusion-vengeance-38-29-160",
-  "fk-xfusion-vengeance-38-29-170",
-  "fk-xfusion-vengeance-38-29-180",
-  "fk-xfusion-rv1-38-dh-29-200",
-  "fk-xfusion-rv1-38-dh-275-200",
   "hb-thomson-elite-35",
   "hb-thomson-elite-trail-318",
   "hb-title-ah1-318",
@@ -321,32 +227,18 @@
   "pd-look-trailroc",
   "pd-vpcomponents-x93",
   "pd-vpcomponents-vx6001",
-  "bk-sram-level-ultimate-fm",
   "bk-magura-mt8-sl-fm",
-  "bk-sram-maven-silver",
-  "bk-sram-maven-bronze",
-  "bk-shimano-xt-m8100",
-  "bk-shimano-slx-m7100",
-  "bk-shimano-deore-m6100",
   "bk-trp-quadiem",
-  "bk-trickstuff-direttissima",
-  "bk-trickstuff-piccola-carbon",
   "bk-trp-evo-expert",
   "bk-trp-evo-comp",
-  "bk-trp-slate-t4",
-  "bk-clarks-m4",
   "bk-hope-evo-gr4",
   "bk-hope-evo-tr4",
   "ro-sram-hs2-160-6b",
   "ro-sram-centerline-220-6b",
   "ro-sram-centerline-200-cl",
-  "ro-hope-floating-180-6b",
-  "ro-trickstuff-dachle-180-6b",
   "ro-galfer-203-6b",
   "ro-shimano-rtmt800-160-cl",
-  "ro-shimano-rtmt900-160-cl",
   "ro-shimano-smrt76-160-6b",
-  "ro-trp-220-6b",
   "ro-sram-hs2-160-cl",
   "ro-sram-hs2-180-cl",
   "ro-sram-hs2-200-cl",
@@ -360,25 +252,8 @@
   "ro-sram-centerline-x-160-6b",
   "ro-sram-centerline-x-180-6b",
   "ro-sram-centerline-x-180-cl",
-  "ro-hope-floating-140-6b",
-  "ro-hope-floating-160-6b",
-  "ro-hope-floating-200-6b",
-  "ro-hope-floating-140-cl",
-  "ro-hope-floating-160-cl",
-  "ro-hope-floating-200-cl",
-  "ro-hope-floating-203-cl",
-  "ro-hope-floating-220-cl",
   "ro-shimano-rtmt800-140-cl",
-  "ro-shimano-rtmt900-140-cl",
-  "ro-shimano-rtmt900-180-cl",
   "ro-shimano-smrt76-180-6b",
-  "ro-trp-tr25-140-cl",
-  "ro-trp-tr33-140-6b",
-  "ro-trp-tr33-160-6b",
-  "ro-trp-tr33-180-6b",
-  "ro-trp-tr33-203-6b",
-  "ro-trp-tr42-180-6b",
-  "ro-trp-tr42-203-6b",
   "ro-formula-monolithic-160-6b",
   "ro-formula-monolithic-180-6b",
   "ro-formula-monolithic-203-6b",
@@ -406,31 +281,7 @@
   "ro-galfer-shark-180-6b",
   "ro-galfer-shark-203-6b",
   "ro-galfer-shark-223-6b",
-  "ro-shimano-smrt66-160-6b",
-  "ro-shimano-smrt66-180-6b",
-  "ro-shimano-smrt66-203-6b",
-  "ro-shimano-smrt66-220-6b",
-  "ro-shimano-smrt30-160-cl",
-  "ro-shimano-smrt30-180-cl",
   "ro-shimano-smrt30-203-cl",
-  "ro-shimano-smrt56-160-6b",
-  "ro-shimano-smrt56-180-6b",
-  "ro-trp-rs06e-180-6b",
-  "ro-trp-rc04e-180-cl",
-  "ro-trp-rc04e-203-cl",
-  "ro-trp-rs02m-140-6b",
-  "ro-trp-rs02m-160-6b",
-  "ro-trp-rs02m-180-6b",
-  "ro-trp-rs02m-203-6b",
-  "ro-trp-rc03m-160-cl",
-  "ro-trp-rc03m-180-cl",
-  "ro-trp-rc03m-203-cl",
-  "ro-trp-rs01m-140-6b",
-  "ro-trp-rs01m-160-6b",
-  "ro-trp-rs01m-180-6b",
-  "ro-trp-rs01m-203-6b",
-  "ro-trp-tr43-160-6b",
-  "ro-trp-tr43-203-6b",
   "sft-microshift-advent-x-m9605",
   "sft-microshift-advent-m9295",
   "sft-shimano-cues-u6000-11",
@@ -1167,26 +1018,26 @@
   },
   "fk-rockshox-zeb-ultimate-29-170": {
    "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-07T17:57:09.083Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/rockshox/models/fs-zeb-ult-b1",
    "note": "Weight bar not met: RockShox's own model page (sram.com/en/rockshox/models/fs-zeb-ult-a3) only states a baseline weight tied to the 190mm-travel/Maxle-Stealth config, not a distinct 170mm figure; this is the same weight-ambiguity previously logged for this fork family (2550g page figure vs ~2100g cited elsewhere). Interfaces (axle Boost110, tapered steerer, PM, maxRotorF 220, minRotorF 200) match the manufacturer page and were left as-is -- already correct, no edit needed."
   },
   "fk-fox-38-factory-29-170": {
    "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-07T17:57:09.133Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/my27-fox-38-factory",
    "note": "Weight bar not met: ridefox.com product page only gives a starting-weight figure tied to a specific config (180mm/Grip X2/Kabolt-X), not a clean per-travel weight; the linked FOX spec-sheet detail is an image/PDF not extractable via fetch. Possible spec correction (NOT applied -- low confidence from a summarized fetch, needs a direct page read): brake mount may be '200mm direct PM, up to 230mm compatible' vs catalog's maxRotorF:220 -- flag for a follow-up session with real spec-sheet access, do not change without confirming."
   },
   "fk-fox-38-factory-29-180": {
    "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-07T17:57:09.183Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/my27-fox-38-factory",
    "note": "Same as fk-fox-38-factory-29-170: no clean per-travel manufacturer weight fetchable; spec-sheet PDFs not extractable via WebFetch. Possible maxRotorF discrepancy (220 vs page's 'up to 230 compatible') flagged, not applied -- needs direct verification."
   },
   "fk-rockshox-lyrik-ultimate-29-160": {
@@ -1199,10 +1050,10 @@
   },
   "fk-rockshox-zeb-ultimate-275-170": {
    "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:19:48.607Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/rockshox/models/fs-zeb-ult-b1",
    "note": "Same class-wide RockShox weight-ambiguity already logged for this fork family: sram.com's ZEB model page only gives one weight tied to a different config (190mm/29in), not this 27.5/170 row. Bar not met."
   },
   "fk-ohlins-rxf38-m2-29-170": {
@@ -1239,10 +1090,10 @@
   },
   "fk-rockshox-zeb-ultimate-29-180": {
    "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:19:48.657Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/rockshox/models/fs-zeb-ult-b1",
    "note": "Same as the 275/170 sibling: no clean per-travel weight on the ZEB model page. Bar not met."
   },
   "fk-ext-era-v2-29-170": {
@@ -1271,10 +1122,10 @@
   },
   "fk-rockshox-domain-rc-29-170": {
    "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:21:47.479Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/rockshox/models/fs-domn-grc-c1",
    "note": "sram.com spec-sheet PDFs (2022/2023/2024 Front Suspension Specifications) exist but weight wasn't extractable from the text-only fetch of those documents. Same RockShox weight-ambiguity pattern already logged repeatedly in this job."
   },
   "fk-mrp-ribbon-air-29-160": {
@@ -1287,18 +1138,18 @@
   },
   "fk-srsuntour-durolux-r2c2-29-170": {
    "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:21:47.629Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
+   "source": "https://www.srsuntour.com/products/fork/Durolux-5834.html",
    "note": "SR Suntour's site only gives a line-wide 'starting from 2250g' figure for the whole Durolux family, not a config-specific weight for this row. Bar not met."
   },
   "fk-xfusion-trace-36-hlr-29-170": {
    "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:21:47.679Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
+   "source": "https://www.xfusionshox.com/products_detail/60.htm",
    "note": "x-fusionshox.com 500-errors on fetch; the one third-party figure found (2000g) is a search-summary-only lb-to-g conversion, never confirmed on a fetched page. Bar not met."
   },
   "fk-dtswiss-f-535-one-29-160": {
@@ -1311,10 +1162,10 @@
   },
   "fk-push-nineone-coil-29-160": {
    "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:21:47.784Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
+   "source": "https://www.pushindustries.com/products/nine-point-one",
    "note": "PUSH's current site shows 'Nine One V2' -- the catalog's plain 'Nine.One Coil' may be an older generation with no live page. No weight found for either. Bar not met."
   },
   "hb-renthal-fatbar-35": {
@@ -2024,26 +1875,26 @@
   },
   "bk-sram-code-rsc": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:54:08.700Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/service/models/db-code-rsc-a1",
    "note": "sram.com model/service pages list no weight for Code RSC. Third-party measured figures conflict wildly by what's included (294g caliper-only vs 411-443g full lever+caliper+hose+pads setups) -- not safe to pick one without knowing which config this catalog row represents. Bar not met."
   },
   "bk-sram-code-stealth": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:54:08.749Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/service/models/db-code-slv-c1",
    "note": "Same issue as Code RSC, plus Code Stealth itself splits into Ultimate/Silver/Bronze tiers with meaningfully different weights (291-628g depending on config and what's measured) -- this generic 'Code Stealth' row doesn't match one specific tier. Bar not met."
   },
   "bk-shimano-xt-m8120": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:58:18.641Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "Same systemic bike.shimano.com 403-block already logged repeatedly this session (pedals, rotors, shifters). No usable third-party figure found either. Bar not met."
   },
   "bk-hayes-dominion-a4": {
@@ -2064,10 +1915,10 @@
   },
   "bk-shimano-slx-m7120": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:58:18.691Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "Same bike.shimano.com blocker. Third-party 'complete set' figures (~917g for front+rear) don't cleanly decompose to a single-brake weight matching this row. Bar not met."
   },
   "bk-sram-maven-ultimate": {
@@ -2080,10 +1931,10 @@
   },
   "bk-hope-tech-4-v4": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:54:08.796Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://www.hopetech.com/_repository/1/documents/BRAKE_Tech_Book.pdf",
    "note": "hopetech.com's Tech 4 V4 page gives GBP RRP but no weight, piston count, or mount type. Bar not met."
   },
   "bk-trp-dhr-evo": {
@@ -2104,10 +1955,10 @@
   },
   "bk-shimano-saint-m820": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:58:45.659Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established pattern this session across pedals/rotors/shifters/brakes). Not re-attempting individually."
   },
   "bk-shimano-xtr-m9120": {
@@ -2120,10 +1971,10 @@
   },
   "bk-shimano-zee-m640": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:58:45.862Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2020-2021_Specifications_v032_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established pattern this session across pedals/rotors/shifters/brakes). Not re-attempting individually."
   },
   "bk-magura-mt5": {
@@ -2144,10 +1995,10 @@
   },
   "bk-hope-tech-4-e4": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:00:57.077Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://www.hopetech.com/_repository/1/documents/BRAKE_Tech_Book.pdf",
    "note": "Same Hope pattern as Tech 4 V4 and AM stem: no weight published on their product pages. Bar not met."
   },
   "bk-trp-trail-evo": {
@@ -2160,26 +2011,26 @@
   },
   "bk-trickstuff-maxima": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:00:57.032Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://www.trickstuff.com/en/brakes/brake-systems/maxima",
    "note": "trickstuff.de redirects to trickstuff.com homepage, no product detail page reachable via fetch; a 301g search-summary figure (with hose/pads, no rotor) was never confirmed on a fetched page. Bar not met."
   },
   "bk-sram-db8": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:00:57.131Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/sram/models/db-db8-a1",
    "note": "sram.com model page has a full spec table but no weight field at all (confirmed via direct fetch), consistent with SRAM sometimes omitting weight (Code/DB8) vs sometimes publishing it (Maven, G2 RSC). Bar not met."
   },
   "bk-shimano-deore-m6120": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:58:45.963Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established pattern this session across pedals/rotors/shifters/brakes). Not re-attempting individually."
   },
   "bk-magura-mt-trail-sport": {
@@ -2232,10 +2083,10 @@
   },
   "ro-hope-floating-203-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:24:58.070Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
    "note": "Hope's product page only states weight for the 180mm size (146g); the 203mm figure isn't listed, and the linked Rotor Tech Book PDF is image-based/unreadable via fetch. Bar not met."
   },
   "ro-magura-mdrp-203-6b": {
@@ -2264,10 +2115,10 @@
   },
   "ro-trp-203-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:38:32.807Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://trpcycling.com/products/rs05e-race-rotor-2-3mm-203-220mm-1",
    "note": "TRP's 203mm rotor line splits into several distinct models (TR25, TR33, TR42, TR43, RC04E, RS05E, RS06E) with weights ranging 196-242g -- this generic 'TRP 203mm' catalog row doesn't match any single real SKU. Bar not met without picking one first."
   },
   "ro-magura-mdrp-220-6b": {
@@ -2280,10 +2131,10 @@
   },
   "ro-hope-floating-220-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:38:32.907Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
    "note": "Hope's floating-6-bolt page doesn't list a 220mm weight in fetched content (only partial data extracted); the tech-book PDF is unreadable via fetch. Bar not met."
   },
   "ro-sram-centerline-180-cl": {
@@ -2296,10 +2147,10 @@
   },
   "ro-trickstuff-dachle-203-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:38:33.012Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://www.trickstuff.com/en/brake-parts-and-tools/brake-discs/daechle-disc-ul",
    "note": "No weight found for this rotor anywhere; trickstuff.de's installation-instructions PDF is the only technical doc surfaced and wasn't extractable via fetch. Bar not met."
   },
   "ro-formula-220-6b": {
@@ -2912,10 +2763,10 @@
   },
   "ro-shimano-rtmt900-203-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:38:32.704Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "Shimano's RT-MT900 (XTR) appears to top out at 203mm (140/160/180/203mm sizes found) -- no 220mm size turned up anywhere, manufacturer or retailer. Likely a nonexistent SKU in this catalog row; flag for a data-entry correction rather than guessing a weight for a size that may not exist."
   },
   "dp-fox-transfer-factory-316-180": {
@@ -3536,18 +3387,18 @@
   },
   "fk-rockshox-zeb-ultimate-29-160": {
    "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-08T18:37:33.797Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/rockshox/models/fs-zeb-ult-b1",
    "note": "Re-fetched sram.com model page fs-zeb-ult-a1: interfaces all confirm (15x110 Boost, tapered steerer, 160 is a listed travel option, maxRotor 220 / minRotor 200). But maker publishes only ONE weight (2265g for 190mm/1.5-taper config), not per-travel; no editorial teardown measured the exact 160mm 29 SKU (reviews measured 170mm=2358g or cite the 190mm claim). Weight wall - interfaces manufacturer-sourced but 160mm weight unverifiable."
   },
   "fk-fox-38-factory-29-160": {
    "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-08T18:42:50.417Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
+   "source": "https://ridefox.com/products/my27-fox-38-factory",
    "note": "Weight wall. ridefox.com/products/fox-38-factory-grip-x2 lists only a single STARTING WEIGHT for the 180 config (2360g), not a 160-specific weight; no editorial teardown measured the exact 160mm 29 SKU. NOTE: current ridefox page is the newer 2027 GripX2 gen (200mm direct post mount, $1,369) whereas our cataloged rows are the 2025 gen (180mm direct mount per FOX tech DB, $1,299) - minRotorF:180 is CORRECT for the cataloged generation, not an error. Different gen = cannot cross-verify the sample row against the current page."
   },
   "fk-ohlins-rxf38-m2-29-160": {
@@ -3600,10 +3451,10 @@
   },
   "fk-rockshox-pike-ultimate-29-130": {
    "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-08T18:50:23.104Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/rockshox/models/fs-pike-ult-c2",
    "note": "Weight wall for 130. sram.com fs-pike-ult-c2 states a weight only for the 29/140 config (1887g), not 130; no editorial teardown of the exact 130 SKU. Interfaces confirmed + corrected the shared maxRotorF error (200->220 per maker) and added minRotorF:180 + price 1149 (correction without verification). Left unverified (sample weight)."
   },
   "fk-rockshox-pike-ultimate-29-140": {
@@ -3632,10 +3483,10 @@
   },
   "fk-rockshox-sid-sl-ultimate-29-100": {
    "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-08T18:52:44.861Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://www.sram.com/en/rockshox/models/fs-sids-ult3-e1",
    "note": "sram.com model page fs-sids-ult2-d1 still 404s to WebFetch (bot-blocked; the SID SL service/model pages remain unfetchable). Weight is off-road.cc review-claimed (1326g), not maker-published nor a clean editorial measured figure for the exact 100mm SKU (their 1385g test was uncut-steerer + axle). Interfaces already documented as sample; maxRotorF:180 left as the conservative documented value (a search summary cited 200 but no fetchable maker page confirms - not acting on a summary). Weight wall + unfetchable page."
   },
   "fk-fox-40-factory-29-203": {
@@ -3648,10 +3499,10 @@
   },
   "fk-marzocchi-bomber-58-275-200": {
    "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-08T18:55:23.311Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
+   "source": "https://bike.marzocchi.com/products/bomber-58",
    "note": "Weight wall. Re-fetched bike.marzocchi.com/products/bomber-58: all interfaces confirm and MATCH the row (27.5, 20x110 DH non-Boost, 1-1/8 straight DC, max rotor 203, $1,149) but the page lists NO weight. No editorial teardown measured it either (Vital lists N/A; Loam Wolf review gives no gram figure). Interfaces manufacturer-sourced/correct; weight stays sample, unverified."
   },
   "fk-fox-34-factory-29-140": {
@@ -4296,27 +4147,27 @@
   },
   "bk-shimano-xt-m8100": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T03:01:12.932Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-shimano-slx-m7100": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T03:01:12.932Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-shimano-deore-m6100": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T03:01:12.932Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-sram-level-silver-stealth-2p": {
    "cat": "brake",
@@ -4400,19 +4251,19 @@
   },
   "ro-hope-floating-180-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T03:01:12.932Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trickstuff-dachle-180-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T03:01:12.932Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trickstuff.com/en/brake-parts-and-tools/brake-discs/daechle-disc-ul",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-galfer-203-6b": {
    "cat": "rotor",
@@ -4432,11 +4283,11 @@
   },
   "ro-shimano-rtmt900-160-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T03:01:12.932Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-smrt76-160-6b": {
    "cat": "rotor",
@@ -4448,11 +4299,11 @@
   },
   "ro-trp-220-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T03:01:12.932Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/rs05e-race-rotor-2-3mm-203-220mm-1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-michelin-wildenduro-racingline-29-24-gs-ms": {
    "cat": "tire",
@@ -7496,83 +7347,83 @@
   },
   "fk-rockshox-zeb-select-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-zeb-sel-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-select-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-zeb-sel-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-select-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-lyrk-sel-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-select-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-lyrk-sel-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-select-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-pike-sel-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-select-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-pike-sel-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-performance-elite-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/my27-fox-36-factory-gripx2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-performance-elite-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/my27-fox-36-factory-gripx2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-38-performance-elite-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-38-performance-elite-grip-x2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-38-performance-elite-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-38-performance-elite-grip-x2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-marzocchi-bomber-z1-29-150": {
    "cat": "fork",
@@ -7784,75 +7635,75 @@
   },
   "fk-canecreek-helm-mkii-air-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/helm-mkii",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-canecreek-helm-mkii-air-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/helm-mkii",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-canecreek-helm-mkii-air-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/helm-mkii",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-canecreek-helm-mkii-air-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/helm-mkii",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-canecreek-helm-mkii-air-275-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/helm-mkii",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-canecreek-helm-mkii-air-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/helm-mkii",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-canecreek-helm-mkii-air-275-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/helm-mkii",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-canecreek-helm-mkii-air-275-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/helm-mkii",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-canecreek-helm-mkii-air-275-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canecreek.com/products/helm-mkii",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-ext-era-v2-29-140": {
    "cat": "fork",
@@ -7880,155 +7731,155 @@
   },
   "fk-formula-selva-s-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mountain-bike/selva-s/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-formula-selva-s-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mountain-bike/selva-s/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-formula-selva-s-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mountain-bike/selva-s/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-formula-selva-s-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mountain-bike/selva-s/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-formula-selva-s-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mountain-bike/selva-s/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-formula-selva-s-275-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mountain-bike/selva-s/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-formula-selva-s-275-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mountain-bike/selva-s/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-formula-selva-s-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mountain-bike/selva-s/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-formula-selva-s-275-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mountain-bike/selva-s/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-formula-selva-s-275-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mountain-bike/selva-s/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-formula-selva-s-275-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mountain-bike/selva-s/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-formula-selva-s-275-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mountain-bike/selva-s/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-domain-rc-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-domn-grc-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-domain-rc-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-domn-grc-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-domain-rc-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-domn-grc-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-domain-rc-275-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-domn-grc-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-domain-rc-275-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-domn-grc-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-domain-rc-275-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-domn-grc-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-domain-rc-275-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-domn-grc-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-mattoc-pro-29-110": {
    "cat": "fork",
@@ -8104,51 +7955,51 @@
   },
   "fk-manitou-machete-29-80": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/machete-29",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-machete-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/machete-29",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-machete-275-80": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/machete-29",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-machete-275-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/machete-29",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-trace-36-hlr-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/60.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-trace-36-hlr-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.114Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/60.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-mezzer-pro-29-150": {
    "cat": "fork",
@@ -8280,11 +8131,11 @@
   },
   "fk-rockshox-sid-sl-ultimate-29-110": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-sids-ult3-e1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-marzocchi-bomber-z2-29-120": {
    "cat": "fork",
@@ -8328,147 +8179,147 @@
   },
   "fk-rockshox-lyrik-ultimate-275-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-lyrk-ult-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-ultimate-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-pike-ult-c2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-mrp-ribbon-lt-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://mrpbike.com/products/ribbon-lt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-mrp-ribbon-lt-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://mrpbike.com/products/ribbon-lt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-mrp-ribbon-lt-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://mrpbike.com/products/ribbon-lt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-mrp-ribbon-lt-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://mrpbike.com/products/ribbon-lt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-ultimate-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-pike-ult-c2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-ultimate-275-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-pike-ult-c2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-ultimate-275-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-pike-ult-c2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-ultimate-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-lyrk-ult-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-ultimate-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-lyrk-ult-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-ultimate-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-lyrk-ult-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-ultimate-275-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-lyrk-ult-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-sid-ultimate-29-110": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-sid-ult3-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-ultimate-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-zeb-ult-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-ultimate-275-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-zeb-ult-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-ultimate-275-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-zeb-ult-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-ultimate-275-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-zeb-ult-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-34-factory-29-120": {
    "cat": "fork",
@@ -8488,75 +8339,75 @@
   },
   "fk-fox-36-factory-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://tech.ridefox.com/bike/owners-manuals/2979/fork--2025-36mm-or-38mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-factory-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://tech.ridefox.com/bike/owners-manuals/2979/fork--2025-36mm-or-38mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-factory-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://tech.ridefox.com/bike/owners-manuals/2979/fork--2025-36mm-or-38mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-factory-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://tech.ridefox.com/bike/owners-manuals/2979/fork--2025-36mm-or-38mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-factory-275-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://tech.ridefox.com/bike/owners-manuals/2979/fork--2025-36mm-or-38mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-factory-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://tech.ridefox.com/bike/owners-manuals/2979/fork--2025-36mm-or-38mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-factory-275-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://tech.ridefox.com/bike/owners-manuals/2979/fork--2025-36mm-or-38mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-factory-275-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://tech.ridefox.com/bike/owners-manuals/2979/fork--2025-36mm-or-38mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-factory-275-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://tech.ridefox.com/bike/owners-manuals/2979/fork--2025-36mm-or-38mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-38-factory-29-150": {
    "cat": "fork",
@@ -8576,27 +8427,27 @@
   },
   "fk-fox-38-factory-275-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/my27-fox-38-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-38-factory-275-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/my27-fox-38-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-38-factory-275-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/my27-fox-38-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-sl-factory-29-120": {
    "cat": "fork",
@@ -8640,155 +8491,155 @@
   },
   "fk-xfusion-rc32-275-80": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/78.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-rc32-275-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/78.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-rc32-275-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/78.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-rc32-275-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/78.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-rc32-29-80": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/78.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-rc32-29-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/78.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-rc32-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/78.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-rc32-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/78.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-sweep-boost-hlr-275-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/62.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-sweep-boost-hlr-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/62.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-sweep-boost-hlr-275-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/62.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-slide-boost-hlr-29-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/81.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-slide-boost-hlr-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/81.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-slide-boost-hlr-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/81.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-vengeance-38-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/108.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-vengeance-38-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/108.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-vengeance-38-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/108.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-rv1-38-dh-29-200": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/109.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-xfusion-rv1-38-dh-275-200": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/109.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-pnw-range-gen4-318": {
    "cat": "handlebar",
@@ -11952,11 +11803,11 @@
   },
   "bk-sram-level-ultimate-fm": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/globalassets/document-hierarchy/frame-fit-specifications/aftermarket/disc-brake-caliper-mounting-specifications-for-road-and-mtb.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-magura-mt8-sl-fm": {
    "cat": "brake",
@@ -11968,35 +11819,35 @@
   },
   "bk-sram-maven-silver": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/sram/models/db-mvn-slv-a1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-sram-maven-bronze": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/sram/models/db-mvn-brz-a1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-trickstuff-direttissima": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trickstuff.com/en/brakes/brake-systems/direttissima",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-trickstuff-piccola-carbon": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trickstuff.com/en/brakes/brake-systems/piccola-carbon",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-hayes-dominion-t4": {
    "cat": "brake",
@@ -12056,11 +11907,11 @@
   },
   "bk-trp-slate-t4": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trpbrakes.com/userfiles/slate_manual.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-tektro-orion-hdm745": {
    "cat": "brake",
@@ -12080,11 +11931,11 @@
   },
   "bk-clarks-m4": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.clarkscyclesystems.com/product-range/brake-systems/hydraulic-disc-brakes/m4-hydraulic-brake-3162.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-sram-hs2-160-cl": {
    "cat": "rotor",
@@ -12216,43 +12067,43 @@
   },
   "ro-hope-floating-140-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-hope-floating-160-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-hope-floating-200-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-hope-floating-140-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-hope-floating-160-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-hope-floating-180-cl": {
    "cat": "rotor",
@@ -12264,27 +12115,27 @@
   },
   "ro-hope-floating-200-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-hope-floating-203-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-hope-floating-220-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-magura-mdrp-180-cl": {
    "cat": "rotor",
@@ -12488,19 +12339,19 @@
   },
   "ro-shimano-rtmt900-140-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-rtmt900-180-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-smrt76-180-6b": {
    "cat": "rotor",
@@ -12536,59 +12387,59 @@
   },
   "ro-trp-tr25-140-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/tr25",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-tr33-140-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/tr33",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-tr33-160-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/tr33",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-tr33-180-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/tr33",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-tr33-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/tr33",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-tr42-180-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://eu.trpcycling.com/products/tr42",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-tr42-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://eu.trpcycling.com/products/tr42",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-formula-monolithic-160-6b": {
    "cat": "rotor",
@@ -12848,51 +12699,51 @@
   },
   "ro-shimano-smrt66-160-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-smrt66-180-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-smrt66-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-smrt66-220-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-smrt30-160-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-smrt30-180-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-smrt30-203-cl": {
    "cat": "rotor",
@@ -12904,19 +12755,19 @@
   },
   "ro-shimano-smrt56-160-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-smrt56-180-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-rs01e-180-6b": {
    "cat": "rotor",
@@ -12952,11 +12803,11 @@
   },
   "ro-trp-rs06e-180-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/rs06e-allround-rotor-2-3mm-180-223mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-rs06e-203-6b": {
    "cat": "rotor",
@@ -12976,123 +12827,123 @@
   },
   "ro-trp-rc04e-180-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/rc04e-2-3mm-180-203mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-rc04e-203-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/rc04e-2-3mm-180-203mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-rs02m-140-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/rs02m",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-rs02m-160-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/rs02m",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-rs02m-180-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/rs02m",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-rs02m-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/rs02m",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-rc03m-160-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/rc03m-1-8mm-160-203mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-rc03m-180-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/rc03m-1-8mm-160-203mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-rc03m-203-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/rc03m-1-8mm-160-203mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-rs01m-140-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/rs02m-1-8mm-140-203mm-copy",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-rs01m-160-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/rs02m-1-8mm-140-203mm-copy",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-rs01m-180-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/rs02m-1-8mm-140-203mm-copy",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-rs01m-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/rs02m-1-8mm-140-203mm-copy",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-tr43-160-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/tr43-1-8-160-203mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-tr43-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T19:29:35.115Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://trpcycling.com/products/tr43-1-8-160-203mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sft-microshift-advent-x-m9605": {
    "cat": "shifter",
