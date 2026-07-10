@@ -336,6 +336,29 @@ mutually incompatible; a lever may accept several standards; one matching lever 
 **The most valuable thing you can tell us is the misfit you see weekly that isn't anywhere
 in this document.**
 
+**Review verdict (2026-07-10): gaps DISPOSITIONED — the review is COMPLETE.** Per-gap
+(Douglas):
+- **BB as a real part/rule — "make it real": DONE same day** (rule 7 build-out, merged: `bb`
+  category + exact shell/spindle checks + 8 sourced rows).
+- **Under-forking — "should not be recommended, stick to the manufacturers suggested fork
+  travels": DONE same day** (sourced-strict rule 12: outside a published range = error;
+  min/design data sourced across ~15 makers). Re-affirmed.
+- **Post-mount native size — "use post-mount native size too": PROMOTED from delegated to a
+  real rule.** New frame-side native/minimum rotor floor (rule 10's frame twin, dormant until
+  maker-sourced; first known activation: Cotic Solaris' 180mm-only PM7 mount).
+- **Dropper insertion depth vs frame size — nice-to-have someday.** Backlog: most frames
+  already carry per-size `maxInsert`; needs the frame-size picker (the deferred `frameSize`
+  share-hash concept).
+- **Seatpost insertion vs curved/interrupted seat tubes — nice-to-have someday.** Backlog.
+- **Coil approval per frame — reviewer unsure.** The dormant rule stays exactly as built
+  (fires only on maker "not coil compatible" statements, never leverage-curve guesses).
+- **Front tire vs fork crown — "don't worry too much":** stays dormant as built.
+- **Tire too narrow for rim — "don't worry":** rule 14c stays dormant as built (maker floors
+  only, no data sourced unless it arrives incidentally).
+- **Chain length / ring size vs derailleur capacity — parked** ("don't worry").
+- **E-bike ratings — parked** ("we don't care about at all right now").
+**Open misfits not in this document: NONE reported** ("no open misfits I have seen").
+
 ## How to report
 
 Pre-deploy: annotate this file, or use the app's **⚐ Report a wrong verdict** button (any
