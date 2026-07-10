@@ -189,6 +189,19 @@ warns only when a frame carries a maker-published minimum (none does yet — del
 heuristic: high-pivot frames like the Dreadnought ship 154 mm travel with 170 forks, so a
 travel-based guess would false-fire).
 **Ask:** ~1° head-angle steepening per 20 mm is the number we quote — fair? Tier right?
+**Review verdict (2026-07-10): ~ SOURCED-STRICT tiers** — "stick with the manufacturers
+recommended size as compatible... any forks under or over what the manufacturer recommends
+should be incompatible" (Douglas), implementation choice confirmed as sourced-strict:
+where the maker publishes an APPROVED RANGE (`minForkTravel`, now sourced across ~15 makers —
+Ibis 150–170, Forbidden 160–180, HD6 180–190, SC V10 200–203...), a fork outside the range is
+a **hard ERROR in both directions** (12b promoted warning→error; over-max on range frames
+errors naming the range). Frames WITHOUT a published range keep the honest softer tiers: over
+rated max = warning (~40 frames' max is still a permissive sample — a red from a guessed
+number would be a false "won't fit"), and >20 mm under maker-stated design travel = the 12c
+warning (the 20 mm grace RETAINED for design-only frames: no maker prohibition = no red; e.g.
+Ibis approves 150 on a design-160 platform). Applied on branch `dossier-findings-13-14-16`.
+Still open for the mechanic: the ~1°/20 mm wording, and the Privateer "Max Fork Travel —
+200mm Dual Crown Forks" crown-type nuance (the engine doesn't model crown type).
 
 ### 13. Dropper vs seat tube — direction-aware + insertion nudge
 **Claims:** post bigger than the tube = error (physically impossible). Post SMALLER than
