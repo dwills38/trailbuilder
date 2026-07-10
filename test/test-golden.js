@@ -366,3 +366,11 @@ test('slotRequired: DH-discipline frame exempts the dropper slot (completeness o
 test('slotRequired: no frame chosen = universal default (all non-optional, non-altOf required)', function(){
   C.SLOTS.forEach(function(s){ eq(C.slotRequired(s, null), !s.optional && !s.altOf, s.key); });
 });
+test('slotRequired: integrated-cassette rear wheel exempts the cassette slot (completeness only)', function(){
+  var cassetteSlot = C.SLOTS.filter(function(s){ return s.key==='cassette'; })[0];
+  var lg1r = /** @type {any} */ (C.byId('rw-ethirteen-lg1r-29-150-xd'));
+  var normal = /** @type {any} */ (C.byId('rw-dtswiss-ex-1700-29'));
+  eq(C.slotRequired(cassetteSlot, null, lg1r), false, 'integrated wheel: cassette not required');
+  eq(C.slotRequired(cassetteSlot, null, normal), true, 'normal wheel: cassette still required');
+  eq(C.slotRequired(cassetteSlot, null), true, 'no wheel passed (2-arg callers keep the universal default)');
+});

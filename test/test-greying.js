@@ -127,6 +127,19 @@ test('REVIEW #7: on a mullet frame + SRAM cassette, the XD 27.5 rear wheel is gr
   eq(stateOf(bld, 'rw-dtswiss-e-1900-275-xd'), 'g');
   eq(stateOf(bld, 'rw-dtswiss-e-1900-275'), 'r');   // freehub mismatch is real for THIS config
 });
+/* Rule 6b dots (integrated-cassette wheels): before the 2026-07-10 correction
+   the LG1r rows carried freehub:XD/HG, so the first pairing below dotted a
+   FALSE GREEN - the built-in-cassette wheel physically takes no cassette. */
+test('rule 6b dot: every cassette previews RED once an integrated-cassette wheel is picked', function(){
+  eq(stateOf({rearWheel:'rw-ethirteen-lg1r-29-150-xd'}, 'ca-sram-xg1275'), 'r');   // the killed false green (XD-on-"XD")
+  eq(stateOf({rearWheel:'rw-ethirteen-lg1r-275-150-hg'}, 'ca-sram-pg1230'), 'r');  // and on the ex-HG duplicate row
+});
+test('rule 6b dot: the integrated-cassette wheel previews RED into a build with a cassette picked', function(){
+  eq(stateOf({cassette:'ca-sram-xg1275'}, 'rw-ethirteen-lg1r-29-150-xd'), 'r');
+});
+test('rule 6b dot: the integrated-cassette wheel previews GREEN into a cassette-less build (the info never dots)', function(){
+  eq(stateOf({frontWheel:'fw-ethirteen-lg1r-29'}, 'rw-ethirteen-lg1r-29-150-xd'), 'g');
+});
 test('a preset that swaps one conflict for another is RED, not green', function(){
   // Base build has a drivetrain-system mismatch (SRAM shifter + Shimano derailleur).
   // Applying the SRAM Eagle groupset fixes that mismatch but its XD cassette clashes

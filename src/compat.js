@@ -33,7 +33,7 @@
 var LABELS = {
   '29': '29in', '275': '27.5in', mullet: 'Mullet (29/27.5)',
   Boost148: 'Boost 148x12', SuperBoost157: 'SuperBoost 157x12', Boost110: 'Boost 15x110', '20x110': '20x110 Boost (DH)', '20x110-nonboost': '20x110 standard (DH, non-Boost)',
-  XD: 'SRAM XD', MicroSpline: 'Shimano Micro Spline', HG: 'Shimano HG',
+  XD: 'SRAM XD', MicroSpline: 'Shimano Micro Spline', HG: 'Shimano HG', integrated: 'Integrated 7-speed cassette',
   sixbolt: '6-bolt', CL: 'Center Lock',
   std: 'Standard eyelet', trunnion: 'Trunnion',
   tapered: 'Tapered (1.5-1.125)', 'straight-dc': 'Straight 1.125 (dual-crown)',
@@ -78,10 +78,14 @@ var WHEEL_CONFIG = { '29':{front:'29',rear:'29'}, '275':{front:'275',rear:'275'}
 /* Slot requiredness is a function of the selected frame (the DATA-MODEL-REVIEW
    section 4 design, IMPLEMENTED 2026-07-08 with the first hardtail/DH frames):
    hardtail => shock not required; DH-discipline frame => dropper not required
-   (race DH runs rigid posts; there is no seatpost category). This feeds ONLY
-   the UI completeness math ("N of M required parts") - `disciplines` still
-   never feeds checkBuild verdicts (rule 16 separately ERRORS a shock ON a
-   hardtail). See slotRequired() below GROUPS/SLOTS. */
+   (race DH runs rigid posts; there is no seatpost category). Extended
+   2026-07-10 with the first integrated-cassette wheels (e*thirteen LG1r DH):
+   rear wheel with freehub 'integrated' => cassette not required (the wheel
+   ships its own built-in 7-speed cassette). This feeds ONLY the UI
+   completeness math ("N of M required parts") - `disciplines` still never
+   feeds checkBuild verdicts (rule 16 separately ERRORS a shock ON a hardtail,
+   and rule 6b a cassette on an integrated-cassette wheel). See slotRequired()
+   below GROUPS/SLOTS. */
 /** @type {Group[]} */
 var GROUPS = [
   { key:'frame', label:'Frame', icon:'F', slots:[ {key:'frame', label:'Frame', cat:'frame'} ] },
@@ -136,17 +140,26 @@ var GROUPS = [
 /** @type {Slot[]} */
 var SLOTS = GROUPS.reduce(function(a,g){ return a.concat(g.slots.map(function(s){ return Object.assign({group:g.key}, s); })); }, /** @type {Slot[]} */ ([]));
 
-/* Is this slot required for a "complete" build, given the chosen frame?
-   UI-completeness only - never a fit verdict. No frame chosen = the universal
-   default (every non-optional slot required). */
-/** @param {Slot} slot @param {Part|null|undefined} frame @returns {boolean} */
-function slotRequired(slot, frame){
+/* Is this slot required for a "complete" build, given the chosen frame (and,
+   for the cassette slot, the chosen rear wheel)? UI-completeness only - never
+   a fit verdict. No frame chosen = the universal default (every non-optional
+   slot required). rearWheel is the EFFECTIVE rear wheel (a complete-wheel
+   part, or effectiveWheel()'s hub+rim merge - callers pass
+   effectiveWheel(build,'rear')): freehub 'integrated' means the wheel ships
+   its own built-in 7-speed cassette (e*thirteen LG1r DH), so the cassette
+   slot stops counting toward completeness - rule 6b separately hard-errors a
+   cassette that IS picked, and drops an info so the empty slot reads as
+   by-design. Omitting the argument keeps the universal default (2-arg
+   callers unchanged). */
+/** @param {Slot} slot @param {Part|null|undefined} frame @param {EffectiveWheel|null} [rearWheel] @returns {boolean} */
+function slotRequired(slot, frame, rearWheel){
   if(slot.optional) return false;
   if(slot.altOf) return false;   // an alternate-path slot (e.g. frontHub/frontRim) is never independently required - only its altOf target counts, via wheelPositionFilled()
   if(frame && frame.cat === 'frame'){
     if(slot.key === 'shock' && frame.suspension === 'hardtail') return false;
     if(slot.key === 'dropper' && (frame.disciplines || []).indexOf('dh') >= 0) return false;
   }
+  if(rearWheel && slot.key === 'cassette' && rearWheel.freehub === 'integrated') return false;
   return true;
 }
 
@@ -4023,8 +4036,19 @@ function checkBuild(build){
   /* 5. Cassette range vs derailleur capacity */
   if(cassette && derailleur && cassette.maxCog>derailleur.maxCog) err('cassette-capacity', ['cassette','derailleur'], 'Cassette too big: '+cassette.maxCog+'T cassette exceeds the '+nameOf(derailleur)+' max of '+derailleur.maxCog+'T.');
 
-  /* 6. Freehub: cassette vs rear wheel */
-  if(cassette && rW && cassette.freehub!==rW.freehub) err('freehub', ['cassette','rearWheel'], 'Freehub mismatch: '+nameOf(cassette)+' needs a '+L(cassette.freehub)+' freehub, but Rear wheel has '+L(/** @type {string} */ (rW.freehub))+'.');
+  /* 6. Freehub: cassette vs rear wheel. 6b (2026-07-10): freehub 'integrated'
+        = the wheel's driver IS a built-in 7-speed (9-24T) cassette with no
+        freehub body at all (e*thirteen LG1r DH - "Freehub Mount: Integrated
+        7 Speed Cassette"), so ANY picked cassette is a hard error in its own
+        words (nothing mounts; no adapter tier exists) - it replaces the
+        generic mismatch, which would read as just another wrong-spline pick.
+        With no cassette picked, an info marks the empty slot as by-design
+        (slotRequired exempts it from completeness for the same reason). */
+  if(cassette && rW && rW.freehub==='integrated')
+    err('freehub-integrated', ['cassette','rearWheel'], 'Integrated cassette: Rear wheel has a built-in 7-speed (9-24T) cassette in place of a freehub body - '+nameOf(cassette)+' cannot mount, and no adapter exists.');
+  else if(cassette && rW && cassette.freehub!==rW.freehub) err('freehub', ['cassette','rearWheel'], 'Freehub mismatch: '+nameOf(cassette)+' needs a '+L(cassette.freehub)+' freehub, but Rear wheel has '+L(/** @type {string} */ (rW.freehub))+'.');
+  if(!cassette && rW && rW.freehub==='integrated')
+    info('freehub-integrated', ['rearWheel'], 'Integrated cassette: Rear wheel includes its own 7-speed (9-24T) cassette - no separate cassette is needed; the maker states it works with 10 and 11 speed chains from both Shimano and SRAM.');
 
   /* 7. Crank / BB. With a real BB picked, both interfaces are exact checks
         (dossier rule 7 review 2026-07-10 - the BB category exists so
