@@ -297,9 +297,14 @@ mutually incompatible; a lever may accept several standards; one matching lever 
    The pinning test stays the guard.
 2. **52T-max derailleur + 10-50 cassette: NO error** (see rule 5 — SRAM documents backward
    compatibility; an auditor's proposed rule was refuted and recorded).
+   **Review verdict (2026-07-10): ✓ AGREED — the recorded refutation stands.** Verdict via Douglas.
 3. **Ride discipline (XC/trail/enduro/DH) NEVER gates fit** — a DH tire physically fits an
    XC bike. Disciplines are filter/annotation only.
+   **Review verdict (2026-07-10): ✓ CORRECT — "it has more to do with frame selection"**
+   (Douglas): discipline is a choosing-the-bike concern, not a part-fit one; the
+   filter-only modeling stands.
 4. **Pedals: no compat rules** — 9/16" thread fits every crank.
+   **Review verdict (2026-07-10): ✓ CORRECT.** Verdict via Douglas.
 
 ## What "verified" means in the data
 
