@@ -117,10 +117,20 @@ var VOCAB = {
   pedalStyle:   ['flat', 'clip', 'hybrid'],    // widened 2026-07-08 (catalog-pedals-breadth-2): real dual-sided flat/clip pedals exist
                                                 // (Crankbrothers Double Shot 3, HT D1/GD1) - a "market-complete" flat/clip split was
                                                 // wrong. Pedals still need no compat rule (9/16"-20 universal).
-  /* SHIS head-tube capture pair (upper/lower) - ILLUSTRATIVE list, extend as
-     sourced (the fact-check itself had to add ZS56/28.6, RAAW's own upper).
-     Capture-only for a future headset category; rule 11 keeps consuming the
-     `headset` steerer-fit field, whose semantics stay pinned. */
+  /* S.H.I.S. codes (Cane Creek's Standardized Headset Identification System,
+     canecreek.com - the definitive doc for the standard). Shared by the frame
+     capture pair (headTubeUpper/headTubeLower) AND the headset category's
+     upper/lower assemblies. Anatomy: the token BEFORE the slash is the
+     head-tube side (cup family EC/ZS/IS + bore mm - the frame fact); the
+     number AFTER it is the steerer side at that assembly (28.6 = 1-1/8in
+     steerer OD at the upper bearing, 40 = the 1.5in crown race seat, 30 =
+     the 1-1/8in crown race seat - none sourced yet, joins with the first
+     real straight-steerer headset row). Rule 20b compares BORE TOKENS only
+     (the frame backfill's suffixes assume the common tapered assembly - a
+     straight-dc frame like the Supreme DH still records ZS56/40, so a
+     full-code match would false-red a real DH headset). ILLUSTRATIVE list,
+     extend as sourced. Rule 11 keeps consuming the `headset` steerer-fit
+     field, whose semantics stay pinned. */
   headTube:     ['ZS44/28.6', 'ZS56/28.6', 'ZS56/40', 'IS41/28.6', 'IS42/28.6', 'IS52/40', 'EC34/28.6', 'EC44/40'],
   /* Tire SKU axes (DATA-MODEL-REVIEW section 3 item 5): brand-NATIVE names, not a
      cross-brand toughness tier. Maxxis values seeded first; Schwalbe /
@@ -283,6 +293,16 @@ var SCHEMA = {
      spindle = the crank interface its bore takes (crankBb vocab). Both are
      exact-match engine checks (rule 7) once a BB is picked. */
   bb: { shell:{type:'string',vocab:'frameBb'}, spindle:{type:'string',vocab:'crankBb'} },
+  /* headset = the bearing assemblies that mount the fork's steerer in the head
+     tube (headset-category pass, 2026-07-10; the bb category is the template).
+     upper/lower = the assemblies' S.H.I.S. codes (see the headTube vocab note
+     for the code anatomy); steerer = the assembled headset's steerer
+     acceptance, same vocab as fork.steerer so rule 20a's equality check stays
+     in lockstep. A cross-rule below rejects a steerer value that contradicts
+     the codes' steerer-side suffixes. v1 = COMPLETE headsets only (one
+     purchasable upper+lower SKU - the flat-SKU model); separate top/bottom
+     assemblies and angle-adjust headsets are out of scope until modeled. */
+  headset: { upper:{type:'string',vocab:'headTube'}, lower:{type:'string',vocab:'headTube'}, steerer:{type:'string',vocab:'steerer'} },
   /* brake: real levers accept MULTIPLE shifter-mount standards via the maker's
      own clamps (Hayes Peacemaker = I-Spec II/EV + MatchMaker), so this is an
      array (DATA-MODEL-REVIEW 5.1-9) */
@@ -323,7 +343,7 @@ var ID_PREFIX = {
   fronthub:'fh', rearhub:'rh', rim:'rm',
   shifter:'sft', derailleur:'dr', cassette:'ca', chain:'ch', crankset:'cr',
   brake:'bk', rotor:'ro', handlebar:'hb', stem:'st', grips:'gr', dropper:'dp',
-  saddle:'sa', pedal:'pd', bb:'bb', groupset:'gs', wheelset:'ws', brakeset:'bs', cockpitset:'co'
+  saddle:'sa', pedal:'pd', bb:'bb', headset:'hs', groupset:'gs', wheelset:'ws', brakeset:'bs', cockpitset:'co'
 };
 var ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 /** One-token brand slug for the id's second token. @param {*} brand @returns {string} */
@@ -554,6 +574,23 @@ function validatePart(p, ctx){
     if(p.suspension === 'hardtail'){
       shockBlock.forEach(function(f){ if(f in p && p[f] != null) bad('hardtail frame must not carry "' + f + '"'); });
       if(p.bundledShock != null) bad('hardtail frame cannot bundle a shock');
+    }
+  }
+
+  // cross-rule: a headset's declared steerer acceptance must agree with its
+  // S.H.I.S. codes' steerer-side suffixes (the number after the slash IS the
+  // steerer interface at that assembly: 28.6 = 1-1/8in steerer OD at the
+  // upper bearing; 40 = the 1.5in crown race seat of a tapered fork; 30 =
+  // the 1-1/8in crown race seat of a straight steerer). A contradiction is a
+  // typo'd row that would ship a wrong rule-20 verdict.
+  if(p.cat === 'headset' && isStr(p.upper) && isStr(p.lower)){
+    if(p.steerer === 'tapered'){
+      if(!/\/28\.6$/.test(p.upper)) bad('tapered headset needs a /28.6 upper assembly, got "' + p.upper + '"');
+      if(!/\/40$/.test(p.lower)) bad('tapered headset needs a /40 lower assembly (1.5in crown race), got "' + p.lower + '"');
+    }
+    if(p.steerer === 'straight-dc'){
+      if(!/\/28\.6$/.test(p.upper)) bad('straight-dc headset needs a /28.6 upper assembly, got "' + p.upper + '"');
+      if(!/\/30$/.test(p.lower)) bad('straight-dc headset needs a /30 lower assembly (1-1/8in crown race), got "' + p.lower + '"');
     }
   }
 
