@@ -90,14 +90,18 @@ test('sram-dh-7 is valid system vocab (7-speed DH group enterable)', function(){
   eq(probs(p).length, 0);
 });
 test('a 20x110 dual-crown DH front axle is valid vocab (fork + front hub)', function(){
-  eq(probs(over('fk-rockshox-zeb-ultimate-29-170', { axle:'20x110' })).length, 0);
+  var f = over('fk-rockshox-zeb-ultimate-29-170', { axle:'20x110' });
+  delete f.verified; delete f.lastChecked; delete f.source;   // provenance-date noise, same as the sram-dh-7 test
+  eq(probs(f).length, 0);
   eq(probs(over('fw-dtswiss-ex-1700-29', { hub:'20x110', verified:undefined, lastChecked:undefined, source:undefined })).filter(function(m){ return m.indexOf('hub')>=0; }).length, 0);
 });
 test('an unknown front axle value is still caught', function(){
   some(probs(over('fk-rockshox-zeb-ultimate-29-170', { axle:'20x100' })), 'axle');
 });
 test('20x110 Boost and 20x110 non-Boost are distinct valid values (never conflate)', function(){
-  eq(probs(over('fk-rockshox-zeb-ultimate-29-170', { axle:'20x110-nonboost' })).length, 0);
+  var f = over('fk-rockshox-zeb-ultimate-29-170', { axle:'20x110-nonboost' });
+  delete f.verified; delete f.lastChecked; delete f.source;   // provenance-date noise, same as the sram-dh-7 test
+  eq(probs(f).length, 0);
 });
 test('a valid fronthub/rearhub/rim part has no problems', function(){
   eq(probs(C.byId('fh-dtswiss-350-boost110')).length, 0);

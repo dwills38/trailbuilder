@@ -35,7 +35,7 @@ test('partVerified is true for a verified component', function(){
   ok(C.partVerified(C.byId('ca-sram-xg1275')));   // SRAM XG-1275 cassette — verified
 });
 test('partVerified is false for an unverified component', function(){
-  ok(!C.partVerified(C.byId('fk-rockshox-zeb-ultimate-29-170')));      // RockShox ZEB fork — sample/estimate
+  ok(!C.partVerified({ id:'x', cat:'saddle', brand:'B', model:'M', price:0 }));   // a component with no verified:true (synthetic — immune to catalog verification churn)
 });
 test('a kit is verified only when EVERY filled part is verified', function(){
   ok(C.partVerified(C.byId('gs-sram-gx-eagle')), 'GX Eagle mech kit: all 5 fills verified');
