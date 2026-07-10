@@ -114,11 +114,11 @@
 /** @typedef {FullSusFramePart|HardtailFramePart} FramePart */
 /** @typedef {CommonFields & {cat: 'fork', wheel: WheelSize, travel: number, axle: FrontAxle, steerer: SteererFit, brakeMount: BrakeMount, maxRotorF: number, minRotorF?: number, maxTire?: number}} ForkPart */
 /** @typedef {CommonFields & {cat: 'shock', eye: number, stroke: number, mount: ShockMount, spring: Spring, oemOnly?: boolean, forFrames?: string[]}} ShockPart */
-/** @typedef {CommonFields & {cat: 'frontwheel', wheel: WheelSize, hub: FrontAxle, rotorMount: RotorMount, intWidth: number, maxTire: number}} FrontWheelPart */
-/** @typedef {CommonFields & {cat: 'rearwheel', wheel: WheelSize, hub: RearAxle, freehub: Freehub, rotorMount: RotorMount, intWidth: number, maxTire: number}} RearWheelPart */
+/** @typedef {CommonFields & {cat: 'frontwheel', wheel: WheelSize, hub: FrontAxle, rotorMount: RotorMount, intWidth: number, maxTire: number, minTire?: number}} FrontWheelPart */
+/** @typedef {CommonFields & {cat: 'rearwheel', wheel: WheelSize, hub: RearAxle, freehub: Freehub, rotorMount: RotorMount, intWidth: number, maxTire: number, minTire?: number}} RearWheelPart */
 /** @typedef {CommonFields & {cat: 'fronthub', hub: FrontAxle, rotorMount: RotorMount}} FrontHubPart */
 /** @typedef {CommonFields & {cat: 'rearhub', hub: RearAxle, freehub: Freehub, rotorMount: RotorMount}} RearHubPart */
-/** @typedef {CommonFields & {cat: 'rim', wheel: WheelSize, intWidth: number, maxTire: number}} RimPart */
+/** @typedef {CommonFields & {cat: 'rim', wheel: WheelSize, intWidth: number, maxTire: number, minTire?: number}} RimPart */
 /** @typedef {CommonFields & {cat: 'tire', wheel: WheelSize, width: number, casing?: Casing, compound?: Compound}} TirePart */
 /** @typedef {CommonFields & {cat: 'shifter', system: DriveSystem, speeds: number, actuation: Actuation, clampType?: ShifterClamp}} ShifterPart */
 /** @typedef {CommonFields & {cat: 'derailleur', system: DriveSystem, speeds: number, actuation: Actuation, maxCog: number, mount: DerailMount}} DerailleurPart */
@@ -174,7 +174,7 @@
 /** The wheel-shaped view checkBuild's rules read, whether it came from a
  * complete FrontWheelPart/RearWheelPart or was synthesized from a hub+rim
  * pair by effectiveWheel() (compat.js). freehub is only ever set on the rear.
- * @typedef {{wheel: WheelSize, hub: (FrontAxle|RearAxle), rotorMount: RotorMount, freehub?: Freehub, intWidth: number, maxTire: number}} EffectiveWheel */
+ * @typedef {{wheel: WheelSize, hub: (FrontAxle|RearAxle), rotorMount: RotorMount, freehub?: Freehub, intWidth: number, maxTire: number, minTire?: number}} EffectiveWheel */
 
 /**
  * @typedef {Object} Group

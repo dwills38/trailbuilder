@@ -3619,12 +3619,12 @@ function effectiveWheel(b, side){
     if(b.frontWheel) return b.frontWheel;
     var fh=b.frontHub, fr=b.frontRim;
     if(!fh || !fr) return null;
-    return { wheel:fr.wheel, hub:fh.hub, rotorMount:fh.rotorMount, intWidth:fr.intWidth, maxTire:fr.maxTire };
+    return { wheel:fr.wheel, hub:fh.hub, rotorMount:fh.rotorMount, intWidth:fr.intWidth, maxTire:fr.maxTire, minTire:fr.minTire };
   }
   if(b.rearWheel) return b.rearWheel;
   var rh=b.rearHub, rr=b.rearRim;
   if(!rh || !rr) return null;
-  return { wheel:rr.wheel, hub:rh.hub, freehub:rh.freehub, rotorMount:rh.rotorMount, intWidth:rr.intWidth, maxTire:rr.maxTire };
+  return { wheel:rr.wheel, hub:rh.hub, freehub:rh.freehub, rotorMount:rh.rotorMount, intWidth:rr.intWidth, maxTire:rr.maxTire, minTire:rr.minTire };
 }
 
 /** @param {Build} build @returns {CompatResult} */
@@ -3826,13 +3826,23 @@ function checkBuild(build){
           app has no frame-size concept yet - so a >=200mm drop gets an INFO
           nudge, never a verdict. The real check needs frame.sizes.maxInsert +
           a size picker (deferred with the frameSize share-hash key). */
-    if(dropper.drop>=200)
+    if(dropper.drop>=180)   /* threshold 200->180 per the dossier rule 13 review verdict (2026-07-10) */
       info('dropper-insertion', ['dropper','frame'], 'Long-drop post: the '+nameOf(dropper)+' ('+dropper.drop+'mm) needs deep seat-tube insertion - check the maker\'s insertion calculator for your '+nameOf(frame)+' frame size.');
   }
 
   /* 14. Tire width vs wheel clearance (per wheel, warnings) */
   if(fTire && fW && fTire.width>fW.maxTire) warn('front-tire-rim', ['frontTire','frontWheel'], 'Front tire clearance: '+fTire.width+'in tire is wider than the front wheel\'s '+fW.maxTire+'in max.');
   if(rTire && rW && rTire.width>rW.maxTire) warn('rear-tire-rim', ['rearTire','rearWheel'], 'Rear tire clearance: '+rTire.width+'in tire is wider than the rear wheel\'s '+rW.maxTire+'in max.');
+  /* 14c. Too-NARROW tire on a wide rim (dossier rule 14 review verdict,
+        2026-07-10: "put a soft warning if the tire width is out of range on
+        what the rim recommends") - dormant until a wheel/rim carries a
+        maker-published minTire (maker recommendations only, never an
+        ETRTO-derived guess - the dossier records those thresholds as fuzzy).
+        Soft warning: the tire mounts, but squares off / loses bead support. */
+  if(fTire && fW && typeof fW.minTire==='number' && fTire.width<fW.minTire)
+    warn('front-tire-rim-min', ['frontTire','frontWheel'], 'Front tire width: '+fTire.width+'in is below the wheel maker\'s recommended minimum of '+fW.minTire+'in for this rim - a too-narrow tire squares off and loses bead support on a wide rim.');
+  if(rTire && rW && typeof rW.minTire==='number' && rTire.width<rW.minTire)
+    warn('rear-tire-rim-min', ['rearTire','rearWheel'], 'Rear tire width: '+rTire.width+'in is below the wheel maker\'s recommended minimum of '+rW.minTire+'in for this rim - a too-narrow tire squares off and loses bead support on a wide rim.');
   /* 14b. Front tire vs FORK crown/arch clearance (REVIEW.md #22) - the
         fork-side twin of rule 18, dormant until a fork carries a
         maker-published maxTire (Fox/RockShox publish per chassis). */
@@ -3861,8 +3871,13 @@ function checkBuild(build){
       } else if(shock.stroke>frame.shockStroke){
         err('shock-stroke-over', ['shock','frame'], 'Shock stroke too long: '+nameOf(shock)+' is '+shock.eye+'x'+shock.stroke+'mm but '+nameOf(frame)+' is designed for '+frame.shockEye+'x'+frame.shockStroke+'mm - the extra stroke can over-rotate the linkage or bottom the shock on the frame.');
       } else if(shock.stroke<frame.shockStroke){
-        var redTravel = Math.round(frame.travel*shock.stroke/frame.shockStroke);
-        warn('shock-stroke-short', ['shock','frame'], 'Shorter-stroke shock: '+shock.eye+'x'+shock.stroke+'mm in a '+frame.shockEye+'x'+frame.shockStroke+'mm frame bolts in (same eye-to-eye) but gives ~'+redTravel+'mm rear travel instead of '+frame.travel+'mm - confirm bottom-out clearance / frame-maker approval.');
+        /* No estimated travel figure (dossier rule 16 review verdict,
+           2026-07-10: "don't estimate the travel, find out what travel the
+           frames ship with") - a linear frame.travel*stroke ratio is wrong on
+           progressive linkages. Quantify only from maker-stated reduced-travel
+           figures when a frame carries them (future sourced data, e.g.
+           Transition publishes "170mm rear, 160 w/ a 205x60 shock"). */
+        warn('shock-stroke-short', ['shock','frame'], 'Shorter-stroke shock: '+shock.eye+'x'+shock.stroke+'mm in a '+frame.shockEye+'x'+frame.shockStroke+'mm frame bolts in (same eye-to-eye) but reduces rear travel below the frame\'s designed '+frame.travel+'mm - check the frame maker\'s supported strokes and bottom-out clearance.');
       }
       if(shock.mount!==frame.shockMount) err('shock-mount', ['shock','frame'], 'Shock mount mismatch: Frame uses a '+L(frame.shockMount)+' shock but Shock is '+L(shock.mount)+'.');
       /* 16b. Coil approval (REVIEW.md #21) - dormant until a frame carries a

@@ -252,10 +252,14 @@ test('trunnion shock on a standard-mount frame -> mount error', function(){
    makers sell the same 230 body in 57.5/60/62.5/65 strokes and RockShox
    supports stroke-spacer reduction, so a SHORTER stroke bolts in with less
    travel (warning), while a LONGER stroke can over-rotate the linkage (error). */
-test('shorter-stroke shock, matching eye+mount -> quantified warning, not a false red', function(){
-  // Megatower runs 230x62.5; the Float X 230x60 gives ~158mm instead of 165mm.
+test('shorter-stroke shock, matching eye+mount -> warning naming the designed travel, not a false red', function(){
+  // Megatower runs 230x62.5; the Float X 230x60 reduces travel. NO estimated
+  // figure (dossier rule 16 verdict: linear ratios are wrong on progressive
+  // linkages) - the warning names the frame's designed travel and defers to
+  // the maker's supported strokes.
   var r = chk({frame:'fr-santacruz-megatower-cc', shock:'sh-fox-float-x-230x60'});
-  eq(r.errors.length, 0); some(r.warnings, '~158mm');
+  eq(r.errors.length, 0); some(r.warnings, 'reduces rear travel below');
+  eq(r.warnings.filter(function(w){ return /~\d+mm/.test(String(w)); }).length, 0);
 });
 test('longer-stroke shock, matching eye -> error (over-rotation direction)', function(){
   some(chk({frame:'fr-santacruz-megatower-cc', shock:'sh-rockshox-vivid-ultimate-230x65'}).errors, 'stroke too long');
@@ -330,10 +334,33 @@ test('fork tire clearance stays dormant without a sourced fork.maxTire', functio
 
 /* REVIEW.md #23 near-term tier: no frame-size concept yet, so a long-drop post
    gets an INFO nudge toward the maker's insertion calculator - never a verdict. */
-test('long-drop dropper (>=200mm) with a frame -> insertion info, zero errors/warnings', function(){
+test('long-drop dropper (>=180mm, was 200 - dossier rule 13 verdict) with a frame -> insertion info, zero errors/warnings', function(){
   var r = chk({frame:'fr-santacruz-megatower-cc', dropper:'dp-oneup-v3-316-210'});
   eq(r.errors.length, 0); eq(r.warnings.length, 0);
   some(r.infos, 'insertion');
+});
+test('a 180mm drop now gets the insertion info; 175mm stays silent (the new boundary)', function(){
+  some(chk({frame:'fr-santacruz-megatower-cc', dropper:'dp-fox-transfer-factory-316-180'}).infos, 'insertion');
+  eq(chk({frame:'fr-raaw-madonna-v32', dropper:'dp-pnw-loam-309-175'}).infos.filter(function(i){ return String(i).indexOf('insertion')>=0; }).length, 0);
+});
+
+/* Rule 14c - too-NARROW tire on a wide rim (dossier rule 14 review verdict,
+   2026-07-10: soft warning when the tire is out of the rim's recommended
+   range). Dormant until a wheel/rim carries a maker-published minTire -
+   driven synthetically here (rule-18 template), proven dormant on real parts. */
+test('too-narrow tire soft-warns when the wheel declares a sourced minTire', function(){
+  var bld = B({frontTire:'ti-maxxis-minion-dhr-ii-275-24-exop-mt'});
+  bld.frontWheel = /** @type {any} */ (Object.assign({}, part('fw-dtswiss-e-1900-275'), {minTire:2.5}));
+  some(C.checkBuild(bld).warnings, 'below the wheel maker');
+});
+test('too-narrow check stays dormant without minTire (no ETRTO-derived guessing)', function(){
+  eq(chk({frontWheel:'fw-dtswiss-e-1900-275', frontTire:'ti-maxxis-minion-dhr-ii-275-24-exop-mt'}).warnings.filter(function(w){ return String(w).indexOf('below the wheel maker')>=0; }).length, 0);
+});
+test('minTire flows through the hub+rim path (effectiveWheel)', function(){
+  var bld = B({rearTire:'ti-maxxis-minion-dhr-ii-275-24-exop-mt'});
+  bld.rearHub = /** @type {any} */ (part('rh-dtswiss-350-boost148-xd'));
+  bld.rearRim = /** @type {any} */ (Object.assign({}, part('rm-dtswiss-ex511-29'), {wheel:'275', minTire:2.5}));
+  some(C.checkBuild(bld).warnings, 'below the wheel maker');
 });
 test('short-drop dropper -> no insertion info', function(){
   eq(chk({frame:'fr-santacruz-megatower-cc', dropper:'dp-rockshox-reverb-axs-316-170'}).infos.filter(function(i){ return String(i).indexOf('insertion')>=0; }).length, 0);

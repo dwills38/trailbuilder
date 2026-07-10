@@ -238,11 +238,14 @@ var SCHEMA = {
   },
   frontwheel: {
     wheel:{type:'string',vocab:'wheel'}, hub:{type:'string',vocab:'frontAxle'},
-    rotorMount:{type:'string',vocab:'rotorMount'}, intWidth:{type:'number'}, maxTire:{type:'number'}
+    /* minTire (dossier rule 14 review, 2026-07-10): the maker's recommended
+       tire-width FLOOR for the rim - dormant-until-sourced (rule-18 template),
+       maker statements only, never ETRTO-derived. Rule 14c soft-warns below it. */
+    rotorMount:{type:'string',vocab:'rotorMount'}, intWidth:{type:'number'}, maxTire:{type:'number'}, minTire:{type:'number',optional:true}
   },
   rearwheel: {
     wheel:{type:'string',vocab:'wheel'}, hub:{type:'string',vocab:'rearAxle'}, freehub:{type:'string',vocab:'freehub'},
-    rotorMount:{type:'string',vocab:'rotorMount'}, intWidth:{type:'number'}, maxTire:{type:'number'}
+    rotorMount:{type:'string',vocab:'rotorMount'}, intWidth:{type:'number'}, maxTire:{type:'number'}, minTire:{type:'number',optional:true}
   },
   /* fronthub/rearhub/rim: a hub+rim build-your-own-wheel path, additive
      alongside frontwheel/rearwheel (complete pre-built wheels) - only the
@@ -255,7 +258,7 @@ var SCHEMA = {
   rearhub: {
     hub:{type:'string',vocab:'rearAxle'}, freehub:{type:'string',vocab:'freehub'}, rotorMount:{type:'string',vocab:'rotorMount'}
   },
-  rim: { wheel:{type:'string',vocab:'wheel'}, intWidth:{type:'number'}, maxTire:{type:'number'} },
+  rim: { wheel:{type:'string',vocab:'wheel'}, intWidth:{type:'number'}, maxTire:{type:'number'}, minTire:{type:'number',optional:true} },
   tire: { wheel:{type:'string',vocab:'wheel'}, width:{type:'number'},
     casing:{type:'string',vocab:'casing',optional:true}, compound:{type:'string',vocab:'compound',optional:true} },
   shifter: { system:{type:'string',vocab:'system'}, speeds:{type:'number'}, actuation:{type:'string',vocab:'actuation'}, clampType:{type:'string',vocab:'shifterClamp',optional:true} },
