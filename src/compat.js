@@ -3641,12 +3641,12 @@ function effectiveWheel(b, side){
     if(b.frontWheel) return b.frontWheel;
     var fh=b.frontHub, fr=b.frontRim;
     if(!fh || !fr) return null;
-    return { wheel:fr.wheel, hub:fh.hub, rotorMount:fh.rotorMount, intWidth:fr.intWidth, maxTire:fr.maxTire };
+    return { wheel:fr.wheel, hub:fh.hub, rotorMount:fh.rotorMount, intWidth:fr.intWidth, maxTire:fr.maxTire, minTire:fr.minTire };
   }
   if(b.rearWheel) return b.rearWheel;
   var rh=b.rearHub, rr=b.rearRim;
   if(!rh || !rr) return null;
-  return { wheel:rr.wheel, hub:rh.hub, freehub:rh.freehub, rotorMount:rh.rotorMount, intWidth:rr.intWidth, maxTire:rr.maxTire };
+  return { wheel:rr.wheel, hub:rh.hub, freehub:rh.freehub, rotorMount:rh.rotorMount, intWidth:rr.intWidth, maxTire:rr.maxTire, minTire:rr.minTire };
 }
 
 /** @param {Build} build @returns {CompatResult} */
@@ -3816,16 +3816,32 @@ function checkBuild(build){
   /* 11. Steerer / headset */
   if(fork && frame && fork.steerer!==frame.headset) err('steerer', ['fork','frame'], 'Steerer mismatch: Fork is '+L(fork.steerer)+' but Frame headset is '+L(frame.headset)+'.');
 
-  /* 12. Fork travel vs frame rating (warning). "Rated max", not "recommended":
-        makers publish it as a rated limit and exceeding it can void the frame
-        warranty (REVIEW.md #6 wording fix). */
-  if(fork && frame && fork.travel>frame.maxForkTravel) warn('fork-travel', ['fork','frame'], 'Fork travel: '+fork.travel+'mm exceeds the frame\'s rated max of '+frame.maxForkTravel+'mm.');
-  /* 12b. UNDER-forking (REVIEW.md #14) - dormant until a frame carries a
+  /* 12. Fork travel vs frame rating - SOURCED-STRICT tiers (dossier rule 12
+        review verdict, 2026-07-10: "stick with the manufacturers recommended
+        size as compatible... any forks under or over what the manufacturer
+        recommends should be incompatible"). Where the maker publishes an
+        APPROVED RANGE (minForkTravel exists only when maker-published, and
+        the backfill records its top as maxForkTravel - Ibis "compatible with
+        150-170mm", Forbidden "160mm minimum up to 180mm maximum", HD6 "rated
+        for 180-190mm", SC V10 "Fork Compatibility: 200-203mm"), a fork
+        OUTSIDE the range is a hard ERROR in both directions. Frames WITHOUT
+        a published range keep the softer tiers: over rated max = warning
+        (~40 frames' maxForkTravel is still a permissive sample - a hard red
+        from a guessed number would be a false "won't fit"; promote per-frame
+        as ranges get sourced), and >20mm under design = the 12c warning
+        below (no maker prohibition = no red). */
+  var forkRange = !!(frame && typeof frame.minForkTravel==='number');
+  if(fork && frame && fork.travel>frame.maxForkTravel){
+    if(forkRange) err('fork-travel', ['fork','frame'], 'Fork travel: '+fork.travel+'mm is over '+nameOf(frame)+'\'s maker-approved range of '+frame.minForkTravel+'-'+frame.maxForkTravel+'mm.');
+    else warn('fork-travel', ['fork','frame'], 'Fork travel: '+fork.travel+'mm exceeds the frame\'s rated max of '+frame.maxForkTravel+'mm.');
+  }
+  /* 12b. UNDER-forking (REVIEW.md #14) - fires only when a frame carries a
         maker-published minForkTravel (~1 degree head-angle steepening per
         20mm). Sourced data only: a travel-based heuristic would false-fire
-        on high-pivot frames (Dreadnought: 154mm travel, ships at 170). */
+        on high-pivot frames (Dreadnought: 154mm travel, ships at 170).
+        Promoted warning -> ERROR by the same 2026-07-10 verdict. */
   if(fork && frame && typeof frame.minForkTravel==='number' && fork.travel<frame.minForkTravel)
-    warn('fork-travel-min', ['fork','frame'], 'Under-forked: '+fork.travel+'mm fork is below '+nameOf(frame)+'\'s approved minimum of '+frame.minForkTravel+'mm - steepens the geometry (~1° per 20mm) and leaves the frame outside the maker\'s approved range.');
+    err('fork-travel-min', ['fork','frame'], 'Under-forked: '+fork.travel+'mm fork is below '+nameOf(frame)+'\'s maker-approved minimum of '+frame.minForkTravel+'mm - outside the approved range (steepens the geometry ~1° per 20mm).');
   /* 12c. DESIGN-travel under-fork (warning, 20mm grace) - dormant until a
         frame carries a maker-STATED designForkTravel ("geometry numbers are
         based around a 170mm travel fork"). This is design intent, NOT an
@@ -3857,13 +3873,23 @@ function checkBuild(build){
           app has no frame-size concept yet - so a >=200mm drop gets an INFO
           nudge, never a verdict. The real check needs frame.sizes.maxInsert +
           a size picker (deferred with the frameSize share-hash key). */
-    if(dropper.drop>=200)
+    if(dropper.drop>=180)   /* threshold 200->180 per the dossier rule 13 review verdict (2026-07-10) */
       info('dropper-insertion', ['dropper','frame'], 'Long-drop post: the '+nameOf(dropper)+' ('+dropper.drop+'mm) needs deep seat-tube insertion - check the maker\'s insertion calculator for your '+nameOf(frame)+' frame size.');
   }
 
   /* 14. Tire width vs wheel clearance (per wheel, warnings) */
   if(fTire && fW && fTire.width>fW.maxTire) warn('front-tire-rim', ['frontTire','frontWheel'], 'Front tire clearance: '+fTire.width+'in tire is wider than the front wheel\'s '+fW.maxTire+'in max.');
   if(rTire && rW && rTire.width>rW.maxTire) warn('rear-tire-rim', ['rearTire','rearWheel'], 'Rear tire clearance: '+rTire.width+'in tire is wider than the rear wheel\'s '+rW.maxTire+'in max.');
+  /* 14c. Too-NARROW tire on a wide rim (dossier rule 14 review verdict,
+        2026-07-10: "put a soft warning if the tire width is out of range on
+        what the rim recommends") - dormant until a wheel/rim carries a
+        maker-published minTire (maker recommendations only, never an
+        ETRTO-derived guess - the dossier records those thresholds as fuzzy).
+        Soft warning: the tire mounts, but squares off / loses bead support. */
+  if(fTire && fW && typeof fW.minTire==='number' && fTire.width<fW.minTire)
+    warn('front-tire-rim-min', ['frontTire','frontWheel'], 'Front tire width: '+fTire.width+'in is below the wheel maker\'s recommended minimum of '+fW.minTire+'in for this rim - a too-narrow tire squares off and loses bead support on a wide rim.');
+  if(rTire && rW && typeof rW.minTire==='number' && rTire.width<rW.minTire)
+    warn('rear-tire-rim-min', ['rearTire','rearWheel'], 'Rear tire width: '+rTire.width+'in is below the wheel maker\'s recommended minimum of '+rW.minTire+'in for this rim - a too-narrow tire squares off and loses bead support on a wide rim.');
   /* 14b. Front tire vs FORK crown/arch clearance (REVIEW.md #22) - the
         fork-side twin of rule 18, dormant until a fork carries a
         maker-published maxTire (Fox/RockShox publish per chassis). */
@@ -3892,8 +3918,13 @@ function checkBuild(build){
       } else if(shock.stroke>frame.shockStroke){
         err('shock-stroke-over', ['shock','frame'], 'Shock stroke too long: '+nameOf(shock)+' is '+shock.eye+'x'+shock.stroke+'mm but '+nameOf(frame)+' is designed for '+frame.shockEye+'x'+frame.shockStroke+'mm - the extra stroke can over-rotate the linkage or bottom the shock on the frame.');
       } else if(shock.stroke<frame.shockStroke){
-        var redTravel = Math.round(frame.travel*shock.stroke/frame.shockStroke);
-        warn('shock-stroke-short', ['shock','frame'], 'Shorter-stroke shock: '+shock.eye+'x'+shock.stroke+'mm in a '+frame.shockEye+'x'+frame.shockStroke+'mm frame bolts in (same eye-to-eye) but gives ~'+redTravel+'mm rear travel instead of '+frame.travel+'mm - confirm bottom-out clearance / frame-maker approval.');
+        /* No estimated travel figure (dossier rule 16 review verdict,
+           2026-07-10: "don't estimate the travel, find out what travel the
+           frames ship with") - a linear frame.travel*stroke ratio is wrong on
+           progressive linkages. Quantify only from maker-stated reduced-travel
+           figures when a frame carries them (future sourced data, e.g.
+           Transition publishes "170mm rear, 160 w/ a 205x60 shock"). */
+        warn('shock-stroke-short', ['shock','frame'], 'Shorter-stroke shock: '+shock.eye+'x'+shock.stroke+'mm in a '+frame.shockEye+'x'+frame.shockStroke+'mm frame bolts in (same eye-to-eye) but reduces rear travel below the frame\'s designed '+frame.travel+'mm - check the frame maker\'s supported strokes and bottom-out clearance.');
       }
       if(shock.mount!==frame.shockMount) err('shock-mount', ['shock','frame'], 'Shock mount mismatch: Frame uses a '+L(frame.shockMount)+' shock but Shock is '+L(shock.mount)+'.');
       /* 16b. Coil approval (REVIEW.md #21) - dormant until a frame carries a
