@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-10T21:24:18.908Z",
+ "updated": "2026-07-10T23:58:51.309Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -196,11 +196,9 @@
   "bk-trp-evo-comp",
   "bk-hope-evo-gr4",
   "bk-hope-evo-tr4",
-  "ro-shimano-rtmt900-203-cl",
   "ro-sram-hs2-160-6b",
   "ro-sram-centerline-220-6b",
   "ro-sram-centerline-200-cl",
-  "ro-shimano-smrt76-160-6b",
   "ro-sram-hs2-160-cl",
   "ro-sram-hs2-180-cl",
   "ro-sram-hs2-200-cl",
@@ -214,8 +212,6 @@
   "ro-sram-centerline-x-160-6b",
   "ro-sram-centerline-x-180-6b",
   "ro-sram-centerline-x-180-cl",
-  "ro-shimano-rtmt900-180-cl",
-  "ro-shimano-smrt76-180-6b",
   "ro-formula-monolithic-160-6b",
   "ro-formula-monolithic-180-6b",
   "ro-formula-monolithic-203-6b",
@@ -240,7 +236,6 @@
   "ro-clarks-ccl-160-cl",
   "ro-clarks-ccl-180-cl",
   "ro-clarks-ccl-203-cl",
-  "ro-shimano-smrt30-203-cl",
   "sft-microshift-advent-m9295",
   "sft-shimano-cues-u6000-11",
   "sft-shimano-cues-u4000-9",
@@ -1993,18 +1988,18 @@
   },
   "ro-shimano-rtmt800-203-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:24:57.967Z",
+   "status": "Verified",
+   "updated": "2026-07-10T23:58:51.308Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2020-2021_Specifications_v032_en.pdf",
    "note": "bike.shimano.com 403-blocks fetch; ride.shimano.com has no RT-MT800 page. Third-party figures for 203mm range wildly (147g-165g) across sources -- exactly the conflicting-summary trap. Bar not met."
   },
   "ro-shimano-rtmt800-180-cl": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:24:58.020Z",
+   "status": "Verified",
+   "updated": "2026-07-10T23:58:51.308Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2020-2021_Specifications_v032_en.pdf",
    "note": "Same as the 203mm sibling: no fetchable manufacturer page, conflicting third-party figures (120-132g). Bar not met."
   },
   "ro-hayes-dseries-203-6b": {
@@ -2041,10 +2036,10 @@
   },
   "ro-shimano-smrt76-203-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:38:32.754Z",
+   "status": "Verified",
+   "updated": "2026-07-10T23:58:51.308Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2020-2021_Specifications_v032_en.pdf",
    "note": "bike.shimano.com page exists but wasn't fetched cleanly this session; third-party figures conflict (192g vs 209g depending on hardware). Bar not met."
   },
   "ro-trp-203-6b": {
@@ -2697,10 +2692,10 @@
   },
   "ro-shimano-rtmt900-203-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-10T21:24:18.907Z",
+   "status": "Verified",
+   "updated": "2026-07-10T23:58:51.308Z",
    "error": null,
-   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2020-2021_Specifications_v032_en.pdf",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "dp-fox-transfer-factory-316-180": {
@@ -4225,11 +4220,11 @@
   },
   "ro-shimano-smrt76-160-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T03:01:12.932Z",
+   "status": "Verified",
+   "updated": "2026-07-10T23:58:51.308Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2020-2021_Specifications_v032_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-220-6b": {
    "cat": "rotor",
@@ -12281,19 +12276,19 @@
   },
   "ro-shimano-rtmt900-180-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-10T21:24:18.907Z",
+   "status": "Verified",
+   "updated": "2026-07-10T23:58:51.308Z",
    "error": null,
-   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2020-2021_Specifications_v032_en.pdf",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "ro-shimano-smrt76-180-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T23:58:51.308Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2020-2021_Specifications_v032_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-tr25-160-cl": {
    "cat": "rotor",
@@ -12681,11 +12676,11 @@
   },
   "ro-shimano-smrt30-203-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T23:58:51.308Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-smrt56-160-6b": {
    "cat": "rotor",
