@@ -38,6 +38,10 @@ front/rear combo must be one the frame supports: 29/29, 27.5/27.5, or mullet (29
 With no frame picked, a pair matching no configuration (e.g. 27.5 F / 29 R) is rejected.
 **Tier:** error. **Basis:** frame makers' published wheel-size options per model.
 **Ask:** is hard-rejecting reverse-mullet correct, or does some niche legitimately run it?
+**Review verdict (2026-07-10): ✓ CONFIRMED correct — no change.** Verdict received via
+Douglas. Agrees with the pre-research pass (`DOSSIER-OPEN-QUESTIONS-RESEARCH.md` §1: no maker
+publishes or rates a 27.5 F / 29 R configuration; the red follows from the data model). The
+hard-reject stands as-is.
 
 ### 2. Axles
 **Claims:** fork axle must match front hub (everything current is Boost 15×110); frame rear
