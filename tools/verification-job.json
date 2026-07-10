@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-10T17:56:37.766Z",
+ "updated": "2026-07-10T18:02:20.598Z",
  "batchSize": 25,
- "lastCompleted": "ro-sram-centerline-160-6b",
+ "lastCompleted": "sh-xfusion-h3c-185x50-trun",
  "currentCategory": "frame",
  "queue": [
   "fr-commencal-clash-v3",
@@ -147,12 +147,6 @@
   "rw-weareone-strife-29-157-xd",
   "rw-weareone-strife-275-148-xd",
   "rw-weareone-strife-275-157-xd",
-  "sh-formula-mod-250x75",
-  "sh-formula-mod-225x75-trun",
-  "sh-manitou-mara-pro-185x50-trun",
-  "sh-xfusion-h3c-185x50-trun",
-  "sh-formula-mod-250x72p5",
-  "sh-manitou-mara-pro-165x45-trun",
   "fk-rockshox-zeb-select-29-170",
   "fk-rockshox-zeb-select-29-160",
   "fk-rockshox-lyrik-select-29-160",
@@ -1292,10 +1286,10 @@
   },
   "sh-push-elevensix-230x65": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T00:50:20.358Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:02:07.311Z",
    "error": null,
-   "source": null,
+   "source": "https://www.pushindustries.com/products/elevensix",
    "note": "Price corrected to $1300 (fetched pushindustries.com 2026-07-08, real browser session). Weight bar not met: Push sells this shock per bike-model fitment, not as a generic SKU with a published spec sheet."
   },
   "sh-rockshox-super-deluxe-ultimate-205x60-trun": {
@@ -3605,10 +3599,10 @@
   },
   "sh-manitou-mara-pro-205x60-trun": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:32:37.669Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:02:07.311Z",
    "error": null,
-   "source": null,
+   "source": "https://hayesbicycle.com/products/mara-pro",
    "note": "VALID size confirmed: fetched hayesbicycle.com Mara Pro page lists 205x60 trunnion (MSRP $629.99). But maker publishes a single 425g figure (not per-size) that conflicts with the ~490-500g reality for this size, so per-size weight can't be pinned - left unverified. The one real Mara Pro row of the three."
   },
   "sh-rockshox-sidluxe-ultimate-190x45": {
@@ -4005,8 +3999,8 @@
   },
   "sh-manitou-mara-pro-230x65-trun": {
    "cat": "shock",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:45:58.103Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:02:07.310Z",
    "error": null,
    "source": "https://hayesbicycle.com/products/mara-pro",
    "note": "Correction row for retired sh-manitou-mara-pro-230x65 (mount std -> trunnion per fetched maker page). Interfaces + MSRP + SKU maker-confirmed 2026-07-08, but Manitou publishes a single 425g model-level weight (size unstated) so the per-size weight bar is unmet - same call as the 205x60 sibling. Do not retry unless Manitou publishes per-size weights."
@@ -7269,19 +7263,19 @@
   },
   "sh-formula-mod-250x75": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:02:07.311Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mtb-shocks/mod-dh/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-formula-mod-225x75-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:02:07.311Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mtb-shocks/mod-dh/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-rockshox-super-deluxe-ultimate-185x50-trun": {
    "cat": "shock",
@@ -7317,11 +7311,11 @@
   },
   "sh-manitou-mara-pro-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:02:07.311Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/mara-pro",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ext-storia-v3-185x50-trun": {
    "cat": "shock",
@@ -7341,11 +7335,11 @@
   },
   "sh-xfusion-h3c-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-10T18:02:07.312Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "xfusionshox.com product page returns HTTP 500 (tried 3 URL patterns) and the linked setup-guide PDF is image-only; only retailer-level (s4suspension.com, Amazon) confirmation available this session, which does not meet the manufacturer-source bar for verified:true"
   },
   "sh-fox-float-x-factory-210x50": {
    "cat": "shock",
@@ -7437,11 +7431,11 @@
   },
   "sh-formula-mod-250x72p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:02:07.311Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.rideformula.com/products/mtb-shocks/mod-dh/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-ohlins-ttx22-m2-250x72p5": {
    "cat": "shock",
@@ -7621,11 +7615,11 @@
   },
   "sh-manitou-mara-pro-165x45-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-10T18:02:07.311Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/mara-pro",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-190x40": {
    "cat": "shock",
