@@ -94,6 +94,16 @@ frame picked it's a heads-up info, not a red.
 for all 21 frames (e.g. the stock RAAW Madonna V2.2 is NOT UDH — RAAW sells a retrofit kit,
 so the bare frame correctly rejects it).
 **Ask:** any edge cases (aftermarket hangers, frames converted)?
+**Review verdict (2026-07-10): ~ RIGHT with a tier refinement** — "if a retrofit kit such as
+the RAAW is available, offer an info note or something, don't outright reject; otherwise this
+is correct" (Douglas). Resolution: frames with a **maker-documented UDH retrofit kit** get a
+WARNING carrying the structured `fix` (the rule-9 adapter tier) instead of the error; frames
+without a kit stay a hard error; the frameless info is unchanged. Sourced activation: RAAW's
+UDH Retrofit Kit product page (fetched 2026-07-10,
+raawmtb.com/en-us/products/udh-retrofit-kit): "we're now offering a UDH retrofit kit to give
+your existing Jibb V1, Madonna V2, or Madonna V2.2 compatibility" ($216 — drive-side seatstay
++ UDH hanger + 174 mm X12 axle + dropout insert) → activates on `fr-raaw-madonna-v22` and
+`fr-raaw-jibb` (gen V1). Fix landed via branch `dossier-rule4-udh-retrofit`.
 
 ### 5. Cassette range vs derailleur capacity — deliberately one-sided
 **Claims:** cassette maxCog > derailleur max = error (10-52 cassette on a 50T-max mech).
@@ -101,6 +111,8 @@ A 52T-capable derailleur with a 10-50 cassette is **silent on purpose** — an a
 proposed erroring it and verification found SRAM documents the opposite (520% derailleurs
 are backward-compatible with 10-50). The refutation is recorded so it never gets "fixed" in.
 **Ask:** confirm the one-sidedness; any b-screw/setup caveat worth a warning?
+**Review verdict (2026-07-10): ✓ CONFIRMED — no change.** One-sidedness stands; no b-screw
+warning requested (setup guidance stays out of verdicts). Verdict received via Douglas.
 
 ### 6. Cassette freehub vs rear wheel
 **Claims:** exact-match required (XD / MicroSpline / HG). Known modeling limitation:
@@ -109,6 +121,8 @@ fixed per wheel row; we mitigate by cataloging the maker's offered configs as se
 (e.g. the DT E 1900 27.5 exists in both MicroSpline and XD rows).
 **Tier:** error. **Ask:** is "needs the XD version of this wheel" (separate row) honest
 enough, or should the error message mention body swaps explicitly?
+**Review verdict (2026-07-10): ✓ CONFIRMED — separate-row modeling is honest enough; no
+message change.** Verdict received via Douglas.
 
 ### 7. Bottom bracket — advisory only
 **Claims:** no BB category exists yet; every crank×frame pair gets an info naming the
@@ -141,6 +155,8 @@ it *mounts* — we kept it a warning and made warnings visible as yellow dots. J
 ### 11. Steerer / headset
 **Claims:** fork steerer must match frame (everything current is tapered 1.5–1.125;
 check pinned synthetically). **Ask:** anything worth modeling before 1.8" steerers arrive?
+**Review verdict (2026-07-10): ✓ CONFIRMED — nothing to model before 1.8" arrives** (widen
+the vocab when it does). Verdict received via Douglas.
 
 ### 12. Fork travel vs frame — rated max (warning) + approved minimum (dormant)
 **Claims:** fork travel above the frame's rated max = warning ("exceeds the frame's rated
@@ -170,6 +186,10 @@ how much do you trust ETRTO-style width guidance as a default?
 
 ### 15. Handlebar / stem clamp
 **Claims:** 31.8 vs 35 mm mismatch = error. No known caveats; both live in the catalog.
+**Review verdict (2026-07-10): ✓ CONFIRMED as-is.** Verdict received via Douglas. (For the
+record: the pre-research pass found maker-sold 31.8→35 bar shims exist — the "no known
+caveats" wording is softened by that observation; no engine change requested or made, and
+the shim question stays a parked mechanic follow-up in `DOSSIER-OPEN-QUESTIONS-RESEARCH.md`.)
 
 ### 16. Rear shock fit — direction-aware stroke + coil approval
 **Claims:** eye-to-eye mismatch = error. Mount (std vs trunnion) mismatch = error. Stroke
@@ -194,6 +214,14 @@ Megatower 2.5 stock, Spire 2.6, SB160 2.6, HD6 2.5, Reign 2.5, Dreadnought 2.6);
 without a published max stay silent by design.
 **Ask:** Megatower's 2.5 is the "stock setting" figure (flip-chip dependent) — is
 per-setting clearance worth modeling, or is stock-setting honest enough?
+**Review verdict (2026-07-10): ✓ CONFIRMED with a data policy** — "use the largest tire size
+available; if it's larger than the stock setting, give a warning that settings may need to
+change" (Douglas). Checked same day against the re-fetched Santa Cruz Megatower support page:
+SC publishes ONE clearance figure ("Max Tire Clearance: 2.5\"" / "Designed for 29\" x 2.5\"
+max" — constant across flip-chip settings), so stock IS the largest published figure and the
+row is already correct; no change. The policy is recorded for any frame whose maker DOES
+publish per-setting clearances: `maxTire` = largest published figure, plus a warning above
+the stock-setting figure noting the flip-chip/setting may need to change.
 
 ### 19. Shifter clamp vs brake-lever integration
 **Claims:** a lever-integrated shifter (I-Spec EV/II/B, MatchMaker — ships with no bar
