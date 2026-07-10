@@ -1074,9 +1074,62 @@
     b.textContent=text; return b;
   }
 
+  /* ---- guided build flow --------------------------------------------------
+     setSlot is the one chokepoint every real single pick goes through (card
+     buttons today; any future pick path should too), while share links, demo
+     builds, kit quick-fills, garage loads and the reset all write `build`
+     directly — so only a direct pick ever advances, never a bulk load, and a
+     removal (partId null) never does either.
+     The pick that COMPLETES its group's required slots (slotRequired is
+     frame-aware: hardtail needs no shock, DH no dropper; optional slots — bb,
+     headset, grips — and the hub/rim alternates never gate) advances the
+     catalog to the next group in GROUPS order that still needs a required
+     part, wrapping past the end so picking pedals first still leads back to
+     the frame. A pick into an already-complete group (swapping while
+     comparing) stays put — the flow never yanks the user around mid-browse.
+     Agency: advancing switches 🟢 Compatible only on, but the user explicitly
+     switching it OFF sets guidedOptOut for the session and the flow stops
+     re-enabling it; switching it back ON re-opts in. Manual chip clicks are
+     never overridden — the flow acts only at the instant of a pick. */
+  var guidedOptOut = false;
+  function setCompatibleOnly(on){
+    compatibleOnly = on;
+    var b = $('compatibleOnly');
+    b.classList.toggle('primary', on);
+    b.setAttribute('aria-pressed', String(on));
+  }
+  function groupNeedsParts(g, res){
+    return g.slots.some(function(s){ return slotRequired(s, res.frame) && !wheelPositionFilled(res, s.key); });
+  }
+  function guidedAdvance(slotKey, wasComplete){
+    if(wasComplete) return false;   // swap inside an already-complete group — user is refining, stay put
+    var res = resolved(), from = SLOT_GROUP[slotKey];
+    if(groupNeedsParts(groupByKey[from], res)) return false;   // group still needs a part (front wheel picked, rear missing) — stay
+    var idx = GROUPS.map(function(g){ return g.key; }).indexOf(from), target = null;
+    for(var i=1; i<=GROUPS.length && !target; i++){
+      var g = GROUPS[(idx+i)%GROUPS.length];
+      if(groupNeedsParts(g, res)) target = g;
+    }
+    if(!target){
+      // completeness only, never a fit claim — the modal shows the real verdict
+      toast('All required parts chosen — 📋 View complete build has the summary and verdict.');
+      return false;
+    }
+    activeGroup = target.key; activeSub = 'all'; wheelSizeFilter = 'all'; tireWidthFilter = 'all';
+    if(!guidedOptOut) setCompatibleOnly(true);
+    renderChips(); renderSubChips(); renderWheelSizeChips(); renderTireWidthChips();   // the caller's sync() renders the catalog
+    var picked = byId(build[slotKey]);
+    toast('✓ '+(picked ? picked.brand+' '+picked.model : 'Picked')+' — next: '+target.label+'.'+
+          (compatibleOnly ? ' Only parts that don’t clash are shown.' : ''));
+    return true;   // the caller scrolls AFTER sync() — the jump must target the re-rendered layout
+  }
+
   /* ---- mutations ---- */
   // picking/removing a single component customises its group, so it leaves "kit" pricing
   function setSlot(slotKey, partId){
+    // guided flow: snapshot whether the pick's group was already complete BEFORE
+    // the mutation (a swap must stay put; only the completing pick advances)
+    var wasComplete = partId ? !groupNeedsParts(groupByKey[SLOT_GROUP[slotKey]], resolved()) : false;
     if(partId){ build[slotKey]=partId; } else { delete build[slotKey]; }
     delete presetBy[SLOT_GROUP[slotKey]];
     if(partId){
@@ -1088,7 +1141,13 @@
       if(slotDef && slotDef.altOf) delete build[slotDef.altOf];
       else altSlotsOf(slotKey).forEach(function(k){ delete build[k]; });
     }
+    var advanced = partId ? guidedAdvance(slotKey, wasComplete) : false;   // before sync() so the catalog paints once, on the final group+filter
     sync();
+    // scroll only after sync() has re-rendered: an animated scroll aimed at the
+    // pre-render layout dies when the list shrinks under it (found on mobile —
+    // the page height collapses mid-animation and the jump strands mid-page),
+    // so this is an instant jump against the final layout.
+    if(advanced) $('chips').scrollIntoView({block:'start'});
   }
   function applyPreset(id){
     var p=byId(id); if(!p||!p.fills) return;
@@ -1957,7 +2016,13 @@
   $('search').addEventListener('input', function(e){ search=e.target.value; renderCatalog(); });
   $('sortBy').onchange=function(){ sortBy=this.value; renderCatalog(); };
   $('verifiedOnly').onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary', verifiedOnly); this.setAttribute('aria-pressed', String(verifiedOnly)); renderCatalog(); };
-  $('compatibleOnly').onclick=function(){ compatibleOnly=!compatibleOnly; this.classList.toggle('primary', compatibleOnly); this.setAttribute('aria-pressed', String(compatibleOnly)); renderCatalog(); };
+  $('compatibleOnly').onclick=function(){
+    setCompatibleOnly(!compatibleOnly);
+    // the user's explicit choice outlasts the guided flow for this session:
+    // switching OFF stops auto-advance re-enabling the filter; back ON re-opts in
+    guidedOptOut = !compatibleOnly;
+    renderCatalog();
+  };
   $('ownedOnly').onclick=function(){ ownedOnly=!ownedOnly; this.classList.toggle('primary', ownedOnly); this.setAttribute('aria-pressed', String(ownedOnly)); if(ownedOnly) refreshOwned(); else renderCatalog(); };
   // Cards ⇄ List view toggle — presentation only: same filter+sort pipeline, same
   // cardEl DOM; switching swaps #catalog's .list class and re-renders. Build,
