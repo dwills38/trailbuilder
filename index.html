@@ -1046,9 +1046,9 @@
     return g.slots.some(function(s){ return slotRequired(s, res.frame) && !wheelPositionFilled(res, s.key); });
   }
   function guidedAdvance(slotKey, wasComplete){
-    if(wasComplete) return;   // swap inside an already-complete group — user is refining, stay put
+    if(wasComplete) return false;   // swap inside an already-complete group — user is refining, stay put
     var res = resolved(), from = SLOT_GROUP[slotKey];
-    if(groupNeedsParts(groupByKey[from], res)) return;   // group still needs a part (front wheel picked, rear missing) — stay
+    if(groupNeedsParts(groupByKey[from], res)) return false;   // group still needs a part (front wheel picked, rear missing) — stay
     var idx = GROUPS.map(function(g){ return g.key; }).indexOf(from), target = null;
     for(var i=1; i<=GROUPS.length && !target; i++){
       var g = GROUPS[(idx+i)%GROUPS.length];
@@ -1057,7 +1057,7 @@
     if(!target){
       // completeness only, never a fit claim — the modal shows the real verdict
       toast('All required parts chosen — 📋 View complete build has the summary and verdict.');
-      return;
+      return false;
     }
     activeGroup = target.key; activeSub = 'all'; wheelSizeFilter = 'all'; tireWidthFilter = 'all';
     if(!guidedOptOut) setCompatibleOnly(true);
@@ -1065,8 +1065,7 @@
     var picked = byId(build[slotKey]);
     toast('✓ '+(picked ? picked.brand+' '+picked.model : 'Picked')+' — next: '+target.label+'.'+
           (compatibleOnly ? ' Only parts that don’t clash are shown.' : ''));
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    $('chips').scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'start'});
+    return true;   // the caller scrolls AFTER sync() — the jump must target the re-rendered layout
   }
 
   /* ---- mutations ---- */
@@ -1086,8 +1085,13 @@
       if(slotDef && slotDef.altOf) delete build[slotDef.altOf];
       else altSlotsOf(slotKey).forEach(function(k){ delete build[k]; });
     }
-    if(partId) guidedAdvance(slotKey, wasComplete);   // before sync() so the catalog paints once, on the final group+filter
+    var advanced = partId ? guidedAdvance(slotKey, wasComplete) : false;   // before sync() so the catalog paints once, on the final group+filter
     sync();
+    // scroll only after sync() has re-rendered: an animated scroll aimed at the
+    // pre-render layout dies when the list shrinks under it (found on mobile —
+    // the page height collapses mid-animation and the jump strands mid-page),
+    // so this is an instant jump against the final layout.
+    if(advanced) $('chips').scrollIntoView({block:'start'});
   }
   function applyPreset(id){
     var p=byId(id); if(!p||!p.fills) return;
