@@ -155,10 +155,26 @@ Nothing left on this list — every Phase 1 item shipped and is live.
   example: replace the solid green header bar with an artistic panorama render of a mountain
   range. Wait for Douglas to schedule it (a UI-declutter mockup round is running first and may
   set the layout it lands on).
-- **Headset category** — requested same day; a design-first chip is out (BB-category pattern:
-  own single-slot optional group, S.H.I.S.-based data model, active steerer-fit check + a
-  frame-head-tube rule that stays DORMANT until frames carry sourced head-tube data). Lands
-  via coordinator merge review like every schema change.
+- ✅ **Headset category — LANDED 2026-07-10 late** (this merge): rule 20 (20a steerer active,
+  20b S.H.I.S. bore check dormant-until-sourced — live on the 51 frames already carrying
+  fetched headTube codes, 20c advisory), own optional single-slot group per the BB template,
+  12 fetched Cane Creek/Chris King rows (all five catalog S.H.I.S. combos covered; CK weights
+  honestly omitted — flat-205g storefront figure is a shipping placeholder). 1855 parts /
+  1250 verified / 426 tests at landing.
+- **Domain: register + cutover (Douglas + coordinator halves).** Douglas buys the domain
+  (registrar of his choice; .bike/.cc/.com all fine), then the coordinator handles the
+  cutover: CNAME file + Pages custom-domain + exact DNS records for him to paste, enforce
+  HTTPS, **update the Supabase Auth site/redirect URLs (logins break otherwise)**, OG/meta/
+  canonical + docs links. **Sequence this BEFORE affiliate applications** — programs approve
+  real domains far more readily than github.io subdomains.
+- **Affiliate/image licensing (the one real blocked-on-Douglas item).** Plan of record:
+  domain first, then Douglas applies to 2-3 programs (AvantLink network — Jenson USA et al.;
+  Impact — evo/Backcountry; Amazon Associates as breadth fallback) with his site URL +
+  tax/payout identity; approved feeds license product images + give price data, which the
+  coordinator then wires into the catalog (schema `image`/`retailerLinks` fields + detail
+  modal are already built and waiting). Coordinator pre-builds the privacy/affiliate-
+  disclosure page programs require. Manufacturer-direct permission emails = slower parallel
+  path, only if a key brand is missing from the networks.
 
 ## Phase 2 — Richer catalog + data pipeline
 
