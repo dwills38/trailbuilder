@@ -138,7 +138,7 @@ hr('D. ADVERSARIAL (builds that must clash - a MISS here is a false "fits")');
   var cases = [
     { n: 'mullet-only frame + 29/29 tires', b: { frame: 'fr-ibis-hd6', frontTire: 'ti-maxxis-assegai-29-25-exop-mg', rearTire: 'ti-maxxis-assegai-29-25-dh-mg' }, e: 'wheel-config' },
     { n: 'XD-hub rear wheel + MicroSpline cassette', b: { frame: 'fr-raaw-jibb', rearHub: 'rh-dtswiss-350-boost148-xd', rearRim: 'rm-dtswiss-ex511-29', cassette: 'ca-shimano-xt-m8100-1051' }, e: 'freehub' },
-    { n: 'Transmission derailleur + non-UDH frame', b: { frame: 'fr-raaw-jibb', derailleur: 'dr-sram-gx-transmission' }, e: 'udh' },
+    { n: 'Transmission derailleur + non-UDH frame (kit-less)', b: { frame: 'fr-kona-process-153', derailleur: 'dr-sram-gx-transmission' }, e: 'udh' },
     { n: '52T cassette + NX(50T) derailleur', b: { cassette: 'ca-sram-xg1275', derailleur: 'dr-sram-nx-eagle' }, e: 'cassette-capacity' },
     { n: 'AXS shifter + cable derailleur', b: { shifter: 'sft-sram-gx-eagle-axs', derailleur: 'dr-sram-gx-eagle' }, e: 'actuation' },
     { n: '34.9 dropper in 31.6 seat tube', b: { frame: 'fr-raaw-jibb', dropper: 'dp-oneup-v3-349-210' }, e: 'dropper-diameter' },

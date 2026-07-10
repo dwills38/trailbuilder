@@ -107,6 +107,23 @@ test('Transmission derailleur needs a UDH frame', function(){
 test('Transmission derailleur is fine on a UDH frame', function(){
   eq(chk({frame:'fr-santacruz-megatower-cc', derailleur:'dr-sram-gx-transmission'}).errors.length, 0);
 });
+
+/* Rule 4 retrofit tier (dossier rule 4 review, 2026-07-10): a maker-documented
+   UDH retrofit kit ("a UDH retrofit kit to give your existing Jibb V1, Madonna
+   V2, or Madonna V2.2 compatibility" - raawmtb.com) downgrades the hard error
+   to a warning carrying the kit as the structured fix. Kit-less non-UDH frames
+   (the Kona Process test above) stay a hard error. */
+test('Transmission mech on a kit-covered non-UDH frame -> retrofit warning with structured fix, not an error', function(){
+  var r = chk({frame:'fr-raaw-madonna-v22', derailleur:'dr-sram-gx-transmission'});
+  eq(r.errors.length, 0);
+  some(r.warnings, 'retrofit kit');
+  eq(r.warnings.filter(function(w){ return !!(w.fix && w.fix.kind==='adapter' && /UDH Retrofit/.test(w.fix.name)); }).length, 1);
+});
+test('Jibb V1 (kit-covered) + Transmission mech -> retrofit warning too', function(){
+  var r = chk({frame:'fr-raaw-jibb', derailleur:'dr-sram-gx-transmission'});
+  eq(r.errors.length, 0);
+  some(r.warnings, 'retrofit kit');
+});
 test('cassette bigger than derailleur capacity -> error', function(){
   some(chk({cassette:'ca-sram-xg1275', derailleur:'dr-shimano-xt-m8100-sgs'}).errors, 'Cassette too big');
 });

@@ -51,8 +51,16 @@ test('mullet-only frame rejects a full 29 build', function(){
 test('XD-driver rear wheel + MicroSpline cassette -> freehub error (via hub+rim path)', function(){
   ok(has(chk({ frame: 'fr-raaw-jibb', rearHub: 'rh-dtswiss-350-boost148-xd', rearRim: 'rm-dtswiss-ex511-29', cassette: 'ca-shimano-xt-m8100-1051' }), 'errors', 'freehub'));
 });
-test('SRAM Transmission derailleur on a non-UDH frame -> udh error', function(){
-  ok(has(chk({ frame: 'fr-raaw-jibb', derailleur: 'dr-sram-gx-transmission' }), 'errors', 'udh'));
+test('SRAM Transmission derailleur on a kit-less non-UDH frame -> udh error', function(){
+  // Fixture re-pointed 2026-07-10: the Jibb V1 gained a sourced udhRetrofitKit
+  // (dossier rule 4 review), so it now correctly WARNS instead - the hard-error
+  // guard needs a frame whose maker documents no kit.
+  ok(has(chk({ frame: 'fr-kona-process-153', derailleur: 'dr-sram-gx-transmission' }), 'errors', 'udh'));
+});
+test('SRAM Transmission derailleur on a kit-covered non-UDH frame -> udh WARNING with the kit fix, no error', function(){
+  var r = chk({ frame: 'fr-raaw-jibb', derailleur: 'dr-sram-gx-transmission' });
+  ok(!has(r, 'errors', 'udh'));
+  ok(has(r, 'warnings', 'udh'));
 });
 test('52T cassette + NX (50T) derailleur -> cassette-capacity error', function(){
   ok(has(chk({ cassette: 'ca-sram-xg1275', derailleur: 'dr-sram-nx-eagle' }), 'errors', 'cassette-capacity'));
