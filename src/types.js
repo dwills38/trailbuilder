@@ -99,6 +99,7 @@
  * @property {number} maxRotorR
  * @property {number} maxForkTravel
  * @property {number} [minForkTravel]  maker-published approved-fork floor (dormant until sourced)
+ * @property {number} [designForkTravel]  maker-STATED design fork travel (rule 12c warns >20mm below; dormant until sourced)
  * @property {boolean} [coilApproved]  false = maker states NOT coil-compatible (absence = unknown)
  * @property {boolean} udh
  * @property {boolean} frameOnly

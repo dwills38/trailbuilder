@@ -3770,6 +3770,20 @@ function checkBuild(build){
         on high-pivot frames (Dreadnought: 154mm travel, ships at 170). */
   if(fork && frame && typeof frame.minForkTravel==='number' && fork.travel<frame.minForkTravel)
     warn('fork-travel-min', ['fork','frame'], 'Under-forked: '+fork.travel+'mm fork is below '+nameOf(frame)+'\'s approved minimum of '+frame.minForkTravel+'mm - steepens the geometry (~1° per 20mm) and leaves the frame outside the maker\'s approved range.');
+  /* 12c. DESIGN-travel under-fork (warning, 20mm grace) - dormant until a
+        frame carries a maker-STATED designForkTravel ("geometry numbers are
+        based around a 170mm travel fork"). This is design intent, NOT an
+        approved floor (that is 12b/minForkTravel): more than 20mm below
+        design steepens the head angle >1° and drops the BB well outside any
+        common deliberate build, while 10-20mm under is a real custom choice
+        and stays silent. Threshold flagged for the mechanic review.
+        Suppressed when 12b already fired for the same pair (one verdict per
+        conflict). Still manufacturer statements only - never derived from
+        rear travel (the high-pivot false-fire, see 12b). */
+  if(fork && frame && typeof frame.designForkTravel==='number' &&
+     (frame.designForkTravel - fork.travel) > 20 &&
+     !(typeof frame.minForkTravel==='number' && fork.travel<frame.minForkTravel))
+    warn('fork-travel-design', ['fork','frame'], 'Under-forked: '+fork.travel+'mm fork is '+(frame.designForkTravel-fork.travel)+'mm below the '+frame.designForkTravel+'mm fork this frame\'s geometry is designed around (maker-stated) - steepens the head angle ~1° per 20mm and lowers the bottom bracket.');
 
   /* 13. Dropper diameter vs seat tube - DIRECTION-AWARE (REVIEW.md #9): a
         bigger post in a smaller tube is physically impossible (error); a
