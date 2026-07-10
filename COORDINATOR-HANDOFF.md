@@ -12,7 +12,7 @@ _Last updated: 2026-07-10 (night), by the day's coordinator session at the end o
 - Engine highlights now live: **BB category** (real bottom brackets, exact shell×spindle checks, own GROUP — never a drivetrain slot, see §7), **sourced-strict rule 12** (outside a maker-published fork-travel range = hard error; design-only frames keep the >20mm-under warning), **rule 10b** frame-side native rotor floor (Cotic Solaris), **rule 4 UDH retrofit-kit warning tier**, **rule 3a AXS-controller exemption**, 180mm dropper-insertion info threshold, dormant `minTire`, de-estimated stroke warning.
 - **Expansion is UN-held** (Douglas lifted it after the review) and the r2 wave (6 category clusters) is merged — an independent re-fetch audit of the whole wave found **zero fabrications**. Verification waves same night took shocks 3→107/108 (zero interface corrections), droppers 153 promoted, forks 108 promoted (one real false-fit caught: SR Suntour Durolux was Boost110, maker says 20x110).
 - **Nothing pending in the merge queue at handoff** — the verify-brakes-rotors branch landed as the final act (81 promotions incl. the whole TRP line + SRAM/Hope/Shimano-handbook brakes; zero interface corrections). Fresh branches only appear when Douglas runs a new wave.
-- **Worktrees:** your session's own worktree is your coordination base (see §2). `D:\MTB Bike Builder` (shared checkout) — NEVER coordinate from it; it currently sits on a stray `claude/*` branch (housekeeping, §6). `D:/tb-coord` was the previous coordinator's worktree and may still be locked by that session — don't fight it.
+- **Worktrees:** your session's own worktree is your coordination base (see §2). `D:\MTB Bike Builder` (shared checkout) — NEVER coordinate from it; since the 2026-07-10 sweep it sits on `main` synced to `origin/main` (see §5 for the remaining session-locked tail). `D:/tb-coord` was the previous coordinator's worktree and may still be locked by that session — don't fight it.
 
 ## 2. Your role and working base
 
@@ -68,11 +68,17 @@ You are the **coordinator**. You do NOT write catalog rows or features yourself 
 5. **Follow-ups parked:** 2 Fox fork rows flagged fictitious (verify-forks report); SM-RT30-203 rotor flagged; Wolf Tooth Resolve rev2-at-200mm = candidate NEW rows; Cotic I.S. brake mount not in vocab (blocked); dropper-insertion-vs-frame-size + curved-seat-tube checks = nice-to-have backlog (needs a frame-size picker; most frames already carry per-size maxInsert).
 6. **Blocked on Douglas:** product-photo/affiliate licensing; forum migration + `FORUM_ENABLED` flip.
 
-## 5. Housekeeping (do when Douglas closes his finished sessions)
+## 5. Housekeeping — SWEPT 2026-07-10 late (on Douglas's go); only a session-locked tail remains
 
-- ~12 fully-merged branches are pinned by their sessions' worktrees under `D:\MTB Bike Builder\.claude\worktrees\` — once those sessions close: `git branch -d` each, `git worktree prune` (Windows: `worktree remove` may fail on locked dirs; prune de-registers, orphan folders are harmless).
-- The shared checkout `D:\MTB Bike Builder` sits on a stray `claude/*` branch — with Douglas's OK and no live session holding it: `git switch main && git reset --hard origin/main` there (preserve the untracked root PDFs + `scripts/`).
-- `dossier-research-pass` + `verify-droppers` (the harvested duplicate) branches can be deleted after their worktrees free up.
+Done by the sweep session:
+- **Shared checkout `D:\MTB Bike Builder` is back on `main` == `origin/main`** (fast-forward only — no reset needed; the untracked root dossier PDFs + `scripts/` preserved). Gates re-run green there after sync: 1843 parts / 0 problems, 407/407 tests.
+- **23 local branches deleted** — 22 via merge-safe `-d` (every one verified contained in `origin/main` first), plus `verify-droppers` (the harvested duplicate, per the previous coordinator's disposition) via `-D`. Its two commits stay recoverable by SHA if ever needed: `d820a4f`, `9b8a5ba` (the Wolf Tooth Resolve rev2 relabeling in there was rejected at harvest → parked in §4 as candidate NEW rows).
+- **13 stale worktrees de-registered.** One (`agent-a39e7041…`) held a 76-row UNCOMMITTED parallel draft of the landed brakes/rotors wave (the §3 branch-name-collision session). Field-level diff vs main before discarding: **zero interface-field deltas** (mount/pistons/size/leverAccepts) — only weight/provenance/desc/mfgPn drafting, both directions, unsourced vs the reviewed+audited landing. Discarded as superseded.
+
+Remaining tail (all blocked on Douglas closing session windows — ~35 claude.exe were still running at sweep time):
+- 3 git-locked worktrees with LIVE sessions: `forktravel-sweep-2` (pid 37680), `verify-droppers` wt (pid 10876), `verify-shocks` (pid 36168). Their branches (`forktravel-sweep-2`, `worktree-verify-droppers`, `worktree-verify-shocks`) are **already merged**. Once closed: `git branch -d forktravel-sweep-2 worktree-verify-droppers worktree-verify-shocks && git worktree prune`.
+- ~29 orphan de-registered FOLDERS under `.claude/worktrees\` (+ stray `audit-out.json`) — Windows holds handles while session processes live; harmless, delete manually after closing sessions or a reboot.
+- `D:/tb-coord` (`coord/main`, == the pre-sweep origin/main) left in place per §1.
 
 ## 6. Gotchas & references (still true, verified tonight)
 
