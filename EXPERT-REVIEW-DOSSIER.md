@@ -130,6 +130,16 @@ spindle standard (DUB / 24 mm / 30 mm / e*13 P3) and the frame shell (BSA73 / PF
 and saying "BB sold separately". Nothing is ever blocked.
 **Ask:** every current spindle×shell pair is servable with a real BB — will that stay true?
 Which pairs deserve a real warning (e.g. 30 mm spindle in PF92)?
+**Review verdict (2026-07-10): ✓ advisory CONFIRMED; the warning question answered by
+BUILDING THE BB CATEGORY** ("this is correct but I am not sure which pairs deserve a real
+warning. Can you add a bottom bracket category?" — Douglas). Resolution (branch
+`bb-category`): a real `bb` part category (shell × spindle) with exact rule-7 error checks
+once a BB is picked; the advisory still fires (and only) when none is. Servability is now
+proven by purchasable rows instead of guessed — notably the Ask's own example: **30 mm in
+PF92 IS servable** (fetched hopetech.com: Hope PF41 BB92 30 mm, 77 g, $124.27), so a real
+warning there would have been FALSE. 8 sourced starter rows (SRAM DUB BSA 73/83 + PressFit
+92/107; Hope Threaded 68/73 and PF41 BB92, each in 24 mm + 30 mm). Still advisory-only:
+p3 spindles (e*13 sourcing pending), 24/30 mm in DH shells, BSA68/PF865/T47.
 
 ### 8. Brake caliper mounts
 **Claims:** caliper mount must match fork/frame mount. Currently every part is post-mount,
