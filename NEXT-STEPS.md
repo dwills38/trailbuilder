@@ -145,6 +145,17 @@ Deliberately deferred, documented in REVIEW.md's status header: the real inserti
 
 Nothing left on this list — every Phase 1 item shipped and is live.
 
+### Queued by Douglas 2026-07-10 (parked here so they're not forgotten — do not start unprompted)
+
+- **Visual/style pass — explicitly "not yet."** More art direction across the app; the named
+  example: replace the solid green header bar with an artistic panorama render of a mountain
+  range. Wait for Douglas to schedule it (a UI-declutter mockup round is running first and may
+  set the layout it lands on).
+- **Headset category** — requested same day; a design-first chip is out (BB-category pattern:
+  own single-slot optional group, S.H.I.S.-based data model, active steerer-fit check + a
+  frame-head-tube rule that stays DORMANT until frames carry sourced head-tube data). Lands
+  via coordinator merge review like every schema change.
+
 ## Phase 2 — Richer catalog + data pipeline
 
 - ✅ **Schema additions DONE 2026-07-08:** `image`, `colors[]`, `retailerLinks[]` per part
