@@ -255,6 +255,24 @@ test('under-forking stays dormant without minForkTravel (high-pivot frames would
   // Dreadnought: 154mm travel, commonly forked at 170+ - a 160 fork must stay silent.
   eq(chk({frame:'fr-forbidden-dreadnought', fork:'fk-fox-36-factory-29-160'}).warnings.length, 0);
 });
+test('design-travel under-forking (12c) warns >20mm below a maker-stated designForkTravel', function(){
+  var bld = B({fork:'fk-fox-36-factory-29-140'});
+  bld.frame = /** @type {FramePart} */ (Object.assign({}, part('fr-propain-spindrift-cf'), {designForkTravel:180}));
+  some(C.checkBuild(bld).warnings, 'designed around');   // 40mm under design
+});
+test('design-travel under-forking stays silent at 20mm under (a real deliberate build) and with no data', function(){
+  var bld = B({fork:'fk-fox-36-factory-29-160'});
+  bld.frame = /** @type {FramePart} */ (Object.assign({}, part('fr-propain-spindrift-cf'), {designForkTravel:180}));
+  eq(C.checkBuild(bld).warnings.length, 0);              // exactly 20 under: silent
+  eq(chk({frame:'fr-propain-spindrift-cf', fork:'fk-fox-36-factory-29-140'}).warnings.length, 0); // no field: dormant
+});
+test('12c is suppressed when 12b (approved minimum) already fired for the same pair', function(){
+  var bld = B({fork:'fk-fox-36-factory-29-140'});
+  bld.frame = /** @type {FramePart} */ (Object.assign({}, part('fr-propain-spindrift-cf'), {minForkTravel:170, designForkTravel:180}));
+  var w = C.checkBuild(bld).warnings;
+  some(w, 'approved minimum');
+  eq(w.filter(function(x){ return String(x).indexOf('designed around')>=0; }).length, 0);
+});
 test('coil shock warns when the frame is maker-stated NOT coil-compatible', function(){
   var bld = B({shock:'sh-ext-storia-v3-230x65'});
   bld.frame = /** @type {FramePart} */ (Object.assign({}, part('fr-yt-capra-core4'), {coilApproved:false}));

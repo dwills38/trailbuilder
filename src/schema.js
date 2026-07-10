@@ -203,10 +203,14 @@ var SCHEMA = {
     /* dormant-until-sourced (rule-18 template): minForkTravel = the maker's
        published approved-fork floor (REVIEW #14 - never a heuristic, a
        travel-based guess would false-fire on high-pivot frames like the
-       Dreadnought); coilApproved:false = the maker states the frame is NOT
+       Dreadnought); designForkTravel = the maker-STATED design fork travel
+       ("geometry is based around a 170mm fork") - design intent, NOT an
+       approved floor; rule 12c warns only >20mm below it (10-20mm under is
+       a real deliberate build). Both manufacturer statements only.
+       coilApproved:false = the maker states the frame is NOT
        coil-compatible (REVIEW #21 - manufacturer statements only, never
        leverage-curve guesses; absence means unknown, not approved). */
-    minForkTravel:{type:'number',optional:true}, coilApproved:{type:'bool',optional:true},
+    minForkTravel:{type:'number',optional:true}, designForkTravel:{type:'number',optional:true}, coilApproved:{type:'bool',optional:true},
     udh:{type:'bool'}, frameOnly:{type:'bool'}, maxTire:{type:'number',optional:true},
     headTubeUpper:{type:'string',vocab:'headTube',optional:true}, headTubeLower:{type:'string',vocab:'headTube',optional:true},
     bundledShock:{type:'id',optional:true,nullable:true},
