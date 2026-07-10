@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-10T14:44:36.260Z",
+ "updated": "2026-07-10T16:54:08.065Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -228,6 +228,10 @@
   "sh-ohlins-txc2air-190x45",
   "sh-fox-dhx2-225x75-trun",
   "sh-marzocchi-bomber-cr-225x75-trun",
+  "sh-canecreek-kitsuma-air-230x60",
+  "sh-canecreek-kitsuma-air-205x60-trun",
+  "sh-canecreek-coilil-210x50",
+  "sh-canecreek-coilil-185x50-trun",
   "sh-manitou-mara-pro-165x45-trun",
   "sh-dvo-topaz-gen3-190x40",
   "sh-ext-arma-230x57p5",
@@ -237,6 +241,9 @@
   "fk-rockshox-lyrik-select-29-150",
   "fk-rockshox-pike-select-29-140",
   "fk-rockshox-pike-select-29-130",
+  "fk-rockshox-pike-base-29-140",
+  "fk-rockshox-pike-base-29-120",
+  "fk-rockshox-pike-base-275-130",
   "fk-fox-36-performance-elite-29-160",
   "fk-fox-36-performance-elite-29-150",
   "fk-fox-38-performance-elite-29-180",
@@ -276,6 +283,8 @@
   "fk-ext-era-v2-29-140",
   "fk-ext-era-v2-29-150",
   "fk-ext-era-v2-29-160",
+  "fk-ext-vaia-29-200",
+  "fk-ext-vaia-29-170",
   "fk-formula-selva-s-29-120",
   "fk-formula-selva-s-29-130",
   "fk-formula-selva-s-29-140",
@@ -295,6 +304,9 @@
   "fk-rockshox-domain-rc-275-160",
   "fk-rockshox-domain-rc-275-170",
   "fk-rockshox-domain-rc-275-180",
+  "fk-rockshox-domain-gold-r-29-160",
+  "fk-rockshox-domain-gold-r-275-160",
+  "fk-rockshox-domain-gold-r-29-180",
   "fk-manitou-machete-29-80",
   "fk-manitou-machete-29-120",
   "fk-manitou-machete-275-80",
@@ -371,6 +383,7 @@
   "st-pro-tharsis-trail-318",
   "st-title-st1-318",
   "st-title-st1-35",
+  "gr-wolftooth-fatpaw",
   "gr-odi-ruffian-v21",
   "gr-odi-rogue-v21",
   "gr-odi-vans-v21",
@@ -553,6 +566,8 @@
   "bk-trp-evo-comp",
   "bk-trp-slate-t4",
   "bk-clarks-m4",
+  "bk-hope-evo-gr4",
+  "bk-hope-evo-tr4",
   "ro-sram-hs2-160-6b",
   "ro-sram-centerline-220-6b",
   "ro-sram-centerline-200-cl",
@@ -701,12 +716,12 @@
   "rh-onyx-vesper-boost148-ms",
   "rh-onyx-vesper-boost148-hg",
   "rm-dtswiss-ex511-29",
-  "rm-hope-fortus30-29",
   "rm-industrynine-endurosv2-29",
   "rm-industrynine-endurosv2-275",
   "rm-spank-359-29",
   "rm-weareone-union-29",
-  "rm-raceface-arc25-29"
+  "rm-raceface-arc25-29",
+  "bb-ethirteen-pf92-p3"
  ],
  "parts": {
   "fr-specialized-enduro-sworks": {
@@ -4472,11 +4487,11 @@
   },
   "rm-hope-fortus30-29": {
    "cat": "rim",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_DATA_2019.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rm-industrynine-endurosv2-29": {
    "cat": "rim",
@@ -13917,6 +13932,462 @@
    "error": null,
    "source": null,
    "note": null
+  },
+  "ti-pirelli-scorpion-enduro-m-29-24-pw-sgg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/scorpion-enduro-m",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-high-roller-ii-275-25-dd-mt": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/high-roller-ii/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-high-roller-ii-275-24-exo-mt": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/high-roller-ii/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-goodyear-newton-mtr-29-24-enduro-grip3s": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://goodyearbike.com/products/newton-mtr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fw-stans-flow-s2-275": {
+   "cat": "frontwheel",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://stans.com/products/flow-s2-wheelset",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-crankbrothers-synthesis-dh11-29-157-hg": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.crankbrothers.com/products/synthesis-dh-11-carbon-rear-wheel",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-crankbrothers-synthesis-dh11-275-157": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.crankbrothers.com/products/synthesis-dh-11-carbon-rear-wheel",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-crankbrothers-synthesis-dh11-275-157-hg": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.crankbrothers.com/products/synthesis-dh-11-carbon-rear-wheel",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-stans-flow-s2-275-xd": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://stans.com/products/flow-s2-wheelset",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-stans-flow-s2-275-ms": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://stans.com/products/flow-s2-wheelset",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "sh-canecreek-kitsuma-air-230x60": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-canecreek-kitsuma-air-205x60-trun": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-canecreek-coilil-210x50": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-canecreek-coilil-185x50-trun": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-rockshox-pike-base-29-140": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-rockshox-pike-base-29-120": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-rockshox-pike-base-275-130": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-ext-vaia-29-200": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-ext-vaia-29-170": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-rockshox-domain-gold-r-29-160": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-rockshox-domain-gold-r-275-160": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-rockshox-domain-gold-r-29-180": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-wolftooth-fatpaw": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "pd-chromag-scarab": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://us.chromagbikes.com/products/pedals-scarab",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bk-formula-cura": {
+   "cat": "brake",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.rideformula.com/products/mtb-brakes/cura/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bk-formula-cura-x": {
+   "cat": "brake",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.rideformula.com/products/mtb-brakes/cura-x-3/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bk-hope-evo-gr4": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-hope-evo-tr4": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-hope-xcrpro-e4": {
+   "cat": "brake",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.hopetech.com/products/brakes/xc/xcr-pro-e4/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ro-magura-storm-hc-160-6b": {
+   "cat": "rotor",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://magura.com/product/storm-hc/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ro-magura-storm-hc-180-6b": {
+   "cat": "rotor",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://magura.com/product/storm-hc/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ro-magura-storm-hc-203-6b": {
+   "cat": "rotor",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://magura.com/product/storm-hc/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "sft-sram-x01-eagle": {
+   "cat": "shifter",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/sl-x0-1-b2",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dr-sram-xx-sl-transmission": {
+   "cat": "derailleur",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/rd-xx-sle-b1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dr-sram-x01-eagle-axs": {
+   "cat": "derailleur",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/rd-x0-1e-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dr-sram-xx1-eagle": {
+   "cat": "derailleur",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/rd-xx-1-b2",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ca-sram-xg1299": {
+   "cat": "cassette",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cs-xg-1299-b1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ch-sram-xx-sl-flattop": {
+   "cat": "chain",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cn-ttyp-xxsl-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ch-sram-xx1-eagle": {
+   "cat": "chain",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cn-eagl-xx1-a2",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "cr-sram-xx1-eagle": {
+   "cat": "crankset",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/fc-xx-1-c2",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rm-hope-fortus30-275": {
+   "cat": "rim",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_DATA_2019.pdf",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-sram-dub-bsa73": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/bb-dub-bsa-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-sram-dub-bsa83": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/bb-dub-bsa-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-sram-dub-pf92": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/bb-dub-pf-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-sram-dub-pf107": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/bb-dub-pf-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-hope-threaded-bsa73-24mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.hopetech.com/products/drivetrain/bottom-bracket/threaded-bottom-bracket/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-hope-threaded-bsa73-30mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.hopetech.com/products/drivetrain/bottom-bracket/threaded-bottom-bracket/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-hope-pf41-92-24mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.hopetech.com/products/drivetrain/bottom-bracket/press-fit-pf41-bottom-bracket/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-hope-pf41-92-30mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.hopetech.com/products/drivetrain/bottom-bracket/press-fit-pf41-bottom-bracket/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-ethirteen-bsa73-p3": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.ethirteen.com/products/bottom-bracket",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-ethirteen-bsa83-p3": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.ethirteen.com/products/bottom-bracket",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-ethirteen-pf92-p3": {
+   "cat": "bb",
+   "status": "Pending",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bb-raceface-bsa68-30mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.raceface.com/products/bsa-cinch-30mm",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-raceface-bsa68-24mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.raceface.com/products/team-bsa-24mm",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-raceface-bsa73-30mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.raceface.com/products/bsa-cinch-30mm",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-raceface-bsa83-30mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.raceface.com/products/bsa-cinch-30mm",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-raceface-pf92-24mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-10T16:54:08.064Z",
+   "error": null,
+   "source": "https://www.raceface.com/products/bb92-24mm",
+   "note": "auto-promoted: already verified in catalog"
   }
  }
 }
