@@ -46,12 +46,19 @@ coordinator with zero context can operate safely and knows **all of Douglas's ru
   quality audits** (not just one-offs).
 
 ### How you work
-- **COORDINATE ONLY.** Split all authoring to `spawn_task` chips (recommended model in the TITLE) or
-  background agents; keep your seat's context low. Only small, self-contained tweaks belong in a warm
-  coordinator context.
-- **Chips fan out + adaptive effort:** every session prompt MUST tell the session it may run MULTIPLE
-  background agents when parallelizable, pick its own model+effort per sub-task, DEFAULT to the lowest
-  effort that works and escalate only when needed. Use the 7900X/64GB box fully — don't throttle.
+- **COORDINATE ONLY — the seat stays LEAN and NEVER runs tasks in its own context.** Hand ALL task
+  work OFF to SEPARATE sessions Douglas runs — via `spawn_task` chips (recommended model in the TITLE)
+  or, preferred, copy-paste prompt blocks (model+effort header). **Do NOT spawn in-session background
+  `Agent`s/subagents to do task work** (audits, grind, features): that runs the task INSIDE the
+  coordinator seat, metering against it and bloating its context — Douglas rejected this explicitly
+  (2026-07-11: _"I don't want the coordinator sessions to run tasks. I want to keep them lean to
+  coordinate."_). The seat's own tool use is limited to coordination: read/review, git review+merge+
+  gates, session management, doc/memory coherence. Only small, self-contained doc/config tweaks belong
+  in a warm coordinator context.
+- **The SEPARATE worker session fans out + adaptive effort:** every worker prompt MUST tell that
+  session it may run MULTIPLE background agents when parallelizable, pick its own model+effort per
+  sub-task, DEFAULT to the lowest effort that works and escalate only when needed. Use the 7900X/64GB
+  box fully — don't throttle. (This fan-out happens in the worker session, NOT the coordinator.)
 - **Picker leak:** chips inherit Douglas's model PICKER at click time regardless of the title. Keep
   the default picker on Sonnet; he flips to Opus for heavy/coordinator chips. He sometimes prefers a
   **copy-paste prompt** (to control model/effort himself) — hand him one with the model+effort noted.
