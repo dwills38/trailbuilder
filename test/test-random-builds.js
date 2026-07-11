@@ -9,8 +9,20 @@
 var U = require('./test-util.js');
 var C = U.C, B = U.B, eq = U.eq, ok = U.ok;
 
+/** @type {string[]} */
 var THEME_KEYS = C.SAMPLE_THEMES.map(function(t){ return t.key; });
 var SEEDS = 50;
+
+/** Generate for a theme+seed and assert it succeeded, returning the ok-branch
+ * (narrowing SampleBuildResult so callers can read .build/.frameId/etc under
+ * tsc). The generator's contract is that every theme completes within budget.
+ * @param {string} key @param {number} seed
+ * @returns {{ok: true, theme: *, build: Object.<string,string>, presetBy: Object.<string,string>, frameId: string, warnings: number}} */
+function genOk(key, seed){
+  var g = C.generateSampleBuild(key, C.mulberry32(seed));
+  if(!g.ok) throw new Error('theme ' + key + ' seed ' + seed + ' failed to generate (ok:false)');
+  return g;
+}
 
 /** Slots still missing from a resolved build under slotRequired (frame- and
  * rear-wheel-aware), mirroring generateSampleBuild's own final completeness
@@ -28,10 +40,8 @@ function missingSlots(idBuild){
 THEME_KEYS.forEach(function(key){
   test('theme "' + key + '": ' + SEEDS + ' seeded builds are all complete and error-free', function(){
     for(var seed = 1; seed <= SEEDS; seed++){
-      var g = C.generateSampleBuild(key, C.mulberry32(seed));
-      ok(g.ok, 'theme ' + key + ' seed ' + seed + ' failed to generate (ok:false)');
-      var resolved = B(g.build);
-      var res = C.checkBuild(resolved);
+      var g = genOk(key, seed);
+      var res = C.checkBuild(B(g.build));
       eq(res.errors.length, 0, 'theme ' + key + ' seed ' + seed + ' has errors: ' + res.errors.map(String).join(' | '));
       var missing = missingSlots(g.build);
       eq(missing.length, 0, 'theme ' + key + ' seed ' + seed + ' is incomplete, missing: ' + missing.join(','));
@@ -44,8 +54,8 @@ THEME_KEYS.forEach(function(key){
 /* ---- determinism: same seed -> byte-identical build ---- */
 test('same seed produces the same build (every theme)', function(){
   THEME_KEYS.forEach(function(key){
-    var a = C.generateSampleBuild(key, C.mulberry32(1234));
-    var b = C.generateSampleBuild(key, C.mulberry32(1234));
+    var a = genOk(key, 1234);
+    var b = genOk(key, 1234);
     eq(JSON.stringify(a.build), JSON.stringify(b.build), 'theme ' + key + ' not deterministic');
     eq(a.frameId, b.frameId, 'theme ' + key + ' frame not deterministic');
   });
@@ -54,9 +64,9 @@ test('same seed produces the same build (every theme)', function(){
 test('different seeds produce different builds (not a constant)', function(){
   // Across a spread of seeds a theme should yield more than one distinct build.
   THEME_KEYS.forEach(function(key){
-    var seen = {};
+    /** @type {Object.<string, boolean>} */ var seen = {};
     for(var seed = 1; seed <= 20; seed++){
-      seen[JSON.stringify(C.generateSampleBuild(key, C.mulberry32(seed)).build)] = true;
+      seen[JSON.stringify(genOk(key, seed).build)] = true;
     }
     ok(Object.keys(seen).length > 1, 'theme ' + key + ' produced only one build across 20 seeds');
   });
@@ -65,30 +75,30 @@ test('different seeds produce different builds (not a constant)', function(){
 /* ---- per-theme character ---- */
 test('mullet builds are 29 front / 27.5 rear', function(){
   for(var seed = 1; seed <= SEEDS; seed++){
-    var g = C.generateSampleBuild('mullet', C.mulberry32(seed));
-    var b = B(g.build);
-    eq(b.frontWheel.wheel, '29', 'mullet seed ' + seed + ' front wheel not 29');
-    eq(b.rearWheel.wheel, '275', 'mullet seed ' + seed + ' rear wheel not 275');
-    eq(b.frontTire.wheel, '29', 'mullet seed ' + seed + ' front tire not 29');
-    eq(b.rearTire.wheel, '275', 'mullet seed ' + seed + ' rear tire not 275');
-    ok((b.frame.wheelConfigs || []).indexOf('mullet') >= 0, 'mullet seed ' + seed + ' frame is not mullet-capable');
+    var b = B(genOk('mullet', seed).build);
+    eq(b.frontWheel && b.frontWheel.wheel, '29', 'mullet seed ' + seed + ' front wheel not 29');
+    eq(b.rearWheel && b.rearWheel.wheel, '275', 'mullet seed ' + seed + ' rear wheel not 275');
+    eq(b.frontTire && b.frontTire.wheel, '29', 'mullet seed ' + seed + ' front tire not 29');
+    eq(b.rearTire && b.rearTire.wheel, '275', 'mullet seed ' + seed + ' rear tire not 275');
+    ok(!!b.frame && (b.frame.wheelConfigs || []).indexOf('mullet') >= 0, 'mullet seed ' + seed + ' frame is not mullet-capable');
   }
 });
 
 test('DH builds skip the dropper (slotRequired exempts it)', function(){
   for(var seed = 1; seed <= SEEDS; seed++){
-    var g = C.generateSampleBuild('dh', C.mulberry32(seed));
+    var g = genOk('dh', seed);
     ok(!g.build.dropper, 'dh seed ' + seed + ' unexpectedly has a dropper');
     var frame = B(g.build).frame;
-    ok((frame.disciplines || []).indexOf('dh') >= 0, 'dh seed ' + seed + ' frame is not a DH frame');
+    ok(!!frame && (frame.disciplines || []).indexOf('dh') >= 0, 'dh seed ' + seed + ' frame is not a DH frame');
   }
 });
 
 test('price bands are ordered: budget < mid < high on average', function(){
+  /** @param {string} key @returns {number} */
   function avgPrice(key){
     var sum = 0;
     for(var seed = 1; seed <= SEEDS; seed++){
-      sum += C.buildTotals(B(C.generateSampleBuild(key, C.mulberry32(seed)).build), {}).price;
+      sum += C.buildTotals(B(genOk(key, seed).build), {}).price;
     }
     return sum / SEEDS;
   }
