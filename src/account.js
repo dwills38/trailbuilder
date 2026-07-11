@@ -130,19 +130,26 @@ function getProfilesByIds(ids){
   if(!list.length) return Promise.resolve([]);
   return _sb.from('profiles').select('user_id,username,is_admin').in('user_id', list).then(_unwrap);
 }
-/* Case-insensitive username lookup (collision check). Returns the row or null.
-   Escapes LIKE wildcards so `_`/`%` in a name match literally (PostgREST ilike
-   treats `_` as a single-char wildcard — unescaped it would over-match and
-   maybeSingle() could even error on multiple hits). The DB's lower(username)
-   unique index is the authoritative guard; this is just the friendly pre-check. */
-function findProfileByUsername(name){
+/* Collision check on the NORMALIZED username (username_norm — lowercase +
+   spaces/_/- stripped, matching public.profile_norm). An exact eq on the stored
+   generated column, so no LIKE-wildcard hazards. The DB's unique index on
+   username_norm is the authoritative guard; this is just the friendly pre-check.
+   Returns the row {user_id} or null. */
+function findProfileByNorm(norm){
   _need();
-  var pat = String(name == null ? '' : name).replace(/([\\%_])/g, '\\$1');
-  return _sb.from('profiles').select('user_id,username').ilike('username', pat)
+  return _sb.from('profiles').select('user_id').eq('username_norm', norm)
     .maybeSingle().then(_unwrap);
 }
+/* The 'held' reserved usernames (RLS exposes only these — the 'blocked'
+   real-name rows stay private and are enforced server-side). Returns an array of
+   {norm}. Used for the client's friendly reserved pre-check. */
+function listReservedHeld(){
+  _need();
+  return _sb.from('reserved_usernames').select('norm').eq('kind', 'held').then(_unwrap);
+}
 /* Create or rename the signed-in user's profile. `user_id` is sent so upsert can
-   target the PK; is_admin is never sent (the DB trigger owns it). */
+   target the PK; is_admin is never sent (the DB trigger owns it). The DB
+   normalizes the display username + enforces reserved names. */
 function upsertMyProfile(username){
   _need();
   var u = _acctUser;
@@ -161,6 +168,7 @@ if (typeof module !== 'undefined' && module.exports) {
     listInventory: listInventory, addInventoryItem: addInventoryItem,
     setInventoryQty: setInventoryQty, removeInventoryItem: removeInventoryItem,
     hasProfiles: hasProfiles, getMyProfile: getMyProfile, getProfilesByIds: getProfilesByIds,
-    findProfileByUsername: findProfileByUsername, upsertMyProfile: upsertMyProfile
+    findProfileByNorm: findProfileByNorm, listReservedHeld: listReservedHeld,
+    upsertMyProfile: upsertMyProfile
   };
 }

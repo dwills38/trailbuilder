@@ -1,4 +1,5 @@
--- BuildMyMTB — Supabase migration: forum usernames/profiles + admin moderation.
+-- BuildMyMTB — Supabase migration: forum usernames/profiles + admin moderation
+-- + reserved-username protection.
 --
 -- Run ONCE in the Supabase SQL editor, AFTER supabase/schema.sql has been run
 -- (this file depends on that file's forum_threads / forum_posts tables and its
@@ -8,14 +9,17 @@
 --
 -- WHAT THIS ADDS
 --   * public.profiles — one row per auth user: a public display `username`
---     plus an `is_admin` flag used to moderate the forum.
+--     (letters/numbers/spaces/_/-, 3–24 chars) plus an `is_admin` flag used to
+--     moderate the forum. Uniqueness is CASE- and SEPARATOR-insensitive (see
+--     profile_norm), so "Doug" / "doug" / "D o u g" are the same name.
+--   * public.reserved_usernames — names no ordinary user may take (the owner's
+--     real name + a few held handles), enforced by a server-side trigger.
 --   * RLS so profiles are world-readable (usernames are public on the forum),
 --     while a user may create/rename ONLY their own row and can NEVER touch
 --     is_admin (see the security walkthrough below).
 --   * Admin moderation on the forum: an admin may delete (and edit) ANY thread
---     or post. These are SEPARATE permissive policies layered on top of the
---     existing owner-only policies from schema.sql — permissive policies OR
---     together, so owners keep managing their own posts and this file never has
+--     or post. Separate permissive policies layered on top of schema.sql's
+--     owner-only ones (permissive policies OR together), so this file never has
 --     to edit schema.sql.
 --
 -- ===========================================================================
@@ -38,102 +42,89 @@
 --     server-authoritative for every end user. There is no code path from the
 --     anon key to a raised is_admin.
 --
---   * service_role / SQL editor (the owner granting admin) — these run WITHOUT
---     an end-user JWT, so auth.uid() IS NULL, the trigger's guard is skipped,
---     and is_admin may be set. The service role also bypasses RLS entirely.
---     This is the ONE and only way admin is granted (see the grant block at the
---     bottom and SETUP.md §9). The publishable/anon key never gets this role.
+--   * service_role / SQL editor (the owner granting admin / seeding reserved
+--     names) — these run WITHOUT an end-user JWT, so auth.uid() IS NULL, the
+--     trigger's guard is skipped, and is_admin may be set. The service role also
+--     bypasses RLS entirely. This is the ONE and only way admin is granted (see
+--     the grant block at the bottom and SETUP.md §9). The publishable/anon key
+--     never gets this role.
 --
 -- The forum moderation policies below trust `is_admin` transitively: because an
--- end user can never raise their own is_admin, `is_forum_admin()` can only be
--- true for a row an admin (service role) blessed.
+-- end user can never raise their own is_admin, is_forum_admin() can only be true
+-- for a row an admin (service role) blessed.
 -- ===========================================================================
 
 -- ---------------------------------------------------------------------------
--- profiles: user_id is the PK and FKs to auth.users (cascade on user delete).
--- `username` is validated by a single regex CHECK (3–20 chars, [A-Za-z0-9_-]).
+-- profile_norm(): the normalization used for uniqueness AND reserved matching.
+-- Lowercase + strip spaces / underscores / hyphens, so "Doug", "doug" and
+-- "D o u g" all collapse to "doug". IMMUTABLE — required to index/generate on it.
+-- The client mirrors this exactly (profileNorm in index.html).
 -- ---------------------------------------------------------------------------
-create table if not exists public.profiles (
-  user_id    uuid primary key
-             references auth.users(id) on delete cascade
-             default auth.uid(),
-  username   text not null
-             check (username ~ '^[A-Za-z0-9_-]{3,20}$'),
-  is_admin   boolean not null default false,
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
+create or replace function public.profile_norm(t text)
+  returns text language sql immutable as $$
+  select lower(regexp_replace(coalesce(t, ''), '[ _-]', '', 'g'));
+$$;
+
+-- ---------------------------------------------------------------------------
+-- reserved_usernames: names an ordinary user may NOT take. `norm` is the
+-- normalized key (profile_norm of the label). kind='blocked' = never claimable
+-- by a normal user (the owner's real name + variants); kind='held' = parked for
+-- the owner to claim/approve later. Admin-managed via SQL (this file); an admin
+-- may still claim any of them (that's how the owner seeds 'Doug'). Full
+-- homoglyph/unicode-confusable defense is out of scope.
+-- ---------------------------------------------------------------------------
+create table if not exists public.reserved_usernames (
+  norm       text primary key,
+  label      text not null,
+  kind       text not null default 'blocked' check (kind in ('blocked','held')),
+  note       text,
+  created_at timestamptz not null default now()
 );
 
--- Case-insensitive uniqueness: "Rider" and "rider" are the SAME name, so no one
--- can impersonate another member by changing only the case. This satisfies the
--- unique-username requirement; the app preserves the chosen casing for display.
-create unique index if not exists profiles_username_lower_idx
-  on public.profiles (lower(username));
+-- Seed (idempotent). norm is computed from the label so it always matches
+-- profile_norm; re-running never duplicates (on conflict do nothing).
+insert into public.reserved_usernames (norm, label, kind, note) values
+  (public.profile_norm('Douglas Wadsworth Wills'), 'Douglas Wadsworth Wills', 'blocked', 'owner real name'),
+  (public.profile_norm('Douglas Wadsorth Wills'),  'Douglas Wadsorth Wills',  'blocked', 'owner real name (variant spelling)'),
+  (public.profile_norm('Douglas Wills'),           'Douglas Wills',           'blocked', 'owner real name'),
+  (public.profile_norm('Doug Wills'),              'Doug Wills',              'blocked', 'owner real name'),
+  (public.profile_norm('Doug Wadsworth Wills'),    'Doug Wadsworth Wills',    'blocked', 'owner real name'),
+  (public.profile_norm('Douglas'),                 'Douglas',                 'blocked', 'owner first name'),
+  (public.profile_norm('Doug'),                    'Doug',                    'blocked', 'owner display name (owner claims this)'),
+  (public.profile_norm('Wills'),                   'Wills',                   'blocked', 'owner surname'),
+  (public.profile_norm('DWills'),                  'DWills',                  'blocked', 'owner handle'),
+  (public.profile_norm('Gnarfather'),              'Gnarfather',              'held',    'reserved for the owner'),
+  (public.profile_norm('The Mechanic'),            'The Mechanic',            'held',    'reserved for the owner'),
+  (public.profile_norm('The Pilot'),               'The Pilot',               'held',    'reserved for the owner')
+on conflict (norm) do nothing;
 
 -- ---------------------------------------------------------------------------
--- is_admin guard (SECURITY-CRITICAL — see the walkthrough at the top). Pins
--- is_admin for every real end-user caller so it can only ever be changed by the
--- service_role / SQL editor. Silent pin (not RAISE) is deliberate: the app only
--- sends {user_id, username}, so a legitimate rename never trips anything, and a
--- malicious extra is_admin field is simply ignored rather than failing the whole
--- write — the flag stays server-authoritative either way.
+-- profiles. `username_norm` is a STORED generated column (profile_norm of the
+-- username) so the unique index and the client collision-check both key on the
+-- normalized form. The CHECK fixes the shape (3–24 of [A-Za-z0-9 _-]) AND
+-- requires at least one alphanumeric, so the normalized form is never empty.
 -- ---------------------------------------------------------------------------
-create or replace function public.profiles_guard_is_admin()
-  returns trigger language plpgsql as $$
-begin
-  if auth.uid() is not null then           -- a real signed-in end user
-    if tg_op = 'INSERT' then
-      new.is_admin := false;               -- nobody self-registers as admin
-    elsif tg_op = 'UPDATE' then
-      new.is_admin := old.is_admin;        -- cannot raise (or drop) the flag
-    end if;
-  end if;
-  return new;
-end $$;
+create table if not exists public.profiles (
+  user_id      uuid primary key
+               references auth.users(id) on delete cascade
+               default auth.uid(),
+  username     text not null
+               check (username ~ '^[A-Za-z0-9 _-]{3,24}$' and username ~ '[A-Za-z0-9]'),
+  username_norm text generated always as (public.profile_norm(username)) stored,
+  is_admin     boolean not null default false,
+  created_at   timestamptz not null default now(),
+  updated_at   timestamptz not null default now()
+);
 
-drop trigger if exists profiles_guard on public.profiles;
-create trigger profiles_guard
-  before insert or update on public.profiles
-  for each row execute function public.profiles_guard_is_admin();
-
--- Keep profiles.updated_at fresh on update, reusing schema.sql's trigger fn.
-drop trigger if exists profiles_touch on public.profiles;
-create trigger profiles_touch
-  before update on public.profiles
-  for each row execute function public.touch_updated_at();
+-- Case- + separator-insensitive uniqueness (the real anti-impersonation guard).
+create unique index if not exists profiles_username_norm_idx
+  on public.profiles (username_norm);
 
 -- ---------------------------------------------------------------------------
--- Row-Level Security for profiles.
--- ---------------------------------------------------------------------------
-alter table public.profiles enable row level security;
-
-drop policy if exists "profiles read"   on public.profiles;
-drop policy if exists "profiles insert" on public.profiles;
-drop policy if exists "profiles update" on public.profiles;
-
--- World-readable: usernames (and the is_admin marker) are public on the forum.
-create policy "profiles read" on public.profiles
-  for select using (true);
-
--- A user may create ONLY their own row (is_admin is pinned false by the trigger).
-create policy "profiles insert" on public.profiles
-  for insert to authenticated
-  with check (auth.uid() = user_id);
-
--- A user may rename ONLY their own row (is_admin is pinned to OLD by the trigger).
-create policy "profiles update" on public.profiles
-  for update to authenticated
-  using (auth.uid() = user_id)
-  with check (auth.uid() = user_id);
-
--- (No delete policy: profiles are not user-deletable; a deleted auth user
--- cascades this row away via the FK.)
-
--- ---------------------------------------------------------------------------
--- Admin moderation on the forum. `is_forum_admin()` is a plain STABLE helper
+-- is_forum_admin(): is the CURRENT end user an admin? Plain STABLE helper
 -- (security invoker) — safe because profiles is world-readable, so the caller
--- can always read their own row; and profiles policies never reference the
--- forum tables, so there is no RLS recursion.
+-- can always read their own row; profiles policies never reference the forum
+-- tables, so there is no RLS recursion.
 -- ---------------------------------------------------------------------------
 create or replace function public.is_forum_admin()
   returns boolean language sql stable as $$
@@ -143,12 +134,113 @@ create or replace function public.is_forum_admin()
   );
 $$;
 
+-- username_is_reserved(): does this normalized name hit the reserved list?
+-- SECURITY DEFINER so it sees ALL reserved rows regardless of the caller's RLS
+-- (the blocked/real-name rows are deliberately NOT world-readable — see the
+-- reserved_usernames SELECT policy). search_path pinned for definer safety.
+create or replace function public.username_is_reserved(p_norm text)
+  returns boolean language sql stable security definer
+  set search_path = public, pg_temp as $$
+  select exists (select 1 from public.reserved_usernames r where r.norm = p_norm);
+$$;
+
+-- ---------------------------------------------------------------------------
+-- profiles_guard (SECURITY-CRITICAL). BEFORE INSERT/UPDATE, security invoker.
+-- Three jobs, in order: (1) normalize the display username (collapse internal
+-- whitespace + trim) so the stored value is always clean; (2) PIN is_admin for
+-- every real end-user caller (the escalation guard); (3) REJECT a reserved
+-- username unless the caller is an admin (or the service role / SQL editor).
+-- ---------------------------------------------------------------------------
+create or replace function public.profiles_guard()
+  returns trigger language plpgsql as $$
+declare
+  acting_is_admin boolean;
+begin
+  -- (1) normalize the DISPLAY username: collapse whitespace runs to a single
+  --     space, then trim the ends — regardless of what the client sent.
+  new.username := btrim(regexp_replace(new.username, '\s+', ' ', 'g'));
+
+  -- (2) is_admin pin: only the service role / SQL editor (no end-user JWT ->
+  --     auth.uid() IS NULL) may set/change it. Silent pin (not RAISE) is
+  --     deliberate: the app only sends {user_id, username}, so a legitimate
+  --     rename never trips anything, and a malicious extra is_admin field is
+  --     simply ignored rather than failing the whole write.
+  if auth.uid() is not null then
+    if tg_op = 'INSERT' then
+      new.is_admin := false;               -- nobody self-registers as admin
+    elsif tg_op = 'UPDATE' then
+      new.is_admin := old.is_admin;        -- cannot raise (or drop) the flag
+    end if;
+  end if;
+
+  -- (3) reserved-name enforcement. The service role (auth.uid() null) and any
+  --     admin may claim a reserved name (this is how the owner seeds 'Doug');
+  --     everyone else is rejected. is_forum_admin() reads the caller's STORED
+  --     is_admin, which they cannot have forged (see step 2).
+  acting_is_admin := (auth.uid() is null) or public.is_forum_admin();
+  if not acting_is_admin
+     and public.username_is_reserved(public.profile_norm(new.username)) then
+    raise exception 'That username is reserved. Please choose another.'
+      using errcode = 'check_violation';
+  end if;
+
+  return new;
+end $$;
+
+drop trigger if exists profiles_guard on public.profiles;
+create trigger profiles_guard
+  before insert or update on public.profiles
+  for each row execute function public.profiles_guard();
+
+-- Keep profiles.updated_at fresh on update, reusing schema.sql's trigger fn.
+drop trigger if exists profiles_touch on public.profiles;
+create trigger profiles_touch
+  before update on public.profiles
+  for each row execute function public.touch_updated_at();
+
+-- ---------------------------------------------------------------------------
+-- Row-Level Security.
+-- ---------------------------------------------------------------------------
+alter table public.profiles          enable row level security;
+alter table public.reserved_usernames enable row level security;
+
+drop policy if exists "profiles read"   on public.profiles;
+drop policy if exists "profiles insert" on public.profiles;
+drop policy if exists "profiles update" on public.profiles;
+
+-- Profiles world-readable: usernames (and the is_admin marker) are public.
+create policy "profiles read" on public.profiles
+  for select using (true);
+-- A user may create ONLY their own row (is_admin pinned false, reserved names
+-- rejected — both by the trigger above).
+create policy "profiles insert" on public.profiles
+  for insert to authenticated
+  with check (auth.uid() = user_id);
+-- A user may rename ONLY their own row (is_admin pinned to OLD by the trigger).
+create policy "profiles update" on public.profiles
+  for update to authenticated
+  using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);
+-- (No delete policy: profiles are not user-deletable; a deleted auth user
+-- cascades this row away via the FK.)
+
+-- reserved_usernames: expose ONLY the 'held' rows to clients (for the friendly
+-- pre-check), keeping the 'blocked' real-name rows PRIVATE. No write policies,
+-- so only the service role / SQL editor manages the list.
+drop policy if exists "reserved held readable" on public.reserved_usernames;
+create policy "reserved held readable" on public.reserved_usernames
+  for select using (kind = 'held');
+
+-- ---------------------------------------------------------------------------
+-- Admin moderation on the forum. Separate permissive policies that OR with
+-- schema.sql's owner-only ones — an admin may delete/edit ANY thread/post while
+-- owners keep managing their own.
+-- ---------------------------------------------------------------------------
 drop policy if exists "forum threads admin delete" on public.forum_threads;
 drop policy if exists "forum threads admin modify" on public.forum_threads;
 drop policy if exists "forum posts admin delete"   on public.forum_posts;
 drop policy if exists "forum posts admin modify"   on public.forum_posts;
 
--- Admin may delete / edit ANY thread. OR's with schema.sql's owner-only policies.
 create policy "forum threads admin delete" on public.forum_threads
   for delete to authenticated
   using (public.is_forum_admin());
@@ -157,7 +249,6 @@ create policy "forum threads admin modify" on public.forum_threads
   using (public.is_forum_admin())
   with check (public.is_forum_admin());
 
--- Admin may delete / edit ANY post. OR's with schema.sql's owner-only policies.
 create policy "forum posts admin delete" on public.forum_posts
   for delete to authenticated
   using (public.is_forum_admin());
@@ -167,15 +258,21 @@ create policy "forum posts admin modify" on public.forum_posts
   with check (public.is_forum_admin());
 
 -- ===========================================================================
--- GRANTING ADMIN (owner only). Do NOT hardcode a user id in this file.
+-- GRANTING ADMIN + seeding the owner's profile (owner only). Do NOT hardcode a
+-- user id in this file.
 --
--- 1. Sign in to the app once and pick a username, so your profiles row exists.
--- 2. Find your user id (SQL editor — replace the email):
---      select id, email from auth.users where email = 'you@example.com';
--- 3. Grant admin (paste your uuid):
---      update public.profiles set is_admin = true where user_id = '<your-uuid>';
+-- 1. Find the owner's user id (SQL editor):
+--      select id, email from auth.users where email = 'douglas.w.wills@gmail.com';
+-- 2. Seed the owner's profile as admin with username 'Doug' (paste the uuid).
+--    This works even before he has signed in / created a profile, and it may
+--    claim the reserved name 'Doug' because it runs as the service role:
+--      insert into public.profiles (user_id, username, is_admin)
+--      values ('<owner-uuid>', 'Doug', true)
+--      on conflict (user_id) do update set is_admin = true, username = 'Doug';
 --
--- Step 3 works because the SQL editor runs as the service role with no end-user
--- JWT (auth.uid() IS NULL), so the is_admin guard trigger leaves the flag alone.
--- This is the only path that can raise is_admin. To revoke, set it back to false.
+-- To grant admin to anyone else later (without changing their username):
+--      update public.profiles set is_admin = true where user_id = '<their-uuid>';
+-- To revoke, set is_admin = false. These work because the SQL editor runs as the
+-- service role with no end-user JWT (auth.uid() IS NULL), so the is_admin guard
+-- and the reserved-name check are both skipped — the only path to either power.
 -- ===========================================================================

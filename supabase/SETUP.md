@@ -104,24 +104,46 @@ reply). Same deploy-order safety as everything above — the deployed UI **featu
 new `profiles` table and hides all username/admin UI until it exists, so nothing breaks if the
 app ships before this migration runs.
 
+**Username rules:** 3–24 characters, letters/numbers/spaces/`_`/`-`; ends trimmed and internal
+whitespace collapsed. Uniqueness is **case- and separator-insensitive** on a normalized form
+(lowercase + strip spaces/`_`/`-`), so `Doug`, `doug` and `D o u g` all count as the same name —
+nobody can impersonate by re-casing or re-spacing.
+
 1. **Run the migration.** SQL Editor → **New query** → paste the entire contents of
    [`forum-profiles.sql`](forum-profiles.sql) → **Run**. (It depends on `schema.sql` having
    already been run — it reuses that file's forum tables and `touch_updated_at()` trigger.)
-   Confirm in **Table Editor**: a new `profiles` table (RLS enabled) with `username` /
-   `is_admin` columns.
+   Confirm in **Table Editor**: new `profiles` and `reserved_usernames` tables (RLS enabled), and
+   that `reserved_usernames` has the seeded rows.
 2. **Ship the app** (merge + push — CI + deploy as usual). The header now shows a **👤 Profile**
    button when signed in; first sign-in prompts for a username. Threads/replies show usernames;
    legacy posts whose author never picked one show as `rider-<short id>` (never an email).
-3. **Make yourself an admin** (one-time). First **sign in to the app once and pick a username**
-   so your `profiles` row exists. Then in the SQL Editor:
+3. **Seed your owner profile as admin** (one-time). In the SQL Editor:
    ```sql
-   -- find your user id (replace the email):
-   select id, email from auth.users where email = 'you@example.com';
-   -- grant admin (paste the uuid from above):
-   update public.profiles set is_admin = true where user_id = '<your-uuid>';
+   -- find your user id:
+   select id, email from auth.users where email = 'douglas.w.wills@gmail.com';
+   -- seed the 'Doug' profile as admin (paste the uuid). Works even before you've
+   -- signed in, and may claim the reserved name 'Doug' because it runs as the
+   -- service role:
+   insert into public.profiles (user_id, username, is_admin)
+   values ('<your-uuid>', 'Doug', true)
+   on conflict (user_id) do update set is_admin = true, username = 'Doug';
    ```
-   Reload the app — you'll now see a 🗑 **Delete** control on every thread and reply. To revoke,
-   set `is_admin = false` for that user id.
+   Reload the app — you'll now see a 🗑 **Delete** control on every thread and reply. To grant
+   admin to someone else later: `update public.profiles set is_admin = true where user_id =
+   '<their-uuid>';` (to revoke, set it back to `false`).
+
+**Reserved usernames.** `reserved_usernames` holds names an ordinary user may **not** take —
+`kind='blocked'` (your real name + variants; private, never exposed to clients) and `kind='held'`
+(parked handles like `Gnarfather`, readable so the app can pre-warn). A server-side trigger
+rejects any username whose normalized form is reserved, **unless the caller is an admin** (so you
+can still claim `Doug`). Manage the list in SQL:
+```sql
+-- reserve another name (norm is computed for you):
+insert into public.reserved_usernames (norm, label, kind)
+values (public.profile_norm('Some Name'), 'Some Name', 'blocked') on conflict (norm) do nothing;
+-- release one:
+delete from public.reserved_usernames where norm = public.profile_norm('Some Name');
+```
 
 **Why a normal user can't make themselves admin:** the `is_admin` column is server-authoritative.
 The profiles RLS lets a signed-in user create/rename only their own row (`auth.uid() = user_id`),

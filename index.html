@@ -935,9 +935,9 @@
   <div class="rm-body">
     <div>
       <label for="profileUsername">Username</label>
-      <input type="text" id="profileUsername" maxlength="20" autocomplete="off" spellcheck="false"
-             placeholder="e.g. trailripper" aria-describedby="profileHint">
-      <p class="pm-note" id="profileHint">3–20 characters: letters, numbers, hyphens or underscores.</p>
+      <input type="text" id="profileUsername" maxlength="24" autocomplete="off" spellcheck="false"
+             placeholder="e.g. Trail Ripper" aria-describedby="profileHint">
+      <p class="pm-note" id="profileHint">3–24 characters: letters, numbers, spaces, hyphens or underscores.</p>
     </div>
     <p id="profileMsg" role="status" aria-live="polite" class="pm-note" hidden></p>
   </div>
@@ -2038,11 +2038,25 @@
   }
 
   /* ---- profile modal ---- */
-  var USERNAME_RE = /^[A-Za-z0-9_-]{3,20}$/;
+  var USERNAME_RE = /^[A-Za-z0-9 _-]{3,24}$/;   // shape of the CLEANED display name
+  /* Mirror public.profile_norm exactly: collapse+trim for the DISPLAY name;
+     strip spaces/_/- and lowercase for the NORM (uniqueness + reserved key). */
+  function cleanUsername(s){ return String(s==null?'':s).replace(/\s+/g,' ').trim(); }
+  function profileNorm(s){ return String(s==null?'':s).replace(/[ _-]/g,'').toLowerCase(); }
+  var _heldReserved = null;   // cached {norm:true} of held reserved names, or null (unfetched)
+  function ensureHeldReserved(){
+    if(_heldReserved) return Promise.resolve(_heldReserved);
+    if(!_profilesOn || typeof listReservedHeld !== 'function'){ _heldReserved = {}; return Promise.resolve(_heldReserved); }
+    return listReservedHeld().then(function(rows){
+      var m = {}; (rows||[]).forEach(function(r){ if(r && r.norm){ m[r.norm] = true; } });
+      _heldReserved = m; return m;
+    }).catch(function(){ return {}; });   // server still enforces — a failed pre-check is harmless
+  }
   function openProfile(){
     if(!_acctReady || !currentUser() || !_profilesOn) return;
     var m = $('profileMsg'); m.hidden = true; m.textContent = '';
     $('profileUsername').value = (_myProfile && _myProfile.username) || '';
+    ensureHeldReserved();   // warm the cache so the pre-check is ready
     $('profileModal').showModal();
     $('profileUsername').focus();
   }
@@ -2050,19 +2064,27 @@
   function saveProfile(){
     var me = (typeof currentUser==='function') ? currentUser() : null;
     if(!me) return;
-    var name = ($('profileUsername').value || '').trim();
-    if(!USERNAME_RE.test(name)){ profileErr('Usernames are 3–20 characters: letters, numbers, - or _.'); return; }
+    var name = cleanUsername($('profileUsername').value);
+    if(!USERNAME_RE.test(name)){ profileErr('Usernames are 3–24 characters: letters, numbers, spaces, - or _.'); return; }
+    var norm = profileNorm(name);
+    if(!norm){ profileErr('Use at least one letter or number.'); return; }
     $('profileSave').disabled = true;
-    // Friendly pre-check for a taken name (case-insensitive), then upsert. The DB
-    // unique index is the real guard — a race surfaces as a duplicate error below.
-    findProfileByUsername(name).then(function(row){
+    // Friendly client pre-checks (reserved 'held' names, then a taken name). The
+    // server trigger + unique index are the real guards — incl. the private
+    // 'blocked' names — so a reserved/duplicate error from the DB maps below too.
+    ensureHeldReserved().then(function(held){
+      if(held[norm] && !isAdmin()){ throw new Error('__reserved__'); }
+      return findProfileByNorm(norm);
+    }).then(function(row){
       if(row && row.user_id !== me.id){ throw new Error('__taken__'); }
       return upsertMyProfile(name);
     }).then(function(saved){
       var row = (saved && saved.length ? saved[0] : saved) || null;
-      _myProfile = { user_id: me.id, username: name, is_admin: row ? !!row.is_admin : isAdmin() };
-      _forumProfiles[me.id] = { username: name, is_admin: _myProfile.is_admin };
+      var display = (row && row.username) || name;   // trust the server's normalized value
+      _myProfile = { user_id: me.id, username: display, is_admin: row ? !!row.is_admin : isAdmin() };
+      _forumProfiles[me.id] = { username: display, is_admin: _myProfile.is_admin };
       $('profileSave').disabled = false;
+      var pm = $('profileMsg'); pm.hidden = true; pm.textContent = '';
       $('profileModal').close();
       toast('Username saved');
       renderAccount();
@@ -2070,7 +2092,8 @@
     }).catch(function(e){
       $('profileSave').disabled = false;
       var msg = (e && e.message) || '';
-      if(msg === '__taken__' || /duplicate|unique|already exists/i.test(msg)){ profileErr('That username is taken — try another.'); }
+      if(msg === '__reserved__' || /reserved/i.test(msg)){ profileErr('That username is reserved. Please choose another.'); }
+      else if(msg === '__taken__' || /duplicate|unique|already exists/i.test(msg)){ profileErr('That username is taken — try another.'); }
       else { profileErr(msg || 'Could not save your username.'); }
     });
   }
