@@ -52,7 +52,7 @@
   .badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:12px;padding:5px 10px;border-radius:999px}
   .honesty-strip{background:#10271b;color:#cfe8d8;font-size:12px;padding:6px 12px;text-align:center}
   .honesty-strip .badge{border-color:rgba(255,255,255,.25)}
-  main{max-width:1200px;margin:0 auto;padding:18px 24px 60px}
+  main{max-width:1380px;margin:0 auto;padding:18px 24px 60px}   /* widened 2026-07-11 (was 1200) so the one-line list rows get real width on desktop — Douglas: "plenty of space to make it all wider" */
   .btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;border-radius:10px;font-size:13px;cursor:pointer;font-weight:600}
   .btn:hover{border-color:#c7ccc6}
   .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
@@ -69,7 +69,7 @@
   .chip.sub.active{background:var(--brand);border-color:var(--brand);color:#fff}
   .legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--ink-soft);margin:0 0 16px}
   .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle;border:1px solid rgba(0,0,0,.15)}
-  .layout{display:grid;grid-template-columns:250px minmax(0,1fr) 350px;gap:22px;align-items:start}
+  .layout{display:grid;grid-template-columns:210px minmax(0,1fr) 330px;gap:20px;align-items:start}   /* rail 250→210, side 350→330, gap 22→20 (2026-07-11): reclaims ~64px for the catalog column so one-line list rows engage at 1280-wide windows */
   .layout > *{min-width:0}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:12px;min-width:0}
   .pcard{min-width:0}
@@ -141,32 +141,40 @@
   .list .pcard .price{white-space:nowrap}
   .list .pcard .price .wt{white-space:nowrap}
 
-  /* ---- One-line desktop rows (approved list-row screenshot) ----
-     A rigid 4-track grid over the SAME card DOM: [thumb+name] [spec] [prov]
-     [price+action]. The prov and price/action tracks are FIXED widths so those
-     columns line up across every row (a kit's long price tail or a Front|Rear
-     pair must not shift its neighbours). Gated by a CONTAINER query on the
-     catalog column, not the viewport: the column is ~780px with the rail
-     hidden but only ~508px with it open, and the fixed tracks + name/spec
-     minimums need ~680px — narrower columns (and browsers without container
-     queries) keep the wrapped rows above. The ≥769px media gate keeps phones
-     and portrait tablets on the mobile list block further down. */
+  /* ---- One-line desktop rows (approved list-row screenshot, stretched per
+     Douglas's 2026-07-11 feedback: fill the width, price+weight INLINE like
+     his example, the bold name may WRAP to two lines while everything else
+     stays on one) ----
+     A 4-track grid over the SAME card DOM: [thumb+name] [spec] [prov]
+     [price+action]. Name is capped tight (his example wraps "Santa Cruz
+     Megatower CC" onto two lines) so the SPEC column takes the slack; prov
+     sizes to its pill; price+weight render side-by-side. Gated by a CONTAINER
+     query on the catalog column, not the viewport — with main@1380 and the
+     210/330 layout the column is ~650px at a 1280 window (one-line engages),
+     wider still on bigger screens; narrower columns (and browsers without
+     container queries) keep the wrapped rows above. The ≥769px media gate
+     keeps phones and portrait tablets on the mobile list block further down. */
   .grid.list{container:tbcat / inline-size}
   @media (min-width:769px){
-    @container tbcat (min-width:680px){
-      .list .pcard{display:grid;grid-template-columns:minmax(200px,286px) minmax(64px,1fr) 104px 230px;
-        column-gap:12px;align-items:center;padding:12px 14px 12px 30px}
+    @container tbcat (min-width:600px){
+      .list .pcard{display:grid;grid-template-columns:minmax(175px,220px) minmax(120px,1fr) minmax(72px,max-content) minmax(200px,232px);
+        column-gap:12px;align-items:center;padding:11px 14px 11px 30px}
       .list .pcard-thumb{width:40px;height:40px}
       .list .pcard-thumb svg{width:22px;height:22px}
+      /* the bold name wraps to at most two lines (his example does exactly
+         this) instead of ellipsis-truncating in a wide fixed column */
+      .list .pcard .name{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-align:left;line-height:1.25}
       /* provenance as a right-anchored column; badges never split mid-pill —
          an owned badge wraps whole onto a second line inside the track */
       .list .pcard .prov{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;row-gap:2px}
       .list .pcard .prov .ver,.list .pcard .prov .est,.list .pcard .prov .owned{white-space:nowrap}
       .list .pcard .row{margin:0}
       .list .pcard .picks{flex:1 1 auto;min-width:0;justify-content:flex-end;flex-wrap:wrap}
-      /* price bold over muted weight, right-aligned as a fixed sub-column */
-      .list .pcard .price{flex:0 0 84px;display:flex;flex-direction:column;align-items:flex-end;line-height:1.35}
-      .list .pcard .price .wt{margin:0;white-space:normal;text-align:right}
+      /* price bold with the muted weight INLINE beside it (the approved
+         example shows "$4,199  3250 g" side by side), right-anchored; a kit's
+         longer tail may wrap within the cell without moving the button */
+      .list .pcard .price{flex:0 1 auto;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-end;align-items:baseline;column-gap:7px;line-height:1.3;text-align:right}
+      .list .pcard .price .wt{margin:0;white-space:nowrap}
       .list .pcard .price .wtsep{display:none}
     }
   }
@@ -393,7 +401,7 @@
   /* desktop: ☰ collapses the rail and the catalog reflows wider */
   @media (min-width:881px){
     body.rail-hidden #rail{display:none}
-    body.rail-hidden .layout{grid-template-columns:minmax(0,1fr) 350px}
+    body.rail-hidden .layout{grid-template-columns:minmax(0,1fr) 330px}
   }
   /* phones: the rail is an off-canvas drawer — ☰ opens it; backdrop, Escape and
      picking a category close it; focus is trapped inside while open */
