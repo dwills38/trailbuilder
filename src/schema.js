@@ -323,7 +323,11 @@ var SCHEMA = {
   dropper: { diameter:{type:'number'}, drop:{type:'number'} },
   saddle: {},
   pedal: { style:{type:'string',vocab:'pedalStyle'} },
-  groupset:  { fills:{type:'fills'} },
+  /* assembled = this "groupset" is not one boxed single-SKU product; the catalog
+     assembles it from multiple individually-sold components (the Shimano/Box/
+     microSHIFT/DH/OE-tier kits). Absent/false = a real single-part-number
+     groupset you can buy as one box. Display/filter-only - never feeds checkBuild. */
+  groupset:  { fills:{type:'fills'}, assembled:{type:'bool',optional:true} },
   wheelset:  { fills:{type:'fills'} },
   brakeset:  { fills:{type:'fills'} },
   cockpitset:{ fills:{type:'fills'} }
