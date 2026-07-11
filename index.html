@@ -141,6 +141,36 @@
   .list .pcard .price{white-space:nowrap}
   .list .pcard .price .wt{white-space:nowrap}
 
+  /* ---- One-line desktop rows (approved list-row screenshot) ----
+     A rigid 4-track grid over the SAME card DOM: [thumb+name] [spec] [prov]
+     [price+action]. The prov and price/action tracks are FIXED widths so those
+     columns line up across every row (a kit's long price tail or a Front|Rear
+     pair must not shift its neighbours). Gated by a CONTAINER query on the
+     catalog column, not the viewport: the column is ~780px with the rail
+     hidden but only ~508px with it open, and the fixed tracks + name/spec
+     minimums need ~680px — narrower columns (and browsers without container
+     queries) keep the wrapped rows above. The ≥769px media gate keeps phones
+     and portrait tablets on the mobile list block further down. */
+  .grid.list{container:tbcat / inline-size}
+  @media (min-width:769px){
+    @container tbcat (min-width:680px){
+      .list .pcard{display:grid;grid-template-columns:minmax(200px,286px) minmax(64px,1fr) 104px 230px;
+        column-gap:12px;align-items:center;padding:12px 14px 12px 30px}
+      .list .pcard-thumb{width:40px;height:40px}
+      .list .pcard-thumb svg{width:22px;height:22px}
+      /* provenance as a right-anchored column; badges never split mid-pill —
+         an owned badge wraps whole onto a second line inside the track */
+      .list .pcard .prov{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;row-gap:2px}
+      .list .pcard .prov .ver,.list .pcard .prov .est,.list .pcard .prov .owned{white-space:nowrap}
+      .list .pcard .row{margin:0}
+      .list .pcard .picks{flex:1 1 auto;min-width:0;justify-content:flex-end;flex-wrap:wrap}
+      /* price bold over muted weight, right-aligned as a fixed sub-column */
+      .list .pcard .price{flex:0 0 84px;display:flex;flex-direction:column;align-items:flex-end;line-height:1.35}
+      .list .pcard .price .wt{margin:0;white-space:normal;text-align:right}
+      .list .pcard .price .wtsep{display:none}
+    }
+  }
+
   .side{position:sticky;top:80px;display:flex;flex-direction:column;gap:14px}
   .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
   .panel h2{margin:0 0 8px;font-size:16px}
@@ -425,6 +455,9 @@
   html.rad .rm-body select,html.rad .rm-body textarea,html.rad .rm-body input[type=text]{
     background:var(--card);color:var(--ink)}
   html.rad .pick{color:var(--brand)}
+  /* the theme-wide .pick recolor above outranks .pick.in (extra type selector),
+     which silently erased the filled in-build state — restore it explicitly */
+  html.rad .pick.in{background:var(--brand);color:#150029}
   html.rad .chip.active{background:var(--brand);color:#150029}
   html.rad #rail .chip.active{background:var(--brand);color:#150029}
   html.rad .honesty-strip{background:#1c0836}
@@ -456,6 +489,11 @@
   html.dark .chip.sub:hover{border-color:#4d5750}
   html.dark .pick{background:var(--card);color:#6fcf97}
   html.dark .pick:hover{background:#243029}
+  /* same specificity trap as RAD: the recolor above beats .pick.in and erased
+     the filled in-build state in dark mode — restore it (brand keeps the light
+     palette's green here, which holds AA with white text) */
+  html.dark .pick.in{background:var(--brand);color:#fff}
+  html.dark .pick.in:hover{background:var(--brand-d)}
   html.dark .pick.inv:hover{background:#2a302c}
   html.dark .invlist .grow.clickable:hover{background:#223028}
   html.dark .chip.active{color:var(--bg)}
@@ -1160,7 +1198,10 @@
     var priceHtml;
     if(isPreset(p)){
       var kw = partWeight(p);   // derived from fills, never stored on a kit
-      priceHtml = '<span class="price">'+money(p.price)+'<span class="wt"> · '+(kw!=null?kw+' g · ':'')+'fills '+Object.keys(p.fills).length+'</span></span>';
+      // .wtsep carries the leading separator so the one-line list view (which
+      // stacks the .wt tail under the price) can hide it; cards render it inline
+      // exactly as before — the visible text is unchanged in both views.
+      priceHtml = '<span class="price">'+money(p.price)+'<span class="wt"><span class="wtsep"> · </span>'+(kw!=null?kw+' g · ':'')+'fills '+Object.keys(p.fills).length+'</span></span>';
     } else {
       priceHtml = '<span class="price">'+money(p.price)+(typeof p.weight==='number'?'<span class="wt">'+p.weight+' g</span>':'')+'</span>';
     }
