@@ -90,3 +90,13 @@ per wave/decision; large reconstructions are handed to a worker session.
   identical, `profile_norm` stays IMMUTABLE, REVOKE-from-public can't strip authenticated's direct
   grant, fails CLOSED — escalation still impossible, reserved-names still fire. CONFIRMED SAFE
   (agrees with the worker's in-session auditor). Four gates green.
+- **UPDATE — doc-cleanup LANDED (`73a3420`).** Chip refreshed 4 stale docs (CLAUDE.md,
+  EXPERT-REVIEW-DOSSIER.md, REVIEW.md, MECHANIC-FINDINGS-INTAKE.md): rules 2/8/11 de-staled
+  (rule 8-front + rule 11 now fully live WITH real-part error tests; rule 2-front has live vocab but
+  its error case is still synthetic-only), CLAUDE.md roadmap + test-table + rules 10b/14c corrected,
+  mechanic-intake rule map extended to rule 20. It independently verified all 12 DATA-MODEL-REVIEW
+  §8 catalog items — **10 landed, 1 moot, 1 deliberate; NO un-applied catalog error remains.**
+  Docs-only, four gates green, self-merged. Coordinator caught the original brief was wrong (rule 11
+  already had a real-part error test — only rule 2-front lacks one). **OPEN (Douglas's call):** add a
+  real-part error-case test for rule 2-front? A dual-crown DH fork on a trail wheel is nonsensical —
+  coordinator recommends LEAVING it (a contrived test is worse than none).
