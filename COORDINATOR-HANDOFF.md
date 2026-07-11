@@ -72,10 +72,20 @@ coordinator with zero context can operate safely and knows **all of Douglas's ru
   `node tools/verdict-audit-harness.js` 0 flags — the section-E 4-fork note is pre-existing) →
   fetch + `git merge-base --is-ancestor origin/main HEAD` → `git push origin HEAD:main` (FF) →
   confirm CI + Deploy green → `branch -d`, archive the session.
-- **Data-row catalog branches self-merge through your gates. Schema + ALL UI/visual + security
-  changes STAGE on a local preview for Douglas's BROWSER eyeball first** — he says "ship it" (or
-  "ship it and I'll check live" for lower-risk). Always include a **Ctrl+Shift+R** reminder + the
-  localhost link.
+- **Merge tiers (Douglas revised the UI tier 2026-07-11):**
+  - **Data-row catalog** → coordinator merges through the four gates + a per-id interface diff (feeds
+    error-tier rules; NOT worker-auto-shipped).
+  - **UI / visual** → **AUTO-SHIPS on green gates** — a UI worker may push straight to live `main`
+    once all four gates pass; the coordinator verifies post-hoc + logs (and can revert, since it's
+    reversible). UI-taste is no longer a pre-ship gate.
+  - **Schema** → coordinator review + **Douglas's sign-off** (staged; give him a **Ctrl+Shift+R**
+    reminder + the localhost link, wait for "ship it").
+  - **Security** → coordinator review + **adversarial audit** + **Douglas runs the migration**
+    (staged; never auto-shipped — the four gates don't catch an RLS hole).
+- **Every worker pings this coordinator on green-gated completion** (Douglas's call 2026-07-11): each
+  worker prompt MUST tell the session to fire a `send_message` to the Main Coordinator when it
+  finishes all-gates-green (Douglas taps once to deliver). Bake BOTH into every worker brief: (1)
+  UI/visual may auto-ship on green gates; (2) ping the coordinator on completion.
 - **Adversarially audit anything feeding an ERROR-tier rule OR security** before merge (frames,
   drivetrain system/actuation, rotor/hub, RLS/privilege-escalation). `catalog-auditor` (Opus) is the
   pinned agent.
