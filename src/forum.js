@@ -122,6 +122,14 @@ function createPost(threadId, body){
   return _sb.from('forum_posts').insert({ thread_id: threadId, body: body }).select().then(_forumUnwrap);
 }
 
+/* ---- moderation / owner delete -------------------------------------------
+ * Deleting is authorized entirely by RLS: schema.sql lets an author delete
+ * their OWN thread/post, and forum-profiles.sql adds an admin policy that lets
+ * an admin delete ANY. The client sends only the id; the DB decides. Deleting a
+ * thread cascades its posts (forum_posts.thread_id ... on delete cascade). */
+function deleteThread(id){ _forumNeed(); return _sb.from('forum_threads').delete().eq('id', id).then(_forumUnwrap); }
+function deletePost(id){ _forumNeed(); return _sb.from('forum_posts').delete().eq('id', id).then(_forumUnwrap); }
+
 /* Node/CommonJS export guard (parity with account.js) — lets a future test
    require the pure bits without a browser. Browser ignores this. */
 if (typeof module !== 'undefined' && module.exports) {
@@ -131,6 +139,7 @@ if (typeof module !== 'undefined' && module.exports) {
     forumCategory: forumCategory, forumCategoryOf: forumCategoryOf,
     forumHasCategories: forumHasCategories,
     listThreads: listThreads, getThread: getThread, createThread: createThread,
-    listPosts: listPosts, createPost: createPost
+    listPosts: listPosts, createPost: createPost,
+    deleteThread: deleteThread, deletePost: deletePost
   };
 }

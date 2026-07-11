@@ -95,3 +95,39 @@ hides all category UI until it exists:
 
 Until step 1 runs, the deployed category UI stays hidden and the forum behaves exactly as
 before; threads posted pre-migration simply render as 💬 General afterwards.
+
+## 9. Forum usernames + admin moderation (after the forum is live)
+
+Gives every signed-in user a public **username** (shown on their forum threads/replies instead
+of an email or raw id) and gives **you, the owner, moderation powers** (delete any thread or
+reply). Same deploy-order safety as everything above — the deployed UI **feature-detects** the
+new `profiles` table and hides all username/admin UI until it exists, so nothing breaks if the
+app ships before this migration runs.
+
+1. **Run the migration.** SQL Editor → **New query** → paste the entire contents of
+   [`forum-profiles.sql`](forum-profiles.sql) → **Run**. (It depends on `schema.sql` having
+   already been run — it reuses that file's forum tables and `touch_updated_at()` trigger.)
+   Confirm in **Table Editor**: a new `profiles` table (RLS enabled) with `username` /
+   `is_admin` columns.
+2. **Ship the app** (merge + push — CI + deploy as usual). The header now shows a **👤 Profile**
+   button when signed in; first sign-in prompts for a username. Threads/replies show usernames;
+   legacy posts whose author never picked one show as `rider-<short id>` (never an email).
+3. **Make yourself an admin** (one-time). First **sign in to the app once and pick a username**
+   so your `profiles` row exists. Then in the SQL Editor:
+   ```sql
+   -- find your user id (replace the email):
+   select id, email from auth.users where email = 'you@example.com';
+   -- grant admin (paste the uuid from above):
+   update public.profiles set is_admin = true where user_id = '<your-uuid>';
+   ```
+   Reload the app — you'll now see a 🗑 **Delete** control on every thread and reply. To revoke,
+   set `is_admin = false` for that user id.
+
+**Why a normal user can't make themselves admin:** the `is_admin` column is server-authoritative.
+The profiles RLS lets a signed-in user create/rename only their own row (`auth.uid() = user_id`),
+and a `BEFORE INSERT/UPDATE` trigger *pins* `is_admin` for every real end-user caller (it forces
+`false` on insert and the unchanged old value on update), so even a hand-crafted API call that
+tries to set `is_admin: true` saves the username and silently drops the flag. Only the SQL Editor
+/ service role — which runs with no end-user JWT (`auth.uid()` is null) — can set it, i.e. the
+grant above is the only path to admin. The full walkthrough is in the header comment of
+`forum-profiles.sql`.

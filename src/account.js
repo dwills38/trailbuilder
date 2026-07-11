@@ -92,6 +92,65 @@ function setInventoryQty(id, qty){
 }
 function removeInventoryItem(id){ _need(); return _sb.from('inventory').delete().eq('id', id).then(_unwrap); }
 
+/* ---- profiles / usernames (forum-profiles.sql) ---------------------------
+ * A `profiles` row is one-per-user: a PUBLIC display `username` (world-readable
+ * — usernames show on the forum) plus an `is_admin` moderation flag. is_admin
+ * is server-authoritative: a BEFORE INSERT/UPDATE trigger pins it for every
+ * end-user caller, so nothing sent from here can raise it (see forum-profiles.sql).
+ *
+ * Feature-detected so the app is safe to ship BEFORE the migration runs against
+ * the live project — same pattern/rationale as forumHasCategories in forum.js:
+ * a 1-row probe of the table; an error (missing table) means pre-migration and
+ * ALL username/admin UI stays hidden, leaving the forum exactly as it was. A
+ * positive answer is cached for the session; a negative one is re-probed on the
+ * next call, so it self-heals the moment the owner runs the migration. */
+var _profilesProbe = null;   // cached in-flight/positive Promise<boolean>, or null
+function hasProfiles(){
+  if(!_sb) return Promise.resolve(false);
+  if(_profilesProbe) return _profilesProbe;
+  _profilesProbe = _sb.from('profiles').select('user_id').limit(1)
+    .then(function(res){ return !(res && res.error); },
+          function(){ return false; })
+    .then(function(on){ if(!on){ _profilesProbe = null; } return on; });
+  return _profilesProbe;
+}
+
+/* The signed-in user's own profile row (or null if none yet). */
+function getMyProfile(){
+  _need();
+  var u = _acctUser;
+  if(!u) return Promise.resolve(null);
+  return _sb.from('profiles').select('user_id,username,is_admin').eq('user_id', u.id)
+    .maybeSingle().then(_unwrap);
+}
+/* Public username/is_admin rows for a set of author ids (forum display). */
+function getProfilesByIds(ids){
+  _need();
+  var list = (ids || []).filter(Boolean);
+  if(!list.length) return Promise.resolve([]);
+  return _sb.from('profiles').select('user_id,username,is_admin').in('user_id', list).then(_unwrap);
+}
+/* Case-insensitive username lookup (collision check). Returns the row or null.
+   Escapes LIKE wildcards so `_`/`%` in a name match literally (PostgREST ilike
+   treats `_` as a single-char wildcard — unescaped it would over-match and
+   maybeSingle() could even error on multiple hits). The DB's lower(username)
+   unique index is the authoritative guard; this is just the friendly pre-check. */
+function findProfileByUsername(name){
+  _need();
+  var pat = String(name == null ? '' : name).replace(/([\\%_])/g, '\\$1');
+  return _sb.from('profiles').select('user_id,username').ilike('username', pat)
+    .maybeSingle().then(_unwrap);
+}
+/* Create or rename the signed-in user's profile. `user_id` is sent so upsert can
+   target the PK; is_admin is never sent (the DB trigger owns it). */
+function upsertMyProfile(username){
+  _need();
+  var u = _acctUser;
+  if(!u) throw new Error('Sign in first.');
+  return _sb.from('profiles').upsert({ user_id: u.id, username: username }, { onConflict: 'user_id' })
+    .select('user_id,username,is_admin').then(_unwrap);
+}
+
 /* Node/CommonJS export guard (parity with compat.js) — lets a future test
    require the pure bits without a browser. Browser ignores this. */
 if (typeof module !== 'undefined' && module.exports) {
@@ -100,6 +159,8 @@ if (typeof module !== 'undefined' && module.exports) {
     signInWithEmail: signInWithEmail, signInWithGitHub: signInWithGitHub, signOut: signOut,
     listBuilds: listBuilds, saveBuild: saveBuild, updateBuild: updateBuild, deleteBuild: deleteBuild,
     listInventory: listInventory, addInventoryItem: addInventoryItem,
-    setInventoryQty: setInventoryQty, removeInventoryItem: removeInventoryItem
+    setInventoryQty: setInventoryQty, removeInventoryItem: removeInventoryItem,
+    hasProfiles: hasProfiles, getMyProfile: getMyProfile, getProfilesByIds: getProfilesByIds,
+    findProfileByUsername: findProfileByUsername, upsertMyProfile: upsertMyProfile
   };
 }

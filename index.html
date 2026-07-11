@@ -242,12 +242,12 @@
   .report-cta{margin-top:10px;text-align:right}
   .report-cta button{border:none;background:none;color:var(--ink-soft);font-size:12px;cursor:pointer;text-decoration:underline;padding:4px 2px;font-weight:600}
   .report-cta button:hover{color:var(--err)}
-  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);max-height:calc(100vh - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);max-height:calc(100vh - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
   /* Scoped to [open] so display:flex only ever applies while the dialog is actually
      showing — the UA stylesheet's dialog:not([open]){display:none} must stay in charge
      when closed, or the dialog would render invisibly-but-present in the layout. */
-  dialog#reportModal[open],dialog#buildModal[open],dialog#partModal[open],dialog#compareModal[open],dialog#specCardModal[open],dialog#authModal[open],dialog#garageModal[open],dialog#forumNewThreadModal[open]{display:flex;flex-direction:column;overflow:hidden}
-  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop,dialog#authModal::backdrop,dialog#garageModal::backdrop,dialog#forumNewThreadModal::backdrop{background:rgba(18,28,22,.45)}
+  dialog#reportModal[open],dialog#buildModal[open],dialog#partModal[open],dialog#compareModal[open],dialog#specCardModal[open],dialog#authModal[open],dialog#garageModal[open],dialog#forumNewThreadModal[open],dialog#profileModal[open]{display:flex;flex-direction:column;overflow:hidden}
+  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop,dialog#authModal::backdrop,dialog#garageModal::backdrop,dialog#forumNewThreadModal::backdrop,dialog#profileModal::backdrop{background:rgba(18,28,22,.45)}
   .rm-head,.rm-foot{flex:none}
   .rm-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
   /* Inventory page (Phase 3): a full-width view, not a modal. body.inv-page hides
@@ -292,6 +292,9 @@
   .grow .gmeta{font-size:12px;color:var(--ink-soft)}
   .grow .gacts{display:flex;gap:6px;flex-wrap:wrap}
   .grow .gacts button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 8px;font-size:12px;cursor:pointer;font-weight:600;color:var(--ink)}
+  /* moderation delete affordance (admin-only, or your own posts) — quiet until hover */
+  .grow .gacts button.del{color:var(--ink-soft)}
+  .grow .gacts button.del:hover{border-color:var(--err);color:var(--err)}
   .gpill{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px;background:var(--chip);color:var(--ink-soft)}
   .gpill.done{background:var(--ok-bg);color:var(--ok)}
   .gdot{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:middle;margin-right:4px}
@@ -369,7 +372,7 @@
     .slot .x{min-width:32px;min-height:32px;display:inline-flex;align-items:center;justify-content:center;font-size:17px}
     .qty button{width:34px;height:34px}
     .grow .gacts button{min-height:36px;padding:7px 10px}
-    dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal{width:calc(100% - 20px)}
+    dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal{width:calc(100% - 20px)}
     /* list rows on phones: the spec line drops, the name column flexes; wide
        rows (kits' "fills" tail, Front|Rear pickers) wrap to a second line
        rather than force sideways scroll */
@@ -560,6 +563,7 @@
         <div class="acctbox" id="acctBox" hidden>
           <button class="btn" id="acctLogin" hidden>Log in</button>
           <span class="acct-email" id="acctEmail" hidden></span>
+          <button class="btn" id="acctProfile" hidden title="Your username & profile">👤 Profile</button>
           <button class="btn" id="acctGarage" hidden title="Your saved builds">🅖 Garage</button>
           <button class="btn" id="acctInventory" hidden title="Parts you own">🧰 Inventory</button>
           <button class="btn" id="acctLogout" hidden>Log out</button>
@@ -700,6 +704,7 @@
 
     <div id="forumThreadDetail" hidden>
       <button type="button" class="btn" id="forumDetailBack">← All threads</button>
+      <button type="button" class="btn danger" id="forumDeleteThread" hidden title="Delete this thread">🗑 Delete thread</button>
       <h3 id="forumDetailTitle"></h3>
       <p class="invpage-sub" id="forumDetailMeta"></p>
       <p class="forum-thread-body" id="forumDetailBody"></p>
@@ -916,6 +921,29 @@
   <div class="rm-foot">
     <button type="button" class="btn" id="fntCancel">Cancel</button>
     <button type="button" class="btn primary" id="fntSubmit">Post thread</button>
+  </div>
+</dialog>
+
+<!-- Profile / username (forum-profiles.sql). Opened from the header 👤 Profile
+     button, and once automatically on first sign-in if no username is set yet.
+     Hidden entirely until the profiles migration has run (feature-detected). -->
+<dialog id="profileModal" aria-labelledby="profileTitle" role="dialog" aria-modal="true">
+  <div class="rm-head">
+    <h2 id="profileTitle">👤 Your profile</h2>
+    <p>Pick a username — it shows on your forum threads and replies instead of your email.</p>
+  </div>
+  <div class="rm-body">
+    <div>
+      <label for="profileUsername">Username</label>
+      <input type="text" id="profileUsername" maxlength="20" autocomplete="off" spellcheck="false"
+             placeholder="e.g. trailripper" aria-describedby="profileHint">
+      <p class="pm-note" id="profileHint">3–20 characters: letters, numbers, hyphens or underscores.</p>
+    </div>
+    <p id="profileMsg" role="status" aria-live="polite" class="pm-note" hidden></p>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="profileCancel">Cancel</button>
+    <button type="button" class="btn primary" id="profileSave">Save username</button>
   </div>
 </dialog>
 
@@ -1918,6 +1946,16 @@
      (canonicalId migration + slot-category guards), exactly like readHash(). */
   var _acctReady = (typeof accountsReady === 'function') && accountsReady();
 
+  /* profiles / usernames + admin moderation (forum-profiles.sql). All gated on
+     _profilesOn (feature-detected via hasProfiles), so every bit of username /
+     admin UI stays hidden and the forum behaves exactly as before until the
+     owner runs the migration — the same deploy-order safety as the categories. */
+  var _profilesOn = false;        // does the live DB have the profiles table yet?
+  var _myProfile = null;          // signed-in user's {user_id,username,is_admin} row, or null
+  var _promptedUsername = false;  // first-sign-in username nudge fires at most once per session
+  var _forumProfiles = {};        // userId -> {username,is_admin} | null (looked up, no row) — forum display cache
+  function isAdmin(){ return !!(_myProfile && _myProfile.is_admin); }
+
   function renderAccount(){
     var box = $('acctBox');
     if(!_acctReady){ box.hidden = true; $('saveGarage').hidden = true; $('ownedOnly').hidden = true; ownedOnly = false; return; }
@@ -1926,6 +1964,7 @@
     var inU = !!u;
     $('acctLogin').hidden = inU;
     $('acctEmail').hidden = !inU;  $('acctEmail').textContent = inU ? (u.email || 'Signed in') : '';
+    $('acctProfile').hidden = !(inU && _profilesOn);   // shown once the profiles migration is live
     $('acctGarage').hidden = !inU;
     $('acctInventory').hidden = !inU;
     $('acctLogout').hidden = !inU;
@@ -1934,6 +1973,106 @@
     if(!inU){ ownedOnly = false; ownedIds = {}; }
     $('ownedOnly').classList.toggle('primary', ownedOnly);
     $('ownedOnly').setAttribute('aria-pressed', String(ownedOnly));
+  }
+
+  /* ---- profiles / usernames + admin (forum-profiles.sql) ------------------- */
+
+  /* Load the signed-in user's profile into _myProfile (+ seed the forum cache).
+     Clears when signed out or pre-migration. */
+  function loadMyProfile(){
+    if(!_acctReady || !_profilesOn || !currentUser()){ _myProfile = null; return Promise.resolve(null); }
+    return getMyProfile().then(function(p){
+      _myProfile = p || null;
+      if(p){ _forumProfiles[p.user_id] = { username: p.username, is_admin: !!p.is_admin }; }
+      return _myProfile;
+    }).catch(function(){ _myProfile = null; return null; });
+  }
+
+  /* React to an auth change: feature-detect the profiles table, load my profile,
+     reflect the Profile button + any open forum view, and nudge for a username
+     once per session on first sign-in. */
+  function reflectProfile(u){
+    if(!_acctReady) return;
+    if(!u){ _myProfile = null; _promptedUsername = false; renderAccount(); reRenderForumIfOpen(); return; }
+    hasProfiles().then(function(on){
+      _profilesOn = on;
+      renderAccount();
+      if(!on){ reRenderForumIfOpen(); return; }   // pre-migration: nothing username-related
+      loadMyProfile().then(function(p){
+        renderAccount();
+        reRenderForumIfOpen();
+        if(!p && !_promptedUsername){ _promptedUsername = true; openProfile(); }
+      });
+    });
+  }
+
+  /* Re-draw the forum after an auth/profile change if it's the active page. */
+  function reRenderForumIfOpen(){
+    if(!document.body.classList.contains('forum-page')) return;
+    renderForumNav();
+    if(_forumCurrentThread){ openForumThread(_forumCurrentThread); }
+    else { renderForumThreads(); }
+  }
+
+  /* Fetch usernames for the given author ids into _forumProfiles (once each).
+     No-op pre-migration. Stores null for ids with no profile row so they aren't
+     refetched and fall back to the rider-<id> label. */
+  function ensureProfiles(ids){
+    if(!_profilesOn) return Promise.resolve();
+    var need = [];
+    (ids || []).forEach(function(id){ if(id && !(id in _forumProfiles)){ need.push(id); } });
+    if(!need.length) return Promise.resolve();
+    return getProfilesByIds(need).then(function(rows){
+      (rows || []).forEach(function(r){ _forumProfiles[r.user_id] = { username: r.username, is_admin: !!r.is_admin }; });
+      need.forEach(function(id){ if(!(id in _forumProfiles)){ _forumProfiles[id] = null; } });
+    }).catch(function(){});
+  }
+
+  /* Show the delete affordance: an admin may remove ANY thread/post; anyone may
+     remove their OWN. Both are authorized by RLS server-side — this only decides
+     whether the button is drawn, never whether the delete is allowed. */
+  function canModerate(authorId){
+    if(isAdmin()) return true;
+    var me = (typeof currentUser==='function') ? currentUser() : null;
+    return !!(me && authorId && me.id === authorId);
+  }
+
+  /* ---- profile modal ---- */
+  var USERNAME_RE = /^[A-Za-z0-9_-]{3,20}$/;
+  function openProfile(){
+    if(!_acctReady || !currentUser() || !_profilesOn) return;
+    var m = $('profileMsg'); m.hidden = true; m.textContent = '';
+    $('profileUsername').value = (_myProfile && _myProfile.username) || '';
+    $('profileModal').showModal();
+    $('profileUsername').focus();
+  }
+  function profileErr(text){ var m = $('profileMsg'); m.hidden = false; m.textContent = text; }
+  function saveProfile(){
+    var me = (typeof currentUser==='function') ? currentUser() : null;
+    if(!me) return;
+    var name = ($('profileUsername').value || '').trim();
+    if(!USERNAME_RE.test(name)){ profileErr('Usernames are 3–20 characters: letters, numbers, - or _.'); return; }
+    $('profileSave').disabled = true;
+    // Friendly pre-check for a taken name (case-insensitive), then upsert. The DB
+    // unique index is the real guard — a race surfaces as a duplicate error below.
+    findProfileByUsername(name).then(function(row){
+      if(row && row.user_id !== me.id){ throw new Error('__taken__'); }
+      return upsertMyProfile(name);
+    }).then(function(saved){
+      var row = (saved && saved.length ? saved[0] : saved) || null;
+      _myProfile = { user_id: me.id, username: name, is_admin: row ? !!row.is_admin : isAdmin() };
+      _forumProfiles[me.id] = { username: name, is_admin: _myProfile.is_admin };
+      $('profileSave').disabled = false;
+      $('profileModal').close();
+      toast('Username saved');
+      renderAccount();
+      reRenderForumIfOpen();
+    }).catch(function(e){
+      $('profileSave').disabled = false;
+      var msg = (e && e.message) || '';
+      if(msg === '__taken__' || /duplicate|unique|already exists/i.test(msg)){ profileErr('That username is taken — try another.'); }
+      else { profileErr(msg || 'Could not save your username.'); }
+    });
   }
 
   /* Refresh the owned-parts cache from the server, then re-render the catalog.
@@ -2073,6 +2212,7 @@
      inventory full-page pattern (openInventory/closeInventoryPage above). */
   var _forumReady = (typeof forumReady === 'function') && forumReady();
   var _forumCurrentThread = null;   // id of the thread currently open in detail view, or null
+  var _forumCurrentThreadRow = null;// the open thread's row (for the admin delete-thread control)
   var _forumCatsOn = false;         // does the live DB have the category column yet? (feature-detected — forumHasCategories)
   var _forumCategoryFilter = 'all'; // active thread-list filter: 'all' | a FORUM_CATEGORIES key
   var _forumThreadRows = null;      // last-fetched thread rows so chip clicks re-filter without a refetch (null = fetch in flight/failed)
@@ -2094,6 +2234,19 @@
       fillForumCategoryPicker();
       renderForumThreadList();   // re-draw so the rows pick up their category pills
     });
+    // Usernames are PUBLIC — detect the profiles table even for logged-out
+    // visitors (reflectProfile only runs on auth changes) so author labels show
+    // real usernames, not just "Member". Redraws from the cached rows, no refetch.
+    if(typeof hasProfiles === 'function'){
+      hasProfiles().then(function(on){
+        if(on === _profilesOn || !on) return;
+        _profilesOn = on;
+        ensureProfiles((_forumThreadRows || []).map(function(r){ return r.author_id; })).then(function(){
+          renderForumThreadList();
+          if(_forumCurrentThread){ openForumThread(_forumCurrentThread); }
+        });
+      });
+    }
   }
   function closeForum(){ document.body.classList.remove('forum-page'); }
 
@@ -2142,13 +2295,21 @@
     $('forumSignInHint').hidden = inU;
   }
 
-  /* No profiles table (out of scope) — author_id is a bare uuid with no name
-     attached, so this can only distinguish "you" / "a member" / the system
-     seed thread (author_id null), not show real names. */
+  /* Display name for a post/thread author. With the profiles migration live
+     (_profilesOn) this is the author's chosen username, pulled from the
+     _forumProfiles cache (populated by ensureProfiles before render); a legacy
+     author with no profile row falls back to rider-<short id> — NEVER an email.
+     Pre-migration it keeps the original you/member/team behavior unchanged. */
   function forumAuthorLabel(authorId){
     if(!authorId) return 'BuildMyMTB team';
-    var u = (typeof currentUser==='function') ? currentUser() : null;
-    if(u && u.id === authorId) return 'You';
+    var me = (typeof currentUser==='function') ? currentUser() : null;
+    if(_profilesOn){
+      var p = _forumProfiles[authorId];
+      if(p && p.username) return p.username;
+      if(me && me.id === authorId) return 'You';        // you, before you've picked a username
+      return 'rider-' + String(authorId).slice(0, 6);   // legacy author, no profile yet
+    }
+    if(me && me.id === authorId) return 'You';
     return 'Member';
   }
 
@@ -2157,8 +2318,9 @@
     _forumThreadRows = null;
     listThreads().then(function(rows){
       _forumThreadRows = rows || [];
-      renderForumThreadList();
-    }).catch(function(e){ el.innerHTML = '<div class="gempty">Could not load threads: '+esc(e.message||'')+'</div>'; });
+      return ensureProfiles(_forumThreadRows.map(function(r){ return r.author_id; }));
+    }).then(function(){ renderForumThreadList(); })
+    .catch(function(e){ el.innerHTML = '<div class="gempty">Could not load threads: '+esc(e.message||'')+'</div>'; });
   }
 
   /* draw the cached rows through the active category filter — chip clicks
@@ -2178,8 +2340,11 @@
       var div = document.createElement('div'); div.className = 'grow clickable';
       div.innerHTML =
         '<div class="gmain"><div class="gname">'+(row.pinned?'📌 ':'')+esc(row.title)+'</div>'+
-        '<div class="gmeta">'+forumCatPill(row)+esc(forumAuthorLabel(row.author_id))+' · '+new Date(row.created_at).toLocaleDateString()+'</div></div>';
+        '<div class="gmeta">'+forumCatPill(row)+esc(forumAuthorLabel(row.author_id))+' · '+new Date(row.created_at).toLocaleDateString()+'</div></div>'+
+        (canModerate(row.author_id) ? '<div class="gacts"><button type="button" class="del" data-a="delthread" title="Delete this thread">🗑 Delete</button></div>' : '');
       div.onclick = function(){ openForumThread(row.id); };
+      var db = div.querySelector('[data-a=delthread]');
+      if(db){ db.onclick = function(e){ e.stopPropagation(); confirmDeleteThread(row); }; }
       el.appendChild(div);
     });
   }
@@ -2189,24 +2354,31 @@
     $('forumThreadList').hidden = true; $('forumNewThread').hidden = true; $('forumSignInHint').hidden = true;
     $('forumCatChips').hidden = true;
     $('forumThreadDetail').hidden = false;
+    $('forumDeleteThread').hidden = true;
     getThread(id).then(function(row){
+      _forumCurrentThreadRow = row;
       $('forumDetailTitle').textContent = row.title;
-      // same esc()-composed innerHTML pattern as the list rows: the category
-      // pill (when live) + author + date
-      $('forumDetailMeta').innerHTML = forumCatPill(row)+esc(forumAuthorLabel(row.author_id))+' · '+new Date(row.created_at).toLocaleDateString();
-      $('forumDetailBody').textContent = row.body;
-      renderForumPosts(id);
-      var inU = typeof currentUser==='function' && !!currentUser();
-      $('forumReplyBox').hidden = !inU;
-      $('forumReplyInput').value = '';
-      $('forumReplyStatus').textContent = '';
-      $('forumReplySignInHint').hidden = inU;
+      $('forumDeleteThread').hidden = !canModerate(row.author_id);   // admin (or own thread)
+      return ensureProfiles([row.author_id]).then(function(){
+        // same esc()-composed innerHTML pattern as the list rows: the category
+        // pill (when live) + author + date
+        $('forumDetailMeta').innerHTML = forumCatPill(row)+esc(forumAuthorLabel(row.author_id))+' · '+new Date(row.created_at).toLocaleDateString();
+        $('forumDetailBody').textContent = row.body;
+        renderForumPosts(id);
+        var inU = typeof currentUser==='function' && !!currentUser();
+        $('forumReplyBox').hidden = !inU;
+        $('forumReplyInput').value = '';
+        $('forumReplyStatus').textContent = '';
+        $('forumReplySignInHint').hidden = inU;
+      });
     }).catch(function(e){ toast(e.message||'Could not load thread'); closeForumThread(); });
   }
 
   function closeForumThread(){
     _forumCurrentThread = null;
+    _forumCurrentThreadRow = null;
     $('forumThreadDetail').hidden = true;
+    $('forumDeleteThread').hidden = true;
     $('forumThreadList').hidden = false;
     renderForumCatChips();   // re-sync the chips row (hidden while a thread was open)
     renderForumNav();
@@ -2215,16 +2387,41 @@
   function renderForumPosts(threadId){
     var el = $('forumPostList'); el.innerHTML = '<div class="gempty">Loading…</div>';
     listPosts(threadId).then(function(rows){
-      if(!rows || !rows.length){ el.innerHTML = '<p class="invpage-sub">No replies yet.</p>'; return; }
+      rows = rows || [];
+      return ensureProfiles(rows.map(function(r){ return r.author_id; })).then(function(){ return rows; });
+    }).then(function(rows){
+      if(!rows.length){ el.innerHTML = '<p class="invpage-sub">No replies yet.</p>'; return; }
       el.innerHTML = '';
       rows.forEach(function(row){
         var div = document.createElement('div'); div.className = 'grow forum-post';
         div.innerHTML =
           '<div class="gmain"><div class="gmeta">'+esc(forumAuthorLabel(row.author_id))+' · '+new Date(row.created_at).toLocaleDateString()+'</div>'+
-          '<div>'+esc(row.body)+'</div></div>';
+          '<div>'+esc(row.body)+'</div></div>'+
+          (canModerate(row.author_id) ? '<div class="gacts"><button type="button" class="del" data-a="delpost" title="Delete this reply">🗑</button></div>' : '');
+        var db = div.querySelector('[data-a=delpost]');
+        if(db){ db.onclick = function(){ confirmDeletePost(row.id, threadId); }; }
         el.appendChild(div);
       });
     }).catch(function(e){ el.innerHTML = '<p class="invpage-sub">Could not load replies: '+esc(e.message||'')+'</p>'; });
+  }
+
+  /* Delete handlers — RLS decides authorization; the UI just confirms + refreshes.
+     Deleting a thread cascades its replies (forum_posts FK on delete cascade). */
+  function confirmDeleteThread(row){
+    if(!row) return;
+    if(!window.confirm('Delete this thread and all its replies? This cannot be undone.')) return;
+    deleteThread(row.id).then(function(){
+      toast('Thread deleted');
+      closeForumThread();
+      renderForumThreads();
+    }).catch(function(e){ toast(e.message || 'Could not delete thread'); });
+  }
+  function confirmDeletePost(postId, threadId){
+    if(!window.confirm('Delete this reply? This cannot be undone.')) return;
+    deletePost(postId).then(function(){
+      toast('Reply deleted');
+      renderForumPosts(threadId);
+    }).catch(function(e){ toast(e.message || 'Could not delete reply'); });
   }
 
   function submitForumReply(){
@@ -2510,8 +2707,14 @@
   $('acctLogout').onclick = function(){ signOut().then(function(){ toast('Logged out'); }).catch(function(e){ toast(e.message||'Logout failed'); }); };
   $('acctGarage').onclick = openGarage;
   $('acctInventory').onclick = openInventory;
+  $('acctProfile').onclick = openProfile;
   $('saveGarage').onclick = saveCurrentToGarage;
   $('authClose').onclick = function(){ $('authModal').close(); };
+  /* profile / username modal (forum-profiles.sql) */
+  $('profileCancel').onclick = function(){ $('profileModal').close(); };
+  $('profileSave').onclick = saveProfile;
+  $('profileUsername').addEventListener('keydown', function(e){ if(e.key==='Enter') saveProfile(); });
+  $('profileModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
   $('authGithub').onclick = doGithub;
   $('authEmailBtn').onclick = doEmail;
   $('authEmail').addEventListener('keydown', function(e){ if(e.key==='Enter') doEmail(); });
@@ -2527,6 +2730,7 @@
   $('forumBack').onclick = closeForum;
   $('forumSignInLink').onclick = openAuth;
   $('forumDetailBack').onclick = closeForumThread;
+  $('forumDeleteThread').onclick = function(){ confirmDeleteThread(_forumCurrentThreadRow); };
   $('forumNewThread').onclick = openForumNewThread;
   $('forumReplySubmit').onclick = submitForumReply;
   $('forumReplySignInLink').onclick = openAuth;
@@ -2541,10 +2745,11 @@
       renderAccount(); refreshOwned();
       if(u && $('authModal').open){ $('authModal').close(); }
       if(!u){ closeInventoryPage(); }
-      if(document.body.classList.contains('forum-page')){
-        renderForumNav();
-        if(_forumCurrentThread){ openForumThread(_forumCurrentThread); }
-      }
+      // profiles/admin: feature-detect the table, load my profile + is_admin,
+      // reflect the Profile button + any open forum view (author labels +
+      // moderation controls), and nudge for a username on first sign-in.
+      // reflectProfile() re-renders the forum itself, so no separate block here.
+      reflectProfile(u);
     });
   }
   renderAccount();
