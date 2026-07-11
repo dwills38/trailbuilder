@@ -25,9 +25,11 @@ var MADONNA = { frame:'fr-raaw-madonna-v22', fork:'fk-rockshox-zeb-ultimate-29-1
   frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
   handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-316-210', saddle:'sa-wtb-volt', pedals:'pd-raceface-atlas' };
 
-/* The app's three price-tier demo buttons (loadBudget / loadMid / loadHighEnd in
-   index.html), pinned here the way the per-discipline demos are (DH_BUILD etc.), so a
-   later catalog correction can't silently break a "still fully compatible" toast.
+/* The three price-tier sample builds behind the app's Budget/Mid/High-end buttons —
+   now the pinned SAMPLE_FALLBACK.{budget,mid,high} in index.html (loaded only when the
+   random generator can't roll a fresh build), pinned here the way the per-discipline
+   demos are (DH_BUILD etc.), so a later catalog correction can't silently break a
+   "still fully compatible" fallback.
    This exact regression already bit BUDGET once: the verify-forks wave (2026-07-10)
    corrected its fork fk-srsuntour-durolux-r2c2-29-170 to a 20x110 DH axle (clashing
    with the EX 1700's Boost15x110 front hub) AND a 180mm max rotor (below the build's
