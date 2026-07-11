@@ -18,7 +18,19 @@
       "Bash(node tools/verify-job.js retry *)",
       "Bash(gh run watch *)",
       "mcp__Claude_Preview__preview_inspect",
-      "mcp__Claude_Preview__preview_snapshot"
+      "mcp__Claude_Preview__preview_snapshot",
+      "Bash(git fetch *)",
+      "Bash(node tools/verdict-audit-harness.js)",
+      "Bash(node tools/breadth-gap.js)",
+      "Bash(npm test)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(npx vitest run)",
+      "mcp__Claude_Browser__read_console_messages",
+      "mcp__Claude_Browser__get_page_text",
+      "mcp__Claude_Browser__read_page",
+      "mcp__Claude_Browser__preview_console_logs",
+      "mcp__Claude_Browser__preview_snapshot",
+      "mcp__ccd_session_mgmt__list_sessions"
     ]
   }
 }
