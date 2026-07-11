@@ -7,7 +7,7 @@ var C = U.C, B = U.B, part = U.part, eq = U.eq, ok = U.ok;
 function totals(map, presetBy){ return C.buildTotals(B(map), presetBy || {}); }
 
 var GXM = { shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle' };
-var GXM_SUM = 45 + 135 + 215 + 30 + 175;   // 600 a la carte
+var GXM_SUM = 55 + 150 + 255 + 45 + 175;   // 680 a la carte (component prices corrected 2026-07-11, drivetrain component audit)
 var GXM_KIT = 545;                          // gs-sram-gx-eagle bundle price
 
 test('a single component weight is counted', function(){
@@ -24,11 +24,11 @@ test('bundle is cheaper than a la carte (sanity)', function(){
 });
 test('swapping one part breaks the bundle (reverts to a la carte)', function(){
   var swapped = Object.assign({}, GXM, { crankset:'cr-sram-x0-transmission' }); // not the kit's crank
-  eq(totals(swapped, { drivetrain:'gs-sram-gx-eagle' }).price, 45 + 135 + 215 + 30 + 330);
+  eq(totals(swapped, { drivetrain:'gs-sram-gx-eagle' }).price, 55 + 150 + 255 + 45 + 330);
 });
 test('removing a part from a bundled group breaks the bundle', function(){
   var partial = { shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle' };
-  eq(totals(partial, { drivetrain:'gs-sram-gx-eagle' }).price, 45 + 135 + 215 + 30);
+  eq(totals(partial, { drivetrain:'gs-sram-gx-eagle' }).price, 55 + 150 + 255 + 45);
 });
 test('bundleActive is true only when every fill matches', function(){
   var wheels = C.GROUPS.filter(function(g){ return g.key === 'wheels'; })[0];
