@@ -47,6 +47,8 @@
   header{background:linear-gradient(135deg,var(--brand-d),var(--brand));color:#fff;padding:10px 24px;position:sticky;top:0;z-index:40}
   header .wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
   header h1{margin:0;font-size:19px;white-space:nowrap}
+  /* clickable logo -> home, styled identical to the heading (inherits the white header color, no underline) */
+  header h1 a{color:inherit;text-decoration:none}
   header .btn{white-space:nowrap}
   /* 16px stops iOS Safari auto-zooming the page when the search field is focused */
   header input[type=search]{flex:1;min-width:120px;padding:9px 12px;border:none;border-radius:10px;font-size:16px;background:#fff;color:#1c2321}
@@ -541,7 +543,7 @@
 <body>
 <header>
   <div class="wrap">
-    <h1>🚵 BuildMyMTB</h1>
+    <h1><a href="/" aria-label="BuildMyMTB — home">🚵 BuildMyMTB</a></h1>
     <input type="search" id="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" aria-label="Search parts by brand or model" />
     <button class="btn primary" id="share" title="Copy a link that restores this exact build">Share<span class="hdr-long"> / save link</span></button>
         <!-- Community. When the built-in forum is live (FORUM_ENABLED), this is an
