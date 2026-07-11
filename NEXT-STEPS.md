@@ -2,11 +2,11 @@
 
 _A living snapshot. Architecture/conventions live in `CLAUDE.md`; full history in `git log`._
 
-## Where we are (as of 2026-07-10)
+## Where we are (as of 2026-07-11)
 
-> **Live state (2026-07-10):** **1772 parts / 758 verified / 380 tests**; `node validate.js` 0 problems, `tsc` clean; CI + GitHub Pages green (origin/main `dc3079c`). **Phase 3 accounts are LIVE** (Supabase, `ACCOUNTS_ENABLED` true, E2E-confirmed 2026-07-08); **the built-in forum is LIVE too** (2026-07-10: Douglas ran the SETUP.md §7 migration, `FORUM_ENABLED` flipped true — the 💬 Community button now opens the in-app forum; GitHub Discussions remains as an archive). Catalog is verdict-clean (two verdict-audit rounds -> 0 false-greens). _The detailed 2026-07-08 snapshot below predates the large 2026-07-08->09 catalog grind (~494->1772 parts); trust the live gates over its inline figures._
+> **Live state (2026-07-11):** **1865 parts / 1337 verified (72%) / 436 tests / 20 rule areas**; `node validate.js` 0 problems, `tsc` clean; CI + GitHub Pages green (origin/main `76c1656`). **The expert rules review is 100% COMPLETE and applied** (all 19 original rule areas + non-rules + gaps — durable record: annotated `EXPERT-REVIEW-DOSSIER.md`). **Phase 3 accounts LIVE**; **the in-app forum LIVE with 18 categories** (vocab in `src/forum.js` — adding categories needs no SQL). Shipped 2026-07-10→11: 🌙 dark mode, tire-width filters, the **headset category** (rule 20, S.H.I.S. codes on 77/127 frames), **catalog list view** (default, cards toggle), **guided build flow** (pick → auto-advance + compatible-only), rule 6b (integrated-cassette wheels), mobile fixes. Catalog stays verdict-clean: wave-r3's adversarial audit killed 2 false-fits, caught 1 fabrication pre-merge, and demoted 2 false verifications; the frames S.H.I.S. pass audited 28/28 clean. _Inline figures below drift — trust the live gates._
 >
-> **Focus (2026-07-10):** big catalog **expansion is on HOLD** pending the mechanic dossier review (new rows should enter against final rules/vocab); the top-priority work — applying the mechanic's findings — is human-blocked/async. See `COORDINATOR-HANDOFF.md`.
+> **Focus (2026-07-11):** the **left-rail layout (approved mockup B) is STAGED awaiting Douglas's browser sign-off** (localhost:8173; style pass queued behind it). Blocked-on-Douglas: **domain purchase** → affiliate signups → stickers. Coordination state + follow-up queue: `COORDINATOR-HANDOFF.md`.
 
 TrailBuilder — "PCPartPicker for enduro mountain bikes": pick parts, get real-time
 fit / price / weight checks. Plain static app (`index.html` + `src/`), no build step.

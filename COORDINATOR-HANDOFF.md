@@ -1,98 +1,55 @@
 # TrailBuilder — Coordinator Handoff
 
-_Last updated: 2026-07-10 (night), by the day's coordinator session at the end of the review + expansion + verification marathon. Read this end-to-end before touching git. It is written so a fresh coordinator with zero prior context can operate safely._
+_Last updated: 2026-07-11 ~00:30, at the end of the 2026-07-10→11 feature-and-verification marathon. Read this end-to-end before touching git. Written so a fresh coordinator with zero context can operate safely._
 
 ---
 
 ## 1. TL;DR — current state
 
-- **Catalog: 1843 parts / 1238 verified (67%) / 407 tests at handoff** — run `node validate.js` and `npm test` for live numbers; never trust counts written in docs (they drift within hours here).
-- **GREEN + DEPLOYED** at every push: CI + GitHub Pages on `main` (live at dwills38.github.io/trailbuilder). Local gates green ⇒ CI passes; runners queue but don't fail; latest deploy wins.
-- **THE EXPERT RULES REVIEW IS 100% COMPLETE (2026-07-10).** All 19 rule areas, all 4 deliberate NON-rules, and the known-gaps ranking were verdicted by Douglas and every resolution applied + merged same day. **The durable record is the annotated `EXPERT-REVIEW-DOSSIER.md`** (every section carries its Review verdict inline) + `EXPERT-REVIEW-DOSSIER-REVIEWED.pdf` in the shared-checkout root. Do not re-litigate anything recorded there.
-- Engine highlights now live: **BB category** (real bottom brackets, exact shell×spindle checks, own GROUP — never a drivetrain slot, see §7), **sourced-strict rule 12** (outside a maker-published fork-travel range = hard error; design-only frames keep the >20mm-under warning), **rule 10b** frame-side native rotor floor (Cotic Solaris), **rule 4 UDH retrofit-kit warning tier**, **rule 3a AXS-controller exemption**, 180mm dropper-insertion info threshold, dormant `minTire`, de-estimated stroke warning.
-- **Expansion is UN-held** (Douglas lifted it after the review) and the r2 wave (6 category clusters) is merged — an independent re-fetch audit of the whole wave found **zero fabrications**. Verification waves same night took shocks 3→107/108 (zero interface corrections), droppers 153 promoted, forks 108 promoted (one real false-fit caught: SR Suntour Durolux was Boost110, maker says 20x110).
-- **Nothing pending in the merge queue at handoff** — the verify-brakes-rotors branch landed as the final act (81 promotions incl. the whole TRP line + SRAM/Hope/Shimano-handbook brakes; zero interface corrections). Fresh branches only appear when Douglas runs a new wave.
-- **Worktrees:** your session's own worktree is your coordination base (see §2). `D:\MTB Bike Builder` (shared checkout) — NEVER coordinate from it; since the 2026-07-10 sweep it sits on `main` synced to `origin/main` (see §5 for the remaining session-locked tail). `D:/tb-coord` was the previous coordinator's worktree and may still be locked by that session — don't fight it.
+- **Catalog: 1865 parts / 1337 verified (72%) / 436 tests** at handoff — run `node validate.js` + `npm test` for live numbers; never trust doc counts, they drift within hours. `origin/main` = `76c1656`, CI + Deploy green, live at dwills38.github.io/trailbuilder.
+- **Shipped LIVE this marathon** (each browser-verified on the deployed site): 🌙 dark mode (replaced Roadie; OS-default + persisted), tire-width filter chips (data-derived), **headset category** (rule 20: steerer active / S.H.I.S. bore check now live on **77/127 frames** / advisory), the **in-app forum** (Supabase; **18 categories**, app-side vocab in `src/forum.js` — more categories never need SQL), **catalog list view** (default; ▦/☰ toggle; pure-CSS same-DOM views = parity by construction), **guided build flow** (pick → auto-advance + compatible-only; structural bulk-load immunity), mobile `[hidden]` hardening, **rule 6b** (integrated-cassette wheels — e13 LG1r), the SM-RT rotor re-verifications, wave-r3 (72 promotions + 10 BB rows).
+- **⚠ THE ONE PENDING GATE: the left-rail layout (approved mockup B) is STAGED, NOT SHIPPED.** Branch `ui-left-rail` @ `c13ca85`, staged merge in **`D:/tb-rail`** (branch `stage/left-rail`), all four gates green, previewing at **localhost:8173** (`tb-rail` launch entry). **Douglas must approve in the browser** — his word, then: fetch + ff-check + `git push origin HEAD:main` from `D:/tb-rail`, live-verify, archive the left-rail session, delete `ui-left-rail`/`stage/left-rail`/`ui-proposals-mockups` + the `exciting-chatterjee-0b5de0`, `ui-proposals`, `tb-rail` worktrees.
+- **Blocked on Douglas (business):** domain purchase (→ coordinator does the whole cutover: CNAME + Pages + DNS records for him + HTTPS + **Supabase auth-redirect updates or logins break** + meta), then affiliate signups (AvantLink/Impact/Amazon), then the bike-park stickers (spec in NEXT-STEPS — crack-and-peel liner is his hard requirement).
+- **Worktrees at handoff:** shared checkout `D:\MTB Bike Builder` on `main` (NEVER coordinate from it; untracked dossier PDFs + `scripts/` in its root are intentional — hence no `git add -A`, ever), `D:/tb-land` = the coordinator landing seat, `D:/tb-rail` = the staged rail, `exciting-chatterjee-0b5de0` (left-rail session) + `ui-proposals` (mockups branch) pending the rail landing, `D:/tb-coord` = a prior coordinator's seat (stale, removable once nothing holds it).
 
-## 2. Your role and working base
+## 2. Role & mechanics
 
-You are the **coordinator**. You do NOT write catalog rows or features yourself by default — you **design waves, hand Douglas chips, review + merge worker branches, keep main green + deployed, and keep docs/memory coherent**.
+You **coordinate**: design chips (one per task/wave, recommended model in the TITLE), review + merge worker branches, keep main green + deployed, keep docs/memory coherent. You do not author features except small self-contained tweaks in a warm context.
 
-- **Working base:** your session's own auto-worktree. First acts: `git fetch origin`, create your coordination branch from it (`git switch -c coord/<date> origin/main`). All merges happen on your branch, then `git push origin HEAD:main` (fetch-before-push + `git merge-base --is-ancestor origin/main HEAD` first, ALWAYS).
-- **Never** run git in the shared checkout `D:\MTB Bike Builder`. If refs behave impossibly, STOP and trust only `git ls-remote origin`.
+- **Sessions:** `mcp__ccd_session_mgmt__*` — `list_sessions` to survey, `archive_session` to close finished ones (stops the process + cleans its worktree; Douglas one-click approves each — he never hunts windows), `send_message` to wake/steer a live session (used to wake the left-rail session when its prerequisites landed), `list_events` to read a finished session's report.
+- **Agents:** the pinned `catalog-worker`/`catalog-auditor` types from `.claude/agents/` may NOT be registered in a coordinator session's Agent tool — fallback that works: `subagent_type:'general-purpose'` + `model:'opus'` with the audit brief inline (used for the frames S.H.I.S. audit — 28/28 re-fetch, clean).
+- **Merge workflow per branch:** fetch → scope check → **per-id interface-field diff** for catalog branches (script pattern: parse rows from both refs, diff non-provenance fields; every hard change must match a declared, maker-quoted correction) → `merge --no-ff` → ALL FOUR gates (`node validate.js` 0 problems / `npm test` all pass / `npx tsc --noEmit` clean / `node tools/verdict-audit-harness.js` 0 flags, Section E informational) → verify-job re-sync ONCE per wave (`npm run verify:status`, commit; **never hand-merge that JSON, coordinator-only file**) → fetch + `git merge-base --is-ancestor origin/main HEAD` → `push origin HEAD:main` → CI + Deploy green → `branch -d`, archive the session.
+- **Schema / broad-UI branches need Douglas's explicit sign-off before push** (taxonomy/design-level, not code-level). Adversarially audit anything feeding an ERROR-tier rule before merging (frames S.H.I.S. precedent).
+- **Git hygiene:** commit messages via Bash heredoc, NO double quotes (PS 5.1 mangles); `git add <explicit paths>` only; ids append-only (a correction that changes product identity = FLAG, not edit; `ALIASES` for same-SKU retirement).
 
-### How Douglas wants waves delivered (settled 2026-07-10 — follow exactly, see memory `parallel-work-delivery`)
+## 3. THE BAR (unchanged, non-negotiable)
 
-**One `spawn_task` chip per wave. The chip session is an ORCHESTRATOR** (Douglas clicks it on Fable/any model) **that fans out model-PINNED background agents** via the Agent tool:
-- `subagent_type:'catalog-worker'` — **pinned Sonnet**, defined in `.claude/agents/catalog-worker.md` (carries the non-negotiables: worktree isolation, THE BAR, all four gates, hands off verification-job.json, never merges).
-- `subagent_type:'catalog-auditor'` — **pinned Opus**, `.claude/agents/catalog-auditor.md` (adversarial re-fetch audits).
-- Usage bills at the AGENT's model rate — that's the whole point: the premium orchestrator only pays for coordination.
-- Spawn all disjoint cluster workers **simultaneously** (`isolation:'worktree'`, `run_in_background`) — Douglas's machine is a 7900X/64GB and he explicitly said use it (memory `hardware-capacity`).
-- Orchestrator chips present branches + a consolidated report; **they never merge/push and never spawn chips of their own** (Douglas rejected worker-spawned chips).
-- Chips can't preset model — they inherit Douglas's current default picker. Put the recommended model in the chip TITLE.
-
-## 3. Operating rules (hard-won — do not relearn the hard way)
-
-### Per-branch MERGE WORKFLOW (every step, in order)
-1. `git fetch origin` (other actors push to main too).
-2. **Review the diff**: scope check (only its categories), then verdict-driving fields. For verification branches, diff the INTERFACE FIELDS PER ID between main and the branch with a small node script (pattern used repeatedly 2026-07-10: extract `id → field-tuple` from both refs, compare) — zero-interface-change is the expected good outcome; every change needs a verbatim maker quote in the desc.
-3. `git merge --no-ff <branch>`.
-4. **Run ALL FOUR gates:** `node validate.js` (0 problems), `npm test` (all pass — never weaken a test), `npx tsc --noEmit` (clean), `node tools/verdict-audit-harness.js` (0 flags, 9/9 adversarial, assemble clean; its Section E fork-rotor list is informational — sourced-honest, never silence it).
-5. Fast-forward check, push `origin HEAD:main`, confirm CI+Deploy green (they run ~20-35s).
-6. `git branch -d <branch>` — will FAIL while the worker session's worktree still holds it; that's fine, defer to the end-of-day sweep (§6).
-
-### THE BAR (never compromise)
-- A wrong verdict is worse than a missing part — both directions.
-- A spec exists only if a maker/authoritative page was FETCHED (snippets lie — proven repeatedly).
-- `verified:true` needs a real source URL + non-future lastChecked. Retailer "measured" weights REJECTED; editorial teardowns (Bikerumor/MBR/BikeRadar) count for weight only (`sourceType:'measured'` + `weightSource`).
-- Adding/strengthening a RED needs a manufacturer source + a pinning test.
-- Ids are APPEND-ONLY. A spec-changing **generation is NEW rows, never a mutation** of an existing row (a worker tried rev1→rev2 relabeling 2026-07-10 — rejected at harvest).
-
-### Parallel-wave rules (learned 2026-07-10, the hard way)
-- **Unique branch names per wave.** Two sessions were once pointed at the same scope with the same branch name (`verify-brakes-rotors`) and interleaved commits on one branch. Give every prompt/agent a distinct branch, and never run two sessions on the same category scope.
-- **`tools/verification-job.json` is coordinator-only.** Workers must not run the verify-job runner or commit that file; you re-sync ONCE per merge wave (`npm run verify:status`, commit). Merge conflicts in it: `git checkout --ours tools/verification-job.json`, re-run status, never hand-merge.
-- **Duplicate/overlapping branches — harvest, don't merge.** If two sessions covered the same rows, diff each branch against its own merge-base for SUBSTANTIVE (non-provenance) changes, adopt only sourced improvements main lacks, and reject: weight-basis flips on verified rows, generation mutations, anything contradicting a verified row without a stronger source. Record adopted/rejected in the commit message.
-- Exclude in every worker prompt: rows another live session owns (e.g. by `lastChecked` date), `fr-santacruz-megatower-cc` verified-status (test fixture), T47 (semantics unpinned — see schema comment), goldens.
-
-### Git/PowerShell
-- Commit messages: NO double quotes (PS 5.1 mangles them) — use the Bash tool with heredoc (`git commit -F -`).
-- `git add <explicit paths>`, never `-A` (untracked PDFs/scripts in the shared checkout root are intentional).
-- Remote-branch deletion / reset --hard / history rewrites need explicit user OK.
+Wrong verdict > missing part, both directions. Specs exist only on FETCHED maker/authoritative pages (snippets lie). `verified:true` = real source URL + non-future date. Retailer weights rejected; editorial teardowns = weight only (`sourceType:'measured'` + `weightSource`). New/strengthened REDs need a maker source + pinning test. Never weaken a test. `fr-santacruz-megatower-cc` verified-status is a test fixture. Golden-breaking corrections get FLAGGED to the coordinator, not applied.
 
 ## 4. What to do next
 
-1. **Merge `verify-brakes-rotors`** if not already merged (review done — see §1; re-verify tip hasn't moved, then the §3 workflow).
-2. **Remaining verification tail** (run the per-category script in §7 for live numbers): biggest remaining piles after tonight ≈ rear wheels (~98), front wheels (~36), stems/grips/saddles, cranksets (~16), shifters (~14). Rear wheels are historically wall-limited (pair weights, blocked domains) — a wave is fine, but don't manufacture wall-hitting busywork; if a scope is documented-walled, STOP.
-3. **Expansion round 3** on request: the r2 prompts live in this repo's history (chips of 2026-07-10); frames are near-complete for fetchable makers (memory `frame-expansion-findings`) — weight future expansion toward drivetrain/wheels/cockpit breadth and the bot-blocked-brand tail only if tooling improves.
-4. **UI suggestions backlog (review done 2026-07-10, NOT implemented — Douglas asked for suggestions only):** mobile catalog starts 1313px down; build panel invisible on mobile (needs sticky bottom bar); 22-button toolbar needs grouping; "Showing X of N" count; ≈-marker should bind to price/weight; BB chip has no emoji; search input 14px→16px (iOS zoom); legend wording ("No conflict found" vs "No conflicts found"). Ask Douglas before implementing.
-5. **Follow-ups parked:** 2 Fox fork rows flagged fictitious (verify-forks report); SM-RT30-203 rotor flagged; Wolf Tooth Resolve rev2-at-200mm = candidate NEW rows; Cotic I.S. brake mount not in vocab (blocked); dropper-insertion-vs-frame-size + curved-seat-tube checks = nice-to-have backlog (needs a frame-size picker; most frames already carry per-size maxInsert).
-6. **Blocked on Douglas:** product-photo/affiliate licensing; forum migration + `FORUM_ENABLED` flip.
+1. **The rail verdict** (see §1) — everything else UI waits on it; the **style pass** (queued in NEXT-STEPS: mountain-panorama header art etc.) is explicitly sequenced after the rail lands.
+2. **Domain cutover** when Douglas buys (checklist in §1/NEXT-STEPS).
+3. **Follow-up queue:** LG1r duplicate ex-HG row-pairs → ALIASES consolidation (4 pairs, same physical SKU post-correction); headTube vocab gaps a sourced page mentioned (ZS49 upper, ZS62 lower, IS41 lower — widen only when a sourced headset needs them); **preset wave prerequisites** (5 items from the pilot: all-fills-verified validator rule, lint-vs-real-MSRP semantics, kitExtras convention, preset provenance in VERIFY-PROTOCOL, fix `co-oneup-aluminum`'s synthesized price) — do NOT mass-grind presets (honest yield 2/133); `bb-ethirteen-pf92-p3` pending; document the r.jina.ai-proxy + archived-handbook routes in `tools/VERIFY-PROTOCOL.md`.
+4. **Verification tail** (~528 unverified, job 85% processed): mostly wall-limited (Specialized/Trek 403s, no frame-only weights). Don't manufacture wall-hitting busywork.
 
-## 5. Housekeeping — SWEPT 2026-07-10 late (on Douglas's go); only a session-locked tail remains
+## 5. Source & fetch map (delta on top of tools/VERIFY-PROTOCOL.md)
 
-Done by the sweep session:
-- **Shared checkout `D:\MTB Bike Builder` is back on `main` == `origin/main`** (fast-forward only — no reset needed; the untracked root dossier PDFs + `scripts/` preserved). Gates re-run green there after sync: 1843 parts / 0 problems, 407/407 tests.
-- **23 local branches deleted** — 22 via merge-safe `-d` (every one verified contained in `origin/main` first), plus `verify-droppers` (the harvested duplicate, per the previous coordinator's disposition) via `-D`. Its two commits stay recoverable by SHA if ever needed: `d820a4f`, `9b8a5ba` (the Wolf Tooth Resolve rev2 relabeling in there was rejected at harvest → parked in §4 as candidate NEW rows).
-- **13 stale worktrees de-registered.** One (`agent-a39e7041…`) held a 76-row UNCOMMITTED parallel draft of the landed brakes/rotors wave (the §3 branch-name-collision session). Field-level diff vs main before discarding: **zero interface-field deltas** (mount/pistons/size/leverAccepts) — only weight/provenance/desc/mfgPn drafting, both directions, unsourced vs the reviewed+audited landing. Discarded as superseded.
+- **NEW route that pays:** Shimano's **archived edition handbooks** at `productinfo.shimano.com/pdfs/product/archive/…` — maker-official, period-correct for older-gen parts (the 2020-2021 edition has the real RT-MT rotor column the latest lacks). Direct download + `pdftotext -layout`/pypdf; WebFetch's summarizer cannot parse the tables and CAUSED the SM-RT cross-reference false-verifications.
+- Shopify storefronts (`/products/<handle>.js`) give variant JSON incl. `grams` — trust the grams only if it VARIES per config (flat value = shipping placeholder; Chris King 205g precedent).
+- Fetch fine: canecreek, chrisking, wolftooth, commencal `/frame-*`, canyon, RAAW, transition, ibis, santacruz SUPPORT pages, privateer, cotic, scott-sports, knolly, evil FAQ pages, rockymountain, devinci, GT, nicolai/geometron, spank-ind.com (non-www), hopetech PDFs, sram model pages, galfer/hayes/magura/TRP/trickstuff.
+- Walls: specialized (site-wide), trek/norco/pivot/giant/propain (JS shells or 403), FSA 403, Acros 404, We Are One password-walled, onyxrp 403, **web.archive.org unreachable from tooling**, orbea WAF-403.
 
-Remaining tail (all blocked on Douglas closing session windows — ~35 claude.exe were still running at sweep time):
-- 3 git-locked worktrees with LIVE sessions: `forktravel-sweep-2` (pid 37680), `verify-droppers` wt (pid 10876), `verify-shocks` (pid 36168). Their branches (`forktravel-sweep-2`, `worktree-verify-droppers`, `worktree-verify-shocks`) are **already merged**. Once closed: `git branch -d forktravel-sweep-2 worktree-verify-droppers worktree-verify-shocks && git worktree prune`.
-- ~29 orphan de-registered FOLDERS under `.claude/worktrees\` (+ stray `audit-out.json`) — Windows holds handles while session processes live; harmless, delete manually after closing sessions or a reboot.
-- `D:/tb-coord` (`coord/main`, == the pre-sweep origin/main) left in place per §1.
+## 6. Gotchas (hard-won today)
 
-## 6. Gotchas & references (still true, verified tonight)
+- `preview_start` reads launch.json from the PRIMARY working dir for the coordinator, but a SESSION's pane reads its **worktree-local snapshot** — sessions must write their entry to BOTH.
+- Empty branches look "merged": gate live-lane preconditions on fresh-fetch `merge-base --is-ancestor` + a **content grep** of origin/main, never `branch --merged` alone (the left-rail session caught its own false-positive).
+- Browser-pane screenshots time out in this environment — DOM-eval assertions via `javascript_tool` are the verification path; behavioral checks beat pixel checks.
+- The app hops the shared checkout onto `claude/*` branches / detached HEADs as sessions spawn — harmless; reattach `main` between waves, never mid-wave.
+- Forum vocab lives in `src/forum.js` (`FORUM_CATEGORIES`) — labels/descs rewordable anytime, `key`s permanent; the category column feature-detects, so UI and SQL can deploy in either order.
+- `buildTotals` skips a bundled group's non-fill slots — why BB and headset are their own single-slot optional groups. `slotRequired` is frame-aware AND now rear-wheel-aware (integrated cassette).
+- tsc "union too complex": the `// @ts-ignore` above `var PARTS_RAW` is the only working fix.
 
-- **Per-category verified counts:** `node -e "var C=require('./src/compat.js');var m={};C.PARTS.forEach(p=>{m[p.cat]=m[p.cat]||{n:0,v:0};m[p.cat].n++;if(p.verified)m[p.cat].v++});console.log(m)"`.
-- **buildTotals skips a bundled group's non-fill slots** — that's WHY the BB is its own single-slot group. Never move it into drivetrain.
-- **tsc "union too complex" past ~1000 PARTS**: the `// @ts-ignore` above `var PARTS_RAW = [` is the only working fix — don't remove it.
-- **`checkBuild` throws on unresolvable id strings** (deliberate); pass valid ids or objects in probes.
-- **Fetch walls:** `bike.shimano.com` 403 (but a fetchable **Shimano spec HANDBOOK** was found by the brakes session 2026-07-10 — check its descs for the URL; `productinfo.shimano.com` C-charts also fetch); `KNOWN_UNFETCHABLE_HOSTS` in `tools/drift-check.js` (trek/specialized/norco/pivot/roval/bontrager...); wheelsmfg + WT product pages fetch, their collections are JS shells; hopetech/sram/ridefox/bike.marzocchi/commencal/canyon/ibis/raawmtb/transitionbikes/santacruz-support-pages all fetch.
-- **Preview:** `preview_start` reads `.claude/launch.json` from the PRIMARY working dir; the `tb-coord` config serves that worktree on 8135; port 8123 often serves a STALE checkout — always confirm which checkout a preview serves; hard-refresh; `preview_screenshot` flakes — DOM-eval is the reliable path.
-- **Tests:** verified TIRE needs BOTH casing+compound; provenance-noise idiom in test-schema (strip verified/lastChecked/source on `over()` clones — catalog verification churn vs the fixed TODAY); goldens' zero-issues assertions are never weakened.
-- **Memory:** `C:\Users\Douglas\.claude\projects\D--MTB-Bike-Builder\memory\` — read MEMORY.md; keep the index line's counts current after each wave; key topics: `parallel-work-delivery`, `hardware-capacity`, `workflow-preferences`, `fork-verification-learnings`, `frame-expansion-findings`.
+## 7. Session log — 2026-07-10→11 (this coordinator)
 
-**Definition of green:** validate 0 problems AND all tests pass AND tsc clean AND harness clean AND CI+Deploy success for the pushed HEAD.
-
-## 7. Session log — 2026-07-10 (the marathon day, for context)
-
-One day took the project from "self-consistent prototype" to "expert-reviewed, 2/3-verified catalog": full 19-rule dossier review with all findings applied (incl. two SRAM-documented false-red kills and the new BB category), a 6-cluster expansion wave (+71 parts, zero fabrications on independent audit), and verification waves that took the catalog from 43% to ~66% verified — including the entire shock, dropper, and fork categories, with exactly one real false-fit found and fixed across ~420 re-fetched rows (Durolux axle). Every merge went through the four gates + harness; main never went red; every push auto-deployed green.
+Housekeeping sweep (49 branches/33 worktrees/70+ sessions cleared across the day, archive_session mechanism established) → dark mode + tire-width shipped → forum live (Douglas ran both migrations, coordinator flipped flags; write-path smoke-tested by Douglas) → wave-r3 landed (9 lanes, 2 false-fit kills, 1 fabrication caught by audit, 2 main-side false-verifications demoted) → headset category landed (BB-pattern) → 18 forum categories → list view → guided flow → LG1r rule 6b + SM-RT re-verifications → frames S.H.I.S. grind (28/28 audit) → left-rail staged for Douglas. Main never went red; every push deployed green; every schema/error-tier change was gated or audited.
