@@ -11,7 +11,8 @@ _A living snapshot. Architecture/conventions live in `CLAUDE.md`; full history i
 TrailBuilder — "PCPartPicker for enduro mountain bikes": pick parts, get real-time
 fit / price / weight checks. Plain static app (`index.html` + `src/`), no build step.
 
-**🚀 LIVE: [dwills38.github.io/trailbuilder](https://dwills38.github.io/trailbuilder/)** — public,
+**🚀 LIVE: [buildmymtb.com](https://buildmymtb.com/)** (custom domain LIVE 2026-07-11 over HTTPS; DNS +
+Pages custom domain + Supabase auth-redirects all done; github.io redirects here) — public,
 no login, safe to share with anyone. Repo: [github.com/dwills38/trailbuilder](https://github.com/dwills38/trailbuilder).
 
 **Solid foundation, honestly-scoped prototype:**
