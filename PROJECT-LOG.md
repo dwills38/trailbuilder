@@ -53,3 +53,10 @@ per wave/decision; large reconstructions are handed to a worker session.
   Needs closing with a note.
 - **Audit trail established.** This log started; `FOR-REVIEWERS.md` + `REVIEWER-DOSSIER.md`
   handed to a worker session to build.
+- **UPDATE (later 2026-07-11) — Supabase forum-profiles migration RUN.** Douglas ran
+  `supabase/forum-profiles.sql` and seeded the owner admin profile (`Doug`, `is_admin=true`).
+  Forum usernames/profiles/admin-moderation/verified-pro are now LIVE (app code already deployed;
+  feature-detects the tables). _Gotcha logged:_ the admin-seed UUID must be single-quoted —
+  pasting it bare tripped Postgres `42601: trailing junk after numeric literal`.
+  _Next:_ Cloudflare owner task still open; queued forum follow-ups (rich profiles, auto-mod)
+  ready to hand off.
