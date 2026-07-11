@@ -149,6 +149,32 @@ Deliberately deferred, documented in REVIEW.md's status header: the real inserti
 
 Nothing left on this list — every Phase 1 item shipped and is live.
 
+### Overnight run 2026-07-11 (Douglas asleep ~01:00→07:00; coordinator autonomous)
+
+Douglas's mandate: grind parts (additions + verification) efficiently until ~7am as long as results are
+produced; don't waste usage; clean up code as needed. Core values he restated: **tidy, clean, efficient,
+good data, easy UI, UNBIASED (brand-neutral, honest verdicts — "unfuckingbiased"), pleasant design.**
+- **Night shift** (Sonnet) is the grind engine — self-merges data rows to main through gates+audit+CI,
+  loops verify→expand→tails, stop-when-truly-dry. Already pushed the r3 wave (→2002 parts) + more.
+  A stall-aware coordinator Monitor watches it; the coordinator integrates + keeps main green.
+- **Coordinator (this seat) autonomous overnight:** harvest completed DATA branches (gate + adversarial
+  audit for error-tier frames + merge + push); preserve + SendUserFile PDF deliverables as they land;
+  keep main green; light cleanup. **Waits for Douglas's morning approval** (all prompt him, can't do
+  overnight): shipping the combined UI at :8192, archiving finished sessions, the groupset relabel/Eagle-90
+  call. Honest limit: waking a stalled session / send_message both need his approval, so a stuck (not dry)
+  night shift can only be flagged, not restarted, till morning — won't burn premium usage grinding on Opus.
+- `MANUFACTURER-DATA-PLAYBOOK` (chip out, Sonnet high): printable PDF on getting real product images +
+  data from manufacturers/affiliate feeds, WITH ready-to-send email drafts + a partner one-pager
+  auto-included; brand-neutral framing. Research/deliverable only.
+
+### Future — MARKETPLACE (Douglas 2026-07-11, eventually — NOT scoped yet)
+
+Douglas wants a marketplace eventually (buy/sell parts). Hard requirement: **must be super secure against
+scammers/fraud.** When scoped, this is a major phase needing: identity/seller verification, escrow or a
+trusted payment processor (never handle card data directly), fraud/scam detection, dispute resolution,
+listing moderation, and abuse/report tooling — security-first design throughout. Park until Douglas
+prioritizes it; do not start unprompted.
+
 ### Queued by Douglas 2026-07-10 (parked here so they're not forgotten — do not start unprompted)
 
 - **IN FLIGHT / QUEUED 2026-07-11 (chips out, Douglas-ordered):**
