@@ -560,6 +560,7 @@
       <div class="chips subchips" id="subchips" role="group" aria-label="Filter by component type"></div>
       <div class="chips subchips" id="wheelSizeChips" role="group" aria-label="Filter by wheel size — only affects wheels &amp; tires" title="Filter by wheel size — only affects wheels &amp; tires"></div>
       <div class="chips subchips" id="tireWidthChips" role="group" aria-label="Filter tires by width" title="Filter tires by width"></div>
+      <div class="chips subchips" id="pedalStyleChips" role="group" aria-label="Filter pedals by style" title="Filter pedals by style"></div>
       <div class="cat-head">
         <div class="catcount muted" id="catCount" aria-live="polite"></div>
         <div class="cat-tools">
@@ -881,6 +882,7 @@
   var disciplineFilter = 'all';  // 'all' | xc | trail | enduro | dh — display filter only (disciplines never feeds verdicts)
   var wheelSizeFilter = 'all';   // 'all' | '29' | '275' — display filter only, applies to any part carrying a .wheel field
   var tireWidthFilter = 'all';   // 'all' | a numeric tire width (2.4, 2.5, …) — display filter only, tires group only; chip set derives from the catalog
+  var pedalStyleFilter = 'all';  // 'all' | 'flat' | 'clip' | 'hybrid' — display filter only, pedals group only ("Clipless" is the industry label for clip-in; vocab key stays 'clip')
   // Catalog view: 'list' (default) | 'cards' — presentation only; both views share
   // the render pipeline and cardEl DOM. Persists in localStorage ('tb-view', same
   // pattern as 'tb-theme'), read here at init so the first render has no view flash.
@@ -1014,7 +1016,7 @@
     d.className='chip'+(activeGroup===key?' active':'');
     d.setAttribute('aria-pressed', activeGroup===key ? 'true' : 'false');
     d.textContent=label;
-    d.onclick=function(){ activeGroup=key; activeSub='all'; wheelSizeFilter='all'; tireWidthFilter='all'; renderChips(); renderSubChips(); renderWheelSizeChips(); renderTireWidthChips(); renderCatalog(); };
+    d.onclick=function(){ activeGroup=key; activeSub='all'; wheelSizeFilter='all'; tireWidthFilter='all'; pedalStyleFilter='all'; renderChips(); renderSubChips(); renderWheelSizeChips(); renderTireWidthChips(); renderPedalStyleChips(); renderCatalog(); };
     return d;
   }
 
@@ -1084,6 +1086,30 @@
     });
   }
 
+  /* ---- pedal-style chips (display filter only, pedals group; label map because
+     the industry word for clip-in is "clipless" while the vocab key is 'clip' —
+     only styles present in the catalog get a chip) ---- */
+  var PEDAL_STYLE_LABELS = { all:'All styles', flat:'Flat', clip:'Clipless', hybrid:'Flat/Clipless hybrid' };
+  function pedalStyles(){
+    var seen={}, out=[];
+    PARTS.forEach(function(p){ if(p.cat==='pedal' && typeof p.style==='string' && !seen[p.style]){ seen[p.style]=1; out.push(p.style); } });
+    return ['flat','clip','hybrid'].filter(function(s){ return seen[s]; });
+  }
+  function renderPedalStyleChips(){
+    var el = $('pedalStyleChips');
+    if(activeGroup!=='pedals'){ el.style.display='none'; return; }
+    el.style.display=''; el.innerHTML='';
+    ['all'].concat(pedalStyles()).forEach(function(k){
+      var d=document.createElement('button');
+      d.type='button';
+      d.className='chip sub'+(pedalStyleFilter===k?' active':'');
+      d.setAttribute('aria-pressed', pedalStyleFilter===k ? 'true' : 'false');
+      d.textContent = PEDAL_STYLE_LABELS[k] || k;
+      d.onclick=function(){ pedalStyleFilter=k; renderPedalStyleChips(); renderCatalog(); };
+      el.appendChild(d);
+    });
+  }
+
   /* ---- catalog ---- */
   function groupCats(g){ var c = g.slots.map(function(s){return s.cat;}); if(g.preset) c.push(g.preset.cat); return c; }
   function renderCatalog(){
@@ -1103,6 +1129,7 @@
       if(compatibleOnly && compatFor(p).state==='r') return false;
       if(wheelSizeFilter!=='all' && p.wheel && p.wheel!==wheelSizeFilter) return false;
       if(tireWidthFilter!=='all' && p.cat==='tire' && p.width!==tireWidthFilter) return false;
+      if(pedalStyleFilter!=='all' && p.cat==='pedal' && p.style!==pedalStyleFilter) return false;
       return true;
     });
     // count line above the catalog — set before the empty-state return so it
@@ -1245,9 +1272,9 @@
       toast('All required parts chosen — 📋 View complete build has the summary and verdict.');
       return false;
     }
-    activeGroup = target.key; activeSub = 'all'; wheelSizeFilter = 'all'; tireWidthFilter = 'all';
+    activeGroup = target.key; activeSub = 'all'; wheelSizeFilter = 'all'; tireWidthFilter = 'all'; pedalStyleFilter = 'all';
     if(!guidedOptOut) setCompatibleOnly(true);
-    renderChips(); renderSubChips(); renderWheelSizeChips(); renderTireWidthChips();   // the caller's sync() renders the catalog
+    renderChips(); renderSubChips(); renderWheelSizeChips(); renderTireWidthChips(); renderPedalStyleChips();   // the caller's sync() renders the catalog
     var picked = byId(build[slotKey]);
     toast('✓ '+(picked ? picked.brand+' '+picked.model : 'Picked')+' — next: '+target.label+'.'+
           (compatibleOnly ? ' Only parts that don’t clash are shown.' : ''));
@@ -2378,7 +2405,7 @@
   $('fntSubmit').onclick = submitForumNewThread;
   $('forumNewThreadModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
 
-  readHash(); renderDiscChips(); renderChips(); renderSubChips(); renderWheelSizeChips(); renderTireWidthChips(); sync();
+  readHash(); renderDiscChips(); renderChips(); renderSubChips(); renderWheelSizeChips(); renderTireWidthChips(); renderPedalStyleChips(); sync();
   // Wire auth state -> account UI. When accounts are unconfigured this no-ops.
   if(typeof initAccount === 'function'){
     initAccount(function(u){
