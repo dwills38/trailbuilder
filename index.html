@@ -306,7 +306,12 @@
   .rm-head p{margin:0;font-size:13px;color:var(--ink-soft)}
   .rm-body{padding:10px 20px 4px;display:flex;flex-direction:column;gap:12px}
   .rm-body label{font-size:12px;font-weight:700;color:var(--ink-soft);display:block;margin-bottom:5px}
-  .rm-body select,.rm-body textarea,.rm-body input[type=text]{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink)}
+  .rm-body select,.rm-body textarea,.rm-body input[type=text],.rm-body input[type=email],.rm-body input[type=password]{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink)}
+  .auth-or{display:flex;align-items:center;gap:8px;text-align:center;color:var(--ink-soft);font-size:12px;margin:2px 0}
+  .auth-or::before,.auth-or::after{content:"";flex:1;height:1px;background:var(--line)}
+  .auth-alt{text-align:center}
+  /* Verified Pro badge next to a forum username (admin-granted, verified_pro) */
+  .vpro{display:inline-block;font-size:10px;font-weight:800;color:var(--brand);border:1px solid var(--brand);border-radius:999px;padding:0 6px;margin-left:4px;vertical-align:middle;line-height:1.6}
   .rm-body textarea{resize:vertical;min-height:74px;line-height:1.4}
   .rm-details summary{cursor:pointer;font-size:12px;font-weight:700;color:var(--ink-soft)}
   .rm-preview{background:var(--bg);border:1px solid var(--line);border-radius:9px;font-size:11.5px;line-height:1.45;color:var(--ink-soft);max-height:170px;overflow:auto;margin:8px 0 0;padding:10px 12px;white-space:pre-wrap;word-break:break-word}
@@ -481,7 +486,8 @@
      normal mode) — RAD mode flips --ink light, so those need a dark bg or the text
      goes near-invisible */
   html.rad .btn,html.rad header input[type=search],html.rad .chip.sub,html.rad .pick,
-  html.rad .rm-body select,html.rad .rm-body textarea,html.rad .rm-body input[type=text]{
+  html.rad .rm-body select,html.rad .rm-body textarea,html.rad .rm-body input[type=text],
+  html.rad .rm-body input[type=email],html.rad .rm-body input[type=password]{
     background:var(--card);color:var(--ink)}
   html.rad .pick{color:var(--brand)}
   /* the theme-wide .pick recolor above outranks .pick.in (extra type selector),
@@ -509,9 +515,11 @@
      hardcode near-white tints */
   html.dark .btn,html.dark header input[type=search],html.dark .chip.sub,
   html.dark .rm-body select,html.dark .rm-body textarea,html.dark .rm-body input[type=text],
+  html.dark .rm-body input[type=email],html.dark .rm-body input[type=password],
   html.dark .forum-form textarea,html.dark .forum-form input[type=text],
   html.dark .grow .gacts button,html.dark .cmp-picks select{
     background:var(--card);color:var(--ink)}
+  html.dark .vpro{color:var(--ok);border-color:var(--ok)}
   html.dark .btn.danger{color:var(--err)}   /* keep the destructive tint red — the rule above would otherwise force default ink */
   html.dark header input[type=search]{border:1px solid var(--line)}
   html.dark .honesty-strip{background:#0b1d13}
@@ -863,21 +871,37 @@
 
 <dialog id="authModal" aria-labelledby="authTitle" role="dialog" aria-modal="true">
   <div class="rm-head">
-    <h2 id="authTitle">Log in to BuildMyMTB</h2>
-    <p>Save builds to your garage and track the parts you own. We only store your builds and inventory — nothing else.</p>
+    <h2 id="authTitle">Sign in to BuildMyMTB</h2>
+    <p id="authSub">Save builds, track the parts you own, and post on the forum.</p>
   </div>
   <div class="rm-body">
-    <button type="button" class="btn primary" id="authGithub" style="width:100%" autofocus>Sign in with GitHub</button>
-    <div style="text-align:center;color:var(--ink-soft);font-size:12px">or a magic link by email</div>
+    <button type="button" class="btn primary" id="authGithub" style="width:100%">Continue with GitHub</button>
+    <div class="auth-or">or</div>
     <div>
       <label for="authEmail">Email</label>
-      <input type="text" id="authEmail" placeholder="you@example.com" autocomplete="email">
+      <input type="email" id="authEmail" placeholder="you@example.com" autocomplete="email" autofocus>
+    </div>
+    <!-- Username: required at signup only (email + username + password baseline).
+         Hidden in sign-in mode. Validated/normalized/reserved-checked like the
+         Profile modal; the profiles row is created once a session exists. -->
+    <div id="authUsernameField" hidden>
+      <label for="authUsername">Username</label>
+      <input type="text" id="authUsername" maxlength="24" autocomplete="off" spellcheck="false" placeholder="e.g. Trail Ripper">
+      <p class="pm-note">Shown on the forum. 3–24 chars: letters, numbers, spaces, - or _.</p>
+    </div>
+    <div>
+      <label for="authPassword">Password</label>
+      <input type="password" id="authPassword" autocomplete="current-password" placeholder="Your password">
     </div>
     <p id="authMsg" class="pm-note" hidden></p>
+    <div class="auth-alt">
+      <button type="button" class="linklike" id="authMagicLink">Email me a magic link instead</button>
+    </div>
   </div>
   <div class="rm-foot">
     <button type="button" class="btn" id="authClose">Cancel</button>
-    <button type="button" class="btn primary" id="authEmailBtn">Send magic link</button>
+    <button type="button" class="btn" id="authToggle">New here? Create account</button>
+    <button type="button" class="btn primary" id="authSubmit">Sign in</button>
   </div>
 </dialog>
 
@@ -939,6 +963,7 @@
              placeholder="e.g. Trail Ripper" aria-describedby="profileHint">
       <p class="pm-note" id="profileHint">3–24 characters: letters, numbers, spaces, hyphens or underscores.</p>
     </div>
+    <p class="pm-note" id="profileProNote" hidden>✓ You’re a Verified Pro — the badge shows next to your name on the forum.</p>
     <p id="profileMsg" role="status" aria-live="polite" class="pm-note" hidden></p>
   </div>
   <div class="rm-foot">
@@ -1977,20 +2002,22 @@
 
   /* ---- profiles / usernames + admin (forum-profiles.sql) ------------------- */
 
+  var PENDING_UNAME_KEY = 'bmtb-pending-username';   // username chosen at signup, applied on first session
+
   /* Load the signed-in user's profile into _myProfile (+ seed the forum cache).
      Clears when signed out or pre-migration. */
   function loadMyProfile(){
     if(!_acctReady || !_profilesOn || !currentUser()){ _myProfile = null; return Promise.resolve(null); }
     return getMyProfile().then(function(p){
       _myProfile = p || null;
-      if(p){ _forumProfiles[p.user_id] = { username: p.username, is_admin: !!p.is_admin }; }
+      if(p){ _forumProfiles[p.user_id] = { username: p.username, is_admin: !!p.is_admin, verified_pro: !!p.verified_pro }; }
       return _myProfile;
     }).catch(function(){ _myProfile = null; return null; });
   }
 
   /* React to an auth change: feature-detect the profiles table, load my profile,
-     reflect the Profile button + any open forum view, and nudge for a username
-     once per session on first sign-in. */
+     reflect the Profile button + any open forum view, and either apply the
+     username chosen at signup or nudge for one (first sign-in). */
   function reflectProfile(u){
     if(!_acctReady) return;
     if(!u){ _myProfile = null; _promptedUsername = false; renderAccount(); reRenderForumIfOpen(); return; }
@@ -2001,9 +2028,34 @@
       loadMyProfile().then(function(p){
         renderAccount();
         reRenderForumIfOpen();
-        if(!p && !_promptedUsername){ _promptedUsername = true; openProfile(); }
+        if(!p){ applyPendingOrPrompt(); }
       });
     });
+  }
+
+  /* First session with no profile yet: if a username was chosen at signup, create
+     the row from it silently; otherwise (or if it's now taken/reserved) prompt. */
+  function applyPendingOrPrompt(){
+    var pending = null; try{ pending = localStorage.getItem(PENDING_UNAME_KEY); }catch(e){}
+    var name = pending ? cleanUsername(pending) : '';
+    if(name && USERNAME_RE.test(name) && profileNorm(name)){
+      upsertMyProfile(name).then(function(saved){
+        try{ localStorage.removeItem(PENDING_UNAME_KEY); }catch(e){}
+        var row = (saved && saved.length ? saved[0] : saved) || null;
+        var display = (row && row.username) || name, me = currentUser();
+        if(me){
+          _myProfile = { user_id: me.id, username: display, is_admin: row?!!row.is_admin:false, verified_pro: row?!!row.verified_pro:false };
+          _forumProfiles[me.id] = { username: display, is_admin: _myProfile.is_admin, verified_pro: _myProfile.verified_pro };
+        }
+        renderAccount(); reRenderForumIfOpen();
+      }).catch(function(){
+        try{ localStorage.removeItem(PENDING_UNAME_KEY); }catch(e){}
+        if(!_promptedUsername){ _promptedUsername = true; openProfile(name); }   // taken/reserved now -> let them fix it
+      });
+      return;
+    }
+    if(pending){ try{ localStorage.removeItem(PENDING_UNAME_KEY); }catch(e){} }
+    if(!_promptedUsername){ _promptedUsername = true; openProfile(); }
   }
 
   /* Re-draw the forum after an auth/profile change if it's the active page. */
@@ -2023,7 +2075,7 @@
     (ids || []).forEach(function(id){ if(id && !(id in _forumProfiles)){ need.push(id); } });
     if(!need.length) return Promise.resolve();
     return getProfilesByIds(need).then(function(rows){
-      (rows || []).forEach(function(r){ _forumProfiles[r.user_id] = { username: r.username, is_admin: !!r.is_admin }; });
+      (rows || []).forEach(function(r){ _forumProfiles[r.user_id] = { username: r.username, is_admin: !!r.is_admin, verified_pro: !!r.verified_pro }; });
       need.forEach(function(id){ if(!(id in _forumProfiles)){ _forumProfiles[id] = null; } });
     }).catch(function(){});
   }
@@ -2052,10 +2104,11 @@
       _heldReserved = m; return m;
     }).catch(function(){ return {}; });   // server still enforces — a failed pre-check is harmless
   }
-  function openProfile(){
+  function openProfile(prefill){
     if(!_acctReady || !currentUser() || !_profilesOn) return;
     var m = $('profileMsg'); m.hidden = true; m.textContent = '';
-    $('profileUsername').value = (_myProfile && _myProfile.username) || '';
+    $('profileUsername').value = (prefill != null && prefill !== '') ? prefill : ((_myProfile && _myProfile.username) || '');
+    $('profileProNote').hidden = !(_myProfile && _myProfile.verified_pro);
     ensureHeldReserved();   // warm the cache so the pre-check is ready
     $('profileModal').showModal();
     $('profileUsername').focus();
@@ -2081,8 +2134,10 @@
     }).then(function(saved){
       var row = (saved && saved.length ? saved[0] : saved) || null;
       var display = (row && row.username) || name;   // trust the server's normalized value
-      _myProfile = { user_id: me.id, username: display, is_admin: row ? !!row.is_admin : isAdmin() };
-      _forumProfiles[me.id] = { username: display, is_admin: _myProfile.is_admin };
+      _myProfile = { user_id: me.id, username: display,
+                     is_admin: row ? !!row.is_admin : isAdmin(),
+                     verified_pro: row ? !!row.verified_pro : (_myProfile ? !!_myProfile.verified_pro : false) };
+      _forumProfiles[me.id] = { username: display, is_admin: _myProfile.is_admin, verified_pro: _myProfile.verified_pro };
       $('profileSave').disabled = false;
       var pm = $('profileMsg'); pm.hidden = true; pm.textContent = '';
       $('profileModal').close();
@@ -2113,14 +2168,80 @@
   }
 
   function authErr(e){ var m = $('authMsg'); m.hidden = false; m.textContent = (e && e.message) || 'Something went wrong.'; }
-  function openAuth(){ if(!_acctReady) return; $('authMsg').hidden = true; $('authEmail').value = ''; $('authModal').showModal(); }
+  /* Auth modal supports two modes: 'signin' (email+password) and 'signup'
+     (email+username+password — the required baseline). GitHub OAuth and a magic
+     link stay as optional extra methods. */
+  var _authMode = 'signin';
+  function renderAuthMode(){
+    var signup = _authMode === 'signup';
+    $('authTitle').textContent = signup ? 'Create your account' : 'Sign in to BuildMyMTB';
+    $('authSub').textContent = signup ? 'Just an email, a username and a password.'
+                                      : 'Save builds, track the parts you own, and post on the forum.';
+    $('authUsernameField').hidden = !signup;
+    $('authPassword').setAttribute('autocomplete', signup ? 'new-password' : 'current-password');
+    $('authSubmit').textContent = signup ? 'Create account' : 'Sign in';
+    $('authToggle').textContent = signup ? 'Have an account? Sign in' : 'New here? Create account';
+    var m = $('authMsg'); m.hidden = true; m.textContent = '';
+  }
+  function openAuth(){
+    if(!_acctReady) return;
+    _authMode = 'signin';
+    $('authEmail').value = ''; $('authUsername').value = ''; $('authPassword').value = '';
+    renderAuthMode();
+    $('authModal').showModal();
+  }
+  function toggleAuthMode(){ _authMode = (_authMode === 'signup' ? 'signin' : 'signup'); renderAuthMode(); }
+  function authSubmit(){ if(_authMode === 'signup'){ doSignup(); } else { doSignin(); } }
   function doGithub(){ signInWithGitHub().catch(authErr); }
-  function doEmail(){
+  function doEmail(){   // optional magic-link path (no username/password)
     var email = ($('authEmail').value || '').trim();
     if(!email){ authErr({message:'Enter your email first.'}); return; }
     signInWithEmail(email).then(function(){
       var m = $('authMsg'); m.hidden = false; m.textContent = 'Check your email for a magic sign-in link.';
     }).catch(authErr);
+  }
+  function doSignin(){
+    var email = ($('authEmail').value || '').trim();
+    var pw = $('authPassword').value || '';
+    if(!email){ authErr({message:'Enter your email.'}); return; }
+    if(!pw){ authErr({message:'Enter your password.'}); return; }
+    $('authSubmit').disabled = true;
+    signInWithPassword(email, pw).then(function(){
+      $('authSubmit').disabled = false;   // onAuthStateChange closes the modal + refreshes
+    }).catch(function(e){ $('authSubmit').disabled = false; authErr(e); });
+  }
+  function doSignup(){
+    var email = ($('authEmail').value || '').trim();
+    var name = cleanUsername($('authUsername').value);
+    var pw = $('authPassword').value || '';
+    if(!email){ authErr({message:'Enter your email.'}); return; }
+    if(!USERNAME_RE.test(name)){ authErr({message:'Usernames are 3–24 characters: letters, numbers, spaces, - or _.'}); return; }
+    if(!profileNorm(name)){ authErr({message:'Your username needs at least one letter or number.'}); return; }
+    if(pw.length < 8){ authErr({message:'Use a password of at least 8 characters.'}); return; }
+    var norm = profileNorm(name);
+    $('authSubmit').disabled = true;
+    // Client pre-checks (reserved/taken); the server is authoritative. The
+    // profiles row is created by reflectProfile once a session exists (now, or
+    // after email confirmation) — see applyPendingOrPrompt.
+    ensureHeldReserved().then(function(held){
+      if(held[norm]){ throw new Error('__reserved__'); }
+      return findProfileByNorm(norm);
+    }).then(function(row){
+      if(row){ throw new Error('__taken__'); }
+      return signUpWithPassword(email, pw);
+    }).then(function(res){
+      $('authSubmit').disabled = false;
+      try{ localStorage.setItem(PENDING_UNAME_KEY, name); }catch(e){}   // finalize on first session
+      if(res && res.session){ return; }   // signed in now -> onAuthStateChange applies it + closes modal
+      var m = $('authMsg'); m.hidden = false;
+      m.textContent = 'Account created — check your email to confirm, then you’ll be signed in as “'+name+'”.';
+    }).catch(function(e){
+      $('authSubmit').disabled = false;
+      var msg = (e && e.message) || '';
+      if(msg === '__reserved__'){ authErr({message:'That username is reserved. Please choose another.'}); }
+      else if(msg === '__taken__'){ authErr({message:'That username is taken — try another.'}); }
+      else { authErr(e); }
+    });
   }
 
   /* Resolve a stored {b,p} payload the same way readHash does. Returns a resolved
@@ -2336,6 +2457,15 @@
     return 'Member';
   }
 
+  /* "Verified Pro" badge markup for an author, or '' — from the admin-granted
+     verified_pro flag in the profiles cache. Controlled markup (not user text),
+     so it is intentionally NOT esc()'d; the username beside it always is. */
+  function forumAuthorBadge(authorId){
+    if(!_profilesOn || !authorId) return '';
+    var p = _forumProfiles[authorId];
+    return (p && p.verified_pro) ? ' <span class="vpro" title="Verified Pro rider">✓ Pro</span>' : '';
+  }
+
   function renderForumThreads(){
     var el = $('forumThreadList'); el.innerHTML = '<div class="gempty">Loading…</div>';
     _forumThreadRows = null;
@@ -2363,7 +2493,7 @@
       var div = document.createElement('div'); div.className = 'grow clickable';
       div.innerHTML =
         '<div class="gmain"><div class="gname">'+(row.pinned?'📌 ':'')+esc(row.title)+'</div>'+
-        '<div class="gmeta">'+forumCatPill(row)+esc(forumAuthorLabel(row.author_id))+' · '+new Date(row.created_at).toLocaleDateString()+'</div></div>'+
+        '<div class="gmeta">'+forumCatPill(row)+esc(forumAuthorLabel(row.author_id))+forumAuthorBadge(row.author_id)+' · '+new Date(row.created_at).toLocaleDateString()+'</div></div>'+
         (canModerate(row.author_id) ? '<div class="gacts"><button type="button" class="del" data-a="delthread" title="Delete this thread">🗑 Delete</button></div>' : '');
       div.onclick = function(){ openForumThread(row.id); };
       var db = div.querySelector('[data-a=delthread]');
@@ -2385,7 +2515,7 @@
       return ensureProfiles([row.author_id]).then(function(){
         // same esc()-composed innerHTML pattern as the list rows: the category
         // pill (when live) + author + date
-        $('forumDetailMeta').innerHTML = forumCatPill(row)+esc(forumAuthorLabel(row.author_id))+' · '+new Date(row.created_at).toLocaleDateString();
+        $('forumDetailMeta').innerHTML = forumCatPill(row)+esc(forumAuthorLabel(row.author_id))+forumAuthorBadge(row.author_id)+' · '+new Date(row.created_at).toLocaleDateString();
         $('forumDetailBody').textContent = row.body;
         renderForumPosts(id);
         var inU = typeof currentUser==='function' && !!currentUser();
@@ -2418,7 +2548,7 @@
       rows.forEach(function(row){
         var div = document.createElement('div'); div.className = 'grow forum-post';
         div.innerHTML =
-          '<div class="gmain"><div class="gmeta">'+esc(forumAuthorLabel(row.author_id))+' · '+new Date(row.created_at).toLocaleDateString()+'</div>'+
+          '<div class="gmain"><div class="gmeta">'+esc(forumAuthorLabel(row.author_id))+forumAuthorBadge(row.author_id)+' · '+new Date(row.created_at).toLocaleDateString()+'</div>'+
           '<div>'+esc(row.body)+'</div></div>'+
           (canModerate(row.author_id) ? '<div class="gacts"><button type="button" class="del" data-a="delpost" title="Delete this reply">🗑</button></div>' : '');
         var db = div.querySelector('[data-a=delpost]');
@@ -2739,8 +2869,12 @@
   $('profileUsername').addEventListener('keydown', function(e){ if(e.key==='Enter') saveProfile(); });
   $('profileModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
   $('authGithub').onclick = doGithub;
-  $('authEmailBtn').onclick = doEmail;
-  $('authEmail').addEventListener('keydown', function(e){ if(e.key==='Enter') doEmail(); });
+  $('authSubmit').onclick = authSubmit;
+  $('authToggle').onclick = toggleAuthMode;
+  $('authMagicLink').onclick = doEmail;
+  $('authEmail').addEventListener('keydown', function(e){ if(e.key==='Enter') authSubmit(); });
+  $('authUsername').addEventListener('keydown', function(e){ if(e.key==='Enter') authSubmit(); });
+  $('authPassword').addEventListener('keydown', function(e){ if(e.key==='Enter') authSubmit(); });
   $('authModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
   $('garageClose').onclick = function(){ $('garageModal').close(); };
   $('garageSaveCurrent').onclick = saveCurrentToGarage;

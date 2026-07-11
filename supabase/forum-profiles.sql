@@ -9,9 +9,11 @@
 --
 -- WHAT THIS ADDS
 --   * public.profiles — one row per auth user: a public display `username`
---     (letters/numbers/spaces/_/-, 3–24 chars) plus an `is_admin` flag used to
---     moderate the forum. Uniqueness is CASE- and SEPARATOR-insensitive (see
---     profile_norm), so "Doug" / "doug" / "D o u g" are the same name.
+--     (letters/numbers/spaces/_/-, 3–24 chars) plus two admin-only flags,
+--     `is_admin` (forum moderation) and `verified_pro` (a "Verified Pro" badge
+--     the owner grants to real pro riders). Uniqueness is CASE- and
+--     SEPARATOR-insensitive (see profile_norm), so "Doug" / "doug" / "D o u g"
+--     are the same name.
 --   * public.reserved_usernames — names no ordinary user may take (the owner's
 --     real name + a few held handles), enforced by a server-side trigger.
 --   * RLS so profiles are world-readable (usernames are public on the forum),
@@ -32,15 +34,15 @@
 --
 --   * authenticated (a normal signed-in user, via the publishable/anon key) —
 --     RLS lets them write only their OWN row (auth.uid() = user_id). The
---     is_admin column is then PINNED by the BEFORE INSERT/UPDATE trigger
---     `profiles_guard`: for any caller carrying a real end-user JWT
---     (auth.uid() IS NOT NULL — the JWT is signed by Supabase and cannot be
---     forged to a null/attacker-chosen sub) the trigger overwrites is_admin to
---     `false` on INSERT and to its stored OLD value on UPDATE. So even a
---     hand-crafted REST call that sends {"username":"x","is_admin":true} saves
---     the username and SILENTLY drops the flag change — is_admin is
---     server-authoritative for every end user. There is no code path from the
---     anon key to a raised is_admin.
+--     is_admin AND verified_pro columns are then PINNED by the BEFORE
+--     INSERT/UPDATE trigger `profiles_guard`: for any caller carrying a real
+--     end-user JWT (auth.uid() IS NOT NULL — the JWT is signed by Supabase and
+--     cannot be forged to a null/attacker-chosen sub) the trigger overwrites
+--     BOTH flags to `false` on INSERT and to their stored OLD values on UPDATE.
+--     So even a hand-crafted REST call that sends {"username":"x",
+--     "is_admin":true,"verified_pro":true} saves the username and SILENTLY drops
+--     both flag changes — is_admin and verified_pro are server-authoritative for
+--     every end user. There is no code path from the anon key to raising either.
 --
 --   * service_role / SQL editor (the owner granting admin / seeding reserved
 --     names) — these run WITHOUT an end-user JWT, so auth.uid() IS NULL, the
@@ -111,10 +113,15 @@ create table if not exists public.profiles (
   username     text not null
                check (username ~ '^[A-Za-z0-9 _-]{3,24}$' and username ~ '[A-Za-z0-9]'),
   username_norm text generated always as (public.profile_norm(username)) stored,
-  is_admin     boolean not null default false,
+  is_admin     boolean not null default false,   -- forum moderation (admin-only, see trigger)
+  verified_pro boolean not null default false,   -- "Verified Pro" badge (admin-only, see trigger)
   created_at   timestamptz not null default now(),
   updated_at   timestamptz not null default now()
 );
+
+-- Idempotent upgrade: add verified_pro if an earlier profiles table predates it.
+alter table public.profiles
+  add column if not exists verified_pro boolean not null default false;
 
 -- Case- + separator-insensitive uniqueness (the real anti-impersonation guard).
 create unique index if not exists profiles_username_norm_idx
@@ -160,16 +167,19 @@ begin
   --     space, then trim the ends — regardless of what the client sent.
   new.username := btrim(regexp_replace(new.username, '\s+', ' ', 'g'));
 
-  -- (2) is_admin pin: only the service role / SQL editor (no end-user JWT ->
-  --     auth.uid() IS NULL) may set/change it. Silent pin (not RAISE) is
-  --     deliberate: the app only sends {user_id, username}, so a legitimate
-  --     rename never trips anything, and a malicious extra is_admin field is
-  --     simply ignored rather than failing the whole write.
+  -- (2) admin-only flag pin (is_admin, verified_pro): only the service role /
+  --     SQL editor (no end-user JWT -> auth.uid() IS NULL) may set/change them.
+  --     Silent pin (not RAISE) is deliberate: the app only sends
+  --     {user_id, username}, so a legitimate rename never trips anything, and a
+  --     malicious extra is_admin/verified_pro field is simply ignored rather
+  --     than failing the whole write.
   if auth.uid() is not null then
     if tg_op = 'INSERT' then
-      new.is_admin := false;               -- nobody self-registers as admin
+      new.is_admin     := false;           -- nobody self-registers as admin
+      new.verified_pro := false;           -- nor as a verified pro
     elsif tg_op = 'UPDATE' then
-      new.is_admin := old.is_admin;        -- cannot raise (or drop) the flag
+      new.is_admin     := old.is_admin;      -- cannot raise (or drop) the flag
+      new.verified_pro := old.verified_pro;  -- same admin-only pin
     end if;
   end if;
 
@@ -272,7 +282,15 @@ create policy "forum posts admin modify" on public.forum_posts
 --
 -- To grant admin to anyone else later (without changing their username):
 --      update public.profiles set is_admin = true where user_id = '<their-uuid>';
--- To revoke, set is_admin = false. These work because the SQL editor runs as the
--- service role with no end-user JWT (auth.uid() IS NULL), so the is_admin guard
--- and the reserved-name check are both skipped — the only path to either power.
+--
+-- To mark someone a Verified Pro (the badge next to their forum username) — the
+-- owner manually verifies the person's real pro identity offline first, then:
+--      -- find them by the username they picked:
+--      select user_id, username from public.profiles where username = 'Brage Vestavik';
+--      update public.profiles set verified_pro = true where user_id = '<their-uuid>';
+--
+-- To revoke either, set the flag back to false. All of these work because the
+-- SQL editor runs as the service role with no end-user JWT (auth.uid() IS NULL),
+-- so the is_admin/verified_pro guard and the reserved-name check are all skipped
+-- — the only path to any of these powers.
 -- ===========================================================================

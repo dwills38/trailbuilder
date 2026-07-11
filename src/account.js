@@ -59,6 +59,19 @@ function signInWithGitHub(){
   return _sb.auth.signInWithOAuth({ provider: 'github', options: { redirectTo: location.href } })
     .then(_unwrap);
 }
+/* Email+password signup (the required baseline: email + username + password —
+   the caller creates the profiles row with the chosen username once a session
+   exists). Returns {user, session}; session is null when the project requires
+   email confirmation, in which case the profile is created on first sign-in. */
+function signUpWithPassword(email, password){
+  _need();
+  return _sb.auth.signUp({ email: email, password: password, options: { emailRedirectTo: location.href } })
+    .then(_unwrap);
+}
+function signInWithPassword(email, password){
+  _need();
+  return _sb.auth.signInWithPassword({ email: email, password: password }).then(_unwrap);
+}
 function signOut(){ _need(); return _sb.auth.signOut().then(_unwrap); }
 
 /* ---- saved builds -------------------------------------------------------- */
@@ -120,15 +133,15 @@ function getMyProfile(){
   _need();
   var u = _acctUser;
   if(!u) return Promise.resolve(null);
-  return _sb.from('profiles').select('user_id,username,is_admin').eq('user_id', u.id)
+  return _sb.from('profiles').select('user_id,username,is_admin,verified_pro').eq('user_id', u.id)
     .maybeSingle().then(_unwrap);
 }
-/* Public username/is_admin rows for a set of author ids (forum display). */
+/* Public username/is_admin/verified_pro rows for a set of author ids (forum display). */
 function getProfilesByIds(ids){
   _need();
   var list = (ids || []).filter(Boolean);
   if(!list.length) return Promise.resolve([]);
-  return _sb.from('profiles').select('user_id,username,is_admin').in('user_id', list).then(_unwrap);
+  return _sb.from('profiles').select('user_id,username,is_admin,verified_pro').in('user_id', list).then(_unwrap);
 }
 /* Collision check on the NORMALIZED username (username_norm — lowercase +
    spaces/_/- stripped, matching public.profile_norm). An exact eq on the stored
@@ -155,7 +168,7 @@ function upsertMyProfile(username){
   var u = _acctUser;
   if(!u) throw new Error('Sign in first.');
   return _sb.from('profiles').upsert({ user_id: u.id, username: username }, { onConflict: 'user_id' })
-    .select('user_id,username,is_admin').then(_unwrap);
+    .select('user_id,username,is_admin,verified_pro').then(_unwrap);
 }
 
 /* Node/CommonJS export guard (parity with compat.js) — lets a future test
@@ -163,7 +176,8 @@ function upsertMyProfile(username){
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     accountsReady: accountsReady, currentUser: currentUser, initAccount: initAccount,
-    signInWithEmail: signInWithEmail, signInWithGitHub: signInWithGitHub, signOut: signOut,
+    signInWithEmail: signInWithEmail, signInWithGitHub: signInWithGitHub,
+    signUpWithPassword: signUpWithPassword, signInWithPassword: signInWithPassword, signOut: signOut,
     listBuilds: listBuilds, saveBuild: saveBuild, updateBuild: updateBuild, deleteBuild: deleteBuild,
     listInventory: listInventory, addInventoryItem: addInventoryItem,
     setInventoryQty: setInventoryQty, removeInventoryItem: removeInventoryItem,

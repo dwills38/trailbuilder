@@ -27,8 +27,16 @@ hidden, so the live app is unaffected. These are the steps only the project owne
    ```
 
 ## 4. Enable auth providers
-- **Email magic link** is on by default — nothing to do (deliverability on Supabase's shared
-  SMTP can be slow; fine for testing).
+- **Email + password** is the required sign-up baseline (email + username + password). Supabase's
+  **Email** provider is enabled by default and supports passwords out of the box — nothing to turn
+  on. One setting matters: **Authentication → Providers → Email → "Confirm email"**. If it's **ON**
+  (Supabase default), a new signup must click a confirmation link before their first sign-in, and
+  the app applies their chosen username at that first sign-in; if it's **OFF**, they're signed in
+  immediately and the username is applied right away. Either way works — the username is captured
+  at signup and finalized (unique + reserved-checked) when the profile row is created.
+- **Email magic link** stays available as an optional passwordless method ("Email me a magic link
+  instead" in the auth modal) — on by default (deliverability on Supabase's shared SMTP can be slow;
+  fine for testing).
 - **GitHub (recommended, easiest to test):**
   1. GitHub → Settings → Developer settings → **OAuth Apps** → New OAuth App.
      - Homepage URL: `https://dwills38.github.io/trailbuilder/`
@@ -132,6 +140,16 @@ nobody can impersonate by re-casing or re-spacing.
    admin to someone else later: `update public.profiles set is_admin = true where user_id =
    '<their-uuid>';` (to revoke, set it back to `false`).
 
+**Verified Pro badge.** `profiles.verified_pro` (admin-only, same non-self-settable trigger as
+`is_admin`) drives a small **✓ Pro** badge next to a username on the forum. Verify the person's
+real pro identity offline first, then grant it in SQL:
+```sql
+select user_id, username from public.profiles where username = 'Brage Vestavik';
+update public.profiles set verified_pro = true where user_id = '<their-uuid>';
+```
+A normal user can never set this on themselves — it's pinned by the same server-side guard as
+`is_admin` (walkthrough below). Set it back to `false` to revoke.
+
 **Reserved usernames.** `reserved_usernames` holds names an ordinary user may **not** take —
 `kind='blocked'` (your real name + variants; private, never exposed to clients) and `kind='held'`
 (parked handles like `Gnarfather`, readable so the app can pre-warn). A server-side trigger
@@ -145,11 +163,11 @@ values (public.profile_norm('Some Name'), 'Some Name', 'blocked') on conflict (n
 delete from public.reserved_usernames where norm = public.profile_norm('Some Name');
 ```
 
-**Why a normal user can't make themselves admin:** the `is_admin` column is server-authoritative.
-The profiles RLS lets a signed-in user create/rename only their own row (`auth.uid() = user_id`),
-and a `BEFORE INSERT/UPDATE` trigger *pins* `is_admin` for every real end-user caller (it forces
-`false` on insert and the unchanged old value on update), so even a hand-crafted API call that
-tries to set `is_admin: true` saves the username and silently drops the flag. Only the SQL Editor
-/ service role — which runs with no end-user JWT (`auth.uid()` is null) — can set it, i.e. the
-grant above is the only path to admin. The full walkthrough is in the header comment of
-`forum-profiles.sql`.
+**Why a normal user can't make themselves admin (or a Verified Pro):** both `is_admin` and
+`verified_pro` are server-authoritative. The profiles RLS lets a signed-in user create/rename only
+their own row (`auth.uid() = user_id`), and a `BEFORE INSERT/UPDATE` trigger *pins* both flags for
+every real end-user caller (it forces `false` on insert and the unchanged old value on update), so
+even a hand-crafted API call that tries to set `is_admin: true` / `verified_pro: true` saves the
+username and silently drops the flag change. Only the SQL Editor / service role — which runs with
+no end-user JWT (`auth.uid()` is null) — can set them, i.e. the grants above are the only path. The
+full walkthrough is in the header comment of `forum-profiles.sql`.
