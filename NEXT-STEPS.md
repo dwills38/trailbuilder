@@ -167,6 +167,35 @@ good data, easy UI, UNBIASED (brand-neutral, honest verdicts — "unfuckingbiase
   data from manufacturers/affiliate feeds, WITH ready-to-send email drafts + a partner one-pager
   auto-included; brand-neutral framing. Research/deliverable only.
 
+### Morning update 2026-07-11 — MUST cover (Douglas will ask; he wants LLC playbook + all of it)
+
+Assemble a full morning report covering: **LLC + go-live playbook** (delivered — LLC-AND-GOLIVE-PLAYBOOK.pdf
++ CHECKLIST.pdf), **domain shortlist** (delivered — 202 .com, 26 available, top buildmymtb.com;
+trailbuilder.com registered-but-dormant, aftermarket-checkable), **manufacturer-data playbook** (PDF +
+email drafts — pending), **frames-fill outcome + the 25-not-added breakdown** (below), **night-shift wave
+results** (catalog count/verified climb), the **staged UI wave** (localhost:8192 — awaiting his "ship it"),
+and the **groupset decisions** (Eagle-90 promote / 11 relabel / lint).
+
+**The 25 of 33 frames NOT added (Douglas wants to know why) — reconstruct precisely from the frames-fill
+session report in the morning (list_events, needs his OK); interim reconstruction:** worker added 8
+(Atherton S.200, Devinci Wilson 29, Frameworks DH [verified], Intense M1, Contra MC, Santa Cruz Highball,
+YT Jeffsy, Specialized Epic 8 — the last under audit). The other 25 split into: **known maker-walled**
+(per the fetch-map — Specialized Epic World Cup [site-wide 403], Norco Aurum HSP/Torrent HT/Shore [JS/403],
+Pivot Phoenix DH/Mach 4 SL [403], Cannondale Habit/Scalpel/Scalpel HT [walled], Orbea Oiz [WAF-403]) — ~11
+rows; and **boutique/QBP or simply-not-reached in an 8-of-33 first pass** (Gamux Sego, Pole Machine DH,
+Unno Burn, Zerode G3 DH, Zink Zader, BMC Fourstroke, Scott Spark RC, Kona Honzo ESD/Unit X, Transition
+TransAM, Surly Karate Monkey/Krampus, Salsa Timberjack/Fargo) — ~14, several of which (Scott, Transition,
+Kona) DO fetch per the map and are just next-pass candidates. Honest framing: not all 25 are hard walls —
+some are genuinely blocked makers, others were unreached and are gettable next round.
+
+### Comprehensive frame master list (Douglas 2026-07-11)
+
+He wants night shift to work from a comprehensive discipline-organized list (every DH, then enduro, trail,
+etc. — like his ChatGPT list). Being generated overnight by a background agent → `FRAME-MASTER-LIST-BY-
+DISCIPLINE.md` (repo root, unverified target list). In the morning: hand this to night shift / a frames
+chip as the expansion target (cross-ref vs the 127 catalog frames for the gap set), and grind the
+fetchable brands. Couldn't task night shift overnight (send_message needs Douglas's approval).
+
 ### Future — MARKETPLACE (Douglas 2026-07-11, eventually — NOT scoped yet)
 
 Douglas wants a marketplace eventually (buy/sell parts). Hard requirement: **must be super secure against
