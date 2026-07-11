@@ -151,6 +151,22 @@ Nothing left on this list — every Phase 1 item shipped and is live.
 
 ### Queued by Douglas 2026-07-10 (parked here so they're not forgotten — do not start unprompted)
 
+- **IN FLIGHT 2026-07-11 (chip out, Douglas-ordered):** always-on filter rail (kill the ☰ Filters
+  toggle; rail visible at every width) + inch-mark wheel labels app-wide (`29in`→`29"`, same for
+  27.5/26; frame `mullet` label → `29"/27.5"`) — branch `ui-rail-always-inches`, staged for his
+  eyeball before ship.
+- **Expansion-r3 coordinator decision queue (from the wave report, 2026-07-11 — decide at/after
+  the night-shift morning report):** (1) vocab gaps flagged with audited quotes: headTube
+  `ZS62/40`, `EC49/40`, `ZS49/28.6` (blocks real Cane Creek completes); crankBb **`PowerSpline`**
+  (SX Eagle); tire casing/compound clusters (Continental Grip/Rapid + Race tier, WTB DNA tiers,
+  Kenda SCT/native-Dual, Goodyear Peak/Trail2). (2) **Engine call:** XX DH 7-speed Transmission
+  group is un-enterable — rule 3 counts the chain in the one-speed set but the correct chain is a
+  12s T-Type Flattop; needs a "T-Type chains are speed-agnostic" decision + maker source before
+  entry. (3) Conventions: bar/stem per-rise/length id token; verified-with-sample-price
+  consistency (lane-1 vs `fw-hope-fortus-30-29`); Magura MT Trail SL/Sport asymmetric-piston
+  set rows (4/2) — treat both rows together. (4) `cockpit-fix`'s eeSilk SL price field ($149.99
+  vs maker $199.99) still needs a call. Data follow-ups live in the wave report / memory
+  `expansion-r3-wave.md`.
 - **Visual/style pass — explicitly "not yet."** More art direction across the app; the named
   example: replace the solid green header bar with an artistic panorama render of a mountain
   range. Wait for Douglas to schedule it (a UI-declutter mockup round is running first and may
