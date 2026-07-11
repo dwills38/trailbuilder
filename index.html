@@ -40,9 +40,9 @@
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
        color:var(--ink);background:var(--bg);line-height:1.45}
   /* Sticky compact header (left-rail layout, approved mockup B): ☰ Filters ·
-     title · search · Share · ⋯ menu. The tagline + prototype badge live in the
-     honesty strip right below, which never hides — the sample-data disclaimer
-     must stay visible on every scroll position. */
+     title · search · Share · community/account · ⋯ menu. The tagline + prototype
+     badge live in the honesty strip right below, which never hides — the
+     sample-data disclaimer must stay visible on every scroll position. */
   header{background:linear-gradient(135deg,var(--brand-d),var(--brand));color:#fff;padding:10px 24px;position:sticky;top:0;z-index:40}
   header .wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
   header h1{margin:0;font-size:19px;white-space:nowrap}
@@ -56,6 +56,7 @@
   .btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;border-radius:10px;font-size:13px;cursor:pointer;font-weight:600}
   .btn:hover{border-color:#c7ccc6}
   .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  .toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
   .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
   /* chips are <button> elements (keyboard-operable filter toggles), reset to the
      pill look they had as plain divs; font/appearance already match — see the
@@ -189,7 +190,7 @@
   /* Inventory page (Phase 3): a full-width view, not a modal. body.inv-page hides
      the builder and reveals this; toggled by the header 🧰 Inventory button. */
   #inventoryPage{display:none}
-  body.inv-page .layout,body.inv-page #railToggle,body.inv-page #search,body.inv-page #share,body.inv-page .menu{display:none}
+  body.inv-page .layout,body.inv-page .toolbar,body.inv-page .legend,body.inv-page #railToggle,body.inv-page #search,body.inv-page #share,body.inv-page .menu{display:none}
   body.inv-page #inventoryPage{display:block}
   .invpage-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   .invpage-head h2{flex:1;margin:0;font-size:20px}
@@ -201,7 +202,7 @@
   /* Forum page (Phase 4, FORUM_ENABLED): same full-width-view convention as the
      inventory page above. body.forum-page hides the builder and reveals this. */
   #forumPage{display:none}
-  body.forum-page .layout,body.forum-page #railToggle,body.forum-page #search,body.forum-page #share,body.forum-page .menu{display:none}
+  body.forum-page .layout,body.forum-page .toolbar,body.forum-page .legend,body.forum-page #railToggle,body.forum-page #search,body.forum-page #share,body.forum-page .menu{display:none}
   body.forum-page #forumPage{display:block}
   .linklike{background:none;border:none;padding:0;color:var(--brand);font-weight:600;text-decoration:underline;cursor:pointer;font:inherit}
   .linklike:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
@@ -319,10 +320,11 @@
   }
 
   /* ===== Left-rail layout chrome (approved mockup B, implemented 2026-07-10) =====
-     Category + discipline + Show toggles + sample builds + legend + community/
-     account live in a collapsible left rail; contextual sub-filters stay at the
-     top of the catalog column; low-frequency actions live in the header's ⋯
-     menu. Everything colors through the CSS variables so dark/RAD inherit. */
+     The rail holds the discipline + category filters only; the Show toggles,
+     sample-builds dropdown and legend live in the toolbar strip above the
+     layout; contextual sub-filters stay at the top of the catalog column;
+     low-frequency actions live in the header's ⋯ menu. Everything colors
+     through the CSS variables so dark/RAD inherit. */
   #rail{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;align-self:start;
     position:sticky;top:70px;max-height:calc(100vh - 86px);overflow:auto}
   .rail-h{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft);font-weight:800;margin:16px 0 6px}
@@ -331,20 +333,7 @@
   #rail .chip{display:flex;justify-content:flex-start;border-radius:9px;background:none;text-align:left}
   #rail .chip:hover{background:var(--chip)}
   #rail .chip.active{background:var(--ink);color:var(--card)}
-  .rail-toggles{display:flex;flex-direction:column;gap:6px}
-  .rail-toggles .btn{text-align:left}
-  .rail-samples{margin-top:16px}
-  .rail-samples summary{cursor:pointer;font-size:12.5px;font-weight:800;color:var(--ink-soft)}
-  .rail-samples .rail-toggles{margin-top:8px}
   .rail-hint{font-size:11px;color:var(--ink-soft);margin-top:6px}
-  .legend-rail{flex-direction:column;align-items:flex-start;gap:8px;margin:0}
-  .rail-foot{margin-top:16px;border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:6px}
-  .rail-foot .acctbox{flex-direction:column;align-items:stretch}
-  /* the acctbox buttons are styled for the gradient header (translucent white) —
-     inside the rail they need the normal card-button look in every theme */
-  .rail-foot .btn,.rail-foot .acctbox .btn{background:var(--card);border:1px solid var(--line);color:var(--ink);text-align:left}
-  .rail-foot .acctbox .btn:hover{background:var(--chip)}
-  .rail-foot .acct-email{color:var(--ink)}
   /* catalog column head: count line + view toggle + sort. scroll-margin keeps the
      guided-flow jump clear of the sticky header. */
   .cat-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px;scroll-margin-top:70px}
@@ -352,14 +341,22 @@
   /* scroll-margin must sit on the element scrollIntoView is CALLED ON — the
      guided-flow jump targets #catCount, so the count line carries it too */
   .catcount{margin:0;scroll-margin-top:70px}
-  /* ⋯ overflow menu (theme toggles + low-frequency build actions) */
+  /* ⋯ overflow menu (low-frequency build actions) */
   .menu{position:relative;display:inline-block}
   .menu-pop{position:absolute;right:0;top:calc(100% + 6px);background:var(--card);border:1px solid var(--line);
     border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.18);padding:6px;display:flex;flex-direction:column;
     gap:4px;min-width:200px;z-index:80}
   .menu-pop .btn{width:100%;text-align:left;border-color:transparent;background:none;color:var(--ink)}
   .menu-pop .btn:hover{background:var(--chip)}
-  .menu-pop .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  /* 🚵 sample-builds dropdown (toolbar) — same disclosure pattern as the ⋯ menu */
+  .samples-menu{position:relative;display:inline-block}
+  .samples-menu summary{list-style:none}
+  .samples-menu summary::-webkit-details-marker{display:none}
+  summary.btn{display:inline-flex;align-items:center}
+  .samples-pop{position:absolute;left:0;top:calc(100% + 6px);background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.18);padding:6px;display:flex;flex-direction:column;gap:4px;min-width:220px;z-index:80}
+  .samples-pop .btn{width:100%;text-align:left;border-color:transparent;background:none;color:var(--ink)}
+  .samples-pop .btn:hover{background:var(--chip)}
+  .samples-pop .rail-hint{padding:2px 8px 4px;max-width:230px}
   /* desktop: ☰ collapses the rail and the catalog reflows wider */
   @media (min-width:881px){
     body.rail-hidden #rail{display:none}
@@ -482,11 +479,27 @@
     <h1>🚵 TrailBuilder</h1>
     <input type="search" id="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" aria-label="Search parts by brand or model" />
     <button class="btn primary" id="share" title="Copy a link that restores this exact build">Share<span class="hdr-long"> / save link</span></button>
+        <!-- Community. When the built-in forum is live (FORUM_ENABLED), this is an
+             in-app toggle to the forum page; otherwise it falls back to the GitHub
+             Discussions link (FORUM_URL, derived from REPORT_REPO) it will replace.
+             Hidden if neither is available, same feature-gate pattern as reportGithub. -->
+        <a class="btn" id="communityLink" target="_blank" rel="noopener"
+           title="Ask questions & share builds — TrailBuilder Discussions"
+           aria-label="Community — ask questions & share builds on TrailBuilder Discussions (opens in a new tab)" hidden>💬<span class="hdr-long"> Community</span></a>
+        <button type="button" class="btn" id="forumNavBtn"
+          title="Bug reports, build questions, feature requests" hidden>💬<span class="hdr-long"> Community</span></button>
+        <!-- Account control (Phase 3). Hidden entirely until Supabase config is set
+             (ACCOUNTS_ENABLED). renderAccount() toggles logged-in vs logged-out. -->
+        <div class="acctbox" id="acctBox" hidden>
+          <button class="btn" id="acctLogin" hidden>Log in</button>
+          <span class="acct-email" id="acctEmail" hidden></span>
+          <button class="btn" id="acctGarage" hidden title="Your saved builds">🅖 Garage</button>
+          <button class="btn" id="acctInventory" hidden title="Parts you own">🧰 Inventory</button>
+          <button class="btn" id="acctLogout" hidden>Log out</button>
+        </div>
     <div class="menu">
       <button type="button" class="btn" id="moreMenuBtn" aria-haspopup="true" aria-expanded="false" aria-label="More options" title="More options">⋯</button>
       <div class="menu-pop" id="moreMenuPop" hidden>
-        <button class="btn" id="darkMode" title="Toggle the dark theme" aria-pressed="false">🌙 Dark mode</button>
-        <button class="btn" id="radMode" title="It's a joke, dude. Purely cosmetic." aria-pressed="false">🤘 RAD mode</button>
         <button class="btn" id="compareBtn">⚖ Compare builds</button>
         <button class="btn" id="saveGarage" hidden title="Save this build to your garage">⭑ Save to garage</button>
         <button class="btn" id="demoBad">Show clashes ✗</button>
@@ -497,25 +510,19 @@
 </header>
 <!-- The honesty badge keeps its own always-visible strip: the compact header has
      no room, and the sample-data disclaimer must never hide or demote. Community
-     and account controls now live at the rail foot. -->
+     and account controls live in the header. -->
 <div class="honesty-strip"><span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span> Browse enduro parts, click to add, and it checks fit, price and weight as you build.</div>
 
 <main>
-  <div class="layout">
-    <nav id="rail" aria-label="Catalog filters and tools">
-      <div class="rail-h">Category</div>
-      <div class="chips" id="chips" role="group" aria-label="Filter by component category"></div>
-      <div class="rail-h">Discipline</div>
-      <div class="chips" id="discChips" role="group" aria-label="Filter by riding discipline — parts without a discipline tag are universal and always show" title="Filter by riding discipline — parts without a discipline tag are universal and always show"></div>
-      <div class="rail-h">Show</div>
-      <div class="rail-toggles">
+  <div class="toolbar">
         <button class="btn" id="verifiedOnly" title="Show only parts verified against a manufacturer spec" aria-pressed="false">✓ Verified only</button>
         <button class="btn" id="ownedOnly" hidden title="Show only parts in your inventory" aria-pressed="false">🧰 Owned only</button>
         <button class="btn" id="compatibleOnly" title="Hide parts that would clash with your current build (parts with no build yet always show)" aria-pressed="false">🟢 Compatible only</button>
-      </div>
-      <details class="rail-samples">
-        <summary>🚵 Sample builds</summary>
-        <div class="rail-toggles">
+        <button class="btn" id="radMode" title="It's a joke, dude. Purely cosmetic." aria-pressed="false">🤘 RAD mode</button>
+        <button class="btn" id="darkMode" title="Toggle the dark theme" aria-pressed="false">🌙 Dark mode</button>
+        <details class="samples-menu" id="samplesMenu">
+          <summary class="btn">🚵 Sample builds ▾</summary>
+          <div class="samples-pop">
           <button class="btn" id="demoBudget">Budget build 💵</button>
           <button class="btn" id="demoMid">Mid-range build ⚙️</button>
           <button class="btn" id="demoHighEnd">High-end build 💎</button>
@@ -523,37 +530,23 @@
           <button class="btn" id="demoDH">DH build ⛰️</button>
           <button class="btn" id="demoTrail">Trail build 🌲</button>
           <button class="btn" id="demoXC">XC build 🐇</button>
-        </div>
-        <div class="rail-hint">Each loads a complete build — your current picks are replaced.</div>
-      </details>
-      <div class="rail-h">Legend</div>
-      <div class="legend legend-rail">
+            <div class="rail-hint">Each loads a complete build — your current picks are replaced.</div>
+          </div>
+        </details>
+  </div>
+  <div class="legend">
         <span><i style="background:#2aa35a" aria-hidden="true"></i>No conflicts found</span>
         <span><i style="background:#e0a52e" aria-hidden="true"></i>Check first &mdash; adds a warning (hover for why)</span>
         <span><i style="background:#d23b3b" aria-hidden="true"></i>Won&rsquo;t fit (hover for why)</span>
         <span><i style="background:#d2d7d1" aria-hidden="true"></i>Nothing selected yet to judge</span>
         <span><span style="color:var(--ok);font-weight:800">✓ Verified</span> = checked vs manufacturer spec (else <span style="color:var(--ink-soft);font-weight:600">≈ estimate</span>)</span>
-      </div>
-      <div class="rail-foot">
-        <!-- Community. When the built-in forum is live (FORUM_ENABLED), this is an
-             in-app toggle to the forum page; otherwise it falls back to the GitHub
-             Discussions link (FORUM_URL, derived from REPORT_REPO) it will replace.
-             Hidden if neither is available, same feature-gate pattern as reportGithub. -->
-        <a class="btn" id="communityLink" target="_blank" rel="noopener"
-           title="Ask questions & share builds — TrailBuilder Discussions"
-           aria-label="Community — ask questions & share builds on TrailBuilder Discussions (opens in a new tab)" hidden>💬 Community</a>
-        <button type="button" class="btn" id="forumNavBtn"
-          title="Bug reports, build questions, feature requests" hidden>💬 Community</button>
-        <!-- Account control (Phase 3). Hidden entirely until Supabase config is set
-             (ACCOUNTS_ENABLED). renderAccount() toggles logged-in vs logged-out. -->
-        <div class="acctbox" id="acctBox" hidden>
-          <button class="btn" id="acctLogin" hidden>Log in</button>
-          <span class="acct-email" id="acctEmail" hidden></span>
-          <button class="btn" id="acctGarage" hidden title="Your saved builds">🅖 Garage</button>
-          <button class="btn" id="acctInventory" hidden title="Parts you own">🧰 Inventory</button>
-          <button class="btn" id="acctLogout" hidden>Log out</button>
-        </div>
-      </div>
+  </div>
+  <div class="layout">
+    <nav id="rail" aria-label="Catalog filters">
+      <div class="rail-h">Discipline</div>
+      <div class="chips" id="discChips" role="group" aria-label="Filter by riding discipline — parts without a discipline tag are universal and always show" title="Filter by riding discipline — parts without a discipline tag are universal and always show"></div>
+      <div class="rail-h">Category</div>
+      <div class="chips" id="chips" role="group" aria-label="Filter by component category"></div>
     </nav>
 
     <section aria-label="Parts catalog">
@@ -2258,9 +2251,10 @@
       function(){toast('Build link copied to clipboard');}, function(){toast('Build saved in the address bar');}); }
     else toast('Build saved in the address bar'); };
 
-  /* ---- layout chrome: ⋯ overflow menu, filter rail / phone drawer, mobile
-     build bar. Presentation only — every control inside keeps its id and its
-     wiring above; nothing here reads or writes build state. ---- */
+  /* ---- layout chrome: ⋯ overflow menu, sample-builds dropdown, filter rail /
+     phone drawer, mobile build bar. Presentation only — every control inside
+     keeps its id and its wiring above; nothing here reads or writes build
+     state. ---- */
   (function(){
     var btn=$('moreMenuBtn'), pop=$('moreMenuPop');
     function closeMenu(){ pop.hidden=true; btn.setAttribute('aria-expanded','false'); }
@@ -2276,6 +2270,15 @@
     document.addEventListener('keydown', function(e){
       if(e.key==='Escape' && !pop.hidden){ closeMenu(); btn.focus(); }
     });
+  })();
+  // 🚵 Sample-builds dropdown (toolbar): same close conventions as the ⋯ menu —
+  // picking a demo closes it, clicking outside closes it, Escape closes and
+  // refocuses the summary.
+  (function(){
+    var d=$('samplesMenu');
+    d.addEventListener('click', function(e){ if(e.target.closest('.samples-pop .btn')) d.open=false; });
+    document.addEventListener('click', function(e){ if(d.open && !d.contains(e.target)) d.open=false; });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape' && d.open){ d.open=false; var s=d.querySelector('summary'); if(s) s.focus(); } });
   })();
   (function(){
     var rail=$('rail'), railBtn=$('railToggle'), railBd=$('railBackdrop');
@@ -2331,14 +2334,13 @@
       if(e.shiftKey && (a===first || !rail.contains(a))){ e.preventDefault(); last.focus(); }
       else if(!e.shiftKey && (a===last || !rail.contains(a))){ e.preventDefault(); first.focus(); }
     });
-    // picking a category or loading a sample build from the phone drawer closes
-    // it so the result is visible (the Show toggles keep it open on purpose —
-    // people flip several in a row)
+    // picking a category or discipline from the phone drawer closes it so the
+    // result is visible (both chip groups are single-pick filters)
     $('chips').addEventListener('click', function(e){
       if(railMq.matches && e.target.closest('.chip')) closeDrawer();
     });
-    document.querySelector('.rail-samples').addEventListener('click', function(e){
-      if(railMq.matches && e.target.closest('.btn')) closeDrawer();
+    $('discChips').addEventListener('click', function(e){
+      if(railMq.matches && e.target.closest('.chip')) closeDrawer();
     });
     // instant jump, not smooth: the catalog page is thousands of px tall on
     // phones — an animated scroll that far is slow, and the guided-flow work
