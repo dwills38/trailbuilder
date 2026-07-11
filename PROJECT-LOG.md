@@ -60,3 +60,13 @@ per wave/decision; large reconstructions are handed to a worker session.
   pasting it bare tripped Postgres `42601: trailing junk after numeric literal`.
   _Next:_ Cloudflare owner task still open; queued forum follow-ups (rich profiles, auto-mod)
   ready to hand off.
+- **UPDATE — reviewer audit-trail docs LANDED.** A worker session built `FOR-REVIEWERS.md`
+  (entry-point/map) + `REVIEWER-DOSSIER.md` (retroactive decision + verification history, by theme,
+  every claim commit-cited). Coordinator-reviewed end-to-end: accurate, honest-toned, technical-only
+  (business/personal deliberately excluded — confirmed no leakage), four gates green. Merged this
+  commit (only the two new files taken; the worker's branch was based on `75e0304`, one behind, so
+  its stale `PROJECT-LOG.md` diff was NOT applied). The dossier honestly self-flags **13
+  "reviewer should check"** items — none a live error-rule bug; the actionable follow-ups: stale
+  "dead rule" wording for rules 2/8/11 (real DH-fork/FM-brake parts can now fire them) + no
+  real-part error-case test for 2/11; `CLAUDE.md` roadmap/test-table prose lags shipped code;
+  `MECHANIC-FINDINGS-INTAKE` rule map one behind (no rule 20). Backlogged for a doc-cleanup worker.
