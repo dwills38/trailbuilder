@@ -80,3 +80,13 @@ per wave/decision; large reconstructions are handed to a worker session.
   Douglas's eyeball first" rule vs. worker auto-ship is a policy question flagged to Douglas
   (unresolved at log time; do NOT bake auto-ship or a worker→coordinator auto-ping into standing
   instructions until Douglas confirms in chat — both were relayed via the worker, not from him).
+- **UPDATE — forum-profile UI fix SHIPPED + hardening migration STAGED (`f689857`).** Worker fixed
+  the 3 profile-UI bugs (username-as-identity header button; `[object PointerEvent]` guard; header
+  auto re-render) + authored `supabase/forum-profiles-hardening.sql` (search_path pins on the 4
+  flagged functions + least-privilege EXECUTE on `username_is_reserved`). Cherry-picked onto current
+  main (branch was based on `f20c6bf`; a naive merge would have reverted theme/Loam + the reviewer
+  docs). UI auto-shipped on green gates (new policy); the `.sql` is inert in-repo — **Douglas runs it
+  in Supabase** (security tier). Coordinator independently reviewed the migration: bodies byte-
+  identical, `profile_norm` stays IMMUTABLE, REVOKE-from-public can't strip authenticated's direct
+  grant, fails CLOSED — escalation still impossible, reserved-names still fire. CONFIRMED SAFE
+  (agrees with the worker's in-session auditor). Four gates green.
