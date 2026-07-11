@@ -62,6 +62,11 @@ coordinator with zero context can operate safely and knows **all of Douglas's ru
 - **Picker leak:** chips inherit Douglas's model PICKER at click time regardless of the title. Keep
   the default picker on Sonnet; he flips to Opus for heavy/coordinator chips. He sometimes prefers a
   **copy-paste prompt** (to control model/effort himself) — hand him one with the model+effort noted.
+- **Keep the audit trail current (Douglas wants to hand the project off for an independent
+  double-check).** Append a `PROJECT-LOG.md` entry — _date · what · why · how-verified · refs ·
+  what-to-double-check_ — as each wave/decision lands, and keep `FOR-REVIEWERS.md`'s doc-map
+  current. Small dated appends are coherence (in-seat); the big retroactive `REVIEWER-DOSSIER.md`
+  is a worker task.
 - **Merge workflow per branch:** fetch → per-id interface diff (catalog branches) → ALL FOUR gates
   (`node validate.js` 0 problems / `npx vitest run` all pass / `npx tsc --noEmit` clean /
   `node tools/verdict-audit-harness.js` 0 flags — the section-E 4-fork note is pre-existing) →
