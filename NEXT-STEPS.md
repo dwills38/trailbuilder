@@ -191,10 +191,12 @@ some are genuinely blocked makers, others were unreached and are gettable next r
 ### Comprehensive frame master list (Douglas 2026-07-11)
 
 He wants night shift to work from a comprehensive discipline-organized list (every DH, then enduro, trail,
-etc. — like his ChatGPT list). Being generated overnight by a background agent → `FRAME-MASTER-LIST-BY-
-DISCIPLINE.md` (repo root, unverified target list). In the morning: hand this to night shift / a frames
-chip as the expansion target (cross-ref vs the 127 catalog frames for the gap set), and grind the
-fetchable brands. Couldn't task night shift overnight (send_message needs Douglas's approval).
+etc. — like his ChatGPT list). **DELIVERED overnight → `FRAME-MASTER-LIST-BY-DISCIPLINE.md` (repo root,
+untracked): 232 current-production frames, ~65 brands, by discipline (Enduro 64 / Trail 62 / DH 31 /
+Down-country 15 / XC 16 / Hardtail 28 / Freeride 8 / DJ 8); e-MTB excluded (no motor modeling); GG/defunct
+excluded, a few unconfirmed flagged.** In the morning: cross-ref vs the 127 catalog frames for the gap set,
+then hand the fetchable gaps to night shift / a frames chip as the expansion target. Couldn't task night
+shift overnight (send_message needs Douglas's approval).
 
 ### Future — MARKETPLACE (Douglas 2026-07-11, eventually — NOT scoped yet)
 
