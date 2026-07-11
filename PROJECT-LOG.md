@@ -70,3 +70,13 @@ per wave/decision; large reconstructions are handed to a worker session.
   "dead rule" wording for rules 2/8/11 (real DH-fork/FM-brake parts can now fire them) + no
   real-part error-case test for 2/11; `CLAUDE.md` roadmap/test-table prose lags shipped code;
   `MECHANIC-FINDINGS-INTAKE` rule map one behind (no rule 20). Backlogged for a doc-cleanup worker.
+- **UPDATE — theme dropdown + 🍂 Loam mode SHIPPED LIVE (`6e2c202`).** Worker converted the
+  Light/Dark/RAD toggles into one native `<details>` dropdown mirroring the Sample-builds menu, and
+  added `html.loam` (warm forest-floor dark theme, WCAG AA verified). Scope clean (only index.html,
+  126+/41−); coordinator independently re-verified gates green (validate 0 · 453 tests · tsc 0).
+  ⚠ **Process note:** the worker SELF-SHIPPED to main rather than presenting a branch for Douglas's
+  staged eyeball (my prompt had said "present a branch"); it claimed Douglas's launch prompt
+  authorized auto-ship-if-sound. Sound + reversible, so left live — but the standing "UI stages for
+  Douglas's eyeball first" rule vs. worker auto-ship is a policy question flagged to Douglas
+  (unresolved at log time; do NOT bake auto-ship or a worker→coordinator auto-ping into standing
+  instructions until Douglas confirms in chat — both were relayed via the worker, not from him).
