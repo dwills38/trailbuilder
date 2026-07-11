@@ -156,14 +156,22 @@
      keeps phones and portrait tablets on the mobile list block further down. */
   .grid.list{container:tbcat / inline-size}
   @media (min-width:769px){
+    /* density (Douglas 2026-07-11: cut the dead space above/below row content) —
+       desktop-only: the ≤768px block keeps its 38px+ touch targets untouched */
+    .grid.list{gap:4px}
     @container tbcat (min-width:600px){
       .list .pcard{display:grid;grid-template-columns:minmax(175px,220px) minmax(120px,1fr) minmax(72px,max-content) minmax(200px,232px);
-        column-gap:12px;align-items:center;padding:11px 14px 11px 30px}
-      .list .pcard-thumb{width:40px;height:40px}
-      .list .pcard-thumb svg{width:22px;height:22px}
+        column-gap:12px;align-items:center;padding:5px 14px 5px 30px}
+      .list .pcard-thumb{width:32px;height:32px}
+      .list .pcard-thumb svg{width:18px;height:18px}
+      /* the 40px thumb was the single-line height driver and the eyebrow's
+         inherited 1.45 line-height padded the two-line rows; with those tight
+         a single-line row lands ~44px and a wrapped-name row ~57px */
+      .list .pcard .kind{line-height:1.2}
+      .list .pcard .pick{padding:4px 10px}
       /* the bold name wraps to at most two lines (his example does exactly
          this) instead of ellipsis-truncating in a wide fixed column */
-      .list .pcard .name{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-align:left;line-height:1.25}
+      .list .pcard .name{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-align:left;line-height:1.2}
       /* provenance as a right-anchored column; badges never split mid-pill —
          an owned badge wraps whole onto a second line inside the track */
       .list .pcard .prov{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;row-gap:2px}
@@ -177,6 +185,9 @@
       .list .pcard .price .wt{margin:0;white-space:nowrap}
       .list .pcard .price .wtsep{display:none}
     }
+    /* same-spirit modest trim for the CARD view — desktop only (the ≤768px
+       card view keeps the roomier 13px; touch targets there are untouched) */
+    .grid:not(.list) .pcard{padding:11px}
   }
 
   .side{position:sticky;top:80px;display:flex;flex-direction:column;gap:14px}
