@@ -25,6 +25,27 @@ var MADONNA = { frame:'fr-raaw-madonna-v22', fork:'fk-rockshox-zeb-ultimate-29-1
   frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
   handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-316-210', saddle:'sa-wtb-volt', pedals:'pd-raceface-atlas' };
 
+/* The app's three price-tier demo buttons (loadBudget / loadMid / loadHighEnd in
+   index.html), pinned here the way the per-discipline demos are (DH_BUILD etc.), so a
+   later catalog correction can't silently break a "still fully compatible" toast.
+   This exact regression already bit BUDGET once: the verify-forks wave (2026-07-10)
+   corrected its fork fk-srsuntour-durolux-r2c2-29-170 to a 20x110 DH axle (clashing
+   with the EX 1700's Boost15x110 front hub) AND a 180mm max rotor (below the build's
+   203mm), and both slipped through because the demo wasn't pinned. It now runs the
+   RockShox Domain Gold RC 170 - a real budget enduro fork (Boost110, 220mm max rotor). */
+var BUDGET = { frame:'fr-raaw-madonna-v32', fork:'fk-rockshox-domain-rc-29-170', shock:'sh-rockshox-super-deluxe-205x65-trun', frontWheel:'fw-dtswiss-ex-1700-29', rearWheel:'rw-dtswiss-ex-1700-29',
+  frontTire:'ti-kenda-hellkat-29-24-aec-dl', rearTire:'ti-kenda-hellkat-29-24-aec-dl', shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle',
+  frontBrake:'bk-shimano-xt-m8120', rearBrake:'bk-shimano-xt-m8120', frontRotor:'ro-shimano-rtmt800-203-cl', rearRotor:'ro-shimano-rtmt800-203-cl',
+  handlebar:'hb-pnw-range-318', stem:'st-pnw-range-318', grips:'gr-pnw-loam', dropper:'dp-ethirteen-vario-infinite-316-180', saddle:'sa-dmr-oioi', pedals:'pd-oneup-composite' };
+var MID = { frame:'fr-santacruz-megatower-cc', fork:'fk-rockshox-zeb-ultimate-29-170', shock:'sh-rockshox-super-deluxe-ultimate-230x62p5', frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-reserve-30-hd-29',
+  frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-29-25-exop-mg', shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275', chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle',
+  frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-oneup-v3-316-210', saddle:'sa-wtb-volt', pedals:'pd-oneup-aluminum' };
+var HIGHEND = { frame:'fr-yeti-sb160', fork:'fk-ext-era-v2-29-170', shock:'sh-push-elevensix-230x65', frontWheel:'fw-reserve-30-hd-29', rearWheel:'rw-reserve-30-hd-29',
+  frontTire:'ti-schwalbe-magic-mary-29-24-sg-as', rearTire:'ti-schwalbe-magic-mary-29-24-sg-as', shifter:'sft-sram-xx-sl-transmission', derailleur:'dr-sram-xx-transmission', cassette:'ca-sram-xs1299', chain:'ch-sram-gx-flattop', crankset:'cr-sram-xx-sl-transmission',
+  frontBrake:'bk-trickstuff-maxima', rearBrake:'bk-trickstuff-maxima', frontRotor:'ro-trickstuff-dachle-203-6b', rearRotor:'ro-trickstuff-dachle-203-6b',
+  handlebar:'hb-oneup-carbon-35', stem:'st-oneup-stem-35', grips:'gr-oneup-lockon', dropper:'dp-bikeyoke-revive-316-185', saddle:'sa-fizik-terra-aidon-x3', pedals:'pd-time-speciale-12-large' };
+
 var CLASH = { frame:'fr-specialized-enduro-sworks', fork:'fk-rockshox-zeb-ultimate-275-170', shock:'sh-rockshox-super-deluxe-205x65-trun', frontWheel:'fw-industrynine-enduro-s-29', rearWheel:'rw-industrynine-enduro-s-29',
   frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-29-25-exop-mg', shifter:'sft-sram-gx-transmission', derailleur:'dr-sram-gx-transmission', cassette:'ca-shimano-xt-m8100-1051', chain:'ch-sram-gx-flattop', crankset:'cr-sram-x0-transmission',
   frontBrake:'bk-shimano-xt-m8120', rearBrake:'bk-shimano-xt-m8120', frontRotor:'ro-shimano-rtmt800-203-cl', rearRotor:'ro-shimano-rtmt800-203-cl',
@@ -38,6 +59,15 @@ test('golden: Specialized Enduro + its package shock is compatible', function(){
 });
 test('golden: RAAW Madonna build is fully compatible', function(){
   var r = chk(MADONNA); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+test('golden: the app BUDGET demo build is fully compatible', function(){
+  var r = chk(BUDGET); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+test('golden: the app MID demo build is fully compatible', function(){
+  var r = chk(MID); eq(r.errors.length, 0); eq(r.warnings.length, 0);
+});
+test('golden: the app HIGH-END demo build is fully compatible', function(){
+  var r = chk(HIGHEND); eq(r.errors.length, 0); eq(r.warnings.length, 0);
 });
 
 // Same bike as GOOD, but the wheels are built from separate hub+rim parts
@@ -113,7 +143,7 @@ test('golden: SRAM Transmission mullet on the Meta SX (XD 27.5 rear) is fully co
 });
 
 test('golden: every demo build fills every required slot (complete builds)', function(){
-  [GOOD, DEAL, MADONNA, MULLET].forEach(function(bld){
+  [GOOD, DEAL, MADONNA, MULLET, BUDGET, MID, HIGHEND].forEach(function(bld){
     var m = /** @type {Object.<string, string>} */ (bld);
     // requiredness is frame-aware (slotRequired) — for these full-sus
     // non-DH builds it must equal the old !optional rule, except altOf slots
