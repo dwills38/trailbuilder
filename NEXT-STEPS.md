@@ -4,9 +4,9 @@ _A living snapshot. Architecture/conventions live in `CLAUDE.md`; full history i
 
 ## Where we are (as of 2026-07-11)
 
-> **Live state (2026-07-11):** **1865 parts / 1337 verified (72%) / 436 tests / 20 rule areas**; `node validate.js` 0 problems, `tsc` clean; CI + GitHub Pages green (origin/main `76c1656`). **The expert rules review is 100% COMPLETE and applied** (all 19 original rule areas + non-rules + gaps — durable record: annotated `EXPERT-REVIEW-DOSSIER.md`). **Phase 3 accounts LIVE**; **the in-app forum LIVE with 18 categories** (vocab in `src/forum.js` — adding categories needs no SQL). Shipped 2026-07-10→11: 🌙 dark mode, tire-width filters, the **headset category** (rule 20, S.H.I.S. codes on 77/127 frames), **catalog list view** (default, cards toggle), **guided build flow** (pick → auto-advance + compatible-only), rule 6b (integrated-cassette wheels), mobile fixes. Catalog stays verdict-clean: wave-r3's adversarial audit killed 2 false-fits, caught 1 fabrication pre-merge, and demoted 2 false verifications; the frames S.H.I.S. pass audited 28/28 clean. _Inline figures below drift — trust the live gates._
+> **Live state (2026-07-11):** **1865 parts / 1337 verified (72%) / 439 tests / 20 rule areas**; `node validate.js` 0 problems, `tsc` clean; CI + GitHub Pages green (origin/main `6dd5361`). **The expert rules review is 100% COMPLETE and applied** (all 19 original rule areas + non-rules + gaps — durable record: annotated `EXPERT-REVIEW-DOSSIER.md`). **Phase 3 accounts LIVE**; **the in-app forum LIVE with 18 categories** (vocab in `src/forum.js` — adding categories needs no SQL). Shipped 2026-07-10→11: 🌙 dark mode, tire-width filters, the **headset category** (rule 20, S.H.I.S. codes on 77/127 frames), **catalog list view** (default, cards toggle), **guided build flow** (pick → auto-advance + compatible-only), rule 6b (integrated-cassette wheels), mobile fixes. Catalog stays verdict-clean: wave-r3's adversarial audit killed 2 false-fits, caught 1 fabrication pre-merge, and demoted 2 false verifications; the frames S.H.I.S. pass audited 28/28 clean. _Inline figures below drift — trust the live gates._
 >
-> **Focus (2026-07-11):** the **left-rail layout (approved mockup B) is STAGED awaiting Douglas's browser sign-off** (localhost:8173; style pass queued behind it). Blocked-on-Douglas: **domain purchase** → affiliate signups → stickers. Coordination state + follow-up queue: `COORDINATOR-HANDOFF.md`.
+> **Focus (2026-07-11):** the **left rail is SHIPPED and REFINED** (Douglas-approved rail-refine landed `61f4929`: discipline-first rail, toolbar strip with toggles + sample-builds dropdown + legend, community/login in the header) and the **stale Budget demo is fixed** (`6dd5361`: Domain Gold RC fork; all three price-tier demos now golden-pinned — 439 tests). **The style pass is UNBLOCKED** (mountain-panorama header art etc. — starts when Douglas schedules it). In flight: night-shift catalog grind (self-merge mandate), random sample-builds generator (Opus). Blocked-on-Douglas: **domain purchase (today)** → affiliate signups → stickers. Coordination state + follow-up queue: `COORDINATOR-HANDOFF.md`.
 
 TrailBuilder — "PCPartPicker for enduro mountain bikes": pick parts, get real-time
 fit / price / weight checks. Plain static app (`index.html` + `src/`), no build step.
@@ -151,6 +151,60 @@ Nothing left on this list — every Phase 1 item shipped and is live.
 
 ### Queued by Douglas 2026-07-10 (parked here so they're not forgotten — do not start unprompted)
 
+- **IN FLIGHT / QUEUED 2026-07-11 (chips out, Douglas-ordered):**
+  - `ui-rail-always-inches` (DONE @ `c39c1dd`, 4 gates green, browser-verified): killed the ☰ Filters
+    toggle (rail always visible every width) + inch-mark wheel labels app-wide (`29"`, `27.5"`,
+    mullet `29"/27.5"` via the compat.js LABELS map). **STAGED at localhost:8192 for Douglas's
+    eyeball;** on his word → merge to main, then integrate the filters branch on top.
+  - `ui-category-filters-reset` (RUNNING): Reset surfaced from the ⋯ menu into the visible toolbar +
+    category sub-filters via a data-driven helper — fork `travel`, shock `stroke`, dropper
+    `diameter`+`drop`, handlebar `clamp` (31.8/35), BB `shell` threaded{BSA*/T47}/pressfit{PF*},
+    drivetrain `actuation` electronic/mechanical. **+folded in (send_message):** a 7th filter — shock
+    `spring` Coil/Air (55 air/53 coil) — and the DISCIPLINE chip reorder by travel DH→Enduro→Trail→XC
+    (`['all','dh','enduro','trail','xc']`). Branched off pre-rail main; **coordinator integrates it
+    onto main AFTER rail/inches merges** (overlapping toolbar region). Staged for eyeball.
+  - **Frame MATERIAL filter — QUEUED, needs a small schema step first** (Douglas asked for
+    carbon/aluminum/steel filter): frames carry NO material field today (0/127). Plan: add optional
+    `material` to the frame schema (schema.js + types.js; enum carbon/aluminum/steel/titanium/other;
+    display-only, never feeds verdicts) → backfill 127 frames from sourced maker specs (material is
+    prominently published) → then the UI filter. **Gated AFTER `frames-master-list-fill` lands** (so
+    it covers the +33) and carved from night shift; schema touch = Douglas eyeball. Sonnet.
+  - `frames-master-list-fill` (RUNNING): the 33 frames from Douglas's 2026 master-list Excel not yet
+    in the catalog (49/82 already present) — fetched maker specs only, walled brands skipped-documented;
+    coordinator runs an Opus adversarial audit before merge (frames feed error-tier rules).
+  - `groupset-sku-audit` (chip out, report-only): verify all 19 `gs-*` groupset presets are real
+    purchasable complete-groupset SKUs with an official PN — flag any fabricated bundle (no single
+    official groupset SKU). Removals/relabels/promotions come back to Douglas.
+  - `DOMAIN-BRAINSTORM` (RUNNING, Sonnet): 100-250 candidate domains + RDAP/DNS availability + per-TLD
+    pricing → doc + PDF to Douglas. Research-only, no repo changes.
+  - **UI polish 2 — QUEUED** (gated AFTER the current UI wave lands — rail/inches + filters chip +
+    random-builds all touch index.html/demos; serialize to stay unbreakable): (a) move the 🚵 Sample
+    builds dropdown to the FAR LEFT of the toolbar; (b) in list rows, place the 🅖 Own button to the
+    LEFT of Add-to-build (side-by-side, not stacked) so rows are wider + shorter — Own only shows when
+    logged in; (c) sample/demo builds must FILL the `bb` + `headset` slots with compat-clean picks
+    (frame-shell-matched BB, steerer-matched headset) and re-pin the BUDGET/MID/HIGHEND goldens —
+    NOTE this interacts with random-builds (if it ships, the fix is in the generator + SAMPLE_FALLBACK,
+    not the static demo functions). Staged for Douglas's eyeball.
+  - `LLC-AND-GOLIVE-PLAYBOOK` (chip out, Sonnet high): printable link-rich PDF(s) — form an LLC
+    (state choice, articles, EIN, FinCEN BOI, bank acct), register the domain, go live as a real
+    business (Supabase redirect update, legal pages/FTC disclosure, Search Console, affiliate apps).
+    Research/deliverable only; extends TRAILBUILDER-LAUNCH-PLAYBOOK.pdf; not-legal-advice framing.
+  - **NIGHT SHIFT** (woken 2026-07-11 ~04:30 after an idle-stall): its `night/2026-07-11` branch holds
+    26 commits — 5 r3 lanes + frames-tail merged & adversarially audited, UNPUSHED. Instructed to
+    finish the last 3 lanes (drivetrain/headsets/pedals), skip frames (frames-fill owns them), then
+    push the whole wave to main in ONE go. Coordinator rebases pending branches once after that push.
+- **Expansion-r3 coordinator decision queue (from the wave report, 2026-07-11 — decide at/after
+  the night-shift morning report):** (1) vocab gaps flagged with audited quotes: headTube
+  `ZS62/40`, `EC49/40`, `ZS49/28.6` (blocks real Cane Creek completes); crankBb **`PowerSpline`**
+  (SX Eagle); tire casing/compound clusters (Continental Grip/Rapid + Race tier, WTB DNA tiers,
+  Kenda SCT/native-Dual, Goodyear Peak/Trail2). (2) **Engine call:** XX DH 7-speed Transmission
+  group is un-enterable — rule 3 counts the chain in the one-speed set but the correct chain is a
+  12s T-Type Flattop; needs a "T-Type chains are speed-agnostic" decision + maker source before
+  entry. (3) Conventions: bar/stem per-rise/length id token; verified-with-sample-price
+  consistency (lane-1 vs `fw-hope-fortus-30-29`); Magura MT Trail SL/Sport asymmetric-piston
+  set rows (4/2) — treat both rows together. (4) `cockpit-fix`'s eeSilk SL price field ($149.99
+  vs maker $199.99) still needs a call. Data follow-ups live in the wave report / memory
+  `expansion-r3-wave.md`.
 - **Visual/style pass — explicitly "not yet."** More art direction across the app; the named
   example: replace the solid green header bar with an artistic panorama render of a mountain
   range. Wait for Douglas to schedule it (a UI-declutter mockup round is running first and may
