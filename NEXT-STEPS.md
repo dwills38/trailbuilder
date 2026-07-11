@@ -177,22 +177,43 @@ Nothing left on this list — every Phase 1 item shipped and is live.
     official groupset SKU). Removals/relabels/promotions come back to Douglas.
   - `DOMAIN-BRAINSTORM` (RUNNING, Sonnet): 100-250 candidate domains + RDAP/DNS availability + per-TLD
     pricing → doc + PDF to Douglas. Research-only, no repo changes.
-  - **UI polish 2 — QUEUED** (gated AFTER the current UI wave lands — rail/inches + filters chip +
-    random-builds all touch index.html/demos; serialize to stay unbreakable): (a) move the 🚵 Sample
-    builds dropdown to the FAR LEFT of the toolbar; (b) in list rows, place the 🅖 Own button to the
-    LEFT of Add-to-build (side-by-side, not stacked) so rows are wider + shorter — Own only shows when
-    logged in; (c) sample/demo builds must FILL the `bb` + `headset` slots with compat-clean picks
-    (frame-shell-matched BB, steerer-matched headset) and re-pin the BUDGET/MID/HIGHEND goldens —
-    NOTE this interacts with random-builds (if it ships, the fix is in the generator + SAMPLE_FALLBACK,
-    not the static demo functions). Staged for Douglas's eyeball.
+  - **UI polish 2 — QUEUED** (one consolidated chip, gated AFTER the current UI wave lands — rail/inches
+    + filters chip + random-builds all touch index.html/demos; serialize to stay unbreakable; fires the
+    moment the filters chip returns): (a) **COMPAT-FIRST SORT** (Douglas 2026-07-11, priority) — always
+    group the catalog compatible-first then incompatible, with the chosen sort (A-Z / price / weight) as
+    the SECONDARY key WITHIN each group. Today choosing A-Z overrides the compat rank; make compat-group
+    the primary key across all sort modes (compatible = no error / incompatible = red). Show all, just
+    order fits-first. (b) move the 🚵 Sample builds dropdown to the FAR LEFT of the toolbar; (c) in list
+    rows, place the 🅖 Own button to the LEFT of Add-to-build (side-by-side, not stacked) so rows are
+    wider + shorter — Own only shows when logged in; (d) sample/demo builds must FILL the `bb` + `headset`
+    slots with compat-clean picks (frame-shell-matched BB, steerer-matched headset) and re-pin the
+    BUDGET/MID/HIGHEND goldens — NOTE interacts with random-builds (if it ships, the fix is in the
+    generator + SAMPLE_FALLBACK, not the static demo functions). Staged for Douglas's eyeball.
   - `LLC-AND-GOLIVE-PLAYBOOK` (chip out, Sonnet high): printable link-rich PDF(s) — form an LLC
     (state choice, articles, EIN, FinCEN BOI, bank acct), register the domain, go live as a real
     business (Supabase redirect update, legal pages/FTC disclosure, Search Console, affiliate apps).
     Research/deliverable only; extends TRAILBUILDER-LAUNCH-PLAYBOOK.pdf; not-legal-advice framing.
-  - **NIGHT SHIFT** (woken 2026-07-11 ~04:30 after an idle-stall): its `night/2026-07-11` branch holds
-    26 commits — 5 r3 lanes + frames-tail merged & adversarially audited, UNPUSHED. Instructed to
-    finish the last 3 lanes (drivetrain/headsets/pedals), skip frames (frames-fill owns them), then
-    push the whole wave to main in ONE go. Coordinator rebases pending branches once after that push.
+  - **NIGHT SHIFT** (woken 2026-07-11 ~04:30 after an idle-stall, now RUNNING): its `night/2026-07-11`
+    branch holds 26 commits — 5 r3 lanes + frames-tail merged & adversarially audited, UNPUSHED.
+    Instructed to finish the last 3 lanes (drivetrain/headsets/pedals), skip frames (frames-fill owns
+    them), then push the whole wave to main in ONE go. Coordinator rebases pending branches once after
+    that push. **AUTO-REPORT:** a persistent coordinator-side Monitor watches `night/2026-07-11` +
+    origin/main and pings the coordinator on every new commit/push — no Douglas interaction needed; the
+    push to main IS the report (work lands + CI runs). Cross-session send_message would prompt Douglas,
+    so the watch+push path is the zero-interaction one.
+
+- **GROUPSET-PRESET DECISIONS (from the 2026-07-11 audit — Douglas's calls; nothing changed yet):**
+  0 fabricated tiers (all 19 are real product lines). Split: **8 SRAM tiers are real single-SKU
+  groupsets** (official `GS-…` PNs incl. crank) — **Eagle 90 is promote-verified-ready as-is** ($670 =
+  real MSRP, fills match `GS-90-A1`). **11 are NOT sold as one official groupset SKU** (5 Shimano =
+  per-component only; SRAM X01 DH + Eagle 70 = component/OE; 2 Box + 2 microSHIFT = real kits but
+  crankless/chainless, catalog adds the crank) → recommend RELABEL as "assembled build," not an
+  official-MSRP groupset. Two extra flags: `gs-shimano-slx-m7100` fills a **Race Face** crank,
+  `gs-shimano-cues-u6000` fills a **Deore** crank (disclosed in desc, invisible at group name).
+  **Blocker:** real groupset MSRPs are often HIGHER than the summed component prices, so storing real
+  MSRP trips the `≤-sum` preset lint — resolving lint-vs-real-MSRP (exempt verified presets, or raise
+  component prices first) is prerequisite to any price promotion. Recommended path: promote Eagle 90
+  now, relabel the 11, defer the lint decision. Full evidence table in the archived audit session.
 - **Expansion-r3 coordinator decision queue (from the wave report, 2026-07-11 — decide at/after
   the night-shift morning report):** (1) vocab gaps flagged with audited quotes: headTube
   `ZS62/40`, `EC49/40`, `ZS49/28.6` (blocks real Cane Creek completes); crankBb **`PowerSpline`**
