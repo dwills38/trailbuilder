@@ -152,20 +152,29 @@ Nothing left on this list — every Phase 1 item shipped and is live.
 ### Queued by Douglas 2026-07-10 (parked here so they're not forgotten — do not start unprompted)
 
 - **IN FLIGHT / QUEUED 2026-07-11 (chips out, Douglas-ordered):**
-  - `ui-rail-always-inches` (RUNNING): kill the ☰ Filters toggle (rail always visible every width)
-    + inch-mark wheel labels app-wide (`29in`→`29"`, 27.5/26 same; frame `mullet` label →
-    `29"/27.5"`). Staged for his eyeball before ship.
-  - `ui-category-filters-reset` (QUEUED — **must start AFTER ui-rail-always-inches merges**; same
-    index.html toolbar region, serialize to stay unbreakable): surface the Reset button from the ⋯
-    menu into the visible toolbar + add category sub-filters via a data-driven helper (not 6 copies)
-    — fork `travel`, shock `stroke` (shocks have NO travel field — stroke is the axis), dropper
-    `diameter`+`drop`, handlebar `clamp` (="diameter" 31.8/35), BB `shell` classified
-    threaded{BSA*/T47}/pressfit{PF*}, drivetrain `actuation` electronic/mechanical (shifter+derailleur
-    by actuation, groupset preset by fills, cassette/chain agnostic/always-pass). Staged for eyeball.
-  - `frames-master-list-fill` (chip out): the 33 frames from Douglas's 2026 master-list Excel not yet
+  - `ui-rail-always-inches` (DONE @ `c39c1dd`, 4 gates green, browser-verified): killed the ☰ Filters
+    toggle (rail always visible every width) + inch-mark wheel labels app-wide (`29"`, `27.5"`,
+    mullet `29"/27.5"` via the compat.js LABELS map). **STAGED at localhost:8192 for Douglas's
+    eyeball;** on his word → merge to main, then integrate the filters branch on top.
+  - `ui-category-filters-reset` (RUNNING): Reset surfaced from the ⋯ menu into the visible toolbar +
+    category sub-filters via a data-driven helper — fork `travel`, shock `stroke`, dropper
+    `diameter`+`drop`, handlebar `clamp` (31.8/35), BB `shell` threaded{BSA*/T47}/pressfit{PF*},
+    drivetrain `actuation` electronic/mechanical. **+folded in (send_message):** a 7th filter — shock
+    `spring` Coil/Air (55 air/53 coil) — and the DISCIPLINE chip reorder by travel DH→Enduro→Trail→XC
+    (`['all','dh','enduro','trail','xc']`). Branched off pre-rail main; **coordinator integrates it
+    onto main AFTER rail/inches merges** (overlapping toolbar region). Staged for eyeball.
+  - **Frame MATERIAL filter — QUEUED, needs a small schema step first** (Douglas asked for
+    carbon/aluminum/steel filter): frames carry NO material field today (0/127). Plan: add optional
+    `material` to the frame schema (schema.js + types.js; enum carbon/aluminum/steel/titanium/other;
+    display-only, never feeds verdicts) → backfill 127 frames from sourced maker specs (material is
+    prominently published) → then the UI filter. **Gated AFTER `frames-master-list-fill` lands** (so
+    it covers the +33) and carved from night shift; schema touch = Douglas eyeball. Sonnet.
+  - `frames-master-list-fill` (RUNNING): the 33 frames from Douglas's 2026 master-list Excel not yet
     in the catalog (49/82 already present) — fetched maker specs only, walled brands skipped-documented;
-    coordinator runs an Opus adversarial audit before merge (frames feed error-tier rules). Carve frames
-    out of night shift's lane before this runs.
+    coordinator runs an Opus adversarial audit before merge (frames feed error-tier rules).
+  - `groupset-sku-audit` (chip out, report-only): verify all 19 `gs-*` groupset presets are real
+    purchasable complete-groupset SKUs with an official PN — flag any fabricated bundle (no single
+    official groupset SKU). Removals/relabels/promotions come back to Douglas.
   - `DOMAIN-BRAINSTORM` (RUNNING, Sonnet): 100-250 candidate domains + RDAP/DNS availability + per-TLD
     pricing → doc + PDF to Douglas. Research-only, no repo changes.
 - **Expansion-r3 coordinator decision queue (from the wave report, 2026-07-11 — decide at/after
