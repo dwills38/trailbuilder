@@ -2176,14 +2176,17 @@
   /* ---- demos ---- */
   // Three price tiers, each a fully compatible build (0 errors/warnings) using real
   // catalog prices and, where one exists, real bundle pricing. Picked and verified via
-  // checkBuild()/buildTotals() in a throwaway node script, not hand-guessed.
+  // checkBuild()/buildTotals() in a throwaway node script, not hand-guessed. Each
+  // mirrors a golden-pinned build in test/test-golden.js (BUDGET / MID / HIGHEND), so
+  // "0 conflicts" is enforced by the suite — a data correction can't silently stale
+  // them (as the fork's 2026-07-10 20x110 axle correction did to the budget build).
   function loadBudget(){
-    build={ frame:'fr-raaw-madonna-v32',fork:'fk-srsuntour-durolux-r2c2-29-170',shock:'sh-rockshox-super-deluxe-205x65-trun',frontWheel:'fw-dtswiss-ex-1700-29',rearWheel:'rw-dtswiss-ex-1700-29',
+    build={ frame:'fr-raaw-madonna-v32',fork:'fk-rockshox-domain-rc-29-170',shock:'sh-rockshox-super-deluxe-205x65-trun',frontWheel:'fw-dtswiss-ex-1700-29',rearWheel:'rw-dtswiss-ex-1700-29',
       frontTire:'ti-kenda-hellkat-29-24-aec-dl',rearTire:'ti-kenda-hellkat-29-24-aec-dl',shifter:'sft-sram-gx-eagle',derailleur:'dr-sram-gx-eagle',cassette:'ca-sram-xg1275',chain:'ch-sram-gx-eagle',crankset:'cr-sram-gx-eagle',
       frontBrake:'bk-shimano-xt-m8120',rearBrake:'bk-shimano-xt-m8120',frontRotor:'ro-shimano-rtmt800-203-cl',rearRotor:'ro-shimano-rtmt800-203-cl',
       handlebar:'hb-pnw-range-318',stem:'st-pnw-range-318',grips:'gr-pnw-loam',dropper:'dp-ethirteen-vario-infinite-316-180',saddle:'sa-dmr-oioi',pedals:'pd-oneup-composite' };
     presetBy={ drivetrain:'gs-sram-gx-eagle', wheels:'ws-dtswiss-ex-1700-29', brakes:'bs-shimano-xt-m8120', cockpit:'co-pnw-range' };
-    sync(); toast('Budget build loaded — ~$5.9k, still fully compatible');
+    sync(); toast('Budget build loaded — ~$6.1k, still fully compatible');
   }
   function loadMid(){
     build={ frame:'fr-santacruz-megatower-cc',fork:'fk-rockshox-zeb-ultimate-29-170',shock:'sh-rockshox-super-deluxe-ultimate-230x62p5',frontWheel:'fw-reserve-30-hd-29',rearWheel:'rw-reserve-30-hd-29',
