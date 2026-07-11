@@ -19,6 +19,9 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="BuildMyMTB — MTB build & compatibility checker" />
 <meta name="twitter:description" content="Pick mountain bike parts and see, in real time, whether they fit together — plus running price and weight." />
+<!-- Mobile browser-chrome tint — kept in sync with the active theme by the pre-paint
+     script below and setTheme(). Light value here is the first-paint default. -->
+<meta name="theme-color" id="metaThemeColor" content="#16523a" />
 <style>
   :root{
     --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
@@ -423,14 +426,19 @@
     gap:4px;min-width:200px;z-index:80}
   .menu-pop .btn{width:100%;text-align:left;border-color:transparent;background:none;color:var(--ink)}
   .menu-pop .btn:hover{background:var(--chip)}
-  /* 🚵 sample-builds dropdown (toolbar) — same disclosure pattern as the ⋯ menu */
-  .samples-menu{position:relative;display:inline-block}
-  .samples-menu summary{list-style:none}
-  .samples-menu summary::-webkit-details-marker{display:none}
+  /* 🚵 sample-builds & 🎨 theme dropdowns (toolbar) — same disclosure pattern as the ⋯ menu */
+  .samples-menu,.theme-menu{position:relative;display:inline-block}
+  .samples-menu summary,.theme-menu summary{list-style:none}
+  .samples-menu summary::-webkit-details-marker,.theme-menu summary::-webkit-details-marker{display:none}
   summary.btn{display:inline-flex;align-items:center}
-  .samples-pop{position:absolute;left:0;top:calc(100% + 6px);background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.18);padding:6px;display:flex;flex-direction:column;gap:4px;min-width:220px;z-index:80}
-  .samples-pop .btn{width:100%;text-align:left;border-color:transparent;background:none;color:var(--ink)}
-  .samples-pop .btn:hover{background:var(--chip)}
+  .samples-pop,.theme-pop{position:absolute;left:0;top:calc(100% + 6px);background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.18);padding:6px;display:flex;flex-direction:column;gap:4px;min-width:220px;z-index:80}
+  .samples-pop .btn,.theme-pop .btn{width:100%;text-align:left;border-color:transparent;background:none;color:var(--ink)}
+  .samples-pop .btn:hover,.theme-pop .btn:hover{background:var(--chip)}
+  /* theme dropdown: narrower, and the active mode is brand-highlighted with a ✓ */
+  .theme-pop{min-width:172px}
+  .theme-pop .btn{display:flex;align-items:center;gap:8px}
+  .theme-pop .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  .theme-pop .btn.primary::after{content:"✓";margin-left:auto;font-weight:800}
   .samples-pop .rail-hint{padding:2px 8px 4px;max-width:230px}
   /* phones: the rail is always visible, stacked inline above the catalog (the
      .layout grid collapses to a single block column at ≤880px) — not sticky, so
@@ -480,7 +488,6 @@
   html.rad .pcard{box-shadow:0 0 0 1px var(--line)}
   html.rad .pcard.selected{box-shadow:0 0 0 2px var(--accent),0 0 16px rgba(0,229,255,.5)}
   html.rad .btn.primary{background:linear-gradient(90deg,var(--brand),var(--accent));border-color:transparent;color:#150029;font-weight:800}
-  html.rad #radMode{background:linear-gradient(90deg,var(--brand),var(--accent));color:#150029;border-color:transparent;font-weight:800}
   #radBar{background:linear-gradient(90deg,#ff2fd0,#00e5ff,#39ff14)}
   /* several controls hardcode a white background (fine against dark --ink text in
      normal mode) — RAD mode flips --ink light, so those need a dark bg or the text
@@ -539,6 +546,49 @@
   /* dialogs otherwise fall back to the UA's color-scheme:dark canvas (#121212) —
      pin them to the card surface so modals match the rest of the theme */
   html.dark dialog{background:var(--card);color:var(--ink);border-color:var(--line)}
+
+  /* 🍂 Loam mode — a warm forest-floor dark theme: espresso/bark surfaces, moss &
+     fern-green accents that harmonize with the brand green, golden-amber highlights,
+     cream/parchment text. Same honesty-bar-zero rule as dark & RAD: purely cosmetic,
+     never touches a verdict. Persists in localStorage ('tb-theme') and applies
+     pre-paint like dark. Every text/background pair passes WCAG AA (checked with the
+     contrast tool — margins 4.9–15.1:1). --brand stays a deep fern so white button
+     text holds contrast; the brand-as-text spots are recolored to a lighter moss,
+     exactly as dark recolors .pick, because deep fern as *text* on espresso is 2.9:1. */
+  html.loam{
+    color-scheme:dark;
+    --ink:#f2e8d8; --ink-soft:#c2ad92; --line:#3c2e22; --bg:#1a1310;
+    --card:#241a13; --brand:#2f7048; --brand-d:#1e4a30; --accent:#e2a94a;
+    --ok:#84cf97; --ok-bg:#16301d; --warn:#e6b45c; --warn-bg:#33270f;
+    --err:#e88b7b; --err-bg:#331a14; --chip:#30241a;
+  }
+  /* the same hardcoded-white controls dark & RAD have to fix */
+  html.loam .btn,html.loam header input[type=search],html.loam .chip.sub,
+  html.loam .rm-body select,html.loam .rm-body textarea,html.loam .rm-body input[type=text],
+  html.loam .rm-body input[type=email],html.loam .rm-body input[type=password],
+  html.loam .forum-form textarea,html.loam .forum-form input[type=text],
+  html.loam .grow .gacts button,html.loam .cmp-picks select{
+    background:var(--card);color:var(--ink)}
+  html.loam .vpro{color:var(--ok);border-color:var(--ok)}
+  html.loam .btn.danger{color:var(--err)}   /* keep the destructive tint red */
+  html.loam header input[type=search]{border:1px solid var(--line)}
+  html.loam .honesty-strip{background:#140d08}
+  html.loam .btn:hover{border-color:#5a4636}
+  html.loam .chip.sub:hover{border-color:#5a4636}
+  /* brand-as-text spots recolored to a lighter moss that holds AA on the espresso
+     surfaces (deep-fern --brand is reserved for white-on-brand button backgrounds) */
+  html.loam .pick{background:var(--card);color:#7ecb8e}
+  html.loam .pcard.kit .kind,html.loam .prov .owned,html.loam .linklike,
+  html.loam .pm-retailer-link,html.loam #mobileBar .mb-go{color:#7ecb8e}
+  html.loam .pick:hover{background:#2e2116}
+  /* restore the filled in-build state the theme-wide .pick recolor above would erase */
+  html.loam .pick.in{background:var(--brand);color:#fff}
+  html.loam .pick.in:hover{background:var(--brand-d)}
+  html.loam .pick.inv:hover{background:#2e2116}
+  html.loam .invlist .grow.clickable:hover{background:#2a1f15}
+  html.loam .chip.active{color:var(--bg)}
+  html.loam .legend i{border-color:rgba(255,255,255,.25)}
+  html.loam dialog{background:var(--card);color:var(--ink);border-color:var(--line)}
 </style>
 <script>
 /* Apply the saved (or first-visit OS-preferred) theme BEFORE first paint so a
@@ -546,8 +596,15 @@
    script at the end of the body. */
 (function(){
   var t=null; try{ t=localStorage.getItem('tb-theme'); }catch(e){}
-  if(t==='dark' || (t===null && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches))
-    document.documentElement.classList.add('dark');
+  // First visit (no stored choice) follows the OS preference.
+  if(t===null && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) t='dark';
+  // light = no class; dark/rad/loam map 1:1 to an <html> class.
+  if(t==='dark' || t==='rad' || t==='loam') document.documentElement.classList.add(t);
+  // Keep the mobile browser-chrome tint in sync from the first paint (map mirrored
+  // in setTheme's THEME_META — this IIFE must stay self-contained for no-flash).
+  var mc={light:'#16523a',dark:'#123f2b',rad:'#150029',loam:'#1e4a30'};
+  var m=document.getElementById('metaThemeColor');
+  if(m) m.setAttribute('content', mc[t]||mc.light);
 })();
 </script>
 </head>
@@ -596,8 +653,15 @@
         <button class="btn" id="verifiedOnly" title="Show only parts verified against a manufacturer spec" aria-pressed="false">✓ Verified only</button>
         <button class="btn" id="ownedOnly" hidden title="Show only parts in your inventory" aria-pressed="false">🧰 Owned only</button>
         <button class="btn" id="compatibleOnly" title="Hide parts that would clash with your current build (parts with no build yet always show)" aria-pressed="false">🟢 Compatible only</button>
-        <button class="btn" id="radMode" title="It's a joke, dude. Purely cosmetic." aria-pressed="false">🤘 RAD mode</button>
-        <button class="btn" id="darkMode" title="Toggle the dark theme" aria-pressed="false">🌙 Dark mode</button>
+        <details class="theme-menu" id="themeMenu">
+          <summary class="btn" title="Choose a color theme" aria-label="Choose a color theme" aria-haspopup="true">🎨 Theme ▾</summary>
+          <div class="theme-pop" role="menu" aria-label="Color theme">
+            <button class="btn" id="theme-light" data-theme="light" role="menuitemradio" aria-checked="false">☀️ Light</button>
+            <button class="btn" id="theme-dark" data-theme="dark" role="menuitemradio" aria-checked="false">🌙 Dark</button>
+            <button class="btn" id="theme-rad" data-theme="rad" role="menuitemradio" aria-checked="false" title="Purely cosmetic — changes nothing about fit">⚡ RAD</button>
+            <button class="btn" id="theme-loam" data-theme="loam" role="menuitemradio" aria-checked="false">🍂 Loam</button>
+          </div>
+        </details>
         <details class="samples-menu" id="samplesMenu">
           <summary class="btn">🚵 Sample builds ▾</summary>
           <div class="samples-pop">
@@ -2766,37 +2830,49 @@
   // viewMode was read from localStorage at init, before the first catalog render —
   // sync the two buttons to it (the markup ships with List pressed, the default).
   setView(viewMode);
-  // RAD mode is a full cosmetic reskin and dark mode is a full palette swap —
-  // running both at once would just look broken, so turning one on turns the
-  // other off. Only dark mode persists (RAD stays a per-visit joke).
-  function setRad(on){
-    document.documentElement.classList.toggle('rad', on);
-    $('radMode').classList.toggle('primary', on);
-    $('radMode').setAttribute('aria-pressed', String(on));
-    $('radMode').textContent = on ? '🤘 RAD mode: ON' : '🤘 RAD mode';
-  }
-  function setDark(on){
-    document.documentElement.classList.toggle('dark', on);
-    $('darkMode').classList.toggle('primary', on);
-    $('darkMode').setAttribute('aria-pressed', String(on));
-    $('darkMode').textContent = on ? '🌙 Dark mode: ON' : '🌙 Dark mode';
-  }
-  $('radMode').onclick=function(){
-    var on = !document.documentElement.classList.contains('rad');
-    setRad(on); if(on) setDark(false);
-    renderPanel();
-    toast(on ? 'RAD mode engaged. Purely cosmetic — this changes nothing about fit.' : 'Back to normal. Booooring.');
+  // 🎨 Theme selector (toolbar dropdown). Four mutually-exclusive cosmetic modes,
+  // none of which ever touches a verdict: light (no class) + dark / rad / loam
+  // (one <html> class each). The choice persists in localStorage ('tb-theme') and
+  // is applied pre-paint by the head script so there is no flash. Each is a full
+  // palette swap, so exactly one is active at a time.
+  var THEMES = ['light','dark','rad','loam'];
+  var THEME_TOAST = {
+    light:'Light mode ☀️',
+    dark:'Dark mode 🌙',
+    rad:'RAD mode engaged ⚡ Purely cosmetic — this changes nothing about fit.',
+    loam:'Loam mode 🍂'
   };
-  $('darkMode').onclick=function(){
-    var on = !document.documentElement.classList.contains('dark');
-    setDark(on); if(on) setRad(false);
-    try{ localStorage.setItem('tb-theme', on ? 'dark' : 'light'); }catch(e){}
-    renderPanel();
-    toast(on ? 'Dark mode on 🌙' : 'Back to light mode.');
-  };
+  // Mirror of the pre-paint IIFE's map (that one must stay self-contained for no-flash).
+  var THEME_META = {light:'#16523a',dark:'#123f2b',rad:'#150029',loam:'#1e4a30'};
+  function currentTheme(){
+    var c=document.documentElement.classList;
+    return c.contains('rad')?'rad':c.contains('loam')?'loam':c.contains('dark')?'dark':'light';
+  }
+  function markThemeButtons(name){
+    for(var i=0;i<THEMES.length;i++){
+      var b=$('theme-'+THEMES[i]); if(!b) continue;
+      var on = THEMES[i]===name;
+      b.classList.toggle('primary', on);
+      b.setAttribute('aria-checked', String(on));
+    }
+    var meta=$('metaThemeColor');
+    if(meta) meta.setAttribute('content', THEME_META[name]||THEME_META.light);
+  }
+  function setTheme(name){
+    var root=document.documentElement.classList;
+    root.remove('dark','rad','loam');
+    if(name!=='light') root.add(name);
+    try{ localStorage.setItem('tb-theme', name); }catch(e){}
+    markThemeButtons(name);
+    renderPanel();   // the RAD radness meter is theme-dependent
+    toast(THEME_TOAST[name]);
+  }
+  for(var _t=0;_t<THEMES.length;_t++){ (function(name){
+    var b=$('theme-'+name); if(b) b.onclick=function(){ setTheme(name); };
+  })(THEMES[_t]); }
   // The head script may have applied the saved/OS theme pre-paint — sync the
-  // button state to match.
-  if(document.documentElement.classList.contains('dark')) setDark(true);
+  // active-button marker (and the meta tint) to whatever is live.
+  markThemeButtons(currentTheme());
   // Every theme button rolls a FRESH random build on each click (loadSample).
   // demoBad is the one deliberate fixed, broken build (Show clashes).
   $('demoBudget').onclick=function(){ loadSample('budget'); };
@@ -2839,6 +2915,15 @@
   (function(){
     var d=$('samplesMenu');
     d.addEventListener('click', function(e){ if(e.target.closest('.samples-pop .btn')) d.open=false; });
+    document.addEventListener('click', function(e){ if(d.open && !d.contains(e.target)) d.open=false; });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape' && d.open){ d.open=false; var s=d.querySelector('summary'); if(s) s.focus(); } });
+  })();
+  // 🎨 Theme dropdown (toolbar): same close conventions as the sample-builds menu —
+  // picking a mode closes it, clicking outside closes it, Escape closes and
+  // refocuses the summary.
+  (function(){
+    var d=$('themeMenu');
+    d.addEventListener('click', function(e){ if(e.target.closest('.theme-pop .btn')) d.open=false; });
     document.addEventListener('click', function(e){ if(d.open && !d.contains(e.target)) d.open=false; });
     document.addEventListener('keydown', function(e){ if(e.key==='Escape' && d.open){ d.open=false; var s=d.querySelector('summary'); if(s) s.focus(); } });
   })();
