@@ -151,10 +151,23 @@ Nothing left on this list — every Phase 1 item shipped and is live.
 
 ### Queued by Douglas 2026-07-10 (parked here so they're not forgotten — do not start unprompted)
 
-- **IN FLIGHT 2026-07-11 (chip out, Douglas-ordered):** always-on filter rail (kill the ☰ Filters
-  toggle; rail visible at every width) + inch-mark wheel labels app-wide (`29in`→`29"`, same for
-  27.5/26; frame `mullet` label → `29"/27.5"`) — branch `ui-rail-always-inches`, staged for his
-  eyeball before ship.
+- **IN FLIGHT / QUEUED 2026-07-11 (chips out, Douglas-ordered):**
+  - `ui-rail-always-inches` (RUNNING): kill the ☰ Filters toggle (rail always visible every width)
+    + inch-mark wheel labels app-wide (`29in`→`29"`, 27.5/26 same; frame `mullet` label →
+    `29"/27.5"`). Staged for his eyeball before ship.
+  - `ui-category-filters-reset` (QUEUED — **must start AFTER ui-rail-always-inches merges**; same
+    index.html toolbar region, serialize to stay unbreakable): surface the Reset button from the ⋯
+    menu into the visible toolbar + add category sub-filters via a data-driven helper (not 6 copies)
+    — fork `travel`, shock `stroke` (shocks have NO travel field — stroke is the axis), dropper
+    `diameter`+`drop`, handlebar `clamp` (="diameter" 31.8/35), BB `shell` classified
+    threaded{BSA*/T47}/pressfit{PF*}, drivetrain `actuation` electronic/mechanical (shifter+derailleur
+    by actuation, groupset preset by fills, cassette/chain agnostic/always-pass). Staged for eyeball.
+  - `frames-master-list-fill` (chip out): the 33 frames from Douglas's 2026 master-list Excel not yet
+    in the catalog (49/82 already present) — fetched maker specs only, walled brands skipped-documented;
+    coordinator runs an Opus adversarial audit before merge (frames feed error-tier rules). Carve frames
+    out of night shift's lane before this runs.
+  - `DOMAIN-BRAINSTORM` (RUNNING, Sonnet): 100-250 candidate domains + RDAP/DNS availability + per-TLD
+    pricing → doc + PDF to Douglas. Research-only, no repo changes.
 - **Expansion-r3 coordinator decision queue (from the wave report, 2026-07-11 — decide at/after
   the night-shift morning report):** (1) vocab gaps flagged with audited quotes: headTube
   `ZS62/40`, `EC49/40`, `ZS49/28.6` (blocks real Cane Creek completes); crankBb **`PowerSpline`**
