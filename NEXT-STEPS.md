@@ -177,9 +177,15 @@ results** (catalog count/verified climb), the **staged UI wave** (localhost:8192
 and the **groupset decisions** (Eagle-90 promote / 11 relabel / lint).
 
 **The 25 of 33 frames NOT added (Douglas wants to know why) — reconstruct precisely from the frames-fill
-session report in the morning (list_events, needs his OK); interim reconstruction:** worker added 8
-(Atherton S.200, Devinci Wilson 29, Frameworks DH [verified], Intense M1, Contra MC, Santa Cruz Highball,
-YT Jeffsy, Specialized Epic 8 — the last under audit). The other 25 split into: **known maker-walled**
+session report in the morning (list_events, needs his OK); interim reconstruction:** worker added 8; after Opus adversarial audit + a coordinator re-fetch,
+**5 MERGED overnight (main 34f31c2)** — Frameworks DH (verified holds), Intense M1, YT Jeffsy, Santa
+Cruz Highball, Contra MC (udh false→true fixed per contrabikes.com re-fetch; the worker had misread
+"UDH: No", which would have false-red-ed a Transmission build). **3 HELD for Douglas's provenance
+call** (branch `frames-master-list-fill` still carries them): Atherton S.200, Devinci Wilson 29,
+Specialized Epic 8 — all UNVERIFIABLE-HOLD (maker site 403-walled or gone; every field matches
+vitalmtb + independent corroboration, NOTHING wrong, but no authoritative maker page — the Vital-reprint
+precedent [fr-trek-roscoe/fr-specialized-fuse] is the question: accept vital-sourced UNVERIFIED sample
+frames for walled makers? y→I merge the 3; n→drop them). The other 25 split into: **known maker-walled**
 (per the fetch-map — Specialized Epic World Cup [site-wide 403], Norco Aurum HSP/Torrent HT/Shore [JS/403],
 Pivot Phoenix DH/Mach 4 SL [403], Cannondale Habit/Scalpel/Scalpel HT [walled], Orbea Oiz [WAF-403]) — ~11
 rows; and **boutique/QBP or simply-not-reached in an 8-of-33 first pass** (Gamux Sego, Pole Machine DH,
