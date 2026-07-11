@@ -628,7 +628,7 @@
         <div class="acctbox" id="acctBox" hidden>
           <button class="btn" id="acctLogin" hidden>Log in</button>
           <span class="acct-email" id="acctEmail" hidden></span>
-          <button class="btn" id="acctProfile" hidden title="Your username & profile">👤 Profile</button>
+          <button class="btn" id="acctProfile" hidden></button>
           <button class="btn" id="acctGarage" hidden title="Your saved builds">🅖 Garage</button>
           <button class="btn" id="acctInventory" hidden title="Parts you own">🧰 Inventory</button>
           <button class="btn" id="acctLogout" hidden>Log out</button>
@@ -2052,8 +2052,17 @@
     var u = (typeof currentUser === 'function') ? currentUser() : null;
     var inU = !!u;
     $('acctLogin').hidden = inU;
-    $('acctEmail').hidden = !inU;  $('acctEmail').textContent = inU ? (u.email || 'Signed in') : '';
-    $('acctProfile').hidden = !(inU && _profilesOn);   // shown once the profiles migration is live
+    var profOn = inU && _profilesOn;   // post-migration: the username button carries identity
+    var uname = (_myProfile && _myProfile.username) || '';
+    // Pre-migration the email span shows identity; post-migration the username button takes over.
+    $('acctEmail').hidden = !(inU && !profOn);  $('acctEmail').textContent = (inU && !profOn) ? (u.email || 'Signed in') : '';
+    $('acctProfile').hidden = !profOn;
+    if(profOn){
+      $('acctProfile').textContent = uname ? ('👤 ' + uname) : '👤 Set username';
+      $('acctProfile').title = uname
+        ? ('Signed in as ' + uname + (u.email ? ' · ' + u.email : '') + ' — edit your profile')
+        : ((u.email ? u.email + ' — ' : '') + 'Set your public username');
+    }
     $('acctGarage').hidden = !inU;
     $('acctInventory').hidden = !inU;
     $('acctLogout').hidden = !inU;
@@ -2171,7 +2180,8 @@
   function openProfile(prefill){
     if(!_acctReady || !currentUser() || !_profilesOn) return;
     var m = $('profileMsg'); m.hidden = true; m.textContent = '';
-    $('profileUsername').value = (prefill != null && prefill !== '') ? prefill : ((_myProfile && _myProfile.username) || '');
+    var pre = (typeof prefill === 'string') ? prefill : '';   // ignore a PointerEvent from an onclick handler
+    $('profileUsername').value = pre !== '' ? pre : ((_myProfile && _myProfile.username) || '');
     $('profileProNote').hidden = !(_myProfile && _myProfile.verified_pro);
     ensureHeldReserved();   // warm the cache so the pre-check is ready
     $('profileModal').showModal();
@@ -2968,7 +2978,7 @@
   $('acctLogout').onclick = function(){ signOut().then(function(){ toast('Logged out'); }).catch(function(e){ toast(e.message||'Logout failed'); }); };
   $('acctGarage').onclick = openGarage;
   $('acctInventory').onclick = openInventory;
-  $('acctProfile').onclick = openProfile;
+  $('acctProfile').onclick = function(){ openProfile(); };
   $('saveGarage').onclick = saveCurrentToGarage;
   $('authClose').onclick = function(){ $('authModal').close(); };
   /* profile / username modal (forum-profiles.sql) */
