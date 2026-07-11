@@ -1049,7 +1049,7 @@
   var DISC_LABELS = { all:'All disciplines', xc:'🐇 XC', trail:'🌲 Trail', enduro:'⛰️ Enduro', dh:'⬇️ DH' };
   function renderDiscChips(){
     var el = $('discChips'); el.innerHTML='';
-    ['all','xc','trail','enduro','dh'].forEach(function(k){
+    ['all','dh','enduro','trail','xc'].forEach(function(k){   // ordered by travel, DH first
       var d=document.createElement('button');
       d.type='button';
       d.className='chip'+(disciplineFilter===k?' active':'');
@@ -1115,6 +1115,7 @@
                  actuation of its own, a stem has no bar clamp), so they pass. */
   var WHEEL_SIZE_LABELS = { '29':'29"', '275':'27.5"' };
   var PEDAL_STYLE_LABELS = { flat:'Flat', clip:'Clipless', hybrid:'Flat/Clipless hybrid' };  // "Clipless" is the industry word; vocab key stays 'clip'
+  var SPRING_LABEL = { coil:'Coil', air:'Air' };
   // Bottom-bracket shells grouped into the two families riders actually shop by. An
   // unmapped shell falls through to its own bucket (never crash, never silently drop).
   var BB_FAMILY = { BSA68:'threaded', BSA73:'threaded', BSA83:'threaded', T47:'threaded',
@@ -1174,6 +1175,11 @@
       values:function(){ return distinctVals(byCat('shock'), function(p){ return p.stroke; }).sort(numAsc); },
       label:function(v){ return v+' mm'; },
       match:function(p,v){ return p.cat!=='shock' || p.stroke===v; } },
+    { id:'shockSpring', groups:['shock'], allLabel:'All springs',
+      aria:'Filter rear shocks by spring',
+      values:function(){ return inOrder(distinctVals(byCat('shock'), function(p){ return p.spring; }), ['coil','air']); },
+      label:function(v){ return SPRING_LABEL[v] || v; },
+      match:function(p,v){ return p.cat!=='shock' || p.spring===v; } },
     { id:'dropperDiameter', groups:['dropper'], allLabel:'All diameters',
       aria:'Filter dropper posts by diameter',
       values:function(){ return distinctVals(byCat('dropper'), function(p){ return p.diameter; }).sort(numAsc); },
