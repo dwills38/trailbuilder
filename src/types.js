@@ -166,6 +166,23 @@
 
 /** @typedef {Object.<string, string>} PresetBy  groupKey -> preset id */
 
+/** A sample-build theme (the toolbar buttons — see generateSampleBuild in
+ * compat.js). `band` biases every slot toward a price percentile (null =
+ * uniform random); `frame` narrows the frame pool; `mullet` forces a 29-front /
+ * 27.5-rear wheelset.
+ * @typedef {Object} SampleTheme
+ * @property {string} key      matches the toolbar button ('budget','dh',...)
+ * @property {string} label
+ * @property {{p: number, w: number}|null} band  price-percentile centre + jitter window, or null
+ * @property {boolean} [mullet]
+ * @property {function(FramePart): boolean} frame  frame-pool predicate
+ */
+
+/** The result of generateSampleBuild: a fresh random build (slotKey -> part id,
+ * ready for the UI's bulk-load path) that is complete and error-free, or a
+ * failure the UI answers with its fixed fallback build for the theme.
+ * @typedef {{ok: true, theme: SampleTheme, build: Object.<string, string>, presetBy: Object.<string, string>, frameId: string, warnings: number} | {ok: false, theme: (SampleTheme|null)}} SampleBuildResult */
+
 /**
  * @typedef {Object} Slot
  * @property {string} key

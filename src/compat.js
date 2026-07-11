@@ -28,6 +28,9 @@
 /** @typedef {import('./types.js').CompatState} CompatState */
 /** @typedef {import('./types.js').WheelSize} WheelSize */
 /** @typedef {import('./types.js').EffectiveWheel} EffectiveWheel */
+/** @typedef {import('./types.js').FramePart} FramePart */
+/** @typedef {import('./types.js').SampleTheme} SampleTheme */
+/** @typedef {import('./types.js').SampleBuildResult} SampleBuildResult */
 
 /** @type {Object.<string, string>} */
 var LABELS = {
@@ -4853,6 +4856,178 @@ function buildTotals(build, presetBy){
 }
 
 /* =============================================================================
+   RANDOM SAMPLE BUILDS
+   The toolbar's sample-build buttons generate a FRESH random build within a
+   theme on every click, rather than loading a fixed one. The invariant that
+   keeps them honest (they exist to showcase the checker): a generated build is
+   ALWAYS complete per slotRequired() and has ZERO checkBuild errors - warnings
+   are tolerated, but a candidate that adds none is preferred at every slot.
+   The generator CONSUMES checkBuild/slotRequired; it never encodes a fit rule
+   of its own, so it can never disagree with the engine. The RNG is injectable
+   (tests seed it for determinism); the UI passes Math.random.
+   ========================================================================== */
+
+/** A small seedable PRNG (mulberry32): deterministic given a seed, so the
+ * property test can assert same-seed-same-build and the UI can reproduce a
+ * build from a seed if ever needed. @param {number} seed @returns {function(): number} */
+function mulberry32(seed){
+  var a = seed >>> 0;
+  return function(){
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    var t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/** Fill order: every slot's constraints depend only on slots earlier in the
+ * list - frame first; wheels before the cassette that must match the rear
+ * freehub and before the tires/rotors that read wheel size & mount; frame+fork
+ * before the brakes/rotors that check their mounts and max sizes. Greedy in
+ * this order lets each pick filter against everything already chosen. Frame is
+ * handled first, separately (its pool is the themed frame set). @type {string[]} */
+var _SAMPLE_PLAN = ['fork','frontWheel','rearWheel','shock','frontTire','rearTire',
+  'shifter','derailleur','cassette','chain','crankset',
+  'frontBrake','rearBrake','frontRotor','rearRotor',
+  'bb','headset','dropper','handlebar','stem','grips','saddle','pedals'];
+
+/** The sample-build themes, keyed to the toolbar buttons. @type {SampleTheme[]} */
+var SAMPLE_THEMES = [
+  { key:'budget', label:'Budget',    band:{p:0.12, w:0.18}, frame:function(f){ return true; } },
+  { key:'mid',    label:'Mid-range', band:{p:0.50, w:0.20}, frame:function(f){ return true; } },
+  { key:'high',   label:'High-end',  band:{p:0.90, w:0.15}, frame:function(f){ return true; } },
+  { key:'mullet', label:'Mullet',    band:null, mullet:true, frame:function(f){ return (f.wheelConfigs||[]).indexOf('mullet')>=0; } },
+  { key:'dh',     label:'DH',        band:null, frame:function(f){ return (f.disciplines||[]).indexOf('dh')>=0; } },
+  { key:'trail',  label:'Trail',     band:null, frame:function(f){ return (f.disciplines||[]).indexOf('trail')>=0; } },
+  { key:'xc',     label:'XC',        band:null, frame:function(f){ return (f.disciplines||[]).indexOf('xc')>=0; } }
+];
+
+/** PARTS grouped by category (memoized - the catalog is immutable at runtime). @type {Object.<string, Part[]>|null} */
+var _PARTS_BY_CAT = null;
+/** @param {string} cat @returns {Part[]} */
+function _partsByCat(cat){
+  if(!_PARTS_BY_CAT){
+    _PARTS_BY_CAT = {};
+    for(var i=0;i<PARTS.length;i++){ var c = PARTS[i].cat; (_PARTS_BY_CAT[c] = _PARTS_BY_CAT[c] || []).push(PARTS[i]); }
+  }
+  return _PARTS_BY_CAT[cat] || [];
+}
+
+/** Pick from a list, biasing toward a price percentile band (null = uniform).
+ * Sorts ascending by price and samples an index in [p-w, p+w] (clamped to
+ * [0,1]), so Budget lands in the cheap tail and High-end in the dear tail while
+ * staying random. @param {Part[]} list @param {{p:number,w:number}|null} band @param {function():number} rng @returns {Part|null} */
+function _bandPick(list, band, rng){
+  if(!list.length) return null;
+  if(!band) return list[Math.floor(rng() * list.length)];
+  var sorted = list.slice().sort(function(a,b){ return (a.price||0) - (b.price||0); });
+  var n = sorted.length;
+  var lo = Math.max(0, band.p - band.w), hi = Math.min(1, band.p + band.w);
+  var idx = Math.round((lo + rng() * (hi - lo)) * (n - 1));
+  return sorted[idx];
+}
+
+/** Mullet wheel-size gate: front-side slots must be 29, rear-side 27.5. Other
+ * themes take whatever the frame's wheelConfigs allow (the engine enforces it).
+ * @param {SampleTheme} theme @param {string} slotKey @param {Part} part @returns {boolean} */
+function _mulletWheelOK(theme, slotKey, part){
+  if(!theme.mullet) return true;
+  var w = /** @type {any} */(part).wheel;
+  if(slotKey==='fork' || slotKey==='frontWheel' || slotKey==='frontTire') return w === '29';
+  if(slotKey==='rearWheel' || slotKey==='rearTire') return w === '275';
+  return true;
+}
+
+/** Choose a part for one slot against the partial build: keep only candidates
+ * that introduce NO new checkBuild error, prefer those that also add no new
+ * warning, then band-sample. The baseline verdict sets are computed once per
+ * slot (not per candidate). Mirrors placementDiff's verdictKey diffing exactly
+ * - it just does it in bulk. Returns null when nothing fits (caller retries).
+ * @param {Build} build @param {string} slotKey @param {SampleTheme} theme @param {function():number} rng @returns {Part|null} */
+function _sampleSlotPick(build, slotKey, theme, rng){
+  /** @type {Slot|null} */ var slot = null;
+  for(var i=0;i<SLOTS.length;i++){ if(SLOTS[i].key===slotKey){ slot = SLOTS[i]; break; } }
+  if(!slot) return null;
+  /** @type {Build} */ var base = Object.assign({}, build); delete base[slotKey];
+  var before = checkBuild(base);
+  var beforeE = before.errors.map(verdictKey), beforeW = before.warnings.map(verdictKey);
+  var cands = _partsByCat(slot.cat);
+  /** @type {Part[]} */ var noWarn = [];
+  /** @type {Part[]} */ var warnOnly = [];
+  for(var j=0;j<cands.length;j++){
+    var p = cands[j];
+    if(!_mulletWheelOK(theme, slotKey, p)) continue;
+    /** @type {Build} */ var test = Object.assign({}, base); test[slotKey] = p;
+    var after = checkBuild(test);
+    var newErr = false;
+    for(var e=0;e<after.errors.length;e++){ if(beforeE.indexOf(verdictKey(after.errors[e]))<0){ newErr = true; break; } }
+    if(newErr) continue;
+    var newWarn = false;
+    for(var w2=0;w2<after.warnings.length;w2++){ if(beforeW.indexOf(verdictKey(after.warnings[w2]))<0){ newWarn = true; break; } }
+    (newWarn ? warnOnly : noWarn).push(p);
+  }
+  var pool = noWarn.length ? noWarn : warnOnly;
+  return _bandPick(pool, theme.band, rng);
+}
+
+/** Generate a fresh random build for a sample-build theme. The result is
+ * complete per slotRequired() and error-free, or {ok:false} after the attempt
+ * budget is spent (the UI then loads its fixed fallback build for the theme and
+ * says so). Optional slots (bb/headset/grips) are included on a coin flip;
+ * slots the frame makes non-required (hardtail shock, DH dropper, integrated-
+ * freehub cassette) are skipped. Presets are ignored - every slot is an
+ * individual part, so presetBy stays empty. RNG is injectable for tests;
+ * defaults to Math.random.
+ * @param {string} themeKey @param {function():number} [rng] @param {{attempts?: number}} [opts]
+ * @returns {SampleBuildResult} */
+function generateSampleBuild(themeKey, rng, opts){
+  var rand = rng || Math.random;
+  var attempts = (opts && opts.attempts) || 200;
+  /** @type {SampleTheme|null} */ var theme = null;
+  for(var t=0;t<SAMPLE_THEMES.length;t++){ if(SAMPLE_THEMES[t].key===themeKey){ theme = SAMPLE_THEMES[t]; break; } }
+  if(!theme) return { ok:false, theme:null };
+  var themeRef = theme;
+  var frames = /** @type {FramePart[]} */ (_partsByCat('frame')).filter(function(f){ return themeRef.frame(f); });
+  for(var att=0; att<attempts; att++){
+    /** @type {Build} */ var build = {};
+    var frame = /** @type {FramePart|null} */ (_bandPick(frames, theme.band, rand));
+    if(!frame) break;                       // theme matches no frame at all
+    build.frame = frame;
+    var dead = false;
+    for(var s=0;s<_SAMPLE_PLAN.length;s++){
+      var key = _SAMPLE_PLAN[s];
+      /** @type {Slot|null} */ var slot = null;
+      for(var q=0;q<SLOTS.length;q++){ if(SLOTS[q].key===key){ slot = SLOTS[q]; break; } }
+      if(!slot) continue;
+      var rw = effectiveWheel(build, 'rear');
+      var required = slotRequired(slot, frame, rw);
+      if(!required){
+        // Optional slots (bb/headset/grips): include on a coin flip. Slots made
+        // NON-required by the frame are skipped - filling a hardtail's shock,
+        // a DH bike's dropper or an integrated-freehub wheel's cassette would
+        // add a conflict or misrepresent the theme.
+        if(slot.optional && rand() < 0.5){ /* include it */ } else { continue; }
+      }
+      var pick = _sampleSlotPick(build, key, theme, rand);
+      if(!pick){ if(required){ dead = true; break; } continue; }
+      build[key] = pick;
+    }
+    if(dead) continue;
+    // Final honesty gates: zero errors AND complete per slotRequired.
+    var res = checkBuild(build);
+    if(res.errors.length) continue;
+    var rwf = effectiveWheel(build, 'rear');
+    var incomplete = false;
+    for(var m=0;m<SLOTS.length;m++){ if(slotRequired(SLOTS[m], frame, rwf) && !wheelPositionFilled(build, SLOTS[m].key)){ incomplete = true; break; } }
+    if(incomplete) continue;
+    /** @type {Object.<string, string>} */ var ids = {};
+    Object.keys(build).forEach(function(k){ var bp = build[k]; if(bp) ids[k] = bp.id; });
+    return { ok:true, theme:theme, build:ids, presetBy:{}, frameId:frame.id, warnings:res.warnings.length };
+  }
+  return { ok:false, theme:theme };
+}
+
+/* =============================================================================
    SHARED DISPLAY / PROVENANCE HELPERS (used by both the UI and the tests, so the
    "verified" badge logic and HTML-escaping have one tested source of truth)
    ========================================================================== */
@@ -4935,5 +5110,6 @@ if (typeof module !== 'undefined' && module.exports) {
     ALIASES:ALIASES, canonicalId:canonicalId,
     byId:byId, nameOf:nameOf, specSummary:specSummary, checkBuild:checkBuild, verdictKey:verdictKey,
     placementDiff:placementDiff, conflictReason:conflictReason, compatOf:compatOf, bundleActive:bundleActive, buildTotals:buildTotals,
-    esc:esc, partVerified:partVerified, partWeight:partWeight, sanitizeShare:sanitizeShare };
+    esc:esc, partVerified:partVerified, partWeight:partWeight, sanitizeShare:sanitizeShare,
+    mulberry32:mulberry32, SAMPLE_THEMES:SAMPLE_THEMES, generateSampleBuild:generateSampleBuild };
 }
