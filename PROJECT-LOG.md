@@ -100,3 +100,15 @@ per wave/decision; large reconstructions are handed to a worker session.
   already had a real-part error test — only rule 2-front lacks one). **OPEN (Douglas's call):** add a
   real-part error-case test for rule 2-front? A dual-crown DH fork on a trail wheel is nonsensical —
   coordinator recommends LEAVING it (a contrived test is worse than none).
+- **UPDATE — rider profile PAGES shipped (`a37c342`) + rich-profile migration STAGED.** Worker built
+  full-page rider profiles (header 👤 → own profile page: avatar/username/✓Pro/member-since/bio/
+  riding-style/location + the user's forum threads & replies; forum author names → that rider's
+  public read-only page; owner inline editors; preset/initials avatar, no external image URLs).
+  Touches index.html + src/account.js + src/forum.js (all app tier). ⚠ The worker pushed to origin as
+  branch `feat/user-profile-pages`, NOT main (its "pushed to origin" claim was the feature branch) —
+  coordinator cherry-picked `365c67a` onto current main (base `58d5412`, clean). Feature-detects
+  (`hasRichProfiles`) so the UI is safe pre-migration; auto-shipped on green gates. Migration
+  `supabase/forum-profiles-rich.sql` (adds bio/riding_style/location/avatar columns; idempotent;
+  DB-level CHECK constrains avatar to a slug — never a URL; touches NO policy/trigger) — **Douglas
+  runs it** (schema tier). Coordinator review + the worker's independent adversarial pass both
+  confirm escalation-impossible + reserved-name enforcement still hold. Four gates green.
