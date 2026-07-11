@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-11T04:43:32.368Z",
+ "updated": "2026-07-11T04:55:58.591Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -64,20 +64,7 @@
   "fw-spank-spike369-29",
   "fw-spank-spike369-275",
   "rw-dtswiss-ex-1700-29-hg",
-  "rw-hope-fortus-30-29-hg",
   "rw-dtswiss-fr-1500-275-157",
-  "rw-hope-fortus-30-29-150-xd",
-  "rw-hope-fortus-30-29-150-ms",
-  "rw-hope-fortus-30-275-150-xd",
-  "rw-hope-fortus-30-275-150-ms",
-  "rw-hope-fortus-30-29-157-xd",
-  "rw-hope-fortus-30-29-157-ms",
-  "rw-hope-fortus-30-275-157-xd",
-  "rw-hope-fortus-30-275-157-ms",
-  "rw-hope-fortus-30-29-150-hg",
-  "rw-hope-fortus-30-275-150-hg",
-  "rw-hope-fortus-30-29-157-hg",
-  "rw-hope-fortus-30-275-157-hg",
   "rw-ethirteen-lg1r-29-150-xd",
   "rw-ethirteen-lg1r-29-150-hg",
   "rw-ethirteen-lg1r-275-150-xd",
@@ -107,13 +94,6 @@
   "rw-bontrager-line-elite-30-275-xd",
   "rw-bontrager-line-elite-30-275-ms",
   "rw-bontrager-line-elite-30-275-hg",
-  "rw-reserve-31dh-29-xd",
-  "rw-reserve-31dh-29-hg",
-  "rw-reserve-31dh-275-xd",
-  "rw-reserve-31dh-275-hg",
-  "rw-reserve-30sl-29-xd",
-  "rw-reserve-30sl-275-xd",
-  "rw-reserve-30-hd-275-xd",
   "rw-reserve-30-hd-275-ms",
   "rw-weareone-union-29-ms",
   "rw-weareone-union-29-hg",
@@ -126,7 +106,6 @@
   "rw-weareone-strife-275-148-xd",
   "rw-weareone-strife-275-157-xd",
   "sh-xfusion-h3c-185x50-trun",
-  "fk-rockshox-pike-base-29-140",
   "fk-rockshox-pike-base-29-120",
   "fk-rockshox-pike-base-275-130",
   "fk-dvo-onyx-sc-d1-29-160",
@@ -157,7 +136,6 @@
   "fk-ext-era-v2-29-160",
   "fk-ext-vaia-29-200",
   "fk-ext-vaia-29-170",
-  "fk-rockshox-domain-gold-r-29-160",
   "fk-rockshox-domain-gold-r-275-160",
   "fk-rockshox-domain-gold-r-29-180",
   "fk-fox-34-factory-29-120",
@@ -167,7 +145,6 @@
   "fk-fox-36-sl-factory-29-120",
   "fk-fox-36-sl-factory-29-130",
   "fk-fox-36-sl-factory-29-140",
-  "fk-fox-32-sc-factory-29-100",
   "fk-fox-32-sc-factory-275-100",
   "hb-thomson-elite-35",
   "hb-thomson-elite-trail-318",
@@ -3762,11 +3739,11 @@
   },
   "rw-hope-fortus-30-29-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T20:44:32.453Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.589Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_PRO55.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-ohlins-dh38-m2-29-200": {
    "cat": "fork",
@@ -6178,99 +6155,99 @@
   },
   "rw-hope-fortus-30-29-150-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_PRO55.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-hope-fortus-30-29-150-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_PRO55.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-hope-fortus-30-275-150-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_PRO55.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-hope-fortus-30-275-150-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_PRO55.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-hope-fortus-30-29-157-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_PRO55.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-hope-fortus-30-29-157-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_PRO55.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-hope-fortus-30-275-157-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_PRO55.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-hope-fortus-30-275-157-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_PRO55.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-hope-fortus-30-29-150-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_PRO55.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-hope-fortus-30-275-150-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_PRO55.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-hope-fortus-30-29-157-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_PRO55.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-hope-fortus-30-275-157-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_30_PRO55.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-ethirteen-lg1r-29-150-xd": {
    "cat": "rearwheel",
@@ -6682,59 +6659,59 @@
   },
   "rw-reserve-31dh-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://reservewheels.com/products/reserve-31dh-mountain-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-reserve-31dh-29-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://reservewheels.com/products/reserve-31dh-mountain-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-reserve-31dh-275-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://reservewheels.com/products/reserve-31dh-mountain-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-reserve-31dh-275-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://reservewheels.com/products/reserve-31dh-mountain-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-reserve-30sl-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://reservewheels.com/products/reserve-30sl-mountain-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-reserve-30sl-275-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://reservewheels.com/products/reserve-30sl-mountain-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-reserve-30-hd-275-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://reservewheels.com/products/30-hd-carbon",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-reserve-30-hd-275-ms": {
    "cat": "rearwheel",
@@ -8426,11 +8403,11 @@
   },
   "fk-fox-32-sc-factory-29-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-32-factory-sc-grip-sl",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-32-sc-factory-275-100": {
    "cat": "fork",
@@ -13618,11 +13595,11 @@
   },
   "fk-rockshox-pike-base-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-10T16:54:08.064Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-pike-bse-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-base-29-120": {
    "cat": "fork",
@@ -13658,11 +13635,11 @@
   },
   "fk-rockshox-domain-gold-r-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-10T16:54:08.064Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:55:58.590Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-domn-gr-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-domain-gold-r-275-160": {
    "cat": "fork",
