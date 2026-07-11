@@ -122,6 +122,30 @@ function createPost(threadId, body){
   return _sb.from('forum_posts').insert({ thread_id: threadId, body: body }).select().then(_forumUnwrap);
 }
 
+/* ---- a rider's forum activity (for the profile page) ----------------------
+ * Reads are world-readable (schema.sql forum SELECT policies are open to
+ * everyone), so these power a public profile page for any author id. Newest
+ * first, small caps — a profile shows a recent slice, not the full history. */
+function listThreadsByAuthor(authorId, limit){
+  _forumNeed();
+  if(!authorId) return Promise.resolve([]);
+  return _sb.from('forum_threads').select('id,title,category,created_at')
+    .eq('author_id', authorId)
+    .order('created_at', { ascending: false })
+    .limit(limit || 10).then(_forumUnwrap);
+}
+/* Replies by an author, each carrying its parent thread's id+title (nested
+ * select over the forum_posts.thread_id -> forum_threads FK) so the profile can
+ * link a reply back to its thread. */
+function listPostsByAuthor(authorId, limit){
+  _forumNeed();
+  if(!authorId) return Promise.resolve([]);
+  return _sb.from('forum_posts').select('id,body,created_at,thread_id,forum_threads(id,title)')
+    .eq('author_id', authorId)
+    .order('created_at', { ascending: false })
+    .limit(limit || 10).then(_forumUnwrap);
+}
+
 /* ---- moderation / owner delete -------------------------------------------
  * Deleting is authorized entirely by RLS: schema.sql lets an author delete
  * their OWN thread/post, and forum-profiles.sql adds an admin policy that lets
@@ -140,6 +164,7 @@ if (typeof module !== 'undefined' && module.exports) {
     forumHasCategories: forumHasCategories,
     listThreads: listThreads, getThread: getThread, createThread: createThread,
     listPosts: listPosts, createPost: createPost,
+    listThreadsByAuthor: listThreadsByAuthor, listPostsByAuthor: listPostsByAuthor,
     deleteThread: deleteThread, deletePost: deletePost
   };
 }

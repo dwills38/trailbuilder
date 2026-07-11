@@ -283,6 +283,30 @@
      inside reuse .chip, so theming (light/dark/RAD via the CSS vars), the
      focus-visible ring and the ≤768px touch targets all come free. */
   .forum-cats{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+  /* Profile page (rich profiles): same full-width-view convention as the
+     inventory + forum pages. body.profile-page hides the builder, reveals this. */
+  #profilePage{display:none}
+  body.profile-page .layout,body.profile-page .toolbar,body.profile-page .legend,body.profile-page #search,body.profile-page #share,body.profile-page .menu{display:none}
+  body.profile-page #profilePage{display:block}
+  body.profile-page #mobileBar{display:none}
+  .prof-hero{display:flex;align-items:center;gap:16px;margin:8px 0 4px;flex-wrap:wrap}
+  .prof-avatar{width:72px;height:72px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;color:#fff;line-height:1;user-select:none}
+  .prof-id{min-width:0;flex:1}
+  .prof-name{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:24px;font-weight:800;margin:0;line-height:1.2}
+  .prof-sub{color:var(--ink-soft);font-size:13px;margin:4px 0 0}
+  .prof-bio{white-space:pre-wrap;font-size:14px;line-height:1.55;margin:14px 0 0;max-width:640px}
+  .prof-meta{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 0}
+  .prof-section{margin:26px 0 0}
+  .prof-section h3{font-size:15px;margin:0 0 10px}
+  .prof-editrow{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 0}
+  .prof-edit{margin:18px 0 0;border:1px solid var(--line);border-radius:12px;padding:14px 16px;max-width:640px}
+  .prof-edit label{font-size:12px;font-weight:700;color:var(--ink-soft);display:block;margin:12px 0 5px}
+  .prof-edit label:first-of-type{margin-top:0}
+  .prof-edit textarea,.prof-edit input[type=text],.prof-edit select{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink)}
+  .prof-edit textarea{resize:vertical;min-height:70px;line-height:1.45}
+  .prof-avpick{display:flex;gap:8px;flex-wrap:wrap;margin:5px 0 0}
+  .prof-avpick button{width:44px;height:44px;border-radius:50%;border:2px solid var(--line);background:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+  .prof-avpick button.sel{border-color:var(--brand);box-shadow:0 0 0 2px var(--brand)}
   /* account control (header) + garage/inventory lists */
   .acctbox{display:flex;align-items:center;gap:10px}
   .acctbox .btn{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff}
@@ -792,6 +816,19 @@
       <p class="invpage-sub" id="forumReplySignInHint" hidden>
         <button type="button" class="linklike" id="forumReplySignInLink">Sign in</button> to reply.</p>
     </div>
+  </section>
+
+  <!-- Rider profile as its own full-width page (rich profiles). Same convention
+       as the inventory + forum pages: toggled by the header 👤 username button
+       (own profile) or by clicking any forum author name (that rider's public
+       profile), builder view hidden by CSS while it's active. Public + read-only
+       for everyone; the owner sees inline edit affordances. -->
+  <section id="profilePage" aria-label="Rider profile">
+    <div class="invpage-head">
+      <button type="button" class="btn" id="profileBack">← Back to builder</button>
+      <h2 style="font-size:16px">Rider profile</h2>
+    </div>
+    <div id="profilePageBody" aria-live="polite"></div>
   </section>
 </main>
 
@@ -2218,6 +2255,9 @@
       toast('Username saved');
       renderAccount();
       reRenderForumIfOpen();
+      // Land on (or refresh) the rider's own profile page — this is also the
+      // first-time flow: prompt for a username, then show their new page.
+      openProfilePage(me.id);
     }).catch(function(e){
       $('profileSave').disabled = false;
       var msg = (e && e.message) || '';
@@ -2225,6 +2265,223 @@
       else if(msg === '__taken__' || /duplicate|unique|already exists/i.test(msg)){ profileErr('That username is taken — try another.'); }
       else { profileErr(msg || 'Could not save your username.'); }
     });
+  }
+
+  /* ================= Rider profile page (rich profiles) =================
+     A full-width view like the inventory + forum pages (body.profile-page). The
+     header 👤 button opens the signed-in user's OWN page (openMyProfile); any
+     forum author name opens THAT rider's public page (openProfilePage). Profiles
+     are world-readable, so the page works for logged-out visitors too. The rich
+     fields (bio/riding style/location/avatar) are feature-detected (_profileRichOn)
+     so the page ships and works BEFORE the forum-profiles-rich.sql migration —
+     it just shows the base fields (username, ✓ Pro, member-since, activity). */
+  var _profileRichOn = false;    // do the rich columns exist yet? (hasRichProfiles)
+  var _profileCurrentId = null;  // user id of the profile currently shown, or null
+
+  // Preset avatar keys (slugs matching the DB CHECK ^[a-z0-9-]{1,20}$). An
+  // unknown/absent key falls back to initials — never a URL, never user markup.
+  var PROFILE_AVATARS = [
+    {key:'mtb',emoji:'🚵'},{key:'wrench',emoji:'🔧'},{key:'mountain',emoji:'⛰️'},
+    {key:'tree',emoji:'🌲'},{key:'fire',emoji:'🔥'},{key:'bolt',emoji:'⚡'},
+    {key:'goat',emoji:'🐐'},{key:'rocket',emoji:'🚀'},{key:'star',emoji:'⭐'},{key:'skull',emoji:'💀'}
+  ];
+  var PROFILE_RIDING = [
+    {key:'all',label:'🚵 All-round'},{key:'xc',label:'🐇 XC'},{key:'trail',label:'🌲 Trail'},
+    {key:'enduro',label:'⛰️ Enduro'},{key:'dh',label:'⬇️ DH'}
+  ];
+  function avatarEmoji(key){ for(var i=0;i<PROFILE_AVATARS.length;i++){ if(PROFILE_AVATARS[i].key===key) return PROFILE_AVATARS[i].emoji; } return null; }
+  function ridingLabel(k){ for(var i=0;i<PROFILE_RIDING.length;i++){ if(PROFILE_RIDING[i].key===k) return PROFILE_RIDING[i].label; } return ''; }
+  function profileHue(s){ var h=0,i; s=String(s==null?'':s); for(i=0;i<s.length;i++){ h=(h*31 + s.charCodeAt(i))>>>0; } return h%360; }
+  function profileColor(id){ return 'hsl('+profileHue(id)+' 52% 42%)'; }
+  function profileInitials(name){
+    var parts = String(name==null?'':name).trim().split(/\s+/).filter(Boolean);
+    if(!parts.length) return '?';
+    if(parts.length===1) return parts[0].slice(0,2).toUpperCase();
+    return (parts[0].charAt(0)+parts[parts.length-1].charAt(0)).toUpperCase();
+  }
+  /* Avatar chip markup — an emoji preset when one is chosen (and known), else the
+     rider's initials, on a colour derived deterministically from their user id. */
+  function avatarMarkup(name, avatarKey, id){
+    var em = avatarKey ? avatarEmoji(avatarKey) : null;
+    var inner = em ? em : esc(profileInitials(name));
+    return '<div class="prof-avatar" style="background:'+profileColor(id)+'" aria-hidden="true">'+inner+'</div>';
+  }
+
+  /* Open the signed-in user's own profile page — or, if they haven't set a
+     username yet, prompt for one first (saveProfile then lands them here). */
+  function openMyProfile(){
+    var me = (typeof currentUser==='function') ? currentUser() : null;
+    if(!me || !_profilesOn) return;
+    if(_myProfile && _myProfile.username){ openProfilePage(me.id); }
+    else { openProfile(); }
+  }
+
+  /* Open any rider's public profile page by user id. Needs the profiles table
+     live (_profilesOn); no-op otherwise so nothing breaks pre-migration. */
+  function openProfilePage(userId){
+    if(!userId || !_profilesOn) return;
+    _profileCurrentId = userId;
+    document.body.classList.add('profile-page');
+    window.scrollTo(0,0);
+    $('profilePageBody').innerHTML = '<div class="gempty">Loading…</div>';
+    var richP = (typeof hasRichProfiles==='function') ? hasRichProfiles() : Promise.resolve(false);
+    richP.catch(function(){ return false; }).then(function(on){
+      _profileRichOn = !!on;
+      return getProfileById(userId);
+    }).then(function(p){
+      if(_profileCurrentId !== userId) return;   // a newer open won the race
+      renderProfilePage(userId, p || null);
+    }).catch(function(e){
+      $('profilePageBody').innerHTML = '<div class="gempty">Could not load this profile: '+esc((e&&e.message)||'')+'</div>';
+    });
+  }
+  function closeProfilePage(){ document.body.classList.remove('profile-page'); _profileCurrentId = null; }
+
+  function renderProfilePage(userId, p){
+    var me = (typeof currentUser==='function') ? currentUser() : null;
+    var isOwner = !!(me && me.id === userId);
+    var uname = (p && p.username) || ('rider-' + String(userId).slice(0,6));
+    var avatarKey = (p && p.avatar) || '';
+    var badge = (p && p.verified_pro) ? ' <span class="vpro" title="Verified Pro rider">✓ Pro</span>' : '';
+    var since = (p && p.created_at) ? ('Member since ' + new Date(p.created_at).toLocaleDateString(undefined,{year:'numeric',month:'long'})) : '';
+    var rs = (_profileRichOn && p && p.riding_style) ? ridingLabel(p.riding_style) : '';
+    var loc = (_profileRichOn && p && p.location) ? p.location : '';
+    var subBits = [];
+    if(since) subBits.push(esc(since));
+    if(loc)   subBits.push('📍 ' + esc(loc));
+    if(rs)    subBits.push(rs);
+
+    var html = '<div class="prof-hero">' + avatarMarkup(uname, avatarKey, userId) +
+      '<div class="prof-id"><h1 class="prof-name">' + esc(uname) + badge + '</h1>' +
+      (subBits.length ? '<p class="prof-sub">' + subBits.join(' · ') + '</p>' : '') +
+      '</div></div>';
+    if(_profileRichOn && p && p.bio){ html += '<p class="prof-bio">' + esc(p.bio) + '</p>'; }
+    else if(!p && !isOwner){ html += '<p class="prof-sub">This rider hasn’t set up a profile yet.</p>'; }
+
+    if(isOwner){
+      html += '<div class="prof-editrow"><button type="button" class="btn" id="profEditName">✏️ Edit username</button></div>';
+      if(_profileRichOn){
+        html += '<div class="prof-edit">' +
+          '<label for="profBio">About you</label>' +
+          '<textarea id="profBio" maxlength="500" placeholder="Tell riders about yourself…">' + esc((p&&p.bio)||'') + '</textarea>' +
+          '<label for="profRiding">Riding style</label>' +
+          '<select id="profRiding"><option value="">— not set —</option>' +
+            PROFILE_RIDING.map(function(o){ return '<option value="'+o.key+'"'+(p&&p.riding_style===o.key?' selected':'')+'>'+o.label+'</option>'; }).join('') +
+          '</select>' +
+          '<label for="profLoc">Location</label>' +
+          '<input type="text" id="profLoc" maxlength="60" placeholder="e.g. Squamish, BC" value="' + esc((p&&p.location)||'') + '">' +
+          '<label>Avatar</label>' +
+          '<div class="prof-avpick" id="profAvPick">' +
+            '<button type="button" data-av="" title="Initials"'+(!avatarKey?' class="sel"':'')+' style="background:'+profileColor(userId)+'">'+esc(profileInitials(uname))+'</button>' +
+            PROFILE_AVATARS.map(function(a){ return '<button type="button" data-av="'+a.key+'" title="'+a.key+'"'+(avatarKey===a.key?' class="sel"':'')+' style="background:'+profileColor(userId)+'">'+a.emoji+'</button>'; }).join('') +
+          '</div>' +
+          '<div class="prof-editrow"><button type="button" class="btn primary" id="profSaveRich">Save profile</button> <span id="profSaveMsg" class="prof-sub" role="status" aria-live="polite"></span></div>' +
+        '</div>';
+      }
+    }
+    html += '<div class="prof-section"><h3>Recent threads</h3><div id="profThreads" class="invlist"><div class="gempty">Loading…</div></div></div>';
+    html += '<div class="prof-section"><h3>Recent replies</h3><div id="profReplies" class="invlist"><div class="gempty">Loading…</div></div></div>';
+    $('profilePageBody').innerHTML = html;
+
+    if(isOwner){
+      var en = $('profEditName'); if(en){ en.onclick = function(){ openProfile(); }; }
+      if(_profileRichOn){
+        var picked = avatarKey;
+        var pick = $('profAvPick');
+        pick.querySelectorAll('button').forEach(function(b){
+          b.onclick = function(){
+            picked = b.getAttribute('data-av') || '';
+            pick.querySelectorAll('button').forEach(function(x){ x.classList.remove('sel'); });
+            b.classList.add('sel');
+          };
+        });
+        $('profSaveRich').onclick = function(){
+          var patch = {
+            bio:          ($('profBio').value||'').trim() || null,
+            riding_style: $('profRiding').value || null,
+            location:     ($('profLoc').value||'').trim() || null,
+            avatar:       picked || null
+          };
+          var msg = $('profSaveMsg'); msg.textContent = 'Saving…';
+          $('profSaveRich').disabled = true;
+          updateMyProfileFields(patch).then(function(saved){
+            var row = (saved && saved.length ? saved[0] : saved) || null;
+            if(row){ _myProfile = row; }   // select('*') returns the full profile row
+            $('profSaveRich').disabled = false;
+            toast('Profile saved');
+            renderProfilePage(userId, row || p);
+          }).catch(function(e){
+            $('profSaveRich').disabled = false;
+            msg.textContent = (e && e.message) || 'Could not save your profile.';
+          });
+        };
+      }
+    }
+    renderProfileActivity(userId);
+  }
+
+  /* The rider's recent threads + replies (world-readable forum reads). Each row
+     jumps to the thread in the forum page. */
+  function renderProfileActivity(userId){
+    var tEl = $('profThreads'), rEl = $('profReplies');
+    if(typeof listThreadsByAuthor !== 'function'){ tEl.innerHTML = '<div class="gempty">—</div>'; rEl.innerHTML = '<div class="gempty">—</div>'; return; }
+    listThreadsByAuthor(userId, 10).then(function(rows){
+      rows = rows || [];
+      if(!rows.length){ tEl.innerHTML = '<div class="gempty">No threads yet.</div>'; return; }
+      tEl.innerHTML = '';
+      rows.forEach(function(row){
+        var div = document.createElement('div'); div.className = 'grow clickable';
+        div.innerHTML = '<div class="gmain"><div class="gname">'+esc(row.title)+'</div>'+
+          '<div class="gmeta">'+new Date(row.created_at).toLocaleDateString()+'</div></div>';
+        div.onclick = function(){ jumpToForumThread(row.id); };
+        tEl.appendChild(div);
+      });
+    }).catch(function(){ tEl.innerHTML = '<div class="gempty">Could not load threads.</div>'; });
+    listPostsByAuthor(userId, 10).then(function(rows){
+      rows = rows || [];
+      if(!rows.length){ rEl.innerHTML = '<div class="gempty">No replies yet.</div>'; return; }
+      rEl.innerHTML = '';
+      rows.forEach(function(row){
+        var th = row.forum_threads, title = th ? th.title : 'a thread', tid = th ? th.id : row.thread_id;
+        var snip = String(row.body||'').slice(0,120);
+        var div = document.createElement('div'); div.className = 'grow' + (tid?' clickable':'');
+        div.innerHTML = '<div class="gmain"><div class="gname">'+esc(title)+'</div>'+
+          '<div class="gmeta">'+esc(snip)+(row.body&&row.body.length>120?'…':'')+' · '+new Date(row.created_at).toLocaleDateString()+'</div></div>';
+        if(tid){ div.onclick = function(){ jumpToForumThread(tid); }; }
+        rEl.appendChild(div);
+      });
+    }).catch(function(){ rEl.innerHTML = '<div class="gempty">Could not load replies.</div>'; });
+  }
+
+  /* Leave the profile page and open a thread in the forum page. */
+  function jumpToForumThread(threadId){
+    closeProfilePage();
+    if(!_forumReady){ return; }
+    document.body.classList.add('forum-page');
+    window.scrollTo(0,0);
+    renderForumNav();
+    renderForumThreads();   // populate the list behind so "← All threads" works
+    openForumThread(threadId);
+  }
+
+  /* Wire any forum author links inside a container to open the profile page.
+     stopPropagation so an author link inside a clickable thread row opens the
+     profile, not the thread. */
+  function wireAuthorLinks(el){
+    if(!el) return;
+    el.querySelectorAll('.authlink').forEach(function(b){
+      b.onclick = function(e){ e.stopPropagation(); openProfilePage(b.getAttribute('data-uid')); };
+    });
+  }
+  /* Author name as HTML: a clickable link to the profile page when the author
+     has an id and profiles are live; plain (escaped) text otherwise. Reuses
+     forumAuthorLabel/forumAuthorBadge so the display text is unchanged. */
+  function forumAuthorHTML(authorId){
+    var label = esc(forumAuthorLabel(authorId)) + forumAuthorBadge(authorId);
+    if(_profilesOn && authorId){
+      return '<button type="button" class="linklike authlink" data-uid="'+esc(String(authorId))+'">'+label+'</button>';
+    }
+    return label;
   }
 
   /* Refresh the owned-parts cache from the server, then re-render the catalog.
@@ -2567,13 +2824,14 @@
       var div = document.createElement('div'); div.className = 'grow clickable';
       div.innerHTML =
         '<div class="gmain"><div class="gname">'+(row.pinned?'📌 ':'')+esc(row.title)+'</div>'+
-        '<div class="gmeta">'+forumCatPill(row)+esc(forumAuthorLabel(row.author_id))+forumAuthorBadge(row.author_id)+' · '+new Date(row.created_at).toLocaleDateString()+'</div></div>'+
+        '<div class="gmeta">'+forumCatPill(row)+forumAuthorHTML(row.author_id)+' · '+new Date(row.created_at).toLocaleDateString()+'</div></div>'+
         (canModerate(row.author_id) ? '<div class="gacts"><button type="button" class="del" data-a="delthread" title="Delete this thread">🗑 Delete</button></div>' : '');
       div.onclick = function(){ openForumThread(row.id); };
       var db = div.querySelector('[data-a=delthread]');
       if(db){ db.onclick = function(e){ e.stopPropagation(); confirmDeleteThread(row); }; }
       el.appendChild(div);
     });
+    wireAuthorLinks(el);
   }
 
   function openForumThread(id){
@@ -2589,7 +2847,8 @@
       return ensureProfiles([row.author_id]).then(function(){
         // same esc()-composed innerHTML pattern as the list rows: the category
         // pill (when live) + author + date
-        $('forumDetailMeta').innerHTML = forumCatPill(row)+esc(forumAuthorLabel(row.author_id))+forumAuthorBadge(row.author_id)+' · '+new Date(row.created_at).toLocaleDateString();
+        $('forumDetailMeta').innerHTML = forumCatPill(row)+forumAuthorHTML(row.author_id)+' · '+new Date(row.created_at).toLocaleDateString();
+        wireAuthorLinks($('forumDetailMeta'));
         $('forumDetailBody').textContent = row.body;
         renderForumPosts(id);
         var inU = typeof currentUser==='function' && !!currentUser();
@@ -2622,13 +2881,14 @@
       rows.forEach(function(row){
         var div = document.createElement('div'); div.className = 'grow forum-post';
         div.innerHTML =
-          '<div class="gmain"><div class="gmeta">'+esc(forumAuthorLabel(row.author_id))+forumAuthorBadge(row.author_id)+' · '+new Date(row.created_at).toLocaleDateString()+'</div>'+
+          '<div class="gmain"><div class="gmeta">'+forumAuthorHTML(row.author_id)+' · '+new Date(row.created_at).toLocaleDateString()+'</div>'+
           '<div>'+esc(row.body)+'</div></div>'+
           (canModerate(row.author_id) ? '<div class="gacts"><button type="button" class="del" data-a="delpost" title="Delete this reply">🗑</button></div>' : '');
         var db = div.querySelector('[data-a=delpost]');
         if(db){ db.onclick = function(){ confirmDeletePost(row.id, threadId); }; }
         el.appendChild(div);
       });
+      wireAuthorLinks(el);
     }).catch(function(e){ el.innerHTML = '<p class="invpage-sub">Could not load replies: '+esc(e.message||'')+'</p>'; });
   }
 
@@ -2978,7 +3238,8 @@
   $('acctLogout').onclick = function(){ signOut().then(function(){ toast('Logged out'); }).catch(function(e){ toast(e.message||'Logout failed'); }); };
   $('acctGarage').onclick = openGarage;
   $('acctInventory').onclick = openInventory;
-  $('acctProfile').onclick = function(){ openProfile(); };
+  $('acctProfile').onclick = function(){ openMyProfile(); };
+  $('profileBack').onclick = closeProfilePage;
   $('saveGarage').onclick = saveCurrentToGarage;
   $('authClose').onclick = function(){ $('authModal').close(); };
   /* profile / username modal (forum-profiles.sql) */
@@ -3019,7 +3280,7 @@
     initAccount(function(u){
       renderAccount(); refreshOwned();
       if(u && $('authModal').open){ $('authModal').close(); }
-      if(!u){ closeInventoryPage(); }
+      if(!u){ closeInventoryPage(); closeProfilePage(); }
       // profiles/admin: feature-detect the table, load my profile + is_admin,
       // reflect the Profile button + any open forum view (author labels +
       // moderation controls), and nudge for a username on first sign-in.

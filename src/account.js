@@ -128,13 +128,23 @@ function hasProfiles(){
   return _profilesProbe;
 }
 
-/* The signed-in user's own profile row (or null if none yet). */
+/* The signed-in user's own profile row (or null if none yet). Selects '*' so it
+   picks up created_at AND the rich columns (bio/riding_style/location/avatar)
+   the moment forum-profiles-rich.sql has run — and stays safe before it, because
+   select('*') only ever returns the columns that actually exist. */
 function getMyProfile(){
   _need();
   var u = _acctUser;
   if(!u) return Promise.resolve(null);
-  return _sb.from('profiles').select('user_id,username,is_admin,verified_pro').eq('user_id', u.id)
+  return _sb.from('profiles').select('*').eq('user_id', u.id)
     .maybeSingle().then(_unwrap);
+}
+/* One public profile row by user id (for viewing another rider's profile page).
+   select('*') for the same feature-detect-friendly reason as getMyProfile. */
+function getProfileById(id){
+  _need();
+  if(!id) return Promise.resolve(null);
+  return _sb.from('profiles').select('*').eq('user_id', id).maybeSingle().then(_unwrap);
 }
 /* Public username/is_admin/verified_pro rows for a set of author ids (forum display). */
 function getProfilesByIds(ids){
@@ -142,6 +152,37 @@ function getProfilesByIds(ids){
   var list = (ids || []).filter(Boolean);
   if(!list.length) return Promise.resolve([]);
   return _sb.from('profiles').select('user_id,username,is_admin,verified_pro').in('user_id', list).then(_unwrap);
+}
+
+/* Feature-detect the rich profile columns (forum-profiles-rich.sql). Same
+   probe-and-cache pattern as hasProfiles / forumHasCategories: a 1-row select of
+   just `bio`. An error (undefined column) means the rich migration hasn't run,
+   so the profile page shows the base fields only and hides the bio/riding-style/
+   location/avatar editors. Positive answer cached; negative re-probed so it
+   self-heals once the owner runs the migration. */
+var _richProbe = null;
+function hasRichProfiles(){
+  if(!_sb) return Promise.resolve(false);
+  if(_richProbe) return _richProbe;
+  _richProbe = _sb.from('profiles').select('bio').limit(1)
+    .then(function(res){ return !(res && res.error); },
+          function(){ return false; })
+    .then(function(on){ if(!on){ _richProbe = null; } return on; });
+  return _richProbe;
+}
+/* Owner-only update of the rich profile fields (bio/riding_style/location/avatar).
+   Only the whitelisted keys are ever sent; user_id/username/is_admin/verified_pro
+   are untouched here (username has its own upsert path, the flags are DB-pinned).
+   RLS scopes the update to the caller's own row, and profiles_guard still re-pins
+   the privileged flags on this update. Requires the rich columns to exist. */
+function updateMyProfileFields(patch){
+  _need();
+  var u = _acctUser;
+  if(!u) throw new Error('Sign in first.');
+  var allow = ['bio','riding_style','location','avatar'], clean = {};
+  allow.forEach(function(k){ if(patch && (k in patch)){ clean[k] = patch[k]; } });
+  return _sb.from('profiles').update(clean).eq('user_id', u.id)
+    .select('*').then(_unwrap);
 }
 /* Collision check on the NORMALIZED username (username_norm — lowercase +
    spaces/_/- stripped, matching public.profile_norm). An exact eq on the stored
@@ -182,6 +223,8 @@ if (typeof module !== 'undefined' && module.exports) {
     listInventory: listInventory, addInventoryItem: addInventoryItem,
     setInventoryQty: setInventoryQty, removeInventoryItem: removeInventoryItem,
     hasProfiles: hasProfiles, getMyProfile: getMyProfile, getProfilesByIds: getProfilesByIds,
+    getProfileById: getProfileById, hasRichProfiles: hasRichProfiles,
+    updateMyProfileFields: updateMyProfileFields,
     findProfileByNorm: findProfileByNorm, listReservedHeld: listReservedHeld,
     upsertMyProfile: upsertMyProfile
   };
