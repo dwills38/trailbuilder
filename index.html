@@ -239,7 +239,7 @@
   /* Inventory page (Phase 3): a full-width view, not a modal. body.inv-page hides
      the builder and reveals this; toggled by the header 🧰 Inventory button. */
   #inventoryPage{display:none}
-  body.inv-page .layout,body.inv-page .toolbar,body.inv-page .legend,body.inv-page #railToggle,body.inv-page #search,body.inv-page #share,body.inv-page .menu{display:none}
+  body.inv-page .layout,body.inv-page .toolbar,body.inv-page .legend,body.inv-page #search,body.inv-page #share,body.inv-page .menu{display:none}
   body.inv-page #inventoryPage{display:block}
   .invpage-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   .invpage-head h2{flex:1;margin:0;font-size:20px}
@@ -251,7 +251,7 @@
   /* Forum page (Phase 4, FORUM_ENABLED): same full-width-view convention as the
      inventory page above. body.forum-page hides the builder and reveals this. */
   #forumPage{display:none}
-  body.forum-page .layout,body.forum-page .toolbar,body.forum-page .legend,body.forum-page #railToggle,body.forum-page #search,body.forum-page #share,body.forum-page .menu{display:none}
+  body.forum-page .layout,body.forum-page .toolbar,body.forum-page .legend,body.forum-page #search,body.forum-page #share,body.forum-page .menu{display:none}
   body.forum-page #forumPage{display:block}
   .linklike{background:none;border:none;padding:0;color:var(--brand);font-weight:600;text-decoration:underline;cursor:pointer;font:inherit}
   .linklike:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
@@ -406,19 +406,11 @@
   .samples-pop .btn{width:100%;text-align:left;border-color:transparent;background:none;color:var(--ink)}
   .samples-pop .btn:hover{background:var(--chip)}
   .samples-pop .rail-hint{padding:2px 8px 4px;max-width:230px}
-  /* desktop: ☰ collapses the rail and the catalog reflows wider */
-  @media (min-width:881px){
-    body.rail-hidden #rail{display:none}
-    body.rail-hidden .layout{grid-template-columns:minmax(0,1fr) 330px}
-  }
-  /* phones: the rail is an off-canvas drawer — ☰ opens it; backdrop, Escape and
-     picking a category close it; focus is trapped inside while open */
-  #railBackdrop{display:none}
+  /* phones: the rail is always visible, stacked inline above the catalog (the
+     .layout grid collapses to a single block column at ≤880px) — not sticky, so
+     it scrolls away and gives the catalog the full viewport */
   @media (max-width:880px){
-    #rail{position:fixed;left:0;top:0;bottom:0;width:min(85vw,320px);z-index:70;border-radius:0;max-height:none;
-      transform:translateX(-105%);transition:transform .2s ease}
-    body.rail-open #rail{transform:none;box-shadow:0 0 40px rgba(0,0,0,.35)}
-    body.rail-open #railBackdrop{display:block;position:fixed;inset:0;background:rgba(15,22,17,.45);z-index:60}
+    #rail{position:static;max-height:none;margin-bottom:16px}
     header .wrap{flex-wrap:wrap}
     header input[type=search]{order:5;flex-basis:100%}
     .cat-head,.catcount{scroll-margin-top:140px}   /* clears the 2-row wrapped header */
@@ -532,7 +524,6 @@
 <body>
 <header>
   <div class="wrap">
-    <button type="button" class="btn" id="railToggle" aria-expanded="true" aria-controls="rail" aria-label="Show / hide the filter rail" title="Show / hide the filter rail">☰<span class="hdr-long"> Filters</span></button>
     <h1>🚵 TrailBuilder</h1>
     <input type="search" id="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" aria-label="Search parts by brand or model" />
     <button class="btn primary" id="share" title="Copy a link that restores this exact build">Share<span class="hdr-long"> / save link</span></button>
@@ -719,9 +710,6 @@
   the suite. <b>Mullet</b> (29 front / 27.5 rear) builds work on mullet-capable frames — try the <b>Mullet build</b> demo
   or pick a 27.5 rear wheel + tire on the YT Capra.</p>
 </footer>
-
-<!-- Backdrop for the phone filter drawer -->
-<div id="railBackdrop" aria-hidden="true"></div>
 
 <!-- Mobile sticky build bar (≤880px only): verdict + totals mirror, tap = jump to panel -->
 <button type="button" id="mobileBar" aria-label="Build summary — tap to jump to the build panel">
@@ -2343,73 +2331,11 @@
     document.addEventListener('click', function(e){ if(d.open && !d.contains(e.target)) d.open=false; });
     document.addEventListener('keydown', function(e){ if(e.key==='Escape' && d.open){ d.open=false; var s=d.querySelector('summary'); if(s) s.focus(); } });
   })();
-  (function(){
-    var rail=$('rail'), railBtn=$('railToggle'), railBd=$('railBackdrop');
-    var railMq=window.matchMedia('(max-width:880px)');
-    var lastFocus=null;
-    function drawerOpen(){ return document.body.classList.contains('rail-open'); }
-    function railIsOpen(){
-      return railMq.matches ? drawerOpen() : !document.body.classList.contains('rail-hidden');
-    }
-    function railAria(){ railBtn.setAttribute('aria-expanded', String(railIsOpen())); }
-    // everything currently operable in the rail (skips hidden account controls)
-    function focusables(){
-      return Array.prototype.filter.call(
-        rail.querySelectorAll('button,a[href],select,input,summary'),
-        function(el){ return !el.hidden && el.offsetParent!==null; });
-    }
-    function openDrawer(){
-      lastFocus=document.activeElement;
-      document.body.classList.add('rail-open'); railAria();
-      var f=focusables(); if(f.length) f[0].focus();
-    }
-    function closeDrawer(){
-      if(!drawerOpen()) return;
-      document.body.classList.remove('rail-open'); railAria();
-      // restore focus where it was; fall back to the toggle so keyboard users
-      // never land on <body> after Escape
-      var target=(lastFocus && lastFocus!==document.body && lastFocus.focus) ? lastFocus : railBtn;
-      target.focus();
-      lastFocus=null;
-    }
-    railBtn.onclick=function(){
-      if(railMq.matches){ if(drawerOpen()) closeDrawer(); else openDrawer(); }
-      else{ document.body.classList.toggle('rail-hidden'); railAria(); }
-    };
-    railAria();
-    // crossing the breakpoint changes what "open" means (drawer vs collapse) —
-    // drop any drawer state and re-sync the toggle's aria-expanded. Also hooked
-    // to window resize: some environments reflow media queries without firing
-    // matchMedia change events, and the recompute is idempotent and cheap.
-    // (Nothing typeable lives in the drawer, so phone keyboard resizes are moot.)
-    var onMq=function(){ if(!railMq.matches) document.body.classList.remove('rail-open'); railAria(); };
-    if(railMq.addEventListener) railMq.addEventListener('change', onMq);
-    else if(railMq.addListener) railMq.addListener(onMq);
-    window.addEventListener('resize', onMq);
-    railBd.onclick=closeDrawer;
-    document.addEventListener('keydown', function(e){
-      if(!railMq.matches || !drawerOpen()) return;
-      if(e.key==='Escape'){ closeDrawer(); return; }
-      if(e.key!=='Tab') return;
-      // focus trap: while the drawer is open, Tab cycles inside it
-      var f=focusables(); if(!f.length) return;
-      var first=f[0], last=f[f.length-1], a=document.activeElement;
-      if(e.shiftKey && (a===first || !rail.contains(a))){ e.preventDefault(); last.focus(); }
-      else if(!e.shiftKey && (a===last || !rail.contains(a))){ e.preventDefault(); first.focus(); }
-    });
-    // picking a category or discipline from the phone drawer closes it so the
-    // result is visible (both chip groups are single-pick filters)
-    $('chips').addEventListener('click', function(e){
-      if(railMq.matches && e.target.closest('.chip')) closeDrawer();
-    });
-    $('discChips').addEventListener('click', function(e){
-      if(railMq.matches && e.target.closest('.chip')) closeDrawer();
-    });
-    // instant jump, not smooth: the catalog page is thousands of px tall on
-    // phones — an animated scroll that far is slow, and the guided-flow work
-    // already established instant jumps as the reliable pattern here
-    $('mobileBar').onclick=function(){ var s=document.querySelector('.side'); if(s) s.scrollIntoView({block:'start'}); };
-  })();
+  // Mobile sticky build bar: tapping jumps to the build panel. Instant jump, not
+  // smooth — the catalog page is thousands of px tall on phones, so an animated
+  // scroll that far is slow (the guided-flow work established instant jumps here).
+  // (The filter rail is always visible now — no drawer/toggle machinery.)
+  $('mobileBar').onclick=function(){ var s=document.querySelector('.side'); if(s) s.scrollIntoView({block:'start'}); };
 
   $('viewBuild').onclick=openBuildModal;
   $('bmClose').onclick=function(){ $('buildModal').close(); };

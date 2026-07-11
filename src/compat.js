@@ -31,7 +31,7 @@
 
 /** @type {Object.<string, string>} */
 var LABELS = {
-  '29': '29in', '275': '27.5in', mullet: 'Mullet (29/27.5)',
+  '29': '29"', '275': '27.5"', mullet: '29"/27.5"',
   Boost148: 'Boost 148x12', SuperBoost157: 'SuperBoost 157x12', Boost110: 'Boost 15x110', '20x110': '20x110 Boost (DH)', '20x110-nonboost': '20x110 standard (DH, non-Boost)',
   XD: 'SRAM XD', MicroSpline: 'Shimano Micro Spline', HG: 'Shimano HG', integrated: 'Integrated 7-speed cassette',
   sixbolt: '6-bolt', CL: 'Center Lock',
