@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-10T23:58:51.309Z",
+ "updated": "2026-07-11T04:43:32.368Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -41,6 +41,7 @@
   "ti-teravail-honcho-275-24-ls-grip",
   "ti-teravail-honcho-275-24-dur-grip",
   "ti-teravail-honcho-275-26-ls-grip",
+  "ti-schwalbe-dirty-dan-275-235-sdh-aus",
   "fw-weareone-union-275",
   "fw-ethirteen-lg1r-29",
   "fw-ethirteen-lg1r-275",
@@ -59,6 +60,9 @@
   "fw-weareone-strife-29-20x110",
   "fw-weareone-strife-275",
   "fw-weareone-strife-275-20x110",
+  "fw-hope-fortus-30-275",
+  "fw-spank-spike369-29",
+  "fw-spank-spike369-275",
   "rw-dtswiss-ex-1700-29-hg",
   "rw-hope-fortus-30-29-hg",
   "rw-dtswiss-fr-1500-275-157",
@@ -170,11 +174,15 @@
   "st-thomson-elite-x4-35",
   "st-chromag-riza-35",
   "st-pro-tharsis-trail-318",
-  "gr-wolftooth-fatpaw",
+  "st-canecreek-eesilk-cs-318",
+  "st-canecreek-eesilk-sl-318",
+  "st-spank-split-318",
   "gr-odi-rogue-v21",
   "gr-odi-ag2",
   "gr-ergon-gd1-evo",
   "gr-sdg-thrice-31",
+  "gr-wolftooth-echo-lockon",
+  "gr-wolftooth-fatpaw-cam",
   "dp-fox-transfer-factory-309-240",
   "dp-pro-koryak-70-272-70",
   "dp-pro-koryak-150-309-150",
@@ -190,8 +198,13 @@
   "pd-look-trailroc",
   "pd-vpcomponents-x93",
   "pd-vpcomponents-vx6001",
+  "pd-hope-union-rc",
+  "pd-hope-union-tc",
+  "pd-hope-union-gc",
   "bk-magura-mt8-sl-fm",
+  "bk-magura-gustav-pro",
   "bk-trp-quadiem",
+  "bk-trickstuff-piccola-hd-titanium",
   "bk-trp-evo-expert",
   "bk-trp-evo-comp",
   "bk-hope-evo-gr4",
@@ -239,22 +252,30 @@
   "sft-microshift-advent-m9295",
   "sft-shimano-cues-u6000-11",
   "sft-shimano-cues-u4000-9",
+  "sft-sram-nx-11",
   "dr-microshift-advent-m6195l",
   "dr-shimano-cues-u6000-11-gs",
   "dr-shimano-cues-u8000",
   "dr-shimano-cues-u4000-gs",
+  "dr-sram-s1000-transmission",
   "ca-microshift-advent-x-h104-1148",
   "ca-microshift-advent-h093-1146",
   "ca-shimano-cues-lg300-9-1146",
   "ca-sram-pg1210",
+  "ca-sram-pg1130-1142",
   "cr-shimano-deore-m6120",
   "cr-truvativ-descendant-dh",
   "cr-truvativ-descendant-tld-colab",
   "cr-truvativ-descendant-tld-colab-dh",
+  "cr-shimano-cues-u8000-1x",
+  "cr-shimano-cues-u8000-2x",
+  "cr-shimano-cues-u6010-2x",
+  "cr-sram-sx-eagle",
   "fh-industrynine-hydraclassic-boost110",
   "fh-industrynine-hydra2-20x110",
   "fh-industrynine-hydra2-20x110-nonboost",
   "fh-onyx-vesper-iso-boost110",
+  "fh-ethirteen-race-alloy-boost110",
   "rh-dtswiss-350-boost148-ms",
   "rh-dtswiss-350-boost148-hg",
   "rh-industrynine-hydraclassic-boost148-ms",
@@ -264,12 +285,13 @@
   "rh-onyx-vesper-boost148-xd",
   "rh-onyx-vesper-boost148-ms",
   "rh-onyx-vesper-boost148-hg",
+  "rh-ethirteen-race-alloy-boost148-xd",
+  "rh-ethirteen-race-alloy-superboost157-xd",
   "rm-industrynine-endurosv2-29",
   "rm-industrynine-endurosv2-275",
   "rm-spank-359-29",
   "rm-weareone-union-29",
   "rm-raceface-arc25-29",
-  "bb-ethirteen-pf92-p3",
   "bb-ethirteen-bsa68-p3"
  ],
  "parts": {
@@ -13660,11 +13682,11 @@
   },
   "gr-wolftooth-fatpaw": {
    "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-10T16:54:08.064Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://wolftoothcomponents.com/products/fatpawgrips",
+   "note": "auto-promoted: already verified in catalog"
   },
   "pd-chromag-scarab": {
    "cat": "pedal",
@@ -13892,11 +13914,11 @@
   },
   "bb-ethirteen-pf92-p3": {
    "cat": "bb",
-   "status": "Pending",
-   "updated": "2026-07-10T16:54:08.064Z",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ethirteen.com/products/press-fit-bottom-brackets",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bb-raceface-bsa68-30mm": {
    "cat": "bb",
@@ -14136,6 +14158,1102 @@
    "updated": "2026-07-10T21:24:18.908Z",
    "error": null,
    "source": "https://chrisking.com/products/headset-inset-7",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-pirelli-scorpion-enduro-r-275-24-pw-sg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/scorpion-enduro-r",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-pirelli-scorpion-enduro-r-275-24-hw-sg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/scorpion-enduro-r",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-pirelli-scorpion-enduro-r-275-26-hw-sg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/scorpion-enduro-r",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-pirelli-scorpion-enduro-r-29-24-pw-sg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/scorpion-enduro-r",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-pirelli-scorpion-enduro-r-29-24-hw-sg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/scorpion-enduro-r",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-pirelli-scorpion-enduro-r-29-26-pw-sg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/scorpion-enduro-r",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-pirelli-scorpion-enduro-r-29-26-hw-sg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/scorpion-enduro-r",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-wtb-ranger-29-24-sg2-tritec": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://www.wtb.com/products/ranger",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-schwalbe-dirty-dan-275-235-sdh-aus": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-goodyear-newton-mtf-275-25-downhill-grip3s": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://goodyearbike.com/products/newton-mtf",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-goodyear-newton-mtf-29-25-downhill-grip3s": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://goodyearbike.com/products/newton-mtf",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-goodyear-newton-mtr-275-24-downhill-grip3": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://goodyearbike.com/products/newton-mtr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-goodyear-newton-mtr-275-26-downhill-grip3": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://goodyearbike.com/products/newton-mtr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-goodyear-newton-mtr-29-24-downhill-grip3": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://goodyearbike.com/products/newton-mtr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-minion-ss-275-23-exo-dual": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://shop.maxxis.com/products/minion-ss",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-minion-ss-29-23-exo-dual": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://shop.maxxis.com/products/minion-ss",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-dissector-275-24-dh-mg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/dissector/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-dissector-29-24-dd-mg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/dissector/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-dissector-275-24-dd-mg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/dissector/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-agarro-275-24-trail-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://vittoria.com/products/agarro-trail",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-agarro-275-26-trail-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://vittoria.com/products/agarro-trail",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-agarro-29-24-trail-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://vittoria.com/products/agarro-trail",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-agarro-29-26-trail-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://vittoria.com/products/agarro-trail",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-mostro-275-24-enduro-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://vittoria.com/products/mostro-enduro",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-mostro-275-26-enduro-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://vittoria.com/products/mostro-enduro",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-mostro-29-24-enduro-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://vittoria.com/products/mostro-enduro",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-mostro-29-26-enduro-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.367Z",
+   "error": null,
+   "source": "https://vittoria.com/products/mostro-enduro",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-mazza-275-24-enduro-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://vittoria.com/products/mazza-enduro",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-mazza-275-26-enduro-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://vittoria.com/products/mazza-enduro",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-martello-275-24-enduro-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://vittoria.com/products/martello-enduro",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-martello-275-26-enduro-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://vittoria.com/products/martello-enduro",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-martello-275-28-enduro-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://vittoria.com/products/martello-enduro",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-martello-29-24-enduro-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://vittoria.com/products/martello-enduro",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-vittoria-martello-29-26-enduro-4c": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://vittoria.com/products/martello-enduro",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-high-roller-iii-275-24-exop-mg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/high-roller-iii/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-high-roller-iii-275-24-dd-mg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/high-roller-iii/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-high-roller-iii-275-24-dh-mg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/high-roller-iii/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-high-roller-iii-29-24-exop-mg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/high-roller-iii/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-high-roller-iii-29-24-dd-mg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/high-roller-iii/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-maxxis-high-roller-iii-29-24-dh-mg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/high-roller-iii/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fw-hope-fortus-30-275": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-spank-spike369-29": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-spank-spike369-275": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-enve-m6-318": {
+   "cat": "handlebar",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.enve.com/collections/handlebars/products/m6-bar-31-8mm",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hb-enve-m7-35": {
+   "cat": "handlebar",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.enve.com/collections/handlebars/products/m7-bar-35mm",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hb-enve-m9-318": {
+   "cat": "handlebar",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.enve.com/collections/handlebars/products/m9-bar-31-8mm",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hb-raceface-atlas-35": {
+   "cat": "handlebar",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.raceface.com/collections/handlebars/products/atlas-35-handlebar",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hb-raceface-sixc-35": {
+   "cat": "handlebar",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.raceface.com/collections/handlebars/products/sixc-35-handlebar",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hb-raceface-chester-35": {
+   "cat": "handlebar",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.raceface.com/collections/handlebars/products/chester-35-handlebar",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hb-raceface-atlas-318": {
+   "cat": "handlebar",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.raceface.com/collections/handlebars/products/atlas-handlebar-31-8",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hb-spank-spike-35": {
+   "cat": "handlebar",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://spank-ind.com/products/spike-35-vibrocore%E2%84%A2-bar",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hb-spank-spike-777fr-318": {
+   "cat": "handlebar",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://spank-ind.com/products/spike-777-fr-bearclaw-bar",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hb-spank-spoon-800-318": {
+   "cat": "handlebar",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://spank-ind.com/products/spoon-800-bar",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "st-enve-m6-318": {
+   "cat": "stem",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.enve.com/collections/stems/products/m6-stem-31-8mm",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "st-enve-m7-35": {
+   "cat": "stem",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.enve.com/collections/stems/products/m7-stem-35mm",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "st-raceface-atlas-35": {
+   "cat": "stem",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.raceface.com/collections/stems/products/atlas-35-stem",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "st-raceface-turbine-r-35": {
+   "cat": "stem",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.raceface.com/collections/stems/products/turbine-r-35-stem",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "st-raceface-chester-318": {
+   "cat": "stem",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.raceface.com/collections/stems/products/chester-stem",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "st-canecreek-eesilk-cs-318": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-canecreek-eesilk-sl-318": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-canecreek-gxc-318": {
+   "cat": "stem",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://canecreek.com/products/gxc-stem",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "st-spank-split-318": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-raceface-grippler": {
+   "cat": "grips",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.raceface.com/collections/grips/products/grippler-grip",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "gr-raceface-getta-grip": {
+   "cat": "grips",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.raceface.com/collections/grips/products/getta-grip",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "gr-raceface-love-handle": {
+   "cat": "grips",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.raceface.com/collections/grips/products/love-handle-grip",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "gr-raceface-chester": {
+   "cat": "grips",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.raceface.com/collections/grips/products/chester-grip",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "gr-spank-spike-33": {
+   "cat": "grips",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://spank-ind.com/products/spike-grip-33",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "gr-spank-spike-30": {
+   "cat": "grips",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://spank-ind.com/products/spike-grip-30",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "gr-wolftooth-fatpaw-v2": {
+   "cat": "grips",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://wolftoothcomponents.com/products/fat-paw-grips-v2",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "gr-wolftooth-karv-v2": {
+   "cat": "grips",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://wolftoothcomponents.com/products/karv-grips-v2",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "gr-wolftooth-echo-lockon": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-wolftooth-fatpaw-lockon": {
+   "cat": "grips",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://wolftoothcomponents.com/products/fat-paw-lock-on-grips",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "gr-wolftooth-fatpaw-cam": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "pd-spank-oozy-reboot": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://spank-ind.com/collections/pedals/products/oozy-pedals",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-spank-spike-reboot": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://spank-ind.com/collections/pedals/products/spike-reboot-pedals",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-spank-spoon-90": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://spank-ind.com/collections/pedals/products/spoon_90_pedals",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-spank-spoon-100": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://spank-ind.com/collections/pedals/products/spoon-100-pedals",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-spank-spoon-110": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://spank-ind.com/collections/pedals/products/spoon-110-pedals",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-spank-spoon-dc": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://spank-ind.com/collections/pedals/products/spoon-dc-pedals",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-hope-union-rc": {
+   "cat": "pedal",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "pd-hope-union-tc": {
+   "cat": "pedal",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "pd-hope-union-gc": {
+   "cat": "pedal",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "pd-chromag-pilot": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://us.chromagbikes.com/products/pilot",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-chromag-pilot-ba": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://us.chromagbikes.com/products/pilot-ba",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-chromag-pressure": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://us.chromagbikes.com/products/pedals-pressure",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-chromag-contact": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://us.chromagbikes.com/products/pedals-contact",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "pd-chromag-synth": {
+   "cat": "pedal",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://us.chromagbikes.com/products/pedals-synth",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bk-magura-mt-trail-sl": {
+   "cat": "brake",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://magura.com/product/mt-trail-sl/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bk-magura-gustav-pro": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "bk-trickstuff-piccola-hd-titanium": {
+   "cat": "brake",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-galfer-wave-200-cl": {
+   "cat": "rotor",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://galfer.com/bike/products/brake-discs/page/2/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ro-galfer-wave-223-6b": {
+   "cat": "rotor",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://galfer.com/bike/products/brake-discs/page/2/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ro-galfer-wave-223-cl": {
+   "cat": "rotor",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://galfer.com/bike/products/brake-discs/page/2/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "sft-sram-nx-11": {
+   "cat": "shifter",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dr-sram-xx1-eagle-axs": {
+   "cat": "derailleur",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/rd-xx-1e-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dr-sram-s1000-transmission": {
+   "cat": "derailleur",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dr-sram-nx-11": {
+   "cat": "derailleur",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/rd-nx-1-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "dr-sram-gx-11": {
+   "cat": "derailleur",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/rd-gx-1-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ca-sram-xs1295": {
+   "cat": "cassette",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cs-xs-1295-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ca-sram-xs1297": {
+   "cat": "cassette",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cs-xs-1297-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ca-sram-pg1130-1142": {
+   "cat": "cassette",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ch-sram-xx-flattop": {
+   "cat": "chain",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cn-ttyp-xx-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ch-sram-x0-flattop": {
+   "cat": "chain",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cn-ttyp-x0-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ch-sram-nx-eagle": {
+   "cat": "chain",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cn-eagl-nx-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ch-sram-pc-1110": {
+   "cat": "chain",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/cn-1110-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "cr-shimano-cues-u8000-1x": {
+   "cat": "crankset",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cr-shimano-cues-u8000-2x": {
+   "cat": "crankset",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cr-shimano-cues-u6010-2x": {
+   "cat": "crankset",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cr-funn-ridge": {
+   "cat": "crankset",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://funnmtb.com/products/ridge",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "cr-shimano-zee-m640": {
+   "cat": "crankset",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "cr-shimano-zee-m645": {
+   "cat": "crankset",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "cr-sram-sx-eagle": {
+   "cat": "crankset",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fh-dtswiss-240-boost110": {
+   "cat": "fronthub",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.dtswiss.com/en/support/product-support?matnr=H240BDIXR28SA6481S",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fh-ethirteen-race-alloy-boost110": {
+   "cat": "fronthub",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-dtswiss-240-boost148-xd": {
+   "cat": "rearhub",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.dtswiss.com/en/support/product-support?matnr=H240TDDRR32SA7271S",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rh-dtswiss-240-boost148-ms": {
+   "cat": "rearhub",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.dtswiss.com/en/support/product-support?matnr=H240TDD2R32SA7273S",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rh-spank-hex-boost148-hg": {
+   "cat": "rearhub",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://spank-ind.com/products/spank-hex-j-type-rear-hub",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rh-ethirteen-race-alloy-boost148-xd": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-ethirteen-race-alloy-superboost157-xd": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rm-hope-fortus35-29": {
+   "cat": "rim",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_35_DATA_2019.pdf",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rm-hope-fortus35-275": {
+   "cat": "rim",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.hopetech.com/_repository/1/documents/FORTUS_35_DATA_2019.pdf",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rm-stans-archmk4-275": {
+   "cat": "rim",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://stans.com/collections/mk4-rims/products/arch-mk4-rim",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rm-stans-archmk4-29": {
+   "cat": "rim",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://stans.com/collections/mk4-rims/products/arch-mk4-rim",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rm-stans-flowmk4-275": {
+   "cat": "rim",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://stans.com/collections/mk4-rims/products/flow-mk4-rim",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rm-stans-flowmk4-29": {
+   "cat": "rim",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://stans.com/collections/mk4-rims/products/flow-mk4-rim",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-ethirteen-pf92-24mm": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.ethirteen.com/products/press-fit-bottom-brackets",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-canecreek-110-zs44-zs56": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://canecreek.com/products/110",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-canecreek-110-zs44-ec44": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://canecreek.com/products/110",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-canecreek-110-is42-is52": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://canecreek.com/products/110",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-canecreek-110-is41-is52": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://canecreek.com/products/110",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-chrisking-dropset-2-is42-is52": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://chrisking.com/products/dropset-2",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-chrisking-dropset-3-is41-is52": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://chrisking.com/products/dropset-3",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-whiteindustries-zs44-zs56": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.whiteind.com/product/zs44-zs56/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-whiteindustries-zs44-ec44": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.whiteind.com/product/zs44-ec44/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-whiteindustries-ec34-ec44": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.whiteind.com/product/ec34-ec44/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-whiteindustries-is41-is52": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.whiteind.com/product/is41-is52/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "hs-whiteindustries-is42-is52": {
+   "cat": "headset",
+   "status": "Verified",
+   "updated": "2026-07-11T04:43:32.368Z",
+   "error": null,
+   "source": "https://www.whiteind.com/product/is42-is52/",
    "note": "auto-promoted: already verified in catalog"
   }
  }
