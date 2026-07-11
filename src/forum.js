@@ -38,7 +38,7 @@ function _forumUnwrap(res){
  */
 var FORUM_DEFAULT_CATEGORY = 'general';
 var FORUM_CATEGORIES = [
-  { key:'announcements',     label:'📣 Announcements',              desc:'Official TrailBuilder news, updates and release notes' },
+  { key:'announcements',     label:'📣 Announcements',              desc:'Official BuildMyMTB news, updates and release notes' },
   { key:'build-help',        label:'🧩 Build help & compatibility', desc:'Does X fit Y? Part choices and build advice' },
   { key:'bike-checks',       label:'🚵 Bike checks & builds',       desc:'Show off a finished build or share a build link for feedback' },
   { key:'suspension',        label:'🛠️ Suspension setup',           desc:'Sag, pressures, tokens, rebound — dialing in forks and shocks' },
