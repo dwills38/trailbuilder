@@ -57,6 +57,9 @@ conflicts can stringify byte-identically — REVIEW.md #4/#13).
 | 17 | Frame + shock bundling / OEM-only | `bundled-shock`, `package-only`, `oem-shock` | info / warning / error | **yes** — OEM frameless = info, OEM wrong-frame = error | L3836–3856 | `test-engine.js` "OEM shock cannot go on the wrong frame" (L228), "OEM shock with NO frame…info" (L231), "package-only frame…warning" (L235); `test-greying.js` L26–52 |
 | 18 | Rear tire vs FRAME clearance (optional `frame.maxTire`, warn) | `rear-tire-frame` | warning | n/a | L3858–3864 | `test-engine.js` "rear tire wider than frame max" (L288), "…within max" (L294), "…dormant when frame declares no maxTire" (L300), "…ACTIVE on sourced frames" (L305), REVIEW#16 (L319) |
 | 19 | Shifter mounting vs brake-lever integration (I-Spec/MatchMaker; dormant until tagged) | `shifter-mount` | warning | n/a | L3866–3888 | `test-engine.js` "I-Spec EV shifter + MatchMaker" (L151), "…+ I-Spec EV…silent" (L155), "one matching lever is enough" (L158), "…dormant when brakes untagged" (L168); `test-greying.js` L107 |
+| 20a | Headset steerer acceptance vs fork (`headset.steerer` vs `fork.steerer`, exact equality — rule-11 semantics on the headset side) | `headset-steerer` | error | n/a | L4708–4710 | `test-engine.js` "rule 20a: tapered headset + dual-crown (straight) fork -> steerer error" (L187), "rule 20a reverse direction: …straight-dc headset on a tapered fork" (L221) |
+| 20b | Headset cups vs frame head-tube S.H.I.S. **bore tokens** (`headset.upper`/`.lower` vs frame `headTubeUpper`/`headTubeLower`; dormant-until-sourced, live on the SHIS-carrying frames) | `headset-upper`, `headset-lower` | error | n/a | L4711–4714 | `test-engine.js` "rule 20b: IS-cup headset in a ZS head tube -> upper AND lower cup errors" (L190), "matching cups…clean" (L195), "is DORMANT on a frame without sourced head-tube data" (L198), "compares BORE tokens, not full codes" (L208) |
+| 20c | Pick-a-headset advisory once frame+fork are chosen (frames often ship one, so it only nudges — never blocks) | `headset-advisory` | info (never blocks) | n/a | L4715–4719 | `test-engine.js` "rule 20c: frame+fork with sourced head-tube data -> advisory names the cups" (L227), "…without head-tube data -> generic advisory, never a verdict" (L231), "rule 20 clean sweep…advisory suppressed" (L203) |
 
 **Cross-cutting / not rule-specific:**
 
@@ -117,7 +120,7 @@ gets enforced.
 ```
 ### Finding: <one-line summary, quote the mechanic if possible>
 
-- Dossier rule #:      <1–19 (incl. 3b/3c), or "gap: <name>", or "non-rule: <name>">
+- Dossier rule #:      <1–20 (incl. 3b/3c, 20a/20b/20c), or "gap: <name>", or "non-rule: <name>">
 - Mechanic verdict:    ✓ correct  /  ✗ wrong (false verdict)  /  ~ right idea, wrong
                        tier-or-wording-or-scope
 - What they say is wrong (if ✗ or ~):

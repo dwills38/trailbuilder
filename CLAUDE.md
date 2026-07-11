@@ -37,6 +37,14 @@ Entry points (`validate.js`, `index.html`) live at the root; tests run on Vitest
 | `test/test-greying.js` | The green/yellow/red/grey compatibility dots (yellow = fits, but adds a warning). |
 | `test/test-pricing.js` | Bundle (groupset) pricing + weight totals. |
 | `test/test-golden.js` | Whole real bikes that must validate clean; a known-bad build that must fail. |
+| `test/test-verdict-identity.js` | The verdict-identity contract: dots + dedup/diff key on `verdictKey` (ruleId+slots+msg), not raw message text (guards the REVIEW.md #4/#13 maskings). |
+| `test/test-verdict-audit.js` | Regression cases from the 2026-07-09 verdict audit (`tools/VERDICT-AUDIT-2026-07-09.md`) — real-part builds that must raise (or stay silent on) specific ruleIds. |
+| `test/test-random-builds.js` | `generateSampleBuild()` must emit a compatible, wheel-config-consistent build in every price band on every seed (property-based, not golden-pinned). |
+| `test/test-share.js` | The share-link sanitizer (`sanitizeShare()`, which `readHash()` uses) — bad/foreign slot ids are dropped, presets land in their own group. |
+| `test/test-ui.js` | App helpers the UI leans on: `esc()` HTML escaping + the build/preset provenance logic. |
+| `test/test-ids.js` | Id convention + `ALIASES`: brand-qualified, append-only, ≥3 tokens; retired ids resolve through `canonicalId()`. |
+| `test/test-drift-check.js` | The drift-check matching logic (pure, no network) — token generation + ok/changed/unfetchable/fetch-failed classification. |
+| `test/test-account-serialize.js` | Garage/account serialization: a saved build's payload round-trips through the same `sanitizeShare()` as share links (pure logic, no network). |
 | `package.json` | Scripts: `test` (Vitest), `test:watch`, `validate`, `typecheck`, `verify:status/next/report`. Dev-only deps: `vitest`, `typescript`, `@types/node`. |
 | `tools/verify-job.js` | **Resumable verification job runner** (state only, zero deps): queue/checkpoints for the part-verification grind. `init`, `status`, `next`, `start`, `complete`, `reset`, `retry`, `report`. Never reprocesses Verified parts without `--force`. |
 | `tools/VERIFY-PROTOCOL.md` | The **verification logic** (the bar, per-part loop, batching, skip policy) — kept separate from the runner so any AI model/session can resume the job with no code changes. **Read this before verifying parts.** |
@@ -127,14 +135,17 @@ picked cassette in its own words, drops a built-in-cassette info when cassette-l
 `slotRequired` exempts the cassette slot from completeness, hardtail-shock style); brake caliper mounts;
 rotor interface vs hub (direction-aware: Center-Lock rotor on a 6-bolt hub = error;
 6-bolt rotor on a Center-Lock hub = adapter warning carrying a structured `fix`); rotor size vs
-frame/fork max AND vs the fork's native-mount minimum (error; sourced forks only); steerer/headset;
+frame/fork max AND vs the fork's native-mount minimum (error; sourced forks only) AND vs the
+frame's native-mount minimum (rule 10b — error, live on the Cotic Solaris's sourced `minRotorR`;
+dormant elsewhere); steerer/headset;
 fork travel vs frame rated max AND sourced approved minimum (under-forking — live per-frame as
 `minForkTravel` is sourced) AND vs maker-stated design travel (rule 12c: warns >20 mm below
 `designForkTravel`, 20 mm grace for deliberate builds, suppressed when the 12b floor already
 fired; threshold flagged for the mechanic review); dropper diameter vs seat tube (direction-aware: too big = error,
 smaller = reducing-shim warning; ≥200 mm drop adds an insertion-depth info);
-tire width vs wheel clearance AND vs fork chassis clearance (dormant until forks carry `maxTire`);
-rear-tire width vs frame clearance (rule 18 — dormant until a frame declares `maxTire`);
+tire width vs wheel clearance AND vs fork chassis clearance (dormant until forks carry `maxTire`)
+AND too-narrow tire vs a wide rim (rule 14c — soft warning, live-dormant until a wheel declares a
+maker-published `minTire`); rear-tire width vs frame clearance (rule 18 — dormant until a frame declares `maxTire`);
 bar/stem clamp; rear-shock fit (eye-to-eye + mount + **direction-aware stroke**: longer stroke =
 error, shorter same-eye stroke = quantified less-travel warning; maker-stated coil approval —
 dormant until a frame declares `coilApproved:false`; hardtail guard: a shock on a
@@ -175,8 +186,11 @@ false "won't fit" OR a false "fits" is worse than a missing rule.** Candidates c
   to land actuation, T-Type chainring, minimum-rotor and shifter-clamp checks (its 5 Criticals);
   its Major findings (#6–#9: warning-blind dots, the SRAM-mullet catalog trap, direction-blind
   shock-stroke and dropper rules) were fixed 2026-07-07; its Minors remain the open backlog.
-- **Tire vs internal-rim-width range** (too-narrow tire on a wide rim): real, but the thresholds
-  are fuzzy/standards-dependent — needs sourcing; would be a soft warning.
+- **Tire vs internal-rim-width range** (too-narrow tire on a wide rim): ✅ **added as rule 14c
+  (`front-tire-rim-min`/`rear-tire-rim-min`), a soft warning, live-dormant** on the rule-18 template.
+  Because the thresholds are fuzzy/standards-dependent, it fires ONLY off a maker-published
+  `minTire` on a wheel (never an ETRTO-derived guess), so it stays dormant until such data is
+  sourced. `test/test-engine.js` proves it fires below a declared `minTire` and stays dormant without one.
 - **Oversize-rotor adapter** needed when a rotor exceeds the native mount: today rule 10 already
   *warns* on exceeding the max; an adapter *info* could be added. Low priority.
 - **Crankset chainline vs frame (Boost vs SuperBoost) — REJECTED for now.** Too nuanced: SuperBoost

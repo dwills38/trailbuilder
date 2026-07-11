@@ -46,8 +46,12 @@ hard-reject stands as-is.
 ### 2. Axles
 **Claims:** fork axle must match front hub (everything current is Boost 15×110); frame rear
 spacing must match rear hub (Boost 148 vs SuperBoost 157 mismatch = error).
-**Tier:** error. **Note:** the front check can't currently fire (every catalog part is
-Boost 110) — it's pinned by synthetic tests for the day the vocabulary widens.
+**Tier:** error. **Note (updated 2026-07):** the front-axle vocabulary has since widened —
+real DH forks (`20x110`, `20x110-nonboost`) and `20x110` front hubs are now in the catalog and
+build silently as matched pairs, so the front check is no longer dead. Its *mismatch/error* case
+is still exercised only by a synthetic test override (no real-part error-case test yet — a
+dual-crown DH fork on a Boost trail wheel is a nonsensical build; whether to add one is an open
+question flagged to the coordinator).
 **Ask:** SuperBoost frame + Boost rear wheel = error with no adapter path — correct?
 **Review verdict (2026-07-10): ✓ CONFIRMED — the error tier stands, no change.** Verdict
 received via Douglas with the adapter-kit evidence in hand: the pre-research pass surfaced
@@ -142,9 +146,11 @@ warning there would have been FALSE. 8 sourced starter rows (SRAM DUB BSA 73/83 
 p3 spindles (e*13 sourcing pending), 24/30 mm in DH shells, BSA68/PF865/T47.
 
 ### 8. Brake caliper mounts
-**Claims:** caliper mount must match fork/frame mount. Currently every part is post-mount,
-so the check can't fire (pinned synthetically). **Post-mount SIZE (PM160/180/200 native) is
-NOT modeled** — the protection comes from rule 10's min/max rotor checks instead.
+**Claims:** caliper mount must match fork/frame mount. **Update (2026-07):** flat-mount (`FM`)
+calipers are now in the catalog (`bk-shimano-xtr-m9110-fm` and siblings), so the front half is
+live — `front-brake-mount` fires on a real FM-caliper-on-PM-fork build, pinned by a real-part
+error test in `test-verdict-audit.js` (was previously only a synthetic pin). **Post-mount SIZE
+(PM160/180/200 native) is NOT modeled** — the protection comes from rule 10's min/max rotor checks instead.
 **Ask:** is delegating PM-size protection to rotor min/max sufficient, or does it leak?
 **Review verdict (2026-07-10): ✓ CONFIRMED ("this is good") — no change.** Verdict via Douglas.
 
@@ -177,8 +183,12 @@ should be an error/incompatible"** (Douglas) — exactly the current tiers; no c
 reviewer's accompanying fork-travel directive is recorded under rule 12.)
 
 ### 11. Steerer / headset
-**Claims:** fork steerer must match frame (everything current is tapered 1.5–1.125;
-check pinned synthetically). **Ask:** anything worth modeling before 1.8" steerers arrive?
+**Claims:** fork steerer must match frame. **Update (2026-07):** real dual-crown `straight-dc`
+forks (Fox 40, the BoXXers, the Öhlins DH38s) and `straight-dc` DH frames (Commencal Supreme DH
+V5, Transition TR11, Santa Cruz V10) are now in the catalog, so the check is live on real parts —
+both the matched (silent) and the mismatched (error) cases are covered, including a real-part
+error test (`test-verdict-audit.js`: real tapered ZEB on the real straight-dc Supreme DH →
+`steerer` error). **Ask:** anything worth modeling before 1.8" steerers arrive?
 **Review verdict (2026-07-10): ✓ CONFIRMED — nothing to model before 1.8" arrives** (widen
 the vocab when it does). Verdict received via Douglas.
 
