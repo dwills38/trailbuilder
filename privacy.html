@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!-- DRAFT — owner to review; have a lawyer glance before relying on it. -->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — BuildMyMTB</title>
+<meta name="description" content="How BuildMyMTB handles your data: what is collected, the third-party processors used (Supabase, GitHub), and how to delete your account. No analytics or ad tracking." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://buildmymtb.com/privacy.html" />
+<style>
+  :root{
+    --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
+    --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
+  }
+  html.dark{
+    color-scheme:dark;
+    --ink:#e6ebe7; --ink-soft:#a8b3ab; --line:#3a423d; --bg:#161a18;
+    --card:#1f2522; --brand:#1f6f4a; --brand-d:#123f2b; --accent:#e0703c;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.55}
+  a{color:var(--brand);font-weight:600}
+  html.dark a{color:#6fcf97}
+  /* Header mirrors the app: sticky green gradient bar */
+  header{background:linear-gradient(135deg,var(--brand-d),var(--brand));color:#fff;padding:10px 24px;position:sticky;top:0;z-index:40}
+  header .wrap{max-width:820px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  header a.home{color:#fff;text-decoration:none;font-size:19px;font-weight:700;white-space:nowrap}
+  header nav{display:flex;gap:6px;flex-wrap:wrap}
+  header nav a{color:#fff;text-decoration:none;font-size:12.5px;font-weight:600;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.14);padding:6px 11px;border-radius:999px;white-space:nowrap}
+  header nav a:hover{background:rgba(255,255,255,.26)}
+  header nav a[aria-current=page]{background:#fff;color:var(--brand-d);border-color:#fff}
+  main{max-width:820px;margin:0 auto;padding:26px 24px 40px}
+  h1{font-size:26px;margin:6px 0 4px;line-height:1.2}
+  h2{font-size:18px;margin:30px 0 8px;padding-top:16px;border-top:1px solid var(--line)}
+  h3{font-size:15px;margin:18px 0 6px}
+  p,li{font-size:15px}
+  .updated{color:var(--ink-soft);font-size:13px;margin:0 0 4px}
+  .lead{font-size:16px;color:var(--ink-soft);margin:12px 0 0}
+  ul{padding-left:20px;margin:8px 0}
+  li{margin:6px 0}
+  code{background:var(--card);border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-size:13px}
+  .callout{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--brand);border-radius:9px;padding:12px 15px;margin:18px 0}
+  .callout p{margin:6px 0}
+  .callout p:first-child{margin-top:0}
+  .callout p:last-child{margin-bottom:0}
+  footer{max-width:820px;margin:0 auto;padding:22px 24px 60px;color:var(--ink-soft);font-size:12.5px;border-top:1px solid var(--line)}
+  footer a{color:var(--ink-soft);text-decoration:underline;font-weight:600}
+  footer a:hover{color:var(--brand)}
+  footer .legal-links{margin:0 0 8px}
+  @media (max-width:520px){ h1{font-size:22px} main{padding:20px 18px 40px} }
+</style>
+<script>
+/* Mirror the app's persisted theme: same localStorage key ('tb-theme'), same
+   first-visit OS fallback, applied before first paint so there is no flash. */
+(function(){
+  var t=null; try{ t=localStorage.getItem('tb-theme'); }catch(e){}
+  if(t==='dark' || (t===null && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches))
+    document.documentElement.classList.add('dark');
+})();
+</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="home" href="index.html">🚵 BuildMyMTB</a>
+    <nav aria-label="Legal pages">
+      <a href="privacy.html" aria-current="page">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: July 11, 2026</p>
+  <p class="lead">This policy explains what BuildMyMTB does — and does not — do with your
+  information. It is written to match how the site actually works, not from a generic template.</p>
+
+  <p>BuildMyMTB (the &ldquo;Site&rdquo;, &ldquo;we&rdquo;, &ldquo;us&rdquo;) is a free tool for
+  picking mountain-bike parts and checking whether they fit together, with a running price and
+  weight. It is operated by <strong>[[LEGAL ENTITY — update after LLC]]</strong> (currently Douglas
+  Wills, operating as a sole proprietor). You can reach us at <strong>[[CONTACT EMAIL]]</strong>.</p>
+
+  <div class="callout">
+    <p><strong>The short version.</strong> You can use the whole Site without an account, and if you
+    do, nothing about you is sent to us. We do <strong>not</strong> use any analytics, advertising, or
+    cross-site tracking. The only data we store about you is what you actively create <em>if</em> you
+    choose to sign in — your login email, the builds you save, your parts inventory, and anything you
+    post in the forum. You can delete it at any time.</p>
+  </div>
+
+  <h2>1. Using the Site without an account</h2>
+  <p>The build checker runs entirely in your browser from a built-in catalog. If you never sign in:</p>
+  <ul>
+    <li>No account is created and no personal information is sent to us.</li>
+    <li>Your in-progress build lives only in your browser. A <strong>share link</strong> encodes the
+    build inside the URL itself (client-side) — it is not saved on any server of ours. Anyone you send
+    that link to can open the same build.</li>
+    <li>We store two small <strong>functional</strong> preferences in your browser&rsquo;s local
+    storage so the Site remembers how you like it: <code>tb-theme</code> (light or dark mode) and
+    <code>tb-view</code> (card or list layout). These never leave your device and are not used to
+    identify or track you.</li>
+  </ul>
+
+  <h2>2. If you create an account (optional)</h2>
+  <p>Accounts are optional and exist so you can save builds and track the parts you own. Sign-in is
+  handled by <strong>Supabase</strong> (our authentication and database provider) using either:</p>
+  <ul>
+    <li>a one-time &ldquo;magic link&rdquo; sent to your <strong>email address</strong>, or</li>
+    <li><strong>Sign in with GitHub</strong>, in which case GitHub shares your basic profile and email
+    with our authentication provider so an account can be created.</li>
+  </ul>
+  <p>When you have an account, we store:</p>
+  <ul>
+    <li><strong>Your email address</strong> — used to identify your account and send the sign-in link.</li>
+    <li><strong>Saved builds (&ldquo;Garage&rdquo;)</strong> — the parts in a build, plus a name and a
+    status you set.</li>
+    <li><strong>Your parts inventory (&ldquo;Inventory&rdquo;)</strong> — the catalog parts you mark as
+    owned, and a quantity.</li>
+    <li><strong>Forum posts</strong> — any threads or replies you write (see below).</li>
+  </ul>
+  <p>Every one of these rows is tied to your account and is protected by database
+  <strong>Row-Level Security</strong>, so only you can read or change your builds and inventory. Your
+  account identifier is never sent from your browser — the database assigns it from your logged-in
+  session.</p>
+
+  <h2>3. The community forum</h2>
+  <p>If the forum is enabled, threads and replies you post are stored by Supabase and tied to your
+  account. <strong>Forum posts are public</strong> — anyone visiting the Site, signed in or not, can
+  read them, so please don&rsquo;t include anything private in a post. Only you (via your logged-in
+  session) can edit or delete your own posts.</p>
+
+  <h2>4. Reporting a wrong result or a bug</h2>
+  <p>If you use the &ldquo;report a wrong verdict&rdquo; feature, you can either copy the report to your
+  own clipboard, or open a <strong>GitHub</strong> issue. Choosing the GitHub option takes you to
+  GitHub, where the report (the build details and any notes you add) becomes part of a public issue on
+  our repository. What is submitted is shown to you first, and GitHub&rsquo;s own privacy terms apply
+  once you are on their site.</p>
+
+  <h2>5. Analytics, cookies and tracking</h2>
+  <p>We deliberately built the Site to be privacy-friendly:</p>
+  <ul>
+    <li><strong>No third-party analytics</strong> (no Google Analytics, no Plausible, no Segment, or
+    anything similar).</li>
+    <li><strong>No advertising or cross-site tracking</strong>, no tracking pixels, and no data brokers.</li>
+    <li><strong>No tracking cookies.</strong> The Site does not set cookies to follow you. Sign-in uses
+    functional browser storage to keep you logged in on your device; the theme and layout preferences
+    above are the only other storage we use.</li>
+  </ul>
+  <p>Because the only storage we use is functional (needed to make the Site work as you asked), no
+  cookie-consent banner is required. As with any website, our hosting provider (see below) processes
+  standard technical request data — such as your IP address — in its server logs to deliver the pages
+  and guard against abuse; we do not build profiles from this.</p>
+
+  <h2>6. Third-party processors</h2>
+  <p>We keep the moving parts to a minimum. The services that may process your data are:</p>
+  <ul>
+    <li><strong>Supabase</strong> (Supabase, Inc.) — authentication and the database that stores your
+    account email, saved builds, inventory, and forum posts.
+    See <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase&rsquo;s privacy policy</a>.</li>
+    <li><strong>GitHub</strong> (GitHub, Inc., a Microsoft company) — hosts the Site via GitHub Pages
+    (and, as host, processes standard request logs); receives any bug report you choose to file as an
+    issue; and provides the optional &ldquo;Sign in with GitHub&rdquo; option.
+    See <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub&rsquo;s privacy statement</a>.</li>
+  </ul>
+  <p>We do not sell your data, and we do not share it for advertising. These services are based in the
+  United States, so if you use the Site from elsewhere your data may be processed there.</p>
+
+  <h2>7. Retailer and affiliate links</h2>
+  <p>Some parts link out to retailers, and some of those are affiliate links. When you click one you
+  leave BuildMyMTB and go to the retailer&rsquo;s own site, which has its own privacy practices and may
+  set its own cookies. See our <a href="affiliate-disclosure.html">Affiliate Disclosure</a> for how
+  this works and why it never affects the compatibility results.</p>
+
+  <h2>8. How long we keep data, and your rights</h2>
+  <p>We keep your account data until you delete it or ask us to. You can:</p>
+  <ul>
+    <li><strong>Delete individual builds and inventory items</strong> yourself, in the app.</li>
+    <li><strong>Delete or edit your own forum posts</strong> yourself.</li>
+    <li><strong>Delete your whole account and everything tied to it</strong> — email us at
+    <strong>[[CONTACT EMAIL]]</strong> and we&rsquo;ll remove it.</li>
+    <li><strong>Ask what we hold about you, or ask for a copy</strong> — email the same address.</li>
+  </ul>
+  <p>Depending on where you live, you may have additional rights (such as access, correction, deletion,
+  or objection) under laws like the GDPR or the CCPA. We&rsquo;ll honor those requests; just contact us.</p>
+
+  <h2>9. Children</h2>
+  <p>The Site is not directed to children under 13, and we do not knowingly collect information from
+  them. If you believe a child has created an account, contact us and we will delete it.</p>
+
+  <h2>10. Security</h2>
+  <p>Account data is owner-scoped at the database level by Row-Level Security, and sign-in uses a modern
+  authentication flow. No method of transmission or storage is ever 100% secure, so we can&rsquo;t
+  guarantee absolute security, but we keep the surface area small on purpose.</p>
+
+  <h2>11. Changes to this policy</h2>
+  <p>If we change how we handle data, we&rsquo;ll update this page and change the &ldquo;last
+  updated&rdquo; date above. Material changes will be made clear on the Site.</p>
+
+  <h2>12. Contact</h2>
+  <p>Questions about privacy? Email <strong>[[CONTACT EMAIL]]</strong>
+  (<strong>[[LEGAL ENTITY — update after LLC]]</strong>).</p>
+</main>
+
+<footer>
+  <p class="legal-links">
+    <a href="privacy.html">Privacy</a> &middot;
+    <a href="terms.html">Terms</a> &middot;
+    <a href="affiliate-disclosure.html">Affiliate Disclosure</a> &middot;
+    <a href="index.html">Back to the app</a>
+  </p>
+  <p>&copy; 2026 BuildMyMTB. BuildMyMTB is an independent project and is not affiliated with or endorsed
+  by any of the component manufacturers named in its catalog.</p>
+</footer>
+</body>
+</html>

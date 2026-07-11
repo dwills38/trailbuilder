@@ -51,6 +51,10 @@ jobs:
           cp index.html _site/
           cp -r src _site/
           cp CNAME _site/   # custom domain (buildmymtb.com) — Pages drops it if absent from the artifact
+          # Root legal pages — same trap as CNAME: not served unless staged explicitly.
+          cp privacy.html _site/
+          cp terms.html _site/
+          cp affiliate-disclosure.html _site/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

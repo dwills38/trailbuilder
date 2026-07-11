@@ -229,6 +229,10 @@
   .issue.i{background:#eef1f4;color:#41505c}
   .issue .mk{font-weight:800;flex:none}
   footer{max-width:1200px;margin:0 auto;padding:0 24px 50px;color:var(--ink-soft);font-size:12.5px}
+  /* Legal links row — unobtrusive, sits under the "About this prototype" note */
+  .footer-legal{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+  .footer-legal a{color:var(--ink-soft);text-decoration:underline;font-weight:600}
+  .footer-legal a:hover{color:var(--brand)}
   .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:10px;font-size:13px;opacity:0;transition:opacity .25s;pointer-events:none}
   .toast.show{opacity:1}
 
@@ -327,6 +331,10 @@
   .pm-retailers{display:flex;flex-direction:column;gap:6px}
   .pm-retailer-link{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:9px;padding:8px 12px;font-size:12.5px;font-weight:600;color:var(--brand);text-decoration:none}
   .pm-retailer-link:hover{border-color:var(--brand)}
+  /* FTC "clear and conspicuous, near the links" affiliate disclosure — sits directly
+     above the retailer links whenever a part has any. Kept legible (not tiny grey print). */
+  .pm-affiliate-note{font-size:12px;color:var(--ink-soft);margin:0 0 2px;line-height:1.4}
+  .pm-affiliate-note a{color:var(--brand);font-weight:600}
 
   /* build comparison */
   dialog#compareModal{max-width:640px}
@@ -719,6 +727,11 @@
   lives in <code>src/compat.js</code>; run <code>node validate.js</code> to check the data and <code>npm test</code> for
   the suite. <b>Mullet</b> (29 front / 27.5 rear) builds work on mullet-capable frames — try the <b>Mullet build</b> demo
   or pick a 27.5 rear wheel + tire on the YT Capra.</p>
+  <p class="footer-legal">
+    <a href="privacy.html">Privacy</a> &middot;
+    <a href="terms.html">Terms</a> &middot;
+    <a href="affiliate-disclosure.html">Affiliate Disclosure</a>
+  </p>
 </footer>
 
 <!-- Mobile sticky build bar (≤880px only): verdict + totals mirror, tap = jump to panel -->
@@ -1720,9 +1733,12 @@
       ? '<img class="pm-photo" src="'+esc(p.image)+'" alt="'+esc(p.brand+' '+p.model)+'" loading="lazy">'
       : '<div class="pm-placeholder">'+placeholderIcon(CAT_GROUP[p.cat])+'<div>Product photo not licensed yet — placeholder illustration</div></div>';
     $('pmRetailers').innerHTML = (p.retailerLinks && p.retailerLinks.length)
-      ? p.retailerLinks.map(function(r){
-          return '<a class="pm-retailer-link" href="'+esc(r.url)+'" target="_blank" rel="noopener noreferrer nofollow" aria-label="'+esc(r.label)+' (opens in a new tab)">'+esc(r.label)+' <span aria-hidden="true">↗</span></a>';
-        }).join('')
+      // FTC clear-and-conspicuous disclosure, rendered right above the links whenever
+      // a part has any. rel="sponsored" flags these as paid/affiliate links.
+      ? '<p class="pm-affiliate-note">BuildMyMTB may earn a commission on purchases via these links, at no extra cost to you. <a href="affiliate-disclosure.html" target="_blank" rel="noopener">Details</a>.</p>'
+        + p.retailerLinks.map(function(r){
+            return '<a class="pm-retailer-link" href="'+esc(r.url)+'" target="_blank" rel="sponsored nofollow noopener noreferrer" aria-label="'+esc(r.label)+' (opens in a new tab)">'+esc(r.label)+' <span aria-hidden="true">↗</span></a>';
+          }).join('')
       : '<div class="pm-placeholder">🔗 Retailer links — coming as more parts get one</div>';
     $('partModal').showModal();
   }
