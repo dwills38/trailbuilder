@@ -608,7 +608,7 @@
           <button class="btn" id="demoDH">DH build ⛰️</button>
           <button class="btn" id="demoTrail">Trail build 🌲</button>
           <button class="btn" id="demoXC">XC build 🐇</button>
-            <div class="rail-hint">Each loads a complete build — your current picks are replaced.</div>
+            <div class="rail-hint">🎲 Each click rolls a fresh random build in that style — always complete, always conflict-free. Your current picks are replaced.</div>
           </div>
         </details>
         <button class="btn danger" id="reset" title="Clear every picked part and start over">↺ Reset build</button>
@@ -2649,36 +2649,86 @@
   }
   function toast(msg){ var t=$('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(function(){t.classList.remove('show');},2200); }
 
-  /* ---- demos ---- */
-  // Three price tiers, each a fully compatible build (0 errors/warnings) using real
-  // catalog prices and, where one exists, real bundle pricing. Picked and verified via
-  // checkBuild()/buildTotals() in a throwaway node script, not hand-guessed. Each
-  // mirrors a golden-pinned build in test/test-golden.js (BUDGET / MID / HIGHEND), so
-  // "0 conflicts" is enforced by the suite — a data correction can't silently stale
-  // them (as the fork's 2026-07-10 20x110 axle correction did to the budget build).
-  function loadBudget(){
-    build={ frame:'fr-raaw-madonna-v32',fork:'fk-rockshox-domain-rc-29-170',shock:'sh-rockshox-super-deluxe-205x65-trun',frontWheel:'fw-dtswiss-ex-1700-29',rearWheel:'rw-dtswiss-ex-1700-29',
-      frontTire:'ti-kenda-hellkat-29-24-aec-dl',rearTire:'ti-kenda-hellkat-29-24-aec-dl',shifter:'sft-sram-gx-eagle',derailleur:'dr-sram-gx-eagle',cassette:'ca-sram-xg1275',chain:'ch-sram-gx-eagle',crankset:'cr-sram-gx-eagle',
-      frontBrake:'bk-shimano-xt-m8120',rearBrake:'bk-shimano-xt-m8120',frontRotor:'ro-shimano-rtmt800-203-cl',rearRotor:'ro-shimano-rtmt800-203-cl',
-      handlebar:'hb-pnw-range-318',stem:'st-pnw-range-318',grips:'gr-pnw-loam',dropper:'dp-ethirteen-vario-infinite-316-180',saddle:'sa-dmr-oioi',pedals:'pd-oneup-composite' };
-    presetBy={ drivetrain:'gs-sram-gx-eagle', wheels:'ws-dtswiss-ex-1700-29', brakes:'bs-shimano-xt-m8120', cockpit:'co-pnw-range' };
-    sync(); toast('Budget build loaded — ~$6.1k, still fully compatible');
+  /* ---- sample builds ----
+     The seven theme buttons GENERATE a fresh random build on every click
+     (generateSampleBuild in compat.js), instead of loading a fixed one. The
+     generator guarantees the build is complete per slotRequired and has ZERO
+     checkBuild errors, so these stay honest showcases of the checker. loadBad
+     (Show clashes) is the ONE deliberate exception — a fixed, intentionally-
+     broken build (below).
+
+     If a theme genuinely can't roll a fresh build within its attempt budget,
+     we fall back to a pinned fixed build for that theme (SAMPLE_FALLBACK) and
+     say so. Those pinned builds are the ones test/test-golden.js keeps proving
+     compatible (BUDGET/MID/HIGHEND + the DH/TRAIL/XC/MULLET goldens), so a data
+     correction can't silently stale them. */
+  var THEME_LABEL = { budget:'Budget', mid:'Mid-range', high:'High-end', mullet:'Mullet', dh:'DH', trail:'Trail', xc:'XC' };
+  var SAMPLE_FALLBACK = {
+    budget: { build:{ frame:'fr-raaw-madonna-v32',fork:'fk-rockshox-domain-rc-29-170',shock:'sh-rockshox-super-deluxe-205x65-trun',frontWheel:'fw-dtswiss-ex-1700-29',rearWheel:'rw-dtswiss-ex-1700-29',
+        frontTire:'ti-kenda-hellkat-29-24-aec-dl',rearTire:'ti-kenda-hellkat-29-24-aec-dl',shifter:'sft-sram-gx-eagle',derailleur:'dr-sram-gx-eagle',cassette:'ca-sram-xg1275',chain:'ch-sram-gx-eagle',crankset:'cr-sram-gx-eagle',
+        frontBrake:'bk-shimano-xt-m8120',rearBrake:'bk-shimano-xt-m8120',frontRotor:'ro-shimano-rtmt800-203-cl',rearRotor:'ro-shimano-rtmt800-203-cl',
+        handlebar:'hb-pnw-range-318',stem:'st-pnw-range-318',grips:'gr-pnw-loam',dropper:'dp-ethirteen-vario-infinite-316-180',saddle:'sa-dmr-oioi',pedals:'pd-oneup-composite' },
+      presetBy:{ drivetrain:'gs-sram-gx-eagle', wheels:'ws-dtswiss-ex-1700-29', brakes:'bs-shimano-xt-m8120', cockpit:'co-pnw-range' } },
+    mid: { build:{ frame:'fr-santacruz-megatower-cc',fork:'fk-rockshox-zeb-ultimate-29-170',shock:'sh-rockshox-super-deluxe-ultimate-230x62p5',frontWheel:'fw-reserve-30-hd-29',rearWheel:'rw-reserve-30-hd-29',
+        frontTire:'ti-maxxis-assegai-29-25-exop-mg',rearTire:'ti-maxxis-assegai-29-25-exop-mg',shifter:'sft-sram-gx-eagle',derailleur:'dr-sram-gx-eagle',cassette:'ca-sram-xg1275',chain:'ch-sram-gx-eagle',crankset:'cr-sram-gx-eagle',
+        frontBrake:'bk-sram-code-rsc',rearBrake:'bk-sram-code-rsc',frontRotor:'ro-sram-hs2-200-6b',rearRotor:'ro-sram-hs2-200-6b',
+        handlebar:'hb-renthal-fatbar-35',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',dropper:'dp-oneup-v3-316-210',saddle:'sa-wtb-volt',pedals:'pd-oneup-aluminum' },
+      presetBy:{ drivetrain:'gs-sram-gx-eagle', wheels:'ws-reserve-30-hd-29', brakes:'bs-sram-code-rsc', cockpit:'co-renthal-fatbar-apex' } },
+    high: { build:{ frame:'fr-yeti-sb160',fork:'fk-ext-era-v2-29-170',shock:'sh-push-elevensix-230x65',frontWheel:'fw-reserve-30-hd-29',rearWheel:'rw-reserve-30-hd-29',
+        frontTire:'ti-schwalbe-magic-mary-29-24-sg-as',rearTire:'ti-schwalbe-magic-mary-29-24-sg-as',shifter:'sft-sram-xx-sl-transmission',derailleur:'dr-sram-xx-transmission',cassette:'ca-sram-xs1299',chain:'ch-sram-gx-flattop',crankset:'cr-sram-xx-sl-transmission',
+        frontBrake:'bk-trickstuff-maxima',rearBrake:'bk-trickstuff-maxima',frontRotor:'ro-trickstuff-dachle-203-6b',rearRotor:'ro-trickstuff-dachle-203-6b',
+        handlebar:'hb-oneup-carbon-35',stem:'st-oneup-stem-35',grips:'gr-oneup-lockon',dropper:'dp-bikeyoke-revive-316-185',saddle:'sa-fizik-terra-aidon-x3',pedals:'pd-time-speciale-12-large' },
+      presetBy:{ cockpit:'co-oneup-carbon' } },
+    dh: { build:{ frame:'fr-commencal-supreme-dh-v5',fork:'fk-rockshox-boxxer-ultimate-29-200',shock:'sh-rockshox-vivid-ultimate-dh-250x75',frontWheel:'fw-dtswiss-fr-1500-29',rearWheel:'rw-dtswiss-fr-1500-29-157',
+        frontTire:'ti-maxxis-assegai-29-25-dh-mg',rearTire:'ti-maxxis-assegai-29-25-dh-mg',shifter:'sft-sram-x01-dh',derailleur:'dr-sram-x01-dh',cassette:'ca-sram-xg795',chain:'ch-sram-pc-xx1',crankset:'cr-sram-x01-dh',
+        frontBrake:'bk-sram-maven-ultimate',rearBrake:'bk-sram-maven-ultimate',frontRotor:'ro-sram-hs2-220-6b',rearRotor:'ro-sram-hs2-220-6b',
+        handlebar:'hb-renthal-fatbar-35',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',saddle:'sa-wtb-volt',pedals:'pd-oneup-composite' },
+      presetBy:{ wheels:'ws-dtswiss-fr-1500-29-157' } },
+    trail: { build:{ frame:'fr-specialized-stumpjumper-15',fork:'fk-fox-36-factory-29-160',shock:'sh-rockshox-super-deluxe-ultimate-210x55',frontWheel:'fw-raceface-turbine-sl-29',rearWheel:'rw-raceface-turbine-sl-29',
+        frontTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt',rearTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt',shifter:'sft-sram-gx-eagle',derailleur:'dr-sram-gx-eagle',cassette:'ca-sram-xg1275',chain:'ch-sram-gx-eagle',crankset:'cr-sram-gx-eagle',
+        frontBrake:'bk-shimano-xt-m8120',rearBrake:'bk-shimano-xt-m8120',frontRotor:'ro-sram-hs2-200-6b',rearRotor:'ro-sram-hs2-200-6b',
+        handlebar:'hb-renthal-fatbar-35',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',dropper:'dp-fox-transfer-factory-349-180',saddle:'sa-wtb-volt',pedals:'pd-oneup-composite' },
+      presetBy:{ drivetrain:'gs-sram-gx-eagle' } },
+    xc: { build:{ frame:'fr-canyon-lux-world-cup-cf',fork:'fk-rockshox-sid-ultimate-29-120',shock:'sh-rockshox-sidluxe-ultimate-210x50',frontWheel:'fw-crankbrothers-synthesis-xct11-29',rearWheel:'rw-crankbrothers-synthesis-xct11-29-ms',
+        frontTire:'ti-schwalbe-racing-ray-29-235-sr-as',rearTire:'ti-schwalbe-racing-ralph-29-235-sr-as',shifter:'sft-shimano-xtr-m9100',derailleur:'dr-shimano-xtr-m9100-sgs',cassette:'ca-shimano-xtr-m9100-1051',chain:'ch-shimano-xtr-m9100',crankset:'cr-shimano-xtr-m9100',
+        frontBrake:'bk-shimano-xtr-m9120',rearBrake:'bk-shimano-xtr-m9110-fm',frontRotor:'ro-sram-hs2-180-6b',rearRotor:'ro-sram-centerline-160-6b',
+        handlebar:'hb-oneup-carbon-35',stem:'st-oneup-stem-35',grips:'gr-oneup-lockon',dropper:'dp-fox-transfer-factory-309-180',saddle:'sa-wtb-volt',pedals:'pd-crankbrothers-mallet-enduro' },
+      presetBy:{ drivetrain:'gs-shimano-xtr-m9100', wheels:'ws-crankbrothers-synthesis-xct11-29-ms', cockpit:'co-oneup-carbon' } },
+    mullet: { build:{ frame:'fr-yt-capra-core4',fork:'fk-rockshox-zeb-ultimate-29-170',shock:'sh-rockshox-super-deluxe-ultimate-230x65',frontWheel:'fw-reserve-30-hd-29',rearWheel:'rw-dtswiss-e-1900-275',
+        frontTire:'ti-maxxis-assegai-29-25-exop-mg',rearTire:'ti-maxxis-minion-dhr-ii-275-24-exop-mt',shifter:'sft-shimano-xt-m8100',derailleur:'dr-shimano-xt-m8100-sgs',cassette:'ca-shimano-xt-m8100-1051',chain:'ch-shimano-xt-m8100',crankset:'cr-shimano-xt-m8100',
+        frontBrake:'bk-shimano-xt-m8120',rearBrake:'bk-shimano-xt-m8120',frontRotor:'ro-hayes-dseries-203-6b',rearRotor:'ro-shimano-rtmt800-203-cl',
+        handlebar:'hb-renthal-fatbar-35',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',dropper:'dp-oneup-v3-316-210',saddle:'sa-wtb-volt',pedals:'pd-raceface-chester' },
+      presetBy:{} }
+  };
+  // Load a build map wholesale (the bulk-load path): assign build/presetBy and
+  // sync(). This deliberately does NOT go through setSlot(), so the guided flow
+  // never cascades on a sample load — the immunity is structural (setSlot is the
+  // only place guidedAdvance fires).
+  function applyBuild(b, p){
+    build = {}; presetBy = {};
+    Object.keys(b).forEach(function(k){ build[k]=b[k]; });
+    Object.keys(p||{}).forEach(function(k){ presetBy[k]=p[k]; });
+    sync();
   }
-  function loadMid(){
-    build={ frame:'fr-santacruz-megatower-cc',fork:'fk-rockshox-zeb-ultimate-29-170',shock:'sh-rockshox-super-deluxe-ultimate-230x62p5',frontWheel:'fw-reserve-30-hd-29',rearWheel:'rw-reserve-30-hd-29',
-      frontTire:'ti-maxxis-assegai-29-25-exop-mg',rearTire:'ti-maxxis-assegai-29-25-exop-mg',shifter:'sft-sram-gx-eagle',derailleur:'dr-sram-gx-eagle',cassette:'ca-sram-xg1275',chain:'ch-sram-gx-eagle',crankset:'cr-sram-gx-eagle',
-      frontBrake:'bk-sram-code-rsc',rearBrake:'bk-sram-code-rsc',frontRotor:'ro-sram-hs2-200-6b',rearRotor:'ro-sram-hs2-200-6b',
-      handlebar:'hb-renthal-fatbar-35',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',dropper:'dp-oneup-v3-316-210',saddle:'sa-wtb-volt',pedals:'pd-oneup-aluminum' };
-    presetBy={ drivetrain:'gs-sram-gx-eagle', wheels:'ws-reserve-30-hd-29', brakes:'bs-sram-code-rsc', cockpit:'co-renthal-fatbar-apex' };
-    sync(); toast('Mid-range build loaded — ~$9.2k, kit pricing on');
-  }
-  function loadHighEnd(){
-    build={ frame:'fr-yeti-sb160',fork:'fk-ext-era-v2-29-170',shock:'sh-push-elevensix-230x65',frontWheel:'fw-reserve-30-hd-29',rearWheel:'rw-reserve-30-hd-29',
-      frontTire:'ti-schwalbe-magic-mary-29-24-sg-as',rearTire:'ti-schwalbe-magic-mary-29-24-sg-as',shifter:'sft-sram-xx-sl-transmission',derailleur:'dr-sram-xx-transmission',cassette:'ca-sram-xs1299',chain:'ch-sram-gx-flattop',crankset:'cr-sram-xx-sl-transmission',
-      frontBrake:'bk-trickstuff-maxima',rearBrake:'bk-trickstuff-maxima',frontRotor:'ro-trickstuff-dachle-203-6b',rearRotor:'ro-trickstuff-dachle-203-6b',
-      handlebar:'hb-oneup-carbon-35',stem:'st-oneup-stem-35',grips:'gr-oneup-lockon',dropper:'dp-bikeyoke-revive-316-185',saddle:'sa-fizik-terra-aidon-x3',pedals:'pd-time-speciale-12-large' };
-    presetBy={ cockpit:'co-oneup-carbon' };
-    sync(); toast('High-end build loaded — ~$15.4k, wireless Transmission');
+  function loadSample(themeKey){
+    var g = generateSampleBuild(themeKey, Math.random);
+    if(g.ok){
+      applyBuild(g.build, g.presetBy);
+      var frame = byId(g.frameId);
+      var t = buildTotals(resolved(), presetBy);
+      var priceStr = '~$' + (t.price/1000).toFixed(1) + 'k';
+      var mulletNote = themeKey==='mullet' ? ' · 29 front / 27.5 rear' : '';
+      // honest about verdicts — never claim "all compatible"; mirror the app's
+      // "No conflicts found" wording and surface any warnings the roll landed.
+      var verdictNote = g.warnings
+        ? (' · ⚠ ' + g.warnings + ' thing' + (g.warnings>1?'s':'') + ' to check')
+        : ' · no conflicts found';
+      toast('🎲 ' + THEME_LABEL[themeKey] + ' build: ' + (frame ? frame.brand + ' ' + frame.model : '') + ' · ' + priceStr + mulletNote + verdictNote);
+    } else {
+      var fb = SAMPLE_FALLBACK[themeKey];
+      applyBuild(fb.build, fb.presetBy);
+      toast('🎲 Couldn’t roll a fresh ' + THEME_LABEL[themeKey] + ' build just now — loaded the pinned one instead.');
+    }
   }
   function loadBad(){
     build={ frame:'fr-specialized-enduro-sworks',fork:'fk-rockshox-zeb-ultimate-275-170',shock:'sh-rockshox-super-deluxe-205x65-trun',frontWheel:'fw-industrynine-enduro-s-29',rearWheel:'rw-industrynine-enduro-s-29',
@@ -2687,41 +2737,6 @@
       handlebar:'hb-pnw-range-318',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',dropper:'dp-pnw-loam-309-175',saddle:'sa-wtb-volt',pedals:'pd-crankbrothers-stamp-7-large' };
     presetBy={};
     sync(); toast('Loaded a build full of clashes');
-  }
-  // Per-discipline demos (2026-07-08, pass 4). Each mirrors a golden-pinned build
-  // in test/test-golden.js (DH_BUILD / TRAIL_BUILD / the XC pair), so "0 conflicts"
-  // is enforced by the suite, not hand-checked here.
-  function loadDH(){
-    build={ frame:'fr-commencal-supreme-dh-v5',fork:'fk-rockshox-boxxer-ultimate-29-200',shock:'sh-rockshox-vivid-ultimate-dh-250x75',frontWheel:'fw-dtswiss-fr-1500-29',rearWheel:'rw-dtswiss-fr-1500-29-157',
-      frontTire:'ti-maxxis-assegai-29-25-dh-mg',rearTire:'ti-maxxis-assegai-29-25-dh-mg',shifter:'sft-sram-x01-dh',derailleur:'dr-sram-x01-dh',cassette:'ca-sram-xg795',chain:'ch-sram-pc-xx1',crankset:'cr-sram-x01-dh',
-      frontBrake:'bk-sram-maven-ultimate',rearBrake:'bk-sram-maven-ultimate',frontRotor:'ro-sram-hs2-220-6b',rearRotor:'ro-sram-hs2-220-6b',
-      handlebar:'hb-renthal-fatbar-35',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',saddle:'sa-wtb-volt',pedals:'pd-oneup-composite' };
-    presetBy={ wheels:'ws-dtswiss-fr-1500-29-157' };
-    sync(); toast('DH race build — ~$9.0k, dual-crown + 7-speed, no dropper needed');
-  }
-  function loadTrail(){
-    build={ frame:'fr-specialized-stumpjumper-15',fork:'fk-fox-36-factory-29-160',shock:'sh-rockshox-super-deluxe-ultimate-210x55',frontWheel:'fw-raceface-turbine-sl-29',rearWheel:'rw-raceface-turbine-sl-29',
-      frontTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt',rearTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt',shifter:'sft-sram-gx-eagle',derailleur:'dr-sram-gx-eagle',cassette:'ca-sram-xg1275',chain:'ch-sram-gx-eagle',crankset:'cr-sram-gx-eagle',
-      frontBrake:'bk-shimano-xt-m8120',rearBrake:'bk-shimano-xt-m8120',frontRotor:'ro-sram-hs2-200-6b',rearRotor:'ro-sram-hs2-200-6b',
-      handlebar:'hb-renthal-fatbar-35',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',dropper:'dp-fox-transfer-factory-349-180',saddle:'sa-wtb-volt',pedals:'pd-oneup-composite' };
-    presetBy={ drivetrain:'gs-sram-gx-eagle' };
-    sync(); toast('Trail build — ~$7.4k, Stumpjumper 15 with GX kit pricing');
-  }
-  function loadXC(){
-    build={ frame:'fr-canyon-lux-world-cup-cf',fork:'fk-rockshox-sid-ultimate-29-120',shock:'sh-rockshox-sidluxe-ultimate-210x50',frontWheel:'fw-crankbrothers-synthesis-xct11-29',rearWheel:'rw-crankbrothers-synthesis-xct11-29-ms',
-      frontTire:'ti-schwalbe-racing-ray-29-235-sr-as',rearTire:'ti-schwalbe-racing-ralph-29-235-sr-as',shifter:'sft-shimano-xtr-m9100',derailleur:'dr-shimano-xtr-m9100-sgs',cassette:'ca-shimano-xtr-m9100-1051',chain:'ch-shimano-xtr-m9100',crankset:'cr-shimano-xtr-m9100',
-      frontBrake:'bk-shimano-xtr-m9120',rearBrake:'bk-shimano-xtr-m9110-fm',frontRotor:'ro-sram-hs2-180-6b',rearRotor:'ro-sram-centerline-160-6b',
-      handlebar:'hb-oneup-carbon-35',stem:'st-oneup-stem-35',grips:'gr-oneup-lockon',dropper:'dp-fox-transfer-factory-309-180',saddle:'sa-wtb-volt',pedals:'pd-crankbrothers-mallet-enduro' };
-    presetBy={ drivetrain:'gs-shimano-xtr-m9100', wheels:'ws-crankbrothers-synthesis-xct11-29-ms', cockpit:'co-oneup-carbon' };
-    sync(); toast('XC race build — ~$9.8k / 10.6 kg, XTR kit pricing on the XCT 11s');
-  }
-  function loadMullet(){
-    build={ frame:'fr-yt-capra-core4',fork:'fk-rockshox-zeb-ultimate-29-170',shock:'sh-rockshox-super-deluxe-ultimate-230x65',frontWheel:'fw-reserve-30-hd-29',rearWheel:'rw-dtswiss-e-1900-275',
-      frontTire:'ti-maxxis-assegai-29-25-exop-mg',rearTire:'ti-maxxis-minion-dhr-ii-275-24-exop-mt',shifter:'sft-shimano-xt-m8100',derailleur:'dr-shimano-xt-m8100-sgs',cassette:'ca-shimano-xt-m8100-1051',chain:'ch-shimano-xt-m8100',crankset:'cr-shimano-xt-m8100',
-      frontBrake:'bk-shimano-xt-m8120',rearBrake:'bk-shimano-xt-m8120',frontRotor:'ro-hayes-dseries-203-6b',rearRotor:'ro-shimano-rtmt800-203-cl',
-      handlebar:'hb-renthal-fatbar-35',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',dropper:'dp-oneup-v3-316-210',saddle:'sa-wtb-volt',pedals:'pd-raceface-chester' };
-    presetBy={};
-    sync(); toast('Mullet build: 29 front / 27.5 rear on the YT Capra');
   }
 
   $('search').addEventListener('input', function(e){ search=e.target.value; renderCatalog(); });
@@ -2782,8 +2797,16 @@
   // The head script may have applied the saved/OS theme pre-paint — sync the
   // button state to match.
   if(document.documentElement.classList.contains('dark')) setDark(true);
-  $('demoBudget').onclick=loadBudget; $('demoMid').onclick=loadMid; $('demoHighEnd').onclick=loadHighEnd; $('demoMullet').onclick=loadMullet; $('demoBad').onclick=loadBad;
-  $('demoDH').onclick=loadDH; $('demoTrail').onclick=loadTrail; $('demoXC').onclick=loadXC;
+  // Every theme button rolls a FRESH random build on each click (loadSample).
+  // demoBad is the one deliberate fixed, broken build (Show clashes).
+  $('demoBudget').onclick=function(){ loadSample('budget'); };
+  $('demoMid').onclick=function(){ loadSample('mid'); };
+  $('demoHighEnd').onclick=function(){ loadSample('high'); };
+  $('demoMullet').onclick=function(){ loadSample('mullet'); };
+  $('demoDH').onclick=function(){ loadSample('dh'); };
+  $('demoTrail').onclick=function(){ loadSample('trail'); };
+  $('demoXC').onclick=function(){ loadSample('xc'); };
+  $('demoBad').onclick=loadBad;
   $('reset').onclick=function(){ build={}; presetBy={}; sync(); toast('Build cleared'); };
   $('share').onclick=function(){ writeHash(); var url=location.href;
     if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(
