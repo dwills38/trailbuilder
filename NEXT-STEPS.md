@@ -149,6 +149,19 @@ Deliberately deferred, documented in REVIEW.md's status header: the real inserti
 
 Nothing left on this list — every Phase 1 item shipped and is live.
 
+### 2026-07-11 MORNING — Douglas's 5 calls all executed (main 2010 parts, CI+Deploy green)
+
+1. **UI wave SHIPPED + live-verified** on dwills38.github.io/trailbuilder: always-visible rail (☰ toggle
+   killed), inch-mark wheel labels, toolbar Reset (red), 8 category sub-filters (fork travel / shock
+   stroke+spring Coil-Air / dropper dia+drop / bar dia / BB threaded-pressfit / drivetrain elec-mech),
+   DH-first disciplines. 2. **All 8 master-list frames MERGED** (the 3 held vitalmtb-sourced ones added
+   per Douglas). 3. **Groupset cleanup CHIPPED** (`groupset-preset-cleanup`: Eagle-90 promote / relabel
+   the 11 / fix SLX+CUES cross-brand cranks — presents for review, relabel wording staged for eyeball).
+   4. **Night shift ARCHIVED + replaced by `NIGHT GRIND v3`** chip (self-merge grind: frame expansion
+   from FRAME-EXPANSION-GAPS.md + verify tail + groupset component prices). 5. **4 wrapped sessions
+   ARCHIVED** (manufacturer-data, LLC, frames-fill, night shift); merged branches + worktrees swept.
+   Deliverables sent overnight: LLC playbook, domain shortlist, manufacturer-data playbook + email drafts.
+
 ### Overnight run 2026-07-11 (Douglas asleep ~01:00→07:00; coordinator autonomous)
 
 Douglas's mandate: grind parts (additions + verification) efficiently until ~7am as long as results are
