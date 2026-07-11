@@ -36,6 +36,11 @@ Wrong verdict > missing part, both directions. Specs exist only on FETCHED maker
 2. **Domain cutover** when Douglas buys (checklist in §1/NEXT-STEPS).
 3. **Follow-up queue:** LG1r duplicate ex-HG row-pairs → ALIASES consolidation (4 pairs, same physical SKU post-correction); headTube vocab gaps a sourced page mentioned (ZS49 upper, ZS62 lower, IS41 lower — widen only when a sourced headset needs them); **preset wave prerequisites** (5 items from the pilot: all-fills-verified validator rule, lint-vs-real-MSRP semantics, kitExtras convention, preset provenance in VERIFY-PROTOCOL, fix `co-oneup-aluminum`'s synthesized price) — do NOT mass-grind presets (honest yield 2/133); `bb-ethirteen-pf92-p3` pending; document the r.jina.ai-proxy + archived-handbook routes in `tools/VERIFY-PROTOCOL.md`.
 4. **Verification tail** (~528 unverified, job 85% processed): mostly wall-limited (Specialized/Trek 403s, no frame-only weights). Don't manufacture wall-hitting busywork.
+5. **REMIND DOUGLAS — three settings on HIS side he asked to be reminded of** (2026-07-11; raise these early in your first exchange):
+   - **Chrome extension site access** (claude.ai / extension settings): the account-level domain policy blocks the in-browser agent on nearly every bike-brand site — loosening per-site permissions would open the JS-walled makers (Trek, Specialized, Norco, Pivot, Giant) to browser-based verification, potentially hundreds of currently-unverifiable rows. Re-test with claude-in-chrome after he changes it (last confirmed blocked 2026-07-08).
+   - **Default model picker → Sonnet**: chips inherit the picker at click time; a Sonnet default means a mis-click never silently burns Fable. He switches up deliberately only for the coordinator seat.
+   - **Cloud/remote agent availability** (claude.ai plan/feature settings): recent chips attempt `isolation:'remote'` with local fallback — if his plan enables remote environments, overnight fleets gain width at zero local RAM.
+   (The fourth recommendation — the permission allowlist — is DONE: `.claude/settings.json` is committed with 30 read-only allow entries, so every session worktree inherits it; git merge/push and other mutating commands still classifier-gate by design.)
 
 ## 5. Source & fetch map (delta on top of tools/VERIFY-PROTOCOL.md)
 
