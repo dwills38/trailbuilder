@@ -402,6 +402,25 @@ test('package-only frame + a different (but fitting) shock -> warning, not error
 test('over-travel fork (180 on a 170-rated frame) -> warning', function(){
   some(chk({frame:'fr-canyon-strive-cfr', fork:'fk-fox-38-factory-29-180'}).warnings, 'Fork travel');
 });
+/* Issue #2: RAAW's own Madonna V2.2 page approves a 180mm fork - "The option of
+   180mm travel up front will also fit the Madonna V2.2 like a dream" (fetched
+   raawmtb.com/en-us/pages/madonna-v2-2), with geometry "based around a 170mm
+   travel fork" (-> designForkTravel 170, 10mm under the 180 fork, inside 12c's
+   20mm grace). So a Fox 38 180 is maker-approved and must trip NO fork-travel
+   verdict. Pins maxForkTravel:180 against a regression to the pre-2026-07-10
+   value of 170, which produced the reporter's false "exceeds the frame's rated
+   max of 170mm" warning. */
+test('180mm fork on the RAAW Madonna V2.2 is maker-approved (the 180 boundary) -> no fork-travel verdict (issue #2)', function(){
+  var r = chk({frame:'fr-raaw-madonna-v22', fork:'fk-fox-38-factory-29-180'});
+  var forkVerdicts = r.errors.concat(r.warnings).filter(function(v){ var s = String(v);
+    return s.indexOf('Fork travel')>=0 || s.indexOf('Under-forked')>=0 || s.indexOf('designed around')>=0; });
+  eq(forkVerdicts.length, 0, 'a maker-approved 180 fork on the V2.2 must raise no fork-travel error or warning');
+  // The boundary is live, not disabled: a fork OVER RAAW's 180 max still warns
+  // (the V2.2 publishes no min -> the softer warning tier, per rule 12).
+  var bld = B({frame:'fr-raaw-madonna-v22'});
+  bld.fork = /** @type {any} */ (Object.assign({}, part('fk-fox-38-factory-29-180'), {travel:190}));
+  some(C.checkBuild(bld).warnings, 'Fork travel', '190mm (over RAAW\'s 180 max) must still warn');
+});
 
 /* Dormant sourced-data rules (REVIEW.md #14/#21/#22) - no catalog part carries
    the fields yet, so each is driven synthetically (the rule-18 template) and
