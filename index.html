@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TrailBuilder — MTB build & compatibility checker</title>
-<meta name="description" content="Pick enduro mountain bike parts and see, in real time, whether they fit together — plus running price and weight. A free prototype build checker." />
+<title>BuildMyMTB — MTB build & compatibility checker</title>
+<meta name="description" content="Pick mountain bike parts and see, in real time, whether they fit together — plus running price and weight. A free prototype build checker." />
 
 <!-- Social preview (Open Graph + Twitter Card) — no image tag: the catalog has no
      licensed site-level image yet (see CLAUDE.md Provenance/roadmap), and an og:image
      pointing nowhere is worse than none. Add one here once image licensing lands. -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="TrailBuilder — MTB build & compatibility checker" />
-<meta property="og:description" content="Pick enduro mountain bike parts and see, in real time, whether they fit together — plus running price and weight." />
+<meta property="og:title" content="BuildMyMTB — MTB build & compatibility checker" />
+<meta property="og:description" content="Pick mountain bike parts and see, in real time, whether they fit together — plus running price and weight." />
 <meta property="og:url" content="https://buildmymtb.com/" />
-<meta property="og:site_name" content="TrailBuilder" />
+<meta property="og:site_name" content="BuildMyMTB" />
 <link rel="canonical" href="https://buildmymtb.com/" />
 
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="TrailBuilder — MTB build & compatibility checker" />
-<meta name="twitter:description" content="Pick enduro mountain bike parts and see, in real time, whether they fit together — plus running price and weight." />
+<meta name="twitter:title" content="BuildMyMTB — MTB build & compatibility checker" />
+<meta name="twitter:description" content="Pick mountain bike parts and see, in real time, whether they fit together — plus running price and weight." />
 <style>
   :root{
     --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
@@ -530,7 +530,7 @@
 <body>
 <header>
   <div class="wrap">
-    <h1>🚵 TrailBuilder</h1>
+    <h1>🚵 BuildMyMTB</h1>
     <input type="search" id="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" aria-label="Search parts by brand or model" />
     <button class="btn primary" id="share" title="Copy a link that restores this exact build">Share<span class="hdr-long"> / save link</span></button>
         <!-- Community. When the built-in forum is live (FORUM_ENABLED), this is an
@@ -538,8 +538,8 @@
              Discussions link (FORUM_URL, derived from REPORT_REPO) it will replace.
              Hidden if neither is available, same feature-gate pattern as reportGithub. -->
         <a class="btn" id="communityLink" target="_blank" rel="noopener"
-           title="Ask questions & share builds — TrailBuilder Discussions"
-           aria-label="Community — ask questions & share builds on TrailBuilder Discussions (opens in a new tab)" hidden>💬<span class="hdr-long"> Community</span></a>
+           title="Ask questions & share builds — BuildMyMTB Discussions"
+           aria-label="Community — ask questions & share builds on BuildMyMTB Discussions (opens in a new tab)" hidden>💬<span class="hdr-long"> Community</span></a>
         <button type="button" class="btn" id="forumNavBtn"
           title="Bug reports, build questions, feature requests" hidden>💬<span class="hdr-long"> Community</span></button>
         <!-- Account control (Phase 3). Hidden entirely until Supabase config is set
@@ -564,7 +564,7 @@
 <!-- The honesty badge keeps its own always-visible strip: the compact header has
      no room, and the sample-data disclaimer must never hide or demote. Community
      and account controls live in the header. -->
-<div class="honesty-strip"><span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span> Browse enduro parts, click to add, and it checks fit, price and weight as you build.</div>
+<div class="honesty-strip"><span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span> Browse bike parts, click to add, and it checks fit, price and weight as you build.</div>
 
 <main>
   <div class="toolbar">
@@ -669,10 +669,10 @@
        as the inventory page above: toggled by the header 💬 Community button,
        builder view hidden by CSS while it's active. Read-only for logged-out
        visitors; posting requires sign-in. -->
-  <section id="forumPage" aria-label="TrailBuilder Discussions">
+  <section id="forumPage" aria-label="BuildMyMTB Discussions">
     <div class="invpage-head">
       <button type="button" class="btn" id="forumBack">← Back to builder</button>
-      <h2>💬 TrailBuilder Discussions</h2>
+      <h2>💬 BuildMyMTB Discussions</h2>
       <button type="button" class="btn primary" id="forumNewThread" hidden>＋ New thread</button>
     </div>
     <p class="invpage-sub" id="forumSignInHint" hidden>Read-only right now —
@@ -840,7 +840,7 @@
 
 <dialog id="authModal" aria-labelledby="authTitle" role="dialog" aria-modal="true">
   <div class="rm-head">
-    <h2 id="authTitle">Log in to TrailBuilder</h2>
+    <h2 id="authTitle">Log in to BuildMyMTB</h2>
     <p>Save builds to your garage and track the parts you own. We only store your builds and inventory — nothing else.</p>
   </div>
   <div class="rm-body">
@@ -1088,6 +1088,16 @@
   var SUBCHIP_META = {};   // flat lookup: chip key -> {key,label,match}
   Object.keys(SUBCHIP_SPLIT).forEach(function(cat){ SUBCHIP_SPLIT[cat].forEach(function(e){ SUBCHIP_META[e.key]=e; }); });
   var subChipLabel = function(key){ return SUBCHIP_META[key] ? SUBCHIP_META[key].label : catLabel(key); };
+  /* The card/list "kind" tag above a product name. For a preset category that
+     SPLITS (SUBCHIP_SPLIT), show the matching facet label ("Groupset · Full" /
+     "Groupset · Assembled") so a row reads the SAME split its sub-filter chip
+     does - one source of truth, they can't drift. Everything else is the plain
+     category label. */
+  var kindLabel = function(p){
+    var split = SUBCHIP_SPLIT[p.cat];
+    if(split){ for(var i=0;i<split.length;i++){ if(split[i].match(p)) return split[i].label; } }
+    return catLabel(p.cat);
+  };
   function subCatsOf(groupKey){
     if(groupKey==='all') return [];
     var g = groupByKey[groupKey]; if(!g) return [];
@@ -1320,7 +1330,7 @@
     card.innerHTML =
       '<span class="dot '+compat.state+'" role="img" aria-label="Compatibility: '+esc(compat.reason)+'" title="'+esc(compat.reason)+'"></span>'+
       '<div class="pcard-head">'+thumbHtml+
-        '<div class="pcard-headtext"><div class="kind">'+catLabel(p.cat)+'</div>'+
+        '<div class="pcard-headtext"><div class="kind">'+kindLabel(p)+'</div>'+
         // .name is a <button> — the keyboard-reachable way to open the detail modal
         // (a sibling of the pick buttons below, not nested inside one — ARIA
         // disallows focusable descendants of a role=button container).
@@ -1595,7 +1605,7 @@
     lines.push('Reproduce (opens this exact build):');
     lines.push('   '+location.href);
     lines.push('');
-    lines.push('— Reported from TrailBuilder prototype, '+new Date().toISOString().slice(0,10));
+    lines.push('— Reported from BuildMyMTB prototype, '+new Date().toISOString().slice(0,10));
     return lines.join('\n');
   }
   function refreshReportPreview(){ $('reportPreview').textContent = buildReportText($('reportKind').value, $('reportNotes').value); }
@@ -1637,7 +1647,7 @@
   }
   function buildSummaryText(){
     var res=resolved(), r=checkBuild(res), t=buildTotals(res, presetBy), lines=[];
-    lines.push('TrailBuilder complete build — '+(r.errors.length? (r.errors.length+' problem(s)') : r.warnings.length? (r.warnings.length+' thing(s) to check') : 'no conflicts found'));
+    lines.push('BuildMyMTB complete build — '+(r.errors.length? (r.errors.length+' problem(s)') : r.warnings.length? (r.warnings.length+' thing(s) to check') : 'no conflicts found'));
     GROUPS.forEach(function(g){
       var bundle=(g.preset && bundleActive(g,res,presetBy)) ? byId(presetBy[g.key]) : null;
       if(bundle) lines.push(g.label+' — '+bundle.brand+' '+bundle.model+' kit, '+money(bundle.price));
@@ -1758,7 +1768,7 @@
   function runCompare(){
     var parsed = parseShareLink($('cmpInput').value);
     if(!parsed){
-      $('cmpError').textContent = 'Could not read a build from that — paste a full TrailBuilder share link (or just its #b=… part).';
+      $('cmpError').textContent = 'Could not read a build from that — paste a full BuildMyMTB share link (or just its #b=… part).';
       $('cmpError').hidden = false; $('cmpResult').innerHTML=''; return;
     }
     $('cmpError').hidden = true;
@@ -1839,8 +1849,8 @@
       + '<defs><linearGradient id="scHdr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16523a"/><stop offset="1" stop-color="#1f6f4a"/></linearGradient></defs>'
       + '<rect width="'+W+'" height="'+H+'" fill="#f6f7f4"/>'
       + '<rect width="'+W+'" height="96" fill="url(#scHdr)"/>'
-      + '<text x="40" y="44" font-size="26" font-weight="800" fill="#fff" font-family="system-ui,Arial,sans-serif">🚵 TrailBuilder</text>'
-      + '<text x="40" y="72" font-size="14" fill="rgba(255,255,255,.85)" font-family="system-ui,Arial,sans-serif">My enduro build — buildmymtb.com</text>'
+      + '<text x="40" y="44" font-size="26" font-weight="800" fill="#fff" font-family="system-ui,Arial,sans-serif">🚵 BuildMyMTB</text>'
+      + '<text x="40" y="72" font-size="14" fill="rgba(255,255,255,.85)" font-family="system-ui,Arial,sans-serif">My MTB build — buildmymtb.com</text>'
       + '<rect x="'+(W-280)+'" y="30" width="240" height="36" rx="18" fill="'+verdict.bg+'"/>'
       + '<text x="'+(W-160)+'" y="53" font-size="14" font-weight="800" fill="'+verdict.fg+'" text-anchor="middle" font-family="system-ui,Arial,sans-serif">'+esc(verdict.label)+'</text>'
       + rowsHtml
@@ -1870,7 +1880,7 @@
       canvas.toBlob(function(blob){
         if(!blob){ toast('Could not render the image in this browser.'); return; }
         var a = document.createElement('a');
-        a.href = URL.createObjectURL(blob); a.download = 'trailbuilder-build.png';
+        a.href = URL.createObjectURL(blob); a.download = 'buildmymtb-build.png';
         document.body.appendChild(a); a.click(); document.body.removeChild(a);
         toast('Spec-card image downloaded');
       });
@@ -2115,7 +2125,7 @@
      attached, so this can only distinguish "you" / "a member" / the system
      seed thread (author_id null), not show real names. */
   function forumAuthorLabel(authorId){
-    if(!authorId) return 'TrailBuilder team';
+    if(!authorId) return 'BuildMyMTB team';
     var u = (typeof currentUser==='function') ? currentUser() : null;
     if(u && u.id === authorId) return 'You';
     return 'Member';
