@@ -163,9 +163,21 @@ good data, easy UI, UNBIASED (brand-neutral, honest verdicts — "unfuckingbiase
   overnight): shipping the combined UI at :8192, archiving finished sessions, the groupset relabel/Eagle-90
   call. Honest limit: waking a stalled session / send_message both need his approval, so a stuck (not dry)
   night shift can only be flagged, not restarted, till morning — won't burn premium usage grinding on Opus.
-- `MANUFACTURER-DATA-PLAYBOOK` (chip out, Sonnet high): printable PDF on getting real product images +
-  data from manufacturers/affiliate feeds, WITH ready-to-send email drafts + a partner one-pager
-  auto-included; brand-neutral framing. Research/deliverable only.
+- `MANUFACTURER-DATA-PLAYBOOK` (DELIVERED — PDF + MANUFACTURER-DATA-PLAYBOOK.md + outreach-emails.md at
+  repo root; sent to Douglas): getting real product images + data from manufacturers/affiliate feeds,
+  with ready-to-send email drafts + partner one-pager; brand-neutral framing.
+
+**OVERNIGHT RESULTS (final state ~05:35, all worker sessions now idle):** catalog **1865 → 2007 parts**
+(night-shift r3 wave + 5 audited frames). Delivered + sent to Douglas: LLC playbook + checklist,
+domain shortlist, manufacturer-data playbook + email drafts. Generated at repo root:
+FRAME-MASTER-LIST-BY-DISCIPLINE.md (232) + FRAME-EXPANSION-GAPS.md (**192 missing vs catalog** — first-cut,
+slightly over-counts, needs a dedup-refine pass). Frames-fill: 5 merged / 3 held (provenance). CI green
+throughout; main = the latest coord push.
+**NIGHT SHIFT STALLED at 05:06** (branch stuck at 628ed6f, isRunning:false, 30-min stall alert fired) —
+could NOT be restarted overnight (send_message needs Douglas's approval). The queued groupset
+component-price task likely never started. **Morning: wake night shift (or re-chip the grind) + hand it
+FRAME-EXPANSION-GAPS.md as the next target.** Held archives (LLC, frames-fill, manufacturer-data, night
+shift) await Douglas's one-click.
 
 ### Morning update 2026-07-11 — MUST cover (Douglas will ask; he wants LLC playbook + all of it)
 
