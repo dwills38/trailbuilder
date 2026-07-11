@@ -1073,13 +1073,32 @@
   }
 
   /* ---- sub-category chips (shown when a group has >1 component type) ---- */
+  /* A preset category can SPLIT into >1 sub-chip by a derived facet instead of
+     showing one chip. Drivetrain: single-SKU "Groupset · Full" (one boxed part
+     number) vs "Groupset · Assembled" (the catalog assembles it from separately-
+     sold SKUs - the `assembled:true` presets). Each entry's `key` is the
+     activeSub value; `match(p)` is the catalog filter (mirrors the plain
+     `p.cat===activeSub` path). Add a cat here to split it; nothing else changes. */
+  var SUBCHIP_SPLIT = {
+    groupset: [
+      { key:'groupset-full',      label:'Groupset · Full',      match:function(p){ return p.cat==='groupset' && !p.assembled; } },
+      { key:'groupset-assembled', label:'Groupset · Assembled', match:function(p){ return p.cat==='groupset' && !!p.assembled; } }
+    ]
+  };
+  var SUBCHIP_META = {};   // flat lookup: chip key -> {key,label,match}
+  Object.keys(SUBCHIP_SPLIT).forEach(function(cat){ SUBCHIP_SPLIT[cat].forEach(function(e){ SUBCHIP_META[e.key]=e; }); });
+  var subChipLabel = function(key){ return SUBCHIP_META[key] ? SUBCHIP_META[key].label : catLabel(key); };
   function subCatsOf(groupKey){
     if(groupKey==='all') return [];
     var g = groupByKey[groupKey]; if(!g) return [];
     var cats = [];
-    if(g.preset) cats.push(g.preset.cat);   // the kit/preset first, right after "All <group>"
+    if(g.preset){                            // the kit/preset first, right after "All <group>"
+      var split = SUBCHIP_SPLIT[g.preset.cat];
+      if(split) split.forEach(function(e){ cats.push(e.key); });   // one chip per facet
+      else cats.push(g.preset.cat);
+    }
     g.slots.forEach(function(s){ if(cats.indexOf(s.cat)<0) cats.push(s.cat); });
-    return cats;   // preset (if any) + distinct component categories, in order
+    return cats;   // preset chip(s) (if any) + distinct component categories, in order
   }
   function renderSubChips(){
     var el = $('subchips'); el.innerHTML='';
@@ -1087,7 +1106,7 @@
     if(cats.length<2){ el.style.display='none'; return; }   // nothing worth sub-filtering
     el.style.display='';
     el.appendChild(mkSubChip('all','All '+groupByKey[activeGroup].label));
-    cats.forEach(function(c){ el.appendChild(mkSubChip(c, catLabel(c))); });
+    cats.forEach(function(c){ el.appendChild(mkSubChip(c, subChipLabel(c))); });
   }
   function mkSubChip(key,label){
     var d=document.createElement('button');
@@ -1243,7 +1262,8 @@
     var q=search.trim().toLowerCase();
     var list=PARTS.filter(function(p){
       if(activeGroup!=='all'){ if(groupCats(groupByKey[activeGroup]).indexOf(p.cat)<0) return false; }
-      if(activeGroup!=='all' && activeSub!=='all' && p.cat!==activeSub) return false;
+      if(activeGroup!=='all' && activeSub!=='all'){ var subM=SUBCHIP_META[activeSub];
+        if(subM){ if(!subM.match(p)) return false; } else if(p.cat!==activeSub) return false; }
       if(q && (p.brand+' '+p.model+' '+catLabel(p.cat)).toLowerCase().indexOf(q)<0) return false;
       if(verifiedOnly && !partVerified(p)) return false;
       if(ownedOnly && !ownedIds[canonicalId(p.id)]) return false;

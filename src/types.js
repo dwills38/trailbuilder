@@ -141,7 +141,7 @@
 /** @typedef {CommonFields & {cat: 'dropper', diameter: number, drop: number}} DropperPart */
 /** @typedef {CommonFields & {cat: 'saddle'}} SaddlePart */
 /** @typedef {CommonFields & {cat: 'pedal', style: PedalStyle}} PedalPart */
-/** @typedef {CommonFields & {cat: 'groupset', fills: Object.<string, string>}} GroupsetPart */
+/** @typedef {CommonFields & {cat: 'groupset', fills: Object.<string, string>, assembled?: boolean}} GroupsetPart */
 /** @typedef {CommonFields & {cat: 'wheelset', fills: Object.<string, string>}} WheelsetPart */
 /** @typedef {CommonFields & {cat: 'brakeset', fills: Object.<string, string>}} BrakesetPart */
 /** @typedef {CommonFields & {cat: 'cockpitset', fills: Object.<string, string>}} CockpitsetPart */
