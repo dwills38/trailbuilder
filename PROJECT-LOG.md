@@ -124,6 +124,22 @@ per wave/decision; large reconstructions are handed to a worker session.
   per-user Storage object quota) is optional/non-blocking. Migration `supabase/forum-profiles-rich2.sql`
   (9 columns + CHECKs + the `avatars` bucket + Storage policies) — **Douglas runs** (schema+Storage
   tier). Branched off current main (no stale base). Four gates green.
+- **Catalog-expansion sourcing policy CLARIFIED (Douglas).** 8 expansion chips launched (frames,
+  forks, shocks, wheels, tires, drivetrain, brakes+rotors, finishing-kit) had been briefed with a
+  stricter-than-normal bar: omit a product entirely to a GAPS list if its interface fields couldn't
+  be confirmed via a LIVE manufacturer fetch. Douglas: "if a product exists and the specs aren't
+  available, I want it included... not verified blank or marked estimated." Clarified via
+  AskUserQuestion — he picked the safe, already-precedented option: interface fields sourced from
+  ANY credible real source (retailer listing, geometry chart, review article), not just a live
+  fetch; entered as ordinary unverified/sample data (no `verified:true`, no fake `source`) — the
+  SAME state ~1480 of 2016 existing parts are already in. Never a fabricated/invented number with
+  zero basis; `verified:true` still requires the real fetched-source bar. GAPS list now means
+  "genuinely no plausible real-world spec found anywhere," not "wasn't manufacturer-fetched."
+  Policy relayed via send_message to all 8 running sessions. **Root cause:** this exact policy was
+  ALREADY set 2026-07-11 (memory `catalog-unverified-inclusion-policy`), but the repo docs still
+  stated the strict rule, so the briefs regressed. Fixed for good this time — patched
+  `tools/DATA-ENTRY-TEMPLATE.md` with the verified-vs-unverified-breadth distinction so future briefs
+  default correct (VERIFY-PROTOCOL's fetched-only rules are correctly about earning `verified:true`).
 - **UPDATE — 📚 Buyer's Guides section shipped (`c6cbdbc`).** Chip built a full-page Guides section
   (new `src/guides.js` + index.html) with **10** accurate, brand-neutral compatibility/buyer's guides
   (how-the-checker-works, fork travel, mullet, Boost/SuperBoost, brakes/rotors, cassette/freehub,

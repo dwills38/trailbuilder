@@ -150,9 +150,19 @@ that exist; DATA-MODEL-REVIEW §5.2 lists the rest (they land through Phase
 
 - `verified:true` requires `source` (real URL) + `lastChecked` (not future) —
   validator-enforced.
-- **Only a FETCHED manufacturer page counts for interfaces. Search-result
-  summaries lie** — they've been wrong about shock sizes, seatpost diameters
-  and rotor maxes in this very catalog.
+- **Two tiers — don't conflate them (this trips people up and has caused briefs to wrongly omit
+  real products).**
+  - For **`verified:true`** (the green ✓): only a FETCHED manufacturer/authoritative page counts for
+    interfaces. Search-result summaries lie — they've been wrong about shock sizes, seatpost
+    diameters and rotor maxes in this very catalog.
+  - For **unverified / sample BREADTH**: you MAY enter a real product's interface fields from any
+    *credible* source (retailer listing, geometry/spec chart, review quoting the spec) and leave the
+    row unverified — **no `verified:true`, no `source`**. An honest unverified row (identical in kind
+    to most of the catalog) beats omitting a real product just because its maker page won't fetch.
+  - NEVER, either tier: a fabricated / zero-basis number, or an invented vocab value. **True-GAPS** =
+    no plausible real spec exists anywhere, OR the part needs a vocab value that doesn't exist.
+  - (Douglas's standing "relaxed inclusion" call — see the memory. VERIFY-PROTOCOL.md's fetched-only
+    rules are correctly about earning `verified:true`, not about whether a product may be entered.)
 - **Measured-weight policy (decided 2026-07):** a reputable third-party
   measured weight is accepted **for the weight only** — set
   `sourceType:'measured'` + `weightSource` URL (validator-enforced).
