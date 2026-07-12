@@ -209,7 +209,10 @@ test('a stored preset weight is caught (bundle weight is derived from fills)', f
   some(probs(over('gs-sram-gx-eagle', { weight:1670 })), 'derived');
 });
 test('a headTube value outside the SHIS vocab is caught', function(){
-  some(probs(over('fr-santacruz-megatower-cc', { headTubeUpper:'ZS49/28.6' })), 'headTube');
+  // ZS49/28.6 was widened into the vocab 2026-07-11 (expand/finishing-kit-headset-bb,
+  // a real Chris King InSet 5 + Cane Creek 40/110 SKU) - use a still-nonexistent
+  // code so this stays a true negative test.
+  some(probs(over('fr-santacruz-megatower-cc', { headTubeUpper:'ZS99/28.6' })), 'headTube');
 });
 test('the inert widened system values are accepted (LinkGlide cassette validates)', function(){
   var p = over('ca-sram-pg1230', { system:'shimano-linkglide', minCog:11 });

@@ -154,7 +154,7 @@ var VOCAB = {
      full-code match would false-red a real DH headset). ILLUSTRATIVE list,
      extend as sourced. Rule 11 keeps consuming the `headset` steerer-fit
      field, whose semantics stay pinned. */
-  headTube:     ['ZS44/28.6', 'ZS56/28.6', 'ZS56/40', 'IS41/28.6', 'IS42/28.6', 'IS52/40', 'EC34/28.6', 'EC44/40'],
+  headTube:     ['ZS44/28.6', 'ZS56/28.6', 'ZS56/40', 'IS41/28.6', 'IS42/28.6', 'IS52/40', 'EC34/28.6', 'EC44/40', 'ZS49/28.6', 'EC49/40'],   // ZS49/28.6 + EC49/40 added 2026-07-11 (expand/finishing-kit): fetched Chris King InSet 5 + Cane Creek 40/110, auditor-confirmed
   /* Tire SKU axes (DATA-MODEL-REVIEW section 3 item 5): brand-NATIVE names, not a
      cross-brand toughness tier. Maxxis values seeded first; Schwalbe /
      Specialized etc. get enumerated per brand when their batch starts - never
