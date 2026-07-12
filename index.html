@@ -1439,7 +1439,19 @@
       aria:'Filter by wheel size — only affects wheels & tires',
       values:function(){ return inOrder(distinctVals(function(p){ return !!p.wheel; }, function(p){ return p.wheel; }), ['29','275']); },
       label:function(v){ return WHEEL_SIZE_LABELS[v] || v; },
-      match:function(p,v){ return !p.wheel || p.wheel===v; } },
+      // A wheelset preset carries no top-level `wheel` field of its own (only its
+      // frontWheel/rearWheel fills do) - falling through to the generic !p.wheel
+      // pass-through made every wheelset preset ignore this filter entirely (a
+      // 29" pick showed 27.5" wheelsets and vice versa). Derive its size from
+      // the fills instead, same convention as actuationOf() for groupset presets.
+      match:function(p,v){
+        if(p.cat==='wheelset' && p.fills){
+          var fw=byId(p.fills.frontWheel), rw=byId(p.fills.rearWheel);
+          var sz=(fw&&fw.wheel)||(rw&&rw.wheel);
+          return !sz || sz===v;
+        }
+        return !p.wheel || p.wheel===v;
+      } },
     { id:'tireWidth', groups:['tire'], allLabel:'All widths',
       aria:'Filter tires by width',
       values:function(){ return distinctVals(byCat('tire'), function(p){ return p.width; }).sort(numAsc); },
@@ -1545,7 +1557,17 @@
     // count line above the catalog — set before the empty-state return so it
     // honestly reads "Showing 0 of N parts" when every part is filtered out
     $('catCount').textContent = 'Showing '+list.length+' of '+PARTS.length+' parts';
-    if(!list.length){ el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>'; return; }
+    if(!list.length){
+      // Wheelset presets are pre-built matched pairs — not every real axle combo
+      // (e.g. a DH fork's 20x110 front paired with a Boost148 rear frame) ships
+      // as one bundled SKU, even when the individual front/rear wheels do fit
+      // fine on their own. A bare "0 compatible" reads as a bug there, so point
+      // at the a-la-carte tabs instead of just suggesting the filter toggle.
+      var wheelsetEmptyHint = (compatibleOnly && activeSub==='wheelset')
+        ? 'No compatible pre-built wheelsets for this build — matched pairs aren’t cataloged for every axle combo. Try “Front Wheel” / “Rear Wheel” above to build the pair from individually-compatible wheels.'
+        : null;
+      el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':wheelsetEmptyHint?wheelsetEmptyHint:compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>'; return;
+    }
     var meta=list.map(function(p,i){ var c=compatFor(p); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='w'?1:c.state==='n'?2:3),pre:isPreset(p)?0:1,i:i}; });
     // "Best match" keeps the compatible-first order; explicit sorts are pure
     // (the dot still shows fit). Missing weights sink to the bottom either way.
