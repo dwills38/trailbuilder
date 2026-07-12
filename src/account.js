@@ -170,19 +170,70 @@ function hasRichProfiles(){
     .then(function(on){ if(!on){ _richProbe = null; } return on; });
   return _richProbe;
 }
-/* Owner-only update of the rich profile fields (bio/riding_style/location/avatar).
-   Only the whitelisted keys are ever sent; user_id/username/is_admin/verified_pro
-   are untouched here (username has its own upsert path, the flags are DB-pinned).
-   RLS scopes the update to the caller's own row, and profiles_guard still re-pins
-   the privileged flags on this update. Requires the rich columns to exist. */
+/* Feature-detect the RICH v2 columns (forum-profiles-rich2.sql: photo, tagline,
+   multi-discipline, home trails, current bike, experience, social handles).
+   Same probe-and-cache pattern as hasRichProfiles — a 1-row select of `tagline`.
+   Negative (column missing) re-probes so it self-heals once the owner runs the
+   migration; while negative the profile page shows only the v1 rich fields and
+   hides the v2 editors + the photo uploader. */
+var _rich2Probe = null;
+function hasRichProfiles2(){
+  if(!_sb) return Promise.resolve(false);
+  if(_rich2Probe) return _rich2Probe;
+  _rich2Probe = _sb.from('profiles').select('tagline').limit(1)
+    .then(function(res){ return !(res && res.error); },
+          function(){ return false; })
+    .then(function(on){ if(!on){ _rich2Probe = null; } return on; });
+  return _rich2Probe;
+}
+/* Owner-only update of the rich profile fields. Only the whitelisted keys are
+   ever sent; user_id/username/is_admin/verified_pro are untouched here (username
+   has its own upsert path, the flags are DB-pinned). RLS scopes the update to
+   the caller's own row, and profiles_guard still re-pins the privileged flags on
+   this update. Unknown columns (pre-migration) simply aren't in the patch. */
 function updateMyProfileFields(patch){
   _need();
   var u = _acctUser;
   if(!u) throw new Error('Sign in first.');
-  var allow = ['bio','riding_style','location','avatar'], clean = {};
+  var allow = ['bio','riding_style','location','avatar',
+               'avatar_url','tagline','riding_styles','home_trails',
+               'current_bike','experience','instagram','youtube','strava'];
+  var clean = {};
   allow.forEach(function(k){ if(patch && (k in patch)){ clean[k] = patch[k]; } });
   return _sb.from('profiles').update(clean).eq('user_id', u.id)
     .select('*').then(_unwrap);
+}
+
+/* ---- profile photo upload (Storage `avatars` bucket, forum-profiles-rich2.sql)
+ * Owner uploads their OWN photo. The upload path is ALWAYS `<auth.uid()>/…`, the
+ * only folder the Storage RLS lets this user write (see the migration). Type +
+ * size are pre-checked here for a friendly error; the bucket ALSO enforces both
+ * server-side (allowed_mime_types + file_size_limit) so a bypassed client can't
+ * abuse it. Returns the public URL string (also written to profiles.avatar_url
+ * by the caller via updateMyProfileFields). */
+var AVATAR_MAX_BYTES = 2 * 1024 * 1024;          // 2 MiB — mirrors the bucket cap
+var AVATAR_TYPES = { 'image/jpeg':'jpg', 'image/png':'png', 'image/webp':'webp' };
+function uploadAvatar(file){
+  _need();
+  var u = _acctUser;
+  if(!u) return Promise.reject(new Error('Sign in first.'));
+  if(!file) return Promise.reject(new Error('No file chosen.'));
+  var ext = AVATAR_TYPES[file.type];
+  if(!ext) return Promise.reject(new Error('Please choose a JPEG, PNG or WebP image.'));
+  if(file.size > AVATAR_MAX_BYTES) return Promise.reject(new Error('Image is too large (2 MB max).'));
+  // Deterministic per-user object name (upsert overwrites the prior photo, so a
+  // rider never accumulates orphans). Path stays inside the user's own folder.
+  var path = u.id + '/avatar.' + ext;
+  return _sb.storage.from('avatars')
+    .upload(path, file, { upsert: true, contentType: file.type, cacheControl: '3600' })
+    .then(function(res){
+      if(res && res.error) throw res.error;
+      var pub = _sb.storage.from('avatars').getPublicUrl(path);
+      var url = pub && pub.data && pub.data.publicUrl;
+      if(!url) throw new Error('Upload succeeded but no public URL was returned.');
+      // Cache-bust so the browser refetches after a re-upload to the same path.
+      return url + '?v=' + Date.now();
+    });
 }
 /* Collision check on the NORMALIZED username (username_norm — lowercase +
    spaces/_/- stripped, matching public.profile_norm). An exact eq on the stored
@@ -224,6 +275,7 @@ if (typeof module !== 'undefined' && module.exports) {
     setInventoryQty: setInventoryQty, removeInventoryItem: removeInventoryItem,
     hasProfiles: hasProfiles, getMyProfile: getMyProfile, getProfilesByIds: getProfilesByIds,
     getProfileById: getProfileById, hasRichProfiles: hasRichProfiles,
+    hasRichProfiles2: hasRichProfiles2, uploadAvatar: uploadAvatar,
     updateMyProfileFields: updateMyProfileFields,
     findProfileByNorm: findProfileByNorm, listReservedHeld: listReservedHeld,
     upsertMyProfile: upsertMyProfile
