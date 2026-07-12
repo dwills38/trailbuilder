@@ -112,3 +112,15 @@ per wave/decision; large reconstructions are handed to a worker session.
   DB-level CHECK constrains avatar to a slug — never a URL; touches NO policy/trigger) — **Douglas
   runs it** (schema tier). Coordinator review + the worker's independent adversarial pass both
   confirm escalation-impossible + reserved-name enforcement still hold. Four gates green.
+- **UPDATE — rich profiles v2 shipped (`50f9368`) + Storage migration STAGED.** Worker (correctly
+  presented a branch, did NOT self-push) added profile photo UPLOAD (Supabase Storage `avatars`
+  bucket, owner-own-path RLS, 2 MiB + image-MIME caps), tagline, multi-select disciplines
+  (`riding_styles[]`), experience, current bike, home trails, and social handles (IG/YT/Strava stored
+  as handles only, host hardcoded client-side, rel=noopener nofollow). index.html + src/account.js
+  (app tier, feature-detected `hasRichProfiles2`). Coordinator independently reviewed the Storage RLS
+  + the `avatar_url` CHECK + social-handle charset constraints — SAFE (canonical owner-folder Storage
+  pattern; avatar_url DB-locked to the project prefix; no profiles_guard/RLS/trigger change →
+  escalation-impossible + reserved-names hold). Worker's adversarial pass agreed; one LOW note (no
+  per-user Storage object quota) is optional/non-blocking. Migration `supabase/forum-profiles-rich2.sql`
+  (9 columns + CHECKs + the `avatars` bucket + Storage policies) — **Douglas runs** (schema+Storage
+  tier). Branched off current main (no stale base). Four gates green.
