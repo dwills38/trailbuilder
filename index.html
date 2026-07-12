@@ -325,6 +325,37 @@
   .prof-disc-pick label{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:5px 12px;margin:0;cursor:pointer;text-transform:none;letter-spacing:0}
   .prof-disc-pick label.sel{border-color:var(--brand);background:var(--chip,#eef3ef)}
   .prof-disc-pick input{margin:0}
+  /* Guides page (buyer's / compatibility guides): same full-width-view convention
+     as the inventory/forum/profile pages. body.guides-page hides the builder and
+     reveals this; toggled by the header 📚 Guides button or a #guides / #guide/<slug>
+     hash. Static, author-controlled content from src/guides.js. */
+  #guidesPage{display:none}
+  body.guides-page .layout,body.guides-page .toolbar,body.guides-page .legend,body.guides-page #search,body.guides-page #share,body.guides-page .menu{display:none}
+  body.guides-page #guidesPage{display:block}
+  body.guides-page #mobileBar{display:none}
+  .guides-intro{color:var(--ink-soft);font-size:14px;margin:6px 0 20px;max-width:680px}
+  /* index grid of guide cards */
+  .guides-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .guide-card{display:block;width:100%;text-align:left;border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;background:var(--card);color:var(--ink);cursor:pointer;font:inherit}
+  .guide-card:hover{border-color:var(--brand)}
+  .guide-card:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  .guide-card h3{margin:0 0 6px;font-size:16px;line-height:1.25}
+  .guide-card p{margin:0;font-size:13px;color:var(--ink-soft);line-height:1.45}
+  .guide-card .guide-read{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;color:var(--brand)}
+  /* single guide article — readable measure + themed typography */
+  .guide-article{max-width:680px}
+  .guide-article h1{font-size:26px;line-height:1.2;margin:8px 0 4px}
+  .guide-read-time{color:var(--ink-soft);font-size:13px;margin:0 0 18px}
+  .guide-body{font-size:15px;line-height:1.6}
+  .guide-body h2{font-size:19px;line-height:1.25;margin:26px 0 8px}
+  .guide-body h3{font-size:16px;line-height:1.3;margin:20px 0 6px}
+  .guide-body p{margin:0 0 12px}
+  .guide-body ul{margin:0 0 12px;padding-left:22px}
+  .guide-body li{margin:0 0 6px}
+  .guide-body strong{font-weight:700}
+  .guide-body a{color:var(--brand)}
+  .guide-foot{margin:30px 0 0;padding-top:16px;border-top:1px solid var(--line);color:var(--ink-soft);font-size:13px}
   /* account control (header) + garage/inventory lists */
   .acctbox{display:flex;align-items:center;gap:10px}
   .acctbox .btn{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff}
@@ -665,6 +696,10 @@
            aria-label="Community — ask questions & share builds on BuildMyMTB Discussions (opens in a new tab)" hidden>💬<span class="hdr-long"> Community</span></a>
         <button type="button" class="btn" id="forumNavBtn"
           title="Bug reports, build questions, feature requests" hidden>💬<span class="hdr-long"> Community</span></button>
+        <!-- Guides: always-on entry to the buyer's/compatibility guides page (static
+             content from src/guides.js — no account/feature gate). Opens #guidesPage. -->
+        <button type="button" class="btn" id="guidesNavBtn"
+          title="Buyer's &amp; compatibility guides">📚<span class="hdr-long"> Guides</span></button>
         <!-- Account control (Phase 3). Hidden entirely until Supabase config is set
              (ACCOUNTS_ENABLED). renderAccount() toggles logged-in vs logged-out. -->
         <div class="acctbox" id="acctBox" hidden>
@@ -847,6 +882,35 @@
       <h2 style="font-size:16px">Rider profile</h2>
     </div>
     <div id="profilePageBody" aria-live="polite"></div>
+  </section>
+
+  <!-- Buyer's & compatibility guides as their own full-width page. Same convention
+       as the inventory/forum/profile pages: toggled by the header 📚 Guides button
+       or a #guides / #guide/<slug> hash, builder view hidden by CSS while active.
+       Two states inside: an index of cards (#guidesIndex) and a single article
+       (#guideArticle). Content is static + author-controlled (src/guides.js). -->
+  <section id="guidesPage" aria-label="Buyer's and compatibility guides">
+    <div class="invpage-head">
+      <button type="button" class="btn" id="guidesBack">← Back to builder</button>
+      <h2>📚 Guides</h2>
+    </div>
+
+    <div id="guidesIndex">
+      <p class="guides-intro">Plain-language buyer's and compatibility guides for the enthusiast home
+        mechanic — how mountain-bike standards fit together, the real-world trade-offs, and how the
+        builder checks each one. Brand-neutral and free of affiliate links.</p>
+      <div id="guidesGrid" class="guides-grid" role="list"></div>
+    </div>
+
+    <article id="guideArticle" class="guide-article" hidden aria-live="polite">
+      <button type="button" class="btn" id="guideBackToIndex">← All guides</button>
+      <h1 id="guideTitle"></h1>
+      <p class="guide-read-time" id="guideReadTime"></p>
+      <div class="guide-body" id="guideBody"></div>
+      <p class="guide-foot">Compatibility notes on this page describe what BuildMyMTB checks and are
+        grounded in the tool's real rules. Specs vary by model and year — always confirm against the
+        manufacturer before you buy. This guide contains no affiliate links.</p>
+    </article>
   </section>
 </main>
 
@@ -1101,6 +1165,7 @@
 <script src="src/config.js"></script>
 <script src="src/account.js"></script>
 <script src="src/forum.js"></script>
+<script src="src/guides.js"></script>
 <script src="src/compat.js"></script>
 <script>
 (function(){
@@ -3161,8 +3226,73 @@
     el.className = n===0 ? '' : (r.errors.length ? 'err' : r.warnings.length ? 'warn' : 'ok');
   }
 
+  /* ---- Guides (buyer's / compatibility guides) ----
+     A full-width view like inventory/forum/profile (body.guides-page). Two inner
+     states: the card index and a single article. DEEP-LINKABLE: #guides opens the
+     index, #guide/<slug> opens that article (each guide is a shareable URL). Content
+     is static + author-controlled (src/guides.js); the guide body is trusted HTML,
+     injected as-is (see the file header). The hash router (routeHash) drives it, so
+     the nav button and the browser Back button behave identically. */
+  function guidesList(){ return (typeof GUIDES !== 'undefined' && GUIDES) ? GUIDES : []; }
+  function enterGuidesPage(){
+    // Exclusive with the other full-width views (only one body page-class at a time).
+    document.body.classList.remove('inv-page','forum-page','profile-page');
+    document.body.classList.add('guides-page');
+    window.scrollTo(0,0);
+  }
+  function renderGuidesIndex(){
+    var grid = $('guidesGrid');
+    if(grid.childElementCount) return;   // content is static — build the cards once
+    var html = '';
+    guidesList().forEach(function(g){
+      html += '<button type="button" class="guide-card" role="listitem" data-slug="'+esc(g.slug)+'">' +
+        '<h3>'+esc(g.title)+'</h3><p>'+esc(g.summary)+'</p>' +
+        '<span class="guide-read">'+esc(String(g.readMin))+' min read</span></button>';
+    });
+    grid.innerHTML = html || '<div class="gempty">Guides are coming soon.</div>';
+    grid.querySelectorAll('.guide-card').forEach(function(b){
+      b.onclick = function(){ location.hash = '#guide/' + b.getAttribute('data-slug'); };
+    });
+  }
+  function openGuidesIndex(){
+    enterGuidesPage();
+    renderGuidesIndex();
+    $('guideArticle').hidden = true;
+    $('guidesIndex').hidden = false;
+    document.title = 'Guides — BuildMyMTB';
+  }
+  function openGuide(slug){
+    var g = (typeof guideBySlug === 'function') ? guideBySlug(slug) : null;
+    if(!g){ location.hash = '#guides'; return; }   // unknown slug -> the index
+    enterGuidesPage();
+    renderGuidesIndex();   // keep the index built for an instant back-nav
+    $('guidesIndex').hidden = true;
+    $('guideTitle').textContent = g.title;
+    $('guideReadTime').textContent = g.readMin + ' min read';
+    $('guideBody').innerHTML = g.body;   // trusted static author content (src/guides.js)
+    $('guideArticle').hidden = false;
+    document.title = g.title + ' — BuildMyMTB Guides';
+  }
+  function closeGuides(){
+    document.body.classList.remove('guides-page');
+    document.title = 'BuildMyMTB — MTB build & compatibility checker';
+  }
+  /* Hash router for the guides views. Runs on load and on every hashchange so a
+     shared #guide/<slug> URL opens straight to that article, and the Back button
+     moves between article -> index -> builder. Build-share hashes (#b=…) are left
+     to readHash(); anything else on the guides page returns to the builder. */
+  function routeGuidesHash(){
+    var h = location.hash || '';
+    if(h.indexOf('#guide/') === 0){ openGuide(decodeURIComponent(h.slice(7))); }
+    else if(h === '#guides'){ openGuidesIndex(); }
+    else if(document.body.classList.contains('guides-page')){ closeGuides(); }
+  }
+
   /* ---- share / restore (build + presetBy) ---- */
-  function writeHash(){ try{ history.replaceState(null,'','#b='+btoa(encodeURIComponent(JSON.stringify({b:build,p:presetBy})))); }catch(e){} }
+  // Skip while the guides page is active so a #guides / #guide/<slug> deep-link
+  // isn't clobbered by the build hash (the guides views own the hash then).
+  function writeHash(){ if(document.body.classList.contains('guides-page')) return;
+    try{ history.replaceState(null,'','#b='+btoa(encodeURIComponent(JSON.stringify({b:build,p:presetBy})))); }catch(e){} }
   function readHash(){
     try{ var m=location.hash.match(/b=([^&]+)/); if(!m) return;
       var o=JSON.parse(decodeURIComponent(atob(m[1])));
@@ -3459,6 +3589,18 @@
   /* forum controls (Phase 4) — inert while the forum is unconfigured */
   $('forumNavBtn').onclick = openForum;
   $('forumBack').onclick = closeForum;
+
+  /* guides (buyer's / compatibility guides) — always-on, hash-routed */
+  $('guidesNavBtn').onclick = function(){ location.hash = '#guides'; };
+  $('guidesBack').onclick = function(){
+    // Back to the builder: closeGuides() drops the guides-page class, then
+    // writeHash() replaces the URL with the current build hash (no new history
+    // entry — replaceState), so the address bar reflects the build again.
+    closeGuides();
+    writeHash();
+  };
+  $('guideBackToIndex').onclick = function(){ location.hash = '#guides'; };
+  window.addEventListener('hashchange', routeGuidesHash);
   $('forumSignInLink').onclick = openAuth;
   $('forumDetailBack').onclick = closeForumThread;
   $('forumDeleteThread').onclick = function(){ confirmDeleteThread(_forumCurrentThreadRow); };
@@ -3469,7 +3611,12 @@
   $('fntSubmit').onclick = submitForumNewThread;
   $('forumNewThreadModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
 
-  readHash(); renderDiscChips(); renderChips(); renderSubChips(); renderSubFilters(); sync();
+  readHash();
+  // Route the guides hash BEFORE sync() — sync()->writeHash() would otherwise
+  // overwrite a #guides / #guide/<slug> deep-link with the build hash. writeHash
+  // is guarded to no-op while the guides page is active, so the deep-link sticks.
+  routeGuidesHash();
+  renderDiscChips(); renderChips(); renderSubChips(); renderSubFilters(); sync();
   // Wire auth state -> account UI. When accounts are unconfigured this no-ops.
   if(typeof initAccount === 'function'){
     initAccount(function(u){
