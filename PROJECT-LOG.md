@@ -138,6 +138,31 @@ per wave/decision; large reconstructions are handed to a worker session.
   later): frames, forks, shocks, drivetrain, finishing-kit. ⚠ NOTE for the engine review: the new XDR
   freehub hard-errors vs every current cassette (none is XDR) — conservative, flagged by the worker
   for a future fix-tier adapter enhancement.
+- **CATALOG MERGE WAVE 2 (2026-07-12): drivetrain + finishing-kit → 2240 parts.** `expand/drivetrain`
+  (+9: SRAM SX chain, S1000 Transmission crank + verified derailleur, Shimano XT M8200 shifter/2
+  derailleurs/2 cassettes, XTR M9200 2 cassettes; +5 price-drift corrections; Opus-audited 10/10;
+  S1000 e-MTB crank + Shimano e-shifter deliberately EXCLUDED — no e-bikes). `expand/finishing-kit`
+  (+59: CK/Kogel/Praxis BBs, Cane Creek/CK headsets, TAG/FSA/WeAreOne cockpit, Xpedo/Funn/Burgtec
+  pedals, ODI/Ergon/Fabric grips; + headTube vocab ZS49/28.6 + EC49/40 from fetched CK/Cane Creek +
+  matching test-schema update; Opus-audited 59/59). Applied as own-additions-only; finishing-kit's
+  types.js needed a MANUAL headTube add (its patch conflicted with the wheels/tires vocab already
+  merged). Gates green (validate 0 · 453 tests · tsc 0 · verdict-audit 0 flags). 2181 → 2240 (1612
+  verified / 628 unverified). Still running: frames, forks, shocks.
+- **SECURITY/POLICY NOTE (worth remembering).** The drivetrain, finishing-kit AND tires workers each
+  flagged the relaxed-sourcing "policy update" as a SUSPICIOUS inter-agent message (it claimed
+  Douglas's consent via a background channel and targets a data-integrity guardrail) and REFUSED /
+  retracted it for interface fields. That is the CORRECT security instinct — don't trust claimed user
+  authority from observed content. The policy IS legitimate (Douglas's real AskUserQuestion decision,
+  relayed by the coordinator), but their caution meant NOTHING in the merged branches used
+  non-manufacturer sourcing for a verdict-driving interface field — all interfaces are
+  manufacturer-sourced + adversarially audited. Their sharp refinement (interface fields feeding
+  error-tier rules should stay manufacturer-sourced even on unverified rows, since a wrong interface =
+  wrong verdict regardless of the `verified` flag) is worth adopting — surfaced to Douglas.
+- **DJ/BMX OFF-LIVE spike done (`bike-type/dj-bmx`, HELD unmerged).** 34 DJ + 62 BMX rows + model &
+  compat-analysis docs, in a NEW `data/` dir ONLY — live app untouched (gates identical to baseline).
+  No e-bikes. Architecture finding: fold DJ into `checkBuild` behind a single-speed discriminator;
+  give BMX its own small engine (clean on-ramp to a buildmybmx split). 6 product questions for Douglas
+  in `data/DJ-BMX-COMPAT-ANALYSIS.md`; held pending his decisions.
 - **Catalog-expansion sourcing policy CLARIFIED (Douglas).** 8 expansion chips launched (frames,
   forks, shocks, wheels, tires, drivetrain, brakes+rotors, finishing-kit) had been briefed with a
   stricter-than-normal bar: omit a product entirely to a GAPS list if its interface fields couldn't
