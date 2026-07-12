@@ -13,6 +13,20 @@ prototype that runs entirely in the browser from a small built-in catalog.
 the few parts that carry provenance fields (`verified:true` + `source`).** Do not present
 unverified specs as real. See "Provenance" below.
 
+## Hard rules (Douglas — non-negotiable)
+
+1. **NO E-BIKES.** Do not add ANY e-bike / e-MTB / motor / battery / e-specific part to the catalog
+   until Douglas EXPLICITLY says so. Exclude every e-MTB frame (Levo, Rail, Bullit, Meta Power, …)
+   and any e-bike-only variant. He'll add them someday — only on his word.
+2. **NO POP-UP ADS / UNSOLICITED POP-UPS, EVER.** The site loads straight to the data — never an ad,
+   newsletter/promo/cookie interstitial, or any auto-appearing pop-up, for any reason. Click-triggered
+   cards/tabs/modals the user opens themselves (a part's spec card, the login dialog) are fine;
+   anything that appears WITHOUT the user asking is banned. No monetization pattern may ever use a pop-up.
+3. **Catalog scope:** MTB now (rounding out every MTB category; **hardtails are a near-term LIVE
+   priority**), expanding to ALL bike types over time. New non-MTB types (dirt jump, BMX, kids'
+   balance bikes / striders) are built OFF-LIVE — a separate dataset NOT wired into the live app —
+   until Douglas says go; the site may later split per type (e.g. buildmybmx). **Never e-bikes** (rule 1).
+
 ## Files (src/ + test/ layout — these are the project)
 
 Entry points (`validate.js`, `index.html`) live at the root; tests run on Vitest
