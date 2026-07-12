@@ -124,6 +124,20 @@ per wave/decision; large reconstructions are handed to a worker session.
   per-user Storage object quota) is optional/non-blocking. Migration `supabase/forum-profiles-rich2.sql`
   (9 columns + CHECKs + the `avatars` bucket + Storage policies) — **Douglas runs** (schema+Storage
   tier). Branched off current main (no stale base). Four gates green.
+- **CATALOG MERGE WAVE 1 (2026-07-12): brakes + wheels + tires → 2172 parts.** Reviewed + merged 3
+  finished expansion branches onto current main, each applied as its OWN additions only (git-apply of
+  the merge-base..branch diff for compat.js/schema.js/types.js) to avoid the stale-base revert since
+  all branches are based on old main. `expand/brakes` (+3 MTB brakes: SRAM G2 Ultimate + Shimano
+  BR-MT410/MT420 — **DROPPED bk-sram-guide-re as SRAM's e-bike-branded caliper** per the no-e-bikes
+  rule; that session predated the rule relay). `expand/wheels` (+109 wheels/wheelsets, all disciplines;
+  + `XDR` freehub vocab — WTB CZR road-length driver, kept distinct from XD per THE BAR). `expand/tires`
+  (+44; the tires session **self-dropped a Schwalbe e-MTB tire**). Interfaces sourced; unverified rows
+  per the relaxed policy; verify-job untouched by workers (coordinator re-sync deferred to end of the
+  catalog waves). Gates green (validate 0 · 453 tests · tsc 0 · verdict-audit 0 flags). 2016 → 2172
+  (1563 verified / 609 unverified). Commits `7913a10`/`638508a`. Still RUNNING (present final branches
+  later): frames, forks, shocks, drivetrain, finishing-kit. ⚠ NOTE for the engine review: the new XDR
+  freehub hard-errors vs every current cassette (none is XDR) — conservative, flagged by the worker
+  for a future fix-tier adapter enhancement.
 - **Catalog-expansion sourcing policy CLARIFIED (Douglas).** 8 expansion chips launched (frames,
   forks, shocks, wheels, tires, drivetrain, brakes+rotors, finishing-kit) had been briefed with a
   stricter-than-normal bar: omit a product entirely to a GAPS list if its interface fields couldn't
