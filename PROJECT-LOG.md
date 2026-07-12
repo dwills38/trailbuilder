@@ -1,5 +1,28 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-12 (evening) — Fable-budget push: shocks merged + engine fixes queued
+
+- **CATALOG MERGE WAVE 3: rear shocks → 2959 parts (`3095da6`).** `expand/shocks` merged: 108 → 717
+  shocks (+609). 5 brand-cluster workers + 5 Opus auditors; audit caught + dropped **2 fabricated
+  Öhlins trunnion rows** (210/230 eyes are std-only) and **all 22 EXT e-Storia e-bike rows** (hard
+  rule). Interfaces 100% maker-sourced. Gates green. 2350 → 2959 (1813 verified / 1146 unverified).
+- **Douglas's shock decisions (executed via coordinator recs):** (1) RockShox 53% skew → merged
+  as-is + **Fox balancing pass chip queued** (add real Fox coverage rather than withhold real data);
+  (2) verified-weight policy **2a formalized** — `verified:true` = interfaces manufacturer-confirmed,
+  nominal weight OK where makers publish none (doc patch to VERIFY-PROTOCOL.md folded into the Fox
+  chip); (3) Push Eleven Six skipped (no maker size matrix; per-bike fitment only).
+- **Engine-fix chip queued [Fable]:** C1→C2→C3→C4→M1 in harm order, each with maker source +
+  pinning test + adversarial audit, per ENGINE-CRITICAL-REVIEW-2026-07-12.md. Coordinator-reviewed
+  tier.
+- **Earlier today:** profile-input contrast fix live (`d42d379` — white-bg inputs used the theme's
+  light --ink; now fixed dark text, all four themes readable); DH-wheels diagnosis fixes live
+  (`df9868b` — size-chip no-op on Wheelset tab + honest empty-state; the "0 wheelsets" on the RAAW
+  Yalla was CORRECT: Boost148-rear DH frame, no real 20x110+Boost148 bundled SKU exists; 19 front /
+  130 rear à-la-carte options DO). Honeycomb/fractal views were shipped then REMOVED at Douglas's
+  call (`36ce0d2` revert, his session). 12 orphan D:\tb-* worktrees cleaned; **folder rule: all
+  future seats/worktrees INSIDE the project dir**. Folder rename to "Build My MTB" CANCELLED by
+  Douglas. Session on Fable to conserve the 9% weekly budget (78% Fable available).
+
 A dated, append-only record of what changed, **why**, and **how it was verified** — so
 the project can be handed to an independent reviewer (another engineer or model) who can
 trace every decision and re-check it. This is the *running* trail; its companions:
