@@ -47,7 +47,22 @@ var VOCAB = {
      below). Today the token means exactly the e*thirteen 7-speed (9-24T)
      driver; a future integrated wheel with a different built-in cassette must
      SPLIT the token, not conflate (the HG road convention). */
-  freehub:      ['XD', 'MicroSpline', 'HG', 'integrated'],   // 'HG' = MTB-length HG spline (a road expansion must SPLIT, not conflate)
+  /* 'XDR' added 2026-07-11 (catalog-wheels-enduro-2 batch): WTB's own CZR i30
+     product page (fetched wtb.com/products/czr-i30-wheel) states the driver
+     body verbatim as "SRAM XDR" (not "XD") for its Frequency hub, and
+     BikeRadar corroborates - XDR is the ROAD/gravel-length driver body (11spd
+     road cassettes; 1.85mm longer than XD), and SRAM/WTB both note an MTB
+     (XD) cassette needs a 1.85mm spacer to seat on it. That is a genuinely
+     DIFFERENT physical interface from 'XD', not a typo - conflating them
+     would silently green-light a cassette that doesn't seat without a $10
+     spacer. Kept a distinct token rather than merged into 'XD' per THE BAR
+     (never invent a mapping to force a fit). Engine consequence: rule 6
+     (freehub mismatch) will hard-error an XDR wheel against every in-catalog
+     cassette (all XD/MicroSpline/HG) since none carries 'XDR' - correct
+     today (no adapter path modeled), but flagged for a future fix-tier
+     enhancement mirroring the CL-on-6-bolt-hub adapter warning, once a real
+     XD-on-XDR spacer part/adapter fact is worth encoding engine-side. */
+  freehub:      ['XD', 'MicroSpline', 'HG', 'integrated', 'XDR'],   // 'HG' = MTB-length HG spline (a road expansion must SPLIT, not conflate)
   rotorMount:   ['sixbolt', 'CL'],             // audited 2026-07: market-complete for MTB
   shockMount:   ['std', 'trunnion'],           // audited 2026-07: market-complete ('bearing' eyelets may join when a bearing-eyelet row lands)
   /* 'straight-dc' = the straight 1.125in steerer of dual-crown DH forks

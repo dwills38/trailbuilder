@@ -26,7 +26,10 @@
  * cassette (e*thirteen LG1r DH rear), so no separate cassette mounts - legal
  * on rearwheel/rearhub rows only, never on a cassette (schema cross-rule;
  * CassetteFreehub mirrors that restriction for tsc).
- * @typedef {'XD'|'MicroSpline'|'HG'|'integrated'} Freehub */
+ * 'XDR' = the road/gravel-length SRAM driver body (1.85mm longer than XD) -
+ * a real WTB CZR-hub option, distinct from 'XD' (needs a spacer to seat an
+ * MTB/XD cassette), never conflate the two.
+ * @typedef {'XD'|'MicroSpline'|'HG'|'integrated'|'XDR'} Freehub */
 /** @typedef {'XD'|'MicroSpline'|'HG'} CassetteFreehub */
 /** @typedef {'sixbolt'|'CL'} RotorMount */
 /** @typedef {'std'|'trunnion'} ShockMount */
