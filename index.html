@@ -138,14 +138,6 @@
   .viewseg{display:inline-flex}
   .viewseg .btn:first-child{border-radius:10px 0 0 10px}
   .viewseg .btn:last-child{border-radius:0 10px 10px 0;margin-left:-1px}
-  /* middle segments of the 4-way toggle (cards / list / honeycomb / fractal):
-     square them and overlap borders so it reads as one segmented control */
-  .viewseg .btn:not(:first-child){margin-left:-1px}
-  .viewseg .btn:not(:first-child):not(:last-child){border-radius:0}
-  .viewseg .btn.primary{position:relative;z-index:1}   /* active segment's borders sit above its neighbours' */
-  /* four labelled segments can crowd a phone toolbar — tighten them so the
-     control never forces horizontal scroll (it wraps as a unit if still too wide) */
-  @media (max-width:560px){ .viewseg .btn{padding:7px 9px;font-size:12px} }
   .grid.list{display:flex;flex-direction:column;gap:6px}
   .list .pcard{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:8px 12px 8px 30px}
   .list .pcard .dot{left:11px;right:auto;top:50%;margin-top:-5.5px}
@@ -210,144 +202,6 @@
     /* same-spirit modest trim for the CARD view — desktop only (the ≤768px
        card view keeps the roomier 13px; touch targets there are untouched) */
     .grid:not(.list) .pcard{padding:11px}
-  }
-
-  /* ===== HONEYCOMB VIEW =================================================
-     Same .pcard DOM as cards/list — a pure layout restyle via the container
-     class .grid.honeycomb (parity by construction, exactly like .list).
-     Flat-top hexagons (flat top/bottom edge, pinched left/right at mid-height),
-     tiled in rows: odd rows shift right by half a cell (parity class set by
-     layoutHoneycomb()) and every row is pulled up to interlock into a comb.
-     All colours are theme vars, so light / dark / rad / loam restyle for free. */
-  .grid.honeycomb{
-    --hc-w:206px;        /* hex cell width — sized so the ~620px catalog column at a
-                            1280 viewport packs 2 interlocking columns (more on wider screens) */
-    --hc-h:266px;        /* hex cell height (taller = more room for the card stack) */
-    --hc-gap:12px;       /* breathing room between hexes in a row */
-    --hc-pull:0.16;      /* fraction of --hc-h each row overlaps the one above */
-    display:flex;flex-wrap:wrap;align-content:flex-start;
-    padding-top:calc(var(--hc-h) * var(--hc-pull));  /* so row 1 isn't clipped by its own pull-up */
-    padding-bottom:12px;gap:0;overflow-x:hidden;      /* offset rows must never force page scroll */
-  }
-  .grid.honeycomb .pcard{
-    position:relative;flex:0 0 var(--hc-w);width:var(--hc-w);height:var(--hc-h);box-sizing:border-box;
-    margin:calc(var(--hc-h) * var(--hc-pull) * -1) calc(var(--hc-gap) / 2) 0;
-    clip-path:polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-    background:var(--card);border:1px solid var(--line);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
-    /* CENTER the compact stack in the hex's wide middle band — top/bottom-anchoring
-       pushes content into the narrow clipped points where it vanishes. */
-    padding:9% 15%;   /* generous horizontal inset keeps content off the pinched corners */
-    /* transition FILTER only, not transform: the row-offset transform must apply
-       instantly (transitioning it would slide every odd row in on each render);
-       the hover shadow still fades in smoothly. */
-    transition:filter .15s ease;
-  }
-  /* Odd-row half-cell shift = (--hc-w + --hc-gap)/2 = (206+12)/2 = 109px. Hardcoded,
-     NOT var()-based: var() inside a transform translate resolves to 0 in some engines
-     (it works fine in margin/width). Keep this in sync if --hc-w/--hc-gap change. */
-  .grid.honeycomb .pcard.hc-row-odd{transform:translateX(109px)}
-  .grid.honeycomb .pcard:hover,.grid.honeycomb .pcard:focus-within{
-    transform:translateY(-6px) scale(1.035);z-index:5;filter:drop-shadow(0 10px 18px rgba(0,0,0,.28))}
-  .grid.honeycomb .pcard.hc-row-odd:hover,.grid.honeycomb .pcard.hc-row-odd:focus-within{
-    transform:translateX(109px) translateY(-6px) scale(1.035)}
-  /* selected / kit: box-shadow gets clip-path'd into odd shapes at the hex edges,
-     so lean on border + tint instead */
-  .grid.honeycomb .pcard.selected{border-color:var(--brand);background:color-mix(in srgb, var(--brand) 10%, var(--card))}
-  .grid.honeycomb .pcard.kit{border-color:var(--accent)}
-  .grid.honeycomb .pcard .dot{top:8%;left:50%;right:auto;transform:translateX(-50%)}  /* corner dot would clip */
-  /* thumb + spec hidden in the hex — the essentials (dot, name, price, pick,
-     verified badge) fit the middle band; the spec/thumb would overflow into the
-     clipped points. The compact stack stays centered. */
-  .grid.honeycomb .pcard-head{flex-direction:column;gap:2px}
-  .grid.honeycomb .pcard-thumb,.grid.honeycomb .spec{display:none}
-  .grid.honeycomb .kind{font-size:9px;margin:0}
-  .grid.honeycomb .name{font-size:13px;line-height:1.2;white-space:normal;
-    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .grid.honeycomb .prov{font-size:10px;margin:0;min-height:16px}   /* reserve the badge line so it doesn't overspill the price */
-  .grid.honeycomb .row{flex-direction:column;align-items:center;gap:5px;width:100%;margin:0}
-  .grid.honeycomb .price{display:flex;flex-direction:column;align-items:center}
-  .grid.honeycomb .picks{display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
-  .grid.honeycomb .pcard .name:focus-visible,.grid.honeycomb .pcard .pick:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-  /* Mobile: abandon the hex geometry below ~560px — a clean stacked card list
-     beats broken overlapping hexes on a phone. */
-  @media (max-width:560px){
-    .grid.honeycomb{display:grid;grid-template-columns:1fr;gap:12px;padding-top:0;padding-bottom:0;overflow-x:visible}
-    .grid.honeycomb .pcard{flex-basis:auto;width:100%;height:auto;margin:0;padding:14px;clip-path:none;text-align:left;align-items:stretch;transform:none !important}
-    .grid.honeycomb .pcard:hover,.grid.honeycomb .pcard:focus-within{transform:none !important;filter:none;box-shadow:0 2px 6px rgba(0,0,0,.15)}
-    .grid.honeycomb .pcard .dot{top:10px;right:10px;left:auto;transform:none}
-    .grid.honeycomb .pcard-head{flex-direction:row}
-    .grid.honeycomb .row{flex-direction:row;justify-content:space-between;margin-top:8px}
-    .grid.honeycomb .spec{-webkit-line-clamp:unset}
-  }
-
-  /* ===== FRACTAL VIEW ===================================================
-     A squarified treemap of the CURRENT (filtered+sorted) parts. Container
-     .grid.fractal is position:relative; layoutFractal() sets its height and
-     absolutely positions each .pcard child (same DOM). Top-level regions are
-     one-per-category (area ∝ item count); each region recursively subdivides
-     into per-part tiles (area ∝ price) — the self-similar / "fractal" nesting.
-     Theme-var colours only, so all four modes work automatically. */
-  .grid.fractal{position:relative;display:block;width:100%;overflow:visible}
-  .fractal-label{position:absolute;height:18px;line-height:18px;padding:0 8px;font-size:11px;font-weight:700;
-    letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);background:var(--chip);
-    border-bottom:1px solid var(--line);box-sizing:border-box;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;pointer-events:none;z-index:1}
-  /* Content is top-anchored so the priority order (name -> price -> pick) survives
-     when a short treemap cell has to clip; overflow:hidden clips gracefully. */
-  .fractal .pcard{box-sizing:border-box;margin:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;
-    gap:3px;padding:clamp(4px,6%,9px);border-radius:6px;border:1px solid var(--line);background:var(--card);
-    transition:box-shadow .15s ease;z-index:0}
-  .fractal .pcard.selected{outline:2px solid var(--brand);outline-offset:-2px}
-  .fractal .pcard.kit{border-color:var(--accent)}
-  /* essentials: dot, name, price, pick always visible; verified badge in md/lg tiles
-     (and on hover for smaller ones); heavier chrome (thumb/eyebrow/spec) hidden. */
-  .fractal .pcard .pcard-thumb,.fractal .pcard .kind,.fractal .pcard .spec{display:none}
-  .fractal .pcard .prov{display:block;font-size:9px;line-height:1.25;margin:0;min-height:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .fractal .pcard .prov .est{display:none}   /* drop the "sample" text for space — absence already implies unverified */
-  .fractal .pcard[data-fsize="xs"] .prov,.fractal .pcard[data-fsize="sm"] .prov{display:none}   /* small tile: verified badge returns on hover */
-  .fractal .pcard .pcard-head{display:flex;align-items:center;min-width:0}
-  .fractal .pcard .pcard-headtext{min-width:0;overflow:hidden;width:100%}
-  .fractal .pcard .name{display:block;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-    font-size:var(--fz,12px);font-weight:600;color:var(--ink);background:none;border:0;text-align:left;padding:0;cursor:pointer}
-  .fractal .pcard .name:hover,.fractal .pcard .name:focus-visible{text-decoration:underline}
-  /* row: price (left, never shrinks) + pick (right, truncates). Stacks vertically in
-     the smallest tiles so the price always gets a full line of its own. */
-  .fractal .pcard .row{display:flex;align-items:center;justify-content:space-between;gap:4px 6px;min-width:0;margin-top:2px}
-  .fractal .pcard .price{flex:0 0 auto;font-size:var(--fz,12px);font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .fractal .pcard .price .wt{display:none}   /* weight subtext: no room below md */
-  .fractal .pcard .picks{flex:1 1 auto;min-width:0;display:flex;justify-content:flex-end;gap:3px}
-  .fractal .pcard .pick{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-    font-size:max(10px,calc(var(--fz,12px) - 1px));padding:2px 6px;line-height:1.5;border-radius:4px}
-  .fractal .pcard[data-fsize="xs"] .row,.fractal .pcard[data-fsize="sm"] .row{flex-direction:column;align-items:stretch;gap:2px}
-  .fractal .pcard[data-fsize="xs"] .picks,.fractal .pcard[data-fsize="sm"] .picks{justify-content:stretch}
-  .fractal .pcard[data-fsize="xs"] .pick,.fractal .pcard[data-fsize="sm"] .pick{flex:1 1 auto;text-align:center}
-  .fractal .pcard .dot{z-index:2}
-  /* per-cell size steps — layoutFractal sets data-fsize from the tile's px area */
-  .fractal .pcard[data-fsize="xs"]{--fz:10px;gap:1px}
-  .fractal .pcard[data-fsize="sm"]{--fz:11px}
-  .fractal .pcard[data-fsize="md"]{--fz:12.5px}
-  .fractal .pcard[data-fsize="lg"]{--fz:14px}
-  .fractal .pcard[data-fsize="md"] .price .wt,.fractal .pcard[data-fsize="lg"] .price .wt{display:inline;opacity:.7;margin-left:4px}
-  .fractal .pcard[data-fsize="lg"] .kind{display:block;font-size:10px;color:var(--ink-soft)}
-  .fractal .pcard[data-fsize="lg"] .pcard-thumb{display:block;width:34px;height:34px;flex:0 0 auto;margin-right:6px}
-  /* hover / focus: pop above neighbours and reveal the spec as a dropdown.
-     overflow:visible lets the dropdown escape the (otherwise clipped) tile. */
-  .fractal .pcard:hover,.fractal .pcard:focus-within{overflow:visible;z-index:50;box-shadow:0 10px 28px rgba(0,0,0,.35);border-color:var(--brand)}
-  .fractal .pcard:hover .spec,.fractal .pcard:focus-within .spec{
-    display:block;position:absolute;left:-1px;right:-1px;top:100%;margin-top:2px;padding:6px 8px;
-    font-size:11px;line-height:1.35;text-align:left;white-space:normal;background:var(--card);border:1px solid var(--line);
-    border-radius:6px;box-shadow:0 10px 28px rgba(0,0,0,.35);color:var(--ink-soft);z-index:51}
-  .fractal .pcard[data-fsize="xs"]:hover .prov,.fractal .pcard[data-fsize="xs"]:focus-within .prov{display:block}
-  .fractal .pcard .name:focus-visible,.fractal .pcard .pick:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-  /* Mobile (<560px): layoutFractal skips the treemap math and adds .fractal-stack,
-     reverting to a plain single-column card list with full content restored. */
-  @media (max-width:560px){
-    .grid.fractal.fractal-stack{height:auto !important;display:flex;flex-direction:column;gap:8px}
-    .fractal-stack .pcard{position:static !important;width:100% !important;height:auto !important;left:auto !important;top:auto !important}
-    .fractal-stack .pcard .pcard-thumb,.fractal-stack .pcard .kind,.fractal-stack .pcard .spec,.fractal-stack .pcard .prov{display:block}
-    .fractal-stack .pcard .prov .est{display:inline}
-    .fractal-stack .pcard .price .wt{display:inline}
-    .fractal-stack .fractal-label{display:none}
   }
 
   .side{position:sticky;top:80px;display:flex;flex-direction:column;gap:14px}
@@ -925,10 +779,8 @@
         <div class="catcount muted" id="catCount" aria-live="polite"></div>
         <div class="cat-tools">
           <span class="viewseg" role="group" aria-label="Catalog view">
-            <button class="btn" id="viewCards" aria-pressed="false" aria-label="Card grid view" title="Card grid">▦ Cards</button>
-            <button class="btn primary" id="viewList" aria-pressed="true" aria-label="Dense list view" title="Dense list — same parts, one row each">☰ List</button>
-            <button class="btn" id="viewHoney" aria-pressed="false" aria-label="Honeycomb view" title="Honeycomb — hexagonal tiling of the same parts">⬡ Honeycomb</button>
-            <button class="btn" id="viewFractal" aria-pressed="false" aria-label="Fractal treemap view" title="Fractal — a treemap of the current parts, tiles sized by price">❖ Fractal</button>
+            <button class="btn" id="viewCards" aria-pressed="false" title="Card grid">▦ Cards</button>
+            <button class="btn primary" id="viewList" aria-pressed="true" title="Dense list — same parts, one row each">☰ List</button>
           </span>
           <select class="btn" id="sortBy" title="Sort the catalog" aria-label="Sort the catalog">
             <option value="featured">Sort: Best match</option>
@@ -1338,12 +1190,10 @@
   // group change / search-jump, so only the active group's axes are ever engaged.
   // (disciplineFilter above stays standalone — it's rail-level, not per-group.)
   var subFilter = {};
-  // Catalog view: 'list' (default) | 'cards' | 'honeycomb' | 'fractal' — presentation
-  // only; ALL FOUR views share the render pipeline and cardEl DOM (honeycomb & fractal
-  // just add a JS layout pass on the same cards). Persists in localStorage ('tb-view',
-  // same pattern as 'tb-theme'), read here at init so the first render has no view flash.
-  var VIEW_MODES = ['list','cards','honeycomb','fractal'];
-  var viewMode = 'list'; try{ var _sv=localStorage.getItem('tb-view'); if(VIEW_MODES.indexOf(_sv)>=0) viewMode=_sv; }catch(e){}
+  // Catalog view: 'list' (default) | 'cards' — presentation only; both views share
+  // the render pipeline and cardEl DOM. Persists in localStorage ('tb-view', same
+  // pattern as 'tb-theme'), read here at init so the first render has no view flash.
+  var viewMode = 'list'; try{ if(localStorage.getItem('tb-view')==='cards') viewMode='cards'; }catch(e){}
   var $ = function(id){ return document.getElementById(id); };
   var money = function(n){ return '$' + (n||0).toLocaleString(); };
   var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg / ' + (g/453.592).toFixed(2) + ' lb)'; };
@@ -1673,10 +1523,7 @@
   function groupCats(g){ var c = g.slots.map(function(s){return s.cat;}); if(g.preset) c.push(g.preset.cat); return c; }
   function renderCatalog(){
     var el=$('catalog'); el.innerHTML='';
-    // Exactly one view class on the container (cards = none). list is pure CSS;
-    // honeycomb & fractal add a JS layout pass at the end, on the same card DOM.
-    el.className = 'grid' + (viewMode==='list'?' list':viewMode==='honeycomb'?' honeycomb':viewMode==='fractal'?' fractal':'');
-    el.style.height='';   // clear any leftover fractal-treemap height; layoutFractal re-sets it when it runs
+    el.classList.toggle('list', viewMode==='list');   // dense-list view is pure CSS on this class
     var q=search.trim().toLowerCase();
     var list=PARTS.filter(function(p){
       if(activeGroup!=='all'){ if(groupCats(groupByKey[activeGroup]).indexOf(p.cat)<0) return false; }
@@ -1713,138 +1560,6 @@
     };
     meta.sort(SORTS[sortBy] || SORTS.featured);
     meta.forEach(function(m){ el.appendChild(cardEl(m.p, m.c)); });
-    // Geometric views need a JS layout pass over the just-appended cards (same DOM).
-    if(viewMode==='honeycomb') layoutHoneycomb(el);
-    else if(viewMode==='fractal') layoutFractal(el, meta);
-  }
-
-  // ── Honeycomb layout: tag each card's row parity so odd rows shift half a cell
-  //    and interlock (the hex geometry itself is CSS). Idempotent; re-run on resize.
-  function layoutHoneycomb(containerEl){
-    if(!containerEl) return;
-    var cards=containerEl.querySelectorAll(':scope > .pcard');
-    if(!cards.length) return;
-    if(window.innerWidth<=560){   // CSS falls back to a stacked layout below the breakpoint
-      cards.forEach(function(c){ c.classList.remove('hc-row-odd'); });
-      containerEl.style.removeProperty('--hc-cols'); return;
-    }
-    var cs=getComputedStyle(containerEl);
-    var cellW=parseFloat(cs.getPropertyValue('--hc-w'))||248;
-    var gap=parseFloat(cs.getPropertyValue('--hc-gap'))||14;
-    // half a cell of slack so shifted odd rows never overflow horizontally
-    var cols=Math.max(1, Math.floor((containerEl.clientWidth - cellW*0.5)/(cellW+gap)));
-    containerEl.style.setProperty('--hc-cols', cols);
-    cards.forEach(function(card,i){ card.classList.toggle('hc-row-odd', Math.floor(i/cols)%2===1); });
-  }
-
-  // ── Fractal layout: a squarified treemap of the current filtered+sorted parts.
-  //    Top-level regions = one per category (area ∝ item count); each region
-  //    recursively subdivides into per-part tiles (area ∝ price). The .pcard
-  //    children are the SAME DOM the other views use — we only position/size them.
-  //    Idempotent; re-run on resize. metas is the sorted [{p,c},…] from renderCatalog.
-  function layoutFractal(containerEl, metas){
-    var MOBILE_BP=560, GAP=3;
-    var oldLabels=containerEl.querySelectorAll('.fractal-label');
-    for(var oi=0; oi<oldLabels.length; oi++) oldLabels[oi].parentNode.removeChild(oldLabels[oi]);
-    var kids=containerEl.children;
-    if(!metas || !metas.length || kids.length!==metas.length) return;
-    var W=containerEl.clientWidth || containerEl.offsetWidth || 900;
-    if(W<MOBILE_BP){   // mobile short-circuit: plain stacked list, no treemap math
-      containerEl.classList.add('fractal-stack');
-      containerEl.style.height='';
-      for(var mi=0; mi<kids.length; mi++){ var el0=kids[mi];
-        el0.style.position=''; el0.style.left=el0.style.top=el0.style.width=el0.style.height='';
-        el0.removeAttribute('data-fsize'); }
-      return;
-    }
-    containerEl.classList.remove('fractal-stack');
-    // group by category, preserving first-seen order in metas
-    var order=[], groups={}, i;
-    for(i=0; i<metas.length; i++){ var cat=metas[i].p.cat||'other';
-      if(!groups[cat]){ groups[cat]=[]; order.push(cat); } groups[cat].push(i); }
-    // squarified treemap core (Bruls/Huizing/van Wijk)
-    function worst(row,rowSum,s){ var bandThick=rowSum/s, w=0, k;
-      for(k=0;k<row.length;k++){ var dim2=row[k].v*s/rowSum; var r=bandThick>dim2?bandThick/dim2:dim2/bandThick; if(r>w) w=r; }
-      return w; }
-    function placeRow(row,rowSum,rx,ry,rw,rh,out){ var k;
-      if(rw<=rh){ var bandH=rowSum/rw, cx=rx;
-        for(k=0;k<row.length;k++){ var iw=row[k].v/bandH; out[row[k].i]={x:cx,y:ry,w:iw,h:bandH}; cx+=iw; }
-        return {x:rx,y:ry+bandH,w:rw,h:rh-bandH}; }
-      else { var bandW=rowSum/rh, cy=ry;
-        for(k=0;k<row.length;k++){ var ih=row[k].v/bandW; out[row[k].i]={x:rx,y:cy,w:bandW,h:ih}; cy+=ih; }
-        return {x:rx+bandW,y:ry,w:rw-bandW,h:rh}; } }
-    function squarify(items,x,y,w,h,out){
-      var remaining=items.slice().sort(function(a,b){ return b.v-a.v; });
-      var rx=x, ry=y, rw=w, rh=h;
-      while(remaining.length){
-        if(rw<=0||rh<=0){ for(var z=0;z<remaining.length;z++){ out[remaining[z].i]={x:rx,y:ry,w:Math.max(rw,0),h:Math.max(rh,0)}; } break; }
-        var s=Math.min(rw,rh); var row=[remaining[0]], rowSum=remaining[0].v, idx=1;
-        while(idx<remaining.length){ var next=remaining[idx]; var newRow=row.concat([next]), newSum=rowSum+next.v;
-          if(worst(row,rowSum,s)>=worst(newRow,newSum,s)){ row=newRow; rowSum=newSum; idx++; } else break; }
-        var rest=placeRow(row,rowSum,rx,ry,rw,rh,out);
-        remaining=remaining.slice(idx); rx=rest.x; ry=rest.y; rw=rest.w; rh=rest.h;
-      }
-    }
-    // Cell area ∝ SQRT(price): price still drives tile size (pricier = bigger),
-    // but the square root compresses the dynamic range so a $3000 frame is ~2.4×
-    // (not 6×) the area of a $500 one — keeps every tile in a readable/clickable
-    // band instead of a few giants beside unusable slivers. Fallbacks compressed
-    // the same way so price-less parts still get a sane tile.
-    function cellValue(p){
-      if(typeof p.price==='number' && p.price>0) return Math.sqrt(p.price);
-      if(typeof p.weight==='number' && p.weight>0) return Math.sqrt(p.weight*0.15);
-      return Math.sqrt(60); }
-    function catName(cat){
-      var MAP={ bb:'Bottom Bracket', frontwheel:'Front Wheel', rearwheel:'Rear Wheel',
-        frontTire:'Front Tire', rearTire:'Rear Tire', frontBrake:'Front Brake', rearBrake:'Rear Brake',
-        frontRotor:'Front Rotor', rearRotor:'Rear Rotor', groupset:'Groupsets', wheelset:'Wheelsets',
-        brakeset:'Brakesets', cockpitset:'Cockpit Sets' };
-      if(MAP[cat]) return MAP[cat];
-      var s=String(cat).replace(/([a-z])([A-Z])/g,'$1 $2');
-      return s.charAt(0).toUpperCase()+s.slice(1)+'s'; }
-    function runPass(Hpx){
-      var out={};
-      var catItems=order.map(function(cat,ci){ return {v:groups[cat].length, i:ci}; });
-      var totalCat=catItems.reduce(function(a,b){ return a+b.v; },0)||1;
-      var scaleCat=(W*Hpx)/totalCat; catItems.forEach(function(it){ it.v*=scaleCat; });
-      var catRects={}; squarify(catItems,0,0,W,Hpx,catRects);
-      var lbls=[];
-      order.forEach(function(cat,ci){ var R=catRects[ci]; if(!R) return;
-        var labelH=R.h>46?18:0; var ix=R.x, iy=R.y+labelH, iw=R.w, ih=R.h-labelH;
-        lbls.push({cat:cat,x:R.x,y:R.y,w:R.w,showLabel:labelH>0});
-        var idxList=groups[cat];
-        var items=idxList.map(function(idx){ return {v:cellValue(metas[idx].p), i:idx}; });
-        var total=items.reduce(function(a,b){ return a+b.v; },0)||1;
-        var scale=Math.max(iw,0)*Math.max(ih,0)/total; items.forEach(function(it){ it.v*=scale; });
-        squarify(items,ix,iy,Math.max(iw,0),Math.max(ih,0),out);
-      });
-      return {rects:out, labels:lbls}; }
-    // Container height from a TARGET average tile area (~112px square). With the
-    // sqrt-compressed values above, tiles cluster near this size, so no runaway
-    // grow-to-floor loop is needed. Capped so a huge filter (e.g. all parts) just
-    // packs denser tiles rather than an endless page — the view is meant for a
-    // filtered category (the common case), where tiles land comfortably readable.
-    var TARGET_CELL=12500;   // avg px² per tile
-    var H=Math.max(Math.round(W*0.55), Math.round(TARGET_CELL*metas.length/W));
-    H=Math.min(H, 6000);
-    var pass=runPass(H);
-    containerEl.style.height=Math.round(H)+'px';
-    for(var n=0; n<metas.length; n++){
-      var r=pass.rects[n], el=kids[n];
-      if(!r){ el.style.display='none'; continue; }
-      el.style.display='';
-      el.style.position='absolute';
-      el.style.left='calc('+(r.x/W*100)+'% + '+(GAP/2)+'px)';
-      el.style.top=(r.y+GAP/2)+'px';
-      el.style.width='calc('+(r.w/W*100)+'% - '+GAP+'px)';
-      el.style.height=Math.max(r.h-GAP,0)+'px';
-      var area=r.w*r.h;
-      el.setAttribute('data-fsize', area<6500?'xs':area<13000?'sm':area<28000?'md':'lg');
-    }
-    pass.labels.forEach(function(L){ if(!L.showLabel) return;
-      var lbl=document.createElement('div'); lbl.className='fractal-label'; lbl.textContent=catName(L.cat);
-      lbl.style.left=(L.x/W*100)+'%'; lbl.style.top=L.y+'px'; lbl.style.width=(L.w/W*100)+'%';
-      containerEl.appendChild(lbl); });
   }
 
   function cardEl(p, compat){
@@ -3698,30 +3413,17 @@
   // cardEl DOM; switching swaps #catalog's .list class and re-renders. Build,
   // filters, search and sort are untouched. Persistence writes only on a click so
   // visitors who never touch the toggle keep following the app default.
-  // Four-way segmented toggle: cards / list / honeycomb / fractal. Data-driven so
-  // adding a view is one map entry (mode -> button id). Only the active segment is
-  // .primary + aria-pressed=true.
-  var VIEW_BTNS = { cards:'viewCards', list:'viewList', honeycomb:'viewHoney', fractal:'viewFractal' };
   function setView(m){
     viewMode = m;
-    for(var k in VIEW_BTNS){ var b=$(VIEW_BTNS[k]); if(!b) continue; var on=(k===m);
-      b.classList.toggle('primary', on); b.setAttribute('aria-pressed', String(on)); }
+    $('viewCards').classList.toggle('primary', m==='cards');
+    $('viewCards').setAttribute('aria-pressed', String(m==='cards'));
+    $('viewList').classList.toggle('primary', m==='list');
+    $('viewList').setAttribute('aria-pressed', String(m==='list'));
   }
-  Object.keys(VIEW_BTNS).forEach(function(m){ var b=$(VIEW_BTNS[m]); if(!b) return;
-    b.onclick=function(){ setView(m); try{ localStorage.setItem('tb-view', m); }catch(e){} renderCatalog(); };
-  });
-  // The geometric views (honeycomb parity, fractal treemap) are width-dependent, so
-  // reflow them when the window resizes. Debounced; a full re-render rebuilds the
-  // cards and re-invokes the layout hook with fresh metas (cheap, and correct for
-  // the mobile fallback breakpoints). No-op for the pure-CSS cards/list views.
-  var _viewResizeT;
-  window.addEventListener('resize', function(){
-    if(viewMode!=='honeycomb' && viewMode!=='fractal') return;
-    clearTimeout(_viewResizeT);
-    _viewResizeT=setTimeout(function(){ renderCatalog(); }, 140);
-  });
+  $('viewCards').onclick=function(){ setView('cards'); try{ localStorage.setItem('tb-view','cards'); }catch(e){} renderCatalog(); };
+  $('viewList').onclick=function(){ setView('list'); try{ localStorage.setItem('tb-view','list'); }catch(e){} renderCatalog(); };
   // viewMode was read from localStorage at init, before the first catalog render —
-  // sync the toggle to it (the markup ships with List pressed, the default).
+  // sync the two buttons to it (the markup ships with List pressed, the default).
   setView(viewMode);
   // 🎨 Theme selector (toolbar dropdown). Four mutually-exclusive cosmetic modes,
   // none of which ever touches a verdict: light (no class) + dark / rad / loam
