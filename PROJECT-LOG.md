@@ -124,3 +124,14 @@ per wave/decision; large reconstructions are handed to a worker session.
   per-user Storage object quota) is optional/non-blocking. Migration `supabase/forum-profiles-rich2.sql`
   (9 columns + CHECKs + the `avatars` bucket + Storage policies) — **Douglas runs** (schema+Storage
   tier). Branched off current main (no stale base). Four gates green.
+- **UPDATE — 📚 Buyer's Guides section shipped (`c6cbdbc`).** Chip built a full-page Guides section
+  (new `src/guides.js` + index.html) with **10** accurate, brand-neutral compatibility/buyer's guides
+  (how-the-checker-works, fork travel, mullet, Boost/SuperBoost, brakes/rotors, cassette/freehub,
+  UDH/Transmission, headset S.H.I.S., dropper sizing, rear-shock), each grounded in the real engine
+  rules and deep-linkable (`#guide/<slug>`). Coordinator read all 10 — accurate, NO brand favoritism,
+  ZERO affiliate links (unbiased value upheld). Worker presented a branch (correct); coordinator
+  cherry-picked onto current main + resolved ONE index.html conflict (additive CSS, rich2 vs guides —
+  kept both), gates green (validate 0 · 453 tests · tsc 0 incl. guides.js). ⚠ index.html inline script
+  isn't gate-covered and this was a hand-resolved merge, so Douglas to eyeball Guides↔profile hash
+  nav. Purpose: value-add written content for the AvantLink application. Follow-up flagged: static
+  pre-render for real search-SEO would be the project's first build step — deferred, deliberate call.
