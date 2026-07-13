@@ -2,6 +2,14 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **Discipline icons v3 delivered** (`design/rail-icons-emoji-v2` @ 087ac1e; `_PDFs/discipline-
+  icons-v3.pdf` sent): Douglas rejected rounds 1-2's glyphs and narrowed scope to the 5 discipline
+  slots; round 3 = 151 fresh uniquely-numbered candidates (25-30/slot + labeled wildcards, nothing
+  previously shown re-offered — build-enforced) + 5 curated quintets. Awaiting his picks (mixable
+  across rounds). **Manufacturer partnership program approved as the images/data ENDGAME** (chip
+  running): kit = outreach templates + license one-pager + researched first-wave contact sheet;
+  fires after LLC + domain email; partners get zero ranking favor (memory + affiliate-push updated).
+
 - **DJ/BMX ARCHITECTURE IMPLEMENTED on the held branch (`555ee7c`, bike-type/dj-bmx — still
   OFF-LIVE, unmerged).** Per the sign-off: driveMode:'single-speed' discriminator in the MTB engine
   (slotRequired drops drivetrain + ALL brake/rotor slots for single-speed frames — the brakeless
