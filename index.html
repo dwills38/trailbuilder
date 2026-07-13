@@ -1538,6 +1538,27 @@
 
   /* ---- catalog ---- */
   function groupCats(g){ var c = g.slots.map(function(s){return s.cat;}); if(g.preset) c.push(g.preset.cat); return c; }
+
+  /* Seeded-random final tie-break for "Best match" (bias audit 2026-07-12 #5).
+     With no build every dot is grey, so an insertion-index tie-break made the
+     default view = data-entry history — late-added brands sat permanently
+     below the fold. Each part's shuffle key derives ONLY from (part id, seed):
+     one draw of the same mulberry32 the sample builds use, never Math.random()
+     per render, so re-sorts (every search keystroke) can't reorder mid-visit.
+     Seed = UTC day number — per-DAY rather than per-session, so the order also
+     survives a reload within the day while rotating daily: time-averaged brand
+     fairness, no brand permanently owns the top of the default view. */
+  var SHUFFLE_SEED = Math.floor(Date.now()/86400000);
+  var shuffleKeyByPart = {};
+  function shuffleKey(id){
+    var k = shuffleKeyByPart[id];
+    if(k===undefined){
+      var h = 2166136261;   // FNV-1a over the id, then mulberry32 scrambles hash^seed
+      for(var i=0;i<id.length;i++){ h ^= id.charCodeAt(i); h = Math.imul(h, 16777619); }
+      k = shuffleKeyByPart[id] = mulberry32((h>>>0) ^ SHUFFLE_SEED)();
+    }
+    return k;
+  }
   function renderCatalog(){
     var el=$('catalog'); el.innerHTML='';
     el.classList.toggle('list', viewMode==='list');   // dense-list view is pure CSS on this class
@@ -1580,12 +1601,14 @@
         : null;
       el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':wheelsetEmptyHint?wheelsetEmptyHint:compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>'; return;
     }
-    var meta=list.map(function(p,i){ var c=compatOf(p, res); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='w'?1:c.state==='n'?2:3),pre:isPreset(p)?0:1,i:i}; });
+    var meta=list.map(function(p,i){ var c=compatOf(p, res); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='w'?1:c.state==='n'?2:3),pre:isPreset(p)?0:1,sh:shuffleKey(p.id),i:i}; });
     // "Best match" keeps the compatible-first order; explicit sorts are pure
     // (the dot still shows fit). Missing weights sink to the bottom either way.
+    // featured's last tie-break is the seeded shuffle key (see shuffleKey above),
+    // with the index only as a total-order backstop against hash collisions.
     var wt=function(p,missing){ var w=partWeight(p); return w!=null ? w : missing; };   // kits derive weight from fills
     var SORTS={
-      featured:      function(a,b){ return (a.rank-b.rank) || (a.pre-b.pre) || (a.i-b.i); },
+      featured:      function(a,b){ return (a.rank-b.rank) || (a.pre-b.pre) || (a.sh-b.sh) || (a.i-b.i); },
       name:          function(a,b){ return (a.p.brand+' '+a.p.model).localeCompare(b.p.brand+' '+b.p.model) || (a.i-b.i); },
       'price-asc':   function(a,b){ return ((a.p.price||0)-(b.p.price||0)) || (a.i-b.i); },
       'price-desc':  function(a,b){ return ((b.p.price||0)-(a.p.price||0)) || (a.i-b.i); },
