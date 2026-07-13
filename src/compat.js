@@ -197,7 +197,6 @@ function wheelPositionFilled(build, primaryKey){
    typed and concatenated - NOT while multiple sessions are actively
    appending to this one literal, since that would conflict badly. */
 // @ts-ignore - see comment block above
-// @ts-ignore
 var PARTS_RAW = [
   /* FRAMES (weight = frame only, no shock; wheelConfigs = supported setups) */
   { id:'fr-santacruz-megatower-cc', cat:'frame', brand:'Santa Cruz', model:'Megatower CC', family:'santacruz-megatower', modelYear:2025, sizes:{S:{seatTubeLen:380},M:{seatTubeLen:405},L:{seatTubeLen:430},XL:{seatTubeLen:460},XXL:{seatTubeLen:500}},disciplines:['enduro'], price:4199, weight:3250, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:223, suspension:'full', shockEye:230, shockStroke:62.5, shockMount:'std', minForkTravel:170, designForkTravel:170, maxForkTravel:180, travel:165, udh:true, maxTire:2.5, bundledShock:null, frameOnly:true, lastChecked:'2026-07-10', desc:'2026-07-10 fork-travel pass (re-fetched both santacruzbicycles.com Megatower support pages): minForkTravel 170 per the megatower-2 support-page spec line "Compatible Forks: 170-180mm" (approved-range wording); designForkTravel 170 + maxForkTravel 180 re-confirmed per the MY24 support-page FAQ verbatim "Our geometry is based off of a 170mm fork with a 42 or 44mm offset. We wouldn\'t recommend less travel than that, as the BB will get a bit low. Up to 180mm is fine if that\'s your preference." POLICY NOTE: the "wouldn\'t recommend less" sentence is recommendation wording and never sets minForkTravel - min here rests on the Compatible Forks range line alone. C4 re-tier (2026-07-12, page re-fetched): forkTravelHard NOT set - Santa Cruz\'s own FAQ interprets its range as BB-height guidance ("We wouldn\'t recommend less travel than that, as the BB will get a bit low. Up to 180mm is fine if that\'s your preference"), so rule 12/12b WARNS outside 170-180 instead of hard-erroring. Row deliberately left unverified (test-schema.js known-good-unverified fixture). RESEARCHED 2026-07-09 vs two FETCHED santacruzbicycles.com pages (the 2025 frame-only product page: $4,199 frame price MATCH, 3.25kg/3250g frame weight MAKER-STATED, Fox Float X2 Factory shock; the Megatower 2 support/spec page: 148x12mm Boost rear axle, 223mm max rear rotor, 170-180mm compatible fork travel -> maxForkTravel 180, 29in only - no mullet, 2.5in max tire clearance; the Megatower 2 MY24 support page: 230x62.5mm std-mount shock, 73mm threaded BB -> BSA73, 31.6mm seatpost, IS41/52 integrated tapered headset, 200mm PM rear brake mount, 165mm rear travel, UDH-compatible w/ SC aluminum hanger) - every verdict-driving field CONFIRMED matching this row, weight corrected 3200->3250g to match the maker figure exactly. DELIBERATELY LEFT UNVERIFIED despite meeting the bar: this id is test-schema.js\'s canonical baseline "known-good unverified frame" fixture (used in ~20+ assertions via the local over() helper), and its own in-file comment notes the frozen test date predates any lastChecked a verified stamp would carry - setting verified:true here would inject an unrelated future-lastChecked provenance problem into every one of those unrelated assertions. Promoting a different frame is the correct path for a real verified example; this row stays a data-accurate but unverified fixture on purpose.' },
@@ -5790,8 +5789,23 @@ var ALIASES = {
 function canonicalId(id){ return (id && Object.prototype.hasOwnProperty.call(ALIASES, id)) ? ALIASES[id] : id; }
 
 /* ---- lookups ------------------------------------------------------------- */
+/* id -> part index, memoized like _PARTS_BY_CAT (the catalog is immutable at
+   runtime). byId is on every hot path - resolveBuild, buildTotals, partWeight,
+   partVerified, the UI render loop - and the old linear scan cost O(PARTS)
+   per call, which at 3000+ rows dominated every catalog render. Built on a
+   null-prototype object so a crafted id ('__proto__', 'toString') can never
+   resolve to an inherited value - same hardening posture as sanitizeShare. */
+/** @type {Object.<string, Part>|null} */
+var _BY_ID = null;
 /** @param {string|null|undefined} id @returns {Part|null} */
-function byId(id){ for (var i=0;i<PARTS.length;i++){ if (PARTS[i].id===id) return PARTS[i]; } return null; }
+function byId(id){
+  if(!_BY_ID){
+    /** @type {Object.<string, Part>} */ var acc = Object.create(null);
+    for (var i=0;i<PARTS.length;i++){ acc[PARTS[i].id] = PARTS[i]; }
+    _BY_ID = acc;
+  }
+  return (id && _BY_ID[id]) || null;
+}
 /** @param {Part|null|undefined} p @returns {string} */
 function nameOf(p){ return p ? (p.brand+' '+p.model) : ''; }
 

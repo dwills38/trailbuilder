@@ -1542,8 +1542,15 @@
     var el=$('catalog'); el.innerHTML='';
     el.classList.toggle('list', viewMode==='list');   // dense-list view is pure CSS on this class
     var q=search.trim().toLowerCase();
+    // One build-resolve and one group-cat list per RENDER, not per part: the
+    // per-part compatFor(p) shape re-ran resolved() (a byId per filled slot)
+    // for every one of 3000+ rows, which made each render — every keystroke
+    // in the search box — cost hundreds of ms. Same results, measured ~9x
+    // faster; compatFor stays for one-off callers.
+    var res=resolved();
+    var activeCats = activeGroup!=='all' ? groupCats(groupByKey[activeGroup]) : null;
     var list=PARTS.filter(function(p){
-      if(activeGroup!=='all'){ if(groupCats(groupByKey[activeGroup]).indexOf(p.cat)<0) return false; }
+      if(activeCats && activeCats.indexOf(p.cat)<0) return false;
       if(activeGroup!=='all' && activeSub!=='all'){ var subM=SUBCHIP_META[activeSub];
         if(subM){ if(!subM.match(p)) return false; } else if(p.cat!==activeSub) return false; }
       if(q && (p.brand+' '+p.model+' '+catLabel(p.cat)).toLowerCase().indexOf(q)<0) return false;
@@ -1553,7 +1560,7 @@
       // compatibleOnly hides red (would-clash) parts only — yellow still fits,
       // it just adds a warning to check; with nothing built yet everything is
       // state 'n' (grey), so the filter is a no-op until a build exists.
-      if(compatibleOnly && compatFor(p).state==='r') return false;
+      if(compatibleOnly && compatOf(p, res).state==='r') return false;
       // contextual sub-filters (data-driven): each engaged axis hides only the
       // in-scope parts that miss it; out-of-scope parts pass (match() returns true).
       for(var si=0; si<SUBFILTERS.length; si++){ var sf=SUBFILTERS[si], sv=subFilter[sf.id]; if(sv!=='all' && !sf.match(p, sv)) return false; }
@@ -1573,7 +1580,7 @@
         : null;
       el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':wheelsetEmptyHint?wheelsetEmptyHint:compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>'; return;
     }
-    var meta=list.map(function(p,i){ var c=compatFor(p); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='w'?1:c.state==='n'?2:3),pre:isPreset(p)?0:1,i:i}; });
+    var meta=list.map(function(p,i){ var c=compatOf(p, res); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='w'?1:c.state==='n'?2:3),pre:isPreset(p)?0:1,i:i}; });
     // "Best match" keeps the compatible-first order; explicit sorts are pure
     // (the dot still shows fit). Missing weights sink to the bottom either way.
     var wt=function(p,missing){ var w=partWeight(p); return w!=null ? w : missing; };   // kits derive weight from fills
