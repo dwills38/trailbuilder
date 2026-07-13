@@ -108,6 +108,7 @@
  * @property {number} [minRotorR]  frame native post-mount rotor floor (rule 10b errors below; dormant until maker-sourced)
  * @property {number} maxForkTravel
  * @property {number} [minForkTravel]  maker-published approved-fork floor (dormant until sourced)
+ * @property {boolean} [forkTravelHard]  true = the cited source states the fork range as a HARD compatibility limit -> rule 12/12b error outside it; absent = recommendation language -> warning (C4)
  * @property {number} [designForkTravel]  maker-STATED design fork travel (rule 12c warns >20mm below; dormant until sourced)
  * @property {boolean} [coilApproved]  false = maker states NOT coil-compatible (absence = unknown)
  * @property {boolean} udh
@@ -136,7 +137,7 @@
 /** @typedef {CommonFields & {cat: 'crankset', bb: CrankBb, ring?: number, ringStd: (RingStd|null), speeds: number, chainline?: number}} CranksetPart */
 /** @typedef {CommonFields & {cat: 'bb', shell: FrameBb, spindle: CrankBb}} BbPart  the bottom bracket itself: shell = frame standard, spindle = crank bore (rule 7 exact checks) */
 /** @typedef {CommonFields & {cat: 'headset', upper: HeadTube, lower: HeadTube, steerer: SteererFit}} HeadsetPart  complete headset: upper/lower assembly S.H.I.S. codes + the steerer it accepts (rule 20a exact vs fork.steerer; rule 20b compares bore tokens vs frame.headTubeUpper/Lower) */
-/** @typedef {CommonFields & {cat: 'brake', mount: BrakeMount, pistons: number, leverAccepts?: LeverClamp[]}} BrakePart */
+/** @typedef {CommonFields & {cat: 'brake', mount: BrakeMount, pistons: number, maxRotor?: number, leverAccepts?: LeverClamp[]}} BrakePart  maxRotor = the CALIPER's own maker-stated rotor ceiling (rule 8b errors above; real on flat-mount calipers, dormant/absent on post-mount) */
 /** @typedef {CommonFields & {cat: 'rotor', size: number, mount: RotorMount}} RotorPart */
 /** @typedef {CommonFields & {cat: 'handlebar', clamp: number, width?: number, rise?: number, material?: Material}} HandlebarPart */
 /** @typedef {CommonFields & {cat: 'stem', clamp: number, length?: number}} StemPart */

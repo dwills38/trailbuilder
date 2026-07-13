@@ -111,9 +111,10 @@ hr('C. ASSEMBLE (a sensible complete build per frame -> unexpected ERRORS)');
     b.rearTire = cat('tire').filter(function(p){ return p.wheel === rs && p.width <= maxT; })[0];
     if(b.fork) b.frontBrake = cat('brake').filter(function(p){ return p.mount === b.fork.brakeMount; })[0];
     b.rearBrake = cat('brake').filter(function(p){ return p.mount === fr.brakeMount; })[0];
-    // rotors: respect the fork's native-mount minimum so we test fit, not our own bug
-    if(b.fork && b.frontWheel) b.frontRotor = cat('rotor').filter(function(p){ return p.mount === b.frontWheel.rotorMount && p.size <= b.fork.maxRotorF && (typeof b.fork.minRotorF !== 'number' || p.size >= b.fork.minRotorF); })[0];
-    if(b.rearWheel) b.rearRotor = cat('rotor').filter(function(p){ return p.mount === b.rearWheel.rotorMount && p.size <= fr.maxRotorR; })[0];
+    // rotors: respect the fork's native-mount minimum AND the picked caliper's own
+    // maxRotor ceiling (rule 8b, FM calipers) so we test fit, not our own bug
+    if(b.fork && b.frontWheel) b.frontRotor = cat('rotor').filter(function(p){ return p.mount === b.frontWheel.rotorMount && p.size <= b.fork.maxRotorF && (typeof b.fork.minRotorF !== 'number' || p.size >= b.fork.minRotorF) && (!b.frontBrake || typeof b.frontBrake.maxRotor !== 'number' || p.size <= b.frontBrake.maxRotor); })[0];
+    if(b.rearWheel) b.rearRotor = cat('rotor').filter(function(p){ return p.mount === b.rearWheel.rotorMount && p.size <= fr.maxRotorR && (!b.rearBrake || typeof b.rearBrake.maxRotor !== 'number' || p.size <= b.rearBrake.maxRotor); })[0];
     var bars = cat('handlebar'), stems = cat('stem'), cp = null;
     bars.forEach(function(Bh){ stems.forEach(function(St){ if(!cp && Bh.clamp === St.clamp) cp = [Bh, St]; }); });
     if(cp){ b.handlebar = cp[0]; b.stem = cp[1]; }

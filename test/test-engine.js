@@ -178,6 +178,25 @@ test('a 30mm crank in a PF92 frame is servable (Hope PF41) - the dossier rule-7 
   eq(chk({frame:'fr-commencal-meta-v5', bb:'bb-hope-pf41-92-30mm', crankset:'cr-hope-evo'}).errors.length, 0);
 });
 
+/* Rule 7 - BSA68 <-> BSA73 equivalence (engine-critical review C2, 2026-07-12).
+   Same 1.37" x 24tpi English thread; threaded BBs ship as ONE 68/73 SKU (the
+   catalog's bb-sram-dub-bsa68/-bsa73 rows share mfgPn BB-DUB-BSA-A1; Race Face
+   sells "BSA CINCH 30mm (68/73)" by name). Exact-matching the two shell widths
+   hard-errored a physically correct build. BSA83 and press-fit stay exact. */
+test('a 68/73 threaded BB (encoded BSA68) on a BSA73 frame -> clean, not a false red', function(){
+  var r = chk({frame:'fr-raaw-madonna-v3', bb:'bb-raceface-bsa68-30mm', crankset:'cr-raceface-turbine'});
+  eq(r.errors.length, 0);
+});
+test('the mirror: a BSA73-encoded DUB BB on the catalog BSA68 hardtail -> clean', function(){
+  eq(chk({frame:'fr-commencal-meta-ht-v3', bb:'bb-sram-dub-bsa73'}).errors.length, 0);
+});
+test('BSA83 stays OUTSIDE the 68/73 class: a BSA83 DH BB on a BSA73 frame -> still an error', function(){
+  some(chk({frame:'fr-raaw-madonna-v3', bb:'bb-sram-dub-bsa83'}).errors, 'BB shell mismatch');
+});
+test('and the reverse: a 68/73 BB on a BSA83 DH frame (V10) -> still an error', function(){
+  some(chk({frame:'fr-santacruz-v10-8', bb:'bb-sram-dub-bsa73'}).errors, 'BB shell mismatch');
+});
+
 /* Rule 20 - the headset category (2026-07-10; rule 7/BB is the template).
    20a (ACTIVE): steerer acceptance vs the fork, exact equality like rule 11.
    20b (dormant-until-sourced): cup vs head tube where a frame carries fetched
@@ -297,8 +316,53 @@ test('180mm rear rotor on the Solaris meets its native mount exactly -> clean', 
 test('frame rotor floor stays dormant without a sourced minRotorR', function(){
   eq(chk({frame:'fr-raaw-madonna-v32', rearRotor:'ro-clarks-cl01-160-6b'}).errors.length, 0);
 });
-test('bar/stem clamp mismatch (35 vs 31.8) -> error', function(){
-  some(chk({handlebar:'hb-pnw-range-318', stem:'st-renthal-apex-35'}).errors, 'clamp');
+
+/* Rule 8b - CALIPER rotor ceiling (engine-critical review C1, 2026-07-12).
+   A flat-mount caliper body has a hard rotor max independent of the frame:
+   Shimano's caliper<->rotor chart C-461 lists the BR-M9110 as "Not compatible
+   with 220mm, 203 mm and 180 mm rotors" (140/160 only), and the FM system has
+   no size-up bracket. The Lux World Cup's FM mount allows 180 (maxRotorR:180),
+   so before this rule the build below was a false "fits". */
+test('180mm rotor on the XTR FM caliper (Shimano-rated 140/160) -> error, not a false fit', function(){
+  var r = chk({frame:'fr-canyon-lux-world-cup-cf', rearBrake:'bk-shimano-xtr-m9110-fm', rearRotor:'ro-hayes-dseries-180-6b'});
+  eq(r.errors.filter(function(v){ return v.ruleId==='rear-brake-rotor-max'; }).length, 1);
+  some(r.errors, 'too big for the caliper');
+});
+test('160mm rotor on the same XTR FM caliper + frame stays clean', function(){
+  eq(chk({frame:'fr-canyon-lux-world-cup-cf', rearBrake:'bk-shimano-xtr-m9110-fm', rearRotor:'ro-sram-hs2-160-6b'}).errors.length, 0);
+});
+test('caliper ceiling fires in the front slot too (Magura MT8 SL FM, maker-stated 160 max)', function(){
+  some(chk({frontBrake:'bk-magura-mt8-sl-fm', frontRotor:'ro-hayes-dseries-180-6b'}).errors, 'too big for the caliper');
+});
+test('Magura MT8 SL FM at exactly its 160 ceiling -> clean (its own brakeset pairing)', function(){
+  eq(chk({frontBrake:'bk-magura-mt8-sl-fm', frontRotor:'ro-magura-storm-sl2-160-6b'}).errors.length, 0);
+});
+test('caliper ceiling stays dormant on post-mount calipers without a sourced maxRotor', function(){
+  eq(chk({rearBrake:'bk-sram-code-rsc', rearRotor:'ro-sram-hs2-200-6b'}).errors.length, 0);
+});
+
+/* Rule 15 - DIRECTION-AWARE bar/stem clamp (engine-critical review C3,
+   2026-07-12; mirrors the rule-13 dropper asymmetry). A 35mm bar cannot
+   enter a 31.8mm stem clamp (error); a 31.8mm bar in a 35mm stem is an
+   everyday build with a stocked reducer shim (Reverse Components
+   Ø35.0->31.8 / Wheels Mfg / Problem Solvers) -> warning + structured fix.
+   This test previously asserted the SHIM direction as a hard error - that
+   was the C3 false "won't fit"; evolved to encode the corrected truth. */
+test('35mm bar in a 31.8mm stem -> error (a bigger bar cannot fit a smaller clamp)', function(){
+  var r = chk({handlebar:'hb-renthal-fatbar-35', stem:'st-deity-copperhead-318'});
+  eq(r.errors.filter(function(v){ return v.ruleId==='bar-stem-clamp'; }).length, 1);
+});
+test('31.8mm bar in a 35mm stem -> reducer-shim warning with structured fix, not a red', function(){
+  var r = chk({handlebar:'hb-renthal-fatbar-318', stem:'st-renthal-apex-35'});
+  eq(r.errors.length, 0);
+  some(r.warnings, 'reducer shim');
+  var w = r.warnings.filter(function(v){ return v.ruleId==='bar-stem-shim'; })[0];
+  eq(w && w.fix && w.fix.kind, 'shim');
+  eq(w && w.fix && w.fix.name, '35-to-31.8mm handlebar reducer shim');
+});
+test('matching bar/stem clamps stay clean in both diameters', function(){
+  eq(chk({handlebar:'hb-renthal-fatbar-318', stem:'st-deity-copperhead-318'}).warnings.length, 0);
+  eq(chk({handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35'}).warnings.length, 0);
 });
 
 /* Rule 19 — shifter mounting vs brake lever integration (REVIEW.md #5). The
@@ -425,14 +489,58 @@ test('180mm fork on the RAAW Madonna V2.2 is maker-approved (the 180 boundary) -
 /* Dormant sourced-data rules (REVIEW.md #14/#21/#22) - no catalog part carries
    the fields yet, so each is driven synthetically (the rule-18 template) and
    proven dormant on real parts. */
-test('under-forking ERRORS when the frame declares a sourced minForkTravel (sourced-strict, dossier rule 12 verdict)', function(){
+/* Rule 12/12b tiers by SOURCE LANGUAGE (engine-critical review C4,
+   2026-07-12): forkTravelHard:true = the cited source states a hard
+   compatibility limit -> ERROR outside the range; absent = the range is
+   maker recommendation wording -> WARNING (the fork bolts on and works;
+   only geometry shifts). The old tests asserted every sourced min as a
+   hard error - evolved to the corrected per-source truth. */
+test('under-forking ERRORS below a maker-stated HARD limit (forkTravelHard)', function(){
   var bld = B({fork:'fk-fox-36-factory-29-160'});
-  bld.frame = /** @type {FramePart} */ (Object.assign({}, part('fr-propain-spindrift-cf'), {minForkTravel:170}));
+  bld.frame = /** @type {FramePart} */ (Object.assign({}, part('fr-propain-spindrift-cf'), {minForkTravel:170, forkTravelHard:true}));
   some(C.checkBuild(bld).errors, 'Under-forked');
 });
-test('over the top of a maker-published range ERRORS; inside the range is clean (Ibis Ripmo 150-170)', function(){
-  some(chk({frame:'fr-ibis-ripmo-v3', fork:'fk-fox-38-factory-29-180'}).errors, 'maker-approved range');
+test('under-forking WARNS below a recommendation-language floor (no forkTravelHard)', function(){
+  var bld = B({fork:'fk-fox-36-factory-29-160'});
+  bld.frame = /** @type {FramePart} */ (Object.assign({}, part('fr-propain-spindrift-cf'), {minForkTravel:170}));
+  var r = C.checkBuild(bld);
+  eq(r.errors.length, 0);
+  some(r.warnings, 'the maker recommends');
+});
+test('over the top of a maker-stated HARD range ERRORS; inside the range is clean (Ibis Ripmo "compatible with 150-170mm forks")', function(){
+  some(chk({frame:'fr-ibis-ripmo-v3', fork:'fk-fox-38-factory-29-180'}).errors, 'compatibility range');
   eq(chk({frame:'fr-ibis-ripmo-v3', fork:'fk-fox-36-factory-29-160'}).errors.length, 0);
+});
+
+/* C4 pinning - the review's real failing builds, on live catalog rows. All
+   three Santa Cruz support pages (re-fetched 2026-07-12) explain their
+   "Fork Compatibility" ranges in the FAQ as recommendations ("We wouldn't
+   recommend less travel than that, as the BB will get a bit low. Up to
+   Xmm is fine if that's your preference") - so under-forking them WARNS.
+   Frames whose source states a limit (HD6 "rated for 180-190 mm") keep
+   the hard error. */
+test('C4: 140mm fork on the Hightower 3 (SC recommendation wording) -> warning, not a red', function(){
+  var r = chk({frame:'fr-santacruz-hightower-3', fork:'fk-fox-36-factory-29-140'});
+  eq(r.errors.length, 0);
+  some(r.warnings, 'the maker recommends');
+});
+test('C4: 160mm fork on the Nomad 6 -> warning, not a red', function(){
+  var r = chk({frame:'fr-santacruz-nomad-6', fork:'fk-fox-36-factory-29-160'});
+  eq(r.errors.length, 0);
+  some(r.warnings, 'Under-forked');
+});
+test('C4: 160mm fork on the Megatower CC (the formerly source-less hard red) -> warning, not a red', function(){
+  var r = chk({frame:'fr-santacruz-megatower-cc', fork:'fk-rockshox-lyrik-ultimate-29-160'});
+  eq(r.errors.length, 0);
+  some(r.warnings, 'Under-forked');
+});
+test('C4: 170mm fork on the HD6 ("rated for 180-190 mm") keeps the hard error', function(){
+  some(chk({frame:'fr-ibis-hd6', fork:'fk-fox-38-factory-29-170'}).errors, 'Under-forked');
+});
+test('C4: over a recommendation range warns instead of erroring (Hightower 3 + 170)', function(){
+  var r = chk({frame:'fr-santacruz-hightower-3', fork:'fk-fox-38-factory-29-170'});
+  eq(r.errors.filter(function(e){ return String(e).indexOf('Fork travel')>=0; }).length, 0);
+  some(r.warnings, 'the maker recommends');
 });
 test('over-max stays a WARNING on a frame without a published range (sample-value safety)', function(){
   var r = chk({frame:'fr-canyon-strive-cfr', fork:'fk-fox-38-factory-29-180'});
@@ -454,12 +562,19 @@ test('design-travel under-forking stays silent at 20mm under (a real deliberate 
   eq(C.checkBuild(bld).warnings.length, 0);              // exactly 20 under: silent
   eq(chk({frame:'fr-propain-spindrift-cf', fork:'fk-fox-36-factory-29-140'}).warnings.length, 0); // no field: dormant
 });
-test('12c is suppressed when 12b (approved minimum) already fired for the same pair', function(){
+test('12c is suppressed when 12b already fired for the same pair (both 12b tiers)', function(){
+  // hard tier: 12b errors, 12c suppressed
   var bld = B({fork:'fk-fox-36-factory-29-140'});
-  bld.frame = /** @type {FramePart} */ (Object.assign({}, part('fr-propain-spindrift-cf'), {minForkTravel:170, designForkTravel:180}));
+  bld.frame = /** @type {FramePart} */ (Object.assign({}, part('fr-propain-spindrift-cf'), {minForkTravel:170, forkTravelHard:true, designForkTravel:180}));
   var r = C.checkBuild(bld);
-  some(r.errors, 'maker-approved minimum');   // 12b, promoted to error (sourced-strict)
+  some(r.errors, 'maker-stated minimum');
   eq(r.warnings.filter(function(x){ return String(x).indexOf('designed around')>=0; }).length, 0);
+  // recommendation tier (C4): 12b warns, 12c still suppressed - one verdict per conflict
+  var bld2 = B({fork:'fk-fox-36-factory-29-140'});
+  bld2.frame = /** @type {FramePart} */ (Object.assign({}, part('fr-propain-spindrift-cf'), {minForkTravel:170, designForkTravel:180}));
+  var r2 = C.checkBuild(bld2);
+  some(r2.warnings, 'Under-forked');
+  eq(r2.warnings.filter(function(x){ return String(x).indexOf('designed around')>=0; }).length, 0);
 });
 test('coil shock warns when the frame is maker-stated NOT coil-compatible', function(){
   var bld = B({shock:'sh-ext-storia-v3-230x65'});
@@ -594,6 +709,37 @@ test('rule 3 rejects mixing a 7-speed DH shifter with a 12-speed derailleur', fu
   bld.shifter = /** @type {any} */ (Object.assign({}, part('sft-sram-gx-eagle'), {system:'sram-dh-7', speeds:7}));
   var r = C.checkBuild(bld);
   some(r.errors, 'system', 'mixing sram-dh-7 with sram-eagle must error');
+});
+
+/* Rule 3 - the CHAIN is out of the SPEED set, in the SYSTEM set (engine-
+   critical review M1, 2026-07-12). Chains are width-defined, not speed-
+   defined: SRAM's one T-Type Flattop chain family runs both the 12s
+   Transmission groups and the 7-speed XX Eagle Transmission DH group
+   (CS-XS-797) - counting the chain in the speed set forced a false red on
+   that genuine SRAM-sold pairing and kept the group out of the catalog.
+   The chain's real constraint (width family) is what `system` encodes. */
+test('M1: a 7s T-Type DH cassette + mech with the 12s-width Flattop chain -> no speed red (the SRAM XX DH group)', function(){
+  var bld = B({chain:'ch-sram-gx-flattop'});   // T-Type Flattop, tagged speeds:12
+  bld.cassette   = /** @type {any} */ (Object.assign({}, part('ca-sram-xs1275'), {speeds:7, minCog:9, maxCog:24}));      // CS-XS-797 shape
+  bld.derailleur = /** @type {any} */ (Object.assign({}, part('dr-sram-xx-transmission'), {speeds:7, maxCog:24}));       // RD-XX-DHE shape
+  var r = C.checkBuild(bld);
+  eq(r.errors.filter(function(v){ return v.ruleId==='drivetrain-speeds' || v.ruleId==='drivetrain-system'; }).length, 0);
+});
+test('M1: a chain speed tag alone never drives a speed red within one system', function(){
+  var bld = B({shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275'});
+  bld.chain = /** @type {any} */ (Object.assign({}, part('ch-sram-gx-eagle'), {speeds:11}));
+  eq(C.checkBuild(bld).errors.filter(function(v){ return v.ruleId==='drivetrain-speeds'; }).length, 0);
+});
+test('M1: a real indexed-parts speed mismatch still errors, and its slots exclude the chain', function(){
+  var bld = B({shifter:'sft-sram-gx-eagle', chain:'ch-sram-gx-eagle'});
+  bld.cassette = /** @type {any} */ (Object.assign({}, part('ca-sram-xg1275'), {speeds:11}));
+  var r = C.checkBuild(bld);
+  var v = r.errors.filter(function(x){ return x.ruleId==='drivetrain-speeds'; })[0];
+  eq(!!v, true, 'shifter 12s vs cassette 11s must still red');
+  eq(v.slots.indexOf('chain'), -1, 'the chain is not implicated in a speed verdict');
+});
+test('M1: the chain stays in the one-SYSTEM set (Shimano chain in a SRAM Eagle drivetrain reds)', function(){
+  some(chk({chain:'ch-shimano-xtr-m9100', cassette:'ca-sram-xg1275'}).errors, 'Drivetrain mismatch');
 });
 test('a matched straight-dc pair (dual-crown fork on a DH frame) is silent on rule 11', function(){
   var bld = /** @type {any} */ ({

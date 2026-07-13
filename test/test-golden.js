@@ -51,7 +51,7 @@ var HIGHEND = { frame:'fr-yeti-sb160', fork:'fk-ext-era-v2-29-170', shock:'sh-pu
 var CLASH = { frame:'fr-specialized-enduro-sworks', fork:'fk-rockshox-zeb-ultimate-275-170', shock:'sh-rockshox-super-deluxe-205x65-trun', frontWheel:'fw-industrynine-enduro-s-29', rearWheel:'rw-industrynine-enduro-s-29',
   frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-29-25-exop-mg', shifter:'sft-sram-gx-transmission', derailleur:'dr-sram-gx-transmission', cassette:'ca-shimano-xt-m8100-1051', chain:'ch-sram-gx-flattop', crankset:'cr-sram-x0-transmission',
   frontBrake:'bk-shimano-xt-m8120', rearBrake:'bk-shimano-xt-m8120', frontRotor:'ro-shimano-rtmt800-203-cl', rearRotor:'ro-shimano-rtmt800-203-cl',
-  handlebar:'hb-pnw-range-318', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', dropper:'dp-pnw-loam-309-175', saddle:'sa-wtb-volt', pedals:'pd-crankbrothers-stamp-7-large' };
+  handlebar:'hb-renthal-fatbar-35', stem:'st-pnw-range-318', grips:'gr-oneup-lockon', dropper:'dp-pnw-loam-309-175', saddle:'sa-wtb-volt', pedals:'pd-crankbrothers-stamp-7-large' };
 
 test('golden: Santa Cruz Megatower trail build is fully compatible', function(){
   var r = chk(GOOD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
@@ -93,6 +93,11 @@ test('known-bad: the deliberate clash build reports 6 errors + the shim warning'
   // shock stroke too long (205x65 in a 205x60 frame - the over-rotation
   // direction stays an error under the REVIEW #8 split). The 30.9-in-31.6
   // dropper is the shimable direction, a WARNING since the REVIEW #9 split.
+  // Bar/stem swapped to the 35-bar-in-31.8-stem direction when rule 15 went
+  // direction-aware (engine-critical review C3, 2026-07-12): the old pair
+  // (31.8 bar in a 35 stem) is a real stocked-reducer-shim build, now the
+  // bar-stem-shim warning tier - only a BIGGER bar in a smaller clamp is
+  // the physical impossibility this clash count pins.
   var r = chk(CLASH);
   eq(r.errors.length, 6);
   U.some(r.warnings, 'reducing shim');
@@ -206,12 +211,18 @@ test('golden: the 27.5 DH build fills every required slot', function(){
 /* The first complete XC HARDTAIL race build (2026-07-08): Exceed CF (flat-mount
    rear, no shock) + SID 120 + Micro Spline wheel + verified Aspen tires + XTR
    with an FM rear caliper + 30.9 dropper. Locks the hardtail machinery (no
-   shock block, shock slot exempt) + the FM vocab end-to-end. Must stay green. */
+   shock block, shock slot exempt) + the FM vocab end-to-end. Must stay green.
+   Rear rotor CORRECTED 180 -> 160 (engine-critical review C1, 2026-07-12):
+   Shimano's caliper<->rotor chart C-461 rates the BR-M9110 FM caliper 140/160
+   only ("Not compatible with 220mm, 203 mm and 180 mm rotors") - the original
+   180 rear was a real false-fit baked into this golden build; rule 8b now
+   catches it, and 160 rear is the correct real-world pairing (the XC full-sus
+   golden below already ran a 160 rear). */
 var XC_BUILD = { frame:'fr-canyon-exceed-cf', fork:'fk-rockshox-sid-ultimate-29-120',
   frontWheel:'fw-dtswiss-ex-1700-29', rearWheel:'rw-dtswiss-ex-1700-29-ms',
   frontTire:'ti-maxxis-aspen-29-24-exo-dual', rearTire:'ti-maxxis-aspen-29-24-exo-dual',
   shifter:'sft-shimano-xtr-m9100', derailleur:'dr-shimano-xtr-m9100-sgs', cassette:'ca-shimano-xtr-m9100-1051', chain:'ch-shimano-xtr-m9100', crankset:'cr-shimano-xtr-m9100',
-  frontBrake:'bk-shimano-xtr-m9120', rearBrake:'bk-shimano-xtr-m9110-fm', frontRotor:'ro-shimano-rtmt800-180-cl', rearRotor:'ro-shimano-rtmt800-180-cl',
+  frontBrake:'bk-shimano-xtr-m9120', rearBrake:'bk-shimano-xtr-m9110-fm', frontRotor:'ro-shimano-rtmt800-180-cl', rearRotor:'ro-shimano-rtmt800-160-cl',
   handlebar:'hb-oneup-carbon-35', stem:'st-oneup-stem-35', grips:'gr-oneup-lockon', dropper:'dp-fox-transfer-factory-309-180', saddle:'sa-wtb-volt', pedals:'pd-crankbrothers-mallet-enduro' };
 test('golden: a complete XC hardtail race build (flat-mount rear, no shock) is fully compatible', function(){
   var r = chk(XC_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);

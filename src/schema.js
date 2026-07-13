@@ -254,7 +254,20 @@ var SCHEMA = {
        coilApproved:false = the maker states the frame is NOT
        coil-compatible (REVIEW #21 - manufacturer statements only, never
        leverage-curve guesses; absence means unknown, not approved). */
-    minForkTravel:{type:'number',optional:true}, designForkTravel:{type:'number',optional:true}, coilApproved:{type:'bool',optional:true},
+    minForkTravel:{type:'number',optional:true}, designForkTravel:{type:'number',optional:true},
+    /* forkTravelHard (engine-critical review C4, 2026-07-12): true = the
+       row's cited source states the fork-travel range as a HARD
+       compatibility limit ("compatible with 150-170mm forks", "rated for
+       180-190 mm", "160mm minimum up to 180mm maximum") -> rule 12/12b
+       ERROR outside the range. ABSENT = the range is maker recommendation
+       language (the Santa Cruz support-page FAQ pattern: "We wouldn't
+       recommend less travel than that, as the BB will get a bit low. Up to
+       Xmm is fine if that's your preference") -> WARNING, because the fork
+       physically bolts on and functions either way; only geometry shifts.
+       Safe-by-default: a new frame can never gain a hard travel red without
+       an explicit, sourced assertion (cross-rule below requires min +
+       source). */
+    forkTravelHard:{type:'bool',optional:true}, coilApproved:{type:'bool',optional:true},
     /* udhRetrofitKit (dossier rule 4 review, 2026-07-10): the maker-documented
        UDH conversion kit's name, only for non-UDH frames whose maker sells one
        (RAAW UDH Retrofit Kit: Jibb V1 / Madonna V2 / V2.2). Sourced only;
@@ -335,8 +348,15 @@ var SCHEMA = {
   headset: { upper:{type:'string',vocab:'headTube'}, lower:{type:'string',vocab:'headTube'}, steerer:{type:'string',vocab:'steerer'} },
   /* brake: real levers accept MULTIPLE shifter-mount standards via the maker's
      own clamps (Hayes Peacemaker = I-Spec II/EV + MatchMaker), so this is an
-     array (DATA-MODEL-REVIEW 5.1-9) */
-  brake: { mount:{type:'string',vocab:'brakeMount'}, pistons:{type:'number'}, leverAccepts:{type:'enumArray',vocab:'leverClamp',optional:true} },
+     array (DATA-MODEL-REVIEW 5.1-9).
+     maxRotor (engine-critical review C1, 2026-07-12): the CALIPER's own rotor
+     ceiling - dormant-until-sourced (rule-18 template), maker statements only.
+     Real on flat-mount calipers (the FM system has no size-up bracket;
+     Shimano's caliper<->rotor chart C-461 lists the BR-M9110 as "Not
+     compatible with 220mm, 203 mm and 180 mm rotors"). Post-mount calipers
+     are size-agnostic - the mount, not the body, sets the limit (rule 10) -
+     so the field stays ABSENT on them. */
+  brake: { mount:{type:'string',vocab:'brakeMount'}, pistons:{type:'number'}, maxRotor:{type:'number',optional:true}, leverAccepts:{type:'enumArray',vocab:'leverClamp',optional:true} },
   rotor: { size:{type:'number'}, mount:{type:'string',vocab:'rotorMount'} },
   handlebar: { clamp:{type:'number'}, width:{type:'number',optional:true}, rise:{type:'number',optional:true}, material:{type:'string',vocab:'material',optional:true} },
   stem: { clamp:{type:'number'}, length:{type:'number',optional:true} },
@@ -601,6 +621,16 @@ function validatePart(p, ctx){
     // cassette (e*thirteen LG1r DH) - a separate cassette row carrying it is
     // nonsense data (there is no such mount to buy a cassette for).
     if(p.freehub === 'integrated') bad('freehub integrated is a wheel/hub-side value (the driver IS the cassette) - a cassette row cannot carry it');
+  }
+
+  // cross-rule (engine-critical review C4, 2026-07-12): a HARD fork-travel
+  // range is an engine ERROR, so it must rest on a published statement -
+  // forkTravelHard:true requires the maker floor it hardens (minForkTravel)
+  // AND a source URL on the row. This encodes the review's invariant after
+  // one frame was found carrying a hard-error range with no source at all.
+  if(p.cat === 'frame' && p.forkTravelHard === true){
+    if(!isNum(p.minForkTravel)) bad('forkTravelHard:true requires a maker-published minForkTravel');
+    if(!isStr(p.source)) bad('forkTravelHard:true requires a source URL (a hard travel red must cite its statement)');
   }
 
   // cross-rule: the suspension discriminator gates the frame's shock block

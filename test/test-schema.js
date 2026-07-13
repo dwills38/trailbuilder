@@ -315,6 +315,24 @@ test('a BB with a shell outside the frameBb vocab is caught', function(){
 test('a BB missing its spindle is caught', function(){
   var p = over('bb-sram-dub-bsa73'); delete p.spindle; some(probs(p), 'spindle');
 });
+
+/* forkTravelHard cross-rule (engine-critical review C4, 2026-07-12): a hard
+   fork-travel range is an engine ERROR, so the flag must rest on a published
+   statement - it requires the floor it hardens AND a source URL. Encodes the
+   review's invariant after one frame carried a hard-error range unsourced.
+   (The Megatower fixture has minForkTravel but deliberately no source field,
+   which is exactly the case the cross-rule exists to reject.) */
+test('forkTravelHard:true without a source URL is caught', function(){
+  some(probs(over('fr-santacruz-megatower-cc', { forkTravelHard:true })), 'source');
+});
+test('forkTravelHard:true without minForkTravel is caught', function(){
+  var p = over('fr-santacruz-megatower-cc', { forkTravelHard:true, source:'https://example.com/spec' });
+  delete p.minForkTravel;
+  some(probs(p), 'minForkTravel');
+});
+test('forkTravelHard:true with both min and source passes', function(){
+  eq(probs(over('fr-santacruz-megatower-cc', { forkTravelHard:true, source:'https://example.com/spec' })).length, 0);
+});
 test('catalog-level: a frame bundling a non-fitting shock is caught', function(){
   var f = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { id:'fr-badbundle', bundledShock:'sh-rockshox-super-deluxe-205x65-trun' })); // 205x65 trunnion != 230x65 std
   some(S.validateCatalog({ PARTS: C.PARTS.concat([ f ]), SLOTS: C.SLOTS }, TODAY), 'does not fit');
