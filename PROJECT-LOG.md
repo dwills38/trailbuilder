@@ -2,6 +2,12 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **Rail icons v4 (LITERAL LINE-ART) delivered** (`design/rail-icons-emoji-v2` @ 9223832 pushed;
+  `_PDFs/rail-icons-lineart-v4.pdf` sent): 59 hand-drawn stroke-SVG drawings of the actual
+  components — 14 slots x 3-4 variants + a matching discipline quintet — one line language,
+  currentColor (all 4 themes verified), each shown at ~20px + 3 stroke weights + reduced-detail
+  cut, 4 curated full-rail sets. Awaiting Douglas's picks; apply = follow-up chip.
+
 - **MANUFACTURER-PARTNERSHIP-KIT delivered** (`_PDFs/MANUFACTURER-PARTNERSHIP-KIT.pdf` + root .md;
   indexed in _PDFs/README §5). 3 outreach templates (From: Doug@buildmymtb.com, LLC placeholders) ·
   license one-pager (non-exclusive/revocable/display-only/takedown; commits incl. ZERO ranking
