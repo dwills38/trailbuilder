@@ -1,0 +1,243 @@
+{
+  "style": "refined-emoji",
+  "note": "Rail-icon candidates v2, Refined-Emoji style (native color emoji, zero assets). ID-0 in every slot is the v1 'Refined Emoji' set glyph (design/rail-icon-options, set 1) kept available for mix-and-match; 'live' is what index.html ships today (shown for reference only). A follow-up chip applies Douglas's picks to ICONS / DISC_LABELS / the 'All parts' chip in index.html.",
+  "slots": [
+    {
+      "key": "disc_all", "label": "All disciplines", "group": "Discipline", "prefix": "DA", "live": null,
+      "candidates": [
+        { "id": "DA-0", "glyph": "🚵", "name": "Mountain biker", "why": "v1 pick — the rider covers every discipline" },
+        { "id": "DA-1", "glyph": "🧭", "name": "Compass", "why": "pick any direction — no filter applied" },
+        { "id": "DA-2", "glyph": "♾️", "name": "Infinity", "why": "quiet 'everything' mark" },
+        { "id": "DA-3", "glyph": "🗺️", "name": "Map", "why": "every trail on the map" },
+        { "id": "DA-4", "glyph": "🌐", "name": "Globe grid", "why": "the whole world of riding" },
+        { "id": "DA-5", "glyph": "🏔️", "name": "Snowy mountain", "why": "the whole mountain, top to bottom" }
+      ]
+    },
+    {
+      "key": "disc_dh", "label": "DH", "group": "Discipline", "prefix": "DH", "live": "⬇️",
+      "candidates": [
+        { "id": "DH-0", "glyph": "🎢", "name": "Roller coaster", "why": "v1 pick — gravity does the work" },
+        { "id": "DH-1", "glyph": "🛝", "name": "Slide", "why": "pure descent, playground energy" },
+        { "id": "DH-2", "glyph": "⛷️", "name": "Downhill skier", "why": "the original gravity sport" },
+        { "id": "DH-3", "glyph": "📉", "name": "Falling chart", "why": "steep and down — dry humor" },
+        { "id": "DH-4", "glyph": "🪂", "name": "Parachute", "why": "send it" },
+        { "id": "DH-5", "glyph": "🔻", "name": "Down triangle", "why": "quiet 'down' marker (live today is ⬇️)" }
+      ]
+    },
+    {
+      "key": "disc_enduro", "label": "Enduro", "group": "Discipline", "prefix": "DE", "live": "⛰️",
+      "candidates": [
+        { "id": "DE-0", "glyph": "⛰️⏱️", "name": "Mountain + stopwatch", "why": "v1 pick — timed stages in the mountains (two-glyph combo)" },
+        { "id": "DE-1", "glyph": "⏱️", "name": "Stopwatch", "why": "race against the clock, single glyph" },
+        { "id": "DE-2", "glyph": "⛰️", "name": "Mountain", "why": "what the live rail uses today — still a solid read" },
+        { "id": "DE-3", "glyph": "🏁", "name": "Checkered flag", "why": "stage racing" },
+        { "id": "DE-4", "glyph": "🏔️", "name": "Snowy mountain", "why": "bigger-mountain flavor of ⛰️" },
+        { "id": "DE-5", "glyph": "💪", "name": "Flexed arm", "why": "the endurance in enduro" }
+      ]
+    },
+    {
+      "key": "disc_trail", "label": "Trail", "group": "Discipline", "prefix": "DT", "live": "🌲",
+      "candidates": [
+        { "id": "DT-0", "glyph": "🌲", "name": "Evergreen", "why": "v1 pick AND live today — hard to beat" },
+        { "id": "DT-1", "glyph": "🌳", "name": "Deciduous tree", "why": "rounder, friendlier forest" },
+        { "id": "DT-2", "glyph": "🍃", "name": "Leaf in wind", "why": "light, flowy singletrack" },
+        { "id": "DT-3", "glyph": "🏞️", "name": "National park", "why": "the whole scene — trail in landscape" },
+        { "id": "DT-4", "glyph": "🌿", "name": "Herb sprig", "why": "greenery brushing your bars" },
+        { "id": "DT-5", "glyph": "🪵", "name": "Log", "why": "log rides and skinnies" }
+      ]
+    },
+    {
+      "key": "disc_xc", "label": "XC", "group": "Discipline", "prefix": "DX", "live": "🐇",
+      "candidates": [
+        { "id": "DX-0", "glyph": "🐇", "name": "Rabbit", "why": "v1 pick AND live today — fast and light" },
+        { "id": "DX-1", "glyph": "💨", "name": "Dash of wind", "why": "flat-out speed" },
+        { "id": "DX-2", "glyph": "⚡", "name": "Lightning", "why": "fast + lightweight" },
+        { "id": "DX-3", "glyph": "🏃", "name": "Runner", "why": "the engine is you" },
+        { "id": "DX-4", "glyph": "🐆", "name": "Leopard", "why": "the fast animal, more attitude than the rabbit" },
+        { "id": "DX-5", "glyph": "🥇", "name": "Gold medal", "why": "XC is the racing discipline" }
+      ]
+    },
+    {
+      "key": "all_parts", "label": "All parts", "group": "Category", "prefix": "AP", "live": null,
+      "candidates": [
+        { "id": "AP-0", "glyph": "🧰", "name": "Toolbox", "why": "v1 pick — everything in one box" },
+        { "id": "AP-1", "glyph": "📦", "name": "Package", "why": "the whole parts bin" },
+        { "id": "AP-2", "glyph": "🧩", "name": "Puzzle piece", "why": "everything that fits together — very on-brand for a compatibility checker" },
+        { "id": "AP-3", "glyph": "🛠️", "name": "Hammer & wrench", "why": "the workshop wall" },
+        { "id": "AP-4", "glyph": "🗃️", "name": "Card-file box", "why": "the parts drawers" },
+        { "id": "AP-5", "glyph": "🪛", "name": "Screwdriver", "why": "quiet single-tool mark" }
+      ]
+    },
+    {
+      "key": "frame", "label": "Frame", "group": "Category", "prefix": "FR", "live": "🚲",
+      "candidates": [
+        { "id": "FR-0", "glyph": "🚲", "name": "Bicycle", "why": "v1 pick AND live today — the frame is the bike" },
+        { "id": "FR-1", "glyph": "💠", "name": "Diamond shape", "why": "'diamond frame' is literally the term for bike frame geometry" },
+        { "id": "FR-2", "glyph": "🔺", "name": "Red triangle", "why": "the front triangle" },
+        { "id": "FR-3", "glyph": "📐", "name": "Triangle ruler", "why": "frame angles / geometry chart" },
+        { "id": "FR-4", "glyph": "🦴", "name": "Bone", "why": "the skeleton the build hangs off" },
+        { "id": "FR-5", "glyph": "🖼️", "name": "Picture frame", "why": "the pun — reads instantly as 'frame'" }
+      ]
+    },
+    {
+      "key": "fork", "label": "Fork", "group": "Category", "prefix": "FK", "live": "🍴",
+      "candidates": [
+        { "id": "FK-0", "glyph": "🦿", "name": "Mechanical leg", "why": "v1 pick — a telescoping suspension leg (live today is the cutlery 🍴 the v1 set called out)" },
+        { "id": "FK-1", "glyph": "🔱", "name": "Trident", "why": "steerer + two legs — the actual fork silhouette" },
+        { "id": "FK-2", "glyph": "🩼", "name": "Crutch", "why": "telescoping tube, honest suspension-fork read" },
+        { "id": "FK-3", "glyph": "🥢", "name": "Chopsticks", "why": "two parallel stanchions" },
+        { "id": "FK-4", "glyph": "🦵", "name": "Leg", "why": "the bike's front leg" }
+      ]
+    },
+    {
+      "key": "shock", "label": "Rear Shock", "group": "Category", "prefix": "SH", "live": "🪐",
+      "candidates": [
+        { "id": "SH-0", "glyph": "🛢️", "name": "Oil drum", "why": "v1 pick — the damper body (live today is the planet 🪐 the v1 set called out)" },
+        { "id": "SH-1", "glyph": "💉", "name": "Syringe", "why": "piston + shaft — the most damper-shaped emoji there is" },
+        { "id": "SH-2", "glyph": "🌀", "name": "Spiral", "why": "the coil spring" },
+        { "id": "SH-3", "glyph": "🧯", "name": "Fire extinguisher", "why": "pressurized canister with a can" },
+        { "id": "SH-4", "glyph": "🫧", "name": "Bubbles", "why": "the air spring" },
+        { "id": "SH-5", "glyph": "🧨", "name": "Firecracker", "why": "a charged tube — playful" }
+      ]
+    },
+    {
+      "key": "wheels", "label": "Wheels", "group": "Category", "prefix": "WH", "live": "🛞",
+      "candidates": [
+        { "id": "WH-0", "glyph": "🛞", "name": "Wheel", "why": "v1 pick AND live today — it IS a wheel" },
+        { "id": "WH-1", "glyph": "☸️", "name": "Wheel of dharma", "why": "a spoked wheel, quieter than 🛞" },
+        { "id": "WH-2", "glyph": "🎡", "name": "Ferris wheel", "why": "big spoked wheel with personality" },
+        { "id": "WH-3", "glyph": "🛟", "name": "Life ring", "why": "clean rim ring" },
+        { "id": "WH-4", "glyph": "🎯", "name": "Bullseye", "why": "concentric rim + hub" },
+        { "id": "WH-5", "glyph": "🕸️", "name": "Web", "why": "laced spokes" }
+      ]
+    },
+    {
+      "key": "tire", "label": "Tires", "group": "Category", "prefix": "TI", "live": "⚫",
+      "candidates": [
+        { "id": "TI-0", "glyph": "🍩", "name": "Donut", "why": "v1 pick — a torus with a hole (live today is the plain circle ⚫ the v1 set called out)" },
+        { "id": "TI-1", "glyph": "🐾", "name": "Paw prints", "why": "tread and traction — what a tire is FOR" },
+        { "id": "TI-2", "glyph": "🥯", "name": "Bagel", "why": "torus, less frosting than the donut" },
+        { "id": "TI-3", "glyph": "🍥", "name": "Fish cake swirl", "why": "round with a tread-like spiral" },
+        { "id": "TI-4", "glyph": "🛞", "name": "Wheel", "why": "if Wheels uses something else, the tire can own 🛞" },
+        { "id": "TI-5", "glyph": "🍪", "name": "Cookie", "why": "the chips read as knobs — a knobby tire" }
+      ]
+    },
+    {
+      "key": "drivetrain", "label": "Drivetrain", "group": "Category", "prefix": "DR", "live": "⚙️",
+      "candidates": [
+        { "id": "DR-0", "glyph": "⚙️", "name": "Gear", "why": "v1 pick AND live today — the canonical drivetrain mark" },
+        { "id": "DR-1", "glyph": "🔗", "name": "Chain link", "why": "one clean link" },
+        { "id": "DR-2", "glyph": "⛓️", "name": "Chains", "why": "the whole chain run" },
+        { "id": "DR-3", "glyph": "🦷", "name": "Tooth", "why": "chainring / cassette teeth — cheeky but mechanically true" },
+        { "id": "DR-4", "glyph": "🎛️", "name": "Control knobs", "why": "shifting as tuning controls" },
+        { "id": "DR-5", "glyph": "🚂", "name": "Locomotive", "why": "the 'drive train' pun" }
+      ]
+    },
+    {
+      "key": "brakes", "label": "Brakes", "group": "Category", "prefix": "BR", "live": "🛑",
+      "candidates": [
+        { "id": "BR-0", "glyph": "💿", "name": "CD", "why": "v1 pick — a silver disc rotor" },
+        { "id": "BR-1", "glyph": "✋", "name": "Raised hand", "why": "stop — the human gesture" },
+        { "id": "BR-2", "glyph": "🥏", "name": "Flying disc", "why": "a rotor with motion in it" },
+        { "id": "BR-3", "glyph": "⏹️", "name": "Stop button", "why": "quiet, geometric stop" },
+        { "id": "BR-4", "glyph": "📀", "name": "DVD", "why": "the disc rotor in gold" },
+        { "id": "BR-5", "glyph": "🛑", "name": "Stop sign", "why": "live today — loud but unambiguous" }
+      ]
+    },
+    {
+      "key": "bb", "label": "Bottom Bracket", "group": "Category", "prefix": "BB", "live": "🔩",
+      "candidates": [
+        { "id": "BB-0", "glyph": "🔘", "name": "Radio button", "why": "v1 pick — a bearing in cross-section" },
+        { "id": "BB-1", "glyph": "🧿", "name": "Nazar bead", "why": "concentric rings — cartridge bearing" },
+        { "id": "BB-2", "glyph": "🎱", "name": "8-ball", "why": "a ball bearing with attitude" },
+        { "id": "BB-3", "glyph": "🪙", "name": "Coin", "why": "a bearing cup face-on" },
+        { "id": "BB-4", "glyph": "🔩", "name": "Nut & bolt", "why": "live today — threaded shell read" }
+      ]
+    },
+    {
+      "key": "headset", "label": "Headset", "group": "Category", "prefix": "HS", "live": "🎧",
+      "candidates": [
+        { "id": "HS-0", "glyph": "💍", "name": "Ring", "why": "v1 pick — the bearing race (live today is the headphones 🎧 pun the v1 set retired)" },
+        { "id": "HS-1", "glyph": "👑", "name": "Crown", "why": "sits at the top of the head tube — and 'crown race' is a real headset part" },
+        { "id": "HS-2", "glyph": "🎩", "name": "Top hat", "why": "the top cap" },
+        { "id": "HS-3", "glyph": "💫", "name": "Dizzy ring", "why": "the spin of the steering" },
+        { "id": "HS-4", "glyph": "🧿", "name": "Nazar bead", "why": "concentric bearing (if BB uses something else)" }
+      ]
+    },
+    {
+      "key": "dropper", "label": "Dropper Post", "group": "Category", "prefix": "DP", "live": "📐",
+      "candidates": [
+        { "id": "DP-0", "glyph": "⬆️⬇️", "name": "Up + down arrows", "why": "v1 pick — up/down (two-glyph combo)" },
+        { "id": "DP-1", "glyph": "↕️", "name": "Up-down arrow", "why": "the same idea in one glyph — fits the rail better" },
+        { "id": "DP-2", "glyph": "🛗", "name": "Elevator", "why": "a thing that goes up and down on command" },
+        { "id": "DP-3", "glyph": "🎚️", "name": "Level slider", "why": "set your height" },
+        { "id": "DP-4", "glyph": "🔃", "name": "Vertical cycle", "why": "up, down, repeat" }
+      ]
+    },
+    {
+      "key": "cockpit", "label": "Cockpit", "group": "Category", "prefix": "CP", "live": "🔧",
+      "candidates": [
+        { "id": "CP-0", "glyph": "🏹", "name": "Bow & arrow", "why": "v1 pick — bar-and-stem silhouette" },
+        { "id": "CP-1", "glyph": "🕹️", "name": "Joystick", "why": "the steering control" },
+        { "id": "CP-2", "glyph": "🎮", "name": "Game controller", "why": "where your hands live" },
+        { "id": "CP-3", "glyph": "🛩️", "name": "Small airplane", "why": "the cockpit pun" },
+        { "id": "CP-4", "glyph": "🐂", "name": "Ox", "why": "horns = handlebars" }
+      ]
+    },
+    {
+      "key": "saddle", "label": "Saddle", "group": "Category", "prefix": "SA", "live": "🪑",
+      "candidates": [
+        { "id": "SA-0", "glyph": "💺", "name": "Seat", "why": "v1 pick — an actual seat" },
+        { "id": "SA-1", "glyph": "🐎", "name": "Horse", "why": "saddle up" },
+        { "id": "SA-2", "glyph": "🏇", "name": "Horse racing", "why": "riding IN the saddle" },
+        { "id": "SA-3", "glyph": "🍑", "name": "Peach", "why": "where the saddle goes — the playful option" },
+        { "id": "SA-4", "glyph": "🛋️", "name": "Couch", "why": "all-day comfort" },
+        { "id": "SA-5", "glyph": "🪑", "name": "Chair", "why": "live today — plain but honest" }
+      ]
+    },
+    {
+      "key": "pedals", "label": "Pedals", "group": "Category", "prefix": "PD", "live": "👟",
+      "candidates": [
+        { "id": "PD-0", "glyph": "🛼", "name": "Roller skate", "why": "v1 pick — foot-powered hardware" },
+        { "id": "PD-1", "glyph": "🦶", "name": "Foot", "why": "what pushes the pedal" },
+        { "id": "PD-2", "glyph": "🥾", "name": "Hiking boot", "why": "flat-pedal shoe energy" },
+        { "id": "PD-3", "glyph": "🚴", "name": "Cyclist", "why": "legs mid-pedal-stroke" },
+        { "id": "PD-4", "glyph": "👟", "name": "Sneaker", "why": "live today — still a fair read" }
+      ]
+    }
+  ],
+  "sets": [
+    {
+      "id": "A", "name": "Semantics-first",
+      "desc": "The most mechanically literal glyph per slot — every icon is the part.",
+      "picks": { "disc_all": "DA-1", "disc_dh": "DH-1", "disc_enduro": "DE-1", "disc_trail": "DT-0", "disc_xc": "DX-0",
+        "all_parts": "AP-0", "frame": "FR-1", "fork": "FK-1", "shock": "SH-1", "wheels": "WH-1", "tire": "TI-1",
+        "drivetrain": "DR-1", "brakes": "BR-2", "bb": "BB-1", "headset": "HS-1", "dropper": "DP-2", "cockpit": "CP-1",
+        "saddle": "SA-1", "pedals": "PD-1" }
+    },
+    {
+      "id": "B", "name": "Playful character",
+      "desc": "The most fun read per slot — donuts, trains and peaches; still every glyph earns its slot.",
+      "picks": { "disc_all": "DA-0", "disc_dh": "DH-0", "disc_enduro": "DE-5", "disc_trail": "DT-1", "disc_xc": "DX-4",
+        "all_parts": "AP-2", "frame": "FR-5", "fork": "FK-3", "shock": "SH-4", "wheels": "WH-2", "tire": "TI-0",
+        "drivetrain": "DR-5", "brakes": "BR-1", "bb": "BB-2", "headset": "HS-2", "dropper": "DP-3", "cockpit": "CP-3",
+        "saddle": "SA-3", "pedals": "PD-0" }
+    },
+    {
+      "id": "C", "name": "Quiet & clean",
+      "desc": "The calmest, least visually-noisy glyphs — closest to a minimalist icon set while staying emoji.",
+      "picks": { "disc_all": "DA-2", "disc_dh": "DH-5", "disc_enduro": "DE-2", "disc_trail": "DT-2", "disc_xc": "DX-1",
+        "all_parts": "AP-1", "frame": "FR-2", "fork": "FK-0", "shock": "SH-2", "wheels": "WH-4", "tire": "TI-2",
+        "drivetrain": "DR-0", "brakes": "BR-3", "bb": "BB-0", "headset": "HS-3", "dropper": "DP-1", "cockpit": "CP-0",
+        "saddle": "SA-0", "pedals": "PD-4" }
+    },
+    {
+      "id": "D", "name": "Recommended blend",
+      "desc": "Best single read per slot: keeps the v1 glyphs that already win (wheel, donut, gear, disc), upgrades the rest.",
+      "picks": { "disc_all": "DA-1", "disc_dh": "DH-1", "disc_enduro": "DE-1", "disc_trail": "DT-0", "disc_xc": "DX-0",
+        "all_parts": "AP-0", "frame": "FR-1", "fork": "FK-1", "shock": "SH-2", "wheels": "WH-0", "tire": "TI-0",
+        "drivetrain": "DR-0", "brakes": "BR-0", "bb": "BB-0", "headset": "HS-1", "dropper": "DP-2", "cockpit": "CP-1",
+        "saddle": "SA-0", "pedals": "PD-1" }
+    }
+  ]
+}

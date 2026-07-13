@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>BuildMyMTB · Rail Icons — Refined Emoji v2</title>
+<style>
+  @page { size: Letter; margin: 9mm 8mm; }
+  :root{
+    --dark:#181b20; --dark-fg:#e7ebf0; --dark-line:#2c3138; --dark-mut:#8b95a1;
+    --light:#ffffff; --light-fg:#20242b; --light-line:#e2e6ec; --light-mut:#7a828d;
+    --page:#f4f6f8; --fg:#1a1e24; --mut:#6b7480; --line:#d6dbe1; --accent:#e8552d; --chip:#eef1f5;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font:10pt/1.45 "Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--fg);background:#fff;
+       -webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .em{font-family:"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif;line-height:1}
+  h1{font-size:20pt;margin:0 0 2px;letter-spacing:-.02em}
+  h1 .accent{color:var(--accent)}
+  h2{font-size:14pt;margin:0 0 8px;letter-spacing:-.01em;border-bottom:2px solid var(--accent);padding-bottom:4px}
+  .sub{color:var(--mut);margin:0 0 14px}
+  .panel{background:var(--page);border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin:0 0 12px;
+         break-inside:avoid}
+  .panel h3{margin:0 0 5px;font-size:10.5pt}
+  .panel p{margin:0 0 5px}
+  .panel ul{margin:4px 0 2px;padding-left:18px}
+  .panel li{margin:2px 0}
+  code{background:var(--chip);border:1px solid var(--line);padding:0 4px;border-radius:4px;font-size:8.5pt}
+  .pagebreak{break-before:page}
+  .idb{display:inline-block;font-weight:800;font-size:8pt;letter-spacing:.03em;background:var(--fg);color:#fff;
+       border-radius:5px;padding:1px 6px}
+  .footer{color:var(--mut);font-size:8pt;margin-top:10px;border-top:1px solid var(--line);padding-top:6px}
+
+  /* ---------- per-slot matrix ---------- */
+  .slotblock{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;overflow:hidden;break-inside:avoid;background:#fff}
+  .slothead{display:flex;align-items:center;gap:10px;padding:7px 12px;background:var(--page);border-bottom:1px solid var(--line)}
+  .slothead .nm{font-weight:800;font-size:11.5pt;letter-spacing:-.01em}
+  .slothead .key{font-size:8pt;color:var(--mut)}
+  .slothead .grp{font-size:7.5pt;text-transform:uppercase;letter-spacing:.07em;color:#fff;background:var(--accent);
+                 border-radius:10px;padding:1px 8px;font-weight:700}
+  .slothead .live{margin-left:auto;font-size:8.5pt;color:var(--mut)}
+  .cells{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;padding:9px}
+  .cells.n5{grid-template-columns:repeat(5,1fr)}
+  .cell{border:1px solid var(--line);border-radius:9px;overflow:hidden;display:flex;flex-direction:column;background:#fff}
+  .cell .big{display:grid;grid-template-columns:1fr 1fr}
+  .cell .big span{display:flex;align-items:center;justify-content:center;height:52px;font-size:30px}
+  .cell .big span.combo-wrap{font-size:19px;letter-spacing:1px}
+  .cell .big .d{background:var(--dark)}
+  .cell .big .l{background:var(--light);border-left:1px solid var(--light-line)}
+  /* rail-size mock rows: 13px text + emoji inline, exactly how #rail .chip renders */
+  .mini{font-size:13px;line-height:1;padding:5px 8px;white-space:nowrap;overflow:hidden;font-weight:600}
+  .mini.d{background:var(--dark);color:var(--dark-fg);border-top:1px solid var(--dark-line)}
+  .mini.l{background:var(--light);color:var(--light-fg);border-top:1px solid var(--light-line)}
+  .cell .meta{padding:5px 7px 6px;border-top:1px solid var(--line)}
+  .cell .meta .row1{display:flex;align-items:center;gap:5px;margin-bottom:2px}
+  .cell .meta .cnm{font-size:7.5pt;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .cell .meta .why{font-size:7pt;color:var(--mut);line-height:1.3}
+  .cell.v1 .meta .row1::after{content:"v1";font-size:6.5pt;font-weight:800;color:var(--accent);
+        border:1px solid var(--accent);border-radius:8px;padding:0 5px}
+
+  /* ---------- curated sets ---------- */
+  .setblock{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;overflow:hidden;break-inside:avoid;background:#fff}
+  .sethead{display:flex;align-items:baseline;gap:10px;padding:8px 12px;background:var(--page);border-bottom:1px solid var(--line)}
+  .sethead .badge{font-weight:800;font-size:10pt;color:#fff;background:var(--accent);border-radius:7px;padding:2px 10px}
+  .sethead .nm{font-weight:800;font-size:12pt}
+  .sethead .dsc{color:var(--mut);font-size:8.5pt}
+  .rails{display:grid;grid-template-columns:1fr 1fr}
+  .railpane{padding:10px 12px}
+  .railpane.d{background:var(--dark);color:var(--dark-fg)}
+  .railpane.l{background:var(--light);color:var(--light-fg);border-left:1px solid var(--line)}
+  .railpane .pt{font-size:7pt;text-transform:uppercase;letter-spacing:.09em;font-weight:800;margin:0 0 7px;opacity:.55}
+  .railpane .gh{font-size:8px;text-transform:uppercase;letter-spacing:.09em;font-weight:800;opacity:.5;margin:7px 0 3px}
+  .railpane .gh:first-of-type{margin-top:0}
+  .rrow{display:flex;align-items:center;gap:8px;font-size:13px;line-height:1;font-weight:600;padding:3.5px 6px;border-radius:7px}
+  .rrow .em{width:18px;text-align:center;flex:0 0 18px}
+  .rrow .em.combo{font-size:9px;letter-spacing:0}
+  .rrow .rid{margin-left:auto;font-size:7px;font-weight:700;opacity:.45;letter-spacing:.03em}
+  .rrow.active{color:var(--accent)}
+  .railpane.d .rrow.active{background:rgba(232,85,45,.14)}
+  .railpane.l .rrow.active{background:rgba(232,85,45,.10)}
+</style></head><body>
+
+<h1>Build<span class="accent">MyMTB</span> · Rail Icons — Refined Emoji, Round 2</h1>
+<p class="sub">More candidates in the style you picked (set 1, “Refined Emoji”) — every glyph is a native color emoji, zero assets, and every candidate has a reference ID so you can mix and match.</p>
+
+<div class="panel">
+<h3>How to reply</h3>
+<p>Two ways, mixable:</p>
+<ul>
+<li><b>Per-slot picks:</b> “FR-1, FK-1, SH-2, rest from Set D.”</li>
+<li><b>A whole set:</b> “Set B” (pages 2–3 show four curated sets).</li>
+</ul>
+<p>Every slot’s <b>ID-0</b> is the round-1 “Refined Emoji” glyph, kept on the board so you can keep the ones you liked. Glyphs marked <b>live</b> are what the site shows today. A follow-up applies your picks to the live rail mechanically.</p>
+</div>
+
+<div class="panel">
+<h3>What “Refined Emoji style” means here (extracted from round 1)</h3>
+<ul>
+<li><b>Native color emoji, zero assets</b> — no SVGs, no downloads; the platform’s emoji font draws them. They keep their own colors, so they read on all four site themes (light / dark / RAD) without any theming work.</li>
+<li><b>The “refined” part is curation:</b> every glyph must actually read as its part — round 1’s bar was “no cutlery forks, no planet shocks, no plain-circle tires.” Round 2 holds the same bar.</li>
+<li><b>Two-glyph combos are allowed</b> sparingly (round 1 used ⛰️⏱️ and ⬆️⬇️) but a single glyph fits the rail better — combos are marked and shown at true size.</li>
+<li><b>One honest caveat:</b> emoji render in each visitor’s platform style (Windows / Apple / Android differ slightly). This PDF shows Windows (Segoe UI Emoji) — what you and most desktop visitors see. If pixel-identical icons on every device ever matters, the finalists can be swapped for vendored open-source emoji SVGs (Twemoji/OpenMoji) that look the same everywhere; that’s a later, mechanical follow-up and doesn’t change your picks.</li>
+</ul>
+</div>
+
+<div class="panel">
+<h3>Reading the matrix (pages 4+)</h3>
+<p>Each candidate cell shows the glyph <b>enlarged</b> on the dark rail and on light, then <b>at true rail size</b> (13&nbsp;px, exactly how the rail chip renders it) on both, with its ID and a one-line reason. Slots are grouped: 5 discipline filters, then “All parts” and the 13 category chips — one icon per rail slot.</p>
+</div>
+<div class="pagebreak"></div><h2>Curated sets — full rail previews</h2>
+<p class="sub">One icon per slot, no glyph reused inside a set, shown at true rail size on the dark rail (how it ships) and on light. The tiny right-hand code in each row is the candidate ID — cherry-pick across sets freely.</p><div class="setblock">
+  <div class="sethead"><span class="badge">Set A</span><span class="nm">Semantics-first</span><span class="dsc">The most mechanically literal glyph per slot — every icon is the part.</span></div>
+  <div class="rails"><div class="railpane d"><div class="pt">Dark rail (ships)</div><div class="gh">Discipline</div><div class="rrow"><span class="em">🧭</span><span>All disciplines</span><span class="rid">DA-1</span></div><div class="rrow"><span class="em">🛝</span><span>DH</span><span class="rid">DH-1</span></div><div class="rrow active"><span class="em">⏱️</span><span>Enduro</span><span class="rid">DE-1</span></div><div class="rrow"><span class="em">🌲</span><span>Trail</span><span class="rid">DT-0</span></div><div class="rrow"><span class="em">🐇</span><span>XC</span><span class="rid">DX-0</span></div><div class="gh">Category</div><div class="rrow"><span class="em">🧰</span><span>All parts</span><span class="rid">AP-0</span></div><div class="rrow active"><span class="em">💠</span><span>Frame</span><span class="rid">FR-1</span></div><div class="rrow"><span class="em">🔱</span><span>Fork</span><span class="rid">FK-1</span></div><div class="rrow"><span class="em">💉</span><span>Rear Shock</span><span class="rid">SH-1</span></div><div class="rrow"><span class="em">☸️</span><span>Wheels</span><span class="rid">WH-1</span></div><div class="rrow"><span class="em">🐾</span><span>Tires</span><span class="rid">TI-1</span></div><div class="rrow"><span class="em">🔗</span><span>Drivetrain</span><span class="rid">DR-1</span></div><div class="rrow"><span class="em">🥏</span><span>Brakes</span><span class="rid">BR-2</span></div><div class="rrow"><span class="em">🧿</span><span>Bottom Bracket</span><span class="rid">BB-1</span></div><div class="rrow"><span class="em">👑</span><span>Headset</span><span class="rid">HS-1</span></div><div class="rrow"><span class="em">🛗</span><span>Dropper Post</span><span class="rid">DP-2</span></div><div class="rrow"><span class="em">🕹️</span><span>Cockpit</span><span class="rid">CP-1</span></div><div class="rrow"><span class="em">🐎</span><span>Saddle</span><span class="rid">SA-1</span></div><div class="rrow"><span class="em">🦶</span><span>Pedals</span><span class="rid">PD-1</span></div></div><div class="railpane l"><div class="pt">Light theme</div><div class="gh">Discipline</div><div class="rrow"><span class="em">🧭</span><span>All disciplines</span><span class="rid">DA-1</span></div><div class="rrow"><span class="em">🛝</span><span>DH</span><span class="rid">DH-1</span></div><div class="rrow active"><span class="em">⏱️</span><span>Enduro</span><span class="rid">DE-1</span></div><div class="rrow"><span class="em">🌲</span><span>Trail</span><span class="rid">DT-0</span></div><div class="rrow"><span class="em">🐇</span><span>XC</span><span class="rid">DX-0</span></div><div class="gh">Category</div><div class="rrow"><span class="em">🧰</span><span>All parts</span><span class="rid">AP-0</span></div><div class="rrow active"><span class="em">💠</span><span>Frame</span><span class="rid">FR-1</span></div><div class="rrow"><span class="em">🔱</span><span>Fork</span><span class="rid">FK-1</span></div><div class="rrow"><span class="em">💉</span><span>Rear Shock</span><span class="rid">SH-1</span></div><div class="rrow"><span class="em">☸️</span><span>Wheels</span><span class="rid">WH-1</span></div><div class="rrow"><span class="em">🐾</span><span>Tires</span><span class="rid">TI-1</span></div><div class="rrow"><span class="em">🔗</span><span>Drivetrain</span><span class="rid">DR-1</span></div><div class="rrow"><span class="em">🥏</span><span>Brakes</span><span class="rid">BR-2</span></div><div class="rrow"><span class="em">🧿</span><span>Bottom Bracket</span><span class="rid">BB-1</span></div><div class="rrow"><span class="em">👑</span><span>Headset</span><span class="rid">HS-1</span></div><div class="rrow"><span class="em">🛗</span><span>Dropper Post</span><span class="rid">DP-2</span></div><div class="rrow"><span class="em">🕹️</span><span>Cockpit</span><span class="rid">CP-1</span></div><div class="rrow"><span class="em">🐎</span><span>Saddle</span><span class="rid">SA-1</span></div><div class="rrow"><span class="em">🦶</span><span>Pedals</span><span class="rid">PD-1</span></div></div></div>
+</div><div class="setblock">
+  <div class="sethead"><span class="badge">Set B</span><span class="nm">Playful character</span><span class="dsc">The most fun read per slot — donuts, trains and peaches; still every glyph earns its slot.</span></div>
+  <div class="rails"><div class="railpane d"><div class="pt">Dark rail (ships)</div><div class="gh">Discipline</div><div class="rrow"><span class="em">🚵</span><span>All disciplines</span><span class="rid">DA-0</span></div><div class="rrow"><span class="em">🎢</span><span>DH</span><span class="rid">DH-0</span></div><div class="rrow active"><span class="em">💪</span><span>Enduro</span><span class="rid">DE-5</span></div><div class="rrow"><span class="em">🌳</span><span>Trail</span><span class="rid">DT-1</span></div><div class="rrow"><span class="em">🐆</span><span>XC</span><span class="rid">DX-4</span></div><div class="gh">Category</div><div class="rrow"><span class="em">🧩</span><span>All parts</span><span class="rid">AP-2</span></div><div class="rrow active"><span class="em">🖼️</span><span>Frame</span><span class="rid">FR-5</span></div><div class="rrow"><span class="em">🥢</span><span>Fork</span><span class="rid">FK-3</span></div><div class="rrow"><span class="em">🫧</span><span>Rear Shock</span><span class="rid">SH-4</span></div><div class="rrow"><span class="em">🎡</span><span>Wheels</span><span class="rid">WH-2</span></div><div class="rrow"><span class="em">🍩</span><span>Tires</span><span class="rid">TI-0</span></div><div class="rrow"><span class="em">🚂</span><span>Drivetrain</span><span class="rid">DR-5</span></div><div class="rrow"><span class="em">✋</span><span>Brakes</span><span class="rid">BR-1</span></div><div class="rrow"><span class="em">🎱</span><span>Bottom Bracket</span><span class="rid">BB-2</span></div><div class="rrow"><span class="em">🎩</span><span>Headset</span><span class="rid">HS-2</span></div><div class="rrow"><span class="em">🎚️</span><span>Dropper Post</span><span class="rid">DP-3</span></div><div class="rrow"><span class="em">🛩️</span><span>Cockpit</span><span class="rid">CP-3</span></div><div class="rrow"><span class="em">🍑</span><span>Saddle</span><span class="rid">SA-3</span></div><div class="rrow"><span class="em">🛼</span><span>Pedals</span><span class="rid">PD-0</span></div></div><div class="railpane l"><div class="pt">Light theme</div><div class="gh">Discipline</div><div class="rrow"><span class="em">🚵</span><span>All disciplines</span><span class="rid">DA-0</span></div><div class="rrow"><span class="em">🎢</span><span>DH</span><span class="rid">DH-0</span></div><div class="rrow active"><span class="em">💪</span><span>Enduro</span><span class="rid">DE-5</span></div><div class="rrow"><span class="em">🌳</span><span>Trail</span><span class="rid">DT-1</span></div><div class="rrow"><span class="em">🐆</span><span>XC</span><span class="rid">DX-4</span></div><div class="gh">Category</div><div class="rrow"><span class="em">🧩</span><span>All parts</span><span class="rid">AP-2</span></div><div class="rrow active"><span class="em">🖼️</span><span>Frame</span><span class="rid">FR-5</span></div><div class="rrow"><span class="em">🥢</span><span>Fork</span><span class="rid">FK-3</span></div><div class="rrow"><span class="em">🫧</span><span>Rear Shock</span><span class="rid">SH-4</span></div><div class="rrow"><span class="em">🎡</span><span>Wheels</span><span class="rid">WH-2</span></div><div class="rrow"><span class="em">🍩</span><span>Tires</span><span class="rid">TI-0</span></div><div class="rrow"><span class="em">🚂</span><span>Drivetrain</span><span class="rid">DR-5</span></div><div class="rrow"><span class="em">✋</span><span>Brakes</span><span class="rid">BR-1</span></div><div class="rrow"><span class="em">🎱</span><span>Bottom Bracket</span><span class="rid">BB-2</span></div><div class="rrow"><span class="em">🎩</span><span>Headset</span><span class="rid">HS-2</span></div><div class="rrow"><span class="em">🎚️</span><span>Dropper Post</span><span class="rid">DP-3</span></div><div class="rrow"><span class="em">🛩️</span><span>Cockpit</span><span class="rid">CP-3</span></div><div class="rrow"><span class="em">🍑</span><span>Saddle</span><span class="rid">SA-3</span></div><div class="rrow"><span class="em">🛼</span><span>Pedals</span><span class="rid">PD-0</span></div></div></div>
+</div><div class="setblock">
+  <div class="sethead"><span class="badge">Set C</span><span class="nm">Quiet &amp; clean</span><span class="dsc">The calmest, least visually-noisy glyphs — closest to a minimalist icon set while staying emoji.</span></div>
+  <div class="rails"><div class="railpane d"><div class="pt">Dark rail (ships)</div><div class="gh">Discipline</div><div class="rrow"><span class="em">♾️</span><span>All disciplines</span><span class="rid">DA-2</span></div><div class="rrow"><span class="em">🔻</span><span>DH</span><span class="rid">DH-5</span></div><div class="rrow active"><span class="em">⛰️</span><span>Enduro</span><span class="rid">DE-2</span></div><div class="rrow"><span class="em">🍃</span><span>Trail</span><span class="rid">DT-2</span></div><div class="rrow"><span class="em">💨</span><span>XC</span><span class="rid">DX-1</span></div><div class="gh">Category</div><div class="rrow"><span class="em">📦</span><span>All parts</span><span class="rid">AP-1</span></div><div class="rrow active"><span class="em">🔺</span><span>Frame</span><span class="rid">FR-2</span></div><div class="rrow"><span class="em">🦿</span><span>Fork</span><span class="rid">FK-0</span></div><div class="rrow"><span class="em">🌀</span><span>Rear Shock</span><span class="rid">SH-2</span></div><div class="rrow"><span class="em">🎯</span><span>Wheels</span><span class="rid">WH-4</span></div><div class="rrow"><span class="em">🥯</span><span>Tires</span><span class="rid">TI-2</span></div><div class="rrow"><span class="em">⚙️</span><span>Drivetrain</span><span class="rid">DR-0</span></div><div class="rrow"><span class="em">⏹️</span><span>Brakes</span><span class="rid">BR-3</span></div><div class="rrow"><span class="em">🔘</span><span>Bottom Bracket</span><span class="rid">BB-0</span></div><div class="rrow"><span class="em">💫</span><span>Headset</span><span class="rid">HS-3</span></div><div class="rrow"><span class="em">↕️</span><span>Dropper Post</span><span class="rid">DP-1</span></div><div class="rrow"><span class="em">🏹</span><span>Cockpit</span><span class="rid">CP-0</span></div><div class="rrow"><span class="em">💺</span><span>Saddle</span><span class="rid">SA-0</span></div><div class="rrow"><span class="em">👟</span><span>Pedals</span><span class="rid">PD-4</span></div></div><div class="railpane l"><div class="pt">Light theme</div><div class="gh">Discipline</div><div class="rrow"><span class="em">♾️</span><span>All disciplines</span><span class="rid">DA-2</span></div><div class="rrow"><span class="em">🔻</span><span>DH</span><span class="rid">DH-5</span></div><div class="rrow active"><span class="em">⛰️</span><span>Enduro</span><span class="rid">DE-2</span></div><div class="rrow"><span class="em">🍃</span><span>Trail</span><span class="rid">DT-2</span></div><div class="rrow"><span class="em">💨</span><span>XC</span><span class="rid">DX-1</span></div><div class="gh">Category</div><div class="rrow"><span class="em">📦</span><span>All parts</span><span class="rid">AP-1</span></div><div class="rrow active"><span class="em">🔺</span><span>Frame</span><span class="rid">FR-2</span></div><div class="rrow"><span class="em">🦿</span><span>Fork</span><span class="rid">FK-0</span></div><div class="rrow"><span class="em">🌀</span><span>Rear Shock</span><span class="rid">SH-2</span></div><div class="rrow"><span class="em">🎯</span><span>Wheels</span><span class="rid">WH-4</span></div><div class="rrow"><span class="em">🥯</span><span>Tires</span><span class="rid">TI-2</span></div><div class="rrow"><span class="em">⚙️</span><span>Drivetrain</span><span class="rid">DR-0</span></div><div class="rrow"><span class="em">⏹️</span><span>Brakes</span><span class="rid">BR-3</span></div><div class="rrow"><span class="em">🔘</span><span>Bottom Bracket</span><span class="rid">BB-0</span></div><div class="rrow"><span class="em">💫</span><span>Headset</span><span class="rid">HS-3</span></div><div class="rrow"><span class="em">↕️</span><span>Dropper Post</span><span class="rid">DP-1</span></div><div class="rrow"><span class="em">🏹</span><span>Cockpit</span><span class="rid">CP-0</span></div><div class="rrow"><span class="em">💺</span><span>Saddle</span><span class="rid">SA-0</span></div><div class="rrow"><span class="em">👟</span><span>Pedals</span><span class="rid">PD-4</span></div></div></div>
+</div><div class="setblock">
+  <div class="sethead"><span class="badge">Set D</span><span class="nm">Recommended blend</span><span class="dsc">Best single read per slot: keeps the v1 glyphs that already win (wheel, donut, gear, disc), upgrades the rest.</span></div>
+  <div class="rails"><div class="railpane d"><div class="pt">Dark rail (ships)</div><div class="gh">Discipline</div><div class="rrow"><span class="em">🧭</span><span>All disciplines</span><span class="rid">DA-1</span></div><div class="rrow"><span class="em">🛝</span><span>DH</span><span class="rid">DH-1</span></div><div class="rrow active"><span class="em">⏱️</span><span>Enduro</span><span class="rid">DE-1</span></div><div class="rrow"><span class="em">🌲</span><span>Trail</span><span class="rid">DT-0</span></div><div class="rrow"><span class="em">🐇</span><span>XC</span><span class="rid">DX-0</span></div><div class="gh">Category</div><div class="rrow"><span class="em">🧰</span><span>All parts</span><span class="rid">AP-0</span></div><div class="rrow active"><span class="em">💠</span><span>Frame</span><span class="rid">FR-1</span></div><div class="rrow"><span class="em">🔱</span><span>Fork</span><span class="rid">FK-1</span></div><div class="rrow"><span class="em">🌀</span><span>Rear Shock</span><span class="rid">SH-2</span></div><div class="rrow"><span class="em">🛞</span><span>Wheels</span><span class="rid">WH-0</span></div><div class="rrow"><span class="em">🍩</span><span>Tires</span><span class="rid">TI-0</span></div><div class="rrow"><span class="em">⚙️</span><span>Drivetrain</span><span class="rid">DR-0</span></div><div class="rrow"><span class="em">💿</span><span>Brakes</span><span class="rid">BR-0</span></div><div class="rrow"><span class="em">🔘</span><span>Bottom Bracket</span><span class="rid">BB-0</span></div><div class="rrow"><span class="em">👑</span><span>Headset</span><span class="rid">HS-1</span></div><div class="rrow"><span class="em">🛗</span><span>Dropper Post</span><span class="rid">DP-2</span></div><div class="rrow"><span class="em">🕹️</span><span>Cockpit</span><span class="rid">CP-1</span></div><div class="rrow"><span class="em">💺</span><span>Saddle</span><span class="rid">SA-0</span></div><div class="rrow"><span class="em">🦶</span><span>Pedals</span><span class="rid">PD-1</span></div></div><div class="railpane l"><div class="pt">Light theme</div><div class="gh">Discipline</div><div class="rrow"><span class="em">🧭</span><span>All disciplines</span><span class="rid">DA-1</span></div><div class="rrow"><span class="em">🛝</span><span>DH</span><span class="rid">DH-1</span></div><div class="rrow active"><span class="em">⏱️</span><span>Enduro</span><span class="rid">DE-1</span></div><div class="rrow"><span class="em">🌲</span><span>Trail</span><span class="rid">DT-0</span></div><div class="rrow"><span class="em">🐇</span><span>XC</span><span class="rid">DX-0</span></div><div class="gh">Category</div><div class="rrow"><span class="em">🧰</span><span>All parts</span><span class="rid">AP-0</span></div><div class="rrow active"><span class="em">💠</span><span>Frame</span><span class="rid">FR-1</span></div><div class="rrow"><span class="em">🔱</span><span>Fork</span><span class="rid">FK-1</span></div><div class="rrow"><span class="em">🌀</span><span>Rear Shock</span><span class="rid">SH-2</span></div><div class="rrow"><span class="em">🛞</span><span>Wheels</span><span class="rid">WH-0</span></div><div class="rrow"><span class="em">🍩</span><span>Tires</span><span class="rid">TI-0</span></div><div class="rrow"><span class="em">⚙️</span><span>Drivetrain</span><span class="rid">DR-0</span></div><div class="rrow"><span class="em">💿</span><span>Brakes</span><span class="rid">BR-0</span></div><div class="rrow"><span class="em">🔘</span><span>Bottom Bracket</span><span class="rid">BB-0</span></div><div class="rrow"><span class="em">👑</span><span>Headset</span><span class="rid">HS-1</span></div><div class="rrow"><span class="em">🛗</span><span>Dropper Post</span><span class="rid">DP-2</span></div><div class="rrow"><span class="em">🕹️</span><span>Cockpit</span><span class="rid">CP-1</span></div><div class="rrow"><span class="em">💺</span><span>Saddle</span><span class="rid">SA-0</span></div><div class="rrow"><span class="em">🦶</span><span>Pedals</span><span class="rid">PD-1</span></div></div></div>
+</div><div class="pagebreak"></div><h2>Per-slot candidate matrix</h2>
+<p class="sub">Every candidate for every rail slot. ID-0 = round-1 “Refined Emoji” glyph; <b>live</b> = what index.html ships today.</p><div class="slotblock">
+  <div class="slothead"><span class="grp">Discipline</span><span class="nm">All disciplines</span><span class="key">disc_all</span>
+  <span class="live">live today: text only, no icon</span></div>
+  <div class="cells"><div class="cell v1">
+      <div class="big"><span class="d em">🚵</span><span class="l em">🚵</span></div>
+      <div class="mini d"><span class="em">🚵</span> All disciplines</div>
+      <div class="mini l"><span class="em">🚵</span> All disciplines</div>
+      <div class="meta"><div class="row1"><span class="idb">DA-0</span><span class="cnm">Mountain biker</span></div>
+      <div class="why">v1 pick — the rider covers every discipline</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🧭</span><span class="l em">🧭</span></div>
+      <div class="mini d"><span class="em">🧭</span> All disciplines</div>
+      <div class="mini l"><span class="em">🧭</span> All disciplines</div>
+      <div class="meta"><div class="row1"><span class="idb">DA-1</span><span class="cnm">Compass</span></div>
+      <div class="why">pick any direction — no filter applied</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">♾️</span><span class="l em">♾️</span></div>
+      <div class="mini d"><span class="em">♾️</span> All disciplines</div>
+      <div class="mini l"><span class="em">♾️</span> All disciplines</div>
+      <div class="meta"><div class="row1"><span class="idb">DA-2</span><span class="cnm">Infinity</span></div>
+      <div class="why">quiet 'everything' mark</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🗺️</span><span class="l em">🗺️</span></div>
+      <div class="mini d"><span class="em">🗺️</span> All disciplines</div>
+      <div class="mini l"><span class="em">🗺️</span> All disciplines</div>
+      <div class="meta"><div class="row1"><span class="idb">DA-3</span><span class="cnm">Map</span></div>
+      <div class="why">every trail on the map</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🌐</span><span class="l em">🌐</span></div>
+      <div class="mini d"><span class="em">🌐</span> All disciplines</div>
+      <div class="mini l"><span class="em">🌐</span> All disciplines</div>
+      <div class="meta"><div class="row1"><span class="idb">DA-4</span><span class="cnm">Globe grid</span></div>
+      <div class="why">the whole world of riding</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🏔️</span><span class="l em">🏔️</span></div>
+      <div class="mini d"><span class="em">🏔️</span> All disciplines</div>
+      <div class="mini l"><span class="em">🏔️</span> All disciplines</div>
+      <div class="meta"><div class="row1"><span class="idb">DA-5</span><span class="cnm">Snowy mountain</span></div>
+      <div class="why">the whole mountain, top to bottom</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Discipline</span><span class="nm">DH</span><span class="key">disc_dh</span>
+  <span class="live">live today: <span class="em">⬇️</span></span></div>
+  <div class="cells"><div class="cell v1">
+      <div class="big"><span class="d em">🎢</span><span class="l em">🎢</span></div>
+      <div class="mini d"><span class="em">🎢</span> DH</div>
+      <div class="mini l"><span class="em">🎢</span> DH</div>
+      <div class="meta"><div class="row1"><span class="idb">DH-0</span><span class="cnm">Roller coaster</span></div>
+      <div class="why">v1 pick — gravity does the work</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🛝</span><span class="l em">🛝</span></div>
+      <div class="mini d"><span class="em">🛝</span> DH</div>
+      <div class="mini l"><span class="em">🛝</span> DH</div>
+      <div class="meta"><div class="row1"><span class="idb">DH-1</span><span class="cnm">Slide</span></div>
+      <div class="why">pure descent, playground energy</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">⛷️</span><span class="l em">⛷️</span></div>
+      <div class="mini d"><span class="em">⛷️</span> DH</div>
+      <div class="mini l"><span class="em">⛷️</span> DH</div>
+      <div class="meta"><div class="row1"><span class="idb">DH-2</span><span class="cnm">Downhill skier</span></div>
+      <div class="why">the original gravity sport</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">📉</span><span class="l em">📉</span></div>
+      <div class="mini d"><span class="em">📉</span> DH</div>
+      <div class="mini l"><span class="em">📉</span> DH</div>
+      <div class="meta"><div class="row1"><span class="idb">DH-3</span><span class="cnm">Falling chart</span></div>
+      <div class="why">steep and down — dry humor</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🪂</span><span class="l em">🪂</span></div>
+      <div class="mini d"><span class="em">🪂</span> DH</div>
+      <div class="mini l"><span class="em">🪂</span> DH</div>
+      <div class="meta"><div class="row1"><span class="idb">DH-4</span><span class="cnm">Parachute</span></div>
+      <div class="why">send it</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🔻</span><span class="l em">🔻</span></div>
+      <div class="mini d"><span class="em">🔻</span> DH</div>
+      <div class="mini l"><span class="em">🔻</span> DH</div>
+      <div class="meta"><div class="row1"><span class="idb">DH-5</span><span class="cnm">Down triangle</span></div>
+      <div class="why">quiet 'down' marker (live today is ⬇️)</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Discipline</span><span class="nm">Enduro</span><span class="key">disc_enduro</span>
+  <span class="live">live today: <span class="em">⛰️</span></span></div>
+  <div class="cells"><div class="cell v1">
+      <div class="big"><span class="d em combo-wrap">⛰️⏱️</span><span class="l em combo-wrap">⛰️⏱️</span></div>
+      <div class="mini d"><span class="em">⛰️⏱️</span> Enduro</div>
+      <div class="mini l"><span class="em">⛰️⏱️</span> Enduro</div>
+      <div class="meta"><div class="row1"><span class="idb">DE-0</span><span class="cnm">Mountain + stopwatch</span></div>
+      <div class="why">v1 pick — timed stages in the mountains (two-glyph combo)</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">⏱️</span><span class="l em">⏱️</span></div>
+      <div class="mini d"><span class="em">⏱️</span> Enduro</div>
+      <div class="mini l"><span class="em">⏱️</span> Enduro</div>
+      <div class="meta"><div class="row1"><span class="idb">DE-1</span><span class="cnm">Stopwatch</span></div>
+      <div class="why">race against the clock, single glyph</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">⛰️</span><span class="l em">⛰️</span></div>
+      <div class="mini d"><span class="em">⛰️</span> Enduro</div>
+      <div class="mini l"><span class="em">⛰️</span> Enduro</div>
+      <div class="meta"><div class="row1"><span class="idb">DE-2</span><span class="cnm">Mountain</span></div>
+      <div class="why">what the live rail uses today — still a solid read</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🏁</span><span class="l em">🏁</span></div>
+      <div class="mini d"><span class="em">🏁</span> Enduro</div>
+      <div class="mini l"><span class="em">🏁</span> Enduro</div>
+      <div class="meta"><div class="row1"><span class="idb">DE-3</span><span class="cnm">Checkered flag</span></div>
+      <div class="why">stage racing</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🏔️</span><span class="l em">🏔️</span></div>
+      <div class="mini d"><span class="em">🏔️</span> Enduro</div>
+      <div class="mini l"><span class="em">🏔️</span> Enduro</div>
+      <div class="meta"><div class="row1"><span class="idb">DE-4</span><span class="cnm">Snowy mountain</span></div>
+      <div class="why">bigger-mountain flavor of ⛰️</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">💪</span><span class="l em">💪</span></div>
+      <div class="mini d"><span class="em">💪</span> Enduro</div>
+      <div class="mini l"><span class="em">💪</span> Enduro</div>
+      <div class="meta"><div class="row1"><span class="idb">DE-5</span><span class="cnm">Flexed arm</span></div>
+      <div class="why">the endurance in enduro</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Discipline</span><span class="nm">Trail</span><span class="key">disc_trail</span>
+  <span class="live">live today: <span class="em">🌲</span></span></div>
+  <div class="cells"><div class="cell v1">
+      <div class="big"><span class="d em">🌲</span><span class="l em">🌲</span></div>
+      <div class="mini d"><span class="em">🌲</span> Trail</div>
+      <div class="mini l"><span class="em">🌲</span> Trail</div>
+      <div class="meta"><div class="row1"><span class="idb">DT-0</span><span class="cnm">Evergreen</span></div>
+      <div class="why">v1 pick AND live today — hard to beat</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🌳</span><span class="l em">🌳</span></div>
+      <div class="mini d"><span class="em">🌳</span> Trail</div>
+      <div class="mini l"><span class="em">🌳</span> Trail</div>
+      <div class="meta"><div class="row1"><span class="idb">DT-1</span><span class="cnm">Deciduous tree</span></div>
+      <div class="why">rounder, friendlier forest</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🍃</span><span class="l em">🍃</span></div>
+      <div class="mini d"><span class="em">🍃</span> Trail</div>
+      <div class="mini l"><span class="em">🍃</span> Trail</div>
+      <div class="meta"><div class="row1"><span class="idb">DT-2</span><span class="cnm">Leaf in wind</span></div>
+      <div class="why">light, flowy singletrack</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🏞️</span><span class="l em">🏞️</span></div>
+      <div class="mini d"><span class="em">🏞️</span> Trail</div>
+      <div class="mini l"><span class="em">🏞️</span> Trail</div>
+      <div class="meta"><div class="row1"><span class="idb">DT-3</span><span class="cnm">National park</span></div>
+      <div class="why">the whole scene — trail in landscape</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🌿</span><span class="l em">🌿</span></div>
+      <div class="mini d"><span class="em">🌿</span> Trail</div>
+      <div class="mini l"><span class="em">🌿</span> Trail</div>
+      <div class="meta"><div class="row1"><span class="idb">DT-4</span><span class="cnm">Herb sprig</span></div>
+      <div class="why">greenery brushing your bars</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🪵</span><span class="l em">🪵</span></div>
+      <div class="mini d"><span class="em">🪵</span> Trail</div>
+      <div class="mini l"><span class="em">🪵</span> Trail</div>
+      <div class="meta"><div class="row1"><span class="idb">DT-5</span><span class="cnm">Log</span></div>
+      <div class="why">log rides and skinnies</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Discipline</span><span class="nm">XC</span><span class="key">disc_xc</span>
+  <span class="live">live today: <span class="em">🐇</span></span></div>
+  <div class="cells"><div class="cell v1">
+      <div class="big"><span class="d em">🐇</span><span class="l em">🐇</span></div>
+      <div class="mini d"><span class="em">🐇</span> XC</div>
+      <div class="mini l"><span class="em">🐇</span> XC</div>
+      <div class="meta"><div class="row1"><span class="idb">DX-0</span><span class="cnm">Rabbit</span></div>
+      <div class="why">v1 pick AND live today — fast and light</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">💨</span><span class="l em">💨</span></div>
+      <div class="mini d"><span class="em">💨</span> XC</div>
+      <div class="mini l"><span class="em">💨</span> XC</div>
+      <div class="meta"><div class="row1"><span class="idb">DX-1</span><span class="cnm">Dash of wind</span></div>
+      <div class="why">flat-out speed</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">⚡</span><span class="l em">⚡</span></div>
+      <div class="mini d"><span class="em">⚡</span> XC</div>
+      <div class="mini l"><span class="em">⚡</span> XC</div>
+      <div class="meta"><div class="row1"><span class="idb">DX-2</span><span class="cnm">Lightning</span></div>
+      <div class="why">fast + lightweight</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🏃</span><span class="l em">🏃</span></div>
+      <div class="mini d"><span class="em">🏃</span> XC</div>
+      <div class="mini l"><span class="em">🏃</span> XC</div>
+      <div class="meta"><div class="row1"><span class="idb">DX-3</span><span class="cnm">Runner</span></div>
+      <div class="why">the engine is you</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🐆</span><span class="l em">🐆</span></div>
+      <div class="mini d"><span class="em">🐆</span> XC</div>
+      <div class="mini l"><span class="em">🐆</span> XC</div>
+      <div class="meta"><div class="row1"><span class="idb">DX-4</span><span class="cnm">Leopard</span></div>
+      <div class="why">the fast animal, more attitude than the rabbit</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🥇</span><span class="l em">🥇</span></div>
+      <div class="mini d"><span class="em">🥇</span> XC</div>
+      <div class="mini l"><span class="em">🥇</span> XC</div>
+      <div class="meta"><div class="row1"><span class="idb">DX-5</span><span class="cnm">Gold medal</span></div>
+      <div class="why">XC is the racing discipline</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Category</span><span class="nm">All parts</span><span class="key">all_parts</span>
+  <span class="live">live today: text only, no icon</span></div>
+  <div class="cells"><div class="cell v1">
+      <div class="big"><span class="d em">🧰</span><span class="l em">🧰</span></div>
+      <div class="mini d"><span class="em">🧰</span> All parts</div>
+      <div class="mini l"><span class="em">🧰</span> All parts</div>
+      <div class="meta"><div class="row1"><span class="idb">AP-0</span><span class="cnm">Toolbox</span></div>
+      <div class="why">v1 pick — everything in one box</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">📦</span><span class="l em">📦</span></div>
+      <div class="mini d"><span class="em">📦</span> All parts</div>
+      <div class="mini l"><span class="em">📦</span> All parts</div>
+      <div class="meta"><div class="row1"><span class="idb">AP-1</span><span class="cnm">Package</span></div>
+      <div class="why">the whole parts bin</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🧩</span><span class="l em">🧩</span></div>
+      <div class="mini d"><span class="em">🧩</span> All parts</div>
+      <div class="mini l"><span class="em">🧩</span> All parts</div>
+      <div class="meta"><div class="row1"><span class="idb">AP-2</span><span class="cnm">Puzzle piece</span></div>
+      <div class="why">everything that fits together — very on-brand for a compatibility checker</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🛠️</span><span class="l em">🛠️</span></div>
+      <div class="mini d"><span class="em">🛠️</span> All parts</div>
+      <div class="mini l"><span class="em">🛠️</span> All parts</div>
+      <div class="meta"><div class="row1"><span class="idb">AP-3</span><span class="cnm">Hammer &amp; wrench</span></div>
+      <div class="why">the workshop wall</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🗃️</span><span class="l em">🗃️</span></div>
+      <div class="mini d"><span class="em">🗃️</span> All parts</div>
+      <div class="mini l"><span class="em">🗃️</span> All parts</div>
+      <div class="meta"><div class="row1"><span class="idb">AP-4</span><span class="cnm">Card-file box</span></div>
+      <div class="why">the parts drawers</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🪛</span><span class="l em">🪛</span></div>
+      <div class="mini d"><span class="em">🪛</span> All parts</div>
+      <div class="mini l"><span class="em">🪛</span> All parts</div>
+      <div class="meta"><div class="row1"><span class="idb">AP-5</span><span class="cnm">Screwdriver</span></div>
+      <div class="why">quiet single-tool mark</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Category</span><span class="nm">Frame</span><span class="key">frame</span>
+  <span class="live">live today: <span class="em">🚲</span></span></div>
+  <div class="cells"><div class="cell v1">
+      <div class="big"><span class="d em">🚲</span><span class="l em">🚲</span></div>
+      <div class="mini d"><span class="em">🚲</span> Frame</div>
+      <div class="mini l"><span class="em">🚲</span> Frame</div>
+      <div class="meta"><div class="row1"><span class="idb">FR-0</span><span class="cnm">Bicycle</span></div>
+      <div class="why">v1 pick AND live today — the frame is the bike</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">💠</span><span class="l em">💠</span></div>
+      <div class="mini d"><span class="em">💠</span> Frame</div>
+      <div class="mini l"><span class="em">💠</span> Frame</div>
+      <div class="meta"><div class="row1"><span class="idb">FR-1</span><span class="cnm">Diamond shape</span></div>
+      <div class="why">'diamond frame' is literally the term for bike frame geometry</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🔺</span><span class="l em">🔺</span></div>
+      <div class="mini d"><span class="em">🔺</span> Frame</div>
+      <div class="mini l"><span class="em">🔺</span> Frame</div>
+      <div class="meta"><div class="row1"><span class="idb">FR-2</span><span class="cnm">Red triangle</span></div>
+      <div class="why">the front triangle</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">📐</span><span class="l em">📐</span></div>
+      <div class="mini d"><span class="em">📐</span> Frame</div>
+      <div class="mini l"><span class="em">📐</span> Frame</div>
+      <div class="meta"><div class="row1"><span class="idb">FR-3</span><span class="cnm">Triangle ruler</span></div>
+      <div class="why">frame angles / geometry chart</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🦴</span><span class="l em">🦴</span></div>
+      <div class="mini d"><span class="em">🦴</span> Frame</div>
+      <div class="mini l"><span class="em">🦴</span> Frame</div>
+      <div class="meta"><div class="row1"><span class="idb">FR-4</span><span class="cnm">Bone</span></div>
+      <div class="why">the skeleton the build hangs off</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🖼️</span><span class="l em">🖼️</span></div>
+      <div class="mini d"><span class="em">🖼️</span> Frame</div>
+      <div class="mini l"><span class="em">🖼️</span> Frame</div>
+      <div class="meta"><div class="row1"><span class="idb">FR-5</span><span class="cnm">Picture frame</span></div>
+      <div class="why">the pun — reads instantly as 'frame'</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Category</span><span class="nm">Fork</span><span class="key">fork</span>
+  <span class="live">live today: <span class="em">🍴</span></span></div>
+  <div class="cells n5"><div class="cell v1">
+      <div class="big"><span class="d em">🦿</span><span class="l em">🦿</span></div>
+      <div class="mini d"><span class="em">🦿</span> Fork</div>
+      <div class="mini l"><span class="em">🦿</span> Fork</div>
+      <div class="meta"><div class="row1"><span class="idb">FK-0</span><span class="cnm">Mechanical leg</span></div>
+      <div class="why">v1 pick — a telescoping suspension leg (live today is the cutlery 🍴 the v1 set called out)</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🔱</span><span class="l em">🔱</span></div>
+      <div class="mini d"><span class="em">🔱</span> Fork</div>
+      <div class="mini l"><span class="em">🔱</span> Fork</div>
+      <div class="meta"><div class="row1"><span class="idb">FK-1</span><span class="cnm">Trident</span></div>
+      <div class="why">steerer + two legs — the actual fork silhouette</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🩼</span><span class="l em">🩼</span></div>
+      <div class="mini d"><span class="em">🩼</span> Fork</div>
+      <div class="mini l"><span class="em">🩼</span> Fork</div>
+      <div class="meta"><div class="row1"><span class="idb">FK-2</span><span class="cnm">Crutch</span></div>
+      <div class="why">telescoping tube, honest suspension-fork read</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🥢</span><span class="l em">🥢</span></div>
+      <div class="mini d"><span class="em">🥢</span> Fork</div>
+      <div class="mini l"><span class="em">🥢</span> Fork</div>
+      <div class="meta"><div class="row1"><span class="idb">FK-3</span><span class="cnm">Chopsticks</span></div>
+      <div class="why">two parallel stanchions</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🦵</span><span class="l em">🦵</span></div>
+      <div class="mini d"><span class="em">🦵</span> Fork</div>
+      <div class="mini l"><span class="em">🦵</span> Fork</div>
+      <div class="meta"><div class="row1"><span class="idb">FK-4</span><span class="cnm">Leg</span></div>
+      <div class="why">the bike's front leg</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Category</span><span class="nm">Rear Shock</span><span class="key">shock</span>
+  <span class="live">live today: <span class="em">🪐</span></span></div>
+  <div class="cells"><div class="cell v1">
+      <div class="big"><span class="d em">🛢️</span><span class="l em">🛢️</span></div>
+      <div class="mini d"><span class="em">🛢️</span> Rear Shock</div>
+      <div class="mini l"><span class="em">🛢️</span> Rear Shock</div>
+      <div class="meta"><div class="row1"><span class="idb">SH-0</span><span class="cnm">Oil drum</span></div>
+      <div class="why">v1 pick — the damper body (live today is the planet 🪐 the v1 set called out)</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">💉</span><span class="l em">💉</span></div>
+      <div class="mini d"><span class="em">💉</span> Rear Shock</div>
+      <div class="mini l"><span class="em">💉</span> Rear Shock</div>
+      <div class="meta"><div class="row1"><span class="idb">SH-1</span><span class="cnm">Syringe</span></div>
+      <div class="why">piston + shaft — the most damper-shaped emoji there is</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🌀</span><span class="l em">🌀</span></div>
+      <div class="mini d"><span class="em">🌀</span> Rear Shock</div>
+      <div class="mini l"><span class="em">🌀</span> Rear Shock</div>
+      <div class="meta"><div class="row1"><span class="idb">SH-2</span><span class="cnm">Spiral</span></div>
+      <div class="why">the coil spring</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🧯</span><span class="l em">🧯</span></div>
+      <div class="mini d"><span class="em">🧯</span> Rear Shock</div>
+      <div class="mini l"><span class="em">🧯</span> Rear Shock</div>
+      <div class="meta"><div class="row1"><span class="idb">SH-3</span><span class="cnm">Fire extinguisher</span></div>
+      <div class="why">pressurized canister with a can</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🫧</span><span class="l em">🫧</span></div>
+      <div class="mini d"><span class="em">🫧</span> Rear Shock</div>
+      <div class="mini l"><span class="em">🫧</span> Rear Shock</div>
+      <div class="meta"><div class="row1"><span class="idb">SH-4</span><span class="cnm">Bubbles</span></div>
+      <div class="why">the air spring</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🧨</span><span class="l em">🧨</span></div>
+      <div class="mini d"><span class="em">🧨</span> Rear Shock</div>
+      <div class="mini l"><span class="em">🧨</span> Rear Shock</div>
+      <div class="meta"><div class="row1"><span class="idb">SH-5</span><span class="cnm">Firecracker</span></div>
+      <div class="why">a charged tube — playful</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Category</span><span class="nm">Wheels</span><span class="key">wheels</span>
+  <span class="live">live today: <span class="em">🛞</span></span></div>
+  <div class="cells"><div class="cell v1">
+      <div class="big"><span class="d em">🛞</span><span class="l em">🛞</span></div>
+      <div class="mini d"><span class="em">🛞</span> Wheels</div>
+      <div class="mini l"><span class="em">🛞</span> Wheels</div>
+      <div class="meta"><div class="row1"><span class="idb">WH-0</span><span class="cnm">Wheel</span></div>
+      <div class="why">v1 pick AND live today — it IS a wheel</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">☸️</span><span class="l em">☸️</span></div>
+      <div class="mini d"><span class="em">☸️</span> Wheels</div>
+      <div class="mini l"><span class="em">☸️</span> Wheels</div>
+      <div class="meta"><div class="row1"><span class="idb">WH-1</span><span class="cnm">Wheel of dharma</span></div>
+      <div class="why">a spoked wheel, quieter than 🛞</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🎡</span><span class="l em">🎡</span></div>
+      <div class="mini d"><span class="em">🎡</span> Wheels</div>
+      <div class="mini l"><span class="em">🎡</span> Wheels</div>
+      <div class="meta"><div class="row1"><span class="idb">WH-2</span><span class="cnm">Ferris wheel</span></div>
+      <div class="why">big spoked wheel with personality</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🛟</span><span class="l em">🛟</span></div>
+      <div class="mini d"><span class="em">🛟</span> Wheels</div>
+      <div class="mini l"><span class="em">🛟</span> Wheels</div>
+      <div class="meta"><div class="row1"><span class="idb">WH-3</span><span class="cnm">Life ring</span></div>
+      <div class="why">clean rim ring</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🎯</span><span class="l em">🎯</span></div>
+      <div class="mini d"><span class="em">🎯</span> Wheels</div>
+      <div class="mini l"><span class="em">🎯</span> Wheels</div>
+      <div class="meta"><div class="row1"><span class="idb">WH-4</span><span class="cnm">Bullseye</span></div>
+      <div class="why">concentric rim + hub</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🕸️</span><span class="l em">🕸️</span></div>
+      <div class="mini d"><span class="em">🕸️</span> Wheels</div>
+      <div class="mini l"><span class="em">🕸️</span> Wheels</div>
+      <div class="meta"><div class="row1"><span class="idb">WH-5</span><span class="cnm">Web</span></div>
+      <div class="why">laced spokes</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Category</span><span class="nm">Tires</span><span class="key">tire</span>
+  <span class="live">live today: <span class="em">⚫</span></span></div>
+  <div class="cells"><div class="cell v1">
+      <div class="big"><span class="d em">🍩</span><span class="l em">🍩</span></div>
+      <div class="mini d"><span class="em">🍩</span> Tires</div>
+      <div class="mini l"><span class="em">🍩</span> Tires</div>
+      <div class="meta"><div class="row1"><span class="idb">TI-0</span><span class="cnm">Donut</span></div>
+      <div class="why">v1 pick — a torus with a hole (live today is the plain circle ⚫ the v1 set called out)</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🐾</span><span class="l em">🐾</span></div>
+      <div class="mini d"><span class="em">🐾</span> Tires</div>
+      <div class="mini l"><span class="em">🐾</span> Tires</div>
+      <div class="meta"><div class="row1"><span class="idb">TI-1</span><span class="cnm">Paw prints</span></div>
+      <div class="why">tread and traction — what a tire is FOR</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🥯</span><span class="l em">🥯</span></div>
+      <div class="mini d"><span class="em">🥯</span> Tires</div>
+      <div class="mini l"><span class="em">🥯</span> Tires</div>
+      <div class="meta"><div class="row1"><span class="idb">TI-2</span><span class="cnm">Bagel</span></div>
+      <div class="why">torus, less frosting than the donut</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🍥</span><span class="l em">🍥</span></div>
+      <div class="mini d"><span class="em">🍥</span> Tires</div>
+      <div class="mini l"><span class="em">🍥</span> Tires</div>
+      <div class="meta"><div class="row1"><span class="idb">TI-3</span><span class="cnm">Fish cake swirl</span></div>
+      <div class="why">round with a tread-like spiral</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🛞</span><span class="l em">🛞</span></div>
+      <div class="mini d"><span class="em">🛞</span> Tires</div>
+      <div class="mini l"><span class="em">🛞</span> Tires</div>
+      <div class="meta"><div class="row1"><span class="idb">TI-4</span><span class="cnm">Wheel</span></div>
+      <div class="why">if Wheels uses something else, the tire can own 🛞</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🍪</span><span class="l em">🍪</span></div>
+      <div class="mini d"><span class="em">🍪</span> Tires</div>
+      <div class="mini l"><span class="em">🍪</span> Tires</div>
+      <div class="meta"><div class="row1"><span class="idb">TI-5</span><span class="cnm">Cookie</span></div>
+      <div class="why">the chips read as knobs — a knobby tire</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Category</span><span class="nm">Drivetrain</span><span class="key">drivetrain</span>
+  <span class="live">live today: <span class="em">⚙️</span></span></div>
+  <div class="cells"><div class="cell v1">
+      <div class="big"><span class="d em">⚙️</span><span class="l em">⚙️</span></div>
+      <div class="mini d"><span class="em">⚙️</span> Drivetrain</div>
+      <div class="mini l"><span class="em">⚙️</span> Drivetrain</div>
+      <div class="meta"><div class="row1"><span class="idb">DR-0</span><span class="cnm">Gear</span></div>
+      <div class="why">v1 pick AND live today — the canonical drivetrain mark</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🔗</span><span class="l em">🔗</span></div>
+      <div class="mini d"><span class="em">🔗</span> Drivetrain</div>
+      <div class="mini l"><span class="em">🔗</span> Drivetrain</div>
+      <div class="meta"><div class="row1"><span class="idb">DR-1</span><span class="cnm">Chain link</span></div>
+      <div class="why">one clean link</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">⛓️</span><span class="l em">⛓️</span></div>
+      <div class="mini d"><span class="em">⛓️</span> Drivetrain</div>
+      <div class="mini l"><span class="em">⛓️</span> Drivetrain</div>
+      <div class="meta"><div class="row1"><span class="idb">DR-2</span><span class="cnm">Chains</span></div>
+      <div class="why">the whole chain run</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🦷</span><span class="l em">🦷</span></div>
+      <div class="mini d"><span class="em">🦷</span> Drivetrain</div>
+      <div class="mini l"><span class="em">🦷</span> Drivetrain</div>
+      <div class="meta"><div class="row1"><span class="idb">DR-3</span><span class="cnm">Tooth</span></div>
+      <div class="why">chainring / cassette teeth — cheeky but mechanically true</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🎛️</span><span class="l em">🎛️</span></div>
+      <div class="mini d"><span class="em">🎛️</span> Drivetrain</div>
+      <div class="mini l"><span class="em">🎛️</span> Drivetrain</div>
+      <div class="meta"><div class="row1"><span class="idb">DR-4</span><span class="cnm">Control knobs</span></div>
+      <div class="why">shifting as tuning controls</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🚂</span><span class="l em">🚂</span></div>
+      <div class="mini d"><span class="em">🚂</span> Drivetrain</div>
+      <div class="mini l"><span class="em">🚂</span> Drivetrain</div>
+      <div class="meta"><div class="row1"><span class="idb">DR-5</span><span class="cnm">Locomotive</span></div>
+      <div class="why">the 'drive train' pun</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Category</span><span class="nm">Brakes</span><span class="key">brakes</span>
+  <span class="live">live today: <span class="em">🛑</span></span></div>
+  <div class="cells"><div class="cell v1">
+      <div class="big"><span class="d em">💿</span><span class="l em">💿</span></div>
+      <div class="mini d"><span class="em">💿</span> Brakes</div>
+      <div class="mini l"><span class="em">💿</span> Brakes</div>
+      <div class="meta"><div class="row1"><span class="idb">BR-0</span><span class="cnm">CD</span></div>
+      <div class="why">v1 pick — a silver disc rotor</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">✋</span><span class="l em">✋</span></div>
+      <div class="mini d"><span class="em">✋</span> Brakes</div>
+      <div class="mini l"><span class="em">✋</span> Brakes</div>
+      <div class="meta"><div class="row1"><span class="idb">BR-1</span><span class="cnm">Raised hand</span></div>
+      <div class="why">stop — the human gesture</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🥏</span><span class="l em">🥏</span></div>
+      <div class="mini d"><span class="em">🥏</span> Brakes</div>
+      <div class="mini l"><span class="em">🥏</span> Brakes</div>
+      <div class="meta"><div class="row1"><span class="idb">BR-2</span><span class="cnm">Flying disc</span></div>
+      <div class="why">a rotor with motion in it</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">⏹️</span><span class="l em">⏹️</span></div>
+      <div class="mini d"><span class="em">⏹️</span> Brakes</div>
+      <div class="mini l"><span class="em">⏹️</span> Brakes</div>
+      <div class="meta"><div class="row1"><span class="idb">BR-3</span><span class="cnm">Stop button</span></div>
+      <div class="why">quiet, geometric stop</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">📀</span><span class="l em">📀</span></div>
+      <div class="mini d"><span class="em">📀</span> Brakes</div>
+      <div class="mini l"><span class="em">📀</span> Brakes</div>
+      <div class="meta"><div class="row1"><span class="idb">BR-4</span><span class="cnm">DVD</span></div>
+      <div class="why">the disc rotor in gold</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🛑</span><span class="l em">🛑</span></div>
+      <div class="mini d"><span class="em">🛑</span> Brakes</div>
+      <div class="mini l"><span class="em">🛑</span> Brakes</div>
+      <div class="meta"><div class="row1"><span class="idb">BR-5</span><span class="cnm">Stop sign</span></div>
+      <div class="why">live today — loud but unambiguous</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Category</span><span class="nm">Bottom Bracket</span><span class="key">bb</span>
+  <span class="live">live today: <span class="em">🔩</span></span></div>
+  <div class="cells n5"><div class="cell v1">
+      <div class="big"><span class="d em">🔘</span><span class="l em">🔘</span></div>
+      <div class="mini d"><span class="em">🔘</span> Bottom Bracket</div>
+      <div class="mini l"><span class="em">🔘</span> Bottom Bracket</div>
+      <div class="meta"><div class="row1"><span class="idb">BB-0</span><span class="cnm">Radio button</span></div>
+      <div class="why">v1 pick — a bearing in cross-section</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🧿</span><span class="l em">🧿</span></div>
+      <div class="mini d"><span class="em">🧿</span> Bottom Bracket</div>
+      <div class="mini l"><span class="em">🧿</span> Bottom Bracket</div>
+      <div class="meta"><div class="row1"><span class="idb">BB-1</span><span class="cnm">Nazar bead</span></div>
+      <div class="why">concentric rings — cartridge bearing</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🎱</span><span class="l em">🎱</span></div>
+      <div class="mini d"><span class="em">🎱</span> Bottom Bracket</div>
+      <div class="mini l"><span class="em">🎱</span> Bottom Bracket</div>
+      <div class="meta"><div class="row1"><span class="idb">BB-2</span><span class="cnm">8-ball</span></div>
+      <div class="why">a ball bearing with attitude</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🪙</span><span class="l em">🪙</span></div>
+      <div class="mini d"><span class="em">🪙</span> Bottom Bracket</div>
+      <div class="mini l"><span class="em">🪙</span> Bottom Bracket</div>
+      <div class="meta"><div class="row1"><span class="idb">BB-3</span><span class="cnm">Coin</span></div>
+      <div class="why">a bearing cup face-on</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🔩</span><span class="l em">🔩</span></div>
+      <div class="mini d"><span class="em">🔩</span> Bottom Bracket</div>
+      <div class="mini l"><span class="em">🔩</span> Bottom Bracket</div>
+      <div class="meta"><div class="row1"><span class="idb">BB-4</span><span class="cnm">Nut &amp; bolt</span></div>
+      <div class="why">live today — threaded shell read</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Category</span><span class="nm">Headset</span><span class="key">headset</span>
+  <span class="live">live today: <span class="em">🎧</span></span></div>
+  <div class="cells n5"><div class="cell v1">
+      <div class="big"><span class="d em">💍</span><span class="l em">💍</span></div>
+      <div class="mini d"><span class="em">💍</span> Headset</div>
+      <div class="mini l"><span class="em">💍</span> Headset</div>
+      <div class="meta"><div class="row1"><span class="idb">HS-0</span><span class="cnm">Ring</span></div>
+      <div class="why">v1 pick — the bearing race (live today is the headphones 🎧 pun the v1 set retired)</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">👑</span><span class="l em">👑</span></div>
+      <div class="mini d"><span class="em">👑</span> Headset</div>
+      <div class="mini l"><span class="em">👑</span> Headset</div>
+      <div class="meta"><div class="row1"><span class="idb">HS-1</span><span class="cnm">Crown</span></div>
+      <div class="why">sits at the top of the head tube — and 'crown race' is a real headset part</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🎩</span><span class="l em">🎩</span></div>
+      <div class="mini d"><span class="em">🎩</span> Headset</div>
+      <div class="mini l"><span class="em">🎩</span> Headset</div>
+      <div class="meta"><div class="row1"><span class="idb">HS-2</span><span class="cnm">Top hat</span></div>
+      <div class="why">the top cap</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">💫</span><span class="l em">💫</span></div>
+      <div class="mini d"><span class="em">💫</span> Headset</div>
+      <div class="mini l"><span class="em">💫</span> Headset</div>
+      <div class="meta"><div class="row1"><span class="idb">HS-3</span><span class="cnm">Dizzy ring</span></div>
+      <div class="why">the spin of the steering</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🧿</span><span class="l em">🧿</span></div>
+      <div class="mini d"><span class="em">🧿</span> Headset</div>
+      <div class="mini l"><span class="em">🧿</span> Headset</div>
+      <div class="meta"><div class="row1"><span class="idb">HS-4</span><span class="cnm">Nazar bead</span></div>
+      <div class="why">concentric bearing (if BB uses something else)</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Category</span><span class="nm">Dropper Post</span><span class="key">dropper</span>
+  <span class="live">live today: <span class="em">📐</span></span></div>
+  <div class="cells n5"><div class="cell v1">
+      <div class="big"><span class="d em combo-wrap">⬆️⬇️</span><span class="l em combo-wrap">⬆️⬇️</span></div>
+      <div class="mini d"><span class="em">⬆️⬇️</span> Dropper Post</div>
+      <div class="mini l"><span class="em">⬆️⬇️</span> Dropper Post</div>
+      <div class="meta"><div class="row1"><span class="idb">DP-0</span><span class="cnm">Up + down arrows</span></div>
+      <div class="why">v1 pick — up/down (two-glyph combo)</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">↕️</span><span class="l em">↕️</span></div>
+      <div class="mini d"><span class="em">↕️</span> Dropper Post</div>
+      <div class="mini l"><span class="em">↕️</span> Dropper Post</div>
+      <div class="meta"><div class="row1"><span class="idb">DP-1</span><span class="cnm">Up-down arrow</span></div>
+      <div class="why">the same idea in one glyph — fits the rail better</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🛗</span><span class="l em">🛗</span></div>
+      <div class="mini d"><span class="em">🛗</span> Dropper Post</div>
+      <div class="mini l"><span class="em">🛗</span> Dropper Post</div>
+      <div class="meta"><div class="row1"><span class="idb">DP-2</span><span class="cnm">Elevator</span></div>
+      <div class="why">a thing that goes up and down on command</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🎚️</span><span class="l em">🎚️</span></div>
+      <div class="mini d"><span class="em">🎚️</span> Dropper Post</div>
+      <div class="mini l"><span class="em">🎚️</span> Dropper Post</div>
+      <div class="meta"><div class="row1"><span class="idb">DP-3</span><span class="cnm">Level slider</span></div>
+      <div class="why">set your height</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🔃</span><span class="l em">🔃</span></div>
+      <div class="mini d"><span class="em">🔃</span> Dropper Post</div>
+      <div class="mini l"><span class="em">🔃</span> Dropper Post</div>
+      <div class="meta"><div class="row1"><span class="idb">DP-4</span><span class="cnm">Vertical cycle</span></div>
+      <div class="why">up, down, repeat</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Category</span><span class="nm">Cockpit</span><span class="key">cockpit</span>
+  <span class="live">live today: <span class="em">🔧</span></span></div>
+  <div class="cells n5"><div class="cell v1">
+      <div class="big"><span class="d em">🏹</span><span class="l em">🏹</span></div>
+      <div class="mini d"><span class="em">🏹</span> Cockpit</div>
+      <div class="mini l"><span class="em">🏹</span> Cockpit</div>
+      <div class="meta"><div class="row1"><span class="idb">CP-0</span><span class="cnm">Bow &amp; arrow</span></div>
+      <div class="why">v1 pick — bar-and-stem silhouette</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🕹️</span><span class="l em">🕹️</span></div>
+      <div class="mini d"><span class="em">🕹️</span> Cockpit</div>
+      <div class="mini l"><span class="em">🕹️</span> Cockpit</div>
+      <div class="meta"><div class="row1"><span class="idb">CP-1</span><span class="cnm">Joystick</span></div>
+      <div class="why">the steering control</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🎮</span><span class="l em">🎮</span></div>
+      <div class="mini d"><span class="em">🎮</span> Cockpit</div>
+      <div class="mini l"><span class="em">🎮</span> Cockpit</div>
+      <div class="meta"><div class="row1"><span class="idb">CP-2</span><span class="cnm">Game controller</span></div>
+      <div class="why">where your hands live</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🛩️</span><span class="l em">🛩️</span></div>
+      <div class="mini d"><span class="em">🛩️</span> Cockpit</div>
+      <div class="mini l"><span class="em">🛩️</span> Cockpit</div>
+      <div class="meta"><div class="row1"><span class="idb">CP-3</span><span class="cnm">Small airplane</span></div>
+      <div class="why">the cockpit pun</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🐂</span><span class="l em">🐂</span></div>
+      <div class="mini d"><span class="em">🐂</span> Cockpit</div>
+      <div class="mini l"><span class="em">🐂</span> Cockpit</div>
+      <div class="meta"><div class="row1"><span class="idb">CP-4</span><span class="cnm">Ox</span></div>
+      <div class="why">horns = handlebars</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Category</span><span class="nm">Saddle</span><span class="key">saddle</span>
+  <span class="live">live today: <span class="em">🪑</span></span></div>
+  <div class="cells"><div class="cell v1">
+      <div class="big"><span class="d em">💺</span><span class="l em">💺</span></div>
+      <div class="mini d"><span class="em">💺</span> Saddle</div>
+      <div class="mini l"><span class="em">💺</span> Saddle</div>
+      <div class="meta"><div class="row1"><span class="idb">SA-0</span><span class="cnm">Seat</span></div>
+      <div class="why">v1 pick — an actual seat</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🐎</span><span class="l em">🐎</span></div>
+      <div class="mini d"><span class="em">🐎</span> Saddle</div>
+      <div class="mini l"><span class="em">🐎</span> Saddle</div>
+      <div class="meta"><div class="row1"><span class="idb">SA-1</span><span class="cnm">Horse</span></div>
+      <div class="why">saddle up</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🏇</span><span class="l em">🏇</span></div>
+      <div class="mini d"><span class="em">🏇</span> Saddle</div>
+      <div class="mini l"><span class="em">🏇</span> Saddle</div>
+      <div class="meta"><div class="row1"><span class="idb">SA-2</span><span class="cnm">Horse racing</span></div>
+      <div class="why">riding IN the saddle</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🍑</span><span class="l em">🍑</span></div>
+      <div class="mini d"><span class="em">🍑</span> Saddle</div>
+      <div class="mini l"><span class="em">🍑</span> Saddle</div>
+      <div class="meta"><div class="row1"><span class="idb">SA-3</span><span class="cnm">Peach</span></div>
+      <div class="why">where the saddle goes — the playful option</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🛋️</span><span class="l em">🛋️</span></div>
+      <div class="mini d"><span class="em">🛋️</span> Saddle</div>
+      <div class="mini l"><span class="em">🛋️</span> Saddle</div>
+      <div class="meta"><div class="row1"><span class="idb">SA-4</span><span class="cnm">Couch</span></div>
+      <div class="why">all-day comfort</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🪑</span><span class="l em">🪑</span></div>
+      <div class="mini d"><span class="em">🪑</span> Saddle</div>
+      <div class="mini l"><span class="em">🪑</span> Saddle</div>
+      <div class="meta"><div class="row1"><span class="idb">SA-5</span><span class="cnm">Chair</span></div>
+      <div class="why">live today — plain but honest</div></div>
+    </div></div></div><div class="slotblock">
+  <div class="slothead"><span class="grp">Category</span><span class="nm">Pedals</span><span class="key">pedals</span>
+  <span class="live">live today: <span class="em">👟</span></span></div>
+  <div class="cells n5"><div class="cell v1">
+      <div class="big"><span class="d em">🛼</span><span class="l em">🛼</span></div>
+      <div class="mini d"><span class="em">🛼</span> Pedals</div>
+      <div class="mini l"><span class="em">🛼</span> Pedals</div>
+      <div class="meta"><div class="row1"><span class="idb">PD-0</span><span class="cnm">Roller skate</span></div>
+      <div class="why">v1 pick — foot-powered hardware</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🦶</span><span class="l em">🦶</span></div>
+      <div class="mini d"><span class="em">🦶</span> Pedals</div>
+      <div class="mini l"><span class="em">🦶</span> Pedals</div>
+      <div class="meta"><div class="row1"><span class="idb">PD-1</span><span class="cnm">Foot</span></div>
+      <div class="why">what pushes the pedal</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🥾</span><span class="l em">🥾</span></div>
+      <div class="mini d"><span class="em">🥾</span> Pedals</div>
+      <div class="mini l"><span class="em">🥾</span> Pedals</div>
+      <div class="meta"><div class="row1"><span class="idb">PD-2</span><span class="cnm">Hiking boot</span></div>
+      <div class="why">flat-pedal shoe energy</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">🚴</span><span class="l em">🚴</span></div>
+      <div class="mini d"><span class="em">🚴</span> Pedals</div>
+      <div class="mini l"><span class="em">🚴</span> Pedals</div>
+      <div class="meta"><div class="row1"><span class="idb">PD-3</span><span class="cnm">Cyclist</span></div>
+      <div class="why">legs mid-pedal-stroke</div></div>
+    </div><div class="cell">
+      <div class="big"><span class="d em">👟</span><span class="l em">👟</span></div>
+      <div class="mini d"><span class="em">👟</span> Pedals</div>
+      <div class="mini l"><span class="em">👟</span> Pedals</div>
+      <div class="meta"><div class="row1"><span class="idb">PD-4</span><span class="cnm">Sneaker</span></div>
+      <div class="why">live today — still a fair read</div></div>
+    </div></div></div><div class="footer">BuildMyMTB · rail-icons-refined-emoji-v2 · branch design/rail-icons-emoji-v2 · source of truth: design/rail-icons-emoji-v2/data.json (id → glyph). Reply with per-slot IDs and/or a set letter; a follow-up chip applies the picks to ICONS / DISC_LABELS / the All-parts chip in index.html. No live-app changes were made.</div>
+</body></html>
