@@ -2,6 +2,19 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **Douglas's decisions (2026-07-13) + execution.** (1) Forum "⚡ E-MTB" discussion category:
+  HIDE but KEEP ("don't display for now, but don't remove, we will use that later") — shipped
+  `cd79c0f`: `hidden:true` on the vocab entry in src/forum.js + skips in the chip row and
+  new-thread picker; existing-thread badges unchanged via forumCategory(); browser-verified on the
+  live forum data path (17 categories offered, E-MTB absent from chips + picker, console clean),
+  four gates green (harness byte-identical), CI+Deploy green. No-e-bikes rule confirmed
+  catalog-parts-scoped (memory updated). (2) Default-sort tie-break (bias #5): Douglas picked
+  RANDOM — seeded-stable-shuffle chip queued (UI tier, auto-ships on green gates + browser
+  verification). (3) OK given to close bug issue #2 — the `gh issue close` was BLOCKED by the
+  permission classifier (indirect authorization); resurfaced to Douglas to confirm plainly or
+  close it himself. Also: shared .claude/launch.json swept of 6 entries pointing at pruned
+  worktrees/dirs; `tb-coord` (8127 → the coordinator seat) added.
+
 - **Coordinator succession (7th seat).** New coordinator seated on `coord/2026-07-12`
   (inside `.claude/worktrees/`); Main Coordinator 6 archived; the grandfathered `D:/tb-coord-lean`
   seat + its branch removed. Backlog queued as 5 chips: DH Transmission 7s group, Fox drift sweep,
