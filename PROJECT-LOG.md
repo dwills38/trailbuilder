@@ -20,6 +20,31 @@
   index.html and schema.js (hazard); CLAUDE.md test table omits test-invariants.js.
   **FLAG for Douglas:** src/forum.js ships an "⚡ E-MTB" DISCUSSION category — catalog rule 1 is
   parts-scoped so this is not a violation, but his explicit "discussion is fine/not fine" is wanted.
+- **MANUFACTURER-BIAS AUDIT (post-wave) — report committed as `MANUFACTURER-BIAS-AUDIT-2026-07-12.md`.**
+  Read-only worker audit of main @ 5967d12. Affiliate isolation, engine brand-conditionals, guides
+  copy, and sample-build mechanism all CHECKED CLEAN. Findings (severity order): (1) HIGH — the
+  "✓ Verified only" view inverts market reality (Specialized/Trek/YT frames 0-verified vanish;
+  RockShox shocks 8.4% verified vs Fox 76.5%/EXT+CC 100%; SRAM 80.8% vs Shimano 40.8%) — remedy =
+  targeted verification waves + the web-unblocker connector; (2) MED-HIGH — XDR freehub hard-errors
+  vs every cassette though SRAM documents XD-on-XDR with the 1.85mm spacer → should be a
+  direction-aware warning w/ structured fix (chip queued); (3) MED — fork row-share skew (RS 30.2%
+  vs Fox 10.9%; fix = Fox variant fill-out, chip queued) + TRP is top brakes+rotors brand at 19.3%
+  (fix = Shimano/SRAM rotor coverage incl. RT-MT905, chip queued); (4) MED — rule 8b caliper
+  ceiling live on 2 of 4 FM calipers (per-class evenness standing target); (5) MED-LOW — default
+  sort tie-breaks on insertion order = data-entry history (neutral-key choice is Douglas's);
+  (6-7) LOW — headset near-monoculture (fetch-wall artifact), pinned-fallback build skew.
+- **HYGIENE SWEEP LANDED: 154 branches / 54 worktrees → 12 / 3.** Worker content-verified every
+  deletion (merge-base ancestry or merge-base-diff grep vs main; every "missing" id traced to a
+  documented deliberate drop — 22 EXT e-Storia e-bike rows, 2 fabricated Öhlins trunnions, 1
+  Schwalbe e-MTB tire). Coordinator follow-through: the 6 worktrees kept for untracked deliverables
+  were verified byte-identical to the shared-checkout root copies and removed; the 2 DIRTY
+  night-verify worktrees held real unharvested work — committed as WIP onto their branches
+  (`night-verify-suspension-tails`: DVO Onyx maker-page sources + maxRotorF 220→203 correction +
+  2 verified promotions, UNREVIEWED — re-verify before merge; `night-verify-rearwheels`: 4 Spank
+  weight nudges, no provenance) and folded into the targeted-verification chip; stale
+  `audit/code-quality-2026-07-11` deleted (byId memo superseded by `0655198`; its minor _slotByKey
+  dedup idea noted here as opportunistic backlog). `feat/catalog-views-fractal-honeycomb` kept as
+  the only ref to the removed feature. All three audit/hygiene worker sessions archived.
 
 ## 2026-07-12 (evening) — Fable-budget push: shocks merged + engine fixes queued
 
