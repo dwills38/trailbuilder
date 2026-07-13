@@ -2,6 +2,20 @@
 
 ## 2026-07-12 (evening) — Fable-budget push: shocks merged + engine fixes queued
 
+- **ENGINE CRITICAL FIXES C1–C4 + M1 LIVE (`45f7331`).** All 5 findings from
+  ENGINE-CRITICAL-REVIEW-2026-07-12.md landed in harm order, each maker-sourced + pinned (453→477
+  tests) + independently adversarially audited (5/5 hold): **C1** new rule 8b `brake.maxRotor`
+  (dormant; XTR M9110-FM=160 per fetched Shimano C-461, Magura MT8 SL FM=160 — corrected that row's
+  wrong "up to 180" desc AND the golden XC build's own baked-in false fit); **C2** BSA68≡BSA73
+  equivalence (false red removed; BSA83/PF exact); **C3** direction-aware bar/stem with a structured
+  shim `fix` (mirrors rule 13); **C4** `frame.forkTravelHard` tiered by SOURCE LANGUAGE + validator
+  cross-rule (hard requires min+source) — 15 frames hard-tagged verbatim, 3 SC trail frames softened
+  per their own re-fetched FAQ, Megatower's unsourced hard red resolved; **M1** chain out of the
+  drivetrain SPEED set (stays in system + 3c) — un-hacked the XX-DH workaround. Probe-C assembler
+  respects the new caliper ceiling. **BACKLOG:** (1) catalog chip for the now-enterable 7s XX Eagle
+  Transmission DH group (CS-XS-797/RD-XX-DHE); (2) mechanic-review queue: the 4 hard-tagged SC frames
+  (bare "Fork Compatibility: X–Y" with no softener FAQ) + Nicolai G1's weak accommodation wording;
+  (3) Hope XCR-FM + SRAM Level-FM rotor ceilings unsourced (dormant until found).
 - **CATALOG MERGE WAVE 4: Fox balance → 3018 parts (`572c441`).** +59 Fox rear shocks (all missing
   current-lineup SKUs via ridefox.com store variant JSON; incl. Live Valve NEO — electronic damper
   for standard frames, AXS precedent, not e-bike). Shock share: RockShox 53.3% → 49.2%, Fox 6.0% →
