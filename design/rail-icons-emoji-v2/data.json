@@ -239,5 +239,209 @@
         "drivetrain": "DR-0", "brakes": "BR-0", "bb": "BB-0", "headset": "HS-1", "dropper": "DP-2", "cockpit": "CP-1",
         "saddle": "SA-0", "pedals": "PD-1" }
     }
-  ]
+  ],
+  "v3": {
+    "date": "2026-07-13",
+    "note": "Round 3, DISCIPLINE SLOTS ONLY (Douglas: streamline — the five rider-discipline icons, a ton of samples). Every glyph shown in rounds 1-2 (any slot, plus the live rail glyphs) is treated as rejected and is NOT re-offered. Ids continue after each slot's v2 range. Each slot ends with a clearly-labeled WILDCARD section (~5 ids) that bends the Refined-Emoji style: text-presentation/monochrome variants and simple dingbats — included because two emoji rounds missed; ignore freely. A glyph may appear under two slots where it honestly fits both (distinct ids).",
+    "slots": [
+      {
+        "key": "disc_all", "prefix": "DA",
+        "candidates": [
+          { "id": "DA-6",  "glyph": "🌈", "name": "Rainbow", "why": "whole spectrum" },
+          { "id": "DA-7",  "glyph": "🎨", "name": "Palette", "why": "every flavor" },
+          { "id": "DA-8",  "glyph": "🤹", "name": "Juggler", "why": "all disciplines at once" },
+          { "id": "DA-9",  "glyph": "🍱", "name": "Bento box", "why": "bit of everything" },
+          { "id": "DA-10", "glyph": "🌍", "name": "Globe (photo)", "why": "all riding everywhere" },
+          { "id": "DA-11", "glyph": "🌄", "name": "Sunrise mountains", "why": "the whole mountain" },
+          { "id": "DA-12", "glyph": "🗻", "name": "Mount Fuji", "why": "one mountain, every line" },
+          { "id": "DA-13", "glyph": "⭕", "name": "Hollow circle", "why": "everything included" },
+          { "id": "DA-14", "glyph": "✨", "name": "Sparkles", "why": "show me everything" },
+          { "id": "DA-15", "glyph": "⭐", "name": "Star", "why": "the default view" },
+          { "id": "DA-16", "glyph": "🎒", "name": "Backpack", "why": "packed for anything" },
+          { "id": "DA-17", "glyph": "🧺", "name": "Basket", "why": "all in one" },
+          { "id": "DA-18", "glyph": "☀️", "name": "Sun", "why": "shines on all" },
+          { "id": "DA-19", "glyph": "🔆", "name": "Brightness", "why": "everything lit" },
+          { "id": "DA-20", "glyph": "🪩", "name": "Disco ball", "why": "every facet" },
+          { "id": "DA-21", "glyph": "🐐", "name": "Goat", "why": "goes everywhere" },
+          { "id": "DA-22", "glyph": "🏕️", "name": "Camping", "why": "the whole outdoors" },
+          { "id": "DA-23", "glyph": "🔭", "name": "Telescope", "why": "sees it all" },
+          { "id": "DA-24", "glyph": "🤙", "name": "Shaka", "why": "just ride" },
+          { "id": "DA-25", "glyph": "🎪", "name": "Circus tent", "why": "the whole show" },
+          { "id": "DA-26", "glyph": "🍕", "name": "Pizza", "why": "the whole pie" },
+          { "id": "DA-27", "glyph": "🔀", "name": "Shuffle", "why": "any discipline" },
+          { "id": "DA-28", "glyph": "🃏", "name": "Joker", "why": "plays any suit" },
+          { "id": "DA-29", "glyph": "👐", "name": "Open hands", "why": "all welcome" },
+          { "id": "DA-30", "glyph": "🪅", "name": "Piñata", "why": "everything inside" }
+        ],
+        "wildcards": [
+          { "id": "DA-31", "glyph": "∀", "name": "For-all (math)", "why": "literally means all" },
+          { "id": "DA-32", "glyph": "◎", "name": "Double ring", "why": "quiet everything mark" },
+          { "id": "DA-33", "glyph": "✳︎", "name": "Asterisk (text)", "why": "the any wildcard" },
+          { "id": "DA-34", "glyph": "☉", "name": "Circled dot", "why": "sun, monochrome" },
+          { "id": "DA-35", "glyph": "✻", "name": "Teardrop asterisk", "why": "softer wildcard" }
+        ]
+      },
+      {
+        "key": "disc_dh", "prefix": "DH",
+        "candidates": [
+          { "id": "DH-6",  "glyph": "🚠", "name": "Gondola", "why": "bike-park laps" },
+          { "id": "DH-7",  "glyph": "🚡", "name": "Aerial tram", "why": "lift-served gravity" },
+          { "id": "DH-8",  "glyph": "🥽", "name": "Goggles", "why": "full-face kit" },
+          { "id": "DH-9",  "glyph": "⛑️", "name": "Rescue helmet", "why": "armored up" },
+          { "id": "DH-10", "glyph": "🪖", "name": "Helmet", "why": "full-send armor" },
+          { "id": "DH-11", "glyph": "🛡️", "name": "Shield", "why": "body armor" },
+          { "id": "DH-12", "glyph": "🏂", "name": "Snowboarder", "why": "gravity sibling" },
+          { "id": "DH-13", "glyph": "🛷", "name": "Sled", "why": "pure descent" },
+          { "id": "DH-14", "glyph": "🎿", "name": "Skis", "why": "fall-line tools" },
+          { "id": "DH-15", "glyph": "🛹", "name": "Skateboard", "why": "downhill speed" },
+          { "id": "DH-16", "glyph": "🪨", "name": "Boulder", "why": "rock gardens" },
+          { "id": "DH-17", "glyph": "🌋", "name": "Volcano", "why": "steep and loose" },
+          { "id": "DH-18", "glyph": "⤵️", "name": "Curving-down arrow", "why": "dropping in" },
+          { "id": "DH-19", "glyph": "↘️", "name": "Down-right arrow", "why": "the fall line" },
+          { "id": "DH-20", "glyph": "🔽", "name": "Down button", "why": "quiet descent mark" },
+          { "id": "DH-21", "glyph": "⏬", "name": "Double down", "why": "steeper still" },
+          { "id": "DH-22", "glyph": "🍎", "name": "Apple", "why": "gravity, Newton-approved" },
+          { "id": "DH-23", "glyph": "🧲", "name": "Magnet", "why": "gravity pulls" },
+          { "id": "DH-24", "glyph": "💀", "name": "Skull", "why": "gnar rating" },
+          { "id": "DH-25", "glyph": "😈", "name": "Devil", "why": "double black" },
+          { "id": "DH-26", "glyph": "🌊", "name": "Wave", "why": "drop in" },
+          { "id": "DH-27", "glyph": "💣", "name": "Bomb", "why": "bombing runs" },
+          { "id": "DH-28", "glyph": "🏎️", "name": "Race car", "why": "MTB's Formula 1" },
+          { "id": "DH-29", "glyph": "🤘", "name": "Horns", "why": "send it" },
+          { "id": "DH-30", "glyph": "🦍", "name": "Gorilla", "why": "burly and padded" }
+        ],
+        "wildcards": [
+          { "id": "DH-31", "glyph": "▼", "name": "Solid triangle down", "why": "monochrome descent" },
+          { "id": "DH-32", "glyph": "◢", "name": "Corner triangle", "why": "the steep chute" },
+          { "id": "DH-33", "glyph": "↓", "name": "Plain arrow", "why": "quietest down" },
+          { "id": "DH-34", "glyph": "⇓", "name": "Double arrow", "why": "emphatically down" },
+          { "id": "DH-35", "glyph": "⛷︎", "name": "Skier (text)", "why": "mono gravity sport" }
+        ]
+      },
+      {
+        "key": "disc_enduro", "prefix": "DE",
+        "candidates": [
+          { "id": "DE-6",  "glyph": "🗻", "name": "Mount Fuji", "why": "big-mountain days" },
+          { "id": "DE-7",  "glyph": "🌄", "name": "Sunrise mountains", "why": "dawn-till-dusk riding" },
+          { "id": "DE-8",  "glyph": "⌛", "name": "Hourglass", "why": "race the clock" },
+          { "id": "DE-9",  "glyph": "⏳", "name": "Hourglass flowing", "why": "stage time running" },
+          { "id": "DE-10", "glyph": "⏲️", "name": "Timer clock", "why": "timed stages" },
+          { "id": "DE-11", "glyph": "⌚", "name": "Watch", "why": "pacing the day" },
+          { "id": "DE-12", "glyph": "🕰️", "name": "Mantel clock", "why": "against the clock" },
+          { "id": "DE-13", "glyph": "🎽", "name": "Race bib", "why": "number plate on" },
+          { "id": "DE-14", "glyph": "🏅", "name": "Medal", "why": "race hardware" },
+          { "id": "DE-15", "glyph": "🏆", "name": "Trophy", "why": "series overall" },
+          { "id": "DE-16", "glyph": "🎬", "name": "Clapper", "why": "stage one, action" },
+          { "id": "DE-17", "glyph": "🚩", "name": "Course flag", "why": "between the tape" },
+          { "id": "DE-18", "glyph": "📍", "name": "Pin", "why": "stage start" },
+          { "id": "DE-19", "glyph": "〽️", "name": "Zigzag mark", "why": "elevation profile" },
+          { "id": "DE-20", "glyph": "🔁", "name": "Repeat", "why": "stage after stage" },
+          { "id": "DE-21", "glyph": "⛺", "name": "Tent", "why": "multi-day missions" },
+          { "id": "DE-22", "glyph": "🏕️", "name": "Camping", "why": "big days out" },
+          { "id": "DE-23", "glyph": "🧗", "name": "Climber", "why": "earn the descent" },
+          { "id": "DE-24", "glyph": "🫁", "name": "Lungs", "why": "the pedal transfer" },
+          { "id": "DE-25", "glyph": "😮‍💨", "name": "Exhale", "why": "top of stage" },
+          { "id": "DE-26", "glyph": "🥵", "name": "Overheated", "why": "transfer tax" },
+          { "id": "DE-27", "glyph": "🦾", "name": "Mech arm", "why": "big-bike muscle" },
+          { "id": "DE-28", "glyph": "🔥", "name": "Fire", "why": "race pace" },
+          { "id": "DE-29", "glyph": "⚔️", "name": "Crossed swords", "why": "battle between tape" },
+          { "id": "DE-30", "glyph": "🐺", "name": "Wolf", "why": "hunts stages" },
+          { "id": "DE-31", "glyph": "🐐", "name": "Goat", "why": "big-mountain native" }
+        ],
+        "wildcards": [
+          { "id": "DE-32", "glyph": "⛰︎", "name": "Mountain (text)", "why": "mono big-mountain" },
+          { "id": "DE-33", "glyph": "⏱︎", "name": "Stopwatch (text)", "why": "mono stage timer" },
+          { "id": "DE-34", "glyph": "▲", "name": "Solid triangle up", "why": "the peak, mono" },
+          { "id": "DE-35", "glyph": "∆", "name": "Delta", "why": "elevation gained" },
+          { "id": "DE-36", "glyph": "⚑", "name": "Flag (text)", "why": "mono course flag" }
+        ]
+      },
+      {
+        "key": "disc_trail", "prefix": "DT",
+        "candidates": [
+          { "id": "DT-6",  "glyph": "🍂", "name": "Fallen leaves", "why": "loam season" },
+          { "id": "DT-7",  "glyph": "🍁", "name": "Maple leaf", "why": "autumn singletrack" },
+          { "id": "DT-8",  "glyph": "🌱", "name": "Seedling", "why": "fresh-cut trail" },
+          { "id": "DT-9",  "glyph": "☘️", "name": "Shamrock", "why": "green tunnel" },
+          { "id": "DT-10", "glyph": "🍄", "name": "Mushroom", "why": "loamy forest floor" },
+          { "id": "DT-11", "glyph": "🦊", "name": "Fox", "why": "flowy forest local" },
+          { "id": "DT-12", "glyph": "🦌", "name": "Deer", "why": "trail crossing" },
+          { "id": "DT-13", "glyph": "🐿️", "name": "Squirrel", "why": "singletrack darter" },
+          { "id": "DT-14", "glyph": "🦉", "name": "Owl", "why": "forest resident" },
+          { "id": "DT-15", "glyph": "🐻", "name": "Bear", "why": "backcountry company" },
+          { "id": "DT-16", "glyph": "🦔", "name": "Hedgehog", "why": "undergrowth cruiser" },
+          { "id": "DT-17", "glyph": "🦫", "name": "Beaver", "why": "the trail builder" },
+          { "id": "DT-18", "glyph": "🐍", "name": "Snake", "why": "snaking singletrack" },
+          { "id": "DT-19", "glyph": "〰️", "name": "Wavy dash", "why": "the flow line" },
+          { "id": "DT-20", "glyph": "➰", "name": "Curly loop", "why": "one clean berm" },
+          { "id": "DT-21", "glyph": "➿", "name": "Double loop", "why": "berm after berm" },
+          { "id": "DT-22", "glyph": "🪶", "name": "Feather", "why": "light and flowy" },
+          { "id": "DT-23", "glyph": "🌵", "name": "Cactus", "why": "desert trails count" },
+          { "id": "DT-24", "glyph": "🌫️", "name": "Fog", "why": "misty morning laps" },
+          { "id": "DT-25", "glyph": "🛤️", "name": "Track", "why": "where it leads" },
+          { "id": "DT-26", "glyph": "🧘", "name": "Lotus pose", "why": "flow state" },
+          { "id": "DT-27", "glyph": "😌", "name": "Relieved", "why": "flow-state face" },
+          { "id": "DT-28", "glyph": "🟤", "name": "Brown dot", "why": "pure dirt" },
+          { "id": "DT-29", "glyph": "🤎", "name": "Brown heart", "why": "for the dirt" },
+          { "id": "DT-30", "glyph": "🫐", "name": "Blueberries", "why": "trailside snacks" }
+        ],
+        "wildcards": [
+          { "id": "DT-31", "glyph": "♣", "name": "Club", "why": "stylized mono tree" },
+          { "id": "DT-32", "glyph": "≈", "name": "Almost equal", "why": "double flow line" },
+          { "id": "DT-33", "glyph": "〜", "name": "Wave dash", "why": "single flow line" },
+          { "id": "DT-34", "glyph": "↝", "name": "Wavy arrow", "why": "flow with direction" },
+          { "id": "DT-35", "glyph": "✿", "name": "Flower (mono)", "why": "trailside bloom" }
+        ]
+      },
+      {
+        "key": "disc_xc", "prefix": "DX",
+        "candidates": [
+          { "id": "DX-6",  "glyph": "🪶", "name": "Feather", "why": "grams matter" },
+          { "id": "DX-7",  "glyph": "⚖️", "name": "Scale", "why": "weight weenie" },
+          { "id": "DX-8",  "glyph": "🎈", "name": "Balloon", "why": "floaty light" },
+          { "id": "DX-9",  "glyph": "🪁", "name": "Kite", "why": "light and quick" },
+          { "id": "DX-10", "glyph": "🐝", "name": "Bee", "why": "quick and buzzing" },
+          { "id": "DX-11", "glyph": "🦅", "name": "Eagle", "why": "fastest thing out" },
+          { "id": "DX-12", "glyph": "🕊️", "name": "Dove", "why": "featherweight flyer" },
+          { "id": "DX-13", "glyph": "🚄", "name": "Bullet train", "why": "warp speed" },
+          { "id": "DX-14", "glyph": "✈️", "name": "Jet", "why": "full gas" },
+          { "id": "DX-15", "glyph": "🚀", "name": "Rocket", "why": "race pace" },
+          { "id": "DX-16", "glyph": "☄️", "name": "Comet", "why": "blistering pace" },
+          { "id": "DX-17", "glyph": "🌠", "name": "Shooting star", "why": "gone already" },
+          { "id": "DX-18", "glyph": "🌪️", "name": "Tornado", "why": "leaves only dust" },
+          { "id": "DX-19", "glyph": "⏩", "name": "Fast-forward", "why": "always hammering" },
+          { "id": "DX-20", "glyph": "🚦", "name": "Start lights", "why": "race start" },
+          { "id": "DX-21", "glyph": "❤️‍🔥", "name": "Heart on fire", "why": "threshold all day" },
+          { "id": "DX-22", "glyph": "💓", "name": "Beating heart", "why": "zone five" },
+          { "id": "DX-23", "glyph": "🫀", "name": "Heart organ", "why": "the engine" },
+          { "id": "DX-24", "glyph": "😤", "name": "Steam face", "why": "hammering" },
+          { "id": "DX-25", "glyph": "💦", "name": "Sweat", "why": "interval tax" },
+          { "id": "DX-26", "glyph": "🎽", "name": "Race bib", "why": "start line" },
+          { "id": "DX-27", "glyph": "🔥", "name": "Fire", "why": "on the rivet" },
+          { "id": "DX-28", "glyph": "🧃", "name": "Juice box", "why": "race fuel" },
+          { "id": "DX-29", "glyph": "🍌", "name": "Banana", "why": "pocket fuel" },
+          { "id": "DX-30", "glyph": "🩳", "name": "Shorts", "why": "lycra life" }
+        ],
+        "wildcards": [
+          { "id": "DX-31", "glyph": "ϟ", "name": "Koppa bolt", "why": "mono lightning" },
+          { "id": "DX-32", "glyph": "»", "name": "Guillemet", "why": "quiet speed chevrons" },
+          { "id": "DX-33", "glyph": "≫", "name": "Much greater", "why": "double speed mark" },
+          { "id": "DX-34", "glyph": "➤", "name": "Pointer", "why": "flat-out forward" },
+          { "id": "DX-35", "glyph": "⇢", "name": "Dashed arrow", "why": "already gone" }
+        ]
+      }
+    ],
+    "quintets": [
+      { "id": "Q1", "name": "Fauna", "desc": "Five trail animals — one coherent, friendly rail.",
+        "picks": { "disc_all": "DA-21", "disc_dh": "DH-30", "disc_enduro": "DE-30", "disc_trail": "DT-11", "disc_xc": "DX-11" } },
+      { "id": "Q2", "name": "Postcards", "desc": "Terrain and sky — each discipline as a landscape.",
+        "picks": { "disc_all": "DA-11", "disc_dh": "DH-17", "disc_enduro": "DE-6", "disc_trail": "DT-6", "disc_xc": "DX-17" } },
+      { "id": "Q3", "name": "How it feels", "desc": "The body's-eye view of each discipline — playful set.",
+        "picks": { "disc_all": "DA-24", "disc_dh": "DH-27", "disc_enduro": "DE-24", "disc_trail": "DT-27", "disc_xc": "DX-21" } },
+      { "id": "Q4", "name": "Quiet marks", "desc": "The calmest symbol-like emoji — most uniform on the rail.",
+        "picks": { "disc_all": "DA-13", "disc_dh": "DH-20", "disc_enduro": "DE-19", "disc_trail": "DT-19", "disc_xc": "DX-19" } },
+      { "id": "Q5", "name": "Monochrome (wildcard)", "desc": "All five from the wildcard sections — a fully mono rail; bends the emoji style.",
+        "picks": { "disc_all": "DA-33", "disc_dh": "DH-31", "disc_enduro": "DE-32", "disc_trail": "DT-31", "disc_xc": "DX-32" } }
+    ]
+  }
 }
