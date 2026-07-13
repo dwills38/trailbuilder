@@ -3,7 +3,7 @@
 /** @typedef {import('../src/types.js').FramePart} FramePart */
 /** @typedef {import('../src/types.js').TirePart} TirePart */
 var U = require('./test-util.js');
-var C = U.C, B = U.B, part = U.part, eq = U.eq, some = U.some;
+var C = U.C, B = U.B, part = U.part, eq = U.eq, ok = U.ok, some = U.some;
 /** @param {Object.<string, string>} map */
 var chk = function(map){ return C.checkBuild(B(map)); };
 
@@ -99,6 +99,51 @@ test('a normal wheel keeps the generic mismatch wording and never the integrated
   some(r.errors, 'Freehub mismatch');
   eq(r.errors.filter(function(e){ return e.ruleId==='freehub-integrated'; }).length, 0);
   eq(r.infos.filter(function(i){ return i.ruleId==='freehub-integrated'; }).length, 0, 'no integrated info on normal wheels');
+});
+
+/* Rule 6c — XD cassette on an XDR driver (bias-audit 2026-07-12 finding #2).
+   SRAM's own driver-body explainer (fetched sram.com/en/service/articles/
+   sram-xd-and-xdr-driver-body-explained): "XDR driver bodies are compatible
+   with all XD cassettes when the cassette is installed with a 1.85mm spacer
+   behind it." Before this tier, rule 6's exact match hard-errored the two
+   verified WTB CZR i30 XDR rears against EVERY cataloged cassette, making
+   their rear slot unbuildable. Only XD-on-XDR gets the spacer path; every
+   other mismatch (either direction) must stay the hard error. */
+test('XD cassette on an XDR rear wheel -> adapter-tier warning naming the 1.85mm spacer, NOT an error', function(){
+  var r = chk({cassette:'ca-sram-xg1275', rearWheel:'rw-wtb-czr-i30-29-xdr'});
+  eq(r.errors.length, 0, 'SRAM documents the spacer pairing - a hard error is a false "won\'t fit"');
+  var v = r.warnings.filter(function(w){ return w.ruleId==='freehub'; })[0];
+  ok(v, 'the freehub warning fires');
+  some([v.msg], '1.85mm spacer');
+  eq(v.slots.join('+'), 'cassette+rearWheel');
+  ok(v.fix && v.fix.kind==='adapter', 'carries the structured adapter fix');
+  some([v.fix && v.fix.name], '1.85mm', 'the fix names the spacer');
+});
+test('the 27.5 XDR sibling wheel takes the same warning path', function(){
+  var r = chk({cassette:'ca-sram-xg1275', rearWheel:'rw-wtb-czr-i30-275-xdr'});
+  eq(r.errors.length, 0);
+  some(r.warnings, '1.85mm spacer');
+});
+test('non-XD cassette on an XDR wheel -> still the exact-match hard error (the spacer path is XD-only)', function(){
+  var r = chk({cassette:'ca-shimano-xt-m8100-1051', rearWheel:'rw-wtb-czr-i30-29-xdr'});
+  some(r.errors, 'Freehub mismatch');
+  eq(r.warnings.filter(function(w){ return w.ruleId==='freehub'; }).length, 0, 'no spacer warning for non-XD cassettes');
+});
+test('XDR renders as "SRAM XDR" in the mismatch message (LABELS entry)', function(){
+  some(chk({cassette:'ca-shimano-xt-m8100-1051', rearWheel:'rw-wtb-czr-i30-29-xdr'}).errors, 'SRAM XDR');
+});
+test('reverse direction: a synthetic XDR-length cassette on an XD wheel -> stays a hard error (no adapter shortens a driver)', function(){
+  var xdrCassette = /** @type {any} */ (Object.assign({}, part('ca-sram-xg1275'), { id:'ca-synthetic-xdr-cassette', freehub:'XDR' }));
+  var b = /** @type {any} */ (B({rearWheel:'rw-roval-traverse-hd-29'}));
+  b.cassette = xdrCassette;
+  var r = C.checkBuild(b);
+  some(r.errors, 'Freehub mismatch');
+  eq(r.warnings.filter(function(w){ return w.ruleId==='freehub'; }).length, 0, 'no adapter warning in this direction');
+});
+test('XD cassette on an XD wheel stays silent (the 6c branch never fires on a match)', function(){
+  var r = chk({cassette:'ca-sram-xg1275', rearWheel:'rw-roval-traverse-hd-29'});
+  eq(r.errors.filter(function(e){ return e.ruleId==='freehub'; }).length, 0);
+  eq(r.warnings.filter(function(w){ return w.ruleId==='freehub'; }).length, 0);
 });
 
 /* Rule 3b — actuation (REVIEW.md #1). Cable vs wireless share system:'sram-eagle',

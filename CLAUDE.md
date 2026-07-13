@@ -146,7 +146,10 @@ red on non-SRAM systems); SRAM Transmission needs a UDH frame;
 cassette range vs derailleur capacity; cassette freehub vs rear wheel (incl. 6b: an
 integrated-cassette wheel — the LG1r DH driver IS a built-in 7-speed cassette — hard-errors ANY
 picked cassette in its own words, drops a built-in-cassette info when cassette-less, and
-`slotRequired` exempts the cassette slot from completeness, hardtail-shock style); brake caliper mounts;
+`slotRequired` exempts the cassette slot from completeness, hardtail-shock style; incl. 6c: an XD
+cassette on an XDR-driver wheel = adapter-tier WARNING with a structured fix naming SRAM's 1.85 mm
+spacer — SRAM-documented; every other freehub mismatch, including the reverse direction, stays the
+exact-match error); brake caliper mounts;
 rotor interface vs hub (direction-aware: Center-Lock rotor on a 6-bolt hub = error;
 6-bolt rotor on a Center-Lock hub = adapter warning carrying a structured `fix`); rotor size vs
 frame/fork max AND vs the fork's native-mount minimum (error; sourced forks only) AND vs the

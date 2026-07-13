@@ -56,12 +56,15 @@ var VOCAB = {
      DIFFERENT physical interface from 'XD', not a typo - conflating them
      would silently green-light a cassette that doesn't seat without a $10
      spacer. Kept a distinct token rather than merged into 'XD' per THE BAR
-     (never invent a mapping to force a fit). Engine consequence: rule 6
-     (freehub mismatch) will hard-error an XDR wheel against every in-catalog
-     cassette (all XD/MicroSpline/HG) since none carries 'XDR' - correct
-     today (no adapter path modeled), but flagged for a future fix-tier
-     enhancement mirroring the CL-on-6-bolt-hub adapter warning, once a real
-     XD-on-XDR spacer part/adapter fact is worth encoding engine-side. */
+     (never invent a mapping to force a fit). Engine tier (rule 6c,
+     2026-07-12, bias-audit finding #2): an XD cassette on an XDR wheel is
+     the fix-tier adapter WARNING naming the 1.85mm spacer, per SRAM's own
+     driver-body explainer ("XDR driver bodies are compatible with all XD
+     cassettes when the cassette is installed with a 1.85mm spacer behind
+     it" - fetched sram.com/en/service/articles/sram-xd-and-xdr-driver-body-
+     explained), mirroring the CL-on-6-bolt-hub adapter warning; every other
+     XDR pairing (MicroSpline/HG cassettes, or an XDR-length cassette on a
+     short XD driver) stays the exact-match hard error. */
   freehub:      ['XD', 'MicroSpline', 'HG', 'integrated', 'XDR'],   // 'HG' = MTB-length HG spline (a road expansion must SPLIT, not conflate)
   rotorMount:   ['sixbolt', 'CL'],             // audited 2026-07: market-complete for MTB
   shockMount:   ['std', 'trunnion'],           // audited 2026-07: market-complete ('bearing' eyelets may join when a bearing-eyelet row lands)

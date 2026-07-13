@@ -36,7 +36,7 @@
 var LABELS = {
   '29': '29"', '275': '27.5"', mullet: '29"/27.5"',
   Boost148: 'Boost 148x12', SuperBoost157: 'SuperBoost 157x12', Boost110: 'Boost 15x110', '20x110': '20x110 Boost (DH)', '20x110-nonboost': '20x110 standard (DH, non-Boost)',
-  XD: 'SRAM XD', MicroSpline: 'Shimano Micro Spline', HG: 'Shimano HG', integrated: 'Integrated 7-speed cassette',
+  XD: 'SRAM XD', XDR: 'SRAM XDR', MicroSpline: 'Shimano Micro Spline', HG: 'Shimano HG', integrated: 'Integrated 7-speed cassette',
   sixbolt: '6-bolt', CL: 'Center Lock',
   std: 'Standard eyelet', trunnion: 'Trunnion',
   tapered: 'Tapered (1.5-1.125)', 'straight-dc': 'Straight 1.125 (dual-crown)',
@@ -2517,11 +2517,12 @@ var PARTS_RAW = [
      cassette needs a 1.85mm spacer to seat on it. Kept distinct rather than
      merged into 'XD' (THE BAR: never invent a mapping to force a fit) - see
      the VOCAB.freehub comment in schema.js for the full citation. Engine
-     consequence (flagged for the coordinator): rule 6 will hard-error this
-     wheel against every in-catalog cassette (none carry 'XDR') until a
-     future fix-tier adapter rule is added, mirroring the CL-on-6-bolt-hub
-     warning; today that is the SAFE default (no adapter path modeled) but
-     makes this specific SKU's rear slot effectively unbuildable for now. */
+     tier (rule 6c, 2026-07-12, bias-audit finding #2): an XD cassette on
+     these XDR rows is the adapter-tier WARNING naming the 1.85mm spacer -
+     SRAM's own driver-body explainer documents the pairing (see the rule 6c
+     comment in checkBuild for the fetched citation) - mirroring the
+     6-bolt-rotor-on-CL-hub warning; any non-XD cassette (MicroSpline/HG)
+     stays the exact-match hard error. */
   { id:'rw-wtb-czr-i30-29-ms', cat:'rearwheel', brand:'WTB', model:'CZR i30 rear (Shimano MS)', family:'wtb-czr', mfgPn:'W045-0258', disciplines:['trail','enduro'], price:850, weight:1033, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:30, maxTire:2.6, minTire:2.4, verified:true, lastChecked:'2026-07-11', source:'https://www.wtb.com/products/czr-i30-wheel', desc:'FETCHED wtb.com: "148 x 12mm, 28h, 6-bolt, DB, Shimano MS" 1033g, mfgPn W045-0258.' },
   { id:'rw-wtb-czr-i30-29-xdr', cat:'rearwheel', brand:'WTB', model:'CZR i30 rear (SRAM XDR)', family:'wtb-czr', mfgPn:'W045-0257', disciplines:['trail','enduro'], price:850, weight:1026, wheel:'29', hub:'Boost148', freehub:'XDR', rotorMount:'sixbolt', intWidth:30, maxTire:2.6, minTire:2.4, verified:true, lastChecked:'2026-07-11', source:'https://www.wtb.com/products/czr-i30-wheel', desc:'FETCHED wtb.com: "148 x 12mm, 28h, 6-bolt, DB, SRAM XDR" 1026g, mfgPn W045-0257. See the XDR vocab-widening note on the sibling MS row - this is the new freehub value.' },
   { id:'rw-wtb-czr-i30-275-ms', cat:'rearwheel', brand:'WTB', model:'CZR i30 rear 27.5 (Shimano MS)', family:'wtb-czr', mfgPn:'W045-0308', disciplines:['trail','enduro'], price:850, weight:997, wheel:'275', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:30, maxTire:2.6, minTire:2.4, verified:true, lastChecked:'2026-07-11', source:'https://www.wtb.com/products/czr-i30-wheel', desc:'27.5in sibling of rw-wtb-czr-i30-29-ms; FETCHED wtb.com: "148 x 12mm, 28h, 6-bolt, DB, Shimano MS" 997g, mfgPn W045-0308.' },
@@ -6157,7 +6158,22 @@ function checkBuild(build){
         (slotRequired exempts it from completeness for the same reason). */
   if(cassette && rW && rW.freehub==='integrated')
     err('freehub-integrated', ['cassette','rearWheel'], 'Integrated cassette: Rear wheel has a built-in 7-speed (9-24T) cassette in place of a freehub body - '+nameOf(cassette)+' cannot mount, and no adapter exists.');
-  else if(cassette && rW && cassette.freehub!==rW.freehub) err('freehub', ['cassette','rearWheel'], 'Freehub mismatch: '+nameOf(cassette)+' needs a '+L(cassette.freehub)+' freehub, but Rear wheel has '+L(/** @type {string} */ (rW.freehub))+'.');
+  else if(cassette && rW && cassette.freehub!==rW.freehub){
+    /* 6c (2026-07-12, bias-audit finding #2): XD-on-XDR is DIRECTION-AWARE.
+          SRAM's own driver-body explainer states "XDR driver bodies are
+          compatible with all XD cassettes when the cassette is installed
+          with a 1.85mm spacer behind it" (fetched sram.com/en/service/
+          articles/sram-xd-and-xdr-driver-body-explained; XDR is the
+          road-length XD driver, 1.85mm longer) -> the rule-9 adapter-tier
+          warning carrying the spacer as a structured fix. The spacer fact is
+          engine-side pair data, never a part field. Every other mismatch -
+          including the reverse (an XDR-length cassette on a short XD driver;
+          none cataloged today) - stays the exact-match hard error. */
+    if(cassette.freehub==='XD' && rW.freehub==='XDR')
+      warn('freehub', ['cassette','rearWheel'], 'Freehub: '+nameOf(cassette)+' is a SRAM XD cassette and Rear wheel has the road-length SRAM XDR driver - SRAM documents all XD cassettes fit an XDR driver with a 1.85mm spacer behind the cassette.', {kind:'adapter', name:'1.85mm XDR cassette spacer'});
+    else
+      err('freehub', ['cassette','rearWheel'], 'Freehub mismatch: '+nameOf(cassette)+' needs a '+L(cassette.freehub)+' freehub, but Rear wheel has '+L(/** @type {string} */ (rW.freehub))+'.');
+  }
   if(!cassette && rW && rW.freehub==='integrated')
     info('freehub-integrated', ['rearWheel'], 'Integrated cassette: Rear wheel includes its own 7-speed (9-24T) cassette - no separate cassette is needed; the maker states it works with 10 and 11 speed chains from both Shimano and SRAM.');
 

@@ -46,6 +46,15 @@ test('6-bolt rotor with two Center Lock wheels -> YELLOW (adapter direction, REV
   var c = C.compatOf(part('ro-sram-hs2-200-6b'), B({frontWheel:'fw-dtswiss-ex-1700-29', rearWheel:'rw-dtswiss-ex-1700-29'}));
   eq(c.state, 'w'); some([c.reason], 'adapter');
 });
+test('XDR rear wheel with an XD cassette picked -> YELLOW (rule 6c spacer direction), no longer red', function(){
+  // Pre-6c the exact-match freehub error dotted the two verified WTB CZR i30
+  // XDR rears red against every cataloged cassette (bias-audit 2026-07-12 #2).
+  var c = C.compatOf(part('rw-wtb-czr-i30-29-xdr'), B({cassette:'ca-sram-xg1275'}));
+  eq(c.state, 'w'); some([c.reason], '1.85mm spacer');
+});
+test('XDR rear wheel with a MicroSpline cassette picked stays RED (spacer path is XD-only)', function(){
+  eq(stateOf({cassette:'ca-shimano-xt-m8100-1051'}, 'rw-wtb-czr-i30-29-xdr'), 'r');
+});
 test('OEM shock with no frame picked -> green dot + info, not red (REVIEW #17)', function(){
   eq(stateOf({fork:'fk-rockshox-zeb-ultimate-29-170'}, 'sh-rockshox-vivid-ultimate-oem-205x60-trun'), 'g');
 });
