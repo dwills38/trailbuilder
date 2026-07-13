@@ -134,3 +134,9 @@ test fixture on purpose (its desc explains). verification-job.json is coordinato
   catching). Shopify `/products/X.js` variant JSON = gold for specs; its `grams` only if it varies.
 - tsc "union too complex": the `// @ts-ignore` above `var PARTS_RAW` is the only fix.
 - Archived sessions can hold worktree file-locks briefly; `git worktree prune` after app restart.
+- **NEVER sweep worktrees by "clean = removable" alone — cross-check `list_sessions` cwds FIRST.**
+  A coordinator (2026-07-13) removed a RUNNING session's clean worktree + branch mid-task; recovery
+  = restore the branch ref, hand-rebuild `.git/worktrees/<name>/` (gitdir/HEAD/commondir) + the
+  worktree's `.git` file, `git reset -q`, then `git checkout --` each ` D`-status file (a partial
+  `worktree remove` deletes tracked files before failing on locks). A running session with a
+  broken worktree silently falls through to the SHARED CHECKOUT — the orphan hazard, self-inflicted.

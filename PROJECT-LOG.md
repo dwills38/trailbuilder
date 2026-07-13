@@ -2,6 +2,15 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **INCIDENT + RECOVERY (coordinator error, fully repaired, no data lost).** A worktree sweep used
+  "clean tree = removable" without cross-checking live sessions and removed the RUNNING
+  partnership-kit session's worktree + branch (partial removal also deleted 78 tracked files
+  before a lock stopped it). Recovered within minutes: branch ref restored, worktree registration
+  hand-rebuilt (.git/worktrees metadata + .git file + reset), all 78 deleted files checked out
+  (0 modified / 0 untracked lost — the session hadn't written yet), shared checkout verified
+  untouched, no stray commits. Rule added to handoff gotchas: sweep only after cross-checking
+  list_sessions cwds. The recurring orphan-worktree hazard now has a documented recovery recipe.
+
 - **Discipline icons v3 delivered** (`design/rail-icons-emoji-v2` @ 087ac1e; `_PDFs/discipline-
   icons-v3.pdf` sent): Douglas rejected rounds 1-2's glyphs and narrowed scope to the 5 discipline
   slots; round 3 = 151 fresh uniquely-numbered candidates (25-30/slot + labeled wildcards, nothing
