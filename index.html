@@ -3037,7 +3037,7 @@
       el.appendChild(d);
     };
     mk('all', 'All categories', '');
-    FORUM_CATEGORIES.forEach(function(c){ mk(c.key, c.label, c.desc); });
+    FORUM_CATEGORIES.forEach(function(c){ if(c.hidden) return; mk(c.key, c.label, c.desc); });
   }
 
   /* the little category label on a thread row / the open thread — unknown or
@@ -3052,6 +3052,7 @@
     var sel = $('fntCategory'); sel.innerHTML = '';
     if(!_forumCatsOn) return;
     FORUM_CATEGORIES.forEach(function(c){
+      if(c.hidden) return;
       var o = document.createElement('option');
       o.value = c.key; o.textContent = c.label; o.title = c.desc;
       sel.appendChild(o);

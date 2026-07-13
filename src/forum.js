@@ -49,7 +49,10 @@ var FORUM_CATEGORIES = [
   { key:'trail',             label:'🌲 Trail',                      desc:'Trail riding and trail bikes' },
   { key:'enduro',            label:'⛰️ Enduro',                     desc:'Enduro riding, racing and bikes' },
   { key:'dh',                label:'⬇️ DH',                         desc:'Downhill riding, racing and bikes' },
-  { key:'emtb',              label:'⚡ E-MTB',                      desc:'E-mountain bikes — riding, motors, batteries and builds' },
+  /* hidden: Douglas 2026-07-13 — keep the category (an existing thread's badge
+     still renders via forumCategory) but offer it in NO picker/filter until he
+     says to launch it. Flip to false (or drop the flag) to turn it on. */
+  { key:'emtb',              label:'⚡ E-MTB',                      desc:'E-mountain bikes — riding, motors, batteries and builds', hidden:true },
   { key:'trails-parks',      label:'🗺️ Trails & bike parks',        desc:'Where to ride — park conditions, laps, trip reports and local spots' },
   { key:'racing-events',     label:'🏁 Racing & events',            desc:'Race chat, results, group rides and meetups' },
   { key:'skills',            label:'🎯 Skills & technique',         desc:'Cornering, jumps, braking, line choice and riding fitness' },
