@@ -2,6 +2,25 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **BIAS-REMEDIATION HARVEST COMPLETE → 3057 parts / 2257 verified (`6f2ca30`, sync `58d89c7`).**
+  All four finding-chips reported; three landed, one staged: (1) Fox fork balance merged — +11 real
+  ridefox.com configs (Podium + 34 SL new families, 36 MY27 gen tokens, SL tiers; eMTB/AWL/gravel
+  SKUs excluded per the hard rule; RockShox:Fox row ratio 2.77→2.11, Fox families 9); (2) the
+  verification wave's full report confirmed the earlier merge (RockShox shocks now 382/382 = 100%
+  verified via sram.com; process gold: `sram.com/en/service/models/<slug>` serves the full static
+  size matrix where the rockshox path is JS-thin); (3) `tools/verification-job.json` re-synced
+  (2386/2918 processed); (4) **XDR rule 6c STAGED on `engine/xdr-adapter-warning`** — maker source
+  fetched (SRAM's XD/XDR driver explainer), 8 pinning tests (485 total on-branch), WTB XDR wheels
+  red→yellow only vs XD cassettes — **held for the adversarial-audit chip (queued) before merge**
+  (engine tier). Cleanup: 13 worktrees + 26 branches pruned (wave sub-branches, landed feature
+  branches, session refs); 4 worker sessions archived. **FLAGS logged for follow-up:** DVO Diamond
+  is a NEW generation on dvosuspension.com (36 D1 SL, 29-only, 140-160, DM-180) contradicting the
+  4 cataloged Diamond Boost rows → new-gen entry pass, rows untouched; Fox price drifts (38
+  Factory $1369, 36 SL $1259 + the 3 shock flags) → combined drift-sweep chip queued;
+  `fk-fox-38-factory-29-150`/`-275-150` still cataloged though their own descs say the config
+  doesn't exist → ALIASES retirement awaiting Douglas. Residual fork row-skew is partly REAL
+  market structure (Fox aftermarket is 29-only/travel-narrow) — accepted, no fabrication.
+
 - **MERGE WAVE ("merge etc"): verification inversion wave 1 + rotor/brake balance → 3046 parts /
   2252 verified (`39297e4`, `6d53f62`).** The WEEKLY usage limit hit mid-fleet (~03:35, reset noon
   ET) — the rotor/brake worker died right after committing; the coordinator content-reviewed and
