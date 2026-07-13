@@ -2,6 +2,11 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **Bug issue #2 CLOSED (Douglas’s plain OK)** — resolution comment posted (stale-cache diagnosis
+  + regression test). **Fox lifecycle pass APPROVED + chip spawned** (retire 38-150 pair, discontinue
+  vanished sizes, dedupe Float X2 ids, MY27 40 gen split, provenance fixes — all ALIASES/status,
+  append-only). Icon-set PDF re-sent; awaiting his Set #.
+
 - **Fox drift sweep MERGED (`974a33d`).** 19 price corrections + 76 lastChecked re-confirmations
   across verified Fox shocks + forks, every figure from a directly-fetched ridefox.com store product
   JSON. Resolves all three Fox-balance price flags incl. the Float SL Factory tier fix (the $569 was
