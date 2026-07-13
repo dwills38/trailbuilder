@@ -2,6 +2,21 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **Fox drift sweep MERGED (`974a33d`).** 19 price corrections + 76 lastChecked re-confirmations
+  across verified Fox shocks + forks, every figure from a directly-fetched ridefox.com store product
+  JSON. Resolves all three Fox-balance price flags incl. the Float SL Factory tier fix (the $569 was
+  the Remote-Up variant; row now $549 with the correct Factory-page source). The 11 fork rows from
+  `6f2ca30`: zero drift. Gates green, CI+Deploy green, session archived, branch/worktree pruned.
+  **9 LIFECYCLE FLAGS deliberately unapplied (rows untouched), awaiting Douglas's umbrella OK for a
+  Fox lifecycle pass:** vanished sizes (Float X Factory 230x57.5 + 185x50T; 38 Factory 275-170/180;
+  38 PE 180; 36 SL Factory 120), old-gen 36 Factory rows no longer sold (10 rows → candidate
+  status:'discontinued'), two Float X2 duplicate id pairs (→ ALIASES dedupe), MY27 40 Factory is a
+  new gen (new row + status on the vitalmtb-sourced 2025 row — also a pre-existing protocol
+  anomaly), Float X PE 185x55T row identity questionable (PE-named, Factory-sourced, orphan
+  size/price), 36 PE travel rows' provenance mismatch. Plus the already-flagged fictitious
+  fk-fox-38-factory-*-150 pair. One coordinated pass fixes all of it via ALIASES/status — never
+  mutating verified rows in place.
+
 - **ENGINE RULE 6c LIVE (`021ba42`) — bias #2 CLOSED.** XD cassette on an XDR-driver wheel is now an
   adapter-tier WARNING with a structured fix naming SRAM's 1.85mm spacer (maker source: sram.com
   XD/XDR driver-body explainer, quoted in-code); the reverse direction and every non-XD mismatch stay
