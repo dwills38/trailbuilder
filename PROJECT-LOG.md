@@ -1,5 +1,26 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
+
+- **Coordinator succession (7th seat).** New coordinator seated on `coord/2026-07-12`
+  (inside `.claude/worktrees/`); Main Coordinator 6 archived; the grandfathered `D:/tb-coord-lean`
+  seat + its branch removed. Backlog queued as 5 chips: DH Transmission 7s group, Fox drift sweep,
+  post-wave code-quality audit, post-wave manufacturer-bias audit, repo-hygiene sweep (~151 stale
+  branches / ~53 worktrees). Bug issue #2 (fixed, regression-tested) awaits Douglas's OK to close.
+- **POST-WAVE QUALITY AUDIT → two perf fixes LIVE (`0655198`).** Worker audit (branch
+  `audit/code-quality-2026-07-13`, report committed as `CODE-QUALITY-AUDIT-2026-07-13.md`) after
+  the catalog tripled to 3018: (1) `byId` linear scan → memoized null-prototype id→part index
+  (catalog is runtime-immutable — verified zero `PARTS` mutations repo-wide; 10k lookups 102.6ms →
+  0.2ms); (2) `renderCatalog` re-ran `resolved()` per PART per render → hoisted to once per render
+  (`compatFor(p)` ≡ `compatOf(p, resolved())`, verified; keystroke ~450ms → 9.2ms at 3018 rows).
+  Behavior-identical: four gates green in the coordinator seat AND verdict-audit-harness output
+  byte-identical to the main baseline. CI + Deploy green. **Report-only backlog:** placementDiff
+  baseline-recompute is the next perf lever at ~10× catalog; schema.js O(n²) id lookups
+  (validate.js still 0.23s — fix opportunistically); `isPreset` has drifted semantics between
+  index.html and schema.js (hazard); CLAUDE.md test table omits test-invariants.js.
+  **FLAG for Douglas:** src/forum.js ships an "⚡ E-MTB" DISCUSSION category — catalog rule 1 is
+  parts-scoped so this is not a violation, but his explicit "discussion is fine/not fine" is wanted.
+
 ## 2026-07-12 (evening) — Fable-budget push: shocks merged + engine fixes queued
 
 - **ENGINE CRITICAL FIXES C1–C4 + M1 LIVE (`45f7331`).** All 5 findings from
