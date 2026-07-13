@@ -40,8 +40,12 @@ rules._
 - **OFF-LIVE branches held (do NOT merge until Douglas's product decisions):**
   `bike-type/kids-striders` (31 balance bikes + sizing model) and `bike-type/dj-bmx` (34 DJ + 62
   BMX + compat analysis). Both are `data/`-only, live app untouched.
-- **Model/usage:** Douglas is at ~9% weekly / ~78% Fable. Coordinator runs on **Fable**
-  (`claude-fable-5`); recommend Fable for chips while this holds.
+- **Model/usage (revised — Douglas 2026-07-13: "I don't want to use strictly Fable"):** Coordinator
+  runs on **Fable**. Chip TITLE recommendations are tiered: **Sonnet for grind** (catalog entry,
+  drift sweeps, verification batches — the session still fans out pinned-Sonnet sub-agents),
+  **Fable/Opus only for judgment-dense work** (engine rules, adversarial audits, design taste).
+  Remember the picker leak: the chip RUNS on whatever his picker is set to at click time — the
+  title is advisory. The weekly pool hit its cap once on 2026-07-13; don't assume headroom.
 
 ## 2. DOUGLAS'S RULES (he requires the next coordinator know ALL of these)
 
