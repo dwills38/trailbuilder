@@ -2,6 +2,16 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **MANUFACTURER-PARTNERSHIP-KIT delivered** (`_PDFs/MANUFACTURER-PARTNERSHIP-KIT.pdf` + root .md;
+  indexed in _PDFs/README §5). 3 outreach templates (From: Doug@buildmymtb.com, LLC placeholders) ·
+  license one-pager (non-exclusive/revocable/display-only/takedown; commits incl. ZERO ranking
+  favor) · 15-brand first-wave sheet with contact routes FETCHED from each brand's own site (none
+  invented; 8 brands have no public marketing/PR email — general form/phone only, noted) ·
+  guardrails citing the bias audit. Fires only after LLC + domain email. Icon saga: rounds 1-3
+  (emoji) all rejected — ROOT CAUSE: Unicode has no bike-part glyphs, every candidate was a
+  metaphor. Round 4 pivots to Douglas's own words ("an icon of a bike frame for frames") — literal
+  component LINE-ART SVGs, chip running [Fable, high]. _PDFs/README design-pick section updated.
+
 - **INCIDENT + RECOVERY (coordinator error, fully repaired, no data lost).** A worktree sweep used
   "clean tree = removable" without cross-checking live sessions and removed the RUNNING
   partnership-kit session's worktree + branch (partial removal also deleted 78 tracked files
