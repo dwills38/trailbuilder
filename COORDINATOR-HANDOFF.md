@@ -38,8 +38,11 @@ rules._
 - **Supabase:** ALL migrations run (schema, forum-profiles + admin seed, hardening, rich, rich2 +
   avatars Storage bucket). Forum + profiles fully live. Douglas = admin "Doug".
 - **OFF-LIVE branches held (do NOT merge until Douglas's product decisions):**
-  `bike-type/kids-striders` (31 balance bikes + sizing model) and `bike-type/dj-bmx` (34 DJ + 62
-  BMX + compat analysis). Both are `data/`-only, live app untouched.
+  `bike-type/kids-striders` (balance bikes; sizing decided 2026-07-13: INSEAM primary) and
+  `bike-type/dj-bmx` (DJ + BMX; the SIGNED-OFF architecture is now IMPLEMENTED on-branch at
+  `555ee7c` — driveMode single-speed in the MTB engine + own src/compat-bmx.js, all rules dormant,
+  live engine proven byte-identical, 539 on-branch tests; go-live = concat DJ_PARTS + two slots).
+  Live app untouched by both.
 - **Model/usage (revised — Douglas 2026-07-13: "I don't want to use strictly Fable"):** Coordinator
   runs on **Fable**. Every chip TITLE carries **model tier + recommended effort** (Douglas's
   requirement, e.g. `[Sonnet, low]`, `[Fable, high]`): **Sonnet for grind** (catalog entry, drift

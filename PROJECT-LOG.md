@@ -2,6 +2,20 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **DJ/BMX ARCHITECTURE IMPLEMENTED on the held branch (`555ee7c`, bike-type/dj-bmx — still
+  OFF-LIVE, unmerged).** Per the sign-off: driveMode:'single-speed' discriminator in the MTB engine
+  (slotRequired drops drivetrain + ALL brake/rotor slots for single-speed frames — the brakeless
+  decision), new cog/seatpost categories staged without live GROUPS slots, DJ dataset reshaped to
+  the live schema (go-live = PARTS.concat(DJ_PARTS) + two slots); NEW src/compat-bmx.js own engine
+  (BMX_VOCAB/GROUPS/SLOTS, gear-ratio display-only) sharing compat.js's exported Verdict — loaded
+  by nothing live. Every new rule DORMANT with a documented activation condition (inventory in the
+  doc's new §6); worker even proved the live engine byte-identical via the harness AND added an
+  in-suite driveMode-absence pinning test. On-branch gates: validate 0 problems · 539/539 tests ·
+  tsc clean · harness identical. Worker also caught + dropped a wrong-spec v0.1 row (31.8 BMX stem
+  — real BMX is 22.2/25.4) and corrected the bogus 'oversized' clamp token. Q7 (pivotal=ERROR) +
+  Q6 (chain-width=warning) surfaced to Douglas as the two provisional calls most worth a veto look.
+  CLAUDE.md file-table mention of compat-bmx.js deferred to go-live merge time (worker's note).
+
 - **DJ/BMX ARCHITECTURE SIGNED OFF (Douglas, 2026-07-13).** The three load-bearing calls from
   data/DJ-BMX-COMPAT-ANALYSIS.md §5: (1) Option (b) confirmed — DJ folds into the MTB checkBuild,
   BMX gets its own checkBmxBuild/vocab (the buildmybmx on-ramp); (2) discriminator =
