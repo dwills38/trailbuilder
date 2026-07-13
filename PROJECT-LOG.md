@@ -2,6 +2,24 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **ENGINE RULE 6c LIVE (`021ba42`) — bias #2 CLOSED.** XD cassette on an XDR-driver wheel is now an
+  adapter-tier WARNING with a structured fix naming SRAM's 1.85mm spacer (maker source: sram.com
+  XD/XDR driver-body explainer, quoted in-code); the reverse direction and every non-XD mismatch stay
+  hard errors; LABELS gains XDR. The two verified WTB CZR XDR wheels go red→yellow only vs XD
+  cassettes. 8 pinning tests (suite 477→485). **Adversarial audit SUSTAINED on all six angles** —
+  auditor independently re-fetched the SRAM explainer AND the WTB spec page (mfgPn+weight match),
+  and resolved the hardest edge (T-Type cassettes carry freehub XD: SRAM's model pages label them
+  XD and support FAQ 13819655363099 documents T-Type-on-XDR mullets — warning tier correct).
+  CLAUDE.md rule-6 summary updated in the same commit. Gates green in-seat, CI+Deploy green.
+  Auditor session archived; branch pruned local+origin. ⚠ Orphan-worktree hazard bit AGAIN (two
+  sessions assigned the stale frosty-austin folder; the auditor briefly detached the shared checkout
+  and correctly restored it) — shared checkout verified clean on claude/zen-blackwell-cfe5d1.
+- **PDF consolidation (Douglas's ask):** `_PDFs/` is now the SINGLE home for all 14 project PDFs;
+  `_TO-REVIEW/` retired (action index → `_PDFs/README.md`); affiliate runbook status-refreshed
+  (legal pages + Guides LIVE, ~3,000 parts) and regenerated; md→PDF pipeline saved as
+  `scripts/md2pdf.py`; handoff updated (`cd68854`). Empty stray `D:\tb-profile-contrast` confirmed
+  deletable.
+
 - **Bias #3b rotor half CLOSED (`4850484`) → 3058 parts.** The SRAM-rotors follow-up worker
   re-fetched sram.com service pages and found main already carried 22 SRAM rotor rows — exactly ONE
   real SKU was missing (CenterLine 203mm 6-bolt, added; interfaces from the fetched service page,
