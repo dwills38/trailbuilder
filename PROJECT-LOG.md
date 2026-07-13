@@ -2,6 +2,15 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **Bias #3b rotor half CLOSED (`4850484`) → 3058 parts.** The SRAM-rotors follow-up worker
+  re-fetched sram.com service pages and found main already carried 22 SRAM rotor rows — exactly ONE
+  real SKU was missing (CenterLine 203mm 6-bolt, added; interfaces from the fetched service page,
+  honest sample weight/price since SRAM publishes neither per-size). SRAM's current MTB rotor line
+  (HS2 / CenterLine / CenterLine X) is now FULLY enumerated; the remaining TRP rotor lead (34 vs
+  Shimano 33 / SRAM 24) is real-market SKU count, not catalog bias — no further balancing without
+  fabrication. Gates green in-seat, CI+Deploy green. Session archived, branch/worktree pruned.
+  Repo back to 8 branches / 2 worktrees (seat + shared checkout).
+
 - **BIAS-REMEDIATION HARVEST COMPLETE → 3057 parts / 2257 verified (`6f2ca30`, sync `58d89c7`).**
   All four finding-chips reported; three landed, one staged: (1) Fox fork balance merged — +11 real
   ridefox.com configs (Podium + 34 SL new families, 36 MY27 gen tokens, SL tiers; eMTB/AWL/gravel
