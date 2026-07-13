@@ -2,6 +2,28 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **MERGE WAVE ("merge etc"): verification inversion wave 1 + rotor/brake balance → 3046 parts /
+  2252 verified (`39297e4`, `6d53f62`).** The WEEKLY usage limit hit mid-fleet (~03:35, reset noon
+  ET) — the rotor/brake worker died right after committing; the coordinator content-reviewed and
+  landed both finished branches via the own-additions-only pattern, four gates green in-seat,
+  harness byte-identical, e-bike scans clean, CI+Deploy green. Details: `verify/inversion-wave-1`
+  promoted **352 rows to verified** (all 8 RockShox shock families via sram.com model pages; DVO
+  Onyx forks incl. the maxRotorF 220→203 interface correction, re-fetched dvosuspension.com; the
+  two orphaned night-verify WIP diffs fully dispositioned — DVO/EXT/Fox-36SL source upgrades
+  adopted, Spank weights synced to the fetched spank-ind.com table and honestly left unverified —
+  both WIP branches deleted). `expand/rotor-brake-balance` added 28 rows + 2 edits (audit #3b/#4:
+  SRAM Motive/Maven/DB/Level/Code + Shimano XTR/MT brakes, RT-MT905 + SM-RT86/64/54/26 rotors via
+  the archive-handbook route; Hope XCR FM row now carries road.cc measured weight, sourced facts
+  in desc). Verified 1872 → 2252 (+380). SRAM rotors still missing (worker died first) — follow-up
+  chip queued. Wave session continues (step 3: verify/dvo-forks in flight); its rs-* sub-branches/
+  worktrees prune AFTER it completes.
+- **Random tie-break AUTO-SHIPPED by its worker (`b985162`) — post-hoc review PASSED.** Per
+  Douglas's "Random!" pick (bias #5): featured sort now tie-breaks on a seeded shuffle — FNV-1a
+  (part id) ^ UTC-day seed → one memoized mulberry32 draw (the sample-builds idiom); rank primary,
+  presets second, insertion index demoted to collision backstop. Deterministic within a day (no
+  keystroke reorder), rotates daily = time-averaged brand fairness. UI tier auto-ship on green
+  gates worked as designed; CI+Deploy green.
+
 - **Douglas's decisions (2026-07-13) + execution.** (1) Forum "⚡ E-MTB" discussion category:
   HIDE but KEEP ("don't display for now, but don't remove, we will use that later") — shipped
   `cd79c0f`: `hidden:true` on the vocab entry in src/forum.js + skips in the chip row and
