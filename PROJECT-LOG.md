@@ -2,6 +2,15 @@
 
 ## 2026-07-12 (evening) — Fable-budget push: shocks merged + engine fixes queued
 
+- **CATALOG MERGE WAVE 4: Fox balance → 3018 parts (`572c441`).** +59 Fox rear shocks (all missing
+  current-lineup SKUs via ridefox.com store variant JSON; incl. Live Valve NEO — electronic damper
+  for standard frames, AXS precedent, not e-bike). Shock share: RockShox 53.3% → 49.2%, Fox 6.0% →
+  13.1% (the UNBIASED balancing pass). VERIFY-PROTOCOL.md gains the decided verified-weight
+  subsection (verified = interfaces confirmed; nominal weight OK where makers publish none). Opus
+  audit 59/59 independent re-fetch. Gates green. **BACKLOG from its flags:** (1) 2 pre-existing
+  verified Float X sizes absent from Fox's current size list (possible page mix-up — re-verify);
+  (2) one Float SL row has Factory naming at Performance price; (3) several verified shock prices
+  have drifted on Fox's store — a price-refresh drift sweep would catch all three.
 - **CATALOG MERGE WAVE 3: rear shocks → 2959 parts (`3095da6`).** `expand/shocks` merged: 108 → 717
   shocks (+609). 5 brand-cluster workers + 5 Opus auditors; audit caught + dropped **2 fabricated
   Öhlins trunnion rows** (210/230 eyes are std-only) and **all 22 EXT e-Storia e-bike rows** (hard
