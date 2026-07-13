@@ -15,8 +15,11 @@ rules._
 - Seat: `git fetch origin; git switch -c coord/<today> origin/main` in your OWN worktree —
   **INSIDE the project dir** (e.g. under `.claude/worktrees/`), NEVER at `D:\` root (Douglas's
   folder rule; the old `D:\tb-*` sprawl annoyed him). **NEVER run git in the shared checkout
-  `D:\MTB Bike Builder` itself** (it sits on whatever branch the app put it on; untracked PDFs +
-  `_PDFs/` + `_TO-REVIEW/` + `scripts/` in its root are intentional — no `git add -A`, ever).
+  `D:\MTB Bike Builder` itself** (it sits on whatever branch the app put it on; untracked `.md`
+  deliverable sources + `_PDFs/` + `scripts/` in its root are intentional — no `git add -A`, ever).
+  **`_PDFs/` is the SINGLE home for every project PDF** (Douglas 2026-07-13; `_TO-REVIEW/` retired —
+  the action-item index now lives at `_PDFs/README.md`, keep it current; regenerate PDFs with
+  `python scripts/md2pdf.py <doc>.md "D:\MTB Bike Builder\_PDFs\<doc>.pdf"`).
   The previous seat `D:/tb-coord-lean` is grandfathered — archive/remove it once you're seated.
 - **Succession:** archive the previous coordinator session once oriented. Close finished worker
   sessions AS YOU GO (read report → harvest branch → archive → prune branch/worktree). Tidy!
