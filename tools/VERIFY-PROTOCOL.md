@@ -36,7 +36,8 @@ A part may be marked `verified:true` in `src/compat.js` ONLY when **all** hold:
      retailer listing — `sourceType:'retailer'` is validator-REJECTED on
      verified rows.
    If neither exists, the part CANNOT be verified — mark it `Skipped` with a
-   note (policy, not failure). Fork weights are generation-ambiguous; brake
+   note (policy, not failure) — **except in the interface-verification
+   categories below**, where the weight may stay nominal. Fork weights are generation-ambiguous; brake
    weights are hose/config-dependent — note the quoted config in `desc`
    (weight-basis conventions live in DATA-ENTRY-TEMPLATE.md §5, e.g. coil
    shocks weigh in WITHOUT spring; `soldWithout` records what's excluded).
@@ -52,6 +53,26 @@ A part may be marked `verified:true` in `src/compat.js` ONLY when **all** hold:
    serving the next generation's page):** when practical, save the page to
    the Wayback Machine (`https://web.archive.org/save/<url>`) and record the
    snapshot in `archiveUrl`. Optional, but do it for load-bearing sources.
+
+### Interface verification — categories whose makers publish no per-SKU weights
+
+*(policy decided 2026-07-12, Douglas via coordinator; it formalizes the
+convention the shock waves already ran on — most verified shocks carry
+nominal weights. It does not relitigate existing rows.)*
+
+For a category whose manufacturers publish full interface data but **no
+per-SKU weights** (rear shocks are the exemplar: the maker states the exact
+eye × stroke, mount and spring type per purchasable SKU, but at best one
+"starting weight" not tied to the size), `verified:true` attests that the
+**INTERFACE fields — the ones `checkBuild` reads (eye/stroke/mount/spring
+etc.) — plus provenance are manufacturer-confirmed** per bar item 1. The
+**weight may remain a nominal/sample figure** in that case; say so in `desc`
+and note the basis (e.g. scaled from a sibling size). When a real per-SKU
+weight source *does* exist, bar item 2 applies unchanged — maker-stated, or
+`sourceType:'measured'` + `weightSource`. This never lowers the interface
+bar (item 1 has no exceptions), and it does not apply where the maker does
+publish per-SKU weights (SRAM drivetrain): there a wrong weight still blocks
+verification.
 
 Corrections without verification are still valuable: if a spec is wrong but
 the weight bar can't be met, fix the spec, leave the part unverified, and
