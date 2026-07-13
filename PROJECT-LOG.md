@@ -2,6 +2,18 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **Fox LIFECYCLE PASS MERGED (`bd54458`) → 3055 parts / 2256 verified.** All approved dispositions
+  landed, every one re-confirmed against 2026-07-13 ridefox.com fetches: fictitious 38-150 pair +
+  the two vestigial plain Float X2 ids RETIRED into ALIASES (legacy sh-x2-* aliases re-flattened
+  single-hop; fr-frameworks-enduro.bundledShock re-pointed — worker caught the dangling ref);
+  vanished sizes + all 10 pre-MY27 36 Factory rows → status discontinued (+supersededBy where a
+  MY27 twin exists); NEW verified fk-fox-40-factory-my27-29-203 row (PN 910-21-410, minRotorF 200
+  vs the old gen’s 203 — gen split, old row specs untouched); 36 PE 160 source re-anchored to the
+  real PE product. Gates green in-seat, CI green. **Residual flags (next Fox pass / mechanic
+  queue):** 36 PE 150 (no fetched page supports a 150 PE — discontinued-vs-retire call), the MY27
+  40 Factory 27.5 SKU (910-21-417, unaudited), X2 185x55T PE row still verified against the
+  Factory page.
+
 - **Bug issue #2 CLOSED (Douglas’s plain OK)** — resolution comment posted (stale-cache diagnosis
   + regression test). **Fox lifecycle pass APPROVED + chip spawned** (retire 38-150 pair, discontinue
   vanished sizes, dedupe Float X2 ids, MY27 40 gen split, provenance fixes — all ALIASES/status,
