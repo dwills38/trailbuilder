@@ -2,6 +2,22 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **STRIDER SIZING DECIDED by maker consensus (Douglas delegated the call): INSEAM primary.**
+  Worker fetched 8 balance-bike makers’ own sizing guidance (Strider/Cleary/REI/Frog unfetchable,
+  documented): inseam 4 (Prevelo verbatim “most reliable size indicator”, Guardian, Early Rider,
+  Yedoo) · height 3 · age 1 → inseam-vs-seatMin/Max is the model’s primary fit input, child height
+  a secondary filter (new heightMin/heightMax fields), age = label only. Citation table in
+  data/STRIDERS-MODEL.md §2b; woom/Prevelo/Cruzee maker ranges added (Prevelo seatMax corrected
+  356→355 per page). Implemented on the HELD off-live branch bike-type/kids-striders (0670f3a,
+  data/-only, gates prove live app untouched). Still unmerged per the off-live rule.
+- **Rail icons v2 DELIVERED** (`design/rail-icons-emoji-v2` on origin, a648f76; PDF in _PDFs + sent):
+  108 uniquely-numbered candidates (4–6 per rail slot, per-slot prefixes FR-/FK-/…, ID-0 = the
+  round-1 glyph) + 4 curated sets; Douglas replies with picks. KEY FINDING for the apply chip: the
+  “Refined Emoji” style is NATIVE color emoji (Unicode strings in ICONS/DISC_LABELS in index.html),
+  NOT SVGs — applying picks is a string edit; optional vendored Twemoji path noted if pixel-identity
+  ever matters. ⚠ Orphan frosty-austin worktree trapped its THIRD worker — the empty dir is now
+  deleted outright.
+
 - **Fox LIFECYCLE PASS MERGED (`bd54458`) → 3055 parts / 2256 verified.** All approved dispositions
   landed, every one re-confirmed against 2026-07-13 ridefox.com fetches: fictitious 38-150 pair +
   the two vestigial plain Float X2 ids RETIRED into ALIASES (legacy sh-x2-* aliases re-flattened
