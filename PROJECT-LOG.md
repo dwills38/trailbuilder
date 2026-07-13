@@ -2,6 +2,15 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **DJ/BMX ARCHITECTURE SIGNED OFF (Douglas, 2026-07-13).** The three load-bearing calls from
+  data/DJ-BMX-COMPAT-ANALYSIS.md §5: (1) Option (b) confirmed — DJ folds into the MTB checkBuild,
+  BMX gets its own checkBmxBuild/vocab (the buildmybmx on-ramp); (2) discriminator =
+  driveMode:'single-speed' (mechanical flag, not a bikeType enum); (3) brakeless is a valid
+  complete build for these types. Q4–Q10 MED/LOW proceed on the doc’s leans as PROVISIONAL
+  (vetoable). Implementation chip spawned [Fable, high] — all work stays on the HELD off-live
+  branch, every new rule lands DORMANT pending the mechanic-review bar, and the live suite must
+  prove behavior-identical (driveMode absence = zero effect).
+
 - **STRIDER SIZING DECIDED by maker consensus (Douglas delegated the call): INSEAM primary.**
   Worker fetched 8 balance-bike makers’ own sizing guidance (Strider/Cleary/REI/Frog unfetchable,
   documented): inseam 4 (Prevelo verbatim “most reliable size indicator”, Guardian, Early Rider,

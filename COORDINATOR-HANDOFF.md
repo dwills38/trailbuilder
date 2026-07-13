@@ -103,8 +103,9 @@ test fixture on purpose (its desc explains). verification-job.json is coordinato
 1. **Douglas's one-liners:** icon PICKS pending — he chose the "Refined Emoji" STYLE; 108 numbered
    candidates delivered (`_PDFs/rail-icons-refined-emoji-v2.pdf`, branch `design/rail-icons-emoji-v2`;
    he replies e.g. "FR-1, FK-1, rest from Set D"; NOTE the glyphs are native color emoji — applying
-   = string edits to ICONS/DISC_LABELS in index.html) · DJ/BMX architecture sign-off still pending
-   (Qs in `data/DJ-BMX-COMPAT-ANALYSIS.md` on the held branch) · ✅ strider input RESOLVED 2026-07-13
+   = string edits to ICONS/DISC_LABELS in index.html) · ✅ DJ/BMX architecture SIGNED OFF
+   2026-07-13 (option b / driveMode single-speed / brakeless-valid; MED-LOW leans provisional;
+   implementation chip runs on the held branch — still OFF-LIVE) · ✅ strider input RESOLVED 2026-07-13
    by maker consensus he delegated: INSEAM primary (implemented on the held branch, log has detail).
 2. **Backlog chips ready to queue:** 7s XX Transmission DH group (M1 unlocked; CS-XS-797/RD-XX-DHE);
    Fox price-drift sweep (3 flags in PROJECT-LOG); frames-wave gap = big brands behind fetch-walls
