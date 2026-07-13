@@ -1,0 +1,356 @@
+{
+  "FR-6": {
+    "slot": "frame",
+    "name": "Full-sus, shock visible",
+    "file": "svg/FR-6.svg",
+    "reduced": "svg/FR-6.reduced.svg"
+  },
+  "FR-7": {
+    "slot": "frame",
+    "name": "Full-sus, compact",
+    "file": "svg/FR-7.svg",
+    "reduced": "svg/FR-7.reduced.svg"
+  },
+  "FR-8": {
+    "slot": "frame",
+    "name": "Hardtail diamond",
+    "file": "svg/FR-8.svg",
+    "reduced": "svg/FR-8.reduced.svg"
+  },
+  "FR-9": {
+    "slot": "frame",
+    "name": "Full-sus, sculpted tubes",
+    "file": "svg/FR-9.svg",
+    "reduced": "svg/FR-9.reduced.svg"
+  },
+  "FK-5": {
+    "slot": "fork",
+    "name": "Front view, full anatomy",
+    "file": "svg/FK-5.svg",
+    "reduced": "svg/FK-5.reduced.svg"
+  },
+  "FK-6": {
+    "slot": "fork",
+    "name": "Front view, essential",
+    "file": "svg/FK-6.svg",
+    "reduced": "svg/FK-6.reduced.svg"
+  },
+  "FK-7": {
+    "slot": "fork",
+    "name": "Front view, machined",
+    "file": "svg/FK-7.svg",
+    "reduced": "svg/FK-7.reduced.svg"
+  },
+  "FK-8": {
+    "slot": "fork",
+    "name": "Side view, raked",
+    "file": "svg/FK-8.svg",
+    "reduced": "svg/FK-8.reduced.svg"
+  },
+  "SH-6": {
+    "slot": "shock",
+    "name": "Air shock + piggyback",
+    "file": "svg/SH-6.svg",
+    "reduced": "svg/SH-6.reduced.svg"
+  },
+  "SH-7": {
+    "slot": "shock",
+    "name": "Coil shock",
+    "file": "svg/SH-7.svg",
+    "reduced": "svg/SH-7.reduced.svg"
+  },
+  "SH-8": {
+    "slot": "shock",
+    "name": "Air shock, laid flat",
+    "file": "svg/SH-8.svg",
+    "reduced": "svg/SH-8.reduced.svg"
+  },
+  "SH-9": {
+    "slot": "shock",
+    "name": "Shock, essential",
+    "file": "svg/SH-9.svg",
+    "reduced": "svg/SH-9.reduced.svg"
+  },
+  "WH-6": {
+    "slot": "wheels",
+    "name": "Laced wheel",
+    "file": "svg/WH-6.svg",
+    "reduced": "svg/WH-6.reduced.svg"
+  },
+  "WH-7": {
+    "slot": "wheels",
+    "name": "Wheel, essential",
+    "file": "svg/WH-7.svg",
+    "reduced": "svg/WH-7.reduced.svg"
+  },
+  "WH-8": {
+    "slot": "wheels",
+    "name": "Wheelset pair",
+    "file": "svg/WH-8.svg",
+    "reduced": "svg/WH-8.reduced.svg"
+  },
+  "WH-9": {
+    "slot": "wheels",
+    "name": "Wheel, race build",
+    "file": "svg/WH-9.svg",
+    "reduced": "svg/WH-9.reduced.svg"
+  },
+  "TI-6": {
+    "slot": "tire",
+    "name": "Knobby tire, face on",
+    "file": "svg/TI-6.svg",
+    "reduced": "svg/TI-6.reduced.svg"
+  },
+  "TI-7": {
+    "slot": "tire",
+    "name": "Tread crescent",
+    "file": "svg/TI-7.svg",
+    "reduced": "svg/TI-7.reduced.svg"
+  },
+  "TI-8": {
+    "slot": "tire",
+    "name": "Tire, block tread ring",
+    "file": "svg/TI-8.svg",
+    "reduced": "svg/TI-8.reduced.svg"
+  },
+  "TI-9": {
+    "slot": "tire",
+    "name": "Tread crescent, essential",
+    "file": "svg/TI-9.svg",
+    "reduced": "svg/TI-9.reduced.svg"
+  },
+  "DR-6": {
+    "slot": "drivetrain",
+    "name": "Cassette + derailleur",
+    "file": "svg/DR-6.svg",
+    "reduced": "svg/DR-6.reduced.svg"
+  },
+  "DR-7": {
+    "slot": "drivetrain",
+    "name": "Crank + chainring",
+    "file": "svg/DR-7.svg",
+    "reduced": "svg/DR-7.reduced.svg"
+  },
+  "DR-8": {
+    "slot": "drivetrain",
+    "name": "Chain links",
+    "file": "svg/DR-8.svg",
+    "reduced": "svg/DR-8.reduced.svg"
+  },
+  "DR-9": {
+    "slot": "drivetrain",
+    "name": "Cassette stack",
+    "file": "svg/DR-9.svg",
+    "reduced": "svg/DR-9.reduced.svg"
+  },
+  "BR-6": {
+    "slot": "brakes",
+    "name": "Rotor + caliper",
+    "file": "svg/BR-6.svg",
+    "reduced": "svg/BR-6.reduced.svg"
+  },
+  "BR-7": {
+    "slot": "brakes",
+    "name": "Brake lever",
+    "file": "svg/BR-7.svg",
+    "reduced": "svg/BR-7.reduced.svg"
+  },
+  "BR-8": {
+    "slot": "brakes",
+    "name": "Rotor, detailed",
+    "file": "svg/BR-8.svg",
+    "reduced": "svg/BR-8.reduced.svg"
+  },
+  "BR-9": {
+    "slot": "brakes",
+    "name": "Rotor + caliper, essential",
+    "file": "svg/BR-9.svg",
+    "reduced": "svg/BR-9.reduced.svg"
+  },
+  "BB-5": {
+    "slot": "bb",
+    "name": "Cartridge, side view",
+    "file": "svg/BB-5.svg",
+    "reduced": "svg/BB-5.reduced.svg"
+  },
+  "BB-6": {
+    "slot": "bb",
+    "name": "Cup face-on, tool notches",
+    "file": "svg/BB-6.svg",
+    "reduced": "svg/BB-6.reduced.svg"
+  },
+  "BB-7": {
+    "slot": "bb",
+    "name": "Threaded shell, exploded",
+    "file": "svg/BB-7.svg",
+    "reduced": "svg/BB-7.reduced.svg"
+  },
+  "HS-5": {
+    "slot": "headset",
+    "name": "Exploded stack",
+    "file": "svg/HS-5.svg",
+    "reduced": "svg/HS-5.reduced.svg"
+  },
+  "HS-6": {
+    "slot": "headset",
+    "name": "Bearing ring",
+    "file": "svg/HS-6.svg",
+    "reduced": "svg/HS-6.reduced.svg"
+  },
+  "HS-7": {
+    "slot": "headset",
+    "name": "Cups on the steerer",
+    "file": "svg/HS-7.svg",
+    "reduced": "svg/HS-7.reduced.svg"
+  },
+  "DP-5": {
+    "slot": "dropper",
+    "name": "Dropper + travel arrows",
+    "file": "svg/DP-5.svg",
+    "reduced": "svg/DP-5.reduced.svg"
+  },
+  "DP-6": {
+    "slot": "dropper",
+    "name": "Dropper, clean",
+    "file": "svg/DP-6.svg",
+    "reduced": "svg/DP-6.reduced.svg"
+  },
+  "DP-7": {
+    "slot": "dropper",
+    "name": "Dropper + saddle",
+    "file": "svg/DP-7.svg",
+    "reduced": "svg/DP-7.reduced.svg"
+  },
+  "CP-5": {
+    "slot": "cockpit",
+    "name": "Riser bar + stem, front",
+    "file": "svg/CP-5.svg",
+    "reduced": "svg/CP-5.reduced.svg"
+  },
+  "CP-6": {
+    "slot": "cockpit",
+    "name": "Bar + stem, top down",
+    "file": "svg/CP-6.svg",
+    "reduced": "svg/CP-6.reduced.svg"
+  },
+  "CP-7": {
+    "slot": "cockpit",
+    "name": "Stem side + bar section",
+    "file": "svg/CP-7.svg",
+    "reduced": "svg/CP-7.reduced.svg"
+  },
+  "SA-6": {
+    "slot": "saddle",
+    "name": "Saddle + rails, side",
+    "file": "svg/SA-6.svg",
+    "reduced": "svg/SA-6.reduced.svg"
+  },
+  "SA-7": {
+    "slot": "saddle",
+    "name": "Saddle, top view",
+    "file": "svg/SA-7.svg",
+    "reduced": "svg/SA-7.reduced.svg"
+  },
+  "SA-8": {
+    "slot": "saddle",
+    "name": "Saddle, essential",
+    "file": "svg/SA-8.svg",
+    "reduced": "svg/SA-8.reduced.svg"
+  },
+  "PD-5": {
+    "slot": "pedals",
+    "name": "Flat pedal, top view",
+    "file": "svg/PD-5.svg",
+    "reduced": "svg/PD-5.reduced.svg"
+  },
+  "PD-6": {
+    "slot": "pedals",
+    "name": "Flat pedal, side view",
+    "file": "svg/PD-6.svg",
+    "reduced": "svg/PD-6.reduced.svg"
+  },
+  "PD-7": {
+    "slot": "pedals",
+    "name": "Clipless pedal, top view",
+    "file": "svg/PD-7.svg",
+    "reduced": "svg/PD-7.reduced.svg"
+  },
+  "AP-6": {
+    "slot": "all_parts",
+    "name": "Parts grid",
+    "file": "svg/AP-6.svg",
+    "reduced": "svg/AP-6.reduced.svg"
+  },
+  "AP-7": {
+    "slot": "all_parts",
+    "name": "The whole bike",
+    "file": "svg/AP-7.svg",
+    "reduced": "svg/AP-7.reduced.svg"
+  },
+  "AP-8": {
+    "slot": "all_parts",
+    "name": "Exploded build",
+    "file": "svg/AP-8.svg",
+    "reduced": "svg/AP-8.reduced.svg"
+  },
+  "DA-36": {
+    "slot": "disc_all",
+    "name": "Rider, neutral trail",
+    "file": "svg/DA-36.svg",
+    "reduced": "svg/DA-36.reduced.svg"
+  },
+  "DA-37": {
+    "slot": "disc_all",
+    "name": "Rider, no terrain",
+    "file": "svg/DA-37.svg",
+    "reduced": "svg/DA-37.reduced.svg"
+  },
+  "DH-36": {
+    "slot": "disc_dh",
+    "name": "Steep descent",
+    "file": "svg/DH-36.svg",
+    "reduced": "svg/DH-36.reduced.svg"
+  },
+  "DH-37": {
+    "slot": "disc_dh",
+    "name": "Descent, no terrain",
+    "file": "svg/DH-37.svg",
+    "reduced": "svg/DH-37.reduced.svg"
+  },
+  "DE-37": {
+    "slot": "disc_enduro",
+    "name": "Big mountain",
+    "file": "svg/DE-37.svg",
+    "reduced": "svg/DE-37.reduced.svg"
+  },
+  "DE-38": {
+    "slot": "disc_enduro",
+    "name": "Attack position",
+    "file": "svg/DE-38.svg",
+    "reduced": "svg/DE-38.reduced.svg"
+  },
+  "DT-36": {
+    "slot": "disc_trail",
+    "name": "Flow line",
+    "file": "svg/DT-36.svg",
+    "reduced": "svg/DT-36.reduced.svg"
+  },
+  "DT-37": {
+    "slot": "disc_trail",
+    "name": "Cruiser, no terrain",
+    "file": "svg/DT-37.svg",
+    "reduced": "svg/DT-37.reduced.svg"
+  },
+  "DX-36": {
+    "slot": "disc_xc",
+    "name": "Racer tuck",
+    "file": "svg/DX-36.svg",
+    "reduced": "svg/DX-36.reduced.svg"
+  },
+  "DX-37": {
+    "slot": "disc_xc",
+    "name": "Tuck, no speed lines",
+    "file": "svg/DX-37.svg",
+    "reduced": "svg/DX-37.reduced.svg"
+  }
+}
