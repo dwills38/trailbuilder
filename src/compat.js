@@ -3494,6 +3494,32 @@ var PARTS_RAW = [
   { id:'ca-sram-xg795', cat:'cassette', brand:'SRAM', model:'XG-795 Mini Block 10-24', family:'sram-xg795', gen:'A1', mfgPn:'CS-XG-795-A1', disciplines:['dh'], price:335, weight:136, system:'sram-dh-7', speeds:7, freehub:'XD', minCog:10, maxCog:24, verified:true, lastChecked:'2026-07-08', source:'https://www.sram.com/en/sram/models/cs-xg-795-a1', desc:'10-12-14-16-18-21-24T X-Dome; XD driver; page states compatibility with all SRAM 11-speed chains' },
   { id:'ch-sram-pc-xx1', cat:'chain', brand:'SRAM', model:'PC-XX1 Hard Chrome (DH group)', family:'sram-pc-xx1', disciplines:['dh'], price:60, weight:258, system:'sram-dh-7', speeds:7, desc:'PHYSICALLY an 11-speed chain - SRAM specs its 11s chains for the 7s DH group (XG-795 page: "compatible with all SRAM 11-speed chains"); system/speeds here are compatibility tokens per the schema.js sram-dh-7 decision. Existence: sram.com cn-x-1-a1 sibling + Jenson/REI PC-XX1 listings. Sample price/weight' },
   { id:'cr-sram-x01-dh', cat:'crankset', brand:'SRAM', model:'X01 DH DUB (7s)', family:'sram-x01-dh', gen:'B1', mfgPn:'FC-X0-1DH-B1', disciplines:['dh'], price:415, weight:650, bb:'DUB', ring:34, ringStd:'standard-12', speeds:7, chainline:56.5, desc:'price + code + DUB spindle + 32/34/36T rings + chainline options 49/52/56.5mm from the fetched sram.com model page fc-x0-1dh-b1 (DH DUB BB widths 83/104.5/107); chainline CORRECTED 55->56.5 (the DH 83mm BSA config; display-only); weight = sample (page states only "under 800 g", no exact figure); ringStd standard-12 = the generic non-T-Type 1x ring token' },
+  /* --- expand/dh-transmission (2026-07-13): SRAM's XX DH Transmission - the first WIRELESS/AXS
+     electronic 7-speed DH group (announced 2026, shipping Feb 2026), sitting alongside the
+     existing cable X01 DH group above. Every model code + price is from the FETCHED sram.com
+     collection page (sram.com/en/sram/mountain/series/xx-dh-transmission/collection), which lists
+     6 SKUs and NO weight for any of them - so every weight below is a SAMPLE (press-reported
+     figures from bikerumor's announcement coverage, not a manufacturer or independent-scale
+     figure, so NOT eligible for verified:true per this catalog's measured-weight policy).
+     system stays 'sram-transmission' (NOT a new system value, and NOT sram-dh-7 - that token is
+     reserved for the older MECHANICAL 7s DH group's chain-width workaround): this is the exact
+     case the schema.js sram-dh-7 comment + the engine-critical review M1 fix (rule 3 no longer
+     counts the chain in the one-speed set) were written to unblock - see that comment block in
+     schema.js and the drivetrain-r3 comment above ca-sram-xs1295 for the full history. speeds:7
+     on the shifter/derailleur/cassette (checked for equality against each other) while the CHAIN
+     keeps its real system:'sram-transmission'/speeds:12 identity (chain excluded from the speed
+     check - width, not speed, is its real constraint) - so no new chain row is needed at all: the
+     collection page's own "XX Eagle Transmission Flattop Chain" IS the existing ch-sram-xx-flattop
+     (CN-TTYP-XX-A1) row. Likewise the collection's "AXS Pod Ultimate Controller" is the existing
+     EC-AXS-PODU-D1 row (sft-sram-xx-sl-transmission) - same shared-hardware convention already
+     used for the S1000/GX AXS pods, so no new shifter row either. Only cassette + derailleur +
+     crankset are genuinely new SKUs. mount:'udh-direct' for "Full Mount" matches this catalog's
+     existing SRAM Transmission convention (see the Eagle 70 Transmission row's own note) - rule 4
+     (SRAM Transmission needs a UDH frame) and rule 3a (AXS-controller exemption) apply unchanged,
+     no engine change needed. --- */
+  { id:'ca-sram-xs797', cat:'cassette', brand:'SRAM', model:'XS-797 XX DH Transmission 10-24', family:'sram-xx-dh-transmission', gen:'A1', mfgPn:'CS-XS-797-A1', disciplines:['dh'], price:500, weight:150, system:'sram-transmission', speeds:7, freehub:'XD', minCog:10, maxCog:24, desc:'model code + price + speeds 7 + 10-24T range (10-12-14-16-18-21-24T) + XD driver from the fetched sram.com collection page cs-xs-797-a1 (a narrower "XD Slim" driver variant also exists for symmetric 148mm spoke bracing - same XD interface, not modeled as a separate row); full X-Sync tooth profile, T-Type chain only. weight = sample (bikerumor-reported ~150g; SRAM publishes no weight for this SKU) - not eligible for verified:true.' },
+  { id:'dr-sram-xx-dh-transmission', cat:'derailleur', brand:'SRAM', model:'XX DH Transmission', family:'sram-xx-dh-transmission', gen:'A1', mfgPn:'RD-XX-DHE-A1', disciplines:['dh'], price:700, weight:426, system:'sram-transmission', speeds:7, actuation:'electronic', maxCog:24, mount:'udh-direct', soldWithout:['battery'], desc:'the first wireless/AXS DH derailleur - model code + price + Full Mount (=udh-direct) + wireless AXS actuation + 24T max cog (this group only pairs with the 10-24T XS-797 cassette above) from the fetched sram.com collection page rd-xx-dhe-a1; long aluminum cage, Type 4 damper, rebuildable/replaceable skid plates. weight = sample (bikerumor-reported 426g; SRAM publishes no weight for this SKU) - not eligible for verified:true.' },
+  { id:'cr-sram-xx-dh-transmission', cat:'crankset', brand:'SRAM', model:'XX DH Transmission DUB', family:'sram-xx-dh-transmission', gen:'A1', mfgPn:'FC-XX-DH-A1', disciplines:['dh'], price:450, weight:701, bb:'DUB', ring:32, ringStd:'t-type', speeds:7, chainline:56.5, desc:'model code + price + T-Type DM 8-bolt ring (sold separately, 32/34/36T) + 150/155/160/165mm arms from the fetched sram.com collection page fc-xx-dh-a1; sold in a DUB DH spindle (56.5mm chainline, works with 148 OR 157mm/SuperBoost rear ends - the config cataloged here) or a DUB Wide spindle (55mm chainline, 148mm-optimized) - one representative config entered per this catalog\'s multi-config crank convention (see the Truvativ Stylo rows). weight = sample (bikerumor-reported 701g; SRAM publishes no weight for this SKU) - not eligible for verified:true.' },
   /* --- catalog-drivetrain pass (2026-07-08): SRAM's cable-actuated T-Type tiers, Eagle 90 Transmission and
      Eagle 70 Transmission - the mechanical/budget counterparts to the AXS GX/X0/XX Transmission rows already
      in the catalog. Every model code, price and weight below is from its own fetched sram.com model page

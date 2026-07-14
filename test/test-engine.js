@@ -786,6 +786,29 @@ test('M1: a real indexed-parts speed mismatch still errors, and its slots exclud
 test('M1: the chain stays in the one-SYSTEM set (Shimano chain in a SRAM Eagle drivetrain reds)', function(){
   some(chk({chain:'ch-shimano-xtr-m9100', cassette:'ca-sram-xg1275'}).errors, 'Drivetrain mismatch');
 });
+
+/* expand/dh-transmission (2026-07-13): the REAL XX DH Transmission group (real
+   catalog rows, not the synthetic M1 shapes above) - the cassette+derailleur
+   are new; the chain (ch-sram-xx-flattop) and AXS pod (sft-sram-xx-sl-transmission)
+   are reused existing rows, per that group's own catalog comment. */
+test('real XX DH Transmission group (cassette+derailleur+shared Flattop chain) has no system/speed conflict', function(){
+  var r = chk({cassette:'ca-sram-xs797', derailleur:'dr-sram-xx-dh-transmission', chain:'ch-sram-xx-flattop'});
+  eq(r.errors.filter(function(v){ return v.ruleId==='drivetrain-speeds' || v.ruleId==='drivetrain-system'; }).length, 0);
+});
+test('real XX DH Transmission crankset + shared Flattop chain: T-Type ring is silent on rule 3c', function(){
+  var r = chk({crankset:'cr-sram-xx-dh-transmission', chain:'ch-sram-xx-flattop'});
+  eq(r.errors.filter(function(v){ return v.ruleId==='chainring-standard'; }).length, 0);
+  eq(r.infos.filter(function(v){ return v.ruleId==='chainring-standard'; }).length, 0);
+});
+test('the 7s XX DH Transmission cassette still reds against a 12s Transmission derailleur (system alone does not false-green it)', function(){
+  var r = chk({cassette:'ca-sram-xs797', derailleur:'dr-sram-xx-transmission'});
+  some(r.errors, 'Speed mismatch', 'a real 7s cassette vs a real 12s derailleur must still red on speed');
+});
+test('the XX DH Transmission derailleur is a real udh-direct mount: needs a UDH frame like the rest of the Transmission family', function(){
+  var bld = B({derailleur:'dr-sram-xx-dh-transmission'});
+  bld.frame = /** @type {any} */ (Object.assign({}, part('fr-santacruz-megatower-cc'), {udh:false, udhRetrofitKit:undefined}));
+  some(C.checkBuild(bld).errors, 'Frame not UDH', 'a non-UDH frame with this derailleur must error rule 4');
+});
 test('a matched straight-dc pair (dual-crown fork on a DH frame) is silent on rule 11', function(){
   var bld = /** @type {any} */ ({
     frame: Object.assign({}, part('fr-santacruz-megatower-cc'), {headset:'straight-dc'}),
