@@ -32,6 +32,9 @@
        separate hardcoded hex and untouched — this only affects text legibility. */
     --ok:#166534; --ok-bg:#e7f5ec; --warn:#92400e; --warn-bg:#fdf3e1;
     --err:#c23b3b; --err-bg:#fbeaea; --chip:#eef1ec;
+    /* Topo Contours header (style pick 2026-07-14): deep-green banner + contour-line
+       stroke, per-theme. RAD ignores both (it keeps its own header entirely). */
+    --hdr-bg:#123f2b; --hdr-topo:rgba(255,255,255,.11);
   }
   *{box-sizing:border-box}
   /* [hidden] hardening: several rules set an explicit display (.acctbox{display:flex},
@@ -47,7 +50,13 @@
      title · search · Share · community/account · ⋯ menu. The tagline + prototype
      badge live in the honesty strip right below, which never hides — the
      sample-data disclaimer must stay visible on every scroll position. */
-  header{background:linear-gradient(135deg,var(--brand-d),var(--brand));color:#fff;padding:10px 24px;position:sticky;top:0;z-index:40}
+  /* Topo Contours banner (style-directions-v1 D4 — Douglas's pick 2026-07-14): deep green +
+     trail-map contour linework at ~10% opacity for light/dark/Loam. RAD is ITS OWN THEME
+     (his standing rule): its checkerboard header override below stays, and the pattern is
+     hidden under html.rad. */
+  header{background:var(--hdr-bg);color:#fff;padding:10px 24px;position:sticky;top:0;z-index:40}
+  .hdr-topo{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+  html.rad .hdr-topo{display:none}
   header .wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
   header h1{margin:0;font-size:19px;white-space:nowrap}
   /* clickable logo -> home, styled identical to the heading (inherits the white header color, no underline) */
@@ -593,6 +602,7 @@
     --card:#1f2522; --brand-d:#123f2b; --accent:#e0703c;
     --ok:#7fd6a2; --ok-bg:#17301f; --warn:#e8b25c; --warn-bg:#33270f;
     --err:#e57575; --err-bg:#331717; --chip:#262d29;
+    --hdr-bg:#0c2b1c; --hdr-topo:rgba(255,255,255,.09);
   }
   /* the same hardcoded-white controls RAD mode has to fix, plus the hovers that
      hardcode near-white tints */
@@ -638,6 +648,7 @@
     --card:#241a13; --brand:#2f7048; --brand-d:#1e4a30; --accent:#e2a94a;
     --ok:#84cf97; --ok-bg:#16301d; --warn:#e6b45c; --warn-bg:#33270f;
     --err:#e88b7b; --err-bg:#331a14; --chip:#30241a;
+    --hdr-bg:#14301f; --hdr-topo:rgba(242,232,216,.11);
   }
   /* the same hardcoded-white controls dark & RAD have to fix */
   html.loam .btn,html.loam header input[type=search],html.loam .chip.sub,
@@ -688,6 +699,18 @@
 </head>
 <body>
 <header>
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
   <div class="wrap">
     <h1><a href="/" aria-label="BuildMyMTB — home">🚵 BuildMyMTB</a></h1>
     <input type="search" id="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" aria-label="Search parts by brand or model" />
