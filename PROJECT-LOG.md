@@ -2,6 +2,32 @@
 
 ## 2026-07-14 — Coordinator seat 8 (succession)
 
+- **Carbon/alloy frame-variant work MERGED (3117→3126, +9 rows).** Part A split the 2 audit-gap
+  rows (Rocky Mountain Instinct base=carbon + new `-alloy` sibling; Trek Top Fuel Gen4 base=carbon,
+  alloy sibling withheld — unresolved BB divergence, flagged). Part B added 8 siblings (Kona
+  Process 153 Carbon, Propain Spindrift AL, Trek Session C 29, Trek Fuel EX AL Gen6, RM Slayer
+  Alloy, Devinci Troy Carbon, Transition Smuggler Alloy, Nukeproof Reactor 290 Carbon). Reviewed
+  in-seat: inherited interfaces are shared-platform + flagged per-row; real alloy-vs-carbon deltas
+  independently sourced (Smuggler 34.9 vs 31.6 seatpost, Session trunnion vs std shock, Transition
+  ZS-vs-IS headset convention); nothing fabricated, no e-bikes. Long "checked, NOT split"
+  (layup-tier) + "flagged, insufficient data" lists in the worker report — those are the future
+  follow-up pool. Four gates green, session archived, branch/worktree pruned. **1 item for Douglas:
+  Atherton A-Range is a scope question (different manufacturing process, not a material variant of
+  the S.200) — include or not?**
+- **Kit Builder scope doc MERGED (`KIT-BUILDER-SCOPE.md`).** Fable scoping round; decision-ready.
+  Load-bearing conclusion: Kit is NOT a compatibility problem — a curated list with price/weight +
+  cert badges + discipline filter, zero error-tier engine. 9 decisions await Douglas (relayed);
+  grind stays unspawned until he signs off. Session archived.
+- **Gallery MVP security audit: GO (Opus, independent).** No data leak, no auth bypass, no XSS, no
+  secret exposure, no pop-up, no e-bike — each attack surface traced to the deciding RLS line.
+  **F1 (LOW/MED, worth fixing before migration):** `created_at` is client-writable → back-date to
+  dodge the 10/day cap AND future-date to pin a build atop the "newest" grid (undercuts the
+  unbiased-ordering value). One-line trigger fix (`new.created_at := now()`). F2 (cap TOCTOU race)
+  + F3 (inert `photo_path` column) accepted. Findings on `origin/audit/gallery-rls`; session
+  archived. **Gallery awaits Douglas's sign-off to merge app code + run the migration** (security tier).
+- **Price-drift sweep:** +1 commit locally, idle ~25 min after the nudge — possibly stalled again;
+  flagged to Douglas. Nothing pushed yet.
+
 - **Carbon+alloy frame-version policy (Douglas 2026-07-14): "if there is a carbon and aluminum
   version of a frame, include them both."** Recorded as an explicit split-policy row in
   `tools/DATA-ENTRY-TEMPLATE.md` (a genuine carbon-vs-metal pair = two rows; a carbon layup-tier
