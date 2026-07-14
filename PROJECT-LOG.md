@@ -2,6 +2,14 @@
 
 ## 2026-07-14 — Overnight watch (coordinator harvesting while Douglas sleeps)
 
+- **Seat 7 closes clean: fabricated Reserve MS variants retired (`0f1e882`) → 3117 parts / 2293
+  verified.** The last running session confirmed rw-reserve-30-hd-29-ms/-275-ms never existed
+  (re-fetched Shopify variant JSON: XD-only) — both ALIASed to their real XD siblings, no invented
+  successor; applied in-seat (its base predated today's Reserve wave), verify-job tombstoned the
+  ids. Every session is now archived, every branch harvested or deliberately held
+  (bike-type/kids-striders + dj-bmx, chore/cloudflare-prep, 3 design selection branches,
+  honeycomb keepsake). Successor + Affiliate session seed docs are current. End of seat 7.
+
 - **True final wave (Douglas caught 5 more sessions): 3119 parts / 2293 verified (`7cdd9e0`).**
   Wheels nominal-weight policy applied (+7 verified: DT Swiss E1900 x3, Reserve 30HD pair, 31DH
   pair; Giant TRX/Race Face Turbine SL/Zipp Moto checked-not-promoted with reasons) · WAO
