@@ -1393,7 +1393,7 @@
   function renderChips(){
     var el = $('chips'); el.innerHTML='';
     el.appendChild(mkChip('all','All parts'));
-    GROUPS.forEach(function(g){ el.appendChild(mkChip(g.key, (ICONS[g.key]||'')+' '+g.label)); });
+    GROUPS.forEach(function(g){ el.appendChild(mkChip(g.key, g.label)); });   // sidebar category chips are text-only (icons removed — a literal component glyph risked resembling one maker's part)
     nudgeActiveChip(el);
   }
 
@@ -1401,7 +1401,7 @@
      verdicts; a part without the tag is universal and always shows).
      Own label map: L() must not be used here — 'dh'/'trail'/'enduro' collide
      with the tire-casing labels in LABELS. ---- */
-  var DISC_LABELS = { all:'All disciplines', xc:'🐇 XC', trail:'🌲 Trail', enduro:'⛰️ Enduro', dh:'⬇️ DH', dj:'🤸 DJ' };
+  var DISC_LABELS = { all:'All disciplines', xc:'XC', trail:'Trail', enduro:'Enduro', dh:'DH', dj:'DJ' };   // text-only, matching the icon-free category chips (sidebar carries no glyphs)
   function renderDiscChips(){
     var el = $('discChips'); el.innerHTML='';
     ['all','dh','enduro','trail','xc','dj'].forEach(function(k){   // ordered by travel, DH first; DJ (100mm single-speed hardtails, live 2026-07-14) last
