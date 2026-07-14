@@ -2,6 +2,13 @@
 
 ## 2026-07-14 — Overnight watch (coordinator harvesting while Douglas sleeps)
 
+- **Douglas back, harvest blessed ("merge" — all 11 already landed).** New directives: (1) **KIT
+  BUILDER** coming — rider gear/apparel (shoes, pants/shorts, jerseys, gloves, helmets, knee/elbow
+  pads, body armor); the grind will run as idle-time Sonnet chips, but **no kit chips until he
+  asks** (memory: kit-builder-directive; kickoff = a data-model round first). (2) Contrast bug
+  from his screenshot: the ACTIVE material sub-chip is unreadable on Loam — fix chip spawned
+  [Sonnet, low], root-cause class fix across all chip rows, UI auto-ship.
+
 - **MORNING HARVEST COMPLETE — all 11 overnight/day chips landed → 3098 parts / 2286 verified /
   550 tests / 17 guides (main `e4fbb41`, CI+Deploy green throughout).** In merge order:
   quality-backlog `7f80ae6` (schema id-map, isPresetCat/isPresetPart split — genuinely different
