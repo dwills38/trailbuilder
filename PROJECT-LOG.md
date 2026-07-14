@@ -25,8 +25,21 @@
   unbiased-ordering value). One-line trigger fix (`new.created_at := now()`). F2 (cap TOCTOU race)
   + F3 (inert `photo_path` column) accepted. Findings on `origin/audit/gallery-rls`; session
   archived. **Gallery awaits Douglas's sign-off to merge app code + run the migration** (security tier).
-- **Price-drift sweep:** +1 commit locally, idle ~25 min after the nudge — possibly stalled again;
-  flagged to Douglas. Nothing pushed yet.
+- **Price-drift sweep MERGED (65 corrections + 544 lastChecked refreshes).** NOT stalled after all —
+  the session's `lastActivityAt` froze at 13:47 while it kept working (harness-timestamp quirk); it
+  completed the full 1,332-verified-row sweep (713 deduped URLs, 17 clusters): 65 MSRP corrections
+  (SRAM Maven $260→$330, Maxxis Minion SS off a sale price→$82, Fox Transfer 14 sizes→$329, six
+  frames), 544 confirmed→lastChecked 2026-07-14, 718 unconfirmable (flagged, never guessed).
+  price/lastChecked only. 3-way merge with 3 conflict blocks (recent material backfill + carbon/alloy
+  siblings met the sweep) resolved field-level — kept material + the new sibling rows, re-applied the
+  sweep's 3 price corrections + 7 Transition lastChecked bumps by row id. Four gates green.
+- **8 e-bike-specific rotor rows RETIRED (NO-E-BIKES hard rule, 3126→3118).** The price sweep
+  surfaced them live. Removed the 8 with explicit e-bike evidence in their own model/desc: Clarks
+  CLE-01 ×4 (model "CLE-01 E-Bike", "2.3mm e-bike-rated") + TRP RS01E ×4 ("2.3mm e-bike-rated").
+  No ALIAS (no successor); verify-job re-synced (tombstoned). NOT referenced by any preset/test.
+  **KEPT (not deleted on suspicion, THE BAR):** TRP RS06E "Allround" ×3, RC04E ×2, RS05E "Race
+  Rotor" ×2 — TRP's "E" suffix is NOT a reliable e-bike marker (RS05E is a race rotor) and their
+  descs make no e-bike claim; flagged for a proper verification pass. Session archived, pruned.
 
 - **Carbon+alloy frame-version policy (Douglas 2026-07-14): "if there is a carbon and aluminum
   version of a frame, include them both."** Recorded as an explicit split-policy row in
