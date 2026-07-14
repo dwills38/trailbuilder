@@ -2,6 +2,24 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **Away-grind waves 2-4 landed → 3065 parts / 489 tests (`bf975d0`, `5d8fcd4`).** (1) Suspension
+  follow-ups: Diamond Boost x4 discontinued (line renamed away), +2 Diamond 36 D1 SL rows (fetched;
+  probe-E gains the expected data-accurate DM-180 note), MY27 40 27.5 confirmed; 36 PE 150 retired
+  via ALIASES (never purchasable). **SAVE OF THE DAY: the validate gate blocked the 185x55T PE
+  retirement — fr-privateer-141-g2 BUNDLES it (its verified page states 185x55 trunnion), so the
+  "never existed" call was wrong for retail only; row corrected to the oemOnly/forFrames pattern,
+  bad Factory-page verification + wrong discontinued status both removed.** (Coordinator also ate
+  two self-inflicted tooling bites here: a regex that mangled escaped quotes in a desc, and a pipe
+  that masked a parse failure past an && chain — both caught before push; lesson: never pipe the
+  parse check, use string slicing not re.sub templates on descs.) (2) Hardtail push: +6 frames
+  (Knolly/Stanton/Ragley/Sonder/Bird/Pipedream); GAPS: Cotic BFe needs an I.S. brakeMount vocab
+  decision, On-One defunct, RAAW makes no HT. (3) DH Transmission harvested from a worker that
+  committed then died silent — coordinator full-reviewed: CS-XS-797 + RD-XX-DHE + XX DH crank
+  inside sram-transmission @ speeds:7 (no schema change; M1 made it work), 4 pinning tests incl.
+  7s-vs-12s stays red (489 total). All sessions archived + swept (incl. the D:\-root worktree a
+  worker created against the folder rule — future briefs pin .claude/worktrees). Still running:
+  the Shimano archive wave [Opus] (branch verify/shimano-archive-wave already committing).
+
 - **Away-grind wave 1 landed: frames-tail re-confirm (`dd594f1`).** 4 rows freshly re-checked
   against maker pages (Skipped stands on all — frame-only weights genuinely unpublished; Devinci
   Wilson product page has 404'd, noted in-row). KEY FINDING: the verification queue's FRAME tail
