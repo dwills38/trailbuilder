@@ -9,6 +9,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  # Daily rebuild so the Builds-Gallery sitemap.xml stays fresh as riders publish
+  # / unpublish, even with no code push (BUILDS-GALLERY-SCOPE.md §5 — the sitemap
+  # is how Google discovers each build's ?g=<id> URL; hard-deleted builds prune
+  # on the next run). 07:00 UTC.
+  schedule:
+    - cron: '0 7 * * *'
 
 permissions:
   contents: read
@@ -55,6 +61,13 @@ jobs:
           cp privacy.html _site/
           cp terms.html _site/
           cp affiliate-disclosure.html _site/
+
+      # Builds Gallery SEO: regenerate sitemap.xml from the public gallery_builds
+      # table (anon key, no secrets — see tools/gen-sitemap.js). Fail-soft: the
+      # script always emits at least a homepage sitemap and exits 0, so this can
+      # never break a deploy.
+      - name: Generate sitemap.xml
+        run: node tools/gen-sitemap.js > _site/sitemap.xml
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

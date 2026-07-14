@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BuildMyMTB — MTB build & compatibility checker</title>
-<meta name="description" content="Pick mountain bike parts and see, in real time, whether they fit together — plus running price and weight. A free prototype build checker." />
+<meta name="description" id="metaDesc" content="Pick mountain bike parts and see, in real time, whether they fit together — plus running price and weight. A free prototype build checker." />
 
 <!-- Social preview (Open Graph + Twitter Card) — no image tag: the catalog has no
      licensed site-level image yet (see CLAUDE.md Provenance/roadmap), and an og:image
@@ -14,7 +14,7 @@
 <meta property="og:description" content="Pick mountain bike parts and see, in real time, whether they fit together — plus running price and weight." />
 <meta property="og:url" content="https://buildmymtb.com/" />
 <meta property="og:site_name" content="BuildMyMTB" />
-<link rel="canonical" href="https://buildmymtb.com/" />
+<link rel="canonical" id="canonicalLink" href="https://buildmymtb.com/" />
 
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="BuildMyMTB — MTB build & compatibility checker" />
@@ -345,6 +345,43 @@
   body.guides-page .layout,body.guides-page .toolbar,body.guides-page .legend,body.guides-page #search,body.guides-page #share,body.guides-page .menu{display:none}
   body.guides-page #guidesPage{display:block}
   body.guides-page #mobileBar{display:none}
+  /* Builds Gallery page: same full-width-view convention as the other pages.
+     body.gallery-page hides the builder and reveals this. */
+  #galleryPage{display:none}
+  body.gallery-page .layout,body.gallery-page .toolbar,body.gallery-page .legend,body.gallery-page #search,body.gallery-page #share,body.gallery-page .menu{display:none}
+  body.gallery-page #galleryPage{display:block}
+  body.gallery-page #mobileBar{display:none}
+  .gal-filters{display:flex;gap:8px;flex-wrap:wrap;margin:4px 0 16px;align-items:center}
+  .gal-filters .gal-flabel{font-size:12px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.02em;margin-right:2px}
+  .gal-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  .gal-card{display:block;width:100%;text-align:left;border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;background:var(--card);color:var(--ink);cursor:pointer;font:inherit}
+  .gal-card:hover{border-color:var(--brand)}
+  .gal-card:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  .gal-card h3{font-size:15px;margin:0 0 4px;line-height:1.3;word-break:break-word}
+  .gal-card .gal-by{font-size:12px;color:var(--ink-soft);margin:0 0 10px}
+  .gal-card .gal-by .linklike{font-size:12px}
+  .gal-stat{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;margin:0 0 6px}
+  .gal-chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0 0}
+  .gal-chip{font-size:11px;font-weight:700;background:var(--chip,#eef3ef);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:3px 9px;line-height:1.3}
+  .gal-dot{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block}
+  /* detail page */
+  .gal-detail-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:14px 0 2px}
+  .gal-detail-head h1{font-size:24px;margin:0;line-height:1.2;word-break:break-word}
+  .gal-detail-meta{color:var(--ink-soft);font-size:13px;margin:4px 0 0}
+  .gal-verdict{margin:14px 0;font-weight:700}
+  .gal-story{white-space:pre-wrap;font-size:14px;line-height:1.55;margin:14px 0;max-width:680px}
+  .gal-parts{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:16px 0;max-width:680px}
+  .gal-gsub{background:var(--chip,#eef3ef);font-weight:700;font-size:13px;padding:8px 12px}
+  .gal-prow{display:flex;justify-content:space-between;gap:10px;padding:8px 12px;border-top:1px solid var(--line);font-size:13px}
+  .gal-prow .bl{color:var(--ink-soft)}
+  .gal-prow .bp{flex:1;text-align:right;font-weight:600;word-break:break-word}
+  .gal-actions{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 0}
+  .pub-gate{border-radius:9px;padding:10px 12px;font-size:13px;font-weight:600;margin-bottom:12px}
+  .pub-gate.ok{background:#e7f5ec;color:#1c6b3f}
+  .pub-gate.blocked{background:#fdecec;color:#a12a2a}
+  .pub-totals{font-size:13px;color:var(--ink-soft);margin-bottom:12px}
+  .pub-msg{color:#a12a2a;font-size:13px;margin:8px 0 0}
   .guides-intro{color:var(--ink-soft);font-size:14px;margin:6px 0 20px;max-width:680px}
   /* index grid of guide cards */
   .guides-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
@@ -779,6 +816,12 @@
              content from src/guides.js — no account/feature gate). Opens #guidesPage. -->
         <button type="button" class="btn" id="guidesNavBtn"
           title="Buyer's &amp; compatibility guides">📚<span class="hdr-long"> Guides</span></button>
+        <!-- Builds Gallery: browsable public gallery of completed, checked builds.
+             Hidden until the gallery_builds table exists (feature-detected —
+             hasGallery in src/gallery.js), so it's safe to deploy before the
+             migration runs. Opens #builds. -->
+        <button type="button" class="btn" id="galleryNavBtn"
+          title="Completed builds from the community — every one checked by the engine" hidden>🏆<span class="hdr-long"> Builds</span></button>
         <!-- Account control (Phase 3). Hidden entirely until Supabase config is set
              (ACCOUNTS_ENABLED). renderAccount() toggles logged-in vs logged-out. -->
         <div class="acctbox" id="acctBox" hidden>
@@ -894,6 +937,10 @@
           <div class="meter" id="radMeterWrap" hidden><i id="radBar"></i></div>
           <button type="button" class="btn primary viewbuild" id="viewBuild" hidden>📋 View complete build</button>
           <button type="button" class="btn viewbuild" id="shareImageBtn" hidden>🖼️ Spec-card image</button>
+          <!-- Publish to the public Builds Gallery. Shown only when signed in +
+               the gallery is live; the dialog enforces the gate (complete + zero
+               errors). A user-clicked dialog, never an auto pop-up. -->
+          <button type="button" class="btn viewbuild" id="publishGalleryBtn" hidden>🏆 Publish to gallery</button>
         </div>
       </div>
     </aside>
@@ -993,6 +1040,32 @@
         manufacturer before you buy. This guide contains no affiliate links.</p>
     </article>
   </section>
+
+  <!-- Builds Gallery as its own full-width page. Same convention as the
+       inventory/forum/profile/guides pages: toggled by the header 🏆 Builds
+       button or a #builds / #build/<id> hash (and the canonical ?g=<id> deep
+       link for crawlers), builder view hidden by CSS while active. Two states:
+       an index grid (#galleryIndex) and a single build (#galleryDetail).
+       Public + read-only for everyone; publishing requires sign-in. -->
+  <section id="galleryPage" aria-label="Completed builds gallery">
+    <div class="invpage-head">
+      <button type="button" class="btn" id="galleryBack">← Back to builder</button>
+      <h2>🏆 Completed Builds</h2>
+    </div>
+
+    <div id="galleryIndex">
+      <p class="invpage-sub">Real builds shared by riders — and every single one has been run through the
+        compatibility engine. Browse, then <b>open any build in the builder</b> to fork and make it your own.
+        Ordered newest first; ordering never favors any brand or retailer.</p>
+      <div class="gal-filters" id="galleryFilters" role="group" aria-label="Filter builds"></div>
+      <div id="galleryGrid" class="gal-grid" aria-live="polite"></div>
+    </div>
+
+    <div id="galleryDetail" hidden aria-live="polite">
+      <button type="button" class="btn" id="galleryIndexBack">← All builds</button>
+      <div id="galleryDetailBody"></div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -1051,6 +1124,34 @@
     <button type="button" class="btn" id="reportCancel">Cancel</button>
     <button type="button" class="btn" id="reportCopy">Copy report</button>
     <button type="button" class="btn primary" id="reportGithub" hidden>Open a GitHub issue</button>
+  </div>
+</dialog>
+
+<!-- Publish-to-gallery dialog. User-clicked (never an auto pop-up). The gate
+     line reflects gallerySnapshot()'s verdict: publish is enabled only for a
+     complete build with zero errors; warnings are allowed and noted. -->
+<dialog id="publishModal" aria-labelledby="pubTitle" role="dialog" aria-modal="true">
+  <div class="rm-head">
+    <h2 id="pubTitle">🏆 Publish to the Builds Gallery</h2>
+    <p>Share this build on a public page — parts list, real engine totals, and its
+      honest compatibility verdict. You can unpublish it anytime.</p>
+  </div>
+  <div class="rm-body">
+    <div class="pub-gate" id="publishGate" role="status" aria-live="polite"></div>
+    <div class="pub-totals" id="publishTotals"></div>
+    <div>
+      <label for="publishTitle">Title <span style="font-weight:500">(required)</span></label>
+      <input type="text" id="publishTitle" maxlength="120" placeholder="e.g. My first enduro build" />
+    </div>
+    <div>
+      <label for="publishStory">Story <span style="font-weight:500">(optional — what it&rsquo;s for, how it rides)</span></label>
+      <textarea id="publishStory" maxlength="4000" placeholder="A few words about this build…"></textarea>
+    </div>
+    <p class="pub-msg" id="publishMsg" role="status" aria-live="polite" hidden></p>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="publishCancel">Cancel</button>
+    <button type="button" class="btn primary" id="publishSubmit">Publish</button>
   </div>
 </dialog>
 
@@ -1249,6 +1350,9 @@
 <script src="src/forum.js"></script>
 <script src="src/guides.js"></script>
 <script src="src/compat.js"></script>
+<!-- gallery.js loads AFTER compat.js: its pure publish-snapshot helpers read the
+     engine primitives as globals in the browser (see the file header). -->
+<script src="src/gallery.js"></script>
 <script>
 (function(){
   var build = {};            // slotKey -> part id
@@ -3377,7 +3481,7 @@
     }).catch(function(e){ status.textContent = e.message || 'Could not post thread.'; });
   }
 
-  function sync(){ renderCatalog(); renderPanel(); renderReport(); updateMobileBar(); writeHash(); }
+  function sync(){ renderCatalog(); renderPanel(); renderReport(); updateMobileBar(); writeHash(); if(typeof syncPublishBtn==='function') syncPublishBtn(); }
 
   /* ---- mobile sticky build bar: mirrors the panel verdict and totals so
      they're visible above the fold on phones. Verdict wording matches
@@ -3457,10 +3561,284 @@
     else if(document.body.classList.contains('guides-page')){ closeGuides(); }
   }
 
+  /* ================= Builds Gallery (public completed builds) =================
+     A full-width page like guides/forum. Deep-linkable: #builds = the grid,
+     #build/<id> = one build (in-app), and ?g=<id> = the CANONICAL crawlable URL
+     (a query param IS a distinct URL to crawlers, unlike a #hash — scope §5).
+     Publishing gates on gallerySnapshot() (complete + zero errors); the detail
+     page recomputes price/weight/verdict LIVE from the payload (engine output is
+     truth), and ordering is recency only — NEVER any monetization signal (§6). */
+  var _galleryReady = (typeof galleryReady === 'function') && galleryReady();
+  var _galleryOn = false;              // feature-detected gallery_builds table
+  var _galleryCurrentId = null;
+  var _galleryFilter = { discipline:'all', wheel_config:'all' };
+  var _galleryRows = null;
+  var _pendingSnapshot = null;
+  var WC_LABEL = { '29':'29"', '275':'27.5"', mullet:'Mullet', '26':'26"', '24':'24"' };
+  var GALLERY_SITE = 'https://buildmymtb.com';   // canonical origin (matches CNAME) for SEO tags
+
+  var _DEFAULT_TITLE = 'BuildMyMTB — MTB build & compatibility checker';
+  var _DEFAULT_DESC  = ($('metaDesc') && $('metaDesc').getAttribute('content')) || '';
+  var _DEFAULT_CANON = ($('canonicalLink') && $('canonicalLink').getAttribute('href')) || (GALLERY_SITE + '/');
+  function _setGalleryMeta(desc, canonical){
+    if($('metaDesc') && desc != null) $('metaDesc').setAttribute('content', desc);
+    if($('canonicalLink') && canonical) $('canonicalLink').setAttribute('href', canonical);
+  }
+  function _resetGalleryMeta(){
+    document.title = _DEFAULT_TITLE;
+    if($('metaDesc')) $('metaDesc').setAttribute('content', _DEFAULT_DESC);
+    if($('canonicalLink')) $('canonicalLink').setAttribute('href', _DEFAULT_CANON);
+  }
+
+  /* verified-part count of a published payload (for the card badge). */
+  function galleryVerifiedCount(data){
+    try{ var clean = sanitizeShare((data && data.b) || {}, (data && data.p) || {}); var n = 0;
+      Object.keys(clean.build).forEach(function(k){ var p = byId(clean.build[k]); if(p && partVerified(p)) n++; });
+      return n;
+    }catch(e){ return 0; }
+  }
+
+  function enterGalleryPage(){
+    document.body.classList.remove('guides-page','inv-page','forum-page','profile-page');
+    document.body.classList.add('gallery-page');
+    window.scrollTo(0,0);
+  }
+  function closeGallery(){
+    document.body.classList.remove('gallery-page');
+    _resetGalleryMeta();
+  }
+  function openGalleryIndex(){
+    // Strip a lingering ?g= canonical param when returning to the grid so a
+    // refresh reopens the index, not the last build.
+    if(location.search){ try{ history.replaceState(null,'', location.pathname + (location.hash || '#builds')); }catch(e){} }
+    enterGalleryPage();
+    $('galleryDetail').hidden = true;
+    $('galleryIndex').hidden = false;
+    _resetGalleryMeta();   // the index is not a per-build canonical
+    document.title = 'Builds — BuildMyMTB';
+    renderGalleryFilters();
+    renderGalleryGrid();
+  }
+  function openGalleryDetail(id){
+    enterGalleryPage();
+    $('galleryIndex').hidden = true;
+    $('galleryDetail').hidden = false;
+    renderGalleryDetail(id);
+  }
+  function routeGalleryHash(){
+    var h = location.hash || '';
+    if(h.indexOf('#build/') === 0){ openGalleryDetail(decodeURIComponent(h.slice(7))); }
+    else if(h === '#builds'){ openGalleryIndex(); }
+    else if(document.body.classList.contains('gallery-page')){ closeGallery(); }
+  }
+
+  /* ---- grid ---- */
+  function renderGalleryFilters(){
+    var el = $('galleryFilters'); if(!el) return;
+    var discs = ['all','xc','trail','enduro','dh','dj'];
+    var wcs = ['all','29','275','mullet','26'];
+    var html = '<span class="gal-flabel">Discipline</span>';
+    discs.forEach(function(d){
+      var lbl = d === 'all' ? 'All' : (DISC_LABELS[d] || d);
+      html += '<button type="button" class="chip'+(_galleryFilter.discipline===d?' active':'')+'" data-f="disc" data-v="'+esc(d)+'" aria-pressed="'+(_galleryFilter.discipline===d)+'">'+esc(lbl)+'</button>';
+    });
+    html += '<span class="gal-flabel" style="margin-left:8px">Wheels</span>';
+    wcs.forEach(function(w){
+      var lbl = w === 'all' ? 'All' : (WC_LABEL[w] || w);
+      html += '<button type="button" class="chip'+(_galleryFilter.wheel_config===w?' active':'')+'" data-f="wc" data-v="'+esc(w)+'" aria-pressed="'+(_galleryFilter.wheel_config===w)+'">'+esc(lbl)+'</button>';
+    });
+    el.innerHTML = html;
+    el.querySelectorAll('[data-f]').forEach(function(b){
+      b.onclick = function(){
+        if(b.getAttribute('data-f')==='disc') _galleryFilter.discipline = b.getAttribute('data-v');
+        else _galleryFilter.wheel_config = b.getAttribute('data-v');
+        renderGalleryFilters(); renderGalleryGrid();
+      };
+    });
+  }
+  function galleryCard(row){
+    var dot = buildVerdictDot(row.data), tot = buildTotalsFor(row.data), vc = galleryVerifiedCount(row.data);
+    var chips = '';
+    if(row.discipline && DISC_LABELS[row.discipline]) chips += '<span class="gal-chip">'+esc(DISC_LABELS[row.discipline])+'</span>';
+    if(row.wheel_config && WC_LABEL[row.wheel_config]) chips += '<span class="gal-chip">'+esc(WC_LABEL[row.wheel_config])+'</span>';
+    if(vc) chips += '<span class="gal-chip">✓ '+vc+' verified</span>';
+    var card = document.createElement('div');
+    card.className = 'gal-card'; card.setAttribute('role','button'); card.tabIndex = 0;
+    card.innerHTML =
+      '<h3>'+esc(row.title || 'Untitled build')+'</h3>'+
+      '<div class="gal-by">by <button type="button" class="linklike" data-uid="'+esc(row.author_id || '')+'">'+esc(forumAuthorLabel(row.author_id))+'</button>'+forumAuthorBadge(row.author_id)+'</div>'+
+      '<div class="gal-stat"><span class="gal-dot" style="background:'+dot.color+'"></span>'+esc(dot.label)+'</div>'+
+      '<div class="gal-stat">'+money(tot.price||0)+(tot.weight?(' · '+(tot.weight/1000).toFixed(2)+' kg'):'')+'</div>'+
+      (chips?'<div class="gal-chips">'+chips+'</div>':'');
+    function go(){ location.hash = '#build/' + row.id; }
+    card.onclick = go;
+    card.onkeydown = function(e){ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); go(); } };
+    var authBtn = card.querySelector('[data-uid]');
+    if(authBtn){ authBtn.onclick = function(e){ e.stopPropagation(); var uid = authBtn.getAttribute('data-uid'); if(uid && typeof openProfilePage==='function') openProfilePage(uid); }; }
+    return card;
+  }
+  function renderGalleryGrid(){
+    var el = $('galleryGrid'); el.innerHTML = '<div class="gempty">Loading…</div>';
+    if(!galleryReady()){ el.innerHTML = '<div class="gempty">The gallery isn’t available yet.</div>'; return; }
+    var opts = {};
+    if(_galleryFilter.discipline !== 'all') opts.discipline = _galleryFilter.discipline;
+    if(_galleryFilter.wheel_config !== 'all') opts.wheel_config = _galleryFilter.wheel_config;
+    listGalleryBuilds(opts).then(function(rows){
+      _galleryRows = rows || [];
+      return ensureProfiles(_galleryRows.map(function(r){ return r.author_id; }));
+    }).then(function(){
+      if(!_galleryRows.length){ el.innerHTML = '<div class="gempty">No published builds yet. Build a complete bike, then “🏆 Publish to gallery”.</div>'; return; }
+      el.innerHTML = '';
+      _galleryRows.forEach(function(row){ el.appendChild(galleryCard(row)); });
+    }).catch(function(e){ el.innerHTML = '<div class="gempty">Could not load builds: '+esc(e.message||'')+'</div>'; });
+  }
+
+  /* ---- detail ---- */
+  function galleryPartsHTML(data){
+    var d = _resolveData(data), res = d.resolved, pby = d.clean.presetBy, html = '';
+    GROUPS.forEach(function(g){
+      var any = g.slots.some(function(s){ return res[s.key]; });
+      var bundle = (g.preset && bundleActive(g, res, pby)) ? byId(pby[g.key]) : null;
+      if(!any && !bundle) return;
+      html += '<div class="gal-gsub">'+(ICONS[g.key]||'')+' '+esc(g.label)+(bundle?(' — '+esc(bundle.brand+' '+bundle.model)+' kit'):'')+'</div>';
+      g.slots.forEach(function(s){ var p = res[s.key]; if(!p) return;
+        html += '<div class="gal-prow"><span class="bl">'+esc(s.label)+'</span><span class="bp">'+esc(p.brand+' '+p.model)+(partVerified(p)?' <span title="Verified vs the manufacturer">✓</span>':'')+'</span></div>';
+      });
+    });
+    return html;
+  }
+  function galleryVerdictHTML(res){
+    var r = checkBuild(res);
+    if(r.errors.length) return '<div class="gal-verdict" style="color:#a12a2a">✗ '+r.errors.length+' conflict'+(r.errors.length>1?'s':'')+'</div>';
+    if(r.warnings.length){
+      var items = r.warnings.map(function(w){ return '<li>'+esc(String(w))+'</li>'; }).join('');
+      return '<div class="gal-verdict" style="color:#a8730f">⚠ '+r.warnings.length+' thing'+(r.warnings.length>1?'s':'')+' to check</div><ul class="invpage-sub" style="margin:0 0 8px">'+items+'</ul>';
+    }
+    return '<div class="gal-verdict" style="color:#1c6b3f">✓ No conflicts found</div>';
+  }
+  function renderGalleryDetail(id){
+    _galleryCurrentId = id;
+    var el = $('galleryDetailBody'); el.innerHTML = '<div class="gempty">Loading…</div>';
+    if(!galleryReady()){ el.innerHTML = '<div class="gempty">The gallery isn’t available.</div>'; return; }
+    getGalleryBuild(id).then(function(row){
+      if(!row){ el.innerHTML = '<div class="gempty">This build was removed, or the link is wrong. <button type="button" class="linklike" onclick="location.hash=\'#builds\'">Browse all builds</button>.</div>';
+        document.title = 'Build not found — BuildMyMTB'; _resetGalleryMeta(); return; }
+      return ensureProfiles([row.author_id]).then(function(){ _renderGalleryDetailRow(row); });
+    }).catch(function(e){ el.innerHTML = '<div class="gempty">Could not load this build: '+esc(e.message||'')+'</div>'; });
+  }
+  function _renderGalleryDetailRow(row){
+    var el = $('galleryDetailBody');
+    var d = _resolveData(row.data), res = d.resolved;
+    var tot = buildTotals(res, d.clean.presetBy);
+    var canonical = GALLERY_SITE + '/?g=' + encodeURIComponent(row.id);
+    var weightStr = tot.weight ? ((tot.weight/1000).toFixed(2)+' kg'+(tot.missingWeight?' +':'')) : '—';
+    // Client-set title + meta description + canonical for this build (SEO tier 1).
+    document.title = (row.title || 'Build') + ' — BuildMyMTB';
+    var metaDesc = row.story ? String(row.story).replace(/\s+/g,' ').trim().slice(0,155)
+      : ('A completed, compatibility-checked MTB build — '+money(tot.price||0)+' · '+weightStr+' on BuildMyMTB.');
+    _setGalleryMeta(metaDesc, canonical);
+    var canManage = canModerate(row.author_id);
+    var dateStr = row.created_at ? new Date(row.created_at).toLocaleDateString(undefined,{year:'numeric',month:'short',day:'numeric'}) : '';
+    var authorHTML = '<button type="button" class="linklike" id="galDetailAuthor" data-uid="'+esc(row.author_id||'')+'">'+esc(forumAuthorLabel(row.author_id))+'</button>'+forumAuthorBadge(row.author_id);
+    var chips = '';
+    if(row.discipline && DISC_LABELS[row.discipline]) chips += '<span class="gal-chip">'+esc(DISC_LABELS[row.discipline])+'</span>';
+    if(row.wheel_config && WC_LABEL[row.wheel_config]) chips += '<span class="gal-chip">'+esc(WC_LABEL[row.wheel_config])+'</span>';
+    var html =
+      '<div class="gal-detail-head"><h1>'+esc(row.title || 'Untitled build')+'</h1></div>'+
+      '<p class="gal-detail-meta">by '+authorHTML+(dateStr?(' · '+esc(dateStr)):'')+'</p>'+
+      (chips?'<div class="gal-chips" style="margin:10px 0 0">'+chips+'</div>':'')+
+      galleryVerdictHTML(res)+
+      '<div class="pub-totals"><b>'+money(tot.price||0)+'</b> · '+esc(weightStr)+' <span style="color:var(--ink-soft)">(sample data unless a part shows ✓)</span></div>'+
+      (row.story?('<div class="gal-story">'+esc(row.story)+'</div>'):'')+
+      '<div class="gal-parts">'+galleryPartsHTML(row.data)+'</div>'+
+      '<div class="gal-actions">'+
+        '<button type="button" class="btn primary" id="galOpenBuilder">🛠 Open in builder</button>'+
+        '<button type="button" class="btn" id="galCopyLink">🔗 Copy link</button>'+
+        (REPORT_REPO?'<button type="button" class="btn" id="galReport">⚐ Report this build</button>':'')+
+        (canManage?'<button type="button" class="btn" id="galEdit">✎ Edit</button><button type="button" class="btn danger" id="galUnpublish">🗑 Unpublish</button>':'')+
+      '</div>';
+    el.innerHTML = html;
+    var au = $('galDetailAuthor');
+    if(au){ au.onclick = function(){ var uid = au.getAttribute('data-uid'); if(uid && typeof openProfilePage==='function') openProfilePage(uid); }; }
+    $('galOpenBuilder').onclick = function(){ galleryOpenInBuilder(row.data); };
+    $('galCopyLink').onclick = function(){ copyText(location.origin + '/?g=' + row.id, 'Link copied — share it anywhere'); };
+    if($('galReport')) $('galReport').onclick = function(){ reportGalleryBuild(row.id, row.title); };
+    if($('galEdit')) $('galEdit').onclick = function(){ editGalleryBuild(row); };
+    if($('galUnpublish')) $('galUnpublish').onclick = function(){ unpublishGalleryBuild(row); };
+  }
+
+  function galleryOpenInBuilder(data){
+    // Reuse the share-link load path (sanitizeShare + sync -> writeHash sets #b=).
+    try{ history.replaceState(null,'', location.pathname); }catch(e){}
+    closeGallery();
+    loadBuildData(data);
+    toast('Loaded into the builder — tweak away, then publish your own');
+  }
+  function reportGalleryBuild(id, title){
+    if(!REPORT_REPO){ toast('Reporting isn’t configured'); return; }
+    var body = 'Reporting a published gallery build.\n\n'+
+      'Build: '+location.origin+'/?g='+id+'\nID: '+id+'\n\n'+
+      'Reason (spam / scam link / illegal / doxxing / other) and details:\n';
+    var url = 'https://github.com/'+REPORT_REPO+'/issues/new?labels=gallery-report'+
+      '&title='+encodeURIComponent('Gallery report: '+(title||id))+
+      '&body='+encodeURIComponent(body);
+    window.open(url, '_blank', 'noopener');
+  }
+  function editGalleryBuild(row){
+    var t = prompt('Edit title', row.title || ''); if(t == null) return;
+    t = t.trim(); if(!t){ toast('A title is required'); return; }
+    var s = prompt('Edit story (leave blank to clear)', row.story || ''); if(s == null) return;
+    updateGalleryBuildMeta(row.id, { title:t, story:(s.trim()||null) })
+      .then(function(){ toast('Updated'); renderGalleryDetail(row.id); })
+      .catch(function(e){ toast(e.message || 'Update failed'); });
+  }
+  function unpublishGalleryBuild(row){
+    if(!confirm('Unpublish “'+(row.title||'this build')+'”? Its public page will 404 — this can’t be undone.')) return;
+    deleteGalleryBuild(row.id)
+      .then(function(){ toast('Unpublished'); location.hash = '#builds'; })
+      .catch(function(e){ toast(e.message || 'Unpublish failed'); });
+  }
+
+  /* ---- publish flow ---- */
+  function syncPublishBtn(){
+    var on = _galleryReady && _galleryOn && (typeof currentUser==='function') && !!currentUser() && Object.keys(build).length > 0;
+    var btn = $('publishGalleryBtn'); if(btn) btn.hidden = !on;
+  }
+  function openPublishModal(){
+    if(!(_galleryReady && _galleryOn)){ toast('The gallery isn’t available yet'); return; }
+    if(!(typeof currentUser==='function' && currentUser())){ toast('Sign in to publish'); if(typeof openAuth==='function') openAuth(); return; }
+    var snap = gallerySnapshot(build, presetBy);
+    _pendingSnapshot = snap;
+    var g = snap.gate, gate = $('publishGate'), sub = $('publishSubmit'), msg = $('publishMsg');
+    msg.hidden = true; msg.textContent = '';
+    if(!g.complete){ gate.className = 'pub-gate blocked'; gate.textContent = 'Finish the build first — every required part must be chosen before it can be published.'; sub.disabled = true; }
+    else if(g.errors > 0){ gate.className = 'pub-gate blocked'; gate.textContent = 'This build has '+g.errors+' conflict'+(g.errors>1?'s':'')+' to fix. Only builds that actually fit can be published.'; sub.disabled = true; }
+    else { gate.className = 'pub-gate ok'; gate.textContent = 'Ready to publish'+(g.warnings.length?(' — '+g.warnings.length+' thing'+(g.warnings.length>1?'s':'')+' to check (allowed; shown honestly on your build’s page).'):' — no conflicts found.'); sub.disabled = false; }
+    var t = buildTotals(resolved(), presetBy);
+    $('publishTotals').textContent = 'Totals: '+money(t.price||0)+(t.weight?(' · '+(t.weight/1000).toFixed(2)+' kg'):'');
+    $('publishTitle').value = ''; $('publishStory').value = '';
+    $('publishModal').showModal();
+  }
+  function doPublish(){
+    var snap = _pendingSnapshot, msg = $('publishMsg');
+    if(!snap || !snap.gate.ok){ return; }
+    var title = ($('publishTitle').value || '').trim();
+    if(!title){ msg.hidden = false; msg.textContent = 'Please add a title.'; return; }
+    var story = ($('publishStory').value || '').trim();
+    $('publishSubmit').disabled = true;
+    publishGalleryBuild({ title:title, story:story||null, data:snap.data,
+      total_price:snap.total_price, total_weight:snap.total_weight,
+      discipline:snap.discipline, wheel_config:snap.wheel_config })
+      .then(function(rows){ var r = rows && rows[0]; $('publishModal').close(); toast('Published to the gallery');
+        if(r && r.id){ location.hash = '#build/' + r.id; } })
+      .catch(function(e){ msg.hidden = false; msg.textContent = e.message || 'Publish failed'; $('publishSubmit').disabled = false; });
+  }
+
   /* ---- share / restore (build + presetBy) ---- */
-  // Skip while the guides page is active so a #guides / #guide/<slug> deep-link
-  // isn't clobbered by the build hash (the guides views own the hash then).
-  function writeHash(){ if(document.body.classList.contains('guides-page')) return;
+  // Skip while the guides or gallery page is active so a #guides / #guide/<slug>
+  // / #build/<id> / ?g=<id> deep-link isn't clobbered by the build hash (those
+  // views own the URL then).
+  function writeHash(){ if(document.body.classList.contains('guides-page') || document.body.classList.contains('gallery-page')) return;
     try{ history.replaceState(null,'','#b='+btoa(encodeURIComponent(JSON.stringify({b:build,p:presetBy})))); }catch(e){} }
   function readHash(){
     try{ var m=location.hash.match(/b=([^&]+)/); if(!m) return;
@@ -3785,6 +4163,15 @@
   };
   $('guideBackToIndex').onclick = function(){ location.hash = '#guides'; };
   window.addEventListener('hashchange', routeGuidesHash);
+  /* Builds Gallery controls */
+  $('galleryNavBtn').onclick = function(){ location.hash = '#builds'; };
+  $('galleryBack').onclick = function(){ try{ history.replaceState(null,'', location.pathname); }catch(e){} closeGallery(); writeHash(); };
+  $('galleryIndexBack').onclick = function(){ location.hash = '#builds'; };
+  $('publishGalleryBtn').onclick = openPublishModal;
+  $('publishCancel').onclick = function(){ $('publishModal').close(); };
+  $('publishSubmit').onclick = doPublish;
+  $('publishModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
+  window.addEventListener('hashchange', routeGalleryHash);
   $('forumSignInLink').onclick = openAuth;
   $('forumDetailBack').onclick = closeForumThread;
   $('forumDeleteThread').onclick = function(){ confirmDeleteThread(_forumCurrentThreadRow); };
@@ -3800,11 +4187,21 @@
   // overwrite a #guides / #guide/<slug> deep-link with the build hash. writeHash
   // is guarded to no-op while the guides page is active, so the deep-link sticks.
   routeGuidesHash();
+  // Builds Gallery deep-link: the canonical crawlable URL is ?g=<id>. On load,
+  // open that build directly (this is the crawler + shared-link entry); else fall
+  // back to the hash router (#builds / #build/<id>). writeHash is guarded to skip
+  // the gallery page, so the ?g= / #build hash isn't clobbered by the build hash.
+  (function galleryDeepLink(){
+    var m = (location.search || '').match(/[?&]g=([^&#]+)/);
+    if(m){ openGalleryDetail(decodeURIComponent(m[1])); }
+    else { routeGalleryHash(); }
+  })();
   renderDiscChips(); renderChips(); renderSubChips(); renderSubFilters(); sync();
   // Wire auth state -> account UI. When accounts are unconfigured this no-ops.
   if(typeof initAccount === 'function'){
     initAccount(function(u){
       renderAccount(); syncHdrH(); refreshOwned();
+      if(typeof syncPublishBtn==='function') syncPublishBtn();   // publish button follows sign-in state
       if(u && $('authModal').open){ $('authModal').close(); }
       if(!u){ closeInventoryPage(); closeProfilePage(); }
       // profiles/admin: feature-detect the table, load my profile + is_admin,
@@ -3822,6 +4219,25 @@
     if(_forumReady){ f.hidden = false; a.hidden = true; }
     else if(FORUM_URL){ a.href = FORUM_URL; a.hidden = false; f.hidden = true; }
     else { a.hidden = true; f.hidden = true; }
+  })();
+  // Builds Gallery: feature-detect the gallery_builds table (deploy-order safety,
+  // like the forum). The 🏆 Builds nav + the Publish button light up only once
+  // the migration has run against the live project; self-heals on the next probe.
+  (function initGallery(){
+    $('galleryNavBtn').hidden = true;
+    if(!_galleryReady){ return; }
+    hasGallery().then(function(on){
+      _galleryOn = on;
+      $('galleryNavBtn').hidden = !on;
+      syncPublishBtn();
+      // If the app booted straight onto a gallery deep-link, re-route now that
+      // the table is confirmed (the first render may have shown "unavailable").
+      if(on && document.body.classList.contains('gallery-page')){
+        var m = (location.search || '').match(/[?&]g=([^&#]+)/);
+        if(m){ openGalleryDetail(decodeURIComponent(m[1])); }
+        else { routeGalleryHash(); }
+      }
+    });
   })();
   syncHdrH();   // the account/community renders above can rewrap the banner
 })();
