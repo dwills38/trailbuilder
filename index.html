@@ -1332,7 +1332,13 @@
   var groupByKey = {};  GROUPS.forEach(function(g){ groupByKey[g.key] = g; });
   var CAT_GROUP = {};   SLOTS.forEach(function(s){ CAT_GROUP[s.cat] = s.group; }); Object.keys(PRESET_GROUP).forEach(function(c){ CAT_GROUP[c] = PRESET_GROUP[c]; });
 
-  var isPreset = function(p){ return !!p.fills; };
+  // Named isPresetPart (not isPreset) to distinguish it from schema.js's
+  // isPresetCat(cat): this one checks a PART's actual `fills` field, for
+  // display purposes on already-validated catalog data. isPresetCat
+  // classifies by schema category and must stay correct on malformed data
+  // (the validator's job); the two coincide once data is valid, since only
+  // preset categories carry `fills`, but are not interchangeable in general.
+  var isPresetPart = function(p){ return !!p.fills; };
   function resolved(){ var o={}; Object.keys(build).forEach(function(k){ o[k]=byId(build[k]); }); return o; }
   function compatFor(p){ return compatOf(p, resolved()); }
 
@@ -1678,7 +1684,7 @@
         : null;
       el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':wheelsetEmptyHint?wheelsetEmptyHint:compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>'; return;
     }
-    var meta=list.map(function(p,i){ var c=compatOf(p, res); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='w'?1:c.state==='n'?2:3),pre:isPreset(p)?0:1,sh:shuffleKey(p.id),i:i}; });
+    var meta=list.map(function(p,i){ var c=compatOf(p, res); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='w'?1:c.state==='n'?2:3),pre:isPresetPart(p)?0:1,sh:shuffleKey(p.id),i:i}; });
     // "Best match" keeps the compatible-first order; explicit sorts are pure
     // (the dot still shows fit). Missing weights sink to the bottom either way.
     // featured's last tie-break is the seeded shuffle key (see shuffleKey above),
@@ -1698,11 +1704,11 @@
 
   function cardEl(p, compat){
     var card=document.createElement('div');
-    card.className='pcard'+(isPreset(p)?' kit':'');
+    card.className='pcard'+(isPresetPart(p)?' kit':'');
     compat = compat || compatFor(p);
 
     var priceHtml;
-    if(isPreset(p)){
+    if(isPresetPart(p)){
       var kw = partWeight(p);   // derived from fills, never stored on a kit
       // .wtsep carries the leading separator so the one-line list view (which
       // stacks the .wt tail under the price) can hide it; cards render it inline
@@ -1730,7 +1736,7 @@
     card.querySelector('.name').onclick=function(e){ e.stopPropagation(); openPartModal(p); };
     var picks=card.querySelector('.picks');
 
-    if(isPreset(p)){
+    if(isPresetPart(p)){
       var b=mkBtn('Quick-fill', false, true);
       b.onclick=function(){ applyPreset(p.id); };
       picks.appendChild(b);

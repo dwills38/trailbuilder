@@ -59,6 +59,7 @@ Entry points (`validate.js`, `index.html`) live at the root; tests run on Vitest
 | `test/test-ids.js` | Id convention + `ALIASES`: brand-qualified, append-only, ≥3 tokens; retired ids resolve through `canonicalId()`. |
 | `test/test-drift-check.js` | The drift-check matching logic (pure, no network) — token generation + ok/changed/unfetchable/fetch-failed classification. |
 | `test/test-account-serialize.js` | Garage/account serialization: a saved build's payload round-trips through the same `sanitizeShare()` as share links (pure logic, no network). |
+| `test/test-invariants.js` | Engine-fortress properties across every part and many pseudo-random builds: `checkBuild` never throws, never returns malformed output, is deterministic, and every preset/lookup stays internally consistent — structural contract, not specific verdicts (that's `test-engine.js`). |
 | `package.json` | Scripts: `test` (Vitest), `test:watch`, `validate`, `typecheck`, `verify:status/next/report`. Dev-only deps: `vitest`, `typescript`, `@types/node`. |
 | `tools/verify-job.js` | **Resumable verification job runner** (state only, zero deps): queue/checkpoints for the part-verification grind. `init`, `status`, `next`, `start`, `complete`, `reset`, `retry`, `report`. Never reprocesses Verified parts without `--force`. |
 | `tools/VERIFY-PROTOCOL.md` | The **verification logic** (the bar, per-part loop, batching, skip policy) — kept separate from the runner so any AI model/session can resume the job with no code changes. **Read this before verifying parts.** |

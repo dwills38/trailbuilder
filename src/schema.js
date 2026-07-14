@@ -18,7 +18,7 @@
 /** @typedef {import('./types.js').Slot} Slot */
 /** @typedef {import('./types.js').Catalog} Catalog */
 /** @typedef {{type: 'number'|'string'|'bool'|'id'|'idArray'|'fills'|'enumArray'|'sizes', vocab?: string, optional?: boolean, nullable?: boolean}} FieldRule */
-/** @typedef {{has: (id: string) => boolean, catOf: (id: string) => string, slotCat: Object.<string, string>, today: Date}} Ctx */
+/** @typedef {{has: (id: string) => boolean, catOf: (id: string) => string, byId: (id: string) => any, slotCat: Object.<string, string>, today: Date}} Ctx */
 
 /* Canonical vocabularies - the only allowed values for each standard. */
 /** @type {Object.<string, string[]>} */
@@ -410,8 +410,15 @@ function brandSlug(brand){
     .toLowerCase().replace(/[^a-z0-9]/g, '');
 }
 
+/* Named isPresetCat (not isPreset) to distinguish it from index.html's
+   isPresetPart(p): this one classifies by SCHEMA CATEGORY and must stay
+   correct on malformed/incomplete data (e.g. a groupset row missing its
+   required `fills`), since it gates validator checks that run on untrusted
+   input. isPresetPart checks `!!p.fills` on already-valid catalog data for
+   UI display. The two coincide once data is valid (only PRESET_CATS carry a
+   `fills` field), but are not interchangeable on invalid input. */
 /** @param {string} cat @returns {boolean} */
-function isPreset(cat){ return PRESET_CATS.indexOf(cat) >= 0; }
+function isPresetCat(cat){ return PRESET_CATS.indexOf(cat) >= 0; }
 /** @param {*} v @returns {boolean} */
 function isNum(v){ return typeof v === 'number' && !isNaN(v); }
 /** @param {*} v @returns {boolean} */
@@ -432,17 +439,30 @@ function dateOk(v, today){
   return d.getTime() <= today.getTime();
 }
 
+/* id -> part index for a catalog, built once per validation call and reused
+   across every lookup site (mirrors compat.js's byId/_BY_ID memo idiom).
+   Null-prototype so a crafted id ('__proto__', 'constructor') can never
+   resolve to an inherited value. */
+/** @param {Catalog} C @returns {Object.<string, any>} */
+function _byIdMap(C){
+  /** @type {Object.<string, any>} */ var acc = Object.create(null);
+  C.PARTS.forEach(function(p){ acc[p.id] = p; });
+  return acc;
+}
+
 /* Build a validation context from a catalog ({PARTS, SLOTS}). */
 /** @param {Catalog} C @param {Date} [today] @returns {Ctx} */
 function _ctx(C, today){
   /** @type {Object.<string, boolean>} */ var ids = {};
   /** @type {Object.<string, string>} */ var catOf = {};
   C.PARTS.forEach(function(p){ ids[p.id] = true; catOf[p.id] = p.cat; });
+  var byIdMap = _byIdMap(C);
   /** @type {Object.<string, string>} */ var slotCat = {};
   C.SLOTS.forEach(function(s){ slotCat[s.key] = s.cat; });
   return {
     has: function(id){ return !!ids[id]; },
     catOf: function(id){ return catOf[id]; },
+    byId: function(id){ return byIdMap[id]; },
     slotCat: slotCat,
     today: today || new Date()
   };
@@ -480,7 +500,7 @@ function validatePart(p, ctx){
   // preset weight is ALWAYS derived from its fills (a stored figure drifts into
   // physically impossible bundles - REVIEW.md #12); price MAY be stored because
   // real bundle discounts exist (guarded by the <=-sum lint below)
-  if(isPreset(p.cat) && 'weight' in p) bad('preset weight is derived from fills - do not store it');
+  if(isPresetCat(p.cat) && 'weight' in p) bad('preset weight is derived from fills - do not store it');
 
   // provenance
   if('verified' in p && !isBool(p.verified)) bad('verified must be true/false');
@@ -693,7 +713,7 @@ function validateCatalog(C, today){
   C.PARTS.filter(function(p){ return p.cat === 'groupset' && isObj(p.fills); }).forEach(function(p){
     var sys = ['shifter','derailleur','cassette','chain']
       .map(function(s){ return p.fills[s]; })
-      .map(function(id){ var part = C.PARTS.filter(function(x){ return x.id === id; })[0]; return part ? part.system : null; })
+      .map(function(id){ var part = ctx.byId(id); return part ? part.system : null; })
       .filter(Boolean);
     var uniq = sys.filter(function(v,i,a){ return a.indexOf(v) === i; });
     if(uniq.length > 1) problems.push('[' + p.id + '] groupset mixes drivetrain systems: ' + sys.join(', '));
@@ -701,7 +721,7 @@ function validateCatalog(C, today){
 
   // a frame's bundled shock must exist AND physically fit the frame
   C.PARTS.filter(function(p){ return p.cat === 'frame' && p.bundledShock; }).forEach(function(f){
-    var s = C.PARTS.filter(function(x){ return x.id === f.bundledShock; })[0];
+    var s = ctx.byId(f.bundledShock);
     if(!s){ problems.push('[' + f.id + '] bundledShock "' + f.bundledShock + '" not found'); return; }
     if(s.eye !== f.shockEye || s.stroke !== f.shockStroke || s.mount !== f.shockMount)
       problems.push('[' + f.id + '] bundledShock ' + s.id + ' does not fit the frame (frame needs ' + f.shockEye + 'x' + f.shockStroke + ' ' + f.shockMount + ')');
@@ -710,7 +730,7 @@ function validateCatalog(C, today){
   // an OEM-only shock must point back to frames that actually bundle it (bidirectional)
   C.PARTS.filter(function(p){ return p.cat === 'shock' && p.oemOnly; }).forEach(function(s){
     (Array.isArray(s.forFrames) ? s.forFrames : []).forEach(function(/** @type {*} */ fid){
-      var f = C.PARTS.filter(function(x){ return x.id === fid; })[0];
+      var f = ctx.byId(fid);
       if(!f || f.cat !== 'frame'){ problems.push('[' + s.id + '] oemOnly forFrames entry "' + fid + '" is not a frame'); return; }
       if(f.bundledShock !== s.id) problems.push('[' + s.id + '] oemOnly shock is not referenced by ' + f.id + '.bundledShock (bidirectional link broken)');
     });
@@ -720,7 +740,7 @@ function validateCatalog(C, today){
   C.PARTS.filter(function(p){ return isObj(p.fills) && typeof p.price === 'number'; }).forEach(function(p){
     var sum = 0, complete = true;
     Object.keys(p.fills).forEach(function(slot){
-      var c = C.PARTS.filter(function(x){ return x.id === p.fills[slot]; })[0];
+      var c = ctx.byId(p.fills[slot]);
       if(c && typeof c.price === 'number') sum += c.price; else complete = false;
     });
     if(complete && p.price > sum) problems.push('[' + p.id + '] bundle price ' + p.price + ' exceeds the sum of its parts (' + sum + ')');
@@ -753,6 +773,7 @@ var KNOWN_VALUES = {
 /** @param {Catalog} C @returns {string[]} */
 function lintCatalog(C){
   /** @type {string[]} */ var warnings = [];
+  var byIdMap = _byIdMap(C);
   /** @param {*} p @param {string} field @param {number[]} list */
   function known(p, field, list){
     var v = p[field];
@@ -796,7 +817,7 @@ function lintCatalog(C){
   // almost always a fills typo; a future deliberate mullet kit can revisit)
   C.PARTS.filter(function(p){ return p.cat === 'wheelset' && isObj(p.fills); }).forEach(function(p){
     var parts = Object.keys(p.fills).map(function(slot){
-      return C.PARTS.filter(function(x){ return x.id === p.fills[slot]; })[0];
+      return byIdMap[p.fills[slot]];
     }).filter(Boolean);
     var sizes = parts.map(function(w){ return w.wheel; }).filter(function(v, i, a){ return a.indexOf(v) === i; });
     var brands = parts.map(function(w){ return w.brand; }).filter(function(v, i, a){ return a.indexOf(v) === i; });

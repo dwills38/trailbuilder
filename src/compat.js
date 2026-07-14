@@ -6732,6 +6732,20 @@ function _mulletWheelOK(theme, slotKey, part){
   return true;
 }
 
+/* key -> slot index, memoized like _BY_ID (SLOTS is immutable at runtime).
+   Both sample-build lookups below used to linear-scan SLOTS per call. */
+/** @type {Object.<string, Slot>|null} */
+var _SLOT_BY_KEY = null;
+/** @param {string} key @returns {Slot|null} */
+function _slotByKey(key){
+  if(!_SLOT_BY_KEY){
+    /** @type {Object.<string, Slot>} */ var acc = Object.create(null);
+    for(var i=0;i<SLOTS.length;i++){ acc[SLOTS[i].key] = SLOTS[i]; }
+    _SLOT_BY_KEY = acc;
+  }
+  return (key && _SLOT_BY_KEY[key]) || null;
+}
+
 /** Choose a part for one slot against the partial build: keep only candidates
  * that introduce NO new checkBuild error, prefer those that also add no new
  * warning, then band-sample. The baseline verdict sets are computed once per
@@ -6739,8 +6753,7 @@ function _mulletWheelOK(theme, slotKey, part){
  * - it just does it in bulk. Returns null when nothing fits (caller retries).
  * @param {Build} build @param {string} slotKey @param {SampleTheme} theme @param {function():number} rng @returns {Part|null} */
 function _sampleSlotPick(build, slotKey, theme, rng){
-  /** @type {Slot|null} */ var slot = null;
-  for(var i=0;i<SLOTS.length;i++){ if(SLOTS[i].key===slotKey){ slot = SLOTS[i]; break; } }
+  var slot = _slotByKey(slotKey);
   if(!slot) return null;
   /** @type {Build} */ var base = Object.assign({}, build); delete base[slotKey];
   var before = checkBuild(base);
@@ -6790,8 +6803,7 @@ function generateSampleBuild(themeKey, rng, opts){
     var dead = false;
     for(var s=0;s<_SAMPLE_PLAN.length;s++){
       var key = _SAMPLE_PLAN[s];
-      /** @type {Slot|null} */ var slot = null;
-      for(var q=0;q<SLOTS.length;q++){ if(SLOTS[q].key===key){ slot = SLOTS[q]; break; } }
+      var slot = _slotByKey(key);
       if(!slot) continue;
       var rw = effectiveWheel(build, 'rear');
       var required = slotRequired(slot, frame, rw);
