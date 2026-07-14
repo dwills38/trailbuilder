@@ -430,42 +430,38 @@ accumulates.
 
 ---
 
-## § Decisions for Douglas
+## § Decisions — DECIDED (Douglas, 2026-07-14)
 
-Recommendations first; only these need his call. Everything else is buildable as written.
+**★ ARCHITECTURE OVERRIDE (supersedes §5a):** the Kit Builder is a **SEPARATE PAGE**, not an
+in-builder section. A **"Kit Builder" button at the top of the main page** navigates to
+**`BuildMyMTB.com/KitBuilder`**; the Kit Builder page carries the **same-style button** to return to
+the Bike Builder. (So §5b's "Bike + Kit" combined total does NOT apply — see #5.)
 
-1. **Initial category set.** *Recommend:* ship the **8 core** (helmet, shoes, jersey, shorts+pants,
-   gloves, knee, elbow, body armor); **socks + eyewear + goggles** as a cheap fast-follow;
-   **hydration / base layers / neck braces** deferred. → *Confirm the v1 set and what (if anything) to
-   pull forward or drop.*
-2. **Sizing model sign-off (the load-bearing call).** *Recommend:* **one row per product** with a
-   **size-label list** + an optional **per-brand size chart**; **NEVER a row per size**; **no
-   universal cross-brand size claim.** → *Confirm — this shapes the whole catalog and the grind
-   instructions.*
-3. **The shoe↔pedal bridge.** *Recommend:* **build it** as an advisory — flat-shoe-on-clip-pedal =
-   **warning**, clip-shoe-on-flat-pedal = **info**, hybrid = silent; **never an error**; fires only
-   when both are in the build. → *Build it or keep kit fully independent? Confirm the severities.*
-4. **Architecture: section vs tab.** *Recommend:* an in-builder **"Rider Kit" section** (one
-   save/share payload; combined "Bike + Kit" total available) with **no kit rules in `checkBuild`**
-   and every kit slot optional. → *Confirm the in-builder section vs a separate Kit tab.*
-5. **Totals.** *Recommend:* a separate **"Kit total"** plus an optional **"Bike + Kit" grand total**
-   (bike total stays the headline number). → *Confirm you want the combined number shown.*
-6. **Launch gating.** *Recommend:* build it **live-capable behind a `KIT_ENABLED` gate** and flip on
-   your word — there's **no off-live requirement** here (kit has no error-tier engine, unlike BMX).
-   → *Confirm gate-and-flip vs off-live authoring.*
-7. **Certification = filter + badge, never a verdict** — and **cert claims are fetched-source only**
-   (a safety claim). The exact **rotational-systems vocab** (MIPS/WaveCel/…) wants an expert-review
-   confirm. → *Confirm the badge/filter treatment; OK to seed the rotational vocab pending expert
-   review?*
-8. **Minor calls (pick or defer):** (a) **shorts + pants = one category** with a `length` field
-   (recommended) vs two slots; (b) include **`fitCut`** (mens/womens/unisex) in v1 (recommended) vs
-   defer; (c) **`kitset` bundles** deferred to a later phase (recommended). → *Any objection?*
-9. **Grind kickoff.** The Sonnet data-entry chips stay **unspawned until you've made the calls above**
-   (per the directive). Helmet is the recommended first batch (richest spec + cert data). → *Say go,
-   and in what category order.*
+1. **Category set (v1):** the 8 core **PLUS neck braces, shin guards, and eyewear (glasses +
+   goggles)**. **Bottoms = shorts and pants as SEPARATE categories** (overrides #8a). **Every
+   component is OPTIONAL; nothing is "required."** **No hydration, no base layers** (not planned).
+   Final v1 list: helmet, shoes, jersey, shorts, pants, gloves, knee pads, elbow pads, body armor,
+   neck brace, shin guards, eyewear.
+2. **Sizing — CONFIRMED:** one row per product + a size-label list + optional per-brand size chart;
+   never a row per size; no cross-brand size claim.
+3. **Shoe↔pedal bridge — NO.** Do not build the bridge. Shoes are just broken down by their main
+   differentiator: **flat / clipless** (a `soleType`-style field; add any other primary shoe
+   differentiator that fits). Kit is fully independent of the bike build's engine.
+4. **Architecture — SEPARATE PAGE** (see the override above). No kit rules in `checkBuild`; every
+   kit slot optional.
+5. **Totals — a Kit total ONLY** (it's a separate page; no combined Bike+Kit total).
+6. **Launch gating — PREVIEW FIRST.** Do NOT auto-ship to live. Build it behind a `KIT_ENABLED`
+   gate (default off so a merge is live-safe) and present a branch for Douglas to preview at
+   localhost before it goes live; he flips it on when satisfied.
+7. **Cert — CONFIRMED:** filter + badge, never a verdict; cert claims fetched-source-only; seed the
+   rotational-systems vocab (MIPS/WaveCel/…) pending an expert-review confirm.
+8. **Bottoms — shorts and pants are SEPARATE categories** (see #1). `fitCut` (mens/womens/unisex) in
+   v1: keep (recommended). `kitset` bundles: deferred.
+9. **Grind — GO, ALL CATEGORIES AT ONCE.** Implement the foundation, then grind every category
+   simultaneously (orchestrator fans out pinned-Sonnet sub-agents). Delivered as one branch for
+   Douglas's preview.
 
 ---
 
-*Scoping only — no code, no schema, no catalog rows; the only artifact is this document on branch
-`scope/kit-builder`. Prepared 2026-07-14. The implementation round decides final field names and DDL;
-this round decides the shape and the product calls.*
+*Scope decided 2026-07-14. Implementation runs as one Fable orchestrator chip (foundation + parallel
+Sonnet grind), staged for Douglas's preview — see PROJECT-LOG.*
