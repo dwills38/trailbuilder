@@ -2,6 +2,13 @@
 
 ## 2026-07-14 — Overnight watch (coordinator harvesting while Douglas sleeps)
 
+- **Final wave before succession:** gallery scoping landed (`502d3d4` — snapshot-on-publish model,
+  forum-posture moderation, MVP=MEDIUM; 6 decisions queued for Douglas in the handoff) and the
+  mobile-only banner shrink AUTO-SHIPPED (`44a7a6c`, <=480px, post-hoc scan clean). Still grinding
+  when the next coordinator seats: wheels nominal-weight promotion + WAO Convergence rename chips.
+  This coordinator seat (coord/2026-07-12, the 7th) ends here — successor + the new parallel
+  Affiliate session both have complete seed docs.
+
 - **Session split: Affiliate session established alongside the Coordinator (Douglas, 2026-07-14).**
   Wrapped the final two loose sessions from the overnight fleet (contrast-fix auto-shipped
   `0024402`; the finishing-kit/mullet breadth session's branch had merged earlier but the session

@@ -151,9 +151,14 @@ job.json is coordinator-only.
    lineup; per-model ALIASES-vs-discontinued call, ambiguous cases flagged not guessed.
 3. **Mobile-only banner shrink** `[Sonnet, low]` — UI tier, auto-ships; desktop must stay
    pixel-identical, verify by DOM measurement.
-4. **Completed-builds gallery scoping** `[Fable, high]` — a DOCUMENT only (no code): data model,
-   moderation posture, UI surface, SEO mechanics, MVP-vs-full sizing, open decisions for Douglas.
-   This is the competitive audit's #1 recommendation; read `COMPETITIVE-LANDSCAPE-AUDIT.md` first.
+4. **Mobile banner shrink SHIPPED** (`44a7a6c`, <=480px only, post-hoc scan clean) and
+   **gallery scoping DONE** (`BUILDS-GALLERY-SCOPE.md` on main @ 502d3d4 + PDF sent): snapshot-on-
+   publish table (never a public flag on the private garage — RLS blast radius), forum moderation
+   posture verbatim, publish gate = complete+zero-errors, photos deferred, MVP = MEDIUM. **SIX
+   gallery decisions await Douglas** (doc S8): photos day-1 vs fast-follow (rec fast-follow) ·
+   account-required vs anonymous (rec account) · post- vs pre-moderation (rec post) · kudos/likes
+   at all · unpublish 404 vs tombstone (rec 404) · publish-gate sign-off. Implementation waits on
+   those answers.
 
 ### Douglas's pending one-liners (carry these forward — do not lose them)
 - **Icon picks, round 5** — `_PDFs/rail-icons-lineart-v5.pdf` delivered (54 refined line-art
