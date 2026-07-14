@@ -155,10 +155,13 @@ test('golden: every demo build fills every required slot (complete builds)', fun
     // requiredness is frame-aware (slotRequired) — for these full-sus
     // non-DH builds it must equal the old !optional rule, except altOf slots
     // (frontHub/frontRim/rearHub/rearRim), which are never independently
-    // required — only their altOf target (frontWheel/rearWheel) counts.
+    // required — only their altOf target (frontWheel/rearWheel) counts —
+    // and the INVERTED cog/seatpost slots (DJ go-live 2026-07-14), which are
+    // required only on a driveMode:'single-speed' frame (positively pinned in
+    // test-dj-singlespeed.js) and never on these geared builds.
     var frame = C.byId(m.frame);
     var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
-    eq(required.length, C.SLOTS.filter(function(s){ return !s.optional && !s.altOf; }).length,
+    eq(required.length, C.SLOTS.filter(function(s){ return !s.optional && !s.altOf && s.key!=='cog' && s.key!=='seatpost'; }).length,
        'an enduro full-sus frame must not change requiredness');
     required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
   });
@@ -407,7 +410,12 @@ test('slotRequired: DH-discipline frame exempts the dropper slot (completeness o
   eq(C.slotRequired(shockSlot, frame), true, 'DH full-sus: shock still required');
 });
 test('slotRequired: no frame chosen = universal default (all non-optional, non-altOf required)', function(){
-  C.SLOTS.forEach(function(s){ eq(C.slotRequired(s, null), !s.optional && !s.altOf, s.key); });
+  // cog + seatpost are the inverted pattern (DJ go-live 2026-07-14): required
+  // ONLY on a driveMode:'single-speed' frame, so the no-frame default excludes
+  // them - the pre-frame-pick "N of M" of a geared build is untouched.
+  C.SLOTS.forEach(function(s){
+    eq(C.slotRequired(s, null), !s.optional && !s.altOf && s.key!=='cog' && s.key!=='seatpost', s.key);
+  });
 });
 test('slotRequired: integrated-cassette rear wheel exempts the cassette slot (completeness only)', function(){
   var cassetteSlot = C.SLOTS.filter(function(s){ return s.key==='cassette'; })[0];

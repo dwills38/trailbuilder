@@ -23,9 +23,12 @@ unverified specs as real. See "Provenance" below.
    cards/tabs/modals the user opens themselves (a part's spec card, the login dialog) are fine;
    anything that appears WITHOUT the user asking is banned. No monetization pattern may ever use a pop-up.
 3. **Catalog scope:** MTB now (rounding out every MTB category; **hardtails are a near-term LIVE
-   priority**), expanding to ALL bike types over time. New non-MTB types (dirt jump, BMX, kids'
+   priority**), expanding to ALL bike types over time. New non-MTB types (BMX, kids'
    balance bikes / striders) are built OFF-LIVE — a separate dataset NOT wired into the live app —
    until Douglas says go; the site may later split per type (e.g. buildmybmx). **Never e-bikes** (rule 1).
+   **Dirt jump went LIVE on Douglas's word 2026-07-14** (25 rows in `PARTS`, `dj` discipline chip,
+   `cog`+`seatpost` slots, `driveMode:'single-speed'` completeness drops incl. the confirmed
+   brakeless-is-complete decision); BMX (`src/compat-bmx.js` + `data/bmx.js`) stays OFF-LIVE.
 
 ## Files (src/ + test/ layout — these are the project)
 
@@ -37,6 +40,7 @@ Entry points (`validate.js`, `index.html`) live at the root; tests run on Vitest
 | `index.html` | The app (UI). Plain HTML/CSS/JS, no build step. Loads `src/compat.js` via `<script>`. Open by double-click. |
 | `src/compat.js` | The catalog data (`PARTS`) **and** the compatibility engine (`checkBuild`) + helpers (`compatOf`, `buildTotals`). The heart of the project. |
 | `src/schema.js` | Data schema + validator. The single source of truth for "valid data". |
+| `src/compat-bmx.js` | **OFF-LIVE BMX engine** (`checkBmxBuild` + `BMX_VOCAB`/`BMX_GROUPS`/`BMX_SLOTS`), sharing compat.js's `Verdict`/`verdictKey` primitives. Loaded by NOTHING the site serves (index.html must NOT `<script>` it) until Douglas's BMX go-live word. Data: `data/bmx.js`; design: `data/DJ-BMX-COMPAT-ANALYSIS.md`. |
 | `src/config.js` | **Phase 3 accounts.** Publishable Supabase URL + anon key (placeholders until set) + the `ACCOUNTS_ENABLED` gate. Same committed-constant pattern as `REPORT_REPO`. |
 | `src/account.js` | **Phase 3 accounts.** Async auth + saved-builds + inventory data-access over the Supabase client. Browser glue (not typechecked, like the inline app script). Loads before `compat.js`. |
 | `src/vendor/supabase.min.js` | **Vendored** `@supabase/supabase-js` UMD (v2.110.1) — loaded via a classic `<script>` to keep the no-build-step/no-CDN convention. Exposes `window.supabase`. Do not hand-edit. |
@@ -60,6 +64,8 @@ Entry points (`validate.js`, `index.html`) live at the root; tests run on Vitest
 | `test/test-drift-check.js` | The drift-check matching logic (pure, no network) — token generation + ok/changed/unfetchable/fetch-failed classification. |
 | `test/test-account-serialize.js` | Garage/account serialization: a saved build's payload round-trips through the same `sanitizeShare()` as share links (pure logic, no network). |
 | `test/test-invariants.js` | Engine-fortress properties across every part and many pseudo-random builds: `checkBuild` never throws, never returns malformed output, is deterministic, and every preset/lookup stays internally consistent — structural contract, not specific verdicts (that's `test-engine.js`). |
+| `test/test-dj-singlespeed.js` | The DJ / single-speed surface (live since 2026-07-14): driveMode-blind checkBuild pinning, the slotRequired drops + inverted cog/seatpost requires, ss-chain-width/ss-tension, rule 13c, the schema cross-rules, and the golden DMR Sect build (complete + conflict-free in the live catalog). |
+| `test/test-bmx-engine.js`, `test/test-bmx-golden.js` | The OFF-LIVE BMX engine (`src/compat-bmx.js` — loaded by nothing the site serves): every BMX rule fires + dormancy negatives; braked, brakeless-complete and known-bad golden builds. |
 | `package.json` | Scripts: `test` (Vitest), `test:watch`, `validate`, `typecheck`, `verify:status/next/report`. Dev-only deps: `vitest`, `typescript`, `@types/node`. |
 | `tools/verify-job.js` | **Resumable verification job runner** (state only, zero deps): queue/checkpoints for the part-verification grind. `init`, `status`, `next`, `start`, `complete`, `reset`, `retry`, `report`. Never reprocesses Verified parts without `--force`. |
 | `tools/VERIFY-PROTOCOL.md` | The **verification logic** (the bar, per-part loop, batching, skip policy) — kept separate from the runner so any AI model/session can resume the job with no code changes. **Read this before verifying parts.** |
@@ -128,13 +134,23 @@ Category-specific fields (enforced by `schema.js` → `SCHEMA`, using vocabulari
 - **brake**: `mount`, `pistons`, optional `leverAccepts` (array of `ispec-ev`/`ispec-ii`/`ispec-b`/`matchmaker` — real levers accept several standards).   **rotor**: `size`, `mount`.
 - **handlebar/stem**: `clamp` (+ optional dims).  **grips/saddle**: just the common fields.
 - **dropper**: `diameter`, `drop`.  **pedal**: `style` (`flat`/`clip`) — pairs; 9/16" thread fits every crank, so no compat rules.
+- **cog / seatpost** (DJ go-live 2026-07-14): **cog** = the single rear cog of a single-speed
+  drivetrain (`teeth`, `chainWidth` of `1/8`/`3/32`); **seatpost** = a rigid post (`diameter`;
+  droppers stay their own category). Each is its own single-slot GROUP (the bb/headset
+  buildTotals reason) with INVERTED requiredness: required ONLY on a `driveMode:'single-speed'`
+  frame, never for geared frames or the no-frame default. Frames may carry
+  `driveMode:'single-speed'` (single-speed-only; drops shifter/derailleur/cassette/dropper +
+  ALL brake slots from completeness — brakeless is a valid complete build, Douglas 2026-07-13)
+  and `dropoutType` (`horizontal`/`sliding`/`ecc-bb`/`vertical`); chains/cranksets may carry
+  `chainWidth` instead of the geared `system`/`speeds` identity (schema cross-rules);
+  wheels may carry `freehub:'single-speed'` (takes one cog, cassette slot exempt, rule 6 errors a cassette).
 - **presets** (`groupset`/`wheelset`/`brakeset`/`cockpitset`): `price` and `fills` (slotKey → part id). **Weight is always derived from the fills** (`partWeight`) — storing it is a validator error; price may be stored because real bundle discounts exist (≤-sum lint guards it).
 
 ### Build slots
 
 A build is a map of slotKey → part id. Slots: `frame, fork, shock, frontWheel, rearWheel,
-frontTire, rearTire, shifter, derailleur, cassette, chain, crankset, bb, headset, frontBrake, rearBrake,
-frontRotor, rearRotor, handlebar, stem, grips, dropper, saddle, pedals`. (`GROUPS`/`SLOTS` in `compat.js`.)
+frontTire, rearTire, shifter, derailleur, cassette, chain, crankset, cog, bb, headset, frontBrake, rearBrake,
+frontRotor, rearRotor, handlebar, stem, grips, dropper, seatpost, saddle, pedals`. (`GROUPS`/`SLOTS` in `compat.js`.)
 
 ## Compatibility engine (`checkBuild`) — 20 rule areas
 
@@ -160,7 +176,11 @@ fork travel vs frame rated max AND sourced approved minimum (under-forking — l
 `minForkTravel` is sourced) AND vs maker-stated design travel (rule 12c: warns >20 mm below
 `designForkTravel`, 20 mm grace for deliberate builds, suppressed when the 12b floor already
 fired; threshold flagged for the mechanic review); dropper diameter vs seat tube (direction-aware: too big = error,
-smaller = reducing-shim warning; ≥200 mm drop adds an insertion-depth info);
+smaller = reducing-shim warning; ≥200 mm drop adds an insertion-depth info; rule 13c applies the
+same direction-aware check to the rigid `seatpost` slot — DJ go-live 2026-07-14); single-speed
+rules (DJ): `ss-chain-width` (ring/cog/chain must share a `1/8`/`3/32` width class — warning,
+provisional severity for the mechanic review) and `ss-tension` (vertical-dropout single-speed
+frame needs a tensioner/half-link — info; every current DJ frame is `'sliding'`, so dormant);
 tire width vs wheel clearance AND vs fork chassis clearance (dormant until forks carry `maxTire`)
 AND too-narrow tire vs a wide rim (rule 14c — soft warning, live-dormant until a wheel declares a
 maker-published `minTire`); rear-tire width vs frame clearance (rule 18 — dormant until a frame declares `maxTire`);

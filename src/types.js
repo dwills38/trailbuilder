@@ -15,13 +15,13 @@
    field or a part missing a required one.
    ========================================================================== */
 
-/** @typedef {'frame'|'fork'|'shock'|'frontwheel'|'rearwheel'|'fronthub'|'rearhub'|'rim'|'tire'|'shifter'|'derailleur'|'cassette'|'chain'|'crankset'|'bb'|'headset'|'brake'|'rotor'|'handlebar'|'stem'|'grips'|'dropper'|'saddle'|'pedal'|'groupset'|'wheelset'|'brakeset'|'cockpitset'} Category */
+/** @typedef {'frame'|'fork'|'shock'|'frontwheel'|'rearwheel'|'fronthub'|'rearhub'|'rim'|'tire'|'shifter'|'derailleur'|'cassette'|'chain'|'crankset'|'cog'|'seatpost'|'bb'|'headset'|'brake'|'rotor'|'handlebar'|'stem'|'grips'|'dropper'|'saddle'|'pedal'|'groupset'|'wheelset'|'brakeset'|'cockpitset'} Category */
 
 /* ---- vocabularies (mirror VOCAB in schema.js) ---------------------------- */
-/** @typedef {'29'|'275'} WheelSize */
-/** @typedef {'29'|'275'|'mullet'} WheelConfig */
-/** @typedef {'Boost148'|'SuperBoost157'|'142x12'|'150x12'} RearAxle */
-/** @typedef {'Boost110'|'20x110'|'20x110-nonboost'} FrontAxle */
+/** @typedef {'29'|'275'|'26'|'24'} WheelSize */
+/** @typedef {'29'|'275'|'mullet'|'26'|'24'} WheelConfig */
+/** @typedef {'Boost148'|'SuperBoost157'|'142x12'|'150x12'|'10x135-bolt'} RearAxle */
+/** @typedef {'Boost110'|'20x110'|'20x110-nonboost'|'15x100'} FrontAxle */
 /** Wheel/hub-side driver interface. 'integrated' = the driver IS a built-in
  * cassette (e*thirteen LG1r DH rear), so no separate cassette mounts - legal
  * on rearwheel/rearhub rows only, never on a cassette (schema cross-rule;
@@ -29,7 +29,9 @@
  * 'XDR' = the road/gravel-length SRAM driver body (1.85mm longer than XD) -
  * a real WTB CZR-hub option, distinct from 'XD' (needs a spacer to seat an
  * MTB/XD cassette), never conflate the two.
- * @typedef {'XD'|'MicroSpline'|'HG'|'integrated'|'XDR'} Freehub */
+ * 'single-speed' = a dedicated single-speed driver / thread-on cog interface
+ * (DJ; takes ONE cog, no cassette) - wheel/hub-side only, like 'integrated'.
+ * @typedef {'XD'|'MicroSpline'|'HG'|'integrated'|'XDR'|'single-speed'} Freehub */
 /** @typedef {'XD'|'MicroSpline'|'HG'} CassetteFreehub */
 /** @typedef {'sixbolt'|'CL'} RotorMount */
 /** @typedef {'std'|'trunnion'} ShockMount */
@@ -49,8 +51,13 @@
 /** @typedef {'flat'|'clip'|'hybrid'} PedalStyle */
 /** @typedef {'exo'|'exo-plus'|'doubledown'|'dh'|'trail'|'enduro'|'downhill'|'super-race'|'super-ground'|'super-trail'|'super-gravity'|'super-downhill'|'protection'|'hardwall'|'prowall'|'tcs-light-sg2'|'tcs-tough-sg1'|'tcs-tough'|'atc'|'aec'|'agc'|'xc-race'|'gravity-shield'|'grid-trail'|'grid-gravity'|'trc'|'grc'|'xcc'|'enduro-core'|'synthesis'|'gravity-core'|'gxe-core'|'dh-core'|'wire-bead'|'folding-tlr'|'inner-strength'|'core-strength'|'high-output'|'super-tough'|'durable'|'ultra-durable'|'light-and-supple'|'tough'|'tr'|'emc'|'eps'|'eps-tlr'|'exo-btb'|'flux-gr'|'flux-am'|'flux-gr-radial'|'hardskin'|'sideskin'|'gravity-pro'|'ksct'} Casing */
 /** @typedef {'dual'|'3c-maxxterra'|'3c-maxxgrip'|'maxxspeed'|'maxxterra'|'3c-maxxspeed'|'endurance'|'soft'|'supersoft'|'blackchili'|'addix'|'addix-speed'|'addix-speedgrip'|'addix-soft'|'addix-ultra-soft'|'smartgrip'|'smartgrip-gravity'|'4c-graphene'|'graphene-silica'|'tritec'|'dual-layer'|'grip3s'|'grip3'|'magix'|'magix-mh'|'magix-ms'|'magix-dh'|'gripton-t7'|'gripton-t9'|'soft-50'|'medium-60'|'single-60a'|'tackee'|'top40'|'mpc'|'dcc'|'tm-speed'|'tm-grip'|'triple-compound'|'zsg-natural'|'grip'|'grip-plus'|'62a-51a'|'56a-48a'|'grip-compound'|'dtc'|'mopo'|'momentum'|'race-ripost-enduro'|'race-ripost-gravity'|'race-ripost-xc'|'bi-compound'} Compound */
-/** @typedef {'xc'|'trail'|'enduro'|'dh'} Discipline */
+/** @typedef {'xc'|'trail'|'enduro'|'dh'|'dj'} Discipline */
 /** @typedef {'full'|'hardtail'} Suspension */
+/** The mechanical drivetrain discriminator (2026-07-13 DJ pass): absence =
+ * geared. See schema.js's driveMode vocab note. @typedef {'single-speed'} DriveMode */
+/** Single-speed width class shared by ring / cog / chain. @typedef {'1/8'|'3/32'} ChainWidth */
+/** Single-speed chain-tensioning dropout style; only 'vertical' feeds a
+ * verdict (the ss-tension info). @typedef {'horizontal'|'sliding'|'ecc-bb'|'vertical'} DropoutType */
 /** @typedef {'manufacturer'|'manufacturer-doc'|'measured'|'retailer'} SourceType */
 /** @typedef {'current'|'discontinued'|'recalled'} PartStatus */
 /** @typedef {'battery'|'charger'|'spring'|'rotor'|'mounting-hardware'} SoldWithout */
@@ -111,6 +118,8 @@
  * @property {boolean} [forkTravelHard]  true = the cited source states the fork range as a HARD compatibility limit -> rule 12/12b error outside it; absent = recommendation language -> warning (C4)
  * @property {number} [designForkTravel]  maker-STATED design fork travel (rule 12c warns >20mm below; dormant until sourced)
  * @property {boolean} [coilApproved]  false = maker states NOT coil-compatible (absence = unknown)
+ * @property {DriveMode} [driveMode]  absence = geared; 'single-speed' drops the geared-drivetrain + brake slots from slotRequired (2026-07-13 DJ pass)
+ * @property {DropoutType} [dropoutType]  single-speed chain-tensioning style; 'vertical' + single-speed => ss-tension info (dormant until sourced)
  * @property {boolean} udh
  * @property {string} [udhRetrofitKit]  maker-documented UDH retrofit kit name (rule 4 warns with a structured fix instead of erroring; dormant until sourced)
  * @property {boolean} frameOnly
@@ -133,8 +142,10 @@
 /** @typedef {CommonFields & {cat: 'shifter', system: DriveSystem, speeds: number, actuation: Actuation, clampType?: ShifterClamp}} ShifterPart */
 /** @typedef {CommonFields & {cat: 'derailleur', system: DriveSystem, speeds: number, actuation: Actuation, maxCog: number, mount: DerailMount}} DerailleurPart */
 /** @typedef {CommonFields & {cat: 'cassette', system: DriveSystem, speeds: number, freehub: CassetteFreehub, minCog: number, maxCog: number}} CassettePart */
-/** @typedef {CommonFields & {cat: 'chain', system: DriveSystem, speeds: number}} ChainPart */
-/** @typedef {CommonFields & {cat: 'crankset', bb: CrankBb, ring?: number, ringStd: (RingStd|null), speeds: number, chainline?: number}} CranksetPart */
+/** @typedef {CommonFields & {cat: 'chain', system?: DriveSystem, speeds?: number, chainWidth?: ChainWidth, halfLink?: boolean}} ChainPart  geared (system+speeds) OR single-speed (chainWidth) - schema cross-rule enforces one identity */
+/** @typedef {CommonFields & {cat: 'crankset', bb: CrankBb, ring?: number, ringStd?: (RingStd|null), speeds?: number, chainline?: number, chainWidth?: ChainWidth}} CranksetPart  geared cranks must carry speeds+ringStd (schema cross-rule); single-speed cranks carry chainWidth */
+/** @typedef {CommonFields & {cat: 'cog', teeth: number, chainWidth: ChainWidth}} CogPart  single-speed rear cog (no live slot yet - joins GROUPS when DJ goes live) */
+/** @typedef {CommonFields & {cat: 'seatpost', diameter: number}} SeatpostPart  rigid post (DJ; no live slot yet) */
 /** @typedef {CommonFields & {cat: 'bb', shell: FrameBb, spindle: CrankBb}} BbPart  the bottom bracket itself: shell = frame standard, spindle = crank bore (rule 7 exact checks) */
 /** @typedef {CommonFields & {cat: 'headset', upper: HeadTube, lower: HeadTube, steerer: SteererFit}} HeadsetPart  complete headset: upper/lower assembly S.H.I.S. codes + the steerer it accepts (rule 20a exact vs fork.steerer; rule 20b compares bore tokens vs frame.headTubeUpper/Lower) */
 /** @typedef {CommonFields & {cat: 'brake', mount: BrakeMount, pistons: number, maxRotor?: number, leverAccepts?: LeverClamp[]}} BrakePart  maxRotor = the CALIPER's own maker-stated rotor ceiling (rule 8b errors above; real on flat-mount calipers, dormant/absent on post-mount) */
@@ -157,7 +168,7 @@
  * @typedef {GroupsetPart|WheelsetPart|BrakesetPart|CockpitsetPart} PresetPart */
 
 /** Any catalog part.
- * @typedef {FramePart|ForkPart|ShockPart|FrontWheelPart|RearWheelPart|FrontHubPart|RearHubPart|RimPart|TirePart|ShifterPart|DerailleurPart|CassettePart|ChainPart|CranksetPart|BbPart|HeadsetPart|BrakePart|RotorPart|HandlebarPart|StemPart|GripsPart|DropperPart|SaddlePart|PedalPart|PresetPart} Part */
+ * @typedef {FramePart|ForkPart|ShockPart|FrontWheelPart|RearWheelPart|FrontHubPart|RearHubPart|RimPart|TirePart|ShifterPart|DerailleurPart|CassettePart|ChainPart|CranksetPart|CogPart|SeatpostPart|BbPart|HeadsetPart|BrakePart|RotorPart|HandlebarPart|StemPart|GripsPart|DropperPart|SaddlePart|PedalPart|PresetPart} Part */
 
 /**
  * A build: slotKey -> resolved Part. Each named slot is typed to its exact
@@ -166,7 +177,7 @@
  * a dynamic key. frontHub/frontRim/rearHub/rearRim are the build-your-own-wheel
  * alternate path to frontWheel/rearWheel (see GROUPS' `altOf` in compat.js) -
  * both are optional and mutually exclusive per side, enforced by the UI.
- * @typedef {{[slot: string]: (Part|undefined)} & {frame?: FramePart, fork?: ForkPart, shock?: ShockPart, frontWheel?: FrontWheelPart, rearWheel?: RearWheelPart, frontHub?: FrontHubPart, frontRim?: RimPart, rearHub?: RearHubPart, rearRim?: RimPart, frontTire?: TirePart, rearTire?: TirePart, shifter?: ShifterPart, derailleur?: DerailleurPart, cassette?: CassettePart, chain?: ChainPart, crankset?: CranksetPart, bb?: BbPart, headset?: HeadsetPart, frontBrake?: BrakePart, rearBrake?: BrakePart, frontRotor?: RotorPart, rearRotor?: RotorPart, handlebar?: HandlebarPart, stem?: StemPart, grips?: GripsPart, dropper?: DropperPart, saddle?: SaddlePart, pedals?: PedalPart}} Build */
+ * @typedef {{[slot: string]: (Part|undefined)} & {frame?: FramePart, fork?: ForkPart, shock?: ShockPart, frontWheel?: FrontWheelPart, rearWheel?: RearWheelPart, frontHub?: FrontHubPart, frontRim?: RimPart, rearHub?: RearHubPart, rearRim?: RimPart, frontTire?: TirePart, rearTire?: TirePart, shifter?: ShifterPart, derailleur?: DerailleurPart, cassette?: CassettePart, chain?: ChainPart, crankset?: CranksetPart, cog?: CogPart, seatpost?: SeatpostPart, bb?: BbPart, headset?: HeadsetPart, frontBrake?: BrakePart, rearBrake?: BrakePart, frontRotor?: RotorPart, rearRotor?: RotorPart, handlebar?: HandlebarPart, stem?: StemPart, grips?: GripsPart, dropper?: DropperPart, saddle?: SaddlePart, pedals?: PedalPart}} Build */
 
 /** @typedef {Object.<string, string>} PresetBy  groupKey -> preset id */
 

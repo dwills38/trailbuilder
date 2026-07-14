@@ -34,9 +34,12 @@
 
 /** @type {Object.<string, string>} */
 var LABELS = {
-  '29': '29"', '275': '27.5"', mullet: '29"/27.5"',
+  '29': '29"', '275': '27.5"', mullet: '29"/27.5"', '26': '26"', '24': '24"',
   Boost148: 'Boost 148x12', SuperBoost157: 'SuperBoost 157x12', Boost110: 'Boost 15x110', '20x110': '20x110 Boost (DH)', '20x110-nonboost': '20x110 standard (DH, non-Boost)',
-  XD: 'SRAM XD', XDR: 'SRAM XDR', MicroSpline: 'Shimano Micro Spline', HG: 'Shimano HG', integrated: 'Integrated 7-speed cassette',
+  '15x100': '15x100 (non-Boost)', '10x135-bolt': '10x135 bolt-on',
+  XD: 'SRAM XD', XDR: 'SRAM XDR', MicroSpline: 'Shimano Micro Spline', HG: 'Shimano HG', integrated: 'Integrated 7-speed cassette', 'single-speed': 'Single-speed',
+  '1/8': '1/8"', '3/32': '3/32"',
+  horizontal: 'Horizontal dropouts', sliding: 'Sliding dropouts', vertical: 'Vertical dropouts', 'ecc-bb': 'Eccentric BB',
   sixbolt: '6-bolt', CL: 'Center Lock',
   std: 'Standard eyelet', trunnion: 'Trunnion',
   tapered: 'Tapered (1.5-1.125)', 'straight-dc': 'Straight 1.125 (dual-crown)',
@@ -76,7 +79,11 @@ var L = function(k){ return (k in LABELS ? LABELS[k] : k); };
 
 /* front size + rear size for each wheel config */
 /** @type {Object.<string, {front: WheelSize, rear: WheelSize}>} */
-var WHEEL_CONFIG = { '29':{front:'29',rear:'29'}, '275':{front:'275',rear:'275'}, mullet:{front:'29',rear:'275'} };
+var WHEEL_CONFIG = { '29':{front:'29',rear:'29'}, '275':{front:'275',rear:'275'}, mullet:{front:'29',rear:'275'},
+  /* '26'/'24' (2026-07-13 DJ pass): dirt-jump + junior sizes - inert for the
+     live MTB catalog (no live part declares either size; the DJ dataset is
+     off-live). No mixed 26/24 config exists in the market, so none is modeled. */
+  '26':{front:'26',rear:'26'}, '24':{front:'24',rear:'24'} };
 
 /* Slot requiredness is a function of the selected frame (the DATA-MODEL-REVIEW
    section 4 design, IMPLEMENTED 2026-07-08 with the first hardtail/DH frames):
@@ -115,6 +122,13 @@ var GROUPS = [
       {key:'cassette', label:'Cassette', cat:'cassette'},
       {key:'chain', label:'Chain', cat:'chain'},
       {key:'crankset', label:'Crankset', cat:'crankset'} ] },
+  /* The single-speed cog is its OWN group (DJ go-live, 2026-07-14) for the same
+     buildTotals reason as bb/headset: inside the drivetrain group its
+     price/weight would silently vanish whenever a groupset bundle is active
+     (bundleActive skips a bundled group's non-fill slots). Required only on a
+     driveMode:'single-speed' frame - see slotRequired(); geared builds (and the
+     no-frame default) never count it, so live MTB completeness is unchanged. */
+  { key:'cog', label:'Single-Speed Cog', icon:'G', slots:[ {key:'cog', label:'Single-Speed Cog', cat:'cog'} ] },
   { key:'brakes', label:'Brakes', icon:'B', preset:{cat:'brakeset', label:'brake set'}, slots:[
       {key:'frontBrake', label:'Front Brake', cat:'brake'},
       {key:'rearBrake', label:'Rear Brake', cat:'brake'},
@@ -133,6 +147,12 @@ var GROUPS = [
      so rule 20c only nudges (info), it never blocks. */
   { key:'headset', label:'Headset', icon:'H', slots:[ {key:'headset', label:'Headset', cat:'headset', optional:true} ] },
   { key:'dropper', label:'Dropper Post', icon:'P', slots:[ {key:'dropper', label:'Dropper Post', cat:'dropper'} ] },
+  /* Rigid seatpost (DJ go-live, 2026-07-14): the single-speed counterpart of the
+     dropper group - a driveMode:'single-speed' frame drops the dropper slot and
+     requires this one instead (slotRequired). Not optional and not altOf: for
+     geared frames (and the no-frame default) it is simply never required, so
+     live MTB completeness is unchanged. Rule 13c checks its diameter. */
+  { key:'seatpost', label:'Seatpost', icon:'R', slots:[ {key:'seatpost', label:'Seatpost (rigid)', cat:'seatpost'} ] },
   { key:'cockpit', label:'Cockpit', icon:'C', preset:{cat:'cockpitset', label:'cockpit'}, slots:[
       {key:'handlebar', label:'Handlebar', cat:'handlebar'},
       {key:'stem', label:'Stem', cat:'stem'},
@@ -158,11 +178,29 @@ var SLOTS = GROUPS.reduce(function(a,g){ return a.concat(g.slots.map(function(s)
 function slotRequired(slot, frame, rearWheel){
   if(slot.optional) return false;
   if(slot.altOf) return false;   // an alternate-path slot (e.g. frontHub/frontRim) is never independently required - only its altOf target counts, via wheelPositionFilled()
+  /* cog + seatpost (DJ go-live, 2026-07-14) INVERT the drop pattern: they are
+     required ONLY on a driveMode:'single-speed' frame (its drive and its rigid
+     post), and never otherwise - including the no-frame universal default, so
+     the pre-frame-pick "N of M" count of a geared build is untouched. */
+  if(slot.key === 'cog' || slot.key === 'seatpost')
+    return !!(frame && frame.cat === 'frame' && frame.driveMode === 'single-speed');
   if(frame && frame.cat === 'frame'){
     if(slot.key === 'shock' && frame.suspension === 'hardtail') return false;
     if(slot.key === 'dropper' && (frame.disciplines || []).indexOf('dh') >= 0) return false;
+    /* driveMode:'single-speed' (2026-07-13, Douglas's DJ/BMX sign-off - the
+       hardtail-shock pattern applied to the drivetrain): a single-speed frame
+       has no shifter/derailleur/cassette (the future cog+chain slots carry the
+       drive), no dropper (DJ posts are rigid + slammed), and - per the
+       explicit brakeless decision (analysis-doc Q3, confirmed 2026-07-13) -
+       brakes are NEVER required: brakeless and rear-only DJ builds are real,
+       complete builds. UI-completeness only, like every slotRequired drop -
+       no live frame carries driveMode, so live behavior is unchanged. */
+    if(frame.driveMode === 'single-speed' &&
+       ['shifter','derailleur','cassette','dropper',
+        'frontBrake','rearBrake','frontRotor','rearRotor'].indexOf(slot.key) >= 0) return false;
   }
-  if(rearWheel && slot.key === 'cassette' && rearWheel.freehub === 'integrated') return false;
+  if(rearWheel && slot.key === 'cassette' &&
+     (rearWheel.freehub === 'integrated' || rearWheel.freehub === 'single-speed')) return false;
   return true;
 }
 
@@ -5516,7 +5554,92 @@ var PARTS_RAW = [
   { id:'co-protaper-a76', cat:'cockpitset', brand:'ProTaper', model:'A76 (31.8mm, all-ProTaper)', desc:'31.8mm . alu bar', price:198, fills:{ handlebar:'hb-protaper-a76-318', stem:'st-protaper-mtbstem-318', grips:'gr-protaper-meathammer' } },
   { id:'co-spank-oozy35', cat:'cockpitset', brand:'Spank', model:'OOZY 35 (35mm, all-Spank)', desc:'35mm . alu bar', price:186, fills:{ handlebar:'hb-spank-oozy-35', stem:'st-spank-split-35', grips:'gr-wtb-wafflegrip' } },
   { id:'co-title-ah1', cat:'cockpitset', brand:'Title', model:'AH1 (35mm, all-Title)', desc:'35mm . alu bar', price:198, fills:{ handlebar:'hb-title-ah1-35', stem:'st-title-st1-35', grips:'gr-renthal-traction' } },
-  { id:'co-ethirteen-race', cat:'cockpitset', brand:'e*thirteen', model:'Race Carbon (35mm, all-e*thirteen)', desc:'35mm . carbon bar', price:213, fills:{ handlebar:'hb-ethirteen-race-carbon-35', stem:'st-ethirteen-base-35', grips:'gr-esi-chunky' } }
+  { id:'co-ethirteen-race', cat:'cockpitset', brand:'e*thirteen', model:'Race Carbon (35mm, all-e*thirteen)', desc:'35mm . carbon bar', price:213, fills:{ handlebar:'hb-ethirteen-race-carbon-35', stem:'st-ethirteen-base-35', grips:'gr-esi-chunky' } },
+
+  /* ========================== DIRT JUMP (DJ) ================================
+     LIVE since 2026-07-14 (Douglas's DJ go-live word). Authored off-live as
+     data/dirt-jump.js v0.2 (see data/DIRT-JUMP-MODEL.md +
+     data/DJ-BMX-COMPAT-ANALYSIS.md sections 1/4/6 for the research + decided
+     architecture); the rows were folded here verbatim at go-live because the
+     live catalog has ONE home (this array) and deploy.yml ships only
+     index.html + src/. DJ = single-speed rigid-rear hardtails on the live MTB
+     engine: driveMode:'single-speed' marks single-speed-ONLY frames
+     (slotRequired drops the geared drivetrain, dropper and - per Douglas's
+     explicit brakeless decision - ALL brake slots, and requires cog+seatpost
+     instead); geared-convertible frames (Jackal, P.3, Zircus, Absolut) omit it.
+     PROVENANCE: SAMPLE/UNVERIFIED except the RockShox Pike DJ (fetched
+     sram.com model page). Sample fields to re-check (flagged in row comments):
+     every frame's maxForkTravel (140 permissive sample - no DJ maker publishes
+     a rated max), maxRotorR (203 permissive sample), most seatTube diameters,
+     the wheels' maxTire. dropoutType: all nine frames run slide-to-tension
+     dropouts, entered as 'sliding' (verdict-neutral - only 'vertical' feeds
+     the ss-tension info). No e-bikes / motors / batteries (hard rule). */
+
+  // ---- DJ frames: maxForkTravel 140 / maxRotorR 203 are permissive samples;
+  //      seatTube is class-typical 27.2 unless noted.
+  { id:'fr-santacruz-jackal', cat:'frame', brand:'Santa Cruz', model:'Jackal', family:'santacruz-jackal', price:949, weight:2200, wheelConfigs:['26'], rearAxle:'142x12', headset:'tapered', bb:'BSA73', seatTube:27.2, brakeMount:'PM', maxRotorR:203, suspension:'hardtail', maxForkTravel:140, dropoutType:'sliding', udh:false, frameOnly:true, disciplines:['dj'],
+    desc:'Geared-convertible (no driveMode): Santa Cruz sells alt dropout kits incl. a 10x135 QR option (not modeled as a separate row - same platform). headTube confirmed mixed-tapered ZS44/28.6 EC49/40 (S.H.I.S.) - the headTubeUpper/Lower capture pair joins when re-fetched.' },
+  { id:'fr-specialized-p3', cat:'frame', brand:'Specialized', model:'P.3', family:'specialized-p3', price:700, weight:2300, wheelConfigs:['26'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:30.9, brakeMount:'PM', maxRotorR:203, suspension:'hardtail', maxForkTravel:140, dropoutType:'sliding', udh:false, frameOnly:true, disciplines:['dj'],
+    desc:'Current (2023+) spec; geared-convertible. Older (pre-2023) P.3 used a PF30 BB + 10x135 dropouts - real history, not modeled as a separate row. seatTube 30.9 = class-typical for the alloy P-series (sample).' },
+  { id:'fr-kona-shonky', cat:'frame', brand:'Kona', model:'Shonky', family:'kona-shonky', price:549, weight:2450, wheelConfigs:['26'], rearAxle:'142x12', headset:'tapered', bb:'BSA73', seatTube:27.2, brakeMount:'PM', maxRotorR:203, suspension:'hardtail', maxForkTravel:140, dropoutType:'sliding', driveMode:'single-speed', udh:false, frameOnly:true, disciplines:['dj'],
+    desc:'Cromoly steel, single-speed-first (sliding dropouts). Ships built around a 100mm tapered fork; no rated max-travel figure published (sample 140).' },
+  { id:'fr-dmr-sect', cat:'frame', brand:'DMR', model:'Sect', family:'dmr-sect', price:620, weight:2410, wheelConfigs:['26'], rearAxle:'10x135-bolt', headset:'tapered', bb:'BSA73', seatTube:27.2, brakeMount:'PM', maxRotorR:203, suspension:'hardtail', maxForkTravel:140, dropoutType:'sliding', driveMode:'single-speed', udh:false, frameOnly:true, disciplines:['dj'],
+    desc:'4130 chromoly, DMR "Taperlock" sliding dropouts, 135mm bolt-on rear, 27.2mm post (dmrbikes.com product copy, search-sourced - unverified).' },
+  { id:'fr-nsbikes-zircus', cat:'frame', brand:'NS Bikes', model:'Zircus', family:'nsbikes-zircus', price:459, weight:2090, wheelConfigs:['26'], rearAxle:'10x135-bolt', headset:'tapered', bb:'BSA73', seatTube:27.2, brakeMount:'PM', maxRotorR:203, suspension:'hardtail', maxForkTravel:140, dropoutType:'sliding', udh:false, frameOnly:true, disciplines:['dj'],
+    desc:'AL6061-T6. Ships single-speed BUT sells a bolt-on derailleur-hanger option, so it stays geared-convertible (no driveMode).' },
+  { id:'fr-commencal-absolut', cat:'frame', brand:'Commencal', model:'Absolut', family:'commencal-absolut', price:599, weight:2250, wheelConfigs:['26'], rearAxle:'142x12', headset:'tapered', bb:'BSA73', seatTube:27.2, brakeMount:'PM', maxRotorR:203, suspension:'hardtail', maxForkTravel:140, dropoutType:'sliding', udh:false, frameOnly:true, disciplines:['dj'],
+    desc:'Commencal\'s dedicated DJ hardtail; class-typical estimates, flagged for a follow-up fetch of commencal.com. Geared-convertible (no driveMode).' },
+  { id:'fr-marin-alcatraz', cat:'frame', brand:'Marin', model:'Alcatraz', family:'marin-alcatraz', price:550, weight:2300, wheelConfigs:['26'], rearAxle:'10x135-bolt', headset:'straight-dc', bb:'BSA73', seatTube:27.2, brakeMount:'PM', maxRotorR:203, suspension:'hardtail', maxForkTravel:140, dropoutType:'sliding', driveMode:'single-speed', udh:false, frameOnly:true, disciplines:['dj'],
+    desc:'Straight 1-1/8in head tube - entered as straight-dc: the vocab token means "accepts a straight 1.125in steerer", one physical standard shared with dual-crown DH steerers (see the schema.js headset vocab note). Class estimate for the current year\'s spec.' },
+  { id:'fr-chromag-monk', cat:'frame', brand:'Chromag', model:'Monk', family:'chromag-monk', price:650, weight:2350, wheelConfigs:['26'], rearAxle:'10x135-bolt', headset:'tapered', bb:'BSA73', seatTube:27.2, brakeMount:'PM', maxRotorR:203, suspension:'hardtail', maxForkTravel:140, dropoutType:'sliding', driveMode:'single-speed', udh:false, frameOnly:true, disciplines:['dj'],
+    desc:'4130 chromoly; spec estimate - not fetched from chromagbikes.com this pass.' },
+  { id:'fr-octaneone-void', cat:'frame', brand:'Octane One', model:'Void', family:'octaneone-void', price:400, weight:2400, wheelConfigs:['26'], rearAxle:'10x135-bolt', headset:'straight-dc', bb:'BSA73', seatTube:27.2, brakeMount:'PM', maxRotorR:203, suspension:'hardtail', maxForkTravel:140, dropoutType:'sliding', driveMode:'single-speed', udh:false, frameOnly:true, disciplines:['dj'],
+    desc:'Steel street/dirt frame, straight 1-1/8in head tube (same token note as the Alcatraz). Spec estimate.' },
+
+  // ---- DJ forks
+  { id:'fk-rockshox-pike-dj-26-100', cat:'fork', brand:'RockShox', model:'Pike DJ', family:'rockshox-pike-dj', mfgPn:'FS-PIKE-DJ-A4', price:999, wheel:'26', travel:100, axle:'15x100', steerer:'tapered', brakeMount:'PM', maxRotorF:220, minRotorF:160, disciplines:['dj'], verified:true, sourceType:'manufacturer', source:'https://www.sram.com/en/rockshox/models/fs-pike-dj-a4', lastChecked:'2026-07-11',
+    desc:'Fetched sram.com model page (FS-PIKE-DJ-A4): 100/140mm travel options (this row = the 100mm SKU), 26in wheel, 15x100 Maxle, tapered steerer, 40mm offset, 220mm max / 160mm min rotor. Weight NOT published on the model page - intentionally omitted rather than guessed.' },
+  { id:'fk-marzocchi-bomber-dj-26-100', cat:'fork', brand:'Marzocchi', model:'Bomber DJ', family:'marzocchi-bomber-dj', price:749, weight:2095, wheel:'26', travel:100, axle:'20x110', steerer:'tapered', brakeMount:'PM', maxRotorF:180, disciplines:['dj'],
+    desc:'36mm stanchions, GRIP damper. Also offered as a 15x100 SKU (not modeled). FLAG: whether this 20x110 is Boost-flanged or the legacy non-Boost spacing was not pinned by a fetched page (the Bomber 58 precedent says never assume) - 20x110 kept from v0.1 as the sample value, re-check at fetch. Weight 2095g = maker-marketing "starting weight" via search - unverified.' },
+  { id:'fk-manitou-circus-expert-26-100', cat:'fork', brand:'Manitou', model:'Circus Expert', family:'manitou-circus-expert', price:649, weight:2128, wheel:'26', travel:100, axle:'20x110-nonboost', steerer:'tapered', brakeMount:'PM', maxRotorF:203, disciplines:['dj'],
+    desc:'20mm hex thru-axle on 110mm spacing = the legacy non-Boost 20x110 standard (sample mapping from Manitou\'s "20mm thru-axle, 110mm" copy - not fetched). Internally adjustable 80-100mm (row models 100). maxRotorF 203 = sample.' },
+  { id:'fk-manitou-circus-expert-26-100-straight', cat:'fork', brand:'Manitou', model:'Circus Expert (straight steerer)', family:'manitou-circus-expert', price:649, weight:2128, wheel:'26', travel:100, axle:'20x110-nonboost', steerer:'straight-dc', brakeMount:'PM', maxRotorF:203, disciplines:['dj'],
+    desc:'Real dual-SKU offering: the Circus Expert also ships a straight 1-1/8in steerer - pairs with the straight-head-tube frames (fr-marin-alcatraz, fr-octaneone-void).' },
+  { id:'fk-dvo-sapphire-26-100', cat:'fork', brand:'DVO', model:'Sapphire', family:'dvo-sapphire', price:799, weight:1900, wheel:'26', travel:100, axle:'15x100', steerer:'tapered', brakeMount:'PM', maxRotorF:203, disciplines:['dj'],
+    desc:'Primarily a TRAIL fork (adjustable 100/120/140) documented as a DJ choice at 100mm. FLAG (open question, DIRT-JUMP-MODEL.md): confirm with Douglas whether cross-listing a trail fork in the DJ set is desired. Axle 15x100 per the v0.1 row - unverified sample; maxRotorF 203 = sample.' },
+  { id:'fk-xfusion-slant-dj-26-100', cat:'fork', brand:'X-Fusion', model:'Slant DJ', family:'xfusion-slant-dj', price:599, weight:2050, wheel:'26', travel:100, axle:'15x100', steerer:'tapered', brakeMount:'PM', maxRotorF:203, disciplines:['dj'],
+    desc:'34mm stanchions, RC damper (row models the 100mm setting/SKU). Not to be merged with X-Fusion "Slide" (a separate 29er trail fork).' },
+
+  // ---- DJ single-speed drivetrain (the v0.1 "Race Face Ride" row was dropped:
+  //      the live catalog already carries a VERIFIED cr-raceface-ride armset)
+  { id:'cr-profileracing-3piece-mtb', cat:'crankset', brand:'Profile Racing', model:'3-Piece MTB Crank', family:'profileracing-3piece', price:220, weight:780, bb:'24mm', chainWidth:'1/8', disciplines:['dj'],
+    desc:'Single-speed crank shape (chainWidth, no speeds/ringStd - schema cross-rule). FLAG: Profile\'s current spindle matrix (19mm BMX vs 24mm/ISIS MTB options) was NOT confirmed by a fetched page - bb 24mm is a best-credible placeholder pending a profileracing.com fetch (v0.1 flag carried forward).' },
+  { id:'cg-generic-ss-16t', cat:'cog', brand:'Generic', model:'16T Single-Speed Cog', family:'generic-ss-cog', price:20, weight:60, teeth:16, chainWidth:'1/8', disciplines:['dj'],
+    desc:'Generic aftermarket 1/8in single-speed cog (DMR/Snafu/Shadow all sell one) - deliberately not a single-brand spec claim. First row of the cog category.' },
+  { id:'ch-kmc-z410', cat:'chain', brand:'KMC', model:'Z410', family:'kmc-z410', price:18, weight:280, chainWidth:'1/8', halfLink:false, disciplines:['dj'],
+    desc:'Single-speed chain shape (chainWidth, no system/speeds - schema cross-rule). Widely-used 1/8in single-speed/BMX chain, real product.' },
+
+  // ---- DJ wheels
+  { id:'fw-halo-combat-26-15x100', cat:'frontwheel', brand:'Halo', model:'Combat Front (15x100)', family:'halo-combat', price:90, weight:950, wheel:'26', hub:'15x100', rotorMount:'sixbolt', intWidth:21, maxTire:2.5, disciplines:['dj'],
+    desc:'Long-running DJ/street wheel; Halo sells 15x100 / 20mm / 9mm QR hub options (this row = the 15x100 SKU, pairing with this dataset\'s 15x100 forks). rotorMount CORRECTED PM -> sixbolt from v0.1 (PM is a CALIPER mount token; Halo hubs are 6-bolt). maxTire 2.5 = sample (21mm internal).' },
+  { id:'rw-halo-combat-26-ss', cat:'rearwheel', brand:'Halo', model:'Combat Rear (single-speed)', family:'halo-combat', price:110, weight:1050, wheel:'26', hub:'10x135-bolt', rotorMount:'sixbolt', intWidth:21, maxTire:2.5, freehub:'single-speed', disciplines:['dj'],
+    desc:'The dedicated single-speed-driver SKU (Halo also sells cassette versions - not modeled here). freehub single-speed = the wheel/hub-side token: takes ONE cog; rule 6 honestly errors any picked cassette, and slotRequired stops counting the cassette slot (integrated-cassette pattern). Same v0.1 corrections as the front (rotorMount sixbolt; maxTire sample).' },
+
+  // ---- DJ tires (v0.1 carried compound slick/semi-slick - tread descriptions,
+  //      not brand-native compound SKU names, so the field is dropped)
+  { id:'ti-maxxis-dth-26-23', cat:'tire', brand:'Maxxis', model:'DTH', family:'maxxis-dth', price:35, weight:620, wheel:'26', width:2.3, disciplines:['dj'],
+    desc:'Grooved-slick DJ/BMX tread, 60 TPI casing; also sold in 2.15in. maxxis.com page exists but was not fetched this pass - unverified.' },
+  { id:'ti-kenda-krad-26-23', cat:'tire', brand:'Kenda', model:'K-Rad', family:'kenda-krad', price:30, weight:640, wheel:'26', width:2.3, disciplines:['dj'],
+    desc:'Semi-slick DJ/street staple, real product.' },
+  { id:'ti-schwalbe-tabletop-26-225', cat:'tire', brand:'Schwalbe', model:'Table Top', family:'schwalbe-tabletop', price:40, weight:610, wheel:'26', width:2.25, disciplines:['dj'],
+    desc:'Semi-slick DJ classic.' },
+
+  // ---- DJ cockpit / post (stems/grips/saddle/pedals/brakes for DJ builds come
+  //      from the rest of this catalog - duplicate rows were dropped off-live)
+  { id:'hb-answer-protaper', cat:'handlebar', brand:'Answer', model:'ProTaper', family:'answer-protaper', price:60, weight:320, clamp:31.8, disciplines:['dj'],
+    desc:'DJ/BMX-heritage 31.8mm riser bar.' },
+  { id:'sp-thomson-elite-272', cat:'seatpost', brand:'Thomson', model:'Elite', family:'thomson-elite', price:90, weight:220, diameter:27.2, disciplines:['dj'],
+    desc:'Rigid post, run slammed - first row of the seatpost category (droppers stay their own category).' }
 ];
 /** @type {Part[]} */
 var PARTS = PARTS_RAW;
@@ -5946,11 +6069,20 @@ function specSummary(p){
     case 'shifter': return L(p.system)+' . '+p.speeds+'s . '+L(p.actuation)+(p.clampType?' . '+L(p.clampType):'');
     case 'derailleur': return L(p.system)+' . '+p.speeds+'s . '+L(p.actuation)+' . '+p.maxCog+'T max . '+L(p.mount);
     case 'cassette': return L(p.freehub)+' . '+p.minCog+'-'+p.maxCog+'T . '+p.speeds+'s';   // range string derived, never stored
-    case 'chain': return L(p.system)+' . '+p.speeds+'s';
+    /* chain/crankset: geared rows render exactly as before; the single-speed
+       shape (chainWidth, no system/speeds - 2026-07-13 DJ pass) gets its own
+       line instead of printing "undefined". */
+    case 'chain': return (p.system && typeof p.speeds==='number')
+      ? L(p.system)+' . '+p.speeds+'s'
+      : (p.chainWidth ? p.chainWidth+'in single-speed'+(p.halfLink?' . half-link':'') : 'chain');
     case 'bb': return L(p.shell)+' shell . '+L(p.spindle)+' spindle';
     case 'headset': return p.upper+' / '+p.lower+' . '+L(p.steerer);   // S.H.I.S. codes self-label
-    case 'crankset': return L(p.bb)+(typeof p.ring==='number'?' . '+p.ring+'T':'')+' . '+p.speeds+'s . '
-      +(p.ringStd ? L(p.ringStd)+' ring' : 'ring sold separately');
+    case 'crankset': return L(p.bb)+(typeof p.ring==='number'?' . '+p.ring+'T':'')
+      +(typeof p.speeds==='number'?' . '+p.speeds+'s':'')
+      +(p.chainWidth?' . '+p.chainWidth+'in single-speed':'')
+      +(p.ringStd ? ' . '+L(p.ringStd)+' ring' : (p.chainWidth ? '' : ' . ring sold separately'));
+    case 'cog': return p.teeth+'T . '+p.chainWidth+'in';
+    case 'seatpost': return p.diameter+'mm . rigid post';
     case 'brake': return L(p.mount)+' . '+p.pistons+'-piston'
       +(p.leverAccepts && p.leverAccepts.length ? ' . '+p.leverAccepts.map(function(c){return L(c);}).join('/') : '');
     case 'rotor': return p.size+'mm . '+L(p.mount);
@@ -6055,9 +6187,9 @@ function checkBuild(build){
   function info(ruleId, slots, msg){ infos.push(new Verdict(ruleId, slots, msg)); }
   /** @type {Build} */ var b = resolveBuild(build);
   var frame=b.frame, fork=b.fork, shock=b.shock, fW=effectiveWheel(b,'front'), rW=effectiveWheel(b,'rear'), fTire=b.frontTire, rTire=b.rearTire,
-      shifter=b.shifter, derailleur=b.derailleur, cassette=b.cassette, chain=b.chain, crankset=b.crankset,
+      shifter=b.shifter, derailleur=b.derailleur, cassette=b.cassette, chain=b.chain, crankset=b.crankset, cog=b.cog,
       fBrake=b.frontBrake, rBrake=b.rearBrake, fRotor=b.frontRotor, rRotor=b.rearRotor,
-      bar=b.handlebar, stem=b.stem, dropper=b.dropper, bb=b.bb, hset=b.headset;   // hset: 'headset' would shadow nothing, but frame.headset (steerer-fit) reads too alike
+      bar=b.handlebar, stem=b.stem, dropper=b.dropper, seatpost=b.seatpost, bb=b.bb, hset=b.headset;   // hset: 'headset' would shadow nothing, but frame.headset (steerer-fit) reads too alike
 
   /* 1. Wheel sizing: front group + rear group must each be consistent, and the
         front/rear combo must match a config the frame supports (incl. mullet). */
@@ -6091,11 +6223,16 @@ function checkBuild(build){
   if(fork && fW && fork.axle!==fW.hub) err('front-axle', ['fork','frontWheel'], 'Front axle mismatch: Fork is '+L(fork.axle)+' but Front wheel hub is '+L(fW.hub)+'.');
   if(frame && rW && frame.rearAxle!==rW.hub) err('rear-axle', ['frame','rearWheel'], 'Rear axle mismatch: Frame is '+L(frame.rearAxle)+' but Rear wheel hub is '+L(rW.hub)+'.');
 
-  /* 3. Drivetrain: one system + one speed */
+  /* 3. Drivetrain: one system + one speed. A SINGLE-SPEED chain (chainWidth,
+        no system - 2026-07-13 DJ pass) carries no indexed-drivetrain identity,
+        so it stays OUT of the one-system set: its real constraint is the
+        ss-chain-width rule below, and counting it here would print an
+        "undefined" system. Every geared chain has `system` (schema
+        cross-rule), so live behavior is unchanged. */
   /** @type {Array<[string, DrivetrainPart]>} */
   var dt=[];
   if(shifter) dt.push(['Shifter',shifter]); if(derailleur) dt.push(['Derailleur',derailleur]);
-  if(cassette) dt.push(['Cassette',cassette]); if(chain) dt.push(['Chain',chain]);
+  if(cassette) dt.push(['Cassette',cassette]); if(chain && chain.system) dt.push(['Chain',chain]);
   var dtSlots=dt.map(function(x){ return x[0].toLowerCase(); });   // slot keys happen to equal the lowercased labels
   if(dt.length>1){
     /* 3a AXS-controller exception (dossier rule 3 review, 2026-07-10): SRAM
@@ -6112,9 +6249,9 @@ function checkBuild(build){
     var axsCtrl = !!(shifter && shifter.actuation==='electronic' && (shifter.system==='sram-eagle'||shifter.system==='sram-transmission'));
     var dtSys = axsCtrl ? dt.filter(function(x){ return x[1]!==shifter; }) : dt;
     var systems=dtSys.map(function(x){return x[1].system;}).filter(function(v,i,a){return a.indexOf(v)===i;});
-    if(systems.length>1) err('drivetrain-system', dtSys.map(function(x){ return x[0].toLowerCase(); }), 'Drivetrain mismatch: '+dtSys.map(function(x){return x[0]+' = '+L(x[1].system);}).join(', ')+'. Shifter, derailleur, cassette and chain must be one system.');
+    if(systems.length>1) err('drivetrain-system', dtSys.map(function(x){ return x[0].toLowerCase(); }), 'Drivetrain mismatch: '+dtSys.map(function(x){return x[0]+' = '+L(x[1].system||'');}).join(', ')+'. Shifter, derailleur, cassette and chain must be one system.');   // ||'': every dt entry has system (the chain guard above), the fallback only narrows the type
     else if(axsCtrl && systems.length===1 && systems[0]!=='sram-eagle' && systems[0]!=='sram-transmission')
-      err('drivetrain-system', dtSlots, 'Drivetrain mismatch: '+dt.map(function(x){return x[0]+' = '+L(x[1].system);}).join(', ')+'. An AXS controller only drives SRAM AXS derailleurs.');
+      err('drivetrain-system', dtSlots, 'Drivetrain mismatch: '+dt.map(function(x){return x[0]+' = '+L(x[1].system||'');}).join(', ')+'. An AXS controller only drives SRAM AXS derailleurs.');
     /* Speed equality across the INDEXED parts only - shifter, derailleur,
           cassette. The CHAIN is deliberately excluded (engine-critical
           review M1, 2026-07-12): chains are WIDTH-defined, not speed-
@@ -6146,6 +6283,8 @@ function checkBuild(build){
   if(chain && crankset && chain.system==='sram-transmission'){
     if(crankset.ringStd===null)
       info('chainring-standard', ['chain','crankset'], 'Chainring: '+nameOf(crankset)+' is sold without a chainring - fit a T-Type (8-bolt) ring to run the '+nameOf(chain)+'.');
+    else if(!crankset.ringStd)   // ringStd ABSENT = the single-speed crank shape (chainWidth; 2026-07-13 DJ pass): its 1/8in-3/32in ring is by definition not a T-Type ring. Every live geared crank carries ringStd (schema cross-rule), so this branch is dormant for the live catalog.
+      err('chainring-standard', ['chain','crankset'], 'Chainring mismatch: '+nameOf(chain)+' is a T-Type Flattop chain, but '+nameOf(crankset)+' runs a single-speed chainring. SRAM documents Flattop chains as incompatible with non-T-Type rings.');
     else if(crankset.ringStd!=='t-type')
       err('chainring-standard', ['chain','crankset'], 'Chainring mismatch: '+nameOf(chain)+' is a T-Type Flattop chain, but '+nameOf(crankset)+' has a '+L(crankset.ringStd)+' chainring. SRAM documents Flattop chains as incompatible with non-T-Type rings.');
   }
@@ -6197,6 +6336,38 @@ function checkBuild(build){
   }
   if(!cassette && rW && rW.freehub==='integrated')
     info('freehub-integrated', ['rearWheel'], 'Integrated cassette: Rear wheel includes its own 7-speed (9-24T) cassette - no separate cassette is needed; the maker states it works with 10 and 11 speed chains from both Shimano and SRAM.');
+
+  /* 6d. SINGLE-SPEED drivetrain (2026-07-13, Douglas's DJ/BMX architecture
+        sign-off - data/DJ-BMX-COMPAT-ANALYSIS.md rules DJ-1 + DJ-2). Both
+        rules land DORMANT for the live catalog: they read only the new
+        single-speed fields (chainWidth on ring/cog/chain; driveMode +
+        dropoutType on a frame), which no live part carries.
+        ss-chain-width (DJ-1): the front ring, rear cog and chain of a
+        single-speed drivetrain share a width class - 1/8in (BMX-derived) or
+        3/32in (derailleur-width). Mixing them turns but runs poorly / wears
+        fast, so this is a WARNING, not an error - PROVISIONAL severity per
+        the analysis doc's Q6 lean, flagged for the mechanic review. The cog
+        slot ships with the schema (no live GROUPS slot yet); the rule reads
+        it now so the DJ go-live is a data flip, not an engine change. */
+  /** @type {Array<[string, string, string]>} */ var ssw = [];   // [label, chainWidth, slotKey]
+  if(crankset && crankset.chainWidth) ssw.push(['Crankset ring', crankset.chainWidth, 'crankset']);
+  if(cog && cog.chainWidth) ssw.push(['Cog', cog.chainWidth, 'cog']);
+  if(chain && chain.chainWidth) ssw.push(['Chain', chain.chainWidth, 'chain']);
+  if(ssw.length>1){
+    var sswWidths = ssw.map(function(x){ return x[1]; }).filter(function(v,i,a){ return a.indexOf(v)===i; });
+    if(sswWidths.length>1)
+      warn('ss-chain-width', ssw.map(function(x){ return x[2]; }),
+        'Single-speed width mismatch: '+ssw.map(function(x){ return x[0]+' = '+x[1]+'in'; }).join(', ')+
+        '. Ring, cog and chain should share one width class (1/8in or 3/32in) - a mixed stack turns but runs poorly and wears fast.');
+  }
+  /* ss-tension (DJ-2): a single-speed has no derailleur to take up chain
+        slack. Horizontal / sliding dropouts and eccentric BBs tension by
+        moving the wheel or BB; a VERTICAL dropout needs a chain tensioner or
+        a half-link chain. INFO tier - it can always be made to work (three
+        real solutions), so it nudges, never blocks. Fires only off a frame's
+        sourced dropoutType; frames without the field stay silent. */
+  if(frame && frame.driveMode==='single-speed' && frame.dropoutType==='vertical')
+    info('ss-tension', ['frame'], 'Chain tension: '+nameOf(frame)+' has vertical dropouts and no derailleur to take up slack - single-speed setups here use a chain tensioner or a half-link chain to set tension.');
 
   /* 7. Crank / BB. With a real BB picked, both interfaces are exact checks
         (dossier rule 7 review 2026-07-10 - the BB category exists so
@@ -6355,6 +6526,20 @@ function checkBuild(build){
           a size picker (deferred with the frameSize share-hash key). */
     if(dropper.drop>=180)   /* threshold 200->180 per the dossier rule 13 review verdict (2026-07-10) */
       info('dropper-insertion', ['dropper','frame'], 'Long-drop post: the '+nameOf(dropper)+' ('+dropper.drop+'mm) needs deep seat-tube insertion - check the maker\'s insertion calculator for your '+nameOf(frame)+' frame size.');
+  }
+
+  /* 13c. Rigid seatpost diameter vs seat tube (DJ go-live, 2026-07-14) - the
+        seatpost slot's twin of rule 13, same direction-aware physics and the
+        same shim doctrine: bigger post in a smaller tube = impossible (error);
+        smaller post in a bigger tube = works with a reducing shim (warning).
+        The slot is brand new, so no pre-existing build or share link can carry
+        it - live verdicts are unchanged by construction. */
+  if(seatpost && frame){
+    if(seatpost.diameter>frame.seatTube){
+      err('seatpost-diameter', ['seatpost','frame'], 'Seatpost too big: Frame seat tube is '+frame.seatTube+'mm but Seatpost is '+seatpost.diameter+'mm - a bigger post cannot fit a smaller tube.');
+    } else if(seatpost.diameter<frame.seatTube){
+      warn('seatpost-shim', ['seatpost','frame'], 'Seatpost shim needed: a '+seatpost.diameter+'mm post in a '+frame.seatTube+'mm seat tube works with a '+frame.seatTube+'-to-'+seatpost.diameter+'mm reducing shim (sold separately).');
+    }
   }
 
   /* 14. Tire width vs wheel clearance (per wheel, warnings) */
@@ -6687,9 +6872,16 @@ var _SAMPLE_PLAN = ['fork','frontWheel','rearWheel','shock','frontTire','rearTir
 
 /** The sample-build themes, keyed to the toolbar buttons. @type {SampleTheme[]} */
 var SAMPLE_THEMES = [
-  { key:'budget', label:'Budget',    band:{p:0.12, w:0.18}, frame:function(f){ return true; } },
-  { key:'mid',    label:'Mid-range', band:{p:0.50, w:0.20}, frame:function(f){ return true; } },
-  { key:'high',   label:'High-end',  band:{p:0.90, w:0.15}, frame:function(f){ return true; } },
+  /* The three price bands exclude dj-discipline frames (DJ go-live, 2026-07-14):
+     a theme-scope choice like the dh/trail/xc filters below, NOT a fit rule.
+     DJ frames are cheap enough to dominate the Budget band, but the generator's
+     plan is a geared-MTB showcase - on a single-speed frame it would ship no
+     cog/seatpost (incomplete), and on a geared-convertible 26" frame the only
+     26" rear wheel is a single-speed driver, making shifter+derailleur picks
+     read as a fake geared build. A dedicated DJ sample theme can join later. */
+  { key:'budget', label:'Budget',    band:{p:0.12, w:0.18}, frame:function(f){ return (f.disciplines||[]).indexOf('dj')<0; } },
+  { key:'mid',    label:'Mid-range', band:{p:0.50, w:0.20}, frame:function(f){ return (f.disciplines||[]).indexOf('dj')<0; } },
+  { key:'high',   label:'High-end',  band:{p:0.90, w:0.15}, frame:function(f){ return (f.disciplines||[]).indexOf('dj')<0; } },
   { key:'mullet', label:'Mullet',    band:null, mullet:true, frame:function(f){ return (f.wheelConfigs||[]).indexOf('mullet')>=0; } },
   { key:'dh',     label:'DH',        band:null, frame:function(f){ return (f.disciplines||[]).indexOf('dh')>=0; } },
   { key:'trail',  label:'Trail',     band:null, frame:function(f){ return (f.disciplines||[]).indexOf('trail')>=0; } },
@@ -6914,7 +7106,7 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = { PARTS:PARTS, GROUPS:GROUPS, SLOTS:SLOTS, LABELS:LABELS, WHEEL_CONFIG:WHEEL_CONFIG, slotRequired:slotRequired,
     altSlotsOf:altSlotsOf, wheelPositionFilled:wheelPositionFilled, effectiveWheel:effectiveWheel,
     ALIASES:ALIASES, canonicalId:canonicalId,
-    byId:byId, nameOf:nameOf, specSummary:specSummary, checkBuild:checkBuild, verdictKey:verdictKey,
+    byId:byId, nameOf:nameOf, specSummary:specSummary, checkBuild:checkBuild, Verdict:Verdict, verdictKey:verdictKey,   // Verdict exported for src/compat-bmx.js - both engines share the verdict primitives, never copy them
     placementDiff:placementDiff, conflictReason:conflictReason, compatOf:compatOf, bundleActive:bundleActive, buildTotals:buildTotals,
     esc:esc, partVerified:partVerified, partWeight:partWeight, sanitizeShare:sanitizeShare,
     mulberry32:mulberry32, SAMPLE_THEMES:SAMPLE_THEMES, generateSampleBuild:generateSampleBuild };

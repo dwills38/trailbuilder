@@ -140,7 +140,9 @@ test('rim missing wheel size is caught', function(){
   var p = over('rm-dtswiss-ex511-29'); delete p.wheel; some(probs(p), 'wheel');
 });
 test('rim wheel size outside the vocab is caught', function(){
-  some(probs(over('rm-dtswiss-ex511-29', { wheel:'26' })), 'wheel');
+  // fixture value moved '26' -> '700c' 2026-07-13: '26' became a LEGAL wheel
+  // token with the DJ pass, so it no longer serves as the out-of-vocab example.
+  some(probs(over('rm-dtswiss-ex511-29', { wheel:'700c' })), 'wheel');
 });
 test('FM (flat mount) is valid brakeMount vocab; unknown mounts still rejected', function(){
   var p = over('bk-magura-mt7', { mount:'FM' });

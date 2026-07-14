@@ -23,22 +23,35 @@
 /* Canonical vocabularies - the only allowed values for each standard. */
 /** @type {Object.<string, string[]>} */
 var VOCAB = {
-  wheel:        ['29', '275'],
-  wheelConfig:  ['29', '275', 'mullet'],
+  /* '26' + '24' added 2026-07-13 (DJ/BMX architecture sign-off, data/
+     DJ-BMX-COMPAT-ANALYSIS.md section 4-DJ): 26in is the dominant dirt-jump
+     size, 24in the junior/park size. Purely additive - no LIVE part declares
+     either, so both are inert for the shipped MTB catalog (the DJ dataset in
+     data/dirt-jump.js is off-live until Douglas's go-live word). */
+  wheel:        ['29', '275', '26', '24'],
+  wheelConfig:  ['29', '275', 'mullet', '26', '24'],
   /* Do NOT add a '157DH' value: 12x157 is ONE fitment standard (DH hubs are
      SuperBoost157 - fact-checked, DATA-MODEL-REVIEW section 2); a split would
      create false "won't fit" verdicts. 142x12 is pre-Boost, inert until parts
      carry it. */
   /* '150x12' = the pre-Boost/classic DH rear (Commencal Supreme DH V5 per
      Vital's spec table - 12x150; distinct from SuperBoost157). */
-  rearAxle:     ['Boost148', 'SuperBoost157', '142x12', '150x12'],
+  /* '10x135-bolt' = the classic 10mm bolt-on 135mm-spaced rear of dirt-jump /
+     street frames+hubs (DMR, NS, Halo Combat) - added 2026-07-13 with the DJ
+     architecture pass, inert until DJ rows go live. The 9/10mm QR variants
+     stay OUT pending the mechanic review flagged in DJ-BMX-COMPAT-ANALYSIS.md
+     section 4-DJ (never invent a fitment split without a source). */
+  rearAxle:     ['Boost148', 'SuperBoost157', '142x12', '150x12', '10x135-bolt'],
   /* 20x110 = the MODERN dual-crown standard, 20x110 BOOST (BoxXer D1, Fox 40
      2025). '20x110-nonboost' = the legacy/standard DH spacing some forks still
      use (Marzocchi Bomber 58 - maker page states "20x110 DH (non-Boost)").
      Same axle dimensions but the Boost variant repositions the rotor/flanges,
      so they are DIFFERENT fitment standards - conflating them would produce
      false "fits" on fork+wheel pairs. And 15x110 Boost110 is a third thing. */
-  frontAxle:    ['Boost110', '20x110', '20x110-nonboost'],
+  /* '15x100' = the non-Boost 15mm thru-axle of dirt-jump forks (RockShox Pike
+     DJ - fetched sram.com FS-PIKE-DJ-A4 model page, 15x100 Maxle). Added
+     2026-07-13 (DJ pass); inert until DJ rows go live. */
+  frontAxle:    ['Boost110', '20x110', '20x110-nonboost', '15x100'],
   /* 'integrated' = the driver IS a built-in cassette, no freehub body exposed
      (e*thirteen LG1r DH rear - "Freehub Mount: Integrated 7 Speed Cassette",
      fetched ethirteen.eu 2026-07-10), so NO separate cassette mounts and no
@@ -65,7 +78,14 @@ var VOCAB = {
      explained), mirroring the CL-on-6-bolt-hub adapter warning; every other
      XDR pairing (MicroSpline/HG cassettes, or an XDR-length cassette on a
      short XD driver) stays the exact-match hard error. */
-  freehub:      ['XD', 'MicroSpline', 'HG', 'integrated', 'XDR'],   // 'HG' = MTB-length HG spline (a road expansion must SPLIT, not conflate)
+  /* 'single-speed' (2026-07-13, DJ pass) = a dedicated single-speed driver /
+     thread-on cog interface (Halo Combat SS rear etc.) - a wheel/hub-side
+     value like 'integrated': no multi-speed cassette mounts on it (rule 6's
+     exact-match error covers a picked cassette honestly), and slotRequired
+     exempts the cassette slot the same way it does for 'integrated'. A
+     cassette row can never carry it (cross-rule below). Inert until DJ rows
+     go live. */
+  freehub:      ['XD', 'MicroSpline', 'HG', 'integrated', 'XDR', 'single-speed'],   // 'HG' = MTB-length HG spline (a road expansion must SPLIT, not conflate)
   rotorMount:   ['sixbolt', 'CL'],             // audited 2026-07: market-complete for MTB
   shockMount:   ['std', 'trunnion'],           // audited 2026-07: market-complete ('bearing' eyelets may join when a bearing-eyelet row lands)
   /* 'straight-dc' = the straight 1.125in steerer of dual-crown DH forks
@@ -213,8 +233,29 @@ var VOCAB = {
      DH constraints are real fields: crown/axle/steerer). Absence = universal.
      'ebike' is deliberately NOT a value - e-enduro/e-trail/e-XC all exist, so
      e-bike is an orthogonal later flag, not a discipline. */
-  discipline:   ['xc', 'trail', 'enduro', 'dh'],
+  discipline:   ['xc', 'trail', 'enduro', 'dh', 'dj'],   // 'dj' = dirt jump (2026-07-13, DJ pass) - annotation only, like every discipline value
   suspension:   ['full', 'hardtail'],
+  /* ---- Single-speed / dirt-jump vocab (2026-07-13, Douglas's DJ/BMX
+     architecture sign-off - data/DJ-BMX-COMPAT-ANALYSIS.md sections 1c + 4-DJ).
+     driveMode: the MECHANICAL drivetrain discriminator (decision 2026-07-13:
+     driveMode, not a marketing bikeType enum). 'single-speed' on a frame =
+     the frame is a single-speed build (no derailleur drivetrain) -
+     slotRequired() drops the shifter/derailleur/cassette slots (and, per the
+     brakeless decision, the brake/rotor slots) exactly like the
+     hardtail-shock pattern. ABSENCE = geared: zero effect on every existing
+     catalog row and verdict. Never a marketing category - a single-speed
+     trail hardtail is a real thing and would carry it honestly.
+     chainWidth: the single-speed width class shared by ring, cog and chain -
+     1/8in (BMX-derived, the DJ default) vs 3/32in (derailleur-width). Feeds
+     rule ss-chain-width (a WARNING - provisional severity per analysis-doc
+     Q6: it turns but runs poorly; mechanic review pending).
+     dropoutType: how a single-speed tensions its chain (analysis-doc rule
+     DJ-2). Only 'vertical' feeds a verdict (the ss-tension INFO: a vertical
+     dropout run single-speed needs a tensioner / half-link); the
+     horizontal-vs-sliding split is verdict-neutral. */
+  driveMode:    ['single-speed'],
+  chainWidth:   ['1/8', '3/32'],
+  dropoutType:  ['horizontal', 'sliding', 'ecc-bb', 'vertical'],
   /* Provenance policy (DATA-MODEL-REVIEW 5.1-13, decided 2026-07): absent =
      manufacturer. 'measured' = a reputable third-party MEASURED figure and is
      accepted for WEIGHT ONLY (interfaces stay manufacturer-sourced; the
@@ -275,6 +316,12 @@ var SCHEMA = {
        UDH conversion kit's name, only for non-UDH frames whose maker sells one
        (RAAW UDH Retrofit Kit: Jibb V1 / Madonna V2 / V2.2). Sourced only;
        presence downgrades rule 4's error to the adapter-tier warning. */
+    /* driveMode + dropoutType (2026-07-13 DJ pass - see the VOCAB block):
+       both optional, both dormant - no live row carries either. driveMode
+       absence = geared (the universal default); dropoutType only feeds the
+       ss-tension info when 'vertical' AND the frame is single-speed. */
+    driveMode:{type:'string',vocab:'driveMode',optional:true},
+    dropoutType:{type:'string',vocab:'dropoutType',optional:true},
     udh:{type:'bool'}, udhRetrofitKit:{type:'string',optional:true}, frameOnly:{type:'bool'}, maxTire:{type:'number',optional:true},
     headTubeUpper:{type:'string',vocab:'headTube',optional:true}, headTubeLower:{type:'string',vocab:'headTube',optional:true},
     bundledShock:{type:'id',optional:true,nullable:true},
@@ -327,13 +374,37 @@ var SCHEMA = {
      (a 10T cog needs XD/MicroSpline; the HG spline floor is 11T) - the display
      string ("10-52") is derived, never stored (DATA-MODEL-REVIEW 5.1-7) */
   cassette: { system:{type:'string',vocab:'system'}, speeds:{type:'number'}, freehub:{type:'string',vocab:'freehub'}, minCog:{type:'number'}, maxCog:{type:'number'} },
-  chain: { system:{type:'string',vocab:'system'}, speeds:{type:'number'} },
+  /* chain: a chain is EITHER geared (system + speeds, the original shape) OR
+     single-speed (chainWidth - 1/8in or 3/32in; optional halfLink). The two
+     identities are enforced by a cross-rule below, so existing geared rows
+     keep exactly the old strictness (a geared chain missing system/speeds
+     still fails) while a real single-speed chain (KMC Z410) no longer forces
+     a fabricated `system`. (2026-07-13 DJ pass, analysis-doc section 1c.) */
+  chain: { system:{type:'string',vocab:'system',optional:true}, speeds:{type:'number',optional:true},
+    chainWidth:{type:'string',vocab:'chainWidth',optional:true}, halfLink:{type:'bool',optional:true} },
   /* crankset: ring/ringStd are OPTIONAL/NULLABLE because armset-only cranks
      ship without a ring (Race Face, eeWings) - a required value forces
      fabricated data and produced a live false red (DATA-MODEL-REVIEW 5.1-6).
      ringStd:null = "ring sold separately / user-fitted". chainline is a
      NUMBER in mm (Boost=52, T-Type=55), display-only for now. */
-  crankset: { bb:{type:'string',vocab:'crankBb'}, ring:{type:'number',optional:true}, ringStd:{type:'string',vocab:'ringStd',nullable:true}, speeds:{type:'number'}, chainline:{type:'number',optional:true} },
+  /* crankset: same geared-or-single-speed split as chain (cross-rule below):
+     a geared crank must still carry speeds + ringStd (nullable = armset-only,
+     unchanged); a single-speed crank carries chainWidth (its ring's width
+     class - feeds ss-chain-width) and may omit speeds/ringStd, which are
+     meaningless on a 1/8in BMX-heritage crank. (2026-07-13 DJ pass.) */
+  crankset: { bb:{type:'string',vocab:'crankBb'}, ring:{type:'number',optional:true}, ringStd:{type:'string',vocab:'ringStd',nullable:true,optional:true}, speeds:{type:'number',optional:true}, chainline:{type:'number',optional:true},
+    chainWidth:{type:'string',vocab:'chainWidth',optional:true} },
+  /* cog = the single rear cog of a single-speed drivetrain (DJ; the analysis
+     doc's rule DJ-1 reads its chainWidth). No live slot exists yet - the
+     category lands with the DJ schema pass so off-live DJ rows validate
+     against the real schema; the `cog` build slot joins GROUPS only when
+     Douglas takes DJ live. A cog-mounting field (freehub-spacer / thread-on /
+     BMX-driver) is deliberately deferred to the mechanic review (analysis-doc
+     rule DJ-2 models mounting as permissive, never a hard gate). */
+  cog: { teeth:{type:'number'}, chainWidth:{type:'string',vocab:'chainWidth'} },
+  /* seatpost = a RIGID post (DJ builds run slammed rigid posts; dropper stays
+     its own category). Same no-live-slot status as cog. */
+  seatpost: { diameter:{type:'number'} },
   /* bb = the bottom bracket itself (dossier rule 7 review, 2026-07-10):
      shell = the frame standard it threads/presses into (frameBb vocab);
      spindle = the crank interface its bore takes (crankBb vocab). Both are
@@ -398,7 +469,7 @@ var COMMON = ['id','cat','brand','model','price','weight','desc','verified','las
 var ID_PREFIX = {
   frame:'fr', fork:'fk', shock:'sh', frontwheel:'fw', rearwheel:'rw', tire:'ti',
   fronthub:'fh', rearhub:'rh', rim:'rm',
-  shifter:'sft', derailleur:'dr', cassette:'ca', chain:'ch', crankset:'cr',
+  shifter:'sft', derailleur:'dr', cassette:'ca', chain:'ch', crankset:'cr', cog:'cg', seatpost:'sp',
   brake:'bk', rotor:'ro', handlebar:'hb', stem:'st', grips:'gr', dropper:'dp',
   saddle:'sa', pedal:'pd', bb:'bb', headset:'hs', groupset:'gs', wheelset:'ws', brakeset:'bs', cockpitset:'co'
 };
@@ -644,6 +715,32 @@ function validatePart(p, ctx){
     // cassette (e*thirteen LG1r DH) - a separate cassette row carrying it is
     // nonsense data (there is no such mount to buy a cassette for).
     if(p.freehub === 'integrated') bad('freehub integrated is a wheel/hub-side value (the driver IS the cassette) - a cassette row cannot carry it');
+    // same restriction for the single-speed driver (2026-07-13 DJ pass): it
+    // takes ONE cog, never a multi-speed cassette.
+    if(p.freehub === 'single-speed') bad('freehub single-speed is a wheel/hub-side value (the driver takes a single cog) - a cassette row cannot carry it');
+  }
+
+  // cross-rule (2026-07-13 DJ pass): a chain is geared (system + speeds) or
+  // single-speed (chainWidth) - never neither. Geared rows keep the original
+  // required-field strictness; a half-identity (system without speeds or
+  // vice versa) is a typo'd row either way.
+  if(p.cat === 'chain'){
+    var chGeared = ('system' in p && p.system != null) || ('speeds' in p && p.speeds != null);
+    var chSS = ('chainWidth' in p && p.chainWidth != null);
+    if(chGeared){
+      if(!(p.system != null)) bad('geared chain (has speeds) is missing required field "system"');
+      if(!(p.speeds != null)) bad('geared chain (has system) is missing required field "speeds"');
+    } else if(!chSS){
+      bad('chain needs system+speeds (geared) or chainWidth (single-speed)');
+    }
+  }
+
+  // cross-rule (2026-07-13 DJ pass): same split for cranksets - a crank
+  // without chainWidth is geared and must still carry speeds + ringStd
+  // (ringStd stays nullable: null = armset-only, ring sold separately).
+  if(p.cat === 'crankset' && !('chainWidth' in p && p.chainWidth != null)){
+    if(!('speeds' in p && p.speeds != null)) bad('geared crankset is missing required field "speeds"');
+    if(!('ringStd' in p)) bad('geared crankset is missing required field "ringStd" (null = ring sold separately)');
   }
 
   // cross-rule (engine-critical review C4, 2026-07-12): a HARD fork-travel

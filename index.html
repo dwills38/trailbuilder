@@ -1250,7 +1250,7 @@
   var ownedOnly = false;     // when on, show only parts in the signed-in user's inventory
   var ownedIds = {};         // canonicalId(part_id) -> true, cache kept fresh by refreshOwned() (renderCatalog stays sync)
   var compatibleOnly = false;  // when on, hide parts whose compat dot would be red (state 'r'); yellow still shows (it still fits)
-  var disciplineFilter = 'all';  // 'all' | xc | trail | enduro | dh — display filter only (disciplines never feeds verdicts)
+  var disciplineFilter = 'all';  // 'all' | xc | trail | enduro | dh | dj — display filter only (disciplines never feeds verdicts)
   // Contextual per-group catalog sub-filters (wheel size, tire width, pedal style,
   // fork travel, shock stroke, dropper diameter/travel, bar clamp, BB shell family,
   // drivetrain electronic/mechanical). All display-only — they NEVER feed checkBuild.
@@ -1270,7 +1270,7 @@
   var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg / ' + (g/453.592).toFixed(2) + ' lb)'; };
   // esc() (HTML-escape) and partVerified() are shared from compat.js — one tested source of truth.
 
-  var ICONS = {frame:'🚲',fork:'🍴',shock:'🪐',wheels:'🛞',tire:'⚫',drivetrain:'⚙️',brakes:'🛑',bb:'🔩',headset:'🎧',dropper:'📐',cockpit:'🔧',saddle:'🪑',pedals:'👟'};
+  var ICONS = {frame:'🚲',fork:'🍴',shock:'🪐',wheels:'🛞',tire:'⚫',drivetrain:'⚙️',cog:'✳️',brakes:'🛑',bb:'🔩',headset:'🎧',dropper:'📐',seatpost:'📏',cockpit:'🔧',saddle:'🪑',pedals:'👟'};
 
   /* ---- clean per-category placeholder line-art (Phase 2, until real product
      photos are licensed) — one simple stroke icon per GROUPS key, themeable via
@@ -1302,6 +1302,7 @@
     fronthub:'Front Hub',rearhub:'Rear Hub',rim:'Rim',
     tire:'Tires',shifter:'Shifter',derailleur:'Derailleur',cassette:'Cassette',chain:'Chain',crankset:'Crankset',
     brake:'Brake',rotor:'Rotor',handlebar:'Handlebar',stem:'Stem',grips:'Grips',dropper:'Dropper',saddle:'Saddle',pedal:'Pedals',bb:'Bottom Bracket',headset:'Headset',
+    cog:'Single-Speed Cog',seatpost:'Seatpost',
     groupset:'Groupset',wheelset:'Wheelset',brakeset:'Brake set',cockpitset:'Cockpit kit'};
   var catLabel = function(c){ return CATLABEL[c] || c; };
 
@@ -1389,10 +1390,10 @@
      verdicts; a part without the tag is universal and always shows).
      Own label map: L() must not be used here — 'dh'/'trail'/'enduro' collide
      with the tire-casing labels in LABELS. ---- */
-  var DISC_LABELS = { all:'All disciplines', xc:'🐇 XC', trail:'🌲 Trail', enduro:'⛰️ Enduro', dh:'⬇️ DH' };
+  var DISC_LABELS = { all:'All disciplines', xc:'🐇 XC', trail:'🌲 Trail', enduro:'⛰️ Enduro', dh:'⬇️ DH', dj:'🤸 DJ' };
   function renderDiscChips(){
     var el = $('discChips'); el.innerHTML='';
-    ['all','dh','enduro','trail','xc'].forEach(function(k){   // ordered by travel, DH first
+    ['all','dh','enduro','trail','xc','dj'].forEach(function(k){   // ordered by travel, DH first; DJ (100mm single-speed hardtails, live 2026-07-14) last
       var d=document.createElement('button');
       d.type='button';
       d.className='chip'+(disciplineFilter===k?' active':'');
@@ -1486,7 +1487,7 @@
        match(p,v) part shows when true. OUT-OF-SCOPE parts MUST return true — an
                  axis never hides a part it doesn't describe (a cassette carries no
                  actuation of its own, a stem has no bar clamp), so they pass. */
-  var WHEEL_SIZE_LABELS = { '29':'29"', '275':'27.5"' };
+  var WHEEL_SIZE_LABELS = { '29':'29"', '275':'27.5"', '26':'26"', '24':'24"' };   // 26/24 = DJ + junior sizes (DJ live 2026-07-14); values() stays catalog-derived, so they only show when rows carry them
   var PEDAL_STYLE_LABELS = { flat:'Flat', clip:'Clipless', hybrid:'Flat/Clipless hybrid' };  // "Clipless" is the industry word; vocab key stays 'clip'
   var SPRING_LABEL = { coil:'Coil', air:'Air' };
   // Bottom-bracket shells grouped into the two families riders actually shop by. An
@@ -1525,7 +1526,7 @@
   var SUBFILTERS = [
     { id:'wheelSize', groups:['wheels','tire'], allLabel:'All sizes',
       aria:'Filter by wheel size — only affects wheels & tires',
-      values:function(){ return inOrder(distinctVals(function(p){ return !!p.wheel; }, function(p){ return p.wheel; }), ['29','275']); },
+      values:function(){ return inOrder(distinctVals(function(p){ return !!p.wheel; }, function(p){ return p.wheel; }), ['29','275','26','24']); },
       label:function(v){ return WHEEL_SIZE_LABELS[v] || v; },
       // A wheelset preset carries no top-level `wheel` field of its own (only its
       // frontWheel/rearWheel fills do) - falling through to the generic !p.wheel
