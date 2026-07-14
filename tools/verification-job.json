@@ -1,11 +1,14 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-14T12:34:16.235Z",
+ "updated": "2026-07-14T16:24:40.845Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
  "queue": [
+  "fr-propain-spindrift-al",
+  "fr-trek-session-c-29",
+  "fr-trek-fuel-ex-al-gen6",
   "fr-scott-ransom-900-rc",
   "fr-orange-switch-6",
   "fr-commencal-clash-v3",
@@ -15,7 +18,12 @@
   "fr-trek-top-fuel-gen4",
   "fr-trek-roscoe-gen3",
   "fr-specialized-fuse-29",
+  "fr-transition-smuggler-alloy",
+  "fr-rockymountain-slayer-alloy",
   "fr-rockymountain-instinct",
+  "fr-rockymountain-instinct-alloy",
+  "fr-devinci-troy-carbon",
+  "fr-nukeproof-reactor-290-carbon",
   "fr-cannondale-jekyll",
   "fr-pivot-switchblade-v2",
   "fr-knolly-warden-170",
@@ -12790,34 +12798,38 @@
   "ro-clarks-cle01-140-6b": {
    "cat": "rotor",
    "status": "Verified",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "updated": "2026-07-14T16:24:40.845Z",
    "error": null,
    "source": "https://www.clarkscyclesystems.com/single-piece-rotors/cle-01",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "auto-promoted: already verified in catalog",
+   "tombstoned": "2026-07-14T16:24:40.845Z"
   },
   "ro-clarks-cle01-160-6b": {
    "cat": "rotor",
    "status": "Verified",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "updated": "2026-07-14T16:24:40.845Z",
    "error": null,
    "source": "https://www.clarkscyclesystems.com/single-piece-rotors/cle-01",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "auto-promoted: already verified in catalog",
+   "tombstoned": "2026-07-14T16:24:40.845Z"
   },
   "ro-clarks-cle01-180-6b": {
    "cat": "rotor",
    "status": "Verified",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "updated": "2026-07-14T16:24:40.845Z",
    "error": null,
    "source": "https://www.clarkscyclesystems.com/single-piece-rotors/cle-01",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "auto-promoted: already verified in catalog",
+   "tombstoned": "2026-07-14T16:24:40.845Z"
   },
   "ro-clarks-cle01-203-6b": {
    "cat": "rotor",
    "status": "Verified",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "updated": "2026-07-14T16:24:40.845Z",
    "error": null,
    "source": "https://www.clarkscyclesystems.com/single-piece-rotors/cle-01",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "auto-promoted: already verified in catalog",
+   "tombstoned": "2026-07-14T16:24:40.845Z"
   },
   "ro-clarks-ccl-140-cl": {
    "cat": "rotor",
@@ -12958,34 +12970,38 @@
   "ro-trp-rs01e-180-6b": {
    "cat": "rotor",
    "status": "Verified",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "updated": "2026-07-14T16:24:40.845Z",
    "error": null,
    "source": "https://trpcycling.com/products/rs01e",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "auto-promoted: already verified in catalog",
+   "tombstoned": "2026-07-14T16:24:40.845Z"
   },
   "ro-trp-rs01e-203-6b": {
    "cat": "rotor",
    "status": "Verified",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "updated": "2026-07-14T16:24:40.845Z",
    "error": null,
    "source": "https://trpcycling.com/products/rs01e",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "auto-promoted: already verified in catalog",
+   "tombstoned": "2026-07-14T16:24:40.845Z"
   },
   "ro-trp-rs01e-220-6b": {
    "cat": "rotor",
    "status": "Verified",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "updated": "2026-07-14T16:24:40.845Z",
    "error": null,
    "source": "https://trpcycling.com/products/rs01e",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "auto-promoted: already verified in catalog",
+   "tombstoned": "2026-07-14T16:24:40.845Z"
   },
   "ro-trp-rs01e-223-6b": {
    "cat": "rotor",
    "status": "Verified",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "updated": "2026-07-14T16:24:40.845Z",
    "error": null,
    "source": "https://trpcycling.com/products/rs01e",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "auto-promoted: already verified in catalog",
+   "tombstoned": "2026-07-14T16:24:40.845Z"
   },
   "ro-trp-rs06e-180-6b": {
    "cat": "rotor",
@@ -24399,6 +24415,78 @@
    "cat": "rearwheel",
    "status": "Pending",
    "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-kona-process-153-carbon": {
+   "cat": "frame",
+   "status": "Verified",
+   "updated": "2026-07-14T16:24:40.844Z",
+   "error": null,
+   "source": "https://konaworld.com/products/process-153-cr-dl-frame",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fr-propain-spindrift-al": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T16:24:40.844Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-trek-session-c-29": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T16:24:40.844Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-trek-fuel-ex-al-gen6": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T16:24:40.844Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-transition-smuggler-alloy": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T16:24:40.844Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-rockymountain-slayer-alloy": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T16:24:40.844Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-rockymountain-instinct-alloy": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T16:24:40.844Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-devinci-troy-carbon": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T16:24:40.844Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-nukeproof-reactor-290-carbon": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T16:24:40.844Z",
    "error": null,
    "source": null,
    "note": null
