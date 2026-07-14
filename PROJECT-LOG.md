@@ -2,6 +2,31 @@
 
 ## 2026-07-14 — Overnight watch (coordinator harvesting while Douglas sleeps)
 
+- **MORNING HARVEST COMPLETE — all 11 overnight/day chips landed → 3098 parts / 2286 verified /
+  550 tests / 17 guides (main `e4fbb41`, CI+Deploy green throughout).** In merge order:
+  quality-backlog `7f80ae6` (schema id-map, isPresetCat/isPresetPart split — genuinely different
+  contracts, worker verdict adopted; _slotByKey memo; test table exact) · Shopify wall map
+  `2cba0c5` (ZERO flips — every retry brand still walled; FETCH-WALLS doc committed; flags: WAO
+  "Convergence" rebrand mapping + extend-nominal-weight-to-wheels policy, both → Douglas) ·
+  **DJ GO-LIVE `9769371`** (25 rows into PARTS, dj chip, cog/seatpost slots with inverted
+  requiredness, NEW rule 13c = rule 13's geometric twin on a brand-new slot, sample bands exclude
+  dj; BMX stays unreferenced; CLAUDE.md conflict resolved as union; suite 489→547; harness delta =
+  exactly the 9 DJ frames assembling clean) · frame materials `32880fc` (143/147 backfilled,
+  carbon-alloy token maker-verbatim, filter-only contract harness-proven; 9 DJ frames enter
+  without material — next-touch backfill) · breadth `566aa82` (+8 rows; worker's audit: the
+  2026-07-08 mullet-wheel + finishing-kit queue gaps are otherwise CLOSED — retired) ·
+  price-drift `0fb1a8a` (882/2283 checked; ZEB→$1299, SDU→$659, Öhlins TTX22→$929.50, CC 110
+  headset→$99.99, Mattoc retailer-sale-price bug→MSRP $1049.99; overlap conflicts resolved
+  field-level = sweep PRICE onto landed rows; ~1400 rows remain → follow-up chip candidate) ·
+  guides wave 2 `6f710fb` (7 new guides, coordinator accuracy-read all; DJ guide's "not live yet"
+  closing REWRITTEN at merge to the live truth; a string-splice tooling fumble was caught by the
+  parse check before commit — twice — and fixed) · verify-job re-synced `e4fbb41`. All 8 sessions
+  archived; repo swept to seat + shared checkout. **Deferred/flags for Douglas:** phone banner
+  costs ~28% of a 375px viewport (worker suggests condense-on-scroll as a future design round);
+  forum riding_styles CHECK needs a 'dj' migration (schema tier, his run); WAO rebrand; wheels
+  nominal-weight policy; competitive audit's top-5 ideas (builds gallery, price history, verdict
+  guides, methodology page, Worldwide Cyclery first + Backcountry caution).
+
 - **Overnight harvest, wake 2 (~04:15 UTC).** Discovered chip-spawned sessions CANNOT send_message
   the coordinator ("no Main Coordinator reachable") — completed workers sit silent; watch checks
   now read transcripts of idle sessions. Landed: (1) **evenness sweep (`eb6871a`)** — 146 forks
