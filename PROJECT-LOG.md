@@ -2,6 +2,14 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **Icons v5 (refinement round) delivered** (`design/rail-icons-emoji-v2` @ 5a37795;
+  `_PDFs/rail-icons-lineart-v5.pdf` sent): 54 drawings — every v4 icon corrected against real
+  component photo reference (fork crown/arch/axle, shock piggyback position, derailleur cage
+  geometry), one accent element per icon on var(--icon-accent, currentColor) (graceful fallback;
+  one CSS line per theme = the whole contract, demoed with each theme's existing accent), plus the
+  requested ANTI-SET (solid duotone silhouettes) as a direction check. QA'd at 20px via headless
+  contact sheets. Awaiting picks. Both design sessions archived + swept.
+
 - **TOPO CONTOURS BANNER LIVE (`9150847`) — Douglas's style pick from a 9-direction round.**
   Style-directions-v1 worker delivered 9 clickable header directions on a simplicity dial (PDF +
   live switcher); Douglas picked D4 Topo Contours as the default banner for light/dark/Loam and
