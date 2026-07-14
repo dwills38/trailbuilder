@@ -869,7 +869,7 @@
             <button class="btn primary" id="viewList" aria-pressed="true" title="Dense list — same parts, one row each">☰ List</button>
           </span>
           <select class="btn" id="sortBy" title="Sort the catalog" aria-label="Sort the catalog">
-            <option value="featured">Sort: Best match</option>
+            <option value="random">Sort: Random</option>
             <option value="name">Name A–Z</option>
             <option value="price-asc">Price: low → high</option>
             <option value="price-desc">Price: high → low</option>
@@ -1260,7 +1260,7 @@
   var presetBy = {};         // groupKey -> preset id (when a kit was quick-filled)
   var activeGroup = 'frame'; // start the catalog on Frames (the foundation)
   var activeSub = 'all';     // active sub-category within a group ('all' = whole group)
-  var sortBy = 'featured';   // catalog order: featured (compatible-first) | name | price | weight
+  var sortBy = 'random';   // catalog order: random (uniform shuffle, unbiased default) | name | price | weight
   var search = '';
   var verifiedOnly = false;  // when on, show only manufacturer-verified parts/kits
   var ownedOnly = false;     // when on, show only parts in the signed-in user's inventory
@@ -1428,7 +1428,7 @@
     d.className='chip'+(activeGroup===key?' active':'');
     d.setAttribute('aria-pressed', activeGroup===key ? 'true' : 'false');
     d.textContent=label;
-    d.onclick=function(){ activeGroup=key; activeSub='all'; resetSubFilters(); renderChips(); renderSubChips(); renderSubFilters(); renderCatalog(); };
+    d.onclick=function(){ activeGroup=key; activeSub='all'; resetSubFilters(); reshuffleCatalog(); renderChips(); renderSubChips(); renderSubFilters(); renderCatalog(); };
     return d;
   }
 
@@ -1648,26 +1648,23 @@
   /* ---- catalog ---- */
   function groupCats(g){ var c = g.slots.map(function(s){return s.cat;}); if(g.preset) c.push(g.preset.cat); return c; }
 
-  /* Seeded-random final tie-break for "Best match" (bias audit 2026-07-12 #5).
-     With no build every dot is grey, so an insertion-index tie-break made the
-     default view = data-entry history — late-added brands sat permanently
-     below the fold. Each part's shuffle key derives ONLY from (part id, seed):
-     one draw of the same mulberry32 the sample builds use, never Math.random()
-     per render, so re-sorts (every search keystroke) can't reorder mid-visit.
-     Seed = UTC day number — per-DAY rather than per-session, so the order also
-     survives a reload within the day while rotating daily: time-averaged brand
-     fairness, no brand permanently owns the top of the default view. */
-  var SHUFFLE_SEED = Math.floor(Date.now()/86400000);
-  var shuffleKeyByPart = {};
-  function shuffleKey(id){
-    var k = shuffleKeyByPart[id];
-    if(k===undefined){
-      var h = 2166136261;   // FNV-1a over the id, then mulberry32 scrambles hash^seed
-      for(var i=0;i<id.length;i++){ h ^= id.charCodeAt(i); h = Math.imul(h, 16777619); }
-      k = shuffleKeyByPart[id] = mulberry32((h>>>0) ^ SHUFFLE_SEED)();
-    }
-    return k;
+  /* True-random "Random" sort (bias audit 2026-07-12 #5, made genuinely random
+     2026-07-14). A rank-first order (compatible parts, or certain models, always
+     floating up) reads as bias no matter how the ties are broken — the fix is a
+     real uniform shuffle, not a nicer tie-break. partShuffleOrder maps every part
+     id to its position in one Fisher-Yates pass over the whole catalog; that
+     position is the sort key, so re-renders triggered by filtering/search/toggles
+     (which only narrow which parts are shown) never reorder what's already visible.
+     reshuffleCatalog() is called once at page load and once per category
+     (re)selection — see the two activeGroup assignment sites below — never per
+     keystroke, which would be disorienting. */
+  var partShuffleOrder = {};
+  function reshuffleCatalog(){
+    var order = fisherYatesShuffle(PARTS.map(function(p){ return p.id; }));
+    partShuffleOrder = {};
+    order.forEach(function(id, i){ partShuffleOrder[id] = i; });
   }
+  reshuffleCatalog();
   function renderCatalog(){
     var el=$('catalog'); el.innerHTML='';
     el.classList.toggle('list', viewMode==='list');   // dense-list view is pure CSS on this class
@@ -1710,21 +1707,22 @@
         : null;
       el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':wheelsetEmptyHint?wheelsetEmptyHint:compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>'; return;
     }
-    var meta=list.map(function(p,i){ var c=compatOf(p, res); return {p:p,c:c,rank:(c.state==='g'?0:c.state==='w'?1:c.state==='n'?2:3),pre:isPresetPart(p)?0:1,sh:shuffleKey(p.id),i:i}; });
-    // "Best match" keeps the compatible-first order; explicit sorts are pure
-    // (the dot still shows fit). Missing weights sink to the bottom either way.
-    // featured's last tie-break is the seeded shuffle key (see shuffleKey above),
-    // with the index only as a total-order backstop against hash collisions.
+    var meta=list.map(function(p,i){ var c=compatOf(p, res); return {p:p,c:c,sh:partShuffleOrder[p.id],i:i}; });
+    // "Random" is a genuine uniform shuffle (see reshuffleCatalog above) — no
+    // rank/preset priority, so no manufacturer or model can sit permanently at
+    // the top. The dot still shows fit regardless of sort. Explicit sorts are
+    // pure; missing weights sink to the bottom either way. The index is only a
+    // total-order backstop in case two parts somehow shared a shuffle position.
     var wt=function(p,missing){ var w=partWeight(p); return w!=null ? w : missing; };   // kits derive weight from fills
     var SORTS={
-      featured:      function(a,b){ return (a.rank-b.rank) || (a.pre-b.pre) || (a.sh-b.sh) || (a.i-b.i); },
+      random:        function(a,b){ return (a.sh-b.sh) || (a.i-b.i); },
       name:          function(a,b){ return (a.p.brand+' '+a.p.model).localeCompare(b.p.brand+' '+b.p.model) || (a.i-b.i); },
       'price-asc':   function(a,b){ return ((a.p.price||0)-(b.p.price||0)) || (a.i-b.i); },
       'price-desc':  function(a,b){ return ((b.p.price||0)-(a.p.price||0)) || (a.i-b.i); },
       'weight-asc':  function(a,b){ return (wt(a.p,Infinity)-wt(b.p,Infinity)) || (a.i-b.i); },
       'weight-desc': function(a,b){ return (wt(b.p,-Infinity)-wt(a.p,-Infinity)) || (a.i-b.i); }
     };
-    meta.sort(SORTS[sortBy] || SORTS.featured);
+    meta.sort(SORTS[sortBy] || SORTS.random);
     meta.forEach(function(m){ el.appendChild(cardEl(m.p, m.c)); });
   }
 
@@ -1851,7 +1849,7 @@
       toast('All required parts chosen — 📋 View complete build has the summary and verdict.');
       return false;
     }
-    activeGroup = target.key; activeSub = 'all'; resetSubFilters();
+    activeGroup = target.key; activeSub = 'all'; resetSubFilters(); reshuffleCatalog();
     if(!guidedOptOut) setCompatibleOnly(true);
     renderChips(); renderSubChips(); renderSubFilters();   // the caller's sync() renders the catalog
     var picked = byId(build[slotKey]);

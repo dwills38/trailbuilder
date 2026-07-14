@@ -45,3 +45,30 @@ test('partVerified is false for null and for a kit with no fills', function(){
   ok(!C.partVerified(null));
   ok(!C.partVerified({ id:'x', cat:'groupset', brand:'B', model:'M', price:0, fills:{} }));
 });
+
+/* ---- fisherYatesShuffle(): the "Random" catalog sort's shuffle ----------- */
+test('fisherYatesShuffle returns a permutation - same elements, none dropped or duplicated', function(){
+  var input = [];
+  for(var i=0;i<200;i++) input.push('item-'+i);
+  var shuffled = C.fisherYatesShuffle(input.slice(), C.mulberry32(1));
+  eq(shuffled.length, input.length);
+  var sortedIn = input.slice().sort(), sortedOut = shuffled.slice().sort();
+  eq(JSON.stringify(sortedOut), JSON.stringify(sortedIn));
+});
+test('fisherYatesShuffle with a seeded rng is deterministic (same seed -> same order)', function(){
+  var input = []; for(var i=0;i<50;i++) input.push(i);
+  var a = C.fisherYatesShuffle(input.slice(), C.mulberry32(42));
+  var b = C.fisherYatesShuffle(input.slice(), C.mulberry32(42));
+  eq(JSON.stringify(a), JSON.stringify(b));
+});
+test('fisherYatesShuffle produces different orders across different seeds/calls', function(){
+  var input = []; for(var i=0;i<50;i++) input.push(i);
+  var a = C.fisherYatesShuffle(input.slice(), C.mulberry32(1));
+  var b = C.fisherYatesShuffle(input.slice(), C.mulberry32(2));
+  ok(JSON.stringify(a) !== JSON.stringify(b), 'two different seeds produced the identical order (astronomically unlikely for a real shuffle)');
+});
+test('fisherYatesShuffle mutates and returns the same array (in-place, chainable)', function(){
+  var input = [1,2,3,4,5];
+  var out = C.fisherYatesShuffle(input, C.mulberry32(7));
+  ok(out === input, 'expected the same array reference back');
+});

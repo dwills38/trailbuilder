@@ -6907,6 +6907,22 @@ function mulberry32(seed){
   };
 }
 
+/** Uniform in-place Fisher-Yates shuffle. `arr.sort(() => Math.random() - 0.5)`
+ * is NOT uniform (comparator-sort shuffles are engine-dependent and biased
+ * toward certain orderings), which would quietly reintroduce the exact
+ * catalog-ordering bias this exists to remove. Returns the same array
+ * (mutated) for convenient chaining. `rng` defaults to Math.random; pass a
+ * seeded generator (e.g. mulberry32) for deterministic tests.
+ * @template T @param {T[]} arr @param {function(): number} [rng] @returns {T[]} */
+function fisherYatesShuffle(arr, rng){
+  var rand = rng || Math.random;
+  for(var i = arr.length - 1; i > 0; i--){
+    var j = Math.floor(rand() * (i + 1));
+    var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+  }
+  return arr;
+}
+
 /** Fill order: every slot's constraints depend only on slots earlier in the
  * list - frame first; wheels before the cassette that must match the rear
  * freehub and before the tires/rotors that read wheel size & mount; frame+fork
@@ -7157,5 +7173,5 @@ if (typeof module !== 'undefined' && module.exports) {
     byId:byId, nameOf:nameOf, specSummary:specSummary, checkBuild:checkBuild, Verdict:Verdict, verdictKey:verdictKey,   // Verdict exported for src/compat-bmx.js - both engines share the verdict primitives, never copy them
     placementDiff:placementDiff, conflictReason:conflictReason, compatOf:compatOf, bundleActive:bundleActive, buildTotals:buildTotals,
     esc:esc, partVerified:partVerified, partWeight:partWeight, sanitizeShare:sanitizeShare,
-    mulberry32:mulberry32, SAMPLE_THEMES:SAMPLE_THEMES, generateSampleBuild:generateSampleBuild };
+    mulberry32:mulberry32, fisherYatesShuffle:fisherYatesShuffle, SAMPLE_THEMES:SAMPLE_THEMES, generateSampleBuild:generateSampleBuild };
 }
