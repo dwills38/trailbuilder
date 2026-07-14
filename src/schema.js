@@ -160,7 +160,7 @@ var VOCAB = {
   derailMount:  ['hanger', 'udh-direct'],      // audited 2026-07: market-complete (proprietary-hanger frames are udh:false + 'hanger')
   spring:       ['air', 'coil'],               // audited 2026-07: market-complete
   material:     ['alu', 'carbon', 'steel', 'ti',    // steel/ti unblock whole brands (Cotic, Starling, Ti bars/rails)
-                 'carbon-alloy'],                    // mixed frame construction (frame material pass 2026-07-14: Frameworks' alloy-front/carbon-rear frames, Atherton's carbon-tube/alloy-lug S.200 - real rows, not a hedge for "unknown")
+                 'carbon-alloy'],                    // genuinely mixed carbon+alloy frame construction, not a hedge for "unknown" (Frameworks' alloy-front/carbon-rear; Devinci Wilson + GT Force/Sensor Carbon = carbon-front/alloy-rear). POLICY (Douglas 2026-07-14): reputable editorial confirmation of the mixed construction promotes to 'carbon-alloy' even when the maker's own page only says "Carbon" - same third-party-fact basis as the measured-weight exception. (Atherton's S-Series is aluminium tube+lug = 'alu', NOT carbon-alloy - that was a corrected mislabel.)
   pedalStyle:   ['flat', 'clip', 'hybrid'],    // widened 2026-07-08 (catalog-pedals-breadth-2): real dual-sided flat/clip pedals exist
                                                 // (Crankbrothers Double Shot 3, HT D1/GD1) - a "market-complete" flat/clip split was
                                                 // wrong. Pedals still need no compat rule (9/16"-20 universal).
