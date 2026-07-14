@@ -78,6 +78,12 @@ Corrections without verification are still valuable: if a spec is wrong but
 the weight bar can't be met, fix the spec, leave the part unverified, and
 record the outcome as `Skipped` with a note.
 
+**Extended to wheels (Douglas 2026-07-14, via coordinator):** the same interface-verification
+exception applies to wheel rows whose maker confirms the full interface set (wheel size, hub
+spacing, freehub, rotor mount, internal width, max/min tire) but never publishes a per-wheel or
+per-pair weight split — DT Swiss's combined "from Xg" set-weight pattern is the exemplar. Nominal
+weight stays, noted in `desc` with the basis, exactly as for shocks.
+
 ## Per-part loop (persist before moving on)
 
 For each work order from `next`:
