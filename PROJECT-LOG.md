@@ -2,6 +2,18 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **TOPO CONTOURS BANNER LIVE (`9150847`) — Douglas's style pick from a 9-direction round.**
+  Style-directions-v1 worker delivered 9 clickable header directions on a simplicity dial (PDF +
+  live switcher); Douglas picked D4 Topo Contours as the default banner for light/dark/Loam and
+  declared the STANDING RULE that RAD is its own theme (keeps its checkerboard header; exempt from
+  site-wide treatments; exactly four themes, no additions — memory + this log are the record).
+  Coordinator extracted D4 from the mockup and shipped: --hdr-bg/--hdr-topo per-theme vars,
+  deep-green banner + ~10%-opacity contour SVG pattern (absolute, out-of-flow), html.rad hides it.
+  Cross-theme computed-style verification passed (the pane viewport was degenerate 0x0 — layout
+  probes were artifacts; the pattern element is out-of-flow by construction). Gates green,
+  CI+Deploy green. Mockup branch design/style-directions-v1 kept until the style pass finishes
+  (Douglas may pick more elements, e.g. the rail-header contour echo, not shipped yet).
+
 - **DJ/BMX provisional leans CONFIRMED by Douglas (2026-07-13/14): "I don't want to veto these."**
   Q7 (pivotal seat/post = hard error) and Q6 (chain-width mismatch = warning) — and by extension
   the Q4-Q10 lean set — are now DECIDED, not provisional. Next worker on bike-type/dj-bmx flips
