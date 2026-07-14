@@ -57,13 +57,16 @@
   header{background:var(--hdr-bg);color:#fff;padding:10px 24px;position:sticky;top:0;z-index:40}
   .hdr-topo{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
   html.rad .hdr-topo{display:none}
-  header .wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  /* Two-row banner at ALL widths (Douglas 2026-07-14: the wrapped narrow-width layout "looks
+     tall" and right; single-row desktop was "too short") — logo/buttons row + full-width search
+     row, which also gives the topo contours room to read. */
+  header .wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
   header h1{margin:0;font-size:19px;white-space:nowrap}
   /* clickable logo -> home, styled identical to the heading (inherits the white header color, no underline) */
   header h1 a{color:inherit;text-decoration:none}
   header .btn{white-space:nowrap}
   /* 16px stops iOS Safari auto-zooming the page when the search field is focused */
-  header input[type=search]{flex:1;min-width:120px;padding:9px 12px;border:none;border-radius:10px;font-size:16px;background:#fff;color:#1c2321}
+  header input[type=search]{flex:1 1 100%;order:5;min-width:120px;padding:9px 12px;border:none;border-radius:10px;font-size:16px;background:#fff;color:#1c2321}
   .badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:12px;padding:5px 10px;border-radius:999px}
   .honesty-strip{background:#10271b;color:#cfe8d8;font-size:12px;padding:6px 12px;text-align:center}
   .honesty-strip .badge{border-color:rgba(255,255,255,.25)}
@@ -496,11 +499,11 @@
   .rail-hint{font-size:11px;color:var(--ink-soft);margin-top:6px}
   /* catalog column head: count line + view toggle + sort. scroll-margin keeps the
      guided-flow jump clear of the sticky header. */
-  .cat-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px;scroll-margin-top:70px}
+  .cat-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px;scroll-margin-top:140px}   /* 140px clears the 2-row banner (all widths since 2026-07-14) */
   .cat-tools{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
   /* scroll-margin must sit on the element scrollIntoView is CALLED ON — the
      guided-flow jump targets #catCount, so the count line carries it too */
-  .catcount{margin:0;scroll-margin-top:70px}
+  .catcount{margin:0;scroll-margin-top:140px}
   /* ⋯ overflow menu (low-frequency build actions) */
   .menu{position:relative;display:inline-block}
   .menu-pop{position:absolute;right:0;top:calc(100% + 6px);background:var(--card);border:1px solid var(--line);
@@ -527,8 +530,7 @@
      it scrolls away and gives the catalog the full viewport */
   @media (max-width:880px){
     #rail{position:static;max-height:none;margin-bottom:16px}
-    header .wrap{flex-wrap:wrap}
-    header input[type=search]{order:5;flex-basis:100%}
+    /* header wrap + full-width search promoted to ALL widths (2026-07-14 tall-banner pick) */
     .cat-head,.catcount{scroll-margin-top:140px}   /* clears the 2-row wrapped header */
   }
   /* mobile sticky build bar — mirrors the panel verdict + totals (renderReport
