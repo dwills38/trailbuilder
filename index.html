@@ -625,7 +625,7 @@
   /* the theme-wide .pick recolor above outranks .pick.in (extra type selector),
      which silently erased the filled in-build state — restore it explicitly */
   html.rad .pick.in{background:var(--brand);color:#150029}
-  html.rad .chip.active{background:var(--brand);color:#150029}
+  html.rad .chip.active:not(.sub){background:var(--brand);color:#150029}
   html.rad #rail .chip.active{background:var(--brand);color:#150029}
   html.rad .honesty-strip{background:#1c0836}
 
@@ -668,7 +668,7 @@
   html.dark .pick.in:hover{background:var(--brand-d)}
   html.dark .pick.inv:hover{background:#2a302c}
   html.dark .invlist .grow.clickable:hover{background:#223028}
-  html.dark .chip.active{color:var(--bg)}
+  html.dark .chip.active:not(.sub){color:var(--bg)}
   html.dark .legend i{border-color:rgba(255,255,255,.25)}
   /* dialogs otherwise fall back to the UA's color-scheme:dark canvas (#121212) —
      pin them to the card surface so modals match the rest of the theme */
@@ -715,7 +715,7 @@
   html.loam .pick.in:hover{background:var(--brand-d)}
   html.loam .pick.inv:hover{background:#2e2116}
   html.loam .invlist .grow.clickable:hover{background:#2a1f15}
-  html.loam .chip.active{color:var(--bg)}
+  html.loam .chip.active:not(.sub){color:var(--bg)}
   html.loam .legend i{border-color:rgba(255,255,255,.25)}
   html.loam dialog{background:var(--card);color:var(--ink);border-color:var(--line)}
 </style>
