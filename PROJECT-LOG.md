@@ -2,6 +2,18 @@
 
 ## 2026-07-14 — Overnight watch (coordinator harvesting while Douglas sleeps)
 
+- **True final wave (Douglas caught 5 more sessions): 3119 parts / 2293 verified (`7cdd9e0`).**
+  Wheels nominal-weight policy applied (+7 verified: DT Swiss E1900 x3, Reserve 30HD pair, 31DH
+  pair; Giant TRX/Race Face Turbine SL/Zipp Moto checked-not-promoted with reasons) · WAO
+  Convergence transition (+21 rows +2 presets; every model judged NEW PRODUCT per WAO's own tech
+  page — discontinued+supersededBy, NO aliases; 3 ambiguities flagged; old pages 404 = genuine
+  discontinuation) · Reserve 30|SL front maxTire 2.5→2.6 (the chip session verified but never
+  committed; applied in-seat with attribution). The wheels worker correctly used spawn_task to
+  flag two out-of-scope Reserve issues as chips — the pattern works. Gates green, harness
+  byte-identical vs the DJ-era baseline. One session left RUNNING for the successor: "Verify
+  rw-reserve-30-hd-29-ms is a real SKU" (suspected fabricated MicroSpline variant — the worker's
+  own Shopify-JSON fetch says XD-only; expect a retirement flag).
+
 - **Final wave before succession:** gallery scoping landed (`502d3d4` — snapshot-on-publish model,
   forum-posture moderation, MVP=MEDIUM; 6 decisions queued for Douglas in the handoff) and the
   mobile-only banner shrink AUTO-SHIPPED (`44a7a6c`, <=480px, post-hoc scan clean). Still grinding
