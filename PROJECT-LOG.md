@@ -6,9 +6,23 @@
   (`be0b141`), seat-7 worktree/branch pruned. Confirmed nothing left to harvest — seat 7's final
   wave already landed the wheels nominal-weight promotion + WAO Convergence transition + Reserve
   MS retirement. `node validate.js` = 3117 parts / 0 problems / 2293 verified. No open bug issues.
-- **Frame-materials accuracy audit chip spawned** `[Sonnet, medium]` (Douglas: "some are
-  incorrect") — re-verifies every frame's `material` vs maker sources, backfills the 9 DJ frames,
-  flags ambiguous cases, presents branch `audit/frame-materials`. In flight.
+- **Frame-materials accuracy audit MERGED (`b159dc4`) — 1 fix + 11 backfills, CI+Deploy green.**
+  Worker fanned out 8 `catalog-worker` sub-agents by brand cluster over all 156 frames. Merged the
+  confident set via own-additions-apply: **FIX** `fr-atherton-s200` carbon-alloy→alu (the row's own
+  desc said "Alloy lugged DH bike" — S-Series is aluminium tube/lug; carbon-alloy is Atherton's
+  A-Series); **11 backfills** (commencal-absolut/kona-process-153/marin-alcatraz/santacruz-jackal/
+  specialized-p3/nsbikes-zircus=alu, kona-shonky/dmr-sect/chromag-monk/octaneone-void=steel,
+  orbea-occam-lt=carbon). Material→154/156 frames. **HELD** `fr-devinci-wilson-29` at maker-consistent
+  `alu` (audit proposed carbon-alloy on editorial Vital MTB citing carbon seatstays + a
+  non-structural carbon bashplate; the row's own desc says "Made-in-Canada alloy DH" from a fetched
+  devinci.com page — our carbon-alloy token requires the MAKER's wording, the same bar the audit
+  correctly used to defer GT). **OPEN JUDGMENT CALL for Douglas:** should editorial confirmation of
+  carbon-front/alloy-rear promote to `carbon-alloy` when the maker's page only says "Carbon"? Affects
+  `fr-devinci-wilson-29` + `fr-gt-force-carbon`/`fr-gt-sensor-carbon` (kept `carbon`). 2 rows left as
+  honest gaps (rockymountain-instinct + trek-top-fuel-gen4 — identical carbon/alloy trims, no
+  disambiguator). No e-bikes found (incidental SC "Vala AL" e-bike sighting, not in catalog, flagged).
+  material is filter-only (never feeds checkBuild). Session archived; 9 stale `audit/frame-materials*`
+  remote branches await a prune (auto-mode gated the remote delete — needs Douglas's OK).
 - **Forum riding-style 'dj' migration written** (`supabase/forum-riding-styles-dj.sql`) — DJ went
   live in the catalog but both profile riding-style CHECK constraints (`profiles_riding_style_chk`
   singular + `profiles_riding_styles_chk` plural) still capped at xc/trail/enduro/dh/all, so a DJ
