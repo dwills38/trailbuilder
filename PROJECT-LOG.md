@@ -15,6 +15,23 @@
   grind all categories at once; presents a branch for Douglas's localhost preview (NOT auto-shipped).
   Key isolation guarantee to verify at harvest: kit adds ZERO checkBuild rules — the verdict-audit
   harness must prove the bike engine is behavior-identical.
+- **Kit Builder RESTRUCTURED (Douglas) — foundation-only chip + 12 separate grind chips.** Douglas
+  didn't want the category grind on Fable; split into (1) a foundation-only `[Fable]` build and (2)
+  12 per-category `[Sonnet]` grind chips in separate sessions. **Foundation DONE + staged**
+  (`feat/kit-builder`, 5f7caec): 12-category schema (separate `KitPart` union to dodge tsc union
+  complexity), the `/KitBuilder` page via a **`KitBuilder/index.html` directory-index** (cleanest
+  static route, no SPA hackery; deploy.yml stages it), `KIT_ENABLED=false` (live-safe merge), a
+  34-row starter seed, `kitTotals` self-contained. **compat.js UNTOUCHED; verdict-harness
+  byte-identical → kit provably isolated.** 4 gates green (validate 0 · 575 tests +25 kit · tsc
+  clean · harness 0-delta). **STAGED for Douglas's localhost preview** (KIT_ENABLED flip + serve
+  `/KitBuilder/`) — NOT merged (his preview-first call). **12 grind chips spawned** off
+  `feat/kit-builder` (helmet/shoes/jersey/shorts/pants/gloves/knee/elbow/bodyarmor/neckbrace/
+  shinguard/eyewear), each self-contained: one-row-per-PRODUCT (sizes as labels), per-category id
+  prefix + KIT_CERTS cert tokens (fetched-source-only; neckbrace cert dormant), pads/shoes weigh
+  per pair, no size/color in ids. **Merge order at harvest: foundation to main FIRST (after his
+  preview OK), THEN the grind branches** (they reference the kit schema, so main needs it first).
+  ⚠ `tools/DATA-ENTRY-TEMPLATE.md` still lacks the kit entry rules (baked into each grind brief
+  instead) — add a kit section when the foundation merges. Builder session archived + pruned.
 
 - **Carbon/alloy frame-variant work MERGED (3117→3126, +9 rows).** Part A split the 2 audit-gap
   rows (Rocky Mountain Instinct base=carbon + new `-alloy` sibling; Trek Top Fuel Gen4 base=carbon,
