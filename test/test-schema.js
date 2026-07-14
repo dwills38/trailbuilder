@@ -65,7 +65,11 @@ test('a cassette claiming freehub integrated is caught (wheel/hub-side value onl
   some(probs(over('ca-sram-xg1275', { freehub:'integrated' })), 'integrated');
 });
 test('a rear wheel with freehub integrated is valid data (e*thirteen LG1r DH)', function(){
+  // Strip provenance fields: this test is about the freehub:'integrated' SHAPE,
+  // not about whichever verification date the live row happens to carry (which
+  // drifts as sessions verify parts with today's real date against the fixed TODAY above).
   var p = over('rw-reserve-30-hd-29', { freehub:'integrated' });
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.sourceType; delete p.weightSource;
   eq(probs(p).length, 0, 'integrated is a legal rearwheel freehub value');
 });
 test('an armset-only crank (ringStd:null, no ring) is valid data', function(){
