@@ -1,5 +1,25 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-14 — Overnight watch (coordinator harvesting while Douglas sleeps)
+
+- **Overnight harvest, wake 2 (~04:15 UTC).** Discovered chip-spawned sessions CANNOT send_message
+  the coordinator ("no Main Coordinator reachable") — completed workers sit silent; watch checks
+  now read transcripts of idle sessions. Landed: (1) **evenness sweep (`eb6871a`)** — 146 forks
+  gained maker-published maxTire (RockShox 97/97, Manitou 33/33, Öhlins 21, CC 13, MRP 4 — rule 14
+  activates, harness byte-identical = no false fires), ENVE/Spank wheel minTire, and a UNIT BUG
+  fix (maxTire compared in inches; 6 DT Swiss F 535 rows carried mm=75, rule silently dead —
+  follow-up: audit any maxTire>10 catalog-wide); walls re-confirmed (Fox/DVO/EXT publish no
+  fetchable clearance text; SR Suntour states no rotor minimums). (2) **docs coherence
+  (`c294edd`)** — NEXT-STEPS rewritten 714→75 lines, FOR-REVIEWERS map current, EXPERT-REVIEW-
+  DOSSIER appendix for rules 6c/8b/C2-C4/M1/20 — coordinator accuracy-read EVERY entry in-seat
+  (all faithful; one stale M1 line corrected at merge). (3) **Phone-UI worker AUTO-SHIPPED
+  (`1d06971`)** mid-harvest per UI tier — post-hoc scan clean (index.html only, no popup-shaped
+  patterns; mobile filter carousels, dynamic sticky-header offset for the new tall banner, part-
+  modal verdict, touch-target pass); full report pending its session wrap. Main moved during the
+  wave — evenness rebased + re-gated before push (the pattern working as designed). Sessions
+  archived, branches/worktrees pruned. Still grinding: price-drift, guides, quality-backlog,
+  breadth, shopify-retry, DJ go-live, frame-material, competitive audit, phone-UI.
+
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
 - **TALL TWO-ROW BANNER LIVE (`a0a0070`) + DJ GO-LIVE ordered.** Douglas compared his screenshots:
