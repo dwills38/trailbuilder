@@ -233,6 +233,9 @@
   .slot .sl-empty{color:var(--ink-soft);font-style:italic;font-weight:500}
   .slot .pr{font-size:11.5px;color:var(--ink-soft);white-space:nowrap}
   .slot .x{cursor:pointer;color:var(--ink-soft);border:none;background:none;font-size:15px;line-height:1}
+  .slot .own-btn{cursor:pointer;color:var(--ink-soft);border:1px solid var(--line);background:none;border-radius:999px;font-size:11px;line-height:1;padding:2px 5px}
+  .slot .own-btn:hover{background:#f2f3f1;color:var(--brand)}
+  .slot .owned{display:inline-flex;align-items:center;font-size:12px}
   .total{display:flex;align-items:baseline;justify-content:space-between;margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
   .total b{font-size:23px}
   .wrow{display:flex;align-items:baseline;justify-content:space-between;margin-top:4px}
@@ -678,6 +681,7 @@
   html.dark .pick.in{background:var(--brand);color:#fff}
   html.dark .pick.in:hover{background:var(--brand-d)}
   html.dark .pick.inv:hover{background:#2a302c}
+  html.dark .slot .own-btn:hover{background:#2a302c}
   html.dark .invlist .grow.clickable:hover{background:#223028}
   html.dark .chip.active:not(.sub){color:var(--bg)}
   html.dark .legend i{border-color:rgba(255,255,255,.25)}
@@ -725,6 +729,7 @@
   html.loam .pick.in{background:var(--brand);color:#fff}
   html.loam .pick.in:hover{background:var(--brand-d)}
   html.loam .pick.inv:hover{background:#2e2116}
+  html.loam .slot .own-btn:hover{background:#2e2116}
   html.loam .invlist .grow.clickable:hover{background:#2a1f15}
   html.loam .chip.active:not(.sub){color:var(--bg)}
   html.loam .legend i{border-color:rgba(255,255,255,.25)}
@@ -1932,7 +1937,25 @@
                    : (altNote ? ('— '+slot.label.toLowerCase()+altNote+' —')
                      : ('— '+slot.label.toLowerCase()+(slot.optional?' (optional)':(!slotRequired(slot,res.frame,eRW)?(slot.key==='cassette'?' (built into the rear wheel)':' (not needed for this frame)'):''))+' —'));
         row.innerHTML='<div class="sl-main"><div class="'+(p?'sl-part':'sl-part sl-empty')+'">'+nm+'</div></div>'+ right;
-        if(p){ var x=document.createElement('button'); x.className='x'; x.title='Remove'; x.textContent='×';
+        if(p){
+          // Own it — same inventory add as the picker card's 🧰 Own button (gating,
+          // add call, toast and refreshOwned all reused); an owned part shows the
+          // same pill as everywhere else instead of the button.
+          if(_acctReady && typeof currentUser==='function' && currentUser()){
+            if(ownedIds[canonicalId(p.id)]){
+              var ownedPill=document.createElement('span'); ownedPill.className='owned'; ownedPill.title='You already own this part'; ownedPill.textContent='🧰';
+              row.appendChild(ownedPill);
+            } else {
+              var ownBtn=document.createElement('button'); ownBtn.type='button'; ownBtn.className='own-btn'; ownBtn.title='Add to your parts inventory'; ownBtn.textContent='🧰';
+              ownBtn.onclick=function(){
+                addInventoryItem(p.id, 1)
+                  .then(function(){ toast(p.brand+' '+p.model+' added to inventory'); refreshOwned(); })
+                  .catch(function(e){ toast((e&&e.message)||'Could not add to inventory'); });
+              };
+              row.appendChild(ownBtn);
+            }
+          }
+          var x=document.createElement('button'); x.className='x'; x.title='Remove'; x.textContent='×';
           x.onclick=function(){ setSlot(slot.key, null); }; row.appendChild(x); }
         host.appendChild(row);
       });
@@ -2917,13 +2940,14 @@
      this is the only place that awaits listInventory(). Call after login, after any
      inventory add/remove, and when the "Owned only" filter is first switched on. */
   function refreshOwned(){
-    if(!_acctReady || !currentUser()){ ownedIds = {}; renderCatalog(); return; }
+    if(!_acctReady || !currentUser()){ ownedIds = {}; renderCatalog(); renderPanel(); return; }
     listInventory().then(function(rows){
       var m = {};
       (rows||[]).forEach(function(row){ m[canonicalId(row.part_id)] = true; });
       ownedIds = m;
       renderCatalog();
-    }).catch(function(){ renderCatalog(); });
+      renderPanel();
+    }).catch(function(){ renderCatalog(); renderPanel(); });
   }
 
   function authErr(e){ var m = $('authMsg'); m.hidden = false; m.textContent = (e && e.message) || 'Something went wrong.'; }
