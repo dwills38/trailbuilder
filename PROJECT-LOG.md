@@ -23,6 +23,12 @@
   disambiguator). No e-bikes found (incidental SC "Vala AL" e-bike sighting, not in catalog, flagged).
   material is filter-only (never feeds checkBuild). Session archived; 9 stale `audit/frame-materials*`
   remote branches await a prune (auto-mode gated the remote delete — needs Douglas's OK).
+- **carbon-alloy policy RESOLVED + applied (`f28a27f`, Douglas 2026-07-14).** Decision: reputable
+  editorial confirmation of carbon-front/alloy-rear promotes to `carbon-alloy` even when the maker's
+  page only says "Carbon" — same third-party-fact basis as the measured-weight exception. Applied to
+  the exact set the audit surfaced: `fr-devinci-wilson-29` alu→carbon-alloy, `fr-gt-force-carbon` +
+  `fr-gt-sensor-carbon` carbon→carbon-alloy. Policy recorded in the `schema.js` material-vocab
+  comment (the only doc home for the token; stale S.200 example dropped). Four gates green.
 - **Forum riding-style 'dj' migration written** (`supabase/forum-riding-styles-dj.sql`) — DJ went
   live in the catalog but both profile riding-style CHECK constraints (`profiles_riding_style_chk`
   singular + `profiles_riding_styles_chk` plural) still capped at xc/trail/enduro/dh/all, so a DJ
