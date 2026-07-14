@@ -2,6 +2,16 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **TALL TWO-ROW BANNER LIVE (`a0a0070`) + DJ GO-LIVE ordered.** Douglas compared his screenshots:
+  the wrapped narrow-width header ("tall", topo contours breathing) beats the single-row desktop
+  ("too short") — the <=880px two-row layout (logo/buttons row + full-width search row) is now the
+  header at ALL widths; search flex moved into its own rule (the later flex:1 shorthand was
+  silently resetting flex-basis — caught at 1900px verification); desktop scroll-margins bumped to
+  clear the taller sticky header. Verified at 1900px across all four themes, console clean, gates
+  green, CI green. **DJ go-live chip spawned [Fable, high]** ("build the DJ chip"): activates the
+  held 555ee7c integration — DJ rows into PARTS, cog/seatpost slots, dj discipline chip — BMX
+  stays off-live; engine-tier review + adversarial pass at merge.
+
 - **Icons v5 (refinement round) delivered** (`design/rail-icons-emoji-v2` @ 5a37795;
   `_PDFs/rail-icons-lineart-v5.pdf` sent): 54 drawings — every v4 icon corrected against real
   component photo reference (fork crown/arch/axle, shock piggyback position, derailleur cage
