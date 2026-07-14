@@ -2,6 +2,14 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **DJ/BMX provisional leans CONFIRMED by Douglas (2026-07-13/14): "I don't want to veto these."**
+  Q7 (pivotal seat/post = hard error) and Q6 (chain-width mismatch = warning) — and by extension
+  the Q4-Q10 lean set — are now DECIDED, not provisional. Next worker on bike-type/dj-bmx flips
+  the doc's PROVISIONAL tags to decided with this date. **Icons: v4 line-art direction APPROVED**
+  ("getting close... on the right track") with refinement feedback — cleaner/more accurate, a
+  little theme-aware color (one accent channel, light demo only), plus one deliberate "anti" set
+  as a direction check. v5 chip spawned [Fable, high].
+
 - **Away-grind wave 5 (final): Shimano archive wave [Opus] landed (`adf8aec`) → 2283 verified.**
   Shimano drivetrain 40.8% → **100% verified** (+29 rows) from ONE fetched source: the CURRENT
   productinfo.shimano.com Specifications handbook Ver.2.4 (no archive edition needed this
