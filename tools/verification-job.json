@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-14T11:47:30.248Z",
+ "updated": "2026-07-14T12:34:16.235Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -76,6 +76,8 @@
   "ti-schwalbe-tabletop-26-225",
   "fw-industrynine-enduro-s-275",
   "fw-weareone-union-275",
+  "fw-weareone-triad-29",
+  "fw-weareone-triad-275",
   "fw-industrynine-whisp-29",
   "fw-dtswiss-xrc1200-spline25-29",
   "fw-dtswiss-xrc1200-spline30-29",
@@ -87,16 +89,19 @@
   "fw-bontrager-line-pro-30-275",
   "fw-bontrager-line-elite-30-29",
   "fw-bontrager-line-elite-30-275",
-  "fw-reserve-31dh-29",
-  "fw-reserve-31dh-275",
   "fw-reserve-30sl-29",
   "fw-reserve-30sl-275",
   "fw-weareone-faction-29",
   "fw-weareone-faction-275",
+  "fw-weareone-sector-29",
   "fw-weareone-strife-29",
   "fw-weareone-strife-29-20x110",
   "fw-weareone-strife-275",
   "fw-weareone-strife-275-20x110",
+  "fw-weareone-deal-29",
+  "fw-weareone-deal-29-20x110",
+  "fw-weareone-deal-275",
+  "fw-weareone-deal-275-20x110",
   "fw-hope-fortus-30-275",
   "fw-spank-spike369-29",
   "fw-spank-spike369-275",
@@ -115,6 +120,9 @@
   "fw-halo-combat-26-15x100",
   "rw-industrynine-enduro-s-275",
   "rw-industrynine-enduro-s-275-157",
+  "rw-weareone-triad-29",
+  "rw-weareone-triad-29-ms",
+  "rw-weareone-triad-29-hg",
   "rw-dtswiss-ex-1700-29-hg",
   "rw-industrynine-whisp-29-ms",
   "rw-industrynine-whisp-29-xd",
@@ -123,6 +131,9 @@
   "rw-dtswiss-xrc1200-spline30-29-ms",
   "rw-dtswiss-xrc1200-spline30-29-xd",
   "rw-dtswiss-fr-1500-275-157",
+  "rw-weareone-triad-275",
+  "rw-weareone-triad-275-ms",
+  "rw-weareone-triad-275-hg",
   "rw-ethirteen-lg1r-29-150-xd",
   "rw-ethirteen-lg1r-29-150-hg",
   "rw-ethirteen-lg1r-275-150-xd",
@@ -152,7 +163,6 @@
   "rw-bontrager-line-elite-30-275-xd",
   "rw-bontrager-line-elite-30-275-ms",
   "rw-bontrager-line-elite-30-275-hg",
-  "rw-reserve-30-hd-275-ms",
   "rw-weareone-union-29-ms",
   "rw-weareone-union-29-hg",
   "rw-weareone-union-275-ms",
@@ -161,10 +171,16 @@
   "rw-weareone-faction-29-157-xd",
   "rw-weareone-faction-275-148-xd",
   "rw-weareone-faction-275-157-xd",
+  "rw-weareone-sector-29-148-xd",
+  "rw-weareone-sector-29-157-xd",
   "rw-weareone-strife-29-148-xd",
   "rw-weareone-strife-29-157-xd",
   "rw-weareone-strife-275-148-xd",
   "rw-weareone-strife-275-157-xd",
+  "rw-weareone-deal-29-148-xd",
+  "rw-weareone-deal-29-157-xd",
+  "rw-weareone-deal-275-148-xd",
+  "rw-weareone-deal-275-157-xd",
   "rw-dtswiss-f-1900-29-xd",
   "rw-dtswiss-f-1900-29-ms",
   "rw-dtswiss-f-1900-29-157-xd",
@@ -788,10 +804,10 @@
   },
   "fw-reserve-30-hd-29": {
    "cat": "frontwheel",
-   "status": "Skipped",
-   "updated": "2026-07-07T15:59:07.976Z",
+   "status": "Verified",
+   "updated": "2026-07-14T12:34:16.233Z",
    "error": null,
-   "source": null,
+   "source": "https://reservewheels.com/products/30-hd-carbon",
    "note": "reservewheels.com/products/30-hd-carbon confirms interfaces (Boost 15x110, 6-bolt, 30mm internal, XD; set USD 1799) but publishes WHEELSET weight only (1791g DT350) - no per-wheel figure, weight bar not met. Interfaces match the catalog row; nothing to fix."
   },
   "fw-industrynine-enduro-s-29": {
@@ -812,10 +828,10 @@
   },
   "fw-dtswiss-e-1900-275": {
    "cat": "frontwheel",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:22:42.413Z",
+   "status": "Verified",
+   "updated": "2026-07-14T12:34:16.234Z",
    "error": null,
-   "source": null,
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/enduro/e-1900-spline",
    "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "fw-hope-fortus-30-29": {
@@ -940,10 +956,10 @@
   },
   "rw-reserve-30-hd-29": {
    "cat": "rearwheel",
-   "status": "Skipped",
-   "updated": "2026-07-07T15:59:08.054Z",
+   "status": "Verified",
+   "updated": "2026-07-14T12:34:16.234Z",
    "error": null,
-   "source": null,
+   "source": "https://reservewheels.com/products/30-hd-carbon",
    "note": "same page: wheelset weight only (1791g DT350), no per-wheel figure. Interfaces (Boost 12x148, XD, 6-bolt, 30mm) match the row."
   },
   "rw-industrynine-enduro-s-29": {
@@ -972,10 +988,10 @@
   },
   "rw-dtswiss-e-1900-275": {
    "cat": "rearwheel",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:22:42.813Z",
+   "status": "Verified",
+   "updated": "2026-07-14T12:34:16.234Z",
    "error": null,
-   "source": null,
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/enduro/e-1900-spline",
    "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-hope-fortus-30-29": {
@@ -2781,10 +2797,10 @@
   },
   "rw-dtswiss-e-1900-275-xd": {
    "cat": "rearwheel",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:22:42.918Z",
+   "status": "Verified",
+   "updated": "2026-07-14T12:34:16.234Z",
    "error": null,
-   "source": null,
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/enduro/e-1900-spline",
    "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "ti-continental-kryptotal-fr-29-24-enduro-soft": {
@@ -3330,14 +3346,6 @@
    "error": null,
    "source": "https://www.dtswiss.com/en/support/product-support?matnr=WEX1700TED2SA11692",
    "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
-  },
-  "rw-reserve-30-hd-29-ms": {
-   "cat": "rearwheel",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:26:14.470Z",
-   "error": null,
-   "source": null,
-   "note": "reservewheels.com/products/30-hd-carbon fetched: confirms 30mm internal (matches), Boost 15x110F/12x148R, XD/6-bolt, DT350 hub (supports Micro Spline) - no contradiction. But only WHEELSET totals published (1791g DT350 / 1894g e13), no per-wheel weight. Weight bar unmeetable."
   },
   "rw-raceface-turbine-sl-29-ms": {
    "cat": "rearwheel",
@@ -6333,19 +6341,19 @@
   },
   "fw-reserve-31dh-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-14T12:34:16.234Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://reservewheels.com/products/reserve-31dh-mountain-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-reserve-31dh-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-14T12:34:16.234Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://reservewheels.com/products/reserve-31dh-mountain-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-reserve-30sl-29": {
    "cat": "frontwheel",
@@ -6994,14 +7002,6 @@
    "error": null,
    "source": "https://reservewheels.com/products/30-hd-carbon",
    "note": "auto-promoted: already verified in catalog"
-  },
-  "rw-reserve-30-hd-275-ms": {
-   "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
-   "source": null,
-   "note": null
   },
   "rw-weareone-union-29-ms": {
    "cat": "rearwheel",
@@ -24247,6 +24247,158 @@
    "cat": "seatpost",
    "status": "Pending",
    "updated": "2026-07-14T11:47:30.247Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-weareone-triad-29": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-weareone-triad-275": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-weareone-sector-29": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-weareone-deal-29": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-weareone-deal-29-20x110": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-weareone-deal-275": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-weareone-deal-275-20x110": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-weareone-triad-29": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-weareone-triad-29-ms": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-weareone-triad-29-hg": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-weareone-triad-275": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-weareone-triad-275-ms": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-weareone-triad-275-hg": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-weareone-sector-29-148-xd": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-weareone-sector-29-157-xd": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-weareone-deal-29-148-xd": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-weareone-deal-29-157-xd": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-weareone-deal-275-148-xd": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-weareone-deal-275-157-xd": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T12:34:16.234Z",
    "error": null,
    "source": null,
    "note": null
