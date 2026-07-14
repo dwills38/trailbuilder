@@ -2,6 +2,20 @@
 
 ## 2026-07-14 — Coordinator seat 8 (succession)
 
+- **KIT BUILDER kicked off — decisions locked + build/grind chip spawned.** Douglas made all 9
+  scope calls (recorded in `KIT-BUILDER-SCOPE.md` §Decisions). Two overrides from the scope's
+  recommendations: (1) it's a **SEPARATE PAGE** (a "Kit Builder" button on the main page →
+  `/KitBuilder`, same-style button back), not an in-builder section — so **kit total only**, no
+  combined total; (2) **shorts and pants are SEPARATE categories**. v1 = 12 categories (helmet,
+  shoes, jersey, shorts, pants, gloves, knee, elbow, body armor, neck brace, shin guards, eyewear),
+  ALL optional, none required; no hydration/base-layers. No shoe↔pedal bridge (shoes flat/clipless).
+  Cert = badge/filter fetched-source-only. `KIT_ENABLED` gate, **preview-before-live**. One
+  `[Fable, high]` orchestrator chip (`feat/kit-builder`) builds the foundation (schema for the 12
+  cats + the /KitBuilder page + routing + deploy.yml) then fans out pinned-Sonnet sub-agents to
+  grind all categories at once; presents a branch for Douglas's localhost preview (NOT auto-shipped).
+  Key isolation guarantee to verify at harvest: kit adds ZERO checkBuild rules — the verdict-audit
+  harness must prove the bike engine is behavior-identical.
+
 - **Carbon/alloy frame-variant work MERGED (3117→3126, +9 rows).** Part A split the 2 audit-gap
   rows (Rocky Mountain Instinct base=carbon + new `-alloy` sibling; Trek Top Fuel Gen4 base=carbon,
   alloy sibling withheld — unresolved BB divergence, flagged). Part B added 8 siblings (Kona
