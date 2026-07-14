@@ -51,6 +51,10 @@ rules._
   design taste — high effort). Repeat the recommendation in the prompt's first line. Remember the
   picker leak: the chip RUNS on whatever his picker is set to at click time — the title is
   advisory. The weekly pool hit its cap once on 2026-07-13; don't assume headroom.
+  **OVERNIGHT pattern (Douglas 2026-07-14): he has all-night windows — default big grind/deep-dive
+  audits to two stages: an overnight `[Sonnet]` chip (decision-complete brief, checkpointed
+  batches, commit-per-batch, present-branch) + a morning Fable review/revise. Premium models only
+  where wrongness is quiet (engine semantics, identity, taste, adversarial audits).
 
 ## 2. DOUGLAS'S RULES (he requires the next coordinator know ALL of these)
 
