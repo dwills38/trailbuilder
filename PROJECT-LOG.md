@@ -2,6 +2,19 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **Away-grind wave 5 (final): Shimano archive wave [Opus] landed (`adf8aec`) → 2283 verified.**
+  Shimano drivetrain 40.8% → **100% verified** (+29 rows) from ONE fetched source: the CURRENT
+  productinfo.shimano.com Specifications handbook Ver.2.4 (no archive edition needed this
+  generation; pages rendered to PNG because text extraction jumbles the wide tables — route note
+  for future waves). 8 maker-weight corrections; Deore/CUES interface-verified with nominal
+  weights (Shimano publishes none at those tiers); the long-flagged M8200 clampType resolved to
+  ispec-ev from the rendered table (rule-19 warning parity with M8100); XTR 10-51 mfgPn updated to
+  the CS-M9101-12 running change, id append-only; test-ui kit fixture swapped to a durably-
+  unverified example (contract unchanged). E-bike siblings (STePS, CN-E8000, motor-protection
+  shifters) correctly excluded. Gates green in-seat, verify-job re-synced (2394/2926). Bias-audit
+  #1 is now CLOSED for shocks AND drivetrain; frames remain the fetch-walled tail. All five
+  away-grind sessions harvested + archived; repo tidy (seat + shared checkout only).
+
 - **Away-grind waves 2-4 landed → 3065 parts / 489 tests (`bf975d0`, `5d8fcd4`).** (1) Suspension
   follow-ups: Diamond Boost x4 discontinued (line renamed away), +2 Diamond 36 D1 SL rows (fetched;
   probe-E gains the expected data-accurate DM-180 note), MY27 40 27.5 confirmed; 36 PE 150 retired
