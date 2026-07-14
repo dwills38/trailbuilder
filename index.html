@@ -500,7 +500,18 @@
     .list .pcard .prov .ver,.list .pcard .prov .est{font-size:11px}
   }
   @media (max-width:480px){
-    header h1{font-size:19px}
+    /* Shrink the sticky banner's real-estate cost on phones only (Douglas
+       2026-07-14: the two-row Topo Contours banner stays as-is on desktop/
+       tablet — this block is scoped to ≤480px so >480px is untouched).
+       Tighter padding/gaps + smaller title; the search input keeps its
+       16px floor (iOS zoom guard) and every .btn/.chip keeps the 44px
+       touch target set at ≤768px above — only the banner's own chrome
+       (padding, gaps, title size, honesty-strip) shrinks. */
+    header{padding:8px 12px}
+    header .wrap{gap:6px}
+    header h1{font-size:17px}
+    header input[type=search]{padding:7px 10px}
+    .honesty-strip{padding:4px 10px;font-size:11px}
     .badge{font-size:11px}
     /* keep the sticky header to two rows on small phones: the ☰ and Share
        buttons drop their long labels (aria-label/title keep the full names) */
