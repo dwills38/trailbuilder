@@ -2,6 +2,22 @@
 
 ## 2026-07-14 — Overnight watch (coordinator harvesting while Douglas sleeps)
 
+- **Session split: Affiliate session established alongside the Coordinator (Douglas, 2026-07-14).**
+  Wrapped the final two loose sessions from the overnight fleet (contrast-fix auto-shipped
+  `0024402`; the finishing-kit/mullet breadth session's branch had merged earlier but the session
+  itself was missed in that pass — archived now). Executed his four one-liners: (1) wheels
+  nominal-weight policy extended in VERIFY-PROTOCOL.md + a grind chip to promote DT Swiss E 1900 +
+  sweep similar rows; (2) We Are One Convergence rename-mapping chip (per-model ALIASES-vs-
+  discontinued call, not a blanket rename); (3) mobile-only banner-shrink chip (desktop must stay
+  pixel-identical); (4) completed-builds-gallery SCOPING chip (document only, the competitive
+  audit's #1 idea). Then: rewrote COORDINATOR-HANDOFF.md end-to-end for the two-session era
+  (`2c650f8`), authored the standing multi-session-coordination protocol (memory) and a new
+  `AFFILIATE-HANDOFF.md` (untracked, repo root) seeding a parallel Affiliate session — its own
+  lane (LLC/EIN/Cloudflare/affiliate applications/manufacturer partnerships), explicit
+  coordination rule (list_sessions + send_message before ambiguous/shared-file work; Coordinator
+  remains the only pusher to main). Ready for Douglas to open both a fresh Main Coordinator
+  session and the new Affiliate session whenever he chooses.
+
 - **Douglas back, harvest blessed ("merge" — all 11 already landed).** New directives: (1) **KIT
   BUILDER** coming — rider gear/apparel (shoes, pants/shorts, jerseys, gloves, helmets, knee/elbow
   pads, body armor); the grind will run as idle-time Sonnet chips, but **no kit chips until he
