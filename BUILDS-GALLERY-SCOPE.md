@@ -215,28 +215,21 @@ payload format, sanitizer, auth, profiles, admin flag, card UI, report pipeline.
 6. **Forum integration**: paste a gallery URL in a thread → renders as a build card.
    *Small.*
 
-## 8. Open decisions for Douglas
+## 8. Decisions (Douglas, 2026-07-14) — ALL SIX SETTLED, MVP UNBLOCKED
 
-1. **Photos: day-1 or fast-follow?** Recommendation: **fast-follow** (Full-vision #2). No
-   upload infrastructure exists (avatars are deliberately preset-only), and photos are the
-   single biggest moderation-surface jump. The MVP gallery is genuinely good without them —
-   parts list + engine verdict is our differentiator; photos are everyone's feature. But
-   it's a product-feel call: PCPartPicker galleries live on photos.
-2. **Account required to publish, or anonymous?** Recommendation: **account required.**
-   Profiles/usernames exist, attribution powers the habit loop, and anonymous publishing
-   multiplies spam surface for no clear gain. (Browsing is logged-out, always.)
-3. **Moderation model:** post-moderation (publish instantly, admin removes on report) vs
-   pre-moderation (queue before public). Recommendation: **post-moderation** — matches the
-   forum's free-speech-first posture and Douglas's anti-brigade rule; pre-moderation is a
-   choke point and implies viewpoint review we don't do. Revisit only if abuse actually materializes.
-4. **Kudos/likes at all?** Genuine call: engagement + a second sort key vs popularity
-   dynamics and brigade surface. MVP ships without; decide before Full-vision #3.
-5. **Unpublish behavior:** author deletes → public URL 404s (clean, author-controlled) vs
-   soft "removed by author" tombstone (protects inbound links/SEO). Recommendation: hard
-   delete (it's the user's content), accept the 404s; the sitemap Action prunes them.
-6. **Publish-gate strictness sign-off:** confirm the recommendation — complete builds
-   (per `slotRequired`) with zero errors; warnings allowed and shown. The alternative
-   (allow incomplete "dream builds") weakens the "every gallery build fits" promise.
+1. **Photos: day-1 or fast-follow?** → **DECIDED: fast-follow.** MVP ships with no photo
+   upload path (Full-vision #2, gated separately).
+2. **Account required to publish, or anonymous?** → **DECIDED: account required.**
+3. **Moderation model:** → **DECIDED: post-moderation** (publish instantly, admin removes on
+   report via the existing GitHub-issue report pipeline).
+4. **Kudos/likes at all?** → **DECIDED: not yet.** MVP ships with zero kudos/likes surface —
+   no table, no sort key, no UI. Revisit as Full-vision #3 only if he asks later.
+5. **Unpublish behavior:** → **DECIDED: hard delete.** Author unpublish/delete → public URL
+   404s; no tombstone. Sitemap Action prunes on the next run.
+6. **Publish-gate strictness:** → **DECIDED: build must be complete** (per `slotRequired`,
+   zero errors; warnings allowed and shown). No "dream build" exception.
+
+**MVP is now fully decision-complete — nothing here blocks implementation.**
 
 ---
 

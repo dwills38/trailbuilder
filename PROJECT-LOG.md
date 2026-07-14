@@ -22,6 +22,14 @@
   the two-live-icon-systems inventory, the taste constraints, and the apply targets.
 - **Price-drift-remainder chip spawned** `[Sonnet, overnight]` — ~1400 not-yet-checked verified
   rows; non-overlapping with the frame-materials audit (price/lastChecked vs material = field-level).
+- **Builds Gallery — ALL SIX decisions made (Douglas): fast-follow photos, account required,
+  post-moderation, NO kudos/likes (not just MVP-deferred, "not yet"), hard delete on unpublish,
+  publish-gate = complete+zero-errors.** `BUILDS-GALLERY-SCOPE.md` §8 updated to record them —
+  MVP is now fully decision-complete. Implementation chip spawned `[Fable/Opus, high]` (schema+RLS
+  tier — new `gallery_builds` table, snapshot-on-publish, publish flow, gallery/detail pages,
+  fork-to-builder, GitHub-issue reporting, sitemap Action, tests incl. a DJ-brakeless publish
+  case). Presents a branch for coordinator review + adversarial RLS audit; does NOT auto-ship;
+  Douglas runs the migration himself once reviewed.
 - **Affiliate session: LLC name DECIDED — "Dubs Works."** All three clearance checks came back
   clean (PA registry, USPTO exact-wordmark, dubsworks.com domain unregistered); record at
   `LLC-NAME-CLEARANCE-DUBS-WORKS.md` (Affiliate's lane, untracked). Next steps (domain reg, PA
