@@ -46,7 +46,7 @@
 /** @typedef {'ispec-ev'|'ispec-ii'|'ispec-b'|'matchmaker'} LeverClamp */
 /** @typedef {'hanger'|'udh-direct'} DerailMount */
 /** @typedef {'air'|'coil'} Spring */
-/** @typedef {'alu'|'carbon'|'steel'|'ti'} Material */
+/** @typedef {'alu'|'carbon'|'steel'|'ti'|'carbon-alloy'} Material */
 /** @typedef {'ZS44/28.6'|'ZS56/28.6'|'ZS56/40'|'IS41/28.6'|'IS42/28.6'|'IS52/40'|'EC34/28.6'|'EC44/40'|'ZS49/28.6'|'EC49/40'} HeadTube */
 /** @typedef {'flat'|'clip'|'hybrid'} PedalStyle */
 /** @typedef {'exo'|'exo-plus'|'doubledown'|'dh'|'trail'|'enduro'|'downhill'|'super-race'|'super-ground'|'super-trail'|'super-gravity'|'super-downhill'|'protection'|'hardwall'|'prowall'|'tcs-light-sg2'|'tcs-tough-sg1'|'tcs-tough'|'atc'|'aec'|'agc'|'xc-race'|'gravity-shield'|'grid-trail'|'grid-gravity'|'trc'|'grc'|'xcc'|'enduro-core'|'synthesis'|'gravity-core'|'gxe-core'|'dh-core'|'wire-bead'|'folding-tlr'|'inner-strength'|'core-strength'|'high-output'|'super-tough'|'durable'|'ultra-durable'|'light-and-supple'|'tough'|'tr'|'emc'|'eps'|'eps-tlr'|'exo-btb'|'flux-gr'|'flux-am'|'flux-gr-radial'|'hardskin'|'sideskin'|'gravity-pro'|'ksct'} Casing */
@@ -124,6 +124,7 @@
  * @property {string} [udhRetrofitKit]  maker-documented UDH retrofit kit name (rule 4 warns with a structured fix instead of erroring; dormant until sourced)
  * @property {boolean} frameOnly
  * @property {number} [maxTire]
+ * @property {Material} [material]  filter/annotation ONLY (disciplines contract) — never feeds checkBuild; absence = unknown
  * @property {FrameSizes} [sizes]
  * @property {HeadTube} [headTubeUpper]   SHIS capture field — rule 11 still consumes `headset`
  * @property {HeadTube} [headTubeLower]

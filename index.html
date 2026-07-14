@@ -1524,6 +1524,15 @@
     });
   }
   var SUBFILTERS = [
+    /* material is annotation-only (never feeds verdicts) and absence = UNKNOWN,
+       so a frame without the field passes every chip rather than vanishing
+       behind a specific material — same absence-passes convention as the
+       discipline filter (absent = universal) and drivetrainAct (null passes). */
+    { id:'frameMaterial', groups:['frame'], allLabel:'All materials',
+      aria:'Filter frames by material — frames with an unknown material always show',
+      values:function(){ return inOrder(distinctVals(byCat('frame'), function(p){ return p.material; }), ['carbon','alu','steel','ti','carbon-alloy']); },
+      label:function(v){ return L(v); },
+      match:function(p,v){ return p.cat!=='frame' || !p.material || p.material===v; } },
     { id:'wheelSize', groups:['wheels','tire'], allLabel:'All sizes',
       aria:'Filter by wheel size — only affects wheels & tires',
       values:function(){ return inOrder(distinctVals(function(p){ return !!p.wheel; }, function(p){ return p.wheel; }), ['29','275','26','24']); },

@@ -156,6 +156,19 @@ test('a disciplines value outside the vocab is caught (ebike is deliberately not
 test('an empty disciplines array is caught (absence already means universal)', function(){
   some(probs(over('fr-santacruz-megatower-cc', { disciplines:[] })), 'disciplines');
 });
+test('a frame material outside the vocab is caught', function(){
+  // probe value stays fictional (magnesium: no catalog frame is magnesium, so
+  // it is deliberately NOT a vocab value - never invent a token no row needs)
+  some(probs(over('fr-santacruz-megatower-cc', { material:'magnesium' })), 'material');
+});
+test('a non-string frame material is caught', function(){
+  some(probs(over('fr-santacruz-megatower-cc', { material:['carbon'] })), 'material');
+});
+test('a valid frame material passes (optional: absence = unknown, also valid)', function(){
+  eq(probs(over('fr-santacruz-megatower-cc', { material:'carbon' })).length, 0);
+  var p = over('fr-santacruz-megatower-cc'); delete p.material;
+  eq(probs(p).length, 0);
+});
 test('bad family slug is caught (must be lowercase slug)', function(){
   some(probs(over('fr-raaw-madonna-v3', { family:'RAAW Madonna' })), 'family');
 });

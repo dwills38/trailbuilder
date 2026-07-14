@@ -159,7 +159,8 @@ var VOCAB = {
   leverClamp:   ['ispec-ev', 'ispec-ii', 'ispec-b', 'matchmaker'],
   derailMount:  ['hanger', 'udh-direct'],      // audited 2026-07: market-complete (proprietary-hanger frames are udh:false + 'hanger')
   spring:       ['air', 'coil'],               // audited 2026-07: market-complete
-  material:     ['alu', 'carbon', 'steel', 'ti'],   // steel/ti unblock whole brands (Cotic, Starling, Ti bars/rails)
+  material:     ['alu', 'carbon', 'steel', 'ti',    // steel/ti unblock whole brands (Cotic, Starling, Ti bars/rails)
+                 'carbon-alloy'],                    // mixed frame construction (frame material pass 2026-07-14: Frameworks' alloy-front/carbon-rear frames, Atherton's carbon-tube/alloy-lug S.200 - real rows, not a hedge for "unknown")
   pedalStyle:   ['flat', 'clip', 'hybrid'],    // widened 2026-07-08 (catalog-pedals-breadth-2): real dual-sided flat/clip pedals exist
                                                 // (Crankbrothers Double Shot 3, HT D1/GD1) - a "market-complete" flat/clip split was
                                                 // wrong. Pedals still need no compat rule (9/16"-20 universal).
@@ -324,6 +325,13 @@ var SCHEMA = {
     dropoutType:{type:'string',vocab:'dropoutType',optional:true},
     udh:{type:'bool'}, udhRetrofitKit:{type:'string',optional:true}, frameOnly:{type:'bool'}, maxTire:{type:'number',optional:true},
     headTubeUpper:{type:'string',vocab:'headTube',optional:true}, headTubeLower:{type:'string',vocab:'headTube',optional:true},
+    /* material (Douglas 2026-07-14): the frame's construction material - a
+       FILTER/ANNOTATION field ONLY, same contract as disciplines: it must
+       NEVER feed checkBuild (material never changes what bolts to what; the
+       structural facts are the real interface fields). Absence = unknown.
+       Set only when the row's specific trim is unambiguous - many models
+       sell both carbon and alloy variants, and absent beats guessed. */
+    material:{type:'string',vocab:'material',optional:true},
     bundledShock:{type:'id',optional:true,nullable:true},
     /* per-size data lives in a sub-object, NOT variant rows (sizes share price/
        interfaces; review section 3 item 6). Keys are the maker's own size names
