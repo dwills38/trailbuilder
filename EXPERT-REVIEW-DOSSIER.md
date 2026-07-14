@@ -3,6 +3,9 @@
 **For:** a mechanic / suspension tech / bike-industry engineer reviewing the compatibility engine.
 **Prepared:** 2026-07-07 · engine state: 19 rule areas + sub-checks, 198 tests, 330 catalog parts (74 verified).
 **Time to review:** ~2–3 hours with this document; no code reading required.
+**Note (2026-07-14):** the numbered rule-by-rule review below is unchanged since its 2026-07-10
+close (every entry's Review verdict is exactly what Douglas saw). Rules added since then are in
+the **Appendix** near the end of this file, each marked NEW + date — read it after the main body.
 
 ## Why you're being asked
 
@@ -368,6 +371,116 @@ in this document.**
 - **Chain length / ring size vs derailleur capacity — parked** ("don't worry").
 - **E-bike ratings — parked** ("we don't care about at all right now").
 **Open misfits not in this document: NONE reported** ("no open misfits I have seen").
+
+## Appendix — rules added since the 2026-07-10 review close
+
+_The rules below either didn't exist, or weren't in mechanic-review form, when the review above_
+_closed. Existing numbered sections above are unedited (their Review verdict must stay traceable_
+_to what Douglas actually saw); anything new is appended here instead, each marked NEW + date._
+
+### 6c. XD cassette on an XDR-driver wheel — adapter-tier warning (NEW 2026-07-12)
+**Claims:** a SRAM XD cassette mounted on a wheel whose driver body is the road-length **XDR**
+(1.85 mm longer than XD) is not a hard mismatch — SRAM's own driver-body explainer
+(sram.com's XD/XDR page, quoted in-code) documents that every XD cassette fits an XDR driver
+with a **1.85 mm spacer** behind the cassette. The reverse direction (an XDR-only cassette on a
+plain XD driver) and every non-XD freehub mismatch stay hard errors — this is the one carve-out.
+**Tier:** warning, carrying a structured `fix: {kind:'adapter', name:'1.85mm XDR cassette spacer'}`
+(same adapter-`fix` pattern as rule 9's rotor case). **Basis:** SRAM's XD/XDR driver-body
+explainer; corroborated by SRAM support FAQ article 13819655363099, which documents that
+T-Type (Transmission) cassettes — which carry an XD-labeled freehub spec on SRAM's own model
+pages — are commonly run on XDR-driver wheels via the same spacer (i.e. the mullet/mixed case
+the adversarial audit specifically checked). Landed `021ba42` as bias-audit finding #2's remedy
+(the prior hard error was a false "won't fit" against SRAM's documented adapter path); 8 pinning
+tests added; independently re-audited (re-fetched both the explainer and a real WTB XDR wheel's
+spec page — mfgPn/weight match) before merge.
+**Ask:** the 1.85 mm figure and the "one-piece spacer, sold separately" framing — worth a mechanic
+sanity check, but this is SRAM's own published number, not an estimate.
+
+### 8b. Brake caliper rotor-size ceiling (NEW 2026-07-12, ENGINE-CRITICAL-REVIEW C1)
+**Claims:** rule 8 (mount match) didn't model that a **flat-mount** caliper is often rated for a
+maximum rotor size smaller than what the fork/frame's max would otherwise allow — the review's
+adversarial build (an FM caliper rated ≤160 mm, built green with a 180 mm rotor) was a real false
+"fits". New checks `front-brake-rotor-max` / `rear-brake-rotor-max` compare the rotor against the
+caliper's own `maxRotor` field when the maker states one; **dormant** (silent) until a caliper
+carries a sourced `maxRotor`. **Tier:** error — the review's framing is that a flat-mount system
+has no size-up bracket, so exceeding the caliper's own rated max is a hard "won't fit," not a
+warning (distinct from rule 10's frame/fork rotor-max, which stays a warning). **Basis:** first
+live activations are Shimano's own Specifications handbook (fetched productinfo.shimano.com
+Ver.2.4/C-461: XTR BR-M9110 FM = 160 mm max) and Magura's MT8 SL FM page (160 mm) — the latter
+fetch also **corrected that catalog row's own desc**, which had wrongly claimed "up to 180," and
+the XC golden build's baked-in false fit that relied on it. Landed `45f7331`; probe C (the
+build-assembler harness) now respects the new ceiling. **Ask:** Hope's XCR-FM and SRAM's
+Level-FM caliper ceilings are still unsourced (dormant) — a mechanic who knows these off the top
+of their head would save a fetch-wall fight.
+
+### C2. `bb-shell` BSA68 ≡ BSA73 equivalence (NEW 2026-07-12, ENGINE-CRITICAL-REVIEW)
+**Amends rule 7 (bottom bracket).** BSA68 and BSA73 are the *same* threaded standard at two shell
+widths that share bearing/cup interfaces — the engine was treating a BB whose own `mfgPn` matches
+the frame's stated shell as a hard red purely because the two vocab tokens differed. Fixed to
+treat BSA68/BSA73 as compatible thread families (the false red is gone); BSA83 and the pressfit
+shells (PF92/PF107/T47 etc.) remain exact-match. **Tier:** error (unchanged) — this is a
+false-positive fix, not a tier change. Landed `45f7331`, adversarially re-audited.
+**Ask:** is there any real-world case where a 68 mm and 73 mm BSA shell genuinely need different
+BBs (frame-specific spindle length, not the shell standard itself)? None found in sourcing.
+
+### C3. `bar-stem-clamp` made direction-aware, shim-tier warning added (NEW 2026-07-12,
+ENGINE-CRITICAL-REVIEW)
+**Amends rule 15 (handlebar/stem clamp).** The original check hard-errored ANY clamp mismatch;
+a 31.8 mm bar in a 35 mm stem is an everyday **shimmed** build (Wheels Mfg / Problem Solvers /
+Reverse Components all sell 31.8-to-35 reducer shims), so that direction was a false "won't fit."
+Now mirrors rule 13's dropper-shim pattern exactly: **bar bigger than stem clamp = error**
+(physically impossible, no shim goes the other way); **bar smaller than stem clamp = warning**
+naming the exact reducer shim, carrying a structured `fix: {kind:'shim', name:'<from>-to-<to>mm
+handlebar reducer shim'}`. Landed `45f7331`. **Ask:** the shim-vendor naming — worth a mechanic's
+gut check that this is genuinely routine practice at shop level, not a rare fix.
+
+### C4. `frame.forkTravelHard` — a fork-travel-range source has to say "hard limit," not
+"recommendation," to become an error (NEW 2026-07-12, ENGINE-CRITICAL-REVIEW; amends rule 12)
+**Claims:** the review found frames whose cited source is explicitly *advisory* wording (Santa
+Cruz's own FAQ: *"We wouldn't recommend less travel than that... up to 180mm is fine if that's
+your preference"*) were nonetheless hard-erroring outside the stated range — rendering a
+recommendation as a "won't fit." New optional `frame.forkTravelHard` boolean (validator cross-rule:
+requires `minForkTravel` + a `source` to be set at all) tiers rule 12/12b by what the **source
+language itself** says: a maker stating a firm/warranty-relevant limit gets `forkTravelHard:true`
+and stays a hard error outside the range; a maker whose own text reads as guidance (like the Santa
+Cruz FAQ above) gets the field left unset and rule 12/12b **warns** instead of erroring outside the
+range. 15 frames were re-tagged hard per their own verbatim source language; 3 Santa Cruz trail
+frames were softened per their own re-fetched FAQ text; the Megatower's previously-unsourced hard
+red was resolved this way. Landed `45f7331`. **Ask:** the 4 remaining hard-tagged Santa Cruz
+frames whose source is a bare "Fork Compatibility: X–Y mm" line with no softening language, and
+the Nicolai G1's "weak accommodation" wording, are flagged for a mechanic to weigh in on whether
+bare-range wording should default hard or soft.
+
+### M1. Chain removed from the drivetrain speed-count set (NEW 2026-07-12, ENGINE-CRITICAL-REVIEW;
+amends rule 3a)
+**Claims:** rule 3a's one-system/one-speed check was counting the **chain** in the "must all be
+the same speed count" set — but SRAM Flattop (T-Type/Transmission) chains are defined by **width**,
+not a discrete speed count the way a cassette or derailleur is, so counting the chain there was
+already forcing real SRAM Transmission builds (e.g. a 7-speed DH Transmission group) out of the
+catalog as a false "won't fit" (a workaround had crept into earlier data-entry passes to route
+around it). The chain now participates in the drivetrain **system** check (3a/3c, unchanged) but
+not the speed-count comparison. Landed `45f7331`, un-hacking the prior workaround; the now-cleanly-
+enterable 7-speed DH Transmission group (`CS-XS-797`/`RD-XX-DHE`) has since landed in the catalog
+(`5d8fcd4`, with its own cross-verdict pinning tests). **Ask:** none outstanding — this was a modeling-category error, not a judgment
+call.
+
+### 20. Headset (NEW — landed 2026-07-10, same day the review above closed; not folded into it)
+**Claims (three sub-checks):** **20a** fork steerer must still match an *active* headset the same
+way rule 11 checks steerer-vs-frame (this sub-check reuses rule 11's semantics once a headset part
+exists). **20b** a headset's own upper/lower cup bore must match the frame's head-tube S.H.I.S.
+code — **bore tokens only** (the number before the slash; the number after is the steerer side),
+because the frame-side field assumes a tapered steerer, so comparing full codes would false-flag
+straight-steerer-on-tapered-frame combinations that aren't the headset's problem. Dormant until a
+frame carries sourced `headTubeUpper`/`headTubeLower` (live on 51 catalog frames). **20c** once a
+frame + fork are both picked but no headset is, an **info** nudges the user to pick one — worded as
+advisory ("many frames ship with one"), never as a sold-separately claim, since many frames do
+ship a stock headset. **Tier:** 20a/20b error, 20c info (own optional single-slot GROUP, same
+pattern as the `bb` category — never a hard drivetrain-style completeness requirement).
+**Basis:** the twelve initial Cane Creek / Chris King rows (fetched cane-creek.com / chriskingprecisioncomponents.com
+Shopify variant-JSON) and the S.H.I.S. standard itself.
+**Ask:** the bore-tokens-only comparison for 20b is the subtle one worth a second look — confirm a
+mechanic agrees frame-side suffixes should be ignored (they encode the steerer, which is fork-side
+information, not the cup-bore fit).
 
 ## How to report
 

@@ -67,9 +67,9 @@ need no dependencies).
 | 3 | `npx tsc --noEmit` (= `npm run typecheck`) | The JSDoc-typed source type-checks in full `strict` (no build/emit) | **no output, exit 0** |
 | 4 | `node tools/verdict-audit-harness.js` | Adversarial hunt for wrong verdicts across the whole catalog | Five probes A–E (see below) — **exit 0** |
 
-**Live values at the time this document was written** (they will have moved — re-run and trust
-the live output, not these): gate 1 = `2016 parts, 0 problems (1480 verified, 536 unverified)`;
-gate 2 = `Tests 453 passed (453)`; gate 3 = clean; gate 4 as described below.
+**Live values at the time this document was last updated (2026-07-14)** (they will have moved —
+re-run and trust the live output, not these): gate 1 = `3065 parts, 0 problems (2283 verified, 782
+unverified)`; gate 2 = `Tests 489 passed (489)`; gate 3 = clean; gate 4 as described below.
 
 **Gate 4 — read the probes, don't just look for "0".** The harness (`tools/verdict-audit-harness.js`,
 report-only, zero-dependency) runs five independent probes:
@@ -82,7 +82,8 @@ report-only, zero-dependency) runs five independent probes:
 - **D. ADVERSARIAL** — builds that _must_ clash; a miss here is a false "fits". **Expect
   `11/11 clashes correctly flagged, 0 missed`.**
 - **E. ROTOR-MAX** — would a standard front rotor falsely trip rule 10? **This one is _not_ zero:**
-  it currently reports **`4 fork families would false-warn on a standard front rotor`**. This is a
+  it currently reports **`6 fork families would false-warn on a standard front rotor`** (the count
+  moves as more forks are verified/cataloged). This is a
   **known, pre-existing, warning-tier** note (rule 10 rotor-max is a _warning_, never an error — it
   cannot produce a false "won't-fit" that blocks a build), documented in the audit trail. It is the
   one non-clean probe; A–D are the correctness-critical ones.
@@ -145,8 +146,11 @@ are rejected.
 | `COORDINATOR-HANDOFF.md` | Operational handoff for the multi-session workflow (merge gates, git hygiene, gotchas). Contains some owner/business context outside review scope. |
 | `REVIEW.md` | The 2026-07-06 engine correctness audit — 5 Criticals + Majors #6–#9 + a Minors sweep, with a status header tracking each to resolution. |
 | `DATA-MODEL-REVIEW.md` | The 2026-07-06 data-model audit — §5.1 is the pre-mass-entry gate (id migration, entry template, semantic fixes, vocab widening). |
-| `EXPERT-REVIEW-DOSSIER.md` | The rule-by-rule domain-expert packet: every rule's claim, tier, sources and open questions in mechanic language, each carrying its review verdict inline. |
+| `EXPERT-REVIEW-DOSSIER.md` | The rule-by-rule domain-expert packet: every rule's claim, tier, sources and open questions in mechanic language, each carrying its review verdict inline. Appended (not edited) as new rules land — see its NEW-dated entries for anything added after the 2026-07-10 review close. |
 | `DOSSIER-OPEN-QUESTIONS-RESEARCH.md` | The research pass answering the dossier's open questions (a mechanic cross-check sheet). |
+| `ENGINE-CRITICAL-REVIEW-2026-07-12.md` | A second, fresh-eyes adversarial engine audit (post-3018-part wave): found + fixed 4 Criticals (C1 unmodeled brake/rotor ceiling, C2 false-red BSA68≡BSA73, C3 direction-blind bar/stem clamp, C4 a maker *recommendation* rendered as a hard error) + 1 Major (M1, chain wrongly in the drivetrain speed set). All landed in `45f7331`; see `EXPERT-REVIEW-DOSSIER.md`'s appendix for the mechanic-facing writeup. |
+| `MANUFACTURER-BIAS-AUDIT-2026-07-12.md` | Read-only audit against Douglas's standing "favor no manufacturer" guardrail — affiliate isolation, engine brand-conditionals, guides copy, sample-build generation all checked clean; findings (verified-view market-reality skew, the since-fixed XDR hard-error, fork/rotor row-share gaps) ranked by severity. |
+| `CODE-QUALITY-AUDIT-2026-07-13.md` | The recurring post-wave code-quality/efficiency audit (creed: tidy · clean · efficient · unbreakable) — the `byId` memoization + `renderCatalog` per-keystroke `resolved()` fixes it found are landed (`0655198`); report-only backlog items noted for the next pass. |
 | `tools/VERIFY-PROTOCOL.md` | The verification _logic_ — the bar, the per-part loop, batching, the skip policy. Read before judging any "verified" claim. |
 | `tools/DATA-ENTRY-TEMPLATE.md` | The data-entry _judgment_ layer — id recipe, variant-token order, flat-SKU split, weight-basis conventions. |
 | `tools/DRIFT-TRIAGE-2026-07-08.md`, `-2026-07-09.md`, `-run2.md` | Triage of the drift-checker's findings (re-fetching verified sources to catch spec/price drift). |
@@ -154,13 +158,19 @@ are rejected.
 | `tools/VERDICT-AUDIT-2026-07-09.md`, `-2-2026-07-09.md` | Write-ups of the verdict-audit harness's findings (false-fit / false-won't-fit hunts). |
 | `tools/BREADTH-GAP.md` | The catalog breadth-gap analysis (most brands are single-SKU). |
 | `tools/MECHANIC-FINDINGS-INTAKE.md` | Intake sheet for real mechanic findings. |
+| `_PDFs/README.md` | Untracked at the repo root (binary PDF deliverables aren't committed) — the index of every generated PDF (icon sets, playbooks, partnership kit). Not part of the git history a reviewer clones; skip if absent from your checkout. |
+| `src/guides.js` | In-app buyer's-guide content (data + copy, no build-affecting logic) — covered by the same bias-audit lens as the catalog; read alongside `src/compat.js` if reviewing brand neutrality. |
+| `src/forum.js` | The in-app forum's category vocab + client logic (Supabase-backed, owner-scoped RLS same as accounts). The "⚡ E-MTB" category exists `hidden:true` (kept, not displayed) per Douglas's call — not a rule-1 (no-e-bikes) violation since it's discussion, not a cataloged part. |
+| `src/compat-bmx.js` | **Not on `main` yet** — a separate BMX-only engine (own `BMX_VOCAB`/`GROUPS`/`SLOTS`) built on the held `bike-type/dj-bmx` branch, sharing `compat.js`'s `Verdict` type. Loaded by nothing live. Review it on that branch once the DJ-half go-live merge lands; BMX itself stays off-live until Douglas says go (`CLAUDE.md` catalog-scope rule). |
 | `supabase/SETUP.md`, `schema.sql`, `forum-profiles.sql` | The accounts + forum backend (owner-scoped RLS); off by default, feature-gated in the app. |
 
 **Suggested read order for a reviewer:**
 1. `FOR-REVIEWERS.md` (here) → 2. `README.md` → 3. `CLAUDE.md` (the spine) →
 4. `REVIEWER-DOSSIER.md` (the retroactive history) → 5. drill into the evidence you want to
-challenge: `EXPERT-REVIEW-DOSSIER.md` (rules), `REVIEW.md` (engine audit),
-`DATA-MODEL-REVIEW.md` (data model), then the `tools/*AUDIT*/*TRIAGE*` write-ups →
+challenge: `EXPERT-REVIEW-DOSSIER.md` (rules, incl. its appendix), `REVIEW.md` +
+`ENGINE-CRITICAL-REVIEW-2026-07-12.md` (the two engine audits), `DATA-MODEL-REVIEW.md` (data
+model), `MANUFACTURER-BIAS-AUDIT-2026-07-12.md` + `CODE-QUALITY-AUDIT-2026-07-13.md` (the
+recurring post-wave audits), then the `tools/*AUDIT*/*TRIAGE*` write-ups →
 6. **the code**: `src/compat.js` (catalog + engine), `src/schema.js` (validator), `test/`.
 
 ---
@@ -195,7 +205,7 @@ and stay silent otherwise (a missing rule is preferred over a wrong one). When o
 `headTubeLower` (20b), shifter `clampType` + brake `leverAccepts` (19). Confirm each activating
 value traces to a fetched manufacturer source.
 
-**(d) Unverified catalog rows.** ~536 of ~2016 parts are **sample data** at the time of writing —
+**(d) Unverified catalog rows.** ~782 of ~3065 parts are **sample data** at the time of writing —
 their specs, prices and weights are illustrative and must **not** be trusted as real. Only the
 verified set (provenance fields present) has been checked against a source. Do not review the sample
 rows as if they were facts; review that the _engine_ treats them correctly.
@@ -212,7 +222,7 @@ one verdict this product must never give). Confirm this guard and its regression
 
 - **Verdicts are self-consistent, not field-validated.** No third-party engineer sign-off, limited
   real-rider testing. The `EXPERT-REVIEW-DOSSIER.md` review is domain-informed but is a paper review.
-- **Gate 4 probe E**: 4 fork families would false-_warn_ on a standard front rotor (warning tier,
+- **Gate 4 probe E**: 6 fork families would false-_warn_ on a standard front rotor (warning tier,
   pre-existing, documented) — not a correctness (error-tier) failure, but a real known imperfection.
 - **The one-native-axle model.** A frame/wheel is modeled with a single native axle standard, so a
   build that is only compatible _via a maker conversion kit_ (e.g. the Commencal Supreme DH V5's
