@@ -2,6 +2,15 @@
 
 ## 2026-07-14 — Coordinator seat 8 (succession)
 
+- **Carbon+alloy frame-version policy (Douglas 2026-07-14): "if there is a carbon and aluminum
+  version of a frame, include them both."** Recorded as an explicit split-policy row in
+  `tools/DATA-ENTRY-TEMPLATE.md` (a genuine carbon-vs-metal pair = two rows; a carbon layup-tier
+  split like SC C vs CC is NOT). Resolves the 2 audit gaps (Rocky Mountain Instinct, Trek Top Fuel
+  Gen 4 — each one ambiguous row for a model that ships both ways). Sourcing chip spawned
+  `[Sonnet, medium]`: split those 2, then sweep the frame catalog for any single-row model that
+  also ships in the other construction and add the missing sibling. Append-only ids
+  (`-carbon`/`-alloy`), two-tier sourcing, present a branch.
+
 - **Seat 8 seated + seat 7 archived.** New coordinator on `coord/2026-07-14` off `origin/main`
   (`be0b141`), seat-7 worktree/branch pruned. Confirmed nothing left to harvest — seat 7's final
   wave already landed the wheels nominal-weight promotion + WAO Convergence transition + Reserve

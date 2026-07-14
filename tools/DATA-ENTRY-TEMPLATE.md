@@ -29,6 +29,7 @@ provenance trio differ per SKU, so the SKU is the row.
 |---|---|---|
 | **New ROW** | Any engine-read field differs (wheel, travel, eye×stroke, mount, diameter, drop, width, casing, compound, freehub, hub, rotor size…), OR price differs, OR the maker publishes a distinct weight | ZEB 29/170 vs 27.5/170; Vivid 230×65 vs 205×62.5; OneUp V3 31.6/210 vs 34.9/210; Assegai EXO+ MaxxGrip vs DoubleDown MaxxGrip |
 | **New ROW** | Trim levels — they're how buyers shop | Ultimate vs Select+; Factory vs Performance; Code RSC vs Code Stealth |
+| **New ROW (BOTH)** | A frame model sold in BOTH carbon AND aluminum construction ⇒ carry BOTH as separate rows — never collapse to one ambiguous row (Douglas 2026-07-14). `material` differs, weight+price differ, and it's how buyers shop. The construction is an id variant token (`-carbon`/`-alloy`, matching `fr-transition-scout-alloy`). NB: a carbon **layup tier** split (Santa Cruz C vs CC — both carbon) is NOT this; it applies only to genuine carbon-vs-metal pairs | Rocky Mountain Instinct Carbon vs Alloy; Trek Top Fuel C vs AL; Transition Sentinel Carbon vs Alloy |
 | **FIELD only** | Fork `offset` (catalog the stock offset per travel×wheel; handling, not fit/price/weight) | ZEB 44 vs 51 offset |
 | **NOTHING** | Color, suspension tune codes (RC2T/HBO, rebound/compression), coil spring rate, decals | — |
 | **Sub-object, not rows** | Frame sizes — one price, same interfaces; per-size data goes in `frame.sizes` (`{ M: { seatTubeLen, maxInsert } }`) | RAAW publishes max insertion 220–294 mm across S–XXL |
