@@ -2,6 +2,16 @@
 
 ## 2026-07-13 — Coordinator succession + post-wave quality audit shipped
 
+- **Away-grind wave 1 landed: frames-tail re-confirm (`dd594f1`).** 4 rows freshly re-checked
+  against maker pages (Skipped stands on all — frame-only weights genuinely unpublished; Devinci
+  Wilson product page has 404'd, noted in-row). KEY FINDING: the verification queue's FRAME tail
+  is now effectively CLOSED for today's tooling — remaining rows are Specialized/Trek/YT
+  fetch-walls or weight-walls; further frame-verification grind is wasted effort until the
+  unblocker connector or measured-weight sources appear. FLAG parked: fr-santacruz-highball fetch
+  anomaly (12x173.7mm axle + FSA IS-2 headset = likely summarizer misread; row untouched — needs
+  one direct/manual page check). Still running from the away-grind tray: hardtail wave, Shimano
+  archive wave [Opus], DH Transmission, suspension follow-ups.
+
 - **Rail icons v4 (LITERAL LINE-ART) delivered** (`design/rail-icons-emoji-v2` @ 9223832 pushed;
   `_PDFs/rail-icons-lineart-v4.pdf` sent): 59 hand-drawn stroke-SVG drawings of the actual
   components — 14 slots x 3-4 variants + a matching discipline quintet — one line language,
