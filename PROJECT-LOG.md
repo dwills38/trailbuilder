@@ -1,5 +1,28 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-14 — Coordinator seat 8 (succession)
+
+- **Seat 8 seated + seat 7 archived.** New coordinator on `coord/2026-07-14` off `origin/main`
+  (`be0b141`), seat-7 worktree/branch pruned. Confirmed nothing left to harvest — seat 7's final
+  wave already landed the wheels nominal-weight promotion + WAO Convergence transition + Reserve
+  MS retirement. `node validate.js` = 3117 parts / 0 problems / 2293 verified. No open bug issues.
+- **Frame-materials accuracy audit chip spawned** `[Sonnet, medium]` (Douglas: "some are
+  incorrect") — re-verifies every frame's `material` vs maker sources, backfills the 9 DJ frames,
+  flags ambiguous cases, presents branch `audit/frame-materials`. In flight.
+- **Forum riding-style 'dj' migration written** (`supabase/forum-riding-styles-dj.sql`) — DJ went
+  live in the catalog but both profile riding-style CHECK constraints (`profiles_riding_style_chk`
+  singular + `profiles_riding_styles_chk` plural) still capped at xc/trail/enduro/dh/all, so a DJ
+  pick would fail the write. Migration widens both to include 'dj' (idempotent drop+re-add;
+  display-only, no policy/trigger touched → escalation-impossible + reserved-names unaffected).
+  **Douglas runs it in the Supabase SQL editor.** Committed only — running it does NOT surface a DJ
+  pick (the editor arrays `PROFILE_RIDING`/`PROFILE_DISC` still omit dj); the UI 'dj' option is
+  held until AFTER he confirms the migration ran, to avoid a pick→constraint-violation race.
+- **Icon design-session handoff written** (`ICON-HANDOFF.md`, repo root) — Douglas still dislikes
+  the icons after 5 rounds; handoff reframes to a live-render interactive session (Fable/Opus) with
+  the two-live-icon-systems inventory, the taste constraints, and the apply targets.
+- **Price-drift-remainder chip spawned** `[Sonnet, overnight]` — ~1400 not-yet-checked verified
+  rows; non-overlapping with the frame-materials audit (price/lastChecked vs material = field-level).
+
 ## 2026-07-14 — Overnight watch (coordinator harvesting while Douglas sleeps)
 
 - **Seat 7 closes clean: fabricated Reserve MS variants retired (`0f1e882`) → 3117 parts / 2293
