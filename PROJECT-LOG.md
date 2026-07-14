@@ -22,6 +22,12 @@
   the two-live-icon-systems inventory, the taste constraints, and the apply targets.
 - **Price-drift-remainder chip spawned** `[Sonnet, overnight]` — ~1400 not-yet-checked verified
   rows; non-overlapping with the frame-materials audit (price/lastChecked vs material = field-level).
+- **Affiliate session: LLC name DECIDED — "Dubs Works."** All three clearance checks came back
+  clean (PA registry, USPTO exact-wordmark, dubsworks.com domain unregistered); record at
+  `LLC-NAME-CLEARANCE-DUBS-WORKS.md` (Affiliate's lane, untracked). Next steps (domain reg, PA
+  filing, EIN) are Douglas-only; Affiliate will hand Coordinator a code-shaped request only once
+  `Doug@buildmymtb.com` email goes live (the staged `chore/cloudflare-prep` branch is ready for
+  that). No action needed here — logged for the cross-session trail per [[multi-session-coordination]].
 
 ## 2026-07-14 — Overnight watch (coordinator harvesting while Douglas sleeps)
 
