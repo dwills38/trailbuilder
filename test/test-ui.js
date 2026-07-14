@@ -39,7 +39,7 @@ test('partVerified is false for an unverified component', function(){
 });
 test('a kit is verified only when EVERY filled part is verified', function(){
   ok(C.partVerified(C.byId('gs-sram-gx-eagle')), 'GX Eagle mech kit: all 5 fills verified');
-  ok(!C.partVerified(C.byId('gs-shimano-xt-m8100')), 'XT kit: only the cassette is verified');
+  ok(!C.partVerified(C.byId('gs-sram-gx-transmission')), 'GX Transmission kit: the AXS pod shifter stays unverified (SRAM publishes no pod-controller weight), so the kit is not fully verified');
 });
 test('partVerified is false for null and for a kit with no fills', function(){
   ok(!C.partVerified(null));
