@@ -172,3 +172,37 @@ test('headset dot: any headset stays green on a frame without sourced head-tube 
 test('headset dot: tapered headset is red against a dual-crown (straight) fork', function(){
   eq(stateOf({fork:'fk-rockshox-boxxer-ultimate-29-200'}, 'hs-canecreek-hellbender-70-zs56-zs56'), 'r');
 });
+/* GX Eagle AXS cassette-picker dots (regression pin, 2026-07-14). A SRAM Eagle
+   AXS drivetrain (electronic XD-driver Eagle, hanger-mount - DISTINCT from Eagle
+   Transmission/T-Type) takes SRAM Eagle (XG/PG-12xx) cassettes. Picking the GX
+   Eagle AXS controller + GX Eagle AXS derailleur must leave those Eagle cassettes
+   GREEN at pick time - the exact surface a "no compatible cassettes" report is
+   about. The rule-3a AXS exemption + one-system + freehub rules below combine to
+   the right answer; these pin the DOT (compatOf), which the checkBuild-level guard
+   in test-verdict-audit.js does not cover. Every state here was verified against
+   the live engine. */
+test('GX Eagle AXS controller + AXS derailleur: matching Eagle cassettes dot GREEN', function(){
+  var bld = {shifter:'sft-sram-gx-eagle-axs', derailleur:'dr-sram-gx-eagle-axs'};
+  eq(stateOf(bld, 'ca-sram-xg1275'), 'g');   // XG-1275 Eagle 10-52, XD - the natural GX AXS cassette
+  eq(stateOf(bld, 'ca-sram-xg1295'), 'g');   // XG-1295 X01 Eagle 10-52, XD
+  eq(stateOf(bld, 'ca-sram-pg1230'), 'g');   // PG-1230 NX Eagle 11-50, HG driver
+});
+test('GX Eagle AXS drivetrain: a Transmission or Shimano cassette honestly stays RED', function(){
+  var bld = {shifter:'sft-sram-gx-eagle-axs', derailleur:'dr-sram-gx-eagle-axs'};
+  eq(stateOf(bld, 'ca-sram-xs1275'), 'r');            // Transmission (T-Type) cassette - different system
+  eq(stateOf(bld, 'ca-shimano-xt-m8100-1051'), 'r');  // Shimano 12 - different system
+});
+test('AXS cross-compat: an Eagle AXS controller + Transmission derailleur takes Transmission cassettes, not Eagle', function(){
+  // SRAM documents that an Eagle AXS controller drives a Transmission derailleur;
+  // the cassette must then match the DERAILLEUR (Transmission), so the Eagle cassette
+  // is the honest red here and the Transmission one is green.
+  var bld = {shifter:'sft-sram-gx-eagle-axs', derailleur:'dr-sram-gx-transmission'};
+  eq(stateOf(bld, 'ca-sram-xs1275'), 'g');   // Transmission cassette matches the Transmission mech
+  eq(stateOf(bld, 'ca-sram-xg1275'), 'r');   // Eagle cassette does not
+});
+test('GX Eagle AXS + a MicroSpline rear wheel: the Eagle XD cassette dots RED (freehub, correct)', function(){
+  // This is the real-world path to "every cassette looks incompatible": an
+  // incompatible rear wheel already in the build. It is an honest freehub red,
+  // not an engine fault - the fix is a matching (XD/HG) wheel, not a rule change.
+  eq(stateOf({shifter:'sft-sram-gx-eagle-axs', derailleur:'dr-sram-gx-eagle-axs', rearWheel:'rw-industrynine-enduro-s-29'}, 'ca-sram-xg1275'), 'r');
+});
