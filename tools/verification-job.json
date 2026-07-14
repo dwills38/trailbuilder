@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-13T16:16:45.499Z",
+ "updated": "2026-07-14T01:44:31.721Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -26,6 +26,12 @@
   "fr-devinci-wilson-29",
   "fr-specialized-epic-8",
   "fr-santacruz-highball",
+  "fr-knolly-tyaughton-steel",
+  "fr-stanton-switch9er-genv",
+  "fr-ragley-bigal",
+  "fr-sonder-signal-st",
+  "fr-bird-zero-am",
+  "fr-pipedream-moxie-mx3",
   "fr-yt-jeffsy",
   "ti-michelin-wildenduro-racingline-29-25-gs-mh",
   "ti-michelin-wildenduro-performanceline-29-25-mh",
@@ -180,6 +186,7 @@
   "rw-sunringle-durocsd37pro-29-157-xd",
   "rw-sunringle-durocsd37pro-29-157-hg",
   "rw-sunringle-durocsd37pro-29-157-ms",
+  "sh-fox-float-x-perf-elite-185x55-trun",
   "sh-xfusion-h3c-185x50-trun",
   "sh-dvo-topaz-gen3-190x42p5",
   "sh-dvo-topaz-gen3-210x52p5",
@@ -287,6 +294,8 @@
   "fk-dvo-diamond-boost-29-160",
   "fk-dvo-diamond-boost-275-140",
   "fk-dvo-diamond-boost-275-170",
+  "fk-dvo-diamond-d1sl-29-140",
+  "fk-dvo-diamond-d1sl-29-160",
   "fk-dvo-sapphire-32-275-100",
   "fk-dvo-sapphire-32-275-140",
   "fk-dvo-sapphire-32-29-100",
@@ -308,8 +317,6 @@
   "fk-rockshox-domain-gold-r-29-180",
   "fk-fox-34-factory-29-120",
   "fk-fox-34-factory-29-130",
-  "fk-fox-38-factory-29-150",
-  "fk-fox-38-factory-275-150",
   "fk-fox-36-sl-factory-29-120",
   "fk-fox-36-sl-factory-29-130",
   "fk-fox-36-sl-factory-29-140",
@@ -461,6 +468,7 @@
   "ro-sram-centerline-160-cl",
   "ro-sram-centerline-180-6b",
   "ro-sram-centerline-200-6b",
+  "ro-sram-centerline-203-6b",
   "ro-sram-centerline-x-140-6b",
   "ro-sram-centerline-x-140-cl",
   "ro-sram-centerline-x-160-6b",
@@ -490,28 +498,20 @@
   "ro-clarks-ccl-160-cl",
   "ro-clarks-ccl-180-cl",
   "ro-clarks-ccl-203-cl",
-  "sft-shimano-xt-m8200",
   "sft-microshift-advent-m9295",
-  "sft-shimano-cues-u6000-11",
-  "sft-shimano-cues-u4000-9",
   "sft-sram-nx-11",
+  "dr-sram-xx-dh-transmission",
   "dr-microshift-advent-m6195l",
-  "dr-shimano-cues-u6000-11-gs",
-  "dr-shimano-cues-u8000",
-  "dr-shimano-cues-u4000-gs",
+  "ca-sram-xs797",
   "ca-microshift-advent-x-h104-1148",
   "ca-microshift-advent-h093-1146",
-  "ca-shimano-cues-lg300-9-1146",
   "ca-sram-pg1210",
   "ca-sram-pg1130-1142",
   "ch-sram-sx-eagle",
-  "cr-shimano-deore-m6120",
   "cr-truvativ-descendant-dh",
   "cr-truvativ-descendant-tld-colab",
   "cr-truvativ-descendant-tld-colab-dh",
-  "cr-shimano-cues-u8000-1x",
-  "cr-shimano-cues-u8000-2x",
-  "cr-shimano-cues-u6010-2x",
+  "cr-sram-xx-dh-transmission",
   "cr-sram-sx-eagle",
   "fh-industrynine-hydraclassic-boost110",
   "fh-industrynine-hydra2-20x110",
@@ -1092,14 +1092,6 @@
    "source": "https://www.sram.com/en/rockshox/models/rs-sdlx-sel-d1",
    "note": "auto-promoted: already verified in catalog"
   },
-  "sh-fox-float-x2-205x65-trun": {
-   "cat": "shock",
-   "status": "Verified",
-   "updated": "2026-07-10T18:05:22.817Z",
-   "error": null,
-   "source": "https://ridefox.com/products/float-x2-performance-elite",
-   "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
-  },
   "sh-fox-float-x-230x60": {
    "cat": "shock",
    "status": "Verified",
@@ -1155,14 +1147,6 @@
    "error": null,
    "source": "https://www.canecreek.com/products/kitsuma-coil",
    "note": "auto-promoted: already verified in catalog"
-  },
-  "sh-fox-float-x2-230x65": {
-   "cat": "shock",
-   "status": "Verified",
-   "updated": "2026-07-10T18:05:22.817Z",
-   "error": null,
-   "source": "https://ridefox.com/products/float-x2-performance-elite",
-   "note": "Fox publishes no per-size shock weight (tech.ridefox.com spec sheets are dimensional drawings only). Searched third-party sources 2026-07-08: Pinkbike/enduro-mtb/Bikerumor Float X2 weigh-ins are all for DIFFERENT sizes/generations (210x55 @ 729-761g, 2026 monotube redesign) with no clean figure for this exact SKU+size; retailer listings (Commencal, Worldwide Cyclery) give per-size weights but are rejected by policy (sourceType:retailer). No reputable measured figure for the exact SKU. Bar not met."
   },
   "sh-rockshox-vivid-205x65-trun": {
    "cat": "shock",
@@ -2375,18 +2359,18 @@
   },
   "sft-shimano-xt-m8100": {
    "cat": "shifter",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:57:59.175Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "ride.shimano.com (which worked for pedals) only stocks pedals/wheels/footwear/apparel, not shifters -- no product page found there. bike.shimano.com spec pages 403-block fetch (established pattern this session). Bar not met without a working manufacturer fetch path for Shimano groupset components."
   },
   "sft-shimano-slx-m7100": {
    "cat": "shifter",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:57:59.220Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "Same blocker as XT M8100: no shifter listing on ride.shimano.com, bike.shimano.com blocked. Bar not met."
   },
   "sft-sram-x0-transmission": {
@@ -2415,18 +2399,18 @@
   },
   "sft-shimano-xtr-m9100": {
    "cat": "shifter",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:57:59.270Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "Same blocker. Bar not met."
   },
   "sft-shimano-deore-m6100": {
    "cat": "shifter",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:57:59.320Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "Same blocker. Bar not met."
   },
   "sft-sram-gx-eagle-axs": {
@@ -2455,18 +2439,18 @@
   },
   "dr-shimano-xt-m8100-sgs": {
    "cat": "derailleur",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:02:13.182Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "dr-shimano-slx-m7100-sgs": {
    "cat": "derailleur",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:02:13.282Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "dr-sram-x0-transmission": {
@@ -2503,18 +2487,18 @@
   },
   "dr-shimano-xtr-m9100-sgs": {
    "cat": "derailleur",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:02:13.382Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "dr-shimano-deore-m6100-sgs": {
    "cat": "derailleur",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:02:13.481Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "dr-sram-gx-eagle-axs": {
@@ -2551,10 +2535,10 @@
   },
   "ca-shimano-slx-m7100-1051": {
    "cat": "cassette",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:02:13.582Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "ca-sram-xs1299": {
@@ -2583,18 +2567,18 @@
   },
   "ca-shimano-xtr-m9100-1051": {
    "cat": "cassette",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:02:13.682Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "ca-shimano-deore-m6100-1051": {
    "cat": "cassette",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:02:13.782Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "ch-sram-gx-flattop": {
@@ -2615,10 +2599,10 @@
   },
   "ch-shimano-xt-m8100": {
    "cat": "chain",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:02:13.882Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "ch-sram-x01-eagle": {
@@ -2631,18 +2615,18 @@
   },
   "ch-shimano-xtr-m9100": {
    "cat": "chain",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:02:13.988Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "ch-shimano-deore-m6100": {
    "cat": "chain",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:02:14.084Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "cr-sram-gx-eagle": {
@@ -2663,10 +2647,10 @@
   },
   "cr-shimano-xt-m8100": {
    "cat": "crankset",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:02:14.182Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "cr-raceface-aeffect-r": {
@@ -2687,10 +2671,10 @@
   },
   "cr-shimano-slx-m7100": {
    "cat": "crankset",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:02:14.282Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "cr-sram-xx-sl-transmission": {
@@ -2711,18 +2695,18 @@
   },
   "cr-shimano-xtr-m9100": {
    "cat": "crankset",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:02:14.388Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "cr-shimano-deore-m6100": {
    "cat": "crankset",
-   "status": "Skipped",
-   "updated": "2026-07-07T21:02:14.482Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established repeatedly this session across pedals/rotors/shifters/brakes/derailleurs). Interfaces already correct in the catalog (Shimano's Micro Spline/12-speed system data is well-established); only the manufacturer weight confirmation is blocked."
   },
   "cr-canecreek-eewings-allmountain": {
@@ -3415,11 +3399,11 @@
   },
   "sh-fox-float-x-perf-elite-185x55-trun": {
    "cat": "shock",
-   "status": "Verified",
-   "updated": "2026-07-10T18:05:22.817Z",
+   "status": "Pending",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
    "source": "https://ridefox.com/products/fox-float-x-factory",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "sh-fox-float-x2-perf-elite-205x60-trun": {
    "cat": "shock",
@@ -7597,14 +7581,6 @@
    "source": "https://ridefox.com/products/my27-fox-36-factory-gripx2",
    "note": "auto-promoted: already verified in catalog"
   },
-  "fk-fox-36-performance-elite-29-150": {
-   "cat": "fork",
-   "status": "Verified",
-   "updated": "2026-07-10T19:29:35.114Z",
-   "error": null,
-   "source": "https://ridefox.com/products/my27-fox-36-factory-gripx2",
-   "note": "auto-promoted: already verified in catalog"
-  },
   "fk-fox-38-performance-elite-29-180": {
    "cat": "fork",
    "status": "Verified",
@@ -8604,22 +8580,6 @@
    "error": null,
    "source": "https://tech.ridefox.com/bike/owners-manuals/2979/fork--2025-36mm-or-38mm",
    "note": "auto-promoted: already verified in catalog"
-  },
-  "fk-fox-38-factory-29-150": {
-   "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "fk-fox-38-factory-275-150": {
-   "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
-   "source": null,
-   "note": null
   },
   "fk-fox-38-factory-275-160": {
    "cat": "fork",
@@ -13175,11 +13135,11 @@
   },
   "sft-shimano-cues-u6000-11": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sft-shimano-cues-u8000-11": {
    "cat": "shifter",
@@ -13191,11 +13151,11 @@
   },
   "sft-shimano-cues-u4000-9": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sft-sram-sx-eagle": {
    "cat": "shifter",
@@ -13239,27 +13199,27 @@
   },
   "dr-shimano-cues-u6000-11-gs": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dr-shimano-cues-u8000": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dr-shimano-cues-u4000-gs": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dr-sram-sx-eagle": {
    "cat": "derailleur",
@@ -13303,11 +13263,11 @@
   },
   "ca-shimano-cues-lg300-9-1146": {
    "cat": "cassette",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ca-sram-pg1210": {
    "cat": "cassette",
@@ -13511,11 +13471,11 @@
   },
   "cr-shimano-deore-m6120": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-shimano-xtr-m9200": {
    "cat": "crankset",
@@ -15247,27 +15207,27 @@
   },
   "cr-shimano-cues-u8000-1x": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-11T04:43:32.368Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-shimano-cues-u8000-2x": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-11T04:43:32.368Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-shimano-cues-u6010-2x": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-11T04:43:32.368Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-funn-ridge": {
    "cat": "crankset",
@@ -23671,11 +23631,11 @@
   },
   "sft-shimano-xt-m8200": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.499Z",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dr-shimano-xt-m8200-sgs": {
    "cat": "derailleur",
@@ -23892,6 +23852,110 @@
    "error": null,
    "source": "https://canecreek.com/products/110",
    "note": "auto-promoted: already verified in catalog"
+  },
+  "fr-knolly-tyaughton-steel": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T01:44:31.719Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-stanton-switch9er-genv": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T01:44:31.720Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-ragley-bigal": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T01:44:31.720Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-sonder-signal-st": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T01:44:31.720Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-bird-zero-am": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T01:44:31.720Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-pipedream-moxie-mx3": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T01:44:31.720Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-dvo-diamond-d1sl-29-140": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-14T01:44:31.720Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-dvo-diamond-d1sl-29-160": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-14T01:44:31.720Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-fox-40-factory-my27-29-203": {
+   "cat": "fork",
+   "status": "Verified",
+   "updated": "2026-07-14T01:44:31.720Z",
+   "error": null,
+   "source": "https://ridefox.com/products/my27-fox-40-factory",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ro-sram-centerline-203-6b": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-14T01:44:31.720Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dr-sram-xx-dh-transmission": {
+   "cat": "derailleur",
+   "status": "Pending",
+   "updated": "2026-07-14T01:44:31.720Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ca-sram-xs797": {
+   "cat": "cassette",
+   "status": "Pending",
+   "updated": "2026-07-14T01:44:31.720Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cr-sram-xx-dh-transmission": {
+   "cat": "crankset",
+   "status": "Pending",
+   "updated": "2026-07-14T01:44:31.720Z",
+   "error": null,
+   "source": null,
+   "note": null
   }
  }
 }
