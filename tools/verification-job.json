@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-14T01:44:31.721Z",
+ "updated": "2026-07-14T11:47:30.248Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -33,6 +33,15 @@
   "fr-bird-zero-am",
   "fr-pipedream-moxie-mx3",
   "fr-yt-jeffsy",
+  "fr-santacruz-jackal",
+  "fr-specialized-p3",
+  "fr-kona-shonky",
+  "fr-dmr-sect",
+  "fr-nsbikes-zircus",
+  "fr-commencal-absolut",
+  "fr-marin-alcatraz",
+  "fr-chromag-monk",
+  "fr-octaneone-void",
   "ti-michelin-wildenduro-racingline-29-25-gs-mh",
   "ti-michelin-wildenduro-performanceline-29-25-mh",
   "ti-michelin-wildenduro-performanceline-29-24-ms",
@@ -62,6 +71,10 @@
   "ti-teravail-honcho-275-26-ls-grip",
   "ti-schwalbe-dirty-dan-275-235-sdh-aus",
   "ti-schwalbe-rock-razor-275-26-st-asg",
+  "ti-maxxis-dth-26-23",
+  "ti-kenda-krad-26-23",
+  "ti-schwalbe-tabletop-26-225",
+  "fw-industrynine-enduro-s-275",
   "fw-weareone-union-275",
   "fw-industrynine-whisp-29",
   "fw-dtswiss-xrc1200-spline25-29",
@@ -79,6 +92,7 @@
   "fw-reserve-30sl-29",
   "fw-reserve-30sl-275",
   "fw-weareone-faction-29",
+  "fw-weareone-faction-275",
   "fw-weareone-strife-29",
   "fw-weareone-strife-29-20x110",
   "fw-weareone-strife-275",
@@ -98,6 +112,9 @@
   "fw-alexrims-recon30-29",
   "fw-alexrims-recon30-275",
   "fw-sunringle-durocsd37pro-29",
+  "fw-halo-combat-26-15x100",
+  "rw-industrynine-enduro-s-275",
+  "rw-industrynine-enduro-s-275-157",
   "rw-dtswiss-ex-1700-29-hg",
   "rw-industrynine-whisp-29-ms",
   "rw-industrynine-whisp-29-xd",
@@ -142,6 +159,8 @@
   "rw-weareone-union-275-hg",
   "rw-weareone-faction-29-148-xd",
   "rw-weareone-faction-29-157-xd",
+  "rw-weareone-faction-275-148-xd",
+  "rw-weareone-faction-275-157-xd",
   "rw-weareone-strife-29-148-xd",
   "rw-weareone-strife-29-157-xd",
   "rw-weareone-strife-275-148-xd",
@@ -186,6 +205,7 @@
   "rw-sunringle-durocsd37pro-29-157-xd",
   "rw-sunringle-durocsd37pro-29-157-hg",
   "rw-sunringle-durocsd37pro-29-157-ms",
+  "rw-halo-combat-26-ss",
   "sh-fox-float-x-perf-elite-185x55-trun",
   "sh-xfusion-h3c-185x50-trun",
   "sh-dvo-topaz-gen3-190x42p5",
@@ -400,8 +420,14 @@
   "fk-fox-36-factory-my27-29-160",
   "fk-fox-36-sl-performance-elite-29-140",
   "fk-fox-36-sl-performance-29-140",
+  "fk-marzocchi-bomber-dj-26-100",
+  "fk-manitou-circus-expert-26-100",
+  "fk-manitou-circus-expert-26-100-straight",
+  "fk-dvo-sapphire-26-100",
+  "fk-xfusion-slant-dj-26-100",
   "hb-thomson-elite-35",
   "hb-thomson-elite-trail-318",
+  "hb-answer-protaper",
   "st-thomson-elite-x4-35",
   "st-chromag-riza-35",
   "st-pro-tharsis-trail-318",
@@ -508,11 +534,13 @@
   "ca-sram-pg1210",
   "ca-sram-pg1130-1142",
   "ch-sram-sx-eagle",
+  "ch-kmc-z410",
   "cr-truvativ-descendant-dh",
   "cr-truvativ-descendant-tld-colab",
   "cr-truvativ-descendant-tld-colab-dh",
   "cr-sram-xx-dh-transmission",
   "cr-sram-sx-eagle",
+  "cr-profileracing-3piece-mtb",
   "fh-industrynine-hydraclassic-boost110",
   "fh-industrynine-hydra2-20x110",
   "fh-industrynine-hydra2-20x110-nonboost",
@@ -537,7 +565,9 @@
   "bb-ethirteen-bsa68-p3",
   "bb-kogel-pf92-24mm",
   "bb-kogel-pf865-24mm",
-  "bb-kogel-pf865-dub"
+  "bb-kogel-pf865-dub",
+  "cg-generic-ss-16t",
+  "sp-thomson-elite-272"
  ],
  "parts": {
   "fr-specialized-enduro-sworks": {
@@ -23953,6 +23983,270 @@
    "cat": "crankset",
    "status": "Pending",
    "updated": "2026-07-14T01:44:31.720Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-santacruz-jackal": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-specialized-p3": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-kona-shonky": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-dmr-sect": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-nsbikes-zircus": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-commencal-absolut": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-marin-alcatraz": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-chromag-monk": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-octaneone-void": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-maxxis-dth-26-23": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-kenda-krad-26-23": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-schwalbe-tabletop-26-225": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-industrynine-enduro-s-275": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-weareone-faction-275": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-halo-combat-26-15x100": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-industrynine-enduro-s-275": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-industrynine-enduro-s-275-157": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-weareone-faction-275-148-xd": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-weareone-faction-275-157-xd": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.246Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-halo-combat-26-ss": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.247Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-rockshox-pike-dj-26-100": {
+   "cat": "fork",
+   "status": "Verified",
+   "updated": "2026-07-14T11:47:30.247Z",
+   "error": null,
+   "source": "https://www.sram.com/en/rockshox/models/fs-pike-dj-a4",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fk-marzocchi-bomber-dj-26-100": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.247Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-manitou-circus-expert-26-100": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.247Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-manitou-circus-expert-26-100-straight": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.247Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-dvo-sapphire-26-100": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.247Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-xfusion-slant-dj-26-100": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.247Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-answer-protaper": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.247Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sa-ergon-sm-women": {
+   "cat": "saddle",
+   "status": "Verified",
+   "updated": "2026-07-14T11:47:30.247Z",
+   "error": null,
+   "source": "https://ergonbike.shop/products/ergon-sm-women",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "sa-ergon-smc-core-women": {
+   "cat": "saddle",
+   "status": "Verified",
+   "updated": "2026-07-14T11:47:30.247Z",
+   "error": null,
+   "source": "https://ergonbike.shop/products/smc-core-women",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ch-kmc-z410": {
+   "cat": "chain",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.247Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cr-profileracing-3piece-mtb": {
+   "cat": "crankset",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.247Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cg-generic-ss-16t": {
+   "cat": "cog",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.247Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sp-thomson-elite-272": {
+   "cat": "seatpost",
+   "status": "Pending",
+   "updated": "2026-07-14T11:47:30.247Z",
    "error": null,
    "source": null,
    "note": null
