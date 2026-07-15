@@ -6195,7 +6195,346 @@ var PARTS_RAW = [
       handlebar:'hb-nukeproof-horizon-v2-35', stem:'st-nukeproof-horizon-35', grips:'gr-vitus-lockon',
       dropper:'dp-brandx-ascend-316-150', saddle:'sa-nukeproof-horizon-enduro'
     },
-    desc:'FETCHED vitusbikes.com "Vitus Sommet 290 CRX Mountain Bike" product page (07e7): full factory build sheet, cross-checked against its geometry page and (for the front tire\'s WT/EXO+/MaxxGrip spec + the SRAM Transmission/UDH/2.5in-tire facts) a corroborating Chain Reaction Cycles listing. Every fills entry is the bike\'s real stock part: 7 new OE rows entered alongside this one (frame, shock, both wheels, rear tire, grips, dropper, saddle - see each row\'s own desc for its sourcing), and a genuine ZERO new drivetrain rows - the full SRAM GX Eagle Transmission (T-Type AXS) kit plus the Fox 38 Factory fork, Maxxis Assegai front tire, Hayes Dominion A4 brakes/rotors, and Nukeproof Horizon V2 bar/stem were already cataloged. Pedals + headset omitted (not stock / no complete headset SKU sourced). Price: this row\'s $5,888 is a sample USD conversion of the confirmed GBP4,599.99 list price (Shopify variant JSON, exact) at ~1.28 USD/GBP - us.vitusbikes.com (Vitus\'s own USD storefront, confirmed to exist and list this exact SKU via search results) could not be resolved by this session\'s fetch tool (persistent DNS failure on every "us." subdomain tried), and no independent US retailer listing for this exact CRX trim was found, so this is flagged as a currency estimate rather than an independently verified US MSRP - unlike the frame\'s interfaces and the rest of the build sheet, which are FETCHED directly. Component (a-la-carte) sum of the fills is roughly $7,600 at current catalog prices, so the "buy complete" savings the dual-price block shows is real and not marginal, even allowing for the price estimate\'s uncertainty.' }
+    desc:'FETCHED vitusbikes.com "Vitus Sommet 290 CRX Mountain Bike" product page (07e7): full factory build sheet, cross-checked against its geometry page and (for the front tire\'s WT/EXO+/MaxxGrip spec + the SRAM Transmission/UDH/2.5in-tire facts) a corroborating Chain Reaction Cycles listing. Every fills entry is the bike\'s real stock part: 7 new OE rows entered alongside this one (frame, shock, both wheels, rear tire, grips, dropper, saddle - see each row\'s own desc for its sourcing), and a genuine ZERO new drivetrain rows - the full SRAM GX Eagle Transmission (T-Type AXS) kit plus the Fox 38 Factory fork, Maxxis Assegai front tire, Hayes Dominion A4 brakes/rotors, and Nukeproof Horizon V2 bar/stem were already cataloged. Pedals + headset omitted (not stock / no complete headset SKU sourced). Price: this row\'s $5,888 is a sample USD conversion of the confirmed GBP4,599.99 list price (Shopify variant JSON, exact) at ~1.28 USD/GBP - us.vitusbikes.com (Vitus\'s own USD storefront, confirmed to exist and list this exact SKU via search results) could not be resolved by this session\'s fetch tool (persistent DNS failure on every "us." subdomain tried), and no independent US retailer listing for this exact CRX trim was found, so this is flagged as a currency estimate rather than an independently verified US MSRP - unlike the frame\'s interfaces and the rest of the build sheet, which are FETCHED directly. Component (a-la-carte) sum of the fills is roughly $7,600 at current catalog prices, so the "buy complete" savings the dual-price block shows is real and not marginal, even allowing for the price estimate\'s uncertainty.' },
+
+  // =========================================================================
+  // COMPLETE BIKES - volume grind 2 (2026-07-15): Orbea + Polygon. Neither
+  // maker had a completebike row before this pass. orbea.com is the
+  // documented WAF-403 blocker (catalog-frames-breadth-c note), so Orbea
+  // builds are sourced from FETCHED third-party spec guides (vitalmtb.com,
+  // bikerumor.com) per the unverified/sample tier - identical in kind to the
+  // two Orbea frames already in-catalog. polygonbikes.com/us fetches clean
+  // (used for the two existing Siskiu T8 frame rows), so the Polygon builds
+  // below are FETCHED directly from the maker's own current (2026) spec page.
+  // New OE-tier component rows below are the parts genuinely missing;
+  // everything reusable (SLX drivetrain, SM-RT54 rotors, the Deore M6120
+  // crank/brake, both Siskiu T8 frames) is referenced by existing id.
+  // -------------------------------------------------------------------------
+  // Polygon Siskiu T8 with UDH (2026), 29in - FETCHED polygonbikes.com/
+  // siskiu-t8-with-udh-2026/ directly (current maker page, $2,399 USD,
+  // full spec table). Frame fr-polygon-siskiu-t8-29 already exists
+  // (verified 2026-07-09, same maker page). New rows: fork (Fox 34 Rhythm -
+  // OE-only tier, Fox sells no retail page for it, chassis interfaces from
+  // the FETCHED vitalmtb.com spec guide, matching the fk-fox-38-performance
+  // OE-only precedent), shock (Fox Float DPS "Special Tuning" 210x55 - also
+  // OE-only, no 210x55 retail size exists on ridefox.com's Float DPS
+  // Performance page per a direct re-fetch this session, so entered as an
+  // honest OE sample on the shared DPS chassis), both wheels (Polygon MT6
+  // rim + Shimano TC500 hub, per the maker page; rotor mount + freehub
+  // maker-stated, rim width a sample), the plain-EXO Maxxis Dissector
+  // (FETCHED maxxis.com - a genuinely different SKU from the in-catalog
+  // EXO+ Dissector row), the KMC X12 chain (FETCHED kmcchain.us), a
+  // Shimano BB-MT501 BSA73/24mm bottom bracket (retailer-corroborated;
+  // bike.shimano.com/productinfo.shimano.com both blocked this pass),
+  // Polygon-branded bar/stem + Entity LINC Xtent saddle + X-Fusion Manic
+  // dropper (all maker-page-stated) and a house-brand OE flat pedal (the
+  // bike ships with pedals, unlike most catalog completebikes). Reused:
+  // SLX shifter/derailleur/cassette (sft/dr/ca-shimano-slx-m7100*), the
+  // Deore M6120 crank, the MT420 4-piston brake (matches the page's BL-
+  // M4100-paired "M4120"/"BL-M4100" caliper naming), and the SM-RT54 180
+  // CL rotor (already cataloged from this same frame's own sourcing).
+  { id:'fk-fox-34-rhythm-29-140', cat:'fork', brand:'Fox', model:'34 Rhythm GRIP 140', family:'fox-34', disciplines:['trail'],
+    price:550, weight:2000, wheel:'29', travel:140, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203, minRotorF:180,
+    source:'https://www.vitalmtb.com/product/guide/forks/fox/34-rhythm-grip-35691',
+    desc:'The base "34 Rhythm" (GRIP damper, cast aluminum lowers) tier is OE-only - Fox sells no standalone retail page for it (same OE-only pattern as the in-catalog fk-fox-38-performance), which is exactly why this is the stock fork on the Siskiu T8 with UDH (polygonbikes.com/siskiu-t8-with-udh-2026/: "FOX 34 FLOAT RHYTHM, 140mm travel"). Interfaces + weight FETCHED directly from vitalmtb.com\'s own "FOX 34 Rhythm GRIP" spec guide (a prior-generation 2023-2024 listing of the same OE-only tier, same 34mm chassis): 29in, 130/140/150mm travel options, "15mm x 110mm (Boost)" front axle, tapered 1.125/1.5 steerer, "180mm direct post mount; compatible with up to 203mm rotor" (-> minRotorF 180 / maxRotorF 203), 2000g. Price $550 is an estimate (Rhythm undercuts the Performance tier\'s ~$700-800 street per multiple retailer/review mentions; no page confirms a number) - not marked verified since the source is a third-party spec guide, not a fetched Fox page.' },
+  { id:'sh-fox-float-dps-performance-210x55', cat:'shock', brand:'Fox', model:'Float DPS Performance "Special Tuning" (210x55)', family:'fox-float-dps', disciplines:['trail'],
+    price:349, weight:340, eye:210, stroke:55, mount:'std', spring:'air',
+    desc:'Stock shock on the Siskiu T8 with UDH (polygonbikes.com/siskiu-t8-with-udh-2026/: "FOX FLOAT P-S E2E (210x55mm)" - P-S = Polygon\'s own "Special Tuning" OE damper code, matching the frame\'s own long-documented shockEye:210/shockStroke:55/shockMount:std). RE-FETCHED ridefox.com/products/fox-float-dps-performance this session to check for a matching retail size: only two metric-trunnion sizes (165x40, 185x55) are sold at retail - no 210x55 std-mount size exists on the current Fox storefront, confirming this is an OE-only size/tuning like the fork above. Eye/stroke/mount/spring match the maker-stated E2E dimension exactly; weight/price are samples on the shared Float DPS Performance chassis (see the in-catalog 200x57/190x51 Performance-tier siblings) since no page prices this specific OE size.' },
+  { id:'fw-polygon-mt6-tc500-29', cat:'frontwheel', brand:'Polygon', model:'MT6 / Shimano HB-TC500 (29, front)', family:'polygon-mt6', disciplines:['trail'],
+    price:110, weight:950, wheel:'29', hub:'Boost110', rotorMount:'CL', intWidth:30, maxTire:2.6,
+    source:'https://www.polygonbikes.com/siskiu-t8-with-udh-2026/',
+    desc:'Stock front wheel on the Siskiu T8 with UDH (FETCHED polygonbikes.com/siskiu-t8-with-udh-2026/: "Rim: POLYGON MT6, 584/622-29, 32H, tubeless-ready", "Front Hub: SHIMANO HB-TC500-15-B, thru-axle 15x110mm" -> Boost110, Center-Lock per the page\'s own SM-RT54 Center-Lock rotor spec). Polygon builds this as a complete OE wheel (house rim + Shimano hub), not a standalone Shimano/Polygon retail wheelset SKU, so weight/price/intWidth are estimates (weight scaled from comparable alloy 32h Boost110 OE wheels already in-catalog; intWidth 30mm is the platform\'s typical rim width, not page-confirmed for this specific MT6 rim); maxTire 2.6 matches the frame\'s own already-cataloged maxTire.' },
+  { id:'rw-polygon-mt6-tc500-29-ms', cat:'rearwheel', brand:'Polygon', model:'MT6 / Shimano FH-TC500 (29, rear, MicroSpline)', family:'polygon-mt6', disciplines:['trail'],
+    price:130, weight:1080, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'CL', intWidth:30, maxTire:2.6,
+    source:'https://www.polygonbikes.com/siskiu-t8-with-udh-2026/',
+    desc:'Rear half of the same FETCHED polygonbikes.com/siskiu-t8-with-udh-2026/ build sheet: "Rear Hub: SHIMANO FH-TC500-MS-B, thru-axle 12x148mm" -> Boost148, "-MS" = MicroSpline driver (pairs with the stock SLX CS-M7100-12 10-51T cassette), Center-Lock (SM-RT54 rotor). Same estimate basis as the front wheel for weight/price/intWidth (no standalone complete-wheel SKU page exists to fetch); maxTire 2.6 matches the frame.' },
+  { id:'ti-maxxis-dissector-29-24-exo-mt', cat:'tire', brand:'Maxxis', model:'Dissector 29x2.4 EXO 3C MaxxTerra', family:'maxxis-dissector', mfgPn:'TB00241200', disciplines:['trail'],
+    price:80, weight:956, wheel:'29', width:2.4, casing:'exo', compound:'3c-maxxterra',
+    verified:true, lastChecked:'2026-07-15', source:'https://www.maxxis.com/us/tire/dissector/',
+    desc:'Stock tires (front + rear) on the Siskiu T8 with UDH (polygonbikes.com/siskiu-t8-with-udh-2026/: "MAXXIS DISSECTOR 29x2.40" front and rear). FETCHED maxxis.com/us/tire/dissector/ spec table directly: Part# TB00241200, plain EXO casing (NOT EXO+ - a genuinely different SKU from the in-catalog ti-maxxis-dissector-29-24-exop-mt), 3C MaxxTerra compound, 956g, 60x2TPI, 50psi max.' },
+  { id:'ch-kmc-x12', cat:'chain', brand:'KMC', model:'X12 12-speed', family:'kmc-x12', price:66, weight:234, system:'shimano-12', speeds:12,
+    verified:true, lastChecked:'2026-07-15', source:'https://kmcchain.us/products/x12',
+    desc:'Stock chain on the Siskiu T8 with UDH (polygonbikes.com/siskiu-t8-with-udh-2026/: "KMC NEW X-12", alongside the Shimano SLX 12-speed shifter/derailleur/cassette). FETCHED kmcchain.us/products/x12 directly: "Weight: 234 grams", 126 links, "Shimano, and Campagnolo 12-speed systems" compatibility -> system:shimano-12 as a physical-fit token (same precedent as the in-catalog ch-kmc-x10/ch-kmc-x9 microSHIFT tokens - KMC sells no groupset of its own). Price $66 = the page\'s cheapest listed finish (EPT coating); Ti Gold/Black finishes run to $77.' },
+  { id:'bb-shimano-mt501-bsa73-24mm', cat:'bb', brand:'Shimano', model:'BB-MT501', family:'shimano-bbmt501', mfgPn:'BB-MT501', price:25, weight:92, shell:'BSA73', spindle:'24mm', disciplines:['trail'],
+    desc:'Stock bottom bracket on the Siskiu T8 with UDH (polygonbikes.com/siskiu-t8-with-udh-2026/: "SHIMANO 2-piece, BSA threaded", matching the frame\'s BSA73 shell and the Deore M6120 crank\'s 24mm Hollowtech-style spindle). bike.shimano.com and productinfo.shimano.com both blocked/unreadable this session (the documented Shimano fetch blocker), so this is entered per the relaxed-inclusion policy as an honest unverified sample, cross-corroborated across multiple independent retailer listings (Worldwide Cyclery, Fanatik Bike, MTBiker.shop, bike.shimano.com\'s own indexed product-page title) all agreeing: BB-MT501, English/BSA threaded, 68/73mm shell, Hollowtech-II-style 24mm spindle. price/weight = sample (retailer street pricing, no manufacturer figure found).' },
+  { id:'hb-polygon-expert-780-35', cat:'handlebar', brand:'Polygon', model:'Expert (780mm, 30mm rise)', family:'polygon-expert', disciplines:['trail'],
+    price:35, weight:320, clamp:35, width:780, rise:30, material:'alu',
+    source:'https://www.polygonbikes.com/siskiu-t8-with-udh-2026/',
+    desc:'Stock handlebar on the Siskiu T8 with UDH. FETCHED polygonbikes.com/siskiu-t8-with-udh-2026/ spec table verbatim: "POLYGON EXPERT, W: 780MM BB: 35MM R/D: 30MM" (BB = clamp bore, R/D = rise). Price/weight = sample (house-brand OE part, no standalone retail page found this pass).' },
+  { id:'st-polygon-expert-35', cat:'stem', brand:'Polygon', model:'Expert (35mm)', family:'polygon-expert', disciplines:['trail'],
+    price:25, weight:180, clamp:35, length:35,
+    source:'https://www.polygonbikes.com/siskiu-t8-with-udh-2026/',
+    desc:'Stock stem on the Siskiu T8 with UDH. FETCHED polygonbikes.com/siskiu-t8-with-udh-2026/ spec table verbatim: "POLYGON EXPERT E: 35MM BB: 35MM R/D: 0" (E = extension/length, BB = clamp bore). Price/weight = sample (house-brand OE part).' },
+  { id:'dp-xfusion-manic-309-150', cat:'dropper', brand:'X-Fusion', model:'Manic LC', family:'xfusion-manic', price:169, weight:590, diameter:30.9, drop:150,
+    desc:'Stock dropper on the Siskiu T8 with UDH (polygonbikes.com/siskiu-t8-with-udh-2026/: "XFUSION MANIC LC, 150-170mm travel (size-dependent)"; this row models the shorter/more common 150mm point, the same representative-size convention used elsewhere in this category - matching the frame\'s 30.9mm seatpost). Price/weight = sample (X-Fusion publishes no OE-tier page for this exact size found this pass; retailer listings for the retail Manic cluster around this range).' },
+  { id:'sa-entity-linc-xtent-crmo', cat:'saddle', brand:'Entity', model:'LINC Xtent (CrMo rails)', family:'entity-linc-xtent', price:30, weight:280,
+    desc:'Stock saddle on the Siskiu T8 with UDH (polygonbikes.com/siskiu-t8-with-udh-2026/ lists "LINC XTENT CR-MO"; corroborated via search as the Entity house-brand LINC Xtent saddle with CrMo rails, the same OE saddle line used on other current Polygon models e.g. the Collosus DH7/N9). Price/weight = sample (house-brand OE part, no standalone retail page found this pass).' },
+  { id:'pd-polygon-oe-flat', cat:'pedal', brand:'Polygon', model:'OE Alloy Flat Pedal', family:'polygon-oe-pedal', price:20, weight:400, style:'flat',
+    desc:'The Siskiu T8 with UDH ships WITH pedals (polygonbikes.com/siskiu-t8-with-udh-2026/: "Pedals: Alloy flat with replaceable pins") - unlike most catalog completebikes, so this slot is filled rather than left empty. House-brand OE part, no standalone retail page found this pass; price/weight = sample (typical alloy flat-pedal class weight/price).' },
+
+  /* The Polygon Siskiu T8 with UDH (2026) - the debut Polygon complete bike.
+     fills = ONLY the parts the bike ships with from the factory (decision #1);
+     this bike is a rare case where pedals ARE stock, so the pedals slot is
+     filled (pd-polygon-oe-flat) rather than left empty. headset omitted
+     (frame-integrated FSA No.57E ZS44/28.6|ZS56/40 matches the frame's own
+     headTubeUpper/headTubeLower exactly, but v1 catalogs complete headset
+     SKUs only when independently useful as a standalone pick - not modeled
+     here to keep this pass scoped). Verdict-clean per decision #6: every
+     interface (rotor CL on CL wheels, Boost148 rear on a Boost148 frame,
+     140mm fork under the frame's 150mm max, MicroSpline cassette on a
+     MicroSpline rear wheel, BSA73 BB matching a BSA73 shell) was entered at
+     its stock/maker-demonstrated value, so no rule trips - a genuine
+     zero-warning build (see test-golden.js's completebike golden test). */
+  { id:'cb-polygon-siskiu-t8-udh-29', cat:'completebike', brand:'Polygon', model:'Siskiu T8 with UDH', family:'polygon-siskiu-t', gen:'2026',
+    modelYear:2026, disciplines:['trail'], price:2399,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.polygonbikes.com/siskiu-t8-with-udh-2026/',
+    fills:{
+      frame:'fr-polygon-siskiu-t8-29', fork:'fk-fox-34-rhythm-29-140', shock:'sh-fox-float-dps-performance-210x55',
+      frontWheel:'fw-polygon-mt6-tc500-29', rearWheel:'rw-polygon-mt6-tc500-29-ms',
+      frontTire:'ti-maxxis-dissector-29-24-exo-mt', rearTire:'ti-maxxis-dissector-29-24-exo-mt',
+      shifter:'sft-shimano-slx-m7100', derailleur:'dr-shimano-slx-m7100-sgs', cassette:'ca-shimano-slx-m7100-1051',
+      chain:'ch-kmc-x12', crankset:'cr-shimano-deore-m6120', bb:'bb-shimano-mt501-bsa73-24mm',
+      frontBrake:'bk-shimano-mt420', rearBrake:'bk-shimano-mt420',
+      frontRotor:'ro-shimano-smrt54-180-cl', rearRotor:'ro-shimano-smrt54-180-cl',
+      handlebar:'hb-polygon-expert-780-35', stem:'st-polygon-expert-35',
+      dropper:'dp-xfusion-manic-309-150', saddle:'sa-entity-linc-xtent-crmo', pedals:'pd-polygon-oe-flat'
+    },
+    desc:'FETCHED polygonbikes.com/siskiu-t8-with-udh-2026/ (the current 2026 maker page, replacing the older non-UDH T8 trim): full factory build sheet + $2,399.00 USD price. Every fills entry is the bike\'s real stock part: 11 new OE rows entered alongside this one (fork, shock, both wheels, front-casing tire, chain, BB, bar, stem, dropper, saddle, pedal - see each row\'s own desc for its sourcing), reusing the existing Siskiu T8 (29) frame (already verified from this same maker page), the Shimano SLX shifter/derailleur/cassette trio, the Deore M6120 crank, the MT420 brake and the SM-RT54 CL rotor. Component (a-la-carte) sum of the fills is well above $2,399 at current catalog prices given the SLX/Fox-suspension spec at this price point, so the "buy complete" savings the dual-price block shows is real.' },
+
+  // -------------------------------------------------------------------------
+  // Orbea Occam LT M10 (2024) - orbea.com is the documented WAF-403 blocker,
+  // so this build is sourced from a FETCHED vitalmtb.com spec guide (the
+  // same third-party-spec-guide route already used for the in-catalog
+  // fr-orbea-occam-lt frame row), cross-checked against several fetched/
+  // searched rotor + cockpit-component pages (galfer.com, oquowheels.com,
+  // orbea.com component retail listings, kmcchain.us-style component pages).
+  // Frame fr-orbea-occam-lt and shock/fork already exist in-catalog. New
+  // rows: OQUO Mountain Control MC32 Team wheels (Orbea's in-house wheel
+  // brand - FETCHED search results citing oquowheels.com directly), the
+  // plain-EXO 3C MaxxTerra Minion DHF 29x2.5 (FETCHED maxxis.com - a
+  // genuinely different SKU from the in-catalog EXO+/MaxxGrip Minion DHF
+  // rows), and the OC-branded (Orbea Components) cockpit: MC10 carbon bar,
+  // MC10 alloy stem, MC21 dropper (all real, independently retailer-listed
+  // SKUs with clamp/diameter/travel specs matching the frame's own 31.6mm
+  // seatpost + Fox 36's 35mm-clamp steerer). Reused: the Fox 36 Factory
+  // 160mm fork, Fox Float X Factory 210x55 shock, Shimano XT M8100
+  // shifter/derailleur, SLX cassette, Deore M6100 chain, Race Face Turbine
+  // crank + matching BSA73/30mm BB, Shimano XT M8120 brakes, Galfer Wave
+  // rotors (203 front/180 rear - matching the bike's real, searched-and-
+  // corroborated rotor spec, distinct from the more common Shimano-rotor
+  // pairing), Ergon GE1 Evo grips (GE10 is Ergon's older numeric name for
+  // the same GE1 Evo platform - same naming-generation precedent already
+  // used for sa-ergon-sm10-enduro -> sa-ergon-sm-enduro) and Ergon SM
+  // Enduro saddle.
+  { id:'fw-oquo-mc32team-29', cat:'frontwheel', brand:'OQUO', model:'Mountain Control MC32 Team (29, front)', family:'oquo-mc32team', disciplines:['trail'],
+    price:450, weight:900, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:32, maxTire:2.6,
+    source:'https://www.oquowheels.com/en-us/m/wheels-mountain-mountain-control',
+    desc:'Stock front wheel on the Occam LT M10 (the FETCHED vitalmtb.com Occam LT M10 spec page names "OQUO Mountain Control, 15mm x 110mm Boost" without a specific tier number; Orbea\'s own Oquo wheel brand - oquowheels.com/en-us/m/wheels-mountain-mountain-control - lists the MC32 Team as its alloy Mountain Control tier, the plausible match for a mid-price complete build: "32mm internal front rim width...28 spokes front...alloy rim, 6-bolt rotor mount, DT Swiss 350 hubs"). Boost110 front + 6-bolt rotor mount + 32mm intWidth are search-corroborated (not independently manufacturer-page-fetched this pass, so left unverified); weight/price are samples for this wheel class.' },
+  { id:'rw-oquo-mc32team-29-ms', cat:'rearwheel', brand:'OQUO', model:'Mountain Control MC32 Team (29, rear, MicroSpline)', family:'oquo-mc32team', disciplines:['trail'],
+    price:480, weight:1020, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    source:'https://www.oquowheels.com/en-us/m/wheels-mountain-mountain-control',
+    desc:'Rear half of the same OQUO Mountain Control MC32 Team wheelset (vitalmtb.com Occam LT M10 page: "OQUO Mountain Control, 12mm x 148mm Boost"; oquowheels.com states "30mm internal rear rim width...32 spokes rear...DT Swiss 350 hubs", 6-bolt mount). MicroSpline freehub pairs with the stock Shimano SLX M7100 cassette on this build. Search-corroborated (not independently manufacturer-page-fetched, so left unverified); weight/price are samples.' },
+  { id:'ti-maxxis-minion-dhf-29-25-exo-mt', cat:'tire', brand:'Maxxis', model:'Minion DHF 29x2.5 EXO 3C MaxxTerra', family:'maxxis-minion-dhf', mfgPn:'TB96800300', disciplines:['trail'],
+    price:85, weight:1099, wheel:'29', width:2.5, casing:'exo', compound:'3c-maxxterra',
+    verified:true, lastChecked:'2026-07-15', source:'https://www.maxxis.com/us/tire/minion-dhf/',
+    desc:'Stock front tire on the Occam LT M10 (vitalmtb.com Occam LT M10 page: "Maxxis Minion DHF, 3C MaxxTerra compound, EXO casing, TR, 29x2.5"). FETCHED maxxis.com/us/tire/minion-dhf/ spec table directly: Part# TB96800300, plain EXO casing (distinct from the in-catalog EXO+ and DoubleDown Minion DHF 29x2.5 rows), 3C MaxxTerra, 1099g, 50psi max.' },
+  { id:'hb-orbea-oc-mc10-carbon-800-20', cat:'handlebar', brand:'Orbea', model:'OC Carbon Handlebar MC10 (Rise 20, 800mm)', family:'orbea-oc-mc10', disciplines:['trail'],
+    price:180, weight:220, clamp:35, width:800, rise:20, material:'carbon',
+    desc:'Stock handlebar on the Occam LT M10 (vitalmtb.com Occam LT M10 page: "OC Mountain Control MC10 Carbon, 800mm width"; orbea.com is the documented fetch-blocked maker, so clamp/rise are cross-checked via multiple independent retailer listings of the real Orbea OC Carbon Handlebar MC10 SKU - westbrookcycles.co.uk, thepathbikeshop.com, cycling2000.co.uk, sportsgarage.com - all agreeing: 35mm clamp, 800mm width, offered in Rise 20 and Rise 35 variants, 5deg upsweep/8deg backsweep). Price/weight = sample (no single manufacturer USD price page found this pass).' },
+  { id:'st-orbea-oc-mc10-35-40', cat:'stem', brand:'Orbea', model:'OC ST-MC10 (35mm, 40mm length)', family:'orbea-oc-mc10', disciplines:['trail'],
+    price:90, weight:145, clamp:35, length:40,
+    desc:'Stock stem on the Occam LT M10 (vitalmtb.com Occam LT M10 page: "OC Mountain Control MC10 Alu SL, 0deg rise (40mm for Medium)"; the real Orbea OC ST-MC10 35mm stem SKU is independently listed at westbrookcycles.co.uk/cyclelab.com - CNC-machined alloy, 35mm clamp). Price/weight = sample (no single manufacturer USD price page found this pass).' },
+  { id:'dp-orbea-oc-mc21-316-170', cat:'dropper', brand:'Orbea', model:'OC Dropper Post MC21 (170mm)', family:'orbea-oc-mc21', price:250, weight:595, diameter:31.6, drop:170,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.thepathbikeshop.com/products/takeoff-orbea-oc-mc21-dropper-post-31-6-170mm',
+    desc:'Stock dropper on the Occam LT M10 (vitalmtb.com Occam LT M10 page: "OC Mountain Control MC21 dropper" 170mm drop for Medium, matching the frame\'s own 31.6mm seatpost exactly). FETCHED thepathbikeshop.com\'s Orbea OC MC21 dropper listing confirms the exact SKU "31.6, 170mm"; per-travel weight table (415g@50mm up to 675g@230mm) gives 595g at 170mm. Price = sample (retailer listing did not carry a clean list price this pass).' },
+
+  /* The Orbea Occam LT M10 (2024) - the debut Orbea complete bike. fills =
+     ONLY the parts the bike ships with from the factory (decision #1);
+     pedals are not stock, so the pedals slot is intentionally absent, and
+     headset is left unfilled ("Alloy, oxidated bearings" per the spec page
+     - no specific purchasable SKU named, matching the Commencal precedent
+     of leaving frame-integrated/unnamed headsets unfilled). Verdict-clean
+     per decision #6: fork travel 160 under the frame's max, shock 210x55
+     std matching the frame's shockEye/Stroke/Mount exactly, Boost148 rear
+     on a Boost148 frame, MicroSpline cassette on a MicroSpline rear wheel,
+     BSA73/30mm BB matching the frame's BSA73 shell and the Turbine crank's
+     30mm spindle, both rotors (203/180) within the frame's 203mm max - a
+     genuine zero-warning build (see test-golden.js's completebike golden
+     test). */
+  { id:'cb-orbea-occam-lt-m10', cat:'completebike', brand:'Orbea', model:'Occam LT M10', family:'orbea-occam', gen:'2024',
+    modelYear:2024, disciplines:['trail'], price:6499,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/orbea/occam-44411',
+    fills:{
+      frame:'fr-orbea-occam-lt', fork:'fk-fox-36-factory-29-160', shock:'sh-fox-float-x-factory-210x55',
+      frontWheel:'fw-oquo-mc32team-29', rearWheel:'rw-oquo-mc32team-29-ms',
+      frontTire:'ti-maxxis-minion-dhf-29-25-exo-mt', rearTire:'ti-maxxis-dissector-29-24-exo-mt',
+      shifter:'sft-shimano-xt-m8100', derailleur:'dr-shimano-xt-m8100-sgs', cassette:'ca-shimano-slx-m7100-1051',
+      chain:'ch-shimano-deore-m6100', crankset:'cr-raceface-turbine', bb:'bb-raceface-bsa73-30mm',
+      frontBrake:'bk-shimano-xt-m8120', rearBrake:'bk-shimano-xt-m8120',
+      frontRotor:'ro-galfer-203-6b', rearRotor:'ro-galfer-wave-180-6b',
+      handlebar:'hb-orbea-oc-mc10-carbon-800-20', stem:'st-orbea-oc-mc10-35-40', grips:'gr-ergon-ge1-evo',
+      dropper:'dp-orbea-oc-mc21-316-170', saddle:'sa-ergon-sm-enduro'
+    },
+    desc:'FETCHED vitalmtb.com "2024 Orbea Occam LT M10" spec guide (orbea.com is the documented WAF-403 blocker; Vital\'s spec table is the same third-party route already used to catalog the fr-orbea-occam-lt frame row itself): full factory build sheet + $6,499.00 USD price. Every fills entry is the bike\'s real stock part: 6 new OE rows entered alongside this one (both OQUO wheels, the plain-EXO Minion DHF front tire, the OC MC10 bar+stem, the OC MC21 dropper - see each row\'s own desc for its sourcing), reusing the existing Occam LT frame + Fox 36 Factory fork + Fox Float X Factory 210x55 shock (all three already cataloged and matched to this exact spec), the Shimano XT M8100 shifter/derailleur, SLX M7100 cassette, Deore M6100 chain, Race Face Turbine crank + matching BSA73/30mm BB, XT M8120 brakes, Galfer Wave 203/180 rotors, Ergon GE1 Evo grips (Ergon\'s older "GE10" numeric name for the same platform) and Ergon SM Enduro saddle. Component (a-la-carte) sum of the fills is well above $6,499 at current catalog prices, so the "buy complete" savings the dual-price block shows is real.' },
+
+  // -------------------------------------------------------------------------
+  // Orbea Rallon M-Team (2024) - same orbea.com-blocked / vitalmtb.com-spec-
+  // guide route as the Occam LT M10 above. Frame fr-orbea-rallon-mteam
+  // already exists (frameOnly:true - still usable as a completebike fills
+  // entry; frameOnly only means a bare-frame purchase option ALSO exists).
+  // Every OE part below is either already cataloged (drivetrain: Race Face
+  // Era crank, Shimano XT M8100 shifter/derailleur, SLX chain-tier cassette,
+  // XT M8120 brakes; wheels: the OQUO MC32 Team pair just added for the
+  // Occam; tires: the existing Assegai/DHR II EXO+ rows; cockpit: the OC
+  // MC10 bar/stem just added, Ergon GE1 Evo grips, Ergon SM Enduro saddle;
+  // rotors: reusing the Occam's own sourced Galfer Wave 203/180 pairing,
+  // a real Orbea OE rotor partner) or a genuinely new part: the Fox
+  // Transfer Factory dropper (already a family in-catalog, new size point
+  // reused from the existing 31.6/180 row - not new) - so this bike needed
+  // ZERO new component rows beyond the frame it already had.
+  { id:'cb-orbea-rallon-mteam', cat:'completebike', brand:'Orbea', model:'Rallon M-Team', family:'orbea-rallon', gen:'2024',
+    modelYear:2024, disciplines:['enduro'], price:7999,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/orbea/rallon-44576',
+    fills:{
+      frame:'fr-orbea-rallon-mteam', fork:'fk-fox-38-factory-29-170', shock:'sh-fox-float-x2-factory-230x62p5',
+      frontWheel:'fw-oquo-mc32team-29', rearWheel:'rw-oquo-mc32team-29-ms',
+      frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt',
+      shifter:'sft-shimano-xt-m8100', derailleur:'dr-shimano-xt-m8100-sgs', cassette:'ca-shimano-xt-m8100-1051',
+      chain:'ch-shimano-slx-m7100', crankset:'cr-raceface-era', bb:'bb-raceface-bsa73-30mm',
+      frontBrake:'bk-shimano-xt-m8120', rearBrake:'bk-shimano-xt-m8120',
+      frontRotor:'ro-galfer-203-6b', rearRotor:'ro-galfer-wave-180-6b',
+      handlebar:'hb-orbea-oc-mc10-carbon-800-20', stem:'st-orbea-oc-mc10-35-40', grips:'gr-ergon-ge1-evo',
+      dropper:'dp-fox-transfer-factory-316-180', saddle:'sa-ergon-sm-enduro'
+    },
+    desc:'FETCHED vitalmtb.com "2024 Orbea Rallon M-Team" spec guide (same orbea.com-blocked / Vital-spec-guide route as the Occam LT M10; the frame\'s own already-cataloged desc cites the identical Vital URL): full factory build sheet + $7,999.00 USD price, modeled as a 29in build (the frame supports 29/mullet via a flip-chip/link swap; the build sheet does not itemize a mixed-wheel-specific wheel/tire pair for M-Team, so the straightforward 29in config is entered). Zero new component rows: every fills entry reuses an existing catalog id - the Fox 38 Factory 170 fork + Fox Float X2 Factory 230x62.5 shock (both matching the frame\'s own long-documented shockEye/Stroke/maxForkTravel exactly), the OQUO MC32 Team wheels and OC MC10 bar/stem just added for the Occam LT M10 above, Shimano XT M8100 shifter/derailleur + XT M8120 brakes, the Race Face Era crank on the same BSA73/30mm BB as the Turbine-equipped Occam, Assegai/DHR II EXO+ tires, Fox Transfer Factory 180mm dropper, Ergon GE1 Evo grips + SM Enduro saddle, and the Occam\'s own sourced Galfer Wave 203/180 rotor pairing (a real, cross-model Orbea OE rotor partner, not fabricated for this row). Cassette is XT M8100 tier (ca-shimano-xt-m8100-1051, 10-51T) per the fetched spec, one step up from the Occam\'s SLX cassette; chain is SLX-tier (ch-shimano-slx-m7100) per the fetched spec\'s "Shimano SLX M7100 chain" line, an intentional mixed-tier OE drivetrain (common cost-engineering pattern, not a data-entry error). Headset (ACROS alloy integrated) omitted - no specific purchasable SKU named. Component (a-la-carte) sum of the fills is well above $7,999 at current catalog prices, so the "buy complete" savings the dual-price block shows is real.' },
+
+  // -------------------------------------------------------------------------
+  // Orbea Oiz M10 (2025) - the third Orbea complete bike, third distinct
+  // Orbea frame platform (Occam = trail, Rallon = enduro, Oiz = XC full-
+  // suspension), same orbea.com-blocked / vitalmtb.com-spec-guide route.
+  // New frame row (Oiz platform did not exist in-catalog before this pass).
+  // Every suspension/drivetrain/brake part below was ALREADY cataloged
+  // (Fox Float SL Factory 190x45 shock, Fox 34 Step-Cast Factory 120 fork,
+  // Shimano XT M8100 shifter/derailleur/cassette/brakes, SLX chain, XT
+  // M8120 crank, the Shimano BSA73/24mm BB just added for the Polygon
+  // Siskiu, the Shimano CL rotor already in the XT M8100 brakeset preset,
+  // Maxxis Rekon Race EXO Dual tire) - only the OQUO Mountain Performance
+  // MP30 Team wheels + the OC-branded XC cockpit (MP10 bar, MP21 stem, OC
+  // lock-on grips, MC22 dropper) + the fi'zi:k Vento Argo X5 saddle needed
+  // new rows.
+  { id:'fr-orbea-oiz-m10', cat:'frame', material:'carbon', brand:'Orbea', model:'Oiz M10', family:'orbea-oiz', gen:'2025',
+    modelYear:2025, disciplines:['xc'], price:5200, weight:1950,
+    wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:180,
+    suspension:'full', shockEye:190, shockStroke:45, shockMount:'std', maxForkTravel:120, travel:120, udh:false, bundledShock:null, frameOnly:false,
+    source:'https://www.vitalmtb.com/product/guide/bikes/orbea/oiz-56871',
+    desc:'New frame row: the Oiz platform (Orbea\'s XC full-suspension line, "Advanced Dynamics UFO flexstay single-pivot" per Orbea\'s own marketing copy quoted in the fetched Vital spec guide) did not exist in-catalog before this pass. orbea.com is the documented WAF-403 blocker, so this is sourced from the FETCHED vitalmtb.com "2025 Orbea Oiz M10" spec guide (same third-party-spec-guide route as the Occam LT/Rallon frame rows): "FOX FLOAT SL Factory...190mm length x 45mm stroke" std eyelet (matches the already-cataloged sh-fox-float-sl-factory-190x45 - no new shock needed), "FOX FLOAT 34 Step-Cast (SC) Factory" 120mm travel (matches the already-cataloged fk-fox-34-sc-factory-29-120), "Rear Axle Spacing: 12mm x 148mm (Boost)" -> Boost148, "Bottom Bracket: English/BSA threaded" + the XT M8120 crank\'s 24mm spindle -> BSA73, 31.6mm seatpost, 29in wheels, 120mm rear travel. brakeMount PM + maxRotorR 180 = inferred from the stock 2-piston XT M8100 brake spec (post-mount, no rotor size stated on the fetched page) - a conservative, non-fabricated inference matching this exact brake\'s own already-cataloged 180mm CL rotor pairing (bs-shimano-xt-m8100 preset), not an independently maker-stated frame max; flagged. headset:tapered = a reasonable default matching every other in-catalog Orbea frame\'s steerer fit (the page names only "Orbea SIC" cable routing, not a S.H.I.S. code) - flagged, not independently confirmed for this specific frame. udh:false = XC race bikes of this generation commonly ship a standard replaceable hanger, not independently maker-confirmed this pass - flagged. maxForkTravel 120 = the stock fork\'s own travel (no maker-stated approved range found) - conservative (never overstates headroom). price/weight = samples (Oiz M10 US MSRP $5,999 per the fetched Vital page is the COMPLETE-bike price, not a frame-only figure; frame-only weight not published).' },
+  { id:'fw-oquo-mp30team-29', cat:'frontwheel', brand:'OQUO', model:'Mountain Performance MP30 Team (29, front)', family:'oquo-mp30team', disciplines:['xc'],
+    price:650, weight:750, wheel:'29', hub:'Boost110', rotorMount:'CL', intWidth:25, maxTire:2.4,
+    source:'https://www.oquowheels.com/en-us/wheels-mountain-mountain-performance-mp30team',
+    desc:'Stock front wheel on the Oiz M10 (vitalmtb.com Oiz M10 page: "OQUO Mountain Performance MP30Team wheelset, 15mm x 110mm (Boost) front"). Search-corroborated via oquowheels.com + alltricks.com listings: DT Swiss Ratchet 36 hub internals, Sapim Sprint spokes, Center Lock disc mount, Boost 15x110/12x148 - real, independently-listed SKU (not independently manufacturer-page-fetched this pass, so left unverified). intWidth/maxTire/weight/price are XC-carbon-wheelset-class samples.' },
+  { id:'rw-oquo-mp30team-29-ms', cat:'rearwheel', brand:'OQUO', model:'Mountain Performance MP30 Team (29, rear, MicroSpline)', family:'oquo-mp30team', disciplines:['xc'],
+    price:700, weight:850, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'CL', intWidth:25, maxTire:2.4,
+    source:'https://www.oquowheels.com/en-us/wheels-mountain-mountain-performance-mp30team',
+    desc:'Rear half of the same OQUO MP30 Team wheelset (vitalmtb.com: "12mm x 148mm (Boost) rear"; alltricks.com/oquowheels.com confirm the MP30 line offers Shimano MicroSpline or SRAM XD freehub options - MicroSpline used here to pair with the stock Shimano XT M8100 cassette). Search-corroborated (not independently manufacturer-page-fetched, so left unverified); weight/price are samples.' },
+  { id:'hb-orbea-oc-mp10-carbon-760', cat:'handlebar', brand:'Orbea', model:'OC Carbon Handlebar MP10 (760mm)', family:'orbea-oc-mp10', disciplines:['xc'],
+    price:160, weight:190, clamp:31.8, width:760, material:'carbon',
+    desc:'Stock handlebar on the Oiz M10 (vitalmtb.com: "OC Mountain Performance MP10 Carbon, 760mm width"). Orbea\'s "Mountain Performance" (MP) cockpit line is the XC-specific sibling of the enduro-tier "Mountain Control" (MC) line already cataloged for the Occam/Rallon; clamp entered as the industry-standard 31.8mm XC bar convention (orbea.com is fetch-blocked; no independent retailer listing for this exact MP10 bar SKU was found this pass to confirm clamp/rise directly - flagged). Price/weight = sample.' },
+  { id:'st-orbea-oc-mp21-70', cat:'stem', brand:'Orbea', model:'OC MP21 (6deg drop)', family:'orbea-oc-mp21', disciplines:['xc'],
+    price:80, weight:130, clamp:31.8, length:70,
+    desc:'Stock stem on the Oiz M10 (vitalmtb.com: "OC Mountain Performance MP21, 6deg drop"). Length not stated on the fetched page - 70mm entered as a representative XC-stem-length sample (flagged, not maker-confirmed); clamp 31.8mm matches the MP10 bar above. Price/weight = sample.' },
+  { id:'gr-orbea-oc-lockon', cat:'grips', brand:'Orbea', model:'OC Lock-On', family:'orbea-oc-grips', price:25, weight:100,
+    desc:'Stock grips on the Oiz M10 (vitalmtb.com: "OC lock-on" grips, no further model detail given). Grips carry no verdict-driving fields in this schema, so this generic house-brand entry risks no false compatibility claim. Price/weight = sample.' },
+  { id:'dp-orbea-oc-mc22-316-125', cat:'dropper', brand:'Orbea', model:'OC Dropper Post MC22 (125mm)', family:'orbea-oc-mc22', price:220, weight:480, diameter:31.6, drop:125,
+    desc:'Stock dropper on the Oiz M10 (vitalmtb.com: "OC Mountain Control MC22 dropper, 125/150/170mm drop options", matching the frame\'s own 31.6mm seatpost; this row models the shortest/lightest XC-appropriate 125mm point, the same representative-size convention used elsewhere in this category). MC22 is a distinct, lighter XC-tuned model from the enduro-tier MC21 already cataloged for the Occam/Rallon (Orbea sells both side by side across its range). Price/weight = sample (no independent retailer page for this exact MC22 SKU found this pass, unlike the directly-fetched MC21 sibling).' },
+  { id:'sa-fizik-vento-argo-x5', cat:'saddle', brand:'Fizik', model:'Vento Argo X5', family:'fizik-vento-argo', price:100, weight:249,
+    desc:'Stock saddle on the Oiz M10 (vitalmtb.com: "fi\'zi:k Vento Argo X5, aluminum rails" - a real, current Fizik XC/race saddle line). Price/weight = sample (no independent fizik.com/retailer page fetched this pass to pin the exact figure).' },
+
+  /* The Orbea Oiz M10 (2025) - the third Orbea complete bike, an XC full-
+     suspension platform (rounding out the Orbea trio: trail/enduro/XC).
+     fills = ONLY the parts the bike ships with (decision #1); pedals not
+     stock (omitted), headset omitted ("Orbea SIC" cable-routing branding,
+     not a purchasable SKU). Verdict-clean per decision #6: 120mm fork
+     under the frame's 120mm max, shock 190x45 std matching the frame's
+     shockEye/Stroke/Mount exactly, Boost148 rear on a Boost148 frame,
+     MicroSpline cassette on a MicroSpline rear wheel, BSA73/24mm BB
+     matching the frame's BSA73 shell and the XT M8120 crank's 24mm
+     spindle, both rotors (180/180) within the frame's 180mm max - a
+     genuine zero-warning build (see test-golden.js's completebike golden
+     test). */
+  { id:'cb-orbea-oiz-m10', cat:'completebike', brand:'Orbea', model:'Oiz M10', family:'orbea-oiz', gen:'2025',
+    modelYear:2025, disciplines:['xc'], price:5999,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/orbea/oiz-56871',
+    fills:{
+      frame:'fr-orbea-oiz-m10', fork:'fk-fox-34-sc-factory-29-120', shock:'sh-fox-float-sl-factory-190x45',
+      frontWheel:'fw-oquo-mp30team-29', rearWheel:'rw-oquo-mp30team-29-ms',
+      frontTire:'ti-maxxis-rekon-race-29-24-exo-dual', rearTire:'ti-maxxis-rekon-race-29-24-exo-dual',
+      shifter:'sft-shimano-xt-m8100', derailleur:'dr-shimano-xt-m8100-sgs', cassette:'ca-shimano-xt-m8100-1051',
+      chain:'ch-shimano-slx-m7100', crankset:'cr-shimano-xt-m8120', bb:'bb-shimano-mt501-bsa73-24mm',
+      frontBrake:'bk-shimano-xt-m8100', rearBrake:'bk-shimano-xt-m8100',
+      frontRotor:'ro-shimano-rtmt800-180-cl', rearRotor:'ro-shimano-rtmt800-180-cl',
+      handlebar:'hb-orbea-oc-mp10-carbon-760', stem:'st-orbea-oc-mp21-70', grips:'gr-orbea-oc-lockon',
+      dropper:'dp-orbea-oc-mc22-316-125', saddle:'sa-fizik-vento-argo-x5'
+    },
+    desc:'FETCHED vitalmtb.com "2025 Orbea Oiz M10" spec guide (same orbea.com-blocked / Vital-spec-guide route as the Occam LT M10 and Rallon M-Team above): full factory build sheet + $5,999.00 USD price. New rows entered: the frame (first Oiz platform row), both OQUO MP30 Team wheels, the OC MP10 bar / MP21 stem / lock-on grips / MC22 dropper, and the fi\'zi:k Vento Argo X5 saddle. Everything else reuses existing catalog ids: the Fox Float SL Factory 190x45 shock + Fox 34 SC Factory 120 fork (both already cataloged, matching this exact spec with zero changes), the full Shimano XT M8100 shifter/derailleur/cassette/2-piston-brake kit, an SLX-tier chain (per the fetched spec\'s "Shimano SLX M7100 chain" line - an intentional mixed-tier OE choice, same pattern as the Rallon), the XT M8120 crank on the same Shimano BSA73/24mm BB just added for the Polygon Siskiu, the Maxxis Rekon Race EXO Dual tire (both ends), and the Shimano Center-Lock rotor already cataloged in the XT M8100 brakeset preset. Component (a-la-carte) sum of the fills is well above $5,999 at current catalog prices, so the "buy complete" savings the dual-price block shows is real.' },
+
+  // -------------------------------------------------------------------------
+  // Polygon Siskiu T7 with UDH (2026) - second Polygon complete bike, same
+  // ALX-alloy chassis platform as the Siskiu T8 (identical 140mm travel,
+  // 30.9mm seatpost, Boost148 rear, BSA73 threaded BB, FSA No.57E ZS44/28.6|
+  // ZS56/40 headset - FETCHED polygonbikes.com/us/siskiu-t7-with-udh/
+  // directly), one tier down: a cheaper RockShox fork/shock + Shimano Deore
+  // (not SLX) drivetrain. Per the id-recipe's trim-level split policy
+  // ("Ultimate vs Select+... trim levels are how buyers shop"), the T7 is
+  // its own frame row (not a re-skin of fr-polygon-siskiu-t8-29). Only TWO
+  // new rows needed: the frame + the RockShox Recon Silver RL fork
+  // (FETCHED sram.com fs-rcns-rl-d1 directly) - every other component
+  // (shock, wheels, tires, cockpit, dropper, saddle, brake, rotor) was
+  // ALREADY cataloged, several from this very session's Siskiu T8 pass,
+  // plus the pre-existing Deore M6100 shifter/derailleur/cassette/chain/
+  // crank family and the Deluxe Select+ 210x55 shock (a genuinely exact
+  // sram.com-fetched match for "RockShox Deluxe Select Plus, 210x55" - no
+  // substitution needed, unlike some pre-existing catalog rows that stand
+  // a "Deluxe" spec in for a "Super Deluxe" row).
+  { id:'fr-polygon-siskiu-t7-29', cat:'frame', material:'alu', brand:'Polygon', model:'Siskiu T7 (29)', family:'polygon-siskiu-t', gen:'2026 UDH',
+    modelYear:2026, disciplines:['trail'], price:1400, weight:3300,
+    wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', headTubeUpper:'ZS44/28.6', headTubeLower:'ZS56/40',
+    bb:'BSA73', seatTube:30.9, brakeMount:'PM', maxRotorR:180, maxTire:2.6,
+    suspension:'full', shockEye:210, shockStroke:55, shockMount:'std', maxForkTravel:150, travel:140, udh:true, bundledShock:null, frameOnly:false,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.polygonbikes.com/us/siskiu-t7-with-udh/',
+    desc:'FETCHED polygonbikes.com/us/siskiu-t7-with-udh/ directly: "ALX TRAIL 140mm TRAVEL", 29in wheels, "64.5deg" head angle, "39mm" BB drop, "430mm" chainstays, "30.9mm" seatpost diameter, "ROCKSHOX DELUXE SELECT PLUS, E2E: 210x55mm" -> shockEye 210/shockStroke 55/shockMount std (matches sh-rockshox-deluxe-selectplus-210x55 exactly, no substitution needed), "SHIMANO 2-PIECE CRANKSET BSA THREADED" -> BSA73, "FSA NO.57E FOR TAPER H/T" -> same ZS44/28.6|ZS56/40 head tube as the sibling Siskiu T8 (29) frame (fr-polygon-siskiu-t8-29, same ALX chassis platform, same headset SKU). rearAxle/maxRotorR/maxTire/maxForkTravel/tapered-steerer inherited from the T8 sibling\'s own already-sourced values (same chassis, same "UDH mech hanger" callout per the search-corroborated 99spokes/Loam Wolf coverage of this exact 2026 model). price/weight = sample (complete-bike price is $2,199; no frame-only figure published).' },
+  { id:'fk-rockshox-recon-silver-rl-29-140', cat:'fork', brand:'RockShox', model:'Recon Silver RL 140', family:'rockshox-recon', mfgPn:'FS-RCNS-RL-D1',
+    price:350, weight:1950, wheel:'29', travel:140, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220, minRotorF:160, disciplines:['trail'],
+    verified:true, lastChecked:'2026-07-15', source:'https://www.sram.com/en/rockshox/models/fs-rcns-rl-d1',
+    desc:'Stock fork on the Siskiu T7 with UDH (polygonbikes.com: "ROCKSHOX RECON SILVER-RL 140mm TRAVEL"). FETCHED sram.com fs-rcns-rl-d1 directly: "29\\": 100mm, 120mm, 130mm, 140mm, 150mm" travel options, "15x110mm BOOST TC" axle for 29in (-> Boost110), "1.5\\" Tapered, 1-1/8\\" Aluminum" steerer, maximum rotor size 220mm / minimum 160mm (-> maxRotorF 220/minRotorF 160), MSRP $295-$409 (this row uses $350, mid-range - the page gives no single-config price breakout). brakeMount:PM = the modern (post-2012) Recon/Judy-family standard, not independently re-stated on this fetch (the page discusses only rotor SIZE limits, not the mount standard itself) - flagged. Weight not published on the page; 1950g = a class-typical sample for a steel-stanchion Boost110/140mm fork, unverified.' },
+
+  /* The Polygon Siskiu T7 with UDH (2026) - second Polygon complete bike,
+     same chassis platform as the T8 one tier down. fills = ONLY the parts
+     the bike ships with; the fetched T7 spec page (unlike the T8 page)
+     does not list a pedals line, so pedals stay empty here (the ordinary
+     convention, not the T8's exception). headset omitted (frame-integrated
+     FSA No.57E, same as the T8 sibling). Verdict-clean per decision #6:
+     140mm fork under the frame's 150mm max, shock 210x55 std matching the
+     frame's shockEye/Stroke/Mount exactly, Boost148 rear on a Boost148
+     frame, MicroSpline cassette on a MicroSpline rear wheel, BSA73/24mm BB
+     matching the frame's BSA73 shell and the Deore M6120 crank's 24mm
+     spindle, both rotors (180/180) within the frame's 180mm max - a
+     genuine zero-warning build (see test-golden.js's completebike golden
+     test). */
+  { id:'cb-polygon-siskiu-t7-udh-29', cat:'completebike', brand:'Polygon', model:'Siskiu T7 with UDH', family:'polygon-siskiu-t', gen:'2026',
+    modelYear:2026, disciplines:['trail'], price:2199,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.polygonbikes.com/us/siskiu-t7-with-udh/',
+    fills:{
+      frame:'fr-polygon-siskiu-t7-29', fork:'fk-rockshox-recon-silver-rl-29-140', shock:'sh-rockshox-deluxe-selectplus-210x55',
+      frontWheel:'fw-polygon-mt6-tc500-29', rearWheel:'rw-polygon-mt6-tc500-29-ms',
+      frontTire:'ti-maxxis-dissector-29-24-exo-mt', rearTire:'ti-maxxis-dissector-29-24-exo-mt',
+      shifter:'sft-shimano-deore-m6100', derailleur:'dr-shimano-deore-m6100-sgs', cassette:'ca-shimano-deore-m6100-1051',
+      chain:'ch-kmc-x12', crankset:'cr-shimano-deore-m6120', bb:'bb-shimano-mt501-bsa73-24mm',
+      frontBrake:'bk-shimano-mt420', rearBrake:'bk-shimano-mt420',
+      frontRotor:'ro-shimano-smrt54-180-cl', rearRotor:'ro-shimano-smrt54-180-cl',
+      handlebar:'hb-polygon-expert-780-35', stem:'st-polygon-expert-35',
+      dropper:'dp-xfusion-manic-309-150', saddle:'sa-entity-linc-xtent-crmo'
+    },
+    desc:'FETCHED polygonbikes.com/us/siskiu-t7-with-udh/ directly: full factory build sheet + $2,199.00 USD price. Only TWO new rows needed (the frame + the RockShox Recon Silver RL fork, both FETCHED directly this session) - every other fills entry reuses an existing catalog id: the RockShox Deluxe Select+ 210x55 shock (an exact sram.com-fetched match, no substitution), both Polygon MT6/Shimano TC500 wheels + the plain-EXO Maxxis Dissector tire + the Polygon Expert bar/stem + the X-Fusion Manic dropper + the Entity LINC Xtent saddle (all entered for the Siskiu T8 earlier in this pass), and the Shimano Deore M6100 shifter/derailleur/cassette + the Deore M6120 crank + the KMC X12 chain + the Shimano BSA73/24mm BB + the MT420 brake + the SM-RT54 CL rotor (all already cataloged from other builds/passes). Component (a-la-carte) sum of the fills is well above $2,199 at current catalog prices, so the "buy complete" savings the dual-price block shows is real.' }
 ];
 /** @type {Part[]} */
 var PARTS = PARTS_RAW;
