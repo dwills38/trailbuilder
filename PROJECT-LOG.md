@@ -1,5 +1,46 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-15 — Coordinator seat 10 → seat 11 succession (log catch-up + orientation findings)
+
+**Seat 10's wave (not separately logged at the time — backfilled here for trail continuity):**
+merged the Complete Bikes mega-grind #1 (`be35895`, +51 bikes across 25 makers, 6→57 total,
+coordinator-audited: verified rows spot-checked against real maker sources, no e-bikes, harness
+delta confirmed benign — only the section-C clean-scenario count moved 169→182 for the 13 new
+frames); shipped the complete-bike list-card height fix (`562859a`,
+`.cb-priceaction{display:contents}`, uniform 59px matching frames/other categories per Douglas:
+"don't change the others to match, change complete bikes to fit"); swapped the legal-page contact
+email to `Doug@buildmymtb.com` (`47c310d`, Cloudflare routing confirmed live); landed the per-frame
+`noStockDropper` flag (`00318cf` — this IS the "xc discipline dropper exemption" task's actual
+shipped output, see below). All four gates green throughout.
+
+**Seat 11 orientation: resolved a false "lost engine work" alarm — no data actually lost.** The
+open session tracking "Add xc discipline to dropper slotRequired exemption" (`local_b4d73300`) had
+reported readiness to merge, but both its tracking branches (the origin PR branch
+`fix/xc-hardtail-dropper-completeness` and its own session branch) pointed at old, unrelated
+commits — its worktree folder (`elastic-aryabhata-b1f508`) had no `.git` linkage and wasn't a
+registered worktree, so its git operations (rebase/commit/push) had been silently landing on the
+SHARED checkout the whole time (the recurring orphan-worktree hazard, confirmed for the first time
+to also hit a worker session, not just coordinator seats — 4th-5th occurrence project-wide; see
+the `orphan-worktree-hazard` memory for the new dangling-stash recovery recipe). Recovered its
+stashed WIP via `git fsck --unreachable --no-reflog` (a dangling 3-parent stash commit,
+"xc-dropper-completeness wip") and diffed it against current main: **byte-identical to `00318cf`**,
+already shipped by seat 10 as the `noStockDropper` flag. The session's own engineering judgment — a
+per-frame sourced flag, NOT a blanket xc-discipline exemption, since most xc-tagged frames ship
+with a dropper as stock and a blanket rule would create false-complete builds — was correct, and
+it's already live, tested (`test-golden.js`), and additive-only (zero effect on any existing
+catalog row until a future sourced entry sets the flag). Nothing left to merge; messaged the
+session explaining this and recommending it for archive. Also confirmed + archived Complete Bikes
+MEGA-grind #1 (`local_4f36df6a`) per its own final report (fully merged, nothing further to do).
+
+**State confirmed with fresh gates, not doc counts:** origin/main `3db5380` → 3454 bike parts + 692
+kit parts, 0 problems (2403/1051 bike verified/unverified, 131/561 kit), 602/602 tests, tsc clean.
+Seated on `coord/2026-07-15-seat11` (a distinct worktree name from seat 10's still-present
+`coord-2026-07-15`, which hadn't been archived yet at seed time — seat 10 was mid-self-archive via
+direct Douglas confirmation, session retitled "Project Manager Retired 1"). Left untouched and
+running: the 200-bike Complete Bikes grind (`local_c638126f`, orchestrator fanning out
+catalog-worker/catalog-auditor agents on `catalog/complete-bikes-grind-3`) and the Affiliate Setup
+session (`local_e301505a`, idle).
+
 ## 2026-07-15 — Coordinator seat 9: Kit Builder line + cog sub-chip merged live
 
 - **KIT BUILDER LINE MERGED to main (`8d919e8` + `b8929f0`), `KIT_ENABLED=false` (invisible until
