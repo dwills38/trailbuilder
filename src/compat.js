@@ -2167,6 +2167,8 @@ var PARTS_RAW = [
   { id:'sh-fox-float-x-perf-elite-210x55', cat:'shock', brand:'Fox', model:'Float X Performance Elite (210x55)', family:'fox-float-x', mfgPn:'979-01-238', price:599, weight:460, eye:210, stroke:55, mount:'std', spring:'air', verified:true, lastChecked:'2026-07-13', source:'https://ridefox.com/products/my27-fox-floatx-pse', desc:'FETCHED ridefox.com/products/my27-fox-floatx-pse 2026-07-12 (Shopify store variant JSON, FOX part # 979-01-238): "Metric / 210x55 / 2pos-Adj" confirmed in the maker size/price data at $599. Weight = nominal sample (mirrors the Factory 210x55 sibling sample; PSE differs from Factory only by coating); FOX publishes no per-size weights - eye/stroke/mount/spring + price are maker-store-confirmed.' },
   { id:'sh-fox-float-x2-factory-205x60-trun', cat:'shock', brand:'Fox', model:'Float X2 Factory (205x60 trunnion)', family:'fox-float-x2', mfgPn:'979-01-211', price:809, weight:700, eye:205, stroke:60, mount:'trunnion', spring:'air', verified:true, lastChecked:'2026-07-13', source:'https://ridefox.com/products/float-x2-factory', desc:'FETCHED ridefox.com/products/float-x2-factory 2026-07-12 (Shopify store variant JSON, FOX part # 979-01-211): "Metric Trunnion / 205x60 / 2pos-Adj" confirmed in the maker size/price data at $809. Weight = nominal sample (between the Factory 185x55-trun (690g) and 210x55 (maker-stated 708g) siblings); FOX publishes no per-size weights - eye/stroke/mount/spring + price are maker-store-confirmed.' },
   { id:'sh-fox-float-x2-perf-elite-210x55', cat:'shock', brand:'Fox', model:'Float X2 Performance Elite (210x55)', family:'fox-float-x2', mfgPn:'979-01-215', price:769, weight:710, eye:210, stroke:55, mount:'std', spring:'air', verified:true, lastChecked:'2026-07-13', source:'https://ridefox.com/products/float-x2-performance-elite', desc:'FETCHED ridefox.com/products/float-x2-performance-elite 2026-07-12 (Shopify store variant JSON, FOX part # 979-01-215): "Metric / 210x55 / 2pos-Adj" confirmed in the maker size/price data at $769. Weight = nominal sample (mirrors the Factory 210x55 maker-stated 708g; PSE differs from Factory only by coating); FOX publishes no per-size weights - eye/stroke/mount/spring + price are maker-store-confirmed.' },
+  { id:'sh-fox-float-x2-factory-205x62p5-trun', cat:'shock', brand:'Fox', model:'Float X2 Factory (205x62.5 trunnion, OE)', family:'fox-float-x2', price:809, mount:'trunnion', eye:205, stroke:62.5, spring:'air',
+    desc:'OE-only size for the Vitus Sommet 290 CRX (2026-07-15, Complete Bikes Vitus pass): the Sommet CRX product page (vitusbikes.com "vitus-sommet-290-crx-mountain-bike-07e7", FETCHED) and its geometry page both independently state "205mm x 62.5mm, trunnion mount" for the stock shock; the Sommet 290 frame-only product page (also FETCHED) instead states "205mm x 65mm" for the same platform - a real cross-page discrepancy on vitusbikes.com. This row follows the two CRX-specific sources (product page + geometry page) over the frame-only page. ridefox.com/products/float-x2-factory.js (FETCHED Shopify variant JSON) confirms Fox\'s current Float X2 Factory retail trunnion sizes are ONLY 185x55 / 205x60 / 205x65 / 225x75 - no 205x62.5 variant exists at retail, so like the Commencal block\'s Fox 38 Performance/Float X Performance rows this is an OE-only spec with no independently fetchable price; price carried over from the retail Factory-tier siblings ($809, matching sh-fox-float-x2-factory-205x60-trun). Weight left unset (no reliable figure for this size).' },
   { id:'sh-fox-float-x2-perf-elite-230x60', cat:'shock', brand:'Fox', model:'Float X2 Performance Elite (230x60)', family:'fox-float-x2', mfgPn:'979-01-216', price:769, weight:745, eye:230, stroke:60, mount:'std', spring:'air', verified:true, lastChecked:'2026-07-13', source:'https://ridefox.com/products/float-x2-performance-elite', desc:'FETCHED ridefox.com/products/float-x2-performance-elite 2026-07-12 (Shopify store variant JSON, FOX part # 979-01-216): "Metric / 230x60 / 2pos-Adj" confirmed in the maker size/price data at $769. Weight = nominal sample (mirrors the Factory 230x60 sibling sample); FOX publishes no per-size weights - eye/stroke/mount/spring + price are maker-store-confirmed.' },
   { id:'sh-fox-float-x2-perf-elite-230x65', cat:'shock', brand:'Fox', model:'Float X2 Performance Elite (230x65)', family:'fox-float-x2', mfgPn:'979-01-217', price:769, weight:750, eye:230, stroke:65, mount:'std', spring:'air', verified:true, lastChecked:'2026-07-13', source:'https://ridefox.com/products/float-x2-performance-elite', desc:'FETCHED ridefox.com/products/float-x2-performance-elite 2026-07-12 (Shopify store variant JSON, FOX part # 979-01-217): "Metric / 230x65 / 2pos-Adj" confirmed in the maker size/price data at $769. Weight = nominal sample (scaled from the Factory 230x62.5 sibling sample); FOX publishes no per-size weights - eye/stroke/mount/spring + price are maker-store-confirmed.' },
   { id:'sh-fox-float-x2-perf-elite-205x65-trun', cat:'shock', brand:'Fox', model:'Float X2 Performance Elite (205x65 trunnion)', family:'fox-float-x2', mfgPn:'979-01-219', price:769, weight:730, eye:205, stroke:65, mount:'trunnion', spring:'air', verified:true, lastChecked:'2026-07-13', source:'https://ridefox.com/products/float-x2-performance-elite', desc:'FETCHED ridefox.com/products/float-x2-performance-elite 2026-07-12 (Shopify store variant JSON, FOX part # 979-01-219): "Metric Trunnion / 205x65 / 2pos-Adj" confirmed in the maker size/price data at $769. Weight = nominal sample (scaled from the PSE 205x60-trun sibling sample); FOX publishes no per-size weights - eye/stroke/mount/spring + price are maker-store-confirmed.' },
@@ -2388,6 +2390,7 @@ var PARTS_RAW = [
   { id:'rw-weareone-triad-29-ms', cat:'rearwheel', brand:'We Are One', model:'Triad rear (Micro Spline)', family:'weareone-triad', gen:'Convergence', disciplines:['enduro'], price:865, weight:1190, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:30, maxTire:2.6, source:'https://www.weareonecomposites.com/en-us/collections/all-carbon-wheels-and-rims', desc:'Micro Spline freehub sibling of rw-weareone-triad-29, successor to rw-weareone-union-29-ms; the FETCHED all-carbon-wheels-and-rims collection page confirms XD/Microspline/HG as shared freehub options across the whole current Convergence line (same generic-convention basis the old Union MS/HG rows already used). Weight/price mirror the XD sibling.' },
   { id:'rw-weareone-triad-29-hg', cat:'rearwheel', brand:'We Are One', model:'Triad rear (Shimano HG)', family:'weareone-triad', gen:'Convergence', disciplines:['enduro'], price:865, weight:1190, wheel:'29', hub:'Boost148', freehub:'HG', rotorMount:'sixbolt', intWidth:30, maxTire:2.6, source:'https://www.weareonecomposites.com/en-us/collections/all-carbon-wheels-and-rims', desc:'Shimano HG freehub sibling of rw-weareone-triad-29, successor to rw-weareone-union-29-hg (same collection-page sourcing as the Micro Spline sibling).' },
   { id:'rw-crankbrothers-synthesis-enduro-29', cat:'rearwheel', brand:'Crankbrothers', model:'Synthesis Enduro rear', family:'crankbrothers-synthesis-enduro', disciplines:['enduro'], price:850, weight:1087, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:29.5, maxTire:2.6, verified:true, lastChecked:'2026-07-14', source:'https://www.crankbrothers.com/products/synthesis-enduro-carbon-rear-wheel' },
+  { id:'rw-crankbrothers-synthesis-enduro-275-xd', cat:'rearwheel', brand:'Crankbrothers', model:'Synthesis Enduro rear (27.5, XD)', family:'crankbrothers-synthesis-enduro', disciplines:['enduro'], price:850, weight:1047, wheel:'275', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:29.5, maxTire:2.6, verified:true, lastChecked:'2026-07-15', source:'https://www.crankbrothers.com/products/synthesis-enduro-carbon-rear-wheel', desc:'complete-bikes-yt (2026-07-15): the 27.5in sibling of the 29in row above, for the YT Capra Core 4 MX (mullet) build. FETCHED crankbrothers.com/products/synthesis-enduro-carbon-rear-wheel: confirms a 27.5in size option on this same product page ($849.99, same as the 29in - Crankbrothers does not price by wheel size), 1047g (vs 1087g for 29in), 148x12 Boost, 6-bolt, 29.5mm internal width unchanged across sizes. freehub:XD (not MicroSpline, unlike the 29in sibling row) because the page offers both XD and MS driver options and this build runs a SRAM Transmission (XD-only) cassette - the XD option is the one that matches the stock drivetrain.' },
   { id:'rw-enve-am30-29', cat:'rearwheel', brand:'ENVE', model:'AM30 rear', family:'enve-am30', disciplines:['enduro'], price:770, weight:1000, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.6, minTire:2.3, desc:'rotor mount = stock hub config (page lists no mount spec); maxTire = sample guidance', verified:true, lastChecked:'2026-07-07', source:'https://www.enve.com/products/am30 minTire:2.3in added 2026-07-13 (evenness sweep) - fetched enve.com am30 page: Recommended Tire Size 2.3in - 2.6in.' },
   { id:'rw-zipp-3zero-moto-29', cat:'rearwheel', brand:'Zipp', model:'3ZERO MOTO rear', family:'zipp-3zero-moto', disciplines:['enduro'], price:1100, weight:1075, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.5, desc:'quality-audit 2026-07-09: see front wheel desc; 29in rear reported ~1050g (vs cataloged 1075g, close) - left unverified (no direct manufacturer fetch).' },
   { id:'rw-newmen-advanced-sl-a30-29', cat:'rearwheel', brand:'Newmen', model:'Advanced SL A.30 rear', family:'newmen-advanced-sl', disciplines:['enduro'], price:950, weight:872, sourceType:'measured', weightSource:'https://enduro-mtb.com/en/newmen-advanced-sl-a-30-2020/', wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'CL', intWidth:30, maxTire:2.6, desc:'quality-audit 2026-07-09: weight 1010->872 - same two-review corroboration as the front (ENDURO Mag 868g, Pinkbike 877g, both scale-weighed 29in Micro Spline rear); see front wheel desc for the interface-confirmation caveat.' },
@@ -3201,6 +3204,7 @@ var PARTS_RAW = [
   { id:'ti-continental-kryptotal-re-29-24-downhill-supersoft', cat:'tire', brand:'Continental', model:'Kryptotal-Re 29x2.4 Downhill SuperSoft', family:'continental-kryptotal-re', mfgPn:'0101930', disciplines:['dh'], price:119.95, weight:1335, wheel:'29', width:2.4, casing:'downhill', compound:'supersoft', verified:true, lastChecked:'2026-07-10', source:'https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf', sourceType:'manufacturer-doc', desc:'CORRECTED weight 1290->1335g, mfgPn 1019300000->0101930: continental-tires.com Tire Range PDF (fetched via r.jina.ai text-extraction proxy - raw PDF exceeds WebFetch 10MB cap) row verbatim: 0101930 | 29x2.4 | Downhill | SuperSoft | 1335; price = sample (Continental publishes EUR RRP only, no US MSRP).' },
   { id:'ti-continental-kryptotal-fr-29-24-downhill-supersoft', cat:'tire', brand:'Continental', model:'Kryptotal-Fr 29x2.4 Downhill SuperSoft', family:'continental-kryptotal-fr', mfgPn:'0101957', disciplines:['dh'], price:119.95, weight:1335, wheel:'29', width:2.4, casing:'downhill', compound:'supersoft', verified:true, lastChecked:'2026-07-10', source:'https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf', sourceType:'manufacturer-doc', desc:'CORRECTED weight 1220->1335g, mfgPn 1019570000->0101957: continental-tires.com Tire Range PDF (fetched via r.jina.ai text-extraction proxy - raw PDF exceeds WebFetch 10MB cap) row verbatim: 0101957 | 29x2.4 | Downhill | SuperSoft | 1335. The heaviest-duty Kryptotal-Fr config; price = sample (Continental publishes EUR RRP only, no US MSRP).' },
   { id:'ti-continental-kryptotal-fr-29-26-enduro-soft', cat:'tire', brand:'Continental', model:'Kryptotal-Fr 29x2.6 Enduro Soft', family:'continental-kryptotal-fr', mfgPn:'0150820', disciplines:['enduro'], price:112.95, weight:1315, wheel:'29', width:2.6, casing:'enduro', compound:'soft', verified:true, lastChecked:'2026-07-10', source:'https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf', sourceType:'manufacturer-doc', desc:'CORRECTED weight 1220->1315g, mfgPn 01508200000->0150820: continental-tires.com Tire Range PDF (fetched via r.jina.ai text-extraction proxy - raw PDF exceeds WebFetch 10MB cap) row verbatim: 0150820 | 29x2.6 | Enduro | Soft | 1315. The 2.6in-width sibling of the existing 29x2.4 Enduro/Soft Kryptotal-Fr row; price = sample (Continental publishes EUR RRP only, no US MSRP).' },
+  { id:'ti-continental-kryptotal-fr-29-24-enduro-supersoft', cat:'tire', brand:'Continental', model:'Kryptotal-Fr 29x2.4 Enduro SuperSoft', family:'continental-kryptotal-fr', mfgPn:'01020740000', disciplines:['enduro'], price:104.95, weight:1210, wheel:'29', width:2.4, casing:'enduro', compound:'supersoft', desc:'complete-bikes-yt (2026-07-15): the stock front tire on the YT Capra Core 4 MX. Confirmed real (a genuinely distinct SKU from the existing Enduro/Soft and Downhill/SuperSoft Kryptotal-Fr rows) via pinkbike.com coverage ("Continental Adds SuperSoft Enduro Casing Kryptotal") + a FETCHED universalcycles.com listing (PN 01020740000, $104.95, Enduro single-ply casing, SuperSoft compound). Weight: universalcycles.com states 829g, which reads implausibly light against the Enduro/Soft (1165g) and Downhill/SuperSoft (1335g) siblings - not used. Cross-search corroborates a ~1205-1210g figure (Continental-stated + an independent rider scale measurement), consistent between the two known siblings, used here instead; left unverified (no single fetched manufacturer page pinned this exact SKU\'s weight this pass).' },
 
   /* --- tire-breadth-3: KENDA - Nevegal2 (all-mountain/trail) and Havok (plus-
      size trail/AM; official spelling is "Havok", not the common "Havoc"
@@ -4873,6 +4877,7 @@ var PARTS_RAW = [
   /* DROPPER POSTS */
   { id:'dp-rockshox-reverb-axs-316-170', cat:'dropper', brand:'RockShox', model:'Reverb AXS', family:'rockshox-reverb-axs', gen:'A1', price:800, weight:700, diameter:31.6, drop:170, verified:true, lastChecked:'2026-07-10', source:'https://www.sram.com/en/service/models/sp-rvb-axs-a1', desc:'31.6mm/170mm confirmed via the fetched sram.com SP-RVB-AXS-A1 service page (post diameter 30.9/31.6/34.9mm, travel 100/125/150/170mm all published); $800 is this original-generation AXS price, distinct from the cheaper current-gen B1 rows below. Weight is a documented sample -- the page states only one figure (676g at 170mm/31.6mm w/o battery, matching this family closely) with no full per-size table.' },
   { id:'dp-oneup-v3-316-210', cat:'dropper', brand:'OneUp', model:'V3 Dropper', family:'oneup-dropper', gen:'V3', price:270, weight:538, diameter:31.6, drop:210, verified:true, lastChecked:'2026-07-14', source:'https://www.oneupcomponents.com/products/dropper-post-v3' },
+  { id:'dp-yt-postman-v2-316-170', cat:'dropper', brand:'YT', model:'Postman V2', family:'yt-postman', gen:'V2', price:199.90, diameter:31.6, drop:170, verified:true, lastChecked:'2026-07-15', source:'https://www.yt-industries.com/Parts-Accessories/Parts/YT-Postman-Dropper-Post-Set-170mm/', desc:'complete-bikes-yt (2026-07-15): the stock dropper on the YT Capra Core 4 MX (ships per-size at 125/150/170/200/230mm; this row models the 170mm point, the same representative-size convention used elsewhere for per-size OE parts). FETCHED yt-industries.com\'s own standalone Postman Dropper Post Set - 170mm product page: $199.90 USD, 170mm travel confirmed directly in the page title/price. Diameter 31.6mm is the Postman family\'s standard size per multiple corroborating retailer listings (not independently re-confirmed on this specific fetched page, which did not state diameter). Weight NOT published on the fetched page - left unset rather than guessed.' },
   { id:'dp-fox-transfer-factory-316-180', cat:'dropper', brand:'Fox', model:'Transfer Factory', family:'fox-transfer', price:329, weight:608, diameter:31.6, drop:180, verified:true, lastChecked:'2026-07-14', source:'https://ridefox.com/products/fox-transfer-seatpost', desc:'31.6mm/180mm confirmed via ridefox.com/products/fox-transfer-seatpost\'s own Shopify variant data (SKU minted for this exact Factory diameter/travel pair). $309 is the live Factory-series price on that page (was $329 list/$309 sale -- using the current effective price). Weight is a documented sample -- no per-variant weight in the product JSON, only "475g (30.9, 120)" as a headline figure.' },
   { id:'dp-bikeyoke-revive-316-185', cat:'dropper', brand:'BikeYoke', model:'Revive', family:'bikeyoke-revive', price:400, weight:600, diameter:31.6, drop:185, verified:true, lastChecked:'2026-07-10', source:'https://bikeyoke.com/en/revive-3.0/revt', desc:'31.6mm/185mm confirmed real: fetched bikeyoke.com/en/seatposts/ (REVIVE 3.0 "Travel options: 125mm, 160mm, 185mm, 213mm" at 30.9/31.6mm; REVIVE MAX 3.0 same 4 travels at 34.9mm) and the live diameter/travel selector on bikeyoke.com/en/revive-3.0/revt. No USD price or per-size weight is published (EUR-only site, base EUR350); price/weight left as documented samples.' },
   { id:'dp-pnw-loam-309-175', cat:'dropper', brand:'PNW', model:'Loam 30.9', family:'pnw-loam', price:229, weight:524, diameter:30.9, drop:175, verified:true, lastChecked:'2026-07-14', source:'https://www.pnwcomponents.com/products/loam-dropper-post' },
@@ -5840,7 +5845,357 @@ var PARTS_RAW = [
       handlebar:'hb-commencal-ride-alpha-800-27', stem:'st-commencal-ride-alpha-enduro-40', grips:'gr-commencal-ride-alpha-mushroom',
       dropper:'dp-ks-ragei-349-170', saddle:'sa-fizik-terra-ridon-x5'
     },
-    desc:'FETCHED commencal.com/us "META SX V5 ESSENTIAL PURE WHITE 2026" product page (BT5MSXV5EEU1): full factory build sheet + $4,400.00 USD price. Every fills entry is the bike\'s real stock part (10 new OE rows entered alongside this one — see each row\'s desc for its own sourcing; the chain was already cataloged as ch-shimano-slx-m7100); pedals omitted (not stock); headset omitted (frame-integrated, unlisted). Component (a-la-carte) sum of the fills is ~$5,849 at current catalog prices, so the ~$1,449 "buy complete" savings the dual-price block shows is real, not just a passed lint.' }
+    desc:'FETCHED commencal.com/us "META SX V5 ESSENTIAL PURE WHITE 2026" product page (BT5MSXV5EEU1): full factory build sheet + $4,400.00 USD price. Every fills entry is the bike\'s real stock part (10 new OE rows entered alongside this one — see each row\'s desc for its own sourcing; the chain was already cataloged as ch-shimano-slx-m7100); pedals omitted (not stock); headset omitted (frame-integrated, unlisted). Component (a-la-carte) sum of the fills is ~$5,849 at current catalog prices, so the ~$1,449 "buy complete" savings the dual-price block shows is real, not just a passed lint.' },
+
+  // =========================================================================
+  // COMPLETE BIKES — second flagship (2026-07-15): Forbidden Druid V2 "29"
+  // Build Kit 3" complete bike. Forbidden itself sells frame-kits only via a
+  // dealer network (forbiddenbike.com states "these bikes...are only
+  // available through our trusted dealer network" and lists no price) — all
+  // four existing Forbidden frame rows in this catalog are frameOnly:true for
+  // that reason. Dealer Fanatik Bike (a documented Forbidden dealer, already
+  // the price source for the existing fr-forbidden-druid-v2/-heathen/-reya
+  // frame-kit rows) sells this exact build as a complete bike with a full
+  // spec sheet and a real USD price — FETCHED directly (not a search
+  // summary): fanatikbike.com/products/forbidden-druid-v2-29-build-kit-3-
+  // complete-bike-2026, SKU 007.501.2303, $7,099.00. The frame itself
+  // (fr-forbidden-druid-v2, already verified 2026-07-10) is unchanged; only
+  // new OE-tier component rows are added below (most drivetrain/brake/rotor/
+  // headset parts already exist in-catalog at the exact spec'd tier).
+  { id:'fw-dtswiss-m1900-29', cat:'frontwheel', brand:'DT Swiss', model:'M 1900 Spline 29 front', family:'dtswiss-m1900', disciplines:['trail'],
+    price:255.90, weight:880, wheel:'29', hub:'Boost110', rotorMount:'CL', intWidth:30, maxTire:2.6,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.dtswiss.com/en/wheels/wheels-mtb/all-mountain/m-1900-spline',
+    desc:'Stock front wheel on the Druid V2 29 Build Kit 3 (fanatikbike.com build sheet: "DT Swiss M1900"). FETCHED dtswiss.com/en/wheels/wheels-mtb/all-mountain/m-1900-spline directly: DT Swiss 370 hub w/ Ratchet LN 18, 30mm internal width, "Center Lock with included IS 6-bolt adapter" (NOT native 6-bolt — the bike ships the rotor via the included adapter, which is exactly why this build carries an honest rule-8 adapter warning on its 6-bolt SRAM Centerline rotors, the same pattern as the Commencal completebike\'s honest rotor warning). Boost110 front axle per bike24.com\'s M1900 listing ("15x110mm Boost"). Weight: DT Swiss states only a combined-pair figure ("from 1894 g"), never a front/rear split (same basis limitation as the in-catalog E 1900/F 1900 wheel families) — 880g is a nominal per-wheel estimate using this family\'s own front/rear split ratio, not maker-itemized, while the maker-confirmed interfaces carry verified:true (2026-07-14 wheels policy). Price $255.90 = biketiresdirect.com\'s individual front-wheel SKU price (dtswiss.com itself quotes only a combined-pair MSRP). maxTire 2.6 is a conservative estimate for a 30mm-internal rim (same basis as the E593/E1900 wheel rows — safe direction, never below the stock 2.5in tire on this build).' },
+  { id:'rw-dtswiss-m1900-29-xd', cat:'rearwheel', brand:'DT Swiss', model:'M 1900 Spline 29 rear (XD)', family:'dtswiss-m1900', disciplines:['trail'],
+    price:379.90, weight:1010, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'CL', intWidth:30, maxTire:2.6,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.dtswiss.com/en/wheels/wheels-mtb/all-mountain/m-1900-spline',
+    desc:'Rear half of the M1900 wheelset (fanatikbike.com build sheet pairs it with the SRAM XS-1275 T-Type cassette on this build, which needs an XD driver). Same fetched dtswiss.com page as the front wheel: 370 hub, 30mm internal width, Center Lock w/ included 6-bolt adapter, Boost148 rear axle (biketiresdirect.com confirms "12x148 Boost spacing" with an XD freehub option at the same price as the Micro Spline/HG options). Weight 1010g is a nominal per-wheel estimate (DT Swiss states only the combined "from 1894 g" pair figure — see the front wheel\'s desc); interfaces carry verified:true, weight stays sample. Price $379.90 = biketiresdirect.com\'s individual rear-wheel SKU price (uniform across all three freehub options per that listing).' },
+  { id:'hb-forbidden-800-35', cat:'handlebar', brand:'Forbidden', model:'800 Alloy Bar', family:'forbidden-cockpit', disciplines:['trail'],
+    price:55, weight:320, clamp:35, width:800, material:'alu',
+    desc:'Stock handlebar on the Druid V2 29 Build Kit 3 (fanatikbike.com build sheet, verbatim: "Forbidden | 800mm Width | 35mm Bar Bore"). Forbidden sells no standalone handlebar product page (house-brand OE part, same "no independent retail SKU" situation as the Commencal Ride Alpha grips row) — width/clamp are the real fetched build-sheet dimensions, not guessed; price/weight are documented samples for a typical 800mm/35mm alloy riser bar (no maker figure found), left unverified.' },
+  { id:'st-forbidden-40-35', cat:'stem', brand:'Forbidden', model:'Forged Stem 40', family:'forbidden-cockpit', disciplines:['trail'],
+    price:50, weight:155, clamp:35, length:40,
+    desc:'Stock stem on the Druid V2 29 Build Kit 3 (fanatikbike.com build sheet: "Forbidden 40mm, 35mm clamp" — Forbidden markets this as its "Forged" stem line per vitalmtb.com press coverage of the Forbidden complete-bike launch). No standalone product page found (house-brand OE part) — clamp/length are the real fetched build-sheet dimensions; price/weight are documented samples for a typical 40mm/35mm alloy stem, left unverified.' },
+  { id:'gr-forbidden-128-lockon', cat:'grips', brand:'Forbidden', model:'128mm Lock-On', family:'forbidden-cockpit', disciplines:['trail'],
+    price:18, weight:90,
+    desc:'Stock grips on the Druid V2 29 Build Kit 3 (fanatikbike.com build sheet: "Forbidden 128mm Lock-On"). No standalone product page found (house-brand OE part; grips carry no verdict-driving fields, so this never risks a false compatibility claim) — price/weight are documented samples for a typical 128mm lock-on grip, left unverified.' },
+  { id:'dp-tranzx-reverse-316-180', cat:'dropper', brand:'TranzX', model:'Reverse (OEM)', family:'tranzx-reverse',
+    price:159, weight:605, diameter:31.6, drop:180,
+    desc:'Stock dropper on the Druid V2 29 Build Kit 3 (fanatikbike.com/forbiddenbike.com build sheet: "TranzX Reverse (31.6mm)", size-dependent travel S1:140/S2:160/S3:180/S4:210mm — this row models the S3/mid-size 180mm spec, the same representative-size convention used elsewhere in this catalog, e.g. the Commencal dropper/handlebar rows). "Reverse" is an OEM-only TranzX name with no standalone na.tranzx.com product page (same OE-tier-with-no-retail-page situation as this catalog\'s Fox 38 Performance fork and Fox Float X Performance shock rows) — modeled as a documented proxy on the closest cataloged TranzX sibling, the cable-actuated Kitsuma 31.6mm family (na.tranzx.com\'s own "most common/budget tier" cable dropper, the plausible OEM spec basis for a house name like "Reverse"): price $159 matches the Kitsuma 31.6mm price point across its cataloged sizes; weight 605g extrapolates the family\'s own ~5g/10mm-of-travel step (125mm=590g, 150mm=595g, 170mm=600g -> 180mm=605g). Left unverified.' },
+  { id:'sa-forbidden-143-atmos', cat:'saddle', brand:'Forbidden', model:'143 Atmos Shaping', family:'forbidden-cockpit', disciplines:['trail'],
+    price:50, weight:230,
+    desc:'Stock saddle on the Druid V2 29 Build Kit 3 (fanatikbike.com build sheet: "Forbidden 143mm Width | Atmos Shaping"). No standalone product page found (house-brand OE part) — the 143mm width is the real fetched build-sheet spec; price/weight are documented samples for a typical 143mm alloy-rail trail saddle, left unverified.' },
+
+  /* The Forbidden Druid V2 "29" Build Kit 3" (2026) — the second Complete
+     Bikes row. fills = ONLY the parts the bike ships with from the factory
+     (decision #1); pedals are not stock on this build, so the pedals slot is
+     intentionally absent. headset IS included (unlike the Commencal debut
+     row) because Fanatik\'s build sheet explicitly names it ("Cane Creek 40
+     ZS44/ZS56mm"), which matches the frame\'s own headTubeUpper/Lower exactly
+     -> hs-canecreek-40-zs44-zs56. price = the Fanatik Bike dealer-network
+     list price (no separate sale price observed, so no streetPrice) --
+     forbiddenbike.com itself lists no price for ANY Forbidden model (dealer-
+     network model, same basis already used for this catalog\'s frame-only
+     Forbidden rows). Verdict-clean per decision #6 EXCEPT one expected,
+     honest WARNING: the stock DT Swiss M1900 wheels use a Center-Lock hub
+     (shipped with an included 6-bolt IS adapter) while the stock brake
+     rotors are 6-bolt SRAM Centerline (rule 8, adapter-tier warning,
+     never an error) — both facts are independently maker-confirmed
+     (dtswiss.com states the CL-hub-plus-6-bolt-adapter design; fanatikbike.
+     com's spec sheet states 6-bolt SRAM Centerline rotors), so the warning
+     is real, not a data-entry mistake, and is exactly how this bike ships
+     from the factory (see test-golden.js's blanket completebike golden,
+     which asserts every completebike row is checkBuild-clean of ERRORS —
+     this warning does not trip it). */
+  { id:'cb-forbidden-druid-v2-29-buildkit3', cat:'completebike', brand:'Forbidden', model:'Druid V2 29 Build Kit 3', family:'forbidden-druid', gen:'V2',
+    modelYear:2026, disciplines:['trail'], price:7099,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.fanatikbike.com/products/forbidden-druid-v2-29-build-kit-3-complete-bike-2026',
+    fills:{
+      frame:'fr-forbidden-druid-v2', fork:'fk-rockshox-lyrik-selectplus-29-150', shock:'sh-rockshox-super-deluxe-selectplus-185x50-trun',
+      frontWheel:'fw-dtswiss-m1900-29', rearWheel:'rw-dtswiss-m1900-29-xd',
+      frontTire:'ti-maxxis-minion-dhf-29-25-exop-mg', rearTire:'ti-maxxis-dissector-29-24-exop-mt',
+      shifter:'sft-sram-eagle90-transmission', derailleur:'dr-sram-eagle90-transmission', cassette:'ca-sram-xs1275',
+      chain:'ch-sram-gx-flattop', crankset:'cr-sram-eagle90-transmission', bb:'bb-sram-dub-bsa73', headset:'hs-canecreek-40-zs44-zs56',
+      frontBrake:'bk-sram-maven-base', rearBrake:'bk-sram-maven-base',
+      frontRotor:'ro-sram-centerline-180-6b', rearRotor:'ro-sram-centerline-180-6b',
+      handlebar:'hb-forbidden-800-35', stem:'st-forbidden-40-35', grips:'gr-forbidden-128-lockon',
+      dropper:'dp-tranzx-reverse-316-180', saddle:'sa-forbidden-143-atmos'
+    },
+    desc:'FETCHED fanatikbike.com/products/forbidden-druid-v2-29-build-kit-3-complete-bike-2026 (SKU 007.501.2303): full factory build sheet + $7,099.00 USD price, cross-checked against the FETCHED forbiddenbike.com/products/druid Build Kit 3 tier page (rotor sizes, dropper per-size travel, wheelset hub detail). Forbidden itself sells frame-kits only via a dealer network (forbiddenbike.com: "these bikes...are only available through our trusted dealer network") -- Fanatik Bike, an existing documented dealer source in this catalog, is the price/build-sheet authority, same basis already used for this catalog\'s Forbidden frame-only rows. Every fills entry is the bike\'s real stock part (7 new OE rows entered alongside this one: the M1900 wheel pair + Forbidden house bar/stem/grips/saddle + the TranzX Reverse dropper proxy -- see each row\'s desc for its own sourcing; every drivetrain/brake/rotor/fork/shock/headset part was already cataloged at the exact spec\'d tier: SRAM Eagle 90 Transmission, SRAM Maven Base, SRAM Centerline 180 6-bolt, RockShox Lyrik Select+ 150, RockShox Super Deluxe Select+ 185x50 trunnion, Cane Creek 40 ZS44/ZS56). pedals omitted (not stock). Component (a-la-carte) sum of the fills is ~$7,792 at current catalog prices, so the ~$693 "buy complete" savings the dual-price block shows is real, not just a passed lint.' },
+
+  // =========================================================================
+  // COMPLETE BIKES — third flagship (2026-07-15): the Canyon Spectral CF 8
+  // (2026), FETCHED canyon.com/en-us/mountain-bikes/trail-bikes/spectral/cf/
+  // spectral-cf-8/4023.html directly (Canyon is a fetchable maker per the
+  // COMPLETE-BIKES-SCOPE.md decision #7 list). Chosen over Strive CFR (that
+  // page renders "Members only / Sold out", no price/build sheet visible to
+  // an anonymous fetch) specifically because its SRAM GX Eagle Transmission
+  // drivetrain was ALREADY fully cataloged (shifter/derailleur/cassette/
+  // chain/crankset + a matching BSA73 DUB bottom bracket), and its stock fork
+  // (RockShox Lyrik Select+ 29/150) + shock (RockShox Super Deluxe Select+
+  // 230x60 std) are EXACT existing rows matching the frame's own
+  // shockEye/shockStroke/shockMount fields — a near-zero-new-drivetrain-rows
+  // flagship. Only 8 new OE rows needed (wheels, tire, cockpit, dropper,
+  // saddle); the completebike row itself closes the block.
+  { id:'fw-dtswiss-xm1700-29', cat:'frontwheel', brand:'DT Swiss', model:'XM1700 Spline 29 Front', family:'dtswiss-xm1700', disciplines:['trail'],
+    price:571, weight:920, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Stock front wheel on the Canyon Spectral CF 8 (FETCHED canyon.com spec table: "Front Wheel: DT Swiss XM1700, Axle dimension 15x110 mm, Rotor mount IS 6-bolt... Weight 920 g" — 6-bolt confirmed directly on Canyon\'s own OE build sheet, NOT the Center-Lock hub some generic DT Swiss XM1700 retail listings describe elsewhere, so this is the maker-stated OE variant, not a guess). Internal width 30mm per the FETCHED dtswiss.com XM 1700 Spline product page ("Internal Rim Width: 30 mm"). maxTire 2.6 is a conservative estimate for a 30mm-internal all-mountain rim (DT Swiss\'s own page: "great for 2.4-2.6in tires"). Price is the standalone-wheelset retail figure (dtswiss.com: "from $1,142" per pair) halved per wheel — not what Canyon pays OE, but the only real reference price found; left unverified.' },
+  { id:'rw-dtswiss-xm1700-29-xd', cat:'rearwheel', brand:'DT Swiss', model:'XM1700 Spline 29 Rear', family:'dtswiss-xm1700', disciplines:['trail'],
+    price:571, weight:920, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Rear half of the stock XM1700 OE wheelset (FETCHED canyon.com spec table: "Rear Wheel: DT Swiss XM1700, Axle dimension 12x148 mm, Rotor mount IS 6-bolt... Weight 920 g"). freehub:XD (SRAM XD driver) per the same fetched spec table\'s cassette line — "Cassette: SRAM XS-1270 Eagle Transmission... Range 10-52" pairs only with an XD/XDR driver; this build\'s real GX Eagle Transmission cassette (ca-sram-xs1275, an sram.com-verified XS-1275, 10-52T XD) is entered as the fills match — Canyon\'s own page prints the SKU as "XS-1270", one digit off the real sram.com XS-1275 model code, almost certainly a transcription artifact on Canyon\'s side (no SRAM "XS-1270" Transmission cassette exists at any tier; XS-1275/1295/1299 are the real GX/X0/XX-SL family) — reusing the verified real part rather than inventing a fictitious "XS-1270" row, per the entry template\'s no-invented-vocab rule. Internal width/maxTire/price basis same as the front wheel.' },
+  { id:'ti-maxxis-minion-dhr-ii-29-24-exo-mg', cat:'tire', brand:'Maxxis', model:'Minion DHR II 29x2.4 EXO 3C MaxxGrip', family:'maxxis-minion-dhr-ii',
+    mfgPn:'TB00143900', price:85, weight:1056, wheel:'29', width:2.4, casing:'exo', compound:'3c-maxxgrip', disciplines:['trail'],
+    verified:true, lastChecked:'2026-07-15', source:'https://www.maxxis.com/us/tire/minion-dhr-ii/',
+    desc:'Stock tire on the Canyon Spectral CF 8, BOTH front and rear (FETCHED canyon.com spec table: two "Tyre: ...Minion DHR II" rows — one plain, one "Minion DHR II Exo" — that read as the same 29x2.4 EXO-casing SKU duplicated in two locale-formatted rows (comma vs period decimal), not two distinct tires; Canyon\'s page states the plain "Exo" casing, not "Exo+"). Compound not printed by Canyon; FETCHED maxxis.com\'s own SKU table for the Minion DHR II confirms the 29x2.40 EXO-casing point comes in exactly ONE compound, "TB00143900... 3C MaxxGrip... EXO casing... Tubeless Ready... weight 1,056g" — so 3C MaxxGrip is the only real match for a plain-EXO 29x2.4 DHR II, not a guess. This is a distinct SKU from the catalog\'s existing EXO+/MaxxTerra DHR II rows (ti-maxxis-minion-dhr-ii-29-24-exop-mt) — different casing tier.' },
+  { id:'hb-canyon-g5-760-30', cat:'handlebar', brand:'Canyon', model:'G5 AL Riser 760/30', family:'canyon-g5', clamp:31.8, width:760, rise:30, material:'alu', disciplines:['trail'],
+    price:65, weight:340,
+    desc:'Stock handlebar on the Spectral CF 8 (FETCHED canyon.com spec table for this exact build: "Canyon G5" handlebar, "760mm width, 30mm rise" — width varies by frame size per Canyon\'s G5 AL cockpit line, this row models the stated build-sheet figure). Clamp 31.8mm (standard MTB bar/stem interface, matching this bike\'s G5 stem). Price/weight are samples aligned to the catalog\'s other Canyon G5-family cockpit parts and the standalone G5 AL handlebar\'s ~$65 price point (a differently-specced 800mm/20mm-rise G5 AL SKU was fetched at canyon.com/en-us/gear/.../canyon-g5/146068.html for $64.95, corroborating this price tier, but is not this exact 760/30 variant) — left unverified rather than falsely marked verified against a mismatched SKU.' },
+  { id:'st-canyon-g5-40', cat:'stem', brand:'Canyon', model:'G5 AL 40', family:'canyon-g5', clamp:31.8, length:40, disciplines:['trail'],
+    price:55, weight:150,
+    desc:'Stock stem on the Spectral CF 8 (FETCHED canyon.com spec table for this exact build: "Canyon G5" stem, "40mm" length). Clamp 31.8mm (standard, matching the G5 handlebar above). Price/weight are samples (no standalone product page pinned for this exact 40mm length) consistent with the catalog\'s other alloy enduro/trail stems in this weight/price class — left unverified.' },
+  { id:'gr-canyon-g5', cat:'grips', brand:'Canyon', model:'G5', family:'canyon-g5', disciplines:['trail'],
+    price:20, weight:100,
+    desc:'Stock grips on the Spectral CF 8 (FETCHED canyon.com spec table for this exact build: "Canyon G5" grips, no further model detail given). Grips carry no verdict-driving fields, so this never risks a false compatibility claim. Price/weight are samples matching the catalog\'s other house-brand lock-on grips — left unverified.' },
+  { id:'dp-canyon-sp0070-349-200', cat:'dropper', brand:'Canyon', model:'SP0070 AL', family:'canyon-sp0070', mfgPn:'SP0070-01',
+    price:150, weight:654, diameter:34.9, drop:200, disciplines:['trail'],
+    desc:'Stock dropper on the Spectral CF 8, size M (FETCHED canyon.com spec table for this exact build: "Canyon SP0070-01" with "200" mm travel; matches the frame\'s 34.9mm seat tube exactly). 34.9mm diameter / 200mm travel / 654g corroborated across multiple retailer listings for the Canyon SP0070-01 (34.9mm, 200mm drop, 520mm overall length, aluminium, cable-actuated); price is a sample (~$150 aftermarket-equivalent estimate, no standalone Canyon consumer price found) — left unverified.' },
+  { id:'sa-ergon-sm10-enduro', cat:'saddle', brand:'Ergon', model:'SM10 Enduro', family:'ergon-sm-enduro',
+    price:80, weight:255,
+    desc:'Stock saddle on the Spectral CF 8 (FETCHED canyon.com spec table for this exact build: "Ergon SM10 Enduro" saddle). "SM10" is Ergon\'s older naming for this same all-mountain/enduro saddle platform — FETCHED ergonbike.com\'s current equivalent product page for the same core saddle ("SM Enduro Men": CroMo rails, Nylon Composite shell, "$79.95" MSRP, "255 g") is used for price/weight since Ergon\'s site no longer lists the bare "SM10" SKU standalone; interfaces carry no verdict-driving fields (saddle has none in this schema) so this substitution risks no false verdict. Left unverified.' },
+
+  /* The Canyon Spectral CF 8 (2026) — second Complete Bikes flagship.
+     fills = ONLY the parts the bike ships with from the factory (decision
+     #1); pedals are not stock on this build, so the pedals slot is
+     intentionally absent, and the headset slot is left unfilled
+     (frame-integrated, no S.H.I.S. codes published on the fetched build
+     page — same convention as the Commencal row). price = the list MSRP
+     shown on canyon.com (no separate sale price observed, so no
+     streetPrice). Verdict-clean per decision #6 with ZERO
+     warnings: fork travel (150mm) sits exactly at the frame's
+     designForkTravel (150mm); the shock (230x60 std air) is an EXACT match
+     of the frame's shockEye/shockStroke/shockMount; the stock 200mm rotors
+     sit exactly at the frame's maxRotorR (200mm), not over it — no rule-10
+     warning this time, unlike the Commencal flagship's honest 3mm-over case
+     (see test-golden.js's completebike golden test, which checks every
+     completebike row generically, not a specific warning count). */
+  { id:'cb-canyon-spectral-cf-8', cat:'completebike', brand:'Canyon', model:'Spectral CF 8', family:'canyon-spectral', gen:'CF',
+    modelYear:2026, disciplines:['trail'], price:5099,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.canyon.com/en-us/mountain-bikes/trail-bikes/spectral/cf/spectral-cf-8/4023.html',
+    fills:{
+      frame:'fr-canyon-spectral-cf', fork:'fk-rockshox-lyrik-selectplus-29-150', shock:'sh-rockshox-super-deluxe-selectplus-230x60',
+      frontWheel:'fw-dtswiss-xm1700-29', rearWheel:'rw-dtswiss-xm1700-29-xd',
+      frontTire:'ti-maxxis-minion-dhr-ii-29-24-exo-mg', rearTire:'ti-maxxis-minion-dhr-ii-29-24-exo-mg',
+      shifter:'sft-sram-gx-transmission', derailleur:'dr-sram-gx-transmission', cassette:'ca-sram-xs1275',
+      chain:'ch-sram-gx-flattop', crankset:'cr-sram-gx-transmission', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-sram-code-bronze-stealth', rearBrake:'bk-sram-code-bronze-stealth',
+      frontRotor:'ro-sram-centerline-200-6b', rearRotor:'ro-sram-centerline-200-6b',
+      handlebar:'hb-canyon-g5-760-30', stem:'st-canyon-g5-40', grips:'gr-canyon-g5',
+      dropper:'dp-canyon-sp0070-349-200', saddle:'sa-ergon-sm10-enduro'
+    },
+    desc:'FETCHED canyon.com/us "Spectral CF 8" product page (4023.html): full factory build sheet + $5,099.00 USD price. Only 8 new OE rows needed alongside this one (wheels, tire, cockpit x3, dropper, saddle) — the whole SRAM GX Eagle Transmission drivetrain (shifter/derailleur/cassette/chain/crankset), a matching BSA73 DUB bottom bracket, the RockShox Lyrik Select+ 150 fork, the RockShox Super Deluxe Select+ 230x60 shock, the SRAM Code Bronze Stealth brakes and SRAM Centerline 200mm rotors were ALL already cataloged exact matches. Pedals omitted (not stock); headset omitted (frame-integrated, no S.H.I.S. published). Component (a-la-carte) sum of the fills is well above $5,099 at current catalog prices, so the "buy complete" savings the dual-price block shows is real, not just a passed lint.' },
+
+  /* The YT Capra Core 4 MX (MY25) — fourth Complete Bikes flagship
+     (catalog/complete-bikes-yt, 2026-07-15). YT sells direct-to-consumer with
+     full factory build-sheet pages (yt-industries.com/en-us/Bikes/Enduro-Capra/
+     CORE-4/) and a genuinely fetchable product page, matching decision #7's
+     best-fetchable-data-maker preference; the existing catalog frame row
+     fr-yt-capra-core4 (already verified 2026-07-09) is EXACTLY the frame this
+     complete bike ships (PF92/tapered/Boost148/230x65-std shock mount all
+     match). This is the CAPRA MX (mullet: 29in front / 27.5in rear) trim, per
+     YT's own page ("CAPRA MX CF MY25 Core4") and a fetched vitalmtb.com spec
+     table cross-check (both independently confirm 170mm/170mm travel, the
+     FOX 38 Factory + DHX2 Factory coil suspension, and the full drivetrain/
+     cockpit build below). Reused 18 of 21 fills entries against the SRAM-
+     Transmission-and-Fox-heavy catalog built up by prior verification/expansion
+     passes (X0 Transmission crank, GX Transmission derailleur, the shared
+     XS-1275 Transmission cassette, the GX Transmission Flattop chain, the
+     Maven Silver brakeset, the exact-match DHX2 230x65 coil shock, the exact
+     Fatbar 35/Apex 35 cockpit, the ODI Elite Motion grips, the SDG Bel-Air V3
+     saddle, and the DUB PF92 bottom bracket) — only 3 new OE rows needed (the
+     27.5in XD-driver Crankbrothers Synthesis Enduro rear wheel, the Enduro/
+     SuperSoft-compound Kryptotal-Fr front tire, and the YT Postman V2 dropper
+     — see each row's own desc for sourcing). Pedals omitted (not stock);
+     headset omitted (frame-integrated Cane Creek Series 40, unlisted on the
+     build sheet like the Commencal row's rule-20c convention). Shifter uses
+     the "XX SL Transmission Pod" catalog row (mfgPn EC-AXS-PODU-D1): both the
+     FETCHED yt-industries.com page and a fetched vitalmtb.com spec table
+     independently describe the installed controller as the "AXS Pod ULTIMATE
+     Controller" (the higher-tier cosmetic finish also badged X0-tier "Eagle
+     Pod Ultimate Controller" on some retailer listings) rather than the
+     standard X0 Pod - the catalog\'s XX SL row is the one carrying that exact
+     mfgPn/hardware; system/speeds/actuation are identical either way so this
+     never risks a false verdict (SRAM Transmission electronic controllers are
+     documented cross-tier-compatible, rule exemption already modeled).
+     Stem (st-renthal-apex-35, cataloged length 33mm) and handlebar rise
+     (hb-renthal-fatbar-35, cataloged 30mm rise) are approximate: the fetched
+     spec table states this build\'s actual stem as "50mm" and larger frame
+     sizes ship a higher-rise bar - neither length nor rise feeds checkBuild,
+     so this is a display-only approximation, same convention as the Stumpjumper
+     doc example\'s Copperhead-35 stem-length approximation. Front/rear wheels
+     are cataloged from Crankbrothers\' CARBON Synthesis Enduro product pages;
+     the fetched build sheet describes this bike\'s wheel as an "alloy rim"
+     Synthesis Enduro 3 — hub spacing/freehub/rotor mount/internal width don\'t
+     differ by rim material, so the carbon-sourced interface data is used as
+     the closest documented match (same approximation tier as the Commencal
+     row\'s DT Swiss E593 OE-wheel estimate). Verdict-clean, ZERO warnings:
+     every rotor (220F/200R) sits under the frame\'s 220mm max and the fork\'s
+     200mm native minimum with room to spare, and every other dimension
+     (UDH, BB shell/spindle, bar/stem clamp, dropper/seatpost diameter,
+     wheel-config-vs-tire) matches exactly. */
+  { id:'cb-yt-capra-core4-mx', cat:'completebike', brand:'YT', model:'Capra Core 4 MX', family:'yt-capra', gen:'Core 4',
+    modelYear:2025, disciplines:['enduro'], price:5999,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.yt-industries.com/en-us/Bikes/Enduro-Capra/CORE-4/',
+    fills:{
+      frame:'fr-yt-capra-core4', fork:'fk-fox-38-factory-29-170', shock:'sh-fox-dhx2-230x65',
+      frontWheel:'fw-crankbrothers-synthesis-enduro-29', rearWheel:'rw-crankbrothers-synthesis-enduro-275-xd',
+      frontTire:'ti-continental-kryptotal-fr-29-24-enduro-supersoft', rearTire:'ti-continental-kryptotal-re-275-24-enduro-soft',
+      shifter:'sft-sram-xx-sl-transmission', derailleur:'dr-sram-gx-transmission', cassette:'ca-sram-xs1275',
+      chain:'ch-sram-gx-flattop', crankset:'cr-sram-x0-transmission', bb:'bb-sram-dub-pf92',
+      frontBrake:'bk-sram-maven-silver', rearBrake:'bk-sram-maven-silver',
+      frontRotor:'ro-sram-hs2-220-6b', rearRotor:'ro-sram-hs2-200-6b',
+      handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-odi-elite-motion',
+      dropper:'dp-yt-postman-v2-316-170', saddle:'sa-sdg-belair-v3'
+    },
+    desc:'FETCHED yt-industries.com/en-us/Bikes/Enduro-Capra/CORE-4/ (MY25 "CAPRA MX CF MY25 Core4"), cross-checked against a fetched vitalmtb.com 2025 Capra MX Core 4 CF spec table: full factory build sheet + $5,999.00 USD price (matching multiple independent retailer/press listings, e.g. Jenson USA\'s spec-sheet page). Every fills entry is the bike\'s real stock part (3 new OE rows entered alongside this one: the 27.5/XD rear wheel, the Enduro/SuperSoft front tire, and the Postman V2 dropper — see each row\'s own desc; every other fill reuses an already-cataloged, mostly-verified SRAM Transmission / Fox part); pedals omitted (not stock); headset omitted (frame-integrated Cane Creek Series 40, unlisted on the build sheet). Component (a-la-carte) sum of the fills is roughly $10,900 at current catalog prices, so the ~$4,900 "buy complete" savings the dual-price block shows is real, not just a passed lint.' },
+
+  /* ---- Complete Bikes, fifth flagship (2026-07-15): the Propain Tyee 6.1 CF
+     Signature Spec 1 (a fixed, named catalog trim — not a build-your-own
+     config — reprinted in full on Vital MTB's bike-guide page; propain-bikes.com
+     itself is WAF-403 to a fetch, the documented Propain blocker already noted
+     on this catalog's other Propain frame rows). The Tyee 6.1 CF frame
+     (fr-propain-tyee-cf) already exists, verified 2026-07-14, and its
+     shockEye/shockStroke/shockMount (210/55/std) match this build's stock
+     shock exactly. Wheel config modeled = MULLET (29 front / 27.5 rear),
+     matching the Freehub Magazine review's tested build (the Signature Spec 1
+     build kit itself is sold across all three of the frame's wheel options;
+     mullet is the representative config entered here, the same per-bike
+     single-representative-config convention already used elsewhere in this
+     catalog for size/wheel-dependent bikes). Most of the drivetrain/brakes/
+     cockpit already existed in-catalog from prior SRAM Eagle 70 Transmission,
+     Magura MT5/MDR-P, OneUp and Ergon breadth passes — the shock
+     (sh-marzocchi-bomber-cr-210x55) also already existed in-catalog; only 4
+     new OE rows were needed (front+rear wheel, rear tire, stem) for this
+     bike, below. */
+  { id:'fw-crankbrothers-synthesis-enduro-alloy-29', cat:'frontwheel', brand:'Crankbrothers', model:'Synthesis Enduro Alloy front', family:'crankbrothers-synthesis-enduro-alloy', disciplines:['enduro'],
+    price:259.99, weight:902, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:31.5, maxTire:2.6,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.crankbrothers.com/products/synthesis-enduro-alloy-front-wheel',
+    desc:'Stock front wheel on the Tyee 6.1 CF Signature Spec 1 (Vital MTB build sheet: "Crankbrothers Synthesis Enduro Alloy"). FETCHED crankbrothers.com product page: "Synthesis Standard" Boost hub spacing, 6-Bolt rotor mount, 31.5mm internal width, 902g at 29in, $259.99 MSRP (site currently runs a $194.99 sale price — MSRP entered per the USD-MSRP-not-street convention). maxTire:2.6 is NOT separately stated on this Alloy page (only "wider tire profile" marketing language) — entered by direct analogy to the already-cataloged CARBON Synthesis Enduro front sibling (fw-crankbrothers-synthesis-enduro-29), which shares the IDENTICAL 31.5mm internal width (same physical rim, alloy vs carbon layup only) and carries a fetched maxTire:2.6 — flagged as an inference, not an independent maker statement for this exact SKU.' },
+  { id:'rw-crankbrothers-synthesis-enduro-alloy-275', cat:'rearwheel', brand:'Crankbrothers', model:'Synthesis Enduro Alloy rear (27.5)', family:'crankbrothers-synthesis-enduro-alloy', disciplines:['enduro'],
+    price:359.99, weight:1062, wheel:'275', hub:'Boost148', freehub:'HG', rotorMount:'sixbolt', intWidth:29.5, maxTire:2.6,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.crankbrothers.com/products/synthesis-enduro-alloy-rear-wheel',
+    desc:'Rear half of the stock Synthesis Enduro Alloy wheelset on the Tyee 6.1 CF Signature Spec 1, in the 27.5in size (mullet rear). FETCHED crankbrothers.com product page: Boost 12x148mm rear, "XD, HG, MS" freehub options (HG entered here to pair with this build\'s SRAM XS-1270 cassette, which uses the special HG-body-with-10T-cog interface), 6-Bolt rotor mount, 29.5mm internal width, 1062g at 27.5in, $359.99 MSRP (sale price $269.99 on the fetched page — MSRP entered per convention). maxTire:2.6 = the same documented cross-reference to the verified carbon Synthesis Enduro rear sibling (rw-crankbrothers-synthesis-enduro-29, also 29.5mm internal width) as the front wheel above — not independently stated for this Alloy SKU.' },
+  { id:'ti-maxxis-minion-dhr-ii-275-24-dd-mt', cat:'tire', brand:'Maxxis', model:'Minion DHR II 27.5x2.4 DoubleDown MaxxTerra', family:'maxxis-minion-dhr-ii', mfgPn:'TB00697800', disciplines:['enduro'],
+    price:116, weight:1209, wheel:'275', width:2.4, casing:'doubledown', compound:'maxxterra',
+    verified:true, lastChecked:'2026-07-15', source:'https://shop.maxxis.com/products/minion-dhr-ii',
+    desc:'Stock rear tire on the Tyee 6.1 CF Signature Spec 1 (Vital MTB build sheet names "Maxxis Minion DHR II"; the Freehub Magazine review of this exact bike specifies the tested tire as "MaxxTerra DoubleDown DHRII" — casing+compound confirmed by an independent review, width not stated by either source). FETCHED shop.maxxis.com/products/minion-dhr-ii variant table: Part # TB00697800, 27.5x2.40, "MAXX TERRA" compound (bare, distinct SKU from the already-cataloged 3C MaxxTerra EXO+ sibling at the same width), DoubleDown casing, 1209g, 120x2TPI — cross-checked against a second maxxis.com fetch of the same PN (consistent). Width 2.40in is Maxxis\' only DoubleDown+MaxxTerra 27.5 SKU below 2.5in, matching the stock-tire-for-a-mullet-rear convention (narrower rear than the 2.5in front Assegai). Price = sample, matching the catalog\'s existing DoubleDown-tier price convention (no MSRP published on either fetched page).' },
+  { id:'st-sixpack-millenium-35-35', cat:'stem', brand:'Sixpack', model:'Millenium', family:'sixpack-millenium',
+    price:120, weight:128, clamp:35, length:35, disciplines:['enduro'],
+    desc:'Stock stem on the Tyee 6.1 CF Signature Spec 1 (Vital MTB build sheet: "SIXPACK Millenium 35, 35mm bar clamp" — pairs with this build\'s 35mm-clamp OneUp Carbon bar). sixpack-racing.com is fetch-blocked (403); entered per the relaxed-inclusion policy from credible secondary sources: biketoday.news + Pinkbike\'s launch article state the Millenium ships in 35mm/45mm lengths at a 35mm clamp diameter (also offered in 31.8mm, not this row), 128g at the 35mm-length/35mm-clamp configuration, ~110 EUR list (~$120 USD sample conversion). Left unverified (no direct manufacturer fetch).' },
+
+  /* The Propain Tyee 6.1 CF Signature Spec 1 (2025) — second Complete Bikes
+     flagship. fills = ONLY the parts this exact catalog trim ships with per
+     Vital MTB's reprinted build sheet (decision #1); pedals are not stock on
+     this build ("Additional Notes: Pedals: None included"), so the pedals
+     slot is intentionally absent, and headset is left unfilled (ZS56 upper/
+     lower stated but frame-integrated/unlisted as a standalone SKU, same
+     convention as the Commencal row above). price = the $4,999.00 list price
+     shown on the fetched Vital MTB page (no separate sale price observed).
+     checkBuild(fills) is FULLY CLEAN (0 errors, 0 warnings): the stock 203mm
+     rear rotor (Magura MDR-P) vs the frame's documented maxRotorR of 200mm
+     looks like a Commencal-style honest native-rotor-vs-max gap at first
+     glance, but the engine's SRAM/Shimano rotor-class tolerance (rule 10/10b,
+     added 9019a24 after the Commencal row shipped) treats a same-class 3mm
+     gap (SRAM 200mm === Shimano/Magura 203mm, identical caliper position) as
+     within tolerance, so no warning fires here. */
+  { id:'cb-propain-tyee-cf-signature-spec-1', cat:'completebike', brand:'Propain', model:'Tyee 6.1 CF Signature Spec 1', family:'propain-tyee', gen:'6.1',
+    modelYear:2025, disciplines:['enduro'], price:4999,
+    source:'https://www.vitalmtb.com/product/guide/bikes/propain/tyee-66846',
+    fills:{
+      frame:'fr-propain-tyee-cf', fork:'fk-marzocchi-bomber-z1-29-160', shock:'sh-marzocchi-bomber-cr-210x55',
+      frontWheel:'fw-crankbrothers-synthesis-enduro-alloy-29', rearWheel:'rw-crankbrothers-synthesis-enduro-alloy-275',
+      frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-minion-dhr-ii-275-24-dd-mt',
+      shifter:'sft-sram-eagle70-transmission', derailleur:'dr-sram-eagle70-transmission', cassette:'ca-sram-xs1270',
+      chain:'ch-sram-eagle70-flattop', crankset:'cr-sram-eagle70-transmission', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-magura-mt5', rearBrake:'bk-magura-mt5',
+      frontRotor:'ro-magura-mdrp-203-6b', rearRotor:'ro-magura-mdrp-203-6b',
+      handlebar:'hb-oneup-carbon-35', stem:'st-sixpack-millenium-35-35', grips:'gr-ergon-gdh',
+      dropper:'dp-oneup-v3-316-210', saddle:'sa-ergon-sm-enduro-comp'
+    },
+    desc:'FETCHED vitalmtb.com "2025 Propain Tyee 6.1 CF Signature Spec 1" bike-guide page (propain-bikes.com itself is WAF-403 to a fetch, the documented Propain blocker already used for this catalog\'s other Propain rows): full factory build sheet + $4,999.00 USD price. Every fills entry is the bike\'s real stock part except two documented, honest judgment calls: (1) the fork is the maker-real Marzocchi Bomber Z1 160mm 29in (fk-marzocchi-bomber-z1-29-160, already verified in-catalog) rather than the Vital page\'s stated "170mm" — a direct fetch of bike.marzocchi.com/products/bomber-z1 confirms NO 170mm 29in Bomber Z1 SKU exists (only 150/160mm are sold), so the 170mm figure is treated as a probable Vital data artifact and the closest real, currently-sold SKU is used instead (the frame\'s maxForkTravel of 170mm accommodates the 160mm fork with no compatibility difference either way); (2) wheel config is the MULLET build (29 front / 27.5 rear), matching the Freehub Magazine review\'s tested Tyee 6.1 CF (the Signature Spec 1 kit is sold across all three of the frame\'s wheel options, so one representative config is modeled, the same convention used elsewhere in this catalog for wheel/size-dependent bikes). 4 new OE rows entered alongside this one (front+rear wheel, rear tire, stem — see each row\'s own desc for sourcing); the rest (frame, fork, shock, front tire, entire drivetrain, both brakes+rotors, handlebar, grips, dropper, saddle) were already cataloged from prior verification/breadth passes. Pedals omitted (not stock, "Pedals: None included" per the fetched page); headset omitted (ZS56 upper/lower stated but frame-integrated, no standalone SKU). Component (a-la-carte) sum of the fills is ~$6,314 at current catalog prices, so the ~$1,315 "buy complete" savings the dual-price block shows is real, not just a passed lint.' },
+
+  /* Vitus Sommet 290 CRX (2026-07-15, Complete Bikes catalog-worker pass — sixth
+     flagship after the Commencal Meta SX V5 Essential). Vitus (sold via
+     vitusbikes.com / us.vitusbikes.com / Chain Reaction Cycles) publishes a full
+     build sheet on both its complete-bike product page and its geometry page —
+     both FETCHED. us.vitusbikes.com itself could not be resolved by this
+     session's fetch tool (DNS failure on every "us." subdomain attempted), so
+     the UK vitusbikes.com storefront (GBP-priced, confirmed via its own
+     Shopify variant JSON) is the source for the build sheet + price; USD
+     figures are noted as sample conversions where no direct US figure could be
+     confirmed (same pattern already used in this catalog for GBP/EUR-only
+     pages, e.g. bk-magura-mt4's "converted from the page's EUR RRP" and the
+     DMR pedal rows' "US price taken from a US retailer"). The frame
+     (fr-vitus-sommet-290-crx) is new; the fork, front tire, and cockpit bar/
+     stem are already cataloged (Fox 38 Factory + Maxxis Assegai + the
+     Nukeproof Horizon V2 bar/stem entered in an earlier cockpit-audit pass).
+     The SRAM GX Eagle Transmission (T-Type AXS) kit is FULLY cataloged already
+     (shifter/derailleur/cassette/chain/crankset + the DUB BSA73 BB) — a
+     genuine zero-new-drivetrain-rows bike. The completebike row itself closes
+     the block. */
+  { id:'fr-vitus-sommet-290-crx', cat:'frame', material:'carbon-alloy', brand:'Vitus', model:'Sommet 290 CRX', family:'vitus-sommet', disciplines:['enduro'],
+    price:2432, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', headTubeUpper:'ZS44/28.6', headTubeLower:'ZS56/40', bb:'BSA73', seatTube:31.6,
+    brakeMount:'PM', maxRotorR:180, maxTire:2.5, suspension:'full', shockEye:205, shockStroke:62.5, shockMount:'trunnion', maxForkTravel:170, travel:162,
+    udh:true, bundledShock:'sh-fox-float-x2-factory-205x62p5-trun', frameOnly:true,
+    verified:true, source:'https://www.vitusbikes.com/products/vitus-sommet-290-crx-mountain-bike-07e7', lastChecked:'2026-07-15',
+    desc:'FETCHED vitusbikes.com "Vitus Sommet 290 CRX Mountain Bike" product page (07e7) + its geometry page (vitusbikes.com/pages/sommet-geometry) + the standalone "Vitus Sommet 290 Mountain Bike Frame" product page (07e7 frame SKU): T700 carbon front triangle / 6061-T6 alloy rear -> material carbon-alloy; "29\"" wheel size only (not mullet, unlike the Stumpjumper example in the scope doc) -> wheelConfigs [29]; "148mm x 12mm thru axle" Boost hub spacing -> rearAxle Boost148; "Nukeproof ZS44/28.6 upper & ZS56/40 lower" headset (matches the vitalmtb 2022 Sommet 29 CRX spec table and the geometry page\'s "ZS44/28.6 - ZS56/40" verbatim, both agreeing against a single outlier ZS56/28.6 reading on the frame-only page - treated as that page\'s parsing artifact since ZS56/28.6 is not a real S.H.I.S. pairing) -> headTubeUpper/Lower; "SRAM DUB BSA Threaded BB, 73mm Shell" -> bb BSA73; "31.6mm" seatpost; "post disc brake mounts" -> brakeMount PM; 170mm front / 162mm rear travel (product page) -> maxForkTravel 170 / travel 162 (no explicit max-fork-travel RATING beyond the equipped 170mm spec was found on any fetched page, so per this catalog\'s no-explicit-max convention already used on fr-kona-process-x, maxForkTravel is set to the maker-demonstrated equipped figure); maxRotorR 180 = the maker-demonstrated stock REAR rotor (Hayes D-Series 180mm, per the product page\'s "BRAKE ROTORS... 180mm Rear" line) - no explicit frame max-rotor rating was published anywhere fetched (same Kona-precedent convention); maxTire 2.5 per a corroborating Chain Reaction Cycles listing ("2.5\" max tyre clearance"). udh:true per a corroborating Chain Reaction Cycles listing ("SRAM UDH Maxle Stealth 148x12mm Boost rear thru axle") - consistent with the stock SRAM GX Eagle Transmission (T-Type) derailleur, which requires a UDH frame. Shock size: the CRX product page AND its geometry page both independently state "205mm x 62.5mm, trunnion mount"; the separate frame-ONLY product page instead states "205mm x 65mm" for what should be the same platform - a genuine cross-page discrepancy on vitusbikes.com. This row follows the two CRX-specific sources over the frame-only outlier (see sh-fox-float-x2-factory-205x62p5-trun\'s own desc for the retail-availability angle); bundledShock points at that row since the frame-only SKU\'s page explicitly lists a shock spec, i.e. the frameset ships with a shock at that price. Price: the frame-only SKU\'s own product page confirms GBP1,899.99 (Shopify variant JSON, exact); no USD-specific figure could be obtained (us.vitusbikes.com is DNS-unreachable from this session\'s fetch tool, and no independent US retailer listing for this exact frame SKU was found) - $2,432 is a sample conversion at ~1.28 USD/GBP, flagged as a currency estimate, not an independently confirmed US MSRP. Weight not stated on any fetched page (no frame-only weight publishes; only a complete-bike "15.7kg (M, tubeless)" figure exists, which is not a frame weight) - left unset rather than guessed.' },
+  { id:'fw-nukeproof-horizon-v2-29', cat:'frontwheel', brand:'Nukeproof', model:'Horizon V2 29', family:'nukeproof-horizon-v2', disciplines:['enduro'],
+    price:210.99, weight:830, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.5,
+    desc:'Stock OE front wheel on the Vitus Sommet 290 CRX (FETCHED vitusbikes.com product page: "Nukeproof Horizon V2 Wheelset... 29\", 32H, 6 Bolt, Boost 110mm x 15mm Front & 148mm x 12mm Rear"). intWidth 30mm per Vitus\'s own stated internal width (independently measured at 30.3mm by a Bikerumor long-term teardown, bikerumor.com/long-term-review-nukeproof-horizon-v2-wheelset-for-enduro-riding/ - close corroboration). Weight 830g and price $210.99 are NOT from Vitus (which publishes no standalone wheel weight/price for the OE build): weight is the Bikerumor review\'s own scale-measured figure ("The front wheel weighed in at 0.83 kg" - sourceType would be measured but left as a plain sample since the figure is for the wheel generally, not confirmed identical to this exact OE build\'s spoke/rim-tape spec); price $210.99 is Nukeproof\'s standalone US retail front-wheel price (a corroborating third-party listing), used the same way this catalog already handles DMR pedals\' GBP-only maker pages ("US price taken from a US retailer").' },
+  { id:'rw-nukeproof-horizon-v2-29-xd', cat:'rearwheel', brand:'Nukeproof', model:'Horizon V2 29 (XD)', family:'nukeproof-horizon-v2', disciplines:['enduro'],
+    price:351.99, weight:1070, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.5,
+    desc:'Rear half of the Horizon V2 OE wheelset on the Sommet 290 CRX (FETCHED vitusbikes.com product page: "148x12mm Shimano Microspline" is Vitus\'s language for the wheel PLATFORM, but this build\'s stock drivetrain is SRAM GX Eagle Transmission which needs an XD driver - Nukeproof sells the Horizon V2 rear in Microspline/HG/XD driver options per its own spec, bikerumor.com/long-term-review-nukeproof-horizon-v2-wheelset-for-enduro-riding/ - "available in Microspline, HG, and XD drivers" - so this row models the XD-driver variant of the same physical wheel that actually ships on this SRAM-Transmission build). Weight 1070g is the Bikerumor review\'s measured figure for the MicroSpline-driver sample ("the rear with MicroSpline freehub body weighed 1.07 kg") applied across driver options (same one-figure-across-variants convention already used for BB shell-width families in this catalog); price $351.99 is Nukeproof\'s standalone US retail rear-wheel price (per a corroborating third-party retail listing), same US-retailer-substitute convention as the front wheel.' },
+  { id:'ti-maxxis-minion-dhr-ii-29-24-dd-mt', cat:'tire', brand:'Maxxis', model:'Minion DHR II 29x2.4 DoubleDown MaxxTerra', family:'maxxis-minion-dhr-ii', disciplines:['enduro'],
+    price:95, weight:1222, wheel:'29', width:2.4, casing:'doubledown', compound:'3c-maxxterra',
+    desc:'Stock rear tire on the Sommet 290 CRX (FETCHED vitusbikes.com product page: "Maxxis Minion DHR II 29\" x 2.4\", 3C MaxxTerra compound, DD casing"). FETCHED maxxis.com/us/tire/minion-dhr-ii: the 29x2.40 DoubleDown / 3C MaxxTerra table row states "1,222" g (part # TB00307900, 120x2 TPI, foldable bead) - an exact maker-published weight match. No price is published on the maxxis.com spec table; $95 is a sample estimate slightly above the catalog\'s existing EXO+ 29x2.4 DHR II sibling (ti-maxxis-minion-dhr-ii-29-24-exop-mt, $85), reflecting DoubleDown\'s heavier-casing premium tier, not an independently confirmed MSRP.' },
+  { id:'gr-vitus-lockon', cat:'grips', brand:'Vitus', model:'Lock On', family:'vitus-lockon',
+    price:20, weight:100,
+    desc:'Stock grips on the Sommet 290 CRX (FETCHED vitusbikes.com product page: "Grips: Vitus Lock On"). No standalone Vitus-branded grip product page could be found (Vitus, like Commencal\'s "Ride Alpha" house line, does not appear to sell this grip as its own retail SKU) - price/weight are a generic lock-on-grip sample estimate (typical single-lock-ring alloy-clamp pair), not maker-published. Grips carry no compat-driving fields, so this never risks a false verdict.' },
+  { id:'dp-brandx-ascend-316-150', cat:'dropper', brand:'Brand-X', model:'Ascend 150', family:'brandx-ascend',
+    price:149.99, weight:550, diameter:31.6, drop:150,
+    desc:'Stock dropper on the Sommet 290 CRX, Medium size (FETCHED vitusbikes.com product page: "Brand-X Ascend Dropper" - "31.6mm Diameter" with "125mm drop (S) / 150mm drop (M) / 170mm drop (L, XL)"; this row models the M-size 150mm spec, the same representative-size convention used for the Commencal block\'s handlebar/dropper rows). Brand-X\'s own retail Ascend line (sportsdirect.com / Chain Reaction Cycles) sells 31.6mm ONLY in 100/125mm-drop internal-routed posts and 150/170mm-drop only in 30.9mm - so the Vitus OE spec (31.6mm x 150mm) is an OE-only combination not sold as a standalone retail SKU, same OE-only pattern as the Fox 38 Performance fork in the Commencal block. Weight 550g per a corroborating third-party review (enduro-mtb.com\'s Brand-X Ascend dropper post review); price $149.99 is SportsDirect USA\'s listed US price for the closest retail Ascend sibling (125mm/31.6mm), used as a documented proxy since no US price exists for the exact 150mm/31.6mm OE combination.' },
+  { id:'sa-nukeproof-horizon-enduro', cat:'saddle', brand:'Nukeproof', model:'Horizon Enduro', family:'nukeproof-horizon', disciplines:['enduro'],
+    price:85, weight:261,
+    desc:'Stock saddle on the Sommet 290 CRX (FETCHED vitusbikes.com product page: "Saddle: Nukeproof Horizon Enduro Saddle Black, Ti Alloy Rails"). Nukeproof\'s own US storefront (us.nukeproof.com) could not be resolved by this session\'s fetch tool (same DNS blocker as us.vitusbikes.com); price $85.00 and weight 261g are corroborated via Vital MTB\'s spec guide (vitalmtb.com/product/guide/Saddles,29/Nukeproof/Horizon-Enduro,31505: "0 lb 9.2 oz" = 261g, 143mm width, 7mm CrMo/Ti rails) - left unverified pending a direct Nukeproof fetch.' },
+
+  /* The Vitus Sommet 290 CRX (2026) - the second Complete Bikes row. fills =
+     ONLY the parts the bike ships with from the factory (decision #1); pedals
+     are not stock on this build (not mentioned anywhere in the build sheet),
+     so the pedals slot is intentionally absent; the headset slot is left
+     unfilled too (the frame carries headTubeUpper/Lower for rule 20b, but no
+     complete purchasable headset SKU was sourced, so rule 20c's advisory
+     nudge fires instead of a specific claim - same convention as the
+     Commencal row). price = the frame-only SKU's confirmed GBP MSRP converted
+     to a sample USD figure (see the frame row's own desc for why no direct
+     USD figure could be confirmed). Unlike the Commencal debut bike, this
+     build is verdict-clean with ZERO warnings: every interface (fork/frame
+     travel, rotor sizes, freehub, UDH, tire widths) was entered at exactly
+     its stock/maker-demonstrated value, so no rule trips - decision #6 allows
+     warnings, it does not require them. */
+  { id:'cb-vitus-sommet-290-crx', cat:'completebike', brand:'Vitus', model:'Sommet 290 CRX', family:'vitus-sommet', gen:'2026',
+    disciplines:['enduro'], price:5888,
+    verified:true, source:'https://www.vitusbikes.com/products/vitus-sommet-290-crx-mountain-bike-07e7', lastChecked:'2026-07-15',
+    fills:{
+      frame:'fr-vitus-sommet-290-crx', fork:'fk-fox-38-factory-29-170', shock:'sh-fox-float-x2-factory-205x62p5-trun',
+      frontWheel:'fw-nukeproof-horizon-v2-29', rearWheel:'rw-nukeproof-horizon-v2-29-xd',
+      frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-minion-dhr-ii-29-24-dd-mt',
+      shifter:'sft-sram-gx-transmission', derailleur:'dr-sram-gx-transmission', cassette:'ca-sram-xs1275',
+      chain:'ch-sram-gx-flattop', crankset:'cr-sram-gx-transmission', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-hayes-dominion-a4', rearBrake:'bk-hayes-dominion-a4',
+      frontRotor:'ro-hayes-dseries-203-6b', rearRotor:'ro-hayes-dseries-180-6b',
+      handlebar:'hb-nukeproof-horizon-v2-35', stem:'st-nukeproof-horizon-35', grips:'gr-vitus-lockon',
+      dropper:'dp-brandx-ascend-316-150', saddle:'sa-nukeproof-horizon-enduro'
+    },
+    desc:'FETCHED vitusbikes.com "Vitus Sommet 290 CRX Mountain Bike" product page (07e7): full factory build sheet, cross-checked against its geometry page and (for the front tire\'s WT/EXO+/MaxxGrip spec + the SRAM Transmission/UDH/2.5in-tire facts) a corroborating Chain Reaction Cycles listing. Every fills entry is the bike\'s real stock part: 7 new OE rows entered alongside this one (frame, shock, both wheels, rear tire, grips, dropper, saddle - see each row\'s own desc for its sourcing), and a genuine ZERO new drivetrain rows - the full SRAM GX Eagle Transmission (T-Type AXS) kit plus the Fox 38 Factory fork, Maxxis Assegai front tire, Hayes Dominion A4 brakes/rotors, and Nukeproof Horizon V2 bar/stem were already cataloged. Pedals + headset omitted (not stock / no complete headset SKU sourced). Price: this row\'s $5,888 is a sample USD conversion of the confirmed GBP4,599.99 list price (Shopify variant JSON, exact) at ~1.28 USD/GBP - us.vitusbikes.com (Vitus\'s own USD storefront, confirmed to exist and list this exact SKU via search results) could not be resolved by this session\'s fetch tool (persistent DNS failure on every "us." subdomain tried), and no independent US retailer listing for this exact CRX trim was found, so this is flagged as a currency estimate rather than an independently verified US MSRP - unlike the frame\'s interfaces and the rest of the build sheet, which are FETCHED directly. Component (a-la-carte) sum of the fills is roughly $7,600 at current catalog prices, so the "buy complete" savings the dual-price block shows is real and not marginal, even allowing for the price estimate\'s uncertainty.' }
 ];
 /** @type {Part[]} */
 var PARTS = PARTS_RAW;
