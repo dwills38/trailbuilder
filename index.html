@@ -119,6 +119,11 @@
   .pcard .price .wt{color:var(--ink-soft);font-weight:500;font-size:11px;margin-left:5px}
   .pcard .price.zero{color:var(--ink-soft);font-weight:600;font-size:12px}
   .pcard.selected{border-color:var(--brand);box-shadow:0 0 0 2px rgba(31,111,74,.16)}
+  /* Shock/fork family browse cards (2026-07-15) — same .pcard shape as a plain
+     part card (see familyCardEl, index.html); .kind reuses the accent color,
+     just labelled "… family" instead of the plain category name. */
+  .fam-breadcrumb{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+  .fam-breadcrumb .fam-crumb-name{font-weight:700;color:var(--ink)}
   /* Complete Bikes browse card (2026-07-15) */
   .pcard.completebike .pcard-thumb{background:var(--ok-bg)}
   .pcard.completebike .pcard-thumb svg{color:var(--ok)}
@@ -882,7 +887,11 @@
            one row per applicable axis, rendered from the SUBFILTERS table by
            renderSubFilters(). Display-only — never feeds checkBuild. -->
       <div id="subFilters"></div>
-      <div class="cat-head">
+      <!-- Shock/fork family browse: "← All Rear Shocks · RockShox Super Deluxe"
+           breadcrumb, shown only while drilled into one model family
+           (renderFamilyBreadcrumb, index.html). Empty/hidden otherwise. -->
+      <div class="fam-breadcrumb" id="famBreadcrumb" hidden></div>
+      <div class="cat-head" id="catHead">
         <div class="catcount muted" id="catCount" aria-live="polite"></div>
         <div class="cat-tools">
           <span class="viewseg" role="group" aria-label="Catalog view">
@@ -1316,6 +1325,19 @@
   // group change / search-jump, so only the active group's axes are ever engaged.
   // (disciplineFilter above stays standalone — it's rail-level, not per-group.)
   var subFilter = {};
+  /* ---- shock/fork family grouping (browse-density fix, 2026-07-15) ----
+     Rear Shock is cataloged at eye×stroke SIZE granularity (SRAM's service
+     pages publish the full matrix per model — Super Deluxe alone is 157
+     rows), which made the flat browse list ~775 rows deep and skewed toward
+     whichever brand happens to be size-granular (RockShox, ~49% of ROWS
+     though only ~5 of ~17 shock model FAMILIES) rather than reflecting the
+     market. familyDrill[groupKey] holds the family value the user has
+     drilled into (absent = browsing family cards); resets on every group
+     switch (both mkChip's onclick and guidedAdvance) so re-entering the
+     category always lands back on the family list. */
+  var FAMILY_GROUPABLE = ['shock','fork'];
+  function isFamilyGroupable(groupKey){ return FAMILY_GROUPABLE.indexOf(groupKey)>=0; }
+  var familyDrill = {};
   // Catalog view: 'list' (default) | 'cards' — presentation only; both views share
   // the render pipeline and cardEl DOM. Persists in localStorage ('tb-view', same
   // pattern as 'tb-theme'), read here at init so the first render has no view flash.
@@ -1514,7 +1536,7 @@
     d.className='chip'+(activeGroup===key?' active':'');
     d.setAttribute('aria-pressed', activeGroup===key ? 'true' : 'false');
     d.textContent=label;
-    d.onclick=function(){ activeGroup=key; activeSub=defaultSubFor(key); resetSubFilters(); reshuffleCatalog(); if(key==='tire') inheritTireSizeFilter(); renderChips(); renderSubChips(); renderSubFilters(); renderCatalog(); };
+    d.onclick=function(){ activeGroup=key; activeSub=defaultSubFor(key); resetSubFilters(); familyDrill={}; reshuffleCatalog(); if(key==='tire') inheritTireSizeFilter(); renderChips(); renderSubChips(); renderSubFilters(); renderCatalog(); };
     return d;
   }
 
@@ -1778,6 +1800,140 @@
     return c;
   }
 
+  /* ---- shock/fork family browse cards (DISPLAY-ONLY grouping — see the
+     familyDrill comment above). Grouping never touches pick/build/compat
+     semantics: every size is still its own real part id; familyCardEl's
+     "Browse sizes" just narrows the SAME catalog render to that family's
+     individual parts, which then render through the ordinary cardEl. ---- */
+
+  /* Best-effort human label from the family slug (`<brand-slug>-<model
+     tokens>`): strip the leading brand token, then title-case what's left —
+     a token carrying a digit (x2, dhx2, ttx22, rxf36) is a model code, so
+     it's upper-cased whole ("Float X2", "DHX2", "TTX22") rather than
+     title-cased wrong ("Dhx2"). Cosmetic only; the underlying family/id
+     strings never change. */
+  // Short tokens that are acronyms in every catalog family that carries them
+  // (RockShox SID, Cane Creek Air IL, Fox Float DPS/SL, DVO Onyx SC/DC, …) —
+  // no digit to trigger the model-code rule above, so they need a name.
+  var FAMILY_TOKEN_ACRONYMS = {cr:1,dc:1,dh:1,dhx:1,dj:1,dps:1,il:1,lt:1,sc:1,sl:1,sid:1};
+  function familyDisplayName(familyKey, brand){
+    // NFD-normalize before stripping non-alphanumerics so an accented brand
+    // (Öhlins) slugs to plain ascii ("ohlins") the same way its family keys do.
+    var slug = (brand||'').normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+    var tokens = familyKey.split('-');
+    if(tokens[0]===slug) tokens = tokens.slice(1);
+    if(!tokens.length) return familyKey;
+    return tokens.map(function(t){
+      return (/\d/.test(t) || FAMILY_TOKEN_ACRONYMS[t]) ? t.toUpperCase() : t.charAt(0).toUpperCase()+t.slice(1);
+    }).join(' ');
+  }
+  /* One aggregate per family — or per lone ungrouped part (isLone:true), so
+     the family-card grid and the plain part-card grid can sort off the same
+     shape. fitCount/warnCount/redCount come from compatOf per member, the
+     SAME function every individual part card uses — never forked/reimplemented. */
+  function familyMetaOf(fam, members, res){
+    var states = members.map(function(p){ return compatOf(p, res); });
+    var fitCount=0, warnCount=0, redCount=0, neutralCount=0;
+    states.forEach(function(c){
+      if(c.state==='g') fitCount++; else if(c.state==='w') warnCount++;
+      else if(c.state==='r') redCount++; else neutralCount++;
+    });
+    // neutral (grey) only happens with an empty build, and then EVERY member is
+    // neutral (compatOf short-circuits before touching any part-specific check)
+    var best = neutralCount===members.length ? 'n' : fitCount>0 ? 'g' : warnCount>0 ? 'w' : 'r';
+    var reason = best==='n' ? 'Pick some parts first to check fit'
+      : best==='g' ? (fitCount+' of '+members.length+' sizes fit your build'+(warnCount ? ' ('+warnCount+' more fit with a warning)' : ''))
+      : best==='w' ? (warnCount+' of '+members.length+' sizes fit your build with a warning — open a size for why')
+      : 'None of the '+members.length+' sizes fit your current build';
+    var prices = members.map(function(p){ return p.price||0; });
+    var weights = members.map(partWeight).filter(function(w){ return w!=null; });
+    return {
+      isLone:false, family:fam, brand:members[0].brand, members:members,
+      lo:Math.min.apply(null,prices), hi:Math.max.apply(null,prices),
+      weightLo: weights.length?Math.min.apply(null,weights):null,
+      weightHi: weights.length?Math.max.apply(null,weights):null,
+      verifiedCount: members.filter(partVerified).length,
+      fitCount:fitCount, warnCount:warnCount, redCount:redCount,
+      state:best, reason:reason,
+      shuffle: Math.min.apply(null, members.map(function(p){ return partShuffleOrder[p.id]; }))
+    };
+  }
+  function loneMetaOf(p, res){
+    var c = compatOf(p, res);
+    return {
+      isLone:true, part:p, family:null, brand:p.brand, members:[p],
+      lo:p.price||0, hi:p.price||0, weightLo:partWeight(p), weightHi:partWeight(p),
+      verifiedCount: partVerified(p)?1:0,
+      fitCount: c.state==='g'?1:0, warnCount: c.state==='w'?1:0, redCount: c.state==='r'?1:0,
+      state:c.state, reason:c.reason,
+      shuffle: partShuffleOrder[p.id]
+    };
+  }
+  function drillIntoFamily(groupKey, fam){
+    familyDrill[groupKey]=fam; renderCatalog();
+    var head=$('catHead'); if(head) head.scrollIntoView({block:'nearest'});
+  }
+  function exitFamilyDrill(groupKey){ delete familyDrill[groupKey]; renderCatalog(); }
+  // Breadcrumb row above the catalog grid ("← All Rear Shocks · RockShox Super
+  // Deluxe") shown only while drilled into one family; hidden/empty otherwise.
+  function renderFamilyBreadcrumb(groupKey){
+    var bc=$('famBreadcrumb'); if(!bc) return;
+    var fam = isFamilyGroupable(groupKey) ? familyDrill[groupKey] : null;
+    if(!fam){ bc.hidden=true; bc.innerHTML=''; return; }
+    var g = groupByKey[groupKey];
+    var sample = PARTS.filter(function(p){ return p.cat===g.slots[0].cat && p.family===fam; })[0];
+    var brand = sample ? sample.brand : '';
+    bc.hidden=false;
+    bc.innerHTML = '<button type="button" class="btn back">&larr; All '+esc(g.label)+'</button>'+
+      '<span class="fam-crumb-name">'+esc(brand)+' '+esc(familyDisplayName(fam, brand))+'</span>';
+    bc.querySelector('.back').onclick=function(){ exitFamilyDrill(groupKey); };
+  }
+  // One family browse card — same .pcard DOM shape as cardEl (thumb/kind/name/
+  // spec/prov/price/picks) so it inherits the grid AND list-view CSS for free;
+  // clicking it (or its button) drills into the family's individual sizes.
+  function familyCardEl(fm, groupKey){
+    var card=document.createElement('div');
+    card.className='pcard family';
+    var cat = fm.members[0].cat;
+    var thumbHtml = '<div class="pcard-thumb">'+placeholderIcon(CAT_GROUP[cat])+'</div>';
+    var name = fm.brand+' '+familyDisplayName(fm.family, fm.brand);
+    var eyes = fm.members.map(function(p){ return p.eye; }).filter(function(v){ return v!=null; });
+    var strokes = fm.members.map(function(p){ return p.stroke; }).filter(function(v){ return v!=null; });
+    var travels = fm.members.map(function(p){ return p.travel; }).filter(function(v){ return v!=null; });
+    var specBits = [fm.members.length+' size'+(fm.members.length===1?'':'s')];
+    if(eyes.length && strokes.length){
+      var eLo=Math.min.apply(null,eyes), eHi=Math.max.apply(null,eyes);
+      var sLo=Math.min.apply(null,strokes), sHi=Math.max.apply(null,strokes);
+      specBits.push('eye '+(eLo===eHi?eLo:eLo+'–'+eHi)+'mm · stroke '+(sLo===sHi?sLo:sLo+'–'+sHi)+'mm');
+    } else if(travels.length){
+      var tLo=Math.min.apply(null,travels), tHi=Math.max.apply(null,travels);
+      specBits.push((tLo===tHi?tLo:tLo+'–'+tHi)+'mm travel');
+    }
+    var weightHtml = fm.weightLo!=null ? '<span class="wt">'+(fm.weightLo===fm.weightHi?fm.weightLo:fm.weightLo+'–'+fm.weightHi)+' g</span>' : '';
+    var priceHtml = '<span class="price">'+(fm.lo===fm.hi?money(fm.lo):money(fm.lo)+'–'+money(fm.hi))+weightHtml+'</span>';
+    var provBody = fm.verifiedCount===0
+      ? '<span class="est" title="Sample data — approximate, not yet checked against a manufacturer spec">≈ estimate</span>'
+      : fm.verifiedCount===fm.members.length
+        ? '<span class="ver" title="Every size in this family is verified against a manufacturer spec">✓ Verified</span>'
+        : '<span class="ver" title="'+fm.verifiedCount+' of '+fm.members.length+' sizes are verified against a manufacturer spec">✓ '+fm.verifiedCount+'/'+fm.members.length+' verified</span>';
+    card.innerHTML =
+      '<span class="dot '+fm.state+'" role="img" aria-label="Compatibility: '+esc(fm.reason)+'" title="'+esc(fm.reason)+'"></span>'+
+      '<div class="pcard-head">'+thumbHtml+
+        '<div class="pcard-headtext"><div class="kind">'+catLabel(cat)+' family</div>'+
+        '<button type="button" class="name" aria-label="Browse '+esc(name)+' sizes">'+esc(name)+'</button></div></div>'+
+      '<div class="spec">'+esc(specBits.join(' · '))+'</div>'+
+      '<div class="prov">'+provBody+'</div>'+
+      '<div class="row">'+priceHtml+'<span class="picks"></span></div>';
+    var open=function(){ drillIntoFamily(groupKey, fm.family); };
+    card.querySelector('.name').onclick=function(e){ e.stopPropagation(); open(); };
+    var picks=card.querySelector('.picks');
+    var btn=mkBtn('Browse sizes →', false, false);
+    btn.onclick=open;
+    picks.appendChild(btn);
+    card.addEventListener('click', function(e){ if(e.target.closest('button,a')) return; open(); });
+    return card;
+  }
+
   /* True-random "Random" sort (bias audit 2026-07-12 #5, made genuinely random
      2026-07-14). A rank-first order (compatible parts, or certain models, always
      floating up) reads as bias no matter how the ties are broken — the fix is a
@@ -1810,7 +1966,14 @@
     // groupCats(); everywhere else it's excluded from the catalog outright — a
     // whole bike is never a slot-fillable "part" the a-la-carte grid should show.
     var activeCats = activeGroup==='completebikes' ? ['completebike'] : (activeGroup!=='all' ? groupCats(groupByKey[activeGroup]) : null);
-    var list=PARTS.filter(function(p){
+    // shock/fork family grouping: drilled-in family (if any) for the active group;
+    // renderFamilyBreadcrumb shows/hides the "← All Rear Shocks" row either way.
+    var drillFam = isFamilyGroupable(activeGroup) ? familyDrill[activeGroup] : null;
+    renderFamilyBreadcrumb(activeGroup);
+    // Every filter EXCEPT compatibleOnly — the family-card branch below needs this
+    // "candidate" set to decide whether a family survives (>=1 member still non-
+    // red) BEFORE compatibleOnly narrows the drilled-in list to just the fits.
+    function baseMatch(p){
       if(p.cat==='completebike' && activeGroup!=='completebikes') return false;
       if(activeCats && activeCats.indexOf(p.cat)<0) return false;
       if(activeGroup!=='all' && activeSub!=='all'){ var subM=SUBCHIP_META[activeSub];
@@ -1819,20 +1982,75 @@
       if(verifiedOnly && !partVerified(p)) return false;
       if(ownedOnly && !ownedIds[canonicalId(p.id)]) return false;
       if(disciplineFilter!=='all' && p.disciplines && p.disciplines.indexOf(disciplineFilter)<0) return false;
-      // compatibleOnly hides red (would-clash) parts only — yellow still fits,
-      // it just adds a warning to check; with nothing built yet everything is
-      // state 'n' (grey), so the filter is a no-op until a build exists.
-      if(compatibleOnly && compatOf(p, res).state==='r') return false;
       // contextual sub-filters (data-driven): each engaged axis hides only the
       // in-scope parts that miss it; out-of-scope parts pass (match() returns true).
       for(var si=0; si<SUBFILTERS.length; si++){ var sf=SUBFILTERS[si], sv=subFilter[sf.id]; if(sv!=='all' && !sf.match(p, sv)) return false; }
       return true;
+    }
+
+    // ---- family CARDS (not drilled into one yet): group the candidate parts by
+    // `family` into one browse card per model line (a part with no family value
+    // falls through and renders as an ordinary individual card — graceful
+    // fallback). Search/verified/owned/discipline/subfilters all narrow the
+    // CANDIDATE set first, so "a family with any matching/fitting size shows"
+    // falls out for free; compatibleOnly is applied to the aggregated rows
+    // (family survives if >=1 member isn't red) rather than to raw parts. ----
+    if(isFamilyGroupable(activeGroup) && !drillFam){
+      var candidates = PARTS.filter(baseMatch);
+      var buckets = {}, order = [], lone = [];
+      candidates.forEach(function(p){
+        if(!p.family){ lone.push(p); return; }
+        if(!buckets[p.family]){ buckets[p.family]=[]; order.push(p.family); }
+        buckets[p.family].push(p);
+      });
+      var rows = order.map(function(fam){ return familyMetaOf(fam, buckets[fam], res); })
+        .concat(lone.map(function(p){ return loneMetaOf(p, res); }));
+      if(compatibleOnly) rows = rows.filter(function(r){ return r.state!=='r'; });
+      var totalInScope = PARTS.filter(function(p){ return activeCats.indexOf(p.cat)>=0; }).length;
+      var shownSizes = rows.reduce(function(s,r){ return s+r.members.length; }, 0);
+      $('catCount').textContent = rows.length
+        ? 'Showing '+rows.length+' model famil'+(rows.length===1?'y':'ies')+' — '+shownSizes+' of '+totalInScope+' sizes'
+        : 'Showing 0 of '+totalInScope+' sizes';
+      if(!rows.length){
+        el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>';
+        return;
+      }
+      var famWt=function(r,missing){ return r.weightLo!=null ? r.weightLo : missing; };
+      var famName=function(r){ return r.isLone ? (r.part.brand+' '+r.part.model) : (r.brand+' '+familyDisplayName(r.family,r.brand)); };
+      var ROW_SORTS={
+        random:        function(a,b){ return a.shuffle-b.shuffle; },
+        name:          function(a,b){ return famName(a).localeCompare(famName(b)); },
+        'price-asc':   function(a,b){ return a.lo-b.lo; },
+        'price-desc':  function(a,b){ return b.hi-a.hi; },
+        'weight-asc':  function(a,b){ return famWt(a,Infinity)-famWt(b,Infinity); },
+        'weight-desc': function(a,b){ return famWt(b,-Infinity)-famWt(a,-Infinity); }
+      };
+      rows.sort(ROW_SORTS[sortBy] || ROW_SORTS.random);
+      rows.forEach(function(r){ el.appendChild(r.isLone ? cardEl(r.part, {state:r.state,reason:r.reason}) : familyCardEl(r, activeGroup)); });
+      return;
+    }
+
+    var list=PARTS.filter(function(p){
+      if(!baseMatch(p)) return false;
+      // drilled into one family: scope the flat list to just its members
+      if(drillFam && (p.family||null)!==drillFam) return false;
+      // compatibleOnly hides red (would-clash) parts only — yellow still fits,
+      // it just adds a warning to check; with nothing built yet everything is
+      // state 'n' (grey), so the filter is a no-op until a build exists.
+      if(compatibleOnly && compatOf(p, res).state==='r') return false;
+      return true;
     });
     // count line above the catalog — set before the empty-state return so it
     // honestly reads "Showing 0 of N parts" when every part is filtered out
-    $('catCount').textContent = activeGroup==='completebikes'
-      ? 'Showing '+list.length+' of '+COMPLETEBIKE_COUNT+' complete bikes'
-      : 'Showing '+list.length+' of '+PARTS.length+' parts';
+    if(activeGroup==='completebikes'){
+      $('catCount').textContent = 'Showing '+list.length+' of '+COMPLETEBIKE_COUNT+' complete bikes';
+    } else if(drillFam){
+      var famCatKey = groupByKey[activeGroup].slots[0].cat;
+      var familyTotal = PARTS.filter(function(p){ return p.cat===famCatKey && p.family===drillFam; }).length;
+      $('catCount').textContent = 'Showing '+list.length+' of '+familyTotal+' sizes';
+    } else {
+      $('catCount').textContent = 'Showing '+list.length+' of '+PARTS.length+' parts';
+    }
     if(!list.length){
       // Wheelset presets are pre-built matched pairs — not every real axle combo
       // (e.g. a DH fork's 20x110 front paired with a Boost148 rear frame) ships
@@ -1842,7 +2060,7 @@
       var wheelsetEmptyHint = (compatibleOnly && activeSub==='wheelset')
         ? 'No compatible pre-built wheelsets for this build — matched pairs aren’t cataloged for every axle combo. Try “Front Wheel” / “Rear Wheel” above to build the pair from individually-compatible wheels.'
         : null;
-      el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':wheelsetEmptyHint?wheelsetEmptyHint:compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>'; return;
+      el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':wheelsetEmptyHint?wheelsetEmptyHint:drillFam?'No sizes in this family match — try adjusting filters, or use “← All '+esc(groupByKey[activeGroup].label)+'” above to browse other families.':compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>'; return;
     }
     var meta=list.map(function(p,i){ var c=compatOf(p, res); return {p:p,c:c,sh:partShuffleOrder[p.id],i:i}; });
     // "Random" is a genuine uniform shuffle (see reshuffleCatalog above) — no
@@ -2039,7 +2257,7 @@
       return false;
     }
     var rt = railTarget(target.key);
-    activeGroup = rt.group; activeSub = rt.sub; resetSubFilters(); reshuffleCatalog();
+    activeGroup = rt.group; activeSub = rt.sub; resetSubFilters(); familyDrill={}; reshuffleCatalog();
     if(rt.group==='tire') inheritTireSizeFilter();
     if(!guidedOptOut) setCompatibleOnly(true);
     renderChips(); renderSubChips(); renderSubFilters();   // the caller's sync() renders the catalog
