@@ -107,16 +107,50 @@ test('a single-speed-driver rear wheel exempts the cassette slot (integrated pat
   eq(C.slotRequired(slotByKey('cassette'), part('fr-raaw-jibb'), ssWheel), false, 'cassette not required on a single-speed driver');
 });
 
-test('cog + seatpost are their own single-slot groups (bundle-pricing hazard guard)', function(){
-  // Same buildTotals reason as bb/headset: inside a preset-bearing group their
-  // price/weight would vanish whenever that group's bundle is active.
-  ['cog','seatpost'].forEach(function(key){
-    var g = C.GROUPS.filter(function(x){ return x.key === key; })[0];
-    ok(g, key + ' group exists');
-    eq(g.slots.length, 1, key + ' is a single-slot group');
-    ok(!g.preset, key + ' group carries no preset');
-    eq(g.slots[0].cat, key, key + ' slot draws from cat ' + key);
-  });
+test('cog is its own single-slot group; Seatpost is ONE group holding the mutually-exclusive dropper + rigid slots (bundle-pricing hazard guard)', function(){
+  // Same buildTotals reason bb/headset/cog stayed their own groups: inside a
+  // preset-bearing group a slot's price/weight vanishes whenever that group's
+  // bundle is active. The unified Seatpost group (unify-seatpost, 2026-07-14)
+  // carries NO preset for the same reason, so its two post slots always sum
+  // individually — and the two slots are mutually exclusive (one physical post),
+  // so a build can hold at most one.
+  var cog = C.GROUPS.filter(function(x){ return x.key === 'cog'; })[0];
+  ok(cog, 'cog group exists');
+  eq(cog.slots.length, 1, 'cog is a single-slot group');
+  ok(!cog.preset, 'cog group carries no preset');
+  eq(cog.slots[0].cat, 'cog', 'cog slot draws from cat cog');
+
+  var sp = C.GROUPS.filter(function(x){ return x.key === 'seatpost'; })[0];
+  ok(sp, 'the Seatpost group exists');
+  ok(!sp.preset, 'Seatpost group carries no preset (both post slots sum individually)');
+  eq(sp.slots.length, 2, 'the unified Seatpost group holds two slots (dropper + rigid)');
+  /** @type {Object.<string, any>} */ var byKey = {}; sp.slots.forEach(function(s){ byKey[s.key] = s; });
+  ok(byKey.dropper && byKey.dropper.cat === 'dropper', 'a Dropper slot (cat dropper)');
+  ok(byKey.seatpost && byKey.seatpost.cat === 'seatpost', 'a Rigid slot (cat seatpost)');
+  // mutually exclusive: each excludes the other (one physical post position)
+  eq(byKey.dropper.excludes.indexOf('seatpost') >= 0, true, 'dropper excludes the rigid seatpost');
+  eq(byKey.seatpost.excludes.indexOf('dropper') >= 0, true, 'rigid seatpost excludes the dropper');
+  // both keys survive as real slots — share links, completeness and rules
+  // 13/13c all key on them; nothing may drop out of the SLOTS set.
+  eq(C.SLOTS.filter(function(s){ return s.key==='dropper'; }).length, 1, 'dropper is still a real slot');
+  eq(C.SLOTS.filter(function(s){ return s.key==='seatpost'; }).length, 1, 'seatpost is still a real slot');
+});
+
+/* ---- 2b. defaultSeatpostCat: which post the unified rail opens on ---------- */
+
+test('defaultSeatpostCat: dropper for trail/enduro/no-frame, rigid for DH + DJ, overridable per frame', function(){
+  // Most bikes default to the dropper...
+  eq(C.defaultSeatpostCat(null), 'dropper', 'no frame => dropper (the universal default)');
+  eq(C.defaultSeatpostCat(part('fr-santacruz-megatower-cc')), 'dropper', 'an enduro frame defaults to dropper');
+  eq(C.defaultSeatpostCat(part('fr-specialized-stumpjumper-15')), 'dropper', 'a trail frame defaults to dropper');
+  // ...gravity frames (DH + DJ disciplines) default to the rigid post.
+  eq(C.defaultSeatpostCat(part('fr-commencal-supreme-dh-v5')), 'seatpost', 'a DH frame defaults to rigid');
+  eq(C.defaultSeatpostCat(part('fr-dmr-sect')), 'seatpost', 'a DJ frame defaults to rigid');
+  // The optional per-frame override flips the discipline heuristic either way.
+  var dhAsDropper = /** @type {any} */ (Object.assign({}, part('fr-commencal-supreme-dh-v5'), { defaultSeatpost:'dropper' }));
+  eq(C.defaultSeatpostCat(dhAsDropper), 'dropper', 'defaultSeatpost:dropper overrides a DH frame back to dropper');
+  var trailAsRigid = /** @type {any} */ (Object.assign({}, part('fr-santacruz-megatower-cc'), { defaultSeatpost:'rigid' }));
+  eq(C.defaultSeatpostCat(trailAsRigid), 'seatpost', 'defaultSeatpost:rigid overrides a trail frame to rigid');
 });
 
 /* ---- 3. Rule ss-chain-width (DJ-1) — fires when tripped, silent without --- */

@@ -152,13 +152,23 @@ var GROUPS = [
      Optional slot: completeness unchanged - frames often SHIP with a headset,
      so rule 20c only nudges (info), it never blocks. */
   { key:'headset', label:'Headset', icon:'H', slots:[ {key:'headset', label:'Headset', cat:'headset', optional:true} ] },
-  { key:'dropper', label:'Dropper Post', icon:'P', slots:[ {key:'dropper', label:'Dropper Post', cat:'dropper'} ] },
-  /* Rigid seatpost (DJ go-live, 2026-07-14): the single-speed counterpart of the
-     dropper group - a driveMode:'single-speed' frame drops the dropper slot and
-     requires this one instead (slotRequired). Not optional and not altOf: for
-     geared frames (and the no-frame default) it is simply never required, so
-     live MTB completeness is unchanged. Rule 13c checks its diameter. */
-  { key:'seatpost', label:'Seatpost', icon:'R', slots:[ {key:'seatpost', label:'Seatpost (rigid)', cat:'seatpost'} ] },
+  /* Seatpost — ONE rail category holding BOTH post types as sub-chips (Douglas
+     2026-07-14, unify-seatpost): a Dropper slot (cat 'dropper') and a Rigid slot
+     (cat 'seatpost'). They are ONE physical post position, so the two slots are
+     MUTUALLY EXCLUSIVE (`excludes`): picking one clears the other in setSlot, and
+     sanitizeShare drops the non-default one if a legacy/crafted link carries both
+     — so buildTotals can never double-count a dropper AND a rigid post. The group
+     carries NO preset, so both slots always sum individually (the same
+     buildTotals reason bb/headset/cog stayed their own groups: nothing to vanish
+     behind a bundle). Requiredness is unchanged and stays in slotRequired():
+     dropper is the geared default (dropped on a DH-discipline frame and on
+     single-speed), the rigid post is required only on a driveMode:'single-speed'
+     frame. Which sub-chip a frame OPENS ON is defaultSeatpostCat() (UI + the
+     sanitizeShare tie-break); rules 13 (dropper diameter) and 13c (rigid
+     diameter) each still fire on whichever post is picked. */
+  { key:'seatpost', label:'Seatpost', icon:'P', slots:[
+      {key:'dropper',  label:'Dropper Post',     cat:'dropper',  excludes:['seatpost']},
+      {key:'seatpost', label:'Seatpost (rigid)', cat:'seatpost', excludes:['dropper']} ] },
   { key:'cockpit', label:'Cockpit', icon:'C', preset:{cat:'cockpitset', label:'cockpit'}, slots:[
       {key:'handlebar', label:'Handlebar', cat:'handlebar'},
       {key:'stem', label:'Stem', cat:'stem'},
@@ -219,6 +229,24 @@ function wheelPositionFilled(build, primaryKey){
   if(build[primaryKey]) return true;
   var alts = altSlotsOf(primaryKey);
   return alts.length>0 && alts.every(function(k){ return !!build[k]; });
+}
+
+/* Which seatpost sub-category a frame OPENS ON in the unified Seatpost rail —
+   and the tie-break sanitizeShare uses when a legacy/crafted build carries both
+   a dropper AND a rigid post. Dropper for most bikes; the RIGID post for gravity
+   frames (DH / DJ disciplines), where a slammed rigid post is the norm. An
+   explicit frame.defaultSeatpost ('dropper' | 'rigid') overrides the discipline
+   heuristic for the "few excluded" edge cases. Returns a CAT / slot key
+   ('dropper' | 'seatpost'). UI + tie-break ONLY — never a fit verdict, never a
+   completeness driver (that stays in slotRequired()). No frame = 'dropper'. */
+/** @param {Part|null|undefined} frame @returns {'dropper'|'seatpost'} */
+function defaultSeatpostCat(frame){
+  if(frame && frame.cat === 'frame'){
+    if(frame.defaultSeatpost) return frame.defaultSeatpost === 'rigid' ? 'seatpost' : 'dropper';
+    var d = frame.disciplines || [];
+    if(d.indexOf('dh') >= 0 || d.indexOf('dj') >= 0) return 'seatpost';
+  }
+  return 'dropper';
 }
 
 /* ---- SEED catalog (price USD sample, weight grams sample) ---------------- */
@@ -7189,6 +7217,15 @@ function sanitizeShare(bsrc, psrc){
     for(var i = 0; i < GROUPS.length; i++){ if(GROUPS[i].key === k){ g = GROUPS[i]; break; } }
     if(typeof id === 'string' && g && g.preset && p && p.cat === g.preset.cat) presetBy[k] = id;
   });
+  /* Seatpost mutex (ONE physical post): unify-seatpost made the dropper + rigid
+     slots mutually exclusive, but a link minted BEFORE the unification — or a
+     hand-edited one — can still carry both (they used to be independent slots).
+     Keep the one the frame defaults to (defaultSeatpostCat) and drop the other,
+     so a loaded build never double-counts a dropper AND a rigid post. */
+  if(build.dropper && build.seatpost){
+    var keep = defaultSeatpostCat(build.frame ? byId(build.frame) : null);
+    delete build[keep === 'dropper' ? 'seatpost' : 'dropper'];
+  }
   return { build: build, presetBy: presetBy };
 }
 
@@ -7207,7 +7244,7 @@ function partVerified(p){
 /* ---- Export for Node tests (ignored by the browser) ---------------------- */
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { PARTS:PARTS, GROUPS:GROUPS, SLOTS:SLOTS, LABELS:LABELS, WHEEL_CONFIG:WHEEL_CONFIG, slotRequired:slotRequired,
-    altSlotsOf:altSlotsOf, wheelPositionFilled:wheelPositionFilled, effectiveWheel:effectiveWheel,
+    altSlotsOf:altSlotsOf, wheelPositionFilled:wheelPositionFilled, defaultSeatpostCat:defaultSeatpostCat, effectiveWheel:effectiveWheel,
     ALIASES:ALIASES, canonicalId:canonicalId,
     byId:byId, nameOf:nameOf, specSummary:specSummary, checkBuild:checkBuild, Verdict:Verdict, verdictKey:verdictKey,   // Verdict exported for src/compat-bmx.js - both engines share the verdict primitives, never copy them
     placementDiff:placementDiff, conflictReason:conflictReason, compatOf:compatOf, bundleActive:bundleActive, buildTotals:buildTotals,

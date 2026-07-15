@@ -236,6 +236,14 @@ var VOCAB = {
      e-bike is an orthogonal later flag, not a discipline. */
   discipline:   ['xc', 'trail', 'enduro', 'dh', 'dj'],   // 'dj' = dirt jump (2026-07-13, DJ pass) - annotation only, like every discipline value
   suspension:   ['full', 'hardtail'],
+  /* seatpostDefault (unify-seatpost, 2026-07-14): the OPTIONAL per-frame override
+     for which post the unified Seatpost rail opens on. Absent = the discipline
+     heuristic (defaultSeatpostCat in compat.js): dropper for most bikes, rigid
+     for DH/DJ frames. Set it only for the "few excluded" edge cases that break
+     from their discipline's norm. UI + share-link tie-break ONLY — NEVER feeds
+     checkBuild or completeness (slotRequired), same annotation contract as
+     disciplines/material. */
+  seatpostDefault: ['dropper', 'rigid'],
   /* ---- Single-speed / dirt-jump vocab (2026-07-13, Douglas's DJ/BMX
      architecture sign-off - data/DJ-BMX-COMPAT-ANALYSIS.md sections 1c + 4-DJ).
      driveMode: the MECHANICAL drivetrain discriminator (decision 2026-07-13:
@@ -323,6 +331,10 @@ var SCHEMA = {
        ss-tension info when 'vertical' AND the frame is single-speed. */
     driveMode:{type:'string',vocab:'driveMode',optional:true},
     dropoutType:{type:'string',vocab:'dropoutType',optional:true},
+    /* defaultSeatpost (unify-seatpost, 2026-07-14): optional per-frame override
+       for the unified Seatpost rail's default sub-chip - see the seatpostDefault
+       VOCAB note. Dormant until set; the discipline heuristic covers DH/DJ. */
+    defaultSeatpost:{type:'string',vocab:'seatpostDefault',optional:true},
     udh:{type:'bool'}, udhRetrofitKit:{type:'string',optional:true}, frameOnly:{type:'bool'}, maxTire:{type:'number',optional:true},
     headTubeUpper:{type:'string',vocab:'headTube',optional:true}, headTubeLower:{type:'string',vocab:'headTube',optional:true},
     /* material (Douglas 2026-07-14): the frame's construction material - a

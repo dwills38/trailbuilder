@@ -1302,6 +1302,10 @@
     bb: '<circle cx="10" cy="24" r="7"/><circle cx="38" cy="24" r="7"/><circle cx="10" cy="24" r="2.6"/><circle cx="38" cy="24" r="2.6"/><path d="M13,20 L35,20 M13,28 L35,28"/>',
     headset: '<path d="M24,3 L24,45"/><rect x="14" y="10" width="20" height="7" rx="1.5"/><rect x="11" y="31" width="26" height="7" rx="1.5"/>',
     dropper: '<ellipse cx="24" cy="8" rx="11" ry="3.2"/><path d="M24,11 L24,40 M17,26 L31,26"/>',
+    // unify-seatpost: the Seatpost rail group's thumbnail (CAT_GROUP maps both
+    // 'dropper' and 'seatpost' cats here) — a post + saddle-rail clamp, same
+    // family as the dropper glyph so both post types read as one category.
+    seatpost: '<ellipse cx="24" cy="8" rx="11" ry="3.2"/><path d="M24,11 L24,40 M17,26 L31,26"/>',
     cockpit: '<path d="M6,13 L42,13 M24,13 L24,30 M16,30 L32,30 L24,40 Z"/>',
     saddle: '<path d="M9,29 Q9,17 24,15 Q39,17 39,25 Q39,31 30,33 L15,33 Q9,32 9,29 Z M17,33 L17,40 M31,33 L31,40"/>',
     pedals: '<rect x="9" y="20" width="30" height="8" rx="2"/><circle cx="24" cy="24" r="3"/><path d="M13,20 L13,16 M19,20 L19,16 M29,20 L29,16 M35,20 L35,16"/>'
@@ -1420,6 +1424,13 @@
     });
     nudgeActiveChip(el);
   }
+  /* unify-seatpost: which sub-chip a group OPENS ON. The merged Seatpost group
+     opens on the current frame's default post type — dropper for most bikes,
+     rigid for DH/DJ frames, or a per-frame defaultSeatpost override
+     (defaultSeatpostCat, compat.js). Every other group opens on 'all'. */
+  function defaultSubFor(groupKey){
+    return groupKey==='seatpost' ? defaultSeatpostCat(resolved().frame) : 'all';
+  }
   // chips are <button>s (not divs) so they're keyboard-focusable and Enter/Space-
   // activatable for free; aria-pressed marks which one is active in the group.
   function mkChip(key,label){
@@ -1428,7 +1439,7 @@
     d.className='chip'+(activeGroup===key?' active':'');
     d.setAttribute('aria-pressed', activeGroup===key ? 'true' : 'false');
     d.textContent=label;
-    d.onclick=function(){ activeGroup=key; activeSub='all'; resetSubFilters(); reshuffleCatalog(); if(key==='tire') inheritTireSizeFilter(); renderChips(); renderSubChips(); renderSubFilters(); renderCatalog(); };
+    d.onclick=function(){ activeGroup=key; activeSub=defaultSubFor(key); resetSubFilters(); reshuffleCatalog(); if(key==='tire') inheritTireSizeFilter(); renderChips(); renderSubChips(); renderSubFilters(); renderCatalog(); };
     return d;
   }
 
@@ -1447,7 +1458,12 @@
   };
   var SUBCHIP_META = {};   // flat lookup: chip key -> {key,label,match}
   Object.keys(SUBCHIP_SPLIT).forEach(function(cat){ SUBCHIP_SPLIT[cat].forEach(function(e){ SUBCHIP_META[e.key]=e; }); });
-  var subChipLabel = function(key){ return SUBCHIP_META[key] ? SUBCHIP_META[key].label : catLabel(key); };
+  /* unify-seatpost: the merged Seatpost group's two cats surface as sub-chips
+     reading "Dropper" / "Rigid". Only the rigid cat needs an override — the
+     card kind-tag keeps the plain catLabel ("Seatpost"). Dropper is already
+     "Dropper" via catLabel. */
+  var SUBCHIP_LABEL_OVERRIDE = { seatpost:'Rigid' };
+  var subChipLabel = function(key){ return SUBCHIP_META[key] ? SUBCHIP_META[key].label : (SUBCHIP_LABEL_OVERRIDE[key] || catLabel(key)); };
   /* The card/list "kind" tag above a product name. For a preset category that
      SPLITS (SUBCHIP_SPLIT), show the matching facet label ("Groupset · Full" /
      "Groupset · Assembled") so a row reads the SAME split its sub-filter chip
@@ -1591,12 +1607,15 @@
       values:function(){ return inOrder(distinctVals(byCat('shock'), function(p){ return p.spring; }), ['coil','air']); },
       label:function(v){ return SPRING_LABEL[v] || v; },
       match:function(p,v){ return p.cat!=='shock' || p.spring===v; } },
-    { id:'dropperDiameter', groups:['dropper'], allLabel:'All diameters',
+    /* unify-seatpost: these two axes surface under the merged 'seatpost' rail
+       group (dropper + rigid). Out-of-scope parts (a rigid post carries no
+       drop) pass — match() returns true when p.cat!=='dropper'. */
+    { id:'dropperDiameter', groups:['seatpost'], allLabel:'All diameters',
       aria:'Filter dropper posts by diameter',
       values:function(){ return distinctVals(byCat('dropper'), function(p){ return p.diameter; }).sort(numAsc); },
       label:function(v){ return v+' mm'; },
       match:function(p,v){ return p.cat!=='dropper' || p.diameter===v; } },
-    { id:'dropperDrop', groups:['dropper'], allLabel:'All travel',
+    { id:'dropperDrop', groups:['seatpost'], allLabel:'All travel',
       aria:'Filter dropper posts by travel (drop)',
       values:function(){ return distinctVals(byCat('dropper'), function(p){ return p.drop; }).sort(numAsc); },
       label:function(v){ return v+' mm'; },
@@ -1866,7 +1885,7 @@
       toast('All required parts chosen — 📋 View complete build has the summary and verdict.');
       return false;
     }
-    activeGroup = target.key; activeSub = 'all'; resetSubFilters(); reshuffleCatalog();
+    activeGroup = target.key; activeSub = defaultSubFor(target.key); resetSubFilters(); reshuffleCatalog();
     if(target.key==='tire') inheritTireSizeFilter();
     if(!guidedOptOut) setCompatibleOnly(true);
     renderChips(); renderSubChips(); renderSubFilters();   // the caller's sync() renders the catalog
@@ -1892,6 +1911,10 @@
       var slotDef = SLOTS.filter(function(s){ return s.key===slotKey; })[0];
       if(slotDef && slotDef.altOf) delete build[slotDef.altOf];
       else altSlotsOf(slotKey).forEach(function(k){ delete build[k]; });
+      // unify-seatpost mutual exclusion: picking a dropper clears the rigid
+      // seatpost and vice-versa (Slot.excludes) — ONE physical post position, so
+      // buildTotals never sums both. Symmetric, declared on both slots.
+      if(slotDef && slotDef.excludes) slotDef.excludes.forEach(function(k){ delete build[k]; });
     }
     var advanced = partId ? guidedAdvance(slotKey, wasComplete) : false;   // before sync() so the catalog paints once, on the final group+filter
     sync();

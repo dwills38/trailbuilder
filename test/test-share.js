@@ -58,6 +58,36 @@ test('null/undefined payloads yield an empty result, not a crash', function(){
   eq(Object.keys(out.presetBy).length, 0);
 });
 
+/* ---- unify-seatpost back-compat: the dropper + rigid slot keys are unchanged,
+   so links minted before the two categories were unified still load. A link may
+   even carry BOTH (they used to be independent slots); the mutex keeps one. --- */
+test('an old share link with a dropper still loads (slot key unchanged)', function(){
+  var out = C.sanitizeShare({ frame:'fr-santacruz-megatower-cc', dropper:'dp-oneup-v3-316-210' }, {});
+  eq(out.build.dropper, 'dp-oneup-v3-316-210', 'the dropper loads into the dropper slot');
+  ok(!('seatpost' in out.build), 'no phantom rigid post appears');
+});
+test('an old share link with a rigid seatpost still loads (slot key unchanged)', function(){
+  var out = C.sanitizeShare({ frame:'fr-dmr-sect', seatpost:'sp-thomson-elite-272' }, {});
+  eq(out.build.seatpost, 'sp-thomson-elite-272', 'the rigid post loads into the seatpost slot');
+  ok(!('dropper' in out.build), 'no phantom dropper appears');
+});
+test('a link carrying BOTH a dropper and a rigid post keeps exactly one — never double-counted', function(){
+  // Geared/enduro frame => the dropper is the default, so the rigid post is dropped.
+  var enduro = C.sanitizeShare({ frame:'fr-santacruz-megatower-cc', dropper:'dp-oneup-v3-316-210', seatpost:'sp-thomson-elite-272' }, {});
+  eq(!!enduro.build.dropper !== !!enduro.build.seatpost, true, 'exactly one seatpost slot survives on the enduro frame');
+  eq(enduro.build.dropper, 'dp-oneup-v3-316-210', 'the enduro frame keeps the dropper (its default)');
+  ok(!('seatpost' in enduro.build), 'the rigid post is dropped');
+  // DJ frame => the rigid post is the default, so the dropper is dropped.
+  var dj = C.sanitizeShare({ frame:'fr-dmr-sect', dropper:'dp-oneup-v3-316-210', seatpost:'sp-thomson-elite-272' }, {});
+  eq(!!dj.build.dropper !== !!dj.build.seatpost, true, 'exactly one seatpost slot survives on the DJ frame');
+  eq(dj.build.seatpost, 'sp-thomson-elite-272', 'the DJ frame keeps the rigid post (its default)');
+  ok(!('dropper' in dj.build), 'the dropper is dropped');
+  // No frame => the dropper is the universal default.
+  var bare = C.sanitizeShare({ dropper:'dp-oneup-v3-316-210', seatpost:'sp-thomson-elite-272' }, {});
+  eq(bare.build.dropper, 'dp-oneup-v3-316-210', 'with no frame the dropper (universal default) is kept');
+  ok(!('seatpost' in bare.build), 'the rigid post is dropped when no frame is present');
+});
+
 /* ---- the preset-group guard (REVIEW.md #25, was already in the app) ------ */
 test('a preset only loads into the group it belongs to', function(){
   var out = C.sanitizeShare({}, {

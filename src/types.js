@@ -120,6 +120,7 @@
  * @property {boolean} [coilApproved]  false = maker states NOT coil-compatible (absence = unknown)
  * @property {DriveMode} [driveMode]  absence = geared; 'single-speed' drops the geared-drivetrain + brake slots from slotRequired (2026-07-13 DJ pass)
  * @property {DropoutType} [dropoutType]  single-speed chain-tensioning style; 'vertical' + single-speed => ss-tension info (dormant until sourced)
+ * @property {'dropper'|'rigid'} [defaultSeatpost]  unify-seatpost override for the Seatpost rail's default sub-chip; absent = discipline heuristic (defaultSeatpostCat). UI/tie-break ONLY — never feeds checkBuild or completeness
  * @property {boolean} udh
  * @property {string} [udhRetrofitKit]  maker-documented UDH retrofit kit name (rule 4 warns with a structured fix instead of erroring; dormant until sourced)
  * @property {boolean} frameOnly
@@ -210,6 +211,10 @@
  *   the named slot key instead of being independently required (e.g.
  *   frontHub/frontRim are an altOf:'frontWheel' pair) - see slotRequired()
  *   and wheelPositionFilled() in compat.js.
+ * @property {string[]} [excludes] peer slot keys this slot is MUTUALLY
+ *   EXCLUSIVE with (the unified Seatpost group's dropper<->seatpost pair):
+ *   picking this slot clears its peers in setSlot, and sanitizeShare drops the
+ *   non-default peer if a legacy build carries both — one physical position.
  */
 
 /** The wheel-shaped view checkBuild's rules read, whether it came from a
