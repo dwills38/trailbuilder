@@ -19,12 +19,27 @@
   MSRP), maps to the existing preset/buildTotals machinery; decisions await Douglas. NOTE: seat was
   briefly stale (own-it auto-shipped after last sync) → rebased the sort/gxaxs commits onto it.
   5 sessions archived + branches/worktrees pruned. CI green throughout.
-- **STILL STAGED (this evening's remaining harvest):** `ui/wheel-tire-autofilter` (mullet review),
-  `fix/spec-card-image` (eyeball the screenshot — Douglas-flagged garbled BRAKES row), `feat/unify-
-  seatpost` (STRUCTURAL engine/model — review+audit), the **kit line** (foundation + redesign +
-  12 deepened grinds — DONE, staged for Douglas's localhost preview at :8127, merge order
-  foundation→redesign→grinds with MTB-only scrub), `feat/builds-gallery` (awaiting sign-off). The
-  index.html branches need sequential conflict-resolution against the now-landed sort/own-it.
+- **HARVEST WAVE 2 — all remaining code branches landed.** (6) **Drivetrain-above-Wheels rail
+  reorder** (`34141d8`, Douglas-confirmed live — I held it for his OK since the request came via a
+  worker session, not directly; GROUPS order is UI-only, harness byte-identical). (7) **Spec-card
+  collision fix** (`0d5cef6`) — root cause was a stateful row counter overflowing at 13+ filled
+  slots (bb+headset), redrawing the 13th group atop BRAKES; rewrote to filter-filled-first + unique
+  row index + dynamic height + front/rear name dedupe. (8) **Wheel→tire auto-select** (`0d5cef6`,
+  same commit) — matched sizes pre-select (29→29), mullet safely falls back to "all" (one shared
+  size filter; flagged a front/rear split as a possible follow-up). (9) **Seatpost unification**
+  (`8a8416b`) — one "Seatpost" rail group, Dropper/Rigid sub-chips, TWO slots with declarative mutex
+  (wheel-group altOf precedent → no double-count, ZERO migration, rules 13/13c untouched, old links
+  load, harness byte-identical); dropper default, DH/DJ rigid, per-frame override field unset.
+  index.html conflicts at the two activeGroup handlers resolved field-level each time (sort's
+  reshuffle + tire inherit + defaultSubFor all kept). CI+Deploy green on every push. **NOTE:** seat
+  went stale twice tonight (own-it auto-ship) — rebase/field-merge handled it; the recurring
+  activeGroup-handler conflict is the hot line, resolve by stacking all three behaviors.
+- **STILL GATED ON DOUGLAS (only remaining open work):** the **kit line** (foundation + redesign +
+  12 deepened grinds — all DONE, staged for his localhost preview at :8127; merge order
+  foundation→redesign→grinds with the MTB-only scrub, after his OK) and `feat/builds-gallery`
+  (awaiting sign-off). Their sessions stay open until the kit line merges (avoids a pile of archive
+  prompts). Everything else is merged + swept. Also awaiting Douglas: complete-bikes decisions,
+  fork/shock per-size-shock design, Atherton, and the optional GX-AXS "why hidden" UX hint.
 
 - **KIT BUILDER kicked off — decisions locked + build/grind chip spawned.** Douglas made all 9
   scope calls (recorded in `KIT-BUILDER-SCOPE.md` §Decisions). Two overrides from the scope's
