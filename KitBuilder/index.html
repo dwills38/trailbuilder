@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kit Builder — BuildMyMTB</title>
+<meta name="description" content="Build a rider kit — helmets, shoes, apparel, and protection — with a running price and weight. Every piece is optional. A free prototype." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Kit Builder — BuildMyMTB" />
+<meta property="og:description" content="Build a rider kit — helmets, shoes, apparel, and protection — with a running price and weight." />
+<meta property="og:url" content="https://buildmymtb.com/KitBuilder/" />
+<meta property="og:site_name" content="BuildMyMTB" />
+<link rel="canonical" href="https://buildmymtb.com/KitBuilder/" />
+<meta name="theme-color" id="metaThemeColor" content="#16523a" />
+<!--
+  Kit Builder — a SEPARATE page (Douglas's architecture decision, KIT-BUILDER-SCOPE.md).
+  Shares src/ with the bike builder via ../src relative paths (works on GitHub Pages,
+  localhost, and file://). It loads ONLY ../src/config.js (the KIT_ENABLED gate) and
+  ../src/kit.js (the kit data + totals) — NOT compat.js: kit checks nothing, so it
+  never needs the bike engine. No pop-ups, ever (hard rule 2): the size chart opens on
+  a user click (a <details>), never automatically. Theme is shared via the same
+  localStorage 'tb-theme' key + pre-paint script as index.html.
+
+  LAYOUT (2026-07-14 redesign): mirrors the Bike Builder's three-pane UX — a LEFT rail
+  (discipline + the 12 kit categories, text-only like the bike rail), a CENTER list of
+  product ROWS for the selected category, and a RIGHT panel with the selected kit +
+  running Kit total. The shared layout primitives (.layout/.chips/#rail/.pcard list
+  rows/.side/.panel/.slot/.total) are REPLICATED verbatim from index.html so the two
+  builders read as one product; index.html is left byte-identical (kit checks nothing,
+  so it must not perturb the bike engine or the bike page). Kit rows carry NO compat
+  dot — the four-state pick dot is a bike-only concept.
+-->
+<style>
+  /* ---- theme tokens (mirrored from index.html so both pages read identically in
+     light / dark / loam / rad; the shared 'tb-theme' key means a theme picked on
+     either page carries to the other) ------------------------------------------ */
+  :root{
+    --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
+    --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
+    --ok:#166534; --ok-bg:#e7f5ec; --warn:#92400e; --warn-bg:#fdf3e1;
+    --err:#c23b3b; --err-bg:#fbeaea; --chip:#eef1ec;
+    --hdr-bg:#123f2b; --hdr-topo:rgba(255,255,255,.11);
+  }
+  html.dark{
+    color-scheme:dark;
+    --ink:#e6ebe7; --ink-soft:#a8b3ab; --line:#3a423d; --bg:#161a18;
+    --card:#1f2522; --brand:#1f6f4a; --brand-d:#123f2b; --accent:#e0703c;
+    --ok:#7fd6a2; --ok-bg:#17301f; --warn:#e8b25c; --warn-bg:#33270f;
+    --err:#e57575; --err-bg:#331717; --chip:#262d29;
+    --hdr-bg:#0c2b1c; --hdr-topo:rgba(255,255,255,.09);
+  }
+  html.loam{
+    color-scheme:dark;
+    --ink:#f2e8d8; --ink-soft:#c2ad92; --line:#3c2e22; --bg:#1a1310;
+    --card:#241a13; --brand:#2f7048; --brand-d:#1e4a30; --accent:#e2a94a;
+    --ok:#84cf97; --ok-bg:#16301d; --warn:#e6b45c; --warn-bg:#33270f;
+    --err:#e88b7b; --err-bg:#331a14; --chip:#30241a;
+    --hdr-bg:#14301f; --hdr-topo:rgba(242,232,216,.11);
+  }
+  html.rad{
+    --ink:#f4eaff; --ink-soft:#c9a6ff; --line:#ff2fd0; --bg:#150029;
+    --card:#22093f; --brand:#ff2fd0; --brand-d:#a3007f; --accent:#00e5ff;
+    --ok:#39ff14; --ok-bg:#0a2e12; --warn:#ffe600; --warn-bg:#332b00;
+    --err:#ff2020; --err-bg:#330000; --chip:#3a1466;
+    --hdr-bg:#22093f; --hdr-topo:rgba(255,255,255,.14);
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.45}
+
+  /* header — the Topo Contours banner, identical to index.html */
+  header{background:var(--hdr-bg);color:#fff;padding:10px 24px;position:sticky;top:0;z-index:40}
+  .hdr-topo{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+  html.rad .hdr-topo{display:none}
+  html.rad header{background:repeating-conic-gradient(#000 0% 25%,#ff2fd0 0% 50%) 50% / 34px 34px;
+    box-shadow:inset 0 0 0 999px rgba(21,0,41,.72)}
+  html.rad header h1{font-family:Impact,"Arial Black","Segoe UI Black",sans-serif;
+    letter-spacing:.5px;text-shadow:0 0 6px var(--accent),0 0 14px var(--brand)}
+  header .wrap{max-width:1380px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  header h1{margin:0;font-size:19px;white-space:nowrap}
+  header h1 a{color:inherit;text-decoration:none}
+  .page-tag{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;
+    font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;white-space:nowrap}
+  header .spacer{flex:1 1 auto}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:9px 13px;border-radius:10px;
+    font-size:13px;cursor:pointer;font-weight:600;font-family:inherit;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+  .btn:hover{border-color:#c7ccc6}
+  html.dark .btn:hover{border-color:#4d5750} html.loam .btn:hover{border-color:#5a4636}
+  .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  html.rad .btn.primary{background:linear-gradient(90deg,var(--brand),var(--accent));border-color:transparent;color:#150029;font-weight:800}
+  .btn.ghost{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.4);color:#fff}
+  .btn.ghost:hover{background:rgba(255,255,255,.18)}
+  .btn.danger{border-color:var(--err);color:var(--err);background:var(--card)}
+  .btn.danger:hover{border-color:var(--err);background:var(--err-bg)}
+  /* theme dropdown (compact, mirrors index.html's disclosure pattern) */
+  .theme-menu{position:relative;display:inline-block}
+  .theme-menu summary{list-style:none;cursor:pointer}
+  .theme-menu summary::-webkit-details-marker{display:none}
+  .theme-pop{position:absolute;right:0;top:calc(100% + 6px);background:var(--card);border:1px solid var(--line);
+    border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.18);padding:6px;display:flex;flex-direction:column;gap:4px;min-width:172px;z-index:80}
+  .theme-pop .btn{width:100%;text-align:left;border-color:transparent;background:none;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .theme-pop .btn:hover{background:var(--chip)}
+  .theme-pop .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  .theme-pop .btn.primary::after{content:"✓";margin-left:auto;font-weight:800}
+
+  .honesty-strip{background:#10271b;color:#cfe8d8;font-size:12px;padding:6px 12px;text-align:center}
+  html.dark .honesty-strip{background:#0b1d13}
+  html.loam .honesty-strip{background:#140d08}
+  html.rad .honesty-strip{background:#1c0836}
+  .honesty-strip .badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:3px 9px;border-radius:999px}
+
+  main{max-width:1380px;margin:0 auto;padding:18px 24px 80px}
+  .intro{margin:2px 0 14px}
+  .intro h2{margin:0 0 4px;font-size:22px}
+  .intro p{margin:0;color:var(--ink-soft);font-size:14px;max-width:74ch}
+
+  /* ===== shared layout primitives — REPLICATED from index.html for visual parity.
+     Kept deliberately in sync with the Bike Builder; index.html is untouched. ===== */
+  .toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:14px 0 12px}
+  .toolbar .grow{flex:1 1 auto}
+  .btn[aria-pressed="true"],.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  html.rad .btn[aria-pressed="true"]{background:linear-gradient(90deg,var(--brand),var(--accent));border-color:transparent;color:#150029}
+
+  .layout{display:grid;grid-template-columns:210px minmax(0,1fr) 330px;gap:20px;align-items:start}
+  .layout > *{min-width:0}
+
+  /* left rail — discipline + the 12 kit categories (text-only, like the bike rail) */
+  #rail{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;align-self:start;
+    position:sticky;top:calc(var(--hdr-h,116px) + 10px);max-height:calc(100vh - var(--hdr-h,116px) - 24px);overflow:auto}
+  .rail-h{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft);font-weight:800;margin:16px 0 6px}
+  .rail-h:first-child{margin-top:0}
+  .rail-sub{font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink-soft);font-weight:700;opacity:.75;margin:8px 0 3px 2px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+  .chip{background:var(--chip);border:1px solid transparent;border-radius:999px;padding:7px 13px;font-size:13px;
+    cursor:pointer;color:var(--ink-soft);font-weight:600;font-family:inherit}
+  .chip:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  .chip.active{background:var(--ink);color:var(--card)}
+  html.rad .chip.active{background:var(--brand);color:#150029}
+  #rail .chips{flex-direction:column;align-items:stretch;gap:2px;margin-bottom:4px}
+  #rail .chip{display:flex;justify-content:flex-start;border-radius:9px;background:none;text-align:left}
+  #rail .chip:hover{background:var(--chip)}
+  #rail .chip.active{background:var(--ink);color:var(--card)}
+  html.rad #rail .chip.active{background:var(--brand);color:#150029}
+  #rail .chip .c-count{margin-left:auto;font-size:11px;font-weight:700;color:var(--ink-soft);opacity:.8}
+  #rail .chip.active .c-count{color:inherit;opacity:.85}
+
+  /* catalog column head: count line + view toggle + sort */
+  .cat-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+  .cat-title{font-size:17px;font-weight:800;margin:0}
+  .cat-tools{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .catcount{margin:0;color:var(--ink-soft);font-size:12px}
+  .viewseg{display:inline-flex}
+  .viewseg .btn:first-child{border-radius:10px 0 0 10px}
+  .viewseg .btn:last-child{border-radius:0 10px 10px 0;margin-left:-1px}
+  select.btn{padding-right:8px}
+
+  /* product cards + the dense list rows — SAME DOM in both views (like index.html) */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:12px;min-width:0}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px;display:flex;
+    flex-direction:column;gap:6px;position:relative;min-width:0}
+  html.rad .pcard{box-shadow:0 0 0 1px var(--line)}
+  .pcard.selected{border-color:var(--brand);box-shadow:0 0 0 2px rgba(31,111,74,.16)}
+  html.rad .pcard.selected{box-shadow:0 0 0 2px var(--accent),0 0 16px rgba(0,229,255,.5)}
+  .pcard .kind{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--brand);font-weight:700}
+  .pcard .name{font-weight:700;font-size:14px}
+  .pcard .spec{font-size:12px;color:var(--ink-soft);min-height:16px}
+  .kbadges{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+  .badge{font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:999px;border:1px solid var(--line);
+    background:var(--chip);color:var(--ink-soft);white-space:nowrap}
+  .badge.rot{background:var(--ok-bg);color:var(--ok);border-color:rgba(31,138,76,.25)}
+  .badge.cert{background:var(--warn-bg);color:var(--warn);border-color:rgba(146,64,14,.25)}
+  .badge.sz{background:var(--chip);color:var(--ink-soft);font-weight:600}
+  .prov{font-size:11px;min-height:16px}
+  .prov .ver{display:inline-flex;align-items:center;gap:3px;background:var(--ok-bg);color:var(--ok);
+    font-weight:700;padding:1px 7px;border-radius:999px;text-decoration:none;border:1px solid rgba(31,138,76,.25)}
+  .prov a.ver:hover{text-decoration:underline}
+  .prov .est{color:var(--ink-soft);font-weight:600}
+  .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:2px}
+  .price{font-weight:700;font-size:13px;white-space:nowrap}
+  .price .wt{color:var(--ink-soft);font-weight:500;font-size:11px;margin-left:5px}
+  .picks{display:flex;gap:6px}
+  .pick{border:1px solid var(--brand);color:var(--brand);background:var(--card);border-radius:8px;padding:6px 10px;
+    font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap}
+  .pick:hover{background:var(--ok-bg)}
+  html.dark .pick,html.loam .pick{color:var(--ok)}
+  .pick.in{background:var(--brand);color:#fff;border-color:var(--brand)}
+  /* the theme-wide .pick recolor above outranks .pick.in (same/higher specificity) and
+     erased the filled in-kit text — restore white on brand (dark/loam) and dark on the
+     bright rad brand, the exact specificity trap index.html documents for its .pick. */
+  html.dark .pick.in,html.loam .pick.in{color:#fff}
+  html.rad .pick.in{color:#150029}
+  /* size chart — opens on CLICK only (a <details>), never a pop-up */
+  details.chart{margin-top:2px}
+  details.chart > summary{list-style:none;cursor:pointer;font-size:11px;color:var(--brand);font-weight:700}
+  details.chart > summary::-webkit-details-marker{display:none}
+  html.dark details.chart > summary,html.loam details.chart > summary{color:var(--ok)}
+  details.chart[open] > summary{margin-bottom:4px}
+  table.szc{width:100%;border-collapse:collapse;font-size:11px;color:var(--ink-soft)}
+  table.szc th,table.szc td{border:1px solid var(--line);padding:2px 5px;text-align:left}
+
+  /* ---- dense LIST rows: the bike builder's list treatment, minus the compat dot
+     and thumbnail (kit checks nothing; product photos aren't licensed yet). The
+     row wraps gracefully on narrow columns and snaps to a clean multi-track grid
+     on wide desktop columns (a container query on the catalog column). ---- */
+  .grid.list{display:flex;flex-direction:column;gap:6px;container:kitcat / inline-size}
+  .list .pcard{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:9px 14px}
+  .list .pcard .namewrap{flex:0 1 220px;min-width:0;display:flex;flex-direction:column;gap:1px}
+  .list .pcard .kind{font-size:10px}
+  .list .pcard .name{font-size:13px}
+  .list .pcard .spec{flex:1 1 150px;min-width:0;min-height:0}
+  .list .pcard .kbadges{flex:none}
+  .list .pcard .prov{flex:none;min-height:0}
+  .list .pcard .row{margin:0 0 0 auto;flex:none;gap:12px}
+  .list .pcard details.chart{flex-basis:100%}
+  @media (min-width:769px){
+    .grid.list{gap:5px}
+    @container kitcat (min-width:600px){
+      .list .pcard{display:grid;grid-template-columns:minmax(160px,220px) minmax(130px,1fr) max-content minmax(150px,182px);
+        column-gap:14px;align-items:center;padding:7px 14px}
+      .list .pcard .namewrap{flex:none}
+      .list .pcard .name{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.2}
+      .list .pcard .spec{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+      /* col 3 stacks the cert/size badges above the provenance pill, right-aligned */
+      .list .pcard .metacol{display:flex;flex-direction:column;align-items:flex-end;gap:3px;min-width:0}
+      .list .pcard .kbadges{justify-content:flex-end}
+      /* col 4: price on top, pick button below — both right-anchored */
+      .list .pcard .row{margin:0;flex-direction:column;align-items:flex-end;gap:4px}
+      .list .pcard details.chart{grid-column:1 / -1;flex-basis:auto}
+    }
+  }
+
+  /* right panel — the selected kit + running Kit total (bike builder's .side/.panel) */
+  aside .side{position:sticky;top:calc(var(--hdr-h,116px) + 10px);display:flex;flex-direction:column;gap:14px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .panel h2{margin:0 0 8px;font-size:16px}
+  .muted{color:var(--ink-soft);font-size:12px}
+  .slot{display:flex;align-items:center;gap:8px;font-size:13px;padding:6px 0;border-bottom:1px dashed var(--line)}
+  .slot:last-of-type{border-bottom:none}
+  .slot .sl-main{flex:1;min-width:0}
+  .slot .sl-cat{font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink-soft);font-weight:700}
+  .slot .sl-part{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .slot .sl-part .vchk{color:var(--ok);font-weight:800;margin-left:3px;font-size:12px}
+  .slot .pr{font-size:11.5px;color:var(--ink-soft);white-space:nowrap}
+  .slot .x{cursor:pointer;color:var(--ink-soft);border:none;background:none;font-size:16px;line-height:1;padding:0 2px}
+  .slot .x:hover{color:var(--err)}
+  .total{display:flex;align-items:baseline;justify-content:space-between;margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+  .total b{font-size:23px}
+  .wrow{display:flex;align-items:baseline;justify-content:space-between;margin-top:4px}
+  .wrow .more{color:var(--warn);font-weight:700}
+  .panel .empty{font-size:12.5px;color:var(--ink-soft);margin-top:4px;line-height:1.5}
+  .panel .clr{margin-top:14px;width:100%;justify-content:center}
+  .kit-note{font-size:11px;color:var(--ink-soft);margin-top:12px;line-height:1.45}
+
+  .cat-empty{color:var(--ink-soft);font-size:13px;padding:18px 4px}
+
+  /* the inert (KIT_ENABLED=false) panel */
+  .inert{max-width:620px;margin:40px auto;text-align:center;background:var(--card);border:1px solid var(--line);
+    border-radius:16px;padding:34px 28px}
+  .inert h2{margin:0 0 8px}
+  .inert p{color:var(--ink-soft);margin:0 0 18px}
+
+  footer{max-width:1380px;margin:0 auto;padding:22px 24px 40px;color:var(--ink-soft);font-size:12px;border-top:1px solid var(--line)}
+  footer a{color:var(--brand)}
+  html.dark footer a,html.loam footer a{color:var(--ok)}
+
+  /* ---- responsive: collapse to a single column, rail becomes a swipeable row ---- */
+  @media (max-width:880px){
+    /* single column: filters (rail) → products (catalog) → your kit (panel), the
+       natural build-then-review order; the rail becomes a swipeable chip row */
+    .layout{grid-template-columns:1fr}
+    aside .side{position:static}
+    #rail{position:static;max-height:none}
+    #rail .chips{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:6px}
+    #rail .chips::-webkit-scrollbar{display:none}
+    #rail .chip{flex:none;background:var(--chip);border-radius:999px}
+    #rail .chip .c-count{display:none}
+  }
+  @media (max-width:768px){
+    header{padding:14px 16px}
+    main{padding:14px 16px 60px}
+    .btn,.chip{min-height:44px;display:inline-flex;align-items:center;padding:10px 14px}
+    #rail .chip{justify-content:center}
+    .pick{min-height:40px;padding:9px 13px;display:inline-flex;align-items:center;justify-content:center}
+    .slot .x{min-width:38px;min-height:38px;display:inline-flex;align-items:center;justify-content:center}
+    footer{padding:18px 16px 40px}
+    /* compact list rows on phones: name + price/pick share line 1; spec and the
+       cert/size badges + provenance sit on tight lines below (mirrors the bike
+       builder hiding row chrome on mobile so rows stay ~3 lines, not one-per-field) */
+    .list .pcard{padding:10px 12px;gap:3px 10px;align-items:center}
+    .list .pcard .namewrap{flex:1 1 auto;order:1;min-width:0}
+    .list .pcard .row{flex:none;order:2;margin-left:auto;flex-direction:row;align-items:center;gap:12px}
+    .list .pcard .spec{flex:1 1 auto;order:3;white-space:normal;min-width:110px}
+    .list .pcard .metacol{flex:1 1 auto;order:4;flex-direction:row;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+    .list .pcard details.chart{order:5;flex-basis:100%}
+  }
+</style>
+<script>
+/* Apply the saved (or first-visit OS-preferred) theme BEFORE first paint — no flash.
+   Self-contained + identical to index.html's head IIFE (shared 'tb-theme' key). */
+(function(){
+  var t=null; try{ t=localStorage.getItem('tb-theme'); }catch(e){}
+  if(t===null && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) t='dark';
+  if(t==='dark' || t==='rad' || t==='loam') document.documentElement.classList.add(t);
+  var mc={light:'#16523a',dark:'#123f2b',rad:'#150029',loam:'#1e4a30'};
+  var m=document.getElementById('metaThemeColor');
+  if(m) m.setAttribute('content', mc[t]||mc.light);
+})();
+</script>
+</head>
+<body>
+<header>
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <div class="wrap">
+    <h1><a href="../" aria-label="BuildMyMTB — home">🚵 BuildMyMTB</a></h1>
+    <span class="page-tag">Kit Builder</span>
+    <span class="spacer"></span>
+    <!-- same-style button back to the Bike Builder (Douglas's requirement) -->
+    <a class="btn ghost" href="../" title="Back to the Bike Builder">🚴 Bike Builder</a>
+    <details class="theme-menu" id="themeMenu">
+      <summary class="btn ghost" title="Theme">🎨</summary>
+      <div class="theme-pop" role="menu">
+        <button type="button" class="btn" data-theme="light" role="menuitemradio">☀️ Light</button>
+        <button type="button" class="btn" data-theme="dark" role="menuitemradio">🌙 Dark</button>
+        <button type="button" class="btn" data-theme="loam" role="menuitemradio">🍂 Loam</button>
+        <button type="button" class="btn" data-theme="rad" role="menuitemradio">⚡ RAD</button>
+      </div>
+    </details>
+  </div>
+</header>
+<div class="honesty-strip"><span class="badge">Prototype · sample data</span> Rider kit — every piece is optional. Kit is independent of your bike build; it checks nothing, it just totals.</div>
+
+<main id="kitMain"><!-- rendered by the script below --></main>
+
+<footer id="kitFooter" hidden>
+  Prices &amp; weights are approximate <strong>sample data</strong> — not verified against manufacturers unless a ✓ badge says so.
+  Kit selections are saved on this device only. · <a href="../">← Bike Builder</a>
+</footer>
+
+<script src="../src/config.js"></script>
+<script src="../src/kit.js"></script>
+<script>
+/* ==========================================================================
+   Kit Builder page glue (browser-only; not type-checked, like index.html's
+   inline script). Reads KIT_ENABLED (config.js) + KIT_GROUPS/KIT_SLOTS/
+   KIT_PARTS/kitById/kitTotals (kit.js). No pop-ups; no compat dots (kit
+   checks nothing). Mirrors the Bike Builder's three-pane render split:
+   renderRail() + renderCatalog() + renderPanel() populate their own
+   containers, so a pick re-renders only what changed.
+   ========================================================================== */
+(function(){
+  'use strict';
+  var $ = function(id){ return document.getElementById(id); };
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+  var money = function(n){ return '$' + (n||0).toLocaleString(); };
+  var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg / ' + (g/453.592).toFixed(2) + ' lb)'; };
+
+  /* ---- theme toggle (compact; same 'tb-theme' key + <html> class as index.html) -- */
+  (function(){
+    var META={light:'#16523a',dark:'#123f2b',rad:'#150029',loam:'#1e4a30'};
+    function current(){ var c=document.documentElement.classList; return c.contains('rad')?'rad':c.contains('loam')?'loam':c.contains('dark')?'dark':'light'; }
+    function mark(name){
+      var btns=document.querySelectorAll('.theme-pop [data-theme]');
+      for(var i=0;i<btns.length;i++){ var on=btns[i].getAttribute('data-theme')===name; btns[i].classList.toggle('primary',on); btns[i].setAttribute('aria-checked',String(on)); }
+      var m=$('metaThemeColor'); if(m) m.setAttribute('content', META[name]||META.light);
+    }
+    function set(name){
+      var root=document.documentElement.classList; root.remove('dark','rad','loam');
+      if(name!=='light') root.add(name);
+      try{ localStorage.setItem('tb-theme', name); }catch(e){}
+      mark(name); var d=$('themeMenu'); if(d) d.open=false;
+      syncHdr();
+    }
+    var btns=document.querySelectorAll('.theme-pop [data-theme]');
+    for(var i=0;i<btns.length;i++){ (function(b){ b.onclick=function(){ set(b.getAttribute('data-theme')); }; })(btns[i]); }
+    mark(current());
+    // close the theme menu on an outside click (a click the USER makes — not a pop-up)
+    document.addEventListener('click', function(e){ var d=$('themeMenu'); if(d&&d.open&&!d.contains(e.target)) d.open=false; });
+  })();
+
+  /* keep --hdr-h synced to the real header height so the sticky rail/panel clear it */
+  function syncHdr(){ var h=document.querySelector('header'); if(h) document.documentElement.style.setProperty('--hdr-h', h.offsetHeight+'px'); }
+  window.addEventListener('resize', syncHdr); syncHdr();
+
+  var main = $('kitMain');
+
+  /* ---- feature gate: inert "coming soon" when KIT_ENABLED is false ---------- */
+  if(typeof KIT_ENABLED === 'undefined' || !KIT_ENABLED){
+    main.innerHTML =
+      '<div class="inert">' +
+        '<h2>🧰 Kit Builder — coming soon</h2>' +
+        '<p>The rider-kit builder (helmets, shoes, apparel, and protection) is being built. ' +
+        'It will let you assemble a full kit with a running price and weight.</p>' +
+        '<a class="btn primary" href="../">🚴 Back to the Bike Builder</a>' +
+      '</div>';
+    return;
+  }
+  $('kitFooter').hidden = false;
+
+  /* ---- category + label metadata (derived from kit.js, one source of truth) --- */
+  var CATLABEL = {};   KIT_SLOTS.forEach(function(s){ CATLABEL[s.cat] = s.label; });
+  var catLabel = function(c){ return CATLABEL[c] || c; };
+  var GROUP_OF = {};   KIT_SLOTS.forEach(function(s){ GROUP_OF[s.cat] = s.group; });
+  var SLOTKEY_OF = {}; KIT_SLOTS.forEach(function(s){ SLOTKEY_OF[s.cat] = s.key; });   // one slot per cat
+  var CAT_ORDER = {};  KIT_SLOTS.forEach(function(s,i){ CAT_ORDER[s.cat] = i; });
+
+  /* ---- selection + filter state -------------------------------------------- */
+  var LS_KEY = 'tb-kit-build';
+  /** slotKey -> part id (one slot per category) */
+  var KB = {};
+  var activeCat = 'all';                                      // 'all' | a kit category
+  var disciplineFilter = 'all';                              // 'all' | discipline token
+  var verifiedOnly = false;
+  var viewMode = 'list';  try{ if(localStorage.getItem('tb-kit-view')==='cards') viewMode='cards'; }catch(e){}
+  var sortBy = 'featured';
+
+  (function load(){
+    var raw=null; try{ raw=localStorage.getItem(LS_KEY); }catch(e){}
+    if(!raw) return;
+    try{
+      var obj=JSON.parse(raw), slotKeys={};
+      KIT_SLOTS.forEach(function(s){ slotKeys[s.key]=s.cat; });
+      Object.keys(obj).forEach(function(k){
+        var p=kitById(obj[k]);
+        // survive only if the slot is real AND the part's category matches it
+        if(p && slotKeys[k] && p.cat===slotKeys[k]) KB[k]=p.id;
+      });
+    }catch(e){}
+  })();
+  function save(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(KB)); }catch(e){} }
+
+  /* which disciplines actually appear in the catalog (ordered by travel, DH first) */
+  var DISC_ORDER = ['dh','enduro','trail','xc','dj'];
+  var DISC_LABELS = { all:'All disciplines', xc:'XC', trail:'Trail', enduro:'Enduro', dh:'DH', dj:'DJ' };
+  var presentDiscs = (function(){
+    var seen={}; KIT_PARTS.forEach(function(p){ (p.disciplines||[]).forEach(function(d){ seen[d]=1; }); });
+    return DISC_ORDER.filter(function(d){ return seen[d]; });
+  })();
+  var anyVerified = KIT_PARTS.some(function(p){ return p.verified===true && p.source; });
+
+  /* ---- display helpers ------------------------------------------------------ */
+  var HELMET_TYPE={'half-shell':'Half-shell','full-face':'Full-face','convertible':'Convertible'};
+  var SOLE={flat:'Flat pedal',clipless:'Clipless (SPD)'};
+  var EYEWEAR={glasses:'Glasses',goggles:'Goggles'};
+  var COVERAGE={back:'Back',chest:'Chest','chest-back':'Chest + back'};
+  var SLEEVE={short:'Short sleeve',long:'Long sleeve'};
+  var CERT_LABEL={cpsc:'CPSC',en1078:'EN 1078','astm-f1952':'ASTM F1952','ansi-z87':'ANSI Z87','en166':'EN 166',
+    'en1621-1-l1':'EN 1621-1 L1','en1621-1-l2':'EN 1621-1 L2','en1621-2-l1':'EN 1621-2 L1','en1621-2-l2':'EN 1621-2 L2','en1621-3':'EN 1621-3'};
+  var PER_PAIR={kneepad:1,elbowpad:1,shinguard:1};
+
+  function specLine(p){
+    var bits=[];
+    if(p.cat==='helmet') bits.push(HELMET_TYPE[p.type]||p.type);
+    if(p.cat==='shoes'){ bits.push(SOLE[p.soleType]||p.soleType); if(p.closure) bits.push(p.closure.charAt(0).toUpperCase()+p.closure.slice(1)); }
+    if(p.cat==='eyewear') bits.push(EYEWEAR[p.type]||p.type);
+    if(p.cat==='jersey' && p.sleeve) bits.push(SLEEVE[p.sleeve]||p.sleeve);
+    if((p.cat==='shorts'||p.cat==='pants') && p.liner===true) bits.push('With liner');
+    if(p.cat==='bodyarmor' && p.coverage) bits.push(COVERAGE[p.coverage]||p.coverage);
+    if(PER_PAIR[p.cat]) bits.push('Per pair');
+    if(p.disciplines && p.disciplines.length) bits.push(p.disciplines.map(function(d){ return d.toUpperCase(); }).join('/'));
+    return bits.join(' · ');
+  }
+  /** compact size summary for a row: a short list, else first–last */
+  function sizeSummary(p){
+    if(!p.sizes || !p.sizes.length) return '';
+    if(p.sizes.length<=3) return p.sizes.join(' · ');
+    return p.sizes[0]+'–'+p.sizes[p.sizes.length-1];
+  }
+  function badgesHtml(p){
+    var b='';
+    if(p.rotational) b+='<span class="badge rot">'+esc(p.rotational.toUpperCase().replace('-',' '))+'</span>';
+    if(p.certs) p.certs.forEach(function(c){ b+='<span class="badge cert">'+esc(CERT_LABEL[c]||c)+'</span>'; });
+    if(p.fitCut && p.fitCut!=='unisex') b+='<span class="badge">'+esc(p.fitCut.charAt(0).toUpperCase()+p.fitCut.slice(1))+'</span>';
+    var sz=sizeSummary(p); if(sz) b+='<span class="badge sz" title="Offered sizes">'+esc(sz)+'</span>';
+    return b;
+  }
+  function provHtml(p){
+    // kit uses the same provenance tiers as the bike catalog: a ✓ pill when
+    // verified against a source, otherwise an honest "sample" note.
+    if(p.verified===true && p.source) return '<a class="ver" href="'+esc(p.source)+'" target="_blank" rel="noopener nofollow">✓ Verified</a>';
+    return '<span class="est">Sample spec (unverified)</span>';
+  }
+  function chartHtml(p){
+    if(!p.sizeChart) return '';
+    var labels=Object.keys(p.sizeChart); if(!labels.length) return '';
+    var measures={}; labels.forEach(function(l){ Object.keys(p.sizeChart[l]).forEach(function(m){ measures[m]=1; }); });
+    var cols=Object.keys(measures);
+    var rows=labels.map(function(l){
+      var tds=cols.map(function(m){
+        var v=p.sizeChart[l][m];
+        var txt = v==null ? '—' : (Array.isArray(v) ? (v[0]+'–'+v[1]) : String(v));
+        return '<td>'+esc(txt)+'</td>';
+      }).join('');
+      return '<tr><th>'+esc(l)+'</th>'+tds+'</tr>';
+    }).join('');
+    var head='<tr><th>Size</th>'+cols.map(function(m){ return '<th>'+esc(m)+' (cm)</th>'; }).join('')+'</tr>';
+    // a user-opened <details> — NOT a pop-up (hard rule 2)
+    return '<details class="chart"><summary>Size chart</summary><table class="szc"><thead>'+head+'</thead><tbody>'+rows+'</tbody></details>';
+  }
+
+  /* ---- static skeleton (built once) ----------------------------------------- */
+  function skeleton(){
+    return ''
+      + '<div class="intro"><h2>🧰 Kit Builder</h2>'
+      + '<p>Assemble your riding kit — helmets, shoes, apparel, and protection — and watch the price and weight add up. '
+      + 'Every piece is optional; pick a category on the left, then add what you ride in. This is a separate build from your bike.</p></div>'
+      + '<div class="toolbar">'
+      +   (anyVerified ? '<button type="button" class="btn" id="kVerified" title="Show only kit verified against a manufacturer/standards source" aria-pressed="false">✓ Verified only</button>' : '')
+      +   '<span class="grow"></span>'
+      +   '<button type="button" class="btn danger" id="kClear" title="Clear every selected piece">↺ Clear kit</button>'
+      + '</div>'
+      + '<div class="layout">'
+      +   '<nav id="rail" aria-label="Kit filters"></nav>'
+      +   '<section aria-label="Kit catalog">'
+      +     '<div class="cat-head">'
+      +       '<h2 class="cat-title" id="kCatTitle" aria-live="polite"></h2>'
+      +       '<div class="cat-tools">'
+      +         '<span class="catcount" id="kCatCount" aria-live="polite"></span>'
+      +         '<span class="viewseg" role="group" aria-label="Catalog view">'
+      +           '<button type="button" class="btn" id="kViewCards" aria-pressed="false" title="Card grid">▦ Cards</button>'
+      +           '<button type="button" class="btn primary" id="kViewList" aria-pressed="true" title="Dense list — one row each">☰ List</button>'
+      +         '</span>'
+      +         '<select class="btn" id="kSort" title="Sort the catalog" aria-label="Sort the catalog">'
+      +           '<option value="featured">Sort: Featured</option>'
+      +           '<option value="name">Name A–Z</option>'
+      +           '<option value="price-asc">Price: low → high</option>'
+      +           '<option value="price-desc">Price: high → low</option>'
+      +           '<option value="weight-asc">Weight: light → heavy</option>'
+      +           '<option value="weight-desc">Weight: heavy → light</option>'
+      +         '</select>'
+      +       '</div>'
+      +     '</div>'
+      +     '<div class="grid" id="kCatalog"></div>'
+      +   '</section>'
+      +   '<aside><div class="side"><div class="panel" id="kPanel"></div></div></aside>'
+      + '</div>';
+  }
+
+  /* ---- left rail: discipline filter + the 12 kit categories ------------------ */
+  function mkChip(label, active, onClick, extraHtml){
+    var b=document.createElement('button');
+    b.type='button';
+    b.className='chip'+(active?' active':'');
+    b.setAttribute('aria-pressed', active?'true':'false');
+    b.innerHTML=esc(label)+(extraHtml||'');
+    b.onclick=onClick;
+    return b;
+  }
+  function partsFor(cat){ return KIT_PARTS.filter(function(p){ return p.cat===cat; }); }
+  function countFor(cat){   // count respecting the discipline + verified filters (not the category)
+    return KIT_PARTS.filter(function(p){ return p.cat===cat && passesNonCat(p); }).length;
+  }
+  function passesNonCat(p){
+    if(verifiedOnly && !(p.verified===true && p.source)) return false;
+    if(disciplineFilter!=='all' && (!p.disciplines || p.disciplines.indexOf(disciplineFilter)<0)) return false;
+    return true;
+  }
+
+  function renderRail(){
+    var rail=$('rail'); rail.innerHTML='';
+    // Discipline
+    if(presentDiscs.length){
+      var dh=document.createElement('div'); dh.className='rail-h'; dh.textContent='Discipline'; rail.appendChild(dh);
+      var dc=document.createElement('div'); dc.className='chips'; dc.setAttribute('role','group'); dc.setAttribute('aria-label','Filter by riding discipline — pieces without a tag are universal and always show');
+      dc.appendChild(mkChip(DISC_LABELS.all, disciplineFilter==='all', function(){ disciplineFilter='all'; onFilterChange(); }));
+      presentDiscs.forEach(function(d){ dc.appendChild(mkChip(DISC_LABELS[d]||d, disciplineFilter===d, function(){ disciplineFilter=d; onFilterChange(); })); });
+      rail.appendChild(dc);
+    }
+    // Category (the 12 kit categories, grouped by anatomical section as a secondary organization)
+    var ch=document.createElement('div'); ch.className='rail-h'; ch.textContent='Category'; rail.appendChild(ch);
+    var allWrap=document.createElement('div'); allWrap.className='chips';
+    allWrap.appendChild(mkChip('All kit', activeCat==='all', function(){ activeCat='all'; onCatChange(); },
+      '<span class="c-count">'+KIT_PARTS.filter(passesNonCat).length+'</span>'));
+    rail.appendChild(allWrap);
+    KIT_GROUPS.forEach(function(g){
+      var sub=document.createElement('div'); sub.className='rail-sub'; sub.textContent=g.label; rail.appendChild(sub);
+      var cc=document.createElement('div'); cc.className='chips'; cc.setAttribute('role','group'); cc.setAttribute('aria-label',g.label+' categories');
+      g.slots.forEach(function(slot){
+        var n=countFor(slot.cat);
+        cc.appendChild(mkChip(slot.label, activeCat===slot.cat, (function(cat){ return function(){ activeCat=cat; onCatChange(); }; })(slot.cat),
+          '<span class="c-count">'+n+'</span>'));
+      });
+      rail.appendChild(cc);
+    });
+  }
+
+  /* ---- centre: the product list rows for the active category ----------------- */
+  function rowEl(p){
+    var slotKey=SLOTKEY_OF[p.cat], inKit=KB[slotKey]===p.id;
+    var card=document.createElement('div');
+    card.className='pcard'+(inKit?' selected':'');
+
+    var wt = typeof p.weight==='number' ? '<span class="wt">'+p.weight.toLocaleString()+' g</span>' : '';
+    var badges=badgesHtml(p);
+    var metaInner = (badges?'<div class="kbadges">'+badges+'</div>':'') + '<div class="prov">'+provHtml(p)+'</div>';
+
+    card.innerHTML =
+        '<div class="namewrap"><div class="kind">'+esc(catLabel(p.cat))+'</div>'
+      +   '<div class="name">'+esc(p.brand)+' '+esc(p.model)+'</div></div>'
+      + '<div class="spec">'+esc(specLine(p))+'</div>'
+      + '<div class="metacol">'+metaInner+'</div>'
+      + '<div class="row"><span class="price">'+money(p.price)+' '+wt+'</span>'
+      +   '<span class="picks"><button type="button" class="pick'+(inKit?' in':'')+'">'+(inKit?'✓ In kit':'Add to kit')+'</button></span></div>'
+      + chartHtml(p);
+
+    card.querySelector('.pick').onclick=function(){
+      if(KB[slotKey]===p.id) delete KB[slotKey]; else KB[slotKey]=p.id;
+      save(); renderCatalog(); renderPanel();
+    };
+    return card;
+  }
+
+  function renderCatalog(){
+    var el=$('kCatalog'); el.innerHTML='';
+    el.classList.toggle('list', viewMode==='list');
+
+    var list=KIT_PARTS.filter(function(p){
+      if(activeCat!=='all' && p.cat!==activeCat) return false;
+      return passesNonCat(p);
+    });
+
+    // title + count
+    $('kCatTitle').textContent = activeCat==='all' ? 'All kit' : catLabel(activeCat);
+    var totalInScope = KIT_PARTS.filter(function(p){ return activeCat==='all' || p.cat===activeCat; }).length;
+    $('kCatCount').textContent = 'Showing '+list.length+' of '+totalInScope+' product'+(totalInScope===1?'':'s');
+
+    if(!list.length){
+      el.classList.remove('list');
+      el.innerHTML='<div class="cat-empty">'+(verifiedOnly?'No verified pieces here yet — toggle “✓ Verified only” off to see sample pieces.':
+        disciplineFilter!=='all'?'No pieces tagged for this discipline here — try “All disciplines”.':
+        'No products in this category yet — more are coming with the catalog grind.')+'</div>';
+      return;
+    }
+
+    var idx={}; KIT_PARTS.forEach(function(p,i){ idx[p.id]=i; });
+    var wt=function(p,missing){ return typeof p.weight==='number'? p.weight : missing; };
+    var SORTS={
+      featured:      function(a,b){ return (CAT_ORDER[a.cat]-CAT_ORDER[b.cat]) || (idx[a.id]-idx[b.id]); },
+      name:          function(a,b){ return (a.brand+' '+a.model).localeCompare(b.brand+' '+b.model) || (idx[a.id]-idx[b.id]); },
+      'price-asc':   function(a,b){ return ((a.price||0)-(b.price||0)) || (idx[a.id]-idx[b.id]); },
+      'price-desc':  function(a,b){ return ((b.price||0)-(a.price||0)) || (idx[a.id]-idx[b.id]); },
+      'weight-asc':  function(a,b){ return (wt(a,Infinity)-wt(b,Infinity)) || (idx[a.id]-idx[b.id]); },
+      'weight-desc': function(a,b){ return (wt(b,-Infinity)-wt(a,-Infinity)) || (idx[a.id]-idx[b.id]); }
+    };
+    list.sort(SORTS[sortBy]||SORTS.featured);
+    list.forEach(function(p){ el.appendChild(rowEl(p)); });
+  }
+
+  /* ---- right panel: the selected kit + running Kit total --------------------- */
+  function renderPanel(){
+    var host=$('kPanel');
+    var build={}; Object.keys(KB).forEach(function(k){ var p=kitById(KB[k]); if(p) build[k]=p; });
+    var t=kitTotals(build);
+
+    var h='<h2>Your Kit</h2><div class="muted">'+t.count+' piece'+(t.count===1?'':'s')+' selected</div>';
+
+    // selected items, in slot (head→feet) order
+    var picked='';
+    KIT_SLOTS.forEach(function(s){
+      var p=kitById(KB[s.key]); if(!p) return;
+      var vchk = (p.verified===true && p.source) ? ' <span class="vchk" title="Verified against a source">✓</span>' : '';
+      var pr = (typeof p.weight==='number'? p.weight+' g · ':'') + money(p.price);
+      picked+='<div class="slot"><div class="sl-main"><div class="sl-cat">'+esc(catLabel(p.cat))+'</div>'
+        + '<div class="sl-part">'+esc(p.brand+' '+p.model)+vchk+'</div></div>'
+        + '<span class="pr">'+pr+'</span>'
+        + '<button type="button" class="x" data-remove="'+esc(s.key)+'" title="Remove" aria-label="Remove '+esc(p.brand+' '+p.model)+'">×</button></div>';
+    });
+
+    if(picked){
+      h+=picked;
+      h+='<div class="total"><span class="muted">Kit total</span><b>'+money(t.price)+'</b></div>';
+      h+='<div class="wrow"><span class="muted">Est. weight</span><span class="muted">'
+        + (t.weight ? esc(grams(t.weight)) + (t.missingWeight?' <span class="more">+</span>':'') : '<span class="more">—</span>')
+        + '</span></div>';
+    } else {
+      h+='<div class="empty">Nothing selected yet. Everything here is optional — pick a category on the left and add what you ride in.</div>';
+    }
+    h+='<div class="kit-note">Kit is a separate total from your bike. Sizing shown is per brand — an M in one brand ≠ an M in another. Cert badges appear only where verified against a source.</div>';
+    host.innerHTML=h;
+
+    // wire remove buttons
+    var rms=host.querySelectorAll('[data-remove]');
+    for(var i=0;i<rms.length;i++){ rms[i].onclick=function(){ delete KB[this.getAttribute('data-remove')]; save(); renderCatalog(); renderPanel(); }; }
+  }
+
+  /* ---- interaction glue ----------------------------------------------------- */
+  function onFilterChange(){ renderRail(); renderCatalog(); }   // discipline/verified change counts + list
+  function onCatChange(){ renderRail(); renderCatalog(); }
+
+  function wireToolbar(){
+    var v=$('kVerified');
+    if(v) v.onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary',verifiedOnly); this.setAttribute('aria-pressed',String(verifiedOnly)); onFilterChange(); };
+    $('kClear').onclick=function(){ KB={}; save(); renderCatalog(); renderPanel(); };
+    function setView(m){
+      viewMode=m;
+      $('kViewCards').classList.toggle('primary',m==='cards'); $('kViewCards').setAttribute('aria-pressed',String(m==='cards'));
+      $('kViewList').classList.toggle('primary',m==='list');   $('kViewList').setAttribute('aria-pressed',String(m==='list'));
+      try{ localStorage.setItem('tb-kit-view',m); }catch(e){}
+      renderCatalog();
+    }
+    $('kViewCards').onclick=function(){ setView('cards'); };
+    $('kViewList').onclick=function(){ setView('list'); };
+    $('kSort').value=sortBy;
+    $('kSort').onchange=function(){ sortBy=this.value; renderCatalog(); };
+    setView(viewMode);   // reflect the persisted view on first paint
+  }
+
+  /* ---- boot ----------------------------------------------------------------- */
+  main.innerHTML = skeleton();
+  wireToolbar();
+  renderRail();
+  renderCatalog();
+  renderPanel();
+  syncHdr();
+})();
+</script>
+</body>
+</html>

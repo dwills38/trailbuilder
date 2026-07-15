@@ -15,7 +15,11 @@
    field or a part missing a required one.
    ========================================================================== */
 
-/** @typedef {'frame'|'fork'|'shock'|'frontwheel'|'rearwheel'|'fronthub'|'rearhub'|'rim'|'tire'|'shifter'|'derailleur'|'cassette'|'chain'|'crankset'|'cog'|'seatpost'|'bb'|'headset'|'brake'|'rotor'|'handlebar'|'stem'|'grips'|'dropper'|'saddle'|'pedal'|'groupset'|'wheelset'|'brakeset'|'cockpitset'} Category */
+/** Bike + Rider Kit categories. The kit categories (helmet…eyewear) are a flat
+ * string union — cheap for tsc — so `Slot.cat` covers kit slots too. The kit
+ * OBJECT variants live in a SEPARATE `KitPart` union (see the bottom of this file),
+ * NOT folded into `Part`, to keep compat.js's ~3000-row PARTS literal under tsc's
+ * union-complexity ceiling. @typedef {'frame'|'fork'|'shock'|'frontwheel'|'rearwheel'|'fronthub'|'rearhub'|'rim'|'tire'|'shifter'|'derailleur'|'cassette'|'chain'|'crankset'|'cog'|'seatpost'|'bb'|'headset'|'brake'|'rotor'|'handlebar'|'stem'|'grips'|'dropper'|'saddle'|'pedal'|'groupset'|'wheelset'|'brakeset'|'cockpitset'|'helmet'|'shoes'|'jersey'|'shorts'|'pants'|'gloves'|'kneepad'|'elbowpad'|'bodyarmor'|'neckbrace'|'shinguard'|'eyewear'} Category */
 
 /* ---- vocabularies (mirror VOCAB in schema.js) ---------------------------- */
 /** @typedef {'29'|'275'|'26'|'24'} WheelSize */
@@ -165,6 +169,48 @@
 
 /** A drivetrain component (the four parts that share `system` + `speeds`).
  * @typedef {ShifterPart|DerailleurPart|CassettePart|ChainPart} DrivetrainPart */
+
+/* ---- Rider Kit (Kit Builder, 2026-07-14) — mirrors schema.js's kit SCHEMA/VOCAB.
+   Kit parts live in src/kit.js's KIT_PARTS (a separate catalog), never in
+   compat.js's PARTS, and kit NEVER feeds checkBuild (decisions #3 + #4). --------- */
+/** @typedef {'half-shell'|'full-face'|'convertible'} HelmetType */
+/** @typedef {'flat'|'clipless'} SoleType */
+/** @typedef {'lace'|'boa'|'velcro'|'ratchet'} ShoeClosure */
+/** @typedef {'glasses'|'goggles'} EyewearType */
+/** @typedef {'short'|'long'} Sleeve */
+/** @typedef {'back'|'chest'|'chest-back'} ArmorCoverage */
+/** Real published safety standards — fetched-source-only (a cross-rule restricts which
+ * a category may carry). @typedef {'cpsc'|'en1078'|'astm-f1952'|'ansi-z87'|'en166'|'en1621-1-l1'|'en1621-1-l2'|'en1621-2-l1'|'en1621-2-l2'|'en1621-3'} ProtectionCert */
+/** Helmet rotational-impact system — a different axis from ProtectionCert; absence =
+ * UNKNOWN, never "none". [EXPERT REVIEW] pending. @typedef {'mips'|'wavecel'|'spin'|'360-turbine'|'koroyd'} Rotational */
+/** @typedef {'mens'|'womens'|'unisex'} FitCut */
+/** Offered size LABELS (free strings — never a vocab; brands use XS–XXXL, numeric EU,
+ * split "S/M"). One row per product, never a row per size. @typedef {string[]} SizeList */
+/** The brand's own size label -> body-measurement map. Inner measure keys are
+ * category-constrained by schema.js (helmet->head, jersey->chest, …). Dormant-until-sourced.
+ * @typedef {Object.<string, Object.<string, ([number,number]|number)>>} SizeChart */
+
+/** Fields shared by every kit category: the common part kit + the optional
+ * fitCut / sizes / sizeChart trio. @typedef {CommonFields & {fitCut?: FitCut, sizes?: SizeList, sizeChart?: SizeChart}} KitCommon */
+/** @typedef {KitCommon & {cat: 'helmet', type: HelmetType, certs?: ProtectionCert[], rotational?: Rotational}} HelmetPart */
+/** @typedef {KitCommon & {cat: 'shoes', soleType: SoleType, closure?: ShoeClosure}} ShoesPart  soleType is the primary differentiator; NO pedal bridge (decision #3) */
+/** @typedef {KitCommon & {cat: 'jersey', sleeve?: Sleeve}} JerseyPart */
+/** @typedef {KitCommon & {cat: 'shorts', liner?: boolean}} ShortsPart  shorts + pants are SEPARATE categories (decision #1) */
+/** @typedef {KitCommon & {cat: 'pants', liner?: boolean}} PantsPart */
+/** @typedef {KitCommon & {cat: 'gloves'}} GlovesPart */
+/** @typedef {KitCommon & {cat: 'kneepad', certs?: ProtectionCert[]}} KneepadPart  per pair */
+/** @typedef {KitCommon & {cat: 'elbowpad', certs?: ProtectionCert[]}} ElbowpadPart  per pair */
+/** @typedef {KitCommon & {cat: 'bodyarmor', coverage?: ArmorCoverage, certs?: ProtectionCert[]}} BodyarmorPart */
+/** @typedef {KitCommon & {cat: 'neckbrace', certs?: ProtectionCert[]}} NeckbracePart  certs dormant (no universal standard yet) */
+/** @typedef {KitCommon & {cat: 'shinguard', certs?: ProtectionCert[]}} ShinguardPart  per pair */
+/** @typedef {KitCommon & {cat: 'eyewear', type: EyewearType, certs?: ProtectionCert[]}} EyewearPart  glasses | goggles */
+
+/** Any Rider Kit part. Kept a SEPARATE union from the bike `Part` on purpose: folding
+ * 12 more object variants into `Part` would enlarge the union that compat.js's
+ * ~3000-row PARTS literal is checked against, which already sits at tsc's "union too
+ * complex to represent" ceiling (the reason PARTS carries a @ts-ignore). Kit parts live
+ * in src/kit.js's KIT_PARTS and never need to be a bike `Part`.
+ * @typedef {HelmetPart|ShoesPart|JerseyPart|ShortsPart|PantsPart|GlovesPart|KneepadPart|ElbowpadPart|BodyarmorPart|NeckbracePart|ShinguardPart|EyewearPart} KitPart */
 
 /** A preset (the four kinds that carry `fills`).
  * @typedef {GroupsetPart|WheelsetPart|BrakesetPart|CockpitsetPart} PresetPart */

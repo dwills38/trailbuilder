@@ -55,6 +55,10 @@ jobs:
           cp privacy.html _site/
           cp terms.html _site/
           cp affiliate-disclosure.html _site/
+          # Kit Builder page (separate /KitBuilder route — a real directory index that
+          # shares src/ via ../src). Same staging trap: not served unless copied.
+          mkdir -p _site/KitBuilder
+          cp KitBuilder/index.html _site/KitBuilder/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

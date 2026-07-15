@@ -17,7 +17,7 @@
 /** @typedef {import('./types.js').Part} Part */
 /** @typedef {import('./types.js').Slot} Slot */
 /** @typedef {import('./types.js').Catalog} Catalog */
-/** @typedef {{type: 'number'|'string'|'bool'|'id'|'idArray'|'fills'|'enumArray'|'sizes', vocab?: string, optional?: boolean, nullable?: boolean}} FieldRule */
+/** @typedef {{type: 'number'|'string'|'bool'|'id'|'idArray'|'fills'|'enumArray'|'sizes'|'sizeList'|'sizeChart', vocab?: string, optional?: boolean, nullable?: boolean, measures?: string[]}} FieldRule */
 /** @typedef {{has: (id: string) => boolean, catOf: (id: string) => string, byId: (id: string) => any, slotCat: Object.<string, string>, today: Date}} Ctx */
 
 /* Canonical vocabularies - the only allowed values for each standard. */
@@ -274,7 +274,61 @@ var VOCAB = {
      the validator REJECTS it on verified rows. */
   sourceType:   ['manufacturer', 'manufacturer-doc', 'measured', 'retailer'],
   status:       ['current', 'discontinued', 'recalled'],   // absent = current
-  soldWithout:  ['battery', 'charger', 'spring', 'rotor', 'mounting-hardware']
+  soldWithout:  ['battery', 'charger', 'spring', 'rotor', 'mounting-hardware'],
+
+  /* ============================================================================
+     RIDER KIT vocab (Kit Builder, 2026-07-14 - Douglas's decisions in
+     KIT-BUILDER-SCOPE.md's "Decisions - DECIDED" section). All ADDITIVE and INERT
+     for the bike catalog: no bike part references any of these, exactly the way
+     the DJ vocab landed inert. Kit NEVER feeds checkBuild (decisions #3 + #4) -
+     these are filter / badge / annotation values only, the same contract as
+     `disciplines`. `discipline` above is reused verbatim to tag kit (a DH
+     full-face, XC-weight gloves). Kit lives in its own catalog (src/kit.js's
+     KIT_PARTS), never in compat.js's PARTS. */
+  helmetType:   ['half-shell', 'full-face', 'convertible'],   // convertible = removable chin bar
+  /* the shoe's PRIMARY differentiator (decision #3, replacing the scoped-but-
+     rejected cleat<->pedal bridge): flat sole vs clipless (2-bolt SPD recess).
+     Deliberately NOT wired to pedal.style - kit has ZERO connection to checkBuild. */
+  soleType:     ['flat', 'clipless'],
+  shoeClosure:  ['lace', 'boa', 'velcro', 'ratchet'],         // secondary shoe axis (annotation)
+  eyewearType:  ['glasses', 'goggles'],                       // eyewear covers BOTH via this type (decision #1)
+  sleeve:       ['short', 'long'],                            // jersey sleeve length (annotation)
+  armorCoverage:['back', 'chest', 'chest-back'],              // body-armor coverage
+  /* protectionCert = REAL published safety standards ONLY, enumerated like the
+     tire `casing` vocab (never invented). A cross-rule (KIT_CERTS below) restricts
+     which tokens each category may carry - a jersey can't be "EN 1621-2", a helmet
+     can't carry a back-protector cert. Because a cert is a SAFETY claim, it follows
+     the strict fetched-source tier even on otherwise-sample rows (decision #7): you
+     may enter an unverified sample jersey, but never assert a cert without a real
+     maker/standards source. A false safety claim is worse than a missing one. */
+  protectionCert: ['cpsc', 'en1078', 'astm-f1952',            // helmet impact standards (US / EU / DH full-face)
+                   'ansi-z87', 'en166',                       // eyewear impact standards (occasional)
+                   'en1621-1-l1', 'en1621-1-l2',              // EN 1621-1 limb protector L1/L2 (knee / elbow / shin)
+                   'en1621-2-l1', 'en1621-2-l2', 'en1621-3'], // body armor: EN 1621-2 back (L1/L2) + EN 1621-3 chest
+  /* rotational = a helmet's rotational-impact-management system. A DIFFERENT axis
+     from the pass/fail impact certs above (a helmet can be both CPSC-certified AND
+     MIPS-equipped), so it is its OWN field, not a `certs` token. SEEDED pending an
+     [EXPERT REVIEW] confirm of the genuinely-distinct systems (decision #7).
+     ABSENCE = UNKNOWN, never defaulted to "none" - asserting a helmet has no
+     rotational system is itself a claim. Extend as sourced. */
+  rotational:   ['mips', 'wavecel', 'spin', '360-turbine', 'koroyd'],
+  fitCut:       ['mens', 'womens', 'unisex']                  // optional fit annotation / filter (decision #8; absence = unspecified)
+};
+
+/* Cert tokens each kit category may carry (the cross-rule below enforces it).
+   NECK BRACE maps to an EMPTY set on purpose: there is no universal neck-brace
+   impact standard (§2a: "maker-specific, no single standard"), so the `certs`
+   field EXISTS (Douglas lists neck braces as a cert category) but stays DORMANT
+   until a real standard token is sourced and added here - never fabricate one. */
+/** @type {Object.<string, string[]>} */
+var KIT_CERTS = {
+  helmet:    ['cpsc', 'en1078', 'astm-f1952'],
+  eyewear:   ['ansi-z87', 'en166'],
+  kneepad:   ['en1621-1-l1', 'en1621-1-l2'],
+  elbowpad:  ['en1621-1-l1', 'en1621-1-l2'],
+  shinguard: ['en1621-1-l1', 'en1621-1-l2'],
+  bodyarmor: ['en1621-2-l1', 'en1621-2-l2', 'en1621-3'],
+  neckbrace: []
 };
 
 /* Per-category field schema. Each field: {type, vocab?, optional?, nullable?}
@@ -465,7 +519,68 @@ var SCHEMA = {
   groupset:  { fills:{type:'fills'}, assembled:{type:'bool',optional:true} },
   wheelset:  { fills:{type:'fills'} },
   brakeset:  { fills:{type:'fills'} },
-  cockpitset:{ fills:{type:'fills'} }
+  cockpitset:{ fills:{type:'fills'} },
+
+  /* ============================================================================
+     RIDER KIT categories (Kit Builder, 2026-07-14). 12 apparel/protection
+     categories; EVERY kit build slot is OPTIONAL (nothing gates completeness) and
+     kit has ZERO checkBuild rules (decisions #3 + #4) - it is a curated list with
+     price+weight totals, cert badges, and size labels, never a fit verdict.
+     Common fields (brand/model/price/weight/desc + the identity kit +
+     provenance + disciplines + image/colors/retailerLinks) come from COMMON.
+     SIZING (decision #2): one row per PRODUCT, never a row per size -
+       `sizes`     = the offered size LABELS (a new `sizeList` type: a non-empty
+                     array of FREE strings, deliberately not a vocab - brands use
+                     XS-XXXL, numeric EU, and split "S/M" sizes; a vocab would
+                     block real data, the tire-casing lesson).
+       `sizeChart` = the brand's OWN label -> body-measurement ranges (a new
+                     `sizeChart` type mirroring frame.sizes), dormant-until-sourced.
+                     The allowed inner MEASURE keys are constrained PER CATEGORY
+                     via `measures` (the frame.sizes -> seatTubeLen/maxInsert
+                     precedent) so a jersey chart can't claim a `head` measure.
+     `fitCut` (mens/womens/unisex) is an optional annotation on every kit category.
+     Cert (`certs`) is fetched-source-only (a safety claim) and restricted per
+     category by the KIT_CERTS cross-rule. */
+  helmet:    { type:{type:'string',vocab:'helmetType'},
+               certs:{type:'enumArray',vocab:'protectionCert',optional:true},
+               rotational:{type:'string',vocab:'rotational',optional:true},
+               fitCut:{type:'string',vocab:'fitCut',optional:true},
+               sizes:{type:'sizeList',optional:true}, sizeChart:{type:'sizeChart',measures:['head'],optional:true} },
+  shoes:     { soleType:{type:'string',vocab:'soleType'},
+               closure:{type:'string',vocab:'shoeClosure',optional:true},
+               fitCut:{type:'string',vocab:'fitCut',optional:true},
+               sizes:{type:'sizeList',optional:true}, sizeChart:{type:'sizeChart',measures:['eu','us','uk','footLength'],optional:true} },
+  jersey:    { sleeve:{type:'string',vocab:'sleeve',optional:true},
+               fitCut:{type:'string',vocab:'fitCut',optional:true},
+               sizes:{type:'sizeList',optional:true}, sizeChart:{type:'sizeChart',measures:['chest'],optional:true} },
+  shorts:    { liner:{type:'bool',optional:true},   // built-in chamois liner (annotation); shorts + pants are SEPARATE cats (decision #1)
+               fitCut:{type:'string',vocab:'fitCut',optional:true},
+               sizes:{type:'sizeList',optional:true}, sizeChart:{type:'sizeChart',measures:['waist','inseam'],optional:true} },
+  pants:     { liner:{type:'bool',optional:true},
+               fitCut:{type:'string',vocab:'fitCut',optional:true},
+               sizes:{type:'sizeList',optional:true}, sizeChart:{type:'sizeChart',measures:['waist','inseam'],optional:true} },
+  gloves:    { fitCut:{type:'string',vocab:'fitCut',optional:true},
+               sizes:{type:'sizeList',optional:true}, sizeChart:{type:'sizeChart',measures:['hand'],optional:true} },
+  kneepad:   { certs:{type:'enumArray',vocab:'protectionCert',optional:true},   // weighed PER PAIR (the pedals/grips convention)
+               fitCut:{type:'string',vocab:'fitCut',optional:true},
+               sizes:{type:'sizeList',optional:true}, sizeChart:{type:'sizeChart',measures:['knee','thigh'],optional:true} },
+  elbowpad:  { certs:{type:'enumArray',vocab:'protectionCert',optional:true},   // per pair
+               fitCut:{type:'string',vocab:'fitCut',optional:true},
+               sizes:{type:'sizeList',optional:true}, sizeChart:{type:'sizeChart',measures:['elbow','forearm'],optional:true} },
+  bodyarmor: { coverage:{type:'string',vocab:'armorCoverage',optional:true},
+               certs:{type:'enumArray',vocab:'protectionCert',optional:true},
+               fitCut:{type:'string',vocab:'fitCut',optional:true},
+               sizes:{type:'sizeList',optional:true}, sizeChart:{type:'sizeChart',measures:['chest','torso'],optional:true} },
+  neckbrace: { certs:{type:'enumArray',vocab:'protectionCert',optional:true},   // KIT_CERTS.neckbrace = [] (no universal standard yet - dormant)
+               fitCut:{type:'string',vocab:'fitCut',optional:true},
+               sizes:{type:'sizeList',optional:true}, sizeChart:{type:'sizeChart',measures:['neck'],optional:true} },
+  shinguard: { certs:{type:'enumArray',vocab:'protectionCert',optional:true},   // per pair
+               fitCut:{type:'string',vocab:'fitCut',optional:true},
+               sizes:{type:'sizeList',optional:true}, sizeChart:{type:'sizeChart',measures:['calf','shin'],optional:true} },
+  eyewear:   { type:{type:'string',vocab:'eyewearType'},   // glasses | goggles (mostly one-size display; sizeChart omitted)
+               certs:{type:'enumArray',vocab:'protectionCert',optional:true},
+               fitCut:{type:'string',vocab:'fitCut',optional:true},
+               sizes:{type:'sizeList',optional:true} }
 };
 
 var PRESET_CATS = ['groupset','wheelset','brakeset','cockpitset'];
@@ -491,7 +606,15 @@ var ID_PREFIX = {
   fronthub:'fh', rearhub:'rh', rim:'rm',
   shifter:'sft', derailleur:'dr', cassette:'ca', chain:'ch', crankset:'cr', cog:'cg', seatpost:'sp',
   brake:'bk', rotor:'ro', handlebar:'hb', stem:'st', grips:'gr', dropper:'dp',
-  saddle:'sa', pedal:'pd', bb:'bb', headset:'hs', groupset:'gs', wheelset:'ws', brakeset:'bs', cockpitset:'co'
+  saddle:'sa', pedal:'pd', bb:'bb', headset:'hs', groupset:'gs', wheelset:'ws', brakeset:'bs', cockpitset:'co',
+  /* Rider Kit prefixes (Kit Builder, 2026-07-14) - collision-free with every bike
+     prefix above (id-prefix match is on the EXACT first token, so 'sho'/'sht'/'shg'
+     never collide with 'sh'). Kit ids carry NO size token (size is a per-row label
+     list, not a fit-distinct SKU) and NO color token - so kit rows have few or zero
+     variant tokens; the rare legit one is a genuinely fit-distinct build difference
+     (a helmet sold in MIPS and non-MIPS versions = two rows, `-mips`). */
+  helmet:'hm', shoes:'sho', jersey:'jsy', shorts:'sht', pants:'pnt', gloves:'glv',
+  kneepad:'knp', elbowpad:'elp', bodyarmor:'arm', neckbrace:'nkb', shinguard:'shg', eyewear:'ewr'
 };
 var ID_RE = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 /** One-token brand slug for the id's second token. @param {*} brand @returns {string} */
@@ -702,6 +825,36 @@ function validatePart(p, ctx){
           });
         });
         break;
+      /* sizeList (Kit Builder): the offered size LABELS. Free strings on purpose
+         (brands use XS-XXXL, numeric EU, split "S/M") - validated only as non-empty
+         strings, never against a vocab. One row per product; NEVER a row per size. */
+      case 'sizeList':
+        if(!Array.isArray(v) || v.length === 0){ bad('field "' + field + '" must be a non-empty array of size labels'); break; }
+        v.forEach(function(/** @type {*} */ s){ if(!isStr(s)) bad('field "' + field + '" size labels must be non-empty strings (got ' + JSON.stringify(s) + ')'); });
+        break;
+      /* sizeChart (Kit Builder): the brand's own size label -> body-measurement map,
+         { <label>: { <measure>: [lo,hi] | number } }. The allowed inner MEASURE keys
+         are constrained PER CATEGORY by rule.measures (the frame.sizes precedent), so
+         a jersey chart can't claim a `head` measure. Dormant-until-sourced. */
+      case 'sizeChart':
+        if(!isObj(v)){ bad('field "' + field + '" (sizeChart) must be an object of sizeLabel -> {measure: [lo,hi]|number}'); break; }
+        var allowMeasures = rule.measures || [];
+        Object.keys(v).forEach(function(label){
+          var mv = v[label];
+          if(!isObj(mv)){ bad('sizeChart["' + label + '"] must be an object of measure -> [lo,hi] or number'); return; }
+          if(Object.keys(mv).length === 0){ bad('sizeChart["' + label + '"] must declare at least one measurement'); return; }
+          Object.keys(mv).forEach(function(mk){
+            if(allowMeasures.indexOf(mk) < 0){ bad('sizeChart["' + label + '"] measure "' + mk + '" not allowed for ' + p.cat + ' (allowed: ' + (allowMeasures.join(', ') || 'none') + ')'); return; }
+            var range = mv[mk];
+            if(Array.isArray(range)){
+              if(range.length !== 2 || !isNum(range[0]) || !isNum(range[1]) || range[0] <= 0 || range[0] > range[1])
+                bad('sizeChart["' + label + '"].' + mk + ' must be [lo,hi] with 0 < lo <= hi');
+            } else if(!(isNum(range) && range > 0)){
+              bad('sizeChart["' + label + '"].' + mk + ' must be a positive number or an [lo,hi] range');
+            }
+          });
+        });
+        break;
       case 'fills':
         if(!isObj(v)) { bad('fills must be an object'); break; }
         Object.keys(v).forEach(function(slot){
@@ -800,6 +953,21 @@ function validatePart(p, ctx){
       if(!/\/28\.6$/.test(p.upper)) bad('straight-dc headset needs a /28.6 upper assembly, got "' + p.upper + '"');
       if(!/\/30$/.test(p.lower)) bad('straight-dc headset needs a /30 lower assembly (1-1/8in crown race), got "' + p.lower + '"');
     }
+  }
+
+  // cross-rule (Kit Builder): a cert is a SAFETY claim restricted per category.
+  // The generic enumArray check above already confirmed each token is in
+  // protectionCert; this narrows it to the tokens THIS category may carry, so a
+  // helmet can't claim a back-protector cert and a jersey can't carry one at all.
+  // (rotational-only-helmet and soleType-only-shoes need no cross-rule: those
+  // fields live only on their category's SCHEMA, so the unknown-field check below
+  // already rejects them elsewhere.)
+  if(Object.prototype.hasOwnProperty.call(KIT_CERTS, p.cat) && Array.isArray(p.certs)){
+    var allowCerts = KIT_CERTS[p.cat];
+    p.certs.forEach(function(/** @type {*} */ c){
+      if(allowCerts.indexOf(c) < 0)
+        bad('cert "' + c + '" is not valid for a ' + p.cat + ' (allowed: ' + (allowCerts.join(', ') || 'none - no published standard for this category yet') + ')');
+    });
   }
 
   // unknown / misspelled fields
@@ -946,7 +1114,7 @@ function lintCatalog(C){
 }
 
 if(typeof module !== 'undefined' && module.exports){
-  module.exports = { VOCAB:VOCAB, SCHEMA:SCHEMA, PRESET_CATS:PRESET_CATS, ID_PREFIX:ID_PREFIX,
+  module.exports = { VOCAB:VOCAB, SCHEMA:SCHEMA, PRESET_CATS:PRESET_CATS, ID_PREFIX:ID_PREFIX, KIT_CERTS:KIT_CERTS,
     brandSlug:brandSlug, lintCatalog:lintCatalog,
     validatePart:validatePart, validateCatalog:validateCatalog, _ctx:_ctx };
 }
