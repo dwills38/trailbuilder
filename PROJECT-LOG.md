@@ -1,5 +1,47 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-15 — Coordinator seat 9: Kit Builder line + cog sub-chip merged live
+
+- **KIT BUILDER LINE MERGED to main (`8d919e8` + `b8929f0`), `KIT_ENABLED=false` (invisible until
+  Douglas flips it).** Per Douglas's seat-9 directive (no longer gated on his preview — merge it).
+  Two clean commits over current main:
+  - **(a+b) Foundation + three-pane redesign** — `feat/kit-builder-redesign` *contains* the
+    foundation (foundation +1), so one squashed landing delivered both: kit schema for 12 optional
+    categories (schema.js/types.js), `src/kit.js` (KIT_GROUPS/SLOTS/PARTS + totals), the
+    `/KitBuilder` page mirroring the Bike Builder's three panes, main-page nav button, deploy
+    stanza, `test/test-kit.js`. Applied with `git apply --3way` over main's moved
+    schema.js/types.js/index.html — clean.
+  - **(c) All 12 category grinds harvested → 34 seed fixtures to 692 kit parts.** Each
+    `grind/kit-*` was based on the foundation and touched ONLY `src/kit.js`; applied each's own
+    additions. **Per-category counts cross-checked equal to each grind branch** (nothing dropped/
+    double-applied). One adjacent-region collision (bodyarmor↔neckbrace) resolved by keeping both
+    blocks, then removing the 2 foundation neckbrace seed fixtures the grind supersedes so no
+    duplicate ids survived (validate.js was the safety net that caught them).
+  - **MTB-only scrub:** dropped `ewr-oakley-airbrake-mx` (Oakley's motocross goggle SKU; a separate
+    Airbrake MTB exists). The named moto pants (Alpinestars Techstar Envision / Nevada) were already
+    absent from the grind branches. Kept honestly-tagged DH/park-crossover protection (moto-heritage
+    but MTB-used) rather than open gaps. No tier-padding, no row-per-size, no dup brand+model.
+  - **No-e-bike hard rule:** neutralized e-bike/e-MTB language in 3 MTB-helmet descs (Fox Rampage,
+    Fox Dropframe Pro, TLD Flowline SE) — MTB helmets that merely also carry the NTA-8776
+    speed-pedelec cert; the grind correctly never asserted that cert, only the prose foregrounded it.
+    Helmets kept, e-bike framing removed. (`urgebike.com` sources are the Urge brand domain.)
+  - Kit is fully isolated from `checkBuild`: no compat.js changes, **verdict-audit harness
+    byte-identical** at every step; bike catalog unchanged (3130 parts).
+
+- **SINGLE-SPEED COG → Drivetrain sub-chip MERGED (`3cff400`).** Harvested from
+  `feat/cog-under-drivetrain` (grind session done, its own CI green). Engine-tier review:
+  structurally **display-only** — the cog stays an ordinary top-level pricing group (own slot key /
+  bundleActive / buildTotals / slotRequired / presetBy); the only engine addition is a
+  `parent:'drivetrain'` marker (types.js documented). index.html's new
+  childGroupsOf/railTarget/renderChips-skip/subCatsOf/groupCats browse it as a Drivetrain sub-chip.
+  ss-rules + DJ single-speed completeness untouched. Tests **strengthened** (test-dj-singlespeed now
+  pins `cog.parent==='drivetrain'` AND that the cog slot is NOT one of drivetrain's own slots).
+  Harness byte-identical.
+
+- **Gates every push:** validate 0 problems (3130 bike + 692 kit) · vitest 587 · tsc clean · harness
+  identical. CI + Deploy green (kit push confirmed; cog push in flight at write time). Re-fetched
+  origin + FF-checked before each of the 3 pushes.
+
 ## 2026-07-14 — Coordinator seat 8 (succession)
 
 - **HARVEST BATCH (evening): 5 landed on main.** (1) **"Best match"→"Random" sort** (`7c73008`) —
