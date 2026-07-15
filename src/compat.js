@@ -50,6 +50,7 @@ var LABELS = {
   'microshift-advent': 'microSHIFT Advent 9-speed', 'microshift-advent-x': 'microSHIFT Advent X 10-speed', 'box-prime-9': 'Box Prime 9 (9-speed)',
   'udh-direct': 'Direct mount (UDH)', hanger: 'Standard hanger',
   alu: 'Aluminum', carbon: 'Carbon', steel: 'Steel', ti: 'Titanium', 'carbon-alloy': 'Carbon/Alloy mix',   // material vocab (frames + bars; carbon-alloy = mixed construction, e.g. alloy front / carbon rear)
+  full: 'Full-suspension', hardtail: 'Hardtail',   // frame.suspension vocab
   cable: 'mechanical (cable)', electronic: 'electronic (wireless)',
   't-type': 'T-Type', 'standard-12': 'standard 12-speed',
   'ispec-ev': 'I-Spec EV', 'ispec-ii': 'I-Spec II', 'ispec-b': 'I-Spec B',
@@ -7024,7 +7025,14 @@ var SAMPLE_THEMES = [
   { key:'mullet', label:'Mullet',    band:null, mullet:true, frame:function(f){ return (f.wheelConfigs||[]).indexOf('mullet')>=0; } },
   { key:'dh',     label:'DH',        band:null, frame:function(f){ return (f.disciplines||[]).indexOf('dh')>=0; } },
   { key:'trail',  label:'Trail',     band:null, frame:function(f){ return (f.disciplines||[]).indexOf('trail')>=0; } },
-  { key:'xc',     label:'XC',        band:null, frame:function(f){ return (f.disciplines||[]).indexOf('xc')>=0; } }
+  { key:'xc',     label:'XC',        band:null, frame:function(f){ return (f.disciplines||[]).indexOf('xc')>=0; } },
+  /* Hardtail: any suspension:'hardtail' frame outside the DJ/single-speed set -
+     those frames drop the whole geared drivetrain plan (shifter/derailleur/
+     cassette) for a cog, which _SAMPLE_PLAN doesn't fill; a dedicated DJ theme
+     can join later like the band themes' own dj exclusion above. slotRequired()
+     already exempts the shock slot for a hardtail frame, so the shared
+     _SAMPLE_PLAN naturally produces a no-shock build with no extra logic here. */
+  { key:'hardtail', label:'Hardtail', band:null, frame:function(f){ return f.suspension==='hardtail' && (f.disciplines||[]).indexOf('dj')<0 && f.driveMode!=='single-speed'; } }
 ];
 
 /** PARTS grouped by category (memoized - the catalog is immutable at runtime). @type {Object.<string, Part[]>|null} */

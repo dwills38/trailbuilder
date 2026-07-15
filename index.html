@@ -839,6 +839,7 @@
           <button class="btn" id="demoDH">DH build ⛰️</button>
           <button class="btn" id="demoTrail">Trail build 🌲</button>
           <button class="btn" id="demoXC">XC build 🐇</button>
+          <button class="btn" id="demoHardtail">Hardtail build 🪨</button>
             <div class="rail-hint">🎲 Each click rolls a fresh random build in that style — always complete, always conflict-free. Your current picks are replaced.</div>
           </div>
         </details>
@@ -1595,6 +1596,14 @@
       values:function(){ return inOrder(distinctVals(byCat('frame'), function(p){ return p.material; }), ['carbon','alu','steel','ti','carbon-alloy']); },
       label:function(v){ return L(v); },
       match:function(p,v){ return p.cat!=='frame' || !p.material || p.material===v; } },
+    /* suspension is REQUIRED on every frame (schema-enforced), so unlike material
+       there's no "unknown" bucket to pass through — every frame carries 'full'
+       or 'hardtail' and the chip narrows cleanly. */
+    { id:'frameSuspension', groups:['frame'], allLabel:'All types',
+      aria:'Filter frames by suspension — full-suspension vs hardtail',
+      values:function(){ return inOrder(distinctVals(byCat('frame'), function(p){ return p.suspension; }), ['full','hardtail']); },
+      label:function(v){ return L(v); },
+      match:function(p,v){ return p.cat!=='frame' || p.suspension===v; } },
     { id:'wheelSize', groups:['wheels','tire'], allLabel:'All sizes',
       aria:'Filter by wheel size — only affects wheels & tires',
       values:function(){ return inOrder(distinctVals(function(p){ return !!p.wheel; }, function(p){ return p.wheel; }), ['29','275','26','24']); },
@@ -3613,7 +3622,7 @@
      say so. Those pinned builds are the ones test/test-golden.js keeps proving
      compatible (BUDGET/MID/HIGHEND + the DH/TRAIL/XC/MULLET goldens), so a data
      correction can't silently stale them. */
-  var THEME_LABEL = { budget:'Budget', mid:'Mid-range', high:'High-end', mullet:'Mullet', dh:'DH', trail:'Trail', xc:'XC' };
+  var THEME_LABEL = { budget:'Budget', mid:'Mid-range', high:'High-end', mullet:'Mullet', dh:'DH', trail:'Trail', xc:'XC', hardtail:'Hardtail' };
   var SAMPLE_FALLBACK = {
     budget: { build:{ frame:'fr-raaw-madonna-v32',fork:'fk-rockshox-domain-rc-29-170',shock:'sh-rockshox-super-deluxe-205x65-trun',frontWheel:'fw-dtswiss-ex-1700-29',rearWheel:'rw-dtswiss-ex-1700-29',
         frontTire:'ti-kenda-hellkat-29-24-aec-dl',rearTire:'ti-kenda-hellkat-29-24-aec-dl',shifter:'sft-sram-gx-eagle',derailleur:'dr-sram-gx-eagle',cassette:'ca-sram-xg1275',chain:'ch-sram-gx-eagle',crankset:'cr-sram-gx-eagle',
@@ -3649,6 +3658,15 @@
         frontTire:'ti-maxxis-assegai-29-25-exop-mg',rearTire:'ti-maxxis-minion-dhr-ii-275-24-exop-mt',shifter:'sft-shimano-xt-m8100',derailleur:'dr-shimano-xt-m8100-sgs',cassette:'ca-shimano-xt-m8100-1051',chain:'ch-shimano-xt-m8100',crankset:'cr-shimano-xt-m8100',
         frontBrake:'bk-shimano-xt-m8120',rearBrake:'bk-shimano-xt-m8120',frontRotor:'ro-hayes-dseries-203-6b',rearRotor:'ro-shimano-rtmt800-203-cl',
         handlebar:'hb-renthal-fatbar-35',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',dropper:'dp-oneup-v3-316-210',saddle:'sa-wtb-volt',pedals:'pd-raceface-chester' },
+      presetBy:{} },
+    /* Same XC hardtail golden the test suite pins (test-golden.js XC_BUILD) — no
+       shock block, flat-mount rear caliper, 30.9 dropper. */
+    hardtail: { build:{ frame:'fr-canyon-exceed-cf',fork:'fk-rockshox-sid-ultimate-29-120',
+        frontWheel:'fw-dtswiss-ex-1700-29',rearWheel:'rw-dtswiss-ex-1700-29-ms',
+        frontTire:'ti-maxxis-aspen-29-24-exo-dual',rearTire:'ti-maxxis-aspen-29-24-exo-dual',
+        shifter:'sft-shimano-xtr-m9100',derailleur:'dr-shimano-xtr-m9100-sgs',cassette:'ca-shimano-xtr-m9100-1051',chain:'ch-shimano-xtr-m9100',crankset:'cr-shimano-xtr-m9100',
+        frontBrake:'bk-shimano-xtr-m9120',rearBrake:'bk-shimano-xtr-m9110-fm',frontRotor:'ro-shimano-rtmt800-180-cl',rearRotor:'ro-shimano-rtmt800-160-cl',
+        handlebar:'hb-oneup-carbon-35',stem:'st-oneup-stem-35',grips:'gr-oneup-lockon',dropper:'dp-fox-transfer-factory-309-180',saddle:'sa-wtb-volt',pedals:'pd-crankbrothers-mallet-enduro' },
       presetBy:{} }
   };
   // Load a build map wholesale (the bulk-load path): assign build/presetBy and
@@ -3769,6 +3787,7 @@
   $('demoDH').onclick=function(){ loadSample('dh'); };
   $('demoTrail').onclick=function(){ loadSample('trail'); };
   $('demoXC').onclick=function(){ loadSample('xc'); };
+  $('demoHardtail').onclick=function(){ loadSample('hardtail'); };
   $('demoBad').onclick=loadBad;
   $('reset').onclick=function(){ build={}; presetBy={}; sync(); toast('Build cleared'); };
   $('share').onclick=function(){ writeHash(); var url=location.href;

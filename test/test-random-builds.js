@@ -93,6 +93,15 @@ test('DH builds skip the dropper (slotRequired exempts it)', function(){
   }
 });
 
+test('hardtail builds have a hardtail frame and no shock (slotRequired exempts it)', function(){
+  for(var seed = 1; seed <= SEEDS; seed++){
+    var g = genOk('hardtail', seed);
+    ok(!g.build.shock, 'hardtail seed ' + seed + ' unexpectedly has a shock');
+    var frame = B(g.build).frame;
+    ok(!!frame && frame.suspension === 'hardtail', 'hardtail seed ' + seed + ' frame is not suspension:hardtail');
+  }
+});
+
 test('price bands are ordered: budget < mid < high on average', function(){
   /** @param {string} key @returns {number} */
   function avgPrice(key){
