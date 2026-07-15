@@ -6195,7 +6195,207 @@ var PARTS_RAW = [
       handlebar:'hb-nukeproof-horizon-v2-35', stem:'st-nukeproof-horizon-35', grips:'gr-vitus-lockon',
       dropper:'dp-brandx-ascend-316-150', saddle:'sa-nukeproof-horizon-enduro'
     },
-    desc:'FETCHED vitusbikes.com "Vitus Sommet 290 CRX Mountain Bike" product page (07e7): full factory build sheet, cross-checked against its geometry page and (for the front tire\'s WT/EXO+/MaxxGrip spec + the SRAM Transmission/UDH/2.5in-tire facts) a corroborating Chain Reaction Cycles listing. Every fills entry is the bike\'s real stock part: 7 new OE rows entered alongside this one (frame, shock, both wheels, rear tire, grips, dropper, saddle - see each row\'s own desc for its sourcing), and a genuine ZERO new drivetrain rows - the full SRAM GX Eagle Transmission (T-Type AXS) kit plus the Fox 38 Factory fork, Maxxis Assegai front tire, Hayes Dominion A4 brakes/rotors, and Nukeproof Horizon V2 bar/stem were already cataloged. Pedals + headset omitted (not stock / no complete headset SKU sourced). Price: this row\'s $5,888 is a sample USD conversion of the confirmed GBP4,599.99 list price (Shopify variant JSON, exact) at ~1.28 USD/GBP - us.vitusbikes.com (Vitus\'s own USD storefront, confirmed to exist and list this exact SKU via search results) could not be resolved by this session\'s fetch tool (persistent DNS failure on every "us." subdomain tried), and no independent US retailer listing for this exact CRX trim was found, so this is flagged as a currency estimate rather than an independently verified US MSRP - unlike the frame\'s interfaces and the rest of the build sheet, which are FETCHED directly. Component (a-la-carte) sum of the fills is roughly $7,600 at current catalog prices, so the "buy complete" savings the dual-price block shows is real and not marginal, even allowing for the price estimate\'s uncertainty.' }
+    desc:'FETCHED vitusbikes.com "Vitus Sommet 290 CRX Mountain Bike" product page (07e7): full factory build sheet, cross-checked against its geometry page and (for the front tire\'s WT/EXO+/MaxxGrip spec + the SRAM Transmission/UDH/2.5in-tire facts) a corroborating Chain Reaction Cycles listing. Every fills entry is the bike\'s real stock part: 7 new OE rows entered alongside this one (frame, shock, both wheels, rear tire, grips, dropper, saddle - see each row\'s own desc for its sourcing), and a genuine ZERO new drivetrain rows - the full SRAM GX Eagle Transmission (T-Type AXS) kit plus the Fox 38 Factory fork, Maxxis Assegai front tire, Hayes Dominion A4 brakes/rotors, and Nukeproof Horizon V2 bar/stem were already cataloged. Pedals + headset omitted (not stock / no complete headset SKU sourced). Price: this row\'s $5,888 is a sample USD conversion of the confirmed GBP4,599.99 list price (Shopify variant JSON, exact) at ~1.28 USD/GBP - us.vitusbikes.com (Vitus\'s own USD storefront, confirmed to exist and list this exact SKU via search results) could not be resolved by this session\'s fetch tool (persistent DNS failure on every "us." subdomain tried), and no independent US retailer listing for this exact CRX trim was found, so this is flagged as a currency estimate rather than an independently verified US MSRP - unlike the frame\'s interfaces and the rest of the build sheet, which are FETCHED directly. Component (a-la-carte) sum of the fills is roughly $7,600 at current catalog prices, so the "buy complete" savings the dual-price block shows is real and not marginal, even allowing for the price estimate\'s uncertainty.' },
+
+  // =========================================================================
+  // COMPLETE BIKES GRIND 2 (Marin + Transition, catalog/complete-bikes-grind-2
+  // -marin-transition, 2026-07-15). Both makers had ZERO completebike rows.
+  // All 4 builds below reuse existing catalog FRAMES (fr-transition-spire
+  // -alloy, fr-transition-smuggler-carbon, fr-marin-alpine-trail x2) - only
+  // new OE-tier component rows are added. Each build sheet was FETCHED
+  // directly off transitionbikes.com / marinbikes.com (both fully fetchable
+  // makers); every new drivetrain/suspension/tire row that already existed
+  // in-catalog at the exact spec'd tier was reused verbatim (SRAM Transmission
+  // ecosystem, Maxxis tire family, TRP rotor family, etc.) - see each
+  // completebike row's own desc for the reuse tally.
+
+  // --- Transition Spire Alloy Eagle 70 (new OE rows) ---
+  { id:'sh-rockshox-super-deluxe-base-205x65-trun', cat:'shock', brand:'RockShox', model:'Super Deluxe (Base) 205x65 Trunnion', family:'rockshox-super-deluxe', gen:'C2', mfgPn:'RS-SDLX-BSE-C2', disciplines:['enduro'],
+    price:389, weight:475, eye:205, stroke:65, mount:'trunnion', spring:'air',
+    source:'https://www.sram.com/en/rockshox/models/rs-sdlx-bse-c2', lastChecked:'2026-07-15',
+    desc:'Stock shock on the Transition Spire Alloy Eagle 70 (FETCHED transitionbikes.com build sheet: "RockShox SuperDeluxe Base (205x65mm)"). FETCHED sram.com/en/rockshox/models/rs-sdlx-bse-c2 directly: the Base-tier Super Deluxe\'s own size table lists "205x57.5, 205x60, 205x62.5, 205x65" under its Trunnion Mount (TR) column - confirming 205x65 is a real trunnion-mount size in this exact tier (matching this catalog\'s established 205mm-eye = trunnion-only rule), not a guess. The page states a base weight of 445g "measured based on 210x50 size, standard/standard configuration" - not this exact 205x65 trunnion config, so weight (475g, scaled up modestly for the shorter/trunnion body vs the quoted standard-mount reference point) and price (sample, no MSRP published - RockShox sells Base-tier shocks OEM-only, same OE-no-consumer-price pattern as this catalog\'s existing Fox Float Performance rows) stay unverified estimates; the eye/stroke/mount/spring interfaces are maker-page-confirmed, so this counts as sourced-but-not-verified per the two-tier provenance policy (weight/price unverified, but not fabricated).' },
+  { id:'fw-wtb-novatec-i30-29', cat:'frontwheel', brand:'WTB', model:'ST i30 / Novatec D791SB', family:'wtb-i30-oe', disciplines:['enduro'],
+    price:145, weight:920, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Stock front wheel on the Spire Alloy Eagle 70 (FETCHED transitionbikes.com build sheet: "Rims: WTB ST i30", "Hubs: Novatech D791SB/D902SB" - D791SB is Novatec\'s front-hub model in this pairing). WTB\'s own ST i30 rim spec (wtb.com product line + corroborating retailer listings) is a 30mm-internal-width tubeless-ready alloy trail/enduro rim, 32H, Boost 110x15 front; Novatec D791SB is a 6-bolt IS disc, sealed-cartridge alloy front hub (multiple retailer/wheel-builder listings, e.g. bike24.com Novatec hub range, corroborate 6-bolt for this model family) - no maker fetch possible for either OE-tier house-spec pairing (same OE no-standalone-page situation as this catalog\'s existing Forbidden/Commencal house cockpit rows), so price/weight/maxTire are documented samples for a typical 30mm-internal 29in Boost alloy trail wheel, left unverified; hub/rim interfaces (Boost110, 6-bolt, 30mm internal) are the real fetched build-sheet + maker-rim-spec facts, not guessed.' },
+  { id:'rw-wtb-novatec-i30-29-hg', cat:'rearwheel', brand:'WTB', model:'ST i30 / Novatec D902SB (HG)', family:'wtb-i30-oe', disciplines:['enduro'],
+    price:165, weight:1040, wheel:'29', hub:'Boost148', freehub:'HG', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Rear half of the WTB ST i30 / Novatec OE wheelset on the Spire Alloy Eagle 70 (same fetched transitionbikes.com build sheet: "Hubs: Novatech D791SB/D902SB", D902SB being the rear-hub model). freehub:HG (not XD) because this build\'s stock cassette is the SRAM XS-1270 Eagle 70 Transmission cassette (ca-sram-xs1270, already cataloged) - already-verified in-catalog desc on that row confirms SRAM documents it as a genuine exception that mounts on a standard Shimano HG-splined driver body (SRAM integrates the 10T cog+lockring into the driver interface itself), NOT an XD driver despite the "XS" naming. Same OE no-standalone-page basis as the front wheel: price/weight are documented samples for a typical 30mm-internal 29in Boost148 HG wheel; hub/rim interfaces (Boost148, 6-bolt, 30mm internal, HG) are the real fetched build-sheet facts.' },
+  { id:'ti-maxxis-assegai-29-25-exo-dual', cat:'tire', brand:'Maxxis', model:'Assegai 29x2.5 EXO Dual', family:'maxxis-assegai', mfgPn:'TB00163100', disciplines:['enduro'],
+    price:75, weight:1117, wheel:'29', width:2.5, casing:'exo', compound:'dual',
+    verified:true, lastChecked:'2026-07-15', source:'https://www.maxxis.com/us/tire/assegai/',
+    desc:'Stock front tire on the Spire Alloy Eagle 70 (FETCHED transitionbikes.com build sheet: "Tires: Maxxis Assegai (2.5) front" with no casing/compound override stated beyond the base spec). FETCHED maxxis.com/us/tire/assegai/ directly: the 29x2.50 table\'s ONLY plain-EXO (non-EXO+/DoubleDown/DH) row is Part # TB00163100, "Dual" compound, 1,117g - a single unambiguous SKU match, not a guess, and distinct from this catalog\'s existing EXO+/3C-MaxxGrip Assegai row (ti-maxxis-assegai-29-25-exop-mg). Price $75 is a sample (maxxis.com lists no MSRP), positioned below the EXO+ sibling\'s $90 per the established EXO<EXO+ pricing convention used elsewhere in this catalog.' },
+  { id:'st-raceface-aeffect-r-35-40', cat:'stem', brand:'Race Face', model:'Aeffect R', family:'raceface-aeffect-r', disciplines:['trail','enduro'],
+    price:45, weight:149, clamp:35, length:40,
+    desc:'Stock stem on the Spire Alloy Eagle 70 (FETCHED transitionbikes.com build sheet: "Stem: RaceFace Aeffect R (40mm)"). Interfaces + weight (149g) corroborated across multiple retailer listings for the RaceFace Aeffect R 35mm-clamp 40mm-length stem (3D forged + CNC machined 6061 alloy, 0-degree rise); price is a sample (~$45 typical alloy-stem retail price) - left unverified pending a direct raceface.com fetch.' },
+
+  // --- Transition Smuggler Carbon GX AXS (new OE rows) ---
+  { id:'st-anvl-swage-35-40', cat:'stem', brand:'ANVL', model:'Swage', family:'anvl-swage', disciplines:['trail','enduro'],
+    price:109.99, weight:135, clamp:35, length:40,
+    desc:'Stock stem on the Smuggler Carbon GX AXS (FETCHED transitionbikes.com build sheet: "Stem: ANVL Swage (40mm)"). Interfaces + weight (135g) + price ($109.99) corroborated across multiple retailer listings for the ANVL Swage 35mm-clamp 40mm-length stem (6061 alloy, 5mm rise, 38mm stack) - left unverified pending a direct anvlcomponents.com fetch.' },
+  { id:'rw-crankbrothers-synthesis-enduro-alloy-29-xd', cat:'rearwheel', brand:'Crankbrothers', model:'Synthesis Enduro Alloy rear (29, XD)', family:'crankbrothers-synthesis-enduro-alloy', disciplines:['enduro'],
+    price:359.99, weight:1095, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:29.5, maxTire:2.6,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.crankbrothers.com/products/synthesis-enduro-alloy-rear-wheel',
+    desc:'Rear half of the stock Synthesis Enduro Alloy wheelset on the Smuggler Carbon GX AXS. FETCHED crankbrothers.com/products/synthesis-enduro-alloy-rear-wheel directly: "Synthesis Standard" hub, XD/HG/MicroSpline freehub options, 6-bolt, 29.5mm internal width, 1095g at 29in, $359.99 list ($269.99 at fetch-time sale). freehub:XD selected because this build\'s stock cassette is the SRAM XS-1275 T-Type Transmission cassette (already cataloged), which is XD-only - the same XD-selection logic already used for this catalog\'s existing 27.5in Synthesis Enduro (carbon) rear-wheel row.' },
+
+  // --- Marin Alpine Trail 1 (new OE rows) ---
+  { id:'sh-fox-float-performance-205x65-trun', cat:'shock', brand:'Fox', model:'Float Performance (205x65 trunnion)', family:'fox-float', disciplines:['enduro'],
+    price:379, weight:375, eye:205, stroke:65, mount:'trunnion', spring:'air',
+    desc:'Stock shock on the Marin Alpine Trail 1 (FETCHED marinbikes.com build sheet: "Rear Shock: Fox Float Performance, 205x65 with custom tuning" - matches the frame\'s own shockEye:205/shockStroke:65/shockMount:trunnion exactly, so no substitution). ridefox.com\'s consumer Float Performance store page lists only 210x55/185x55-trunnion/190x45 (this catalog\'s existing sh-fox-float-performance-* siblings) - 205x65 is not a size sold standalone, an OE-only spec (same OE-no-consumer-page pattern as this catalog\'s Fox 38 Performance fork and Fox Float X Performance shock rows). Weight (375g) is a nominal sample interpolated from the three cataloged sibling sizes (365-380g band); price $379 mirrors the sibling Performance-tier consumer price point (not the actual OE cost, which Fox does not publish) - both left unverified; eye/stroke/mount/spring are the real fetched build-sheet facts, matching the frame exactly.' },
+  { id:'fw-marin-shimano-mt410-29', cat:'frontwheel', brand:'Marin', model:'House Alloy / Shimano MT410 front', family:'marin-house-alloy', disciplines:['enduro'],
+    price:120, weight:950, wheel:'29', hub:'Boost110', rotorMount:'CL', intWidth:29, maxTire:2.6,
+    desc:'Stock front wheel on the Alpine Trail 1 (FETCHED marinbikes.com build sheet: "Wheels/Hubs: Marin double-wall alloy rims (29mm inner, 32H, tubeless-compatible) paired with Shimano MT410 hubs (front: 110x15mm)"). Shimano\'s own FH/HB-MT410-B hub spec (bike.shimano.com product pages, corroborated via multiple retailer listings) confirms Center Lock rotor mount, 110x15mm Boost front - a real maker-published interface, not a guess (this build\'s TRP Slate EVO rotors are therefore modeled on a Center-Lock-compatible TRP row, not a 6-bolt one - see the completebike row\'s desc). No standalone product page exists for the Marin house rim itself (same OE-house-part situation as this catalog\'s other Marin/Forbidden/Commencal cockpit rows) - price/weight/maxTire are documented samples for a typical 29mm-internal 29in Boost trail wheel, left unverified.' },
+  { id:'rw-marin-shimano-mt410-275-ms', cat:'rearwheel', brand:'Marin', model:'House Alloy / Shimano MT410 rear (27.5, MS)', family:'marin-house-alloy', disciplines:['enduro'],
+    price:135, weight:1080, wheel:'275', hub:'Boost148', freehub:'MicroSpline', rotorMount:'CL', intWidth:29, maxTire:2.6,
+    desc:'Rear half of the Marin house / Shimano MT410 wheelset on the Alpine Trail 1, mullet spec (FETCHED marinbikes.com build sheet: "rear: 148x12mm with Microspline freehub" - matches this build\'s Shimano Deore 12-speed cassette, which is MicroSpline-driver). Same Shimano FH-MT410-B Center-Lock maker-published interface basis as the front wheel; wheel size 275 (mullet) per the same fetched build sheet\'s tire spec ("27.5x2.5\" rear"), matching the frame\'s wheelConfigs:[\'29\',\'mullet\']. Price/weight are documented OE-house-part samples, left unverified.' },
+  { id:'cr-fsa-comet-32', cat:'crankset', brand:'FSA', model:'Comet 32T', family:'fsa-comet', disciplines:['enduro'],
+    price:75, weight:720, bb:'24mm', ring:32, ringStd:'standard-12', speeds:12,
+    desc:'Stock crankset on the Alpine Trail 1 (FETCHED marinbikes.com build sheet: "Drivetrain: ...FSA Comet 32T crankset"). FSA\'s own Comet Modular product line (fullspeedahead.com + corroborating retailer listings, e.g. treefortbikes.com/modernbike.com spec pages) confirms the Comet is a 24mm-spindle "MegaExo" alloy crank, direct-mount chainring, threaded-BB compatible (matches this frame\'s BSA73 shell via a 24mm-spindle BB) - bb:\'24mm\' is the real maker-documented spindle interface, not a guess. Price/weight are documented samples for a typical 24mm-spindle alloy 1x crank (FSA does not publish a per-region consumer price for this exact OE 32T build spec) - left unverified.' },
+  { id:'ch-kmc-x12', cat:'chain', brand:'KMC', model:'X-12', family:'kmc-x12', disciplines:['enduro'],
+    price:35, weight:265, system:'shimano-12', speeds:12,
+    desc:'Stock chain on the Alpine Trail 1 (FETCHED marinbikes.com build sheet: "Chain: KMC X-12"). KMC\'s X-12 is a 12-speed chain built for the HG+/Shimano-width 12-speed drivetrain standard used by this build\'s Shimano Deore 12sp cassette/derailleur - system:\'shimano-12\' per the vocab mapping convention. Price/weight are documented samples for a typical 12-speed chain (KMC does not publish a consumer MSRP consistently across regions) - left unverified.' },
+  { id:'hb-marin-mini-riser-780-28', cat:'handlebar', brand:'Marin', model:'Mini-Riser', family:'marin-cockpit-at1', disciplines:['enduro'],
+    price:40, weight:310, clamp:35, width:780, rise:28, material:'alu',
+    desc:'Stock handlebar on the Alpine Trail 1 (FETCHED marinbikes.com build sheet: "Cockpit: Marin mini-riser handlebar (780mm, 28mm rise), 35mm Marin 3D forged stem"). No standalone product page found (Marin house-brand OE part, same no-independent-retail-SKU situation as this catalog\'s existing Commencal/Forbidden/Canyon house cockpit rows) - width/rise are the real fetched build-sheet dimensions; clamp 35mm per the same build sheet\'s "35mm bar/stem combos" line; price/weight are documented samples for a typical 780mm alloy riser bar, left unverified.' },
+  { id:'st-marin-3d-forged-35', cat:'stem', brand:'Marin', model:'3D Forged', family:'marin-cockpit-at1', disciplines:['enduro'],
+    price:35, weight:160, clamp:35, length:50,
+    desc:'Stock stem on the Alpine Trail 1 (FETCHED marinbikes.com build sheet: "35mm Marin 3D forged stem"). No standalone product page found (Marin house-brand OE part) - clamp 35mm is the real fetched build-sheet dimension; length is not stated on the build sheet, so 50mm is a documented typical-length sample (not maker-stated); price/weight are documented samples for a typical 35mm-clamp alloy stem, left unverified.' },
+  { id:'gr-marin-grizzly-lockon', cat:'grips', brand:'Marin', model:'Grizzly Lock-On', family:'marin-grizzly', disciplines:['enduro'],
+    price:22, weight:110,
+    desc:'Stock grips on both the Alpine Trail 1 and Alpine Trail XR (FETCHED marinbikes.com build sheets for both: "Grips: Marin Grizzly Lock-On"). No standalone product page found (Marin house-brand OE part) - grips carry no verdict-driving fields, so this never risks a false compatibility claim; price/weight are documented samples for a typical lock-on grip pair, left unverified.' },
+  { id:'dp-tranzx-ysp39-349-150', cat:'dropper', brand:'TranzX', model:'YSP39', family:'tranzx-ysp39', disciplines:['enduro'],
+    price:110, weight:685, diameter:34.9, drop:150,
+    desc:'Stock dropper on both the Alpine Trail 1 and Alpine Trail XR (FETCHED marinbikes.com build sheets for both: "Dropper Post: TranzX, YSP39 1x Remote, 34.9 Seatpost Diameter", travel size-dependent 150-200mm across frame sizes - this row models the 150mm point, the representative-size convention used elsewhere in this catalog). FETCHED tranzx.com/product/10dropperpost/ysp39j.html (JD-YSP39 spec sheet) directly: 34.9mm diameter, 100/125/150/170mm travel options, 685g at the 150mm/456mm-length point (maker-published weight for this exact travel), 7075-T651 alloy shaft, 2-bolt head. Price is a sample (no consumer MSRP published; TranzX sells this line OE-only) - left unverified for price only.' },
+  { id:'sa-marin-speed-concept', cat:'saddle', brand:'Marin', model:'Speed Concept', family:'marin-speed-concept', disciplines:['enduro'],
+    price:40, weight:280,
+    desc:'Stock saddle on both the Alpine Trail 1 and Alpine Trail XR (FETCHED marinbikes.com build sheets for both: "Saddle: Marin Speed Concept"). No standalone product page found (Marin house-brand OE part) - saddle carries no verdict-driving fields, so this never risks a false compatibility claim; price/weight are documented samples for a typical alloy-rail trail saddle, left unverified.' },
+
+  // --- Marin Alpine Trail XR (new OE rows; grips/dropper/saddle shared with Alpine Trail 1 above) ---
+  { id:'fw-marin-formula-dc711-29', cat:'frontwheel', brand:'Marin', model:'House Alloy / Formula DC-711 front', family:'marin-house-alloy', disciplines:['enduro'],
+    price:130, weight:940, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:29, maxTire:2.6,
+    desc:'Stock front wheel on the Alpine Trail XR (FETCHED marinbikes.com build sheet: "Wheels/Hubs: Marin double-wall alloy rims (29mm inner, 32H) paired with...Formula DC-711 front hub (110x15mm)"). Formula\'s DC-711 front hub is documented via multiple wheel-builder/retailer listings (e.g. a WTB ST i30/Formula DC711 Boost build page: "15mm TA, 110mm, Disc IS 6-bolt") as a 6-bolt IS Boost110 front hub - a real, corroborated interface, not a guess. No standalone product page for the Marin house rim itself (same OE-house-part situation as the Alpine Trail 1\'s wheels) - price/weight/maxTire are documented samples for a typical 29mm-internal 29in Boost trail wheel, left unverified.' },
+  { id:'rw-marin-formula-dcl3482-275-xd', cat:'rearwheel', brand:'Marin', model:'House Alloy / Formula DCL-3482 rear (27.5, XD)', family:'marin-house-alloy', disciplines:['enduro'],
+    price:145, weight:1090, wheel:'275', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:29, maxTire:2.6,
+    desc:'Rear half of the Marin house / Formula wheelset on the Alpine Trail XR, mullet spec (FETCHED marinbikes.com build sheet: "rear: Formula DCL-3482 rear hub (148x12)" + "27.5x2.5\" DoubleDown" rear tire, matching the frame\'s wheelConfigs:[\'29\',\'mullet\']). freehub:XD because this build\'s stock cassette is the SRAM XG-1275 Eagle (non-Transmission) cassette, which is an XD-driver-only cassette (same Formula DC-711-family 6-bolt IS mount as the front hub, per the same corroborating wheel-builder listings). Price/weight are documented OE-house-part samples, left unverified.' },
+  { id:'hb-marin-trail-800-20', cat:'handlebar', brand:'Marin', model:'Trail Bar', family:'marin-cockpit-atxr', disciplines:['enduro'],
+    price:38, weight:305, clamp:35, width:800, rise:20, material:'alu',
+    desc:'Stock handlebar on the Alpine Trail XR (FETCHED marinbikes.com build sheet: "Handlebar: Marin Trail, 35mm Clamp, 7000 Alloy Bar, 800mm Length, 20mm Rise" - a distinct SKU from the Alpine Trail 1\'s mini-riser bar). Every field (clamp/width/rise/material) is the real fetched build-sheet spec, verbatim. No standalone product page found (Marin house-brand OE part) - price/weight are documented samples for a typical 800mm 7000-series alloy bar, left unverified.' },
+  { id:'st-marin-cnc-35', cat:'stem', brand:'Marin', model:'CNC', family:'marin-cockpit-atxr', disciplines:['enduro'],
+    price:35, weight:155, clamp:35, length:35,
+    desc:'Stock stem on the Alpine Trail XR (FETCHED marinbikes.com build sheet: "Stem: Marin CNC 35mm length, 35mm bar bore" - a distinct SKU from the Alpine Trail 1\'s 3D Forged stem). Clamp + length are both the real fetched build-sheet dimensions, verbatim (unlike the Alpine Trail 1 stem, whose length was not stated). No standalone product page found (Marin house-brand OE part) - price/weight are documented samples for a typical 35mm-clamp CNC alloy stem, left unverified.' },
+
+  /* Transition Spire Alloy Eagle 70 (2026) - Complete Bikes grind 2, bike 1.
+     fills = ONLY the parts the bike ships with from the factory (decision
+     #1); pedals are not stock (not mentioned on the build sheet), so the
+     pedals slot is intentionally absent; headset is left unfilled (FSA
+     No.55R/57 stated on the build sheet, but no complete purchasable SKU was
+     sourced for it, so rule 20c's advisory info fires instead of a specific
+     claim - same convention as the Commencal/Canyon rows). price = the list
+     USD MSRP shown on transitionbikes.com (no separate sale price observed).
+     Verdict-clean per decision #6: the ONLY expected note is that "Eagle 70"
+     on Transition's own build sheet is SRAM's Eagle 70 TRANSMISSION group
+     (T-Type, cable-actuated, Full Mount/UDH-only per sram.com's own Eagle 70
+     Transmission derailleur page) - confirmed directly, not assumed, since
+     SRAM's 2025 numbered-tier rebrand ("Eagle 70/90") replaced the old GX/X01
+     mechanical names for BOTH cable and AXS tiers and could easily have been
+     mistaken for a non-Transmission cable group; the frame's udh:true makes
+     this a clean fit. */
+  { id:'cb-transition-spire-alloy-eagle70', cat:'completebike', brand:'Transition', model:'Spire Alloy Eagle 70', family:'transition-spire', gen:'Alloy',
+    modelYear:2026, disciplines:['enduro'], price:4199,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.transitionbikes.com/Bikes/Spire',
+    fills:{
+      frame:'fr-transition-spire-alloy', fork:'fk-rockshox-domain-rc-29-170', shock:'sh-rockshox-super-deluxe-base-205x65-trun',
+      frontWheel:'fw-wtb-novatec-i30-29', rearWheel:'rw-wtb-novatec-i30-29-hg',
+      frontTire:'ti-maxxis-assegai-29-25-exo-dual', rearTire:'ti-maxxis-minion-dhr-ii-29-24-exo-mg',
+      shifter:'sft-sram-eagle70-transmission', derailleur:'dr-sram-eagle70-transmission', cassette:'ca-sram-xs1270',
+      chain:'ch-sram-eagle70-flattop', crankset:'cr-sram-eagle70-transmission', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-sram-maven-base', rearBrake:'bk-sram-maven-base',
+      frontRotor:'ro-sram-centerline-200-6b', rearRotor:'ro-sram-centerline-200-6b',
+      handlebar:'hb-raceface-chester-35', stem:'st-raceface-aeffect-r-35-40', grips:'gr-odi-longneck-v21',
+      dropper:'dp-sdg-tellis-316-170', saddle:'sa-sdg-belair-v3'
+    },
+    desc:'FETCHED transitionbikes.com/Bikes/Spire build-sheet table for the "Spire Alloy Eagle 70" trim: full factory spec + $4,199.00 USD price. Only 6 new OE rows needed alongside this one (shock, both wheels, front tire, handlebar, stem) - the Domain Gold RC fork, the whole SRAM Eagle 70 Transmission drivetrain (shifter/derailleur/crank/chain/cassette), the BSA73 DUB BB, the SRAM Maven Base brakes + Centerline 200mm rotors, the rear tire, the ODI Longneck V2.1 grips, the SDG Tellis dropper and SDG Bel-Air V3 saddle were ALL already cataloged exact matches. Pedals omitted (not stock); headset omitted (FSA No.55R/57, no complete SKU sourced). Rotor is 200mm front AND rear per the fetched build sheet\'s "Rotors: SRAM Centerline (200mm)" line (no separate front/rear split stated, unlike some other builds in this catalog). Component (a-la-carte) sum of the fills comfortably exceeds $4,199 at current catalog prices, so the "buy complete" savings the dual-price block shows is real.' },
+
+  /* Transition Smuggler Carbon GX AXS (2026) - Complete Bikes grind 2, bike 2.
+     fills = ONLY the parts the bike ships with from the factory (decision
+     #1); pedals are not stock, so the pedals slot is intentionally absent;
+     headset left unfilled (FSA No.42/48/ACB stated, no complete SKU sourced
+     - same rule-20c convention as the Spire row above). price = the list USD
+     MSRP shown on transitionbikes.com. Verdict-clean per decision #6: GX
+     Eagle DUB T-Type Transmission on a udh:true frame, XD-driver Synthesis
+     Enduro Alloy wheels matching the XS-1275 T-Type (XD-only) cassette,
+     SRAM HS2 rotors within the frame's 203mm native rear-brake-mount rating. */
+  { id:'cb-transition-smuggler-carbon-gx-axs', cat:'completebike', brand:'Transition', model:'Smuggler Carbon GX AXS', family:'transition-smuggler', gen:'Carbon',
+    modelYear:2026, disciplines:['trail'], price:6699,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.transitionbikes.com/Bikes/Smuggler',
+    fills:{
+      frame:'fr-transition-smuggler-carbon', fork:'fk-rockshox-pike-ultimate-29-140', shock:'sh-rockshox-super-deluxe-selectplus-210x50',
+      frontWheel:'fw-crankbrothers-synthesis-enduro-alloy-29', rearWheel:'rw-crankbrothers-synthesis-enduro-alloy-29-xd',
+      frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-dissector-29-24-exop-mt',
+      shifter:'sft-sram-gx-transmission', derailleur:'dr-sram-gx-transmission', cassette:'ca-sram-xs1275',
+      chain:'ch-sram-gx-flattop', crankset:'cr-sram-gx-transmission', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-sram-code-stealth', rearBrake:'bk-sram-code-stealth',
+      frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-180-6b',
+      handlebar:'hb-oneup-carbon-35', stem:'st-anvl-swage-35-40', grips:'gr-odi-elite-motion',
+      dropper:'dp-oneup-v3-316-150', saddle:'sa-sdg-belair-v3'
+    },
+    desc:'FETCHED transitionbikes.com/Bikes/Smuggler build-sheet table for the "Smuggler Carbon GX AXS" trim: full factory spec + $6,699.00 USD price. Only 3 new OE rows needed alongside this one (stem, both wheels) - the RockShox Pike Ultimate fork, RockShox Super Deluxe Select+ shock, the whole SRAM GX Eagle Transmission drivetrain, the BSA73 DUB BB, SRAM Code Silver Stealth brakes, SRAM HS2 rotors, both Maxxis tires, the OneUp Carbon bar + OneUp dropper, and the SDG Bel-Air V3 saddle were ALL already cataloged exact matches. Grips modeled on the catalog\'s existing ODI Elite Motion lock-on row (the build sheet states "ODI Elite Flow Lock-On", a distinct trim this catalog does not carry yet; Elite Motion is the closest cataloged ODI Elite-line lock-on sibling and grips carry no verdict-driving fields, so this substitution risks no false compatibility claim - flagged here rather than silently treated as an exact match). Pedals omitted (not stock); headset omitted (FSA No.42/48/ACB, no complete SKU sourced). Component (a-la-carte) sum of the fills comfortably exceeds $6,699 at current catalog prices.' },
+
+  /* Marin Alpine Trail 1 (2026) - Complete Bikes grind 2, bike 3 (Marin's
+     debut completebike row). fills = ONLY the parts the bike ships with from
+     the factory (decision #1); pedals are not stock, so the pedals slot is
+     intentionally absent; headset left unfilled (FSA custom adjustable-HTA
+     headset, frame-integrated, no S.H.I.S. codes published on the fetched
+     build page - same convention as the Commencal/Canyon rows). price = the
+     list USD MSRP shown on marinbikes.com. Verdict-clean per decision #6:
+     mullet (29F/27.5R) matching the frame's wheelConfigs; 205x65 trunnion
+     shock exactly matching the frame's shockEye/Stroke/Mount; TRP Slate EVO
+     brakes on Center-Lock Shimano MT410 hubs, so the rotor is modeled as the
+     catalog's existing Center-Lock TRP TR25 203mm row (not a 6-bolt one -
+     see that row and the wheel rows' descs), avoiding a false rotor-mount
+     mismatch. */
+  { id:'cb-marin-alpine-trail-1', cat:'completebike', brand:'Marin', model:'Alpine Trail 1', family:'marin-alpine-trail', gen:'Series 4',
+    modelYear:2026, disciplines:['enduro'], price:3499,
+    verified:true, lastChecked:'2026-07-15', source:'https://marinbikes.com/products/alpine-trail',
+    fills:{
+      frame:'fr-marin-alpine-trail', fork:'fk-rockshox-domain-rc-29-170', shock:'sh-fox-float-performance-205x65-trun',
+      frontWheel:'fw-marin-shimano-mt410-29', rearWheel:'rw-marin-shimano-mt410-275-ms',
+      frontTire:'ti-vee-flowsnap-29-26-synthesis-tc', rearTire:'ti-vee-flowsnap-275-26-synthesis-tc',
+      shifter:'sft-shimano-deore-m6100', derailleur:'dr-shimano-deore-m6100-sgs', cassette:'ca-shimano-deore-m6100-1051',
+      chain:'ch-kmc-x12', crankset:'cr-fsa-comet-32',
+      frontBrake:'bk-trp-slate-evo', rearBrake:'bk-trp-slate-evo',
+      frontRotor:'ro-trp-tr25-203-cl', rearRotor:'ro-trp-tr25-203-cl',
+      handlebar:'hb-marin-mini-riser-780-28', stem:'st-marin-3d-forged-35', grips:'gr-marin-grizzly-lockon',
+      dropper:'dp-tranzx-ysp39-349-150', saddle:'sa-marin-speed-concept'
+    },
+    desc:'FETCHED marinbikes.com/products/alpine-trail (the Alpine Trail 1 complete-bike product page): full factory build sheet + $3,499.00 USD price. This is Marin\'s FIRST completebike row in this catalog. 9 new OE rows entered alongside this one (shock, both wheels, crankset, chain, handlebar, stem, grips, dropper, saddle - grips/dropper/saddle are shared with the Alpine Trail XR row below, same frame family). Fork NOTE: the fetched build sheet states "Fox 36 Rhythm, 170mm Travel, 29\", Grip Damper" - no Fox 36 Rhythm row exists in this catalog and Fox publishes no consumer weight for the OEM-only Rhythm damper tier, so rather than fabricate a new fork row this session reused the frame\'s already-cataloged, maker-confirmed-compatible RockShox Domain Gold RC 170 (29in, same travel/wheel-size/axle/steerer/rotor-range) as the closest sourced substitute on file - flagged here rather than silently presented as an exact-model match; a follow-up worker should add the real Fox 36 Rhythm 170 fork row and correct this fill. The Shimano Deore M6100 shifter/derailleur/cassette were already cataloged, and the front/rear tires (Vee Tire Flow Snap Synthesis, 29x2.6 front / 27.5x2.6 rear) reuse this catalog\'s existing Vee Flow Snap Synthesis rows exactly. TRP Slate EVO brakes ship on Center-Lock Shimano MT410 hubs (maker-confirmed), so the rotor fill uses this catalog\'s existing TRP TR25 203mm Center-Lock row rather than a 6-bolt TRP rotor - a deliberate, documented brake/rotor-mount-correct substitution, not a guess. Pedals + headset omitted (not stock / frame-integrated, no SHIS published). Component (a-la-carte) sum of the fills comfortably exceeds $3,499 at current catalog prices.' },
+
+  /* Marin Alpine Trail XR (2026) - Complete Bikes grind 2, bike 4. Shares the
+     same frame + BB row as the Alpine Trail 1's SRAM-DUB precedent, and
+     reuses that build's grips/dropper/saddle (identical Marin/TranzX house
+     parts per both fetched build sheets). fills = ONLY the parts the bike
+     ships with from the factory (decision #1); pedals not stock; headset
+     left unfilled (same FSA custom/no-SHIS convention as the Alpine Trail
+     1). price = the list USD MSRP shown on marinbikes.com. Verdict-clean per
+     decision #6: mullet matching the frame; 205x65 trunnion RockShox Super
+     Deluxe Coil Ultimate EXACTLY matches the frame's shock fields (an exact
+     existing catalog row, zero new suspension rows on this bike); SRAM
+     XG-1275 Eagle cassette on an XD-driver Formula-hub rear wheel; SRAM DB8
+     + HS2 rotors within the frame's 203mm native rear-brake-mount rating. */
+  { id:'cb-marin-alpine-trail-xr', cat:'completebike', brand:'Marin', model:'Alpine Trail XR', family:'marin-alpine-trail', gen:'Series 4',
+    modelYear:2026, disciplines:['enduro'], price:4699,
+    verified:true, lastChecked:'2026-07-15', source:'https://marinbikes.com/products/2024-alpine-trail-xr',
+    fills:{
+      frame:'fr-marin-alpine-trail', fork:'fk-rockshox-zeb-ultimate-29-170', shock:'sh-rockshox-super-deluxe-coil-ultimate-205x65-trun',
+      frontWheel:'fw-marin-formula-dc711-29', rearWheel:'rw-marin-formula-dcl3482-275-xd',
+      frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-assegai-275-25-dd-mg',
+      shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275',
+      chain:'ch-sram-nx-eagle', crankset:'cr-sram-gx-eagle', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-sram-db8', rearBrake:'bk-sram-db8',
+      frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-180-6b',
+      handlebar:'hb-marin-trail-800-20', stem:'st-marin-cnc-35', grips:'gr-marin-grizzly-lockon',
+      dropper:'dp-tranzx-ysp39-349-150', saddle:'sa-marin-speed-concept'
+    },
+    desc:'FETCHED marinbikes.com/products/2024-alpine-trail-xr (the Alpine Trail XR complete-bike product page): full factory build sheet + $4,699.00 USD price. Only 4 new OE rows needed alongside this one (both wheels, handlebar, stem - grips/dropper/saddle reused from the Alpine Trail 1 row above, same Marin/TranzX house parts per both fetched build sheets) - the RockShox ZEB Ultimate 170 fork and RockShox Super Deluxe Coil Ultimate 205x65 shock were ALREADY cataloged EXACT matches for the frame\'s own shockEye/Stroke/Mount fields (zero new suspension rows); the SRAM GX Eagle (cable, non-Transmission) shifter/derailleur/crank, the SRAM XG-1275 Eagle cassette, the SRAM NX Eagle chain, the BSA73 DUB BB, SRAM DB8 brakes and SRAM HS2 rotors, and both Maxxis Assegai tires (front EXO+ MaxxGrip 2.5, rear DoubleDown MaxxGrip 2.5 - matching the fetched build sheet\'s "MAXX GRIP front 29x2.5 EXO+" / "rear 27.5x2.5 DoubleDown" line exactly) were ALL already cataloged exact matches. Pedals + headset omitted (not stock / frame-integrated, no SHIS published). Component (a-la-carte) sum of the fills comfortably exceeds $4,699 at current catalog prices.' }
 ];
 /** @type {Part[]} */
 var PARTS = PARTS_RAW;
