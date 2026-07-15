@@ -45,4 +45,4 @@ var FORUM_ENABLED = true;
  * Flip it to true here to go live once the catalog grind has filled the
  * categories and Douglas is satisfied with the preview.
  */
-var KIT_ENABLED = false;
+var KIT_ENABLED = true;
