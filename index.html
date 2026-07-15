@@ -762,23 +762,12 @@
   html.loam .legend i{border-color:rgba(255,255,255,.25)}
   html.loam dialog{background:var(--card);color:var(--ink);border-color:var(--line)}
 </style>
-<script>
-/* Apply the saved (or first-visit OS-preferred) theme BEFORE first paint so a
-   dark-mode user never sees a white flash. Button state syncs in the main
-   script at the end of the body. */
-(function(){
-  var t=null; try{ t=localStorage.getItem('tb-theme'); }catch(e){}
-  // First visit (no stored choice) follows the OS preference.
-  if(t===null && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) t='dark';
-  // light = no class; dark/rad/loam map 1:1 to an <html> class.
-  if(t==='dark' || t==='rad' || t==='loam') document.documentElement.classList.add(t);
-  // Keep the mobile browser-chrome tint in sync from the first paint (map mirrored
-  // in setTheme's THEME_META — this IIFE must stay self-contained for no-flash).
-  var mc={light:'#16523a',dark:'#123f2b',rad:'#150029',loam:'#1e4a30'};
-  var m=document.getElementById('metaThemeColor');
-  if(m) m.setAttribute('content', mc[t]||mc.light);
-})();
-</script>
+<!-- Pre-paint theme guard + shared money/theme helpers (src/ui-common.js): a
+     classic, render-blocking <script src> so the saved/OS theme applies
+     before first paint (no light/dark flash) — see that file for details.
+     Shared with KitBuilder/index.html via the same 'tb-theme' key. Button
+     state syncs in the main script at the end of the body. -->
+<script src="src/ui-common.js"></script>
 </head>
 <body>
 <header>
@@ -1351,7 +1340,7 @@
   // pattern as 'tb-theme'), read here at init so the first render has no view flash.
   var viewMode = 'list'; try{ if(localStorage.getItem('tb-view')==='cards') viewMode='cards'; }catch(e){}
   var $ = function(id){ return document.getElementById(id); };
-  var money = function(n){ return '$' + (n||0).toLocaleString(); };
+  var money = tbMoney;   // shared with KitBuilder via src/ui-common.js
   var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg / ' + (g/453.592).toFixed(2) + ' lb)'; };
   // esc() (HTML-escape) and partVerified() are shared from compat.js — one tested source of truth.
 
@@ -4140,12 +4129,9 @@
     rad:'RAD mode engaged ⚡ Purely cosmetic — this changes nothing about fit.',
     loam:'Loam mode 🍂'
   };
-  // Mirror of the pre-paint IIFE's map (that one must stay self-contained for no-flash).
-  var THEME_META = {light:'#16523a',dark:'#123f2b',rad:'#150029',loam:'#1e4a30'};
-  function currentTheme(){
-    var c=document.documentElement.classList;
-    return c.contains('rad')?'rad':c.contains('loam')?'loam':c.contains('dark')?'dark':'light';
-  }
+  // Theme class/localStorage/meta-tint application (TB_THEME_META, tbApplyTheme,
+  // tbCurrentTheme) is shared with KitBuilder via src/ui-common.js; only the
+  // page-specific button marking + side effects (RAD meter re-render, toast) live here.
   function markThemeButtons(name){
     for(var i=0;i<THEMES.length;i++){
       var b=$('theme-'+THEMES[i]); if(!b) continue;
@@ -4154,13 +4140,10 @@
       b.setAttribute('aria-checked', String(on));
     }
     var meta=$('metaThemeColor');
-    if(meta) meta.setAttribute('content', THEME_META[name]||THEME_META.light);
+    if(meta) meta.setAttribute('content', TB_THEME_META[name]||TB_THEME_META.light);
   }
   function setTheme(name){
-    var root=document.documentElement.classList;
-    root.remove('dark','rad','loam');
-    if(name!=='light') root.add(name);
-    try{ localStorage.setItem('tb-theme', name); }catch(e){}
+    tbApplyTheme(name);
     markThemeButtons(name);
     renderPanel();   // the RAD radness meter is theme-dependent
     toast(THEME_TOAST[name]);
@@ -4170,7 +4153,7 @@
   })(THEMES[_t]); }
   // The head script may have applied the saved/OS theme pre-paint — sync the
   // active-button marker (and the meta tint) to whatever is live.
-  markThemeButtons(currentTheme());
+  markThemeButtons(tbCurrentTheme());
   // Every theme button rolls a FRESH random build on each click (loadSample).
   // demoBad is the one deliberate fixed, broken build (Show clashes).
   $('demoBudget').onclick=function(){ loadSample('budget'); };

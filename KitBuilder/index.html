@@ -306,18 +306,9 @@
     .list .pcard details.chart{order:5;flex-basis:100%}
   }
 </style>
-<script>
-/* Apply the saved (or first-visit OS-preferred) theme BEFORE first paint — no flash.
-   Self-contained + identical to index.html's head IIFE (shared 'tb-theme' key). */
-(function(){
-  var t=null; try{ t=localStorage.getItem('tb-theme'); }catch(e){}
-  if(t===null && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) t='dark';
-  if(t==='dark' || t==='rad' || t==='loam') document.documentElement.classList.add(t);
-  var mc={light:'#16523a',dark:'#123f2b',rad:'#150029',loam:'#1e4a30'};
-  var m=document.getElementById('metaThemeColor');
-  if(m) m.setAttribute('content', mc[t]||mc.light);
-})();
-</script>
+<!-- Pre-paint theme guard + shared money/theme helpers (src/ui-common.js) — see
+     that file for details. Shared with index.html via the same 'tb-theme' key. -->
+<script src="../src/ui-common.js"></script>
 </head>
 <body>
 <header>
@@ -373,29 +364,31 @@
 (function(){
   'use strict';
   var $ = function(id){ return document.getElementById(id); };
+  // esc(): Kit Builder deliberately never loads compat.js (see the head comment —
+  // "kit checks nothing, so it never needs the bike engine"), so it keeps its own
+  // copy rather than sharing compat.js's tested one the way index.html does.
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
-  var money = function(n){ return '$' + (n||0).toLocaleString(); };
+  var money = tbMoney;   // shared with index.html via src/ui-common.js
   var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg / ' + (g/453.592).toFixed(2) + ' lb)'; };
 
-  /* ---- theme toggle (compact; same 'tb-theme' key + <html> class as index.html) -- */
+  /* ---- theme toggle (compact; same 'tb-theme' key + <html> class as index.html).
+     Class/localStorage/meta-tint application is shared (tbApplyTheme, tbCurrentTheme,
+     TB_THEME_META from src/ui-common.js); only this page's button-marking + menu-close
+     + header-height resync are local. ---- */
   (function(){
-    var META={light:'#16523a',dark:'#123f2b',rad:'#150029',loam:'#1e4a30'};
-    function current(){ var c=document.documentElement.classList; return c.contains('rad')?'rad':c.contains('loam')?'loam':c.contains('dark')?'dark':'light'; }
     function mark(name){
       var btns=document.querySelectorAll('.theme-pop [data-theme]');
       for(var i=0;i<btns.length;i++){ var on=btns[i].getAttribute('data-theme')===name; btns[i].classList.toggle('primary',on); btns[i].setAttribute('aria-checked',String(on)); }
-      var m=$('metaThemeColor'); if(m) m.setAttribute('content', META[name]||META.light);
+      var m=$('metaThemeColor'); if(m) m.setAttribute('content', TB_THEME_META[name]||TB_THEME_META.light);
     }
     function set(name){
-      var root=document.documentElement.classList; root.remove('dark','rad','loam');
-      if(name!=='light') root.add(name);
-      try{ localStorage.setItem('tb-theme', name); }catch(e){}
+      tbApplyTheme(name);
       mark(name); var d=$('themeMenu'); if(d) d.open=false;
       syncHdr();
     }
     var btns=document.querySelectorAll('.theme-pop [data-theme]');
     for(var i=0;i<btns.length;i++){ (function(b){ b.onclick=function(){ set(b.getAttribute('data-theme')); }; })(btns[i]); }
-    mark(current());
+    mark(tbCurrentTheme());
     // close the theme menu on an outside click (a click the USER makes — not a pop-up)
     document.addEventListener('click', function(e){ var d=$('themeMenu'); if(d&&d.open&&!d.contains(e.target)) d.open=false; });
   })();
