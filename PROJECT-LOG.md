@@ -39,8 +39,16 @@
   Harness byte-identical.
 
 - **Gates every push:** validate 0 problems (3130 bike + 692 kit) · vitest 587 · tsc clean · harness
-  identical. CI + Deploy green (kit push confirmed; cog push in flight at write time). Re-fetched
-  origin + FF-checked before each of the 3 pushes.
+  identical. CI + Deploy green on every push. Re-fetched origin + FF-checked before each.
+
+- **KIT BUILDER FLIPPED LIVE (`042eb3a`), `KIT_ENABLED=true`** — Douglas's explicit call later the
+  same session. Browser-verified locally before shipping (the `/KitBuilder` page renders all 12
+  rails with live counts / add-to-kit works / zero console errors; the main page shows the "Rider
+  kit" nav button); CI + Deploy green → public on buildmymtb.com. **Cleanup:** 15 sessions archived
+  (seat 8 + redesign + cog + 12 grinds), all merged local + the 15 spent remote kit/cog branches
+  pruned (Douglas-approved), worktrees removed. (Infra note for a future pass: GitHub Actions warns
+  the checkout/pages/setup-node actions still target the now-deprecated Node 20 — non-blocking, deploy
+  still succeeds.)
 
 ## 2026-07-14 — Coordinator seat 8 (succession)
 
