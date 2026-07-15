@@ -50,6 +50,36 @@
   the checkout/pages/setup-node actions still target the now-deprecated Node 20 — non-blocking, deploy
   still succeeds.)
 
+- **Kit list-row alignment fix (`b772486`)** — the dense-list rows had the price pinned to the row
+  top while the Add-to-kit button/verified badge centered (independent `align-items:center` per
+  column). Switched the list-row grid to `align-items:start`; size-chart `<details>` moved below the
+  grid. Browser-verified (price/badges share a line, button/verified share the next). UI worker chip.
+
+- **HARDTAIL LIVE-PUSH (`cf80ee1` + `9311ba8`)** — hardtails were already live (31 frames + engine
+  support) but not discoverable. Added a Full-suspension/Hardtail frame sub-filter + a "Hardtail
+  build" sample (shock-free, property-test extended); +3 audited hardtail frames (Vitus Sentier,
+  Chromag Rootdown, Ragley Blue Pig → 34) and re-verified the existing 22. Flagged for a future
+  brake pass: Cotic BFe / Chromag Doctahawk need I.S. brake mount + the catalog has zero I.S. brakes.
+
+- **ROTOR-CLASS TOLERANCE engine fix (`9019a24`)** — surfaced by the complete-bike review: rule 10/10b
+  strict-compared rotor size to frame/fork max/min, so a Shimano 203mm rotor false-WARNED on a SRAM
+  200mm-labeled max and a 200mm rotor false-ERRORED on a 203-min fork (200≡203, 220≡223 are the same
+  rotor class). Added a bounded 3mm `rotorOverMax`/`rotorUnderMin` grace to all four sites + 8 tests;
+  harness delta verified to be ONLY the intended false-warns (6→4 fork families). Fixed a latent
+  harness bug too (probe E re-implemented rule 10 instead of calling the engine). Systemic — cleared
+  false verdicts across a large slice of the catalog (88 forks at maxRotorF:203, etc.).
+
+- **COMPLETE BIKES — foundation + first flagship LIVE (`31c2d62`)** — per COMPLETE-BIKES-SCOPE.md's 9
+  locked decisions (Douglas 2026-07-15). `completebike` whole-build preset reusing the fills/lint/
+  weight machinery (fills = factory OE parts only; pedals empty); auto-fill; dual-price block (Buy as
+  parts vs Complete + You save); dedicated browse surface; MSRP + optional streetPrice with a
+  discount-only guard. First bike: **Commencal Meta SX V5 Essential** ($4,400; ~$5,849 as parts →
+  save $1,449) + 11 honestly-sourced OE rows. Ships straight to live (decision #8, no gate).
+  **Verdict-clean 0 errors / 0 warnings** (Douglas chose fix-root-cause-first → the rotor tolerance
+  landed first so the flagship debuts perfectly clean), pinned as a golden. Browser-verified live:
+  browse → Build this bike → auto-fill → "no conflicts found" + the dual-price story. Foundation +
+  rotor + hardtail worker sessions all archived, branches/worktrees pruned.
+
 ## 2026-07-14 — Coordinator seat 8 (succession)
 
 - **HARVEST BATCH (evening): 5 landed on main.** (1) **"Best match"→"Random" sort** (`7c73008`) —
