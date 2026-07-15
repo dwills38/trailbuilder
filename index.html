@@ -1392,6 +1392,17 @@
   var PRESET_GROUP = {}; GROUPS.forEach(function(g){ if(g.preset) PRESET_GROUP[g.preset.cat] = g.key; });
   var groupByKey = {};  GROUPS.forEach(function(g){ groupByKey[g.key] = g; });
   var CAT_GROUP = {};   SLOTS.forEach(function(s){ CAT_GROUP[s.cat] = s.group; }); Object.keys(PRESET_GROUP).forEach(function(c){ CAT_GROUP[c] = PRESET_GROUP[c]; });
+  // 'completebikes' (the rail-chip key for whole-bike browsing) is deliberately
+  // absent from GROUPS/groupByKey: a whole bike is never a slot-fillable part,
+  // so it has no slots/preset to describe. That leaves groupByKey['completebikes']
+  // === undefined by design — any future groupByKey[activeGroup].something must
+  // go through railGroup() (or its own null guard) instead of indexing directly,
+  // or it NPEs whenever Complete Bikes is the active rail tab.
+  function railGroup(key){ return groupByKey[key] || null; }
+  // PARTS is immutable at runtime, so the total complete-bike count is a
+  // constant — compute it once instead of re-scanning the whole catalog on
+  // every renderCatalog() call (every keystroke in the search box).
+  var COMPLETEBIKE_COUNT = PARTS.filter(function(p){ return p.cat==='completebike'; }).length;
   /* cog-under-drivetrain: a group tagged `parent` (compat.js) browses as a
      sub-chip of its parent instead of its own top-level rail chip - a
      RAIL-DISPLAY-ONLY relationship (pricing/completeness still key off the
@@ -1561,7 +1572,7 @@
     var cats = subCatsOf(activeGroup);
     if(cats.length<2){ el.style.display='none'; return; }   // nothing worth sub-filtering
     el.style.display='';
-    el.appendChild(mkSubChip('all','All '+groupByKey[activeGroup].label));
+    el.appendChild(mkSubChip('all','All '+(railGroup(activeGroup) ? railGroup(activeGroup).label : '')));
     cats.forEach(function(c){ el.appendChild(mkSubChip(c, subChipLabel(c))); });
   }
   function mkSubChip(key,label){
@@ -1820,7 +1831,7 @@
     // count line above the catalog — set before the empty-state return so it
     // honestly reads "Showing 0 of N parts" when every part is filtered out
     $('catCount').textContent = activeGroup==='completebikes'
-      ? 'Showing '+list.length+' of '+PARTS.filter(function(p){ return p.cat==='completebike'; }).length+' complete bikes'
+      ? 'Showing '+list.length+' of '+COMPLETEBIKE_COUNT+' complete bikes'
       : 'Showing '+list.length+' of '+PARTS.length+' parts';
     if(!list.length){
       // Wheelset presets are pre-built matched pairs — not every real axle combo
@@ -1861,13 +1872,22 @@
   function bikeFillsResolved(p){
     var r={}; Object.keys(p.fills).forEach(function(k){ r[k]=byId(p.fills[k]); }); return r;
   }
+  // A complete bike's fills are fixed at catalog-load time, so its à-la-carte
+  // parts total never changes — memoize per bike id instead of recomputing
+  // buildTotals() on every renderCatalog() call (every keystroke, every filter).
+  var bikePartsTotalCache = {};
+  function bikePartsTotal(p){
+    var cached = bikePartsTotalCache[p.id];
+    if(cached === undefined){ cached = buildTotals(bikeFillsResolved(p), {}).price; bikePartsTotalCache[p.id] = cached; }
+    return cached;
+  }
   function bikeCardEl(p){
     var card=document.createElement('div');
     card.className='pcard completebike';
     var thumbHtml = p.image
       ? '<div class="pcard-thumb"><img src="'+esc(p.image)+'" alt="" loading="lazy"></div>'
       : '<div class="pcard-thumb">'+placeholderIcon('frame')+'</div>';
-    var partsTotal = buildTotals(bikeFillsResolved(p), {}).price;
+    var partsTotal = bikePartsTotal(p);
     var headline = p.streetPrice || p.price;
     var save = partsTotal - headline;
     var discLabel = (p.disciplines||[]).map(function(d){ return DISC_LABELS[d] || d; }).join('/');
