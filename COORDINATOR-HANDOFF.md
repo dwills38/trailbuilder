@@ -1,6 +1,79 @@
 # BuildMyMTB — Coordinator Handoff
 
-## ★★★ SEAT 10 — START HERE (succession from seat 9, 2026-07-15) ★★★
+## ★★★ SEAT 11 — START HERE (succession from seat 10, 2026-07-15) ★★★
+
+Seed yourself normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today> -b
+coord/<today> origin/main` (NEVER at `D:\` root; never git-mutate the shared checkout).
+**`origin/main` = `be35895`, all gates + CI/Deploy green: 3454 parts / 602 tests / validate 0
+problems (2403 verified, 1051 unverified) / tsc clean.**
+
+**What seat 10 shipped live (all CI/Deploy green):** Merged the Complete Bikes mega-grind —
+**+51 bikes across 25 makers (6 → 57 total)**, coordinator-audited (harness delta benign: only
+the section-C clean-scenario count rose 169→182 for the 13 new frames, sections A/B/D/E
+untouched; verified rows spot-checked to real maker sources; no e-bikes); complete-bike
+list-card height fix (`.cb-priceaction{display:contents}` — uniform 59px matching frames/other
+categories, per Douglas: "don't change the others to match, change complete bikes to fit");
+legal-page email swap to `Doug@buildmymtb.com` (Cloudflare routing confirmed live). Per-frame
+`noStockDropper` flag (exempts dropper completeness) landed from the prior wave.
+
+**★ THE 4 OPEN SESSIONS (Douglas wants you aware; keep them aware of you too):**
+1. **200-bike Complete Bikes grind** (`local_c638126f`, RUNNING, started 2026-07-15 22:13) —
+   Sonnet orchestrator fanning out `catalog-worker`/`catalog-auditor` agents, targeting the
+   zero-coverage majors (Specialized, Trek, Santa Cruz, Giant, Scott, Merida, Pivot, Yeti, Evil,
+   Cannondale…) + hardtails, on branch `catalog/complete-bikes-grind-3`. It has the full 57-bike
+   exclusion list so it shouldn't duplicate. **DO NOT touch its worktree/branch — actively in
+   use.** On report: audit hard exactly like the 51-bike batch (fan out `catalog-auditor` by
+   maker; verified only off fetched maker pages; watch for e-bike leakage and substitute/non-stock
+   fills — fills must be ONLY real factory parts, drop the bike rather than fake a spec).
+2. **Complete Bikes MEGA-grind #1** (`local_4f36df6a`) — **DONE, already merged** (`be35895`).
+   `isRunning:false` now, safe to archive once you confirm it has nothing further to report.
+3. **"Add xc discipline to dropper slotRequired exemption"** (`local_b4d73300`) — an ENGINE-tier
+   tweak, not yet reported. Review + **adversarially audit** its branch when it presents (harness
+   impact, engine-tier). Not coordinator-spawned; leave its worktree alone until it reports.
+4. **Affiliate Setup** (`local_e301505a`) — Douglas's parallel BUSINESS lane (LLC "D-Dubs Works"/SD
+   — name+state changed 2026-07-15, see `llc-golive-playbook` memory — EIN, Cloudflare email,
+   affiliate applications, manufacturer partnerships). Read `AFFILIATE-HANDOFF.md` +
+   `multi-session-coordination.md`. **You are the ONLY session that pushes code.** Coordinate via
+   `list_sessions`/`send_message` before ambiguous shared-file work.
+
+**★ CRITICAL LESSON — the orphan-worktree hazard (from seat 9/10, still live risk):** Do NOT
+`git worktree remove` a worktree while ANY session is running or a new chip might land in that
+dir. Let ARCHIVING a session clean its own worktree; run `git worktree list` before any removal.
+Seat 10 avoided repeating seat 9's mistake by leaving the mega-grind's worktrees untouched even
+when `isRunning` briefly read false mid-grind — **don't trust that flag alone; wait for its own
+report.**
+
+**Queued (sequence AFTER both complete-bike grinds settle — all three edit `src/compat.js`,
+parallel = huge conflict):** the **modelYear backfill** — populate `modelYear` on
+frames/complete-bikes/forks/shocks/generational components (maker-sourced, fan out workers);
+leave it BLANK on year-agnostic parts (tires/saddles/grips/generic drivetrain). Policy already in
+`tools/DATA-ENTRY-TEMPLATE.md`.
+
+**Pending Douglas decisions:** (1) **legal-page header unification** — privacy/terms/
+affiliate-disclosure still use the old plain-gradient header (no topo contours); undecided whether
+to give them the tall topo header (a 3-file change). (2) Confirm Cloudflare Web Analytics enabled
+— the privacy page's "No third-party analytics" line is deliberately held until then.
+
+**★ VALUES (reaffirmed 2026-07-15, load-bearing — see `product-values` memory):** "trustworthy,
+accurate data, no bias, just a tool for users to help them build or have fun." **NEVER fabricate a
+value to fill a field** — a blank beats a plausible-but-invented one (modelYear-blank policy; the
+Propain/other verified→sample demotions; root-cause rotor fix instead of shipping a false warning;
+the 200-bike chip is told to DROP a bike rather than substitute a non-stock part).
+
+**Standing workflow (unchanged):** re-fetch origin before EVERY merge (main moves fast on UI
+auto-ships); apply worker branches via the stale-base own-additions pattern, never a raw merge;
+four gates + verdict-harness byte-identical for engine work (harness count may legitimately rise
+for new frames — compare which SECTION moved, not just the total); UI auto-ships on green gates;
+catalog data = coordinator-reviewed, new error-tier rows = adversarially audited; only
+taxonomy/money/visual-taste/account decisions go to Douglas; keep his updates SHORT.
+Coordinate-only, lean seat — hand authoring to chips (model+effort in the title). Append one
+PROJECT-LOG entry per wave.
+
+_See §0/§0a below + PROJECT-LOG.md's 2026-07-15 entries for the full trail._
+
+---
+
+## ★★★ SEAT 10 (succession from seat 9, 2026-07-15) ★★★
 
 Seat 9 ran a very long, productive session. **`origin/main` = `11fc738`, all four gates +
 CI/Deploy green: 3180 bike parts / 692 kit parts / 601 tests / validate 0 problems / tsc clean.**
