@@ -449,3 +449,34 @@ Everything above is buildable as written. These are the calls only you can make:
 
 *Scope only — no code, no schema, no catalog rows; the sole artifact is this document. Branch
 `scope/complete-bikes`, presented for review, not merged. Gates run clean (doc-only change).*
+
+---
+
+## § DECISIONS LOCKED (Douglas, 2026-07-15) — implementation GO
+
+All nine answered. The build proceeds on these:
+
+1. **YES — `completebike` whole-build preset.** ★ REFINEMENT: the `fills` map uses **ONLY the parts
+   that ship on the bike from the factory** — the faithful OE spec (exact fork/shock/wheels/tires-by-
+   size/drivetrain/brakes/cockpit/dropper/saddle). Do NOT substitute a "close enough" aftermarket part.
+   Slots the factory omits (commonly **pedals** — most complete MTBs ship pedal-less) stay **empty**;
+   that's honest, and the dual price reflects only the parts that actually ship.
+2. **YES — dual-price block** ("Buy as parts $X" / "Complete bike $Y" / "you save $Z"), `buildTotals` unchanged.
+3. **MSRP is the canonical stored `price`; add an optional `streetPrice`** shown as the headline when present.
+4. **YES — dedicated "Complete Bikes" browse section** (cards, filter by discipline/price/brand, search),
+   pick → auto-fill every slot.
+5. **Per recommendation** — keep the dual-price block after a swap, relabel "modified from <bike>" once
+   any slot diverges.
+6. **YES — every complete bike must be `checkBuild` verdict-clean** (0 errors; warnings allowed + shown)
+   and ships as a golden test.
+7. **5 flagship bikes** — but seed from the **manufacturers we get the best data from FIRST** (fetchable
+   full build sheets: Commencal / Canyon / Vitus / Forbidden and similar). Explicitly do NOT lead with the
+   fetch-walled makers (Specialized/Trek/Giant/Pivot) — so the doc's Stumpjumper worked example is
+   DEFERRED until its build sheet is sourceable (walled maker; revisit with a web-unblocker or a clean
+   third-party sheet). NOTE: some best-data brands (e.g. RAAW) sell frames only — pick makers that
+   actually sell complete bikes.
+8. **SHIP STRAIGHT TO LIVE** — NO `COMPLETE_BIKES_ENABLED` gate, no preview round; auto-ship on green
+   gates like the UI tier. Consequence: the foundation must debut with **≥1 real complete bike** (build
+   the foundation + the first flagship bike together) so the live section is never empty; the browse
+   entry hides itself when there are zero complete bikes.
+9. **YES — GO.** Implementation round approved.
