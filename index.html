@@ -1449,14 +1449,14 @@
   function renderChips(){
     var el = $('chips'); el.innerHTML='';
     el.appendChild(mkChip('all','All parts'));
+    // Complete Bikes (2026-07-15): a browse chip for the completebike cat, which
+    // is NOT a GROUPS entry (group-less by design — see compat.js GROUPS comment).
+    // Sits directly ABOVE Frame (Douglas 2026-07-15) and is text-only like every
+    // other rail chip. Hides itself when the catalog carries zero complete bikes
+    // (decision #8) rather than ever showing an empty section.
+    if(PARTS.some(function(p){ return p.cat==='completebike'; })) el.appendChild(mkChip('completebikes','Complete Bikes'));
     // a parent-tagged group (e.g. cog) browses as a SUB-chip of its parent — see childGroupsOf() — so it gets no top-level rail chip of its own
     GROUPS.forEach(function(g){ if(g.parent) return; el.appendChild(mkChip(g.key, g.label)); });   // sidebar category chips are text-only (icons removed — a literal component glyph risked resembling one maker's part)
-    // Complete Bikes (2026-07-15): a browse chip for the completebike cat, which
-    // is NOT a GROUPS entry (it's group-less by design — see compat.js GROUPS
-    // comment), so it's appended here rather than falling out of the GROUPS
-    // loop above. Hides itself when the catalog carries zero complete bikes
-    // (decision #8) rather than ever showing an empty section.
-    if(PARTS.some(function(p){ return p.cat==='completebike'; })) el.appendChild(mkChip('completebikes','🚲 Complete Bikes'));
     nudgeActiveChip(el);
   }
 
