@@ -1428,7 +1428,7 @@
     d.className='chip'+(activeGroup===key?' active':'');
     d.setAttribute('aria-pressed', activeGroup===key ? 'true' : 'false');
     d.textContent=label;
-    d.onclick=function(){ activeGroup=key; activeSub='all'; resetSubFilters(); reshuffleCatalog(); renderChips(); renderSubChips(); renderSubFilters(); renderCatalog(); };
+    d.onclick=function(){ activeGroup=key; activeSub='all'; resetSubFilters(); reshuffleCatalog(); if(key==='tire') inheritTireSizeFilter(); renderChips(); renderSubChips(); renderSubFilters(); renderCatalog(); };
     return d;
   }
 
@@ -1619,6 +1619,23 @@
   ];
   function resetSubFilters(){ SUBFILTERS.forEach(function(sf){ subFilter[sf.id]='all'; }); }
   resetSubFilters();   // seed the state map before the first render
+  /* Auto-inherit the tire size sub-filter from the wheels already picked
+     (Douglas: picking 29" wheels shouldn't leave 27.5"/26" tires visible by
+     default). Per-slot correct via effectiveWheel (covers the hub+rim
+     build-your-own-wheel alt path too): front wheel drives the front tire's
+     size, rear drives the rear's. A MULLET build (29 front / 27.5 rear) needs
+     BOTH sizes at once — one shared filter axis can't pre-pick two values, so
+     mixed sizes leave the filter at 'all' rather than hiding either size the
+     build actually needs (same "never hide a size the build needs" rule as
+     the frame wheelConfigs guard). No wheels yet => 'all', unchanged. */
+  function inheritTireSizeFilter(){
+    var res = resolved();
+    var fw = effectiveWheel(res, 'front'), rw = effectiveWheel(res, 'rear');
+    var fSize = fw && fw.wheel, rSize = rw && rw.wheel;
+    if(!fSize && !rSize) return;
+    if(fSize && rSize && fSize!==rSize) return;
+    subFilter.wheelSize = fSize || rSize;
+  }
   // Render one chip row per axis whose group is active (and that has ≥1 option).
   // Same DOM as the old static rows: <div class="chips subchips"> of .chip.sub buttons.
   function renderSubFilters(){
@@ -1850,6 +1867,7 @@
       return false;
     }
     activeGroup = target.key; activeSub = 'all'; resetSubFilters(); reshuffleCatalog();
+    if(target.key==='tire') inheritTireSizeFilter();
     if(!guidedOptOut) setCompatibleOnly(true);
     renderChips(); renderSubChips(); renderSubFilters();   // the caller's sync() renders the catalog
     var picked = byId(build[slotKey]);
@@ -2260,36 +2278,60 @@
 
   /* ---- spec-card share image (Phase 4, "start here" per the roadmap) — a
      self-contained SVG (fixed hex colors, not CSS vars — it has to look right
-     serialized outside the page) rasterized client-side to a PNG download. */
+     serialized outside the page) rasterized client-side to a PNG download.
+     Row layout is computed from the FILLED-group count up front (scGroupText
+     filters first, buildSpecCardSvg lays out second) rather than incrementing
+     a row/col counter while iterating GROUPS — the old counter only advanced
+     on a non-empty group and only ever flipped column once, so an unfilled
+     group (skipping the increment) or a build with >12 filled groups (bb +
+     headset + every other category) wrapped column 1 back onto its own row 0,
+     drawing two groups' label+value text at identical coordinates (the
+     doubled "BRAKES" / overlapping-strings bug). Computing perCol=ceil(n/2)
+     from the real filled count first means every row gets its own slot. */
   function scTruncate(s, n){ return s.length > n ? s.slice(0, n-1)+'…' : s; }
-  function scRow(x, y, g, res){
+  /** Text for one card row, or null if the group has nothing filled. Dedupes identical front/rear part names (e.g. same brake front+rear) instead of repeating them. */
+  function scGroupText(g, res){
     var bundle = (g.preset && bundleActive(g, res, presetBy)) ? byId(presetBy[g.key]) : null;
-    var anyFilled = g.slots.some(function(s){ return res[s.key]; });
-    if(!anyFilled) return '';
-    var text = bundle ? (bundle.brand+' '+bundle.model)
-      : g.slots.map(function(s){ var p=res[s.key]; return p ? (p.brand+' '+p.model) : null; }).filter(Boolean).join(' / ');
-    text = scTruncate(text, 42) + (bundle ? ' (kit)' : '');
+    if(bundle) return bundle.brand+' '+bundle.model+' (kit)';
+    var names = [];
+    g.slots.forEach(function(s){
+      var p = res[s.key];
+      if(!p) return;
+      var n = p.brand+' '+p.model;
+      if(names.indexOf(n) === -1) names.push(n);
+    });
+    return names.length ? names.join(' + ') : null;
+  }
+  function scRow(x, y, g, text){
     var icon = placeholderIcon(g.key, '#1f6f4a').replace('<svg ', '<svg width="20" height="20" ');
     return '<circle cx="'+(x+18)+'" cy="'+(y+18)+'" r="18" fill="#e7f5ec"/>'
       + '<g transform="translate('+(x+8)+','+(y+8)+')">'+icon+'</g>'
       + '<text x="'+(x+46)+'" y="'+(y+14)+'" font-size="10.5" font-weight="700" letter-spacing=".5" fill="#8a948c" font-family="system-ui,Arial,sans-serif">'+esc(g.label.toUpperCase())+'</text>'
-      + '<text x="'+(x+46)+'" y="'+(y+31)+'" font-size="15" font-weight="700" fill="#1c2321" font-family="system-ui,Arial,sans-serif">'+esc(text)+'</text>';
+      + '<text x="'+(x+46)+'" y="'+(y+31)+'" font-size="15" font-weight="700" fill="#1c2321" font-family="system-ui,Arial,sans-serif">'+esc(scTruncate(text, 42))+'</text>';
   }
   function buildSpecCardSvg(){
     var res = resolved(), t = buildTotals(res, presetBy), r = checkBuild(res);
     var verdict = r.errors.length ? { label:(r.errors.length+' problem'+(r.errors.length>1?'s':'')), bg:'#fbeaea', fg:'#c23b3b' }
       : r.warnings.length ? { label:(r.warnings.length+' thing'+(r.warnings.length>1?'s':'')+' to check'), bg:'#fdf3e1', fg:'#b9791b' }
       : { label:'No conflicts found', bg:'#e7f5ec', fg:'#1f8a4c' };
-    var W=1200, H=630, colX=[40,620], rowH=68, startY=150;
-    var col=0, row=0, rowsHtml='';
+    var W=1200, H=630, colX=[40,620], startY=150;
+    var filled = [];
     GROUPS.forEach(function(g){
-      var html = scRow(colX[col], startY+row*rowH, g, res);
-      if(!html) return;
-      rowsHtml += html; row++;
-      if(row>=6){ row=0; col=1; }
+      var text = scGroupText(g, res);
+      if(text) filled.push({g:g, text:text});
     });
-    if(!rowsHtml){
+    var rowsHtml = '';
+    if(!filled.length){
       rowsHtml = '<text x="'+(W/2)+'" y="'+(H/2)+'" font-size="18" fill="#9aa39b" text-anchor="middle" font-family="system-ui,Arial,sans-serif">Pick some parts, then come back for your spec card</text>';
+    } else {
+      var perCol = Math.ceil(filled.length/2);
+      var maxRowH = 68, minRowH = 44;
+      var availH = (H-70) - startY - 20;
+      var rowH = Math.max(minRowH, Math.min(maxRowH, Math.floor(availH/perCol)));
+      filled.forEach(function(item, i){
+        var col = i < perCol ? 0 : 1, idx = i < perCol ? i : i-perCol;
+        rowsHtml += scRow(colX[col], startY+idx*rowH, item.g, item.text);
+      });
     }
     var weightText = t.weight ? ((t.weight/1000).toFixed(2)+' kg / '+(t.weight/453.592).toFixed(1)+' lb') : '—';
     return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+W+' '+H+'" width="'+W+'" height="'+H+'">'
