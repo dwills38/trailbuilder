@@ -118,8 +118,10 @@ test('lever-integrated shifter with mismatched brake levers is YELLOW at pick ti
   eq(c.state, 'w'); some([c.reason], 'Shifter mount');
 });
 test('preset dot: a kit that adds a new warning (no error) is YELLOW', function(){
-  // XT brakeset carries 203mm rotors; the Meta SX V5's rear max is 200 -> rotor-max warning.
-  var c = C.compatOf(part('bs-shimano-xt-m8120'), B({frame:'fr-commencal-meta-sx-v5'}));
+  // XT brakeset carries 203mm rotors; the Neuron CF's rear max is 180 -> a genuine
+  // 23mm-over rotor-max warning (NOT the Meta SX V5's 200 max - that 3mm gap is the
+  // SRAM-200/Shimano-203 same-class case the rotor-class tolerance now waves through).
+  var c = C.compatOf(part('bs-shimano-xt-m8120'), B({frame:'fr-canyon-neuron-cf'}));
   eq(c.state, 'w'); some([c.reason], 'exceeds the frame max');
 });
 test('a pre-existing warning does not turn an unrelated part yellow', function(){

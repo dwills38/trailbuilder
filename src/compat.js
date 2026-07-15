@@ -6176,6 +6176,23 @@ function byId(id){
 /** @param {Part|null|undefined} p @returns {string} */
 function nameOf(p){ return p ? (p.brand+' '+p.model) : ''; }
 
+/* ---- rotor-class tolerance (rule 10/10b) --------------------------------
+   SRAM and Shimano label the SAME physical rotor mount class differently:
+   SRAM 200mm === Shimano 203mm, and SRAM 220mm === Shimano 223mm (identical
+   6-bolt/Center-Lock caliper position; the ~1.5-3mm radius difference is
+   absorbed by the mount). A strict numeric compare against a frame/fork's
+   stated max or min rotor size therefore false-flags a same-class rotor
+   labeled by the other brand's convention.
+   A 3mm grace band is safe: every within-class pair differs by exactly 3mm
+   (200<->203, 220<->223), while the smallest gap between two genuinely
+   DIFFERENT classes is 17mm (203->220) - so this tolerance can never mask a
+   truly oversized/undersized rotor. Kept strict (>3, not >=3) so a 203 on a
+   200 max (200-based diff of exactly 3) reads as same-class and does not warn. */
+/** @param {number} size @param {number} max @returns {boolean} */
+function rotorOverMax(size, max){ return size - max > 3; }
+/** @param {number} size @param {number} min @returns {boolean} */
+function rotorUnderMin(size, min){ return min - size > 3; }
+
 /* ---- short spec line for a part ----------------------------------------- */
 /** @param {Part} p @returns {string} */
 function specSummary(p){
@@ -6565,9 +6582,9 @@ function checkBuild(build){
         no adapter exists. minRotorF is optional per the rule-18 dormant-until-
         sourced template: populated only from fetched manufacturer specs
         (REVIEW.md #3). */
-  if(fRotor && fork && fRotor.size>fork.maxRotorF) warn('front-rotor-max', ['frontRotor','fork'], 'Front rotor: '+fRotor.size+'mm exceeds the fork max of '+fork.maxRotorF+'mm.');
-  if(rRotor && frame && rRotor.size>frame.maxRotorR) warn('rear-rotor-max', ['rearRotor','frame'], 'Rear rotor: '+rRotor.size+'mm exceeds the frame max of '+frame.maxRotorR+'mm.');
-  if(fRotor && fork && typeof fork.minRotorF==='number' && fRotor.size<fork.minRotorF)
+  if(fRotor && fork && rotorOverMax(fRotor.size, fork.maxRotorF)) warn('front-rotor-max', ['frontRotor','fork'], 'Front rotor: '+fRotor.size+'mm exceeds the fork max of '+fork.maxRotorF+'mm.');
+  if(rRotor && frame && rotorOverMax(rRotor.size, frame.maxRotorR)) warn('rear-rotor-max', ['rearRotor','frame'], 'Rear rotor: '+rRotor.size+'mm exceeds the frame max of '+frame.maxRotorR+'mm.');
+  if(fRotor && fork && typeof fork.minRotorF==='number' && rotorUnderMin(fRotor.size, fork.minRotorF))
     err('front-rotor-min', ['frontRotor','fork'], 'Front rotor too small: '+fRotor.size+'mm is below the '+nameOf(fork)+' minimum of '+fork.minRotorF+'mm (its native mount size). Post-mount adapters only space the caliper up, so no adapter can make a smaller rotor fit.');
   /* 10b. FRAME-side native-mount rotor floor (dossier known-gaps verdict,
         2026-07-10: "use post-mount native size too") - the frame twin of
@@ -6575,7 +6592,7 @@ function checkBuild(build){
         minRotorR. First activation: Cotic Solaris, whose own page states
         "PM7 Post Mount (180mm rotor only)" - a 160 rotor physically cannot
         mount. Same physics: adapters only space the caliper UP. */
-  if(rRotor && frame && typeof frame.minRotorR==='number' && rRotor.size<frame.minRotorR)
+  if(rRotor && frame && typeof frame.minRotorR==='number' && rotorUnderMin(rRotor.size, frame.minRotorR))
     err('rear-rotor-min', ['rearRotor','frame'], 'Rear rotor too small: '+rRotor.size+'mm is below the '+nameOf(frame)+' minimum of '+frame.minRotorR+'mm (its native mount size). Post-mount adapters only space the caliper up, so no adapter can make a smaller rotor fit.');
 
   /* 11. Steerer / headset */
@@ -7266,6 +7283,7 @@ if (typeof module !== 'undefined' && module.exports) {
     altSlotsOf:altSlotsOf, wheelPositionFilled:wheelPositionFilled, defaultSeatpostCat:defaultSeatpostCat, effectiveWheel:effectiveWheel,
     ALIASES:ALIASES, canonicalId:canonicalId,
     byId:byId, nameOf:nameOf, specSummary:specSummary, checkBuild:checkBuild, Verdict:Verdict, verdictKey:verdictKey,   // Verdict exported for src/compat-bmx.js - both engines share the verdict primitives, never copy them
+    rotorOverMax:rotorOverMax,   // exported so tools/verdict-audit-harness.js's own rotor-max probe shares the engine's tolerance instead of re-deriving it
     placementDiff:placementDiff, conflictReason:conflictReason, compatOf:compatOf, bundleActive:bundleActive, buildTotals:buildTotals,
     esc:esc, partVerified:partVerified, partWeight:partWeight, sanitizeShare:sanitizeShare,
     mulberry32:mulberry32, fisherYatesShuffle:fisherYatesShuffle, SAMPLE_THEMES:SAMPLE_THEMES, generateSampleBuild:generateSampleBuild };

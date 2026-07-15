@@ -164,8 +164,11 @@ hr('E. ROTOR-MAX (would the STANDARD front rotor falsely trip rule 10?)');
 (function(){
   // conservative real-world norm for the biggest rotor a rider fits by travel class
   function stdRotor(t){ return t >= 160 ? 203 : 180; }
+  // rotorOverMax applies the engine's own SRAM/Shimano rotor-class tolerance
+  // (200===203, 220===223) so this probe doesn't re-flag the exact false-warns
+  // the engine no longer raises - a bare "<" here would just re-derive the bug.
   var fams = {};
-  cat('fork').filter(function(p){ return p.maxRotorF < stdRotor(p.travel); }).forEach(function(p){
+  cat('fork').filter(function(p){ return C.rotorOverMax(stdRotor(p.travel), p.maxRotorF); }).forEach(function(p){
     var k = p.family || (p.brand + '-' + p.model.split(' ')[0]);
     var g = fams[k] || (fams[k] = { n: 0, v: 0, maxR: p.maxRotorF, std: stdRotor(p.travel) });
     g.n++; if(p.verified) g.v++;

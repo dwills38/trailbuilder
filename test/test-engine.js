@@ -362,6 +362,43 @@ test('frame rotor floor stays dormant without a sourced minRotorR', function(){
   eq(chk({frame:'fr-raaw-madonna-v32', rearRotor:'ro-clarks-cl01-160-6b'}).errors.length, 0);
 });
 
+/* Rotor-class tolerance (systemic false-verdict fix): SRAM and Shimano label
+   the SAME physical rotor mount class differently - SRAM 200 === Shimano 203,
+   SRAM 220 === Shimano 223 - so a strict compare against a stated max/min
+   false-flags a same-class rotor labeled by the other brand's convention. A
+   bounded 3mm grace treats these as one class without masking genuinely
+   oversized/undersized rotors (the smallest gap between different classes is
+   17mm, 203->220). */
+test('203mm rotor on a 200mm-max fork -> NO front-rotor-max warning (SRAM 200 === Shimano 203)', function(){
+  var r = chk({fork:'fk-canecreek-helm-mkii-air-29-160', frontRotor:'ro-hayes-dseries-203-6b'});
+  eq(r.warnings.filter(function(w){ return w.ruleId==='front-rotor-max'; }).length, 0);
+});
+test('203mm rotor on a 200mm-max frame -> NO rear-rotor-max warning', function(){
+  var r = chk({frame:'fr-commencal-meta-sx-v5', rearRotor:'ro-hayes-dseries-203-6b'});
+  eq(r.warnings.filter(function(w){ return w.ruleId==='rear-rotor-max'; }).length, 0);
+});
+test('223mm rotor on a 220mm-max fork -> NO front-rotor-max warning (SRAM 220 === Shimano 223)', function(){
+  var r = chk({fork:'fk-rockshox-zeb-ultimate-29-170', frontRotor:'ro-galfer-223-6b'});
+  eq(r.warnings.filter(function(w){ return w.ruleId==='front-rotor-max'; }).length, 0);
+});
+test('223mm rotor on a 220mm-max frame -> NO rear-rotor-max warning', function(){
+  var r = chk({frame:'fr-yt-capra-core4', rearRotor:'ro-galfer-223-6b'});
+  eq(r.warnings.filter(function(w){ return w.ruleId==='rear-rotor-max'; }).length, 0);
+});
+test('220mm rotor on a 203mm-max fork STILL warns - the tolerance must not over-relax (17mm over)', function(){
+  some(chk({fork:'fk-marzocchi-bomber-z1-29-160', frontRotor:'ro-sram-hs2-220-6b'}).warnings, 'exceeds the fork max');
+});
+test('220mm rotor on a 203mm-max frame STILL warns (17mm over)', function(){
+  some(chk({frame:'fr-canyon-strive-cfr', rearRotor:'ro-sram-hs2-220-6b'}).warnings, 'exceeds the frame max');
+});
+test('200mm rotor on a 203mm-minimum fork -> NO front-rotor-min error (SRAM 200 === Shimano 203)', function(){
+  var r = chk({fork:'fk-fox-40-factory-29-203', frontRotor:'ro-sram-hs2-200-6b'});
+  eq(r.errors.filter(function(e){ return e.ruleId==='front-rotor-min'; }).length, 0);
+});
+test('180mm rotor on a 203mm-minimum fork STILL errors - the tolerance must not over-relax (23mm under)', function(){
+  some(chk({fork:'fk-fox-40-factory-29-203', frontRotor:'ro-sram-hs2-180-6b'}).errors, 'rotor too small');
+});
+
 /* Rule 8b - CALIPER rotor ceiling (engine-critical review C1, 2026-07-12).
    A flat-mount caliper body has a hard rotor max independent of the frame:
    Shimano's caliper<->rotor chart C-461 lists the BR-M9110 as "Not compatible
