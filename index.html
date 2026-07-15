@@ -242,6 +242,10 @@
   .slot:last-child{border-bottom:none}
   .slot .sl-main{flex:1;min-width:0}
   .slot .sl-part{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  /* a filled build slot's part name is click-to-open its detail modal (openPartModal) */
+  .slot .sl-part.sl-clickable{cursor:pointer}
+  .slot .sl-part.sl-clickable:hover{color:var(--brand);text-decoration:underline}
+  .slot .sl-part.sl-clickable:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:3px}
   /* was #aab1aa (~2.2:1 on white — fails WCAG AA); ink-soft passes at ~6.5:1 */
   .slot .sl-empty{color:var(--ink-soft);font-style:italic;font-weight:500}
   .slot .pr{font-size:11.5px;color:var(--ink-soft);white-space:nowrap}
@@ -2375,6 +2379,16 @@
                      : ('— '+slot.label.toLowerCase()+(slot.optional?' (optional)':(!slotRequired(slot,res.frame,eRW)?(slot.key==='cassette'?' (built into the rear wheel)':' (not needed for this frame)'):''))+' —'));
         row.innerHTML='<div class="sl-main"><div class="'+(p?'sl-part':'sl-part sl-empty')+'">'+nm+'</div></div>'+ right;
         if(p){
+          // click a picked part's name → its full detail modal, the SAME openPartModal
+          // the catalog cards use (Douglas 2026-07-15). Keyboard-openable too.
+          var slPart=row.querySelector('.sl-part');
+          if(slPart){
+            slPart.classList.add('sl-clickable');
+            slPart.setAttribute('role','button'); slPart.setAttribute('tabindex','0');
+            slPart.title='View '+p.brand+' '+p.model+' details';
+            slPart.onclick=function(){ openPartModal(p); };
+            slPart.onkeydown=function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openPartModal(p); } };
+          }
           // Own it — same inventory add as the picker card's 🧰 Own button (gating,
           // add call, toast and refreshOwned all reused); an owned part shows the
           // same pill as everywhere else instead of the button.
