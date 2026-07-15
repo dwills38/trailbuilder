@@ -5763,7 +5763,84 @@ var PARTS_RAW = [
   { id:'hb-answer-protaper', cat:'handlebar', brand:'Answer', model:'ProTaper', family:'answer-protaper', price:60, weight:320, clamp:31.8, disciplines:['dj'],
     desc:'DJ/BMX-heritage 31.8mm riser bar.' },
   { id:'sp-thomson-elite-272', cat:'seatpost', brand:'Thomson', model:'Elite', family:'thomson-elite', price:90, weight:220, diameter:27.2, disciplines:['dj'],
-    desc:'Rigid post, run slammed - first row of the seatpost category (droppers stay their own category).' }
+    desc:'Rigid post, run slammed - first row of the seatpost category (droppers stay their own category).' },
+
+  // =========================================================================
+  // COMPLETE BIKES (2026-07-15, foundation + first flagship — COMPLETE-BIKES-
+  // SCOPE.md decisions LOCKED). The OE rows below are the faithful factory
+  // spec of the Commencal Meta SX V5 Essential (fetched commencal.com/us —
+  // Commencal chosen per decision #7: a best-fetchable-data maker that sells
+  // complete bikes, not the fetch-walled Specialized/Trek/Giant/Pivot). The
+  // frame (fr-commencal-meta-sx-v5) already exists, verified 2026-07-10. The
+  // completebike row itself closes the block.
+  { id:'fk-fox-38-performance-29-170', cat:'fork', brand:'Fox', model:'38 Performance 170', family:'fox-38', disciplines:['enduro'],
+    price:989, wheel:'29', travel:170, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:230, minRotorF:180,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/Forks,33/FOX/38-Performance,33708',
+    desc:'The base "38 Performance" (GRIP damper, non-X2/non-Elite) tier is OE-only for MY26/27 — Fox sells no current standalone retail page for it (confirmed via ridefox.com/collections/fox-38, which lists only Factory/Performance Elite/eMTB), which is exactly why this is the stock fork on the Meta SX V5 Essential (Commencal\'s own tech page states "FOX 38 Float Performance fork" + "Grip cartridge"). Interfaces + price sourced from Vital MTB\'s spec table for the prior-generation retail SKU (same 38 chassis family as the in-catalog Factory/Performance Elite siblings): 15x110 Boost, tapered steerer, 180mm native/230mm max post-mount rotor (NOTE: 180 native, not the Factory sibling\'s 200 — Vital\'s spec table states this distinctly for the Performance tier). Weight left unstored (no reliable figure found for this OE-only tier) rather than guessed.' },
+  { id:'sh-fox-float-x-performance-230x65', cat:'shock', brand:'Fox', model:'Float X Performance (230x65)', family:'fox-float-x',
+    price:399, eye:230, stroke:65, mount:'std', spring:'air',
+    desc:'Stock shock on the Meta SX V5 Essential (Commencal tech page: "FOX Float X Performance"). Fox\'s current Float X lineup lists only Live Valve Neo / Factory / Performance Elite on ridefox.com/collections/fox-float-x — like the 38 Performance fork above, the base non-Elite "Performance" damper tier is OE-only with no standalone retail page to fetch. Eye/stroke/mount/spring mirror the in-catalog Float X Factory sibling at the same size (sh-fox-float-x-factory-230x65, matching frame fr-commencal-meta-sx-v5\'s shockEye/shockStroke/shockMount exactly). Price is a sample estimate (below the Performance Elite\'s ~$499 list, consistent with the fork\'s Performance-vs-Elite gap) — left unverified pending a fetchable OE-tier source; weight left unstored rather than guessed.' },
+  { id:'fw-dtswiss-e593-29', cat:'frontwheel', brand:'DT Swiss', model:'E593 29', family:'dtswiss-e593', disciplines:['enduro'],
+    price:220, weight:1080, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Stock OE front wheel on the Meta SX V5 Essential (Commencal tech page: "DT SWISS E593... 15x110mm"). DT Swiss sells the E 593 as a RIM (dtswiss.com/en/components/rims-mtb/enduro/e-593: 30mm internal width confirmed, 665g for the 29in 32h rim), built by Commencal into a complete OE wheel — not a DT Swiss retail wheelset SKU, so no complete-wheel page exists to fetch. Weight is an ESTIMATE (665g rim + ~415g typical 32h hub/spoke/nipple build for this class) — flagged sample, not maker-published for the complete wheel. maxTire 2.6 is a conservative estimate for a 30mm-internal rim (safe direction: never below the stock 2.5in tire).' },
+  { id:'rw-dtswiss-e593-275-ms', cat:'rearwheel', brand:'DT Swiss', model:'E593 27.5 (Micro Spline)', family:'dtswiss-e593', disciplines:['enduro'],
+    price:260, weight:1220, wheel:'275', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Rear half of the E593 OE wheelset (Commencal tech page: "148x12mm Shimano Microspline"), pairing with the SLX MicroSpline cassette on this build. Rim: dtswiss.com E 593 page, 30mm internal width, 625g for the 27.5in 32h rim. Weight is an ESTIMATE (625g rim + ~595g heavier rear hub/spoke/MicroSpline-driver build) — same sample-flagged basis as the front wheel; maxTire 2.6 conservative estimate.' },
+  { id:'ti-maxxis-minion-dhr-ii-275-25-exop-mt', cat:'tire', brand:'Maxxis', model:'Minion DHR II 27.5x2.5 EXO+ MaxxTerra', family:'maxxis-minion-dhr-ii',
+    price:85, weight:970, wheel:'275', width:2.5, casing:'exo-plus', compound:'3c-maxxterra', disciplines:['enduro'],
+    desc:'Stock rear tire on the Meta SX V5 Essential (Commencal tech page: "MAXXIS DHR II 27.5x2.5 WT, 3C MaxxTerra, EXO+, tubeless ready" — WT = Wide Trail, optimized for 30-35mm internal rims, matching the E593\'s 30mm). 970g per widely-corroborated retailer/spec listings (Universal Cycles et al.); price matches the catalog\'s existing EXO+/MaxxTerra DHR II price tier (e.g. ti-maxxis-minion-dhr-ii-29-24-exop-mt). Left unverified (no single fetched maxxis.com page pinned this exact SKU this pass).' },
+  { id:'bb-shimano-smbb71-pf92-24mm', cat:'bb', brand:'Shimano', model:'SM-BB71-41A', family:'shimano-smbb71', mfgPn:'SM-BB71-41A',
+    price:35, weight:72, shell:'PF92', spindle:'24mm',
+    desc:'Stock bottom bracket on the Meta SX V5 Essential (Commencal tech page: "SHIMANO SM-BB-71 pressfit design"), matching the frame\'s PF92 shell (fr-commencal-meta-sx-v5.bb) and the SLX crank\'s 24mm Hollowtech II spindle (cr-shimano-slx-m7120.bb). 72g (without spacer) and the PF92/BB92 shell spec are Shimano\'s own published figures for the SM-BB71-41A (bike.shimano.com product page is 403-walled to fetch, so this is entered per the relaxed-inclusion policy as an honest unverified sample — corroborated across multiple retailer spec listings). Price is a sample (no Shimano consumer MSRP; ~$35-37 across US retailers).' },
+  { id:'hb-commencal-ride-alpha-800-27', cat:'handlebar', brand:'Commencal', model:'Ride Alpha R27 800', family:'commencal-ride-alpha', mfgPn:'A23ALPHAHB800',
+    price:59, weight:340, clamp:31.8, width:800, rise:27, material:'alu', disciplines:['enduro'],
+    verified:true, lastChecked:'2026-07-15', source:'https://www.commencal.com/us/en/ride-alpha-%C3%B831.8mm-800-mm-rise-27-mm-handlebar/A23ALPHAHB800.html',
+    desc:'Stock handlebar on the Meta SX V5 Essential M-XL sizes (Commencal tech page: "RIDE ALPHA R27" 780-800mm on larger sizes, 27mm rise; the S-size bar is a narrower/lower R20 variant — a known per-size modeling limitation, same as the doc\'s Stumpjumper worked example, this row models the M/L/XL spec). FETCHED commencal.com/us product page A23ALPHAHB800: $59.00 USD, 31.8mm clamp, 800mm width, 27mm rise, Aluminium 6061 T6 triple butted, 340g manufacturer-stated.' },
+  { id:'st-commencal-ride-alpha-enduro-40', cat:'stem', brand:'Commencal', model:'Ride Alpha Enduro Stem 40', family:'commencal-ride-alpha', mfgPn:'A23ALPHASTEM40',
+    price:60, weight:158, clamp:31.8, length:40, disciplines:['enduro'],
+    verified:true, lastChecked:'2026-07-15', source:'https://www.commencal.com/us/en/ride-alpha-enduro-stem-%C3%B831.8mm-40mm/A23ALPHASTEM40.html',
+    desc:'Stock stem on the Meta SX V5 Essential (Commencal tech page: "RIDE ALPHA 40" — 40mm extension, 31.8mm diameter). FETCHED commencal.com/us product page A23ALPHASTEM40: $60.00 USD, 31.8mm clamp, 40mm length, Aluminium 7075 T6, 158g manufacturer-stated.' },
+  { id:'gr-commencal-ride-alpha-mushroom', cat:'grips', brand:'Commencal', model:'Ride Alpha Mushroom', family:'commencal-ride-alpha',
+    price:20, weight:94,
+    desc:'Stock grips on the Meta SX V5 Essential (Commencal tech page: "RIDE ALPHA Mushroom" with black clamp). No standalone product page found for the "Mushroom" name specifically — commencal.com/us currently lists only "Ride Alpha Downhill Grips" (A18ALPHAGRIPDH, $20.00, 94g) in this house-brand grip line; price/weight taken from that closest cataloged Ride Alpha grip as a documented proxy (grips carry no verdict-driving fields, so this never risks a false compatibility claim). Left unverified.' },
+  { id:'dp-ks-ragei-349-170', cat:'dropper', brand:'KS', model:'Rage-i', family:'ks-rage-i',
+    price:179, weight:720, diameter:34.9, drop:170,
+    desc:'Stock dropper on the Meta SX V5 Essential (Commencal tech page: "KS Rage-I 34.9mm" — 125mm(S)/170mm(M)/190mm(L/XL) per-size travel, SouthPaw alloy remote; this row models the M-size 170mm spec, the same representative-size convention used for the handlebar). $179.00 list price and 720g at 170mm confirmed via worldwidecyclery.com\'s KS Rage-i 34.9mm 170mm product page. Left unverified (not a manufacturer-direct fetch).' },
+  { id:'sa-fizik-terra-ridon-x5', cat:'saddle', brand:'Fizik', model:'Terra Ridon X5', family:'fizik-terra-ridon', disciplines:['enduro'],
+    price:75, weight:250, verified:true, lastChecked:'2026-07-15', source:'https://www.commencal.com/us/en/A23SADFIZRIDON.html',
+    desc:'Stock saddle on the Meta SX V5 Essential (Commencal tech page: "FIZIK Terra Ridon X5" — 145mm, alloy rails). FETCHED commencal.com/us product page A23SADFIZRIDON, which sells this exact saddle standalone: $75.00 USD, 250g, Mobius Alloy S rails, 255x145mm, manufacturer-stated.' },
+
+  /* The Commencal Meta SX V5 Essential (2026) — the debut Complete Bikes row
+     (foundation + first flagship shipped together per decision #8, so the
+     browse section is never empty). fills = ONLY the parts the bike ships
+     with from the factory (decision #1); pedals are not stock on this build,
+     so the pedals slot is intentionally absent, and the headset slot is left
+     unfilled (frame-integrated, unlisted on the build sheet — rule 20c's
+     advisory nudges instead of claiming a specific SKU). price = the list
+     MSRP shown on commencal.com (no separate sale price observed, so no
+     streetPrice). Verdict-clean per decision #6 EXCEPT one expected, honest
+     WARNING: the stock 203mm rear rotor (Shimano SM-RT86) exceeds the
+     frame's documented maxRotorR of 200mm by 3mm (rule 10, warning-tier,
+     never an error) — Commencal's own frame tech page states 200mm native
+     while the complete-bike tech page independently states a 203mm stock
+     rotor; both are faithfully entered as sourced, and the resulting
+     warning is real, not a data-entry mistake (see test-golden.js's
+     COMPLETE_BIKE golden test, which asserts exactly this one warning). */
+  { id:'cb-commencal-meta-sx-v5-essential', cat:'completebike', brand:'Commencal', model:'Meta SX V5 Essential', family:'commencal-meta-sx', gen:'V5',
+    modelYear:2026, disciplines:['enduro'], price:4400,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.commencal.com/us/en/BT5MSXV5EEU1.html?lang=en_US',
+    fills:{
+      frame:'fr-commencal-meta-sx-v5', fork:'fk-fox-38-performance-29-170', shock:'sh-fox-float-x-performance-230x65',
+      frontWheel:'fw-dtswiss-e593-29', rearWheel:'rw-dtswiss-e593-275-ms',
+      frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-minion-dhr-ii-275-25-exop-mt',
+      shifter:'sft-shimano-slx-m7100', derailleur:'dr-shimano-slx-m7100-sgs', cassette:'ca-shimano-slx-m7100-1051',
+      chain:'ch-shimano-slx-m7100', crankset:'cr-shimano-slx-m7120', bb:'bb-shimano-smbb71-pf92-24mm',
+      frontBrake:'bk-shimano-slx-m7120', rearBrake:'bk-shimano-slx-m7120',
+      frontRotor:'ro-shimano-smrt86-203-6b', rearRotor:'ro-shimano-smrt86-203-6b',
+      handlebar:'hb-commencal-ride-alpha-800-27', stem:'st-commencal-ride-alpha-enduro-40', grips:'gr-commencal-ride-alpha-mushroom',
+      dropper:'dp-ks-ragei-349-170', saddle:'sa-fizik-terra-ridon-x5'
+    },
+    desc:'FETCHED commencal.com/us "META SX V5 ESSENTIAL PURE WHITE 2026" product page (BT5MSXV5EEU1): full factory build sheet + $4,400.00 USD price. Every fills entry is the bike\'s real stock part (10 new OE rows entered alongside this one — see each row\'s desc for its own sourcing; the chain was already cataloged as ch-shimano-slx-m7100); pedals omitted (not stock); headset omitted (frame-integrated, unlisted). Component (a-la-carte) sum of the fills is ~$5,849 at current catalog prices, so the ~$1,449 "buy complete" savings the dual-price block shows is real, not just a passed lint.' }
 ];
 /** @type {Part[]} */
 var PARTS = PARTS_RAW;
@@ -6237,6 +6314,7 @@ function specSummary(p){
     case 'saddle': return 'saddle';
     case 'pedal': return L(p.style)+' . pair';
     case 'groupset': case 'wheelset': case 'brakeset': case 'cockpitset': return p.desc || 'preset';
+    case 'completebike': return Object.keys(p.fills).length+' parts . $'+p.price.toLocaleString()+(p.streetPrice?' ($'+p.streetPrice.toLocaleString()+' street)':'');
     default: return '';
   }
 }

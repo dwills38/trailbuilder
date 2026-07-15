@@ -19,7 +19,7 @@
  * string union — cheap for tsc — so `Slot.cat` covers kit slots too. The kit
  * OBJECT variants live in a SEPARATE `KitPart` union (see the bottom of this file),
  * NOT folded into `Part`, to keep compat.js's ~3000-row PARTS literal under tsc's
- * union-complexity ceiling. @typedef {'frame'|'fork'|'shock'|'frontwheel'|'rearwheel'|'fronthub'|'rearhub'|'rim'|'tire'|'shifter'|'derailleur'|'cassette'|'chain'|'crankset'|'cog'|'seatpost'|'bb'|'headset'|'brake'|'rotor'|'handlebar'|'stem'|'grips'|'dropper'|'saddle'|'pedal'|'groupset'|'wheelset'|'brakeset'|'cockpitset'|'helmet'|'shoes'|'jersey'|'shorts'|'pants'|'gloves'|'kneepad'|'elbowpad'|'bodyarmor'|'neckbrace'|'shinguard'|'eyewear'} Category */
+ * union-complexity ceiling. @typedef {'frame'|'fork'|'shock'|'frontwheel'|'rearwheel'|'fronthub'|'rearhub'|'rim'|'tire'|'shifter'|'derailleur'|'cassette'|'chain'|'crankset'|'cog'|'seatpost'|'bb'|'headset'|'brake'|'rotor'|'handlebar'|'stem'|'grips'|'dropper'|'saddle'|'pedal'|'groupset'|'wheelset'|'brakeset'|'cockpitset'|'completebike'|'helmet'|'shoes'|'jersey'|'shorts'|'pants'|'gloves'|'kneepad'|'elbowpad'|'bodyarmor'|'neckbrace'|'shinguard'|'eyewear'} Category */
 
 /* ---- vocabularies (mirror VOCAB in schema.js) ---------------------------- */
 /** @typedef {'29'|'275'|'26'|'24'} WheelSize */
@@ -166,6 +166,12 @@
 /** @typedef {CommonFields & {cat: 'wheelset', fills: Object.<string, string>}} WheelsetPart */
 /** @typedef {CommonFields & {cat: 'brakeset', fills: Object.<string, string>}} BrakesetPart */
 /** @typedef {CommonFields & {cat: 'cockpitset', fills: Object.<string, string>}} CockpitsetPart */
+/** A whole-build preset (Complete Bikes, 2026-07-15): fills spans every build
+ * slot the bike ships from the factory. Deliberately NOT attached to a GROUPS
+ * entry (see compat.js GROUPS comment) - price is always the list MSRP;
+ * streetPrice is an optional lower current/sale figure shown as the headline
+ * when present (COMPLETE-BIKES-SCOPE.md decision #3).
+ * @typedef {CommonFields & {cat: 'completebike', fills: Object.<string, string>, streetPrice?: number}} CompleteBikePart */
 
 /** A drivetrain component (the four parts that share `system` + `speeds`).
  * @typedef {ShifterPart|DerailleurPart|CassettePart|ChainPart} DrivetrainPart */
@@ -212,8 +218,9 @@
  * in src/kit.js's KIT_PARTS and never need to be a bike `Part`.
  * @typedef {HelmetPart|ShoesPart|JerseyPart|ShortsPart|PantsPart|GlovesPart|KneepadPart|ElbowpadPart|BodyarmorPart|NeckbracePart|ShinguardPart|EyewearPart} KitPart */
 
-/** A preset (the four kinds that carry `fills`).
- * @typedef {GroupsetPart|WheelsetPart|BrakesetPart|CockpitsetPart} PresetPart */
+/** A preset (the kinds that carry `fills`). CompleteBikePart is the whole-build
+ * kind - group-less, unlike the other four (see compat.js GROUPS comment).
+ * @typedef {GroupsetPart|WheelsetPart|BrakesetPart|CockpitsetPart|CompleteBikePart} PresetPart */
 
 /** Any catalog part.
  * @typedef {FramePart|ForkPart|ShockPart|FrontWheelPart|RearWheelPart|FrontHubPart|RearHubPart|RimPart|TirePart|ShifterPart|DerailleurPart|CassettePart|ChainPart|CranksetPart|CogPart|SeatpostPart|BbPart|HeadsetPart|BrakePart|RotorPart|HandlebarPart|StemPart|GripsPart|DropperPart|SaddlePart|PedalPart|PresetPart} Part */

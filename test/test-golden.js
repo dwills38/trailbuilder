@@ -3,7 +3,7 @@
    known-bad build that must fail. These mirror the app's demo buttons, so the
    demos are tested too. If a future edit breaks a real bike, this catches it. */
 var U = require('./test-util.js');
-var C = U.C, B = U.B, eq = U.eq;
+var C = U.C, B = U.B, eq = U.eq, ok = U.ok;
 /** @param {Object.<string, string>} map */
 var chk = function(map){ return C.checkBuild(B(map)); };
 
@@ -424,4 +424,50 @@ test('slotRequired: integrated-cassette rear wheel exempts the cassette slot (co
   eq(C.slotRequired(cassetteSlot, null, lg1r), false, 'integrated wheel: cassette not required');
   eq(C.slotRequired(cassetteSlot, null, normal), true, 'normal wheel: cassette still required');
   eq(C.slotRequired(cassetteSlot, null), true, 'no wheel passed (2-arg callers keep the universal default)');
+});
+
+/* ===========================================================================
+   COMPLETE BIKES golden (2026-07-15, COMPLETE-BIKES-SCOPE.md decision #6) — a
+   REAL manufacturer's factory build sheet, not a hand-picked demo. Unlike
+   every golden build above, a WARNING is tolerated here (0 errors is the bar,
+   not 0 warnings) — a real bike can carry an honest warning its own maker's
+   spec page never flags. The exact expected verdict is pinned (not just
+   "still 0 errors") so a future catalog correction that would silently
+   change what this real shipping bike raises is caught immediately.
+   ======================================================================== */
+var COMMENCAL_META_SX_V5_ESSENTIAL = {
+  frame:'fr-commencal-meta-sx-v5', fork:'fk-fox-38-performance-29-170', shock:'sh-fox-float-x-performance-230x65',
+  frontWheel:'fw-dtswiss-e593-29', rearWheel:'rw-dtswiss-e593-275-ms',
+  frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-minion-dhr-ii-275-25-exop-mt',
+  shifter:'sft-shimano-slx-m7100', derailleur:'dr-shimano-slx-m7100-sgs', cassette:'ca-shimano-slx-m7100-1051',
+  chain:'ch-shimano-slx-m7100', crankset:'cr-shimano-slx-m7120', bb:'bb-shimano-smbb71-pf92-24mm',
+  frontBrake:'bk-shimano-slx-m7120', rearBrake:'bk-shimano-slx-m7120',
+  frontRotor:'ro-shimano-smrt86-203-6b', rearRotor:'ro-shimano-smrt86-203-6b',
+  handlebar:'hb-commencal-ride-alpha-800-27', stem:'st-commencal-ride-alpha-enduro-40', grips:'gr-commencal-ride-alpha-mushroom',
+  dropper:'dp-ks-ragei-349-170', saddle:'sa-fizik-terra-ridon-x5'
+};
+test('golden: Commencal Meta SX V5 Essential (the complete bike) catalog row matches this pinned fills map exactly', function(){
+  var cb = /** @type {any} */ (C.byId('cb-commencal-meta-sx-v5-essential'));
+  eq(JSON.stringify(cb.fills), JSON.stringify(COMMENCAL_META_SX_V5_ESSENTIAL), 'fills drifted from the pinned golden map');
+});
+test('golden: Commencal Meta SX V5 Essential (the complete bike) is verdict-clean — 0 errors, 0 warnings', function(){
+  var r = chk(COMMENCAL_META_SX_V5_ESSENTIAL);
+  eq(r.errors.length, 0, 'errors: '+r.errors.join(' | '));
+  // The stock Shimano 203mm rear rotor vs the frame's SRAM-labeled 200mm max is
+  // the SAME rotor class (rotor-class tolerance, rule 10) — so the factory build
+  // is fully clean, no false warning. (A headset advisory INFO is not a warning.)
+  eq(r.warnings.length, 0, 'warnings: '+r.warnings.join(' | '));
+});
+test('golden: every completebike row is checkBuild-clean (0 errors) and fills every required slot for its frame (pedals excepted — most complete MTBs ship pedal-less)', function(){
+  C.PARTS.filter(function(p){ return p.cat === 'completebike'; }).forEach(function(/** @type {any} */ cb){
+    var build = B(cb.fills);
+    var r = C.checkBuild(build);
+    eq(r.errors.length, 0, cb.id+' raises errors: '+r.errors.join(' | '));
+    var eRW = C.effectiveWheel(build, 'rear');
+    var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, build.frame, eRW); });
+    required.forEach(function(s){
+      if(s.key==='pedals') return;   // decision #1: fills is ONLY what the bike ships with — pedals are the one commonly-absent exception
+      ok(!!cb.fills[s.key], cb.id+' missing required slot '+s.key);
+    });
+  });
 });

@@ -520,6 +520,23 @@ var SCHEMA = {
   wheelset:  { fills:{type:'fills'} },
   brakeset:  { fills:{type:'fills'} },
   cockpitset:{ fills:{type:'fills'} },
+  /* completebike (Complete Bikes, 2026-07-15 — COMPLETE-BIKES-SCOPE.md decisions
+     LOCKED): a whole-build preset spanning EVERY build slot, reusing the fills
+     validator + the weight-derived-from-fills rule + the <=-sum price lint
+     verbatim (isPresetCat below). UNLIKE groupset/wheelset/brakeset/cockpitset,
+     it is deliberately NOT attached to a GROUPS entry (see compat.js GROUPS
+     comment) — so bundleActive never bills a group at this price, and
+     buildTotals keeps summing components even after auto-fill.
+     fills = ONLY the parts that ship on the bike from the factory (decision
+     #1) — never a "close enough" substitute; slots the factory omits (most
+     often pedals) simply stay unfilled.
+     price = the canonical stored figure and is ALWAYS the maker's list MSRP
+     (decision #3 — matches the price field's pinned USD-MSRP semantics
+     everywhere else in the catalog); streetPrice is an optional lower
+     current/sale figure shown as the headline when present. Both are plain
+     numbers, never swapped for weight, and only `price` is what the <=-sum
+     lint checks (a discount makes that lint EASIER to pass, never harder). */
+  completebike: { fills:{type:'fills'}, streetPrice:{type:'number',optional:true} },
 
   /* ============================================================================
      RIDER KIT categories (Kit Builder, 2026-07-14). 12 apparel/protection
@@ -583,7 +600,7 @@ var SCHEMA = {
                sizes:{type:'sizeList',optional:true} }
 };
 
-var PRESET_CATS = ['groupset','wheelset','brakeset','cockpitset'];
+var PRESET_CATS = ['groupset','wheelset','brakeset','cockpitset','completebike'];
 /* Common fields every category may carry. family/gen/modelYear/mfgPn are the
    flat-SKU supporting kit (review section 3): family = generation-agnostic
    platform slug ("rockshox-zeb"); gen = maker's generation code (free string -
@@ -606,7 +623,7 @@ var ID_PREFIX = {
   fronthub:'fh', rearhub:'rh', rim:'rm',
   shifter:'sft', derailleur:'dr', cassette:'ca', chain:'ch', crankset:'cr', cog:'cg', seatpost:'sp',
   brake:'bk', rotor:'ro', handlebar:'hb', stem:'st', grips:'gr', dropper:'dp',
-  saddle:'sa', pedal:'pd', bb:'bb', headset:'hs', groupset:'gs', wheelset:'ws', brakeset:'bs', cockpitset:'co',
+  saddle:'sa', pedal:'pd', bb:'bb', headset:'hs', groupset:'gs', wheelset:'ws', brakeset:'bs', cockpitset:'co', completebike:'cb',
   /* Rider Kit prefixes (Kit Builder, 2026-07-14) - collision-free with every bike
      prefix above (id-prefix match is on the EXACT first token, so 'sho'/'sht'/'shg'
      never collide with 'sh'). Kit ids carry NO size token (size is a per-row label
@@ -715,6 +732,13 @@ function validatePart(p, ctx){
   // physically impossible bundles - REVIEW.md #12); price MAY be stored because
   // real bundle discounts exist (guarded by the <=-sum lint below)
   if(isPresetCat(p.cat) && 'weight' in p) bad('preset weight is derived from fills - do not store it');
+  // completebike.streetPrice (decision #3): an optional current/sale figure
+  // shown as the headline instead of the canonical MSRP `price`. It must be a
+  // real discount, never a markup - a streetPrice above MSRP is nonsense data.
+  if(p.cat === 'completebike' && 'streetPrice' in p && p.streetPrice != null){
+    if(!(isNum(p.streetPrice) && p.streetPrice >= 0)) bad('streetPrice must be a number >= 0 (USD)');
+    else if(isNum(p.price) && p.streetPrice > p.price) bad('streetPrice ' + p.streetPrice + ' exceeds the list MSRP price ' + p.price + ' (streetPrice must be a discount, never a markup)');
+  }
 
   // provenance
   if('verified' in p && !isBool(p.verified)) bad('verified must be true/false');

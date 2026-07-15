@@ -28,8 +28,14 @@ function has(r, kind, ruleId){ return r[kind].some(function(v){ return v.ruleId 
    future preset mixes, say, an XD cassette with a MicroSpline wheel, this trips.)
    ======================================================================== */
 test('every curated preset is internally conflict-free', function(){
+  // completebike is excluded here on purpose: a groupset/wheelset/brakeset/
+  // cockpitset is a hand-curated "best pairing" bundle that should never ship
+  // with even a warning, but a completebike is a REAL manufacturer's factory
+  // spec - COMPLETE-BIKES-SCOPE.md decision #6 explicitly allows warnings
+  // (0 errors is the bar, not 0 warnings). See test-golden.js for the
+  // completebike-specific golden test that pins its exact verdict.
   var presets = /** @type {Array<{id: string, brand: string, model: string, fills: Object.<string, string>}>} */ (
-    C.PARTS.filter(function(p){ return 'fills' in p && !!p.fills; }));
+    C.PARTS.filter(function(p){ return 'fills' in p && !!p.fills && p.cat !== 'completebike'; }));
   ok(presets.length > 0, 'expected some presets in the catalog');
   presets.forEach(function(pr){
     /** @type {Object.<string, any>} */ var build = {};

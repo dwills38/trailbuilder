@@ -54,7 +54,12 @@ hr('A. NAME vs FIELD (product name disagrees with a verdict-driving field)');
 hr('B. PRESETS (a curated bundle must be conflict-free on its own fills)');
 (function(){
   var bad = 0;
-  P.filter(function(p){ return p.fills; }).forEach(function(pr){
+  // completebike is excluded (COMPLETE-BIKES-SCOPE.md decision #6): unlike a
+  // hand-curated groupset/wheelset/brakeset/cockpitset bundle, it is a REAL
+  // manufacturer's factory spec, and warnings are an expected, honest part of
+  // that (0 errors is the bar, not 0 warnings) - see test-verdict-audit.js's
+  // matching exclusion and test-golden.js for the pinned per-bike verdict.
+  P.filter(function(p){ return p.fills && p.cat !== 'completebike'; }).forEach(function(pr){
     var build = {};
     Object.keys(pr.fills).forEach(function(s){ build[s] = byId(pr.fills[s]); });
     var r = C.checkBuild(build);

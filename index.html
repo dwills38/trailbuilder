@@ -119,6 +119,14 @@
   .pcard .price .wt{color:var(--ink-soft);font-weight:500;font-size:11px;margin-left:5px}
   .pcard .price.zero{color:var(--ink-soft);font-weight:600;font-size:12px}
   .pcard.selected{border-color:var(--brand);box-shadow:0 0 0 2px rgba(31,111,74,.16)}
+  /* Complete Bikes browse card (2026-07-15) */
+  .pcard.completebike .pcard-thumb{background:var(--ok-bg)}
+  .pcard.completebike .pcard-thumb svg{color:var(--ok)}
+  .cb-card-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:6px 0;font-size:12px;color:var(--ink-soft)}
+  .cb-card-price .cb-card-msrp{text-decoration:line-through;color:var(--ink-soft)}
+  .cb-card-price .cb-card-complete{font-size:16px;font-weight:800;color:var(--ink)}
+  .cb-card-price .cb-card-complete small,.cb-card-price .cb-card-parts small{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;color:var(--ink-soft);margin-left:2px}
+  .cb-card-price .cb-card-save{background:var(--ok-bg);color:var(--ok);font-weight:700;padding:2px 7px;border-radius:999px;font-size:11px}
   .pick{border:1px solid var(--brand);color:var(--brand);background:#fff;border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer}
   .pick:hover{background:#f1f8f4}
   .pick.in{background:var(--brand);color:#fff}
@@ -239,6 +247,12 @@
   .total{display:flex;align-items:baseline;justify-content:space-between;margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
   .total b{font-size:23px}
   .wrow{display:flex;align-items:baseline;justify-content:space-between;margin-top:4px}
+  /* Complete Bikes dual-price block (build panel, 2026-07-15) */
+  .cb-block{background:var(--ok-bg);border:1px solid var(--ok);border-radius:9px;padding:10px 12px;margin-bottom:12px}
+  .cb-block .cb-label{font-size:11px;text-transform:uppercase;letter-spacing:.4px;font-weight:800;color:var(--ok);margin-bottom:6px}
+  .cb-block .cb-row{display:flex;align-items:baseline;justify-content:space-between;font-size:13px;margin-top:2px;color:var(--ink)}
+  .cb-block .cb-row b{font-size:15px}
+  .cb-block .cb-save b{color:var(--ok)}
   .status{display:flex;align-items:center;gap:8px;font-weight:700;border-radius:9px;padding:9px 11px;font-size:14px;margin-bottom:8px}
   .status.ok{background:var(--ok-bg);color:var(--ok)}
   .status.warn{background:var(--warn-bg);color:var(--warn)}
@@ -897,6 +911,17 @@
         </div>
         <div class="panel">
           <h2>Your build</h2>
+          <!-- Complete Bikes dual-price block (2026-07-15): shown only when the
+               current build was auto-filled from a completebike. Stays visible
+               after a swap — the label switches to "Modified from ..." instead
+               of disappearing (decision #5). buildTotals is never substituted;
+               this sits alongside it, never replaces #total/#weight below. -->
+          <div class="cb-block" id="cbBlock" hidden>
+            <div class="cb-label" id="cbLabel"></div>
+            <div class="cb-row"><span class="muted">Buy as parts</span><b id="cbPartsTotal">$0</b></div>
+            <div class="cb-row"><span class="muted">Complete bike</span><b id="cbPrice">$0</b></div>
+            <div class="cb-row cb-save" id="cbSaveRow" hidden><span class="muted">You save</span><b id="cbSave">$0</b></div>
+          </div>
           <div class="muted" id="countLabel">0 of 0 parts chosen</div>
           <div class="meter"><i id="meterBar"></i></div>
           <div id="slots"></div>
@@ -1265,6 +1290,13 @@
 (function(){
   var build = {};            // slotKey -> part id
   var presetBy = {};         // groupKey -> preset id (when a kit was quick-filled)
+  // id of the completebike whose fills were last auto-filled, or null (Complete
+  // Bikes, 2026-07-15). Deliberately separate from presetBy — a completebike is
+  // NOT group-attached (COMPLETE-BIKES-SCOPE.md §1b), so buildTotals stays the
+  // a-la-carte component sum even while this is set; it only drives the
+  // dual-price block's display + its "modified from" relabel once the build
+  // diverges from the stock fills (decision #5).
+  var activeCompleteBike = null;
   var activeGroup = 'frame'; // start the catalog on Frames (the foundation)
   var activeSub = 'all';     // active sub-category within a group ('all' = whole group)
   var sortBy = 'random';   // catalog order: random (uniform shuffle, unbiased default) | name | price | weight
@@ -1330,7 +1362,7 @@
     tire:'Tires',shifter:'Shifter',derailleur:'Derailleur',cassette:'Cassette',chain:'Chain',crankset:'Crankset',
     brake:'Brake',rotor:'Rotor',handlebar:'Handlebar',stem:'Stem',grips:'Grips',dropper:'Dropper',saddle:'Saddle',pedal:'Pedals',bb:'Bottom Bracket',headset:'Headset',
     cog:'Single-Speed Cog',seatpost:'Seatpost',
-    groupset:'Groupset',wheelset:'Wheelset',brakeset:'Brake set',cockpitset:'Cockpit kit'};
+    groupset:'Groupset',wheelset:'Wheelset',brakeset:'Brake set',cockpitset:'Cockpit kit',completebike:'Complete Bike'};
   var catLabel = function(c){ return CATLABEL[c] || c; };
 
   /* ---- part detail modal field labels (only for keys worth a row; L()/LABELS
@@ -1348,7 +1380,8 @@
     pistons:'Pistons',leverAccepts:'Lever accepts',size:'Rotor size (mm)',clamp:'Clamp diameter (mm)',material:'Material',
     diameter:'Post diameter (mm)',drop:'Drop (mm)',style:'Pedal style',
     upper:'Upper assembly (S.H.I.S.)',lower:'Lower assembly (S.H.I.S.)',
-    headTubeUpper:'Head tube upper (S.H.I.S.)',headTubeLower:'Head tube lower (S.H.I.S.)'
+    headTubeUpper:'Head tube upper (S.H.I.S.)',headTubeLower:'Head tube lower (S.H.I.S.)',
+    streetPrice:'Street price'
   };
   var PM_BLACKLIST = {id:1,cat:1,brand:1,model:1,price:1,weight:1,verified:1,lastChecked:1,source:1,sourceType:1,
     weightSource:1,archiveUrl:1,desc:1,fills:1,status:1,supersededBy:1,disciplines:1,family:1,gen:1,mfgPn:1,
@@ -1418,6 +1451,12 @@
     el.appendChild(mkChip('all','All parts'));
     // a parent-tagged group (e.g. cog) browses as a SUB-chip of its parent — see childGroupsOf() — so it gets no top-level rail chip of its own
     GROUPS.forEach(function(g){ if(g.parent) return; el.appendChild(mkChip(g.key, g.label)); });   // sidebar category chips are text-only (icons removed — a literal component glyph risked resembling one maker's part)
+    // Complete Bikes (2026-07-15): a browse chip for the completebike cat, which
+    // is NOT a GROUPS entry (it's group-less by design — see compat.js GROUPS
+    // comment), so it's appended here rather than falling out of the GROUPS
+    // loop above. Hides itself when the catalog carries zero complete bikes
+    // (decision #8) rather than ever showing an empty section.
+    if(PARTS.some(function(p){ return p.cat==='completebike'; })) el.appendChild(mkChip('completebikes','🚲 Complete Bikes'));
     nudgeActiveChip(el);
   }
 
@@ -1755,8 +1794,13 @@
     // in the search box — cost hundreds of ms. Same results, measured ~9x
     // faster; compatFor stays for one-off callers.
     var res=resolved();
-    var activeCats = activeGroup!=='all' ? groupCats(groupByKey[activeGroup]) : null;
+    // completebike is its own browse cat with no GROUPS entry (groupByKey has no
+    // 'completebikes' key), so it's special-cased here rather than going through
+    // groupCats(); everywhere else it's excluded from the catalog outright — a
+    // whole bike is never a slot-fillable "part" the a-la-carte grid should show.
+    var activeCats = activeGroup==='completebikes' ? ['completebike'] : (activeGroup!=='all' ? groupCats(groupByKey[activeGroup]) : null);
     var list=PARTS.filter(function(p){
+      if(p.cat==='completebike' && activeGroup!=='completebikes') return false;
       if(activeCats && activeCats.indexOf(p.cat)<0) return false;
       if(activeGroup!=='all' && activeSub!=='all'){ var subM=SUBCHIP_META[activeSub];
         if(subM){ if(!subM.match(p)) return false; } else if(p.cat!==activeSub) return false; }
@@ -1775,7 +1819,9 @@
     });
     // count line above the catalog — set before the empty-state return so it
     // honestly reads "Showing 0 of N parts" when every part is filtered out
-    $('catCount').textContent = 'Showing '+list.length+' of '+PARTS.length+' parts';
+    $('catCount').textContent = activeGroup==='completebikes'
+      ? 'Showing '+list.length+' of '+PARTS.filter(function(p){ return p.cat==='completebike'; }).length+' complete bikes'
+      : 'Showing '+list.length+' of '+PARTS.length+' parts';
     if(!list.length){
       // Wheelset presets are pre-built matched pairs — not every real axle combo
       // (e.g. a DH fork's 20x110 front paired with a Boost148 rear frame) ships
@@ -1803,7 +1849,50 @@
       'weight-desc': function(a,b){ return (wt(b.p,-Infinity)-wt(a.p,-Infinity)) || (a.i-b.i); }
     };
     meta.sort(SORTS[sortBy] || SORTS.random);
-    meta.forEach(function(m){ el.appendChild(cardEl(m.p, m.c)); });
+    meta.forEach(function(m){ el.appendChild(m.p.cat==='completebike' ? bikeCardEl(m.p) : cardEl(m.p, m.c)); });
+  }
+
+  /* ---- Complete Bikes browse card (2026-07-15) ----
+     A completebike is a whole-build preset, not a slot-fillable part, so it
+     gets its own card layout (headline complete price + the a-la-carte parts
+     total + savings) instead of cardEl's pick-a-slot buttons. Reuses the same
+     thumb/name/spec/provenance idiom as an ordinary part card so it doesn't
+     read as a bolted-on pattern. */
+  function bikeFillsResolved(p){
+    var r={}; Object.keys(p.fills).forEach(function(k){ r[k]=byId(p.fills[k]); }); return r;
+  }
+  function bikeCardEl(p){
+    var card=document.createElement('div');
+    card.className='pcard completebike';
+    var thumbHtml = p.image
+      ? '<div class="pcard-thumb"><img src="'+esc(p.image)+'" alt="" loading="lazy"></div>'
+      : '<div class="pcard-thumb">'+placeholderIcon('frame')+'</div>';
+    var partsTotal = buildTotals(bikeFillsResolved(p), {}).price;
+    var headline = p.streetPrice || p.price;
+    var save = partsTotal - headline;
+    var discLabel = (p.disciplines||[]).map(function(d){ return DISC_LABELS[d] || d; }).join('/');
+    card.innerHTML =
+      '<div class="pcard-head">'+thumbHtml+
+        '<div class="pcard-headtext"><div class="kind">'+catLabel(p.cat)+(discLabel?' · '+esc(discLabel):'')+'</div>'+
+        '<button type="button" class="name" aria-label="View details for '+esc(p.brand+' '+p.model)+'">'+esc(p.brand)+' '+esc(p.model)+'</button></div></div>'+
+      '<div class="spec">'+Object.keys(p.fills).length+' factory-stock parts — faithful build, checked by the engine</div>'+
+      provHtml(p)+
+      '<div class="cb-card-price">'+
+        (p.streetPrice ? '<span class="cb-card-msrp">MSRP '+money(p.price)+'</span>' : '')+
+        '<span class="cb-card-complete">'+money(headline)+' <small>complete</small></span>'+
+        '<span class="cb-card-parts">'+money(partsTotal)+' <small>as parts</small></span>'+
+        (save>0 ? '<span class="cb-card-save">save '+money(save)+'</span>' : '')+
+      '</div>'+
+      '<div class="row"><span class="picks"></span></div>';
+    card.querySelector('.name').onclick=function(e){ e.stopPropagation(); openPartModal(p); };
+    var picks=card.querySelector('.picks');
+    var inB = activeCompleteBike===p.id;
+    if(inB) card.classList.add('selected');
+    var btn=mkBtn(inB?'✓ Built':'🚲 Build this bike', inB, true);
+    btn.onclick=function(){ applyCompleteBike(p.id); };
+    picks.appendChild(btn);
+    card.addEventListener('click', function(e){ if(e.target.closest('button,a')) return; openPartModal(p); });
+    return card;
   }
 
   function cardEl(p, compat){
@@ -1979,6 +2068,32 @@
     presetBy[PRESET_GROUP[p.cat]] = id;
     sync(); toast('Filled '+p.brand+' '+p.model+' ('+money(p.price)+' kit)');
   }
+  /* Picking a complete bike auto-fills EVERY slot it ships from the factory
+     (COMPLETE-BIKES-SCOPE.md §3b) — clears the current build first (a whole-
+     bike pick replaces, it doesn't merge), then writes the fills directly.
+     Deliberately does NOT touch presetBy: completebike has no GROUPS entry,
+     so there's no group key to bill it under anyway, and buildTotals must
+     stay the a-la-carte component sum even after this (decision #2) — the
+     dual-price block (renderPanel) is what shows the stored complete price
+     alongside it. */
+  function applyCompleteBike(id){
+    var p=byId(id); if(!p||!p.fills||p.cat!=='completebike') return;
+    build = {}; presetBy = {};
+    Object.keys(p.fills).forEach(function(slot){ build[slot]=p.fills[slot]; });
+    activeCompleteBike = id;
+    sync();
+    toast('🚲 Auto-filled '+p.brand+' '+p.model+' — '+money(p.streetPrice||p.price)+' complete');
+  }
+  /* Has the build diverged from the active complete bike's stock fills (any
+     slot swapped, added, or removed)? Drives the dual-price block's "modified
+     from <bike>" relabel (decision #5) — the block itself stays visible
+     either way, only the label + the vs-stock comparison change. */
+  function completeBikeDiverged(cb){
+    var fillKeys = Object.keys(cb.fills);
+    var buildKeys = Object.keys(build).filter(function(k){ return build[k]; });
+    if(buildKeys.length !== fillKeys.length) return true;
+    return fillKeys.some(function(k){ return build[k] !== cb.fills[k]; });
+  }
 
   /* ---- build panel ---- */
   function renderPanel(){
@@ -2051,7 +2166,29 @@
     $('meterBar').style.width = Math.round(filled/required.length*100)+'%';
     $('viewBuild').hidden = (filled !== required.length);   // appears once the build is complete
     $('shareImageBtn').hidden = (Object.keys(build).length === 0);   // works on a partial build too
+    renderCompleteBikeBlock(t);
     renderRadness(res, t, filled);
+  }
+
+  /* Complete Bikes dual-price block — "Buy as parts" (t.price, the SAME
+     buildTotals the totals line above already shows — never substituted) vs
+     the stored complete-bike price (streetPrice as the headline when present,
+     decision #3) vs the savings. Relabels "Modified from <bike>" once the
+     build diverges (decision #5) but never hides once a complete bike is
+     active — only clearing the build (or loading a different build/bike)
+     hides it again, via activeCompleteBike. */
+  function renderCompleteBikeBlock(t){
+    var cb = activeCompleteBike ? byId(activeCompleteBike) : null;
+    if(!cb || cb.cat !== 'completebike'){ $('cbBlock').hidden = true; return; }
+    var diverged = completeBikeDiverged(cb);
+    $('cbLabel').textContent = (diverged ? 'Modified from ' : '') + cb.brand+' '+cb.model + (diverged ? '' : ' — complete bike');
+    var headline = cb.streetPrice || cb.price;
+    $('cbPartsTotal').textContent = money(t.price);
+    $('cbPrice').textContent = money(headline) + (cb.streetPrice ? ' (MSRP '+money(cb.price)+')' : '');
+    var save = t.price - headline;
+    $('cbSaveRow').hidden = save <= 0;   // never claim savings once modifications erase them (e.g. removing stock parts)
+    if(save > 0) $('cbSave').textContent = money(save);
+    $('cbBlock').hidden = false;
   }
 
   /* ---- 🤘 RAD mode radness meter — a joke stat, never a real spec claim ---- */
@@ -3145,7 +3282,7 @@
   function loadBuildData(data){
     try{
       var c = _resolveData(data).clean;
-      build = {}; presetBy = {};
+      build = {}; presetBy = {}; activeCompleteBike = null;   // a garage/share load is a wholesale replace, not a complete-bike pick
       Object.keys(c.build).forEach(function(k){ build[k] = c.build[k]; });
       Object.keys(c.presetBy).forEach(function(k){ presetBy[k] = c.presetBy[k]; });
       sync();
@@ -3674,7 +3811,7 @@
   // never cascades on a sample load — the immunity is structural (setSlot is the
   // only place guidedAdvance fires).
   function applyBuild(b, p){
-    build = {}; presetBy = {};
+    build = {}; presetBy = {}; activeCompleteBike = null;   // a wholesale load (sample/garage/share) is not a complete-bike pick
     Object.keys(b).forEach(function(k){ build[k]=b[k]; });
     Object.keys(p||{}).forEach(function(k){ presetBy[k]=p[k]; });
     sync();
@@ -3704,7 +3841,7 @@
       frontTire:'ti-maxxis-assegai-29-25-exop-mg',rearTire:'ti-maxxis-assegai-29-25-exop-mg',shifter:'sft-sram-gx-transmission',derailleur:'dr-sram-gx-transmission',cassette:'ca-shimano-xt-m8100-1051',chain:'ch-sram-gx-flattop',crankset:'cr-sram-x0-transmission',
       frontBrake:'bk-shimano-xt-m8120',rearBrake:'bk-shimano-xt-m8120',frontRotor:'ro-shimano-rtmt800-203-cl',rearRotor:'ro-shimano-rtmt800-203-cl',
       handlebar:'hb-pnw-range-318',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',dropper:'dp-pnw-loam-309-175',saddle:'sa-wtb-volt',pedals:'pd-crankbrothers-stamp-7-large' };
-    presetBy={};
+    presetBy={}; activeCompleteBike = null;
     sync(); toast('Loaded a build full of clashes');
   }
 
@@ -3789,7 +3926,7 @@
   $('demoXC').onclick=function(){ loadSample('xc'); };
   $('demoHardtail').onclick=function(){ loadSample('hardtail'); };
   $('demoBad').onclick=loadBad;
-  $('reset').onclick=function(){ build={}; presetBy={}; sync(); toast('Build cleared'); };
+  $('reset').onclick=function(){ build={}; presetBy={}; activeCompleteBike=null; sync(); toast('Build cleared'); };
   $('share').onclick=function(){ writeHash(); var url=location.href;
     if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(
       function(){toast('Build link copied to clipboard');}, function(){toast('Build saved in the address bar');}); }

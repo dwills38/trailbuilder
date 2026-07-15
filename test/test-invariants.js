@@ -230,9 +230,26 @@ test('every preset is billed as its bundle price when its exact fills are chosen
   C.GROUPS.forEach(function(g){ if(g.preset) presetGroup[g.preset.cat] = g.key; });
   C.PARTS.forEach(function(p){
     if(!('fills' in p) || !p.fills) return;
+    // completebike is DELIBERATELY group-less (COMPLETE-BIKES-SCOPE.md §1b):
+    // unlike groupset/wheelset/brakeset/cockpitset it must never be billed at
+    // its stored price via presetBy - buildTotals stays the a-la-carte
+    // component sum even after auto-fill, so the dual-price block can show
+    // both numbers side by side. See the dedicated completebike price test below.
+    if(p.cat === 'completebike') return;
     var gkey = presetGroup[p.cat]; ok(gkey, p.id+' preset maps to a group');
     /** @type {Object.<string, string>} */ var presetBy = {}; presetBy[gkey] = p.id;
     eq(C.buildTotals(B(p.fills), presetBy).price, p.price, p.id+' bundle price');
+  });
+});
+test('a completebike is NEVER billed as a bundle price - buildTotals stays the component sum even naming it in presetBy', function(){
+  C.PARTS.filter(function(p){ return p.cat === 'completebike'; }).forEach(function(p){
+    var build = B(p.fills);
+    var alaCarte = C.buildTotals(build, {}).price;
+    // completebike has no GROUPS entry, so no group key names it in presetBy -
+    // buildTotals ignores completebike entirely as a bundle-billing source.
+    /** @type {Object.<string, string>} */ var presetBy = { frame: p.id };
+    eq(C.buildTotals(build, presetBy).price, alaCarte, p.id+' presetBy cannot make buildTotals substitute the completebike price');
+    ok(alaCarte >= p.price, p.id+' a-la-carte component sum ('+alaCarte+') should be >= the complete-bike price ('+p.price+') - the value insight');
   });
 });
 test("every preset fill points at an existing part of the slot's category", function(){
