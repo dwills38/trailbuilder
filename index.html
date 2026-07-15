@@ -136,6 +136,19 @@
   .cb-card-price .cb-card-complete{font-size:16px;font-weight:800;color:var(--ink)}
   .cb-card-price .cb-card-complete small,.cb-card-price .cb-card-parts small{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;color:var(--ink-soft);margin-left:2px}
   .cb-card-price .cb-card-save{background:var(--ok-bg);color:var(--ok);font-weight:700;padding:2px 7px;border-radius:999px;font-size:11px}
+  /* wrapper around the price block + Build button: transparent by default (card view
+     + wrapped list keep the block-then-button stack), becomes the single last-column
+     grid cell in the one-line list view (see the @container rule) */
+  .cb-priceaction{display:contents}
+  /* Complete-bike LIST rows are compacted to the SAME uniform height as frames and
+     every other category (Douglas 2026-07-15) — the verbose dual-price block, which
+     stacks to its own lines in card view, collapses inline here: the strikethrough
+     MSRP and the "as parts" figure drop out (both still shown in card view + the
+     detail modal), leaving "complete $X · save $Y" on one line. */
+  .list .pcard.completebike .cb-card-price{margin:0;font-size:11px;gap:3px 8px;flex-wrap:nowrap;white-space:nowrap;line-height:1.3}
+  .list .pcard.completebike .cb-card-price .cb-card-msrp,
+  .list .pcard.completebike .cb-card-price .cb-card-parts{display:none}
+  .list .pcard.completebike .cb-card-complete{font-size:13px}
   .pick{border:1px solid var(--brand);color:var(--brand);background:#fff;border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer}
   .pick:hover{background:#f1f8f4}
   .pick.in{background:var(--brand);color:#fff}
@@ -227,6 +240,18 @@
       .list .pcard .price{flex:0 1 auto;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-end;align-items:baseline;column-gap:7px;line-height:1.3;text-align:right}
       .list .pcard .price .wt{margin:0;white-space:nowrap}
       .list .pcard .price .wtsep{display:none}
+      /* a completebike has one extra child (the price block) vs a part card, so it
+         spilled off the 4-col grid to a 2nd row (~103px). Keep the SAME grid and put
+         its price block above the Build button in the last column (grid rows) — just
+         like a part card's price-over-action col 4 — so the row height matches every
+         other category exactly. */
+      .list .pcard.completebike .name{-webkit-line-clamp:1}
+      /* the price+button wrapper becomes the SINGLE last-column cell (price stacked
+         over the Build button), exactly like a part card's .row col — so it's one
+         grid row at the standard height. */
+      .list .pcard.completebike .cb-priceaction{display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:3px;grid-column:4}
+      .list .pcard.completebike .cb-card-price{justify-content:flex-end}
+      .list .pcard.completebike .row{margin:0;justify-content:flex-end}
     }
     /* same-spirit modest trim for the CARD view — desktop only (the ≤768px
        card view keeps the roomier 13px; touch targets there are untouched) */
@@ -2112,13 +2137,15 @@
         '<button type="button" class="name" aria-label="View details for '+esc(p.brand+' '+p.model)+'">'+esc(p.brand)+' '+esc(p.model)+'</button></div></div>'+
       '<div class="spec">'+Object.keys(p.fills).length+' factory-stock parts — faithful build, checked by the engine</div>'+
       provHtml(p)+
+      '<div class="cb-priceaction">'+
       '<div class="cb-card-price">'+
         (p.streetPrice ? '<span class="cb-card-msrp">MSRP '+money(p.price)+'</span>' : '')+
         '<span class="cb-card-complete">'+money(headline)+' <small>complete</small></span>'+
         '<span class="cb-card-parts">'+money(partsTotal)+' <small>as parts</small></span>'+
         (save>0 ? '<span class="cb-card-save">save '+money(save)+'</span>' : '')+
       '</div>'+
-      '<div class="row"><span class="picks"></span></div>';
+      '<div class="row"><span class="picks"></span></div>'+
+      '</div>';
     card.querySelector('.name').onclick=function(e){ e.stopPropagation(); openPartModal(p); };
     var picks=card.querySelector('.picks');
     var inB = activeCompleteBike===p.id;
