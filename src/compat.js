@@ -128,13 +128,21 @@ var GROUPS = [
   { key:'tire', label:'Tires', icon:'T', slots:[
       {key:'frontTire', label:'Front Tire', cat:'tire'},
       {key:'rearTire',  label:'Rear Tire',  cat:'tire'} ] },
-  /* The single-speed cog is its OWN group (DJ go-live, 2026-07-14) for the same
-     buildTotals reason as bb/headset: inside the drivetrain group its
-     price/weight would silently vanish whenever a groupset bundle is active
-     (bundleActive skips a bundled group's non-fill slots). Required only on a
-     driveMode:'single-speed' frame - see slotRequired(); geared builds (and the
-     no-frame default) never count it, so live MTB completeness is unchanged. */
-  { key:'cog', label:'Single-Speed Cog', icon:'G', slots:[ {key:'cog', label:'Single-Speed Cog', cat:'cog'} ] },
+  /* The single-speed cog stays its OWN group for pricing/completeness (same
+     buildTotals reason as bb/headset: inside the drivetrain group's `slots`
+     its price/weight would silently vanish whenever a groupset bundle is
+     active - bundleActive only bills a bundled group's PRESET-fill slots, and
+     no groupset preset fills a cog). Required only on a driveMode:'single-speed'
+     frame - see slotRequired(); geared builds (and the no-frame default) never
+     count it, so live MTB completeness is unchanged.
+     `parent:'drivetrain'` (cog-under-drivetrain, 2026-07-14) is a RAIL-DISPLAY-
+     ONLY marker: index.html's renderChips/groupCats/subCatsOf treat a
+     parent-tagged group as a sub-chip of its parent instead of its own
+     top-level rail chip, so it browses as "Drivetrain > Cog" - but it is
+     otherwise a completely ordinary GROUPS entry (own bundleActive/buildTotals
+     line, own slot key/group for SLOT_GROUP/presetBy), so none of the pricing
+     or completeness machinery above changes. */
+  { key:'cog', label:'Single-Speed Cog', icon:'G', parent:'drivetrain', slots:[ {key:'cog', label:'Single-Speed Cog', cat:'cog'} ] },
   { key:'brakes', label:'Brakes', icon:'B', preset:{cat:'brakeset', label:'brake set'}, slots:[
       {key:'frontBrake', label:'Front Brake', cat:'brake'},
       {key:'rearBrake', label:'Rear Brake', cat:'brake'},

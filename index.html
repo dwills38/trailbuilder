@@ -1358,6 +1358,13 @@
   var PRESET_GROUP = {}; GROUPS.forEach(function(g){ if(g.preset) PRESET_GROUP[g.preset.cat] = g.key; });
   var groupByKey = {};  GROUPS.forEach(function(g){ groupByKey[g.key] = g; });
   var CAT_GROUP = {};   SLOTS.forEach(function(s){ CAT_GROUP[s.cat] = s.group; }); Object.keys(PRESET_GROUP).forEach(function(c){ CAT_GROUP[c] = PRESET_GROUP[c]; });
+  /* cog-under-drivetrain: a group tagged `parent` (compat.js) browses as a
+     sub-chip of its parent instead of its own top-level rail chip - a
+     RAIL-DISPLAY-ONLY relationship (pricing/completeness still key off the
+     group's own GROUPS entry, untouched). childGroupsOf() is the one place
+     that walks it; renderChips/groupCats/subCatsOf/guidedAdvance below all
+     go through it rather than re-deriving the parent/child link. */
+  function childGroupsOf(groupKey){ return GROUPS.filter(function(g){ return g.parent===groupKey; }); }
 
   // Named isPresetPart (not isPreset) to distinguish it from schema.js's
   // isPresetCat(cat): this one checks a PART's actual `fills` field, for
@@ -1408,7 +1415,8 @@
   function renderChips(){
     var el = $('chips'); el.innerHTML='';
     el.appendChild(mkChip('all','All parts'));
-    GROUPS.forEach(function(g){ el.appendChild(mkChip(g.key, g.label)); });   // sidebar category chips are text-only (icons removed — a literal component glyph risked resembling one maker's part)
+    // a parent-tagged group (e.g. cog) browses as a SUB-chip of its parent — see childGroupsOf() — so it gets no top-level rail chip of its own
+    GROUPS.forEach(function(g){ if(g.parent) return; el.appendChild(mkChip(g.key, g.label)); });   // sidebar category chips are text-only (icons removed — a literal component glyph risked resembling one maker's part)
     nudgeActiveChip(el);
   }
 
@@ -1436,6 +1444,16 @@
      (defaultSeatpostCat, compat.js). Every other group opens on 'all'. */
   function defaultSubFor(groupKey){
     return groupKey==='seatpost' ? defaultSeatpostCat(resolved().frame) : 'all';
+  }
+  /* cog-under-drivetrain: resolve a GROUPS key to where it actually browses on
+     the rail — a parent-tagged group (e.g. cog) has no rail chip of its own,
+     so any code that's about to set activeGroup to a raw GROUPS key (guided-
+     advance) must route through this first, or it lands on an invisible
+     category with no chip highlighted. */
+  function railTarget(groupKey){
+    var g = groupByKey[groupKey];
+    if(g && g.parent) return { group: g.parent, sub: g.slots[0] ? g.slots[0].cat : 'all' };
+    return { group: groupKey, sub: defaultSubFor(groupKey) };
   }
   // chips are <button>s (not divs) so they're keyboard-focusable and Enter/Space-
   // activatable for free; aria-pressed marks which one is active in the group.
@@ -1467,8 +1485,12 @@
   /* unify-seatpost: the merged Seatpost group's two cats surface as sub-chips
      reading "Dropper" / "Rigid". Only the rigid cat needs an override — the
      card kind-tag keeps the plain catLabel ("Seatpost"). Dropper is already
-     "Dropper" via catLabel. */
-  var SUBCHIP_LABEL_OVERRIDE = { seatpost:'Rigid' };
+     "Dropper" via catLabel.
+     cog-under-drivetrain: same idea for the cog sub-chip under Drivetrain —
+     shorten it to "Cog" there; the card kind-tag keeps the full catLabel
+     ("Single-Speed Cog"), and the standalone build-panel section (GROUPS'
+     own cog entry) is untouched. */
+  var SUBCHIP_LABEL_OVERRIDE = { seatpost:'Rigid', cog:'Cog' };
   var subChipLabel = function(key){ return SUBCHIP_META[key] ? SUBCHIP_META[key].label : (SUBCHIP_LABEL_OVERRIDE[key] || catLabel(key)); };
   /* The card/list "kind" tag above a product name. For a preset category that
      SPLITS (SUBCHIP_SPLIT), show the matching facet label ("Groupset · Full" /
@@ -1490,6 +1512,8 @@
       else cats.push(g.preset.cat);
     }
     g.slots.forEach(function(s){ if(cats.indexOf(s.cat)<0) cats.push(s.cat); });
+    // parent-tagged child groups (e.g. cog under drivetrain) add their own cat(s) as trailing sub-chips
+    childGroupsOf(groupKey).forEach(function(cg){ cg.slots.forEach(function(s){ if(cats.indexOf(s.cat)<0) cats.push(s.cat); }); });
     return cats;   // preset chip(s) (if any) + distinct component categories, in order
   }
   function renderSubChips(){
@@ -1688,7 +1712,12 @@
   }
 
   /* ---- catalog ---- */
-  function groupCats(g){ var c = g.slots.map(function(s){return s.cat;}); if(g.preset) c.push(g.preset.cat); return c; }
+  function groupCats(g){
+    var c = g.slots.map(function(s){return s.cat;}); if(g.preset) c.push(g.preset.cat);
+    // parent-tagged child groups (e.g. cog under drivetrain) count as part of the parent's catalog view too
+    childGroupsOf(g.key).forEach(function(cg){ cg.slots.forEach(function(s){ if(c.indexOf(s.cat)<0) c.push(s.cat); }); });
+    return c;
+  }
 
   /* True-random "Random" sort (bias audit 2026-07-12 #5, made genuinely random
      2026-07-14). A rank-first order (compatible parts, or certain models, always
@@ -1891,8 +1920,9 @@
       toast('All required parts chosen — 📋 View complete build has the summary and verdict.');
       return false;
     }
-    activeGroup = target.key; activeSub = defaultSubFor(target.key); resetSubFilters(); reshuffleCatalog();
-    if(target.key==='tire') inheritTireSizeFilter();
+    var rt = railTarget(target.key);
+    activeGroup = rt.group; activeSub = rt.sub; resetSubFilters(); reshuffleCatalog();
+    if(rt.group==='tire') inheritTireSizeFilter();
     if(!guidedOptOut) setCompatibleOnly(true);
     renderChips(); renderSubChips(); renderSubFilters();   // the caller's sync() renders the catalog
     var picked = byId(build[slotKey]);

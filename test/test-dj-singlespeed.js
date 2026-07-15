@@ -107,18 +107,31 @@ test('a single-speed-driver rear wheel exempts the cassette slot (integrated pat
   eq(C.slotRequired(slotByKey('cassette'), part('fr-raaw-jibb'), ssWheel), false, 'cassette not required on a single-speed driver');
 });
 
-test('cog is its own single-slot group; Seatpost is ONE group holding the mutually-exclusive dropper + rigid slots (bundle-pricing hazard guard)', function(){
+test('cog is its own single-slot PRICING group (browsing as a Drivetrain sub-chip is rail-display-only); Seatpost is ONE group holding the mutually-exclusive dropper + rigid slots (bundle-pricing hazard guard)', function(){
   // Same buildTotals reason bb/headset/cog stayed their own groups: inside a
   // preset-bearing group a slot's price/weight vanishes whenever that group's
-  // bundle is active. The unified Seatpost group (unify-seatpost, 2026-07-14)
-  // carries NO preset for the same reason, so its two post slots always sum
-  // individually — and the two slots are mutually exclusive (one physical post),
-  // so a build can hold at most one.
+  // bundle is active — no groupset preset fills a cog, so folding the cog SLOT
+  // into the drivetrain GROUP's `slots` would silently drop its price/weight
+  // whenever a groupset bundle is active. The unified Seatpost group
+  // (unify-seatpost, 2026-07-14) carries NO preset for the same reason, so its
+  // two post slots always sum individually — and the two slots are mutually
+  // exclusive (one physical post), so a build can hold at most one.
   var cog = C.GROUPS.filter(function(x){ return x.key === 'cog'; })[0];
   ok(cog, 'cog group exists');
   eq(cog.slots.length, 1, 'cog is a single-slot group');
   ok(!cog.preset, 'cog group carries no preset');
   eq(cog.slots[0].cat, 'cog', 'cog slot draws from cat cog');
+  // cog-under-drivetrain (2026-07-14): the cog group is tagged `parent:'drivetrain'`
+  // so index.html browses it as a Drivetrain sub-chip instead of its own
+  // top-level rail chip. Purely a rail-display marker — it changes NOTHING
+  // about the group's own slots/preset/key checked above, so slotRequired,
+  // bundleActive, buildTotals and presetBy all key on the SAME 'cog' group
+  // exactly as before.
+  eq(cog.parent, 'drivetrain', 'cog group is rail-tagged as a sub-chip of Drivetrain');
+  var drivetrain = C.GROUPS.filter(function(x){ return x.key === 'drivetrain'; })[0];
+  ok(drivetrain, 'drivetrain group exists');
+  eq(drivetrain.slots.some(function(s){ return s.key === 'cog'; }), false,
+     'the cog slot is NOT one of drivetrain\'s own slots — it stays its own pricing group, only its rail placement moved');
 
   var sp = C.GROUPS.filter(function(x){ return x.key === 'seatpost'; })[0];
   ok(sp, 'the Seatpost group exists');

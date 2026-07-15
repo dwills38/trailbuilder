@@ -275,6 +275,7 @@
  * @property {string} icon
  * @property {Slot[]} slots
  * @property {{cat: Category, label: string}} [preset]
+ * @property {string} [parent] rail-display-only: browse as a sub-chip of the named group instead of its own top-level rail chip (pricing/completeness are unaffected — see compat.js's cog group)
  */
 
 /**
