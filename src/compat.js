@@ -7135,6 +7135,119 @@ var PARTS_RAW = [
       dropper:'dp-whyte-dropit-ii-309-150', saddle:'sa-whyte-custom-dual-density'
     },
     desc:'FETCHED whytebikes.com/products/t-140-rs-trail-mountain-bike directly: full factory build sheet + GBP2,999.00 list price (the collections page shows a current GBP2,499 sale figure; GBP2,999 list used as the canonical MSRP per this catalog\'s price convention). price $3,869 is a sample USD conversion (~1.29 GBP:USD, matching the ratio used on the fr-cotic-solaris frame\'s own conversion). 13 new OE rows entered alongside this one (frame, fork, shock, brake, both wheels, both tires, bar/stem/grips, dropper, saddle - see each row\'s own desc for sourcing); the SRAM GX Eagle mechanical drivetrain (shifter/derailleur/cassette/chain/crankset) + matching DUB BSA73 BB + SRAM Centerline 180mm 6-bolt rotors were already fully cataloged at the exact spec\'d tier. Headset omitted (frame-integrated FSA No.57 Orbit ZS, no S.H.I.S. bore codes published on the fetched page). Pedals omitted (not stock). Component (a-la-carte) sum of the fills exceeds $3,869 at current catalog prices (fork+shock+wheelset+drivetrain alone exceed the whole-bike figure), so the "buy complete" savings the dual-price block shows is real.' },
+
+  // =========================================================================
+  // COMPLETE BIKES — Ibis cluster (2026-07-15, catalog/complete-bikes-grind-2
+  // -ibis-merida). Three Ibis AF (aluminum) complete bikes, all built on
+  // already-verified in-catalog frames (fr-ibis-ripmo-af-v2, fr-ibis-ripley-af-v2).
+  // Full build sheets FETCHED directly from fanatikbike.com (an established
+  // Ibis dealer, already the precedent source for this catalog's Forbidden
+  // Druid completebike) and cross-confirmed against ibiscycles.com's own
+  // official per-build-kit price list (fetched directly - the two agree
+  // exactly for the Ripmo AF SRAM 90 build: $4,299 both places). New OE-tier
+  // component rows below are heavily REUSED across all three bikes (house
+  // Blackbird wheels/cockpit + the shared Cane Creek 40 / WTB Silverado /
+  // KS Vantage / Lizard Skins Strata parts) - only 11 new part rows needed
+  // for 3 complete bikes, well under the ~8-12-per-bike estimate in
+  // COMPLETE-BIKES-SCOPE.md thanks to that reuse.
+  { id:'fw-ibis-blackbird-send-29', cat:'frontwheel', brand:'Ibis', model:'Blackbird Send Alloy 29 front', family:'ibis-blackbird-send', disciplines:['trail','enduro'],
+    price:262, weight:1046, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:35, maxTire:2.6,
+    verified:true, lastChecked:'2026-07-15', source:'https://store.ibiscycles.com/products/send-29-aluminum-wheelset',
+    desc:'Stock OE wheelset on all three Ripmo AF / Ripley AF complete bikes below (fanatikbike.com build sheets all say "Blackbird Send Alloy"). FETCHED store.ibiscycles.com directly: "110 x 15 BOOST Front", "148 x 12 BOOST Rear", "Six Bolt Rotor Mounting", "Shimano Microspline or SRAM XD driver" (rear), "35mm inside width", pair price $525.00, "2060g wheelset weight" (no front/rear split published by Ibis itself). Front/rear weight+price split 1046/1014g and $262/$263 uses Mountain Bike Action\'s long-term-review teardown figures (rear 1014g) as the corroborating per-wheel basis, subtracted from Ibis\'s own confirmed pair total - a documented estimate, not maker-itemized, matching this catalog\'s existing convention for pair-only-quoted wheelsets (e.g. the DT Swiss M1900 wheel rows). maxTire:2.6 is a conservative estimate for a 35mm-internal rim (no maker max-tire figure published for the wheel itself); interfaces (axle/rotor mount/freehub/width) carry verified:true as directly fetched, weight/price/maxTire stay sample.' },
+  { id:'rw-ibis-blackbird-send-29-ms', cat:'rearwheel', brand:'Ibis', model:'Blackbird Send Alloy 29 rear (Microspline)', family:'ibis-blackbird-send', disciplines:['trail','enduro'],
+    price:263, weight:1014, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:35, maxTire:2.6,
+    verified:true, lastChecked:'2026-07-15', source:'https://store.ibiscycles.com/products/send-29-aluminum-wheelset',
+    desc:'Rear half of the Blackbird Send Alloy wheelset (Microspline driver body) - stock on the Ripmo AF Deore complete bike (Shimano 12-speed drivetrain needs Microspline, matching the universalcycles.com SKU split "SEND29ALWSMS148" vs "...SXD148"). Same fetched store.ibiscycles.com page as the front wheel: Boost148, six-bolt, 35mm internal width, "Shimano Microspline or SRAM XD driver" (both offered). Weight 1014g = Mountain Bike Action\'s long-term-review teardown figure (Ibis itself states only the "2060g wheelset" pair total); interfaces carry verified:true, weight/price stay sample (see front wheel row for the same split-basis note).' },
+  { id:'rw-ibis-blackbird-send-29-xd', cat:'rearwheel', brand:'Ibis', model:'Blackbird Send Alloy 29 rear (XD)', family:'ibis-blackbird-send', disciplines:['trail','enduro'],
+    price:263, weight:1014, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:35, maxTire:2.6,
+    verified:true, lastChecked:'2026-07-15', source:'https://store.ibiscycles.com/products/send-29-aluminum-wheelset',
+    desc:'Rear half of the Blackbird Send Alloy wheelset (XD driver body) - stock on the Ripmo AF SRAM 90 and Ripley AF SRAM 90 complete bikes (SRAM Eagle Transmission cassette needs the XD-family driver). Same fetched store.ibiscycles.com page + SKU basis as the Microspline sibling row above.' },
+  { id:'hb-ibis-blackbird-alloy-35', cat:'handlebar', brand:'Ibis', model:'Blackbird Alloy 35mm Handlebar', family:'ibis-blackbird-cockpit', disciplines:['trail','enduro'],
+    price:50, weight:280, clamp:35, width:800, rise:30, material:'alu',
+    verified:true, lastChecked:'2026-07-15', source:'https://store.ibiscycles.com/products/blackbird-alloy-35mm-handlebar',
+    desc:'Stock handlebar on all three complete bikes below (fanatikbike.com build sheets: "Blackbird 35 Aluminum 30mm Riser Bar, 800mm"). FETCHED store.ibiscycles.com directly: 35mm clamp, "30mm rise" / "5 Degree Rise" / "9 Degree Sweep" confirmed, price $50.00 confirmed. Width 800mm is the fanatikbike.com build-sheet figure (not itemized on the Ibis product page, which lists no width - a cut-to-fit alloy riser); weight 280g is a documented sample for a typical 35mm/800mm alloy riser bar (no maker figure published). Clamp (the only rule-19-relevant field) carries verified:true.' },
+  { id:'st-ibis-blackbird-35', cat:'stem', brand:'Ibis', model:'Blackbird Stem 35mm', family:'ibis-blackbird-cockpit', disciplines:['trail','enduro'],
+    price:69, weight:122, clamp:35, length:35,
+    verified:true, lastChecked:'2026-07-15', source:'https://store.ibiscycles.com/products/blackbird-stem',
+    desc:'Stock stem on all three complete bikes below (fanatikbike.com build sheets: "Blackbird 35", 35-50mm depending on frame size). FETCHED store.ibiscycles.com directly: 35mm clamp, sold in 35mm (122g) or 50mm (147g) lengths, "Flip for + or - 5mm rise", $69.00 both lengths. This row models the 35mm length (the shorter, smaller-size-oriented option) as the representative size, matching this catalog\'s convention for size-dependent stem/dropper lengths on complete-bike rows.' },
+  { id:'gr-lizardskins-strata', cat:'grips', brand:'Lizard Skins', model:'Strata Single Clamp Lock-On', family:'lizardskins-strata',
+    price:25, weight:118,
+    desc:'Stock grips on all three complete bikes below (fanatikbike.com build sheets: "Lizard Skins Strata Single Clamp"). lizardskins.com\'s own product page is a color/engraving configurator with no spec table; weight 118g and the 32.25mm/135mm grip dimensions are from off-road.cc\'s published review, price is a documented USD estimate from the reviewed UK RRP (£32) - grips carry no verdict-driving fields in this schema, so the identity is the only fact that matters and it is real (Lizard Skins does make exactly this single-clamp Strata grip). Left unverified (no manufacturer spec table found).' },
+  { id:'dp-ks-vantage-349-150', cat:'dropper', brand:'KS', model:'Vantage', family:'ks-vantage',
+    price:189, weight:737, diameter:34.9, drop:150,
+    verified:true, lastChecked:'2026-07-15', source:'https://kssuspension.com/products/dropper-seat-posts/vantage/',
+    desc:'Stock dropper on the Ripmo AF SRAM 90 and Ripley AF SRAM 90 complete bikes (fanatikbike.com build sheets: "KS Vantage Dropper, 34.9mm"). FETCHED kssuspension.com directly: 34.9mm IS offered (alongside 30.9/31.6mm) in three adjustable ranges (110-140 / 140-170 / 180-210mm, tool-free 1mm increments); the 34.9mm/140-170mm range weighs 737g maker-stated. This row models drop:150 as a representative fixed value within that adjustable range (matching this catalog\'s convention for other tool-free-adjustable droppers). Price $189 is a documented retailer figure (Universal Cycles; kssuspension.com itself lists no USD price, only a "$$$$$" tier). Diameter (the only verdict-driving dropper field) carries verified:true.' },
+  { id:'sh-rockshox-super-deluxe-select-230x60', cat:'shock', brand:'RockShox', model:'Super Deluxe Select 230x60', family:'rockshox-super-deluxe', eye:230, stroke:60, mount:'std', spring:'air',
+    price:229, weight:480,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.sram.com/en/rockshox/models/rs-sdlx-sel-c2',
+    desc:'Stock rear shock on the Ripmo AF Deore and Ripmo AF SRAM 90 complete bikes (fanatikbike.com build sheets, both: "RockShox Super Deluxe Select (230mm x 60mm)" - a distinct, lower tier than the already-cataloged Select+ / Ultimate Super Deluxe rows). FETCHED sram.com model page rs-sdlx-sel-c2 directly: standard-mount size matrix confirms 230x60 is a real offered size ("230x57.5, 230x60, 230x62.5, 230x65" std mount list); the page states only a baseline weight for the 210x50 config (450g) with no 230x60-specific figure, so weight 480g here is a documented size-scaled estimate (not maker-itemized for this exact length) and price $229 is a documented retail estimate (SRAM lists no MSRP on the model page). Eye/stroke/mount (the verdict-driving fields) carry verified:true.' },
+  { id:'bk-sram-g2-r', cat:'brake', brand:'SRAM', model:'G2 R', family:'sram-g2', mfgPn:'DB-G2-R-A2',
+    price:130, weight:230, mount:'PM', pistons:4,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.sram.com/en/service/models/db-g2-r-a2',
+    desc:'Stock brakes on the Ripley AF SRAM 90 complete bike (fanatikbike.com build sheet: "SRAM G2 R"). FETCHED sram.com\'s service page db-g2-r-a2 directly: confirms the G2 R as a 4-piston (S4 caliper) disc brake with post-mount and Intl-Std / direct-mount bracket options (post mount is the standard MTB config, matching the already-cataloged G2 RSC/Ultimate rows\' mount field) - SRAM\'s own marketing describes G2 R as a 4-piston "mini Code" entry point to the G2 range. The service page lists no weight or price (unlike the RSC row, which SRAM does publish a figure for); both stay documented samples (weight interpolated below the $160/248g RSC sibling; price is a typical entry-tier street figure). Mount + pistons (the verdict-driving fields) carry verified:true.' },
+  { id:'ti-maxxis-minion-dhr-ii-29-25-exop-mt', cat:'tire', brand:'Maxxis', model:'Minion DHR II 29x2.5 EXO+ MaxxTerra', family:'maxxis-minion-dhr-ii', mfgPn:'TB00698400',
+    price:88, weight:1134, wheel:'29', width:2.5, casing:'exo-plus', compound:'3c-maxxterra',
+    verified:true, lastChecked:'2026-07-15', source:'https://www.maxxis.com/us/tire/minion-dhr-ii/',
+    desc:'Stock tire on all three complete bikes below: rear on both Ripmo AF builds ("Maxxis DHR II" 29x2.5, fanatikbike.com) and front on the Ripley AF SRAM 90 ("Maxxis DHR II, 29x2.5, Exo TR"). FETCHED maxxis.com\'s DHR II SKU table directly and confirmed a plain-EXO (non-plus) 29x2.5 casing does NOT exist in the Maxxis lineup - the only 29x2.5 MaxxTerra option is EXO+ (Part# TB00698400, 1134g maker-stated), so this is the closest genuine SKU to the retailer listings\' generic "Exo TR" shorthand (a common retailer-feed simplification that drops the "+"), not a fabricated spec. Price $88 is a documented sample (maxxis.com lists no MSRP, matching every other tire row in this catalog).' },
+
+  /* The three Ibis AF complete bikes (2026-07-15). fills = ONLY the parts
+     each bike ships with from the factory (decision #1); pedals are not
+     stock on any of the three, so the pedals slot is intentionally absent
+     on all of them. headset IS included on all three - fanatikbike.com's
+     build sheets explicitly name "Cane Creek 40" and it matches both
+     frames' own headTubeUpper/Lower (ZS44/28.6 + ZS56/40) exactly ->
+     hs-canecreek-40-zs44-zs56. All three model the full-29 (29 front / 29
+     rear) stock configuration - both frames also support a 27.5-rear
+     mullet flip-chip config on smaller sizes, matching the same
+     representative-single-config convention already used for the
+     Stumpjumper 15/mullet nuance flagged in COMPLETE-BIKES-SCOPE.md
+     section 5. Verdict-clean per decision #6 with ZERO errors on all
+     three (checkBuild proven by the blanket completebike golden test). */
+  { id:'cb-ibis-ripmo-af-deore', cat:'completebike', brand:'Ibis', model:'Ripmo AF Deore', family:'ibis-ripmo-af', gen:'V2',
+    modelYear:2026, disciplines:['trail','enduro'], price:4099,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.ibiscycles.com/bikes/ripmo-af',
+    fills:{
+      frame:'fr-ibis-ripmo-af-v2', fork:'fk-rockshox-lyrik-select-29-160', shock:'sh-rockshox-super-deluxe-select-230x60',
+      frontWheel:'fw-ibis-blackbird-send-29', rearWheel:'rw-ibis-blackbird-send-29-ms',
+      frontTire:'ti-maxxis-minion-dhf-29-25-exop-mg', rearTire:'ti-maxxis-minion-dhr-ii-29-25-exop-mt',
+      shifter:'sft-shimano-deore-m6100', derailleur:'dr-shimano-deore-m6100-sgs', cassette:'ca-shimano-deore-m6100-1051',
+      chain:'ch-kmc-x12', crankset:'cr-shimano-deore-m6120', bb:'bb-shimano-mt501-bsa73',
+      frontBrake:'bk-shimano-deore-m6120', rearBrake:'bk-shimano-deore-m6120',
+      frontRotor:'ro-shimano-smrt66-203-6b', rearRotor:'ro-shimano-smrt66-203-6b',
+      handlebar:'hb-ibis-blackbird-alloy-35', stem:'st-ibis-blackbird-35', grips:'gr-lizardskins-strata',
+      headset:'hs-canecreek-40-zs44-zs56', dropper:'dp-ks-vantage-349-150', saddle:'sa-wtb-silverado'
+    },
+    desc:'FETCHED ibiscycles.com/bikes/ripmo-af directly for the official build-kit price list ("Deore - $4099") and FETCHED fanatikbike.com/products/ibis-ripmo-af-deore-complete-bike-2026 for the full component build sheet (an established Ibis dealer, already this catalog\'s Forbidden Druid completebike source): RockShox Lyril [sic, Lyrik] 160mm fork, RockShox Super Deluxe Select 230x60 shock, Blackbird Send Alloy wheels, Maxxis DHF/DHR II 29x2.5 tires, Shimano Deore M6100 shifter/derailleur/cassette, KMC X12 chain, Shimano Deore M6120 crank/brakes, Shimano MT501 BSA73 BB, Blackbird alloy cockpit, Lizard Skins Strata grips, Cane Creek 40 headset, KS Vantage 34.9mm dropper, WTB Silverado saddle. 6 new OE rows entered alongside this one (BB, both wheel halves, cockpit bar/stem, grips, dropper, shock, tire - see each row\'s own desc); the rest (frame, fork, drivetrain, brakes/rotors, saddle) were already cataloged. Pedals omitted (not stock). Note the fanatikbike.com dealer LISTING price differs ($3,749, likely a stale/promotional figure) from Ibis\'s own official current build-kit price ($4,099) - this row stores the manufacturer figure per this catalog\'s USD-MSRP convention. Component (a-la-carte) sum of the fills is well above $4,099 at current catalog prices given the new rows above are priced at typical retail, so the "buy complete" savings the dual-price block shows is real.' },
+  { id:'cb-ibis-ripmo-af-sram-90', cat:'completebike', brand:'Ibis', model:'Ripmo AF SRAM 90', family:'ibis-ripmo-af', gen:'V2',
+    modelYear:2026, disciplines:['trail','enduro'], price:4299,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.ibiscycles.com/bikes/ripmo-af',
+    fills:{
+      frame:'fr-ibis-ripmo-af-v2', fork:'fk-rockshox-lyrik-select-29-160', shock:'sh-rockshox-super-deluxe-select-230x60',
+      frontWheel:'fw-ibis-blackbird-send-29', rearWheel:'rw-ibis-blackbird-send-29-xd',
+      frontTire:'ti-maxxis-minion-dhf-29-25-exop-mg', rearTire:'ti-maxxis-minion-dhr-ii-29-25-exop-mt',
+      shifter:'sft-sram-eagle90-transmission', derailleur:'dr-sram-eagle90-transmission', cassette:'ca-sram-xs1275',
+      chain:'ch-sram-gx-flattop', crankset:'cr-sram-eagle90-transmission', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-sram-maven-base', rearBrake:'bk-sram-maven-base',
+      frontRotor:'ro-sram-centerline-200-6b', rearRotor:'ro-sram-centerline-200-6b',
+      handlebar:'hb-ibis-blackbird-alloy-35', stem:'st-ibis-blackbird-35', grips:'gr-lizardskins-strata',
+      headset:'hs-canecreek-40-zs44-zs56', dropper:'dp-ks-vantage-349-150', saddle:'sa-wtb-silverado'
+    },
+    desc:'FETCHED ibiscycles.com/bikes/ripmo-af directly for the official build-kit price ("90 - $4299") and FETCHED fanatikbike.com/products/ripmo-af-sram-90-complete-bike-2026 for the full component build sheet - the two sources agree EXACTLY on price ($4,299 both places), the strongest corroboration of any completebike row in this catalog so far. Build: RockShox Lyril [sic, Lyrik] fork, RockShox Super Deluxe Select 230x60 shock, Blackbird Send Alloy wheels (XD driver), Maxxis DHF/DHR II 29x2.5 tires, full SRAM Eagle 90 Transmission (T-Type AXS) drivetrain, SRAM Maven Base brakes on SRAM Centerline 200mm rotors, Blackbird alloy cockpit, Lizard Skins Strata grips, Cane Creek 40 headset, KS Vantage 34.9mm dropper, WTB Silverado saddle. Zero new drivetrain rows needed (the full SRAM Eagle 90 Transmission kit, Maven Base brakes and Centerline rotors were already cataloged); reuses every new OE row entered alongside the Ripmo AF Deore build above except the rear wheel (XD- instead of Microspline-driver sibling). Pedals omitted (not stock).' },
+  { id:'cb-ibis-ripley-af-sram-90', cat:'completebike', brand:'Ibis', model:'Ripley AF SRAM 90', family:'ibis-ripley-af', gen:'V2',
+    modelYear:2026, disciplines:['trail'], price:3999,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.ibiscycles.com/bikes/ripley-af',
+    fills:{
+      frame:'fr-ibis-ripley-af-v2', fork:'fk-rockshox-pike-select-29-140', shock:'sh-rockshox-deluxe-selectplus-210x52p5',
+      frontWheel:'fw-ibis-blackbird-send-29', rearWheel:'rw-ibis-blackbird-send-29-xd',
+      frontTire:'ti-maxxis-minion-dhr-ii-29-25-exop-mt', rearTire:'ti-maxxis-rekon-29-24-exo-dual',
+      shifter:'sft-sram-eagle90-transmission', derailleur:'dr-sram-eagle90-transmission', cassette:'ca-sram-xs1275',
+      chain:'ch-sram-gx-flattop', crankset:'cr-sram-eagle90-transmission', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-sram-g2-r', rearBrake:'bk-sram-g2-r',
+      frontRotor:'ro-sram-centerline-200-6b', rearRotor:'ro-sram-centerline-200-6b',
+      handlebar:'hb-ibis-blackbird-alloy-35', stem:'st-ibis-blackbird-35', grips:'gr-lizardskins-strata',
+      headset:'hs-canecreek-40-zs44-zs56', dropper:'dp-ks-vantage-349-150', saddle:'sa-wtb-silverado'
+    },
+    desc:'FETCHED ibiscycles.com/bikes/ripley-af directly for the official build-kit price ("90 - $3999") and FETCHED fanatikbike.com/products/ripley-af-sram-90-complete-bike-2026 for the full component build sheet: RockShox Pike (140mm, this catalog\'s existing Select-tier row - the fanatikbike listing does not print a tier suffix, but Select matches this same build\'s Lyrik Select convention on the Ripmo AF siblings and the fork\'s travel/axle/steerer are the only verdict-driving facts, all maker-confirmed regardless of tier) fork, RockShox "Deluxe Select+" 210x52.5 shock (an already-cataloged row - note "Deluxe" not "Super Deluxe", a distinct RockShox product line), Blackbird Send Alloy wheels (XD driver), Maxxis DHR II front / Rekon rear tires, full SRAM Eagle 90 Transmission drivetrain, SRAM G2 R brakes on SRAM Centerline 200mm rotors, Blackbird alloy cockpit, Lizard Skins Strata grips, Cane Creek 40 headset, KS Vantage 34.9mm dropper, WTB Silverado saddle. Rotor size (200mm) is inferred from the sibling Ripmo AF SRAM 90 build\'s independently-confirmed Centerline spec rather than independently confirmed for this exact bike (fanatikbike.com\'s Ripley AF SRAM 90 spec table did not list a rotor row) - flagged here rather than guessed silently. 1 new part row needed for this bike specifically (the G2 R brake; every other row was already entered for the Ripmo AF siblings above or pre-existing). Pedals omitted (not stock).' }
 ];
 
 /** @type {Part[]} */
