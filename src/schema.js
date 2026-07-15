@@ -389,6 +389,17 @@ var SCHEMA = {
        for the unified Seatpost rail's default sub-chip - see the seatpostDefault
        VOCAB note. Dormant until set; the discipline heuristic covers DH/DJ. */
     defaultSeatpost:{type:'string',vocab:'seatpostDefault',optional:true},
+    /* noStockDropper (2026-07-15, XC-hardtail gap): a per-frame, sourced flag -
+       true ONLY when THIS row's maker-published stock/OE spec explicitly ships
+       a rigid post (no dropper), e.g. Radon's Jealous 8.0 page: "No dropper
+       post ... included". Distinct from defaultSeatpost (UI tie-break only,
+       never feeds completeness) - this one DOES feed slotRequired, alongside
+       the existing blanket dh-discipline exemption. Deliberately NOT a blanket
+       'xc' discipline check: most xc-tagged rows are trail bikes that ship
+       WITH a dropper as standard equipment, so a discipline-wide exemption
+       would produce false "complete" builds missing a dropper. Optional;
+       dormant until sourced per row. */
+    noStockDropper:{type:'bool',optional:true},
     udh:{type:'bool'}, udhRetrofitKit:{type:'string',optional:true}, frameOnly:{type:'bool'}, maxTire:{type:'number',optional:true},
     headTubeUpper:{type:'string',vocab:'headTube',optional:true}, headTubeLower:{type:'string',vocab:'headTube',optional:true},
     /* material (Douglas 2026-07-14): the frame's construction material - a

@@ -91,7 +91,11 @@ var WHEEL_CONFIG = { '29':{front:'29',rear:'29'}, '275':{front:'275',rear:'275'}
    section 4 design, IMPLEMENTED 2026-07-08 with the first hardtail/DH frames):
    hardtail => shock not required; DH-discipline frame => dropper not required
    (race DH runs rigid posts; there is no seatpost category). Extended
-   2026-07-10 with the first integrated-cassette wheels (e*thirteen LG1r DH):
+   2026-07-15: a per-frame sourced `noStockDropper` flag also exempts the
+   dropper, for individual frames outside DH whose maker-published stock spec
+   ships rigid (e.g. XC race hardtails) - deliberately NOT a blanket 'xc'
+   discipline check, since most xc-tagged rows are trail bikes that DO ship
+   with a dropper. Extended 2026-07-10 with the first integrated-cassette wheels (e*thirteen LG1r DH):
    rear wheel with freehub 'integrated' => cassette not required (the wheel
    ships its own built-in 7-speed cassette). This feeds ONLY the UI
    completeness math ("N of M required parts") - `disciplines` still never
@@ -211,7 +215,7 @@ function slotRequired(slot, frame, rearWheel){
     return !!(frame && frame.cat === 'frame' && frame.driveMode === 'single-speed');
   if(frame && frame.cat === 'frame'){
     if(slot.key === 'shock' && frame.suspension === 'hardtail') return false;
-    if(slot.key === 'dropper' && (frame.disciplines || []).indexOf('dh') >= 0) return false;
+    if(slot.key === 'dropper' && ((frame.disciplines || []).indexOf('dh') >= 0 || frame.noStockDropper)) return false;
     /* driveMode:'single-speed' (2026-07-13, Douglas's DJ/BMX sign-off - the
        hardtail-shock pattern applied to the drivetrain): a single-speed frame
        has no shifter/derailleur/cassette (the future cog+chain slots carry the

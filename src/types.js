@@ -125,6 +125,7 @@
  * @property {DriveMode} [driveMode]  absence = geared; 'single-speed' drops the geared-drivetrain + brake slots from slotRequired (2026-07-13 DJ pass)
  * @property {DropoutType} [dropoutType]  single-speed chain-tensioning style; 'vertical' + single-speed => ss-tension info (dormant until sourced)
  * @property {'dropper'|'rigid'} [defaultSeatpost]  unify-seatpost override for the Seatpost rail's default sub-chip; absent = discipline heuristic (defaultSeatpostCat). UI/tie-break ONLY — never feeds checkBuild or completeness
+ * @property {boolean} [noStockDropper]  true = this SPECIFIC frame's maker-published stock/OE spec ships without a dropper post (rigid post only), sourced per-row (e.g. XC race hardtails). Feeds slotRequired completeness ONLY, alongside the blanket dh-discipline exemption; absence = dropper assumed standard equipment
  * @property {boolean} udh
  * @property {string} [udhRetrofitKit]  maker-documented UDH retrofit kit name (rule 4 warns with a structured fix instead of erroring; dormant until sourced)
  * @property {boolean} frameOnly

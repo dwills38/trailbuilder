@@ -409,6 +409,17 @@ test('slotRequired: DH-discipline frame exempts the dropper slot (completeness o
   eq(C.slotRequired(dropperSlot, frame), false, 'DH: dropper not required');
   eq(C.slotRequired(shockSlot, frame), true, 'DH full-sus: shock still required');
 });
+test('slotRequired: frame.noStockDropper exempts the dropper slot on a non-DH frame (completeness only)', function(){
+  // e.g. an XC race hardtail whose maker page confirms it ships without a
+  // dropper - a per-frame sourced flag, not a blanket 'xc' discipline check
+  // (most xc-tagged frames are trail bikes that DO ship with a dropper).
+  var frame = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { disciplines:['xc'], noStockDropper:true }));
+  var dropperSlot = C.SLOTS.filter(function(s){ return s.key==='dropper'; })[0];
+  eq(C.slotRequired(dropperSlot, frame), false, 'noStockDropper: dropper not required');
+
+  var xcWithDropper = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { disciplines:['xc'] }));
+  eq(C.slotRequired(dropperSlot, xcWithDropper), true, 'plain xc discipline (no noStockDropper flag): dropper still required');
+});
 test('slotRequired: no frame chosen = universal default (all non-optional, non-altOf required)', function(){
   // cog + seatpost are the inverted pattern (DJ go-live 2026-07-14): required
   // ONLY on a driveMode:'single-speed' frame, so the no-frame default excludes
