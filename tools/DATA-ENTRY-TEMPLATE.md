@@ -89,7 +89,7 @@ provenance trio differ per SKU, so the SKU is the row.
 |---|---|
 | `family` | **Mandatory.** Generation-agnostic platform slug: brand slug + platform, trim/gen/variants dropped (`rockshox-zeb`, `maxxis-assegai`, `fox-float-x`, `oneup-dropper`). Shared across categories when the platform genuinely spans them (`sram-gx-eagle` on shifter/derailleur/chain/crank/kit). Omit only when the platform is unidentifiable (a no-name sample rotor) — never guess. |
 | `gen` | Mandatory **when the source shows one** — maker's own code, free string (`B1`, `C2`, `V3.2`, `m.2`). |
-| `modelYear` | When the page states it. Number. |
+| `modelYear` | **Populate wherever the product has a real annual model or generation** — frames, complete bikes, forks, shocks, and generational components (the maker page states or clearly implies a model year). Number, maker-sourced. **Leave BLANK for year-agnostic parts** sold unchanged across years (most tires / saddles / grips / generic long-running drivetrain) — a missing year beats a fabricated one (policy Douglas 2026-07-15). Every NEW row that has a real model year must carry it. |
 | `mfgPn` | Mandatory **when the source spec table shows one** (Maxxis Part #, SRAM model code like `RD-GX-E-B1` — it's the sram.com model-page slug, uppercased). On a 25-SKU page, "the Assegai" is not a verifiable claim; "Part # ETB000123" is. Also the join key for the future drift-checker. |
 | `price` | **Manufacturer US MSRP in USD** (see §5.1-12 — semantics pinned; street/converted prices don't go in this field). |
 
