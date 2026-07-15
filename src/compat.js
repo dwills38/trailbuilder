@@ -6437,7 +6437,7 @@ var PARTS_RAW = [
 
   { id:'cb-yt-jeffsy-core4-cf', cat:'completebike', brand:'YT', model:'Jeffsy Core 4 CF', family:'yt-jeffsy', gen:'Core 4',
     modelYear:2025, disciplines:['trail'], price:5999,
-    verified:true, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/yt/jeffsy-62406',
+    verified:false, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/yt/jeffsy-62406',
     fills:{
       frame:'fr-yt-jeffsy', fork:'fk-fox-36-factory-my27-29-150', shock:'sh-fox-float-x-factory-210x55',
       frontWheel:'fw-dtswiss-exc1501-29', rearWheel:'rw-dtswiss-exc1501-29-xd',
@@ -6449,7 +6449,7 @@ var PARTS_RAW = [
       handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-odi-elite-motion',
       dropper:'dp-yt-postman-v2-316-170', saddle:'sa-sdg-belair-v3-overland-lux-alloy'
     },
-    desc:'FETCHED vitalmtb.com\'s 2025 YT Jeffsy Core 4 (CF) product-guide page directly (jeffsy-62406) for the full component spec table, cross-checked against a FETCHED yt-industries.com/en-us/Bikes/All-Mountain-Jeffsy/CORE-4/ model page (which independently confirmed the fork/shock/drivetrain/cockpit model names) and corroborating web-search hits for the $5,999.00 USD price (matching multiple independent retailer listings). Every fills entry is the bike\'s real stock part: 5 new OE rows entered alongside this batch (the DT Swiss EXC 1501 Spline One front+rear wheels, the bare-MaxxTerra EXO+ Minion DHF front tire, plus 2 more shared with the Capra Core 3 CF row below - see each row\'s own desc), and 12 fills reuse already-cataloged, mostly-verified SRAM X0 Eagle Transmission / Fox 36-MY27 / Fox Float X Factory / Hayes Dominion A4 / Renthal / Cane Creek 40 rows. Shifter uses the AXS Pod ULTIMATE controller (EC-AXS-PODU-D1, sft-sram-xx-sl-transmission) - BOTH the fetched yt-industries.com page and the fetched vitalmtb.com page independently state "SRAM Eagle Pod Ultimate Controller"/"SRAM POD ULTIMATE CONTROLLER" for this X0-tier build, distinct from the standard Pod used on the cheaper Core 3 CF below (same shared-hardware convention already documented on this catalogs SRAM Transmission rows). Rear rotor 203mm vs the frame\'s declared maxRotorR:200 reads as an honest native-rotor-vs-max gap at first glance, but the engine\'s SRAM/Shimano rotor-class tolerance (rule 10/10b) treats this exact 3mm gap as within tolerance, so no warning fires. Saddle: yt-industries.com/vitalmtb.com both state "SDG Bel-Air 3.0 Overland" - matched to the cataloged Lux-Alloy Overland row (sa-sdg-belair-v3-overland-lux-alloy) rather than the plain Bel-Air V3 row. Handlebar/stem/dropper are approximate-but-close reuses already flagged on this catalogs other YT completebike rows (cataloged Fatbar 35 is 800mm vs the build sheets stated 780mm cut width; cataloged Apex 35 stem is 33mm vs the build sheets stated 50mm length - neither field feeds checkBuild). Pedals omitted (not stock). Component (a-la-carte) sum of the fills comfortably exceeds the $5,999 complete price at current catalog prices, so the "buy complete" savings the dual-price block shows is real.' },
+    desc:'FETCHED vitalmtb.com\'s 2025 YT Jeffsy Core 4 (CF) product-guide page directly (jeffsy-62406) for the full component spec table, cross-checked against a FETCHED yt-industries.com/en-us/Bikes/All-Mountain-Jeffsy/CORE-4/ model page (which independently confirmed the fork/shock/drivetrain/cockpit model names) and corroborating web-search hits for the $5,999.00 USD price (matching multiple independent retailer listings). Every fills entry is the bike\'s real stock part: 5 new OE rows entered alongside this batch (the DT Swiss EXC 1501 Spline One front+rear wheels, the bare-MaxxTerra EXO+ Minion DHF front tire, plus 2 more shared with the Capra Core 3 CF row below - see each row\'s own desc), and 12 fills reuse already-cataloged, mostly-verified SRAM X0 Eagle Transmission / Fox 36-MY27 / Fox Float X Factory / Hayes Dominion A4 / Renthal / Cane Creek 40 rows. Shifter uses the AXS Pod ULTIMATE controller (EC-AXS-PODU-D1, sft-sram-xx-sl-transmission) - BOTH the fetched yt-industries.com page and the fetched vitalmtb.com page independently state "SRAM Eagle Pod Ultimate Controller"/"SRAM POD ULTIMATE CONTROLLER" for this X0-tier build, distinct from the standard Pod used on the cheaper Core 3 CF below (same shared-hardware convention already documented on this catalogs SRAM Transmission rows). Rear rotor 203mm vs the frame\'s declared maxRotorR:200 reads as an honest native-rotor-vs-max gap at first glance, but the engine\'s SRAM/Shimano rotor-class tolerance (rule 10/10b) treats this exact 3mm gap as within tolerance, so no warning fires. Saddle: yt-industries.com/vitalmtb.com both state "SDG Bel-Air 3.0 Overland" - matched to the cataloged Lux-Alloy Overland row (sa-sdg-belair-v3-overland-lux-alloy) rather than the plain Bel-Air V3 row. Handlebar/stem/dropper are approximate-but-close reuses already flagged on this catalogs other YT completebike rows (cataloged Fatbar 35 is 800mm vs the build sheets stated 780mm cut width; cataloged Apex 35 stem is 33mm vs the build sheets stated 50mm length - neither field feeds checkBuild). Pedals omitted (not stock). Component (a-la-carte) sum of the fills comfortably exceeds the $5,999 complete price at current catalog prices, so the "buy complete" savings the dual-price block shows is real. CORRECTED 2026-07-15 (adversarial audit pass): demoted verified:true->false. The build sheet is genuinely maker-cross-confirmed (yt-industries.com independently corroborates the component list), but the $5,999 price was only confirmed via web-search-aggregated retailer listings, never a fetched yt-industries.com/vitalmtb price field - the same gap that correctly kept the Jeffsy Core 3 CF and Capra Core 3 CF siblings unverified. Held to the same bar here.' },
 
   { id:'cb-yt-jeffsy-core3-cf', cat:'completebike', brand:'YT', model:'Jeffsy Core 3 CF', family:'yt-jeffsy', gen:'Core 3',
     modelYear:2025, disciplines:['trail'], price:4999,
@@ -6579,7 +6579,7 @@ var PARTS_RAW = [
       handlebar:'hb-nukeproof-horizon-v2-35', stem:'st-nukeproof-horizon-35', grips:'gr-nukeproof-samhill-signature',
       dropper:'dp-bikeyoke-revive-316-185', saddle:'sa-nukeproof-horizon-enduro'
     },
-    desc:'Sourced via the FETCHED vitalmtb.com "2023 Nukeproof Mega 297 Carbon Factory" spec guide (vitalmtb.com/product/guide/bikes/nukeproof/mega-40416) - third-party spec database, nukeproof.com/us.nukeproof.com both unfetchable this session, so this row stays UNVERIFIED sample (same policy as the Giga sibling above). FOX 38 Factory 170mm fork + FOX Float X2 Factory 230x62.5 STANDARD-mount shock are EXACT matches to the fr-nukeproof-mega-297-carbon frame\'s own shockEye/shockStroke/shockMount/maxForkTravel fields (a second, independent WebFetch of this exact page momentarily read the shock as "trunnion mount" - rejected as an extraction artifact: a 230mm eye is a std-only length across every shock family in this catalog, e.g. the Giant Reign/RockyMountain/Vitus 230-eye siblings, and the frame\'s own already-established shockMount:std field agrees). Same mullet DT Swiss EX1700 SPLINE 30 wheelset as the Giga sibling (new 27.5in rear row this bike needs: rw-dtswiss-ex-1700-275-xd), same Assegai/Minion DHR II DoubleDown tire pairing (rear now 27.5in), same SRAM X0/GX-tier Transmission drivetrain, Hayes Dominion A4 + 203mm 6-bolt rotors (again an honest rule-8 CL-hub/6-bolt-rotor adapter WARNING), Nukeproof Horizon V2 cockpit, the shared new Sam Hill Signature grips row, and the BikeYoke Divine dropper modeled via the closest cataloged BikeYoke Revive 31.6/185 (top-size point, matching the LG-XXL spec on the fetched build sheet). One new part row this bike needs: rw-dtswiss-ex-1700-275-xd; every other fill reuses an already-cataloged part (incl. the gr-nukeproof-samhill-signature row entered alongside the Giga bike above). Component sum is well above $6,899, so the savings shown are real.' },
+    desc:'Sourced via the FETCHED vitalmtb.com "2023 Nukeproof Mega 297 Carbon Factory" spec guide (vitalmtb.com/product/guide/bikes/nukeproof/mega-40416) - third-party spec database, nukeproof.com/us.nukeproof.com both unfetchable this session, so this row stays UNVERIFIED sample (same policy as the Giga sibling above). FOX 38 Factory 170mm fork + FOX Float X2 Factory 230x62.5 STANDARD-mount shock are EXACT matches to the fr-nukeproof-mega-297-carbon frame\'s own shockEye/shockStroke/shockMount/maxForkTravel fields (a second, independent WebFetch of this exact page momentarily read the shock as "trunnion mount" - rejected as an extraction artifact: a 230mm eye is a std-only length across every shock family in this catalog, e.g. the Giant Reign/RockyMountain/Vitus 230-eye siblings, and the frame\'s own already-established shockMount:std field agrees). Same mullet DT Swiss EX1700 SPLINE 30 wheelset as the Giga sibling (new 27.5in rear row this bike needs: rw-dtswiss-ex-1700-275-xd), same Assegai/Minion DHR II DoubleDown tire pairing (rear now 27.5in), same SRAM X0/GX-tier Transmission drivetrain, Hayes Dominion A4 + 203mm 6-bolt rotors (again an honest rule-8 CL-hub/6-bolt-rotor adapter WARNING), Nukeproof Horizon V2 cockpit, the shared new Sam Hill Signature grips row, and the BikeYoke Divine dropper modeled via the closest cataloged BikeYoke Revive 31.6/185 (top-size point, matching the LG-XXL spec on the fetched build sheet). One new part row this bike needs: rw-dtswiss-ex-1700-275-xd; every other fill reuses an already-cataloged part (incl. the gr-nukeproof-samhill-signature row entered alongside the Giga bike above). Component sum is well above $6,899, so the savings shown are real. HONEST WARNING (added 2026-07-15, adversarial audit pass): checkBuild also raises a rear-rotor-max warning - the stock 203mm Hayes D-Series rotors exceed this frame\'s maker-stated 180mm rear post-mount ceiling by 23mm. This is a real, mechanically-plausible over-rotor situation on the frame\'s own maker-sourced max, not a data-entry error - flagged rather than silently omitted.' },
 
   { id:'cb-nukeproof-reactor-290-carbon-factory', cat:'completebike', brand:'Nukeproof', model:'Reactor 290 Carbon Factory', family:'nukeproof-reactor',
     modelYear:2023, disciplines:['trail'], price:6499,
@@ -6622,9 +6622,9 @@ var PARTS_RAW = [
       frontBrake:'bk-sram-code-stealth', rearBrake:'bk-sram-code-stealth',
       frontRotor:'ro-sram-centerline-200-6b', rearRotor:'ro-sram-centerline-180-6b',
       handlebar:'hb-deity-ridgeline-35', stem:'st-industrynine-a35', grips:'gr-dmr-deathgrip',
-      dropper:'dp-oneup-v3-316-240', saddle:'sa-sdg-belair-v3'
+      dropper:'dp-oneup-v3-349-240', saddle:'sa-sdg-belair-v3'
     },
-    desc:'Sourced via the FETCHED vitalmtb.com "2024 Norco Sight C1 MX" spec guide (vitalmtb.com/product/guide/bikes/norco/sight-47406, the same page this catalog\'s existing fr-norco-sight frame row already cites) - third-party spec database, norco.com is a JS-only shell to a fetch (the documented Norco blocker already noted on that frame row), so this row stays UNVERIFIED sample. FOX DHX2 Factory 205x60 trunnion COIL shock (Sprindex coil spring) is an EXACT match to the fr-norco-sight frame\'s own shockEye/shockStroke/shockMount fields; FOX 36 Factory 160mm fork is an exact maxForkTravel match. Mixed-wheel (MX/mullet) build per the frame\'s own wheelConfigs: front 29in / rear 27.5in - a NEW OE-specific 29in front wheel row (fw-stans-flow-s2-29, Stan\'s Flow S2 rim + Race Face Vault hub, the exact stock pairing) pairs with the already-cataloged 27.5in Flow S2 rear (rw-stans-flow-s2-275-xd). Maxxis Minion DHF/DHR II tires modeled via the closest cataloged EXO+ casing (the build sheet does not state a casing/compound tier). SRAM GX Eagle Transmission drivetrain (all already cataloged), SRAM Code Silver Stealth brakes w/ 200F/180R CenterLine rotors (both exact matches to the frame\'s 180mm maxRotorR and the fork\'s 180mm minRotorF - zero warnings on rotor fit). Cockpit: a new DEITY Ridgeline 35 handlebar (FETCHED deitycomponents.com directly, verified:true) + the already-cataloged Industry Nine A35 stem (35mm clamp/40mm length, an exact match to the build sheet\'s "alloy stem 40mm, 35mm clamp" spec even though the brand itself is unstated on the source) + DMR DeathGrip. OneUp V3 dropper (240mm, the largest size point, matching the build sheet\'s size-5/240mm spec) + SDG Bel-Air V3 saddle, both exact matches. Two new part rows this bike needs: fw-stans-flow-s2-29, hb-deity-ridgeline-35; every other fill reuses an already-cataloged part. Component sum is well above $7,499, so the savings shown are real.' },
+    desc:'Sourced via the FETCHED vitalmtb.com "2024 Norco Sight C1 MX" spec guide (vitalmtb.com/product/guide/bikes/norco/sight-47406, the same page this catalog\'s existing fr-norco-sight frame row already cites) - third-party spec database, norco.com is a JS-only shell to a fetch (the documented Norco blocker already noted on that frame row), so this row stays UNVERIFIED sample. FOX DHX2 Factory 205x60 trunnion COIL shock (Sprindex coil spring) is an EXACT match to the fr-norco-sight frame\'s own shockEye/shockStroke/shockMount fields; FOX 36 Factory 160mm fork is an exact maxForkTravel match. Mixed-wheel (MX/mullet) build per the frame\'s own wheelConfigs: front 29in / rear 27.5in - a NEW OE-specific 29in front wheel row (fw-stans-flow-s2-29, Stan\'s Flow S2 rim + Race Face Vault hub, the exact stock pairing) pairs with the already-cataloged 27.5in Flow S2 rear (rw-stans-flow-s2-275-xd). Maxxis Minion DHF/DHR II tires modeled via the closest cataloged EXO+ casing (the build sheet does not state a casing/compound tier). SRAM GX Eagle Transmission drivetrain (all already cataloged), SRAM Code Silver Stealth brakes w/ 200F/180R CenterLine rotors (both exact matches to the frame\'s 180mm maxRotorR and the fork\'s 180mm minRotorF - zero warnings on rotor fit). Cockpit: a new DEITY Ridgeline 35 handlebar (FETCHED deitycomponents.com directly, verified:true) + the already-cataloged Industry Nine A35 stem (35mm clamp/40mm length, an exact match to the build sheet\'s "alloy stem 40mm, 35mm clamp" spec even though the brand itself is unstated on the source) + DMR DeathGrip. OneUp V3 34.9/240mm dropper (CORRECTED 2026-07-15, adversarial audit pass: originally entered as the 31.6mm dp-oneup-v3-316-240, which does not match this frame\'s 34.9mm seat tube and silently triggered an undocumented reducing-shim warning; repointed to the already-cataloged, verified dp-oneup-v3-349-240 - an exact diameter match, zero warnings) + SDG Bel-Air V3 saddle, both exact matches. Two new part rows this bike needs: fw-stans-flow-s2-29, hb-deity-ridgeline-35; every other fill reuses an already-cataloged part. Component sum is well above $7,499, so the savings shown are real.' },
 
   { id:'cb-norco-range-c1', cat:'completebike', brand:'Norco', model:'Range C1', family:'norco-range', gen:'2023',
     modelYear:2023, disciplines:['enduro'], price:9699,
@@ -6801,11 +6801,13 @@ var PARTS_RAW = [
      ZS56/28.6 upper / ZS56/40 lower - matches the new hs-acros-zs56-zs56 row
      exactly). price = the $5,500 US MSRP shown on commencal.com (the page
      also shows a current $4,800 sale price, entered as streetPrice per the
-     schema's discount-only convention). checkBuild(fills) reproduces the
-     SAME single honest WARNING as the Essential row above: the stock 203mm
-     rear rotor exceeds the frame's documented maxRotorR of 200mm by 3mm
-     (rule 10, warning-tier) - both bikes share this frame, so both share
-     this real, sourced 3mm gap. */
+     schema's discount-only convention). CORRECTED 2026-07-15 (adversarial
+     audit pass): the prior version of this comment claimed checkBuild(fills)
+     raises a rotor-max warning for the stock 203mm rear rotor vs. the
+     frame's maxRotorR:200 - that's stale/wrong. Rule 10/10b's SRAM/Shimano
+     rotor-class tolerance treats an exactly-3mm-over gap as within
+     tolerance, so no warning actually fires; checkBuild(fills) is genuinely
+     0 errors / 0 warnings on this build, same as its Essential sibling. */
   { id:'cb-commencal-meta-sx-v5-race', cat:'completebike', brand:'Commencal', model:'Meta SX V5 Race', family:'commencal-meta-sx', gen:'V5',
     modelYear:2026, disciplines:['enduro'], price:5500, streetPrice:4800,
     verified:true, lastChecked:'2026-07-15', source:'https://www.commencal.com/us/en/commencal-meta-sx-v5-race-sparkly-blue-enduro-bike-usa/23METASXTM.html',
@@ -7316,12 +7318,19 @@ var PARTS_RAW = [
      trail platform (130mm rear / 140mm fork), genuinely distinct from the
      Tyee/Spindrift enduro platforms already in-catalog; a new frame,
      completing the requested "trail bike" breadth for this Propain cluster.
-     checkBuild(fills) is FULLY CLEAN (0 errors, 0 warnings): the cable-
-     actuated Eagle 70 Transmission drivetrain needs the UDH frame (present),
-     the SRAM CenterLine 200mm rotors sit within the frame's native 180/200mm
-     post-mount range, and the new HG-freehub M1900 rear wheel correctly
-     takes the HG-driver XS-1270 Transmission cassette (the pre-existing XD
-     sibling would have false-errored rule 6 against this exact bike). */
+     checkBuild(fills) is 0 ERRORS but genuinely raises 3 HONEST WARNINGS
+     (CORRECTED 2026-07-15, adversarial audit pass - the prior version of
+     this comment wrongly claimed 0 warnings): (1) the cable-actuated Eagle
+     70 Transmission drivetrain needs the UDH frame (present, no issue);
+     (2)+(3) the M1900's Center-Lock-hub-with-included-6-bolt-adapter design
+     paired with the stock 6-bolt CenterLine rotors raises the same
+     documented rule-8 adapter-tier warning already noted elsewhere in this
+     catalog for this exact wheel/rotor pairing (front + rear); and the
+     stock 200mm rotors exceed this frame's maker-stated 180mm rear
+     post-mount max by 20mm, a real rotor-max warning, not a data-entry
+     error. The new HG-freehub M1900 rear wheel correctly takes the
+     HG-driver XS-1270 Transmission cassette (the pre-existing XD sibling
+     would have false-errored rule 6 against this exact bike). */
   { id:'cb-propain-hugene-cf-signature-spec-1', cat:'completebike', brand:'Propain', model:'Hugene 3 CF Signature Spec 1', family:'propain-hugene', gen:'3', modelYear:2025, disciplines:['trail'], price:3999,
     source:'https://www.vitalmtb.com/product/guide/bikes/propain/hugene-68051',
     fills:{
@@ -7335,7 +7344,7 @@ var PARTS_RAW = [
       handlebar:'hb-sixpack-millenium-805-35', stem:'st-sixpack-vertic-35-50', grips:'gr-sixpack-strix',
       dropper:'dp-oneup-v3-316-150', saddle:'sa-sixpack-kamikaze'
     },
-    desc:'FETCHED vitalmtb.com/product/guide/bikes/propain/hugene-68051 ("2025 Propain Hugene 3 Signature Spec 1") + vitalmtb.com/product/guide/frames/propain/hugene-3-cf-68086 (frame guide) - both reprint Propain\'s own spec tables (propain-bikes.com itself WAF-403). Frame: "Propain Blend high-modulus carbon front and rear triangles, carbon upper link, alloy lower link", 29in only, "12mm x 148mm (Boost)" rear, "ZS56 upper/lower" headset, "73mm English/BSA threaded" BB, 31.6mm seatpost, "180mm post-style" rear brake mount, "130mm" rear travel, "210mm length x 47.5mm stroke" std-mount shock, "150mm max fork travel" (140mm design), SRAM UDH, "$2,749.00" frameset price (new fr-propain-hugene-cf row). Build sheet: fork "RockShox Pike Select, 35mm stanchions" + "140mm" (exact maker-weight-basis match to the existing verified fk-rockshox-pike-select-29-140), shock "RockShox Deluxe Select, 210mm length x 47.5mm stroke" (the plain Select tier - a new shock row, this catalog previously only had Select+ and Ultimate at this size), shifter/derailleur/chain/crank all "SRAM Eagle 70 Transmission" (cable-actuated T-Type, matching the existing sft-/dr-/ch-/cr-sram-eagle70-transmission rows), cassette "SRAM Eagle Transmission XS-1270, 12-speed, 10-52 tooth" (the HG-driver-body Transmission cassette, ca-sram-xs1270 - needing the new HG-freehub M1900 rear wheel sibling, not the pre-existing XD one), brakes "SRAM DB8, 4-piston" with "SRAM CenterLine, 200mm" rotors both ends, wheels "DT Swiss M 1900 Alloy...15mm x 110mm (Boost) front, 12mm x 148mm (Boost) rear" (the M1900\'s Center-Lock-with-included-6-bolt-adapter hub already carries an honest documented rule-8 adapter warning elsewhere in this catalog for the same wheel/rotor pairing - same expected warning here), tires "Schwalbe Albert Trail Pro Radial" (sizes/casing/compound not broken out by Vital - the new 29x2.5 Trail Pro ADDIX Soft row used both ends, a new schema.js/types.js casing vocab value), handlebar "SIXPACK Millenium, 805mm width, 30mm rise", stem "SIXPACK Vertic, 50mm length", grips "SIXPACK S-Trix", dropper "OneUp V3 dropper" with "120mm (SM), 150mm (MD), 180mm (LG), 210mm (XL)" (150mm/MD taken as the representative size), saddle "SIXPACK Kamikaze", price "$3,999.00". 6 new component rows plus the frame and shock (8 new rows total) were needed for this bike: the frame, the Deluxe Select shock, the M1900 HG rear wheel, the Albert Trail Pro tire, and the four Sixpack cockpit parts (handlebar/stem/grips/saddle - the handlebar, grips, and saddle are also reused on the Spindrift AL Swedish Gold bike below).' },
+    desc:'FETCHED vitalmtb.com/product/guide/bikes/propain/hugene-68051 ("2025 Propain Hugene 3 Signature Spec 1") + vitalmtb.com/product/guide/frames/propain/hugene-3-cf-68086 (frame guide) - both reprint Propain\'s own spec tables (propain-bikes.com itself WAF-403). Frame: "Propain Blend high-modulus carbon front and rear triangles, carbon upper link, alloy lower link", 29in only, "12mm x 148mm (Boost)" rear, "ZS56 upper/lower" headset, "73mm English/BSA threaded" BB, 31.6mm seatpost, "180mm post-style" rear brake mount, "130mm" rear travel, "210mm length x 47.5mm stroke" std-mount shock, "150mm max fork travel" (140mm design), SRAM UDH, "$2,749.00" frameset price (new fr-propain-hugene-cf row). Build sheet: fork "RockShox Pike Select, 35mm stanchions" + "140mm" (exact maker-weight-basis match to the existing verified fk-rockshox-pike-select-29-140), shock "RockShox Deluxe Select, 210mm length x 47.5mm stroke" (the plain Select tier - a new shock row, this catalog previously only had Select+ and Ultimate at this size), shifter/derailleur/chain/crank all "SRAM Eagle 70 Transmission" (cable-actuated T-Type, matching the existing sft-/dr-/ch-/cr-sram-eagle70-transmission rows), cassette "SRAM Eagle Transmission XS-1270, 12-speed, 10-52 tooth" (the HG-driver-body Transmission cassette, ca-sram-xs1270 - needing the new HG-freehub M1900 rear wheel sibling, not the pre-existing XD one), brakes "SRAM DB8, 4-piston" with "SRAM CenterLine, 200mm" rotors both ends, wheels "DT Swiss M 1900 Alloy...15mm x 110mm (Boost) front, 12mm x 148mm (Boost) rear" (the M1900\'s Center-Lock-with-included-6-bolt-adapter hub already carries an honest documented rule-8 adapter warning elsewhere in this catalog for the same wheel/rotor pairing - same expected warning here), tires "Schwalbe Albert Trail Pro Radial" (sizes/casing/compound not broken out by Vital - the new 29x2.5 Trail Pro ADDIX Soft row used both ends, a new schema.js/types.js casing vocab value), handlebar "SIXPACK Millenium, 805mm width, 30mm rise", stem "SIXPACK Vertic, 50mm length", grips "SIXPACK S-Trix", dropper "OneUp V3 dropper" with "120mm (SM), 150mm (MD), 180mm (LG), 210mm (XL)" (150mm/MD taken as the representative size), saddle "SIXPACK Kamikaze", price "$3,999.00". 6 new component rows plus the frame and shock (8 new rows total) were needed for this bike: the frame, the Deluxe Select shock, the M1900 HG rear wheel, the Albert Trail Pro tire, and the four Sixpack cockpit parts (handlebar/stem/grips/saddle - the handlebar, grips, and saddle are also reused on the Spindrift AL Swedish Gold bike below). HONEST WARNINGS (added 2026-07-15, adversarial audit pass): checkBuild raises 3 real warnings, not 0 as an earlier draft of this desc/comment claimed - the M1900\'s Center-Lock-hub/6-bolt-rotor adapter warning (front+rear) and a rear-rotor-max warning (the stock 200mm rotor exceeds this frame\'s maker-stated 180mm rear max by 20mm). None is an error; all three are real, mechanically-honest facts about how this bike ships.' },
 
   /* Propain Spindrift AL Swedish Gold (2026-07-15) - a mid-tier aluminum build
      of Propain's freeride-leaning enduro platform (180mm rear / 190mm max
@@ -7430,8 +7439,6 @@ var PARTS_RAW = [
   { id:'ch-kmc-x12', cat:'chain', brand:'KMC', model:'X12 12-speed', family:'kmc-x12', price:66, weight:234, system:'shimano-12', speeds:12,
     verified:true, lastChecked:'2026-07-15', source:'https://kmcchain.us/products/x12',
     desc:'Stock chain on the Siskiu T8 with UDH (polygonbikes.com/siskiu-t8-with-udh-2026/: "KMC NEW X-12", alongside the Shimano SLX 12-speed shifter/derailleur/cassette). FETCHED kmcchain.us/products/x12 directly: "Weight: 234 grams", 126 links, "Shimano, and Campagnolo 12-speed systems" compatibility -> system:shimano-12 as a physical-fit token (same precedent as the in-catalog ch-kmc-x10/ch-kmc-x9 microSHIFT tokens - KMC sells no groupset of its own). Price $66 = the page\'s cheapest listed finish (EPT coating); Ti Gold/Black finishes run to $77.' },
-  { id:'bb-shimano-mt501-bsa73-24mm', cat:'bb', brand:'Shimano', model:'BB-MT501', family:'shimano-bbmt501', mfgPn:'BB-MT501', price:25, weight:92, shell:'BSA73', spindle:'24mm', disciplines:['trail'],
-    desc:'Stock bottom bracket on the Siskiu T8 with UDH (polygonbikes.com/siskiu-t8-with-udh-2026/: "SHIMANO 2-piece, BSA threaded", matching the frame\'s BSA73 shell and the Deore M6120 crank\'s 24mm Hollowtech-style spindle). bike.shimano.com and productinfo.shimano.com both blocked/unreadable this session (the documented Shimano fetch blocker), so this is entered per the relaxed-inclusion policy as an honest unverified sample, cross-corroborated across multiple independent retailer listings (Worldwide Cyclery, Fanatik Bike, MTBiker.shop, bike.shimano.com\'s own indexed product-page title) all agreeing: BB-MT501, English/BSA threaded, 68/73mm shell, Hollowtech-II-style 24mm spindle. price/weight = sample (retailer street pricing, no manufacturer figure found).' },
   { id:'hb-polygon-expert-780-35', cat:'handlebar', brand:'Polygon', model:'Expert (780mm, 30mm rise)', family:'polygon-expert', disciplines:['trail'],
     price:35, weight:320, clamp:35, width:780, rise:30, material:'alu',
     source:'https://www.polygonbikes.com/siskiu-t8-with-udh-2026/',
@@ -7468,7 +7475,7 @@ var PARTS_RAW = [
       frontWheel:'fw-polygon-mt6-tc500-29', rearWheel:'rw-polygon-mt6-tc500-29-ms',
       frontTire:'ti-maxxis-dissector-29-24-exo-mt', rearTire:'ti-maxxis-dissector-29-24-exo-mt',
       shifter:'sft-shimano-slx-m7100', derailleur:'dr-shimano-slx-m7100-sgs', cassette:'ca-shimano-slx-m7100-1051',
-      chain:'ch-kmc-x12', crankset:'cr-shimano-deore-m6120', bb:'bb-shimano-mt501-bsa73-24mm',
+      chain:'ch-kmc-x12', crankset:'cr-shimano-deore-m6120', bb:'bb-shimano-mt501-bsa73',
       frontBrake:'bk-shimano-mt420', rearBrake:'bk-shimano-mt420',
       frontRotor:'ro-shimano-smrt54-180-cl', rearRotor:'ro-shimano-smrt54-180-cl',
       handlebar:'hb-polygon-expert-780-35', stem:'st-polygon-expert-35',
@@ -7538,7 +7545,7 @@ var PARTS_RAW = [
      test). */
   { id:'cb-orbea-occam-lt-m10', cat:'completebike', brand:'Orbea', model:'Occam LT M10', family:'orbea-occam', gen:'2024',
     modelYear:2024, disciplines:['trail'], price:6499,
-    verified:true, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/orbea/occam-44411',
+    verified:false, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/orbea/occam-44411',
     fills:{
       frame:'fr-orbea-occam-lt', fork:'fk-fox-36-factory-29-160', shock:'sh-fox-float-x-factory-210x55',
       frontWheel:'fw-oquo-mc32team-29', rearWheel:'rw-oquo-mc32team-29-ms',
@@ -7569,7 +7576,7 @@ var PARTS_RAW = [
   // ZERO new component rows beyond the frame it already had.
   { id:'cb-orbea-rallon-mteam', cat:'completebike', brand:'Orbea', model:'Rallon M-Team', family:'orbea-rallon', gen:'2024',
     modelYear:2024, disciplines:['enduro'], price:7999,
-    verified:true, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/orbea/rallon-44576',
+    verified:false, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/orbea/rallon-44576',
     fills:{
       frame:'fr-orbea-rallon-mteam', fork:'fk-fox-38-factory-29-170', shock:'sh-fox-float-x2-factory-230x62p5',
       frontWheel:'fw-oquo-mc32team-29', rearWheel:'rw-oquo-mc32team-29-ms',
@@ -7638,13 +7645,13 @@ var PARTS_RAW = [
      test). */
   { id:'cb-orbea-oiz-m10', cat:'completebike', brand:'Orbea', model:'Oiz M10', family:'orbea-oiz', gen:'2025',
     modelYear:2025, disciplines:['xc'], price:5999,
-    verified:true, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/orbea/oiz-56871',
+    verified:false, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/orbea/oiz-56871',
     fills:{
       frame:'fr-orbea-oiz-m10', fork:'fk-fox-34-sc-factory-29-120', shock:'sh-fox-float-sl-factory-190x45',
       frontWheel:'fw-oquo-mp30team-29', rearWheel:'rw-oquo-mp30team-29-ms',
       frontTire:'ti-maxxis-rekon-race-29-24-exo-dual', rearTire:'ti-maxxis-rekon-race-29-24-exo-dual',
       shifter:'sft-shimano-xt-m8100', derailleur:'dr-shimano-xt-m8100-sgs', cassette:'ca-shimano-xt-m8100-1051',
-      chain:'ch-shimano-slx-m7100', crankset:'cr-shimano-xt-m8120', bb:'bb-shimano-mt501-bsa73-24mm',
+      chain:'ch-shimano-slx-m7100', crankset:'cr-shimano-xt-m8120', bb:'bb-shimano-mt501-bsa73',
       frontBrake:'bk-shimano-xt-m8100', rearBrake:'bk-shimano-xt-m8100',
       frontRotor:'ro-shimano-rtmt800-180-cl', rearRotor:'ro-shimano-rtmt800-180-cl',
       handlebar:'hb-orbea-oc-mp10-carbon-760', stem:'st-orbea-oc-mp21-70', grips:'gr-orbea-oc-lockon',
@@ -7703,7 +7710,7 @@ var PARTS_RAW = [
       frontWheel:'fw-polygon-mt6-tc500-29', rearWheel:'rw-polygon-mt6-tc500-29-ms',
       frontTire:'ti-maxxis-dissector-29-24-exo-mt', rearTire:'ti-maxxis-dissector-29-24-exo-mt',
       shifter:'sft-shimano-deore-m6100', derailleur:'dr-shimano-deore-m6100-sgs', cassette:'ca-shimano-deore-m6100-1051',
-      chain:'ch-kmc-x12', crankset:'cr-shimano-deore-m6120', bb:'bb-shimano-mt501-bsa73-24mm',
+      chain:'ch-kmc-x12', crankset:'cr-shimano-deore-m6120', bb:'bb-shimano-mt501-bsa73',
       frontBrake:'bk-shimano-mt420', rearBrake:'bk-shimano-mt420',
       frontRotor:'ro-shimano-smrt54-180-cl', rearRotor:'ro-shimano-smrt54-180-cl',
       handlebar:'hb-polygon-expert-780-35', stem:'st-polygon-expert-35',
@@ -7715,9 +7722,6 @@ var PARTS_RAW = [
      New OE component rows entered to build the 5 complete bikes below. Every
      wheel/cockpit row is a genuine reused-elsewhere or bike-specific OE part,
      never a fabricated spec - see each row's own desc for its exact source. */
-  { id:'bb-shimano-bsa73-24mm', cat:'bb', brand:'Shimano', model:'BB-MT501 (BSA73)', family:'shimano-bb-mt', mfgPn:'BB-MT501',
-    price:30, weight:85, shell:'BSA73', spindle:'24mm',
-    desc:'Generic Shimano threaded BSA73/24mm Hollowtech II bottom bracket - the OE BB paired with a Shimano 12-speed (24mm steel spindle) crank on a threaded-BB frame, used by the Devinci Spartan Carbon XT (devinci.com build page: "Shimano MT801 | BSA | 68/73mm") and the Rocky Mountain Altitude C70 Shimano (fetched airparkbikeco.com bike-guide build kit; Altitude frame bb:BSA73 per fr-rockymountain-altitude-c70). Price/weight are samples (Shimano publishes no consumer MSRP for its threaded BSA BBs); shell/spindle interface is the maker-stated fact both sourced pages agree on.' },
   { id:'fw-raceface-arc30-29', cat:'frontwheel', brand:'Race Face', model:'ARC 30 (29, OE)', family:'raceface-arc30', wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
     price:340, weight:900,
     desc:'FETCHED devinci.com build-kit pages for the Devinci Spartan Carbon XT 12S LTD ("RaceFace ARC30 29" rims; RaceFace Vault hubs, TA 15x110mm front") and both Troy GX AXS builds (same ARC30 29 front rim/hub spec, verbatim). Reused across those 3 bikes\' front wheel. Price/weight = sample (RaceFace does not publish a per-wheel OE-lacing price; interface fields - 29in, Boost110, 6-bolt, 30mm internal - are maker-page-stated).' },
@@ -7760,7 +7764,7 @@ var PARTS_RAW = [
       frontWheel:'fw-raceface-arc30-29', rearWheel:'rw-raceface-arc30-29-sboost157-ms',
       frontTire:'ti-maxxis-assegai-29-25-dd-mg', rearTire:'ti-maxxis-minion-dhr-ii-29-24-dd-mt',
       shifter:'sft-shimano-xt-m8100', derailleur:'dr-shimano-xt-m8100-sgs', cassette:'ca-shimano-xt-m8100-1051',
-      chain:'ch-shimano-xt-m8100', crankset:'cr-shimano-xt-m8100', bb:'bb-shimano-bsa73-24mm',
+      chain:'ch-shimano-xt-m8100', crankset:'cr-shimano-xt-m8100', bb:'bb-shimano-mt501-bsa73',
       frontBrake:'bk-shimano-xt-m8100', rearBrake:'bk-shimano-xt-m8100',
       frontRotor:'ro-shimano-smrt86-203-6b', rearRotor:'ro-shimano-smrt86-203-6b',
       handlebar:'hb-raceface-next-r-35', stem:'st-raceface-turbine-r-35', grips:'gr-devinci-performance-lockon',
@@ -7807,7 +7811,7 @@ var PARTS_RAW = [
       frontWheel:'fw-raceface-ar30-29', rearWheel:'rw-raceface-ar30-29-ms',
       frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt',
       shifter:'sft-shimano-xt-m8100', derailleur:'dr-shimano-xt-m8100-sgs', cassette:'ca-shimano-xt-m8100-1051',
-      chain:'ch-shimano-xt-m8100', crankset:'cr-shimano-xt-m8100', bb:'bb-shimano-bsa73-24mm',
+      chain:'ch-shimano-xt-m8100', crankset:'cr-shimano-xt-m8100', bb:'bb-shimano-mt501-bsa73',
       frontBrake:'bk-shimano-xt-m8100', rearBrake:'bk-shimano-xt-m8100',
       frontRotor:'ro-shimano-smrt86-203-6b', rearRotor:'ro-shimano-smrt86-203-6b',
       handlebar:'hb-raceface-turbine-r-35', stem:'st-raceface-turbine-r-35', grips:'gr-odi-elite-pro',
@@ -7937,12 +7941,9 @@ var PARTS_RAW = [
   { id:'fw-sunringle-duroc-sd37-comp-29', cat:'frontwheel', brand:'Sun Ringlé', model:'Düroc SD37 Comp 29 Front', family:'sunringle-duroc-sd37', disciplines:['trail'],
     price:145, weight:940, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:32, maxTire:2.6,
     desc:'Stock front wheel on the Root Miller 1 (FETCHED rosebikes.com spec line: "Sunringlé Düroc SD37 Comp, black 29\\" Boost"). Interfaces (15x110 Boost, 6-bolt, 32mm internal width) per multiple independent retailer spec listings for the Düroc SD37 wheel family (Hayes Bicycle, Modern Bike, Bikeman, Random Bike Parts all agreeing on this rim\'s dimensions and 6-bolt/Boost spec across its Comp/Expert/Pro tiers, which share rim+hub interfaces and differ only in hub internals/finish) - "Comp" is the entry tier of this exact family; weight is a documented sample carried over from the Expert-tier figure (no Comp-specific weight found), flagged. Price is a documented sample. Left unverified.' },
-  { id:'rw-sunringle-duroc-sd37-comp-29-xd', cat:'rearwheel', brand:'Sun Ringlé', model:'Düroc SD37 Comp 29 Rear (XD)', family:'sunringle-duroc-sd37', disciplines:['trail'],
-    price:160, weight:1108, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:32, maxTire:2.6,
-    desc:'Rear half of the stock Düroc SD37 Comp wheelset (FETCHED rosebikes.com spec line, same as the front wheel). freehub:XD per this build\'s real SRAM NX Eagle cassette (an XD-driver part) - the SD37 family is documented as sold with either Shimano MS or SRAM XD freehub bodies (multiple retailer listings), matching this fills choice. Boost148 rear axle (matches the frame\'s rearAxle exactly). rotorMount/intWidth/price/weight basis same as the front wheel (documented sample, unverified) - see its desc.' },
-  { id:'ca-sram-nx-eagle-1150', cat:'cassette', brand:'SRAM', model:'NX Eagle XG-1230', family:'sram-nx-eagle', mfgPn:'XG-1230', disciplines:['trail'],
-    price:120, weight:615, system:'sram-eagle', speeds:12, freehub:'XD', minCog:11, maxCog:50,
-    desc:'Stock cassette on the Root Miller 1 (FETCHED rosebikes.com spec line: "SRAM Eagle, 12-speed, black 11-50" - matches SRAM\'s standard NX Eagle-tier cassette, the XG-1230, an XD-driver 11-50T 12-speed cassette, SRAM\'s established Eagle-tier product; not independently re-fetched from sram.com this session, so left unverified per the entry-vs-verify distinction). Price/weight are documented samples in this cassette\'s established retail class.' },
+  { id:'rw-sunringle-duroc-sd37-comp-29-hg', cat:'rearwheel', brand:'Sun Ringlé', model:'Düroc SD37 Comp 29 Rear (HG)', family:'sunringle-duroc-sd37', disciplines:['trail'],
+    price:160, weight:1108, wheel:'29', hub:'Boost148', freehub:'HG', rotorMount:'sixbolt', intWidth:32, maxTire:2.6,
+    desc:'Rear half of the stock Düroc SD37 Comp wheelset (FETCHED rosebikes.com spec line, same as the front wheel). freehub:HG per this build\'s real SRAM NX Eagle cassette: SRAM\'s actual NX Eagle 11-50T 12-speed cassette is the PG-1230, an HG (standard splined) driver part (already cataloged and sram.com-verified as ca-sram-pg1230) - "XG" prefixes denote XD-driver SRAM cassettes, which the NX Eagle 11-50 is not. CORRECTED 2026-07-15 (adversarial audit pass): this row was originally entered as freehub:XD to pair with a fabricated "ca-sram-nx-eagle-1150"/"XG-1230" cassette row, which has been removed; fills now point at the real PG-1230. Boost148 rear axle (matches the frame\'s rearAxle exactly). rotorMount/intWidth/price/weight basis same as the front wheel (documented sample, unverified) - see its desc.' },
   { id:'hb-ethirteen-base-alu-35', cat:'handlebar', brand:'e*thirteen', model:'Base Alu Bar', family:'ethirteen-base-cockpit', disciplines:['trail'],
     price:40, weight:300, clamp:35, width:780, material:'alu',
     desc:'Stock handlebar on the Root Miller 1 (FETCHED rosebikes.com spec line verbatim: "E13 Base Alu 35mm, black 780mm"). e*thirteen\'s "Base" line is an OE-tier alloy cockpit range with no standalone consumer product page pinned for this exact bar - width/clamp are the real fetched build-sheet dimensions; price/weight are documented samples for a typical 35mm-clamp/780mm alloy trail bar. Left unverified.' },
@@ -7958,9 +7959,9 @@ var PARTS_RAW = [
     verified:true, lastChecked:'2026-07-15', source:'https://www.rosebikes.com/p/rose-root-miller-1-2713998',
     fills:{
       frame:'fr-rose-root-miller', fork:'fk-rockshox-35-gold-rl-29-160', shock:'sh-rockshox-deluxe-selectplus-205x60-trun',
-      frontWheel:'fw-sunringle-duroc-sd37-comp-29', rearWheel:'rw-sunringle-duroc-sd37-comp-29-xd',
+      frontWheel:'fw-sunringle-duroc-sd37-comp-29', rearWheel:'rw-sunringle-duroc-sd37-comp-29-hg',
       frontTire:'ti-continental-kryptotal-fr-29-24-trail-endurance', rearTire:'ti-continental-kryptotal-re-29-24-trail-endurance',
-      shifter:'sft-sram-nx-eagle', derailleur:'dr-sram-nx-eagle', cassette:'ca-sram-nx-eagle-1150',
+      shifter:'sft-sram-nx-eagle', derailleur:'dr-sram-nx-eagle', cassette:'ca-sram-pg1230',
       chain:'ch-sram-sx-eagle', crankset:'cr-sram-nx-eagle', bb:'bb-sram-dub-bsa73',
       frontBrake:'bk-shimano-mt420', rearBrake:'bk-shimano-mt410',
       frontRotor:'ro-shimano-smrt66-203-6b', rearRotor:'ro-shimano-smrt56-180-6b',
@@ -8429,7 +8430,7 @@ var PARTS_RAW = [
     price:4499, weight:3400, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6,
     brakeMount:'PM', maxRotorR:180, suspension:'full', shockEye:205, shockStroke:65, shockMount:'trunnion',
     maxForkTravel:160, travel:150, udh:true, bundledShock:null, frameOnly:false,
-    verified:true, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/mondraker/foxy-59956',
+    verified:false, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/mondraker/foxy-59956',
     desc:'mondraker.com itself is a JS-rendered SPA (every fetch attempt returned only nav-menu HTML, no product-page content - a documented Mondraker blocker) - this frame is sourced from a FETCHED vitalmtb.com bike-guide spec page for the exact 2024 Foxy R build, which prints Mondraker\'s own frame-tech sheet directly: rear axle "12mm x 148mm (Boost)" (-> Boost148); BB "SRAM DUB Wide, sealed bearings, 73mm English/BSA threaded" (-> BSA73); headset "ONOFF Saturn, ACB sealed bearings" (tapered steerer fit; no S.H.I.S. bore codes given by this source, so headTubeUpper/Lower stay unset rather than guessed); seatpost "31.6mm"; rear shock "Öhlins TTX Air...trunnion mount, 205mm length x 65mm stroke" (-> shockEye 205 / shockStroke 65 / shockMount trunnion, an exact match for the already-cataloged sh-ohlins-ttx2air-205x65-trun row); max fork travel "160mm" (Öhlins RXF 36 M.3); brake mount "6-bolt" + "Max Rotor Size: 200mm front, 180mm rear" (-> brakeMount PM - the caliper mount, distinct from the stated 6-bolt ROTOR interface which lives on the wheel/rotor rows below - maxRotorR 180, the maker-demonstrated rear ceiling); UDH "Yes - SRAM UDH (Universal Derailleur Hanger)" (-> udh:true). Price $4,499.00 and weight "35 lb 11.4 oz (16,200 g)" are this exact build\'s own figures per the same source (frame-only weight not separately published - 3400g is a documented sample, typical for an alloy enduro frame this size, not a maker figure).' },
   { id:'fw-ethirteen-lg1-enduro-29', cat:'frontwheel', brand:'e*thirteen', model:'LG1 Plus Enduro Front', family:'ethirteen-lg1-plus-enduro', disciplines:['enduro'],
     price:300, weight:880, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
@@ -8476,7 +8477,7 @@ var PARTS_RAW = [
      either way. */
   { id:'cb-mondraker-foxy-r', cat:'completebike', brand:'Mondraker', model:'Foxy R', family:'mondraker-foxy', gen:'2024',
     disciplines:['enduro'], price:4499,
-    verified:true, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/mondraker/foxy-59956',
+    verified:false, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/mondraker/foxy-59956',
     fills:{
       frame:'fr-mondraker-foxy-r', fork:'fk-ohlins-rxf36-m3-29-160', shock:'sh-ohlins-ttx2air-205x65-trun',
       frontWheel:'fw-ethirteen-lg1-enduro-29', rearWheel:'rw-ethirteen-lg1-enduro-29-hg',
