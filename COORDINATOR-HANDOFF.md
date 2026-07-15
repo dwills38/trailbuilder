@@ -1,63 +1,73 @@
 # BuildMyMTB — Coordinator Handoff
 
-## ★★★ SEAT 9 — START HERE (succession from seat 8, 2026-07-15 ~03:20 UTC) ★★★
+## ★★★ SEAT 10 — START HERE (succession from seat 9, 2026-07-15) ★★★
 
-Seat 8 ran a huge evening. **`origin/main` = `c5d9751`, all four gates + CI/Deploy green.** Tonight
-landed live: text-only rail, Random sort (Fisher-Yates), "Own it" build-panel button, 12 Garbaruk
-cassettes, GX-AXS test guards, drivetrain-above-wheels rail reorder, spec-card collision fix,
-wheel→tire auto-select, Seatpost unified (Dropper/Rigid sub-chips), + the Complete-Bikes scope doc.
-Seed yourself normally (own worktree off origin/main). **NOTE: the `ccd_session_mgmt` MCP disconnected
-at handoff — you may need it reconnected to list/archive/send-message sessions. The kit-preview http
-server on :8127 also stopped.**
+Seat 9 ran a very long, productive session. **`origin/main` = `11fc738`, all four gates +
+CI/Deploy green: 3180 bike parts / 692 kit parts / 601 tests / validate 0 problems / tsc clean.**
+Seed yourself normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today> -b
+coord/<today> origin/main` (NEVER at `D:\` root; never git-mutate the shared checkout).
 
-**DOUGLAS'S DIRECTIVE FOR YOU (do in this order):**
+**What seat 9 shipped live (all CI/Deploy green):** Kit Builder went **LIVE** (`KIT_ENABLED=true`,
+692 parts, 12 categories) after merging the foundation + redesign + 12 grinds + MTB-only/e-bike-language
+scrub; Single-Speed Cog folded into Drivetrain as a **display-only** sub-chip; **SRAM/Shimano
+rotor-class tolerance** engine fix (rule 10/10b: 200≡203, 220≡223 via a 3mm grace — killed a systemic
+false-warn class); **Complete Bikes SHIPPED** (`completebike` whole-build preset + browse surface +
+dual-price block + auto-fill — now **6 bikes live across 6 makers**, ships straight to live, no gate);
+hardtail discoverability (frame Full-sus/Hardtail sub-filter + Hardtail sample build) + 3 frames;
+**shock+fork family-picker** (bias-audit fix: shock browse 776 flat rows → 38 model-family cards,
+RockShox 49%→13.2%; display-only); header fix (tall topo banner now stays on the Inventory/Profile/Forum
+in-page views); build-panel part → click-to-open its detail modal; `src/ui-common.js` refactor
+(shared theme+money across both pages). Two post-wave audits ran (code-quality + manufacturer-bias) —
+the bias audit's one finding (shock granularity) is what drove the family-picker.
 
-1. **IMMEDIATELY MERGE THE KIT BUILDER LINE.** It's no longer gated on his preview — he's told you to
-   merge it. Order (each own-additions-apply + re-gate: `validate` 0 · `vitest` · `tsc` · verdict-harness
-   **byte-identical** = kit stays isolated from the bike engine):
-   - **(a) Foundation** `feat/kit-builder` (`5f7caec`) FIRST — it carries the kit schema (12 cats in
-     schema.js/types.js), `src/kit.js`, `KitBuilder/index.html` (the /KitBuilder page), `deploy.yml`
-     stanza, `src/config.js` `KIT_ENABLED` (**default false = live-safe merge**), the main-page Kit
-     Builder button, `test/test-kit.js`. Main MUST have the schema before any grind row applies.
-   - **(b) Redesign** `feat/kit-builder-redesign` (foundation +1) — rebuilds the KitBuilder page to
-     mirror the bike builder (left rail / center list rows / right selections panel / category row top).
-   - **(c) The 12 grind branches** `grind/kit-{helmet,shoes,jersey,shorts,pants,gloves,kneepad,elbowpad,
-     bodyarmor,neckbrace,shinguard,eyewear}` (each +2..+5 beyond `5f7caec`, all deepened + partially
-     verified). Apply each's `src/kit.js` row additions (expect field-level array conflicts across the
-     12 — resolve keeping each category's rows, frame-materials-multi-branch style).
-   - **★ MTB-ONLY SCRUB at merge (learned the hard way):** the "no cap" deepen let MOTO/MX gear creep
-     into pants (Alpinestars **Techstar Envision** + **Nevada** are motocross — drop them; their **Drop**
-     pant is MTB). Scrub EVERY grind branch for moto/MX/road/casual + tier-padding + one-row-per-PRODUCT
-     (never row-per-size) before merging. Kit rows are unverified sample unless a fetched maker page
-     confirmed them.
-   - Douglas flips `KIT_ENABLED=true` live when he's happy (it's invisible until then).
-2. **Then go THROUGH THE KIT GRIND SESSIONS to add product** — harvest each `grind/kit-*` per (c),
-   archive its session as it lands. (Kit grind session ids are in `list_sessions`; each already
-   reported `[result] done` — read via `list_events`, don't trust the idle flag.)
-3. **CHECK THE SINGLE-SPEED-COG SESSION** — a `[Sonnet, medium]` chip (`feat/cog-under-drivetrain`,
-   task_49a5d765) is running to make the Single-Speed Cog a **sub-chip of Drivetrain** (not its own
-   rail category), preserving DJ single-speed completeness + ss-rules. Review + merge its branch when
-   done (present-branch, engine-tier).
-4. **BE AWARE OF THE PARALLEL AFFILIATE SESSION** — read `multi-session-coordination.md` (memory) +
-   `AFFILIATE-HANDOFF.md`. It owns LLC/EIN/Cloudflare/affiliate-applications/manufacturer-partnerships
-   (LLC name DECIDED = "Dubs Works", SD). You are the ONLY session that pushes code; coordinate via
-   list_sessions/send_message before ambiguous shared-file work.
+**★ THE 3 OPEN SESSIONS (Douglas wants you aware; all three have been told about you):**
+1. **Complete Bikes MEGA-grind** (`local_4f36df6a`, RUNNING) — targeting **50–100** complete bikes,
+   all makers/models/trims. It fanned out into ~14 per-maker sub-worktrees (`cb-grind-*` /
+   `catalog/complete-bikes-grind-2-*`). **DO NOT touch its worktrees or branches — it is actively
+   using them** (seat 9 nearly sabotaged it by pruning; see the lesson below). It will integrate into
+   `catalog/complete-bikes-grind-2` and `send_message` when done. On report: **audit hard** — at that
+   volume, fan out `catalog-auditor` (Opus) agents by maker; only maker-page-confirmed rows get
+   `verified:true` (seat 9 demoted a Propain bike whose sheet came from a third party). Do NOT trust
+   its `isRunning` flag — it read false mid-run and seat 9 wrongly declared it dead.
+2. **"Add xc discipline to dropper slotRequired exemption"** (`local_b4d73300`, RUNNING) — an
+   ENGINE-tier tweak (make XC frames not require a dropper, like DH frames already do). Review +
+   **adversarially audit** its branch when it presents (harness impact, engine-tier). NOT
+   coordinator-spawned. It's in an orphan worktree — leave it alone until it reports.
+3. **Affiliate Setup** (`local_e301505a`) — Douglas's parallel BUSINESS lane (LLC "Dubs Works"/SD,
+   EIN, Cloudflare email, affiliate applications, manufacturer partnerships). Read `AFFILIATE-HANDOFF.md`
+   + `multi-session-coordination.md`. **You are the ONLY session that pushes code.** Coordinate via
+   `list_sessions`/`send_message` before ambiguous shared-file work.
 
-**Recurring gotcha:** the two `activeGroup` handlers in index.html are the hot conflict line — every UI
-branch touches them; resolve by STACKING all behaviors (`reshuffleCatalog()` + `if(...==='tire')
-inheritTireSizeFilter()` + `activeSub=defaultSubFor(key)`). The seat went stale twice tonight from
-UI auto-ships — **re-fetch origin before every merge**.
+**★ CRITICAL LESSON — the orphan-worktree hazard (bit us HARD this session):** Do NOT
+`git worktree remove` a worktree while ANY session is running or a new chip might be launched into
+that dir. Seat 9's aggressive cleanup orphaned the mega-grind + the ui-common worker — git fell
+through to the shared checkout `D:/MTB Bike Builder`, which is now on a stray `refactor/ui-common`
+branch pointer (harmless — working tree is clean except the intentional untracked root docs; do NOT
+git-checkout there to "fix" it, per the never-touch-shared-checkout rule). **Let ARCHIVING a session
+clean its worktree; run `git worktree list` before any removal.**
 
-**Still open / gated on Douglas:** `feat/builds-gallery` (+1, awaiting his sign-off + F1 fix + his
-migration); the **fork/shock per-frame-SIZE shock design** (he's re-scoping — size selector vs
-both-strokes+warning; DON'T re-spawn the killed `engine/recommended-fork-shock` stale); Atherton
-A-Range include/skip; the Complete-Bikes decisions (scope doc on main); the optional GX-AXS
-"why are cassettes hidden" UX hint; the wheel→tire mullet front/rear split follow-up; Garbaruk's
-non-cassette range (chainrings/cages — no category yet). **Sessions still open at handoff** (couldn't
-archive — MCP down): 12 kit grinds, kit redesign, cog (running), affiliate. Archive the kit ones as
-they merge.
+**Queued (sequence AFTER the mega-grind merges — both edit `src/compat.js`, so parallel = huge
+conflict):** the **modelYear backfill** — populate `modelYear` on frames/complete-bikes/forks/shocks/
+generational components (maker-sourced, fan out workers); leave it BLANK on year-agnostic parts
+(tires/saddles/grips/generic drivetrain). Policy already in `tools/DATA-ENTRY-TEMPLATE.md`.
 
-_See §0/§0a below + PROJECT-LOG.md's 2026-07-14/15 entries for the full trail._
+**Pending Douglas decisions:** (1) **legal-page header unification** — privacy/terms/affiliate-disclosure
+still use the old plain-gradient header (no topo contours); he hasn't decided whether to give them the
+tall topo header (a 3-file change). (2) Complete-Bikes remaining scope (the mega-grind covers volume).
+
+**★ VALUES (reaffirmed 2026-07-15, load-bearing — see `product-values` memory):** "trustworthy,
+accurate data, no bias, just a tool for users to help them build or have fun." **NEVER fabricate a
+value to fill a field** — a blank beats a plausible-but-invented one (the modelYear-blank policy; the
+Propain verified→sample demotion; the root-cause rotor fix instead of shipping a false warning).
+
+**Standing workflow (unchanged):** re-fetch origin before EVERY merge (main moves fast on UI
+auto-ships); apply worker branches via the stale-base own-additions pattern, never a raw merge; four
+gates + verdict-harness byte-identical for engine work; UI auto-ships on green gates; catalog data =
+coordinator-reviewed, new error-tier rows = adversarially audited; only taxonomy/money/visual-taste/
+account decisions go to Douglas; keep his updates SHORT. Coordinate-only, lean seat — hand authoring
+to chips (model+effort in the title). Append one PROJECT-LOG entry per wave.
+
+_See §0/§0a below + PROJECT-LOG.md's 2026-07-15 entries for the full trail._
 
 ---
 
