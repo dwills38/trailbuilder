@@ -1,5 +1,68 @@
 # BuildMyMTB — Coordinator Handoff
 
+## ★★★ SEAT 9 — START HERE (succession from seat 8, 2026-07-15 ~03:20 UTC) ★★★
+
+Seat 8 ran a huge evening. **`origin/main` = `c5d9751`, all four gates + CI/Deploy green.** Tonight
+landed live: text-only rail, Random sort (Fisher-Yates), "Own it" build-panel button, 12 Garbaruk
+cassettes, GX-AXS test guards, drivetrain-above-wheels rail reorder, spec-card collision fix,
+wheel→tire auto-select, Seatpost unified (Dropper/Rigid sub-chips), + the Complete-Bikes scope doc.
+Seed yourself normally (own worktree off origin/main). **NOTE: the `ccd_session_mgmt` MCP disconnected
+at handoff — you may need it reconnected to list/archive/send-message sessions. The kit-preview http
+server on :8127 also stopped.**
+
+**DOUGLAS'S DIRECTIVE FOR YOU (do in this order):**
+
+1. **IMMEDIATELY MERGE THE KIT BUILDER LINE.** It's no longer gated on his preview — he's told you to
+   merge it. Order (each own-additions-apply + re-gate: `validate` 0 · `vitest` · `tsc` · verdict-harness
+   **byte-identical** = kit stays isolated from the bike engine):
+   - **(a) Foundation** `feat/kit-builder` (`5f7caec`) FIRST — it carries the kit schema (12 cats in
+     schema.js/types.js), `src/kit.js`, `KitBuilder/index.html` (the /KitBuilder page), `deploy.yml`
+     stanza, `src/config.js` `KIT_ENABLED` (**default false = live-safe merge**), the main-page Kit
+     Builder button, `test/test-kit.js`. Main MUST have the schema before any grind row applies.
+   - **(b) Redesign** `feat/kit-builder-redesign` (foundation +1) — rebuilds the KitBuilder page to
+     mirror the bike builder (left rail / center list rows / right selections panel / category row top).
+   - **(c) The 12 grind branches** `grind/kit-{helmet,shoes,jersey,shorts,pants,gloves,kneepad,elbowpad,
+     bodyarmor,neckbrace,shinguard,eyewear}` (each +2..+5 beyond `5f7caec`, all deepened + partially
+     verified). Apply each's `src/kit.js` row additions (expect field-level array conflicts across the
+     12 — resolve keeping each category's rows, frame-materials-multi-branch style).
+   - **★ MTB-ONLY SCRUB at merge (learned the hard way):** the "no cap" deepen let MOTO/MX gear creep
+     into pants (Alpinestars **Techstar Envision** + **Nevada** are motocross — drop them; their **Drop**
+     pant is MTB). Scrub EVERY grind branch for moto/MX/road/casual + tier-padding + one-row-per-PRODUCT
+     (never row-per-size) before merging. Kit rows are unverified sample unless a fetched maker page
+     confirmed them.
+   - Douglas flips `KIT_ENABLED=true` live when he's happy (it's invisible until then).
+2. **Then go THROUGH THE KIT GRIND SESSIONS to add product** — harvest each `grind/kit-*` per (c),
+   archive its session as it lands. (Kit grind session ids are in `list_sessions`; each already
+   reported `[result] done` — read via `list_events`, don't trust the idle flag.)
+3. **CHECK THE SINGLE-SPEED-COG SESSION** — a `[Sonnet, medium]` chip (`feat/cog-under-drivetrain`,
+   task_49a5d765) is running to make the Single-Speed Cog a **sub-chip of Drivetrain** (not its own
+   rail category), preserving DJ single-speed completeness + ss-rules. Review + merge its branch when
+   done (present-branch, engine-tier).
+4. **BE AWARE OF THE PARALLEL AFFILIATE SESSION** — read `multi-session-coordination.md` (memory) +
+   `AFFILIATE-HANDOFF.md`. It owns LLC/EIN/Cloudflare/affiliate-applications/manufacturer-partnerships
+   (LLC name DECIDED = "Dubs Works", SD). You are the ONLY session that pushes code; coordinate via
+   list_sessions/send_message before ambiguous shared-file work.
+
+**Recurring gotcha:** the two `activeGroup` handlers in index.html are the hot conflict line — every UI
+branch touches them; resolve by STACKING all behaviors (`reshuffleCatalog()` + `if(...==='tire')
+inheritTireSizeFilter()` + `activeSub=defaultSubFor(key)`). The seat went stale twice tonight from
+UI auto-ships — **re-fetch origin before every merge**.
+
+**Still open / gated on Douglas:** `feat/builds-gallery` (+1, awaiting his sign-off + F1 fix + his
+migration); the **fork/shock per-frame-SIZE shock design** (he's re-scoping — size selector vs
+both-strokes+warning; DON'T re-spawn the killed `engine/recommended-fork-shock` stale); Atherton
+A-Range include/skip; the Complete-Bikes decisions (scope doc on main); the optional GX-AXS
+"why are cassettes hidden" UX hint; the wheel→tire mullet front/rear split follow-up; Garbaruk's
+non-cassette range (chainrings/cages — no category yet). **Sessions still open at handoff** (couldn't
+archive — MCP down): 12 kit grinds, kit redesign, cog (running), affiliate. Archive the kit ones as
+they merge.
+
+_See §0/§0a below + PROJECT-LOG.md's 2026-07-14/15 entries for the full trail._
+
+---
+
+# BuildMyMTB — Coordinator Handoff
+
 _Last updated 2026-07-14 (midday), end of a marathon overnight+morning wave (catalog 3018→3098,
 DJ went LIVE, materials filter shipped, phone UI overhauled). **LIVE at https://buildmymtb.com.**
 Read this end-to-end, then MEMORY.md's topic files, then CLAUDE.md. Written so a fresh coordinator
