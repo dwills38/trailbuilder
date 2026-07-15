@@ -102,6 +102,17 @@ var GROUPS = [
   { key:'frame', label:'Frame', icon:'F', slots:[ {key:'frame', label:'Frame', cat:'frame'} ] },
   { key:'fork',  label:'Fork',  icon:'Y', slots:[ {key:'fork', label:'Fork', cat:'fork'} ] },
   { key:'shock', label:'Rear Shock', icon:'O', slots:[ {key:'shock', label:'Rear Shock', cat:'shock'} ] },
+  /* Drivetrain sits ABOVE Wheels (Douglas, 2026-07-14): most builders pick the
+     drivetrain first, then choose the rear hub's freehub driver (XD / MicroSpline
+     / HG) to match the cassette - so the drivetrain needs to be decided before the
+     wheels. Group ORDER is UI-only; checkBuild/compatOf read the build map and are
+     order-independent, so no verdict changes. */
+  { key:'drivetrain', label:'Drivetrain', icon:'D', preset:{cat:'groupset', label:'groupset'}, slots:[
+      {key:'shifter', label:'Shifter', cat:'shifter'},
+      {key:'derailleur', label:'Rear Derailleur', cat:'derailleur'},
+      {key:'cassette', label:'Cassette', cat:'cassette'},
+      {key:'chain', label:'Chain', cat:'chain'},
+      {key:'crankset', label:'Crankset', cat:'crankset'} ] },
   { key:'wheels', label:'Wheels', icon:'W', preset:{cat:'wheelset', label:'wheelset'}, slots:[
       {key:'frontWheel', label:'Front Wheel', cat:'frontwheel'},
       {key:'rearWheel',  label:'Rear Wheel',  cat:'rearwheel'},
@@ -117,12 +128,6 @@ var GROUPS = [
   { key:'tire', label:'Tires', icon:'T', slots:[
       {key:'frontTire', label:'Front Tire', cat:'tire'},
       {key:'rearTire',  label:'Rear Tire',  cat:'tire'} ] },
-  { key:'drivetrain', label:'Drivetrain', icon:'D', preset:{cat:'groupset', label:'groupset'}, slots:[
-      {key:'shifter', label:'Shifter', cat:'shifter'},
-      {key:'derailleur', label:'Rear Derailleur', cat:'derailleur'},
-      {key:'cassette', label:'Cassette', cat:'cassette'},
-      {key:'chain', label:'Chain', cat:'chain'},
-      {key:'crankset', label:'Crankset', cat:'crankset'} ] },
   /* The single-speed cog is its OWN group (DJ go-live, 2026-07-14) for the same
      buildTotals reason as bb/headset: inside the drivetrain group its
      price/weight would silently vanish whenever a groupset bundle is active
