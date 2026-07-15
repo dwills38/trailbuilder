@@ -54,7 +54,11 @@
      trail-map contour linework at ~10% opacity for light/dark/Loam. RAD is ITS OWN THEME
      (his standing rule): its checkerboard header override below stays, and the pattern is
      hidden under html.rad. */
-  header{background:var(--hdr-bg);color:#fff;padding:10px 24px;position:sticky;top:0;z-index:40}
+  /* min-height keeps the banner its full homepage height on the in-page views
+     (Inventory / Profile / Forum add body.inv-page/.profile-page/.forum-page,
+     which hide #search — without this floor the header would collapse to a
+     short bar, Douglas 2026-07-15). A floor only: never shrinks a taller header. */
+  header{background:var(--hdr-bg);color:#fff;padding:10px 24px;min-height:109px;position:sticky;top:0;z-index:40}
   .hdr-topo{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
   html.rad .hdr-topo{display:none}
   /* Two-row banner at ALL widths (Douglas 2026-07-14: the wrapped narrow-width layout "looks
