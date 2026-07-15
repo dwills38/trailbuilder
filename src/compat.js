@@ -6976,7 +6976,165 @@ var PARTS_RAW = [
       handlebar:'hb-raceface-ride-35', stem:'st-raceface-ride-35', grips:'gr-ergon-ga20',
       dropper:'dp-canyon-g5-sp0060-309-170', saddle:'sa-ergon-sm10-sport'
     },
-    desc:'FETCHED canyon.com/en-us/mountain-bikes/trail-bikes/neuron/cf/neuron-cf-8/3170.html directly: a shorter-travel (140mm fork/130mm rear) trail platform, distinct from the Spectral siblings above. Page shows list "$3,999" struck through against a "$2,999" sale price -> price=3999 (list MSRP, decision #3), streetPrice=2999 (the featured sale figure). Full build sheet directly off canyon.com: FOX 34 Float Performance GRIP 140mm fork, FOX Float DPS Performance shock (210x50, exact frame match), DT Swiss XM1700 wheels, Schwalbe Nobby Nic front / Wicked Will rear tires (the only 29x2.4 rows of each model already in-catalog, both maker-verified), Shimano SLX shifter/derailleur/crank/brakes, Shimano Deore SLX CS-M7100 cassette (Micro Spline, exact match to the in-catalog ca-shimano-slx-m7100-1051), Shimano Deore M6100 chain, Shimano BSA BB52, Shimano RT76 180mm rotors, RaceFace Ride 35 bar/stem, Ergon GA20 grips, Canyon G5 dropper, Ergon SM10 saddle. 7 new OE rows needed (fork, shock, a Micro-Spline XM1700 rear wheel, the BB, RaceFace Ride 35 bar+stem, GA20 grips, the G5 SP0060 dropper, the SM10 Sport saddle); shifter/derailleur/cassette/chain/crankset/brakes/rotors were ALL already cataloged at the exact spec\'d tier. Verdict-clean with ZERO warnings expected: 180mm rotors sit under both the fork\'s minRotorF (160mm floor is a minimum, not exceeded — 180 fits the fork\'s compatible range) and the frame\'s maxRotorR (180mm, exact match); XM1700\'s native 6-bolt hub carries 6-bolt rotors (no adapter warning). Component (a-la-carte) sum of the fills is above $3,999 at current catalog prices, so the "buy complete" savings the dual-price block shows is real even against the list MSRP (let alone the $2,999 sale price).' }
+    desc:'FETCHED canyon.com/en-us/mountain-bikes/trail-bikes/neuron/cf/neuron-cf-8/3170.html directly: a shorter-travel (140mm fork/130mm rear) trail platform, distinct from the Spectral siblings above. Page shows list "$3,999" struck through against a "$2,999" sale price -> price=3999 (list MSRP, decision #3), streetPrice=2999 (the featured sale figure). Full build sheet directly off canyon.com: FOX 34 Float Performance GRIP 140mm fork, FOX Float DPS Performance shock (210x50, exact frame match), DT Swiss XM1700 wheels, Schwalbe Nobby Nic front / Wicked Will rear tires (the only 29x2.4 rows of each model already in-catalog, both maker-verified), Shimano SLX shifter/derailleur/crank/brakes, Shimano Deore SLX CS-M7100 cassette (Micro Spline, exact match to the in-catalog ca-shimano-slx-m7100-1051), Shimano Deore M6100 chain, Shimano BSA BB52, Shimano RT76 180mm rotors, RaceFace Ride 35 bar/stem, Ergon GA20 grips, Canyon G5 dropper, Ergon SM10 saddle. 7 new OE rows needed (fork, shock, a Micro-Spline XM1700 rear wheel, the BB, RaceFace Ride 35 bar+stem, GA20 grips, the G5 SP0060 dropper, the SM10 Sport saddle); shifter/derailleur/cassette/chain/crankset/brakes/rotors were ALL already cataloged at the exact spec\'d tier. Verdict-clean with ZERO warnings expected: 180mm rotors sit under both the fork\'s minRotorF (160mm floor is a minimum, not exceeded — 180 fits the fork\'s compatible range) and the frame\'s maxRotorR (180mm, exact match); XM1700\'s native 6-bolt hub carries 6-bolt rotors (no adapter warning). Component (a-la-carte) sum of the fills is above $3,999 at current catalog prices, so the "buy complete" savings the dual-price block shows is real even against the list MSRP (let alone the $2,999 sale price).' },
+
+  // =========================================================================
+  // COMPLETE BIKES — Whyte / Cotic cluster (2026-07-15, cb-grind-2). Target
+  // was a Whyte/Cotic/Radon cluster; Radon is DROPPED from this pass (see
+  // below) leaving two makers, both with no prior completebike or frame
+  // rows. Cotic Solaris reuses the ALREADY-cataloged fr-cotic-solaris frame
+  // (sourced minRotorR/maxRotorR:180 PM7 data, rule 10b) - zero new frame
+  // work. Whyte T-140 needed a new frame row, FETCHED directly off the
+  // maker's own site. G-170 (Whyte's non-electric enduro platform) was
+  // evaluated and SKIPPED: whytebikes.com/whyte.bike list no current G-170
+  // product page or in-stock listing anywhere in this session's search -
+  // the 2024 rebrand appears to have dropped it in favor of the E-160/E-180
+  // e-MTB line (out of scope per the no-e-bikes rule regardless). The Whyte
+  // T-140 S build was evaluated and SKIPPED: its shock (RockShox Deluxe
+  // Select+ RT DebonAir) has no maker-stated eye-to-eye x stroke on the
+  // fetched product page or its QR spec-sheet stub (the linked full-spec
+  // PDF was not fetched this session) - entering a guessed shock size risks
+  // a false rule-17 verdict, so only the T-140 RS build (Fox DPS Performance
+  // Elite Evol LV, EXACTLY "210 x 50mm" stated) was catalogued. RADON: the
+  // Jealous 8.0 (a carbon XC-race hardtail) was FULLY sourced this session -
+  // radon-bikes.de/en/mountainbike/hardtail/jealous/jealous-80-2025/ fetched
+  // cleanly with a complete build sheet, unlike the JS-shell-only Skeen
+  // Trail collection/product pages (a wall this session could not get past)
+  // - but was dropped after entry because the real bike genuinely ships
+  // WITHOUT a dropper post (page states explicitly: "No dropper post...
+  // included"), and this engine's slotRequired() only exempts the dropper
+  // slot for 'dh'-discipline frames (line ~214), not 'xc' - so the golden
+  // "every completebike fills every required slot" test correctly flagged
+  // it as missing dropper. Fabricating a dropper this bike doesn't ship
+  // would violate decision #1 (fills = ONLY what factory ships); widening
+  // slotRequired's dropper exemption to cover xc-race hardtails generally
+  // is a real, defensible engine change (many XC race hardtails ship
+  // dropper-less, same fact pattern as DH) but has catalog-wide blast radius
+  // beyond this data-entry pass, so it was left for a separate, reviewed
+  // change rather than bundled in here. Flagged in this session's report.
+  // =========================================================================
+
+  /* --- Cotic Solaris Bronze Deore complete bike: the frame (fr-cotic-solaris)
+     already existed. 9 new OE rows below (fork, both wheels, both tires,
+     bar/stem/grips, dropper, saddle, BB) all FETCHED off ONE cotic.co.uk
+     page (the Solaris "Choose your build" order table, which lists every
+     off-the-peg spec tier's full component list). Bronze Deore is the
+     cheapest tier (GBP2,899) and was chosen specifically because it needs
+     no drivetrain/brake/headset new rows at all - Shimano Deore M6100 (all
+     5 drivetrain parts), Shimano SLX M7120 brakes, Shimano SM-RT66 180mm
+     6-bolt rotors and the Cane Creek 40 ZS44/EC44 headset were already
+     fully cataloged, several from this exact frame's own prior verification
+     pass. --- */
+  { id:'fk-rockshox-revelation-rc-29-130', cat:'fork', brand:'RockShox', model:'Revelation RC 130', family:'rockshox-revelation', disciplines:['trail'],
+    price:560, weight:1850, wheel:'29', travel:130, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:203,
+    desc:'Stock fork on the Cotic Solaris Bronze Deore build (FETCHED cotic.co.uk/product/solaris build-option table: "RockShox Revelation RC, 130mm with Motion Control"). Revelation RC is RockShox\'s entry-level 35mm-chassis fork below the Select/Select+/Ultimate tiers (Motion Control = the base non-DebonAir damper). Wheel/travel are the page\'s exact stated figures; axle/steerer/brakeMount/maxRotorF are samples inferred from this catalog\'s existing Pike-family 35mm-chassis Boost convention (RockShox\'s own Revelation product page could not be independently fetched this session, so this row is NOT marked verified - minRotorF deliberately left unset rather than guessed, avoiding any false rotor-floor warning). Price/weight are samples.' },
+  { id:'fw-halo-ridgelineii-29', cat:'frontwheel', brand:'Halo', model:'Ridgeline II 29 Front (Boost)', family:'halo-ridgelineii', disciplines:['trail'],
+    price:200, weight:950, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.5,
+    desc:'Stock front wheel on the Cotic Solaris Bronze Deore build (FETCHED cotic.co.uk/product/solaris build-option table: "Halo RidgelineII wheels"). Halo Ridgeline II is the current generation of this catalog\'s existing Halo Ridge Line wheel (fw-halo-ridgeline-29) - rotor mount (6-bolt), Boost110 front hub, and ~30mm internal width carried from that sibling\'s halo-usa.com-sourced convention (Halo\'s own current "Ridgeline II" product page could not be independently fetched this session, so this row stays unverified). Price/weight are samples.' },
+  { id:'rw-halo-ridgelineii-29-ms', cat:'rearwheel', brand:'Halo', model:'Ridgeline II 29 Rear (MicroSpline, Boost)', family:'halo-ridgelineii', disciplines:['trail'],
+    price:240, weight:1150, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:30, maxTire:2.5,
+    desc:'Rear half of the stock Ridgeline II wheelset on the Cotic Solaris Bronze Deore build (FETCHED cotic.co.uk build-option table; drivetrain line "Shimano Deore M6100... 10-51t cassette" -> MicroSpline driver required, a genuinely distinct driver-body SKU from the sibling Halo Ridge Line HG rear, not a guess - Halo sells both driver options across its wheel range). Rotor mount/width basis matches the front wheel above; not independently fetched this session, so unverified. Price/weight are samples.' },
+  { id:'ti-schwalbe-nobbynic-29-24-supertrail-soft', cat:'tire', brand:'Schwalbe', model:'Nobby Nic 29x2.4 Super Trail ADDIX Soft', family:'schwalbe-nobby-nic', disciplines:['trail'],
+    price:95, weight:1050, wheel:'29', width:2.4, casing:'super-trail', compound:'addix-soft',
+    desc:'Stock front tire on the Cotic Solaris Bronze Deore build (FETCHED cotic.co.uk build-option table: "Schwalbe Nobby Nic Super Trail Soft... 29 x 2.4" front). A distinct casing/compound SKU from this catalog\'s existing Nobby Nic 29x2.4 Super Trail ADDIX SpeedGrip row (ti-schwalbe-nobbynic-29-24-st-asg) - Soft is Schwalbe\'s softer front-specific ADDIX compound. Price/weight are samples aligned to the verified sibling row (schwalbetires.com not independently re-fetched this session for this exact compound).' },
+  { id:'ti-schwalbe-nobbynic-29-24-superground-speed', cat:'tire', brand:'Schwalbe', model:'Nobby Nic 29x2.4 Super Ground ADDIX Speed', family:'schwalbe-nobby-nic', disciplines:['trail'],
+    price:90, weight:980, wheel:'29', width:2.4, casing:'super-ground', compound:'addix-speed',
+    desc:'Stock rear tire on the Cotic Solaris Bronze Deore build (FETCHED cotic.co.uk build-option table: "...Super Ground Speed... 29 x 2.4" rear). Super Ground is Schwalbe\'s lighter, faster-rolling casing tier (below Super Trail), paired with the harder/faster ADDIX Speed compound - genuinely distinct from the front tire above, not a guess. Price/weight are samples.' },
+  { id:'hb-cotic-calver-780-25', cat:'handlebar', brand:'Cotic', model:'Calver', family:'cotic-calver', disciplines:['trail'],
+    price:60, weight:320, clamp:31.8, width:780, rise:25, material:'alu',
+    desc:'Stock handlebar across every Cotic Solaris build option (FETCHED cotic.co.uk build-option table, listed identically on all tiers: "Cotic Calver, 780mm x 25mm rise, 5° up, 9° back"). Alloy, 31.8mm clamp (standard MTB interface). Price/weight are samples (no standalone Cotic-branded handlebar product page found this session).' },
+  { id:'st-cotic-shorterstem-35', cat:'stem', brand:'Cotic', model:'Shorterstem', family:'cotic-shorterstem', disciplines:['trail'],
+    price:45, weight:150, clamp:31.8, length:35,
+    desc:'Stock stem across every Cotic Solaris build option (FETCHED cotic.co.uk build-option table, listed identically on all tiers: "Cotic Shorterstem, 35mm"). 31.8mm clamp (standard, matches the Calver handlebar above). Price/weight are samples.' },
+  { id:'gr-cotic-lockon', cat:'grips', brand:'Cotic', model:'Lockon', family:'cotic-lockon', disciplines:['trail'], price:15, weight:120,
+    desc:'Stock grips on the Cotic Solaris Bronze Deore build (FETCHED cotic.co.uk build-option table: "Cotic Lockon"). Grips carry no verdict-driving fields. Price/weight are samples.' },
+  { id:'dp-canecreek-al-316-150', cat:'dropper', brand:'Cane Creek', model:'AL', family:'canecreek-al-dropper', disciplines:['trail'],
+    price:150, weight:600, diameter:31.6, drop:150,
+    desc:'Stock dropper on the Cotic Solaris Bronze Deore build (FETCHED cotic.co.uk build-option table: "Cane Creek Alu, 31.6mm, 350mm"). Diameter 31.6mm is the page\'s exact figure, matching the frame\'s 31.6mm seatpost. The page\'s "350mm" figure reads as the assembled post\'s overall length (a common cromoly/alu-dropper spec-sheet convention), not the travel itself, which is not separately stated - drop entered as a representative 150mm (a common travel for this insertion-length class, kept safely under this catalog\'s >=200mm insertion-depth-info threshold rather than risking an unconfirmed high number). Flagged uncertain; price/weight are samples.' },
+  { id:'sa-wtb-rocket-cromoly', cat:'saddle', brand:'WTB', model:'Rocket (Cromoly, Medium)', family:'wtb-rocket', price:95.95, weight:331,
+    desc:'Stock saddle on the Cotic Solaris Bronze Deore build (FETCHED cotic.co.uk build-option table: "WTB Rocket Cromoly"). Cromoly-railed sibling of this catalog\'s existing Titanium-railed Rocket (sa-wtb-rocket-ti) - per the wtb.com spec table already cited on that row, the Cromoly rail option is 331g at $95.95, a distinct real SKU (heavier/cheaper rail material), not a guess.' },
+  { id:'bb-shimano-mt501-bsa73', cat:'bb', brand:'Shimano', model:'BB-MT501', family:'shimano-bb-mt501', mfgPn:'BB-MT501', price:20, weight:100, shell:'BSA73', spindle:'24mm',
+    desc:'The threaded-BSA bottom bracket for Shimano\'s 12-speed Deore/Zee-tier 24mm-spindle cranksets - this catalog\'s existing cr-shimano-zee-m640/m645 rows already cite "BB-MT501 threaded" as the recommended pairing part for the same 24mm Hollowtech-class spindle family, per their own FETCHED Shimano Spec Handbook sourcing (not independently re-fetched this session for this row, so left unverified: no source/verified fields set). BSA73 / 24mm spindle. Stock BB on the Cotic Solaris Bronze Deore build (cotic.co.uk build-option table: "Shimano MT501 Deore").' },
+  { id:'cb-cotic-solaris-bronze-deore', cat:'completebike', brand:'Cotic', model:'Solaris Bronze Deore', family:'cotic-solaris', gen:'2025',
+    modelYear:2025, disciplines:['trail'], price:3749,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.cotic.co.uk/product/solaris',
+    fills:{
+      frame:'fr-cotic-solaris', fork:'fk-rockshox-revelation-rc-29-130',
+      frontWheel:'fw-halo-ridgelineii-29', rearWheel:'rw-halo-ridgelineii-29-ms',
+      frontTire:'ti-schwalbe-nobbynic-29-24-supertrail-soft', rearTire:'ti-schwalbe-nobbynic-29-24-superground-speed',
+      shifter:'sft-shimano-deore-m6100', derailleur:'dr-shimano-deore-m6100-sgs', cassette:'ca-shimano-deore-m6100-1051',
+      chain:'ch-shimano-deore-m6100', crankset:'cr-shimano-deore-m6120', bb:'bb-shimano-mt501-bsa73', headset:'hs-canecreek-40-zs44-ec44',
+      frontBrake:'bk-shimano-slx-m7120', rearBrake:'bk-shimano-slx-m7120',
+      frontRotor:'ro-shimano-smrt66-180-6b', rearRotor:'ro-shimano-smrt66-180-6b',
+      handlebar:'hb-cotic-calver-780-25', stem:'st-cotic-shorterstem-35', grips:'gr-cotic-lockon',
+      dropper:'dp-canecreek-al-316-150', saddle:'sa-wtb-rocket-cromoly'
+    },
+    desc:'FETCHED cotic.co.uk/product/solaris build-option order table: "Bronze Deore - 130mm Revelation RC - Halo RidgelineII wheels", GBP2,899 list. price $3,749 is a sample USD conversion (~1.293 GBP:USD, matching the ratio already used on this catalog\'s existing fr-cotic-solaris frame row\'s own GBP1,199 -> $1,550 conversion). This is the CHEAPEST off-the-peg complete build on the Solaris hardtail platform; the frame (fr-cotic-solaris) ALREADY existed in this catalog with sourced minRotorR/maxRotorR:180 PM7 data (rule 10b) - zero new frame work needed. 10 new OE rows entered alongside this one (fork, both wheels, both tires, bar/stem/grips, dropper, saddle, BB - see each row\'s own desc); the Deore drivetrain + Cane Creek 40 ZS44/EC44 headset + SLX brakes/rotors were already fully cataloged, several from this exact frame\'s own prior verification. Headset reused exactly: the frame\'s own headTubeUpper/Lower (ZS44/28.6 | EC44/40) match the catalog\'s existing hs-canecreek-40-zs44-ec44 row even though the build sheet just names a generic "Cane Creek 40 Series ZS44/EC44" line - Cotic ships one 40-series ZS44/EC44 headset across every build tier. Pedals omitted (not stock). Rear rotor 180mm sits EXACTLY at the frame\'s PM7 180mm-only rear mount (rule 10b) - a clean, non-coincidental match (Cotic specs its OE brakes to the frame\'s own native mount). Component (a-la-carte) sum of the fills is ~$3,785 at current catalog prices, so the modest "buy complete" savings the dual-price block shows is real, not just a passed lint.' },
+
+  /* --- Whyte T-140 RS complete bike: a new alloy full-suspension trail frame
+     (shared by the whole T-140 range) plus 13 new OE rows, all FETCHED off
+     whytebikes.com's own product page for this exact build (which prints an
+     unusually complete factory spec sheet, model-by-model, down to shock
+     eye-to-eye/stroke and rotor sizes). The cheaper T-140 S build was
+     evaluated and DELIBERATELY SKIPPED - see the cluster-header comment
+     above (its shock size is not maker-stated on the fetched page, and this
+     catalog will not guess a rule-17 verdict-driving field). Whyte's G-170
+     enduro platform was also evaluated and skipped (discontinued - see
+     cluster header). --- */
+  { id:'fr-whyte-t140', cat:'frame', material:'alu', brand:'Whyte', model:'T-140', family:'whyte-t140', modelYear:2024, disciplines:['trail'],
+    price:3869, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:30.9, brakeMount:'PM',
+    maxRotorR:200, suspension:'full', shockEye:210, shockStroke:50, shockMount:'std', travel:135,
+    designForkTravel:140, maxForkTravel:150, udh:false, bundledShock:null, frameOnly:false,
+    lastChecked:'2026-07-15', source:'https://whytebikes.com/products/t-140-rs-trail-mountain-bike',
+    desc:'FETCHED whytebikes.com T-140 S + T-140 RS product pages directly (both share ONE alloy frame platform across build tiers, per Whyte\'s own site structure). Frame: "6061 Alloy, SCR Aluminium Front Triangle with Tapered Head Tube... alloy symmetrical SCR rear triangle... Shape.it Link and 148mm Boost dropouts" -> rearAxle Boost148 exact. "29-inch (convertible to mixed-wheel setup: 29er front/27.5in rear)" -> wheelConfigs [29, mullet]. "BSA, cartridge bearings, 73mm" -> bb BSA73 exact. Both builds ship a 30.9mm Whyte Drop.It dropper post (both pages state 30.9mm explicitly) -> seatTube 30.9. "Brake Mounts: Post-mount (disc)" -> brakeMount PM exact (T-140 RS page). Shock (RS build, EXACT page quote): "Fox DPS Performance Elite Evol LV, 210 x 50mm" -> shockEye 210 / shockStroke 50 / shockMount std (page does not say trunnion). designForkTravel 140 = both builds\' stated stock fork travel ("140mm Travel" on both pages). travel (rear) 135mm per the T-140 S page ("135mm rear travel"). headset: "FSA No. 57 Orbit ZS, ACB, 1 1/2in lower and 1 1/8in upper sealed cartridge bearings" confirms a TAPERED steerer fit; exact S.H.I.S. bore codes are NOT entered (headTubeUpper/Lower left unset) since the page prints no ZS/EC code names, avoiding an invented mapping. maxRotorR (200) and maxForkTravel (150) are UNCONFIRMED SAMPLES: neither page states a rear-rotor ceiling or a beyond-stock max fork travel; both builds ship exactly 180mm rear rotors and 140mm forks, so these sample ceilings sit safely above the real stock config. udh:false is a CONSERVATIVE, UNCONFIRMED default (neither page states UDH either way; both cataloged OE builds run non-Transmission derailleurs, so this default cannot affect either bike\'s verdict). price/frameOnly: Whyte does not sell the T-140 frame separately (complete-bike-only, same convention as fr-canyon-spectral-cf) - price is a sample USD conversion of the RS build\'s GBP2,999 list price (~1.29 GBP:USD).' },
+  { id:'fk-fox-34-performance-elite-29-140', cat:'fork', brand:'Fox', model:'34 Performance Elite 140', family:'fox-34', disciplines:['trail'],
+    price:949, weight:1850, wheel:'29', travel:140, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:230, minRotorF:180,
+    desc:'Stock fork on the Whyte T-140 RS (FETCHED whytebikes.com product page: "Fox Float 34 Performance Elite 29\\", 140mm Travel, 44mm Offset, Tapered Steerer, 110mm x 15mm Boost E-Thru Axle" - wheel/travel/axle/steerer all exact page match). Performance Elite is the black-anodized-stanchion tier of the same 34mm chassis already cataloged as fk-fox-34-factory-29-140 (Kashima); rotor range (230mm max / 180mm min) reused from that chassis-level sibling (tech.ridefox.com\'s engineering spec sheet states the rotor range is a chassis, not damper-tier, spec). Price/weight are samples (no standalone Performance Elite 140 product page independently fetched this session; positioned below the verified Factory tier\'s $1,099).' },
+  { id:'sh-fox-dps-performance-elite-evol-lv-210x50', cat:'shock', brand:'Fox', model:'DPS Performance Elite Evol LV (210x50 std)', family:'fox-dps', disciplines:['trail'],
+    price:399, weight:400, eye:210, stroke:50, mount:'std', spring:'air',
+    desc:'Stock shock on the Whyte T-140 RS, custom-tuned for Whyte (FETCHED whytebikes.com product page: "Fox DPS Performance Elite Evol LV, 210 x 50mm, custom-tuned for Whyte"). Eye-to-eye/stroke (210x50) and standard (non-trunnion) mount are the page\'s exact stated figures. Price/weight are samples matching this catalog\'s other Fox DPS Performance-tier 210x50 std shocks.' },
+  { id:'bk-sram-guide-g2-r', cat:'brake', brand:'SRAM', model:'Guide G2 R', family:'sram-guide-g2', price:105, weight:260, mount:'PM', pistons:4,
+    desc:'Stock brake on the Whyte T-140 RS (FETCHED whytebikes.com product page: "SRAM Guide G2 R, 4-piston hydraulic disc"; "Rotor sizes: 180mm front and rear" -> paired here with this catalog\'s existing ro-sram-centerline-180-6b rotor). mount PM per this catalog\'s existing SRAM post-mount brake convention (Guide/G2/Code family are all post-mount calipers). Price/weight are samples (SRAM does not publish brake weights, same convention as every other SRAM brake row in this catalog).' },
+  { id:'fw-raceface-ar30-29', cat:'frontwheel', brand:'Race Face', model:'AR-30 29 Front (Boost)', family:'raceface-ar30', disciplines:['trail'],
+    price:200, weight:900, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Stock front wheel on the Whyte T-140 RS (FETCHED whytebikes.com product page: "RaceFace AR-30, 30mm wide, tubeless ready, 32-hole... Hubs: Alloy with double sealed cartridge bearings... 15mm x 110mm front Boost thru-axles"). Rotor mount not stated on the page; 6-bolt entered as the near-universal AR-30-rim OE hub standard. Price/weight are samples (no standalone Whyte-spec AR-30 wheel product page found).' },
+  { id:'rw-raceface-ar30-29-xd', cat:'rearwheel', brand:'Race Face', model:'AR-30 29 Rear (XD, Boost)', family:'raceface-ar30', disciplines:['trail'],
+    price:220, weight:1050, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Rear half of the stock AR-30 wheelset on the Whyte T-140 RS (FETCHED whytebikes.com product page, same spec table as the front wheel above). freehub XD per the same page\'s drivetrain line ("SRAM XG-1275 Eagle, 10-52, 12 Speed" cassette, XD-only). Rotor-mount/price/weight basis same as the front wheel - sample, not independently fetched.' },
+  { id:'ti-maxxis-minion-dhf-29-25-mt', cat:'tire', brand:'Maxxis', model:'Minion DHF 29x2.5 WT 3C MaxxTerra', family:'maxxis-minion-dhf', disciplines:['trail'],
+    price:75, weight:1100, wheel:'29', width:2.5, compound:'3c-maxxterra',
+    desc:'Stock front tire on the Whyte T-140 RS (FETCHED whytebikes.com product page: "Maxxis Minion DHF 29\\" x 2.5\\" WT, 60TPI, 3C Maxx Terra"). "WT" (Wide Trail) is Maxxis\'s rim-width-optimization label, not a reinforcement-casing tier - the page does not name an EXO/EXO+/DoubleDown casing, so casing is left unset here rather than guessed (a distinct SKU from this catalog\'s existing EXO+ MaxxGrip DHF 29x2.5 row). Price/weight are samples.' },
+  { id:'ti-maxxis-dissector-29-24-mt', cat:'tire', brand:'Maxxis', model:'Dissector 29x2.4 WT 3C MaxxTerra', family:'maxxis-dissector', disciplines:['trail'],
+    price:70, weight:950, wheel:'29', width:2.4, compound:'3c-maxxterra',
+    desc:'Stock rear tire on the Whyte T-140 RS (FETCHED whytebikes.com product page: "Maxxis Dissector 29\\" x 2.4\\" WT, 120TPI, 3C Maxx Terra"). Same WT/no-stated-casing basis as the front tire above - casing left unset rather than guessed; distinct from this catalog\'s existing EXO+ MaxxTerra Dissector row. Price/weight are samples.' },
+  { id:'hb-whyte-6061-780-25', cat:'handlebar', brand:'Whyte', model:'6061 Alloy', family:'whyte-6061-cockpit', disciplines:['trail'],
+    price:50, weight:320, clamp:31.8, width:780, rise:25, material:'alu',
+    desc:'Stock handlebar on the Whyte T-140 RS (FETCHED whytebikes.com product page: "Whyte 6061 alloy, 31.8mm clamp, 780mm wide, 20-30mm rise" - rise varies by frame size, 25mm entered as the representative mid-point). Price/weight are samples (no standalone Whyte-branded handlebar product page found this session).' },
+  { id:'st-whyte-gravity-35', cat:'stem', brand:'Whyte', model:'Gravity', family:'whyte-gravity-stem', disciplines:['trail'],
+    price:40, weight:160, clamp:31.8, length:35,
+    desc:'Stock stem on the Whyte T-140 RS (FETCHED whytebikes.com product page: "Whyte Gravity Stem, 35mm extension"). Clamp 31.8mm assumed matching the 6061 Alloy handlebar above (the page does not separately state the stem\'s own clamp bore, but the paired bar is unambiguously 31.8mm). Price/weight are samples.' },
+  { id:'gr-whyte-enduro-lockon', cat:'grips', brand:'Whyte', model:'Enduro Lock-on', family:'whyte-enduro-grips', disciplines:['trail'], price:15, weight:120,
+    desc:'Stock grips on the Whyte T-140 RS (FETCHED whytebikes.com product page: "Whyte lock-on enduro grip"). Grips carry no verdict-driving fields. Price/weight are samples.' },
+  { id:'dp-whyte-dropit-ii-309-150', cat:'dropper', brand:'Whyte', model:'Drop.It Post II Adjust', family:'whyte-dropit-ii', disciplines:['trail'],
+    price:150, weight:600, diameter:30.9, drop:150,
+    desc:'Stock dropper on the Whyte T-140 RS, size-dependent (FETCHED whytebikes.com product page: "Whyte Drop.It II, 30.9mm, 120-200mm travel depending on size"). 150mm entered as a representative mid-size travel figure (the exact per-size travel is not modeled - matches this catalog\'s existing per-bike representative-dropper-size convention). Diameter 30.9mm is the page\'s exact stated figure, matching the frame\'s 30.9mm seat tube. Price/weight are samples.' },
+  { id:'sa-whyte-custom-dual-density', cat:'saddle', brand:'Whyte', model:'Custom Dual Density', family:'whyte-custom-saddle', disciplines:['trail'], price:35, weight:280,
+    desc:'Stock saddle on the Whyte T-140 RS (FETCHED whytebikes.com product page: "Whyte Custom, dual density, triple panel design"). Saddle carries no verdict-driving fields. Price/weight are samples.' },
+  { id:'cb-whyte-t140-rs', cat:'completebike', brand:'Whyte', model:'T-140 RS', family:'whyte-t140', gen:'2024',
+    modelYear:2024, disciplines:['trail'], price:3869,
+    verified:true, lastChecked:'2026-07-15', source:'https://whytebikes.com/products/t-140-rs-trail-mountain-bike',
+    fills:{
+      frame:'fr-whyte-t140', fork:'fk-fox-34-performance-elite-29-140', shock:'sh-fox-dps-performance-elite-evol-lv-210x50',
+      frontWheel:'fw-raceface-ar30-29', rearWheel:'rw-raceface-ar30-29-xd',
+      frontTire:'ti-maxxis-minion-dhf-29-25-mt', rearTire:'ti-maxxis-dissector-29-24-mt',
+      shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275',
+      chain:'ch-sram-gx-eagle', crankset:'cr-sram-gx-eagle', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-sram-guide-g2-r', rearBrake:'bk-sram-guide-g2-r',
+      frontRotor:'ro-sram-centerline-180-6b', rearRotor:'ro-sram-centerline-180-6b',
+      handlebar:'hb-whyte-6061-780-25', stem:'st-whyte-gravity-35', grips:'gr-whyte-enduro-lockon',
+      dropper:'dp-whyte-dropit-ii-309-150', saddle:'sa-whyte-custom-dual-density'
+    },
+    desc:'FETCHED whytebikes.com/products/t-140-rs-trail-mountain-bike directly: full factory build sheet + GBP2,999.00 list price (the collections page shows a current GBP2,499 sale figure; GBP2,999 list used as the canonical MSRP per this catalog\'s price convention). price $3,869 is a sample USD conversion (~1.29 GBP:USD, matching the ratio used on the fr-cotic-solaris frame\'s own conversion). 13 new OE rows entered alongside this one (frame, fork, shock, brake, both wheels, both tires, bar/stem/grips, dropper, saddle - see each row\'s own desc for sourcing); the SRAM GX Eagle mechanical drivetrain (shifter/derailleur/cassette/chain/crankset) + matching DUB BSA73 BB + SRAM Centerline 180mm 6-bolt rotors were already fully cataloged at the exact spec\'d tier. Headset omitted (frame-integrated FSA No.57 Orbit ZS, no S.H.I.S. bore codes published on the fetched page). Pedals omitted (not stock). Component (a-la-carte) sum of the fills exceeds $3,869 at current catalog prices (fork+shock+wheelset+drivetrain alone exceed the whole-bike figure), so the "buy complete" savings the dual-price block shows is real.' },
 ];
 
 /** @type {Part[]} */
