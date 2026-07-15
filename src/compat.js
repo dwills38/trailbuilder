@@ -2391,6 +2391,7 @@ var PARTS_RAW = [
   { id:'rw-weareone-triad-29-ms', cat:'rearwheel', brand:'We Are One', model:'Triad rear (Micro Spline)', family:'weareone-triad', gen:'Convergence', disciplines:['enduro'], price:865, weight:1190, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:30, maxTire:2.6, source:'https://www.weareonecomposites.com/en-us/collections/all-carbon-wheels-and-rims', desc:'Micro Spline freehub sibling of rw-weareone-triad-29, successor to rw-weareone-union-29-ms; the FETCHED all-carbon-wheels-and-rims collection page confirms XD/Microspline/HG as shared freehub options across the whole current Convergence line (same generic-convention basis the old Union MS/HG rows already used). Weight/price mirror the XD sibling.' },
   { id:'rw-weareone-triad-29-hg', cat:'rearwheel', brand:'We Are One', model:'Triad rear (Shimano HG)', family:'weareone-triad', gen:'Convergence', disciplines:['enduro'], price:865, weight:1190, wheel:'29', hub:'Boost148', freehub:'HG', rotorMount:'sixbolt', intWidth:30, maxTire:2.6, source:'https://www.weareonecomposites.com/en-us/collections/all-carbon-wheels-and-rims', desc:'Shimano HG freehub sibling of rw-weareone-triad-29, successor to rw-weareone-union-29-hg (same collection-page sourcing as the Micro Spline sibling).' },
   { id:'rw-crankbrothers-synthesis-enduro-29', cat:'rearwheel', brand:'Crankbrothers', model:'Synthesis Enduro rear', family:'crankbrothers-synthesis-enduro', disciplines:['enduro'], price:850, weight:1087, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:29.5, maxTire:2.6, verified:true, lastChecked:'2026-07-14', source:'https://www.crankbrothers.com/products/synthesis-enduro-carbon-rear-wheel' },
+  { id:'rw-crankbrothers-synthesis-enduro-29-xd', cat:'rearwheel', brand:'Crankbrothers', model:'Synthesis Enduro rear (29, XD)', family:'crankbrothers-synthesis-enduro', disciplines:['enduro'], price:850, weight:1087, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:29.5, maxTire:2.6, verified:true, lastChecked:'2026-07-15', source:'https://www.crankbrothers.com/products/synthesis-enduro-carbon-rear-wheel', desc:'complete-bikes-grind-2 (2026-07-15): the XD-driver option of the 29in rear row above, needed for the Ari La Sal Peak Pro completebike (a stock full-29in build running a SRAM X0 Eagle Transmission - XD-only - cassette, unlike the existing 29in row\'s MicroSpline pairing). Same FETCHED crankbrothers.com/products/synthesis-enduro-carbon-rear-wheel page as both existing Synthesis Enduro rear rows confirms the page offers a driver choice (MicroSpline/XD/HG) at this same 148x12 Boost/6-bolt/29.5mm-internal spec, mirroring the already-cataloged 27.5in XD sibling (rw-crankbrothers-synthesis-enduro-275-xd) - only the freehub differs from the existing 29in MicroSpline row.' },
   { id:'rw-crankbrothers-synthesis-enduro-275-xd', cat:'rearwheel', brand:'Crankbrothers', model:'Synthesis Enduro rear (27.5, XD)', family:'crankbrothers-synthesis-enduro', disciplines:['enduro'], price:850, weight:1047, wheel:'275', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:29.5, maxTire:2.6, verified:true, lastChecked:'2026-07-15', source:'https://www.crankbrothers.com/products/synthesis-enduro-carbon-rear-wheel', desc:'complete-bikes-yt (2026-07-15): the 27.5in sibling of the 29in row above, for the YT Capra Core 4 MX (mullet) build. FETCHED crankbrothers.com/products/synthesis-enduro-carbon-rear-wheel: confirms a 27.5in size option on this same product page ($849.99, same as the 29in - Crankbrothers does not price by wheel size), 1047g (vs 1087g for 29in), 148x12 Boost, 6-bolt, 29.5mm internal width unchanged across sizes. freehub:XD (not MicroSpline, unlike the 29in sibling row) because the page offers both XD and MS driver options and this build runs a SRAM Transmission (XD-only) cassette - the XD option is the one that matches the stock drivetrain.' },
   { id:'rw-enve-am30-29', cat:'rearwheel', brand:'ENVE', model:'AM30 rear', family:'enve-am30', disciplines:['enduro'], price:770, weight:1000, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.6, minTire:2.3, desc:'rotor mount = stock hub config (page lists no mount spec); maxTire = sample guidance', verified:true, lastChecked:'2026-07-07', source:'https://www.enve.com/products/am30 minTire:2.3in added 2026-07-13 (evenness sweep) - fetched enve.com am30 page: Recommended Tire Size 2.3in - 2.6in.' },
   { id:'rw-zipp-3zero-moto-29', cat:'rearwheel', brand:'Zipp', model:'3ZERO MOTO rear', family:'zipp-3zero-moto', disciplines:['enduro'], price:1100, weight:1075, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.5, desc:'quality-audit 2026-07-09: see front wheel desc; 29in rear reported ~1050g (vs cataloged 1075g, close) - left unverified (no direct manufacturer fetch).' },
@@ -7823,7 +7824,317 @@ var PARTS_RAW = [
       handlebar:'hb-rockymountain-am-780', stem:'st-rockymountain-35am-40', grips:'gr-odi-elite-pro',
       dropper:'dp-raceface-aeffect-r-309-150', saddle:'sa-wtb-volt'
     },
-    desc:'UNVERIFIED sample build (bikes.com\'s Slayer product pages are JS-shell blocked, same documented blocker as the Altitude row above). Full build kit sourced from vitalmtb.com\'s "2024 Rocky Mountain Slayer C50 Shimano" spec-sheet page: "180mm rear / 180mm fork" (FOX FLOAT 38 Performance EVOL Grip damper + FOX DHX2 Performance Elite coil shock), Shimano SLX M7100 12-speed groupset, Race Face Aeffect Cinch 32T chainring, Shimano MT500 92mm press-fit BB, Shimano SLX Trail M7120 4-piston brakes, WTB ST i30 TCS 2.0 rims, Maxxis Assegai/Minion DHR II tires, Rocky Mountain AM cockpit, ODI Elite Pro grips, Race Face Aeffect R dropper, WTB Volt Race saddle. 5 new OE rows entered alongside this one (both wheels, RM AM bar+stem, dropper - see each row\'s own desc); the DHX2 coil shock, SLX M7100 drivetrain, SLX M7120 brakes, and cr-raceface-aeffect-r crank were already cataloged (the sourced page names the crank "Race Face Aeffect Cinch"; the closest cataloged Race Face Aeffect-family crank, cr-raceface-aeffect-r, is entered as the same 24mm-spindle interface part - flagged, not independently re-confirmed as the exact Cinch variant). Tire casing/compound (DoubleDown, 3C MaxxGrip front / MaxxTerra rear) matches the sourced page\'s stated compounds; width rounded to the cataloged 2.4in DHR II SKU (page states 2.4in explicitly for the rear, matching exactly). Price = the bikes.com current-year Slayer C50 list price ($6,299, matches the sourced page); build-kit sourcing is model-year 2024, so component spec may have since changed on running updates - flagged. Component sum of the fills is roughly $7,300 at current catalog prices, a plausible complete-bike discount.' }
+    desc:'UNVERIFIED sample build (bikes.com\'s Slayer product pages are JS-shell blocked, same documented blocker as the Altitude row above). Full build kit sourced from vitalmtb.com\'s "2024 Rocky Mountain Slayer C50 Shimano" spec-sheet page: "180mm rear / 180mm fork" (FOX FLOAT 38 Performance EVOL Grip damper + FOX DHX2 Performance Elite coil shock), Shimano SLX M7100 12-speed groupset, Race Face Aeffect Cinch 32T chainring, Shimano MT500 92mm press-fit BB, Shimano SLX Trail M7120 4-piston brakes, WTB ST i30 TCS 2.0 rims, Maxxis Assegai/Minion DHR II tires, Rocky Mountain AM cockpit, ODI Elite Pro grips, Race Face Aeffect R dropper, WTB Volt Race saddle. 5 new OE rows entered alongside this one (both wheels, RM AM bar+stem, dropper - see each row\'s own desc); the DHX2 coil shock, SLX M7100 drivetrain, SLX M7120 brakes, and cr-raceface-aeffect-r crank were already cataloged (the sourced page names the crank "Race Face Aeffect Cinch"; the closest cataloged Race Face Aeffect-family crank, cr-raceface-aeffect-r, is entered as the same 24mm-spindle interface part - flagged, not independently re-confirmed as the exact Cinch variant). Tire casing/compound (DoubleDown, 3C MaxxGrip front / MaxxTerra rear) matches the sourced page\'s stated compounds; width rounded to the cataloged 2.4in DHR II SKU (page states 2.4in explicitly for the rear, matching exactly). Price = the bikes.com current-year Slayer C50 list price ($6,299, matches the sourced page); build-kit sourcing is model-year 2024, so component spec may have since changed on running updates - flagged. Component sum of the fills is roughly $7,300 at current catalog prices, a plausible complete-bike discount.' },
+
+  /* ---- Complete Bikes grind 2 (catalog/complete-bikes-grind-2-ghost-rose-
+     fezzari, 2026-07-15): Ghost, Rose, Fezzari/Ari cluster. Ghost sells
+     no US-market storefront (ghost-bikes.com is EU-only, EUR pricing;
+     REI's "Ghost brand exclusive to US customers" listings found by search
+     are all discontinued 2015-2018 model years, not this bike) - FETCHED
+     directly from ghost-bikes.com/en-int/products/riot-am-cf-pro-grdu1
+     (the maker's own current EU product page) for the real build sheet +
+     EUR price, same EUR-sample-conversion basis already used catalog-wide
+     for Continental/Canyon-EU/Nicolai-style EU-only pricing (~1.08 USD/EUR).
+     The CURRENT-GENERATION frame page itself does not publish rear axle
+     spacing, BB shell, headset bore codes, brake mount, or max rotor size
+     (confirmed absent on two separate fetches of the product page) - these
+     verdict-driving frame fields are entered as documented, cross-generation
+     samples (Boost148 / BSA73 threaded / tapered ZS44/ZS56 / PM / 200mm),
+     corroborated via a fetched Vital MTB frame-spec page for the prior-
+     generation Riot AM Universal (same "Riot AM" platform family; those
+     values - 148x12 Boost, BSA threaded, ACROS tapered headset, SRAM UDH -
+     have held across every Riot AM generation found in this session's
+     searches) and by the fact this build's SRAM Eagle 90 T-Type Transmission
+     drivetrain requires a UDH frame by design (udh:true, matching the
+     documented Transmission-needs-UDH rule elsewhere in this catalog) -
+     NOT independently confirmed on the current CF frame's own page, so the
+     frame row stays UNVERIFIED sample despite the completebike row itself
+     being verified against its own fetched build sheet + price (the same
+     provenance split already used on the Forbidden/Canyon/YT completebike
+     rows, where new OE rows carry their own, sometimes-lower, provenance
+     tier). */
+  { id:'fr-ghost-riot-am-cf', cat:'frame', material:'carbon', brand:'Ghost', model:'Riot AM CF', family:'ghost-riot-am', disciplines:['enduro'],
+    price:3200, weight:2950, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', headTubeUpper:'ZS44/28.6', headTubeLower:'ZS56/40',
+    bb:'BSA73', seatTube:34.9, brakeMount:'PM', maxRotorR:200, suspension:'full', shockEye:185, shockStroke:55, shockMount:'trunnion',
+    designForkTravel:160, maxForkTravel:160, travel:140, udh:true, bundledShock:null, frameOnly:false,
+    desc:'The "HIGH Carbon Uni" Riot AM CF frame that the Riot AM CF PRO ships (FETCHED ghost-bikes.com/en-int/products/riot-am-cf-pro-grdu1: "FOX Factory FLOAT X2 Performance, 2pos-Adj, 185x55mm, Trunnion" shock size EXACT match; "160 mm" fork / "140 mm" rear travel confirmed verbatim). rearAxle/bb/headset/brakeMount/maxRotorR are NOT stated on the current-gen product page (confirmed absent on two fetches) - entered as documented cross-generation samples per the fetched vitalmtb.com Riot AM Universal frame-spec guide ("148x12mm Boost" rear axle, "BSA threaded" BB, "ACROS BlockLock AZX-582" tapered headset, "SRAM UDH") corroborated across every Riot AM model-year this session found (2021/2022 alike) - the same core alloy/carbon chassis family has kept these fitments across generations. udh:true is additionally load-bearing here: this build\'s SRAM Eagle 90 T-Type Transmission derailleur is UDH-only by SRAM\'s own documentation (the rule already modeled catalog-wide), so a non-UDH frame could not run the stock drivetrain. seatTube 34.9 matches the stock XLC dropper\'s clamp diameter exactly (maker-stated on the dropper spec line). price/weight = samples (no frameset-only SKU found; Ghost sells complete bikes only for this platform). Left UNVERIFIED pending a fetchable current-gen tech/geometry page for the frame-only interface facts.' },
+  { id:'fk-fox-38-performance-29-160', cat:'fork', brand:'Fox', model:'38 Performance 160', family:'fox-38', disciplines:['enduro'],
+    price:989, wheel:'29', travel:160, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:230, minRotorF:180,
+    desc:'160mm point of the same base "38 Performance" (GRIP damper, non-Factory/non-Performance-Elite) OE-only tier already cataloged at 170mm (fk-fox-38-performance-29-170) - Fox sells no current standalone retail page for this exact tier (ridefox.com/collections/fox-38 lists only Factory/Performance Elite/eMTB), so interfaces/price mirror the verified 170mm sibling\'s Vital MTB-sourced 38-chassis figures exactly (15x110 Boost, tapered steerer, 180mm native/230mm max PM rotor) - only travel differs, matching the fetched ghost-bikes.com Riot AM CF PRO spec line "FOX Factory 38 FLOAT Performance - GRIP, 3Pos, 160 mm, QR". Weight left unstored (no reliable figure for this OE-only tier), consistent with the 170mm sibling. Left unverified.' },
+  { id:'sh-fox-float-x2-performance-185x55-trun', cat:'shock', brand:'Fox', model:'Float X2 Performance (185x55 trunnion)', family:'fox-float-x2', disciplines:['enduro'],
+    price:520, eye:185, stroke:55, mount:'trunnion', spring:'air',
+    desc:'185x55 trunnion point of the Float X2 Performance (2-position adjust, non-Factory-Kashima) tier - the stock shock on the Riot AM CF PRO (FETCHED ghost-bikes.com spec line verbatim: "FOX Factory FLOAT X2 Performance, 2pos-Adj, 185x55mm, Trunnion", matching this frame\'s own shockEye/shockStroke/shockMount exactly). Same X2 family/mount as the in-catalog Factory-tier 185x55-trun sibling (sh-fox-float-x2-factory-185x55-trun) - eye/stroke/mount interfaces are shared across the Performance/Factory tiers (only damper tune + finish differ), so this row reuses that sibling\'s dimensions with a Performance-tier price sample; no separate Performance-tier weight published. Left unverified.' },
+  { id:'fw-xlc-wrm39-29', cat:'frontwheel', brand:'XLC', model:'WR-M39 Disc 29 Front', family:'xlc-wrm39', disciplines:['enduro'],
+    price:95, weight:950, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Stock front wheel on the Riot AM CF PRO (FETCHED ghost-bikes.com spec line: "XLC WR-M39 Disc 30/622 32H" - 30mm internal width, 622=29in ISO, 32-hole). XLC is a house/OEM parts brand with no standalone retail page found for this exact wheel SKU; hub rotor-mount interface is entered as 6-bolt (IS 6-bolt is the near-universal XLC OEM-wheel convention per the XLC parts catalog, and matches the stock SRAM Centerline 6-bolt rotors on this same build, avoiding a fabricated mismatch) rather than confirmed on a fetched page - flagged for follow-up. Boost110 front axle is the standard pairing for a 2026 Boost-only enduro platform. Price/weight are documented samples for a typical 30mm-internal alloy OEM front wheel. Left unverified.' },
+  { id:'rw-xlc-wrm39-29-xd', cat:'rearwheel', brand:'XLC', model:'WR-M39 Disc 29 Rear (XD)', family:'xlc-wrm39', disciplines:['enduro'],
+    price:110, weight:1080, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Rear half of the stock WR-M39 wheelset (FETCHED ghost-bikes.com spec line, same as the front wheel). freehub:XD per this build\'s real SRAM XS-1275 Eagle Transmission cassette (an XD-driver-only part already cataloged) - the fills match. Boost148 rear axle (standard pairing for this platform, matching the frame\'s rearAxle). rotorMount/price/weight basis same as the front wheel (documented sample, unverified) - see its desc.' },
+  { id:'rw-xlc-wrm39-29-ms', cat:'rearwheel', brand:'XLC', model:'WR-M39 Disc 29 Rear (Micro Spline)', family:'xlc-wrm39', disciplines:['trail'],
+    price:110, weight:1080, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Micro Spline-driver sibling of rw-xlc-wrm39-29-xd (same physical WR-M39 rim/hub family, sold with the freehub matching whichever cassette the build ships) - the stock rear wheel on the Riot Trail CF, which runs a Shimano Deore CS-M6100 cassette (Micro Spline-only). Same rotorMount/price/weight basis as its XD sibling (documented sample, unverified) - see that row\'s desc.' },
+  { id:'hb-xlc-riser-m34-35', cat:'handlebar', brand:'XLC', model:'Riser Bar HB-M34', family:'xlc-cockpit', disciplines:['enduro'],
+    price:35, weight:310, clamp:35, width:780, rise:20, material:'alu',
+    desc:'Stock handlebar on the Riot AM CF PRO (FETCHED ghost-bikes.com spec line verbatim: "XLC Riser Bar HB-M34, Dia. 35 mm, Rise: 20 mm, backsweep 9°"). No standalone XLC retail page pinned for this exact SKU (house/OEM part) - width is a documented sample for a typical 35mm-clamp aluminum enduro riser bar (the maker page states clamp/rise but not width); price/weight are samples in the same class. Left unverified.' },
+  { id:'st-xlc-proride-35', cat:'stem', brand:'XLC', model:'Pro Ride Stem', family:'xlc-cockpit', disciplines:['enduro'],
+    price:30, weight:160, clamp:35, length:45,
+    desc:'Stock stem on the Riot AM CF PRO - the maker\'s own product page lists no stem brand/model/length (confirmed absent on two fetches of ghost-bikes.com/en-int/products/riot-am-cf-pro-grdu1), only the matching-clamp XLC handlebar and grips. Modeled as a documented sample XLC house-brand 35mm-clamp alloy stem (matching the bar\'s clamp exactly, the only interface fact that matters for fit) at a typical 45mm enduro length - no maker figure found for length/price/weight. Left unverified; flagged for a future re-check if Ghost publishes a fuller build sheet.' },
+  { id:'gr-xlc-grs34', cat:'grips', brand:'XLC', model:'GR-S34 Gravity Grip', family:'xlc-cockpit', disciplines:['enduro'],
+    price:15, weight:95,
+    desc:'Stock grips on the Riot AM CF PRO (FETCHED ghost-bikes.com spec line verbatim: "XLC GR-S34 Gravity Grip"). No standalone product page pinned (house/OEM part; grips carry no verdict-driving fields, so this never risks a false compatibility claim). Price/weight are documented samples for a typical lock-on trail/enduro grip. Left unverified.' },
+  { id:'dp-xlc-spt21-349-150', cat:'dropper', brand:'XLC', model:'Dropperpost SP-T21', family:'xlc-dropper', disciplines:['enduro'],
+    price:145, weight:590, diameter:34.9, drop:150,
+    desc:'Stock dropper on the Riot AM CF PRO (FETCHED ghost-bikes.com spec line verbatim: "XLC Dropperpost Dropper SP-T21, Dia. 34.9 mm, Travel: 150 mm 456 mm" - 456mm total length). No standalone XLC retail page pinned for this exact SKU (house/OEM part) - price/weight are documented samples for a typical 34.9mm/150mm cable-actuated dropper in this class. Left unverified.' },
+  { id:'sa-prologo-proxim-w450', cat:'saddle', brand:'Prologo', model:'Proxim W450 Performance', family:'prologo-proxim', disciplines:['enduro'],
+    price:70, weight:250,
+    desc:'Stock saddle on the Riot AM CF PRO (FETCHED ghost-bikes.com spec line verbatim: "Prologo MTB Proxim W450 Performance 145 mm"). Saddle carries no verdict-driving fields, so this never risks a false compatibility claim. Price/weight are documented samples for a typical 145mm-width performance trail/enduro saddle (no standalone prologo.com page pinned for this exact "W450" variant). Left unverified.' },
+  { id:'cb-ghost-riot-am-cf-pro', cat:'completebike', brand:'Ghost', model:'Riot AM CF Pro', family:'ghost-riot-am', gen:'CF',
+    modelYear:2026, disciplines:['enduro'], price:5939,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.ghost-bikes.com/en-int/products/riot-am-cf-pro-grdu1',
+    fills:{
+      frame:'fr-ghost-riot-am-cf', fork:'fk-fox-38-performance-29-160', shock:'sh-fox-float-x2-performance-185x55-trun',
+      frontWheel:'fw-xlc-wrm39-29', rearWheel:'rw-xlc-wrm39-29-xd',
+      frontTire:'ti-continental-kryptotal-fr-29-24-enduro-soft', rearTire:'ti-continental-kryptotal-fr-29-24-enduro-soft',
+      shifter:'sft-sram-eagle90-transmission', derailleur:'dr-sram-eagle90-transmission', cassette:'ca-sram-xs1275',
+      chain:'ch-sram-gx-flattop', crankset:'cr-sram-eagle90-transmission', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-sram-maven-bronze', rearBrake:'bk-sram-maven-bronze',
+      frontRotor:'ro-sram-centerline-200-6b', rearRotor:'ro-sram-centerline-200-6b',
+      handlebar:'hb-xlc-riser-m34-35', stem:'st-xlc-proride-35', grips:'gr-xlc-grs34',
+      dropper:'dp-xlc-spt21-349-150', saddle:'sa-prologo-proxim-w450'
+    },
+    desc:'FETCHED ghost-bikes.com/en-int/products/riot-am-cf-pro-grdu1: full factory build sheet + EUR 5,499 price. Ghost has no US-market storefront for this platform (confirmed: ghost-bikes.com is EU-only; REI\'s Ghost listings found by search are discontinued 2015-2018 models) so price is a sample USD conversion at ~1.08 USD/EUR ($5,939), the same EUR-sample-conversion convention already used catalog-wide (Continental tires, Canyon-EU frames, Nicolai). 10 new OE rows entered alongside this one (frame + fork + shock + both wheels + full XLC cockpit + Prologo saddle - see each row\'s own desc); every drivetrain part (SRAM Eagle 90 T-Type Transmission shifter/derailleur/crankset, the shared XS-1275 cassette, GX Flattop chain, DUB BSA73 BB) and the SRAM Maven Bronze brakes + CenterLine 200mm rotors were already cataloged at the exact spec\'d tier. Continental tire compound note: Ghost\'s spec line reads "Kryptotal-Fr Trail Soft" - Continental\'s real Kryptotal tier-coupling is Trail=Endurance / Enduro=Soft / DH=SuperSoft (documented catalog-wide), so a "Trail"-casing "Soft"-compound SKU does not exist; the real product matching the stated "Soft" compound is Kryptotal-Fr Enduro Soft (ti-continental-kryptotal-fr-29-24-enduro-soft, already cataloged), entered here as the honest correction rather than inventing a nonexistent casing/compound pairing. Pedals omitted (not stock); headset omitted (frame-integrated, no S.H.I.S. codes published). Component (a-la-carte) sum of the fills is well above the complete-bike price at current catalog prices, so the "buy complete" savings the dual-price block shows is real.' },
+
+  /* ---- Rose Root Miller 1 (2026-07-15, same grind-2 branch). Rose is a
+     German direct-to-consumer maker, also EUR-only (rosebikes.com; no US
+     storefront currency found) - FETCHED directly from rosebikes.com/p/
+     rose-root-miller-1-2713998 (current build sheet + EUR price) AND a
+     genuine ROSE-published "Root Miller Frame Details" PDF
+     (rosebikes.com/document/Root_Miller_2020_Frame_Details_V202012.pdf) for
+     the frame's own interface facts (BB, headset, rear axle, shock size,
+     brake mount/max rotor, seat tube, max tire, wheel size) - a real
+     manufacturer technical document, unlike the Ghost frame above. The PDF
+     is dated modelyear 2020; Rose's frame interfaces for a fixed model name
+     rarely change generation to generation (same convention already used
+     for other single-generation-PDF frames in this catalog), so the frame
+     row is entered as VERIFIED against it, with the modelyear flagged
+     honestly. The rear derailleur hanger is Rose's own proprietary "No. 37"
+     (NOT SRAM UDH) - correctly modeled udh:false, which is consequence-free
+     here since the stock drivetrain is cable-actuated SRAM NX Eagle (not
+     Transmission, which would need UDH). */
+  { id:'fr-rose-root-miller', cat:'frame', material:'alu', brand:'Rose', model:'Root Miller', family:'rose-root-miller', disciplines:['trail'],
+    price:1400, weight:3400, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', headTubeUpper:'ZS44/28.6', headTubeLower:'ZS56/40',
+    bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:205, shockStroke:60, shockMount:'trunnion',
+    designForkTravel:160, maxForkTravel:160, travel:150, udh:false, maxTire:2.6, bundledShock:null, frameOnly:false,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.rosebikes.com/document/Root_Miller_2020_Frame_Details_V202012.pdf?sf=1',
+    desc:'FETCHED the genuine ROSE Bikes GmbH "Root Miller Frame Details" PDF (modelyear 2020 edition - the newest such document found; Rose has not republished a newer Frame Details PDF for this platform name per this session\'s search) - "FRAME INTERFACES" table verbatim: "BOTTOM BRACKET: BSA 73 mm", "HEADSET: ZS 44 / 56", "REAR WHEEL AXLE: ... M12 x 1.75" + "REAR HUB SPACING: Boost 12 x 148 mm", "SHOCK LENGTH X STROKE: 205 x 60 mm" + "SHOCK HARDWARE: Trunnion Mount" (EXACT match to the stock Root Miller 1\'s "RockShox Deluxe Select+ RT, 205mm" spec line, confirming the stroke), "REAR BRAKE MOUNT: PM 180" + "MAX. Ø REAR BRAKE DISC: 203 mm", "Ø SEAT TUBE: 31.6 mm", "MAX. TIRE WIDTH: 2.6", "WHEEL SIZE: 29", "MAX. CHAINRING SIZE: 36 T" (consistent with the stock 32T NX Eagle ring). Rear derailleur hanger is Rose\'s own "No. 37" proprietary hanger (PDF: "derailleur hanger, Rose No. 37") - NOT SRAM UDH -> udh:false (harmless here: the stock drivetrain is cable-actuated SRAM NX Eagle, which needs no UDH). Rear travel (150mm) and fork travel (160mm) are not stated in this frame-only PDF - travel:150 is a documented sample consistent with general Root Miller marketing copy found by search ("150mm rear / Boost / 29in aluminium trail"); designForkTravel/maxForkTravel:160 matches the stock RockShox 35 Gold RL fork\'s own travel exactly (FETCHED rosebikes.com product page). price/weight = samples (Rose sells this platform as complete bikes only; no frameset SKU found).' },
+  { id:'fk-rockshox-35-gold-rl-29-160', cat:'fork', brand:'RockShox', model:'35 Gold RL', family:'rockshox-35-gold', disciplines:['trail'],
+    price:420, wheel:'29', travel:160, axle:'Boost110', steerer:'tapered', brakeMount:'PM', maxRotorF:220,
+    desc:'Stock fork on the Root Miller 1 (FETCHED rosebikes.com spec line verbatim: "Rock Shox 35 Gold RL 160mm, black matt 29\\" Boost, 160mm, 44mm Offset"). The 35 Gold RL is RockShox\'s entry-OE tier (DebonAir, Motion Control damper) - interfaces (15x110 Boost axle, tapered steerer, post mount, 220mm max rotor) per the sram.com service-models page for this fork family (fs-35g-rl-a2) cross-checked against multiple independent retailer spec listings; no native-minimum rotor figure confirmed on a manufacturer page, so minRotorF is left unset rather than guessed. Price is a documented sample (no stable standalone US MSRP found for this OE-tier fork). Left unverified.' },
+  { id:'fw-sunringle-duroc-sd37-comp-29', cat:'frontwheel', brand:'Sun Ringlé', model:'Düroc SD37 Comp 29 Front', family:'sunringle-duroc-sd37', disciplines:['trail'],
+    price:145, weight:940, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:32, maxTire:2.6,
+    desc:'Stock front wheel on the Root Miller 1 (FETCHED rosebikes.com spec line: "Sunringlé Düroc SD37 Comp, black 29\\" Boost"). Interfaces (15x110 Boost, 6-bolt, 32mm internal width) per multiple independent retailer spec listings for the Düroc SD37 wheel family (Hayes Bicycle, Modern Bike, Bikeman, Random Bike Parts all agreeing on this rim\'s dimensions and 6-bolt/Boost spec across its Comp/Expert/Pro tiers, which share rim+hub interfaces and differ only in hub internals/finish) - "Comp" is the entry tier of this exact family; weight is a documented sample carried over from the Expert-tier figure (no Comp-specific weight found), flagged. Price is a documented sample. Left unverified.' },
+  { id:'rw-sunringle-duroc-sd37-comp-29-xd', cat:'rearwheel', brand:'Sun Ringlé', model:'Düroc SD37 Comp 29 Rear (XD)', family:'sunringle-duroc-sd37', disciplines:['trail'],
+    price:160, weight:1108, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:32, maxTire:2.6,
+    desc:'Rear half of the stock Düroc SD37 Comp wheelset (FETCHED rosebikes.com spec line, same as the front wheel). freehub:XD per this build\'s real SRAM NX Eagle cassette (an XD-driver part) - the SD37 family is documented as sold with either Shimano MS or SRAM XD freehub bodies (multiple retailer listings), matching this fills choice. Boost148 rear axle (matches the frame\'s rearAxle exactly). rotorMount/intWidth/price/weight basis same as the front wheel (documented sample, unverified) - see its desc.' },
+  { id:'ca-sram-nx-eagle-1150', cat:'cassette', brand:'SRAM', model:'NX Eagle XG-1230', family:'sram-nx-eagle', mfgPn:'XG-1230', disciplines:['trail'],
+    price:120, weight:615, system:'sram-eagle', speeds:12, freehub:'XD', minCog:11, maxCog:50,
+    desc:'Stock cassette on the Root Miller 1 (FETCHED rosebikes.com spec line: "SRAM Eagle, 12-speed, black 11-50" - matches SRAM\'s standard NX Eagle-tier cassette, the XG-1230, an XD-driver 11-50T 12-speed cassette, SRAM\'s established Eagle-tier product; not independently re-fetched from sram.com this session, so left unverified per the entry-vs-verify distinction). Price/weight are documented samples in this cassette\'s established retail class.' },
+  { id:'hb-ethirteen-base-alu-35', cat:'handlebar', brand:'e*thirteen', model:'Base Alu Bar', family:'ethirteen-base-cockpit', disciplines:['trail'],
+    price:40, weight:300, clamp:35, width:780, material:'alu',
+    desc:'Stock handlebar on the Root Miller 1 (FETCHED rosebikes.com spec line verbatim: "E13 Base Alu 35mm, black 780mm"). e*thirteen\'s "Base" line is an OE-tier alloy cockpit range with no standalone consumer product page pinned for this exact bar - width/clamp are the real fetched build-sheet dimensions; price/weight are documented samples for a typical 35mm-clamp/780mm alloy trail bar. Left unverified.' },
+  { id:'ti-continental-kryptotal-re-29-24-trail-endurance', cat:'tire', brand:'Continental', model:'Kryptotal-Re 29x2.4 Trail Endurance', family:'continental-kryptotal-re', mfgPn:'0150638', disciplines:['trail'],
+    price:82.95, weight:1060, wheel:'29', width:2.4, casing:'trail', compound:'endurance',
+    verified:true, lastChecked:'2026-07-15', source:'https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf', sourceType:'manufacturer-doc',
+    desc:'Stock rear tire on the Root Miller 1 (FETCHED rosebikes.com spec line: "Continental Kryptotal-R Trail Endurance ... 29x2.4"). FETCHED continental-tires.com\'s own Tire Range PDF (via the same r.jina.ai text-extraction route already used catalog-wide for this JS-walled page) row verbatim: "0150638  60-622  29 x 2.40  foldable  1060" - fits the family\'s established Trail/Endurance numbering exactly alongside the sibling 0150636 (Enduro/Soft/2.6) and 0150640 (Trail/Endurance/2.6) rows already cataloged. The genuinely missing 2.4in point of the Trail/Endurance Kryptotal-Re line (only the 2.6in Trail/Endurance row existed before this entry).' },
+  { id:'sa-rose-selleitalia-edition', cat:'saddle', brand:'Rose', model:'Edition by Selle Italia', family:'rose-saddle-edition', disciplines:['trail'],
+    price:45, weight:260,
+    desc:'Stock saddle on the Root Miller 1 (FETCHED rosebikes.com spec line verbatim: "Rose Edition by Selle Italia, black"). A Rose house-branded saddle manufactured by Selle Italia with no standalone product page pinned. Saddle carries no verdict-driving fields, so this never risks a false compatibility claim. Price/weight are documented samples for a typical alloy-rail trail saddle. Left unverified.' },
+  { id:'cb-rose-root-miller-1', cat:'completebike', brand:'Rose', model:'Root Miller 1', family:'rose-root-miller', gen:'2026',
+    disciplines:['trail'], price:1511,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.rosebikes.com/p/rose-root-miller-1-2713998',
+    fills:{
+      frame:'fr-rose-root-miller', fork:'fk-rockshox-35-gold-rl-29-160', shock:'sh-rockshox-deluxe-selectplus-205x60-trun',
+      frontWheel:'fw-sunringle-duroc-sd37-comp-29', rearWheel:'rw-sunringle-duroc-sd37-comp-29-xd',
+      frontTire:'ti-continental-kryptotal-fr-29-24-trail-endurance', rearTire:'ti-continental-kryptotal-re-29-24-trail-endurance',
+      shifter:'sft-sram-nx-eagle', derailleur:'dr-sram-nx-eagle', cassette:'ca-sram-nx-eagle-1150',
+      chain:'ch-sram-sx-eagle', crankset:'cr-sram-nx-eagle', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-shimano-mt420', rearBrake:'bk-shimano-mt410',
+      frontRotor:'ro-shimano-smrt66-203-6b', rearRotor:'ro-shimano-smrt56-180-6b',
+      handlebar:'hb-ethirteen-base-alu-35', stem:'st-ethirteen-base-35', grips:'gr-ergon-ga2',
+      dropper:'dp-ethirteen-vario-infinite-316-150', saddle:'sa-rose-selleitalia-edition'
+    },
+    desc:'FETCHED rosebikes.com/p/rose-root-miller-1-2713998: full factory build sheet + EUR 1,399 price. Rose has no US-market storefront currency for this bike (EUR-only, confirmed - rosebikes.com quotes a flat EUR shipping surcharge to the US rather than a USD price), so price is a sample USD conversion at ~1.08 USD/EUR ($1,511), the same EUR-sample-conversion convention already used catalog-wide. 8 new OE rows entered alongside this one (frame + fork + both wheels + cassette + the e*thirteen Base handlebar + rear tire + saddle - see each row\'s own desc); the frame itself is independently VERIFIED against a genuine Rose-published Frame Details PDF (see fr-rose-root-miller). The stock front tire, brakes, chain, BB, grips, and stem were already cataloged at the exact spec\'d tier (Kryptotal-Fr 29x2.4 Trail Endurance, Shimano BR-MT410/420, SRAM SX Eagle chain, DUB BSA73 BB, Ergon GA2 grips, e*thirteen Base 35 stem - a genuine ethirteen.com-verified stem row already matching this build\'s 35mm clamp exactly). Rotor SKUs (SM-RT66/SM-RT56) match the stated 203mm/180mm sizes exactly but the specific Shimano rotor model is not stated on Rose\'s page - a reasonable brand-consistent match, flagged. Pedals omitted (not stock); headset omitted (frame-integrated, ZS44/56 per the frame\'s own sourced fields, no separate complete-headset SKU stated). Component (a-la-carte) sum of the fills is well above the complete-bike price at current catalog prices, so the "buy complete" savings the dual-price block shows is real.' },
+
+  /* ---- Fezzari / Ari La Sal Peak Comp (2026-07-15, grind-2 branch, third
+     maker). IMPORTANT BRAND-IDENTITY FINDING: fezzari.com now 301-redirects
+     to aribikes.com - Fezzari has rebranded to "Ari Bikes" (confirmed by
+     both the redirect and a direct fetch of the target page, which states
+     "The brand is Ari Bikes. There is no mention of Fezzari on this page.").
+     This row is entered under the current real brand name, Ari, per the
+     "catalog reflects reality" convention (like the frame-generation-chain
+     precedent) - flagged here for the coordinator/Douglas since the task
+     brief named "Fezzari."
+     SOURCING WALL: aribikes.com is a JS-heavy Shopify storefront whose
+     build-spec content (the "Build Specs"/"Spec Comparison" tables) does
+     NOT render in fetched HTML (confirmed on two separate fetch attempts of
+     aribikes.com/products/lasal - only placeholder anchor text and a price
+     table came through the Shopify .js variant endpoint, no component spec).
+     Current confirmed aribikes.com pricing (fetched .js variants):
+     La Sal Peak Comp $3,395 (compare $4,499), Elite $4,495, Pro $5,595,
+     Team XTR $8,399, Team XX $8,999, Frameset $2,699 - but NO matching
+     current-year component spec sheet was fetchable to pair with those
+     prices. Per the catalog\'s relaxed-inclusion policy (a real product may
+     enter as an honest unverified sample when the maker page is unfetchable
+     for specs), this bike is entered from a FETCHED vitalmtb.com spec-guide
+     page for "2025 Ari La Sal Peak Comp" (a credible secondary, used
+     self-consistently: both its build sheet AND its own quoted price
+     together, rather than mixing eras) - price $4,199 there does not match
+     the current aribikes.com Comp listing exactly (likely a different
+     model-year/sale snapshot), so this completebike row stays UNVERIFIED
+     (no verified:true) despite being a real, current-generation product
+     (this platform is the "La Sal Peak 2.0", still the current chassis per
+     aribikes.com). Flagged for a future re-check once a fetchable current
+     spec+price pairing is found (a web-unblocker would resolve this
+     cleanly - see the standing "notify missing tools" item). */
+  { id:'fr-ari-lasalpeak', cat:'frame', material:'carbon', brand:'Ari', model:'La Sal Peak', family:'ari-lasalpeak', disciplines:['enduro'],
+    price:2699, weight:2900, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', headTubeUpper:'ZS44/28.6', headTubeLower:'ZS56/40', bb:'BSA73', seatTube:31.6,
+    brakeMount:'PM', maxRotorR:200, suspension:'full', shockEye:230, shockStroke:65, shockMount:'std',
+    designForkTravel:170, maxForkTravel:170, travel:170, udh:true, bundledShock:null, frameOnly:false,
+    desc:'The carbon "CleanCast Carbon" La Sal Peak 2.0 platform (formerly sold as "Fezzari"; fezzari.com now redirects to aribikes.com - see the block comment above). wheelConfigs/travel/frame weight per a direct FETCH of aribikes.com/products/lasal (JS-rendered summary, but the maker\'s own page): "comes stock with 29er wheels" + "mullet capable... via GA link adjustment" -> wheelConfigs 29+mullet; "170mm/170mm of travel" -> travel:170/designForkTravel:170; "average frame weight of 2900 grams". rearAxle/bb/headset/seatTube/brakeMount/maxRotorR/shockEye/shockStroke/shockMount/udh are per two independently FETCHED vitalmtb.com spec-guide pages for this same platform ("2025 Ari La Sal Peak Comp" and "2025 Ari La Sal Peak Pro" - third-party, not the maker\'s own spec table, which is JS-walled) which AGREE on every frame fact: "148x12mm Boost" rear axle, "Shimano MT501, 73mm BSA" / "SRAM DUB Wide 73mm English/BSA" -> BSA73, "Cane Creek 40 Series" (the Pro page additionally states "ZS44/28.6 upper, ZS56/40 lower" -> headTubeUpper/Lower entered) -> tapered, "31.6mm" dropper/seatpost diameter -> seatTube 31.6, rear rotor max 200mm on both trims -> maxRotorR 200, "230mm length x 65mm stroke" shock on both trims -> a 230mm eye is a standard(non-trunnion)-ONLY eye size (the trunnion/std-eye law already established catalog-wide: 210/230/250 = std, 205/225 = trunnion), confirming shockMount:std without a separate maker statement, "SRAM Universal Derailleur Hanger" -> udh:true (both trims). frameOnly:false / price = the current aribikes.com Frameset listing ($2,699, independently fetched .js variant price - this figure IS current and maker-confirmed, unlike the rest of this row). Left UNVERIFIED overall (the Vital-sourced verdict-driving facts are not a fetched manufacturer page), though the cross-trim agreement raises confidence.' },
+  { id:'fw-wtb-frequency-i30-29', cat:'frontwheel', brand:'WTB', model:'Frequency i30 29 Front', family:'wtb-frequency-i30', disciplines:['enduro'],
+    price:120, weight:920, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Stock front wheel on the La Sal Peak Comp (FETCHED vitalmtb.com spec-guide page: "WTB Frequency hub (15mm x 110mm Boost), WTB i30 alloy rim (30mm width)"). WTB Frequency-series OEM hubs are 6-bolt (WTB sells no Center-Lock hub in this OEM tier per its catalog) - entered as 6-bolt rather than confirmed on a separate hub-specific page, matching the stock TRP EVO Pro 6-bolt-only caliper/rotor pairing on this same build (avoiding a fabricated mismatch). Price/weight are documented samples for a typical 30mm-internal alloy OEM front wheel. Left unverified.' },
+  { id:'rw-wtb-frequency-i30-29-ms', cat:'rearwheel', brand:'WTB', model:'Frequency i30 29 Rear (MicroSpline)', family:'wtb-frequency-i30', disciplines:['enduro'],
+    price:135, weight:1050, wheel:'29', hub:'Boost148', freehub:'MicroSpline', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Rear half of the stock Frequency i30 wheelset (FETCHED vitalmtb.com spec-guide page, same as the front wheel). freehub:MicroSpline per this build\'s real Shimano Deore CS-M6100 cassette (a MicroSpline-driver part, already cataloged) - the fills match. Boost148 rear axle (matches the frame\'s rearAxle). rotorMount/price/weight basis same as the front wheel (documented sample, unverified) - see its desc.' },
+  { id:'hb-ari-team-35', cat:'handlebar', brand:'Ari', model:'Team 35', family:'ari-cockpit', disciplines:['enduro'],
+    price:60, weight:320, clamp:35, width:790, material:'alu',
+    desc:'Stock handlebar on the La Sal Peak Comp (FETCHED vitalmtb.com spec-guide page verbatim: "Ari Team 35, 35mm clamp, 780/800mm width" - a size-dependent width, 790mm entered as the representative midpoint, matching the catalog\'s convention for other size-dependent cockpit dimensions). House-brand OE part with no standalone product page pinned - price/weight are documented samples for a typical 35mm-clamp alloy enduro bar. Left unverified.' },
+  { id:'st-ari-charger-35', cat:'stem', brand:'Ari', model:'Charger CNC', family:'ari-cockpit', disciplines:['enduro'],
+    price:45, weight:170, clamp:35, length:40,
+    desc:'Stock stem on the La Sal Peak Comp (FETCHED vitalmtb.com spec-guide page verbatim: "Ari Charger CNC alloy, 35mm clamp"). Length not stated on the fetched page - a typical 40mm enduro-length CNC alloy stem is entered as a documented sample (length is display-only, not verdict-driving). House-brand OE part with no standalone product page pinned - price/weight are documented samples. Left unverified.' },
+  { id:'dp-tranzx-jdysi05j-316-150', cat:'dropper', brand:'TranzX', model:'JD-YSI05J', family:'tranzx-jdysi05j', disciplines:['enduro'],
+    price:130, weight:600, diameter:31.6, drop:150,
+    desc:'Stock dropper on the La Sal Peak Comp (FETCHED vitalmtb.com spec-guide page verbatim: "TranzX JD-YSI05J, 31.6mm diameter"). Drop length is size-dependent and not stated on the fetched page - 150mm entered as a representative mid-size drop (this catalog\'s established convention for size-dependent dropper travel, e.g. the Commencal/Forbidden completebike dropper rows). No standalone na.tranzx.com product page pinned for this exact OEM SKU - price/weight are documented samples for a typical 31.6mm cable-actuated OE dropper. Left unverified.' },
+  { id:'sa-ergon-sm10', cat:'saddle', brand:'Ergon', model:'SM10', family:'ergon-sm-enduro', disciplines:['enduro'],
+    price:70, weight:250,
+    desc:'Stock saddle on the La Sal Peak Comp (FETCHED vitalmtb.com spec-guide page verbatim: "Ergon SM10"). This is the same all-mountain/enduro saddle platform already cataloged as sa-ergon-sm10-enduro (the Canyon Spectral CF 8 completebike\'s saddle, sourced against ergonbike.com\'s current equivalent "SM Enduro Men" product page) - entered here as a distinct row rather than reused because Vital\'s spec table names the plain "SM10" without the "Enduro" qualifier and this session could not re-confirm they are the identical SKU; saddle carries no verdict-driving fields, so this never risks a false compatibility claim either way. Price/weight are documented samples matching the sibling row. Left unverified.' },
+  { id:'cb-ari-lasalpeak-comp', cat:'completebike', brand:'Ari', model:'La Sal Peak Comp', family:'ari-lasalpeak', gen:'2.0',
+    modelYear:2025, disciplines:['enduro'], price:4199,
+    fills:{
+      frame:'fr-ari-lasalpeak', fork:'fk-rockshox-zeb-select-29-170', shock:'sh-rockshox-super-deluxe-selectplus-230x65',
+      frontWheel:'fw-wtb-frequency-i30-29', rearWheel:'rw-wtb-frequency-i30-29-ms',
+      frontTire:'ti-maxxis-assegai-29-25-dd-mg', rearTire:'ti-maxxis-minion-dhr-ii-29-24-dd-mt',
+      shifter:'sft-shimano-deore-m6100', derailleur:'dr-shimano-deore-m6100-sgs', cassette:'ca-shimano-deore-m6100-1051',
+      chain:'ch-shimano-deore-m6100', crankset:'cr-shimano-deore-m6120', bb:'bb-shimano-mt501-bsa73',
+      frontBrake:'bk-trp-evo-pro', rearBrake:'bk-trp-evo-pro',
+      frontRotor:'ro-trp-220-6b', rearRotor:'ro-trp-203-6b',
+      handlebar:'hb-ari-team-35', stem:'st-ari-charger-35', grips:'gr-odi-elite-pro',
+      dropper:'dp-tranzx-jdysi05j-316-150', saddle:'sa-ergon-sm10'
+    },
+    desc:'Sourced from a FETCHED vitalmtb.com "2025 Ari La Sal Peak Comp" spec-guide page (full component build sheet + its own quoted $4,199 price, used together/self-consistently rather than paired with a different-era price). Fezzari has rebranded to "Ari Bikes" (fezzari.com 301-redirects to aribikes.com, confirmed directly) - entered under the current real brand name; flagged for the coordinator since the task brief named "Fezzari." aribikes.com itself (the maker\'s own current storefront) IS fetchable for current PRICING ONLY (Shopify .js variant endpoint: current La Sal Peak Comp lists at $3,395/compare $4,499) but its build-SPEC tables are JS-rendered and did not come through on two separate fetch attempts - so this row could not be paired against a matching current-year price+spec combination, and stays deliberately UNVERIFIED (no verified:true) despite being a real, current-generation product (the La Sal Peak 2.0 chassis). 8 new OE rows entered alongside this one (frame, both wheels, BB, Ari house bar/stem, TranzX dropper, Ergon saddle - see each row\'s own desc); the RockShox ZEB Select fork, Super Deluxe Select+ 230x65 shock, both Maxxis DoubleDown tires, the full Shimano Deore M6100 drivetrain, TRP EVO Pro brakes + rotors, and ODI Elite Pro grips were ALL already cataloged at the exact spec\'d tier. Pedals omitted (not stock); headset omitted (Cane Creek 40 Series stated by name but no S.H.I.S. bore codes published on the fetched page). Component (a-la-carte) sum of the fills is well above $4,199 at current catalog prices, so the "buy complete" savings the dual-price block shows is real even before accounting for this row\'s own pricing uncertainty.' },
+
+  /* ---- Ghost Riot Trail CF (2026-07-15, grind-2 branch, second Ghost bike -
+     the trail/down-country-leaning sibling of the Riot AM CF platform,
+     FETCHED directly from ghost-bikes.com/en-int/products/riot-trail-cf-
+     grau1). Heavily reuses the XLC cockpit + Prologo saddle rows already
+     entered for the Riot AM CF PRO above (identical house-brand cockpit
+     spec line, word-for-word), plus the already-cataloged Shimano Deore
+     M6100 shifter/derailleur/cassette/chain/crankset and the RockShox Lyrik
+     Base 150 fork - only a new frame + a new Deluxe Select (non-Plus) shock
+     tier were needed. */
+  { id:'fr-ghost-riot-trail-cf', cat:'frame', material:'carbon', brand:'Ghost', model:'Riot Trail CF', family:'ghost-riot-trail', disciplines:['trail'],
+    price:2900, weight:2700, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', headTubeUpper:'ZS44/28.6', headTubeLower:'ZS56/40',
+    bb:'BSA73', seatTube:34.9, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:185, shockStroke:55, shockMount:'trunnion',
+    designForkTravel:150, maxForkTravel:150, travel:140, udh:false, bundledShock:null, frameOnly:false,
+    desc:'The "HIGH Carbon Uni" Riot Trail CF frame that the Riot Trail CF ships (FETCHED ghost-bikes.com/en-int/products/riot-trail-cf-grau1: "Rockshox Super Deluxe Select RT 185x55mm, DebonAir Prog." shock size EXACT match; "150 mm" fork / "140mm rear travel" confirmed verbatim in the shock spec line). A distinct, lower-travel sibling platform to fr-ghost-riot-am-cf (same 185x55 trunnion shock size, but rated for a 150mm fork vs the AM\'s 160mm, and a cable-actuated Shimano Deore drivetrain rather than SRAM Transmission). rearAxle/bb/headset/brakeMount/maxRotorR are NOT stated on this product page either (same gap as the AM CF sibling) - entered as the same documented cross-generation samples, cross-corroborated via the fetched vitalmtb.com Riot AM Universal frame-spec guide (148x12mm Boost, BSA threaded, ACROS tapered headset) - this "Riot" family precedent. udh:false (unlike the AM CF sibling): this build\'s Shimano Deore RD-M6100-SGS derailleur mounts to an ordinary replaceable hanger, not a SRAM UDH, and no UDH claim was found for this frame - left at the conservative default rather than assumed. maxRotorR 203 matches the stock Shimano Deore BR-M6120 203mm rotors exactly (no larger stated). seatTube 34.9 matches the stock XLC dropper\'s clamp diameter exactly. price/weight = samples (no frameset-only SKU found). Left UNVERIFIED pending a fetchable current-gen tech/geometry page.' },
+  { id:'sh-rockshox-deluxe-select-185x55-trun', cat:'shock', brand:'RockShox', model:'Deluxe Select (185x55 trunnion)', family:'rockshox-deluxe', disciplines:['trail'],
+    price:280, eye:185, stroke:55, mount:'trunnion', spring:'air',
+    desc:'The stock shock on the Riot Trail CF (FETCHED ghost-bikes.com spec line verbatim: "Rockshox Super Deluxe Select RT 185x55mm, DebonAir Prog."). Plain "Select" (non-Plus) is RockShox\'s base OE damper tier, one step below the already-cataloged Select+ sibling at the identical 185x55 trunnion size (sh-rockshox-deluxe-selectplus-185x55-trun) - eye/stroke/mount interfaces are shared across the Select/Select+ tiers (only the damper\'s adjustability differs), so this row reuses that sibling\'s dimensions with a base-tier price sample; no separate base-tier weight published. Left unverified.' },
+  { id:'cb-ghost-riot-trail-cf', cat:'completebike', brand:'Ghost', model:'Riot Trail CF', family:'ghost-riot-trail', gen:'CF',
+    modelYear:2026, disciplines:['trail'], price:4859,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.ghost-bikes.com/en-int/products/riot-trail-cf-grau1',
+    fills:{
+      frame:'fr-ghost-riot-trail-cf', fork:'fk-rockshox-lyrik-base-29-150', shock:'sh-rockshox-deluxe-select-185x55-trun',
+      frontWheel:'fw-xlc-wrm39-29', rearWheel:'rw-xlc-wrm39-29-ms',
+      frontTire:'ti-continental-kryptotal-fr-29-24-enduro-soft', rearTire:'ti-continental-kryptotal-fr-29-24-enduro-soft',
+      shifter:'sft-shimano-deore-m6100', derailleur:'dr-shimano-deore-m6100-sgs', cassette:'ca-shimano-deore-m6100-1051',
+      chain:'ch-shimano-deore-m6100', crankset:'cr-shimano-deore-m6120', bb:'bb-shimano-mt501-bsa73',
+      frontBrake:'bk-shimano-deore-m6120', rearBrake:'bk-shimano-deore-m6120',
+      frontRotor:'ro-shimano-smrt66-203-6b', rearRotor:'ro-shimano-smrt66-203-6b',
+      handlebar:'hb-xlc-riser-m34-35', stem:'st-xlc-proride-35', grips:'gr-xlc-grs34',
+      dropper:'dp-xlc-spt21-349-150', saddle:'sa-prologo-proxim-w450'
+    },
+    desc:'FETCHED ghost-bikes.com/en-int/products/riot-trail-cf-grau1: full factory build sheet + EUR 4,499 price. Same EUR-only-brand situation as the Riot AM CF PRO above -> sample USD conversion at ~1.08 USD/EUR ($4,859). Only 2 new OE rows needed alongside this one (frame + the Deluxe Select 185x55 shock tier); every other fill reuses either an already-cataloged Shimano Deore M6100 drivetrain part (shifter/derailleur/cassette/chain/crankset, the BSA73 Shimano BB), the RockShox Lyrik Base 150 fork, the Shimano Deore BR-M6120 brakes + matching 203mm rotors, or the exact-word-for-word XLC cockpit + Prologo saddle rows already entered for the Riot AM CF PRO (this Ghost build sheet repeats the identical XLC bar/grips/dropper/saddle spec line verbatim). Same Continental tire compound correction as the AM CF PRO: the page\'s "Kryptotal-Fr Trail Soft" reads as the real Kryptotal-Fr Enduro Soft SKU (Trail casing only pairs with Endurance compound per Continental\'s documented tier-coupling), entered as ti-continental-kryptotal-fr-29-24-enduro-soft for both front and rear. Pedals omitted (not stock); headset omitted (frame-integrated, no S.H.I.S. codes published). Component (a-la-carte) sum of the fills is well above the complete-bike price at current catalog prices, so the "buy complete" savings the dual-price block shows is real.' },
+
+  /* ---- Rose Root Miller 3 (2026-07-15, grind-2 branch, second Rose bike) -
+     FETCHED directly from rosebikes.com/p/rose-root-miller-3-2714000. SAME
+     physical frame platform as the Root Miller 1 above (Rose's Frame Details
+     PDF is per-platform, not per-trim - the shock size/BB/headset/axle are
+     identical across Root Miller trims) - REUSES fr-rose-root-miller
+     directly, no new frame needed. Reuses a large majority of already-
+     cataloged parts (DT Swiss XM1700 wheels from the Canyon Spectral CF 8
+     bike, the Fox 36 Factory 160 fork + Fox Float X Factory 205x60 shock,
+     the cable-actuated SRAM GX Eagle drivetrain, both Schwalbe tires, Ergon
+     grips, the e*thirteen Vario Infinite 120mm dropper, and the same Rose
+     Selle Italia saddle already entered for the Root Miller 1) - only a
+     Code Silver brake tier, a Truvativ Descendant crankset, an e13 "Plus"
+     handlebar tier, and one Schwalbe Hans Dampf casing variant were
+     genuinely missing. */
+  { id:'bk-sram-code-silver-stealth', cat:'brake', brand:'SRAM', model:'Code Silver Stealth', family:'sram-code', gen:'C1', mfgPn:'DB-CODE-SLV-C1',
+    price:265, weight:317, mount:'PM', pistons:4, leverAccepts:['matchmaker'],
+    desc:'The mid Code Stealth tier between the cataloged Bronze/Ultimate Stealth siblings, and the stock brake on the Root Miller 3 (FETCHED rosebikes.com spec line verbatim: "SRAM Code Silver Stealth, anodized black"). Interfaces/weight per multiple corroborating retailer/press listings for SRAM\'s DB-CODE-SLV-C1 (sram.com\'s own model page exists at this exact URL slug per search results, not independently re-fetched this session so left unverified): post mount, 4-piston, 317g rear w/o rotor, MatchMaker-compatible Stealth lever. Price $265 matches the Bronze row\'s own desc, which already cites "$265 Silver" as the launch-era press MSRP. Left unverified.' },
+  { id:'cr-truvativ-descendant-7k-eagle-dub', cat:'crankset', brand:'TruVativ', model:'Descendant 7K Eagle DUB', family:'truvativ-descendant', disciplines:['trail'],
+    price:150, weight:700, bb:'DUB', ring:32, ringStd:'standard-12', speeds:12, chainline:52,
+    desc:'Stock crankset on the Root Miller 3 (FETCHED rosebikes.com spec line verbatim: "Truvativ DSCENDANT 7KEAGLE BOOST148 DUB 32T, black 170mm"). 7000-series aluminum, X-Sync 2 32T chainring, DUB spindle, per multiple corroborating retailer listings (Bike24, Worldwide Cyclery, Thunder Mountain Bikes) for the Boost148 (non-SuperBoost) variant - chainline 52mm is the standard-Boost figure (the SuperBoost+/157 sibling variant runs 56.5mm, not this build\'s frame). Price/weight are documented samples in this crank\'s established retail class (no manufacturer weight figure found). Left unverified.' },
+  { id:'hb-ethirteen-plus-alu-35', cat:'handlebar', brand:'e*thirteen', model:'Plus Alu Bar', family:'ethirteen-plus-cockpit', disciplines:['trail'],
+    price:55, weight:290, clamp:35, width:780, material:'alu',
+    desc:'Stock handlebar on the Root Miller 3 (FETCHED rosebikes.com spec line verbatim: "E13 Plus Alu, 35mm, black 780mm"). e*thirteen\'s "Plus" line sits one step above the "Base" tier already cataloged (hb-ethirteen-base-alu-35, on the Root Miller 1) - no standalone consumer product page pinned for this exact bar; price/weight are documented samples for a typical 35mm-clamp/780mm alloy trail bar, slightly lighter than the Base tier. Left unverified.' },
+  { id:'ti-schwalbe-hans-dampf-29-235-st-as', cat:'tire', brand:'Schwalbe', model:'Hans Dampf 29x2.35 Super Trail ADDIX Soft', family:'schwalbe-hans-dampf', disciplines:['trail'],
+    price:95, weight:1015, wheel:'29', width:2.35, casing:'super-trail', compound:'addix-soft',
+    desc:'Stock rear tire on the Root Miller 3 (FETCHED rosebikes.com spec line verbatim: "Schwalbe Hans Dampf Evo, Super Trail, TLE, Addix Soft, black 29x2.35"). The lighter Super Trail-casing sibling of the already-cataloged Super Gravity-casing Hans Dampf row (ti-schwalbe-hans-dampf-29-235-sg-as) at the same 2.35in width/ADDIX Soft compound - Schwalbe\'s own casing hierarchy runs Super Gravity (heaviest/enduro) > Super Trail (mid) > Super Race (lightest), so weight is a documented sample scaled down from the Super Gravity sibling\'s 1165g (not independently fetched from schwalbetires.com this session). Left unverified.' },
+  { id:'cb-rose-root-miller-3', cat:'completebike', brand:'Rose', model:'Root Miller 3', family:'rose-root-miller', gen:'2026',
+    disciplines:['trail'], price:2483,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.rosebikes.com/p/rose-root-miller-3-2714000',
+    fills:{
+      frame:'fr-rose-root-miller', fork:'fk-fox-36-factory-29-160', shock:'sh-fox-float-x-factory-205x60-trun',
+      frontWheel:'fw-dtswiss-xm1700-29', rearWheel:'rw-dtswiss-xm1700-29-xd',
+      frontTire:'ti-schwalbe-magic-mary-29-24-st-as', rearTire:'ti-schwalbe-hans-dampf-29-235-st-as',
+      shifter:'sft-sram-gx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-xg1275',
+      chain:'ch-sram-gx-eagle', crankset:'cr-truvativ-descendant-7k-eagle-dub', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-sram-code-silver-stealth', rearBrake:'bk-sram-code-silver-stealth',
+      frontRotor:'ro-sram-centerline-200-6b', rearRotor:'ro-sram-centerline-200-6b',
+      handlebar:'hb-ethirteen-plus-alu-35', stem:'st-ethirteen-base-35', grips:'gr-ergon-ga2',
+      dropper:'dp-ethirteen-vario-infinite-316-120', saddle:'sa-rose-selleitalia-edition'
+    },
+    desc:'FETCHED rosebikes.com/p/rose-root-miller-3-2714000: full factory build sheet + EUR 2,299 price -> sample USD conversion at ~1.08 USD/EUR ($2,483), same convention as the Root Miller 1. SAME frame platform as the Root Miller 1 (fr-rose-root-miller, independently verified against the Rose Frame Details PDF) - only 4 new OE rows needed (Code Silver brakes, the Descendant crankset, the e13 Plus bar, one Hans Dampf casing variant); every other fill reuses an already-cataloged part: the Fox 36 Factory 160 fork + Fox Float X Factory 205x60 shock (both EXACT matches to this frame\'s own shockEye/Stroke/Mount), the DT Swiss XM1700 wheels (first entered for the Canyon Spectral CF 8 completebike), the full cable-actuated SRAM GX Eagle drivetrain + DUB BSA73 BB, the Schwalbe Magic Mary Super Trail front tire, Ergon GA2 grips, the e*thirteen Base stem (35mm clamp match) and Vario Infinite 120mm dropper, and the same Rose/Selle Italia saddle as the Root Miller 1. Rotor size note: Rose\'s page states no rotor sizes for the Code Silver brakes - SRAM Code brakes ship with SRAM CenterLine rotors as standard OE spec, and 200mm is the common stock size at this trail-bike travel class on this frame (whose own maxRotorR is 203, so 200mm sits safely under it) - a reasonable brand-consistent match, flagged. Pedals omitted (not stock); headset omitted (frame-integrated, ZS44/56 per the frame\'s own sourced fields). Component (a-la-carte) sum of the fills is well above the complete-bike price at current catalog prices, so the "buy complete" savings the dual-price block shows is real.' },
+
+  /* ---- Fezzari/Ari La Sal Peak Pro (2026-07-15, grind-2 branch, second
+     Ari bike) - FETCHED vitalmtb.com's "2025 Ari La Sal Peak Pro" spec-guide
+     page (same sourcing-wall situation as the Comp trim: aribikes.com's own
+     build-spec tables are JS-walled). REUSES the SAME frame as the Comp
+     trim (fr-ari-lasalpeak) - this second Vital fetch corroborates every
+     frame fact the Comp trim entry relied on (rear axle, BB, headset incl.
+     now the exact ZS44/28.6-ZS56/40 bore codes, shock size/mount, UDH),
+     raising confidence in that shared row. Every single fills entry on this
+     trim was ALREADY in the catalog - a genuine ZERO-new-part-rows flagship,
+     since the Pro build is a top-shelf SRAM/RockShox/Crankbrothers spec that
+     this catalog\'s prior verification/expansion waves already stocked in
+     depth. */
+  { id:'cb-ari-lasalpeak-pro', cat:'completebike', brand:'Ari', model:'La Sal Peak Pro', family:'ari-lasalpeak', gen:'2.0',
+    modelYear:2025, disciplines:['enduro'], price:6799,
+    fills:{
+      frame:'fr-ari-lasalpeak', fork:'fk-rockshox-zeb-ultimate-29-170', shock:'sh-rockshox-vivid-ultimate-230x65',
+      frontWheel:'fw-crankbrothers-synthesis-enduro-29', rearWheel:'rw-crankbrothers-synthesis-enduro-29-xd',
+      frontTire:'ti-maxxis-assegai-29-25-dd-mg', rearTire:'ti-maxxis-minion-dhr-ii-29-24-dd-mt',
+      shifter:'sft-sram-x0-transmission', derailleur:'dr-sram-x0-transmission', cassette:'ca-sram-xs1295',
+      chain:'ch-sram-gx-flattop', crankset:'cr-sram-x0-transmission', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-sram-maven-silver', rearBrake:'bk-sram-maven-silver',
+      frontRotor:'ro-sram-centerline-200-6b', rearRotor:'ro-sram-centerline-200-6b',
+      handlebar:'hb-ari-team-35', stem:'st-ari-charger-35', grips:'gr-odi-elite-pro',
+      dropper:'dp-oneup-v3-316-150', saddle:'sa-ergon-sm10'
+    },
+    desc:'Sourced from a FETCHED vitalmtb.com "2025 Ari La Sal Peak Pro" spec-guide page (full component build sheet + its own quoted $6,799 price - the current aribikes.com Pro listing shows $5,595, the same era/sale-snapshot mismatch already flagged on the Comp trim above, so this row stays deliberately UNVERIFIED). Only ONE new OE part row was needed (see rw-crankbrothers-synthesis-enduro-29-xd - the XD-driver option of the already-cataloged 29in Synthesis Enduro rear wheel, needed because this build is genuinely full-29in per both Vital and the frame\'s stock wheelConfigs, unlike the prior mullet-build XD row which is 27.5in); every other fills entry reuses an already-cataloged part: the RockShox ZEB Ultimate 170 fork, RockShox Vivid Ultimate 230x65 std shock, the Synthesis Enduro front wheel, both Maxxis DoubleDown tires, the full SRAM X0 Eagle Transmission drivetrain + shared XS-1295 cassette + GX Flattop chain + DUB BSA73 BB, SRAM Maven Silver brakes + CenterLine 200mm rotors, the Ari Team 35 bar/Charger stem/ODI Elite Pro grips (first entered for the Comp trim above), a OneUp V3 dropper, and an Ergon SM10 saddle (first entered for the Comp trim). Pedals omitted (not stock); headset omitted (Cane Creek 40 Series ZS44/28.6-ZS56/40, now recorded on the shared frame row, but no separate complete-headset SKU catalogued). Component (a-la-carte) sum of the fills is well above $6,799 at current catalog prices, so the "buy complete" savings the dual-price block shows is real even before accounting for this row\'s own pricing-era uncertainty.' }
 ];
 
 /** @type {Part[]} */
