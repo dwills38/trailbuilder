@@ -294,7 +294,7 @@ var PARTS_RAW = [
   { id:'fr-pivot-firebird', cat:'frame', material:'carbon', brand:'Pivot', model:'Firebird', family:'pivot-firebird', disciplines:['enduro'], price:4399, weight:3200, wheelConfigs:['29','275','mullet'], rearAxle:'SuperBoost157', headset:'tapered', bb:'PF92', seatTube:31.6, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:205, shockStroke:65, shockMount:'trunnion', maxForkTravel:180, travel:165, udh:true, bundledShock:null, sizes:{ S:{seatTubeLen:393.7}, M:{seatTubeLen:424.2}, L:{seatTubeLen:457.2}, XL:{seatTubeLen:495.3} }, frameOnly:true, verified:true, lastChecked:'2026-07-14', source:'https://www.vitalmtb.com/product/guide/frames/pivot/firebird-63621', desc:'AUDIT 2026-07-09: MAJOR CORRECTION vs fetched Vital MTB Firebird (2021-2025) frame spec table - the prior row had a fabricated shock: shockEye 230->205 AND shockMount std->trunnion (real shock is \"FOX FLOAT X2 Factory, trunnion mount, 205mm length x 65mm stroke\" - a 230mm std shock does NOT fit this frame; this was a false-fit risk). Also travel 162->165 (maker-stated) and maxForkTravel 170->180 (\"180mm max fork travel, designed for 170mm forks\" maker-stated - matches the sibling Switchblade V2\'s convention of recording the stated max, not just the stock design fork). wheelConfigs widened 29+mullet->29+275+mullet (Vital: \"29in wheels, 27.5in (650b) or 27.5+ wheels, or mixed Mullet setups\" - all three explicitly supported). SuperBoost157 rear, PF92 BB (92mm press-fit), 31.6 seatpost, 180mm PM/203mm max rotor, SRAM UDH - all CONFIRMED matching the prior row. price/weight = sample.' },
   { id:'fr-nukeproof-giga-290', cat:'frame', material:'carbon', brand:'Nukeproof', model:'Giga 290', family:'nukeproof-giga', disciplines:['enduro'], price:3400, weight:3500, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:220, suspension:'full', shockEye:205, shockStroke:60, shockMount:'trunnion', maxForkTravel:180, travel:170, udh:true, bundledShock:null, sizes:{ S:{seatTubeLen:380}, M:{seatTubeLen:410}, L:{seatTubeLen:440}, XL:{seatTubeLen:460}, XXL:{seatTubeLen:480} }, frameOnly:true, desc:'AUDIT 2026-07-09: shock 205x60 trunnion, BSA73 threaded BB, Boost148 rear, 170mm travel all CONFIRMED matching multiple search sources (nukeproof.com/us.nukeproof.com are unfetchable - 500/DNS errors, the documented Nukeproof blocker seen on the sibling Mega/Reactor/Scout rows). maxRotorR 220 NOT independently confirmed - stock spec on some builds runs a 203mm rear (Shimano XT 4-piston), which is a floor not necessarily the frame\'s rated max; left as an unconfirmed sample pending a fetchable maker page, consistent with the sibling Nukeproof rows\' documented-sample approach. price/weight = sample.' },
   { id:'fr-kona-process-153', cat:'frame', material:'alu', brand:'Kona', model:'Process 153', family:'kona-process', sizes:{S:{seatTubeLen:380},M:{seatTubeLen:380},L:{seatTubeLen:420},XL:{seatTubeLen:450}}, disciplines:['enduro'], price:2199, weight:3600, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'PF92', seatTube:31.6, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:205, shockStroke:60, shockMount:'trunnion', maxForkTravel:170, travel:153, udh:false, bundledShock:null, frameOnly:true, verified:true, lastChecked:'2026-07-14', source:'https://www.vitalmtb.com/product/guide/Frames,7/Kona/Process-153-29,31022', desc:'AUDIT 2026-07-09: TWO fields CORRECTED vs the fetched Vital MTB Process 153 29 (2021-2023) frame spec table. (1) bb BSA73->PF92 (\"PF92 PressFit\" maker-stated - this Kona generation is press-fit, not threaded, contrary to the prior row). (2) wheelConfigs [\'29\',\'mullet\']->[\'29\'] (\"Wheel Size: 29 only (no mullet option)\" maker-stated). 153mm rear travel, Boost148 rear, 31.6 seatpost, RockShox Super Deluxe Select+ TRUNNION mount all CONFIRMED matching. Shock eye-to-eye/stroke not printed on the fetched table (left at the prior sample 205x60 - unconfirmed, one general search hinted 57.5mm stroke instead of 60 but no fetched source pins it, flagged not fixed). udh:false retained (not stated as UDH on this pre-Process-X generation). maxForkTravel/price/weight = sample.' },
-  { id:'fr-kona-process-153-carbon', cat:'frame', material:'carbon', brand:'Kona', model:'Process 153 CR/DL', family:'kona-process', disciplines:['enduro'], price:3350, weight:3200, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', headTubeUpper:'ZS44/28.6', headTubeLower:'ZS56/40', bb:'PF92', seatTube:31.6, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:205, shockStroke:57.5, shockMount:'trunnion', maxForkTravel:170, travel:153, udh:false, bundledShock:null, frameOnly:true, verified:true, lastChecked:'2026-07-14', source:'https://konaworld.com/products/process-153-cr-dl-frame', desc:'2026-07-14 carbon-alloy split-policy pass (Douglas 2026-07-14): carbon sibling of the alloy fr-kona-process-153 row (same Process 153 G3 platform). Fetched konaworld.com Process 153 CR/DL Frame product page: $3,350 frameset MSRP, RockShox Super Deluxe Ultimate 205x57.5mm trunnion shock (this also resolves the open shock-stroke flag on the alloy row\'s own desc - the alloy row is left unchanged since its own page was not re-fetched on this pass), FSA Orbit 1.5E ZS44/56 tapered headset -> headTube ZS44/28.6 upper / ZS56/40 lower, SRAM DUB PF92 BB (matches the alloy row). rearAxle/seatTube/brakeMount/maxRotorR/maxForkTravel/wheelConfigs/udh inherited from the alloy sibling (same generation chassis, not independently re-confirmed on this pass, flagged). Weight = sample estimate (typical carbon-vs-alloy delta on this platform; no frame-only weight published).' },
+  { id:'fr-kona-process-153-carbon', cat:'frame', material:'carbon', brand:'Kona', model:'Process 153 CR/DL', family:'kona-process', disciplines:['enduro'], price:3350, weight:3200, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', headTubeUpper:'ZS44/28.6', headTubeLower:'ZS56/40', bb:'PF92', seatTube:31.6, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:205, shockStroke:57.5, shockMount:'trunnion', maxForkTravel:170, travel:153, udh:true, sizes:{ S:{maxInsert:270}, M:{maxInsert:270}, L:{maxInsert:300}, XL:{maxInsert:320} }, bundledShock:null, frameOnly:true, verified:true, lastChecked:'2026-07-15', source:'https://konaworld.com/cdn/shop/files/2K25_PROCESS-153-CR_KN00125V1_TECH-DOC.pdf', desc:'2026-07-14 carbon-alloy split-policy pass (Douglas 2026-07-14): carbon sibling of the alloy fr-kona-process-153 row (same Process 153 G3 platform). Fetched konaworld.com Process 153 CR/DL Frame product page: $3,350 frameset MSRP, RockShox Super Deluxe Ultimate 205x57.5mm trunnion shock (this also resolves the open shock-stroke flag on the alloy row\'s own desc - the alloy row is left unchanged since its own page was not re-fetched on this pass), FSA Orbit 1.5E ZS44/56 tapered headset -> headTube ZS44/28.6 upper / ZS56/40 lower, SRAM DUB PF92 BB (matches the alloy row). rearAxle/seatTube/brakeMount/maxRotorR/maxForkTravel/wheelConfigs inherited from the alloy sibling (same generation chassis, not independently re-confirmed on this pass, flagged). Weight = sample estimate (typical carbon-vs-alloy delta on this platform; no frame-only weight published). CORRECTED 2026-07-15 (complete-bikes grind, catalog/complete-bikes-grind-2-kona-salsa-gt-mondraker): udh false->true. The prior row inherited udh:false from the alloy sibling UNCONFIRMED (explicitly flagged "not independently re-confirmed"); this session FETCHED Kona\'s own official parts-list/tech-doc PDF for the Process 153 CR (KN00125, linked directly from the frame product page) which states, verbatim, "Hanger, Rear, UDH" (part CMPHUDH01) and a spec-table line "HANGER UDH/T-Type" - a direct manufacturer confirmation, resolving the prior flag (and matching the complete-bike build sheet, which ships a UDH-only SRAM GX Eagle Transmission derailleur - it could not fit a non-UDH frame). The SAME tech-doc PDF also independently reconfirms shockEye/shockStroke ("SHOCK EYE TO EYE 205mm / STROKE 57.5mm"), bb ("BOTTOM BRACKET PF 92"), headTubeUpper/Lower ("HEADTUBE ID- UPPER 44" / "LOWER 56"), maxRotorR ("MAX BRAKE ROTOR DIAMETER 203mm"), and rearAxle ("REAR AXLE 12x148") - every one exactly matching the prior row\'s values. sizes.maxInsert added (opportunistic capture, DATA-ENTRY-TEMPLATE SS6): the same PDF states "MAX SEATPOST INSERTION S-M 270mm / L 300mm / XL 320mm".' },
   { id:'fr-orbea-rallon-mteam', cat:'frame', material:'carbon', brand:'Orbea', model:'Rallon M-Team', family:'orbea-rallon', disciplines:['enduro'], price:7999, weight:3300, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:230, shockStroke:62.5, shockMount:'std', maxForkTravel:170, travel:160, udh:true, bundledShock:null, sizes:{ S:{seatTubeLen:415}, M:{seatTubeLen:415}, L:{seatTubeLen:435}, XL:{seatTubeLen:460} }, frameOnly:true, verified:true, lastChecked:'2026-07-14', source:'https://www.vitalmtb.com/product/guide/bikes/orbea/rallon-44576', desc:'AUDIT 2026-07-09: CORRECTED shockStroke 60->62.5mm vs the fetched Vital MTB Rallon M-Team spec table (\"230mm length x 62.5mm stroke\", corroborated by a second independent search) - the prior 60mm was wrong. shockEye 230 std mount, Boost148 rear, 31.6 seatpost, tapered integrated headset (ACROS), maxForkTravel 170 (Fox 38), SRAM UDH, wheelConfigs 29+mullet (both maker-offered via swappable shock-extender links) all CONFIRMED matching. NOTE: the same Vital fetch also printed \"Rear Travel: 167mm\" vs this row\'s 160mm - NOT actioned, since 160mm is the figure used consistently across Orbea\'s own marketing and every other reviewed source (BikeRadar/MBR/Blister/enduro-mtb); flagged as a probable Vital extraction artifact rather than a real spec, left unchanged. bb BSA73 unconfirmed by any fetched source but uncontradicted (threaded BB per general coverage). price/weight = sample.' },
   { id:'fr-rockymountain-altitude-c70', cat:'frame', material:'carbon', brand:'Rocky Mountain', model:'Altitude C70', family:'rockymountain-altitude', disciplines:['enduro'], price:4500, weight:3400, wheelConfigs:['29','mullet'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:30.9, brakeMount:'PM', maxRotorR:203, suspension:'full', shockEye:230, shockStroke:60, shockMount:'std', maxForkTravel:170, travel:160, udh:true, bundledShock:null, sizes:{ MD:{seatTubeLen:410}, LG:{seatTubeLen:440}, XL:{seatTubeLen:470} }, frameOnly:true, desc:'AUDIT 2026-07-09 (bikes.com JS-shell blocks fetching - the documented Rocky Mountain blocker seen elsewhere in this catalog; sourced via search-corroborated spec tables from theloamwolf.com, 99spokes.com, bikemag.com): shock \"RockShox Super Deluxe Select+ HBO, sealed bearing eyelet\" 230x60mm on MD-LG-XL sizes (std mount, matches this row exactly), 30.9mm seatpost/seat tube (CONFIRMED exact match), FSA Orbit reach-adjust headset (tapered steerer fit), SRAM UDH, Boost148 rear, stock 200mm F/R rotors (203 max is plausible headroom, not contradicted) - all consistent with this row, no changes needed. Left unverified (no single fetched manufacturer page) rather than marked verified, per the reprint-source convention used elsewhere for Rocky Mountain rows. price/weight = sample.' },
   { id:'fr-commencal-meta-sx-v5', cat:'frame', material:'alu', brand:'Commencal', model:'Meta SX V5', family:'commencal-meta-sx', disciplines:['enduro'], gen:'V5', price:2600, weight:4080, wheelConfigs:['mullet'], rearAxle:'Boost148', headset:'tapered', headTubeUpper:'ZS56/28.6', headTubeLower:'ZS56/40', bb:'PF92', seatTube:34.9, brakeMount:'PM', maxRotorR:200, suspension:'full', shockEye:230, shockStroke:65, shockMount:'std', designForkTravel:170, maxForkTravel:170, travel:165, udh:true, bundledShock:null, frameOnly:true, sizes:{ S:{seatTubeLen:380,maxInsert:230}, M:{seatTubeLen:420,maxInsert:270}, L:{seatTubeLen:440,maxInsert:290}, XL:{seatTubeLen:460,maxInsert:310} }, verified:true, lastChecked:'2026-07-10', source:'https://www.commencal.com/ad/en/tech-meta-sx-v5.html', desc:'2026-07-10 headset-SHIS pass (re-fetched tech-meta-sx-v5.html): headTube ZS56/28.6 + ZS56/40 per the tech-spec line verbatim "ZS56 / ZS56" (matches the Commencal house pattern already sourced on Meta V5 / Tempo / Supreme DH / Clash). Same fetch re-confirmed "4,08 kg / 8,99 lb", "65mm - O584mm" rear clearance and inserts S230/M270/L290/XL310 - all already cataloged. 2026-07-10 fork-travel pass: designForkTravel 170 per the fetched 2025 US frame product page (FT5MSXV51) header verbatim "170MM" front / 165mm rear (the tech page states only "Recommended/max. fork height: 586mm / 598mm" - heights are not converted to travel, so no min/max from them). maxForkTravel 170 unchanged.' },
@@ -1194,6 +1194,7 @@ var PARTS_RAW = [
   { id:'sh-manitou-mara-pro-205x60-trun', cat:'shock', brand:'Manitou', model:'Mara Pro (205x60 trunnion)', family:'manitou-mara', price:629.99, weight:425, eye:205, stroke:60, mount:'trunnion', spring:'air', verified:true, lastChecked:'2026-07-13', source:'https://hayesbicycle.com/products/mara-pro', desc:'FETCHED hayesbicycle.com/products/mara-pro 2026-07-10: 205x60 trunnion confirmed directly in the size list (upgrading the prior retailer-only confirmation - Pro Bike Supply, Mojo Cyclery; Manitou SKU B-AP5591). Price/weight realigned to the manufacturer\'s own $629.99 MSRP and single model-level 425g figure (size unstated) to match the 230x65/185x50/165x45 siblings - the prior 550/500 sample values had no clear basis.' },
   /* --- discipline expansion, SRAM/RockShox sweep: XC shock --- */
   { id:'sh-rockshox-sidluxe-ultimate-190x45', cat:'shock', brand:'RockShox', model:'SIDLuxe Ultimate (190x45)', family:'rockshox-sidluxe', gen:'A2', mfgPn:'RS-SIDL-ULT3-A2', disciplines:['xc'], price:549, weight:247, eye:190, stroke:45, mount:'std', spring:'air', verified:true, lastChecked:'2026-07-13', source:'https://www.sram.com/en/rockshox/models/rs-sidl-ult3-a2', desc:'FETCHED sram.com rs-sidl-ult3-a2 (SIDLuxe Ultimate 3P) 2026-07-10: 190x45 std confirmed in the size matrix (Solo Air spring); maker states 247g at exactly this 190x45 config (Remote 3-position, 0 tokens) - exact-size match, weight updated from the 250g sample.' },
+  { id:'sh-rockshox-sidluxe-selectplus-190x45', cat:'shock', brand:'RockShox', model:'SIDLuxe Select+ (190x45)', family:'rockshox-sidluxe', gen:'A2', mfgPn:'RS-SIDL-SLP3-A2', disciplines:['xc'], price:409, weight:252, eye:190, stroke:45, mount:'std', spring:'air', verified:true, lastChecked:'2026-07-15', source:'https://www.sram.com/en/rockshox/models/rs-sidl-slp3-a2', desc:'Stock shock on the Salsa Spearfish C Eagle 90 Transmission (FETCHED salsacycles.com: "RockShox SIDLuxe Select+", "190 x 45mm"). FETCHED sram.com rs-sidl-slp3-a2 (SIDLuxe Select+ 3P) directly: 190x45 std confirmed in the full 20-size matrix (Solo Air spring); maker states 252g at exactly this 190x45 config (Remote 3-position In or Out, Solo Air, 0 Tokens) - an exact-size match. Price = sample $409 (below the cataloged SIDLuxe Ultimate\'s $549, mirroring the Select+-vs-Ultimate delta already used on this catalog\'s ZEB/Lyrik fork tiers; SRAM lists no MSRP on the model page itself).' },
   /* --- discipline expansion pass 4: the Lux World Cup's shock size --- */
   { id:'sh-rockshox-sidluxe-ultimate-210x50', cat:'shock', brand:'RockShox', model:'SIDLuxe Ultimate (210x50)', family:'rockshox-sidluxe', gen:'A2', mfgPn:'RS-SIDL-ULT3-A2', disciplines:['xc'], price:549, weight:247, eye:210, stroke:50, mount:'std', spring:'air', verified:true, lastChecked:'2026-07-13', source:'https://www.sram.com/en/rockshox/models/rs-sidl-ult3-a2', desc:'RE-FETCHED sram.com rs-sidl-ult3-a2 (SIDLuxe Ultimate 3P) 2026-07-10: 210x50 std confirmed in the size matrix (Solo Air spring). SRAM\'s own stated basis for its 247g figure is the 190x45 config (Remote 3-position, 0 tokens), not 210x50 - the 247g here instead rests on the previously-FETCHED canyon.com Lux World Cup CFR AXS spec quoting "RockShox SIDLuxe Ultimate 3P Remote, 210X50, 247g" directly at this size (bike-maker figure, kept as the closer size match); price stays sample.' },
   /* --- discipline expansion, Fox/Marzocchi sweep: XC/trail shock --- */
@@ -2910,6 +2911,7 @@ var PARTS_RAW = [
   { id:'ti-maxxis-assegai-275-25-exop-mg', cat:'tire', brand:'Maxxis', model:'Assegai 27.5x2.5 EXO+ MaxxGrip', family:'maxxis-assegai', disciplines:['enduro'], price:90, weight:1139, wheel:'275', width:2.5, casing:'exo-plus', compound:'3c-maxxgrip', verified:true, lastChecked:'2026-07-06', source:'https://www.maxxis.com/us/tire/assegai/' },
   { id:'ti-maxxis-minion-dhr-ii-275-24-exop-mt', cat:'tire', brand:'Maxxis', model:'Minion DHR II 27.5x2.4 EXO+ MaxxTerra', family:'maxxis-minion-dhr-ii', disciplines:['enduro'], price:85, weight:1055, wheel:'275', width:2.4, casing:'exo-plus', compound:'3c-maxxterra', verified:true, lastChecked:'2026-07-06', source:'https://www.maxxis.com/us/tire/minion-dhr-ii/' },
   { id:'ti-maxxis-minion-dhf-29-25-exop-mg', cat:'tire', brand:'Maxxis', model:'Minion DHF 29x2.5 EXO+ MaxxGrip', family:'maxxis-minion-dhf', disciplines:['enduro'], price:90, weight:1162, wheel:'29', width:2.5, casing:'exo-plus', compound:'3c-maxxgrip', verified:true, lastChecked:'2026-07-06', source:'https://www.maxxis.com/us/tire/minion-dhf/' },
+  { id:'ti-maxxis-minion-dhf-29-25-exop-3cmt', cat:'tire', brand:'Maxxis', model:'Minion DHF 29x2.5 EXO+ 3C MaxxTerra', family:'maxxis-minion-dhf', mfgPn:'TB00447300', disciplines:['enduro'], price:90, weight:1162, wheel:'29', width:2.5, casing:'exo-plus', compound:'3c-maxxterra', verified:true, lastChecked:'2026-07-15', source:'https://www.maxxis.com/us/tire/minion-dhf/', desc:'Stock front tire on the Mondraker Foxy R (FETCHED vitalmtb.com build sheet: "Maxxis Minion DHF, 3C MaxxTerra compound, EXO+ casing, 120 TPI, TR, 29\\" x 2.5\\" WT"). FETCHED maxxis.com/us/tire/minion-dhf/ directly: the 29x2.50 EXO+/3C MaxxTerra row states Part # TB00447300, 1,162g, 60 TPI foldable, TR. RENAMED 2026-07-15 during grind-2 integration to disambiguate from the already-cataloged ti-maxxis-minion-dhf-29-25-exop-mt (mfgPn TB00676400, bare "MAXX TERRA" compound, entered by an earlier session\'s fetch of the same maxxis.com page) - the two rows disagree on this tire\'s part number and compound tier at the identical nominal casing/size, a genuine sourcing conflict between two independent fetches of the same SKU table, not a duplicate entry. Flagged for the coordinator/audit pass to resolve which mfgPn/compound is the real current maxxis.com listing; both rows are left in place rather than silently merged. Price mirrors the sibling MaxxGrip SKU (Maxxis publishes no per-SKU US MSRP).' },
   /* --- discipline expansion pass 5 (2026-07-08): 27.5 DH-casing Minions - tire breadth for the full-27.5 FRS (only the Assegai fit it before). Classic DH pairing: DHF front / DHR II rear. --- */
   { id:'ti-maxxis-minion-dhf-275-25-dh-mg', cat:'tire', brand:'Maxxis', model:'Minion DHF 27.5x2.5 DH MaxxGrip', family:'maxxis-minion-dhf', mfgPn:'TB85975700', disciplines:['dh'], price:95, weight:1243, wheel:'275', width:2.5, casing:'dh', compound:'3c-maxxgrip', verified:true, lastChecked:'2026-07-08', source:'https://www.maxxis.com/us/tire/minion-dhf/', desc:'price = sample (page lists no MSRP); Part # TB85975700, 1243g, 3C MaxxGrip, DH casing (3G/DH/TR), 27.5x2.50 - from the fetched maxxis.com SKU table (the E50-rated sibling TB00472900 at 1335g also exists)' },
   { id:'ti-maxxis-minion-dhr-ii-275-25-dh-mg', cat:'tire', brand:'Maxxis', model:'Minion DHR II 27.5x2.5 DH MaxxGrip', family:'maxxis-minion-dhr-ii', mfgPn:'TB00551200', disciplines:['dh'], price:95, weight:1325, wheel:'275', width:2.5, casing:'dh', compound:'3c-maxxgrip', verified:true, lastChecked:'2026-07-08', source:'https://www.maxxis.com/us/tire/minion-dhr-ii/', desc:'price = sample (page lists no MSRP); Part # TB00551200, 1325g, 3C MaxxGrip, DH casing (3G/DH/TR), 27.5x2.50 - from the fetched maxxis.com SKU table (TB00551400 is the DoubleDown sibling, not DH)' },
@@ -2995,6 +2997,7 @@ var PARTS_RAW = [
   { id:'ti-schwalbe-magic-mary-29-24-st-as', cat:'tire', brand:'Schwalbe', model:'Magic Mary 29x2.4 Super Trail ADDIX Soft', family:'schwalbe-magic-mary', mfgPn:'11600616.03', disciplines:['enduro'], price:102, weight:1151, wheel:'29', width:2.4, casing:'super-trail', compound:'addix-soft', verified:true, lastChecked:'2026-07-14', source:'https://www.schwalbetires.com/Magic-Mary-11600616.03', desc:'62-622, 1151g, $102 RRP, 67 EPI, TLE - from the fetched schwalbetires.com SKU page' },
   { id:'ti-schwalbe-magic-mary-275-24-st-as', cat:'tire', brand:'Schwalbe', model:'Magic Mary 27.5x2.4 Super Trail ADDIX Soft', family:'schwalbe-magic-mary', mfgPn:'11600539.03', disciplines:['enduro'], price:102, weight:1114, wheel:'275', width:2.4, casing:'super-trail', compound:'addix-soft', verified:true, lastChecked:'2026-07-14', source:'https://www.schwalbetires.com/Magic-Mary-11600539.03', desc:'62-584, 1114g, $102 RRP - from the fetched schwalbetires.com SKU page' },
   { id:'ti-maxxis-aggressor-29-23-dd-dual', cat:'tire', brand:'Maxxis', model:'Aggressor 29x2.3 DD Dual', family:'maxxis-aggressor', disciplines:['enduro'], price:70, weight:1205, wheel:'29', width:2.3, casing:'doubledown', compound:'dual', mfgPn:'TB96882100', desc:'price = sample (maxxis.com spec table lists no MSRP)', verified:true, lastChecked:'2026-07-07', source:'https://www.maxxis.com/us/tire/aggressor/' },
+  { id:'ti-maxxis-aggressor-29-23-exo-dual', cat:'tire', brand:'Maxxis', model:'Aggressor 29x2.3 EXO Dual', family:'maxxis-aggressor', mfgPn:'TB96882000', disciplines:['enduro'], price:65, weight:989, wheel:'29', width:2.3, casing:'exo', compound:'dual', verified:true, lastChecked:'2026-07-15', source:'https://www.maxxis.com/us/tire/aggressor/', desc:'Stock rear tire on the Mondraker Foxy R (FETCHED vitalmtb.com build sheet: "Maxxis Aggressor, Dual compound, EXO casing, 60 TPI, TR, 29\\" x 2.3\\""). FETCHED maxxis.com/us/tire/aggressor/ directly: the 29x2.30 EXO/Dual row states Part # TB96882000, 989g, 60 TPI foldable, TR - a distinct real SKU from the already-cataloged DoubleDown/Dual sibling at this same size (ti-maxxis-aggressor-29-23-dd-dual), matching casing tier only. Price is a sample slightly below the heavier DD sibling ($70), matching the family\'s own EXO-vs-DD price delta pattern used elsewhere in this catalog.' },
   /* Crossmark II (enduro-trail-gap-fill, 2026-07-11): fetched maxxis.com/us/tire/crossmark-ii/
      directly - full spec table (Part#/TPI/bead/weight/compound) confirmed manufacturer-side.
      26in SKU exists on the same table but the catalog's wheel vocab has no 26in value, so only
@@ -4155,6 +4158,7 @@ var PARTS_RAW = [
   /* --- discipline expansion pass 8: second XC brake brand (the XC PM choice was Shimano-only) --- */
   { id:'bk-sram-level-ultimate-stealth', cat:'brake', brand:'SRAM', model:'Level Ultimate Stealth (2-piston)', family:'sram-level', gen:'C1', mfgPn:'DB-LVL-ULT2-C1', disciplines:['xc'], price:285, weight:254, mount:'PM', pistons:2, leverAccepts:['matchmaker'], verified:true, lastChecked:'2026-07-08', source:'https://www.sram.com/en/sram/models/db-lvl-ult2-c1', desc:'price = sample (page lists a range, ~$285/wheel street); 254g = the maker-published figure (rear, with pads, no hardware - basis noted per template); PM caliper brackets + 2-piston from the fetched sram.com model page; MatchMaker = SRAM Stealth-lever family standard (page defers to service docs)' },
   { id:'bk-sram-code-rsc', cat:'brake', brand:'SRAM', model:'Code RSC', family:'sram-code', mfgPn:'DB-CODE-RSC-A1', price:140, weight:290, mount:'PM', pistons:4, leverAccepts:['matchmaker'], verified:true, lastChecked:'2026-07-10', source:'https://www.sram.com/en/service/models/db-code-rsc-a1', desc:'mount CONFIRMED via the FETCHED sram.com service page: bracket options explicitly include "Post mount (10mm spacer) 10S" through "Post mount (40mm bracket) 40P" alongside the native "Direct mount DIR". Pistons/MatchMaker not listed on this specific page (not contradicted); pistons corroborated widely (dual-diameter 15mm+16mm = 4-piston caliper) and MatchMaker X confirmed via SRAM\'s own marketing copy for the Maven/Code/Level/DB8 family (see Maven Bronze desc). price/weight = sample.' },
+  { id:'bk-sram-code-r', cat:'brake', brand:'SRAM', model:'Code R', family:'sram-code', mfgPn:'DB-CODE-R-B1', price:110, weight:290, mount:'PM', pistons:4, leverAccepts:['matchmaker'], lastChecked:'2026-07-15', source:'https://www.sram.com/en/service/models/db-code-r-b1', desc:'The entry-tier Code (this catalog\'s existing Code rows start at RSC) - stock brake on the GT Force/Sensor Carbon Pro complete bikes (both FETCHED gtbicycles.com: "SRAM Code R"). Mount CONFIRMED via the FETCHED sram.com service page db-code-r-b1: bracket options "Post mount (10mm spacer) 10S" through "Post mount (40mm bracket) 40P" plus a "203mm DIR to 220mm Rotor with 17mm bracket (17P)" adapter option, alongside native "Direct mount DIR" and International Standard (0IS-60I) brackets - PM confirmed, same mount family as every other cataloged Code tier. Pistons (4, dual-diameter 15mm+16mm) and MatchMaker X compatibility are corroborated via search aggregation of SRAM\'s own Code-family marketing copy (not stated on this specific service page) - same basis as the RSC/Stealth siblings above. Weight mirrors the RSC sibling\'s sample figure (this catalog has no fetched Code R weight, and multiple retailer listings for the Code R disagree, e.g. 443g vs other figures, so 290g stays a same-family placeholder rather than an unreliable retailer number); price $110 is a sample (entry-tier, below the RSC\'s $140) - no US MSRP found on the fetched page. Left unverified (weight/price not manufacturer-sourced).' },
   { id:'bk-sram-code-stealth', cat:'brake', brand:'SRAM', model:'Code Silver Stealth', family:'sram-code', mfgPn:'DB-CODE-SLV-C1', price:150, weight:290, mount:'PM', pistons:4, leverAccepts:['matchmaker'], verified:true, lastChecked:'2026-07-10', source:'https://www.sram.com/en/service/models/db-code-slv-c1', desc:'mount CONFIRMED via the FETCHED sram.com service page: bracket options explicitly include "Post mount (20mm bracket) 20P", "Post mount (20mm spacer) 20S", "Post mount (40mm bracket) 40P" alongside the native "Direct mount DIR". Pistons/MatchMaker not listed on this specific page (not contradicted); MatchMaker X confirmed via SRAM\'s own marketing copy ("DB8 Stealth utilizes the same...MatchMaker X handlebar clamp system that Level, Code, and Maven use"). price/weight = sample.' },
   { id:'bk-shimano-xt-m8120', cat:'brake', brand:'Shimano', model:'XT M8120 4-piston', family:'shimano-xt-m8120', mfgPn:'BR-M8120', price:150, weight:295, mount:'PM', pistons:4, leverAccepts:['ispec-ev'], verified:true, lastChecked:'2026-07-10', source:'https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf', desc:'mount (post/PM) + pistons (4) confirmed exact vs the FETCHED 2026-2027 Shimano Spec Handbook "Brake (Hydraulic Disc Brake)" table p.35 (BR-M8120 column, recommended lever BL-M8100/BL-T8100). leverAccepts (I-SPEC EV) not independently re-confirmed this pass - no dedicated I-SPEC compatibility table was locatable in the handbook - kept as prior catalog value. weight = sample (Shimano publishes no brake weights).' },
   { id:'bk-hayes-dominion-a4', cat:'brake', brand:'Hayes', model:'Dominion A4', family:'hayes-dominion', price:250, weight:310, mount:'PM', pistons:4, leverAccepts:['ispec-ev','ispec-ii','matchmaker'], verified:true, lastChecked:'2026-07-07', source:'https://hayesbicycle.com/products/dominion-a4-brake-kit' },
@@ -8134,7 +8138,406 @@ var PARTS_RAW = [
       handlebar:'hb-ari-team-35', stem:'st-ari-charger-35', grips:'gr-odi-elite-pro',
       dropper:'dp-oneup-v3-316-150', saddle:'sa-ergon-sm10'
     },
-    desc:'Sourced from a FETCHED vitalmtb.com "2025 Ari La Sal Peak Pro" spec-guide page (full component build sheet + its own quoted $6,799 price - the current aribikes.com Pro listing shows $5,595, the same era/sale-snapshot mismatch already flagged on the Comp trim above, so this row stays deliberately UNVERIFIED). Only ONE new OE part row was needed (see rw-crankbrothers-synthesis-enduro-29-xd - the XD-driver option of the already-cataloged 29in Synthesis Enduro rear wheel, needed because this build is genuinely full-29in per both Vital and the frame\'s stock wheelConfigs, unlike the prior mullet-build XD row which is 27.5in); every other fills entry reuses an already-cataloged part: the RockShox ZEB Ultimate 170 fork, RockShox Vivid Ultimate 230x65 std shock, the Synthesis Enduro front wheel, both Maxxis DoubleDown tires, the full SRAM X0 Eagle Transmission drivetrain + shared XS-1295 cassette + GX Flattop chain + DUB BSA73 BB, SRAM Maven Silver brakes + CenterLine 200mm rotors, the Ari Team 35 bar/Charger stem/ODI Elite Pro grips (first entered for the Comp trim above), a OneUp V3 dropper, and an Ergon SM10 saddle (first entered for the Comp trim). Pedals omitted (not stock); headset omitted (Cane Creek 40 Series ZS44/28.6-ZS56/40, now recorded on the shared frame row, but no separate complete-headset SKU catalogued). Component (a-la-carte) sum of the fills is well above $6,799 at current catalog prices, so the "buy complete" savings the dual-price block shows is real even before accounting for this row\'s own pricing-era uncertainty.' }
+    desc:'Sourced from a FETCHED vitalmtb.com "2025 Ari La Sal Peak Pro" spec-guide page (full component build sheet + its own quoted $6,799 price - the current aribikes.com Pro listing shows $5,595, the same era/sale-snapshot mismatch already flagged on the Comp trim above, so this row stays deliberately UNVERIFIED). Only ONE new OE part row was needed (see rw-crankbrothers-synthesis-enduro-29-xd - the XD-driver option of the already-cataloged 29in Synthesis Enduro rear wheel, needed because this build is genuinely full-29in per both Vital and the frame\'s stock wheelConfigs, unlike the prior mullet-build XD row which is 27.5in); every other fills entry reuses an already-cataloged part: the RockShox ZEB Ultimate 170 fork, RockShox Vivid Ultimate 230x65 std shock, the Synthesis Enduro front wheel, both Maxxis DoubleDown tires, the full SRAM X0 Eagle Transmission drivetrain + shared XS-1295 cassette + GX Flattop chain + DUB BSA73 BB, SRAM Maven Silver brakes + CenterLine 200mm rotors, the Ari Team 35 bar/Charger stem/ODI Elite Pro grips (first entered for the Comp trim above), a OneUp V3 dropper, and an Ergon SM10 saddle (first entered for the Comp trim). Pedals omitted (not stock); headset omitted (Cane Creek 40 Series ZS44/28.6-ZS56/40, now recorded on the shared frame row, but no separate complete-headset SKU catalogued). Component (a-la-carte) sum of the fills is well above $6,799 at current catalog prices, so the "buy complete" savings the dual-price block shows is real even before accounting for this row\'s own pricing-era uncertainty.' },
+
+  // =========================================================================
+  // COMPLETE BIKES — Kona / Salsa / GT / Mondraker grind (2026-07-15,
+  // catalog/complete-bikes-grind-2-kona-salsa-gt-mondraker). Kona Process 153
+  // CR/DL, FETCHED konaworld.com/products/process-153-cr-dl directly (a
+  // fetchable maker per the existing catalog's Kona frame rows). The carbon
+  // Process 153 frame (fr-kona-process-153-carbon, "Process 153 CR/DL",
+  // already verified 2026-07-14) is an EXACT platform match - its own
+  // shockEye/shockStroke/shockMount (205/57.5/trunnion) match this build's
+  // stock RockShox Super Deluxe Ultimate Trunnion shock exactly, and its
+  // headTubeUpper/Lower (ZS44/28.6, ZS56/40) match the stock FSA Orbit 1.5 E
+  // ZS headset's bore family (headset left unfilled per the Commencal-row
+  // convention: frame-integrated, no separate complete-SKU sourced this
+  // pass). Fork (RockShox Lyrik Ultimate 160), full SRAM GX Eagle
+  // Transmission drivetrain, SRAM G2 RSC brakes, SRAM Centerline 200mm
+  // rotors, and the WTB Volt saddle were ALL already cataloged exact
+  // matches - only the wheel pair + Kona house cockpit + a representative-
+  // size dropper needed new rows (5 new rows total), below.
+  { id:'fw-dtswiss-350-komtrail-i30-29', cat:'frontwheel', brand:'DT Swiss', model:'350 / WTB KOM Trail i30 (OE)', family:'dtswiss-350-komtrail', disciplines:['enduro'],
+    price:230, weight:900, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Stock front wheel on the Kona Process 153 CR/DL (FETCHED konaworld.com/products/process-153-cr-dl build sheet: "DT Swiss 350" hub, "WTB KOM Trail i30 TCS" rim, "110x15mm" spacing) - a hand-built OE wheel (hub + rim from two different brands), not a single-SKU branded wheelset, so it is entered as its own frontwheel row rather than reusing a DT-Swiss-branded wheelset row. Rotor mount not stated on Kona\'s page; multiple independent retailer wheelset listings pairing this exact DT Swiss 350 hub with a WTB KOM Trail i30 rim (velomine.com) describe the combination as "6-bolt Disc Hubs" - used here as the honest closest documented mount (DT Swiss also sells a 350 hub in Center Lock, but no retailer source pairs THAT variant with this specific rim/build), and it matches the stock SRAM Centerline 200mm 6-bolt rotors with no adapter needed. "i30" is WTB\'s own internal-width naming convention (i = internal, 30 = mm), confirmed via wtb.com\'s KOM Light/Tough i30 sibling pages (the "KOM Trail" name itself appears to be a since-renamed/OE-only tier not on wtb.com\'s current site) - intWidth:30 is the literal name, not a guess. maxTire 2.6 is a conservative estimate for a 30mm-internal rim (same convention as this catalog\'s other 30mm-rim OE wheel rows, e.g. fw-dtswiss-xm1700-29), comfortably above the stock 2.5in front tire. Weight/price are documented samples (DT 350 front hub ~142g per this catalog\'s own measured fh-dtswiss-350-boost110 row + a ~30mm rim in the 550-600g class + spokes/build) - no single retail SKU price found for this exact hand-built pairing; left unverified.' },
+  { id:'rw-dtswiss-350-komtrail-i30-29-xd', cat:'rearwheel', brand:'DT Swiss', model:'350 / WTB KOM Trail i30 (OE, XD)', family:'dtswiss-350-komtrail', disciplines:['enduro'],
+    price:260, weight:1030, wheel:'29', hub:'Boost148', freehub:'XD', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Rear half of the stock Process 153 CR/DL wheel pair (FETCHED konaworld.com build sheet: "DT Swiss 350" hub, "WTB KOM Trail i30 TCS" rim, "148x12mm" spacing). freehub:XD per the build sheet\'s SRAM GX Eagle Transmission cassette ("SRAM GX Eagle Transmission 10-52t 12spd", XS-1275, an XD-driver-only cassette in this catalog). Rotor mount / rim width / maxTire basis identical to the front wheel (see its own desc for the 6-bolt sourcing and the i30 naming confirmation). Weight/price are documented samples (DT 350 rear XD hub 257g per this catalog\'s own measured rh-dtswiss-350-boost148-xd row + rim/spokes) - no single retail SKU price found for this exact hand-built pairing; left unverified.' },
+  { id:'hb-kona-xcbc-35', cat:'handlebar', brand:'Kona', model:'XC/BC 35', family:'kona-xcbc', disciplines:['enduro'],
+    price:55, weight:310, clamp:35,
+    desc:'Stock handlebar on the Process 153 CR/DL (FETCHED konaworld.com build sheet, verbatim: "Kona XC/BC 35" handlebar). House-brand OE part with no standalone retail product page found (same "no independent SKU" situation as this catalog\'s other house-brand OE cockpit rows, e.g. hb-forbidden-800-35) - clamp 35mm is the real fetched build-sheet spec; price/weight are documented samples for a typical 35mm-clamp alloy enduro riser bar, left unverified.' },
+  { id:'st-kona-xcbc-35', cat:'stem', brand:'Kona', model:'XC/BC 35', family:'kona-xcbc', disciplines:['enduro'],
+    price:45, weight:150, clamp:35,
+    desc:'Stock stem on the Process 153 CR/DL (FETCHED konaworld.com build sheet, verbatim: "Kona XC/BC 35" stem, matching the handlebar\'s 35mm clamp). No standalone retail product page found (house-brand OE part) - price/weight are documented samples for a typical 35mm-clamp alloy enduro stem, left unverified.' },
+  { id:'gr-kona-key-grip', cat:'grips', brand:'Kona', model:'Key Grip', family:'kona-key-grip', disciplines:['enduro'],
+    price:18, weight:95,
+    desc:'Stock grips on the Process 153 CR/DL (FETCHED konaworld.com build sheet, verbatim: "Kona Key Grip"). House-brand OE part with no standalone retail product page found; grips carry no verdict-driving fields, so this never risks a false compatibility claim. Price/weight are documented samples for a typical lock-on MTB grip, left unverified.' },
+
+  /* The Kona Process 153 CR/DL (2026) — the Kona/Salsa/GT/Mondraker grind's
+     first Complete Bikes row. fills = ONLY the parts the bike ships with
+     from the factory (decision #1); pedals are not stock, so the pedals
+     slot is intentionally absent, and the headset slot is left unfilled
+     (frame-integrated FSA Orbit 1.5 E ZS, unlisted with a separate complete-
+     SKU on the fetched build sheet - same convention as the Commencal row).
+     price = the $5,999.00 list MSRP FETCHED from konaworld.com; streetPrice
+     = the $5,099.00 current sale price shown on the same fetched page (a
+     "15% off" discount banner) (decision #3: MSRP is the canonical stored
+     price, streetPrice carries the featured sale figure).
+     Dropper: Kona's page states "Rock Shox Reverb w/1x Remote Lever
+     31.6mm" - a cable/remote-lever description (not AXS wireless), so this
+     models the cable-actuated RockShox Reverb Stealth C1 family; Kona's
+     page gives no per-size travel table, so this uses the 175mm point (this
+     catalog's own measured-weight verified row) as the representative size,
+     the same per-bike single-representative-size convention already used
+     elsewhere in this catalog (e.g. the Commencal/Canyon dropper rows).
+     Verdict-clean per decision #6, ZERO warnings: the shock is an EXACT
+     match of the frame's shockEye/shockStroke/shockMount, the fork axle
+     (Boost110) / steerer (tapered) / brake mount (PM) all match the frame
+     and wheel exactly, and the stock 6-bolt rotors match the stock 6-bolt
+     wheel hubs with no adapter needed. */
+  { id:'cb-kona-process-153-cr-dl', cat:'completebike', brand:'Kona', model:'Process 153 CR/DL', family:'kona-process', gen:'G3',
+    disciplines:['enduro'], price:5999, streetPrice:5099,
+    verified:true, lastChecked:'2026-07-15', source:'https://konaworld.com/products/process-153-cr-dl',
+    fills:{
+      frame:'fr-kona-process-153-carbon', fork:'fk-rockshox-lyrik-ultimate-29-160', shock:'sh-rockshox-super-deluxe-ultimate-205x57p5-trun',
+      frontWheel:'fw-dtswiss-350-komtrail-i30-29', rearWheel:'rw-dtswiss-350-komtrail-i30-29-xd',
+      frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt',
+      shifter:'sft-sram-gx-transmission', derailleur:'dr-sram-gx-transmission', cassette:'ca-sram-xs1275',
+      chain:'ch-sram-gx-flattop', crankset:'cr-sram-gx-transmission', bb:'bb-sram-dub-pf92',
+      frontBrake:'bk-sram-g2-rsc', rearBrake:'bk-sram-g2-rsc',
+      frontRotor:'ro-sram-centerline-200-6b', rearRotor:'ro-sram-centerline-200-6b',
+      handlebar:'hb-kona-xcbc-35', stem:'st-kona-xcbc-35', grips:'gr-kona-key-grip',
+      dropper:'dp-rockshox-reverb-stealth-316-175', saddle:'sa-wtb-volt'
+    },
+    desc:'FETCHED konaworld.com/products/process-153-cr-dl directly: full factory build sheet + $5,999.00 USD list price (page shows a 15% sale to $5,099.00, captured as streetPrice). Every fills entry is the bike\'s real stock part (5 new OE rows entered alongside this one: the DT 350/WTB KOM Trail i30 wheel pair + the Kona XC/BC 35 bar/stem + the Kona Key Grip - see each row\'s own desc for its sourcing); the frame, fork, shock, full SRAM GX Eagle Transmission drivetrain, SRAM G2 RSC brakes, SRAM Centerline 200mm rotors, and WTB Volt saddle were ALL already cataloged exact matches. Pedals omitted (not stock); headset omitted (frame-integrated FSA Orbit 1.5 E ZS, no separate complete-SKU sourced). Component (a-la-carte) sum of the fills is well above $5,999 at current catalog prices, so the "buy complete" savings the dual-price block shows is real, not just a passed lint.' },
+
+  // =========================================================================
+  // COMPLETE BIKES — GT Force Carbon Pro + GT Sensor Carbon Pro (2026-07-15,
+  // catalog/complete-bikes-grind-2-kona-salsa-gt-mondraker). Both FETCHED
+  // gtbicycles.com directly (a fetchable maker per the existing catalog's
+  // GT frame rows) with prices resolved via each product's own Shopify
+  // /products/<handle>.js variant-JSON endpoint (gtbicycles.com's rendered
+  // spec pages carry no price; a documented trick already used elsewhere in
+  // this catalog, e.g. the headset-category-learnings session). Both bikes
+  // reuse their existing verified GT frame rows exactly (fr-gt-force-carbon,
+  // fr-gt-sensor-carbon), and share the same house cockpit (GT Alloy Riser
+  // Bar 780/30 + GT Alloy 45mm stem, both 31.8mm clamp per a corroborating
+  // Bermstyle review of the exact bike - "comes spec'd with 31.8 bar and
+  // stem" - gtbicycles.com's own pages state width/rise/length but omit
+  // clamp diameter; GT Mushroom grips) and drivetrain/brake/rotor tier
+  // (SRAM NX Eagle shifter/chain, SRAM GX Eagle derailleur, SRAM PG-1230
+  // 11-50 cassette, Truvativ Descendant 6K crank, SRAM DUB BSA73 BB, SRAM
+  // Code R brakes, SRAM Centerline rotors) - all already cataloged exact
+  // matches. Each bike needs its own wheel pair (different rim + shared
+  // Formula hub) and, for Force, its own fork/rear-tire/dropper/saddle -
+  // 12 new OE rows total across both bikes.
+  { id:'fw-formula-wtbsti30-29', cat:'frontwheel', brand:'Formula', model:'Formula / WTB ST i30 (OE)', family:'formula-wtbsti30', disciplines:['enduro'],
+    price:180, weight:920, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.5,
+    desc:'Stock front wheel on the GT Force Carbon Pro (FETCHED gtbicycles.com build sheet: "rims WTB ST i30 TCS 2.0, 32h, Tubeless Ready", "front hub Formula, 15x110mm"). "WTB ST i30" is a genuinely distinct, budget-tier rim from the KOM Trail i30 used on the catalog\'s Kona/GT Sensor OE wheels (confirmed via multiple independent retailer listings for the standalone SKU, e.g. bikemart.com/topfun.com, and search-corroborated specs: 30mm internal width, 587g at 29in) - not a duplicate or a guess. Rotor mount not stated by GT for the Formula hub; entered as 6-bolt (the honest closest match - GT\'s own SRAM Code R brakes ship "Centerline Rotors" which this catalog carries in both mounts, and this catalog has no manufacturer confirmation pinning Formula\'s OE-tier hub to either mount specifically, so 6-bolt avoids inventing an unconfirmed Center-Lock claim while matching the stock 6-bolt-tier rotor choice below with no adapter needed). maxTire 2.5 matches the frame\'s own documented maxTire (fr-gt-force-carbon). Weight/price are documented samples (WTB ST i30 rim ~587g + a typical OE Formula hub + spokes) - no single retail SKU price found for this exact hand-built pairing; left unverified.' },
+  { id:'rw-formula-wtbsti30-29-hg', cat:'rearwheel', brand:'Formula', model:'Formula / WTB ST i30 (OE, HG)', family:'formula-wtbsti30', disciplines:['enduro'],
+    price:200, weight:1030, wheel:'29', hub:'Boost148', freehub:'HG', rotorMount:'sixbolt', intWidth:30, maxTire:2.5,
+    desc:'Rear half of the stock Force Carbon Pro wheel pair (FETCHED gtbicycles.com build sheet: "rear hub Formula, 12x148mm, HG Freehub Body"). freehub:HG per the build sheet\'s stock cassette ("SRAM PG-1230, 11-50T" - an 11T-floor HG-compatible cassette, already cataloged as ca-sram-pg1230). Rotor mount / rim width / maxTire basis identical to the front wheel (see its own desc for the 6-bolt sourcing and the ST-vs-KOM-Trail rim distinction). Weight/price are documented samples - no single retail SKU price found for this exact hand-built pairing; left unverified.' },
+  { id:'hb-gt-alloy-780-30', cat:'handlebar', brand:'GT', model:'Alloy Riser Bar (780/30)', family:'gt-alloy-cockpit', clamp:31.8, width:780, rise:30, material:'alu', disciplines:['enduro','trail'],
+    price:45, weight:310,
+    desc:'Stock handlebar on both the GT Force Carbon Pro and GT Sensor Carbon Pro (both FETCHED gtbicycles.com spec tables, verbatim: "GT Alloy Riser Bar, 30mm Rise, 780mm, 5 Up, 8 Back"). GT\'s own pages state width/rise/sweep but omit clamp diameter; clamp:31.8 is confirmed via a corroborating Bermstyle review of this exact bike\'s stock spec ("The bike comes spec\'d with 31.8 bar and stem, which I much prefer over the 35mm standard that\'s trending on new bikes") - a genuine maker-spec confirmation via editorial corroboration, not a guess, per the entry template\'s credible-secondary-source allowance. House-brand OE part with no standalone retail product page found; price/weight are documented samples for a typical 31.8mm alloy riser bar, left unverified.' },
+  { id:'st-gt-alloy-45', cat:'stem', brand:'GT', model:'Alloy Stem (45mm)', family:'gt-alloy-cockpit', clamp:31.8, length:45, disciplines:['enduro','trail'],
+    price:35, weight:165,
+    desc:'Stock stem on both the GT Force Carbon Pro and GT Sensor Carbon Pro (both FETCHED gtbicycles.com spec tables, verbatim: "GT Alloy, 45mm"). Clamp 31.8mm per the same Bermstyle corroboration as the matching handlebar row (see its desc). No standalone retail product page found (house-brand OE part); price/weight are documented samples for a typical 31.8mm alloy stem, left unverified.' },
+  { id:'gr-gt-mushroom', cat:'grips', brand:'GT', model:'Mushroom', family:'gt-mushroom', disciplines:['enduro','trail'],
+    price:16, weight:90,
+    desc:'Stock grips on both the GT Force Carbon Pro and GT Sensor Carbon Pro (both FETCHED gtbicycles.com spec tables, verbatim: "GT Mushroom"). House-brand OE part with no standalone retail product page found; grips carry no verdict-driving fields, so this never risks a false compatibility claim. Price/weight are documented samples for a typical lock-on MTB grip, left unverified.' },
+  { id:'dp-tranzx-rad-316-150', cat:'dropper', brand:'TranzX', model:'+Rad (Adjustable)', family:'tranzx-rad', disciplines:['enduro','trail'],
+    price:150, weight:640, diameter:31.6, drop:150,
+    desc:'Stock dropper on both the GT Force Carbon Pro and GT Sensor Carbon Pro (both FETCHED gtbicycles.com spec tables, verbatim: "TranzX +Rad, 31.6mm, Adjustable Height" - a stroke-adjustable OE post, no fixed-travel table published; this row uses a 150mm representative-travel point, the same per-bike single-representative-size convention already used elsewhere in this catalog for size/travel-dependent OE parts, e.g. the Commencal/Canyon dropper rows). No standalone na.tranzx.com product page found under the "+Rad" name (distinct from the cataloged Kitsuma/EDP01/Hot Lap TranzX families already in this catalog - a genuinely different, adjustable-travel OE-only line) - price/weight are documented samples in this catalog\'s existing TranzX cable-dropper price/weight tier, left unverified.' },
+  { id:'sa-gt-scoop-shallow-sport', cat:'saddle', brand:'GT', model:'Scoop Shallow Sport', family:'gt-scoop',
+    price:48, weight:308,
+    desc:'Stock saddle on the GT Force Carbon Pro (FETCHED gtbicycles.com build sheet, verbatim: "GT Scoop Shallow Sport"). "Scoop" is a real saddle platform shared across the WTB/Fabric family (WTB and Fabric are sister brands under the same parent) - FETCHED fabric.cc\'s own "Scoop Sport Shallow" product page (the base steel-railed tier this GT house name maps to): 308g, steel rails, 142mm width, EUR44.90. Price converted to a $48 USD sample (no US-specific listing found for the GT-badged version); weight is the maker-stated 308g. Saddle carries no verdict-driving fields, so this substitution risks no false compatibility claim.' },
+
+  /* The GT Force Carbon Pro (2026) — Complete Bikes row. fills = ONLY the
+     parts the bike ships with from the factory (decision #1); pedals are
+     not stock, so the pedals slot is intentionally absent, and the headset
+     slot is left unfilled (frame-integrated FSA No.57, unlisted with a
+     separate complete-SKU on the fetched build sheet - same convention as
+     the Commencal/Kona rows). price = $4,900.00 FETCHED via
+     gtbicycles.com's own Shopify /products/force-carbon-pro.js variant
+     JSON (the rendered spec page states no price). Verdict-clean per
+     decision #6: the fork axle (Boost110) / steerer (tapered) / brake
+     mount (PM) all match the frame and wheel exactly; the stock 6-bolt
+     rotors match the stock 6-bolt wheel hubs with no adapter needed; the
+     220mm front / 200mm rear rotors sit within the frame's 203mm max at
+     the rear and within the fork's rotor range at the front. */
+  { id:'cb-gt-force-carbon-pro', cat:'completebike', brand:'GT', model:'Force Carbon Pro', family:'gt-force', gen:'2026',
+    disciplines:['enduro'], price:4900,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.gtbicycles.com/products/force-carbon-pro',
+    fills:{
+      frame:'fr-gt-force-carbon', fork:'fk-rockshox-zeb-select-plus-29-170', shock:'sh-rockshox-super-deluxe-selectplus-230x65',
+      frontWheel:'fw-formula-wtbsti30-29', rearWheel:'rw-formula-wtbsti30-29-hg',
+      frontTire:'ti-continental-kryptotal-fr-29-24-enduro-soft', rearTire:'ti-continental-kryptotal-re-29-24-enduro-soft',
+      shifter:'sft-sram-nx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-pg1230',
+      chain:'ch-sram-nx-eagle', crankset:'cr-truvativ-descendant-6k', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-sram-code-r', rearBrake:'bk-sram-code-r',
+      frontRotor:'ro-sram-centerline-220-6b', rearRotor:'ro-sram-centerline-200-6b',
+      handlebar:'hb-gt-alloy-780-30', stem:'st-gt-alloy-45', grips:'gr-gt-mushroom',
+      dropper:'dp-tranzx-rad-316-150', saddle:'sa-gt-scoop-shallow-sport'
+    },
+    desc:'FETCHED gtbicycles.com/products/force-carbon-pro directly: full factory build sheet, price $4,900.00 via the same product\'s own Shopify /products/force-carbon-pro.js variant JSON (the rendered spec page carries no price). Every fills entry is the bike\'s real stock part (7 new OE rows entered alongside this one and the shared cockpit rows below: the rear tire, the Formula/WTB ST i30 wheel pair, the GT bar/stem/grips, the TranzX +Rad dropper, and the GT Scoop saddle - see each row\'s own desc for its sourcing); the frame, the RockShox ZEB Select+ fork, the RockShox Super Deluxe Select+ shock, the full SRAM NX/GX Eagle drivetrain, the SRAM Code R brakes, and the SRAM Centerline rotors were ALL already cataloged exact matches. Pedals omitted (not stock); headset omitted (frame-integrated FSA No.57, no separate complete-SKU sourced). Component (a-la-carte) sum of the fills is well above $4,900 at current catalog prices, so the "buy complete" savings the dual-price block shows is real, not just a passed lint.' },
+
+  { id:'fw-formula-wtbkomtrail-i30-29', cat:'frontwheel', brand:'Formula', model:'Formula / WTB KOM Trail i30 (OE)', family:'formula-wtbkomtrail', disciplines:['trail'],
+    price:190, weight:900, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.5,
+    desc:'Stock front wheel on the GT Sensor Carbon Pro (FETCHED gtbicycles.com build sheet: "WTB KOM Trail i30 (32h, tubeless-ready)" rim, "Formula front hub (15x110mm)"). Same WTB KOM Trail i30 rim (30mm internal width) as this catalog\'s Kona Process 153 CR/DL wheel rows, paired here with a Formula hub instead of DT Swiss (a genuinely different OE pairing, not a duplicate). Rotor mount not stated by GT for the Formula hub - same honest 6-bolt entry as the Force Carbon Pro\'s Formula wheel rows (see that row\'s desc for the reasoning), matching the stock 6-bolt-tier Centerline rotors below with no adapter needed. maxTire 2.5 matches the frame\'s own documented maxTire (fr-gt-sensor-carbon). Weight/price are documented samples; left unverified.' },
+  { id:'rw-formula-wtbkomtrail-i30-29-hg', cat:'rearwheel', brand:'Formula', model:'Formula / WTB KOM Trail i30 (OE, HG)', family:'formula-wtbkomtrail', disciplines:['trail'],
+    price:210, weight:1010, wheel:'29', hub:'Boost148', freehub:'HG', rotorMount:'sixbolt', intWidth:30, maxTire:2.5,
+    desc:'Rear half of the stock Sensor Carbon Pro wheel pair (FETCHED gtbicycles.com build sheet: "Formula rear hub (12x148mm, HG freehub)"). freehub:HG per the build sheet\'s stock cassette ("SRAM PG-1230, 11-50T", already cataloged as ca-sram-pg1230). Rotor mount / rim width / maxTire basis identical to the front wheel. Weight/price are documented samples; left unverified.' },
+
+  /* The GT Sensor Carbon Pro (2026) — Complete Bikes row. fills = ONLY the
+     parts the bike ships with from the factory (decision #1); pedals are
+     not stock, so the pedals slot is intentionally absent, and the headset
+     slot is left unfilled (frame-integrated FSA No.42, unlisted with a
+     separate complete-SKU on the fetched build sheet). price = not listed
+     on the rendered gtbicycles.com page; the product's own Shopify
+     /products/sensor-carbon-pro.js variant JSON was fetched for the real
+     figure (see desc). Verdict-clean per decision #6: the fork's 150mm
+     travel sits exactly at the frame's designForkTravel (150mm); the shock
+     is an EXACT match of the frame's shockEye/shockStroke/shockMount
+     (185x55 trunnion); the stock 6-bolt rotors match the stock 6-bolt
+     wheel hubs with no adapter needed; UDH frame (fr-gt-sensor-carbon
+     already carries udh:true) - the stock SRAM GX Eagle derailleur is a
+     standard-hanger-mount part (mount:'hanger'), not a UDH-only
+     Transmission mech, so this never depends on the UDH fact either way. */
+  { id:'cb-gt-sensor-carbon-pro', cat:'completebike', brand:'GT', model:'Sensor Carbon Pro', family:'gt-sensor', gen:'2026',
+    disciplines:['trail'], price:4400,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.gtbicycles.com/products/sensor-carbon-pro',
+    fills:{
+      frame:'fr-gt-sensor-carbon', fork:'fk-rockshox-lyrik-selectplus-29-150', shock:'sh-rockshox-super-deluxe-selectplus-185x55-trun',
+      frontWheel:'fw-formula-wtbkomtrail-i30-29', rearWheel:'rw-formula-wtbkomtrail-i30-29-hg',
+      frontTire:'ti-continental-kryptotal-fr-29-24-enduro-soft', rearTire:'ti-continental-kryptotal-re-29-24-enduro-soft',
+      shifter:'sft-sram-nx-eagle', derailleur:'dr-sram-gx-eagle', cassette:'ca-sram-pg1230',
+      chain:'ch-sram-nx-eagle', crankset:'cr-truvativ-descendant-6k', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-sram-code-r', rearBrake:'bk-sram-code-r',
+      frontRotor:'ro-sram-centerline-200-6b', rearRotor:'ro-sram-centerline-180-6b',
+      handlebar:'hb-gt-alloy-780-30', stem:'st-gt-alloy-45', grips:'gr-gt-mushroom',
+      dropper:'dp-tranzx-rad-316-150', saddle:'sa-wtb-silverado'
+    },
+    desc:'FETCHED gtbicycles.com/products/sensor-carbon-pro directly: full factory build sheet (rendered page lists no price; $4,400.00 resolved via the same product\'s own Shopify /products/sensor-carbon-pro.js variant JSON, the same documented trick used on the Force Carbon Pro sibling row). Every fills entry is the bike\'s real stock part (2 new OE rows entered alongside this one: the Formula/WTB KOM Trail i30 wheel pair - the rear tire, GT cockpit, TranzX dropper, and WTB Silverado saddle were all already cataloged or added by the sibling Force row above); the frame, the RockShox Lyrik Select+ fork, the RockShox Super Deluxe Select+ shock, the full SRAM NX/GX Eagle drivetrain, the SRAM Code R brakes, and the SRAM Centerline rotors were ALL already cataloged exact matches. Pedals omitted (not stock); headset omitted (frame-integrated FSA No.42, no separate complete-SKU sourced). Component (a-la-carte) sum of the fills is well above $4,400 at current catalog prices, so the "buy complete" savings the dual-price block shows is real, not just a passed lint.' },
+
+  // =========================================================================
+  // COMPLETE BIKES — Salsa Spearfish C Eagle 90 Transmission (2026-07-15,
+  // catalog/complete-bikes-grind-2-kona-salsa-gt-mondraker). FETCHED
+  // salsacycles.com/products/2026-spearfish-c-eagle-90-transmission directly
+  // (a fetchable maker); Salsa's Horsethief is currently sold FRAME-ONLY
+  // (salsacycles.com/collections/horsetheif lists a single frameset SKU, no
+  // complete builds) so it was SKIPPED per decision #7's "pick makers that
+  // actually sell complete bikes" - Spearfish's own collection page confirms
+  // multiple current 2026 complete-bike trims with real prices, so it
+  // carries this maker's Complete Bikes debut instead. No Salsa frame
+  // existed in this catalog before this pass - the Spearfish C carbon frame
+  // is added below (fr-salsa-spearfish-c), fully sourced from a FETCHED
+  // dedicated frameset product page (2025-spearfish-c-dlx-frameset, the same
+  // Spearfish C platform across build-kit years) which states every
+  // verdict-driving field directly: rear axle, BB92 press-fit, ZS44/ZS56
+  // headset, 30.9mm post, PM brakes (180-200mm), UDH, shock size/mount, and
+  // max tire. 8 new OE rows total (both wheels, both tires, bar/stem/grips,
+  // dropper) plus the shock and frame.
+  { id:'fr-salsa-spearfish-c', cat:'frame', material:'carbon', brand:'Salsa', model:'Spearfish C', family:'salsa-spearfish', disciplines:['xc'],
+    price:3499, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', headTubeUpper:'ZS44/28.6', headTubeLower:'ZS56/40',
+    bb:'PF92', seatTube:30.9, brakeMount:'PM', maxRotorR:200, maxTire:2.4, suspension:'full', shockEye:190, shockStroke:45, shockMount:'std',
+    maxForkTravel:130, travel:120, udh:true, bundledShock:null, frameOnly:true,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.salsacycles.com/products/2025-spearfish-c-dlx-frameset',
+    desc:'FETCHED salsacycles.com\'s dedicated Spearfish C DLX Frameset product page directly (the Spearfish C platform is shared across build-kit years - the frameset page is the authoritative frame-spec source, same convention as this catalog\'s other maker framesets): rear axle "12 x 148mm" (Boost148) + a separate "12 x 188mm, TP=1.0, TL=13mm" axle-hardware spec line (the same axle standard, differently phrased - not a second rear-axle standard); BB "BB92 press-fit" (-> PF92); headset upper "ZS44/28.6" / lower "ZS56/40" (verbatim, maker-stated bore tokens - no rounding); seatpost "30.9mm"; brake mount "74mm post mount (180-200mm)" for both ends (-> brakeMount PM, maxRotorR 200 = the maker-stated ceiling, not a guess); max fork travel 130mm per the FAQ ("fork travels between 100-130mm"); shock "190 x 45mm" with "Forward Shock Mount: O8x20mm" / "Rearward Shock Mount: Standard O15MM, no bushing" (-> shockMount std, matching a separate corroborating search aggregate that independently states "standard shock mount... not a trunnion mount"); UDH "SRAM UDH (w/ O30mm washer)" (-> udh:true); max tire "29 x 2.4\\"" (-> maxTire 2.4). Frameset price $3,499.00 is the fetched page\'s own frame-only MSRP (kept per this catalog\'s convention of a frame-only price on a frameOnly:true row, even when used inside a completebike\'s fills - the completebike\'s own price is separate and does not derive from this figure). Rear travel 120mm per the complete bike\'s own fetched spec ("Rear Travel: 120mm", the same platform, flip-chip adjustable 100-120mm per Salsa\'s marketing copy - one representative travel point entered, same per-frame convention as this catalog\'s other flip-chip frames).' },
+  { id:'fw-wtb-frequency3x-sti30-29', cat:'frontwheel', brand:'WTB', model:'Frequency 3X / ST i30 (OE)', family:'wtb-frequency3x-sti30', disciplines:['xc'],
+    price:170, weight:850, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.4,
+    desc:'Stock front wheel on the Salsa Spearfish C Eagle 90 Transmission (FETCHED salsacycles.com build sheet: "Hubs: WTB Frequency 3X (15 x 110mm front...)", "Rims: WTB ST i30 TCS, 28h, 29\\""). WTB\'s own house-brand hub line ("Frequency") paired with its budget-tier "ST i30" rim (a genuinely distinct, real SKU from the KOM Trail i30 used on this catalog\'s Kona/GT Sensor OE wheels - confirmed via multiple independent retailer listings, e.g. bikemart.com/topfun.com: 30mm internal width, 587g at 29in). Rotor mount not stated by Salsa for the Frequency 3X hub; entered as 6-bolt (the honest closest match, same reasoning already used on this catalog\'s Formula-hub GT wheel rows: the stock SRAM DB6/Centerline brakeset ships in both mounts and no manufacturer confirmation pins this specific OE hub to either one, so 6-bolt avoids inventing an unconfirmed Center-Lock claim while matching the stock 6-bolt-tier rotor choice below with no adapter needed). maxTire 2.4 matches the frame\'s own documented maxTire. Weight/price are documented samples (WTB ST i30 rim ~587g + a typical OE hub + spokes, a lighter XC-tier build than the enduro-tier Force/Sensor Formula wheels) - no single retail SKU price found for this exact hand-built pairing; left unverified.' },
+  { id:'rw-wtb-frequency3x-sti30-29-hg', cat:'rearwheel', brand:'WTB', model:'Frequency 3X / ST i30 (OE, HG)', family:'wtb-frequency3x-sti30', disciplines:['xc'],
+    price:190, weight:960, wheel:'29', hub:'Boost148', freehub:'HG', rotorMount:'sixbolt', intWidth:30, maxTire:2.4,
+    desc:'Rear half of the stock Spearfish C wheel pair (FETCHED salsacycles.com build sheet: "Hubs: WTB Frequency 3X (...12 x 148mm rear, splined freehub)"). freehub:HG per the build sheet\'s stock cassette ("SRAM XS-1270, 10-52t") - the XS-1270 is SRAM\'s documented narrow exception that fits a standard splined (HG-style) driver body despite its 10T low cog (already modeled in this catalog\'s cassette cross-rule, mfgPn CS-XS-1270-A1, and already used on the existing ca-sram-xs1270 row), so "splined freehub" here means HG, not XD. Rotor mount / rim width / maxTire basis identical to the front wheel (see its own desc). Weight/price are documented samples; left unverified.' },
+  { id:'ti-teravail-drawpoint-29-24-lighttrail-grip', cat:'tire', brand:'Teravail', model:'Drawpoint 29x2.4 Light Trail', family:'teravail-drawpoint', disciplines:['xc'],
+    price:80, weight:825, wheel:'29', width:2.4, casing:'light-trail', compound:'grip',
+    verified:true, lastChecked:'2026-07-15', source:'https://www.teravail.com/products/drawpoint-tire',
+    desc:'Stock front tire on the Salsa Spearfish C Eagle 90 Transmission (FETCHED salsacycles.com build sheet: "Teravail Drawpoint 29 x 2.4", 120TPI Light Trail casing, tan wall"). FETCHED teravail.com/products/drawpoint-tire directly: this model is 29x2.4-only, offered in Light Trail (120 TPI, 825g) and Durable (60 TPI, 910g) casings, both "Grip Compound" - Salsa\'s stated "120TPI" pins this to the Light Trail casing exactly (910g Durable is 60TPI, not a match). $80.00 is the maker\'s own stated price (page notes most colorway/casing combos currently sold out, not a pricing gap). New family in this catalog; casing:light-trail is a new vocab value added this pass (schema.js + types.js) since it is genuinely distinct from the existing trail/enduro-tier light-and-supple Teravail casing name.' },
+  { id:'ti-teravail-camrock-29-24-lighttrail-fast', cat:'tire', brand:'Teravail', model:'Camrock 29x2.4 Light Trail', family:'teravail-camrock', disciplines:['xc'],
+    price:80, weight:710, wheel:'29', width:2.4, casing:'light-trail', compound:'fast',
+    verified:true, lastChecked:'2026-07-15', source:'https://www.teravail.com/products/camrock-tire',
+    desc:'Stock rear tire on the Salsa Spearfish C Eagle 90 Transmission (FETCHED salsacycles.com build sheet: "Teravail Camrock 29 x 2.4\\", 120TPI Light Trail casing, tan wall"). FETCHED teravail.com/products/camrock-tire directly: 29x2.4 Light Trail (120 TPI) = 710g, all variants "Fast" compound ("provides low resistance for a fast-rolling tire" - a genuinely distinct third Teravail compound from the already-cataloged Grip/Grip Plus, added as a new vocab value this pass, schema.js + types.js). $80.00 maker-stated price, matching the front tire.' },
+  { id:'hb-salsa-alloy-oe-35', cat:'handlebar', brand:'Salsa', model:'Alloy Riser Bar (OE, 35mm)', family:'salsa-alloy-cockpit', clamp:35, material:'alu', disciplines:['xc'],
+    price:40, weight:290,
+    desc:'Stock handlebar on the Salsa Spearfish C Eagle 90 Transmission (FETCHED salsacycles.com build sheet, verbatim: "Alloy 35.0mm" - no separate brand name given for this house-spec bar; clamp:35 is the real fetched build-sheet spec). Width/rise not stated - left unset rather than guessed (neither feeds checkBuild). Price/weight are documented samples for a typical 35mm alloy XC/trail riser bar, left unverified.' },
+  { id:'st-salsa-guide-35', cat:'stem', brand:'Salsa', model:'Guide (35mm)', family:'salsa-guide-cockpit', clamp:35, disciplines:['xc'],
+    price:35, weight:150,
+    desc:'Stock stem on the Salsa Spearfish C Eagle 90 Transmission (FETCHED salsacycles.com build sheet, verbatim: "Salsa Guide 35.0"). Clamp:35 is the real fetched build-sheet spec; length not stated. No standalone retail product page found (house-brand OE part); price/weight are documented samples for a typical 35mm alloy stem, left unverified.' },
+  { id:'gr-salsa-filetread-lockon', cat:'grips', brand:'Salsa', model:'File Tread Lock-On', family:'salsa-filetread', disciplines:['xc'],
+    price:18, weight:95,
+    desc:'Stock grips on the Salsa Spearfish C Eagle 90 Transmission (FETCHED salsacycles.com build sheet, verbatim: "Salsa file tread lock-on"). House-brand OE part with no standalone retail product page found; grips carry no verdict-driving fields, so this never risks a false compatibility claim. Price/weight are documented samples for a typical lock-on MTB grip, left unverified.' },
+  { id:'dp-tranzx-ysi05-rad-309-150', cat:'dropper', brand:'TranzX', model:'YSI-05 +RAD (Adjustable)', family:'tranzx-ysi05-rad', disciplines:['xc'],
+    price:140, weight:575, diameter:30.9, drop:150,
+    desc:'Stock dropper on the Salsa Spearfish C Eagle 90 Transmission (FETCHED salsacycles.com build sheet, verbatim: "TranzX YSI-05 RAD+ adjustable-travel dropper w/ GL Matchmaker lever"). Salsa co-developed this tool-free adjustable-travel post with TranzX (per salsacycles.com\'s own "Long Story Short" blog post and corroborating Bikerumor launch coverage) - it ships in 125/150/170/200mm travel points, each individually adjustable -30mm in 5mm steps (na.tranzx.com 404s directly under this exact "+RAD"/"YSI-05" name; a corroborating retailer listing for the identical SKU, "TranzX YSI05 +RAD Dropper Seat Post, 30mm travel adjustment, 150 x 459mm, 30.9", plus a separate aggregate search of the family\'s own spec sheet, jointly confirm 30.9mm diameter, the 150mm travel point, and 575g). This row models the 150mm point as the representative size (same per-bike single-representative-travel convention already used on this catalog\'s GT +Rad dropper row). Left unverified (no direct manufacturer product page fetched).' },
+
+  /* The Salsa Spearfish C Eagle 90 Transmission (2026) — this maker's
+     Complete Bikes debut. fills = ONLY the parts the bike ships with from
+     the factory (decision #1); pedals are not stock, so the pedals slot is
+     intentionally absent, and the headset slot is left unfilled
+     (frame-integrated FSA Orbit 1.5E ZS NO.57E, unlisted with a separate
+     complete-SKU on the fetched build sheet - same convention as the
+     Commencal/Kona/GT rows). price = $4,999.00 FETCHED directly from the
+     rendered salsacycles.com product page (no Shopify-JSON workaround
+     needed here - the price rendered cleanly). Verdict-clean per decision
+     #6: the fork axle (Boost110) / steerer (tapered) / brake mount (PM)
+     all match the frame and wheel exactly; the shock is an EXACT match of
+     the frame's shockEye/shockStroke/shockMount (190x45 std); the stock
+     6-bolt rotors match the stock 6-bolt wheel hubs with no adapter
+     needed; the 180mm rotors sit under the frame's 200mm max; UDH frame
+     (fr-salsa-spearfish-c udh:true) with a UDH-direct-mount SRAM
+     Transmission derailleur - matches. */
+  { id:'cb-salsa-spearfish-c-eagle90-transmission', cat:'completebike', brand:'Salsa', model:'Spearfish C Eagle 90 Transmission', family:'salsa-spearfish', gen:'2026',
+    disciplines:['xc'], price:4999,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.salsacycles.com/products/2026-spearfish-c-eagle-90-transmission',
+    fills:{
+      frame:'fr-salsa-spearfish-c', fork:'fk-rockshox-sid-ultimate-29-120', shock:'sh-rockshox-sidluxe-selectplus-190x45',
+      frontWheel:'fw-wtb-frequency3x-sti30-29', rearWheel:'rw-wtb-frequency3x-sti30-29-hg',
+      frontTire:'ti-teravail-drawpoint-29-24-lighttrail-grip', rearTire:'ti-teravail-camrock-29-24-lighttrail-fast',
+      shifter:'sft-sram-eagle90-transmission', derailleur:'dr-sram-eagle90-transmission', cassette:'ca-sram-xs1270',
+      chain:'ch-sram-eagle70-flattop', crankset:'cr-sram-eagle90-transmission', bb:'bb-sram-dub-pf92',
+      frontBrake:'bk-sram-db6', rearBrake:'bk-sram-db6',
+      frontRotor:'ro-sram-centerline-180-6b', rearRotor:'ro-sram-centerline-180-6b',
+      handlebar:'hb-salsa-alloy-oe-35', stem:'st-salsa-guide-35', grips:'gr-salsa-filetread-lockon',
+      dropper:'dp-tranzx-ysi05-rad-309-150', saddle:'sa-wtb-silverado'
+    },
+    desc:'FETCHED salsacycles.com/products/2026-spearfish-c-eagle-90-transmission directly: full factory build sheet + $4,999.00 USD price (rendered cleanly on the page, no JSON workaround needed). Every fills entry is the bike\'s real stock part (8 new OE rows entered alongside the frame and shock above: both Teravail tires, the WTB Frequency 3X/ST i30 wheel pair, the Salsa house bar/stem/grips, and the TranzX YSI-05 +RAD dropper - see each row\'s own desc for its sourcing); the RockShox SID Ultimate fork, the full SRAM Eagle 90/70 Transmission drivetrain, the SRAM DB6 brakes, the SRAM Centerline rotors, and the WTB Silverado saddle were ALL already cataloged exact matches. Pedals omitted (not stock); headset omitted (frame-integrated FSA Orbit 1.5E ZS NO.57E, no separate complete-SKU sourced). Component (a-la-carte) sum of the fills is well above $4,999 at current catalog prices, so the "buy complete" savings the dual-price block shows is real, not just a passed lint.' },
+
+  // =========================================================================
+  // COMPLETE BIKES — Mondraker Foxy R (2026-07-15, catalog/complete-bikes-
+  // grind-2-kona-salsa-gt-mondraker), this maker's Complete Bikes debut.
+  // mondraker.com itself is a JS-rendered SPA that WebFetch cannot extract a
+  // build sheet from directly (every attempted product-page fetch returned
+  // only nav-menu HTML, no component data) - a documented Mondraker
+  // blocker. Per the same fallback chain already used for the fetch-walled
+  // Specialized worked example in COMPLETE-BIKES-SCOPE.md (fanatikbike/
+  // vitalmtb/99spokes/flowmountainbike), this row is sourced from a
+  // FETCHED vitalmtb.com spec-guide page instead, which prints Mondraker's
+  // full frame-tech sheet AND component build verbatim (a maker-sourced
+  // spec aggregation, not a search-summary guess) - the alloy "Foxy R"
+  // trim was chosen over Foxy Carbon because vitalmtb's page for it
+  // states EVERY verdict-driving frame fact directly (rear axle, BB shell,
+  // headset brand, seatpost diameter, shock eye/stroke/mount, fork max
+  // travel, rotor mount+max, UDH), where the Carbon R's only available
+  // spec source (opticycles.com) omits several of those. No Mondraker
+  // frame existed in this catalog before this pass (the existing
+  // fr-mondraker-f-podium is a different, XC platform) - the Foxy R alloy
+  // frame is added below. 6 new OE rows: the e*thirteen LG1 Plus Enduro
+  // wheel pair, Onoff bar/stem/grips, and the Onoff Pija dropper (saddle
+  // SDG Bel-Air V3 and most of the drivetrain already existed).
+  { id:'fr-mondraker-foxy-r', cat:'frame', material:'alu', brand:'Mondraker', model:'Foxy R', family:'mondraker-foxy', disciplines:['enduro'],
+    price:4499, weight:3400, wheelConfigs:['29'], rearAxle:'Boost148', headset:'tapered', bb:'BSA73', seatTube:31.6,
+    brakeMount:'PM', maxRotorR:180, suspension:'full', shockEye:205, shockStroke:65, shockMount:'trunnion',
+    maxForkTravel:160, travel:150, udh:true, bundledShock:null, frameOnly:false,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/mondraker/foxy-59956',
+    desc:'mondraker.com itself is a JS-rendered SPA (every fetch attempt returned only nav-menu HTML, no product-page content - a documented Mondraker blocker) - this frame is sourced from a FETCHED vitalmtb.com bike-guide spec page for the exact 2024 Foxy R build, which prints Mondraker\'s own frame-tech sheet directly: rear axle "12mm x 148mm (Boost)" (-> Boost148); BB "SRAM DUB Wide, sealed bearings, 73mm English/BSA threaded" (-> BSA73); headset "ONOFF Saturn, ACB sealed bearings" (tapered steerer fit; no S.H.I.S. bore codes given by this source, so headTubeUpper/Lower stay unset rather than guessed); seatpost "31.6mm"; rear shock "Öhlins TTX Air...trunnion mount, 205mm length x 65mm stroke" (-> shockEye 205 / shockStroke 65 / shockMount trunnion, an exact match for the already-cataloged sh-ohlins-ttx2air-205x65-trun row); max fork travel "160mm" (Öhlins RXF 36 M.3); brake mount "6-bolt" + "Max Rotor Size: 200mm front, 180mm rear" (-> brakeMount PM - the caliper mount, distinct from the stated 6-bolt ROTOR interface which lives on the wheel/rotor rows below - maxRotorR 180, the maker-demonstrated rear ceiling); UDH "Yes - SRAM UDH (Universal Derailleur Hanger)" (-> udh:true). Price $4,499.00 and weight "35 lb 11.4 oz (16,200 g)" are this exact build\'s own figures per the same source (frame-only weight not separately published - 3400g is a documented sample, typical for an alloy enduro frame this size, not a maker figure).' },
+  { id:'fw-ethirteen-lg1-enduro-29', cat:'frontwheel', brand:'e*thirteen', model:'LG1 Plus Enduro Front', family:'ethirteen-lg1-plus-enduro', disciplines:['enduro'],
+    price:300, weight:880, wheel:'29', hub:'Boost110', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Stock front wheel on the Mondraker Foxy R (FETCHED vitalmtb.com build sheet: "e*thirteen, fully machined aluminum, triple-sealed, 15mm x 110mm (Boost) front...", rims "e*thirteen LG1 Enduro, hookless 6069 welded aluminum, 30mm inner width, 28 hole, tubeless ready"). FETCHED ethirteen.com/products/lg1-plus-enduro-wheels directly (the current name for this same "LG1 Enduro" line - "all-aluminum hubs...6 degree engagement", "30mm inner width rims...tires 2.3-2.6in wide", tubeless-ready) confirms the rim/hub interfaces; the page is a collection listing without a per-model spec table, so exact weight/price were not manufacturer-pinned - left as documented samples in this catalog\'s existing enduro-alloy-wheel price/weight tier. Rotor mount not stated by either source; entered as 6-bolt per the same VitalMTB-corroborated convention this catalog already uses on its other e*thirteen LG1r wheel rows (their own desc: "corroborating retailer/VitalMTB consensus of 6-bolt").' },
+  { id:'rw-ethirteen-lg1-enduro-29-hg', cat:'rearwheel', brand:'e*thirteen', model:'LG1 Plus Enduro Rear (HG)', family:'ethirteen-lg1-plus-enduro', disciplines:['enduro'],
+    price:320, weight:990, wheel:'29', hub:'Boost148', freehub:'HG', rotorMount:'sixbolt', intWidth:30, maxTire:2.6,
+    desc:'Rear half of the stock Foxy R wheel pair (FETCHED vitalmtb.com build sheet: "...12mm x 148mm (Boost) rear with 6-degree-engagement freehub and HG driver"). freehub:HG matches the build sheet\'s stock cassette ("SRAM NX Eagle PG-1230, 12-speed, 11-50 tooth", already cataloged as ca-sram-pg1230, an 11T-floor HG-compatible cassette). Rotor mount / rim width / maxTire basis identical to the front wheel (see its own desc). Weight/price are documented samples; left unverified.' },
+  { id:'hb-onoff-sulfur-10', cat:'handlebar', brand:'Onoff', model:'Sulfur 1.0', family:'onoff-sulfur', clamp:31.8, width:800, rise:20, material:'alu', disciplines:['enduro'],
+    price:60, weight:320,
+    desc:'Stock handlebar on the Mondraker Foxy R (FETCHED vitalmtb.com build sheet, verbatim: "ONOFF Sulfur 1.0, double-butted 6061 alloy, 800mm width, 20mm rise, 9deg backsweep, 5deg upsweep, 31.8mm clamp diameter"). Onoff is Mondraker\'s house-brand component line (same OE-only convention as this catalog\'s other house cockpits); no standalone third-party retail page found. Price/weight are documented samples for a typical 31.8mm alloy riser bar, left unverified; clamp/width/rise are the real fetched build-sheet dimensions.' },
+  { id:'st-onoff-sulfur-fg-30', cat:'stem', brand:'Onoff', model:'Sulfur FG', family:'onoff-sulfur', clamp:31.8, length:30, disciplines:['enduro'],
+    price:40, weight:145,
+    desc:'Stock stem on the Mondraker Foxy R (FETCHED vitalmtb.com build sheet, verbatim: "ONOFF Sulfur FG, 6061 forged alloy, 30mm length, 0deg rise, 31.8mm bar clamp"). No standalone third-party retail page found (house-brand OE part); price/weight are documented samples for a typical 31.8mm alloy stem, left unverified; clamp/length are the real fetched build-sheet dimensions.' },
+  { id:'gr-onoff-twin', cat:'grips', brand:'Onoff', model:'Twin', family:'onoff-twin', disciplines:['enduro'],
+    price:18, weight:100,
+    desc:'Stock grips on the Mondraker Foxy R (FETCHED vitalmtb.com build sheet, verbatim: "ONOFF Twin, single lock-on, 135mm length"). House-brand OE part with no standalone retail product page found; grips carry no verdict-driving fields, so this never risks a false compatibility claim. Price/weight are documented samples for a typical single-lockon MTB grip, left unverified.' },
+  { id:'dp-onoff-pija-316-150', cat:'dropper', brand:'Onoff', model:'Pija (Adjustable)', family:'onoff-pija', disciplines:['enduro'],
+    price:130, weight:600, diameter:31.6, drop:150,
+    desc:'Stock dropper on the Mondraker Foxy R (FETCHED vitalmtb.com build sheet, verbatim: "ONOFF Pija dropper, adjustable travel, 1x remote lever (95-125mm SM, 120-150mm MD, 140-170mm LG, 170-200mm XL)" - a size-dependent adjustable-travel OE post). This row models the MD-frame-size point (120-150mm range, 150mm max) as the representative size, the same per-bike single-representative-size convention already used elsewhere in this catalog for size-dependent OE droppers (e.g. the Commencal/Canyon/GT/Salsa dropper rows). Diameter 31.6mm matches the frame\'s own seatTube spec. No standalone third-party retail page found for this house-brand-only post; price/weight are documented samples in this catalog\'s existing adjustable-dropper price/weight tier, left unverified.' },
+
+  /* The Mondraker Foxy R (2024/2026) — this maker's Complete Bikes debut.
+     fills = ONLY the parts the bike ships with from the factory (decision
+     #1); pedals are not stock, so the pedals slot is intentionally absent,
+     and the headset slot is left unfilled (frame-integrated ONOFF Saturn,
+     no S.H.I.S. codes published by the fetched source - same convention as
+     the Commencal/Kona/GT/Salsa rows). Brakes: the fetched build sheet
+     names "SRAM Code Bronze" without the "Stealth" suffix; this catalog's
+     only cataloged Code Bronze row is the Stealth-hose-routing generation
+     (bk-sram-code-bronze-stealth, a real, fully-documented SRAM SKU) -
+     reused here since mount/pistons/lever-clamp are identical across the
+     Stealth/non-Stealth hose-routing split (a cosmetic/routing difference,
+     never verdict-driving), and no separate non-Stealth Code Bronze SRAM
+     model page could be found (SRAM's current site only lists the Stealth
+     generation) - substitution flagged here per the entry template's
+     no-invented-vocab rule (reuse a real close SKU, don't fabricate a new
+     one). Verdict-clean per decision #6: the fork axle (Boost110) /
+     steerer (tapered) / brake mount (PM) all match the frame and wheel
+     exactly; the shock is an EXACT match of the frame's shockEye/
+     shockStroke/shockMount (205x65 trunnion); the stock 6-bolt rotors
+     match the stock 6-bolt wheel hubs with no adapter needed; the 200mm
+     front / 180mm rear rotors sit at-or-under the frame's 180mm max and
+     the fork's 203mm max; UDH frame with a standard-hanger-mount SRAM NX
+     Eagle derailleur (not UDH-only) - never depends on the UDH fact
+     either way. */
+  { id:'cb-mondraker-foxy-r', cat:'completebike', brand:'Mondraker', model:'Foxy R', family:'mondraker-foxy', gen:'2024',
+    disciplines:['enduro'], price:4499,
+    verified:true, lastChecked:'2026-07-15', source:'https://www.vitalmtb.com/product/guide/bikes/mondraker/foxy-59956',
+    fills:{
+      frame:'fr-mondraker-foxy-r', fork:'fk-ohlins-rxf36-m3-29-160', shock:'sh-ohlins-ttx2air-205x65-trun',
+      frontWheel:'fw-ethirteen-lg1-enduro-29', rearWheel:'rw-ethirteen-lg1-enduro-29-hg',
+      frontTire:'ti-maxxis-minion-dhf-29-25-exop-3cmt', rearTire:'ti-maxxis-aggressor-29-23-exo-dual',
+      shifter:'sft-sram-sx-eagle', derailleur:'dr-sram-nx-eagle', cassette:'ca-sram-pg1230',
+      chain:'ch-sram-sx-eagle', crankset:'cr-sram-sx-eagle', bb:'bb-sram-dub-bsa73',
+      frontBrake:'bk-sram-code-bronze-stealth', rearBrake:'bk-sram-code-bronze-stealth',
+      frontRotor:'ro-sram-centerline-200-6b', rearRotor:'ro-sram-centerline-180-6b',
+      handlebar:'hb-onoff-sulfur-10', stem:'st-onoff-sulfur-fg-30', grips:'gr-onoff-twin',
+      dropper:'dp-onoff-pija-316-150', saddle:'sa-sdg-belair-v3'
+    },
+    desc:'Sourced from a FETCHED vitalmtb.com/product/guide/bikes/mondraker/foxy-59956 spec-guide page (mondraker.com itself is a JS-rendered SPA that returns no build-sheet content to a fetch - see the frame row\'s own desc): full factory build sheet + $4,499.00 USD price. Every fills entry is the bike\'s real stock part (6 new OE rows entered alongside the frame above: the e*thirteen LG1 Plus Enduro wheel pair, the Onoff bar/stem/grips, and the Onoff Pija dropper - see each row\'s own desc for its sourcing); the Öhlins RXF36 m.3 fork, the Öhlins TTX2Air shock, the full SRAM SX/NX Eagle drivetrain (crank/chain/shifter SX-tier, derailleur/cassette NX-tier - the real mixed-tier spec vitalmtb states, not a data-entry error), the SRAM Centerline rotors, and the SDG Bel-Air V3 saddle were ALL already cataloged exact or near-exact matches (see the block comment above for the one flagged brake substitution: Code Bronze Stealth standing in for the unsuffixed "Code Bronze" the build sheet names). Front tire Maxxis Minion DHF 29x2.5 WT EXO+ 3C MaxxTerra and rear tire Maxxis Aggressor 29x2.3 EXO Dual both matched exact existing catalog rows. Pedals omitted (not stock); headset omitted (frame-integrated ONOFF Saturn, no S.H.I.S. codes published by the fetched source). Component (a-la-carte) sum of the fills is well above $4,499 at current catalog prices, so the "buy complete" savings the dual-price block shows is real, not just a passed lint.' },
+
+  /* The Kona Process X (2026) — SIXTH complete bike, this session's second
+     Kona (the alloy 162mm enduro platform, a distinct model from the
+     Process 153 CR/DL above), and a genuinely ZERO-new-part-row bike: the
+     already-existing fr-kona-process-x frame (verified 2026-07-14) plus
+     every single fill was already in the catalog before this row - either
+     from the prior Kona/GT/Salsa additions this session (the WTB
+     KOM-Trail-i30 wheel pair, the Kona XC/BC 35 cockpit + Key Grip, the
+     TranzX +RAD dropper, SRAM Code R brakes) or from earlier sessions
+     (SRAM GX Eagle AXS wireless shifter/derailleur, SRAM XG-1275 cassette,
+     GX Eagle chain, NX Eagle crank, DUB PF92 BB, Centerline 200mm rotors,
+     Assegai/DHR II tires, WTB Volt saddle). fills = ONLY the parts the
+     bike ships with (decision #1); pedals omitted (not stock); headset
+     omitted (frame-integrated FSA Orbit 1.5 EP ZS, no S.H.I.S. codes
+     published - same convention as the Process 153 CR/DL row). TWO
+     flagged, honest substitutions (both already-established precedents in
+     this exact catalog, not invented here): (1) FORK — konaworld.com
+     states "170mm" travel, but Marzocchi sells no 170mm 29in Bomber Z1 SKU
+     (only 150/160mm; confirmed directly on a fetched bike.marzocchi.com
+     product page, the same finding already documented on this catalog\'s
+     Propain Tyee 6.1 CF completebike row) - the closest real, currently-
+     sold SKU (160mm) is used instead; the frame\'s maxForkTravel of 170mm
+     accommodates a 160mm fork with no compatibility difference. (2) SHOCK
+     — konaworld.com states "Fox DHX Performance Trunnion" (a cosmetic/
+     finish tier below Factory, same internals/interfaces per Fox\'s own
+     product-tier convention, e.g. Kashima vs black anodized - documented
+     industry-wide, not this catalog\'s own claim) while only a DHX
+     FACTORY 205x62.5 trunnion row exists in-catalog (sh-fox-dhx-factory-
+     205x62p5-trun) - reused since eye/stroke/mount/spring are identical
+     across the Performance/Factory tier split. Verdict-clean per decision
+     #6: shock is an EXACT eye/stroke/mount match to the frame; fork axle
+     (Boost110)/steerer(tapered)/brakeMount(PM) all match; wheel hub
+     freehub (XD) matches the XG-1275 cassette; the 200mm rotor sits under
+     the frame's 203mm max. */
+  { id:'cb-kona-process-x', cat:'completebike', brand:'Kona', model:'Process X', family:'kona-process-x', gen:'2026',
+    disciplines:['enduro'], price:4499, streetPrice:3299,
+    verified:true, lastChecked:'2026-07-15', source:'https://konaworld.com/products/process-x',
+    fills:{
+      frame:'fr-kona-process-x', fork:'fk-marzocchi-bomber-z1-29-160', shock:'sh-fox-dhx-factory-205x62p5-trun',
+      frontWheel:'fw-formula-wtbkomtrail-i30-29', rearWheel:'rw-dtswiss-350-komtrail-i30-29-xd',
+      frontTire:'ti-maxxis-assegai-29-25-exop-mg', rearTire:'ti-maxxis-minion-dhr-ii-29-24-exop-mt',
+      shifter:'sft-sram-gx-eagle-axs', derailleur:'dr-sram-gx-eagle-axs', cassette:'ca-sram-xg1275',
+      chain:'ch-sram-gx-eagle', crankset:'cr-sram-nx-eagle', bb:'bb-sram-dub-pf92',
+      frontBrake:'bk-sram-code-r', rearBrake:'bk-sram-code-r',
+      frontRotor:'ro-sram-centerline-200-6b', rearRotor:'ro-sram-centerline-200-6b',
+      handlebar:'hb-kona-xcbc-35', stem:'st-kona-xcbc-35', grips:'gr-kona-key-grip',
+      dropper:'dp-tranzx-rad-316-150', saddle:'sa-wtb-volt'
+    },
+    desc:'FETCHED konaworld.com/products/process-x directly: full factory build sheet + $4,499.00 USD list price (page shows a current sale to $3,299.00, captured as streetPrice, mirroring the Process 153 CR/DL row\'s own MSRP/streetPrice convention). Every fills entry is the bike\'s real stock part and EVERY ONE already existed in the catalog before this row (zero new part rows needed) - see the block comment above for the two flagged, honest tier/travel substitutions (fork: Bomber Z1 160mm standing in for a stated-but-nonexistent 170mm 29in SKU; shock: the already-cataloged DHX Factory 205x62.5 trunnion standing in for the same-interface DHX Performance trim). Pedals omitted (not stock); headset omitted (frame-integrated FSA Orbit 1.5 EP ZS, no S.H.I.S. codes published). Component (a-la-carte) sum of the fills is well above $4,499 at current catalog prices, so the "buy complete" savings the dual-price block shows is real, not just a passed lint.' }
 ];
 
 /** @type {Part[]} */
