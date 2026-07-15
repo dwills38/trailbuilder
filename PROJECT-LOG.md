@@ -2,6 +2,30 @@
 
 ## 2026-07-14 — Coordinator seat 8 (succession)
 
+- **HARVEST BATCH (evening): 5 landed on main.** (1) **"Best match"→"Random" sort** (`7c73008`) —
+  real `fisherYatesShuffle` in compat.js (NOT the biased comparator), stable per page-load, no brand
+  clustering; the unbiased-value fix. (2) **GX AXS "no cassettes" = NOT a bug** (`5c5b4e7`, tests
+  only) — worker verified via node harness + local + LIVE prod that a GX Eagle AXS controller+mech
+  correctly leaves 5 Eagle cassettes green; the empty list was the "🟢 Compatible only" filter hiding
+  cassettes correctly incompatible with another build part (MicroSpline/XDR rear wheel or non-Eagle
+  chain). Refused to alter correct code (would risk a false "fits"); added 4 dot-level pinning tests.
+  **UX follow-up candidate:** explain WHY cassettes are hidden ("N hidden: incompatible with your
+  rear wheel's driver"). (3) **"Own it" build-panel button AUTO-SHIPPED** (`ecb680b`, UI-tier) — a
+  per-slot inventory button reusing the existing card "Own it" logic + gating; post-hoc re-gated
+  clean. (4) **12 Garbaruk cassettes** (`2e081e1`, all verified) — aftermarket wide-range, each
+  mapped to one system (cross-compat checked, no overclaim); non-cassette range (40 chainrings,
+  cages, pulleys, guide) inventoried — no catalog category, future decision. (5) **COMPLETE-BIKES-
+  SCOPE.md** merged — buyable whole builds that auto-fill + dual price (component total vs maker
+  MSRP), maps to the existing preset/buildTotals machinery; decisions await Douglas. NOTE: seat was
+  briefly stale (own-it auto-shipped after last sync) → rebased the sort/gxaxs commits onto it.
+  5 sessions archived + branches/worktrees pruned. CI green throughout.
+- **STILL STAGED (this evening's remaining harvest):** `ui/wheel-tire-autofilter` (mullet review),
+  `fix/spec-card-image` (eyeball the screenshot — Douglas-flagged garbled BRAKES row), `feat/unify-
+  seatpost` (STRUCTURAL engine/model — review+audit), the **kit line** (foundation + redesign +
+  12 deepened grinds — DONE, staged for Douglas's localhost preview at :8127, merge order
+  foundation→redesign→grinds with MTB-only scrub), `feat/builds-gallery` (awaiting sign-off). The
+  index.html branches need sequential conflict-resolution against the now-landed sort/own-it.
+
 - **KIT BUILDER kicked off — decisions locked + build/grind chip spawned.** Douglas made all 9
   scope calls (recorded in `KIT-BUILDER-SCOPE.md` §Decisions). Two overrides from the scope's
   recommendations: (1) it's a **SEPARATE PAGE** (a "Kit Builder" button on the main page →
