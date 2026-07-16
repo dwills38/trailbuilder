@@ -1,5 +1,21 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-16 — Coordinator seat 11: kit verification merged (+68, 4 fabricated rows purged)
+
+Merged `verify/kit-parts-1` (`e21281c`): kit verified 131 → 199 of 688 (8 brand-cluster workers,
+81 commits — the crash-restarted run, commit-per-brand held). Two same-page price contradictions
+resolved by live re-fetch under the MSRP policy; **4 fabricated rows REMOVED** (Nukeproof Sam Hill
+flat shoe, iXS Trigger flat+clip, Giro Havoc LS — products that don't exist; purity beats count);
+`'rheon'` added to the helmet rotational vocab (schema+types matched pair, pinning test added,
+603 tests now). Coordinator audit: compat.js untouched, gates green, 5 new source URLs
+spot-checked as real maker domains. Worker-flagged for Douglas (left in catalog): 2 suspect
+Alpinestars shoe rows, a suspect Cratoni eyewear row, a Cairn KIDS' sunglasses row (scope
+question), several likely-discontinued TLD/Royal/Sweet rows. Retry queue: Endura,
+Adidas/Bolle/Sombrio/SixSixOne (fetch-walled), some ION/Yeti/Dharco (no live USD price).
+With this, ALL FOUR parallel workers from today's fan-out are merged + archived; the watch loop
+is retired. Day totals on main: complete bikes 108 → 198, kit verified 131 → 199, analytics live,
+legal topo headers, pricing-bias fix, Fox/Öhlins maxTire, bias audit doc, 2 crash recoveries.
+
 ## 2026-07-16 — Coordinator seat 11: bias fixes shipped + grind-4 salvage merged (198 bikes)
 
 Three parallel workers landed within one tick. **(1) Pricing fix (bias HIGH #1) auto-shipped**
