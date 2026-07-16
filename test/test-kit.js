@@ -96,6 +96,10 @@ test('a neck brace cert is caught — no published standard yet (empty allowed s
 test('rotational on a non-helmet is caught (unknown field — helmet-only)', function(){
   some(probs(over('sho-fiveten-freerider-pro', { rotational:'mips' })), 'unknown field');
 });
+test('rheon (Kali\'s proprietary rotational system) is a valid helmet rotational value', function(){
+  var p = over('hm-poc-cularis', { rotational:'rheon' });
+  eq(probs(p).length, 0, 'rheon should validate on a helmet: ' + probs(p).join('; '));
+});
 test('soleType on a non-shoe is caught (unknown field — shoes-only)', function(){
   some(probs(over('jsy-fox-flexair', { soleType:'flat' })), 'unknown field');
 });

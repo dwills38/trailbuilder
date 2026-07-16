@@ -189,7 +189,7 @@
 /** Real published safety standards — fetched-source-only (a cross-rule restricts which
  * a category may carry). @typedef {'cpsc'|'en1078'|'astm-f1952'|'ansi-z87'|'en166'|'en1621-1-l1'|'en1621-1-l2'|'en1621-2-l1'|'en1621-2-l2'|'en1621-3'} ProtectionCert */
 /** Helmet rotational-impact system — a different axis from ProtectionCert; absence =
- * UNKNOWN, never "none". [EXPERT REVIEW] pending. @typedef {'mips'|'wavecel'|'spin'|'360-turbine'|'koroyd'} Rotational */
+ * UNKNOWN, never "none". [EXPERT REVIEW] pending. @typedef {'mips'|'wavecel'|'spin'|'360-turbine'|'koroyd'|'rheon'} Rotational */
 /** @typedef {'mens'|'womens'|'unisex'} FitCut */
 /** Offered size LABELS (free strings — never a vocab; brands use XS–XXXL, numeric EU,
  * split "S/M"). One row per product, never a row per size. @typedef {string[]} SizeList */

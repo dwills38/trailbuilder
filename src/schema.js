@@ -312,7 +312,7 @@ var VOCAB = {
      [EXPERT REVIEW] confirm of the genuinely-distinct systems (decision #7).
      ABSENCE = UNKNOWN, never defaulted to "none" - asserting a helmet has no
      rotational system is itself a claim. Extend as sourced. */
-  rotational:   ['mips', 'wavecel', 'spin', '360-turbine', 'koroyd'],
+  rotational:   ['mips', 'wavecel', 'spin', '360-turbine', 'koroyd', 'rheon'],
   fitCut:       ['mens', 'womens', 'unisex']                  // optional fit annotation / filter (decision #8; absence = unspecified)
 };
 
