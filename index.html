@@ -94,46 +94,81 @@
   .chip.sub{background:#fff;border-color:var(--line);color:var(--ink-soft);font-size:12px;padding:5px 11px}
   .chip.sub:hover{border-color:#c7ccc6}
   .chip.sub.active{background:var(--brand);border-color:var(--brand);color:#fff}
-  /* ---- dual-ended range sliders (fork travel, shock eye-to-eye, dropper drop,
-     tire width, complete-bike front/rear travel) — two overlaid native
-     <input type=range> elements sharing one visual track, the standard
+  /* ---- dual-ended range sliders (fork travel, shock eye-to-eye + stroke,
+     dropper drop, tire width, complete-bike front/rear travel) — two overlaid
+     native <input type=range> elements sharing one visual track, the standard
      dependency-free dual-thumb technique: each input's own hit-box is
      pointer-events:none, but its ::-webkit-slider-thumb/::-moz-range-thumb
      pseudo-element opts back into pointer-events:auto, so only the thumb
      itself is grabbable and clicks on the bare track fall through. Composes
      with the .chips/.subchips row convention (same row aria/title pattern as
-     SUBFILTERS) without touching .chip styling, so it can sit next to
-     untouched discrete chip rows (e.g. shock stroke) without fighting them. */
-  .range-row{flex-direction:column;align-items:stretch;gap:6px;margin:2px 0 6px}
+     SUBFILTERS) without touching .chip styling.
+     Sizing (revised 2026-07-16 — Douglas: "way too big", desktop especially):
+     desktop renders a genuinely small 14px thumb on a 3px track — a mouse
+     doesn't need a 38px hit target. The ≤768px block below restores the 38px
+     hit target for touch WITHOUT growing the visible thumb back: the thumb's
+     OWN box is 38px (that's the real hit/drag region a touch has to land in)
+     but its background is a radial-gradient that only paints a small dot at
+     the center and leaves the rest of the box transparent — an "invisible
+     hit-area padding" around a visually small thumb, the pseudo-element
+     equivalent of the ::after hit-area trick used elsewhere in this file
+     (.prov .ver::after) for real DOM elements, which a ::-webkit-slider-thumb
+     can't host a pseudo-element of its own to receive. */
+  .range-row{flex-direction:column;align-items:stretch;gap:4px;margin:2px 0 4px}
   .range-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-  .range-label{font-size:12px;font-weight:700;color:var(--ink-soft)}
-  .range-note{font-size:11px;color:var(--ink-soft);margin-top:-2px}
+  .range-label{font-size:11px;font-weight:700;color:var(--ink-soft)}
+  .range-note{font-size:10px;color:var(--ink-soft);margin-top:-2px}
   .range-reset{background:none;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);
-    font-size:11px;font-weight:700;padding:3px 10px;cursor:pointer;font-family:inherit}
+    font-size:10px;font-weight:700;padding:2px 8px;cursor:pointer;font-family:inherit}
   .range-reset:hover{border-color:#c7ccc6}
   .range-reset:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-  /* 38px-square thumbs (touch-target floor set by the mobile filter carousels
-     elsewhere in this file) drive the wrap/track height. */
-  .range-wrap{position:relative;height:38px;margin:2px 3px 0}
+  .range-wrap{position:relative;height:18px;margin:2px 2px 0}
   /* track uses --chip (not --line): RAD sets --line and --brand to the SAME
      pink, which would make the unfilled track and the selected-range fill
      visually identical — --chip stays distinct from --brand in all 4 themes. */
-  .range-track{position:absolute;left:0;right:0;top:50%;height:4px;margin-top:-2px;border-radius:999px;background:var(--chip)}
+  .range-track{position:absolute;left:0;right:0;top:50%;height:3px;margin-top:-1.5px;border-radius:999px;background:var(--chip)}
   .range-fill{position:absolute;top:0;bottom:0;background:var(--brand);border-radius:999px}
-  .range-input{-webkit-appearance:none;appearance:none;position:absolute;top:0;left:0;width:100%;height:38px;
+  .range-input{-webkit-appearance:none;appearance:none;position:absolute;top:0;left:0;width:100%;height:18px;
     margin:0;background:none;pointer-events:none}
-  .range-input::-webkit-slider-runnable-track{-webkit-appearance:none;height:38px;background:none;border:none}
-  .range-input::-moz-range-track{height:38px;background:none;border:none}
+  .range-input::-webkit-slider-runnable-track{-webkit-appearance:none;height:18px;background:none;border:none}
+  .range-input::-moz-range-track{height:18px;background:none;border:none}
   .range-input::-webkit-slider-thumb{-webkit-appearance:none;box-sizing:border-box;pointer-events:auto;
-    width:38px;height:38px;border-radius:50%;background:var(--card);border:3px solid var(--brand);
-    cursor:grab;box-shadow:0 1px 4px rgba(0,0,0,.28)}
-  .range-input::-moz-range-thumb{box-sizing:border-box;pointer-events:auto;width:38px;height:38px;
-    border-radius:50%;background:var(--card);border:3px solid var(--brand);cursor:grab;
-    box-shadow:0 1px 4px rgba(0,0,0,.28)}
+    width:14px;height:14px;margin-top:2px;border-radius:50%;background:var(--card);border:2px solid var(--brand);
+    cursor:grab;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+  .range-input::-moz-range-thumb{box-sizing:border-box;pointer-events:auto;width:14px;height:14px;
+    border-radius:50%;background:var(--card);border:2px solid var(--brand);cursor:grab;
+    box-shadow:0 1px 3px rgba(0,0,0,.25)}
   .range-input::-webkit-slider-thumb:active{cursor:grabbing}
   .range-input::-moz-range-thumb:active{cursor:grabbing}
   .range-input:focus-visible::-webkit-slider-thumb{outline:2px solid var(--brand);outline-offset:2px}
   .range-input:focus-visible::-moz-range-thumb{outline:2px solid var(--brand);outline-offset:2px}
+  /* touch-target restoration: same ≤768px floor this file already uses for
+     .btn/.chip (min-height:44px, see the mobile touch-target block below) —
+     the thumb's real box grows back to a 38px square, but visually paints
+     only a small centered dot (var(--card) core + var(--brand) ring) via
+     radial-gradient, so the row stays visually compact while the actual
+     draggable/tappable region is full-size. */
+  /* NB: every vendor-pseudo-element selector below gets its OWN rule — never
+     grouped with a plain selector or with the other engine's prefix. One
+     unrecognized selector invalidates an ENTIRE comma-separated rule, so
+     grouping `.range-input, .range-input::-moz-range-track` would make Chrome
+     silently drop the plain `.range-input` height too (measured: the mobile
+     thumb stayed 18px tall and the touch target never grew). */
+  @media (max-width:768px){
+    .range-wrap{height:38px}
+    /* .chips{gap:8px} in the mobile touch-target block below is a LATER rule of
+       equal specificity (one class each), so restating .range-row alone still
+       loses — qualify with .chips (which every range row also carries) to win
+       on specificity rather than source order. */
+    .chips.range-row{gap:4px}
+    .range-input{height:38px}
+    .range-input::-webkit-slider-runnable-track{height:38px}
+    .range-input::-moz-range-track{height:38px}
+    .range-input::-webkit-slider-thumb{width:38px;height:38px;margin-top:0;border:none;box-shadow:none;
+      background:radial-gradient(circle,var(--card) 0 5px,var(--brand) 5px 7px,transparent 7px 100%)}
+    .range-input::-moz-range-thumb{width:38px;height:38px;border:none;box-shadow:none;
+      background:radial-gradient(circle,var(--card) 0 5px,var(--brand) 5px 7px,transparent 7px 100%)}
+  }
   .legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--ink-soft);margin:0 0 16px}
   .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle;border:1px solid rgba(0,0,0,.15)}
   .layout{display:grid;grid-template-columns:210px minmax(0,1fr) 330px;gap:20px;align-items:start}   /* rail 250→210, side 350→330, gap 22→20 (2026-07-11): reclaims ~64px for the catalog column so one-line list rows engage at 1280-wide windows */
@@ -1814,17 +1849,12 @@
       values:function(){ return inOrder(distinctVals(byCat('pedal'), function(p){ return p.style; }), ['flat','clip','hybrid']); },
       label:function(v){ return PEDAL_STYLE_LABELS[v] || v; },
       match:function(p,v){ return p.cat!=='pedal' || p.style===v; } },
-    /* forkTravel was a discrete-chip row here — replaced 2026-07-16 by the
-       forkTravelRange dual slider (RANGEFILTERS below). shockStroke (next)
-       is UNCHANGED — the dual-ended ask for shock size was "slider on
-       eye-to-eye" (shockEyeRange, RANGEFILTERS), stroke stays a discrete chip
-       row and the two compose as independent AND filters, same as any two
-       SUBFILTERS/RANGEFILTERS rows on the same group. */
-    { id:'shockStroke', groups:['shock'], allLabel:'All strokes',
-      aria:'Filter rear shocks by stroke',
-      values:function(){ return distinctVals(byCat('shock'), function(p){ return p.stroke; }).sort(numAsc); },
-      label:function(v){ return v+' mm'; },
-      match:function(p,v){ return p.cat!=='shock' || p.stroke===v; } },
+    /* forkTravel and shockStroke were discrete-chip rows here — both replaced
+       by dual sliders in RANGEFILTERS below (forkTravel 2026-07-16;
+       shockStroke same day, second pass, Douglas asked for stroke as its own
+       two-ended range alongside eye-to-eye). A shock's two size axes are now
+       both sliders and compose as independent AND filters, same as any two
+       SUBFILTERS/RANGEFILTERS rows on one group. */
     { id:'shockSpring', groups:['shock'], allLabel:'All springs',
       aria:'Filter rear shocks by spring',
       values:function(){ return inOrder(distinctVals(byCat('shock'), function(p){ return p.spring; }), ['coil','air']); },
@@ -1902,6 +1932,16 @@
       aria:'Filter rear shocks by eye-to-eye length range', unit:'mm', step:1,
       bounds:function(){ return numBoundsOf(byCat('shock'), function(p){ return p.eye; }); },
       match:function(p,lo,hi){ if(p.cat!=='shock') return true; if(p.eye==null) return true; return p.eye>=lo && p.eye<=hi; } },
+    /* The shock's second size axis, a slider in its own right (Douglas
+       2026-07-16) rather than the discrete chip row it replaced in SUBFILTERS.
+       step 0.5 because real catalog strokes are half-millimetre values
+       (27.5/32.5/37.5/…), so a step of 1 could never land on them; the ±1e-9
+       epsilon on the compare is the same float-safety the tire-width row uses
+       for its 0.01 step. */
+    { id:'shockStrokeRange', groups:['shock'], heading:'Shock stroke',
+      aria:'Filter rear shocks by stroke length range', unit:'mm', step:0.5,
+      bounds:function(){ return numBoundsOf(byCat('shock'), function(p){ return p.stroke; }); },
+      match:function(p,lo,hi){ if(p.cat!=='shock') return true; if(p.stroke==null) return true; return p.stroke>=lo-1e-9 && p.stroke<=hi+1e-9; } },
     { id:'dropperDropRange', groups:['seatpost'], heading:'Dropper drop',
       aria:'Filter dropper posts by travel (drop) range', unit:'mm', step:1,
       bounds:function(){ return numBoundsOf(byCat('dropper'), function(p){ return p.drop; }); },
