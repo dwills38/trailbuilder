@@ -1832,6 +1832,17 @@
     if(p.suspension==='hardtail') return 0;
     return typeof p.travel==='number' ? p.travel : null;
   }
+  // The frame's RECOMMENDED fork travel for the Frames-tab slider (Douglas
+  // 2026-07-16): designForkTravel is the maker's stated design-intent figure,
+  // sourced on only a subset of frames, so it wins when present; every frame
+  // carries maxForkTravel (maker-rated max) as the honest fallback. Never
+  // invents a value — a frame with neither field simply can't happen since
+  // maxForkTravel is schema-required.
+  function frameForkTravelOf(p){
+    if(p.cat!=='frame') return null;
+    if(typeof p.designForkTravel==='number') return p.designForkTravel;
+    return typeof p.maxForkTravel==='number' ? p.maxForkTravel : null;
+  }
   // distinct catalog values for an axis: scan parts passing pred, collect get(p)
   function distinctVals(pred, get){
     var seen={}, out=[];
@@ -1988,6 +1999,14 @@
       aria:'Filter frames by rear travel range — 0mm is a hardtail', unit:'mm', step:1,
       bounds:function(){ return numBoundsOf(function(p){ return p.cat==='frame' && frameRearTravelOf(p)!=null; }, frameRearTravelOf); },
       match:function(p,lo,hi){ if(p.cat!=='frame') return true; var v=frameRearTravelOf(p); return v==null || (v>=lo && v<=hi); } },
+    /* Frames tab fork-travel slider (Douglas 2026-07-16): matches on the
+       frame's RECOMMENDED fork travel, not a specific fork's — frameForkTravelOf
+       prefers the sourced designForkTravel and falls back to the
+       schema-required maxForkTravel, never inventing a value. */
+    { id:'frameForkTravelRange', groups:['frame'], heading:'Fork travel',
+      aria:'Filter frames by recommended fork travel range', unit:'mm', step:1,
+      bounds:function(){ return numBoundsOf(function(p){ return p.cat==='frame' && frameForkTravelOf(p)!=null; }, frameForkTravelOf); },
+      match:function(p,lo,hi){ if(p.cat!=='frame') return true; var v=frameForkTravelOf(p); return v==null || (v>=lo && v<=hi); } },
     { id:'shockEyeRange', groups:['shock'], heading:'Shock eye-to-eye',
       aria:'Filter rear shocks by eye-to-eye length range', unit:'mm', step:1,
       bounds:function(){ return numBoundsOf(byCat('shock'), function(p){ return p.eye; }); },
@@ -1997,9 +2016,13 @@
        step 0.5 because real catalog strokes are half-millimetre values
        (27.5/32.5/37.5/…), so a step of 1 could never land on them; the ±1e-9
        epsilon on the compare is the same float-safety the tire-width row uses
-       for its 0.01 step. */
-    { id:'shockStrokeRange', groups:['shock'], heading:'Shock stroke',
-      aria:'Filter rear shocks by stroke length range', unit:'mm', step:0.5,
+       for its 0.01 step. Heading relabeled 2026-07-16 (second pass) — Douglas
+       asked for "a travel slider for the rear shock", and a shock's travel IS
+       its stroke (no second axis exists), so the fix is discoverability, not
+       a duplicate slider: "Stroke (shock travel)" names the existing control
+       as the travel control instead of adding one. */
+    { id:'shockStrokeRange', groups:['shock'], heading:'Stroke (shock travel)',
+      aria:'Filter rear shocks by stroke (travel) length range', unit:'mm', step:0.5,
       bounds:function(){ return numBoundsOf(byCat('shock'), function(p){ return p.stroke; }); },
       match:function(p,lo,hi){ if(p.cat!=='shock') return true; if(p.stroke==null) return true; return p.stroke>=lo-1e-9 && p.stroke<=hi+1e-9; } },
     { id:'dropperDropRange', groups:['seatpost'], heading:'Dropper drop',
