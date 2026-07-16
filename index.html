@@ -132,9 +132,11 @@
   .pcard.completebike .pcard-thumb{background:var(--ok-bg)}
   .pcard.completebike .pcard-thumb svg{color:var(--ok)}
   .cb-card-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin:6px 0;font-size:12px;color:var(--ink-soft)}
-  .cb-card-price .cb-card-msrp{text-decoration:line-through;color:var(--ink-soft)}
   .cb-card-price .cb-card-complete{font-size:16px;font-weight:800;color:var(--ink)}
   .cb-card-price .cb-card-complete small,.cb-card-price .cb-card-parts small{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;color:var(--ink-soft);margin-left:2px}
+  /* Sale price is informational only (Douglas 2026-07-16 ruling): shown, labeled,
+     never the basis of a ranking/sort/save figure — MSRP stays the headline above. */
+  .cb-card-price .cb-card-sale{color:var(--brand);font-weight:700}
   .cb-card-price .cb-card-save{background:var(--ok-bg);color:var(--ok);font-weight:700;padding:2px 7px;border-radius:999px;font-size:11px}
   /* wrapper around the price block + Build button: transparent by default (card view
      + wrapped list keep the block-then-button stack), becomes the single last-column
@@ -146,7 +148,7 @@
      MSRP and the "as parts" figure drop out (both still shown in card view + the
      detail modal), leaving "complete $X · save $Y" on one line. */
   .list .pcard.completebike .cb-card-price{margin:0;font-size:11px;gap:3px 8px;flex-wrap:nowrap;white-space:nowrap;line-height:1.3}
-  .list .pcard.completebike .cb-card-price .cb-card-msrp,
+  .list .pcard.completebike .cb-card-price .cb-card-sale,
   .list .pcard.completebike .cb-card-price .cb-card-parts{display:none}
   .list .pcard.completebike .cb-card-complete{font-size:13px}
   .pick{border:1px solid var(--brand);color:var(--brand);background:#fff;border-radius:8px;padding:6px 10px;font-size:12px;font-weight:700;cursor:pointer}
@@ -2132,8 +2134,11 @@
       ? '<div class="pcard-thumb"><img src="'+esc(p.image)+'" alt="" loading="lazy"></div>'
       : '<div class="pcard-thumb">'+placeholderIcon('frame')+'</div>';
     var partsTotal = bikePartsTotal(p);
-    var headline = p.streetPrice || p.price;
-    var save = partsTotal - headline;
+    // Douglas's 2026-07-16 pricing ruling (tools/BIAS-AUDIT-2026-07-16.md, finding #1):
+    // the headline price and the "save" figure ALWAYS come from MSRP (p.price), never
+    // streetPrice — a recorded sale must not inflate the save badge or the best-value
+    // ranking. streetPrice, when present, is shown as an explicitly-labeled "Sale" line.
+    var save = partsTotal - p.price;
     var discLabel = (p.disciplines||[]).map(function(d){ return DISC_LABELS[d] || d; }).join('/');
     card.innerHTML =
       '<div class="pcard-head">'+thumbHtml+
@@ -2143,8 +2148,8 @@
       provHtml(p)+
       '<div class="cb-priceaction">'+
       '<div class="cb-card-price">'+
-        (p.streetPrice ? '<span class="cb-card-msrp">MSRP '+money(p.price)+'</span>' : '')+
-        '<span class="cb-card-complete">'+money(headline)+' <small>complete</small></span>'+
+        '<span class="cb-card-complete">'+money(p.price)+' <small>complete</small></span>'+
+        (p.streetPrice ? '<span class="cb-card-sale">Sale '+money(p.streetPrice)+'</span>' : '')+
         '<span class="cb-card-parts">'+money(partsTotal)+' <small>as parts</small></span>'+
         (save>0 ? '<span class="cb-card-save">save '+money(save)+'</span>' : '')+
       '</div>'+
@@ -2348,7 +2353,7 @@
     Object.keys(p.fills).forEach(function(slot){ build[slot]=p.fills[slot]; });
     activeCompleteBike = id;
     sync();
-    toast('🚲 Auto-filled '+p.brand+' '+p.model+' — '+money(p.streetPrice||p.price)+' complete');
+    toast('🚲 Auto-filled '+p.brand+' '+p.model+' — '+money(p.price)+' complete'+(p.streetPrice?' (Sale '+money(p.streetPrice)+')':''));
   }
   /* Has the build diverged from the active complete bike's stock fills (any
      slot swapped, added, or removed)? Drives the dual-price block's "modified
@@ -2448,20 +2453,21 @@
 
   /* Complete Bikes dual-price block — "Buy as parts" (t.price, the SAME
      buildTotals the totals line above already shows — never substituted) vs
-     the stored complete-bike price (streetPrice as the headline when present,
-     decision #3) vs the savings. Relabels "Modified from <bike>" once the
-     build diverges (decision #5) but never hides once a complete bike is
-     active — only clearing the build (or loading a different build/bike)
-     hides it again, via activeCompleteBike. */
+     the stored complete-bike price (MSRP is always the headline + the save
+     basis, Douglas's 2026-07-16 pricing ruling — a recorded streetPrice shows
+     as a labeled "Sale" line only, never the comparison basis) vs the
+     savings. Relabels "Modified from <bike>" once the build diverges
+     (decision #5) but never hides once a complete bike is active — only
+     clearing the build (or loading a different build/bike) hides it again,
+     via activeCompleteBike. */
   function renderCompleteBikeBlock(t){
     var cb = activeCompleteBike ? byId(activeCompleteBike) : null;
     if(!cb || cb.cat !== 'completebike'){ $('cbBlock').hidden = true; return; }
     var diverged = completeBikeDiverged(cb);
     $('cbLabel').textContent = (diverged ? 'Modified from ' : '') + cb.brand+' '+cb.model + (diverged ? '' : ' — complete bike');
-    var headline = cb.streetPrice || cb.price;
     $('cbPartsTotal').textContent = money(t.price);
-    $('cbPrice').textContent = money(headline) + (cb.streetPrice ? ' (MSRP '+money(cb.price)+')' : '');
-    var save = t.price - headline;
+    $('cbPrice').textContent = money(cb.price) + (cb.streetPrice ? ' (Sale '+money(cb.streetPrice)+')' : '');
+    var save = t.price - cb.price;
     $('cbSaveRow').hidden = save <= 0;   // never claim savings once modifications erase them (e.g. removing stock parts)
     if(save > 0) $('cbSave').textContent = money(save);
     $('cbBlock').hidden = false;
@@ -4112,8 +4118,21 @@
       toast('🎲 Couldn’t roll a fresh ' + THEME_LABEL[themeKey] + ' build just now — loaded the pinned one instead.');
     }
   }
+  /* "Show clashes" demo frame — rotates across makers (Douglas-approved fix,
+     BIAS-AUDIT-2026-07-16 finding #7: a single pinned brand permanently cast as
+     "the broken bike" is an editorial asymmetry). The clashes themselves are
+     frame-independent (front-wheel-size, drivetrain-system, both rotor
+     interfaces — the same rest-of-build trips them on every frame below);
+     each candidate was verified via checkBuild to still raise errors, so the
+     rotation stays an honest showcase of the checker regardless of pick. */
+  var LOADBAD_FRAMES = [
+    'fr-specialized-enduro-sworks','fr-yeti-sb160','fr-santacruz-megatower-cc',
+    'fr-canyon-strive-cfr','fr-commencal-meta-sx-v5','fr-forbidden-dreadnought',
+    'fr-trek-slash','fr-norco-sight','fr-kona-process-153','fr-pivot-firebird'
+  ];
   function loadBad(){
-    build={ frame:'fr-specialized-enduro-sworks',fork:'fk-rockshox-zeb-ultimate-275-170',shock:'sh-rockshox-super-deluxe-205x65-trun',frontWheel:'fw-industrynine-enduro-s-29',rearWheel:'rw-industrynine-enduro-s-29',
+    var frame = LOADBAD_FRAMES[Math.floor(Math.random()*LOADBAD_FRAMES.length)];
+    build={ frame:frame,fork:'fk-rockshox-zeb-ultimate-275-170',shock:'sh-rockshox-super-deluxe-205x65-trun',frontWheel:'fw-industrynine-enduro-s-29',rearWheel:'rw-industrynine-enduro-s-29',
       frontTire:'ti-maxxis-assegai-29-25-exop-mg',rearTire:'ti-maxxis-assegai-29-25-exop-mg',shifter:'sft-sram-gx-transmission',derailleur:'dr-sram-gx-transmission',cassette:'ca-shimano-xt-m8100-1051',chain:'ch-sram-gx-flattop',crankset:'cr-sram-x0-transmission',
       frontBrake:'bk-shimano-xt-m8120',rearBrake:'bk-shimano-xt-m8120',frontRotor:'ro-shimano-rtmt800-203-cl',rearRotor:'ro-shimano-rtmt800-203-cl',
       handlebar:'hb-pnw-range-318',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',dropper:'dp-pnw-loam-309-175',saddle:'sa-wtb-volt',pedals:'pd-crankbrothers-stamp-7-large' };
