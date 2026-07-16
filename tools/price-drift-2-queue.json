@@ -1,0 +1,2385 @@
+{
+ "https://www.dtswiss.com/en/support/product-support?matnr=WEX1700BEIXSA11691": [
+  "fw-dtswiss-ex-1700-29"
+ ],
+ "https://reservewheels.com/products/30-hd-carbon": [
+  "fw-reserve-30-hd-29",
+  "rw-reserve-30-hd-29",
+  "rw-reserve-30-hd-275-xd"
+ ],
+ "https://www.dtswiss.com/en/wheels/wheels-mtb/enduro/e-1900-spline": [
+  "fw-dtswiss-e-1900-275",
+  "rw-dtswiss-e-1900-275",
+  "rw-dtswiss-e-1900-275-xd",
+  "fw-dtswiss-e1900-29",
+  "rw-dtswiss-e1900-275-xd",
+  "rw-dtswiss-e1900-29-xd"
+ ],
+ "https://spank-ind.com/products/spank-359-vibrocore%E2%84%A2-front-wheel": [
+  "fw-spank-359-275",
+  "fw-spank-359-29",
+  "fw-spank-359-29-20x110",
+  "fw-spank-359-275-20x110"
+ ],
+ "https://www.hopetech.com/_repository/1/documents/FORTUS_30_DATA_2019.pdf": [
+  "fw-hope-fortus-30-29",
+  "rw-hope-fortus-30-29",
+  "rm-hope-fortus30-29",
+  "rm-hope-fortus30-275"
+ ],
+ "https://www.crankbrothers.com/products/synthesis-enduro-carbon-front-wheel": [
+  "fw-crankbrothers-synthesis-enduro-29"
+ ],
+ "https://www.enve.com/products/am30 minTire:2.3in added 2026-07-13 (evenness sweep) - fetched enve.com am30 page: Recommended Tire Size 2.3in - 2.6in.": [
+  "fw-enve-am30-29",
+  "rw-enve-am30-29"
+ ],
+ "https://stans.com/products/flow-ex3-wheelset": [
+  "fw-stans-flow-ex3-29",
+  "rw-stans-flow-ex3-29",
+  "rw-stans-flow-ex3-29-ms",
+  "rw-stans-flow-ex3-275",
+  "rw-stans-flow-ex3-275-ms"
+ ],
+ "https://stans.com/products/flow-s2-wheelset": [
+  "fw-stans-flow-s2-275",
+  "rw-stans-flow-s2-275-xd",
+  "rw-stans-flow-s2-275-ms"
+ ],
+ "https://www.mavic.com/en-us/p/deemax-enduro-sl-29-rv2305": [
+  "fw-mavic-deemax-29",
+  "rw-mavic-deemax-29"
+ ],
+ "https://www.crankbrothers.com/products/synthesis-xct-11-carbon-front-wheel": [
+  "fw-crankbrothers-synthesis-xct11-29"
+ ],
+ "https://www.crankbrothers.com/products/synthesis-dh-11-carbon-front-wheel": [
+  "fw-crankbrothers-synthesis-dh11-29",
+  "fw-crankbrothers-synthesis-dh11-275"
+ ],
+ "https://store.ibiscycles.com/products/s35-29-industry-9-carbon-wheelset": [
+  "fw-ibis-s35-i9-29",
+  "rw-ibis-s35-i9-29-xd",
+  "rw-ibis-s35-i9-29-ms"
+ ],
+ "https://store.ibiscycles.com/products/send-29-aluminum-wheelset": [
+  "fw-ibis-send-29",
+  "rw-ibis-send-29-xd",
+  "rw-ibis-send-29-ms",
+  "fw-ibis-blackbird-send-29",
+  "rw-ibis-blackbird-send-29-ms",
+  "rw-ibis-blackbird-send-29-xd"
+ ],
+ "https://enve.com/products/m5-pro": [
+  "fw-enve-m5pro-29",
+  "rw-enve-m5pro-29-xd",
+  "rw-enve-m5pro-29-ms"
+ ],
+ "https://enve.com/products/m8": [
+  "fw-enve-m8-29",
+  "fw-enve-m8-29-20x110",
+  "rw-enve-m8-29-148-xd",
+  "rw-enve-m8-29-148-ms",
+  "rw-enve-m8-29-157-xd",
+  "rw-enve-m8-29-157-ms",
+  "rw-enve-m8-275-148-xd",
+  "rw-enve-m8-275-148-ms",
+  "rw-enve-m8-275-157-xd",
+  "rw-enve-m8-275-157-ms"
+ ],
+ "https://enve.com/products/am30": [
+  "fw-enve-am30-275",
+  "rw-enve-am30-275-xd",
+  "rw-enve-am30-275-ms",
+  "rw-enve-am30-29-157-xd",
+  "rw-enve-am30-29-157-ms",
+  "ws-enve-am30-29-xd",
+  "ws-enve-am30-29-ms"
+ ],
+ "https://reservewheels.com/products/reserve-31dh-mountain-wheel": [
+  "fw-reserve-31dh-29",
+  "fw-reserve-31dh-275",
+  "rw-reserve-31dh-29-xd",
+  "rw-reserve-31dh-29-hg",
+  "rw-reserve-31dh-275-xd",
+  "rw-reserve-31dh-275-hg"
+ ],
+ "https://hayesbicycle.com/products/sr329-trail-pro": [
+  "fw-sunringle-sr329-trailpro-29",
+  "rw-sunringle-sr329-trailpro-29-148-xd",
+  "rw-sunringle-sr329-trailpro-29-148-ms",
+  "rw-sunringle-sr329-trailpro-29-157-xd",
+  "rw-sunringle-sr329-trailpro-29-157-ms"
+ ],
+ "https://hayesbicycle.com/products/sr329-trail": [
+  "fw-sunringle-sr329-trailexpert-29",
+  "rw-sunringle-sr329-trailexpert-29-148-xd",
+  "rw-sunringle-sr329-trailexpert-29-148-ms",
+  "rw-sunringle-sr329-trailexpert-29-157-xd",
+  "rw-sunringle-sr329-trailexpert-29-157-ms"
+ ],
+ "https://hayesbicycle.com/products/sr327-trail-pro": [
+  "fw-sunringle-sr327-trailpro-275",
+  "rw-sunringle-sr327-trailpro-275-148-xd",
+  "rw-sunringle-sr327-trailpro-275-148-ms",
+  "rw-sunringle-sr327-trailpro-275-157-xd",
+  "rw-sunringle-sr327-trailpro-275-157-ms"
+ ],
+ "https://www.crankbrothers.com/products/synthesis-enduro-carbon-rear-wheel": [
+  "rw-crankbrothers-synthesis-enduro-29",
+  "rw-crankbrothers-synthesis-enduro-29-xd",
+  "rw-crankbrothers-synthesis-enduro-275-xd"
+ ],
+ "https://www.dtswiss.com/en/support/product-support?matnr=WEX1700TED2SA11692": [
+  "rw-dtswiss-ex-1700-29-ms"
+ ],
+ "https://www.enve.com/products/am30": [
+  "rw-enve-am30-29-ms"
+ ],
+ "https://www.hopetech.com/_repository/1/documents/FORTUS_30_PRO55.pdf": [
+  "rw-hope-fortus-30-29-hg",
+  "rw-hope-fortus-30-29-150-xd",
+  "rw-hope-fortus-30-29-150-ms",
+  "rw-hope-fortus-30-275-150-xd",
+  "rw-hope-fortus-30-275-150-ms",
+  "rw-hope-fortus-30-29-157-xd",
+  "rw-hope-fortus-30-29-157-ms",
+  "rw-hope-fortus-30-275-157-xd",
+  "rw-hope-fortus-30-275-157-ms",
+  "rw-hope-fortus-30-29-150-hg",
+  "rw-hope-fortus-30-275-150-hg",
+  "rw-hope-fortus-30-29-157-hg",
+  "rw-hope-fortus-30-275-157-hg"
+ ],
+ "https://www.crankbrothers.com/products/synthesis-xct-11-carbon-rear-wheel": [
+  "rw-crankbrothers-synthesis-xct11-29-ms",
+  "rw-crankbrothers-synthesis-xct11-29-xd"
+ ],
+ "https://www.crankbrothers.com/products/synthesis-dh-11-carbon-rear-wheel": [
+  "rw-crankbrothers-synthesis-dh11-29-157",
+  "rw-crankbrothers-synthesis-dh11-29-157-hg",
+  "rw-crankbrothers-synthesis-dh11-275-157",
+  "rw-crankbrothers-synthesis-dh11-275-157-hg"
+ ],
+ "https://spank-ind.com/products/spank-spike-369-vibrocore-rear-wheel": [
+  "rw-spank-spike369-29-150-xd",
+  "rw-spank-spike369-275-150-xd",
+  "rw-spank-spike369-29-157-xd",
+  "rw-spank-spike369-275-157-xd",
+  "rw-spank-spike369-29-150-hg",
+  "rw-spank-spike369-275-150-hg",
+  "rw-spank-spike369-29-157-hg",
+  "rw-spank-spike369-275-157-hg"
+ ],
+ "https://reservewheels.com/products/reserve-30sl-mountain-wheel": [
+  "rw-reserve-30sl-29-xd",
+  "rw-reserve-30sl-275-xd"
+ ],
+ "https://www.crankbrothers.com/products/synthesis-dh-i9-alloy-2-0-front-wheel": [
+  "fw-crankbrothers-synthesis-dh-alloy-20-i9-29",
+  "fw-crankbrothers-synthesis-dh-alloy-20-i9-275"
+ ],
+ "https://www.crankbrothers.com/products/synthesis-dh-alloy-2-0-ratchet-front-wheel": [
+  "fw-crankbrothers-synthesis-dh-alloy-20-ratchet-29",
+  "fw-crankbrothers-synthesis-dh-alloy-20-ratchet-275"
+ ],
+ "https://www.crankbrothers.com/products/synthesis-dh-alloy-i9-2-0-rear-wheel": [
+  "rw-crankbrothers-synthesis-dh-alloy-20-i9-29-xd",
+  "rw-crankbrothers-synthesis-dh-alloy-20-i9-29-hg",
+  "rw-crankbrothers-synthesis-dh-alloy-20-i9-29-157-xd",
+  "rw-crankbrothers-synthesis-dh-alloy-20-i9-29-157-hg",
+  "rw-crankbrothers-synthesis-dh-alloy-20-i9-275-xd",
+  "rw-crankbrothers-synthesis-dh-alloy-20-i9-275-hg",
+  "rw-crankbrothers-synthesis-dh-alloy-20-i9-275-157-xd",
+  "rw-crankbrothers-synthesis-dh-alloy-20-i9-275-157-hg"
+ ],
+ "https://www.crankbrothers.com/products/synthesis-dh-alloy-2-0-ratchet-rear-wheel": [
+  "rw-crankbrothers-synthesis-dh-alloy-20-ratchet-29-xd",
+  "rw-crankbrothers-synthesis-dh-alloy-20-ratchet-29-hg",
+  "rw-crankbrothers-synthesis-dh-alloy-20-ratchet-29-157-xd",
+  "rw-crankbrothers-synthesis-dh-alloy-20-ratchet-29-157-hg",
+  "rw-crankbrothers-synthesis-dh-alloy-20-ratchet-275-xd",
+  "rw-crankbrothers-synthesis-dh-alloy-20-ratchet-275-hg",
+  "rw-crankbrothers-synthesis-dh-alloy-20-ratchet-275-157-xd",
+  "rw-crankbrothers-synthesis-dh-alloy-20-ratchet-275-157-hg"
+ ],
+ "https://halo-usa.com/products/halo-vortex-mt-supadrive-29-wheels": [
+  "rw-halo-vortex-29-xd"
+ ],
+ "https://www.wtb.com/products/czr-i30-wheel": [
+  "fw-wtb-czr-i30-29",
+  "fw-wtb-czr-i30-275",
+  "rw-wtb-czr-i30-29-ms",
+  "rw-wtb-czr-i30-29-xdr",
+  "rw-wtb-czr-i30-275-ms",
+  "rw-wtb-czr-i30-275-xdr"
+ ],
+ "https://www.dtswiss.com/en/support/product-support?matnr=H350BCIXR32SA9067S": [
+  "fh-dtswiss-350-boost110"
+ ],
+ "https://www.dtswiss.com/en/support/product-support?matnr=H35PTCDRR28SA8949S": [
+  "rh-dtswiss-350-boost148-xd"
+ ],
+ "https://www.dtswiss.com/en/support/product-support?matnr=RDEX51CDPW32SA6298": [
+  "rm-dtswiss-ex511-29"
+ ],
+ "https://www.dtswiss.com/en/support/product-support?matnr=H240BDIXR28SA6481S": [
+  "fh-dtswiss-240-boost110"
+ ],
+ "https://www.dtswiss.com/en/support/product-support?matnr=H240TDDRR32SA7271S": [
+  "rh-dtswiss-240-boost148-xd"
+ ],
+ "https://www.dtswiss.com/en/support/product-support?matnr=H240TDD2R32SA7273S": [
+  "rh-dtswiss-240-boost148-ms"
+ ],
+ "https://www.hopetech.com/products/hubs/mountain-bike/pro-5-110mm-boost-front/": [
+  "fh-hope-pro5-boost110"
+ ],
+ "https://www.hopetech.com/products/hubs/mountain-bike/pro-5-148mm-boost-rear/": [
+  "rh-hope-pro5-boost148-xd",
+  "rh-hope-pro5-boost148-ms",
+  "rh-hope-pro5-boost148-hg"
+ ],
+ "https://www.hopetech.com/_repository/1/documents/FORTUS_35_DATA_2019.pdf": [
+  "rm-hope-fortus35-29",
+  "rm-hope-fortus35-275"
+ ],
+ "https://spank-ind.com/products/spank-hex-straightpull-front-hub": [
+  "fh-spank-hex-boost110"
+ ],
+ "https://spank-ind.com/products/spank-hex-j-type-rear-hub": [
+  "rh-spank-hex-boost148-xd",
+  "rh-spank-hex-boost148-ms",
+  "rh-spank-hex-boost148-hg"
+ ],
+ "https://www.raceface.com/products/vault-j-bend-hub-32h": [
+  "fh-raceface-vault-boost110"
+ ],
+ "https://chrisking.com/products/iso-ab-front-110-x-15mm": [
+  "fh-chrisking-iso-6bolt-boost110"
+ ],
+ "https://chrisking.com/products/boost-6-bolt-rear": [
+  "rh-chrisking-boost-6bolt-148-xd",
+  "rh-chrisking-boost-6bolt-148-ms",
+  "rh-chrisking-boost-6bolt-148-hg"
+ ],
+ "https://stans.com/products/flow-ex3-rim": [
+  "rm-stans-flowex3-29"
+ ],
+ "https://stans.com/collections/mk4-rims/products/arch-mk4-rim": [
+  "rm-stans-archmk4-275",
+  "rm-stans-archmk4-29"
+ ],
+ "https://stans.com/collections/mk4-rims/products/flow-mk4-rim": [
+  "rm-stans-flowmk4-275",
+  "rm-stans-flowmk4-29"
+ ],
+ "https://www.maxxis.com/us/tire/assegai/": [
+  "ti-maxxis-assegai-29-25-exop-mg",
+  "ti-maxxis-assegai-29-25-dh-mg",
+  "ti-maxxis-assegai-275-25-dh-mg",
+  "ti-maxxis-assegai-275-25-exop-mg",
+  "ti-maxxis-assegai-29-25-exo-dual",
+  "ti-maxxis-assegai-29-25-exo-mt"
+ ],
+ "https://www.maxxis.com/us/tire/aspen/": [
+  "ti-maxxis-aspen-29-24-exo-dual",
+  "ti-maxxis-aspen-29-225-exo-ms"
+ ],
+ "https://vittoria.com/products/mezcal-xc-race": [
+  "ti-vittoria-mezcal-29-24-xc-race-graphene-silica",
+  "ti-vittoria-mezcal-29-225-xc-race-graphene-silica"
+ ],
+ "https://vittoria.com/products/mezcal-xc-trail": [
+  "ti-vittoria-mezcal-29-24-trail-4c",
+  "ti-vittoria-mezcal-29-225-trail-4c"
+ ],
+ "https://www.maxxis.com/us/tire/rekon-race/": [
+  "ti-maxxis-rekon-race-29-225-exo-dual",
+  "ti-maxxis-rekon-race-29-24-exo-dual"
+ ],
+ "https://www.schwalbetires.com/Racing-Ralph-11654053.01": [
+  "ti-schwalbe-racing-ralph-29-235-sr-as"
+ ],
+ "https://www.schwalbetires.com/Racing-Ray-11654052.01": [
+  "ti-schwalbe-racing-ray-29-235-sr-as"
+ ],
+ "https://www.maxxis.com/us/tire/minion-dhr-ii/": [
+  "ti-maxxis-minion-dhr-ii-29-24-exop-mt",
+  "ti-maxxis-minion-dhr-ii-275-24-exop-mt",
+  "ti-maxxis-minion-dhr-ii-275-25-dh-mg",
+  "ti-maxxis-minion-dhr-ii-29-25-dh-mg",
+  "ti-maxxis-minion-dhr-ii-275-26-exo-dual",
+  "ti-maxxis-minion-dhr-ii-29-26-exo-dual",
+  "ti-maxxis-minion-dhr-ii-29-24-exo-mg",
+  "ti-maxxis-minion-dhr-ii-29-24-exo-mt",
+  "ti-maxxis-minion-dhr-ii-29-25-exop-mt",
+  "ti-maxxis-minion-dhr-ii-29-25-dd-3cmt"
+ ],
+ "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf": [
+  "ti-continental-kryptotal-fr-29-24-enduro-soft",
+  "ti-continental-kryptotal-re-275-24-enduro-soft",
+  "ti-continental-argotal-29-24-enduro-soft",
+  "ti-continental-xynotal-29-24-trail-endurance",
+  "ti-continental-xynotal-29-24-enduro-soft",
+  "ti-continental-magnotal-29-24-trail-gripc",
+  "ti-continental-magnotal-29-26-trail-soft",
+  "ti-continental-kryptotal-re-29-26-enduro-soft",
+  "ti-continental-kryptotal-fr-29-24-trail-endurance",
+  "ti-continental-kryptotal-re-29-26-trail-endurance",
+  "ti-continental-kryptotal-re-29-24-downhill-supersoft",
+  "ti-continental-kryptotal-fr-29-24-downhill-supersoft",
+  "ti-continental-kryptotal-fr-29-26-enduro-soft",
+  "ti-continental-kryptotal-re-29-24-enduro-soft",
+  "ti-continental-kryptotal-re-29-24-trail-endurance"
+ ],
+ "https://www.schwalbetires.com/Magic-Mary": [
+  "ti-schwalbe-magic-mary-29-24-sg-as",
+  "ti-schwalbe-magic-mary-275-24-sg-as"
+ ],
+ "https://www.schwalbetires.com/magic-mary-11654180": [
+  "ti-schwalbe-magic-mary-275-24-sdh-aus"
+ ],
+ "https://www.maxxis.com/us/tire/minion-dhf/": [
+  "ti-maxxis-minion-dhf-29-25-exop-mg",
+  "ti-maxxis-minion-dhf-29-25-exop-3cmt",
+  "ti-maxxis-minion-dhf-29-25-exo-mg",
+  "ti-maxxis-minion-dhf-29-23-exo-mt",
+  "ti-maxxis-minion-dhf-275-23-exo-mt",
+  "ti-maxxis-minion-dhf-275-25-dh-mg",
+  "ti-maxxis-minion-dhf-29-25-dh-mg",
+  "ti-maxxis-minion-dhf-275-26-exo-mt",
+  "ti-maxxis-minion-dhf-29-26-exo-dual",
+  "ti-maxxis-minion-dhf-29-25-exop-mt",
+  "ti-maxxis-minion-dhf-29-25-exo-mt",
+  "ti-maxxis-minion-dhf-29-25-exo-dual"
+ ],
+ "https://shop.maxxis.com/products/assegai": [
+  "ti-maxxis-assegai-29-25-dd-mg",
+  "ti-maxxis-assegai-275-25-dd-mg"
+ ],
+ "https://shop.maxxis.com/products/minion-dhf-1": [
+  "ti-maxxis-minion-dhf-29-25-dd-mg",
+  "ti-maxxis-minion-dhf-275-25-dd-mg"
+ ],
+ "https://shop.maxxis.com/products/minion-dhr-ii": [
+  "ti-maxxis-minion-dhr-ii-29-25-dd-mg",
+  "ti-maxxis-minion-dhr-ii-275-25-dd-mg",
+  "ti-maxxis-minion-dhr-ii-275-24-dd-mt"
+ ],
+ "https://www.schwalbetires.com/Big-Betty": [
+  "ti-schwalbe-big-betty-29-24-st-as",
+  "ti-schwalbe-big-betty-29-26-sg-as"
+ ],
+ "https://www.schwalbetires.com/Big-Betty-11654163": [
+  "ti-schwalbe-big-betty-29-24-sdh-aus"
+ ],
+ "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/scorpion-enduro-s": [
+  "ti-pirelli-scorpion-enduro-s-29-24-hw-sgg"
+ ],
+ "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/scorpion-enduro-m": [
+  "ti-pirelli-scorpion-enduro-m-29-24-pw-sgg"
+ ],
+ "https://www.maxxis.com/us/tire/dissector/": [
+  "ti-maxxis-dissector-29-24-exop-mt",
+  "ti-maxxis-dissector-275-24-dh-mg",
+  "ti-maxxis-dissector-29-24-dd-mg",
+  "ti-maxxis-dissector-275-24-dd-mg",
+  "ti-maxxis-dissector-275-24-exo-3cmt",
+  "ti-maxxis-dissector-29-24-exo-mt",
+  "ti-maxxis-dissector-29-24-exo-dual",
+  "ti-maxxis-dissector-29-26-exop-mt"
+ ],
+ "https://www.maxxis.com/us/tire/high-roller-ii/": [
+  "ti-maxxis-high-roller-ii-29-25-dd-mt",
+  "ti-maxxis-high-roller-ii-275-25-dd-mt",
+  "ti-maxxis-high-roller-ii-275-24-exo-mt",
+  "ti-maxxis-highroller-ii-275-28-exo-dual"
+ ],
+ "https://www.maxxis.com/us/tire/shorty/": [
+  "ti-maxxis-shorty-29-24-dd-mg"
+ ],
+ "https://www.schwalbetires.com/Hans-Dampf": [
+  "ti-schwalbe-hans-dampf-29-235-sg-as"
+ ],
+ "https://vittoria.com/products/mazza-enduro": [
+  "ti-vittoria-mazza-29-24-enduro-4c",
+  "ti-vittoria-mazza-275-24-enduro-4c",
+  "ti-vittoria-mazza-275-26-enduro-4c"
+ ],
+ "https://www.schwalbetires.com/Magic-Mary-11600616.03": [
+  "ti-schwalbe-magic-mary-29-24-st-as"
+ ],
+ "https://www.schwalbetires.com/Magic-Mary-11600539.03": [
+  "ti-schwalbe-magic-mary-275-24-st-as"
+ ],
+ "https://www.maxxis.com/us/tire/aggressor/": [
+  "ti-maxxis-aggressor-29-23-dd-dual",
+  "ti-maxxis-aggressor-29-23-exo-dual"
+ ],
+ "https://www.wtb.com/products/vigilante-sg1": [
+  "ti-wtb-vigilante-29-25-sg2-tritec",
+  "ti-wtb-vigilante-29-25-sg1-tritec"
+ ],
+ "https://www.wtb.com/products/judge-sg1": [
+  "ti-wtb-judge-29-24-sg1-tritec"
+ ],
+ "https://bicycle.kendatire.com/en-eu/find-a-tire/bicycle/mtb/hellkat/": [
+  "ti-kenda-hellkat-29-24-aec-dl"
+ ],
+ "https://goodyearbike.com/products/newton-mtf": [
+  "ti-goodyear-newton-mtf-29-25-enduro-grip3s",
+  "ti-goodyear-newton-mtf-275-25-downhill-grip3s",
+  "ti-goodyear-newton-mtf-29-25-downhill-grip3s"
+ ],
+ "https://goodyearbike.com/products/newton-mtr": [
+  "ti-goodyear-newton-mtr-29-24-enduro-grip3s",
+  "ti-goodyear-newton-mtr-275-24-downhill-grip3",
+  "ti-goodyear-newton-mtr-275-26-downhill-grip3",
+  "ti-goodyear-newton-mtr-29-24-downhill-grip3"
+ ],
+ "https://www.maxxis.com/us/tire/forekaster/": [
+  "ti-maxxis-forekaster-275-24-exo-dual",
+  "ti-maxxis-forekaster-29-24-exop-mt",
+  "ti-maxxis-forekaster-29-26-exo-mt",
+  "ti-maxxis-forekaster-275-24-exo-mtb",
+  "ti-maxxis-forekaster-29-24-exo-mtb"
+ ],
+ "https://www.maxxis.com/us/tire/ikon/": [
+  "ti-maxxis-ikon-29-22-exo-dual",
+  "ti-maxxis-ikon-29-24-exo-ms",
+  "ti-maxxis-ikon-275-22-exo-ms",
+  "ti-maxxis-ikon-29-22-exo-cms",
+  "ti-maxxis-ikon-275-22-exo-cms"
+ ],
+ "https://www.wtb.com/products/verdict-sg1": [
+  "ti-wtb-verdict-29-25-sg1-tritec",
+  "ti-wtb-verdict-275-25-sg1-tritec"
+ ],
+ "https://www.schwalbetires.com/Nobby-Nic-11654142.01": [
+  "ti-schwalbe-nobby-nic-29-24-st-asg"
+ ],
+ "https://www.wtb.com/products/trail-boss-2-4-2-6": [
+  "ti-wtb-trailboss-29-24-sg2-tritec",
+  "ti-wtb-trailboss-29-24-tough-tritec",
+  "ti-wtb-trailboss-275-24-tough-tritec",
+  "ti-wtb-trailboss-29-26-tough-tritec"
+ ],
+ "https://www.maxxis.com/us/tire/rekon/": [
+  "ti-maxxis-rekon-275-26-exo-dual",
+  "ti-maxxis-rekon-275-24-exo-mt",
+  "ti-maxxis-rekon-29-24-exo-dual",
+  "ti-maxxis-rekon-29-28-exo-dual",
+  "ti-maxxis-rekon-29-24-exop-mt",
+  "ti-maxxis-rekon-29-26-exop-mtb",
+  "ti-maxxis-rekon-29-24-exo-3cmt",
+  "ti-maxxis-rekon-275-28-exo-mt"
+ ],
+ "https://www.schwalbetires.com/wicked-will-11654305": [
+  "ti-schwalbe-wicked-will-29-24-sr-asg"
+ ],
+ "https://vittoria.com/products/barzo-xc-race": [
+  "ti-vittoria-barzo-29-225-xc-race-graphene-silica",
+  "ti-vittoria-barzo-29-24-xc-race-graphene-silica"
+ ],
+ "https://www.onza-tires.com/products/aquila": [
+  "ti-onza-aquila-29-25-trc-s50",
+  "ti-onza-aquila-29-25-grc-s50",
+  "ti-onza-aquila-275-25-grc-s50"
+ ],
+ "https://www.onza-tires.com/products/ibex": [
+  "ti-onza-ibex-275-24-trc-s50",
+  "ti-onza-ibex-275-26-grc-s50",
+  "ti-onza-ibex-29-24-trc-s50",
+  "ti-onza-ibex-29-26-grc-s50"
+ ],
+ "https://www.onza-tires.com/products/canis": [
+  "ti-onza-canis-29-23-xcc-m60"
+ ],
+ "https://www.onza-tires.com/products/porcupine": [
+  "ti-onza-porcupine-275-24-trc-m60",
+  "ti-onza-porcupine-275-26-grc-s50",
+  "ti-onza-porcupine-29-24-trc-m60",
+  "ti-onza-porcupine-29-26-grc-s50"
+ ],
+ "https://veetireco.de/en/products/flow-snap": [
+  "ti-vee-flowsnap-275-235-endurocore-tc",
+  "ti-vee-flowsnap-275-26-synthesis-tc",
+  "ti-vee-flowsnap-29-235-endurocore-tc",
+  "ti-vee-flowsnap-29-26-synthesis-tc"
+ ],
+ "https://veetireco.de/en/products/attack-hpl": [
+  "ti-vee-attackhpl-275-25-endurocore-top40",
+  "ti-vee-attackhpl-275-25-dhcore-top40",
+  "ti-vee-attackhpl-29-25-endurocore-top40",
+  "ti-vee-attackhpl-29-25-dhcore-top40"
+ ],
+ "https://veetireco.de/en/products/crown-gem-mtb": [
+  "ti-vee-crowngem-275-235-foldingtlr-dcc",
+  "ti-vee-crowngem-275-26-foldingtlr-tc",
+  "ti-vee-crowngem-29-23-wirebead-mpc"
+ ],
+ "https://shop.csttires.com/products/bft-1": [
+  "ti-cst-bft-275-225-dual",
+  "ti-cst-bft-275-24-dual",
+  "ti-cst-bft-275-26-dual",
+  "ti-cst-bft-29-225-dual"
+ ],
+ "https://panaracer.com/en/products/mtb_en/aliso_en/st/": [
+  "ti-panaracer-aliso-275-24-st-triple",
+  "ti-panaracer-aliso-275-26-st-triple",
+  "ti-panaracer-aliso-29-24-st-triple",
+  "ti-panaracer-aliso-29-26-st-triple"
+ ],
+ "https://panaracer.com/en/products/mtb_en/romero_en/romero-st/": [
+  "ti-panaracer-romero-275-24-st-triple",
+  "ti-panaracer-romero-275-26-st-triple",
+  "ti-panaracer-romero-29-24-st-triple",
+  "ti-panaracer-romero-29-26-st-triple"
+ ],
+ "https://www.teravail.com/products/kessel-tire": [
+  "ti-teravail-kessel-29-24-dur-grip",
+  "ti-teravail-kessel-29-24-ultradur-grip",
+  "ti-teravail-kessel-29-26-dur-grip",
+  "ti-teravail-kessel-275-25-dur-gripplus"
+ ],
+ "https://www.terrenetires.com/products/chunk-275x26-light-folding": [
+  "ti-terrene-chunk-275-26-tough-6251"
+ ],
+ "https://www.terrenetires.com/products/chunk-275x26-tough-folding": [
+  "ti-terrene-chunk-275-26-tough-5648"
+ ],
+ "https://www.terrenetires.com/products/chunk-29x26-tough-folding": [
+  "ti-terrene-chunk-29-26-tough-6251"
+ ],
+ "https://www.terrenetires.com/products/chunk-29x26-light-folding": [
+  "ti-terrene-chunk-29-26-tough-5648"
+ ],
+ "https://bicycle.kendatire.com/en-us/find-a-tire/bicycle/all-mountain-trail/nevegal-2/": [
+  "ti-kenda-nevegal2-29-26-atc-dtc",
+  "ti-kenda-nevegal2-29-24-atc-dtc",
+  "ti-kenda-nevegal2-29-22-atc-dtc",
+  "ti-kenda-nevegal2-275-26-atc-dtc",
+  "ti-kenda-nevegal2-275-24-atc-dtc",
+  "ti-kenda-nevegal2-275-22-atc-dtc"
+ ],
+ "https://bicycle.kendatire.com/en-us/find-a-tire/bicycle/fat-plus-tires/havok-pro/": [
+  "ti-kenda-havok-275-26-tr-dtc",
+  "ti-kenda-havok-275-26-emc-dtc",
+  "ti-kenda-havok-275-28-tr-dtc",
+  "ti-kenda-havok-275-28-emc-dtc"
+ ],
+ "https://bicycle.kendatire.com/es-es/find-a-tire/bicycle/cross-country-marathon/small-block-eight/": [
+  "ti-kenda-small-block-eight-29-21-ksct-dtc"
+ ],
+ "https://bicycle.kendatire.com/es-es/find-a-tire/bicycle/enduro-all-mountain/honey-badger/": [
+  "ti-kenda-honey-badger-29-22-ksct-dtc"
+ ],
+ "https://www.pirelli.com/tyres/en-ww/bike/tyres/catalogue/scorpion-enduro-r": [
+  "ti-pirelli-scorpion-enduro-r-275-24-pw-sg",
+  "ti-pirelli-scorpion-enduro-r-275-24-hw-sg",
+  "ti-pirelli-scorpion-enduro-r-275-26-hw-sg",
+  "ti-pirelli-scorpion-enduro-r-29-24-pw-sg",
+  "ti-pirelli-scorpion-enduro-r-29-24-hw-sg",
+  "ti-pirelli-scorpion-enduro-r-29-26-pw-sg",
+  "ti-pirelli-scorpion-enduro-r-29-26-hw-sg"
+ ],
+ "https://www.wtb.com/products/ranger": [
+  "ti-wtb-ranger-29-24-sg2-tritec"
+ ],
+ "https://www.schwalbetires.com/GRAVITY-PRO-Albert-Radial-11654596.01": [
+  "ti-schwalbe-albert-275-26-gp-as"
+ ],
+ "https://www.schwalbetires.com/GRAVITY-PRO-Albert-Radial-11654591.01": [
+  "ti-schwalbe-albert-29-25-gp-aus"
+ ],
+ "https://shop.maxxis.com/products/minion-ss": [
+  "ti-maxxis-minion-ss-275-23-exo-dual",
+  "ti-maxxis-minion-ss-29-23-exo-dual"
+ ],
+ "https://vittoria.com/products/agarro-trail": [
+  "ti-vittoria-agarro-275-24-trail-4c",
+  "ti-vittoria-agarro-275-26-trail-4c",
+  "ti-vittoria-agarro-29-24-trail-4c",
+  "ti-vittoria-agarro-29-26-trail-4c"
+ ],
+ "https://vittoria.com/products/mostro-enduro": [
+  "ti-vittoria-mostro-275-24-enduro-4c",
+  "ti-vittoria-mostro-275-26-enduro-4c",
+  "ti-vittoria-mostro-29-24-enduro-4c",
+  "ti-vittoria-mostro-29-26-enduro-4c"
+ ],
+ "https://vittoria.com/products/martello-enduro": [
+  "ti-vittoria-martello-275-24-enduro-4c",
+  "ti-vittoria-martello-275-26-enduro-4c",
+  "ti-vittoria-martello-275-28-enduro-4c",
+  "ti-vittoria-martello-29-24-enduro-4c",
+  "ti-vittoria-martello-29-26-enduro-4c"
+ ],
+ "https://vittoria.com/products/peyote-xc-race": [
+  "ti-vittoria-peyote-29-24-xc-race-graphene-silica"
+ ],
+ "https://www.maxxis.com/us/tire/high-roller-iii/": [
+  "ti-maxxis-high-roller-iii-275-24-exop-mg",
+  "ti-maxxis-high-roller-iii-275-24-dd-mg",
+  "ti-maxxis-high-roller-iii-275-24-dh-mg",
+  "ti-maxxis-high-roller-iii-29-24-exop-mg",
+  "ti-maxxis-high-roller-iii-29-24-dd-mg",
+  "ti-maxxis-high-roller-iii-29-24-dh-mg"
+ ],
+ "https://www.maxxis.com/us/tire/wetscream/": [
+  "ti-maxxis-wetscream-275-25-dh-mg",
+  "ti-maxxis-wetscream-29-25-dh-mg"
+ ],
+ "https://www.ethirteen.com/products/grappler-mtb-tire": [
+  "ti-ethirteen-grappler-29-25-fgr-mopo",
+  "ti-ethirteen-grappler-275-25-fgr-mopo",
+  "ti-ethirteen-grappler-29-25-fgr-mom",
+  "ti-ethirteen-grappler-275-25-fgr-mom",
+  "ti-ethirteen-grappler-29-25-fam-mopo",
+  "ti-ethirteen-grappler-275-25-fam-mopo",
+  "ti-ethirteen-grappler-29-25-fam-mom",
+  "ti-ethirteen-grappler-275-25-fam-mom"
+ ],
+ "https://www.ethirteen.com/products/grappler-radial-mtb-tire": [
+  "ti-ethirteen-grappler-radial-29-25-fgrr-mopo",
+  "ti-ethirteen-grappler-radial-275-25-fgrr-mopo",
+  "ti-ethirteen-grappler-radial-29-25-fgrr-mom",
+  "ti-ethirteen-grappler-radial-275-25-fgrr-mom"
+ ],
+ "https://www.ethirteen.com/products/grappler-rs-mtb-tire": [
+  "ti-ethirteen-grappler-rs-275-24-fgr-mopo"
+ ],
+ "https://www.ethirteen.com/products/grappler-rs-radial-mtb-tire": [
+  "ti-ethirteen-grappler-rs-radial-275-24-fgrr-mopo",
+  "ti-ethirteen-grappler-rs-radial-275-24-fgrr-mom"
+ ],
+ "https://www.ethirteen.com/products/grappler-tr-mtb-tire": [
+  "ti-ethirteen-grappler-tr-29-24-fam-mom",
+  "ti-ethirteen-grappler-tr-275-24-fam-mom"
+ ],
+ "https://cycling.hutchinson.com/tyres/mtb-2/griffus-2-4/": [
+  "ti-hutchinson-griffus-275-24-hsk-rre",
+  "ti-hutchinson-griffus-29-24-hsk-rre"
+ ],
+ "https://cycling.hutchinson.com/tyres/mtb-2/griffus-2-5/": [
+  "ti-hutchinson-griffus-275-25-hsk-rre",
+  "ti-hutchinson-griffus-275-25-ssk-bic",
+  "ti-hutchinson-griffus-29-25-hsk-rrg",
+  "ti-hutchinson-griffus-29-25-hsk-rre",
+  "ti-hutchinson-griffus-29-25-ssk-bic"
+ ],
+ "https://cycling.hutchinson.com/tyres/mtb-2/skeleton/": [
+  "ti-hutchinson-skeleton-29-215-hsk-rrx",
+  "ti-hutchinson-skeleton-29-23-hsk-rrx"
+ ],
+ "https://cycling.hutchinson.com/tyres/mtb-2/kraken/": [
+  "ti-hutchinson-kraken-275-23-ssk-bic",
+  "ti-hutchinson-kraken-29-23-hsk-rrx",
+  "ti-hutchinson-kraken-29-23-ssk-bic",
+  "ti-hutchinson-kraken-29-24-hsk-rrx",
+  "ti-hutchinson-kraken-29-24-ssk-bic"
+ ],
+ "https://cycling.hutchinson.com/tyres/mtb-2/toro-gravity/": [
+  "ti-hutchinson-toro-29-235-hsk-rrg",
+  "ti-hutchinson-toro-29-24-ssk-bic"
+ ],
+ "https://www.sram.com/en/sram/models/bb-dub-bsa-a1": [
+  "bb-sram-dub-bsa73",
+  "bb-sram-dub-bsa83",
+  "bb-sram-dub-bsa68"
+ ],
+ "https://www.sram.com/en/sram/models/bb-dub-pf-a1": [
+  "bb-sram-dub-pf92",
+  "bb-sram-dub-pf107",
+  "bb-sram-dub-pf865"
+ ],
+ "https://www.hopetech.com/products/drivetrain/bottom-bracket/threaded-bottom-bracket/": [
+  "bb-hope-threaded-bsa73-24mm",
+  "bb-hope-threaded-bsa73-30mm",
+  "bb-hope-threaded-bsa83-24mm"
+ ],
+ "https://www.hopetech.com/products/drivetrain/bottom-bracket/press-fit-pf41-bottom-bracket/": [
+  "bb-hope-pf41-92-24mm",
+  "bb-hope-pf41-92-30mm",
+  "bb-hope-pf41-865-24mm",
+  "bb-hope-pf41-107-30mm"
+ ],
+ "https://www.ethirteen.com/products/bottom-bracket": [
+  "bb-ethirteen-bsa73-p3",
+  "bb-ethirteen-bsa83-p3"
+ ],
+ "https://www.ethirteen.com/products/press-fit-bottom-brackets": [
+  "bb-ethirteen-pf92-p3",
+  "bb-ethirteen-pf92-24mm"
+ ],
+ "https://www.raceface.com/products/bsa-cinch-30mm": [
+  "bb-raceface-bsa68-30mm",
+  "bb-raceface-bsa73-30mm",
+  "bb-raceface-bsa83-30mm"
+ ],
+ "https://www.raceface.com/products/team-bsa-24mm": [
+  "bb-raceface-bsa68-24mm"
+ ],
+ "https://www.raceface.com/products/bb92-24mm": [
+  "bb-raceface-pf92-24mm",
+  "bb-raceface-pf107-24mm"
+ ],
+ "https://wheelsmfg.com/products/bb86-92-bb-for-24mm-shimano-cranks": [
+  "bb-wheelsmfg-pf865-24mm"
+ ],
+ "https://wheelsmfg.com/products/bb86-to-30mm-kit-for-pressfit-86-92-bottom-bracket-with-flanged-dual-row-black-oxide-sealed-bearings": [
+  "bb-wheelsmfg-pf865-30mm",
+  "bb-wheelsmfg-pf107-30mm"
+ ],
+ "https://chrisking.com/products/bottom-bracket-threadfit-30": [
+  "bb-chrisking-threadfit30-bsa73-dub",
+  "bb-chrisking-threadfit30-bsa73-30mm"
+ ],
+ "https://praxiscycles.com/product/m30-english-threaded/": [
+  "bb-praxisworks-m30-bsa73-30mm",
+  "bb-praxisworks-m30-bsa83-30mm"
+ ],
+ "https://praxiscycles.com/product/m30-bb86-road/": [
+  "bb-praxisworks-m30-pf92-30mm",
+  "bb-praxisworks-m30-pf865-30mm",
+  "bb-praxisworks-m30-pf107-30mm"
+ ],
+ "https://canecreek.com/products/40": [
+  "hs-canecreek-40-zs44-zs56",
+  "hs-canecreek-40-zs56-zs56",
+  "hs-canecreek-40-is41-is52",
+  "hs-canecreek-40-is42-is52",
+  "hs-canecreek-40-zs44-ec44",
+  "hs-canecreek-40-zs49-ec49",
+  "hs-canecreek-40-zs44-ec49"
+ ],
+ "https://canecreek.com/products/hellbender-70": [
+  "hs-canecreek-hellbender-70-zs44-zs56",
+  "hs-canecreek-hellbender-70-zs56-zs56",
+  "hs-canecreek-hellbender-70-is41-is52",
+  "hs-canecreek-hellbender-70-is42-is52",
+  "hs-canecreek-hellbender-70-zs44-ec44"
+ ],
+ "https://chrisking.com/products/headset-inset-2": [
+  "hs-chrisking-inset-2-zs44-zs56"
+ ],
+ "https://chrisking.com/products/headset-inset-7": [
+  "hs-chrisking-inset-7-zs44-ec44"
+ ],
+ "https://canecreek.com/products/110": [
+  "hs-canecreek-110-zs44-zs56",
+  "hs-canecreek-110-zs44-ec44",
+  "hs-canecreek-110-is42-is52",
+  "hs-canecreek-110-is41-is52",
+  "hs-canecreek-110-zs44-ec49"
+ ],
+ "https://chrisking.com/products/dropset-2": [
+  "hs-chrisking-dropset-2-is42-is52"
+ ],
+ "https://chrisking.com/products/dropset-3": [
+  "hs-chrisking-dropset-3-is41-is52"
+ ],
+ "https://www.whiteind.com/product/zs44-zs56/": [
+  "hs-whiteindustries-zs44-zs56"
+ ],
+ "https://www.whiteind.com/product/zs44-ec44/": [
+  "hs-whiteindustries-zs44-ec44"
+ ],
+ "https://www.whiteind.com/product/ec34-ec44/": [
+  "hs-whiteindustries-ec34-ec44"
+ ],
+ "https://www.whiteind.com/product/is41-is52/": [
+  "hs-whiteindustries-is41-is52"
+ ],
+ "https://www.whiteind.com/product/is42-is52/": [
+  "hs-whiteindustries-is42-is52"
+ ],
+ "https://canecreek.com/products/fifty": [
+  "hs-canecreek-fifty-zs44-zs56",
+  "hs-canecreek-fifty-zs56-zs56",
+  "hs-canecreek-fifty-is41-is52",
+  "hs-canecreek-fifty-is42-is52",
+  "hs-canecreek-fifty-zs44-ec44"
+ ],
+ "https://chrisking.com/products/headset-inset-5": [
+  "hs-chrisking-inset-5-zs49-ec49"
+ ],
+ "https://www.hopetech.com/products/brakes/xc/xcr-pro-x2-flatmount/": [
+  "bk-hope-xcrpro-x2-fm"
+ ],
+ "https://www.sram.com/globalassets/document-hierarchy/frame-fit-specifications/aftermarket/disc-brake-caliper-mounting-specifications-for-road-and-mtb.pdf": [
+  "bk-sram-level-ultimate-fm"
+ ],
+ "https://www.sram.com/en/sram/models/db-lvl-ult2-c1": [
+  "bk-sram-level-ultimate-stealth"
+ ],
+ "https://www.sram.com/en/service/models/db-code-rsc-a1": [
+  "bk-sram-code-rsc"
+ ],
+ "https://www.sram.com/en/service/models/db-code-slv-c1": [
+  "bk-sram-code-stealth"
+ ],
+ "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf": [
+  "bk-shimano-xt-m8120",
+  "bk-shimano-slx-m7120",
+  "bk-shimano-saint-m820",
+  "bk-shimano-deore-m6120",
+  "bk-shimano-xt-m8100",
+  "bk-shimano-slx-m7100",
+  "bk-shimano-deore-m6100",
+  "bk-shimano-mt520",
+  "bk-shimano-mt500",
+  "bk-shimano-xtr-m9100",
+  "bk-shimano-xtr-m9200",
+  "bk-shimano-xtr-m9220",
+  "ro-shimano-smrt66-160-6b",
+  "ro-shimano-smrt66-180-6b",
+  "ro-shimano-smrt66-203-6b",
+  "ro-shimano-smrt66-220-6b",
+  "ro-shimano-smrt30-160-cl",
+  "ro-shimano-smrt30-180-cl",
+  "ro-shimano-smrt30-203-cl",
+  "ro-shimano-smrt56-160-6b",
+  "ro-shimano-smrt56-180-6b",
+  "ro-shimano-rtmt905-180-6b",
+  "ro-shimano-rtmt905-203-6b",
+  "ro-shimano-smrt86-160-6b",
+  "ro-shimano-smrt86-180-6b",
+  "ro-shimano-smrt86-203-6b",
+  "ro-shimano-smrt64-160-cl",
+  "ro-shimano-smrt64-180-cl",
+  "ro-shimano-smrt64-203-cl",
+  "ro-shimano-smrt64-220-cl",
+  "ro-shimano-smrt26-160-6b",
+  "ro-shimano-smrt26-180-6b",
+  "ro-shimano-smrt54-160-cl",
+  "ro-shimano-smrt54-180-cl"
+ ],
+ "https://hayesbicycle.com/products/dominion-a4-brake-kit": [
+  "bk-hayes-dominion-a4"
+ ],
+ "https://magura.com/product/mt7-pro/": [
+  "bk-magura-mt7"
+ ],
+ "https://www.sram.com/en/sram/models/db-mvn-ult-a1": [
+  "bk-sram-maven-ultimate"
+ ],
+ "https://www.sram.com/en/sram/models/db-mvn-slv-a1": [
+  "bk-sram-maven-silver"
+ ],
+ "https://www.sram.com/en/sram/models/db-mvn-brz-a1": [
+  "bk-sram-maven-bronze"
+ ],
+ "https://www.hopetech.com/_repository/1/documents/BRAKE_Tech_Book.pdf": [
+  "bk-hope-tech-4-v4",
+  "bk-hope-tech-4-e4"
+ ],
+ "https://trpcycling.com/products/dh-r-evo": [
+  "bk-trp-dhr-evo"
+ ],
+ "https://www.rideformula.com/products/mtb-brakes/cura4/": [
+  "bk-formula-cura-4"
+ ],
+ "https://productinfo.shimano.com/pdfs/product/archive/2020-2021_Specifications_v032_en.pdf": [
+  "bk-shimano-zee-m640",
+  "ro-shimano-rtmt800-203-cl",
+  "ro-shimano-rtmt800-180-cl",
+  "ro-shimano-rtmt900-203-cl",
+  "ro-shimano-smrt76-203-6b",
+  "ro-shimano-rtmt800-160-cl",
+  "ro-shimano-rtmt900-160-cl",
+  "ro-shimano-smrt76-160-6b",
+  "ro-shimano-rtmt800-140-cl",
+  "ro-shimano-rtmt900-140-cl",
+  "ro-shimano-rtmt900-180-cl",
+  "ro-shimano-smrt76-180-6b"
+ ],
+ "https://magura.com/product/mt5/": [
+  "bk-magura-mt5"
+ ],
+ "https://www.sram.com/en/service/models/db-g2-rsc-a2": [
+  "bk-sram-g2-rsc"
+ ],
+ "https://www.sram.com/en/service/models/db-g2-ult-a1": [
+  "bk-sram-g2-ultimate"
+ ],
+ "https://trpcycling.com/products/trail-evo": [
+  "bk-trp-trail-evo"
+ ],
+ "https://www.trickstuff.com/en/brakes/brake-systems/maxima": [
+  "bk-trickstuff-maxima"
+ ],
+ "https://www.sram.com/en/sram/models/db-db8-a1": [
+  "bk-sram-db8"
+ ],
+ "https://magura.com/product/mt-trail-sport/": [
+  "bk-magura-mt-trail-sport"
+ ],
+ "https://magura.com/product/mt-trail-sl/": [
+  "bk-magura-mt-trail-sl"
+ ],
+ "https://www.sram.com/en/sram/models/db-motv-ult-a1": [
+  "bk-sram-motive-ultimate"
+ ],
+ "https://www.sram.com/en/sram/models/db-motv-slv-a1": [
+  "bk-sram-motive-silver"
+ ],
+ "https://www.sram.com/en/sram/models/db-motv-brz-a1": [
+  "bk-sram-motive-bronze"
+ ],
+ "https://www.sram.com/en/sram/models/db-mvn-bse-a1": [
+  "bk-sram-maven-base"
+ ],
+ "https://www.sram.com/en/sram/models/db-db4-a1": [
+  "bk-sram-db4"
+ ],
+ "https://www.sram.com/en/sram/models/db-db6-a1": [
+  "bk-sram-db6"
+ ],
+ "https://www.sram.com/en/sram/models/db-lvl-brz2-c1": [
+  "bk-sram-level-bronze-stealth-2p"
+ ],
+ "https://www.sram.com/en/service/models/db-code-brz-c1": [
+  "bk-sram-code-bronze-stealth"
+ ],
+ "https://www.sram.com/en/service/models/db-lvl-brz4-c1": [
+  "bk-sram-level-bronze-stealth-4p"
+ ],
+ "https://www.sram.com/en/service/models/db-lvl-slv4-c1": [
+  "bk-sram-level-silver-stealth-4p"
+ ],
+ "https://www.sram.com/en/service/models/db-lvl-slv2-c1": [
+  "bk-sram-level-silver-stealth-2p"
+ ],
+ "https://www.sram.com/en/service/models/db-code-ult-c1": [
+  "bk-sram-code-ultimate-stealth"
+ ],
+ "https://hayesbicycle.com/products/dominion-a2-brake-kit": [
+  "bk-hayes-dominion-a2"
+ ],
+ "https://magura.com/product/mt4/": [
+  "bk-magura-mt4"
+ ],
+ "https://www.rideformula.com/products/mtb-brakes/cura-4-kashima/": [
+  "bk-formula-cura4-kashima"
+ ],
+ "https://www.trickstuff.com/en/brakes/brake-systems/direttissima": [
+  "bk-trickstuff-direttissima"
+ ],
+ "https://www.trickstuff.com/en/brakes/brake-systems/piccola-carbon": [
+  "bk-trickstuff-piccola-carbon"
+ ],
+ "https://hayesbicycle.com/products/dominion-t4-brake-kit": [
+  "bk-hayes-dominion-t4"
+ ],
+ "https://hayesbicycle.com/products/dominion-t2-brake-kit": [
+  "bk-hayes-dominion-t2"
+ ],
+ "https://trpcycling.com/products/evo-pro": [
+  "bk-trp-evo-pro"
+ ],
+ "https://trpcycling.com/products/evo-x": [
+  "bk-trp-evo-x"
+ ],
+ "https://trpcycling.com/products/slate-evo": [
+  "bk-trp-slate-evo"
+ ],
+ "https://www.trpbrakes.com/userfiles/slate_manual.pdf": [
+  "bk-trp-slate-t4"
+ ],
+ "https://trpcycling.com/products/orion-4p-hd-m745": [
+  "bk-tektro-orion-hdm745"
+ ],
+ "https://trpcycling.com/products/gemini-hd-m280": [
+  "bk-tektro-hdm280"
+ ],
+ "https://www.clarkscyclesystems.com/product-range/brake-systems/hydraulic-disc-brakes/m4-hydraulic-brake-3162.html": [
+  "bk-clarks-m4"
+ ],
+ "https://www.rideformula.com/products/mtb-brakes/cura/": [
+  "bk-formula-cura"
+ ],
+ "https://www.rideformula.com/products/mtb-brakes/cura-x-3/": [
+  "bk-formula-cura-x"
+ ],
+ "https://www.hopetech.com/products/brakes/xc/xcr-pro-e4/": [
+  "bk-hope-xcrpro-e4"
+ ],
+ "https://www.sram.com/en/sram/models/rt-hs-2-a1": [
+  "ro-sram-hs2-200-6b"
+ ],
+ "https://hayesbicycle.com/products/d-series-rotor": [
+  "ro-hayes-dseries-203-6b",
+  "ro-hayes-dseries-160-6b",
+  "ro-hayes-dseries-180-6b",
+  "ro-hayes-dseries-220-6b"
+ ],
+ "https://www.hopetech.com/webtop/modules/_repository/1/documents/Rotor_Tech_Book_2023(1).pdf": [
+  "ro-hope-floating-203-6b",
+  "ro-hope-floating-220-6b",
+  "ro-hope-floating-180-6b",
+  "ro-hope-floating-140-6b",
+  "ro-hope-floating-160-6b",
+  "ro-hope-floating-200-6b",
+  "ro-hope-floating-140-cl",
+  "ro-hope-floating-160-cl",
+  "ro-hope-floating-180-cl",
+  "ro-hope-floating-200-cl",
+  "ro-hope-floating-203-cl",
+  "ro-hope-floating-220-cl"
+ ],
+ "https://magura.com/product/mdr-p/": [
+  "ro-magura-mdrp-203-6b",
+  "ro-magura-mdrp-220-6b",
+  "ro-magura-mdrp-180-6b"
+ ],
+ "https://trpcycling.com/products/rs05e-race-rotor-2-3mm-203-220mm-1": [
+  "ro-trp-203-6b",
+  "ro-trp-220-6b"
+ ],
+ "https://www.trickstuff.com/en/brake-parts-and-tools/brake-discs/daechle-disc-ul": [
+  "ro-trickstuff-dachle-203-6b",
+  "ro-trickstuff-dachle-180-6b",
+  "ro-trickstuff-dachleul-140-6b",
+  "ro-trickstuff-dachleul-160-6b",
+  "ro-trickstuff-dachleul-180-6b",
+  "ro-trickstuff-dachleul-203-6b"
+ ],
+ "https://galfer.com/bike/products/brake-discs/": [
+  "ro-galfer-203-6b",
+  "ro-galfer-wave-160-6b",
+  "ro-galfer-wave-180-6b",
+  "ro-galfer-wave-200-6b",
+  "ro-galfer-shark-180-6b",
+  "ro-galfer-shark-203-6b",
+  "ro-galfer-shark-223-6b"
+ ],
+ "https://magura.com/product/mdr-p-cl/": [
+  "ro-magura-mdrp-180-cl",
+  "ro-magura-mdrp-203-cl"
+ ],
+ "https://magura.com/product/mdr-c/": [
+  "ro-magura-mdrc-160-6b",
+  "ro-magura-mdrc-180-6b",
+  "ro-magura-mdrc-203-6b",
+  "ro-magura-mdrc-220-6b"
+ ],
+ "https://magura.com/product/mdr-c-cl/": [
+  "ro-magura-mdrc-160-cl",
+  "ro-magura-mdrc-180-cl",
+  "ro-magura-mdrc-203-cl"
+ ],
+ "https://magura.com/product/storm-sl-2/": [
+  "ro-magura-storm-sl2-160-6b",
+  "ro-magura-storm-sl2-180-6b"
+ ],
+ "https://galfer.com/bike/galfer-disc-wave-now-available-for-the-center-lock-system/": [
+  "ro-galfer-wave-160-cl",
+  "ro-galfer-wave-180-cl",
+  "ro-galfer-wave-203-cl"
+ ],
+ "https://galfer.com/bike/products/brake-discs/page/2/": [
+  "ro-galfer-wave-200-cl",
+  "ro-galfer-wave-223-6b",
+  "ro-galfer-wave-223-cl"
+ ],
+ "https://www.trickstuff.com/en/brake-parts-and-tools/brake-discs/daechle-disc-hd": [
+  "ro-trickstuff-dachlehd-160-6b",
+  "ro-trickstuff-dachlehd-180-6b",
+  "ro-trickstuff-dachlehd-203-6b"
+ ],
+ "https://trpcycling.com/products/tr25": [
+  "ro-trp-tr25-160-cl",
+  "ro-trp-tr25-180-cl",
+  "ro-trp-tr25-203-cl",
+  "ro-trp-tr25-140-cl"
+ ],
+ "https://trpcycling.com/products/tr33": [
+  "ro-trp-tr33-140-6b",
+  "ro-trp-tr33-160-6b",
+  "ro-trp-tr33-180-6b",
+  "ro-trp-tr33-203-6b"
+ ],
+ "https://eu.trpcycling.com/products/tr42": [
+  "ro-trp-tr42-180-6b",
+  "ro-trp-tr42-203-6b"
+ ],
+ "https://www.trickstuff.com/en/brake-parts-and-tools/brake-discs/downhill-disc": [
+  "ro-trickstuff-downhill-223-6b"
+ ],
+ "https://trpcycling.com/products/rs06e-allround-rotor-2-3mm-180-223mm": [
+  "ro-trp-rs06e-180-6b",
+  "ro-trp-rs06e-203-6b",
+  "ro-trp-rs06e-220-6b"
+ ],
+ "https://trpcycling.com/products/rc04e-2-3mm-180-203mm": [
+  "ro-trp-rc04e-180-cl",
+  "ro-trp-rc04e-203-cl"
+ ],
+ "https://trpcycling.com/products/rs02m": [
+  "ro-trp-rs02m-140-6b",
+  "ro-trp-rs02m-160-6b",
+  "ro-trp-rs02m-180-6b",
+  "ro-trp-rs02m-203-6b"
+ ],
+ "https://trpcycling.com/products/rc03m-1-8mm-160-203mm": [
+  "ro-trp-rc03m-160-cl",
+  "ro-trp-rc03m-180-cl",
+  "ro-trp-rc03m-203-cl"
+ ],
+ "https://trpcycling.com/products/rs02m-1-8mm-140-203mm-copy": [
+  "ro-trp-rs01m-140-6b",
+  "ro-trp-rs01m-160-6b",
+  "ro-trp-rs01m-180-6b",
+  "ro-trp-rs01m-203-6b"
+ ],
+ "https://trpcycling.com/products/tr43-1-8-160-203mm": [
+  "ro-trp-tr43-160-6b",
+  "ro-trp-tr43-203-6b"
+ ],
+ "https://magura.com/product/storm-hc/": [
+  "ro-magura-storm-hc-160-6b",
+  "ro-magura-storm-hc-180-6b",
+  "ro-magura-storm-hc-203-6b"
+ ],
+ "https://www.renthal.com/cycle/index.php?route=product/product&product_id=4767": [
+  "hb-renthal-fatbar-35"
+ ],
+ "https://www.oneupcomponents.com/products/v2-carbon-handlebar": [
+  "hb-oneup-carbon-35"
+ ],
+ "https://www.raceface.com/products/aeffect-r-35-handlebar": [
+  "hb-raceface-aeffect-r-35"
+ ],
+ "https://au.raceface.com/products/next-r-35-handlebar": [
+  "hb-raceface-next-r-35"
+ ],
+ "https://www.deitycomponents.com/skywire_carbon_handlebar_25mm.html": [
+  "hb-deity-skywire-35"
+ ],
+ "https://spank-ind.com/products/spike-800-vibrocore%E2%84%A2-bar": [
+  "hb-spank-spike-800-318"
+ ],
+ "https://www.oneupcomponents.com/products/aluminum-handlebar": [
+  "hb-oneup-aluminum-35",
+  "hb-oneup-aluminum-35-rise35"
+ ],
+ "https://us.chromagbikes.com/products/osx": [
+  "hb-chromag-fubars-osx-318"
+ ],
+ "https://hayesbicycle.com/products/protaper-a25-31-8": [
+  "hb-protaper-a25-35"
+ ],
+ "https://www.sram.com/en/truvativ/models/hb-desc-rc5-a1": [
+  "hb-truvativ-descendant-35"
+ ],
+ "https://www.renthal.com/cycle/index.php?route=product/product&product_id=4771": [
+  "hb-renthal-fatbar-318"
+ ],
+ "https://www.raceface.com/products/turbine-handlebar-31-8": [
+  "hb-raceface-turbine-318"
+ ],
+ "https://www.pnwcomponents.com/products/range-handlebar-gen-4": [
+  "hb-pnw-range-gen4-318",
+  "hb-pnw-range-gen4-35"
+ ],
+ "https://www.deitycomponents.com/blacklabel_handlebar_25mm.html": [
+  "hb-deity-blacklabel-318"
+ ],
+ "https://www.deitycomponents.com/store/p13/DEITY_SKYLINE_787_HANDLEBAR_///_25mm_RISE.html": [
+  "hb-deity-skyline-318"
+ ],
+ "https://us.chromagbikes.com/products/handlebars-bza-2020": [
+  "hb-chromag-bza-35"
+ ],
+ "https://www.renthal.com/cycle/fatbar-lite": [
+  "hb-renthal-fatbar-lite-318",
+  "hb-renthal-fatbar-lite-35"
+ ],
+ "https://www.renthal.com/cycle/fatbar-carbon": [
+  "hb-renthal-fatbar-carbon-318",
+  "hb-renthal-fatbar-carbon-35"
+ ],
+ "https://us.chromagbikes.com/products/osx35-2020": [
+  "hb-chromag-osx-35"
+ ],
+ "https://sdgcomponents.com/products/slater-handlebar": [
+  "hb-sdg-slater-318"
+ ],
+ "https://hayesbicycle.com/products/protaper-a76": [
+  "hb-protaper-a76-318"
+ ],
+ "https://hayesbicycle.com/products/protaper-c12-hyperlite-carbon-handlebar": [
+  "hb-protaper-c12hyperlite-318"
+ ],
+ "https://spank-ind.com/products/oozy-35-bar": [
+  "hb-spank-oozy-35"
+ ],
+ "https://titlemtb.com/products/ah1-31-8-handlebars": [
+  "hb-title-ah1-318"
+ ],
+ "https://titlemtb.com/products/ah1-35-handlebars": [
+  "hb-title-ah1-35"
+ ],
+ "https://www.ethirteen.com/collections/mtb-handlebars": [
+  "hb-ethirteen-race-carbon-35"
+ ],
+ "https://www.enve.com/collections/handlebars/products/m6-bar-31-8mm": [
+  "hb-enve-m6-318"
+ ],
+ "https://www.enve.com/collections/handlebars/products/m7-bar-35mm": [
+  "hb-enve-m7-35"
+ ],
+ "https://www.enve.com/collections/handlebars/products/m9-bar-31-8mm": [
+  "hb-enve-m9-318"
+ ],
+ "https://www.raceface.com/collections/handlebars/products/atlas-35-handlebar": [
+  "hb-raceface-atlas-35"
+ ],
+ "https://www.raceface.com/collections/handlebars/products/sixc-35-handlebar": [
+  "hb-raceface-sixc-35"
+ ],
+ "https://www.raceface.com/collections/handlebars/products/chester-35-handlebar": [
+  "hb-raceface-chester-35"
+ ],
+ "https://www.raceface.com/collections/handlebars/products/atlas-handlebar-31-8": [
+  "hb-raceface-atlas-318"
+ ],
+ "https://spank-ind.com/products/spike-35-vibrocore%E2%84%A2-bar": [
+  "hb-spank-spike-35"
+ ],
+ "https://spank-ind.com/products/spike-777-fr-bearclaw-bar": [
+  "hb-spank-spike-777fr-318"
+ ],
+ "https://spank-ind.com/products/spoon-800-bar": [
+  "hb-spank-spoon-800-318"
+ ],
+ "https://tagmtb.com/products/t1-carbon-handlebar": [
+  "hb-tagmetals-t1-carbon-35"
+ ],
+ "https://tagmtb.com/products/t1-aluminium-handlebar-black": [
+  "hb-tagmetals-t1-aluminum-35",
+  "hb-tagmetals-t1-aluminum-318"
+ ],
+ "https://www.fsaproshop.com/products/kfx-carbon-mtb-riser-handlebar": [
+  "hb-fsa-kfx-riser-318"
+ ],
+ "https://www.fsaproshop.com/products/gradient-carbon-riser-handlebar-o35mm-clamp": [
+  "hb-fsa-gradient-carbon-35"
+ ],
+ "https://www.fsaproshop.com/products/gradient-alloy-riser-handlebar": [
+  "hb-fsa-gradient-alloy-318"
+ ],
+ "https://www.renthal.com/cycle/apex": [
+  "st-renthal-apex-35"
+ ],
+ "https://www.oneupcomponents.com/products/stem": [
+  "st-oneup-stem-35"
+ ],
+ "https://www.sram.com/en/truvativ/models/st-atms-7k1-a1": [
+  "st-sram-atmos-7k-318-60"
+ ],
+ "https://www.sram.com/en/truvativ/models/hb-atms-r7k1-a1": [
+  "hb-sram-atmos-7k-318-760"
+ ],
+ "https://www.raceface.com/products/aeffect-r-stem": [
+  "st-raceface-aeffect-r-35"
+ ],
+ "https://www.deitycomponents.com/store/p299/COPPERHEAD_35_50_STORE.html": [
+  "st-deity-copperhead-35"
+ ],
+ "https://www.deitycomponents.com/store/p21/DEITY_COPPERHEAD_STEM_///_50mm_LENGTH.html": [
+  "st-deity-copperhead-318"
+ ],
+ "https://www.deitycomponents.com/store/p26/DEITY_INTAKE_DM_STEM_///_31.8mm_CLAMP.html": [
+  "st-deity-intake-dm-318"
+ ],
+ "https://deitycomponents.com/cavity-50-stem.html": [
+  "st-deity-cavity-318"
+ ],
+ "https://spank-ind.com/products/spike-race-stem": [
+  "st-spank-spike-318"
+ ],
+ "https://us.chromagbikes.com/products/hifi-stem": [
+  "st-chromag-hifi-318"
+ ],
+ "https://www.renthal.com/cycle/duo-50": [
+  "st-renthal-duo-318"
+ ],
+ "https://us.chromagbikes.com/products/stems-riza": [
+  "st-chromag-riza-318"
+ ],
+ "https://industrynine.com/products/mt": [
+  "st-industrynine-a35"
+ ],
+ "https://funnmtb.com/products/rsx/": [
+  "st-funn-rsx-35"
+ ],
+ "https://hayesbicycle.com/products/protaper-mtb-stem": [
+  "st-protaper-mtbstem-318",
+  "st-protaper-mtbstem-35"
+ ],
+ "https://spank-ind.com/products/spank-split-35-stem": [
+  "st-spank-split-35"
+ ],
+ "https://titlemtb.com/products/st1-31-8": [
+  "st-title-st1-318"
+ ],
+ "https://titlemtb.com/products/st1-35-stem": [
+  "st-title-st1-35"
+ ],
+ "https://www.ethirteen.com/products/base-35-stem": [
+  "st-ethirteen-base-35"
+ ],
+ "https://www.enve.com/collections/stems/products/m6-stem-31-8mm": [
+  "st-enve-m6-318"
+ ],
+ "https://www.enve.com/collections/stems/products/m7-stem-35mm": [
+  "st-enve-m7-35"
+ ],
+ "https://www.raceface.com/collections/stems/products/atlas-35-stem": [
+  "st-raceface-atlas-35"
+ ],
+ "https://www.raceface.com/collections/stems/products/turbine-r-35-stem": [
+  "st-raceface-turbine-r-35"
+ ],
+ "https://www.raceface.com/collections/stems/products/chester-stem": [
+  "st-raceface-chester-318"
+ ],
+ "https://canecreek.com/products/gxc-stem": [
+  "st-canecreek-gxc-318"
+ ],
+ "https://tagmtb.com/products/t1-stem-31-8mm": [
+  "st-tagmetals-t1-318",
+  "st-tagmetals-t1-35"
+ ],
+ "https://www.fsaproshop.com/products/kfx-stem": [
+  "st-fsa-kfx-318"
+ ],
+ "https://www.weareonecomposites.com/en-us/products/the-stem": [
+  "st-weareone-the-stem-35"
+ ],
+ "https://www.oneupcomponents.com/products/grips": [
+  "gr-oneup-lockon"
+ ],
+ "https://esigrips.com/products/chunky": [
+  "gr-esi-chunky"
+ ],
+ "https://www.pnwcomponents.com/products/loam-grips": [
+  "gr-pnw-loam"
+ ],
+ "https://wolftoothcomponents.com/products/fatpawgrips": [
+  "gr-wolftooth-fatpaw"
+ ],
+ "https://ergonbike.shop/products/ergon-ge1-evo": [
+  "gr-ergon-ge1-evo"
+ ],
+ "https://dmrbikes.com/products/dmr-deathgrip-race-grips": [
+  "gr-dmr-deathgrip"
+ ],
+ "https://us.chromagbikes.com/products/grips-squarewave": [
+  "gr-chromag-squarewave"
+ ],
+ "https://www.raceface.com/products/half-nelson-grip": [
+  "gr-raceface-half-nelson"
+ ],
+ "https://www.deitycomponents.com/knuckleduster-grips.html": [
+  "gr-deity-knuckleduster"
+ ],
+ "https://www.odigrips.com/products/ruffian-v2-1-lock-on-grips-135mm": [
+  "gr-odi-ruffian-v21"
+ ],
+ "https://www.odigrips.com/products/vans-v2-1-lock-on-grips-135mm": [
+  "gr-odi-vans-v21"
+ ],
+ "https://ergonbike.shop/products/gdh": [
+  "gr-ergon-gdh"
+ ],
+ "https://www.deitycomponents.com/slimfit-grips.html": [
+  "gr-deity-slimfit"
+ ],
+ "https://www.deitycomponents.com/lockjaw_grips.html": [
+  "gr-deity-lockjaw"
+ ],
+ "https://us.chromagbikes.com/products/grips-format": [
+  "gr-chromag-format"
+ ],
+ "https://us.chromagbikes.com/products/grips-basis": [
+  "gr-chromag-basis"
+ ],
+ "https://us.chromagbikes.com/products/grips-palmskin": [
+  "gr-chromag-palmskin"
+ ],
+ "https://www.renthal.com/cycle/push-on-ultratacky": [
+  "gr-renthal-ultratacky-pushon"
+ ],
+ "https://us.chromagbikes.com/products/grips-clutch": [
+  "gr-chromag-clutch"
+ ],
+ "https://ergonbike.shop/products/ergon-ga2": [
+  "gr-ergon-ga2"
+ ],
+ "https://hayesbicycle.com/products/protaper-mtb-meat-hammer-grip": [
+  "gr-protaper-meathammer"
+ ],
+ "https://hayesbicycle.com/products/protaper-mtb-stein-grip-3": [
+  "gr-protaper-stein"
+ ],
+ "https://www.raceface.com/collections/grips/products/grippler-grip": [
+  "gr-raceface-grippler"
+ ],
+ "https://www.raceface.com/collections/grips/products/getta-grip": [
+  "gr-raceface-getta-grip"
+ ],
+ "https://www.raceface.com/collections/grips/products/love-handle-grip": [
+  "gr-raceface-love-handle"
+ ],
+ "https://www.raceface.com/collections/grips/products/chester-grip": [
+  "gr-raceface-chester"
+ ],
+ "https://spank-ind.com/products/spike-grip-33": [
+  "gr-spank-spike-33"
+ ],
+ "https://spank-ind.com/products/spike-grip-30": [
+  "gr-spank-spike-30"
+ ],
+ "https://wolftoothcomponents.com/products/fat-paw-grips-v2": [
+  "gr-wolftooth-fatpaw-v2"
+ ],
+ "https://wolftoothcomponents.com/products/karv-grips-v2": [
+  "gr-wolftooth-karv-v2"
+ ],
+ "https://wolftoothcomponents.com/products/fat-paw-lock-on-grips": [
+  "gr-wolftooth-fatpaw-lockon"
+ ],
+ "https://ergonbike.shop/products/ergon-ge1-evo-slim": [
+  "gr-ergon-ge1-evo-slim"
+ ],
+ "https://tagmtb.com/products/t1-section-grip": [
+  "gr-tagmetals-t1-section"
+ ],
+ "https://tagmtb.com/products/t1-braap-grip": [
+  "gr-tagmetals-t1-braap"
+ ],
+ "https://www.sram.com/en/service/models/sp-rvb-axs-a1": [
+  "dp-rockshox-reverb-axs-316-170",
+  "dp-rockshox-reverb-axs-349-170",
+  "dp-rockshox-reverb-axs-309-170"
+ ],
+ "https://www.oneupcomponents.com/products/dropper-post-v3": [
+  "dp-oneup-v3-316-210",
+  "dp-oneup-v3-349-210",
+  "dp-oneup-v3-309-90",
+  "dp-oneup-v3-309-120",
+  "dp-oneup-v3-309-150",
+  "dp-oneup-v3-309-180",
+  "dp-oneup-v3-309-210",
+  "dp-oneup-v3-309-240",
+  "dp-oneup-v3-316-90",
+  "dp-oneup-v3-316-120",
+  "dp-oneup-v3-316-150",
+  "dp-oneup-v3-316-180",
+  "dp-oneup-v3-316-240",
+  "dp-oneup-v3-349-90",
+  "dp-oneup-v3-349-120",
+  "dp-oneup-v3-349-150",
+  "dp-oneup-v3-349-180",
+  "dp-oneup-v3-349-240"
+ ],
+ "https://www.yt-industries.com/Parts-Accessories/Parts/YT-Postman-Dropper-Post-Set-170mm/": [
+  "dp-yt-postman-v2-316-170"
+ ],
+ "https://ridefox.com/products/fox-transfer-seatpost": [
+  "dp-fox-transfer-factory-316-180",
+  "dp-fox-transfer-factory-349-180",
+  "dp-fox-transfer-factory-309-180",
+  "dp-fox-transfer-factory-309-120",
+  "dp-fox-transfer-factory-309-150",
+  "dp-fox-transfer-factory-309-210",
+  "dp-fox-transfer-factory-316-120",
+  "dp-fox-transfer-factory-316-150",
+  "dp-fox-transfer-factory-316-210",
+  "dp-fox-transfer-factory-316-240",
+  "dp-fox-transfer-factory-349-120",
+  "dp-fox-transfer-factory-349-150",
+  "dp-fox-transfer-factory-349-210",
+  "dp-fox-transfer-factory-349-240"
+ ],
+ "https://bikeyoke.com/en/revive-3.0/revt": [
+  "dp-bikeyoke-revive-316-185",
+  "dp-bikeyoke-revive-349-185",
+  "dp-bikeyoke-revive-309-125",
+  "dp-bikeyoke-revive-309-160",
+  "dp-bikeyoke-revive-309-185",
+  "dp-bikeyoke-revive-309-213",
+  "dp-bikeyoke-revive-316-125",
+  "dp-bikeyoke-revive-316-160",
+  "dp-bikeyoke-revive-316-213",
+  "dp-bikeyoke-revive-349-125",
+  "dp-bikeyoke-revive-349-160",
+  "dp-bikeyoke-revive-349-213"
+ ],
+ "https://www.pnwcomponents.com/products/loam-dropper-post": [
+  "dp-pnw-loam-309-175",
+  "dp-pnw-loam-349-200",
+  "dp-pnw-loam-309-125",
+  "dp-pnw-loam-309-150",
+  "dp-pnw-loam-309-200",
+  "dp-pnw-loam-309-225",
+  "dp-pnw-loam-316-125",
+  "dp-pnw-loam-316-150",
+  "dp-pnw-loam-316-175",
+  "dp-pnw-loam-316-200",
+  "dp-pnw-loam-316-225",
+  "dp-pnw-loam-349-125",
+  "dp-pnw-loam-349-150",
+  "dp-pnw-loam-349-175",
+  "dp-pnw-loam-349-225"
+ ],
+ "https://www.wolftoothcomponents.com/products/resolve-dropper-post": [
+  "dp-wolftooth-resolve-316-200",
+  "dp-wolftooth-resolve-309-200"
+ ],
+ "https://www.crankbrothers.com/products/highline-7-dropper": [
+  "dp-crankbrothers-highline-7-316-170",
+  "dp-crankbrothers-highline-7-309-170",
+  "dp-crankbrothers-highline-7-309-100",
+  "dp-crankbrothers-highline-7-309-125",
+  "dp-crankbrothers-highline-7-309-150",
+  "dp-crankbrothers-highline-7-316-100",
+  "dp-crankbrothers-highline-7-316-125",
+  "dp-crankbrothers-highline-7-316-150",
+  "dp-crankbrothers-highline-7-316-200"
+ ],
+ "https://ridefox.com/products/fox-transfer-neo-seatpost": [
+  "dp-fox-transfer-neo-316-175",
+  "dp-fox-transfer-neo-309-125",
+  "dp-fox-transfer-neo-309-150",
+  "dp-fox-transfer-neo-309-175",
+  "dp-fox-transfer-neo-309-200",
+  "dp-fox-transfer-neo-309-225",
+  "dp-fox-transfer-neo-316-100",
+  "dp-fox-transfer-neo-316-125",
+  "dp-fox-transfer-neo-316-150",
+  "dp-fox-transfer-neo-316-200",
+  "dp-fox-transfer-neo-316-225",
+  "dp-fox-transfer-neo-349-125",
+  "dp-fox-transfer-neo-349-150",
+  "dp-fox-transfer-neo-349-175",
+  "dp-fox-transfer-neo-349-225"
+ ],
+ "https://9point8.ca/products/fall-line-175-200mm-stroke-dropper-seatpost": [
+  "dp-9point8-fall-line-316-175",
+  "dp-9point8-fall-line-309-175",
+  "dp-9point8-fall-line-309-200",
+  "dp-9point8-fall-line-316-200",
+  "dp-9point8-fall-line-349-175",
+  "dp-9point8-fall-line-349-200"
+ ],
+ "https://kssuspension.com/products/dropper-seat-posts/lev-integra/": [
+  "dp-ks-lev-integra-316-175",
+  "dp-ks-lev-integra-309-175",
+  "dp-ks-lev-integra-309-65",
+  "dp-ks-lev-integra-309-100",
+  "dp-ks-lev-integra-309-125",
+  "dp-ks-lev-integra-309-150",
+  "dp-ks-lev-integra-309-200",
+  "dp-ks-lev-integra-316-65",
+  "dp-ks-lev-integra-316-100",
+  "dp-ks-lev-integra-316-125",
+  "dp-ks-lev-integra-316-150",
+  "dp-ks-lev-integra-316-200",
+  "dp-ks-lev-integra-349-125",
+  "dp-ks-lev-integra-349-150",
+  "dp-ks-lev-integra-349-175",
+  "dp-ks-lev-integra-349-200"
+ ],
+ "https://9point8.ca/pages/fall-line-r-stroke-dropper-seatpost-specs": [
+  "dp-9point8-fall-line-r-309-150",
+  "dp-9point8-fall-line-r-309-75",
+  "dp-9point8-fall-line-r-309-100",
+  "dp-9point8-fall-line-r-309-125",
+  "dp-9point8-fall-line-r-316-75",
+  "dp-9point8-fall-line-r-316-100",
+  "dp-9point8-fall-line-r-316-125",
+  "dp-9point8-fall-line-r-316-150"
+ ],
+ "https://sdgcomponents.com/products/tellis-v2-dropper-post": [
+  "dp-sdg-tellis-316-170",
+  "dp-sdg-tellis-349-170",
+  "dp-sdg-tellis-309-170",
+  "dp-sdg-tellis-316-75",
+  "dp-sdg-tellis-316-100",
+  "dp-sdg-tellis-316-125",
+  "dp-sdg-tellis-316-150",
+  "dp-sdg-tellis-316-200",
+  "dp-sdg-tellis-316-230",
+  "dp-sdg-tellis-309-75",
+  "dp-sdg-tellis-309-100",
+  "dp-sdg-tellis-309-125",
+  "dp-sdg-tellis-309-150",
+  "dp-sdg-tellis-309-200",
+  "dp-sdg-tellis-309-230",
+  "dp-sdg-tellis-349-75",
+  "dp-sdg-tellis-349-100",
+  "dp-sdg-tellis-349-125",
+  "dp-sdg-tellis-349-150",
+  "dp-sdg-tellis-349-200",
+  "dp-sdg-tellis-349-230"
+ ],
+ "https://web.archive.org/web/2024/https://www.raceface.com/products/turbine-r-dropper-seatpost": [
+  "dp-raceface-turbine-r-316-175",
+  "dp-raceface-turbine-r-309-125",
+  "dp-raceface-turbine-r-309-150",
+  "dp-raceface-turbine-r-309-175",
+  "dp-raceface-turbine-r-309-200",
+  "dp-raceface-turbine-r-316-125",
+  "dp-raceface-turbine-r-316-150",
+  "dp-raceface-turbine-r-316-200"
+ ],
+ "https://www.ethirteen.com/products/vario-dropper-post": [
+  "dp-ethirteen-vario-infinite-316-180",
+  "dp-ethirteen-vario-infinite-316-120",
+  "dp-ethirteen-vario-infinite-316-150",
+  "dp-ethirteen-vario-infinite-316-210",
+  "dp-ethirteen-vario-infinite-309-120",
+  "dp-ethirteen-vario-infinite-309-150",
+  "dp-ethirteen-vario-infinite-309-180"
+ ],
+ "https://ridefox.com/products/fox-transfer-sl-seatpost": [
+  "dp-fox-transfer-sl-309-100",
+  "dp-fox-transfer-sl-272-50",
+  "dp-fox-transfer-sl-272-70",
+  "dp-fox-transfer-sl-309-75",
+  "dp-fox-transfer-sl-316-75",
+  "dp-fox-transfer-sl-316-100",
+  "dp-fox-transfer-sl-316-125",
+  "dp-fox-transfer-sl-316-150"
+ ],
+ "https://ridefox.com/pages/transfer-neo": [
+  "dp-fox-transfer-neo-309-100",
+  "dp-fox-transfer-neo-349-200"
+ ],
+ "https://www.sram.com/en/rockshox/models/sp-rvb-axs-b1": [
+  "dp-rockshox-reverb-axs-b1-309-100",
+  "dp-rockshox-reverb-axs-b1-309-125",
+  "dp-rockshox-reverb-axs-b1-309-150",
+  "dp-rockshox-reverb-axs-b1-309-175",
+  "dp-rockshox-reverb-axs-b1-309-200",
+  "dp-rockshox-reverb-axs-b1-309-225",
+  "dp-rockshox-reverb-axs-b1-309-250",
+  "dp-rockshox-reverb-axs-b1-316-100",
+  "dp-rockshox-reverb-axs-b1-316-125",
+  "dp-rockshox-reverb-axs-b1-316-150",
+  "dp-rockshox-reverb-axs-b1-316-175",
+  "dp-rockshox-reverb-axs-b1-316-200",
+  "dp-rockshox-reverb-axs-b1-316-225",
+  "dp-rockshox-reverb-axs-b1-316-250",
+  "dp-rockshox-reverb-axs-b1-349-100",
+  "dp-rockshox-reverb-axs-b1-349-125",
+  "dp-rockshox-reverb-axs-b1-349-150",
+  "dp-rockshox-reverb-axs-b1-349-175",
+  "dp-rockshox-reverb-axs-b1-349-200",
+  "dp-rockshox-reverb-axs-b1-349-225",
+  "dp-rockshox-reverb-axs-b1-349-250"
+ ],
+ "https://www.wolftoothcomponents.com/products/resolve-dropper-post-rev2": [
+  "dp-wolftooth-resolve-309-125",
+  "dp-wolftooth-resolve-309-160",
+  "dp-wolftooth-resolve-309-242",
+  "dp-wolftooth-resolve-316-125",
+  "dp-wolftooth-resolve-316-160",
+  "dp-wolftooth-resolve-316-242",
+  "dp-wolftooth-resolve-349-160",
+  "dp-wolftooth-resolve-349-200",
+  "dp-wolftooth-resolve-349-242"
+ ],
+ "https://www.sram.com/en/service/models/sp-rvb-s-c1": [
+  "dp-rockshox-reverb-stealth-309-100",
+  "dp-rockshox-reverb-stealth-309-125",
+  "dp-rockshox-reverb-stealth-309-150",
+  "dp-rockshox-reverb-stealth-309-175",
+  "dp-rockshox-reverb-stealth-309-200",
+  "dp-rockshox-reverb-stealth-316-100",
+  "dp-rockshox-reverb-stealth-316-125",
+  "dp-rockshox-reverb-stealth-316-150",
+  "dp-rockshox-reverb-stealth-316-175",
+  "dp-rockshox-reverb-stealth-316-200",
+  "dp-rockshox-reverb-stealth-349-100",
+  "dp-rockshox-reverb-stealth-349-125",
+  "dp-rockshox-reverb-stealth-349-150",
+  "dp-rockshox-reverb-stealth-349-175",
+  "dp-rockshox-reverb-stealth-349-200"
+ ],
+ "https://www.vitalmtb.com/product/guide/Seatposts,30/Pro/Koryak-120,24643": [
+  "dp-pro-koryak-120-309-120",
+  "dp-pro-koryak-120-316-120"
+ ],
+ "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-seatposts-accessories/bike-seatposts/bontrager-line-elite-dropper-seatpost/p/22689/": [
+  "dp-bontrager-line-elite-316-100",
+  "dp-bontrager-line-elite-316-130",
+  "dp-bontrager-line-elite-316-150",
+  "dp-bontrager-line-elite-316-170"
+ ],
+ "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-seatposts-accessories/bike-seatposts/bontrager-line-elite-34-9-dropper-seatpost/p/32843/": [
+  "dp-bontrager-line-elite-349-100",
+  "dp-bontrager-line-elite-349-150",
+  "dp-bontrager-line-elite-349-170",
+  "dp-bontrager-line-elite-349-200"
+ ],
+ "https://na.tranzx.com/products/edp01-electronic-dropper-post": [
+  "dp-tranzx-edp01-316-150",
+  "dp-tranzx-edp01-316-170",
+  "dp-tranzx-edp01-316-200",
+  "dp-tranzx-edp01-309-150",
+  "dp-tranzx-edp01-309-170",
+  "dp-tranzx-edp01-309-200"
+ ],
+ "https://na.tranzx.com/products/kitsuma-air": [
+  "dp-tranzx-kitsuma-air-316-150",
+  "dp-tranzx-kitsuma-air-316-170",
+  "dp-tranzx-kitsuma-air-316-200",
+  "dp-tranzx-kitsuma-air-309-150",
+  "dp-tranzx-kitsuma-air-309-170",
+  "dp-tranzx-kitsuma-air-309-200"
+ ],
+ "https://na.tranzx.com/products/kitsuma-air-1": [
+  "dp-tranzx-kitsuma-272-90",
+  "dp-tranzx-kitsuma-272-110",
+  "dp-tranzx-kitsuma-309-125",
+  "dp-tranzx-kitsuma-309-150",
+  "dp-tranzx-kitsuma-309-170",
+  "dp-tranzx-kitsuma-316-125",
+  "dp-tranzx-kitsuma-316-150",
+  "dp-tranzx-kitsuma-316-170"
+ ],
+ "https://na.tranzx.com/products/hot-lap-dropper-post": [
+  "dp-tranzx-hot-lap-316-50",
+  "dp-tranzx-hot-lap-309-50",
+  "dp-tranzx-hot-lap-272-50"
+ ],
+ "https://www.wtb.com/products/volt": [
+  "sa-wtb-volt"
+ ],
+ "https://sdgcomponents.com/products/bel-air-v3-lux-alloy": [
+  "sa-sdg-belair-v3"
+ ],
+ "https://www.fizik.com/us_en/terra-aidon-x3.html": [
+  "sa-fizik-terra-aidon-x3"
+ ],
+ "https://www.wtb.com/products/silverado": [
+  "sa-wtb-silverado"
+ ],
+ "https://fabric.cc/products/scoop-sport-radius": [
+  "sa-fabric-scoop-radius"
+ ],
+ "https://sdgcomponents.com/products/radar-mtn-ti-alloy": [
+  "sa-sdg-radar"
+ ],
+ "https://us.chromagbikes.com/products/saddles-trailmaster-dt-19": [
+  "sa-chromag-trailmaster"
+ ],
+ "https://dmrbikes.com/products/dmr-oioi-saddle": [
+  "sa-dmr-oioi"
+ ],
+ "https://www.wtb.com/products/koda": [
+  "sa-wtb-koda-ti"
+ ],
+ "https://www.wtb.com/products/solano": [
+  "sa-wtb-solano-ti",
+  "sa-wtb-solano"
+ ],
+ "https://ergonbike.shop/products/ergon-sm-women": [
+  "sa-ergon-sm-women"
+ ],
+ "https://ergonbike.shop/products/smc-core-women": [
+  "sa-ergon-smc-core-women"
+ ],
+ "https://www.selleitalia.com/slr-boost-x-cross-ti316-superflow/": [
+  "sa-selleitalia-slr-boost-x-cross-ti316-superflow"
+ ],
+ "https://www.selleitalia.com/flite-boost-x-cross-ti316-superflow/": [
+  "sa-selleitalia-flite-boost-x-cross-ti316-superflow"
+ ],
+ "https://www.selleitalia.com/novus-boost-evo-x-cross-tm-superflow/": [
+  "sa-selleitalia-novus-boost-evo-x-cross-tm-superflow"
+ ],
+ "https://www.selleitalia.com/x-bow-superflow/": [
+  "sa-selleitalia-x-bow-superflow"
+ ],
+ "https://www.selleitalia.com/x-bow-ti-316-superflow/": [
+  "sa-selleitalia-x-bow-ti-316-superflow"
+ ],
+ "https://www.selleitalia.com/x-lr-ti-316-superflow/": [
+  "sa-selleitalia-x-lr-ti-316-superflow"
+ ],
+ "https://www.selleitalia.com/x-lr-kit-carbonio-superflow/": [
+  "sa-selleitalia-x-lr-kit-carbonio-superflow"
+ ],
+ "https://www.selleitalia.com/x-lr-air-cross-tm-superflow/": [
+  "sa-selleitalia-x-lr-air-cross-tm-superflow"
+ ],
+ "https://www.selleitalia.com/model-y/": [
+  "sa-selleitalia-model-y"
+ ],
+ "https://fabric.cc/products/scoop-elite-radius": [
+  "sa-fabric-scoop-elite-radius"
+ ],
+ "https://fabric.cc/products/scoop-race-team-radius": [
+  "sa-fabric-scoop-race-team-radius"
+ ],
+ "https://fabric.cc/products/line-elite-shallow": [
+  "sa-fabric-line-elite-shallow"
+ ],
+ "https://fabric.cc/products/line-race-team-shallow": [
+  "sa-fabric-line-race-team-shallow"
+ ],
+ "https://fabric.cc/products/scoop-sport-shallow": [
+  "sa-fabric-scoop-sport-shallow"
+ ],
+ "https://fabric.cc/products/scoop-elite-flat": [
+  "sa-fabric-scoop-elite-flat"
+ ],
+ "https://fabric.cc/products/scoop-race-team-flat": [
+  "sa-fabric-scoop-race-team-flat"
+ ],
+ "https://fabric.cc/products/scoop-race-team-shallow": [
+  "sa-fabric-scoop-race-team-shallow"
+ ],
+ "https://fabric.cc/products/scoop-elite-shallow": [
+  "sa-fabric-scoop-elite-shallow"
+ ],
+ "https://fabric.cc/products/scoop-elite-radius-gel": [
+  "sa-fabric-scoop-elite-radius-gel"
+ ],
+ "https://fabric.cc/products/line-sport-shallow": [
+  "sa-fabric-line-sport-shallow"
+ ],
+ "https://sdgcomponents.com/collections/mountain/products/bel-air-v3-max": [
+  "sa-sdg-belair-v3-max-lux-alloy"
+ ],
+ "https://sdgcomponents.com/collections/mountain/products/bel-air-v3-overland": [
+  "sa-sdg-belair-v3-overland-lux-alloy"
+ ],
+ "https://sdgcomponents.com/collections/mountain/products/bel-air-v3-overland-carbon-fiber": [
+  "sa-sdg-belair-v3-overland-carbon"
+ ],
+ "https://sdgcomponents.com/collections/mountain/products/bel-air-v3-carbon": [
+  "sa-sdg-belair-v3-carbon"
+ ],
+ "https://sdgcomponents.com/collections/mountain/products/allure-v2-ti-alloy": [
+  "sa-sdg-allure-v2-lux-alloy"
+ ],
+ "https://sdgcomponents.com/collections/mountain/products/bel-air-v3-air-foam-lux-alloy": [
+  "sa-sdg-belair-v3-air-foam-lux-alloy"
+ ],
+ "https://sdgcomponents.com/collections/mountain/products/radar-cro-mo": [
+  "sa-sdg-radar-cro-mo"
+ ],
+ "https://sdgcomponents.com/collections/mountain/products/duster-p-mtn-ti-alloy": [
+  "sa-sdg-duster-p-mtn-ti-alloy"
+ ],
+ "https://sdgcomponents.com/collections/mountain/products/duster-p-mtn-cro-mo": [
+  "sa-sdg-duster-p-mtn-cro-mo"
+ ],
+ "https://sdgcomponents.com/collections/mountain/products/bel-air-rl-steel": [
+  "sa-sdg-belair-rl-steel"
+ ],
+ "https://sdgcomponents.com/collections/mountain/products/2017-fly-jr-steel-1": [
+  "sa-sdg-fly-jr-steel"
+ ],
+ "https://sdgcomponents.com/collections/mountain/products/patriot-cro-mo": [
+  "sa-sdg-patriot-cro-mo"
+ ],
+ "https://sdgcomponents.com/collections/mountain/products/patriot-i-beam": [
+  "sa-sdg-patriot-i-beam"
+ ],
+ "https://sdgcomponents.com/collections/mountain/products/apollo-i-beam": [
+  "sa-sdg-apollo-i-beam"
+ ],
+ "https://sdgcomponents.com/collections/mountain/products/apollo-b-rage": [
+  "sa-sdg-apollo-b-rage"
+ ],
+ "https://www.brooksengland.com/en_us/c13.html": [
+  "sa-brooks-cambium-c13"
+ ],
+ "https://www.brooksengland.com/en_us/c13-carved.html": [
+  "sa-brooks-cambium-c13-carved"
+ ],
+ "https://www.brooksengland.com/en_us/c15.html": [
+  "sa-brooks-cambium-c15"
+ ],
+ "https://www.brooksengland.com/en_us/c15-carved.html": [
+  "sa-brooks-cambium-c15-carved"
+ ],
+ "https://terrycycling.com/products/falcon-x": [
+  "sa-terry-falcon-x"
+ ],
+ "https://terrycycling.com/collections/saddles/products/topo-saddle": [
+  "sa-terry-topo"
+ ],
+ "https://terrycycling.com/collections/saddles/products/topo-gel-saddle": [
+  "sa-terry-topo-gel"
+ ],
+ "https://sellesanmarco.com/mantra-carbon-fx/": [
+  "sa-sellesanmarco-mantra-carbon"
+ ],
+ "https://sellesanmarco.com/mantra-xsilite/": [
+  "sa-sellesanmarco-mantra-xsilite"
+ ],
+ "https://sellesanmarco.com/mantra-manganese/": [
+  "sa-sellesanmarco-mantra-manganese"
+ ],
+ "https://sellesanmarco.com/ground-shield-carbon-fx/": [
+  "sa-sellesanmarco-ground-shield-carbon-fx"
+ ],
+ "https://sellesanmarco.com/ground-carbon-fx/": [
+  "sa-sellesanmarco-ground-carbon-fx"
+ ],
+ "https://sellesanmarco.com/ground-shield-dynamic/": [
+  "sa-sellesanmarco-ground-shield-dynamic"
+ ],
+ "https://sellesanmarco.com/ground-shield-sport/": [
+  "sa-sellesanmarco-ground-shield-sport"
+ ],
+ "https://sellesanmarco.com/ground-sport/": [
+  "sa-sellesanmarco-ground-sport"
+ ],
+ "https://www.wtb.com/products/deva": [
+  "sa-wtb-deva-ti"
+ ],
+ "https://www.wtb.com/products/devo-w-pickup": [
+  "sa-wtb-devo-ti"
+ ],
+ "https://www.wtb.com/products/rocket-1": [
+  "sa-wtb-rocket-ti"
+ ],
+ "https://www.wtb.com/products/solano-sl": [
+  "sa-wtb-solano-sl-carbon"
+ ],
+ "https://www.oneupcomponents.com/products/aluminum-pedal": [
+  "pd-oneup-aluminum"
+ ],
+ "https://www.oneupcomponents.com/products/comp-pedal": [
+  "pd-oneup-composite"
+ ],
+ "https://www.raceface.com/products/chester-pedal": [
+  "pd-raceface-chester"
+ ],
+ "https://www.raceface.com/products/atlas-pedal": [
+  "pd-raceface-atlas"
+ ],
+ "https://www.crankbrothers.com/products/stamp-7-large": [
+  "pd-crankbrothers-stamp-7-large"
+ ],
+ "https://www.crankbrothers.com/products/mallet-e": [
+  "pd-crankbrothers-mallet-enduro"
+ ],
+ "https://www.crankbrothers.com/products/eggbeater-3": [
+  "pd-crankbrothers-eggbeater-3"
+ ],
+ "https://www.sram.com/en/time-sport/models/pd-spc-12-b1": [
+  "pd-time-speciale-12-large"
+ ],
+ "https://ride.shimano.com/products/pd-m8120": [
+  "pd-shimano-xt-m8120"
+ ],
+ "https://ride.shimano.com/products/pd-m9200": [
+  "pd-shimano-xtr-m9200"
+ ],
+ "https://ride.shimano.com/products/pd-m540": [
+  "pd-shimano-m540"
+ ],
+ "https://ride.shimano.com/products/pd-gr400": [
+  "pd-shimano-gr400"
+ ],
+ "https://www.deitycomponents.com/tmac-signature-pedals.html": [
+  "pd-deity-tmac"
+ ],
+ "https://dmrbikes.com/products/dmr-vault-pedal": [
+  "pd-dmr-vault"
+ ],
+ "https://us.chromagbikes.com/products/pedals-dagga": [
+  "pd-chromag-dagga"
+ ],
+ "https://us.chromagbikes.com/products/pedals-scarab": [
+  "pd-chromag-scarab"
+ ],
+ "https://www.hopetech.com/products/drivetrain/pedals/f22-flat-pedal/": [
+  "pd-hope-f22"
+ ],
+ "https://www.ht-components.com/product/productDetail/63": [
+  "pd-ht-t2"
+ ],
+ "https://www.crankbrothers.com/products/stamp-1-gen-2-large": [
+  "pd-crankbrothers-stamp-1"
+ ],
+ "https://www.raceface.com/products/ride-pedal": [
+  "pd-raceface-ride"
+ ],
+ "https://www.raceface.com/products/aeffect-r-pedal": [
+  "pd-raceface-aeffect-r-pedal"
+ ],
+ "https://www.crankbrothers.com/products/mallet-trail": [
+  "pd-crankbrothers-mallet-trail"
+ ],
+ "https://www.crankbrothers.com/products/candy-7": [
+  "pd-crankbrothers-candy-7"
+ ],
+ "https://www.sram.com/en/time-sport/models/pd-spc-10-b1": [
+  "pd-time-speciale-10-large"
+ ],
+ "https://www.sram.com/en/time-sport/models/pd-xc-12-c1": [
+  "pd-time-atac-xc-12"
+ ],
+ "https://www.raceface.com/products/turbine-pedal": [
+  "pd-raceface-turbine"
+ ],
+ "https://www.crankbrothers.com/products/stamp-11-large": [
+  "pd-crankbrothers-stamp-11-large"
+ ],
+ "https://www.crankbrothers.com/products/stamp-11-small": [
+  "pd-crankbrothers-stamp-11-small"
+ ],
+ "https://www.crankbrothers.com/products/stamp-evo-large-alloy-flat-pedals": [
+  "pd-crankbrothers-stamp-evo-large"
+ ],
+ "https://www.crankbrothers.com/products/stamp-evo-small-alloy-flat-pedals": [
+  "pd-crankbrothers-stamp-evo-small"
+ ],
+ "https://www.crankbrothers.com/products/eggbeater-11": [
+  "pd-crankbrothers-eggbeater-11"
+ ],
+ "https://www.crankbrothers.com/products/candy-11": [
+  "pd-crankbrothers-candy-11"
+ ],
+ "https://www.crankbrothers.com/products/candy-3": [
+  "pd-crankbrothers-candy-3"
+ ],
+ "https://www.crankbrothers.com/products/mallet-dh": [
+  "pd-crankbrothers-mallet-dh"
+ ],
+ "https://www.crankbrothers.com/products/mallet-dh-11": [
+  "pd-crankbrothers-mallet-dh-11"
+ ],
+ "https://www.crankbrothers.com/products/mallet-e-11": [
+  "pd-crankbrothers-mallet-enduro-11"
+ ],
+ "https://www.crankbrothers.com/products/mallet-3": [
+  "pd-crankbrothers-mallet-3"
+ ],
+ "https://www.crankbrothers.com/products/doubleshot-3": [
+  "pd-crankbrothers-doubleshot-3"
+ ],
+ "https://www.ht-components.com/product/productDetail/28": [
+  "pd-ht-x2"
+ ],
+ "https://www.ht-components.com/product/productDetail/58": [
+  "pd-ht-m2"
+ ],
+ "https://www.ht-components.com/product/productDetail/15": [
+  "pd-ht-d1"
+ ],
+ "https://www.ht-components.com/product/productDetail/56": [
+  "pd-ht-gd1"
+ ],
+ "https://www.ht-components.com/product/productDetail/12": [
+  "pd-ht-ae05"
+ ],
+ "https://www.ht-components.com/product/productDetail/33": [
+  "pd-ht-pa12a"
+ ],
+ "https://www.ht-components.com/product/productDetail/17": [
+  "pd-ht-supreme"
+ ],
+ "https://dmrbikes.com/products/dmr-v12-pedal": [
+  "pd-dmr-v12",
+  "pd-dmr-v12-magnesium"
+ ],
+ "https://dmrbikes.com/products/dmr-v11-pedal": [
+  "pd-dmr-v11"
+ ],
+ "https://dmrbikes.com/products/dmr-v8-pedal": [
+  "pd-dmr-v8"
+ ],
+ "https://dmrbikes.com/products/dmr-vault-mag-pedal": [
+  "pd-dmr-vault-mag"
+ ],
+ "https://dmrbikes.com/products/dmr-vault-midi-pedal": [
+  "pd-dmr-vault-midi"
+ ],
+ "https://dmrbikes.com/products/dmr-vault-mag-sl-pedal": [
+  "pd-dmr-vault-mag-sl"
+ ],
+ "https://www.lookcycle.com/us-en/products/pedals/mtb/cross-country/x-track": [
+  "pd-look-xtrack"
+ ],
+ "https://www.lookcycle.com/us-en/pedals-x-track-race": [
+  "pd-look-xtrack-race"
+ ],
+ "https://www.lookcycle.com/us-en/products/pedals/mtb/cross-country/x-track-race-carbon": [
+  "pd-look-xtrack-race-carbon"
+ ],
+ "https://www.lookcycle.com/us-en/products/pedals/mtb/cross-country/x-track-race-carbon-ti": [
+  "pd-look-xtrack-race-carbon-ti"
+ ],
+ "https://www.lookcycle.com/us-en/products/pedals/mtb/trail-enduro/x-track-en-rage": [
+  "pd-look-xtrack-enrage"
+ ],
+ "https://www.lookcycle.com/us-en/products/pedals/mtb/trail-enduro/x-track-en-rage-plus": [
+  "pd-look-xtrack-enrage-plus"
+ ],
+ "https://www.lookcycle.com/us-en/products/pedals/mtb/trail-enduro/x-track-en-rage-plus-ti": [
+  "pd-look-xtrack-enrage-plus-ti"
+ ],
+ "https://www.lookcycle.com/us-en/products/pedals/mtb/trail-enduro/trail-grip": [
+  "pd-look-trailgrip"
+ ],
+ "https://www.lookcycle.com/us-en/products/dh-dirt/trail-roc-plus": [
+  "pd-look-trailroc-plus"
+ ],
+ "https://www.lookcycle.com/us-en/products/pedals/mtb/dh-dirt/trail-fusion": [
+  "pd-look-trailfusion"
+ ],
+ "https://www.lookcycle.com/us-en/products/pedals/mtb/power-meter/x-track-power-dual": [
+  "pd-look-xtrack-power-dual"
+ ],
+ "https://www.lookcycle.com/us-en/products/pedals/powermeter/x-track-power-single": [
+  "pd-look-xtrack-power-single"
+ ],
+ "https://en.wellgopedal.com/products_detail_3_301.htm": [
+  "pd-wellgo-b087b"
+ ],
+ "https://en.wellgopedal.com/products_detail_3_300.htm": [
+  "pd-wellgo-mg1b"
+ ],
+ "https://en.wellgopedal.com/products_detail_2_476.htm": [
+  "pd-wellgo-m279du"
+ ],
+ "https://en.wellgopedal.com/products_detail_7_274.htm": [
+  "pd-wellgo-wam-d10b"
+ ],
+ "https://www.vpcomponents.com/vp-015": [
+  "pd-vpcomponents-vice"
+ ],
+ "https://www.vpcomponents.com/vp-503": [
+  "pd-vpcomponents-aim"
+ ],
+ "https://www.deitycomponents.com/supervillain-pedals.html": [
+  "pd-deity-supervillain"
+ ],
+ "https://www.deitycomponents.com/flat-trak-pedals.html": [
+  "pd-deity-flat-trak"
+ ],
+ "https://www.deitycomponents.com/black-kat-pedals.html": [
+  "pd-deity-black-kat"
+ ],
+ "https://www.deitycomponents.com/deftrap_pedals.html": [
+  "pd-deity-deftrap"
+ ],
+ "https://xpedo.com/products/m-force-8": [
+  "pd-xpedo-mforce-8"
+ ],
+ "https://xpedo.com/products/gfx": [
+  "pd-xpedo-gfx"
+ ],
+ "https://xpedo.com/products/baldwin": [
+  "pd-xpedo-baldwin"
+ ],
+ "https://xpedo.com/products/spry": [
+  "pd-xpedo-spry"
+ ],
+ "https://origin8.bike/products/razr-platform-13087": [
+  "pd-origin8-razr"
+ ],
+ "https://origin8.bike/products/mountain-double-clipless-11683": [
+  "pd-origin8-mountain-double"
+ ],
+ "https://origin8.bike/products/ultim8-mtb-single-clipless-8903": [
+  "pd-origin8-ultim8-single"
+ ],
+ "https://funnmtb.com/products/python": [
+  "pd-funn-python"
+ ],
+ "https://funnmtb.com/products/clast": [
+  "pd-funn-clast"
+ ],
+ "https://burgtec-usa.com/products/burgtec-mk4-composite-pedals": [
+  "pd-burgtec-mk4-composite"
+ ],
+ "https://tagmtb.com/collections/pedals/products/t3-nylon-pedal": [
+  "pd-tagmetals-t3-nylon"
+ ],
+ "https://ride.shimano.com/products/pd-m520": [
+  "pd-shimano-m520"
+ ],
+ "https://spank-ind.com/collections/pedals/products/oozy-pedals": [
+  "pd-spank-oozy-reboot"
+ ],
+ "https://spank-ind.com/collections/pedals/products/spike-reboot-pedals": [
+  "pd-spank-spike-reboot"
+ ],
+ "https://spank-ind.com/collections/pedals/products/spoon_90_pedals": [
+  "pd-spank-spoon-90"
+ ],
+ "https://spank-ind.com/collections/pedals/products/spoon-100-pedals": [
+  "pd-spank-spoon-100"
+ ],
+ "https://spank-ind.com/collections/pedals/products/spoon-110-pedals": [
+  "pd-spank-spoon-110"
+ ],
+ "https://spank-ind.com/collections/pedals/products/spoon-dc-pedals": [
+  "pd-spank-spoon-dc"
+ ],
+ "https://us.chromagbikes.com/products/pilot": [
+  "pd-chromag-pilot"
+ ],
+ "https://us.chromagbikes.com/products/pilot-ba": [
+  "pd-chromag-pilot-ba"
+ ],
+ "https://us.chromagbikes.com/products/pedals-pressure": [
+  "pd-chromag-pressure"
+ ],
+ "https://us.chromagbikes.com/products/pedals-contact": [
+  "pd-chromag-contact"
+ ],
+ "https://us.chromagbikes.com/products/pedals-synth": [
+  "pd-chromag-synth"
+ ],
+ "https://www.oneupcomponents.com/products/aluminum-handlebar-bundle": [
+  "co-oneup-aluminum"
+ ],
+ "https://www.commencal.com/us/en/ride-alpha-%C3%B831.8mm-800-mm-rise-27-mm-handlebar/A23ALPHAHB800.html": [
+  "hb-commencal-ride-alpha-800-27"
+ ],
+ "https://www.commencal.com/us/en/ride-alpha-enduro-stem-%C3%B831.8mm-40mm/A23ALPHASTEM40.html": [
+  "st-commencal-ride-alpha-enduro-40"
+ ],
+ "https://www.commencal.com/us/en/A23SADFIZRIDON.html": [
+  "sa-fizik-terra-ridon-x5"
+ ],
+ "https://www.dtswiss.com/en/wheels/wheels-mtb/all-mountain/m-1900-spline": [
+  "fw-dtswiss-m1900-29",
+  "rw-dtswiss-m1900-29-xd",
+  "fw-dtswiss-m1900-275",
+  "rw-dtswiss-m1900-275-xd",
+  "rw-dtswiss-m1900-29-ms",
+  "rw-dtswiss-m1900-29-hg"
+ ],
+ "https://www.crankbrothers.com/products/synthesis-enduro-alloy-front-wheel": [
+  "fw-crankbrothers-synthesis-enduro-alloy-29"
+ ],
+ "https://www.crankbrothers.com/products/synthesis-enduro-alloy-rear-wheel": [
+  "rw-crankbrothers-synthesis-enduro-alloy-275",
+  "rw-crankbrothers-synthesis-enduro-alloy-29-xd",
+  "rw-crankbrothers-synthesis-enduro-alloy-29-hg",
+  "rw-crankbrothers-synthesis-enduro-alloy-275-xd"
+ ],
+ "https://worldwidecyclery.com/products/dt-swiss-exc-1501-spline-one-front-wheel-27-5-15-x-110mm-boost-6-bolt-black": [
+  "fw-dtswiss-exc1501-29"
+ ],
+ "https://www.bikeradar.com/reviews/components/wheels/wheel-sets/dt-swiss-exc-1501-spline-one-wheelset-review": [
+  "rw-dtswiss-exc1501-29-xd"
+ ],
+ "https://www.deitycomponents.com/store/p301/RIDGELINE_35_25MM_HANDLEBAR_STORE.html": [
+  "hb-deity-ridgeline-35"
+ ],
+ "https://www.maxxis.com/us/tire/high-roller-ii": [
+  "ti-maxxis-highroller-ii-29-25-mt"
+ ],
+ "https://acros-components.com/en/headsets/zs56-headset-upper-part": [
+  "hs-acros-zs56-zs56"
+ ],
+ "https://acros-components.com/en/headsets/headset-finder/": [
+  "hs-acros-zs44-zs56"
+ ],
+ "https://www.sram.com/en/sram/models/rt-g2-cs-a1": [
+  "ro-sram-g2-200-6b"
+ ],
+ "https://burgtec-usa.com/products/burgtec-the-cloud-boost-saddle": [
+  "sa-burgtec-cloud-boost"
+ ],
+ "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic": [
+  "fw-dtswiss-f1900-classic-275",
+  "rw-dtswiss-f1900-classic-275-hg"
+ ],
+ "https://www.schwalbetires.com/GRAVITY-PRO-Tacky-Chan-Radial-11654694": [
+  "ti-schwalbe-tacky-chan-275-25-gp-as"
+ ],
+ "https://tokenproducts.us/products/tk878": [
+  "bb-token-tk878ex-bsa73-24mm"
+ ],
+ "https://store.ibiscycles.com/products/blackbird-alloy-35mm-handlebar": [
+  "hb-ibis-blackbird-alloy-35"
+ ],
+ "https://store.ibiscycles.com/products/blackbird-stem": [
+  "st-ibis-blackbird-35"
+ ],
+ "https://kssuspension.com/products/dropper-seat-posts/vantage/": [
+  "dp-ks-vantage-316-125",
+  "dp-ks-vantage-349-150"
+ ],
+ "https://www.sram.com/en/service/models/db-g2-r-a2": [
+  "bk-sram-g2-r"
+ ],
+ "https://www.dtswiss.com/en/support/product-support?matnr=WEX1700BFIXSO11694": [
+  "fw-dtswiss-ex-1700-29-6b"
+ ],
+ "https://www.dtswiss.com/en/support/product-support?matnr=WEX1700TFDRSA11696": [
+  "rw-dtswiss-ex-1700-29-6b-xd"
+ ],
+ "https://www.schwalbetires.com/Albert-11654590": [
+  "ti-schwalbe-albert-29-25-tp-as"
+ ],
+ "https://www.sq-lab.com/en/us/products/robust-mtb-saddle-6ox-infinergy-ergowave-active-2-1-57230-2021": [
+  "sa-sqlab-6ox-infinergy-ergowave"
+ ],
+ "https://www.thepathbikeshop.com/products/takeoff-orbea-oc-mc21-dropper-post-31-6-170mm": [
+  "dp-orbea-oc-mc21-316-170"
+ ],
+ "https://www.teravail.com/products/drawpoint-tire": [
+  "ti-teravail-drawpoint-29-24-lighttrail-grip"
+ ],
+ "https://www.teravail.com/products/camrock-tire": [
+  "ti-teravail-camrock-29-24-lighttrail-fast"
+ ],
+ "https://www.teravail.com/products/clifty-tire": [
+  "ti-teravail-clifty-29-25-durable-grip"
+ ],
+ "https://us.chromagbikes.com/products/phase30-front-wheel": [
+  "fw-chromag-phase30-29"
+ ],
+ "https://us.chromagbikes.com/products/phase30-rear-wheel": [
+  "rw-chromag-phase30-29-xd",
+  "rw-chromag-phase30-275-xd"
+ ],
+ "https://www.santacruzbicycles.com/products/santa-cruz-carbon-flat-bar": [
+  "hb-santacruz-carbon-flat-760"
+ ],
+ "https://www.scott-sports.com/us/en/product/syncros-duncan-dropper-1-5-seatpost-150mm-travel": [
+  "dp-syncros-duncan15-316-150"
+ ],
+ "https://www.schwalbetires.com/Racing-Ralph-11601099.01": [
+  "ti-schwalbe-racing-ralph-29-225-sg-as"
+ ],
+ "https://www.merida-bikes.com/en/bike/5749/one-sixty-700": [
+  "fw-shimano-tc500b-reynolds309-29",
+  "rw-shimano-tc600hmb-reynolds309-29-hg",
+  "hb-merida-experttrii-780-30",
+  "dp-merida-experttriii-349-200"
+ ],
+ "https://www.deitycomponents.com/speedway_carbon_handlebar_30mm.html": [
+  "hb-deity-speedway-carbon-810-35"
+ ],
+ "https://www.deitycomponents.com/copperhead-35-42-stem.html": [
+  "st-deity-copperhead-35-42"
+ ],
+ "https://bike.shimano.com/en-SG/products/components/pdp.P-SM-RT56.html": [
+  "ro-shimano-rt56-180-6b",
+  "ro-shimano-rt56-160-6b"
+ ],
+ "https://www.schwalbetires.com/Rocket-Ron": [
+  "ti-schwalbe-rocket-ron-29-225-sg-as"
+ ]
+}
