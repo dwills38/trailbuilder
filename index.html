@@ -94,6 +94,46 @@
   .chip.sub{background:#fff;border-color:var(--line);color:var(--ink-soft);font-size:12px;padding:5px 11px}
   .chip.sub:hover{border-color:#c7ccc6}
   .chip.sub.active{background:var(--brand);border-color:var(--brand);color:#fff}
+  /* ---- dual-ended range sliders (fork travel, shock eye-to-eye, dropper drop,
+     tire width, complete-bike front/rear travel) — two overlaid native
+     <input type=range> elements sharing one visual track, the standard
+     dependency-free dual-thumb technique: each input's own hit-box is
+     pointer-events:none, but its ::-webkit-slider-thumb/::-moz-range-thumb
+     pseudo-element opts back into pointer-events:auto, so only the thumb
+     itself is grabbable and clicks on the bare track fall through. Composes
+     with the .chips/.subchips row convention (same row aria/title pattern as
+     SUBFILTERS) without touching .chip styling, so it can sit next to
+     untouched discrete chip rows (e.g. shock stroke) without fighting them. */
+  .range-row{flex-direction:column;align-items:stretch;gap:6px;margin:2px 0 6px}
+  .range-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+  .range-label{font-size:12px;font-weight:700;color:var(--ink-soft)}
+  .range-note{font-size:11px;color:var(--ink-soft);margin-top:-2px}
+  .range-reset{background:none;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);
+    font-size:11px;font-weight:700;padding:3px 10px;cursor:pointer;font-family:inherit}
+  .range-reset:hover{border-color:#c7ccc6}
+  .range-reset:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  /* 38px-square thumbs (touch-target floor set by the mobile filter carousels
+     elsewhere in this file) drive the wrap/track height. */
+  .range-wrap{position:relative;height:38px;margin:2px 3px 0}
+  /* track uses --chip (not --line): RAD sets --line and --brand to the SAME
+     pink, which would make the unfilled track and the selected-range fill
+     visually identical — --chip stays distinct from --brand in all 4 themes. */
+  .range-track{position:absolute;left:0;right:0;top:50%;height:4px;margin-top:-2px;border-radius:999px;background:var(--chip)}
+  .range-fill{position:absolute;top:0;bottom:0;background:var(--brand);border-radius:999px}
+  .range-input{-webkit-appearance:none;appearance:none;position:absolute;top:0;left:0;width:100%;height:38px;
+    margin:0;background:none;pointer-events:none}
+  .range-input::-webkit-slider-runnable-track{-webkit-appearance:none;height:38px;background:none;border:none}
+  .range-input::-moz-range-track{height:38px;background:none;border:none}
+  .range-input::-webkit-slider-thumb{-webkit-appearance:none;box-sizing:border-box;pointer-events:auto;
+    width:38px;height:38px;border-radius:50%;background:var(--card);border:3px solid var(--brand);
+    cursor:grab;box-shadow:0 1px 4px rgba(0,0,0,.28)}
+  .range-input::-moz-range-thumb{box-sizing:border-box;pointer-events:auto;width:38px;height:38px;
+    border-radius:50%;background:var(--card);border:3px solid var(--brand);cursor:grab;
+    box-shadow:0 1px 4px rgba(0,0,0,.28)}
+  .range-input::-webkit-slider-thumb:active{cursor:grabbing}
+  .range-input::-moz-range-thumb:active{cursor:grabbing}
+  .range-input:focus-visible::-webkit-slider-thumb{outline:2px solid var(--brand);outline-offset:2px}
+  .range-input:focus-visible::-moz-range-thumb{outline:2px solid var(--brand);outline-offset:2px}
   .legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--ink-soft);margin:0 0 16px}
   .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle;border:1px solid rgba(0,0,0,.15)}
   .layout{display:grid;grid-template-columns:210px minmax(0,1fr) 330px;gap:20px;align-items:start}   /* rail 250→210, side 350→330, gap 22→20 (2026-07-11): reclaims ~64px for the catalog column so one-line list rows engage at 1280-wide windows */
@@ -1564,7 +1604,7 @@
     d.className='chip'+(activeGroup===key?' active':'');
     d.setAttribute('aria-pressed', activeGroup===key ? 'true' : 'false');
     d.textContent=label;
-    d.onclick=function(){ activeGroup=key; activeSub=defaultSubFor(key); resetSubFilters(); familyDrill={}; reshuffleCatalog(); if(key==='tire') inheritTireSizeFilter(); renderChips(); renderSubChips(); renderSubFilters(); renderCatalog(); };
+    d.onclick=function(){ activeGroup=key; activeSub=defaultSubFor(key); resetSubFilters(); resetRangeFilters(); familyDrill={}; reshuffleCatalog(); if(key==='tire') inheritTireSizeFilter(); renderChips(); renderSubChips(); renderSubFilters(); renderCatalog(); };
     return d;
   }
 
@@ -1671,11 +1711,56 @@
     return null;
   }
   var ACTUATION_LABEL = { cable:'Mechanical', electronic:'Electronic' };
+  /* ---- complete-bike facet derivations (2026-07-16) ----
+     Complete-bike filter facets never live on the completebike row itself —
+     they're read off its `fills` (the same resolve-through-fills convention
+     as actuationOf()'s groupset case and the wheelSize preset case above).
+     Display-only, like every SUBFILTERS/RANGEFILTERS axis: NOTHING here
+     feeds checkBuild, and an unresolved fill id (or a bike outside cat
+     'completebike') returns null rather than throwing — null always PASSES
+     an engaged filter's match() (the axis simply has no opinion on that bike)
+     the same way an unknown frame material passes frameMaterial above. */
+  function cbMaterialOf(p){
+    if(p.cat!=='completebike' || !p.fills) return null;
+    var fr = byId(p.fills.frame);
+    return fr ? (fr.material || null) : null;
+  }
+  function cbActuationOf(p){
+    if(p.cat!=='completebike' || !p.fills) return null;
+    var src = byId(p.fills.shifter) || byId(p.fills.derailleur);
+    return src ? (src.actuation || null) : null;
+  }
+  function cbFrontTravelOf(p){
+    if(p.cat!=='completebike' || !p.fills) return null;
+    var fk = byId(p.fills.fork);
+    return (fk && typeof fk.travel==='number') ? fk.travel : null;
+  }
+  // Rear travel reads the FRAME fill's travel (the shock's own stroke isn't
+  // the wheel-path travel figure); a hardtail frame carries no `travel` field
+  // at all (schema forbids it) and reads as the frame fact "0mm rear travel",
+  // not an unknown — so it's the one case in this whole facet system that
+  // reports a real number instead of passing null, precisely so a 0-inclusive
+  // range keeps hardtails visibly matched rather than silently excluded.
+  function cbRearTravelOf(p){
+    if(p.cat!=='completebike' || !p.fills) return null;
+    var fr = byId(p.fills.frame);
+    if(!fr) return null;
+    if(fr.suspension==='hardtail') return 0;
+    return typeof fr.travel==='number' ? fr.travel : null;
+  }
   // distinct catalog values for an axis: scan parts passing pred, collect get(p)
   function distinctVals(pred, get){
     var seen={}, out=[];
     PARTS.forEach(function(p){ if(pred(p)){ var v=get(p); if(v!=null && !seen[v]){ seen[v]=1; out.push(v); } } });
     return out;
+  }
+  // min/max over an axis's catalog values, for a RANGEFILTERS row's slider
+  // bounds — same distinctVals scan, collapsed to {lo,hi}. null when no part
+  // carries the field (the row simply doesn't render — nothing worth a slider).
+  function numBoundsOf(pred, get){
+    var vals = distinctVals(pred, get);
+    if(!vals.length) return null;
+    return { lo: Math.min.apply(null, vals), hi: Math.max.apply(null, vals) };
   }
   function numAsc(a,b){ return a-b; }
   function byCat(cat){ return function(p){ return p.cat===cat; }; }
@@ -1721,21 +1806,20 @@
         }
         return !p.wheel || p.wheel===v;
       } },
-    { id:'tireWidth', groups:['tire'], allLabel:'All widths',
-      aria:'Filter tires by width',
-      values:function(){ return distinctVals(byCat('tire'), function(p){ return p.width; }).sort(numAsc); },
-      label:function(v){ return v+'"'; },
-      match:function(p,v){ return p.cat!=='tire' || p.width===v; } },
+    /* tireWidth was a discrete-chip row here (one chip per exact width) — replaced
+       2026-07-16 by the tireWidthRange dual slider (RANGEFILTERS below), which
+       narrows from both ends instead of picking one exact width. */
     { id:'pedalStyle', groups:['pedals'], allLabel:'All styles',
       aria:'Filter pedals by style',
       values:function(){ return inOrder(distinctVals(byCat('pedal'), function(p){ return p.style; }), ['flat','clip','hybrid']); },
       label:function(v){ return PEDAL_STYLE_LABELS[v] || v; },
       match:function(p,v){ return p.cat!=='pedal' || p.style===v; } },
-    { id:'forkTravel', groups:['fork'], allLabel:'All travel',
-      aria:'Filter forks by travel',
-      values:function(){ return distinctVals(byCat('fork'), function(p){ return p.travel; }).sort(numAsc); },
-      label:function(v){ return v+' mm'; },
-      match:function(p,v){ return p.cat!=='fork' || p.travel===v; } },
+    /* forkTravel was a discrete-chip row here — replaced 2026-07-16 by the
+       forkTravelRange dual slider (RANGEFILTERS below). shockStroke (next)
+       is UNCHANGED — the dual-ended ask for shock size was "slider on
+       eye-to-eye" (shockEyeRange, RANGEFILTERS), stroke stays a discrete chip
+       row and the two compose as independent AND filters, same as any two
+       SUBFILTERS/RANGEFILTERS rows on the same group. */
     { id:'shockStroke', groups:['shock'], allLabel:'All strokes',
       aria:'Filter rear shocks by stroke',
       values:function(){ return distinctVals(byCat('shock'), function(p){ return p.stroke; }).sort(numAsc); },
@@ -1754,11 +1838,8 @@
       values:function(){ return distinctVals(byCat('dropper'), function(p){ return p.diameter; }).sort(numAsc); },
       label:function(v){ return v+' mm'; },
       match:function(p,v){ return p.cat!=='dropper' || p.diameter===v; } },
-    { id:'dropperDrop', groups:['seatpost'], allLabel:'All travel',
-      aria:'Filter dropper posts by travel (drop)',
-      values:function(){ return distinctVals(byCat('dropper'), function(p){ return p.drop; }).sort(numAsc); },
-      label:function(v){ return v+' mm'; },
-      match:function(p,v){ return p.cat!=='dropper' || p.drop===v; } },
+    /* dropperDrop was a discrete-chip row here — replaced 2026-07-16 by the
+       dropperDropRange dual slider (RANGEFILTERS below). */
     { id:'barClamp', groups:['cockpit'], allLabel:'All diameters',
       aria:'Filter handlebars by clamp (bar) diameter',
       values:function(){ return distinctVals(byCat('handlebar'), function(p){ return p.clamp; }).sort(numAsc); },
@@ -1773,10 +1854,73 @@
       aria:'Filter drivetrain by electronic vs mechanical',
       values:function(){ return inOrder(distinctVals(function(p){ return actuationOf(p)!=null; }, actuationOf), ['cable','electronic']); },
       label:function(v){ return ACTUATION_LABEL[v] || v; },
-      match:function(p,v){ var a=actuationOf(p); return a==null || a===v; } }
+      match:function(p,v){ var a=actuationOf(p); return a==null || a===v; } },
+    /* ---- complete-bike facets (2026-07-16), same absence-passes convention as
+       every axis above: cbMaterialOf/cbActuationOf return null for a bike whose
+       relevant fill doesn't resolve, and null always passes an engaged chip
+       (the bike neither matches nor gets hidden — it just sits outside the
+       facet, same as frameMaterial's "unknown material" case above). ---- */
+    { id:'cbFrameMaterial', groups:['completebikes'], allLabel:'All materials',
+      aria:'Filter complete bikes by frame material',
+      values:function(){ return inOrder(distinctVals(function(p){ return p.cat==='completebike' && cbMaterialOf(p)!=null; }, cbMaterialOf), ['carbon','alu','steel','ti','carbon-alloy']); },
+      label:function(v){ return L(v); },
+      match:function(p,v){ if(p.cat!=='completebike') return true; var m=cbMaterialOf(p); return m==null || m===v; } },
+    /* Single-speed/no-drivetrain bikes resolve no shifter/derailleur fill, so
+       cbActuationOf returns null — they show under NEITHER chip (pass through
+       'all', excluded once the user picks either Electronic or Mechanical),
+       never a synthesized third bucket, per Douglas's 2026-07-16 brief. */
+    { id:'cbDrivetrainAct', groups:['completebikes'], allLabel:'All drivetrains',
+      aria:'Filter complete bikes by drivetrain: electronic vs mechanical',
+      values:function(){ return inOrder(distinctVals(function(p){ return p.cat==='completebike' && cbActuationOf(p)!=null; }, cbActuationOf), ['cable','electronic']); },
+      label:function(v){ return ACTUATION_LABEL[v] || v; },
+      match:function(p,v){ if(p.cat!=='completebike') return true; var a=cbActuationOf(p); return a==null || a===v; } }
   ];
   function resetSubFilters(){ SUBFILTERS.forEach(function(sf){ subFilter[sf.id]='all'; }); }
   resetSubFilters();   // seed the state map before the first render
+  /* ---- dual-ended RANGE filters (2026-07-16) — a parallel table to SUBFILTERS
+     for numeric axes that read better as a two-thumb min/max slider than a row
+     of discrete chips (fork travel, shock eye-to-eye, dropper drop, tire width,
+     and the two complete-bike travel facets). Kept as its OWN table rather than
+     folded into SUBFILTERS: the two systems have different state shapes
+     ('all'|value vs a {lo,hi} object) and different DOM (a chip row vs a
+     slider), so merging them would mean every SUBFILTERS consumer branching on
+     shape. Same descriptor contract as SUBFILTERS otherwise (groups/aria/match
+     with the identical out-of-scope-passes rule), plus:
+       unit    'mm' | 'in' — display suffix, formatted in fmtRangeLabel()
+       step    native <input type=range> step
+       heading short axis name shown before the live "lo–hi unit" readout
+       note    optional small-print line under the heading (the hardtail note)
+       bounds()  catalog min/max for this axis, or null if no part carries it
+       match(p,lo,hi)  OUT-OF-SCOPE and NULL-VALUED parts MUST return true —
+                 same absence-passes rule as every SUBFILTERS row. */
+  var RANGEFILTERS = [
+    { id:'forkTravelRange', groups:['fork'], heading:'Fork travel',
+      aria:'Filter forks by travel range', unit:'mm', step:1,
+      bounds:function(){ return numBoundsOf(byCat('fork'), function(p){ return p.travel; }); },
+      match:function(p,lo,hi){ if(p.cat!=='fork') return true; if(p.travel==null) return true; return p.travel>=lo && p.travel<=hi; } },
+    { id:'shockEyeRange', groups:['shock'], heading:'Shock eye-to-eye',
+      aria:'Filter rear shocks by eye-to-eye length range', unit:'mm', step:1,
+      bounds:function(){ return numBoundsOf(byCat('shock'), function(p){ return p.eye; }); },
+      match:function(p,lo,hi){ if(p.cat!=='shock') return true; if(p.eye==null) return true; return p.eye>=lo && p.eye<=hi; } },
+    { id:'dropperDropRange', groups:['seatpost'], heading:'Dropper drop',
+      aria:'Filter dropper posts by travel (drop) range', unit:'mm', step:1,
+      bounds:function(){ return numBoundsOf(byCat('dropper'), function(p){ return p.drop; }); },
+      match:function(p,lo,hi){ if(p.cat!=='dropper') return true; if(p.drop==null) return true; return p.drop>=lo && p.drop<=hi; } },
+    { id:'tireWidthRange', groups:['tire'], heading:'Tire width',
+      aria:'Filter tires by width range', unit:'in', step:0.01,
+      bounds:function(){ return numBoundsOf(byCat('tire'), function(p){ return p.width; }); },
+      match:function(p,lo,hi){ if(p.cat!=='tire') return true; if(p.width==null) return true; return p.width>=lo-1e-9 && p.width<=hi+1e-9; } },
+    { id:'cbFrontTravelRange', groups:['completebikes'], heading:'Front travel (fork)',
+      aria:'Filter complete bikes by front (fork) travel range', unit:'mm', step:1,
+      bounds:function(){ return numBoundsOf(function(p){ return p.cat==='completebike' && cbFrontTravelOf(p)!=null; }, cbFrontTravelOf); },
+      match:function(p,lo,hi){ if(p.cat!=='completebike') return true; var v=cbFrontTravelOf(p); return v==null || (v>=lo && v<=hi); } },
+    { id:'cbRearTravelRange', groups:['completebikes'], heading:'Rear travel (frame)', note:'0 mm = hardtail',
+      aria:'Filter complete bikes by rear travel range — 0mm is a hardtail', unit:'mm', step:1,
+      bounds:function(){ return numBoundsOf(function(p){ return p.cat==='completebike' && cbRearTravelOf(p)!=null; }, cbRearTravelOf); },
+      match:function(p,lo,hi){ if(p.cat!=='completebike') return true; var v=cbRearTravelOf(p); return v==null || (v>=lo && v<=hi); } }
+  ];
+  var rangeFilter = {};   // id -> {lo,hi} — ABSENT (not 'all') means unnarrowed, so baseMatch skips the check entirely
+  function resetRangeFilters(){ rangeFilter = {}; }
   /* Auto-inherit the tire size sub-filter from the wheels already picked
      (Douglas: picking 29" wheels shouldn't leave 27.5"/26" tires visible by
      default). Per-slot correct via effectiveWheel (covers the hub+rim
@@ -1794,8 +1938,10 @@
     if(fSize && rSize && fSize!==rSize) return;
     subFilter.wheelSize = fSize || rSize;
   }
-  // Render one chip row per axis whose group is active (and that has ≥1 option).
-  // Same DOM as the old static rows: <div class="chips subchips"> of .chip.sub buttons.
+  // Render one chip row per axis whose group is active (and that has ≥1 option),
+  // then one slider row per active RANGEFILTERS axis. Same DOM as the old static
+  // rows: <div class="chips subchips"> of .chip.sub buttons for chips; a
+  // .range-row for sliders (own internal layout, see the CSS block).
   function renderSubFilters(){
     var host = $('subFilters'); if(!host) return; host.innerHTML='';
     SUBFILTERS.forEach(function(sf){
@@ -1818,6 +1964,119 @@
       });
       host.appendChild(row);
     });
+    RANGEFILTERS.forEach(function(rf){
+      if(rf.groups.indexOf(activeGroup)<0) return;
+      var b = rf.bounds();
+      if(!b || b.lo===b.hi) return;   // no data, or every part shares one value — nothing to narrow
+      var cur = rangeFilter[rf.id];
+      // clamp is defensive only: bounds are catalog-derived and effectively
+      // constant per axis, so a stored selection is already in range in practice.
+      var lo = cur ? Math.max(b.lo, Math.min(cur.lo, b.hi)) : b.lo;
+      var hi = cur ? Math.min(b.hi, Math.max(cur.hi, b.lo)) : b.hi;
+      host.appendChild(rangeRowEl(rf, b, lo, hi));
+    });
+  }
+  // number formatting for the live "lo–hi unit" readout: sub-integer steps
+  // (today just tireWidthRange's 0.01) keep up to 2 decimals with trailing
+  // zeros trimmed (2.3 not 2.30); integer-step axes round to whole numbers.
+  function fmtRangeNum(v, step){
+    if(step && step<1){
+      var s = v.toFixed(2).replace(/0+$/,'').replace(/\.$/,'');
+      return s;
+    }
+    return String(Math.round(v));
+  }
+  function fmtRangeLabel(rf, lo, hi){
+    var l=fmtRangeNum(lo, rf.step), h=fmtRangeNum(hi, rf.step);
+    var range = rf.unit==='in' ? (l+'"–'+h+'"') : (l+'–'+h+' '+rf.unit);
+    return rf.heading+': '+range;
+  }
+  /* One dual-ended slider row. Two overlaid <input type=range> (see the CSS
+     block for the pointer-events trick that makes only the thumbs grabbable)
+     drive a shared visual fill bar; 'input' (fires continuously while
+     dragging) only repaints THIS row's own label/fill/thumb positions —
+     cheap, no catalog re-filter mid-drag. 'change' (fires once, on release/
+     arrow-key-commit) is what actually writes rangeFilter[] and re-filters
+     the 3000+-row catalog, and deliberately does NOT call renderSubFilters()
+     (which would tear down and rebuild every row, including this one mid-
+     keyboard-interaction and stealing focus) — it patches its own reset-
+     button visibility instead via the same refresh() the drag path uses. */
+  function rangeRowEl(rf, b, lo, hi){
+    var row = document.createElement('div');
+    row.className = 'chips subchips range-row';
+    row.setAttribute('role','group');
+    row.setAttribute('aria-label', rf.aria);
+    row.title = rf.aria;
+
+    var head = document.createElement('div'); head.className='range-head';
+    var label = document.createElement('span'); label.className='range-label';
+    head.appendChild(label);
+    var resetBtn = document.createElement('button');
+    resetBtn.type='button'; resetBtn.className='range-reset'; resetBtn.textContent='✕ Reset';
+    resetBtn.title='Reset to the full range';
+    resetBtn.setAttribute('aria-label','Reset '+rf.heading+' to the full range');
+    head.appendChild(resetBtn);
+    row.appendChild(head);
+
+    if(rf.note){ var note=document.createElement('div'); note.className='range-note'; note.textContent=rf.note; row.appendChild(note); }
+
+    var wrap = document.createElement('div'); wrap.className='range-wrap';
+    var track = document.createElement('div'); track.className='range-track';
+    var fill = document.createElement('div'); fill.className='range-fill';
+    track.appendChild(fill);
+    var step = rf.step || 1;
+    var minInput = document.createElement('input');
+    minInput.type='range'; minInput.className='range-input range-min';
+    minInput.min=b.lo; minInput.max=b.hi; minInput.step=step;
+    minInput.setAttribute('aria-label','Minimum — '+rf.heading);
+    var maxInput = document.createElement('input');
+    maxInput.type='range'; maxInput.className='range-input range-max';
+    maxInput.min=b.lo; maxInput.max=b.hi; maxInput.step=step;
+    maxInput.setAttribute('aria-label','Maximum — '+rf.heading);
+    wrap.appendChild(track); wrap.appendChild(minInput); wrap.appendChild(maxInput);
+    row.appendChild(wrap);
+
+    function refresh(curLo, curHi){
+      minInput.value=curLo; maxInput.value=curHi;
+      var span=(b.hi-b.lo)||1;
+      fill.style.left=(((curLo-b.lo)/span)*100)+'%';
+      fill.style.right=(100-((curHi-b.lo)/span)*100)+'%';
+      label.textContent = fmtRangeLabel(rf, curLo, curHi);
+      // Known limitation of the overlaid-native-input technique: when both
+      // thumbs sit at the same spot, only the top z-index one is grabbable.
+      // Standard mitigation — boost whichever thumb sits in the LESS crowded
+      // half of the track, since that's the one more likely to need
+      // independent dragging next (the other is pinned near a bound).
+      var mid=(b.lo+b.hi)/2;
+      if(curHi<mid){ maxInput.style.zIndex=4; minInput.style.zIndex=3; }
+      else { minInput.style.zIndex=4; maxInput.style.zIndex=3; }
+      resetBtn.hidden = !(curLo>b.lo || curHi<b.hi);
+    }
+    refresh(lo, hi);
+
+    minInput.addEventListener('input', function(){
+      var v=parseFloat(minInput.value), h=parseFloat(maxInput.value);
+      if(v>h) v=h;
+      refresh(v, h);
+    });
+    maxInput.addEventListener('input', function(){
+      var v=parseFloat(maxInput.value), l=parseFloat(minInput.value);
+      if(v<l) v=l;
+      refresh(l, v);
+    });
+    function commit(){
+      var l=parseFloat(minInput.value), h=parseFloat(maxInput.value);
+      if(l<=b.lo && h>=b.hi) delete rangeFilter[rf.id]; else rangeFilter[rf.id] = { lo:l, hi:h };
+      renderCatalog();
+    }
+    minInput.addEventListener('change', commit);
+    maxInput.addEventListener('change', commit);
+    resetBtn.addEventListener('click', function(){
+      delete rangeFilter[rf.id];
+      refresh(b.lo, b.hi);
+      renderCatalog();
+    });
+    return row;
   }
 
   /* ---- catalog ---- */
@@ -2013,6 +2272,9 @@
       // contextual sub-filters (data-driven): each engaged axis hides only the
       // in-scope parts that miss it; out-of-scope parts pass (match() returns true).
       for(var si=0; si<SUBFILTERS.length; si++){ var sf=SUBFILTERS[si], sv=subFilter[sf.id]; if(sv!=='all' && !sf.match(p, sv)) return false; }
+      // dual-ended range filters: only engaged (rangeFilter[rf.id] set) axes check;
+      // an untouched slider stores nothing, so it's a no-op here (see RANGEFILTERS above).
+      for(var ri=0; ri<RANGEFILTERS.length; ri++){ var rf=RANGEFILTERS[ri], rv=rangeFilter[rf.id]; if(rv && !rf.match(p, rv.lo, rv.hi)) return false; }
       return true;
     }
 
@@ -2290,7 +2552,7 @@
       return false;
     }
     var rt = railTarget(target.key);
-    activeGroup = rt.group; activeSub = rt.sub; resetSubFilters(); familyDrill={}; reshuffleCatalog();
+    activeGroup = rt.group; activeSub = rt.sub; resetSubFilters(); resetRangeFilters(); familyDrill={}; reshuffleCatalog();
     if(rt.group==='tire') inheritTireSizeFilter();
     if(!guidedOptOut) setCompatibleOnly(true);
     renderChips(); renderSubChips(); renderSubFilters();   // the caller's sync() renders the catalog
