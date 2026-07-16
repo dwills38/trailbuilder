@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Privacy Policy — BuildMyMTB</title>
-<meta name="description" content="How BuildMyMTB handles your data: what is collected, the third-party processors used (Supabase, GitHub), and how to delete your account. No analytics or ad tracking." />
+<meta name="description" content="How BuildMyMTB handles your data: what is collected, the third-party processors used (Supabase, GitHub, Cloudflare), and how to delete your account. Cookie-less aggregate analytics only; no ad tracking." />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://buildmymtb.com/privacy.html" />
 <style>
@@ -69,6 +69,9 @@
   if(t==='dark' || t==='loam') document.documentElement.classList.add(t);
 })();
 </script>
+<!-- Cloudflare Web Analytics (privacy-first, cookie-less; publishable token) -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "321537b0321746628c925f357de5a74a"}'></script>
+<!-- End Cloudflare Web Analytics -->
 </head>
 <body>
 <header>
@@ -96,7 +99,7 @@
 
 <main>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: July 11, 2026</p>
+  <p class="updated">Last updated: July 16, 2026</p>
   <p class="lead">This policy explains what BuildMyMTB does — and does not — do with your
   information. It is written to match how the site actually works, not from a generic template.</p>
 
@@ -106,7 +109,9 @@
 
   <div class="callout">
     <p><strong>The short version.</strong> You can use the whole Site without an account, and if you
-    do, nothing about you is sent to us. We do <strong>not</strong> use any analytics, advertising, or
+    do, nothing that identifies you is sent to us. The only analytics we use is cookie-less,
+    aggregate page-view counting (Cloudflare Web Analytics) that cannot identify or follow you; we use
+    <strong>no</strong> advertising and <strong>no</strong>
     cross-site tracking. The only data we store about you is what you actively create <em>if</em> you
     choose to sign in — your login email, the builds you save, your parts inventory, and anything you
     post in the forum. You can delete it at any time.</p>
@@ -163,8 +168,12 @@
   <h2>5. Analytics, cookies and tracking</h2>
   <p>We deliberately built the Site to be privacy-friendly:</p>
   <ul>
-    <li><strong>No third-party analytics</strong> (no Google Analytics, no Plausible, no Segment, or
-    anything similar).</li>
+    <li><strong>Cookie-less, aggregate analytics only.</strong> We use
+    <a href="https://www.cloudflare.com/web-analytics/" target="_blank" rel="noopener noreferrer">Cloudflare
+    Web Analytics</a> to count page views. It sets no cookies, stores nothing on your device, and does
+    not fingerprint or identify individual visitors — we see aggregate numbers (pages viewed, referrer,
+    country, browser type), never a profile of you. No Google Analytics, no Segment, no ad-tech
+    analytics of any kind.</li>
     <li><strong>No advertising or cross-site tracking</strong>, no tracking pixels, and no data brokers.</li>
     <li><strong>No tracking cookies.</strong> The Site does not set cookies to follow you. Sign-in uses
     functional browser storage to keep you logged in on your device; the theme and layout preferences
@@ -185,6 +194,10 @@
     (and, as host, processes standard request logs); receives any bug report you choose to file as an
     issue; and provides the optional &ldquo;Sign in with GitHub&rdquo; option.
     See <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub&rsquo;s privacy statement</a>.</li>
+    <li><strong>Cloudflare</strong> (Cloudflare, Inc.) — provides the cookie-less web analytics
+    described in section 5 (aggregate page-view metrics; no cookies, no fingerprinting, no
+    cross-site tracking) and our domain&rsquo;s DNS/email routing.
+    See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare&rsquo;s privacy policy</a>.</li>
   </ul>
   <p>We do not sell your data, and we do not share it for advertising. These services are based in the
   United States, so if you use the Site from elsewhere your data may be processed there.</p>
