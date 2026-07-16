@@ -1,5 +1,43 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-16 — Coordinator seat 11: 200-bike grind-3 merged (+51 complete bikes, 57 → 108)
+
+Merged the 200-bike Complete Bikes grind-3 harvest (`0bd7d54`, branch
+`catalog/complete-bikes-grind-3` from `local_c638126f` — an orchestrator that fanned out 8 parallel
+per-maker `catalog-worker` clusters + 4 adversarial `catalog-auditor` (Opus) agents). **+51 complete
+bikes across 25 makers, 57 → 108 total.** Makers: Santa Cruz 9, Specialized 11, Pivot+Yeti 8,
+Giant+Scott 6, Evil+Cannondale 5, Merida/Cube/Focus/Intense 5, Boutique (Revel×3/Chromag) 4, Trek 3.
+Verified/sample split ~19/~32 — sample-heavy where makers are fetch-walled (Specialized 403,
+Trek/Pivot/Yeti JS-walled or dealer-only); every sample row's fills are REAL stock parts sourced via
+a fetched dealer/vitalmtb/99spokes page, never fabricated. Row descs document each substitution
+("flagged") and OMIT parts (pedals/headset) rather than invent them — honest data, on-values.
+
+**Additive tire-vocab widening** (`schema.js` + `types.js`, mirrored): casing `'grid'`/`'control'`
+and compound `'gripton-t5'` — Specialized's own named tiers, sourced via fetched bikeradar reviews;
+annotation-only axes that never feed `checkBuild`. The grind's two self-audit fixes are included:
+Santa Cruz OE bar clamp (new `hb-santacruz-20-carbon-760`, 4 fills repointed, killed a false
+stem-shim warning) and Giant Reign front-tire compound MaxxGrip→MaxxTerra; two parallel-merge
+duplicate ids resolved. The worker's one-off `scripts/resolve-additive-conflict.js` merge helper was
+intentionally **excluded** from main (grind tooling, not product code).
+
+**Coordinator-audited before merge (independent of the grind's self-audit):** e-bike hard-rule scan
+CLEAN (grep over-matched on substrings — every hit visually confirmed a non-e MTB); applied via the
+stale-base own-additions pattern (base == main tip, zero conflict); `validate` 0 problems (3729
+parts, 2451 verified); `vitest` 602/602; `tsc` clean; **verdict-audit-harness section-compare vs
+`origin/main` via stash** — the ONLY delta is section C clean-assembles 182 → 197 (the new frames,
+still **0 errors**); sections A/B/D/E **byte-identical** (D adversarial 11/11 caught, 0 missed — no
+false-fit regression; E same 4 pre-existing DVO/SR-Suntour fork flags — batch added no new
+false-warn). CI + Deploy green (`29465447219`/`208`, 36s/38s).
+
+**Session hygiene:** resolved a **duplicate-coordinator collision** — two live seat-11 sessions
+(this Opus seat + a Sonnet/max `local_601ae113`). Douglas chose this one ("this coordinator lives");
+archived `601ae113` (its work — a PROJECT-LOG backfill + the mega-grind archive + the xc-dropper
+recovery — was already on main, nothing lost), plus seat 10 ("Project Manager Retired 1") and the two
+finished workers (mega-grind #1 `4f36df6a`, xc-dropper `b4d73300`). Ran a 30-min monitor loop
+(CronCreate `7,37 * * * *`) on the grind per Douglas — do-not-trust-`isRunning`, wait for the real
+report + a branch — then cancelled it on merge. **Next queued:** the modelYear backfill (now
+unblocked — both complete-bike grinds settled).
+
 ## 2026-07-15 — Coordinator seat 10 → seat 11 succession (log catch-up + orientation findings)
 
 **Seat 10's wave (not separately logged at the time — backfilled here for trail continuity):**
