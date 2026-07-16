@@ -1,5 +1,19 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-16 — Coordinator seat 11: grind-5 merged (+50 bikes, 114 → 164) after surviving a second crash
+
+The re-queued grind (#5) had ALREADY FINISHED before the day's second unexpected shutdown — and this
+time nothing was lost: the commit-per-maker discipline (baked into its brief after grind-4's wipeout)
+left 49 commits + 13 cluster branches intact through a hard power loss. Crash triage: repaired 2
+corrupt refs + a zero-filled worktree HEAD + a corrupt index (both casualties were kit-verify
+sub-agent worktrees with no commits), fsck clean; resumed all 4 worker sessions via send_message.
+Merged `e6c4144`: 50 new complete bikes across the re-queued majors + wave-2 clusters, plus 6
+sourced field-level corrections to existing frame rows (ids append-only, re-added in place).
+Coordinator audit: e-bike scan clean; validate 0 problems (3969 parts, 2509 verified); vitest
+602/602; tsc clean; harness — only section C rose 199→214 (15 new frames, 0 errors), A/B/D/E
+identical. CI+Deploy green. Still in flight: kit-parts verification (restarted post-crash),
+manufacturer-bias audit (4 commits), worktree hygiene sweep (74→40 so far).
+
 ## 2026-07-16 — Coordinator seat 11: analytics live + legal-page headers unified
 
 Douglas's two pending decisions both closed same-day. **(1) Cloudflare Web Analytics is LIVE** — he
