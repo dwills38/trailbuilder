@@ -114,15 +114,26 @@
      equivalent of the ::after hit-area trick used elsewhere in this file
      (.prov .ver::after) for real DOM elements, which a ::-webkit-slider-thumb
      can't host a pseudo-element of its own to receive. */
-  .range-row{flex-direction:column;align-items:stretch;gap:4px;margin:2px 0 4px}
-  .range-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
-  .range-label{font-size:11px;font-weight:700;color:var(--ink-soft)}
-  .range-note{font-size:10px;color:var(--ink-soft);margin-top:-2px}
+  /* 2026-07-16 revision (Douglas: "still overly wide") — the row no longer
+     stretches to the container width. It's a compact flex-wrap item sized to
+     its own content (label + a fixed-width track + a small reset button), so
+     several sliders sit side by side in the rail like chips, same as several
+     RANGEFILTERS axes now do on shock/complete-bike (eye+stroke,
+     front+rear travel). #subFilters carries the wrapping flex context. */
+  /* lets several compact range-rows (and subchip rows) flow side by side
+     instead of one full-width row per axis */
+  #subFilters{display:flex;flex-wrap:wrap;align-items:flex-start;gap:2px 18px}
+  .range-row{flex-direction:row;align-items:center;gap:6px;margin:2px 0 4px;flex:0 0 auto;max-width:100%}
+  .range-label{font-size:11px;font-weight:700;color:var(--ink-soft);white-space:nowrap}
+  .range-note{font-size:10px;color:var(--ink-soft);flex:1 1 100%;margin:2px 0 0}
   .range-reset{background:none;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);
-    font-size:10px;font-weight:700;padding:2px 8px;cursor:pointer;font-family:inherit}
+    font-size:11px;font-weight:700;width:20px;height:20px;line-height:1;padding:0;cursor:pointer;
+    font-family:inherit;flex:none}
   .range-reset:hover{border-color:#c7ccc6}
   .range-reset:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-  .range-wrap{position:relative;height:18px;margin:2px 2px 0}
+  /* Track length ~1/4 of the old full-rail width (was ~748px at a 1400px
+     viewport; measured live in the browser pane during the 2026-07-16 revision). */
+  .range-wrap{position:relative;height:18px;margin:2px 0 0;width:190px;max-width:100%;flex:none}
   /* track uses --chip (not --line): RAD sets --line and --brand to the SAME
      pink, which would make the unfilled track and the selected-range fill
      visually identical — --chip stays distinct from --brand in all 4 themes. */
@@ -155,12 +166,16 @@
      silently drop the plain `.range-input` height too (measured: the mobile
      thumb stayed 18px tall and the touch target never grew). */
   @media (max-width:768px){
-    .range-wrap{height:38px}
+    /* Track floor: a two-thumb slider needs enough travel to place thumbs on
+       adjacent step values (e.g. 160 vs 170mm fork travel) with a 38px touch
+       target per thumb — 160px keeps that usable while still far short of
+       the old full-width track. */
+    .range-wrap{height:38px;width:160px}
     /* .chips{gap:8px} in the mobile touch-target block below is a LATER rule of
        equal specificity (one class each), so restating .range-row alone still
        loses — qualify with .chips (which every range row also carries) to win
        on specificity rather than source order. */
-    .chips.range-row{gap:4px}
+    .chips.range-row{gap:6px}
     .range-input{height:38px}
     .range-input::-webkit-slider-runnable-track{height:38px}
     .range-input::-moz-range-track{height:38px}
@@ -2048,17 +2063,8 @@
     row.setAttribute('aria-label', rf.aria);
     row.title = rf.aria;
 
-    var head = document.createElement('div'); head.className='range-head';
     var label = document.createElement('span'); label.className='range-label';
-    head.appendChild(label);
-    var resetBtn = document.createElement('button');
-    resetBtn.type='button'; resetBtn.className='range-reset'; resetBtn.textContent='✕ Reset';
-    resetBtn.title='Reset to the full range';
-    resetBtn.setAttribute('aria-label','Reset '+rf.heading+' to the full range');
-    head.appendChild(resetBtn);
-    row.appendChild(head);
-
-    if(rf.note){ var note=document.createElement('div'); note.className='range-note'; note.textContent=rf.note; row.appendChild(note); }
+    row.appendChild(label);
 
     var wrap = document.createElement('div'); wrap.className='range-wrap';
     var track = document.createElement('div'); track.className='range-track';
@@ -2075,6 +2081,14 @@
     maxInput.setAttribute('aria-label','Maximum — '+rf.heading);
     wrap.appendChild(track); wrap.appendChild(minInput); wrap.appendChild(maxInput);
     row.appendChild(wrap);
+
+    var resetBtn = document.createElement('button');
+    resetBtn.type='button'; resetBtn.className='range-reset'; resetBtn.textContent='✕';
+    resetBtn.title='Reset to the full range';
+    resetBtn.setAttribute('aria-label','Reset '+rf.heading+' to the full range');
+    row.appendChild(resetBtn);
+
+    if(rf.note){ var note=document.createElement('div'); note.className='range-note'; note.textContent=rf.note; row.appendChild(note); }
 
     function refresh(curLo, curHi){
       minInput.value=curLo; maxInput.value=curHi;
