@@ -130,3 +130,17 @@ cannot be met for a documented reason — do not retry unless policy changes.
 node tools/verify-job.js report     # totals, success rate, failed items
 node tools/verify-job.js retry     # the retry list + retry command
 ```
+
+## PDF sources — poppler IS installed (2026-07-16, Douglas-approved capability note)
+
+**Do not re-report "poppler-utils not installed" — it is present and on PATH in Git Bash:**
+poppler 25.07.0 (winget `oschwartz10612.Poppler`) — `pdftotext`, `pdfinfo`, `pdftoppm` + 10 more
+all resolve in bash (`which pdfinfo`). Git-for-Windows also bundles an Xpdf `pdftotext` 4.06 at
+`/mingw64/bin` (first on PATH; fine for plain text extraction). If a PowerShell context can't see
+them, call the full path:
+`C:\Users\Douglas\AppData\Local\Microsoft\WinGet\Packages\oschwartz10612.Poppler_Microsoft.Winget.Source_8wekyb3d8bbwe\poppler-25.07.0\Library\bin\`
+Workflow for PDF-published specs (Shimano archive editions, SRAM spec sheets, Continental Tire
+Range): `curl -sL -o x.pdf <url> && pdftotext -layout x.pdf -` (the `-layout` flag preserves
+spec-table columns). ~48 Shimano rows + the SRAM/Continental PDF classes in the price-drift
+remainder queue (tools/price-drift-2-progress.md) are unblocked by this.
+(web.archive.org remains unreachable from this environment — that half of the gap stands.)
