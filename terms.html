@@ -11,19 +11,30 @@
   :root{
     --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
     --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
+    /* Topo Contours banner (matches index.html — Douglas 2026-07-16: "yes it
+       should be the same"). Loam gets its own --hdr-bg/--hdr-topo below; RAD
+       is exempt (its own theme, not supported on these pages). */
+    --hdr-bg:#123f2b; --hdr-topo:rgba(255,255,255,.11);
   }
   html.dark{
     color-scheme:dark;
     --ink:#e6ebe7; --ink-soft:#a8b3ab; --line:#3a423d; --bg:#161a18;
     --card:#1f2522; --brand:#1f6f4a; --brand-d:#123f2b; --accent:#e0703c;
+    --hdr-bg:#0c2b1c; --hdr-topo:rgba(255,255,255,.09);
   }
+  /* Loam (banner colors only — these pages don't otherwise carry the full
+     Loam palette; header-scoped to match index.html's tall banner). */
+  html.loam{ --hdr-bg:#14301f; --hdr-topo:rgba(242,232,216,.11); }
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
        color:var(--ink);background:var(--bg);line-height:1.55}
   a{color:var(--brand);font-weight:600}
   html.dark a{color:#6fcf97}
-  header{background:linear-gradient(135deg,var(--brand-d),var(--brand));color:#fff;padding:10px 24px;position:sticky;top:0;z-index:40}
-  header .wrap{max-width:820px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  /* Header mirrors the app: tall Topo Contours banner (deep green + contour
+     linework), sticky. */
+  header{background:var(--hdr-bg);color:#fff;padding:20px 24px;min-height:109px;position:sticky;top:0;z-index:40;display:flex;align-items:center}
+  .hdr-topo{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+  header .wrap{max-width:820px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
   header a.home{color:#fff;text-decoration:none;font-size:19px;font-weight:700;white-space:nowrap}
   header nav{display:flex;gap:6px;flex-wrap:wrap}
   header nav a{color:#fff;text-decoration:none;font-size:12.5px;font-weight:600;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.14);padding:6px 11px;border-radius:999px;white-space:nowrap}
@@ -47,20 +58,32 @@
   footer a{color:var(--ink-soft);text-decoration:underline;font-weight:600}
   footer a:hover{color:var(--brand)}
   footer .legal-links{margin:0 0 8px}
-  @media (max-width:520px){ h1{font-size:22px} main{padding:20px 18px 40px} }
+  @media (max-width:520px){ h1{font-size:22px} main{padding:20px 18px 40px} header{padding:14px 16px} }
 </style>
 <script>
 /* Mirror the app's persisted theme: same localStorage key ('tb-theme'), same
    first-visit OS fallback, applied before first paint so there is no flash. */
 (function(){
   var t=null; try{ t=localStorage.getItem('tb-theme'); }catch(e){}
-  if(t==='dark' || (t===null && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches))
-    document.documentElement.classList.add('dark');
+  if(t===null && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) t='dark';
+  if(t==='dark' || t==='loam') document.documentElement.classList.add(t);
 })();
 </script>
 </head>
 <body>
 <header>
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
   <div class="wrap">
     <a class="home" href="index.html">🚵 BuildMyMTB</a>
     <nav aria-label="Legal pages">
