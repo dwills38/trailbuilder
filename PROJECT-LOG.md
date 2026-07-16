@@ -1,5 +1,28 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-16 — Coordinator seat 11: bias fixes shipped + grind-4 salvage merged (198 bikes)
+
+Three parallel workers landed within one tick. **(1) Pricing fix (bias HIGH #1) auto-shipped**
+(`aa0c08c`, UI tier): save/headline/sort all basis on MSRP; `streetPrice` renders as a labeled
+"Sale $X" only; the Pivot Firebird (Jenson Exclusive) fell from #2 best-value of 164 to #101 and
+its save badge corrected $5,057 → $1,458; `loadBad()` now rotates its broken-build demo across 10
+makers instead of permanently casting Specialized. Coordinator post-hoc scan clean. Douglas's
+pricing rulings recorded in memory (`pricing-display-policy`). **(2) Grind-4 salvage merged**
+(`e7b9fa3` → pushed in `d98dfdd` push): 34 genuinely-new bikes extracted from the crashed
+worktrees' uncommitted diffs (164 → 198 total; 5 dropped as grind-5 duplicates), 9 integration
+defects fixed pre-commit, the 3 grind-2 missing ids confirmed dedup casualties, all 9 stale
+worktrees cleared. **(3) Fox maxTire grind merged (bias HIGH #2)** (`d98dfdd`): Fox 40 family
+2.5in (MY25 owner's manual) + the full Öhlins DH38 line sourced; Fox 36/38/34 left blank — a
+STRUCTURAL finding: Fox's current docs publish no numeric clearance (only a physical check
+procedure), and the 2017-era numbers are 26in-rooted, so entering them risked wrong verdicts.
+The audit's Jeffsy-desc side-note was disproven in code (the 3mm rotor tolerance exists) — desc
+kept. Harness byte-identical through both compat merges except C 214→219 (salvage frames);
+maxTire adds warnings, never errors — spot-checked truthful. A push was correctly BLOCKED once by
+the is-ancestor guard (pricing had landed mid-merge); rebase + re-gate + push, all CI green.
+Open follow-ups: Fuel EX Gen 6 shock-mount discrepancy (two fetched sources say 185x55 std vs
+catalog trunnion — error-tier, needs sourced review); Fezzari/Ari catalog gap; kit-verify grind
+still running (80+ commits); verified-badge decision still with Douglas.
+
 ## 2026-07-16 — Coordinator seat 11: grind-5 merged (+50 bikes, 114 → 164) after surviving a second crash
 
 The re-queued grind (#5) had ALREADY FINISHED before the day's second unexpected shutdown — and this
