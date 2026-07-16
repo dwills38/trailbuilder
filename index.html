@@ -574,6 +574,11 @@
   .pm-row{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;padding:4px 0;border-bottom:1px dashed #eef0ec}
   .pm-row .pm-k{color:var(--ink-soft);font-size:11px;text-transform:uppercase;letter-spacing:.3px;flex:none;width:150px}
   .pm-row .pm-v{font-weight:600;text-align:right;flex:1}
+  /* per-size specs (formatSizes) can run long (5 sizes × 2 fields) — left-align
+     and let it wrap instead of a right-aligned ragged wrap that reads oddly
+     narrow on mobile. */
+  .pm-row-sizes{align-items:flex-start}
+  .pm-row-sizes .pm-v{text-align:left;word-break:break-word}
   .pm-identity{font-size:11.5px;color:var(--ink-soft)}
   .pm-tags{display:flex;gap:6px;flex-wrap:wrap}
   .pm-tag{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:2px 9px;font-size:11px;color:var(--ink-soft)}
@@ -1511,6 +1516,11 @@
     wheelConfigs:'Wheel configs',wheel:'Wheel size',rearAxle:'Rear axle',axle:'Axle',headset:'Headset',steerer:'Steerer',
     bb:'BB spindle',seatTube:'Seat tube (mm)',brakeMount:'Brake mount',maxRotorR:'Max rear rotor (mm)',maxRotorF:'Max front rotor (mm)',
     minRotorF:'Min front rotor, native (mm)',suspension:'Suspension',shockEye:'Shock eye-to-eye (mm)',shockStroke:'Shock stroke (mm)',
+    // 'travel' is shared by frame (rear/shock travel) and fork (the fork's own
+    // travel) — this generic fallback stays fork-appropriate; the frame case is
+    // overridden to 'Rear travel (mm)' at render time (see pmFields below),
+    // since a bare "Travel (mm)" on a frame card reads as ambiguous vs the
+    // fork's own travel (Douglas 2026-07-16, confused on a Top Fuel card).
     shockMount:'Shock mount',maxForkTravel:'Max fork travel (mm)',travel:'Travel (mm)',udh:'UDH',maxTire:'Max tire width (in)',
     coilApproved:'Coil approved',bundledShock:'Bundled shock',frameOnly:'Frame only',sizes:'Per-size specs',
     eye:'Eye-to-eye (mm)',stroke:'Stroke (mm)',mount:'Mount',spring:'Spring',oemOnly:'OEM only',forFrames:'Fits frames',
@@ -1560,6 +1570,23 @@
   var isPresetPart = function(p){ return !!p.fills; };
   function resolved(){ var o={}; Object.keys(build).forEach(function(k){ o[k]=byId(build[k]); }); return o; }
   function compatFor(p){ return compatOf(p, resolved()); }
+
+  /* ---- per-size spec formatting (frame.sizes: {S:{seatTubeLen,maxInsert},...}) ----
+     Generic over whatever keys a given size carries (varies per frame) rather
+     than assuming seatTubeLen/maxInsert are both present. Replaces a raw
+     JSON.stringify dump ({"S":{"seatTubeLen":360},...}) with a readable
+     "S: 360 mm seat tube · M: 410 mm seat tube" list; esc()'d like every
+     other pm-row value. */
+  var SIZE_FIELD_LABELS = { seatTubeLen:'seat tube', maxInsert:'max insert' };
+  function formatSizes(sizes){
+    return Object.keys(sizes).map(function(sz){
+      var fields = sizes[sz] || {};
+      var bits = Object.keys(fields).map(function(k){
+        return fields[k]+' mm '+(SIZE_FIELD_LABELS[k] || k);
+      });
+      return esc(sz)+': '+esc(bits.join(', '));
+    }).join(' · ');
+  }
 
   /* ---- provenance badge (esc + partVerified are shared from compat.js) ----
      `extra` (optional) is appended inline after the verified/estimate badge —
@@ -1798,6 +1825,13 @@
     if(fr.suspension==='hardtail') return 0;
     return typeof fr.travel==='number' ? fr.travel : null;
   }
+  // Same hardtail=0 convention as cbRearTravelOf, applied directly to a bare
+  // frame part (Frames tab) instead of via a complete bike's frame fill.
+  function frameRearTravelOf(p){
+    if(p.cat!=='frame') return null;
+    if(p.suspension==='hardtail') return 0;
+    return typeof p.travel==='number' ? p.travel : null;
+  }
   // distinct catalog values for an axis: scan parts passing pred, collect get(p)
   function distinctVals(pred, get){
     var seen={}, out=[];
@@ -1943,6 +1977,17 @@
       aria:'Filter forks by travel range', unit:'mm', step:1,
       bounds:function(){ return numBoundsOf(byCat('fork'), function(p){ return p.travel; }); },
       match:function(p,lo,hi){ if(p.cat!=='fork') return true; if(p.travel==null) return true; return p.travel>=lo && p.travel<=hi; } },
+    /* Frames tab rear-travel slider (Douglas 2026-07-16, alongside the relabel
+       to "Rear travel" everywhere — a bare "Travel" reads as ambiguous vs the
+       fork's own travel). Hardtails carry no `travel` field at all (schema
+       forbids it on suspension:'hardtail'), so frameRearTravelOf reports 0
+       rather than null — same "0mm = hardtail, stays visibly matched" call as
+       cbRearTravelRange below, just applied to a bare frame instead of a
+       complete bike's frame fill. */
+    { id:'frameRearTravelRange', groups:['frame'], heading:'Rear travel', note:'0 mm = hardtail',
+      aria:'Filter frames by rear travel range — 0mm is a hardtail', unit:'mm', step:1,
+      bounds:function(){ return numBoundsOf(function(p){ return p.cat==='frame' && frameRearTravelOf(p)!=null; }, frameRearTravelOf); },
+      match:function(p,lo,hi){ if(p.cat!=='frame') return true; var v=frameRearTravelOf(p); return v==null || (v>=lo && v<=hi); } },
     { id:'shockEyeRange', groups:['shock'], heading:'Shock eye-to-eye',
       aria:'Filter rear shocks by eye-to-eye length range', unit:'mm', step:1,
       bounds:function(){ return numBoundsOf(byCat('shock'), function(p){ return p.eye; }); },
@@ -2968,7 +3013,12 @@
     Object.keys(p).forEach(function(k){
       if(PM_BLACKLIST[k]) return;
       var label = FIELD_LABELS[k] || k, val = p[k];
+      if(k==='travel' && p.cat==='frame') label = 'Rear travel (mm)';   // see FIELD_LABELS comment
       if(val==null) return;
+      if(k==='sizes' && val && typeof val==='object'){
+        rows += '<div class="pm-row pm-row-sizes"><span class="pm-k">'+esc(label)+'</span><span class="pm-v">'+formatSizes(val)+'</span></div>';
+        return;
+      }
       if(Array.isArray(val)) val = val.map(function(v){ return L(v); }).join(', ');
       else if(typeof val==='boolean') val = val ? 'Yes' : 'No';
       else if(typeof val==='string') val = L(val);
