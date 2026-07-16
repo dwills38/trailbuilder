@@ -1,5 +1,20 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-16 — Coordinator seat 11: analytics live + legal-page headers unified
+
+Douglas's two pending decisions both closed same-day. **(1) Cloudflare Web Analytics is LIVE** — he
+enabled it in the CF dashboard and handed the manual beacon token to the coordinator; shipped in two
+phases to avoid a same-file race with the in-flight legal-header chip: `48a1cfa` (index + KitBuilder
+heads) then `43c701e` (the 3 legal pages + the truthfulness rewrite: privacy §5's "No third-party
+analytics" replaced with an accurate cookie-less/aggregate-only/no-fingerprinting description,
+Cloudflare added to §6 processors with its privacy policy linked, meta description updated,
+Last-updated bumped to July 16). No-tracking-cookies and no-advertising claims unchanged (still
+true); no consent banner (none needed, and the hard rule bans one regardless). Beacon + new wording
+live-verified by curl on buildmymtb.com. **(2) Legal-page topo headers** — Douglas: "yes it should be
+the same"; a [Sonnet, low] chip shipped `b07efa1` (all three pages, light/dark/Loam DOM-verified,
+minimal Loam plumbing scoped to the banner, RAD untouched, popup-scan clean, correctly rebased around
+the analytics commit that landed mid-task). All CI+Deploy green.
+
 ## 2026-07-16 — Coordinator seat 11: modelYear backfill + grind-4 salvage (108 → 114)
 
 **modelYear backfill merged (`6daa73b`).** Branch `catalog/modelyear-backfill` from a chip that fanned
