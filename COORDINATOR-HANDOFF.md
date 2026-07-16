@@ -347,3 +347,16 @@ job.json is coordinator-only.
   breadth-wave session's branch landed but the session itself sat un-archived for hours until
   Douglas spotted it in his own session list) — archive in the SAME breath you push the merge, not
   "later."
+- **★ BRIEF EVERY GRIND WORKER TO COMMIT INCREMENTALLY — per MAKER, not per CLUSTER** (2026-07-16,
+  learned expensively): grind-4 fanned out 8 clusters; a machine shutdown killed the run, and the 6
+  clusters that commit only at cluster-END died with **0 commits — all work lost**. The 2 that had
+  committed (`cb-grind4-hardtails`, `cb-grind4-roundout`) survived intact and were salvaged into
+  main (`d3e63ac`, +6 bikes). Uncommitted agent work is NOT recoverable from a task-notification's
+  "their transcripts are saved" reassurance — check `git rev-list --count origin/main..<branch>` per
+  cluster branch to see what actually survived. Bake "commit after each maker" into every grind brief.
+- **Salvage before you re-queue.** When a fanned-out run dies, enumerate its cluster branches
+  (`git for-each-ref refs/heads/ | grep <prefix>`) and count commits-ahead on each BEFORE writing the
+  run off — partial value is often sitting there, already based on main tip and mergeable. Merging two
+  same-base cluster branches collides as a **pure-additive conflict** (both append rows at the same
+  array spot): resolve by keeping BOTH sides, check the seam's comma, and `node --check src/compat.js`
+  immediately (the string-splice rule).

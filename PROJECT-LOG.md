@@ -1,5 +1,41 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-16 — Coordinator seat 11: modelYear backfill + grind-4 salvage (108 → 114)
+
+**modelYear backfill merged (`6daa73b`).** Branch `catalog/modelyear-backfill` from a chip that fanned
+out 6 per-category workers (RockShox susp / Fox+misc / boutique susp / frames+completebikes ×2 /
+gen-tagged drivetrain). Populates the optional `modelYear` field only where maker-stated: frame
+48→180/197, fork 33→330/359, shock 17→740/803, completebike 78→108/108 (all). **~370 rows deliberately
+left BLANK** — continuous multi-year platforms (Nicolai/Geometron "2019–present"), thin-web boutique
+builders, conflicting gen-year signals, bot-blocked pages. No fabrication (a blank beats an invented
+year). Coordinator verification used a **decisive proof rather than spot-checks**: stripping all
+`modelYear:` tokens from both sides makes `src/compat.js` **byte-identical to origin/main** — so the
+change is provably modelYear-only. Gates: validate 0 problems (3729 parts), vitest 602/602, tsc clean,
+and the verdict-audit-harness came back **byte-identical to baseline** (correct — modelYear is
+annotation-only and never feeds `checkBuild`). CI+Deploy green. Worker-flagged follow-up (not applied,
+out of scope): 3 Manitou Mezzer Expert rows lack a `gen:'G2'` tag mapping them to the right generation.
+
+**grind-4 killed by an overnight shutdown — 2 of 8 clusters salvaged (`d3e63ac`, +6 bikes, 108 → 114).**
+Douglas paused and powered off mid-run; on restart the session's own task-notification reported 6
+cluster agents stopped with **no completion record**. Checking `rev-list --count origin/main..<branch>`
+per cluster branch showed the truth: the 6 (Trek+Cannondale, Giant+Scott, Specialized,
+Canyon+Commencal+YT+Propain, Norco+Transition+Kona+Orbea, Ibis+SantaCruz+Yeti+RockyMountain+Devinci)
+died with **0 commits — genuinely lost**, while `cb-grind4-hardtails` (1 commit) and `cb-grind4-roundout`
+(2 commits) had committed and survived fully intact. Salvaged both: **HARDTAILS** (a live priority) —
+Chromag Rootdown GX (a real second build tier on the same in-catalog `fr-chromag-rootdown` frame, zero
+new part rows needed) + Ragley Marley 1.0; **ROUND-OUT** — GT Force/Sensor Carbon Elite, GT Zaskar LT
+Expert, Focus Jam 6.8 (explicitly the non-electric trim). The two branches collided as a **pure-additive
+conflict** (both append completebike rows at the same array location); resolved by keeping BOTH sides —
+the seam needed no comma surgery (ours already ended `},`) — with an immediate `node --check` parse
+verification per the string-splice rule. Audited: e-bike scan clean on both; validate 0 problems (3763
+parts, 2457 verified); vitest 602/602; tsc clean; harness section-compare — ONLY section C rose 197→199
+(the 2 new frames, still 0 errors), sections A/B/D/E identical (D adversarial 11/11 caught, 0 missed).
+
+**Lesson recorded in COORDINATOR-HANDOFF §5 (learned expensively):** brief every grind worker to
+**commit per MAKER, not per CLUSTER** — the clusters that committed survived a hard shutdown; the ones
+that batched to cluster-end lost everything. And **salvage before re-queuing** a dead fan-out run.
+Remaining grind-4 scope re-queued as chip **grind #5** with incremental-commit discipline baked in.
+
 ## 2026-07-16 — Coordinator seat 11: 200-bike grind-3 merged (+51 complete bikes, 57 → 108)
 
 Merged the 200-bike Complete Bikes grind-3 harvest (`0bd7d54`, branch
