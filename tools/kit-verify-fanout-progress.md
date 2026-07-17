@@ -84,6 +84,50 @@ Specialized (403), Pearl Izumi (404).
 
 Cairn kids' row: left alone, scope pending Douglas.
 
+## Fanout-2 (branch verify/kit-fanout-2, 2026-07-17, seat 12)
+
+Resumed from the 409/714 baseline (fanout-1's final state, already merged to main).
+Discovery step: of the 305 unverified rows, 199 already carried a detailed
+`UNVERIFIED`/`discontinued` investigation note from fanout-1 (re-checking a sample
+of these against fresh searches reproduced the same dead ends byte-for-byte, e.g.
+Race Face Diffuse SS / Trigger LS / Ruxton Pant / Khyber Glove / Flank Core - all
+still absent from raceface.com's current collections). Only 106 rows across ~33
+brands had never been investigated; effort went there.
+
+**Shimano shoes (12 rows) + 1 jersey - the only cluster fully worked this pass:**
+- Verified (4): XC502 ($100->$175, closure velcro->boa), GE700 ($150->$190), GE500
+  ($150, exact match), XC903 ($480, exact match) - all against ride.shimano.com,
+  weight kept as prior sample per the kit weight policy.
+- Flagged `status:'discontinued'` (5): GR701, AM902, AM702, GR901, ME502 - all
+  2020/2021-lineup SKUs absent from ride.shimano.com's current Gravity collection;
+  bike.shimano.com's own "Shimano's New Gravity Footwear Family" article confirms
+  the GE900/GE700/GE500/GF400 line replaced them. Manufacturer-sourced supersession
+  evidence, not a fabricated guess.
+- Left unverified with documented findings (3): XC702 (current live page under that
+  slug now serves "SH-XC703" at $260 - SKU renumbering, not blindly renamed),
+  XC300 (retailers agree on $125 MSRP vs the $90 sample but the live
+  ride.shimano.com price couldn't be extracted - flagged as a likely correction for
+  a future pass), ME702 (retailer-cited $220 vs $200 sample, same issue), Explorer
+  SS jersey (no current "Explorer" jersey found on ride.shimano.com; a same-named
+  2021 collection existed but its jerseys were called Myoka/Kita, not Explorer).
+
+**Attempted, not worked (walled/ambiguous, documented above for the next pass):**
+100% (Shopify .js endpoint 503'd mid-session; EU retailer prices for
+Teratec/Fortis/Racecraft2 don't cleanly convert to a US MSRP), Bontrager/Trek
+(trekbikes.com is JS-rendered - WebFetch, Exa's live-crawl, and `bdata scrape`
+markdown mode all returned the page shell with no price; needs `bdata browser`
+session mode, not attempted this pass), Nukeproof (UK-only brand, no direct USD
+storefront found, only GBP retailer listings with inconsistent conversions).
+O'Neal, ION, Scott and the remaining ~29 smaller brand clusters (Bluegrass,
+DHaRCO, Dainese, Alpinestars, G-Form, 7iDP, EVS, TSG, eyewear brands, etc.) were
+not reached this pass - still open for fanout-3.
+
+**Result: 413/714 kit parts verified (57.8%, +4 rows / +0.5pp from the 57.3%
+baseline).** All gates green: `node validate.js` (0 problems), `npx vitest run`
+(24 files, 699 tests), `npx tsc --noEmit` (clean). Single commit, `src/kit.js` only.
+
+Branch `verify/kit-fanout-2` ready for coordinator review - not pushed, not merged.
+
 ## Phase 2 — bdata unblocker retarget (queued after phase 1 lands)
 
 Per main commit `4dde20b` (2026-07-17): `bdata` CLI (Bright Data) is installed +
