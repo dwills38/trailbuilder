@@ -209,6 +209,10 @@ areas plus the certification-body methodology, cross-corroborated across indepen
   but Exa **search highlights** surface REI content reliably; use search-highlight for REI.
 - **L3 discipline race-craft** is partially fetchable (Red Bull, pro-coach blogs, team content)
   but thinner and more community-tiered; expect Tier-B/D mix.
-- **Tier-C biomechanics** (braking dynamics, centre-of-mass, traction) is untapped so far and is
-  the rigor source for L3/L4 *why* — reachable via the bio-research/PubMed MCP and Exa; a
-  dedicated pass is a clean future round.
+- **Tier-C biomechanics** (braking dynamics, centre-of-mass, traction) — **first pass done
+  2026-07-17 (biomechanics round):** braking weight-transfer + pitch-over critical deceleration +
+  friction-circle (BRK-8..11), steady-turn lean angle `tan θ = v²/gr` + countersteer (COR-9..11),
+  pumping-as-CoM-work + jump projectile motion (TER-11..13), rider-as-suspension + vibration cost +
+  gradient weight-transfer (CLD-8..10). Sources reachable via PubMed MCP (Miller, Gotardi, Cowell)
+  and Exa (Klug, Skatulla/Maier, Cain, Golembiewski, Kogelbauer, Meijaard). Still thin: MTB-specific
+  loose-surface tyre/traction data (models are firm-surface/road-biased).
