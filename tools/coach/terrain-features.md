@@ -99,11 +99,69 @@ don't retreat rearward) is the key coaching content. Dedicated drop-in / chute-e
 
 ---
 
+## Physics notes (Tier C — the mechanism/why)
+
+*Added 2026-07-17 (biomechanics round). This chapter's maneuver **cues** are still unfetched gaps
+(TER-2..TER-8); what follows is the **physics under the ladder** — so the round that fetches the
+cues must ladder them to match the mechanism, not against it.*
+
+**TER-11 — Pumping is real mechanical work timed to CURVATURE, not a shove down the slope.** Physics
+models of pumping (skateboard half-pipe, BMX/roller "energy pumping," and a pump-track bike-rider
+model) converge on one picture: a rider gains speed by actively moving the **centre of mass** —
+extending to drive the CoM toward the centre of curvature through a trough/transition, and
+retracting (going light) over a crest. The ground reaction is always perpendicular to the surface,
+so pushing on a straight down-slope adds no forward speed; propulsion comes from doing work against
+the *raised normal force through the curved part* (equivalently, conserving angular momentum as the
+CoM's radius of curvature shrinks — as the radius drops, speed must rise). Modelled result: pure
+pumping through one banked curve produced **Δv ≈ 1.5 m/s with no pedalling**, and the optimal
+pattern is a precisely-timed extend/retract that skilled riders match more closely than novices.
+Coaching consequences: **(1)** time the push to the curved transition / trough, *not* the top of the
+down-slope; **(2)** pumping is muscular work, not "free speed."
+- *Tier:* C. Sources: Golembiewski et al. 2023, *The Dynamics of a Bicycle on a Pump Track*
+  (Lagrangian two-point-mass bike+rider model;
+  [DOI 10.48550/arXiv.2311.07251](https://doi.org/10.48550/arXiv.2311.07251)); *Identification of
+  Optimal Movement Patterns for Energy Pumping*, Sports 2023
+  ([DOI 10.3390/sports11020031](https://doi.org/10.3390/sports11020031)); Kogelbauer et al. 2024,
+  *Mechanical optimization of skateboard pumping*, Phys. Rev. Research
+  ([DOI 10.1103/PhysRevResearch.6.033132](https://doi.org/10.1103/PhysRevResearch.6.033132)).
+  Softened by Pinkbike's angular-momentum explainer (Tier B/D). **Feeds the still-unfetched TER-2.**
+
+**TER-12 — Once airborne, the CoM is a PROJECTILE: takeoff speed + angle set the landing, and you
+cannot change the CoM path in the air.** After the wheels leave the lip only gravity (and small
+drag) act on the centre of mass, so it follows a parabola fixed entirely at takeoff:
+`range ≈ v²·sin(2θ)/g`, `peak ≈ (v·sinθ)²/2g`. The rider can rotate/move the bike *around* the CoM
+(manual, whip, absorb) but cannot add distance or "save" a mis-set speed once committed; real drag
+makes the descent slightly steeper than the ascent. Physics-grounded safety content the next round
+must ladder: **(1) the approach speed is the decision — commit before the lip**, because it
+determines where you land; **(2) match the landing to the trajectory** — landing G-force scales with
+the velocity component *perpendicular* to the landing slope, so a downslope matching your descent
+angle is soft while landing to flat drives that whole perpendicular component into you (this is the
+mechanism under "never jump to flat"); **(3) boost/squash** at the lip changes takeoff angle/speed by
+up to ~±15%, which is why the same lip jumps differently for different riders.
+- *Tier:* C/B. Sources: projectile-motion jump-design treatments — trailism.com *Bike Jump Design*
+  (parabolic trajectories, clothoid lip, G-limits); Stalefish Labs *Building a Better Kicker*
+  (Euler-integrated drag trajectory; landing G-force from the perpendicular velocity component);
+  classic projectile mechanics. **Feeds the still-unfetched TER-6/TER-7 (drops/jumps) — the
+  "commit to speed" and "match the landing" rungs.**
+
+**TER-13 — Biomechanics evidence that pumping is a PRIMARY propulsion mode, not a garnish.**
+Notational analysis of elite Supercross BMX found riders spend more of a ~40 s lap **"pumping"
+(~17 s)** than pedalling (~12–14 s) or jumping (~6–10 s), executing ~30 hip and ~30 knee extensions
+and ~20 shoulder abduction/adduction cycles per lap. On flow/gravity terrain, rhythmic whole-body
+extension timed to the terrain — not pedalling — carries much of the speed, which is why the pumping
+rung sits lowest and most load-bearing in the ladder (TER-1).
+- *Tier:* C. Source (via PubMed): Cowell, McGuigan & Cronin 2012, *Movement and skill analysis of
+  supercross bicycle motocross*, J. Strength Cond. Res.
+  ([DOI 10.1519/JSC.0b013e318234eb22](https://doi.org/10.1519/JSC.0b013e318234eb22)).
+
+---
+
 ## Gaps (this chapter is mostly gap by design — it is the next round's target)
 - **Every maneuver's cues are unfetched (TER-2..TER-8):** pumping, front/rear wheel lifts, manual,
   bunny hop, drops, jumps, rock gardens/roots. Each needs a fetched Tier-A/B source, the full
   introduce→develop→commit progression, prerequisites, gear/terrain envelope, and error-correction
-  — per rule 4. **This is the #1 priority next round.**
+  — per rule 4. **This is the #1 priority next round.** *(Tier-C physics now grounds the pumping
+  and jump/drop rungs — TER-11/TER-12/TER-13 — so the fetched cues must ladder to that mechanism.)*
 - **Jumps need the most careful treatment:** tabletop-before-gap, the "never case it / never dead-
   sailor" safety content, and the go/no-go criteria — this is the highest-injury-risk content in
   the whole corpus and must be laddered impeccably, not just described.
