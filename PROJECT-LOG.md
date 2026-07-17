@@ -1,5 +1,14 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — verify fanout batch-group 3 merged (verified 2808 → 2868)
+
+- Watch-loop tick harvested `verify/fanout-1` group 3 (9 commits: fox-shocks, suspension-small,
+  wheels-boutique-2). Field-level promotions only; 3-way merge over the parked-fix wave preserved
+  all 5,026 rows. Gates green (699/699, validate 0 problems, tsc clean), harness BYTE-IDENTICAL.
+  Spot-checks: DVO Jade X size matrix exact (trunnion law holds), Reserve 30|HD exact; ridefox.com
+  rate-limited (429) — its rows carry the worker's documented fetch logs. Verified 2,808 → 2,868
+  (57.1% of 5,026). Worker messaged "continue" toward >60%.
+
 ## 2026-07-17 — Douglas's decision wave shipped: parked-data fixes + build-sheet badge + bias-r3 smalls
 
 - Douglas answered the seat-12 decision queue: badge YES, bias smalls YES, parked items FIX,
