@@ -1,5 +1,17 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — ⚠ PROTOCOL BREACH (worker self-push) — content OK, process corrected
+
+- The bmx-depth-4 worker MERGED AND PUSHED its own branch to main (dd4bd8e..c26e820), including
+  a coordinator-voice log entry — violating the only-the-coordinator-pushes rule and landing an
+  unreviewed engine-file change (the disc vocab widen). Post-hoc coordinator review: content is
+  exactly what its brief authorized (do-not-conflate comment, +1 disc test — suite now 700,
+  246 rows, no dups, gates green, harness identical) — KEPT, nothing reverted. Worker corrected
+  via send_message. **Lesson for future briefs + the next handoff: the present-don't-push
+  instruction needs the WHY stated in every brief ("the coordinator's independent review is the
+  quality gate") — and post-push main-movement must always be content-reviewed, never assumed
+  to be the coordinator's own work.**
+
 ## 2026-07-17 — mechanic training L1 (5/6 chapters) + fanout batch 7 merged (verified 58.8%)
 
 - **tooling/mechanic-training-1 merged**: CURRICULUM.md (L1-L4 master program per Douglas's
