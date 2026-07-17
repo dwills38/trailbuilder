@@ -146,7 +146,7 @@ var VOCAB = {
      own page: "Ceramicspeed Coated BB (SRAM)" / "PF 86,5" - a road-derived
      narrower shell used on some XC frames, genuinely distinct from the 92mm
      PF92 family per the comment above; verify-frames-2, 2026-07-09). */
-  frameBb:      ['BSA73', 'PF92', 'T47', 'PF107', 'BSA83', 'BSA68', 'PF865'],   // BSA68 = the classic 68mm threaded shell (Meta HT V3's own page, 2026-07-08 - hardtails still ship it)
+  frameBb:      ['BSA73', 'PF92', 'T47', 'PF107', 'BSA83', 'BSA68', 'PF865', 'PF3083'],   // BSA68 = the classic 68mm threaded shell (Meta HT V3's own page, 2026-07-08 - hardtails still ship it); PF3083 added grind-7 w1 (2026-07-16) - Cannondale Scalpel/Scalpel HT's own "PF30 83A" press-fit shell, confirmed on both fetched cannondale.com Scalpel HT Carbon 2/3 spec pages
   /* crankBb is the SPINDLE INTERFACE, not a brand (DATA-MODEL-REVIEW 5.1-5):
      DUB (28.99mm), 24mm (Shimano Hollowtech II + Race Face Cinch steel + ...),
      30mm (BB30-class: eeWings, Race Face Cinch alu, Hope), p3 (e*thirteen).
@@ -173,11 +173,29 @@ var VOCAB = {
      FC-UT400-1/FC-U4000-1, bike.shimano.com: "CUES square taper chainset,
      for 9/10/11-speed") - two unrelated OEM sources agreeing on the same
      vocab value. */
-  crankBb:      ['DUB', '24mm', '30mm', 'p3', 'powerspline', 'square-taper'],
+  /* '19mm' added grind-7 w1 (2026-07-16): the BMX-derived spindle width used
+     on DJ-tier 3-piece cranks (Scott Cr-Mo 3-piece on the Voltage YZ 0.1 -
+     "Jien-Yuan BB92 / 19mm Axle" per two independent US/UK retailer spec
+     sheets, damianharriscycles.co.uk + thebackcountry.com) - a real, distinct
+     spindle diameter from the existing 24mm/30mm/DUB values, flagged in
+     DIRT-JUMP-MODEL.md's dj-crank.spindle note as a known DJ-market gap. */
+  crankBb:      ['DUB', '24mm', '30mm', 'p3', 'powerspline', 'square-taper', '19mm'],
   /* 'FM' = flat mount rear - modern XC frames (2021+ Canyon Exceed per
      BikeRadar: "Canyon has adopted the Flat Mount standard for the rear
-     brake caliper"); FM and PM calipers do NOT interchange without adapters. */
-  brakeMount:   ['PM', 'FM'],
+     brake caliper"); FM and PM calipers do NOT interchange without adapters.
+     'IS' = International Standard, the pre-Post-Mount disc tab: two
+     THREADED holes 51mm apart with mounting bolts oriented PARALLEL to the
+     axle (through the caliper, into the frame/fork), vs Post Mount's 74.2mm
+     bolt spacing screwing in PERPENDICULAR to the axle. Confirmed genuinely
+     non-interchangeable without an adapter - added grind-7 w5 (2026-07-17)
+     after two independent sources agreed: mtbdirect.com.au ("A Post Mount
+     caliper cannot bolt directly onto an IS mount... you will need an IS to
+     Post Mount adaptor") and the WebSearch-aggregated bolt-spacing figures
+     (51mm IS vs 74.2mm PM) from qualisports.us/mbaction.com/paulcomp.com.
+     Unlocks real steel-hardtail/DH-heritage frames (Chromag Doctahawk, Cotic
+     BFe/SODA) that ship with a genuine IS rear mount - dropped by four prior
+     grind waves for lacking this vocab value. */
+  brakeMount:   ['PM', 'FM', 'IS'],
   /* LinkGlide is deliberately its own system: Shimano documents it as HG-only
      and incompatible with Hyperglide+ 12s. The 10/11-speed values are INERT
      (equality-checked only) until parts carry them.
@@ -205,9 +223,46 @@ var VOCAB = {
      freehub:'HG'. Distinct systems keep a cross-brand pairing (e.g. a Box
      shifter on a microSHIFT mech) an honest error instead of a false green. */
   system:       ['sram-eagle', 'sram-transmission', 'shimano-12',
-                 'shimano-linkglide', 'shimano-11', 'shimano-10', 'sram-11',
-                 'sram-dh-7',
-                 'microshift-advent', 'microshift-advent-x', 'microshift-advent-mx', 'box-prime-9'],
+                 'shimano-linkglide', 'shimano-11', 'shimano-10', 'shimano-9', 'shimano-8', 'sram-11',
+                 'sram-dh-7', 'trp-evo7-dh',
+                 'microshift-advent', 'microshift-advent-x', 'microshift-advent-mx', 'microshift-acolyte', 'box-prime-9'],
+  /* 'trp-evo7-dh' ADDED grind-7 w2 (2026-07-16, DH trim depth): TRP's own
+     narrow-range 7-speed DH group (EVO 7 shifter/derailleur/cassette,
+     mfgPn M9070/ABRD000015/CS-M8070, all FETCHED trpcycling.com product
+     pages directly) - the stock drivetrain on both current Intense M1 trims.
+     Kept a DISTINCT token from 'sram-dh-7' rather than reused: no source
+     this session confirms TRP's cable-pull ratio is interchangeable with
+     SRAM's DH-7 pull (unlike the e13 LG1 DH cassette, which only reuses
+     sram-dh-7 as a cassette-side compatibility bucket - a cassette carries
+     no pull-ratio risk, but a shifter+derailleur pair does), so a wrong
+     reuse here would risk a false-green cross-brand pairing. Standard HG
+     freehub (11-24T, Hyperglide-body per the maker page).
+     'shimano-9'/'microshift-acolyte' ADDED grind-7 w2 (2026-07-16, Cannondale/
+     Trek/budget follow-ups): the entry-tier Specialized Rockhopper base
+     Altus 9-speed group and the Giant Talon 4's microSHIFT Acolyte 8-speed
+     group, respectively - see their own completebike rows for sourcing.
+     'shimano-8' ADDED grind-7 w1 (2026-07-16, budget-hardtail ladder depth):
+     the entry-tier Shimano 8-speed group (SL-M315 shifter / RD-TZ / ESSA
+     U2000 derailleur / CS-HG300-8 cassette) that equips the Trek Marlin 4 -
+     the bottom rung of the budget hardtail ladders this batch targets.
+     Distinct pull ratio from 9/10/11/12-speed Shimano (INERT/equality-checked
+     like the other Shimano tiers above), standard HG freehub.
+     'shimano-9' ADDED grind-7 w2 (2026-07-16, Rockhopper follow-up): the
+     entry Altus-tier 9-speed group (SL-M2000/SL-M370-class RapidFire shifter
+     + RD-M2000/RD-M310-class derailleur) that equips the base Specialized
+     Rockhopper - a standard-HG, non-LinkGlide 9-speed pull ratio distinct
+     from every other cataloged Shimano tier (same INERT/equality-checked
+     convention as shimano-8/10/11/12).
+     'microshift-acolyte' ADDED grind-7 w2 (2026-07-16, Giant Talon 4
+     follow-up): microSHIFT's entry 8-speed group (SL-M6180-R shifter,
+     RD-M5185M derailleur, CS-H083 cassette) - a distinct proprietary pull
+     ratio from the already-cataloged Advent/Advent X/Advent MX tiers (one
+     tier below Advent's 9-speed), standard HG freehub (CS-H083's own
+     microshift.com model page states "Standard HG Freehub" verbatim -
+     resolves the prior wave's flagged "microSpline HG freehub" contradiction
+     on Giant's own retailer-reprinted spec text: an 8-speed cassette with an
+     11T-or-higher smallest cog has no mechanical need for MicroSpline's fine
+     spline count, and microSHIFT's own page settles it as plain HG). */
   actuation:    ['cable', 'electronic'],       // audited 2026-07: market-complete for shifter/derailleur ('hydraulic' joins only with dropper.actuation)
   ringStd:      ['t-type', 'standard-12'],
   /* I-Spec II / I-Spec B are older, mutually-incompatible Shimano standards
@@ -235,7 +290,7 @@ var VOCAB = {
      full-code match would false-red a real DH headset). ILLUSTRATIVE list,
      extend as sourced. Rule 11 keeps consuming the `headset` steerer-fit
      field, whose semantics stay pinned. */
-  headTube:     ['ZS44/28.6', 'ZS56/28.6', 'ZS56/40', 'IS41/28.6', 'IS42/28.6', 'IS52/40', 'EC34/28.6', 'EC44/40', 'ZS49/28.6', 'EC49/40'],   // ZS49/28.6 + EC49/40 added 2026-07-11 (expand/finishing-kit): fetched Chris King InSet 5 + Cane Creek 40/110, auditor-confirmed
+  headTube:     ['ZS44/28.6', 'ZS56/28.6', 'ZS56/40', 'IS41/28.6', 'IS42/28.6', 'IS52/40', 'EC34/28.6', 'EC44/40', 'ZS49/28.6', 'EC49/40', 'ZS51/28.6', 'ZS59/40', 'ZS56/30'],   // ZS49/28.6 + EC49/40 added 2026-07-11 (expand/finishing-kit): fetched Chris King InSet 5 + Cane Creek 40/110, auditor-confirmed. ZS51/28.6 + ZS59/40 added grind-7 w4 (2026-07-17): fetched polygonbikes.com/us/2026-collosus-t8-trail-mtb/ directly, which states "Headset: FSA NO.76 (ZS 51/28.6 | ZS 59/40)" verbatim on the frame's own spec page - an FSA No.76 assembly with an oversized 51mm upper / 59mm lower bore (a real, if uncommon, S.H.I.S. pair used on some OE frames beyond the common ZS44/ZS56 sizes). ZS56/30 added same session: fetched polygonbikes.com/us/collosus-dh9/ directly, "Headset: FSA NO.55/57-1, ZS 56/28.6 | ZS 56/30" verbatim - the first real straight-steerer (non-tapered, 30mm crown-race-seat) lower bore this catalog has sourced, anticipated by this vocab's own comment above; pairs with a straight-1.5in-steerer DH fork (Fox 40), distinct from the tapered ZS56/40 lower used elsewhere in this catalog.
   /* Tire SKU axes (DATA-MODEL-REVIEW section 3 item 5): brand-NATIVE names, not a
      cross-brand toughness tier. Maxxis values seeded first; Schwalbe /
      Specialized etc. get enumerated per brand when their batch starts - never
@@ -266,10 +321,12 @@ var VOCAB = {
                  'hardskin', 'sideskin',                            // Hutchinson (expand/tires-new-brands, 2026-07-11, fetched cycling.hutchinson.com product pages - the sheet's own "Reinforcement" column values; a third unnamed dual-66TPI DH casing and a plain unreinforced tier exist on some rows but print no brand name there, so they're left uncatalogued per the never-invent-a-name rule)
                  'gravity-pro',                                     // Schwalbe Albert Radial (enduro-trail-gap-fill, 2026-07-11, fetched schwalbetires.com SKU pages - the "Version" field on Schwalbe's new radial-carcass generation; distinct from the older bias-ply Super Trail/Super Gravity/Super Downhill tiers, which stay in production on other models)
                  'trail-pro',                                       // Schwalbe Magic Mary Radial / Albert Radial (catalog-complete-bikes-grind-2-commencal + -propain, 2026-07-15, both Commencal's Clash V3 and Propain builds name "Trail Pro" as a lighter sibling of 'gravity-pro' in Schwalbe's new radial-carcass generation, confirmed as a real distinct Schwalbe tier name via schwalbetires.com SKU listings (e.g. article 11654597, "TRAIL PRO"))
-                 'ksct'],                                            // Kenda Small Block Eight / Honey Badger (expand/tires-xc, 2026-07-11, fetched bicycle.kendatire.com spec tables - the sheet's own "Protection" column value for these two models, distinct from Havok Pro's TR/EMC and Nevegal2's ATC; DTC compound is shared/reused)
+                 'ksct',                                            // Kenda Small Block Eight / Honey Badger (expand/tires-xc, 2026-07-11, fetched bicycle.kendatire.com spec tables - the sheet's own "Protection" column value for these two models, distinct from Havok Pro's TR/EMC and Nevegal2's ATC; DTC compound is shared/reused)
+                 'xc-pro',                                           // Schwalbe Rick (cb7-w3-scott-ghost-cube-rose, 2026-07-16, fetched schwalbetires.com/Rick-11654568 directly - the page's own "Version" field, distinct from the older bias-ply Super Race XC casing; a newer Schwalbe XC-race tier name)
+                 'bikepark'],                                        // Schwalbe Magic Mary / Big Betty DH-tier (cb7-w3-scott-ghost-cube-rose, 2026-07-16, fetched schwalbetires.com/Magic-Mary-11100977.02 + /Big-Betty-11159151 directly - the page's own "Version" field for the wire-bead DH/bike-park casing tier, distinct from the folding-bead Super Trail/Super Gravity tiers already cataloged)
   compound:     ['dual', '3c-maxxterra', '3c-maxxgrip', 'maxxspeed', 'maxxterra', '3c-maxxspeed',   // Maxxis (maxxspeed = XC race compound, Aspen page 2026-07-08; bare 'maxxterra'/'3c-maxxspeed' are genuinely distinct SKUs from their 3C/plain siblings per the fetched maxxis.com Rekon/Forekaster/Ikon tables, 2026-07-08)
                  'endurance', 'soft', 'supersoft', 'blackchili',   // Continental (blackchili = the XC line's compound, 2026-07-08)
-                 'addix', 'addix-speed', 'addix-speedgrip', 'addix-soft', 'addix-ultra-soft',        // Schwalbe (addix-speed = XC race compound, fetched 2026-07-08)
+                 'addix', 'addix-speed', 'addix-speedgrip', 'addix-soft', 'addix-ultra-soft', 'addix-performance',        // Schwalbe (addix-speed = XC race compound, fetched 2026-07-08; addix-performance = the BikePark-casing DH tier's compound, cb7-w3-scott-ghost-cube-rose 2026-07-16, fetched schwalbetires.com Magic Mary/Big Betty pages directly)
                  'smartgrip', 'smartgrip-gravity',                 // Pirelli
                  '4c-graphene', 'graphene-silica',                 // Vittoria (casing reuses trail/enduro/downhill - Vittoria's own tier names; graphene-silica = the XC Race Formulation, 2026-07-08)
                  'tritec',                                         // WTB
@@ -1142,7 +1199,7 @@ var KNOWN_VALUES = {
   rotorSize:    [140, 160, 180, 183, 200, 203, 205, 220, 223],
   postDiameter: [27.2, 30.9, 31.6, 34.9],       // seat tubes + dropper diameters
   barClamp:     [25.4, 31.8, 35],
-  speeds:       [7, 9, 10, 11, 12, 13]   // 7 = SRAM DH groups (XG-795 etc.), sourced 2026-07-08
+  speeds:       [7, 8, 9, 10, 11, 12, 13]   // 7 = SRAM DH groups (XG-795 etc.), sourced 2026-07-08; 8 = Shimano entry 8-speed (system:'shimano-8'), sourced grind-7 w1 2026-07-16
 };
 
 /* Non-fatal lints - consistency warnings that should never block data entry

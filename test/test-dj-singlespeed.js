@@ -295,14 +295,27 @@ test('the DJ dataset is live: every row resolves in PARTS and carries the dj dis
     'fk-dvo-sapphire-26-100','fk-xfusion-slant-dj-26-100','cr-profileracing-3piece-mtb',
     'cg-generic-ss-16t','ch-kmc-z410','fw-halo-combat-26-15x100','rw-halo-combat-26-ss',
     'ti-maxxis-dth-26-23','ti-kenda-krad-26-23','ti-schwalbe-tabletop-26-225',
-    'hb-answer-protaper','sp-thomson-elite-272'];
+    'hb-answer-protaper','sp-thomson-elite-272',
+    // grind-7 wave-1 (2026-07-16): the first dj completebike rows (DMR Sect
+    // Pro, Scott Voltage YZ 0.1) + their new OE component rows + the new
+    // fr-scott-voltage-yz01 frame (driveMode:single-speed, sourced dedicated
+    // single-speed dropout - see its own desc).
+    'cb-dmr-sect-pro','cb-scott-voltage-yz01',
+    'fr-scott-voltage-yz01',
+    'fw-alexrims-dm24-26-15x100','rw-alexrims-dm24-26-ss','ti-dmr-motodj-26-22',
+    'cr-dmr-2piece-170-30t','cg-dmr-13t','ch-ybn-mk918',
+    'bk-tektro-m275','ro-tektro-m275-180-6b','ro-tektro-m275-160-6b',
+    'hb-dmr-sect-bar','st-dmr-cnc-35','gr-dmr-sect-grips','sp-dmr-dj-272','sa-dmr-dj-saddle','pd-dmr-v6',
+    'fw-syncros-md25-26-15x100','rw-syncros-md25-26-ss','bb-jienyuan-pf92-19mm',
+    'cr-scott-crmo-170-25t','cg-scott-12t','ch-kmc-z510',
+    'hb-syncros-hixon2-318','st-syncros-xm15-318','gr-syncros-prodh','sp-syncros-dj15-316','sa-syncros-dj15','pd-wellgo-b107n'];
   djIds.forEach(function(id){
     ok((part(id).disciplines || []).indexOf('dj') >= 0, id + ' is live and tagged dj');
   });
   // ...and the dj tag set is exactly this list (no stray dj rows entered elsewhere).
   var live = C.PARTS.filter(function(p){ return (p.disciplines || []).indexOf('dj') >= 0; })
     .map(function(p){ return p.id; }).sort();
-  eq(JSON.stringify(live), JSON.stringify(djIds.slice().sort()), 'the dj-tagged set is exactly the go-live 25');
+  eq(JSON.stringify(live), JSON.stringify(djIds.slice().sort()), 'the dj-tagged set is exactly the go-live 25 plus the grind-7 wave-1 additions');
 });
 
 test('the sample-build price bands exclude dj frames (theme scope, not a fit rule)', function(){

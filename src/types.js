@@ -40,10 +40,10 @@
 /** @typedef {'sixbolt'|'CL'} RotorMount */
 /** @typedef {'std'|'trunnion'} ShockMount */
 /** @typedef {'tapered'|'straight-dc'|'straight'} SteererFit */
-/** @typedef {'BSA73'|'PF92'|'T47'|'PF107'|'BSA83'|'BSA68'|'PF865'} FrameBb */
-/** @typedef {'DUB'|'24mm'|'30mm'|'p3'|'powerspline'|'square-taper'} CrankBb */
-/** @typedef {'PM'|'FM'} BrakeMount */
-/** @typedef {'sram-eagle'|'sram-transmission'|'shimano-12'|'shimano-linkglide'|'shimano-11'|'shimano-10'|'sram-11'|'sram-dh-7'|'microshift-advent'|'microshift-advent-x'|'microshift-advent-mx'|'box-prime-9'} DriveSystem */
+/** @typedef {'BSA73'|'PF92'|'T47'|'PF107'|'BSA83'|'BSA68'|'PF865'|'PF3083'} FrameBb */
+/** @typedef {'DUB'|'24mm'|'30mm'|'p3'|'powerspline'|'square-taper'|'19mm'} CrankBb */
+/** @typedef {'PM'|'FM'|'IS'} BrakeMount */
+/** @typedef {'sram-eagle'|'sram-transmission'|'shimano-12'|'shimano-linkglide'|'shimano-11'|'shimano-10'|'shimano-9'|'shimano-8'|'sram-11'|'sram-dh-7'|'trp-evo7-dh'|'microshift-advent'|'microshift-advent-x'|'microshift-advent-mx'|'microshift-acolyte'|'box-prime-9'} DriveSystem */
 /** @typedef {'cable'|'electronic'} Actuation */
 /** @typedef {'t-type'|'standard-12'} RingStd */
 /** @typedef {'ispec-ev'|'ispec-ii'|'ispec-b'|'matchmaker'|'band'|'pod'} ShifterClamp */
@@ -51,10 +51,10 @@
 /** @typedef {'hanger'|'udh-direct'} DerailMount */
 /** @typedef {'air'|'coil'} Spring */
 /** @typedef {'alu'|'carbon'|'steel'|'ti'|'carbon-alloy'} Material */
-/** @typedef {'ZS44/28.6'|'ZS56/28.6'|'ZS56/40'|'IS41/28.6'|'IS42/28.6'|'IS52/40'|'EC34/28.6'|'EC44/40'|'ZS49/28.6'|'EC49/40'} HeadTube */
+/** @typedef {'ZS44/28.6'|'ZS56/28.6'|'ZS56/40'|'IS41/28.6'|'IS42/28.6'|'IS52/40'|'EC34/28.6'|'EC44/40'|'ZS49/28.6'|'EC49/40'|'ZS51/28.6'|'ZS59/40'} HeadTube */
 /** @typedef {'flat'|'clip'|'hybrid'} PedalStyle */
-/** @typedef {'exo'|'exo-plus'|'doubledown'|'dh'|'trail'|'enduro'|'downhill'|'super-race'|'super-ground'|'super-trail'|'super-gravity'|'super-downhill'|'protection'|'hardwall'|'prowall'|'tcs-light-sg2'|'tcs-tough-sg1'|'tcs-tough'|'atc'|'aec'|'agc'|'xc-race'|'gravity-shield'|'grid-trail'|'grid-gravity'|'grid'|'control'|'trc'|'grc'|'xcc'|'enduro-core'|'synthesis'|'gravity-core'|'gxe-core'|'dh-core'|'wire-bead'|'folding-tlr'|'inner-strength'|'core-strength'|'high-output'|'super-tough'|'durable'|'ultra-durable'|'light-and-supple'|'light-trail'|'tough'|'tr'|'emc'|'eps'|'eps-tlr'|'exo-btb'|'flux-gr'|'flux-am'|'flux-gr-radial'|'hardskin'|'sideskin'|'gravity-pro'|'trail-pro'|'ksct'} Casing */
-/** @typedef {'dual'|'3c-maxxterra'|'3c-maxxgrip'|'maxxspeed'|'maxxterra'|'3c-maxxspeed'|'endurance'|'soft'|'supersoft'|'blackchili'|'addix'|'addix-speed'|'addix-speedgrip'|'addix-soft'|'addix-ultra-soft'|'smartgrip'|'smartgrip-gravity'|'4c-graphene'|'graphene-silica'|'tritec'|'dual-layer'|'grip3s'|'grip3'|'magix'|'magix-mh'|'magix-ms'|'magix-dh'|'gripton-t7'|'gripton-t9'|'gripton-t5'|'soft-50'|'medium-60'|'single-60a'|'tackee'|'top40'|'mpc'|'dcc'|'tm-speed'|'tm-grip'|'triple-compound'|'zsg-natural'|'grip'|'grip-plus'|'fast'|'62a-51a'|'56a-48a'|'grip-compound'|'dtc'|'mopo'|'momentum'|'race-ripost-enduro'|'race-ripost-gravity'|'race-ripost-xc'|'bi-compound'} Compound */
+/** @typedef {'exo'|'exo-plus'|'doubledown'|'dh'|'trail'|'enduro'|'downhill'|'super-race'|'super-ground'|'super-trail'|'super-gravity'|'super-downhill'|'protection'|'hardwall'|'prowall'|'tcs-light-sg2'|'tcs-tough-sg1'|'tcs-tough'|'atc'|'aec'|'agc'|'xc-race'|'gravity-shield'|'grid-trail'|'grid-gravity'|'grid'|'control'|'trc'|'grc'|'xcc'|'enduro-core'|'synthesis'|'gravity-core'|'gxe-core'|'dh-core'|'wire-bead'|'folding-tlr'|'inner-strength'|'core-strength'|'high-output'|'super-tough'|'durable'|'ultra-durable'|'light-and-supple'|'light-trail'|'tough'|'tr'|'emc'|'eps'|'eps-tlr'|'exo-btb'|'flux-gr'|'flux-am'|'flux-gr-radial'|'hardskin'|'sideskin'|'gravity-pro'|'trail-pro'|'ksct'|'xc-pro'|'bikepark'} Casing */
+/** @typedef {'dual'|'3c-maxxterra'|'3c-maxxgrip'|'maxxspeed'|'maxxterra'|'3c-maxxspeed'|'endurance'|'soft'|'supersoft'|'blackchili'|'addix'|'addix-speed'|'addix-speedgrip'|'addix-soft'|'addix-ultra-soft'|'addix-performance'|'smartgrip'|'smartgrip-gravity'|'4c-graphene'|'graphene-silica'|'tritec'|'dual-layer'|'grip3s'|'grip3'|'magix'|'magix-mh'|'magix-ms'|'magix-dh'|'gripton-t7'|'gripton-t9'|'gripton-t5'|'soft-50'|'medium-60'|'single-60a'|'tackee'|'top40'|'mpc'|'dcc'|'tm-speed'|'tm-grip'|'triple-compound'|'zsg-natural'|'grip'|'grip-plus'|'fast'|'62a-51a'|'56a-48a'|'grip-compound'|'dtc'|'mopo'|'momentum'|'race-ripost-enduro'|'race-ripost-gravity'|'race-ripost-xc'|'bi-compound'} Compound */
 /** @typedef {'xc'|'trail'|'enduro'|'dh'|'dj'} Discipline */
 /** @typedef {'full'|'hardtail'} Suspension */
 /** The mechanical drivetrain discriminator (2026-07-13 DJ pass): absence =

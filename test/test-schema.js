@@ -102,6 +102,16 @@ test('sram-dh-7 is valid system vocab (7-speed DH group enterable)', function(){
   delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise, same as the eeWings test
   eq(probs(p).length, 0);
 });
+test('shimano-8 is valid system vocab (entry 8-speed group enterable)', function(){
+  var p = over('sft-sram-gx-eagle', { system:'shimano-8', speeds:8 });
+  delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise, same as the sram-dh-7 test
+  eq(probs(p).length, 0);
+});
+test('trp-evo7-dh is valid system vocab (TRP EVO 7 DH group enterable)', function(){
+  var p = over('sft-sram-gx-eagle', { system:'trp-evo7-dh', speeds:7 });
+  delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise, same as the sram-dh-7 test
+  eq(probs(p).length, 0);
+});
 test('a 20x110 dual-crown DH front axle is valid vocab (fork + front hub)', function(){
   var f = over('fk-rockshox-zeb-ultimate-29-170', { axle:'20x110' });
   delete f.verified; delete f.lastChecked; delete f.source;   // provenance-date noise, same as the sram-dh-7 test
@@ -152,7 +162,12 @@ test('FM (flat mount) is valid brakeMount vocab; unknown mounts still rejected',
   var p = over('bk-magura-mt7', { mount:'FM' });
   delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise
   eq(probs(p).length, 0);
-  some(probs(over('bk-magura-mt7', { mount:'IS' })), 'mount');
+  some(probs(over('bk-magura-mt7', { mount:'XYZ' })), 'mount');
+});
+test('IS (International Standard) is valid brakeMount vocab - widened grind-7 w5 after confirming IS is a genuinely distinct, non-interchangeable-without-adapter mount (51mm bolt spacing parallel to axle vs PM 74.2mm perpendicular)', function(){
+  var p = over('bk-magura-mt7', { mount:'IS' });
+  delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise
+  eq(probs(p).length, 0);
 });
 test('a disciplines value outside the vocab is caught (ebike is deliberately not one)', function(){
   some(probs(over('fr-santacruz-megatower-cc', { disciplines:['enduro','ebike'] })), 'disciplines');
@@ -232,6 +247,14 @@ test('a headTube value outside the SHIS vocab is caught', function(){
   // a real Chris King InSet 5 + Cane Creek 40/110 SKU) - use a still-nonexistent
   // code so this stays a true negative test.
   some(probs(over('fr-santacruz-megatower-cc', { headTubeUpper:'ZS99/28.6' })), 'headTube');
+});
+test('ZS51/28.6 and ZS59/40 (widened grind-7 w4, Polygon Collosus T8 Carbon FSA No.76) validate clean', function(){
+  var p = over('fr-santacruz-megatower-cc', { headTubeUpper:'ZS51/28.6', headTubeLower:'ZS59/40' });
+  eq(probs(p).filter(function(x){ return x.indexOf('headTube') >= 0; }).length, 0);
+});
+test('ZS56/30 (widened grind-7 w4, Polygon Collosus DH9 straight-steerer FSA No.55/57-1) validates clean', function(){
+  var p = over('fr-santacruz-megatower-cc', { headTubeUpper:'ZS56/28.6', headTubeLower:'ZS56/30' });
+  eq(probs(p).filter(function(x){ return x.indexOf('headTube') >= 0; }).length, 0);
 });
 test('the inert widened system values are accepted (LinkGlide cassette validates)', function(){
   var p = over('ca-sram-pg1230', { system:'shimano-linkglide', minCog:11 });
