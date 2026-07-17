@@ -1228,7 +1228,8 @@ var KIT_PARTS = [
       + ' had it wrong at $79.95 - that was a different sale/list read). No weight published; stays sample.',
     verified:true, lastChecked:'2026-07-17', source:'https://www.giro.com/p/mens-roust-mountain-bike-jersey/350250000400000030.html' },
   { id:'jsy-zoic-amp-ss', cat:'jersey', brand:'Zoic', model:'Amp SS', price:40, weight:135,
-    sleeve:'short', sizes:['S','M','L','XL','XXL'] },
+    sleeve:'short', sizes:['S','M','L','XL','XXL'],
+    desc:'ATTEMPTED 2026-07-17: only an "Amp Long Sleeve Jersey" was found in web results for zoic.com/Performance Bicycle; no "Amp SS" short-sleeve SKU confirmed, and zoic.com itself rate-limited (429) every fetch attempt this session. Left as an unverified sample rather than guessing at a possibly-retired short-sleeve variant.' },
   { id:'jsy-clubrideapparel-fuze-ss', cat:'jersey', brand:'Club Ride Apparel', model:'Fuze SS', price:65, weight:145,
     sleeve:'short', sizes:['S','M','L','XL','XXL'] },
   { id:'jsy-clubrideapparel-cadence-ls', cat:'jersey', brand:'Club Ride Apparel', model:'Cadence LS', price:70, weight:170,
@@ -1438,7 +1439,7 @@ var KIT_PARTS = [
     desc:'Royal\'s top-tier DH/enduro race short - shape/fabric fed by pro-rider input. FLAG for coordinator review (2026-07-16): royalracing.com\'s current Shorts & Pants collection lists only "Apex Pants" (full-length), no separate "Apex Shorts" SKU. Left as an unverified sample pending a decision to retarget or remove this row.' },
   { id:'sht-zoic-ether-liner', cat:'shorts', brand:'Zoic', model:'Ether Shorts + Essential Liner', price:95, weight:320,
     liner:true, disciplines:['trail'], sizes:['S','M','L','XL','XXL','XXXL'],
-    desc:'Ripstop nylon outer + removable ZO-Tech chamois liner; sold as a shell+liner bundle.' },
+    desc:'Ripstop nylon outer + removable ZO-Tech chamois liner; sold as a shell+liner bundle. ATTEMPTED 2026-07-17: zoic.com rate-limited (429) every direct fetch this session; a collection-page banner cited a $38 sale price (not a reliable MSRP figure). Left unverified rather than using an unconfirmed sale price.' },
   { id:'sht-zoic-blackmarket-liner', cat:'shorts', brand:'Zoic', model:'Black Market Short + Essential Liner', price:116, weight:454,
     liner:true, disciplines:['trail'], sizes:['S','M','L','XL','XXL','XXXL'],
     desc:'CORRECTED 2026-07-16: Zoic renamed the Black Market line to "Guide" (search-indexed'
