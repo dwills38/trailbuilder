@@ -1,5 +1,19 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — cb-sheets batch 1 merged (sheet-verified 134 → 140) · BMX go-live word given
+
+- **Douglas gave the BMX go-live word** (parameters in memory `bmx-golive`): build to ~300 parts /
+  ~40% verified then flip; page name "BuildMyBMX"; Kit Builder button renames to "BuildMyKit";
+  pivotal-seat ERROR kept; rider-preference research on the [MECHANIC REVIEW] severities. 4 chips
+  dispatched (page mount, 2 depth grinds, severity research). Decision packet artifact published.
+- **verify/cb-sheets-1 batch 1 merged**: +6 build-sheet promotions (Salsa Timberjack, Canyon
+  Neuron CF 8 + Sender CFR Team, Commencal Meta HT V3 + Supreme DH V5, Santa Cruz Hightower R
+  MY25 re-fetched). Gates green, harness byte-identical, diff = provenance fields only.
+  Worker's finds: 99 rows carry fetched write-ups but stay unverified — 94 correctly (mostly the
+  price-on-maker-page bar), ~5 borderline (Whyte 905 price-bar consistency) for a re-screen; Trek
+  is a hard 3-tier JS wall (21 bikes — parked for a bdata-render attempt); Hightower MY23/MY24
+  crank spec drift flagged NOT acted on (needs the MY23 page). Sheet-verified 140/436.
+
 ## 2026-07-17 — verify fanout batch-group 3 merged (verified 2808 → 2868)
 
 - Watch-loop tick harvested `verify/fanout-1` group 3 (9 commits: fox-shocks, suspension-small,
