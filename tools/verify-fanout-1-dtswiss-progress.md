@@ -123,6 +123,25 @@ session** (time-boxed; XR1700 was spot-checked and found to have no distinct dts
 product page — only XRC1700, a different carbon-tier product line, has one — so it would
 likely also land in Skipped; XRC1200 Spline and F-1900 were not investigated).
 
+**F 1900 Classic / `dtswiss-f-1900` family (10 rows) — not touched, flagged as
+uncertain rather than confirmed-blocked.** RE-FETCHED
+dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic twice this session
+(targeted-fields prompt, then a full-raw-text prompt) and got ONLY hub ("370 with Ratchet
+LN 18"), 30mm internal width, "from 2118 g" combined weight, and price — no rotor-mount,
+axle-spacing, or freehub wording either time. This is notable because the ALREADY-VERIFIED
+sibling family `dtswiss-f1900-classic` (`fw-dtswiss-f1900-classic-275` /
+`rw-dtswiss-f1900-classic-275-hg`, verified 2026-07-16, same source URL) has a desc
+claiming that same page states "6-bolt, tubeless ready", "Shimano HG, Shimano Microspline,
+or SRAM XD" freehub options, and "12x148 Boost / 12x150(157)" axle options — none of which
+this session's fetches could reproduce. Possible explanations: the page is JS-rendered
+and serves different content depending on render timing/locale, or the 2026-07-16 fetch
+saw a fuller render this session didn't. **Not resolved either way** — did NOT touch the
+already-verified sibling rows (out of this session's scope, no proof they're wrong,
+would need a separate targeted re-fetch pass), and did NOT verify the `dtswiss-f-1900`
+family off an unreproducible quote. Left unverified. **Flagging for the coordinator/next
+session:** worth an independent re-fetch of the f1900-classic source to confirm those
+claimed quotes still hold, given this discrepancy.
+
 ## Corrections summary (real spec fixes, not just new verifications)
 - `fw-dtswiss-x1900-29` / `rw-dtswiss-x1900-29-xd` / `rw-dtswiss-x1900-29-ms`:
   rotorMount `sixbolt` -> `CL` (maker-confirmed; previously an unsourced guess).
