@@ -1,5 +1,16 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — mechanic training L1 (5/6 chapters) + fanout batch 7 merged (verified 58.8%)
+
+- **tooling/mechanic-training-1 merged**: CURRICULUM.md (L1-L4 master program per Douglas's
+  raised bar) + L1 depth passes on 5/6 chapters (+48 facts, stable IDs, per-fact confidence,
+  Park Tool/Sheldon Brown/manual citations — sample-checked). Brakes chapter pending — worker
+  messaged to finish it. Corpus now operational for the bike-mechanic agent.
+- **verify/fanout-1 batch-group 7 merged**: +31 verified (Öhlins 9/9 — trunnion law
+  spot-verified against per-SKU ohlins.com pages incl. a real 451g TTX2Air weight; Spank 14/14;
+  SUNringle 12/16; Michelin 0/9 — hard wall confirmed again). Harness BYTE-IDENTICAL, gates
+  green. **Verified 2,957/5,026 = 58.8%** — 1.2 points from the 60% goal.
+
 ## 2026-07-17 — strider design + mechanic bootstrap merged
 
 - **design/striders-model merged** (docs, off-live): headline honest finding — balance bikes are
