@@ -913,64 +913,88 @@ var BMX_PARTS = [
     id: 'bmx-fr-eclat-cortex', cat: 'frame', brand: 'Eclat', model: 'Cortex',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 429.99
+    price: 429.99,
+    note: 'UNVERIFIED / FLAGGED 2026-07-17: an extensive eclatbmx.com search (site nav, collections/all, collections/frames) turned up NO frame product at all under the Eclat brand - Eclat appears to be parts-only (hubs/cranks/forks/bars/stems/pegs/tires/sprockets/chains/grips/seats/BB); their only frame-adjacent product is the WTP-branded Jackal titanium flatland frame (a WeThePeople release, not an Eclat one). "Cortex" is Eclat\'s hub/wheel line name, not a frame. Left as unverified sample data (id/model unchanged, append-only) rather than deleted; recommend the coordinator review whether this row should be retired as fabricated.'
   },
   {
     id: 'bmx-fk-eclat-onyx', cat: 'fork', brand: 'Eclat', model: 'Onyx Fork',
     discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
-    brakeMount: 'u-brake', price: 99.99
+    brakeMount: 'u-brake', price: 99.99,
+    note: 'UNVERIFIED / FLAGGED 2026-07-17: no "Onyx" fork exists in Eclat\'s current lineup - "Onyx" is Eclat\'s crank/stem/sprocket/BB-axle line name, not a fork. Eclat\'s real forks are Storm, Storm XLT, Storm TA, Coda, Stream (older) and the Ti Jackal flatland fork. Left as unverified sample data pending a coordinator decision on whether to retire or rename this row.'
   },
   {
     id: 'bmx-cr-eclat-onyx', cat: 'cranks', brand: 'Eclat', model: 'Onyx Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 229.99
+    spindle: '24mm', pieces: '3-piece', ringMount: 'spline', weight: 833, price: 179.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/onyx-cranks',
+    note: 'CORRECTED: spindle was wrongly entered as 22mm; Eclat\'s own page confirms the Onyx is a 24mm crmo ultra-hollow spindle (165mm/175mm arm lengths). Weight is the 175mm arm-length figure (833g); the 160mm/165mm options weigh slightly less. Compatible with both 24mm spline-drive and bolt-drive sprockets.'
   },
   {
     id: 'bmx-bb-eclat-mid-22', cat: 'bb', brand: 'Eclat', model: 'Mid BB',
-    shell: 'mid', spindleFit: '22mm', price: 22.99
+    shell: 'mid', spindleFit: '22mm', weight: 174, price: 31.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/mid-bottom-bracket-set',
+    note: 'Weight is the 22mm-spindle figure from Eclat\'s own page (19mm=189g, 24mm=148g).'
   },
   {
-    id: 'bmx-sp-eclat-spline-25', cat: 'sprocket', brand: 'Eclat', model: 'Spline Sprocket 25T',
-    teeth: 25, mount: 'spline', pitch: '1/8', price: 39.99
+    id: 'bmx-sp-eclat-spline-25', cat: 'sprocket', brand: 'Eclat', model: 'Onyx Sprocket 25T',
+    teeth: 25, mount: 'spline', pitch: '1/8', weight: 144, price: 34.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/onyx-sprocket',
+    note: 'CORRECTED model name from the generic "Spline Sprocket 25T" placeholder to Eclat\'s actual product, the Onyx Sprocket (25T/26T, 6061-T6 cold-forged, 23.8mm bore, ships with 19mm/22mm spindle adapters for its native 24mm fit).'
   },
   {
     id: 'bmx-rh-eclat-cortex-9', cat: 'rearWheel', brand: 'Eclat', model: 'Cortex Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 94.99
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 239.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/e440-cortex-cassette-rear-wheel',
+    note: 'Row is a complete wheel (cat rearWheel), matched to Eclat\'s E440/Cortex Cassette Rear Wheel product (E440 rim + Cortex Cassette hub, RSD/LSD, 14mm male axle, 9t driver). CORRECTED price from 94.99 (was far under the real ~240 EUR complete-wheel price - possibly confused with a hub-only price). Eclat\'s page publishes no per-wheel weight (interface-only verification per the wheels exception in VERIFY-PROTOCOL.md), so weight stays unset rather than fabricated.'
   },
   {
     id: 'bmx-fw-eclat-cortex', cat: 'frontWheel', brand: 'Eclat', model: 'Cortex Front Wheel',
-    wheelSize: '20', axle: '10mm', price: 69.99
+    wheelSize: '20', axle: '10mm', price: 169.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/e440-cortex-front-wheel',
+    note: 'Matched to Eclat\'s E440/Cortex Front Wheel (E440 rim + Cortex Front hub, 10mm female axle). CORRECTED price from 69.99 (real complete-wheel price is far higher). No per-wheel weight is published (interface-only verification per the wheels exception in VERIFY-PROTOCOL.md).'
   },
   {
     id: 'bmx-hb-eclat-cortex', cat: 'handlebar', brand: 'Eclat', model: 'Cortex Bars',
-    clamp: '25.4mm', rise: 8.25, width: 29, price: 64.99
+    clamp: '25.4mm', rise: 8.25, width: 29, price: 64.99,
+    note: 'UNVERIFIED / FLAGGED 2026-07-17: no "Cortex" bar exists in Eclat\'s current lineup after an extensive eclatbmx.com search - "Cortex" is only used for Eclat\'s hub/wheel line. Eclat\'s real bar names are Strangler, Chocolate/Chocolate OS, Controller (Lewis Mills signature) and the 2PC/4PC bar families. Left as unverified sample data (fields are plausible generic BMX bar specs) pending a coordinator decision on whether to retire this row - do not mark verified.'
   },
   {
     id: 'bmx-st-eclat-cortex', cat: 'stem', brand: 'Eclat', model: 'Cortex Stem',
-    clamp: '25.4mm', price: 29.99
+    clamp: '25.4mm', price: 29.99,
+    note: 'UNVERIFIED / FLAGGED 2026-07-17: no "Cortex" stem exists in Eclat\'s current lineup - "Cortex" is only used for Eclat\'s hub/wheel line. Eclat\'s real stems are the Onyx Stem, Burns V2 Top Load, Domain Stem and Mercury Top Loader. Left as unverified sample data pending a coordinator decision; do not mark verified.'
   },
   {
     id: 'bmx-gr-eclat-pulsar', cat: 'grips', brand: 'Eclat', model: 'Pulsar Grips',
-    length: 143, flangeless: true, price: 8.99
+    length: 165, flangeless: true, weight: 168, price: 13.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/eclat-pulsar-grips',
+    note: 'CORRECTED length from 143mm to the maker-stated 165mm (165mm x 29.5mm, ODI-made flangeless mushroom grip). Weight is per pair.'
   },
   {
     id: 'bmx-se-eclat-bios', cat: 'seat', brand: 'Eclat', model: 'Bios Pivotal Seat',
-    system: 'pivotal', price: 24.99
+    system: 'pivotal', weight: 313, price: 38.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/bios-pivotal-seat',
+    note: 'Weight is the Mid-padding figure (Eclat\'s own default/primary listing); Slim = 283g, Fat = 388g are also sold under the same Bios Pivotal Seat product. CORRECTED price from 24.99 to the maker\'s 38.99.'
   },
   {
     id: 'bmx-sp-eclat-bios-post', cat: 'seatpost', brand: 'Eclat', model: 'Bios Pivotal Seatpost',
-    diameter: 25.4, system: 'pivotal', price: 16.99
+    diameter: 25.4, system: 'pivotal', price: 16.99,
+    note: 'UNVERIFIED / FLAGGED 2026-07-17: Eclat does not sell a seatpost named "Bios" - Bios is only their seat name. Eclat\'s actual pivotal seatpost is the Torch Pivotal Seat Post (25.4mm, 135/230/330mm lengths, 91g/131g/-). The diameter and pivotal system here happen to match the real Torch post, so left as unverified sample data rather than deleted; flagged for the coordinator to decide whether to rename to Torch or retire.'
   },
   {
     id: 'bmx-pg-eclat-alloy', cat: 'pegs', brand: 'Eclat', model: 'Alloy Pegs',
-    axleFit: '14mm', material: 'alloy', reducerIncluded: false, price: 27.99
+    axleFit: '14mm', material: 'alloy', reducerIncluded: true, price: 27.99,
+    note: 'CORRECTED reducerIncluded from false to true: Eclat\'s real 14mm alloy pegs (Emery Grit Axle Pegs, Sparrow Axle Peg) ship with a 3/8in adapter included. Kept as a generic "Alloy Pegs" sample entry (matching this catalog\'s convention for other brands\' peg rows, e.g. bmx-pg-cult-alloy) rather than verified, since no single Eclat SKU is literally named "Alloy Pegs".'
   },
   {
     id: 'bmx-pd-eclat-slash', cat: 'pedals', brand: 'Eclat', model: 'Slash Pedals',
-    platform: 'alloy', spindle: '9/16', weight: 345, price: 32.99
+    platform: 'plastic', spindle: '9/16', weight: 389, price: 20.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/slash-pedal',
+    note: 'CORRECTED platform from alloy to plastic (Eclat states injection-moulded nylon/fibreglass body, crmo spindle) and weight from 345g to the maker-stated 389g/pair.'
   },
   {
     id: 'bmx-ti-eclat-fireball-23', cat: 'tire', brand: 'Eclat', model: 'Fireball Tire 2.3"',
-    wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 100, price: 24.99
+    wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 100, weight: 737, price: 39.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://eclatbmx.com/products/fireball-tire-classic-blue-black',
+    note: 'CORRECTED price from 24.99 to the maker\'s 39.99. maxPsi (100) confirmed; weight (737g at 2.3in) is the maker-stated figure.'
   },
 
   // ---- The Shadow Conspiracy depth (parts brand, no frames/forks) ------
