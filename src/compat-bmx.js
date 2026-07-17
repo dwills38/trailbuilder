@@ -1,10 +1,10 @@
 'use strict';
 /* =============================================================================
-   BMX COMPATIBILITY ENGINE — checkBmxBuild  (OFF-LIVE)
+   BMX COMPATIBILITY ENGINE — checkBmxBuild  (LIVE since 2026-07-17)
    -----------------------------------------------------------------------------
-   *** NOT LOADED BY THE LIVE APP. *** index.html does not reference this file;
-   nothing here reaches buildmymtb.com until Douglas's explicit go-live word
-   (CLAUDE.md hard rule 3 — the site may later split per type, e.g. buildmybmx).
+   *** LOADED ONLY BY bmx.html ("BuildMyBMX"), a separate root page. *** index.html
+   still does not reference this file — the MTB app's own behavior is untouched.
+   Wired live on Douglas's explicit go-live word (CLAUDE.md hard rule 3).
 
    ARCHITECTURE (Douglas's sign-off, 2026-07-13 — data/DJ-BMX-COMPAT-ANALYSIS.md
    section 3, Option b): BMX is structurally alien to MTB (BB shells, drivers,

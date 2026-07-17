@@ -3,37 +3,35 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>BuildMyKit — BuildMyMTB</title>
-<meta name="description" content="Build a rider kit — helmets, shoes, apparel, and protection — with a running price and weight. Every piece is optional. A free prototype." />
+<title>BuildMyBMX — BuildMyMTB</title>
+<meta name="description" content="Build a BMX — frame, fork, drivetrain, wheels and cockpit — and see in real time whether the parts fit together, plus running price and weight. A free prototype." />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="BuildMyKit — BuildMyMTB" />
-<meta property="og:description" content="Build a rider kit — helmets, shoes, apparel, and protection — with a running price and weight." />
-<meta property="og:url" content="https://buildmymtb.com/KitBuilder/" />
+<meta property="og:title" content="BuildMyBMX — BuildMyMTB" />
+<meta property="og:description" content="Pick BMX parts and check fit, price, and weight in real time." />
+<meta property="og:url" content="https://buildmymtb.com/bmx.html" />
 <meta property="og:site_name" content="BuildMyMTB" />
-<link rel="canonical" href="https://buildmymtb.com/KitBuilder/" />
+<link rel="canonical" href="https://buildmymtb.com/bmx.html" />
 <meta name="theme-color" id="metaThemeColor" content="#16523a" />
 <!--
-  Kit Builder — a SEPARATE page (Douglas's architecture decision, KIT-BUILDER-SCOPE.md).
-  Shares src/ with the bike builder via ../src relative paths (works on GitHub Pages,
-  localhost, and file://). It loads ONLY ../src/config.js (the KIT_ENABLED gate) and
-  ../src/kit.js (the kit data + totals) — NOT compat.js: kit checks nothing, so it
-  never needs the bike engine. No pop-ups, ever (hard rule 2): the size chart opens on
-  a user click (a <details>), never automatically. Theme is shared via the same
-  localStorage 'tb-theme' key + pre-paint script as index.html.
+  BuildMyBMX — a SEPARATE page (root-level, like index.html), wired live on
+  Douglas's 2026-07-17 go-live word (memory: bmx-golive). Loads src/compat.js
+  (for the shared Verdict/verdictKey primitives — src/compat-bmx.js's browser
+  path reads them off globalThis, so compat.js MUST load first), then
+  src/compat-bmx.js (checkBmxBuild/BMX_GROUPS/BMX_SLOTS/bmxGearInfo/
+  bmxBuildTotals — previously OFF-LIVE, now the live engine for this page),
+  then data/bmx.js (BMX_PARTS — previously OFF-LIVE, now the live catalog for
+  this page). index.html's own <script> list is UNCHANGED: the bike page still
+  never loads the BMX engine or data, so this page adds a new surface without
+  perturbing the MTB engine at all.
 
-  LAYOUT (2026-07-14 redesign): mirrors the Bike Builder's three-pane UX — a LEFT rail
-  (discipline + the 12 kit categories, text-only like the bike rail), a CENTER list of
-  product ROWS for the selected category, and a RIGHT panel with the selected kit +
-  running Kit total. The shared layout primitives (.layout/.chips/#rail/.pcard list
-  rows/.side/.panel/.slot/.total) are REPLICATED verbatim from index.html so the two
-  builders read as one product; index.html is left byte-identical (kit checks nothing,
-  so it must not perturb the bike engine or the bike page). Kit rows carry NO compat
-  dot — the four-state pick dot is a bike-only concept.
+  LAYOUT: mirrors the Bike Builder / Kit Builder three-pane UX — a LEFT rail
+  (discipline + BMX categories, text-only), a CENTER list of product ROWS with
+  a live compat DOT (green/yellow/red/grey, computed locally below — the same
+  four-state contract as compatOf, just over checkBmxBuild instead of
+  checkBuild), and a RIGHT panel with the fit report + selected build + running
+  total. No pop-ups, ever (hard rule 2): nothing here opens without a click.
 -->
 <style>
-  /* ---- theme tokens (mirrored from index.html so both pages read identically in
-     light / dark / loam / rad; the shared 'tb-theme' key means a theme picked on
-     either page carries to the other) ------------------------------------------ */
   :root{
     --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
     --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
@@ -69,7 +67,6 @@
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
        color:var(--ink);background:var(--bg);line-height:1.45}
 
-  /* header — the Topo Contours banner, identical to index.html */
   header{background:var(--hdr-bg);color:#fff;padding:10px 24px;position:sticky;top:0;z-index:40}
   .hdr-topo{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
   html.rad .hdr-topo{display:none}
@@ -93,7 +90,6 @@
   .btn.ghost:hover{background:rgba(255,255,255,.18)}
   .btn.danger{border-color:var(--err);color:var(--err);background:var(--card)}
   .btn.danger:hover{border-color:var(--err);background:var(--err-bg)}
-  /* theme dropdown (compact, mirrors index.html's disclosure pattern) */
   .theme-menu{position:relative;display:inline-block}
   .theme-menu summary{list-style:none;cursor:pointer}
   .theme-menu summary::-webkit-details-marker{display:none}
@@ -115,8 +111,6 @@
   .intro h2{margin:0 0 4px;font-size:22px}
   .intro p{margin:0;color:var(--ink-soft);font-size:14px;max-width:74ch}
 
-  /* ===== shared layout primitives — REPLICATED from index.html for visual parity.
-     Kept deliberately in sync with the Bike Builder; index.html is untouched. ===== */
   .toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:14px 0 12px}
   .toolbar .grow{flex:1 1 auto}
   .btn[aria-pressed="true"],.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
@@ -125,7 +119,6 @@
   .layout{display:grid;grid-template-columns:210px minmax(0,1fr) 330px;gap:20px;align-items:start}
   .layout > *{min-width:0}
 
-  /* left rail — discipline + the 12 kit categories (text-only, like the bike rail) */
   #rail{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;align-self:start;
     position:sticky;top:calc(var(--hdr-h,116px) + 10px);max-height:calc(100vh - var(--hdr-h,116px) - 24px);overflow:auto}
   .rail-h{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft);font-weight:800;margin:16px 0 6px}
@@ -145,7 +138,6 @@
   #rail .chip .c-count{margin-left:auto;font-size:11px;font-weight:700;color:var(--ink-soft);opacity:.8}
   #rail .chip.active .c-count{color:inherit;opacity:.85}
 
-  /* catalog column head: count line + view toggle + sort */
   .cat-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
   .cat-title{font-size:17px;font-weight:800;margin:0}
   .cat-tools{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
@@ -155,7 +147,6 @@
   .viewseg .btn:last-child{border-radius:0 10px 10px 0;margin-left:-1px}
   select.btn{padding-right:8px}
 
-  /* product cards + the dense list rows — SAME DOM in both views (like index.html) */
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:12px;min-width:0}
   .pcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px;display:flex;
     flex-direction:column;gap:6px;position:relative;min-width:0}
@@ -165,12 +156,6 @@
   .pcard .kind{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--brand);font-weight:700}
   .pcard .name{font-weight:700;font-size:14px}
   .pcard .spec{font-size:12px;color:var(--ink-soft);min-height:16px}
-  .kbadges{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
-  .badge{font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:999px;border:1px solid var(--line);
-    background:var(--chip);color:var(--ink-soft);white-space:nowrap}
-  .badge.rot{background:var(--ok-bg);color:var(--ok);border-color:rgba(31,138,76,.25)}
-  .badge.cert{background:var(--warn-bg);color:var(--warn);border-color:rgba(146,64,14,.25)}
-  .badge.sz{background:var(--chip);color:var(--ink-soft);font-weight:600}
   .prov{font-size:11px;min-height:16px}
   .prov .ver{display:inline-flex;align-items:center;gap:3px;background:var(--ok-bg);color:var(--ok);
     font-weight:700;padding:1px 7px;border-radius:999px;text-decoration:none;border:1px solid rgba(31,138,76,.25)}
@@ -179,69 +164,45 @@
   .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:2px}
   .price{font-weight:700;font-size:13px;white-space:nowrap}
   .price .wt{color:var(--ink-soft);font-weight:500;font-size:11px;margin-left:5px}
-  .picks{display:flex;gap:6px}
+  .picks{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
   .pick{border:1px solid var(--brand);color:var(--brand);background:var(--card);border-radius:8px;padding:6px 10px;
     font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap}
   .pick:hover{background:var(--ok-bg)}
   html.dark .pick,html.loam .pick{color:var(--ok)}
   .pick.in{background:var(--brand);color:#fff;border-color:var(--brand)}
-  /* the theme-wide .pick recolor above outranks .pick.in (same/higher specificity) and
-     erased the filled in-kit text — restore white on brand (dark/loam) and dark on the
-     bright rad brand, the exact specificity trap index.html documents for its .pick. */
   html.dark .pick.in,html.loam .pick.in{color:#fff}
   html.rad .pick.in{color:#150029}
-  /* size chart — opens on CLICK only (a <details>), never a pop-up */
-  details.chart{margin-top:2px}
-  details.chart > summary{list-style:none;cursor:pointer;font-size:11px;color:var(--brand);font-weight:700}
-  details.chart > summary::-webkit-details-marker{display:none}
-  html.dark details.chart > summary,html.loam details.chart > summary{color:var(--ok)}
-  details.chart[open] > summary{margin-bottom:4px}
-  table.szc{width:100%;border-collapse:collapse;font-size:11px;color:var(--ink-soft)}
-  table.szc th,table.szc td{border:1px solid var(--line);padding:2px 5px;text-align:left}
 
-  /* ---- dense LIST rows: the bike builder's list treatment, minus the compat dot
-     and thumbnail (kit checks nothing; product photos aren't licensed yet). The
-     row wraps gracefully on narrow columns and snaps to a clean multi-track grid
-     on wide desktop columns (a container query on the catalog column). ---- */
-  .grid.list{display:flex;flex-direction:column;gap:6px;container:kitcat / inline-size}
-  .list .pcard{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:9px 14px}
+  /* compat dot — same four-state palette as the Bike Builder's .dot */
+  .dot{position:absolute;top:11px;right:11px;width:11px;height:11px;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
+  .dot.g{background:#2aa35a}
+  .dot.w{background:#e0a52e}
+  .dot.r{background:#d23b3b}
+  .dot.n{background:#d2d7d1}
+
+  .grid.list{display:flex;flex-direction:column;gap:6px;container:bmxcat / inline-size}
+  .list .pcard{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:9px 14px 9px 22px}
   .list .pcard .namewrap{flex:0 1 220px;min-width:0;display:flex;flex-direction:column;gap:1px}
   .list .pcard .kind{font-size:10px}
   .list .pcard .name{font-size:13px}
   .list .pcard .spec{flex:1 1 150px;min-width:0;min-height:0}
-  .list .pcard .kbadges{flex:none}
   .list .pcard .prov{flex:none;min-height:0}
   .list .pcard .row{margin:0 0 0 auto;flex:none;gap:12px}
-  .list .pcard details.chart{flex-basis:100%}
+  .list .dot{top:50%;transform:translateY(-50%);left:8px;right:auto}
   @media (min-width:769px){
     .grid.list{gap:5px}
-    @container kitcat (min-width:600px){
-      /* align-items:start (not center) is deliberate: col 3 (badges/prov) and col 4
-         (price/pick button) are unequal-height stacks — the pick button alone dwarfs
-         the "Verified" pill — so centering each column independently split them onto
-         different visual baselines (price would float above the button+badges line).
-         Top-aligning locks badges+price onto one shared line and prov+button onto the
-         next, so the row reads as two clean tiers instead of a disconnected price. */
+    @container bmxcat (min-width:600px){
       .list .pcard{display:grid;grid-template-columns:minmax(160px,220px) minmax(130px,1fr) max-content minmax(150px,182px);
-        column-gap:14px;align-items:start;padding:9px 14px}
+        column-gap:14px;align-items:start;padding:9px 14px 9px 22px}
       .list .pcard .namewrap{flex:none}
       .list .pcard .name{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.2}
       .list .pcard .spec{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-top:1px}
-      /* col 3 stacks the cert/size badges above the provenance pill, right-aligned */
       .list .pcard .metacol{display:flex;flex-direction:column;align-items:flex-end;gap:4px;min-width:0}
-      .list .pcard .kbadges{justify-content:flex-end}
-      /* col 4: price on top (level with the badges line), pick button below (level
-         with the provenance line) — both right-anchored */
       .list .pcard .row{margin:0;flex-direction:column;align-items:flex-end;gap:4px}
       .list .pcard .price{padding-top:2px}
-      /* the size-chart disclosure is a full-width row BELOW the 4-column grid, so it
-         only affects the height of the one row that has one — never the row itself */
-      .list .pcard details.chart{grid-column:1 / -1;flex-basis:auto;margin:6px 0 0;
-        padding-top:6px;border-top:1px dashed var(--line)}
     }
   }
 
-  /* right panel — the selected kit + running Kit total (bike builder's .side/.panel) */
   aside .side{position:sticky;top:calc(var(--hdr-h,116px) + 10px);display:flex;flex-direction:column;gap:14px}
   .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
   .panel h2{margin:0 0 8px;font-size:16px}
@@ -261,24 +222,25 @@
   .wrow .more{color:var(--warn);font-weight:700}
   .panel .empty{font-size:12.5px;color:var(--ink-soft);margin-top:4px;line-height:1.5}
   .panel .clr{margin-top:14px;width:100%;justify-content:center}
-  .kit-note{font-size:11px;color:var(--ink-soft);margin-top:12px;line-height:1.45}
+  .bmx-note{font-size:11px;color:var(--ink-soft);margin-top:12px;line-height:1.45}
+
+  .status{display:flex;align-items:center;gap:8px;font-weight:700;border-radius:9px;padding:9px 11px;font-size:14px;margin-bottom:8px}
+  .status.ok{background:var(--ok-bg);color:var(--ok)}
+  .status.warn{background:var(--warn-bg);color:var(--warn)}
+  .status.err{background:var(--err-bg);color:var(--err)}
+  .issue{font-size:12.5px;padding:8px 10px;border-radius:8px;margin-top:7px;display:flex;gap:7px;line-height:1.4}
+  .issue.e{background:var(--err-bg);color:var(--err)}
+  .issue.w{background:var(--warn-bg);color:var(--warn)}
+  .issue.i{background:var(--chip);color:var(--ink-soft)}
+  .issue .mk{font-weight:800;flex:none}
 
   .cat-empty{color:var(--ink-soft);font-size:13px;padding:18px 4px}
-
-  /* the inert (KIT_ENABLED=false) panel */
-  .inert{max-width:620px;margin:40px auto;text-align:center;background:var(--card);border:1px solid var(--line);
-    border-radius:16px;padding:34px 28px}
-  .inert h2{margin:0 0 8px}
-  .inert p{color:var(--ink-soft);margin:0 0 18px}
 
   footer{max-width:1380px;margin:0 auto;padding:22px 24px 40px;color:var(--ink-soft);font-size:12px;border-top:1px solid var(--line)}
   footer a{color:var(--brand)}
   html.dark footer a,html.loam footer a{color:var(--ok)}
 
-  /* ---- responsive: collapse to a single column, rail becomes a swipeable row ---- */
   @media (max-width:880px){
-    /* single column: filters (rail) → products (catalog) → your kit (panel), the
-       natural build-then-review order; the rail becomes a swipeable chip row */
     .layout{grid-template-columns:1fr}
     aside .side{position:static}
     #rail{position:static;max-height:none}
@@ -295,24 +257,14 @@
     .pick{min-height:40px;padding:9px 13px;display:inline-flex;align-items:center;justify-content:center}
     .slot .x{min-width:38px;min-height:38px;display:inline-flex;align-items:center;justify-content:center}
     footer{padding:18px 16px 40px}
-    /* compact list rows on phones: name + price/pick share line 1; spec and the
-       cert/size badges + provenance sit on tight lines below (mirrors the bike
-       builder hiding row chrome on mobile so rows stay ~3 lines, not one-per-field) */
-    .list .pcard{padding:10px 12px;gap:3px 10px;align-items:center}
+    .list .pcard{padding:10px 12px 10px 22px;gap:3px 10px;align-items:center}
     .list .pcard .namewrap{flex:1 1 auto;order:1;min-width:0}
     .list .pcard .row{flex:none;order:2;margin-left:auto;flex-direction:row;align-items:center;gap:12px}
     .list .pcard .spec{flex:1 1 auto;order:3;white-space:normal;min-width:110px}
-    .list .pcard .metacol{flex:1 1 auto;order:4;flex-direction:row;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
-    .list .pcard details.chart{order:5;flex-basis:100%}
   }
 </style>
-<!-- Pre-paint theme guard + shared money/theme helpers (src/ui-common.js) — see
-     that file for details. Shared with index.html via the same 'tb-theme' key. -->
-<script src="../src/ui-common.js"></script>
-<!-- Cloudflare Web Analytics (privacy-first, cookie-less; token is publishable — same
-     committed-constant pattern as REPORT_REPO/src/config.js). Enabled by Douglas 2026-07-16. -->
+<script src="src/ui-common.js"></script>
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "321537b0321746628c925f357de5a74a"}'></script>
-<!-- End Cloudflare Web Analytics -->
 </head>
 <body>
 <header>
@@ -329,12 +281,11 @@
     <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
   </svg>
   <div class="wrap">
-    <h1><a href="../" aria-label="BuildMyMTB — home">🚵 BuildMyMTB</a></h1>
-    <span class="page-tag">BuildMyKit</span>
+    <h1><a href="/" aria-label="BuildMyMTB — home">🚵 BuildMyMTB</a></h1>
+    <span class="page-tag">BuildMyBMX</span>
     <span class="spacer"></span>
-    <!-- same-style button back to the Bike Builder (Douglas's requirement) -->
-    <a class="btn ghost" href="../" title="Back to the Bike Builder">🚴 Bike Builder</a>
-    <a class="btn ghost" href="../bmx.html" title="BMX — frame, fork, drivetrain, wheels &amp; cockpit">🏁 BuildMyBMX</a>
+    <a class="btn ghost" href="/" title="Back to the Bike Builder">🚴 Bike Builder</a>
+    <a class="btn ghost" href="KitBuilder/" title="Rider kit — helmets, shoes, apparel &amp; protection">🧰 BuildMyKit</a>
     <details class="theme-menu" id="themeMenu">
       <summary class="btn ghost" title="Theme">🎨</summary>
       <div class="theme-pop" role="menu">
@@ -346,40 +297,31 @@
     </details>
   </div>
 </header>
-<div class="honesty-strip"><span class="badge">Prototype · sample data</span> Rider kit — every piece is optional. Kit is independent of your bike build; it checks nothing, it just totals.</div>
+<div class="honesty-strip"><span class="badge">Prototype · sample data</span> BuildMyBMX checks BB shell/spindle, brake mounts, peg/axle fit, seat/post system, wheel size and chain pitch as you pick parts.</div>
 
-<main id="kitMain"><!-- rendered by the script below --></main>
+<main id="bmxMain"><!-- rendered by the script below --></main>
 
-<footer id="kitFooter" hidden>
+<footer id="bmxFooter">
   Prices &amp; weights are approximate <strong>sample data</strong> — not verified against manufacturers unless a ✓ badge says so.
-  Kit selections are saved on this device only. · <a href="../">← Bike Builder</a>
+  Builds are saved on this device only. · <a href="/">← Bike Builder</a> · <a href="KitBuilder/">BuildMyKit →</a>
 </footer>
 
-<script src="../src/config.js"></script>
-<script src="../src/kit.js"></script>
+<script src="src/compat.js"></script>
+<script src="src/compat-bmx.js"></script>
+<script src="data/bmx.js"></script>
 <script>
 /* ==========================================================================
-   Kit Builder page glue (browser-only; not type-checked, like index.html's
-   inline script). Reads KIT_ENABLED (config.js) + KIT_GROUPS/KIT_SLOTS/
-   KIT_PARTS/kitById/kitTotals (kit.js). No pop-ups; no compat dots (kit
-   checks nothing). Mirrors the Bike Builder's three-pane render split:
-   renderRail() + renderCatalog() + renderPanel() populate their own
-   containers, so a pick re-renders only what changed.
+   BuildMyBMX page glue (browser-only; not type-checked, like index.html's
+   inline script). Reads BMX_GROUPS/BMX_SLOTS/BMX_PARTS/checkBmxBuild/
+   bmxGearInfo/bmxBuildTotals/bmxSlotRequired (src/compat-bmx.js + data/bmx.js)
+   and the shared Verdict/verdictKey primitives (src/compat.js, loaded first).
    ========================================================================== */
 (function(){
   'use strict';
   var $ = function(id){ return document.getElementById(id); };
-  // esc(): Kit Builder deliberately never loads compat.js (see the head comment —
-  // "kit checks nothing, so it never needs the bike engine"), so it keeps its own
-  // copy rather than sharing compat.js's tested one the way index.html does.
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
-  var money = tbMoney;   // shared with index.html via src/ui-common.js
-  var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg / ' + (g/453.592).toFixed(2) + ' lb)'; };
+  var money = tbMoney;
 
-  /* ---- theme toggle (compact; same 'tb-theme' key + <html> class as index.html).
-     Class/localStorage/meta-tint application is shared (tbApplyTheme, tbCurrentTheme,
-     TB_THEME_META from src/ui-common.js); only this page's button-marking + menu-close
-     + header-height resync are local. ---- */
   (function(){
     function mark(name){
       var btns=document.querySelectorAll('.theme-pop [data-theme]');
@@ -394,153 +336,154 @@
     var btns=document.querySelectorAll('.theme-pop [data-theme]');
     for(var i=0;i<btns.length;i++){ (function(b){ b.onclick=function(){ set(b.getAttribute('data-theme')); }; })(btns[i]); }
     mark(tbCurrentTheme());
-    // close the theme menu on an outside click (a click the USER makes — not a pop-up)
     document.addEventListener('click', function(e){ var d=$('themeMenu'); if(d&&d.open&&!d.contains(e.target)) d.open=false; });
   })();
 
-  /* keep --hdr-h synced to the real header height so the sticky rail/panel clear it */
   function syncHdr(){ var h=document.querySelector('header'); if(h) document.documentElement.style.setProperty('--hdr-h', h.offsetHeight+'px'); }
   window.addEventListener('resize', syncHdr); syncHdr();
 
-  var main = $('kitMain');
+  var main = $('bmxMain');
 
-  /* ---- feature gate: inert "coming soon" when KIT_ENABLED is false ---------- */
-  if(typeof KIT_ENABLED === 'undefined' || !KIT_ENABLED){
-    main.innerHTML =
-      '<div class="inert">' +
-        '<h2>🧰 BuildMyKit — coming soon</h2>' +
-        '<p>The rider-kit builder (helmets, shoes, apparel, and protection) is being built. ' +
-        'It will let you assemble a full kit with a running price and weight.</p>' +
-        '<a class="btn primary" href="../">🚴 Back to the Bike Builder</a>' +
-      '</div>';
-    return;
-  }
-  $('kitFooter').hidden = false;
+  /* ---- lookups derived from the engine + data (one source of truth) -------- */
+  var BY_ID = {}; BMX_PARTS.forEach(function(p){ BY_ID[p.id] = p; });
+  function bmxById(id){ return BY_ID[id]; }
+  var CATSLOTS = {}; BMX_SLOTS.forEach(function(s){ (CATSLOTS[s.cat] = CATSLOTS[s.cat] || []).push(s.key); });
+  var SLOT_LABEL = {}; BMX_SLOTS.forEach(function(s){ SLOT_LABEL[s.key] = s.label; });
+  var CAT_ORDER = {}; BMX_SLOTS.forEach(function(s,i){ if(!(s.cat in CAT_ORDER)) CAT_ORDER[s.cat] = i; });
+  var CATLABEL = {
+    frame:'Frame', fork:'Fork', headset:'Headset', cranks:'Cranks', bb:'Bottom Bracket',
+    sprocket:'Sprocket', chain:'Chain', rearCog:'Rear Cog', frontWheel:'Front Wheel',
+    rearWheel:'Rear Wheel / Hub', tire:'Tires', brake:'Brakes', gyro:'Gyro / Detangler',
+    pegs:'Pegs', handlebar:'Handlebar', stem:'Stem', grips:'Grips', seat:'Seat',
+    seatpost:'Seatpost', pedals:'Pedals'
+  };
+  function catLabel(c){ return CATLABEL[c] || c; }
+  var REQUIRED_KEYS = BMX_SLOTS.filter(bmxSlotRequired).map(function(s){ return s.key; });
 
-  /* ---- category + label metadata (derived from kit.js, one source of truth) --- */
-  var CATLABEL = {};   KIT_SLOTS.forEach(function(s){ CATLABEL[s.cat] = s.label; });
-  var catLabel = function(c){ return CATLABEL[c] || c; };
-  var GROUP_OF = {};   KIT_SLOTS.forEach(function(s){ GROUP_OF[s.cat] = s.group; });
-  var SLOTKEY_OF = {}; KIT_SLOTS.forEach(function(s){ SLOTKEY_OF[s.cat] = s.key; });   // one slot per cat
-  var CAT_ORDER = {};  KIT_SLOTS.forEach(function(s,i){ CAT_ORDER[s.cat] = i; });
-
-  /* ---- selection + filter state -------------------------------------------- */
-  var LS_KEY = 'tb-kit-build';
-  /** slotKey -> part id (one slot per category) */
+  /* ---- selection + filter state --------------------------------------------- */
+  var LS_KEY = 'tb-bmx-build';
+  /** slotKey -> part id */
   var KB = {};
-  var activeCat = 'all';                                      // 'all' | a kit category
-  var disciplineFilter = 'all';                              // 'all' | discipline token
+  var activeCat = 'all';
+  var disciplineFilter = 'all';   // 'all' | 'freestyle' | 'race' — absence on a part = universal
   var verifiedOnly = false;
-  var viewMode = 'list';  try{ if(localStorage.getItem('tb-kit-view')==='cards') viewMode='cards'; }catch(e){}
+  var viewMode = 'list'; try{ if(localStorage.getItem('tb-bmx-view')==='cards') viewMode='cards'; }catch(e){}
   var sortBy = 'featured';
 
   (function load(){
     var raw=null; try{ raw=localStorage.getItem(LS_KEY); }catch(e){}
     if(!raw) return;
     try{
-      var obj=JSON.parse(raw), slotKeys={};
-      KIT_SLOTS.forEach(function(s){ slotKeys[s.key]=s.cat; });
+      var obj=JSON.parse(raw), slotCat={};
+      BMX_SLOTS.forEach(function(s){ slotCat[s.key]=s.cat; });
       Object.keys(obj).forEach(function(k){
-        var p=kitById(obj[k]);
-        // survive only if the slot is real AND the part's category matches it
-        if(p && slotKeys[k] && p.cat===slotKeys[k]) KB[k]=p.id;
+        var p=bmxById(obj[k]);
+        if(p && slotCat[k] && p.cat===slotCat[k]) KB[k]=p.id;
       });
     }catch(e){}
   })();
   function save(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(KB)); }catch(e){} }
+  function resolvedBuild(){ var out={}; Object.keys(KB).forEach(function(k){ var p=bmxById(KB[k]); if(p) out[k]=p; }); return out; }
 
-  /* which disciplines actually appear in the catalog (ordered by travel, DH first) */
-  var DISC_ORDER = ['dh','enduro','trail','xc','dj'];
-  var DISC_LABELS = { all:'All disciplines', xc:'XC', trail:'Trail', enduro:'Enduro', dh:'DH', dj:'DJ' };
+  var DISC_LABELS = { all:'All disciplines', freestyle:'Freestyle', race:'Race' };
   var presentDiscs = (function(){
-    var seen={}; KIT_PARTS.forEach(function(p){ (p.disciplines||[]).forEach(function(d){ seen[d]=1; }); });
-    return DISC_ORDER.filter(function(d){ return seen[d]; });
+    var seen={}; BMX_PARTS.forEach(function(p){ if(p.discipline) seen[p.discipline]=1; });
+    return Object.keys(seen).sort();
   })();
-  var anyVerified = KIT_PARTS.some(function(p){ return p.verified===true && p.source; });
+  var anyVerified = BMX_PARTS.some(function(p){ return p.verified===true && p.source; });
 
-  /* ---- display helpers ------------------------------------------------------ */
-  var HELMET_TYPE={'half-shell':'Half-shell','full-face':'Full-face','convertible':'Convertible'};
-  var SOLE={flat:'Flat pedal',clipless:'Clipless (SPD)'};
-  var EYEWEAR={glasses:'Glasses',goggles:'Goggles'};
-  var COVERAGE={back:'Back',chest:'Chest','chest-back':'Chest + back'};
-  var SLEEVE={short:'Short sleeve',long:'Long sleeve'};
-  var CERT_LABEL={cpsc:'CPSC',en1078:'EN 1078','astm-f1952':'ASTM F1952','ansi-z87':'ANSI Z87','en166':'EN 166',
-    'en1621-1-l1':'EN 1621-1 L1','en1621-1-l2':'EN 1621-1 L2','en1621-2-l1':'EN 1621-2 L1','en1621-2-l2':'EN 1621-2 L2','en1621-3':'EN 1621-3'};
-  var PER_PAIR={kneepad:1,elbowpad:1,shinguard:1};
+  function passesNonCat(p){
+    if(verifiedOnly && !(p.verified===true && p.source)) return false;
+    if(disciplineFilter!=='all' && p.discipline && p.discipline!==disciplineFilter) return false;
+    return true;
+  }
 
+  /* ---- BMX-local compat dot: same four-state contract as the Bike Builder's
+     compatOf, computed over checkBmxBuild instead of checkBuild. BMX has no
+     presets (bundleActive concept), so this is the single-part branch only,
+     extended to try every slot a multi-slot category can fill (tire/brake/
+     pegs) and report the best (green > yellow > red). ---- */
+  function bmxPlacementDiff(part, slotKey, build){
+    var base = Object.assign({}, build); delete base[slotKey];
+    var before = checkBmxBuild(base);
+    var beforeE = before.errors.map(verdictKey), beforeW = before.warnings.map(verdictKey);
+    var test = Object.assign({}, base); test[slotKey] = part;
+    var after = checkBmxBuild(test);
+    var e=null, w=null;
+    for(var i=0;i<after.errors.length;i++){ if(beforeE.indexOf(verdictKey(after.errors[i]))<0){ e=String(after.errors[i]); break; } }
+    for(var j=0;j<after.warnings.length;j++){ if(beforeW.indexOf(verdictKey(after.warnings[j]))<0){ w=String(after.warnings[j]); break; } }
+    return { error:e, warning:w };
+  }
+  function bmxCompatOf(p, build){
+    if(Object.keys(build).length===0) return {state:'n', reason:'Pick some parts first to check fit'};
+    var slots = CATSLOTS[p.cat] || [];
+    var firstErr=null, firstWarn=null;
+    for(var i=0;i<slots.length;i++){
+      var d = bmxPlacementDiff(p, slots[i], build);
+      if(!d.error && !d.warning) return {state:'g', reason:'No conflicts with your current build'};
+      if(!d.error){ if(firstWarn===null) firstWarn=d.warning; }
+      else if(firstErr===null) firstErr=d.error;
+    }
+    if(firstWarn!==null) return {state:'w', reason:firstWarn};
+    return {state:'r', reason:(firstErr||'Conflicts with your current build')};
+  }
+
+  /* ---- display helpers -------------------------------------------------------- */
   function specLine(p){
     var bits=[];
-    if(p.cat==='helmet') bits.push(HELMET_TYPE[p.type]||p.type);
-    if(p.cat==='shoes'){ bits.push(SOLE[p.soleType]||p.soleType); if(p.closure) bits.push(p.closure.charAt(0).toUpperCase()+p.closure.slice(1)); }
-    if(p.cat==='eyewear') bits.push(EYEWEAR[p.type]||p.type);
-    if(p.cat==='jersey' && p.sleeve) bits.push(SLEEVE[p.sleeve]||p.sleeve);
-    if((p.cat==='shorts'||p.cat==='pants') && p.liner===true) bits.push('With liner');
-    if(p.cat==='bodyarmor' && p.coverage) bits.push(COVERAGE[p.coverage]||p.coverage);
-    if(PER_PAIR[p.cat]) bits.push('Per pair');
-    if(p.disciplines && p.disciplines.length) bits.push(p.disciplines.map(function(d){ return d.toUpperCase(); }).join('/'));
-    return bits.join(' · ');
-  }
-  /** compact size summary for a row: a short list, else first–last */
-  function sizeSummary(p){
-    if(!p.sizes || !p.sizes.length) return '';
-    if(p.sizes.length<=3) return p.sizes.join(' · ');
-    return p.sizes[0]+'–'+p.sizes[p.sizes.length-1];
-  }
-  function badgesHtml(p){
-    var b='';
-    if(p.rotational) b+='<span class="badge rot">'+esc(p.rotational.toUpperCase().replace('-',' '))+'</span>';
-    if(p.certs) p.certs.forEach(function(c){ b+='<span class="badge cert">'+esc(CERT_LABEL[c]||c)+'</span>'; });
-    if(p.fitCut && p.fitCut!=='unisex') b+='<span class="badge">'+esc(p.fitCut.charAt(0).toUpperCase()+p.fitCut.slice(1))+'</span>';
-    var sz=sizeSummary(p); if(sz) b+='<span class="badge sz" title="Offered sizes">'+esc(sz)+'</span>';
-    return b;
+    switch(p.cat){
+      case 'frame': bits.push(p.wheelSize+'in'); bits.push(p.bbShell+' shell'); if(typeof p.topTube==='number') bits.push(p.topTube+'in TT'); bits.push(p.frameOnly?'Frame only':'Frame + fork'); break;
+      case 'fork': bits.push(p.wheelSize+'in'); bits.push(p.axle+' axle'); bits.push(p.brakeMount==='none'?'No brake mount':p.brakeMount+' mount'); break;
+      case 'headset': bits.push(p.fit); break;
+      case 'cranks': bits.push(p.spindle+' spindle'); bits.push(p.pieces); break;
+      case 'bb': bits.push(p.shell+' shell'); bits.push(p.spindleFit+' spindle'); break;
+      case 'sprocket': bits.push(p.teeth+'T'); bits.push(p.pitch+'in pitch'); break;
+      case 'chain': bits.push(p.pitch+'in pitch'); if(p.halfLink) bits.push('Half-link'); break;
+      case 'rearCog': bits.push(p.teeth+'T'); bits.push(p.fitsDriver+' driver'); break;
+      case 'frontWheel': bits.push(p.wheelSize+'in'); bits.push(p.axle+' axle'); break;
+      case 'rearWheel': bits.push(p.driverType); bits.push(p.driverTeeth+'T driver'); if(p.side) bits.push(p.side); break;
+      case 'tire': bits.push(p.wheelSize+'in'); bits.push(p.width+'in width'); if(p.casing) bits.push(p.casing); break;
+      case 'brake': bits.push(p.mount); break;
+      case 'gyro': bits.push(p.cableRouting+' cable'); break;
+      case 'pegs': bits.push(p.axleFit+' bore'); bits.push(p.material); break;
+      case 'handlebar': bits.push(p.clamp+' clamp'); if(typeof p.rise==='number') bits.push(p.rise+'in rise'); break;
+      case 'stem': bits.push(p.clamp+' clamp'); break;
+      case 'grips': bits.push(p.length+'mm'); break;
+      case 'seat': bits.push(p.system); break;
+      case 'seatpost': bits.push(p.diameter+'mm'); bits.push(p.system); break;
+      case 'pedals': bits.push(p.platform); bits.push(p.spindle); break;
+    }
+    if(p.discipline) bits.push(p.discipline.charAt(0).toUpperCase()+p.discipline.slice(1));
+    return bits.filter(Boolean).join(' · ');
   }
   function provHtml(p){
-    // kit uses the same provenance tiers as the bike catalog: a ✓ pill when
-    // verified against a source, otherwise an honest "sample" note.
     if(p.verified===true && p.source) return '<a class="ver" href="'+esc(p.source)+'" target="_blank" rel="noopener nofollow">✓ Verified</a>';
     return '<span class="est">Sample spec (unverified)</span>';
   }
-  function chartHtml(p){
-    if(!p.sizeChart) return '';
-    var labels=Object.keys(p.sizeChart); if(!labels.length) return '';
-    var measures={}; labels.forEach(function(l){ Object.keys(p.sizeChart[l]).forEach(function(m){ measures[m]=1; }); });
-    var cols=Object.keys(measures);
-    var rows=labels.map(function(l){
-      var tds=cols.map(function(m){
-        var v=p.sizeChart[l][m];
-        var txt = v==null ? '—' : (Array.isArray(v) ? (v[0]+'–'+v[1]) : String(v));
-        return '<td>'+esc(txt)+'</td>';
-      }).join('');
-      return '<tr><th>'+esc(l)+'</th>'+tds+'</tr>';
-    }).join('');
-    var head='<tr><th>Size</th>'+cols.map(function(m){ return '<th>'+esc(m)+' (cm)</th>'; }).join('')+'</tr>';
-    // a user-opened <details> — NOT a pop-up (hard rule 2)
-    return '<details class="chart"><summary>Size chart</summary><table class="szc"><thead>'+head+'</thead><tbody>'+rows+'</tbody></details>';
-  }
 
-  /* ---- static skeleton (built once) ----------------------------------------- */
+  /* ---- static skeleton -------------------------------------------------------- */
   function skeleton(){
     return ''
-      + '<div class="intro"><h2>🧰 BuildMyKit</h2>'
-      + '<p>Assemble your riding kit — helmets, shoes, apparel, and protection — and watch the price and weight add up. '
-      + 'Every piece is optional; pick a category on the left, then add what you ride in. This is a separate build from your bike.</p></div>'
+      + '<div class="intro"><h2>🏁 BuildMyBMX</h2>'
+      + '<p>Pick a frame, fork, drivetrain, wheels and cockpit and watch fit, price and weight update live. '
+      + 'Brakeless builds are fully supported — a bossless frame with no brake picked is a complete build, not an error.</p></div>'
       + '<div class="toolbar">'
-      +   (anyVerified ? '<button type="button" class="btn" id="kVerified" title="Show only kit verified against a manufacturer/standards source" aria-pressed="false">✓ Verified only</button>' : '')
+      +   (anyVerified ? '<button type="button" class="btn" id="bVerified" title="Show only parts verified against a manufacturer source" aria-pressed="false">✓ Verified only</button>' : '')
       +   '<span class="grow"></span>'
-      +   '<button type="button" class="btn danger" id="kClear" title="Clear every selected piece">↺ Clear kit</button>'
+      +   '<button type="button" class="btn danger" id="bClear" title="Clear every selected part">↺ Clear build</button>'
       + '</div>'
       + '<div class="layout">'
-      +   '<nav id="rail" aria-label="Kit filters"></nav>'
-      +   '<section aria-label="Kit catalog">'
+      +   '<nav id="rail" aria-label="BMX filters"></nav>'
+      +   '<section aria-label="BMX catalog">'
       +     '<div class="cat-head">'
-      +       '<h2 class="cat-title" id="kCatTitle" aria-live="polite"></h2>'
+      +       '<h2 class="cat-title" id="bCatTitle" aria-live="polite"></h2>'
       +       '<div class="cat-tools">'
-      +         '<span class="catcount" id="kCatCount" aria-live="polite"></span>'
+      +         '<span class="catcount" id="bCatCount" aria-live="polite"></span>'
       +         '<span class="viewseg" role="group" aria-label="Catalog view">'
-      +           '<button type="button" class="btn" id="kViewCards" aria-pressed="false" title="Card grid">▦ Cards</button>'
-      +           '<button type="button" class="btn primary" id="kViewList" aria-pressed="true" title="Dense list — one row each">☰ List</button>'
+      +           '<button type="button" class="btn" id="bViewCards" aria-pressed="false" title="Card grid">▦ Cards</button>'
+      +           '<button type="button" class="btn primary" id="bViewList" aria-pressed="true" title="Dense list — one row each">☰ List</button>'
       +         '</span>'
-      +         '<select class="btn" id="kSort" title="Sort the catalog" aria-label="Sort the catalog">'
+      +         '<select class="btn" id="bSort" title="Sort the catalog" aria-label="Sort the catalog">'
       +           '<option value="featured">Sort: Featured</option>'
       +           '<option value="name">Name A–Z</option>'
       +           '<option value="price-asc">Price: low → high</option>'
@@ -550,13 +493,13 @@
       +         '</select>'
       +       '</div>'
       +     '</div>'
-      +     '<div class="grid" id="kCatalog"></div>'
+      +     '<div class="grid" id="bCatalog"></div>'
       +   '</section>'
-      +   '<aside><div class="side"><div class="panel" id="kPanel"></div></div></aside>'
+      +   '<aside><div class="side"><div class="panel" id="bReport"></div><div class="panel" id="bPanel"></div></div></aside>'
       + '</div>';
   }
 
-  /* ---- left rail: discipline filter + the 12 kit categories ------------------ */
+  /* ---- left rail: discipline filter + BMX categories ------------------------- */
   function mkChip(label, active, onClick, extraHtml){
     var b=document.createElement('button');
     b.type='button';
@@ -566,93 +509,102 @@
     b.onclick=onClick;
     return b;
   }
-  function partsFor(cat){ return KIT_PARTS.filter(function(p){ return p.cat===cat; }); }
-  function countFor(cat){   // count respecting the discipline + verified filters (not the category)
-    return KIT_PARTS.filter(function(p){ return p.cat===cat && passesNonCat(p); }).length;
+  function countFor(cat){
+    return BMX_PARTS.filter(function(p){ return p.cat===cat && passesNonCat(p); }).length;
   }
-  function passesNonCat(p){
-    if(verifiedOnly && !(p.verified===true && p.source)) return false;
-    if(disciplineFilter!=='all' && (!p.disciplines || p.disciplines.indexOf(disciplineFilter)<0)) return false;
-    return true;
+  function catsForGroup(g){
+    var seen={}, out=[];
+    g.slots.forEach(function(s){ if(!seen[s.cat]){ seen[s.cat]=1; out.push(s.cat); } });
+    return out;
   }
 
   function renderRail(){
     var rail=$('rail'); rail.innerHTML='';
-    // Discipline
     if(presentDiscs.length){
       var dh=document.createElement('div'); dh.className='rail-h'; dh.textContent='Discipline'; rail.appendChild(dh);
-      var dc=document.createElement('div'); dc.className='chips'; dc.setAttribute('role','group'); dc.setAttribute('aria-label','Filter by riding discipline — pieces without a tag are universal and always show');
+      var dc=document.createElement('div'); dc.className='chips'; dc.setAttribute('role','group'); dc.setAttribute('aria-label','Filter by BMX discipline — parts without a tag are universal and always show');
       dc.appendChild(mkChip(DISC_LABELS.all, disciplineFilter==='all', function(){ disciplineFilter='all'; onFilterChange(); }));
       presentDiscs.forEach(function(d){ dc.appendChild(mkChip(DISC_LABELS[d]||d, disciplineFilter===d, function(){ disciplineFilter=d; onFilterChange(); })); });
       rail.appendChild(dc);
     }
-    // Category (the 12 kit categories, grouped by anatomical section as a secondary organization)
     var ch=document.createElement('div'); ch.className='rail-h'; ch.textContent='Category'; rail.appendChild(ch);
     var allWrap=document.createElement('div'); allWrap.className='chips';
-    allWrap.appendChild(mkChip('All kit', activeCat==='all', function(){ activeCat='all'; onCatChange(); },
-      '<span class="c-count">'+KIT_PARTS.filter(passesNonCat).length+'</span>'));
+    allWrap.appendChild(mkChip('All parts', activeCat==='all', function(){ activeCat='all'; onCatChange(); },
+      '<span class="c-count">'+BMX_PARTS.filter(passesNonCat).length+'</span>'));
     rail.appendChild(allWrap);
-    KIT_GROUPS.forEach(function(g){
+    BMX_GROUPS.forEach(function(g){
       var sub=document.createElement('div'); sub.className='rail-sub'; sub.textContent=g.label; rail.appendChild(sub);
       var cc=document.createElement('div'); cc.className='chips'; cc.setAttribute('role','group'); cc.setAttribute('aria-label',g.label+' categories');
-      g.slots.forEach(function(slot){
-        var n=countFor(slot.cat);
-        cc.appendChild(mkChip(slot.label, activeCat===slot.cat, (function(cat){ return function(){ activeCat=cat; onCatChange(); }; })(slot.cat),
+      catsForGroup(g).forEach(function(cat){
+        var n=countFor(cat);
+        cc.appendChild(mkChip(catLabel(cat), activeCat===cat, (function(c){ return function(){ activeCat=c; onCatChange(); }; })(cat),
           '<span class="c-count">'+n+'</span>'));
       });
       rail.appendChild(cc);
     });
   }
 
-  /* ---- centre: the product list rows for the active category ----------------- */
+  /* ---- centre: product rows for the active category --------------------------- */
   function rowEl(p){
-    var slotKey=SLOTKEY_OF[p.cat], inKit=KB[slotKey]===p.id;
+    var build = resolvedBuild();
+    var slots = CATSLOTS[p.cat] || [];
+    var inAny = slots.some(function(k){ return KB[k]===p.id; });
+    var compat = bmxCompatOf(p, build);
     var card=document.createElement('div');
-    card.className='pcard'+(inKit?' selected':'');
+    card.className='pcard'+(inAny?' selected':'');
 
     var wt = typeof p.weight==='number' ? '<span class="wt">'+p.weight.toLocaleString()+' g</span>' : '';
-    var badges=badgesHtml(p);
-    var metaInner = (badges?'<div class="kbadges">'+badges+'</div>':'') + '<div class="prov">'+provHtml(p)+'</div>';
 
     card.innerHTML =
-        '<div class="namewrap"><div class="kind">'+esc(catLabel(p.cat))+'</div>'
+        '<span class="dot '+compat.state+'" role="img" aria-label="Compatibility: '+esc(compat.reason)+'" title="'+esc(compat.reason)+'"></span>'
+      + '<div class="namewrap"><div class="kind">'+esc(catLabel(p.cat))+'</div>'
       +   '<div class="name">'+esc(p.brand)+' '+esc(p.model)+'</div></div>'
       + '<div class="spec">'+esc(specLine(p))+'</div>'
-      + '<div class="metacol">'+metaInner+'</div>'
+      + '<div class="metacol"><div class="prov">'+provHtml(p)+'</div></div>'
       + '<div class="row"><span class="price">'+money(p.price)+' '+wt+'</span>'
-      +   '<span class="picks"><button type="button" class="pick'+(inKit?' in':'')+'">'+(inKit?'✓ In kit':'Add to kit')+'</button></span></div>'
-      + chartHtml(p);
+      +   '<span class="picks"></span></div>';
 
-    card.querySelector('.pick').onclick=function(){
-      if(KB[slotKey]===p.id) delete KB[slotKey]; else KB[slotKey]=p.id;
-      save(); renderCatalog(); renderPanel();
-    };
+    var picks = card.querySelector('.picks');
+    if(slots.length===1){
+      var k=slots[0], inB=KB[k]===p.id;
+      var btn=document.createElement('button'); btn.type='button';
+      btn.className='pick'+(inB?' in':''); btn.textContent = inB?'✓ In build':'Add to build';
+      btn.onclick=function(){ if(KB[k]===p.id) delete KB[k]; else KB[k]=p.id; save(); sync(); };
+      picks.appendChild(btn);
+    } else {
+      slots.forEach(function(k){
+        var inB=KB[k]===p.id;
+        var btn=document.createElement('button'); btn.type='button';
+        btn.className='pick'+(inB?' in':''); btn.textContent = (inB?'✓ ':'')+SLOT_LABEL[k].split(' ')[0];
+        btn.onclick=function(){ if(KB[k]===p.id) delete KB[k]; else KB[k]=p.id; save(); sync(); };
+        picks.appendChild(btn);
+      });
+    }
     return card;
   }
 
   function renderCatalog(){
-    var el=$('kCatalog'); el.innerHTML='';
+    var el=$('bCatalog'); el.innerHTML='';
     el.classList.toggle('list', viewMode==='list');
 
-    var list=KIT_PARTS.filter(function(p){
+    var list=BMX_PARTS.filter(function(p){
       if(activeCat!=='all' && p.cat!==activeCat) return false;
       return passesNonCat(p);
     });
 
-    // title + count
-    $('kCatTitle').textContent = activeCat==='all' ? 'All kit' : catLabel(activeCat);
-    var totalInScope = KIT_PARTS.filter(function(p){ return activeCat==='all' || p.cat===activeCat; }).length;
-    $('kCatCount').textContent = 'Showing '+list.length+' of '+totalInScope+' product'+(totalInScope===1?'':'s');
+    $('bCatTitle').textContent = activeCat==='all' ? 'All parts' : catLabel(activeCat);
+    var totalInScope = BMX_PARTS.filter(function(p){ return activeCat==='all' || p.cat===activeCat; }).length;
+    $('bCatCount').textContent = 'Showing '+list.length+' of '+totalInScope+' product'+(totalInScope===1?'':'s');
 
     if(!list.length){
       el.classList.remove('list');
-      el.innerHTML='<div class="cat-empty">'+(verifiedOnly?'No verified pieces here yet — toggle “✓ Verified only” off to see sample pieces.':
-        disciplineFilter!=='all'?'No pieces tagged for this discipline here — try “All disciplines”.':
-        'No products in this category yet — more are coming with the catalog grind.')+'</div>';
+      el.innerHTML='<div class="cat-empty">'+(verifiedOnly?'No verified parts here yet — toggle “✓ Verified only” off to see sample parts.':
+        disciplineFilter!=='all'?'No parts tagged for this discipline here — try “All disciplines”.':
+        'No products in this category yet.')+'</div>';
       return;
     }
 
-    var idx={}; KIT_PARTS.forEach(function(p,i){ idx[p.id]=i; });
+    var idx={}; BMX_PARTS.forEach(function(p,i){ idx[p.id]=i; });
     var wt=function(p,missing){ return typeof p.weight==='number'? p.weight : missing; };
     var SORTS={
       featured:      function(a,b){ return (CAT_ORDER[a.cat]-CAT_ORDER[b.cat]) || (idx[a.id]-idx[b.id]); },
@@ -666,21 +618,35 @@
     list.forEach(function(p){ el.appendChild(rowEl(p)); });
   }
 
-  /* ---- right panel: the selected kit + running Kit total --------------------- */
+  /* ---- right panels: fit report, then the selected build + running total ------ */
+  function renderReport(){
+    var build = resolvedBuild();
+    var r = checkBmxBuild(build);
+    var n = Object.keys(KB).length, html='';
+    if(n===0) html='<div class="status warn">Add parts to start checking.</div>';
+    else if(r.errors.length) html='<div class="status err">✗ '+r.errors.length+' problem'+(r.errors.length>1?'s':'')+'</div>';
+    else if(r.warnings.length) html='<div class="status warn">⚠ '+r.warnings.length+' thing'+(r.warnings.length>1?'s':'')+' to check</div>';
+    else html='<div class="status ok">✓ No conflicts found</div>';
+    r.errors.forEach(function(v){ html+='<div class="issue e"><span class="mk">✗</span><span>'+esc(String(v))+'</span></div>'; });
+    r.warnings.forEach(function(v){ html+='<div class="issue w"><span class="mk">⚠</span><span>'+esc(String(v))+'</span></div>'; });
+    r.infos.forEach(function(v){ html+='<div class="issue i"><span class="mk">i</span><span>'+esc(String(v))+'</span></div>'; });
+    $('bReport').innerHTML = html;
+  }
+
   function renderPanel(){
-    var host=$('kPanel');
-    var build={}; Object.keys(KB).forEach(function(k){ var p=kitById(KB[k]); if(p) build[k]=p; });
-    var t=kitTotals(build);
+    var host=$('bPanel');
+    var build = resolvedBuild();
+    var t = bmxBuildTotals(build);
+    var filled = REQUIRED_KEYS.filter(function(k){ return KB[k]; }).length;
 
-    var h='<h2>Your Kit</h2><div class="muted">'+t.count+' piece'+(t.count===1?'':'s')+' selected</div>';
+    var h='<h2>Your Build</h2><div class="muted">'+Object.keys(build).length+' part'+(Object.keys(build).length===1?'':'s')+' selected · '+filled+'/'+REQUIRED_KEYS.length+' required slots filled</div>';
 
-    // selected items, in slot (head→feet) order
     var picked='';
-    KIT_SLOTS.forEach(function(s){
-      var p=kitById(KB[s.key]); if(!p) return;
+    BMX_SLOTS.forEach(function(s){
+      var p=bmxById(KB[s.key]); if(!p) return;
       var vchk = (p.verified===true && p.source) ? ' <span class="vchk" title="Verified against a source">✓</span>' : '';
       var pr = (typeof p.weight==='number'? p.weight+' g · ':'') + money(p.price);
-      picked+='<div class="slot"><div class="sl-main"><div class="sl-cat">'+esc(catLabel(p.cat))+'</div>'
+      picked+='<div class="slot"><div class="sl-main"><div class="sl-cat">'+esc(s.label)+'</div>'
         + '<div class="sl-part">'+esc(p.brand+' '+p.model)+vchk+'</div></div>'
         + '<span class="pr">'+pr+'</span>'
         + '<button type="button" class="x" data-remove="'+esc(s.key)+'" title="Remove" aria-label="Remove '+esc(p.brand+' '+p.model)+'">×</button></div>';
@@ -688,48 +654,52 @@
 
     if(picked){
       h+=picked;
-      h+='<div class="total"><span class="muted">Kit total</span><b>'+money(t.price)+'</b></div>';
+      var g = bmxGearInfo(build);
+      if(g) h+='<div class="wrow"><span class="muted">Gear ratio</span><span class="muted">'+g.ratio+':1'+(g.rollout!=null?' · '+g.rollout+'in rollout':'')+'</span></div>';
+      h+='<div class="total"><span class="muted">Build total</span><b>'+money(t.price)+'</b></div>';
       h+='<div class="wrow"><span class="muted">Est. weight</span><span class="muted">'
-        + (t.weight ? esc(grams(t.weight)) + (t.missingWeight?' <span class="more">+</span>':'') : '<span class="more">—</span>')
+        + (t.weight ? (t.weight.toLocaleString()+' g') + (t.missingWeight?' <span class="more">+</span>':'') : '<span class="more">—</span>')
         + '</span></div>';
     } else {
-      h+='<div class="empty">Nothing selected yet. Everything here is optional — pick a category on the left and add what you ride in.</div>';
+      h+='<div class="empty">Nothing selected yet — pick a category on the left and start with a frame.</div>';
     }
-    h+='<div class="kit-note">Kit is a separate total from your bike. Sizing shown is per brand — an M in one brand ≠ an M in another. Cert badges appear only where verified against a source.</div>';
+    h+='<div class="bmx-note">Brakeless is a fully supported, complete build — bossless frames never require a brake pick. Gear ratio and rollout are display-only; every ratio "fits", it\'s tuning, not compatibility.</div>';
     host.innerHTML=h;
 
-    // wire remove buttons
     var rms=host.querySelectorAll('[data-remove]');
-    for(var i=0;i<rms.length;i++){ rms[i].onclick=function(){ delete KB[this.getAttribute('data-remove')]; save(); renderCatalog(); renderPanel(); }; }
+    for(var i=0;i<rms.length;i++){ rms[i].onclick=function(){ delete KB[this.getAttribute('data-remove')]; save(); sync(); }; }
   }
 
-  /* ---- interaction glue ----------------------------------------------------- */
-  function onFilterChange(){ renderRail(); renderCatalog(); }   // discipline/verified change counts + list
+  function sync(){ renderCatalog(); renderReport(); renderPanel(); }
+
+  /* ---- interaction glue ------------------------------------------------------- */
+  function onFilterChange(){ renderRail(); renderCatalog(); }
   function onCatChange(){ renderRail(); renderCatalog(); }
 
   function wireToolbar(){
-    var v=$('kVerified');
+    var v=$('bVerified');
     if(v) v.onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary',verifiedOnly); this.setAttribute('aria-pressed',String(verifiedOnly)); onFilterChange(); };
-    $('kClear').onclick=function(){ KB={}; save(); renderCatalog(); renderPanel(); };
+    $('bClear').onclick=function(){ KB={}; save(); sync(); };
     function setView(m){
       viewMode=m;
-      $('kViewCards').classList.toggle('primary',m==='cards'); $('kViewCards').setAttribute('aria-pressed',String(m==='cards'));
-      $('kViewList').classList.toggle('primary',m==='list');   $('kViewList').setAttribute('aria-pressed',String(m==='list'));
-      try{ localStorage.setItem('tb-kit-view',m); }catch(e){}
+      $('bViewCards').classList.toggle('primary',m==='cards'); $('bViewCards').setAttribute('aria-pressed',String(m==='cards'));
+      $('bViewList').classList.toggle('primary',m==='list');   $('bViewList').setAttribute('aria-pressed',String(m==='list'));
+      try{ localStorage.setItem('tb-bmx-view',m); }catch(e){}
       renderCatalog();
     }
-    $('kViewCards').onclick=function(){ setView('cards'); };
-    $('kViewList').onclick=function(){ setView('list'); };
-    $('kSort').value=sortBy;
-    $('kSort').onchange=function(){ sortBy=this.value; renderCatalog(); };
-    setView(viewMode);   // reflect the persisted view on first paint
+    $('bViewCards').onclick=function(){ setView('cards'); };
+    $('bViewList').onclick=function(){ setView('list'); };
+    $('bSort').value=sortBy;
+    $('bSort').onchange=function(){ sortBy=this.value; renderCatalog(); };
+    setView(viewMode);
   }
 
-  /* ---- boot ----------------------------------------------------------------- */
+  /* ---- boot -------------------------------------------------------------------- */
   main.innerHTML = skeleton();
   wireToolbar();
   renderRail();
   renderCatalog();
+  renderReport();
   renderPanel();
   syncHdr();
 })();
