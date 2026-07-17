@@ -444,6 +444,295 @@ var BMX_PARTS = [
   {
     id: 'bmx-pd-shadow-metalalloy', cat: 'pedals', brand: 'The Shadow Conspiracy', model: 'Metal Alloy Pedals',
     platform: 'alloy', spindle: '9/16', weight: 360, price: 34.99
+  },
+
+  // ===================================================================
+  // SEAT 12 DEPTH GRIND (2026-07-17) — catalog/bmx-depth-1
+  // Brands: Sunday, Odyssey, Cult, Fit Bike Co, Kink, WeThePeople, Eclat,
+  // The Shadow Conspiracy. Real, currently-or-recently-sold products;
+  // unverified sample specs unless marked verified:true+source (fetched
+  // manufacturer page). Frame specs (bbShell/headTube/rearBrakeMount/
+  // rearAxle) not stated on a fetched page are filled with the
+  // near-universal freestyle-frame defaults (mid shell, integrated
+  // 1-1/8in headtube, u-brake bosses, 14mm rear axle) and left
+  // unverified even where price/weight WAS confirmed, per THE BAR
+  // (never claim verified on a field that wasn't actually read off the
+  // source). No e-bikes.
+  // ===================================================================
+
+  // ---- Sunday frames (store.sundaybikes.com/collections/sunday-frames,
+  //      fetched 2026-07-17: top tube range + weight + price confirmed;
+  //      bbShell/headTube/rearBrakeMount/rearAxle are the standard-freestyle
+  //      assumption, NOT sourced, so verified is withheld) --------------
+  {
+    id: 'bmx-fr-sunday-soundwavev3', cat: 'frame', brand: 'Sunday', model: 'Soundwave V3',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    weight: 2222, price: 489.99,
+    note: 'Top tube (20.5-21.25in), weight (4.9lb) and price confirmed via store.sundaybikes.com 2026-07-17; bbShell/headTube/brake-mount/axle are the standard-freestyle-frame assumption, not source-confirmed, so left unverified.'
+  },
+  {
+    id: 'bmx-fr-sunday-nightshift', cat: 'frame', brand: 'Sunday', model: 'Nightshift',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    weight: 2268, price: 489.99,
+    note: 'Top tube (20.5-21.25in), weight (5lb) and price confirmed via store.sundaybikes.com 2026-07-17; other interfaces assumed standard, unverified.'
+  },
+  {
+    id: 'bmx-fr-sunday-parkranger', cat: 'frame', brand: 'Sunday', model: 'Park Ranger',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    weight: 2268, price: 349.99,
+    note: 'Sunday\'s entry-level freestyle frame; top tube (19.75-21in), weight (5lb) and price confirmed via store.sundaybikes.com 2026-07-17.'
+  },
+
+  // ---- Odyssey depth (parts brand, no frames/no forks beyond the R32) --
+  {
+    id: 'bmx-sp-odyssey-tripletrap-28', cat: 'sprocket', brand: 'Odyssey', model: 'Triple Trap Sprocket 28T',
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 49.99,
+    note: 'Odyssey\'s long-running guard-compatible spline sprocket.'
+  },
+  {
+    id: 'bmx-rh-odyssey-antigramv2-9', cat: 'rearWheel', brand: 'Odyssey', model: 'Antigram V2 Cassette Hub',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 560, price: 119.99
+  },
+  {
+    id: 'bmx-pg-odyssey-chromoly', cat: 'pegs', brand: 'Odyssey', model: 'Chromoly Pegs',
+    axleFit: '14mm', material: 'steel', reducerIncluded: false, price: 19.99
+  },
+  {
+    id: 'bmx-br-odyssey-springfieldpro', cat: 'brake', brand: 'Odyssey', model: 'Springfield Pro U-Brake',
+    mount: 'u-brake', price: 39.99
+  },
+  {
+    id: 'bmx-hb-odyssey-brocraiford', cat: 'handlebar', brand: 'Odyssey', model: 'Broc Raiford Bars',
+    clamp: '25.4mm', rise: 8.5, width: 29, price: 84.99,
+    note: 'Broc Raiford signature bar.'
+  },
+  {
+    id: 'bmx-st-odyssey-krad', cat: 'stem', brand: 'Odyssey', model: 'K-Rad Stem',
+    clamp: '25.4mm', price: 34.99
+  },
+
+  // ---- Cult depth (cultcrew.com/collections/frames fetched 2026-07-17:
+  //      model names + price confirmed; geometry/interfaces not published
+  //      on the collection page, so filled with the standard-freestyle
+  //      assumption and left unverified) ------------------------------
+  {
+    id: 'bmx-fr-cult-treyjonesswampfest', cat: 'frame', brand: 'Cult', model: 'Trey Jones Swampfest',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    price: 399.99,
+    note: 'Trey Jones signature frame; model + price confirmed via cultcrew.com 2026-07-17, geometry not published there so left unverified.'
+  },
+  {
+    id: 'bmx-fr-cult-race', cat: 'frame', brand: 'Cult', model: 'Race Frame',
+    discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
+    topTube: 21.0, rearBrakeMount: 'caliper', rearAxle: '14mm', frameOnly: true,
+    price: 399.00,
+    note: 'Cult\'s disc-brake race frame; model + price confirmed via cultcrew.com 2026-07-17 ("Disk brake, black"); brakeMount mapped to the closest BMX_VOCAB token (caliper); other interfaces assumed, unverified.'
+  },
+  {
+    id: 'bmx-cr-cult-3piece', cat: 'cranks', brand: 'Cult', model: '3-Piece Crank Set',
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 249.99
+  },
+  {
+    id: 'bmx-bb-cult-mid-22', cat: 'bb', brand: 'Cult', model: 'Mid BB',
+    shell: 'mid', spindleFit: '22mm', price: 24.99
+  },
+  {
+    id: 'bmx-sp-cult-splinedrive-28', cat: 'sprocket', brand: 'Cult', model: 'Spline Drive Sprocket 28T',
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 44.99
+  },
+  {
+    id: 'bmx-pg-cult-steel', cat: 'pegs', brand: 'Cult', model: 'Steel Pegs',
+    axleFit: '14mm', material: 'steel', reducerIncluded: false, price: 22.99
+  },
+  {
+    id: 'bmx-ti-cult-vans-24', cat: 'tire', brand: 'Cult', model: 'Vans Tire 2.4"',
+    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 95, price: 29.99,
+    note: 'Cult x Vans collaboration tire.'
+  },
+  {
+    id: 'bmx-fw-cult-vans', cat: 'frontWheel', brand: 'Cult', model: 'Vans Front Wheel',
+    wheelSize: '20', axle: '10mm', price: 74.99
+  },
+
+  // ---- Fit Bike Co depth --------------------------------------------
+  {
+    id: 'bmx-fr-fitbikeco-trl', cat: 'frame', brand: 'Fit Bike Co', model: 'TRL',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    price: 359.99, note: 'Fit\'s value-tier freestyle frame.'
+  },
+  {
+    id: 'bmx-sp-fitbikeco-key-25', cat: 'sprocket', brand: 'Fit Bike Co', model: 'Key Sprocket 25T',
+    teeth: 25, mount: 'spline', pitch: '1/8', price: 42.99
+  },
+  {
+    id: 'bmx-st-fitbikeco-key', cat: 'stem', brand: 'Fit Bike Co', model: 'Key Stem',
+    clamp: '25.4mm', price: 32.99
+  },
+  {
+    id: 'bmx-gr-fitbikeco-uni', cat: 'grips', brand: 'Fit Bike Co', model: 'Uni Grips',
+    length: 143, flangeless: true, price: 9.99
+  },
+
+  // ---- Kink depth -----------------------------------------------------
+  {
+    id: 'bmx-fr-kink-curb', cat: 'frame', brand: 'Kink', model: 'Curb',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    price: 419.99, note: 'Kink\'s street/park value-tier frame.'
+  },
+  {
+    id: 'bmx-rh-kink-cage-9', cat: 'rearWheel', brand: 'Kink', model: 'Cage Cassette Hub',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 99.99
+  },
+  {
+    id: 'bmx-hb-kink-retro', cat: 'handlebar', brand: 'Kink', model: 'Retro Bars',
+    clamp: '25.4mm', rise: 8.0, width: 28.75, price: 69.99
+  },
+  {
+    id: 'bmx-sp-kink-pivotal-post', cat: 'seatpost', brand: 'Kink', model: 'Pivotal Seatpost',
+    diameter: 25.4, system: 'pivotal', price: 17.99
+  },
+  {
+    id: 'bmx-pd-kink-rival', cat: 'pedals', brand: 'Kink', model: 'Rival Pedals',
+    platform: 'alloy', spindle: '9/16', weight: 350, price: 29.99
+  },
+
+  // ---- WeThePeople depth -----------------------------------------------
+  {
+    id: 'bmx-fr-wethepeople-trust', cat: 'frame', brand: 'WeThePeople', model: 'Trust',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    price: 549.99, note: 'Front-load street frame in WeThePeople\'s current lineup.'
+  },
+  {
+    id: 'bmx-cr-wethepeople-compulsion', cat: 'cranks', brand: 'WeThePeople', model: 'Compulsion Cranks',
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 269.99
+  },
+  {
+    id: 'bmx-hb-wethepeople-loop', cat: 'handlebar', brand: 'WeThePeople', model: 'Loop Bars',
+    clamp: '25.4mm', rise: 8.25, width: 29, price: 74.99
+  },
+  {
+    id: 'bmx-se-wethepeople-team', cat: 'seat', brand: 'WeThePeople', model: 'Team Pivotal Seat',
+    system: 'pivotal', price: 26.99
+  },
+  {
+    id: 'bmx-rh-wethepeople-oem-9', cat: 'rearWheel', brand: 'WeThePeople', model: 'OEM Cassette Hub',
+    driverType: 'cassette', driverTeeth: 9, side: 'RHD', axle: '14mm', price: 74.99
+  },
+
+  // ---- Eclat (new brand to the catalog) --------------------------------
+  {
+    id: 'bmx-fr-eclat-cortex', cat: 'frame', brand: 'Eclat', model: 'Cortex',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    price: 429.99
+  },
+  {
+    id: 'bmx-fk-eclat-onyx', cat: 'fork', brand: 'Eclat', model: 'Onyx Fork',
+    discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'u-brake', price: 99.99
+  },
+  {
+    id: 'bmx-cr-eclat-onyx', cat: 'cranks', brand: 'Eclat', model: 'Onyx Cranks',
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 229.99
+  },
+  {
+    id: 'bmx-bb-eclat-mid-22', cat: 'bb', brand: 'Eclat', model: 'Mid BB',
+    shell: 'mid', spindleFit: '22mm', price: 22.99
+  },
+  {
+    id: 'bmx-sp-eclat-spline-25', cat: 'sprocket', brand: 'Eclat', model: 'Spline Sprocket 25T',
+    teeth: 25, mount: 'spline', pitch: '1/8', price: 39.99
+  },
+  {
+    id: 'bmx-rh-eclat-cortex-9', cat: 'rearWheel', brand: 'Eclat', model: 'Cortex Cassette Hub',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 94.99
+  },
+  {
+    id: 'bmx-fw-eclat-cortex', cat: 'frontWheel', brand: 'Eclat', model: 'Cortex Front Wheel',
+    wheelSize: '20', axle: '10mm', price: 69.99
+  },
+  {
+    id: 'bmx-hb-eclat-cortex', cat: 'handlebar', brand: 'Eclat', model: 'Cortex Bars',
+    clamp: '25.4mm', rise: 8.25, width: 29, price: 64.99
+  },
+  {
+    id: 'bmx-st-eclat-cortex', cat: 'stem', brand: 'Eclat', model: 'Cortex Stem',
+    clamp: '25.4mm', price: 29.99
+  },
+  {
+    id: 'bmx-gr-eclat-pulsar', cat: 'grips', brand: 'Eclat', model: 'Pulsar Grips',
+    length: 143, flangeless: true, price: 8.99
+  },
+  {
+    id: 'bmx-se-eclat-bios', cat: 'seat', brand: 'Eclat', model: 'Bios Pivotal Seat',
+    system: 'pivotal', price: 24.99
+  },
+  {
+    id: 'bmx-sp-eclat-bios-post', cat: 'seatpost', brand: 'Eclat', model: 'Bios Pivotal Seatpost',
+    diameter: 25.4, system: 'pivotal', price: 16.99
+  },
+  {
+    id: 'bmx-pg-eclat-alloy', cat: 'pegs', brand: 'Eclat', model: 'Alloy Pegs',
+    axleFit: '14mm', material: 'alloy', reducerIncluded: false, price: 27.99
+  },
+  {
+    id: 'bmx-pd-eclat-slash', cat: 'pedals', brand: 'Eclat', model: 'Slash Pedals',
+    platform: 'alloy', spindle: '9/16', weight: 345, price: 32.99
+  },
+  {
+    id: 'bmx-ti-eclat-fireball-23', cat: 'tire', brand: 'Eclat', model: 'Fireball Tire 2.3"',
+    wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 100, price: 24.99
+  },
+
+  // ---- The Shadow Conspiracy depth (parts brand, no frames/forks) ------
+  {
+    id: 'bmx-cr-shadow-finest', cat: 'cranks', brand: 'The Shadow Conspiracy', model: 'Finest Cranks',
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 219.99
+  },
+  {
+    id: 'bmx-sp-shadow-vultus-28', cat: 'sprocket', brand: 'The Shadow Conspiracy', model: 'Vultus Sprocket 28T',
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 46.99
+  },
+  {
+    id: 'bmx-rh-shadow-optimized-9', cat: 'rearWheel', brand: 'The Shadow Conspiracy', model: 'Optimized Cassette Hub',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 109.99
+  },
+  {
+    id: 'bmx-ti-shadow-strada-23', cat: 'tire', brand: 'The Shadow Conspiracy', model: 'Strada Tire 2.3"',
+    wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 100, price: 26.99
+  },
+  {
+    id: 'bmx-pg-shadow-alloy', cat: 'pegs', brand: 'The Shadow Conspiracy', model: 'MFG Alloy Pegs',
+    axleFit: '14mm', material: 'alloy', reducerIncluded: false, price: 24.99
+  },
+  {
+    id: 'bmx-br-shadow-raptor', cat: 'brake', brand: 'The Shadow Conspiracy', model: 'Raptor U-Brake',
+    mount: 'u-brake', price: 42.99
+  },
+  {
+    id: 'bmx-hb-shadow-feather', cat: 'handlebar', brand: 'The Shadow Conspiracy', model: 'Feather Bars',
+    clamp: '25.4mm', rise: 8.0, width: 28.5, weight: 780, price: 79.99,
+    note: 'Lightweight chromoly bar.'
+  },
+  {
+    id: 'bmx-gr-shadow-gipsy', cat: 'grips', brand: 'The Shadow Conspiracy', model: 'Gipsy Grips',
+    length: 143, flangeless: true, price: 10.99,
+    note: 'Sean Ricany signature grip.'
+  },
+  {
+    id: 'bmx-se-shadow-finest', cat: 'seat', brand: 'The Shadow Conspiracy', model: 'Finest Pivotal Seat',
+    system: 'pivotal', price: 24.99
+  },
+  {
+    id: 'bmx-sp-shadow-finest-post', cat: 'seatpost', brand: 'The Shadow Conspiracy', model: 'Finest Pivotal Seatpost',
+    diameter: 25.4, system: 'pivotal', price: 15.99
   }
 ];
 
