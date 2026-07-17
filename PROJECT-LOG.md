@@ -1,5 +1,17 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — bmx-depth-3 merged (202 → 222 off-live rows); disc-brake vocab gap logged
+
+- catalog/bmx-depth-3 merged: +20 rows (12 new-brand frames: Subrosa/Mankind/Radio/Premium/
+  Verde/United/Mongoose/Sunday Blueprint/Supercross race; +8 thin-category depth). All
+  unverified sample per policy — brand sites JS-walled, Exa fallback used, nothing falsely
+  claimed verified. Good THE-BAR skips logged (United Prime Mover bbShell unsourced, Verde/
+  United hubs no retail price, Redline race frames blocked on vocab). Process deviation flagged
+  honestly: one commit, not per-brand (interleaved single-file inserts — accepted). Gates green,
+  no dup ids, 222 rows. **VOCAB GAP: BMX_VOCAB.brakeMount needs a 'disc' token** (modern race
+  BMX — Redline Proline/Flight ship BB5 disc) — authorized for depth-4 WITH the do-not-conflate
+  rationale + matched tests, per the vocab-widening lesson. Flip bar still ~300/40%.
+
 ## 2026-07-17 — road+gravel design round merged (off-live docs); mechanic bar raised to MASTER
 
 - **design/road-gravel-model merged**: 4 docs in data/ (SHARED-STANDARDS, ROAD-MODEL,
