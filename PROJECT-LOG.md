@@ -1,5 +1,18 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — verify fanout batch-group 4 merged (verified 2874 → 2897)
+
+- Watch-loop tick harvested `verify/fanout-1` group 4 (7 commits: rotors-measured, tires-tranzx,
+  wtb-raceface-wheels). Field-level promotions only, 5,026 rows unchanged. +23 verified (tires:
+  11 Specialized via the confirmed-dead 403 wall through `bdata scrape`, 6 Maxxis, 3 Schwalbe;
+  3 TranzX droppers; rotors/wheels). Gates green (699/699, validate 0, tsc clean); harness
+  BYTE-IDENTICAL (weight/price/provenance only — verdict-driving tire WIDTH unchanged).
+  Spot-checks: Maxxis Minion DHR II DD (1222g), TranzX YSP39 34.9/150 (685g), Schwalbe Big Betty
+  SG (1180g) all exact; Specialized re-blocked to me by the same 403, but the worker's log
+  documents each of the 11 with mfgPn + per-row corrections (caught a Butcher T9 2.3 weight that
+  had matched the wrong SKU → 975g) and honestly left budget-exhausted SKUs unverified. Merged
+  555b53b..; worker messaged continue. Verified 2,897/5,026 (57.6%).
+
 ## 2026-07-17 — cb-sheets batch 1 merged (sheet-verified 134 → 140) · BMX go-live word given
 
 - **Douglas gave the BMX go-live word** (parameters in memory `bmx-golive`): build to ~300 parts /
