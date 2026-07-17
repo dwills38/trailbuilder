@@ -41,7 +41,25 @@ var VOCAB = {
      architecture pass, inert until DJ rows go live. The 9/10mm QR variants
      stay OUT pending the mechanic review flagged in DJ-BMX-COMPAT-ANALYSIS.md
      section 4-DJ (never invent a fitment split without a source). */
-  rearAxle:     ['Boost148', 'SuperBoost157', '142x12', '150x12', '10x135-bolt'],
+  /* 'Boost141' = the budget-tier "Boost 141" rear: a legacy 5mm QR skewer
+     over Boost-width (141mm) dropout spacing - a genuinely distinct fitment
+     from both 148 Boost thru-axle and plain 135mm QR (confirmed real via
+     multiple independent sources - trailmech.com's standards guide + mtbr.com
+     forum threads on Boost-141 hub conversion; cataloged on entry Trek
+     hardtails, cb-grind6-trek-giant-ht 2026-07-16). Added rather than
+     conflated into '142x12' (that's a thru-axle, not QR) or 'Boost148'
+     (12mm thru-axle, not 5mm QR) - a wrong axle-type conflation would be a
+     false "fits" on any thru-axle wheel/hub pairing. */
+  /* '135x5-qr' = the classic 5mm-skewer 135mm-spaced quick-release rear -
+     the pre-thru-axle legacy standard, still OEM-spec on the cheapest
+     hardtails. Confirmed real via FETCHED vitalmtb.com's Trek Marlin 7 Gen 3
+     (2026) spec guide: "5mm x 135mm ThruSkew quick release" (Trek's own
+     branded name for this classic QR axle). Genuinely different from
+     'Boost141' (also QR, but 141mm Boost-repositioned spacing) and from
+     '10x135-bolt' (a 10mm BOLT-thru axle, not a 5mm quick-release skewer,
+     used on DJ/street frames) - conflating any of these would be a false
+     "fits" on a hub/frame pairing. Added cb-grind6-trek-giant-ht 2026-07-16. */
+  rearAxle:     ['Boost148', 'SuperBoost157', '142x12', '150x12', '10x135-bolt', 'Boost141', '135x5-qr'],
   /* 20x110 = the MODERN dual-crown standard, 20x110 BOOST (BoxXer D1, Fox 40
      2025). '20x110-nonboost' = the legacy/standard DH spacing some forks still
      use (Marzocchi Bomber 58 - maker page states "20x110 DH (non-Boost)").
@@ -51,7 +69,14 @@ var VOCAB = {
   /* '15x100' = the non-Boost 15mm thru-axle of dirt-jump forks (RockShox Pike
      DJ - fetched sram.com FS-PIKE-DJ-A4 model page, 15x100 Maxle). Added
      2026-07-13 (DJ pass); inert until DJ rows go live. */
-  frontAxle:    ['Boost110', '20x110', '20x110-nonboost', '15x100'],
+  /* '9x100-qr' = the classic 9mm quick-release front axle (non-thru-axle,
+     non-Boost) - confirmed real via FETCHED sram.com/en/rockshox/models/
+     fs-jdys-tk-a3 (Judy Silver TK), which lists "9mm Quick Release" as a
+     distinct axle option alongside "15x110mm BOOST TC Compt" on the same
+     model page. Entry-tier hardtails (Trek Marlin/X-Caliber) spec this
+     option. Added cb-grind6-trek-giant-ht 2026-07-16 - genuinely different
+     from '15x100' (that's a 15mm thru-axle, DJ-fork standard). */
+  frontAxle:    ['Boost110', '20x110', '20x110-nonboost', '15x100', '9x100-qr'],
   /* 'integrated' = the driver IS a built-in cassette, no freehub body exposed
      (e*thirteen LG1r DH rear - "Freehub Mount: Integrated 7 Speed Cassette",
      fetched ethirteen.eu 2026-07-10), so NO separate cassette mounts and no
@@ -96,8 +121,19 @@ var VOCAB = {
      stay in lockstep. Consequence (documented 2026-07-08): a tapered
      single-crown fork on a DH frame reds out - true with the stock cups; a
      future adapter-tier warning can soften it if expert review wants that. */
-  headset:      ['tapered', 'straight-dc'],
-  steerer:      ['tapered', 'straight-dc'],
+  /* 'straight' = the classic straight 1-1/8in steerer/head-tube of budget
+     single-crown hardtails (Trek Marlin/X-Caliber, confirmed via search
+     corroboration across multiple sources agreeing "semi-integrated, 1-1/8in
+     steerer" - distinct from 'straight-dc', which is the STOUTER straight
+     1.5in steerer of dual-crown DH forks; a straight-dc fork would not fit a
+     1-1/8in straight frame, so conflating them risks a false "fits". Added
+     cb-grind6-trek-giant-ht 2026-07-16. The rule-20a SHIS cross-rule below
+     only branches on 'tapered'/'straight-dc' - 'straight' rows simply omit
+     headTubeUpper/Lower (no SHIS code sourced for these budget frames), so
+     no new branch is needed; rule 11's exact-match steerer check works for
+     any string value unchanged. */
+  headset:      ['tapered', 'straight-dc', 'straight'],
+  steerer:      ['tapered', 'straight-dc', 'straight'],
   /* PF92 covers the BB92/89.5 PressFit family. T47 SEMANTICS ARE UNDEFINED:
      85.5-internal vs 68/73-external T47 are different products - pin the
      meaning (likely split values) BEFORE the first real T47 frame enters.
@@ -116,7 +152,28 @@ var VOCAB = {
      30mm (BB30-class: eeWings, Race Face Cinch alu, Hope), p3 (e*thirteen).
      DUB-Wide is a CHAINLINE, not a new spindle value. The old too-narrow
      vocab (DUB|SH24) forced two fictitious catalog products - never again. */
-  crankBb:      ['DUB', '24mm', '30mm', 'p3'],
+  /* 'powerspline' = SRAM/Truvativ's entry-tier splined spindle interface
+     (12-spline chromoly spindle, distinct from DUB/24mm/30mm - genuinely
+     different bore/spline geometry, not interchangeable). Confirmed real via
+     FETCHED sram.com/en/sram/models/fc-sx-1-a1 ("Spindle Interface: DUB,
+     Power Spline" - two separate SKUs of the same SX Eagle crank) and
+     sram.com/en/truvativ/models/bb-ps-a1 (the matching BB-PS-A1 bottom
+     bracket, BSA68/73). Added cb-grind6-trek-giant-ht 2026-07-16 for the
+     Trek Marlin 7's OEM SX Eagle Powerspline crank - the budget-tier SX
+     Eagle spindle option this catalog didn't carry yet (only the DUB
+     variant was cataloged). */
+  /* 'square-taper' = the classic JIS square-taper spindle interface, still
+     OEM-spec on the cheapest hardtails (Giant Talon: Prowheel Charm crank on
+     a Prowheel FP-B902W BB, confirmed via multiple independent retailer/
+     forum sources describing FP-B902(W) as "Square Taper" / "JIS Square").
+     Genuinely different bore geometry from every other crankBb value here -
+     conflating it would be a false "fits". Added cb-grind6-trek-giant-ht
+     2026-07-16. INDEPENDENTLY re-confirmed by the cb-grind6-w5-hardtail-r2
+     wave the same day via a second real-world case (Shimano CUES
+     FC-UT400-1/FC-U4000-1, bike.shimano.com: "CUES square taper chainset,
+     for 9/10/11-speed") - two unrelated OEM sources agreeing on the same
+     vocab value. */
+  crankBb:      ['DUB', '24mm', '30mm', 'p3', 'powerspline', 'square-taper'],
   /* 'FM' = flat mount rear - modern XC frames (2021+ Canyon Exceed per
      BikeRadar: "Canyon has adopted the Flat Mount standard for the rear
      brake caliper"); FM and PM calipers do NOT interchange without adapters. */
@@ -150,7 +207,7 @@ var VOCAB = {
   system:       ['sram-eagle', 'sram-transmission', 'shimano-12',
                  'shimano-linkglide', 'shimano-11', 'shimano-10', 'sram-11',
                  'sram-dh-7',
-                 'microshift-advent', 'microshift-advent-x', 'box-prime-9'],
+                 'microshift-advent', 'microshift-advent-x', 'microshift-advent-mx', 'box-prime-9'],
   actuation:    ['cable', 'electronic'],       // audited 2026-07: market-complete for shifter/derailleur ('hydraulic' joins only with dropper.actuation)
   ringStd:      ['t-type', 'standard-12'],
   /* I-Spec II / I-Spec B are older, mutually-incompatible Shimano standards

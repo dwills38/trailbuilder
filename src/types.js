@@ -24,8 +24,8 @@
 /* ---- vocabularies (mirror VOCAB in schema.js) ---------------------------- */
 /** @typedef {'29'|'275'|'26'|'24'} WheelSize */
 /** @typedef {'29'|'275'|'mullet'|'26'|'24'} WheelConfig */
-/** @typedef {'Boost148'|'SuperBoost157'|'142x12'|'150x12'|'10x135-bolt'} RearAxle */
-/** @typedef {'Boost110'|'20x110'|'20x110-nonboost'|'15x100'} FrontAxle */
+/** @typedef {'Boost148'|'SuperBoost157'|'142x12'|'150x12'|'10x135-bolt'|'Boost141'|'135x5-qr'} RearAxle */
+/** @typedef {'Boost110'|'20x110'|'20x110-nonboost'|'15x100'|'9x100-qr'} FrontAxle */
 /** Wheel/hub-side driver interface. 'integrated' = the driver IS a built-in
  * cassette (e*thirteen LG1r DH rear), so no separate cassette mounts - legal
  * on rearwheel/rearhub rows only, never on a cassette (schema cross-rule;
@@ -39,11 +39,11 @@
 /** @typedef {'XD'|'MicroSpline'|'HG'} CassetteFreehub */
 /** @typedef {'sixbolt'|'CL'} RotorMount */
 /** @typedef {'std'|'trunnion'} ShockMount */
-/** @typedef {'tapered'|'straight-dc'} SteererFit */
+/** @typedef {'tapered'|'straight-dc'|'straight'} SteererFit */
 /** @typedef {'BSA73'|'PF92'|'T47'|'PF107'|'BSA83'|'BSA68'|'PF865'} FrameBb */
-/** @typedef {'DUB'|'24mm'|'30mm'|'p3'} CrankBb */
+/** @typedef {'DUB'|'24mm'|'30mm'|'p3'|'powerspline'|'square-taper'} CrankBb */
 /** @typedef {'PM'|'FM'} BrakeMount */
-/** @typedef {'sram-eagle'|'sram-transmission'|'shimano-12'|'shimano-linkglide'|'shimano-11'|'shimano-10'|'sram-11'|'sram-dh-7'|'microshift-advent'|'microshift-advent-x'|'box-prime-9'} DriveSystem */
+/** @typedef {'sram-eagle'|'sram-transmission'|'shimano-12'|'shimano-linkglide'|'shimano-11'|'shimano-10'|'sram-11'|'sram-dh-7'|'microshift-advent'|'microshift-advent-x'|'microshift-advent-mx'|'box-prime-9'} DriveSystem */
 /** @typedef {'cable'|'electronic'} Actuation */
 /** @typedef {'t-type'|'standard-12'} RingStd */
 /** @typedef {'ispec-ev'|'ispec-ii'|'ispec-b'|'matchmaker'|'band'|'pod'} ShifterClamp */

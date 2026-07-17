@@ -334,6 +334,12 @@ test('a BB with a shell outside the frameBb vocab is caught', function(){
 test('a BB missing its spindle is caught', function(){
   var p = over('bb-sram-dub-bsa73'); delete p.spindle; some(probs(p), 'spindle');
 });
+test('a crankset with a spindle outside the crankBb vocab is caught', function(){
+  some(probs(over('cr-sram-gx-eagle', { bb:'square-tapre' })), 'bb');
+});
+test('a crankset with the square-taper crankBb spindle passes (2026-07-16 hardtail-depth vocab widening)', function(){
+  eq(probs(over('cr-sram-gx-eagle', { bb:'square-taper', verified:false, lastChecked:undefined, source:undefined })).length, 0);
+});
 
 /* forkTravelHard cross-rule (engine-critical review C4, 2026-07-12): a hard
    fork-travel range is an engine ERROR, so the flag must rest on a published
