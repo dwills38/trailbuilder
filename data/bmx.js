@@ -106,8 +106,10 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-totalbmx-killabee', cat: 'frame', brand: 'Total BMX', model: 'Killabee',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.75, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
-    price: 449.99, note: 'Commonly run brakeless.'
+    topTube: 20.7, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
+    weight: 2100, price: 449.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://totalbmx.com/products/total-bmx-killabee-k4-frame-black-yellow',
+    note: 'Kyle Baldock signature Killabee K4: totalbmx.com confirms mid BB, integrated head tube (120mm, drilled for gyro tabs), removable (not welded) rear brake mounts run brakeless by default, and 14mm dropout slots. Top tube corrected from 20.75in (not an offered size) to 20.7in, the closest real K4 length (options: 19.75/20.4/20.7/21in). Weight ~2100g per the K4\'s published 2.1-2.14kg (size-dependent). totalbmx.com prices in CZK/AUD/GBP with no clean USD MSRP, so price is kept as the prior unconfirmed sample figure.'
   },
   {
     id: 'bmx-fr-stranger-level', cat: 'frame', brand: 'Stranger Bikes', model: 'Level',
@@ -362,7 +364,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-bb-totalbmx-mid-22', cat: 'bb', brand: 'Total BMX', model: 'Mid BB',
-    shell: 'mid', spindleFit: '22mm', price: 27.99
+    shell: 'mid', spindleFit: '22mm', weight: 158, price: 27.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://totalbmx.com/products/total-bmx-team-mid-bottom-bracket-black',
+    note: 'Real product name is "Team Mid Bottom Bracket"; totalbmx.com confirms mid shell, 19mm/22mm spindle options (this row is the 22mm SKU), and 0.158kg/5.6oz weight. totalbmx.com lists EUR32.95, not a USD MSRP, so price is kept as the prior unconfirmed sample figure.'
   },
   {
     id: 'bmx-bb-profile-euro-19', cat: 'bb', brand: 'Profile Racing', model: 'Euro Outboard BB 19mm',
@@ -566,11 +570,13 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-pg-totalbmx-rotary', cat: 'pegs', brand: 'Total BMX', model: 'Rotary Pegs',
-    axleFit: '14mm', material: 'alloy', reducerIncluded: false, price: 32.99
+    axleFit: '14mm', material: 'alloy', reducerIncluded: false, price: 32.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): "Rotary" is a Total BMX SPROCKET (CNC 7075-T6, 25T/28T, 59g), not a peg - Total BMX\'s actual peg lineup is the Skinnies (V2). Likely a category mismatch at entry; left as unverified sample data, not corrected (would change model/spec entirely).'
   },
   {
     id: 'bmx-pg-bsd-superstar', cat: 'pegs', brand: 'BSD', model: 'Superstar Pegs',
-    axleFit: '14mm', material: 'steel', reducerIncluded: false, price: 22.99
+    axleFit: '14mm', material: 'steel', reducerIncluded: false, price: 22.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Superstar" peg found for BSD (real current pegs: Unit, Hubba, Roastin\', Crack Pipe - all 4140 chromoly, 10mm/14mm). "Superstar" is a peg name used by an unrelated house brand (urbanair.co.uk), not BSD. Left as unverified sample data; model name is not confirmed to a real BSD SKU.'
   },
   {
     id: 'bmx-pg-flybikes-vandal', cat: 'pegs', brand: 'Fly Bikes', model: 'Vandal Pegs',
@@ -611,7 +617,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-hb-totalbmx-techlite', cat: 'handlebar', brand: 'Total BMX', model: 'Techlite Bars',
-    clamp: '25.4mm', rise: 8.0, width: 29, weight: 620, price: 84.99
+    clamp: '25.4mm', rise: 8.0, width: 29, weight: 620, price: 84.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Techlite" bar found for Total BMX (real current bars: Killabee K3, TWS 2, Hangover). Left as unverified sample data; model name is not confirmed to a real Total BMX SKU.'
   },
   {
     id: 'bmx-hb-colony-pintour', cat: 'handlebar', brand: 'Colony', model: 'Pintour Bars',
@@ -677,7 +684,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-se-totalbmx-slim', cat: 'seat', brand: 'Total BMX', model: 'Slim Pivotal Seat',
-    system: 'pivotal', price: 24.99
+    system: 'pivotal', price: 24.99,
+    note: 'No standalone "Slim Pivotal Seat" found for Total BMX; closest real products are the "Logo Slim Combo Seat" and "Killabee Slim Combo Bee Seat" (seat+post combo units, not sold as a bare seat). system:pivotal is plausible (Total\'s combo seats use pivotal-style mounting) but not confirmed against an exact matching SKU, so left unverified.'
   },
 
   // ===== SEATPOST =======================================================
