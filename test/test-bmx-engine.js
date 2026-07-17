@@ -184,7 +184,7 @@ test('a pivotal seat errors on a standard post, and matches are silent', functio
 test('tire clearance warns off a sourced maxTire and stays dormant without one', function(){
   var r = BMX.checkBmxBuild({ frame: bp('bmx-fr-kink-williams'), rearTire: bp('bmx-ti-maxxis-hookworm-25') });
   eq(of(r, 'bmx-tire-clearance').length, 0, 'no maxTire in the dataset -> dormant, never guessed');
-  var tight = /** @type {any} */ (Object.assign({}, bp('bmx-fr-kink-williams'), { id:'bmx-fr-synthetic-tight', maxTire:2.3 }));
+  var tight = /** @type {any} */ (Object.assign({}, bp('bmx-fr-kink-williams'), { id:'bmx-fr-synthetic-tight', maxTire:1.9 }));
   var r2 = BMX.checkBmxBuild({ frame: tight, rearTire: bp('bmx-ti-maxxis-hookworm-25') });
   eq(r2.warnings.filter(function(v){ return v.ruleId === 'bmx-tire-clearance'; }).length, 1, 'fires off a maker-published clearance');
 });
