@@ -1,5 +1,21 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — coach biomechanics round merged (Tier-C physics under the cues)
+
+- tooling/coach-biomech-1 merged (Opus background agent): peer-reviewed physics grounding across
+  4 chapters — braking (weight-transfer ΔN=m·a·h/L, pitch-over a_crit≈g·b/h with its
+  self-amplification, the friction circle), cornering (tan θ=v²/gr lean law, combined-CoM basis
+  of bike-body separation), terrain (pumping as curvature-timed CoM work with a modelled
+  Δv≈1.5 m/s, airborne-CoM-is-a-projectile incl. the never-jump-to-flat mechanism, BMX notational
+  analysis showing pumping as primary propulsion), climbing/descending (rider≈80-85% of system
+  mass as the primary suspension). DOIs/PMIDs cited throughout. One ⚠ CONTRADICTION flagged, not
+  rewritten: COR-14 — the "lean, don't turn the bars" cue hides an initiating countersteer
+  (physics refines, not refutes; parked for the human-mechanic/coach review tier).
+  **Coordinator resolved a fact-ID collision at merge** (both same-day rounds appended COR-9/10):
+  biomech facts renumbered COR-12/13/14, cross-refs updated to training-2's real ladder numbering
+  (TER-7/8), both Gaps sections reconciled — append-only ID integrity preserved, no dup ids.
+  Gates green. LESSON: parallel corpus rounds must be assigned ID RANGES up front.
+
 ## 2026-07-17 — coach training round 2 merged: terrain-features → PROFESSIONAL
 
 - tooling/coach-training-2 merged (background agent, well under the 4h cap): terrain-features
