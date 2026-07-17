@@ -131,7 +131,8 @@ var BMX_PARTS = [
     id: 'bmx-fr-chase-rsp30', cat: 'frame', brand: 'Chase', model: 'RSP 3.0',
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
     topTube: 21.0, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: true,
-    price: 549.99
+    weight: 1532, price: 549.99,
+    note: 'bbShell/headTube/rearBrakeMount and the 21.0in top tube (Pro XL size) confirmed against chasebicycles.com\'s RSP 3.0 frame-archive page 2026-07-17 (V-brake-only, BSA-threaded 68/73mm shell = this catalog\'s euro token, integrated headset); weight (1532g) is that page\'s per-size table for the Pro XL (21in) row. Price (549.99) and rearAxle are NOT stated on the archive page (this is a discontinued frame with no current listing), so left unverified rather than claiming verified on an unconfirmed price. Source: https://chasebicycles.com/frames/frame-archives/chase-rsp-3-0/'
   },
   {
     id: 'bmx-fr-supercross-envy', cat: 'frame', brand: 'Supercross BMX', model: 'Envy SL',
@@ -143,7 +144,8 @@ var BMX_PARTS = [
     id: 'bmx-fr-chase-element', cat: 'frame', brand: 'Chase', model: 'Element',
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
     topTube: 20.5, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: true,
-    price: 349.99, note: 'Chase\'s entry/intermediate race frame, below the RSP 3.0 in the lineup.'
+    weight: 1500, price: 349.99,
+    note: 'Chase\'s entry/intermediate race frame, below the RSP 3.0 in the lineup. This row matches the older frame-only Element (chasebicycles.com/frames/frame-archives/chase-element-frame-2016/ — CAUTION: the CURRENT "Chase Element" name on chasebicycles.com now refers to an unrelated disc-brake-only, Press-Fit-BB86, complete-bike-only line; do not confuse the two). rearBrakeMount (v-brake) and topTube (20.5in = the Pro size) confirmed against the 2016 archive page 2026-07-17; weight (1500g) is that page\'s Pro-size figure. bbShell/headTube are the RSP-series-standard assumption, NOT stated on this page, so left unverified. Price not listed on the archive page either.'
   },
   {
     id: 'bmx-fr-gt-performer', cat: 'frame', brand: 'GT', model: 'Performer',
@@ -250,7 +252,8 @@ var BMX_PARTS = [
   {
     id: 'bmx-fk-chase-rsp', cat: 'fork', brand: 'Chase', model: 'RSP Race Fork',
     discipline: 'race', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
-    brakeMount: 'v-brake', weight: 420, price: 94.99
+    brakeMount: 'v-brake', weight: 420, price: 94.99,
+    note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (confirmed via its own nav: Bikes/Frames/Gear/Technologies/Team only - no Parts or Components section, no fork/crank/sprocket/brake/bar/stem/pedal product pages exist on the site). Left unchanged, not verified.'
   },
 
   // ===== HEADSETS ======================================================
@@ -336,7 +339,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-chase-rsp', cat: 'cranks', brand: 'Chase', model: 'RSP Race Cranks',
-    spindle: '19mm', pieces: '3-piece', ringMount: 'press-on', price: 279.99
+    spindle: '19mm', pieces: '3-piece', ringMount: 'press-on', price: 279.99,
+    note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   },
 
   // ===== BOTTOM BRACKETS ===============================================
@@ -401,7 +405,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-sp-chase-rsp-30', cat: 'sprocket', brand: 'Chase', model: 'RSP Race Sprocket 30T',
-    teeth: 30, mount: 'spline', pitch: '1/8', price: 54.99
+    teeth: 30, mount: 'spline', pitch: '1/8', price: 54.99,
+    note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   },
 
   // ===== CHAIN ==========================================================
@@ -585,7 +590,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-br-chase-rsp-vbrake', cat: 'brake', brand: 'Chase', model: 'RSP Race V-Brake',
-    mount: 'v-brake', weight: 180, price: 34.99
+    mount: 'v-brake', weight: 180, price: 34.99,
+    note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   },
 
   // ===== HANDLEBAR ======================================================
@@ -619,7 +625,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-hb-chase-rsp', cat: 'handlebar', brand: 'Chase', model: 'RSP Race Bars',
-    clamp: '22.2mm', rise: 6.5, width: 27.5, price: 54.99
+    clamp: '22.2mm', rise: 6.5, width: 27.5, price: 54.99,
+    note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   },
 
   // ===== STEM ===========================================================
@@ -641,7 +648,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-st-chase-rsp', cat: 'stem', brand: 'Chase', model: 'RSP Race Stem',
-    clamp: '22.2mm', price: 42.99
+    clamp: '22.2mm', price: 42.99,
+    note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   },
 
   // ===== SEAT ===========================================================
@@ -1030,7 +1038,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-pd-chase-rsp-clip', cat: 'pedals', brand: 'Chase', model: 'RSP Clip Pedals',
-    platform: 'clip', spindle: '9/16', weight: 300, price: 89.99
+    platform: 'clip', spindle: '9/16', weight: 300, price: 89.99,
+    note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   }
 ];
 
