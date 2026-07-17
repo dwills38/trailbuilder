@@ -87,8 +87,8 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-colony-sweettooth', cat: 'frame', brand: 'Colony', model: 'Sweet Tooth',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.6, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
-    price: 429.99, note: 'Commonly run brakeless.'
+    topTube: 20.7, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
+    price: 429.99, note: 'Alex Hiam signature frame; real published sizes are 18.9/19.2/20.4/20.7/21in (corrected from a non-existent 20.6in) — ships bossless with a removable brake-tab kit sold separately, so brakeless-stock is correct. Currently sold only via Colony\'s AU distributor/retail channel, not colonybmx.com.au\'s own current frame lineup, so it does not clear the manufacturer-own-page verification bar; weight/price remain sample.'
   },
   {
     id: 'bmx-fr-haro-downtown', cat: 'frame', brand: 'Haro', model: 'Downtown',
@@ -203,7 +203,7 @@ var BMX_PARTS = [
     id: 'bmx-fr-colony-emerald', cat: 'frame', brand: 'Colony', model: 'Emerald',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.7, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
-    price: 449.99, note: 'Colony\'s second freestyle frame platform (Sweet Tooth is the other); commonly run brakeless.'
+    price: 449.99, note: 'UNRESOLVED: could not confirm "Emerald" as a real Colony frame model — colonybmx.com.au\'s current frame lineup (Prody/Cadet/Bloody Oath/Rico/Enishi/Prisma/Blaster/Horizon Alloy) has no Emerald, and "Emerald" only turns up as a colorway name (grips/pedals/tire) in Colony\'s own archives. Flagged for the coordinator — likely needs replacing with a real model or removal from a future data-entry pass; specs below are unverified sample, not sourced.'
   },
 
   // ===== FRAMES — seat 12 depth pass (new brands) =====================
@@ -494,7 +494,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-sp-colony-terminator-25', cat: 'sprocket', brand: 'Colony', model: 'Terminator Sprocket 25T',
-    teeth: 25, mount: 'spline', pitch: '1/8', price: 54.99
+    teeth: 25, mount: 'spline', pitch: '1/8', price: 54.99,
+    note: 'UNRESOLVED: no "Terminator" sprocket found in Colony\'s current or archived lineup (real names: Blaster, Endeavour, Bish, Pursuit, CC, Menace Guard, CD, Beenleigh). Flagged for the coordinator; unverified sample, not sourced.'
   },
   {
     id: 'bmx-sp-flybikes-alloy-28', cat: 'sprocket', brand: 'Fly Bikes', model: 'Alloy Sprocket 28T',
@@ -553,7 +554,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-rh-colony-devast8r', cat: 'rearWheel', brand: 'Colony', model: "Devast8r Cassette Hub",
-    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 590, price: 149.99
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 590, price: 149.99,
+    note: 'UNRESOLVED: no "Devast8r" hub found in Colony\'s current or archived lineup (real cassette-hub names: Wasp, Swarm, Contour, Pintour, Horizon). Flagged for the coordinator; unverified sample, not sourced.'
   },
   {
     id: 'bmx-rh-eclat-shift-freecoaster', cat: 'rearWheel', brand: 'Eclat', model: 'Shift Freecoaster Hub',
@@ -582,7 +584,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-rc-colony-cassette-9', cat: 'rearCog', brand: 'Colony', model: 'Cassette Cog 9T',
-    teeth: 9, fitsDriver: 'cassette', pitch: '1/8', price: 13.99
+    teeth: 9, fitsDriver: 'cassette', pitch: '1/8', price: 13.99,
+    note: 'UNRESOLVED: no standalone Colony cassette-cog SKU found on colonybmx.com.au — cogs there ship bundled with a hub (e.g. the Wasp Race Cassette Hub comes with a 16T cog) rather than sold separately under this name. Flagged for the coordinator; unverified sample, not sourced.'
   },
 
   // ===== FRONT WHEEL ====================================================
@@ -604,7 +607,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-fw-colony-devast8r', cat: 'frontWheel', brand: 'Colony', model: 'Devast8r Front Wheel',
-    wheelSize: '20', axle: '10mm', weight: 500, price: 99.99
+    wheelSize: '20', axle: '10mm', weight: 500, price: 99.99,
+    note: 'UNRESOLVED: no "Devast8r" front wheel found in Colony\'s current or archived lineup (real front-wheel names: Wasp, Contour, Pintour, Horizon). Flagged for the coordinator; unverified sample, not sourced.'
   },
 
   // ===== TIRES ==========================================================
@@ -637,12 +641,16 @@ var BMX_PARTS = [
     wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 90, price: 27.99
   },
   {
-    id: 'bmx-ti-colony-griplock-24', cat: 'tire', brand: 'Colony', model: 'Grip Lock Tire 2.4"',
-    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 100, price: 28.99
+    id: 'bmx-ti-colony-griplock-24', cat: 'tire', brand: 'Colony', model: 'Grip Lock Tire 2.35"',
+    wheelSize: '20', width: 2.35, casing: 'park', maxPsi: 110, weight: 610, price: 28.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://colonybmx.com.au/products/griplock-tyre/',
+    note: 'Corrected from a non-existent 2.4in width — Colony\'s Griplock only ships in 2.2in/2.35in. 60TPI, 110 max PSI, 610g at 2.35in per the maker page; AUD price not published there, USD MSRP kept as sample.'
   },
   {
-    id: 'bmx-ti-colony-griplock-215', cat: 'tire', brand: 'Colony', model: 'Grip Lock Tire 2.15"',
-    wheelSize: '20', width: 2.15, casing: 'park', maxPsi: 100, price: 26.99
+    id: 'bmx-ti-colony-griplock-215', cat: 'tire', brand: 'Colony', model: 'Grip Lock Tire 2.2"',
+    wheelSize: '20', width: 2.2, casing: 'park', maxPsi: 110, weight: 546, price: 26.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://colonybmx.com.au/products/griplock-tyre/',
+    note: 'Corrected from a non-existent 2.15in width — Colony\'s Griplock only ships in 2.2in/2.35in. 60TPI, 110 max PSI, 546g at 2.2in per the maker page; AUD price not published there, USD MSRP kept as sample.'
   },
   {
     id: 'bmx-ti-flybikes-ruben-24', cat: 'tire', brand: 'Fly Bikes', model: 'Ruben Tire 2.4"',
@@ -670,7 +678,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-pg-colony-wasted', cat: 'pegs', brand: 'Colony', model: 'Wasted Pegs',
     axleFit: '14mm', material: 'steel', reducerIncluded: true, price: 27.99,
-    note: 'Ships with a 14mm-to-10mm reducer for front-axle use.'
+    note: 'UNRESOLVED: no "Wasted" peg found in Colony\'s current or archived lineup (real names: Anyway, Oneway, Jam Circle, EXON II Flatland). Flagged for the coordinator; unverified sample, not sourced.'
   },
   {
     id: 'bmx-pg-totalbmx-rotary', cat: 'pegs', brand: 'Total BMX', model: 'Rotary Pegs',
@@ -728,7 +736,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-hb-colony-pintour', cat: 'handlebar', brand: 'Colony', model: 'Pintour Bars',
-    clamp: '25.4mm', rise: 8.15, width: 29, price: 79.99
+    clamp: '25.4mm', rise: 8.15, width: 29, price: 79.99,
+    note: 'UNRESOLVED: "Pintour" is a Colony WHEEL line (Pintour Swarm hub/wheel), not a handlebar — the model name is wrong. Colony\'s current bars lineup is Guardian/Cadet/Rick/Prody Kue/Elescious/Hardy V2/Bloody Oath/Tenacious; the closest real 29in-wide 25.4mm-clamp bar (Sweet Tooth Bars, rise 8.8in/9.4in) is sold only via distributor channels, not colonybmx.com.au\'s own current page, so it does not clear the manufacturer-own-page bar either. Flagged for the coordinator; unverified sample, not sourced.'
   },
   {
     id: 'bmx-hb-sandm-slam', cat: 'handlebar', brand: 'S&M', model: 'Slam Bars',
@@ -785,7 +794,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-se-colony-pivotal', cat: 'seat', brand: 'Colony', model: 'Pivotal Seat',
-    system: 'pivotal', price: 27.99
+    system: 'pivotal', price: 27.99,
+    note: 'UNRESOLVED: "Pivotal Seat" as a bare generic name is not a real Colony SKU — every Colony seat carries a specific model name (Mini Pivotal, Wallwork, Paterico, Blaster, Alex Hiam (AH), Plume), all pivotal-clamp. Flagged for the coordinator to pick a real model; unverified sample, not sourced.'
   },
   {
     id: 'bmx-se-flybikes-pivotal', cat: 'seat', brand: 'Fly Bikes', model: 'Pivotal Seat',
@@ -807,7 +817,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-sp-colony-pivotal-post', cat: 'seatpost', brand: 'Colony', model: 'Pivotal Seatpost',
-    diameter: 25.4, system: 'pivotal', price: 17.99
+    diameter: 25.4, system: 'pivotal', weight: 96, price: 17.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://colonybmx.com.au/products/pivotal-seatpost/',
+    note: '185mm length, 96g, per the maker page. AUD price not published there (sold via Colony\'s distributor storefront); USD MSRP kept as sample.'
   },
   {
     id: 'bmx-sp-profile-pivotal-post', cat: 'seatpost', brand: 'Profile Racing', model: 'Pivotal Seatpost',
@@ -829,7 +841,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-gr-colony-griplock', cat: 'grips', brand: 'Colony', model: 'Grip Lock Grips',
-    length: 143, flangeless: true, price: 11.99
+    length: 143, flangeless: true, price: 11.99,
+    note: 'UNRESOLVED: "Grip Lock"/"Griplock" is Colony\'s TIRE name, not a grip — the model name is wrong. Colony\'s actual grip product is "Much Room Grips" (140mm, 30mm diameter, Krayton rubber, push-in bar ends — a flanged, not flangeless, design), which does not match this row\'s specs either. Flagged for the coordinator; unverified sample, not sourced.'
   },
   {
     id: 'bmx-gr-flybikes-radioactive', cat: 'grips', brand: 'Fly Bikes', model: 'Radioactive Grips',
@@ -1148,7 +1161,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-pd-colony-fantom', cat: 'pedals', brand: 'Colony', model: 'Fantom Pedals',
-    platform: 'alloy', spindle: '9/16', weight: 350, price: 44.99
+    platform: 'alloy', spindle: '9/16', weight: 350, price: 44.99,
+    note: 'UNRESOLVED: no "Fantom" pedal found in Colony\'s current or archived lineup — Colony\'s current pedal listing is "Fantastic Plastic Pedals" (plastic platform, not alloy). Flagged for the coordinator; unverified sample, not sourced.'
   },
   {
     id: 'bmx-pd-bsd-motive', cat: 'pedals', brand: 'BSD', model: 'Motive Pedals',
