@@ -1312,6 +1312,107 @@ var BMX_PARTS = [
     id: 'bmx-rh-alienation-sabbath', cat: 'rearWheel', brand: 'Alienation', model: 'Sabbath Rear',
     driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 149.99,
     note: 'Race rear wheel, cassette driver only (race hubs are cassette-only). Driver tooth count per today\'s de-facto 9T standard - brand+model confirmed on alienationbmx.com, per-spec page not fetched.'
+  },
+
+  // ---- Depth-5 (2026-07-17): disc-era race frame + Fit/S&M/Cult/Odyssey/
+  // Colony small-parts depth. Real SKUs only, fetched/searched against
+  // manufacturer or established BMX retail pages (chasebicycles.com fetched
+  // directly for the RSP 5.0's disc-only claim; danscomp/valleybmx listing
+  // prices via search - see per-row notes). No verified:true (no full
+  // manufacturer weight/spec page fetch this batch).
+  {
+    id: 'bmx-fr-chase-rsp50', cat: 'frame', brand: 'Chase', model: 'RSP 5.0',
+    discipline: 'race', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 21, rearBrakeMount: 'disc', rearAxle: '14mm', frameOnly: true, price: 609.99,
+    note: 'Chase\'s current-gen alloy race frame - chasebicycles.com states RSP 5.0 frames are "made exclusively for disc braking" (post+flat mount via a separately sold adapter) with Press Fit BBs on Expert XL and larger sizes (bbShell modeled as mid/press-fit); Pro-size top tube. Price from a BRG Store listing (pre-sale $609.99).'
+  },
+  {
+    id: 'bmx-fr-redline-roam', cat: 'frame', brand: 'Redline', model: 'Roam',
+    discipline: 'race', wheelSize: '20', bbShell: 'american', headTube: 'integrated-1-1/8',
+    topTube: 19.1, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: false, price: 320,
+    note: 'Redline\'s smaller-than-standard-20" entry/youth race-inspired complete bike (between an 18" and full 20") - valleybmx.com lists an American-shell threaded BB and alloy linear-pull ("V-brake" family) brakes. Price is the listed non-sale MSRP.'
+  },
+  {
+    id: 'bmx-fr-fitbikeco-mixtapev2', cat: 'frame', brand: 'Fit Bike Co', model: 'Mixtape V2',
+    family: 'fitbikeco-mixtape', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: true, price: 599.95,
+    note: 'Park/street frame - fitbikeco.com spec sheet lists "Removable Thread On 990" rear brake mounts (U-brake family) and a 25.4mm seatpost; offered in 20.5/20.75/21" top tubes (20.75 captured here). BB shell per Fit\'s modern Mid-shell default (not explicitly re-stated on this model\'s page).'
+  },
+  {
+    id: 'bmx-ch-odyssey-bluebird', cat: 'chain', brand: 'Odyssey', model: 'Bluebird Chain',
+    pitch: '1/8', halfLink: true, price: 25.88,
+    note: 'Same plate/pin dimensions as the popular KMC freestyle chain, ships with a factory-installed half link on one end.'
+  },
+  {
+    id: 'bmx-ch-kmc-z1ehx', cat: 'chain', brand: 'KMC', model: 'Z1eHX Wide Chain',
+    pitch: '1/8', halfLink: false, price: 36,
+    note: 'KMC\'s wide single-speed 1/8in chain (Neo Chrome finish) - danscomp.com listing.'
+  },
+  {
+    id: 'bmx-sp-sm-oldschoollayback', cat: 'seatpost', brand: 'S&M', model: 'Old School Layback Seat Post',
+    diameter: 22.2, system: 'standard', price: 69.95,
+    note: '14in chromoly layback post for old-school 7/8in (22.2mm) seat tubes - danscomp.com listing; a railed (non-Pivotal) post.'
+  },
+  {
+    id: 'bmx-se-sm-fatpivotal', cat: 'seat', brand: 'S&M', model: 'Fat Pivotal Seat',
+    system: 'pivotal', price: 49.95,
+    note: 'Fat-size padded Pivotal seat - albes.com listing.'
+  },
+  {
+    id: 'bmx-st-sm-racexlt', cat: 'stem', brand: 'S&M', model: 'Race XLT Stem',
+    clamp: '25.4mm', price: 64.95,
+    note: 'CNC-machined 6061 topload race stem, offered in 49/53/55/57mm reach - danscomp.com listing (53mm).'
+  },
+  {
+    id: 'bmx-sp-odyssey-utilitypro-25t', cat: 'sprocket', brand: 'Odyssey', model: 'Utility Pro Guard Sprocket 25T',
+    teeth: 25, mount: 'spline', pitch: '1/8', price: 69.99,
+    note: 'Guard-style sprocket with an integrated bash/chain guard - danscomp.com listing; sibling to the 28T guard sprocket and the already-cataloged 30T non-guard Utility Pro.'
+  },
+  {
+    id: 'bmx-sp-odyssey-utilitypro-28t', cat: 'sprocket', brand: 'Odyssey', model: 'Utility Pro Guard Sprocket 28T',
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 69.99,
+    note: 'Guard-style sprocket with an integrated bash/chain guard - danscomp.com listing.'
+  },
+  {
+    id: 'bmx-se-cult-paddedpivotal', cat: 'seat', brand: 'Cult', model: 'Padded Pivotal Seat',
+    system: 'pivotal', price: 44.99,
+    note: 'Fat-base padded Pivotal seat - danscomp.com listing.'
+  },
+  {
+    id: 'bmx-se-cult-vansoldschool', cat: 'seat', brand: 'Cult', model: 'x Vans Old School Pro Pivotal Seat',
+    system: 'pivotal', price: 44.99,
+    note: 'Cult x Vans collaboration Pivotal seat, old-school profile - danscomp.com listing (pairs with the already-cataloged Cult x Vans tire).'
+  },
+  {
+    id: 'bmx-sp-cult-nwo-25t', cat: 'sprocket', brand: 'Cult', model: 'NWO Sprocket 25T',
+    teeth: 25, mount: 'spline', pitch: '1/8', price: 29.99,
+    note: '7075-T6 5-spoke bolt-drive sprocket (bolts to the crank spider\'s spline/bolt pattern - modeled as `spline` per the sprocket-mount convention), ships with 19/22mm spindle adapters - cultcrew.com / danscomp.com.'
+  },
+  {
+    id: 'bmx-sp-cult-nwo-28t', cat: 'sprocket', brand: 'Cult', model: 'NWO Sprocket 28T',
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 29.99,
+    note: '7075-T6 5-spoke bolt-drive sprocket, ships with 19/22mm spindle adapters - cultcrew.com / danscomp.com.'
+  },
+  {
+    id: 'bmx-hb-colony-rick', cat: 'handlebar', brand: 'Colony', model: 'Rick Bars',
+    clamp: '25.4mm', rise: 8, width: 29, price: 109.99,
+    note: 'danscomp.com listing; rise/width per this catalog\'s established Colony/freestyle-bar convention (not itemized in the listing snippet).'
+  },
+  {
+    id: 'bmx-hb-colony-guardian', cat: 'handlebar', brand: 'Colony', model: 'Guardian Bars',
+    clamp: '25.4mm', rise: 8, width: 29, price: 89.99,
+    note: 'danscomp.com listing; rise/width per this catalog\'s established Colony/freestyle-bar convention (not itemized in the listing snippet).'
+  },
+  {
+    id: 'bmx-gr-odyssey-broc', cat: 'grips', brand: 'Odyssey', model: 'Broc Grips',
+    length: 158, flangeless: false, price: 10.99,
+    note: 'Broc Raiford signature grip, soft Kraton compound, ships with Odyssey Par Ends bar ends - danscomp.com product page (30mm OD/22mm ID/158mm length).'
+  },
+  {
+    id: 'bmx-gr-odyssey-keyboard', cat: 'grips', brand: 'Odyssey', model: 'Keyboard V1 Grips',
+    length: 143, flangeless: true, price: 11.99,
+    note: 'Aaron Ross signature grip - danscomp.com listing.'
   }
 ];
 
