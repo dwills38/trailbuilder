@@ -1,10 +1,14 @@
 # Drivetrain — Mechanic Corpus
 
-**Maturity: foundation** (L1 complete + a first slice of L2 service-manual depth landed
-2026-07-17 — Shimano XT/XTR derailleur dealer-manual internals + SRAM Transmission
-install-torque facts, DRV-27–32. Still short of `professional`: no AXS pairing/firmware
-service, no freehub internals, no cross-brand torque table beyond these two model families —
-see `## Gaps`.)
+**Maturity: foundation, approaching professional** (L1 complete + a growing slice of L2
+service-manual depth: the 2026-07-17 first pass landed Shimano XT/XTR derailleur
+dealer-manual internals + SRAM Transmission install-torque facts (DRV-27–32); a same-day
+second pass closed the Shimano MTB crank/BB dealer-manual gap (DRV-35–36, recovered via
+Wayback Machine after three direct-fetch routes failed) and added SRAM mechanical Eagle
+derailleur install torque + a confirmed-absence finding on clutch/spring rebuild
+documentation (DRV-37–39). Still short of `professional`: no AXS pairing/firmware service,
+no freehub internals, no cross-brand torque table beyond the Shimano derailleur/crank and
+SRAM derailleur families covered so far — see `## Gaps`.)
 
 Shifter · derailleur · cassette · chain · crank · chainring · freehub/driver bodies ·
 single-speed cog. Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline,
@@ -381,6 +385,106 @@ cross-component dependency the mechanical-Eagle chapter facts (DRV-16 H/L screws
 no equivalent for. *Confidence: confirmed (SRAM support).* Source: support.sram.com
 article 13819403761051, fetched 2026-07-17.
 
+## SRAM mechanical (cable-actuated) Eagle rear derailleur — install torque + clutch-service status (L2)
+
+**DRV-37 — Mechanical Eagle rear derailleur install torque table, including the UDH "Half
+Mount" e-MTB/pedelec variant.** SRAM's own "1x MTB Mechanical Derailleurs User Manual"
+(covers the SX/NX/GX/X01 mechanical Eagle family plus the UDH-direct S100) gives: hanger
+mounting bolt **11 N·m (97 in-lb)**, with an explicit "do not grease the mounting bolt or
+hanger threads" caution (the opposite instruction from a lubricated fastener); cable-anchor
+bolt (T25) **4.5 N·m (40 in-lb)**. A separate optional install path — the **UDH Half
+Mount** plate, used to run a traditional-hanger-style mechanical derailleur on a UDH-only
+frame for e-MTB/pedelec applications — adds its own hardware: the UDH bolt itself
+**25 N·m (221 in-lb)**, explicitly **left-hand threaded**, installed with NO washer between
+the plate and bolt (a stray washer is called out as wrong); the B-bolt in that configuration
+**10–12 N·m (88–106 in-lb)**. This is a genuinely different mechanical assembly from
+Transmission's UDH Full Mount (DRV-32) — Half Mount still uses a conventional derailleur
+body with H/L and B-tension adjustment (DRV-16/17), UDH only replaces the hanger interface,
+whereas Transmission replaces the whole limit-setting mechanism. *Confidence: confirmed
+(fetched SRAM user/service manual).* Source: sram.com
+`/globalassets/document-hierarchy/user-manuals/sram-mtb/drivetrain/1x-mtb-mechanical-derailleurs-user-manual.pdf`
+(fetched 2026-07-17 via the RD-X0-1-B1 service-models page's Manuals section — same fetch
+route DRV-27/32 established for the SRAM/Shimano service catalogs).
+
+**DRV-38 — SRAM's mechanical Eagle "Cage Lock" is a wheel-removal convenience latch, NOT a
+clutch-tension adjuster — the opposite mechanism from Shimano's Shadow Plus friction dial
+(DRV-28).** The manual's Cage Lock section only describes rotating the derailleur cage
+forward and pressing a button to hold it in the extended position for easier wheel removal,
+with an explicit pinch-point warning that the cage "is spring loaded and will return...
+rapidly" when released — nothing in the mechanical Eagle manual describes an adjustable
+clutch friction setting analogous to Shimano's 2 mm-hex friction-adjust bolt. A mechanic
+trained on Shimano's adjustable-clutch workflow (DRV-28) has no equivalent control to reach
+for on mechanical Eagle — the cage-tension spring is fixed, not field-adjustable.
+*Confidence: confirmed (absence corroborated across the fetched manual's full Cage Lock
+description — no adjustment step present).* Source: SRAM 1x MTB Mechanical Derailleurs
+User Manual (as DRV-37), "Cage Lock" section.
+
+**DRV-39 — No manufacturer-published clutch-spring or pulley-bushing rebuild procedure
+exists for mechanical/AXS Eagle derailleurs — a confirmed absence, not an unfetched
+document.** Following the DRV-9-style fetch protocol (WebFetch → search → Bright Data), the
+SRAM service-models pages for RD-X0-1-B1/RD-GX-1-B1/RD-NX-1-B1/RD-SX-1-A1/RD-90-A1 were
+checked; each links only the install/adjustment user manual (DRV-37) plus the drivetrain
+adjustment-tools PDF and compatibility maps — no "Service Manual" tier document covering
+internal disassembly, spring replacement, or pulley-bushing service was found on any of
+them, and a support.sram.com search for spring/clutch service returns no manufacturer FAQ,
+only community threads (bikewrench/Vital MTB forum posts, not fetched as a source — per
+INDEX.md rule 3 a forum thread is not quotable as a corpus fact without being explicitly
+labelled community-tier, and none of these were pulled in far enough to source a specific
+procedure). SRAM's public position, inferred from the *absence* of a documented procedure
+across every model this round checked, is that the clutch/spring cartridge is treated as a
+sealed, non-user-serviceable unit — worn units get replaced, not rebuilt from spec. This
+mirrors DRV-33/34's "SRAM tells you the frame/axle-maker's number, not a rebuild spec" shape
+but for a part with apparently no published spec at all. *Confidence: confirmed-absence
+(a real, repeated fetch attempt found nothing, which is different from "not yet tried" —
+see INDEX.md rule 6, "not established" is the honest entry here).* This L2 gap for SRAM's
+side is now closed as *investigated and genuinely unsourceable*, not left as an unattempted
+TODO — it should not be re-attempted the same way in a future round without a new lead
+(e.g. a leaked/community teardown video cited explicitly as community-tier, or a SRAM patent
+filing, neither pursued this round).
+
+## Crank / bottom bracket install torque (L2 — Shimano dealer manual, closes the prior DM-MBFC001-04 gap)
+
+**DRV-35 — Shimano Deore-through-XT Hollowtech II crank + threaded/press-fit BB torque
+table, recovered via a Wayback Machine snapshot after three direct-fetch routes failed.**
+Two-bolt Hollowtech II left-crank-arm pinch bolts (FC-M8000/M7000/M6000/M617/MT500/MT600/
+MT700 — Deore through XT, both threaded and press-fit BB families): **12–14 N·m**,
+tightened alternately in stages (not each bolt fully at once), with a re-check after ~100 km
+(60 mi) of riding — a wear-in step distinct from a one-time install torque. A separate,
+much lighter **preload bolt** at the crank-arm/axle wide-groove joint is set to
+**0.7–1.5 N·m** *before* the two pinch bolts are brought to spec — mixing these two torques
+up (over-tightening the preload bolt to pinch-bolt spec) is the same "two different
+numbers for two different steps" trap as DRV-28's Shimano derailleur clutch
+adjust-vs-check split. Threaded BB cups (SM-BB52/BB-MT501/BB-MT500-PA): **35–50 N·m**.
+Press-fit BB (BB-MT800/BB-MT801/BB-MT800-PA): pressed in with a spanner + hex wrench per a
+shell-width/spacer table, not torque-specified (interference fit, not a threaded joint).
+Pedals: **35–55 N·m** (right crank = right-hand thread, left crank = left-hand thread — the
+one crank-family joint where thread handedness flips side-to-side). *Confidence: confirmed
+(fetched Shimano dealer manual).* Source: si.shimano.com DM-MBFC001-04 "Deore XT / SLX /
+Deore / Non-Series MTB Crankset Dealer's Manual," recovered via
+`web.archive.org/web/20250327103340/https://si.shimano.com/en/pdfs/dm/MBFC001/DM-MBFC001-04-ENG.pdf`
+(fetched 2026-07-17 — the live si.shimano.com URL still 403s direct `curl`/WebFetch; the
+Wayback snapshot serves the identical PDF cleanly via `pdftotext`, no encryption issue this
+time, unlike the Bright-Data-returned copy from the prior round). This is the first sourced
+crank-bolt/BB torque table from a Shimano dealer manual — DRV-25's Park Tool figures
+(≈34–50 N·m crank bolt, ≈8–11 N·m chainring bolt) were cross-brand generic; DRV-35/36
+supersede them for this specific Shimano family the same way DRV-27 superseded DRV-25 for
+XT/XTR derailleurs.
+
+**DRV-36 — Chainring bolt torque is position-dependent (largest/middle vs. smallest ring),
+not one flat number — refines DRV-25's single generic figure for this Shimano family.**
+DM-MBFC001-04's per-model chainring-replacement tables show the tightening torque differs
+by *which* ring is being bolted, not just by crank family: on the double-chainring
+FC-M8000-2/M7000-11-2/MT700-2/MT600-2 group the **largest chainring is 12–14 N·m** and the
+**smallest chainring is 16–17 N·m**; on the FC-M6000-2/MT500-2 (Deore-tier) group *both*
+rings are **16–17 N·m**; on the FC-M617 double the largest is 12–14 N·m and the smallest is
+16–17 N·m (same split as the M8000 group); on the triple-chainring FC-M8000-3/
+FC-M7000-10-3 the **largest+middle rings share 10–12 N·m** while the **smallest ring is
+16–17 N·m**; on the triple FC-MT500-3/FC-M6000-3 it's the reverse assignment of numbers —
+**smallest ring 16–17 N·m, largest+middle 12–14 N·m**. A mechanic applying one flat
+chainring-bolt torque across a whole crank family risks over- or under-torquing whichever
+ring the family puts in the *other* bracket. *Confidence: confirmed (same fetched dealer
+manual as DRV-35).* Source: DM-MBFC001-04 (as DRV-35), "Replacing chainrings" sections.
+
 ## Chain width — historical cross-speed tolerance
 
 **DRV-26 [refines the DRV-12/13 pattern to geared drivetrains] — Historically,
@@ -461,6 +565,15 @@ figures table).
 - **Self-extracting crank pullers hide the spline fit** (DRV-24): unlike open-spline
   cranks, misalignment isn't visible during the press-on, so a doubtful fit should be
   checked cap-off first.
+- **Crank-arm pinch bolts have a two-step torque, not one** (DRV-35): a light preload bolt
+  (0.7–1.5 N·m) is set before the two pinch bolts reach final spec (12–14 N·m) — install
+  order, not just a target number. Chainring bolts then add a *third*, position-dependent
+  number per DRV-36, so a single crank install touches three distinct torque specs.
+- **Mechanical Eagle's UDH "Half Mount" is a different install path from Transmission's UDH
+  Full Mount** (DRV-37 vs. DRV-32): Half Mount keeps the conventional hanger-style
+  derailleur body (H/L screws, B-tension) and only swaps the hanger interface, so a
+  mechanic who has just serviced a Transmission derailleur's Setup-Key workflow should not
+  assume the same steps apply to a Half-Mount mechanical Eagle build on the same frame.
 
 ### Wear couplings
 - **Chain–cassette–ring wear as a set:** a worn chain accelerates cassette and ring wear; the
@@ -480,27 +593,29 @@ figures table).
 
 ## Gaps
 
-- **Partially closed 2026-07-17 (DRV-27–31):** Shimano XT/XTR (RD-M8000/M9000) derailleur
-  service-manual internals are now sourced — mounting/cable/pulley/plate torque, the
-  friction-adjust-vs-friction-check torque split, clutch grease placement, B-tension's
-  cog-count-dependent gap, and chain-threading side. **Still open:** SRAM's own
-  mechanical/AXS Eagle derailleur service internals (spring tension, pulley bushing
-  service, clutch-mechanism rebuild) were NOT sourced this round — only Transmission's
-  *installation* differences (DRV-32–34) — and Shimano's own T-Type-equivalent isn't
-  applicable (Shimano has no direct-mount Transmission-style derailleur). **L2 gap
-  remaining: SRAM mechanical/AXS derailleur internals.**
-- **Partially closed 2026-07-17 (DRV-27, DRV-33):** torque now sourced against a real
-  Shimano MTB dealer manual (DRV-27, supersedes DRV-25's generic figures for this
-  family) and SRAM's own support desk for Transmission's mounting bolt (DRV-33, with a
-  documented mid-production revision). **Still open:** no torque table for SRAM
-  mechanical Eagle derailleur mounting/B-screw, no chainring-bolt/crank-bolt/BB torque
-  confirmed from a fetched Shimano MTB crank manual (attempted this round — the MTB
-  crank/BB dealer manual DM-MBFC001-04 could not be cleanly extracted: WebFetch 403'd,
-  Exa's PDF live-crawl timed out, and Bright Data's Web Unlocker returned an
-  encrypted/corrupted PDF poppler couldn't open even with an empty password — DRV-25's
-  Park Tool figures stay the only sourced crank-bolt/BB numbers; worth a retry next
-  round, possibly via a different Bright Data zone or a cached mirror). **L2 gap
-  remaining.**
+- **Closed 2026-07-17 round 2 (DRV-35–36):** the Shimano MTB crank/BB dealer manual
+  DM-MBFC001-04 gap flagged at the end of round 1 (WebFetch 403, Exa PDF-crawl timeout,
+  Bright-Data-returned PDF encrypted/unopenable) is now resolved — the same PDF, fetched
+  through a Wayback Machine snapshot of the si.shimano.com URL instead of the live host,
+  extracted cleanly with `pdftotext` with no encryption issue. Full crank-bolt/preload-bolt/
+  BB/pedal/position-dependent-chainring-bolt torque table is sourced (DRV-35–36),
+  superseding DRV-25's cross-brand Park Tool figures for this Shimano family the same way
+  DRV-27 did for XT/XTR derailleurs. **Lesson for future rounds:** when a live si.shimano.com
+  PDF 403s or returns corrupted bytes, check `web.archive.org` for a snapshot of the exact
+  PDF URL *before* escalating to a different Bright Data zone — it resolved this gap in one
+  step.
+- **Partially closed 2026-07-17 round 2 (DRV-37–39):** SRAM mechanical (cable-actuated)
+  1x Eagle rear derailleur install torque (mounting bolt, cable anchor, UDH Half Mount
+  bolt/B-bolt for the e-MTB path) is now sourced (DRV-37), and the "Cage Lock is not a
+  clutch adjuster" contrast with Shimano's DRV-28 is documented (DRV-38). **Genuinely
+  still open, now confirmed rather than merely unattempted:** no manufacturer-published
+  clutch-spring or pulley-bushing rebuild procedure exists for mechanical/AXS Eagle
+  derailleurs — checked across five SRAM service-model pages (RD-X0-1-B1, RD-GX-1-B1,
+  RD-NX-1-B1, RD-SX-1-A1, RD-90-A1) plus a support.sram.com search, all coming up with
+  install/adjustment documents only (DRV-39). This is now a confirmed-absence finding, not
+  a re-fetch candidate — a future round would need a genuinely new lead (patent filing,
+  an explicitly-labelled community teardown) rather than repeating the same service-page
+  search. **L2 gap: closed as "not established," not reopened as unattempted.**
 - No **chain-wear tolerance table cross-checked against SRAM/Shimano's own published
   %** — DRV-20 is tool-maker (Park Tool) guidance, explicitly caveated as "every
   manufacturer has their own specifications" — **L2 gap**.
