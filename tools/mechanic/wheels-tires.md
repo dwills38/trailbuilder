@@ -3,7 +3,13 @@
 **Maturity: foundation** (L1 — general-public repair/compat literacy; see
 [`CURRICULUM.md`](CURRICULUM.md). This chapter has broad L1 coverage of wheel size, axles, and
 tire↔rim fit, plus foundation-level truing/tubeless/lacing terminology as of the 2026-07-17 L1
-deepening pass — see "## Gaps" below for what a future L2/L3/L4 round still needs to close.)
+deepening pass. An **L3 start** landed the same day (WHL-26 through WHL-34: DT Swiss's fetched
+spoke-tension target/tolerance tables + quantified stress-relief procedure, and Sapim's fetched
+fatigue-test protocols + spoke-breakage causal taxonomy) — still graded `foundation` overall
+because the L1 gaps below (torque-spec table, hub bearing/press-fit service) remain untouched and
+the L3 depth so far covers only two of the five L3 domains CURRICULUM.md lists for this chapter
+(wheel-building/spoke-tension is now underway; tubeless engineering has none). See "## Gaps"
+below for what's now closed vs still open.)
 
 Wheel size · hubs · axles · rims · tires · ETRTO envelope · clearance.
 Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline, conventions).
@@ -280,6 +286,134 @@ so this is background knowledge for the mechanic agent, not a fact that feeds `c
 
 ---
 
+## Wheel building — spoke-tension engineering (L3 start, 2026-07-17)
+
+*CURRICULUM.md's named L3 example for this chapter — lacing patterns, spoke-tension targets/
+balance, dish, fatigue/failure modes. This is the first round to add L3-depth facts; WHL-19/20/25
+above stay the L1 concept layer this builds on.*
+
+**WHL-26 — DT Swiss publishes an exact spoke-tension target table in newtons, split by disc vs
+rim brake and front vs rear.** DT Swiss's SPLINE wheel line technical manual states (§6.1 Spoke
+Tension, "Max./Min. Tolerated Spoke Tension of the Higher Tightened Wheel Side"): **disc-brake
+front wheel** max **1200 N**, min **950 N**; **disc-brake rear wheel** max **1300 N**, min
+**1050 N**; **rim-brake front wheel** max **1000 N**, min **800 N**; **rim-brake rear wheel** max
+**1300 N**, min **1050 N** (identical to disc RW — only the front figure changes between brake
+types, i.e. it's the drive/dish-side rear tension that dominates either way). The table also
+carries an "Average Spoke Tension" column giving a target band inside the max/min envelope (≈
+1000–1150 N disc-FW, ≈1100–1250 N disc-RW, ≈850–950 N rim-FW, ≈1100–1250 N rim-RW) — *this
+average-band reading carries lower confidence than the max/min figures*: the source PDF's table
+extracted with the average column's row order visibly scrambled by the PDF-to-text conversion, so
+the band is a reconstruction, not a direct quote (max/min figures are unambiguous verbatim cells).
+*Confidence: confirmed (max/min, fetched primary table); medium (average band, OCR-reconstructed
+— flag for a follow-up fetch of the manual's rendered PDF, not the extracted text, to confirm)*.
+Source: DT Swiss "SPLINE Technical Manual V2017.03" §6.1 (official DT Swiss document, footer
+confirms © DT Swiss AG / www.dtswiss.com; fetched 2026-07-17 as a PDF, mirror hosted at
+hollandbikeshop.com since dtswiss.com's own PDF exceeded the fetch tool's size limit).
+
+**WHL-27 — DT Swiss's own dish/run-out tolerance table is tighter for higher-end MTB wheel tiers,
+by wheel line.** Same manual, §6.2 Tolerances (horizontal run-out / vertical run-out / off-center
+dish, all mm): **MTB XRC** (XC race tier) 0.25 / 0.5 / 0.3; **MTB XR, XM, EX** (trail/enduro
+tiers) 0.25 / 0.3 / 0.3; **MTB X, M, E** (entry tiers) 0.3 / 0.4 / 0.4; **Road RC** 0.25 / 0.5 /
+0.2; **Road R** 0.25 / 0.3 / 0.2. Dish (off-center) tolerance tightens from 0.4 mm on entry wheels
+to 0.2 mm on road-race wheels — the race-tier lines get a materially tighter dish spec, not just
+a marketing tier. *Confidence: confirmed (fetched primary table).* Source: same DT Swiss SPLINE
+Technical Manual V2017.03 §6.2, fetched 2026-07-17.
+
+**WHL-28 — DT Swiss's stress-relieving procedure is quantified: minimum 4 destress cycles per
+build, first one at ~50% of max tension, and the build isn't done until a destress produces zero
+further change.** *"SPLINE® wheels should be distressed minimum four times during the building
+process. First time at approximately 50% of the maximum spoke tension... After finishing truing,
+the wheel should be distressed once again. There should be no more changes in the settings
+(spoke tension, radial and axial run out)."* The build loop is: true → destress → re-check
+run-out → adjust tension → re-check run-out → repeat until a destress changes nothing. *Confidence:
+confirmed (fetched primary procedure).* Source: DT Swiss SPLINE Technical Manual V2017.03 §5.3,
+fetched 2026-07-17. This is the concrete mechanical procedure underneath WHL-20's basic
+truing-direction concept.
+
+**WHL-29 — DT Swiss's recommended field check interval is every 10 hours of riding (SPLINE
+wheels), separate from the hub's 6/12-month service interval.** *"Check spoke tension, run-out
+and wear of the wheel"* is listed at a **10 hours of use** interval in the same manual's
+maintenance-interval table, distinct from the hub small-service (6 months normal / as-required
+extreme conditions) and big-service (12 months) intervals — spoke tension is checked far more
+often than the hub is serviced. *Confidence: confirmed (fetched primary table).* Source: DT Swiss
+SPLINE Technical Manual V2017.03 §4.2/§5, fetched 2026-07-17.
+
+**WHL-30 — DT Swiss quantifies the load/unload fatigue cycle a spoke sees per wheel rotation, and
+names both failure directions (under- and over-tension) mechanically.** DT Swiss's own
+"Hand-Built Technology" page: under a seated rider's static load, *"the load is distributed to
+almost all spokes in the upper half of the wheel... while the tensions of a few spokes decreases
+slightly in the area of the contact patch,"* so *"during a wheel rotation, each spoke is maximally
+loaded and unloaded once. On a 29-inch wheel, this happens about 430 times on a one-kilometer-long
+track."* Two named failure directions: **under-tension** — *"if the preload is too low overall,
+this can lead to spokes being completely unloaded. As a result, the spokes can loosen further and
+are charged heavier. The wheel is more unstable overall and the material tires prematurely"* (a
+progressive/accelerating failure, not a one-time event); **over-tension at peak load** (e.g. a
+jump landing) — *"the force on the spoke would be too high and the spoke would plastically
+deform. This over-stretching of the spokes reduces the tensions, and the wheel loses stability"*
+— i.e. both directions converge on the same symptom (loss of tension, then instability), which is
+exactly why WHL-20's "set as close to max as possible, minimize deviation between spokes" rule
+exists: it's the point that minimizes cycle count spent near either failure mode. *Confidence:
+confirmed (fetched primary, maker's own mechanism explanation).* Source: dtswiss.com "Hand-Built
+Technology" (fetched 2026-07-17).
+
+**WHL-31 — Sapim's Cycling Parts Testing (CPT) department runs quantified wheel-fatigue endurance
+tests, not just spoke-level QC — this is real fatigue-cycle data, though it's the test protocol,
+not a published S-N curve.** Sapim's own CPT page: **"Wheel fatigue test"** = *"Endurance test
+with 750,000 to 12.5 Mio impacts (300 to 5000 km), followed by visual inspection, rotational
+accuracy and spoke tension measurements according to DIN or customized"*; **"Sprinter test"** =
+*"Alternating axial load with vertical load in a 1000 – 5000 km endurance test, followed by visual
+inspection"*; **"Wheel shaker"** = *"a fatigue test to simulate braking and pedaling with
+pulsating vertical and horizontal loads"*; **"UCI Drop Test"** = *"a 40 Joule impact test on a
+clamped ring, all documented for registration at UCI."* Post-fatigue-test spoke tension is
+explicitly re-measured (ties directly to WHL-30's tension-loss-as-failure-symptom mechanism).
+*Confidence: confirmed (fetched primary, Sapim's own page); note this is test-methodology data
+(cycle/distance/impact-energy protocols), not a published stress-vs-cycles-to-failure curve for a
+specific spoke gauge — a true S-N-curve dataset is still not sourced (see Gaps).* Source: sapim.eu
+"CPT" (fetched 2026-07-17).
+
+**WHL-32 — Sapim's own FAQ gives a specific taxonomy of where and why spokes break — useful as a
+diagnostic checklist, and it names a lacing-pattern-driven failure mode not covered by WHL-25.**
+*"Where and when does a spoke break?"* — *"Normally just before the bend"* after years of use;
+contributing causes listed: rim damage (*"even the smallest dent can be the cause"*),
+non-compatible components, **irregular tension on the spokes**, and a gap in spoke-nipple
+alignment. Spoke **head** breakage (uncommon) has three named causes: (1) *"bad positioning of
+the head in the hub... puts all the pressure on one side of the bottom of the spoke head"* — the
+**"bottle cap effect"**; (2) a hub flange too thick for the spoke's bend length, over-stressing
+the head; (3) **wrong cross pattern for the hub** — *"e.g. cross 4 on large flange hubs, the spoke
+bend can rub against the adjacent spoke head. This should be avoided"* — a direct, named
+lacing-pattern failure mode that sharpens WHL-25's "higher cross = more tangential" fact with a
+concrete over-crossing failure case. Spoke **thread** breakage in the nipple is attributed to
+spoke/nipple/rim misalignment or wrong spoke length (too long re-threads the nipple under load;
+too short also breaks at the thread). Spoke **midsection** breakage on butted/double-butted spokes
+is attributed to impact damage from a struck object, sometimes only visible under magnification.
+*Confidence: confirmed (fetched primary FAQ, Sapim's own causal taxonomy — qualitative, not a
+numeric S-N curve).* Source: sapim.eu "Contact" FAQ (fetched 2026-07-17).
+
+**WHL-33 — Sapim's own guidance: replacing only 1–2 spokes risks repeat breakage nearby, because
+one spoke breaking shifts the tension pattern of the whole wheel.** *"Do not forget when the first
+spoke breaks, all the other spokes suddenly have a different tension pattern! Also the rim
+structure goes out of line... If you only replace 1 or 2 spokes, you can expect these or the
+spokes next to them to break again. It is best to re-spoke the entire wheel."* Sapim also flags
+hub reuse after a full re-spoke: mount the new spokes in the *opposite* rotational direction from
+the original ovalization of the hub's spoke holes, rather than reusing the same worn hole-wear
+pattern. *Confidence: confirmed (fetched primary).* Source: sapim.eu "Contact" FAQ (fetched
+2026-07-17). This is a direct mechanical basis for WHL-25's closing line about complete built
+wheels being sold as opaque units — spoke replacement is itself a whole-wheel-tension operation,
+not a per-spoke one.
+
+**WHL-34 — Sapim's Torsion Control System (TCS) spokes are a specific engineered exception to
+twist-during-tensioning, quantified in torque (Nm), not tension (N) — the two units aren't
+interchangeable and shouldn't be conflated.** *"The secret of the spoke is in the unique square
+just above the thread (patented design). With this square it is possible to hold the spoke during
+tightening and truing, so it prevents the spoke from twisting. The TCS Spokes can easily be
+tightened to more than 200 Nm without twisting."* This is nipple-driving **torque**, a different
+physical quantity from the **tension** figures in WHL-26 (torque-to-turn a nipple vs the resulting
+axial pull on the spoke) — worth flagging because both are colloquially called "how tight," and a
+mechanic reading both numbers side by side could conflate them. *Confidence: confirmed (fetched
+primary spec claim).* Source: sapim.eu "Spokes" (fetched 2026-07-17).
+
+---
+
 ## INTERACTIONS (the organizing principle)
 
 *What constrains what, how mismatches fail, install-order dependencies, wear couplings.*
@@ -347,6 +481,19 @@ so this is background knowledge for the mechanic agent, not a fact that feeds `c
   drive or hub-brake wheel is a wear/failure-mode risk (excess flange tension under torque), which
   is why complete built wheels in the catalog are sold as opaque units rather than modelled by
   lacing pattern.
+- **Tension deviation between spokes, not tension level alone, is the fatigue driver** (WHL-30):
+  DT Swiss's own mechanism is that both under- and over-tension converge on the same failure
+  symptom (progressive tension loss → instability), which is why WHL-20's "set near max, minimize
+  spoke-to-spoke deviation" rule and WHL-26's max/min band exist together — a target without a
+  tight deviation tolerance is an incomplete spec.
+- **A broken spoke is a whole-wheel tension event, not a local one** (WHL-32/33): one spoke
+  breaking redistributes tension across every remaining spoke, which is why Sapim recommends
+  re-spoking the whole wheel rather than patching 1–2 spokes, and why wrong cross pattern (WHL-32
+  head-rub failure) is itself a tension-distribution problem, not a clearance problem.
+- **Fatigue-test protocols measure post-test tension, tying wheel-endurance QC directly to the
+  tension target** (WHL-31): Sapim's CPT wheel-fatigue and sprinter tests both re-check spoke
+  tension after the impact/load cycles — the tension table (WHL-26) isn't just a build-time
+  target, it's also the post-durability-test pass/fail reference.
 
 ---
 
@@ -355,24 +502,44 @@ so this is background knowledge for the mechanic agent, not a fact that feeds `c
 Honest list of what's still missing to climb past **foundation** — for the next training round
 to target (per INDEX.md corpus rule 7 / CURRICULUM.md "target the weakest chapter"):
 
-- **No spoke-tension target/balance table or fatigue-failure data — L3 gap.** WHL-19/20/25 cover
-  truing *concepts* (lateral/radial, cross patterns) but carry no kgf tension targets, dish
-  tolerance numbers, or spoke-fatigue/failure-mode research (CURRICULUM.md's named L3 example).
-- **No tubeless sealant chemistry/failure-mode depth — L3 gap.** WHL-21/22 cover setup mechanics
-  and the "brands aren't always compatible" warning, but not *why* (latex vs. other sealant
-  chemistry, clogging, burp-pressure-by-casing thresholds) — CURRICULUM.md's named L3 example.
-- **No hub bearing/press-fit engineering — L2/L3 gap.** Nothing here on cup-and-cone adjustment
-  procedure, cartridge-bearing press specs/tolerances, or freehub pawl/ratchet service — this
-  chapter covers axle *spacing/diameter* only, not hub internals.
-- **No torque-spec table — L2 gap.** Thru-axle, rotor-bolt, and spoke-nipple torque values are
-  entirely absent; WHL-23 covers the axle *mechanism*, not install torque.
+- **Spoke-tension target/balance table — L3 gap, PARTIALLY CLOSED 2026-07-17.** WHL-26/27 now
+  carry a fetched DT Swiss primary table: exact max/min tension in N by brake type and
+  front/rear, plus a dish/run-out tolerance table by wheel tier. Still open: this is **DT Swiss
+  only** — no Sapim (or other maker's) own numeric tension-target table was successfully fetched
+  (Sapim's site returned 404s on its spoke-tension-meter/checklist pages; only its CPT/FAQ/spokes
+  pages were fetchable — see WHL-31/32/33/34); a cross-brand comparison table is still missing.
+  The "average tension" band in WHL-26 also carries a lower-confidence OCR-reconstruction caveat
+  that a future round should re-verify against the manual's rendered PDF, not extracted text.
+- **Fatigue-failure data — L3 gap, PARTIALLY CLOSED 2026-07-17.** WHL-30/31/32 now carry DT
+  Swiss's own load/unload-cycle mechanism (quantified: ~430 cycles/km on a 29" wheel) and named
+  under-/over-tension failure directions, plus Sapim's fetched fatigue-test protocols (endurance
+  cycle counts, impact energies) and spoke-breakage causal taxonomy. Still missing: a genuine
+  **S-N curve** (stress amplitude vs. cycles-to-failure) for a specific spoke gauge/alloy — what's
+  sourced is test *methodology* and qualitative failure causes, not a quantitative
+  fatigue-life dataset a wheelbuilder could design against.
+- **No tubeless sealant chemistry/failure-mode depth — L3 gap, untouched this round.** WHL-21/22
+  cover setup mechanics and the "brands aren't always compatible" warning, but not *why* (latex
+  vs. other sealant chemistry, clogging, burp-pressure-by-casing thresholds) — CURRICULUM.md's
+  other named L3 example for this chapter.
+- **No hub bearing/press-fit engineering — L2/L3 gap, untouched this round.** Nothing here on
+  cup-and-cone adjustment procedure, cartridge-bearing press specs/tolerances, or freehub
+  pawl/ratchet service — this chapter covers axle *spacing/diameter* only, not hub internals.
+- **No general torque-spec table — L2 gap, one data point added.** WHL-34 adds one real number
+  (Sapim TCS nipples: 200+ Nm without twisting) but that's a single spoke-system spec, not a
+  torque table across thru-axle/rotor-bolt/cassette-lockring/spoke-nipple fasteners; WHL-23 still
+  covers the axle *mechanism* only, not install torque.
 - **No DT Swiss / SRAM / other hub-brand primary source landed yet for Boost/SuperBoost
   origin.** WHL-4/5's 148/157 facts are sourced (EXPERT-REVIEW-DOSSIER.md + a fetched Problem
   Solvers page); this round tried to fetch a DT Swiss or SRAM primary explainer for the
   Boost-was-introduced-in-2015 history and could not land one cleanly (see report) — still an
   open source-gap, not urgent since the fit-relevant numbers are already sourced elsewhere.
-- **No wheel-building procedure depth (lacing order, tensioning sequence, stress-relieving) —
-  L3 gap.** WHL-25 gives naming/why, not the how-to-build-a-wheel procedure.
+- **Wheel-building procedure depth — L3 gap, PARTIALLY CLOSED 2026-07-17.** WHL-28 now gives DT
+  Swiss's real stress-relieving/truing sequence (4x minimum destress, first at ~50% max tension,
+  final destress must show zero change) and WHL-29 a real maintenance-check interval (10 hours).
+  Still missing: lacing *order* (which spoke goes in which hole first, spoke-tree assembly
+  sequencing beyond what WHL-5.3-5.7's step lists show) and a from-scratch tensioning sequence
+  (which spokes to bring up first on a bare rim) — this round found the destress/truing loop, not
+  the initial lacing-to-tension build order.
 - **BMX/DJ wheel facts (WHL-3/7/8) are still thin relative to MTB** — off-live but same
   foundation bar; a future round could deepen BMX peg/axle and DJ wheel-size sourcing beyond the
   design-doc/community tier they currently carry.
