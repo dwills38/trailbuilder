@@ -144,3 +144,74 @@ Second unblocker per main commit `81f2db7` (2026-07-17): Exa MCP tools
 Fetch doctrine: **WebFetch → Exa (JS walls, e.g. Pearl Izumi/ION-class) → bdata
 (hard bot-walls: Five Ten/Vista brands + geo-walls)** — preserve the bdata
 credit pool for what only it can reach. Bar unchanged.
+
+## Fanout-3 (branch verify/kit-fanout-3, 2026-07-17, background worker)
+
+Resumed from the 413/714 baseline (fanout-2's final state). Worked the ~102-row
+untouched pool (O'Neal, ION, Scott, Bluegrass, Fasthouse, G-Form, DHaRCO, 7iDP,
+Dainese, TSG, Zoic + smaller clusters) per the coordinator's target list.
+bdata NOT used (balance too low, ~$1.39, no single wall justified spending it) -
+WebFetch + Exa covered everything reached this pass.
+
+**Result: 433/714 kit parts verified (60.6%, +20 rows / +2.8pp from the 57.8%
+baseline).** All gates green: `node validate.js` (0 problems, `KIT OK - 714 kit
+parts, 0 problems (433 verified, 281 unverified)`), `npx vitest run` (24 files,
+700 tests), `npx tsc --noEmit` (clean). One commit per brand cluster.
+
+**Newly verified (20 rows) + corrections by brand:**
+- **O'Neal** (4 verified, oneal.com Shopify): Pinned Flat Pedal Shoe ($100->$79.99),
+  Element Squadron Jersey (exact match), Element Trail Pant ($90->$119.99 + liner
+  false->true + sizes), Element Glove ($18->$24.99). AMX Glove and Session SPD
+  left unverified - neither found on the US oneal.com storefront (EU-only).
+- **Scott** (1 verified): Grenade Evo Elbow Guard promoted (re-fetched, price/sizes/cert
+  already correct). Shoe, 2 shorts, 3 gloves, 1 eyewear row left unverified -
+  scott-sports.com is JS-rendered for US product pages (search + direct slugs
+  both returned no usable content via WebFetch/Exa this session).
+- **Bluegrass** (4 verified via met-helmets.com): Prizma 3D/React/Union gloves
+  (price/sizes), and Armour B&S D3O renamed+corrected to "Seamless B&S D3O"
+  (EUR190->EUR250, weight 840g sample->580g maker-published S/M, added EN1621-2-L1
+  cert). The 3 "Skinny" kneepad/elbowpad rows marked `discontinued` - the line is
+  absent from the current met-helmets.com Bluegrass protection catalog (replaced
+  by Aura/Arto/3Straps/Big Horn), no successor SKU confirmed by name.
+- **Fasthouse** (2 verified via fasthouse.com Shopify): Alloy Mesa LS jersey and
+  Fastline 2.0 MTB Pant, both already corrected by a prior pass and now re-fetched
+  + promoted. 3 jersey rows (Alloy Cole SS, Alloy Rufio LS, Classic Jersey SS)
+  flagged for coordinator review - none of those exact SKU names exist on
+  fasthouse.com's current collections (current names are Rally/Mesa/Ronin/
+  Sidewinder/Slade/Block for Alloy, and Outland/805/Cartel/Velocity/Mercury for
+  Classic) - not verifying possibly-fabricated rows.
+- **G-Form** (1 verified via g-form.com Shopify): Pro-Rugged 2 Knee/Shin Guard
+  ($89.99->$139.99, sizes corrected to XS-2XL, CE-1621-1 cert added). Pro-X3
+  Knee/Vest/Shin and Pro-X shin left unverified - g-form.com rate-limited (429)
+  repeatedly; the line may also be transitioning to a newer "X4" generation per
+  a "recently viewed" sighting, worth a targeted follow-up.
+- **DHaRCO** (3 verified via us.dharco.com, the US-region storefront - dharco.com
+  itself defaults to AUD): Tech Party Shirt SS and Race Jersey LS (both re-fetched,
+  $82 confirmed), Race Glove ($35->$44.95, sizes S-XL not S-XXL). Trail Glove left
+  unverified - no such SKU on the current US men's glove lineup (only Race Glove
+  and Gravity Gloves).
+- **7iDP** (1 verified via 7idp.com Shopify): Flex Knee (exact price match $84.99,
+  sizes confirmed). Flex Suit corrected to `discontinued` - its product URL now
+  redirects to the 7idp.com homepage and the current Body collection has no
+  full-torso SKU. Flex Knee/Shin Guard left unverified - no distinct product page
+  found; the current knee-pad collection has unlabeled items that may or may not
+  be it.
+- **Dainese** (4 verified via dainese.com/us/en): Trail Skins Air Knee Guard (exact
+  match $85), Rival Pro Knee Guard ($120->$135, sizes add XS), Trail Skins Air
+  Elbow Guard (exact match $75, promoted from a prior fetch), Trail Skins Air Vest
+  ($150->$139, coverage back->chest-back, sizes add XXL, EN1621-2-L1 cert added,
+  weight confirmed as the maker's size-L figure).
+- **TSG, Zoic**: no new verifications - TSG's ridetsg.com is EUR-only with a prior
+  session's explicit policy note against converting (left as-is, not re-litigated);
+  Zoic's zoic.com rate-limited (429) on every direct fetch this session, and its
+  "Amp SS" jersey may not exist as a current SKU (only Amp LS found).
+- **Northwave, Madison**: attempted, not worked - both are EUR/GBP-only maker
+  sites with no confirmed USD storefront reached this session (Northwave retailer
+  prices agree around $169.99 but that's not a maker-page source).
+
+**Still open for a future pass:** ION (JS-rendered price, wall), the remaining
+Scott/TSG/Zoic/Northwave/Madison rows above, and the rest of the ~102-row pool
+not reached this session (7mesh, Club Ride, Mons Royale, Loose Riders, and the
+untouched tail of G-Form/eyewear-brand rows).
+
+Branch `verify/kit-fanout-3` ready for coordinator review - not pushed, not merged.
