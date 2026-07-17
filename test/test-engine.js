@@ -337,6 +337,73 @@ test('6-bolt rotor on a Center Lock REAR hub -> same adapter warning', function(
   eq(r.errors.length, 0); some(r.warnings, 'Center Lock adapter');
 });
 
+/* Rule 8 direction-aware adapter tier (bias-audit 2026-07-17 HIGH-1): a
+   Post-mount caliper on an I.S. (International Standard) frame/fork mount is an
+   everyday adapter fit (the universal, in-the-box I.S.->post-mount adapter,
+   e.g. Shimano SM-MA-###P/S) -> a WARNING carrying the adapter as a structured
+   `fix`, mirroring rule 9 - NOT a false "won't fit". Before this, all 104
+   catalog calipers (PM or FM) hard-errored on the 3 real I.S. frames (Cotic
+   BFe/Jeht, Banshee Paradox V3), making them 100% unbuildable. Flat-mount->I.S.
+   has no universal path and stays an error; the reverse (an I.S. caliper) is
+   dormant - none in the catalog - but the code is direction-aware now. */
+var IS_FRAMES = ['fr-cotic-bfe', 'fr-cotic-jeht', 'fr-banshee-paradox-v3'];
+test('PM caliper on each real I.S. frame -> adapter WARNING with a structured fix, not a red', function(){
+  IS_FRAMES.forEach(function(fr){
+    var r = chk({frame:fr, rearBrake:'bk-sram-code-rsc'});
+    eq(r.errors.length, 0, fr+': no errors');
+    var w = r.warnings.filter(function(v){ return v.ruleId==='rear-brake-mount'; })[0];
+    ok(w, fr+': raises a rear-brake-mount warning');
+    eq(w && w.fix && w.fix.kind, 'adapter', fr+': fix is adapter-tier');
+    some([w && w.fix && w.fix.name], 'post-mount', fr+': the fix names the I.S.->post-mount adapter');
+    some([String(w)], 'adapter', fr+': the message mentions the adapter');
+  });
+});
+test('PM caliper on a synthetic I.S. FORK -> the same adapter warning (front branch, dormant-but-correct)', function(){
+  var bld = B({frontBrake:'bk-sram-code-rsc'});
+  bld.fork = /** @type {any} */ (Object.assign({}, part('fk-fox-36-factory-29-160'), {brakeMount:'IS'}));
+  var r = C.checkBuild(bld);
+  eq(r.errors.length, 0);
+  var w = r.warnings.filter(function(v){ return v.ruleId==='front-brake-mount'; })[0];
+  ok(w, 'raises a front-brake-mount warning');
+  eq(w && w.fix && w.fix.kind, 'adapter');
+  some([w && w.fix && w.fix.name], 'front');
+});
+test('FM caliper on an I.S. frame stays an ERROR (no universal flat-mount->I.S. path)', function(){
+  var r = chk({frame:'fr-cotic-bfe', rearBrake:'bk-shimano-xtr-m9110-fm'});
+  var e = r.errors.filter(function(v){ return v.ruleId==='rear-brake-mount'; })[0];
+  ok(e, 'raises a rear-brake-mount error');
+  some([String(e)], 'mismatch');
+  eq(r.warnings.filter(function(v){ return v.ruleId==='rear-brake-mount'; }).length, 0, 'no adapter warning for FM->IS');
+});
+test('a dormant I.S. caliper on a PM frame stays an ERROR (reverse direction, no verified adapter)', function(){
+  var bld = B({frame:'fr-santacruz-megatower-cc'});   // PM frame
+  bld.rearBrake = /** @type {any} */ (Object.assign({}, part('bk-sram-code-rsc'), {mount:'IS'}));
+  var r = C.checkBuild(bld);
+  some(r.errors, 'Rear brake mount mismatch');
+  eq(r.warnings.filter(function(v){ return v.ruleId==='rear-brake-mount'; }).length, 0);
+});
+test('PM caliper on a PM frame stays silent (no adapter noise on the common case)', function(){
+  var r = chk({frame:'fr-santacruz-megatower-cc', rearBrake:'bk-sram-code-rsc'});
+  eq(r.errors.filter(function(v){ return v.ruleId==='rear-brake-mount'; }).length, 0);
+  eq(r.warnings.filter(function(v){ return v.ruleId==='rear-brake-mount'; }).length, 0);
+});
+test('each real I.S. frame now assembles a sensible build with 0 errors (warnings OK)', function(){
+  IS_FRAMES.forEach(function(fr){
+    var r = chk({frame:fr, fork:'fk-fox-36-factory-29-160', frontBrake:'bk-sram-code-rsc', rearBrake:'bk-sram-code-rsc'});
+    eq(r.errors.length, 0, fr+': builds with 0 errors');
+    some(r.warnings, 'adapter', fr+': the I.S. adapter warning is present');
+  });
+});
+test('dots: a PM caliper on a full I.S. build goes YELLOW (adapter), not red; an FM caliper stays red', function(){
+  // No catalog fork is I.S., so synthesize one to force BOTH brake slots onto
+  // I.S. mounts (a frame-only build lets the front-brake slot escape to green).
+  var isFork = /** @type {any} */ (Object.assign({}, part('fk-fox-36-factory-29-160'), {brakeMount:'IS'}));
+  var bld = B({frame:'fr-cotic-jeht'}); bld.fork = isFork;
+  eq(C.compatOf(part('bk-sram-code-rsc'), bld).state, 'w', 'PM caliper -> yellow');
+  var fmBrake = /** @type {any} */ (Object.assign({}, part('bk-sram-code-rsc'), {mount:'FM'}));
+  eq(C.compatOf(fmBrake, bld).state, 'r', 'FM caliper -> red');
+});
+
 /* Rule 10 minimum (REVIEW.md #3). The ZEB/Domain have a 200mm-native post mount
    (sram.com); adapters only space the caliper UP, so a 180 rotor is unmountable. */
 test('180mm rotor on a ZEB (200mm minimum) -> error, not silence', function(){
