@@ -42,12 +42,58 @@ retailer/interpolated estimate):**
 Gates after batch 1: `node validate.js` → 2589 verified / 4521 parts, 0 problems.
 `npm test` → 616/616 passed. `npm run typecheck` → clean.
 
+## Batch 2 — DONE (7 rows), committed
+
+Worktree was reset onto `origin/main` @ `c9f9970` first (batch 1 had landed there —
+"reset" not "re-apply", per the coordinator's instruction; no local changes lost).
+
+**RockShox shocks (6 rows), promoted via the sram.com/en/service/models/<mfgPn-slug>
+pattern (full eye×stroke size matrix per SKU) — all under the shocks
+interface-verification exception (nominal, not per-size, weight):**
+- `sh-rockshox-super-deluxe-base-205x65-trun` — verified (RS-SDLX-BSE-C2, interface
+  re-confirmed, weight/price stay nominal). A prior session had already fetched this
+  exact page and left it "sourced-but-not-verified"; promoted this session because
+  the policy the prior session cited (VERIFY-PROTOCOL's shocks exception) already
+  covers this case — no new data needed, just applying the documented policy.
+- `sh-rockshox-super-deluxe-base-210x55` — verified, same basis/page.
+- `sh-rockshox-deluxe-select-185x55-trun` — verified (RS-DLX-SEL-C1, newly fetched
+  this session; row previously had no weight field at all — added weight:300 as the
+  maker's nominal reference figure).
+- `sh-rockshox-vivid-select-205x60-trun` — verified (RS-VIVD-SEL-C1), same pattern.
+- `sh-rockshox-vivid-ultimate-250x72p5` — verified (RS-VIVD-ULT-C1); weight
+  **corrected 750g → 670g** (prior session mirrored a sibling's sample weight
+  instead of the maker's own reference figure — this session fetched the page
+  directly and used the real number).
+- `sh-rockshox-superdeluxe-selectplus-250x70-std` — verified (RS-SDLX-SELP-C1);
+  weight **corrected 600g → 450g**. NOTE: the newer C2-gen Super Deluxe Select+
+  page tops out at 230mm eyes and does NOT offer 250mm — only the C1 gen does.
+  Flag for the coordinator: any OTHER 250mm-eye Super Deluxe Select+ row in the
+  catalog that's tagged gen:'C2' (if one exists) would be a genuine spec
+  contradiction worth checking; this batch didn't find one but didn't exhaustively
+  search for it either.
+
+**RockShox fork (1 row):**
+- `fk-rockshox-lyrik-selectplus-29-160` — verified (FS-LYRK-SELP-D2). The SKU-specific
+  sram.com SERVICE page (not the generic product page a prior session used) states
+  the weight (1968g) directly for the 29in/160mm/Select+ configuration — an EXACT
+  match, not the nominal-reference-figure situation shocks/wheels get, so this one
+  is a full, unqualified verification (interface AND weight both maker-confirmed
+  for this precise SKU). Its 140mm/150mm siblings remain unverified — RockShox's
+  page states weight only for the 160mm point, and forks are NOT in CLAUDE.md's
+  named interface-verification-exception list (only shocks and wheels are), so the
+  strict weight bar applies and blocks those siblings.
+
+Gates after batch 2: `node validate.js` → 2596 verified / 4521 parts, 0 problems.
+`npm test` → 616/616. `npm run typecheck` → clean.
+
 ## Contradiction list (for the coordinator)
 
-None found this batch. All corrections above were on rows this session itself
-verified for the first time (weight tightened from sample/interpolated to the
-maker's exact SKU-table figure) — no interface field (mount/freehub/width) changed,
-and no row previously verified by another session was touched.
+None found. All corrections above (batch 1 + batch 2) were on rows this session
+itself verified for the first time (weight tightened from sample/interpolated/
+mismatched-reference to the maker's exact figure for the SKU) — no interface field
+(mount/freehub/width/travel) changed, and no row previously verified:true by
+another session was touched. One thing worth a coordinator glance: the C1-vs-C2
+Super Deluxe Select+ gen/size-range split noted above under batch 2.
 
 ## Skipped this batch (documented reasons, not retried without new data)
 
