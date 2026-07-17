@@ -1,5 +1,14 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — bmx-depth-5 merged (246 → 264 off-live rows)
+
+- catalog/bmx-depth-5 merged: +18 real rows (Chase RSP 5.0 disc frame — first organic use of the
+  disc vocab; Redline Roam; Fit Mixtape V2; S&M/Cult/Odyssey/Colony/KMC small-parts depth).
+  Fell short of ~300 HONESTLY — held Standard Byke/Redline/GT candidates over unconfirmed
+  bbShell/price rather than guess, and self-caught 3 would-be duplicate ids pre-merge. Gates
+  green, no dups, 264 rows. Flip math waits on verify/bmx-1's fabrication-cleanup subtraction —
+  the post-cleanup total is the real denominator.
+
 ## 2026-07-17 — MTB Coach corpus born + 10 mechanic-grounded guides shipped (22 → 32)
 
 - **tooling/coach-bootstrap merged**: tools/coach/ corpus (10 files, 42 cited facts) + 
