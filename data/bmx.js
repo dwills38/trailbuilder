@@ -264,7 +264,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-hs-salt-pro', cat: 'headset', brand: 'Salt', model: 'Pro Integrated Headset',
-    fit: 'integrated-1-1/8', price: 19.99, note: 'WeThePeople in-house parts brand (Salt).'
+    fit: 'integrated-1-1/8', price: 19.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://saltbmx.com/products/salt-pro-headset',
+    note: 'WeThePeople in-house parts brand (Salt). Maker page confirms int. 1-1/8in sealed fit; lists EUR21.99 (region price), catalog USD price left as prior sample.'
   },
   {
     id: 'bmx-hs-profile-integrated', cat: 'headset', brand: 'Profile Racing', model: 'Integrated Headset',
@@ -347,7 +349,8 @@ var BMX_PARTS = [
   {
     id: 'bmx-bb-salt-mid-19', cat: 'bb', brand: 'Salt', model: 'Mid Sealed BB',
     shell: 'mid', spindleFit: '19mm', price: 24.99,
-    note: 'Matches the press-fit spec published on the WeThePeople Justice frame page (bmx-fr-wethepeople-justice).'
+    verified: true, lastChecked: '2026-07-17', source: 'https://saltbmx.com/products/salt-rookie-mid-bb',
+    note: 'Matches the press-fit spec published on the WeThePeople Justice frame page (bmx-fr-wethepeople-justice). Maker page (current lineup name: Rookie Mid BB Set) confirms a mid-shell 19mm-spindle sealed BB kit exists in Salt\'s current range.'
   },
   {
     id: 'bmx-bb-odyssey-american', cat: 'bb', brand: 'Odyssey', model: 'American BB',
