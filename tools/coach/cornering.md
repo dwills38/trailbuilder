@@ -157,7 +157,57 @@ these smoothly or not at all.
 
 ---
 
+## Physics notes (Tier C — the mechanism/why)
+
+*Added 2026-07-17 (biomechanics round). Vehicle-dynamics grounding for the qualitative L1 cues —
+the **why**, not new cues.*
+
+**COR-9 — The steady-turn lean angle is computable: tan θ = v²/(g·r).** For a point mass in a
+constant-radius turn at constant speed, the lean that balances gravity against the centripetal
+requirement is `θ = arctan(v² / g·r)` — lean grows with the **square** of speed and shrinks with
+radius. This is the quantitative backbone COR-4 lacked: double the speed → ~4× the lateral
+acceleration → much more lean; halve the radius → double the required lateral force. (It also
+formalises *why* over-carrying entry speed — COR-2 — forces either more lean than grip allows or a
+wider line.)
+- *Tier:* C. Source: Cain 2010, *Comparison of a Bicycle Steady-State Turning Model to Experimental
+  Data* (validated on an instrumented bicycle — model explains 97.0% of measured roll-angle
+  variance); Shayak, *The Physics of Motorcycles and Fast Bicycles*; Meijaard, Papadopoulos, Ruina &
+  Schwab 2007, *Linearized dynamics equations … of a bicycle*, Proc. R. Soc. A
+  ([DOI 10.1098/rspa.2007.1857](https://doi.org/10.1098/rspa.2007.1857)).
+
+**COR-10 — Bike-body separation is real physics: what must lean at tan θ = a/g is the COMBINED
+centre of mass, not the bike.** The balance condition constrains the *system* CoM line, so a rider
+who keeps the torso upright and leans the *bike* further is holding the combined CoM more over the
+contact patch while the tyre reaches the camber angle that generates grip (camber thrust). Steady-
+turn instrumented data show that lateral rider-lean (CoM shift relative to the bike) *strongly*
+changes the steering torque required — moving the body independently of the bike is a genuine control
+input, not stylistic. Grounds COR-3/COR-4 (why weighting through an upright body over the tyre keeps
+grip that committing the whole body to the lean would spend).
+- *Tier:* C. Source: Cain 2010 (rider-lean term in the validated model; 108 instrumented trials
+  across radius/speed/lean conditions).
+
+**COR-11 — ⚠ CONTRADICTION (nuance, flagged not rewritten) — COR-4's "steer by leaning the bike, not
+turning the bars" hides a first step: the lean is INITIATED by a brief countersteer.** To make the
+bike fall into a lean quickly, the front wheel must momentarily steer *away* from the intended turn
+(countersteer); the contact-patch force then rolls the bike into the lean, after which it tracks the
+corner. Physically, then, a turn is not begun by "leaning" alone — a sub-conscious opposite steer
+input begins it. Most riders do this without knowing, which is why the L1 cue *works pedagogically*
+(the net felt input is a lean) — so the physics **refines**, it does not refute, COR-4. Flagged per
+the corpus's ⚠ CONTRADICTION discipline (a study complicates an existing cue): teaching *explicit*
+countersteering is a road-/moto-derived advanced topic, **not an L1 cue**, and COR-4 stays as
+written pending a coordinator/mechanic-review call.
+- *Tier:* C. Source: Fajans, *Steering in bicycles and motorcycles*, Am. J. Phys.; countersteering in
+  bicycle dynamics (Meijaard et al. 2007,
+  [DOI 10.1098/rspa.2007.1857](https://doi.org/10.1098/rspa.2007.1857); Bicycle & motorcycle dynamics
+  review).
+
+---
+
 ## Gaps
+- ~~**No measured lean-angle / speed relationship**~~ **ADDRESSED 2026-07-17 (COR-9/COR-10):**
+  `tan θ = v²/gr` and the combined-CoM basis of bike-body separation are now grounded (Cain 2010).
+  Remaining Tier-C depth: no MTB-specific loose/off-camber tyre-grip data (the steady-turn models
+  assume firm-surface elastic tyres).
 - **Corner-type depth is L1-thin** — berms (pumping the berm, high/low lines), true switchback
   technique (pivot vs wide line, foot-out), and drift/controlled-slide are **L2 gaps**. Switchbacks
   are cross-listed in `terrain-features.md` and need a dedicated progression.
