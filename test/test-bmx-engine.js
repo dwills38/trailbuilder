@@ -115,7 +115,10 @@ test('a 10mm-bore peg on a 14mm axle is an error (will not slide over)', functio
   eq(r.errors.filter(function(v){ return v.ruleId === 'bmx-peg-axle'; }).length, 1);
 });
 test('a 14mm peg on a 10mm front axle warns with the reducer-sleeve fix', function(){
-  var r = BMX.checkBmxBuild({ pegsFront: bp('bmx-pg-odyssey-grandstand-14'), frontWheel: bp('bmx-fw-odyssey-vandero') });
+  // bmx-pg-bsd-superstar (14mm, reducerIncluded:false) - swapped 2026-07-17 off the
+  // Odyssey MPEGs row after verification found MPEGs actually SHIPS its reducer
+  // (shop.odysseybmx.com), which downgrades this scenario to an info (see the next test).
+  var r = BMX.checkBmxBuild({ pegsFront: bp('bmx-pg-bsd-superstar'), frontWheel: bp('bmx-fw-odyssey-vandero') });
   var w = r.warnings.filter(function(v){ return v.ruleId === 'bmx-peg-axle'; });
   eq(w.length, 1);
   ok(w[0].fix && w[0].fix.kind === 'adapter', 'structured reducer-sleeve fix');

@@ -210,7 +210,8 @@ var BMX_PARTS = [
   {
     id: 'bmx-fk-odyssey-r32', cat: 'fork', brand: 'Odyssey', model: 'R32',
     discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
-    brakeMount: 'u-brake', weight: 700, price: 129.99
+    brakeMount: 'u-brake', weight: 885, price: 219.99,
+    note: 'Weight (885g/1lb 15.2oz) and price ($219.99) corrected 2026-07-17 via shop.odysseybmx.com (3/8in axle slot = the 10mm token). Brake-mount bosses NOT stated on the maker page (retailer copy suggests the R32 is sold brakeless, F-series is the braked variant) so brakeMount is left as the unverified sample value and the row stays unverified.'
   },
   {
     id: 'bmx-fk-merritt-cnc', cat: 'fork', brand: 'Merritt', model: 'CNC 3-Piece',
@@ -259,8 +260,10 @@ var BMX_PARTS = [
     fit: 'integrated-1-1/8', price: 24.99
   },
   {
-    id: 'bmx-hs-odyssey-integrated', cat: 'headset', brand: 'Odyssey', model: 'Integrated Headset',
-    fit: 'integrated-1-1/8', price: 22.99
+    id: 'bmx-hs-odyssey-integrated', cat: 'headset', brand: 'Odyssey', model: 'Pro Headset',
+    fit: 'integrated-1-1/8', price: 34.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/pro-headset',
+    note: 'Odyssey\'s "Pro Headset" - real product name corrected from generic "Integrated Headset"; 1-1/8in integrated fit + $34.99 price confirmed on the fetched maker page (was $22.99).'
   },
   {
     id: 'bmx-hs-salt-pro', cat: 'headset', brand: 'Salt', model: 'Pro Integrated Headset',
@@ -279,12 +282,12 @@ var BMX_PARTS = [
   {
     id: 'bmx-gy-odyssey-g3kit', cat: 'gyro', brand: 'Odyssey', model: 'Gyro G3 Kit',
     steererFit: 'integrated-1-1/8', cableRouting: 'dual', price: 22.99,
-    note: 'Odyssey has made the Gyro since 1986; the G3 is the affordable full kit (cables included).'
+    note: 'Odyssey has made the Gyro since 1986; the G3 is the affordable full kit (cables included). Checked 2026-07-17 via shop.odysseybmx.com/products/odyssey-gyro-g3-kit-black: price ($22.99) and dual-cable design confirmed on the maker page; no wrong fields found. steererFit (1-1/8in threadless) is not literally stated on the page, so the row stays unverified rather than claim a field the source never states.'
   },
   {
     id: 'bmx-gy-odyssey-gtxs', cat: 'gyro', brand: 'Odyssey', model: 'GTX-S Gyro',
     steererFit: 'integrated-1-1/8', cableRouting: 'dual', weight: 145, price: 49.99,
-    note: '17mm stack height, sealed bearing, 6061-T6 aluminum (detangler only, cables sold separately in the GTX-S Pro kit).'
+    note: '17mm stack height, sealed bearing, 6061-T6 aluminum (detangler only, cables sold separately in the GTX-S Pro kit). Checked 2026-07-17 via shop.odysseybmx.com/products/odyssey-gyro-gtx-s-black: price ($49.99), dual-cable design and 17mm stack confirmed; no wrong fields found. steererFit and the 145g weight are not stated on the page (no maker or measured weight source found), so the row stays unverified.'
   },
   {
     id: 'bmx-gy-shadow-sanov2', cat: 'gyro', brand: 'The Shadow Conspiracy', model: 'Sano V2 Detangler',
@@ -310,8 +313,9 @@ var BMX_PARTS = [
     note: 'Profile\'s classic 19mm chromoly race crank family (Tech Tip #37 covers the 19mm vs 22mm tradeoff).'
   },
   {
-    id: 'bmx-cr-odyssey-calibre', cat: 'cranks', brand: 'Odyssey', model: 'Calibre Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 900, price: 199.99
+    id: 'bmx-cr-odyssey-calibre', cat: 'cranks', brand: 'Odyssey', model: 'Calibur V2 Cranks',
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 900, price: 179.99,
+    note: 'Model name corrected 2026-07-17 (real product is "Calibur v2", not "Calibre"); spindle (22mm hollow, 48-spline), 3-piece and spline sprocket mount confirmed via shop.odysseybmx.com/products/odyssey-calibur-v2-bmx-cranks-rustproof-black ($179.99, was $199.99). No maker weight is published and no reputable third-party MEASURED figure (retailer listings only) was found, so weight stays the sample 900g and the row is left unverified.'
   },
   {
     id: 'bmx-cr-sandm-xlr8r', cat: 'cranks', brand: 'S&M', model: 'XLR8R Cranks',
@@ -351,7 +355,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-bb-odyssey-american', cat: 'bb', brand: 'Odyssey', model: 'American BB',
-    shell: 'american', spindleFit: '19mm', price: 22.99
+    shell: 'american', spindleFit: '19mm', price: 24.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-american-bb-silver',
+    note: 'American shell + 19mm spindle fit and price ($24.99, was $22.99) confirmed on the fetched maker page ("made to fit 19mm crank spindles and American BB frames"). No weight is published or needed (this row never carried one).'
   },
   {
     id: 'bmx-bb-totalbmx-mid-22', cat: 'bb', brand: 'Total BMX', model: 'Mid BB',
@@ -373,7 +379,8 @@ var BMX_PARTS = [
   // ===== SPROCKETS =====================================================
   {
     id: 'bmx-sp-odyssey-utilitypro-30', cat: 'sprocket', brand: 'Odyssey', model: 'Utility Pro Sprocket 30T',
-    teeth: 30, mount: 'spline', pitch: '1/8', price: 44.99
+    teeth: 30, mount: 'spline', pitch: '1/8', price: 49.99,
+    note: 'Teeth (30T, sold as "Sprocket Only" without the guard at this size) and price ($49.99, was $44.99) confirmed 2026-07-17 via shop.odysseybmx.com/products/odyssey-utility-pro-sprocket-black. Chain pitch is not literally stated on the page ("compatible with all BMX chains"), so the verdict-driving pitch field is left as the 1/8in sample value (correct for every other Odyssey freestyle sprocket in this catalog) and the row stays unverified.'
   },
   {
     id: 'bmx-sp-profile-race-25', cat: 'sprocket', brand: 'Profile Racing', model: 'Race Sprocket 25T',
@@ -410,8 +417,9 @@ var BMX_PARTS = [
     pitch: '1/8', halfLink: false, weight: 300, price: 14.99
   },
   {
-    id: 'bmx-ch-odyssey-seance', cat: 'chain', brand: 'Odyssey', model: 'Seance Chain',
-    pitch: '1/8', halfLink: true, weight: 280, price: 24.99
+    id: 'bmx-ch-odyssey-seance', cat: 'chain', brand: 'Odyssey', model: 'Bluebird Half-Link Chain',
+    pitch: '1/8', halfLink: true, weight: 280, price: 39.99,
+    note: 'Model name corrected 2026-07-17 - no "Seance" chain exists in Odyssey\'s current or archived lineup; the real half-link chain is the "Bluebird Half-Link Chain" (1/2in x 1/8in, half-link). Pitch, half-link construction and price ($39.99, was $24.99) confirmed via shop.odysseybmx.com/products/odyssey-bluebird-half-link-chain. No weight is published on the maker page and no measured third-party figure was found, so weight stays the 280g sample and the row is left unverified.'
   },
 
   // ===== REAR HUB / WHEEL ==============================================
@@ -426,7 +434,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-rh-odyssey-clutchv2', cat: 'rearWheel', brand: 'Odyssey', model: 'Clutch V2 Freecoaster Hub',
-    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 720, price: 199.99
+    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 623, price: 169.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-clutch-v2-freecoaster-hub',
+    note: 'Freecoaster, 9T driver, 14mm chromoly axle bolts, RHD/LHD both available, weight (623g/22oz) and price ($169.99, was $199.99) all confirmed on the fetched maker page.'
   },
   {
     id: 'bmx-rh-primo-remix', cat: 'rearWheel', brand: 'Primo', model: 'Remix Cassette Hub',
@@ -471,8 +481,9 @@ var BMX_PARTS = [
 
   // ===== FRONT WHEEL ====================================================
   {
-    id: 'bmx-fw-odyssey-vandero', cat: 'frontWheel', brand: 'Odyssey', model: 'Vandero Front Wheel',
-    wheelSize: '20', axle: '10mm', price: 79.99
+    id: 'bmx-fw-odyssey-vandero', cat: 'frontWheel', brand: 'Odyssey', model: 'Vandero Pro Front Hub',
+    wheelSize: '20', axle: '10mm', price: 96.99,
+    note: 'Model name corrected 2026-07-17 - "Vandero" is Odyssey\'s front HUB name, sold standalone (not as a complete "Vandero" wheel; complete wheels pairing it with a rim are sold under the rim\'s own name, e.g. "Hazard Lite Front Wheel"). Axle (3/8in inbound bolts = the 10mm token) and price ($96.99, was $79.99) confirmed via shop.odysseybmx.com/products/vandero-pro-hub. Wheel size (20in) is not literally stated on the hub\'s own page, so the row stays unverified.'
   },
   {
     id: 'bmx-fw-fitbikeco-oem', cat: 'frontWheel', brand: 'Fit Bike Co', model: 'OEM Front Wheel',
@@ -494,11 +505,15 @@ var BMX_PARTS = [
   // ===== TIRES ==========================================================
   {
     id: 'bmx-ti-odyssey-pathpro-225', cat: 'tire', brand: 'Odyssey', model: 'Path Pro 2.25"',
-    wheelSize: '20', width: 2.25, casing: 'park', maxPsi: 100, price: 24.99
+    wheelSize: '20', width: 2.25, casing: 'park', maxPsi: 100, price: 32.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-path-pro-tire',
+    note: '20x2.25in size, 100psi max and price ($32.99, was $24.99) confirmed on the fetched maker page (dual-ply sidewalls, sizes 20x2.25in and 20x2.40in).'
   },
   {
     id: 'bmx-ti-odyssey-pathpro-24', cat: 'tire', brand: 'Odyssey', model: 'Path Pro 2.4"',
-    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 100, price: 26.99
+    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 100, price: 32.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-path-pro-tire',
+    note: '20x2.40in size, 100psi max and price ($32.99, was $26.99) confirmed on the fetched maker page (same product page lists both the 2.25 and 2.40 width options at the same price).'
   },
   {
     id: 'bmx-ti-maxxis-hookworm-25', cat: 'tire', brand: 'Maxxis', model: 'Hookworm 2.5"',
@@ -509,8 +524,10 @@ var BMX_PARTS = [
     wheelSize: '20', width: 1.375, casing: 'race-slick', maxPsi: 110, price: 19.99
   },
   {
-    id: 'bmx-ti-odyssey-aitken', cat: 'tire', brand: 'Odyssey', model: 'Aitken Tire 2.4"',
-    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 95, price: 27.99
+    id: 'bmx-ti-odyssey-aitken', cat: 'tire', brand: 'Odyssey', model: 'Aitken Tire 2.45"',
+    wheelSize: '20', width: 2.45, casing: 'park', maxPsi: 100, price: 32.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-aitken-tire-black',
+    note: 'Width corrected 2.4in -> 2.45in (the real SKU is 20x2.25in or 20x2.45in - no 2.4in size exists), maxPsi corrected to 100 and price to $32.99 (was $27.99), all confirmed on the fetched maker page (Mike Aitken signature, dual-ply, low profile tread).'
   },
   {
     id: 'bmx-ti-duo-svs', cat: 'tire', brand: 'DUO Brand', model: 'SVS Tire 2.3"',
@@ -539,8 +556,10 @@ var BMX_PARTS = [
 
   // ===== PEGS ===========================================================
   {
-    id: 'bmx-pg-odyssey-grandstand-14', cat: 'pegs', brand: 'Odyssey', model: 'Grandstand Pegs',
-    axleFit: '14mm', material: 'steel', reducerIncluded: false, price: 24.99
+    id: 'bmx-pg-odyssey-grandstand-14', cat: 'pegs', brand: 'Odyssey', model: 'MPEGs 4" Steel Peg',
+    axleFit: '14mm', material: 'steel', reducerIncluded: true, price: 24.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://shop.odysseybmx.com/products/odyssey-mpegs-4-steel-peg-chrome',
+    note: 'Model name corrected 2026-07-17 - "Grandstand" is Odyssey\'s PEDAL line, not a peg; the real 4140 chromoly steel peg is "MPEGs" (14mm w/ 3/8in adapters included). Axle fit (14mm), material (steel) and price ($24.99) confirmed on the fetched maker page; reducerIncluded corrected false -> true (the 3/8in adapters ARE included, contradicting the prior sample value).'
   },
   {
     id: 'bmx-pg-fit-universal', cat: 'pegs', brand: 'Fit Bike Co', model: 'Universal Pegs',
