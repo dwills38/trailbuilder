@@ -121,8 +121,57 @@ text-mining, which mostly just re-confirms already-correct unverified status.
   remains rate-limited (429) after 2 attempts across the session; not resolved. Retry in a
   later session/round.
 
-## Batch tally so far: reviewed ~20 bikes across 9 brands, 3 promoted (+3 sheet-verified,
-141 -> 144), 1 drift resolved (false alarm), 1 price correction, 1 new flag (Transition
-Spur Deore possible discontinuation), Evil Following drift still blocked. Continuing down
-the remaining ~290 unverified rows (Giant/GT/Ghost/Mondraker/Pivot/Ibis/Yeti/Cannondale/
-Evil/Nukeproof/etc.) in the next batch. Trek skipped per brief (3-tier wall).
+## Batch 3: the Shopify variant-JSON price trick clears all 5 remaining GT rows
+
+Discovered (independently, matching a technique already used once on the Canfield row per
+its own desc) that `<brand-site>/products/<slug>.json` on a Shopify storefront returns
+machine-readable variant pricing even when the rendered HTML page shows none - this is
+exactly the class of blocker that had every GT completebike stuck ("every interface field
+maker-fetched, price is a documented estimate"). Ran it against all 5 remaining unverified
+GT rows and it resolved every one:
+
+| row | old price (sample) | confirmed price (json) |
+|---|---|---|
+| cb-gt-sensor-carbon-elite | $3,300 | $3,500 |
+| cb-gt-force-comp | $2,999 | $3,500 |
+| cb-gt-zaskar-lt-expert | $2,200 | $2,100 (compare_at_price = MSRP; a color variant is on a live 50%-off sale at $1,050, NOT used per pricing policy) |
+| cb-gt-force-carbon-elite | $3,600 | $3,800 |
+| cb-gt-fury-carbon-pro | $6,499 | $6,700 |
+
+**GT is now fully sheet-verified, 8/8 completebike rows.** Sheet-verified 144 -> 149.
+
+### Same trick tried on other Shopify-hosted brands - mixed results
+
+Built a broader filter (44 candidate rows: unverified + has a `source` URL + desc mentions
+an unconfirmed/estimated price) and tried the `.json` route on 7 of them:
+
+- **cb-marin-rift-zone-1**, **cb-canfield-lithium-v3-base** - JSON confirms the price
+  ALREADY matches the catalog exactly ($1,899 and $3,999.99 respectively - Canfield's own
+  desc already used this exact technique when the row was entered). These rows are
+  correctly unverified for OTHER documented reasons (same-family part substitutions not
+  independently confirmed, missing grips), not price - the broad filter over-matched on
+  the word "price" appearing anywhere in a long desc. No changes.
+- **us.chromagbikes.com** (2 rows), **vitusbikes.com**, **www.diamondback.com** - all
+  returned HTTP 429 (rate-limited) this session, likely from the run of 7 near-simultaneous
+  fetches. Worth a retry in a later session/batch - these are real, cheap candidates if the
+  rate limit clears.
+- **whytebikes.com/products/905-my23.json** - HTTP 404 (not a Shopify store, or wrong
+  slug pattern). Not a quick win.
+
+### Lesson for future rounds
+
+The Shopify-JSON trick is high-yield but ONLY closes the price gap - it does nothing for
+rows blocked by genuine part-substitution ambiguity (the Marin/Canfield near-misses above).
+Filter for "price is the ONLY open question" specifically (every fill already exact-match,
+desc contains no "flagged"/"ASSUMED"/"not independently confirmed" language) before
+spending a fetch - a bare "mentions price" filter has a high false-positive rate.
+
+## Session tally: reviewed ~30 bikes across 11 brands. 8 promotions (Giant Fathom 2, Liv
+Pique Advanced 29 2, Liv Intrigue X Advanced 2, + all 5 GT rows). Sheet-verified 141 -> 149.
+1 drift resolved as a false alarm (YT Jeffsy Core 3 CF). 1 new flag for the coordinator
+(Transition Spur Carbon "Deore" possibly discontinued). Evil Following drift row still
+blocked (evil-bikes.com 429). 4 domains rate-limited mid-batch, worth a retry. Continuing
+down the remaining ~285 unverified rows next session/batch (Ghost/Mondraker/Pivot/Ibis/
+Yeti/Cannondale/Evil/Nukeproof/Norco/Transition/Chromag retry/etc.). Trek skipped per brief
+(3-tier wall). Specialized (32 rows) fully blocked on one domain (403) - highest-value
+domain to re-check periodically.
