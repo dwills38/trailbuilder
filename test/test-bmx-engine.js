@@ -172,6 +172,14 @@ test('front brake vs fork bosses: error on a brakeless fork, silent on a match',
   eq(of(r2, 'bmx-front-brake-mount').length, 0, 'u-brake on u-brake bosses fits');
 });
 
+/* ---- disc vocab widen (depth-4, 2026-07-17) -------------------------------- */
+test('bmx-rear-brake-mount errors a u-brake caliper on a disc-mount frame; disc-on-disc is silent', function(){
+  var r = BMX.checkBmxBuild({ frame: bp('bmx-fr-redline-prolineflight'), rearBrake: bp('bmx-br-diacompe-990') });
+  eq(r.errors.filter(function(v){ return v.ruleId === 'bmx-rear-brake-mount'; }).length, 1, 'u-brake caliper does not bolt to disc tabs');
+  var r2 = BMX.checkBmxBuild({ frame: bp('bmx-fr-redline-prolineflight'), rearBrake: bp('bmx-br-avid-bb5-bmx') });
+  eq(of(r2, 'bmx-rear-brake-mount').length, 0, 'disc caliper on a disc-mount frame fits');
+});
+
 /* ---- Q7 pivotal seat/post (provisional) --------------------------------------- */
 test('a pivotal seat errors on a standard post, and matches are silent', function(){
   var r = BMX.checkBmxBuild({ seat: bp('bmx-se-cult-pivotal'), seatpost: bp('bmx-sp-odyssey-standard-post') });
