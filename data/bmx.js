@@ -413,7 +413,9 @@ var BMX_PARTS = [
   // ===== CHAIN ==========================================================
   {
     id: 'bmx-ch-kmc-z410', cat: 'chain', brand: 'KMC', model: 'Z410 BMX Chain',
-    pitch: '1/8', halfLink: false, weight: 300, price: 14.99
+    pitch: '1/8', halfLink: false, weight: 300, price: 14.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://kmcchain.us/products/z410-ol',
+    note: 'KMC does not sell the full Z410 chain itself on kmcchain.us today (only its Z410 half-link/connector spares, e.g. this page), so weight/price stay sample; the connector pages confirm the Z410/S1 family is 1/2in x 1/8in pitch, matching this row (interface-only verification, VERIFY-PROTOCOL exception).'
   },
   {
     id: 'bmx-ch-odyssey-seance', cat: 'chain', brand: 'Odyssey', model: 'Seance Chain',
