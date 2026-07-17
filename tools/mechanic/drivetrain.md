@@ -1,6 +1,10 @@
 # Drivetrain — Mechanic Corpus
 
-**Maturity: foundation**
+**Maturity: foundation** (L1 complete + a first slice of L2 service-manual depth landed
+2026-07-17 — Shimano XT/XTR derailleur dealer-manual internals + SRAM Transmission
+install-torque facts, DRV-27–32. Still short of `professional`: no AXS pairing/firmware
+service, no freehub internals, no cross-brand torque table beyond these two model families —
+see `## Gaps`.)
 
 Shifter · derailleur · cassette · chain · crank · chainring · freehub/driver bodies ·
 single-speed cog. Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline,
@@ -286,6 +290,97 @@ Park Tool "Torque Specifications and Concepts"
 "How to fit your narrow wide chainring" (mbr.co.uk, fetched — enthusiast-press tier,
 cited only for the "no chain device required" framing).
 
+## Derailleur service internals (L2 — Shimano dealer manual)
+
+**DRV-27 — Shimano XT/XTR (RD-M8000/RD-M9000) mounting + cable torque table, sourced
+from the dealer manual, not a tool-maker generic chart.** Derailleur-hanger mounting bolt
+(bracket-to-hanger): **8–10 N·m**. Cable-fixing bolt (securing the inner cable at the
+derailleur): **6–7 N·m**. Guide-pulley and tension-pulley bolts: **2.5–5 N·m** each
+(direction-marked — check the rotation arrow on the pulley before installing). Plate
+stopper pin (removed to service the plate/spring): **1 N·m**. Plate unit cover bolts:
+**1–1.5 N·m**. These supersede DRV-25's Park Tool generic figures for this specific
+family/generation — a manufacturer dealer manual beats a tool-maker's cross-brand table
+when both exist. *Confidence: confirmed (fetched Shimano dealer manual).* Source:
+si.shimano.com DM-RD0004-09 "XTR RD-M9000 / DEORE XT RD-M8000 Dealer's Manual" (fetched
+2026-07-17, si.shimano.com/en/pdfs/dm/RD0004/DM-RD0004-09-ENG.pdf).
+
+**DRV-28 — The clutch/friction mechanism has a documented, narrow adjustment torque, and
+a separate check torque — mixing the two damages the unit.** RD-M8000/M9000's clutch
+friction is *adjusted* with a 2 mm hex on the friction-adjustment bolt, and Shimano's
+manual explicitly warns: *"Do not adjust the friction with torques of 0.25 N·m or
+higher. Turning the bolt excessively may cause damage."* Once adjusted, the resulting
+friction is *checked* — a completely different, much higher number — with a 5 mm hex or
+Hexalobular #30 in the left plate: **3.5–5.4 N·m**. These are not the same measurement:
+one is how hard you turn the adjuster, the other is how much resistance the clutch then
+presents. *Confidence: confirmed.* Source: DM-RD0004-09 (as DRV-27).
+
+**DRV-29 — Grease placement inside the clutch is direction-specific; misapplied grease
+kills friction.** Servicing the plate axle/clutch (plate and plate-tension-spring
+replacement) calls for premium grease (Shimano Y04110000) on the plate axle — but the
+manual marks one specific zone "do not apply grease" with the note: *"If grease is
+applied, grease will get on the inner surface of the roller clutch and friction will be
+lost."* Same caution repeated for the chain-stabilizer grease service (Y04121000/
+Y04120800): keep grease off the roller-clutch inner surface or the clutch stops holding
+tension. *Confidence: confirmed.* Source: DM-RD0004-09 (as DRV-27).
+
+**DRV-30 — B-tension/stroke adjustment has a cog-count-dependent target gap, refining
+DRV-17's flat 5–6 mm figure for this family.** RD-M8000/M9000's own manual splits the
+guide-pulley-to-largest-cog clearance by cassette size: **5–6 mm when the largest
+sprocket is 42T or smaller, 8–9 mm when it's 46T or smaller** — checked with the rear
+suspension at its greatest extension on full-suspension frames (an install-order note:
+the clearance moves as suspension compresses, so it must be checked at max extension,
+not sag). Park Tool's cross-brand DRV-17 figure (5–6 mm) is the smaller-cassette case
+only. *Confidence: confirmed.* Source: DM-RD0004-09 (as DRV-27).
+
+**DRV-31 — Wrong-side chain threading through the plate has a dedicated
+derailment-prevention feature, and there is exactly one correct side.** The rear
+derailleur's plate assembly carries a chain-derailment-prevention pin/plate; the manual
+instructs threading the chain through the derailleur body "from the side of the chain
+derailment prevention plate" and warns that threading it through the wrong side can
+damage the chain or derailleur. This is an install-order fact distinct from the
+general chain-length/link-count guidance already in the corpus. *Confidence: confirmed.*
+Source: DM-RD0004-09 (as DRV-27).
+
+## SRAM Eagle AXS Transmission — install differs structurally from mechanical/AXS Eagle
+
+**DRV-32 — Transmission has NO high/low limit screws and no B-tension screw; a
+"Setup Key" + "Setup Cog" replace them, and this is a genuine mechanism difference, not
+just a missing-feature simplification.** Because Transmission direct-mounts to the UDH
+(no derailleur hanger to absorb tolerance), SRAM's electronic system handles limit
+setting once the derailleur is mounted; the physical **Setup Key**, in the position
+matched to the specific bike/chainstay via SRAM's Full Mount Chain Length Guide, paired
+with a **Setup Cog**, lets chain-gap be pre-adjusted on a repair stand **without sag**
+so the gap is correct once the bike is loaded and ridden. A mechanic trained only on
+DRV-16/17's H/L-screw and B-screw workflow (mechanical Eagle) has nothing to adjust by
+feel on a Transmission derailleur — the corresponding step is picking the right Setup
+Key position, not turning a screw. *Confidence: confirmed (SRAM support).* Source:
+support.sram.com articles 13819432732187 ("...doesn't have high limit, low limit, or
+B-Adjust screws...") + 13819204710811 ("What does the Setup Key do...") + 13819063203611
+("How do I install SRAM Eagle AXS Transmission?"), fetched 2026-07-17.
+
+**DRV-33 — Transmission's mounting-bolt torque was revised upward mid-production, and
+SRAM's own support desk documents the correction.** Some early-production Eagle AXS
+Transmission derailleurs shipped with a bolt physically marked "25 Nm," but SRAM's
+current guidance is **35 Nm** — SRAM's stated reason: *"we found that 35nm helped the
+Transmission have a lower probability of losing chain tension. This is not a safety
+concern, and the bolt is otherwise the same."* A mechanic reading the bolt's own marking
+on an early unit needs to know to override it. ⚠ Flag for the catalog/corpus: any future
+DRV-25-style torque table for Transmission mounting bolts should cite 35 Nm, not a value
+copied off the bolt head. *Confidence: confirmed (SRAM support, explicit
+correction notice).* Source: support.sram.com article 13819512988827, fetched 2026-07-17.
+
+**DRV-34 — Thru-axle torque is functionally coupled to Transmission's derailleur, not
+just the wheel — a cross-system dependency unique to this family.** Because the
+Transmission derailleur mounts directly to (and pivots against) the UDH interface that
+the thru-axle also clamps, SRAM states axle torque "plays a role in how hard it is to
+rotate the Eagle Transmission rear derailleur rearwards with an impact, as well as how
+hard it is to reset it manually" — under-torquing the axle doesn't just risk the wheel,
+it changes how the derailleur's impact-absorption behaves. SRAM's guidance is to follow
+the *frame or axle maker's* torque spec, not a drivetrain-side number — a genuine
+cross-component dependency the mechanical-Eagle chapter facts (DRV-16 H/L screws) have
+no equivalent for. *Confidence: confirmed (SRAM support).* Source: support.sram.com
+article 13819403761051, fetched 2026-07-17.
+
 ## Chain width — historical cross-speed tolerance
 
 **DRV-26 [refines the DRV-12/13 pattern to geared drivetrains] — Historically,
@@ -341,6 +436,17 @@ figures table).
   big-cage mech + small cassette (DRV-6 reverse); Boost crank in a SuperBoost frame (DRV-15).
 
 ### Install-order dependencies
+- **Transmission's install order has no screw-adjustment step where mechanical Eagle has
+  one** (DRV-32): mount derailleur → set Setup Key/Cog → pair via AXS app, versus
+  mechanical Eagle's mount → set H/L screws (DRV-16) → set B-screw (DRV-8/17). A mechanic
+  reaching for a hex key to "set the limits" on a Transmission derailleur is solving a
+  problem that doesn't exist on this family.
+- **Thru-axle torque must be set to the frame/axle maker's spec, not skipped or
+  guessed, before trusting Transmission's impact behavior** (DRV-34) — this is upstream
+  of the derailleur itself but directly changes how it performs under impact.
+- **Chain threading has one correct side through the plate** (DRV-31): route it through
+  the derailment-prevention-plate side, checked at install, not fixable by adjustment
+  after the fact.
 - **b-gap after any cassette swap** (DRV-8): the chain-gap must be reset when moving between
   cassette sizes — it is install, not compatibility, but a missed reset shifts badly.
 - **Freehub body swap precedes cassette fit** (DRV-9): if the wheel is the wrong driver, the
@@ -374,12 +480,27 @@ figures table).
 
 ## Gaps
 
-- No SRAM/Shimano derailleur **service-manual internals** (spring tension specs, pulley
-  bushing service, clutch-mechanism rebuild/torque tables) — **L2 gap**.
-- No **torque-spec table sourced against current SRAM AXS/Transmission or Shimano
-  12-speed dealer manuals** — DRV-25's torque figures are legacy/generic
-  (Shimano/Campagnolo/Truvativ-era Park Tool data), not confirmed for T-Type/Transmission
-  -specific fasteners — **L2 gap**.
+- **Partially closed 2026-07-17 (DRV-27–31):** Shimano XT/XTR (RD-M8000/M9000) derailleur
+  service-manual internals are now sourced — mounting/cable/pulley/plate torque, the
+  friction-adjust-vs-friction-check torque split, clutch grease placement, B-tension's
+  cog-count-dependent gap, and chain-threading side. **Still open:** SRAM's own
+  mechanical/AXS Eagle derailleur service internals (spring tension, pulley bushing
+  service, clutch-mechanism rebuild) were NOT sourced this round — only Transmission's
+  *installation* differences (DRV-32–34) — and Shimano's own T-Type-equivalent isn't
+  applicable (Shimano has no direct-mount Transmission-style derailleur). **L2 gap
+  remaining: SRAM mechanical/AXS derailleur internals.**
+- **Partially closed 2026-07-17 (DRV-27, DRV-33):** torque now sourced against a real
+  Shimano MTB dealer manual (DRV-27, supersedes DRV-25's generic figures for this
+  family) and SRAM's own support desk for Transmission's mounting bolt (DRV-33, with a
+  documented mid-production revision). **Still open:** no torque table for SRAM
+  mechanical Eagle derailleur mounting/B-screw, no chainring-bolt/crank-bolt/BB torque
+  confirmed from a fetched Shimano MTB crank manual (attempted this round — the MTB
+  crank/BB dealer manual DM-MBFC001-04 could not be cleanly extracted: WebFetch 403'd,
+  Exa's PDF live-crawl timed out, and Bright Data's Web Unlocker returned an
+  encrypted/corrupted PDF poppler couldn't open even with an empty password — DRV-25's
+  Park Tool figures stay the only sourced crank-bolt/BB numbers; worth a retry next
+  round, possibly via a different Bright Data zone or a cached mirror). **L2 gap
+  remaining.**
 - No **chain-wear tolerance table cross-checked against SRAM/Shimano's own published
   %** — DRV-20 is tool-maker (Park Tool) guidance, explicitly caveated as "every
   manufacturer has their own specifications" — **L2 gap**.
