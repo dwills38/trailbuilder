@@ -1,5 +1,17 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — kit fanout-3 merged: KIT CROSSES 60% (433/714 = 60.6%)
+
+- verify/kit-fanout-3 merged (background agent, under cap): +20 verified across O'Neal, Scott,
+  Bluegrass (incl. a rename-correction + 3 discontinued flags), Fasthouse, G-Form ($90→$140
+  correction), DHaRCO, 7iDP, Dainese (family-wide corrections). bdata correctly preserved
+  (low balance, no wall justified it). Walls logged: ION JS, TSG/Northwave/Madison EUR-only,
+  Zoic rate-limited. **Coordinator triage of the 3 flagged possibly-fabricated Fasthouse
+  jerseys: KEPT as unverified sample** — apparel brands rotate SKUs seasonally, and
+  absent-from-current-catalog ≠ never-existed (unlike the BMX brand-never-makes-category
+  removals); Alloy/Cole/Rufio are real Fasthouse line/colorway names. Queued for a future
+  seasonal-lifecycle pass (status:'discontinued' with evidence, not removal). Gates green.
+
 ## 2026-07-17 — coach biomechanics round merged (Tier-C physics under the cues)
 
 - tooling/coach-biomech-1 merged (Opus background agent): peer-reviewed physics grounding across
