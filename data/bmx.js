@@ -220,7 +220,8 @@ var BMX_PARTS = [
   {
     id: 'bmx-fk-wethepeople-pathfinder', cat: 'fork', brand: 'WeThePeople', model: 'Pathfinder',
     discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
-    brakeMount: 'u-brake', weight: 720, price: 119.99
+    brakeMount: 'u-brake', weight: 720, price: 119.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): wethepeoplebmx.de sells a Pathfinder FRAME and Pathfinder handlebars, but no fork named Pathfinder - current WTP fork lineup is Message/Battleship/Utopia/Patrol/Arc/Flash/Audio. Left as unverified generic-fork sample data; spec values are not sourced to a real Pathfinder-branded fork.'
   },
   {
     id: 'bmx-fk-fitbikeco-tibs', cat: 'fork', brand: 'Fit Bike Co', model: 'TIBS',
@@ -889,19 +890,23 @@ var BMX_PARTS = [
     id: 'bmx-fr-wethepeople-trust', cat: 'frame', brand: 'WeThePeople', model: 'Trust',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 549.99, note: 'Front-load street frame in WeThePeople\'s current lineup.'
+    price: 549.99, note: 'Front-load street frame, currently sold as the Trust CS/FC complete bike. wethepeoplebmx.de/bikes/trust (fetched 2026-07-17) confirms 4130 full crmo, 127mm head tube (integrated-1-1/8), and an Eclat Talon u-brake rear - matching rearBrakeMount/headTube here. bbShell and rearAxle are NOT confirmed by that page (no standalone frame-only product page exists on the current site), so left unverified.'
   },
   {
     id: 'bmx-cr-wethepeople-compulsion', cat: 'cranks', brand: 'WeThePeople', model: 'Compulsion Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 269.99
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 269.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Compulsion" crank found in WeThePeople\'s current or documented past lineup (real current cranks: Legacy, Logic; both 22mm spindle, matching this row\'s spindle value). Left as unverified sample data; model name is not confirmed to a real WTP SKU.'
   },
   {
     id: 'bmx-hb-wethepeople-loop', cat: 'handlebar', brand: 'WeThePeople', model: 'Loop Bars',
-    clamp: '25.4mm', rise: 8.25, width: 29, price: 74.99
+    clamp: '25.4mm', rise: 8.25, width: 29, price: 74.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Loop" bar found in WeThePeople\'s current lineup (real current bars: Pathfinder, Mad Max, Everlast, Utopia, LKS, Prodigy, Arc, Buck, Stallis, Patron). Left as unverified sample data; model name is not confirmed to a real WTP SKU.'
   },
   {
     id: 'bmx-se-wethepeople-team', cat: 'seat', brand: 'WeThePeople', model: 'Team Pivotal Seat',
-    system: 'pivotal', price: 26.99
+    system: 'pivotal', weight: 259, price: 26.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.wethepeoplebmx.de/seats-seatposts-seatclamps/team-pivotal-slim-seat',
+    note: 'Team Pivotal Slim variant: pivotal system and 259g weight confirmed on the maker page. wethepeoplebmx.de does not list a USD price for this product (no e-commerce checkout on the regional site) - price is kept as the prior sample figure, unconfirmed against the source.'
   },
   {
     id: 'bmx-rh-wethepeople-oem-9', cat: 'rearWheel', brand: 'WeThePeople', model: 'OEM Cassette Hub',
