@@ -1,5 +1,9 @@
 # Frame Standards & Bearings — Mechanic Corpus
 
+**Maturity: foundation** (L1 — see [`CURRICULUM.md`](CURRICULUM.md); this round added L1
+BB-shell/headset identification, threading-direction, UDH-history and creak-diagnosis
+literacy — no L2 service/torque-table or L3 tolerance-engineering depth yet, see "## Gaps").
+
 BB shells · crank spindles · bottom brackets · headset / S.H.I.S. · UDH · frame axle &
 clearance · dropout type / single-speed tension · (BMX shells, spindles, crank pieces).
 Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline, conventions).
@@ -44,6 +48,45 @@ spindle interface, not a brand name: "24mm steel spindle" / Hollowtech II / Cinc
 not conflate); e*thirteen → `p3`. *Confidence: convention.* Source: tools/DATA-ENTRY-TEMPLATE.md
 §4.
 
+**FRM-18 — BB shell/bore identification: threaded standards name the SHELL, press-fit standards
+name the BORE.** Threaded: English/BSA (1.37″ x 24 tpi, ≈34.8 mm — the 68 mm/73 mm widths FRM-2
+already treats as one thread family), Italian (36 mm x 24 tpi, 35 mm shell ID), T47 (47 mm x
+1.0 mm, shell widths 68–83 mm — a modern *threaded*-oversized standard). Press-fit standards are
+named by the shell BORE, not spindle or shell width — Park Tool: the bore "is the only consistent
+and most important part of the press fit system." **PF41** (nominal 41 mm bore) covers
+BB86/BB89.5/BB92/BB107/BB121/BB132/PF24/"Shimano Press-Fit"; **PF42** (42 mm bore) covers
+BB30/BB30a/BB30ai/BBright Direct Fit; **PF46** (46 mm bore, 68–86 mm shell widths) covers
+PF30/PF30a/PF30ai/BB386EVO/OSBB/BBright Press Fit; Trek's proprietary **BB90/BB95** is not a
+plain bore at all — an internal bearing retainer built into the shell (like an integrated
+headset), 37 mm bearing OD. *Confidence: confirmed (fetched).* Source: parktool.com "Bottom
+Bracket Standards and Terminology" (fetched via WebFetch + corroborated via Exa search).
+
+**FRM-19 — Threaded BB drive-side handedness is a self-tightening design choice, and Italian
+breaks the pattern.** English/BSA and T47 both thread the non-drive (left) cup right-hand,
+tightening clockwise, and the drive (right) cup **left-hand** ("reverse"), tightening
+counterclockwise — pedaling load tends to tighten a reverse-threaded drive cup rather than
+loosen it. Italian threads **both** cups right-hand, so the drive-side cup has no
+self-tightening protection; Park Tool documents Italian (and French) as "prone to problems due
+to the right-threaded fixed cup, which tends to unscrew itself in use," independently
+corroborated by Sheldon Brown's crib sheet. The underlying mechanism (Jobst Brandt, hosted on
+sheldonbrown.com): a bearing under a rotating/partial-rotating load precesses in the direction
+that unscrews a right-hand thread, so the reverse-thread convention exists specifically to
+counteract it on the side that carries the rotating chain-tension load. *Confidence: confirmed
+(two independently fetched sources agree, includes a direct quote).* Source: parktool.com
+"Bottom Bracket Standards and Terminology"; sheldonbrown.com "Threaded Bicycle Bottom Bracket
+Crib Sheet" + "Left Hand Threads on Bicycles" by Jobst Brandt (via Exa fetch).
+
+**FRM-20 — Similar-looking threaded BB shells are NOT interchangeable — a wrong-standard cup
+fails by falling through or refusing to start.** Sheldon Brown's cross-compatibility table: a
+British/ISO cup dropped into an Italian shell "falls through" (Italian bore is larger); an
+Italian cup in a British shell "usually won't start" (too large), and even forced, the
+drive-side thread direction is opposite (FRM-19). French and Swiss shells share identical thread
+dimensions with each other (35 mm x 1 mm) but differ in drive-side handedness — French is
+right-hand/self-loosening like Italian, Swiss is left-hand/self-tightening like English —
+despite an identical bore, so "it threads a little" is not sufficient confirmation of the right
+standard. *Confidence: confirmed (fetched primary reference table).* Source: sheldonbrown.com
+"Numbers - Bicycle Crib Sheet" + "Threaded Bicycle Bottom Bracket Crib Sheet" (via Exa fetch).
+
 ## Headset / S.H.I.S.
 
 **FRM-5 — Headset steerer acceptance vs fork = exact-match error (rule-11 semantics on the
@@ -77,6 +120,28 @@ are both picked but no headset is, an info nudges the user — worded advisory (
 with one"), because many frames DO ship a stock headset. Never blocks. *Confidence: confirmed.*
 Source: EXPERT-REVIEW-DOSSIER.md §20 (20c). Engine: rule 20c (`headset-advisory`, info).
 
+**FRM-21 — Threaded vs. threadless headsets differ in what SETS preload and what LOCKS it, and
+these are two different bolts.** Threaded: fork has a threaded steerer; a separate adjusting
+race + locknut thread directly onto the steerer to set and hold preload, and a quill stem
+installs independently below them. Threadless: fork has a smooth (unthreaded) steerer; the stem
++ spacers ride on the steerer, and a top-cap bolt (threading into an internal expander/"star
+fangled nut") pulls the fork up to set bearing preload. Park Tool flags a common misconception
+directly: "the cap and bolt at the top of the stem do not secure the stem onto the steering
+column. The bolt(s) on the side of the stem keep the stem from moving" — preload-setting (top
+cap) and steerer-clamping (stem pinch bolts) are two separate jobs on a threadless headset, and
+loosening the wrong one won't do what a mechanic expects. *Confidence: confirmed (fetched, direct
+quote).* Source: parktool.com "How to Adjust a Threadless Headset" (via Exa fetch).
+
+**FRM-22 — Headset bore-size adoption history behind today's S.H.I.S. bore families.** Per
+Sheldon Brown: 1″ was historically "the vast majority of bikes with threaded headsets"; 1-1/8″
+became "a sizable minority," dating to 1990s-era bikes and now the modern mountain-bike default;
+1-1/4″ is "mainly used on tandems"; 1.5″ serves "downhill and freeride applications" — the bore
+families FRM-6's S.H.I.S. bore-token comparison operates over trace to this adoption history
+(1-1/8″ and the tapered 1.5″/1-1/8″ combo now dominate MTB). *Confidence: confirmed (fetched,
+direct quotes) — a general/road-history source, not MTB-specific, so treat the size-adoption
+dates as historical context, not a current MTB-catalog claim.* Source: sheldonbrown.com headset
+standards page (via Exa fetch).
+
 ## UDH / Transmission mounting
 
 **FRM-10 — SRAM Transmission (Full Mount) needs a UDH frame.** A direct-mount (UDH) Transmission
@@ -97,6 +162,35 @@ is documented. *Confidence: confirmed (fetched RAAW page).* Source: EXPERT-REVIE
 DOSSIER-OPEN-QUESTIONS-RESEARCH.md §4. Open mechanic question: do third-party/machined dropout
 conversions run Transmission reliably in the wild — and should the tool still treat the *stock*
 frame as non-UDH (the row describes the frame as sold)?
+
+**FRM-23 — UDH's published origin: SRAM introduced it in 2019 to solve hanger fragmentation, not
+primarily to enable Full Mount (that came later).** SRAM's own account: "The bike shop visit of
+the past would typically include a hanger special order... We at SRAM decided to work towards a
+more sensible solution... and introduced the Universal Derailleur Hanger, or UDH, in 2019." Full
+Mount (hangerless direct-mount, FRM-10's subject) launched in 2023 — a second-order use of the
+same interface, not UDH's original purpose. *Confidence: confirmed (fetched, direct quote, SRAM
+primary).* Source: sram.com "Understanding UDH and Full Mount" (fetched via WebFetch).
+
+**FRM-24 — A conventional (non-Full-Mount) UDH hanger is drivetrain-brand-agnostic; only Full
+Mount is SRAM-specific.** SRAM's own UDH product page states the UDH hanger "works with all
+commercially available MTB and E-MTB drivetrains from Shimano to Box to Sunrace" — the standard
+replaces the *hanger shape*, not the derailleur mount, for a conventional derailleur. This is
+narrower than FRM-10: FRM-10's UDH-required error is specifically about SRAM's hangerless Full
+Mount derailleurs (Transmission / RED, Force, Rival XPLR AXS), which "attach[] directly to the
+frame and over the drive side dropout" — a *different* mounting method that happens to reuse the
+UDH axle interface. A UDH frame running a conventional derailleur of any brand needs no such
+gate; only a Full Mount derailleur does. *Confidence: confirmed (fetched, direct quotes).*
+Source: sram.com "UDH" product page + "Understanding UDH and Full Mount" (fetched via WebFetch
++ Exa). Cross-reference: FRM-10.
+
+**FRM-25 — SRAM's own guidance: don't confirm UDH by hanger shape alone.** SRAM support
+publishes a 3-step verification order: (1) look for the "UDH" logo stamped on the hanger — but
+flags that "some brands like Santa Cruz produce their own UDH hangers which can be difficult to
+identify" that way; (2) cross-check the frame brand/model/year against SRAM's own Full Mount
+Chain Length Guide or Bike Finder; (3) ask the frame manufacturer directly. A mechanic-facing
+caution against eyeballing hanger shape as sufficient confirmation of the interface. *Confidence:
+confirmed (fetched, SRAM support primary).* Source: support.sram.com "Do I have a UDH on my
+bike?" (via Exa fetch).
 
 ## Dropout type / single-speed tension
 
@@ -122,6 +216,32 @@ frames are real, so that contradiction verdict awaits the mechanic review. *Conf
 [`wheels-tires.md`](wheels-tires.md) WHL-4/WHL-5 (rear axle: frame vs hub) and WHL-12 (rear tire
 vs frame max) — both originate on the frame. *Confidence: confirmed.* Source:
 EXPERT-REVIEW-DOSSIER.md §2/§18.
+
+## Creak diagnosis basics
+
+**FRM-26 — Cadence, not felt location, is the first creak differential.** Park Tool's diagnostic
+rule: a creak/squeak occurring once per pedal revolution is "probably located in the crankset and
+pedal area"; a creak every 2–3 revolutions "may be in the chain"; a noise present while NOT
+pedaling "is likely elsewhere" (wheels, headset, saddle, frame). This matters because creaks are
+notoriously mislocalized by ear — carbon frames especially transmit sound far from its true
+source — so cadence correlation is the reliable first triage step before disassembling anything.
+*Confidence: confirmed (fetched Park Tool); the cadence-differential framework is independently
+corroborated as standard shop practice by a separate repair-diagnosis piece using the identical
+approach — community/shop tier, corroborating only, per corpus rule 6.* Source: parktool.com
+"Troubleshooting a Noisy Drivetrain" (fetched via WebFetch); community corroboration:
+watchmy.bike "Where does that creak come from?" (community/shop tier).
+
+**FRM-27 — BB and headset are both common creak sources, each with a distinct fix and a distinct
+isolation test.** BB: on a THREADED shell, a creak usually means an undertorqued cup/lockring —
+Park Tool's spec is to retighten "to at least 35 Nm"; on a PRESS-FIT shell, a creak usually means
+interference-fit slop between the bearing adapter and the bore, fixed by removing and
+reinstalling the adapter with a retaining/bearing compound rather than by torque (there's no
+thread to tighten). Headset: play/creak is isolated by pulling the front brake hard and rocking
+the bike fore-and-aft while grabbing the fork — but Park Tool warns the same test can be
+confounded by loose brake-caliper-arm play or, on suspension forks, leg play, so a positive
+result there isn't headset-conclusive on its own. *Confidence: confirmed (fetched Park Tool, both
+BB and headset diagnostics).* Source: parktool.com "Troubleshooting a Noisy Drivetrain"
+(fetched via WebFetch); parktool.com "How to Adjust a Threadless Headset" (via Exa fetch).
 
 ## BMX frame/crank standards (off-live)
 
@@ -177,6 +297,12 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2a (BMX-9). Engine: not modelled (display captu
   only documented way to bridge it (FRM-11).
 - **The dropout gates single-speed drivetrains** (FRM-12): with no derailleur, the frame's
   dropout type *is* the tensioning system — a drivetrain constraint that lives on the frame.
+- **A threaded BB shell is a two-axis constraint (diameter/pitch AND handedness), not one**
+  (FRM-18/19/20): even a cup whose thread diameter matches can be the wrong standard if the
+  drive-side handedness doesn't — British/T47 reverse-thread the drive cup, Italian/French don't.
+- **UDH's conventional hanger and Full Mount are two different constraints on the same interface**
+  (FRM-23/24): a plain UDH hanger gates nothing brand-specific (FRM-24), but Full Mount's
+  hangerless clamp (FRM-10) is a harder, SRAM-specific gate riding the same physical interface.
 
 ### Mismatch failure modes
 - **Hard "won't fit":** BB shell ≠ crank spindle interface without a matching BB (FRM-1);
@@ -188,6 +314,10 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2a (BMX-9). Engine: not modelled (display captu
 - **Silent-and-fine / advisory:** matching shell/spindle with a correct BB (info "sold
   separately" until picked, FRM-1); pick-a-headset nudge (FRM-9); a geared part on a
   single-speed frame — deliberately not errored (FRM-13).
+- **"Fits loosely but is wrong" — the identification trap:** a wrong-standard threaded BB cup
+  either falls through (bore too big) or won't start (bore too small); where it DOES start, the
+  drive-side handedness can still be backwards (FRM-19/20) — "it threaded a little" is not
+  confirmation.
 
 ### Install-order dependencies
 - **Bearing kit is selected from shell+spindle before the BB is pressed/threaded** (FRM-3/15):
@@ -199,6 +329,10 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2a (BMX-9). Engine: not modelled (display captu
   frame's axle interface must be UDH-ready before the mech can mount around the axle.
 - **Single-speed chain tension is set at wheel/BB install via the dropout** (FRM-12): tension is
   a build step, not a component spec — a vertical dropout forces a tensioner into the build.
+- **A threadless headset's preload-set step and steerer-clamp step happen in a fixed order**
+  (FRM-21): the top cap sets bearing preload with the stem bolts loose, and only THEN do the stem
+  pinch bolts lock the assembly — doing it out of order (or mistaking one bolt for the other)
+  is the single most common threadless-headset mis-adjustment.
 
 ### Wear / setup couplings
 - **Tight spindle-in-shell pairs trade bearing life** (FRM-3): 30 mm-in-41 mm-bore is servable
@@ -209,8 +343,50 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2a (BMX-9). Engine: not modelled (display captu
 - **A mis-selected bearing kit (right shell, wrong spindle spacers) runs rough** — the BMX
   shell×spindle matrix (FRM-15) is fundamentally about the *bearing* fit, which is why it was
   left to purchasable-BB exact checks rather than a guessed matrix.
+- **A reverse-threaded (self-tightening) BB cup masks under-torque for longer than a right-hand
+  cup would** (FRM-19): English/T47 drive cups tighten themselves slightly under pedaling load,
+  so a marginal install can run OK for a while before creaking — vs. an Italian drive cup, which
+  self-loosens from day one if under-torqued (FRM-27's threaded-BB creak fix applies to both, but
+  the failure timeline differs by standard).
 
 ---
+
+## Gaps
+
+Honest list of what's still missing for this chapter to grade above `foundation` (see
+[`CURRICULUM.md`](CURRICULUM.md) for the level definitions) — for a future training round to
+close, most-specific first:
+
+- **No BB shell bore-tolerance / bearing-press-spec table (L3 gap).** This round captured ONE
+  general interference-fit number for headset cups (from the headset service page, not yet
+  entered as a fact to stay L1-scoped) but nothing systematic for BB shell bore tolerances,
+  bearing outer-race press tolerances, or frame-to-frame variance within a nominal standard
+  (e.g. how much a "41 mm" PF41 bore actually varies in the wild). That's L3 (`CURRICULUM.md`
+  "Bearings / press-fit tolerances").
+- **No UDH revision history across frame generations (L3 gap).** FRM-23–25 cover UDH's origin
+  and verification method, but not whether the physical UDH spec itself has revised since 2019
+  (dimensional changes, axle-interface tweaks) — `CURRICULUM.md` names this explicitly under
+  "Frame-standards minutiae."
+- **No torque-spec table for BB/headset/UDH-hanger fasteners beyond the two ad-hoc numbers
+  surfaced this round (35 Nm BB lockring, FRM-27; ~20 Nm threaded-headset locknut, mentioned in
+  the Park Tool threaded-headset-adjustment page but not yet entered as a fact).** A full
+  fastener torque table (stem bolts, rotor bolts, cassette lockring, BB, headset, UDH hanger
+  bolt) is explicitly L2 (`CURRICULUM.md`).
+- **No BB30/PF30 tolerance-stack dispute coverage (L3 gap).** `CURRICULUM.md` names this
+  specifically ("the BB30/PF30 tolerance-stack disputes") as an L3 frame-standards-minutiae
+  target; this round only identified PF30/PF46 by bore size (FRM-18), not the known
+  creak/tolerance controversy around that family.
+- **No BMX bearing-kit matrix (L2/L3 gap, pre-existing).** FRM-15's open mechanic question
+  (enumerate the real shell×spindle bearing-kit matrix, incl. adapter combos) is still open —
+  this round did not attempt it; it needs either manufacturer bearing-catalog data or a shop
+  interview, not general web literacy.
+- **No Shimano/Campagnolo/other-brand press-fit or proprietary BB service internals (L2 gap).**
+  This round's press-fit sourcing (Park Tool) covers identification/naming only, not
+  brand-specific service procedures or torque specs — full service-manual coverage is L2.
+- **Headset creak isolation (FRM-27) has no equivalent BB-vs-frame-crack differential test
+  sourced yet** — Park Tool's noisy-drivetrain page mentions frame cracks as a creak source
+  ("A crack in a weld... can also cause a creaking sound") but this round did not source a
+  dedicated crack-vs-BB-creak isolation procedure; flagged for a future pass rather than guessed.
 
 ## Open mechanic questions (for the human review — do not act)
 - FRM-2: any real case where a 68 mm vs 73 mm BSA shell genuinely needs different BBs (frame-
@@ -220,3 +396,9 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2a (BMX-9). Engine: not modelled (display captu
 - FRM-11: do third-party/machined dropout conversions run Transmission reliably in the wild?
 - FRM-15 [BMX]: enumerate the real shell×spindle bearing-kit matrix — which combos exist via
   adapter (e.g. American shell + 19 mm spindle) so a future rule doesn't false-error them?
+- FRM-19/20: any documented case of a BB shell that's ambiguous between two national standards
+  at the measurement level (not just visually) — i.e. where measuring alone isn't enough and a
+  stamped marking or maker confirmation is required?
+- FRM-24: does the catalog's `udh` boolean need a THIRD state (conventional-UDH-only vs.
+  Full-Mount-verified) now that FRM-24 shows those are different claims, or is "has a UDH
+  interface" sufficient for both engine purposes today?
