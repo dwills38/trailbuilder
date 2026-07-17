@@ -1,5 +1,16 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — coach training round 2 merged: terrain-features → PROFESSIONAL
+
+- tooling/coach-training-2 merged (background agent, well under the 4h cap): terrain-features
+  skeleton → **professional** — the full L2 maneuver ladder laddered + sourced (pump, wheel
+  lifts, manual, bunny hop, drops rolling→committed, tabletop→gap jumps, rock gardens), each
+  fact citing 2-5 independent coach sources with the SAFETY-FIRST structure; cornering →
+  professional (berm + switchback progressions; stoppie-pivot family honestly flagged
+  not-laddered on a single source); discipline-craft skeleton → foundation (1 core fact per
+  discipline, graded honestly). Gates green. The coach can now actually teach cornering and
+  jumping — Douglas's original ask.
+
 ## 2026-07-17 — mechanic training round 2 merged (+21 L2 facts); BRK-17 RESOLVED → rule-8 fix queued
 
 - tooling/mechanic-training-2 merged: 21 new cited facts — Shimano XT/XTR derailleur dealer-manual
