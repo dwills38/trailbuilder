@@ -84,7 +84,8 @@ var BMX_PARTS = [
     id: 'bmx-fr-sandm-holmes', cat: 'frame', brand: 'S&M', model: 'Holmes',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 21.0, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 459.99
+    price: 459.99,
+    note: 'Holmes is a real S&M heritage/90s model (sandmbikes.com/1995/holmes-frame, sandmbikes.com/1990/the-holmes) but is NOT in S&M\'s current production lineup (current sandmbikes.com frames: Whammo V2, Holy Diver, NBD, Tall Boy, BTM, BTM XL, ATF variants, Black Magic, Hucker, M.O.D., C.C.R., Dagger, Steel Panther) - retailer listings show it "Not Available". Existing spec values (mid BB, integrated head tube, u-brake, 14mm axle, 21in TT) are consistent with historical Next Gen Holmes catalog data found via search, but no current manufacturer product page exists to fetch, so left unverified.'
   },
   {
     id: 'bmx-fr-colony-sweettooth', cat: 'frame', brand: 'Colony', model: 'Sweet Tooth',
@@ -107,8 +108,10 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-totalbmx-killabee', cat: 'frame', brand: 'Total BMX', model: 'Killabee',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.75, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
-    price: 449.99, note: 'Commonly run brakeless.'
+    topTube: 20.7, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
+    weight: 2100, price: 449.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://totalbmx.com/products/total-bmx-killabee-k4-frame-black-yellow',
+    note: 'Kyle Baldock signature Killabee K4: totalbmx.com confirms mid BB, integrated head tube (120mm, drilled for gyro tabs), removable (not welded) rear brake mounts run brakeless by default, and 14mm dropout slots. Top tube corrected from 20.75in (not an offered size) to 20.7in, the closest real K4 length (options: 19.75/20.4/20.7/21in). Weight ~2100g per the K4\'s published 2.1-2.14kg (size-dependent). totalbmx.com prices in CZK/AUD/GBP with no clean USD MSRP, so price is kept as the prior unconfirmed sample figure.'
   },
   {
     id: 'bmx-fr-stranger-level', cat: 'frame', brand: 'Stranger Bikes', model: 'Level',
@@ -187,8 +190,10 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-bsd-focus', cat: 'frame', brand: 'BSD', model: 'Focus',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.6, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
-    price: 439.99, note: 'BSD (UK) street/park frame; commonly run brakeless.'
+    topTube: 20.8, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
+    weight: 2270, price: 439.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://us.bsdforever.com/products/bsd-focus-gaspar-guendulain-frame',
+    note: 'Gaspar Guendulain signature Focus frame; us.bsdforever.com confirms mid BB, integrated head tube, removable brake mounts (sold separately - runs brakeless by default), and 14mm dropouts. Top tube corrected from 20.6in (not an offered size) to 20.8in, the shortest real option (20.8/21/21.2/21.5in). Weight ~2270g per the published "5lbs". US-store price ($439.99) matches this row exactly.'
   },
   {
     id: 'bmx-fr-flybikes-nassau', cat: 'frame', brand: 'Fly Bikes', model: 'Nassau',
@@ -200,13 +205,15 @@ var BMX_PARTS = [
     id: 'bmx-fr-totalbmx-techlite', cat: 'frame', brand: 'Total BMX', model: 'Techlite',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
-    weight: 1950, price: 469.99, note: 'Total\'s lightweight chromoly flagship; commonly run brakeless.'
+    weight: 1950, price: 469.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Techlite" frame found for Total BMX (real current frames: TWS 2, Killabee K4, Hangover H4, 657 X, Americano, Concorde). Left as unverified sample data; model name is not confirmed to a real Total BMX SKU.'
   },
   {
     id: 'bmx-fr-sandm-pitchfork', cat: 'frame', brand: 'S&M', model: 'Pitchfork',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 21.0, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
-    price: 459.99, note: 'S&M\'s long-running dirt/park frame; commonly run brakeless.'
+    price: 459.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): "Pitchfork" is S&M\'s long-running FORK (sandmbikes.com/product/hardgoods/pitchfork - steerer/dropout/offset spec sheet, no BB shell or head tube fields), not a frame - no S&M "Pitchfork frame" product exists in current or historical listings found. This row is likely miscategorized/misnamed at entry; left as unverified sample data, not corrected to the fork\'s real spec (would change category). Flagged for coordinator review.'
   },
   {
     id: 'bmx-fr-colony-emerald', cat: 'frame', brand: 'Colony', model: 'Emerald',
@@ -316,7 +323,8 @@ var BMX_PARTS = [
   {
     id: 'bmx-fk-wethepeople-pathfinder', cat: 'fork', brand: 'WeThePeople', model: 'Pathfinder',
     discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
-    brakeMount: 'u-brake', weight: 720, price: 119.99
+    brakeMount: 'u-brake', weight: 720, price: 119.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): wethepeoplebmx.de sells a Pathfinder FRAME and Pathfinder handlebars, but no fork named Pathfinder - current WTP fork lineup is Message/Battleship/Utopia/Patrol/Arc/Flash/Audio. Left as unverified generic-fork sample data; spec values are not sourced to a real Pathfinder-branded fork.'
   },
   {
     id: 'bmx-fk-fitbikeco-tibs', cat: 'fork', brand: 'Fit Bike Co', model: 'TIBS',
@@ -337,12 +345,14 @@ var BMX_PARTS = [
   {
     id: 'bmx-fk-sandm-mianus', cat: 'fork', brand: 'S&M', model: 'Mianus Fork',
     discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
-    brakeMount: 'none', weight: 660, price: 119.99, note: 'S&M\'s long-running signature 3-piece fork name.'
+    brakeMount: 'none', weight: 660, price: 119.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Mianus" fork (or any Mianus-named product) found for S&M in current or historical listings - "Mianus" does not appear anywhere in S&M\'s catalog history; S&M\'s actual long-running 3-piece fork is the Pitchfork (see bmx-fr-sandm-pitchfork\'s note - miscategorized as a frame in this catalog). Left as unverified sample data; likely a fabricated/placeholder name. Flagged for coordinator review.'
   },
   {
     id: 'bmx-fk-totalbmx-yfork', cat: 'fork', brand: 'Total BMX', model: 'Y-Fork',
     discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
-    brakeMount: 'none', weight: 640, price: 109.99, note: 'Total\'s iconic 3-piece fork silhouette; commonly run brakeless.'
+    brakeMount: 'none', weight: 640, price: 109.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Y-Fork" found for Total BMX (real current forks: Hangover - 28mm offset, 10mm dropouts, 1-1/8in steerer; TWS - same spec family). Left as unverified sample data; model name is not confirmed to a real Total BMX SKU.'
   },
   {
     id: 'bmx-fk-chase-rsp', cat: 'fork', brand: 'Chase', model: 'RSP Race Fork',
@@ -425,7 +435,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-sandm-xlr8r', cat: 'cranks', brand: 'S&M', model: 'XLR8R Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 950, price: 219.99
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 950, price: 219.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "XLR8R" crank found for S&M (real current cranks: OEM 19 - 19mm/48-spline; historical Prince Albert). Left as unverified sample data; model name is not confirmed to a real S&M SKU.'
   },
   {
     id: 'bmx-cr-stolen-team', cat: 'cranks', brand: 'Stolen', model: 'Team Cranks',
@@ -443,7 +454,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-bsd-dvt', cat: 'cranks', brand: 'BSD', model: 'DVT Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 940, price: 199.99
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 940, price: 199.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "DVT" crank found for BSD (real current cranks: Substance - 22mm spindle, 2.5pc; Substance XL V2 - 24mm spindle, 2.5pc). Left as unverified sample data; model name is not confirmed to a real BSD SKU.'
   },
   {
     id: 'bmx-cr-chase-rsp', cat: 'cranks', brand: 'Chase', model: 'RSP Race Cranks',
@@ -471,7 +483,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-bb-totalbmx-mid-22', cat: 'bb', brand: 'Total BMX', model: 'Mid BB',
-    shell: 'mid', spindleFit: '22mm', price: 27.99
+    shell: 'mid', spindleFit: '22mm', weight: 158, price: 27.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://totalbmx.com/products/total-bmx-team-mid-bottom-bracket-black',
+    note: 'Real product name is "Team Mid Bottom Bracket"; totalbmx.com confirms mid shell, 19mm/22mm spindle options (this row is the 22mm SKU), and 0.158kg/5.6oz weight. totalbmx.com lists EUR32.95, not a USD MSRP, so price is kept as the prior unconfirmed sample figure.'
   },
   {
     id: 'bmx-bb-profile-euro-19', cat: 'bb', brand: 'Profile Racing', model: 'Euro Outboard BB 19mm',
@@ -513,7 +527,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-sp-sandm-unit-28', cat: 'sprocket', brand: 'S&M', model: 'Unit Sprocket 28T',
-    teeth: 28, mount: 'spline', pitch: '1/8', price: 49.99
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 49.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Unit" sprocket found for S&M (real current sprockets: X-Man, Tuffman, Mid School Guard, Chain Saw, Motoman, GoRing Guard - none named Unit). Left as unverified sample data; model name is not confirmed to a real S&M SKU.'
   },
   {
     id: 'bmx-sp-profile-race-28', cat: 'sprocket', brand: 'Profile Racing', model: 'Race Sprocket 28T',
@@ -592,7 +607,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-rh-bsd-mind', cat: 'rearWheel', brand: 'BSD', model: 'Mind Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 99.99
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 279.99,
+    note: 'Real, current product: the "Back Street Pro Mind Wheel" (bsdforever.com), built from the BSD Back Street Pro cassette hub + NASA rim - a complete wheel, not a bare hub. Price corrected from 99.99 to the confirmed US-store $279.99. The manufacturer page confirms RHD/LHD ("side":both) and a cassette-type hub, but its own spec table does not itself state axle mm or driver tooth count (those figures - 14mm male, 9T - are independently confirmed only by third-party retailer listings, consistently across several). Left unverified per THE BAR (interface facts must come from the fetched maker page itself); values are very likely correct.'
   },
   {
     id: 'bmx-rh-colony-devast8r', cat: 'rearWheel', brand: 'Colony', model: "Devast8r Cassette Hub",
@@ -650,7 +666,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-fw-bsd-mind', cat: 'frontWheel', brand: 'BSD', model: 'Mind Front Wheel',
-    wheelSize: '20', axle: '10mm', price: 74.99
+    wheelSize: '20', axle: '10mm', price: 169.99,
+    note: 'Real, current product: the "Front Street Pro Mind Wheel" (bsdforever.com), built from the BSD Front Street Pro hub + NASA rim, ships with hubguards. Price corrected from 74.99 to the confirmed US-store $169.99 (a full built wheel, not a bare hub, so the prior sample price was too low). Axle mm is not itself printed on the fetched page (10mm is the standard BMX front-axle value and matches this row) - left unverified per THE BAR pending an interface-specific source.'
   },
   {
     id: 'bmx-fw-colony-devast8r', cat: 'frontWheel', brand: 'Colony', model: 'Devast8r Front Wheel',
@@ -691,7 +708,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-ti-bsd-motto-24', cat: 'tire', brand: 'BSD', model: 'Motto Tire 2.4"',
-    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 90, price: 27.99
+    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 90, price: 27.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Motto" tire found for BSD (real current tires include Donnastreet - 2.3/2.4in, 680/730g, 110psi max - and Donnasqueak). Left as unverified sample data; model name is not confirmed to a real BSD SKU.'
   },
   {
     id: 'bmx-ti-colony-griplock-24', cat: 'tire', brand: 'Colony', model: 'Grip Lock Tire 2.35"',
@@ -742,11 +760,13 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-pg-totalbmx-rotary', cat: 'pegs', brand: 'Total BMX', model: 'Rotary Pegs',
-    axleFit: '14mm', material: 'alloy', reducerIncluded: false, price: 32.99
+    axleFit: '14mm', material: 'alloy', reducerIncluded: false, price: 32.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): "Rotary" is a Total BMX SPROCKET (CNC 7075-T6, 25T/28T, 59g), not a peg - Total BMX\'s actual peg lineup is the Skinnies (V2). Likely a category mismatch at entry; left as unverified sample data, not corrected (would change model/spec entirely).'
   },
   {
     id: 'bmx-pg-bsd-superstar', cat: 'pegs', brand: 'BSD', model: 'Superstar Pegs',
-    axleFit: '14mm', material: 'steel', reducerIncluded: false, price: 22.99
+    axleFit: '14mm', material: 'steel', reducerIncluded: false, price: 22.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Superstar" peg found for BSD (real current pegs: Unit, Hubba, Roastin\', Crack Pipe - all 4140 chromoly, 10mm/14mm). "Superstar" is a peg name used by an unrelated house brand (urbanair.co.uk), not BSD. Left as unverified sample data; model name is not confirmed to a real BSD SKU.'
   },
   {
     id: 'bmx-pg-flybikes-vandal', cat: 'pegs', brand: 'Fly Bikes', model: 'Vandal Pegs',
@@ -796,7 +816,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-hb-totalbmx-techlite', cat: 'handlebar', brand: 'Total BMX', model: 'Techlite Bars',
-    clamp: '25.4mm', rise: 8.0, width: 29, weight: 620, price: 84.99
+    clamp: '25.4mm', rise: 8.0, width: 29, weight: 620, price: 84.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Techlite" bar found for Total BMX (real current bars: Killabee K3, TWS 2, Hangover). Left as unverified sample data; model name is not confirmed to a real Total BMX SKU.'
   },
   {
     id: 'bmx-hb-colony-pintour', cat: 'handlebar', brand: 'Colony', model: 'Pintour Bars',
@@ -805,7 +826,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-hb-sandm-slam', cat: 'handlebar', brand: 'S&M', model: 'Slam Bars',
-    clamp: '25.4mm', rise: 8.5, width: 29, price: 74.99
+    clamp: '22.2mm', rise: 8, width: 28, weight: 907, price: 69.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.sandmbikes.com/product/hardgoods/slam-bar',
+    note: 'Corrected from a generic sample entry: sandmbikes.com\'s own product page confirms 22.2mm clamp (not 25.4mm), 8in rise (not 8.5), 28in width (not 29), and 2.0lb/907g weight; base price $69.95 (variants run to $109.95 by color).'
   },
   {
     id: 'bmx-hb-flybikes-glory', cat: 'handlebar', brand: 'Fly Bikes', model: 'Glory Bars',
@@ -878,7 +901,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-se-totalbmx-slim', cat: 'seat', brand: 'Total BMX', model: 'Slim Pivotal Seat',
-    system: 'pivotal', price: 24.99
+    system: 'pivotal', price: 24.99,
+    note: 'No standalone "Slim Pivotal Seat" found for Total BMX; closest real products are the "Logo Slim Combo Seat" and "Killabee Slim Combo Bee Seat" (seat+post combo units, not sold as a bare seat). system:pivotal is plausible (Total\'s combo seats use pivotal-style mounting) but not confirmed against an exact matching SKU, so left unverified.'
   },
 
   // ===== SEATPOST =======================================================
@@ -1143,19 +1167,23 @@ var BMX_PARTS = [
     id: 'bmx-fr-wethepeople-trust', cat: 'frame', brand: 'WeThePeople', model: 'Trust',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 549.99, note: 'Front-load street frame in WeThePeople\'s current lineup.'
+    price: 549.99, note: 'Front-load street frame, currently sold as the Trust CS/FC complete bike. wethepeoplebmx.de/bikes/trust (fetched 2026-07-17) confirms 4130 full crmo, 127mm head tube (integrated-1-1/8), and an Eclat Talon u-brake rear - matching rearBrakeMount/headTube here. bbShell and rearAxle are NOT confirmed by that page (no standalone frame-only product page exists on the current site), so left unverified.'
   },
   {
     id: 'bmx-cr-wethepeople-compulsion', cat: 'cranks', brand: 'WeThePeople', model: 'Compulsion Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 269.99
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 269.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Compulsion" crank found in WeThePeople\'s current or documented past lineup (real current cranks: Legacy, Logic; both 22mm spindle, matching this row\'s spindle value). Left as unverified sample data; model name is not confirmed to a real WTP SKU.'
   },
   {
     id: 'bmx-hb-wethepeople-loop', cat: 'handlebar', brand: 'WeThePeople', model: 'Loop Bars',
-    clamp: '25.4mm', rise: 8.25, width: 29, price: 74.99
+    clamp: '25.4mm', rise: 8.25, width: 29, price: 74.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Loop" bar found in WeThePeople\'s current lineup (real current bars: Pathfinder, Mad Max, Everlast, Utopia, LKS, Prodigy, Arc, Buck, Stallis, Patron). Left as unverified sample data; model name is not confirmed to a real WTP SKU.'
   },
   {
     id: 'bmx-se-wethepeople-team', cat: 'seat', brand: 'WeThePeople', model: 'Team Pivotal Seat',
-    system: 'pivotal', price: 26.99
+    system: 'pivotal', weight: 259, price: 26.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.wethepeoplebmx.de/seats-seatposts-seatclamps/team-pivotal-slim-seat',
+    note: 'Team Pivotal Slim variant: pivotal system and 259g weight confirmed on the maker page. wethepeoplebmx.de does not list a USD price for this product (no e-commerce checkout on the regional site) - price is kept as the prior sample figure, unconfirmed against the source.'
   },
   {
     id: 'bmx-rh-wethepeople-oem-9', cat: 'rearWheel', brand: 'WeThePeople', model: 'OEM Cassette Hub',
@@ -1306,7 +1334,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-pd-bsd-motive', cat: 'pedals', brand: 'BSD', model: 'Motive Pedals',
-    platform: 'plastic', spindle: '9/16', price: 17.99
+    platform: 'plastic', spindle: '9/16', price: 17.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Motive" pedal found for BSD (real current pedals: Safari, Jonesin\' - both nylon fibreglass, 9/16in, ~382g/pair). Left as unverified sample data; model name is not confirmed to a real BSD SKU.'
   },
   {
     id: 'bmx-pd-chase-rsp-clip', cat: 'pedals', brand: 'Chase', model: 'RSP Clip Pedals',
