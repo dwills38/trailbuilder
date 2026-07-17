@@ -1016,10 +1016,10 @@ var KIT_PARTS = [
   { id:'jsy-ion-scrub-amp', cat:'jersey', brand:'ION', model:'Scrub AMP LS', price:70, weight:180,
     sleeve:'long', sizes:['S','M','L','XL','XXL'] },
   { id:'jsy-fasthouse-alloy', cat:'jersey', brand:'Fasthouse', model:'Alloy Mesa LS', price:70, weight:155,
-    sleeve:'long', sizes:['S','M','L','XL','XXL'],
-    desc:'CORRECTED 2026-07-16: US MSRP is $70 (was sample $45) - fetched fasthouse.com/products/'
-      + 'alloy-mesa-long-sleeve-jersey-heather-charcoal-black lists $70 regular ($30 on sale).'
-      + ' Weight not published, stays sample.' },
+    sleeve:'long', sizes:['S','M','L','XL','XXL','3XL'],
+    desc:'Re-fetched fasthouse.com (2026-07-17): $70 regular MSRP confirmed (currently $30 on sale/sold out, sale price not used per MSRP-basis pricing policy), sizes S-3XL, 94% Polyester/6% Spandex FastDri fabric confirmed.'
+      + ' Weight not published; kept as the existing sample per the kit weight policy.',
+    verified:true, lastChecked:'2026-07-17', source:'https://fasthouse.com/products/alloy-mesa-long-sleeve-jersey-heather-charcoal-black' },
   { id:'jsy-pearlizumi-summit', cat:'jersey', brand:'Pearl iZUMi', model:'Summit SS', price:70, weight:140,
     sleeve:'short', sizes:['S','M','L','XL','XXL'], disciplines:['trail'],
     desc:'Reconfirmed 2026-07-16 against pearlizumi.com/products/mens-summit-short-sleeve-jersey-19122401: price ($70), sleeve (short) and sizes (S-XXL) all match exactly; 80/20 recycled-poly blend, relaxed fit, UPF 25. Page publishes no weight, so this stays unverified (jerseys are not an interface-verification-exception category).', lastChecked:'2026-07-16', source:'https://www.pearlizumi.com/products/mens-summit-short-sleeve-jersey-19122401' },
@@ -1152,11 +1152,14 @@ var KIT_PARTS = [
   { id:'jsy-ion-seek-amp-ls', cat:'jersey', brand:'ION', model:'Seek AMP LS', price:75, weight:185,
     sleeve:'long', sizes:['S','M','L','XL','XXL'], disciplines:['trail','enduro'] },
   { id:'jsy-fasthouse-alloycole-ss', cat:'jersey', brand:'Fasthouse', model:'Alloy Cole SS', price:40, weight:130,
-    sleeve:'short', sizes:['S','M','L','XL','XXL'] },
+    sleeve:'short', sizes:['S','M','L','XL','XXL'],
+    desc:'FLAG for coordinator review (2026-07-17): no "Alloy Cole" SKU found on fasthouse.com/collections/bike-jerseys. Current Alloy colorway names are Rally/Mesa/Ronin/Sidewinder/Slade/Block - "Cole" does not match any. Left unverified/uncorrected pending a decision to retarget this row to a real current colorway or remove it - not verifying a possibly-fabricated row.' },
   { id:'jsy-fasthouse-alloyrufio-ls', cat:'jersey', brand:'Fasthouse', model:'Alloy Rufio LS', price:48, weight:160,
-    sleeve:'long', sizes:['S','M','L','XL','XXL'] },
+    sleeve:'long', sizes:['S','M','L','XL','XXL'],
+    desc:'FLAG for coordinator review (2026-07-17): no "Alloy Rufio" SKU found on fasthouse.com - only a "Grindhouse Rufio Jersey" (a different, non-Alloy line) uses the Rufio name. Left unverified/uncorrected pending a decision to retarget to Grindhouse Rufio or remove it - not verifying a possibly-fabricated row.' },
   { id:'jsy-fasthouse-classic-ss', cat:'jersey', brand:'Fasthouse', model:'Classic Jersey SS', price:38, weight:125,
-    sleeve:'short', sizes:['S','M','L','XL','XXL'] },
+    sleeve:'short', sizes:['S','M','L','XL','XXL'],
+    desc:'FLAG for coordinator review (2026-07-17): no generic "Classic Jersey" SKU found on fasthouse.com - current Classic-line colorways are named Outland/805/Cartel/Velocity/Mercury, each a distinct SKU. Left unverified/uncorrected pending a decision to retarget to a specific current colorway or remove it - not verifying a possibly-fabricated row.' },
   { id:'jsy-pearlizumi-summit-ls', cat:'jersey', brand:'Pearl iZUMi', model:'Summit LS', price:80, weight:165,
     sleeve:'long', sizes:['S','M','L','XL','XXL'], disciplines:['trail'],
     desc:'RESEARCHED 2026-07-16, left UNCHANGED (flagged for follow-up): could not find a current plain men\'s "Summit Long Sleeve Jersey" SKU on pearlizumi.com - the present men\'s Summit LS-tier lineup appears to be Summit PRO Long Sleeve, Summit Thermal Jersey, Summit Hooded Thermal Jersey, and a "Limited Edition Summit Long Sleeve Top" (a Trans-Cascadia charity colorway), none of which cleanly matches a plain non-Pro non-thermal LS jersey at this row\'s $80 price point. One retailer (competitivecyclist.com) maps a "pearl-izumi-summit-long-sleeve-jersey-mens" URL slug to a jersey now TITLED "Canyon Long-Sleeve Jersey" - Canyon is PEARL iZUMi\'s separate everyday-trail line, suggesting the plain Summit LS may have been renamed/discontinued and this could be a stale product mapping. Existing $80/165g sample values left as-is pending a maker-page confirmation (every pearlizumi.com fetch attempt for this row hit HTTP 429).', lastChecked:'2026-07-16' },
@@ -1663,10 +1666,10 @@ var KIT_PARTS = [
     verified:true, lastChecked:'2026-07-17', source:'https://www.100percent.com/products/r-core-x-pants-black' },
   { id:'pnt-fasthouse-fastline-2', cat:'pants', brand:'Fasthouse', model:'Fastline 2.0 MTB Pant', price:140, weight:480,
     liner:true, disciplines:['enduro','dh'], sizes:['28','30','32','34','36','38'],
-    desc:'CORRECTED 2026-07-16: US MSRP is $140 (was sample $150) and it DOES ship with a'
-      + ' short-length inner liner (was wrongly liner:false) - fetched fasthouse.com/products/'
-      + 'fastline-2-mtb-pant-black. 400D poly body, 600D saddle, 4-way stretch panels. Weight not'
-      + ' published, stays sample.' },
+    desc:'Re-fetched fasthouse.com (2026-07-17): $140 MSRP confirmed, ships with a short-length inner'
+      + ' liner confirmed. 400D poly body, 600D saddle, 4-way stretch panels, 54% Polyester/40% Polyamide/6% Spandex.'
+      + ' Weight not published; kept as the existing sample per the kit weight policy.',
+    verified:true, lastChecked:'2026-07-17', source:'https://fasthouse.com/products/fastline-2-mtb-pant-black' },
   { id:'pnt-royalracing-apex', cat:'pants', brand:'Royal Racing', model:'Apex Pants', price:165, weight:440,
     liner:false, disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL','XXL'],
     desc:'Corrected price ($170 sample -> $165, GBP129.99 fetched regular price converted at ~1.27 USD/GBP, royalracing.com/products/apex-pants-ltd-blk) and sizes to the maker\'s XS-XXL run. No weight published (440g remains an unverified sample figure).' },
