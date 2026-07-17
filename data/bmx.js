@@ -186,7 +186,7 @@ var BMX_PARTS = [
     id: 'bmx-fr-flybikes-nassau', cat: 'frame', brand: 'Fly Bikes', model: 'Nassau',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
-    price: 449.99, note: 'Fly Bikes (Spain) street/park frame; commonly run brakeless.'
+    price: 449.99, note: 'Fly Bikes (Spain) street/park frame; commonly run brakeless. Checked flybikes.com 2026-07-17: current frame lineup is Dove/Savanna/Fuego V-8/Motosierra/Aire/Sierra -- no Nassau frame found (product page 302-redirects, site search returns nothing), appears discontinued. Left unverified; spec unchanged.'
   },
   {
     id: 'bmx-fr-totalbmx-techlite', cat: 'frame', brand: 'Total BMX', model: 'Techlite',
@@ -274,7 +274,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-hs-flybikes-integrated', cat: 'headset', brand: 'Fly Bikes', model: 'Integrated Headset',
-    fit: 'integrated-1-1/8', price: 21.99
+    fit: 'integrated-1-1/8', price: 35.00, weight: 65,
+    note: 'Checked flybikes.com 2026-07-17: current Fly headset is the "Volcano Headset Black" ($35.00, 65g, 6061-T6 CNC cups) -- corrected price and weight to match (was 21.99, no weight). The page describes it only as "integrated" without stating the 1-1/8in bore explicitly, so `fit` is left as the near-universal BMX default rather than claimed verified (every BMX frame in this catalog is integrated-1-1/8, but that specific numeric bore was not read off this page).'
   },
 
   // ===== GYRO / DETANGLER (freestyle only) ============================
@@ -330,7 +331,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-flybikes-pz1', cat: 'cranks', brand: 'Fly Bikes', model: 'PZ1 Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 920, price: 209.99
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 920, price: 209.99,
+    note: 'Checked flybikes.com 2026-07-17: current Fly crank lineup is only "Dolmen II Cranks" ($250.00) -- no PZ1 found, appears discontinued/renamed. Left unverified; spec unchanged.'
   },
   {
     id: 'bmx-cr-bsd-dvt', cat: 'cranks', brand: 'BSD', model: 'DVT Cranks',
@@ -369,7 +371,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-bb-flybikes-mid-22', cat: 'bb', brand: 'Fly Bikes', model: 'Mid BB',
-    shell: 'mid', spindleFit: '22mm', price: 26.99
+    shell: 'mid', spindleFit: '22mm', price: 26.99,
+    note: 'Checked flybikes.com 2026-07-17: current Fly BB lineup is only "Rotar Bottom Brackets" ($40.00) -- no "Mid BB" found by that name, appears renamed/discontinued. Left unverified; spec unchanged.'
   },
 
   // ===== SPROCKETS =====================================================
@@ -399,7 +402,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-sp-flybikes-alloy-28', cat: 'sprocket', brand: 'Fly Bikes', model: 'Alloy Sprocket 28T',
-    teeth: 28, mount: 'spline', pitch: '1/8', price: 44.99
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 44.99,
+    note: 'Checked flybikes.com 2026-07-17: current Fly sprocket lineup is the Tractor line (XLII/Guard/TT/plain, $65-85) -- no "Alloy Sprocket" found by that name, appears renamed/discontinued. Left unverified; spec unchanged.'
   },
   {
     id: 'bmx-sp-chase-rsp-30', cat: 'sprocket', brand: 'Chase', model: 'RSP Race Sprocket 30T',
@@ -533,8 +537,11 @@ var BMX_PARTS = [
     wheelSize: '20', width: 2.15, casing: 'park', maxPsi: 100, price: 26.99
   },
   {
-    id: 'bmx-ti-flybikes-ruben-24', cat: 'tire', brand: 'Fly Bikes', model: 'Ruben Tire 2.4"',
-    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 95, price: 26.99
+    id: 'bmx-ti-flybikes-ruben-24', cat: 'tire', brand: 'Fly Bikes', model: 'Ruben Ligera 2.4" Tire',
+    wheelSize: '20', width: 2.4, casing: 'kevlar-foldable', maxPsi: 120, price: 65.00, weight: 720,
+    family: 'flybikes-ruben',
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.flybikes.com/product/fly-ruben-ligera-tire-black',
+    note: 'Corrected model/price/weight/casing/maxPsi to match the current "Ruben Ligera 2.4" Tire" (Kevlar folding construction, 60 TPI, 720g, 120 PSI max, $65.00) -- the only current 2.4in-width Ruben SKU (the wire-bead versions are now 2.25in/2.35in only, no plain 2.4in). Renamed model from the previous "Ruben Tire 2.4"" placeholder to match the real product name; id left unchanged (append-only).'
   },
   {
     id: 'bmx-ti-profile-elite-13', cat: 'tire', brand: 'Profile Racing', model: 'Elite Race Tire 1-3/8"',
@@ -571,7 +578,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-pg-flybikes-vandal', cat: 'pegs', brand: 'Fly Bikes', model: 'Vandal Pegs',
     axleFit: '14mm', material: 'alloy', reducerIncluded: true, price: 34.99,
-    note: 'Ships with a 14mm-to-10mm reducer for front-axle use.'
+    note: 'Ships with a 14mm-to-10mm reducer for front-axle use. Checked flybikes.com 2026-07-17: current Fly peg lineup is "Acero TR Peg" and "Acero ST Peg" -- no "Vandal Pegs" found, appears discontinued/renamed. Left unverified; spec unchanged.'
   },
 
   // ===== BRAKES =========================================================
@@ -620,7 +627,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-hb-flybikes-glory', cat: 'handlebar', brand: 'Fly Bikes', model: 'Glory Bars',
-    clamp: '25.4mm', rise: 8.0, width: 29, price: 72.99
+    clamp: '25.4mm', rise: 8.0, width: 29, price: 72.99,
+    note: 'Checked flybikes.com 2026-07-17: current Fly bar lineup is Dove/Sierra/Savanna/Fuego 4p (all $105.00) -- no "Glory Bars" found, appears discontinued/renamed. Left unverified; spec unchanged.'
   },
   {
     id: 'bmx-hb-chase-rsp', cat: 'handlebar', brand: 'Chase', model: 'RSP Race Bars',
@@ -669,7 +677,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-se-flybikes-pivotal', cat: 'seat', brand: 'Fly Bikes', model: 'Pivotal Seat',
-    system: 'pivotal', price: 26.99
+    system: 'pivotal', price: 26.99,
+    note: 'Checked flybikes.com 2026-07-17: current Fly seats are all named per frame model (Dove/Hawk/Motosierra/Fuego/Savanna/Sierra/Aire Seat, all $45.00) -- no generic "Pivotal Seat" found. Left unverified; spec unchanged.'
   },
   {
     id: 'bmx-se-totalbmx-slim', cat: 'seat', brand: 'Total BMX', model: 'Slim Pivotal Seat',
@@ -713,7 +722,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-gr-flybikes-radioactive', cat: 'grips', brand: 'Fly Bikes', model: 'Radioactive Grips',
-    length: 143, flangeless: true, price: 9.99
+    length: 143, flangeless: true, price: 9.99,
+    note: 'Checked flybikes.com 2026-07-17: current Fly grip lineup is Hawk / Ruben II / Ruben II Mini (all $15.00) -- no "Radioactive Grips" found, appears discontinued/renamed. Left unverified; spec unchanged.'
   },
   {
     id: 'bmx-gr-gt-performer', cat: 'grips', brand: 'GT', model: 'Performer Grips',
