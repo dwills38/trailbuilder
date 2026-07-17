@@ -1,5 +1,20 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — strider design + mechanic bootstrap merged
+
+- **design/striders-model merged** (docs, off-live): headline honest finding — balance bikes are
+  complete-bike purchases with ~zero part-swap, so the recommendation is a FIT/SIZING GUIDE +
+  unbiased comparison ("First Bike Finder", inseam→seat-height) in a thin builder shell, own
+  small checkBalanceFit engine, own page/button. 9 DECISIONS-FOR-DOUGLAS incl. product shape +
+  naming ("Strider" is a TRADEMARK — never BuildMyStrider). Aggregators beat walled maker pages
+  for specs (fetchability map cited).
+- **tooling/mechanic-bootstrap merged**: tools/mechanic/ corpus live — INDEX (append-only stable
+  fact IDs, citation-mandatory, ⚠ CONTRADICTION tags, flag-never-edit engine boundary) + 6
+  seeded chapters with mandatory INTERACTIONS sections + .claude/agents/bike-mechanic.md (Opus,
+  corpus-first reasoning). Douglas's MASTER-level curriculum update missed the bootstrap's
+  window (message queued after its final turn) — CURRICULUM.md + per-chapter maturity grades
+  folded into training grind 1's brief instead. Gates green.
+
 ## 2026-07-17 — bmx-depth-3 merged (202 → 222 off-live rows); disc-brake vocab gap logged
 
 - catalog/bmx-depth-3 merged: +20 rows (12 new-brand frames: Subrosa/Mankind/Radio/Premium/
