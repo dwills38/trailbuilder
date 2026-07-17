@@ -1,5 +1,19 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — verify fanout batch-group 5 merged (verified 2897 → 2916) · DT Swiss "fabricated SKU" flags DOWNGRADED on evidence
+
+- Batch-group 5 (4 commits, dtswiss-2 + job.json sync) merged: +19 verified, harness
+  BYTE-IDENTICAL, gates green. Worker flagged 5 DT Swiss rows as "fabricated SKUs" (150x12 axle,
+  157+HG combos "not in the configurator") used by several completebike fills — correctly left
+  untouched. **Coordinator spot-check REFUTED the fabrication reading**: two performancebike.com
+  listings + worldwidecyclery (fetched) state the 12x157 FR 1500 ships with the SRAM XD body
+  installed AND INCLUDES an HG 8-11sp freehub body + 12x150 end caps — so 157+HG and 150mm are
+  real out-of-the-box configurations of the real SKU, and the completebike fills describe
+  physically real stock setups. No false verdicts. Remaining item (LOW, queued for the next
+  data-model pass): decide row-per-purchasable-SKU vs row-per-configuration for
+  included-adapter wheels, and the 2 true dup rows + 2 small weight discrepancies the worker
+  also flagged. Verified 2,916/5,026 (58.0%).
+
 ## 2026-07-17 — BMX depth grinds + severity research merged (off-live: 79 → 202 BMX rows)
 
 - **catalog/bmx-depth-1** (Sunday/Odyssey/Cult/Fit/Kink/WeThePeople/Eclat/Shadow, +56) and
