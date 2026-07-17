@@ -1,5 +1,36 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — verify fanout batch-group 5 merged (verified 2897 → 2916) · DT Swiss "fabricated SKU" flags DOWNGRADED on evidence
+
+- Batch-group 5 (4 commits, dtswiss-2 + job.json sync) merged: +19 verified, harness
+  BYTE-IDENTICAL, gates green. Worker flagged 5 DT Swiss rows as "fabricated SKUs" (150x12 axle,
+  157+HG combos "not in the configurator") used by several completebike fills — correctly left
+  untouched. **Coordinator spot-check REFUTED the fabrication reading**: two performancebike.com
+  listings + worldwidecyclery (fetched) state the 12x157 FR 1500 ships with the SRAM XD body
+  installed AND INCLUDES an HG 8-11sp freehub body + 12x150 end caps — so 157+HG and 150mm are
+  real out-of-the-box configurations of the real SKU, and the completebike fills describe
+  physically real stock setups. No false verdicts. Remaining item (LOW, queued for the next
+  data-model pass): decide row-per-purchasable-SKU vs row-per-configuration for
+  included-adapter wheels, and the 2 true dup rows + 2 small weight discrepancies the worker
+  also flagged. Verified 2,916/5,026 (58.0%).
+
+## 2026-07-17 — BMX depth grinds + severity research merged (off-live: 79 → 202 BMX rows)
+
+- **catalog/bmx-depth-1** (Sunday/Odyssey/Cult/Fit/Kink/WeThePeople/Eclat/Shadow, +56) and
+  **catalog/bmx-depth-2** (Profile/GT/Haro/BSD/Colony/Fly/Total/S&M/Chase, +67) merged into
+  data/bmx.js → **202 BMX rows** (still OFF-LIVE; nothing served loads it). depth-2 hadn't gotten
+  its report through (send_message needs Douglas's confirm) but its single commit cleanly covered
+  all 9 assigned brands. The two grinds collided at the array tail (depth-1 appends one block,
+  depth-2 inserts per-category — both wanted the shared closing brace); resolved by hand, keeping
+  both blocks with correct braces. Validated: node-parse clean, no dup ids, 79+56+67=202. Gates
+  green (validate 0, 699 tests incl. BMX suites, tsc clean). Verified 4/202 (~2%) — depth target
+  is ~300/40%, so 2 more depth passes + verification before the flip.
+- **research/bmx-rule-severity** merged (tools/BMX-RULE-SEVERITY-RESEARCH.md): every provisional
+  [MECHANIC REVIEW] severity already matches community consensus → ZERO changes; Q7 pivotal-seat
+  ERROR can be un-flagged to confirmed; Q6 chain-width WARNING may become direction-aware later.
+- The BuildMyBMX page chip (the live flip) is HELD unmerged: at 202 parts we're below Douglas's
+  ~300/40% flip bar and the pre-flip Opus bias/adversarial audit hasn't run (error-tier surface).
+
 ## 2026-07-17 — verify fanout batch-group 4 merged (verified 2874 → 2897)
 
 - Watch-loop tick harvested `verify/fanout-1` group 4 (7 commits: rotors-measured, tires-tranzx,

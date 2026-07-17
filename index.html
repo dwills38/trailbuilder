@@ -134,6 +134,12 @@
   /* Track length ~1/4 of the old full-rail width (was ~748px at a 1400px
      viewport; measured live in the browser pane during the 2026-07-16 revision). */
   .range-wrap{position:relative;height:18px;margin:2px 0 0;width:190px;max-width:100%;flex:none}
+  /* compact: narrower track so paired sliders (e.g. the two complete-bike
+     travel ranges) fit side by side on one row */
+  .range-compact .range-wrap{width:140px}
+  /* full-width flex break: forces the next range-row to start a fresh line so
+     a compact pair shares its own row instead of trailing a chips row */
+  .range-break{flex-basis:100%;height:0;margin:0;padding:0}
   /* track uses --chip (not --line): RAD sets --line and --brand to the SAME
      pink, which would make the unfilled track and the selected-range fill
      visually identical — --chip stays distinct from --brand in all 4 themes. */
@@ -933,7 +939,7 @@
              pattern as reportGithub); hidden until Douglas flips it live. A plain
              link, so the bike page needs no kit.js payload. -->
         <a class="btn" id="kitBuilderNavBtn" href="KitBuilder/"
-          title="Rider kit — helmets, shoes, apparel &amp; protection" hidden>🧰<span class="hdr-long"> Kit Builder</span></a>
+          title="Rider kit — helmets, shoes, apparel &amp; protection" hidden>🧰<span class="hdr-long"> BuildMyKit</span></a>
         <!-- Guides: always-on entry to the buyer's/compatibility guides page (static
              content from src/guides.js — no account/feature gate). Opens #guidesPage. -->
         <button type="button" class="btn" id="guidesNavBtn"
@@ -2044,11 +2050,11 @@
       aria:'Filter tires by width range', unit:'in', step:0.01,
       bounds:function(){ return numBoundsOf(byCat('tire'), function(p){ return p.width; }); },
       match:function(p,lo,hi){ if(p.cat!=='tire') return true; if(p.width==null) return true; return window.rangeMatch(p.width, lo, hi, 1e-9); } },
-    { id:'cbFrontTravelRange', groups:['completebikes'], heading:'Front travel (fork)',
+    { id:'cbFrontTravelRange', groups:['completebikes'], heading:'Front travel', compact:true, breakBefore:true,
       aria:'Filter complete bikes by front (fork) travel range', unit:'mm', step:1,
       bounds:function(){ return numBoundsOf(function(p){ return p.cat==='completebike' && cbFrontTravelOf(p)!=null; }, cbFrontTravelOf); },
       match:function(p,lo,hi){ if(p.cat!=='completebike') return true; var v=cbFrontTravelOf(p); return v==null || window.rangeMatch(v, lo, hi); } },
-    { id:'cbRearTravelRange', groups:['completebikes'], heading:'Rear travel (frame)', note:'0 mm = hardtail',
+    { id:'cbRearTravelRange', groups:['completebikes'], heading:'Rear travel', compact:true, note:'0 mm = hardtail',
       aria:'Filter complete bikes by rear travel range — 0mm is a hardtail', unit:'mm', step:1,
       bounds:function(){ return numBoundsOf(function(p){ return p.cat==='completebike' && cbRearTravelOf(p)!=null; }, cbRearTravelOf); },
       match:function(p,lo,hi){ if(p.cat!=='completebike') return true; var v=cbRearTravelOf(p); return v==null || window.rangeMatch(v, lo, hi); } }
@@ -2107,6 +2113,7 @@
       // constant per axis, so a stored selection is already in range in practice.
       var lo = cur ? Math.max(b.lo, Math.min(cur.lo, b.hi)) : b.lo;
       var hi = cur ? Math.min(b.hi, Math.max(cur.hi, b.lo)) : b.hi;
+      if(rf.breakBefore){ var br=document.createElement('div'); br.className='range-break'; host.appendChild(br); }
       host.appendChild(rangeRowEl(rf, b, lo, hi));
     });
   }
@@ -2137,7 +2144,7 @@
      button visibility instead via the same refresh() the drag path uses. */
   function rangeRowEl(rf, b, lo, hi){
     var row = document.createElement('div');
-    row.className = 'chips subchips range-row';
+    row.className = 'chips subchips range-row' + (rf.compact ? ' range-compact' : '');
     row.setAttribute('role','group');
     row.setAttribute('aria-label', rf.aria);
     row.title = rf.aria;
