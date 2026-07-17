@@ -1,7 +1,9 @@
 # Suspension — Mechanic Corpus
 
-**Maturity: foundation** (L1 coverage — general repair/compat literacy; see
-[`CURRICULUM.md`](CURRICULUM.md). No L2 damper/air-spring service-manual internals yet — see
+**Maturity: foundation** (L1 coverage + a first L2 slice landed 2026-07-17 — the RockShox
+Suspension Theory Guide's DAMPER/FRICTION/TUNING sections, SUS-26–31 — mined for the first
+time this round; see [`CURRICULUM.md`](CURRICULUM.md). Still short of `professional`: no
+per-model service intervals/oil-volumes/seal-kit part numbers, no torque-spec table — see
 "## Gaps" below.)
 
 Fork · rear shock · travel · trunnion/standard eyes · coil approval · fork↔frame bundling.
@@ -168,6 +170,109 @@ generations that this pass could not independently fetch-confirm) — treat as d
 right, not a pinned current-year figure.* Source: Fox "Service Intervals"
 (tech.ridefox.com/fox_tech_center/owners_manuals/011/Content/Service_Intervals.html, fetched).
 
+## Damper & friction internals (L2 — RockShox Suspension Theory Guide)
+
+**SUS-26 — A damper's job is converting kinetic energy to heat via oil-flow restriction,
+built from five parts, and the shaft's own mass forces a displacement-compensation
+design choice.** Damper body (fluid chamber) + fluid (oil, the damping medium) + piston
+(carries the flow ports) + seal head (keeps oil in, seals around the moving shaft) +
+damper shaft (couples to the suspension) are the five basic elements. Because the shaft
+has mass and introduces it into an already oil-full chamber as it moves, every damper
+must accommodate that displaced volume somehow — three designs exist: **open system**
+(oil displaces to any open cavity — simplest, lowest heat buildup, doubles as lubricant
+for non-damper parts, but oil can aerate/mix with air); **closed system with an IFP**
+(internal floating piston, spring-backed, seals oil away from an air/gas charge —
+separates oil from air to reduce aeration and lets the IFP absorb thermal expansion, at
+the cost of system complexity and a breakaway force from the IFP's own gas pressure);
+**closed system with a bladder** (same separation benefit as an IFP, without the
+breakaway force); **through-shaft** (shaft mass enters one side while leaving the
+other simultaneously, eliminating the need for displacement compensation at all).
+*Confidence: confirmed (manufacturer engineering-education document).* Source: RockShox
+"Suspension Theory Guide" pp.14–15 (sram.com/globalassets/document-hierarchy/
+service-manuals/rockshox/suspension-theory-guide.pdf, fetched 2026-07-17 — the same doc
+SUS-13's spring theory content already cites; this round mined the DAMPER/FRICTION/
+TUNING sections (pp.14–27) flagged as the clean pickup point in the prior Gaps entry).
+
+**SUS-27 — Shims and check valves are how a fixed piston geometry produces
+speed-sensitive, direction-separated damping — the mechanical basis for every
+external clicker.** Port size can be fixed at manufacture, mechanically varied (a needle/
+sleeve blocking more or less of the port), or governed by **shims** — sprung discs
+stacked over a port that flex open past a pressure threshold, tunable in combination and
+further adjustable by preloading the shim stack's spring. A **check valve** (built from
+shims or a sprung valve) forces oil through *different* ports on compression vs rebound
+so adjusting one circuit doesn't change the other — this is the physical reason a
+compression clicker doesn't touch rebound feel and vice versa. **Blow-off** behavior
+(how hard an impact has to be before a circuit "gives") is set by how much spring
+preload backs the check valve: more preload requires more oil pressure — i.e. a harder
+hit — to open it. *Confidence: confirmed.* Source: Suspension Theory Guide p.16
+(fetched, as SUS-26).
+
+**SUS-28 — Low-speed and high-speed damping are genuinely separate circuits gated by
+oil pressure, not two names for the same adjuster — and this is why a fork can have
+independent LSC/HSC clickers.** **Low-speed circuits** regulate the primary port at low
+pressure (slow compression from weight shifts, cornering, transitions; and beginning-
+stroke rebound near top-out under low spring force). **High-speed circuits** are a
+secondary, blow-off-gated path that only activates once oil pressure climbs high enough
+— fast compression (bump impacts, drop/jump landings) or ending-stroke rebound deep in
+travel under high spring force. **Lockout** and **platform** damping are both high-speed-
+circuit variants: lockout restricts flow until a preset force threshold is overcome;
+platform is the same mechanism with an *adjustable* threshold, so a lighter platform
+setting locks out small bumps but still yields to a real impact, and a firmer setting
+needs a bigger hit to open. *Confidence: confirmed.* Source: Suspension Theory Guide
+pp.17–19 (fetched, as SUS-26).
+
+**SUS-29 — Bushing length trades stiffness for friction the same direction — longer is
+both stiffer AND lower-friction per unit wear, which is why higher-end/longer-travel
+chassis use longer bushings, not just bigger tubes.** A bushing's contact-surface area
+scales with its length; more contact area spreads the same total friction over more
+surface (reducing wear rate) while also increasing overlap between the moving parts
+(increasing chassis stiffness) — the two benefits are coupled, not independent design
+knobs. Separately: **glide rings** do double duty as both an oil-flow-metering damping
+element (SUS-26/27's territory) *and* a piston-to-tube bushing; **rear-shock mounting
+bolt torque is friction-relevant, not just a clamping spec** — RockShox states directly
+that an over-tightened shock mounting bolt will **bind rather than rotate freely at the
+eyelet**, causing premature bushing wear and enough shock-body flex to leak oil, distinct
+from SUS-1's eye-to-eye/stroke fit checks. *Confidence: confirmed.* Source: Suspension
+Theory Guide pp.21–22 (fetched, as SUS-26).
+
+**SUS-30 — Named failure modes a mechanic should recognize by symptom: fade,
+aeration/emulsification, cavitation, hydraulic lock, and spiking — five distinct causes
+that can all present as "damping feels wrong."** **Fade** = temperature-driven: oil
+heats from friction, viscosity drops, damping drops — reversible on cooling, but repeated
+heat cycling permanently degrades the oil (replace, don't just wait for it to cool).
+**Aeration** = gas mixing into the oil as bubbles under rapid cycling, changing damping
+characteristics until the bubbles have time to rise back out at rest; if it goes on long
+enough, aeration becomes **emulsification** — a *permanent* suspension of gas/contaminant
+in the oil that no longer separates by gravity or settling, a genuine oil-replacement
+condition, not a temporary one. **Cavitation** = sudden pressure swings causing bubbles
+to violently collapse/fracture or oil to vaporize and then collapse — produces
+noise/shockwave and can physically damage parts, not just soften damping. **Hydraulic
+lock (hydra-lock)** = the shaft's displaced oil volume has nowhere to go (wrong oil
+volume or contamination blocking the compensator), so the shaft physically cannot
+enter the system — the damper locks solid, not just stiff. **Spiking** = port sizing
+can't keep up with a very fast stroke, so oil pressure briefly spikes at the ports,
+giving a sudden harsh damping feel on sharp hits distinct from a genuine high-speed-
+compression tune. *Confidence: confirmed.* Source: Suspension Theory Guide p.20
+(fetched, as SUS-26).
+
+**SUS-31 — Three tuning-adjustment interactions RockShox explicitly names as
+misconceptions — each is a case where one control masks rather than fixes another.**
+(1) **Coil preload compensates for an undersized spring rate only by adding a required
+breakaway force** — it can make suspension *feel* firmer initially, but risks harsh
+top-out, premature coil set, and premature coil bind (which physically shortens usable
+travel as the coils stack before the shaft finishes its stroke) — it is not a substitute
+for the correct spring rate. (2) **Spring rate and rebound damping must be adjusted
+together** — the spring is what generates rebound force, so a spring-rate change without
+a proportional rebound-damping change leaves rebound mistuned even though nothing about
+the damper itself changed. (3) **Compression damping cannot substitute for an undersized
+spring** — it can make the suspension *feel* firmer on hits, but because compression
+damping doesn't support the rider's static weight, the bike still sags too much and
+loses usable travel; it also risks a harsh feel on hard impacts if pushed far enough to
+mask the real problem. Sag/spring setup is explicitly the step to finalize *before*
+tuning any damping circuit, matching this chapter's Sag & setup section. *Confidence:
+confirmed.* Source: Suspension Theory Guide pp.26–27 "Common Tuning Misconceptions"
+(fetched, as SUS-26).
+
 ## Fork travel vs frame
 
 **SUS-8 — Over-travel fork vs frame rated max = WARNING; where a maker publishes an APPROVED
@@ -299,6 +404,28 @@ tools/VERIFY-PROTOCOL.md "Interface verification" + fork extension (Douglas 2026
   are dialed in against that baseline — damper settings tuned against the wrong sag are being
   tuned against a moving target.
 
+### Damper-internal couplings (new this round)
+- **Low-speed and high-speed circuits are pressure-gated, not two labels for one
+  adjuster** (SUS-28) — this is *why* independent LSC/HSC clickers don't interact: they
+  physically govern different oil paths that only both open once stroke speed/pressure
+  crosses a threshold.
+- **A damper's failure modes have distinct causes that produce similar-sounding
+  symptoms** (SUS-30) — "damping feels off" could be heat-driven fade (reversible),
+  aeration en route to permanent emulsification (oil-replacement condition), a
+  contamination-driven hydraulic lock (damper physically won't move), or spiking
+  (a sharp-hit artifact, not a tune problem) — misdiagnosing which one sends the part
+  to the wrong fix.
+- **Bushing length is a shared knob for stiffness AND friction/wear, not a tradeoff
+  between them** (SUS-29) — longer bushings are simultaneously stiffer and lower-wear,
+  which is why higher-end/longer-travel chassis use longer bushings rather than treating
+  stiffness and durability as opposing choices.
+- **Tuning one control to compensate for another masks rather than fixes the
+  underlying mismatch** (SUS-31): coil preload for an undersized spring risks coil
+  bind/premature top-out; compression damping for an undersized spring leaves the bike
+  still sagging too deep even though impacts feel firmer. Both interactions mean a
+  mechanic reading "feels harsh" or "feels soft" off the bike alone can misattribute a
+  spring-rate problem to a damper-tune problem.
+
 ### Wear / setup couplings
 - **Reduced stroke changes the leverage the frame sees** — running a frame at a non-design
   stroke shifts where in the travel it operates, which is why SUS-4 defers to maker-supported
@@ -321,11 +448,19 @@ tools/VERIFY-PROTOCOL.md "Interface verification" + fork extension (Douglas 2026
 
 Honest list of what a future round needs to close to move this chapter past `foundation`:
 
-- **No Fox/RockShox damper/air-spring SERVICE-manual internals** — oil volumes, seal-kit part
-  numbers, compression/rebound circuit detail, shim-stack tuning. The RockShox Suspension Theory
-  Guide fetched this round covers pages 3–11 (spring theory) only; its own DAMPER (p.14),
-  FRICTION (p.21) and TUNING (p.26) sections were deliberately NOT mined to stay at L1 depth —
-  next round's clean pickup point. **L2 gap.**
+- **Closed 2026-07-17 (SUS-26–31): the RockShox Suspension Theory Guide's DAMPER (p.14),
+  FRICTION (p.21) and TUNING (p.26) sections are now mined** — damper construction/
+  displacement-compensation design choices, shim/check-valve mechanics, low/high-speed
+  circuit separation (incl. lockout/platform), bushing length↔stiffness↔friction coupling,
+  five named failure modes (fade/aeration/emulsification/cavitation/hydraulic-lock/
+  spiking), and three named tuning misconceptions. **Still open:** this is theory-guide
+  depth (how a generic damper works and fails), not a per-model **SERVICE**-manual (oil
+  volumes, seal-kit part numbers, exact shim-stack specs, step-by-step rebuild procedure
+  for a specific Fox/RockShox model). A future round targeting a specific service manual
+  (e.g. a 2018-2022 Deluxe rear-shock service manual, also found this round at
+  sram.com/globalassets/document-hierarchy/service-manuals/rockshox/rear-suspension/
+  2018-2022-deluxe-service-manual.pdf but not yet fetched/mined) is the next L2 layer.
+  **L2 gap remaining, narrower than before.**
 - **No torque-spec table** for shock hardware (mounting bolts, air-can/end-cap torque, travel
   spacer bolts) or fork hardware (axle pinch bolts, crown bolts, air-spring top-cap torque).
   **L2 gap.**
