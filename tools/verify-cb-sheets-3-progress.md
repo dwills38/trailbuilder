@@ -90,6 +90,39 @@ move is direct manufacturer re-fetch of specific brand/model candidates** (espec
 brands previously recorded as fully-walled — liv-cycling.com just came back), not desc
 text-mining, which mostly just re-confirms already-correct unverified status.
 
-Batch 2+ in progress: continuing down the brief's brand list (Commencal has only 2
-unverified completebike rows total; Canyon/Giant/YT remainder next) plus general sweep of
-the other ~290 unverified rows, prioritizing rows with no fetch attempt on record yet.
+## Batch 2: brand sweep continuation, no promotions, 1 new flag
+
+- **Commencal** (2 unverified of 10 total - the rest already verified:true from earlier
+  waves): re-fetched commencal.com's Meta HT V3 Ohlins page with a strict verbatim prompt
+  targeting just the rotor line - it STILL reads "SRAM RS2 200mm, 6-bolts" (SRAM sells no
+  RS2 rotor; existing desc already reads this as a probable HS2 typo and models it that
+  way). No change; the substitution judgment call is unresolved on Commencal's end, not
+  something a re-fetch can clear. Supreme DH V5 Öhlins not re-fetched (its blockers are
+  multiple ASSUMED fields, same class of issue).
+- **Specialized** (32 unverified, the single largest bucket) - spot-checked
+  specialized.com/us/en/chisel/p/226245 fresh: still HTTP 403. Confirms the existing
+  retry-queue note (CLAUDE.md Provenance section) still holds; all 32 rows are sourced via
+  vitalmtb.com and cannot clear bar item 1 while this wall stands. Not worth per-row
+  re-checking until specialized.com itself becomes fetchable - flagging that as the
+  highest-value unblock to watch for (32 rows waiting on one domain).
+- **Norco** (12 unverified) - re-fetched norco.com/bikes/mountain/trail/fluid-fs/fluid-fs-a2/
+  fresh: page renders title-only (JS shell), confirming the existing "norco.com is a
+  JS-only shell" blocker note. No change.
+- **Transition** (14 unverified) - re-fetched transitionbikes.com/Bikes/Spur fresh: **the
+  live Spur Carbon lineup no longer lists a "Deore" build at all** - current builds are
+  Eagle 70 ($5,499), Eagle 90 ($6,499), XT Di2 ($7,499), XTR Di2 ($10,999). The cataloged
+  `cb-transition-spur-carbon-deore` row may represent a DISCONTINUED trim no longer sold.
+  Per the brief's scope (fix fills to real parts already in-catalog, not re-derive whole
+  builds), this is flagged and NOT acted on - re-deriving would mean either finding
+  archived spec data for the retired Deore trim or retiring the row, both out of this
+  round's scope. **Flagged for the coordinator: possible discontinued-model cleanup
+  candidate**, same class of decision as the modelYear-drift rows.
+- **Evil Following LS X0 Transmission** (the 2nd flagged DRIFT row) - evil-bikes.com
+  remains rate-limited (429) after 2 attempts across the session; not resolved. Retry in a
+  later session/round.
+
+## Batch tally so far: reviewed ~20 bikes across 9 brands, 3 promoted (+3 sheet-verified,
+141 -> 144), 1 drift resolved (false alarm), 1 price correction, 1 new flag (Transition
+Spur Deore possible discontinuation), Evil Following drift still blocked. Continuing down
+the remaining ~290 unverified rows (Giant/GT/Ghost/Mondraker/Pivot/Ibis/Yeti/Cannondale/
+Evil/Nukeproof/etc.) in the next batch. Trek skipped per brief (3-tier wall).
