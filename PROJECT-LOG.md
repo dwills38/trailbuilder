@@ -1,5 +1,23 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — Coordinator seat 11 close-out: trust wave lands (kit 57%, IS fix, bias r3 clean)
+
+Final seat-11 wave, all CI green. **IS-mount adapter tier merged** (`f1685b4` — bias-r3 HIGH-1
+closed): the 3 IS frames went 0/104 calipers buildable → 100/104; PM-on-IS = adapter warning with
+structured fix (sourced from Shimano DM-SMMA00A + Banshee's and Cotic's own pages); FM-on-IS
+correctly stays an error; coordinator adversarially re-verified every direction; harness
+byte-identical; 695 tests. **Kit verification fan-out merged** (`3d3be53`): kit 293 → 409 verified
+(57.3%, past the 55% goal); the new unblockers revived Fox Racing/Giro/Bell/Five Ten/Pearl Izumi/
+Bolle; 6 Leatt gloves un-flagged (stale clearance-URL artifact); 4 rows removed with evidence; two
+genuinely structural walls documented (Specialized apparel client-side pricing, iXS no-USD).
+**Bias audit r3 merged earlier today** (`4603d38`): no favoritism, both R2 HIGHs resolved/disproved.
+**Capability day:** Bright Data CLI (OAuth'd; Specialized + web.archive.org walls dead), Exa MCP
+(Trek JS-wall dead), fork nominal-weight policy extended, push notifications enabled, AllTrails +
+Canva connectors landed. Two unexpected shutdowns survived with zero merged-work loss (checkpoint
+discipline; crash-triage drill now routine). STILL RUNNING at handoff: the bike-catalog
+Verification MEGA fan-out (verify/fanout-1 — 2,735+ verified already integrated in its worktree,
+Shimano-PDF worker the long pole; seat 12 harvests). Seat 11 → seat 12 handoff written.
+
 ## 2026-07-17 — Coordinator seat 11: grind #7 (+100, 436 bikes / 5025 parts) + the structural wave lands
 
 Five lanes wrapped across the overnight ticks, all merged + CI green. **Grind #7 (`d7aec32`):
