@@ -1,5 +1,21 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — MTB Coach corpus born + 10 mechanic-grounded guides shipped (22 → 32)
+
+- **tooling/coach-bootstrap merged**: tools/coach/ corpus (10 files, 42 cited facts) + 
+  .claude/agents/mtb-coach.md — mirrors the mechanic architecture + SAFETY-FIRST PROGRESSION
+  rule + tacit-layer disclaimer + ⚠ DISPUTED tag for genuine coaching disagreement. L1 ingested
+  from PMBIA/BICP public method + B-consensus coach sources. ★ DECISION FOR DOUGLAS: true L4
+  "teach the coach" depth (graded skill lists, assessment rubrics) sits behind PMBIA/BICP
+  memberships — paid-access call parked. Next coach rounds: terrain-features (weakest chapter),
+  then the untapped Tier-C biomechanics round (PubMed reachable — grounds the WHY corpus-wide).
+- **content/guides-r2 merged (LIVE surface)**: reviewed all 22 existing guides against the
+  mechanic corpus (zero contradictions — shared dossier lineage) and added 10 new corpus-cited
+  guides (BB standards, freehub/driver, sag setup, SS/DJ drivetrains, drivetrain wear, brake
+  bed-in, tubeless, wheel truing, crank/pedal service, creak diagnosis) — every claim traced to
+  fact IDs, brand-neutral, several honestly noting where checkBuild stays silent. 32 guides
+  total. Gates green (700/700); coordinator spot-checked guide↔corpus fidelity.
+
 ## 2026-07-17 — kit-fanout-2 merged (kit verified 409 → 413, 57.8%)
 
 - verify/kit-fanout-2 merged: +4 Shimano shoe promotions (2 real price corrections XC502
