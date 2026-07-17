@@ -52,7 +52,13 @@ var BMX_VOCAB = {
   axle:        ['10mm', '14mm'],                   // 3/8in and 10mm are ONE token (analysis-doc Q8 lean, PROVISIONAL)
   driverType:  ['cassette', 'freecoaster', 'freewheel'],   // 'freewheel' = legacy thread-on, vocab-only until sourced rows exist (Q5 lean)
   chainPitch:  ['1/8', '3/32'],                    // data/bmx.js field name: `pitch`
-  brakeMount:  ['u-brake', 'v-brake', 'caliper', 'none'],  // frame/fork bosses AND brake type share the token set
+  /* 'disc' added 2026-07-17 (depth-4, coordinator-authorized): a rotor + caliper mount on
+     modern race BMX (Redline Proline Flight / Chase RSP5.0-Edge class) - post/flat-mount,
+     structurally unrelated to u-brake bosses or v-brake posts. DO NOT CONFLATE: a disc frame
+     cannot take a u-brake or v-brake caliper and vice versa - the existing bmx-rear-brake-mount
+     / bmx-front-brake-mount exact-match rules already enforce this once the token exists; no
+     rule changes needed, only the vocab widen + data. */
+  brakeMount:  ['u-brake', 'v-brake', 'caliper', 'disc', 'none'],  // frame/fork bosses AND brake type share the token set
   headTube:    ['integrated-1-1/8', 'mid', 'threaded'],    // display-only per the analysis doc's Q9 lean (PROVISIONAL) — no headset rule fires
   seatSystem:  ['pivotal', 'standard'],
   clamp:       ['22.2mm', '25.4mm'],               // BMX bar clamp: 22.2 standard, 25.4 "oversized" — display-only per section 2b (no clamp rule)

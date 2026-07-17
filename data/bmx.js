@@ -1157,6 +1157,161 @@ var BMX_PARTS = [
   {
     id: 'bmx-pd-chase-rsp-clip', cat: 'pedals', brand: 'Chase', model: 'RSP Clip Pedals',
     platform: 'clip', spindle: '9/16', weight: 300, price: 89.99
+  },
+
+  // =====================================================================
+  // ---- Seat 12 depth pass (2026-07-17): disc-brake vocab unblocks the
+  //      Redline Proline Flight race tier + Avid BB5 caliper; two new
+  //      brands (Standard Byke Co, Alienation); Fit Bike Co/S&M/Cult/Colony
+  //      small-parts depth. Every id below names a real, currently-or-
+  //      recently-sold product (WebSearch + a handful of manufacturer-page
+  //      WebFetches); none confirmed to VERIFY-PROTOCOL's fetched-manufacturer-
+  //      spec-table bar, so all stay unverified sample per catalog policy.
+  //      Skipped per THE BAR (logged, not entered): Chase Edge/RSP5.0 race
+  //      frames (disc-capable per chasebicycles.com, but no fetched BB shell
+  //      - would have been a guessed required field); Tioga race tires (no
+  //      fetched width data). Also dropped 3 rows already present from an
+  //      earlier depth pass (S&M Slam Bars, Cult Dak Grips, Fit Key Sprocket
+  //      25T - duplicate ids caught by test-bmx-golden.js). 222 -> 246 rows.
+  //      ---------------------------------------------------------------
+
+  // ---- Redline / Avid disc-brake tier (unblocks the depth-3 vocab gap) --
+  {
+    id: 'bmx-fr-redline-prolineflight', cat: 'frame', brand: 'Redline', model: 'Proline Flight',
+    discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'disc', rearAxle: '14mm', frameOnly: true,
+    price: 549.99,
+    note: 'Disc-brake-equipped tier of the Redline Proline race platform (Redline has added Avid disc-brake spec to Proline); unblocks the depth-3 disc-vocab gap.'
+  },
+  {
+    id: 'bmx-br-avid-bb5-bmx', cat: 'brake', brand: 'Avid', model: 'BB5 Mechanical Disc Brake',
+    mount: 'disc', price: 64.99,
+    note: 'Mechanical disc caliper commonly specced on disc-mount BMX race frames (Redline Proline Flight class).'
+  },
+
+  // ---- Standard Byke Co (new brand: standardbyke.com, 1991-, USA-made) --
+  {
+    id: 'bmx-fr-standard-sta', cat: 'frame', brand: 'Standard Byke Co', model: 'STA',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    price: 419.99,
+    note: 'STA500 platform - Standard\'s long-running freestyle frame, approaching 25 years in production per the maker.'
+  },
+  {
+    id: 'bmx-fr-standard-125r', cat: 'frame', brand: 'Standard Byke Co', model: '125R',
+    discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: true,
+    price: 379.99,
+    note: 'Race platform sold across Micro/Mini/Junior/Expert/Pro size classes via top-tube length; Expert spec captured here.'
+  },
+
+  // ---- Fit Bike Co depth (fitbikeco.com / thebuildingdistro.com fetched) --
+  {
+    id: 'bmx-fr-fitbikeco-str', cat: 'frame', brand: 'Fit Bike Co', model: 'STR',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    price: 449.99,
+    note: 'Street frame - chromoly front triangle with double gussets, Sealed Mid BB confirmed on the maker\'s spec page.'
+  },
+  {
+    id: 'bmx-fr-fitbikeco-prk', cat: 'frame', brand: 'Fit Bike Co', model: 'PRK',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.5, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
+    price: 459.99,
+    note: 'Park/transition frame - Mid Sealed BB confirmed on the maker\'s spec page; commonly run brakeless. Also sold in a 20in top-tube size.'
+  },
+  {
+    id: 'bmx-fk-fitbikeco-shivv3', cat: 'fork', brand: 'Fit Bike Co', model: 'Shiv V3',
+    discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'u-brake', price: 99.99,
+    note: '25mm offset per the current Fit fork lineup.'
+  },
+  {
+    id: 'bmx-cr-fitbikeco-bosslessindent', cat: 'cranks', brand: 'Fit Bike Co', model: 'Boss-Less 2-Piece Indent Crank',
+    spindle: '24mm', pieces: '2-piece', ringMount: 'spline', price: 199.99
+  },
+  {
+    id: 'bmx-gr-fitbikeco-crossfit', cat: 'grips', brand: 'Fit Bike Co', model: 'CrossFIT Grips',
+    length: 143, flangeless: true, price: 9.99
+  },
+  {
+    id: 'bmx-gr-fitbikeco-tech', cat: 'grips', brand: 'Fit Bike Co', model: 'Tech Grips',
+    length: 160, flangeless: false, price: 9.99,
+    note: 'Long-flanged variant (paired with CrossFIT, the flangeless variant).'
+  },
+
+  // ---- S&M small-parts depth (sandmbikes.com product line) --------------
+  {
+    id: 'bmx-hb-sandm-racexlt-8', cat: 'handlebar', brand: 'S&M', model: 'Race XLT Bar 8"',
+    clamp: '25.4mm', rise: 8.0, width: 28.5, weight: 762, price: 94.99,
+    note: 'Slam-geometry race evolution, thinner-walled multi-butted tubing; also sold in 7.5-10in rise.'
+  },
+
+  // ---- Cult small-parts depth (AK = Alex Kennedy, Dak = Dakota Roche
+  //      signature lines) -------------------------------------------------
+  {
+    id: 'bmx-hb-cult-ak', cat: 'handlebar', brand: 'Cult', model: 'AK Bars',
+    clamp: '25.4mm', rise: 8.0, width: 28.75, price: 79.99,
+    note: 'Alex Kennedy signature bar - 12deg backsweep, 2deg upsweep.'
+  },
+  {
+    id: 'bmx-hb-cult-dak', cat: 'handlebar', brand: 'Cult', model: 'Dak Bars',
+    clamp: '25.4mm', rise: 8.8, width: 28.0, price: 79.99,
+    note: 'Dakota Roche signature bar - 100% heat-treated butted chromoly, 11deg backsweep, 2deg upsweep, 1in OD clamp area.'
+  },
+  {
+    id: 'bmx-gr-cult-ak', cat: 'grips', brand: 'Cult', model: 'AK Grips',
+    length: 158, flangeless: false, price: 10.99,
+    note: 'Alex Kennedy signature grip - soft durable rubber compound, thicker than other Cult grips; ships with bar ends.'
+  },
+  // ---- Colony small-parts + wheel depth (colonybmx.com.au fetched) ------
+  {
+    id: 'bmx-st-colony-official', cat: 'stem', brand: 'Colony', model: 'Official Stem',
+    clamp: '25.4mm', price: 54.99
+  },
+  {
+    id: 'bmx-st-colony-variant', cat: 'stem', brand: 'Colony', model: 'Variant Stem',
+    clamp: '25.4mm', price: 49.99,
+    note: '52mm topload stem.'
+  },
+  {
+    id: 'bmx-gr-colony-mountjoy', cat: 'grips', brand: 'Colony', model: 'Mountjoy Grips',
+    length: 143, flangeless: true, price: 10.99
+  },
+  {
+    id: 'bmx-pg-colony-oneway', cat: 'pegs', brand: 'Colony', model: 'Oneway CrMo Peg',
+    axleFit: '14mm', material: 'steel', reducerIncluded: false, price: 19.99
+  },
+  {
+    id: 'bmx-pg-colony-jamcircle', cat: 'pegs', brand: 'Colony', model: 'Jam Circle Peg',
+    axleFit: '14mm', material: 'alloy', reducerIncluded: false, price: 24.99
+  },
+  {
+    id: 'bmx-fw-colony-wasp', cat: 'frontWheel', brand: 'Colony', model: 'Wasp Front Hub',
+    axle: '14mm', wheelSize: '20', price: 79.99,
+    note: '6061-T6 low-flange front hub on a 14mm hollow chromoly axle (a freestyle front-hub upsize from the 10mm default) - colonybmx.com.au product page.'
+  },
+  {
+    id: 'bmx-rh-colony-wasp', cat: 'rearWheel', brand: 'Colony', model: 'Wasp Cassette Hub',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 99.99,
+    note: 'Popular freestyle cassette hub - 6 pawls, high engagement.'
+  },
+  {
+    id: 'bmx-rh-colony-wasprace', cat: 'rearWheel', brand: 'Colony', model: 'Wasp Race Cassette Hubset',
+    driverType: 'cassette', driverTeeth: 16, side: 'both', axle: '14mm', price: 129.99,
+    note: 'Race version - alloy driver and axle for reduced weight, ships standard with a 16T cog (colonybmx.com.au product page).'
+  },
+
+  // ---- Alienation (new brand: alienationbmx.com, race wheels) -----------
+  {
+    id: 'bmx-fw-alienation-sabbath', cat: 'frontWheel', brand: 'Alienation', model: 'Sabbath Front',
+    axle: '10mm', wheelSize: '20', price: 129.99,
+    note: 'Race front wheel; axle/wheel-size per the near-universal modern BMX race standard (brand+model confirmed on alienationbmx.com, per-spec page not fetched).'
+  },
+  {
+    id: 'bmx-rh-alienation-sabbath', cat: 'rearWheel', brand: 'Alienation', model: 'Sabbath Rear',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 149.99,
+    note: 'Race rear wheel, cassette driver only (race hubs are cassette-only). Driver tooth count per today\'s de-facto 9T standard - brand+model confirmed on alienationbmx.com, per-spec page not fetched.'
   }
 ];
 

@@ -10,6 +10,26 @@
   spot-verified against per-SKU ohlins.com pages incl. a real 451g TTX2Air weight; Spank 14/14;
   SUNringle 12/16; Michelin 0/9 — hard wall confirmed again). Harness BYTE-IDENTICAL, gates
   green. **Verified 2,957/5,026 = 58.8%** — 1.2 points from the 60% goal.
+## 2026-07-17 — bmx-depth-4 merged: disc-brake vocab + depth grind (222 -> 246 off-live rows)
+
+- catalog/bmx-depth-4 merged: Task A closed the depth-3 vocab gap — `BMX_VOCAB.brakeMount`
+  gains `'disc'` (do-not-conflate comment in `src/compat-bmx.js`), with a
+  `test-bmx-engine.js` case proving the existing `bmx-rear-brake-mount` rule fires a
+  u-brake-on-disc mismatch and stays silent disc-on-disc (no rule changes needed — the
+  exact-match check already covers the new token). Task B: +24 net new rows (2 dropped
+  as pre-existing duplicates caught by `test-bmx-golden.js`'s id-uniqueness check) —
+  Redline Proline Flight (disc) + an Avid BB5 disc caliper actually exercise the new
+  vocab; two new brands (Standard Byke Co: STA/125R, Alienation: Sabbath front/rear
+  wheels); Fit Bike Co depth (STR/PRK frames, Shiv V3 fork, Boss-Less crank, CrossFIT/Tech
+  grips); S&M Race XLT bar; Cult AK bars+grips/Dak bars; Colony stem/grip/peg/Wasp-hub
+  depth. Every id names a real, currently-or-recently-sold product (WebSearch + a handful
+  of manufacturer-page WebFetches — chasebicycles.com, standardbyke.com, tiogausa.com,
+  alienationbmx.com, colonybmx.com.au, fitbikeco.com); none met the fetched-manufacturer-
+  spec-table bar for `verified:true`, so all stay unverified sample per policy. THE-BAR
+  skips logged honestly: Chase Edge/RSP5.0 race frames (disc-capable per
+  chasebicycles.com's own frames page, but no fetched BB shell — would've guessed a
+  required field), Tioga race tires (brand/model list fetched but no per-tire width data).
+  Gates green: `npm test` 700/700, `node validate.js` 0 problems, `npm run typecheck` clean.
 
 ## 2026-07-17 — strider design + mechanic bootstrap merged
 
