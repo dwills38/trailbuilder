@@ -287,9 +287,10 @@ var BMX_PARTS = [
     note: '17mm stack height, sealed bearing, 6061-T6 aluminum (detangler only, cables sold separately in the GTX-S Pro kit).'
   },
   {
-    id: 'bmx-gy-shadow-sanov2', cat: 'gyro', brand: 'The Shadow Conspiracy', model: 'Sano V2 Detangler',
-    steererFit: 'integrated-1-1/8', cableRouting: 'dual', price: 44.99,
-    note: 'CNC 6061-T6 aluminum, sealed bearing, low stack height.'
+    id: 'bmx-gy-shadow-sanov2', cat: 'gyro', brand: 'The Shadow Conspiracy', model: 'Sano Detangler V2',
+    steererFit: 'integrated-1-1/8', cableRouting: 'dual', weight: 45, price: 57.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-sano-detangler-v2',
+    note: 'CNC 6061-T6 aluminum, U.S.B. sealed mechanism bearing, wider caged-bearing design (2nd-period spec), includes detangler plate. Weight per maker page (1.6oz).'
   },
 
   // ===== CRANKS ========================================================
@@ -724,8 +725,10 @@ var BMX_PARTS = [
     platform: 'alloy', spindle: '9/16', weight: 340, price: 39.99
   },
   {
-    id: 'bmx-pd-shadow-metalalloy', cat: 'pedals', brand: 'The Shadow Conspiracy', model: 'Metal Alloy Pedals',
-    platform: 'alloy', spindle: '9/16', weight: 360, price: 34.99
+    id: 'bmx-pd-shadow-metalalloy', cat: 'pedals', brand: 'The Shadow Conspiracy', model: 'Metal Sealed Alloy Pedals',
+    platform: 'alloy', spindle: '9/16', weight: 524, price: 96.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-metal-sealed-alloy-pedals',
+    note: 'Trey Jones signature; 6061 alloy body, 4140 heat-treated broached cro-mo spindle, sealed bearings. Weight per maker page (18.5oz, pair).'
   },
 
   // ===================================================================
@@ -976,45 +979,59 @@ var BMX_PARTS = [
   // ---- The Shadow Conspiracy depth (parts brand, no frames/forks) ------
   {
     id: 'bmx-cr-shadow-finest', cat: 'cranks', brand: 'The Shadow Conspiracy', model: 'Finest Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 219.99
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 907, price: 249.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-finest-cranks',
+    note: 'Hollow 22mm / 48-spline spindle, 4130 chromoly, LHD/RHD compatible. Weight per maker page (32oz).'
   },
   {
-    id: 'bmx-sp-shadow-vultus-28', cat: 'sprocket', brand: 'The Shadow Conspiracy', model: 'Vultus Sprocket 28T',
-    teeth: 28, mount: 'spline', pitch: '1/8', price: 46.99
+    id: 'bmx-sp-shadow-vultus-28', cat: 'sprocket', brand: 'The Shadow Conspiracy', model: 'Cranium Sprocket 28T',
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 48.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-cranium-sprocket',
+    note: 'CORRECTED 2026-07-17: catalog previously named this "Vultus Sprocket 28T" - Vultus is Shadow\'s bar/fork line, not a sprocket; no such sprocket exists. Renamed to the real 28T Shadow sprocket closest to the original price point (7075 alloy, 24mm bore, 1/8" pitch).'
   },
   {
-    id: 'bmx-rh-shadow-optimized-9', cat: 'rearWheel', brand: 'The Shadow Conspiracy', model: 'Optimized Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 109.99
+    id: 'bmx-rh-shadow-optimized-9', cat: 'rearWheel', brand: 'The Shadow Conspiracy', model: 'Definitive Cassette Hub',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 499, price: 289.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-definitive-cassette-hub-rhd',
+    note: 'CORRECTED 2026-07-17: catalog previously named this "Optimized Cassette Hub" - Optimized is Shadow\'s freecoaster line; the cassette hub line is Definitive (LHD/RHD). 1pc 9T chromoly driver, 14mm hollow chromoly axle. Weight per maker page (17.6oz).'
   },
   {
-    id: 'bmx-ti-shadow-strada-23', cat: 'tire', brand: 'The Shadow Conspiracy', model: 'Strada Tire 2.3"',
-    wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 100, price: 26.99
+    id: 'bmx-ti-shadow-strada-23', cat: 'tire', brand: 'The Shadow Conspiracy', model: 'Strada Nuova Low Pressure Tire',
+    wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 60, weight: 731, price: 27.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-strada-nuova-low-pressure-tyre',
+    note: 'Simone Barraco signature; structural low-pressure casing, 20x2.30in, 60 PSI max. Weight per maker page (25.8oz). Corrected from a fictitious "100 PSI" max stated in the prior row.'
   },
   {
     id: 'bmx-pg-shadow-alloy', cat: 'pegs', brand: 'The Shadow Conspiracy', model: 'MFG Alloy Pegs',
-    axleFit: '14mm', material: 'alloy', reducerIncluded: false, price: 24.99
+    axleFit: '14mm', material: 'alloy', reducerIncluded: false, price: 24.99,
+    note: 'UNVERIFIED 2026-07-17: no current Shadow peg named "MFG Alloy Pegs" found on sparkysbrands.com (their official store). Shadow\'s current peg lineup is chromoly (Little One / Larger One, both fit 14mm w/ 3/8in adapter INCLUDED) or alloy-core/nylon-sleeve composite (S.O.D. Featherweight); none is a plain all-alloy peg matching this row. Left unverified rather than guess a specific SKU - flagging for the coordinator.'
   },
   {
     id: 'bmx-br-shadow-raptor', cat: 'brake', brand: 'The Shadow Conspiracy', model: 'Raptor U-Brake',
-    mount: 'u-brake', price: 42.99
+    mount: 'u-brake', price: 42.99,
+    note: 'UNVERIFIED 2026-07-17: sparkysbrands.com (Shadow\'s official store) currently sells no complete U-brake caliper under Shadow - only Sano gyro/detangler accessories and brake pads/levers. "Raptor" is actually the name of a past Shadow FREECOASTER HUB (see bmxunion.com review), not a brake. Could not confirm this product exists as named; left unverified for the coordinator rather than fabricate a source.'
   },
   {
     id: 'bmx-hb-shadow-feather', cat: 'handlebar', brand: 'The Shadow Conspiracy', model: 'Feather Bars',
     clamp: '25.4mm', rise: 8.0, width: 28.5, weight: 780, price: 79.99,
-    note: 'Lightweight chromoly bar.'
+    note: 'UNVERIFIED 2026-07-17: Lightweight chromoly bar. Shadow\'s current bar lineup (Vultus Featherweight 13B, Crow Featherweight 4pc, Vultus SG, Crowbar SG 4pc) is all 29in wide with 8.5in+ rise options - no current model matches this row\'s 28.5in width / 8.0in rise exactly, so left unverified rather than force a mismatched SKU mapping.'
   },
   {
-    id: 'bmx-gr-shadow-gipsy', cat: 'grips', brand: 'The Shadow Conspiracy', model: 'Gipsy Grips',
-    length: 143, flangeless: true, price: 10.99,
-    note: 'Sean Ricany signature grip.'
+    id: 'bmx-gr-shadow-gipsy', cat: 'grips', brand: 'The Shadow Conspiracy', model: 'Gipsy DCR Grips',
+    length: 160, flangeless: true, price: 13.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-gipsy-dcr-grips',
+    note: 'CORRECTED 2026-07-17: Simone Barraco signature grip (prior row wrongly credited Sean Ricany), proprietary DCR rubber, 160mm length (was 143mm), symmetrical/flangeless ends.'
   },
   {
     id: 'bmx-se-shadow-finest', cat: 'seat', brand: 'The Shadow Conspiracy', model: 'Finest Pivotal Seat',
-    system: 'pivotal', price: 24.99
+    system: 'pivotal', price: 24.99,
+    note: 'UNVERIFIED 2026-07-17: no current Shadow seat named "Finest" found on sparkysbrands.com (their official store); current pivotal seat lineup is Crow\'d Slim and the Penumbra signature series (Barraco/Coulomb/Blabol/Jones). Left unverified rather than guess a specific SKU - flagging for the coordinator.'
   },
   {
-    id: 'bmx-sp-shadow-finest-post', cat: 'seatpost', brand: 'The Shadow Conspiracy', model: 'Finest Pivotal Seatpost',
-    diameter: 25.4, system: 'pivotal', price: 15.99
+    id: 'bmx-sp-shadow-finest-post', cat: 'seatpost', brand: 'The Shadow Conspiracy', model: 'Pivotal Post',
+    diameter: 25.4, system: 'pivotal', weight: 99, price: 49.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.sparkysbrands.com/products/shadow-pivotal-post',
+    note: 'CORRECTED 2026-07-17: catalog previously named this "Finest Pivotal Seatpost" - no such product exists; the generic Shadow pivotal post is simply "Pivotal Post" (135mm length, 6061-T6 forged alloy). Diameter/system already matched; price/weight corrected. Weight per maker page (3.5oz).'
   },
   {
     id: 'bmx-pd-profile-elite', cat: 'pedals', brand: 'Profile Racing', model: 'Elite Pedals',
