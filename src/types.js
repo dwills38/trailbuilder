@@ -274,7 +274,12 @@
 /** The wheel-shaped view checkBuild's rules read, whether it came from a
  * complete FrontWheelPart/RearWheelPart or was synthesized from a hub+rim
  * pair by effectiveWheel() (compat.js). freehub is only ever set on the rear.
- * @typedef {{wheel: WheelSize, hub: (FrontAxle|RearAxle), rotorMount: RotorMount, freehub?: Freehub, intWidth: number, maxTire: number, minTire?: number}} EffectiveWheel */
+ * Every field is optional because a PARTIAL wheel end (hub picked, rim not, or
+ * vice-versa) resolves to one of these with only the picked half's fields set
+ * — see effectiveWheel() in compat.js. Rule sites presence-guard each field
+ * they read, so a check runs exactly when its own inputs exist. A complete
+ * wheel part carries all of them (schema-required).
+ * @typedef {{wheel?: WheelSize, hub?: (FrontAxle|RearAxle), rotorMount?: RotorMount, freehub?: Freehub, intWidth?: number, maxTire?: number, minTire?: number}} EffectiveWheel */
 
 /**
  * @typedef {Object} Group

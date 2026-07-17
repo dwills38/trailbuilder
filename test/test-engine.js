@@ -907,9 +907,79 @@ test('hub+rim: rotor interface fires via the hub (Center Lock rotor vs the front
 test('hub+rim: tire clearance fires via the rim (tire.width vs rim.maxTire)', function(){
   some(chk({frontTire:'ti-schwalbe-big-betty-29-26-sg-as', frontHub:'fh-dtswiss-350-boost110', frontRim:'rm-dtswiss-ex511-29'}).warnings, 'wider than the front wheel');
 });
-test('hub+rim: a half-filled side (hub only, no rim) is treated as no wheel yet, not a false green', function(){
+test('hub+rim: a hub-only side raises no wheel-size verdict (the rim carries the size)', function(){
+  /* Pre-2026-07-16 this passed because effectiveWheel returned null and the
+     engine checked NOTHING for the side. It now passes for the RIGHT reason:
+     the size rule presence-guards `wheel`, which only the rim carries, and no
+     fork is picked here so the axle rule has nothing to compare either. The
+     partial-wheel block below pins that the OTHER rules do fire. */
   var r = chk({frame:'fr-santacruz-megatower-cc', frontHub:'fh-dtswiss-350-boost110'});
-  eq(r.errors.length, 0, 'no wheel-size verdict should fire on an incomplete pair');
+  eq(r.errors.length, 0, 'no wheel-size verdict should fire off a hub alone');
+});
+
+/* PARTIAL wheel ends - the 2026-07-16 code-quality audit's CRITICAL (C-1).
+   effectiveWheel used to return null unless BOTH halves were picked, which
+   silenced rules 1/2/6/9/14 for a half-filled end and dotted all 49 hub/rim
+   rows green against any build - a false "fits", the one verdict this product
+   must never give. The contract now: every check whose OWN inputs exist runs as
+   soon as they exist; only the checks needing the missing half stay silent.
+   Hub carries hub/freehub/rotorMount; rim carries wheel/intWidth/maxTire. */
+test('C-1 regression: hub-only axle mismatch errors with NO rim picked (the audit\'s exact repro)', function(){
+  var repro = {frame:'fr-santacruz-megatower-cc', fork:'fk-fox-38-factory-29-170',
+    frontHub:'fh-industrynine-hydra2-20x110', frontRotor:'ro-sram-hs2-200-6b'};
+  var r = chk(repro);
+  some(r.errors, 'Front axle');
+  eq(r.errors.length, 1, 'the axle error and ONLY it - no false verdict off the missing rim');
+  eq(r.warnings.length, 0, 'and no false warning either');
+});
+test('C-1 regression: the dot is RED for a 20x110 DH hub on a Boost fork build, pre-rim', function(){
+  var bld = B({frame:'fr-santacruz-megatower-cc', fork:'fk-fox-38-factory-29-170'});
+  eq(C.compatOf(part('fh-industrynine-hydra2-20x110'), bld).state, 'r', 'a DH hub cannot dot green on a Boost fork');
+  eq(C.compatOf(part('fh-dtswiss-350-boost110'), bld).state, 'g', 'the matching Boost hub still dots green');
+});
+test('hub-only: freehub mismatch fires off the rear hub alone', function(){
+  some(chk({cassette:'ca-shimano-xt-m8100-1051', rearHub:'rh-dtswiss-350-boost148-xd'}).errors, 'Freehub');
+});
+test('hub-only: rotor interface fires off the front hub alone', function(){
+  some(chk({frontRotor:'ro-shimano-rtmt800-203-cl', frontHub:'fh-hope-pro5-boost110'}).errors, 'rotor interface');
+});
+test('rim-only: wheel-size mismatch fires off the rim alone (27.5 rim vs 29 fork)', function(){
+  some(chk({fork:'fk-rockshox-zeb-ultimate-29-170', frontRim:'rm-hope-fortus30-275'}).errors, 'wheel size');
+});
+test('rim-only: the dot is RED for a 27.5 rim on a 29-only frame', function(){
+  eq(C.compatOf(part('rm-hope-fortus30-275'), B({frame:'fr-santacruz-megatower-cc'})).state, 'r');
+});
+test('rim-only: tire clearance fires off the rim alone (tire.width vs rim.maxTire)', function(){
+  some(chk({frontTire:'ti-schwalbe-big-betty-29-26-sg-as', frontRim:'rm-dtswiss-ex511-29'}).warnings, 'wider than the front wheel');
+});
+/* Negatives: the missing half must stay SILENT, never guess. A fabricated
+   default would trade this false "fits" for a false "won't fit". */
+test('partial ends stay silent on the checks that need the missing half', function(){
+  var rimOnly = chk({fork:'fk-rockshox-zeb-ultimate-29-170', frame:'fr-santacruz-megatower-cc', frontRim:'rm-dtswiss-ex511-29'});
+  eq(rimOnly.errors.length, 0, 'a rim carries no hub, so the axle rule must not fire (nor read "hub is undefined")');
+  var hubOnly = chk({fork:'fk-rockshox-zeb-ultimate-29-170', frame:'fr-santacruz-megatower-cc', frontHub:'fh-dtswiss-350-boost110'});
+  eq(hubOnly.errors.length, 0, 'a hub carries no size, so the wheel-size rule must not fire');
+  var rearRimOnly = chk({cassette:'ca-sram-xg1275', rearRim:'rm-dtswiss-ex511-29'});
+  eq(rearRimOnly.errors.length, 0, 'a rim carries no freehub, so the freehub rule must not fire');
+});
+test('a compatible partial end stays green and clean', function(){
+  var bld = B({frame:'fr-santacruz-megatower-cc', fork:'fk-rockshox-zeb-ultimate-29-170', frontHub:'fh-dtswiss-350-boost110'});
+  eq(C.checkBuild(bld).errors.length, 0);
+  eq(C.compatOf(part('rm-dtswiss-ex511-29'), bld).state, 'g', 'the matching 29 rim completes the pair cleanly');
+});
+/* placementDiff must baseline on the build state that will EXIST after the
+   click: setSlot clears the mutex partner (altOf), so leaving it in the
+   baseline let a complete frontWheel mask the rim under test. */
+test('placementDiff clears the altOf mutex partner, so a rim is dotted against a build without the complete wheel', function(){
+  var bld = B({frame:'fr-santacruz-megatower-cc', frontWheel:'fw-dtswiss-ex-1700-29'});
+  var d = C.placementDiff(part('rm-hope-fortus30-275'), 'frontRim', bld);
+  ok(d.error, 'the 27.5 rim REPLACES the 29 wheel on click, so its size conflict must surface');
+});
+test('placementDiff clears the reverse mutex too (a complete wheel over a hub+rim pair)', function(){
+  var bld = B({frame:'fr-santacruz-megatower-cc', frontHub:'fh-industrynine-hydra2-20x110', frontRim:'rm-dtswiss-ex511-29',
+    fork:'fk-rockshox-zeb-ultimate-29-170'});
+  var d = C.placementDiff(part('fw-dtswiss-ex-1700-29'), 'frontWheel', bld);
+  eq(d.error, null, 'the complete wheel clears the mismatched hub+rim, so it introduces no error');
 });
 test('mutual completeness: wheelPositionFilled treats hub+rim as satisfying the frontWheel/rearWheel position', function(){
   var bld = B({frontHub:'fh-dtswiss-350-boost110', frontRim:'rm-dtswiss-ex511-29'});
