@@ -356,7 +356,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-hs-profile-integrated', cat: 'headset', brand: 'Profile Racing', model: 'Integrated Headset',
-    fit: 'integrated-1-1/8', price: 24.99
+    fit: 'integrated-1-1/8', price: 24.99,
+    note: 'UNCONFIRMED 2026-07-17: fetched profileracing.com\'s Profile BMX category list (cranks/BB/hubs/wheels/stems/spiders/sprockets/chainrings/freewheels) and searched the site directly - Profile Racing does not appear to manufacture or sell headsets at all; it is a hub/crank/BB/drivetrain-hardware maker. Likely a brand-misattribution predating this session. Left unverified, unchanged (out of scope to delete/reattribute a catalog row); flagged prominently for the coordinator to decide (correct brand vs. remove).'
   },
   {
     id: 'bmx-hs-flybikes-integrated', cat: 'headset', brand: 'Fly Bikes', model: 'Integrated Headset',
@@ -400,7 +401,8 @@ var BMX_PARTS = [
   {
     id: 'bmx-cr-profile-race', cat: 'cranks', brand: 'Profile Racing', model: 'Race Cranks',
     spindle: '19mm', pieces: '3-piece', ringMount: 'press-on', price: 286.99,
-    note: 'Profile\'s classic 19mm chromoly race crank family (Tech Tip #37 covers the 19mm vs 22mm tradeoff).'
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/rhd-3-piece-chromoly-race-crankset-2/',
+    note: 'Confirmed as the RHD (bolt-on boss) 3-Piece Chromoly Race Crankset: 19mm GDH CrMo axle, 3-piece, bolt-on sprocket boss, base price $286.99 (2026-07-17). No per-config weight published (arm length is a variant); left without a weight field like the existing verified Elite AL crank rows.'
   },
   {
     id: 'bmx-cr-odyssey-calibre', cat: 'cranks', brand: 'Odyssey', model: 'Calibre Cranks',
@@ -417,7 +419,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-cr-profile-race-22', cat: 'cranks', brand: 'Profile Racing', model: 'Race Cranks 22mm',
     spindle: '22mm', pieces: '3-piece', ringMount: 'press-on', price: 299.99,
-    note: '22mm-spindle version of Profile\'s classic chromoly race crank family (Profile\'s Tech Tip #37 covers the 19mm vs 22mm tradeoff).'
+    note: '22mm-spindle version of Profile\'s classic chromoly race crank family (Profile\'s Tech Tip #37 covers the 19mm vs 22mm tradeoff). UNCONFIRMED 2026-07-17: fetched profileracing.com/product-category/profile-bmx/profile-cranks/ and both current Race Crankset SKUs (RHD, No Boss) list ONLY a 19mm axle today - no 22mm option found. Left unverified/unchanged (no better source found) - may be a discontinued spec; flagged for the coordinator.'
   },
   {
     id: 'bmx-cr-flybikes-pz1', cat: 'cranks', brand: 'Fly Bikes', model: 'PZ1 Cranks',
@@ -435,7 +437,9 @@ var BMX_PARTS = [
   // ===== BOTTOM BRACKETS ===============================================
   {
     id: 'bmx-bb-profile-euro-22', cat: 'bb', brand: 'Profile Racing', model: 'Euro Outboard BB',
-    shell: 'euro', spindleFit: '22mm', price: 39.99
+    shell: 'euro', spindleFit: '22mm', weight: 148, price: 71.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/euro-externaloutboard-bottom-bracket/',
+    note: 'CORRECTED 2026-07-17: maker page confirms Euro External (Outboard) BB is ONE SKU sold in both 19mm and 22mm axle fit at a single price, $71.99 (was $39.99) and 148g/5.18oz (weight was missing).'
   },
   {
     id: 'bmx-bb-salt-mid-19', cat: 'bb', brand: 'Salt', model: 'Mid Sealed BB',
@@ -452,7 +456,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-bb-profile-euro-19', cat: 'bb', brand: 'Profile Racing', model: 'Euro Outboard BB 19mm',
-    shell: 'euro', spindleFit: '19mm', price: 39.99
+    shell: 'euro', spindleFit: '19mm', weight: 148, price: 71.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/euro-externaloutboard-bottom-bracket/',
+    note: 'CORRECTED 2026-07-17: maker page confirms Euro External (Outboard) BB is ONE SKU sold in both 19mm and 22mm axle fit at a single price, $71.99 (was $39.99) and 148g/5.18oz (weight was missing).'
   },
   {
     id: 'bmx-bb-gt-mid-22', cat: 'bb', brand: 'GT', model: 'Mid BB',
@@ -480,7 +486,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-sp-profile-race-25', cat: 'sprocket', brand: 'Profile Racing', model: 'Race Sprocket 25T',
-    teeth: 25, mount: 'spline', pitch: '1/8', price: 59.99
+    teeth: 25, mount: 'spline', pitch: '1/8', price: 59.99,
+    note: 'UNCONFIRMED 2026-07-17: fetched profileracing.com/product-category/profile-bmx/profile-sprockets/ - no product named "Race Sprocket" is currently listed (current spline-drive lines are Sabre, Imperial, Signet Guard, Galaxy). 25T falls in the Imperial 23T-30T ($57.99) and Sabre 25T-33T ($64.99-75.99) ranges but no exact SKU/price match found; left unverified, unchanged (no fabricated correction), flagged for the coordinator.'
   },
   {
     id: 'bmx-sp-sandm-unit-28', cat: 'sprocket', brand: 'S&M', model: 'Unit Sprocket 28T',
@@ -488,11 +495,13 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-sp-profile-race-28', cat: 'sprocket', brand: 'Profile Racing', model: 'Race Sprocket 28T',
-    teeth: 28, mount: 'spline', pitch: '1/8', price: 59.99
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 59.99,
+    note: 'UNCONFIRMED 2026-07-17: same finding as bmx-sp-profile-race-25 - no "Race Sprocket" product currently listed on profileracing.com. Left unverified, unchanged, flagged for the coordinator.'
   },
   {
     id: 'bmx-sp-profile-race-33', cat: 'sprocket', brand: 'Profile Racing', model: 'Race Sprocket 33T',
-    teeth: 33, mount: 'spline', pitch: '1/8', price: 59.99
+    teeth: 33, mount: 'spline', pitch: '1/8', price: 59.99,
+    note: 'UNCONFIRMED 2026-07-17: same finding as bmx-sp-profile-race-25 - no "Race Sprocket" product currently listed on profileracing.com; 33T is the top of the Sabre Universal Spline Drive (25T-33T, $64.99-75.99) range but no exact SKU/price match confirmed. Left unverified, unchanged, flagged for the coordinator.'
   },
   {
     id: 'bmx-sp-colony-terminator-25', cat: 'sprocket', brand: 'Colony', model: 'Terminator Sprocket 25T',
@@ -542,13 +551,16 @@ var BMX_PARTS = [
     driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 89.99
   },
   {
-    id: 'bmx-rh-profile-elite-freecoaster', cat: 'rearWheel', brand: 'Profile Racing', model: 'Elite Freecoaster Hub',
-    driverType: 'freecoaster', driverTeeth: 10, side: 'both', axle: '14mm', price: 259.99
+    id: 'bmx-rh-profile-elite-freecoaster', cat: 'rearWheel', brand: 'Profile Racing', model: 'Z Coaster Hub',
+    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 583, price: 394.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/zcoaster%c2%81-hub/',
+    note: 'CORRECTED 2026-07-17: this is Profile\'s Z Coaster (R) freecoaster hub, not a separate "Elite Freecoaster" model. Standard driver is 9T (was 10T - no 10T option exists; 12T Ti RHD-only is the other choice), base price $394.99 (was $259.99), weight 583g for the base 14mm GDH CrMo axle / 9T CrMo driver config (was 259.99/no weight).'
   },
   {
     id: 'bmx-rh-profile-elite-cassette', cat: 'rearWheel', brand: 'Profile Racing', model: 'Elite Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 610, price: 229.99,
-    note: 'Profile\'s flagship US-made cassette hub, the long-running Elite line.'
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 509, price: 394.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.profileracing.com/product/elite-cassette-hub/',
+    note: 'CORRECTED 2026-07-17: Profile\'s flagship US-made cassette hub, the long-running Elite line. 9T CrMo driver / 14mm GDH CrMo axle confirmed; base price $394.99 (was $229.99), weight 509g for that config (was 610g - unsourced).'
   },
   {
     id: 'bmx-rh-bsd-mind', cat: 'rearWheel', brand: 'BSD', model: 'Mind Cassette Hub',
@@ -579,11 +591,12 @@ var BMX_PARTS = [
   {
     id: 'bmx-rc-profile-freecoaster-10', cat: 'rearCog', brand: 'Profile Racing', model: 'Freecoaster Cog 10T',
     teeth: 10, fitsDriver: 'freecoaster', pitch: '1/8', price: 24.99,
-    note: 'Freecoaster cogs are body-specific; not interchangeable with a cassette driver.'
+    note: 'Freecoaster cogs are body-specific; not interchangeable with a cassette driver. UNCONFIRMED 2026-07-17: fetched profileracing.com\'s Z Coaster (R) hub product page (the current Profile freecoaster) - its driver options are 9T CrMo/Ti or 12T Ti (RHD only); NO 10T option is listed, and no standalone/separately-purchasable driver-cog SKU or price was found anywhere on the site (cogs are ordered as a build option on the hub itself). Left teeth:10 unchanged to match the id\'s variant token (renaming/retiring the id is out of this task\'s scope) rather than silently making the id and the data disagree; flagged for the coordinator to decide whether this row should be corrected to 9T under a new id or retired.'
   },
   {
     id: 'bmx-rc-profile-cassette-9', cat: 'rearCog', brand: 'Profile Racing', model: 'Cassette Cog 9T',
-    teeth: 9, fitsDriver: 'cassette', pitch: '1/8', price: 16.99
+    teeth: 9, fitsDriver: 'cassette', pitch: '1/8', price: 16.99,
+    note: 'UNCONFIRMED 2026-07-17: 9T matches the Elite Cassette Hub\'s standard CrMo driver, but no standalone/separately-purchasable driver-cog SKU or price was found on profileracing.com (cogs are ordered as a build option on the hub itself, not sold alone). Left unverified, unchanged, flagged for the coordinator.'
   },
   {
     id: 'bmx-rc-colony-cassette-9', cat: 'rearCog', brand: 'Colony', model: 'Cassette Cog 9T',
@@ -602,7 +615,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-fw-profile-elite', cat: 'frontWheel', brand: 'Profile Racing', model: 'Elite Front Wheel',
-    wheelSize: '20', axle: '10mm', weight: 520, price: 149.99
+    wheelSize: '20', axle: '10mm', weight: 520, price: 149.99,
+    note: 'UNCONFIRMED 2026-07-17: fetched profileracing.com\'s hubs + wheels/wheelsets categories. Profile sells standalone front HUBS (AC-2 BMX Front Hub $169.99-303.99, Beast Mode Elite Front Disc Hub $223.99) and custom-built complete WHEELS (e.g. "Elite Cassette Hub 20in Wheel" $561.99+), but no product matching a plain "Elite Front Wheel" at $149.99/520g was found - the row\'s price is below even the cheapest standalone front hub alone (before lacing/rim). Left unverified, unchanged (no confident correction), flagged for the coordinator.'
   },
   {
     id: 'bmx-fw-bsd-mind', cat: 'frontWheel', brand: 'BSD', model: 'Mind Front Wheel',
@@ -661,7 +675,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-ti-profile-elite-13', cat: 'tire', brand: 'Profile Racing', model: 'Elite Race Tire 1-3/8"',
-    wheelSize: '20', width: 1.375, casing: 'race-slick', maxPsi: 120, price: 21.99
+    wheelSize: '20', width: 1.375, casing: 'race-slick', maxPsi: 120, price: 21.99,
+    note: 'UNCONFIRMED 2026-07-17: fetched profileracing.com\'s category list and site search - Profile Racing does not manufacture or sell tires (a bike-check tech article even names Maxxis/Demolition as the tire brands riders pair with Profile parts). Likely a brand-misattribution predating this session. Left unverified, unchanged (out of scope to delete/reattribute); flagged prominently for the coordinator.'
   },
 
   // ===== PEGS ===========================================================
@@ -771,7 +786,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-st-profile-race', cat: 'stem', brand: 'Profile Racing', model: 'Race Stem',
-    clamp: '25.4mm', price: 49.99
+    clamp: '25.4mm', price: 49.99,
+    note: 'UNCONFIRMED 2026-07-17: fetched profileracing.com/product-category/profile-bmx/profile-stems/ - current lineup is Mark Mulville Push Stem, Acoustic Stem, Nova Stem (31.8mm bar), and "Gen 1" Clamp On Stem; no product named "Race Stem" is listed, and none of the current stems match this price ($49.99) or a plain 25.4mm clamp spec. Left unverified, unchanged (no confident correction), flagged for the coordinator.'
   },
   {
     id: 'bmx-st-gt-performer', cat: 'stem', brand: 'GT', model: 'Performer Stem',
@@ -836,7 +852,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-sp-profile-pivotal-post', cat: 'seatpost', brand: 'Profile Racing', model: 'Pivotal Seatpost',
-    diameter: 25.4, system: 'pivotal', price: 21.99
+    diameter: 25.4, system: 'pivotal', price: 21.99,
+    note: 'UNCONFIRMED 2026-07-17: fetched profileracing.com\'s category list and site search - Profile Racing does not manufacture or sell seatposts (only rider-build mentions of other brands\' posts, e.g. "Stay Strong pivotal seatpost", turned up). Likely a brand-misattribution predating this session. Left unverified, unchanged (out of scope to delete/reattribute); flagged prominently for the coordinator.'
   },
 
   // ===== GRIPS ==========================================================
@@ -1216,7 +1233,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-pd-profile-elite', cat: 'pedals', brand: 'Profile Racing', model: 'Elite Pedals',
-    platform: 'alloy', spindle: '9/16', weight: 380, price: 74.99
+    platform: 'alloy', spindle: '9/16', weight: 380, price: 74.99,
+    note: 'UNCONFIRMED 2026-07-17: fetched profileracing.com\'s category list and site search - Profile Racing does not manufacture or sell pedals (only rider-build mentions of other brands\' pedals, e.g. "Yoshimura pedals", turned up). Likely a brand-misattribution predating this session. Left unverified, unchanged (out of scope to delete/reattribute); flagged prominently for the coordinator.'
   },
   {
     id: 'bmx-pd-colony-fantom', cat: 'pedals', brand: 'Colony', model: 'Fantom Pedals',
