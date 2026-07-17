@@ -1,5 +1,7 @@
 # Drivetrain — Mechanic Corpus
 
+**Maturity: foundation**
+
 Shifter · derailleur · cassette · chain · crank · chainring · freehub/driver bodies ·
 single-speed cog. Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline,
 the append-only / ⚠ CONTRADICTION conventions).
@@ -153,6 +155,155 @@ sold builds. The `chainline` field is display-only bait; the non-rule is pinned 
 cranks, do you observe chainrub in the lowest cogs / accelerated wear, or nothing? Source:
 EXPERT-REVIEW-DOSSIER.md "Deliberate NON-rules" #1 + DOSSIER-OPEN-QUESTIONS-RESEARCH.md N1.
 
+## Derailleur adjustment basics (setup, not compatibility)
+
+**DRV-16 — Derailleur H/L limit screws are safety stops, not compatibility.** The high
+(H) and low (L) limit screws stop the derailleur's inward/outward travel so the chain
+cannot be shifted off the smallest cog into the frame (H) or off the largest cog into
+the spokes (L) — a crash-prevention adjustment, not a fit/compatibility check, and set
+independent of cassette range. *Confidence: confirmed.* Source: Park Tool "Rear
+Derailleur Adjustment" (parktool.com/en-us/blog/repair-help/rear-derailleur-adjustment,
+fetched) — *"The main purpose for the limit screw is to prevent the chain from going
+into the spokes or into the frame"*; corroborated by Shimano
+si.shimano.com/en/dm/RARD010/adjust_rear_derailleur (fetched).
+
+**DRV-17 — B-tension screw sets guide-pulley-to-cog gap; extends DRV-8.** The B-screw
+(body-angle screw) adjusts the gap between the derailleur's upper guide pulley and the
+cassette, checked in the smallest-chainring/largest-cog combination; Park Tool states
+most road/MTB derailleurs want a **5–6 mm gap** here, measured with a hex wrench. Too
+tight = noisy/slow shifting into the largest cog; too loose = sloppy shifting. Same
+"setup, not compatibility" territory as DRV-8's b-gap reset. *Confidence: confirmed.*
+Source: Park Tool "Rear Derailleur Adjustment" (fetched) — *"road and mountain bike
+derailleurs require a gap between 5 and 6 millimeters."*
+
+**DRV-18 — Community claim: published derailleur capacity/max-cog specs run
+conservative (informs DRV-7's open question, community tier only).** A recurring
+practitioner claim (Harris Cyclery/Sheldon Brown's derailleur page, plus a detailed
+bicycles.stackexchange answer) is that manufacturer-rated capacity and max-cog figures
+are deliberately conservative for liability reasons, and that maxing out the B-tension
+screw lets some derailleurs run noticeably larger cassettes than spec (one example
+claims a short-cage mech rated to 27T running a 36T cog). **This can only ever soften
+or inform the corpus's open question on DRV-7's minimum-cog floor and cannot justify
+loosening an engine error on its own** (INDEX.md rule 2 / the bar). *Confidence:
+community-consensus, explicitly labelled — no manufacturer document confirms exceeding
+its own published max-cog rating.* Source: sheldonbrown.com/harris/derailers-rear.html
+(fetched) — *"the rated chain-wrap capacity is very conservative"*;
+bicycles.stackexchange.com/questions/7264 (fetched, community answer).
+
+**DRV-19 — Total derailleur capacity formula (industry-standard math, extends
+DRV-6/7).** Capacity in teeth = (largest chainring − smallest chainring) + (largest
+cassette cog − smallest cassette cog); a derailleur's rated capacity must be ≥ this sum
+for the gearing to run without excess/insufficient chain slack. This is the general
+form behind the engine's one-sided `cassette.maxCog` vs `derailleur.maxCog` check
+(DRV-6) and SRAM's separate minimum-cog floor (DRV-7) — the engine models only the
+*cog* side, not the *combined chainring+cog* capacity sum (today's catalog is
+single-chainring/1x, so chainring difference is 0 and the cases collapse to the
+already-checked cog-only comparison). *Confidence: confirmed (identical formula
+independently published by two sources).* Source: Wolf Tooth Components "Derailleur
+Link Tech Page" (wolftoothcomponents.com/pages/roadlink-tech-page, fetched);
+sheldonbrown.com/derailleur.html (fetched, matching worked example).
+
+## Wear & maintenance basics
+
+**DRV-20 — Chain-wear replacement threshold tightens as speed count rises.** Park
+Tool's general guidance (its CC-4.2 chain checker, rated for 5-to-13-speed chains, is
+explicitly listed as compatible with SRAM T-Type/Flattop and Shimano XTR 12-speed
+chains): replace a single-speed chain at ~1.0% elongation, a 5-to-10-speed chain at
+~0.75%, and an 11-speed-or-more chain (which covers every chain the live catalog's
+`shimano-12`/`sram-eagle`/`sram-transmission` systems use) at ~0.5% — tighter tolerance
+because narrower modern chains have less material to spare before they start damaging
+cogs. Riding a chain past this point accelerates cassette and chainring wear (ties to
+the wear-coupling note already in INTERACTIONS). *Confidence: confirmed (tool-maker
+guidance, explicitly caveats "every drivetrain manufacturer has their own
+specifications").* Source: Park Tool "When to Replace a Worn Chain"
+(parktool.com/en-us/blog/repair-help/when-to-replace-a-chain-on-a-bicycle, fetched) +
+CC-4.2 product page (fetched).
+
+## Cassette, freehub & crank service basics
+
+**DRV-21 — Cassette install: splines fit one way only; lockring torques to ~40 Nm;
+chain whip is removal-only.** A freehub body's splines carry one abnormally wide gap
+that only the cassette's correspondingly wide spline seats into, so a cassette stack
+physically cannot be installed in the wrong rotational orientation. The lockring that
+retains the stack is torqued to roughly **40 Nm** (Park Tool: *"about a 50 pound...
+pull holding the wrench 8 inches from the lockring tool"*). A chain whip is required to
+hold the cogs stationary while the lockring is *removed* (its rotation direction is
+opposite the pawls' drive direction) but is **not needed on install** — the freehub's
+own ratcheting pawls resist the tightening direction. *Confidence: confirmed.* Source:
+Park Tool "Cassette Removal and Installation"
+(parktool.com/en-us/blog/repair-help/cassette-removal-and-installation, fetched).
+
+**DRV-22 — Threaded freewheels (cogs + ratchet as one threaded unit) are a distinct,
+still-current system, not just a legacy one.** Besides the cassette/freehub system this
+corpus otherwise assumes (DRV-9/DRV-10), some bikes — Park Tool specifically calls out
+"older bikes, lower-end bikes, and many e-bikes" — use a threaded **freewheel**: the
+sprockets and ratcheting mechanism thread on as one piece directly onto plain hub
+threads, and unlike a cassette, worn cogs are not individually serviceable (replace the
+whole freewheel). Field test: remove the wheel and spin the cogs backward — if the
+tool-fitting/splines spin with the cogs it's a freewheel; if the fitting stays still
+while the cogs spin, it's a cassette. *Confidence: confirmed.* Source: Park Tool
+"Determining Cassette / Freewheel Type"
+(parktool.com/en-us/blog/repair-help/determining-cassette-freewheel-type, fetched);
+sheldonbrown.com/free-k7.html (fetched, same identification test).
+
+**DRV-23 — Older 3-piece crank spindle interfaces (square taper, Octalink, ISIS Drive)
+are three separate, non-interchangeable standards.** Predating today's catalog's
+DUB/24mm/30mm/p3 crank-`bb` vocab, three historical splined/tapered spindle families
+exist: plain **square taper**, Shimano's 8-spline **Octalink**, and the
+industry-consortium 10-spline **ISIS Drive**. Park Tool states directly that Octalink
+and ISIS Drive "do not interchange for either cranks or spindles," and a square-taper
+crank cannot mount on either splined spindle type. Not modelled in the live catalog
+vocab (all current cranksets use the newer external-BB families) — background knowledge
+for older/entry-level bike questions the mechanic agent may still be asked. *Confidence:
+confirmed.* Source: Park Tool "Three-Piece Crank Removal and Installation"
+(parktool.com/en-us/blog/repair-help/crank-removal-and-installation-three-piece,
+fetched).
+
+**DRV-24 — Self-extracting ("one-key release") crank pullers hide spline alignment — an
+install-order caution.** Many two- and three-piece cranks use a self-extracting system
+where the puller is built into a threaded retaining ring under the crank-bolt cap;
+convenient for removal, but the crank-to-spindle spline mesh can't be visually checked
+during installation the way an open-spline crank can be, so a misaligned press-on can
+damage the crank. Park Tool's own guidance for a doubtful fit: remove the retaining cap,
+seat the crank by hand/eye first, then reinstall the cap. *Confidence: confirmed.*
+Source: Park Tool "Crank Removal and Installation: Self-Extracting"
+(parktool.com/en-us/blog/repair-help/crank-removal-and-installation-self-extracting,
+fetched).
+
+**DRV-25 — Chainring bolts torque far lower than the crank bolt; narrow-wide tooth
+profile is why 1x needs no chain device.** Chainring bolts (Shimano steel spec ≈70–95
+in-lb / ~8–11 Nm) are torqued roughly an order of magnitude below the crank-arm-to-
+spindle bolt (≈300–450+ in-lb / 34–50 Nm) — over-torquing a chainring bolt to
+"crank-bolt" levels can strip or crack it. Separately, the alternating-width
+("narrow-wide"/"thick-thin") tooth profile used on modern 1x chainrings is specifically
+shaped to grip alternating chain rollers/inner-link gaps tightly enough that a
+chain-retention device became unnecessary for most riders — the same mechanical
+principle behind DRV-4's T-Type tooth-shape note. *Confidence: confirmed (torque table
+is a tool-maker spec sheet; narrow-wide mechanism is well-established industry design,
+corroborated by the Wolf Tooth tooth-profile source already cited at DRV-4).* Source:
+Park Tool "Torque Specifications and Concepts"
+(parktool.com/en-us/blog/repair-help/torque-specifications-and-concepts, fetched); MBR
+"How to fit your narrow wide chainring" (mbr.co.uk, fetched — enthusiast-press tier,
+cited only for the "no chain device required" framing).
+
+## Chain width — historical cross-speed tolerance
+
+**DRV-26 [refines the DRV-12/13 pattern to geared drivetrains] — Historically,
+chain-width substitution across speed counts is direction-asymmetric, the same shape as
+the single-speed finding.** Sheldon Brown's reference states a chain **one step
+narrower** than a system's nominal speed count "rarely presents any problem" (e.g. a
+9-speed chain on an 8-speed cassette) — shifting may be slightly less crisp, but it
+runs — while a chain **wider** than nominal "will not fit between adjacent sprockets"
+and can jam. This documentation covers systems up through roughly 9/10-speed; it does
+**not** address 11- or 12-speed chains (narrower still, per the DRV-25/DRV-4
+tooth-geometry context), so applicability to the live catalog's
+`shimano-12`/`sram-eagle`/`sram-transmission` rows is **not established** — flagged as
+an open question, not applied. *Confidence: confirmed for the documented speed range
+(5-to-10-speed); explicitly not established for 11/12-speed — do not extrapolate.*
+Source: sheldonbrown.com/speeds.html (fetched) — *"A chain one size narrower than
+standard rarely presents any problem"*; sheldonbrown.com/gloss_ch.html (fetched, width
+figures table).
+
 ---
 
 ## INTERACTIONS (the organizing principle)
@@ -172,6 +323,10 @@ EXPERT-REVIEW-DOSSIER.md "Deliberate NON-rules" #1 + DOSSIER-OPEN-QUESTIONS-RESE
   ceiling; the floor (DRV-7) exists in SRAM's spec but is unmodelled.
 - **The rear wheel's freehub gates which cassettes mount at all** (DRV-9) — this is a
   *wheel*↔*cassette* constraint that sits upstream of the drivetrain-family checks.
+- **Derailleur capacity is chainring-difference + cog-difference, not cog-max alone**
+  (DRV-19) — the engine checks only the cassette/derailleur cog-max side (DRV-6); a
+  future multi-chainring catalog row would need the combined formula, not just today's
+  1x-collapsed case.
 
 ### Mismatch failure modes (how it actually fails)
 - **Hard "won't fit / won't index":** wrong system or wrong actuation (DRV-1/2); Flattop chain
@@ -179,7 +334,9 @@ EXPERT-REVIEW-DOSSIER.md "Deliberate NON-rules" #1 + DOSSIER-OPEN-QUESTIONS-RESE
   (DRV-9, except the XD-on-XDR spacer case DRV-10).
 - **"Runs but poorly" (warning-shaped):** single-speed chain-width mismatch — side-play,
   noise, faster wear, occasional drops in the bad direction (DRV-12/13); XD-on-XDR without the
-  spacer sits skewed.
+  spacer sits skewed; a geared chain ridden past its speed-specific wear threshold
+  (DRV-20) still shifts but silently accelerates cassette/ring wear — same "runs but
+  degrades" shape.
 - **Silent-and-fine (must NOT be flagged):** T-Type ring + Eagle chain (DRV-4 reverse);
   big-cage mech + small cassette (DRV-6 reverse); Boost crank in a SuperBoost frame (DRV-15).
 
@@ -192,6 +349,12 @@ EXPERT-REVIEW-DOSSIER.md "Deliberate NON-rules" #1 + DOSSIER-OPEN-QUESTIONS-RESE
 - **Single-speed chain tension is set at install** via dropout type (see
   [`frame-standards-bearings.md`](frame-standards-bearings.md) — a vertical dropout needs a
   tensioner or half-link; horizontal/sliding/ecc-BB set tension by moving the wheel/BB).
+- **Cassette install has exactly one orientation, no chain whip needed** (DRV-21): the
+  wide spline gap makes wrong-orientation install physically impossible; the chain whip
+  is a removal-only tool since installation direction is the pawls' own drive direction.
+- **Self-extracting crank pullers hide the spline fit** (DRV-24): unlike open-spline
+  cranks, misalignment isn't visible during the press-on, so a doubtful fit should be
+  checked cap-off first.
 
 ### Wear couplings
 - **Chain–cassette–ring wear as a set:** a worn chain accelerates cassette and ring wear; the
@@ -199,8 +362,47 @@ EXPERT-REVIEW-DOSSIER.md "Deliberate NON-rules" #1 + DOSSIER-OPEN-QUESTIONS-RESE
   DRV-12) that "runs" still costs — it wears the whole set faster.
 - **Width mismatch → retention:** the direction-dependence in DRV-13 is fundamentally a
   tooth-engagement/retention issue that shows up as wear and drops, not an instant failure.
+- **Chain-wear threshold tightens with speed count** (DRV-20): 0.5% for 11+-speed chains
+  vs 0.75% for 10-and-under vs 1.0% single-speed — narrower modern chains have
+  proportionally less material margin before they start chewing the cassette/rings.
+- **DRV-26 extends the DRV-12/13 direction-asymmetric pattern to geared drivetrains:** a
+  narrower-than-nominal chain tends to just run less crisply; a wider-than-nominal chain
+  tends to jam outright — the same shape as the single-speed chain-width finding, though
+  only confirmed historically through ~10-speed.
 
 ---
+
+## Gaps
+
+- No SRAM/Shimano derailleur **service-manual internals** (spring tension specs, pulley
+  bushing service, clutch-mechanism rebuild/torque tables) — **L2 gap**.
+- No **torque-spec table sourced against current SRAM AXS/Transmission or Shimano
+  12-speed dealer manuals** — DRV-25's torque figures are legacy/generic
+  (Shimano/Campagnolo/Truvativ-era Park Tool data), not confirmed for T-Type/Transmission
+  -specific fasteners — **L2 gap**.
+- No **chain-wear tolerance table cross-checked against SRAM/Shimano's own published
+  %** — DRV-20 is tool-maker (Park Tool) guidance, explicitly caveated as "every
+  manufacturer has their own specifications" — **L2 gap**.
+- No **AXS pairing/firmware/electronic-service** facts (battery service, pairing
+  procedure, firmware-update compatibility across derailleur generations) — **L2 gap**.
+- No **freehub/driver-body internal service** (pawl/spring rebuild, DT Swiss
+  Ratchet/Ratchet EXP internals, drag/service intervals) beyond the swap-kit-exists fact
+  (DRV-9) — **L2 gap**.
+- DRV-26's chain-width cross-tolerance is sourced only through ~10-speed; **no sourced
+  data for 11/12-speed narrow-chain substitution tolerance** — explicitly flagged not
+  established, a candidate for a dedicated fetch in a future round.
+- No **wear-coupling curve data** (how many chain-wear cycles a cassette/ring actually
+  survives, quantified) — this is drivetrain wear science and belongs at **L3** per
+  CURRICULUM.md, not this round's target.
+- No **lubrication chemistry** (wet/dry lube selection, wax-based chain treatment
+  tradeoffs) — **L3 gap**.
+- DRV-18's capacity-conservative claim is community-tier only; **no manufacturer
+  document confirms a specific over-capacity/over-max-cog safety margin** — stays an
+  open question, not a modelling candidate, until sourced at confirmed tier.
+- No **BB30/PF30/press-fit crank-spindle press-tolerance depth**, no **spoke/wheel-build
+  wear-adjacent drivetrain science** — **L3 gap** (out of this chapter's core scope but
+  noted since crank/BB touches both `drivetrain.md` and
+  `frame-standards-bearings.md`).
 
 ## Open mechanic questions (for the human review — do not act)
 - DRV-8: does a missed b-gap reset on a cassette swap earn a warning, or is it routine install?
@@ -209,3 +411,10 @@ EXPERT-REVIEW-DOSSIER.md "Deliberate NON-rules" #1 + DOSSIER-OPEN-QUESTIONS-RESE
 - DRV-13: should the single-speed chain-width warning become direction-aware (wide-on-narrow
   tolerated, narrow-on-wide flagged), matching rules 9 / 6c?
 - DRV-15: real-world behaviour of Boost-chainline cranks in SuperBoost frames.
+- DRV-18: is there ANY manufacturer document (not just community/forum consensus) that
+  states an explicit safety margin above published max-cog/capacity ratings? Without one
+  this stays community tier only and cannot inform the DRV-7 minimum-cog question beyond
+  "informative."
+- DRV-26: does the historical narrower-chain-tolerated / wider-chain-jams pattern hold
+  at 11/12-speed, or has narrow-chain tolerance collapsed at today's tooth spacing? No
+  source found either way — needs a dedicated fetch, not an inference.
