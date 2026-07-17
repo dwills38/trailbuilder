@@ -58,7 +58,8 @@ var BMX_PARTS = [
     id: 'bmx-fr-cult-gateway', cat: 'frame', brand: 'Cult', model: 'Gateway',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 429.99
+    price: 429.99,
+    note: 'UNVERIFIED, checked 2026-07-17: cultcrew.com currently sells "Gateway" ONLY as a complete bike (cultcrew.com/products/025-gateway-black, $469.99, 20.5in TT) — no frame-only Gateway SKU exists in the current lineup, so frameOnly:true here cannot be confirmed against a dedicated frame product page. The complete-bike copy does corroborate topTube (20.5in TT), headTube (integrated headset), bbShell ("sealed mid bottom bracket") and rearBrakeMount ("990 U-brake") qualitatively, but rearAxle and price are NOT stated there and are left as pre-existing sample values. Left unverified rather than mark verified off a complete-bike page for a frame-only row.'
   },
   {
     id: 'bmx-fr-sunday-forecaster', cat: 'frame', brand: 'Sunday', model: 'Forecaster',
@@ -256,7 +257,8 @@ var BMX_PARTS = [
   // ===== HEADSETS ======================================================
   {
     id: 'bmx-hs-cult-integrated', cat: 'headset', brand: 'Cult', model: 'Integrated Headset',
-    fit: 'integrated-1-1/8', price: 24.99
+    fit: 'integrated-1-1/8', price: 27.99,
+    note: 'Price corrected 24.99 -> 27.99 to match Cult\'s current "Headset" product (cultcrew.com/products/og-headset, checked 2026-07-17: "OG HEADSET / 2 different sized stackable caps and three spacers"). Left UNVERIFIED: that page states no fit/standard text at all (no "integrated" or "1-1/8" wording), so fit:\'integrated-1-1/8\' — while consistent with Cult\'s frames all using integrated 1-1/8in headtubes — is not literally confirmed by this source. Page weight (907g) not recorded: identical placeholder figure also appears on the unrelated Bottom Bracket product page, a shipping-weight bucket, not this part\'s real mass.'
   },
   {
     id: 'bmx-hs-odyssey-integrated', cat: 'headset', brand: 'Odyssey', model: 'Integrated Headset',
@@ -418,7 +420,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-rh-cult-matchv2', cat: 'rearWheel', brand: 'Cult', model: 'Match V2 Cassette Hub',
     driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 580, price: 129.99,
-    note: 'Sold as hub or built into the Cult Crew SDS wheel; RHD/LHD, male or female axle options.'
+    note: 'Sold as hub or built into the Cult Crew SDS wheel; RHD/LHD, male or female axle options. UNVERIFIED, checked 2026-07-17: cultcrew.com no longer sells a product literally named "Match V2 Cassette Hub" — the current SDS 9T cassette hub is sold as "Crew Cassette Hub" ($169.99, cultcrew.com/products/crew-cassette-hub, "SDS 9t cassette hub... Flip Flop design... RHD to LHD"), and rims are still branded "Match" (Match Rim v2). Specs (9T driver, flip-flop RHD/LHD) line up with this row, but the naming change makes a confident 1:1 SKU-identity match too uncertain to mark verified without an explicit manufacturer statement that Crew = Match V2 renamed. Left all fields unchanged (existing weight/price already track a plausible unverified sample). Also NOT trusting the current page\'s weight field (3629g): identical placeholder value also shown for the unrelated Crew Front Wheel v2 product — a shipping-weight bucket.'
   },
   {
     id: 'bmx-rh-fitbikeco-oem-9t', cat: 'rearWheel', brand: 'Fit Bike Co', model: 'OEM Sealed Cassette Hub',
@@ -453,7 +455,8 @@ var BMX_PARTS = [
   // ===== REAR COG =======================================================
   {
     id: 'bmx-rc-cult-cassette-9', cat: 'rearCog', brand: 'Cult', model: 'Cassette Cog 9T',
-    teeth: 9, fitsDriver: 'cassette', pitch: '1/8', price: 12.99
+    teeth: 9, fitsDriver: 'cassette', pitch: '1/8', price: 12.99,
+    note: 'UNVERIFIED, checked 2026-07-17: cultcrew.com sells no standalone 9T cassette cog/sprocket product today — the 9T cog ships built into the driver ("Crew Cassette Hub Driver", $56.99, cultcrew.com/collections/wheels-hubs) rather than as its own purchasable cog SKU. Could not find a manufacturer page to confirm teeth/fitsDriver/pitch as a separate part; left unchanged as pre-existing sample data.'
   },
   {
     id: 'bmx-rc-profile-freecoaster-10', cat: 'rearCog', brand: 'Profile Racing', model: 'Freecoaster Cog 10T',
@@ -549,7 +552,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-pg-cult-alloy', cat: 'pegs', brand: 'Cult', model: 'Alloy Pegs',
-    axleFit: '14mm', material: 'alloy', reducerIncluded: false, price: 29.99
+    axleFit: '14mm', material: 'alloy', reducerIncluded: false, price: 29.99,
+    note: 'UNVERIFIED, checked 2026-07-17: cultcrew.com sells no peg literally named "Alloy Pegs" — current lineup is "Doomsday Peg" ($13.99, heat-treated chromoly) and "Butter Peg" ($16.99, 4130 core + Perlon-Nylon 6 sleeve), neither of which is a metal "alloy" peg. axleFit:\'14mm\' IS confirmed as accurate: BOTH current Cult pegs state "14mm pegs with 3/8 adapters" (cultcrew.com/products/doomsday-pegs, /products/butter-pegs), so the one checkBmxBuild-critical field (bmx-peg-axle rule) checks out even though model/material/price don\'t match a specific current SKU. Left unchanged pending a clearer SKU match.'
   },
   {
     id: 'bmx-pg-colony-wasted', cat: 'pegs', brand: 'Colony', model: 'Wasted Pegs',
@@ -629,7 +633,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-st-cult-hi-fi', cat: 'stem', brand: 'Cult', model: 'Hi-Fi Stem',
-    clamp: '25.4mm', price: 39.99
+    clamp: '25.4mm', price: 39.99,
+    note: 'UNVERIFIED, checked 2026-07-17: no "Hi-Fi Stem" found on cultcrew.com/collections/parts — current Cult stems are "Forged Salvation Stem" ($44.99), "Salvation Stem", and "Mind Control Stem". Could not confirm this SKU still exists; left unchanged as pre-existing sample data (clamp is not a checkBmxBuild-critical field per compat-bmx.js, so the risk of an unconfirmed row here is low).'
   },
   {
     id: 'bmx-st-profile-race', cat: 'stem', brand: 'Profile Racing', model: 'Race Stem',
@@ -647,7 +652,8 @@ var BMX_PARTS = [
   // ===== SEAT ===========================================================
   {
     id: 'bmx-se-cult-pivotal', cat: 'seat', brand: 'Cult', model: 'Pivotal Seat',
-    system: 'pivotal', price: 29.99
+    system: 'pivotal', price: 29.99,
+    note: 'UNVERIFIED, checked 2026-07-17: system:\'pivotal\' IS confirmed as accurate — every current Cult seat is pivotal-only (e.g. cultcrew.com/products/kevlar-padded-seat-black: "only available in pivotal"), the field checkBmxBuild reads (bmx-seat-system rule). But no plain $29.99 "Pivotal Seat" SKU exists today — the current lineup (Kevlar Padded, Corduroy Slim, Cult x Vans Old Skool, etc.) is all $44.99. Price/model left unchanged pending a clearer SKU match; not marking verified since the exact current product this row maps to is ambiguous.'
   },
   {
     id: 'bmx-se-odyssey-fedaykin', cat: 'seat', brand: 'Odyssey', model: 'Fedaykin Slim Pivotal Seat',
@@ -673,7 +679,9 @@ var BMX_PARTS = [
   // ===== SEATPOST =======================================================
   {
     id: 'bmx-sp-cult-pivotal-post', cat: 'seatpost', brand: 'Cult', model: 'Pivotal Seatpost',
-    diameter: 25.4, system: 'pivotal', price: 19.99
+    diameter: 25.4, system: 'pivotal', price: 29.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://cultcrew.com/products/seatpost',
+    note: 'diameter:25.4mm and system:\'pivotal\' CONFIRMED via Cult\'s current "Counter post / black & polished" (6061 alloy, diameter 25.4mm, pivotal, 7.5in & 12.5in X-Long lengths). Price corrected 19.99 -> 29.99 to match. Page weight (907g) not recorded: identical placeholder figure shared with the unrelated Headset/Bottom Bracket product pages — a shipping-weight bucket, not real mass.'
   },
   {
     id: 'bmx-sp-odyssey-standard-post', cat: 'seatpost', brand: 'Odyssey', model: 'Standard Seatpost',
@@ -699,7 +707,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-gr-cult-dak', cat: 'grips', brand: 'Cult', model: 'Dak Grips',
-    length: 143, flangeless: true, price: 10.99
+    length: 143, flangeless: true, price: 10.99,
+    note: 'UNVERIFIED, checked 2026-07-17: the Dak Grips (Dakota Roche x ODI collab) are a real, well-known product, but are no longer listed on cultcrew.com\'s own store (not in /collections/parts as of this check) — only third-party retailers (SkatePro, Empire BMX, Dan\'s Comp, etc.) still carry them, which does not meet the manufacturer-page bar. Retailer copy quotes length 150mm vs this row\'s 143mm, but since retailer sources are not verification-eligible, left unchanged rather than correct off a non-manufacturer figure.'
   },
   {
     id: 'bmx-gr-colony-griplock', cat: 'grips', brand: 'Colony', model: 'Grip Lock Grips',
@@ -805,39 +814,47 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
     price: 399.99,
-    note: 'Trey Jones signature frame; model + price confirmed via cultcrew.com 2026-07-17, geometry not published there so left unverified.'
+    note: 'Trey Jones signature frame; model + price re-confirmed via cultcrew.com/products/trey-jones-swampfest-frame.js 2026-07-17 (options 20-21.8in TT, all $399.99). Geometry/interfaces still not published there (75deg HT/71deg ST angles given, but no BB shell/brake-mount/axle spec), so left unverified. NOT adding the page\'s reported weight (4990g): cultcrew.com\'s Shopify weight field is a shipping-carton placeholder, not a real product weight (see bmx-fr-cult-race — its weight field is also exactly 4990g, identical to this unrelated frame, while its OWN body copy says "just over 4lbs" ~1814g; og-headset and bottom-bracket both report exactly 907g; crew-crank and the Vans tire both report exactly 1814g — all round-pound shipping buckets). Flagging this sitewide weight-field trap for future BMX verification batches.'
   },
   {
     id: 'bmx-fr-cult-race', cat: 'frame', brand: 'Cult', model: 'Race Frame',
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
     topTube: 21.0, rearBrakeMount: 'caliper', rearAxle: '14mm', frameOnly: true,
     price: 399.00,
-    note: 'Cult\'s disc-brake race frame; model + price confirmed via cultcrew.com 2026-07-17 ("Disk brake, black"); brakeMount mapped to the closest BMX_VOCAB token (caliper); other interfaces assumed, unverified.'
+    note: 'Cult\'s disc-brake race frame; model + price re-confirmed via cultcrew.com/products/vick-behm-race-frame-black.js 2026-07-17. bbShell:\'euro\' CONFIRMED ("68mm Euro BB" stated). rearBrakeMount mapping to \'caliper\' stands (disk brake). rearAxle is UNCONFIRMED and likely wrong: the page states "3/8\" dropouts", not 14mm — but BMX_VOCAB axle only enumerates [10mm,14mm], no 3/8" token, and this field is not currently read by any checkBmxBuild rule (dormant/display-only), so left as-is rather than fabricate a vocab-illegal value. FLAG for the coordinator: BMX_VOCAB.axle may need a 3/8" value before frame rearAxle can be entered/verified accurately for 3/8"-dropout race frames. Also NOT adding a weight: the page\'s Shopify weight field (4990g) is a shipping-placeholder shared byte-identically with the unrelated Swampfest frame above, while this page\'s own body copy says "just over 4lbs" (~1814g) — neither figure is trustworthy enough to record as verified.'
   },
   {
     id: 'bmx-cr-cult-3piece', cat: 'cranks', brand: 'Cult', model: '3-Piece Crank Set',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 249.99
+    spindle: '19mm', pieces: '3-piece', ringMount: 'spline', price: 139.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://cultcrew.com/products/crew-crank',
+    note: 'Corrected spindle 22mm -> 19mm and price 249.99 -> 139.99 (base 160mm/Black) to match Cult\'s current "Crew Cranks": "3-pc tubular design... 19mm hollow chromoly spindle with 48 splines". pieces:\'3-piece\' confirmed. ringMount left as \'spline\' (plausible for the splined sprocket boss design, not independently confirmed and not checkBmxBuild-critical). NOT recording the page\'s weight (1814g): identical placeholder figure also shown for an unrelated tire SKU on this store (see the Cult frame notes above) — a shipping-weight bucket, not the crank\'s real mass.'
   },
   {
     id: 'bmx-bb-cult-mid-22', cat: 'bb', brand: 'Cult', model: 'Mid BB',
-    shell: 'mid', spindleFit: '22mm', price: 24.99
+    shell: 'mid', spindleFit: '22mm', price: 27.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://cultcrew.com/products/bottom-bracket',
+    note: 'shell:\'mid\' and spindleFit:\'22mm\' CONFIRMED via Cult\'s current "Bottom Bracket" (cultcrew.com/products/bottom-bracket: "precision sealed MID bearings... 19mm and 22mm" spindle options — 22mm is a real purchasable variant). Price corrected 24.99 -> 27.99. Page weight (907g) not recorded: identical placeholder figure shared with the unrelated Headset product page — a shipping-weight bucket.'
   },
   {
     id: 'bmx-sp-cult-splinedrive-28', cat: 'sprocket', brand: 'Cult', model: 'Spline Drive Sprocket 28T',
-    teeth: 28, mount: 'spline', pitch: '1/8', price: 44.99
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 44.99,
+    note: 'UNVERIFIED, checked 2026-07-17: no "Spline Drive Sprocket" found on cultcrew.com — the current Cult sprocket is "Conviction Guard Sprocket" ($44.99, a bash-guard-style sprocket, different design). Could not confirm teeth/mount/pitch for this exact SKU on the current site; left unchanged as pre-existing sample data.'
   },
   {
     id: 'bmx-pg-cult-steel', cat: 'pegs', brand: 'Cult', model: 'Steel Pegs',
-    axleFit: '14mm', material: 'steel', reducerIncluded: false, price: 22.99
+    axleFit: '14mm', material: 'steel', reducerIncluded: false, price: 22.99,
+    note: 'UNVERIFIED, checked 2026-07-17: cultcrew.com sells no peg literally named "Steel Pegs" — current lineup is "Doomsday Peg" ($13.99, heat-treated chromoly) and "Butter Peg" ($16.99, 4130 core + nylon sleeve). axleFit:\'14mm\' IS confirmed as accurate: BOTH current Cult pegs state "14mm pegs with 3/8 adapters" (cultcrew.com/products/doomsday-pegs, /products/butter-pegs) — the one checkBmxBuild-critical field checks out — but model/material/price don\'t match a specific current SKU. Left unchanged pending a clearer SKU match.'
   },
   {
     id: 'bmx-ti-cult-vans-24', cat: 'tire', brand: 'Cult', model: 'Vans Tire 2.4"',
-    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 95, price: 29.99,
-    note: 'Cult x Vans collaboration tire.'
+    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 95, price: 30.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://cultcrew.com/products/vans-x-cult-tire-20-gum',
+    note: 'Cult x Vans collaboration tire. wheelSize:\'20\' and width:2.4 CONFIRMED via cultcrew.com\'s current "Vans x Cult Tire 20\\" / gum (single)" ("NEW AND IMPROVED 2.40 DESIGN", 20in). Price corrected 29.99 -> 30.99. casing:\'park\' and maxPsi:95 are not stated on the page and are left as pre-existing, unconfirmed values (not disproven, not engine-critical). Page weight (1814g) not recorded: identical placeholder figure shared with the unrelated Crew Cranks product page — a shipping-weight bucket.'
   },
   {
     id: 'bmx-fw-cult-vans', cat: 'frontWheel', brand: 'Cult', model: 'Vans Front Wheel',
-    wheelSize: '20', axle: '10mm', price: 74.99
+    wheelSize: '20', axle: '10mm', price: 74.99,
+    note: 'UNVERIFIED, checked 2026-07-17: cultcrew.com sells no "Vans"-branded front wheel — the Vans x Cult collab covers shoes/tires/grips only. The current front wheel product is "Crew Front Wheel v2" ($169.99-179.99, cultcrew.com/products/crew-front-wheel-v2-1: "Black or Polished CREW Front hub laced to a Black or Polished Match Rim"), which publishes no axle-diameter spec at all. This row\'s model name likely does not correspond to any real current Cult SKU; flagging for the coordinator/data-entry layer to reconsider (id is append-only so it cannot be renamed here). Left wheelSize/axle/price unchanged rather than guess.'
   },
 
   // ---- Fit Bike Co depth --------------------------------------------
