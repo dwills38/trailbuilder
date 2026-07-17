@@ -154,10 +154,69 @@ is limited.
 
 ---
 
+## Physics notes (Tier C — the mechanism/why)
+
+*Added 2026-07-17 (biomechanics round). These ground the coach-consensus cues above in
+vehicle-dynamics / biomechanics literature. They are the **why**, not new cues — no cue changes.*
+
+**BRK-8 — Weight transfer is quantitative: braking throws load forward by ΔN = m·a·(h/L).** Under
+deceleration `a`, the front tyre's normal (vertical) load rises and the rear's falls by
+`m · a · h / L`, where `m` = combined rider+bike mass, `h` = height of the system centre of gravity,
+`L` = wheelbase. Grip is proportional to normal load, so this is *why* the front tyre gains stopping
+capacity exactly when you brake hard (BRK-1) — and why a tall/forward stance feeds the effect.
+- *Tier:* C. Source: Klug et al. 2017, *Effectiveness of Actuating on Rectilinear Bicycle Braking
+  Dynamics*, IFAC-PapersOnLine (multibody model, rider as point mass at measured CoG;
+  [DOI 10.1016/j.ifacol.2017.08.173](https://doi.org/10.1016/j.ifacol.2017.08.173)); Calspan/Cornell
+  bicycle study (front-wheel brakes + short wheelbase singled out as pitch-over hazard; the CoG-to-
+  contact vs CoG-height ratio governs the margin).
+
+**BRK-9 — The over-the-bars limit is a computable critical deceleration, and it SELF-AMPLIFIES.**
+Rear-wheel lift begins when deceleration reaches `a_crit ≈ g · (b/h)` (`b` = horizontal distance
+from the CoG to the front contact patch, `h` = CoG height) — i.e. when forward load transfer
+unloads the rear tyre to zero. Instrumented-bicycle work shows `a_crit` *decreases* as the bike
+pitches nose-down, so once lift starts at constant brake force the pitch-over is **self-amplifying**;
+past a "point of no return" even fully releasing the brake can't stop the fall. This is the physics
+under BRK-1 (grab a handful → over the bars) and under BRK-2/3 (release the *instant* it starts,
+before self-amplification wins). Lowering and shifting the CoG rearward (bigger `b`, smaller `h`)
+raises `a_crit` — the kernel of truth in "weight back on steeps" (see `climbing-descending.md`
+CLD-4/CLD-10).
+- *Tier:* C. Source: Skatulla, Maier & Schmidt 2023, *Instrumented Bicycle … Front Brake induced
+  Rear Wheel Lift Up* ([DOI 10.24404/63fe5c46c9d7c3ebc76e944b](https://doi.org/10.24404/63fe5c46c9d7c3ebc76e944b));
+  Maier et al. 2016, *Conditions for nose-over and front wheel lockup of electric bicycles*
+  ([DOI 10.1109/MECATRONICS.2016.7547145](https://doi.org/10.1109/MECATRONICS.2016.7547145)).
+
+**BRK-10 — The grip budget IS the friction circle: √(F_brake² + F_turn²) ≤ μ·N.** A tyre's total
+horizontal force cannot exceed `μ × normal load`; braking force and cornering force are the two
+perpendicular components sharing that one limit, so their vector sum is capped. Spend it all on
+braking and none is left to turn — the exact mechanism under BRK-5 and BRK-4. Because the cap scales
+with normal load `N`, weighting the tyre (heavy feet, outside-foot load) literally raises the
+ceiling — grounding *why* loading buys grip.
+- *Tier:* C. Source: friction-ellipse tyre theory as applied in the fetched bicycle papers — Klug
+  et al. 2017 (experimental tyre slip curves;
+  [DOI 10.1016/j.ifacol.2017.08.173](https://doi.org/10.1016/j.ifacol.2017.08.173)) and Cain 2010
+  steady-turn tyre model (`cornering.md` COR-9/10).
+
+**BRK-11 — Braking is a calibrated perceptual skill, not just lever force (measured).** Field work
+confirms braking is a discrete, trainable performance variable: brake power can be metered on disc
+brakes and tracks kinetic-energy change (r ≈ 0.95–0.99), and riders regulate deceleration *relative
+to the maximum achievable* (affordance-based control) — experienced/active cyclists adopt a later-
+onset, higher-peak "aggressive" calibration, novices a conservative one. This grounds "braking is
+the highest-leverage skill." **Read it as descriptive, NOT as a cue to brake later** — the
+aggressive calibration is *earned*, per SAFETY-FIRST.
+- *Tier:* C. Sources (via PubMed): Miller et al. 2017, *Validity of a device … braking power in
+  bicycle disc brakes*, Sports Biomech.
+  ([DOI 10.1080/14763141.2017.1338744](https://doi.org/10.1080/14763141.2017.1338744)); Gotardi
+  et al. 2024, *Affordance-based control of braking in cycling*, Hum. Mov. Sci.
+  ([DOI 10.1016/j.humov.2024.103225](https://doi.org/10.1016/j.humov.2024.103225)).
+
+---
+
 ## Gaps
-- **No Tier-C braking-dynamics source yet** — the weight-transfer / contact-patch physics under
-  BRK-1 and BRK-5 is stated as coach-consensus, not grounded in a biomechanics/vehicle-dynamics
-  paper. L3 gap; reachable via PubMed/Exa. This is the single highest-value braking upgrade.
+- ~~**No Tier-C braking-dynamics source yet**~~ **ADDRESSED 2026-07-17 (BRK-8..BRK-11):** weight
+  transfer, the pitch-over critical deceleration, the friction-circle grip budget, and the
+  measured/perceptual nature of braking are now grounded in vehicle-dynamics + biomechanics
+  literature. Remaining Tier-C depth: no MTB-specific (loose-surface / low-μ) braking-dynamics study
+  fetched — the papers are firm-surface/road-biased.
 - **"Trail braking" (tapering brake off as you lean into a corner)** is mentioned by one source
   (thetoliver.com) as an advanced technique but is **not yet a safe, laddered progression here** —
   it partly contradicts the clean "finish braking before you lean" L1 rule and needs a Tier-A/B

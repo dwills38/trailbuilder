@@ -179,13 +179,60 @@ weighting/bracing job. (Cornering is the exception — outside foot down, COR-3.
 
 ---
 
+## Physics notes (Tier C — the mechanism/why)
+
+*Added 2026-07-17 (biomechanics round). Grounds the suspension-rider interaction and the gradient/
+braking cues — the **why**, not new cues.*
+
+**CLD-8 — The rider IS the primary suspension: ~80–85% of system mass is the body, so limbs-as-
+suspension dominate.** Because the rider is far heavier than the bike, actively flexing the arms and
+legs to hold the CoM steady while the wheels track the ground ("heavy feet, light hands"; the *bike*
+moves under you) isolates the mass from terrain more than the mechanical suspension does. This is the
+mechanism under CLD-5's "flexion creates extension" and the ready-position bent-limb requirement:
+straight, locked limbs remove the largest available suspension travel and force the retreat-rearward
+fear response.
+- *Tier:* C. Source: mass-distribution reasoning, corroborated by the two-point-mass rider+bike
+  models used in the pumping literature (the rider mass and its controlled link to the bike carry the
+  dynamics): Golembiewski et al. 2023
+  ([DOI 10.48550/arXiv.2311.07251](https://doi.org/10.48550/arXiv.2311.07251)).
+
+**CLD-9 — Terrain vibration has a measurable energetic cost, which staying loose reduces.** Off-road
+descending raises heart rate and oxygen cost above road descending at matched (near-zero) power
+output, and the difference tracks terrain-induced vibration transmitted between bike and rider; the
+study recommends skills + equipment that *reduce* transmitted vibration. Grounds two cues with
+mechanism: **(1)** tensing up (a CLD error) is literally costly — a rigid rider transmits and must
+damp more vibration and fatigues faster; **(2)** using the body as suspension and choosing smoother
+lines is energy economy, not only control.
+- *Tier:* C. Source (via PubMed): Miller, Macdermid, Fink & Stannard 2016, *Performance and
+  physiological effects of different descending strategies for cross-country mountain biking*,
+  Eur. J. Sport Sci. ([DOI 10.1080/17461391.2016.1237550](https://doi.org/10.1080/17461391.2016.1237550)).
+
+**CLD-10 — Weight-transfer physics grounds "favour the rear on steeps" AND the kernel of the ⚠
+DISPUTE.** On a descent the static load is already shifted forward by the gradient, so the front tyre
+sits nearer its pitch-over limit before you even brake: the critical deceleration `a_crit ≈ g·(b/h)`
+(`b` = CoG-to-front-contact distance, `h` = CoG height; see `braking-traction.md` BRK-9) is reached
+sooner — which is *why* CLD-6 biases toward the rear as it steepens (without abandoning the front,
+which still carries most load). The same equation explains the grain of truth in **Position A** of
+CLD-4: moving the CoM down and rearward increases `b` and decreases `h`, genuinely raising `a_crit`,
+so a rearward shift *does* buy pitch-over margin on true steeps. It does **not** license blanket
+weight-back on moderate terrain (**Position B**), where it needlessly unloads the front and kills
+steering grip. Physics informs the envelope of the dispute; it does not collapse it.
+- *Tier:* C. Sources: Skatulla, Maier & Schmidt 2023
+  ([DOI 10.24404/63fe5c46c9d7c3ebc76e944b](https://doi.org/10.24404/63fe5c46c9d7c3ebc76e944b));
+  Klug et al. 2017 ([DOI 10.1016/j.ifacol.2017.08.173](https://doi.org/10.1016/j.ifacol.2017.08.173));
+  Calspan/Cornell bicycle pitch-over study.
+
+---
+
 ## Gaps
+- ~~**No Tier-C biomechanics for the centre-of-mass / "flexion creates extension" claim**~~
+  **ADDRESSED 2026-07-17 (CLD-8/CLD-9/CLD-10):** rider-as-primary-suspension, the energetic cost of
+  vibration, and the weight-transfer basis of the gradient/braking cues are now grounded. Remaining
+  Tier-C depth: the specific "flexion-creates-extension" *timing* (the evo/Fluidride coach's cited
+  biomechanics PhD) is grounded by mechanism but not by a fetched primary study of that exact move.
 - **Steep-descent technique is only half-laddered** — the "steep roll → committed chute" progression
   needs an L2 treatment with explicit gear/terrain gates and drop-in technique. L2 gap; overlaps
   `terrain-features.md`.
-- **No Tier-C biomechanics** for the centre-of-mass / "flexion creates extension" claim (evo cites
-  a biomechanics PhD but we haven't fetched the primary) — L3 gap; would strengthen CLD-5 from
-  coach-model to mechanism.
 - **Technical climbing** (ledges, roots, step-ups, wheel-lift-to-climb) is not covered — L2 gap;
   depends on `terrain-features.md` wheel-lift rungs.
 - **The CLD-4 dispute would benefit from a certification-body (Tier-A) adjudication** — member-
