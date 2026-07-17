@@ -1,9 +1,15 @@
 # Suspension — Mechanic Corpus
 
-**Maturity: foundation** (L1 coverage + a first L2 slice landed 2026-07-17 — the RockShox
-Suspension Theory Guide's DAMPER/FRICTION/TUNING sections, SUS-26–31 — mined for the first
-time this round; see [`CURRICULUM.md`](CURRICULUM.md). Still short of `professional`: no
-per-model service intervals/oil-volumes/seal-kit part numbers, no torque-spec table — see
+**Maturity: foundation, with substantial rear-shock L2 depth** (L1 coverage + the RockShox
+Suspension Theory Guide's DAMPER/FRICTION/TUNING sections landed 2026-07-17 (SUS-26–31),
+followed same-day by a genuine per-model SERVICE-manual pass — the RockShox 2018-2022
+Deluxe service manual (SUS-32–37: torque table, IFP-depth-by-stroke, oil-fill methods,
+bottomless-token limits) and Fox's FLOAT X + 36 tech-center pages (SUS-38–41: IFP-by-
+reservoir, bath-oil volumes, fork/shock torque chains, current service interval); see
+[`CURRICULUM.md`](CURRICULUM.md). Still short of `professional`: rear-shock service
+internals now run deep for BOTH majors, but fork-side L2 is Fox-only (no RockShox fork
+service manual mined yet — Lyrik/Zeb/Pike), coil-shock internals (Vivid/Super Deluxe
+Coil) are untouched, and no unified cross-brand torque-spec table exists yet — see
 "## Gaps" below.)
 
 Fork · rear shock · travel · trunnion/standard eyes · coil approval · fork↔frame bundling.
@@ -273,6 +279,152 @@ tuning any damping circuit, matching this chapter's Sag & setup section. *Confid
 confirmed.* Source: Suspension Theory Guide pp.26–27 "Common Tuning Misconceptions"
 (fetched, as SUS-26).
 
+## Service manual internals (L2 — RockShox Deluxe 2018-2022 + Fox FLOAT X / 36)
+
+**SUS-32 — RockShox Deluxe (2018-2022) piston/lock-piston/seal-head torque values, by
+damper-electronics family, cross-confirmed between the manual's summary table AND its
+numbered procedure steps (both agree).** Piston nut: **RCT/NUDE/NUDE2/SCOTT RL3 family
+= 6.2 N·m (55 in-lb)** via a 12 mm socket (RCT) or the NUDE Piston Bolt Socket
+(NUDE/NUDE2/SCOTT RL3); **RT3/RLR/Ultimate Remote/RL/RT/R family = 4.5 N·m (40 in-lb)**
+via a 12 mm socket (RT3, 2019-2022 RL/RT) or 10 mm socket (RLR/Ultimate Remote, 2018
+RL/RT, R). Lock piston (RCT/NUDE family only) = **4.5 N·m (40 in-lb)** via a 24 mm
+open-end wrench on the RCT/NUDE Lock Piston Tool. Seal head/air piston (all variants,
+during final bleed/assembly) = **28 N·m (248 in-lb)** via a 17 mm crowfoot. Eyelet
+assembly torqued into the air can body = **10 N·m (90 in-lb)**, crowfoot size set by
+eyelet type (13 mm standard / 29 mm bearing / 54 mm trunnion). *Confidence: confirmed
+(fetched, self-consistent across table + steps).* Source: RockShox "2018-2022 Deluxe /
+2020+ Deluxe Nude Traction Control Service Manual" (GEN.0000000006487 Rev D,
+sram.com/globalassets/document-hierarchy/service-manuals/rockshox/rear-suspension/
+2018-2022-deluxe-service-manual.pdf, fetched 2026-07-17 — downloaded directly, the
+file exceeded WebFetch's size cap so it was pulled with curl and read via pdftotext,
+still a fetched-primary manufacturer PDF, not a search summary), "Torque Values" table
+p.8 + Piston Service steps 18-19 pp.54-55 + Shock Assembly and Bleed step 5 p.60/61.
+
+**SUS-33 — Deluxe IFP insertion depth is a precise per-stroke table, not one number, and
+the table itself splits by damper-electronics generation (two different depth curves for
+the same nominal strokes).** Family A (2020-2022 Ultimate RCT, 2020-2021 NUDE/2022-2023
+NUDE2/SCOTT RL3, 2019-2022 RL/RT) — coarse 4-band table: 35 mm→49.5 mm, 37.5-45 mm→58 mm,
+47.5-55 mm→66.5 mm, 57.5-65 mm→75 mm. Family B (2018-2019 RLR/2020-2022 Ultimate Remote,
+2018-2020 RT3, 2018 RL/RT, 2018-2022 R) — fine-grained 2.5 mm-step table across the same
+35-65 mm stroke range (48.1 mm→73.5 mm), **with an OEM exception**: a Trek PowerFly-specific
+50 mm stroke uses 67.2 mm IFP depth instead of the standard 50 mm→60.8 mm figure — the
+same "verify the exact offered config, don't interpolate" discipline SUS-13 already
+established, now with a documented OEM-specific override inside one nominal stroke.
+*Confidence: confirmed (fetched table).* Source: same Deluxe Service Manual, "IFP and
+Damper Body Service" p.58-59.
+
+**SUS-34 — Deluxe's two oil circuits use genuinely different fill methods — one
+"level-fill," one precision-metered — inside the same rebuild.** The **damper body**
+(Maxima PLUSH 7wt Suspension Oil, backwards-compatible with RockShox 7wt) is filled by
+**pouring until level with the top of the body** — no cc figure. The **air can**
+lubricant (Maxima Extra 15w50 or Maxima PLUSH Dynamic Suspension Lube Light) is
+**precision-metered: 1 mL injected before air-can installation, then another 1 mL after
+flipping the shock to the damper-body side — 2 mL total**, equivalently described as
+"half of the included pillow pack per injection; 1 pillow pack = 2 mL." *Confidence:
+confirmed.* Source: same Deluxe Service Manual, Damper Body Service step 2 p.45 (level
+fill) + Air Can Installation steps 2-3 p.68 (metered fill).
+
+**SUS-35 — Deluxe damper air/nitrogen charge pressure is model-specific — RCT is
+confirmed at 400 psi; the remaining five model families' pressures (350/500/420/350 psi)
+are stated in the manual but the exact model↔pressure pairing could NOT be reconstructed
+with confidence from the fetched text.** The manual's pressure-bleed step (200 Hour
+Service, Shock Assembly and Bleed step 8) lists six model groups — RCT, RT3,
+NUDE/NUDE2/RL3/RLR/Ultimate Remote, 2018 RL/RT, 2019-2022 RL/RT, R — against only five
+distinct psi values in table order (400, 350, 500, 420, 350), meaning at least one model
+group shares a value with an adjacent one and the PDF-to-text table extraction could not
+disambiguate which. RCT=400 psi is safe (unambiguous first-row pairing); nitrogen may be
+substituted for air with the proper fill equipment. **Do not treat the other five
+model↔psi pairings as established** — this is a case for SUS-2/6's "silence beats a
+confident wrong fact": re-verify against the manual's actual table graphic (not the
+text-extracted layout) before using any pairing beyond RCT for a customer-facing figure.
+*Confidence: partial — one value confirmed, five ambiguous by extraction, not by the
+source.* Source: same Deluxe Service Manual, Shock Assembly and Bleed step 8 p.61-62.
+
+**SUS-36 — Deluxe's Bottomless Tuning tokens cap volume-reduction the same way Fox's
+volume spacers do (cross-brand pattern, see SUS-39/SUS-40's Fox equivalent) — a hard
+maker-stated maximum, not a "more is always fine" knob.** Standard Bottomless Tokens:
+max 3. The higher-reduction "Gnar Dog Token" (equivalent to 2.5 Bottomless Tokens) may
+only be installed **one at a time**, must be the **first** token nearest the eyelet, and
+when installed caps additional Bottomless Tokens at 2 (not 3). NUDE/NUDE2/SCOTT RL3
+dampers ship with factory tokens the manual explicitly says **not** to remove. A
+"Sonar Token" variant ships factory-installed in certain Specialized OEM shocks,
+standard-eyelet-only, not sold separately. *Confidence: confirmed.* Source: same Deluxe
+Service Manual, "Bottomless Tuning" pp.39-40.
+
+**SUS-37 — RockShox's Deluxe manual does not publish a frame-side shock mounting-bolt
+torque spec — it explicitly defers to the bike manufacturer.** The eyelet/bushing
+mounting hardware install section (p.70-71) covers pin/spacer press-fit assembly and
+says only "reinstall the shock to your bicycle frame according to the bicycle
+manufacturer's instructions" — no N·m figure. This means SUS-29's "over-tightened
+mounting bolt binds the eyelet rather than rotating freely" caution is real, but the
+actual torque number to avoid it is a **frame-maker spec, not a shock-maker spec** —
+relevant if a future torque-spec table gap-fill goes looking for one number and finds
+none, because none exists at the shock-maker level. *Confidence: confirmed (fetched
+absence).* Source: same Deluxe Service Manual, "Mounting Hardware Installation" p.70-71.
+
+**SUS-38 — Fox FLOAT X (2022+) publishes an IFP depth table keyed to reservoir SIZE
+(not stroke, unlike RockShox's per-stroke Deluxe table) plus a fixed IFP pressure.**
+IFP height: Short reservoir 33 ±1.25 mm, Medium 37 ±1.25 mm, Long 41 ±1.25 mm,
+XL 45 ±1.25 mm. IFP pressure: **150 psi ±10 psi, the same figure across all 2022+
+FLOAT X shocks** regardless of reservoir size (contrast RockShox's Deluxe, which varies
+damper pressure by model per SUS-35). Seal kits: 803-01-727 (air sleeve, 2022+),
+803-04-251 (damper rebuild Gen 2, 2024+). Damper oil: FOX 4wt Suspension Fluid
+(025-03-063, 1 L bottle). Air-chamber oil: FOX 20wt Gold (025-03-072). Base valve bolt
+torque: **60 in-lb (6.8 N·m)**. *Confidence: confirmed (fetched maker page, current
+generation).* Source: FOX "FLOAT X Part Information" (tech.ridefox.com/bike/
+parts-drawings/3051/float-x-part-information, fetched via Exa 2026-07-17 — WebFetch on
+tech.ridefox.com's underlying JSON-driven page did not resolve cleanly, per the prior
+Gaps note; Exa's markdown render succeeded, same fetch-tier as WebFetch per
+VERIFY-PROTOCOL.md's doctrine) + "2022-2026 FLOAT X Rebuild" (tech.ridefox.com/bike/
+service-procedures/1139/2022-2026-float-x-rebuild, same fetch), step 13.
+
+**SUS-39 — Fox 36 fork bath-oil volumes are circuit-specific and differ by an order of
+magnitude between air and damper side, and by damper type on the damper side.** All
+air-side bath: **10 cc FOX 20wt Gold oil**. FIT4 damper-side bath: **15 cc FOX 20wt
+Gold**. GRIP/GRIP2 VVC damper-side bath: **40 cc 5wt FOX Teflon-infused oil** — nearly
+3x the FIT4 volume, a genuinely different damper architecture needing more bath fluid,
+not a typo. Damper cartridge oils differ from bath oils: FIT4 and GRIP/GRIP2 VVC
+cartridges use 5wt Teflon-infused oil (025-03-023) for the sealed cartridge itself,
+separate from the bath. *Confidence: confirmed (fetched maker page).* Source: FOX
+"36mm Part Information" (tech.ridefox.com/bike/parts-drawings/2802/36mm-part-information,
+fetched via Exa 2026-07-17), "Oil Information" table.
+
+**SUS-40 — Fox 36 FLOAT NA3 Glidecore air-spring rebuild (2026+) torque spec chain, and
+its metered air-chamber oil charge.** Capture Plate onto Neg Plate Housing: 50 in-lb
+(no N·m given). Upper piston onto lower piston (28 mm socket): 80 in-lb. Base stud into
+shaft (12 mm crowfoot): **50 in-lb (5.7 N·m)**. Topcap into fork crown (6-point
+chamfer-less 26 mm socket): **220 in-lb (24.8 N·m)**. Bottom nuts (after lower-leg
+reassembly): air-spring side **50 in-lb (5.7 N·m)**; damper side **110 in-lb (12.4 N·m)
+for GRIP X/GRIP X2 dampers, 150 in-lb (16.9 N·m) for GRIP dampers** — a damper-family-
+dependent bottom-nut torque, the fork-side analog of SUS-32's damper-family-dependent
+shock torques. Air-chamber charge: **3 cc FOX 20wt Gold oil** injected into the main
+air chamber through the top of the upper tube before topcap reinstall (compare SUS-34's
+RockShox metered air-can fill — both makers meter the air-side lubricant precisely
+while treating the damper-side fill more loosely). Red Loctite 262/263 is used at
+different threaded joints (never both) — 262 inside the shaft at the base stud, 263 at
+the Capture Plate and piston threads. *Confidence: confirmed (fetched maker page,
+current generation, cross-checked across three near-identical 2026/2026-2027/2026-SL
+NA3 Glidecore rebuild pages that share the same torque figures).* Source: FOX "2026
+36 FLOAT NA3 Glidecore Air Spring Rebuild" and "2026-2027 36 FLOAT NA3 Glidecore Air
+Spring Rebuild" (tech.ridefox.com/bike/service-procedures/3075/…, fetched via Exa
+2026-07-17).
+
+**SUS-41 — Fox's own current-generation service interval, fetch-CONFIRMED, resolves
+(partially) the prior round's open question.** Both the FLOAT X shock and the 36mm fork
+part-information pages state a single **"Full Service 125 Hours"** interval for the
+current generation — matching the higher end of the 30-50 h/125 h band that SUS-25
+flagged from third-party shop citations it could not independently confirm. **This is
+not a full reconciliation**: it's one current "Full Service" figure with no shorter-
+interval tier shown on these pages (unlike RockShox's SUS-24 two-tier 50 h/200 h
+structure, or the older Fox "011" owner's-manual edition's split lower-leg-oil-vs-
+air-sleeve tiers) — whether Fox still publishes a shorter interim check interval
+elsewhere wasn't found this round. Treat as a partial close of SUS-25's gap: the 125 h
+figure is now fetch-confirmed for current FLOAT X/36, not just third-party-cited.
+*Confidence: confirmed (fetched, current generation) for the 125 h figure; open whether
+a shorter interim interval exists elsewhere.* Source: FOX "FLOAT X Part Information"
+and "36mm Part Information" (tech.ridefox.com, fetched via Exa 2026-07-17), "Maintenance
+Information" / "Service Interval" rows.
+
 ## Fork travel vs frame
 
 **SUS-8 — Over-travel fork vs frame rated max = WARNING; where a maker publishes an APPROVED
@@ -378,6 +530,11 @@ tools/VERIFY-PROTOCOL.md "Interface verification" + fork extension (Douglas 2026
   (SUS-17): coil is linear, air is progressive, so per-frame coil approval (SUS-5) is really
   asking "was this leverage curve designed around a linear-force input?" — the shape mismatch,
   not just "does a coil shock physically bolt on," is the underlying reason.
+- **Damper-family (not just model line) sets its own torque and fill numbers within one
+  product** (SUS-32/40): a Deluxe RCT piston nut torques differently than an RT3 on the
+  *same* shock body; a 36's GRIP-damper bottom nut torques differently than its GRIP X/X2
+  sibling — service data is keyed to the internal damper electronics, not the outer part
+  name alone.
 
 ### Mismatch failure modes
 - **Hard "won't fit":** wrong shock eye-to-eye or mount (SUS-1); a longer-than-spec stroke
@@ -403,6 +560,16 @@ tools/VERIFY-PROTOCOL.md "Interface verification" + fork extension (Douglas 2026
   procedures set air pressure/sag FIRST (with an equalization-cycle step), then rebound/compression
   are dialed in against that baseline — damper settings tuned against the wrong sag are being
   tuned against a moving target.
+- **IFP position must be set BEFORE the shock is bled and pressurized, and its correct depth
+  itself depends on a different variable per brand** (SUS-33/38): RockShox keys IFP depth to
+  **shock stroke**; Fox keys it to **reservoir size**. Getting the IFP order or reference wrong
+  produces a shock with the wrong effective negative-chamber volume before a single air-pressure
+  reading is even taken — an install-order dependency invisible from the outside once assembled.
+- **The two oil circuits in one shock/fork can have genuinely different fill disciplines within
+  the SAME rebuild** (SUS-34/39/40): RockShox's damper body is a level-fill (no cc figure) while
+  its air can is metered to 1 mL twice; Fox's fork bath oil is metered by circuit (10/15/40 cc)
+  while its air-chamber charge is a separate 3 cc metered shot — assuming one fill method applies
+  uniformly across a single product is a real service-order trap.
 
 ### Damper-internal couplings (new this round)
 - **Low-speed and high-speed circuits are pressure-gated, not two labels for one
@@ -453,23 +620,37 @@ Honest list of what a future round needs to close to move this chapter past `fou
   displacement-compensation design choices, shim/check-valve mechanics, low/high-speed
   circuit separation (incl. lockout/platform), bushing length↔stiffness↔friction coupling,
   five named failure modes (fade/aeration/emulsification/cavitation/hydraulic-lock/
-  spiking), and three named tuning misconceptions. **Still open:** this is theory-guide
-  depth (how a generic damper works and fails), not a per-model **SERVICE**-manual (oil
-  volumes, seal-kit part numbers, exact shim-stack specs, step-by-step rebuild procedure
-  for a specific Fox/RockShox model). A future round targeting a specific service manual
-  (e.g. a 2018-2022 Deluxe rear-shock service manual, also found this round at
-  sram.com/globalassets/document-hierarchy/service-manuals/rockshox/rear-suspension/
-  2018-2022-deluxe-service-manual.pdf but not yet fetched/mined) is the next L2 layer.
-  **L2 gap remaining, narrower than before.**
-- **No torque-spec table** for shock hardware (mounting bolts, air-can/end-cap torque, travel
-  spacer bolts) or fork hardware (axle pinch bolts, crown bolts, air-spring top-cap torque).
-  **L2 gap.**
-- **Fox service intervals are pinned to one dated manual edition ("011")** — SUS-25 flags that
-  third-party shop pages cite different current-generation bands (30–50 h / 125 h) this pass
-  could not independently fetch-confirm from ridefox.com/tech.ridefox.com directly (site
-  structure resisted a clean current-edition fetch). Re-fetch the current owners-manual edition
-  and reconcile. **L1 completeness gap** (not L2 — this is still "what's the number," not
-  service internals).
+  spiking), and three named tuning misconceptions.
+- **Closed same day, 2026-07-17 (SUS-32–41): the RockShox 2018-2022 Deluxe rear-shock
+  SERVICE manual (flagged as the next target in the prior Gaps entry) is now fetched and
+  mined** — full torque table (piston nut, lock piston, seal head, eyelet-to-can) cross-
+  confirmed against the numbered procedure steps, per-stroke IFP-depth tables split by
+  damper-electronics generation, the level-fill-vs-metered-fill oil discipline, and
+  Bottomless/Gnar Dog token limits. **Fox's tech.ridefox.com service-procedures and
+  parts-drawings pages were also fetched this round** (via Exa, after WebFetch failed on
+  the JSON-driven page structure — resolving the prior round's "Fox site structure
+  resisted a clean fetch" note) for FLOAT X (IFP-by-reservoir, seal-kit PNs, base-valve
+  torque) and the 36 fork (bath-oil volumes by circuit, NA3 Glidecore air-spring rebuild
+  torque chain, current-gen service interval). **Still open:** this closes rear-shock L2
+  for both majors and fork L2 for Fox only. **RockShox's own FORK service manuals
+  (Lyrik/Zeb/Pike) remain unmined** — the next specific target for L2 fork-side torque/
+  oil-volume data. Coil-shock service internals (RockShox Super Deluxe Coil, Fox DHX,
+  Öhlins/EXT/Cane Creek) are also untouched — everything mined this round was air-spring
+  shocks/forks. **L2 gap narrowed to: RockShox fork service manuals + any coil-shock
+  service manual.**
+- **No unified cross-brand torque-spec table** exists yet as a standalone reference (the
+  values are now IN the chapter, SUS-32/SUS-40, but scattered across per-model facts
+  rather than collected into one lookup table). Worth a follow-up pass to compile once
+  RockShox fork data lands too, so the table is genuinely cross-brand/cross-part rather
+  than shock-only. **L2 completeness gap** (data exists, presentation doesn't yet).
+- **Fox service intervals: PARTIALLY reconciled 2026-07-17 (SUS-41).** The current-
+  generation "125 Hours" full-service figure is now fetch-confirmed directly from
+  tech.ridefox.com (FLOAT X and 36 part-info pages), resolving the top half of SUS-25's
+  30-50 h/125 h ambiguity. **Still open:** whether Fox publishes a shorter interim-check
+  interval for the current generation (RockShox's two-tier 50 h/200 h structure has no
+  confirmed Fox equivalent from these two pages) — SUS-25's older "011" owner's-manual
+  edition is the only source found so far for any lower-tier Fox number, and it's still
+  unreconciled against current-gen. **L1 completeness gap, narrowed.**
 - **No numeric coil-spring-rate selection chart** (rider weight + frame leverage ratio → lb
   spring recommendation). RockShox publishes a "Suspension Fork Coil Spring Chart" but it surfaced
   this round only via a third-party (yumpu) mirror, not a clean fetchable sram.com page/PDF —
@@ -496,3 +677,7 @@ Honest list of what a future round needs to close to move this chapter past `fou
 - SUS-4: is a ±3–5 mm error in a quoted reduced-travel figure acceptable, or should the message
   drop the number entirely? Should it name "Travel Reducer" (RockShox-specific) on other makers?
 - SUS-14: 1.8" steerers appearing on any non-e enduro frames yet?
+- SUS-35: the Deluxe damper-pressure table's model↔psi pairing beyond RCT=400 psi needs
+  re-verification against the manual's actual table graphic (the text extraction couldn't
+  disambiguate 5 values across 6 model groups) — worth a follow-up if any customer-facing
+  figure beyond RCT is ever needed.
