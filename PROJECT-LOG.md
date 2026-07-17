@@ -1,5 +1,57 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-16 (evening) — Coordinator seat 11: +138 bikes, a CRITICAL false-fits killed, kit women's breadth
+
+Four workers landed at once; all merged, all CI green.
+
+**MEGA grind #6 (`9378261`): complete bikes 198 -> 336 (+138), catalog 4521 parts.** 6 waves, ~35
+parallel catalog-workers, 6 Opus auditor passes (one per wave). Landed 138 not 150+ because genuine
+exhaustion set in by wave 5-6 and workers DROPPED rather than fabricate — the right call. Additive
+vocab widening for budget-hardtail fitments (rearAxle +Boost141 +135x5-qr, frontAxle +9x100-qr,
+steerer +straight, crankBb +powerspline +square-taper, +microshift-advent-mx), each maker-sourced
+with an explicit do-not-conflate rationale (conflating any would be a false "fits"). Its auditors
+self-caught 6 real defects incl. a fabricated `minRotorR` causing a false rotor ERROR and a Whyte
+Secta `udh:false` causing a false Transmission error. Error-tier task resolved: Trek Fuel EX Gen 6
+shockMount re-verified via 3 fetches — 185x55 TRUNNION is CORRECT (the 205x60 figure belongs to the
+unrelated Gen 7 platform); no change needed. **COORDINATOR CATCH at merge review:** the new
+`fk-srsuntour-xcm34-lo-29-130` carried `maxRotorF:160` read off the page's "Postmount 160mm" — that
+is the NATIVE mount size, not a rotor ceiling — which made `cb-cannondale-habit-ht-2` warn against
+its OWN factory spec (that bike ships a 180mm rotor on that fork). Corrected to 180, matching the
+fix this wave's own auditor had already applied to the Fox 32 Rhythm; same conflation, one row
+missed. (My first patch attempt broke the desc string on unescaped apostrophes — `node --check`
+caught it immediately, exactly why that rule exists.)
+
+**CRITICAL engine fix (`6f4a151`) — the audit's C-1, a false "fits".** `effectiveWheel` returned
+null unless BOTH halves of a build-your-own wheel end were picked, silencing rule areas 1/2/6/9/14:
+a 20x110 DH hub on a Boost fork returned ZERO errors and a GREEN dot until a rim was added; all 49
+hub/rim rows dotted green against any build. The fix agent found a SECOND masking path the audit
+missed (`placementDiff` didn't clear mutex partners, so rims dotted against an impossible baseline)
+and corrected the audit's own "nothing needs weakening" claim (off by one — one test was retitled,
+not weakened). +11 additive tests (616 total). Coordinator-verified the repro by hand: now errors
+with correct wording and dots RED; 9 of 49 hub/rim rows correctly red on a 29 Boost build. Harness
+BYTE-IDENTICAL — and that is itself the finding: the harness never assembles a partial wheel, so it
+had ZERO coverage of this bug's shape and stayed green for C-1's whole lifetime.
+
+**Kit grind #3 (`04da059`):** women's-fit rows 8 -> 19 (real SKUs only), all 8 flagged Dakine rows
+dispositioned with evidence (Syncline/Thrillium are now women's-only — retargeted; 3 with no SKU in
+either gender marked discontinued), the Alpinestars BNS price conflict closed by re-fetch ($44.95
+confirmed), a non-existent TLD "Sprint LS" retargeted to the real Sprint Pro. Honest holds: no Five
+Ten women's shoe (sources disagreed), body armor's $93 floor confirmed REAL not a data gap.
+
+**Code-quality audit (`23de72f`, doc-only):** verdict — engine is O(1) in catalog size (no scale
+cliff at 10x), no rule violations, `e22189a` confirmed SUPERSEDED (memory corrected, stop chasing
+it). Structural finding for Douglas: logic in index.html's inline script can't be unit-tested, so
+the week's headline features (MSRP policy, sliders) ship unguarded behind green suites — which is
+how C-1 hid.
+
+**Support-parts verification** was blocked by a stray uncommitted diff + stale worktree and
+correctly REFUSED to stash/reset someone else's work; the blocker later resolved itself (worktree
+clean, and that Canyon work was already on main via grind-5). Session resumed with a rebuilt queue
+(1942 unverified rows now) and the poppler unblock. Also this session: poppler-utils proved ALREADY
+INSTALLED (the "not installed" blocker was false — documented in VERIFY-PROTOCOL `44688e2`, unblocking
+~48 Shimano PDF rows); Douglas's UI round shipped (dual-ended range sliders + complete-bike facets,
+two size revisions, rear-travel relabel + frames sliders, per-size specs fix, Kit Builder underline).
+
 ## 2026-07-16 — Coordinator seat 11: kit verification merged (+68, 4 fabricated rows purged)
 
 Merged `verify/kit-parts-1` (`e21281c`): kit verified 131 → 199 of 688 (8 brand-cluster workers,
