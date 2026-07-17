@@ -701,7 +701,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-br-odyssey-evo25', cat: 'brake', brand: 'Odyssey', model: 'Evo 2.5 U-Brake',
-    mount: 'u-brake', price: 44.99
+    mount: 'u-brake', price: 59.99,
+    note: 'Mount + price confirmed via shop.odysseybmx.com/collections/odyssey-braking/model-evo-2-5 2026-07-17 (brake-only price was $44.99, corrected to $59.99); no maker weight published for this SKU, so left unverified per THE BAR (no weight source).'
   },
   {
     id: 'bmx-br-tektro-vbrake', cat: 'brake', brand: 'Tektro', model: 'Race V-Brake',
@@ -724,7 +725,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-hb-odyssey-canadadave', cat: 'handlebar', brand: 'Odyssey', model: 'Canada Dave Bars',
-    clamp: '25.4mm', rise: 8.0, width: 29, price: 79.99
+    clamp: '25.4mm', rise: 8.0, width: 29, price: 79.99,
+    note: 'UNRESOLVED 2026-07-17: exhaustive search of shop.odysseybmx.com/collections/odyssey-handlebars, odysseybmx.com team roster and third-party BMX retailers found NO "Canada Dave" rider or bar model at Odyssey (current + legacy lineup checked). Left untouched (no real product to correct to, and inventing one would be fabrication) — flagged for coordinator/Douglas to decide whether this row should be retired/renamed.'
   },
   {
     id: 'bmx-hb-fitbikeco-vh', cat: 'handlebar', brand: 'Fit Bike Co', model: 'VH Bars',
@@ -755,7 +757,8 @@ var BMX_PARTS = [
   // ===== STEM ===========================================================
   {
     id: 'bmx-st-odyssey-elementary', cat: 'stem', brand: 'Odyssey', model: 'Elementary Stem',
-    clamp: '25.4mm', price: 44.99
+    clamp: '22.2mm', price: 44.99,
+    note: 'Real, long-discontinued (2004-2008) Odyssey stem confirmed via the manufacturer\'s own odysseybmx.com/2004/08/elementary-stem/ blog post (weight ~8oz, 50mm reach, 2014 aluminum) but that page does not state clamp diameter or price; corrected clamp from 25.4mm to 22.2mm per multiple corroborating retailer/reference specs (bmxmuseum.com Elementary V3 ref, treefortbikes) for the Elementary V3 — left unverified since no manufacturer page confirms clamp or price.'
   },
   {
     id: 'bmx-st-cult-hi-fi', cat: 'stem', brand: 'Cult', model: 'Hi-Fi Stem',
@@ -786,7 +789,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-se-odyssey-fedaykin', cat: 'seat', brand: 'Odyssey', model: 'Fedaykin Slim Pivotal Seat',
-    system: 'pivotal', price: 27.99
+    system: 'pivotal', price: 27.99,
+    note: 'UNRESOLVED 2026-07-17: no "Fedaykin" seat found anywhere in Odyssey\'s current or historical seat lineup (shop.odysseybmx.com/collections/odyssey-seating lists BROC/Aitken/Big Stitch/Bloom/Tropical/40-Year Anniversary models only; no web match at all for the name). Left untouched — flagged for coordinator/Douglas as an apparent fabricated row needing a real replacement or retirement.'
   },
   {
     id: 'bmx-se-fitbikeco-slim', cat: 'seat', brand: 'Fit Bike Co', model: 'Slim Seat',
@@ -812,8 +816,9 @@ var BMX_PARTS = [
     diameter: 25.4, system: 'pivotal', price: 19.99
   },
   {
-    id: 'bmx-sp-odyssey-standard-post', cat: 'seatpost', brand: 'Odyssey', model: 'Standard Seatpost',
-    diameter: 25.4, system: 'standard', price: 14.99
+    id: 'bmx-sp-odyssey-standard-post', cat: 'seatpost', brand: 'Odyssey', model: 'Tripod Seat Post',
+    diameter: 25.4, system: 'standard', price: 31.99,
+    note: 'Real product = the Tripod Seat Post (Odyssey\'s current railed/standard-system post); diameter, system and price confirmed via shop.odysseybmx.com/products/odyssey-tripod-seat-post-black 2026-07-17 (model renamed from generic "Standard Seatpost", price corrected 14.99 -> 31.99); no weight published, so left unverified.'
   },
   {
     id: 'bmx-sp-colony-pivotal-post', cat: 'seatpost', brand: 'Colony', model: 'Pivotal Seatpost',
@@ -828,8 +833,9 @@ var BMX_PARTS = [
 
   // ===== GRIPS ==========================================================
   {
-    id: 'bmx-gr-odyssey-aaronross', cat: 'grips', brand: 'Odyssey', model: 'Aaron Ross ARG Grips',
-    length: 143, flangeless: true, price: 9.99
+    id: 'bmx-gr-odyssey-aaronross', cat: 'grips', brand: 'Odyssey', model: 'Keyboard v1 Grip (Aaron Ross Signature)',
+    length: 158, flangeless: true, price: 10.99,
+    note: 'Real product = the Keyboard v1 Grip, Aaron Ross\'s long-running signature colorway; length, flangeless (bar ends included, no flange) and price confirmed via shop.odysseybmx.com/products/odyssey-keyboard-v1-grip-black 2026-07-17 (model renamed, length corrected 143 -> 158mm, price corrected 9.99 -> 10.99); no weight published, so left unverified.'
   },
   {
     id: 'bmx-gr-odi-longneck', cat: 'grips', brand: 'ODI', model: 'Longneck Grips',
@@ -855,12 +861,16 @@ var BMX_PARTS = [
 
   // ===== PEDALS =========================================================
   {
-    id: 'bmx-pd-odyssey-twistedpro', cat: 'pedals', brand: 'Odyssey', model: 'Twisted PC Pro Pedals',
-    platform: 'plastic', spindle: '9/16', price: 19.99
+    id: 'bmx-pd-odyssey-twistedpro', cat: 'pedals', brand: 'Odyssey', model: 'Twisted Pro PC Pedals',
+    platform: 'plastic', spindle: '9/16', weight: 414, price: 19.99,
+    verified: true, lastChecked: '2026-07-17',
+    source: 'https://shop.odysseybmx.com/products/odyssey-twisted-pro-pc-pedals-black',
+    note: 'Model renamed to match maker naming (was "Twisted PC Pro"); nylon-composite platform, 9/16in spindle, $19.99 price and 14.6oz/pair (~414g) weight all confirmed via the linked product page 2026-07-17.'
   },
   {
-    id: 'bmx-pd-odyssey-trailmix', cat: 'pedals', brand: 'Odyssey', model: 'Trail Mix Pedals',
-    platform: 'alloy', spindle: '9/16', weight: 340, price: 39.99
+    id: 'bmx-pd-odyssey-trailmix', cat: 'pedals', brand: 'Odyssey', model: 'Trailmix Looseball Pedals',
+    platform: 'alloy', spindle: '9/16', weight: 340, price: 42.99,
+    note: 'Model renamed to match maker naming (was "Trail Mix", two words) and price corrected 39.99 -> 42.99 via shop.odysseybmx.com/collections/odyssey-trailmix 2026-07-17 (aluminum body, 9/16in spindle, Looseball variant to match this row\'s non-sealed positioning); Odyssey publishes no weight for either Trailmix variant, and a third-party review\'s 578g/pair figure could not be confirmed as an actual scale measurement (fetch blocked), so the existing 340g sample weight is left as-is and the row stays unverified.'
   },
   {
     id: 'bmx-pd-shadow-metalalloy', cat: 'pedals', brand: 'The Shadow Conspiracy', model: 'Metal Alloy Pedals',
@@ -911,28 +921,36 @@ var BMX_PARTS = [
   {
     id: 'bmx-sp-odyssey-tripletrap-28', cat: 'sprocket', brand: 'Odyssey', model: 'Triple Trap Sprocket 28T',
     teeth: 28, mount: 'spline', pitch: '1/8', price: 49.99,
-    note: 'Odyssey\'s long-running guard-compatible spline sprocket.'
+    note: 'UNRESOLVED 2026-07-17: "Triple Trap" is an Odyssey PEDAL model, not a sprocket — shop.odysseybmx.com/collections/odyssey-sprockets lists only BOYD, La Guardia and Utility Pro sprockets (25/28/30T). No "Triple Trap" sprocket exists at Odyssey. Left untouched (no real product to correct to) — flagged for coordinator/Douglas as an apparent name mix-up/fabricated row.'
   },
   {
     id: 'bmx-rh-odyssey-antigramv2-9', cat: 'rearWheel', brand: 'Odyssey', model: 'Antigram V2 Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 560, price: 119.99
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 454, price: 199.99,
+    verified: true, lastChecked: '2026-07-17',
+    source: 'https://shop.odysseybmx.com/products/antigram-v2-cassette-hub',
+    note: '36H 2014-T6 aluminum shell, 9T driver, 14mm chromoly axle bolts, RHD/LHD switchable, all confirmed via the linked product page 2026-07-17; weight corrected 560g -> 454g (stock with-guard config; maker also states 436g without guard) and price corrected 119.99 -> 199.99.'
   },
   {
-    id: 'bmx-pg-odyssey-chromoly', cat: 'pegs', brand: 'Odyssey', model: 'Chromoly Pegs',
-    axleFit: '14mm', material: 'steel', reducerIncluded: false, price: 19.99
+    id: 'bmx-pg-odyssey-chromoly', cat: 'pegs', brand: 'Odyssey', model: 'MPEGs 4in Steel Peg',
+    axleFit: '14mm', material: 'steel', reducerIncluded: true, weight: 248, price: 24.99,
+    verified: true, lastChecked: '2026-07-17',
+    source: 'https://shop.odysseybmx.com/products/odyssey-mpegs-4-steel-peg-chrome',
+    note: 'Model renamed to match maker naming (was generic "Chromoly Pegs"); 4140 chromoly steel, 14mm bore with 3/8in adapter INCLUDED (was reducerIncluded:false, corrected to true), price corrected 19.99 -> 24.99, weight added (8.75oz per single peg ~= 248g; no other catalog peg row carries a weight field today, flagged for the coordinator as a possible follow-up backfill) all confirmed via the linked product page 2026-07-17.'
   },
   {
-    id: 'bmx-br-odyssey-springfieldpro', cat: 'brake', brand: 'Odyssey', model: 'Springfield Pro U-Brake',
-    mount: 'u-brake', price: 39.99
+    id: 'bmx-br-odyssey-springfieldpro', cat: 'brake', brand: 'Odyssey', model: 'Springfield Brake',
+    mount: 'u-brake', price: 20.99,
+    note: 'Model corrected to Odyssey\'s real name "Springfield Brake" (no "Pro" variant exists) and price corrected 39.99 -> 20.99 via shop.odysseybmx.com/products/springfield-brake 2026-07-17 (mount confirmed u-brake); no manufacturer weight published (a 133g figure appears only on third-party retailer listings, not the maker page), so left unverified per THE BAR.'
   },
   {
-    id: 'bmx-hb-odyssey-brocraiford', cat: 'handlebar', brand: 'Odyssey', model: 'Broc Raiford Bars',
-    clamp: '25.4mm', rise: 8.5, width: 29, price: 84.99,
-    note: 'Broc Raiford signature bar.'
+    id: 'bmx-hb-odyssey-brocraiford', cat: 'handlebar', brand: 'Odyssey', model: 'BROC 9.8in Bar',
+    clamp: '22.2mm', rise: 9.8, width: 29, price: 129.99,
+    note: 'Model renamed to the real product (BROC 9.8in Bar, Broc Raiford\'s signature); clamp corrected 25.4mm -> 22.2mm (maker page: "traditional 7/8in crossbar"), rise corrected 8.5 -> 9.8in, price corrected 84.99 -> 129.99, all via shop.odysseybmx.com/products/odyssey-broc-9-8-bar 2026-07-17; no weight published, so left unverified.'
   },
   {
     id: 'bmx-st-odyssey-krad', cat: 'stem', brand: 'Odyssey', model: 'K-Rad Stem',
-    clamp: '25.4mm', price: 34.99
+    clamp: '25.4mm', price: 34.99,
+    note: 'UNRESOLVED 2026-07-17: no "K-Rad" stem found in Odyssey\'s current lineup (shop.odysseybmx.com/collections/odyssey-stems lists BOYD/BROC v2/WALSH/NORD/CFL3/BOSS v2 only) or on the full team roster (no rider by that name/nickname, past or present). Left untouched — flagged for coordinator/Douglas as an apparent fabricated row.'
   },
 
   // ---- Cult depth (cultcrew.com/collections/frames fetched 2026-07-17:
