@@ -1,5 +1,27 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — Douglas's decision wave shipped: parked-data fixes + build-sheet badge + bias-r3 smalls
+
+- Douglas answered the seat-12 decision queue: badge YES, bias smalls YES, parked items FIX,
+  monitor = daily 8:52am scheduled triage (created, notify-only-on-actionable), Continental
+  Soft=Medium KEPT (middle-of-ladder reasoning), kids-gear + home page stay parked.
+- **fix/parked-data-items merged** (chip, e7f3ab7): Highball R wheel repointed to the 6-bolt
+  Reserve 30|TR AL pair (SRAM MTH hubs are 6-bolt-only; the old M1900 Center-Lock pick was the
+  wrong side); Aeffect R stem dup retired to ALIASES + 3 fills repointed by hand (completebike
+  fills don't pass canonicalId); SB135 T2/T3 fills rebuilt from T2's own Vital spec page (+XM 1700
+  27.5 wheel rows, Yeti Carbon bar, ODI Elite Pro, Fox Transfer Factory; HS2 rotors 200f/180r;
+  Motive Silver kept per Yeti's own kit list over Vital's conflicting G2 claim — maker wins);
+  gr-wtb-wafel dup retired to ALIASES. 5,025 → 5,026 parts.
+- **ui/cb-verified-badge-bias-smalls merged** (chip, 7715116): new `completeBikeSheetVerified`
+  predicate + distinct "🧾 Build-sheet verified" badge (134/436; the ✓-only Complete Bikes landing
+  view no longer blanks — bias-r3 HIGH-2 closed); green-dot non-overclaim disclosure line in the
+  legend; Schwalbe `bikepark` casing → DH chip; unmapped tire compound/casing values surface under
+  a UI-only "Other/unrated" bucket (won't-guess contract untouched — classifiers still never
+  guess). +4 tests (699).
+- Merged sequentially onto 8df444b, four gates green after both (validate 0 problems ×2 catalogs,
+  699/699, tsc clean), verdict harness BYTE-IDENTICAL across both merges, popup scan clean.
+  Pushed `8df444b..425f129`.
+
 ## 2026-07-17 — Seat 12 seated; verification fan-out batch-group 2 merged (verified 2675 → 2808)
 
 - **Seat 12 coordinator seated** (worktree `coord-2026-07-17`); seat 11 archived after its handoff
