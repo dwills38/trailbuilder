@@ -109,14 +109,75 @@ description (plain/base tier for plain rows, EcoProteQ/EPT tier for EPT rows).
   X11 page (fetched above) shows plausible/close price+weight figures. Left
   unchanged.
 
-### Shimano cranksets (11 unverified rows) — not reached this session
+### Shimano cranksets (11 unverified rows) — 0 newly verified, already correctly documented
 
-### SRAM brakesets (11 unverified rows) — not reached this session
+Independently re-fetched Shimano's 2024-2025 Specifications archive PDF
+(`productinfo.shimano.com/pdfs/product/archive/2024-2025_Specifications_v032_en.pdf`,
+`pdftotext -layout`) to check FC-MT510/MT511/MT512/M5100/U6000/U4000 crankset
+interfaces + weights. **Found: a same-day earlier session
+(`verify-fanout-1-shimano`, 2026-07-17) had already fetched this exact
+handbook and documented every one of these 11 rows in detail** — each row's
+`desc` already states the confirmed interface (chainline, Q-factor, BB
+compat, chainring options, rear-speed range) and explicitly notes the
+"Average weight (g)" table cell is blank ("-") for the whole Deore/CUES
+tier, so every row is correctly left `verified:false` per the weight bar
+(Shimano publishes no crankset weight at this tier — matches CLAUDE.md).
 
-Ran out of session time after the Fox re-sweep + KMC chain batch; cranksets
-and brakesets are next up for a follow-on session using the same doctrine
-(Shimano archive-PDF route for crankset weights via `pdftotext -layout`,
-sram.com service/model pages for brakeset bundle confirmation).
+My independent re-fetch of the same table corroborates their findings
+exactly (same blank weight cells, same interface values) — no discrepancy
+found. I additionally searched for a reputable **editorial** teardown
+weight (Bikerumor/MBR/BikeRadar, the only third-party tier THE BAR accepts
+for `sourceType:'measured'`) for FC-M5100/MT510/MT511/MT512/U6000/U4000 and
+found none — only retailer listings (bike-discount.de, bike24.com,
+r2-bike.com, competitivecyclist.com, etc.), which THE BAR explicitly
+rejects for `verified:true`. **No changes made** — every row was already
+correctly documented and left unverified; nothing to correct.
+
+**New flag for the coordinator:** `cr-shimano-mt612-30` (mfgPn `FC-MT612`)
+— while researching this row, `bike-discount.de` and a Google-indexed Shimano
+dealer manual (`si.shimano.com/en/pdfs/dm/FC0002/DM-FC0002-16-ENG.pdf`, an
+old 9-speed triple crank manual, "FC-M612 FC-M615") both point to the real
+Shimano model being **`FC-M612`/`FC-M612-1` (no second "T")**, not
+"FC-MT612" — I could not find any source, including a full-text search of
+both Shimano archive handbooks, referencing an "FC-MT612" model at all. This
+may be the same identity-trap class as the RT-MT/SM-RT precedent noted in
+project memory. The existing row's own `desc` (from the same-day prior
+session) already flags this as unconfirmed against either handbook table,
+but did not catch the specific T/no-T naming split. I did NOT rename or edit
+this row (uncertain which — if either — of "FC-M612" or "FC-MT612" is the
+row's real intended SKU without deeper research); flagging for a dedicated
+follow-up.
+
+### SRAM brakesets (11 unverified rows) — 0 verified, category-level bar issue found
+
+Checked `sram.com` for an official bundled "front+rear disc brake set" SKU
+(the brakeset preset's `price`) to verify against. **Finding: SRAM does not
+sell or publish a bundled front+rear "set" product at all** — `sram.com`'s
+Code/Maven/Level/G2/DB8 series pages (e.g.
+`sram.com/en/sram/mountain/series/code/code`) list only individual
+component models with technical/service data (`sram.com/en/service/models/
+db-code-rsc-a1` etc.), no consumer pricing and no "set" SKU. The
+"sets" that DO appear online (bike-discount.de, alutech-cycles.com,
+actionsports.de) are **retailer-constructed bundles at retailer-chosen
+discount prices** (e.g. Code R front+rear at €129.95 vs a listed €399.90
+"old price"), not an SRAM-published figure — exactly the kind of source
+THE BAR rejects for `verified:true`.
+
+Every brakeset row's `fills` already reference brake + rotor component
+rows, and the underlying brakes are already `verified:true` in every one of
+the 11 scoped rows (checked this session — only some rotors remain
+unverified, unrelated to this scope). Since there is no fetchable
+manufacturer page stating "this front+rear+rotor combination sells as one
+SKU at $X," **none of these 11 brakeset presets can meet THE BAR for
+`verified:true`** — the preset price is inherently a catalog-constructed
+convenience total, not an independently sourceable manufacturer fact. No
+changes made; this is a structural/category-level finding, not a per-row
+gap, so I did not attempt partial verification. Flagging for the
+coordinator to decide whether `brakeset` (and by extension `groupset`/
+`wheelset`/`cockpitset`) presets should have a different verification bar
+than component rows (e.g. "verified" = every fill is itself verified +
+price ≤ sum, rather than a fetched bundle-SKU page), since the current bar
+as written is unattainable for this whole preset category.
 
 ## Gates (after this batch)
 
