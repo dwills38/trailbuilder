@@ -139,6 +139,72 @@ var BMX_PARTS = [
     topTube: 20.75, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: true,
     price: 899.99, note: 'Alloy race frame (most others in this list are chromoly).'
   },
+  {
+    id: 'bmx-fr-chase-element', cat: 'frame', brand: 'Chase', model: 'Element',
+    discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
+    topTube: 20.5, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: true,
+    price: 349.99, note: 'Chase\'s entry/intermediate race frame, below the RSP 3.0 in the lineup.'
+  },
+  {
+    id: 'bmx-fr-gt-performer', cat: 'frame', brand: 'GT', model: 'Performer',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 469.99, note: 'GT\'s long-running heritage/old-school reissue platform, sold as a complete bike.'
+  },
+  {
+    id: 'bmx-fr-gt-fly', cat: 'frame', brand: 'GT', model: 'Fly',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 429.99, note: 'GT\'s current freestyle/park complete bike.'
+  },
+  {
+    id: 'bmx-fr-gt-speedseries-pro', cat: 'frame', brand: 'GT', model: 'Speed Series Pro',
+    discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: false,
+    price: 799.99, note: 'GT\'s race-team-tier complete bike.'
+  },
+  {
+    id: 'bmx-fr-haro-lineage-master', cat: 'frame', brand: 'Haro', model: 'Lineage Master',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 21.0, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    price: 499.99, note: 'Heritage reissue of Haro\'s original Master freestyle frame.'
+  },
+  {
+    id: 'bmx-fr-haro-downtown-dlx', cat: 'frame', brand: 'Haro', model: 'Downtown DLX',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
+    price: 449.99, note: 'Upgraded Downtown chassis; commonly run brakeless.'
+  },
+  {
+    id: 'bmx-fr-bsd-focus', cat: 'frame', brand: 'BSD', model: 'Focus',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.6, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
+    price: 439.99, note: 'BSD (UK) street/park frame; commonly run brakeless.'
+  },
+  {
+    id: 'bmx-fr-flybikes-nassau', cat: 'frame', brand: 'Fly Bikes', model: 'Nassau',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
+    price: 449.99, note: 'Fly Bikes (Spain) street/park frame; commonly run brakeless.'
+  },
+  {
+    id: 'bmx-fr-totalbmx-techlite', cat: 'frame', brand: 'Total BMX', model: 'Techlite',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
+    weight: 1950, price: 469.99, note: 'Total\'s lightweight chromoly flagship; commonly run brakeless.'
+  },
+  {
+    id: 'bmx-fr-sandm-pitchfork', cat: 'frame', brand: 'S&M', model: 'Pitchfork',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 21.0, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
+    price: 459.99, note: 'S&M\'s long-running dirt/park frame; commonly run brakeless.'
+  },
+  {
+    id: 'bmx-fr-colony-emerald', cat: 'frame', brand: 'Colony', model: 'Emerald',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.7, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
+    price: 449.99, note: 'Colony\'s second freestyle frame platform (Sweet Tooth is the other); commonly run brakeless.'
+  },
 
   // ===== FORKS ========================================================
   {
@@ -166,6 +232,26 @@ var BMX_PARTS = [
     discipline: 'race', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
     brakeMount: 'v-brake', weight: 450, price: 89.99
   },
+  {
+    id: 'bmx-fk-haro-downtown', cat: 'fork', brand: 'Haro', model: 'Downtown Fork',
+    discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'none', weight: 680, price: 99.99, note: 'Companion fork to the Downtown/Downtown DLX frames; commonly run brakeless.'
+  },
+  {
+    id: 'bmx-fk-sandm-mianus', cat: 'fork', brand: 'S&M', model: 'Mianus Fork',
+    discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'none', weight: 660, price: 119.99, note: 'S&M\'s long-running signature 3-piece fork name.'
+  },
+  {
+    id: 'bmx-fk-totalbmx-yfork', cat: 'fork', brand: 'Total BMX', model: 'Y-Fork',
+    discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'none', weight: 640, price: 109.99, note: 'Total\'s iconic 3-piece fork silhouette; commonly run brakeless.'
+  },
+  {
+    id: 'bmx-fk-chase-rsp', cat: 'fork', brand: 'Chase', model: 'RSP Race Fork',
+    discipline: 'race', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'v-brake', weight: 420, price: 94.99
+  },
 
   // ===== HEADSETS ======================================================
   {
@@ -179,6 +265,14 @@ var BMX_PARTS = [
   {
     id: 'bmx-hs-salt-pro', cat: 'headset', brand: 'Salt', model: 'Pro Integrated Headset',
     fit: 'integrated-1-1/8', price: 19.99, note: 'WeThePeople in-house parts brand (Salt).'
+  },
+  {
+    id: 'bmx-hs-profile-integrated', cat: 'headset', brand: 'Profile Racing', model: 'Integrated Headset',
+    fit: 'integrated-1-1/8', price: 24.99
+  },
+  {
+    id: 'bmx-hs-flybikes-integrated', cat: 'headset', brand: 'Fly Bikes', model: 'Integrated Headset',
+    fit: 'integrated-1-1/8', price: 21.99
   },
 
   // ===== GYRO / DETANGLER (freestyle only) ============================
@@ -227,6 +321,23 @@ var BMX_PARTS = [
     id: 'bmx-cr-stolen-team', cat: 'cranks', brand: 'Stolen', model: 'Team Cranks',
     spindle: '22mm', pieces: '3-piece', ringMount: 'spline', price: 189.99
   },
+  {
+    id: 'bmx-cr-profile-race-22', cat: 'cranks', brand: 'Profile Racing', model: 'Race Cranks 22mm',
+    spindle: '22mm', pieces: '3-piece', ringMount: 'press-on', price: 299.99,
+    note: '22mm-spindle version of Profile\'s classic chromoly race crank family (Profile\'s Tech Tip #37 covers the 19mm vs 22mm tradeoff).'
+  },
+  {
+    id: 'bmx-cr-flybikes-pz1', cat: 'cranks', brand: 'Fly Bikes', model: 'PZ1 Cranks',
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 920, price: 209.99
+  },
+  {
+    id: 'bmx-cr-bsd-dvt', cat: 'cranks', brand: 'BSD', model: 'DVT Cranks',
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 940, price: 199.99
+  },
+  {
+    id: 'bmx-cr-chase-rsp', cat: 'cranks', brand: 'Chase', model: 'RSP Race Cranks',
+    spindle: '19mm', pieces: '3-piece', ringMount: 'press-on', price: 279.99
+  },
 
   // ===== BOTTOM BRACKETS ===============================================
   {
@@ -246,6 +357,18 @@ var BMX_PARTS = [
     id: 'bmx-bb-totalbmx-mid-22', cat: 'bb', brand: 'Total BMX', model: 'Mid BB',
     shell: 'mid', spindleFit: '22mm', price: 27.99
   },
+  {
+    id: 'bmx-bb-profile-euro-19', cat: 'bb', brand: 'Profile Racing', model: 'Euro Outboard BB 19mm',
+    shell: 'euro', spindleFit: '19mm', price: 39.99
+  },
+  {
+    id: 'bmx-bb-gt-mid-22', cat: 'bb', brand: 'GT', model: 'Mid BB',
+    shell: 'mid', spindleFit: '22mm', price: 24.99
+  },
+  {
+    id: 'bmx-bb-flybikes-mid-22', cat: 'bb', brand: 'Fly Bikes', model: 'Mid BB',
+    shell: 'mid', spindleFit: '22mm', price: 26.99
+  },
 
   // ===== SPROCKETS =====================================================
   {
@@ -259,6 +382,26 @@ var BMX_PARTS = [
   {
     id: 'bmx-sp-sandm-unit-28', cat: 'sprocket', brand: 'S&M', model: 'Unit Sprocket 28T',
     teeth: 28, mount: 'spline', pitch: '1/8', price: 49.99
+  },
+  {
+    id: 'bmx-sp-profile-race-28', cat: 'sprocket', brand: 'Profile Racing', model: 'Race Sprocket 28T',
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 59.99
+  },
+  {
+    id: 'bmx-sp-profile-race-33', cat: 'sprocket', brand: 'Profile Racing', model: 'Race Sprocket 33T',
+    teeth: 33, mount: 'spline', pitch: '1/8', price: 59.99
+  },
+  {
+    id: 'bmx-sp-colony-terminator-25', cat: 'sprocket', brand: 'Colony', model: 'Terminator Sprocket 25T',
+    teeth: 25, mount: 'spline', pitch: '1/8', price: 54.99
+  },
+  {
+    id: 'bmx-sp-flybikes-alloy-28', cat: 'sprocket', brand: 'Fly Bikes', model: 'Alloy Sprocket 28T',
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 44.99
+  },
+  {
+    id: 'bmx-sp-chase-rsp-30', cat: 'sprocket', brand: 'Chase', model: 'RSP Race Sprocket 30T',
+    teeth: 30, mount: 'spline', pitch: '1/8', price: 54.99
   },
 
   // ===== CHAIN ==========================================================
@@ -293,6 +436,19 @@ var BMX_PARTS = [
     id: 'bmx-rh-profile-elite-freecoaster', cat: 'rearWheel', brand: 'Profile Racing', model: 'Elite Freecoaster Hub',
     driverType: 'freecoaster', driverTeeth: 10, side: 'both', axle: '14mm', price: 259.99
   },
+  {
+    id: 'bmx-rh-profile-elite-cassette', cat: 'rearWheel', brand: 'Profile Racing', model: 'Elite Cassette Hub',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 610, price: 229.99,
+    note: 'Profile\'s flagship US-made cassette hub, the long-running Elite line.'
+  },
+  {
+    id: 'bmx-rh-bsd-mind', cat: 'rearWheel', brand: 'BSD', model: 'Mind Cassette Hub',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 99.99
+  },
+  {
+    id: 'bmx-rh-colony-devast8r', cat: 'rearWheel', brand: 'Colony', model: "Devast8r Cassette Hub",
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 590, price: 149.99
+  },
 
   // ===== REAR COG =======================================================
   {
@@ -304,6 +460,14 @@ var BMX_PARTS = [
     teeth: 10, fitsDriver: 'freecoaster', pitch: '1/8', price: 24.99,
     note: 'Freecoaster cogs are body-specific; not interchangeable with a cassette driver.'
   },
+  {
+    id: 'bmx-rc-profile-cassette-9', cat: 'rearCog', brand: 'Profile Racing', model: 'Cassette Cog 9T',
+    teeth: 9, fitsDriver: 'cassette', pitch: '1/8', price: 16.99
+  },
+  {
+    id: 'bmx-rc-colony-cassette-9', cat: 'rearCog', brand: 'Colony', model: 'Cassette Cog 9T',
+    teeth: 9, fitsDriver: 'cassette', pitch: '1/8', price: 13.99
+  },
 
   // ===== FRONT WHEEL ====================================================
   {
@@ -313,6 +477,18 @@ var BMX_PARTS = [
   {
     id: 'bmx-fw-fitbikeco-oem', cat: 'frontWheel', brand: 'Fit Bike Co', model: 'OEM Front Wheel',
     wheelSize: '20', axle: '10mm', price: 49.99
+  },
+  {
+    id: 'bmx-fw-profile-elite', cat: 'frontWheel', brand: 'Profile Racing', model: 'Elite Front Wheel',
+    wheelSize: '20', axle: '10mm', weight: 520, price: 149.99
+  },
+  {
+    id: 'bmx-fw-bsd-mind', cat: 'frontWheel', brand: 'BSD', model: 'Mind Front Wheel',
+    wheelSize: '20', axle: '10mm', price: 74.99
+  },
+  {
+    id: 'bmx-fw-colony-devast8r', cat: 'frontWheel', brand: 'Colony', model: 'Devast8r Front Wheel',
+    wheelSize: '20', axle: '10mm', weight: 500, price: 99.99
   },
 
   // ===== TIRES ==========================================================
@@ -340,6 +516,26 @@ var BMX_PARTS = [
     id: 'bmx-ti-duo-svs', cat: 'tire', brand: 'DUO Brand', model: 'SVS Tire 2.3"',
     wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 95, price: 26.99
   },
+  {
+    id: 'bmx-ti-bsd-motto-24', cat: 'tire', brand: 'BSD', model: 'Motto Tire 2.4"',
+    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 90, price: 27.99
+  },
+  {
+    id: 'bmx-ti-colony-griplock-24', cat: 'tire', brand: 'Colony', model: 'Grip Lock Tire 2.4"',
+    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 100, price: 28.99
+  },
+  {
+    id: 'bmx-ti-colony-griplock-215', cat: 'tire', brand: 'Colony', model: 'Grip Lock Tire 2.15"',
+    wheelSize: '20', width: 2.15, casing: 'park', maxPsi: 100, price: 26.99
+  },
+  {
+    id: 'bmx-ti-flybikes-ruben-24', cat: 'tire', brand: 'Fly Bikes', model: 'Ruben Tire 2.4"',
+    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 95, price: 26.99
+  },
+  {
+    id: 'bmx-ti-profile-elite-13', cat: 'tire', brand: 'Profile Racing', model: 'Elite Race Tire 1-3/8"',
+    wheelSize: '20', width: 1.375, casing: 'race-slick', maxPsi: 120, price: 21.99
+  },
 
   // ===== PEGS ===========================================================
   {
@@ -355,6 +551,24 @@ var BMX_PARTS = [
     id: 'bmx-pg-cult-alloy', cat: 'pegs', brand: 'Cult', model: 'Alloy Pegs',
     axleFit: '14mm', material: 'alloy', reducerIncluded: false, price: 29.99
   },
+  {
+    id: 'bmx-pg-colony-wasted', cat: 'pegs', brand: 'Colony', model: 'Wasted Pegs',
+    axleFit: '14mm', material: 'steel', reducerIncluded: true, price: 27.99,
+    note: 'Ships with a 14mm-to-10mm reducer for front-axle use.'
+  },
+  {
+    id: 'bmx-pg-totalbmx-rotary', cat: 'pegs', brand: 'Total BMX', model: 'Rotary Pegs',
+    axleFit: '14mm', material: 'alloy', reducerIncluded: false, price: 32.99
+  },
+  {
+    id: 'bmx-pg-bsd-superstar', cat: 'pegs', brand: 'BSD', model: 'Superstar Pegs',
+    axleFit: '14mm', material: 'steel', reducerIncluded: false, price: 22.99
+  },
+  {
+    id: 'bmx-pg-flybikes-vandal', cat: 'pegs', brand: 'Fly Bikes', model: 'Vandal Pegs',
+    axleFit: '14mm', material: 'alloy', reducerIncluded: true, price: 34.99,
+    note: 'Ships with a 14mm-to-10mm reducer for front-axle use.'
+  },
 
   // ===== BRAKES =========================================================
   {
@@ -368,6 +582,10 @@ var BMX_PARTS = [
   {
     id: 'bmx-br-tektro-vbrake', cat: 'brake', brand: 'Tektro', model: 'Race V-Brake',
     mount: 'v-brake', price: 19.99
+  },
+  {
+    id: 'bmx-br-chase-rsp-vbrake', cat: 'brake', brand: 'Chase', model: 'RSP Race V-Brake',
+    mount: 'v-brake', weight: 180, price: 34.99
   },
 
   // ===== HANDLEBAR ======================================================
@@ -383,6 +601,26 @@ var BMX_PARTS = [
     id: 'bmx-hb-fitbikeco-vh', cat: 'handlebar', brand: 'Fit Bike Co', model: 'VH Bars',
     clamp: '25.4mm', rise: 8.25, width: 29, price: 69.99
   },
+  {
+    id: 'bmx-hb-totalbmx-techlite', cat: 'handlebar', brand: 'Total BMX', model: 'Techlite Bars',
+    clamp: '25.4mm', rise: 8.0, width: 29, weight: 620, price: 84.99
+  },
+  {
+    id: 'bmx-hb-colony-pintour', cat: 'handlebar', brand: 'Colony', model: 'Pintour Bars',
+    clamp: '25.4mm', rise: 8.15, width: 29, price: 79.99
+  },
+  {
+    id: 'bmx-hb-sandm-slam', cat: 'handlebar', brand: 'S&M', model: 'Slam Bars',
+    clamp: '25.4mm', rise: 8.5, width: 29, price: 74.99
+  },
+  {
+    id: 'bmx-hb-flybikes-glory', cat: 'handlebar', brand: 'Fly Bikes', model: 'Glory Bars',
+    clamp: '25.4mm', rise: 8.0, width: 29, price: 72.99
+  },
+  {
+    id: 'bmx-hb-chase-rsp', cat: 'handlebar', brand: 'Chase', model: 'RSP Race Bars',
+    clamp: '22.2mm', rise: 6.5, width: 27.5, price: 54.99
+  },
 
   // ===== STEM ===========================================================
   {
@@ -392,6 +630,18 @@ var BMX_PARTS = [
   {
     id: 'bmx-st-cult-hi-fi', cat: 'stem', brand: 'Cult', model: 'Hi-Fi Stem',
     clamp: '25.4mm', price: 39.99
+  },
+  {
+    id: 'bmx-st-profile-race', cat: 'stem', brand: 'Profile Racing', model: 'Race Stem',
+    clamp: '25.4mm', price: 49.99
+  },
+  {
+    id: 'bmx-st-gt-performer', cat: 'stem', brand: 'GT', model: 'Performer Stem',
+    clamp: '25.4mm', price: 34.99
+  },
+  {
+    id: 'bmx-st-chase-rsp', cat: 'stem', brand: 'Chase', model: 'RSP Race Stem',
+    clamp: '22.2mm', price: 42.99
   },
 
   // ===== SEAT ===========================================================
@@ -407,6 +657,18 @@ var BMX_PARTS = [
     id: 'bmx-se-fitbikeco-slim', cat: 'seat', brand: 'Fit Bike Co', model: 'Slim Seat',
     system: 'standard', price: 22.99
   },
+  {
+    id: 'bmx-se-colony-pivotal', cat: 'seat', brand: 'Colony', model: 'Pivotal Seat',
+    system: 'pivotal', price: 27.99
+  },
+  {
+    id: 'bmx-se-flybikes-pivotal', cat: 'seat', brand: 'Fly Bikes', model: 'Pivotal Seat',
+    system: 'pivotal', price: 26.99
+  },
+  {
+    id: 'bmx-se-totalbmx-slim', cat: 'seat', brand: 'Total BMX', model: 'Slim Pivotal Seat',
+    system: 'pivotal', price: 24.99
+  },
 
   // ===== SEATPOST =======================================================
   {
@@ -416,6 +678,14 @@ var BMX_PARTS = [
   {
     id: 'bmx-sp-odyssey-standard-post', cat: 'seatpost', brand: 'Odyssey', model: 'Standard Seatpost',
     diameter: 25.4, system: 'standard', price: 14.99
+  },
+  {
+    id: 'bmx-sp-colony-pivotal-post', cat: 'seatpost', brand: 'Colony', model: 'Pivotal Seatpost',
+    diameter: 25.4, system: 'pivotal', price: 17.99
+  },
+  {
+    id: 'bmx-sp-profile-pivotal-post', cat: 'seatpost', brand: 'Profile Racing', model: 'Pivotal Seatpost',
+    diameter: 25.4, system: 'pivotal', price: 21.99
   },
 
   // ===== GRIPS ==========================================================
@@ -430,6 +700,18 @@ var BMX_PARTS = [
   {
     id: 'bmx-gr-cult-dak', cat: 'grips', brand: 'Cult', model: 'Dak Grips',
     length: 143, flangeless: true, price: 10.99
+  },
+  {
+    id: 'bmx-gr-colony-griplock', cat: 'grips', brand: 'Colony', model: 'Grip Lock Grips',
+    length: 143, flangeless: true, price: 11.99
+  },
+  {
+    id: 'bmx-gr-flybikes-radioactive', cat: 'grips', brand: 'Fly Bikes', model: 'Radioactive Grips',
+    length: 143, flangeless: true, price: 9.99
+  },
+  {
+    id: 'bmx-gr-gt-performer', cat: 'grips', brand: 'GT', model: 'Performer Grips',
+    length: 148, flangeless: false, price: 8.99
   },
 
   // ===== PEDALS =========================================================
@@ -733,6 +1015,22 @@ var BMX_PARTS = [
   {
     id: 'bmx-sp-shadow-finest-post', cat: 'seatpost', brand: 'The Shadow Conspiracy', model: 'Finest Pivotal Seatpost',
     diameter: 25.4, system: 'pivotal', price: 15.99
+  },
+  {
+    id: 'bmx-pd-profile-elite', cat: 'pedals', brand: 'Profile Racing', model: 'Elite Pedals',
+    platform: 'alloy', spindle: '9/16', weight: 380, price: 74.99
+  },
+  {
+    id: 'bmx-pd-colony-fantom', cat: 'pedals', brand: 'Colony', model: 'Fantom Pedals',
+    platform: 'alloy', spindle: '9/16', weight: 350, price: 44.99
+  },
+  {
+    id: 'bmx-pd-bsd-motive', cat: 'pedals', brand: 'BSD', model: 'Motive Pedals',
+    platform: 'plastic', spindle: '9/16', price: 17.99
+  },
+  {
+    id: 'bmx-pd-chase-rsp-clip', cat: 'pedals', brand: 'Chase', model: 'RSP Clip Pedals',
+    platform: 'clip', spindle: '9/16', weight: 300, price: 89.99
   }
 ];
 
