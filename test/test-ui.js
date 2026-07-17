@@ -46,6 +46,28 @@ test('partVerified is false for null and for a kit with no fills', function(){
   ok(!C.partVerified({ id:'x', cat:'groupset', brand:'B', model:'M', price:0, fills:{} }));
 });
 
+/* ---- completeBikeSheetVerified(): the distinct "build-sheet verified" badge
+   predicate (bias-r3, 2026-07-17) — asks whether the BIKE ROW's own
+   verified/source fields are set (the sheet was fetched from the maker), never
+   whether every individual part it fills is itself verified (that's still
+   partVerified, and stays almost always false for a completebike — most
+   catalog components aren't independently verified yet). ---------------- */
+test('completeBikeSheetVerified is true for a complete bike whose own row is verified', function(){
+  ok(C.completeBikeSheetVerified(C.byId('cb-devinci-django-carbon-gx')));
+});
+test('completeBikeSheetVerified is false for a complete bike whose own row is not verified, even if some fills are', function(){
+  ok(!C.completeBikeSheetVerified(C.byId('cb-rose-scrub-dc3')));
+});
+test('completeBikeSheetVerified is false for null and for a non-completebike part', function(){
+  ok(!C.completeBikeSheetVerified(null));
+  ok(!C.completeBikeSheetVerified({ id:'x', cat:'saddle', brand:'B', model:'M', price:0, verified:true, lastChecked:'2026-01-01', source:'https://example.com' }));
+});
+test('completeBikeSheetVerified and partVerified are genuinely different claims for the same bike', function(){
+  var cb = C.byId('cb-devinci-django-carbon-gx');
+  ok(C.completeBikeSheetVerified(cb), 'the bike row itself is verified');
+  ok(!C.partVerified(cb), 'but not every one of its ~20 fills is independently verified yet — partVerified stays false');
+});
+
 /* ---- fisherYatesShuffle(): the "Random" catalog sort's shuffle ----------- */
 test('fisherYatesShuffle returns a permutation - same elements, none dropped or duplicated', function(){
   var input = [];

@@ -41,10 +41,11 @@ test('compound: unknown/garbage/absent values return null, never throw', functio
 });
 
 /* ---- casing: dh/enduro/trail/xc, a few per bucket across brands -------- */
-test('casing: dh bucket (Maxxis DH, Schwalbe Super Downhill, literal downhill)', function(){
+test('casing: dh bucket (Maxxis DH, Schwalbe Super Downhill, literal downhill, Schwalbe BikePark)', function(){
   eq(TC.classifyTireCasing('dh'), 'dh');
   eq(TC.classifyTireCasing('super-downhill'), 'dh');
   eq(TC.classifyTireCasing('downhill'), 'dh');
+  eq(TC.classifyTireCasing('bikepark'), 'dh');   // Schwalbe Magic Mary/Big Betty BikePark — the wire-bead DH tier
 });
 test('casing: enduro bucket (Maxxis DoubleDown, Schwalbe Super Gravity)', function(){
   eq(TC.classifyTireCasing('doubledown'), 'enduro');
