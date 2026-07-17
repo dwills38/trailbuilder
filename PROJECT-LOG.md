@@ -1,5 +1,17 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — cb-sheets-2 merged (sheet-verified 140 → 141); round-1 unverified-94 claim CONFIRMED
+
+- verify/cb-sheets-2 merged: re-screened the ~94 "fetched-but-unverified" completebike rows —
+  round-1's blocking reasons HOLD on ~15 fresh-fetched spot-checks; exactly one genuine gap found
+  and promoted (cb-giant-reign-advanced-2, re-fetched giant-bicycles.com verbatim; coordinator
+  re-confirmed the live page). Trek re-attempted once via bdata → still walled, 20 bikes skipped
+  per brief. Flags logged, not acted on: YT Jeffsy Core 3 CF + Evil Following live pages show
+  spec drift vs cataloged builds (need real re-derivation — queued for the data-model pass);
+  mullet Santa Cruz rears need a 27.5 Reserve row (new-row scope excluded). Hightower MY23
+  caution respected. Gates green, harness identical. Sheet-verified 141/436; parts verified
+  2,926. ⚠ bdata balance reported at $1.39 — nearing the $0.50 floor.
+
 ## 2026-07-17 — verify fanout batch-group 6 merged (verified 2916 → 2925)
 
 - Batch-group 6 (fox-shocks-2-smallparts): +9 KMC chains verified via a dual-source method
