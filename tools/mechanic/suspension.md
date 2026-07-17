@@ -1,5 +1,9 @@
 # Suspension — Mechanic Corpus
 
+**Maturity: foundation** (L1 coverage — general repair/compat literacy; see
+[`CURRICULUM.md`](CURRICULUM.md). No L2 damper/air-spring service-manual internals yet — see
+"## Gaps" below.)
+
 Fork · rear shock · travel · trunnion/standard eyes · coil approval · fork↔frame bundling.
 Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline, conventions).
 
@@ -71,6 +75,98 @@ weight comparability, a coil shock's weight = damper **without** spring. RockSho
 Super Deluxe Coil *with* a 350 lb spring (convert/flag it); EXT quotes the Storia V4 *without*
 ("Spring Sold Separately"). The basis is noted in `desc`, and `soldWithout` records the
 exclusion. *Confidence: convention (data-entry policy).* Source: tools/DATA-ENTRY-TEMPLATE.md §5.
+
+## Spring types — air vs coil (theory basics)
+
+**SUS-17 — Coil springs are linear-rate; air springs are progressive.** A coil spring's
+compression force rises **linearly** with stroke (1 inch of stroke needing 200 lb → 2 inches
+needs 400 lb). An air spring's force rises **exponentially** through the stroke, because
+compressing the piston into a fixed amount of trapped air halves the remaining volume
+repeatedly, doubling pressure each time. This is *why* the catalog's coil-approval rule (SUS-5)
+is per-frame: a frame's leverage curve is tuned around one spring-force curve shape, and
+swapping families changes that shape. *Confidence: confirmed (manufacturer physics
+explainer).* Source: RockShox "Suspension Theory Guide" (sram.com/globalassets/…
+/rockshox/suspension-theory-guide.pdf, fetched) — *"A coil spring has a linear spring
+rate… Unlike linear coil springs, air springs have a progressive spring curve."*
+
+**SUS-18 — Coil spring rate is set by wire diameter and wire length only; coil bind and coil
+set are the two coil-specific failure/limit modes.** Thicker wire = higher rate; longer wire =
+lower rate (coil diameter/spacing set physical dimensions, not rate). **Coil bind** = coils
+touching each other, hard-capping travel once reached. **Coil set** = a fatigued coil that no
+longer returns to full length after sustained compression — it doesn't change the spring rate,
+but enough coil set brings coils closer together and can reduce *usable* travel before bind.
+Relevant mechanic takeaway: a coil shock that feels like it's lost travel/got harsher over a long
+service life may be coil set, not a damper fault. *Confidence: confirmed.* Source: RockShox
+Suspension Theory Guide (fetched), pages 4–6.
+
+**SUS-19 — Coil preload fine-tunes sag; it is NOT a substitute for the correct spring rate.**
+Preloading a coil (compressing it before stroke begins via the shock's preload collar) raises
+breakaway force and stiffens initial feel without changing the spring's rate — it's a small
+sag trim, not a way to correct a spring that's grossly too soft or too stiff for the rider/frame.
+*Confidence: confirmed.* Source: RockShox Suspension Theory Guide (fetched), page 6.
+
+**SUS-20 — Air spring "progression" is tunable via chamber volume — smaller volume = steeper
+ramp-up, larger volume = more linear/gradual curve.** This is the mechanical basis for volume
+spacers/tokens: reducing the air chamber's volume raises the spring's late-stroke ramp for more
+bottom-out resistance, without touching starting (sag) pressure. *Confidence: confirmed.*
+Source: RockShox Suspension Theory Guide (fetched), pages 9–11 — *"A larger air chamber… creates
+an air spring with a larger volume and more gradual spring curve. If the volume of the same air
+spring is reduced, the pressure increases more rapidly."*
+
+## Sag & setup basics
+
+**SUS-21 — RockShox's own sag targets split by air-spring family: 25% for Solo Air rear
+shocks, 30% for DebonAir rear shocks, ±5% rider preference.** Setup procedure per RockShox's
+FAQ: open the damper fully, pressurize from empty to 100 psi and cycle the shock 5× to
+equalize positive/negative air chambers, then pressurize to roughly the rider's total weight in
+lbs as a psi starting point (e.g. 160 lb rider → ~160 psi) before checking sag. *Confidence:
+confirmed (manufacturer FAQ).* Source: RockShox support FAQ "How much air should I have in my
+RockShox rear shock for my rider weight?" (support.rockshox.com, fetched) — *"The correct sag
+percentage for Solo Air shocks is 25%. The correct sag for DebonAir shocks is 30%… Sag can be
+set +/- 5% as preferred."*
+
+**SUS-22 — Fox's own guidance instead gives ONE uniform starting-point number — 25% sag for
+both fork and rear shock — then adjusts by riding style.** More sag (lower pressure) for
+DH/shuttle-style riding; less sag (higher pressure) for XC/all-mountain. Sag is read off an
+o-ring or zip tie on the stanchion/shock body. Note this is a genuinely different number from
+RockShox's split 25/30% rear-shock guidance (SUS-21) — two manufacturers publishing different
+own-brand starting points, not a data conflict to resolve (sag/setup is outside `checkBuild`'s
+scope entirely — no engine rule or catalog field this could contradict). *Confidence: confirmed
+(manufacturer page).* Source: Fox "Achieving Correct Air Pressure with Sag" (tech.ridefox.com,
+fetched).
+
+**SUS-23 — RockShox's post-pressurization equalization procedure, and how "sag" is
+distinguished from "travel used."** After setting starting pressure, RockShox has the rider
+cycle the fork ~25–30% of its travel (or the rear shock 5–8 times, ~15% of travel — 35% for
+Vivid Air) to equalize the positive/negative air chambers before final pressure checks. Separately,
+a **sliding o-ring against the wiper seal** tracks how much travel gets *used* on a real ride
+(distinct from the static sag measurement) — RockShox's own guidance: *"Ideally, you use most of
+your travel while riding — occasional bottom outs on bigger impacts is normal."* *Confidence:
+confirmed.* Source: RockShox "Suspension Welcome Guide" (sram.com/en/rockshox/learn/, fetched).
+
+## Service intervals (general awareness — not a repair procedure)
+
+**SUS-24 — RockShox's official interval bands: forks 50 h (lower leg) / 100–200 h (lower leg +
+air/coil spring + damper, model-year dependent); rear shocks 50 h (air can) / 100 h or 200 h
+(air can + damper, varies by model — Monarch/Vivid/Kage at 100 h, Deluxe/Super Deluxe at
+200 h).** *Confidence: confirmed (manufacturer FAQ + official interval chart, both fetched).*
+Source: RockShox support FAQ "How often should I service my RockShox product?"
+(support.rockshox.com) + "SRAM/RockShox Service Interval Counter Mat"
+(sram.com/globalassets/document-hierarchy/service-manuals/sramrockshox-service-interval-counter-mat.pdf),
+both fetched. Both note intervals shift with terrain/riding style/skill level and vary by
+product + model year — treat as a *band*, not a fixed number, the same discipline SUS-13 applies
+to travel SKUs.
+
+**SUS-25 — Fox's published intervals (one manual edition, dated) for comparison: air-spring
+forks (32/36, F-Series/FLOAT/TALAS) — lower-leg oil + FLOAT air-chamber fluid every 100 h or
+annually; coil-spring forks (36 VAN, 40) — lower-leg oil every 30 h; rear shocks (FLOAT/DHX) —
+air-sleeve + fluid service every 100 h or annually. Harsher conditions (wet/mud, DH racing,
+winter) shorten all of these, unquantified.** *Confidence: partial — fetched from one specific
+Fox owner's-manual edition ("011"); Fox interval figures are known to move across manual
+editions/model years (third-party shop summaries cite different 30–50 h / 125 h bands for newer
+generations that this pass could not independently fetch-confirm) — treat as directionally
+right, not a pinned current-year figure.* Source: Fox "Service Intervals"
+(tech.ridefox.com/fox_tech_center/owners_manuals/011/Content/Service_Intervals.html, fetched).
 
 ## Fork travel vs frame
 
@@ -173,6 +269,10 @@ tools/VERIFY-PROTOCOL.md "Interface verification" + fork extension (Douglas 2026
   geometry they designed and warranty.
 - **A fork's native mount couples suspension to braking** (SUS-12): the fork you pick sets the
   min rotor size — a brakes constraint that originates on the fork, and shifts by generation.
+- **A frame's leverage curve is engineered around a spring-force SHAPE, not just a size**
+  (SUS-17): coil is linear, air is progressive, so per-frame coil approval (SUS-5) is really
+  asking "was this leverage curve designed around a linear-force input?" — the shape mismatch,
+  not just "does a coil shock physically bolt on," is the underlying reason.
 
 ### Mismatch failure modes
 - **Hard "won't fit":** wrong shock eye-to-eye or mount (SUS-1); a longer-than-spec stroke
@@ -194,6 +294,10 @@ tools/VERIFY-PROTOCOL.md "Interface verification" + fork extension (Douglas 2026
   is checked before fitting a coil, and never inferred from the curve.
 - **Fork lower-leg / air-spring service and travel changes are maintenance-order coupled** — an
   internal travel spacer changes travel *and* the geometry it implies (SUS-11).
+- **Spring/sag is set before damping is tuned** (SUS-21/22/23): both RockShox's and Fox's own
+  procedures set air pressure/sag FIRST (with an equalization-cycle step), then rebound/compression
+  are dialed in against that baseline — damper settings tuned against the wrong sag are being
+  tuned against a moving target.
 
 ### Wear / setup couplings
 - **Reduced stroke changes the leverage the frame sees** — running a frame at a non-design
@@ -203,8 +307,52 @@ tools/VERIFY-PROTOCOL.md "Interface verification" + fork extension (Douglas 2026
   a durability/fatigue coupling, not just a geometry preference.
 - **Coil vs air changes the spring curve** the frame was tuned for — the reason coil approval
   (SUS-5) is a per-frame maker statement, not a universal.
+- **Coil set is a fatigue failure mode distinct from damper wear** (SUS-18): a coil shock
+  feeling harsher/shorter-travel after years of service may need a spring check before a damper
+  teardown — misdiagnosing coil set as a damper fault sends the part to the wrong service step.
+- **Service cadence and stroke/travel settings interact** — a shock run at a reduced stroke
+  (SUS-4) or a fork/shock overdue for its interval band (SUS-24/25) both change how the
+  suspension behaves independent of anything the compat engine checks; a "green" build says
+  nothing about maintenance state.
 
 ---
+
+## Gaps
+
+Honest list of what a future round needs to close to move this chapter past `foundation`:
+
+- **No Fox/RockShox damper/air-spring SERVICE-manual internals** — oil volumes, seal-kit part
+  numbers, compression/rebound circuit detail, shim-stack tuning. The RockShox Suspension Theory
+  Guide fetched this round covers pages 3–11 (spring theory) only; its own DAMPER (p.14),
+  FRICTION (p.21) and TUNING (p.26) sections were deliberately NOT mined to stay at L1 depth —
+  next round's clean pickup point. **L2 gap.**
+- **No torque-spec table** for shock hardware (mounting bolts, air-can/end-cap torque, travel
+  spacer bolts) or fork hardware (axle pinch bolts, crown bolts, air-spring top-cap torque).
+  **L2 gap.**
+- **Fox service intervals are pinned to one dated manual edition ("011")** — SUS-25 flags that
+  third-party shop pages cite different current-generation bands (30–50 h / 125 h) this pass
+  could not independently fetch-confirm from ridefox.com/tech.ridefox.com directly (site
+  structure resisted a clean current-edition fetch). Re-fetch the current owners-manual edition
+  and reconcile. **L1 completeness gap** (not L2 — this is still "what's the number," not
+  service internals).
+- **No numeric coil-spring-rate selection chart** (rider weight + frame leverage ratio → lb
+  spring recommendation). RockShox publishes a "Suspension Fork Coil Spring Chart" but it surfaced
+  this round only via a third-party (yumpu) mirror, not a clean fetchable sram.com page/PDF —
+  skipped rather than cited from a mirror. Worth a targeted re-fetch attempt (possibly via Bright
+  Data if WebFetch/Exa can't reach the primary PDF). **L1/L3 gap** (a *general* selection
+  heuristic is arguably L1; a *frame-leverage-adjusted* chart is L3 wheel/suspension-tuner
+  territory).
+- **sheldonbrown.com checked and confirmed thin for this chapter, as the curriculum predicted** —
+  its suspension-adjacent content is 1990s Cannondale Headshok elastomer-fork service (an
+  obsolete non-air/coil design), not applicable to this catalog's modern air/coil MTB suspension.
+  Not re-attempted; future rounds shouldn't re-try this site for this chapter.
+- **No leverage-ratio / kinematics engineering detail** — how a frame's linkage produces a
+  progressive vs. linear (or mixed) rear-suspension rate curve, and how that curve interacts with
+  air vs. coil spring choice beyond the qualitative SUS-17 note. **L3 gap** (frame-engineer
+  territory, not generalist).
+- **No suspension-tuning-as-race-strategy notes** — pressure/rebound trade-offs for race
+  conditions, pit-stop rebuild/swap procedures, what actually breaks under World Cup loads.
+  **L4 gap** — the furthest-out level per CURRICULUM.md, expected to arrive last.
 
 ## Open mechanic questions (for the human review — do not act)
 - SUS-9: should a bare "Fork Compatibility: X–Y mm" line (no softening language) default to a
