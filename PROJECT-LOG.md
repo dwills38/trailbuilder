@@ -1,5 +1,22 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — mechanic L1 COMPLETE (63 facts, all 6 chapters) + reviews & marketplace design rounds merged
+
+- **tooling/mechanic-training-1 final commit merged** — brakes chapter landed (BRK-13..27); all
+  6 chapters graded `foundation`, 63 new cited facts, CURRICULUM L1-L4 + maturity/gaps system
+  live. **L1 is COMPLETE — the mechanic agent is operational.** 2 contradiction flags triaged
+  by the coordinator: BRK-17 (community-tier claim an FM-on-PM adapter exists vs rule 8's
+  hard-error) → correct default stands (no rule change on a shop-blog source; queued as an L2
+  manufacturer-sourcing target — 2 Canyon FM frame rows are live-relevant); CKP-15 (saddle
+  rail-shape coverage gap, no wrong verdict today) → noted for the data-model pass.
+- **design/reviews-model merged** (off-live): schema + staged supabase/reviews.sql (Douglas
+  runs it, NOT yet) with owner-RLS/no-auto-hide/anti-brigade; the unbiased firewall baked in
+  (reviews never feed checkBuild or catalog order; no maker-level rollups; Bayesian shrinkage
+  if rating-sort ever ships). Decisions doc parked for Douglas.
+- **design/marketplace-security merged** (off-live): 7-threat model + defense architecture;
+  headline = NEVER touch money (Stripe-Connect facilitator), catalog-id binding as a fraud
+  oracle, Bike Index stolen-check differentiator, builder firewall. 8 decisions parked.
+
 ## 2026-07-17 — ⚠ PROTOCOL BREACH (worker self-push) — content OK, process corrected
 
 - The bmx-depth-4 worker MERGED AND PUSHED its own branch to main (dd4bd8e..c26e820), including
