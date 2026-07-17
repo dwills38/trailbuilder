@@ -82,7 +82,8 @@ var BMX_PARTS = [
     id: 'bmx-fr-sandm-holmes', cat: 'frame', brand: 'S&M', model: 'Holmes',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 21.0, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 459.99
+    price: 459.99,
+    note: 'Holmes is a real S&M heritage/90s model (sandmbikes.com/1995/holmes-frame, sandmbikes.com/1990/the-holmes) but is NOT in S&M\'s current production lineup (current sandmbikes.com frames: Whammo V2, Holy Diver, NBD, Tall Boy, BTM, BTM XL, ATF variants, Black Magic, Hucker, M.O.D., C.C.R., Dagger, Steel Panther) - retailer listings show it "Not Available". Existing spec values (mid BB, integrated head tube, u-brake, 14mm axle, 21in TT) are consistent with historical Next Gen Holmes catalog data found via search, but no current manufacturer product page exists to fetch, so left unverified.'
   },
   {
     id: 'bmx-fr-colony-sweettooth', cat: 'frame', brand: 'Colony', model: 'Sweet Tooth',
@@ -191,13 +192,15 @@ var BMX_PARTS = [
     id: 'bmx-fr-totalbmx-techlite', cat: 'frame', brand: 'Total BMX', model: 'Techlite',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
-    weight: 1950, price: 469.99, note: 'Total\'s lightweight chromoly flagship; commonly run brakeless.'
+    weight: 1950, price: 469.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Techlite" frame found for Total BMX (real current frames: TWS 2, Killabee K4, Hangover H4, 657 X, Americano, Concorde). Left as unverified sample data; model name is not confirmed to a real Total BMX SKU.'
   },
   {
     id: 'bmx-fr-sandm-pitchfork', cat: 'frame', brand: 'S&M', model: 'Pitchfork',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 21.0, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
-    price: 459.99, note: 'S&M\'s long-running dirt/park frame; commonly run brakeless.'
+    price: 459.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): "Pitchfork" is S&M\'s long-running FORK (sandmbikes.com/product/hardgoods/pitchfork - steerer/dropout/offset spec sheet, no BB shell or head tube fields), not a frame - no S&M "Pitchfork frame" product exists in current or historical listings found. This row is likely miscategorized/misnamed at entry; left as unverified sample data, not corrected to the fork\'s real spec (would change category). Flagged for coordinator review.'
   },
   {
     id: 'bmx-fr-colony-emerald', cat: 'frame', brand: 'Colony', model: 'Emerald',
@@ -241,12 +244,14 @@ var BMX_PARTS = [
   {
     id: 'bmx-fk-sandm-mianus', cat: 'fork', brand: 'S&M', model: 'Mianus Fork',
     discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
-    brakeMount: 'none', weight: 660, price: 119.99, note: 'S&M\'s long-running signature 3-piece fork name.'
+    brakeMount: 'none', weight: 660, price: 119.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Mianus" fork (or any Mianus-named product) found for S&M in current or historical listings - "Mianus" does not appear anywhere in S&M\'s catalog history; S&M\'s actual long-running 3-piece fork is the Pitchfork (see bmx-fr-sandm-pitchfork\'s note - miscategorized as a frame in this catalog). Left as unverified sample data; likely a fabricated/placeholder name. Flagged for coordinator review.'
   },
   {
     id: 'bmx-fk-totalbmx-yfork', cat: 'fork', brand: 'Total BMX', model: 'Y-Fork',
     discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
-    brakeMount: 'none', weight: 640, price: 109.99, note: 'Total\'s iconic 3-piece fork silhouette; commonly run brakeless.'
+    brakeMount: 'none', weight: 640, price: 109.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Y-Fork" found for Total BMX (real current forks: Hangover - 28mm offset, 10mm dropouts, 1-1/8in steerer; TWS - same spec family). Left as unverified sample data; model name is not confirmed to a real Total BMX SKU.'
   },
   {
     id: 'bmx-fk-chase-rsp', cat: 'fork', brand: 'Chase', model: 'RSP Race Fork',
@@ -316,7 +321,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-sandm-xlr8r', cat: 'cranks', brand: 'S&M', model: 'XLR8R Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 950, price: 219.99
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 950, price: 219.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "XLR8R" crank found for S&M (real current cranks: OEM 19 - 19mm/48-spline; historical Prince Albert). Left as unverified sample data; model name is not confirmed to a real S&M SKU.'
   },
   {
     id: 'bmx-cr-stolen-team', cat: 'cranks', brand: 'Stolen', model: 'Team Cranks',
@@ -382,7 +388,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-sp-sandm-unit-28', cat: 'sprocket', brand: 'S&M', model: 'Unit Sprocket 28T',
-    teeth: 28, mount: 'spline', pitch: '1/8', price: 49.99
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 49.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Unit" sprocket found for S&M (real current sprockets: X-Man, Tuffman, Mid School Guard, Chain Saw, Motoman, GoRing Guard - none named Unit). Left as unverified sample data; model name is not confirmed to a real S&M SKU.'
   },
   {
     id: 'bmx-sp-profile-race-28', cat: 'sprocket', brand: 'Profile Racing', model: 'Race Sprocket 28T',
@@ -612,7 +619,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-hb-sandm-slam', cat: 'handlebar', brand: 'S&M', model: 'Slam Bars',
-    clamp: '25.4mm', rise: 8.5, width: 29, price: 74.99
+    clamp: '22.2mm', rise: 8, width: 28, weight: 907, price: 69.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.sandmbikes.com/product/hardgoods/slam-bar',
+    note: 'Corrected from a generic sample entry: sandmbikes.com\'s own product page confirms 22.2mm clamp (not 25.4mm), 8in rise (not 8.5), 28in width (not 29), and 2.0lb/907g weight; base price $69.95 (variants run to $109.95 by color).'
   },
   {
     id: 'bmx-hb-flybikes-glory', cat: 'handlebar', brand: 'Fly Bikes', model: 'Glory Bars',
