@@ -1,5 +1,10 @@
 # Wheels & Tires — Mechanic Corpus
 
+**Maturity: foundation** (L1 — general-public repair/compat literacy; see
+[`CURRICULUM.md`](CURRICULUM.md). This chapter has broad L1 coverage of wheel size, axles, and
+tire↔rim fit, plus foundation-level truing/tubeless/lacing terminology as of the 2026-07-17 L1
+deepening pass — see "## Gaps" below for what a future L2/L3/L4 round still needs to close.)
+
 Wheel size · hubs · axles · rims · tires · ETRTO envelope · clearance.
 Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline, conventions).
 
@@ -154,6 +159,125 @@ when the maker publishes only a combined "from Xg" set weight (DT Swiss pattern)
 `desc`. *Confidence: policy.* Source: tools/DATA-ENTRY-TEMPLATE.md §5; VERIFY-PROTOCOL.md wheel
 extension.
 
+## Tire sizing nomenclature (ISO/ETRTO)
+
+**WHL-17 — The ISO/ETRTO tire-size code is two numbers: width-mm × bead-seat-diameter-mm, and
+the second number is the one that must match the rim.** Format is `width-BSD` (e.g. `58-622`).
+Sheldon Brown's explainer: *"if this number [BSD] matches, the tire will fit onto the rim; if it
+doesn't match, the tire won't fit."* This is why ISO/ETRTO sizing exists at all — traditional
+inch-based names ("26 inch") were ambiguous because different real diameters were sold under the
+same nominal name. Common MTB/road BSDs: 700C/29er = **622 mm**; 650B/27.5 = **584 mm**; 26"
+MTB = **559 mm**. *Confidence: confirmed (fetched).* Source: sheldonbrown.com "Tire Sizing
+Systems" (fetched 2026-07-17). This is the naming system *underneath* the catalog's `wheel`
+vocab (`'29'`/`'275'`/`'26'`) and underneath WHL-9's width-envelope table — WHL-9 covers how wide
+a tire may be on a given rim; this fact covers why a 29" tire and a 27.5" tire are simply
+incompatible bead diameters, full stop, regardless of width.
+
+**WHL-18 — ETRTO (European Tyre and Rim Technical Organisation) is the standards body behind the
+BSD system, not just a table publisher.** Its stated mission is *"Alignment of national standards
+to achieve interchangeability of pneumatic tyres, rims and valves in Europe as far as fitting and
+use are concerned,"* with "more than 50 years of standardisation" behind it; it publishes a
+Standards Manual, an Engineering Design Information Manual, and a multilingual Technical
+Dictionary. *Confidence: confirmed (fetched, org's own site).* Source: etrto.org (fetched
+2026-07-17). Context fact for WHL-9/WHL-17 — explains why "ETRTO" is treated as the credible
+default envelope in this corpus (a standards body, not one brand's marketing).
+
+## Wheel truing basics
+
+**WHL-19 — "True" means no lateral or radial deviation as the wheel spins; the two axes are
+independent and are diagnosed differently.** Park Tool: **lateral trueness** = *"side-to-side
+wobbles, or lateral deviations, as the wheel spins"* (viewed head-on); **radial trueness** = *"the
+wheel's roundness, or amount of up and down movement as it spins"* (viewed from the side, i.e.
+hop/bounce, not wobble). A truing stand's indicator fingers are set against the rim to detect
+each independently. *Confidence: confirmed (fetched).* Source: parktool.com "How Wheel Truing
+Works" + "Wheel Truing (Lateral & Radial)" (both fetched 2026-07-17).
+
+**WHL-20 — Basic spoke-tension direction rule: tightening a spoke pulls the rim toward that
+spoke's hub-flange side; to correct a wobble you tighten the spokes on the side *opposite* the
+deviation.** Because spokes are elastic and under tension, "correctly tightened" opposing spokes
+suspend the rim in balance around the hub; uneven tension means the wheel won't "stay true...for
+very long." Park Tool also flags a common beginner trap: viewed from outside the rim, clockwise
+tightens a nipple — but a nipple viewed through a truing stand from the *inside* of the wheel
+looks reversed, so "counterclockwise tightens" is a common misread on-stand. *Confidence:
+confirmed (fetched).* Source: parktool.com "How Wheel Truing Works" + "Wheel Truing (Lateral &
+Radial)" (fetched 2026-07-17). This is foundation depth only — no spoke-tension target
+values (kgf), balance/dish tolerances, or fatigue-failure data; that is an L3 gap (see below).
+
+## Tubeless setup basics
+
+**WHL-21 — Tubeless mounting requires a matched tubeless-ready tire + rim + tape + valve, and
+the bead seats at high pressure with an audible/visual "pop," not at riding pressure.** Basic
+sequence: mount one bead, start the second bead at the valve leaving a gap, add sealant (pour
+before finishing the bead, or inject through the valve stem after both beads are seated),
+then inflate "to at least the maximum pressure on the label" — an air compressor is
+recommended, though a well-designed UST tire can sometimes seat with a floor pump. Sealant needs
+time to fully cure and block micro-leaks (immediate for true UST, "hours or days" for other
+tubeless-ready systems); the wheel should be spun/oscillated periodically early on to distribute
+sealant. Punctures in tubeless tires generally **cannot be patched** the way a tube can, except
+specific lined UST systems. *Confidence: confirmed (fetched).* Source: parktool.com "Tubeless
+Tire Removal and Installation" (fetched 2026-07-17).
+
+**WHL-22 — Tubeless-ready tires and rims are a matched mechanical system (square bead + hooked
+rim channel), and Park Tool explicitly warns against improvising with non-tubeless parts.**
+Tubeless-ready tires use a "square shape" bead (vs. the rounded bead on a standard clincher) with
+reinforced casing; tubeless-ready rims use a hooked-sidewall channel profile that locks that bead
+plus a deeper center channel to ease mounting. Park Tool's own words: *"it is not considered safe
+nor reliable to manipulate non-compatible parts in attempting to create a tubeless tire ride."*
+Tubeless-specific rim tape and valves are also required, and sealants "aren't necessarily
+compatible across brands" — switching sealant chemistry means cleaning the tire first.
+*Confidence: confirmed (fetched).* Source: parktool.com "Tubeless Tire Compatibility" (fetched
+2026-07-17). **Note for the coordinator:** the catalog/engine currently has **no tubeless
+modelling at all** — no `tubeless`/`tubelessReady` field on wheel or tire rows, so this isn't a
+⚠ CONTRADICTION (nothing exists to contradict), but it is a real fit-relevant axis the engine is
+silent on; flagging as a candidate-rule note, not a rule to add unilaterally.
+
+## Axle standards (identification & history)
+
+**WHL-23 — Quick-release and thru-axle are mechanically different fastening systems, not just a
+diameter difference.** A QR skewer is a hollow shaft through a hollow axle: the lever's cam
+compresses the dropouts against the hub's cone locknuts (Park Tool: a QR is *"a hollow hub axle
+fitted with a shaft, a lever that operates a cam mechanism, and an adjusting nut"*). A thru-axle
+instead *"inserts into the hole in...the forkend, passes through the hub, and screws into a
+threaded hole in the other forkend"* — the axle itself is structural, not just a clamp. Sheldon
+Brown gives the common thru-axle diameters: **12 mm** is the usual thickness; some Shimano
+E-Thru axles are **15 mm**; some heavy-duty (DH) applications use **20 mm** — matching the
+catalog's `15x110`/`20x110` fork-axle tokens. Thru-axles were adopted mainly for disc-brake
+rotor/caliper alignment (no rub-adjustment needed on reinstall) and for the stiffer
+fork-to-hub connection suspension forks need under load. *Confidence: confirmed (fetched).*
+Source: sheldonbrown.com "Thru Axles" (fetched 2026-07-17); parktool.com "Wheel Removal and
+Installation" (fetched 2026-07-17).
+
+**WHL-24 — Hub/frame spacing has widened steadily for over a century; today's Boost/SuperBoost
+values (WHL-4/5) are the latest step in a long-running trend, not a one-off.** Sheldon Brown's
+documented rear over-locknut-distance (O.L.D.) progression: **110 mm** (older track/single-speed)
+→ **114 mm** (3–4-speed internal-gear hubs) → **120 mm** (5-speed) → **126 mm** (6–7-speed road)
+→ **130 mm** (7-speed MTB/modern road) → **135 mm** (the page's "current" disc-brake/MTB QR
+figure). Front spacing similarly ranged roughly 70–100 mm historically. *Note: this page predates
+the Boost/SuperBoost/thru-axle-142+ era the catalog actually stocks (its "current" figures are
+QR-135mm-era) — read this as historical trend context for WHL-4/5/WHL-21, not as a current-spec
+source; the catalog's 142/148/157 thru-axle facts stay sourced to EXPERT-REVIEW-DOSSIER.md /
+manufacturer pages.* Frame spacing itself is measured dropout-inner-face to dropout-inner-face;
+a steel frame can be "cold set" (spread) to fit a wider modern hub, aluminum/carbon generally
+cannot. *Confidence: confirmed (fetched); dated source flagged explicitly.* Source:
+sheldonbrown.com "Bicycle Frame/Hub Spacing" (fetched 2026-07-17).
+
+## Spoke count & lacing (foundation)
+
+**WHL-25 — Spoke crossing pattern is named by how many other same-flange spokes each spoke
+crosses ("cross 3", "cross 2", radial = "cross 0"), and radial lacing is a front-wheel-only,
+no-hub-brake pattern.** Higher cross numbers lay spokes more tangentially to the hub flange,
+which better resists the twisting/torque loads of pedaling and hub braking (drum/coaster/disc
+hub brakes — not the same as rim/rotor braking through the frame); lower cross numbers (down to
+radial) are more nearly perpendicular. Sheldon Brown states plainly that radial (cross-0) wheels
+are *"suitable only for front wheels that don't use hub brakes"* and that drive or hub-brake
+wheels *"should never be radially spoked"* because the near-perpendicular angle spikes tension
+under torque and risks spoke/hub failure. Typical cross counts by spoke count: 48h → cross 5,
+40h → cross 4, 36h → cross 3 or 4, 32h → cross 3, 28h/24h → cross 2. *Confidence: confirmed
+(fetched).* Source: sheldonbrown.com "Wheelbuilding" (fetched 2026-07-17). Foundation depth only
+— no spoke-tension target/balance numbers or fatigue-failure modelling; that's the L3 gap below.
+The catalog has no lacing-pattern field on wheel rows (wheels are sold as complete built wheels),
+so this is background knowledge for the mechanic agent, not a fact that feeds `checkBuild`.
+
 ---
 
 ## INTERACTIONS (the organizing principle)
@@ -172,6 +296,15 @@ extension.
 - **Tire width is bounded by three separate things:** the rim (WHL-9/11), the frame's rear
   clearance (WHL-12), and the fork crown (WHL-13). A tire can clear the rim and foul the frame,
   or clear the frame and foul the fork — three independent ceilings.
+- **Bead-seat diameter (BSD) is the hard wheel-size gate underneath everything else** (WHL-17):
+  before width/clearance is even relevant, the tire's BSD number must equal the rim's — this is
+  the mechanical reason a 29" tire and a 27.5" tire are simply different objects, not just
+  different widths. WHL-1's per-end wheel-size matching is this rule expressed at the catalog's
+  `wheel` vocab level.
+- **Hub/frame spacing is a moving historical target, and Boost/SuperBoost (WHL-4/5) are just the
+  newest values on a decades-long widening trend** (WHL-24) — a mechanic reading an older frame's
+  spacing (110–135 mm) is reading an earlier step of the same axis the catalog's 142/148/157
+  thru-axle tokens continue.
 
 ### Mismatch failure modes
 - **Hard "won't fit":** an illegal wheel-size combo / reverse mullet (WHL-1/2); an axle-spacing
@@ -193,6 +326,10 @@ extension.
   alignment.
 - **Hookless rims force tubeless tire choice** (WHL-9): a hookless rim constrains the tire type
   before width is even considered.
+- **Tubeless setup has its own install order** (WHL-21/22): matched tubeless-ready tire+rim+tape
+  +valve first, bead seated at high pressure (not riding pressure) second, sealant added/cured
+  third — skipping or reordering these (or mixing non-tubeless-ready parts) is a setup failure
+  mode independent of anything `checkBuild` currently checks (no tubeless field exists yet).
 
 ### Wear / setup couplings
 - **Rim width shapes the tire's real profile:** a wide tire on a narrow rim balloons (squirm,
@@ -202,8 +339,45 @@ extension.
   with asymmetric spoke tension, a durability coupling behind keeping it an error.
 - **Tire clearance shrinks under load/mud:** published static clearances (WHL-12/13) are the
   ceiling; dynamic clearance is tighter, which is why the tiers are warnings even at the max.
+- **Spoke tension degrades with use and is what truing restores** (WHL-19/20): a wheel that was
+  correctly built and true at purchase can true itself out of spec over time from riding loads —
+  a maintenance coupling with nothing to do with part compatibility, and nothing the catalog
+  models (no spoke-tension field on wheel rows).
+- **Lacing pattern is chosen for the load path, not looks** (WHL-25): a radially-laced wheel on a
+  drive or hub-brake wheel is a wear/failure-mode risk (excess flange tension under torque), which
+  is why complete built wheels in the catalog are sold as opaque units rather than modelled by
+  lacing pattern.
 
 ---
+
+## Gaps
+
+Honest list of what's still missing to climb past **foundation** — for the next training round
+to target (per INDEX.md corpus rule 7 / CURRICULUM.md "target the weakest chapter"):
+
+- **No spoke-tension target/balance table or fatigue-failure data — L3 gap.** WHL-19/20/25 cover
+  truing *concepts* (lateral/radial, cross patterns) but carry no kgf tension targets, dish
+  tolerance numbers, or spoke-fatigue/failure-mode research (CURRICULUM.md's named L3 example).
+- **No tubeless sealant chemistry/failure-mode depth — L3 gap.** WHL-21/22 cover setup mechanics
+  and the "brands aren't always compatible" warning, but not *why* (latex vs. other sealant
+  chemistry, clogging, burp-pressure-by-casing thresholds) — CURRICULUM.md's named L3 example.
+- **No hub bearing/press-fit engineering — L2/L3 gap.** Nothing here on cup-and-cone adjustment
+  procedure, cartridge-bearing press specs/tolerances, or freehub pawl/ratchet service — this
+  chapter covers axle *spacing/diameter* only, not hub internals.
+- **No torque-spec table — L2 gap.** Thru-axle, rotor-bolt, and spoke-nipple torque values are
+  entirely absent; WHL-23 covers the axle *mechanism*, not install torque.
+- **No DT Swiss / SRAM / other hub-brand primary source landed yet for Boost/SuperBoost
+  origin.** WHL-4/5's 148/157 facts are sourced (EXPERT-REVIEW-DOSSIER.md + a fetched Problem
+  Solvers page); this round tried to fetch a DT Swiss or SRAM primary explainer for the
+  Boost-was-introduced-in-2015 history and could not land one cleanly (see report) — still an
+  open source-gap, not urgent since the fit-relevant numbers are already sourced elsewhere.
+- **No wheel-building procedure depth (lacing order, tensioning sequence, stress-relieving) —
+  L3 gap.** WHL-25 gives naming/why, not the how-to-build-a-wheel procedure.
+- **BMX/DJ wheel facts (WHL-3/7/8) are still thin relative to MTB** — off-live but same
+  foundation bar; a future round could deepen BMX peg/axle and DJ wheel-size sourcing beyond the
+  design-doc/community tier they currently carry.
+- **No race-day wheel/tire setup judgment (pressure-as-strategy, pit-wheel-swap procedure) —
+  L4 gap**, and expected to arrive last per CURRICULUM.md.
 
 ## Open mechanic questions (for the human review — do not act)
 - WHL-2: any defensible deliberate 27.5F/29R build (trials/DJ conversions)?
