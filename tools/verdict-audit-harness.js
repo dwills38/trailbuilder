@@ -11,6 +11,15 @@
    surfaced on 2026-07-09 are written up in tools/VERDICT-AUDIT-2026-07-09.md;
    regression cases live in test/test-verdict-audit.js.
 
+   2026-07-16: probes C and D grew PARTIAL-WHEEL coverage (build-your-own hub+
+   rim slots with only one half picked) - the exact shape the C-1 CRITICAL
+   (tools/CODE-QUALITY-AUDIT-2026-07-16.md) lived behind, because the harness
+   previously only ever assembled a complete hub+rim pair. D now carries
+   must-clash partial-wheel cases plus a compatible-partial negative check
+   (a false "won't fit" is equally a miss); C carries a wheel-substitution
+   regression guard (a built wheel swapped for its equivalent hub+rim halves
+   must stay clean) so the clean direction stays covered too.
+
    Probes:
      A. NAME-vs-FIELD    product name (brand+model) vs the fields checkBuild reads
      B. PRESETS          every curated preset's own fills must be conflict-free
@@ -138,6 +147,36 @@ hr('C. ASSEMBLE (a sensible complete build per frame -> unexpected ERRORS)');
   console.log('  => ' + clean + ' clean, ' + errored + ' with errors (inspect each - most are catalog gaps, not wrong verdicts)');
 })();
 
+/* -- C2. WHEEL-SUBSTITUTION (2026-07-16): a built wheel swapped for its
+   equivalent hub+rim halves must stay clean - the CLEAN-direction guard for
+   the partial-resolution path C-1 broke. Deliberately minimal and
+   self-contained (frame+fork+hub+rim only, no drivetrain/tire/rotor) so a
+   failure here can only mean the hub+rim merge itself regressed, not an
+   unrelated catalog gap muddying the signal. A handful of real frames, one
+   shared known-compatible hub+rim pair (Boost110 front / Boost148 rear, both
+   29in) confirmed against each frame's own fork/axle facts. */
+console.log('\n  -- C2. wheel-substitution (built wheel -> hub+rim halves must stay clean) --');
+(function(){
+  var subs = [
+    { frame: 'fr-santacruz-megatower-cc', fork: 'fk-fox-38-factory-29-170', frontHub: 'fh-dtswiss-350-boost110', frontRim: 'rm-dtswiss-ex511-29', rearHub: 'rh-dtswiss-350-boost148-hg', rearRim: 'rm-dtswiss-ex511-29' },
+    { frame: 'fr-specialized-enduro-sworks', fork: 'fk-fox-38-factory-29-170', frontHub: 'fh-dtswiss-350-boost110', frontRim: 'rm-dtswiss-ex511-29', rearHub: 'rh-dtswiss-350-boost148-hg', rearRim: 'rm-dtswiss-ex511-29' },
+    { frame: 'fr-yt-capra-core4', fork: 'fk-fox-38-factory-29-170', frontHub: 'fh-dtswiss-350-boost110', frontRim: 'rm-dtswiss-ex511-29', rearHub: 'rh-dtswiss-350-boost148-hg', rearRim: 'rm-dtswiss-ex511-29' },
+    { frame: 'fr-trek-slash', fork: 'fk-fox-38-factory-29-170', frontHub: 'fh-dtswiss-350-boost110', frontRim: 'rm-dtswiss-ex511-29', rearHub: 'rh-dtswiss-350-boost148-hg', rearRim: 'rm-dtswiss-ex511-29' },
+    { frame: 'fr-transition-spire-alloy', fork: 'fk-fox-38-factory-29-170', frontHub: 'fh-dtswiss-350-boost110', frontRim: 'rm-dtswiss-ex511-29', rearHub: 'rh-dtswiss-350-boost148-hg', rearRim: 'rm-dtswiss-ex511-29' }
+  ];
+  var regressed = 0;
+  subs.forEach(function(s){
+    var build = {}; Object.keys(s).forEach(function(k){ build[k] = byId(s[k]); });
+    var r = C.checkBuild(build);
+    if(r.errors.length){
+      regressed++;
+      console.log('  REGRESSION: ' + s.frame + ' (hub+rim halves) -> unexpected ERRORS');
+      r.errors.forEach(function(e){ console.log('    ERROR [' + e.ruleId + '] ' + e.msg); });
+    }
+  });
+  console.log('  => ' + (subs.length - regressed) + '/' + subs.length + ' hub+rim substitutions stayed clean, ' + regressed + ' regressed');
+})();
+
 /* -- D. adversarial: real clashes MUST be flagged -------------------------- */
 hr('D. ADVERSARIAL (builds that must clash - a MISS here is a false "fits")');
 (function(){
@@ -152,7 +191,23 @@ hr('D. ADVERSARIAL (builds that must clash - a MISS here is a false "fits")');
     { n: 'DH straight-dc frame + single-crown fork', b: { frame: 'fr-commencal-supreme-dh-v5', fork: 'fk-rockshox-zeb-ultimate-29-170' }, e: 'steerer' },
     { n: 'hardtail frame + rear shock', b: { frame: 'fr-commencal-meta-ht-v3', shock: 'sh-rockshox-super-deluxe-ultimate-230x65' }, e: 'hardtail-shock' },
     { n: 'IS-cup headset pressed into a ZS head tube', b: { frame: 'fr-giant-reign-advanced', headset: 'hs-canecreek-40-is41-is52' }, e: 'headset-upper' },
-    { n: 'tapered headset + dual-crown (straight) fork', b: { fork: 'fk-rockshox-boxxer-ultimate-29-200', headset: 'hs-canecreek-40-zs44-zs56' }, e: 'headset-steerer' }
+    { n: 'tapered headset + dual-crown (straight) fork', b: { fork: 'fk-rockshox-boxxer-ultimate-29-200', headset: 'hs-canecreek-40-zs44-zs56' }, e: 'headset-steerer' },
+    /* 2026-07-16 partial-wheel additions (C-1): each case below picks only
+       ONE half of a build-your-own wheel end (hub or rim, never both) - the
+       exact shape that stayed silent pre-fix because effectiveWheel returned
+       null for anything less than a complete pair. */
+    // hub-only: the C-1 repro itself - a DH 20x110 front hub against a Boost
+    // 15x110 fork, no rim picked. Must still error on the axle mismatch.
+    { n: 'hub-only: 20x110 DH front hub on a Boost fork (C-1 repro)', b: { fork: 'fk-fox-38-factory-29-170', frontHub: 'fh-industrynine-hydra2-20x110' }, e: 'front-axle' },
+    // rim-only: a 27.5 rim is the only wheel-side part on a 29-only frame -
+    // no hub, no fork, no tire. Must still error on the unsupported config.
+    { n: 'rim-only: 27.5 front rim on a 29-only frame', b: { frame: 'fr-santacruz-megatower-cc', frontRim: 'rm-hope-fortus30-275' }, e: 'wheel-config' },
+    // hub-only: an HG-driver rear hub against an XD-only cassette, no rim.
+    // Must still error on the freehub mismatch.
+    { n: 'hub-only: HG-driver rear hub + XD-only cassette', b: { rearHub: 'rh-dtswiss-350-boost148-hg', cassette: 'ca-sram-xg1275' }, e: 'freehub' },
+    // hub-only: a Center-Lock rotor against a 6-bolt front hub, no rim - the
+    // no-adapter-exists direction (the reverse, 6-bolt-on-CL, is a warning).
+    { n: 'hub-only: Center-Lock rotor on a 6-bolt front hub', b: { frontHub: 'fh-dtswiss-240-boost110', frontRotor: 'ro-shimano-rtmt800-203-cl' }, e: 'front-rotor-interface' }
   ];
   var miss = 0;
   cases.forEach(function(c){
@@ -162,6 +217,29 @@ hr('D. ADVERSARIAL (builds that must clash - a MISS here is a false "fits")');
     if(!got){ miss++; console.log('  MISS (false fits!): ' + c.n + ' -> expected error ' + c.e); }
   });
   console.log('  => ' + (cases.length - miss) + '/' + cases.length + ' clashes correctly flagged, ' + miss + ' missed');
+})();
+
+/* -- D2. ADVERSARIAL NEGATIVES: compatible partials must stay silent ------- */
+console.log('\n  -- D2. compatible partial wheels must NOT clash (a false "won\'t fit" is equally a miss) --');
+(function(){
+  var negs = [
+    // hub-only, no rim: a Boost110 hub on a Boost110 fork - same axle, no
+    // conflicting rotor/tire picked. Must stay clean.
+    { n: 'hub-only: Boost110 front hub on a Boost110 fork', b: { fork: 'fk-fox-38-factory-29-170', frontHub: 'fh-dtswiss-350-boost110' } },
+    // rim-only, no hub: a 29in rim on a 29-only frame. Must stay clean.
+    { n: 'rim-only: 29in front rim on a 29-only frame', b: { frame: 'fr-santacruz-megatower-cc', frontRim: 'rm-hope-fortus30-29' } }
+  ];
+  var falseRed = 0;
+  negs.forEach(function(c){
+    var build = {}; Object.keys(c.b).forEach(function(k){ build[k] = byId(c.b[k]); });
+    var r = C.checkBuild(build);
+    if(r.errors.length){
+      falseRed++;
+      console.log('  FALSE RED (false won\'t-fit!): ' + c.n);
+      r.errors.forEach(function(e){ console.log('    ERROR [' + e.ruleId + '] ' + e.msg); });
+    }
+  });
+  console.log('  => ' + (negs.length - falseRed) + '/' + negs.length + ' compatible partials correctly stayed clean, ' + falseRed + ' false red(s)');
 })();
 
 /* -- E. rotor-max false warning simulation --------------------------------- */
