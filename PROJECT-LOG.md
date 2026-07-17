@@ -1,5 +1,14 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — kit-fanout-2 merged (kit verified 409 → 413, 57.8%)
+
+- verify/kit-fanout-2 merged: +4 Shimano shoe promotions (2 real price corrections XC502
+  $100→$175, GE700 $150→$190), 5 rows honestly flagged status:'discontinued' with Shimano's own
+  Gravity Footwear supersession article as evidence. Key finding: 199 of 305 unverified kit rows
+  already carry documented dead-ends from fanout-1 (spot-reproduced) — the remaining honest
+  targets are ~102 rows across ~33 brands (O'Neal/ION/Scott + smaller; 100% Shopify 503'd
+  mid-session, Bontrager needs bdata browser mode). Gates green (700 tests on merged state).
+
 ## 2026-07-17 — mechanic L1 COMPLETE (63 facts, all 6 chapters) + reviews & marketplace design rounds merged
 
 - **tooling/mechanic-training-1 final commit merged** — brakes chapter landed (BRK-13..27); all
