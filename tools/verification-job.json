@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-17T14:05:22.178Z",
+ "updated": "2026-07-17T18:56:38.960Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -158,7 +158,6 @@
   "fr-pivot-les-sl",
   "fr-bmc-twostroke-01",
   "fr-radon-cragger",
-  "ti-schwalbe-big-betty-275-24-sg-as",
   "ti-michelin-wildenduro-racingline-29-25-gs-mh",
   "ti-michelin-wildenduro-performanceline-29-25-mh",
   "ti-michelin-wildenduro-performanceline-29-24-ms",
@@ -168,11 +167,6 @@
   "ti-michelin-dh34-275-24",
   "ti-pirelli-scorpionxc-rc-29-24-pw-dual",
   "ti-pirelli-scorpionxc-rc-29-22-pw-dual",
-  "ti-specialized-butcher-29-26-gridtrail-t9",
-  "ti-specialized-eliminator-29-23-gridtrail-t7",
-  "ti-specialized-hillbilly-29-24-gridgravity-t9",
-  "ti-maxxis-crossmark-ii-275-225-exo-dual",
-  "ti-maxxis-crossmark-ii-29-225-exo-dual",
   "ti-cst-camber-29-225",
   "ti-bontrager-xr1-29-22-innerstrength-tmspeed",
   "ti-bontrager-xr5-29-25-tmgrip",
@@ -199,7 +193,6 @@
   "ti-kenda-krad-26-23",
   "ti-schwalbe-tabletop-26-225",
   "ti-dmr-motodj-26-22",
-  "ti-maxxis-minion-dhr-ii-29-24-dd-mt",
   "ti-schwalbe-magic-mary-275-25-tp-as",
   "ti-schwalbe-nobbynic-29-24-supertrail-soft",
   "ti-schwalbe-nobbynic-29-24-superground-speed",
@@ -209,11 +202,9 @@
   "ti-schwalbe-magic-mary-275-25-sg-as",
   "ti-xlc-vtm20-summit-29-225",
   "ti-xlc-vtm20-summit-275-225",
-  "ti-maxxis-aggressor-29-25-exo-dual",
   "ti-schwalbe-hans-dampf-29-235-st-as",
   "ti-continental-kryptotal-re-275-24-downhill-supersoft",
   "ti-schwalbe-racing-ray-29-225-sg-asg",
-  "ti-maxxis-dissector-29-24-exo-3cmt",
   "ti-maxxis-ardent-race-29-22-exo",
   "ti-bontrager-xr4-29-26-innerstrength-tmgrip",
   "ti-bontrager-gunnisonpro-xr-29-24",
@@ -222,24 +213,14 @@
   "ti-wtb-breakout-29-23",
   "ti-wtb-trailboss-29-225-comp",
   "ti-kenda-regolith-29-24",
-  "ti-schwalbe-magic-mary-29-24-st-aus",
   "ti-schwalbe-magicmary-29-24",
   "ti-schwalbe-bigbetty-29-24",
   "ti-specialized-butcher-29-23-gridgravity-t9",
   "ti-specialized-butcher-275-23-gridtrail-t9",
-  "ti-specialized-fasttrak-29-235-control-t7",
-  "ti-specialized-renegade-29-235-control-t5",
   "ti-specialized-purgatory-29-24-grid-t9",
-  "ti-specialized-groundcontrol-29-235-grid-t7",
-  "ti-specialized-groundcontrol-29-235-control-t5",
-  "ti-specialized-fasttrak-29-235-control-t5",
-  "ti-specialized-eliminator-29-26-gridtrail-t7",
-  "ti-specialized-butcher-29-24-gridtrail-t9",
   "ti-specialized-eliminator-29-24-gridtrail-t7",
-  "ti-maxxis-highroller-ii-29-23-exo",
   "ti-wtb-breakout-comp-29-23",
   "ti-delium-rugged-275-24",
-  "ti-schwalbe-big-betty-275-24-st-as",
   "ti-maxxis-ardent-race-29-235-exo-3cms",
   "ti-maxxis-ardentrace-275-26-exo-tr",
   "ti-maxxis-ardent-29-24-exo-dual",
@@ -313,7 +294,7 @@
   "fw-syncros-md25-26-15x100",
   "fw-dtswiss-e593-29",
   "fw-wtb-sti27-29",
-  "fw-dtswiss-xm1700-29",
+  "fw-dtswiss-xm1700-275",
   "fw-nukeproof-horizon-v2-29",
   "fw-wtb-novatec-i30-29",
   "fw-marin-shimano-mt410-29",
@@ -354,12 +335,10 @@
   "fw-wtb-frequency-koi30-29",
   "fw-ethirteen-lg1-enduro-29",
   "fw-giant-tra2-29",
-  "fw-raceface-turbiner30-29",
   "fw-syncros-x30s-29",
   "fw-syncros-revelstoke15-29",
   "fw-syncros-silverton2-29",
   "fw-giant-xct-29",
-  "fw-dtswiss-x1900-29",
   "fw-wtb-sti25-scalpelht3-29",
   "fw-bontrager-line-comp-30-29",
   "fw-bontrager-linetlr30-roscoeoe-29",
@@ -368,12 +347,9 @@
   "fw-wtb-stxi25-habitht2-29",
   "fw-wtb-stxi25-mt400-29",
   "fw-shimano-tc500b-29",
-  "fw-newmen-beskar30-29",
-  "fw-newmen-performance30-29",
   "fw-focus-ar30-shimano-29",
   "fw-focus-ar27-formula-29",
   "fw-newmen-performance30-dh-275",
-  "fw-newmen-forge30-dh-29",
   "fw-specialized-alloy-30-29",
   "fw-dtswiss-370-roval-alloy-29",
   "fw-specialized-alloy-29-29",
@@ -395,7 +371,6 @@
   "fw-wtb-sti35tcs20-275",
   "fw-whyte-secta-rs-alloy-29",
   "fw-whyte-secta-r-alloy-29",
-  "fw-newmen-beskar30-light-29",
   "fw-marin-house-275-boost",
   "fw-dtswiss-370-ex511-29",
   "fw-dtswiss-f1900-classic-29-dh",
@@ -434,9 +409,7 @@
   "fw-shimano-tc500-shl28os-29",
   "fw-shimano-tc500-kovee-procaliberoe-29",
   "fw-orbea-oc-alloy-29",
-  "fw-dtswiss-xrc1501-29",
   "fw-industrynine-hydra-reynoldsbl-29",
-  "fw-ethirteen-grapplersidekick-flux-dh-alloy-29-20x110",
   "fw-wtb-sti30-novatec-275",
   "fw-sunringle-duroc35-29-boost110",
   "rw-hunt-enduro-wide-29-xd",
@@ -565,7 +538,7 @@
   "rw-dtswiss-e593-275-ms",
   "rw-wtb-sti27-29-ms",
   "rw-dtswiss-m1900-275-157-xd",
-  "rw-dtswiss-xm1700-29-xd",
+  "rw-dtswiss-xm1700-275-xd",
   "rw-nukeproof-horizon-v2-29-xd",
   "rw-nukeproof-horizon-v2-275-xd",
   "rw-wtb-novatec-i30-29-hg",
@@ -580,11 +553,9 @@
   "rw-dtswiss-ex-1700-275-xd",
   "rw-dtswiss-fr-1500-275-157-hg",
   "rw-wtb-stlight-29-xd",
-  "rw-dtswiss-xrc1501-29-xd",
   "rw-vitus-kt-wtb-komtrail-i30-29",
   "rw-vitus-kt-wtb-stlight-i30-29-hg",
   "rw-ethirteen-grappler-core-formula-29-ms",
-  "rw-dtswiss-xm1700-29-ms",
   "rw-halo-ridgelineii-29-ms",
   "rw-hunt-trailwide-29-ms",
   "rw-raceface-ar27-29-xd",
@@ -622,7 +593,6 @@
   "rw-ethirteen-lg1-enduro-29-hg",
   "rw-giant-trx-0-275",
   "rw-giant-tra2-29-ms",
-  "rw-raceface-turbiner30-29-xd",
   "rw-syncros-x30s-29-ms",
   "rw-syncros-revelstoke15-29-xd",
   "rw-syncros-silverton2-29-ms",
@@ -631,8 +601,6 @@
   "rw-syncros-x30s-29-hg",
   "rw-dtswiss-m1900-29-157-xd",
   "rw-dtswiss-m1900-29-157-ms",
-  "rw-dtswiss-x1900-29-xd",
-  "rw-dtswiss-x1900-29-ms",
   "rw-wtb-sti25-scalpelht3-29-ms",
   "rw-bontrager-line-comp-30-29-hg",
   "rw-bontrager-line-comp-30-29-ms",
@@ -646,14 +614,10 @@
   "rw-shimano-tc500hmb-29-hg",
   "rw-shimano-tc500msb-29-ms",
   "rw-shimano-tc500hmb-meridacompccii-29-hg",
-  "rw-newmen-beskar30-29-xd",
-  "rw-newmen-performance30-29-hg",
-  "rw-newmen-performance30-29-ms",
   "rw-focus-ar30-shimano-29-ms",
   "rw-focus-ar27-formula-29-ms",
   "rw-acid-slx30-29-hg",
   "rw-newmen-performance30-dh-275-superboost157",
-  "rw-newmen-forge30-dh-275-hg",
   "rw-specialized-alloy-30-29-ms",
   "rw-dtswiss-370-roval-alloy-29-xd",
   "rw-specialized-alloy-29-29-ms",
@@ -680,10 +644,8 @@
   "rw-canyon-iridium30-29-hg",
   "rw-alexrims-dp30-tc500-29-hg",
   "rw-spank-spikerace33-formula-29-hg",
-  "rw-newmen-performance30-29-xd",
   "rw-wtb-sti35tcs20-275-hg",
   "rw-whyte-secta-r-alloy-29-hg",
-  "rw-newmen-beskar30-light-29-xd",
   "rw-marin-house-275-boost-hg",
   "rw-dtswiss-370-ex511-29-hg",
   "rw-dtswiss-f1900-classic-275-superboost",
@@ -732,72 +694,14 @@
   "rw-shimano-tc500-shl28os-29-ms",
   "rw-shimano-tc500-kovee-procaliberoe-29-ms",
   "rw-orbea-oc-alloy-29-ms",
-  "rw-dtswiss-xrc1501-29-ms",
   "rw-industrynine-hydra-reynoldsbl-29-ms",
-  "rw-ethirteen-grapplersidekick-flux-dh-alloy-275-boost148-hg",
   "rw-wtb-sti30-novatec-275-ms",
   "rw-sunringle-duroc35-29-boost148-ms",
   "sh-fox-dhx2-factory-230x62p5",
   "sh-fox-float-x-perf-elite-185x55-trun",
   "sh-xfusion-h3c-185x50-trun",
-  "sh-dvo-topaz-gen3-190x42p5",
-  "sh-dvo-topaz-gen3-210x52p5",
-  "sh-dvo-topaz-gen3-230x65",
-  "sh-dvo-topaz-gen3-165x40-trun",
-  "sh-dvo-topaz-gen3-165x42p5-trun",
-  "sh-dvo-topaz-gen3-165x45-trun",
-  "sh-dvo-topaz-gen3-185x52p5-trun",
-  "sh-dvo-topaz-gen3-185x55-trun",
-  "sh-dvo-topaz-gen3-205x65-trun",
-  "sh-dvo-topaz-gen1-216x63p5",
-  "sh-dvo-topaz-gen1-216x57p5",
-  "sh-dvo-topaz-gen1-200x51",
-  "sh-dvo-topaz-gen1-190x50",
-  "sh-dvo-topaz-gen1-165x40-trun",
-  "sh-dvo-topaz-gen1-165x42p5-trun",
-  "sh-dvo-topaz-gen1-165x45-trun",
-  "sh-dvo-topaz-gen1-185x50-trun",
-  "sh-dvo-topaz-gen1-185x52p5-trun",
-  "sh-dvo-topaz-gen1-185x55-trun",
-  "sh-dvo-topaz-gen1-205x57p5-trun",
-  "sh-dvo-topaz-gen1-205x60-trun",
-  "sh-dvo-topaz-gen1-205x62p5-trun",
-  "sh-dvo-topaz-gen1-205x65-trun",
-  "sh-dvo-jade-x-230x60",
   "sh-dvo-jade-x-230x57p5",
-  "sh-dvo-jade-x-210x55",
-  "sh-dvo-jade-x-210x52p5",
-  "sh-dvo-jade-x-210x50",
-  "sh-dvo-jade-x-205x62p5-trun",
-  "sh-dvo-jade-x-205x60-trun",
   "sh-dvo-jade-x-205x57p5-trun",
-  "sh-dvo-jade-x-185x55-trun",
-  "sh-dvo-jade-x-185x52p5-trun",
-  "sh-dvo-jade-x-185x50-trun",
-  "sh-dvo-jade-210x50",
-  "sh-dvo-jade-210x55",
-  "sh-dvo-jade-230x60",
-  "sh-dvo-jade-230x65",
-  "sh-dvo-jade-250x70",
-  "sh-dvo-jade-185x50-trun",
-  "sh-dvo-jade-185x52p5-trun",
-  "sh-dvo-jade-205x60-trun",
-  "sh-dvo-jade-225x70-trun",
-  "sh-dvo-jade-225x75-trun",
-  "sh-mrp-hazzard-210x50",
-  "sh-mrp-hazzard-210x52p5",
-  "sh-mrp-hazzard-210x55",
-  "sh-mrp-hazzard-230x57p5",
-  "sh-mrp-hazzard-230x60",
-  "sh-mrp-hazzard-230x62p5",
-  "sh-mrp-hazzard-230x65",
-  "sh-mrp-hazzard-185x50-trun",
-  "sh-mrp-hazzard-185x52p5-trun",
-  "sh-mrp-hazzard-185x55-trun",
-  "sh-mrp-hazzard-205x57p5-trun",
-  "sh-mrp-hazzard-205x60-trun",
-  "sh-mrp-hazzard-205x62p5-trun",
-  "sh-mrp-hazzard-205x65-trun",
   "sh-intend-rover-205x65-trun",
   "sh-intend-rover-230x65",
   "sh-intend-rover-225x75-trun",
@@ -811,31 +715,6 @@
   "sh-ohlins-ttx2air-205x65-trun",
   "sh-ohlins-ttx2air-m2-185x55-trun",
   "sh-ohlins-ttx2air-m2-205x65-trun",
-  "sh-fox-float-x-factory-210x52p5",
-  "sh-fox-float-x-factory-205x60-trun",
-  "sh-fox-float-x-factory-190x45",
-  "sh-fox-float-x2-factory-210x50",
-  "sh-fox-float-x2-factory-210x52p5",
-  "sh-fox-float-x2-factory-230x60",
-  "sh-fox-float-x2-factory-230x62p5",
-  "sh-fox-float-x2-factory-185x55-trun",
-  "sh-fox-float-x2-factory-230x65",
-  "sh-fox-float-x2-factory-250x75",
-  "sh-fox-float-x2-factory-225x75-trun",
-  "sh-fox-dhx2-210x50",
-  "sh-fox-dhx2-230x60",
-  "sh-fox-dhx2-185x55-trun",
-  "sh-fox-dhx2-205x60-trun",
-  "sh-fox-dhx-factory-210x55",
-  "sh-fox-dhx-factory-230x60",
-  "sh-fox-dhx-factory-230x65",
-  "sh-fox-dhx-factory-185x55-trun",
-  "sh-fox-dhx-factory-205x60-trun",
-  "sh-fox-dhx-factory-205x62p5-trun",
-  "sh-fox-float-sl-factory-165x40-trun",
-  "sh-fox-float-dps-factory-190x51",
-  "sh-fox-float-dps-factory-200x51",
-  "sh-fox-float-dps-factory-184x44",
   "sh-fox-float-dps-factory-185x55-trun",
   "sh-fox-float-dpx2-factory-230x57p5",
   "sh-fox-float-dpx2-230x60",
@@ -860,7 +739,6 @@
   "sh-fox-float-dps-performance-210x55",
   "sh-fox-float-x2-performance-230x65",
   "sh-fox-float-x2-performance-185x55-trun",
-  "sh-fox-float-x-performance-elite-210x55",
   "sh-fox-float-x-factory-185x52p5-trun",
   "sh-fox-float-x-performance-185x52p5-trun",
   "sh-fox-nude-tr-factory-205x65-trun",
@@ -897,20 +775,11 @@
   "sh-fox-floatsl-performanceelite-210x50",
   "sh-fox-float-x2-factory-230x57p5",
   "sh-fox-nude6-165x45-trun",
-  "fk-rockshox-pike-base-29-120",
-  "fk-rockshox-pike-base-275-130",
   "fk-fox-36-performance-elite-my27-29-150",
-  "fk-dvo-onyx-sc-d1-29-160",
-  "fk-dvo-onyx-sc-d1-29-180",
-  "fk-dvo-onyx-sc-d1-275-160",
-  "fk-dvo-onyx-sc-d1-275-170",
-  "fk-dvo-onyx-sc-d1-275-180",
   "fk-dvo-diamond-boost-29-130",
   "fk-dvo-diamond-boost-29-160",
   "fk-dvo-diamond-boost-275-140",
   "fk-dvo-diamond-boost-275-170",
-  "fk-dvo-diamond-d1sl-29-140",
-  "fk-dvo-diamond-d1sl-29-160",
   "fk-dvo-sapphire-32-275-100",
   "fk-dvo-sapphire-32-275-140",
   "fk-dvo-sapphire-32-29-100",
@@ -921,43 +790,16 @@
   "fk-dvo-sapphire-34-29-120",
   "fk-dvo-sapphire-34-29-130",
   "fk-dvo-sapphire-34-29-140",
-  "fk-dvo-onyx-d1-38-29-160",
-  "fk-dvo-onyx-d1-38-29-180",
   "fk-ext-era-v2-29-140",
   "fk-ext-era-v2-29-150",
   "fk-ext-era-v2-29-160",
   "fk-ext-vaia-29-200",
   "fk-ext-vaia-29-170",
-  "fk-rockshox-domain-gold-r-275-160",
-  "fk-rockshox-domain-gold-r-29-180",
-  "fk-rockshox-domain-gold-r-29-170",
   "fk-fox-34-factory-29-120",
-  "fk-fox-34-factory-29-130",
   "fk-fox-36-sl-factory-29-120",
-  "fk-fox-36-sl-factory-29-130",
-  "fk-fox-36-sl-factory-29-140",
   "fk-fox-32-sc-factory-275-100",
   "fk-xfusion-sweep-275-150",
-  "fk-rockshox-pike-base-29-130",
-  "fk-rockshox-pike-base-275-140",
-  "fk-rockshox-pike-select-275-130",
-  "fk-rockshox-pike-select-275-140",
-  "fk-rockshox-pike-selectplus-29-130",
-  "fk-rockshox-pike-selectplus-275-130",
-  "fk-rockshox-pike-selectplus-275-140",
-  "fk-rockshox-lyrik-select-29-140",
-  "fk-rockshox-lyrik-select-275-140",
-  "fk-rockshox-lyrik-select-275-150",
-  "fk-rockshox-lyrik-selectplus-275-160",
   "fk-fox-38-performance-275-160",
-  "fk-rockshox-lyrik-selectplus-29-140",
-  "fk-rockshox-lyrik-selectplus-29-150",
-  "fk-rockshox-lyrik-selectplus-275-140",
-  "fk-rockshox-lyrik-selectplus-275-150",
-  "fk-rockshox-lyrik-base-29-140",
-  "fk-rockshox-lyrik-base-29-150",
-  "fk-rockshox-lyrik-base-275-140",
-  "fk-rockshox-lyrik-base-275-150",
   "fk-srsuntour-aion-34-29-140",
   "fk-srsuntour-aion-34-275-140",
   "fk-srsuntour-aion-34-275-150",
@@ -973,18 +815,6 @@
   "fk-rockshox-boxxer-select-d2-275-180",
   "fk-rockshox-boxxer-select-d2-275-190",
   "fk-rockshox-boxxer-select-d2-275-200",
-  "fk-rockshox-boxxer-base-d1-29-180",
-  "fk-rockshox-boxxer-base-d1-29-190",
-  "fk-rockshox-boxxer-base-d1-275-180",
-  "fk-rockshox-boxxer-base-d1-275-190",
-  "fk-manitou-dorado-pro-29-180",
-  "fk-manitou-dorado-pro-29-190",
-  "fk-manitou-dorado-pro-275-180",
-  "fk-manitou-dorado-pro-275-190",
-  "fk-manitou-dorado-expert-29-180",
-  "fk-manitou-dorado-expert-29-190",
-  "fk-manitou-dorado-expert-275-180",
-  "fk-manitou-dorado-expert-275-190",
   "fk-formula-nero-r-275-200",
   "fk-formula-nero-r-29-180",
   "fk-formula-nero-r-29-190",
@@ -993,46 +823,24 @@
   "fk-formula-nero-c-29-200",
   "fk-ohlins-dh38-m1-29-180",
   "fk-ohlins-dh38-m1-275-180",
-  "fk-rockshox-zeb-base-29-160",
-  "fk-rockshox-zeb-base-29-170",
-  "fk-rockshox-zeb-base-29-180",
-  "fk-rockshox-zeb-select-plus-29-160",
-  "fk-rockshox-zeb-select-plus-29-170",
-  "fk-rockshox-zeb-select-plus-29-180",
   "fk-formula-selva-c-29-170",
-  "fk-dvo-onyx-d1-38-29-170",
-  "fk-srsuntour-durolux-r2c2-29-160",
-  "fk-srsuntour-durolux-r2c2-29-180",
-  "fk-rockshox-sid-select-29-110",
-  "fk-rockshox-sid-selectplus-29-110",
-  "fk-rockshox-sid-selectplus-29-100",
   "fk-rockshox-sid-sl-select-29-110",
   "fk-rockshox-sid-sl-select-29-100",
-  "fk-fox-32-sc-performance-29-100",
   "fk-fox-34-sc-performance-29-110",
-  "fk-fox-34-sc-factory-29-120",
   "fk-fox-34-sc-performance-29-120",
-  "fk-srsuntour-axon-werx-34-29-100",
-  "fk-srsuntour-axon-werx-34-29-110",
-  "fk-srsuntour-axon-werx-34-29-120",
   "fk-fox-podium-29-170",
   "fk-fox-podium-29-160",
-  "fk-fox-36-factory-my27-29-150",
-  "fk-fox-36-factory-my27-29-160",
   "fk-fox-36-sl-performance-elite-29-140",
   "fk-fox-36-sl-performance-29-140",
-  "fk-marzocchi-bomber-dj-26-100",
   "fk-manitou-circus-expert-26-100",
   "fk-manitou-circus-expert-26-100-straight",
   "fk-dvo-sapphire-26-100",
-  "fk-xfusion-slant-dj-26-100",
   "fk-fox-38-performance-29-180",
   "fk-fox-36-rhythm-29-150",
   "fk-fox-34-performance-29-140",
   "fk-rockshox-revelation-rc-29-130",
   "fk-fox-34-performance-elite-29-140",
   "fk-rockshox-lyrik-ultimate-29-170",
-  "fk-srsuntour-xcr34-2cr-29-130",
   "fk-fox-34-rhythm-29-120",
   "fk-fox-34-rhythm-29-130",
   "fk-fox-34-rhythm-29-140",
@@ -1043,7 +851,6 @@
   "fk-rockshox-35-gold-rl-29-160",
   "fk-rockshox-sid-base-29-110",
   "fk-marzocchi-z2-airrail-29-150",
-  "fk-fox-34-performance-29-130",
   "fk-fox-36-performance-29-150",
   "fk-fox-36-performance-29-170",
   "fk-fox-36-performance-275-150",
@@ -1053,7 +860,6 @@
   "fk-rockshox-35-gold-rl-29-140",
   "fk-fox-36-rhythm-29-140",
   "fk-fox-34-rythm-29-130",
-  "fk-rockshox-psylo-silver-29-150",
   "fk-fox-36-rhythm-29-160",
   "fk-fox-38-rhythm-29-170",
   "fk-rockshox-recon-rl-29-130",
@@ -1065,15 +871,11 @@
   "fk-rockshox-yari-rc-29-170",
   "fk-rockshox-yari-rc-29-160",
   "fk-rockshox-35-gold-rl-29-130",
-  "fk-rockshox-psylo-gold-rc-29-140",
-  "fk-rockshox-psylo-gold-rc-29-160",
   "fk-rockshox-recon-gold-rl-29-120",
   "fk-rockshox-judy-gold-rl-29-120",
   "fk-rockshox-35-silver-tk-29-140",
-  "fk-rockshox-zeb-r-29-180",
   "fk-giant-stl34-29-140",
   "fk-rockshox-lyrik-select-rc-29-160",
-  "fk-fox-34-performance-elite-29-130",
   "fk-fox-34-performance-elite-29-120",
   "fk-marzocchi-bomber-z1-29-140",
   "fk-fox-34-floatsc-performanceelite-29-110",
@@ -1083,10 +885,8 @@
   "fk-giant-sxc32-29-100",
   "fk-giant-sxc32-3-29-100",
   "fk-rockshox-35-gold-rl-29-150",
-  "fk-dvo-diamond-d1sl-29-150",
   "fk-srsuntour-xce28-29-100-qr",
   "fk-srsuntour-xct30-29-100-qr",
-  "fk-dvo-onyx-38-d1-29-170",
   "fk-fox-40-performance-29-203",
   "fk-rockshox-judy-29-100-qr-rockhopper",
   "fk-srsuntour-xcm-29-100-qr",
@@ -1098,6 +898,7 @@
   "hb-norco-alloy-35",
   "hb-anvl-mandrel-35",
   "hb-ocmountaincontrol-mc30-35",
+  "hb-yeti-carbon-780-35",
   "hb-thomson-elite-35",
   "hb-thomson-elite-trail-318",
   "hb-cannondale-1-riser-carbon-35",
@@ -1235,7 +1036,6 @@
   "st-ibis-alloy-318-40",
   "st-sixpack-vertic-35-50",
   "st-polygon-expert-35",
-  "st-raceface-aeffectr-35-40",
   "st-orbea-oc-mc10-35-40",
   "st-orbea-oc-mp21-70",
   "st-rockymountain-35am-40",
@@ -1348,7 +1148,6 @@
   "gr-orbea-oc-lockon",
   "gr-devinci-performance-lockon",
   "gr-xlc-grs34",
-  "gr-wtb-wafel",
   "gr-kona-key-grip",
   "gr-gt-mushroom",
   "gr-salsa-filetread-lockon",
@@ -1398,7 +1197,6 @@
   "dp-canyon-sp0070-349-200",
   "dp-brandx-ascend-316-150",
   "dp-tranzx-ysi34-309-150",
-  "dp-tranzx-ysp39-349-150",
   "dp-tranzx-ysi60ql-309-150",
   "dp-kindshock-900i-349-170",
   "dp-canyon-g5-sp0060-309-170",
@@ -1420,8 +1218,6 @@
   "dp-giant-contactswitchat-309-170",
   "dp-syncros-duncan25-316-150",
   "dp-giant-contactswitchcore-309-120",
-  "dp-tranzx-jdysp18-316-130",
-  "dp-tranzx-jdysp18-309-130",
   "dp-bontrager-line-316-150",
   "dp-merida-experttrii-349-190",
   "dp-merida-comptrii-349-160",
@@ -1576,7 +1372,6 @@
   "bk-shimano-mt600",
   "bk-tektro-hd-m275",
   "bk-tektro-mechanical-disc-generic",
-  "bk-shimano-xt-m8220",
   "ro-trp-r1-223-6b",
   "ro-sram-hs2-160-6b",
   "ro-sram-centerline-220-6b",
@@ -1588,7 +1383,6 @@
   "ro-sram-centerline-140-6b",
   "ro-sram-centerline-160-cl",
   "ro-sram-centerline-180-6b",
-  "ro-sram-centerline-200-6b",
   "ro-sram-centerline-203-6b",
   "ro-sram-centerline-x-140-6b",
   "ro-sram-centerline-x-140-cl",
@@ -1629,7 +1423,6 @@
   "ro-shimano-rt26-160-6b",
   "ro-trp-25-203-6b",
   "ro-trp-25-180-6b",
-  "ro-shimano-rt86-203-6b",
   "ro-shimano-rt66-180-6b",
   "ro-shimano-rt66-203-6b",
   "ro-shimano-rt66-160-6b",
@@ -1720,7 +1513,6 @@
   "cr-truvativ-descendant-7k-eagle-dub",
   "cr-sram-descendant-7k-eagle-dub-32t",
   "cr-sram-x1-1000-eagle-dub-30t",
-  "cr-shimano-xt-m8120-30t",
   "cr-prowheel-habitht-30t",
   "cr-shimano-mt511",
   "cr-merida-experttrii-165-32",
@@ -1747,7 +1539,6 @@
   "cr-generic-forgedalloy-32t",
   "cr-raceface-nextsl-34",
   "cb-rose-scrub-dc3",
-  "cb-santacruz-hightower-r-2025",
   "cb-privateer-161-g2",
   "cb-privateer-141-g2",
   "cb-gt-force-comp",
@@ -1763,7 +1554,6 @@
   "cb-transition-sentinel-alloy-xt",
   "cb-transition-spur-carbon-deore",
   "cb-transition-spur-carbon-gx",
-  "cb-salsa-timberjack-deore-12-29",
   "cb-marin-pine-mountain-2",
   "cb-yt-jeffsy-core4-cf",
   "cb-yt-jeffsy-core3-cf",
@@ -1779,7 +1569,6 @@
   "cb-norco-fluid-fs-a2",
   "cb-forbidden-reya-tier3",
   "cb-canyon-spectral-cf-7",
-  "cb-canyon-neuron-cf-8",
   "cb-cotic-solaris-silver-slx",
   "cb-mondraker-raze-r",
   "cb-merida-one-forty-400",
@@ -1913,7 +1702,6 @@
   "cb-canyon-grand-canyon-al-7",
   "cb-canyon-stoic-4",
   "cb-canyon-stoic-3",
-  "cb-commencal-meta-ht-v3-essential",
   "cb-yt-tues-core3",
   "cb-propain-spindrift-cf-base",
   "cb-whyte-905",
@@ -1922,12 +1710,10 @@
   "cb-rose-root-miller-2",
   "cb-ghost-riot-am-cf-full-party",
   "cb-gt-fury-carbon-pro",
-  "cb-canyon-sender-cfr-team",
   "cb-marin-rift-zone-2",
   "cb-marin-rift-zone-1",
   "cb-vitus-escarpe-290-cr",
   "cb-commencal-meta-ht-v3-ohlins",
-  "cb-commencal-supreme-dh-v5-rockshox",
   "cb-commencal-supreme-dh-v5-ohlins",
   "cb-giant-trance-x-advanced-1",
   "cb-giant-reign-advanced-2",
@@ -2096,8 +1882,6 @@
   "bb-kogel-pf865-24mm",
   "bb-kogel-pf865-dub",
   "bb-jienyuan-pf92-19mm",
-  "bb-shimano-smbb71-pf92-24mm",
-  "bb-shimano-mt801-bsa73",
   "bb-shimano-smbb52-bsa73-24mm",
   "bb-shimano-mt501-bsa73",
   "bb-samox-bsa73-24mm",
@@ -2306,10 +2090,10 @@
   },
   "ti-specialized-butcher-t9-29-23": {
    "cat": "tire",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:20:17.034Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
+   "source": "https://www.specialized.com/us/en/butcher-grid-trail-2bliss-ready-t9/p/187347",
    "note": "specialized.com 403-blocked (still); no fetchable maker spec page. weight 1150 sample; retailer weights policy-REJECTED; no editorial measured weight found. casing/compound not yet on the row. Weight bar unmeetable."
   },
   "ti-michelin-dh22-29-24": {
@@ -3210,10 +2994,10 @@
   },
   "gr-wtb-wafflegrip": {
    "cat": "grips",
-   "status": "Skipped",
-   "updated": "2026-07-07T18:50:41.411Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
+   "source": "https://www.wtb.com/products/wafel",
    "note": "WTB's current lineup only has 'Wafel' (no weight published on its page either) -- unclear if this is a rename of the catalog's 'Wafflegrip' or a different/discontinued product. Bar not met either way."
   },
   "gr-raceface-half-nelson": {
@@ -3715,10 +3499,10 @@
   },
   "bk-shimano-xtr-m9120": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:58:45.758Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2023-2024_Specifications_v028_en.pdf",
    "note": "bike.shimano.com systemically 403-blocked (established pattern this session across pedals/rotors/shifters/brakes). Not re-attempting individually."
   },
   "bk-shimano-zee-m640": {
@@ -5251,10 +5035,10 @@
   },
   "fk-fox-34-factory-29-140": {
    "cat": "fork",
-   "status": "Skipped",
-   "updated": "2026-07-08T18:54:16.444Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
+   "source": "https://web.archive.org/web/20241003231016/https://ridefox.com/products/fox-34-factory-grip-x",
    "note": "Weight wall. Fox 34 standard product page 404s to WebFetch on every slug tried (fox-34-factory, -grip-x). Fox publishes only a per-config starting weight and the 34 spans 3 variants (standard 34 / Step-Cast / SL) with different weights, so the exact 29/140 standard-34 Factory weight is unverifiable; current gen also differs from the cataloged modelYear 2025. Price $1,099 matches the standard 34 Factory. Interfaces documented via retailer; left unverified."
   },
   "dp-fox-transfer-factory-349-180": {
@@ -5323,10 +5107,10 @@
   },
   "bk-shimano-xtr-m9110-fm": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-08T20:00:22.400Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2023-2024_Specifications_v028_en.pdf",
    "note": "Shimano interface wall re-confirmed 2026-07-08: bike.shimano.com AND si.shimano.com both HTTP 403, so BR-M9110 mount/piston/rotor specs cannot be manufacturer-sourced (bar rule 1). Shimano also publishes no component weight; no editorial teardown for this flat-mount 2-piston SKU. In-catalog interfaces are from a prior bike.shimano.com listing + retailers; row stays unverified. Bar not met."
   },
   "bk-sram-level-ultimate-stealth": {
@@ -6859,27 +6643,27 @@
   },
   "ti-specialized-butcher-29-26-gridtrail-t9": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/butcher-grid-trail-t9-tlr-trail-tire/p/1000234003",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-specialized-eliminator-29-23-gridtrail-t7": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/eliminator-grid-trail-2bliss-ready-t7/p/173627",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-specialized-hillbilly-29-24-gridgravity-t9": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/hillbilly-grid-gravity-2bliss-ready-t9/p/1000161069",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-schwalbe-magic-mary-29-24-st-as": {
    "cat": "tire",
@@ -9179,43 +8963,43 @@
   },
   "fk-dvo-onyx-sc-d1-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitalmtb.com/product/guide/Forks,33/DVO/Onyx-SC,30464",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-dvo-onyx-sc-d1-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitalmtb.com/product/guide/Forks,33/DVO/Onyx-SC,30464",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-dvo-onyx-sc-d1-275-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitalmtb.com/product/guide/Forks,33/DVO/Onyx-SC,30464",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-dvo-onyx-sc-d1-275-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitalmtb.com/product/guide/Forks,33/DVO/Onyx-SC,30464",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-dvo-onyx-sc-d1-275-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitalmtb.com/product/guide/Forks,33/DVO/Onyx-SC,30464",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-dvo-diamond-boost-29-130": {
    "cat": "fork",
@@ -9331,19 +9115,19 @@
   },
   "fk-dvo-onyx-d1-38-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitalmtb.com/product/guide/forks/dvo/onyx-d1-38-44566",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-dvo-onyx-d1-38-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitalmtb.com/product/guide/forks/dvo/onyx-d1-38-44566",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-dvo-onyx-dc-275-203": {
    "cat": "fork",
@@ -10059,11 +9843,11 @@
   },
   "fk-fox-34-factory-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/20241003231016/https://ridefox.com/products/fox-34-factory-grip-x",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-factory-29-130": {
    "cat": "fork",
@@ -10171,19 +9955,19 @@
   },
   "fk-fox-36-sl-factory-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/my27-fox-36-sl-factory-gripx",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-sl-factory-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/my27-fox-36-sl-factory-gripx2-d6e1dcf0",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-32-sc-factory-29-100": {
    "cat": "fork",
@@ -13707,11 +13491,11 @@
   },
   "ro-sram-centerline-200-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/sram/models/rt-cln-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-sram-centerline-x-140-6b": {
    "cat": "rotor",
@@ -15394,19 +15178,19 @@
   },
   "fk-rockshox-pike-base-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-10T16:54:08.064Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-pike-bse-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-base-275-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-10T16:54:08.064Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-pike-bse-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-ext-vaia-29-200": {
    "cat": "fork",
@@ -15434,19 +15218,19 @@
   },
   "fk-rockshox-domain-gold-r-275-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-10T16:54:08.064Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-domn-gr-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-domain-gold-r-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-10T16:54:08.064Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-domn-gr-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "gr-wolftooth-fatpaw": {
    "cat": "grips",
@@ -17138,19 +16922,19 @@
   },
   "ti-maxxis-crossmark-ii-275-225-exo-dual": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/crossmark-ii/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-maxxis-crossmark-ii-29-225-exo-dual": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/crossmark-ii/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-panaracer-comet-29-21": {
    "cat": "tire",
@@ -18314,195 +18098,195 @@
   },
   "sh-dvo-topaz-gen3-190x42p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-210x52p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-165x40-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-165x42p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-165x45-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-185x52p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-185x55-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen3-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/topaz-gen-3/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-216x63p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-216x57p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-200x51": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-190x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-165x40-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-165x42p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-165x45-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-185x52p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-185x55-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-205x57p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-205x62p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-topaz-gen1-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/gen-1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-x-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade-x/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-x-230x57p5": {
    "cat": "shock",
@@ -18514,43 +18298,43 @@
   },
   "sh-dvo-jade-x-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade-x/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-x-210x52p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade-x/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-x-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade-x/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-x-205x62p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade-x/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-x-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade-x/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-x-205x57p5-trun": {
    "cat": "shock",
@@ -18562,107 +18346,107 @@
   },
   "sh-dvo-jade-x-185x55-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade-x/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-x-185x52p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade-x/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-x-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade-x/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-250x70": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-185x52p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-225x70-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-dvo-jade-225x75-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/jade/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-manitou-mara-pro-230x60-trun": {
    "cat": "shock",
@@ -18714,115 +18498,115 @@
   },
   "sh-mrp-hazzard-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mrpbike.com/collections/shocks/products/hazzard",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-mrp-hazzard-210x52p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mrpbike.com/collections/shocks/products/hazzard",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-mrp-hazzard-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mrpbike.com/collections/shocks/products/hazzard",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-mrp-hazzard-230x57p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mrpbike.com/collections/shocks/products/hazzard",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-mrp-hazzard-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mrpbike.com/collections/shocks/products/hazzard",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-mrp-hazzard-230x62p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mrpbike.com/collections/shocks/products/hazzard",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-mrp-hazzard-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mrpbike.com/collections/shocks/products/hazzard",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-mrp-hazzard-185x50-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mrpbike.com/collections/shocks/products/hazzard",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-mrp-hazzard-185x52p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mrpbike.com/collections/shocks/products/hazzard",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-mrp-hazzard-185x55-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mrpbike.com/collections/shocks/products/hazzard",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-mrp-hazzard-205x57p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mrpbike.com/collections/shocks/products/hazzard",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-mrp-hazzard-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mrpbike.com/collections/shocks/products/hazzard",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-mrp-hazzard-205x62p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mrpbike.com/collections/shocks/products/hazzard",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-mrp-hazzard-205x65-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.mrpbike.com/collections/shocks/products/hazzard",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-intend-rover-205x65-trun": {
    "cat": "shock",
@@ -22970,43 +22754,43 @@
   },
   "sh-fox-float-x-factory-210x52p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-x-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x-factory-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-x-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x-factory-190x45": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-x-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x2-factory-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/float-x2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x2-factory-210x52p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/float-x2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x2-factory-210x55": {
    "cat": "shock",
@@ -23018,51 +22802,51 @@
   },
   "sh-fox-float-x2-factory-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/float-x2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x2-factory-230x62p5": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/float-x2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x2-factory-185x55-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/float-x2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x2-factory-250x75": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/float-x2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x2-factory-225x75-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/float-x2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-dhx2-210x50": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/dhx2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-dhx2-210x55": {
    "cat": "shock",
@@ -23074,99 +22858,99 @@
   },
   "sh-fox-dhx2-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/dhx2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-dhx2-185x55-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/dhx2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-dhx2-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/dhx2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-dhx-factory-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-dhx-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-dhx-factory-230x60": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-dhx-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-dhx-factory-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-dhx-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-dhx-factory-185x55-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-dhx-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-dhx-factory-205x60-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-dhx-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-dhx-factory-205x62p5-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-dhx-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-sl-factory-165x40-trun": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/float-sl-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-dps-factory-190x51": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-dps-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-dps-factory-200x51": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-dps-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-dps-factory-165x38": {
    "cat": "shock",
@@ -23178,11 +22962,11 @@
   },
   "sh-fox-float-dps-factory-184x44": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-float-dps-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x-factory-185x55-trun": {
    "cat": "shock",
@@ -23658,43 +23442,43 @@
   },
   "fk-rockshox-pike-base-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-pike-bse-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-base-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-pike-bse-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-select-275-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-pike-sel-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-select-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-pike-sel-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-selectplus-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-pike-selp-c2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-selectplus-29-140": {
    "cat": "fork",
@@ -23706,107 +23490,107 @@
   },
   "fk-rockshox-pike-selectplus-275-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-pike-selp-c2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-pike-selectplus-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-pike-selp-c2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-select-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-lyrk-sel-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-select-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-lyrk-sel-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-select-275-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-lyrk-sel-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-selectplus-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-lyrk-selp-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-selectplus-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-lyrk-selp-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-selectplus-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-lyrk-selp-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-selectplus-275-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-lyrk-selp-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-base-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-lyrk-bse-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-base-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-lyrk-bse-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-base-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-lyrk-bse-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-base-275-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-lyrk-bse-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-dtswiss-f-535-one-29-130": {
    "cat": "fork",
@@ -23994,19 +23778,19 @@
   },
   "fk-rockshox-boxxer-base-d1-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-bxr-bse-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-base-d1-29-190": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-bxr-bse-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-base-d1-29-200": {
    "cat": "fork",
@@ -24018,19 +23802,19 @@
   },
   "fk-rockshox-boxxer-base-d1-275-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-bxr-bse-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-base-d1-275-190": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-bxr-bse-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-base-d1-275-200": {
    "cat": "fork",
@@ -24050,19 +23834,19 @@
   },
   "fk-manitou-dorado-pro-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/my22-dorado-pro",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-dorado-pro-29-190": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/my22-dorado-pro",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-dorado-pro-29-203": {
    "cat": "fork",
@@ -24074,19 +23858,19 @@
   },
   "fk-manitou-dorado-pro-275-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/my22-dorado-pro",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-dorado-pro-275-190": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/my22-dorado-pro",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-dorado-pro-275-203": {
    "cat": "fork",
@@ -24098,19 +23882,19 @@
   },
   "fk-manitou-dorado-expert-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/new-my22-dorado-expert",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-dorado-expert-29-190": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/new-my22-dorado-expert",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-dorado-expert-29-203": {
    "cat": "fork",
@@ -24122,19 +23906,19 @@
   },
   "fk-manitou-dorado-expert-275-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/new-my22-dorado-expert",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-dorado-expert-275-190": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://hayesbicycle.com/products/new-my22-dorado-expert",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-dorado-expert-275-203": {
    "cat": "fork",
@@ -24226,27 +24010,27 @@
   },
   "fk-rockshox-zeb-base-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-zeb-bse-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-base-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-zeb-bse-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-base-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-zeb-bse-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-base-29-190": {
    "cat": "fork",
@@ -24258,27 +24042,27 @@
   },
   "fk-rockshox-zeb-select-plus-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-zeb-selp-a3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-select-plus-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-zeb-selp-a3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-select-plus-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-zeb-selp-a3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-select-plus-29-190": {
    "cat": "fork",
@@ -24394,11 +24178,11 @@
   },
   "fk-dvo-onyx-d1-38-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitalmtb.com/product/guide/forks/dvo/onyx-d1-38-44566",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-canecreek-helm-mkii-coil-29-160": {
    "cat": "fork",
@@ -24426,19 +24210,19 @@
   },
   "fk-srsuntour-durolux-r2c2-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.srsuntour.com/products/fork/Durolux-5834.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-srsuntour-durolux-r2c2-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.srsuntour.com/products/fork/Durolux-5834.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-sid-select-29-120": {
    "cat": "fork",
@@ -24450,11 +24234,11 @@
   },
   "fk-rockshox-sid-select-29-110": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-sid-sel3-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-sid-selectplus-29-120": {
    "cat": "fork",
@@ -24466,11 +24250,11 @@
   },
   "fk-rockshox-sid-selectplus-29-110": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-sid-slp3-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-sid-sl-select-29-110": {
    "cat": "fork",
@@ -24490,19 +24274,19 @@
   },
   "fk-fox-32-sc-performance-29-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/fox-32-performance-sc-grip",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-34-sc-factory-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/20250427103845/https://ridefox.com/products/fox-34-factory-sc-grip-sl",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-34-sc-performance-29-120": {
    "cat": "fork",
@@ -24514,27 +24298,27 @@
   },
   "fk-srsuntour-axon-werx-34-29-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.srsuntour.com/products/fork/Axon-Werx-Axon-Axon-34-WERX-Boost-29-5989.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-srsuntour-axon-werx-34-29-110": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.srsuntour.com/products/fork/Axon-Werx-Axon-Axon-34-WERX-Boost-29-5989.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-srsuntour-axon-werx-34-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.srsuntour.com/products/fork/Axon-Werx-Axon-Axon-34-WERX-Boost-29-5989.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-podium-29-170": {
    "cat": "fork",
@@ -24554,19 +24338,19 @@
   },
   "fk-fox-36-factory-my27-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/20251009214158/https://ridefox.com/products/36-factory-gripx",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-factory-my27-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/20251009214158/https://ridefox.com/products/36-factory-gripx",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-performance-29-160": {
    "cat": "fork",
@@ -25466,19 +25250,19 @@
   },
   "fk-dvo-diamond-d1sl-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-14T01:44:31.720Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/diamond-d1-2024/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-dvo-diamond-d1sl-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-14T01:44:31.720Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/diamond-d1-2024/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-40-factory-my27-29-203": {
    "cat": "fork",
@@ -25690,11 +25474,11 @@
   },
   "fk-marzocchi-bomber-dj-26-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-14T11:47:30.247Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bike.marzocchi.com/products/bomber-dj",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-manitou-circus-expert-26-100": {
    "cat": "fork",
@@ -25722,11 +25506,11 @@
   },
   "fk-xfusion-slant-dj-26-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-14T11:47:30.247Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/71.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-answer-protaper": {
    "cat": "handlebar",
@@ -27354,11 +27138,11 @@
   },
   "ti-schwalbe-big-betty-275-24-sg-as": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.schwalbetires.com/Big-Betty-11654148",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-pirelli-scorpionxc-rc-29-24-pw-dual": {
    "cat": "tire",
@@ -27482,11 +27266,11 @@
   },
   "ti-maxxis-minion-dhr-ii-29-24-dd-mt": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/minion-dhr-ii/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-maxxis-assegai-29-25-exo-dual": {
    "cat": "tire",
@@ -27650,11 +27434,11 @@
   },
   "ti-maxxis-aggressor-29-25-exo-dual": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/aggressor/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-continental-kryptotal-re-29-24-trail-endurance": {
    "cat": "tire",
@@ -27738,11 +27522,11 @@
   },
   "ti-maxxis-dissector-29-24-exo-3cmt": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/dissector/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-maxxis-ardent-race-29-22-exo": {
    "cat": "tire",
@@ -27834,11 +27618,11 @@
   },
   "ti-schwalbe-magic-mary-29-24-st-aus": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.schwalbetires.com/Magic-Mary-11654279",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-schwalbe-magicmary-29-24": {
    "cat": "tire",
@@ -27890,19 +27674,19 @@
   },
   "ti-specialized-fasttrak-29-235-control-t7": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/fast-trak-control-2bliss-ready-t7/p/205391",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-specialized-renegade-29-235-control-t5": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/renegade-control-2bliss-ready-t5/p/205202",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-specialized-purgatory-29-24-grid-t9": {
    "cat": "tire",
@@ -27914,43 +27698,43 @@
   },
   "ti-specialized-groundcontrol-29-235-grid-t7": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/ground-control-grid-2bliss-ready-t7/p/203431",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-specialized-groundcontrol-29-235-control-t5": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/ground-control-control-2bliss-ready-t5/p/203432",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-specialized-fasttrak-29-235-control-t5": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/fast-trak-control-2bliss-ready-t5/p/205256",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-specialized-eliminator-29-26-gridtrail-t7": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/eliminator-grid-trail-2bliss-ready-t7/p/173627",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-specialized-butcher-29-24-gridtrail-t9": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/butcher-grid-trail-t9-tlr-trail-tire/p/1000234003",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-specialized-eliminator-29-24-gridtrail-t7": {
    "cat": "tire",
@@ -27970,11 +27754,11 @@
   },
   "ti-maxxis-highroller-ii-29-23-exo": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/high-roller-ii/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-wtb-breakout-comp-29-23": {
    "cat": "tire",
@@ -28034,11 +27818,11 @@
   },
   "ti-schwalbe-big-betty-275-24-st-as": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.schwalbetires.com/Big-Betty-11654151",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-maxxis-minion-dhr-ii-29-24-exop-mg": {
    "cat": "tire",
@@ -28330,11 +28114,11 @@
   },
   "fw-dtswiss-xm1700-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canyon.com/en-us/mountain-bikes/trail-bikes/spectral/cf/spectral-cf-8/4023.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-crankbrothers-synthesis-enduro-alloy-29": {
    "cat": "frontwheel",
@@ -28714,11 +28498,11 @@
   },
   "fw-raceface-turbiner30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.raceface.com/products/turbine-r-30-wheelset",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-syncros-x30s-29": {
    "cat": "frontwheel",
@@ -28754,11 +28538,11 @@
   },
   "fw-dtswiss-x1900-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/cross-country/x-1900-spline",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-dtswiss-e-1900-29": {
    "cat": "frontwheel",
@@ -28874,19 +28658,19 @@
   },
   "fw-newmen-beskar30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.newmen-components.de/Konfigurator?&StuffId=d7171aed-2dcd-4ac1-ac53-08769797fd1e",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-newmen-performance30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.newmen-components.de/Konfigurator?&StuffId=73f44cf4-90e0-4dd9-bf95-a3782349e2a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-focus-ar30-shimano-29": {
    "cat": "frontwheel",
@@ -28922,11 +28706,11 @@
   },
   "fw-newmen-forge30-dh-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.newmen-components.de/Konfigurator?&StuffId=83165dfc-88df-4bf2-9b86-d2f8889f7ee6",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-specialized-alloy-30-29": {
    "cat": "frontwheel",
@@ -29098,11 +28882,11 @@
   },
   "fw-newmen-beskar30-light-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.newmen-components.de/Konfigurator?&StuffId=d2a77dd7-7079-4364-9304-dd5007274fc2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-marin-house-275-boost": {
    "cat": "frontwheel",
@@ -29410,11 +29194,11 @@
   },
   "fw-dtswiss-xrc1501-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/support/product-support?matnr=WXRC150BEIXCA11457",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-industrynine-hydra-reynoldsbl-29": {
    "cat": "frontwheel",
@@ -29426,11 +29210,11 @@
   },
   "fw-ethirteen-grapplersidekick-flux-dh-alloy-29-20x110": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ethirteen.com/products/grappler-sidekick-flux-alloy-downhill-wheels",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-wtb-sti30-novatec-275": {
    "cat": "frontwheel",
@@ -29674,11 +29458,11 @@
   },
   "rw-dtswiss-xm1700-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canyon.com/en-us/mountain-bikes/trail-bikes/spectral/cf/spectral-cf-8/4023.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-crankbrothers-synthesis-enduro-alloy-275": {
    "cat": "rearwheel",
@@ -29834,11 +29618,11 @@
   },
   "rw-dtswiss-xrc1501-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/support/product-support?matnr=WXRC150TEDRCA11460",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-vitus-kt-wtb-komtrail-i30-29": {
    "cat": "rearwheel",
@@ -29882,11 +29666,11 @@
   },
   "rw-dtswiss-xm1700-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canyon.com/en-us/mountain-bikes/trail-bikes/spectral/cf/spectral-cf-8/4023.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-halo-ridgelineii-29-ms": {
    "cat": "rearwheel",
@@ -30242,11 +30026,11 @@
   },
   "rw-raceface-turbiner30-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.raceface.com/products/turbine-r-30-wheelset",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-syncros-x30s-29-ms": {
    "cat": "rearwheel",
@@ -30314,19 +30098,19 @@
   },
   "rw-dtswiss-x1900-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/cross-country/x-1900-spline",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-dtswiss-x1900-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/cross-country/x-1900-spline",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-dtswiss-e-1900-29-xd": {
    "cat": "rearwheel",
@@ -30482,27 +30266,27 @@
   },
   "rw-newmen-beskar30-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.newmen-components.de/Konfigurator?&StuffId=d7171aed-2dcd-4ac1-ac53-08769797fd1e",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-newmen-performance30-29-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.newmen-components.de/Konfigurator?&StuffId=73f44cf4-90e0-4dd9-bf95-a3782349e2a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-newmen-performance30-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.newmen-components.de/Konfigurator?&StuffId=73f44cf4-90e0-4dd9-bf95-a3782349e2a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-focus-ar30-shimano-29-ms": {
    "cat": "rearwheel",
@@ -30538,11 +30322,11 @@
   },
   "rw-newmen-forge30-dh-275-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.newmen-components.de/Konfigurator?&StuffId=83165dfc-88df-4bf2-9b86-d2f8889f7ee6",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-specialized-alloy-30-29-ms": {
    "cat": "rearwheel",
@@ -30754,11 +30538,11 @@
   },
   "rw-newmen-performance30-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.newmen-components.de/Konfigurator?&StuffId=73f44cf4-90e0-4dd9-bf95-a3782349e2a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-wtb-sti35tcs20-275-hg": {
    "cat": "rearwheel",
@@ -30786,11 +30570,11 @@
   },
   "rw-newmen-beskar30-light-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.newmen-components.de/Konfigurator?&StuffId=d2a77dd7-7079-4364-9304-dd5007274fc2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-dtswiss-e1900-29-xd": {
    "cat": "rearwheel",
@@ -31202,11 +30986,11 @@
   },
   "rw-dtswiss-xrc1501-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/support/product-support?matnr=WXRC150TEDRCA11460",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-industrynine-hydra-reynoldsbl-29-ms": {
    "cat": "rearwheel",
@@ -31218,11 +31002,11 @@
   },
   "rw-ethirteen-grapplersidekick-flux-dh-alloy-275-boost148-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ethirteen.com/products/grappler-sidekick-flux-alloy-downhill-wheels",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-wtb-sti30-novatec-275-ms": {
    "cat": "rearwheel",
@@ -31258,11 +31042,11 @@
   },
   "sh-fox-float-x2-factory-230x65": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/float-x2-factory",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-dps-factory-185x55-trun": {
    "cat": "shock",
@@ -31538,11 +31322,11 @@
   },
   "sh-fox-float-x-performance-elite-210x55": {
    "cat": "shock",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/products/my27-fox-floatx-pse",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-fox-float-x-factory-185x52p5-trun": {
    "cat": "shock",
@@ -31898,11 +31682,11 @@
   },
   "fk-rockshox-domain-gold-r-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-domn-gr-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-marzocchi-bomber-z2-275-130": {
    "cat": "fork",
@@ -31922,11 +31706,11 @@
   },
   "fk-rockshox-lyrik-selectplus-275-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-lyrk-selp-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-38-performance-275-160": {
    "cat": "fork",
@@ -31938,11 +31722,11 @@
   },
   "fk-rockshox-sid-selectplus-29-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-sid-slp3-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-34-sc-performance-29-110": {
    "cat": "fork",
@@ -32018,11 +31802,11 @@
   },
   "fk-srsuntour-xcr34-2cr-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.srsuntour.com/products/fork/XCR-34-Boost-29-27-5-5761.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-34-rhythm-29-120": {
    "cat": "fork",
@@ -32130,11 +31914,11 @@
   },
   "fk-fox-34-performance-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/20250116012704/https://ridefox.com/products/fox-34-performance-grip",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-performance-29-150": {
    "cat": "fork",
@@ -32250,11 +32034,11 @@
   },
   "fk-rockshox-psylo-silver-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-psyl-src-a1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-rhythm-29-160": {
    "cat": "fork",
@@ -32362,19 +32146,19 @@
   },
   "fk-rockshox-psylo-gold-rc-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-psyl-grc-a1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-psylo-gold-rc-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-psyl-grc-a1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-recon-gold-rl-29-120": {
    "cat": "fork",
@@ -32402,11 +32186,11 @@
   },
   "fk-rockshox-zeb-r-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-zeb-r-a1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-psylo-gold-rc-29-130": {
    "cat": "fork",
@@ -32434,11 +32218,11 @@
   },
   "fk-fox-34-performance-elite-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/20241004000715/https://ridefox.com/products/fox-34-performance-elite-grip-x",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-34-performance-elite-29-120": {
    "cat": "fork",
@@ -32522,11 +32306,11 @@
   },
   "fk-dvo-diamond-d1sl-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dvosuspension.com/product/diamond-d1-2024/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-srsuntour-xce28-29-100-qr": {
    "cat": "fork",
@@ -32554,11 +32338,11 @@
   },
   "fk-dvo-onyx-38-d1-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitalmtb.com/product/guide/forks/dvo/onyx-d1-38-44566",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-40-performance-29-203": {
    "cat": "fork",
@@ -33760,14 +33544,6 @@
    "source": null,
    "note": null
   },
-  "st-raceface-aeffectr-35-40": {
-   "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
   "st-orbea-oc-mc10-35-40": {
    "cat": "stem",
    "status": "Pending",
@@ -34536,14 +34312,6 @@
    "source": null,
    "note": null
   },
-  "gr-wtb-wafel": {
-   "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
   "gr-kona-key-grip": {
    "cat": "grips",
    "status": "Pending",
@@ -34898,11 +34666,11 @@
   },
   "dp-tranzx-ysp39-349-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://tranzx.com/product/10dropperpost/ysp39j.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-ysi60ql-309-150": {
    "cat": "dropper",
@@ -35106,19 +34874,19 @@
   },
   "dp-tranzx-jdysp18-316-130": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://tranzx.com/product/10dropperpost/ysp18p.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-jdysp18-309-130": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://tranzx.com/product/10dropperpost/ysp18p.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bontrager-line-316-150": {
    "cat": "dropper",
@@ -36290,11 +36058,11 @@
   },
   "bk-shimano-xt-m8220": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-trp-r1-223-6b": {
    "cat": "rotor",
@@ -36402,11 +36170,11 @@
   },
   "ro-shimano-rt86-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2023-2024_Specifications_v028_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-rt66-180-6b": {
    "cat": "rotor",
@@ -37170,11 +36938,11 @@
   },
   "cr-shimano-xt-m8120-30t": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-prowheel-habitht-30t": {
    "cat": "crankset",
@@ -37418,11 +37186,11 @@
   },
   "cb-santacruz-hightower-r-2025": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.santacruzbicycles.com/pages/product-support/hightower-4-my25",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-privateer-161-g2": {
    "cat": "completebike",
@@ -37618,11 +37386,11 @@
   },
   "cb-salsa-timberjack-deore-12-29": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.959Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.salsacycles.com/products/2026-timberjack-deore-12-29",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-marin-pine-mountain-2": {
    "cat": "completebike",
@@ -37866,11 +37634,11 @@
   },
   "cb-canyon-neuron-cf-8": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.959Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canyon.com/en-us/mountain-bikes/trail-bikes/neuron/cf/neuron-cf-8/3170.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-cotic-solaris-bronze-deore": {
    "cat": "completebike",
@@ -39674,11 +39442,11 @@
   },
   "cb-commencal-meta-ht-v3-essential": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.959Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.commencal.com/us/en/commencal-meta-ht-essential-1/24METAHTE1.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-yt-tues-core3": {
    "cat": "completebike",
@@ -39778,11 +39546,11 @@
   },
   "cb-canyon-sender-cfr-team": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.959Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canyon.com/en-us/mountain-bikes/downhill-bikes/sender/sender-cfr-team/3655.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-marin-rift-zone-xr": {
    "cat": "completebike",
@@ -39834,11 +39602,11 @@
   },
   "cb-commencal-supreme-dh-v5-rockshox": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.959Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.commencal.com/us/en/commencal-supreme-dh-v5-rockshox-pure-white-2026-downhill-bike-dh-race-usa-united-states-of-america/BT4SUPV5RSEU1.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-commencal-supreme-dh-v5-ohlins": {
    "cat": "completebike",
@@ -41082,19 +40850,19 @@
   },
   "bb-shimano-smbb71-pf92-24mm": {
    "cat": "bb",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.959Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2023-2024_Specifications_v028_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bb-shimano-mt801-bsa73": {
    "cat": "bb",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-17T18:56:38.959Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2023-2024_Specifications_v028_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bb-token-tk878ex-bsa73-24mm": {
    "cat": "bb",
@@ -41252,6 +41020,30 @@
    "cat": "cog",
    "status": "Pending",
    "updated": "2026-07-17T14:04:42.921Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-dtswiss-xm1700-275": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-17T18:56:38.957Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-dtswiss-xm1700-275-xd": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-17T18:56:38.958Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-yeti-carbon-780-35": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-17T18:56:38.958Z",
    "error": null,
    "source": null,
    "note": null
