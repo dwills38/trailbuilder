@@ -1418,6 +1418,7 @@
 <script src="src/forum.js"></script>
 <script src="src/guides.js"></script>
 <script src="src/compat.js"></script>
+<script src="src/tire-classes.js"></script>
 <script>
 (function(){
   var build = {};            // slotKey -> part id
@@ -1904,6 +1905,29 @@
     /* tireWidth was a discrete-chip row here (one chip per exact width) — replaced
        2026-07-16 by the tireWidthRange dual slider (RANGEFILTERS below), which
        narrows from both ends instead of picking one exact width. */
+    /* Tire compound/casing CLASS chips (Douglas 2026-07-16): brand-native `compound`/
+       `casing` values (e.g. "3C MaxxGrip", "EXO+") grouped into rider-facing classes
+       by src/tire-classes.js — display/filter grouping only, same as `compound`/
+       `casing` themselves (CLAUDE.md: never feeds checkBuild). Composes with every
+       other Tires-tab filter (wheelSize, tireWidthRange, search, verified-only, …)
+       through the same SUBFILTERS/baseMatch loop as any other row here — nothing
+       tire-specific needed beyond these two descriptors.
+       Deliberately NOT the frameMaterial "absence passes every chip" convention: a
+       tire whose compound/casing exists but isn't in the mapping table (see
+       tire-classes.js's own unmapped-value comments for why) matches NO class chip
+       once one is engaged, rather than passing all of them — we won't guess a class
+       for a value we didn't map, so match() has no second pass-through clause beyond
+       the standard out-of-scope-part one. */
+    { id:'tireCompoundClass', groups:['tire'], allLabel:'All compounds',
+      aria:'Filter tires by rubber compound class (soft/medium/hard)',
+      values:function(){ return inOrder(distinctVals(function(p){ return p.cat==='tire' && classifyTireCompound(p.compound)!=null; }, function(p){ return classifyTireCompound(p.compound); }), TIRE_COMPOUND_CLASSES); },
+      label:function(v){ return TIRE_COMPOUND_CLASS_LABELS[v] || v; },
+      match:function(p,v){ return p.cat!=='tire' || classifyTireCompound(p.compound)===v; } },
+    { id:'tireCasingClass', groups:['tire'], allLabel:'All casings',
+      aria:'Filter tires by casing duty class (DH/Enduro/Trail/XC)',
+      values:function(){ return inOrder(distinctVals(function(p){ return p.cat==='tire' && classifyTireCasing(p.casing)!=null; }, function(p){ return classifyTireCasing(p.casing); }), TIRE_CASING_CLASSES); },
+      label:function(v){ return TIRE_CASING_CLASS_LABELS[v] || v; },
+      match:function(p,v){ return p.cat!=='tire' || classifyTireCasing(p.casing)===v; } },
     { id:'pedalStyle', groups:['pedals'], allLabel:'All styles',
       aria:'Filter pedals by style',
       values:function(){ return inOrder(distinctVals(byCat('pedal'), function(p){ return p.style; }), ['flat','clip','hybrid']); },
