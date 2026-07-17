@@ -2,7 +2,13 @@
 
 **Maturity: foundation** (L1 — see [`CURRICULUM.md`](CURRICULUM.md)). Broadened 2026-07-17
 with Park Tool / Sheldon Brown / TRP-primary mount-standard, alignment, rotor-hardware and
-pad/bleed facts; still no L2 service-manual internals or L3/L4 depth — see `## Gaps` below.
+pad/bleed facts. Same-day follow-up round added a first L2 slice (BRK-28–34): the Shimano
+XTR/XT/SLX hydraulic disc brake dealer manual's torque table, wear floors, free-stroke/reach
+distinction, quantified bed-in procedure, and FM screw-length table — plus resolved the
+BRK-17 FM↔PM adapter CONTRADICTION with manufacturer/maker-primary sources for both
+directions. Still short of `professional`: no full bleed-fluid-volume/syringe-step
+procedure, no caliper-piston seal-kit service, no cross-brand (SRAM/TRP/Hayes/Magura)
+torque coverage — see `## Gaps` below.
 
 Caliper · rotor · mount standards · adapters · levers · lever↔shifter integration.
 Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline, conventions).
@@ -75,23 +81,57 @@ community-consensus (two independently fetched shop/enthusiast guides, not manuf
 primary, but internally consistent).* Sources: The Lost Co "Mountain Bike Brake Adapters
 Explained" + CrankSmith, both fetched 2026-07-17.
 
-**BRK-17 ⚠ CONTRADICTION candidate — an FM-caliper-on-PM-chassis adapter may exist; the
-reverse (PM caliper on FM chassis) reportedly does not.** CrankSmith states "FM to PM: Yes,
-adapters exist but appear bulky" against "PM to FM: No viable solution — insufficient
-clearance for the caliper body." *Confidence: partial/community-consensus — a single shop-
-blog claim, not manufacturer-documented, and the "A to B" direction wording is genuinely
-ambiguous from the fetched text (does "FM to PM" mean an FM chassis takes a PM caliper, or a
-PM chassis takes an FM caliper? Not established which reading is correct).* Source:
-CrankSmith (fetched 2026-07-17). **⚠ Flag for the coordinator:** `src/compat.js` rule 8
-(`front-brake-mount`/`rear-brake-mount`) has exactly ONE adapter-warning branch — PM-caliper-
-on-IS-chassis (BRK-15) — and its `else` falls straight to a hard error for every other mount
-mismatch, including any FM↔PM pairing. If an FM/PM adapter genuinely exists in either
-direction, that `else` branch is a possible false "won't fit" for that pairing. **This is
-not dormant**: the catalog already carries 2 FM-mount rows (`fr-canyon-exceed-*` rear,
-`fr-canyon-lux-world-cup-*` rear, per a `brakeMount:'FM'` grep of `src/compat.js`), so a
-build pairing either against a PM caliper hits this exact `else` branch today. Needs a
-manufacturer-sourced confirmation (not another shop blog) before any rule change — do not
-resolve here.
+**BRK-17 [SUPERSEDED BY BRK-28/29 — see below] ⚠ CONTRADICTION candidate — an
+FM-caliper-on-PM-chassis adapter may exist; the reverse (PM caliper on FM chassis)
+reportedly does not.** CrankSmith states "FM to PM: Yes, adapters exist but appear bulky"
+against "PM to FM: No viable solution — insufficient clearance for the caliper body."
+*Confidence: partial/community-consensus — a single shop-blog claim, not
+manufacturer-documented, and the "A to B" direction wording is genuinely ambiguous from
+the fetched text.* Source: CrankSmith (fetched 2026-07-17). **This round's follow-up
+(BRK-28/29) found manufacturer/maker-primary sources for BOTH directions, refuting
+CrankSmith's "PM to FM: no viable solution" half of this claim** — kept here, retired-not-
+deleted, per the corpus's append-only/supersession convention (INDEX.md rule 1).
+
+**BRK-28 — RESOLVES BRK-17, direction 1: Shimano's own SM-MA adapter line has a
+dedicated "Flat mount type" section — a Flat Mount chassis DOES take a Post Mount
+caliper, manufacturer-confirmed.** Shimano's SM-MA dealer manual (DM-SMMA00A-01) has
+three top-level sections by *chassis* mount type: "Post mount type," "International-
+standard mount type," and **"Flat mount type"** (p.14) — the flat-mount-chassis section
+lists five adapter part numbers (SM-MA-F140P/D, SM-MA-F160P/D front; SM-MA-R140P/D,
+SM-MA-R160P/D, SM-MA-R160D/D rear), each named for a Flat Mount chassis fitted with a
+Post Mount caliper (matching third-party retail listings of the same SKUs as "SM-MA
+Flatmount to Postmount" / "Post-Mount Caliper to Flat Mount Frame Adapter"). This is a
+genuine, currently-cataloged Shimano product — not a niche/expensive boutique part.
+*Confidence: confirmed (fetched Shimano dealer manual, cross-checked against retail SKU
+listings for the same part numbers).* Source: si.shimano.com DM-SMMA00A-01 "Mount
+Adapter" dealer's manual (si.shimano.com/en/pdfs/dm/SMMA00A/DM-SMMA00A-01-ENG.pdf,
+fetched 2026-07-17).
+
+**BRK-29 — RESOLVES BRK-17, direction 2: Wolf Tooth's Post-to-Flat-Mount adapter lets a
+Post Mount chassis take a Flat Mount caliper, directly refuting CrankSmith's "no viable
+solution" claim for this direction.** Wolf Tooth Components (a mainstream aftermarket
+component maker, not a random third party) sells a "Post to Flat Mount Brake Adapter,"
+described on its own product page as letting "flat mount brakes be added to a frame or
+fork that was designed for post mount brakes" — explicitly marketed for running a road
+groupset (flat-mount caliper) on a mountain-bike frame (post-mount chassis), the exact
+pairing CrankSmith claimed had no viable solution. It is a **+20mm-only** adapter (140
+native → 160 rotor, 160 native → 180 rotor, 180 native → 200 rotor — same "adapters only
+space up" law as BRK-16), needs a minimum 13 mm clearance between the top of the brake
+boss and the frame/fork, and is explicitly NOT compatible with Fox Step Cast forks (a
+named clearance exception, not just a generic caveat). *Confidence: confirmed (fetched
+maker product page with tech specs — a real physical SKU, not a blog claim); "tested with
+SRAM and Shimano brakes" is the maker's own compatibility claim.* Source:
+wolftoothcomponents.com/products/post-to-flat-mount-brake-adapter (fetched 2026-07-17).
+**⚠ Flag for the coordinator, now upgraded from "unresolved" to "resolved, needs an
+engine decision":** `src/compat.js` rule 8's `else` branch (PM-caliper-on-IS-chassis is
+the only adapter-warning today, BRK-15) hard-errors every FM↔PM pairing. BRK-28/29 show
+real adapters exist in **both** directions — the CONTRADICTION is confirmed, not just
+suspected. Whether to add adapter-warning branches for FM-chassis+PM-caliper (BRK-28) and
+PM-chassis+FM-caliper (BRK-29) is a product/severity call (do you want the tool to
+recommend a specific bulky/clearance-caveated adapter, or keep these as hard errors on
+the theory that most riders shouldn't go down this path) — **not resolved here**, per
+this corpus's do-not-modify-the-engine discipline. Still live-relevant: 2 FM-mount rear
+frame rows exist in the catalog today.
 
 ## Rotor interface vs hub
 
@@ -206,6 +246,72 @@ rotor = more leverage + heat capacity, chosen deliberately despite being out-of-
 third-party shop).* Source: TRP "Everything You Need to Know about TRP Brake Pads and
 Rotors" (trpcycling.com, fetched 2026-07-17).
 
+## Caliper/rotor/hose service internals (L2 — Shimano dealer manual)
+
+**BRK-30 — Shimano's current XTR/XT/SLX hydraulic disc brake torque table, sourced from
+the dealer manual, not a trade-reference generic chart.** Rotor lock ring (both internal-
+and external-spline types, via TL-LR15 or TL-FC36): **40 N·m**. Caliper mounting screw
+(post-mount and IS-mount-with-adapter, both front and rear): **6–8 N·m**. Pad axle:
+**0.2–0.4 N·m** on BR-M9100/M9120, **1–1.5 N·m** on BR-M8100/M8120/M7100/M7120 — a
+real cross-tier difference, not a typo (the higher-tier caliper uses a lighter axle
+torque). Brake-hose flare nut at the lever: **5–7 N·m**. Flat-mount caliper fixing
+screws (both the direct-to-frame screw C and the mount-bracket screw B): **6–8 N·m**.
+These supersede BRK-20's single trade-reference's illustrative numbers for this specific
+family/generation — a fetched dealer manual beats a generic cross-brand table, same
+precedent as DRV-27 in `drivetrain.md`. *Confidence: confirmed (fetched Shimano dealer
+manual).* Source: si.shimano.com DM-MADBR01-07 "Hydraulic Disc Brake XTR/DEORE XT/SLX
+Dealer's Manual" (si.shimano.com/en/pdfs/dm/MADBR01/DM-MADBR01-07-ENG.pdf, fetched
+2026-07-17).
+
+**BRK-31 — Rotor and pad have HARD numeric wear-replacement floors, not just a
+"replace when worn" advisory, and the two floors are independently checked.** Shimano's
+manual states outright: do not use a brake pad at **0.5 mm or less** thickness; do not
+use a rotor at **1.5 mm or less** thickness, or once "the aluminum surface becomes
+visible" (on rotors with an aluminum carrier) — either condition alone is a stated crash
+risk ("may break, and result in serious injury"), independent of the other part's
+condition. This is a genuinely different fact from BRK-24's bed-in mechanism or BRK-25's
+heat-fade model — it's a hard go/no-go floor, not a performance curve. *Confidence:
+confirmed.* Source: DM-MADBR01-07 (as BRK-30).
+
+**BRK-32 — Free stroke and reach are two independently-adjustable lever geometries that
+solve different problems, and adjusting one can require re-checking the other.** **Free
+stroke** = the lever travel between its rest position and the point the pads first
+contact the rotor (adjusted by a dedicated free-stroke screw; not present on every
+lever — Shimano's manual states BL-M9100/M7100/BL-T8100 have no free-stroke adjustment
+at all). **Reach** = the distance between the lever's rest position and the handlebar
+(a separate reach screw/knob). Shimano's manual explicitly notes that free-stroke
+adjustment "moves only the initial position of the brake lever" — if the goal is
+changing where the pad-engagement *point* sits relative to the handlebar (not just how
+far the lever travels before it does anything), a reach adjustment is also required.
+Confusing the two ("my lever engages too close to the bar" vs "my lever has too much
+dead travel before it bites") sends a mechanic to the wrong screw. *Confidence:
+confirmed.* Source: DM-MADBR01-07 (as BRK-30). Closes part of `brakes.md`'s prior Gap
+entry on lever ergonomics/adjustment literacy.
+
+**BRK-33 — The bed-in procedure has a specific, quantified repeat count and a
+same-caution as BRK-24/BRK-31: too much force too early is the failure mode, not too
+little.** Shimano's own bed-in steps: accelerate to moderate speed on a flat, obstacle-
+free area, apply **one brake at a time** down to walking speed, repeat **at least 20
+times** for front and 20 for rear, done separately (not simultaneously) — braking force
+increases progressively through the repetitions. The manual's explicit caution is to be
+"careful... especially when you bed in the front brake" (a front lock-up during bed-in
+is the named risk, consistent with BRK-elsewhere's front-brake-lockover-the-bars
+caution already in this chapter). This gives BRK-24's "rotor surface is left raw to
+accept pad-material transfer" mechanism its concrete procedure. *Confidence: confirmed.*
+Source: DM-MADBR01-07 (as BRK-30).
+
+**BRK-34 — A flat-mount caliper's frame-side fixing screw length is FRAME-THICKNESS-
+DEPENDENT, not a single universal length — a real install-time measurement, not a spec
+lookup.** Shimano publishes a length table keyed to measured frame thickness at the
+mount (10 mm frame → 23 mm screw / Y8N208000, 15 mm → 28 mm / Y8N208050, 20 mm → 33 mm /
+Y8N208010, 25 mm → 38 mm / Y8N208020, 30 mm → 43 mm / Y8N208030, 35 mm → 48 mm /
+Y8N208040), and instructs checking the screw's protruding length is exactly **13 mm**
+past the frame with a screw-length selector tool before final install — using the wrong
+length either fails to engage enough thread or bottoms out before clamping. This is a
+frame-specific measurement step with no single "the" answer, distinct from every other
+torque/size fact in this chapter which is a fixed spec. *Confidence: confirmed.* Source:
+DM-MADBR01-07 (as BRK-30).
+
 ## Pad compounds & bleed basics
 
 **BRK-23 — Pad compound is a three-way tradeoff (organic/resin vs sintered/metallic vs
@@ -313,10 +419,12 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2a (BMX-5). Engine: `bmx-gyro-tabs`/`bmx-gyro-c
 - **"Mounts but out-of-spec" (warning / yellow dot):** rotor above the chassis published max
   (BRK-7) — mounts fine, warranty/structural caution.
 - **Silent-and-fine:** rotor at or above native mount and within max, matching interface.
-- **Possible uncoded adapter path (flagged, not confirmed):** an FM caliper on a PM chassis may
-  have a real (if bulky) adapter per BRK-17 — today the engine's rule 8 `else` branch treats it
-  as a plain hard error like any other mount mismatch, with no adapter-warning branch the way
-  IS gets one. Live-relevant: 2 FM-mount frame rows exist in the catalog today (BRK-17).
+- **Confirmed uncoded adapter path (resolved this round, not yet an engine decision):**
+  real adapters exist for BOTH an FM chassis + PM caliper (BRK-28, Shimano SM-MA) and a
+  PM chassis + FM caliper (BRK-29, Wolf Tooth) — today the engine's rule 8 `else` branch
+  treats every FM↔PM pairing as a plain hard error like any other mount mismatch, with no
+  adapter-warning branch the way IS gets one. Live-relevant: 2 FM-mount frame rows exist
+  in the catalog today (BRK-17/28/29).
 
 ### Install-order dependencies
 - **Adapter/bracket selection follows rotor size** (BRK-2): you pick the rotor, *then* the
@@ -357,12 +465,18 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2a (BMX-5). Engine: `bmx-gyro-tabs`/`bmx-gyro-c
 Honest list of what a future round should close, per `CURRICULUM.md`'s "target the weakest
 chapter" rule — this chapter is still `foundation`-only:
 
-- **No L2 service-manual depth anywhere in this chapter.** Zero SRAM/Shimano DEALER-manual
-  bleed procedures (exact fluid volumes, syringe/funnel steps, bite-point/reach-adjustment
-  screws), zero full torque-spec tables per manufacturer/generation (BRK-20 has ONE trade-
-  reference's illustrative numbers, explicitly not a real table), zero caliper-piston service
-  internals (seal kits, piston reseat procedure). This is the single biggest gap toward
-  `professional`.
+- **Partially closed 2026-07-17 (BRK-30–34): Shimano XTR/XT/SLX dealer-manual torque table
+  (rotor lock ring, caliper mounting, pad axle, hose flare nut, FM fixing screws), hard
+  wear-floor numbers (0.5mm pad / 1.5mm rotor), the free-stroke-vs-reach distinction, and
+  a quantified bed-in procedure (20+ reps/lever) are now sourced.** **Still open:** this
+  round reached the manual's "Draining the mineral oil" step (bleed spacer install, lever
+  leveled, bleed screw removed) but did not mine the actual "Adding SHIMANO genuine mineral
+  oil and bleeding air" section (exact fluid volumes, funnel/syringe sequence) before
+  stopping — a clean next-round pickup point in the SAME already-fetched document
+  (si.shimano.com DM-MADBR01-07, pp.39-45). Also still open: SRAM's own bleed-kit/torque
+  specs (this round is Shimano-only), and caliper-piston seal-kit service internals (the
+  manual's own p.50 "Caliper piston maintenance" and p.52 "Replacing the diaphragm"
+  sections were not reached). **L2 gap, narrower than before.**
 - **No quantified pad-compound heat-fade science** — BRK-25's ramp-up/sweet-spot/falloff model
   is qualitative only; no actual temperature thresholds per compound, no fade-recovery
   behavior, no rotor metallurgy/heat-treatment facts. L3 gap.
@@ -372,13 +486,16 @@ chapter" rule — this chapter is still `foundation`-only:
   page found; Magura's owner's-manual PDF fetched but came back corrupted/unreadable through
   the fetch tool. BRK-3's Hope XCR-FM/SRAM Level-FM gap (noted since the seed) is unchanged.
   Worth a retry with Bright Data if the shared budget allows, per `VERIFY-PROTOCOL.md` doctrine.
-- **BRK-17's FM↔PM adapter direction is unresolved and live-relevant** (2 FM-mount catalog
-  frames exist today) — needs a manufacturer or standards-body source, not another shop blog,
-  before the coordinator can act on it either way.
-- **No lever ergonomics/adjustment literacy** — reach adjustment, free-stroke/bite-point
-  contact knobs, lever-blade material/shape. This chapter covers lever↔shifter *mount*
-  integration (BRK-10) but nothing about the lever body itself as a serviceable part. L1 gap
-  for a future round, distinct from BRK-10.
+- **Closed 2026-07-17: BRK-17's FM↔PM adapter direction is now resolved** (BRK-28/29,
+  manufacturer/maker-primary sources for both directions) — the remaining item is a
+  coordinator/engine decision (add adapter-warning branches to rule 8's `else`?), not a
+  research gap. Still live-relevant: 2 FM-mount catalog frames exist today.
+- **Partially closed 2026-07-17: lever ergonomics.** BRK-32 sourced the free-stroke-vs-
+  reach distinction (two independent adjustments, which lever models lack free-stroke
+  entirely) directly from the Shimano dealer manual. **Still open:** bite-point contact
+  knobs (SRAM's terminology/mechanism, not covered — this round was Shimano-only) and
+  lever-blade material/shape (carbon vs alloy blade flex, tool-free reach vs Allen-key
+  reach across brands). L1 gap, narrower than before.
 - **No rim-brake-era mechanical detail** beyond the one sheldonbrown.com paragraph fetched for
   BRK-15's context (cantilever/V-brake history) — acceptable for now since TrailBuilder's
   catalog is disc-only, but flagged in case a future non-MTB expansion needs it.
@@ -391,7 +508,12 @@ chapter" rule — this chapter is still `foundation`-only:
 - BRK-3: sourced max-rotor ceilings for Hope XCR-FM and SRAM Level-FM calipers.
 - BRK-2: how often are under-size rotors attempted on 200-native forks (urgency of broader
   `minRotorF` data coverage)?
-- BRK-17: which direction (if either) does a real FM↔PM adapter actually serve — does it let
-  an FM caliper mount to a PM chassis, a PM caliper mount to an FM chassis, or neither in
-  practice? A manufacturer-sourced answer determines whether rule 8's `else` branch needs a
-  new adapter-warning branch alongside its existing IS one.
+- BRK-17 [ANSWERED by BRK-28/29 — question now moot, replaced below]: which direction (if
+  either) does a real FM↔PM adapter actually serve? **Answer: both directions have real
+  adapters** (Shimano SM-MA for FM-chassis+PM-caliper; Wolf Tooth Post-to-Flat-Mount for
+  PM-chassis+FM-caliper).
+- BRK-28/29 (new): given real adapters exist both directions, should rule 8's `else`
+  branch gain TWO new adapter-warning branches (mirroring BRK-15's IS-to-PM warning), or
+  should FM↔PM stay a hard error on the theory that these are niche/bulky/clearance-
+  caveated parts most riders shouldn't be steered toward? This is a severity/product call,
+  not a fit-fact question — the mechanical fact (adapters exist) is now settled either way.
