@@ -1419,6 +1419,10 @@
 <script src="src/guides.js"></script>
 <script src="src/compat.js"></script>
 <script src="src/tire-classes.js"></script>
+<script src="src/pricing.js"></script>
+<script src="src/facets.js"></script>
+<script src="src/range-filters.js"></script>
+<script src="src/format-sizes.js"></script>
 <script>
 (function(){
   var build = {};            // slotKey -> part id
@@ -1573,21 +1577,10 @@
   function compatFor(p){ return compatOf(p, resolved()); }
 
   /* ---- per-size spec formatting (frame.sizes: {S:{seatTubeLen,maxInsert},...}) ----
-     Generic over whatever keys a given size carries (varies per frame) rather
-     than assuming seatTubeLen/maxInsert are both present. Replaces a raw
-     JSON.stringify dump ({"S":{"seatTubeLen":360},...}) with a readable
-     "S: 360 mm seat tube · M: 410 mm seat tube" list; esc()'d like every
-     other pm-row value. */
-  var SIZE_FIELD_LABELS = { seatTubeLen:'seat tube', maxInsert:'max insert' };
-  function formatSizes(sizes){
-    return Object.keys(sizes).map(function(sz){
-      var fields = sizes[sz] || {};
-      var bits = Object.keys(fields).map(function(k){
-        return fields[k]+' mm '+(SIZE_FIELD_LABELS[k] || k);
-      });
-      return esc(sz)+': '+esc(bits.join(', '));
-    }).join(' · ');
-  }
+     Tested pure logic now lives in src/format-sizes.js (CODE-QUALITY-AUDIT-
+     2026-07-16, U-1); this stays a thin delegator so every call site below
+     keeps calling formatSizes(sizes) unchanged. */
+  function formatSizes(sizes){ return window.formatSizes(sizes, esc); }
 
   /* ---- provenance badge (esc + partVerified are shared from compat.js) ----
      `extra` (optional) is appended inline after the verified/estimate badge —
@@ -1771,23 +1764,13 @@
   var WHEEL_SIZE_LABELS = { '29':'29"', '275':'27.5"', '26':'26"', '24':'24"' };   // 26/24 = DJ + junior sizes (DJ live 2026-07-14); values() stays catalog-derived, so they only show when rows carry them
   var PEDAL_STYLE_LABELS = { flat:'Flat', clip:'Clipless', hybrid:'Flat/Clipless hybrid' };  // "Clipless" is the industry word; vocab key stays 'clip'
   var SPRING_LABEL = { coil:'Coil', air:'Air' };
-  // Bottom-bracket shells grouped into the two families riders actually shop by. An
-  // unmapped shell falls through to its own bucket (never crash, never silently drop).
-  var BB_FAMILY = { BSA68:'threaded', BSA73:'threaded', BSA83:'threaded', T47:'threaded',
-                    PF92:'pressfit', PF107:'pressfit', PF865:'pressfit' };
-  function bbFamily(shell){ return BB_FAMILY[shell] || shell; }
+  // Bottom-bracket shell family / drivetrain actuation resolution: tested pure
+  // logic now lives in src/facets.js (CODE-QUALITY-AUDIT-2026-07-16, H-3);
+  // these stay thin delegators so every call site below keeps calling the
+  // bare name unchanged.
+  function bbFamily(shell){ return window.bbFamily(shell); }
   var BB_FAMILY_LABEL = { threaded:'Threaded', pressfit:'Pressfit' };
-  // A drivetrain part's electronic/mechanical nature: shifters & derailleurs carry
-  // `actuation` directly; a groupset preset inherits it from its shifter/derailleur
-  // fill; cassette/chain/crankset (and everything else) are agnostic → null → pass.
-  function actuationOf(p){
-    if(p.cat==='shifter' || p.cat==='derailleur') return p.actuation || null;
-    if(p.cat==='groupset' && p.fills){
-      var src = byId(p.fills.shifter) || byId(p.fills.derailleur);
-      return src ? (src.actuation || null) : null;
-    }
-    return null;
-  }
+  function actuationOf(p){ return window.actuationOf(p, byId); }
   var ACTUATION_LABEL = { cable:'Mechanical', electronic:'Electronic' };
   /* ---- complete-bike facet derivations (2026-07-16) ----
      Complete-bike filter facets never live on the completebike row itself —
@@ -1797,76 +1780,26 @@
      feeds checkBuild, and an unresolved fill id (or a bike outside cat
      'completebike') returns null rather than throwing — null always PASSES
      an engaged filter's match() (the axis simply has no opinion on that bike)
-     the same way an unknown frame material passes frameMaterial above. */
-  function cbMaterialOf(p){
-    if(p.cat!=='completebike' || !p.fills) return null;
-    var fr = byId(p.fills.frame);
-    return fr ? (fr.material || null) : null;
-  }
-  function cbActuationOf(p){
-    if(p.cat!=='completebike' || !p.fills) return null;
-    var src = byId(p.fills.shifter) || byId(p.fills.derailleur);
-    return src ? (src.actuation || null) : null;
-  }
-  function cbFrontTravelOf(p){
-    if(p.cat!=='completebike' || !p.fills) return null;
-    var fk = byId(p.fills.fork);
-    return (fk && typeof fk.travel==='number') ? fk.travel : null;
-  }
-  // Rear travel reads the FRAME fill's travel (the shock's own stroke isn't
-  // the wheel-path travel figure); a hardtail frame carries no `travel` field
-  // at all (schema forbids it) and reads as the frame fact "0mm rear travel",
-  // not an unknown — so it's the one case in this whole facet system that
-  // reports a real number instead of passing null, precisely so a 0-inclusive
-  // range keeps hardtails visibly matched rather than silently excluded.
-  function cbRearTravelOf(p){
-    if(p.cat!=='completebike' || !p.fills) return null;
-    var fr = byId(p.fills.frame);
-    if(!fr) return null;
-    if(fr.suspension==='hardtail') return 0;
-    return typeof fr.travel==='number' ? fr.travel : null;
-  }
-  // Same hardtail=0 convention as cbRearTravelOf, applied directly to a bare
-  // frame part (Frames tab) instead of via a complete bike's frame fill.
-  function frameRearTravelOf(p){
-    if(p.cat!=='frame') return null;
-    if(p.suspension==='hardtail') return 0;
-    return typeof p.travel==='number' ? p.travel : null;
-  }
-  // The frame's RECOMMENDED fork travel for the Frames-tab slider (Douglas
-  // 2026-07-16): designForkTravel is the maker's stated design-intent figure,
-  // sourced on only a subset of frames, so it wins when present; every frame
-  // carries maxForkTravel (maker-rated max) as the honest fallback. Never
-  // invents a value — a frame with neither field simply can't happen since
-  // maxForkTravel is schema-required.
-  function frameForkTravelOf(p){
-    if(p.cat!=='frame') return null;
-    if(typeof p.designForkTravel==='number') return p.designForkTravel;
-    return typeof p.maxForkTravel==='number' ? p.maxForkTravel : null;
-  }
-  // distinct catalog values for an axis: scan parts passing pred, collect get(p)
-  function distinctVals(pred, get){
-    var seen={}, out=[];
-    PARTS.forEach(function(p){ if(pred(p)){ var v=get(p); if(v!=null && !seen[v]){ seen[v]=1; out.push(v); } } });
-    return out;
-  }
-  // min/max over an axis's catalog values, for a RANGEFILTERS row's slider
-  // bounds — same distinctVals scan, collapsed to {lo,hi}. null when no part
-  // carries the field (the row simply doesn't render — nothing worth a slider).
-  function numBoundsOf(pred, get){
-    var vals = distinctVals(pred, get);
-    if(!vals.length) return null;
-    return { lo: Math.min.apply(null, vals), hi: Math.max.apply(null, vals) };
-  }
-  function numAsc(a,b){ return a-b; }
+     the same way an unknown frame material passes frameMaterial above.
+     Tested pure logic (CODE-QUALITY-AUDIT-2026-07-16, H-3) now lives in
+     src/facets.js; these stay thin delegators so every call site below
+     (SUBFILTERS/RANGEFILTERS descriptors, distinctVals/numBoundsOf callbacks)
+     keeps calling the bare name unchanged. */
+  function cbMaterialOf(p){ return window.cbMaterialOf(p, byId); }
+  function cbActuationOf(p){ return window.cbActuationOf(p, byId); }
+  function cbFrontTravelOf(p){ return window.cbFrontTravelOf(p, byId); }
+  function cbRearTravelOf(p){ return window.cbRearTravelOf(p, byId); }
+  function frameRearTravelOf(p){ return window.frameRearTravelOf(p); }
+  function frameForkTravelOf(p){ return window.frameForkTravelOf(p); }
+  // distinctVals/numBoundsOf/inOrder: tested pure logic now lives in
+  // src/range-filters.js (CODE-QUALITY-AUDIT-2026-07-16, H-3) — these close
+  // over the global PARTS so every call site below keeps passing (pred, get).
+  function distinctVals(pred, get){ return window.distinctVals(PARTS, pred, get); }
+  function numBoundsOf(pred, get){ return window.numBoundsOf(PARTS, pred, get); }
+  function numAsc(a,b){ return window.numAsc(a,b); }
   function byCat(cat){ return function(p){ return p.cat===cat; }; }
   // sort a value list by a preferred key order; unknown keys keep catalog order after
-  function inOrder(vals, order){
-    return vals.slice().sort(function(a,b){
-      var ia=order.indexOf(a), ib=order.indexOf(b);
-      return (ia<0?order.length:ia) - (ib<0?order.length:ib);
-    });
-  }
+  function inOrder(vals, order){ return window.inOrder(vals, order); }
   var SUBFILTERS = [
     /* material is annotation-only (never feeds verdicts) and absence = UNKNOWN,
        so a frame without the field passes every chip rather than vanishing
@@ -2011,7 +1944,7 @@
     { id:'forkTravelRange', groups:['fork'], heading:'Fork travel',
       aria:'Filter forks by travel range', unit:'mm', step:1,
       bounds:function(){ return numBoundsOf(byCat('fork'), function(p){ return p.travel; }); },
-      match:function(p,lo,hi){ if(p.cat!=='fork') return true; if(p.travel==null) return true; return p.travel>=lo && p.travel<=hi; } },
+      match:function(p,lo,hi){ if(p.cat!=='fork') return true; if(p.travel==null) return true; return window.rangeMatch(p.travel, lo, hi); } },
     /* Frames tab rear-travel slider (Douglas 2026-07-16, alongside the relabel
        to "Rear travel" everywhere — a bare "Travel" reads as ambiguous vs the
        fork's own travel). Hardtails carry no `travel` field at all (schema
@@ -2022,7 +1955,7 @@
     { id:'frameRearTravelRange', groups:['frame'], heading:'Rear travel', note:'0 mm = hardtail',
       aria:'Filter frames by rear travel range — 0mm is a hardtail', unit:'mm', step:1,
       bounds:function(){ return numBoundsOf(function(p){ return p.cat==='frame' && frameRearTravelOf(p)!=null; }, frameRearTravelOf); },
-      match:function(p,lo,hi){ if(p.cat!=='frame') return true; var v=frameRearTravelOf(p); return v==null || (v>=lo && v<=hi); } },
+      match:function(p,lo,hi){ if(p.cat!=='frame') return true; var v=frameRearTravelOf(p); return v==null || window.rangeMatch(v, lo, hi); } },
     /* Frames tab fork-travel slider (Douglas 2026-07-16): matches on the
        frame's RECOMMENDED fork travel, not a specific fork's — frameForkTravelOf
        prefers the sourced designForkTravel and falls back to the
@@ -2030,11 +1963,11 @@
     { id:'frameForkTravelRange', groups:['frame'], heading:'Fork travel',
       aria:'Filter frames by recommended fork travel range', unit:'mm', step:1,
       bounds:function(){ return numBoundsOf(function(p){ return p.cat==='frame' && frameForkTravelOf(p)!=null; }, frameForkTravelOf); },
-      match:function(p,lo,hi){ if(p.cat!=='frame') return true; var v=frameForkTravelOf(p); return v==null || (v>=lo && v<=hi); } },
+      match:function(p,lo,hi){ if(p.cat!=='frame') return true; var v=frameForkTravelOf(p); return v==null || window.rangeMatch(v, lo, hi); } },
     { id:'shockEyeRange', groups:['shock'], heading:'Shock eye-to-eye',
       aria:'Filter rear shocks by eye-to-eye length range', unit:'mm', step:1,
       bounds:function(){ return numBoundsOf(byCat('shock'), function(p){ return p.eye; }); },
-      match:function(p,lo,hi){ if(p.cat!=='shock') return true; if(p.eye==null) return true; return p.eye>=lo && p.eye<=hi; } },
+      match:function(p,lo,hi){ if(p.cat!=='shock') return true; if(p.eye==null) return true; return window.rangeMatch(p.eye, lo, hi); } },
     /* The shock's second size axis, a slider in its own right (Douglas
        2026-07-16) rather than the discrete chip row it replaced in SUBFILTERS.
        step 0.5 because real catalog strokes are half-millimetre values
@@ -2048,23 +1981,23 @@
     { id:'shockStrokeRange', groups:['shock'], heading:'Stroke (shock travel)',
       aria:'Filter rear shocks by stroke (travel) length range', unit:'mm', step:0.5,
       bounds:function(){ return numBoundsOf(byCat('shock'), function(p){ return p.stroke; }); },
-      match:function(p,lo,hi){ if(p.cat!=='shock') return true; if(p.stroke==null) return true; return p.stroke>=lo-1e-9 && p.stroke<=hi+1e-9; } },
+      match:function(p,lo,hi){ if(p.cat!=='shock') return true; if(p.stroke==null) return true; return window.rangeMatch(p.stroke, lo, hi, 1e-9); } },
     { id:'dropperDropRange', groups:['seatpost'], heading:'Dropper drop',
       aria:'Filter dropper posts by travel (drop) range', unit:'mm', step:1,
       bounds:function(){ return numBoundsOf(byCat('dropper'), function(p){ return p.drop; }); },
-      match:function(p,lo,hi){ if(p.cat!=='dropper') return true; if(p.drop==null) return true; return p.drop>=lo && p.drop<=hi; } },
+      match:function(p,lo,hi){ if(p.cat!=='dropper') return true; if(p.drop==null) return true; return window.rangeMatch(p.drop, lo, hi); } },
     { id:'tireWidthRange', groups:['tire'], heading:'Tire width',
       aria:'Filter tires by width range', unit:'in', step:0.01,
       bounds:function(){ return numBoundsOf(byCat('tire'), function(p){ return p.width; }); },
-      match:function(p,lo,hi){ if(p.cat!=='tire') return true; if(p.width==null) return true; return p.width>=lo-1e-9 && p.width<=hi+1e-9; } },
+      match:function(p,lo,hi){ if(p.cat!=='tire') return true; if(p.width==null) return true; return window.rangeMatch(p.width, lo, hi, 1e-9); } },
     { id:'cbFrontTravelRange', groups:['completebikes'], heading:'Front travel (fork)',
       aria:'Filter complete bikes by front (fork) travel range', unit:'mm', step:1,
       bounds:function(){ return numBoundsOf(function(p){ return p.cat==='completebike' && cbFrontTravelOf(p)!=null; }, cbFrontTravelOf); },
-      match:function(p,lo,hi){ if(p.cat!=='completebike') return true; var v=cbFrontTravelOf(p); return v==null || (v>=lo && v<=hi); } },
+      match:function(p,lo,hi){ if(p.cat!=='completebike') return true; var v=cbFrontTravelOf(p); return v==null || window.rangeMatch(v, lo, hi); } },
     { id:'cbRearTravelRange', groups:['completebikes'], heading:'Rear travel (frame)', note:'0 mm = hardtail',
       aria:'Filter complete bikes by rear travel range — 0mm is a hardtail', unit:'mm', step:1,
       bounds:function(){ return numBoundsOf(function(p){ return p.cat==='completebike' && cbRearTravelOf(p)!=null; }, cbRearTravelOf); },
-      match:function(p,lo,hi){ if(p.cat!=='completebike') return true; var v=cbRearTravelOf(p); return v==null || (v>=lo && v<=hi); } }
+      match:function(p,lo,hi){ if(p.cat!=='completebike') return true; var v=cbRearTravelOf(p); return v==null || window.rangeMatch(v, lo, hi); } }
   ];
   var rangeFilter = {};   // id -> {lo,hi} — ABSENT (not 'all') means unnarrowed, so baseMatch skips the check entirely
   function resetRangeFilters(){ rangeFilter = {}; }
@@ -2415,12 +2348,12 @@
       if(verifiedOnly && !partVerified(p)) return false;
       if(ownedOnly && !ownedIds[canonicalId(p.id)]) return false;
       if(disciplineFilter!=='all' && p.disciplines && p.disciplines.indexOf(disciplineFilter)<0) return false;
-      // contextual sub-filters (data-driven): each engaged axis hides only the
-      // in-scope parts that miss it; out-of-scope parts pass (match() returns true).
-      for(var si=0; si<SUBFILTERS.length; si++){ var sf=SUBFILTERS[si], sv=subFilter[sf.id]; if(sv!=='all' && !sf.match(p, sv)) return false; }
-      // dual-ended range filters: only engaged (rangeFilter[rf.id] set) axes check;
-      // an untouched slider stores nothing, so it's a no-op here (see RANGEFILTERS above).
-      for(var ri=0; ri<RANGEFILTERS.length; ri++){ var rf=RANGEFILTERS[ri], rv=rangeFilter[rf.id]; if(rv && !rf.match(p, rv.lo, rv.hi)) return false; }
+      // contextual sub-filters + dual-ended range filters (data-driven): each
+      // engaged axis hides only the in-scope parts that miss it, and every
+      // engaged axis composes as AND — tested pure composition logic now
+      // lives in src/range-filters.js (CODE-QUALITY-AUDIT-2026-07-16, H-3).
+      if(!window.subFiltersMatch(SUBFILTERS, subFilter, p)) return false;
+      if(!window.rangeFiltersMatch(RANGEFILTERS, rangeFilter, p)) return false;
       return true;
     }
 
@@ -2508,8 +2441,8 @@
     var SORTS={
       random:        function(a,b){ return (a.sh-b.sh) || (a.i-b.i); },
       name:          function(a,b){ return (a.p.brand+' '+a.p.model).localeCompare(b.p.brand+' '+b.p.model) || (a.i-b.i); },
-      'price-asc':   function(a,b){ return ((a.p.price||0)-(b.p.price||0)) || (a.i-b.i); },
-      'price-desc':  function(a,b){ return ((b.p.price||0)-(a.p.price||0)) || (a.i-b.i); },
+      'price-asc':   function(a,b){ return window.msrpCompareAsc(a.p,b.p) || (a.i-b.i); },
+      'price-desc':  function(a,b){ return window.msrpCompareDesc(a.p,b.p) || (a.i-b.i); },
       'weight-asc':  function(a,b){ return (wt(a.p,Infinity)-wt(b.p,Infinity)) || (a.i-b.i); },
       'weight-desc': function(a,b){ return (wt(b.p,-Infinity)-wt(a.p,-Infinity)) || (a.i-b.i); }
     };
@@ -2546,7 +2479,8 @@
     // the headline price and the "save" figure ALWAYS come from MSRP (p.price), never
     // streetPrice — a recorded sale must not inflate the save badge or the best-value
     // ranking. streetPrice, when present, is shown as an explicitly-labeled "Sale" line.
-    var save = partsTotal - p.price;
+    // Tested pure logic now lives in src/pricing.js (CODE-QUALITY-AUDIT-2026-07-16, H-2).
+    var save = window.completeBikeSaveBasis(p, partsTotal).save;
     var discLabel = (p.disciplines||[]).map(function(d){ return DISC_LABELS[d] || d; }).join('/');
     card.innerHTML =
       '<div class="pcard-head">'+thumbHtml+
@@ -2875,7 +2809,8 @@
     $('cbLabel').textContent = (diverged ? 'Modified from ' : '') + cb.brand+' '+cb.model + (diverged ? '' : ' — complete bike');
     $('cbPartsTotal').textContent = money(t.price);
     $('cbPrice').textContent = money(cb.price) + (cb.streetPrice ? ' (Sale '+money(cb.streetPrice)+')' : '');
-    var save = t.price - cb.price;
+    // Tested pure logic now lives in src/pricing.js (CODE-QUALITY-AUDIT-2026-07-16, H-2).
+    var save = window.completeBikeSaveBasis(cb, t.price).save;
     $('cbSaveRow').hidden = save <= 0;   // never claim savings once modifications erase them (e.g. removing stock parts)
     if(save > 0) $('cbSave').textContent = money(save);
     $('cbBlock').hidden = false;
