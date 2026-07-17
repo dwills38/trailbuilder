@@ -181,6 +181,11 @@ var TIRE_CASING_CLASS = {
   'super-race':'xc', 'super-ground':'trail', 'super-trail':'trail',
   'super-gravity':'enduro', 'super-downhill':'dh',
   'gravity-pro':'enduro', 'trail-pro':'trail',
+  // 'bikepark' (Schwalbe Magic Mary/Big Betty BikePark version): schema.js's own
+  // sourced comment (schwalbetires.com, fetched 2026-07-16) calls it "the wire-bead
+  // DH/bike-park casing tier" in its own words — the literal DH tier, distinct from
+  // the folding-bead Super Trail/Super Gravity tiers already mapped above.
+  'bikepark':'dh',
 
   // Specialized (Douglas's 2026-07-16 brief): Control -> xc, GRID/GRID Trail ->
   // trail. GRID Gravity: Douglas asked for enduro/DH with justification — its OWN

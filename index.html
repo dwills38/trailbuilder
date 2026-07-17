@@ -184,8 +184,9 @@
     .range-input::-moz-range-thumb{width:38px;height:38px;border:none;box-shadow:none;
       background:radial-gradient(circle,var(--card) 0 5px,var(--brand) 5px 7px,transparent 7px 100%)}
   }
-  .legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--ink-soft);margin:0 0 16px}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--ink-soft);margin:0 0 4px}
   .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle;border:1px solid rgba(0,0,0,.15)}
+  .legend-note{font-size:11px;color:var(--ink-soft);margin:0 0 16px}
   .layout{display:grid;grid-template-columns:210px minmax(0,1fr) 330px;gap:20px;align-items:start}   /* rail 250→210, side 350→330, gap 22→20 (2026-07-11): reclaims ~64px for the catalog column so one-line list rows engage at 1280-wide windows */
   .layout > *{min-width:0}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:12px;min-width:0}
@@ -261,6 +262,11 @@
   /* was #9aa39b (~2.6:1 on white — fails WCAG AA); ink-soft passes at ~6.5:1 */
   .prov .est{color:var(--ink-soft);font-weight:600}
   .prov .owned{display:inline-flex;align-items:center;gap:3px;background:var(--chip);color:var(--brand);font-weight:700;padding:1px 7px;border-radius:999px;border:1px solid var(--line);margin-left:5px}
+  /* Complete-bike "build-sheet verified" badge — deliberately distinct from
+     .ver's green (part-level verified) so the two different claims never look
+     like the same badge (bias-r3, 2026-07-17). */
+  .prov .sheet-ver{display:inline-flex;align-items:center;gap:3px;background:var(--chip);color:var(--brand);font-weight:700;padding:1px 7px;border-radius:999px;text-decoration:none;border:1px solid var(--line)}
+  .prov a.sheet-ver:hover{text-decoration:underline}
   .slot .vchk{color:var(--ok);font-weight:800;margin-left:3px;font-size:12px}
 
   /* Cards ⇄ List catalog view (from mockup D). The dense list is pure CSS on
@@ -320,7 +326,7 @@
       /* provenance as a right-anchored column; badges never split mid-pill —
          an owned badge wraps whole onto a second line inside the track */
       .list .pcard .prov{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;row-gap:2px}
-      .list .pcard .prov .ver,.list .pcard .prov .est,.list .pcard .prov .owned{white-space:nowrap}
+      .list .pcard .prov .ver,.list .pcard .prov .sheet-ver,.list .pcard .prov .est,.list .pcard .prov .owned{white-space:nowrap}
       /* col-4 stacks the price on top with the pick buttons SIDE BY SIDE below it —
          a second button (the 🧰 Own button, shown only when signed in) used to wrap
          into a taller two-button stack (Douglas 2026-07-11). Both stay right-anchored. */
@@ -415,7 +421,7 @@
   /* Inventory page (Phase 3): a full-width view, not a modal. body.inv-page hides
      the builder and reveals this; toggled by the header 🧰 Inventory button. */
   #inventoryPage{display:none}
-  body.inv-page .layout,body.inv-page .toolbar,body.inv-page .legend,body.inv-page #search,body.inv-page #share,body.inv-page .menu{display:none}
+  body.inv-page .layout,body.inv-page .toolbar,body.inv-page .legend,body.inv-page .legend-note,body.inv-page #search,body.inv-page #share,body.inv-page .menu{display:none}
   body.inv-page #inventoryPage{display:block}
   .invpage-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
   .invpage-head h2{flex:1;margin:0;font-size:20px}
@@ -427,7 +433,7 @@
   /* Forum page (Phase 4, FORUM_ENABLED): same full-width-view convention as the
      inventory page above. body.forum-page hides the builder and reveals this. */
   #forumPage{display:none}
-  body.forum-page .layout,body.forum-page .toolbar,body.forum-page .legend,body.forum-page #search,body.forum-page #share,body.forum-page .menu{display:none}
+  body.forum-page .layout,body.forum-page .toolbar,body.forum-page .legend,body.forum-page .legend-note,body.forum-page #search,body.forum-page #share,body.forum-page .menu{display:none}
   body.forum-page #forumPage{display:block}
   .linklike{background:none;border:none;padding:0;color:var(--brand);font-weight:600;text-decoration:underline;cursor:pointer;font:inherit}
   .linklike:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
@@ -445,7 +451,7 @@
   /* Profile page (rich profiles): same full-width-view convention as the
      inventory + forum pages. body.profile-page hides the builder, reveals this. */
   #profilePage{display:none}
-  body.profile-page .layout,body.profile-page .toolbar,body.profile-page .legend,body.profile-page #search,body.profile-page #share,body.profile-page .menu{display:none}
+  body.profile-page .layout,body.profile-page .toolbar,body.profile-page .legend,body.profile-page .legend-note,body.profile-page #search,body.profile-page #share,body.profile-page .menu{display:none}
   body.profile-page #profilePage{display:block}
   body.profile-page #mobileBar{display:none}
   .prof-hero{display:flex;align-items:center;gap:16px;margin:8px 0 4px;flex-wrap:wrap}
@@ -489,7 +495,7 @@
      reveals this; toggled by the header 📚 Guides button or a #guides / #guide/<slug>
      hash. Static, author-controlled content from src/guides.js. */
   #guidesPage{display:none}
-  body.guides-page .layout,body.guides-page .toolbar,body.guides-page .legend,body.guides-page #search,body.guides-page #share,body.guides-page .menu{display:none}
+  body.guides-page .layout,body.guides-page .toolbar,body.guides-page .legend,body.guides-page .legend-note,body.guides-page #search,body.guides-page #share,body.guides-page .menu{display:none}
   body.guides-page #guidesPage{display:block}
   body.guides-page #mobileBar{display:none}
   .guides-intro{color:var(--ink-soft);font-size:14px;margin:6px 0 20px;max-width:680px}
@@ -638,8 +644,8 @@
     /* invisible touch-target extensions (zero visual change): the ✓ Verified
        source link and the header logo are distinct actions rendered as small
        text — pad their HIT AREA, not their box */
-    .prov .ver{position:relative}
-    .prov .ver::after{content:"";position:absolute;inset:-10px -8px}
+    .prov .ver,.prov .sheet-ver{position:relative}
+    .prov .ver::after,.prov .sheet-ver::after{content:"";position:absolute;inset:-10px -8px}
     header h1 a{display:inline-block;padding:9px 6px;margin:-9px -6px}
     .footer-legal a{display:inline-block;padding:11px 4px;margin:-8px 0}
     dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal{width:calc(100% - 20px)}
@@ -649,7 +655,7 @@
     .list .pcard{padding:8px 10px 8px 26px;gap:6px 8px}
     .list .pcard-head{flex:1 1 160px}
     .list .pcard .spec{display:none}
-    .list .pcard .prov .ver,.list .pcard .prov .est{font-size:11px}
+    .list .pcard .prov .ver,.list .pcard .prov .sheet-ver,.list .pcard .prov .est{font-size:11px}
   }
   @media (max-width:480px){
     /* Shrink the sticky banner's real-estate cost on phones only (Douglas
@@ -988,7 +994,7 @@
         <button class="btn danger" id="reset" title="Clear every picked part and start over">↺ Reset build</button>
   </div>
   <div class="legend">
-        <span><i style="background:#2aa35a" aria-hidden="true"></i>No conflicts found</span>
+        <span title="Green means no conflict among the dimensions we check — it isn't a guarantee, and some parts publish no data for a given dimension"><i style="background:#2aa35a" aria-hidden="true"></i>No conflicts found</span>
         <!-- "open the part" works on every device — the detail modal shows the
              reason (touch has no hover); desktop hovering the dot still works too -->
         <span><i style="background:#e0a52e" aria-hidden="true"></i>Check first &mdash; adds a warning (open the part for why)</span>
@@ -996,6 +1002,11 @@
         <span><i style="background:#d2d7d1" aria-hidden="true"></i>Nothing selected yet to judge</span>
         <span><span style="color:var(--ok);font-weight:800">✓ Verified</span> = checked vs manufacturer spec (else <span style="color:var(--ink-soft);font-weight:600">≈ estimate</span>)</span>
   </div>
+  <!-- bias-r3's cheapest high-value fix (2026-07-17): a green dot means no conflict was
+       found among the dimensions this tool checks, not a blanket guarantee — some parts
+       simply publish no data for a given dimension. Mirrors the existing "No conflicts
+       found" (not "All compatible") non-overclaim wording used throughout the app. -->
+  <p class="legend-note">A green dot means no conflict among the dimensions we check — some parts publish no data, so it's not a guarantee of perfect fit.</p>
   <div class="layout">
     <nav id="rail" aria-label="Catalog filters">
       <div class="rail-h">Discipline</div>
@@ -1587,7 +1598,22 @@
      used by cardEl to add the owned badge on the same line. */
   function provHtml(p, extra){
     var body;
-    if(!p.fills && p.verified===true && p.source){
+    if(p.cat==='completebike'){
+      // Distinct badge from the part-level "✓ Verified" (bias-r3 fix, 2026-07-17):
+      // this claims the BUILD SHEET (which parts ship stock on this bike) was
+      // fetched from the manufacturer, never that every individual part it fills
+      // is itself independently verified — completeBikeSheetVerified/provHtml's
+      // other branches are deliberately different predicates for different claims.
+      if(completeBikeSheetVerified(p)){
+        var cbWhen = p.lastChecked ? (' on '+esc(p.lastChecked)) : '';
+        body = p.source
+          ? '<a class="sheet-ver" href="'+esc(p.source)+'" target="_blank" rel="noopener noreferrer"'+
+            ' title="This bike\'s build sheet (which parts ship stock on it) was checked against the manufacturer'+cbWhen+' — click for the source">🧾 Build-sheet verified</a>'
+          : '<span class="sheet-ver" title="This bike\'s build sheet was checked against the manufacturer'+cbWhen+'">🧾 Build-sheet verified</span>';
+      } else {
+        body = '<span class="est" title="Sample data — this build sheet has not yet been checked against the manufacturer">≈ estimate</span>';
+      }
+    } else if(!p.fills && p.verified===true && p.source){
       var when = p.lastChecked ? (' on '+esc(p.lastChecked)) : '';
       var url = esc(p.source);
       body = '<a class="ver" href="'+url+'" target="_blank" rel="noopener noreferrer"'+
@@ -1845,22 +1871,50 @@
        other Tires-tab filter (wheelSize, tireWidthRange, search, verified-only, …)
        through the same SUBFILTERS/baseMatch loop as any other row here — nothing
        tire-specific needed beyond these two descriptors.
-       Deliberately NOT the frameMaterial "absence passes every chip" convention: a
-       tire whose compound/casing exists but isn't in the mapping table (see
-       tire-classes.js's own unmapped-value comments for why) matches NO class chip
-       once one is engaged, rather than passing all of them — we won't guess a class
-       for a value we didn't map, so match() has no second pass-through clause beyond
-       the standard out-of-scope-part one. */
+       Deliberately NOT the frameMaterial "absence passes every chip" convention for a
+       tire that carries NO compound/casing value at all — those stay exempt (pass
+       every chip, same as frameMaterial) since there's nothing to even guess from.
+       A tire whose compound/casing DOES exist but isn't in tire-classes.js's mapping
+       table (see that file's own unmapped-value comments for why) used to match NO
+       class chip once one was engaged — silently vanishing from a filtered view with
+       no way back short of resetting to "All" (bias-r3, 2026-07-17: flagged as making
+       real tires look invisible/non-existent). Fixed by an explicit 'other' bucket
+       below: still never GUESSES which real class (soft/DH/etc.) an unmapped value
+       belongs to, but keeps those tires reachable by filtering. Brand compound/casing
+       names aren't standardized either — e.g. Continental's own "Soft" tier is its
+       MIDDLE compound, not the softest — so these chips rank cross-brand, not by the
+       maker's own label; the aria text below (row tooltip) says so. */
     { id:'tireCompoundClass', groups:['tire'], allLabel:'All compounds',
-      aria:'Filter tires by rubber compound class (soft/medium/hard)',
-      values:function(){ return inOrder(distinctVals(function(p){ return p.cat==='tire' && classifyTireCompound(p.compound)!=null; }, function(p){ return classifyTireCompound(p.compound); }), TIRE_COMPOUND_CLASSES); },
-      label:function(v){ return TIRE_COMPOUND_CLASS_LABELS[v] || v; },
-      match:function(p,v){ return p.cat!=='tire' || classifyTireCompound(p.compound)===v; } },
+      aria:'Filter tires by rubber compound class (soft/medium/hard), ranked cross-brand — a maker\'s own tier name (e.g. Continental "Soft") doesn\'t always match the chip (it\'s their middle compound). "Other/unrated" = has a compound value this catalog hasn\'t classified yet.',
+      values:function(){
+        var known = inOrder(distinctVals(function(p){ return p.cat==='tire' && classifyTireCompound(p.compound)!=null; }, function(p){ return classifyTireCompound(p.compound); }), TIRE_COMPOUND_CLASSES);
+        var hasOther = PARTS.some(function(p){ return p.cat==='tire' && p.compound && classifyTireCompound(p.compound)==null; });
+        return hasOther ? known.concat(['other']) : known;
+      },
+      // 'other' is a UI-only escape hatch (not a class classifyTireCompound itself
+      // ever returns — see tire-classes.js) so its label lives here, not in
+      // TIRE_COMPOUND_CLASS_LABELS's real-classes-only map.
+      label:function(v){ return v==='other' ? 'Other/unrated' : (TIRE_COMPOUND_CLASS_LABELS[v] || v); },
+      match:function(p,v){
+        if(p.cat!=='tire') return true;
+        if(!p.compound) return true;   // no compound recorded at all — nothing to classify, exempt like frameMaterial
+        var c = classifyTireCompound(p.compound);
+        return v==='other' ? c==null : c===v;
+      } },
     { id:'tireCasingClass', groups:['tire'], allLabel:'All casings',
-      aria:'Filter tires by casing duty class (DH/Enduro/Trail/XC)',
-      values:function(){ return inOrder(distinctVals(function(p){ return p.cat==='tire' && classifyTireCasing(p.casing)!=null; }, function(p){ return classifyTireCasing(p.casing); }), TIRE_CASING_CLASSES); },
-      label:function(v){ return TIRE_CASING_CLASS_LABELS[v] || v; },
-      match:function(p,v){ return p.cat!=='tire' || classifyTireCasing(p.casing)===v; } },
+      aria:'Filter tires by casing duty class (DH/Enduro/Trail/XC), ranked cross-brand from each maker\'s published casing tier. "Other/unrated" = has a casing value this catalog hasn\'t classified yet.',
+      values:function(){
+        var known = inOrder(distinctVals(function(p){ return p.cat==='tire' && classifyTireCasing(p.casing)!=null; }, function(p){ return classifyTireCasing(p.casing); }), TIRE_CASING_CLASSES);
+        var hasOther = PARTS.some(function(p){ return p.cat==='tire' && p.casing && classifyTireCasing(p.casing)==null; });
+        return hasOther ? known.concat(['other']) : known;
+      },
+      label:function(v){ return v==='other' ? 'Other/unrated' : (TIRE_CASING_CLASS_LABELS[v] || v); },
+      match:function(p,v){
+        if(p.cat!=='tire') return true;
+        if(!p.casing) return true;   // no casing recorded at all — nothing to classify, exempt like frameMaterial
+        var c = classifyTireCasing(p.casing);
+        return v==='other' ? c==null : c===v;
+      } },
     { id:'pedalStyle', groups:['pedals'], allLabel:'All styles',
       aria:'Filter pedals by style',
       values:function(){ return inOrder(distinctVals(byCat('pedal'), function(p){ return p.style; }), ['flat','clip','hybrid']); },
@@ -2345,7 +2399,12 @@
       if(activeGroup!=='all' && activeSub!=='all'){ var subM=SUBCHIP_META[activeSub];
         if(subM){ if(!subM.match(p)) return false; } else if(p.cat!==activeSub) return false; }
       if(q && (p.brand+' '+p.model+' '+catLabel(p.cat)).toLowerCase().indexOf(q)<0) return false;
-      if(verifiedOnly && !partVerified(p)) return false;
+      // completebike has its own provenance claim (the build sheet was fetched
+      // from the manufacturer) distinct from partVerified's per-component check —
+      // using partVerified here blanked the ✓-only Complete Bikes view at 0/436
+      // (bias-r3, 2026-07-17: almost no bike has every one of its ~20 fills
+      // individually verified yet, even when the bike's own sheet is sourced).
+      if(verifiedOnly && !(p.cat==='completebike' ? completeBikeSheetVerified(p) : partVerified(p))) return false;
       if(ownedOnly && !ownedIds[canonicalId(p.id)]) return false;
       if(disciplineFilter!=='all' && p.disciplines && p.disciplines.indexOf(disciplineFilter)<0) return false;
       // contextual sub-filters + dual-ended range filters (data-driven): each
