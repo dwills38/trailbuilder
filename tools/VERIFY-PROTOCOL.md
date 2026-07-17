@@ -84,6 +84,18 @@ spacing, freehub, rotor mount, internal width, max/min tire) but never publishes
 per-pair weight split — DT Swiss's combined "from Xg" set-weight pattern is the exemplar. Nominal
 weight stays, noted in `desc` with the basis, exactly as for shocks.
 
+**Extended to forks (Douglas 2026-07-17, via coordinator):** the same exception now applies to
+fork rows whose maker confirms the full interface set (wheel size, travel, axle, steerer, brake
+mount, max/min rotor) but publishes no weight for that exact travel/wheel/damper configuration —
+the long-standing fork blocker (RockShox model pages list one reference figure never tied to the
+catalog row's travel point; Fox/budget-tier pages often none). `verified:true` attests the
+interfaces; the weight stays nominal with its basis in `desc` (scaled from a stated sibling
+config, or the maker's unqualified reference figure labeled as such). Where a per-config weight
+IS published (some SRAM service pages state it for an exact config — the Lyrik Select+ 160
+precedent) or a `sourceType:'measured'` figure exists, those still win, unchanged. This retires
+the blanket "forks deliberately flagged" freeze: fork rows may now verify on the same terms as
+shocks and wheels.
+
 ## Per-part loop (persist before moving on)
 
 For each work order from `next`:
