@@ -871,25 +871,32 @@ var BMX_PARTS = [
   // ---- Kink depth -----------------------------------------------------
   {
     id: 'bmx-fr-kink-curb', cat: 'frame', brand: 'Kink', model: 'Curb',
-    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 419.99, note: 'Kink\'s street/park value-tier frame.'
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'american', headTube: 'mid',
+    topTube: 20.0, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: false,
+    price: 399.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://kinkbmx.com/products/curb-2027',
+    note: 'Sold complete-bike-only (corrected frameOnly false; was true). bbShell corrected mid -> american ("Unsealed American 19mm" BB). rearBrakeMount corrected u-brake -> v-brake ("Mission Cease V2" V-brakes). topTube corrected 20.5 -> 20.0in. Price corrected 419.99 -> 399.99. headTube mapped from the page\'s "Standard 1 1/8in Threadless" (external, non-integrated cups) to the closest BMX_VOCAB token (mid) - PROVISIONAL mapping, headTube fires no rule. Complete-bike weight (27lb 2oz = ~12,300g) is NOT a frame weight, so omitted per the wethepeople-justice convention.'
   },
   {
     id: 'bmx-rh-kink-cage-9', cat: 'rearWheel', brand: 'Kink', model: 'Cage Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 99.99
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 99.99,
+    note: 'WALL 2026-07-17: kinkbmx.com/collections/hubs-guards lists no hub called "Cage" (current Kink cassette hub is "Yukon"), and no other source turned up a Kink "Cage" hub past or present - flagged for the coordinator, this may be a non-existent/misnamed SKU. Left unchanged (cannot confirm OR refute the spec values), not verified.'
   },
   {
     id: 'bmx-hb-kink-retro', cat: 'handlebar', brand: 'Kink', model: 'Retro Bars',
-    clamp: '25.4mm', rise: 8.0, width: 28.75, price: 69.99
+    clamp: '25.4mm', rise: 8.0, width: 28.75, price: 69.99,
+    note: 'WALL 2026-07-17: kinkbmx.com/collections/handlebars lists no bar called "Retro" (current lineup: Helm, Foundry, Union, Williams/Williams 4pc) and no other source turned up a Kink "Retro Bars" past or present - flagged for the coordinator, this may be a non-existent/misnamed SKU. Left unchanged, not verified.'
   },
   {
     id: 'bmx-sp-kink-pivotal-post', cat: 'seatpost', brand: 'Kink', model: 'Pivotal Seatpost',
-    diameter: 25.4, system: 'pivotal', price: 17.99
+    diameter: 25.4, system: 'pivotal', weight: 125, price: 39.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://kinkbmx.com/products/pivotal-seat-post',
+    note: 'Price corrected 17.99 -> 39.99. Diameter/system confirmed. Weight (125g / 4.4oz) is the Medium (180mm) length; Small (75mm) is 65g, Large (330mm) is 201g.'
   },
   {
     id: 'bmx-pd-kink-rival', cat: 'pedals', brand: 'Kink', model: 'Rival Pedals',
-    platform: 'alloy', spindle: '9/16', weight: 350, price: 29.99
+    platform: 'alloy', spindle: '9/16', weight: 350, price: 29.99,
+    note: 'WALL 2026-07-17: kinkbmx.com/collections/pedals currently lists only the Hemlock pedal, and no other source turned up a Kink "Rival Pedals" past or present - flagged for the coordinator, this may be a non-existent/misnamed SKU. Left unchanged, not verified.'
   },
 
   // ---- WeThePeople depth -----------------------------------------------
