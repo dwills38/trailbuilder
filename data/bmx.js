@@ -70,7 +70,8 @@ var BMX_PARTS = [
     id: 'bmx-fr-fitbikeco-seriesone', cat: 'frame', brand: 'Fit Bike Co', model: 'Series One',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 419.99
+    price: 419.99,
+    note: 'Checked thebuildingdistro.com (Fit\'s current webstore, fitbikeco.com/shop/* now 301s there) 2026-07-17: Series One is a current 2026 complete-bike platform (multiple TT lengths/colors) and Fit still sells a companion Series One fork ($114.95) standalone, but no frame-only Series One SKU was found on the current site — cannot verify this frameOnly row against a live manufacturer page. Left unverified; spec unchanged (plausible sample).'
   },
   {
     id: 'bmx-fr-subrosa-salinas', cat: 'frame', brand: 'Subrosa', model: 'Salinas',
@@ -225,7 +226,8 @@ var BMX_PARTS = [
   {
     id: 'bmx-fk-fitbikeco-tibs', cat: 'fork', brand: 'Fit Bike Co', model: 'TIBS',
     discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
-    brakeMount: 'u-brake', weight: 690, price: 109.99
+    brakeMount: 'u-brake', weight: 690, price: 109.99,
+    note: 'Checked thebuildingdistro.com 2026-07-17: current Fit fork lineup is Blade V3, Shiv V3, OEM Forks, Series One fork and FK 1.0 — no TIBS fork found, appears discontinued. Left unverified; spec unchanged.'
   },
   {
     id: 'bmx-fk-redline-forkliftpro', cat: 'fork', brand: 'Redline', model: 'Forklift Pro',
@@ -422,7 +424,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-rh-fitbikeco-oem-9t', cat: 'rearWheel', brand: 'Fit Bike Co', model: 'OEM Sealed Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'RHD', axle: '14mm', price: 69.99
+    driverType: 'cassette', driverTeeth: 9, side: 'RHD', axle: '14mm', price: 69.99,
+    note: 'Checked thebuildingdistro.com 2026-07-17: Fit no longer sells this hub/wheel standalone — only as the "FIT OEM 20in LHD/RHD Wheelset" ($79.95, 50% off from $159.95). That current wheelset page confirms cassette driver / 9T / 14mm rear axle (matching this row) but the SKU is a wheelset, not a standalone hub, so price/verified are left as-is (interfaces corroborated, not independently verifiable at the row level).'
   },
   {
     id: 'bmx-rh-odyssey-clutchv2', cat: 'rearWheel', brand: 'Odyssey', model: 'Clutch V2 Freecoaster Hub',
@@ -476,7 +479,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-fw-fitbikeco-oem', cat: 'frontWheel', brand: 'Fit Bike Co', model: 'OEM Front Wheel',
-    wheelSize: '20', axle: '10mm', price: 49.99
+    wheelSize: '20', axle: '10mm', price: 49.99,
+    note: 'Checked thebuildingdistro.com 2026-07-17: same situation as bmx-rh-fitbikeco-oem-9t — Fit no longer sells this standalone, only bundled in the current OEM 20in wheelset. Left unverified; spec unchanged (used in test/test-bmx-golden.js — do not alter wheelSize/axle without re-running the golden test).'
   },
   {
     id: 'bmx-fw-profile-elite', cat: 'frontWheel', brand: 'Profile Racing', model: 'Elite Front Wheel',
@@ -545,7 +549,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-pg-fit-universal', cat: 'pegs', brand: 'Fit Bike Co', model: 'Universal Pegs',
     axleFit: '14mm', material: 'alloy', reducerIncluded: true, price: 34.99,
-    note: 'Ships with a 14mm-to-10mm reducer for front-axle use.'
+    note: 'Ships with a 14mm-to-10mm reducer for front-axle use. Checked thebuildingdistro.com 2026-07-17: current Fit peg lineup is only the "Miller Peg" ($17.95) — no "Universal Pegs" SKU found, appears discontinued. Left unverified; spec unchanged (used in test/test-bmx-golden.js + test/test-bmx-engine.js — do not alter axleFit/material/reducerIncluded without re-running those tests).'
   },
   {
     id: 'bmx-pg-cult-alloy', cat: 'pegs', brand: 'Cult', model: 'Alloy Pegs',
@@ -599,7 +603,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-hb-fitbikeco-vh', cat: 'handlebar', brand: 'Fit Bike Co', model: 'VH Bars',
-    clamp: '25.4mm', rise: 8.25, width: 29, price: 69.99
+    clamp: '25.4mm', rise: 8.25, width: 29, price: 69.99,
+    note: 'Checked thebuildingdistro.com 2026-07-17: current Fit bar lineup is Tom Dugan, Nordstrom, Misfit AM, Young Buck, Jordan Hango Raw Deal, and OEM — no "VH Bars" found, appears discontinued. Left unverified; spec unchanged (used in test/test-bmx-golden.js — do not alter clamp without re-running the golden test).'
   },
   {
     id: 'bmx-hb-totalbmx-techlite', cat: 'handlebar', brand: 'Total BMX', model: 'Techlite Bars',
@@ -655,7 +660,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-se-fitbikeco-slim', cat: 'seat', brand: 'Fit Bike Co', model: 'Slim Seat',
-    system: 'standard', price: 22.99
+    system: 'standard', price: 22.99,
+    note: 'Checked thebuildingdistro.com 2026-07-17: current Fit seat lineup is Barstool (2-panel/sublimated/quilted), Cafe Tripod and Solo Tripod — no "Slim Seat" found, appears discontinued. Left unverified; spec unchanged.'
   },
   {
     id: 'bmx-se-colony-pivotal', cat: 'seat', brand: 'Colony', model: 'Pivotal Seat',
@@ -845,19 +851,24 @@ var BMX_PARTS = [
     id: 'bmx-fr-fitbikeco-trl', cat: 'frame', brand: 'Fit Bike Co', model: 'TRL',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 359.99, note: 'Fit\'s value-tier freestyle frame.'
+    price: 359.99, note: 'Fit\'s value-tier freestyle frame. Checked thebuildingdistro.com 2026-07-17: Fit\'s own site now states "our new FLOW models replace what we used to call TRL models" — TRL is discontinued/renamed. No FLOW frame-only row added (not sourced), so left unverified with spec unchanged rather than silently rewritten under a name no longer sold.'
   },
   {
     id: 'bmx-sp-fitbikeco-key-25', cat: 'sprocket', brand: 'Fit Bike Co', model: 'Key Sprocket 25T',
-    teeth: 25, mount: 'spline', pitch: '1/8', price: 42.99
+    teeth: 25, mount: 'spline', pitch: '1/8', price: 64.95, weight: 249, family: 'fitbikeco-key',
+    mfgPn: '33-SP-KEY-BLK-25T',
+    verified: true, lastChecked: '2026-07-17', source: 'https://thebuildingdistro.com/product/key-sprocket-2/',
+    note: 'FIT KEY sprocket, 25T (also sold in 28T/30T). Confirmed via the product page\'s WooCommerce variation data (matte black, 25T): 1/8in pitch, splined mount (fits 19/22/24mm spindles via included hat washers), regular price $64.95 (matte black; page was running a temporary 25%-off sale to $49.95 at check time, so the regular/MSRP price is recorded here), weight 0.55lb = 249g. mfgPn/SKU is the matte-black 25T variant.'
   },
   {
     id: 'bmx-st-fitbikeco-key', cat: 'stem', brand: 'Fit Bike Co', model: 'Key Stem',
-    clamp: '25.4mm', price: 32.99
+    clamp: '25.4mm', price: 32.99,
+    note: 'Checked thebuildingdistro.com 2026-07-17: current Fit stem lineup is Mike Aitken, Brian Foster, Hango and Van Homan — no "Key Stem" found, appears discontinued. Left unverified; spec unchanged.'
   },
   {
     id: 'bmx-gr-fitbikeco-uni', cat: 'grips', brand: 'Fit Bike Co', model: 'Uni Grips',
-    length: 143, flangeless: true, price: 9.99
+    length: 143, flangeless: true, price: 9.99,
+    note: 'Checked thebuildingdistro.com 2026-07-17: current Fit grip lineup is only "OG Grips" ($9.95, matches this row\'s price closely) — no "Uni Grips" found by that name, appears renamed/discontinued. Left unverified; spec unchanged.'
   },
 
   // ---- Kink depth -----------------------------------------------------
