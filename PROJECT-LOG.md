@@ -1,5 +1,14 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — verify fanout batch-group 6 merged (verified 2916 → 2925)
+
+- Batch-group 6 (fox-shocks-2-smallparts): +9 KMC chains verified via a dual-source method
+  (kmcchain.eu per-SKU weights through bdata — .com 403s; kmcchain.us Shopify .js for US MSRP),
+  incl. correcting a prior no-EPT-SKU finding, +price corrections. Harness BYTE-IDENTICAL,
+  gates green (699/699). WebFetch+Exa both failed on KMC this session (429/nav-junk) — accepted
+  on the worker's per-row documented dual-source table, values cross-read from the merged rows.
+  Verified 2,925/5,026 (58.2%). Worker had already self-rebased onto main (660eb0b) — good.
+
 ## 2026-07-17 — verify fanout batch-group 5 merged (verified 2897 → 2916) · DT Swiss "fabricated SKU" flags DOWNGRADED on evidence
 
 - Batch-group 5 (4 commits, dtswiss-2 + job.json sync) merged: +19 verified, harness
