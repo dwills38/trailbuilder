@@ -166,7 +166,7 @@ a dispute — but never promote a rider up the ladder on its own.
 |---|---|---|---|
 | [`fundamentals.md`](fundamentals.md) | body position (neutral/ready-attack) · balance · vision · bike-body separation | L1 | position→balance is the base of every other skill; vision feeds cornering & descending |
 | [`braking-traction.md`](braking-traction.md) | braking (front/rear, modulation, bracing) · traction & the grip budget · surface reading | L1 | progressive braking → threshold control → brake-then-turn; the "grip budget" gates cornering |
-| [`cornering.md`](cornering.md) | flat · bermed · off-camber corners · line choice · (switchbacks →L2) | L1→L2 | vision + outside-foot + bike-body separation assemble the corner; berms vs flat vs off-camber |
+| [`cornering.md`](cornering.md) | flat · bermed · off-camber corners · line choice · switchbacks | L1→L2 | vision + outside-foot + bike-body separation assemble the corner; berms vs flat vs off-camber vs switchback (professional maturity as of 2026-07-17 round 2) |
 | [`climbing-descending.md`](climbing-descending.md) | climbing technique · descending · steeps · weight distribution by gradient | L1→L2 | centred base → gradient-driven weight shift → steep-roll commitment; the weight-back ⚠ DISPUTE |
 | [`terrain-features.md`](terrain-features.md) | pumping · manuals · wheel lifts · drops · jumps · rock gardens · switchbacks · steeps | L2 | wheel-lift → pump/manual → rolling drop → small drop → jump; the ladder that MUST NOT be skipped (professional maturity as of 2026-07-17 round 2) |
 | [`discipline-craft.md`](discipline-craft.md) | XC · enduro · DH race technique · DJ/pump-track/park basics | L3 | discipline-specific application of L1/L2 skills under race/park constraints |

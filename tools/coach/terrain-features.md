@@ -328,14 +328,16 @@ named coach source. Key points, corroborated across independent coach sites:
 
 ## Partial seeds (cross-referenced from L1 chapters — unchanged, still gaps)
 
-**TER-9 — Switchbacks = off-camber cornering (COR-8) meets steep-descent technique (CLD-5).**
-Dedicated switchback technique (tight pivot vs wide line, foot-out, front-wheel placement,
-drifting the rear) is **still not fetched** — remains an L2 gap for a future round. The rear wheel
-lift (TER-4) is now confirmed by this round's sourcing as directly applicable to tight switchbacks
-(repositioning the rear wheel), which strengthens the cross-reference but does not substitute for
-a dedicated switchback-cornering source.
-- *Prereq:* COR-8, CLD-5, TER-4 (rear wheel lift — newly relevant).
-- *Tier:* B (composition sound; dedicated cues still an L2 gap).
+**TER-9 — Switchbacks = off-camber cornering (COR-8) meets steep-descent technique (CLD-5) —
+now has a dedicated progression in `cornering.md` COR-10.** Round 2 (2026-07-17) fetched and
+laddered dedicated switchback technique (uphill/downhill/level distinctions, wide-entry geometry,
+shoulder-led rotation, drills) as `cornering.md` COR-10 — this fact is now a pointer, not a gap.
+The rear wheel lift (TER-4) is confirmed directly applicable to tight switchbacks (repositioning
+the rear wheel), per COR-10's prerequisites. The extreme-tightness pivot family (stoppie
+pivot / nose pivot / cutty) is separately flagged in `cornering.md` COR-10b as NOT laddered
+(blocked on an unsourced stoppie-control prerequisite) — do not teach it from this cross-reference.
+- *Prereq:* COR-8, CLD-5, TER-4 (rear wheel lift).
+- *Tier:* B-consensus — see `cornering.md` COR-10 for the full citation set.
 
 **TER-10 — Steeps & chutes are the committed rung of the descending ladder (CLD-5).** Unchanged —
 dedicated drop-in/chute-entry technique is still **not yet fetched**, remains an L2 gap.
@@ -389,9 +391,12 @@ dedicated drop-in/chute-entry technique is still **not yet fetched**, remains an
 ---
 
 ## Gaps (updated — what's left for the next round)
-- **Switchback-specific cornering technique (TER-9)** — pivot vs wide line, foot-out entry, drifting
-  the rear — remains unfetched. Still the #1 L2 gap in this chapter.
-- **Committed-chute/steep drop-in entry technique (TER-10)** — remains unfetched.
+- **Switchback-specific cornering technique (TER-9)** — RESOLVED this round via `cornering.md`
+  COR-10 (dedicated fetched progression). The ultra-tight pivot-turn family (stoppie pivot/nose
+  pivot/cutty) remains explicitly flagged-not-laddered (COR-10b) — still a real gap, but named and
+  scoped rather than open-ended.
+- **Committed-chute/steep drop-in entry technique (TER-10)** — remains unfetched. Now the #1
+  cross-chapter gap alongside COR-10b.
 - **L3 discipline application of this ladder** (DJ/park airtime control, whip/trick foundations,
   enduro-pace feature riding under fatigue) belongs to `discipline-craft.md`, not duplicated here —
   see that chapter's DSC-5.
