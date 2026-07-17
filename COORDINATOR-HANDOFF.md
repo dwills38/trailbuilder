@@ -1,5 +1,72 @@
 # BuildMyMTB — Coordinator Handoff
 
+## ★★★ SEAT 12 — START HERE (succession from seat 11, 2026-07-17) ★★★
+
+Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today> -b
+coord/<today> origin/main` (NEVER at `D:\` root; never git-mutate the shared checkout).
+State at handoff: **5,025 bike parts (2,675 verified — rising, see the open worker) + 714 kit
+(409 verified, 57.3%) / 436 complete bikes / 695 tests / validate 0 problems / tsc clean**, all
+CI+Deploy green. Run the gates yourself; never trust doc counts.
+
+**★ THE OPEN WORKER (harvest it):** Verification MEGA fan-out #1 (`local_4d1b59ad`, branch
+`verify/fanout-1`, compat.js FIELD-LEVEL + verified-flag promotions ONLY — reject new rows/id
+changes). It presents ~150-row batch-groups and KEEPS GRINDING between them; at last check it had
+2,735 verified integrated in its own worktree (target: catalog ratio > 60%), with the Shimano-PDF
+worker as the long pole. Per group: baseline the harness FIRST, apply the new commits' diff, four
+gates, harness near-identical (any movement must match per-row documented corrections — verify one
+against the cited maker page yourself), spot-check 5 sources, confirm `tools/verification-job.json`
++ the 3 PARKED items untouched (Highball-R rotor/hub mismatch, Race Face Aeffect R stem dup,
+SB135 T2/T3 fills), merge+push, message "continue"; archive only when it declares the queue
+exhausted. Watch loops are SESSION-ONLY crons — re-arm your own on seating (seat 11's died with it).
+The Affiliate session (`local_e301505a`) is Douglas's parallel business lane — leave it alone,
+coordinate via send_message on ambiguous shared files. **You are the only session that pushes code.**
+
+**★ NEW CAPABILITIES (2026-07-17 — read tools/VERIFY-PROTOCOL.md's new sections):** fetch stack is
+three-tier: WebFetch (open) → **Exa MCP** (JS walls — Trek/Giant class; ToolSearch "exa"; batches
+URLs) → **Bright Data** (`bdata scrape/search` in bash — hardest bot-walls incl. Specialized +
+web.archive.org; ~5,000 credits/mo shared pool, check `bdata budget` each tick, fall back +
+PushNotification Douglas if < $0.50). poppler installed (pdftotext -layout). **PushNotification
+policy (Douglas): ONLY merges-gone-live / decisions-needed / session-errors / credit-exhaustion —
+never routine ticks.** Fork nominal-weight policy now covers forks (2026-07-17 section). AllTrails
++ Canva connectors exist (Canva unlocks the queued sticker run when Douglas asks).
+
+**★ DOUGLAS'S DECISION QUEUE (he said "later or tomorrow" on 2026-07-17 — RAISE THESE FIRST
+SESSION):** (1) verified-badge semantics for complete bikes (bias-r3 HIGH-2: 0/436 badge, the
+landing view blanks under ✓-only; recommended shape = a distinct "Build-sheet verified" badge);
+(2) bias-r3 smalls: Schwalbe `bikepark` casing → DH chip mapping, the one-line green-dot
+"no data published" disclosure (cheapest high-value fix), tire-chip unmapped==invisible framing;
+(3) the 3 parked data items above; (4) bug-report monitor cadence; (5) kids-gear scope (Cairn row);
+(6) **HOME PAGE** (standing TODO, do NOT act without his input — remind him, needs his scoping);
+(7) Continental "Soft"=Medium mapping sanity-check (shipped, flagged for his taste).
+
+**★ HARD-WON LESSONS THIS SEAT (add to your reflexes):** worker chips must NEVER prompt Douglas
+(bake the never-ask clause into every brief — it's in memory); COMMIT PER MAKER/BRAND (three
+crashes survived with zero merged-work loss BECAUSE of it; crash drill: fsck → per-branch
+`rev-list --count` → salvage-before-requeue → resume messages); grind self-audits miss things the
+MERGE REVIEW catches (4 rotor-ceiling post-mount-vs-max conflations caught across two merges —
+always check section E deltas and any factory build warning against its own spec); the
+is-ancestor push guard fires ~daily on this fast main — rebase + re-gate is routine, never force;
+audits must MEASURE, not infer (bias-r2's RockShox finding was disproved on values); vocab
+widenings are fine when each value carries a do-not-conflate rationale + matched types + tests.
+
+**Standing workflow (unchanged):** stale-base own-additions apply, never raw merge; four gates +
+harness section-compare on every compat.js merge (C may rise with new frames, A/B/D never regress);
+UI auto-ships on green gates + browser verify + your post-hoc popup scan; catalog =
+coordinator-reviewed; engine/error-tier = adversarial review, present-branch; only taxonomy/money/
+visual-taste/account/business decisions go to Douglas; keep his updates SHORT; archive sessions in
+the same breath you merge them; one PROJECT-LOG entry per wave. Values: trustworthy, accurate,
+UNBIASED (doubled), never fabricate — a blank beats an invented value.
+
+**Succession:** archive seat 11's session once you're oriented and its work is confirmed on main.
+
+_Seat-11 trail: PROJECT-LOG.md 2026-07-16/17 entries (grinds 3–7 + salvage: 57→436 bikes; the
+CRITICAL partial-wheel false-fits fix; testability refactor; bias r2+r3; the trust wave). Below:
+the seat-11 block this one supersedes, kept for depth._
+
+---
+
+
+
 ## ★★★ SEAT 11 — START HERE (succession from seat 10, 2026-07-15) ★★★
 
 Seed yourself normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today> -b
