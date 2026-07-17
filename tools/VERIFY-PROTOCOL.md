@@ -156,3 +156,25 @@ Range): `curl -sL -o x.pdf <url> && pdftotext -layout x.pdf -` (the `-layout` fl
 spec-table columns). ~48 Shimano rows + the SRAM/Continental PDF classes in the price-drift
 remainder queue (tools/price-drift-2-progress.md) are unblocked by this.
 (web.archive.org remains unreachable from this environment — that half of the gap stands.)
+
+## Bright Data unblocker — INSTALLED + AUTHED (2026-07-17, Douglas)
+
+The fetch-wall era is over for most targets. The `bdata` CLI (Bright Data,
+`@brightdata/cli`, authenticated, zones `cli_unlocker`/`cli_browser`) is available
+in bash:
+
+- `bdata scrape "<url>" -f markdown` — clean markdown from ANY page, CAPTCHA/JS
+  handled. SMOKE-TESTED THROUGH: specialized.com (full product pages render —
+  the 403 wall is dead) and **web.archive.org** (renders — unlocks archived
+  old-gen Fox/maker pages).
+- `bdata search "<query>" --json` — Google SERP as structured JSON (good for
+  finding exact product URLs before scraping).
+
+USE IT FOR WALLED TARGETS ONLY — plain WebFetch remains first choice for pages
+that already fetch (credits: ~5,000/month free pool, 1 credit/request, hard-stop
+no-surprise-bill). Newly unlocked wall list to retarget: Specialized (403),
+Trek/Giant/Pivot/Yeti (JS-rendered), Fox Racing/Giro/Bell (Vista bot-wall),
+Five Ten/Adidas, Bolle, Pearl Izumi, IXS geo-wall, Michelin, and any
+`archiveUrl`/Wayback lookup. THE BAR IS UNCHANGED: a bdata-fetched maker page
+counts exactly like a WebFetch-fetched one (it IS the maker page); search
+snippets still never count.
