@@ -1,5 +1,18 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — mechanic training round 2 merged (+21 L2 facts); BRK-17 RESOLVED → rule-8 fix queued
+
+- tooling/mechanic-training-2 merged: 21 new cited facts — Shimano XT/XTR derailleur dealer-manual
+  internals + torque tables, SRAM Transmission's 25→35 Nm documented torque revision, RockShox
+  Suspension Theory damper/failure-mode/tuning sections, Shimano brake torque table + wear floors
+  + quantified bed-in. Honest regrades (still foundation — L2 slices, not coverage). **BRK-17
+  RESOLVED with manufacturer sources: Shimano SM-MA (FM chassis + PM caliper) and Wolf Tooth
+  (PM chassis + FM caliper) adapters both exist as current SKUs** → rule 8's hard-error on FM↔PM
+  pairs is a false won't-fit on the 2 Canyon FM frames. Engine fix chip queued (adapter-tier
+  WARNING with structured fix, the rule-9 6-bolt-on-CL pattern; adversarial review + harness
+  section-compare required). Blocked lead logged: Shimano crank-torque manual DM-MBFC001-04
+  resists all 3 fetch tiers.
+
 ## 2026-07-17 — bmx-depth-5 merged (246 → 264 off-live rows)
 
 - catalog/bmx-depth-5 merged: +18 real rows (Chase RSP 5.0 disc frame — first organic use of the
