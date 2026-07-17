@@ -1,5 +1,22 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — Seat 12 seated; verification fan-out batch-group 2 merged (verified 2675 → 2808)
+
+- **Seat 12 coordinator seated** (worktree `coord-2026-07-17`); seat 11 archived after its handoff
+  block + succession commit (`1d58c23`) confirmed on main. Hourly watch loop re-armed (session-only).
+- **Harvested the pending `verify/fanout-1` batch-group** (31 commits: fanout-1-dvo, -dtswiss,
+  -forks-rockshox, -forks-other, -forks-other-2, -mixed, -shimano, -wheels-boutique):
+  field-level promotions ONLY, 5,025 rows before and after, no id changes. Bike verified
+  2,675 → **2,808** (validate 0 problems; kit 409 unchanged). Four gates green (695/695 tests, tsc
+  clean); verdict-audit harness delta = annotation-only (low-rotor-watchlist verified-fractions
+  rose: dvo-onyx-sc 1/6→6/6, dvo-diamond-d1sl 0/1→1/1, srsuntour-durolux 1/3→3/3) — ZERO verdict
+  movement. Spot-checks: vitalmtb Onyx SC, dvosuspension Diamond D1, sram fs-pike-bse-c1, wtb
+  wafel.js all exact; srsuntour.com timed out (worker-documented basis accepted). Worker correctly
+  DECLINED the Fox 36 PE MY27 150 promotion (press-only travel point) and left the 3 PARKED items +
+  gr-wtb-wafel dup flag untouched (dup noted for a future dedup pass). verification-job.json state
+  legit: Verified 2290→2678, Pending grew via auto-sync of the complete-bike-era rows. Merged
+  `1d58c23..7289ded`; worker messaged "continue".
+
 ## 2026-07-17 — Coordinator seat 11 close-out: trust wave lands (kit 57%, IS fix, bias r3 clean)
 
 Final seat-11 wave, all CI green. **IS-mount adapter tier merged** (`f1685b4` — bias-r3 HIGH-1
