@@ -101,23 +101,115 @@ already by a prior session, not conflated with the standard catalog SKU):
 
 Committed as: (see git log on this branch)
 
+## Batch 2 — XM1700/M1900 investigation (no new verifications, major contradiction found) +
+XRC 1200 Spline 30 verified
+
+### MAJOR FLAG for the coordinator: XM 1700 SPLINE rotorMount is wrong catalog-wide
+
+FETCHED (bdata scrape) dtswiss.com's XM 1700 SPLINE page: the model-finder confirms exactly 6
+SKUs exist (29/27.5 x {148-Shimano-MicroSpline, 148-Sram-XD} rear + 29/27.5 x {15/110} front),
+and **every single one is Disc Center Lock** — there is NO 6-bolt XM1700 SPLINE variant in DT
+Swiss's current lineup. But this catalog's XM1700 rows — including the ALREADY-VERIFIED
+`fw-dtswiss-xm1700-29`, `rw-dtswiss-xm1700-29-xd`, and `rw-dtswiss-xm1700-29-ms` — all carry
+`rotorMount:'sixbolt'`. Per those rows' own desc text, this was a deliberate choice: a prior
+session picked XM1700 specifically because it needed a 6-bolt wheel to match a build's SRAM
+HS2 6-bolt rotors, explicitly "replacing the prior DT Swiss M1900 pick (a Center-Lock hub that
+mismatched the bike's actual 6-bolt SRAM HS2 rotors)" — i.e. it substituted in a wheel that
+(per the real DT Swiss page) is ALSO Center-Lock-only, and just asserted 6-bolt to make the
+fill work. This is a false interface fact on 5 rows (3 already `verified:true`), and it
+masks a real incompatibility on at least 10 complete-bike builds that use this wheel with
+6-bolt rotors (cb-forbidden-druid-v2-29-buildkit2, cb-canyon-spectral-cf-8/9,
+cb-forbidden-reya-tier2, cb-canyon-neuron-cf-8, cb-rose-root-miller-3, cb-yeti-arc-t1-xt-di2,
+cb-unno-dash-race, plus the two EXCLUDED cb-yeti-sb135-t2/t3 builds which use the 275in
+siblings — their exclusion from this task's scope suggests this exact issue is already known
+upstream).
+
+**Not fixed here** — correcting rotorMount to CL would flip 8+ live complete-bike builds from
+green to a rotor-mount error, which is a large blast radius entirely outside "verify DT Swiss
+wheel rows" and needs a coordinated decision (re-pick rotors on 8+ builds, or swap in a
+different 6-bolt wheel, or something else). Left `fw-dtswiss-xm1700-275` /
+`rw-dtswiss-xm1700-275-xd` **unverified/untouched** rather than either (a) verifying them with
+the same wrong sixbolt value (compounding the error into more verified:true rows) or (b)
+silently fixing rotorMount and letting 8 builds break unannounced.
+
+### MAJOR FLAG: M 1900 SPLINE has no SuperBoost157 option — 3 more fabricated rows
+
+FETCHED (bdata scrape) dtswiss.com's M 1900 SPLINE page: 14 real SKUs, rear spacing is ONLY
+142mm or 148mm (Boost) — there is NO 157mm/SuperBoost157 M1900 variant. But
+`rw-dtswiss-m1900-275-157-xd`, `rw-dtswiss-m1900-29-157-xd`, and `rw-dtswiss-m1900-29-157-ms`
+all carry `hub:'SuperBoost157'`. These are referenced by 7 complete-bike fills, all Pivot
+models (SuperBoost157 is Pivot's house rear-axle standard) — same pattern as the FR1500/F1900
+fabricated-axle rows in batch 1: a session needed an exact axle match for a specific frame and
+built a new DT Swiss row without confirming DT Swiss actually sells that spacing. **Left
+unverified/untouched**, flagged for the coordinator (same scope boundary as batch 1: fixing
+would mean re-deriving 7 complete bikes' actual wheel picks).
+
+### Verified (2 rows) — XRC 1200 SPLINE 30 (the confirmed-existing family from a prior
+session's own citation; only the Spline-30 rim-width variant's exact configurator entries were
+independently fetchable this session):
+
+- `fw-dtswiss-xrc1200-spline30-29` — weight 720→597g, mfgPn WXRC120BEIXCA22466
+- `rw-dtswiss-xrc1200-spline30-29-ms` / `rw-dtswiss-xrc1200-spline30-29-xd` — weight 840→706g
+  each, mfgPn WXRC120TEDRCA22468 (one physical SKU ships XD-mounted with an included MicroSpline
+  conversion kit per the model-finder's own filter panel — both freehub variants legitimately
+  map to this same SKU)
+
+`fw-dtswiss-xrc1200-spline25-29` and its two rear siblings (25mm rim width) could not be
+independently reconfirmed this session — the JS model-finder's default rendered state only
+exposed the 30mm-rim configuration; the 25mm variant needs interactive filter-selection that a
+one-shot scrape doesn't drive. Left unverified/Skipped, not a fabrication concern (Spline 25 is
+a real, dtswiss.com-listed product line per the category overview page), just not indepedently
+re-confirmed at the exact-SKU level this session.
+
+### Skipped — hand-built OE hub+rim combos, no fetchable standalone DT Swiss product page
+
+Checked and confirmed (or already documented by their existing desc) that these rows model an
+OE-only hub+rim pairing that DT Swiss does not sell as a branded/catalogued complete wheel —
+the "370" hub's only current standalone dtswiss.com page
+(`/en/components/hubs-and-rws/hubs-mtb/370`) is confirmed to be the **DJ-only hub** (Front
+wheel 370 DJ NODISC, Rear wheel 370 DJ DBIS single-speed bolt-on 135mm) — the exact trap #1
+documented by the prior fanout-1-dtswiss session. There is no other fetchable DT Swiss page for
+the enduro/trail-tier "370"/"350" hub used in these OE combos, so bar item 1 (manufacturer
+interface confirmation) cannot be met beyond what the bike-maker's own page already states
+(already cited in each row's existing desc). Left unverified, no further action:
+
+- `fw-dtswiss-amln370-29` / `rw-dtswiss-amln370-29-ms` (Canyon Stoic 4 OE)
+- `fw-dtswiss-370classic-wtbstlight-i30-29` / `rw-dtswiss-370classic-wtbstlight-i30-29-ms`
+  (Ghost Riot Trail CF Pro OE)
+- `fw-dtswiss-350-komtrail-i30-29` / `rw-dtswiss-350-komtrail-i30-29-xd` (Kona Process 153 OE)
+- `fw-dtswiss-370-ex511-29` / `rw-dtswiss-370-ex511-29-hg` (Commencal Meta HT V3 OE)
+- `fw-dtswiss-370-roval-alloy-29` / `rw-dtswiss-370-roval-alloy-29-xd` (Specialized Stumpjumper
+  15 Expert OE)
+- `fw-dtswiss-lnxc-29` / `rw-dtswiss-lnxc-29-ms` (Canyon Grand Canyon AL 8 OE, "LN XC" naming)
+- `fw-dtswiss-e593-29` / `rw-dtswiss-e593-275-ms` (Commencal Meta SX V5 OE — the E 593 RIM has
+  its own dtswiss.com page already cited confirming intWidth/weight, but the 370-family hub's
+  axle/rotor-mount facts still rest on the bike-maker page, same limitation)
+- `fw-dtswiss-fr541-240-29` / `rw-dtswiss-fr541-240-29-xd` (Last Coal V4 OE, hand-built)
+- `fw-dtswiss-e532-29` / `rw-dtswiss-e532-29-hg` (Alutech Fanes 29 OE, hand-built)
+
+## Gates after batch 2
+
+- `node validate.js` → DATA OK - 5026 parts, 0 problems (2916 verified, 2110 unverified)
+- `npx vitest run` → 24 test files, 699 passed (699)
+- `npx tsc --noEmit` → clean
+- `node tools/verdict-audit-harness.js` → unchanged shape (0/0/329-0/5-5/15-15/2-2, same E list)
+
 ## Remaining worklist (to continue)
 
-Still-unverified DT Swiss frontwheel/rearwheel rows after batch 1 (~43 left), grouped by family:
-- AM LN 370 (fw/rw)
-- 370 Classic / WTB ST Light i30 (fw/rw)
-- 350 / WTB KOM Trail i30 (fw/rw)
-- M 1900 Spline (rw x2 remaining: 275-157-xd, 29-157-xd/ms)
-- XM1700 Spline 275 (fw/rw)
-- 370 / Roval Traverse alloy (fw/rw)
-- 370 / EX 511 (fw/rw)
-- LN XC (fw/rw)
-- E593 (fw 29, rw 275-ms)
-- FR 541 / 240 hand-built (fw/rw)
-- E 532 hand-built (fw/rw)
-- XRC 1200 Spline 25/30 (fw x2, rw x4 — front + rear variants)
+After batches 1+2: 17 rows verified total (15 + 2... see git log for the exact per-commit
+diff), remainder of the original 58-row worklist is now fully triaged:
+- 5 rows FABRICATED/non-existent SKU, flagged, untouched (FR1500 family, batch 1)
+- 2 rows FABRICATED/non-existent SKU, flagged, untouched (F1900 family, batch 1)
+- 1 row intentionally-different custom OEM part, correctly left as-is (batch 1)
+- 5 rows Center-Lock-only wheel wrongly tagged 6-bolt catalog-wide (XM1700), left untouched -
+  MAJOR FLAG, not fixed (blast radius outside scope)
+- 3 rows FABRICATED SuperBoost157 M1900 variant, flagged, untouched (batch 2)
+- 3 rows XRC 1200 Spline 25 — not independently reconfirmable this session (JS default-state
+  limitation), left unverified
+- 18 rows hand-built OE hub+rim combos with no fetchable standalone DT Swiss product page for
+  the exact hub used (370/350 family) — left unverified, no further action possible without a
+  DT Swiss page that doesn't exist for these combos
 
-These "370 / X", "AM LN 370", "FR 541 / 240", "E 532" names look like OEM hub+rim combos (per
-the fanout-1-dtswiss session's trap #1 note: DT Swiss's standalone hub product pages are
-sometimes a DIFFERENT product) — each needs its own careful hub-page + rim-page cross-check,
-not a single combined product page. Continuing next.
+This exhausts the tractable subset of the 58-row DT Swiss wheel worklist. Every remaining
+unverified row has a documented reason it cannot currently clear THE BAR, rather than being
+merely unattempted.
