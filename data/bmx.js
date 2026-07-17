@@ -206,6 +206,92 @@ var BMX_PARTS = [
     price: 449.99, note: 'Colony\'s second freestyle frame platform (Sweet Tooth is the other); commonly run brakeless.'
   },
 
+  // ===== FRAMES — seat 12 depth pass (new brands) =====================
+  {
+    id: 'bmx-fr-subrosa-malum', cat: 'frame', brand: 'Subrosa', model: 'Malum',
+    family: 'subrosa-malum', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 659.99,
+    note: 'Frame spec pulled from the Malum complete-bike page (Source BMX); BB is 19mm-spindle Mid per the complete-bike crank/BB callout.'
+  },
+  {
+    id: 'bmx-fr-subrosa-salvador', cat: 'frame', brand: 'Subrosa', model: 'Salvador',
+    family: 'subrosa-salvador', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 796.00,
+    note: 'Frame spec pulled from the Salvador complete-bike page (Source BMX); hi-ten frame with chromoly top/down tube, entry-to-intermediate tier.'
+  },
+  {
+    id: 'bmx-fr-mankind-sunchaser', cat: 'frame', brand: 'Mankind', model: 'Sunchaser (Ed Black)',
+    family: 'mankind-sunchaser', modelYear: 2020, discipline: 'freestyle', wheelSize: '20',
+    bbShell: 'mid', headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake',
+    rearAxle: '14mm', frameOnly: true, weight: 2100, price: 379.95,
+    note: 'Daniel Juchatz signature frame (mankindbmx.com); also offered in 20.75/21/21.25in top tube. Price is EUR retail. Removable U-brake mounts, gyro-compatible, integrated seat clamp + chain tensioners.'
+  },
+  {
+    id: 'bmx-fr-radio-darko', cat: 'frame', brand: 'Radio Bikes', model: 'Darko',
+    family: 'radio-darko', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 524.99,
+    note: 'Frame spec pulled from the Darko complete-bike page (radiobikes.com); also offered in 21in top tube. Mid press-fit BB, fully removable brake hardware.'
+  },
+  {
+    id: 'bmx-fr-premium-solo', cat: 'frame', brand: 'Premium', model: 'Solo',
+    family: 'premium-solo', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 360.00,
+    note: 'Frame spec pulled from the Solo complete-bike page; also offered in 20/20.5in top tube. Price is an archived 2012 MSRP (Premium/Haro catalog archive) - current pricing not re-sourced.'
+  },
+  {
+    id: 'bmx-fr-verde-cadet', cat: 'frame', brand: 'Verde', model: 'Cadet',
+    family: 'verde-cadet', modelYear: 2021, discipline: 'freestyle', wheelSize: '20',
+    bbShell: 'mid', headTube: 'integrated-1-1/8', topTube: 20.25, rearBrakeMount: 'u-brake',
+    rearAxle: '14mm', frameOnly: false, price: 399.99,
+    note: 'Frame spec pulled from the Cadet complete-bike page (verdebicycles.com); entry-level hi-ten frame w/ Mid BB, alloy U-brake.'
+  },
+  {
+    id: 'bmx-fr-verde-eon', cat: 'frame', brand: 'Verde', model: 'Eon',
+    family: 'verde-eon', modelYear: 2021, discipline: 'freestyle', wheelSize: '20',
+    bbShell: 'mid', headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake',
+    rearAxle: '14mm', frameOnly: false, price: 529.99,
+    note: 'Frame spec pulled from the Eon complete-bike page (verdebicycles.com); also offered in 21in (XL) top tube; hi-ten frame w/ chromoly top/down tube, Mid BB, alloy U-brake.'
+  },
+  {
+    id: 'bmx-fr-united-supreme', cat: 'frame', brand: 'United', model: 'Supreme',
+    family: 'united-supreme', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 465.00,
+    note: 'Frame spec pulled from the Supreme complete-bike page; also offered in 20.75in top tube. U-brake is the classic "990"-style mount, removable.'
+  },
+  {
+    id: 'bmx-fr-mongoose-legionl60', cat: 'frame', brand: 'Mongoose', model: 'Legion L60',
+    family: 'mongoose-legion', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 281.99,
+    note: 'Frame spec pulled from the Legion L60 complete-bike page (mongoose.com); Hi-Ten steel frame, Mid BB shell, aluminum U-brake and levers.'
+  },
+  {
+    id: 'bmx-fr-mongoose-legionl100', cat: 'frame', brand: 'Mongoose', model: 'Legion L100',
+    family: 'mongoose-legion', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
+    headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm',
+    frameOnly: false, price: 298.99,
+    note: 'Frame spec pulled from the Legion L100 complete-bike page (int.mongoose.com / current Walmart listing); full 4130 chromoly frame (step up from the L60\'s Hi-Ten), Mid BB shell, aluminum U-brake.'
+  },
+  {
+    id: 'bmx-fr-sunday-blueprint', cat: 'frame', brand: 'Sunday', model: 'Blueprint',
+    family: 'sunday-blueprint', modelYear: 2023, discipline: 'freestyle', wheelSize: '20',
+    bbShell: 'american', headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake',
+    rearAxle: '14mm', frameOnly: false, price: 469.99,
+    note: 'Frame spec pulled from the Blueprint complete-bike page (shop.sundaybikes.com); also offered in 20in top tube. BB parts are listed as "Loose-ball, American, 19mm" - American-shell BB, unusual for an entry frame but per maker spec.'
+  },
+  {
+    id: 'bmx-fr-supercross-envyblk2-expertxl', cat: 'frame', brand: 'Supercross BMX', model: 'ENVY BLK 2 Expert XL',
+    family: 'supercross-envyblk2', discipline: 'race', wheelSize: '20', bbShell: 'euro',
+    headTube: 'integrated-1-1/8', topTube: 20, rearBrakeMount: 'v-brake', rearAxle: '10mm',
+    frameOnly: true, price: 1195.95,
+    note: 'Carbon fiber race frame, Expert XL size (10mm/3-8in rear axle - the larger Pro sizes ship a 15mm dropout w/ 10mm adapter, not modeled here). Threaded Euro BB shell, 22.2mm seatpost, removable V-brake mounts.'
+  },
+
   // ===== FORKS ========================================================
   {
     id: 'bmx-fk-odyssey-r32', cat: 'fork', brand: 'Odyssey', model: 'R32',
@@ -291,6 +377,11 @@ var BMX_PARTS = [
     steererFit: 'integrated-1-1/8', cableRouting: 'dual', price: 44.99,
     note: 'CNC 6061-T6 aluminum, sealed bearing, low stack height.'
   },
+  {
+    id: 'bmx-gy-blackops-rotorblade', cat: 'gyro', brand: 'Black Ops', model: 'Rotor Blade Detangler Kit',
+    steererFit: 'integrated-1-1/8', cableRouting: 'dual', price: 19.99,
+    note: 'Budget-tier full kit (gyro, top plate, lower assembly, upper + lower cables included).'
+  },
 
   // ===== CRANKS ========================================================
   {
@@ -369,6 +460,16 @@ var BMX_PARTS = [
     id: 'bmx-bb-flybikes-mid-22', cat: 'bb', brand: 'Fly Bikes', model: 'Mid BB',
     shell: 'mid', spindleFit: '22mm', price: 26.99
   },
+  {
+    id: 'bmx-bb-odyssey-mid-22', cat: 'bb', brand: 'Odyssey', model: 'Mid BB (22mm)',
+    shell: 'mid', spindleFit: '22mm', price: 24.99,
+    note: 'Aftermarket sealed Mid BB set, fits press-fit Mid shells; ships with a spacer assortment.'
+  },
+  {
+    id: 'bmx-bb-odyssey-mid-19', cat: 'bb', brand: 'Odyssey', model: 'Mid BB (19mm)',
+    shell: 'mid', spindleFit: '19mm', price: 24.99,
+    note: 'Same Odyssey Mid BB set, 19mm-spindle version.'
+  },
 
   // ===== SPROCKETS =====================================================
   {
@@ -413,6 +514,11 @@ var BMX_PARTS = [
     id: 'bmx-ch-odyssey-seance', cat: 'chain', brand: 'Odyssey', model: 'Seance Chain',
     pitch: '1/8', halfLink: true, weight: 280, price: 24.99
   },
+  {
+    id: 'bmx-ch-kmc-s1', cat: 'chain', brand: 'KMC', model: 'S1 Chain',
+    pitch: '1/8', halfLink: false, price: 14.99,
+    note: 'Single-speed 1/8in chain, common OEM spec on entry/mid-tier freestyle completes (Sunday, Mongoose).'
+  },
 
   // ===== REAR HUB / WHEEL ==============================================
   {
@@ -448,6 +554,16 @@ var BMX_PARTS = [
   {
     id: 'bmx-rh-colony-devast8r', cat: 'rearWheel', brand: 'Colony', model: "Devast8r Cassette Hub",
     driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 590, price: 149.99
+  },
+  {
+    id: 'bmx-rh-eclat-shift-freecoaster', cat: 'rearWheel', brand: 'Eclat', model: 'Shift Freecoaster Hub',
+    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 480, price: 227.00,
+    note: 'WeThePeople "Hybrid System" internals - converts between freecoaster and cassette mode without extra parts; magnetic driver.'
+  },
+  {
+    id: 'bmx-rh-eclat-cortexevo-freecoaster', cat: 'rearWheel', brand: 'Eclat', model: 'Cortex Evo FC Hub',
+    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', price: 169.99,
+    note: '3-pin clutch freecoaster internals, available RSD or LSD.'
   },
 
   // ===== REAR COG =======================================================
@@ -587,6 +703,11 @@ var BMX_PARTS = [
     id: 'bmx-br-chase-rsp-vbrake', cat: 'brake', brand: 'Chase', model: 'RSP Race V-Brake',
     mount: 'v-brake', weight: 180, price: 34.99
   },
+  {
+    id: 'bmx-br-mankind-truth-ubrake', cat: 'brake', brand: 'Mankind', model: 'Truth U-Brake',
+    mount: 'u-brake', weight: 168, price: 74.99,
+    note: 'CNC machined 6061-T6 alloy, includes CNC alloy cable hanger + straddle cable.'
+  },
 
   // ===== HANDLEBAR ======================================================
   {
@@ -642,6 +763,11 @@ var BMX_PARTS = [
   {
     id: 'bmx-st-chase-rsp', cat: 'stem', brand: 'Chase', model: 'RSP Race Stem',
     clamp: '22.2mm', price: 42.99
+  },
+  {
+    id: 'bmx-st-odyssey-elementaryv2-222', cat: 'stem', brand: 'Odyssey', model: 'Elementary Stem V2',
+    clamp: '22.2mm', weight: 230, price: 52.00,
+    note: 'Single-bolt clamp design; a distinct 22.2mm-clamp SKU alongside the 25.4mm-clamp Elementary Stem already in the catalog (bmx-st-odyssey-elementary).'
   },
 
   // ===== SEAT ===========================================================
