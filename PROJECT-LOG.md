@@ -1,5 +1,27 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — Coordinator seat 11: grind #7 (+100, 436 bikes / 5025 parts) + the structural wave lands
+
+Five lanes wrapped across the overnight ticks, all merged + CI green. **Grind #7 (`d7aec32`):
+complete bikes 336 → 436, catalog 5025 parts** — model-year depth (prior-gen platforms with real
+archived sheets), thin disciplines (first DJ completebikes, +14 DH, +20 XC race), 8 new makers,
+vocab widenings (brakeMount +IS unlocking Cotic/Banshee; +shimano-8/+trp-evo7-dh; 3 headTube codes),
+disciplined drops (gearbox drivetrains flagged as a genuine schema gap, not forced). **Coordinator
+caught 3 MORE rotor-ceiling conflations at merge review** (the XCM34 class — factory builds warning
+against their own stock rotors): XCR34-2CR sibling carry-over + the Focus Thron frame/fork pair
+("Post Mount 180mm" = native mount size; Focus ships 203 both ends) — all corrected to the
+factory-evidenced floor with in-desc provenance; 1 ambiguous case (Highball R 6-bolt-rotor-vs-CL-hub
+— one side is wrong, picking blind would fabricate) HELD + flagged. Also merged this wave:
+**testability refactor** (`c3e7f09` — 4 tested modules, +51 tests, parity proven byte-identical
+twice); **harness partial-wheel upgrade** (`d97391b` — D 11→15 incl. the C-1 repro pinned, negatives
++ clean-direction guards); **price-drift holds resolved** (`e676e81` — 3 of 4 overturned by fresh
+fetches, 1 phantom Maxxis dup retired via ALIASES); **support-parts batches 1–3** (`c9f9970`,
+`f2880a0`, `95300e4` — +17 verified, 8 corrections, honest walls documented; session wound down
+with the ~980-row remainder triaged for a future per-brand fan-out). Suite now 688 tests.
+Open for Douglas: fork nominal-weight policy question; Race Face Aeffect R stem dup; Highball R
+rotor/hub adjudication; SB135 T2/T3 fills-granularity; verified-badge + kids-gear decisions; home
+page (reminded). All worker sessions archived; only Affiliate remains open.
+
 ## 2026-07-16 (evening) — Coordinator seat 11: +138 bikes, a CRITICAL false-fits killed, kit women's breadth
 
 Four workers landed at once; all merged, all CI green.
