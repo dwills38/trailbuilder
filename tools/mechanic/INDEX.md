@@ -4,6 +4,10 @@ The **bike-mechanic** specialist's cited knowledge library. This is the entry po
 the agent (`.claude/agents/bike-mechanic.md`) loads THIS file first, decides which
 chapter(s) the question touches, and pulls only those.
 
+**Level.** The corpus is a leveled program, L1 (foundation) → L4 (race-craft) — see
+[`CURRICULUM.md`](CURRICULUM.md) for the level definitions and how a chapter is graded. Each
+chapter states its current **Maturity** and an honest **## Gaps** list.
+
 **Purpose.** TrailBuilder's whole value is that a "compatible" verdict is *true*. The
 engine's tests prove it is self-consistent; they cannot prove its rules are right about
 the real world (see [`EXPERT-REVIEW-DOSSIER.md`](../../EXPERT-REVIEW-DOSSIER.md) "Why
@@ -54,6 +58,13 @@ appendix.
 6. **Provenance mirrors the catalog bar.** A false "won't fit" and a false "fits" are
    *both* worse than a missing fact. When the sources genuinely disagree or nothing was
    fetched, the honest entry is "not established" — silence beats a confident wrong fact.
+
+7. **Corpus rule — target the weakest chapter.** The corpus is leveled (L1 foundation → L4
+   race-craft; see [`CURRICULUM.md`](CURRICULUM.md)). Every chapter carries a **Maturity**
+   line and a **## Gaps** section. A new training round reads every chapter's Maturity +
+   Gaps first and prioritizes the weakest-graded chapter(s), closing the specific gaps
+   listed rather than re-covering ground a chapter already has — the corpus should climb
+   toward "master" evenly, not deepen one system while others stay thin.
 
 ---
 
