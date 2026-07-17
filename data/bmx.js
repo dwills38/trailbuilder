@@ -150,20 +150,25 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-gt-performer', cat: 'frame', brand: 'GT', model: 'Performer',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
-    price: 469.99, note: 'GT\'s long-running heritage/old-school reissue platform, sold as a complete bike.'
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 675.00,
+    verified: true, lastChecked: '2026-07-17', source: 'https://gtbicycles.com/products/pro-performer-20',
+    note: 'GT\'s long-running heritage/old-school reissue platform, sold as a complete bike ("GT BMX Pro Performer 20"). bbShell (Sealed Mid 22mm), headTube (Integrated 1-1/8in), rearBrakeMount (U-brake) and rearAxle (14mm dropout / 3/8in cassette) all confirmed. topTube corrected 20.5 -> 20.75in. Price corrected 469.99 -> 675.00 (Shopify variant JSON, gtbicycles.com/products/pro-performer-20.js).'
   },
   {
     id: 'bmx-fr-gt-fly', cat: 'frame', brand: 'GT', model: 'Fly',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
-    price: 429.99, note: 'GT\'s current freestyle/park complete bike.'
+    price: 429.99,
+    note: 'WALL 2026-07-17: gtbicycles.com/collections/bmx-bikes lists no current "Fly" model (confirmed via direct fetch) - the Fly was a GT model sold roughly 2001-2014 and is fully discontinued; its old product URL 404s and no Wayback snapshot was fetchable this session (web.archive.org unreachable via WebFetch/Exa in this environment). Corrected the prior note, which wrongly called this "GT\'s current...complete bike" - it is not currently sold. Left unverified/uncorrected otherwise: no manufacturer source found to confirm or refute the interface fields.'
   },
   {
     id: 'bmx-fr-gt-speedseries-pro', cat: 'frame', brand: 'GT', model: 'Speed Series Pro',
-    discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
-    topTube: 20.75, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: false,
-    price: 799.99, note: 'GT\'s race-team-tier complete bike.'
+    discipline: 'race', wheelSize: '20', bbShell: 'spanish', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'caliper', rearAxle: '15mm', frameOnly: false,
+    price: 900.00,
+    verified: true, lastChecked: '2026-07-17', source: 'https://gtbicycles.com/products/speed-series-pro',
+    note: 'GT\'s race-team-tier complete bike. bbShell corrected euro -> spanish (frame is BB86 press-fit, unthreaded - the "Spanish BB" token, not the threaded Euro shell). rearBrakeMount corrected v-brake -> caliper (disc-brake-only frame, "AL CNC/Forged Quick Change Disc Dropout system"). rearAxle corrected 14mm -> 15mm per the same disc dropout spec - NOTE: 15mm exceeds BMX_VOCAB.axle\'s documented [10mm,14mm] list (flagged for the coordinator/vocab update; frame.rearAxle is not itself read by checkBmxBuild so this is a data-accuracy fix, not a verdict change). headTube (integrated 1-1/8-1.5 taper) and topTube (20.75in Pro size) confirmed. Price corrected 799.99 -> 900.00 (gtbicycles.com/products/speed-series-pro.js); the separate frame-only SKU (gtbicycles.com/products/speed-series-pro-frame) is $262.50 for reference, not used here since this row is frameOnly:false.'
   },
   {
     id: 'bmx-fr-haro-lineage-master', cat: 'frame', brand: 'Haro', model: 'Lineage Master',
@@ -367,7 +372,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-bb-gt-mid-22', cat: 'bb', brand: 'GT', model: 'Mid BB',
-    shell: 'mid', spindleFit: '22mm', price: 24.99
+    shell: 'mid', spindleFit: '22mm', price: 24.99,
+    note: 'shell/spindleFit confirmed 2026-07-17 against the GT Pro Performer 20 spec sheet ("Sealed Mid 22mm" BB, https://gtbicycles.com/products/pro-performer-20) - values already matched, no correction needed. GT does not sell this BB as a standalone SKU (only a "Power Series American BB" appears in gtbicycles.com/collections/cranks-bb), so price is unconfirmed and this row is left unverified despite the confirmed interface.'
   },
   {
     id: 'bmx-bb-flybikes-mid-22', cat: 'bb', brand: 'Fly Bikes', model: 'Mid BB',
@@ -644,7 +650,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-st-gt-performer', cat: 'stem', brand: 'GT', model: 'Performer Stem',
-    clamp: '25.4mm', price: 34.99
+    clamp: '25.4mm', price: 34.99,
+    note: 'WALL 2026-07-17: not a standalone GT SKU - the Pro Performer 20 spec sheet names its stock stem "GT Mallet Front Load" (43mm, 19mm rise) and does not state a clamp diameter (gtbicycles.com/products/pro-performer-20). Left unverified/uncorrected - no source to confirm or refute the 25.4mm clamp value.'
   },
   {
     id: 'bmx-st-chase-rsp', cat: 'stem', brand: 'Chase', model: 'RSP Race Stem',
@@ -719,7 +726,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-gr-gt-performer', cat: 'grips', brand: 'GT', model: 'Performer Grips',
-    length: 148, flangeless: false, price: 8.99
+    length: 148, flangeless: true, price: 8.99,
+    note: 'flangeless corrected false -> true: the Pro Performer 20 spec sheet names its stock grip "GT Super Soft Flangeless" (gtbicycles.com/products/pro-performer-20, fetched 2026-07-17). Not sold as a standalone SKU, and length/price are unconfirmed, so left unverified despite the flangeless correction.'
   },
 
   // ===== PEDALS =========================================================
