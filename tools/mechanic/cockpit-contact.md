@@ -1,5 +1,8 @@
 # Cockpit & Contact Points — Mechanic Corpus
 
+**Maturity: foundation** (L1 — general-public repair/compat literacy; see `## Gaps` for the
+L2/L3 service-manual depth this chapter still needs).
+
 Handlebar · stem · grips · dropper · rigid seatpost · saddle · pedals · (BMX seat system).
 Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline, conventions).
 
@@ -27,6 +30,65 @@ the tier, but it carries more caution than the seatpost case. *Confidence: high 
 exists); open (whether shop practice justifies it on carbon).* Source:
 DOSSIER-OPEN-QUESTIONS-RESEARCH.md §15. Open mechanic question: would you ever shim a 31.8 bar
 into a 35 stem on an enduro bike (aluminium? carbon?), or is that a hard no at your bench?
+
+**CKP-19 — Historical bar-clamp diameter progression, and why 35 mm reads as a gap in older
+references.** Sheldon Brown's handlebar/stem crib sheet lists 25.4 mm (ISO, *"used on the vast
+majority of newer bicycles with upright handlebars"*), 26.0 mm (the Italian standard, drop-bar
+specific, "sometimes incorrectly called 'road' size"), and 31.8 mm ("Road oversized") as the
+current sizes, plus now-obsolete 22.2/23.8/25/26.4-Cinelli/27-Titan clamp diameters — a longer
+lineage than the catalog's live 31.8/35 pair suggests. **35 mm does not appear on this page at
+all.** That is not a refutation of CKP-1's 31.8/35 pairing — 35 mm is a newer enduro/DH-oriented
+oversize standard that postdates this reference's last coverage of the topic — but it means this
+particular source cannot corroborate 35 mm and a fresher citation would be needed to fully pin
+its adoption date/rationale. *Confidence: confirmed (fetched) for the sizes listed; the "35mm
+postdates this source" framing is corpus-side inference, not a stated fact on the page.* Source:
+sheldonbrown.com "Bicycle Handlebar and Stem Dimension Crib Sheet" (fetched 2026-07-17).
+
+## Install torque & threading basics
+
+**CKP-11 — Pedal threading is direction-aware by design (the classic beginner cross-threading
+trap), and it has a real torque spec even though it has no fit rule.** The right pedal is a
+standard right-hand thread; the **left pedal is deliberately left-hand threaded** — reversed from
+what most first-time mechanics expect. Sheldon Brown's explanation: pedal axle threads are
+slightly undersized against the crank's internal threads, which lets precession walk a
+right-hand-threaded left pedal loose under pedaling load — *"people's left pedals kept
+unscrewing"* was the real-world problem the reversed thread solved (possibly, per the same
+source, a Wright-brothers-era fix, though that attribution is held loosely). Park Tool's
+install/removal guide gives the practical torque: *"typical torque for pedal thread is about 360
+inch-pounds"* (~40 Nm). None of this changes CKP-8 (pedals still carry no `checkBuild` rule — the
+thread is universal), but it is exactly the kind of install-order fact a fit-checker's users need
+and the catalog can't teach on its own. *Confidence: confirmed (both fetched primaries).* Source:
+Park Tool "Pedal Installation and Removal" (parktool.com, fetched 2026-07-17); sheldonbrown.com
+"Bicycle Pedals — types, installation, Maintenance" (fetched 2026-07-17).
+
+**CKP-12 — Bar/stem faceplate and pinch-bolt torque is a narrow generic band, and carbon bars
+need an assembly compound, not just a torque number.** Park Tool's threadless-stem procedure
+gives *"a typical torque spec is 4–6Nm"* for both the faceplate bolts and the stem pinch bolts.
+For a carbon bar specifically, the same source recommends applying an assembly/friction compound
+(their SAC-2) where the bar meets the stem, to raise clamping friction and act as a barrier
+between the two materials — torque alone is not the whole carbon-bar install procedure.
+*Confidence: confirmed (fetched, manufacturer repair-help primary).* Source: Park Tool
+"Stem Removal & Installation: Threadless" (parktool.com, fetched 2026-07-17).
+
+**CKP-13 — There is no single universal carbon-cockpit torque spec — read the parts in hand.**
+OneUp's own carbon handlebar/stem system publishes a stricter, product-specific number than Park
+Tool's generic band: *"Max Stem Clamp Torque: 6Nm"* and max lever-clamp torque 5 Nm, with an
+explicit warning to *"check the torque spec twice before shredding."* Comparing this to CKP-12's
+generic 4–6 Nm band shows makers do not converge on one figure — a mechanic (or a future torque-
+spec table, L2) needs the number stamped on the actual bar/stem/lever, not a rule of thumb.
+*Confidence: confirmed per-source; "no universal spec" is corpus-side inference from comparing
+two fetched primaries, not a claim either source makes about the other.* Source: OneUp
+Components "Carbon Handlebar & Stem Install Instructions" (can.oneupcomponents.com, fetched
+2026-07-17).
+
+**CKP-14 — Grip install/removal is a technique, not a fit rule — but carbon bars change the safe
+removal method.** Lock-on grips just loosen/tighten a collar bolt (2.5/3/4 mm hex); slip-on grips
+are removed with an air gap + rubbing-alcohol lubricant, or as a last resort cut off — **except
+on carbon bars**, where Park Tool warns cutting is unsafe because *"scoring the surface will
+weaken the handlebar"* (steel/aluminum bars only take cosmetic damage from the same cut).
+Installation mirrors removal: alcohol as a lubricant, full evaporation before riding.
+*Confidence: confirmed (fetched, manufacturer repair-help primary).* Source: Park Tool
+"Handlebar Grip Installation (Flat Bars)" (parktool.com, fetched 2026-07-17).
 
 ## Dropper ↔ seat tube
 
@@ -61,12 +123,64 @@ insertion into frames with bends or interrupted seat tubes (linkage frames) is n
 it needs a frame-size / insertion-depth concept. Backlogged nice-to-have. *Confidence:
 confirmed gap.* Source: EXPERT-REVIEW-DOSSIER.md "Known gaps".
 
+**CKP-16 — The two diameters that matter today are 30.9 and 31.6 mm.** Park Tool's own
+dropper-compatibility guide: *"the most common dropper post diameters are 30.9 mm and 31.6
+mm"*, with adapter shims sold to step a smaller post up to a larger tube (the same direction as
+CKP-3's shim warning). This grounds CKP-3/5's direction-aware rule in the two real-world values
+the catalog's `diameter` field is almost always one of. *Confidence: confirmed (fetched,
+manufacturer repair-help primary).* Source: Park Tool "Determining Dropper Post Size and
+Compatibility" (parktool.com, fetched 2026-07-17).
+
+**CKP-17 — Measuring frame max-insertion at face value overstates what actually fits; makers
+build in a safety margin.** OneUp's own dropper-length calculator instructs riders to measure
+max insertion depth (insert a rigid post/tape measure until it hits an obstruction), then
+*"reduce measurement by 10-15mm to ensure fitment"* — because inserting a post to the literal
+maximum can create tight/sharp cable routing that blocks the dropper's actuation, not just a
+clearance problem. This sharpens CKP-4/6's "un-checkable insertion depth" gap: even a mechanic
+measuring by hand needs to subtract a margin, not just compare raw numbers — a data point for
+any future frame-insertion-depth field/rule. *Confidence: confirmed (fetched, manufacturer
+primary); the 10-15mm figure is OneUp's own practice and may not generalize numerically to
+every dropper brand.* Source: OneUp Components "Dropper Post Length Calculator"
+(oneupcomponents.com, fetched 2026-07-17).
+
+**CKP-18 — Carbon and metal seat tubes/posts are not interchangeable maintenance-wise, beyond
+the diameter check the engine already runs.** Sheldon Brown's seatpost-size database: *"using a
+carbon-fiber seatpost in a metal frame, or vice versa, invites problems"* — metal posts need
+grease in the seat tube, carbon posts should NOT be greased (grease lets a carbon post slip and
+invites over-clamping to compensate), and a metal seatpost clamp can crush/damage a carbon post
+if torqued the way a metal post tolerates. This is a maintenance/technique fact, not a new
+diameter rule — CKP-3/5's direction-aware diameter check is unaffected — but it is a real fit-
+adjacent hazard the engine's plain `diameter` number can't see (no material field on seatpost/
+dropper rows today). *Confidence: confirmed (fetched, though sheldonbrown.com is a personal
+reference site rather than a manufacturer/standards body — treated here as a reputable
+community-consensus-tier source, one level below a maker page).* Source: sheldonbrown.com
+"Seatpost Size Database" (fetched 2026-07-17).
+
 ## Grips, saddle
 
 **CKP-7 — Grips and saddle carry only the common fields — no fit rules.** They are fit-trivial:
 grips fit any standard bar end; a saddle mounts any standard rail clamp. Modelled as
 display/data only (except the BMX pivotal case, CKP-9). *Confidence: confirmed (no rule).*
 Source: CLAUDE.md data model; EXPERT-REVIEW-DOSSIER.md (no rule area).
+
+**CKP-15 ⚠ CONTRADICTION (refines CKP-7) — Saddle rail SHAPE is not universally interchangeable;
+"any standard rail clamp" only holds for round rails.** Park Tool's saddle install guide: round
+metal rails are the default, *"7 mm in diameter"* and *"42 mm apart center to center"* — the
+shape CKP-7's "fit-trivial" claim implicitly assumes. But *"saddle rails made of carbon fiber
+may be oval in shape, not round"* (commonly 7×9 or 7×10 mm), and Park Tool states plainly that
+*"not every low-profile saddle will be compatible with every seatpost"* — an oval/carbon-rail
+saddle needs a post clamp built for that shape. This contradicts CKP-7's blanket "a saddle
+mounts any standard rail clamp" for the oval/carbon case specifically: **catalog collision** —
+neither `saddle` nor the post/dropper carries a rail-shape or clamp-type field (see CLAUDE.md
+data model, "saddle: just the common fields"), so today's catalog has no way to flag this
+mismatch even in principle, and no engine ruleId exists to flag either (there's simply no rule
+here to contradict the *tier* of — this is a coverage gap the corpus surfaces, not a wrong
+verdict the engine is currently giving). Routed to the coordinator per INDEX.md rule 4: is this
+common enough in the live catalog's saddle rows to warrant a `railShape` field + rule, or stays
+a documented gap? *Confidence: confirmed (fetched, manufacturer repair-help primary) for the
+dimensions and the compatibility caution; the catalog-coverage implication is corpus-side
+analysis.* Source: Park Tool "How to Remove and Install a Bike Saddle" (parktool.com, fetched
+2026-07-17).
 
 ## Pedals
 
@@ -116,6 +230,12 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2b. Engine: `bmx-freecoaster` INFO (never a con
 - **Contact points mostly DON'T constrain anything** (CKP-7/8/10): grips, saddle, pedals, and
   BMX cosmetic dimensions are deliberately rule-free — the value is knowing *not* to invent a
   rule there, which would false-red universal fits.
+- **Saddle rail SHAPE constrains the post clamp** (CKP-15) the same way bar/dropper diameter
+  does — but the catalog has no field to check it, so it's a known-unmodelled interface, not a
+  dormant rule like CKP-4/6's insertion depth.
+- **Pedal thread handedness constrains install direction, not fit** (CKP-11): both pedals fit
+  either crank arm's 9/16"-20 bore (CKP-8's universal thread holds), but the LEFT pedal must be
+  driven counter-clockwise or it cross-threads — a procedural constraint, not a compatibility one.
 
 ### Mismatch failure modes
 - **Hard "won't fit":** bar bigger than stem clamp (CKP-1); dropper/post bigger than seat tube
@@ -123,9 +243,13 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2b. Engine: `bmx-freecoaster` INFO (never a con
 - **"Works with a shim" (warning + structured fix):** bar smaller than stem clamp (CKP-1, with
   extra carbon-bar caution CKP-2); post smaller than seat tube (CKP-3/5).
 - **"Fits the diameter but maybe not the depth" (info, un-checkable today):** long-drop dropper
-  on an unknown frame size (CKP-4); post into a curved/interrupted seat tube (CKP-6).
+  on an unknown frame size (CKP-4); post into a curved/interrupted seat tube (CKP-6); measuring
+  max insertion at face value without OneUp's 10-15mm safety margin (CKP-17).
 - **Silent-and-fine / preference (must NOT be flagged):** exact-diameter post; any grip/saddle/
   pedal; BMX freecoaster-vs-cassette and gear ratio (CKP-8/10).
+- **Shape mismatch invisible to today's schema:** oval/carbon saddle rails on a round-rail-only
+  post clamp (CKP-15) — same failure family as CKP-9's BMX pivotal/railed mismatch, but
+  un-flagged because neither the saddle nor post/dropper category carries a rail-shape field.
 
 ### Install-order dependencies
 - **Shim goes in before the part is clamped** (CKP-1/3): the reducer sleeve seats in the
@@ -136,6 +260,18 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2b. Engine: `bmx-freecoaster` INFO (never a con
 - **Insertion depth is set at install against the frame** (CKP-4/6): the post is inserted to at
   least its minimum-insertion line *and* no deeper than the frame allows — a two-sided install
   constraint the tool can only nudge (info), not verify.
+- **Torque spec is per-product, not per-standard** (CKP-12/13): a 31.8mm clamp doesn't imply one
+  torque number — the generic 4-6 Nm band (Park Tool) and a specific maker's stricter 6 Nm/5 Nm
+  (OneUp) both apply to the *same nominal clamp diameter*, so install order is "read the part's
+  own spec," not "look up the standard."
+- **Pedal handedness is checked at the FIRST turn of the wrench, not after** (CKP-11): threading
+  the left pedal clockwise (the "natural" direction) starts cross-threading immediately — there
+  is no shim or fix-tier for a cross-threaded crank arm, only a repair (a `TAP-6`-style
+  re-tap or a helicoil), so this is a pure install-order/technique fact, never a `checkBuild`
+  candidate.
+- **Carbon bars need lubricant/compound choice matched to the removal or install method**
+  (CKP-2/14): cutting is banned outright on carbon (scores and weakens the bar); alcohol-as-
+  lubricant is the safe technique for both slip-on grip removal and installation.
 
 ### Wear / setup couplings
 - **A shimmed clamp concentrates stress** at the shim seam — a durability reason the bar/stem
@@ -143,10 +279,48 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2b. Engine: `bmx-freecoaster` INFO (never a con
 - **Dropper actuation is unaffected by the shim** but insertion depth affects the post's stroke
   clearance — a too-shallow insert can bottom the post internals; the CKP-4 info exists because
   this is the most common real dropper misfit.
+- **Carbon vs metal seatpost/dropper needs opposite lubrication practice** (CKP-18): metal wants
+  grease in the seat tube, carbon explicitly does not (grease lets it slip, inviting over-torque
+  to compensate, which then risks crushing the carbon tube wall) — a wear/maintenance coupling
+  the diameter-only fit check can't see.
 
 ---
+
+## Gaps
+
+Specific, honest gaps for a future round — this pass stayed L1 (foundation) by design; none of
+the below were in scope this round:
+
+- **No torque-spec table across brands/interfaces (L2 gap).** CKP-12/13 show two real numbers
+  (Park Tool generic 4-6 Nm vs OneUp's carbon-specific 6/5 Nm) but that's two data points, not a
+  table. A real L2 chapter needs stem/bar/lever/seatpost-clamp/rotor-bolt/cassette-lockring/BB/
+  headset torque specs across SRAM, Shimano, Race Face, RockShox, and the other catalog brands —
+  flagged as a target in CURRICULUM.md's L2 definition.
+- **No dropper-post internal service/bleed procedure with exact specs (L2 gap).** This round
+  covered external sizing/insertion only (CKP-16/17); the hydraulic/air internals (oil volume,
+  IFP position, bleed procedure) that CURRICULUM.md's L2 calls out are untouched.
+- **No headset/stem bearing press-fit or preload-adjustment procedure (L2 gap, not this
+  chapter's core but touches CKP-1's stem interface).**
+- **No saddle-rail-shape / clamp-type field or rule proposal drafted (the CKP-15 contradiction
+  is flagged, not resolved).** A follow-up should establish whether the live catalog's saddle
+  rows actually carry enough oval/carbon-rail models to justify a schema field — this round only
+  found the mechanical fact, not the catalog-impact count.
+- **No cross-brand bar-clamp-diameter-by-year adoption timeline (L3-adjacent gap).** CKP-19
+  found that 35mm postdates Sheldon Brown's crib sheet but did not source WHEN 35mm was
+  introduced or by which maker first (a genealogy fact, not a fit fact — lower priority).
+- **No pedal-thread torque cross-check against a second source.** CKP-11's ~40 Nm figure is
+  single-sourced (Park Tool); a second manufacturer torque table (e.g. Shimano's dealer manual,
+  L2-tier) would raise this from "confirmed, one source" to genuinely cross-verified.
+- **BMX cockpit (grips/bar/seat dimensions, CKP-10) got no new L1 pass this round** — this
+  training targeted the live-catalog side of the chapter; a BMX-specific cockpit deepening stays
+  queued behind the BMX go-live grind.
 
 ## Open mechanic questions (for the human review — do not act)
 - CKP-2: would you shim a 31.8 bar into a 35 stem on an enduro bike (alu? carbon?), or is it a
   hard no? (Hard no → symmetric error; routine → keep the direction-aware warning.)
 - CKP-4: at what drop length do you start checking insertion before selling (170 / 185 / 200)?
+- CKP-13: given two makers publish different torque numbers for a nominally-same clamp diameter
+  (Park Tool's generic 4-6 Nm vs OneUp's carbon-specific 6/5 Nm), should the mechanic agent ever
+  surface a torque number at all, or is "always read the part's own spec" the only safe answer?
+- CKP-15: is oval/carbon-rail-vs-round-rail-clamp common enough in the live catalog to be worth
+  a schema field, or rare enough to leave as a documented gap?
