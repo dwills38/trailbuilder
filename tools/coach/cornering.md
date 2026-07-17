@@ -1,7 +1,9 @@
 # Cornering — Coach Corpus
 
-**Maturity: foundation** (L1 core solid; L2 corner-types thin). Flat · bermed · off-camber
-corners · line choice; switchbacks cross-referenced to `terrain-features.md`. Read
+**Maturity: professional** (L1 core solid; round 2, 2026-07-17 added dedicated berm-line and
+switchback progressions, closing most of the L2 corner-type gap — the pivot/cutty family for
+ultra-tight switchbacks is flagged but deliberately not laddered yet, see Gaps). Flat · bermed ·
+off-camber corners · line choice; dedicated switchback technique (COR-10). Read
 [`INDEX.md`](INDEX.md) first (corpus rules, tiers, SAFETY-FIRST PROGRESSION, tacit-layer
 disclaimer).
 
@@ -152,15 +154,119 @@ these smoothly or not at all.
 - Vision (COR-1) chains up from FND-6 and forward into descending line choice (CLD).
 - Grip budget (BRK-5) is *the* reason braking finishes before the lean.
 - Bike-body separation (FND-7/COR-4) is the same skill that unlocks rough-terrain tracking (L2).
-- Switchbacks = tight, often steep, often off-camber corners → belong to `terrain-features.md`
-  (L2), built on COR-8 + steep-descent technique (CLD).
+- Switchbacks (COR-10) = tight, often steep, often off-camber corners, built on COR-8 +
+  steep-descent technique (CLD) + `terrain-features.md` TER-4 (rear wheel lift).
+
+---
+
+## Corner-type depth (round 2, 2026-07-17 — closes part of the L2 gap)
+
+**COR-9 — Berm line choice: enter central-to-high, hold a smooth committed arc, brake before not
+during, and pump the berm for extra exit speed.** Extends COR-7's basic berm/flat distinction with
+a dedicated berm line: aim roughly three-quarters up the berm's face on entry (too low sits in
+loose, unsupportive dirt at the bottom; too high loses support and drifts wide on exit) and hold
+that arc smoothly rather than drifting up or down the face. Braking happens **before** the berm —
+"brake late but decisively," then get off the brakes as early as possible once committed, since
+scrubbing speed mid-berm unweights the bike and costs the grip the berm's bank was providing (the
+same brake-before-not-during principle as COR-2, applied to a banked surface). Once established on
+the arc, an experienced rider adds a **pump** through the berm — pressing weight into the berm's
+surface, heel-to-heel, the same down-pressure/up-pressure mechanic as `terrain-features.md` TER-2 —
+for extra exit speed; this is an advanced layer on top of the basic line, not a beginner requirement.
+Higher speed generally supports MORE lean (the berm's shape supports the bike better at speed), the
+inverse of what feels intuitive to a nervous rider.
+- *Prereq:* COR-7 (berm vs flat basics), COR-3/4 (outside-foot weighting, bike lean), TER-2
+  (pumping mechanics, for the advanced pump-the-berm layer only).
+- *Gear:* helmet; pads reasonable at speed.
+- *Progression:* introduce the central-to-high line and smooth arc at moderate speed, off the
+  brakes at entry → develop by increasing entry speed once the line is consistent → commit the
+  pump-the-berm layer only once the basic line/speed combination is solid (adding a pump before
+  the line is dialed just adds noise to what's already an unfamiliar skill).
+- *Common errors → corrections:* entering too low (in the loose dirt at the berm's base) → poor
+  traction and a wide, unsupported exit; move the entry line up. Braking mid-berm → unweights the
+  bike and kills the grip the bank provides; do all braking before entry, release early. Exiting
+  early / "over-turning" off the berm → wastes the berm's supported arc; spot the exit early and
+  hold the line to the end of the shape.
+- *Tier:* B-consensus. Source: Canadian Cycling Magazine (central-to-high entry line, brake-before-
+  not-during, the heel-pump-for-extra-speed technique), Australian Mountain Bike (high-and-wide
+  entry, traction-seeking mid-berm adjustment, spot-the-exit-early / avoid over-turning, off-the-
+  brakes-early for exit speed — independently corroborating the entry-line and braking cues), Lee
+  Likes Bikes / Lee McCormack (pumping berms as "pumping and turning at the same time," the
+  heavy-on-backsides/light-on-frontsides framing extended from straight-line pumping to a corner).
+
+**COR-10 — Switchbacks: match technique to grade (uphill = pedal through, downhill = consistent
+brake drag, level = more lean allowed), lead the rotation with the shoulders/torso not the bars, and
+go wider on entry than instinct suggests.** A dedicated switchback fact, closing part of the L2 gap
+flagged since the bootstrap round and cross-referenced from `terrain-features.md` TER-9. Three
+switchback types demand different technique:
+- **Uphill switchbacks** — the easier type; ride with a low chest and keep pedalling to avoid
+  losing momentum or unintentionally lifting the front wheel; body weight should trend forward
+  (fighting the instinct to sit back on a steep grade, which unweights and wanders the front wheel
+  — the same principle as CLD-5's gradient-scaled weighting, inverted for a climb).
+- **Downhill switchbacks** — the hardest type, due to brake control and often real exposure;
+  "ride your brakes" through the corner for **consistent** drag rather than sharp on/off braking
+  (distinct from COR-2's brake-before-not-during flat-corner cue — a tight, steep switchback often
+  needs continuous light braking through the arc to control speed on a slope too steep to coast);
+  look at the middle of the trail, not the outside edge, to avoid drifting toward exposure.
+- **Level switchbacks** — the most forgiving; body position is the only real difference from the
+  other two — more lean is available since gradient isn't fighting the turn.
+Across all three: **go wider than instinct suggests** on entry, sending the front tyre toward the
+outer edge of the trail to give a long-wheelbase modern bike enough geometric room to complete the
+tight arc without the rear wheel clipping the inside apex; **lead the rotation with the shoulders
+and upper body**, not by forcing the bars — the hips and rear wheel follow the torso's rotation, a
+mechanism directly echoing the "vision/upper-body leads the bike" chain in COR-1; and put slightly
+more pressure through the outside hand/handlebar to counter the bike wanting to dive or dip
+mid-turn (the "castor effect"). Scan the switchback in three parts before committing — entrance,
+middle, exit — so nothing on the slope is a surprise mid-turn.
+- *Prereq:* COR-8 (off-camber, smooth-inputs discipline), CLD-5 (steep-descent weighting), FND-7
+  (bike-body separation — the shoulder-leads-hips-and-bike mechanism is this skill directly
+  applied at very low speed), `terrain-features.md` TER-4 (rear wheel lift — directly useful for
+  repositioning the rear wheel on the tightest switchbacks, per TER-9's cross-reference).
+- *Gear:* helmet, dropper; more protection where exposure is real (a downhill switchback with a
+  drop-off is a different risk tier than a wooded uphill one).
+- *Progression:* **introduce** slow-speed steering/balance drills off the switchback itself —
+  trackstands, tightening-radius turns in an open area without leaning the bike, 90°-turn drills in
+  a parking space or on a basketball court's lane lines — before ever attempting a real switchback
+  → **develop** on a built practice switchback (a flat base with a short 2–3 ft incline to a flat
+  top is the cited ideal shape) using cones, riding it slow and matching body position to slope →
+  **commit** to trail switchbacks starting with level, low-consequence ones before uphill, then
+  downhill/exposed ones last.
+- *Common errors → corrections:* forcing the turn with the handlebars instead of the shoulders/
+  torso → fights the bike instead of leading it; rotate the upper body first, let the rear wheel
+  follow. Taking too tight a line on entry → the rear wheel clips the inside apex on a long modern
+  bike; go wider than feels natural. Sitting back on a steep uphill switchback → unweights and
+  wanders the front wheel; keep weight forward, chest low. Quitting/dabbing near the very end of a
+  downhill switchback out of fear → look through to where you want to be *after* the switchback,
+  not at the exposure, to carry the rotation through.
+- *Tier:* B-consensus (three named-practitioner sources agreeing on the core mechanics, with the
+  extreme-tightness pivot techniques below flagged separately as a distinct, higher-tier skill).
+  Source: Singletracks / coach Renn (uphill/downhill/level switchback distinctions, trackstand and
+  tightening-radius drills, outside-hand pressure against the castor effect, three-part scanning),
+  bike198.com (the wide-entry geometry rationale for long modern bikes, forward weighting on steep
+  climbs, shoulder-leads-hips rotation mechanism).
+
+**COR-10b — ⚠ Beyond dedicated cornering: when a switchback is geometrically tighter than the
+bike's wheelbase, riders use a distinct pivot-turn family (stoppie pivot / nose pivot / "cutty"
+slide) that is NOT a cornering technique — it's closer to a controlled trials/stationary maneuver
+and is flagged, not laddered, here.** These techniques (rotating the bike around a fixed front-wheel
+brake point while the rear wheel is lifted and swung, or an intentional rear-wheel slide to square
+off a corner) appear across sources as real, named, practiced skills — but they sit well above
+COR-10's core switchback technique in both difficulty and consequence (a mistimed pivot can send a
+rider off the outside edge of a steep switchback) and depend on skills this corpus has not yet
+laddered on their own (a controlled stoppie/front-brake lift, deliberate traction-breaking). Per
+corpus rule 4, this corpus will **not** present these as a taught progression until that
+prerequisite ladder (stoppie control specifically) is itself sourced and laddered — recorded here
+as a named, flagged L3-adjacent gap rather than omitted or taught out of order.
+- *Tier:* B, single-source depth (Mark Hower MTB for the stoppie pivot; bike198.com for the nose
+  pivot / cutty) — not yet B-consensus, and explicitly NOT safety-graded for inclusion as a taught
+  skill this round.
 
 ---
 
 ## Gaps
-- **Corner-type depth is L1-thin** — berms (pumping the berm, high/low lines), true switchback
-  technique (pivot vs wide line, foot-out), and drift/controlled-slide are **L2 gaps**. Switchbacks
-  are cross-listed in `terrain-features.md` and need a dedicated progression.
+- **Drift/controlled-slide cornering (the "cutty")** and the **stoppie-pivot / nose-pivot family**
+  for ultra-tight switchbacks are named (COR-10b) but explicitly not laddered — the highest-priority
+  L2/L3 gap remaining in this chapter, blocked on a stoppie/front-brake-lift prerequisite this
+  corpus hasn't sourced yet.
 - **No measured lean-angle / speed relationship** (COR-4 is qualitative) — L3 gap; a biomechanics
   or coach-with-data source would ground "how much lean for this radius/speed."
 - **No wet/loose-condition cornering depth** (compound/pressure/line adaptations beyond "grippiest

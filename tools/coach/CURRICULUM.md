@@ -88,10 +88,10 @@ L3 gap"). The Gaps list is what the next round reads to pick its target.
 |---|---|---|---|
 | `fundamentals.md` | L1 | foundation | seeded — position/balance/vision core facts |
 | `braking-traction.md` | L1 | foundation | seeded — progressive braking, grip budget, front-brake primacy |
-| `cornering.md` | L1→L2 | foundation | seeded — strong L1 consensus; switchbacks/berms thin |
+| `cornering.md` | L1→L2 | professional | round 2 (2026-07-17) added dedicated berm-line + switchback progressions (COR-9/10); pivot/cutty family for ultra-tight switchbacks flagged not laddered (COR-10b) |
 | `climbing-descending.md` | L1→L2 | foundation | seeded — incl. the ⚠ DISPUTED weight-back item |
-| `terrain-features.md` | L2 | skeleton | ladder scaffold + a few seeded rungs; the priority next round |
-| `discipline-craft.md` | L3 | skeleton | scaffold only — awaits an L3 discipline round |
+| `terrain-features.md` | L2 | professional | 2026-07-17 round 2: full Prereq/Gear/Progression for pumping, front/rear wheel lifts, manual, bunny hop, drops, jumps, rock gardens/roots; switchback/chute cues + biomechanics still gaps |
+| `discipline-craft.md` | L3 | foundation | 2026-07-17 round 2: XC/enduro/DH/DJ each got a sourced core-craft fact; still short of full L2-style progressions per discipline |
 | `coaching-methodology.md` | L4 | foundation | seeded — IDEA / What-Why-How / lesson format / error detection |
 
 ## Corpus rule: target the weakest chapter
