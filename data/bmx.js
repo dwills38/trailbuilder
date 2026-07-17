@@ -133,7 +133,8 @@ var BMX_PARTS = [
     id: 'bmx-fr-chase-rsp30', cat: 'frame', brand: 'Chase', model: 'RSP 3.0',
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
     topTube: 21.0, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: true,
-    price: 549.99
+    weight: 1532, price: 549.99,
+    note: 'bbShell/headTube/rearBrakeMount and the 21.0in top tube (Pro XL size) confirmed against chasebicycles.com\'s RSP 3.0 frame-archive page 2026-07-17 (V-brake-only, BSA-threaded 68/73mm shell = this catalog\'s euro token, integrated headset); weight (1532g) is that page\'s per-size table for the Pro XL (21in) row. Price (549.99) and rearAxle are NOT stated on the archive page (this is a discontinued frame with no current listing), so left unverified rather than claiming verified on an unconfirmed price. Source: https://chasebicycles.com/frames/frame-archives/chase-rsp-3-0/'
   },
   {
     id: 'bmx-fr-supercross-envy', cat: 'frame', brand: 'Supercross BMX', model: 'Envy SL',
@@ -145,25 +146,31 @@ var BMX_PARTS = [
     id: 'bmx-fr-chase-element', cat: 'frame', brand: 'Chase', model: 'Element',
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
     topTube: 20.5, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: true,
-    price: 349.99, note: 'Chase\'s entry/intermediate race frame, below the RSP 3.0 in the lineup.'
+    weight: 1500, price: 349.99,
+    note: 'Chase\'s entry/intermediate race frame, below the RSP 3.0 in the lineup. This row matches the older frame-only Element (chasebicycles.com/frames/frame-archives/chase-element-frame-2016/ — CAUTION: the CURRENT "Chase Element" name on chasebicycles.com now refers to an unrelated disc-brake-only, Press-Fit-BB86, complete-bike-only line; do not confuse the two). rearBrakeMount (v-brake) and topTube (20.5in = the Pro size) confirmed against the 2016 archive page 2026-07-17; weight (1500g) is that page\'s Pro-size figure. bbShell/headTube are the RSP-series-standard assumption, NOT stated on this page, so left unverified. Price not listed on the archive page either.'
   },
   {
     id: 'bmx-fr-gt-performer', cat: 'frame', brand: 'GT', model: 'Performer',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
-    price: 469.99, note: 'GT\'s long-running heritage/old-school reissue platform, sold as a complete bike.'
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 675.00,
+    verified: true, lastChecked: '2026-07-17', source: 'https://gtbicycles.com/products/pro-performer-20',
+    note: 'GT\'s long-running heritage/old-school reissue platform, sold as a complete bike ("GT BMX Pro Performer 20"). bbShell (Sealed Mid 22mm), headTube (Integrated 1-1/8in), rearBrakeMount (U-brake) and rearAxle (14mm dropout / 3/8in cassette) all confirmed. topTube corrected 20.5 -> 20.75in. Price corrected 469.99 -> 675.00 (Shopify variant JSON, gtbicycles.com/products/pro-performer-20.js).'
   },
   {
     id: 'bmx-fr-gt-fly', cat: 'frame', brand: 'GT', model: 'Fly',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
-    price: 429.99, note: 'GT\'s current freestyle/park complete bike.'
+    price: 429.99,
+    note: 'WALL 2026-07-17: gtbicycles.com/collections/bmx-bikes lists no current "Fly" model (confirmed via direct fetch) - the Fly was a GT model sold roughly 2001-2014 and is fully discontinued; its old product URL 404s and no Wayback snapshot was fetchable this session (web.archive.org unreachable via WebFetch/Exa in this environment). Corrected the prior note, which wrongly called this "GT\'s current...complete bike" - it is not currently sold. Left unverified/uncorrected otherwise: no manufacturer source found to confirm or refute the interface fields.'
   },
   {
     id: 'bmx-fr-gt-speedseries-pro', cat: 'frame', brand: 'GT', model: 'Speed Series Pro',
-    discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
-    topTube: 20.75, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: false,
-    price: 799.99, note: 'GT\'s race-team-tier complete bike.'
+    discipline: 'race', wheelSize: '20', bbShell: 'spanish', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'caliper', rearAxle: '15mm', frameOnly: false,
+    price: 900.00,
+    verified: true, lastChecked: '2026-07-17', source: 'https://gtbicycles.com/products/speed-series-pro',
+    note: 'GT\'s race-team-tier complete bike. bbShell corrected euro -> spanish (frame is BB86 press-fit, unthreaded - the "Spanish BB" token, not the threaded Euro shell). rearBrakeMount corrected v-brake -> caliper (disc-brake-only frame, "AL CNC/Forged Quick Change Disc Dropout system"). rearAxle corrected 14mm -> 15mm per the same disc dropout spec - NOTE: 15mm exceeds BMX_VOCAB.axle\'s documented [10mm,14mm] list (flagged for the coordinator/vocab update; frame.rearAxle is not itself read by checkBmxBuild so this is a data-accuracy fix, not a verdict change). headTube (integrated 1-1/8-1.5 taper) and topTube (20.75in Pro size) confirmed. Price corrected 799.99 -> 900.00 (gtbicycles.com/products/speed-series-pro.js); the separate frame-only SKU (gtbicycles.com/products/speed-series-pro-frame) is $262.50 for reference, not used here since this row is frameOnly:false.'
   },
   {
     id: 'bmx-fr-haro-lineage-master', cat: 'frame', brand: 'Haro', model: 'Lineage Master',
@@ -340,7 +347,8 @@ var BMX_PARTS = [
   {
     id: 'bmx-fk-chase-rsp', cat: 'fork', brand: 'Chase', model: 'RSP Race Fork',
     discipline: 'race', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
-    brakeMount: 'v-brake', weight: 420, price: 94.99
+    brakeMount: 'v-brake', weight: 420, price: 94.99,
+    note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (confirmed via its own nav: Bikes/Frames/Gear/Technologies/Team only - no Parts or Components section, no fork/crank/sprocket/brake/bar/stem/pedal product pages exist on the site). Left unchanged, not verified.'
   },
 
   // ===== HEADSETS ======================================================
@@ -439,7 +447,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-chase-rsp', cat: 'cranks', brand: 'Chase', model: 'RSP Race Cranks',
-    spindle: '19mm', pieces: '3-piece', ringMount: 'press-on', price: 279.99
+    spindle: '19mm', pieces: '3-piece', ringMount: 'press-on', price: 279.99,
+    note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   },
 
   // ===== BOTTOM BRACKETS ===============================================
@@ -472,7 +481,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-bb-gt-mid-22', cat: 'bb', brand: 'GT', model: 'Mid BB',
-    shell: 'mid', spindleFit: '22mm', price: 24.99
+    shell: 'mid', spindleFit: '22mm', price: 24.99,
+    note: 'shell/spindleFit confirmed 2026-07-17 against the GT Pro Performer 20 spec sheet ("Sealed Mid 22mm" BB, https://gtbicycles.com/products/pro-performer-20) - values already matched, no correction needed. GT does not sell this BB as a standalone SKU (only a "Power Series American BB" appears in gtbicycles.com/collections/cranks-bb), so price is unconfirmed and this row is left unverified despite the confirmed interface.'
   },
   {
     id: 'bmx-bb-flybikes-mid-22', cat: 'bb', brand: 'Fly Bikes', model: 'Mid BB',
@@ -527,7 +537,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-sp-chase-rsp-30', cat: 'sprocket', brand: 'Chase', model: 'RSP Race Sprocket 30T',
-    teeth: 30, mount: 'spline', pitch: '1/8', price: 54.99
+    teeth: 30, mount: 'spline', pitch: '1/8', price: 54.99,
+    note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   },
 
   // ===== CHAIN ==========================================================
@@ -759,7 +770,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-br-chase-rsp-vbrake', cat: 'brake', brand: 'Chase', model: 'RSP Race V-Brake',
-    mount: 'v-brake', weight: 180, price: 34.99
+    mount: 'v-brake', weight: 180, price: 34.99,
+    note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   },
   {
     id: 'bmx-br-mankind-truth-ubrake', cat: 'brake', brand: 'Mankind', model: 'Truth U-Brake',
@@ -802,7 +814,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-hb-chase-rsp', cat: 'handlebar', brand: 'Chase', model: 'RSP Race Bars',
-    clamp: '22.2mm', rise: 6.5, width: 27.5, price: 54.99
+    clamp: '22.2mm', rise: 6.5, width: 27.5, price: 54.99,
+    note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   },
 
   // ===== STEM ===========================================================
@@ -823,11 +836,13 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-st-gt-performer', cat: 'stem', brand: 'GT', model: 'Performer Stem',
-    clamp: '25.4mm', price: 34.99
+    clamp: '25.4mm', price: 34.99,
+    note: 'WALL 2026-07-17: not a standalone GT SKU - the Pro Performer 20 spec sheet names its stock stem "GT Mallet Front Load" (43mm, 19mm rise) and does not state a clamp diameter (gtbicycles.com/products/pro-performer-20). Left unverified/uncorrected - no source to confirm or refute the 25.4mm clamp value.'
   },
   {
     id: 'bmx-st-chase-rsp', cat: 'stem', brand: 'Chase', model: 'RSP Race Stem',
-    clamp: '22.2mm', price: 42.99
+    clamp: '22.2mm', price: 42.99,
+    note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   },
   {
     id: 'bmx-st-odyssey-elementaryv2-222', cat: 'stem', brand: 'Odyssey', model: 'Elementary Stem V2',
@@ -917,7 +932,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-gr-gt-performer', cat: 'grips', brand: 'GT', model: 'Performer Grips',
-    length: 148, flangeless: false, price: 8.99
+    length: 148, flangeless: true, price: 8.99,
+    note: 'flangeless corrected false -> true: the Pro Performer 20 spec sheet names its stock grip "GT Super Soft Flangeless" (gtbicycles.com/products/pro-performer-20, fetched 2026-07-17). Not sold as a standalone SKU, and length/price are unconfirmed, so left unverified despite the flangeless correction.'
   },
 
   // ===== PEDALS =========================================================
@@ -1094,25 +1110,32 @@ var BMX_PARTS = [
   // ---- Kink depth -----------------------------------------------------
   {
     id: 'bmx-fr-kink-curb', cat: 'frame', brand: 'Kink', model: 'Curb',
-    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 419.99, note: 'Kink\'s street/park value-tier frame.'
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'american', headTube: 'mid',
+    topTube: 20.0, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: false,
+    price: 399.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://kinkbmx.com/products/curb-2027',
+    note: 'Sold complete-bike-only (corrected frameOnly false; was true). bbShell corrected mid -> american ("Unsealed American 19mm" BB). rearBrakeMount corrected u-brake -> v-brake ("Mission Cease V2" V-brakes). topTube corrected 20.5 -> 20.0in. Price corrected 419.99 -> 399.99. headTube mapped from the page\'s "Standard 1 1/8in Threadless" (external, non-integrated cups) to the closest BMX_VOCAB token (mid) - PROVISIONAL mapping, headTube fires no rule. Complete-bike weight (27lb 2oz = ~12,300g) is NOT a frame weight, so omitted per the wethepeople-justice convention.'
   },
   {
     id: 'bmx-rh-kink-cage-9', cat: 'rearWheel', brand: 'Kink', model: 'Cage Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 99.99
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 99.99,
+    note: 'WALL 2026-07-17: kinkbmx.com/collections/hubs-guards lists no hub called "Cage" (current Kink cassette hub is "Yukon"), and no other source turned up a Kink "Cage" hub past or present - flagged for the coordinator, this may be a non-existent/misnamed SKU. Left unchanged (cannot confirm OR refute the spec values), not verified.'
   },
   {
     id: 'bmx-hb-kink-retro', cat: 'handlebar', brand: 'Kink', model: 'Retro Bars',
-    clamp: '25.4mm', rise: 8.0, width: 28.75, price: 69.99
+    clamp: '25.4mm', rise: 8.0, width: 28.75, price: 69.99,
+    note: 'WALL 2026-07-17: kinkbmx.com/collections/handlebars lists no bar called "Retro" (current lineup: Helm, Foundry, Union, Williams/Williams 4pc) and no other source turned up a Kink "Retro Bars" past or present - flagged for the coordinator, this may be a non-existent/misnamed SKU. Left unchanged, not verified.'
   },
   {
     id: 'bmx-sp-kink-pivotal-post', cat: 'seatpost', brand: 'Kink', model: 'Pivotal Seatpost',
-    diameter: 25.4, system: 'pivotal', price: 17.99
+    diameter: 25.4, system: 'pivotal', weight: 125, price: 39.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://kinkbmx.com/products/pivotal-seat-post',
+    note: 'Price corrected 17.99 -> 39.99. Diameter/system confirmed. Weight (125g / 4.4oz) is the Medium (180mm) length; Small (75mm) is 65g, Large (330mm) is 201g.'
   },
   {
     id: 'bmx-pd-kink-rival', cat: 'pedals', brand: 'Kink', model: 'Rival Pedals',
-    platform: 'alloy', spindle: '9/16', weight: 350, price: 29.99
+    platform: 'alloy', spindle: '9/16', weight: 350, price: 29.99,
+    note: 'WALL 2026-07-17: kinkbmx.com/collections/pedals currently lists only the Hemlock pedal, and no other source turned up a Kink "Rival Pedals" past or present - flagged for the coordinator, this may be a non-existent/misnamed SKU. Left unchanged, not verified.'
   },
 
   // ---- WeThePeople depth -----------------------------------------------
@@ -1287,7 +1310,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-pd-chase-rsp-clip', cat: 'pedals', brand: 'Chase', model: 'RSP Clip Pedals',
-    platform: 'clip', spindle: '9/16', weight: 300, price: 89.99
+    platform: 'clip', spindle: '9/16', weight: 300, price: 89.99,
+    note: 'WALL 2026-07-17: chasebicycles.com sells no standalone parts (see bmx-fk-chase-rsp note). Left unchanged, not verified.'
   },
 
   // =====================================================================
