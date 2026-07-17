@@ -1,5 +1,19 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — road+gravel design round merged (off-live docs); mechanic bar raised to MASTER
+
+- **design/road-gravel-model merged**: 4 docs in data/ (SHARED-STANDARDS, ROAD-MODEL,
+  GRAVEL-MODEL, COMPAT-ANALYSIS — 20-rule set, every rule fetch-cited, [MECHANIC REVIEW] flags,
+  dormant-until-sourced discipline; caught the road-mm vs MTB-inches tire unit trap).
+  **Architecture recommendation: ONE shared road+gravel engine (src/compat-road.js, the
+  compat-bmx playbook) serving BOTH pages via a discipline tag** — argued vs extending checkBuild
+  and vs two engines (~90% road/gravel rule overlap). DECISIONS-FOR-DOUGLAS surfaced: road page
+  name (BuildMyRoadBike placeholder), shared-engine sign-off, rim-brake in v1 vs disc-only
+  (recommends disc-only). All OFF-LIVE until his word. Catalog grinds queue behind the BMX flip.
+- Mechanic program bar RAISED by Douglas to MASTER level ("teach World Cup mechanics") —
+  leveled curriculum L1-L4 + per-chapter maturity grades baked into the running bootstrap via
+  send_message; memory updated. BMX flip PRE-AUTHORIZED on the 300/40%+audit bar (memory).
+
 ## 2026-07-17 — cb-sheets-2 merged (sheet-verified 140 → 141); round-1 unverified-94 claim CONFIRMED
 
 - verify/cb-sheets-2 merged: re-screened the ~94 "fetched-but-unverified" completebike rows —
