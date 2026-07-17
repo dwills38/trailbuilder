@@ -181,8 +181,10 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-bsd-focus', cat: 'frame', brand: 'BSD', model: 'Focus',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.6, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
-    price: 439.99, note: 'BSD (UK) street/park frame; commonly run brakeless.'
+    topTube: 20.8, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
+    weight: 2270, price: 439.99,
+    verified: true, lastChecked: '2026-07-17', source: 'https://us.bsdforever.com/products/bsd-focus-gaspar-guendulain-frame',
+    note: 'Gaspar Guendulain signature Focus frame; us.bsdforever.com confirms mid BB, integrated head tube, removable brake mounts (sold separately - runs brakeless by default), and 14mm dropouts. Top tube corrected from 20.6in (not an offered size) to 20.8in, the shortest real option (20.8/21/21.2/21.5in). Weight ~2270g per the published "5lbs". US-store price ($439.99) matches this row exactly.'
   },
   {
     id: 'bmx-fr-flybikes-nassau', cat: 'frame', brand: 'Fly Bikes', model: 'Nassau',
@@ -341,7 +343,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-cr-bsd-dvt', cat: 'cranks', brand: 'BSD', model: 'DVT Cranks',
-    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 940, price: 199.99
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 940, price: 199.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "DVT" crank found for BSD (real current cranks: Substance - 22mm spindle, 2.5pc; Substance XL V2 - 24mm spindle, 2.5pc). Left as unverified sample data; model name is not confirmed to a real BSD SKU.'
   },
   {
     id: 'bmx-cr-chase-rsp', cat: 'cranks', brand: 'Chase', model: 'RSP Race Cranks',
@@ -455,7 +458,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-rh-bsd-mind', cat: 'rearWheel', brand: 'BSD', model: 'Mind Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 99.99
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 279.99,
+    note: 'Real, current product: the "Back Street Pro Mind Wheel" (bsdforever.com), built from the BSD Back Street Pro cassette hub + NASA rim - a complete wheel, not a bare hub. Price corrected from 99.99 to the confirmed US-store $279.99. The manufacturer page confirms RHD/LHD ("side":both) and a cassette-type hub, but its own spec table does not itself state axle mm or driver tooth count (those figures - 14mm male, 9T - are independently confirmed only by third-party retailer listings, consistently across several). Left unverified per THE BAR (interface facts must come from the fetched maker page itself); values are very likely correct.'
   },
   {
     id: 'bmx-rh-colony-devast8r', cat: 'rearWheel', brand: 'Colony', model: "Devast8r Cassette Hub",
@@ -496,7 +500,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-fw-bsd-mind', cat: 'frontWheel', brand: 'BSD', model: 'Mind Front Wheel',
-    wheelSize: '20', axle: '10mm', price: 74.99
+    wheelSize: '20', axle: '10mm', price: 169.99,
+    note: 'Real, current product: the "Front Street Pro Mind Wheel" (bsdforever.com), built from the BSD Front Street Pro hub + NASA rim, ships with hubguards. Price corrected from 74.99 to the confirmed US-store $169.99 (a full built wheel, not a bare hub, so the prior sample price was too low). Axle mm is not itself printed on the fetched page (10mm is the standard BMX front-axle value and matches this row) - left unverified per THE BAR pending an interface-specific source.'
   },
   {
     id: 'bmx-fw-colony-devast8r', cat: 'frontWheel', brand: 'Colony', model: 'Devast8r Front Wheel',
@@ -530,7 +535,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-ti-bsd-motto-24', cat: 'tire', brand: 'BSD', model: 'Motto Tire 2.4"',
-    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 90, price: 27.99
+    wheelSize: '20', width: 2.4, casing: 'park', maxPsi: 90, price: 27.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Motto" tire found for BSD (real current tires include Donnastreet - 2.3/2.4in, 680/730g, 110psi max - and Donnasqueak). Left as unverified sample data; model name is not confirmed to a real BSD SKU.'
   },
   {
     id: 'bmx-ti-colony-griplock-24', cat: 'tire', brand: 'Colony', model: 'Grip Lock Tire 2.4"',
@@ -1048,7 +1054,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-pd-bsd-motive', cat: 'pedals', brand: 'BSD', model: 'Motive Pedals',
-    platform: 'plastic', spindle: '9/16', price: 17.99
+    platform: 'plastic', spindle: '9/16', price: 17.99,
+    note: 'DATA-QUALITY FLAG (2026-07-17): no "Motive" pedal found for BSD (real current pedals: Safari, Jonesin\' - both nylon fibreglass, 9/16in, ~382g/pair). Left as unverified sample data; model name is not confirmed to a real BSD SKU.'
   },
   {
     id: 'bmx-pd-chase-rsp-clip', cat: 'pedals', brand: 'Chase', model: 'RSP Clip Pedals',
