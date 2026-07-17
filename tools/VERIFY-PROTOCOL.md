@@ -178,3 +178,17 @@ Five Ten/Adidas, Bolle, Pearl Izumi, IXS geo-wall, Michelin, and any
 `archiveUrl`/Wayback lookup. THE BAR IS UNCHANGED: a bdata-fetched maker page
 counts exactly like a WebFetch-fetched one (it IS the maker page); search
 snippets still never count.
+
+## Exa — second unblocker, MCP-based (2026-07-17, Douglas)
+
+The Exa connector is authorized: MCP tools `web_search_exa` (semantic search,
+clean highlights) + `web_fetch_exa` (full pages as markdown, BATCHES multiple
+URLs per call). Load via ToolSearch (query "exa"). SMOKE-TESTED: it renders
+trekbikes.com's JS-walled SPEC TABLES (full frameset/fork/drivetrain lists —
+independently confirming the Boost141 + Powerspline entries from Trek's own
+page). Doctrine: WebFetch first for open pages; Exa next for JS-rendered
+walls (Trek/Giant class — and its batch-fetch is efficient for many URLs);
+Bright Data (`bdata scrape`) for the hardest bot-walls (Specialized-403/
+DataDome/Akamai class) and archive.org. An Exa-fetched maker page meets THE
+BAR like any fetched maker page; search highlights alone still never count —
+follow up with the full fetch.
