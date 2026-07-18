@@ -1,11 +1,25 @@
 # Cockpit & Contact Points — Mechanic Corpus
 
-**Maturity: foundation, with a new dropper-internals L2 slice** (L1 coverage across the whole
-chapter + a cross-brand torque compilation (CKP-20), now joined 2026-07-18 by genuine dropper
-SERVICE-manual depth — RockShox Reverb AXS and Fox Transfer's hydraulic/IFP internals,
-CKP-21/22 — closing this chapter's round-4/5 named pickup point. Still `foundation` overall:
-the L2 slice is dropper-only; bar/stem, headset-adjacent, and BMX cockpit facts stay L1. See
-`## Gaps` for what's still missing.).
+**Maturity: professional** (L1 coverage across the whole chapter + a cross-brand torque
+compilation (CKP-20), joined 2026-07-18 (first pass) by genuine dropper SERVICE-manual depth —
+RockShox Reverb AXS and Fox Transfer's hydraulic/IFP internals, CKP-21/22. **2026-07-18 (second
+pass, CKP-23 through CKP-27)** extended L2 depth to every other named part of this chapter except
+rigid seatpost and BMX: CKP-23 closed the dropper-brand gap (OneUp V2, PNW, BikeYoke Revive —
+five dropper families now have real service depth, not two); CKP-24 landed ENVE's own
+cross-component torque card plus a five-manufacturer roundtable's converging crash-inspection
+doctrine for carbon bars; CKP-25 closed the named headset/stem preload-adjustment gap with Park
+Tool's canonical article (and explained exactly why CKP-12/13's top-cap torque figures don't
+secure the stem); CKP-26 gave grips a real torque spec and flush-mount safety rule (ODI, the
+format's originator); CKP-27 refined CKP-15's saddle-rail-shape contradiction with Specialized's
+own torque figures (two-tier by clamp type) and a second, narrower failure mode (clamp-jaw
+width). **Regraded from `foundation` to `professional`** per CURRICULUM.md's bar ("L1 complete +
+meaningful L2 depth... across most of the chapter's parts") — L2 depth now exists for
+handlebar/stem, dropper, grips, saddle, and pedals (5 of this chapter's 8 named parts: handlebar,
+stem, grips, dropper, rigid seatpost, saddle, pedals, BMX seat system). **Two parts remain
+L1-only, which is why this isn't graded `master`:** rigid seatpost (shares the dropper diameter
+rule via CKP-5 but has no service-manual depth of its own) and BMX cockpit (deliberately L1,
+off-live per CLAUDE.md hard rule 3). See `## Gaps` for exactly what's still missing at each
+level.).
 
 Handlebar · stem · grips · dropper · rigid seatpost · saddle · pedals · (BMX seat system).
 Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline, conventions).
@@ -47,6 +61,30 @@ particular source cannot corroborate 35 mm and a fresher citation would be neede
 its adoption date/rationale. *Confidence: confirmed (fetched) for the sizes listed; the "35mm
 postdates this source" framing is corpus-side inference, not a stated fact on the page.* Source:
 sheldonbrown.com "Bicycle Handlebar and Stem Dimension Crib Sheet" (fetched 2026-07-17).
+
+**CKP-25 — Closing the named "no headset/stem preload-adjustment procedure" gap: Park Tool's
+canonical threadless-headset article gives the full preload mechanism, and it directly explains
+WHY the stem's top cap bolt (CKP-12/13's torque figures) is NOT what holds the stem on.** The
+load path is a chain, not a single fastener: *"The bolt in the top cap will put pressure on the
+stem, which presses on washers below the stem, which press on the bearing races, which press
+against the bearings."* Park Tool states the critical distinction explicitly: **"the cap and bolt
+at the top of the stem do not secure the stem onto the steering column"** — only the stem's side
+pinch bolt(s) do that (CKP-12/13's torque figures apply to those side bolts, not the top cap
+bolt). The target adjustment is qualitative but unambiguous: **"as loose as possible with no
+play"** — too loose and the bearings rattle/deform under front-tire impacts over time; too tight
+and the headset "indexes" or feels notchy from race-surface wear, with no single torque number
+governing either failure mode (the top cap bolt is tightened by *feel*, stopping "when any
+resistance is felt," then adjusted in **1/8-turn increments** while re-checking play after each
+turn — a by-feel, iterative procedure structurally similar to WHL-37's Shimano cone-preload
+technique, not a torque-wrench spec). A geometry check underlies the whole procedure: the
+steerer tube must sit **~3 mm (1/8") below the top of the stem** so the stem can actually clamp
+down onto the spacer stack and transmit pressure to the bearings — if the steerer is flush with
+or above the stem top, the preload mechanism has nothing to press against and another spacer is
+required first. Diagnosis method: apply the front brake, rock the bike fore-aft with a hand
+bridging the head tube and fork crown, and feel for a knock (distinct from suspension-fork-leg
+play, which can be mistaken for the same symptom). *Confidence: confirmed (fetched, manufacturer
+repair-help primary — the canonical article named in this round's brief).* Source: Park Tool "How
+to Adjust a Threadless Headset" (parktool.com, fetched 2026-07-18).
 
 ## Install torque & threading basics
 
@@ -108,6 +146,43 @@ spread rather than an error). *Confidence: confirmed (fetched, manufacturer-sour
 compilation).* Source: parktool.com "Torque Specifications and Concepts" (fetched). Still open:
 no dropper-post clamp torque appears on this page (dropper hydraulic/air internals remain a
 separate gap, see `## Gaps`).
+
+**CKP-24 — ENVE's own torque card gives a real cross-component carbon-cockpit spec (closing part
+of CKP-13's "no universal spec" complaint with ENVE's actual numbers), and a five-manufacturer
+roundtable converges on the SAME crash-inspection doctrine independently, which is a stronger
+signal than any single maker's advice.** ENVE's Component Torque Specs page (support.enve.com,
+fetched primary): **thru-axle fork bolt 8 N·m; fork steerer tube 5.5 N·m; saddle rail clamp bolt
+5.5 N·m; clip-on/aero handlebar clamp 5.5 N·m; one-piece handlebar steerer bolt 5.5 N·m** — a
+single-source, single-brand table across five different clamp types, useful precisely because it
+lets a mechanic sanity-check whether a mixed ENVE cockpit's numbers cluster (they do, mostly at
+5.5 N·m) or vary sharply (the fork thru-axle at 8 N·m is the outlier). Separately, Bikerumor's
+AASQ roundtable (fetched primary) put the same question to five manufacturers simultaneously
+(Race Face/Easton Cycling, RideFarr/Farr, Fasst Co, Ritchey Logic, Hope Technology) —
+**"Do I need to replace carbon handlebars every time I crash?"** — and every one answered "not
+automatically, but inspect" rather than either "always replace" or "carbon is fine, ignore it" —
+independent convergence across five competing brands, not one company's marketing position.
+Race Face/Easton: *"stop riding the bar immediately and have a service professional... check for
+damage... checking for evidence of delamination, or broken fibers"*; Ritchey Logic (the most
+absolute of the five): *"I would advise inspecting bars after every crash, and any evidence of
+marring of the carbon should warrant a replacement"*; RideFarr/Farr gives a field-test technique
+with no tools: *"check the surface for any cracks... apply pressure on the bar to see if there is
+any deformation. You can typically hear a cracking noise upon applying the pressure if the bar has
+indeed failed"*; Fasst Co and Hope both frame it as routine-inspection-not-automatic-replacement
+("inspect the bar for any gouges, scratches, cracks, or abnormalities... make inspecting any
+composite component part of your routine maintenance" / "look for any tell tale signs of
+delamination or damage after any crashes"). On overloading a bar with many clamped controls,
+Race Face/Easton's answer sharpens CKP-1's clamp-diameter logic: *"round areas where controls and
+grips are installed are designed to handle manufacturer specified torque ratings... areas that
+are outside this — riser areas... are not designed for clamping"* — i.e. the failure mode from an
+overloaded bar isn't the clamp diameter being wrong, it's a control clamped somewhere on the tube
+that was never engineered as a clamping surface at all, a distinct hazard CKP-1/2's diameter-only
+framing doesn't cover. Farr adds a concrete safety-margin number: their control-clamping zone
+"is tested to roughly 30% above the torque requirements of the related items." *Confidence:
+confirmed (ENVE's fetched official torque page; the Bikerumor roundtable is a fetched primary
+journalistic piece directly quoting five named manufacturer representatives, not a search-summary
+synthesis — each brand's words are individually attributed).* Source: support.enve.com "Component
+Torque Specs" (fetched); bikerumor.com "AASQ #113: Carbon Handlebar Tech w/ RideFarr, RaceFace,
+Ritchey, Fasst & Hope" (fetched), both 2026-07-18.
 
 **CKP-14 — Grip install/removal is a technique, not a fit rule — but carbon bars change the safe
 removal method.** Lock-on grips just loosen/tighten a collar bolt (2.5/3/4 mm hex); slip-on grips
@@ -241,12 +316,68 @@ multiple service-procedure pages, cross-checked figures consistent across the
 "2025-2027 Transfer 125 Hour Intermediate Service" (service-procedures/2991),
 "2021-2024 Transfer Seatpost Rebuild" (service-procedures/2859), all fetched 2026-07-18.
 
+**CKP-23 — Closing the CKP-21/22 gap note by name: OneUp's V2, PNW's internally-routed line, and
+BikeYoke's Revive all publish full service depth, and comparing all three against RockShox/Fox
+(CKP-21/22) shows the dropper-internals split isn't hydraulic-vs-air, it's cartridge-vs-hydraulic
+architecture — a third distinct family, not a variation on the first two.** OneUp's V2 rebuild
+guide (can.oneupcomponents.com, fetched primary): the entire drop mechanism is a **sealed,
+swappable air cartridge** (part 14) rather than an in-post hydraulic circuit — the whole
+20-minute rebuild is disassemble-to-the-cartridge, swap seals/bushings/guide pins around it, and
+reinstall, with **no IFP or oil fill step at all** inside the post itself (the cartridge is
+serviced as a sealed sub-assembly, corroborated by a third-party teardown source calling it the
+"non-serviceable" cartridge). Air pressure is checked, not set from empty, at the end: **"the
+pressure should be 250-300 psi when the post is fully extended"** — a pressure band, not a single
+number, and the seat-clamp rear bolt torques to **8 N·m (70 in-lb)**, closing a dropper-specific
+torque number this chapter's CKP-20 compilation didn't have. Service cadence is two-tier like
+RockShox's (CKP-21) but at different hour counts: **50-100 h clean-and-grease, 250-350 h full
+rebuild** — neither matches Reverb AXS's 50/200/600h nor Transfer's 125/300h, a third distinct
+cadence. PNW's own maintenance guide (pnwcomponents.com, fetched primary) states its droppers
+are "designed to be serviceable at home with minimal mechanical experience **and no proprietary
+tools needed**" (the same tool-free design philosophy WHL-40 found in Industry Nine's hub
+service), names the **dust wiper drying out** as the specific failure mechanism that necessitates
+service (not a generic "gets dirty" framing), gives a **6-8 month / 50-hour service interval**
+matching OneUp's low-end figure almost exactly, and explicitly warns against certain lubricants:
+*"try to stay away from Park Tool PPL Grease or any generic thick bearing/assembly grease"* in
+favor of PNW's own Gold Grease, Slickoleum, SRAM Butter, or Buzzy's Slick Honey — a real
+cross-brand lubricant-compatibility caution this chapter didn't have before. BikeYoke's Revive
+manual (bikeyoke.com, fetched primary PDF) is the outlier architecture: Revive is marketed as
+**"bleedless bleeding"** via a dedicated bleed port/button rather than a full teardown for routine
+air-in-the-system symptoms, and its remote-lever install torques are stated in the same manual —
+**1.5 N·m max on the remote clamp pinch bolt**, with I-Spec adapter hardware torqued separately
+(1 N·m barrel-nut pin, 4 N·m mounting screws) — a dropper-remote torque family this chapter also
+lacked. *Confidence: confirmed (all three fetched primary manufacturer pages/PDFs).* Source:
+can.oneupcomponents.com "Dropper Post V2 Service - Rebuild" (fetched); pnwcomponents.com "How to
+Maintain Your Dropper Post" (fetched); bikeyoke.com "Manual Revive Max/Revive" (Manual_Revive_
+final.pdf, fetched), all 2026-07-18.
+
 ## Grips, saddle
 
 **CKP-7 — Grips and saddle carry only the common fields — no fit rules.** They are fit-trivial:
 grips fit any standard bar end; a saddle mounts any standard rail clamp. Modelled as
 display/data only (except the BMX pivotal case, CKP-9). *Confidence: confirmed (no rule).*
 Source: CLAUDE.md data model; EXPERT-REVIEW-DOSSIER.md (no rule area).
+
+**CKP-26 — "Grips are fit-trivial" (CKP-7) is true for the bar-end interface but not for install
+technique: lock-on grips have a real torque spec and a real flush-mount safety rule, sourced from
+ODI, the maker credited with inventing the format.** ODI's own v2.1 install instructions
+(odigrips.com, fetched primary): the lock-jaw clamp bolt (a 3 mm hex) torques to **40-45 in-lb
+(4.5-5.0 N·m)**, with an explicit caution that this figure "may vary based on bar material and
+variations in bar diameter" — the same per-part-not-per-standard caution CKP-13 already applies
+to bar/stem clamps. The flush-mount rule is a stated safety requirement, not a preference:
+*"Be sure that the grips slide all the way onto the bar so that the inside end of the grip is
+touching the end of the handlebar... Failure to install the grips flush to the end of the
+handlebar can lead to grip failure and/or injury"* — i.e. a grip riding short of the bar end is a
+genuine failure mode, not just untidy. Single- vs dual-clamp is a real design axis with a
+stated trade-off, corroborated by a retailer buyer's guide (community/retail tier, not
+manufacturer-primary): dual-clamp (both ends locked) was the original lock-on format when ODI
+introduced it, but "a majority of brands now only use one lock on clamp on the inside of the
+grip" because the outer clamp "can cause discomfort and pain in your hand" over a long ride at
+the heel of the palm — security is traded for comfort, not a free upgrade either direction.
+*Confidence: confirmed (ODI's fetched primary install page for the torque spec and flush-mount
+rule); community/retail tier (Worldwide Cyclery buyer's guide) for the single-vs-dual-clamp
+historical framing and trade-off, not independently corroborated by a second manufacturer this
+round.* Source: odigrips.com "v2.1 Lock-On Grip Installation Instructions" (fetched);
+worldwidecyclery.com "MTB Lock On Grips Buyer's Guide" (fetched), both 2026-07-18.
 
 **CKP-15 ⚠ CONTRADICTION (refines CKP-7) — Saddle rail SHAPE is not universally interchangeable;
 "any standard rail clamp" only holds for round rails.** Park Tool's saddle install guide: round
@@ -266,6 +397,41 @@ a documented gap? *Confidence: confirmed (fetched, manufacturer repair-help prim
 dimensions and the compatibility caution; the catalog-coverage implication is corpus-side
 analysis.* Source: Park Tool "How to Remove and Install a Bike Saddle" (parktool.com, fetched
 2026-07-17).
+
+**CKP-27 — Refining CKP-15 with the manufacturer's own numbers: Specialized's carbon-rail saddle
+guide independently confirms the round-vs-oval rail/clamp mismatch AND gives the actual torque
+figures AND a second, narrower mismatch CKP-15 didn't have — clamp-jaw WIDTH, not just rail
+shape.** Specialized's official instruction guide (media.specialized.com, fetched primary PDF):
+*"DO NOT use a seatpost with a side-load clamp mechanism for 7mm round rails. Specialized
+recommends seatposts with vertical-load clamps or Specialized seatposts with 7x9mm side-load
+clamps"* — the same round-vs-oval clamp-type mismatch CKP-15 sourced from Park Tool, now
+independently confirmed by a saddle *maker* rather than a tool maker, with the added detail that
+*"a seatpost with rail grooves that are of a larger or smaller diameter than the 7mm diameter
+specified"* is also explicitly prohibited — i.e. even a correctly-round clamp can be the wrong
+size. **Torque is genuinely two-tier by clamp type, not one number:** vertical-load clamp
+**80 in-lbf (9.0 N·m)**; side-load clamp **120 in-lbf (13.5 N·m)** — a 50% higher spec for the
+side-load design, and Specialized states the same "lowest published number wins" cross-check
+principle this corpus already uses elsewhere (WHL-10/39/42): *"If the seatpost's torque
+recommendation exceeds the saddle's recommendation, always use the lower torque recommendation."*
+**A second, distinct failure mode CKP-15 didn't cover:** clamp-jaw axial reach — *"DO NOT allow
+the clamp mechanism to clamp the rails beyond the straight section of the rails, where the rails
+start to curve upward"* and *"DO NOT use a clamp mechanism with a split upper clamp that measures
+beyond the recommended range of 38-40mm"* — a saddle with the *correct* rail shape and diameter
+can still fail if the clamp's jaw is wider than the rail's straight section, gripping the curved
+part instead (a stress-riser/leverage failure, not a shape-mismatch one). Specialized frames the
+stakes bluntly: *"failure to follow any Warning may result in a catastrophic failure of the
+saddle,"* and separately warns that carbon-rail damage from a crash is "difficult to visually
+identify" — surface dents/gouges/scratches are disqualifying even without a visible crack,
+converging with CKP-24's carbon-bar inspection doctrine (the same "you can't always see composite
+damage" caution, now confirmed on a second component category by a second manufacturer).
+*Confidence: confirmed (fetched, manufacturer-primary instruction guide — the PDF required a
+direct-download fallback after two fetch tools returned empty/blocked results, but the retrieved
+document is Specialized's own multi-language official guide, unambiguously primary-tier once
+readable).* Source: Specialized "Carbon Rail Saddle Instruction Guide" (media.specialized.com,
+fetched PDF), 2026-07-18. **Still open (per CKP-15's original question):** whether oval/carbon-
+rail saddles are common enough in the live catalog to justify a `railShape`/`clampWidth` schema
+field remains a coordinator decision — this round sharpens the mechanical facts, not the
+catalog-coverage count.
 
 ## Pedals
 
@@ -321,6 +487,15 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2b. Engine: `bmx-freecoaster` INFO (never a con
 - **Pedal thread handedness constrains install direction, not fit** (CKP-11): both pedals fit
   either crank arm's 9/16"-20 bore (CKP-8's universal thread holds), but the LEFT pedal must be
   driven counter-clockwise or it cross-threads — a procedural constraint, not a compatibility one.
+- **Saddle rail clamping is constrained by THREE independent things, not one** (CKP-15/27):
+  diameter (7mm round vs 7x9mm oval — a shape mismatch), and now also clamp-jaw axial reach (a
+  correctly-shaped, correctly-sized rail can still fail if the clamp's jaw is wider than the
+  rail's straight section and grips the curved part instead). A saddle can pass two of the three
+  checks and still fail the third.
+- **The headset's bearing preload is constrained by GEOMETRY before it's constrained by torque**
+  (CKP-25): the steerer must sit ~3mm below the stem top or the top-cap-bolt load path has
+  nothing to press against — a precondition the stem-clamp torque figures (CKP-12/13/20) assume
+  is already satisfied and don't themselves check.
 
 ### Mismatch failure modes
 - **Hard "won't fit":** bar bigger than stem clamp (CKP-1); dropper/post bigger than seat tube
@@ -366,6 +541,18 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2b. Engine: `bmx-freecoaster` INFO (never a con
 - **Reverse-thread torque isn't unique to pedals** (CKP-11/22): Fox Transfer's 2025-2027 base
   lug tightens COUNTER-CLOCKWISE — a mechanic defaulting to "righty-tighty" on an unfamiliar
   dropper risks the same cross-threading failure mode CKP-11 already flags for the left pedal.
+- **The headset's top-cap bolt is tightened by FEEL first, THEN the stem's side pinch bolts lock
+  the result in place — reversing this order defeats the adjustment** (CKP-25): torquing the
+  side pinch bolts before the top cap bolt has found "as loose as possible with no play" locks in
+  whatever (wrong) preload existed at that moment, the cockpit-chapter analog of WHL-37's
+  Shimano-cone-before-lock-nut sequence and SUS-21/22/23's "sag before damping" rule.
+- **A dropper's service architecture determines what "rebuild" even means, and picking the wrong
+  brand's procedure wastes the whole step** (CKP-21/22/23): RockShox/Fox both open an IFP-based
+  hydraulic circuit that needs oil-fill-then-IFP-charge sequencing, while OneUp's V2 swaps a
+  sealed, non-openable air cartridge as one unit and BikeYoke's Revive resets air-in-the-system
+  symptoms via a dedicated bleed button rather than a teardown at all — a mechanic reaching for
+  IFP tools on a OneUp post, or a full teardown on a Revive, is solving the wrong problem for
+  that specific architecture.
 
 ### Wear / setup couplings
 - **A shimmed clamp concentrates stress** at the shim seam — a durability reason the bar/stem
@@ -382,13 +569,26 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2b. Engine: `bmx-freecoaster` INFO (never a con
   125/300-hour structure that happens to share Fox's own fork/shock 125h figure (SUS-41) — a
   mechanic reading one brand's interval sticker onto the other brand's post would be wrong in
   both directions (too frequent for Reverb's 200h step, too infrequent for Transfer's 125h).
+  OneUp adds a fourth cadence (50-100h clean/250-350h rebuild) and PNW a fifth framing entirely
+  (event-driven — "it will tell you when it needs to be loved" — with a 6-8 month/50h floor
+  rather than a hard ceiling), so a cross-brand dropper fleet genuinely has no shared service
+  calendar (CKP-23).
+- **A crash-damage inspection habit generalizes across every carbon contact point, and five
+  independent makers converging on the same doctrine is the strongest signal this chapter has**
+  (CKP-24/27): carbon bars (five brands: Race Face, RideFarr, Fasst Co, Ritchey, Hope) and carbon
+  saddle rails (Specialized) both warn that composite damage is "difficult to visually identify"
+  and both recommend inspection-not-automatic-replacement after impact — a mechanic who applies
+  the same post-crash composite check to a bar, a saddle, AND (per CKP-2/14's existing facts) a
+  dropper/seatpost is applying one coherent habit across the whole cockpit, not three unrelated
+  rules of thumb.
 
 ---
 
 ## Gaps
 
-Specific, honest gaps for a future round — this pass stayed L1 (foundation) by design; none of
-the below were in scope this round:
+Specific, honest gaps for a future round — the 2026-07-18 second pass closed several of the
+gaps below (CKP-23 through CKP-27); what remains is now concentrated in rigid seatpost and BMX
+depth, plus a handful of narrower cross-check items:
 
 - **PARTIALLY CLOSED this round (CKP-20) — stem-clamp (threadless binder + 4-bolt faceplate),
   seatpost-clamp, saddle-rail-clamp, and pedal-spindle torque now sourced across 6-7 brands
@@ -396,25 +596,44 @@ the below were in scope this round:
   `frame-standards-bearings.md` and is cross-referenced from `BRK-41` in `brakes.md`). Still
   missing: rotor-bolt/caliper-mount torque (now covered in `brakes.md` BRK-41 instead — cross-
   chapter, not this chapter's gap anymore), cassette-lockring/BB (covered in
-  `frame-standards-bearings.md` FRM-34 / `drivetrain.md`), and no dropper-post clamp torque
-  number exists on the fetched page at all — that stays a real gap (see next bullet).
+  `frame-standards-bearings.md` FRM-34 / `drivetrain.md`); dropper-post clamp torque is now
+  CLOSED (CKP-23's OneUp 8 N·m seat-clamp figure and BikeYoke's 1.5 N·m remote-lever figure),
+  and grip-clamp torque is now CLOSED too (CKP-26's ODI 4.5-5.0 N·m figure) — the only fastener
+  family from this bullet's original scope still without a number is the rigid `seatpost` slot's
+  own clamp (distinct from the dropper's, see the rigid-seatpost bullet below).
 - **CLOSED 2026-07-18 (CKP-21/22) — dropper-post internal service/bleed procedure now
   sourced for both majors.** RockShox Reverb AXS (IFP height = travel + 5mm exactly, level-fill
   hydraulic circuit, 3-tier 50/200/600h interval, the XPLR variant's air-spring split) and Fox
   Transfer (325 psi nitrogen IFP charge, generation-specific damper-oil weight 1.5wt→2.5wt,
   125/300h interval matching Fox's own fork/shock cadence, a reverse-thread base-lug torque).
-  **Narrowed, not fully closed:** only two brands/families covered — OneUp, PNW, and Bike Yoke
-  droppers (all cited for EXTERNAL sizing already, CKP-3/16/17) have no internals sourced yet;
-  and neither brand's IFP-depth/oil-fill numbers were cross-checked against a second independent
-  source the way `suspension.md`'s SUS-35 flagged as needed for ambiguous tables — these came
-  through clean on the first fetch, so no ambiguity to flag, but a second-source corroboration
-  pass is still open. **L2 gap narrowed to: OneUp/PNW/Bike Yoke dropper internals.**
-- **No headset/stem bearing press-fit or preload-adjustment procedure (L2 gap, not this
-  chapter's core but touches CKP-1's stem interface).**
-- **No saddle-rail-shape / clamp-type field or rule proposal drafted (the CKP-15 contradiction
-  is flagged, not resolved).** A follow-up should establish whether the live catalog's saddle
-  rows actually carry enough oval/carbon-rail models to justify a schema field — this round only
-  found the mechanical fact, not the catalog-impact count.
+  **CLOSED 2026-07-18, second pass (CKP-23) — OneUp, PNW, and BikeYoke dropper internals are now
+  sourced.** OneUp V2's sealed-cartridge architecture (a third distinct family alongside RockShox's
+  hydraulic-IFP and Fox's nitrogen-IFP designs), PNW's tool-free service philosophy and named
+  dust-wiper failure mechanism, and BikeYoke Revive's bleedless-bleed-button architecture (a
+  fourth, mechanically distinct approach) are all fetched-primary now — five dropper families
+  total have real service depth. **Still open:** neither OneUp's, PNW's, nor BikeYoke's numbers
+  were cross-checked against a second independent source (the same "first fetch came through
+  clean, no ambiguity to flag, but no second-source corroboration pass yet" caveat this bullet
+  already carried for RockShox/Fox); and PNW's air-cartridge internal structure (as opposed to
+  its external service steps and pressure spec) wasn't found on the fetched maintenance page —
+  PNW may be closer to OneUp's sealed-cartridge design or may differ, unconfirmed either way.
+- **CLOSED 2026-07-18, second pass (CKP-25) — headset/stem preload-adjustment procedure now
+  sourced.** Park Tool's canonical threadless-headset article gives the full load-path mechanism
+  (top cap bolt → stem → spacers → bearing races → bearings), the by-feel 1/8-turn iterative
+  adjustment procedure, the ~3mm steerer-below-stem-top geometry precondition, and the explicit
+  fact that the top cap bolt does NOT secure the stem (only the side pinch bolts do — clarifying
+  which bolt CKP-12/13's torque figures actually apply to). **Still open:** headset bearing
+  press-fit tolerances (bore/cup interference specs, as opposed to the adjustment *procedure*,
+  now sourced) remain unsourced — the same press-fit-vs-procedure gap `wheels-tires.md` WHL-40
+  flagged for hub bearings; a future round could look for a shared cross-chapter source (headset
+  cups and hub bearings are both pressed cartridge/cup fits, possibly sharing a press-fit theory
+  reference even though the parts differ).
+- **PARTIALLY CLOSED 2026-07-18, second pass (CKP-27) — the CKP-15 contradiction now carries real
+  torque numbers and a second failure mode (clamp-jaw width) from a saddle manufacturer
+  (Specialized), not just a tool maker (Park Tool).** Still open, exactly as before: whether the
+  live catalog's saddle rows carry enough oval/carbon-rail models to justify a `railShape` /
+  `clampWidth` schema field is a coordinator decision this round did not attempt to answer —
+  CKP-27 sharpened the mechanical facts and torque figures, not the catalog-impact count.
 - **No cross-brand bar-clamp-diameter-by-year adoption timeline (L3-adjacent gap).** CKP-19
   found that 35mm postdates Sheldon Brown's crib sheet but did not source WHEN 35mm was
   introduced or by which maker first (a genealogy fact, not a fit fact — lower priority).
@@ -426,6 +645,15 @@ the below were in scope this round:
 - **BMX cockpit (grips/bar/seat dimensions, CKP-10) got no new L1 pass this round** — this
   training targeted the live-catalog side of the chapter; a BMX-specific cockpit deepening stays
   queued behind the BMX go-live grind.
+- **NEW gap named explicitly 2026-07-18 (second pass) — rigid `seatpost` has no service-manual
+  depth of its own, the reason this chapter is graded `professional` and not `master`.** CKP-3/5
+  give the rigid seatpost slot the same direction-aware diameter check as a dropper (rule 13c),
+  and CKP-16/18 cover sizing/material maintenance facts, but no rigid-post-specific install
+  torque, insertion-depth safety margin, or maker service doctrine was sourced this round — every
+  torque/service fact this round landed (CKP-23-27) was dropper, bar/stem, grip, or saddle
+  specific. A future round should look for a rigid-post maker's own install guide (Thomson,
+  Ritchey, or a DJ-focused brand given rule 13c's DJ/single-speed use case) the way CKP-20 found
+  Park Tool's cross-brand torque table for other fasteners.
 
 ## Open mechanic questions (for the human review — do not act)
 - CKP-2: would you shim a 31.8 bar into a 35 stem on an enduro bike (alu? carbon?), or is it a
