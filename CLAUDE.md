@@ -40,6 +40,16 @@ unverified specs as real. See "Provenance" below.
    index.html itself is untouched by this — it never loads the BMX engine or data, so the MTB
    app's own behavior can't drift. Nav: index.html and KitBuilder both link to BuildMyBMX;
    the former "Kit Builder" nav button/label is renamed **BuildMyKit** (routes/ids unchanged).
+4. **WORK IS HANDED OFF AS PASTE-READY PROMPT BLOCKS — NEVER CLICK-CHIPS (Douglas, 2026-07-18).**
+   Every worker task goes to Douglas as a **fenced copy-paste prompt block** whose first line is a
+   `[Model, effort]` header (e.g. `[Sonnet, high effort]`), so **he** sets the model and effort in
+   his picker before dispatching. Do **not** use `spawn_task` click-chips: a chip inherits whatever
+   the picker happens to be set to at click time, which has silently run grind work on premium
+   models and premium work on Sonnet. His words: *"I like chips that I have to copy and paste
+   myself instead of click so I can make sure it's on the right model and effort."* Each block must
+   be self-contained (scope, exclusions, THE BAR, unique worktree suffix, the four gates,
+   never-prompt-Douglas, present-a-branch-never-push **with the why**). Also recorded in memory
+   `parallel-work-delivery.md`.
 
 ## Files (src/ + test/ layout — these are the project)
 
