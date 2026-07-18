@@ -15,10 +15,15 @@ cross-checks chain-wear % against SRAM's own 0.8% spec, sources the genuine SRAM
 Transmission Service Manual's rebuild/cross-compatibility rules, and sources the Shimano
 BB-spacer chainline-adjustment mechanism** — with this pass, L2 depth now covers every major
 part family in this chapter (shifter/electronics, derailleur ×3 SRAM tiers + Shimano, cassette/
-freehub, chain, crank/BB/chainline), crossing the CURRICULUM.md bar for `professional`. What's
-missing is genuinely L3/L4 territory, not more L2 breadth: no cassette/ring wear-cycle survival
-curve, no lubrication chemistry, no cross-generation AXS firmware-compatibility table, no
-non-DT-Swiss freehub internals (Shimano MicroSpline, Hope, Industry Nine) — see `## Gaps`.)
+freehub, chain, crank/BB/chainline), crossing the CURRICULUM.md bar for `professional`.
+**Same-day third pass (DRV-52–55) closes two more named L3 gaps**: the cassette/ring wear-cycle
+survival curve (named SRAM/Shimano rep quotes + a controlled Friction Facts efficiency test) and
+lubrication chemistry (a controlled multi-thousand-km ZFC test program quantifying wet/dry/
+wax-emulsion/immersive-wax lubricant categories). What's left toward `master` is narrower now:
+no cross-generation AXS firmware-compatibility table, no non-DT-Swiss freehub internals (Shimano
+MicroSpline, Hope, Industry Nine), no 11/12-speed chain-width cross-tolerance data, and real L4
+race-craft content is still thin (one tangential pro-team chain-interval note in DRV-42) — see
+`## Gaps`.)
 
 Shifter · derailleur · cassette · chain · crank · chainring · freehub/driver bodies ·
 single-speed cog. Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline,
@@ -318,6 +323,115 @@ not hedged as ZFC's own estimate); the 500-1,000 km pro-team figure is ZFC's own
 practitioner-tier claim, not independently corroborated — labelled accordingly.* Source:
 zerofrictioncycling.com.au "Chain efficiency and wear-life data consol v3" PDF (fetched
 directly via `curl`) + `Chain-Longevity-Testing-Full-test-brief.pdf`, 2026-07-18.
+
+## Cassette/chainring wear-cycle survival curve (closes a named L3 gap)
+
+**DRV-52 — Named SRAM and Shimano representatives (not just aggregator sites) confirm a real
+chain:cassette:chainring wear-life RATIO — a cassette survives roughly 2–4 on-time chain
+changes, and chainrings outlast the cassette by a further 2–4× — plus the actual field
+diagnostic each maker's own rep recommends for judging "is it worn yet."** SRAM's Chris McKenney,
+quoted directly in a road.cc feature: *"The easiest way to determine if your cassette is worn out
+is to install a new chain. If the chain skips under pedalling load then it's time for a new
+cassette"* — the same fresh-chain-as-diagnostic-tool principle independently described by a
+community source (watchmy.bike) as the mechanism behind the ratio: *"Once a chain wears past its
+threshold, it reshapes the cassette teeth to match its stretched pitch. After that, a new chain
+on the old cassette skips under load."* McKenney separately describes the chainring failure mode
+by name — *"chainring teeth slowly take on the shape of a shark's fin in use"* — and gives the two
+practical symptoms: an inner ring is worn when a clean new chain **chain-sucks** (fails to release
+at the bottom of the stroke); an outer ring is worn when running rough or shifting inconsistently.
+Shimano's Ben Hillsdon, same article, confirms the underlying reason to keep the chain on schedule
+in the maker's own words: *"A worn out chain will also wear out your cassette and chainring
+teeth... Doing so can extend the lifetime of your cassette and chainrings, which in the end will
+save you money."* Neither maker publishes a specific km/mile figure — road.cc's own framing states
+why: *"there are too many variables involved, such as the conditions you ride in... whether the
+correct lube was used... maintenance intervals and rider shift patterns"* — so the **ratio**
+(chains-per-cassette, cassettes-per-chainring-set) is the durable, maker-endorsed fact; a specific
+km number is aggregator-tier (community sites converge on roughly 2–4 chains/cassette,
+2–6 chains/chainring-set, e.g. watchmy.bike's "10,000 km road cassette life if every chain is
+caught on time") and should be labelled community/aggregator, not manufacturer, confidence.
+*Confidence: confirmed (named SRAM/Shimano reps, direct quotes, for the ratio-and-mechanism
+claim and the field diagnostic); community/aggregator tier (labelled) for specific km figures.*
+Source: road.cc "Are your chainrings and cassette worn?" (fetched, Chris McKenney/SRAM +
+Ben Hillsdon/Shimano direct quotes); watchmy.bike "Cassette and Chainrings: When the Chain Forces
+You to Replace Them Too" + "How Long Do Bike Parts Actually Last?" (fetched, community-tier
+km figures, explicitly labelled), 2026-07-18.
+
+**DRV-53 — A controlled lab test (Friction Facts, published via CeramicSpeed) measures that worn
+ring/cog teeth contribute FAR LESS drivetrain friction loss than chain elongation does — the
+quantified reason DRV-20's wear-threshold discipline targets the chain, not the cassette/ring, as
+the thing to watch closely.** Friction Facts' controlled rig test (twelve real chains — 2 new,
+10 shop-discarded "worn" — each run against both a new and a worn ring/cog set, at 250 W rider
+output): *"Chain elongation correlates to frictional losses in a generally linear manner"* at an
+average rate of **2.02 watts per 1% of chain elongation**, while *"the use of a new ring/cog
+compared to an old ring/cog decreased overall frictional losses by [only] 0.10 to 0.33 watts"* —
+roughly an order of magnitude smaller effect than a single percentage point of chain wear. The
+test's own conclusion states the asymmetry directly: *"frictional losses were predominantly
+dependent upon the amount of elongation seen in the chain, whereas the wear level of the ring/cogs
+had a much less significant effect."* This gives DRV-20's chain-wear-threshold discipline its
+quantified justification: the chain is the correct thing to measure and replace on schedule not
+just because it's cheapest, but because its wear state dominates the actual efficiency/wear-
+coupling outcome — a worn ring/cog is a real cost (DRV-52's replacement-cascade) but a much
+smaller drag/efficiency contributor than the elongated chain riding on it. *Confidence: confirmed
+(fetched, a genuine controlled instrumented test, not a marketing claim — Friction Facts is an
+independent test lab, the data republished by CeramicSpeed with methodology intact).* Source:
+ceramicspeed.com "Drivetrain Efficiency Test: Old vs. New" (fetched, full methodology + data
+table), 2026-07-18. Cross-reference: DRV-20.
+
+## Lubrication chemistry (closes a named L3 gap)
+
+**DRV-54 — Chain lubricants split into four mechanically distinct categories with fundamentally
+different contamination behavior, and the core divide is solid vs. liquid, not brand or price —
+a controlled multi-thousand-km rig test (Zero Friction Cycling, thousands of km per product,
+alternating clean/dry-dust/wet/extreme-contamination blocks with no chain cleaning, only
+re-lubrication) quantifies the difference rather than asserting it.** The four categories: **wet
+(liquid) drip lubes** — oil-based, penetrate easily, but stay liquid indefinitely, so abrasive
+contamination that enters stays suspended in the lubricant grinding against chain metal
+continuously; **dry drip lubes** — very low actual-lubricant fraction by volume (≈10%), so they
+test with *higher* friction losses than wet lubes despite the "dry" marketing, because they
+provide little real lubrication while still gathering some contamination; **wax-emulsion drip
+lubes** (e.g. Squirt, Smoove, Grax) — wax carried in a water base that evaporates, leaving a
+semi-solid "plastic" residue with real contamination resistance but real penetration/gunk-up
+issues; **immersive (solid/paraffin) wax** — the chain is fully removed and hot-dipped, coating
+every internal sliding surface in a solid film that leaves "chain metal out of the equation" for
+wear purposes until the film wears thin. The mechanical reason solid wax outperforms liquid
+lubricants at contamination resistance: paraffin wax is a **shedding** lubricant — abrasive grit
+that penetrates gets physically abraded OFF the chain along with the wax film it's embedded in,
+whereas a liquid lubricant has no equivalent self-cleaning mechanism and simply accumulates
+contamination as an increasingly abrasive slurry between the chain's moving surfaces.
+*Confidence: confirmed (fetched, a genuine multi-thousand-km controlled instrumented test
+program, not a marketing page — methodology explicitly documented: zero/dry-dust/wet/extreme
+contamination blocks, defined re-lubrication points, no cleaning during test).* Source:
+zerofrictioncycling.com.au "Lubricant Testing" + "The best lubricant in the world is......" +
+"Key Learnings from Lubricant Testing Round 1" (all fetched), 2026-07-18.
+
+**DRV-55 — The lubricant-category difference is quantified, not just described: immersive
+waxing tests at roughly 3–5× the chain/drivetrain-parts lifespan of a decent drip lubricant, and
+~10× lower wear than top-tier WET drip lubes specifically under dry-dust contamination — and
+the re-wax/re-lube INTERVAL matters as much as the lubricant choice itself.** ZFC's own summary
+of its test program: *"Due to above factors, you will typically attain circa 3 to 5 times the
+chain and drivetrain parts lifespan vs medium to decent drip lubricants"* for immersive waxing,
+and separately, comparing dry-dust contamination-block wear specifically: *"Immersive wax is
+circa 10x lower wear than even the top 5 wet drip lubricants tested. It is not even a close
+competition."* The re-application interval is itself a major variable, independent of which
+product is used: ZFC's own modelling states *"General best practice is circa 300km — testing has
+shown a distinct increase in friction and wear from around that mark. If one re-waxes at around
+300km... chain lifespans to 0.5% wear are typically circa 15,000km on good chains. Push
+re-waxing to circa 500km, this drops to around 8,000 to 10,000km"* — a roughly 50% lifespan cut
+from doubling the re-application interval on the SAME product. The underlying principle, stated
+directly and load-bearing for wet-conditions riding specifically: *"Water is the great transport
+medium to bring... abrasive contamination deep inside your chain... It is extremely important to
+remember that pretty much whatever abrasive contamination the water brought into your chain &
+lubricant is not going anywhere unless you remove it"* — i.e. after a wet ride, adding more
+lubricant on top of a contaminated chain does not fix the problem; the contamination must be
+physically reset (full solvent flush for a drip lube, or a re-wax for immersive wax — ZFC frames
+the re-wax as strictly easier: "pop chain off and put into wax pot" vs. "flushing litres of
+solvent through your chain"). *Confidence: confirmed (fetched, the same controlled test program
+as DRV-54) for the category-comparison figures; the specific 15,000 km/8-10,000 km re-wax-interval
+lifespan figures are the test operator's own stated modelling/extrapolation from block data, not
+a single directly-measured full-lifespan run — labelled as the source's own synthesis, still a
+confirmed-tier source, not community/aggregator.* Source: zerofrictioncycling.com.au "The best
+lubricant in the world is......" + "Immersive Wax Vs Drip Lubricant contamination and wear
+modelling" (both fetched), 2026-07-18.
 
 ## Cassette, freehub & crank service basics
 
@@ -964,13 +1078,24 @@ figures table).
   is *why* the ZFC chart's thousands-of-km figures don't contradict DRV-40's 800-1,200 km
   real-world MTB range (different test conditions, not competing claims). DRV-42 adds the
   metallurgical cause of SRAM Eagle's XX1/XO1-vs-GX/NX gap (HARDCHROME plating, Vickers-hardness
-  sourced). **Still missing: a genuine cassette/ring wear-cycle survival curve** (how many chain
-  changes a cassette tolerates before ITS wear crosses a threshold) — DRV-40/41/42 have the
-  chain side of the wear-coupling in real depth now but not the cassette/ring side; **L3 gap,
-  narrowed, not closed** — no ZFC page or PDF found this round addresses cassette/ring wear
-  cycles specifically.
-- No **lubrication chemistry** (wet/dry lube selection, wax-based chain treatment
-  tradeoffs) — **L3 gap**.
+  sourced). **CLOSED 2026-07-18 (DRV-52/53) — the cassette/ring wear-cycle survival curve.**
+  Named SRAM (Chris McKenney) and Shimano (Ben Hillsdon) representatives confirm the real
+  chain:cassette:chainring wear-life ratio (cassette survives ~2–4 on-time chain changes,
+  chainrings a further 2–4× that) and the field diagnostic each maker recommends (fresh-chain
+  skip test for cassettes, shark-fin tooth shape + chain-suck for chainrings); a controlled
+  Friction Facts/CeramicSpeed lab test separately quantifies WHY the chain (not the ring/cog)
+  is the thing to watch — chain elongation costs ~2.02 W per 1% at 250 W, while old-vs-new
+  ring/cog only costs 0.10–0.33 W, an order of magnitude smaller effect. **L3 gap closed** — a
+  km-specific number stays aggregator-tier by the makers' own admission (too many variables), but
+  the ratio-and-mechanism claim is now manufacturer-confirmed, not just community-inferred.
+- **CLOSED 2026-07-18 (DRV-54/55) — lubrication chemistry.** A controlled multi-thousand-km
+  test program (Zero Friction Cycling) sources the four-category taxonomy (wet drip / dry drip /
+  wax-emulsion drip / immersive solid wax) and the shedding-vs-non-shedding mechanical
+  distinction, plus quantified figures: immersive waxing tests at 3–5× the lifespan of a decent
+  drip lube and ~10× lower wear than top wet drips under dry-dust contamination, and the
+  re-application interval itself materially changes chain lifespan (300 km vs 500 km re-wax
+  intervals: ~15,000 km vs ~8,000–10,000 km chain life on the same product) — closing the named
+  L3 gap with a real, quantified mechanism rather than "wax is better" folklore.
 - DRV-18's capacity-conservative claim is community-tier only; **no manufacturer
   document confirms a specific over-capacity/over-max-cog safety margin** — stays an
   open question, not a modelling candidate, until sourced at confirmed tier.
