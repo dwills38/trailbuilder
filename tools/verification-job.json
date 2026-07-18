@@ -1,21 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T15:37:53.403Z",
+ "updated": "2026-07-18T15:42:22.722Z",
  "batchSize": 25,
- "lastCompleted": "fr-chromag-stylus-mx",
+ "lastCompleted": "fr-gt-zaskar-lt-alloy",
  "currentCategory": "frame",
  "queue": [
-  "fr-revel-ranger-v3",
-  "fr-revel-ritual-v3",
-  "fr-pivot-trail-429",
-  "fr-pivot-mach-4-sl",
-  "fr-pivot-shadowcat",
-  "fr-cannondale-scalpel-ht",
-  "fr-cannondale-scalpel",
-  "fr-ragley-marley",
-  "fr-ragley-piglet",
-  "fr-gt-zaskar-lt-alloy",
   "fr-whyte-905",
   "fr-radon-jealous-carbon",
   "fr-marin-rift-zone-1",
@@ -26304,17 +26294,17 @@
   },
   "fr-revel-ranger-v3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:04.905Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: revelbikes.com's own Frame Kit page (already fetched) publishes every other interface but no frame weight; WebSearch this session confirms Revel has not published a V3 frame-only weight anywhere (only a '~200g lighter than V2' marketing claim, no absolute figure)."
   },
   "fr-revel-ritual-v3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:42:05.142Z",
+   "error": "Very strong verified candidate per the existing desc: weight (3850g) AND frameset price ($3,699) are BOTH maker-stated on revelbikes.com's own Frame Kit page, and every interface is maker-fetched too. Blocking only on process: revelbikes.com rate-limited (429) three times this session (also blocked fr-revel-rascal-v3 earlier) - bar item 1 wants a fetch confirmed IN this session, not just trusted from the prior session's lastChecked. Retry next session once the rate-limit clears: re-fetch revelbikes.com/products/ritual-frame-kit-2026, confirm fields match, then promote to verified:true directly.",
    "source": null,
    "note": null
   },
@@ -26360,27 +26350,27 @@
   },
   "fr-pivot-trail-429": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:05.383Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Interface+weight bar unmeetable: pivot.com is JS-only/403-walled (documented catalog-wide blocker); every field is sourced from 99spokes.com/vitalmtb.com third-party reprints, never a maker-fetched page, and Pivot publishes no frame-only weight anywhere."
   },
   "fr-pivot-mach-4-sl": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:05.632Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same Pivot wall as Trail 429: JS-only/403-walled maker site, third-party-only interface sourcing, no frame weight published."
   },
   "fr-pivot-shadowcat": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:05.886Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same Pivot wall as Trail 429/Mach 4 SL: JS-only/403-walled maker site, third-party-only interface sourcing, no frame weight published."
   },
   "fr-pivot-mach-6": {
    "cat": "frame",
@@ -26392,19 +26382,19 @@
   },
   "fr-cannondale-scalpel-ht": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:42:21.605Z",
+   "error": "Close: weight (895g, 'frames scale in at just 895 grams') AND every interface are directly maker-fetched from cannondale.com (both Carbon 3/Carbon 2 trims). Only price is a gap - the $2,000 catalog figure is a documented same-tier sample, not fetched from cannondale.com (a retailer's ~$3,025 complete-bike price is cited but not independently confirmed this session). Retry: search cannondale.com for a frame-only/frameset SKU price, or accept a confirmed complete-bike price for this exact trim if no frameset SKU exists.",
    "source": null,
    "note": null
   },
   "fr-cannondale-scalpel": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:21.850Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: both are documented samples (no maker-stated frame weight found on the fetched cannondale.com page, unlike the Scalpel HT sibling; price cites an unfetched retailer listing). Interfaces are solidly maker-fetched."
   },
   "fr-trek-roscoe-gen4": {
    "cat": "frame",
@@ -26544,19 +26534,19 @@
   },
   "fr-ragley-marley": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:22.105Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: no frame weight found; frame-only price is a GBP:USD sample conversion of a frameset listing that was search-discovered, not independently fetched this or any session. Interfaces (incl. minRotorR:160) are solidly maker-fetched."
   },
   "fr-ragley-piglet": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:22.353Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same wall as the Marley sibling: no frame weight, frame-only price is an unfetched search-discovered listing converted GBP->USD. Interfaces (incl. minRotorR:160) solidly maker-fetched."
   },
   "fr-vitus-mythique-29": {
    "cat": "frame",
@@ -26568,11 +26558,11 @@
   },
   "fr-gt-zaskar-lt-alloy": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:22.594Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: both explicitly documented as samples (GT sells completes only, doesn't publish frame-only weight); maxForkTravel/brakeMount are also documented conventions rather than page-stated."
   },
   "fr-whyte-905": {
    "cat": "frame",
