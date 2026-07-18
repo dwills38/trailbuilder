@@ -2312,3 +2312,35 @@ per wave/decision; large reconstructions are handed to a worker session.
   ACC-22×2), 1 open contradiction (NAV-16 — since shipped), 4 reasoned non-actions with a
   do-not-reopen list, 1 false-finding guard, 2 honest non-closures. Round 5's Priority 0: the
   heuristic evaluation (RES-4), the one L4 method an agent can run unaided.
+
+## 2026-07-18 — wheels + cockpit clusters merged (one promotion DEMOTED at review)
+
+- **Merged `verify/cockpit-1`**: 8 promotions presented, **7 accepted, 1 DEMOTED at coordinator
+  review**. The demotion: `st-raceface-aeffect-r-35-40` — its own desc admitted the 149g weight is a
+  retailer-listing estimate ("multiple retailer listings agree at 149-152g"), and the coordinator's
+  re-fetch of raceface.com confirmed the maker publishes ONE weight, 161g at the 50mm basis, so the
+  40mm row has NO maker-published weight; retailer weight claims are rejected on verified rows by
+  policy. Interfaces stay maker-confirmed; weight stays an honest sample; demotion note in-row.
+  The two seatpost promotions with sample PRICES were accepted per the established
+  documented-conversion precedent (maker weight + maker interfaces + honestly-labeled price sample).
+  Spot-checked pd-dmr-v6 clean ($26.00 / "327g per pair" verbatim on dmrbikes.com). Also delivered:
+  sa-dmr-dj-saddle's real model name ("Sect Rail Saddle"), a cog policy question (DMR confirms the
+  interface but publishes no per-cog weight — cog isn't in the interface-verification exception
+  list; Douglas call whether to extend), and two data-quality flags left correctly untouched
+  (sp-newmen-advanced-carbon-272-400 physically-implausible length/weight pair;
+  sp-sdg-tellis-316-rigid "Tellis" branding is dropper-only per SDG's lines).
+- **Merged `verify/wheels-1`**: 3 EX 1700 SPLINE rows promoted with per-matnr weights from DT
+  Swiss's model-finder table, 7 already-verified M1900 rows weight-corrected from nominal-split
+  estimates to real per-matnr figures (+7g to +76g — the wheels nominal-weight exception retiring
+  itself as real data arrives, exactly as designed). Coordinator spot-check: the cited matnr
+  WEX1700TEDRSA11693 independently resolves to exactly the claimed config across retailers (the
+  model-finder scrape itself returned empty this session — JS pagination; the worker's technique
+  evidently differs). Two open questions correctly flagged not guessed: XRC 1200 25mm-width tier
+  possibly discontinued (current site lists only 30mm); M1900 SuperBoost157 rows unconfirmable on
+  the retail page (plausible OE-only end-caps, the Canyon Sender pattern). ~473 unverified wheel
+  rows remain; notes file maps the brand-by-brand backlog with fronthub/rearhub a-la-carte pages
+  flagged next-best-yield.
+- Both clusters respected the no-job-json rule (dispositions in tools/verify-notes-*.md — the
+  parallel-safe pattern working as designed). Aeffect-R stem DUP (parked item) noted still open:
+  both st-raceface-aeffect-r-35 and -35-40 exist. Gates: validate 7×OK (**3,027 verified**, +10
+  net incl. the demotion), 764 tests, tsc clean, harness BYTE-IDENTICAL.
