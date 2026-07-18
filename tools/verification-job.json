@@ -1,41 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T15:37:53.403Z",
+ "updated": "2026-07-18T15:55:57.541Z",
  "batchSize": 25,
- "lastCompleted": "fr-chromag-stylus-mx",
+ "lastCompleted": "fr-octaneone-void",
  "currentCategory": "frame",
  "queue": [
-  "fr-revel-ranger-v3",
-  "fr-revel-ritual-v3",
-  "fr-pivot-trail-429",
-  "fr-pivot-mach-4-sl",
-  "fr-pivot-shadowcat",
-  "fr-cannondale-scalpel-ht",
-  "fr-cannondale-scalpel",
-  "fr-ragley-marley",
-  "fr-ragley-piglet",
-  "fr-gt-zaskar-lt-alloy",
-  "fr-whyte-905",
-  "fr-radon-jealous-carbon",
-  "fr-marin-rift-zone-1",
-  "fr-giant-stance",
-  "fr-liv-pique-advanced-29",
-  "fr-liv-intrigue-x-advanced-2",
-  "fr-canyon-torque-mullet-cf",
-  "fr-scott-spark-rc",
-  "fr-yt-izzo",
-  "fr-norco-optic",
-  "fr-kona-honzo",
-  "fr-kona-honzo-esd",
-  "fr-marin-san-quentin-2",
-  "fr-marin-san-quentin-3",
-  "fr-giant-fathom-1",
-  "fr-giant-talon-1",
-  "fr-giant-talon-2-2027",
-  "fr-giant-fathom-2",
-  "fr-norco-fluid-ht",
-  "fr-norco-torrent-ht-s",
   "fr-norco-torrent-ht-a",
   "fr-norco-shore-park",
   "fr-ari-delanopeak",
@@ -16745,8 +16715,8 @@
   "fr-santacruz-highball": {
    "cat": "frame",
    "status": "Failed",
-   "updated": "2026-07-18T15:28:56.662Z",
-   "error": "santacruzbicycles.com/products/highball-frame-2024 rate-limited (HTTP 429) twice this session - WebSearch summary suggests it may state a real frame weight (2025 MY ~1170g) but per the search-summaries-lie lesson this must be independently fetched, not trusted from a snippet. Retry next session.",
+   "updated": "2026-07-18T15:55:56.080Z",
+   "error": "bdata scrape cleared the rate-limit and found real data, but with a tier-matching wrinkle: santacruzbicycles.com/products/highball-frame-2024 is the 'Highball CC Frame' SKU specifically (image alt text confirms), stating Weight 1.17kg/2.57lb and Regular price $3,999.00 (currently on sale at $2,149 - MSRP-only policy says use $3,999). But the catalog row's own source page is 'product-support/highball-3-my24' (the 'Highball 3' BUILD KIT, whose frame material tier - C vs CC - isn't confirmed to match this CC-specific frameset SKU). Not editing blind: flipping price/weight onto the wrong tier would be a real error, not a correction. Retry: confirm which frame tier the Highball 3 build kit actually ships (C or CC) before merging this CC frame's figures onto this row.",
    "source": null,
    "note": null
   },
@@ -25225,8 +25195,8 @@
   "fr-octaneone-void": {
    "cat": "frame",
    "status": "Failed",
-   "updated": "2026-07-18T15:34:58.125Z",
-   "error": "Found the real manufacturer page (octane-one.com/part/void-dirt-frame-for-26-wheels/) but WebFetch failed with 'certificate has expired' (site SSL issue, not a content wall). WebSearch snippets suggest brakeMount may actually be IS (International Standard, '51mm IS, 185mm max'), not the catalog's PM - and weight ~2550-2580g vs cataloged 2400g sample. Flagging both for a reviewer; not editing on snippet-only evidence. Retry: try Wayback Machine or a different fetch path for the cert-expired manufacturer page.",
+   "updated": "2026-07-18T15:55:57.396Z",
+   "error": "Retried via bdata scrape - octane-one.com still fails with 'SSL/TLS certificate ... not valid for the current date', confirmed as a genuine server-side cert problem (not a WebFetch-specific limitation). Retry: Wayback Machine snapshot of this exact URL, or wait for the site's cert to be renewed.",
    "source": null,
    "note": null
   },
@@ -26241,8 +26211,8 @@
   "fr-ari-lasalpeak": {
    "cat": "frame",
    "status": "Failed",
-   "updated": "2026-07-18T15:37:52.281Z",
-   "error": "Genuinely close: frameset price ($2,699) and frame weight (2900g) are BOTH directly fetched from aribikes.com (maker's own site, confirmed again this session - the geometry table renders but has no drivetrain/brake spec section). The blocking gap is rearAxle/bb/headset/brakeMount/maxRotorR/shockMount, all sourced from two cross-corroborating Vital MTB build-guide reprints, not a maker-fetched page - aribikes.com itself is JS-walled for that content. Retry: look for an aribikes.com geometry-PDF or spec-sheet download (the Trek-manual-PDF technique) before accepting the Vital-only ceiling.",
+   "updated": "2026-07-18T15:55:57.131Z",
+   "error": "Retried via bdata scrape - aribikes.com/products/lasal renders the geometry table cleanly but genuinely has no drivetrain/brake/BB/axle/headset spec section anywhere on this URL (confirmed, not a JS-render artifact this time - full page content was captured). Weight+price stay maker-confirmed and solid; the blocking interface fields may live on a different aribikes.com page (spec PDF, build-kit page) not yet found.",
    "source": null,
    "note": null
   },
@@ -26288,11 +26258,11 @@
   },
   "fr-revel-rascal-v3": {
    "cat": "frame",
-   "status": "Failed",
-   "updated": "2026-07-18T15:37:53.020Z",
-   "error": "Genuinely close: frame weight (3350g) and frameset price ($3,399) are BOTH directly fetched from revelbikes.com's own Frame Kit product page. The sole blocking gap is brakeMount/maxRotorR, which the fetched Revel page does not itemize at all (only stock-build rotors on completebike rows) - corroborated only via a WebSearch-summarized Vital MTB frame guide (180mm PM / 203mm max), not an independent fetch, so it stays below bar item 1. Retry: fetch vitalmtb.com/product/guide/frames/revel/rascal-sl-v3-64506 directly (was rate-limited this session) to see if it can be treated as a corroborating third-party spec reprint, or find a Revel geometry PDF.",
-   "source": null,
-   "note": null
+   "status": "Verified",
+   "updated": "2026-07-18T15:55:01.418Z",
+   "error": null,
+   "source": "https://revelbikes.com/products/rascal-frame-kit-2026",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-chromag-stylus-mx": {
    "cat": "frame",
@@ -26304,19 +26274,19 @@
   },
   "fr-revel-ranger-v3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:04.905Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: revelbikes.com's own Frame Kit page (already fetched) publishes every other interface but no frame weight; WebSearch this session confirms Revel has not published a V3 frame-only weight anywhere (only a '~200g lighter than V2' marketing claim, no absolute figure)."
   },
   "fr-revel-ritual-v3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-18T15:55:01.419Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://revelbikes.com/products/ritual-frame-kit-2026",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-giant-reign-alloy": {
    "cat": "frame",
@@ -26360,27 +26330,27 @@
   },
   "fr-pivot-trail-429": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:05.383Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Interface+weight bar unmeetable: pivot.com is JS-only/403-walled (documented catalog-wide blocker); every field is sourced from 99spokes.com/vitalmtb.com third-party reprints, never a maker-fetched page, and Pivot publishes no frame-only weight anywhere."
   },
   "fr-pivot-mach-4-sl": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:05.632Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same Pivot wall as Trail 429: JS-only/403-walled maker site, third-party-only interface sourcing, no frame weight published."
   },
   "fr-pivot-shadowcat": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:05.886Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same Pivot wall as Trail 429/Mach 4 SL: JS-only/403-walled maker site, third-party-only interface sourcing, no frame weight published."
   },
   "fr-pivot-mach-6": {
    "cat": "frame",
@@ -26392,19 +26362,19 @@
   },
   "fr-cannondale-scalpel-ht": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:55:56.858Z",
+   "error": "Retried via bdata scrape - cannondale.com/en-us/.../scalpel-ht-carbon-3 renders cleanly but genuinely shows no price anywhere in the static content (likely a JS-loaded pricing widget, same class of gap as the norco.com wall). Weight (895g) and every interface remain directly maker-fetched and solid; only price blocks verified:true.",
    "source": null,
    "note": null
   },
   "fr-cannondale-scalpel": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:21.850Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: both are documented samples (no maker-stated frame weight found on the fetched cannondale.com page, unlike the Scalpel HT sibling; price cites an unfetched retailer listing). Interfaces are solidly maker-fetched."
   },
   "fr-trek-roscoe-gen4": {
    "cat": "frame",
@@ -26544,19 +26514,19 @@
   },
   "fr-ragley-marley": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:22.105Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: no frame weight found; frame-only price is a GBP:USD sample conversion of a frameset listing that was search-discovered, not independently fetched this or any session. Interfaces (incl. minRotorR:160) are solidly maker-fetched."
   },
   "fr-ragley-piglet": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:22.353Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same wall as the Marley sibling: no frame weight, frame-only price is an unfetched search-discovered listing converted GBP->USD. Interfaces (incl. minRotorR:160) solidly maker-fetched."
   },
   "fr-vitus-mythique-29": {
    "cat": "frame",
@@ -26568,19 +26538,19 @@
   },
   "fr-gt-zaskar-lt-alloy": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:42:22.594Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: both explicitly documented as samples (GT sells completes only, doesn't publish frame-only weight); maxForkTravel/brakeMount are also documented conventions rather than page-stated."
   },
   "fr-whyte-905": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:43:49.975Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable (documented sample, no frame-only weight published); price is kept as a raw GBP figure per this catalog's EU/UK sample convention, not a confirmed USD MSRP either."
   },
   "fr-whyte-secta": {
    "cat": "frame",
@@ -26592,27 +26562,27 @@
   },
   "fr-radon-jealous-carbon": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:43:50.224Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Price bar unmeetable: Radon sells this platform as completes only, no frameset SKU found. Weight bar IS met (920g maker-stated) and interfaces are solidly maker-fetched - flagging as close, but price stays the blocker."
   },
   "fr-marin-rift-zone-1": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:43:50.490Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: WebSearch this session found no frame-only weight for the 2025 Rift Zone 1 anywhere (marinbikes.com/99spokes/mtbdatabase all silent on it). Price bar IS met (real $1,899 maker-stated) and interfaces are solidly maker-fetched - flagging as close, but weight stays the blocker."
   },
   "fr-giant-stance": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:43:50.751Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable (documented samples, completes-only); headset field also flagged as internally-inconsistent on the fetched page (tapered vs straight-1.5 wording), not confirmed clean enough for verified:true regardless."
   },
   "fr-scott-genius-carbon": {
    "cat": "frame",
@@ -26648,35 +26618,35 @@
   },
   "fr-liv-pique-advanced-29": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:43:51.020Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Interface+weight+price bar unmeetable: liv-cycling.com is JS-thin/404-walled this session (documented); every field sourced from Vital/Loam Wolf third-party reprints or inferred from a sibling platform, never a maker-fetched Liv page."
   },
   "fr-liv-intrigue-x-advanced-2": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:44:09.730Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same Liv wall as the Pique sibling: liv-cycling.com JS-thin/404-walled; rearAxle/bb/udh are inferred from a sibling Giant platform, not stated on any fetched Liv page. Weight is a documented sample despite price being real ($4,800)."
   },
   "fr-canyon-torque-mullet-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:55:56.594Z",
+   "error": "Retried via bdata scrape - canyon.com confirms the same 'Sold out' state with no price shown, now verified twice (not a rate-limit/tool artifact - a genuine current stock-status fact). Weight (2550g) and most interfaces remain maker-fetched and solid. Retry later if/when this SKU restocks with a visible price.",
    "source": null,
    "note": null
   },
   "fr-scott-spark-rc": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:44:10.248Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: the only figure (1870g) is explicitly a FRAME+SHOCK combined marketing claim on scott-sports.com, not a split frame-only weight - would double-count vs a picked shock, same convention that keeps fr-atherton-s200/fr-intense-m1 unverified. Price is also an estimated figure between two unfetched trims."
   },
   "fr-scott-gambler": {
    "cat": "frame",
@@ -26688,51 +26658,51 @@
   },
   "fr-yt-izzo": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:44:10.502Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: both documented samples (YT completes-only, no frameset SKU); the fetched Vital page states only complete-bike figures."
   },
   "fr-norco-optic": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:55:56.325Z",
+   "error": "Retried via bdata scrape (rate-limit-proof) at the correct URL (norco.com/bikes/mountain/trail/optic/24-optic-C1/) - still only returns a bare page title, no spec content. This is a genuine JS-rendering wall (norco.com), not a rate-limit or wrong-URL issue - would need bdata's browser tier (not approved for use without explicit sign-off per standing budget rules) or a different fetch route. Weight+price stay genuinely maker-confirmed via the Vital reprint; only interface provenance blocks verified:true.",
    "source": null,
    "note": null
   },
   "fr-kona-honzo": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:30.265Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: konaworld.com publishes no frame-only weight; WebSearch this session found only an ambiguous-generation forum/review figure (2495g), not a reputable measured-weight source. Price is real but weight blocks verified:true."
   },
   "fr-kona-honzo-esd": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:30.502Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: konaworld.com publishes no frame-only weight for this steel flagship hardtail either."
   },
   "fr-marin-san-quentin-2": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:30.748Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: marinbikes.com publishes no frame-only weight."
   },
   "fr-marin-san-quentin-3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:30.995Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable (no frame-only weight published); seatTube is also inferred from a sibling row rather than independently stated on this page - two gaps, not one."
   },
   "fr-trek-marlin-7-gen3": {
    "cat": "frame",
@@ -26752,51 +26722,51 @@
   },
   "fr-giant-fathom-1": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:31.255Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: Giant sells Fathom as completes only, no frameset weight/price published."
   },
   "fr-giant-talon-1": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:42.109Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: Giant sells Talon as completes only; WebSearch this session found only complete-bike weights, no frame-only figure."
   },
   "fr-giant-talon-2-2027": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:42.352Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same wall as the Talon 1 sibling: no frame-only weight/price published."
   },
   "fr-giant-fathom-2": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:42.605Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same wall as the Fathom 1 sibling: no frame-only weight/price published."
   },
   "fr-norco-fluid-ht": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:42.873Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: norco.com JS-walled, sourced from two dealer reprints; no frameset weight/price found on either. brakeMount/udh are also class-typical inferences, not page-stated."
   },
   "fr-norco-torrent-ht-s": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:43.141Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: sourced from a Vital MTB reprint (norco.com JS-walled); no frameset weight/price found, only the complete-bike $3,799 MSRP."
   },
   "fr-norco-torrent-ht-a": {
    "cat": "frame",
