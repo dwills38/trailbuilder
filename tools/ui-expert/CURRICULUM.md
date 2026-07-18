@@ -58,7 +58,7 @@ Each chapter ends with a **## Gaps** section the next round reads to pick its ta
 | Chapter | Level | Maturity | Note |
 |---|---|---|---|
 | `mobile-fundamentals.md` | L1+L2 | **professional** | round 3 — WCAG 2.5.x family completed (2.5.2/2.5.3/2.5.4/2.5.6), Apple HIG gesture taxonomy, `touch-action`/`inputmode` web mechanisms, Hoober's primary study fetched directly |
-| `responsive-layout.md` | L1 | foundation | seeded — breakpoint strategy, reflow, wrap rules; container queries stubbed |
+| `responsive-layout.md` | L1+L2 | **professional** | round 3 — container queries resolved, fluid-type clamp() pattern, Every-Layout sidebar wrap + CSS Grid auto-fit/minmax, sticky mechanics, print + reader-mode seeded |
 | `accessibility.md` | L1+L2 | **professional** | round 2 — WAI-ARIA APG ingested (slider/disclosure/listbox/combobox/tabs/dialog, ACC-10–15); resolved ACC-9; produced a theme-wide compat-dot contrast audit (⚠ CONTRADICTION: light-theme dot.w/dot.n fail SC 1.4.11) |
 | `forms-filters-density.md` | L1+L2 | **professional** | round 2 — slider/disclosure/listbox patterns applied to the filter rail (DNS-10–12) + Baymard filter research (DNS-13/14) |
 | `navigation-ia.md` | L1 | foundation | seeded — hidden-nav cost data, subnav thresholds |
