@@ -1,5 +1,16 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — cb-sheets-4b merged: 2 price corrections; EUR-price policy question queued
+
+- verify/cb-sheets-4b merged: Whyte 905 GBP1,699→2,099 + Rose Root Miller 2 $1,943→$2,699 (the
+  old figure was a EUR SALE-price conversion, not RRP — exactly the class the MSRP policy
+  exists for); 7 small-brand rows re-confirmed correctly blocked. Sheet-verified holds 151/436.
+  Harness identical, gates green. FOR DOUGLAS'S QUEUE: (1) EUR-price policy — Whyte/Radon/Rose/
+  Focus rows self-block on "price is EUR not USD," a self-imposed convention schema.js doesn't
+  require; should a EUR-RRP-sourced row be promotable? (2) Kona Honzo ESD is one inferred tire
+  compound from promotable — cheap win flagged. The cb-sheets toolset is now exhausted short of
+  the bdata top-up (10 JS-walled brands / ~130 rows) and Specialized/Trek walls.
+
 ## 2026-07-18 — GIGA WAVE 1 landed: road 108 + gravel 151 + striders 16 rows (all off-live) · BMX depth exhausted
 
 - Douglas's multi-catalog directive executed as 4 parallel background agents. All under-ran the
