@@ -1,6 +1,9 @@
 # Fundamentals — Coach Corpus
 
-**Maturity: foundation** (L1). Body position (neutral / ready-attack) · balance · vision ·
+**Maturity: professional** (L1 core complete; round 3, 2026-07-18 added L2-style drill-progression
+depth for vision (FND-8) and bike-body separation (FND-9), each with a full Prereq/Gear/Progression
+triad and, for FND-9, an explicit tie to the COR-12/13 physics grounding — see Gaps for what still
+separates this chapter from `master`). Body position (neutral / ready-attack) · balance · vision ·
 bike-body separation. Read [`INDEX.md`](INDEX.md) first (corpus rules, tiers, the SAFETY-FIRST
 PROGRESSION rule, the tacit-layer disclaimer).
 
@@ -126,6 +129,97 @@ work of leaning or tracking.
 
 ---
 
+## Vision — L2 drill depth (round 3, 2026-07-18)
+
+**FND-8 — Vision has two components — WHERE you look and WHAT you attend to — and both are
+trainable through active scanning, not passive staring.** Extends FND-6 with the drill-progression
+depth flagged as a gap since the bootstrap round. A rider's gaze should be **actively searching**
+("trail scanning" — a named coaching cue phrase), not fixed on one spot: cycle between checking the
+immediate line (near) and reading what's coming (far), since where you are and where you're going
+both need attention, not one at the expense of the other. **Speed scales look-ahead distance** — the
+faster you're moving, the farther out and more frequently you must scan, extending FND-6's baseline
+15–20 ft figure into a genuine variable rather than a fixed number. **Target fixation is a specific,
+nameable failure mode**, not just "looking at the wrong thing": under stress the brain's attention
+shifts toward *threats* (a tree, an edge, a rock) rather than the solution, and because the bike
+follows the eyes (FND-6's mechanical chain), staring at the hazard measurably increases the risk of
+hitting it — the correction is a deliberate re-anchor of gaze onto the intended path ("positive
+space"), which coaches report produces an immediate, felt drop in tension, not just an abstract fix.
+A concrete example beyond cornering: on a log or obstacle requiring a wheel-lift-style clearance,
+shift gaze from the obstacle itself to where you want to land *before* you're airborne over it —
+staring at the obstacle through the maneuver is a common beginner pattern that costs the very
+information (what's next) that would let the rider set up cleanly.
+- *Prereq:* FND-6 (the base vision fact this extends), FND-1 (ready position — vision work is
+  practiced from a stable base).
+- *Gear:* helmet; no special equipment — this is a perceptual-skill drill, not a maneuver.
+- *Progression:* **introduce** the near/far scanning cycle on an easy, known trail at slow speed,
+  consciously alternating "check the wheel's line" and "look at what's coming" until it stops
+  feeling like two separate acts → **develop** the target-fixation correction specifically: on a
+  known low-consequence obstacle, deliberately notice where the gaze wants to lock (the obstacle)
+  and practice re-anchoring to the intended path before/through it → **commit** by having someone
+  film a ride, or self-review head position on repeat laps, to catch where the gaze is actually
+  going versus where it feels like it's going — the gap between the two is usually the real
+  finding.
+- *Common errors → corrections:* staring at an obstacle you're trying to avoid or clear → you feed
+  the bike (via the FND-6 chain) the wrong target; consciously shift gaze to the landing/exit before
+  committing. Treating look-ahead distance as fixed → under-scans at speed; the faster you go, the
+  farther and more often you need to look out, not just once at the start of a section. Vision that
+  is technically "up" but not actively searching (a passive stare) → misses the near-term
+  information (a root, a line choice) that active scanning would have caught; the skill is a search
+  pattern, not a head angle.
+- *Tier:* B (near Tier-C — the source frames this via measurable visual-behavior research
+  distinguishing expert from novice riders, though it is a coaching-site synthesis rather than a
+  primary journal source, so it is recorded here at B rather than C). Source: Peter Glassford /
+  consummateathlete.com (*Vision and Attention: Your Keys to Riding Faster* — the vision-vs-
+  attention distinction, active trail-scanning, the log-hop near/far example, "the bike follows
+  your eyes" applied to obstacle avoidance specifically — Glassford is a named coach already cited
+  in this corpus for TER-6's bunny-hop sequencing), gsmbc.pro (*Quiet Eye and Terrain Awareness* —
+  the target-fixation-under-stress mechanism, the re-anchor-to-positive-space correction and its
+  reported immediate tension-drop effect, the expert-vs-novice scanning-pattern framing).
+
+## Bike-body separation — L2 drill depth (round 3, 2026-07-18)
+
+**FND-9 — Bike-body separation is built with a straight-line-first, then-cone-weave drill
+progression — and it is measurable physics, not just a feel cue (see `cornering.md` COR-13).**
+Extends FND-7's cone-weave sketch with an explicit staged drill. **Stage 1 (straight line, no
+pedaling):** coasting in a straight line, lean the bike side-to-side under a stable torso — following
+a painted line or the edge of a path helps gauge how far the bike is actually leaning versus how far
+it feels like it's leaning. A wider stance ("cowboy legs") and a "windshield-wiper" arm motion
+(straightening the outside/inside arm pair as the bike tips) are named coaching cues for the feel.
+**Stage 2 (straight line, pedaling):** the same lean while pedaling introduces a sideways force that
+must be countered with handlebar pressure to hold a straight line — a harder version of the same
+skill, not a new one. **Stage 3 (cone weave):** on mellow, grippy terrain, weave between cones so the
+tires trace a snake-like path, deliberately keeping the **bike** leaning more than the **body**
+throughout — body relatively quiet, bike doing the work — then tighten the cone spacing to demand
+closer, faster, more committed transitions once the wide-spacing version is solid. **The physics
+grounding (cross-ref `cornering.md` COR-12/COR-13):** the balance condition that must hold at a given
+lean is on the *combined* rider+bike centre of mass, not the bike alone — so keeping the torso
+upright while leaning the bike further genuinely changes the steering-torque and grip picture, not
+just the look of the turn; this is why the drill insists on body-stays-quiet as its own explicit
+checkpoint, not an afterthought to "leaning the bike."
+- *Prereq:* FND-1/2 (ready position, heavy feet/light hands — the stable base bike-body separation
+  moves around), FND-4 (balance point).
+- *Gear:* helmet; a flat, grippy area (grass field or empty pavement) and a handful of cones; no
+  other special equipment.
+- *Progression:* **introduce** Stage 1 (straight-line coasting lean) → **develop** Stage 2
+  (straight-line lean while pedaling) once Stage 1's lean feels effortless → **commit** to Stage 3
+  (cone weave), starting with wide cone spacing and tightening it only once the wide version
+  consistently keeps the torso quiet while the bike does the leaning — this stages directly into
+  `cornering.md` COR-4's mellow-berm introduction, which is the trail application of the same skill.
+- *Common errors → corrections:* leaning bike and body together as one unit (the road-cycling habit
+  COR-4 already flags) → defeats the point of the drill; the checkpoint at every stage is "is my
+  torso staying quiet while the bike moves," not just "am I turning." Judging lean by feel alone
+  without a visual reference → riders often lean far less than it feels like; use a painted line,
+  the edge of a path, or the cone-weave's snake-trail pattern as an external check.
+- *Tier:* B for the drill sequence, C for the physics grounding it cites (COR-13 already Tier-C
+  sourced). Source: Liv Cycling (*How to Master Bike Body Separation* — the straight-line-then-
+  pedaling-then-cone-weave staged progression, the "cowboy legs"/"windshield wiper arms" cues, the
+  snake-trail cone-weave description, tightening cone spacing to raise difficulty; Liv Cycling is
+  already cited elsewhere in this corpus for FND-4 and `terrain-features.md` TER-4); `cornering.md`
+  COR-12/COR-13 (Cain 2010, the combined-CoM physics this drill's body-stays-quiet checkpoint rests
+  on).
+
+---
+
 ## PROGRESSIONS (the organizing principle)
 
 *Prerequisite ladders, ordered steps, common errors + corrections, and how skills couple.*
@@ -162,13 +256,18 @@ work of leaning or tracking.
 ---
 
 ## Gaps
-- **No biomechanics (Tier-C) grounding yet** for centre-of-mass / balance — L3 gap; a sports-science
-  source on how CoM-over-contact-patch actually behaves would upgrade FND-4/FND-7 from cue to
-  mechanism. Reachable via PubMed/Exa.
+- ~~**No biomechanics (Tier-C) grounding yet** for centre-of-mass / balance~~ **PARTIALLY ADDRESSED
+  round 3 via the FND-9 cross-reference to `cornering.md` COR-12/13** (Cain 2010's combined-CoM
+  model) — that grounding is corner-context; a fundamentals-native Tier-C source for FND-4's
+  climb/descend weight-shift specifically is still an open L3 gap.
 - **No certification-body *graded* position standard** (the exact BICP "Minimum Ride Standard"
-  wording for body position) — member-walled; L4 gap.
-- **Vision has no drill-progression depth** beyond "look ahead" — L2 gap (near/far scanning, target
-  fixation avoidance, speed-scaled look-ahead distance) once a coach-methodology source is fetched.
-- **Bike-body separation is stated but not yet broken into a measured progression** (lean angles,
-  the point where body-lean vs bike-lean flips by corner type) — L2 gap, belongs half here / half
-  in `cornering.md`.
+  wording for body position) — member-walled; L4 gap, unchanged.
+- ~~**Vision has no drill-progression depth**~~ **RESOLVED round 3 (2026-07-18) via FND-8**
+  (near/far scanning, target-fixation avoidance and correction, speed-scaled look-ahead — Peter
+  Glassford / consummateathlete.com, gsmbc.pro). Remaining: FND-8 is Tier B, not yet corroborated by
+  a second independent source.
+- ~~**Bike-body separation is stated but not yet broken into a measured progression**~~ **RESOLVED
+  round 3 (2026-07-18) via FND-9** (the straight-line → pedaling → cone-weave staged drill, Liv
+  Cycling, tied to the COR-12/13 physics). Remaining: no source gives the actual angle/speed at
+  which body-lean vs. bike-lean *should* flip by corner type — that finer-grained threshold is a
+  narrower, still-open L2/L3 gap, distinct from the drill-progression gap this round closed.
