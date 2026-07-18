@@ -46,7 +46,7 @@ function dateOk(v, today){
 /** @type {Object.<string, string[]>} */
 var EMTB_VOCAB = {
   // data-derived (distinct values shipped in data/emtb.js — widen only with a new row)
-  motorBrand:    ['bosch', 'shimano', 'specialized', 'fazua', 'rocky-mountain', 'tq'],
+  motorBrand:    ['bosch', 'shimano', 'specialized', 'fazua', 'rocky-mountain', 'tq', 'giant'],
   display:       ['top-tube', 'system-controller'],
   frameMaterial: ['aluminum', 'carbon', 'steel', 'mixed'],
   // closed enums (mirror fixed live-schema conventions)

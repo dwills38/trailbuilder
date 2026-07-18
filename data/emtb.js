@@ -344,6 +344,40 @@ var EMTB_PARTS = [
     disciplines: ['e-trail'], weight: 22200, price: 5500,
     note: "Canyon's lighter, shorter-travel XC/trail e-bike; smaller 630 Wh battery.",
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Giant (new maker) — Trance X E+ / Reign E+
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-giant-trance-x-e-plus-elite', cat: 'emtb', brand: 'Giant', model: 'Trance X E+ Elite',
+    motorBrand: 'giant', motorModel: 'SyncDrive Pro2', motorTorque: 85,
+    batteryWh: 850, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
+    disciplines: ['e-trail'], weight: 23800, price: 5800,
+    note: "Giant's in-house SyncDrive Pro2 motor (co-engineered with Yamaha); large 850 Wh EnergyPak.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-giant-trance-x-advanced-e-plus-0', cat: 'emtb', brand: 'Giant', model: 'Trance X Advanced E+ 0',
+    motorBrand: 'giant', motorModel: 'SyncDrive Pro2', motorTorque: 85,
+    batteryWh: 850, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
+    disciplines: ['e-trail'], weight: 21200, price: 12000,
+    note: 'Top-tier carbon Trance X Advanced E+ build.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-giant-reign-e-plus-0', cat: 'emtb', brand: 'Giant', model: 'Reign E+ 0',
+    motorBrand: 'giant', motorModel: 'SyncDrive Pro2', motorTorque: 85,
+    batteryWh: 850, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code Ultimate',
+    disciplines: ['e-enduro'], weight: 23600, price: 10500,
+    note: "Giant's gravity/enduro e-MTB; longer travel than the Trance X E+.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
