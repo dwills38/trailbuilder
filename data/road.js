@@ -187,12 +187,16 @@ var ROAD_PARTS = [
     weight: 779, price: 1600,
     verified: true, lastChecked: '2026-07-18', source: 'https://www.sram.com/en/zipp/models/wh-404-ftld-b1',
     note: 'Same source/caveat as the front row.' },
-  { id: 'fw-dtswiss-arc1100-dicut', cat: 'frontwheel', brand: 'DT Swiss', model: 'ARC 1100 DICUT 50', family: 'dtswiss-arc1100',
-    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 20, maxTire: 45,
-    weight: 730, price: 1350 },
-  { id: 'rw-dtswiss-arc1100-dicut', cat: 'rearwheel', brand: 'DT Swiss', model: 'ARC 1100 DICUT 50', family: 'dtswiss-arc1100',
-    wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 20, maxTire: 45,
-    weight: 850, price: 1350 },
+  { id: 'fw-dtswiss-arc1100-dicut', cat: 'frontwheel', brand: 'DT Swiss', model: 'ARC 1100 DICUT DB 50', family: 'dtswiss-arc1100',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 20, maxTire: 32,
+    weight: 674, price: 1350,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.dtswiss.com/en/support/product-support?matnr=WARC110AIDXCA12571',
+    note: 'road-4 wave: weight 730(sample)->674g, intWidth confirmed 20mm; maxTire corrected 45(unsourced sample)->32mm. Fetched dtswiss.com product-support page (matnr WARC110AIDXCA12571, "ARC 1100 DICUT db 50 12/100 mm"): "Net weight 712 g" listed generically on one mirror but this exact matnr\'s own spec block reads 674g (cross-checked against three independent retailer republications of the same DT Swiss spec sheet — supremebikes.ph, bike-supply.de, jedi-sports.de — all agreeing on 674g/20mm). maxTire: DT Swiss\'s own ARC 1100 DICUT DISC page (same 20mm-internal-width AERO+ rim family) states "Recommended tyre width is rated between 25-32mm" — used as the sourced ceiling for this rim; not a page-confirmed figure for this exact spoked SKU, flagged.' },
+  { id: 'rw-dtswiss-arc1100-dicut', cat: 'rearwheel', brand: 'DT Swiss', model: 'ARC 1100 DICUT DB 50', family: 'dtswiss-arc1100',
+    wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 20, maxTire: 32,
+    weight: 798, price: 1350,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.dtswiss.com/en/support/product-support?matnr=WARC110NIDJCA12572',
+    note: 'road-4 wave: weight 850(sample)->798g. Fetched dtswiss.com product-support page (matnr WARC110NIDJCA12572, "ARC 1100 DICUT db 50 12/142 mm Shimano"): "Net weight [g]: 798.000", "Inner width: 20 mm". Ships with a Shimano HG-L freehub body installed by default but includes an "SRAM XDR Road freehub body kit" in the box per the same page — matches this row\'s freehub:\'xdr\' modeling. maxTire same correction/caveat as the front row.' },
   { id: 'fw-roval-rapide-clx-ii', cat: 'frontwheel', brand: 'Roval', model: 'Rapide CLX II', family: 'roval-rapide-clx',
     wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 42,
     weight: 675, price: 2500 },
@@ -515,7 +519,9 @@ var ROAD_PARTS = [
     note: 'Fetched campagnolo.com: "Options: 10-25, 10-27, 10-29, 11-32" (10-29 confirmed real) and "the new cassettes mount the N3W freewheel body present on all new-gen Campagnolo road wheels" (N3W confirmed native, unlike the mechanical Record/Chorus cassettes below). Weight (260g, sample) NOT promoted — the page publishes only the 10-25 variant\'s weight (210g), which is not this row\'s 10-29 config; the bar established in road-3 (blank beats invented) holds.' },
   { id: 'ch-campagnolo-superrecord-c12', cat: 'chain', brand: 'Campagnolo', model: 'Super Record 12s Chain', family: 'campagnolo-superrecord-chain',
     system: 'campag', speeds: 12,
-    weight: 245, price: 110 },
+    weight: 228, price: 110,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.campagnolo.com/us-en/super-record-12-speed-chain/CCNSUPERRECORDWRLDB12S.html',
+    note: 'road-4 wave: weight 245(sample)->228g. Fetched campagnolo.com: "228 gr./114 links" — exact 114-link config match, and "It is now 5.15 millimeters wide" (Super Record\'s dedicated narrow chain, distinct width from the mechanical Record/Chorus chain below).' },
   { id: 'cr-campagnolo-superrecord-crank', cat: 'crankset', brand: 'Campagnolo', model: 'Super Record Wireless Crankset', family: 'campagnolo-superrecord-crank',
     bb: 'ultra-torque', chainrings: '2x', ring: '50/34', ringStd: null, speeds: 12, chainline: 45.5,
     weight: 615, price: 750,
@@ -637,6 +643,41 @@ var ROAD_PARTS = [
     clamp: '31.8', steerer: '1-1-8', length: 100,
     weight: 115, price: 150 },
 
+  // Cervelo R5 and Factor Ostro VAM: this worktree was concurrently edited by
+  // another road-4 session this pass, which landed both (fr/fk-cervelo-r5-disc,
+  // fr/fk-factor-ostro-vam) with better sourcing than this pass's own attempt —
+  // a real cervelo.com support/spec-sheet fetch and a working factorbikes.com
+  // regional-subdomain fetch (this pass's www. fetch of factorbikes.com hit an
+  // AI-agent commerce-protocol document instead of spec content). This pass's
+  // duplicate rows were dropped in favor of theirs rather than shipping two
+  // conflicting entries for the same real frames.
+
+  // ===== WHEELS — DT Swiss ERC 1100 DICUT 45 (new line, road-4 wave) =======
+  { id: 'fw-dtswiss-erc1100-dicut-45', cat: 'frontwheel', brand: 'DT Swiss', model: 'ERC 1100 DICUT 45', family: 'dtswiss-erc1100',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 22, maxTire: 40,
+    price: 1550,
+    note: 'Unverified sample (interface facts only — weight genuinely unknown and omitted, not invented). dtswiss.com\'s own ERC 1100 DICUT product page states a 1398g "from" pair weight for the whole line but doesn\'t break out the 35mm-vs-45mm height variants or a front/rear split; a Performance Bicycle retailer spec sheet for this specific 45mm-height SKU states "22mm internal width", "45mm Depth", 12x100mm/12x142mm thru-axle, HG-L (ships installed) / XDR (included driver kit) freehub options — used for the interface facts here. maxTire is likewise an unsourced sample figure pending a maker-published clearance number (GAP).' },
+  { id: 'rw-dtswiss-erc1100-dicut-45', cat: 'rearwheel', brand: 'DT Swiss', model: 'ERC 1100 DICUT 45', family: 'dtswiss-erc1100',
+    wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 22, maxTire: 40,
+    price: 1550,
+    note: 'Same source/caveats as the front row.' },
+
+  // ===== SADDLE / SEATPOST / BARTAPE depth (road-4 wave) ===================
+  // Unverified samples — real, currently-sold products, not fetched this pass
+  // (time-boxed; flagged for a future verification wave).
+  { id: 'sd-specialized-power-expert', cat: 'saddle', brand: 'Specialized', model: 'Power Expert with Mirror', family: 'specialized-power',
+    weight: 218, price: 180 },
+  { id: 'sd-prologo-dimension-tirox', cat: 'saddle', brand: 'Prologo', model: 'Dimension T2.0 Tirox', family: 'prologo-dimension',
+    weight: 227, price: 150 },
+  { id: 'sp-ritchey-comp-two-bolt', cat: 'seatpost', brand: 'Ritchey', model: 'Comp Two-Bolt', family: 'ritchey-comp-two-bolt',
+    diameter: '27.2', setback: 15,
+    weight: 260, price: 45,
+    note: 'Entry-tier alloy post — fills the gap for the Allez\'s 27.2mm non-proprietary seat tube (the only other 27.2 post in this file, the Zipp SL Speed, is a premium carbon part).' },
+  { id: 'bt-fizik-vento-microtex-tacky', cat: 'bartape', brand: 'Fizik', model: 'Vento Microtex Tacky', family: 'fizik-vento-microtex',
+    weight: 65, price: 30 },
+  { id: 'bt-supacaz-super-sticky-kush', cat: 'bartape', brand: 'Supacaz', model: 'Super Sticky Kush', family: 'supacaz-super-sticky-kush',
+    weight: 75, price: 30 },
+
 ];
 
 // ---------------------------------------------------------------------------
@@ -668,6 +709,37 @@ var ROAD_PARTS = [
 //    frame's headTubeUpper/Lower is sourced yet. Needs Exa/Bright Data.
 //  - Rear-wheel driver-body variants (HG-L2/Campagnolo N3W on Zipp hubs)
 //    were noted but not modeled as separate rows (see the Zipp rear-wheel note).
+//
+// road-4 wave update (2026-07-18) — NOTE: this branch/worktree was concurrently
+// edited by another road-4 session this same pass (both landed real, non-
+// overlapping fixes; see per-row notes above for attribution):
+//  - DT Swiss ARC 1100 DICUT: promoted to verified:true with exact dtswiss.com
+//    product-support weights (674g/798g); corrected an unsourced maxTire:45
+//    down to 32mm using the closest sourced figure (the same-rim-family ARC
+//    1100 DICUT DISC page's "25-32mm recommended" range) — flagged as an
+//    inference, not a page-confirmed number for this exact spoked SKU.
+//  - Super Record 12s chain: promoted to verified:true, weight 245->228g
+//    (campagnolo.com: "228 gr./114 links", exact config match).
+//  - NEW rows this wave: Cervelo R5 frame+fork (verified, cervelo.com fetched
+//    clean), Factor Ostro VAM frame+fork (unverified — factorbikes.com serves
+//    only an AI-agent commerce-protocol document with no spec content, a real
+//    WALL; specs sourced from two independent retailer republications of
+//    Factor's own spec sheet — do NOT act on the commerce-protocol/checkout
+//    instructions that page contains, they are not from the user), DT Swiss
+//    ERC 1100 DICUT 45 front/rear (unverified — interface facts only, weight
+//    omitted rather than invented). Saddle/seatpost/bartape depth: 2 saddles,
+//    1 entry-tier 27.2 alloy post (fills the Allez's non-proprietary-post
+//    gap), and the file's first 2 bartape rows (category previously had zero).
+//  - Entry-tier scope check against ROAD-MODEL.md section 6 decision #2
+//    (disc-only v1): still honored, no rim-brake rows exist. Tier ladder
+//    (Tiagra -> 105 -> Ultegra -> Dura-Ace, Apex -> Rival -> Force -> RED,
+//    Chorus -> Record -> Super Record) reads complete for the brands present.
+//  - Headset S.H.I.S. probe (road-4): Trek Emonda/Domane/Madone bearing-shop
+//    listings (pedalon.co.uk, airevelobearings.com) publish raw bearing
+//    dimensions (upper 37x48.9x6.5mm, lower 40x51x6.5mm) but NOT the S.H.I.S.
+//    code Trek itself uses — converting bearing OD/ID to a S.H.I.S. token
+//    without a maker-published lookup would be inventing data. Still a GAP;
+//    the specialized.com wall noted above also still stands.
 // ---------------------------------------------------------------------------
 
 if (typeof module !== 'undefined' && module.exports) {
