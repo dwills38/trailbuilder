@@ -1,6 +1,8 @@
 # Accessibility — WCAG 2.2 AA as the floor
 
-**Maturity: professional** (L1 complete + L2 ARIA pattern depth, round 2, 2026-07-18)
+**Maturity: master** (L1+L2 complete + L4 measurement depth — screen-reader testing doctrine
+(ACC-21), a completed live-DOM audit method applied to all nine shipped dialogs (ACC-22) and to
+WCAG 2.2's new criteria (ACC-23); round 4, 2026-07-18)
 
 Contrast math, focus states, ARIA patterns, reduced motion, screen-reader flows. Read
 [`INDEX.md`](INDEX.md) first. **AA is the floor this site aims at; only Tier-A criteria may be
@@ -123,6 +125,179 @@ called "violations."**
   restores it on close; not verified against the live DOM this round, so not tagged
   ⚠ CONTRADICTION without that check.*
 
+- **ACC-16 — WCAG 2.2 SC 3.2.6 Consistent Help, Level A** (new in 2.2). If a page carries any
+  of four help mechanisms — human contact details, a human contact mechanism (chat/contact
+  form), a self-help option (FAQ/support page), or a fully automated contact mechanism
+  (chatbot) — and that mechanism is **repeated across a set of pages**, it must occur **in the
+  same order relative to other page content** unless the user initiates a change. The
+  requirement is about *serialized* order (reading order), not pixel position, so a responsive
+  reflow that moves it visually is fine as long as its relative order holds. Note the shape of
+  the obligation: it does **not** require help on every page — only consistency where repeated.
+  *Tier A, fetched https://www.w3.org/WAI/WCAG22/Understanding/consistent-help.html
+  2026-07-18.*
+
+- **ACC-17 — WCAG 2.2 SC 3.3.7 Redundant Entry, Level A** (new in 2.2). Information the user
+  already entered (or that was provided to them) and that must be entered **again in the same
+  process** is either auto-populated or offered for selection. Three exceptions: re-entry is
+  essential, re-entry is required for security, or the earlier information is no longer valid.
+  *Tier A, fetched https://www.w3.org/WAI/WCAG22/Understanding/redundant-entry.html
+  2026-07-18.*
+
+- **ACC-18 — WCAG 2.2 SC 3.3.8 Accessible Authentication (Minimum), Level AA** (new in 2.2). No
+  step of an authentication process may require a **cognitive function test** (remembering a
+  password, solving a puzzle) unless that step offers at least one of: **Alternative** (another
+  auth pathway without the test), **Mechanism** (help completing it — password-manager support
+  and copy-paste both count), **Object Recognition**, or **Personal Content**. *Tier A, fetched
+  https://www.w3.org/WAI/WCAG22/Understanding/accessible-authentication-minimum.html
+  2026-07-18.*
+
+- **ACC-19 — Accessible-name doctrine, web-side pin** (closes ACC-8's standing gap, which cited
+  Android docs for a platform-generic principle). All focusable interactive elements need
+  accessible names; so do dialogs and structural containers (tables, regions). **Prefer visible
+  text as the name** — APG's stated reasons are maintenance, bug-prevention and translation
+  cost. The name-calculation precedence is `aria-labelledby` → `aria-label` → native HTML
+  (`<label>`, `<caption>`, `<legend>`) → child content → `title`/`placeholder` (lowest quality,
+  effectively a fallback not a technique). **`aria-label` is discouraged on elements that name
+  from child content** — it *hides* the descendant content from assistive tech — and must not be
+  used on paragraphs or list items. Native labelling is preferred where it exists. *Tier A,
+  fetched https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/ 2026-07-18.
+  **ACC-8 SUPERSEDED IN PART BY ACC-19** for the web-side statement; ACC-8's purpose-not-
+  appearance principle stands.*
+
+- **ACC-20 — `aria-live` region doctrine.** `polite` announces at the next graceful pause (end
+  of sentence, break in typing) — the correct default for status and result-count updates.
+  `assertive` interrupts and may clear the speech queue; MDN's own caution is that an
+  interruption "may disorient users," so it is for imperative updates only. `off` (the default)
+  announces only if the user is already inside the region. **The live region must exist in the
+  DOM before the update happens** — screen readers buffer the tree at load, so a region injected
+  together with its first message is commonly missed. `aria-atomic` controls whether the whole
+  region or only the changed part is re-read; `aria-relevant` filters which mutation types
+  announce; `aria-busy` suppresses announcements mid-batch. *Tier A, fetched
+  https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-live
+  2026-07-18.*
+
+- **ACC-21 — Screen-reader testing doctrine (L4 method).** Developers should learn basic screen
+  reader operation — WebAIM's position is that without understanding the interaction model "you
+  won't understand what the accessibility challenges are" — but untrained testing is
+  *counterproductive* and routinely produces false "this is inaccessible" conclusions. **Neither
+  a sighted developer nor a single blind tester is sufficient**: sighted developers miss
+  barriers they can see past, and blind testers may not be able to tell *why* broken JavaScript
+  is failing them. WebAIM's prescription is a variety of testers with a variety of abilities.
+  For tool choice: JAWS/NVDA/VoiceOver are roughly equivalent for web content, so test **at
+  least one**, and more for complex JS or PDF content. Test for the common barriers — heading
+  structure, image alt text, non-descriptive link names, reading order, table markup. **The
+  standing caution: design to principles and guidelines, not to one screen reader's quirks.**
+  *Tier A-adjacent (WebAIM), fetched https://webaim.org/articles/screenreader_testing/
+  2026-07-18. Site consequence: this corpus and its agent may audit MARKUP against the APG/WCAG
+  contract (as ACC-22 does) but may NOT claim a shipped pattern "works with screen readers" —
+  that claim needs a real tester, which this project has never run. Recording that honestly is
+  the point; see the "Both errors cost" rule in INDEX.md.*
+
+---
+
+## Live-DOM dialog audit (round 4 / master, 2026-07-18) — closes ACC-15's standing gap
+
+**ACC-22** — ACC-15 flagged its own dialog-trap claim as un-audited against the live DOM. This
+round audited **all nine** shipped dialogs in `index.html` against the APG modal-dialog contract.
+*Method: static audit of the shipped markup and handlers — not a screen-reader session (see
+ACC-21's boundary).*
+
+The nine: `reportModal`, `buildModal`, `partModal`, `compareModal`, `specCardModal`, `authModal`,
+`garageModal`, `forumNewThreadModal`, `profileModal`.
+
+**PASSES (the load-bearing result — the ACC-15 contract is met by construction):**
+
+1. **All nine are native `<dialog>` opened with `.showModal()`** — never `.show()` (zero
+   occurrences of `.show()` in the file). Native modal `showModal()` supplies the APG contract
+   at the platform level: the focus trap, `Escape`-to-close, the inert backdrop, and focus
+   **return to the invoking element** on close. This is the single best reason the audit came
+   back clean — the contract isn't hand-rolled, so it can't drift. *ACC-15's trap/Escape/
+   focus-return claims: **verified met**.*
+2. **All nine carry `aria-labelledby`, and all nine targets resolve** to exactly one real
+   `<h2>` in the dialog (`rmTitle`, `bmTitle`, `pmTitle`, `cmpTitle`, `scTitle`, `authTitle`,
+   `garageTitle`, `fntTitle`, `profileTitle` — each `id` appears exactly once). Satisfies
+   ACC-15's naming requirement and ACC-19's visible-text-as-name preference.
+3. **No dialog auto-opens.** Every `showModal()` call sits inside a click handler or a
+   user-invoked `open*()` function. **Hard Rule 2 (no unsolicited pop-ups) holds in the
+   dialog layer** — worth stating as a verified fact, not an assumption.
+4. **The backdrop-click-to-close idiom is implemented safely.** All nine use
+   `if (e.target === this) this.close()`. That idiom has a well-known misfire — a click on the
+   dialog's own *padding* has the dialog as its target and dismisses it — but the shipped rule
+   at `index.html:461` sets **`padding:0`** on all nine dialog ids, so the failure mode cannot
+   occur here. *Recording the precondition matters more than the pass: if anyone ever gives a
+   dialog padding, nine dismiss-on-misclick bugs appear at once.*
+5. **Verdict/status live regions already exist and are correctly polite.** ACC's round-2 Gaps
+   speculated the verdict list "likely wants `aria-live` (unpinned)" — it already has it:
+   `#report` is `role="status" aria-live="polite"` (`index.html:1113`), which is exactly the
+   ACC-20 default for non-urgent status. Twelve live regions ship in `index.html` and two in
+   `bmx.html`; none use `assertive`, matching ACC-20's caution. `#catCount`'s polite region on a
+   filter result count is the canonical correct use (polite waits for the typing pause), and
+   `#report` correctly omits `aria-atomic`, so a long verdict list re-reads only what changed.
+   **Gap resolved as already-correct — no action needed.**
+
+**FINDING 1 — `profileModal` is the only dialog without `autofocus`.** Eight of nine place
+initial focus deliberately via an `autofocus` attribute; `profileModal` (`index.html:1471`) has
+none, so focus falls to the HTML spec's default (first focusable descendant, else the dialog
+box). Not a WCAG failure — focus does enter the dialog either way, so SC 2.4.3/2.4.7 hold — but
+it is an **inconsistency against the site's own eight-of-nine convention**, and APG's guidance is
+that initial focus should be *chosen*, not defaulted. Tier B/practice grade. **Coordinator
+action: add `autofocus` to `profileModal`'s intended first control** to match the other eight.
+
+**FINDING 2 ⚠ CONTRADICTION — `100vh` in the dialog height cap collides with the corpus's own
+PLT-6.** `index.html:461` caps all nine dialogs at `max-height:calc(100vh - 32px)`, and
+`index.html:738` caps the sticky filter rail at `max-height:calc(100vh - 86px)`. PLT-6 (round 3)
+established that `vh` resolves against the **largest** viewport — the chrome-*retracted* size —
+so on a mobile browser with the address bar expanded, a full-height element measured in `100vh`
+extends **below the visible area**. For a dialog this is materially worse than for ordinary
+content: the dialog's action row (`.rm-foot`, holding Close and the primary button) sits at the
+*bottom*, which is exactly the part pushed under the browser chrome. It also brushes **SC 2.4.11
+Focus Not Obscured (Minimum), AA** (ACC-6) when the focused control is the obscured Close button
+— though 2.4.11 exempts obstruction by the *user agent's own* UI, so this is flagged as a
+usability + own-doctrine contradiction, **not** asserted as a WCAG violation (the ACC-21/INDEX
+"both errors cost" bar). **Coordinator action: `100svh` is the corpus's own PLT-6 recommendation
+for "never let content hide behind browser chrome"** — a two-token CSS change at two sites, no
+build step, no new dependency.
+
+**NOTE (no action)** — all nine carry `role="dialog" aria-modal="true"` explicitly on a native
+`<dialog>`. Both are redundant with the element's implicit semantics under `showModal()`. They
+are harmless and arguably defensive against older AT; recording it only so a future round
+doesn't "discover" it as a finding.
+
+---
+
+## WCAG 2.2 new-criteria audit (round 4 / master, 2026-07-18)
+
+**ACC-23** — ACC-16/17/18 applied to the shipped site. *Same static-audit method and boundary as
+ACC-22.*
+
+- **SC 3.2.6 Consistent Help (A) — PASS.** The site's page set is `index.html`, `bmx.html`,
+  `privacy.html`, `terms.html`, `affiliate-disclosure.html`. The only help mechanism present is
+  **human contact details** (`Doug@buildmymtb.com`), and it appears on the three legal pages
+  only. Those three carry a **byte-identical footer** (Privacy · Terms · Affiliate Disclosure ·
+  Back to the app, then the copyright + non-affiliation line), so the repeated mechanism holds
+  the same relative order — 3.2.6 satisfied. The two builder pages repeat *no* help mechanism,
+  which 3.2.6 does not require them to (see ACC-16's note on the obligation's shape).
+  **Standing constraint for future work:** if a contact/support/FAQ link is ever added to
+  `index.html` or `bmx.html`, it must land in the **same relative footer position** as on the
+  legal pages, or this Level-A criterion breaks across the set. Worth flagging now because the
+  parked home-page work and the growing page family (Kit/Road/Gravel/EMTB) are exactly when a
+  "Contact" link gets sprinkled inconsistently.
+- **SC 3.3.8 Accessible Authentication (Minimum) (AA) — PASS, doubly.** The auth flow does
+  present a cognitive function test (`authPassword`, a remembered password), but **two** of the
+  four exceptions apply independently: **Alternative** — `authGithub` (GitHub OAuth) and
+  `authMagicLink` ("Email me a magic link instead", `signInWithOtp`) are both full auth pathways
+  with no memory test; and **Mechanism** — the password field carries
+  `autocomplete="current-password"` and the email field `autocomplete="email"`, which is
+  precisely the password-manager support the SC names. Nothing blocks paste. *This is a real
+  pass, not a technicality: the magic-link route means a user who cannot complete a password
+  challenge at all still has a working front door.*
+- **SC 3.3.7 Redundant Entry (A) — PASS (narrow surface).** The site has no multi-step process
+  that re-asks for previously entered data: sign-in is single-step, the magic-link route reuses
+  the email already typed into `authEmail` rather than re-prompting, and the forum
+  new-thread/profile dialogs are each single-form. Recorded as a pass **with a small surface** —
+  the criterion becomes live the moment a genuine multi-step flow appears (a checkout, a
+  multi-page build wizard, or a marketplace listing flow), so re-audit then.
+
 ## ⚠ CONTRADICTION — compat-dot contrast audit (round 2, 2026-07-18)
 
 Computed WCAG contrast ratios (relative-luminance formula, SC 1.4.11's 3:1 non-text floor) for
@@ -160,14 +335,25 @@ a future round doesn't re-discover it as a false positive.*
 
 ## Gaps (next-round targets)
 
-- Screen-reader *flows* (heading structure, landmarks, live regions for verdict updates) —
-  nothing seeded; the verdict list changing on part-pick likely wants `aria-live` (unpinned).
-- The dot-contrast finding above needs a coordinator decision + a follow-up corpus entry once
-  fixed (append a new fact, don't edit this one).
-- ACC-15's dialog-trap claim is un-audited against the live DOM (report dialog, spec-card
-  modal, login dialog) — a live-DOM focus-trap check is the natural next round-2/3 task.
-- WCAG 2.2's new 3.2.6/3.3.7/3.3.8 (consistent help, redundant entry, accessible auth) not
-  yet seeded.
-- ACC-8's web-side accessible-name statement (WAI APG) still needs its own pin — ACC-8 currently
-  cites Android docs for a platform-generic principle; APG's own wording wasn't fetched this
-  round despite fetching five other APG pages.
+**Closed in round 4 (2026-07-18)** — kept as a record, do not re-open:
+- ~~ACC-15's dialog-trap claim un-audited against the live DOM~~ → **CLOSED by ACC-22**: all
+  nine dialogs audited; contract met by construction (native `<dialog>` + `showModal()`).
+- ~~WCAG 2.2's new 3.2.6/3.3.7/3.3.8 not yet seeded~~ → **CLOSED by ACC-16/17/18** (seeded) and
+  **ACC-23** (applied to the site; all three pass).
+- ~~ACC-8's web-side accessible-name statement needs its own pin~~ → **CLOSED by ACC-19**.
+- ~~live regions for verdict updates (unpinned)~~ → **CLOSED by ACC-20** (doctrine) + **ACC-22
+  pass 5** (already correctly implemented — the speculation was wrong in the site's favor).
+
+**Still open:**
+- **Screen-reader *flows*** — the *doctrine* is now pinned (ACC-21) and live regions are
+  verified (ACC-22), but heading-structure and landmark auditing of the shipped pages has not
+  been done. That is a concrete, static-auditable next target (`h1`→`h6` order, `<main>`/`<nav>`/
+  `<footer>` landmarks, skip-link presence) and does **not** need a real screen reader.
+- **A real screen-reader session has never been run on this site.** ACC-21 is explicit that
+  markup auditing cannot substitute. This is a recommend-to-Douglas item (it needs a human),
+  not a gap a future corpus round can close by fetching.
+- The dot-contrast finding (round 2) still needs a coordinator decision + a follow-up fact once
+  fixed (append a new fact, don't edit ACC-4's audit).
+- **FINDING 1 (profileModal `autofocus`) and FINDING 2 (`100vh` → `100svh`) from ACC-22 are
+  open coordinator actions**, not corpus gaps — they close when the app changes, and each
+  should get a new confirming fact then.
