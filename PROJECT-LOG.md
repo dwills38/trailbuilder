@@ -2134,7 +2134,19 @@ per wave/decision; large reconstructions are handed to a worker session.
 
 ## 2026-07-18 — sweep: ui-expert batch 6 (platform-conventions MASTER) + campaign-3 Bright Data round
 
-- **ui-expert batch 6** (own-additions of 3603976, `tools/ui-expert/platform-conventions.md`):
+- **ui-expert batch 6** — ⚠ **THIS ENTRY WAS WRONG WHEN WRITTEN; CORRECTED 2026-07-18.** The
+  entry below described batch 6 as merged, but it never reached the tree: the coordinator
+  `git apply`-ed the own-additions into the WORKING TREE and never staged them, so the
+  following merge commit (which commits the index) excluded them and the log commit staged only
+  `PROJECT-LOG.md`. The file sat modified-but-uncommitted for ~an hour while the log claimed it
+  shipped. **The UI-expert worker caught it** by content-grepping `origin/main` for PLT-9 —
+  branch pointers and coordinator claims are both weaker evidence than content, in BOTH
+  directions. It recovered its commit from reflog (715a792) and re-presented. Actually landed
+  with batch 7 in the merge recorded further below. **Lesson: after any `git apply`, run
+  `git status` and stage explicitly — `git add <specific file>` silently drops everything you
+  didn't name, and a merge commit in between hides it.** Original entry follows, content still
+  accurate:
+- **ui-expert batch 6** (`tools/ui-expert/platform-conventions.md`):
   **platform-conventions → MASTER** (PLT-9..14). Best items: **PLT-10 a FALSE-FINDING GUARD** — SC
   1.4.13 exempts native `title` tooltips (UA-controlled), so the site's 46 `title=` attributes are
   NOT 46 violations; recorded so a future round or automated scan doesn't report them as such.
@@ -2182,3 +2194,35 @@ per wave/decision; large reconstructions are handed to a worker session.
 - Session totals: verified 3,010 → 3,017 (3 promotions: Revel Ritual, Revel Rascal, Canfield
   Lithium); queue 1,751 → 1,662 (89 processed across 8 batches + the retry round). Gates:
   validate 7×OK / 764 tests / tsc clean; verdict harness BYTE-IDENTICAL.
+
+## 2026-07-18 — ui-expert batches 6+7: ALL SEVEN CHAPTERS MASTER (and a coordinator false-report fixed)
+
+- **Merged `tooling/ui-expert-master-1`** (715a792 recovered batch 6 + d2d05a9 + 4176b50). Content
+  verified present in-tree by grep after merge (PLT-9, RSP-19/20, CURRICULUM), 7/7 files now carry
+  `Maturity: master`. Gates: validate 7×OK / 764 tests / tsc clean.
+- **responsive-layout → MASTER** (RSP-16..20). **RSP-19 is the keeper**: intrinsic layout is WHY the
+  site needs no upper breakpoints despite NN/g's 1200/1400 tiers — `.grid` is
+  `repeat(auto-fill,minmax(236px,1fr))` and `.layout`'s centre track is `minmax(0,1fr)`, so wide
+  viewports are handled by the layout itself. Rule recorded: *every axis handled intrinsically is a
+  breakpoint you never have to write, test, or maintain IN FOUR THEMES*; the three that remain
+  (480/768/880 + the 769 min-width counterpart) exist because they change layout STRUCTURE, which
+  intrinsic sizing can't express — and all three sit inside NN/g's sourced "2-3 in practice" (RSP-17)
+  and are content-derived (880 is exactly where the three-column layout stops fitting). **RSP-20 is
+  an honest NON-recommendation**: do NOT retrofit Every Layout's Sidebar onto `.layout` — its 50%
+  wrap trigger encodes a two-element assumption, and our three-track layout wants an all-at-once
+  collapse; a flex-wrap version would let the build panel wrap independently and produce an
+  intermediate state nobody designed. "We now have the primary" ≠ "we should use it".
+- **CURRICULUM round-4 board** — the worker deliberately scoped the grade DOWN rather than overselling
+  it: master never meant citations alone, and **master does not mean finished** (PLT-2 openly
+  unsourced; performance cannot verify its own numbers until Vitals Explorer is read; accessibility
+  records that a real screen-reader session has NEVER been run and markup auditing doesn't
+  substitute). With all seven at master, target-the-weakest stops discriminating, so it wrote the
+  successor rule for round 5+: (1) VERIFY what the corpus asserts but never measured — PRF-16,
+  MOB-47, DNS-20, MOB-46, each needing a browser or an account, not a fetch; (2) re-check the
+  CONDITIONAL no-actions, which go stale silently (is Viewport Segments Baseline yet? is every
+  `:hover` still cosmetic? has Cloudflare shipped Safari/Firefox CWV?); (3) then the honest gaps.
+  Plus an explicit DO-NOT-REOPEN list (MOB-45/PLT-11/RSP-20/DNS-18) — reasoned non-actions with
+  their logic recorded, which is exactly what a fresh round reading only Gaps lists would re-litigate.
+- Worker continues to batch 8: the new L4 `research-methods.md`, which would give a home to the
+  method facts currently scattered across ACC-21/PRF-13/NAV-6/7 and let the corpus DESIGN the studies
+  that settle the parked taste questions instead of leaving them parked forever.
