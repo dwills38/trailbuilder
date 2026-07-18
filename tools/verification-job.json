@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T15:45:43.276Z",
+ "updated": "2026-07-18T15:55:57.541Z",
  "batchSize": 25,
- "lastCompleted": "fr-norco-torrent-ht-s",
+ "lastCompleted": "fr-octaneone-void",
  "currentCategory": "frame",
  "queue": [
   "fr-norco-torrent-ht-a",
@@ -16715,8 +16715,8 @@
   "fr-santacruz-highball": {
    "cat": "frame",
    "status": "Failed",
-   "updated": "2026-07-18T15:28:56.662Z",
-   "error": "santacruzbicycles.com/products/highball-frame-2024 rate-limited (HTTP 429) twice this session - WebSearch summary suggests it may state a real frame weight (2025 MY ~1170g) but per the search-summaries-lie lesson this must be independently fetched, not trusted from a snippet. Retry next session.",
+   "updated": "2026-07-18T15:55:56.080Z",
+   "error": "bdata scrape cleared the rate-limit and found real data, but with a tier-matching wrinkle: santacruzbicycles.com/products/highball-frame-2024 is the 'Highball CC Frame' SKU specifically (image alt text confirms), stating Weight 1.17kg/2.57lb and Regular price $3,999.00 (currently on sale at $2,149 - MSRP-only policy says use $3,999). But the catalog row's own source page is 'product-support/highball-3-my24' (the 'Highball 3' BUILD KIT, whose frame material tier - C vs CC - isn't confirmed to match this CC-specific frameset SKU). Not editing blind: flipping price/weight onto the wrong tier would be a real error, not a correction. Retry: confirm which frame tier the Highball 3 build kit actually ships (C or CC) before merging this CC frame's figures onto this row.",
    "source": null,
    "note": null
   },
@@ -25195,8 +25195,8 @@
   "fr-octaneone-void": {
    "cat": "frame",
    "status": "Failed",
-   "updated": "2026-07-18T15:34:58.125Z",
-   "error": "Found the real manufacturer page (octane-one.com/part/void-dirt-frame-for-26-wheels/) but WebFetch failed with 'certificate has expired' (site SSL issue, not a content wall). WebSearch snippets suggest brakeMount may actually be IS (International Standard, '51mm IS, 185mm max'), not the catalog's PM - and weight ~2550-2580g vs cataloged 2400g sample. Flagging both for a reviewer; not editing on snippet-only evidence. Retry: try Wayback Machine or a different fetch path for the cert-expired manufacturer page.",
+   "updated": "2026-07-18T15:55:57.396Z",
+   "error": "Retried via bdata scrape - octane-one.com still fails with 'SSL/TLS certificate ... not valid for the current date', confirmed as a genuine server-side cert problem (not a WebFetch-specific limitation). Retry: Wayback Machine snapshot of this exact URL, or wait for the site's cert to be renewed.",
    "source": null,
    "note": null
   },
@@ -26211,8 +26211,8 @@
   "fr-ari-lasalpeak": {
    "cat": "frame",
    "status": "Failed",
-   "updated": "2026-07-18T15:37:52.281Z",
-   "error": "Genuinely close: frameset price ($2,699) and frame weight (2900g) are BOTH directly fetched from aribikes.com (maker's own site, confirmed again this session - the geometry table renders but has no drivetrain/brake spec section). The blocking gap is rearAxle/bb/headset/brakeMount/maxRotorR/shockMount, all sourced from two cross-corroborating Vital MTB build-guide reprints, not a maker-fetched page - aribikes.com itself is JS-walled for that content. Retry: look for an aribikes.com geometry-PDF or spec-sheet download (the Trek-manual-PDF technique) before accepting the Vital-only ceiling.",
+   "updated": "2026-07-18T15:55:57.131Z",
+   "error": "Retried via bdata scrape - aribikes.com/products/lasal renders the geometry table cleanly but genuinely has no drivetrain/brake/BB/axle/headset spec section anywhere on this URL (confirmed, not a JS-render artifact this time - full page content was captured). Weight+price stay maker-confirmed and solid; the blocking interface fields may live on a different aribikes.com page (spec PDF, build-kit page) not yet found.",
    "source": null,
    "note": null
   },
@@ -26258,11 +26258,11 @@
   },
   "fr-revel-rascal-v3": {
    "cat": "frame",
-   "status": "Failed",
-   "updated": "2026-07-18T15:37:53.020Z",
-   "error": "Genuinely close: frame weight (3350g) and frameset price ($3,399) are BOTH directly fetched from revelbikes.com's own Frame Kit product page. The sole blocking gap is brakeMount/maxRotorR, which the fetched Revel page does not itemize at all (only stock-build rotors on completebike rows) - corroborated only via a WebSearch-summarized Vital MTB frame guide (180mm PM / 203mm max), not an independent fetch, so it stays below bar item 1. Retry: fetch vitalmtb.com/product/guide/frames/revel/rascal-sl-v3-64506 directly (was rate-limited this session) to see if it can be treated as a corroborating third-party spec reprint, or find a Revel geometry PDF.",
-   "source": null,
-   "note": null
+   "status": "Verified",
+   "updated": "2026-07-18T15:55:01.418Z",
+   "error": null,
+   "source": "https://revelbikes.com/products/rascal-frame-kit-2026",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-chromag-stylus-mx": {
    "cat": "frame",
@@ -26282,11 +26282,11 @@
   },
   "fr-revel-ritual-v3": {
    "cat": "frame",
-   "status": "Failed",
-   "updated": "2026-07-18T15:42:05.142Z",
-   "error": "Very strong verified candidate per the existing desc: weight (3850g) AND frameset price ($3,699) are BOTH maker-stated on revelbikes.com's own Frame Kit page, and every interface is maker-fetched too. Blocking only on process: revelbikes.com rate-limited (429) three times this session (also blocked fr-revel-rascal-v3 earlier) - bar item 1 wants a fetch confirmed IN this session, not just trusted from the prior session's lastChecked. Retry next session once the rate-limit clears: re-fetch revelbikes.com/products/ritual-frame-kit-2026, confirm fields match, then promote to verified:true directly.",
-   "source": null,
-   "note": null
+   "status": "Verified",
+   "updated": "2026-07-18T15:55:01.419Z",
+   "error": null,
+   "source": "https://revelbikes.com/products/ritual-frame-kit-2026",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-giant-reign-alloy": {
    "cat": "frame",
@@ -26363,8 +26363,8 @@
   "fr-cannondale-scalpel-ht": {
    "cat": "frame",
    "status": "Failed",
-   "updated": "2026-07-18T15:42:21.605Z",
-   "error": "Close: weight (895g, 'frames scale in at just 895 grams') AND every interface are directly maker-fetched from cannondale.com (both Carbon 3/Carbon 2 trims). Only price is a gap - the $2,000 catalog figure is a documented same-tier sample, not fetched from cannondale.com (a retailer's ~$3,025 complete-bike price is cited but not independently confirmed this session). Retry: search cannondale.com for a frame-only/frameset SKU price, or accept a confirmed complete-bike price for this exact trim if no frameset SKU exists.",
+   "updated": "2026-07-18T15:55:56.858Z",
+   "error": "Retried via bdata scrape - cannondale.com/en-us/.../scalpel-ht-carbon-3 renders cleanly but genuinely shows no price anywhere in the static content (likely a JS-loaded pricing widget, same class of gap as the norco.com wall). Weight (895g) and every interface remain directly maker-fetched and solid; only price blocks verified:true.",
    "source": null,
    "note": null
   },
@@ -26635,8 +26635,8 @@
   "fr-canyon-torque-mullet-cf": {
    "cat": "frame",
    "status": "Failed",
-   "updated": "2026-07-18T15:44:09.984Z",
-   "error": "Close: weight (2550g maker-stated) is directly fetched from canyon.com, and most interfaces are too (cross-fetched with vitalmtb.com only for shock size/exact rear travel). Sole blocker: canyon.com itself shows this SKU as 'Sold out' with no visible price (a known recurring Canyon members-only-pricing gap already documented on sibling rows) - the $4,199 figure is third-party-corroborated, not maker-confirmed. Retry: try a Canyon regional storefront (UK/EU) or an authorized-dealer listing for a confirmable current price.",
+   "updated": "2026-07-18T15:55:56.594Z",
+   "error": "Retried via bdata scrape - canyon.com confirms the same 'Sold out' state with no price shown, now verified twice (not a rate-limit/tool artifact - a genuine current stock-status fact). Weight (2550g) and most interfaces remain maker-fetched and solid. Retry later if/when this SKU restocks with a visible price.",
    "source": null,
    "note": null
   },
@@ -26667,8 +26667,8 @@
   "fr-norco-optic": {
    "cat": "frame",
    "status": "Failed",
-   "updated": "2026-07-18T15:44:10.760Z",
-   "error": "Close: weight (3.1kg) and price ($9,099) are BOTH genuine maker-stated figures per the fetched Vital MTB reprint of Norco's own spec table. Blocker: every interface is sourced from vitalmtb.com (third-party), never an independently maker-fetched norco.com page - my attempt this session to fetch norco.com/bikes/mountain/trail/optic/optic-c1-29/ returned only a bare page title, no spec content (JS-rendered, or wrong URL slug). Retry: find the correct current norco.com Optic C1 product URL and re-fetch directly.",
+   "updated": "2026-07-18T15:55:56.325Z",
+   "error": "Retried via bdata scrape (rate-limit-proof) at the correct URL (norco.com/bikes/mountain/trail/optic/24-optic-C1/) - still only returns a bare page title, no spec content. This is a genuine JS-rendering wall (norco.com), not a rate-limit or wrong-URL issue - would need bdata's browser tier (not approved for use without explicit sign-off per standing budget rules) or a different fetch route. Weight+price stay genuinely maker-confirmed via the Vital reprint; only interface provenance blocks verified:true.",
    "source": null,
    "note": null
   },
