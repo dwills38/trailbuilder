@@ -676,6 +676,20 @@ var EMTB_PARTS = [
     disciplines: ['e-enduro'], weight: 23400, price: 7500,
     note: "Merida's mixed-wheel enduro-travel e-MTB on the Shimano EP8 motor.",
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Whyte (new maker, UK) — E-180 RS
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-whyte-e-180-rs', cat: 'emtb', brand: 'Whyte', model: 'E-180 RS',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code',
+    disciplines: ['e-enduro'], weight: 25400, price: 7200,
+    note: "UK brand's long-travel gravity e-MTB; Bosch CX motor.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
