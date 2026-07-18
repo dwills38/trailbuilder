@@ -1,5 +1,22 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — gravel-3 + cleanup clusters 1-3 merged: rule-8 FM↔PM adapter tier LIVE
+
+- **catalog/gravel-3 merged**: Panaracer phantom-size rows REPLACED with real-lineup sizes;
+  GRX rows fixed + verified vs the Shimano handbook; WTB/Continental casing mislabels fixed;
+  Pirelli weights verified; Rene Herse + bartape depth. Gravel 145 rows / 12 verified.
+- **cleanup/data-model-1 clusters 1-3 merged (ENGINE-TIER, adversarially reviewed)**:
+  (1) DT Swiss dedup (one true dup row removed, 5,026→5,025) + 2 verified-row weight
+  corrections to maker figures; (2) cb-canyon-stoic-4 resolved factory-true vs the salvage
+  patch (rotor corrected; patch retired); (3) **rule 8 FM↔PM = adapter-tier WARNINGS, both
+  directions, live** — Shimano SM-MA (FM chassis→PM caliper, per DM-SMMA00A) and Wolf Tooth
+  (PM chassis→FM caliper, +20mm/boss-clearance honestly messaged) as structured fixes, the
+  rule-9 pattern, born from the mechanic corpus's BRK-28/29 resolution. Coordinator review:
+  code matches the authorization exactly; harness BYTE-IDENTICAL (no existing-catalog verdict
+  movement); +5 tests pin the new behavior (757 total). The false won't-fit on the 2 Canyon FM
+  frames is dead. Cleanup continues its remaining ledger (near-dup audit, Fasthouse lifecycle,
+  Spur Deore).
+
 ## 2026-07-18 — VERIFICATION MEGA FAN-OUT #1: CAMPAIGN COMPLETE (53.2% → 60.0%)
 
 - The long-run fan-out declared its closeout: final cockpit cluster (+9) landed it at
