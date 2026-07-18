@@ -601,6 +601,87 @@ both land in the same ~0.05–0.2 mm order of magnitude.* Source: Cane Creek "OE
 Specification Guide" Revision B (b2b.vpg.no-hosted distributor mirror, fetched); parktool.com
 HHP-3 headset-cup-press instructions (fetched), 2026-07-18. Cross-reference: FRM-33.
 
+## Campagnolo Ultra-Torque — a genuinely different BB architecture (closes half of a named L2 gap)
+
+**FRM-49 — Campagnolo's Ultra-Torque system puts the bearings ON THE CRANK ARMS, not in the
+cups — the opposite architecture from every other BB system this chapter covers — and uses a
+wave washer to absorb shell-width variance instead of a fixed-depth press.** Campagnolo's own
+dealer technical manual: *"The cups contain no bearings. The bearings are inserted into the cups
+as the arms are installed. Each arm has one-half of the spindle"* — so removing the crank pulls
+the bearing out WITH it (Park Tool's own service walkthrough: a C-clip retains the pressed
+cartridge bearing on the right-arm spindle, removed with a small screwdriver before a dedicated
+bearing puller extracts it). A **wave washer** sits under the left-side bearing specifically to
+absorb BB-shell-width manufacturing variance — Campagnolo's own tolerance for the common English/
+BSC shell is stated as **67.2–68.8 mm**, and the wave washer (not a shim stack, unlike Shimano's
+spacer approach, DRV-51) is the mechanism that takes up that range. Two independent torque
+figures, both confirmed from Campagnolo's own manual: BB cup install = **35 N·m (310 in-lb)**
+each side (Park Tool's independent service page states an identical 310 in-lb, corroborating);
+central crank-joining bolt = **42–60 N·m (372–531 in-lb)** — with an explicit exception: *"the
+titanium central screw FC-SR008 mounted exclusively on the Ultra Torque Super Record 12v
+crankset... has a LEFT-HAND thread (to tighten, turn anti-clockwise, to loosen, turn
+clockwise)"* — a single specific SKU within one crank family that reverses the tightening
+direction of every other Ultra-Torque bolt, a genuine mechanic trap if handled on autopilot.
+Chainring retaining screws torque to **8 N·m (71 in-lb)**, and Campagnolo explicitly instructs
+replacing the screws (not just re-tightening) every time the chainrings are changed. Campagnolo's
+own shell-compatibility table gives real dimensions corroborating (and extending, with a fourth
+independent manufacturer) FRM-18/32's bore-family data: BB86 = 86.5×41 mm, BB30 = 68×42 mm,
+PF30 = 68×46 mm, BBright = 79×46 mm, BB386 = 86.5×46 mm — matching the PF41/PF42/PF46 bore
+families exactly. *Confidence: confirmed (fetched Campagnolo's own dealer technical manuals,
+direct quotes, cross-checked against Park Tool's independent Ultra-Torque service page).*
+Source: campagnolo.com dealer PDFs "Technical manual — bottom bracket cup" (Rev03, fetched) +
+"12s Crankset Technical manual — Ultra-Torque" (Rev04, fetched); bikeshop.no-hosted Campagnolo
+13-speed frame-spec manual (fetched, shell table); parktool.com "Campagnolo Ultra-Torque and
+Record Group" + "Crank & Bottom Bracket Removal & Installation: Campagnolo Ultra-Torque" (both
+fetched, corroborating), 2026-07-18. Cross-reference: FRM-18, FRM-32, [`drivetrain.md`](drivetrain.md) DRV-51.
+
+## Headset locknut + UDH hanger-bolt torque (closes FRM-34's remaining named gap)
+
+**FRM-46 — Threaded-headset locknut torque IS in Park Tool's cross-manufacturer table (FRM-34
+undersold this — the fact was there, just not read closely enough last round), plus a separate
+generic rule-of-thumb figure from Park Tool's own adjustment procedure.** Park Tool's "Torque
+Specifications and Concepts" table lists, under Headset/Handlebar/Saddle/Seatpost: **threaded
+headset locknut, Chris King Gripnut type: 14.6–17 N·m (130–150 in-lb); Tange-Seiki: 24.5 N·m
+(217 in-lb)** — a real per-brand spread, consistent with FRM-34's other findings that "torque the
+X to spec" rarely has one universal number even within one component class. Separately, Park
+Tool's dedicated "How to Adjust a Threaded Headset" procedure gives a generic field figure for
+when the exact brand spec isn't known: *"This locknut should be torqued to roughly 20 Nm. Using
+perceived effort on the wrench held about 6″/15 cm from the center of the nut, apply about 30
+pounds/13.6 kg of pressure"* — a practical hand-feel calibration, not just a number, useful when
+no torque wrench fits the wide locknut flats. The 20 Nm generic figure sits between the two named
+brands' spec'd range (14.6–24.5 N·m), consistent with it being a reasonable field default rather
+than a specific-brand override. *Confidence: confirmed (fetched Park Tool, direct quotes/table).*
+Source: parktool.com "Torque Specifications and Concepts" (fetched, corrects FRM-34's own
+"not in Park Tool's table" claim — the table does cover threaded headset locknuts, this chapter
+simply hadn't quoted that row yet); parktool.com "How to Adjust a Threaded Headset" (fetched),
+2026-07-18.
+
+**FRM-47 — The UDH hanger bolt has one specific, confirmed manufacturer torque (25 N·m), is
+LEFT-HAND (reverse) threaded, must NEVER be greased, and needs a reversible torque wrench — four
+distinct, easily-missed facts about what looks like an ordinary bolt.** SRAM's own UDH User
+Manual states plainly: *"Install the UDH bolt through the washer and into the UDH hanger
+threads. Tighten the bolt to the specified torque. The UDH hanger bolt is left-hand threaded"*
+and separately: *"Do NOT apply grease to the UDH hanger inner threads or the UDH bolt outer
+threads. A reversible (left-hand and right-hand thread) torque wrench MUST be used to ensure
+proper left-hand thread bolt torque."* The manual's torque table gives the number directly:
+**25 N·m (221 in-lb)** — independently corroborated by BikeRadar's own hands-on UDH guide
+(*"SRAM specifies a 25Nm torque... Because the UDH bolt is reverse-threaded, tighten it in
+anti-clockwise orientation"*). The SRAM mechanical-Eagle derailleur manual (DRV-37's source)
+confirms the identical 25 N·m figure applies to the UDH bolt in the Half Mount configuration too
+(same bolt, same hardware, whether the derailleur behind it is Full Mount Transmission or a
+Half-Mount conventional mechanical derailleur) — a mechanic reaching for a standard (right-hand)
+torque wrench, or defaulting to "grease all threads," gets this one wrong in both directions at
+once. This is the UDH-specific fastener FRM-34's gap named as missing; it sits alongside FRM-19's
+reverse-thread-for-self-tightening pattern (BB shells) as a second, independent instance of
+reverse threading on a rotating-load bicycle joint — though here the mechanism is grease-free
+rather than the BB's grease-normal convention, another easy cross-contamination mistake for a
+mechanic who just serviced a threaded BB. *Confidence: confirmed (fetched SRAM primary — the UDH
+User Manual, two independent hosted mirrors agreeing — plus BikeRadar corroboration).* Source:
+sram.com globalassets UDH User Manual `95-7918-014-100` (fetched, as FRM-42); mtb-news.de-hosted
+mirror of the same manual (fetched, cross-check); bikeradar.com "SRAM UDH explained" (fetched);
+sram.com globalassets "1x MTB Mechanical Derailleurs User Manual" (as DRV-37, fetched,
+Half Mount UDH bolt torque table), 2026-07-18. Cross-reference: FRM-19, FRM-34,
+[`drivetrain.md`](drivetrain.md) DRV-37.
+
 ## BMX frame/crank standards (off-live)
 
 **FRM-15 [BMX] — BB shell + crank spindle diameter together select the bearing set.** BMX frame
@@ -614,6 +695,30 @@ rows.* Source: data/DJ-BMX-COMPAT-ANALYSIS.md §2a (BMX-1) + §6 (30 mm correcti
 decision: the shell×spindle *matrix* was **NOT built** — replaced by purchasable-BB exact checks
 (`bmx-bb-shell` / `bmx-bb-spindle`) + a no-BB advisory info, so no matrix-guessing false error is
 possible; reopen only if the mechanic review wants matrix-level verdicts.
+
+**FRM-48 [BMX] — the real shell×spindle bearing-kit matrix FRM-15 flagged as an open question is
+now enumerated, converging across three independent BMX shops, including the MTB-shell-via-
+adapter combos a BMX-only view would miss.** LuxBMX's own compatibility table gives real shell
+IDs and full shell×spindle Y/N matrix: **Euro/BSA** (34.92 mm ID, threaded) accepts 19 mm, 22 mm,
+24/22 mm SRAM, 24 mm Shimano-thru, and 30 mm Praxis/Box spindles; **USA** (51 mm ID) accepts only
+19 mm, 22 mm, and the legacy 23.8 mm (15/16″)/24 mm-freestyle spindles — no modern 24 mm-thru or
+30 mm option; **Spanish** (37 mm ID) accepts only 19 mm/22 mm; **Mid** (41.275 mm ID) accepts
+19 mm, 22 mm, and 23.8 mm/24 mm-freestyle — the same spindle set as USA, different shell OD.
+Genuinely new depth beyond FRM-15: modern race/pro BMX frames increasingly borrow **MTB press-fit
+shells outright** — BB86/92 (41 mm ID) and BB30/PF30 (42/46 mm ID) accept the SAME 19 mm/22 mm
+BMX spindles as Mid, PLUS 24/22 mm SRAM, 24 mm Shimano-thru, and 30/28 mm or 35/33 mm Box/Praxis
+options that Mid does NOT accept — i.e. a BB86-shelled BMX race frame has a strictly WIDER
+spindle-compatibility envelope than a traditional Mid-shelled freestyle frame, not a different
+one. Named BMX-specific bearing part numbers corroborate the shell-ID convergence from a second
+shop: Mid-19 mm uses an "R12 2RS" bearing (41 mm OD), Spanish-19/22mm uses a "6904" bearing
+(37 mm OD) — matching LuxBMX's 41 mm/37 mm shell IDs exactly. *Confidence: medium-high (three
+independent BMX-parts retailers converge on identical shell IDs and the Y/N compatibility
+matrix — shop/retail tier per corpus rule 5, not a BMX-standards-body or frame-manufacturer
+document, but internally consistent and specific enough to be actionable).* Source:
+help.luxbmx.com "BMX Bottom Bracket Measurements" (fetched, full matrix table);
+bmxdirect.net "BMX Hub and Crank Bearing sizes" (fetched, bearing part numbers); soulcyclebmx.com
+"Bottom Bracket Sizes" (fetched, corroborating shell OD figures), 2026-07-18. Cross-reference:
+FRM-15.
 
 **FRM-16 [BMX] — crank piece-count vs shell: a 1-piece crank fits ONLY an American shell.** BMX
 cranks are **3-piece** (spindle + 2 arms, modern standard, Mid/Spanish/Euro shell), **2-piece**
@@ -778,22 +883,34 @@ close, most-specific first:
   functional requirements) plus SRAM's numeric hanger dimensions, hanger thickness by axle type,
   the UDH-specific M12×1.0/12.7mm thru-axle thread spec, and the 425 mm minimum-chainstay /
   27 mm max-growth frame requirements.
-- **PARTIALLY CLOSED this round (FRM-34) — BB cartridge + crank-bolt + cassette-lockring +
-  stem-binder torque table sourced from Park Tool's cross-manufacturer compilation.** Still
-  missing: headset locknut torque (Park Tool's threaded-headset-adjustment page references
-  ~20 Nm but that page wasn't fetched this round, so it's not entered as a fact), UDH hanger-bolt
-  torque, and rotor-bolt torque (now sourced in `brakes.md` BRK-41 instead, cross-reference).
-  A full fastener torque table is explicitly L2 (`CURRICULUM.md`) — this round narrows but does
-  not close the gap.
-- **No BMX bearing-kit matrix (L2/L3 gap, pre-existing, unchanged).** FRM-15's open mechanic
-  question (enumerate the real shell×spindle bearing-kit matrix, incl. adapter combos) is still
-  open — this round did not attempt it; it needs either manufacturer bearing-catalog data or a
-  shop interview, not general web literacy.
-- **No Shimano/Campagnolo/other-brand press-fit or proprietary BB service internals (L2 gap,
-  unchanged).** This round's press-fit sourcing (Park Tool, Wheels Mfg, SRAM, Chris King) covers
-  identification/naming/interference-spec for the SRAM/generic/Chris-King side well now, but not
-  Shimano- or Campagnolo-specific service procedures or torque specs — full service-manual
-  coverage stays L2.
+- **CLOSED 2026-07-18 (FRM-46/47) — headset locknut torque and UDH hanger-bolt torque, the
+  two items FRM-34 named as still missing.** Headset locknut: Park Tool's own cross-manufacturer
+  table (Chris King Gripnut 14.6–17 N·m, Tange-Seiki 24.5 N·m) plus a 20 N·m generic field figure
+  from Park Tool's adjustment procedure — this data was in Park Tool's torque page all along;
+  FRM-34 simply hadn't quoted that row. UDH hanger bolt: a clean, confirmed **25 N·m**, left-hand
+  (reverse) threaded, explicitly NO grease, requiring a reversible torque wrench — sourced
+  directly from SRAM's UDH User Manual and cross-checked against BikeRadar and the mechanical-
+  Eagle Half-Mount manual (same bolt, same torque, either derailleur family). **Rotor-bolt
+  torque remains sourced in `brakes.md` (BRK-41), not this chapter — correct as a
+  cross-reference, not a gap.** Trek/Cannondale/Cervélo-specific BB figures remain unsourced —
+  the narrowest residual slice of FRM-34's original gap.
+- **CLOSED 2026-07-18 (FRM-48) — BMX bearing-kit matrix.** FRM-15's open mechanic question is
+  now answered with a real shell×spindle matrix (Euro/USA/Spanish/Mid shell IDs × 19/22/24/30 mm
+  spindle compatibility), converging across three BMX-parts retailers, PLUS the previously-
+  unconsidered MTB-shell-via-adapter angle (BB86/92/BB30/PF30 shells on race-BMX frames accept a
+  WIDER spindle range than traditional Mid shells). **Tier note:** this is shop/retail-tier
+  convergent sourcing, not a manufacturer or standards-body document — appropriately labelled
+  medium-high confidence, not confirmed, per corpus rule 5. Engine decision (FRM-15) to skip
+  matrix-level verdicts in favor of purchasable-BB exact checks stands; this closes the
+  knowledge gap without implying a rule change.
+- **PARTIALLY CLOSED 2026-07-18 (FRM-49) — Campagnolo Ultra-Torque service internals.**
+  Campagnolo's own dealer manuals now source the genuinely different bearings-on-the-crank-arm
+  architecture, the wave-washer shell-tolerance mechanism, cup/central-bolt/chainring-screw
+  torque figures, and the left-hand-thread titanium-bolt exception on one specific SKU. **Still
+  open: Shimano proprietary press-fit BB service internals specific to this chapter** (DRV-35 in
+  `drivetrain.md` covers Shimano crank-side torque, but a frame-side press/removal procedure for
+  Shimano's own press-fit BB families hasn't been sourced here) — narrowed from "Shimano AND
+  Campagnolo" to "Shimano only," still L2.
 - **Headset creak isolation (FRM-27) has no equivalent BB-vs-frame-crack differential test
   sourced yet** — Park Tool's noisy-drivetrain page mentions frame cracks as a creak source
   ("A crack in a weld... can also cause a creaking sound") but this round did not source a
@@ -808,8 +925,9 @@ close, most-specific first:
 - FRM-3: which spindle×shell pairs do you actively talk customers out of (short bearing life)?
   Any pair you've been unable to source a BB for?
 - FRM-11: do third-party/machined dropout conversions run Transmission reliably in the wild?
-- FRM-15 [BMX]: enumerate the real shell×spindle bearing-kit matrix — which combos exist via
-  adapter (e.g. American shell + 19 mm spindle) so a future rule doesn't false-error them?
+- FRM-15/48 [BMX]: the shell×spindle matrix is now sourced at shop-tier (FRM-48) — does a
+  mechanic reviewer confirm the retailer-convergent Y/N table against manufacturer catalogs
+  before any future rule leans on it for more than a no-BB advisory?
 - FRM-19/20: any documented case of a BB shell that's ambiguous between two national standards
   at the measurement level (not just visually) — i.e. where measuring alone isn't enough and a
   stamped marking or maker confirmation is required?
