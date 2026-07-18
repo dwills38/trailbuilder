@@ -1,5 +1,25 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — BMX fabrication cleanup merged (264 → 226 honest rows, 26.1% verified) + cb-sheets-3 (GT complete)
+
+- **verify/bmx-1 merged** — the 11-cluster verification + fabrication cleanup: 38 fabrication-class
+  rows REMOVED (each auditor-re-verified vs the brand's own site, one-line justification per
+  removal), 4 recategorized in place (S&M Pitchfork was actually a fork, Total Rotary a sprocket,
+  Eclat/Colony renames), ~45 corrected-but-unverified, verified 4 → 59. **Post-cleanup BMX: 226
+  rows / 26.1% verified — BELOW Douglas's 300/40% flip bar**, and the worker's honest read is
+  structural: many BMX brands barely sell standalone parts (genuine walls, not effort). Flip
+  paused pending Douglas's re-decision; pre-flip Opus audit launched anyway (it informs the
+  call). Golden-test fixtures swapped to real parts (same assertions). Gates green incl. both
+  BMX suites; Supercross Envy SL kept as weakest-keep, referred to the audit.
+- **verify/cb-sheets-3 batches 1-3 merged**: sheet-verified 141 → **149**; **GT 8/8 complete**
+  via the Shopify variant-JSON price trick (compare_at MSRP per pricing policy, not sale price);
+  Liv unblocked (2 rows + a $4,800→$5,000 MSRP correction); YT Jeffsy drift RESOLVED as a bad
+  Exa render (no real discrepancy); Evil Following drift still 429-blocked; NEW flag: Transition
+  Spur "Deore" trim absent from the live lineup (possible discontinued — queued for lifecycle
+  pass). Worker continues on ~285 remaining. Parts verified 2,997 (59.6%).
+- Coach INDEX.md chapter-table split fixed (one-line, flagged by the stood-down duplicate
+  session, which also independently spot-checked 2 citations — both real).
+
 ## 2026-07-17 — evening harvest sweep: fanout batch 8 (59.5%) + mechanic L2 round 3 + 10 skills guides LIVE (42 total)
 
 - **fanout batch-group 8 merged**: +32 verified — Specialized frames 17/17 COMPLETE via bdata
