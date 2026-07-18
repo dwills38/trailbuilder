@@ -789,6 +789,95 @@ tools/VERIFY-PROTOCOL.md "Interface verification" + fork extension (Douglas 2026
 
 ---
 
+## Volume-reduction hardware + coil spring selection (master round 2, batch 4)
+
+**SUS-48 — RockShox Bottomless Token part-number selection is keyed to MODEL CODE and SPRING
+TYPE, not to upper-tube diameter — a 35 mm fork can take any of three different tokens.** SRAM
+publishes a dedicated Bottomless Tokens selection chart (GEN.0000000006401 **Rev V**, © 2026
+SRAM), and its structure defeats the intuitive assumption. Reading the chart:
+
+| Token P/N | Applies to | Upper tube |
+|---|---|---|
+| **11.4018.032.000** | BoXXer, Lyrik, PIKE, Psylo, Revelation, SID, Yari (Solo Air / DebonAir / DebonAir+); BoXXer, Domain, ZEB (DebonAir / DebonAir+); ZEB (Linear XL) | 35 **and** 38 |
+| **11.4018.032.003** | Bluto, REBA, Recon Gold, Revelation, RS-1, SID, SID SL (Solo Air / DebonAir / DebonAir+); **35 Gold** (DebonAir); **Lyrik** (Linear XL) | 32 **and** 35 |
+| **11.4018.114.000** | **35 Silver** (Solo Air) | 35 |
+| **11.4018.032.004** | PIKE, Lyrik, Yari, ZEB — **Dual Position Air only** | 35 and 38 |
+
+**The load-bearing observations:** (1) **35 mm upper tube appears under all four part numbers** —
+tube diameter alone never determines the token. (2) A single fork *model* is not decisive either:
+**Lyrik takes 11.4018.032.000 with DebonAir but 11.4018.032.003 with Linear XL**, so the
+**air-spring type** is a required input. (3) **Dual Position Air forks take a unique token**
+(...004) across both 35 and 38 mm platforms. (4) PIKE 2014 (Solo Air 35) had a token that is now
+**Discontinued**, superseded by 11.4018.032.000 — a generational trap of the same family as the
+fork rotor-mount traps this corpus already records.
+**⚠ Corpus-discipline note (a live example of rule 2):** a search-result summary for this exact
+document asserted *"The Pike has a maximum of 35 bottomless tokens, while the ZEB has a maximum
+of 38"* — a misreading of the **UPPER TUBE (mm)** column as a token count. The rendered chart
+shows this document contains **no maximum-token-count data at all**; it is a part-number
+selection chart. *Search-result summaries lie* — the fetched, rendered page is the only
+admissible source. *Confidence: confirmed (fetched + rendered primary chart).* Source: sram.com
+"Bottomless Tokens" GEN.0000000006401 Rev V, pp.1–2 (fetched and **rendered** 2026-07-18 — the
+text extraction column-scrambles, the WHL-46 `pdftoppm` method resolves it). Cross-reference:
+SUS-36, SUS-39, SUS-40.
+
+**SUS-49 — RockShox rear-shock volume-reduction hardware CHANGED ARCHITECTURE across generations:
+token → ring → o-ring, and the newest part is service-kit-only.** From the same chart's rear-shock
+tables, three mechanically distinct volume-reduction parts coexist by generation:
+- **Bottomless TOKEN** — Deluxe and Super Deluxe **≤ 2022** (Solo Air / DebonAir): P/N
+  11.4118.042.001 and 11.4118.051.002, plus one **Discontinued** variant.
+- **Bottomless RING** — MegNeg / Monarch / Monarch Plus (Solo Air / DebonAir): 11.4118.042.000;
+  and Deluxe / Super Deluxe with the **Linear XL air can sleeve**: 11.4118.051.012.
+- **O-RING** — Super Deluxe **D1** (Linear XL air can sleeve), and critically: *"This product is
+  only available in the 100HR and 200HR service kits."* **There is no standalone part number** —
+  a current-generation Super Deluxe's volume spacer cannot be bought on its own.
+
+**Practical consequence for a mechanic:** "add a volume spacer to a Super Deluxe" is not one
+procedure with one part — the correct hardware depends on generation *and* air-can type, and on
+the newest generation it is only obtainable bundled in a service kit. This is a concrete,
+sourced instance of the generational-trap pattern. *Confidence: confirmed.* Source: as SUS-48
+(p.2). Cross-reference: SUS-36 (Deluxe token maxima), SUS-40.
+
+**SUS-50 [CLOSES the named "no numeric coil-spring-rate selection chart" gap, at the tier the
+source actually supports] — RockShox's coil spring chart is now sourced from a clean sram.com
+PDF and render-verified; it is a rider-weight→colour/firmness chart, NOT a lb/in rate table.**
+The gap recorded that this chart "surfaced this round only via a third-party (yumpu) mirror, not
+a clean fetchable sram.com page/PDF — skipped rather than cited from a mirror," and suggested a
+targeted re-fetch. Done: it is §"Coil Spring Rates" (p.13) of SRAM's **2025 Front Suspension
+Specifications**, fetched directly from sram.com and rendered:
+
+| Rider weight | Spring |
+|---|---|
+| < 140 lb (< 63 kg) | Silver — X-Soft |
+| 140–160 lb (63–72 kg) | Yellow — Soft |
+| 160–180 lb (72–81 kg) | Red — Medium |
+| 180–200 lb (81–90 kg) | Blue — Firm |
+| 200–220 lb (90–99 kg) | Black — X-Firm |
+
+**Scope, stated honestly — this is a narrower close than the gap's wording implied.** The chart
+covers **only TK (Coil) entry-tier forks**: Judy Silver (FS-JDYS-TK-A3), Judy (FS-JDY-TK-B1),
+Psylo Silver R (FS-PSYL-SR-A1 / SRF-A1) and Recon Silver (FS-RCNS-TK-D1). RockShox's
+enduro/trail forks in this catalog's bands are **air**, so no coil chart exists for them. It also
+gives **colour/firmness codes, not spring rates in lb/in** — the numeric rate is not published.
+*Confidence: confirmed (fetched + rendered primary).* Source: sram.com "2025 Front Suspension
+Specifications" p.13 (fetched and rendered 2026-07-18).
+
+**SUS-51 [premise correction — for the Gaps list, not the engine] — the "frame-leverage-adjusted
+coil chart" the gap asked for is a REAR-SHOCK concept and cannot exist for a fork.** The gap
+filed "rider weight + frame leverage ratio → lb spring recommendation" as one item spanning
+SUS-50's fork chart. Those are two different problems: a **fork's** coil spring acts essentially
+directly on the axle path (no linkage multiplication), so a fork spring chart is correctly keyed
+to rider weight alone — which is exactly what SUS-50 shows RockShox publishing. **Leverage ratio
+is a property of a rear suspension linkage**, so a leverage-adjusted spring-rate chart is
+inherently a *frame*-specific, rear-shock document — it would have to come from the frame maker,
+not the suspension maker, which is why no fork-side source satisfies it. **Recommended Gaps
+restructure:** treat "fork coil spring selection" (CLOSED, SUS-50) and "rear coil spring rate vs
+frame leverage ratio" (still open, and correctly an L3 *frame*/kinematics item alongside the
+existing leverage-ratio gap) as separate entries. *Confidence: confirmed as a mechanical premise;
+the recommendation itself is corpus housekeeping, not a sourced claim.* Cross-reference: SUS-17,
+SUS-50, and the chapter's open leverage-ratio/kinematics gap.
+
+---
+
 ## Gaps
 
 Honest list of what a future round needs to close to move this chapter past `foundation`:
@@ -857,17 +946,45 @@ Honest list of what a future round needs to close to move this chapter past `fou
   confirmed Fox equivalent from these two pages) — SUS-25's older "011" owner's-manual
   edition is the only source found so far for any lower-tier Fox number, and it's still
   unreconciled against current-gen. **L1 completeness gap, narrowed.**
-- **No numeric coil-spring-rate selection chart** (rider weight + frame leverage ratio → lb
-  spring recommendation). RockShox publishes a "Suspension Fork Coil Spring Chart" but it surfaced
-  this round only via a third-party (yumpu) mirror, not a clean fetchable sram.com page/PDF —
-  skipped rather than cited from a mirror. Worth a targeted re-fetch attempt (possibly via Bright
-  Data if WebFetch/Exa can't reach the primary PDF). **L1/L3 gap** (a *general* selection
-  heuristic is arguably L1; a *frame-leverage-adjusted* chart is L3 wheel/suspension-tuner
-  territory).
+- **~~No numeric coil-spring-rate selection chart~~ — SPLIT IN TWO 2026-07-18 master round 2, and
+  the fork half is CLOSED (SUS-50/51).** The old single entry conflated two different problems;
+  SUS-51 records why. Restructured:
+  - **(a) Fork coil spring selection — CLOSED (SUS-50).** The targeted re-fetch this gap asked
+    for succeeded: the chart is §"Coil Spring Rates" (p.13) of SRAM's **2025 Front Suspension
+    Specifications**, fetched from a clean sram.com PDF (no mirror needed) and **render-verified**.
+    Rider weight → colour/firmness: <140 lb Silver/X-Soft · 140–160 Yellow/Soft · 160–180
+    Red/Medium · 180–200 Blue/Firm · 200–220 Black/X-Firm. **Honestly narrower than the gap's
+    wording implied:** it covers **only TK (Coil) entry-tier forks** (Judy, Judy Silver, Psylo
+    Silver R, Recon Silver) — this catalog's trail/enduro RockShox forks are air, so no coil chart
+    exists for them — and it publishes **colour codes, not lb/in rates**. The numeric rate remains
+    unpublished; treat that as EXTERNAL.
+  - **(b) Rear coil spring rate vs frame leverage ratio — still OPEN, and reclassified.** SUS-51
+    establishes this was never a fork question: a fork spring acts ~directly on the axle path, so
+    keying it to rider weight alone is *correct*, whereas **leverage ratio is a rear-linkage
+    property**. A leverage-adjusted spring-rate chart is therefore inherently a **frame-maker**
+    document, not a suspension-maker one — which is why no fork-side source could ever have
+    satisfied it. **Belongs with the leverage-ratio/kinematics L3 gap below**, and a future round
+    should look at frame makers' own spring-rate calculators rather than at RockShox/Fox.
 - **sheldonbrown.com checked and confirmed thin for this chapter, as the curriculum predicted** —
   its suspension-adjacent content is 1990s Cannondale Headshok elastomer-fork service (an
   obsolete non-air/coil design), not applicable to this catalog's modern air/coil MTB suspension.
   Not re-attempted; future rounds shouldn't re-try this site for this chapter.
+- **NEW, CLOSED on arrival 2026-07-18 master round 2 (SUS-48/49) — volume-reduction hardware
+  SELECTION, a gap this chapter had not named.** SUS-36/39/40 already covered token *maxima* and
+  their tuning effect, but nothing covered **which token part actually fits a given fork or
+  shock**. SRAM's Bottomless Tokens chart (GEN.0000000006401 Rev V) is now fetched and rendered:
+  selection is keyed to **model code + air-spring type**, never to upper-tube diameter — **35 mm
+  uppers appear under all four token part numbers**, Lyrik takes a *different* token with Linear
+  XL than with DebonAir, and Dual Position Air forks take a unique one. On the rear, the hardware
+  **changed architecture by generation** — Bottomless Token (Deluxe/Super Deluxe ≤2022) →
+  Bottomless Ring (MegNeg/Monarch; Linear XL air cans) → **O-ring (Super Deluxe D1), which has no
+  standalone part number and is *"only available in the 100HR and 200HR service kits."***
+  **Still open (narrow):** no equivalent Fox volume-spacer selection/part-number chart was sought
+  this round — the obvious symmetric follow-up.
+  **Also recorded as a rule-2 case study:** a search summary of this very document reported
+  "Pike max 35 tokens / ZEB max 38", which is the **UPPER TUBE (mm)** column misread as a count.
+  The document contains no max-count data at all. Cheap reminder that only the rendered primary
+  counts.
 - **No leverage-ratio / kinematics engineering detail** — how a frame's linkage produces a
   progressive vs. linear (or mixed) rear-suspension rate curve, and how that curve interacts with
   air vs. coil spring choice beyond the qualitative SUS-17 note. **L3 gap** (frame-engineer
