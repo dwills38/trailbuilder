@@ -425,6 +425,33 @@ a shorter interim interval exists elsewhere.* Source: FOX "FLOAT X Part Informat
 and "36mm Part Information" (tech.ridefox.com, fetched via Exa 2026-07-17), "Maintenance
 Information" / "Service Interval" rows.
 
+**SUS-42 — RockShox's own fork SERVICE manual (2019-2022 Lyrik / 2019-2023 Yari) is now
+fetched, closing the specific "RockShox fork service manuals remain unmined" target the prior
+round flagged as this chapter's next L2 step.** Full torque table extracted cleanly: air
+spring shaft nut 3.3 N·m, top caps 28 N·m, bottom bolts 7.3 N·m, Bottomless Token bolts 4 N·m,
+Charger-damper-into-cartridge-tube (Yari) 9 N·m, rebound damper seal head (Charger 2/2.1,
+Lyrik) 5.1 N·m, DPA adjuster-knob retaining nut 2 N·m, plus five sub-2 N·m set-screw/retaining
+figures for compression knobs and remote spools — a genuinely fork-specific torque table,
+distinct from (and more granular than) the rear-shock table SUS-32/40 already carry. The
+manual's recommended-interval structure mirrors the rear-shock two-tier pattern: every-ride
+wipe-down, 50-hour lower-leg service, 200-hour full damper+spring service. **Oil volume/
+lubricant table only partially usable:** the extracted text preserves lubricant TYPE per
+circuit cleanly (Maxima PLUSH 3wt for Charger dampers' bleed, PLUSH Dynamic Suspension Lube
+Light/Heavy for DebonAir upper/lower legs, RockShox 5wt for Motion Control) and one clean
+figure — Motion Control lower-leg oil: **100-106 mm oil height, 180 mL** — but the per-model
+mL/height numbers for the DebonAir/Charger rows collapsed into an unreadable column jumble on
+extraction (a table-layout artifact, not a source ambiguity like SUS-35's). *Confidence:
+confirmed (fetched primary) for the torque table and the one clean oil figure; the rest of the
+oil-volume table needs a cleaner re-extraction (try `pdftotext -layout` on the raw PDF rather
+than a markdown-conversion fetch) before citing further numbers from it — flagged, not
+guessed.* Source: sram.com "2019-2022 Lyrik 2019-2023 Yari Service Manual"
+(GEN.0000000007193 Rev C, fetched via Exa after the raw PDF exceeded WebFetch's size limit).
+Still open: the CURRENT-generation (2023-2026) combined ZEB/Lyrik/Pike manual exists at
+sram.com but is too large to fetch even via Exa's default extraction — a future round should
+try a paginated/truncated fetch or `pdftotext` locally if the file can be downloaded. Coil-fork
+service (RockShox's own coil options) and Fox's fork-side service manual (vs. the part-info
+pages SUS-41 used) remain unattempted.
+
 ## Fork travel vs frame
 
 **SUS-8 — Over-travel fork vs frame rated max = WARNING; where a maker publishes an APPROVED
@@ -631,13 +658,18 @@ Honest list of what a future round needs to close to move this chapter past `fou
   the JSON-driven page structure — resolving the prior round's "Fox site structure
   resisted a clean fetch" note) for FLOAT X (IFP-by-reservoir, seal-kit PNs, base-valve
   torque) and the 36 fork (bath-oil volumes by circuit, NA3 Glidecore air-spring rebuild
-  torque chain, current-gen service interval). **Still open:** this closes rear-shock L2
-  for both majors and fork L2 for Fox only. **RockShox's own FORK service manuals
-  (Lyrik/Zeb/Pike) remain unmined** — the next specific target for L2 fork-side torque/
-  oil-volume data. Coil-shock service internals (RockShox Super Deluxe Coil, Fox DHX,
-  Öhlins/EXT/Cane Creek) are also untouched — everything mined this round was air-spring
-  shocks/forks. **L2 gap narrowed to: RockShox fork service manuals + any coil-shock
-  service manual.**
+  torque chain, current-gen service interval). **CLOSED this round (SUS-42): RockShox's own
+  Lyrik/Yari fork service manual is fetched** — full torque table (top caps, air spring shaft
+  nut, bottom bolts, damper-specific fasteners) landed cleanly; the oil-volume table only
+  partially extracted (one clean Motion Control figure, the DebonAir/Charger rows garbled by
+  a table-layout artifact — flagged for a `pdftotext -layout` re-attempt, not guessed). **Still
+  open:** the CURRENT-gen (2023-2026) combined ZEB/Lyrik/Pike manual exists but is too large
+  to fetch (exceeded both WebFetch's size cap and Exa's default extraction) — this round's
+  Lyrik/Yari data is 2019-2023-generation, not current-gen. Coil-shock service internals
+  (RockShox Super Deluxe Coil, Fox DHX, Öhlins/EXT/Cane Creek) and Fox's own fork-side SERVICE
+  manual (vs. the part-info pages SUS-41 used) remain untouched. **L2 gap narrowed to:
+  current-gen RockShox fork manual (needs a paginated/local-download fetch strategy) + any
+  coil-shock/coil-fork service manual + Fox's fork service manual proper.**
 - **No unified cross-brand torque-spec table** exists yet as a standalone reference (the
   values are now IN the chapter, SUS-32/SUS-40, but scattered across per-model facts
   rather than collected into one lookup table). Worth a follow-up pass to compile once
