@@ -1,6 +1,9 @@
 # Performance & Perceived Performance
 
-**Maturity: professional** (L1 complete + L2 INP-mechanism/perception-research depth, round 3, 2026-07-18)
+**Maturity: master** (L1+L2 complete + L4 measurement depth — the field-data question answered
+against vendor primaries: RUM/lab/CrUX doctrine, Cloudflare's actual CWV capability and its
+Chromium-only bias, CrUX eligibility, and the finding that the site's own field data already
+exists unread; round 4, 2026-07-18)
 
 LCP/INP budgets, no-build-step constraints, font/paint behavior. Read [`INDEX.md`](INDEX.md)
 first.
@@ -135,13 +138,101 @@ first.
   inherent risk here (no hero imagery, a stable-layout app), but the number is now on record for
   when field measurement (still a gap) becomes possible.*
 
+---
+
+## Field measurement / RUM doctrine (round 4 / master, 2026-07-18)
+
+The chapter's three standing Gaps all reduced to one question: **what can this site actually
+measure in the field, on a static-hosting stack, without violating SITE-CONSTRAINTS?** Answered
+this round by fetching the vendor docs rather than reasoning about them. The headline is that
+**the capability was already shipping and nobody had looked at it.**
+
+- **PRF-13 — RUM vs lab vs CrUX: the three field-data routes, and what each can and cannot tell
+  you.** *Lab* data (Lighthouse, local profiling) is synthetic — one device, one network, no real
+  users; it is a debugging tool and **cannot** confirm a Core Web Vitals pass, because CWV is
+  defined at the **p75 of real users**. *RUM* is your own beacon measuring your own visitors —
+  full control, complete coverage of your traffic, but only your traffic and only from the
+  moment you start. *CrUX* is Chrome's public dataset of real Chrome users, which requires no
+  instrumentation at all but only covers origins that clear a popularity threshold. The three
+  are complements, not substitutes: **lab tells you why, RUM and CrUX tell you whether.**
+  *Corpus synthesis of the PRF-14/15 fetches below, labelled as the corpus's own framing.*
+
+- **PRF-14 — Cloudflare Web Analytics DOES report Core Web Vitals, via RUM.** It reports **LCP,
+  INP and CLS** — all three current Core Web Vitals — plus First Paint and First Contentful
+  Paint as supplementary page-load stats. Collection is via "its lightweight JavaScript beacon,"
+  i.e. genuine real-user monitoring, not synthetic. Each metric is rated **Good / Needs
+  Improvement / Poor** on Google's standard thresholds, and a **Debug View** exposes **P75, P50,
+  P90 and P99** percentiles *and names the affected elements* — which is the part that makes it
+  actionable rather than merely a scoreboard. It requires no DNS change and no Cloudflare proxy;
+  the beacon works on any host. Privacy posture matches the site's: no cookies, no
+  `localStorage`, no IP/User-Agent fingerprinting.
+  **⚠ Documented limitation, load-bearing: "Core Web Vitals is currently only supported in
+  Chromium browsers, with Safari and Firefox coming soon."** *Tier A (vendor primary), fetched
+  https://developers.cloudflare.com/web-analytics/data-metrics/core-web-vitals/ 2026-07-18.*
+
+- **PRF-15 — CrUX eligibility: this site almost certainly does not qualify (yet).** CrUX only
+  includes origins and pages that are publicly discoverable **and** have "a large enough number
+  of visitors" to be statistically significant; those below the threshold "are not included in
+  the CrUX dataset." Google does not publish the exact number. A further exclusion rule: if more
+  than **20%** of a page's or origin's traffic falls into ineligible dimension combinations, the
+  whole page/origin is dropped. Data is available origin-level *and* page-level, through
+  PageSpeed Insights, the CrUX API, the BigQuery dataset and CrUX Vis. *Tier A, fetched
+  https://developer.chrome.com/docs/crux/ and .../crux/methodology/ 2026-07-18.*
+  **Site consequence — an expectation-setter worth recording before someone runs the test and
+  misreads it:** buildmymtb.com is a young, low-traffic site, so a PageSpeed Insights run on it
+  will most likely show **lab (Lighthouse) results only, with the field-data section empty or
+  absent**. That absence is *not* a performance problem and must not be reported as one — it is
+  a traffic-volume statement. This is exactly the "both errors cost" case: a false alarm here
+  would send someone optimising against synthetic numbers.
+
+- **PRF-16 — ✅ The site is ALREADY collecting field CWV data. Nobody has read it.** The Gaps
+  above assumed field measurement would need new tooling; it does not. `index.html:954` already
+  loads the Cloudflare Web Analytics beacon (`static.cloudflareinsights.com/beacon.min.js`,
+  shipped 2026-07-16), and per PRF-14 that beacon *is* the CWV RUM collector. **Real LCP/INP/CLS
+  percentiles for this site exist today in Cloudflare's Vitals Explorer**, accumulating since the
+  beacon went live.
+  **Recommended action is therefore a *reading*, not a build**: open Vitals Explorer for
+  buildmymtb.com, record the p75 LCP/INP/CLS against PRF-1/PRF-2's thresholds (2.5 s / 200 ms),
+  and use Debug View's element attribution to find what the LCP element actually is — which
+  would settle PRF-1's site-note *inference* that the LCP element "is almost certainly a text
+  block" with an actual measurement. Douglas holds the Cloudflare account — **this needs him or
+  the coordinator; it is not fetchable by an agent**, so it is a recommend-to-Douglas item, not
+  a corpus gap a future round can close.
+  *Zero SITE-CONSTRAINTS cost: no new dependency, no build step, no vendored library, nothing to
+  add to the page — the instrumentation is already there and already paid for.*
+
+- **PRF-17 — Do NOT vendor a separate RUM library (e.g. Google's `web-vitals`).** It would be
+  technically permissible under the vendoring convention, but PRF-16 makes it redundant for the
+  three metrics that matter, and it would add a script to the critical path of the very page
+  whose performance is being measured. **The one case that would justify revisiting**: if
+  PRF-14's Chromium-only limitation becomes blocking — i.e. if the site needs Safari/iOS field
+  data specifically, which for a mobile-heavy MTB audience is a real possibility and is
+  precisely the population Cloudflare's beacon currently cannot see. Until then the honest
+  position is that **the site's CWV field data is Chromium-shaped**, and any conclusion drawn
+  from it inherits that sampling bias — state it whenever the numbers are quoted. Re-check the
+  Cloudflare limitation periodically; the docs say Safari and Firefox are "coming soon," which
+  would close this gap for free. *Corpus judgment applying SITE-CONSTRAINTS to PRF-14/16;
+  flagged as the corpus's own call.*
+
 ## Gaps (next-round targets)
 
-- Field measurement: no CWV data exists for buildmymtb.com (Cloudflare Web Analytics measures
-  traffic, and any RUM/CWV capability it has is unverified). Pinning real LCP/INP/CLS numbers is
-  the first actionable step — recommend-to-coordinator, not implement.
+**Closed in round 4 (2026-07-18)** — kept as a record, do not re-open:
+- ~~"no CWV data exists for buildmymtb.com... any RUM/CWV capability is unverified"~~ →
+  **CLOSED by PRF-14 + PRF-16**, and the premise was wrong in the site's favour: Cloudflare's
+  beacon *is* a CWV RUM collector (LCP/INP/CLS at p75, with element attribution) and it has been
+  shipping since 2026-07-16. The data exists; it is unread, not uncollected.
+- ~~"no CWV field-data tool evaluated for this stack... check before recommending a RUM
+  library"~~ → **CLOSED by PRF-17**: evaluated, and the recommendation is *not* to add one.
+
+**Still open:**
+- **Reading the actual numbers** (PRF-16) — needs Cloudflare dashboard access, so it is a
+  recommend-to-Douglas action, not something a corpus round can fetch. Until someone reads
+  Vitals Explorer, **every performance claim about this site remains untested**, including
+  PRF-1's inference about which element is the LCP element.
+- **The Chromium-only sampling bias** (PRF-14/17) is a permanent caveat on any figure quoted
+  from that source until Cloudflare ships Safari/Firefox support. Worth re-checking each round —
+  it closes for free.
 - PRF-8's lean (skeleton screens likely suit an informational catalog better) has never been
-  tested on this site specifically — a real recommend-and-measure step, not a corpus fact.
-- No CWV field-data tool has been evaluated for a Cloudflare-Pages/static-hosting-only stack
-  (e.g. whether Cloudflare Web Analytics' own RUM extension covers CWV) — worth checking before
-  recommending a separate RUM library.
+  tested on this site specifically — a real recommend-and-measure step, not a corpus fact. Note
+  this is now *testable*: PRF-16's data plus a usability study design would settle it, which is
+  what the planned L4 research-methods chapter is for.
