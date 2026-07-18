@@ -333,6 +333,58 @@ border color (~1.2–1.7:1 against `--bg` in every theme) looks alarming in isol
 boundary anywhere found this round, so it is NOT tagged a contradiction — flagged here only so
 a future round doesn't re-discover it as a false positive.*
 
+---
+
+## ACC-24 — the round-2 dot-contrast contradiction is RESOLVED (re-audit, round 4, 2026-07-18)
+
+Round 2 raised a ⚠ CONTRADICTION (above): in the light theme, `.dot.w` (2.19:1) and `.dot.n`
+(1.46:1) failed SC 1.4.11's 3:1 non-text floor, and `.dot.g` cleared it by only 0.24. **The fix
+shipped 2026-07-18 (`b269e2d`).** Re-audited against the shipped state, per the corpus rule that
+a correction is a new fact, never an edit to the old one.
+
+**The fix took the better of the two available routes.** The four fill hexes are *unchanged*
+(`#2aa35a`/`#e0a52e`/`#d23b3b`/`#d2d7d1`) — instead the dot gained a **1.5 px `--dot-ring`
+border** and a **glyph**. That matters because SC 1.4.11 is satisfied by the component's
+*boundary* clearing 3:1; re-tinting four fills across four themes would have been a wider,
+more fragile change with knock-on visual cost.
+
+Recomputed (same relative-luminance method as the round-2 audit), ring vs each theme's `--card`:
+
+| Theme | `--card` | `--dot-ring` | ring vs card |
+|---|---|---|---|
+| light (default) | `#ffffff` | `#5a625e` | **6.28 ✅** |
+| dark | `#1f2522` | `#dfe4e0` | **12.12 ✅** |
+| loam | `#241a13` | `#dfe4e0` | **13.24 ✅** |
+| rad | `#22093f` | `#dfe4e0` | **13.84 ✅** |
+
+All four clear the 3:1 floor with margin — the previously-failing light theme by better than 2×.
+**SC 1.4.11: PASS in all four themes.**
+
+**ACC-4's second demand — the non-colour channel — is also satisfied**, which is the part worth
+noting because it was the subtler half of the original finding. Each state now carries a glyph
+(`✓` no new conflict, `!` fits-but-warns, `✕` adds an error, `–` nothing to judge yet), so the
+four states are distinguishable without colour perception. Glyph ink (`#141816`) against its own
+fill: 5.53 / 8.18 / 3.78 / 12.27 — all clear 3:1, the red being the tightest at 3.78.
+
+Two implementation details worth recording as doctrine rather than findings:
+- **The fills and glyphs are defined once and shared by both `.dot` and the legend's `i` swatch**
+  (`.dot.g,.legend i.g{…}`). The legend previously forked these into inline styles and could
+  drift from the dots it explains. Same anti-drift lesson as ACC-22's native `<dialog>` and
+  DNS-15's native `<input type=range>` — **the corpus has now seen this pattern three times: the
+  robust fix is the one that removes the opportunity for divergence, not the one that
+  re-synchronises two copies.**
+- **The dot carries `role="img"` + an `aria-label` with the real reason.** `role="img"` makes it
+  a leaf, so AT announces the label and never descends into `::after` glyph content — the glyph
+  is decorative to a screen reader and meaningful to a sighted user, which is exactly right.
+  Legend swatches are `aria-hidden` and label themselves via adjacent text.
+
+*Remaining honest caveat (not a finding):* the glyph renders at `font-size:8px`. Its meaning is
+carried by the `aria-label` and hover reason rather than the glyph alone, so SC 1.4.4 (Resize
+Text) is not implicated — but at that size the glyph is a *reinforcing* channel, not a fully
+independent one for a low-vision sighted user who is not using AT. The ring + fill + glyph
+combination still comfortably beats the round-2 state; flagged only so a future round doesn't
+treat the glyph as carrying more load than it does.
+
 ## Gaps (next-round targets)
 
 **Closed in round 4 (2026-07-18)** — kept as a record, do not re-open:
@@ -352,8 +404,9 @@ a future round doesn't re-discover it as a false positive.*
 - **A real screen-reader session has never been run on this site.** ACC-21 is explicit that
   markup auditing cannot substitute. This is a recommend-to-Douglas item (it needs a human),
   not a gap a future corpus round can close by fetching.
-- The dot-contrast finding (round 2) still needs a coordinator decision + a follow-up fact once
-  fixed (append a new fact, don't edit ACC-4's audit).
+- ~~The dot-contrast finding (round 2) needs a coordinator decision + a follow-up fact once
+  fixed~~ → **CLOSED round 4 by ACC-24**: fix shipped `b269e2d`, re-audited, SC 1.4.11 passes in
+  all four themes (6.28–13.84:1) and the non-colour channel ACC-4 asked for now exists (glyphs).
 - **FINDING 1 (profileModal `autofocus`) and FINDING 2 (`100vh` → `100svh`) from ACC-22 are
   open coordinator actions**, not corpus gaps — they close when the app changes, and each
   should get a new confirming fact then.
