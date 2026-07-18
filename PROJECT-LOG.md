@@ -2344,3 +2344,35 @@ per wave/decision; large reconstructions are handed to a worker session.
   parallel-safe pattern working as designed). Aeffect-R stem DUP (parked item) noted still open:
   both st-raceface-aeffect-r-35 and -35-40 exist. Gates: validate 7×OK (**3,027 verified**, +10
   net incl. the demotion), 764 tests, tsc clean, harness BYTE-IDENTICAL.
+
+## 2026-07-18 — VERIFIED-FLAG INTEGRITY AUDIT merged: 55 false-verified rows demoted
+
+- **Merged `audit/verified-flag-1`** (report: tools/VERIFIED-FLAG-AUDIT-2026-07-18.md). All 3,512
+  verified rows swept (2,184 language hits → 889 clusters human-read) + provenance-field sweep +
+  10 random rows re-fetched live. **55 compat.js rows demoted** (verified:true removed,
+  source/lastChecked retained, dated DEMOTED note per row, NO values changed): 4 flagrant
+  ("UNVERIFIED sample" descs carrying the flag), 33 review/retailer-sourced (vitalmtb et al — incl.
+  all 10 DVO Onyx forks and 8 completebikes), 10 with sample/assumed checkBuild-read fields (most
+  are ONE targeted maker fetch from re-promotion — queued as grind), 2 storing a different product's
+  price (fr-devinci-troy-st, the trigger + its exact twin fr-transition-sentinel-alloy), 2 bikes
+  whose fills knowingly diverge from the fetched sheet. **BMX + Kit: zero demotions.** MTB verified
+  3,027 → **2,972** (the number went DOWN because the truth did — the badge now means what it says).
+- **Spot-verify result is the good news: 8/9 fetchable random rows fully supported** (Revel price
+  exact, Intense Tracer every interface+weight exact, Burgtec/TRP/Kali/Endura/SRAM exact), zero
+  interface/weight contradictions in the sample. The demoted 1.6% were the tail, not the body.
+- **Test evolved, not weakened** (per the brief's explicit bar): test-ui.js's sheet-verified
+  exemplar was itself among the demoted (cb-devinci-django-carbon-gx, vitalmtb-sourced) → swapped
+  to the maker-sourced, same-day-re-verified cb-revel-ritual-sram-eagle90, reasoning inline.
+  Coordinator reviewed the swap — same contract asserted, better exemplar.
+- **Coordinator review notes:** spot-checked demotions verbatim (Nukeproof pair, troy-st);
+  initial false-alarm on fr-nukeproof-giga-290 was my own sampling error (already unverified on
+  main, not a demotion). Harness delta = exactly one INFORMATIONAL annotation line (the DVO
+  fork family's "(verified 6/6)→(0/6)" tag) — zero verdict changes. Gates: validate 7×OK
+  (2,972 verified), 764 tests, tsc clean.
+- **AWAITING DOUGLAS (in the report, §not-applied):** (1) THE PRICE POLICY GAP — 1,000+ verified
+  rows carry disclosed sample/converted prices under self-citing precedent (SRAM publishes no MSRP,
+  Shimano handbook set, GBP/EUR conversions); recommend formalizing "price never blocks
+  verification when no US MSRP exists, basis stated" + a UI disclosure, since the badge currently
+  overclaims PRICE specifically; alternative = demoting four digits of rows. (2) formalize the
+  frames interface-verification exception (unwritten today). (3) four named row calls incl. an
+  apparent duplicate DVO fork id pair. verification-job.json untouched — next sync observes.
