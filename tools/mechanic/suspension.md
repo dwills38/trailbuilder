@@ -991,7 +991,19 @@ Honest list of what a future round needs to close to move this chapter past `fou
   territory, not generalist).
 - **No suspension-tuning-as-race-strategy notes** — pressure/rebound trade-offs for race
   conditions, pit-stop rebuild/swap procedures, what actually breaks under World Cup loads.
-  **L4 gap** — the furthest-out level per CURRICULUM.md, expected to arrive last.
+  **L4 gap** — the furthest-out level per CURRICULUM.md, expected to arrive last. **Attempted
+  2026-07-18 master round 2 and blocked; recorded so it isn't re-attempted blindly.** SRAM's
+  "Suspension Setup and Tuning Guide" URL
+  (`sram.com/globalassets/document-hierarchy/tuning-manuals/suspension-setup-and-tuning-guide-english.pdf`)
+  **is not a PDF** — it serves an HTML redirect to the `docs.sram.com` Suspension User Manual,
+  which this chapter has already mined (SUS-26–31). So there is **no separate RockShox
+  race-tuning document** behind that name; the setup guidance is the user manual. **Next route:**
+  suspension-brand *race-support* or *athlete-setup* material (Fox Factory Racing / RockShox
+  SRAM Racing), or labelled **Tier-B** race-mechanic interviews — the latter deliberately not
+  harvested this round (see the parallel note in `wheels-tires.md`'s L4 gap for the reasoning:
+  a thin practitioner pass risks dressed-up consensus, which rule 2 forbids). The chapter's
+  cross-reference for what WAS landed at L4 this round is `wheels-tires.md` **WHL-53** (the UCI
+  feed/technical-assistance-zone regulatory frame).
 
 ## Open mechanic questions (for the human review — do not act)
 - SUS-9: should a bare "Fork Compatibility: X–Y mm" line (no softening language) default to a
