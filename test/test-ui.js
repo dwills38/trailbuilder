@@ -131,3 +131,17 @@ test('parseRouteHash requires a non-empty id after #forum/ and #profile/ (a bare
   eq(C.parseRouteHash('#forum/').view, null);
   eq(C.parseRouteHash('#profile/').view, null);
 });
+/* Malformed percent-encoding must NEVER throw. routeHash() runs at load, before
+   sync() and the auth wiring, so an escaping URIError would leave the whole app
+   un-initialized on a truncated/mangled shared link — a blank-page bug reachable
+   from an ordinary bad URL. An undecodable id is not a route we own, so it must
+   fall through to {view:null} and let the builder render normally.
+   (Coordinator-added at the NAV-16 merge review, 2026-07-18.) */
+test('parseRouteHash never throws on malformed percent-encoding (falls through to no route)', function(){
+  ['#guide/%', '#forum/%', '#profile/%', '#guide/%E0%A4%A', '#forum/%zz', '#profile/100%'].forEach(function(h){
+    var r;
+    try { r = C.parseRouteHash(h); }
+    catch(e){ throw new Error('parseRouteHash threw on ' + h + ' (' + e.name + ') — routeHash() runs at load, so this blanks the app'); }
+    eq(r.view, null);
+  });
+});

@@ -2096,3 +2096,38 @@ per wave/decision; large reconstructions are handed to a worker session.
   (4) PII string sweep clean (apparent SSN-shaped hits were part numbers like `CS-LG300-10-1148`).
 - Standing note for future seats: the repo being PUBLIC means tracked docs are as visible as the
   site itself — treat "is it on the website?" and "is it in the repo?" as two separate questions.
+
+## 2026-07-18 — NAV-16 site-wide hash router SHIPPED (+ a coordinator-caught load-time crash)
+
+- **Merged `ui/hash-router-nav16`** (52cc630): the guides-only `routeGuidesHash` is generalized into
+  ONE router owning every full-page view — `#guides`, `#guide/<slug>`, `#forum`,
+  `#forum/<threadId>`, `#inventory`, `#profile/<userId>`. Closes navigation-ia's NAV-16
+  CONTRADICTION: three of four full-page views were invisible to Back, so pressing Back from the
+  forum/inventory/profile **left the site entirely**. Forum threads and rider profiles are now real,
+  shareable, cold-loadable URLs. Honors NAV-15's doctrine exactly — places get `location.hash`
+  entries, build STATE keeps `replaceState`, and writeHash's clobber guard now covers all four
+  routed page classes plus a `_routePending` flag holding it across two async windows (the
+  auth-restore round-trip for `#inventory`, the profiles-feature probe for `#profile/<id>`). A
+  signed-out cold `#inventory` link bounces to the builder and opens the SAME sign-in modal the
+  header button opens — reached by a URL naming a protected view, not an unsolicited pop-up.
+  Incidental real fix folded in: opening a routed page now clears the others first — previously a
+  forum author link left BOTH `forum-page` and `profile-page` on `<body>` and rendered two views.
+- **⚠ COORDINATOR REVIEW CAUGHT A LOAD-TIME CRASH the worker's own testing missed.**
+  `parseRouteHash` called `decodeURIComponent` unguarded, which **throws URIError on malformed
+  percent-encoding** (`#guide/%`, `#forum/%zz`, a truncated share, a mangling link-shortener, a
+  crawler). `routeHash()` runs at load BEFORE `sync()` and the auth wiring, so the escaping throw
+  would leave the entire app un-initialized — a blank-page bug reachable from an ordinary bad URL,
+  on the live surface. Fixed in `src/compat.js`: an undecodable id is not a route we own, so it
+  falls through to `{view:null}` and the builder renders normally. Six malformed shapes added to
+  `test/test-ui.js` with the reasoning inline so the guard can't be silently removed
+  (763 → 764 tests). The worker's browser pass covered valid routes and `#garbage` (which parses
+  cleanly) but not malformed encoding — recording it because it is exactly the class the
+  present-don't-push review gate exists to catch.
+- **Verification:** four gates green (validate 7×OK / 764 tests / tsc clean) and the
+  **verdict-audit harness came back BYTE-IDENTICAL** (compat.js changed, but `parseRouteHash` is a
+  pure addition — zero engine rules touched). Independent browser pass on the merged tree: catalog
+  fully renders (436 bikes) WITH a malformed hash in the URL, proving load-time initialization
+  survives; `#guides` → `guides-page`, `#forum` → `forum-page`, build hash → builder, each with an
+  exclusive single body class (the exclusivity fix confirmed); zero open `<dialog>`s across every
+  route tested (popup scan clean); zero console errors. `bmx.html`/`KitBuilder` grep-confirmed not
+  to share the view-toggle code — untouched.
