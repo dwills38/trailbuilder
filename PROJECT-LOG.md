@@ -1,5 +1,17 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — EMTB build-out phase COMPLETE: 75 bikes / 28 makers (off-live)
+
+- The EMTB all-nighter declared closeout and merged (2d876c4): 10 seeds → 75 models across 28
+  makers, every maker on the brief covered with depth + 18 more real makers added; motor vocab
+  widened 3x per the widen-with-a-real-row rule (tq/giant/yamaha — coordinator sanity-checked,
+  all real motors). The worker STOPPED CLEAN inside Douglas's ~60-100 threshold range rather
+  than pad with boutique brands it couldn't vouch for (Liteville/Simplon/Nicolai deliberately
+  skipped, not fabricated) — exactly THE BAR. 0 verified by design (verification is a separate
+  Douglas-gated round; e-MTB maker pages are heavily walled per the model doc). Remaining for
+  Douglas: the 4 parked EMTB decisions (shape/threshold/class-display/page). Session archived
+  with honors. Containment held throughout — the MTB catalog never gained an e-field.
+
 ## 2026-07-18 (midday) — overnight closeout sweep: EMTB final batches merged; cleanup session retired
 
 - EMTB all-nighter's rebased chain merged (6ec0682): 66 bikes / 28 makers final for the
