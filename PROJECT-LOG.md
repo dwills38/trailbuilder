@@ -1,5 +1,15 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — recall notes SHIPPED on the 2 confirmed-match rows (Douglas's call)
+
+- Data-tier recall disclosure live: fr-transition-tr11-alloy + cb-transition-tr11-alloy-gx
+  (RCL-12 stop-ride, serial range TBC4801-4803XXX stated) and the 4 DT Swiss ARC/ERC 1100
+  road rows (RCL-9, CPSC #25-445, ID 2740000+ scoping stated). Facts quoted from RECALL-LOG,
+  serial/unit-specific framing throughout ("this row describes the platform, not any
+  individual unit"), remedy links included. Desc/note text only — no UI element, no popup;
+  visible wherever descs render. Harness byte-identical; the recall BADGE feature stays
+  parked with Douglas's taste decisions.
+
 ## 2026-07-18 — 🏆 ALL THREE SPECIALIST BOARDS FULL: coach 7/7, mechanic 6/6, ui-expert 7/7
 
 - tooling/ui-expert-marathon merged (49bb028): all 5 remaining chapters → professional in one
