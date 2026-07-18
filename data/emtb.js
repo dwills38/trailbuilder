@@ -872,6 +872,20 @@ var EMTB_PARTS = [
     disciplines: ['e-enduro'], weight: 25600, price: 4500,
     note: 'Entry alloy trim beneath the E2; same motor/battery.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Devinci depth (E-Troy Carbon)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-devinci-e-troy-carbon', cat: 'emtb', brand: 'Devinci', model: 'E-Troy Carbon',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-trail', 'e-enduro'], weight: 21800, price: 9200,
+    note: 'Top-tier carbon E-Troy build.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
