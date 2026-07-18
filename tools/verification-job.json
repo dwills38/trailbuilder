@@ -1,23 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T16:02:02.663Z",
+ "updated": "2026-07-18T16:15:50.242Z",
  "batchSize": 25,
- "lastCompleted": "fr-orbea-laufey",
- "currentCategory": "frame",
+ "lastCompleted": "ti-pirelli-scorpionxc-rc-29-22-pw-dual",
+ "currentCategory": "tire",
  "queue": [
-  "fr-pivot-les-sl",
-  "fr-bmc-twostroke-01",
-  "fr-radon-cragger",
-  "ti-michelin-wildenduro-racingline-29-25-gs-mh",
-  "ti-michelin-wildenduro-performanceline-29-25-mh",
-  "ti-michelin-wildenduro-performanceline-29-24-ms",
-  "ti-michelin-wildenduro-performanceline-275-25-mh",
-  "ti-michelin-wildenduro-performanceline-275-24-ms",
-  "ti-michelin-wildenduro-rear-performanceline-29-24",
-  "ti-michelin-dh34-275-24",
-  "ti-pirelli-scorpionxc-rc-29-24-pw-dual",
-  "ti-pirelli-scorpionxc-rc-29-22-pw-dual",
   "ti-cst-camber-29-225",
   "ti-bontrager-xr1-29-22-innerstrength-tmspeed",
   "ti-bontrager-xr5-29-25-tmgrip",
@@ -6409,57 +6397,57 @@
   },
   "ti-michelin-wildenduro-racingline-29-25-gs-mh": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T16:12:46.618Z",
+   "error": "Retried this session: FETCHED michelinman.com/bicycle/tires/michelin-wild-enduro-mh-racing-line directly via bdata scrape (confirms the 29x2.50 SKU image/size), but the weight/TPI/price spec table is JS-loaded and not captured in the static content - same pre-existing 'Michelin sits in the retry queue: JS-rendered/bot-blocked' wall CLAUDE.md already documents, confirmed to persist even under the Web Unlocker. Weight/price stay bikerumor press-coverage sourced (not manufacturer-direct).",
    "source": null,
    "note": null
   },
   "ti-michelin-wildenduro-performanceline-29-25-mh": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T16:12:46.741Z",
+   "error": "Same Michelin JS-spec-table wall as the MH Racing Line sibling (FETCHED michelin-wild-enduro-mh-performance-line directly this session, same result: page renders, spec table doesn't). Weight/price stay bikerumor press-coverage sourced.",
    "source": null,
    "note": null
   },
   "ti-michelin-wildenduro-performanceline-29-24-ms": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T16:12:46.874Z",
+   "error": "Same Michelin wall (this exact MS Performance Line page not yet found/tried, but the pattern is consistent across every Wild Enduro page fetched this session). Weight/price stay bikerumor press-coverage sourced.",
    "source": null,
    "note": null
   },
   "ti-michelin-wildenduro-performanceline-275-25-mh": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T16:12:46.998Z",
+   "error": "Same Michelin wall (27.5in sibling of the MH Performance Line, same source table). Weight/price stay bikerumor press-coverage sourced.",
    "source": null,
    "note": null
   },
   "ti-michelin-wildenduro-performanceline-275-24-ms": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T16:12:47.124Z",
+   "error": "Same Michelin wall (27.5in sibling of the MS Performance Line). Weight/price stay bikerumor press-coverage sourced.",
    "source": null,
    "note": null
   },
   "ti-michelin-wildenduro-rear-performanceline-29-24": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T16:12:47.268Z",
+   "error": "FETCHED michelinman.com/bicycle/tires/michelin-wild-enduro-rear-performance-line directly this session - same JS-spec-table wall as the other Wild Enduro pages. Weight/price stay bikerumor press-coverage sourced.",
    "source": null,
    "note": null
   },
   "ti-michelin-dh34-275-24": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T16:12:47.396Z",
+   "error": "Michelin's own DH34 page not directly fetchable this session either (same documented JS-wall class); weight already flagged as a sample midpoint across conflicting third-party figures (1250-1350g), price/casing/compound sourced from retailer listings, not manufacturer-direct.",
    "source": null,
    "note": null
   },
@@ -26888,19 +26876,19 @@
   },
   "fr-pivot-les-sl": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T16:10:47.408Z",
+   "error": "Coordinator's frameset-sibling-URL heuristic applied: found the correct domain is pivotcycles.com (not pivot.com, an unrelated insurance company - my first guess). Direct bdata scrape of pivotcycles.com/en-us/bikes/les-sl independently RE-CONFIRMS weight (\"just over 800 grams for a medium\", maker-stated, matches catalog exactly) - a genuine second manufacturer source for the weight bar. But the page's Build Specs/Product Details tabs are JS-loaded and not captured in the static scrape, so BB/axle/headset/rotor/frameset-price stay third-party (99spokes/bikerumor) sourced, not closing bar item 1. Retry: find the JSON/API endpoint or a printable spec-sheet page pivotcycles.com uses for its tabbed specs.",
    "source": null,
    "note": null
   },
   "fr-bmc-twostroke-01": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T16:10:47.635Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Price bar unmeetable: tried a frameset-SKU URL guess (twostroke-01-frameset) per the coordinator's new heuristic, 404'd - BMC does not appear to sell this frame separately. Price stays the complete-bike MSRP; weight not published at all. Interfaces are otherwise solidly maker-fetched."
   },
   "fr-trek-procaliber-c-gen3": {
    "cat": "frame",
@@ -26912,11 +26900,11 @@
   },
   "fr-radon-cragger": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T16:10:47.877Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: Radon sells this platform as completes only (no frameset SKU found), and no frame-only weight is published (only a complete-bike figure, which this catalog's policy forbids splitting/inventing)."
   },
   "ti-maxxis-minion-dhf-29-25-exo-mg": {
    "cat": "tire",
@@ -26960,17 +26948,17 @@
   },
   "ti-pirelli-scorpionxc-rc-29-24-pw-dual": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T16:15:49.845Z",
+   "error": "Corrected weight 600->700g via a direct pirelli.com fetch (bdata scrape) of the maker's own tech-specs table - real data gain. Not promoted to verified:true: Pirelli's own compound naming (Race Compound/Sport Compound) doesn't map to this catalog's generic 'dual' vocab value (no Pirelli-specific compound entry exists yet - a vocab gap, out of scope for a field-level pass), and price ($80) isn't confirmed on the fetched EU page (no USD shown). Retry: a US pirelli.com/tires/en-us page might show USD pricing.",
    "source": null,
    "note": null
   },
   "ti-pirelli-scorpionxc-rc-29-22-pw-dual": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T16:15:50.097Z",
+   "error": "FETCHED pirelli.com's own 55-622 (2.2in-equivalent) catalogue page this session via bdata scrape - it lists ONLY a base 'Scorpion XC RC ProWALL' (Sport Compound, 60 TPI, 700g) at this size, NO 'Team Edition' variant at all. This conflicts with the catalog row's identity (Team Edition + dual compound) AND its current weight (610g, from a worldwidecyclery.com retailer listing, vs Pirelli's own 700g for the base ProWALL at this size). Flagging rather than editing blind - this may be two different real SKUs conflated (Team Edition might not exist at 2.2in at all), needs a reviewer's judgment call before touching casing/compound/weight.",
    "source": null,
    "note": null
   },
