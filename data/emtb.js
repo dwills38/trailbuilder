@@ -570,6 +570,40 @@ var EMTB_PARTS = [
     disciplines: ['e-trail', 'e-enduro'], weight: 22200, price: 8200,
     note: 'Top-tier carbon Ekano build.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Pivot (new maker) — Shuttle AM / LT (full-power) + Shuttle SL (lightweight)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-pivot-shuttle-am', cat: 'emtb', brand: 'Pivot', model: 'Shuttle AM',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-trail'], weight: 22800, price: 9000,
+    note: "Pivot's full-power all-mountain e-MTB on the Shimano EP8 motor.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-pivot-shuttle-lt', cat: 'emtb', brand: 'Pivot', model: 'Shuttle LT',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 165,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-enduro'], weight: 23600, price: 10500,
+    note: 'Longer-travel gravity sibling to the Shuttle AM; mixed wheel.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-pivot-shuttle-sl', cat: 'emtb', brand: 'Pivot', model: 'Shuttle SL',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
+    batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 130,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Level Ultimate',
+    disciplines: ['e-trail'], weight: 17600, price: 9500,
+    note: 'Lightweight-class Pivot; acoustic-close XC/trail handling on the Fazua Ride 60.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
