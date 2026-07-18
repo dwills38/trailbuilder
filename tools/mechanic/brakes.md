@@ -726,6 +726,98 @@ api.magura.com/…/mt-manual-2017-en.pdf p.13 (fetched), 2026-07-18.
 
 ---
 
+## Hayes + brake-fluid chemistry (master round 2, batch 5)
+
+**BRK-46 [CLOSES the chapter's named "genuinely still open: Hayes" gap — 5/5 major hydraulic
+makers now sourced] — Hayes Dominion service data, at manufacturer-primary tier.** The gap named
+a specific next step (try the Wayback CDX route against hayesbicycle.com). The CDX sweep surfaced
+only Manitou fork/shock manuals — but the **standing lesson from BRK-42/44 paid off again**: a
+plain `curl` on the Hayes-hosted Zendesk article attachment returned the full 28-page
+"DOMINION A4 | SERVICE & BLEED GUIDE" on the **first attempt**, no Bright Data needed. What it
+gives:
+- **Fluid:** *"The Hayes Dominion A2 brake system uses DOT 5.1 fluid."* Spills *"should be
+  cleaned up with isopropyl alcohol"*; rotor and pads are cleaned with isopropyl alcohol only.
+  Hayes' own bleed kit is **P/N 98-23572**.
+- **Torque set:** bleed screw (T10 torx) **12 in-lb [1.5 N·m]**; hose nut (8 mm crow's foot)
+  **70 ± 5 in-lb [7.9 ± 0.5 N·m]**; caliper bridge bolts **170 ± 5 in-lb [19.2 ± 0.5 N·m]**;
+  KingPin (3 mm hex) **30 in-lb [3.5 N·m]**.
+- **Piston/seal service:** new square seals are wetted with **Hayes DOT 5.1 fluid**, and DOT 5.1
+  is used as the piston-insertion lubricant — **independently corroborating SRAM's
+  "DOT-fluid-not-grease" seal rule** (BRK-40) at a second manufacturer. Two DOT makers agreeing
+  makes this a general DOT-caliper principle rather than a SRAM quirk.
+- **The "Two Stroke" system** permits a **caliper-only fluid flush** using the same two-syringe
+  procedure with both hose clips managed differently — a partial-service option the other makers'
+  procedures in this chapter don't offer.
+*Confidence: confirmed (fetched manufacturer service guide).* Source: Hayes "Dominion A4 Service
+and Bleed Guide", 28 pp., hayesbicycle.zendesk.com article attachment 25950208026903 (fetched
+2026-07-18). Cross-reference: BRK-38/39/40 (SRAM), BRK-35/36/37 (Shimano), BRK-42 (TRP),
+BRK-44 (Magura).
+
+**BRK-47 [answers the "bleed fluid-volume" question — and the answer is that makers specify
+FRACTIONS, not volumes] — Hayes specifies syringe FILL FRACTIONS, asymmetric by end.** The
+Dominion bleed calls for the **caliper syringe 3/4 full** of DOT 5.1 and the **master-cylinder
+syringe 1/4 full**, each purged of air with its hose clip closed before connection. The asymmetry
+is functional: fluid is driven caliper→MC (uphill, so air travels with the flow to the high
+point), so the caliper end needs the reservoir of fluid and the MC end needs the headroom to
+receive it. **Source-exhaustion note for the "fluid-volume table" this chapter wanted:** across
+the five makers now sourced (Shimano, SRAM, TRP, Magura, Hayes), **none publishes a system fluid
+capacity in ml** — the procedures are specified as fill fractions, "fill the funnel/reservoir",
+and flush-until-clear-and-bubble-free endpoints. A cross-brand ml-capacity table therefore
+**cannot be built from manufacturer sources** and is recorded as **EXTERNAL**; it would require
+measurement. This reframes the gap: the makers deliberately specify a *procedure endpoint*
+(no bubbles) rather than a volume, because the volume varies with hose length. *Confidence:
+confirmed (Hayes procedure); the exhaustion is confirmed across the five makers this chapter has
+sourced.* Source: as BRK-46.
+
+**BRK-48 [L3 chemistry, standards-body tier — the strongest source class this chapter has] —
+DOT fluid grades are defined by a US FEDERAL STANDARD with numeric minimum boiling points, and
+"wet" has a precise operational definition.** FMVSS 116 (**49 CFR § 571.116**) sets minimum
+equilibrium reflux boiling points (ERBP):
+
+| Grade | Min. dry ERBP | Min. **wet** ERBP |
+|---|---|---|
+| DOT 3 | **205 °C (401 °F)** | **140 °C (284 °F)** |
+| DOT 4 | **230 °C (446 °F)** | **155 °C (311 °F)** |
+| DOT 5 | **260 °C (500 °F)** | **180 °C (356 °F)** |
+
+**"Wet" is not a vague term** — the standard defines it by test procedure S6.2: the fluid is
+humidified in a desiccator at 50 °C alongside an SAE TEGME referee fluid, and the endpoint is
+reached when the **referee fluid's water content hits 3.70 ± 0.05 % by weight**. So "wet boiling
+point" means, operationally, *the boiling point after absorbing on the order of 3.7 % water*.
+**This is the quantitative backbone under the qualitative hygroscopicity claims already in this
+chapter** (BRK-44's Magura contrast, the DOT service-interval logic): a DOT 4 fluid loses
+**75 °C** of boiling headroom between dry and wet minima — that is why DOT systems carry a
+time-based bleed interval and mineral-oil systems (Magura) can claim none.
+*Confidence: confirmed (federal regulation, fetched as GovInfo XML).* Source: 49 CFR
+§ 571.116 S5.1.1, S5.1.2, S6.2.5, via govinfo.gov CFR-2023-title49-vol6-sec571-116.xml (fetched
+2026-07-18; note ecfr.gov redirects to an unblock gateway and Bright Data returned empty — the
+GovInfo XML mirror is the working route for CFR text).
+
+**BRK-49 [⚠ trap + an explicit DO-NOT-TRANSFER caveat] — "DOT 5" and "DOT 5.1" are chemically
+different families, and FMVSS's fluid COLOUR code does NOT apply to bicycle brakes.** Two
+findings from the same standard:
+1. **DOT 5 vs DOT 5.1.** The standard distinguishes *"DOT 5 SILICONE BASE"* (SBBF) from
+   *"DOT 5.1 NON-SILICONE BASE"*, and requires the container to state which. DOT 5.1 is a
+   glycol-ether fluid in the DOT 3/4 family; **DOT 5 is silicone and is a different chemistry
+   entirely** — the numeral similarity is a genuine trap. This is the standards-side explanation
+   for BRK-40's SRAM finding that contamination with *"DOT 5 instead of DOT 5.1/4"* requires
+   **full component replacement, not a flush**. Note also that the standard gives DOT 5.1 no
+   separate ERBP row — it is certified against the **DOT 5 grade** thresholds while remaining
+   non-silicone.
+2. **⚠ The colour code does NOT transfer to bicycles.** FMVSS 116 mandates: *"DOT 3, DOT 4, and
+   DOT 5.1 non-SBBF—colorless to amber. DOT 5 SBBF—purple. Hydraulic system mineral oil—green."*
+   **Do not apply this to bicycle brakes.** FMVSS 116 governs **motor vehicles**; bicycle brake
+   fluids are outside its scope, and the real products contradict it outright — Magura Royal
+   Blood is **blue** and Shimano's mineral oil is **red**, neither of which is green. **Fluid
+   family must be identified from the reservoir/manual marking, never from colour.** Recorded
+   explicitly because a naive reading of an authoritative standard would produce a confident
+   wrong rule — exactly the failure mode corpus rule 6 exists to prevent.
+*Confidence: confirmed (the standard's text); the non-transfer caveat is confirmed by this
+chapter's own fetched Magura/Shimano fluid facts.* Source: 49 CFR § 571.116 S5.1.14 (colour),
+S5.2.2 (labeling), via govinfo.gov (fetched 2026-07-18). Cross-reference: BRK-40, BRK-44.
+
+---
+
 ## Gaps
 
 Honest list of what a future round should close, per `CURRICULUM.md`'s "target the weakest
@@ -766,15 +858,48 @@ chapter" rule — this chapter is graded `professional` as of this round, not ye
   DRV-41/42 hit with the Zero Friction Cycling PDFs. **Standing lesson for future rounds: before
   recording a PDF as walled or corrupt, try the direct download + `pdftotext`.** Two of this
   chapter's long-standing gaps were never really source problems.
-  **Genuinely still open: Hayes.** Not reached this round either — no fetchable spec/FAQ page has
-  been found across two rounds now. Hayes is a DOT-fluid maker (per Park Tool's bleed-kit
-  compatibility list, already cited in this chapter), so its absence leaves a real hole in the DOT
-  side. Status: **unfetched, not source-exhausted** — Hayes does publish product manuals, and the
-  Wayback CDX route that unlocked Industry Nine's document library this round (DRV-62) has not
-  been tried against hayesbicycle.com. That is the specific, named next step.
+  ~~**Genuinely still open: Hayes.**~~ **CLOSED 2026-07-18 master round 2 (BRK-46/47) — this
+  chapter now has all 5/5 major hydraulic makers at manufacturer-primary tier** (Shimano, SRAM,
+  TRP, Magura, Hayes). The named next step (Wayback CDX against hayesbicycle.com) surfaced only
+  Manitou fork/shock manuals — **but the chapter's own standing lesson closed it instead**: a
+  plain `curl` on the Hayes-hosted Zendesk article attachment returned the full 28-page Dominion
+  A4 Service & Bleed Guide on the **first attempt**. That is now **three** gaps in this chapter
+  (TRP, Magura, Hayes) that were never source problems — *try the direct download before
+  declaring anything walled* is the most load-bearing process lesson this chapter has produced.
+  Landed: Hayes' DOT 5.1 restriction, full torque set (bleed screw 1.5 N·m, hose nut 7.9 N·m,
+  bridge bolts 19.2 N·m, KingPin 3.5 N·m), the Two Stroke caliper-only flush, and **independent
+  corroboration of SRAM's DOT-fluid-not-grease seal rule** — two DOT makers agreeing promotes it
+  from a SRAM quirk to a general DOT-caliper principle.
+- **NEW, CLOSED on arrival 2026-07-18 master round 2 (BRK-48/49) — brake-fluid chemistry now
+  rests on a STANDARDS-BODY source, the strongest source class this chapter has.** FMVSS 116
+  (49 CFR § 571.116) supplies the numeric backbone under the chapter's previously qualitative
+  hygroscopicity claims: minimum dry/wet ERBP per grade (DOT 3 205/140 °C, DOT 4 230/155 °C,
+  DOT 5 260/180 °C) and an **operational definition of "wet"** — humidified until the SAE TEGME
+  referee fluid reaches **3.70 ± 0.05 % water by weight**. A DOT 4 fluid losing **75 °C** of
+  boiling headroom dry→wet is *why* DOT systems carry a time-based bleed interval and Magura's
+  mineral system can claim none (BRK-44). BRK-49 adds the **DOT 5 (silicone) vs DOT 5.1
+  (non-silicone) trap** — the standards-side explanation for BRK-40's "full replacement, not a
+  flush" remedy — plus an explicit **do-not-transfer caveat**: FMVSS's mandated fluid colours
+  (mineral oil = green) govern **motor vehicles only** and are contradicted by real bicycle
+  products (Magura Royal Blood blue, Shimano red), so **fluid family must never be identified by
+  colour**. Recorded because a naive reading of an authoritative standard would have produced a
+  confident wrong rule.
+  **Still open on the fluid side:** no per-product *actual* boiling points (FMVSS gives grade
+  **minima**; makers may exceed them and bicycle-specific fluids are not FMVSS-bound at all), and
+  no mineral-oil equivalent standard — mineral oils are proprietary per maker with no published
+  boiling data found. Likely EXTERNAL.
+- **~~Bleed fluid-volume table~~ — REFRAMED and declared EXTERNAL 2026-07-18 (BRK-47).** Across
+  all five makers now sourced, **none publishes a system fluid capacity in ml**. Procedures are
+  specified as **fill fractions** (Hayes: caliper syringe 3/4 full, MC syringe 1/4 — asymmetric
+  because fluid is driven caliper→MC so air travels with the flow), reservoir/funnel fills, and
+  **flush-until-clear endpoints**. This is deliberate on the makers' part: volume varies with hose
+  length, so the specified quantity is a *procedure endpoint*, not a number. A cross-brand
+  ml-capacity table cannot be built from manufacturer sources and would require measurement —
+  outside this corpus's bar. Future rounds should not keep hunting for it.
 - **No quantified pad-compound heat-fade science** — BRK-25's ramp-up/sweet-spot/falloff model
   is qualitative only; no actual temperature thresholds per compound, no fade-recovery
-  behavior, no rotor metallurgy/heat-treatment facts. L3 gap.
+  behavior, no rotor metallurgy/heat-treatment facts. L3 gap. **(Note: BRK-48's FMVSS boiling
+  points are FLUID thermal data, not PAD compound data — this gap is unaffected by that close.)**
 - **No wheel-builder-tier / bearing-tolerance-tier depth anywhere in this chapter** (caliper
   bore tolerances, piston-seal material science, rotor heat-treatment metallurgy) — L3 gap,
   same tier as the pad-compound gap above; nothing sourced yet.
