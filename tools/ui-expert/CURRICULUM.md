@@ -61,8 +61,8 @@ Each chapter ends with a **## Gaps** section the next round reads to pick its ta
 | `responsive-layout.md` | L1+L2 | **professional** | round 3 — container queries resolved, fluid-type clamp() pattern, Every-Layout sidebar wrap + CSS Grid auto-fit/minmax, sticky mechanics, print + reader-mode seeded |
 | `accessibility.md` | L1+L2 | **professional** | round 2 — WAI-ARIA APG ingested (slider/disclosure/listbox/combobox/tabs/dialog, ACC-10–15); resolved ACC-9; produced a theme-wide compat-dot contrast audit (⚠ CONTRADICTION: light-theme dot.w/dot.n fail SC 1.4.11) |
 | `forms-filters-density.md` | L1+L2 | **professional** | round 2 — slider/disclosure/listbox patterns applied to the filter rail (DNS-10–12) + Baymard filter research (DNS-13/14) |
-| `navigation-ia.md` | L1 | foundation | seeded — hidden-nav cost data, subnav thresholds |
-| `performance-perceived.md` | L1 | foundation | seeded — CWV budgets + no-build-step implications |
+| `navigation-ia.md` | L1+L2 | **professional** | round 3 — card-sorting/tree-testing methods, breadcrumb canon + WCAG G65 markup, search-vs-browse synergy, History API + confirmed hashchange back-behavior |
+| `performance-perceived.md` | L1+L2 | **professional** | round 3 — INP subpart mechanism (input/processing/presentation delay), NN/g's 0.1/1/10s canon, skeleton-vs-spinner research (mixed, informational-leaning), bfcache, font-display + script defer/async doctrine, CLS seeded |
 | `platform-conventions.md` | L1 | foundation | seeded — the three-convention decision rule |
 
 ## Corpus rule: target the weakest chapter
