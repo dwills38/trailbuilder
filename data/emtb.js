@@ -474,6 +474,30 @@ var EMTB_PARTS = [
     disciplines: ['e-trail'], weight: 18600, price: 9800,
     note: 'Lightweight-class Mondraker on the Bosch Performance Line SX motor.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Haibike (new maker) — AllMtn (Yamaha) + Nduro (Bosch)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-haibike-allmtn-9', cat: 'emtb', brand: 'Haibike', model: 'AllMtn 9',
+    motorBrand: 'yamaha', motorModel: 'Yamaha PW-X3', motorTorque: 85,
+    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23600, price: 8000,
+    note: "Haibike's flagship full-power trail/enduro bike on the Yamaha PW-X3 motor.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-haibike-nduro-8', cat: 'emtb', brand: 'Haibike', model: 'Nduro 8',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-enduro'], weight: 25200, price: 6200,
+    note: 'Gravity-leaning Bosch-powered Haibike; alloy frame, long travel.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
