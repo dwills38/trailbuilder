@@ -802,6 +802,20 @@ var EMTB_PARTS = [
     disciplines: ['e-enduro'], weight: 25800, price: 6500,
     note: "Nukeproof's longest-travel gravity e-MTB; Bosch CX motor, DH-adjacent geometry.",
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Whyte depth (E-180 S)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-whyte-e-180-s', cat: 'emtb', brand: 'Whyte', model: 'E-180 S',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
+    disciplines: ['e-enduro'], weight: 26200, price: 5200,
+    note: 'Entry alloy E-180 trim; same Bosch CX motor as the RS.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
