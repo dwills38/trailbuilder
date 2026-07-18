@@ -215,3 +215,78 @@ not reached this session (7mesh, Club Ride, Mons Royale, Loose Riders, and the
 untouched tail of G-Form/eyewear-brand rows).
 
 Branch `verify/kit-fanout-3` ready for coordinator review - not pushed, not merged.
+
+## Fanout-4 (branch verify/kit-fanout-4, 2026-07-18, seat 12)
+
+Resumed from the 433/714 baseline (fanout-3's final state, already merged to main).
+Worked the target list: 100% retry, ION, Scott remainder, ~29 smaller untouched
+clusters, Fasthouse (skipped - no unclear rows since fanout-3's finding already
+covers it cleanly). Single commit, `src/kit.js` only.
+
+**Result: 436/714 kit parts verified (61.1%, +3 rows / +0.5pp from the 60.6%
+baseline).** All gates green: `node validate.js` (`KIT OK - 714 kit parts, 0
+problems (436 verified, 278 unverified)`), `npx vitest run` (27 files, 735
+tests), `npx tsc --noEmit` (clean).
+
+**Newly verified (3 rows) + corrections, G-Form Pro-X3 cluster (g-form.com,
+via the Exa fetch tool - plain curl/WebFetch both 503/429'd, consistent with
+fanout-3's "rate-limited repeatedly" finding; Exa's render got through):**
+- `knp-gform-pro-x3` (Pro-X3 Knee): price $70 -> $74.99, sizes corrected to
+  XS-2XL (was S-XL). Page states "PPE II certified" without naming an EN1621
+  standard number, so no `certs` token added (doesn't meet the safety-claim
+  bar per the shg-flyracing-5pivot precedent already in the file).
+- `elp-gform-pro-x3` (Pro-X3 Elbow): price $60 -> $59.99 (a prior pass only
+  had this via a WebSearch snippet, now independently fetched), sizes
+  corrected to add XS.
+- `shg-gform-prox3` (Pro-X3 Shin Guard): price $55 -> $44.99 (maker's own
+  regular/list price during an active sale).
+
+**Discontinued (4 rows, fetched evidence, not fabricated):**
+- `shg-gform-pro` (plain "Pro Shin Guard") and `shg-gform-prox` ("Pro-X Shin
+  Guard", prior gen) - both absent from g-form.com's current shin/knee
+  collections; superseded by Pro-X3 and the newer Pro-Rugged 2 (and a new
+  "X4" line, confirming fanout-3's speculation about a generation
+  transition). Price/weight left as prior sample.
+- `sht-monsroyale-momentum2` and `sht-monsroyale-virage` (Mons Royale
+  Momentum 2.0 / Virage bike shorts): both names are entirely absent from
+  monsroyale.com's current men's/women's bike collections, which are now
+  built around the "Diversion" range (Diversion Merino Trail Shorts,
+  $179.95, is the current bike short - no direct 1:1 successor by name).
+  Price/weight left as prior sample.
+
+**Attempted, left unverified (documented so a future pass doesn't re-derive
+the same dead ends):**
+- **ION** (8 rows: Scrub AMP/Traze AMP/Seek AMP jerseys+shorts+pant):
+  ion-products.com sells each product name across many concurrent SKU
+  generations (BAT/non-BAT/Mesh_ine/AFT/2.0/year variants), with prices
+  spanning $59.95-$99.99 for ostensibly the same jersey - no clean 1:1 match
+  to any sample price found, and guessing a variant risks a false
+  "verified" price. Genuinely different problem from a fetch wall.
+- **100%** (11 rows: Celium/Ridecamp jerseys+shorts, Ridecamp/Teratec/Fortis
+  knee+elbow guards, Tarka Vest, Racecraft2 goggle): individual product-slug
+  URLs now 404/redirect to the homepage (matches fanout-2's "Shopify .js
+  endpoint 503'd" finding, now presenting as dead links instead), and the
+  `/collections/*` pages only render their priced product grid via JS - a
+  scrape returns just the static filter-facet sidebar. Confirmed the
+  Racecraft2 goggle still exists (1 product under the "Racecraft 2" filter)
+  but couldn't reach its priced card this session.
+- **Scott** (all remaining rows): re-confirmed scott-sports.com is JS-walled
+  for US product pages exactly as fanout-3 found - not re-attempted with a
+  new tool this pass, left as-is.
+- **Club Ride Apparel** (`jsy-clubrideapparel-fuze-ss`,
+  `-cadence-ls`): scraped the full current men's shirt/jersey collection -
+  neither "Fuze" (a shorts-only name today) nor "Cadence" appears. Left
+  unverified rather than removed - the evidence shows current absence, not
+  proof the names never existed.
+- **Mons Royale, other rows / Loose Riders / TSG / Northwave / Madison**:
+  Loose Riders confirmed EUR-only (its "USD" price is an odd auto-converted
+  figure, e.g. "48,02 USD", not a real MSRP) - same policy-pending bucket as
+  TSG/Northwave/Madison, left alone per the fanout-4 brief.
+
+**Not reached this pass:** 7mesh/Zoic/Handup/Bliss/Demon/EVS remainder rows
+(already carry fanout-1/2/3 investigation notes, reproduced dead ends per a
+sample re-check, per protocol not re-attempted), G-Form's remaining rows
+(knp-gform-pro-x3/vest family - `arm-gform-pro-x3-vest` walled again this
+pass, `knp-100-*` etc. are 100%-branded not G-Form).
+
+Branch `verify/kit-fanout-4` ready for coordinator review - not pushed, not merged.
