@@ -199,10 +199,44 @@ one was explicitly *declined* on bar grounds (FRM-53). Zero coordinator intake i
 - **SUS-51** corrects a *pre-existing* Gaps premise (fork vs rear-shock leverage ratio) rather
   than a fact — recorded so the restructured gap doesn't look like scope drift.
 
-## Remaining brief items
+## Batch 6 — L4 race-craft (commit `590e8f2`)
+
+Gates: validate **7 OK / 0 problems**, **757 tests passed**, tsc clean.
+
+**WHL-53** lands the corpus's first L4 race-craft fact at **governing-body tier**: a World Cup
+XCO pit is regulated as a **feed/technical assistance zone** with credentialed, quota-limited
+access (season-long FTA passes and *"separated space"* for registered Elite MTB teams; venue
+credentials on a rider-count quota). This is the *precondition* for the "pit-wheel-swap
+procedure" the wheels-tires L4 gap named — a swap is only possible where a mechanic may stand
+with the spare. Scope caveat stated in-fact: the obtained document is the **19-page 2019
+amendments excerpt**, not the complete Part 4, so FTA *conduct* articles are **not** sourced.
+
+**The rest of L4 stays OPEN — but as a documented finding, not an assumption.** Four independent
+routes were tried and their blockers recorded in-chapter:
+1. **UCI full Part 4** — `uci.org/regulations` is JS-rendered (WebFetch *and* Bright Data return
+   the nav shell); Wayback holds only amendment excerpts and 1-page stubs. *Next route: a national
+   federation's static mirror, or `docs.uci.org` by document ID.*
+2. **ENVE pressure guidance** — JS-rendered calculator, no static text. *Next route: a
+   calculator's published methodology page rather than the calculator.*
+3. **SRAM "Suspension Setup and Tuning Guide"** — that URL is **not a PDF**; it HTML-redirects to
+   the `docs.sram.com` Suspension User Manual this corpus already mined (SUS-26–31). **There is no
+   separate RockShox race-tuning document behind that name** — recorded in suspension.md.
+4. **Reserve** — publishes maximum pressures only, not situational guidance.
+
+**Assessment:** CURRICULUM.md predicted L4 would be the thinnest-documented level and arrive last.
+This round confirms that **empirically** and refines it: the blockers were **JS-rendering and
+partial archiving, not absence of knowledge**. **Tier-B practitioner content was deliberately NOT
+harvested** — doing it properly means named practitioners on the record, and a thin pass would
+have produced exactly the dressed-up consensus rule 2 forbids. The recommended shape of the next
+attempt is recorded alongside the blockers.
+
+## Brief status — COMPLETE
 
 11/12-speed chain widths ✅ · UDH revision history ✅ · spoke-tension charts ✅ · carbon
 rim/bar inspection ✅ · suspension tuning-range depth ✅ · brakes bleed volumes + DOT/mineral
-chemistry ✅ — **remaining: L4 race-craft where public sources exist** (race-mechanic interviews
-= Tier-B, explicitly labelled). This is the thinnest-documented level per CURRICULUM.md and is
-expected to lean on labelled practitioner tiers rather than manufacturer-primary sources.
+chemistry ✅ · L4 race-craft ✅ *(first fact landed + honest source-availability finding; the
+level remains open by design, with next routes documented)*.
+
+**Round totals:** 6 batches, 8 commits, **20 new facts** (DRV-64–67, WHL-46–53, SUS-48–51,
+BRK-46–49, FRM-51–53). Every commit gated green. Zero engine contradictions; zero coordinator
+intake items.
