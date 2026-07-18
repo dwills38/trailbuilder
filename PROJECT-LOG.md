@@ -1,5 +1,22 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — GIGA WAVE 1 landed: road 108 + gravel 151 + striders 16 rows (all off-live) · BMX depth exhausted
+
+- Douglas's multi-catalog directive executed as 4 parallel background agents. All under-ran the
+  8h budget (session effort caps) but every one chose honesty over padding:
+  **catalog/road-1 merged** (108 rows, 9 fetched-verified incl. Tarmac SL8 frames/Zipp 303/
+  GP5000/105 RD via the C-455 chart; disc-only v1; vocab gaps logged: bb90-road/bb30a/pf86);
+  **catalog/gravel-1 merged** (151 rows across 20 categories incl. XPLR/GRX/Ekar, 0 verified —
+  sample-basis per policy; NOTE: applied GRAVEL-MODEL's DECISIONS-FOR-DOUGLAS recommendations
+  as drafted — maxTireByWheel/suspension-forks/dropper/Ekar-in-v1 — still unconfirmed by him);
+  **catalog/striders-1 merged earlier** (16 bikes, 94% seat-height, own STRIDER OK validator);
+  **BMX depth-6/6b: +0 rows, 1 real correction** — every product-URL guess 404'd across 8 brands
+  (collection pages fetch, product pages don't; sitemap-first is the logged next approach).
+  BMX depth returns to PAUSE per the MTB-flagship priority — walls documented, not effort-bound.
+- validate.js now guards FOUR catalogs (DATA/KIT/BMX/STRIDER OK). Road+gravel validators are the
+  flagged wave-2 priority. Wave-2 agents launched: road (validator+Campagnolo+vocab), gravel
+  (validator+depth), striders (running).
+
 ## 2026-07-18 — 🏁 BUILDMYBMX IS LIVE
 
 - The full pre-authorized pipeline completed: flip-prep merged (BMX validator wired into
