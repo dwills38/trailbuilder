@@ -412,6 +412,34 @@ axial pull on the spoke) — worth flagging because both are colloquially called
 mechanic reading both numbers side by side could conflate them. *Confidence: confirmed (fetched
 primary spec claim).* Source: sapim.eu "Spokes" (fetched 2026-07-17).
 
+**WHL-35 — Mechanical tensiometer theory: a dial-indicator spoke-tension meter (Park Tool
+TM-1-style) never reads tension directly — it reads how far a known spring deflects a spoke
+sideways, then a spoke-specific conversion table (by gauge/cross-section/material) translates
+that deflection into a tension figure.** This is WHY WHL-26's DT Swiss newton table and WHL-34's
+Sapim torque figure can't simply be looked up on a generic tensiometer scale without the right
+conversion chart for that exact spoke: a round 2.0 mm spoke deflects differently than a bladed
+0.9×2.2 mm spoke under the same sideways force, so the same dial reading means different tension
+on different spokes. A third-party calibration resource (citing a Birzman conversion chart)
+gives one concrete sensitivity figure: **on a high-precision dial indicator, 0.1 mm of
+deflection difference corresponds to roughly 100 N (≈9.8 kgf) of tension difference** — useful
+as an order-of-magnitude sense of how sensitive the mechanism is, not a universal conversion
+(the same source explicitly warns against reusing a chart "across different spoke makers
+carelessly," e.g. Sapim CX-Ray vs DT Swiss Aerolite are NOT interchangeable on one chart).
+Spring wear over time also drifts the conversion, which is why tensiometer makers ship
+recalibration service rather than a fixed lifetime chart. **This directly explains the "DT Swiss
+only, no cross-brand comparison" limitation already flagged in `## Gaps`** — it's not just that
+Sapim's own numeric table wasn't fetched, it's that even if it were, a DT Swiss tensiometer
+reading can't be validly compared to a Sapim spoke's tension without each maker's own
+gauge-specific conversion chart; a cross-brand table needs matched conversion charts, not just
+matched target-tension numbers. *Confidence: mixed — the deflection-not-tension mechanism and
+the never-reuse-across-makers warning are corroborated across sources; the specific
+"0.1mm≈100N" figure is attributed to a third-party (Birzman) chart cited by a
+spoke-tension-calculator site, not fetched from Birzman/Park Tool directly — flag as
+secondary-tier for that one number.* Source: spokecalc.io "Tension meter calibration" (fetched,
+citing Birzman); Park Tool TM-1 product/instructions pages (fetched but PDF text-extraction
+failed — mechanism description corroborated via search-result synthesis of the product page,
+not a direct primary quote, so kept qualitative only here).
+
 ---
 
 ## INTERACTIONS (the organizing principle)
@@ -510,6 +538,11 @@ to target (per INDEX.md corpus rule 7 / CURRICULUM.md "target the weakest chapte
   pages were fetchable — see WHL-31/32/33/34); a cross-brand comparison table is still missing.
   The "average tension" band in WHL-26 also carries a lower-confidence OCR-reconstruction caveat
   that a future round should re-verify against the manual's rendered PDF, not extracted text.
+  **WHL-35 (this round) explains WHY a cross-brand table is hard, not just unfetched:** dial
+  tensiometers read spring deflection, not tension directly, so a DT Swiss reading can't be
+  validly compared to a Sapim spoke without each maker's own gauge-specific conversion chart —
+  a true cross-brand table needs matched conversion charts as well as matched target numbers,
+  raising the bar on what "closing this gap" actually requires.
 - **Fatigue-failure data — L3 gap, PARTIALLY CLOSED 2026-07-17.** WHL-30/31/32 now carry DT
   Swiss's own load/unload-cycle mechanism (quantified: ~430 cycles/km on a 29" wheel) and named
   under-/over-tension failure directions, plus Sapim's fetched fatigue-test protocols (endurance
