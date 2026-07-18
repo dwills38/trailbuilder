@@ -886,6 +886,20 @@ var EMTB_PARTS = [
     disciplines: ['e-trail', 'e-enduro'], weight: 21800, price: 9200,
     note: 'Top-tier carbon E-Troy build.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Focus depth (Jam2, full-power — distinct from the Jam2 SL)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-focus-jam2-6-9', cat: 'emtb', brand: 'Focus', model: 'Jam2 6.9',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 155,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24600, price: 6000,
+    note: 'Full-power sibling to the lightweight Jam2 SL; Bosch CX motor.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
