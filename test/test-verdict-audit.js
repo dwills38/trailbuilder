@@ -154,8 +154,17 @@ test('microSHIFT Advent shifter + Box Prime 9 derailleur -> drivetrain-system er
 test('Box Prime 9 shifter + SRAM Eagle derailleur -> drivetrain-system error', function(){
   ok(has(chk({ shifter: 'sft-box-three-prime-9', derailleur: 'dr-sram-gx-eagle' }), 'errors', 'drivetrain-system'));
 });
-test('flat-mount XC caliper on a post-mount fork -> front-brake-mount error', function(){
-  ok(has(chk({ fork: 'fk-rockshox-zeb-ultimate-29-170', frontBrake: 'bk-shimano-xtr-m9110-fm' }), 'errors', 'front-brake-mount'));
+test('flat-mount XC caliper on a post-mount fork -> front-brake-mount adapter WARNING (Wolf Tooth), no longer an error (BRK-29)', function(){
+  // UPDATED 2026-07-18 (cleanup/data-model-1): mechanic corpus BRK-29 sourced a
+  // real mainstream adapter (Wolf Tooth Post-to-Flat-Mount) for the FM-caliper-
+  // on-PM-chassis direction, so rule 8 now downgrades this to an adapter-tier
+  // warning (rule-9 precedent) rather than the old hard error.
+  var r = chk({ fork: 'fk-rockshox-zeb-ultimate-29-170', frontBrake: 'bk-shimano-xtr-m9110-fm' });
+  eq(has(r, 'errors', 'front-brake-mount'), false, 'FM-on-PM is no longer a hard error');
+  ok(has(r, 'warnings', 'front-brake-mount'), 'it is now an adapter-tier warning');
+  var w = r.warnings.filter(function(v){ return v.ruleId === 'front-brake-mount'; })[0];
+  eq(w && w.fix && w.fix.kind, 'adapter', 'carries a structured adapter fix');
+  some([w && w.fix && w.fix.name], 'Wolf Tooth', 'the fix names the post-to-flat-mount adapter');
 });
 
 /* --- and the correct builds in those regions must stay clean (no false "won't fit") --- */

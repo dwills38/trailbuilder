@@ -404,6 +404,53 @@ test('dots: a PM caliper on a full I.S. build goes YELLOW (adapter), not red; an
   eq(C.compatOf(fmBrake, bld).state, 'r', 'FM caliper -> red');
 });
 
+/* Rule 8 FM<->PM adapter tier (2026-07-18, cleanup/data-model-1, per mechanic
+   corpus BRK-28/29): real MAINSTREAM adapters exist BOTH ways, so each FM<->PM
+   mismatch downgrades to an adapter-tier WARNING carrying a structured fix (the
+   rule-9 precedent), not a hard error. FM frames (Canyon Exceed/Lux) and FM
+   calipers both exist, so these branches are LIVE. The reverse-direction guards
+   (FM-on-I.S., I.S.-on-PM) must stay errors. */
+test('PM caliper on a real FM frame -> rear-brake-mount adapter WARNING (Shimano SM-MA), not red (BRK-28)', function(){
+  var r = chk({frame:'fr-canyon-lux-world-cup-cf', rearBrake:'bk-sram-code-rsc'});
+  eq(r.errors.filter(function(v){ return v.ruleId==='rear-brake-mount'; }).length, 0, 'no error');
+  var w = r.warnings.filter(function(v){ return v.ruleId==='rear-brake-mount'; })[0];
+  ok(w, 'raises a rear-brake-mount warning');
+  eq(w && w.fix && w.fix.kind, 'adapter', 'adapter-tier fix');
+  some([w && w.fix && w.fix.name], 'SM-MA', 'the fix names the Shimano SM-MA flat-mount adapter');
+});
+test('FM caliper on a real PM frame -> rear-brake-mount adapter WARNING (Wolf Tooth), not red (BRK-29)', function(){
+  var r = chk({frame:'fr-santacruz-megatower-cc', rearBrake:'bk-shimano-xtr-m9110-fm'});
+  eq(r.errors.filter(function(v){ return v.ruleId==='rear-brake-mount'; }).length, 0, 'no error');
+  var w = r.warnings.filter(function(v){ return v.ruleId==='rear-brake-mount'; })[0];
+  ok(w, 'raises a rear-brake-mount warning');
+  eq(w && w.fix && w.fix.kind, 'adapter', 'adapter-tier fix');
+  some([w && w.fix && w.fix.name], 'Wolf Tooth', 'the fix names the Wolf Tooth post-to-flat-mount adapter');
+});
+test('PM caliper on a synthetic FM FORK -> front-brake-mount adapter WARNING (front branch)', function(){
+  var bld = B({frontBrake:'bk-sram-code-rsc'});
+  bld.fork = /** @type {any} */ (Object.assign({}, part('fk-fox-36-factory-29-160'), {brakeMount:'FM'}));
+  var r = C.checkBuild(bld);
+  eq(r.errors.filter(function(v){ return v.ruleId==='front-brake-mount'; }).length, 0);
+  var w = r.warnings.filter(function(v){ return v.ruleId==='front-brake-mount'; })[0];
+  ok(w, 'raises a front-brake-mount warning');
+  some([w && w.fix && w.fix.name], 'SM-MA', 'front SM-MA adapter named');
+});
+test('dots: FM<->PM caliper mismatches go YELLOW (adapter), not red', function(){
+  // Mirror the I.S. dots test: force BOTH brake slots onto the mismatching mount
+  // so the front slot can't escape to green via a fork-less build.
+  var pmBld = B({frame:'fr-santacruz-megatower-cc', fork:'fk-fox-36-factory-29-160'});  // both PM
+  eq(C.compatOf(part('bk-shimano-xtr-m9110-fm'), pmBld).state, 'w', 'FM caliper on a PM build -> yellow');
+  var fmFork = /** @type {any} */ (Object.assign({}, part('fk-fox-36-factory-29-160'), {brakeMount:'FM'}));
+  var fmBld = B({frame:'fr-canyon-lux-world-cup-cf'}); fmBld.fork = fmFork;  // both FM
+  eq(C.compatOf(part('bk-sram-code-rsc'), fmBld).state, 'w', 'PM caliper on an FM build -> yellow');
+});
+test('FM<->PM downgrade left the reverse-direction guards intact: FM-on-I.S. and I.S.-on-PM stay errors', function(){
+  ok(chk({frame:'fr-cotic-bfe', rearBrake:'bk-shimano-xtr-m9110-fm'}).errors.some(function(v){ return v.ruleId==='rear-brake-mount'; }), 'FM-on-IS still errors');
+  var bld = B({frame:'fr-santacruz-megatower-cc'});
+  bld.rearBrake = /** @type {any} */ (Object.assign({}, part('bk-sram-code-rsc'), {mount:'IS'}));
+  ok(C.checkBuild(bld).errors.some(function(v){ return v.ruleId==='rear-brake-mount'; }), 'IS-on-PM still errors');
+});
+
 /* Rule 10 minimum (REVIEW.md #3). The ZEB/Domain have a 200mm-native post mount
    (sram.com); adapters only space the caliper UP, so a 180 rotor is unmountable. */
 test('180mm rotor on a ZEB (200mm minimum) -> error, not silence', function(){
@@ -831,12 +878,15 @@ test('front-axle check fires on a synthetic non-Boost fork (dead rule pinned)', 
   some(C.checkBuild(bld).errors, 'Front axle mismatch');
 });
 test('brake-mount checks fire on synthetic flat-mount brakes (dead rule pinned)', function(){
-  var bld = B({fork:'fk-fox-36-factory-29-160', frame:'fr-santacruz-megatower-cc'});
+  // UPDATED 2026-07-18 (cleanup/data-model-1): an FM caliper on a PM chassis is
+  // now an adapter-tier WARNING (BRK-29 Wolf Tooth), not a hard error - but the
+  // front + rear brake-mount checks must still FIRE (the point of this probe).
+  var bld = B({fork:'fk-fox-36-factory-29-160', frame:'fr-santacruz-megatower-cc'});  // both PM
   bld.frontBrake = /** @type {any} */ (Object.assign({}, part('bk-sram-code-rsc'), {mount:'FM'}));
   bld.rearBrake = /** @type {any} */ (Object.assign({}, part('bk-sram-code-rsc'), {mount:'FM'}));
   var r = C.checkBuild(bld);
-  some(r.errors, 'Front brake mount mismatch');
-  some(r.errors, 'Rear brake mount mismatch');
+  ok(r.warnings.some(function(v){ return v.ruleId==='front-brake-mount'; }), 'front-brake-mount fires (adapter warning)');
+  ok(r.warnings.some(function(v){ return v.ruleId==='rear-brake-mount'; }), 'rear-brake-mount fires (adapter warning)');
 });
 test('steerer check fires on a synthetic straight-steerer fork (dead rule pinned)', function(){
   var bld = B({frame:'fr-santacruz-megatower-cc'});
