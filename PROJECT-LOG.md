@@ -1842,3 +1842,33 @@ per wave/decision; large reconstructions are handed to a worker session.
   not started. Worker continues to batch 4 (navigation-ia).
 - **New Douglas-only action queued**: read Cloudflare Vitals Explorer (minutes, no code) —
   converts every corpus performance claim from inference to measured fact (PRF-16).
+
+## 2026-07-18 — Image program split into its own lane; delivery rule changed
+
+- **THIRD LANE CREATED — Image Coordinator** (`IMAGE-COORDINATOR-HANDOFF.md`, tracked, `934c229`).
+  Douglas: keep the image conversation in its own session so it doesn't gum up general
+  coordination. It owns ImageService architecture/build, provider strategy, image legal posture,
+  acquisition + automated-replacement workflow, image metadata, per-brand image coverage. Does NOT
+  push to this repo (branches route to Main Coordinator — one-pusher rule intact); manufacturer
+  image-permission asks route through the Affiliate lane. Main Coordinator handoff + memory
+  `multi-session-coordination.md` updated to three lanes; Affiliate session notified directly.
+- **Douglas delivered two image specs**: the architecture directive (independent API-first
+  provider-based ImageService repo, reusable across future catalogs) and the **Temporary Image
+  Strategy** (placeholder images now, auto-replaced as official sources arrive; per-image source +
+  temporary/official state + metadata + audit trail; automated replacement with version archival;
+  priority order maker APIs > maker media libraries > affiliate feeds > maker-approved sources; no
+  UGC/forums/auction/social/watermarked/lifestyle imagery).
+- **⚠ OPEN CONFLICT SURFACED, NOT RESOLVED BY SPEC**: the temporary tier implies acquiring
+  maker/retailer images without prior permission, contradicting the standing no-scraping ruling
+  that came out of Douglas's own affiliate research this week (infringement risk + poisons the
+  partnership lane). Put to him as Tier A (permission fast-track / open-license / affiliate feeds —
+  legal-clean, startable now) vs **Tier B (unlicensed temporary acquisition, risk-accepted)** with
+  containment: instant-honor takedown, partner-brand exclusion list, DMCA agent registration, never
+  watermark-strip, visible attribution. **Tier B is DESIGNED-BUT-GATED — not implemented in any
+  milestone until his explicit recorded word.** Noted for counsel: "temporary" doesn't change a
+  copy's status, and DMCA safe harbor is a weak shield for operator-acquired content. Also flagged:
+  the spec's referenced "approved provider order defined elsewhere" was never delivered.
+- **DELIVERY RULE CHANGED — `CLAUDE.md` Hard rule #4**: worker tasks are handed off as **paste-ready
+  fenced prompt blocks** with a `[Model, effort]` header, **never `spawn_task` click-chips**, so
+  Douglas controls model+effort at dispatch. Fixes the long-known picker-inheritance leak. Memory
+  `parallel-work-delivery.md` hardened; both pending image chips withdrawn and reissued as blocks.

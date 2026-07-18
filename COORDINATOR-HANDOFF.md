@@ -56,6 +56,24 @@ richest target). First Bike Finder spec DELIVERED (data/FIRST-BIKE-FINDER-*.md; 
 schema-v2 chip is the natural follow-up: inseamMin/Max fields + footbrake vocab + convertible
 tag).
 
+**★ THREE LANES NOW (2026-07-18, seat 13): a dedicated IMAGE COORDINATOR session exists.** Douglas
+split the product-image program into its own long-lived seat so it doesn't compete with general
+coordination. Seed doc: **`IMAGE-COORDINATOR-HANDOFF.md`** (repo root, tracked, `934c229`). It owns
+ImageService architecture/build, provider strategy, image legal posture, acquisition +
+auto-replacement workflow, per-brand image coverage. **It does NOT push to this repo** — its
+BuildMyMTB-side branches come to YOU for review/gates/push (one-pusher rule intact); ImageService's
+own separate repo is its own. Manufacturer image-permission asks run through the AFFILIATE lane
+(it defines the spec, Affiliate runs the relationship). Its blocking item: the Tier A/B legal
+conflict — Douglas's "Temporary Image Strategy" (unlicensed placeholder images, auto-replaced
+later) vs the standing no-scraping ruling from his own affiliate research. Surfaced to him, NOT
+resolved by spec; Tier B is designed-but-gated pending his explicit recorded word. All three
+sessions have been told about each other.
+
+**★ DELIVERY RULE CHANGED (Douglas 2026-07-18) — now `CLAUDE.md` Hard rule #4:** hand work off as
+**paste-ready fenced prompt blocks** with a `[Model, effort]` first line, **never `spawn_task`
+click-chips** (a chip inherits whatever the picker is set to at click time). Seat 13 used chips
+before he corrected this — don't repeat. Memory `parallel-work-delivery.md` hardened to match.
+
 **★ DOUGLAS'S DECISION QUEUE (raise gently, never nag):** (1) EMTB four: browse-vs-builder
 shape / flip threshold (~75 models exist) / US-class display / emtb.html timing; (2)
 reviews.sql fix chip (2 HIGH security findings, file is STAGED not run — fix before he ever
