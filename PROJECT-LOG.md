@@ -1,5 +1,23 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — evening harvest sweep: fanout batch 8 (59.5%) + mechanic L2 round 3 + 10 skills guides LIVE (42 total)
+
+- **fanout batch-group 8 merged**: +32 verified — Specialized frames 17/17 COMPLETE via bdata
+  (the 403 wall stays dead); Trek CRACK FOUND: service-manual PDFs are static/unwalled via
+  bdata search (product pages still walled — Exa rendered exactly 1 of 10+ tries). Verified
+  2,989/5,026 = **59.5%**.
+- **mechanic-training-3 merged**: L2 continuation per round-2 pickup points (bleed steps,
+  Deluxe manual mining, L3 starts). Corpus keeps compounding.
+- **content/skills-guides-1 merged (LIVE)**: 10 riding-skills guides from the coach corpus
+  (body position, braking, flat-vs-berm cornering, climbing, descending, wheel lifts/manual,
+  intro-to-jumping — tabletops-first, drops progression, line choice, session structure) + an
+  honest Guides-page intro/footer disclosure. 42 guides total. Popup scan clean, gates green
+  (700/700). Its report never arrived (send_message needs Douglas present) — harvested from the
+  branch directly, coordinator-reviewed.
+- **Two duplicate coach sessions stood down** (Douglas dispatched the long-runner blocks for
+  rounds the 4-hour background agents had already completed): biomech duplicate archived idle;
+  training-2 duplicate messaged to discard before minting colliding fact IDs.
+
 ## 2026-07-17 — kit fanout-3 merged: KIT CROSSES 60% (433/714 = 60.6%)
 
 - verify/kit-fanout-3 merged (background agent, under cap): +20 verified across O'Neal, Scott,
