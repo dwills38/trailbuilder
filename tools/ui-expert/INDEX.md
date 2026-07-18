@@ -164,6 +164,17 @@ The seed is a *floor*, not a ceiling: the ui-expert agent appends every newly ve
   as the Google-side primary. m2.material.io redirects resolve but serve empty shells.
 - **w3.org, webaim.org, developer.mozilla.org, web.dev, nngroup.com, smashingmagazine.com all
   fetch cleanly via plain WebFetch.** NN/g article text comes through with study numbers intact.
-- Untested this round (L2–L4 targets): Baymard Institute (likely partially member-walled),
-  WAI-ARIA Authoring Practices (w3.org/WAI/ARIA/apg — expect clean), Chrome for Developers
-  case studies, Inclusive Components (inclusive-components.design).
+- **w3.org/WAI/ARIA/apg/patterns/ fetches clean** (confirmed round 2, 2026-07-18): slider,
+  disclosure, listbox, combobox, tabs, and dialog-modal all returned full content via plain
+  WebFetch — no wall.
+- **baymard.com is partially walled, mixed by page type**: the benchmark/example galleries
+  (`/research/...`, `/mcommerce-usability/...`) 404 or truncate to nav-only content via
+  WebFetch; the **`/blog/<slug>` posts fetch cleanly** (confirmed: `/blog/5-essential-filters`,
+  `/blog/slider-interfaces`) — prefer Exa search to locate the right `/blog/` slug, then
+  WebFetch it directly, same two-step route as the Apple HIG precedent.
+- **nngroup.com fetches cleanly** for slider/facet-specific articles too (confirmed:
+  `/articles/gui-slider-controls/`, `/articles/filters-vs-facets/`) — reconfirms the seed's
+  general nngroup.com note.
+- Untested still (L2–L4 targets): Chrome for Developers case studies, Inclusive Components
+  (inclusive-components.design), the WAI-ARIA APG's own accessible-name guidance page (ACC-8's
+  remaining gap).

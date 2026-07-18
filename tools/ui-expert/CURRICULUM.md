@@ -53,14 +53,14 @@ Grade **honestly** — a chapter with one L2 pattern and mostly L1 floors is sti
 A pattern documented without its accessibility contract does not count toward maturity at all.
 Each chapter ends with a **## Gaps** section the next round reads to pick its target.
 
-## Current state (bootstrap round, 2026-07-18)
+## Current state (round 2, 2026-07-18)
 
 | Chapter | Level | Maturity | Note |
 |---|---|---|---|
 | `mobile-fundamentals.md` | L1 | foundation | seeded — target floors, thumb-zone data, viewport/safe-area |
 | `responsive-layout.md` | L1 | foundation | seeded — breakpoint strategy, reflow, wrap rules; container queries stubbed |
-| `accessibility.md` | L1 | foundation | seeded — WCAG 2.2 AA numeric floor + practice notes; ARIA patterns are the big L2 gap |
-| `forms-filters-density.md` | L1→L2 | foundation | seeded — NN/g form canon + density-vs-floor interactions; the slider/chip APG patterns are the L2 gap |
+| `accessibility.md` | L1+L2 | **professional** | round 2 — WAI-ARIA APG ingested (slider/disclosure/listbox/combobox/tabs/dialog, ACC-10–15); resolved ACC-9; produced a theme-wide compat-dot contrast audit (⚠ CONTRADICTION: light-theme dot.w/dot.n fail SC 1.4.11) |
+| `forms-filters-density.md` | L1+L2 | **professional** | round 2 — slider/disclosure/listbox patterns applied to the filter rail (DNS-10–12) + Baymard filter research (DNS-13/14) |
 | `navigation-ia.md` | L1 | foundation | seeded — hidden-nav cost data, subnav thresholds |
 | `performance-perceived.md` | L1 | foundation | seeded — CWV budgets + no-build-step implications |
 | `platform-conventions.md` | L1 | foundation | seeded — the three-convention decision rule |
@@ -68,6 +68,11 @@ Each chapter ends with a **## Gaps** section the next round reads to pick its ta
 ## Corpus rule: target the weakest chapter
 
 Restated from [`INDEX.md`](INDEX.md) rule 7: future rounds read every chapter's Maturity +
-Gaps first and prioritize the weakest-graded chapter(s). The standing round-2 priority is
-**`forms-filters-density.md` to professional** (it is OUR hardest live problem) via the
-WAI-ARIA APG slider/listbox/disclosure patterns + Baymard filtering research.
+Gaps first and prioritize the weakest-graded chapter(s). Round 2 (2026-07-18) took
+`accessibility.md` and `forms-filters-density.md` to professional via the WAI-ARIA APG
+ingest (slider/disclosure/listbox/combobox/tabs/dialog) and Baymard/NN/g filter research, plus
+a theme-contrast contradiction-hunt (see `accessibility.md`'s ⚠ CONTRADICTION section). The
+next round's standing priority: **`navigation-ia.md`, `performance-perceived.md`, or
+`platform-conventions.md`** are now the weakest-graded chapters (still foundation/L1) and
+should be the round-3 target; `mobile-fundamentals.md`/`responsive-layout.md` are next after
+those.
