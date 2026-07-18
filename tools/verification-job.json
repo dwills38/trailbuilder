@@ -1,16 +1,13 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T13:29:48.540Z",
+ "updated": "2026-07-18T13:36:08.056Z",
  "batchSize": 25,
- "lastCompleted": "fr-canyon-sender-cfr-hp",
+ "lastCompleted": "fr-devinci-spartan-carbon",
  "currentCategory": "frame",
  "queue": [
-  "fr-santacruz-hightower-4-c",
   "fr-giant-trance-x-advanced-sx",
-  "fr-transition-smuggler-alloy",
   "fr-rockymountain-slayer-alloy",
-  "fr-devinci-spartan-carbon",
   "fr-devinci-django-carbon",
   "fr-devinci-troy-carbon",
   "fr-gt-force-alloy",
@@ -25674,11 +25671,11 @@
   },
   "fr-transition-smuggler-alloy": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-14T16:24:40.844Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:36:07.816Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Only found a weight for the OLD 2015-2017 Smuggler Alloy generation (3329g) - not applicable to this row's current 2023 platform. No current-gen alloy frame weight found this session; existing sample estimate stands."
   },
   "fr-rockymountain-slayer-alloy": {
    "cat": "frame",
@@ -25770,11 +25767,11 @@
   },
   "fr-santacruz-hightower-4-c": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:36:07.577Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Searched for a C-tier-specific frame weight (only the CC-tier ~3104g is published, e.g. via search summaries of santacruzbicycles.com); a 99spokes C-tier frameset page carries no weight at all. An AI-estimated 'C is ~250-280g heavier than CC' figure is not a maker-stated number, so not applied - existing 3300g sample stands. Interfaces already directly manufacturer-confirmed via the Browser-rendered specs panel."
   },
   "fr-canyon-neuron-al": {
    "cat": "frame",
@@ -25946,11 +25943,11 @@
   },
   "fr-devinci-spartan-carbon": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:36:08.055Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Found a bikerumor.com 'actual weight' figure (~2790g, size M) but could not confirm it's for the CONTINUING HP platform this row represents vs an earlier/different Spartan Carbon generation launch article - not applied without generation confirmation, to avoid the same risk class as the YT Capra AL BB finding this session. Existing PDF-sourced interfaces + sample weight stand."
   },
   "fr-devinci-django-carbon": {
    "cat": "frame",
