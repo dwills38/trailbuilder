@@ -1,5 +1,18 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — hourly sweep: coach round 3 (4 chapters professional) + near-dup audit (-7 rows) + drift triage 3
+
+- **tooling/coach-training-3-seat12 merged**: discipline-craft, fundamentals, braking-traction
+  all graded PROFESSIONAL (honest — L2 gap lists closed); TER-10 committed-chute closed; the
+  stoppie-pivot family finally laddered (COR-15/16 — its prerequisite chain sourced); the LIVE
+  intro-to-jumping + drops guides enriched against the terrain physics (browser pass pending
+  in this sweep's live-surface check with the theme merge). Coach corpus now 5/7 professional.
+- **cleanup near-dup audit merged**: 7 confirmed same-SKU re-entries merged (5,025 → 5,018;
+  e.g. a CUES shifter entered twice under two id spellings), every retirement through ALIASES
+  with rationale, fills repointed, the bundle-price invariant preserved. Harness BYTE-IDENTICAL.
+- **maint/drift-check-3 merged**: triage of 1,369/3,007 verified rows' sources (pass 3 doc) —
+  correction follow-ups per its CHANGED list queue behind the cleanup.
+
 ## 2026-07-18 — gravel-3 + cleanup clusters 1-3 merged: rule-8 FM↔PM adapter tier LIVE
 
 - **catalog/gravel-3 merged**: Panaracer phantom-size rows REPLACED with real-lineup sizes;
