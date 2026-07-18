@@ -613,6 +613,119 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2a (BMX-5). Engine: `bmx-gyro-tabs`/`bmx-gyro-c
 
 ---
 
+## TRP and Magura: the third and fourth hydraulic makers (closes a named L2 gap)
+
+**BRK-42 — TRP's own DH-R EVO manual gives the full install torque set, fluid restriction and
+service limits, bringing a third major hydraulic maker to the same L2 depth as Shimano (BRK-35)
+and SRAM (BRK-38–40).** From TRP/Tektro's manual:
+- **Torques:** brake lever clamp **3–5 N·m** (with the standing caveat *"Refer to handlebar
+  manufacturer's specifications"*); caliper mounting bolts **6–8 N·m** (*"Refer to fork or frame
+  manufacturer's specifications"*); hose compression nut **5–7 N·m**.
+- **Fluid:** mineral oil only, and the warning is unusually pointed — *"Only use TRP/TEKTRO
+  branded replacement mineral oil when servicing the brakes. Other disc brake fluids, ESPECIALLY
+  DOT based oils, will harm the system."* (Consistent with the mineral/DOT divide already in this
+  chapter; noted here because TRP goes further than "mineral oil" to "our mineral oil".)
+- **Service limits:** pads replaced below **2.5 mm** total thickness (friction material + metal
+  backing plate), with a separate absolute pre-ride floor of *"at least 0.8mm of pad material."*
+  Note these are two different measurements — the 2.5 mm figure includes the backing plate, the
+  0.8 mm figure is friction material alone; quoting one as the other is an easy error.
+- **Bed-in, quantified:** 15–20 moderate-speed drags to walking pace, then 10–15 higher-speed
+  harder drags, then cool. The stated failure mode if done wrong: *"Do not come to a complete stop
+  at any time during this process. Doing so can lead to uneven pad material deposition"* — i.e.
+  stopping fully is what causes the deposit patch that later reads as warped-rotor pulsing.
+
+*Confidence: confirmed (fetched manufacturer PDF, text-extracted). **Fetch-route lesson:** this
+chapter's Gaps list recorded TRP as unreachable after a WebFetch 429. A plain `curl` + `pdftotext`
+on the manual URL succeeded immediately — the same WebFetch-specific false-negative pattern that
+DRV-41/42 hit with the ZFC PDFs. Try the direct download before concluding a PDF is walled.*
+Source: tektro.eu/wp-content/uploads/TRP-DH-R-EVO-manual.pdf, 2026-07-18.
+
+**BRK-43 — ⚠ CONTRADICTION (scope gap, not a wrong rule): rotor THICKNESS is a real,
+manufacturer-published compatibility dimension between caliper and rotor, and neither the schema
+nor `checkBuild` models it.** Two makers document it independently, and they do not agree on a
+common value:
+- **TRP (DH-R EVO):** *"This braking system is designed for use with 2.3 mm thick rotors. For
+  optimal results, use TRP 2.3 mm thick rotors. 1.8 mm thick rotors are not recommended to be
+  used with this system."*
+- **Magura (MT):** its assembly-dimensions table specifies disc-brake-rotor thickness
+  **min.–max. 1.8–2.0 mm**, independently corroborated by the manual's own wear limit — *"The
+  MAGURA disc brake rotor is considered worn if the thickness is less than 1.8mm at any point."*
+- **Shimano**, already in this chapter (BRK-27), sets its *wear* floor at **1.5 mm**.
+
+The mechanically important consequence: **a rotor inside Magura's stated 1.8–2.0 mm design range
+is a rotor TRP explicitly does not recommend for the DH-R EVO.** This is a genuine cross-brand
+caliper↔rotor incompatibility that a rider can build today, and the engine cannot see it — the
+`rotor` category carries `size` and `mount` but **no thickness field**, so a TRP caliper with a
+1.8 mm rotor currently returns a clean green. Note this is distinct from the wear limits already
+in BRK-27: those describe when a rotor is worn out, this describes what thickness a caliper was
+*designed around* in the first place.
+
+**Recommendation for the coordinator — deliberately conservative, and NOT a rule proposal.** Per
+`MECHANIC-FINDINGS-INTAKE.md` §2, a new hard error needs manufacturer compatibility docs; two
+exist here, but they are thin ground for a red because (a) TRP's wording is *"not recommended"*,
+not "will not fit" — pad-clearance tolerance, not a hard interference, and (b) the catalog carries
+no rotor thickness data at all, so the rule would be dormant on every current row. The rule-18
+template applies exactly: this is a candidate to land **dormant** (optional sourced
+`rotorThickness` on rotors + an optional `designRotorThickness` on brakes, warning tier only,
+activated per part as sourced data arrives) — not something to switch on now. Recording the fact
+is the deliverable; the rule decision is the coordinator's and the human mechanic review's.
+*Confidence: confirmed (two independent fetched manufacturer documents).* Sources:
+tektro.eu/wp-content/uploads/TRP-DH-R-EVO-manual.pdf +
+api.magura.com/…/mt-manual-2017-en.pdf (both fetched), 2026-07-18. Cross-reference: BRK-27.
+
+**BRK-44 — Magura's own MT manual closes the fourth major hydraulic maker, and documents a
+maintenance claim the other three do not make.** From the manual:
+- **Torques:** rotor retaining screws **6 N·m** (tightened crosswise); QM adapter screws
+  **4 N·m (35 lbf·in)**; hose screw plug **3 N·m (27 lbf·in)**; hose clamping/cover screw
+  **4 N·m**; the filling syringe's barbed fitting itself torqued to **4 N·m** on installation.
+- **Fluid:** *"Use MAGURA Royal Blood (mineral oil) exclusively for bleeding and filling - never
+  DOT brake fluid."*
+- **The distinctive claim — no scheduled bleed interval:** *"Because MAGURA Royal Blood does not
+  age, it is not necessary to bleed or refill your MAGURA brake regularly. Do this only if"* a
+  symptom appears (soft/wandering pressure point). This is a real contrast worth carrying: SRAM's
+  DOT systems are hygroscopic and carry a service-interval logic, whereas Magura explicitly
+  disclaims routine bleeding. **Scope honesty:** this is a manufacturer marketing-adjacent claim
+  in its own manual, not an independently verified chemistry result — recorded as *what Magura
+  states*, at manufacturer tier, not as an established fluid-science finding.
+- **Bleed mechanism:** EBT (Easy Bleed Technology), with a documented 4-piston-caliper
+  requirement — *"Use two transport devices per brake calliper with 4-piston"* — i.e. the piston
+  spacer count scales with piston count, an easy-to-miss step on a 4-pot bleed.
+- **Assembly dimensions:** 22 mm bar clamp (+0.3/−0.1), 74 mm ±0.1 PM socket distance, rotor
+  diameter **140–203 mm (5.5"–8")**, 5 mm hose diameter.
+
+*Confidence: confirmed (fetched manufacturer PDF, text-extracted). **Fetch-route lesson,
+same as BRK-42:** this chapter recorded Magura's PDF as *"fetched but came back
+corrupted/unreadable through the fetch tool."* Direct `curl` + `pdftotext` extracted all 900
+lines cleanly on the first attempt. The prior "corrupted" verdict was a fetch-tool artifact, not a
+property of the file.* Source: api.magura.com/medias/sys_master/maguracom-medias/h24/hc9/
+9603888316446/mt_manual_2017_en/mt-manual-2017-en.pdf, 2026-07-18.
+
+**BRK-45 — Magura rates ROTOR SIZE against maximum approved SYSTEM WEIGHT — a compatibility axis
+no other maker in this corpus publishes, and one the engine has no concept of.** The MT manual
+carries a "Combinations - disc brake rotors" table crossing the three Storm rotor families
+(**Storm HC**, **Storm**, **Storm SL**) against front/rear rotor-size pairings (160/160, 180/160,
+180/180, 203/180, 203/203, plus a 160/140 option on Storm SL) and giving, for each, a **maximum
+approved total weight** — defined in the manual's own footnote as *"rider + bicycle + luggage +
+trailer"*. The readable extremes: the values span roughly **90 kg (198 lb)** at the small-rotor
+end of the lightweight Storm SL family up to **205 kg (452 lb)** at the 203/203 end of the
+heavy-duty Storm HC family.
+
+**Extraction honesty — the per-cell mapping is NOT asserted.** The table's weight row extracted
+with fewer values than it has column headers, so individual rotor-combination → weight-limit
+pairings could not be reliably aligned from the text layer. Per corpus rule 6, the **structure and
+the range endpoints** are recorded as fact; the specific cell values are **not**, and a future
+round wanting them should read the rendered page image rather than trust a text extraction. What
+is solid and useful regardless: **rotor size is weight-rated, not merely power-rated**, and the
+rating depends on the rotor family as well as the diameter — so "bigger rotor = more power" is an
+incomplete mental model, and a heavy rider/cargo setup can be *outside the maker's approval* on a
+rotor pairing that fits perfectly well. **Not a rule candidate:** rider weight is not a build slot
+and TrailBuilder models no rider, so this is mechanic advisory knowledge only.
+*Confidence: confirmed for the table's existence, structure and range; per-cell values explicitly
+not established (extraction limit, stated above).* Source:
+api.magura.com/…/mt-manual-2017-en.pdf p.13 (fetched), 2026-07-18.
+
+---
+
 ## Gaps
 
 Honest list of what a future round should close, per `CURRICULUM.md`'s "target the weakest
@@ -636,14 +749,29 @@ chapter" rule — this chapter is graded `professional` as of this round, not ye
   contamination-requires-full-replacement), and a non-bleed spongy-lever fix. This closes the
   "SRAM-side is unresearched" half of the prior gap entry — SRAM now has genuine L2 depth on
   par with Shimano's.
-- **Still open: TRP/Hayes/Magura torque and bleed-procedure coverage.** This chapter's L2
-  depth is Shimano + SRAM only — the two dominant manufacturers, but not the whole market.
-  TRP's own site 429-rate-limited on a second direct WebFetch (recovered via Exa for the pad/
-  rotor article, but a dedicated bleed/torque spec page was never reached); Hayes has no
-  fetchable FAQ/spec page found; Magura's owner's-manual PDF fetched but came back
-  corrupted/unreadable through the fetch tool. Worth a retry with Bright Data if the shared
-  budget allows, per `VERIFY-PROTOCOL.md` doctrine. L2 gap, narrower than before (2/5 major
-  hydraulic brake makers now fully covered).
+- ~~**Still open: TRP/Hayes/Magura torque and bleed-procedure coverage.**~~ **LARGELY CLOSED
+  2026-07-18 master round (BRK-42–45): TRP and Magura are both now sourced at manufacturer-primary
+  tier**, taking this chapter from 2/5 to **4/5 major hydraulic makers** with real L2 depth
+  (Shimano, SRAM, TRP, Magura). Landed: TRP's full install torque set, mineral-oil restriction,
+  two-tier pad-wear limits and quantified bed-in procedure (BRK-42); Magura's torque set, Royal
+  Blood restriction, EBT bleed with its 4-piston spacer requirement, assembly dimensions, and its
+  distinctive no-scheduled-bleed-interval claim (BRK-44); plus two findings that only emerged from
+  having a third and fourth maker to compare — **rotor thickness as an unmodelled compatibility
+  axis** (BRK-43, ⚠ flagged for the coordinator) and **rotor size as a weight-rated spec**
+  (BRK-45).
+  **The prior entry's diagnosis was wrong in an instructive way, and that matters more than the
+  facts:** it recorded TRP as WebFetch-429'd and Magura's PDF as *"corrupted/unreadable"*. Both
+  were **fetch-tool artifacts**. Plain `curl` + `pdftotext` on the manual URLs succeeded on the
+  first attempt for both, with no Bright Data escalation needed — the same false-negative pattern
+  DRV-41/42 hit with the Zero Friction Cycling PDFs. **Standing lesson for future rounds: before
+  recording a PDF as walled or corrupt, try the direct download + `pdftotext`.** Two of this
+  chapter's long-standing gaps were never really source problems.
+  **Genuinely still open: Hayes.** Not reached this round either — no fetchable spec/FAQ page has
+  been found across two rounds now. Hayes is a DOT-fluid maker (per Park Tool's bleed-kit
+  compatibility list, already cited in this chapter), so its absence leaves a real hole in the DOT
+  side. Status: **unfetched, not source-exhausted** — Hayes does publish product manuals, and the
+  Wayback CDX route that unlocked Industry Nine's document library this round (DRV-62) has not
+  been tried against hayesbicycle.com. That is the specific, named next step.
 - **No quantified pad-compound heat-fade science** — BRK-25's ramp-up/sweet-spot/falloff model
   is qualitative only; no actual temperature thresholds per compound, no fade-recovery
   behavior, no rotor metallurgy/heat-treatment facts. L3 gap.
@@ -651,6 +779,16 @@ chapter" rule — this chapter is graded `professional` as of this round, not ye
   bore tolerances, piston-seal material science, rotor heat-treatment metallurgy) — L3 gap,
   same tier as the pad-compound gap above; nothing sourced yet.
 - **TRP/Hayes/Magura minimum-native-rotor-size data could not be cleanly sourced this round.**
+  **— UPDATE 2026-07-18 (BRK-44/45): the MAGURA side is now sourced.** Its MT manual publishes a
+  rotor-diameter range of **140–203 mm (5.5"–8")** in the assembly-dimensions table, plus the
+  Storm-family rotor-combination table (BRK-45). Note this is a *system* diameter range, not a
+  per-caliper native-mount minimum in the rule-10 sense, so it is **not** directly a
+  `minRotorF`/`minRotorR` activation candidate — recorded as a spec, not as rule data. **TRP:
+  still not cleanly sourced** — the DH-R EVO manual (BRK-42) specifies rotor *thickness* (2.3 mm)
+  but states no minimum *diameter*; the size list circulating in reviews and retail listings was
+  NOT confirmed against a TRP page this round and is therefore not recorded. **Hayes: unchanged,
+  still unreached.** The original entry's tooling assumption is now known to be unreliable —
+  see the fetch-route lesson in the TRP/Magura entry above.
   TRP's own site 429-rate-limited on a second direct WebFetch (recovered via Exa for the pad/
   rotor article, but a dedicated spec page was never reached); Hayes has no fetchable FAQ/spec
   page found; Magura's owner's-manual PDF fetched but came back corrupted/unreadable through
