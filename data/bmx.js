@@ -483,19 +483,19 @@ var BMX_PARTS = [
     note: 'Teeth (30T, sold as "Sprocket Only" without the guard at this size) and price ($49.99, was $44.99) confirmed 2026-07-17 via shop.odysseybmx.com/products/odyssey-utility-pro-sprocket-black. Chain pitch is not literally stated on the page ("compatible with all BMX chains"), so the verdict-driving pitch field is left as the 1/8in sample value (correct for every other Odyssey freestyle sprocket in this catalog) and the row stays unverified.'
   },
   {
-    id: 'bmx-sp-profile-race-25', cat: 'sprocket', brand: 'Profile Racing', model: 'Race Sprocket 25T',
-    teeth: 25, mount: 'spline', pitch: '1/8', price: 59.99,
-    note: 'UNCONFIRMED 2026-07-17: fetched profileracing.com/product-category/profile-bmx/profile-sprockets/ - no product named "Race Sprocket" is currently listed (current spline-drive lines are Sabre, Imperial, Signet Guard, Galaxy). 25T falls in the Imperial 23T-30T ($57.99) and Sabre 25T-33T ($64.99-75.99) ranges but no exact SKU/price match found; left unverified, unchanged (no fabricated correction), flagged for the coordinator.'
+    id: 'bmx-sp-profile-race-25', cat: 'sprocket', brand: 'Profile Racing', model: 'Imperial 23T-30T Spline Drive (25T)',
+    teeth: 25, mount: 'spline', pitch: '1/8', price: 57.99,
+    note: 'RENAMED/re-priced 2026-07-18 (id kept, append-only): re-fetched profileracing.com/product-category/profile-bmx/profile-sprockets/ - "Race Sprocket" was never a real Profile product name; the real current spline-drive lines are Sabre, Imperial, Signet Guard, Galaxy. 25T falls inside the real "Imperial 23T-30T" SKU, listed at a flat $57.99 across its whole tooth range (not broken out per-tooth on the page) - price corrected to that flat SKU price. Still left unverified: the page does not confirm the row is literally a 1/8in-pitch, spline-mount product beyond the family default, so provenance trio withheld.'
   },
   {
-    id: 'bmx-sp-profile-race-28', cat: 'sprocket', brand: 'Profile Racing', model: 'Race Sprocket 28T',
-    teeth: 28, mount: 'spline', pitch: '1/8', price: 59.99,
-    note: 'UNCONFIRMED 2026-07-17: same finding as bmx-sp-profile-race-25 - no "Race Sprocket" product currently listed on profileracing.com. Left unverified, unchanged, flagged for the coordinator.'
+    id: 'bmx-sp-profile-race-28', cat: 'sprocket', brand: 'Profile Racing', model: 'Imperial 23T-30T Spline Drive (28T)',
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 57.99,
+    note: 'RENAMED/re-priced 2026-07-18 (id kept, append-only): same correction as bmx-sp-profile-race-25 - 28T also falls inside the real "Imperial 23T-30T" SKU at its flat $57.99 price. Left unverified for the same reason.'
   },
   {
-    id: 'bmx-sp-profile-race-33', cat: 'sprocket', brand: 'Profile Racing', model: 'Race Sprocket 33T',
-    teeth: 33, mount: 'spline', pitch: '1/8', price: 59.99,
-    note: 'UNCONFIRMED 2026-07-17: same finding as bmx-sp-profile-race-25 - no "Race Sprocket" product currently listed on profileracing.com; 33T is the top of the Sabre Universal Spline Drive (25T-33T, $64.99-75.99) range but no exact SKU/price match confirmed. Left unverified, unchanged, flagged for the coordinator.'
+    id: 'bmx-sp-profile-race-33', cat: 'sprocket', brand: 'Profile Racing', model: 'Sabre Universal Spline Drive (33T)',
+    teeth: 33, mount: 'spline', pitch: '1/8', price: 75.99,
+    note: 'RENAMED/re-priced 2026-07-18 (id kept, append-only): 33T is the top of the real "Sabre Universal Spline Drive 25T-33T" SKU, priced $64.99-75.99 across its range on profileracing.com; top-of-range price used as the conservative estimate. Left unverified for the same reason as the 25T/28T rows.'
   },
   {
     id: 'bmx-sp-flybikes-alloy-28', cat: 'sprocket', brand: 'Fly Bikes', model: 'Alloy Sprocket 28T',
