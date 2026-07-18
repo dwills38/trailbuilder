@@ -53,7 +53,11 @@ test('partVerified is false for null and for a kit with no fills', function(){
    partVerified, and stays almost always false for a completebike — most
    catalog components aren't independently verified yet). ---------------- */
 test('completeBikeSheetVerified is true for a complete bike whose own row is verified', function(){
-  ok(C.completeBikeSheetVerified(C.byId('cb-devinci-django-carbon-gx')));
+  /* exemplar swapped cb-devinci-django-carbon-gx -> cb-revel-ritual-sram-eagle90
+     (verified-flag audit 2026-07-18: the Django row was vitalmtb-sourced and
+     demoted; the Revel row is maker-sourced and was spot-re-verified against
+     its live source in the same audit — tools/VERIFIED-FLAG-AUDIT-2026-07-18.md) */
+  ok(C.completeBikeSheetVerified(C.byId('cb-revel-ritual-sram-eagle90')));
 });
 test('completeBikeSheetVerified is false for a complete bike whose own row is not verified, even if some fills are', function(){
   ok(!C.completeBikeSheetVerified(C.byId('cb-rose-scrub-dc3')));
@@ -63,7 +67,7 @@ test('completeBikeSheetVerified is false for null and for a non-completebike par
   ok(!C.completeBikeSheetVerified({ id:'x', cat:'saddle', brand:'B', model:'M', price:0, verified:true, lastChecked:'2026-01-01', source:'https://example.com' }));
 });
 test('completeBikeSheetVerified and partVerified are genuinely different claims for the same bike', function(){
-  var cb = C.byId('cb-devinci-django-carbon-gx');
+  var cb = C.byId('cb-revel-ritual-sram-eagle90');   // same audit-driven exemplar swap as above
   ok(C.completeBikeSheetVerified(cb), 'the bike row itself is verified');
   ok(!C.partVerified(cb), 'but not every one of its ~20 fills is independently verified yet — partVerified stays false');
 });

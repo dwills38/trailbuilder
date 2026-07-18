@@ -265,10 +265,12 @@ any interface or weight. (The seeded shuffle produced no BMX row — noted.)
 
 ## Gates
 
-`node validate.js` (7 OK), `npm test`, `npx tsc --noEmit`, and
-`node tools/verdict-audit-harness.js` all pass before and after the demotions;
-the harness output is byte-identical (demotions touch no engine field — see the
-demotions commit). One test evolved, explicitly per the audit brief:
+`node validate.js` (7 OK), `npm test` (764 passed / 29 files), `npx tsc
+--noEmit`, and `node tools/verdict-audit-harness.js` all pass before and after
+the demotions. The harness before/after diff is exactly one line — its DVO
+Onyx SC probe's informational annotation "(verified 6/6)" → "(verified 0/6)",
+i.e. the harness *reporting* the D2 demotion of those six forks. **No error,
+warning or info verdict changed** (demotions touch no engine-read field). One test evolved, explicitly per the audit brief:
 `test/test-ui.js`'s `completeBikeSheetVerified` cases used
 `cb-devinci-django-carbon-gx` (demoted here, D2/vitalmtb) as the verified
 exemplar; they now use `cb-revel-ritual-sram-eagle90`, whose maker source was
