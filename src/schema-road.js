@@ -69,7 +69,10 @@ var LOCAL_VOCAB = {
      press-fit, 86.5mm) added alongside the original ROAD-MODEL.md draft. */
   bbShellRoad:  ['bsa-road', 'bb86', 'bb386evo', 'bbright', 'pf30', 't47-road', 'italian',
                  'bb90-road', 'bb30a', 'pf86'],
-  crankBbRoad:  ['dub', 'dub-wide', '24mm-road', '30mm'],
+  /* 'ultra-torque' ADDED road-2 wave: Campagnolo's own splined half-axle
+     spindle interface (Super Record/Record/Chorus) — a distinct standard
+     from SRAM DUB / Shimano 24mm / a generic 30mm spindle, never conflate. */
+  crankBbRoad:  ['dub', 'dub-wide', '24mm-road', '30mm', 'ultra-torque'],
   seatpostDiaRG:['27.2', '30.9', '31.6'],
   clampRG:      ['31.8', '35'],
   frontDerailleurMount: ['braze-on', 'band', 'none'],
