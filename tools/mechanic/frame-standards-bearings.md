@@ -1,20 +1,25 @@
 # Frame Standards & Bearings — Mechanic Corpus
 
-**Maturity: foundation, approaching professional** (L1 — see [`CURRICULUM.md`](CURRICULUM.md); a
-prior round added L1 BB-shell/headset identification, threading-direction, UDH-history and
-creak-diagnosis literacy, then opened L3 with real numeric press-fit interference specs (BB
-shell bore tolerance, Chris King headset cup interference) and manufacturer-quoted coverage of
-the BB30/PF30 tolerance-stack dispute (FRM-28–33), plus a first L2 fastener-torque table
-(FRM-34). **2026-07-18: this round closes three named foundational gaps outright** — the
-S.H.I.S. standard's own founding document + full numeric tolerance tables (FRM-36/37), thru-axle
-thread standards (FRM-39/40), and SRAM's own UDH engineering drawing + numeric hanger/chainstay
-spec (FRM-41/42) — **and deepens L3** with a second and third independent BB-manufacturer's own
-numeric bore-tolerance data (Hambini's accept-window table + root-cause corroboration, FRM-43/44)
-and Cane Creek's own OE head-tube bore-tolerance spec closing FRM-33's Chris-King-vs-industry
-open question (FRM-45). Still short of `professional`: headset locknut torque, UDH-hanger-bolt
-torque, and Trek/Cannondale/Cervélo-specific BB figures remain unsourced (FRM-34's own gap), and
-most L3 targets beyond press-fit (wheel-building, BMX bearing matrix, brand-specific service
-internals) remain open — see "## Gaps").
+**Maturity: professional** (L1 — see [`CURRICULUM.md`](CURRICULUM.md); a prior round added L1
+BB-shell/headset identification, threading-direction, UDH-history and creak-diagnosis literacy,
+then opened L3 with real numeric press-fit interference specs (BB shell bore tolerance, Chris
+King headset cup interference) and manufacturer-quoted coverage of the BB30/PF30 tolerance-stack
+dispute (FRM-28–33), plus a first L2 fastener-torque table (FRM-34). **2026-07-18: this round
+closed every gap the marathon brief named** — the S.H.I.S. standard's own founding document +
+full numeric tolerance tables (FRM-36/37), thru-axle thread standards (FRM-39/40), SRAM's own
+UDH engineering drawing + numeric hanger/chainstay spec (FRM-41/42) — **plus deepened L3** with
+a second and third independent BB-manufacturer's own numeric bore-tolerance data (Hambini,
+FRM-43/44) and Cane Creek's own OE head-tube bore-tolerance spec closing FRM-33's open question
+(FRM-45) — **and closed the remaining L2 fastener-torque items**: headset locknut + UDH
+hanger-bolt torque (FRM-46/47), the BMX bearing-kit matrix (FRM-48), and both Campagnolo's
+distinct Ultra-Torque architecture and Shimano's own press-fit BB install/removal procedure
+(FRM-49/50) — closing FRM-34's "Shimano/Campagnolo unsourced" gap outright. L1 complete + L2
+depth now spans BB/crank/headset/UDH/thru-axle fastener torque across SRAM, Shimano, Campagnolo,
+Chris King, and Cane Creek, crossing the CURRICULUM.md bar for `professional`. What's left toward
+`master`: wheel-building/spoke-tension (out of this chapter's scope), a full UDH revision-by-
+revision dimensional history (FRM-41 sources the drawing's existence and revision letter, not a
+line-by-line changelog), and Trek/Cannondale/Cervélo BB-specific figures (a narrow residual, not
+a broad brand gap anymore) — see "## Gaps").
 
 BB shells · crank spindles · bottom brackets · headset / S.H.I.S. · UDH · frame axle &
 clearance · dropout type / single-speed tension · (BMX shells, spindles, crank pieces).
@@ -634,6 +639,31 @@ Source: campagnolo.com dealer PDFs "Technical manual — bottom bracket cup" (Re
 Record Group" + "Crank & Bottom Bracket Removal & Installation: Campagnolo Ultra-Torque" (both
 fetched, corroborating), 2026-07-18. Cross-reference: FRM-18, FRM-32, [`drivetrain.md`](drivetrain.md) DRV-51.
 
+## Shimano press-fit BB install/removal (closes the remaining half of FRM-49's gap)
+
+**FRM-50 — Shimano's own press-fit BB (SM-BB72/BB92 family, 86.5 mm shell) install/removal
+procedure has NO torque spec at all for the press-fit action itself — it's a qualitative
+"press until the gap closes" fit-check, not a numeric target — and removal uses a distinctive
+expanding-flap tool struck with a mallet, a genuinely different mechanism from a hex-key
+press-fit tool.** Multiple Shimano crank dealer manuals (DM-FC0002, DM-GAFC001, DM-RAFC010,
+DM-RAFC001, DM-FC0003 — spanning several crank families that share the same BB) give an
+identical press-fit procedure: insert the **SHIMANO original tool TL-BB12**, then *"press fit
+the bottom bracket by tightening with a spanner while making sure that the contact surface of
+the bottom bracket stays parallel to the contact surface of the bottom bracket shell... Check to
+confirm that there is no gap between the bottom bracket and the bottom bracket shell"* — the
+install target is a **visual/tactile zero-gap check**, not a torque or force number, a genuine
+contrast with FRM-46's headset-locknut and FRM-49's Campagnolo cup torque figures, both of which
+DO have numeric targets. Removal uses **tool TL-BB13**, a completely different mechanism from a
+standard bearing press: the tool has flexible **flaps** that are manually expanded by pressing a
+protruding tip, inserted from the side opposite the cup being removed, pushed in until *"the
+collar on the flaps engages with the cup,"* then struck with a **soft-face mallet** to drive the
+cup out — closer in spirit to a slide-hammer/expanding-collet puller than a threaded press tool.
+Shimano's own manual also flags the cups as single-use: *"Do not reuse the cups as they can be
+damaged during removal."* *Confidence: confirmed (fetched, five independent Shimano dealer
+manuals describing an identical procedure — internally consistent, not a one-off).* Source:
+si.shimano.com DM-FC0002-16 + DM-GAFC001-03 + DM-RAFC010-02/03 + DM-RAFC001-04 + DM-FC0003-09
+(all fetched), 2026-07-18. Cross-reference: FRM-49, [`drivetrain.md`](drivetrain.md) DRV-35.
+
 ## Headset locknut + UDH hanger-bolt torque (closes FRM-34's remaining named gap)
 
 **FRM-46 — Threaded-headset locknut torque IS in Park Tool's cross-manufacturer table (FRM-34
@@ -903,14 +933,15 @@ close, most-specific first:
   medium-high confidence, not confirmed, per corpus rule 5. Engine decision (FRM-15) to skip
   matrix-level verdicts in favor of purchasable-BB exact checks stands; this closes the
   knowledge gap without implying a rule change.
-- **PARTIALLY CLOSED 2026-07-18 (FRM-49) — Campagnolo Ultra-Torque service internals.**
-  Campagnolo's own dealer manuals now source the genuinely different bearings-on-the-crank-arm
-  architecture, the wave-washer shell-tolerance mechanism, cup/central-bolt/chainring-screw
-  torque figures, and the left-hand-thread titanium-bolt exception on one specific SKU. **Still
-  open: Shimano proprietary press-fit BB service internals specific to this chapter** (DRV-35 in
-  `drivetrain.md` covers Shimano crank-side torque, but a frame-side press/removal procedure for
-  Shimano's own press-fit BB families hasn't been sourced here) — narrowed from "Shimano AND
-  Campagnolo" to "Shimano only," still L2.
+- **CLOSED 2026-07-18 (FRM-49/50) — Shimano AND Campagnolo BB service internals.**
+  Campagnolo's own dealer manuals source the bearings-on-the-crank-arm architecture, the
+  wave-washer shell-tolerance mechanism, cup/central-bolt/chainring-screw torque figures, and a
+  left-hand-thread titanium-bolt exception (FRM-49). Shimano's own dealer manuals (five
+  independent PDFs, consistent) source the press-fit BB install/removal procedure — notably a
+  qualitative zero-gap fit-check rather than a torque number for the press-fit action, plus the
+  TL-BB12/TL-BB13 tool mechanism (FRM-50). Both proprietary systems this gap named are now
+  sourced; remaining brand-specific BB depth (Trek BB90/95 service, other minor brands) is a
+  narrower residual, not the original broad gap.
 - **Headset creak isolation (FRM-27) has no equivalent BB-vs-frame-crack differential test
   sourced yet** — Park Tool's noisy-drivetrain page mentions frame cracks as a creak source
   ("A crack in a weld... can also cause a creaking sound") but this round did not source a
