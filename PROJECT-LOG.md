@@ -1,5 +1,31 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — MEGA SWEEP: 🎀 Pee Wee theme LIVE + mobile audit + mechanic r5 + road/gravel waves + EMTB 66
+
+- **🎀 "Pee Wee Herman" theme SHIPPED** (5th theme, all 3 app pages + ui-common registry; legal
+  pages exempt per the RAD precedent): 1950s-diner maximalism, CSS-only polka-dot header, every
+  new token pair contrast-checked ≥4.5:1 by the worker AND coordinator-verified in-browser;
+  existing 4 themes byte-identical; zero popups; all-clear wording untouched.
+- **Mobile UI audit #1 merged** (corpus-cited, no CRITICALs): the site is structurally sound on
+  mobile. HIGH-1 = the compat DOTS fail WCAG non-text contrast on the DEFAULT light theme
+  (yellow 2.19:1, grey 1.46:1 vs 3:1 floor) + color-alone state — INDEPENDENTLY CONFIRMED by
+  ui-expert round 2's contradiction sweep with identical numbers. Fix chip queued (ring tokens
+  + tiny glyphs). 4 MEDs + 4 LOWs logged; forum/profile re-audit flagged (account-gated locally).
+- **ui-expert round 2 merged**: ARIA APG patterns ingested (slider/disclosure applied to OUR
+  filter rail), accessibility + forms-filters-density both PROFESSIONAL.
+- **Mechanic round 5 merged — suspension PROFESSIONAL** (2nd chapter there): all 5 round-4
+  pickup points closed (current-gen RockShox manual via curl+pdftoppm image-read — a reusable
+  big-PDF technique now in the corpus; ZFC misdiagnosis reversed with real km-to-wear data; Fox
+  service manuals; dropper + hub internals). NOTE: the duplicate-dispatch pair landed in ONE
+  shared worktree and self-coordinated — even cross-correcting an over-generalized oil-volume
+  fact. Root cause: chip briefs' deterministic worktree paths; lesson memoried.
+- **road-4 merged** (32/150 verified — incl. killing a fabricated "Record Wireless" family +
+  an id-collision reconciliation between the road duplicate pair, handled by the owner);
+  **gravel-4 merged** (26/150 verified; 2 real fabrication catches: XG-1251 range, Apex
+  chainline; bbright + 31.6 vocab widens fetched-backed; a latent pinned-TODAY test bug fixed —
+  bmx test checked for the same pattern); **EMTB 66 bikes / 25 makers** (0 verified by posture;
+  inside Douglas's threshold range — his call pending tomorrow).
+
 ## 2026-07-18 — hourly sweep: coach round 3 (4 chapters professional) + near-dup audit (-7 rows) + drift triage 3
 
 - **tooling/coach-training-3-seat12 merged**: discipline-craft, fundamentals, braking-traction
