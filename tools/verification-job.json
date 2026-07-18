@@ -1,21 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T15:55:57.541Z",
+ "updated": "2026-07-18T16:02:02.663Z",
  "batchSize": 25,
- "lastCompleted": "fr-octaneone-void",
+ "lastCompleted": "fr-orbea-laufey",
  "currentCategory": "frame",
  "queue": [
-  "fr-norco-torrent-ht-a",
-  "fr-norco-shore-park",
-  "fr-ari-delanopeak",
-  "fr-canyon-sender-cfr-gen3",
-  "fr-canfield-lithium-v3",
-  "fr-unno-dash",
-  "fr-devinci-chainsaw-dh",
-  "fr-diamondback-syncr",
-  "fr-giant-talon-4-2027",
-  "fr-orbea-laufey",
   "fr-pivot-les-sl",
   "fr-bmc-twostroke-01",
   "fr-radon-cragger",
@@ -26770,27 +26760,27 @@
   },
   "fr-norco-torrent-ht-a": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T16:01:45.482Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: norco.com JS-walled (confirmed this session via bdata scrape too); sourced from Vital reprint, only complete-bike price found."
   },
   "fr-norco-shore-park": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T16:01:45.749Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: no frame weight on either fetched third-party source or the PDF assembly doc; norco.com itself JS-walled."
   },
   "fr-ari-delanopeak": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T16:01:46.004Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Price bar unmeetable: no standalone Delano Peak frameset SKU found on aribikes.com (unlike the La Sal Peak sibling); price is a documented sample. Weight IS maker-stated (2570g) and most interfaces are solid."
   },
   "fr-deviate-claymore": {
    "cat": "frame",
@@ -26802,11 +26792,11 @@
   },
   "fr-canyon-sender-cfr-gen3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T16:01:46.259Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: no frame-only weight published; the catalog figure is an explicitly-flagged carryover sample from an older row's ballpark, not a real figure. Price is the complete-bike Team-trim price, not frame-only. Shock size also not independently re-confirmed on canyon.com itself."
   },
   "fr-trek-marlin-4-gen3": {
    "cat": "frame",
@@ -26834,27 +26824,27 @@
   },
   "fr-canfield-lithium-v3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-18T16:01:45.360Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://canfieldbikes.com/products/lithium-frameset",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-unno-dash": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T16:01:46.521Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: retried unno.com/en-us/dash/dash-race via bdata scrape this session, no weight found anywhere on the page (confirmed via two fetch tools now). Price is a EUR->USD 1:1 sample, not independently confirmed either."
   },
   "fr-devinci-chainsaw-dh": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T16:02:01.775Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: retried devinci.com's product page via bdata scrape this session, no frame weight found (confirmed via two fetch tools + Vital, none publish it). Price (,599) IS a genuine maker-fetched frameset MSRP and every interface is solid - only weight blocks verified:true."
   },
   "fr-specialized-rockhopper": {
    "cat": "frame",
@@ -26866,19 +26856,19 @@
   },
   "fr-diamondback-syncr": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T16:02:02.023Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: Diamondback sells completes only, both documented samples. BB shell is also a class-typical inference, not page-stated."
   },
   "fr-giant-talon-4-2027": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T16:02:02.284Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable (documented sample); BB/headset are also cross-model carryovers, not independently stated on this exact page. Price IS maker-stated ($650) but that alone isn't enough with two other gaps."
   },
   "fr-trek-slash-alloy-gen6": {
    "cat": "frame",
@@ -26890,11 +26880,11 @@
   },
   "fr-orbea-laufey": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T16:02:02.536Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: both documented same-tier samples; sourced from 99spokes.com reprint, not a direct orbea.com fetch (orbea.com is the documented 403 blocker)."
   },
   "fr-pivot-les-sl": {
    "cat": "frame",
