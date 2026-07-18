@@ -1751,7 +1751,6 @@
   "sp-pivot-phoenix-race-alu-272",
   "sp-bmc-3dforged-272",
   "sp-tranzx-sp66-316",
-  "fh-industrynine-hydraclassic-boost110",
   "fh-industrynine-hydra2-20x110",
   "fh-industrynine-hydra2-20x110-nonboost",
   "fh-onyx-vesper-iso-boost110",
@@ -1759,6 +1758,11 @@
   "rh-dtswiss-350-boost148-ms",
   "rh-dtswiss-350-boost148-hg",
   "rh-industrynine-hydraclassic-boost148-ms",
+  "rh-industrynine-hydraclassic-boost148-xd",
+  "rh-industrynine-hydraclassic-boost148-hg",
+  "rh-industrynine-hydraclassic-boost148-ms-cl",
+  "rh-industrynine-hydraclassic-boost148-xd-cl",
+  "rh-industrynine-hydraclassic-boost148-hg-cl",
   "rh-industrynine-hydraclassic-superboost157-xd",
   "rh-raceface-vault-boost148-xd",
   "rh-raceface-vault-boost148-ms",
@@ -5402,11 +5406,19 @@
   },
   "fh-industrynine-hydraclassic-boost110": {
    "cat": "fronthub",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Verified",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/hubs/mountain/hydra-classic-boost-6b-rear",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fh-industrynine-hydraclassic-boost110-cl": {
+   "cat": "fronthub",
+   "status": "Verified",
+   "updated": "2026-07-18T00:00:00.000Z",
+   "error": null,
+   "source": "https://www.ap.industrynine.com/hubs/mountain/hydra-classic-boost-cl-front/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fh-spank-hex-boost110": {
    "cat": "fronthub",
@@ -5476,6 +5488,46 @@
    "cat": "rearhub",
    "status": "Pending",
    "updated": "2026-07-09T02:43:31.213Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-industrynine-hydraclassic-boost148-xd": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-18T00:00:00.000Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-industrynine-hydraclassic-boost148-hg": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-18T00:00:00.000Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-industrynine-hydraclassic-boost148-ms-cl": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-18T00:00:00.000Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-industrynine-hydraclassic-boost148-xd-cl": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-18T00:00:00.000Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rh-industrynine-hydraclassic-boost148-hg-cl": {
+   "cat": "rearhub",
+   "status": "Pending",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
    "note": null
