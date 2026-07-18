@@ -1,21 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T15:35:18.526Z",
+ "updated": "2026-07-18T15:37:53.403Z",
  "batchSize": 25,
- "lastCompleted": "fr-propain-rage-3-cf",
+ "lastCompleted": "fr-chromag-stylus-mx",
  "currentCategory": "frame",
  "queue": [
-  "fr-orbea-oiz-m10",
-  "fr-devinci-marshall-29",
-  "fr-devinci-django-alloy",
-  "fr-ghost-riot-am-cf",
-  "fr-ari-lasalpeak",
-  "fr-ghost-riot-trail-cf",
-  "fr-mondraker-foxy-r",
-  "fr-mondraker-foxy-carbon-r",
-  "fr-revel-rascal-v3",
-  "fr-chromag-stylus-mx",
   "fr-revel-ranger-v3",
   "fr-revel-ritual-v3",
   "fr-pivot-trail-429",
@@ -26202,11 +26192,11 @@
   },
   "fr-orbea-oiz-m10": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:37:28.281Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: orbea.com 403-walled; Vital's ,999 figure is the complete-bike price, no frameset weight/price found."
   },
   "fr-polygon-siskiu-t7-29": {
    "cat": "frame",
@@ -26218,27 +26208,27 @@
   },
   "fr-devinci-marshall-29": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:37:28.525Z",
+   "error": "WebSearch found a candidate frame-only weight (3740g) but its source is unclear (likely Vital's frame-guide reprint, not an independently fetched manufacturer figure or a reputable measured-weight database entry) - doesn't clearly clear the weight bar. All interfaces already sourced from a third-party review (theloamwolf.com), not a live devinci.com fetch (devinci.com renders no spec table, documented JS-shell wall). Retry: try devinci.com's Marshall product page again for a direct interface+weight confirmation.",
    "source": null,
    "note": null
   },
   "fr-devinci-django-alloy": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:37:28.775Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Price bar unmeetable: weight (2560g) is genuinely two-source-confirmed, but Devinci sells this frame as completes only - the $3,329 price is a documented complete-bike-price proxy, not a real frameset MSRP, so it cannot support verified:true."
   },
   "fr-ghost-riot-am-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:37:29.021Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+interface bar unmeetable: rearAxle/bb/headset/brakeMount/maxRotorR are all cross-generation samples (confirmed absent from two direct fetches of the current-gen ghost-bikes.com page), and no frameset weight/price exists (Ghost sells completes only)."
   },
   "fr-rose-root-miller": {
    "cat": "frame",
@@ -26250,19 +26240,19 @@
   },
   "fr-ari-lasalpeak": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:37:52.281Z",
+   "error": "Genuinely close: frameset price ($2,699) and frame weight (2900g) are BOTH directly fetched from aribikes.com (maker's own site, confirmed again this session - the geometry table renders but has no drivetrain/brake spec section). The blocking gap is rearAxle/bb/headset/brakeMount/maxRotorR/shockMount, all sourced from two cross-corroborating Vital MTB build-guide reprints, not a maker-fetched page - aribikes.com itself is JS-walled for that content. Retry: look for an aribikes.com geometry-PDF or spec-sheet download (the Trek-manual-PDF technique) before accepting the Vital-only ceiling.",
    "source": null,
    "note": null
   },
   "fr-ghost-riot-trail-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:37:29.264Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same wall as the Riot AM CF sibling: rearAxle/bb/headset/brakeMount/maxRotorR are cross-generation samples, no frameset weight/price exists."
   },
   "fr-salsa-spearfish-c": {
    "cat": "frame",
@@ -26282,35 +26272,35 @@
   },
   "fr-mondraker-foxy-r": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:37:52.520Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: mondraker.com JS-walled; the fetched Vital figures ($4,499 / 16,200g) are this exact complete-bike build's own numbers, not frame-only."
   },
   "fr-mondraker-foxy-carbon-r": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:37:52.770Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same Mondraker wall as the alloy Foxy R sibling, plus several interfaces are WebSearch-summary sourced rather than independently fetched. No frameset weight/price."
   },
   "fr-revel-rascal-v3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:37:53.020Z",
+   "error": "Genuinely close: frame weight (3350g) and frameset price ($3,399) are BOTH directly fetched from revelbikes.com's own Frame Kit product page. The sole blocking gap is brakeMount/maxRotorR, which the fetched Revel page does not itemize at all (only stock-build rotors on completebike rows) - corroborated only via a WebSearch-summarized Vital MTB frame guide (180mm PM / 203mm max), not an independent fetch, so it stays below bar item 1. Retry: fetch vitalmtb.com/product/guide/frames/revel/rascal-sl-v3-64506 directly (was rate-limited this session) to see if it can be treated as a corroborating third-party spec reprint, or find a Revel geometry PDF.",
    "source": null,
    "note": null
   },
   "fr-chromag-stylus-mx": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:37:53.277Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable (Chromag publishes none, same as the Rootdown sibling); price is a documented complete-bike-price proxy (Eagle 90 build), not a real frameset MSRP."
   },
   "fr-revel-ranger-v3": {
    "cat": "frame",
