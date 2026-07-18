@@ -895,6 +895,65 @@
   html.loam .chip.active:not(.sub){color:var(--bg)}
   html.loam .legend i{border-color:rgba(255,255,255,.25)}
   html.loam dialog{background:var(--card);color:var(--ink);border-color:var(--line)}
+
+  /* 🎀 Pee Wee Herman mode — Douglas's fun/loud novelty theme (2026-07-18): 1950s-diner
+     Playhouse maximalism. Unlike dark/loam/RAD this is a LIGHT theme — --card/--ink keep
+     the same light-on-white polarity the default palette uses, so none of the
+     hardcoded-white-control fixes those three themes need (the .btn/input/select
+     override lists above) apply here; only the accent/header/type layer changes. Same
+     honesty-bar-zero rule as every other theme: purely cosmetic, never touches a
+     verdict. --ok/--ok-bg/--warn/--warn-bg/--err/--err-bg are left at the light theme's
+     own audited-AA values on purpose — verdict colors don't need a costume, and reusing
+     them guarantees the compat dots read exactly as they do in production today (the
+     dot fills themselves are the separate hardcoded hex noted at the top of this file,
+     untouched here too). Every pair below was checked with a WCAG contrast script
+     before shipping (ink/ink-soft/brand/accent all clear 4.5:1+ against bg/card/chip).
+     RAD-style precedent: --hdr-bg/--hdr-topo are deliberately left undefined here, same
+     as RAD — this theme "keeps its own header entirely" too (see html.peewee header
+     below), so nothing reads the fallback root green. */
+  html.peewee{
+    --ink:#241934; --ink-soft:#6c5876; --line:#f6c9dd; --bg:#fff6e8;
+    --card:#ffffff; --brand:#c8102e; --brand-d:#8f0c22; --accent:#067a7d;
+    --ok:#166534; --ok-bg:#e7f5ec; --warn:#92400e; --warn-bg:#fdf3e1;
+    --err:#c23b3b; --err-bg:#fbeaea; --chip:#e3f6f5;
+  }
+  html.peewee .hdr-topo{display:none}
+  /* white polka dots on bowtie red, standing in for the topo contours — dot alpha is
+     kept low so a dot never fully erases the h1's white-on-red contrast; the
+     comic-outline text-shadow below is the real legibility guarantee regardless of
+     which part of the pattern sits behind any given letter. */
+  html.peewee header{
+    background-color:var(--brand);
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,.20) 0 7px, transparent 8px),
+      radial-gradient(circle, rgba(255,255,255,.20) 0 7px, transparent 8px);
+    background-position:0 0, 22px 22px;
+    background-size:44px 44px, 44px 44px;
+  }
+  html.peewee header h1,html.peewee .rm-head h2{
+    font-family:"Arial Rounded MT Bold",ui-rounded,"Segoe UI Black",Impact,"Arial Black","Comic Sans MS",sans-serif;
+    letter-spacing:.3px;
+  }
+  /* comic-book outline: a solid ring of --brand-d around the white glyph so the
+     heading stays legible no matter what's directly behind it */
+  html.peewee header h1{
+    text-shadow:
+      -1.5px -1.5px 0 var(--brand-d), 1.5px -1.5px 0 var(--brand-d),
+      -1.5px 1.5px 0 var(--brand-d), 1.5px 1.5px 0 var(--brand-d),
+      0 4px 10px rgba(0,0,0,.35);
+  }
+  html.peewee .honesty-strip{background:var(--brand-d)}
+  html.peewee .btn{border-radius:16px}
+  html.peewee .pcard{border-radius:16px}
+  html.peewee .samples-pop,html.peewee .theme-pop{border-radius:18px}
+  /* swap the selected-card glow from the hardcoded original-green wash to a
+     brand-matched red wash — same alpha, same rgb-decomposition trick the base
+     theme's own hardcoded value already uses for ITS brand color */
+  html.peewee .pcard.selected{box-shadow:0 0 0 2px rgba(200,16,46,.18)}
+  /* a little sparkle on the "all clear" dot only — cosmetic halo, the fill hex
+     (verdict identity) is untouched, so it stays exactly as unambiguous as every
+     other theme */
+  html.peewee .dot.g{box-shadow:0 0 5px 1px rgba(255,209,0,.75)}
 </style>
 <!-- Pre-paint theme guard + shared money/theme helpers (src/ui-common.js): a
      classic, render-blocking <script src> so the saved/OS theme applies
@@ -988,6 +1047,7 @@
             <button class="btn" id="theme-dark" data-theme="dark" role="menuitemradio" aria-checked="false">🌙 Dark</button>
             <button class="btn" id="theme-rad" data-theme="rad" role="menuitemradio" aria-checked="false" title="Purely cosmetic — changes nothing about fit">⚡ RAD</button>
             <button class="btn" id="theme-loam" data-theme="loam" role="menuitemradio" aria-checked="false">🍂 Loam</button>
+            <button class="btn" id="theme-peewee" data-theme="peewee" role="menuitemradio" aria-checked="false" title="Purely cosmetic — changes nothing about fit">🎀 Pee Wee Herman</button>
           </div>
         </details>
         <details class="samples-menu" id="samplesMenu">
@@ -4604,12 +4664,13 @@
   // (one <html> class each). The choice persists in localStorage ('tb-theme') and
   // is applied pre-paint by the head script so there is no flash. Each is a full
   // palette swap, so exactly one is active at a time.
-  var THEMES = ['light','dark','rad','loam'];
+  var THEMES = ['light','dark','rad','loam','peewee'];
   var THEME_TOAST = {
     light:'Light mode ☀️',
     dark:'Dark mode 🌙',
     rad:'RAD mode engaged ⚡ Purely cosmetic — this changes nothing about fit.',
-    loam:'Loam mode 🍂'
+    loam:'Loam mode 🍂',
+    peewee:'Pee Wee Herman mode engaged 🎀 Purely cosmetic — this changes nothing about fit.'
   };
   // Theme class/localStorage/meta-tint application (TB_THEME_META, tbApplyTheme,
   // tbCurrentTheme) is shared with KitBuilder via src/ui-common.js; only the

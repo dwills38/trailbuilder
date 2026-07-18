@@ -16,25 +16,25 @@
 /* Hex tint for the mobile browser-chrome <meta name="theme-color">, one per
    theme. The single source both the pre-paint guard below and each page's
    theme toggle read from. */
-var TB_THEME_META = {light:'#16523a',dark:'#123f2b',rad:'#150029',loam:'#1e4a30'};
+var TB_THEME_META = {light:'#16523a',dark:'#123f2b',rad:'#150029',loam:'#1e4a30',peewee:'#8f0c22'};
 
 /** @param {number} n @returns {string} */
 function tbMoney(n){ return '$' + (n||0).toLocaleString(); }
 
-/** Which of the four theme classes is live on <html> right now.
- * @returns {'light'|'dark'|'rad'|'loam'} */
+/** Which of the five theme classes is live on <html> right now.
+ * @returns {'light'|'dark'|'rad'|'loam'|'peewee'} */
 function tbCurrentTheme(){
   var c = document.documentElement.classList;
-  return c.contains('rad') ? 'rad' : c.contains('loam') ? 'loam' : c.contains('dark') ? 'dark' : 'light';
+  return c.contains('rad') ? 'rad' : c.contains('loam') ? 'loam' : c.contains('dark') ? 'dark' : c.contains('peewee') ? 'peewee' : 'light';
 }
 
 /** Switch the <html> theme class, persist it, and sync the meta tint. Purely
  * the shared core — callers still handle their own page-specific UI (button
  * marking, toasts, re-renders, closing a menu).
- * @param {'light'|'dark'|'rad'|'loam'} name */
+ * @param {'light'|'dark'|'rad'|'loam'|'peewee'} name */
 function tbApplyTheme(name){
   var root = document.documentElement.classList;
-  root.remove('dark', 'rad', 'loam');
+  root.remove('dark', 'rad', 'loam', 'peewee');
   if (name !== 'light') root.add(name);
   try { localStorage.setItem('tb-theme', name); } catch(e) {}
   var meta = document.getElementById('metaThemeColor');
@@ -51,8 +51,8 @@ function tbApplyTheme(name){
   var t = null; try { t = localStorage.getItem('tb-theme'); } catch(e) {}
   // First visit (no stored choice) follows the OS preference.
   if (t === null && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
-  // light = no class; dark/rad/loam map 1:1 to an <html> class.
-  if (t === 'dark' || t === 'rad' || t === 'loam') document.documentElement.classList.add(t);
+  // light = no class; dark/rad/loam/peewee map 1:1 to an <html> class.
+  if (t === 'dark' || t === 'rad' || t === 'loam' || t === 'peewee') document.documentElement.classList.add(t);
   var m = document.getElementById('metaThemeColor');
   if (m) m.setAttribute('content', TB_THEME_META[t] || TB_THEME_META.light);
 })();
