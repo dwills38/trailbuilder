@@ -830,6 +830,20 @@ var EMTB_PARTS = [
     disciplines: ['e-trail', 'e-enduro'], weight: 24200, price: 5200,
     note: 'Entry alloy Jealous trim; same motor/battery as the carbon 10.0.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Kona depth (Remote 150)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-kona-remote-150', cat: 'emtb', brand: 'Kona', model: 'Remote 150',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX', brakes: 'Shimano MT520',
+    disciplines: ['e-trail'], weight: 23400, price: 5200,
+    note: 'Shorter-travel, more XC/trail-leaning sibling to the Remote 160.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
