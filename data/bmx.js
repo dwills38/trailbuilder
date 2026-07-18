@@ -1,11 +1,12 @@
-// data/bmx.js — BMX starter catalog (OFF-LIVE research spike)
+// data/bmx.js — BMX catalog
 //
-// Version: 0.1.0  |  Date: 2026-07-11
+// Version: 0.1.0  |  Date: 2026-07-11  |  LIVE since: 2026-07-17
 //
-// *** OFF-LIVE — NOT LOADED BY THE APP. ***
-// This file is not referenced by index.html or src/compat.js. Nothing here reaches the live
-// site until Douglas explicitly says go. See data/BMX-MODEL.md for the design doc, field
-// schema, real-vs-display compat notes, and open product-design questions.
+// *** LIVE — served by bmx.html ("BuildMyBMX"). ***
+// index.html and src/compat.js still never reference this file (the MTB app is untouched);
+// it is loaded only by the separate bmx.html page, alongside src/compat-bmx.js. Wired live on
+// Douglas's 2026-07-17 go-live word (see CLAUDE.md hard rule 3). See data/BMX-MODEL.md for the
+// design doc, field schema, real-vs-display compat notes, and open product-design questions.
 //
 // Plain browser JavaScript, no build step, no imports/exports, no CDN — same convention as
 // src/compat.js. Defines top-level `var` globals only.

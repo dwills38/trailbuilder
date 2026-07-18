@@ -59,6 +59,11 @@ jobs:
           # shares src/ via ../src). Same staging trap: not served unless copied.
           mkdir -p _site/KitBuilder
           cp KitBuilder/index.html _site/KitBuilder/
+          # BuildMyBMX page (root-level bmx.html, live 2026-07-17) — needs its data
+          # file staged too; src/compat-bmx.js already ships via `cp -r src` above.
+          cp bmx.html _site/
+          mkdir -p _site/data
+          cp data/bmx.js _site/data/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

@@ -23,12 +23,19 @@ unverified specs as real. See "Provenance" below.
    cards/tabs/modals the user opens themselves (a part's spec card, the login dialog) are fine;
    anything that appears WITHOUT the user asking is banned. No monetization pattern may ever use a pop-up.
 3. **Catalog scope:** MTB now (rounding out every MTB category; **hardtails are a near-term LIVE
-   priority**), expanding to ALL bike types over time. New non-MTB types (BMX, kids'
-   balance bikes / striders) are built OFF-LIVE — a separate dataset NOT wired into the live app —
-   until Douglas says go; the site may later split per type (e.g. buildmybmx). **Never e-bikes** (rule 1).
+   priority**), expanding to ALL bike types over time. New non-MTB types (kids' balance bikes /
+   striders) are built OFF-LIVE — a separate dataset NOT wired into the live app — until Douglas
+   says go; the site may later split per type. **Never e-bikes** (rule 1).
    **Dirt jump went LIVE on Douglas's word 2026-07-14** (25 rows in `PARTS`, `dj` discipline chip,
    `cog`+`seatpost` slots, `driveMode:'single-speed'` completeness drops incl. the confirmed
-   brakeless-is-complete decision); BMX (`src/compat-bmx.js` + `data/bmx.js`) stays OFF-LIVE.
+   brakeless-is-complete decision).
+   **BMX went LIVE on Douglas's word 2026-07-17** as its own root page, `bmx.html`
+   ("BuildMyBMX") — a separate builder over `src/compat-bmx.js` (`checkBmxBuild` +
+   `BMX_GROUPS`/`BMX_SLOTS`) and `data/bmx.js` (`BMX_PARTS`), reusing `src/compat.js`'s
+   `Verdict`/`verdictKey` primitives (compat.js loads first on that page for that reason).
+   index.html itself is untouched by this — it never loads the BMX engine or data, so the MTB
+   app's own behavior can't drift. Nav: index.html and KitBuilder both link to BuildMyBMX;
+   the former "Kit Builder" nav button/label is renamed **BuildMyKit** (routes/ids unchanged).
 
 ## Files (src/ + test/ layout — these are the project)
 
@@ -37,11 +44,12 @@ Entry points (`validate.js`, `index.html`) live at the root; tests run on Vitest
 
 | File | Purpose |
 |------|---------|
-| `index.html` | The app (UI). Plain HTML/CSS/JS, no build step. Loads `src/compat.js` via `<script>`. Open by double-click. |
+| `index.html` | The app (UI). Plain HTML/CSS/JS, no build step. Loads `src/compat.js` via `<script>`. Open by double-click. Never loads the BMX engine/data — `bmx.html` is a separate page for that. |
 | `src/compat.js` | The catalog data (`PARTS`) **and** the compatibility engine (`checkBuild`) + helpers (`compatOf`, `buildTotals`). The heart of the project. |
 | `src/schema.js` | Data schema + validator. The single source of truth for "valid data". |
-| `src/compat-bmx.js` | **OFF-LIVE BMX engine** (`checkBmxBuild` + `BMX_VOCAB`/`BMX_GROUPS`/`BMX_SLOTS`), sharing compat.js's `Verdict`/`verdictKey` primitives. Loaded by NOTHING the site serves (index.html must NOT `<script>` it) until Douglas's BMX go-live word. Data: `data/bmx.js`; design: `data/DJ-BMX-COMPAT-ANALYSIS.md`. |
-| `src/schema-bmx.js` | **OFF-LIVE BMX schema/validator** — the `schema.js` "bouncer at the door" pattern scoped to `BMX_PARTS`: per-category required/optional field sets (derived from `data/BMX-MODEL.md` section 14 + the live `data/bmx.js` rows, never invented) checked against `BMX_VOCAB` (reused from `compat-bmx.js`) plus a small `LOCAL_VOCAB` for fields BMX_VOCAB doesn't cover. `validateBmxCatalog` is wired into `validate.js` as the "BMX OK" line. Added 2026-07-17 pre-flip audit fix. |
+| `bmx.html` | **BuildMyBMX** — a separate root page (live 2026-07-17), the BMX counterpart to `index.html`/`KitBuilder/index.html`. Loads `src/compat.js` (for the shared `Verdict`/`verdictKey` globals `compat-bmx.js` reads at parse time — must load first), then `src/compat-bmx.js`, then `data/bmx.js`. Own local `bmxCompatOf`/`bmxPlacementDiff` (same four-state dot contract as `compatOf`, over `checkBmxBuild`). |
+| `src/compat-bmx.js` | **LIVE BMX engine** (`checkBmxBuild` + `BMX_VOCAB`/`BMX_GROUPS`/`BMX_SLOTS`/`bmxSlotRequired`/`bmxGearInfo`/`bmxBuildTotals`), sharing compat.js's `Verdict`/`verdictKey` primitives. Loaded only by `bmx.html` (index.html still does not `<script>` it — the MTB app is untouched). Data: `data/bmx.js`; design: `data/DJ-BMX-COMPAT-ANALYSIS.md`. |
+| `src/schema-bmx.js` | **BMX schema/validator** — the `schema.js` "bouncer at the door" pattern scoped to `BMX_PARTS`: per-category required/optional field sets (derived from `data/BMX-MODEL.md` section 14 + the live `data/bmx.js` rows, never invented) checked against `BMX_VOCAB` (reused from `compat-bmx.js`) plus a small `LOCAL_VOCAB` for fields BMX_VOCAB doesn't cover. `validateBmxCatalog` is wired into `validate.js` as the "BMX OK" line. Added at the 2026-07-17 pre-flip audit. |
 | `src/config.js` | **Phase 3 accounts.** Publishable Supabase URL + anon key (placeholders until set) + the `ACCOUNTS_ENABLED` gate. Same committed-constant pattern as `REPORT_REPO`. |
 | `src/account.js` | **Phase 3 accounts.** Async auth + saved-builds + inventory data-access over the Supabase client. Browser glue (not typechecked, like the inline app script). Loads before `compat.js`. |
 | `src/forum.js` | **Phase 4 forum.** Threads + replies over Supabase, reusing `account.js`'s client. Browser glue (not typechecked). |
