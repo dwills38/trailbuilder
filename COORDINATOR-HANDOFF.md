@@ -69,6 +69,11 @@ later) vs the standing no-scraping ruling from his own affiliate research. Surfa
 resolved by spec; Tier B is designed-but-gated pending his explicit recorded word. All three
 sessions have been told about each other.
 
+**★ ANSWER-FIRST RULE (Douglas 2026-07-18, corrected seat 13 TWICE):** when Douglas's message
+contains a question, answer it FIRST — before any harvest/merge/sweep work in the same turn, and
+if the answer needs a tool call, that call goes first. Deferring the answer to the end of a long
+reply is a violation; he said so explicitly after it happened a second time.
+
 **★ DELIVERY RULE CHANGED (Douglas 2026-07-18) — now `CLAUDE.md` Hard rule #4:** hand work off as
 **paste-ready fenced prompt blocks** with a `[Model, effort]` first line, **never `spawn_task`
 click-chips** (a chip inherits whatever the picker is set to at click time). Seat 13 used chips
