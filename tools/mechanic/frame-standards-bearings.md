@@ -15,11 +15,14 @@ hanger-bolt torque (FRM-46/47), the BMX bearing-kit matrix (FRM-48), and both Ca
 distinct Ultra-Torque architecture and Shimano's own press-fit BB install/removal procedure
 (FRM-49/50) — closing FRM-34's "Shimano/Campagnolo unsourced" gap outright. L1 complete + L2
 depth now spans BB/crank/headset/UDH/thru-axle fastener torque across SRAM, Shimano, Campagnolo,
-Chris King, and Cane Creek, crossing the CURRICULUM.md bar for `professional`. What's left toward
-`master`: wheel-building/spoke-tension (out of this chapter's scope), a full UDH revision-by-
-revision dimensional history (FRM-41 sources the drawing's existence and revision letter, not a
-line-by-line changelog), and Trek/Cannondale/Cervélo BB-specific figures (a narrow residual, not
-a broad brand gap anymore) — see "## Gaps").
+Chris King, and Cane Creek, crossing the CURRICULUM.md bar for `professional`. **2026-07-18
+master round 2 closed the UDH revision-history gap outright (FRM-51/52/53)** — the Rev H
+engineering drawing's own REVISION RECORD is transcribed line-by-line, giving the A→H change
+trail (142/157 OLD added only at Rev F; Rev F is the pivotal hanger→Hangerless-Interface
+revision), plus the finding that a rev-aware engine rule cannot be sourced to the bar, so the
+engine's revision-blind `udh` boolean stands. What's left toward `master`:
+wheel-building/spoke-tension (out of this chapter's scope) and Trek/Cannondale/Cervélo
+BB-specific figures (a narrow residual, not a broad brand gap anymore) — see "## Gaps").
 
 BB shells · crank spindles · bottom brackets · headset / S.H.I.S. · UDH · frame axle &
 clearance · dropout type / single-speed tension · (BMX shells, spindles, crank pieces).
@@ -865,6 +868,72 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2a (BMX-9). Engine: not modelled (display captu
 
 ---
 
+## UDH revision history (master round 2 — L3 frame-standards minutiae)
+
+**FRM-51 — The UDH frame specification is a revision-controlled SRAM engineering drawing
+(90-7518-190-000), currently at Rev H, and it carries its own REVISION RECORD block.** This is
+the primary artifact behind the whole UDH standard: drawing number **90-7518-190-000**,
+**Revision H**, distributed as `UDH&FULL_MOUNT_RD_FRAME_SPEC_REV_H.pdf` inside the
+`UDH_And_Full_Mount_Rear_Derailleur_Rev_H.zip` frame-builder package. The zip's internal file
+dates are **2023-03**, and it also ships the 3D clearance models
+(`UDH&FULL_MOUNT_RD_3D_MODELS.stp`) and a "Possible Hangerless Interface design variants" PDF.
+The drawing's revision block names the responsible engineers per revision (THARCKE for E,
+TBRAKOWSKI for F/G/H). *Confidence: confirmed (primary engineering drawing fetched and
+text-extracted).* Source: universalderailleurhanger.com → `/downloads/UDH_And_Full_Mount_Rear_Derailleur_Rev_H.zip`
+(fetched 2026-07-18; note the zip 403s unless requested at its real `/downloads/` path, which
+must be read out of the page HTML). Cross-reference: FRM-41, FRM-42.
+
+**FRM-52 — Revision-by-revision, what actually changed (Rev E → H), from the drawing's own
+REVISION RECORD.** Verbatim-sourced summary of the recorded changes:
+
+| Rev | Eng. | Recorded change (abridged from the drawing's own wording) |
+|---|---|---|
+| B | *(from FRM-41)* | ADD: dimensions for **148 mm OLD** frames |
+| D | *(from FRM-41)* | ADD: UDH hanger dimensions sheet |
+| E | THARCKE | ADD: UDH hanger dimensions (sheet 6); front cable-entrance dummy 90-7518-190-090 (sheets 4 + 5). CHANGE: rear cable *entrance* dummy — **was** rear cable *exit* dummy |
+| F | TBRAKOWSKI | ADD: **142 OLD + 157 OLD info (sheet 3)**; **alignment clearance model for UPPER IDLER PULLEY**; **chain-length-calculation / idler-pulley info (sheet 6)**. CHANGE: **geometry of 3D model 90-7518-190-070**; document renamed — `UDH&FULL_MOUNT_RD_FRAME_SPEC` **was** `UDH DERAILLEUR HANGER FRAME SPEC`; **"HANGERLESS INTERFACE" was "UDH/NDG"**; OLD / axle length (sheet 3); sheet 7 was sheet 6 |
+| G | TBRAKOWSKI | CHANGE: **OLD / axle length** again; clearance model `90-7518-190-070_REV_G` **was** `_REV_F`. ADD: notes (sheet 4), sheet 6 |
+| H | TBRAKOWSKI | CHANGE: **OLD / frame tolerance**; **axle-length tolerance**; geometry of 3D model again; `90-7518-190-070_REV_H` **was** `_REV_G`. DELETE: front cable-entrance dummy view |
+
+*(Rows B and D are carried from FRM-41, which read the **Rev E** drawing; the Rev H drawing's own
+record block covers E–H only. The two drawings together give the A→H trail — this is why the
+append-only rule pays: neither revision's block alone contains it.)*
+
+**Three readings that matter mechanically.** (1) **OLD coverage EXPANDED across revisions**:
+148 mm arrives at Rev B, but **142 mm and 157 mm are only added at Rev F**. UDH was not born
+covering all three spacings — the "142/148/157" uniformity that SRAM's current frame-fit
+document states is the *end state* of a six-revision progression. (2) The **terminology shift at
+Rev F** — "Hangerless Interface" replacing "UDH/NDG", and the document renamed from a *hanger*
+spec to a *hanger + full-mount-derailleur* spec — is the documentary moment UDH stopped being
+only a replaceable-hanger standard and became the mounting interface Transmission depends on.
+**Rev F is the pivotal revision.** (3) The **frame-side dimensions were revised in three
+consecutive revisions** (F, G and H all touch OLD / axle length or its tolerance), and Rev F
+additionally added the upper-idler-pulley clearance model — i.e. high-pivot frame support is
+also a later addition. A frame designed to an early UDH revision is therefore not automatically
+dimensioned to the current one. *Confidence: confirmed.* Source: as FRM-51; rows B/D via FRM-41.
+
+**FRM-53 [⚠ note for the coordinator — NOT a contradiction] — The engine's `udh` boolean is
+revision-blind, and SRAM publishes no changelog mapping revisions to dates or to frame models.**
+FRM-52 establishes that the UDH frame interface changed dimensionally across revisions, which
+means "this frame is UDH" is strictly less precise than the standard itself now is. **This is
+*not* filed as `⚠ CONTRADICTION`**, for a reason worth recording: SRAM's own frame-fit
+specification (GEN.0000000008642 Rev D, © 2026 SRAM) still states UDH applies uniformly to
+**142 mm, 148 mm and 157 mm OLD** systems and directs frame builders to the single current spec
+package — SRAM does not itself publish a per-revision compatibility split, so a rev-aware engine
+rule **could not be sourced to the bar** and would risk a false "won't fit". The honest position
+is: the boolean is correct at the tier SRAM documents. Recorded so a future round doesn't
+mistake the absence of a rule for an unexamined gap.
+**Concrete frame-fit numbers captured from the same document** for the record: axles must be
+**bolt-type thru axles, 12 × 1.0 mm thread** ("No option for quick release"); the axle-length
+relations are given as **L1 = D + OLD + 17 (−1)** and **L2 = D + OLD + 2 MIN**, with an
+**OLD + 7 (−0/+3)** dimension and a stated **tolerance stack-up of 19.9 ± 0.1**. Total chain
+growth must not exceed **54 mm for Eagle Transmission** and **90 mm for DH Transmission**.
+*Confidence: confirmed.* Source: sram.com Eagle Transmission and DH Transmission FRAME FIT
+SPECIFICATIONS, GEN.0000000008642 Rev D (fetched + text-extracted 2026-07-18);
+`UDH&FULL_MOUNT_RD_FRAME_SPEC_REV_H.pdf` sheet 3. Cross-reference: FRM-10, FRM-41, FRM-42.
+
+---
+
 ## Gaps
 
 Honest list of what's still missing for this chapter to grade above `foundation` (see
@@ -890,14 +959,29 @@ close, most-specific first:
   the dispute from three angles: the spec-vs-reality gap (FRM-29), the missing-preload mechanism
   (FRM-30), and the interface-count engineering distinction (FRM-32) — sourced from BikeRadar's
   manufacturer survey and a Bikerumor Q&A naming Hope/Kogel/BB Infinite/C-Bear engineers by name.
-- **PARTIALLY CLOSED this round (FRM-41) — UDH revision history.** The engineering drawing
-  itself (`90-7518-190-000`) is now sourced at revision **E**, with its own changelog visible in
-  the drawing header (revision B added dimensions for "148 OLD frames," revision D added the
-  UDH hanger dimensions sheet) — confirming the spec HAS revised since 2019 and giving concrete
-  revision markers. **Still open:** a full mapping of which physical dimension changed at which
-  revision letter, and whether any revision requires a different UDH part for an older frame —
-  the drawing's own revision-history table (sheet 1) was read but not transcribed line-by-line
-  this round; a future pass could extract it fully.
+- **PARTIALLY CLOSED (FRM-41) → CLOSED 2026-07-18 master round 2 (FRM-51/52/53) — UDH
+  revision-by-revision history, this chapter's named remainder.** FRM-41 had sourced the drawing
+  at Rev **E** and left open "a full mapping of which physical dimension changed at which
+  revision letter." That mapping is now transcribed line-by-line from the **Rev H** drawing's own
+  REVISION RECORD block (`90-7518-190-000`, obtained from the frame-builder zip at
+  universalderailleurhanger.com), giving an **A→H trail** when combined with FRM-41's B/D rows —
+  neither drawing's block contains the whole history alone.
+  **The substantive findings:** 148 mm OLD arrives at Rev B but **142 mm and 157 mm are only
+  added at Rev F**, so UDH's spacing uniformity is an end state, not an origin; **Rev F is the
+  pivotal revision** (it also renames the document from a *hanger* spec to a *hanger +
+  full-mount-derailleur* spec, replaces "UDH/NDG" with "Hangerless Interface", and adds the
+  upper-idler-pulley clearance model — i.e. high-pivot support is a later addition); and
+  **F, G and H each revise OLD / axle length or its tolerance.**
+  **The second open half of the old gap — "whether any revision requires a different UDH part
+  for an older frame" — is answered NO at the sourceable tier and filed in FRM-53:** SRAM's
+  current frame-fit specification (GEN.0000000008642 Rev D) still states UDH applies uniformly
+  across 142/148/157 OLD and publishes no per-revision compatibility split, so a rev-aware engine
+  rule **cannot be sourced to the bar** and the engine's revision-blind `udh` boolean is correct
+  at the tier SRAM documents. Deliberately **not** filed as `⚠ CONTRADICTION`.
+  **Remaining EXTERNAL:** SRAM publishes no changelog mapping revision letters to *dates* or to
+  *frame models*, and only the current revision's package is distributed (older revs are not
+  archived publicly). Revision *dates* and any frame-model↔revision mapping are therefore
+  unobtainable from public sources — recorded as external rather than inferred.
 - **CLOSED this round — S.H.I.S. standard's own founding document + numeric tables (L1/L3
   gap named in the marathon brief).** FRM-36 sources the actual 2010 joint press release + Park
   Tool/Cane Creek's own numeric bore/steerer/crown-race tolerance tables (FRM-37) — the standard

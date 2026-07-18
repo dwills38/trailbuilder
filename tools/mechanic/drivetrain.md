@@ -1204,6 +1204,76 @@ index) would likely close it. *Confidence: not established.* Attempted 2026-07-1
 
 ---
 
+## Chain width — the 11/12-speed tolerance question (master round 2)
+
+**DRV-64 [closes the DRV-26 "11/12-speed not established" flag at the standards level] — All
+9-, 10-, 11- and 12-speed derailleur chains share ONE internal-width class; the speed count
+changes the OUTER width, not the roller/inner width.** KMC — a chain manufacturer supplying
+Shimano-, SRAM- and Campagnolo-compatible chains — publishes three internal-width classes on its
+own glossary, all sharing the universal 1/2" pitch (*"The pitch … is the same for all common
+chains with 1/2""*):
+
+| Class | Designation | Published outer-width range | Applies to | Max sprocket/ring tooth thickness |
+|---|---|---|---|---|
+| Wide | 1/2" × 1/8" | 8–10 mm | single-speed / internally-geared only | 3 mm |
+| Narrow | 1/2" × 3/32" | 7.0–7.8 mm | single-speed **and** derailleur up to 8-speed | ~2–2.3 mm |
+| Super narrow | 1/2" × 11/128" | **5.2–6.6 mm** | **9-, 10-, 11- and 12-speed** | **1.9 mm** |
+
+The mechanically load-bearing consequence: **an 11-speed and a 12-speed chain are in the same
+internal-width class.** They engage the same roller geometry; what differs is the outer plate
+width, which is what has to pass *between adjacent sprockets*. So the DRV-26 direction-asymmetry
+(narrower-than-nominal runs; wider-than-nominal jams) is now sourced as a **clearance** problem
+across 9–12, not an engagement problem — which is exactly the shape DRV-26 predicted but could
+not source above ~10-speed. *Confidence: confirmed (fetched manufacturer glossary).* Source:
+kmcchain.eu/service/glossary (fetched 2026-07-18). Cross-reference: DRV-12, DRV-13, DRV-25,
+DRV-26.
+
+**DRV-65 [supports the engine's `ss-chain-width` 1/8-vs-3/32 classes] — KMC's class table
+independently corroborates the two width classes the schema encodes for single-speed, and
+scopes them.** The schema's `chainWidth` vocabulary (`1/8` / `3/32`) matches KMC's two
+non-super-narrow classes exactly. KMC additionally scopes them: **1/8" is single-speed/IGH
+*only***, while **3/32" covers single-speed *and* derailleur systems up to 8-speed**. That
+asymmetry means the two values are not simply "BMX vs DJ" — a 3/32" single-speed drivetrain uses
+a width class shared with geared drivetrains, whereas 1/8" is genuinely single-speed-only. **No
+contradiction with the engine**: `ss-chain-width` fires only when ring/cog/chain disagree, which
+this source supports. *Confidence: confirmed.* Source: kmcchain.eu/service/glossary (fetched
+2026-07-18). Cross-reference: DRV-12, DRV-13; engine rule `ss-chain-width`.
+
+**DRV-66 — Chain makers scope each chain SKU to a speed count even within the shared
+super-narrow class — the compatibility statement is per-SKU, not per-class.** KMC's own product
+pages state scope in compatibility prose rather than millimetres: the X11 is *"1/2"x11/128" |
+Compatibility: SHIMANO, Campagnolo and SRAM 11 speed drivetrain systems | 1x11, 2x11, 3x11"*,
+and the X12 is *"1/2"x11/128""* with *"Compatibility : SHIMANO, SRAM and all other 12 speed
+drivetrains | 1x12 ; 2x12"*. Both carry the identical size designation and different stated
+compatibility. **Reading for the corpus:** the size designation does *not* establish
+interchangeability; the manufacturer's per-SKU compatibility line governs. This is why DRV-26's
+"one step narrower rarely presents a problem" must stay a **historical, lower-tier** observation
+and must not be promoted into an engine allowance for 11↔12 substitution. *Confidence: confirmed
+(fetched manufacturer product pages); note KMC publishes no per-SKU millimetre width — the mm
+figures exist only as the class range in DRV-64.* Source:
+kmcchain.com/en/product/bicycle-chain-x11-11-speed and
+kmcchain.com/en/product/bicycle-chain-x12-12-speed (both fetched 2026-07-18).
+
+**DRV-67 [L2 install fact] — Shimano 11- and 12-speed chains are DIRECTIONAL and both dealer
+manuals mandate orientation; neither manual publishes any width dimension.** Shimano's 12-speed
+chain dealer manual (CN-M9100 / M8100 / M7100 / M6100) states the chain *"has a front side and a
+reverse side and must be fitted in the correct orientation"*, the front being the marked outer
+side. The 11-speed manual carries the same requirement for CN-HG901-11 / HG900-11 / HG701-11 /
+HG700-11 / HG601-11 / HG600-11 / E8000-11: *"these have a forward side and a reverse side and
+must be fitted in the correct orientation."* (The same manual also restricts CN-E8000-11 to
+single front chainrings.) **Source-exhaustion declaration:** both manuals were read end-to-end
+after text extraction and **neither contains a chain width, pin length, or any dimensional
+table** — Shimano documents orientation and tooling, not chain geometry. Shimano is therefore
+*exhausted* as a source for the mm-level 11/12 width question; DRV-64's KMC class table is the
+best manufacturer-tier figure obtainable. *Confidence: confirmed.* Source: si.shimano.com
+DM-MACN001-07-ENG (12-speed) and DM-CN0001-07-ENG (11-speed), both fetched 2026-07-18 **via
+Wayback** (`web.archive.org/web/…if_/…`) — si.shimano.com serves an Akamai 403 to WebFetch, curl
+*and* Bright Data's Web Unlocker (which returns a corrupted binary for PDFs); the Wayback `if_`
+raw-content route is the working method for si.shimano.com PDFs and is the reusable technique
+from this round.
+
+---
+
 ## Gaps
 
 - **CLOSED 2026-07-18 master round (DRV-56–61) — AXS cross-generation compatibility, the
@@ -1301,9 +1371,28 @@ index) would likely close it. *Confidence: not established.* Attempted 2026-07-1
   specific miss rather than a vague one: the Hydra "690 points of engagement" figure is
   NOT ESTABLISHED at primary tier — see DRV-63** for exactly what was tried and what the
   remaining lead is (i9 print-catalogue snapshots in the Wayback index).
-- DRV-26's chain-width cross-tolerance is sourced only through ~10-speed; **no sourced
-  data for 11/12-speed narrow-chain substitution tolerance** — explicitly flagged not
-  established, a candidate for a dedicated fetch in a future round.
+- **CLOSED 2026-07-18 master round 2 (DRV-64–67) — the 11/12-speed chain-width tolerance
+  question, which DRV-26 had explicitly flagged "not established".** Closed at the level the
+  sources actually support, and no further: KMC's manufacturer glossary establishes that
+  **9-, 10-, 11- and 12-speed chains all share the 1/2"×11/128" internal-width class (outer
+  range 5.2–6.6 mm, max tooth thickness 1.9 mm)**, so cross-speed substitution is a *clearance*
+  question between adjacent sprockets, not a roller-engagement one (DRV-64) — the shape DRV-26
+  predicted but could not source above ~10-speed. KMC's class table also independently
+  corroborates the schema's `chainWidth` 1/8-vs-3/32 vocabulary and scopes it (1/8" is
+  single-speed/IGH-only; 3/32" spans single-speed *and* ≤8-speed derailleur) — **DRV-65,
+  supporting `ss-chain-width` with no contradiction.** DRV-66 records the limiting finding:
+  KMC's X11 and X12 carry the **identical** size designation but **different** stated
+  compatibility, so the designation does not establish interchangeability and DRV-26's
+  "one step narrower" observation must stay historical/lower-tier — **it must not be promoted
+  into an engine allowance for 11↔12 substitution.**
+  **Source-exhaustion declaration (Shimano):** both Shimano chain dealer manuals (12-speed
+  DM-MACN001-07, 11-speed DM-CN0001-07) were extracted and read in full; **neither publishes any
+  chain width, pin length, or dimensional table at all** — Shimano documents orientation and
+  tooling only (DRV-67 captures the directional-fitting mandate it *does* state). Shimano is
+  exhausted for mm-level chain geometry. **Remaining EXTERNAL:** no manufacturer publishes a
+  per-SKU outer width in mm for 11- vs 12-speed chains, and no maker publishes a cross-speed
+  substitution *tolerance*; a definitive mm figure would require physical measurement, which is
+  outside this corpus's fetched-source bar. Recorded as external rather than estimated.
 - **CLOSED 2026-07-18 (DRV-41/42), this chapter's named round-4 pickup point — Zero Friction
   Cycling's own PDFs are fetched directly and mined.** The prior round's "image-based, no OCR
   text layer" diagnosis was a WebFetch-specific false negative — a direct `curl` download +
