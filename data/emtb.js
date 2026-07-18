@@ -844,6 +844,20 @@ var EMTB_PARTS = [
     disciplines: ['e-trail'], weight: 23400, price: 5200,
     note: 'Shorter-travel, more XC/trail-leaning sibling to the Remote 160.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Vitus depth (E-Sommet 29)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-vitus-e-sommet-29', cat: 'emtb', brand: 'Vitus', model: 'E-Sommet 29',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    batteryWh: 625, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 155,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
+    disciplines: ['e-enduro'], weight: 25200, price: 4800,
+    note: '29in-wheel sibling to the mixed/27.5 E-Sommet; same Bosch CX motor.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
