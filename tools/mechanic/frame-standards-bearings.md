@@ -1,12 +1,20 @@
 # Frame Standards & Bearings — Mechanic Corpus
 
-**Maturity: foundation** (L1 — see [`CURRICULUM.md`](CURRICULUM.md); a prior round added L1
-BB-shell/headset identification, threading-direction, UDH-history and creak-diagnosis
-literacy. **This round opened L3** with real numeric press-fit interference specs (BB shell
-bore tolerance, Chris King headset cup interference) and manufacturer-quoted coverage of the
-BB30/PF30 tolerance-stack dispute (FRM-28–33) — but L2's fastener torque table is still
-untouched and most L3 targets (wheel-building, brand-specific service internals, BMX bearing
-matrix) remain open, so the chapter stays `foundation` overall, see "## Gaps").
+**Maturity: foundation, approaching professional** (L1 — see [`CURRICULUM.md`](CURRICULUM.md); a
+prior round added L1 BB-shell/headset identification, threading-direction, UDH-history and
+creak-diagnosis literacy, then opened L3 with real numeric press-fit interference specs (BB
+shell bore tolerance, Chris King headset cup interference) and manufacturer-quoted coverage of
+the BB30/PF30 tolerance-stack dispute (FRM-28–33), plus a first L2 fastener-torque table
+(FRM-34). **2026-07-18: this round closes three named foundational gaps outright** — the
+S.H.I.S. standard's own founding document + full numeric tolerance tables (FRM-36/37), thru-axle
+thread standards (FRM-39/40), and SRAM's own UDH engineering drawing + numeric hanger/chainstay
+spec (FRM-41/42) — **and deepens L3** with a second and third independent BB-manufacturer's own
+numeric bore-tolerance data (Hambini's accept-window table + root-cause corroboration, FRM-43/44)
+and Cane Creek's own OE head-tube bore-tolerance spec closing FRM-33's Chris-King-vs-industry
+open question (FRM-45). Still short of `professional`: headset locknut torque, UDH-hanger-bolt
+torque, and Trek/Cannondale/Cervélo-specific BB figures remain unsourced (FRM-34's own gap), and
+most L3 targets beyond press-fit (wheel-building, BMX bearing matrix, brand-specific service
+internals) remain open — see "## Gaps").
 
 BB shells · crank spindles · bottom brackets · headset / S.H.I.S. · UDH · frame axle &
 clearance · dropout type / single-speed tension · (BMX shells, spindles, crank pieces).
@@ -146,6 +154,53 @@ direct quotes) — a general/road-history source, not MTB-specific, so treat the
 dates as historical context, not a current MTB-catalog claim.* Source: sheldonbrown.com headset
 standards page (via Exa fetch).
 
+## S.H.I.S. — the standard's own founding document and numeric tables (closes a named gap)
+
+**FRM-36 — S.H.I.S. is a real, dated, jointly-published industry standard (introduced November
+2010 by a consortium of headset manufacturers), not an informal shop convention — and its own
+text explicitly warns its bore numbers are a rounded CODE, not a measurement.** The original
+joint press release (syndicated by Cane Creek, FSA, and other participating headset
+manufacturers, hosted via bike24.com/mountainflyermagazine.com mirrors): *"The Standardized
+Headset Identification System (S.H.I.S.) creates a common language for describing modern bicycle
+headsets... To determine fit, four dimensions are needed: (1) stem-clamp diameter of fork, (2)
+crown-race seat diameter of fork, (3) head-tube top inside diameter, and (4) head-tube bottom
+inside diameter."* Bearing location/cup-type is one of three letter codes: **EC** (external cup —
+bearing outside the frame), **ZS** (ZeroStack/semi-integrated — pressed-in cup, bearing recessed
+inside the frame), **IS** (integrated — bearing seats directly in a machined/bonded frame
+interface, no separate cup). Park Tool's own SHIS reference repeats the standard's own caveat
+directly: *"These are given in whole millimeters, and should be considered as a code, not an
+exact measurement"* — e.g. the EC29 code (1″ JIS) actually bores to 29.8–29.9 mm, and EC30 (1″
+Pro/Euro) actually bores to 30.0–30.15 mm — two DIFFERENT real diameters both rounding to "30" in
+casual conversation, which is exactly the ambiguity FRM-6's bore-token comparison exists to
+avoid by comparing the full SHIS code, not a bare "30." *Confidence: confirmed (fetched the
+standard's own founding press release + Park Tool's SHIS reference, direct quotes).* Source:
+images.bike24.com press-release PDF ("HEADSET MANUFACTURERS PARTNER IN DEVELOPMENT OF NEW
+FITMENT IDENTIFICATION SYSTEM," Nov 2010, fetched); mountainflyermagazine.com mirror of the same
+release (fetched); parktool.com "Standardized Headset Identification System (aka Headset Code)"
+(fetched), 2026-07-18.
+
+**FRM-37 — The full numeric tolerance tables behind every SHIS code (bore ID, cup/bearing OD,
+steerer-column OD, crown-race seat OD) are published and specific — the actual engineering data
+FRM-6's "bore tokens" fact assumes but does not itself carry.** Selected EC (external-cup) bore
+IDs: EC29 = 29.8–29.9 mm, EC30 = 30.0–30.15 mm, EC34 = 33.8–33.95 mm, EC37 = 36.8–36.95 mm, EC44 =
+43.90–43.95 mm, EC49 = 49.55–49.6 mm. ZS (ZeroStack) bore IDs: ZS41 = 41.35–41.4 mm, ZS44 =
+43.90–43.95 mm, ZS49 = 49.57–49.65 mm, ZS56 = 55.90–55.95 mm. IS (integrated) bearing-seat bore
+IDs: IS38 = 38.15–38.25 mm, IS41 = 41.10–41.20 mm, IS42 (Italian/Campagnolo Hiddenset) =
+41.95–42.05 mm — **IS41 and IS42 differ by less than a millimeter of bore, a genuine
+measurement-error trap** the standard's own tables exist to prevent by forcing a full code name
+rather than a rounded "42mm-ish" description. Steering-column (steerer) OD codes: 25.4 (1″
+threadless), 28.6 (1-1/8″ threadless — the modern MTB default, FRM-22), 31.8 (1-1/4″), 38.1
+(1-1/2″), plus separate threaded variants (25.4-24tpi, 28.6-26tpi, 31.8-26tpi) for legacy threaded
+headsets (FRM-21's threaded/threadless split). Crown-race seat OD codes: 26 (1″ Pro/Euro), 27 (1″
+JIS), 30 (1-1/8″), 33 (1-1/4″), 40 (1.5″/tapered). An optional stack-height suffix **"H"** (e.g.
+"H16" for a 16 mm-tall assembly) may follow either the upper or lower code when a manufacturer
+publishes it — the amount of steerer length the headset assembly itself consumes, separate from
+bore/steerer fit. *Confidence: confirmed (fetched, two independently-hosted numeric tables —
+Park Tool's and Cane Creek's own SHIS poster — agree on every figure checked).* Source:
+parktool.com "Standardized Headset Identification System" Tables #1–#5 (fetched); Cane Creek
+"SHIS Poster" (bicycleretailer.com-hosted PDF, fetched, tables 1–3 corroborate); the 2010 founding
+press release (as FRM-36). Cross-reference: FRM-6, FRM-21, FRM-22.
+
 ## UDH / Transmission mounting
 
 **FRM-10 — SRAM Transmission (Full Mount) needs a UDH frame.** A direct-mount (UDH) Transmission
@@ -195,6 +250,101 @@ Chain Length Guide or Bike Finder; (3) ask the frame manufacturer directly. A me
 caution against eyeballing hanger shape as sufficient confirmation of the interface. *Confidence:
 confirmed (fetched, SRAM support primary).* Source: support.sram.com "Do I have a UDH on my
 bike?" (via Exa fetch).
+
+## Thru-axle thread standards (closes a named gap)
+
+**FRM-39 — "12mm thru-axle" names an outside diameter, not a thread standard — three
+non-interchangeable thread pitches (M12×1.0 / M12×1.5 / M12×1.75) coexist under that one nominal
+diameter, brand-locked, and a wrong-pitch axle simply won't thread in (or cross-threads the
+dropout if forced).** Multiple independent axle-fitment vendors (Thruaxle.com, Robert Axle
+Project, Ridea) converge on the same three-pitch landscape: *"When thru axles were first being
+used there was no standard for the threads. Different companies chose different thread pitches,
+including P1.0, 1.5 and 1.75... all three thread pitches are very common"* (Thruaxle.com).
+Brand associations gathered across these sources (consistent, but vendor/community tier, not a
+single standards-body table): **M12×1.0** — Santa Cruz/Scott (fine thread, e.g. their OEM DT
+Swiss-based axles) and Specialized's Syntace X-12 system; **M12×1.5** — Shimano's "E-thru" 12 mm
+standard (BMC, Giant, Rocky Mountain and others) and RockShox/SRAM's Maxle (both Stealth and
+Ultimate) on many modern MTB forks/frames; **M12×1.75** — the original SRAM/RockShox "Maxle"
+(pre-Stealth) system. 15 mm front axles carry their own separate, non-interchangeable pitch set
+(M15×1.0 vs M15×1.5), and legacy 14 mm designs use yet another (M14×1.5) — so diameter alone
+(12/15 mm) is necessary but not sufficient to confirm a replacement axle fits. *Confidence:
+medium-high (convergent vendor/fitment-guide sources, not a single manufacturer standards
+document — no governing body publishes a single thru-axle thread-pitch table the way S.H.I.S.
+does for headsets).* Source: thruaxle.com "Support/FAQ" (fetched); robertaxleproject.com "What
+Axle Do I Need for My Bike?" (fetched, thread-pitch fitment tables); bermstyle.com "Rear Thru
+Axle 'Standards' Are Confusing As Hell" (fetched, brand-to-pitch mapping); Ridea thru-axle
+measurement guide PDF (mizutanibike.co.jp-hosted, fetched), 2026-07-18.
+
+**FRM-40 — Axle LENGTH is not derived from hub spacing by a simple formula — the same
+148 mm-spacing (Boost) frame can need different axle lengths depending on dropout counter-sink
+and thread engagement depth, and axle torque is a real, manufacturer-published spec, not a
+"snug it down" guess.** Thruaxle.com's own caution, stated as a direct warning against a common
+mechanic assumption: *"a 12x148 frame does NOT use a 148mm long axle"* — the axle must additionally
+span any dropout counter-sinking and the thread engagement length, so two 12×148 (Boost) frames
+from different makers can call for different-length axles even at the identical hub spacing.
+SRAM's own Suspension user manual (RockShox Maxle, the most common MTB thru-axle) publishes a
+real torque spec, not a vague "hand tight": standard Maxle Stealth/Ultimate = **9–13.5 N·m
+(80–120 in-lb)** for both 12 mm rear and 15 mm front, but the older/DH-specific **Maxle DH =
+12.5–14.7 N·m (110–130 in-lb)** — a materially different (higher) number for a visually similar
+part, and SRAM's manual frames both under- and over-tightening as damage risks to the axle,
+dropout, AND hub, not just a "spins in the dropout" nuisance. This is the frame/fork-side half of
+[`drivetrain.md`](drivetrain.md) DRV-34's cross-component fact (Transmission derailleur impact
+behavior depends on correct axle torque) and DRV-47 (an over-torqued thru-axle can crush a DT
+Swiss Ratchet EXP freehub's internal spacer) — the axle torque spec genuinely comes from the
+frame/fork/axle maker, per SRAM's own guidance in DRV-34, not a single universal number even
+within one axle brand's own product line. *Confidence: confirmed (fetched SRAM primary for the
+torque figures; thruaxle.com fetched for the length-vs-spacing caution, vendor tier but the claim
+itself is a straightforward mechanical fact, not a disputed one).* Source: docs.sram.com
+"Suspension" user manual, Maxle section (fetched, multiple fork models); bulls.de-hosted SRAM
+Maxle manual PDF (fetched, corroborating the Maxle DH torque figure); thruaxle.com "Support/FAQ"
+(as above). Cross-reference: [`drivetrain.md`](drivetrain.md) DRV-34, DRV-47; FRM-11 (UDH
+retrofit kits specify their own axle, e.g. RAAW's kit-included 174 mm X12 axle).
+
+## UDH's own engineering drawing (closes a named gap)
+
+**FRM-41 — UDH is not just a marketing concept (FRM-23/24) — it is a real, versioned engineering
+drawing with GD&T tolerancing, hosted at SRAM's own universalderailleurhanger.com, and frame
+makers are expected to build to it, not to a description.** The drawing
+(`90-7518-190-000`, currently revision E, titled "UDH DERAILLEUR HANGER FRAME SPEC") is a 6-sheet
+mechanical drawing invoking **ASME Y14.5-2009** geometric dimensioning and tolerancing, with a
+published general tolerance table (untoleranced lengths: ±0.1 mm under 6 mm, ±0.2 mm 6–30 mm,
+±0.3 mm 30–120 mm, ±0.5 mm 120–400 mm; untoleranced angles ±2°) — i.e. this is a real mechanical-
+engineering release document, not a diagram for marketing purposes. It specifies concrete
+functional features a compliant frame must include: a **forward rotational stop** (minimum
+10 mm² contact area) and a **backward rotational stop** ("can be any kind of protrusion") that
+takes up removal torque when the hanger is unscrewed — features whose absence would let the
+hanger spin freely under derailleur load or unscrew itself during hanger removal. SRAM's Eagle
+Transmission/DH Transmission Frame Fit Specification document reinforces that this is the
+authoritative source over any other summary: *"The 'UDH&FULL_MOUNT_RD_FRAME_SPEC.pdf' defines
+the dimensional requirements for the Hangerless Interface... A CAD review of your design by the
+SRAM drivetrain team is highly recommended"* for any frame maker implementing it — i.e. even
+SRAM does not consider a frame-maker's own reading of the drawing sufficient without a CAD
+review. *Confidence: confirmed (fetched the drawing PDF directly + SRAM's own frame-fit spec
+document referencing it as authoritative).* Source: universalderailleurhanger.com
+`90-7518-190-000_E9_RELEASED.pdf` (fetched); sram.com globalassets "Eagle Transmission and DH
+Transmission" + "2024 MTB Components" Frame Fit Specifications PDFs (fetched), 2026-07-18.
+
+**FRM-42 — UDH's own conventional-hanger dimensions ARE published with real numbers (hanger
+thickness, hardness, dropout radii), and critically, UDH's compatible thru-axle is a SPECIFIC
+thread spec (M12×1.0, 12.7 mm thread length) — narrower than FRM-39's general three-pitch
+thru-axle landscape.** SRAM's 2024 MTB Frame Fit Specifications publish real numeric hanger
+dimensions: hanger material hardness **HRB > 86**; dropout/hanger geometry **L 30–34 mm, X
+6.5–9.5 mm, angle A 25°–30°, R1 8–8.5 mm, R2 12.5–14.5 mm, R3 max 0.5 mm**; and hanger
+**thickness by axle type — Quick Release: 8–9 mm, Thru Axle: 4.5–5.5 mm (3.5 mm frame slot)** —
+a genuinely different hanger thickness depending on which axle system the frame uses, a detail a
+mechanic comparing hangers by eye could easily miss. Separately, and more specifically than
+FRM-39's general thru-axle thread survey, **SRAM's own UDH User Manual states the UDH-compatible
+thru axle must be M12×1.0 thread with a 12.7 mm thread length**, and explicitly punts axle
+*length* to the frame maker: *"Thru axle length is dependent on frame specifications. Contact
+your retailer or frame manufacturer for more information"* — the same length-isn't-derivable
+caution as FRM-40, restated by SRAM specifically for UDH frames. SRAM also documents a minimum
+frame requirement independent of the hanger itself: **425 mm minimum chainstay length** for its
+MTB drivetrains to function properly, with frames below that requiring the maker's own testing,
+and a maximum **27 mm of chainstay growth** (suspension-linkage travel) — both real numeric
+constraints on the frame side that a hanger-only compatibility check would miss entirely.
+*Confidence: confirmed (fetched, direct SRAM primary numbers).* Source: sram.com globalassets
+"2024 MTB Components" Frame Fit Specifications PDF (fetched); sram.com globalassets UDH User
+Manual `95-7918-014-100` (fetched, thru-axle thread spec quote). Cross-reference: FRM-39/40.
 
 ## Dropout type / single-speed tension
 
@@ -379,6 +529,78 @@ compilation).* Source: parktool.com "Torque Specifications and Concepts" (fetche
 within this same gap: headset locknut/UDH-hanger-bolt torque and Trek/Cannondale/Cervélo-specific
 BB figures are not in Park Tool's table and remain unsourced (see `## Gaps`).
 
+## Independent BB-manufacturer tolerance data (Hambini) — corroborates and quantifies FRM-29/30
+
+**FRM-43 — A named press-fit-BB manufacturer (Hambini Engineering) publishes an actual numeric
+bore-acceptance table (min/ideal/max hole diameter + max radial runout) per standard — the real
+manufacturer accept-window FRM-29's Kogel citation described only qualitatively (±0.20 mm).**
+Hambini's own installation guide gives, per BB type, minimum/maximum/ideal frame bore diameter
+and maximum radial runout: **BB30/BB30A** 41.97–41.99 mm (ideal 41.98 mm, max runout 0.01 mm);
+**BB86/BB92** 40.95–41.00 mm (ideal 40.97 mm, max runout 0.01 mm — corroborating FRM-18/32's
+41 mm-bore PF41 family from a third independent manufacturer); **BB386EVO/BBright/PF30/PF30A**
+45.95–46.00 mm (ideal 45.97 mm, max runout 0.01 mm — corroborating the 46 mm PF46 family).
+Hambini's own root-cause explanation for creaking directly corroborates FRM-30's missing-preload
+mechanism from a second, independent named engineer: *"The reality is pressfit has nothing to do
+with creaking... The basic reason for the creaking is one of two reasons, either a poor fit or
+misalignment"* — traced specifically to carbon monocoque BB shells being bonded from multiple
+molded halves without alignment dowels, plus autoclave expansion/contraction the frame maker must
+compensate for and often doesn't. Hambini's own published box-and-whisker survey of real frames
+(normalized to the BB30/6806 bearing standard) names specific manufacturers' relative dimensional
+accuracy, corroborating FRM-29's "some frames run far looser than nominal" finding with a second,
+larger comparative dataset rather than one anecdotal range. *Confidence: confirmed (fetched,
+direct manufacturer numbers) for the bore-tolerance table; the misalignment root-cause claim is
+this manufacturer's own stated engineering opinion, corroborating FRM-30 rather than an
+independent physics derivation.* Source: hambini.com "Bottom Bracket Pressfit and Creaking, an
+Engineering Analysis" (fetched) + "Hambini Pressfit Bottom Bracket Installation" (fetched, bore
+table), 2026-07-18. Cross-reference: FRM-18, FRM-29, FRM-30, FRM-32.
+
+**FRM-44 — T47's extra shell width exists for a specific, quantified reason: shell wall thickness
+around the bearing bore, not just "more room" — extending FRM-32's interface-count explanation
+with the materials-engineering rationale.** Hambini's T47 engineering guide quantifies the
+problem T47 solves: a standard threaded BSA shell (≈35 mm bore) gives roughly **5.5 mm of wall
+thickness around a 24 mm steel axle** but only **2.5 mm of wall thickness around a 30 mm
+aluminum axle** — since a 30 mm axle needs a 6806 bearing (larger OD) inside the same nominal
+BSA shell envelope, T47's larger 47 mm-threaded bore restores **≈6 mm of wall thickness**, "almost
+exactly the same as the original 24 mm/BSA combination." This is also why 30 mm aluminum crank
+axles exist at all, per Hambini: *"The chosen size of 30mm for aluminum axles is not a sweetspot
+for any engineering. It is because the next bearing size up from 6805 that will remotely take the
+load happens to be a 6806"* — a licensing/patent-avoidance choice (Shimano's Hollowtech II
+6805-bearing/24 mm-steel design is patent-protected) more than an optimization, and 30 mm
+aluminum axles trade stiffness for the workaround: *"There are only a few grams in it between a
+24mm steel axle and a 30mm aluminum axle."* *Confidence: confirmed (fetched, direct manufacturer
+engineering analysis; the patent-motivation claim is Hambini's own informed opinion, not a
+primary patent-filing citation — labelled as such).* Source: hambini.com "T47 Bottom Bracket:
+Engineering Guide (Threadfit)" (fetched), 2026-07-18. Cross-reference: FRM-32.
+
+## Headset press-fit — Cane Creek's own OE tolerance spec (closes FRM-33's open question)
+
+**FRM-45 — Cane Creek DOES publish its own numeric head-tube bore tolerance spec for OEM frame
+builders, in a document separate from the consumer installation manual — closing FRM-33's open
+question with a real number, and it uses a genuinely different tolerancing CONVENTION from Chris
+King's flat "≤0.1 mm interference" simplification.** Cane Creek's OE (original-equipment) Head-
+Tube Specification Guide, aimed at frame manufacturers rather than end users, publishes per-code
+bore tolerances as asymmetric plus/minus windows on the nominal bore, not a single interference
+number: Traditional (EC) bores — EC30 = 30.10 (+0/−0.05) mm, EC34 = 33.95 (+0/−0.05) mm, EC49 =
+49.61 (+0/−0.04) mm; Semi-Integrated (ZS) bores — ZS41 = 41.40 (+0/−0.05) mm, ZS44 = 44.00
+(+0/−0.05) mm, ZS56 = 55.95 (+0/−0.05) mm; Integrated (IS) bores — IS38 = 38.15 (+0.1/−0.0) mm,
+IS41 = 41.10 (+0.1/−0.0) mm, IS52 = 52.10 (+0.05/−0.05) mm. This is a genuinely different
+tolerancing shape than FRM-33's Chris King figure: Chris King specifies the cup-to-frame
+**interference** directly (≤0.1 mm, a single number regardless of nominal bore), while Cane
+Creek's OE guide specifies the **frame bore's own tolerance window** the frame maker must
+manufacture to — two complementary halves of the same physical joint, not competing claims about
+the same measurement. Park Tool's own general (cross-brand) press-tool guidance corroborates the
+overall magnitude independently: *"Normal interference is between 0.1mm – 0.2mm. If the press fit
+is more than 0.2mm, damage to frame and/or tool may occur... If the difference is between 0.0 -
+0.1mm, a Loctite type adhesive is recommended"* — consistent with, and a useful cross-check on,
+Chris King's ≤0.1 mm figure from a completely different (tool-maker, cross-brand) source.
+*Confidence: confirmed (fetched, direct Cane Creek OE spec numbers + Park Tool corroboration) —
+this is an OEM-facing engineering document, not a marketing page, and reads as the genuine
+manufacturer standard FRM-33 asked whether Chris King's 0.1 mm was industry-common or
+Chris-King-specific: the answer is neither company uses an identical number or convention, but
+both land in the same ~0.05–0.2 mm order of magnitude.* Source: Cane Creek "OE Head-Tube
+Specification Guide" Revision B (b2b.vpg.no-hosted distributor mirror, fetched); parktool.com
+HHP-3 headset-cup-press instructions (fetched), 2026-07-18. Cross-reference: FRM-33.
+
 ## BMX frame/crank standards (off-live)
 
 **FRM-15 [BMX] — BB shell + crank spindle diameter together select the bearing set.** BMX frame
@@ -443,6 +665,15 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2a (BMX-9). Engine: not modelled (display captu
 - **UDH's conventional hanger and Full Mount are two different constraints on the same interface**
   (FRM-23/24): a plain UDH hanger gates nothing brand-specific (FRM-24), but Full Mount's
   hangerless clamp (FRM-10) is a harder, SRAM-specific gate riding the same physical interface.
+- **The thru-axle is a THIRD, independent constraint threading through both the frame/fork and
+  the hub** (FRM-39/40): diameter (12/15 mm) alone doesn't confirm fit — thread pitch
+  (M12×1.0/1.5/1.75) must also match, axle length is not derivable from hub spacing alone, and
+  UDH specifically narrows this to one pitch (M12×1.0, FRM-42) — a genuinely different, tighter
+  constraint than the general thru-axle landscape.
+- **S.H.I.S.'s bore-token comparison (FRM-6) rests on real, asymmetric numeric tolerance
+  windows, not round numbers** (FRM-37/45): two codes that both round to "42 mm" (IS41 vs IS42)
+  differ by less than a millimeter of actual bore — the standard's insistence on full codes
+  over casual descriptions is exactly what prevents that ambiguity from becoming a wrong part.
 
 ### Mismatch failure modes
 - **Hard "won't fit":** BB shell ≠ crank spindle interface without a matching BB (FRM-1);
@@ -509,23 +740,44 @@ close, most-specific first:
   FRM-29 lands the actual number (0.05 mm Shimano/SRAM nominal shell-bore tolerance) AND the
   real-world variance dispute (Kogel's ±0.20 mm practical accept-window, 0.50 mm seen in
   production) from a named press-fit-BB manufacturer founder. FRM-33 lands the equivalent
-  headset-cup figure (Chris King: 0.1 mm interference). **Still open within this sub-area:** no
-  Cane Creek/FSA headset press-spec fetched yet (FRM-33's open question), no systematic
-  frame-to-frame bore variance data beyond Kogel's anecdotal range, and no bearing outer-race
-  (as opposed to shell-bore) manufacturing-tolerance table from a bearing maker. **FRM-35
-  (this round) fetched Enduro Bearings' own "Bearing Basics" page directly and confirms it
-  genuinely does not publish numeric tolerance figures** (qualitative ABEC-rating description
-  only) — this is no longer an unfetched page, it's a confirmed dead end; the remaining path is
-  either a bearing-maker's B2B/OEM spec sheet (not on their consumer site) or a shop-tier source,
-  not another attempt at the same public page.
+  headset-cup figure (Chris King: 0.1 mm interference). **2026-07-18: FRM-43 adds a SECOND named
+  BB manufacturer's (Hambini) own numeric bore-accept-window table** (min/ideal/max + max radial
+  runout per BB30/BB86/BB92/PF30 family), independently corroborating the 41 mm/46 mm bore
+  families and giving a real (not anecdotal) frame-to-frame variance dataset via Hambini's own
+  box-and-whisker manufacturer survey. **FRM-45 closes the Cane Creek open question directly**:
+  Cane Creek's OE Head-Tube Specification Guide publishes its own numeric bore-tolerance windows
+  (a different tolerancing convention from Chris King's flat interference number, corroborated in
+  magnitude by Park Tool's general 0.1–0.2 mm guidance). **Still open: FSA's own press-spec
+  (not fetched this round) and a bearing-maker's OUTER-RACE manufacturing-tolerance table** — FRM-35
+  already confirmed Enduro Bearings' consumer page doesn't publish one; the remaining path is a
+  bearing-maker B2B/OEM spec sheet, not another consumer-page attempt.
 - **CLOSED this round — BB30/PF30 tolerance-stack dispute (L3, was gap #4).** FRM-29/30/32 cover
   the dispute from three angles: the spec-vs-reality gap (FRM-29), the missing-preload mechanism
   (FRM-30), and the interface-count engineering distinction (FRM-32) — sourced from BikeRadar's
   manufacturer survey and a Bikerumor Q&A naming Hope/Kogel/BB Infinite/C-Bear engineers by name.
-- **No UDH revision history across frame generations (L3 gap, unchanged).** FRM-23–25 cover
-  UDH's origin and verification method, but not whether the physical UDH spec itself has revised
-  since 2019 (dimensional changes, axle-interface tweaks) — `CURRICULUM.md` names this explicitly
-  under "Frame-standards minutiae." Not attempted this round.
+- **PARTIALLY CLOSED this round (FRM-41) — UDH revision history.** The engineering drawing
+  itself (`90-7518-190-000`) is now sourced at revision **E**, with its own changelog visible in
+  the drawing header (revision B added dimensions for "148 OLD frames," revision D added the
+  UDH hanger dimensions sheet) — confirming the spec HAS revised since 2019 and giving concrete
+  revision markers. **Still open:** a full mapping of which physical dimension changed at which
+  revision letter, and whether any revision requires a different UDH part for an older frame —
+  the drawing's own revision-history table (sheet 1) was read but not transcribed line-by-line
+  this round; a future pass could extract it fully.
+- **CLOSED this round — S.H.I.S. standard's own founding document + numeric tables (L1/L3
+  gap named in the marathon brief).** FRM-36 sources the actual 2010 joint press release + Park
+  Tool/Cane Creek's own numeric bore/steerer/crown-race tolerance tables (FRM-37) — the standard
+  itself, not just secondary descriptions of it.
+- **CLOSED this round — thru-axle thread standards (gap named in the marathon brief).**
+  FRM-39/40 cover the three-pitch (M12×1.0/1.5/1.75) landscape, the axle-length-≠-hub-spacing
+  trap, and real manufacturer torque specs (SRAM Maxle 9–13.5 N·m standard / 12.5–14.7 N·m DH).
+  **Still open:** no single standards-body thread-pitch table exists (unlike S.H.I.S.) — the
+  brand-to-pitch mapping is convergent vendor/community-tier sourcing, not one manufacturer
+  document; flagged as such, not overclaimed as confirmed-tier.
+- **CLOSED this round — UDH mechanical/dimensional spec drawing (gap named in the marathon
+  brief).** FRM-41/42 source the actual engineering drawing (ASME Y14.5 GD&T, rotational-stop
+  functional requirements) plus SRAM's numeric hanger dimensions, hanger thickness by axle type,
+  the UDH-specific M12×1.0/12.7mm thru-axle thread spec, and the 425 mm minimum-chainstay /
+  27 mm max-growth frame requirements.
 - **PARTIALLY CLOSED this round (FRM-34) — BB cartridge + crank-bolt + cassette-lockring +
   stem-binder torque table sourced from Park Tool's cross-manufacturer compilation.** Still
   missing: headset locknut torque (Park Tool's threaded-headset-adjustment page references
