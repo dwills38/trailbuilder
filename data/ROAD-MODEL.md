@@ -152,7 +152,17 @@ systemRoad:  ['shimano-road-12', 'shimano-road-11',        // 105/Ultegra/DA R71
               'campag-ekar-13', 'campag-12', 'campag-11']   // Ekar; Chorus/Record/SR
 actuationRG: ['mechanical', 'di2-wired', 'axs-wireless']   // road SPLITS electronic into wired/wireless
 chainStd:    ['hg', 'flattop', 'campag']                   // SRAM Flattop is its own width (fetched)
-bbShellRoad: ['bsa-road', 'bb86', 'bb386evo', 'bbright', 'pf30', 't47-road', 'italian']
+bbShellRoad: ['bsa-road', 'bb86', 'bb386evo', 'bbright', 'pf30', 't47-road', 'italian',
+              'bb90-road', 'bb30a', 'pf86']            // ADDED 2026-07-17 (road-2 wave):
+                                                          // bb90-road = Trek bearing-in-frame shell (NOT
+                                                          // the MTB PF92/BB92 tokens - different width/seat);
+                                                          // bb30a = Cannondale's asymmetric 30mm-spindle
+                                                          // press-fit (NOT interchangeable with a generic BB30);
+                                                          // pf86 = Shimano-style road press-fit, 86.5mm wide
+                                                          // (the road sibling of MTB PF92 - NOT the same
+                                                          // bearing/width, never conflate). Real tokens used by
+                                                          // wave-1's Trek/Cannondale/Giant frame rows; now wired
+                                                          // into src/schema-road.js's bbShellRoad vocab too.
 crankBbRoad: ['dub', 'dub-wide', '24mm-road', '30mm']
 seatpostDiaRG:['27.2', '30.9', '31.6']                     // + proprietary flag for aero/D-shape
 clampRG:     ['31.8', '35']
