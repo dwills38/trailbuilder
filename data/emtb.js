@@ -746,6 +746,20 @@ var EMTB_PARTS = [
     disciplines: ['e-trail'], weight: 23800, price: 5900,
     note: "Kona's full-power trail e-MTB on the Shimano EP8 motor.",
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Devinci (new maker, Canadian brand) — E-Troy
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-devinci-e-troy-29', cat: 'emtb', brand: 'Devinci', model: 'E-Troy 29',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23600, price: 6200,
+    note: "Canadian brand's full-power trail/enduro e-MTB on the Shimano EP8 motor.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
