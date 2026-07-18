@@ -1,7 +1,11 @@
 # Cockpit & Contact Points — Mechanic Corpus
 
-**Maturity: foundation** (L1 — general-public repair/compat literacy; see `## Gaps` for the
-L2/L3 service-manual depth this chapter still needs).
+**Maturity: foundation, with a new dropper-internals L2 slice** (L1 coverage across the whole
+chapter + a cross-brand torque compilation (CKP-20), now joined 2026-07-18 by genuine dropper
+SERVICE-manual depth — RockShox Reverb AXS and Fox Transfer's hydraulic/IFP internals,
+CKP-21/22 — closing this chapter's round-4/5 named pickup point. Still `foundation` overall:
+the L2 slice is dropper-only; bar/stem, headset-adjacent, and BMX cockpit facts stay L1. See
+`## Gaps` for what's still missing.).
 
 Handlebar · stem · grips · dropper · rigid seatpost · saddle · pedals · (BMX seat system).
 Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline, conventions).
@@ -180,6 +184,63 @@ reference site rather than a manufacturer/standards body — treated here as a r
 community-consensus-tier source, one level below a maker page).* Source: sheldonbrown.com
 "Seatpost Size Database" (fetched 2026-07-17).
 
+## Dropper internals (L2 — RockShox Reverb AXS + Fox Transfer service manuals)
+
+**CKP-21 — RockShox Reverb AXS's hydraulic damping circuit uses an IFP the same way a
+fork/shock damper does (cross-reference SUS-26/33/38), and its IFP height is a clean
+linear function of travel — travel + 5 mm, every size.** Reverb AXS IFP height (H)
+by travel/post length: 100 mm travel (340 mm post) → 105 mm; 125 mm (390 mm) → 130 mm;
+150 mm (440 mm) → 155 mm; 170 mm (480 mm) → 175 mm — each exactly **travel + 5 mm**, a
+cleaner per-size relationship than any fork/shock IFP table this corpus has mined (those
+are stepped bands, not a formula — SUS-33). Fill method is **Maxima Racing Oils Serene
+Hydraulic Seatpost Fluid, poured until it overflows level with the top of the upper
+post** — a level-fill, not a metered-cc figure, the same convention SUS-34 documented for
+RockShox's rear-shock damper body (a cross-brand-line, cross-product RockShox pattern:
+IFP-side fills are metered/precise, level-fills apply where "full to the brim" is the
+spec). Service is a genuine **three-tier structure** — 50-hour (vent-valve/seal
+lubrication), 200-hour (top cap + seal-head bushing replacement), 600-hour (full inner
+shaft + sealhead + IFP rebuild) — richer than any fork/shock interval table this chapter
+or `suspension.md` has sourced (those top out at two tiers, SUS-24). **The Reverb AXS
+XPLR variant is mechanically different, not just a length option**: it runs an **air**
+spring (charged via a shock pump, "Air Assembly Installation") rather than the standard
+Reverb AXS's pure-hydraulic actuation — a dropper-family split worth flagging if the
+catalog ever needs a dropper `spring`/`actuation` field, the same shape as SUS-17's
+air-vs-coil rear-shock split. *Confidence: confirmed (fetched primary, both service
+manuals).* Source: sram.com "2020-2022 Reverb AXS Service Manual"
+(sram.com/globalassets/document-hierarchy/service-manuals/rockshox/seatposts/
+2020-2022-reverb-axs-service-manual-english.pdf, fetched) + "2022+ Reverb AXS XPLR
+Service Manual" (same path, xplr variant, fetched).
+
+**CKP-22 — Fox Transfer's hydraulic circuit differs from RockShox Reverb AXS in three
+concrete ways: nitrogen (not oil-fill-only) IFP pressurization, a damper-oil weight that
+changed between generations, and a genuinely different documented service-interval
+CADENCE from Fox's own fork/shock line.** IFP chamber charge: **325 psi nitrogen**
+(2021-2024, filled slowly over ~30 seconds — "charging too quickly can damage the
+Sealhead assembly," a caution with no RockShox Reverb equivalent in the fetched text).
+Damper oil is generation-specific, not universal: **FOX 1.5wt Synthetic Oil** (2021-2024
+Transfer) vs. **FOX 2.5wt Suspension Fluid** (2025-2027 Transfer) — a genuine viscosity
+change across generations, the dropper-post analog of SUS-39's fork-generation oil-weight
+differences. IFP-chamber top-off after main fill: 1-1.5 cc FOX FLOAT Fluid (matches
+SUS-40's fork air-chamber metered-shot convention). Selected torques: bleed/fill screws
+0.3-1.0 N·m (2-9 in-lb), anti-tamper top-cap screw 1.2 N·m (11 in-lb, 2021-2024), base
+lug (2025-2027) **30 in-lb (3.4 N·m) tightened COUNTER-CLOCKWISE** — a reverse-thread
+torque direction worth flagging explicitly, the dropper-post cousin of CKP-11's reversed
+left-pedal thread. **Service cadence is 125-hour intermediate / 300-hour full rebuild**
+— the 125 h figure matches Fox's own current-gen fork/shock "Full Service 125 Hours"
+figure (SUS-41) almost too neatly to be coincidence: Fox appears to standardize on a
+125-hour intermediate-service cadence across its fork, shock, AND dropper lines, a
+cross-product convention RockShox does not share (Reverb AXS's CKP-21 three-tier
+50/200/600h structure has no 125h step at all). Fox publishes TWO parallel procedures
+for the same rebuild — "Fox Tool Set" (vacuum-fill machine) and "Common Shop Tools"
+(gravity-fill + manual cycling, no vacuum) — a documentation choice RockShox's Reverb
+manual does not mirror (one procedure only). *Confidence: confirmed (fetched primary,
+multiple service-procedure pages, cross-checked figures consistent across the
+2021-2024 and 2025-2027 generations where both exist).* Source: tech.ridefox.com
+"2025-2027 Transfer 300 Hour Full Rebuild (Fox Tool Set)" (service-procedures/3022),
+"2025-2027 Transfer 300 Hour Full Rebuild (Common Shop Tools)" (service-procedures/2924),
+"2025-2027 Transfer 125 Hour Intermediate Service" (service-procedures/2991),
+"2021-2024 Transfer Seatpost Rebuild" (service-procedures/2859), all fetched 2026-07-18.
+
 ## Grips, saddle
 
 **CKP-7 — Grips and saddle carry only the common fields — no fit rules.** They are fit-trivial:
@@ -296,6 +357,15 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2b. Engine: `bmx-freecoaster` INFO (never a con
 - **Carbon bars need lubricant/compound choice matched to the removal or install method**
   (CKP-2/14): cutting is banned outright on carbon (scores and weakens the bar); alcohol-as-
   lubricant is the safe technique for both slip-on grip removal and installation.
+- **A dropper's IFP must be set/pressurized in the correct order relative to the main oil
+  fill, the same discipline `suspension.md` documents for forks/shocks** (CKP-21/22): both
+  Reverb AXS and Transfer bleed/fill the main chamber first, THEN set IFP height/charge —
+  getting this backwards produces a post with the wrong effective spring/damping behavior
+  before a single stroke is cycled, invisible from outside once reassembled (the dropper-post
+  instance of SUS-33/38's install-order point).
+- **Reverse-thread torque isn't unique to pedals** (CKP-11/22): Fox Transfer's 2025-2027 base
+  lug tightens COUNTER-CLOCKWISE — a mechanic defaulting to "righty-tighty" on an unfamiliar
+  dropper risks the same cross-threading failure mode CKP-11 already flags for the left pedal.
 
 ### Wear / setup couplings
 - **A shimmed clamp concentrates stress** at the shim seam — a durability reason the bar/stem
@@ -307,6 +377,11 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2b. Engine: `bmx-freecoaster` INFO (never a con
   grease in the seat tube, carbon explicitly does not (grease lets it slip, inviting over-torque
   to compensate, which then risks crushing the carbon tube wall) — a wear/maintenance coupling
   the diameter-only fit check can't see.
+- **Dropper service cadence is NOT a single cross-brand number** (CKP-21/22): RockShox Reverb
+  AXS runs a three-tier 50/200/600-hour structure while Fox Transfer runs a two-tier
+  125/300-hour structure that happens to share Fox's own fork/shock 125h figure (SUS-41) — a
+  mechanic reading one brand's interval sticker onto the other brand's post would be wrong in
+  both directions (too frequent for Reverb's 200h step, too infrequent for Transfer's 125h).
 
 ---
 
@@ -323,9 +398,17 @@ the below were in scope this round:
   chapter, not this chapter's gap anymore), cassette-lockring/BB (covered in
   `frame-standards-bearings.md` FRM-34 / `drivetrain.md`), and no dropper-post clamp torque
   number exists on the fetched page at all — that stays a real gap (see next bullet).
-- **No dropper-post internal service/bleed procedure with exact specs (L2 gap).** This round
-  covered external sizing/insertion only (CKP-16/17); the hydraulic/air internals (oil volume,
-  IFP position, bleed procedure) that CURRICULUM.md's L2 calls out are untouched.
+- **CLOSED 2026-07-18 (CKP-21/22) — dropper-post internal service/bleed procedure now
+  sourced for both majors.** RockShox Reverb AXS (IFP height = travel + 5mm exactly, level-fill
+  hydraulic circuit, 3-tier 50/200/600h interval, the XPLR variant's air-spring split) and Fox
+  Transfer (325 psi nitrogen IFP charge, generation-specific damper-oil weight 1.5wt→2.5wt,
+  125/300h interval matching Fox's own fork/shock cadence, a reverse-thread base-lug torque).
+  **Narrowed, not fully closed:** only two brands/families covered — OneUp, PNW, and Bike Yoke
+  droppers (all cited for EXTERNAL sizing already, CKP-3/16/17) have no internals sourced yet;
+  and neither brand's IFP-depth/oil-fill numbers were cross-checked against a second independent
+  source the way `suspension.md`'s SUS-35 flagged as needed for ambiguous tables — these came
+  through clean on the first fetch, so no ambiguity to flag, but a second-source corroboration
+  pass is still open. **L2 gap narrowed to: OneUp/PNW/Bike Yoke dropper internals.**
 - **No headset/stem bearing press-fit or preload-adjustment procedure (L2 gap, not this
   chapter's core but touches CKP-1's stem interface).**
 - **No saddle-rail-shape / clamp-type field or rule proposal drafted (the CKP-15 contradiction
