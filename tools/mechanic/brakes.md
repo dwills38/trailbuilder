@@ -1,14 +1,24 @@
 # Brakes — Mechanic Corpus
 
-**Maturity: foundation** (L1 — see [`CURRICULUM.md`](CURRICULUM.md)). Broadened 2026-07-17
-with Park Tool / Sheldon Brown / TRP-primary mount-standard, alignment, rotor-hardware and
-pad/bleed facts. Same-day follow-up round added a first L2 slice (BRK-28–34): the Shimano
-XTR/XT/SLX hydraulic disc brake dealer manual's torque table, wear floors, free-stroke/reach
-distinction, quantified bed-in procedure, and FM screw-length table — plus resolved the
-BRK-17 FM↔PM adapter CONTRADICTION with manufacturer/maker-primary sources for both
-directions. Still short of `professional`: no full bleed-fluid-volume/syringe-step
-procedure, no caliper-piston seal-kit service, no cross-brand (SRAM/TRP/Hayes/Magura)
-torque coverage — see `## Gaps` below.
+**Maturity: professional** (L1 complete + meaningful L2 service-manual depth — see
+[`CURRICULUM.md`](CURRICULUM.md)). Broadened 2026-07-17 with Park Tool / Sheldon Brown /
+TRP-primary mount-standard, alignment, rotor-hardware and pad/bleed facts. Same-day
+follow-up round added a first L2 slice (BRK-28–34): the Shimano XTR/XT/SLX dealer manual's
+torque table, wear floors, free-stroke/reach distinction, quantified bed-in procedure, and FM
+screw-length table — plus resolved the BRK-17 FM↔PM adapter CONTRADICTION with
+manufacturer/maker-primary sources for both directions. **This round (BRK-35–40) upgrades the
+grade to `professional`:** mined the SAME Shimano manual's full oil-fill/bleed procedure
+(BRK-35, the round-1 stopping point) and diaphragm replacement (BRK-37), established that
+Shimano's own dealer manual does NOT document piston/seal-kit service (BRK-36 — a genuine
+content gap in Shimano's own docs, now closed as "not published" rather than "unresearched"),
+and added a full **second manufacturer's** L2 coverage — SRAM's own service manuals — for the
+same caliper/lever/bleed domain: SRAM's three bleed-port mechanisms and double-syringe
+push/pull method (BRK-38, with a real cross-brand torque contrast against Shimano), a full
+caliper piston/seal-kit rebuild procedure SRAM does publish (BRK-39), and a non-bleed
+spongy-lever fix (BRK-40). The chapter now has genuine L2 depth — bleed procedures, torque
+tables, and piston/seal service — across its two dominant manufacturers, not just one. Still
+short of `master`: no TRP/Hayes/Magura L2 torque/bleed coverage, no L3 specialist depth
+(quantified pad-compound heat-fade science) — see `## Gaps` below.
 
 Caliper · rotor · mount standards · adapters · levers · lever↔shifter integration.
 Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline, conventions).
@@ -312,6 +322,122 @@ frame-specific measurement step with no single "the" answer, distinct from every
 torque/size fact in this chapter which is a fixed spec. *Confidence: confirmed.* Source:
 DM-MADBR01-07 (as BRK-30).
 
+**BRK-35 — Shimano's full oil-fill + air-bleed procedure (this round's pickup point from
+BRK-30's drain-only coverage) is a syringe-push + funnel-fill + gravity-flow + rapid-tap
+sequence with two distinct end-of-procedure torques.** After draining (bleed screw + O-ring
+removed, no funnel), the fill/bleed sequence: (1) insert the oil funnel (TL-BR003) into the
+lever's bleed-screw hole with **no oil stopper**; (2) at the caliper's bleed nipple, thread on
+the TL-BR001 syringe+tube (nipple cap off, 7 mm box wrench holding the nipple body), loosen
+the nipple 1/4 turn, and push the syringe plunger to feed oil **up** into the lever funnel
+until bubble-free oil emerges from the funnel — never depress the lever while adding oil, or
+air gets drawn in and the process must restart; (3) temporarily tighten the nipple; (4) swap to
+a bag+tube (no syringe) at the nipple and loosen it again to let oil/air flow **down** by
+gravity into the bag, topping up the funnel as its level drops so air never re-enters (tapping
+the reservoir/caliper with a non-marring handle, or repositioning the caliper, can help
+dislodge stuck bubbles); (5) once no more bubbles exit, temporarily tighten the nipple, then
+with the lever depressed, rapidly loosen/tighten the nipple in **~0.5-second pulses, repeated
+2-3 cycles**, to dislodge air trapped inside the caliper body itself — a mechanically distinct
+step from the gravity flow in (4); (6) final-tighten the bleed nipple to **4-6 N·m**; (7)
+operate the lever repeatedly and check stiffness, then tilt the lever **30° up** and **30°
+down** from horizontal and re-check stiffness/bubbles at each angle (air pockets can hide at
+one lever orientation and not another) — repeat from step 4 if the lever isn't stiff; (8) cap
+the funnel with the oil stopper (O-ring side facing down), remove the funnel+stopper as one
+unit, install the bleed screw+O-ring and tighten **until oil overflows** (confirms no air
+remains in the reservoir tank) to **0.5-1 N·m** — explicitly do **not** operate the lever at
+this final step, since doing so risks drawing air back into the cylinder. *Confidence:
+confirmed (fetched Shimano dealer manual, full text of pp.40-45).* Source: DM-MADBR01-07 (as
+BRK-30), "SHIMANO genuine mineral oil replacement › Adding SHIMANO genuine mineral oil and
+bleeding air." Closes the round-1 Gaps entry that stopped at the drain step.
+
+**BRK-36 — Shimano's own "Caliper piston maintenance" procedure (p.50) is piston
+CENTERING/re-seating only — it documents no piston removal, no seal replacement, and no
+seal part numbers.** The entire documented procedure is: remove pads, push both pistons
+straight back with a flat tool (oil funnel attached to the lever throughout, to avoid
+diaphragm damage from oil pressure — the same caution as pad replacement), reinstall pads,
+then pump the lever and visually confirm the pistons re-extend evenly; if uneven, repeat.
+There is no "remove piston / replace piston seal" step anywhere in this dealer manual — a
+genuine content gap relative to SRAM's caliper rebuild coverage (BRK-39), not a research
+miss: the manual's own table of contents lists only "Caliper piston maintenance" and
+"Replacing the diaphragm" as caliper-internals sections, nothing else. *Confidence: confirmed
+(fetched full manual text, absence verified against the table of contents).* Source:
+DM-MADBR01-07 (as BRK-30), p.50. **This closes (as "not published by Shimano," not
+"unresearched") the round-1 Gaps entry asking for Shimano caliper-piston seal-kit service** —
+Shimano's dealer manual simply doesn't cover piston/seal replacement the way SRAM's does.
+
+**BRK-37 — Shimano diaphragm replacement requires draining first, has a low reassembly
+torque, and uses TWO different diaphragm part numbers depending on lever model.** Procedure
+(p.52-54): drain the mineral oil (per BRK-30's drain steps) → loosen (not fully remove) the
+lever's cap fixing screw → remove the bleed screw+O-ring → push the cap+diaphragm out through
+the now-empty bleed-screw hole with a thin screwdriver or hex wrench → pull them free by hand
+→ separate the cap from the old diaphragm → attach the SAME cap to a NEW diaphragm, aligning
+molded diagonal alignment marks → insert the new diaphragm (locating its protrusion into the
+lever body's groove) → tighten the cap fixing screw to **0.2-0.3 N·m** while pushing the cap
+flush against the lever body, explicitly cautioned not to over-tighten → then perform the full
+BRK-35 oil-fill-and-bleed procedure (a diaphragm swap always empties/re-airs the system, same
+logic as any hose replacement). Part numbers are lever-model-specific, not universal: **BL-M9100
+(magnesium lever) = Y8WM9801T**; **BL-M9120 / BL-M8100 / BL-T8100 / BL-M7100 = Y1XK9801T**.
+*Confidence: confirmed.* Source: DM-MADBR01-07 (as BRK-30), pp.52-54.
+
+## SRAM caliper/bleed service internals (L2 — SRAM service manuals)
+
+**BRK-38 — SRAM's bleed mechanism is fundamentally different from Shimano's: a closed
+double-syringe push/pull loop, not a gravity/funnel fill, and it comes in THREE distinct
+caliper bleed-port styles needing different tools.** SRAM identifies "Bleeding Edge" (push-fit
+quick-connect port, opened/closed with a 4 or 5 mm hex on the port valve itself), "Threaded
+Bleeding Edge" (the syringe threads directly into a T10-Torx bleed screw's hole), and
+"Non-Bleeding Edge" (older calipers, syringe threads into a plain bleed port) — each with its
+own prep steps in the same manual. The bleed itself never uses gravity flow or a funnel the
+way Shimano's mineral-oil system does (BRK-35): a full syringe is mounted at the lever, an
+empty/near-empty syringe at the caliper, and fluid is cycled by alternately depressing the
+lever-side plunger (pushes fluid + trapped air toward the caliper syringe) and drawing back on
+it (pulls fresh fluid from the caliper syringe back through the system), repeated until only a
+few small bubbles remain — a closed-loop push/pull, not a one-way top-up. Final bleed-port/
+bleed-screw torque across ALL THREE port styles and across DOT and mineral-oil SRAM MTB
+manuals alike is **1.6 N·m (14 in-lb)** — notably lower than Shimano's 4-6 N·m bleed-nipple
+spec (BRK-35), a genuine cross-brand torque difference worth flagging for anyone reaching for
+"the" bleed-nipple torque without checking brand first (not itself an engine `checkBuild`
+concern — torque isn't a modeled field — but a real mechanic trap). *Confidence: confirmed
+(fetched SRAM docs.sram.com manuals, cross-checked across the DOT MTB and Mineral Oil MTB bleed
+manuals, both giving the identical 1.6 N·m figure).* Sources: docs.sram.com "DOT Fluid MTB Disc
+Brake Hose Shortening and Bleed Manual" + "Mineral Oil MTB Disc Brake Installation, Hose
+Shortening, and Bleed Manual" (both fetched 2026-07-17).
+
+**BRK-39 — SRAM DOES publish a full caliper piston/seal-kit rebuild procedure (the gap
+Shimano's manual leaves open per BRK-36), with a piston-seal-vs-o-ring grease rule that is
+itself direction-aware.** SRAM's G2 RE (and by the same service-manual family, Code/Guide RE)
+service manual documents full piston removal (compressed air puffed into the caliper's fluid
+port pops each piston out — pointed at a rubber mat, eye protection mandatory, the largest
+piston first, then the smaller), old piston-seal removal (pierce with a pick, discard), new
+piston-seal installation (DOT 5.1 fluid — never grease — wetted, seated into the bore groove
+with a non-metallic pick), and reassembly: new banjo O-rings, caliper body bolts torqued to
+**8.5-10.1 N·m (75-90 in-lb)**, all from a purchasable "Caliper Service Kit" (with an optional
+separate "Caliper Piston Kit" if the pistons themselves, not just seals, need replacing).
+**Grease is explicitly banned on the piston seals specifically** ("grease will reduce the
+clearance gap between the pads and rotors when the brake is released") even though DOT-
+compatible grease IS used elsewhere in the same rebuild (banjo threads, compression fittings)
+— a within-one-service direction-aware distinction, not a blanket no-grease rule. Separately:
+if the system is ever contaminated with the WRONG fluid family (mineral oil in a DOT caliper,
+or DOT 5 instead of DOT 5.1/4), the manual's remedy is not "flush and refill" — it requires
+replacing **all seals, the bladder, AND the hose**, i.e. cross-family contamination is treated
+as parts-destroying, not just a fluid mixup (reinforces BRK-27's "never share bleed kits
+between families," with the failure consequence now quantified). *Confidence: confirmed
+(fetched SRAM service manual).* Source: sram.com "2023 G2 RE Service Manual"
+(GEN.0000000007229 Rev A, fetched 2026-07-17).
+
+**BRK-40 — SRAM has a documented non-bleed fix for spongy/excessive lever throw, meant to be
+tried BEFORE assuming a full bleed is needed.** "Brake Pad Advancement": remove the pads,
+insert two old/take-off rotors into the caliper's rotor slot as spacers, squeeze the lever
+repeatedly to advance both pistons out until they contact the spacer rotors, remove the
+rotors, press the pistons back into the caliper with a plastic tire lever (never a metal
+tool — the same piston-damage caution as Shimano's flat-tool rule), repeat the advance/retract
+cycle once more, then reinstall pads and re-check lever feel; only if there's still no
+improvement does the manual point to a full bleed. This is a genuinely different fix from a
+bleed (no fluid is added or removed) — it re-seats pistons that have crept unevenly, which
+produces the same symptom (spongy/long lever throw) a low-fluid or air-in-system bleed issue
+does, so misdiagnosing one as the other wastes a bleed kit on a problem it won't fix.
+*Confidence: confirmed.* Source: sram.com "2023 G2 RE Service Manual" (as BRK-39), "Brake Pad
+Advancement."
+
 ## Pad compounds & bleed basics
 
 **BRK-23 — Pad compound is a three-way tradeoff (organic/resin vs sintered/metallic vs
@@ -444,6 +570,18 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2a (BMX-5). Engine: `bmx-gyro-tabs`/`bmx-gyro-c
 - **Bleed fluid selection precedes any bleed** (BRK-27): mineral-oil and DOT-fluid systems use
   different bleed kits and must never be mixed — a service-procedure fact, not a purchasable-
   parts compatibility question, so it stays out of `checkBuild`.
+- **A spongy-lever fix has a cheaper first move than a full bleed** (BRK-40): SRAM's own
+  troubleshooting order is piston re-seating (no fluid touched) before assuming air/low fluid
+  and reaching for a bleed kit — the same symptom, two different root causes, checked cheapest
+  first.
+- **Piston-seal contamination with the wrong fluid family is not cleanable** (BRK-39, sharpens
+  BRK-27): SRAM's own remedy for mineral-oil-in-a-DOT-caliper (or vice versa) is full seal +
+  bladder + hose replacement, not a flush — the fluid-family mixing failure mode BRK-27 already
+  named now has its concrete parts-replacement cost attached.
+- **Diaphragm replacement is bleed-order-dependent both ways** (BRK-37): drain fully before
+  opening the lever cap (can't push the diaphragm out through an oil-filled bleed-screw hole
+  cleanly), and always re-bleed (BRK-35) after — mirrors the existing hose-replacement /
+  bleed-order note above, now with the diaphragm as a second trigger for a mandatory re-bleed.
 
 ### Wear couplings
 - **Rotor thickness ↔ pad ↔ caliper:** a worn-thin rotor changes lever throw and pad
@@ -463,23 +601,40 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2a (BMX-5). Engine: `bmx-gyro-tabs`/`bmx-gyro-c
 ## Gaps
 
 Honest list of what a future round should close, per `CURRICULUM.md`'s "target the weakest
-chapter" rule — this chapter is still `foundation`-only:
+chapter" rule — this chapter is graded `professional` as of this round, not yet `master`:
 
-- **Partially closed 2026-07-17 (BRK-30–34): Shimano XTR/XT/SLX dealer-manual torque table
-  (rotor lock ring, caliper mounting, pad axle, hose flare nut, FM fixing screws), hard
-  wear-floor numbers (0.5mm pad / 1.5mm rotor), the free-stroke-vs-reach distinction, and
-  a quantified bed-in procedure (20+ reps/lever) are now sourced.** **Still open:** this
-  round reached the manual's "Draining the mineral oil" step (bleed spacer install, lever
-  leveled, bleed screw removed) but did not mine the actual "Adding SHIMANO genuine mineral
-  oil and bleeding air" section (exact fluid volumes, funnel/syringe sequence) before
-  stopping — a clean next-round pickup point in the SAME already-fetched document
-  (si.shimano.com DM-MADBR01-07, pp.39-45). Also still open: SRAM's own bleed-kit/torque
-  specs (this round is Shimano-only), and caliper-piston seal-kit service internals (the
-  manual's own p.50 "Caliper piston maintenance" and p.52 "Replacing the diaphragm"
-  sections were not reached). **L2 gap, narrower than before.**
+- **CLOSED 2026-07-17 (BRK-35–37): the Shimano bleed procedure gap is fully closed.** The
+  round-1 stopping point (drain steps mined, "Adding SHIMANO genuine mineral oil and bleeding
+  air" not yet mined) is now sourced in full — exact torques (bleed nipple 4-6 N·m, bleed
+  screw 0.5-1 N·m), the funnel/syringe/gravity-flow/rapid-tap step sequence, and the 30°-tilt
+  double-check. Diaphragm replacement (p.52-54) is also now sourced, including its two
+  lever-model-specific part numbers. **Caliper-piston seal-kit service for Shimano specifically
+  is now closed as "not published by Shimano"** (BRK-36) — the dealer manual's own "Caliper
+  piston maintenance" section is piston-centering only, no seal replacement documented; this
+  is a genuine content gap in Shimano's own docs, not a research miss.
+- **CLOSED 2026-07-17 (BRK-38–40): SRAM's own bleed-kit/torque specs and caliper piston/seal-
+  kit service are now sourced**, fetched directly from docs.sram.com and sram.com service
+  manuals — the three bleed-port mechanisms (Bleeding Edge / Threaded Bleeding Edge /
+  Non-Bleeding Edge) and double-syringe push/pull method, the 1.6 N·m bleed-port/bleed-screw
+  torque (a real cross-brand contrast against Shimano's 4-6 N·m), the full G2 RE-family
+  caliper piston/seal rebuild (8.5-10.1 N·m body-bolt torque, DOT-5.1-not-grease piston seals,
+  contamination-requires-full-replacement), and a non-bleed spongy-lever fix. This closes the
+  "SRAM-side is unresearched" half of the prior gap entry — SRAM now has genuine L2 depth on
+  par with Shimano's.
+- **Still open: TRP/Hayes/Magura torque and bleed-procedure coverage.** This chapter's L2
+  depth is Shimano + SRAM only — the two dominant manufacturers, but not the whole market.
+  TRP's own site 429-rate-limited on a second direct WebFetch (recovered via Exa for the pad/
+  rotor article, but a dedicated bleed/torque spec page was never reached); Hayes has no
+  fetchable FAQ/spec page found; Magura's owner's-manual PDF fetched but came back
+  corrupted/unreadable through the fetch tool. Worth a retry with Bright Data if the shared
+  budget allows, per `VERIFY-PROTOCOL.md` doctrine. L2 gap, narrower than before (2/5 major
+  hydraulic brake makers now fully covered).
 - **No quantified pad-compound heat-fade science** — BRK-25's ramp-up/sweet-spot/falloff model
   is qualitative only; no actual temperature thresholds per compound, no fade-recovery
   behavior, no rotor metallurgy/heat-treatment facts. L3 gap.
+- **No wheel-builder-tier / bearing-tolerance-tier depth anywhere in this chapter** (caliper
+  bore tolerances, piston-seal material science, rotor heat-treatment metallurgy) — L3 gap,
+  same tier as the pad-compound gap above; nothing sourced yet.
 - **TRP/Hayes/Magura minimum-native-rotor-size data could not be cleanly sourced this round.**
   TRP's own site 429-rate-limited on a second direct WebFetch (recovered via Exa for the pad/
   rotor article, but a dedicated spec page was never reached); Hayes has no fetchable FAQ/spec

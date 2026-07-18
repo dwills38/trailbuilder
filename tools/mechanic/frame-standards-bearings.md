@@ -1,8 +1,12 @@
 # Frame Standards & Bearings — Mechanic Corpus
 
-**Maturity: foundation** (L1 — see [`CURRICULUM.md`](CURRICULUM.md); this round added L1
+**Maturity: foundation** (L1 — see [`CURRICULUM.md`](CURRICULUM.md); a prior round added L1
 BB-shell/headset identification, threading-direction, UDH-history and creak-diagnosis
-literacy — no L2 service/torque-table or L3 tolerance-engineering depth yet, see "## Gaps").
+literacy. **This round opened L3** with real numeric press-fit interference specs (BB shell
+bore tolerance, Chris King headset cup interference) and manufacturer-quoted coverage of the
+BB30/PF30 tolerance-stack dispute (FRM-28–33) — but L2's fastener torque table is still
+untouched and most L3 targets (wheel-building, brand-specific service internals, BMX bearing
+matrix) remain open, so the chapter stays `foundation` overall, see "## Gaps").
 
 BB shells · crank spindles · bottom brackets · headset / S.H.I.S. · UDH · frame axle &
 clearance · dropout type / single-speed tension · (BMX shells, spindles, crank pieces).
@@ -243,6 +247,105 @@ result there isn't headset-conclusive on its own. *Confidence: confirmed (fetche
 BB and headset diagnostics).* Source: parktool.com "Troubleshooting a Noisy Drivetrain"
 (fetched via WebFetch); parktool.com "How to Adjust a Threadless Headset" (via Exa fetch).
 
+## Bearing press-fit tolerances / BB30-PF30 tolerance-stack dispute (L3)
+
+**FRM-28 — Component makers publish frame-shell bore specs for their OWN press-fit standards;
+Shimano is the outlier that publishes only cup dimensions, not a frame-shell tolerance.**
+BikeRadar's 2014 survey collected official prescribed shell dimensions/tolerances direct from
+Cannondale (BB30), FSA (BB386EVO), Cervélo (BBright) and SRAM (PressFit30, PressFit GXP); Trek
+declined to share BB90/95 dimensions. Shimano PR (Nick Legan, quoted directly): *"Shimano does…
+only provide the dimensions of our bottom brackets. It is up to the frame manufacturers to
+determine the best frame dimensions from there… because of the high level of variability with
+different frame materials and construction processes."* Praxis's Adam Haverstock, on the
+consequence: *"SRAM gives a measurement/dimension doc to follow and Shimano does not. So it's all
+left to subjective interpretation of the engineer/factory… Inherently, some bottom brackets fit
+better in some frames than others due to this. It's a nightmare to be honest."* *Confidence:
+confirmed (fetched, direct manufacturer/vendor quotes).* Source: bikeradar.com "AngryAsian: The
+ultimate creaky bottom bracket fix" (2014, via Exa fetch).
+
+**FRM-29 — THE tolerance-stack dispute, in one number: the nominal spec is 0.05 mm; real-world
+frames commonly miss it by 4–10×.** Shimano and SRAM both specify an identical 0.05 mm allowable
+tolerance on bottom-bracket-shell bore diameter (BikeRadar's engineering column: "about the width
+of a human hair"). Kogel Bearings founder Ard Kessels, in a 2021 Bikerumor manufacturer Q&A,
+independently confirms the same spec and quantifies the gap between spec and practice: *"The
+diameter between the largest and smallest acceptable size in a Press Fit 30 bottom bracket is
+only 0.05mm. In the real world, at Kogel we consider any frame that is +/-0.20mm workable. We
+have seen production frames that are off by 0.50mm. Carbon cannot be produced to the same
+precision as metal parts and to think it can be done at scale within 1/20 of a millimetre is
+wishful thinking."* This IS the tolerance-stack dispute the curriculum names: the published
+standard is real and tight, but carbon-frame manufacturing routinely runs an order of magnitude
+looser than it in production, and a BB maker's *practical* accept-window (Kogel's ±0.20 mm) is
+itself 4× the nominal spec just to ship a working product. No catalog field models frame-shell
+bore tolerance today, so this is background engineering context, not a ⚠ CONTRADICTION.
+*Confidence: confirmed (two independently fetched sources agree, one a named press-fit-BB
+manufacturer founder).* Source: bikeradar.com "AngryAsian: I've had it with press-fit bottom
+brackets" (2013); bikerumor.com "AASQ #118: Press Fit bottom bracket design with Kogel, BB
+Infinite, Hope and C-Bear" (2021, Ard Kessels/Kogel), both via Exa fetch.
+
+**FRM-30 — Why press-fit creaks, mechanically: no axial clamping force, so cup/bearing can
+micro-move under load — and that movement is itself frame damage, not just noise.** Hope
+Technology design engineer Sam Gibbs, same Bikerumor Q&A: *"there is no axial clamping force when
+compared to a threaded BB; this means the cups are much more likely to move relative to each
+other when under load and as the BB shell flexes. If any relative movement does occur between the
+cup/bearing and the frame, however small, this will cause wear resulting in permanent damage to
+the frame and your BB will always creak!"* This is the WHY behind FRM-27's press-fit creak note —
+a threaded BB's lockring supplies a preload a press-fit shell structurally cannot; Hope's own
+fix is a threaded center tube that pulls both press-fit cups together to restore some clamping
+force. *Confidence: confirmed (fetched, direct named-engineer quote).* Source: bikerumor.com AASQ
+#118 (Sam Gibbs/Hope Technology, via Exa fetch). Cross-reference: FRM-27.
+
+**FRM-31 — A press-fit-BB manufacturer's own diagnostic order treats "it's the BB" as the LAST
+conclusion, not the first.** BB Infinite COO Gary Mailhiot (same Q&A), on target-fixation
+misdiagnosis: most bikes brought in with "my bottom bracket is creaking" are not actually a BB
+problem. His prescribed order: don't name the suspected part to the mechanic (avoid priming);
+always test-ride first; check skewers/thru-axles first ("an A-numero-uno place for a creak to
+hide"); then swap to flat pedals with no cleats and re-test; keep test-riding through the whole
+process; never install a press-fit BB with plain grease, always a proper retaining compound
+(movement = creak, so anything that lets the cup creep will eventually creak regardless of
+tolerance). This extends FRM-26's cadence-based creak triage with a press-fit-specific diagnostic
+sequence sourced directly from a PF-BB manufacturer. *Confidence: confirmed (fetched, direct
+named-executive quote) — manufacturer Q&A tier, treat as medium-high per corpus rule 5 (not a
+formal service manual, but attributed and specific).* Source: bikerumor.com AASQ #118 (Gary
+Mailhiot/BB Infinite, via Exa fetch). Cross-reference: FRM-26.
+
+**FRM-32 — The BB30 vs PF30 engineering distinction is interface COUNT, not just bore size — PF30
+literally stacks one more interference fit than BB30.** Wheels Manufacturing's own technical
+pages (manufacturer-primary, not a search summary): **BB30** is "direct-fit" — the bearing outer
+race presses straight into a 42 mm-ID frame bore, ONE interference interface (bearing-to-shell).
+**PF30** uses a 46 mm-ID frame bore that takes a pressed-in cup (often aluminum or composite),
+and the bearing then presses into THAT cup — TWO interference interfaces stacked in series
+(cup-to-shell, then bearing-to-cup), which is the literal mechanical meaning of "tolerance stack"
+in this dispute: PF30 compounds two press-fit tolerance windows instead of BB30's one, at the
+cost of an extra interface that can itself work loose. Both use 68 mm (road) / 73 mm (mtb) shell
+widths; SRAM's own DUB manual (fetched) also documents an 83 mm PF30 downhill width. Wheels Mfg
+also confirms the neighboring bore families that corroborate FRM-18's Park Tool numbers from a
+second manufacturer-primary source: BB86/BB92 = 41 mm ID (matches FRM-18's PF41 family); Trek
+BB90/95 = 37 mm ID direct-fit, with Trek "moving away from BB90/95 to… PF92" (= BB92's 41 mm ID
+shell). BB30 also uses thin spacers/a wave washer between bearing and crank arm to micro-adjust
+chainline — a wear/setup detail, not a fit spec. *Confidence: confirmed (fetched manufacturer
+technical pages + SRAM's own DUB installation manual).* Source: wheelsmfg.com "BB30 Technical
+Info", "PF30 Technical Info", "Three Common Bottom Bracket Misconceptions" (all fetched via Exa);
+SRAM/Wheels Mfg-hosted "DUB Cranksets and Bottom Brackets" user manual (via Exa fetch: BB30 =
+42 mm ID, PF30/BB386 = 46 mm ID, PressFit(GXP) = 41 mm ID). Cross-reference: FRM-18.
+
+**FRM-33 — Chris King's headset cup + fork-crown-race press-fit spec: no more than 0.1 mm
+(0.004″) of interference, for BOTH the head-tube cups and the crown-race baseplate.** Chris
+King's own installation manuals (NoThreadSet, GripNut — fetched, identical wording across
+models): *"The proper press fit should be with no more than .1mm (.004") of interference. See
+table below for head tube bore specifications. Do not file or otherwise remove material from the
+cups to make them fit."* — and the identical 0.1 mm figure repeats for the crown-race baseplate
+press. The head tube bore must be reamed/faced true first (manuals specify a minimum ream depth
+into the head tube before pressing). This is the headset-side answer to the chapter's L3 target:
+a headset cup's target interference (0.1 mm) is roughly double the *nominal* BB-shell-bore
+tolerance window PF30 specifies (FRM-29's 0.05 mm), consistent with a bonded/pressed cup carrying
+different load direction and duty than a BB shell's rotating-bearing bore. *Confidence: confirmed
+(fetched, direct quotes, consistent across two Chris King headset manuals).* Source: Chris King
+NoThreadSet + GripNut installation manuals (fetched via Exa: manualsnet.com and circles-jp.com
+PDF-hosted copies of Chris King's own manual text). Open mechanic question: Cane Creek and FSA
+publish their own headset service manuals with cup press-fit specs — not yet fetched for this
+chapter; worth a follow-up pass to confirm whether 0.1 mm is a Chris-King-specific number or an
+industry-common headset figure.
+
 ## BMX frame/crank standards (off-live)
 
 **FRM-15 [BMX] — BB shell + crank spindle diameter together select the bearing set.** BMX frame
@@ -300,6 +403,10 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2a (BMX-9). Engine: not modelled (display captu
 - **A threaded BB shell is a two-axis constraint (diameter/pitch AND handedness), not one**
   (FRM-18/19/20): even a cup whose thread diameter matches can be the wrong standard if the
   drive-side handedness doesn't — British/T47 reverse-thread the drive cup, Italian/French don't.
+- **A press-fit BB's tolerance stack is literally interface count** (FRM-32): BB30 has one
+  interference interface (bearing-to-shell); PF30 adds a second in series (cup-to-shell,
+  bearing-to-cup) — more interfaces, more places for the nominal-vs-real-world gap (FRM-29) to
+  compound.
 - **UDH's conventional hanger and Full Mount are two different constraints on the same interface**
   (FRM-23/24): a plain UDH hanger gates nothing brand-specific (FRM-24), but Full Mount's
   hangerless clamp (FRM-10) is a harder, SRAM-specific gate riding the same physical interface.
@@ -339,7 +446,15 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2a (BMX-9). Engine: not modelled (display captu
   but bearing-life-constrained vs 24 mm — the durability coupling behind the "which pairs do you
   talk customers out of" question.
 - **Press-fit shells + creak:** press-fit BBs (PF92 etc., FRM-2) are more prone to
-  creak/service than threaded — a maintenance coupling, not a fit rule.
+  creak/service than threaded — a maintenance coupling, not a fit rule. **The root mechanism is
+  the missing preload** (FRM-30): a threaded BB's lockring supplies axial clamping force a
+  press-fit shell structurally lacks, so any relative cup/frame movement — however small —
+  becomes progressive wear, not just noise; retaining compound (never plain grease, FRM-31)
+  substitutes for the missing mechanical preload.
+- **Diagnosing a creak by ear alone risks misattributing it to the BB** (FRM-31 extends FRM-26):
+  a PF-BB manufacturer's own protocol treats "it's the bottom bracket" as the conclusion of a
+  process of elimination (skewers/axles, then pedals, always with a test ride), not the starting
+  assumption — mirrors FRM-26's cadence-differential caution against mislocalizing creaks by ear.
 - **A mis-selected bearing kit (right shell, wrong spindle spacers) runs rough** — the BMX
   shell×spindle matrix (FRM-15) is fundamentally about the *bearing* fit, which is why it was
   left to purchasable-BB exact checks rather than a guessed matrix.
@@ -357,36 +472,47 @@ Honest list of what's still missing for this chapter to grade above `foundation`
 [`CURRICULUM.md`](CURRICULUM.md) for the level definitions) — for a future training round to
 close, most-specific first:
 
-- **No BB shell bore-tolerance / bearing-press-spec table (L3 gap).** This round captured ONE
-  general interference-fit number for headset cups (from the headset service page, not yet
-  entered as a fact to stay L1-scoped) but nothing systematic for BB shell bore tolerances,
-  bearing outer-race press tolerances, or frame-to-frame variance within a nominal standard
-  (e.g. how much a "41 mm" PF41 bore actually varies in the wild). That's L3 (`CURRICULUM.md`
-  "Bearings / press-fit tolerances").
-- **No UDH revision history across frame generations (L3 gap).** FRM-23–25 cover UDH's origin
-  and verification method, but not whether the physical UDH spec itself has revised since 2019
-  (dimensional changes, axle-interface tweaks) — `CURRICULUM.md` names this explicitly under
-  "Frame-standards minutiae."
+- **CLOSED this round — BB shell bore-tolerance / bearing-press-spec numbers (L3, was gap #1).**
+  FRM-29 lands the actual number (0.05 mm Shimano/SRAM nominal shell-bore tolerance) AND the
+  real-world variance dispute (Kogel's ±0.20 mm practical accept-window, 0.50 mm seen in
+  production) from a named press-fit-BB manufacturer founder. FRM-33 lands the equivalent
+  headset-cup figure (Chris King: 0.1 mm interference). **Still open within this sub-area:** no
+  Cane Creek/FSA headset press-spec fetched yet (FRM-33's open question), no systematic
+  frame-to-frame bore variance data beyond Kogel's anecdotal range, and no bearing outer-race
+  (as opposed to shell-bore) manufacturing-tolerance table from a bearing maker (Enduro Bearings'
+  cycling-specific technical pages were not successfully fetched this round — only its
+  industrial-seals division's generic press-fit-allowance table turned up in search, and that
+  wasn't fetched/entered since it's not confirmed to be the same technical basis as their
+  bike-bearing cups).
+- **CLOSED this round — BB30/PF30 tolerance-stack dispute (L3, was gap #4).** FRM-29/30/32 cover
+  the dispute from three angles: the spec-vs-reality gap (FRM-29), the missing-preload mechanism
+  (FRM-30), and the interface-count engineering distinction (FRM-32) — sourced from BikeRadar's
+  manufacturer survey and a Bikerumor Q&A naming Hope/Kogel/BB Infinite/C-Bear engineers by name.
+- **No UDH revision history across frame generations (L3 gap, unchanged).** FRM-23–25 cover
+  UDH's origin and verification method, but not whether the physical UDH spec itself has revised
+  since 2019 (dimensional changes, axle-interface tweaks) — `CURRICULUM.md` names this explicitly
+  under "Frame-standards minutiae." Not attempted this round.
 - **No torque-spec table for BB/headset/UDH-hanger fasteners beyond the two ad-hoc numbers
-  surfaced this round (35 Nm BB lockring, FRM-27; ~20 Nm threaded-headset locknut, mentioned in
-  the Park Tool threaded-headset-adjustment page but not yet entered as a fact).** A full
-  fastener torque table (stem bolts, rotor bolts, cassette lockring, BB, headset, UDH hanger
-  bolt) is explicitly L2 (`CURRICULUM.md`).
-- **No BB30/PF30 tolerance-stack dispute coverage (L3 gap).** `CURRICULUM.md` names this
-  specifically ("the BB30/PF30 tolerance-stack disputes") as an L3 frame-standards-minutiae
-  target; this round only identified PF30/PF46 by bore size (FRM-18), not the known
-  creak/tolerance controversy around that family.
-- **No BMX bearing-kit matrix (L2/L3 gap, pre-existing).** FRM-15's open mechanic question
-  (enumerate the real shell×spindle bearing-kit matrix, incl. adapter combos) is still open —
-  this round did not attempt it; it needs either manufacturer bearing-catalog data or a shop
-  interview, not general web literacy.
-- **No Shimano/Campagnolo/other-brand press-fit or proprietary BB service internals (L2 gap).**
-  This round's press-fit sourcing (Park Tool) covers identification/naming only, not
-  brand-specific service procedures or torque specs — full service-manual coverage is L2.
+  already on record (35 Nm BB lockring, FRM-27; ~20 Nm threaded-headset locknut, mentioned in the
+  Park Tool threaded-headset-adjustment page but not yet entered as a fact).** A full fastener
+  torque table (stem bolts, rotor bolts, cassette lockring, BB, headset, UDH hanger bolt) is
+  explicitly L2 (`CURRICULUM.md`) — not attempted this round; still the chapter's biggest L2 gap.
+- **No BMX bearing-kit matrix (L2/L3 gap, pre-existing, unchanged).** FRM-15's open mechanic
+  question (enumerate the real shell×spindle bearing-kit matrix, incl. adapter combos) is still
+  open — this round did not attempt it; it needs either manufacturer bearing-catalog data or a
+  shop interview, not general web literacy.
+- **No Shimano/Campagnolo/other-brand press-fit or proprietary BB service internals (L2 gap,
+  unchanged).** This round's press-fit sourcing (Park Tool, Wheels Mfg, SRAM, Chris King) covers
+  identification/naming/interference-spec for the SRAM/generic/Chris-King side well now, but not
+  Shimano- or Campagnolo-specific service procedures or torque specs — full service-manual
+  coverage stays L2.
 - **Headset creak isolation (FRM-27) has no equivalent BB-vs-frame-crack differential test
   sourced yet** — Park Tool's noisy-drivetrain page mentions frame cracks as a creak source
   ("A crack in a weld... can also cause a creaking sound") but this round did not source a
   dedicated crack-vs-BB-creak isolation procedure; flagged for a future pass rather than guessed.
+- **No wheel-building / spoke-tension L3 coverage (pre-existing, out of this chapter's scope —
+  lives in `wheels-tires.md` if pursued).** Listed here only because `CURRICULUM.md` names it
+  alongside bearings/press-fit under the same L3 "Specialist domains" heading.
 
 ## Open mechanic questions (for the human review — do not act)
 - FRM-2: any real case where a 68 mm vs 73 mm BSA shell genuinely needs different BBs (frame-
