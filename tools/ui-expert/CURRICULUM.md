@@ -53,7 +53,7 @@ Grade **honestly** — a chapter with one L2 pattern and mostly L1 floors is sti
 A pattern documented without its accessibility contract does not count toward maturity at all.
 Each chapter ends with a **## Gaps** section the next round reads to pick its target.
 
-## Current state (round 2, 2026-07-18)
+## Current state (round 3, 2026-07-18)
 
 | Chapter | Level | Maturity | Note |
 |---|---|---|---|
@@ -63,7 +63,7 @@ Each chapter ends with a **## Gaps** section the next round reads to pick its ta
 | `forms-filters-density.md` | L1+L2 | **professional** | round 2 — slider/disclosure/listbox patterns applied to the filter rail (DNS-10–12) + Baymard filter research (DNS-13/14) |
 | `navigation-ia.md` | L1+L2 | **professional** | round 3 — card-sorting/tree-testing methods, breadcrumb canon + WCAG G65 markup, search-vs-browse synergy, History API + confirmed hashchange back-behavior |
 | `performance-perceived.md` | L1+L2 | **professional** | round 3 — INP subpart mechanism (input/processing/presentation delay), NN/g's 0.1/1/10s canon, skeleton-vs-spinner research (mixed, informational-leaning), bfcache, font-display + script defer/async doctrine, CLS seeded |
-| `platform-conventions.md` | L1 | foundation | seeded — the three-convention decision rule |
+| `platform-conventions.md` | L1+L2 | **professional** | round 3 — NN/g web-form canon, the 100vh trap resolved (svh/lvh/dvh), overscroll-behavior for modal/dialog scroll containment, PWA installability criteria |
 
 ## Corpus rule: target the weakest chapter
 
@@ -71,8 +71,26 @@ Restated from [`INDEX.md`](INDEX.md) rule 7: future rounds read every chapter's 
 Gaps first and prioritize the weakest-graded chapter(s). Round 2 (2026-07-18) took
 `accessibility.md` and `forms-filters-density.md` to professional via the WAI-ARIA APG
 ingest (slider/disclosure/listbox/combobox/tabs/dialog) and Baymard/NN/g filter research, plus
-a theme-contrast contradiction-hunt (see `accessibility.md`'s ⚠ CONTRADICTION section). The
-next round's standing priority: **`navigation-ia.md`, `performance-perceived.md`, or
-`platform-conventions.md`** are now the weakest-graded chapters (still foundation/L1) and
-should be the round-3 target; `mobile-fundamentals.md`/`responsive-layout.md` are next after
-those.
+a theme-contrast contradiction-hunt (see `accessibility.md`'s ⚠ CONTRADICTION section). Round 3
+(2026-07-18) took the remaining five chapters — `mobile-fundamentals.md`, `responsive-layout.md`,
+`navigation-ia.md`, `performance-perceived.md`, `platform-conventions.md` — from foundation to
+professional in the corpus's own weakest-first order, each via a fetched-source L2 pass (see
+each chapter's own facts and citations for detail).
+
+**All seven chapters are now professional.** No chapter is "weakest" relative to the others
+anymore — the corpus has climbed evenly, per rule 7's own intent. The next round's honest choice
+is between two directions, not a chapter pick:
+
+1. **Push toward master (L3/L4)** on whichever chapter's own Gaps list is richest in
+   still-unfetched, genuinely load-bearing questions (several chapters flag specific unfetched
+   primaries this round: RSP's Every-Layout primary, PLT-2's still-inference-grade decision
+   rule, NAV's unrun card-sort/tree-test on the site's own nav, PRF's still-missing field CWV
+   data).
+2. **Chase ⚠ CONTRADICTION hunts** the way `accessibility.md`'s round-2 theme-contrast audit did
+   — cross-checking a chapter's own facts against the shipped app for a concrete, coordinator-
+   actionable finding, rather than adding more citations for their own sake.
+
+Do not manufacture a "master" grade to look finished — CURRICULUM's own grading rule requires
+L3 craft-depth or L4 measurement-method depth, not just more L1/L2 facts, and several chapters
+(navigation-ia, performance-perceived especially) are honest about needing a real study or
+real field data before they'd earn it.
