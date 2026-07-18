@@ -1,6 +1,8 @@
 # Responsive Layout
 
-**Maturity: professional** (L1 complete + L2 container-query/fluid-type/intrinsic-layout patterns, round 3, 2026-07-18)
+**Maturity: master** (L1+L2 complete + L3 craft depth — the Every Layout primary pinned,
+breakpoint-count practice sourced, and the site's own three thresholds audited against both,
+yielding the intrinsic-layout-beats-breakpoints doctrine (RSP-19); round 4, 2026-07-18)
 
 Breakpoint strategy, container vs media queries, wrap behavior, the never-horizontal-scroll
 rule. Read [`INDEX.md`](INDEX.md) first.
@@ -134,12 +136,89 @@ rule. Read [`INDEX.md`](INDEX.md) first.
   (mathiasbynens.be/notes/safari-reader) 2026-07-18. Relevant to `src/guides.js` prose pages,
   not the data-grid UI.*
 
+---
+
+## Breakpoint practice & the Every Layout primary (round 4 / master, 2026-07-18)
+
+- **RSP-16 — The Every Layout "Sidebar" pattern, pinned from the primary** (closes RSP-11's
+  Tier-C-carrier gap; every-layout.dev **fetches cleanly**, contrary to the round-3 assumption
+  that it might be walled). The pattern makes a two-element layout wrap **without any media
+  query**, responding to its *container* rather than the viewport:
+  ```css
+  .with-sidebar { display: flex; flex-wrap: wrap; gap: 1rem; }
+  .sidebar      { flex-basis: 20rem; flex-grow: 1; }
+  .not-sidebar  { flex-basis: 0; flex-grow: 999; min-inline-size: 50%; }
+  ```
+  **Mechanism:** the enormous `flex-grow: 999` on the main element makes it consume all free
+  space, squashing the sidebar down to its `flex-basis` ideal width. `min-inline-size: 50%` is
+  the wrap trigger — once the main element would be forced below half the container, flex-wrap
+  drops the sidebar onto its own line. Every Layout's justification for choosing 50% is that a
+  sidebar stops being a sidebar once it is no longer the narrower of the two elements.
+  *Tier B (primary, the pattern's authors), fetched https://every-layout.dev/layouts/sidebar/
+  2026-07-18.*
+
+- **RSP-17 — Breakpoint count: NN/g's actual practice numbers** (closes the chapter's L3
+  breakpoint-count gap). NN/g reports that designers "usually accommodate only 2–3 breakpoints"
+  in practice, constrained by design resources, while noting that more breakpoints allow finer
+  adaptation. The suggested starting frame is four T-shirt tiers — **extra-small ≤500 px
+  (mobile), small 500–1200 px (tablet), medium 1200–1400 px (laptop), large ≥1400 px
+  (monitor)** — but the selection method is explicitly **audience-driven**: analyse the device
+  range your own visitors actually use and set the values to fit them, rather than adopting the
+  tiers verbatim. *Tier B, fetched
+  https://www.nngroup.com/articles/breakpoints-in-responsive-design/ 2026-07-18. Note this
+  complements rather than contradicts the chapter's existing content-driven-breakpoint doctrine:
+  NN/g gives the resourcing reality and a starting frame; the content-driven rule decides where
+  each line actually falls.*
+
+### Live-DOM breakpoint audit
+
+- **RSP-18 — ✅ The site carries three breakpoint thresholds, and the count is right.**
+  `index.html` uses `max-width:480px`, `max-width:768px`, `max-width:880px` and the
+  complementary `min-width:769px` — i.e. **three distinct thresholds**, landing squarely in
+  RSP-17's "2–3 in practice." Each is content-derived rather than device-derived, which is what
+  the chapter's existing doctrine asks for:
+  - **880 px** is where `.layout` (`grid-template-columns: 210px minmax(0,1fr) 330px` — rail,
+    catalog, build panel) stops fitting three columns and becomes `display:block`; the rail also
+    flips to a horizontally-scrolling chip strip there. That is precisely RSP-16's reasoning
+    generalised to three columns: the layout changes when the sidebars can no longer be the
+    narrow elements.
+  - **768 px** scopes the mobile touch-target enlargements (the 38 px slider thumbs of DNS-21's
+    row), deliberately leaving desktop density untouched.
+  - **480 px** adds a further squeeze for the smallest phones.
+  **No breakpoint above 880 px, and none is needed** — see RSP-19. *Site audit.*
+
+- **RSP-19 — ✅ Intrinsic layout is why this site needs no upper breakpoints — record as
+  doctrine.** RSP-17's frame suggests tiers at 1200 px and 1400 px, and the site has neither.
+  That is not an omission: the wide-viewport behaviour is handled *intrinsically* instead.
+  `.grid` is `repeat(auto-fill, minmax(236px, 1fr))`, so the card grid adds columns on its own
+  as space allows, and `.layout`'s middle track is `minmax(0, 1fr)`, so the catalog column
+  absorbs all extra width while the two fixed rails stay put. **The general rule this yields:
+  every layout axis handled intrinsically (`auto-fill`/`minmax`/flex-basis, or RSP-16's
+  pattern) is a breakpoint you never have to write, test, or maintain in four themes.** The
+  three breakpoints that remain exist because they change layout *structure* (three columns to
+  one, touch sizing on), which intrinsic sizing genuinely cannot express. *Corpus synthesis of
+  RSP-16/17/18 against the shipped CSS; flagged as the corpus's own framing.*
+
+- **RSP-20 — Do NOT retrofit RSP-16's Sidebar pattern onto `.layout` — an honest
+  non-recommendation.** The pattern is defined for **two** elements (sidebar + main), and its
+  wrap trigger (`min-inline-size: 50%`) encodes a two-element assumption. The site's main layout
+  has **three** tracks with *two* fixed rails flanking a fluid centre, and the desired collapse
+  is all-three-to-stacked at one threshold — not an independent per-sidebar wrap, which is what
+  a flex-wrap version would produce (the build panel could wrap while the filter rail did not,
+  giving a two-column intermediate state nobody designed). The existing CSS Grid + single 880 px
+  breakpoint expresses the intended behaviour more directly and more predictably.
+  **Where RSP-16 *is* the right tool here: any future two-element component** (an article body
+  with a table-of-contents rail, a form with a help panel) — reach for it there instead of
+  adding a fourth breakpoint. *Corpus judgment; recorded because "we now have the primary" is
+  not the same as "we should use it," and a future round should not read RSP-16 as a mandate.*
+
 ## Gaps (next-round targets)
 
-- Breakpoint-count practice (how many breakpoints real systems carry in production) — L3,
-  still unfetched.
-- RSP-11's Every-Layout "sidebar" pattern is cited via a Tier-C carrier; the primary
-  (every-layout.dev) itself is worth a direct fetch attempt next round.
+- ~~Breakpoint-count practice~~ → **CLOSED round 4 by RSP-17** (NN/g: 2–3 in practice, four
+  T-shirt tiers as a starting frame, audience-driven selection) and applied in RSP-18/19.
+- ~~RSP-11's Every-Layout "sidebar" pattern is cited via a Tier-C carrier~~ → **CLOSED round 4
+  by RSP-16**: every-layout.dev fetches cleanly and the primary is now pinned with the actual
+  CSS. See **RSP-20** for why the pattern is nonetheless *not* recommended for `.layout`.
 - No fetched source yet on `grid-template-columns: subgrid` or the newer CSS `masonry` layout
   proposal — L3/emerging, low priority while browser support is incomplete.
 - RSP-14/15 (print, reader-mode) are seeded but currently dormant — no shipped feature uses
