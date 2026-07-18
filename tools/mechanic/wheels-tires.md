@@ -987,6 +987,108 @@ WHL-38, WHL-46.
 
 ---
 
+## Carbon rims — inspection doctrine + a second tension source (master round 2, batch 3)
+
+**WHL-49 [PARTIALLY SUPERSEDES WHL-48's "only maker" statement — correction per corpus rule 1]
+— Reserve (Santa Cruz) publishes its own numeric spoke-tension target, and it AGREES closely
+with DT Swiss's.** WHL-48 concluded that "DT Swiss stands as the only maker publishing a
+tension-*target* table." That is **too strong and is corrected here**: Reserve publishes a target
+in its own FAQ — *"The recommended spoke tension for Reserve Carbon Wheels is 100-120 kgf
+(9.8- 11.8 Nm). The tight side needs to be within 1000-1300N and the wheel should be dished."*
+It is not a *table* (no split by wheel position or brake type, as DT Swiss's is), but it is a
+manufacturer-published numeric target, which is what the cross-brand gap actually wanted.
+
+**The cross-brand comparison the chapter has wanted since its L3 start is therefore now
+possible — and the two makers agree:**
+
+| Maker | Tight-side target | Note |
+|---|---|---|
+| DT Swiss (WHL-26/46) | disc RW **1050–1300 N**; disc FW **950–1200 N** | split by brake type + wheel |
+| Reserve | **1000–1300 N** (all configurations) | single band, carbon MTB/road |
+
+Reserve's single band effectively spans DT Swiss's disc figures. **Two independent
+manufacturers converging on ~1000–1300 N for the higher-tightened side is a genuinely stronger
+result than either alone**, and it is the first cross-brand corroboration in this chapter.
+
+**⚠ Source-internal unit error, flagged (do not propagate):** Reserve's "100-120 kgf
+(**9.8- 11.8 Nm**)" parenthetical is **wrong** — kgf converts to newtons, not newton-metres, and
+the factor is 9.81 N/kgf, so 100–120 kgf = **981–1177 N**. Reserve appears to have applied the
+9.81 factor and then mislabelled the unit "Nm". Note the corrected figure (981–1177 N) is
+consistent with their own "1000-1300N" tight-side statement, so **the newton figures are sound
+and only the "Nm" label is defective.** Spoke tension is a force, never a torque. *Confidence:
+confirmed (fetched manufacturer FAQ); the unit error is arithmetically demonstrable.* Source:
+reservewheels.com/pages/faq (fetched 2026-07-18). Cross-reference: WHL-26, WHL-46, WHL-48.
+
+**WHL-50 — Reserve defines WHICH side is the "tight side" per wheel, and marks it physically on
+the rim.** A wheelbuilding fact the chapter did not have: *"The tight side of a front wheel is
+the left (disc) and for the rear, it is the right (cassette) side."* Reserve prints this on the
+rim itself — **"LT = loose tension and HT = high tension"** decals, and *"that arrow has always
+pointed to the tight side, regardless of the letters."* (The arrow, not the letters, is
+authoritative — an explicit warning that the decal wording alone has been ambiguous.) On the
+loose side Reserve specifies **no** target: *"For the loose side, there is no specified
+tension"* — it falls out of the tight-side tension plus the dish, varies by configuration, and
+what matters is only that it be **balanced** spoke-to-spoke. This resolves an ambiguity latent in
+WHL-26/46, whose DT Swiss table is explicitly "of the Higher Tightened Wheel Side" but never says
+which side that is on a disc wheel. *Confidence: confirmed.* Source: reservewheels.com/pages/faq
+(fetched 2026-07-18). Cross-reference: WHL-26, WHL-46, WHL-49.
+
+**WHL-51 [L3 carbon doctrine] — ENVE's own carbon care/inspection protocol: what to look for,
+when, and the two "stop riding" triggers.** ENVE publishes a structured inspection doctrine for
+carbon wheels — the first real carbon-specific inspection material in this chapter:
+- **Post-impact (the MTB-relevant trigger):** *"Each time you crash or experience a memorable
+  impact, thoroughly inspect your wheels. Carefully examine all rim surfaces to ensure that
+  there are no cracks, chips, or fiber peels."* Note the standard is *a memorable impact*, not
+  merely a crash — a rock strike counts.
+- **Pre-ride, rim surfaces:** free from **bulges, chips, cracks, excessive pad compound
+  build-up, fiber lifting or peeling**, and — the catch-all that does the real work — *"Any
+  irregularity that is new since your last ride."* If any are present: *"do not ride on the
+  affected wheel."*
+- **Stop-the-ride symptom:** *"If you feel a pulsing or surging sensation in the bike or brake
+  levers while riding or braking, stop your ride."*
+- **Handling rules that prevent inspection-stage damage:** never use metal tire levers,
+  screwdrivers or knives on a carbon rim (plastic levers, and *"as a last resort"*); acetone or
+  alcohol — never scraping — to remove tubular glue; wash regularly because *"a clean rim … is
+  easier to inspect for damage"*; store dry and **out of direct sunlight, as "UV light can
+  discolor resin over time."**
+- **A maintenance-interval fact that ties to the tension material:** *"A properly built wheel
+  will not require re-tensioning or truing any more frequently than the intervals at which you
+  change your tires."* — i.e. re-tensioning at shorter intervals than tyre changes is itself a
+  symptom of a badly-built wheel, not routine upkeep.
+
+**Scope caveat, stated honestly:** much of ENVE's pre-ride list is written around a **rim-brake
+braking surface** (pad build-up, brake-track fiber lifting, heat from dragging brakes), which
+does not apply to disc-brake MTB wheels. The **transferable** items for MTB are the post-impact
+inspection standard, the crack/chip/fiber-peel damage vocabulary, the "new since last ride"
+catch-all, the tire-lever and solvent handling rules, UV storage, and the truing-interval
+principle. *Confidence: confirmed (fetched manufacturer support article).* Source:
+support.enve.com "GENERAL CARE AND MAINTENANCE" (fetched 2026-07-18 via Bright Data —
+support.enve.com 403s WebFetch and enve.com/blogs rate-limits at 429).
+
+**WHL-52 — Two carbon-rim failure modes with manufacturer-stated causes: riding a flat, and
+over-pressure.** Reserve states flatly: *"You should never ride a carbon bicycle rim with a flat
+tire because it can cause serious and irreversible damage to the rim and lead to rim failure."*
+— an unsupported carbon rim bottoming on terrain is a documented rim-killer, not just a
+tyre/rim-strip risk. Reserve also publishes **maximum pressures by discipline**, which apply
+*"whether you are running a tubeless or tubed set up"*, and are capped by the tyre's own rating
+where that is lower:
+
+| Reserve rim type | Max pressure |
+|---|---|
+| Road | 100 psi (6.9 bar) |
+| Gravel | 80 psi (5.5 bar) |
+| **Mountain** | **50 psi (3.4 bar)** |
+
+Reserve adds a thermal caveat riders miss: *"tire pressure can increase due to environmental
+changes, such as a significant rise in ambient temperature."* (Also recorded, as a catalog-facing
+datum: Reserve states an *"approximately +/- 15g weight variance"* on its rims from the
+manufacturing process — useful context for how precisely any single published rim weight should
+be read.) **No contradiction with any engine rule** — the engine models no pressure dimension,
+and this is rider guidance, not a fit constraint. *Confidence: confirmed.* Source:
+reservewheels.com/pages/faq (fetched 2026-07-18). Cross-reference: WHL-42 (ETRTO
+rim-width×tire×pressure), WHL-49.
+
+---
+
 ## Gaps
 
 Honest list of what's still missing to climb past **foundation** — for the next training round
@@ -1026,9 +1128,17 @@ to target (per INDEX.md corpus rule 7 / CURRICULUM.md "target the weakest chapte
   (the old URLs 301 to a domain where they 404), and the live `sapim.eu/downloads/` page is
   **behind a registration wall** — *"You do not have permission to see this content. Register
   below…"*. A Wayback CDX sweep of `sapim.be*` returns **no archived Sapim PDFs at all**, and the
-  surviving archived checklists are **images, not tables**. A cross-brand tension-target
-  comparison is therefore **not achievable from public sources**; DT Swiss stands as the only
-  maker publishing one. **Future rounds should not re-attempt this by URL-guessing.**
+  surviving archived checklists are **images, not tables**. **Future rounds should not re-attempt
+  the Sapim route by URL-guessing.**
+  **— CORRECTED SAME DAY by WHL-49 (batch 3): the conclusion "DT Swiss is the only maker
+  publishing a tension target" was TOO STRONG and is withdrawn.** Reserve (Santa Cruz) publishes
+  its own numeric target — tight side **1000–1300 N** — which **agrees closely with DT Swiss's
+  disc figures (FW 950–1200 N, RW 1050–1300 N)**. So the **cross-brand tension comparison this
+  chapter has wanted since its L3 start is now CLOSED**, just not via Sapim: two independent
+  manufacturers converge on ~1000–1300 N for the higher-tightened side. The Sapim exhaustion in
+  WHL-48 still stands on its own facts; only its "only maker" inference was wrong. *Lesson worth
+  keeping: an exhaustion finding about one brand is not evidence about the whole field — check a
+  third party before generalising.*
   **Newly opened, narrow and specific (WHL-47):** a later revision of the DT manual (V2017.07)
   appears to carry an **expanded §6.2 tolerance table keyed to inner rim width (<30 mm vs
   >30 mm)** that WHL-27's V2017.03-based table lacks. The figures were deliberately not
@@ -1042,6 +1152,31 @@ to target (per INDEX.md corpus rule 7 / CURRICULUM.md "target the weakest chapte
   **S-N curve** (stress amplitude vs. cycles-to-failure) for a specific spoke gauge/alloy — what's
   sourced is test *methodology* and qualitative failure causes, not a quantitative
   fatigue-life dataset a wheelbuilder could design against.
+- **Carbon rim inspection doctrine — L3 gap, OPENED AND LARGELY CLOSED 2026-07-18 master round 2
+  (WHL-51/52).** This chapter previously had **almost no carbon-specific content at all** (two
+  incidental mentions), despite carbon rims being ubiquitous in the catalog's price bands — an
+  unnamed gap, now named and filled. WHL-51 lands ENVE's own structured protocol: the post-impact
+  standard (*"each time you crash or experience a memorable impact"* — a rock strike counts), the
+  damage vocabulary (cracks / chips / fiber peel / bulges / fiber lifting), the *"any irregularity
+  that is new since your last ride"* catch-all with its *"do not ride on the affected wheel"*
+  instruction, the pulsing/surging stop-the-ride symptom, handling rules that prevent
+  inspection-stage damage (no metal levers; acetone not scraping; UV storage), and the
+  truing-interval principle (*a properly built wheel needs re-tensioning no more often than tyre
+  changes* — so more frequent re-tensioning is a symptom, not upkeep). WHL-52 adds two
+  manufacturer-stated failure modes: **riding a carbon rim flat** (*"serious and irreversible
+  damage … lead to rim failure"*) and **over-pressure**, with Reserve's by-discipline caps
+  (MTB **50 psi / 3.4 bar**, gravel 80, road 100, or the tyre's lower rating).
+  **Honestly scoped — what is still MISSING:** (a) much of ENVE's pre-ride list is written around
+  a **rim-brake braking surface** and does not transfer to disc MTB (flagged in-fact); (b) **no
+  carbon damage-mode ENGINEERING depth** — no manufacturer source was found describing
+  delamination detection, the tap test, matrix-vs-fibre failure, or any non-destructive
+  inspection method, nor any "this crack is cosmetic vs structural" threshold. Every maker
+  consulted routes that judgment to its own warranty department rather than publishing a rider-
+  or mechanic-applicable criterion, which is plausibly deliberate (liability). **Expect this
+  residual to be EXTERNAL** rather than merely unfetched; a future round should test that by
+  trying composites-industry or standards sources (not bike-brand pages) before spending long on
+  it. (c) Carbon **handlebar** inspection is a separate chapter's item and is already partly
+  covered there — see `cockpit-contact.md` CKP-14/24; not duplicated here.
 - **No tubeless sealant chemistry/failure-mode depth — L3 gap, still open.** WHL-21/22/39 now
   cover setup mechanics with real numbers (75 ml sealant fill, 10-15 cm tape overlap, tape-width
   selection, storage temperature) and the "brands aren't always compatible" warning, but not
