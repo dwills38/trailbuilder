@@ -132,6 +132,28 @@
   #subFilters{display:flex;flex-wrap:wrap;align-items:flex-start;gap:2px 18px}
   .range-row{flex-direction:row;align-items:center;gap:6px;margin:2px 0 4px;flex:0 0 auto;max-width:100%}
   .range-label{font-size:11px;font-weight:700;color:var(--ink-soft);white-space:nowrap}
+  /* DNS-17 fix (WCAG 2.2 SC 2.5.7 Dragging Movements, AA): the row's live
+     "lo–hi unit" readout used to be static text — a pointer user's ONLY way to
+     change a value was to drag a thumb (.range-input is pointer-events:none
+     except its thumb pseudo-element; the bare track has no click handler).
+     These two <input type="number"> ARE the single-pointer, non-drag
+     alternative DNS-16 resolves on: they replace that static text in the same
+     horizontal space (roughly space-neutral) rather than adding a new row. */
+  .range-nums{display:inline-flex;align-items:center;gap:2px;font-size:12px;color:var(--ink-soft);white-space:nowrap}
+  /* Width telegraphs expected input length (DNS-4) — sized for a 3-4 digit/
+     one-decimal value (170, 37.5, 2.60), not a full-width field. min-height is
+     the DNS-6/MOB-3 24px pointer-target floor (a bare 2px/12px padding+font
+     box measures ~22px, just under it) — box-sizing keeps the border inside it. */
+  .range-num{width:3.6em;min-height:24px;box-sizing:border-box;font-size:12px;padding:2px 4px;
+    border:1px solid var(--line);border-radius:6px;
+    background:var(--card);color:var(--ink);font-family:inherit;text-align:center;-moz-appearance:textfield}
+  /* Vendor spin-button rules stay separate (same reason as the slider-thumb
+     pseudo-elements above): hiding them keeps the field at its declared width
+     instead of the native up/down stepper widening it per-browser. */
+  .range-num::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .range-num::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+  .range-num:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  .range-dash,.range-unit{color:var(--ink-soft)}
   .range-note{font-size:10px;color:var(--ink-soft);flex:1 1 100%;margin:2px 0 0}
   .range-reset{background:none;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);
     font-size:11px;font-weight:700;width:20px;height:20px;line-height:1;padding:0;cursor:pointer;
@@ -458,7 +480,10 @@
   .report-cta{margin-top:10px;text-align:right}
   .report-cta button{border:none;background:none;color:var(--ink-soft);font-size:12px;cursor:pointer;text-decoration:underline;padding:4px 2px;font-weight:600}
   .report-cta button:hover{color:var(--err)}
-  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);max-height:calc(100vh - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  /* svh (not vh): vh resolves against the LARGEST viewport (chrome retracted), so a
+     mobile browser with its address bar expanded would render this cap's bottom
+     edge — the .rm-foot action row — below the visible area (ACC-22 F2, PLT-6). */
+  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);max-height:calc(100svh - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
   /* Scoped to [open] so display:flex only ever applies while the dialog is actually
      showing — the UA stylesheet's dialog:not([open]){display:none} must stay in charge
      when closed, or the dialog would render invisibly-but-present in the layout. */
@@ -734,8 +759,9 @@
      layout; contextual sub-filters stay at the top of the catalog column;
      low-frequency actions live in the header's ⋯ menu. Everything colors
      through the CSS variables so dark/RAD inherit. */
+  /* svh, not vh — same ACC-22 F2 / PLT-6 reason as the dialog cap above */
   #rail{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;align-self:start;
-    position:sticky;top:70px;max-height:calc(100vh - 86px);overflow:auto}
+    position:sticky;top:70px;max-height:calc(100svh - 86px);overflow:auto}
   .rail-h{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft);font-weight:800;margin:16px 0 6px}
   .rail-h:first-child{margin-top:0}
   #rail .chips{flex-direction:column;align-items:stretch;gap:2px;margin-bottom:4px}
@@ -1477,7 +1503,7 @@
     <div>
       <label for="profileUsername">Username</label>
       <input type="text" id="profileUsername" maxlength="24" autocomplete="off" spellcheck="false"
-             placeholder="e.g. Trail Ripper" aria-describedby="profileHint">
+             placeholder="e.g. Trail Ripper" aria-describedby="profileHint" autofocus>
       <p class="pm-note" id="profileHint">3–24 characters: letters, numbers, spaces, hyphens or underscores.</p>
     </div>
     <p class="pm-note" id="profileProNote" hidden>✓ You’re a Verified Pro — the badge shows next to your name on the forum.</p>
@@ -2060,9 +2086,9 @@
      slider), so merging them would mean every SUBFILTERS consumer branching on
      shape. Same descriptor contract as SUBFILTERS otherwise (groups/aria/match
      with the identical out-of-scope-passes rule), plus:
-       unit    'mm' | 'in' — display suffix, formatted in fmtRangeLabel()
-       step    native <input type=range> step
-       heading short axis name shown before the live "lo–hi unit" readout
+       unit    'mm' | 'in' — display suffix on the numeric fields (rangeRowEl)
+       step    native <input type=range> step, mirrored onto the numeric fields
+       heading short axis name shown before the min/max numeric fields
        note    optional small-print line under the heading (the hardtail note)
        bounds()  catalog min/max for this axis, or null if no part carries it
        match(p,lo,hi)  OUT-OF-SCOPE and NULL-VALUED parts MUST return true —
@@ -2184,20 +2210,15 @@
       host.appendChild(rangeRowEl(rf, b, lo, hi));
     });
   }
-  // number formatting for the live "lo–hi unit" readout: sub-integer steps
-  // (today just tireWidthRange's 0.01) keep up to 2 decimals with trailing
-  // zeros trimmed (2.3 not 2.30); integer-step axes round to whole numbers.
+  // number formatting for the numeric min/max fields (rangeRowEl): sub-integer
+  // steps (today just tireWidthRange's 0.01) keep up to 2 decimals with
+  // trailing zeros trimmed (2.3 not 2.30); integer-step axes round to whole numbers.
   function fmtRangeNum(v, step){
     if(step && step<1){
       var s = v.toFixed(2).replace(/0+$/,'').replace(/\.$/,'');
       return s;
     }
     return String(Math.round(v));
-  }
-  function fmtRangeLabel(rf, lo, hi){
-    var l=fmtRangeNum(lo, rf.step), h=fmtRangeNum(hi, rf.step);
-    var range = rf.unit==='in' ? (l+'"–'+h+'"') : (l+'–'+h+' '+rf.unit);
-    return rf.heading+': '+range;
   }
   /* One dual-ended slider row. Two overlaid <input type=range> (see the CSS
      block for the pointer-events trick that makes only the thumbs grabbable)
@@ -2208,7 +2229,21 @@
      the 3000+-row catalog, and deliberately does NOT call renderSubFilters()
      (which would tear down and rebuild every row, including this one mid-
      keyboard-interaction and stealing focus) — it patches its own reset-
-     button visibility instead via the same refresh() the drag path uses. */
+     button visibility instead via the same refresh() the drag path uses.
+
+     DNS-17 fix (WCAG 2.2 SC 2.5.7 Dragging Movements, AA — see
+     tools/ui-expert/forms-filters-density.md DNS-15..17): the row used to
+     show the live "lo–hi unit" range as static text, so a pointer user's
+     ONLY way to change a value was dragging a thumb — dragging is never
+     essential here (the alternative sits right in the code below) and the
+     user-agent's own click-to-jump escape hatch is closed by the CSS that
+     makes the overlaid inputs work at all. Per DNS-16's resolution, the
+     fix is NOT re-enabling click-to-jump (Baymard's dual-handle ambiguity
+     objection stands) — it's the two <input type="number"> below, which
+     give a single-pointer, non-drag path to any value and replace that
+     static text in the same horizontal space. They share this same
+     refresh()/commit() pair, so a typed value and a dragged value can
+     never disagree. */
   function rangeRowEl(rf, b, lo, hi){
     var row = document.createElement('div');
     row.className = 'chips subchips range-row' + (rf.compact ? ' range-compact' : '');
@@ -2217,13 +2252,34 @@
     row.title = rf.aria;
 
     var label = document.createElement('span'); label.className='range-label';
+    label.textContent = rf.heading+':';
     row.appendChild(label);
+
+    var step = rf.step || 1;
+
+    var nums = document.createElement('span'); nums.className='range-nums';
+    var numMinInput = document.createElement('input');
+    numMinInput.type='number'; numMinInput.className='range-num range-num-min';
+    numMinInput.inputMode='numeric'; numMinInput.min=b.lo; numMinInput.max=b.hi; numMinInput.step=step;
+    numMinInput.setAttribute('aria-label','Minimum — '+rf.heading);
+    nums.appendChild(numMinInput);
+    if(rf.unit==='in'){ var q1=document.createElement('span'); q1.setAttribute('aria-hidden','true'); q1.textContent='"'; nums.appendChild(q1); }
+    var dash=document.createElement('span'); dash.className='range-dash'; dash.setAttribute('aria-hidden','true'); dash.textContent='–';
+    nums.appendChild(dash);
+    var numMaxInput = document.createElement('input');
+    numMaxInput.type='number'; numMaxInput.className='range-num range-num-max';
+    numMaxInput.inputMode='numeric'; numMaxInput.min=b.lo; numMaxInput.max=b.hi; numMaxInput.step=step;
+    numMaxInput.setAttribute('aria-label','Maximum — '+rf.heading);
+    nums.appendChild(numMaxInput);
+    var unitEl=document.createElement('span'); unitEl.className='range-unit'; unitEl.setAttribute('aria-hidden','true');
+    unitEl.textContent = rf.unit==='in' ? '"' : ' '+rf.unit;
+    nums.appendChild(unitEl);
+    row.appendChild(nums);
 
     var wrap = document.createElement('div'); wrap.className='range-wrap';
     var track = document.createElement('div'); track.className='range-track';
     var fill = document.createElement('div'); fill.className='range-fill';
     track.appendChild(fill);
-    var step = rf.step || 1;
     var minInput = document.createElement('input');
     minInput.type='range'; minInput.className='range-input range-min';
     minInput.min=b.lo; minInput.max=b.hi; minInput.step=step;
@@ -2243,12 +2299,16 @@
 
     if(rf.note){ var note=document.createElement('div'); note.className='range-note'; note.textContent=rf.note; row.appendChild(note); }
 
-    function refresh(curLo, curHi){
+    // skipNum ('min'|'max'|falsy) leaves that one numeric field's OWN value
+    // untouched — used while that field is mid-keystroke, so a user typing
+    // "160" digit-by-digit never has their own field/caret rewritten under them.
+    function refresh(curLo, curHi, skipNum){
       minInput.value=curLo; maxInput.value=curHi;
+      if(skipNum!=='min') numMinInput.value = fmtRangeNum(curLo, step);
+      if(skipNum!=='max') numMaxInput.value = fmtRangeNum(curHi, step);
       var span=(b.hi-b.lo)||1;
       fill.style.left=(((curLo-b.lo)/span)*100)+'%';
       fill.style.right=(100-((curHi-b.lo)/span)*100)+'%';
-      label.textContent = fmtRangeLabel(rf, curLo, curHi);
       // Known limitation of the overlaid-native-input technique: when both
       // thumbs sit at the same spot, only the top z-index one is grabbable.
       // Standard mitigation — boost whichever thumb sits in the LESS crowded
@@ -2271,6 +2331,25 @@
       if(v<l) v=l;
       refresh(l, v);
     });
+    // Numeric fields get the SAME input/change split as the sliders: 'input'
+    // (every keystroke) only repaints the slider/fill live, with no bounds/
+    // ordering clamp and no rewrite of the field being typed — so a value
+    // typed digit-by-digit is never fought or reformatted mid-entry, and
+    // focus never moves. 'change' (blur/Enter) is the commit point, which
+    // clamps to bounds, resolves a crossed min/max the same way the sliders
+    // already do (the just-edited bound yields, never the other), then calls
+    // the sliders' own commit() — one path writes rangeFilter[]
+    // and re-filters the catalog, whether the value came from a drag or a type.
+    numMinInput.addEventListener('input', function(){
+      var v=parseFloat(numMinInput.value);
+      if(isNaN(v)) return;
+      refresh(v, parseFloat(maxInput.value), 'min');
+    });
+    numMaxInput.addEventListener('input', function(){
+      var v=parseFloat(numMaxInput.value);
+      if(isNaN(v)) return;
+      refresh(parseFloat(minInput.value), v, 'max');
+    });
     function commit(){
       var l=parseFloat(minInput.value), h=parseFloat(maxInput.value);
       if(l<=b.lo && h>=b.hi) delete rangeFilter[rf.id]; else rangeFilter[rf.id] = { lo:l, hi:h };
@@ -2278,6 +2357,22 @@
     }
     minInput.addEventListener('change', commit);
     maxInput.addEventListener('change', commit);
+    function commitFromNum(edited){
+      var l=parseFloat(numMinInput.value), h=parseFloat(numMaxInput.value);
+      if(isNaN(l)) l=parseFloat(minInput.value);
+      if(isNaN(h)) h=parseFloat(maxInput.value);
+      l=Math.max(b.lo, Math.min(l, b.hi));
+      h=Math.max(b.lo, Math.min(h, b.hi));
+      // Mirrors the sliders' own precedent exactly (minInput's 'input' handler:
+      // "if(v>h) v=h"; maxInput's: "if(v<l) v=l") — the just-edited bound is
+      // the one that yields, never the other, so typing and dragging can
+      // never resolve a crossed min/max differently.
+      if(l>h){ if(edited==='min') l=h; else h=l; }
+      refresh(l, h);
+      commit();
+    }
+    numMinInput.addEventListener('change', function(){ commitFromNum('min'); });
+    numMaxInput.addEventListener('change', function(){ commitFromNum('max'); });
     resetBtn.addEventListener('click', function(){
       delete rangeFilter[rf.id];
       refresh(b.lo, b.hi);
