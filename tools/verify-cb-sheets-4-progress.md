@@ -105,13 +105,55 @@ retry with bdata authorized.
   rows stay vitalmtb-sourced and unverified; not retried further this session (403 walls don't
   respond to a second identical attempt).
 
+## Batch 3: Norco/Devinci/Propain retries
+
+- **Norco** — norco.com re-confirmed as the round-2/3-documented JS-only shell (no retry
+  needed, matches the standing finding). All 12 unverified Norco rows stay as-is.
+- **Devinci** — devinci.com IS fetchable via `curl` with a browser UA (WebFetch itself wasn't
+  tried directly here, curl was used from the start since it already proved reliable this
+  session) and DOES render its cross-sell/related-builds price widgets server-side, but the
+  actual build-kit component list for the page's own bike is JS-injected (same wall class as
+  Yeti/Pivot/Ibis). Two spot-checks:
+  - **cb-devinci-chainsaw-dh-gx**: devinci.com/en/bikes-2023/mountain/chainsaw-gx-dh-silver/
+    confirms the price header directly as **US$4,499.00** — exact match to the catalog's
+    vitalmtb-sourced $4,499. Not promotable regardless (6+ documented fill substitutions
+    already block it - chain, crank ring, rotor model, tire casing, stem, grips, saddle all
+    flagged ASSUMED in the existing desc). No change.
+  - **cb-devinci-marshall-29-deore**: devinci.com/en/bikes-2024/mountain-2024/marshall-deore-12s-green-lux/
+    — this exact page's own price isn't rendered server-side, but its cross-sell widget lists
+    a sibling "Marshall 29 Deore 12S" tile at **US$2,649.00**, not the catalog's $2,599 (sourced
+    from theloamwolf.com, a review site republishing the maker sheet, not devinci.com directly).
+    **NOT corrected this session** — a cross-sell teaser tile isn't confident enough evidence to
+    overwrite a price sourced from a full republished build sheet (could be a different color/MY
+    variant); flagging the ~$50 discrepancy for a session that can fetch this page's own
+    primary price display. Also already has 6 documented fill substitutions (brakes, rotors,
+    wheels, tires, cockpit, saddle) blocking verification independent of price.
+- **Propain** — propain-bikes.com IS fetchable via `curl` (403'd WebFetch directly, `curl` with
+  a browser UA got HTTP 200) — it's a WooCommerce/WordPress site, but prices are injected by the
+  `wcpbc` (WooCommerce Price Based Country) plugin client-side, same JS-wall class again. All 6
+  unverified Propain rows stay vitalmtb-sourced, no change.
+
+**Running tally of the JS-build-kit-wall class**: Yeti, Pivot, Ibis, Cannondale, Rocky Mountain,
+Mondraker (current-gen), Ghost, Norco, Devinci, Propain — 10 brands now confirmed hitting this
+exact failure mode (page fetches fine, geometry/price sometimes renders, component list does
+not). This is now clearly the single highest-value unblock for a future round: a bdata-authorized
+session working just this brand list would likely clear a large fraction of the catalog's
+remaining ~280 unverified completebike rows.
+
 ## Session tally
 
 Sheet-verified 149 -> 151 (2 promotions: Marin Rift Zone 2, Marin San Quentin 3). 2 price
 corrections on rows that stay unverified for other documented reasons (Chromag Rootdown Ti XO
 $3600->$5500; San Quentin's $1999->$1799 was the promoted row above). ~13 rows re-confirmed
-correctly unverified with no change (the retry-list brands). 1 Nukeproof row spot-checked, no
-change. The Ghost/Mondraker/Pivot/Ibis/Yeti/Cannondale/Rocky Mountain sweep (~90 rows) hit a
-JS-rendered-build-kit wall this round's toolset (WebFetch/Exa/curl) can't clear — **flagged as
-the top candidate for a bdata-authorized session** (Devinci and remaining Norco/Yeti/Propain
-rows also still queued, untouched this round beyond the one Nukeproof spot-check).
+correctly unverified with no change (the retry-list brands). 1 Devinci + 1 Nukeproof row
+spot-checked (price-confirmed, no change - both already blocked by other flags). 1 Devinci price
+discrepancy flagged but not acted on (insufficient confidence). 10 brands (Yeti, Pivot, Ibis,
+Cannondale, Rocky Mountain, Mondraker, Ghost, Norco, Devinci, Propain — ~130 combined unverified
+rows) confirmed hitting the same JS-rendered-build-kit wall this round's toolset (WebFetch/Exa/
+curl) can't clear — **flagged as the top candidate for a bdata-authorized session**, would
+likely be the single highest-yield move available to the next round.
+
+Incidental: rescued an unrelated stranded diff (Canyon Stoic 4 + DT Swiss wheels, from a
+different unlanded grind) out of the shared root checkout mid-session per the coordinator's
+instruction — saved to `D:\MTB Bike Builder\cb4-salvage.patch`, root confirmed clean. Not part
+of this round's own work; noted here only so the patch's origin isn't a mystery later.
