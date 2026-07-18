@@ -276,6 +276,40 @@ var EMTB_PARTS = [
     disciplines: ['e-enduro'], weight: 24200, price: 8000,
     note: 'Top-tier Meta Power SX build; SRAM X0 Transmission upgrade over the base SX.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Orbea depth (Wild + Rise lightweight line)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-orbea-wild-m-team', cat: 'emtb', brand: 'Orbea', model: 'Wild M-Team',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
+    disciplines: ['e-trail', 'e-enduro'], weight: 21800, price: 12500,
+    note: 'Top-tier Wild build; SRAM XX SL Transmission.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-orbea-rise-m-team', cat: 'emtb', brand: 'Orbea', model: 'Rise M-Team',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8 RS', motorTorque: 60,
+    batteryWh: 360, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
+    disciplines: ['e-trail'], weight: 17800, price: 11500,
+    note: 'Lightweight-class Orbea; custom-tuned Shimano EP8 RS motor, top-tier build.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-orbea-rise-h30', cat: 'emtb', brand: 'Orbea', model: 'Rise H30',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8 RS', motorTorque: 60,
+    batteryWh: 360, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
+    disciplines: ['e-trail'], weight: 19500, price: 5800,
+    note: 'Entry alloy Rise trim; same lightweight EP8 RS motor as the carbon range.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
