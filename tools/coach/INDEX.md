@@ -170,7 +170,6 @@ a dispute — but never promote a rider up the ladder on its own.
 | [`climbing-descending.md`](climbing-descending.md) | climbing technique · descending · steeps · weight distribution by gradient | L1→L2 | centred base → gradient-driven weight shift → steep-roll commitment; the weight-back ⚠ DISPUTE |
 | [`terrain-features.md`](terrain-features.md) | pumping · manuals · wheel lifts · drops · jumps · rock gardens · switchbacks · steeps | L2 | wheel-lift → pump/manual → rolling drop → small drop → jump; the ladder that MUST NOT be skipped (professional maturity as of 2026-07-17 round 2) |
 | [`discipline-craft.md`](discipline-craft.md) | XC · enduro · DH race technique · DJ/pump-track/park basics | L3 | discipline-specific application of L1/L2 skills under race/park constraints |
-
 | [`coaching-methodology.md`](coaching-methodology.md) | teaching models (IDEA, What/Why/How) · skill diagnosis · error detection · progression & lesson design | L4 | how a coach *builds* the ladder for a rider — the "teach the coach" layer |
 
 **Level note.** The chapter level marks where its *core* content sits; each chapter is graded
