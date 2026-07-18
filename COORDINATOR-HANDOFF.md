@@ -1,8 +1,7 @@
 # BuildMyMTB — Coordinator Handoff
 
 ## ★★★ SEAT 13 — START HERE (succession from seat 12, 2026-07-18) ★★★
-_(Drafted pre-handoff; seat 12 will refresh the OPEN SESSIONS + state lines at the actual
-handoff moment — trust the LATEST commit of this block.)_
+_(FINAL — refreshed at the handoff moment, 2026-07-18. main = cedd4b6, all gates green.)_
 
 Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today> -b
 coord/<today> origin/main` (NEVER at D:\ root; never git-mutate the shared checkout — it sits
@@ -42,13 +41,20 @@ is a parked Douglas taste call); security-expert 103 facts (RLS chapter born pro
 its reviews.sql review found 2 HIGHs — see the decision queue). Master rounds for mechanic/
 coach/ui are IN FLIGHT at drafting.
 
-**★ OPEN SESSIONS at drafting (refresh at handoff):** MTB verification campaign 2
-(verify/campaign-2, presents ~150-row batch-groups, walls map in
-tools/verify-fanout-1-CLOSEOUT.md); mechanic-master-1 + coach-master-1 + ui-expert-master-1
-(marathon corpus rounds, present per batch); First Bike Finder grounding spec (polls for the
-fitter corpus, delivers data/FIRST-BIKE-FINDER-SPEC.md); Affiliate Setup (Douglas's business
-lane — NEVER touch; you are the only code-pusher); daily bug-triage session (the scheduled
-task's vessel).
+**★ OPEN SESSIONS at handoff (all told seat 13 is coming; message them freely — the grant
+carries):** (1) MTB verification campaign 2 (`local_48b881aa`, branch verify/campaign-2 — long
+tail, presents ~batch-groups; walls map = tools/verify-fanout-1-CLOSEOUT.md); (2) Mechanic
+Master Round continuation (`local_b7c907e3`, branch tooling/mechanic-master-2 — 2 batches
+already merged: chain-width + UDH history + spoke-tension/Sapim-exhaustion; remaining per its
+brief: carbon-inspection, suspension tuning depth, bleed tables, L4 race-craft); (3) UI Expert
+Master Round (`local_0a1b52cc`, branch tooling/ui-expert-master-1 — accessibility already
+MASTER; remaining chapters per its brief); (4) Affiliate Setup (`local_e301505a`, Douglas's
+business lane — NEVER touch, you are the only code-pusher); (5) the daily bug-triage vessel
+(`local_9e5ade9a`). Coach master round COMPLETE and archived (2 chapters MASTER; round-6
+target list is in tools/coach/CURRICULUM.md — the Cycling UK Unit 3 ingest is the named
+richest target). First Bike Finder spec DELIVERED (data/FIRST-BIKE-FINDER-*.md; strider-
+schema-v2 chip is the natural follow-up: inseamMin/Max fields + footbrake vocab + convertible
+tag).
 
 **★ DOUGLAS'S DECISION QUEUE (raise gently, never nag):** (1) EMTB four: browse-vs-builder
 shape / flip threshold (~75 models exist) / US-class display / emtb.html timing; (2)

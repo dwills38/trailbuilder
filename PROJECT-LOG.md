@@ -1,5 +1,24 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — SEAT 12 CLOSEOUT (handoff to seat 13)
+
+- Final harvests: mechanic-master-2 batches 1-2 (chain-width tolerances, the full UDH revision
+  history, spoke-tension verification with Sapim's public sources declared EXHAUSTED — an
+  honest terminal state), the coach master round, the First Bike Finder spec. Main = cedd4b6,
+  seven validators green, 757 tests, harness stable, every worker branch at zero-ahead except
+  the two live master rounds' in-flight work.
+- Seat 12's era, one paragraph: BuildMyBMX shipped on Douglas's word after a fabrication purge
+  and an audited GO; the catalog grew from 3 surfaces to SEVEN validated catalogs; MTB
+  verification ran 53.2% → 60.0% (campaign complete + campaign 2 launched); the six-specialist
+  bench was built from nothing to full professional boards with the first MASTER chapters
+  (coach methodology + cornering, ui accessibility); the recall program went live and shipped
+  its first user-facing safety notes; EUR pricing got hardened against the sale-price trap;
+  the dot-contrast accessibility HIGH was closed; Pee Wee lived briefly and is preserved;
+  e-bikes were authorized into strict containment; the PII guards went in; and the coordination
+  rules (chips-only, unique worktrees, ID ranges, content-grep truth) were paid for in real
+  incidents and baked into memory. Seat 13: the SEAT 13 block above is your whole briefing.
+  Re-arm the hourly sweep first — session crons died with this seat.
+
 ## 2026-07-18 — First Bike Finder spec landed (the fitter's first deliverable)
 
 - design/first-bike-finder merged: the matching algorithm fully corpus-traced (4-band inseam
