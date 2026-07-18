@@ -82,24 +82,28 @@ count toward maturity at all** — an incomplete rung is a gap, not depth. Each 
 "no gap-jump progression past tabletop — L2 gap" or "no braking-dynamics biomechanics source —
 L3 gap"). The Gaps list is what the next round reads to pick its target.
 
-## Current state (round 3, 2026-07-18)
+## Current state (round 4, 2026-07-18)
 
 | Chapter | Level | Maturity | Note |
 |---|---|---|---|
 | `fundamentals.md` | L1→L2 | professional | round 3 (2026-07-18) added FND-8 (vision drill depth: near/far scanning, target-fixation correction) and FND-9 (bike-body-separation staged drill, tied to COR-12/13 physics) |
 | `braking-traction.md` | L1→L2 | professional | round 3 (2026-07-18) added BRK-12 (measured modulation drill with stick-marked milestones) and BRK-13 (wet-root/mud split-braking + lean-angle-scaled front-brake reduction) |
 | `cornering.md` | L1→L2 | professional | round 2 added dedicated berm-line + switchback progressions (COR-9/10); round 3 (2026-07-18) unblocked and laddered the stoppie-pivot family (COR-15/16), superseding COR-10b's withheld status — the "cutty" controlled-slide technique remains flagged-not-laddered |
-| `climbing-descending.md` | L1→L2 | foundation | seeded — incl. the ⚠ DISPUTED weight-back item; **now the weakest-graded chapter alongside `coaching-methodology.md`, unchanged this round — next round's priority target** |
+| `climbing-descending.md` | L1→L2 | professional | round 4 (2026-07-18) closed technical climbing (CLD-11/12/13: ledges, loose-surface traction, switchbacks), off-camber traverses (CLD-14/15), the steep-roll→committed-chute three-rung ladder (CLD-16, cross-referenced against CLD-8/9/10 physics), and extended-descent fatigue/brake-fade craft (CLD-17, cross-referencing `mechanic/brakes.md` BRK-25 rather than duplicating it) — no fresh ⚠ DISPUTED item surfaced; CLD-4/5 remains the corpus's canonical example |
 | `terrain-features.md` | L2 | professional | round 2: full Prereq/Gear/Progression for pumping, front/rear wheel lifts, manual, bunny hop, drops, jumps, rock gardens/roots; round 3 (2026-07-18) closed the TER-10 committed-chute gap; L3 discipline application + fuller biomechanics still gaps |
 | `discipline-craft.md` | L3 | professional | round 2 seeded one core-craft fact per discipline; round 3 (2026-07-18) added a second sourced fact per discipline (XC pacing, enduro stage-day logistics, DH line-choice process + maximal braking, the whip) — each discipline still short of a full 3+-fact progression *set* (see the chapter's Gaps) |
-| `coaching-methodology.md` | L4 | foundation | seeded — IDEA / What-Why-How / lesson format / error detection; unchanged this round |
+| `coaching-methodology.md` | L4 | professional | round 4 (2026-07-18) L4 public-source closeout: added the Training Wheel model + public assessment-progression bullets (CCH-9), BICP's own tiered coach-certification ladder (CCH-10), the NSCA "FIX IT" evidence-based error-correction framework (CCH-11), Hossner et al.'s peer-reviewed functional root-cause/personal-style framework (CCH-12), contextual-interference motor-learning research sharpening CCH-7 (CCH-13), and the "Challenge by Choice" group/risk-management model (CCH-14). **Per Douglas's 2026-07-18 decision, the walled graded rubrics (PMBIA's full six skills, BICP's named 16 + Minimum Ride Standard) are now PERMANENTLY out of scope — not a pending gap** — the chapter is graded `professional` against a public-source-master ceiling, honestly short of `master` on the still-open L2/L3 teaching-progression-for-a-specific-maneuver gap |
 
 ## Corpus rule: target the weakest chapter
 
 Restated from [`INDEX.md`](INDEX.md) rule 9: future training rounds read every chapter's Maturity
-line + Gaps list first and prioritize the **weakest-graded chapter(s)**. After round 3
-(2026-07-18), five of seven chapters are `professional`; `climbing-descending.md` and
-`coaching-methodology.md` are the two remaining `foundation`-graded chapters and are the explicit
-target for the next round — closing their specific listed gaps rather than re-covering ground the
-other five chapters already hold. This keeps the corpus climbing toward "master" evenly instead of
-over-deepening one skill family while others stay thin.
+line + Gaps list first and prioritize the **weakest-graded chapter(s)**. After round 4 (2026-07-18),
+**all seven chapters are now `professional`** — the corpus has climbed evenly off its bootstrap
+seed with no chapter left at `foundation`. The next round should pick its target from each chapter's
+individual Gaps list rather than a single chapter-level weakest-link (there isn't one anymore):
+`terrain-features.md`'s L3 discipline application, `discipline-craft.md`'s thin per-discipline
+fact sets, `climbing-descending.md`'s root-garden climbing/XC-efficiency gaps, and
+`coaching-methodology.md`'s L2/L3 teaching-progression-for-a-specific-maneuver and
+mixed-ability-group-sequencing gaps are the strongest remaining candidates for a push toward
+`master`. Reaching `master` corpus-wide is the next real milestone, not another `foundation` chapter
+to rescue.
