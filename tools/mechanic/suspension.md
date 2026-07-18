@@ -789,6 +789,73 @@ tools/VERIFY-PROTOCOL.md "Interface verification" + fork extension (Douglas 2026
 
 ---
 
+## Coil-shock service internals (opens the named untouched L2 gap)
+
+**SUS-48 — RockShox's 2023+ Super Deluxe Coil service manual is now sourced, giving this chapter
+its first COIL-shock internals and a structural contrast with the air Deluxe already covered in
+SUS-32–37.** From the manual:
+- **Torque values** (all three cross-confirmed against the numbered procedure steps, per this
+  chapter's established discipline — the summary table extracts with the label/value row offset
+  documented in SUS-42/45, so the procedure text is the authority):
+  **sealhead to damper body 34 N·m (300 in-lb)**, Counter Measure wrench (manual step 8);
+  **bottom post to damper shaft 8.5 N·m (75 in-lb)**, 12 mm socket (step 31);
+  **check piston nut to damper shaft 2.26 N·m (20 in-lb)**, 8 mm socket (step 33).
+- **IFP depth is split by PRODUCT TIER, not by stroke** — **Ultimate / Ultimate DH: 41 mm;
+  Select / Select+: 35 mm**. This is a genuine structural contrast worth carrying: the *air*
+  Deluxe's IFP depth table (SUS-33) is keyed by **stroke** and damper-electronics generation,
+  whereas the coil's is keyed by **tier**. A mechanic carrying the air-shock mental model to a
+  coil shock would look up the wrong axis.
+- **Service interval:** clean the damper body and wiper seal **every ride**; full damper service
+  **every 200 hours**. (Compare the air Deluxe's interval structure in SUS-41's discussion — the
+  coil manual publishes a single 200-hour damper service with no shorter interim air-can service,
+  which is consistent with there being no air can to service.)
+- **Model-code format** for identification: `RS-SDLC-ULT-B1` (RS = rear suspension, SDLC = Super
+  Deluxe Coil series, ULT = model, B1 = version), resolvable via the serial-number lookup at
+  sram.com/service — the same model-code scheme DRV-60's compatibility map keys on.
+- **Travel change is a disassembly-level operation**, not an adjustment: it requires a damper
+  shaft/eyelet + shaft bottom post + travel reducer spacer + bottomout bumper, and RockShox
+  recommends completing the full 200-hour service at the same time.
+
+*Confidence: confirmed (fetched manufacturer service manual, GEN.0000000007176 Rev F © 2024 SRAM;
+torques individually verified against their procedure steps rather than read from the summary
+table alone). **Extraction note that re-proves this chapter's own lesson:** the IFP table came out
+ambiguously interleaved under `pdftotext -layout` (values and model names alternating, so the
+pairing was unreadable); `pdftotext -raw` on the same page returned it cleanly as
+`Ultimate / Ultimate DH 41` / `Select / Select+ 35`. SUS-42/45's "try the other extraction mode
+before citing not-established" note held exactly.* Source:
+sram.com/globalassets/document-hierarchy/service-manuals/rockshox/rear-suspension/2023-super-deluxe-coil-service-manual.pdf,
+2026-07-18.
+
+**SUS-49 — RockShox publishes a HARD PRELOAD CEILING that doubles as its coil spring-rate
+selection rule — the single most practically useful fact in the coil manual, and a real answer to
+"how do I know my spring is right?"** The manual's stated procedure is to *"Adjust the spring
+preload adjuster until the coil spring contacts the spring retainer,"* with no vertical play
+between spring and retainer — i.e. preload is set to **zero free play**, not to a sag target. Then
+the NOTICE, verbatim: *"Do not exceed 5 mm (or five full turns of rotation) on the spring preload
+adjuster as this will damage the shock. If more than 5 turns are necessary to achieve proper sag,
+use a higher weight spring."*
+
+Two distinct facts sit in that one notice, and both matter:
+1. **A damage limit.** 5 mm / five full turns is a maker-stated maximum with a stated failure
+   consequence, not a soft recommendation.
+2. **A spring-selection rule expressed as a diagnostic.** The preload adjuster is explicitly
+   *not* the tool for dialling in sag — running out of preload travel is RockShox's own signal
+   that the **spring rate is wrong** and the fix is a heavier spring, not more preload. This is
+   the coil-side counterpart to the air-side misconception list in SUS-31, and it is the closest
+   thing to a quantified spring-selection criterion this chapter has: it does not give a
+   rider-weight→spring-rate table (RockShox publishes that separately, not sourced this round),
+   but it gives an unambiguous **in-the-workshop test** for whether the fitted spring is correct.
+
+**Not a rule candidate:** spring rate is not a build slot, TrailBuilder models no rider weight,
+and coil springs are not currently a catalog category. Recorded as mechanic advisory knowledge.
+Note it does bear on the dormant `coilApproved:false` frame field mentioned elsewhere in this
+chapter — that field is about whether a *frame* accepts a coil at all, a separate question from
+whether a given spring is right for the rider. *Confidence: confirmed (fetched manufacturer
+service manual, quoted NOTICE).* Source: as SUS-48, "Super Deluxe Coil Assembly and Bleed" p.49-50,
+2026-07-18. Cross-reference: SUS-31 (air-side tuning misconceptions), SUS-17 (qualitative air-vs-coil note).
+
+---
+
 ## Gaps
 
 Honest list of what a future round needs to close to move this chapter past `foundation`:
@@ -844,6 +911,27 @@ Honest list of what a future round needs to close to move this chapter past `fou
   open: coil-shock/coil-fork service internals (RockShox Super Deluxe Coil, Fox
   DHX2/coil variants, Öhlins/EXT/Cane Creek) remain untouched — **L2 gap narrowed to:
   coil-shock/coil-fork service manual only.**
+  **— UPDATE, PARTIALLY CLOSED 2026-07-18 master round (SUS-48/49): the RockShox Super Deluxe
+  Coil half is done at manufacturer-primary tier**, opening what was a completely untouched gap.
+  Landed: the three-torque table cross-confirmed against its numbered procedure steps (34 /
+  8.5 / 2.26 N·m), the 200-hour damper-service interval, the model-code scheme, travel-change
+  parts requirements, and the finding that **coil IFP depth is keyed by product TIER (Ultimate/
+  Ultimate DH 41 mm, Select/Select+ 35 mm) where the air Deluxe's is keyed by stroke and damper
+  generation** — a structural contrast a mechanic carrying the air mental model would get wrong.
+  Plus SUS-49, the most practically valuable item: the **5 mm / five-turn preload ceiling** and
+  its use as RockShox's own **spring-rate selection diagnostic** (out of preload travel = wrong
+  spring, not more preload).
+  **Genuinely still open: Fox DHX2/coil variants and the boutique makers (Öhlins, EXT, Cane
+  Creek), plus coil FORKS entirely.** None attempted this round. Status: **unfetched, not
+  source-exhausted** — Fox's tech.ridefox.com is a known-reachable host for this corpus (it
+  yielded FLOAT X and 36 data in the 2026-07-17 round), so DHX2 is a live lead. The boutique
+  makers are the genuinely uncertain ones: Öhlins/EXT/Cane Creek publish far less service
+  documentation publicly than SRAM/Fox, and a future round should expect some of that tier to
+  land as *source-exhausted (unpublished)* rather than fetchable — but that has not been
+  established yet and should not be assumed without trying.
+  A note on extraction method, now twice-proven: SUS-48's IFP table was unreadable under
+  `pdftotext -layout` and came out clean under `-raw`. This chapter's existing advice to try
+  both modes before declaring a figure unsourced is holding up, and is worth keeping prominent.
 - **No unified cross-brand torque-spec table** exists yet as a standalone reference (the
   values are now IN the chapter, SUS-32/SUS-40, but scattered across per-model facts
   rather than collected into one lookup table). Worth a follow-up pass to compile once
