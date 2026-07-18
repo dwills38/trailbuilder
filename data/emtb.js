@@ -900,6 +900,20 @@ var EMTB_PARTS = [
     disciplines: ['e-trail', 'e-enduro'], weight: 24600, price: 6000,
     note: 'Full-power sibling to the lightweight Jam2 SL; Bosch CX motor.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Nukeproof depth (Megawatt 297 Elite)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-nukeproof-megawatt-297-elite', cat: 'emtb', brand: 'Nukeproof', model: 'Megawatt 297 Elite',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code Ultimate',
+    disciplines: ['e-enduro'], weight: 25200, price: 8200,
+    note: 'Higher-tier Megawatt build; SRAM X0 Transmission upgrade over the Comp.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
