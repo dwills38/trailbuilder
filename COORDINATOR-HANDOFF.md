@@ -1,5 +1,25 @@
 # BuildMyMTB — Coordinator Handoff
 
+## ★ STANDING SUCCESSION RULE (Douglas, 2026-07-18 — PERMANENT, applies to every future seat) ★
+
+Coordinator sessions are titled **"Main Coordinator (Seat N)"**. At every handoff the INCOMING
+seat does the housekeeping automatically — Douglas never renames/unpins/archives by hand again:
+
+1. **Rename handshake** (a session CANNOT self-rename — `set_session_title` only works on OTHER
+   sessions): once oriented, `send_message` the retiring seat N (its session id MUST be in the
+   seeding prompt) asking it to title the successor. Seat N finds the new session via
+   `list_sessions` (the coordinator-cwd session that isn't itself, Partnerships, or the bug-triage
+   vessel), runs `set_session_title` → **"Main Coordinator (Seat N+1)"**, and confirms.
+2. **Archive** the retired seat N session (the standing auto-archive grant covers it). If seat N
+   never wakes to confirm the rename, don't block — tell Douglas the title gap in one line.
+3. **Unpin:** there is NO pin/unpin API. Archiving normally clears the session from the active
+   list; if the pin survives in Douglas's sidebar, tell him in one line — that single click is the
+   only residual manual step (standing notify-missing-tools flag: self-rename + pin/unpin APIs).
+4. Every retiring seat's handoff/seeding prompt MUST restate this rule and include its own
+   session id. Also recorded in memory: `coordinator-succession-protocol.md`.
+
+---
+
 ## ★★★ SEAT 14 — START HERE (succession from seat 13, 2026-07-18 evening) ★★★
 
 Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today> -b
