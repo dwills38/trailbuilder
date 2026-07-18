@@ -1,7 +1,6 @@
 # Wheels & Tires — Mechanic Corpus
 
-**Maturity: foundation, with hub-service and wheel-building L2/L3 slices now covering most of
-the chapter's parts** (L1 — general-public repair/compat literacy; see
+**Maturity: professional** (L1 — general-public repair/compat literacy; see
 [`CURRICULUM.md`](CURRICULUM.md). This chapter has broad L1 coverage of wheel size, axles, and
 tire↔rim fit, plus foundation-level truing/tubeless/lacing terminology as of the 2026-07-17 L1
 deepening pass. An **L3 start** landed the same day (WHL-26 through WHL-34: DT Swiss's fetched
@@ -19,13 +18,20 @@ generic ISO cartridge bearings; WHL-41 landed the ERD/spoke-length trigonometry 
 measuring-stick method (an L1 theory gap, not L3, but previously undocumented); WHL-42 landed a
 fetched manufacturer restatement of the actual ETRTO/ISO 5775 rim-width×tire-width×pressure
 tables (Mavic), the direction-aware TC/TSS compatibility rule, and ENVE's mechanical explanation
-of why hookless tubeless works. **Still graded `foundation` overall, not `professional`:**
-wheel-size configuration and axle-spacing facts (WHL-1 through WHL-8) remain pure L1 — no
-service-manual depth on axle install torque or frame-spacing tolerances exists yet — so the L2/L3
-depth this chapter has built is concentrated in hubs, tubeless, wheel-building/tension, and tire-
-standard restatement, not spread across every part category CURRICULUM.md's "professional" bar
-requires ("meaningful L2 depth... across most of the chapter's parts" — axles/wheel-size are the
-holdout). See "## Gaps" below for what's now closed vs still open.)
+of why hookless tubeless works. **2026-07-18 (third pass): WHL-43** landed DT Swiss's official
+RWS thru-axle hand-torque spec (15-20 N·m, with a quantified knock-test caveat) and SRAM's own
+finding that axle torque functionally couples to Eagle Transmission derailleur behavior, not
+just wheel retention — closing the axle install-torque gap this chapter had carried since its
+first grind. **Regraded from `foundation` to `professional`** per CURRICULUM.md's bar ("L1
+complete + meaningful L2 depth... across most of the chapter's parts") — of this chapter's five
+named parts (wheel size, hubs, axles, rims, tires), four now carry real L2/L3 depth: hubs
+(WHL-36/37/40, three architectures), axles (WHL-43), rims/wheel-building (WHL-26-35/38/41, an L3
+start), and tires (WHL-21/22/39/42, tubeless service depth + a fetched ETRTO restatement). **One
+part remains L1-only, which is why this isn't graded `master`:** wheel-size *configuration*
+(WHL-1/2/3 — which front/rear combos a frame legally supports) has no service-manual-depth
+counterpart of its own; it's a compatibility rule, not a serviceable component, so it may simply
+have no L2 tier to climb to — flagged as an open question for the next round rather than assumed.
+See "## Gaps" below for what's now closed vs still open.)
 
 Wheel size · hubs · axles · rims · tires · ETRTO envelope · clearance.
 Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline, conventions).
@@ -339,6 +345,42 @@ rotor/caliper alignment (no rub-adjustment needed on reinstall) and for the stif
 fork-to-hub connection suspension forks need under load. *Confidence: confirmed (fetched).*
 Source: sheldonbrown.com "Thru Axles" (fetched 2026-07-17); parktool.com "Wheel Removal and
 Installation" (fetched 2026-07-17).
+
+**WHL-43 — Thru-axle install is a real torque spec, not "tighten firmly," and SRAM's own support
+docs establish that axle torque is functionally coupled to Eagle Transmission's derailleur
+behavior, not just wheel retention — closing part of this chapter's long-standing "no general
+torque-spec table" gap for the axle mechanism itself.** DT Swiss's official RWS (Ratchet
+WheelMounting System) User Manual V2020.11 (dtswiss.com, fetched primary): the lever is hand-
+tightened clockwise "as tight as possible by hand," to a stated **minimum 15 N·m / maximum
+20 N·m** — a hand-torque range, not a wrench spec, because the RWS is a cam-lever design (WHL-23's
+QR/thru-axle distinction extended: RWS is a *threaded* thru-axle with a lever handle, a hybrid of
+both mechanisms). DT Swiss gives a field verification method AND explicitly warns about its
+limits: lift the wheel off the ground and strike the tire hard from above several times — the
+wheel must not loosen or fall out — but **"this test does not guarantee that the RWS is preloaded
+with the minimum force of 15 N·m."** SRAM's own support article on Eagle Transmission (support.
+sram.com, fetched primary) establishes a direction-aware coupling this chapter didn't have
+before: **"Axle torque plays a role in how hard it is to rotate the Eagle Transmission rear
+derailleur rearwards with an impact, as well as how hard it is to reset it manually"** — i.e. on
+a Transmission-equipped bike, axle torque isn't purely a wheel-retention spec, it also tunes how
+the derailleur's impact-absorbing Overload/Reset clutch behaves, so SRAM's guidance is to follow
+"the axle torque recommendations specified by your specific bike or axle manufacturer" rather
+than publishing one universal number — the same "read the part's own spec, not a generic
+standard" pattern `cockpit-contact.md` CKP-12/13 already established for stem clamps. Trek's own
+owner's-manual torque page (trekbikes.com, fetched primary) reinforces the general discipline
+(over-tightening doesn't add holding power and risks damage; under-tightening risks fatigue
+failure) and independently corroborates the ~40 N·m pedal-torque cluster CKP-11/CKP-20 already
+carry (**"40-43 N·m"** for pedals) — a third source landing in the same mid-30s-to-low-40s band.
+*Confidence: confirmed (DT Swiss's fetched primary manual for the RWS hand-torque range and
+knock-test caveat; SRAM's fetched primary support article for the Transmission-behavior coupling;
+Trek's fetched primary page for the general torque-safety framing and pedal cross-check).*
+Source: DT Swiss "RWS User Manual V2020.11" (dtswiss.com, fetched PDF via bikeshop.no mirror);
+support.sram.com "What is the correct torque for my thru axle when using SRAM Eagle Transmission?"
+(fetched); trekbikes.com "Owner's manual - torque" (fetched), all 2026-07-18. **Narrowed, not
+closed:** this is one thru-axle *system* (DT Swiss RWS) with one real number; bolt-on thru-axles
+from other makers (Fox, RockShox, Shimano) were not independently fetched-confirmed this round —
+a WebSearch-tier figure surfaced Fox's non-QR front axle at 2.3 N·m, but wasn't corroborated by a
+primary fetch, so it's omitted here rather than cited at a tier this chapter's discipline
+wouldn't accept.
 
 **WHL-24 — Hub/frame spacing has widened steadily for over a century; today's Boost/SuperBoost
 values (WHL-4/5) are the latest step in a long-running trend, not a one-off.** Sheldon Brown's
@@ -719,6 +761,11 @@ calibration sheet, ref. YD370943 (fetched PDF), both 2026-07-18.
   governs whether the wheel gets built correctly in the first place — a rim with the right BSD
   and the right published ETRTO width can still take the wrong spoke length if its ERD was
   guessed rather than measured (WHL-41's "one measurement is worth 50 expert opinions").
+- **Axle torque reaches past the wheel into the drivetrain on a Transmission-equipped bike**
+  (WHL-43, a wheels↔drivetrain interaction — see [`drivetrain.md`](drivetrain.md)): a correctly-
+  torqued axle isn't just wheel retention, it's also part of how SRAM's Eagle Transmission
+  derailleur absorbs and recovers from an impact, so under- or over-torquing the axle on a UDH/
+  Transmission build is a drivetrain-behavior fault wearing a wheel-fastener's clothes.
 - **Hub/frame spacing is a moving historical target, and Boost/SuperBoost (WHL-4/5) are just the
   newest values on a decades-long widening trend** (WHL-24) — a mechanic reading an older frame's
   spacing (110–135 mm) is reading an earlier step of the same axis the catalog's 142/148/157
@@ -876,10 +923,21 @@ to target (per INDEX.md corpus rule 7 / CURRICULUM.md "target the weakest chapte
   `frame-standards-bearings.md`'s FRM press-fit facts cover BB shells, not hub shells, so this
   remains a real cross-chapter gap. **L2/L3 gap narrowed to: hub bearing dimensional press-fit
   specs only** (the brand-coverage half of this gap is now closed).
-- **No general torque-spec table — L2 gap, one data point added.** WHL-34 adds one real number
-  (Sapim TCS nipples: 200+ Nm without twisting) but that's a single spoke-system spec, not a
-  torque table across thru-axle/rotor-bolt/cassette-lockring/spoke-nipple fasteners; WHL-23 still
-  covers the axle *mechanism* only, not install torque.
+- **No general torque-spec table — L2 gap, PARTIALLY CLOSED 2026-07-18 (WHL-43).** WHL-34 already
+  had one real number (Sapim TCS nipples: 200+ Nm without twisting); WHL-43 adds the axle side —
+  DT Swiss RWS's official hand-torque range (15-20 N·m) and SRAM's Eagle Transmission
+  axle-torque-affects-derailleur-behavior coupling. Still missing: bolt-on (non-lever) thru-axle
+  torque from Fox, RockShox, or Shimano (a WebSearch-tier Fox figure of 2.3 N·m surfaced but
+  wasn't primary-fetched, so it's deliberately not cited in WHL-43); rotor-bolt/cassette-lockring
+  torque are covered cross-chapter (`brakes.md` BRK-41, `frame-standards-bearings.md` FRM-34) but
+  this chapter's own spoke-nipple/axle pair is now two real data points, not zero.
+- **CLOSED 2026-07-18 (WHL-43) — axle install torque, the specific item this Maturity header
+  named as the last holdout keeping the chapter graded `foundation`.** See the Maturity header
+  above for the reasoning behind the regrade to `professional`. **New open question this closure
+  surfaces:** wheel-size *configuration* (WHL-1/2/3) may not have an L2 tier at all — it's a
+  compatibility rule about which frame/wheel combos exist, not a serviceable mechanism with its
+  own service manual — so a future round should first confirm whether "no L2 fact for wheel-size
+  config" is a genuine gap or a category error before spending research time hunting for one.
 - **No DT Swiss / SRAM / other hub-brand primary source landed yet for Boost/SuperBoost
   origin.** WHL-4/5's 148/157 facts are sourced (EXPERT-REVIEW-DOSSIER.md + a fetched Problem
   Solvers page); this round tried to fetch a DT Swiss or SRAM primary explainer for the
