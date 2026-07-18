@@ -1,6 +1,8 @@
 # Navigation & Information Architecture
 
-**Maturity: professional** (L1 complete + L2 IA-research methods and deep-link mechanics, round 3, 2026-07-18)
+**Maturity: master** (L1+L2 complete + L3 depth on the site's own routing architecture — the
+hash/`replaceState` split recorded as doctrine (NAV-15) and a ⚠ CONTRADICTION on back-button
+depth across the four page views (NAV-16); round 4, 2026-07-18)
 
 Multi-page nav (BuildMyMTB / BuildMyBMX / BuildMyKit and the coming family), hamburger vs
 visible actions, deep links, back behavior. Read [`INDEX.md`](INDEX.md) first.
@@ -120,6 +122,96 @@ visible actions, deep links, back behavior. Read [`INDEX.md`](INDEX.md) first.
   should be checked for bfcache eligibility same as any other page transition. *Tier A, see
   PRF-9's citation.*
 
+---
+
+## Back-button depth: the site's actual routing architecture (round 4 / master, 2026-07-18)
+
+NAV-10/11 pinned the *mechanisms*. This section audits **what the site actually does with them**
+and what the Back button consequently does in each of its views. *Method: static audit of
+`index.html`'s routing code, per ACC-21's boundary.*
+
+- **NAV-13 — Nielsen's heuristic #3, User Control and Freedom: Back is the universal emergency
+  exit.** Users "often choose system functions by mistake and will need a clearly marked
+  'emergency exit' to leave the unwanted state without having to go through an extended
+  dialogue." The heuristic requires supporting undo, making it discoverable rather than
+  keyboard-only, and supporting **multiple consecutive undos**. On the browser Back button
+  specifically the guidance is blunt: **"Never stop users from leaving your site by disabling
+  the browser Back button."** *Tier B, fetched
+  https://www.nngroup.com/articles/user-control-and-freedom/ 2026-07-18. This is the heuristic
+  under NAV-14's concrete finding — and note it cuts both ways for this site: Back must not be
+  *disabled*, and it also must not be the *only* exit from a view.*
+
+- **NAV-14 — Full-screen views are mistaken for pages, and users reach for Back.** NN/g's
+  mobile-overlay study (**N=8**, mobile sites and apps) found full-screen overlays are
+  "practically indistinguishable from a regular page or view" — so users believe they are on a
+  new page and use the browser/phone Back button to leave it. Because the overlay is *not* a
+  real history entry, Back throws them **past** it to the previous real page, which the study
+  records as disorientation and loss of control. The explicit recommendation: **"The Built-In
+  Back Button Should Close the Overlay"** — support Back (and the horizontal swipe gesture) as
+  the dismiss action, making Back equivalent to Close **for that layer**. *Tier B, fetched
+  https://www.nngroup.com/articles/accidental-overlay-dismissal/ 2026-07-18. Small-N
+  qualitative study — good enough to identify the failure mode and to prioritise, not to
+  quantify it. Directly applicable here: the site has four full-page views, below.*
+
+- **NAV-15 — ✅ The site's hash/history split is deliberate and correct — record it as doctrine.**
+  `index.html` uses the two mechanisms for two different jobs, and picks the right one each time:
+  - **Navigations use `location.hash = …`** (`'#guides'` at :4835/:4843, `'#guide/<slug>'` at
+    :4455) — which per NAV-11 **does** create a real history entry, so Back moves
+    article → index → builder as a user expects.
+  - **Build state uses `history.replaceState`** (:4499, `writeHash()`) — which creates **no**
+    entry. This is the load-bearing choice: the build hash is rewritten on *every part pick*,
+    and had it used `location.hash =` instead, a 26-slot build would bury the user under dozens
+    of history entries and make Back useless for leaving the site — the classic hash-router
+    history-flooding trap, and a direct NAV-13 violation ("never stop users from leaving").
+    **The site avoids it by construction.**
+  - A further guard: `writeHash()` **early-returns while `guides-page` is active**, so the build
+    hash cannot clobber a `#guide/<slug>` deep link — the two routing owners are explicitly
+    arbitrated rather than racing. `guidesBack` correspondingly calls `closeGuides()` *then*
+    `writeHash()`, restoring the build URL without adding an entry.
+  **The rule this yields, worth stating for every future view:** *if it is a place the user can
+  be, it gets a hash entry; if it is state describing the current place, it gets `replaceState`.*
+
+- **NAV-16 — ⚠ CONTRADICTION: three of the site's four full-page views are invisible to the
+  Back button.** `index.html` has four body-level page views — `guides-page`, `forum-page`,
+  `inv-page` (inventory), `profile-page` — but **only `guides-page` is hash-routed**. The other
+  three are opened by plain class toggles (`openForum()` :4155, `openProfilePage()` :3636, and
+  the inventory view) with no history entry and no hash. Consequences, in order of severity:
+  1. **Back does not leave these views — it leaves the site.** Because opening them creates no
+     entry, pressing Back from the forum, inventory or a user profile navigates to whatever
+     preceded the site (for a fresh visitor, off the site entirely). This is exactly NAV-14's
+     documented failure mode, and it lands against NAV-13's heuristic: the user's habitual
+     emergency exit produces a far larger jump than intended.
+  2. **The inconsistency is its own harm.** The site *teaches* the user that Back works — guides
+     are hash-routed and behave correctly — and then breaks that learned model in the forum.
+     A uniformly non-routed app is more predictable than a half-routed one.
+  3. **No deep-linking for forum threads.** `openForumThread(id)` (:4298) sets no hash, so a
+     forum thread has **no shareable URL**. For a forum this is a product-level limitation, not
+     just an IA one — linking to a thread is a core forum behaviour, and NAV-15's own doctrine
+     ("if it is a place the user can be, it gets a hash entry") says a thread qualifies.
+  **Recommended fix, coordinator-grade:** extend the existing `routeGuidesHash` pattern into a
+  single site-wide router handling `#forum`, `#forum/<threadId>`, `#inventory` and
+  `#profile/<userId>` alongside the guides routes. The machinery already exists and is proven —
+  this is generalising a working pattern, not inventing one, and it needs no build step, no
+  dependency, and no server routing (NAV-4's static-hosting advantage is preserved because it
+  stays hash-based). **Severity: flagged as a ⚠ CONTRADICTION against NAV-13/14 and against the
+  site's own NAV-15 doctrine — deliberately NOT called a WCAG violation**, since no Tier-A
+  criterion requires history entries for view changes (SC 2.4.5 Multiple Ways and 3.2.3
+  Consistent Navigation are adjacent but neither is testably failed here).
+
+- **NAV-17 — Dialogs vs NAV-14: a real tension, low confidence, deliberately not a finding.**
+  NN/g's recommendation is that Back should dismiss a full-screen overlay. The site's nine
+  native `<dialog>`s (ACC-22) are dismissed by `Escape`, backdrop click and a visible Close
+  button — but **not** by browser Back, because `showModal()` adds no history entry. Whether
+  NAV-14 applies depends on whether the dialog reads as a *page*: these are capped at
+  `max-width:540px`, so on desktop they are clearly overlays and NAV-14's premise fails. **On a
+  375 px phone the picture changes** — `width:calc(100% - 32px)` plus tall content approaches
+  the full-screen condition the study describes. Recorded as a **candidate**, not a finding,
+  because (a) NAV-14's N=8 study does not establish the threshold at which an overlay starts
+  reading as a page, and (b) the mitigation is not free: adding history entries per dialog
+  re-introduces exactly the flooding NAV-15 praises the site for avoiding. **If it is ever
+  pursued, the honest scope is mobile-only and dialog-by-dialog** — and it is a good candidate
+  for a real usability test rather than a corpus assertion.
+
 ## Gaps (next-round targets)
 
 - NAV-6/7 give the *method*, not a completed study — no card sort or tree test has actually
@@ -128,6 +220,13 @@ visible actions, deep links, back behavior. Read [`INDEX.md`](INDEX.md) first.
 - Cross-page nav consistency for a growing product family (MTB/BMX/Kit/Road/Gravel/EMTB) still
   has no dedicated fetched source beyond NAV-2/NAV-5's general thresholds — a source specific to
   multi-product-line site nav would sharpen this.
+- **NAV-16 is an open coordinator item** (route `#forum`/`#forum/<id>`/`#inventory`/`#profile/
+  <id>` through the existing router), not a corpus gap — it closes when the app changes; append
+  a confirming fact then. Note it would also *deliver* the forum-thread deep links NAV-9's
+  search-feature note assumes exist.
+- NAV-17's dialog/Back tension is parked as a mobile-only usability-test candidate — the
+  threshold at which an overlay starts reading as a page is not established by any source the
+  corpus has fetched, and guessing it would risk the flooding NAV-15 exists to prevent.
 - NAV-9 opens the door to a future site-search feature; if one is ever built, NN/g's site-search
   usability guidelines (autosuggest quality, zero-results handling) are the next fetch target —
   out of scope while the site has no search box.
