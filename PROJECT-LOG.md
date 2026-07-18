@@ -1,5 +1,15 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — Mechanic Marathon A COMPLETE: drivetrain + frame-standards both PROFESSIONAL
+
+- tooling/mechanic-marathon-a merged (7 commits): drivetrain professional-plus (L3 wear-science
+  + lube chemistry from controlled test programs) and frame-standards — "the furthest climb" —
+  professional (S.H.I.S. founding document, thru-axle threads, SRAM's UDH engineering drawing,
+  two manufacturers' numeric BB tolerance tables, Campagnolo Ultra-Torque + Shimano press-fit
+  service). **Mechanic board: 5 of 6 professional** (wheels-tires + cockpit close with Marathon
+  B). Master-tier remainders on both chapters carry honest CLOSED/PARTIAL/OPEN markers — folded
+  into the future consolidated MASTER round rather than extending this session.
+
 ## 2026-07-18 — 🎓 COACH: ALL 7 CHAPTERS PROFESSIONAL (public-source bar)
 
 - tooling/coach-training-4 merged: climbing-descending → professional (ledges, loose-surface
