@@ -1,5 +1,116 @@
 # Complete-bikes verification notes — verify/completebikes-1
 
+## Round 2 (2026-07-18, post-merge continuation): the ~130-row JS-kit-list-wall brands
+
+Coordinator merged Round 1 (Yeti) and asked to continue against the brand list from
+`verify-cb-sheets-4-progress.md` (Pivot, Ibis, Cannondale, Rocky Mountain, Mondraker,
+Ghost, Norco, Devinci, Propain) using `bdata scrape` on the free pool. Norco: 1 attempt
+per the coordinator's caveat (`norco.com` returned only a bare "Page Not Found" title even
+under bdata scrape) — confirmed still blocked, moved on. Cannondale: `cannondale.com`
+renders no pricing at all under bdata scrape (its price/spec data loads via a client-side
+API call the unlocker snapshot doesn't trigger) — still blocked, same as before. Propain:
+`propain-bikes.com`'s per-model pages render no pricing either (its bike-builder
+configurator is the pricing surface, not a static page) — still blocked, distinct from
+the JS-kit-list class (this is the EU-configurator class flagged in
+`verify-cb-sheets-4b-progress.md`).
+
+**Pivot** (pivotcycles.com, Shopify): `bdata scrape` on `/en-us/collections/<model>`
+pages renders full build-tier price lists cleanly (Shopify collection pages are SSR).
+Spot-checked all 14 Pivot rows against live collection pages for Firebird, Switchblade,
+Mach 4 SL, Shadowcat, Les SL. Trail 429 and Mach 6 are NOT in Pivot's current lineup at
+all (collections/trail + collections/enduro list every current model; neither appears) —
+both catalog rows are already-flagged legacy third-party-sourced (vitalmtb/99spokes)
+snapshots with no live page to conflict against, correctly unverified. Every other
+Pivot row's trim naming (e.g. "Ride SLX/XT", "Ride GX/X01") has also since been retired
+from Pivot's lineup (replaced by "Ride Eagle 70/90" / "Ride GX Eagle Transmission" /
+"Ride Factory" naming) — no live comparison possible, no bugs found, no changes made.
+
+**Ibis** (ibiscycles.com, custom build-kit picker): `/build-kits/<slug>` pages render
+full itemized component tables (fork/shock/wheels/tires/brakes/rotors/drivetrain/
+headset/cockpit/dropper) — a genuine manufacturer spec-table source, not just a price
+list. This let me catch real fill-level errors on 2 already-**verified** rows:
+
+- `cb-ibis-ripmo-af-sram-90` (verified) — Fixed. Front tire was `ti-maxxis-minion-dhf-*`
+  (Minion DHF); ibiscycles.com's own build-kit page states "Maxxis Assegai 29x2.5 EXO+"
+  -> corrected to `ti-maxxis-assegai-29-25-exop-mt` (compound unstated, MaxxTerra per
+  this catalog's OEM-default convention). Headset was `hs-canecreek-40-zs44-zs56` (Cane
+  Creek 40); page states "Cane Creek 50: ZS44/ZS56" -> corrected to the already-cataloged
+  `hs-canecreek-50-zs44-zs56` (Cane Creek Fifty), exact match. Every other fill
+  independently re-confirmed exact against the manufacturer page.
+- `cb-ibis-ripmo-af-deore` (verified) — Fixed. Same 2 corrections (Assegai front tire,
+  Cane Creek 50 headset), confirmed against its own build-kit page. Left the
+  Deore-M6100-vs-page's-stated-M6200 drivetrain tier substitution AS-IS and flagged for
+  the coordinator/component-category worker — this catalog has no M6200 derailleur/
+  cassette/crank/brake rows (only an M6200 shifter), so it's a documented component-row
+  gap, not a wrong-SKU error like the tire/headset (which had exact existing matches).
+
+**Duplicate-row finding** (flagged for coordinator, not resolved — an id merge/dedup is
+out of this cluster's field-level-correction scope): `cb-ibis-ripmo-v3-gx-axs` and
+`cb-ibis-ripmo-v3-gx-transmission` are almost certainly the SAME real SKU (same $7,949
+price, same cited source URL, "GX AXS" vs "GX Transmission" are Ibis's two labels for
+the identical SRAM Eagle Transmission tier) entered twice under different ids with
+materially different (and one demonstrably wrong) fills. Same situation for
+`cb-ibis-ripley-v5-gx-axs` / `cb-ibis-ripley-v5-gx-transmission` (same $7,249 price, same
+source). Fixed the *wrong* fills in place rather than merging:
+
+- `cb-ibis-ripmo-v3-gx-axs` (unverified) — Fixed. Wheels were `fw/rw-ibis-s35-i9-29`
+  (S35 Carbon on i9 Hydra hubs); re-fetched the row's own cited source URL fresh and it
+  states "Blackbird Send Alloy, 32H, Blackbird Hubs" -> corrected wheels (to match the
+  confirmed-correct sibling row) + rotors (6-bolt HS2, not Center-Lock, to match the new
+  hub) + brakes (Base tier, matching the sibling) + added the frame-matching headset and
+  grips this row had omitted.
+- `cb-ibis-ripley-v5-gx-transmission` (unverified) — Fixed. Shock was
+  `sh-fox-float-x-factory-210x52p5` (Float X); the row's OWN quoted desc text already
+  said "Fox Float, Factory Series, Float w/EVOL" (no "X2"/"X") — self-contradictory.
+  Re-fetched the source fresh, confirmed plain Float is correct (matches the sibling
+  `-gx-axs` row's shock pick exactly) -> corrected to `sh-fox-float-factory-210x52p5`.
+
+**Rocky Mountain** (bikes.com, Shopify): `bdata scrape` on `/collections/<model>` pages
+renders full build-tier prices cleanly (same Shopify SSR pattern as Pivot). All 5
+catalog rows are explicitly documented model-year snapshots (2023/2024, one 2026)
+distinct from the current lineup's specs/naming (e.g. catalog's "Altitude C70 Shimano"
+2024 vs live "Altitude Carbon 70" 2026 SRAM Eagle 90 Transmission build) — legitimately
+not comparable to today's prices, same pattern as the Yeti C2-tier snapshots in Round 1.
+No bugs found, no changes made; `cb-rockymountain-altitude-c50` and
+`cb-rockymountain-altitude-a30` (both already current-modelYear) re-confirmed exact
+matches ($5,999 / $3,999) against today's live page.
+
+**Devinci** (devinci.com, per-product pages under `/en/bikes/mountain/<slug>/`): pricing
+renders cleanly once given the exact product slug (found via the model hub page's
+internal links). Spot-checked the 5 current-modelYear (2026) rows against live pricing —
+`cb-devinci-troy-gx-axs` ($5,699), `cb-devinci-troy-carbon-gx-axs` ($6,899), and
+`cb-devinci-troy-deore` ($3,199) all confirmed exact matches. No bugs found.
+
+**Mondraker, Ghost**: not re-checked this round — their completebike rows already use
+the `price`(MSRP)/`streetPrice`(sale) pair correctly per policy (spot-checked in Round 1
+scoping pass), no sign of the sale-price-as-price bug class Round 1 found on Yeti.
+
+### Round 2 gates
+
+- `node validate.js`: `DATA OK - 5023 parts, 0 problems (3017 verified, 2006 unverified)`
+  (7/7 catalogs OK, unchanged counts — all edits were fill-level corrections, no rows
+  added/removed)
+- `npm test`: 764/764 passed (29 files)
+- `npx tsc --noEmit`: clean, no output
+- `node tools/verdict-audit-harness.js`: unaffected — C1 stays 329 clean/0 errors (0
+  regressed on the C2 wheel-substitution check either), D 15/15 clashes still correctly
+  flagged. Every fill swapped this round was an already-cataloged, already-compatible
+  part (same wheel-driver/rotor-mount/BB-interface family in each case), so no new
+  clash surface was introduced.
+
+### Round 2 tally
+
+9 brands worked (Norco/Cannondale/Propain confirmed still blocked, 1 attempt each per
+budget). Pivot (14 rows) and Rocky Mountain (5 rows) and Devinci (5 of 10 rows)
+spot-checked clean, no bugs. Ibis (16 rows): 4 real fill-level errors fixed across 3
+already-verified-or-soon-verifiable rows (2x wrong tire, 2x wrong headset tier, 1x wrong
+shock model on a mislabeled row) plus 1 fully-wrong wheel/rotor/brake/headset/grips set
+corrected on a duplicate row; 2 likely-duplicate SKU pairs flagged for the coordinator's
+dedup queue (not resolved — id merges are out of scope here); 1 component-category gap
+(Shimano Deore M6200 groupset missing from the catalog) flagged. No new completebike
+rows added or removed; no ids changed; `tools/verification-job.json` untouched.
+
+
 Session scope: `cat:'completebike'` rows only. Used `bdata scrape` (Bright Data Web
 Unlocker, free pool) against yeticycles.com — a JS-rendered SPA that WebFetch/Exa could
 not previously render (see `tools/verify-cb-sheets-4-progress.md`'s "top candidate for a
