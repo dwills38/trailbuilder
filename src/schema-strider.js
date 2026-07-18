@@ -24,7 +24,7 @@
 
 /** @type {Object.<string, string[]>} */
 var STRIDER_VOCAB = {
-  wheel: ['8', '10', '12', '14', '16'],
+  wheel: ['8', '10', '12', '14', '16', '20'],
   tire: ['air', 'foam', 'rubber-foam', 'solid-rubber'],
   brake: ['none', 'rear-hand', 'dual-hand', 'coaster', 'rear-hand+coaster'],
   brakeReach: ['short', 'standard'],
