@@ -704,6 +704,20 @@ var EMTB_PARTS = [
     disciplines: ['e-enduro'], weight: 25000, price: 5200,
     note: 'Value-oriented alloy gravity e-MTB; long travel, mixed wheel.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Radon (new maker, DTC German brand) — Jealous
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-radon-jealous-10-0', cat: 'emtb', brand: 'Radon', model: 'Jealous 10.0',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 155,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-trail', 'e-enduro'], weight: 22800, price: 6800,
+    note: 'Direct-to-consumer German full-power e-MTB; strong value-to-spec ratio.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
