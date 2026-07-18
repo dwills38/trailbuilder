@@ -37,6 +37,7 @@
     --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
     --ok:#166534; --ok-bg:#e7f5ec; --warn:#92400e; --warn-bg:#fdf3e1;
     --err:#c23b3b; --err-bg:#fbeaea; --chip:#eef1ec;
+    --dot-ring:#5a625e;   /* compat-dot boundary, >=5.40:1 on every light dot background */
     --hdr-bg:#123f2b; --hdr-topo:rgba(255,255,255,.11);
   }
   html.dark{
@@ -45,6 +46,7 @@
     --card:#1f2522; --brand:#1f6f4a; --brand-d:#123f2b; --accent:#e0703c;
     --ok:#7fd6a2; --ok-bg:#17301f; --warn:#e8b25c; --warn-bg:#33270f;
     --err:#e57575; --err-bg:#331717; --chip:#262d29;
+    --dot-ring:#dfe4e0;   /* >=10.95:1 on every dark dot background */
     --hdr-bg:#0c2b1c; --hdr-topo:rgba(255,255,255,.09);
   }
   html.loam{
@@ -53,6 +55,7 @@
     --card:#241a13; --brand:#2f7048; --brand-d:#1e4a30; --accent:#e2a94a;
     --ok:#84cf97; --ok-bg:#16301d; --warn:#e6b45c; --warn-bg:#33270f;
     --err:#e88b7b; --err-bg:#331a14; --chip:#30241a;
+    --dot-ring:#dfe4e0;   /* >=11.06:1 on every loam dot background */
     --hdr-bg:#14301f; --hdr-topo:rgba(242,232,216,.11);
   }
   html.rad{
@@ -60,6 +63,7 @@
     --card:#22093f; --brand:#ff2fd0; --brand-d:#a3007f; --accent:#00e5ff;
     --ok:#39ff14; --ok-bg:#0a2e12; --warn:#ffe600; --warn-bg:#332b00;
     --err:#ff2020; --err-bg:#330000; --chip:#3a1466;
+    --dot-ring:#dfe4e0;   /* >=10.97:1 on every rad dot background */
     --hdr-bg:#22093f; --hdr-topo:rgba(255,255,255,.14);
   }
   *{box-sizing:border-box}
@@ -173,12 +177,24 @@
   html.dark .pick.in,html.loam .pick.in{color:#fff}
   html.rad .pick.in{color:#150029}
 
-  /* compat dot — same four-state palette as the Bike Builder's .dot */
-  .dot{position:absolute;top:11px;right:11px;width:11px;height:11px;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
+  /* compat dot — same four-state palette AND the same accessibility treatment as the
+     Bike Builder's .dot (MOBILE-UI-AUDIT-1 HIGH-1): fills unchanged, contrast carried
+     by the --dot-ring token (>=3:1 vs --card in all four themes), plus a glyph so
+     state survives greyscale. Keep this block in sync with index.html's. */
+  .dot{position:absolute;top:11px;right:11px;width:11px;height:11px;border-radius:50%;
+    border:1.5px solid var(--dot-ring);
+    display:flex;align-items:center;justify-content:center;
+    font-size:8px;line-height:1;font-weight:700;color:#141816;
+    font-family:"Segoe UI Symbol","Apple Symbols",system-ui,sans-serif;
+    text-indent:0;letter-spacing:0}
   .dot.g{background:#2aa35a}
   .dot.w{background:#e0a52e}
   .dot.r{background:#d23b3b}
   .dot.n{background:#d2d7d1}
+  .dot.g::after{content:"\2713"}   /* ✓ no new conflict */
+  .dot.w::after{content:"!"}       /* fits, but adds a warning */
+  .dot.r::after{content:"\2715"}   /* ✕ adds a new error */
+  .dot.n::after{content:"\2013"}   /* – nothing to compare against yet ("no data") */
 
   .grid.list{display:flex;flex-direction:column;gap:6px;container:bmxcat / inline-size}
   .list .pcard{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:9px 14px 9px 22px}

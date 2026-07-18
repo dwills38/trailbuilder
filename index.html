@@ -32,6 +32,13 @@
        separate hardcoded hex and untouched — this only affects text legibility. */
     --ok:#166534; --ok-bg:#e7f5ec; --warn:#92400e; --warn-bg:#fdf3e1;
     --err:#c23b3b; --err-bg:#fbeaea; --chip:#eef1ec;
+    /* Compat-dot ring (MOBILE-UI-AUDIT-1 HIGH-1, WCAG 1.4.11): the dot FILLS stay
+       theme-independent, but on the light theme .dot.w (2.19:1) and .dot.n (1.46:1)
+       fell under the 3:1 non-text floor against --card, so the boundary — not the
+       fill — carries the contrast. Per-theme token: dark ring on light cards, light
+       ring on dark cards. Light #5a625e = 6.28:1 vs --card and >=5.40:1 against every
+       .pm-compat tint the dot also sits on. */
+    --dot-ring:#5a625e;
     /* Topo Contours header (style pick 2026-07-14): deep-green banner + contour-line
        stroke, per-theme. RAD ignores both (it keeps its own header entirely). */
     --hdr-bg:#123f2b; --hdr-topo:rgba(255,255,255,.11);
@@ -191,7 +198,11 @@
       background:radial-gradient(circle,var(--card) 0 5px,var(--brand) 5px 7px,transparent 7px 100%)}
   }
   .legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--ink-soft);margin:0 0 4px}
-  .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle;border:1px solid rgba(0,0,0,.15)}
+  /* Legend swatches are the KEY for the compat dots, so they take the dot's exact
+     treatment (ring + glyph, shared rules below) and its exact 11px size — a legend
+     that didn't show the glyphs wouldn't explain what users now see on the cards. */
+  .legend i{display:inline-flex;width:11px;height:11px;border-radius:50%;margin-right:5px;
+    vertical-align:middle;border:1.5px solid var(--dot-ring)}
   .legend-note{font-size:11px;color:var(--ink-soft);margin:0 0 16px}
   .layout{display:grid;grid-template-columns:210px minmax(0,1fr) 330px;gap:20px;align-items:start}   /* rail 250→210, side 350→330, gap 22→20 (2026-07-11): reclaims ~64px for the catalog column so one-line list rows engage at 1280-wide windows */
   .layout > *{min-width:0}
@@ -256,11 +267,39 @@
   .pick.inv{border-color:var(--ink-soft);color:var(--ink-soft)}
   .pick.inv:hover{background:#f2f3f1}
   .picks{display:flex;gap:6px}
-  .dot{position:absolute;top:11px;right:11px;width:11px;height:11px;border-radius:50%;border:1px solid rgba(0,0,0,.15)}
-  .dot.g{background:#2aa35a}
-  .dot.w{background:#e0a52e}
-  .dot.r{background:#d23b3b}
-  .dot.n{background:#d2d7d1}
+  /* Compat dot — MOBILE-UI-AUDIT-1 HIGH-1 (WCAG 1.4.11 non-text contrast + 1.4.1 use
+     of colour). The four FILLS are deliberately theme-independent and UNCHANGED; two
+     things were added:
+       1. the 1px rgba(0,0,0,.15) ring (invisible on dark themes, ~1.1:1 on light) is
+          now a 1.5px --dot-ring token that clears 3:1 against --card in all four
+          themes — so every state has a compliant boundary even where its fill does not.
+       2. a glyph, so state survives greyscale / red-green colourblindness instead of
+          being carried by hue alone at 11px. One dark glyph colour passes on all four
+          fills (3.78:1 red -> 12.27:1 grey), so the glyph never needs per-state tuning.
+     box-sizing is border-box page-wide, so the 1.5px ring keeps the dot at exactly
+     11px outer — no layout shift, and .list's -5.5px centering stays exact. */
+  .dot{position:absolute;top:11px;right:11px;width:11px;height:11px;border-radius:50%;
+    border:1.5px solid var(--dot-ring);display:flex}
+  /* No ARIA needed on the glyph: the dot span carries role="img" + an aria-label with
+     the real reason, and role="img" makes it a leaf node — assistive tech announces
+     the label and never descends into ::after content. (Legend swatches are
+     aria-hidden and label themselves in adjacent text.) */
+  /* Fills + glyphs are shared by the cards' .dot and the legend's key swatch, so the
+     four state colours have ONE definition — the legend can never drift from the dots
+     it explains (they were previously forked into inline styles on the legend). */
+  .dot.g,.legend i.g{background:#2aa35a}
+  .dot.w,.legend i.w{background:#e0a52e}
+  .dot.r,.legend i.r{background:#d23b3b}
+  .dot.n,.legend i.n{background:#d2d7d1}
+  .dot.g::after,.legend i.g::after{content:"\2713"}   /* ✓ no new conflict */
+  .dot.w::after,.legend i.w::after{content:"!"}       /* fits, but adds a warning */
+  .dot.r::after,.legend i.r::after{content:"\2715"}   /* ✕ adds a new error */
+  .dot.n::after,.legend i.n::after{content:"\2013"}   /* – nothing to judge yet ("no data") */
+  /* glyph typography, shared */
+  .dot,.legend i{align-items:center;justify-content:center;
+    font-size:8px;line-height:1;font-weight:700;color:#141816;
+    font-family:"Segoe UI Symbol","Apple Symbols",system-ui,sans-serif;
+    text-indent:0;letter-spacing:0;font-style:normal}
 
   .pcard .prov{font-size:11px;margin-top:1px;min-height:17px}
   .prov .ver{display:inline-flex;align-items:center;gap:3px;background:var(--ok-bg);color:var(--ok);font-weight:700;padding:1px 7px;border-radius:999px;text-decoration:none;border:1px solid rgba(31,138,76,.25)}
@@ -544,7 +583,11 @@
   .grow .gacts button.del:hover{border-color:var(--err);color:var(--err)}
   .gpill{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:999px;background:var(--chip);color:var(--ink-soft)}
   .gpill.done{background:var(--ok-bg);color:var(--ok)}
-  .gdot{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:middle;margin-right:4px}
+  /* Garage row status dot. Takes the same --dot-ring boundary as the compat dots; it
+     needs no glyph because the verdict is spelled out in the adjacent text
+     ("2 conflict(s)" / "No conflicts"), so state is never carried by colour alone. */
+  .gdot{display:inline-block;width:9px;height:9px;border-radius:50%;vertical-align:middle;
+    margin-right:4px;border:1.5px solid var(--dot-ring)}
   .gempty{color:var(--ink-soft);font-size:13px;padding:14px 2px;text-align:center}
   .qty{display:inline-flex;align-items:center;gap:6px}
   .qty button{width:24px;height:24px;line-height:1;padding:0}
@@ -770,6 +813,7 @@
     --card:#22093f; --brand:#ff2fd0; --brand-d:#a3007f; --accent:#00e5ff;
     --ok:#39ff14; --ok-bg:#0a2e12; --warn:#ffe600; --warn-bg:#332b00;
     --err:#ff2020; --err-bg:#330000; --chip:#3a1466;
+    --dot-ring:#dfe4e0;   /* >=10.97:1 on every rad dot background */
   }
   html.rad body{background:
     repeating-linear-gradient(45deg,#1a0033 0 2px,transparent 2px 40px),
@@ -817,6 +861,7 @@
     --card:#1f2522; --brand-d:#123f2b; --accent:#e0703c;
     --ok:#7fd6a2; --ok-bg:#17301f; --warn:#e8b25c; --warn-bg:#33270f;
     --err:#e57575; --err-bg:#331717; --chip:#262d29;
+    --dot-ring:#dfe4e0;   /* >=10.95:1 on every dark dot background */
     --hdr-bg:#0c2b1c; --hdr-topo:rgba(255,255,255,.09);
   }
   /* the same hardcoded-white controls RAD mode has to fix, plus the hovers that
@@ -845,7 +890,6 @@
   html.dark .slot .own-btn:hover{background:#2a302c}
   html.dark .invlist .grow.clickable:hover{background:#223028}
   html.dark .chip.active:not(.sub){color:var(--bg)}
-  html.dark .legend i{border-color:rgba(255,255,255,.25)}
   /* dialogs otherwise fall back to the UA's color-scheme:dark canvas (#121212) —
      pin them to the card surface so modals match the rest of the theme */
   html.dark dialog{background:var(--card);color:var(--ink);border-color:var(--line)}
@@ -864,6 +908,7 @@
     --card:#241a13; --brand:#2f7048; --brand-d:#1e4a30; --accent:#e2a94a;
     --ok:#84cf97; --ok-bg:#16301d; --warn:#e6b45c; --warn-bg:#33270f;
     --err:#e88b7b; --err-bg:#331a14; --chip:#30241a;
+    --dot-ring:#dfe4e0;   /* >=11.06:1 on every loam dot background */
     --hdr-bg:#14301f; --hdr-topo:rgba(242,232,216,.11);
   }
   /* the same hardcoded-white controls dark & RAD have to fix */
@@ -893,7 +938,6 @@
   html.loam .slot .own-btn:hover{background:#2e2116}
   html.loam .invlist .grow.clickable:hover{background:#2a1f15}
   html.loam .chip.active:not(.sub){color:var(--bg)}
-  html.loam .legend i{border-color:rgba(255,255,255,.25)}
   html.loam dialog{background:var(--card);color:var(--ink);border-color:var(--line)}
 </style>
 <!-- Pre-paint theme guard + shared money/theme helpers (src/ui-common.js): a
@@ -1007,12 +1051,12 @@
         <button class="btn danger" id="reset" title="Clear every picked part and start over">↺ Reset build</button>
   </div>
   <div class="legend">
-        <span title="Green means no conflict among the dimensions we check — it isn't a guarantee, and some parts publish no data for a given dimension"><i style="background:#2aa35a" aria-hidden="true"></i>No conflicts found</span>
+        <span title="Green means no conflict among the dimensions we check — it isn't a guarantee, and some parts publish no data for a given dimension"><i class="g" aria-hidden="true"></i>No conflicts found</span>
         <!-- "open the part" works on every device — the detail modal shows the
              reason (touch has no hover); desktop hovering the dot still works too -->
-        <span><i style="background:#e0a52e" aria-hidden="true"></i>Check first &mdash; adds a warning (open the part for why)</span>
-        <span><i style="background:#d23b3b" aria-hidden="true"></i>Won&rsquo;t fit (open the part for why)</span>
-        <span><i style="background:#d2d7d1" aria-hidden="true"></i>Nothing selected yet to judge</span>
+        <span><i class="w" aria-hidden="true"></i>Check first &mdash; adds a warning (open the part for why)</span>
+        <span><i class="r" aria-hidden="true"></i>Won&rsquo;t fit (open the part for why)</span>
+        <span><i class="n" aria-hidden="true"></i>Nothing selected yet &mdash; no data to judge</span>
         <span><span style="color:var(--ok);font-weight:800">✓ Verified</span> = checked vs manufacturer spec (else <span style="color:var(--ink-soft);font-weight:600">≈ estimate</span>)</span>
   </div>
   <!-- bias-r3's cheapest high-value fix (2026-07-17): a green dot means no conflict was
