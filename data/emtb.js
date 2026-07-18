@@ -402,6 +402,30 @@ var EMTB_PARTS = [
     disciplines: ['e-trail'], weight: 18400, price: 10500,
     note: 'Lightweight-class Cannondale on the Bosch Performance Line SX motor.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Rocky Mountain depth (Instinct Powerplay + Altitude Powerplay Carbon 90)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-rocky-mountain-instinct-powerplay', cat: 'emtb', brand: 'Rocky Mountain', model: 'Instinct Powerplay',
+    motorBrand: 'rocky-mountain', motorModel: 'Dyname 4.0', motorTorque: 108,
+    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-trail'], weight: 23400, price: 6800,
+    note: 'Shorter-travel trail sibling to the Altitude Powerplay; same in-house Dyname 4.0 motor.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-rocky-mountain-altitude-powerplay-c90', cat: 'emtb', brand: 'Rocky Mountain', model: 'Altitude Powerplay Carbon 90',
+    motorBrand: 'rocky-mountain', motorModel: 'Dyname 4.0', motorTorque: 108,
+    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code Ultimate',
+    disciplines: ['e-enduro'], weight: 23800, price: 11500,
+    note: 'Top-tier Altitude Powerplay carbon build.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
