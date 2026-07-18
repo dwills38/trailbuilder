@@ -1,5 +1,20 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — post-handoff ID-collision defused (mechanic master-1's late batches)
+
+- The stood-down master-1 session disclosed 2 committed-but-unmerged batches carrying IDs
+  master-2 had computed as free. Resolution: **SUS-48/49 (coil-shock internals — real, un-
+  duplicated work suspension.md's own gaps wanted) CHERRY-PICKED to main**; **its FRM-51/52
+  (UDH revision record) DROPPED as superseded** — master-2's merged FRM-51-53 covers the same
+  drawing/revision trail, so merging both would have created the exact append-only ID
+  collision INDEX rule 1 forbids. One nuance from the dropped commit preserved here for the
+  record: cross-revision UDH hanger interchangeability is UNREFUTED BUT NOT CONFIRMED (the
+  revision record summarizes changes, not dimensioned before/afters) — silence is not SRAM's
+  approval. master-2 instructed: suspension IDs start at SUS-50. Master-1's parting tooling
+  notes (older "walled" gap entries may be fetch-tool artifacts — TRP/Magura fetched fine via
+  plain curl; container-switching beats walls; pdftotext -raw vs -layout both worth trying)
+  relayed to master-2 and already embedded in the cherry-picked chapter text.
+
 ## 2026-07-18 — SEAT 12 CLOSEOUT (handoff to seat 13)
 
 - Final harvests: mechanic-master-2 batches 1-2 (chain-width tolerances, the full UDH revision
