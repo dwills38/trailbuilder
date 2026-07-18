@@ -41,6 +41,7 @@
 // gch chain, gcr crankset, gbb bb, ghs headset, gbr brake, gro rotor, ghb handlebar, gst stem,
 // gsp seatpost, gdp dropper, gsa saddle, gpd pedal, gtp bartape.
 
+/** @type {any[]} */
 var GRAVEL_PARTS = [
 
   // ===== FRAMES =========================================================
@@ -490,7 +491,7 @@ var GRAVEL_PARTS = [
   // ===== DROPPER (gravel-specific, short travel) =========================
   { id: 'gdp-pnw-coast-272-60', cat: 'dropper', brand: 'PNW', model: 'Coast Suspension Seatpost',
     family: 'pnw-coast', diameter: '27.2', drop: 60, actuation: 'mechanical', weight: 500, price: 220 },
-  { id: 'gdp-fox-transferSL-272-50', cat: 'dropper', brand: 'Fox', model: 'Transfer SL', family: 'fox-transfer-sl',
+  { id: 'gdp-fox-transfer-sl-272-50', cat: 'dropper', brand: 'Fox', model: 'Transfer SL', family: 'fox-transfer-sl',
     diameter: '27.2', drop: 50, actuation: 'mechanical', weight: 385, price: 380 },
   { id: 'gdp-rockshox-reverb-axs-xplr-272-50', cat: 'dropper', brand: 'RockShox', model: 'Reverb AXS XPLR',
     family: 'rockshox-reverb-axs-xplr', diameter: '27.2', drop: 50, actuation: 'axs-wireless', weight: 480, price: 900 },
@@ -519,3 +520,11 @@ var GRAVEL_PARTS = [
 
 // Guard: this file loads nothing and is loaded by nothing the live app serves. If a future
 // page does load it, GRAVEL_PARTS is the only export (plain global, no build step).
+
+// Node/test consumption only — the browser path stays a plain global, matching
+// src/compat.js's / data/bmx.js's / data/striders.js's own export-guard convention.
+// (Missing in the catalog/gravel-1 wave — validate.js couldn't require() this file
+// without it; fixed here as part of wiring the GRAVEL OK validator line.)
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { GRAVEL_PARTS: GRAVEL_PARTS };
+}
