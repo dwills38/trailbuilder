@@ -1884,3 +1884,25 @@ per wave/decision; large reconstructions are handed to a worker session.
   campaign-3 session block handed to Douglas (paste-block per the new delivery rule). Campaign-2's
   full-session yield across its life: batch-group merges landed progressively by seats 12–13; walls
   map remains tools/verify-fanout-1-CLOSEOUT.md.
+
+## 2026-07-18 — slider 2.5.7 fix SHIPPED + ui-expert batch 4 (navigation-ia MASTER)
+
+- **Merged `ui/slider-2-5-7-fix`** (worker session, [Sonnet, high], commit c469b3e): the DNS-17
+  WCAG 2.2 SC 2.5.7 AA violation is CLOSED — all 7 dual-range axes gain paired
+  <input type=number> min/max fields (inputmode=numeric, mirrored min/max/step, real
+  aria-labels) replacing the static "lo–hi" text, wired into the sliders' existing
+  refresh()/commit() split (repaint on input, re-filter on change; mid-keystroke caret never
+  fought via skipNum; crossed bounds resolve by the sliders' own just-edited-yields precedent).
+  Click-to-jump stays disabled (Baymard dual-handle ambiguity, DNS-16). Also ACC-22 F1
+  (profileModal autofocus) + F2 (100vh→100svh ×2). index.html only; bmx/KitBuilder confirmed
+  unaffected (no shared slider factory). Coordinator review: full diff read, popup scan clean,
+  independent browser check on the merged tree (numeric↔slider live sync, no auto-open dialogs,
+  autofocus + svh verified via DOM eval). Gates: validate 7×OK / 757 tests / tsc clean.
+- **Merged ui-expert batch 4** (7f3108f): **navigation-ia → MASTER.** NAV-15 records the
+  undocumented-but-correct history doctrine (places get hash entries; state gets replaceState —
+  writeHash's replaceState choice is load-bearing against history flooding). **NAV-16 WARN
+  CONTRADICTION**: forum/inventory/profile views are invisible to Back (class toggles, no hash) —
+  Back exits the SITE from them; forum threads have no shareable URL. Recommended fix: generalize
+  the proven guides hash-router to #forum/#forum/<id>/#inventory/#profile — queued for Douglas as
+  a paste-block. NAV-17 (Back-dismissible dialogs) deliberately parked, not asserted. Board: 4
+  MASTER / 3 professional / research-methods pending. Worker continues to batch 5.
