@@ -174,6 +174,50 @@ var EMTB_PARTS = [
     disciplines: ['e-enduro'], weight: 19200, price: 9000,
     note: 'Lightweight gravity/enduro-travel SL platform; longest travel in the Specialized e-range.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Trek depth (Rail / Fuel EXe trims)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-trek-rail-9-5', cat: 'emtb', brand: 'Trek', model: 'Rail 9.5',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
+    disciplines: ['e-trail', 'e-enduro'], weight: 25200, price: 6500,
+    note: 'Entry alloy Rail trim; same Bosch CX motor/800 Wh PowerTube as the carbon range.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-trek-rail-9-9-xx', cat: 'emtb', brand: 'Trek', model: 'Rail 9.9 XX AXS T-Type',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23400, price: 12500,
+    note: 'Top-tier Rail carbon trim; SRAM XX Transmission + Maven brakes.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-trek-fuel-exe-9-5', cat: 'emtb', brand: 'Trek', model: 'Fuel EXe 9.5',
+    motorBrand: 'tq', motorModel: 'TQ-HPR50', motorTorque: 50,
+    batteryWh: 360, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 130,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM DB8',
+    disciplines: ['e-trail'], weight: 19800, price: 6300,
+    note: 'Entry alloy Fuel EXe; quiet, low-profile TQ HPR50 hub-style motor.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-trek-fuel-exe-9-9-xx', cat: 'emtb', brand: 'Trek', model: 'Fuel EXe 9.9 XX AXS',
+    motorBrand: 'tq', motorModel: 'TQ-HPR50', motorTorque: 50,
+    batteryWh: 360, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 130,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail'], weight: 18100, price: 11500,
+    note: 'Top-tier lightweight Fuel EXe trim; acoustic-close trail-bike handling.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
