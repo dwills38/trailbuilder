@@ -310,6 +310,40 @@ var EMTB_PARTS = [
     disciplines: ['e-trail'], weight: 19500, price: 5800,
     note: 'Entry alloy Rise trim; same lightweight EP8 RS motor as the carbon range.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Canyon depth (Spectral:ON CFR, Strive:ON, Neuron:ON)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-canyon-spectral-on-cfr', cat: 'emtb', brand: 'Canyon', model: 'Spectral:ON CFR',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 900, batteryRemovable: false, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: 22900, price: 11500,
+    note: 'Top-tier CFR carbon Spectral:ON build.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-canyon-strive-on', cat: 'emtb', brand: 'Canyon', model: 'Strive:ON',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-enduro'], weight: 24500, price: 7500,
+    note: "Canyon's gravity-leaning e-enduro platform; longer travel than the Spectral:ON.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-canyon-neuron-on', cat: 'emtb', brand: 'Canyon', model: 'Neuron:ON',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 130,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-trail'], weight: 22200, price: 5500,
+    note: "Canyon's lighter, shorter-travel XC/trail e-bike; smaller 630 Wh battery.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
