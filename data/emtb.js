@@ -858,6 +858,20 @@ var EMTB_PARTS = [
     disciplines: ['e-enduro'], weight: 25200, price: 4800,
     note: '29in-wheel sibling to the mixed/27.5 E-Sommet; same Bosch CX motor.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Marin depth (Alpine Trail E1)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-marin-alpine-trail-e1', cat: 'emtb', brand: 'Marin', model: 'Alpine Trail E1',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 165,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
+    disciplines: ['e-enduro'], weight: 25600, price: 4500,
+    note: 'Entry alloy trim beneath the E2; same motor/battery.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
