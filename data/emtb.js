@@ -662,6 +662,20 @@ var EMTB_PARTS = [
     disciplines: ['e-trail'], weight: 16800, price: 8500,
     note: 'Lightweight XC/downcountry-leaning Scott on the quiet TQ HPR50 motor.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Merida (new maker) — eONE-SIXTY
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-merida-eone-sixty-8000', cat: 'emtb', brand: 'Merida', model: 'eONE-SIXTY 8000',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-enduro'], weight: 23400, price: 7500,
+    note: "Merida's mixed-wheel enduro-travel e-MTB on the Shimano EP8 motor.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
