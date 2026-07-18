@@ -6,9 +6,13 @@ dealer-manual internals + SRAM Transmission install-torque facts (DRV-27–32); 
 second pass closed the Shimano MTB crank/BB dealer-manual gap (DRV-35–36, recovered via
 Wayback Machine after three direct-fetch routes failed) and added SRAM mechanical Eagle
 derailleur install torque + a confirmed-absence finding on clutch/spring rebuild
-documentation (DRV-37–39). Still short of `professional`: no AXS pairing/firmware service,
-no freehub internals, no cross-brand torque table beyond the Shimano derailleur/crank and
-SRAM derailleur families covered so far — see `## Gaps`.)
+documentation (DRV-37–39). **2026-07-18: Zero Friction Cycling's own chain-wear-testing
+PDFs, previously misdiagnosed as image-only, are fetched and mined directly (DRV-41/42)** —
+real per-model km-to-wear figures with their worst-case-lubricant caveat, plus the
+HARDCHROME/Vickers-hardness metallurgy behind SRAM Eagle's tier gap. Still short of
+`professional`: no AXS pairing/firmware service, no freehub internals, no cross-brand
+torque table beyond the Shimano derailleur/crank and SRAM derailleur families covered so
+far — see `## Gaps`.)
 
 Shifter · derailleur · cassette · chain · crank · chainring · freehub/driver bodies ·
 single-speed cog. Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline,
@@ -243,12 +247,71 @@ not extract via WebFetch (tried twice — `Chain-Longevity-Testing-Full-test-bri
 `chainlongevitypg2.pdf`, both scanned/JPEG-embedded, no OCR text layer); the numbers above are
 attributed to ZFC by name but fetched from a secondary source (componentry.app's chain-wear
 guide) that cites ZFC's testing, not the ZFC page itself — **measured-source tier, one hop
-removed from primary**, not the same confidence as a directly-fetched manufacturer page. A
-future round should retry ZFC's PDFs with an OCR-capable tool, or find ZFC's own text-based
-results table (their site mentions "Chain efficiency and wear life data consol v4" as a
-separate PDF, not yet attempted). *Confidence: measured/third-party, one hop from primary.*
-Source: componentry.app "How to Measure Chain Stretch" (fetched), citing Zero Friction Cycling
+removed from primary**, not the same confidence as a directly-fetched manufacturer page.
+**Correction 2026-07-18 (see DRV-41/42): the "image-based, no OCR text layer" diagnosis was
+wrong** — WebFetch's HTML-conversion path apparently couldn't parse these PDFs, but a direct
+`curl` download + `pdftotext` extracts real text cleanly from all four ZFC PDFs tried
+(the two named here, plus `chainlongevitypg1.pdf` and a "Chain efficiency and wear-life
+data consol v3" PDF — the "v4" this note speculated about doesn't exist; v3 is current).
+The chain-model-specific km figures are still chart bar-heights, not printed numbers, so
+those needed a rendered-page image read (same technique as `suspension.md` SUS-44/45), not
+OCR. *Confidence: measured/third-party, one hop from primary — superseded by DRV-41's
+directly-fetched primary figures for the specific chain models DRV-41 covers; retained here
+for the general MTB-vs-road km-range framing DRV-41 does not restate.* Source:
+componentry.app "How to Measure Chain Stretch" (fetched), citing Zero Friction Cycling
 (zerofrictioncycling.com.au) test data by name.
+
+**DRV-41 — Zero Friction Cycling's own longevity-test charts (primary source, fetched
+directly) give per-model km-to-0.5%-wear figures, but under a deliberately WORST-CASE
+lubricant — read the number alongside that caveat or it will be cited out of context.**
+ZFC's test protocol (from its own full test-brief PDF): a chain-on-test is joined
+half-and-half with a control chain (usually Shimano Ultegra) via master links, run on a
+rig, and measured two ways — the KMC digital chain-wear checker (8-link span, 0.01mm
+accuracy, 6 measures averaged across a 53-link test section) and a separate true-elongation
+single-span measure once the chain is removed. The **control lubricant is White Lightning
+Epic Ride, deliberately chosen because independent Friction Facts testing ranked it 55th of
+55 lubricants for efficiency** — ZFC's own words: "a poor performing lubricant with a high
+wear rate is desired for chain longevity testing to quickly assess the chains resistance to
+wear." Every km figure below is therefore a **worst-case-lubricant, controlled-rig**
+baseline, not a real-world trail-riding figure — this is also why these numbers (thousands
+of km) sit far above DRV-40's ~800-1,200 km real-world MTB range: DRV-40's figure includes
+trail grit/mud contamination that a bench-rig test with a single (if poor) lubricant does
+not replicate; the two figures describe different conditions, not a contradiction. Reading
+the "Digital Chain Wear Checker" chart directly (bar heights, approximate to the nearest
+~50-100 km): **SRAM Eagle XX1/XO1 12-speed ~5,000+ km** (bars are extrapolated past the
+chart's 5,000 km ceiling), **Shimano XTR CM9100 12-speed ~3,300 km**, **SRAM Eagle GX
+12-speed ~2,050 km**, **SRAM Eagle NX 12-speed ~1,950 km**, down to **Shimano HG40 8-speed
+~1,050 km** (the lowest of every chain tested). The separate "pure elongation only" chart
+reads higher for every model (e.g. Eagle XX1/XO1 ~6,700 km) because it excludes the
+digital checker's double-counted roller-bore/bushing wear at the span's two entry
+points — **the two ZFC charts are not measuring the same thing, and citing a number
+without naming which chart it came from is a citation error.** *Confidence: confirmed
+(fetched primary, chart bar-heights read from a directly-rendered page image, not OCR or
+a third-party citation) for the figures named; approximate by nature of a bar-chart
+read (±~100 km), not a printed table value.* Source: zerofrictioncycling.com.au
+`chainlongevitypg1.pdf` + `Chain-Longevity-Testing-Full-test-brief.pdf` (both fetched
+directly via `curl`, page image rendered via `pdftoppm`), 2026-07-18.
+
+**DRV-42 — SRAM Eagle's XX1/XO1-vs-GX/NX wear-life gap has a named metallurgical cause:
+HARDCHROME treatment, present on the top two tiers only.** ZFC's consolidated chain-data
+page states plainly: "GX level chains do not have HARDCHROME and wear VASTLY faster vs
+X01 & XX1 level chains" (ZFC rates this "VERY HIGH" confidence) — directly explaining the
+~2,050/1,950 km GX/NX figures vs ~5,000+ km XX1/XO1 figures in DRV-41 as a treatment
+difference, not test noise. The same page's general hardness-science section (Vickers
+scale) gives the underlying mechanism: untreated chain steel is typically ~150-300
+Vickers, chromium-carbide plating runs ~1,000-1,800 Vickers, and titanium-nitride plating
+~1,800-2,200 Vickers — a 5-10x hardness increase on treated wear surfaces, which is the
+metallurgical reason a hardchrome/nitride-treated chain outlasts an untreated one at the
+same nominal price/speed tier. This is the L3 "chain vs cassette vs ring wear-coupling"
+gap's metallurgy half — still missing (per DRV-40's gap note) is the cassette/ring side of
+that coupling. **Tangential L4 race-craft note, same source:** World Tour road teams
+replace chains at ~500-1,000 km — partly a breakage-safety margin, partly to replace the
+chain before its low-friction surface coating abrades off. *Confidence: confirmed (fetched
+primary) for the HARDCHROME claim and Vickers figures (both stated as fact on ZFC's page,
+not hedged as ZFC's own estimate); the 500-1,000 km pro-team figure is ZFC's own
+practitioner-tier claim, not independently corroborated — labelled accordingly.* Source:
+zerofrictioncycling.com.au "Chain efficiency and wear-life data consol v3" PDF (fetched
+directly via `curl`) + `Chain-Longevity-Testing-Full-test-brief.pdf`, 2026-07-18.
 
 ## Cassette, freehub & crank service basics
 
@@ -650,13 +713,23 @@ figures table).
 - DRV-26's chain-width cross-tolerance is sourced only through ~10-speed; **no sourced
   data for 11/12-speed narrow-chain substitution tolerance** — explicitly flagged not
   established, a candidate for a dedicated fetch in a future round.
-- **PARTIALLY CLOSED this round (DRV-40) — Zero Friction Cycling km-lifespan data (MTB
-  ~800-1,200 km vs road ~3,000-5,000 km to 0.5% wear, 300,000+ km test basis) sourced via a
-  secondary citation (componentry.app), since ZFC's own PDFs are image-based and didn't
-  extract.** Still missing: a genuine cassette/ring wear-cycle survival curve (how many chain
-  changes a cassette tolerates before ITS wear crosses a threshold) — DRV-40 has the chain side
-  of the wear-coupling but not the cassette/ring side; **L3 gap, narrowed not closed**. A future
-  round should also retry ZFC's own PDFs with OCR, or find their "data consol v4" table.
+- **CLOSED 2026-07-18 (DRV-41/42), this chapter's named round-4 pickup point — Zero Friction
+  Cycling's own PDFs are fetched directly and mined.** The prior round's "image-based, no OCR
+  text layer" diagnosis was a WebFetch-specific false negative — a direct `curl` download +
+  `pdftotext` extracts real text from all four ZFC PDFs (the two DRV-40 named, plus
+  `chainlongevitypg1.pdf` and the "consol v3" data page; no "v4" exists). Per-model km-to-0.5%-
+  wear figures (chart bar-heights, read from a rendered page image) now replace DRV-40's
+  one-hop componentry.app citation for the specific chains DRV-41 names, WITH the load-bearing
+  caveat DRV-40 lacked: ZFC's control lubricant is deliberately the worst-tested one (55th/55),
+  so every figure is a worst-case-lubricant bench-rig baseline, not a real-world number — this
+  is *why* the ZFC chart's thousands-of-km figures don't contradict DRV-40's 800-1,200 km
+  real-world MTB range (different test conditions, not competing claims). DRV-42 adds the
+  metallurgical cause of SRAM Eagle's XX1/XO1-vs-GX/NX gap (HARDCHROME plating, Vickers-hardness
+  sourced). **Still missing: a genuine cassette/ring wear-cycle survival curve** (how many chain
+  changes a cassette tolerates before ITS wear crosses a threshold) — DRV-40/41/42 have the
+  chain side of the wear-coupling in real depth now but not the cassette/ring side; **L3 gap,
+  narrowed, not closed** — no ZFC page or PDF found this round addresses cassette/ring wear
+  cycles specifically.
 - No **lubrication chemistry** (wet/dry lube selection, wax-based chain treatment
   tradeoffs) — **L3 gap**.
 - DRV-18's capacity-conservative claim is community-tier only; **no manufacturer
