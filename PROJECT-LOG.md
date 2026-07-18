@@ -1906,3 +1906,41 @@ per wave/decision; large reconstructions are handed to a worker session.
   the proven guides hash-router to #forum/#forum/<id>/#inventory/#profile — queued for Douglas as
   a paste-block. NAV-17 (Back-dismissible dialogs) deliberately parked, not asserted. Board: 4
   MASTER / 3 professional / research-methods pending. Worker continues to batch 5.
+
+## 2026-07-18 — mechanic master-2 batches 3–5 merged (ID collision resolved)
+
+- **Merged `tooling/mechanic-master-2`** (4 remaining commits; batches 1–2 were already on main via
+  seat 12). Docs-only, `tools/mechanic/` + its progress doc. Content: **DRV-64-67** (all 9–12sp
+  chains share the 1/2"x11/128" internal-width class → cross-speed substitution is a CLEARANCE
+  question, not engagement; deliberately NOT made an engine allowance since KMC X11/X12 share a
+  size designation but differ in stated compatibility); **FRM-51-53** (UDH Rev A→H trail
+  transcribed from the drawing's own revision record; Rev F pivotal — 142/157 OLD added, hanger→
+  full-mount; CONTRADICTION explicitly DECLINED because SRAM publishes no per-revision split, so a
+  rev-aware rule can't meet the bar — the revision-blind `udh` boolean now positively justified);
+  **WHL-46-52** (DT Swiss §6.1 tension bands confirmed by rendering the page as an IMAGE to defeat
+  column-scrambling; carbon-rim inspection doctrine; Reserve 50 psi cap; **a same-round
+  self-correction** — WHL-48's "DT Swiss is the only maker publishing a tension target" withdrawn
+  after Reserve was found publishing 1000–1300 N, closing the cross-brand comparison and yielding
+  the lesson that one brand's exhaustion is not evidence about the field); **SUS-50-53** (volume-
+  spacer selection keyed to model code + air-spring type, never tube diameter; coil chart closed,
+  honestly scoped to entry-tier forks + colour codes); **BRK-46-49** (Hayes closed → 5/5 major
+  hydraulic makers at manufacturer-primary tier; the "bleed fluid-volume table" answered by
+  establishing it CANNOT EXIST — makers specify fill fractions/flush-to-clear because volume varies
+  with hose length; first standards-body source, FMVSS 116).
+- **⚠ BRK-49 carries a do-not-transfer caveat worth knowing**: FMVSS 116 mandates brake-fluid
+  COLOURS (mineral oil = green) but governs MOTOR VEHICLES only — real bike products contradict it
+  (Magura Royal Blood blue, Shimano mineral oil red). **Fluid family must never be identified by
+  colour** in engine, UI or guide copy. Exactly the authoritative-sounding-but-wrong class the
+  corpus rules exist to catch.
+- **ID COLLISION RESOLVED AT MERGE**: the branch authored SUS-48–51, but SUS-48/49 were already
+  taken on main by master-1's cherry-picked coil-service facts. Both sets are real and distinct, so
+  BOTH were kept and the incoming four renumbered **SUS-50–53** (internal cross-references
+  renumbered with them; a coordinator note records it in-chapter). Ids stay append-only, sequence
+  verified contiguous 1–53 with no duplicates. Root cause: master-2's brief said "start suspension
+  at SUS-50" and it started at 48 — the ID-range claim mechanism works only if workers honor it.
+- Engine impact across all five batches: **nothing contradicted**; three rules gained supporting
+  citations (ss-chain-width, the UDH requirement, and UDH's revision-blindness). Zero intake items.
+  Process lesson recorded corpus-side: fetch-tool artifacts repeatedly masqueraded as source
+  exhaustion (plain curl + pdftotext worked first try on three "exhausted" brakes gaps), and
+  multi-column spec tables extract WRONGLY as text but CORRECTLY as an image via pdftoppm.
+  Gates: validate 7×OK / 757 tests / tsc clean. Worker continues to L4 race-craft.
