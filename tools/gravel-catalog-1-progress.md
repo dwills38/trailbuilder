@@ -78,3 +78,62 @@ the natural next waves are (1) a fetch-verification pass to earn real `verified:
 (2) breadth expansion (more frame/wheel/tire brands — Cervelo Aspero, Kona Sutra, Ritchey,
 Ibis Hakka, Fairlight; DT Swiss/Praxis wheel depth; Panaracer/WTB width variants), (3) the
 schema-gravel.js validator once Douglas's DECISIONS-FOR-DOUGLAS calls land.
+
+## Addendum (gravel-3, 2026-07-18) - row-count reconciliation + Panaracer fix
+The "151 rows" claimed above was the wave-1 landing count (commit c404675). The wave-2
+schema-gravel.js validator pass (0714261) tightened several fields and dropped/merged
+non-conforming rows, landing main at 140 rows by the time gravel-3 branched - validator-driven
+cleanup between waves, not silent data loss; no gravel-catalog-2-progress.md was ever written,
+so the discrepancy looked undocumented. gravel-3 also fixed a fabrication-adjacent flag:
+wave-1's gti-panaracer-gravelking-sk-700x38/-700x43 cited widths the GravelKing SK line
+doesn't sell. Re-fetched panaracerusa.com's GravelKing SK product page (2026-07-18): real 700c
+sizes are 28/30/35/40/45mm (50 explicitly marked unavailable), plus 650B x43/48/54. Removed
+the two phantom rows, added gti-panaracer-gravelking-sk-700x35, -700x40 (real 700c sizes) and
+-650x43 (real 650B size) - net 140 -> 141 rows. The neighboring gravelking-ss-700x35 row was
+independently confirmed real (GravelKing SS ships 28/32/35/43mm) and left untouched.
+
+## Addendum 2 (gravel-3 continued, 2026-07-18) - verification push + more fixes
+Continued gravel-3 with a verification push against manufacturer sources (Shimano GRX
+handbook, WTB, Continental, Pirelli, Rene Herse). This surfaced more real errors from
+earlier waves, not just missing verification — worth flagging since it suggests earlier
+waves prioritized breadth over checking real product lineups closely:
+
+- **Shimano GRX**: `gsft-shimano-grx-rx820-1x12-di2` and `grd-shimano-grx-rd-rx822-1x12` both
+  claimed `actuation:'di2-wired'` but RX820/RX822 are the MECHANICAL 12-speed tier — Shimano's
+  actual Di2 GRX lever/derailleur is a different model, ST/RD-RX825, not cataloged here (fixed
+  the mislabel rather than adding the RX825 tier, to avoid landing a half-built Di2 branch).
+  `grd-shimano-grx-rd-rx812-2x12` was worse: RD-RX812 doesn't exist as a 12-speed part at all —
+  it's the 11-speed tier's 1x long-cage derailleur (42T, 267g). Renamed/refit to `-1x11`,
+  which also gave the existing 11-speed FD-RX810/FD-RX600/CS-HG700 group its first rear
+  derailleur. Added the missing `gsft-shimano-grx-rx600-2x11` shifter so that tier is
+  buildable. All FETCHED from productinfo.shimano.com's Ver.2.4 spec handbook (pdftotext on
+  the downloaded PDF — WebFetch's own PDF summarizer missed the GRX tables in this doc, likely
+  a size/pagination limit; downloading + `pdftotext` directly worked cleanly).
+- **WTB Resolute**: mislabeled `casing:'tcs-tough'/compound:'high-grip'` — every current
+  retailer listing sells the 700x42 as TCS Light/Fast Rolling. Fixed; both Resolute and
+  Riddler 37 got real bicyclerollingresistance.com scale weights.
+- **Continental Terra Speed**: mislabeled `casing:'shieldwall'` — that's actually the Terra
+  Trail's casing. Continental's own Tire Range 2025/26 PDF confirms Terra Speed = ProTection,
+  Terra Trail = ShieldWall at every size. Added `casing:'protection'` to the gravel vocab.
+  Both got real measured weights (Terra Speed 402g, Terra Trail 452g).
+- **Pirelli Cinturato H/M**: weights corrected to bicyclerollingresistance.com measured
+  figures (509g/529g vs the old 470/490g samples). Casing/compound naming (hardwall/smartnet)
+  flagged but NOT changed — Pirelli's real marketing names are SmartEVO/ProWall and this pass
+  didn't confirm the mapping.
+- **New rows**: `gti-reneherse-barlowpass-700x38-std` (FETCHED renehersecycles.com directly:
+  385g Standard casing, $84-97; Extralight/Endurance siblings not cataloged), plus two bartape
+  rows (Lizard Skins DSP V2 2.5mm, PNW Coast — both real products, retailer-corroborated
+  sample specs, manufacturer pages didn't cooperate this session).
+- **Blocked**: Schwalbe's schwalbetires.com product-detail spec table is JS/API-rendered and
+  neither WebFetch nor Bright Data's markdown scrape captured it — G-One R/Overland/Bite
+  weights stay unverified samples. WTB's own site has the same problem for its weight column
+  specifically (casing/compound/size render fine, weight doesn't) — worked around by using
+  bicyclerollingresistance.com's independent scale weights instead (sourceType:measured).
+- 650b wheelset depth and additional frame brands (Cervelo Aspero, Ritchey, Ibis Hakka,
+  Fairlight) were scoped for this pass but not completed — Cervelo's product page didn't
+  publish rear axle/headset/seatpost specs cleanly (only tire clearance + BB), and a
+  geometry-chart fetch was needed to fill the gaps; left for the next wave rather than
+  guessing standard values.
+
+Ending state: 145 rows (was 142 at gravel-3 branch start), 12/145 verified (was 4). Every
+commit gated on validate (6 OK lines) + npm test (735/735) + tsc clean.
