@@ -57,7 +57,7 @@ var GRAVEL_VOCAB = {
   material:     ['alloy', 'steel'],
   freehub:      ['xdr', 'n3w', 'micro-spline-road', 'hg-road'],
   rotorMount:   ['center-lock'],
-  casing:       ['tcs-light', 'tcs-tough', 'zsg', 'shieldwall', 'hardwall', 'super-ground', 'exo', 'tubeless-complete', 'trail'],
+  casing:       ['tcs-light', 'tcs-tough', 'zsg', 'shieldwall', 'protection', 'hardwall', 'super-ground', 'exo', 'tubeless-complete', 'trail'],
   compound:     ['fast-rolling', 'high-grip', 'std', 'blackchili', 'smartnet', 'addix-speedgrip', 'addix', 'dual', 'dynamic-rs', 'g2'],
   actuation:    ['di2-wired', 'mechanical', 'axs-wireless', 'hydraulic'],
   side:         ['pair'],
