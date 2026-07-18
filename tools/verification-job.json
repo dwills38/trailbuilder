@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T02:35:46.644Z",
+ "updated": "2026-07-18T03:13:42.823Z",
  "batchSize": 25,
  "lastCompleted": "ro-sram-centerline-160-6b",
  "currentCategory": "frame",
@@ -890,7 +890,6 @@
   "hb-cannondale-3-318-780",
   "hb-intense-carbon-800-35",
   "hb-intense-reconelite-carbon-760-318",
-  "hb-ethirteen-alu-800-35",
   "hb-merida-comptrii-780-35",
   "hb-newmen-evolutionsl-800-318",
   "hb-focus-alloy-800-30",
@@ -923,7 +922,6 @@
   "hb-twinworks-racereviewready-318-810",
   "hb-stanton-cockpit-780-35",
   "hb-raceface-ride-318-740",
-  "hb-ethirteen-base-alu-800-35",
   "hb-deux-enduro-integrated-800-35",
   "hb-diamondback-db35-780-15",
   "hb-bmc-mfb03-750-4",
@@ -934,14 +932,12 @@
   "st-sonder-piskie",
   "st-norco-alloy-35-40",
   "st-ocmountaincontrol-mc20-35",
-  "st-fsa-grid-35",
   "st-evil-12-gauge-35",
   "st-thomson-elite-x4-35",
   "st-chromag-riza-35",
   "st-pro-tharsis-trail-318",
   "st-canecreek-eesilk-cs-318",
   "st-canecreek-eesilk-sl-318",
-  "st-spank-split-318",
   "st-truvativ-descendant-318",
   "st-truvativ-descendant-35",
   "st-dmr-cnc-35",
@@ -955,7 +951,6 @@
   "st-marin-3d-forged-35-55",
   "st-marin-cnc-35",
   "st-nukeproof-horizon-318",
-  "st-bikeyoke-barkeeper-35-45",
   "st-nukeproof-neutron-am-318-45",
   "st-raceface-ride-35",
   "st-cotic-shorterstem-35",
@@ -1010,7 +1005,6 @@
   "st-cube-performanceslx-318-45",
   "st-specialized-trail-alloy-40-35",
   "st-specialized-3dforged-60-318",
-  "st-industrynine-mountain-40-35",
   "st-ragley-alloy-318-50",
   "st-vitus-alloy-318-45",
   "st-canyon-st0039-45",
@@ -1027,7 +1021,6 @@
   "st-norco-x6-318-50",
   "st-bird-35-40",
   "st-productionprivee-r2r-50-318",
-  "st-intend-grace-fr-35-35",
   "st-twinworks-forged-55-318",
   "st-stanton-cockpit-35",
   "st-raceface-ride-318-70",
@@ -1067,8 +1060,6 @@
   "gr-vitus-lockon",
   "gr-marin-grizzly-lockon",
   "gr-nukeproof-samhill-signature",
-  "gr-ergon-ge10-evo",
-  "gr-ergon-ga20",
   "gr-cotic-lockon",
   "gr-whyte-enduro-lockon",
   "gr-xlc-grs60-sport",
@@ -1108,7 +1099,6 @@
   "gr-giant-soleo",
   "gr-peatys-monarch-knurl",
   "gr-trek-line-comp",
-  "gr-ergon-gxr",
   "gr-ocmountaincontrol-lockon",
   "gr-diamondback-db-lockon",
   "dp-gt-dropkick-316-150",
@@ -1182,8 +1172,6 @@
   "sa-sdg-belair-v3-steel",
   "sa-ergon-sm-enduro-comp",
   "sa-ergon-sm-enduro-pro-ti",
-  "sa-specialized-power-comp",
-  "sa-specialized-phenom-comp",
   "sa-specialized-henge-comp",
   "sa-dmr-dj-saddle",
   "sa-syncros-dj15",
@@ -1230,7 +1218,6 @@
   "sa-acid-venec-gravity",
   "sa-specialized-bridge-expert-mimic",
   "sa-specialized-power-sport",
-  "sa-specialized-bridge-sport",
   "sa-nukeproof-neutron",
   "sa-ragley-saddle",
   "sa-vitus-steel-rail",
@@ -1242,7 +1229,6 @@
   "sa-fizik-terra-aidon-x5",
   "sa-syncros-tofino20",
   "sa-selleitalia-slr-boostfill-ti",
-  "sa-specialized-power-pro-mirror",
   "sa-liv-grit-sl",
   "sa-liv-sylvia",
   "sa-syncros-kaslo20",
@@ -1810,7 +1796,7 @@
   "fr-specialized-enduro-sworks": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.642Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/s-works-enduro-frameset/p/4276009",
    "note": "specialized.com 403-blocked (still); Specialized publishes complete-bike weights only, no frame-only figure; no editorial teardown weight for the frameset found (Pinkbike/BikeRadar give only relative savings). Interfaces already web-sourced. Weight bar unmeetable."
@@ -2282,7 +2268,7 @@
   "rw-spank-359-29": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://spank-ind.com/products/spank-359-vibrocore%E2%84%A2-rear-wheel",
    "note": "Spank (spank-ind.com) re-tested this session: 403 (was fetchable in a prior pass, now blocked - confirms standing block). Per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched spank-ind.com). Weight bar unmeetable."
@@ -2649,10 +2635,10 @@
   },
   "hb-burgtec-ridewide-enduro-35": {
    "cat": "handlebar",
-   "status": "Skipped",
-   "updated": "2026-07-07T18:26:02.517Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
+   "source": "https://burgtec.co.uk/shop/ride-wide-alloy-enduro-handlebar/",
    "note": "burgtec.co.uk product page returns 404 to WebFetch (likely bot-blocked/JS-rendered, consistent with other blocked domains logged in this job). Search summaries only surfaced weight for the CARBON RideWide Enduro (258g) not this alloy SKU. Bar not met -- interfaces left as-is (unconfirmed)."
   },
   "hb-deity-skywire-35": {
@@ -2753,10 +2739,10 @@
   },
   "st-burgtec-enduro-mk3-35": {
    "cat": "stem",
-   "status": "Skipped",
-   "updated": "2026-07-07T18:41:38.483Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
+   "source": "https://burgtec.co.uk/product/enduro-mk3-stem/",
    "note": "burgtec.co.uk product pages don't fetch cleanly (truncated/unusable content, same pattern as the RideWide Enduro handlebar skip on this domain). Bar not met."
   },
   "st-deity-copperhead-35": {
@@ -3073,10 +3059,10 @@
   },
   "sa-specialized-bridge": {
    "cat": "saddle",
-   "status": "Skipped",
-   "updated": "2026-07-07T18:53:20.050Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
+   "source": "https://www.specialized.com/us/en/bridge-comp-with-mimic/p/187404",
    "note": "specialized.com 403-blocks WebFetch (consistent with the known bot-block already logged for this domain). No standalone 'Bridge' model exists in the current lineup either -- only Bridge Sport and Bridge Comp with MIMIC -- so this row's model name may also need reconciling once the domain is reachable via a real browser session."
   },
   "sa-sdg-belair-v3": {
@@ -4283,7 +4269,7 @@
   "fr-trek-session-8-29": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://media.trekbikes.com/image/upload/v1694708420/TK_Session_MY22_ServiceManual_EN-GB_2022-02-21.pdf",
    "note": "trekbikes.com fetches only JS/nav shell; frame weight not obtainable; editorial weighs complete bikes. Interfaces already sourced (Vital 2022 spec table per desc). Weight bar unmeetable."
@@ -4331,7 +4317,7 @@
   "fr-specialized-stumpjumper-15": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/s-works-stumpjumper-15-frameset-fox-float-genie-factory/p/4221408",
    "note": "specialized.com 403-blocked; complete-bike weights only, no frame-only figure; no editorial teardown weight. Interfaces already sourced (Flow/BikeRadar per desc). Weight bar unmeetable."
@@ -4339,7 +4325,7 @@
   "fr-trek-fuel-ex-c-gen6": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://media.trekbikes.com/image/upload/v1691156199/TK_Fuel_Ex_ServiceManual_MY23_Rev2_EN-GB_2023-10-13.pdf",
    "note": "trekbikes.com fetches only JS/nav shell; no frame-only weight; editorial weighs complete bikes. Interfaces already sourced. Weight bar unmeetable."
@@ -4531,7 +4517,7 @@
   "fw-dtswiss-fr-1500-29": {
    "cat": "frontwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/fr-1500-classic",
    "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
@@ -4539,7 +4525,7 @@
   "fw-dtswiss-fr-1500-275": {
    "cat": "frontwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/fr-1500-classic",
    "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
@@ -4595,7 +4581,7 @@
   "rw-spank-359-29-ms": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://spank-ind.com/products/spank-359-vibrocore%E2%84%A2-rear-wheel",
    "note": "Spank (spank-ind.com) re-tested this session: 403 (was fetchable in a prior pass, now blocked - confirms standing block). Per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched spank-ind.com). Weight bar unmeetable."
@@ -4627,7 +4613,7 @@
   "rw-dtswiss-fr-1500-29-157": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/fr-1500-classic",
    "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
@@ -5099,7 +5085,7 @@
   "rw-spank-359-275": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://spank-ind.com/products/spank-359-vibrocore%E2%84%A2-rear-wheel",
    "note": "Spank (spank-ind.com) re-tested this session: 403 (was fetchable in a prior pass, now blocked - confirms standing block). Per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched spank-ind.com). Weight bar unmeetable."
@@ -5107,7 +5093,7 @@
   "rw-spank-359-275-ms": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://spank-ind.com/products/spank-359-vibrocore%E2%84%A2-rear-wheel",
    "note": "Spank (spank-ind.com) re-tested this session: 403 (was fetchable in a prior pass, now blocked - confirms standing block). Per-wheel weight only on the blocked page. Interfaces already sourced (prior pass fetched spank-ind.com). Weight bar unmeetable."
@@ -5179,7 +5165,7 @@
   "rw-dtswiss-fr-1500-275-157": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/support/product-support?matnr=WFR1500OHDRSA21532",
    "note": "auto-promoted: already verified in catalog"
@@ -5883,7 +5869,7 @@
   "fr-specialized-stumpjumper-evo": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/s-works-stumpjumper-evo-frameset-fox-float-x-factory/p/199754",
    "note": "auto-promoted: already verified in catalog"
@@ -5891,7 +5877,7 @@
   "fr-specialized-status-2-170": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/status-2-170-frameset/p/221255",
    "note": "auto-promoted: already verified in catalog"
@@ -5899,7 +5885,7 @@
   "fr-specialized-demo-race": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/demo-race-frameset/p/221248",
    "note": "auto-promoted: already verified in catalog"
@@ -5907,7 +5893,7 @@
   "fr-trek-top-fuel-gen4": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://retailerassetsprd.blob.core.windows.net/techassets/TopFuel_MY25_ServiceManual_EN-US_2024-06-06.pdf",
    "note": "auto-promoted: already verified in catalog"
@@ -5923,7 +5909,7 @@
   "fr-trek-roscoe-gen3": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://media.trekbikes.com/image/upload/v1694708420/TK_Roscoe_MY22_ServiceManual_EN-US_2021-06-29.pdf",
    "note": "auto-promoted: already verified in catalog"
@@ -5931,7 +5917,7 @@
   "fr-specialized-fuse-29": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/fuse-m4-frameset/p/199985",
    "note": "auto-promoted: already verified in catalog"
@@ -7835,7 +7821,7 @@
   "rw-spank-spike369-29-150-ms": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://spank-ind.com/products/spank-spike-369-vibrocore-rear-wheel",
    "note": "auto-promoted: already verified in catalog"
@@ -7851,7 +7837,7 @@
   "rw-spank-spike369-275-150-ms": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://spank-ind.com/products/spank-spike-369-vibrocore-rear-wheel",
    "note": "auto-promoted: already verified in catalog"
@@ -7867,7 +7853,7 @@
   "rw-spank-spike369-29-157-ms": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://spank-ind.com/products/spank-spike-369-vibrocore-rear-wheel",
    "note": "auto-promoted: already verified in catalog"
@@ -7883,7 +7869,7 @@
   "rw-spank-spike369-275-157-ms": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://spank-ind.com/products/spank-spike-369-vibrocore-rear-wheel",
    "note": "auto-promoted: already verified in catalog"
@@ -12538,19 +12524,19 @@
   },
   "sa-specialized-power-comp": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/power-comp/p/155836",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-specialized-phenom-comp": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/phenom-comp/p/156636",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-specialized-henge-comp": {
    "cat": "saddle",
@@ -15954,7 +15940,7 @@
   "fw-spank-spike369-29": {
    "cat": "frontwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://spank-ind.com/products/spank-spike-369-vibrocore-front-wheel",
    "note": "auto-promoted: already verified in catalog"
@@ -15962,7 +15948,7 @@
   "fw-spank-spike369-275": {
    "cat": "frontwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://spank-ind.com/products/spank-spike-369-vibrocore-front-wheel",
    "note": "auto-promoted: already verified in catalog"
@@ -16113,11 +16099,11 @@
   },
   "st-spank-split-318": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-11T04:43:32.368Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://spank-ind.com/products/spank-split-stem",
+   "note": "auto-promoted: already verified in catalog"
   },
   "gr-raceface-grippler": {
    "cat": "grips",
@@ -16786,7 +16772,7 @@
   "fr-specialized-epic-8": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/s-works-epic-8-frameset-rockshox-sidluxe-ultimate/p/220876",
    "note": "auto-promoted: already verified in catalog"
@@ -17202,7 +17188,7 @@
   "fw-dtswiss-xrc1200-spline30-29": {
    "cat": "frontwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/cross-country/xrc-1200-spline",
    "note": "auto-promoted: already verified in catalog"
@@ -17266,7 +17252,7 @@
   "fw-sunringle-sr327-trailexpert-275": {
    "cat": "frontwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://eu.hayesbicycle.com/products/sr327-trail",
    "note": "auto-promoted: already verified in catalog"
@@ -17306,7 +17292,7 @@
   "fw-dtswiss-f-1900-29": {
    "cat": "frontwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
@@ -17314,7 +17300,7 @@
   "fw-dtswiss-f-1900-275": {
    "cat": "frontwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
@@ -17370,7 +17356,7 @@
   "fw-sunringle-durocsd37pro-29": {
    "cat": "frontwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://hayesbicycle.com/products/duroc-sd37-pro-29",
    "note": "auto-promoted: already verified in catalog"
@@ -17410,7 +17396,7 @@
   "rw-dtswiss-xrc1200-spline30-29-ms": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/cross-country/xrc-1200-spline",
    "note": "auto-promoted: already verified in catalog"
@@ -17418,7 +17404,7 @@
   "rw-dtswiss-xrc1200-spline30-29-xd": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/cross-country/xrc-1200-spline",
    "note": "auto-promoted: already verified in catalog"
@@ -17554,7 +17540,7 @@
   "rw-dtswiss-f-1900-29-xd": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
@@ -17562,7 +17548,7 @@
   "rw-dtswiss-f-1900-29-ms": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
@@ -17570,7 +17556,7 @@
   "rw-dtswiss-f-1900-29-157-xd": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
@@ -17586,7 +17572,7 @@
   "rw-dtswiss-f-1900-275-xd": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
@@ -17594,7 +17580,7 @@
   "rw-dtswiss-f-1900-275-ms": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
@@ -17602,7 +17588,7 @@
   "rw-dtswiss-f-1900-275-157-xd": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
@@ -17866,7 +17852,7 @@
   "rw-sunringle-sr327-trailexpert-275-148-xd": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://eu.hayesbicycle.com/products/sr327-trail",
    "note": "auto-promoted: already verified in catalog"
@@ -17874,7 +17860,7 @@
   "rw-sunringle-sr327-trailexpert-275-148-ms": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://eu.hayesbicycle.com/products/sr327-trail",
    "note": "auto-promoted: already verified in catalog"
@@ -17882,7 +17868,7 @@
   "rw-sunringle-sr327-trailexpert-275-157-xd": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://eu.hayesbicycle.com/products/sr327-trail",
    "note": "auto-promoted: already verified in catalog"
@@ -17890,7 +17876,7 @@
   "rw-sunringle-sr327-trailexpert-275-157-ms": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://eu.hayesbicycle.com/products/sr327-trail",
    "note": "auto-promoted: already verified in catalog"
@@ -17962,7 +17948,7 @@
   "rw-sunringle-durocsd37pro-29-148-xd": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://hayesbicycle.com/products/duroc-sd37-pro-29",
    "note": "auto-promoted: already verified in catalog"
@@ -17970,7 +17956,7 @@
   "rw-sunringle-durocsd37pro-29-148-hg": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://hayesbicycle.com/products/bubbarearhub_z",
    "note": "auto-promoted: already verified in catalog"
@@ -17978,7 +17964,7 @@
   "rw-sunringle-durocsd37pro-29-148-ms": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://hayesbicycle.com/products/duroc-sd37-pro-29",
    "note": "auto-promoted: already verified in catalog"
@@ -17986,7 +17972,7 @@
   "rw-sunringle-durocsd37pro-29-157-xd": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://hayesbicycle.com/products/duroc-sd37-pro-29",
    "note": "auto-promoted: already verified in catalog"
@@ -17994,7 +17980,7 @@
   "rw-sunringle-durocsd37pro-29-157-hg": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://hayesbicycle.com/products/bubbarearhub_z",
    "note": "auto-promoted: already verified in catalog"
@@ -18002,7 +17988,7 @@
   "rw-sunringle-durocsd37pro-29-157-ms": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://hayesbicycle.com/products/duroc-sd37-pro-29",
    "note": "auto-promoted: already verified in catalog"
@@ -21418,7 +21404,7 @@
   "sh-ohlins-ttx22-m2-210x55": {
    "cat": "shock",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx22m-2-coil-210x55-am",
    "note": "auto-promoted: already verified in catalog"
@@ -21426,7 +21412,7 @@
   "sh-ohlins-ttx22-m2-185x55-trun": {
    "cat": "shock",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx22m-2-coil-tm-185x55-am",
    "note": "auto-promoted: already verified in catalog"
@@ -21490,7 +21476,7 @@
   "sh-ohlins-ttx2air-190x45": {
    "cat": "shock",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx2air-190x45-am",
    "note": "auto-promoted: already verified in catalog"
@@ -21498,7 +21484,7 @@
   "sh-ohlins-ttx2air-210x55": {
    "cat": "shock",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx2air-210x55-am",
    "note": "auto-promoted: already verified in catalog"
@@ -21506,7 +21492,7 @@
   "sh-ohlins-ttx2air-230x65": {
    "cat": "shock",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx2air-230x65-am",
    "note": "auto-promoted: already verified in catalog"
@@ -21514,7 +21500,7 @@
   "sh-ohlins-ttx2air-185x55-trun": {
    "cat": "shock",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx2air-tm-185x55-am",
    "note": "auto-promoted: already verified in catalog"
@@ -21522,7 +21508,7 @@
   "sh-ohlins-ttx2air-205x65-trun": {
    "cat": "shock",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx2air-tm-205x65-am",
    "note": "auto-promoted: already verified in catalog"
@@ -21530,7 +21516,7 @@
   "sh-ohlins-ttx2air-m2-185x55-trun": {
    "cat": "shock",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx2air-m-2-185x55-am",
    "note": "auto-promoted: already verified in catalog"
@@ -21538,7 +21524,7 @@
   "sh-ohlins-ttx2air-m2-205x65-trun": {
    "cat": "shock",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.ohlins.com/en-us/mountain-bike/rear-shocks/ttx2air-m-2-205x65-am",
    "note": "auto-promoted: already verified in catalog"
@@ -25226,7 +25212,7 @@
   "fr-specialized-p3": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/p3-frame/p/223563",
    "note": "auto-promoted: already verified in catalog"
@@ -25650,7 +25636,7 @@
   "fr-trek-session-c-29": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://media.trekbikes.com/image/upload/v1694708420/TK_Session_MY22_ServiceManual_EN-GB_2022-02-21.pdf",
    "note": "auto-promoted: already verified in catalog"
@@ -25658,7 +25644,7 @@
   "fr-trek-fuel-ex-al-gen6": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://media.trekbikes.com/image/upload/v1691156199/TK_Fuel_Ex_ServiceManual_MY23_Rev2_EN-GB_2023-10-13.pdf",
    "note": "auto-promoted: already verified in catalog"
@@ -25858,7 +25844,7 @@
   "fr-trek-supercaliber-slr-gen2": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://retailerassetsprd.blob.core.windows.net/techassets/SuperCaliber_ServiceManual_MY24_EN-US_2023-07-25.pdf",
    "note": "auto-promoted: already verified in catalog"
@@ -25866,7 +25852,7 @@
   "fr-trek-slash-c-gen6": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://media.trekbikes.com/image/upload/v1701373164/Slash_AlloyCarbon_ServiceManual_MY24_Rev1_EN-US_2023-11-29.pdf",
    "note": "auto-promoted: already verified in catalog"
@@ -25874,7 +25860,7 @@
   "fr-trek-slash-al-gen6": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://media.trekbikes.com/image/upload/v1701373164/Slash_AlloyCarbon_ServiceManual_MY24_Rev1_EN-US_2023-11-29.pdf",
    "note": "auto-promoted: already verified in catalog"
@@ -25898,7 +25884,7 @@
   "fr-trek-full-stache-8": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://retailerassetsprd.blob.core.windows.net/techassets/2019_Full_Stache_FAQ.pdf",
    "note": "auto-promoted: already verified in catalog"
@@ -26562,7 +26548,7 @@
   "fr-specialized-stumpjumper-15-alloy": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/stumpjumper-15-alloy-frameset-fox-float-genie-performance/p/4221699",
    "note": "auto-promoted: already verified in catalog"
@@ -26570,7 +26556,7 @@
   "fr-specialized-stumpjumper-15-evo-alloy": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/stumpjumper-15-evo-alloy-frameset-fox-float-x-genie-performance/p/4221700",
    "note": "auto-promoted: already verified in catalog"
@@ -26578,7 +26564,7 @@
   "fr-specialized-chisel": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/chisel-hardtail-frameset/p/205823",
    "note": "auto-promoted: already verified in catalog"
@@ -26586,7 +26572,7 @@
   "fr-specialized-stumpjumper-15-evo-carbon": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/s-works-stumpjumper-15-evo-frameset-fox-float-x-genie-factory/p/4221486",
    "note": "auto-promoted: already verified in catalog"
@@ -26594,7 +26580,7 @@
   "fr-specialized-epic-world-cup": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/s-works-epic-world-cup-frameset-rockshox-sidluxe-wcid-ultimate/p/206074",
    "note": "auto-promoted: already verified in catalog"
@@ -26682,7 +26668,7 @@
   "fr-specialized-chisel-evo": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/chisel-frameset/p/4221773",
    "note": "auto-promoted: already verified in catalog"
@@ -26690,7 +26676,7 @@
   "fr-specialized-epic-8-evo": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/epic-8-evo-pro-frameset-fox-float-factory/p/225413",
    "note": "auto-promoted: already verified in catalog"
@@ -26698,7 +26684,7 @@
   "fr-specialized-status-2-140": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/status-2-140/p/4221412",
    "note": "auto-promoted: already verified in catalog"
@@ -26794,7 +26780,7 @@
   "fr-trek-marlin-7-gen3": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://media.trekbikes.com/image/upload/v1691156199/Marlin_MY23_ServiceManual_Rev2_EN-GB_2023-05-11.pdf",
    "note": "auto-promoted: already verified in catalog"
@@ -26898,7 +26884,7 @@
   "fr-trek-marlin-4-gen3": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://media.trekbikes.com/image/upload/v1691156199/Marlin_MY23_ServiceManual_Rev2_EN-GB_2023-05-11.pdf",
    "note": "auto-promoted: already verified in catalog"
@@ -26906,7 +26892,7 @@
   "fr-trek-marlin-5-gen3": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://media.trekbikes.com/image/upload/v1691156199/Marlin_MY23_ServiceManual_Rev2_EN-GB_2023-05-11.pdf",
    "note": "auto-promoted: already verified in catalog"
@@ -26914,7 +26900,7 @@
   "fr-trek-marlin-6-gen3": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://media.trekbikes.com/image/upload/v1691156199/Marlin_MY23_ServiceManual_Rev2_EN-GB_2023-05-11.pdf",
    "note": "auto-promoted: already verified in catalog"
@@ -26946,7 +26932,7 @@
   "fr-specialized-rockhopper": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/rockhopper/p/4274938",
    "note": "auto-promoted: already verified in catalog"
@@ -26970,7 +26956,7 @@
   "fr-trek-slash-alloy-gen6": {
    "cat": "frame",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.821Z",
    "error": null,
    "source": "https://media.trekbikes.com/image/upload/v1701373164/Slash_AlloyCarbon_ServiceManual_MY24_Rev1_EN-US_2023-11-29.pdf",
    "note": "auto-promoted: already verified in catalog"
@@ -28818,7 +28804,7 @@
   "fw-dtswiss-f1900-classic-29-dh": {
    "cat": "frontwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
@@ -29186,7 +29172,7 @@
   "rw-dtswiss-fr-1500-275-148-hg": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/fr-1500-classic",
    "note": "auto-promoted: already verified in catalog"
@@ -30530,7 +30516,7 @@
   "rw-dtswiss-f1900-classic-275-superboost": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
@@ -30762,7 +30748,7 @@
   "rw-dtswiss-fr-1500-29-148-hg": {
    "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/fr-1500-classic",
    "note": "auto-promoted: already verified in catalog"
@@ -32881,11 +32867,11 @@
   },
   "hb-ethirteen-alu-800-35": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ethirteen.com/products/base-handlebar",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-merida-comptrii-780-35": {
    "cat": "handlebar",
@@ -33161,11 +33147,11 @@
   },
   "hb-ethirteen-base-alu-800-35": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ethirteen.com/products/base-handlebar",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-deux-enduro-integrated-800-35": {
    "cat": "handlebar",
@@ -33257,11 +33243,11 @@
   },
   "st-fsa-grid-35": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.fsaproshop.com/products/grid-stem-o35mm-clamp",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-evil-12-gauge-35": {
    "cat": "stem",
@@ -33369,11 +33355,11 @@
   },
   "st-bikeyoke-barkeeper-35-45": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bikeyoke.com/en/barkeeper/bark35",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-nukeproof-neutron-am-318-45": {
    "cat": "stem",
@@ -33817,11 +33803,11 @@
   },
   "st-industrynine-mountain-40-35": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/mt",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-deity-copperhead-35-42": {
    "cat": "stem",
@@ -33961,11 +33947,11 @@
   },
   "st-intend-grace-fr-35-35": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.intend-blackline.com/products/grace-fr/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-twinworks-forged-55-318": {
    "cat": "stem",
@@ -34145,19 +34131,19 @@
   },
   "gr-ergon-ge10-evo": {
    "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ergonbike.shop/products/ergon-ge1-evo",
+   "note": "auto-promoted: already verified in catalog"
   },
   "gr-ergon-ga20": {
    "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ergonbike.shop/products/ergon-ga2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "gr-cotic-lockon": {
    "cat": "grips",
@@ -34481,11 +34467,11 @@
   },
   "gr-ergon-gxr": {
    "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ergonbike.shop/products/gxr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "gr-ocmountaincontrol-lockon": {
    "cat": "grips",
@@ -35489,11 +35475,11 @@
   },
   "sa-specialized-bridge-sport": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/bridge-sport/p/174747",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-nukeproof-neutron": {
    "cat": "saddle",
@@ -35593,11 +35579,11 @@
   },
   "sa-specialized-power-pro-mirror": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/power-pro-with-mirror/p/205611",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-liv-grit-sl": {
    "cat": "saddle",
@@ -36626,7 +36612,7 @@
   "ch-kmc-xglide-10": {
    "cat": "chain",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://kmcchain.us/products/xglide",
    "note": "auto-promoted: already verified in catalog"
@@ -36634,7 +36620,7 @@
   "ch-kmc-xglide-9": {
    "cat": "chain",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://kmcchain.us/products/xglide",
    "note": "auto-promoted: already verified in catalog"
@@ -36642,7 +36628,7 @@
   "ch-kmc-xglide-11": {
    "cat": "chain",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://kmcchain.us/products/xglide",
    "note": "auto-promoted: already verified in catalog"
@@ -36650,7 +36636,7 @@
   "ch-kmc-x11": {
    "cat": "chain",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://kmcchain.us/products/x11",
    "note": "auto-promoted: already verified in catalog"
@@ -36658,7 +36644,7 @@
   "ch-kmc-x11-microshift-advent-mx": {
    "cat": "chain",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://kmcchain.us/products/x11",
    "note": "auto-promoted: already verified in catalog"
@@ -36666,7 +36652,7 @@
   "ch-kmc-x10ept": {
    "cat": "chain",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://kmcchain.us/products/x10",
    "note": "auto-promoted: already verified in catalog"
@@ -36690,7 +36676,7 @@
   "ch-kmc-z8p3": {
    "cat": "chain",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://kmcchain.us/products/z8-3",
    "note": "auto-promoted: already verified in catalog"
@@ -36698,7 +36684,7 @@
   "ch-kmc-z8p3-acolyte": {
    "cat": "chain",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://kmcchain.us/products/z8-3",
    "note": "auto-promoted: already verified in catalog"
@@ -36714,7 +36700,7 @@
   "ch-kmc-x9ept-9": {
    "cat": "chain",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://kmcchain.us/products/x9",
    "note": "auto-promoted: already verified in catalog"
@@ -37130,7 +37116,7 @@
   "cb-gt-force-comp": {
    "cat": "completebike",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://gtbicycles.com/products/force-comp",
    "note": "auto-promoted: already verified in catalog"
@@ -39282,7 +39268,7 @@
   "cb-gt-force-carbon-elite": {
    "cat": "completebike",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.gtbicycles.com/products/force-carbon-elite",
    "note": "auto-promoted: already verified in catalog"
@@ -39290,7 +39276,7 @@
   "cb-gt-sensor-carbon-elite": {
    "cat": "completebike",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.gtbicycles.com/products/sensor-carbon-elite",
    "note": "auto-promoted: already verified in catalog"
@@ -39298,7 +39284,7 @@
   "cb-gt-zaskar-lt-expert": {
    "cat": "completebike",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://gtbicycles.com/products/zaskar-lt-expert",
    "note": "auto-promoted: already verified in catalog"
@@ -39450,7 +39436,7 @@
   "cb-gt-fury-carbon-pro": {
    "cat": "completebike",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://gtbicycles.com/products/fury-carbon-pro",
    "note": "auto-promoted: already verified in catalog"
@@ -39538,7 +39524,7 @@
   "cb-giant-reign-advanced-2": {
    "cat": "completebike",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.giant-bicycles.com/us/reign-advanced-2-2025",
    "note": "auto-promoted: already verified in catalog"
@@ -39938,7 +39924,7 @@
   "cb-liv-pique-advanced-29-2": {
    "cat": "completebike",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.liv-cycling.com/us/pique-advanced-29-2",
    "note": "auto-promoted: already verified in catalog"
@@ -39946,7 +39932,7 @@
   "cb-liv-intrigue-x-advanced-2": {
    "cat": "completebike",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.liv-cycling.com/us/intrigue-x-advanced-2",
    "note": "auto-promoted: already verified in catalog"
@@ -40098,7 +40084,7 @@
   "cb-giant-fathom-2": {
    "cat": "completebike",
    "status": "Verified",
-   "updated": "2026-07-18T02:35:46.643Z",
+   "updated": "2026-07-18T03:13:42.822Z",
    "error": null,
    "source": "https://www.giant-bicycles.com/us/fathom-2-2025",
    "note": "auto-promoted: already verified in catalog"
