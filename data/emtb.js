@@ -718,6 +718,20 @@ var EMTB_PARTS = [
     disciplines: ['e-trail', 'e-enduro'], weight: 22800, price: 6800,
     note: 'Direct-to-consumer German full-power e-MTB; strong value-to-spec ratio.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Vitus (new maker, budget DTC brand) — E-Sommet
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-vitus-e-sommet-27', cat: 'emtb', brand: 'Vitus', model: 'E-Sommet 27',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    batteryWh: 625, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '275', suspension: 'full', travelFront: 170, travelRear: 165,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
+    disciplines: ['e-enduro'], weight: 25600, price: 4800,
+    note: 'Budget direct-to-consumer gravity e-MTB; 27.5in wheels, Bosch CX motor.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
