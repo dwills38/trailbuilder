@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T03:16:28.540Z",
+ "updated": "2026-07-18T13:11:00.454Z",
  "batchSize": 25,
- "lastCompleted": "ro-sram-centerline-160-6b",
+ "lastCompleted": "fr-trek-remedy-c",
  "currentCategory": "frame",
  "queue": [
   "fr-yt-capra-al",
@@ -16,8 +16,6 @@
   "fr-scott-ransom-900-rc",
   "fr-orange-switch-6",
   "fr-commencal-clash-v3",
-  "fr-trek-remedy-al",
-  "fr-trek-remedy-c",
   "fr-giant-trance-x-advanced-sx",
   "fr-transition-smuggler-alloy",
   "fr-rockymountain-slayer-alloy",
@@ -92,7 +90,6 @@
   "fr-pivot-shadowcat",
   "fr-cannondale-scalpel-ht",
   "fr-cannondale-scalpel",
-  "fr-trek-roscoe-gen4",
   "fr-ragley-marley",
   "fr-ragley-piglet",
   "fr-gt-zaskar-lt-alloy",
@@ -110,7 +107,6 @@
   "fr-kona-honzo-esd",
   "fr-marin-san-quentin-2",
   "fr-marin-san-quentin-3",
-  "fr-trek-xcaliber-8",
   "fr-giant-fathom-1",
   "fr-giant-talon-1",
   "fr-giant-talon-2-2027",
@@ -1257,7 +1253,6 @@
   "pd-polygon-oe-flat",
   "bk-magura-mt8-sl-fm",
   "bk-sram-code-r",
-  "bk-shimano-m6120",
   "bk-magura-gustav-pro",
   "bk-shimano-mt410",
   "bk-shimano-mt420",
@@ -1270,7 +1265,6 @@
   "bk-tektro-m275",
   "bk-tektro-m5140",
   "bk-sram-guide-g2-r",
-  "bk-sram-code-silver-stealth",
   "bk-sram-level-tl",
   "bk-shimano-mt400",
   "bk-sram-guide-r",
@@ -1346,7 +1340,6 @@
   "sft-microshift-advent-m9295",
   "sft-sram-nx-11",
   "sft-sram-gx-dh",
-  "sft-shimano-cues-sl-mt500-10",
   "sft-shimano-deore-m5100",
   "sft-shimano-deore-m4100",
   "sft-microshift-advent-mx-m7115",
@@ -25023,14 +25016,6 @@
    "source": "https://praxiscycles.com/product/m30-bb86-road/",
    "note": "auto-promoted: already verified in catalog"
   },
-  "hs-canecreek-fifty-zs44-zs56": {
-   "cat": "headset",
-   "status": "Verified",
-   "updated": "2026-07-13T16:16:45.499Z",
-   "error": null,
-   "source": "https://canecreek.com/products/fifty",
-   "note": "auto-promoted: already verified in catalog"
-  },
   "hs-canecreek-fifty-zs56-zs56": {
    "cat": "headset",
    "status": "Verified",
@@ -25865,19 +25850,19 @@
   },
   "fr-trek-remedy-al": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:11:00.163Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "No Trek service-manual PDF found for Remedy (searched extensively); trekbikes.com product page JS-walled (confirmed again via direct bdata scrape - nav only). Existing Vital MTB + WebSearch sourcing left as-is, already documented with flags in desc. No new manufacturer data this session."
   },
   "fr-trek-remedy-c": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:11:00.453Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same wall as Remedy AL sibling - no manufacturer PDF found, trekbikes.com JS-walled (bdata confirmed). No new data this session."
   },
   "fr-trek-full-stache-8": {
    "cat": "frame",
@@ -26449,11 +26434,11 @@
   },
   "fr-trek-roscoe-gen4": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:08:17.498Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "udh/frameOnly/price/weight corrected via 99spokes structured spec + cyclonline review (both non-manufacturer); trekbikes.com JS-wall confirmed again via bdata. Bar not met for verified:true - flag for future direct-fetch attempt."
   },
   "fr-merida-big-trail-300": {
    "cat": "frame",
@@ -26785,11 +26770,11 @@
   },
   "fr-trek-xcaliber-8": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:10:59.698Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "headset straight->tapered corrected (real bug: prior entry conflated separate headset+head-tube fields on the source page); trekbikes.com JS-wall confirmed again via bdata. Bar not met for verified:true."
   },
   "fr-giant-fathom-1": {
    "cat": "frame",
@@ -27415,14 +27400,6 @@
    "source": "https://www.maxxis.com/us/tire/assegai/",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ti-maxxis-dissector-29-24-exo-3cmt": {
-   "cat": "tire",
-   "status": "Verified",
-   "updated": "2026-07-17T18:56:38.957Z",
-   "error": null,
-   "source": "https://www.maxxis.com/us/tire/dissector/",
-   "note": "auto-promoted: already verified in catalog"
-  },
   "ti-maxxis-ardent-race-29-22-exo": {
    "cat": "tire",
    "status": "Pending",
@@ -27846,22 +27823,6 @@
    "error": null,
    "source": null,
    "note": null
-  },
-  "ti-maxxis-highroller-iii-29-24-dh-mg": {
-   "cat": "tire",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
-   "source": "https://www.maxxis.com/us/tire/high-roller-iii/",
-   "note": "auto-promoted: already verified in catalog"
-  },
-  "ti-maxxis-highroller-iii-275-24-dh-mg": {
-   "cat": "tire",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
-   "source": "https://www.maxxis.com/us/tire/high-roller-iii/",
-   "note": "auto-promoted: already verified in catalog"
   },
   "fw-raceface-ar30-factor-29": {
    "cat": "frontwheel",
@@ -28798,14 +28759,6 @@
    "error": null,
    "source": null,
    "note": null
-  },
-  "fw-dtswiss-f1900-classic-29-dh": {
-   "cat": "frontwheel",
-   "status": "Verified",
-   "updated": "2026-07-18T03:13:42.822Z",
-   "error": null,
-   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
-   "note": "auto-promoted: already verified in catalog"
   },
   "fw-giant-am30-29": {
    "cat": "frontwheel",
@@ -35743,14 +35696,6 @@
    "source": null,
    "note": null
   },
-  "bk-shimano-m6120": {
-   "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
   "bk-tektro-m275": {
    "cat": "brake",
    "status": "Pending",
@@ -35782,14 +35727,6 @@
    "error": null,
    "source": "https://www.sram.com/en/service/models/db-g2-r-a2",
    "note": "auto-promoted: already verified in catalog"
-  },
-  "bk-sram-code-silver-stealth": {
-   "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
-   "error": null,
-   "source": null,
-   "note": null
   },
   "bk-sram-level-tl": {
    "cat": "brake",
@@ -36128,14 +36065,6 @@
    "note": "auto-promoted: already verified in catalog"
   },
   "sft-sram-gx-dh": {
-   "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "sft-shimano-cues-sl-mt500-10": {
    "cat": "shifter",
    "status": "Pending",
    "updated": "2026-07-17T14:04:42.920Z",
