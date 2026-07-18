@@ -1,5 +1,17 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — compat-dot accessibility fix LIVE (the audit's twice-confirmed HIGH closed)
+
+- ui/dot-contrast-fix merged + shipped: per-theme --dot-ring token (light 6.28:1 vs the old
+  ~1.1:1; dark/loam/rad 12-14:1) + state glyphs (✓/!/✕/–, one glyph color clearing 3:1 on all
+  four fills, worst 3.78:1) + legend unified to the same classes (no more inline-style fork) +
+  the garage dot ringed. Fill hexes, engine, verdictKey untouched; zero layout shift (11.00px
+  in all 32 theme×state combos). Coordinator independently re-measured the shipped CSS
+  in-browser — matches the worker's table exactly. Copy nuance accepted: grey legend label now
+  "Nothing selected yet — no data to judge" (avoids colliding with Verified-badge semantics).
+  Known non-issue noted: ring paints 1px at DPR1 (Chrome rounding), 1.5px on retina —
+  compliance is color-based. WCAG 1.4.11 + 1.4.1 on the dots: CLOSED, all themes, both pages.
+
 ## 2026-07-18 — EMTB build-out phase COMPLETE: 75 bikes / 28 makers (off-live)
 
 - The EMTB all-nighter declared closeout and merged (2d876c4): 10 seeds → 75 models across 28
