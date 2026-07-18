@@ -1,11 +1,11 @@
 # Cornering — Coach Corpus
 
 **Maturity: professional** (L1 core solid; round 2, 2026-07-17 added dedicated berm-line and
-switchback progressions, closing most of the L2 corner-type gap — the pivot/cutty family for
-ultra-tight switchbacks is flagged but deliberately not laddered yet, see Gaps). Flat · bermed ·
-off-camber corners · line choice; dedicated switchback technique (COR-10). Read
-[`INDEX.md`](INDEX.md) first (corpus rules, tiers, SAFETY-FIRST PROGRESSION, tacit-layer
-disclaimer).
+switchback progressions; round 3, 2026-07-18 unblocked and laddered the stoppie-pivot family
+(COR-15/COR-16) for ultra-tight switchbacks — the "cutty" controlled-slide technique remains
+flagged-not-laddered, see Gaps). Flat · bermed · off-camber corners · line choice; dedicated
+switchback technique (COR-10); the stoppie-pivot escalation (COR-16). Read [`INDEX.md`](INDEX.md)
+first (corpus rules, tiers, SAFETY-FIRST PROGRESSION, tacit-layer disclaimer).
 
 Fact IDs are stable and append-only (`COR-n`). Every skill fact carries **Prereq / Gear /
 Progression**. Cornering is widely called *the* most impactful skill a rider can develop — where
@@ -259,6 +259,99 @@ as a named, flagged L3-adjacent gap rather than omitted or taught out of order.
 - *Tier:* B, single-source depth (Mark Hower MTB for the stoppie pivot; bike198.com for the nose
   pivot / cutty) — not yet B-consensus, and explicitly NOT safety-graded for inclusion as a taught
   skill this round.
+- **COR-10b SUPERSEDED BY COR-16 (round 3, 2026-07-18)** — the stoppie/front-brake-lift prerequisite
+  this fact was blocked on is now sourced and laddered as COR-15; the pivot technique itself is now
+  laddered as COR-16. Kept here per corpus rule 1 (append-only correction, not an in-place rewrite)
+  so the history of *why* this was withheld stays legible.
+
+---
+
+## The pivot-turn family, unblocked (round 3, 2026-07-18)
+
+**COR-15 — The controlled stoppie: smoothly-applied front brake plus a forward weight shift lifts
+the rear wheel in control; release the brake — never the weight — to descend, and bail by
+shifting weight back rather than by grabbing more brake.** This is the prerequisite COR-10b named
+as missing. A stoppie combines "a combination of weight and front brake" — the front brake alone,
+grabbed hard, sends the rider over the bars with no control; too little brake barely lifts the
+rear wheel a few inches. The skill is finding the middle: gradually pull the front brake lever to
+decelerate, then shift weight slightly forward, which is what actually lifts the rear wheel — the
+brake and the weight shift are doing the lift together, not the brake alone. Once the rear wheel is
+up, a genuine **balance point** exists (a rider can "sit in a stoppie for seconds at a time") that
+is found and held the same way a manual's balance point is (TER-5) — through small, continuous
+adjustment, here via front-brake pressure rather than the manual's hip/leg extension. **The bail-out
+is not a lever release** — slamming the brake open drops the rear wheel hard and can throw the
+rider forward; the coach-endorsed correction is to **slowly and smoothly release the front brake**
+while countering with weight shifted back, the mirror image of TER-5's "cover the rear brake, tap
+to bail" for the opposite end of the bike.
+- *Prereq:* TER-5 (the manual — the balance-point-holding skill this fact directly parallels, on
+  the opposite wheel), BRK-1/BRK-2 (front-brake primacy and progressive lever application — a
+  stoppie is front braking taken past the point BRK-1 warns against, done deliberately and in
+  control rather than by accident), FND-1 (ready position).
+- *Gear:* helmet; practice on pavement or another firm, non-skid surface specifically — the source
+  notes tire skid on loose surfaces compromises the control this skill depends on; flat pedals
+  reduce the consequence of an unplanned dismount while learning.
+- *Progression:* **introduce** on flat, firm ground, rolling at a controlled speed with weight
+  centred — apply the front brake gently enough to get only inches of rear-wheel lift, treating
+  that as success rather than a failure to "do a real stoppie" → **develop** by gradually increasing
+  brake pressure/forward weight shift to hold the balance point for longer → **commit** to holding
+  the balance point deliberately for several seconds, and to the smooth-release bail, before ever
+  combining this with the pivot rotation in COR-16. Do not attempt COR-16 until the plain stoppie
+  (straight-line, no rotation) is comfortable and repeatable.
+- *Common errors → corrections:* slamming the front brake → poor control, over-the-bars risk;
+  apply smoothly, like BRK-2's "dimmer, not a switch." Insufficient brake pressure → the rear wheel
+  barely lifts; this is a calibration problem to solve with practice reps, not a reason to grab
+  harder. Panic-releasing the lever at the balance point → a jarring, uncontrolled drop; release
+  slowly and smoothly instead, shifting weight back to counter as the rear wheel comes down.
+- *Tier:* B. Source: PUSH (Action Sports Tutorials) *How to Stoppie on a Mountain Bike* (the
+  weight-plus-front-brake mechanism, the balance-point framing, the smooth-release bail technique,
+  the firm-surface practice recommendation, the inches-first progression framing).
+
+**COR-16 — The stoppie pivot: once a plain stoppie is solid, rotate the lifted rear wheel toward
+the exit by leading with the shoulders (not the bars), using front-brake pressure to control the
+rear wheel's height throughout the pivot.** The technique COR-10b named and withheld now has its
+prerequisite (COR-15) sourced, so it can be laddered. Use case: switchbacks geometrically tighter
+than the bike's wheelbase can complete with COR-10's standard technique — narrow trails, steep
+terrain with no room to arc. Sequence: (1) **controlled approach** — enter slowly but with enough
+momentum to complete the rotation smoothly; too little speed prevents a smooth pivot; (2) **initiate
+the stoppie** exactly as in COR-15, smooth front-brake application, eyes already on the turn exit;
+(3) **lead with the upper body** — rotate the shoulders toward the exit direction; "your hips and
+rear wheel will naturally follow your upper body," the same shoulders-lead-the-bike mechanism
+COR-10 already establishes for standard switchbacks, here applied while the rear wheel is
+unweighted and free to swing; (4) **modulate the pivot via brake pressure** — too much braking
+causes a skid or over-rotation, too little prevents adequate lift, so the rear wheel's height (and
+therefore how freely it can swing) is controlled continuously through the front brake, not set once
+at the start; (5) **exit** by lowering the rear tire and straightening the front wheel together,
+aiming to land the rotation balanced, without a foot dab.
+- *Prereq:* **COR-15 (the plain stoppie) — mandatory, not optional; do not skip to this fact.**
+  Also COR-10 (standard switchback technique — this is the extreme-tightness escalation of it, not
+  a replacement), FND-7 (bike-body separation / shoulder-leads-hips, the same mechanism COR-10
+  already applies at low speed), TER-4 (rear wheel lift — a related but distinct rear-end control
+  skill worth having solid first).
+- *Gear:* helmet, dropper fully down; given the consequence of a mistimed pivot on a steep
+  switchback (COR-10b's own warning: "a mistimed pivot can send a rider off the outside edge"),
+  treat this as exposure-graded like COR-10 — practice somewhere a stalled or missed pivot has a
+  safe, flat runout before ever attempting it with real exposure.
+- *Progression:* **introduce** the shoulder-rotation-while-stoppied motion on flat, open ground with
+  no turn to actually complete — get the rear wheel up (COR-15), rotate the shoulders partway, set
+  it back down, no pressure to finish a real pivot yet → **develop** by completing small rotations
+  (a quarter turn) on flat ground until the brake-modulation-through-the-rotation feels controlled,
+  not rushed → **commit** to a real, low-consequence practice switchback (the same built practice
+  shape COR-10 recommends: flat base, short 2–3 ft incline to a flat top) before ever attempting a
+  trail switchback tight enough to require this technique over COR-10's standard approach.
+- *Common errors → corrections:* excessive front-brake pressure during the pivot → skid or
+  over-rotation past the intended exit line; ease pressure rather than holding it constant.
+  Insufficient pressure → the rear wheel drops before the rotation completes; this is the same
+  calibration problem COR-15 teaches, now happening mid-rotation instead of at a standstill.
+  Steering with the handlebars instead of the shoulders → fights the pivot instead of leading it,
+  identical to COR-10's standard-switchback error, worse here because the front wheel is also the
+  brake's pivot point. Excessive inside lean before the rear tire has actually touched back down →
+  the pivot's most consequence-heavy mistake; keep the bike level until the rear wheel is grounded,
+  then commit to the exit line.
+- *Tier:* B, single-source depth (same tier COR-10b carried, now applied to a laddered rather than
+  withheld fact — flagged for future corroboration, not yet B-consensus). Source: Mark Hower MTB
+  (*How to Ride Tight MTB Switchbacks Using a Stoppie Pivot* — the full step-by-step sequence
+  above, the explicit "master a standard stoppie first" prerequisite statement, the shoulder-leads-
+  hips mechanism, the brake-modulates-height framing).
 
 ---
 
@@ -309,10 +402,13 @@ written pending a coordinator/mechanic-review call.
 ---
 
 ## Gaps
-- **Drift/controlled-slide cornering (the "cutty")** and the **stoppie-pivot / nose-pivot family**
-  for ultra-tight switchbacks are named (COR-10b) but explicitly not laddered — the highest-priority
-  L2/L3 gap remaining in this chapter, blocked on a stoppie/front-brake-lift prerequisite this
-  corpus hasn't sourced yet.
+- **The stoppie-pivot family for ultra-tight switchbacks — RESOLVED round 3 (2026-07-18)** via
+  COR-15 (the plain controlled stoppie, the prerequisite COR-10b was blocked on) and COR-16 (the
+  pivot itself). **Drift/controlled-slide cornering (the "cutty")** specifically remains unladdered
+  — bike198.com's cutty content was not independently fetched/sourced this round, so it stays a
+  named, flagged, not-yet-laddered technique distinct from the now-resolved stoppie pivot. Both
+  COR-15 and COR-16 are single-source depth, not yet B-consensus — corroboration is the next step
+  before this could be considered `master`-level rather than `professional`.
 - ~~**No measured lean-angle / speed relationship**~~ **ADDRESSED 2026-07-17 (COR-12/COR-13):**
   `tan θ = v²/gr` and the combined-CoM basis of bike-body separation are now grounded (Cain 2010).
   Remaining Tier-C depth: no MTB-specific loose/off-camber tyre-grip data (the steady-turn models

@@ -339,10 +339,62 @@ pivot / nose pivot / cutty) is separately flagged in `cornering.md` COR-10b as N
 - *Prereq:* COR-8, CLD-5, TER-4 (rear wheel lift).
 - *Tier:* B-consensus — see `cornering.md` COR-10 for the full citation set.
 
-**TER-10 — Steeps & chutes are the committed rung of the descending ladder (CLD-5).** Unchanged —
-dedicated drop-in/chute-entry technique is still **not yet fetched**, remains an L2 gap.
-- *Prereq:* CLD-5, BRK-3.
-- *Tier:* B-consensus for what's cross-referenced; committed-chute cues still an L2 gap.
+**TER-10 — Steeps & chutes: bend forward from the hips (not the waist) to keep weight through the
+bottom bracket, shift braking bias hard toward the rear as gradient increases, scout and commit
+fully — no half-measures.** Round 3 (2026-07-18) fetches the committed-rung technique flagged as a
+gap since the bootstrap round, closing it. **Body position:** bend forward at the hips as the front
+wheel drops into the chute — counterintuitive, but it lowers the chest and keeps useful bend in the
+arms rather than straightening them; legs stay perpendicular to *flat* ground (not to the slope),
+which keeps weight running through the bottom bracket and cranks rather than being thrown onto the
+hands. Adjust how far forward you lean to the steepness of the specific slope, not a fixed angle.
+**Braking bias inverts as gradient increases:** minimize front-brake use on steep terrain — grabbing
+front brake here unbalances the bike (worse on loose/rutted ground) and can drag the front wheel
+out of a rut — and shift toward the rear brake instead; independently corroborated by a named World
+Cup DH/Olympic-level source: "the steeper the trail, the more you want to use your rear brake and
+shift your weight back over the rear tire to maintain pressure and traction... feather and minimize
+your front-brake use. The last thing you want is to lock up the front wheel on the steepest
+sections." This is a *sustained bias for the duration of the steep section*, distinct from
+`discipline-craft.md` DSC-9's maximal-braking technique, which is a short, deliberate burst used to
+shed speed before or between steep pitches, not a riding position held throughout one. **Undulation
+management:** squash (let the bike come up into you) over rises and pump (press the bike into the
+terrain) through troughs while riding the chute — the same TER-2 pumping mechanic applied to a
+steep, committed line rather than a rolling one. **Commitment:** braking is finished *before*
+dropping in wherever the terrain allows ("once you enter a steep section, it can be too late to
+adjust speed"), and the honest, repeated coaching cue across sources is to commit fully once
+you've started — hesitating or breaking the move up mid-chute is explicitly named as the failure
+mode, not a safer middle ground. On chutes with more direction-change than a straight fall line,
+prefer the entry/line that minimizes changes in direction, and use any shallower, grippier ground
+before and after the steep pitch to set up and regain control rather than trying to adjust mid-
+chute.
+- *Common errors → corrections:* "hanging off the back" (sitting far back with straight arms) →
+  named explicitly as counterproductive: it "gives you zero front wheel grip, bucks you forward if
+  you hit a bump, and gives you the least amount of stability" — bend from the hips and keep weight
+  through the bottom bracket instead of retreating behind it. Grabbing front brake on the steepest
+  ground → locks the front wheel with no steering left; feather rear-biased braking instead. Half-
+  committing or breaking the move up partway through → increases risk rather than reducing it; the
+  coaching consensus is scout fully, then commit fully.
+- *Prereq:* CLD-5 (steep-descent weighting — this is CLD-5's committed extreme), BRK-3 (threshold/
+  release-and-reapply — the rear-bias braking still needs threshold control, not a stomp), TER-2
+  (pumping, for the squash/pump-through-undulations layer), FND-1/2 (ready position, heavy feet).
+- *Gear:* full-face/more protection as consequence increases (cross-ref `discipline-craft.md`
+  DSC-4's gear-escalation note); a dropper post fully down; always scout the chute's entry, line,
+  and runout before committing, especially where the exit or landing is blind.
+- *Progression:* **introduce** the forward-hip-bend/legs-perpendicular-to-flat-ground position and
+  the front-to-rear braking-bias shift on a short, low-consequence steep pitch with a known, open
+  runout → **develop** by adding the squash/pump undulation-management layer once the base position
+  and braking bias are automatic → **commit** to longer, more consequential chutes only once the
+  shorter version is clean and controlled every time; never scale up steepness and blind/unfamiliar
+  terrain in the same session.
+- *Tier:* B-consensus (three independent sources, one a multi-time World Cup/Olympic-level named
+  practitioner). Source: BikeRadar (*How to conquer steep chutes* — hip-bend/legs-perpendicular
+  body position, minimize-front-brake-on-steeps, squash-and-pump undulation management, the
+  "hanging off the back" failure-mode critique), mbaction.com (*How to Ride Down Crazy-Steep
+  Trails* — Geoff Kabush, Canadian national champion/World Cup winner/three-time Olympian: the
+  rear-brake-bias-and-weight-back-while-minimizing-front-brake cue verbatim-quoted above, brake-
+  before-you-can't-adjust framing, straight-line/minimize-direction-change line choice, using
+  shallower-traction sections to set up and recover; Brett Tippie, Whistler DH pioneer:
+  scout-in-run-and-out-run-first, full commitment, keep wheels rolling not locked, attack-position
+  transfer with weight low).
 
 ---
 
@@ -374,7 +426,10 @@ dedicated drop-in/chute-entry technique is still **not yet fetched**, remains an
 - Manual (TER-5) + wheel lifts → bunny hop (TER-6) → jump pop phase (TER-8).
 - Rock gardens/roots (TER-8b) → cornering vision (COR-1) and the grip budget (BRK-5), applied to
   chatter instead of a single corner.
-- Steeps/switchbacks → the descending and cornering chapters (their parent skills).
+- Steeps/switchbacks → the descending and cornering chapters (their parent skills). Steeps
+  specifically (TER-10) → `discipline-craft.md` DSC-9 (the DH-specific maximal-braking burst
+  technique, a distinct sibling to TER-10's sustained rear-brake-bias position) and DSC-4 (calm-
+  ground braking-point discipline, the flatter-terrain counterpart).
 
 ### Common errors across the whole ladder (cross-maneuver patterns)
 - **Arm-only lifting/pulling** (wheel lifts, manual, bunny hop, jump pop) is the single most
@@ -448,12 +503,15 @@ rung sits lowest and most load-bearing in the ladder (TER-1).
 ---
 
 ## Gaps (updated — what's left for the next round)
-- **Switchback-specific cornering technique (TER-9)** — RESOLVED this round via `cornering.md`
-  COR-10 (dedicated fetched progression). The ultra-tight pivot-turn family (stoppie pivot/nose
-  pivot/cutty) remains explicitly flagged-not-laddered (COR-10b) — still a real gap, but named and
-  scoped rather than open-ended.
-- **Committed-chute/steep drop-in entry technique (TER-10)** — remains unfetched. Now the #1
-  cross-chapter gap alongside COR-10b.
+- **Switchback-specific cornering technique (TER-9)** — RESOLVED via `cornering.md` COR-10
+  (dedicated fetched progression). The ultra-tight pivot-turn family (stoppie pivot/nose pivot/
+  cutty) — **RESOLVED round 3 (2026-07-18) via `cornering.md` COR-15/COR-16**: the stoppie-control
+  prerequisite COR-10b was blocked on is now sourced and laddered; see that chapter.
+- **Committed-chute/steep drop-in entry technique (TER-10)** — **RESOLVED round 3 (2026-07-18):**
+  body position, braking-bias inversion, undulation management, and commitment discipline are now
+  fetched and laddered (BikeRadar + mbaction.com/Kabush+Tippie, B-consensus). Remaining thinness:
+  no source specifically addresses wet/loose steep-chute technique beyond the general BRK-7 surface-
+  reading cross-reference — a narrower L2/L3 gap, not the open committed-rung gap this used to be.
 - **L3 discipline application of this ladder** (DJ/park airtime control, whip/trick foundations,
   enduro-pace feature riding under fatigue) belongs to `discipline-craft.md`, not duplicated here —
   see that chapter's DSC-5.
