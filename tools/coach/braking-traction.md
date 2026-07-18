@@ -1,8 +1,11 @@
 # Braking & Traction — Coach Corpus
 
-**Maturity: foundation** (L1). Braking (front/rear, modulation, bracing) · traction & the grip
-budget · surface reading. Read [`INDEX.md`](INDEX.md) first (corpus rules, tiers, SAFETY-FIRST
-PROGRESSION, tacit-layer disclaimer).
+**Maturity: professional** (L1 core complete; round 3, 2026-07-18 added a measured
+modulation drill with milestones (BRK-12) and low-traction/wet-root braking technique (BRK-13),
+both with full Prereq/Gear/Progression triads — see Gaps for what still separates this chapter
+from `master`). Braking (front/rear, modulation, bracing) · traction & the grip budget · surface
+reading. Read [`INDEX.md`](INDEX.md) first (corpus rules, tiers, SAFETY-FIRST PROGRESSION,
+tacit-layer disclaimer).
 
 Fact IDs are stable and append-only (`BRK-n`). Every skill fact carries **Prereq / Gear /
 Progression**. Braking is, per multiple coaches, *the* highest-leverage technical skill —
@@ -123,6 +126,85 @@ is limited.
 
 ---
 
+## L2 depth: measured drills and low-traction conditions (round 3, 2026-07-18)
+
+**BRK-12 — A measured modulation drill with milestones: mark stopping distance with a stick and
+compare across a fixed lap sequence, isolating rear-only, front-only, and combined braking in
+turn.** Closes the "no modulation-drill progression with measurable milestones" gap named since the
+bootstrap round. On a gentle, straight, known slope, run a fixed sequence and mark where the bike
+actually stops each time (a stick in the ground, or a chalk line) so progress is visible rather than
+felt: (1) a baseline lap braking hard with both brakes, to set a reference stopping point; (2) a lap
+using **rear brake only, deliberately skidding**, to feel — concretely, by comparing the mark — how
+much stopping power a locked rear wheel actually costs versus what BRK-3 already teaches
+conceptually; (3) a lap with **modulated rear brake, no skid**, marking the (shorter) stopping
+distance this produces; (4) a lap with **modulated front brake only**, which should out-stop the
+rear-only laps by a visible margin, giving BRK-1's "front brake does most of the work" claim a
+concrete, measured referent rather than an assertion to take on faith; (5) a final lap combining
+modulated front and rear together. This is the same progressive-braking skill BRK-2/BRK-3 already
+teach, staged as a **drill with an objective measurement** rather than a described sensation — the
+stick-in-the-ground marks give a coach (or a self-coaching rider) something to compare across
+sessions.
+- *Prereq:* BRK-1..3 (front-brake primacy, progressive squeeze, threshold/release-and-reapply — this
+  drill measures those concepts, it does not replace learning them first).
+- *Gear:* helmet; a gentle, straight, firm, known slope with room to run out; sticks or chalk to
+  mark stopping points.
+- *Progression:* run the five-lap sequence as described, in order, on the same slope so distances
+  are comparable → repeat the sequence on a different (e.g. looser or steeper) slope only once the
+  firm-surface version shows the expected pattern (front > rear > skidded-rear, in stopping
+  effectiveness) → use the same drill structure periodically as a self-check, not just a one-time
+  exercise, since braking calibration per BRK-11 is a trained, not fixed, skill.
+- *Tier:* B. Source: Trek (*Mountain Bike Braking Basics, Techniques & Control* — the five-lap
+  measured drill sequence with stick-marked stopping distances, the rear-skid-vs-modulated
+  comparison, the front-vs-rear stopping-distance comparison).
+
+**BRK-13 — Low-traction terrain (wet roots, mud, slick rock): finish braking before the slick
+section, release through it, resume after — and lighten the front brake specifically whenever the
+bike is leaned or turning.** Closes the "no wet-weather / mud-specific braking depth" gap. The
+core technique is a **split**, not a continuous brake: brake in the straight, predictable, grippy
+sections **between** hazards, release smoothly as the wheel crosses a wet root or slick patch
+(braking exactly on it is "a sure way to slide out"), then reapply braking once back on grippy
+ground — the same brake-before-not-during logic BRK-4 teaches for corners, applied to a hazard
+instead of a corner's whole arc. **Lean-angle-scaled front-brake reduction**: whenever the bike is
+leaned or turning at all, ease off the brakes — especially the front — since the tyre's grip is
+already partly spent on cornering force (the grip budget, BRK-5/BRK-10) before any braking is added;
+this is BRK-5's mechanism made into a concrete low-traction rule rather than an abstract "budget."
+**Line and body language matter as much as lever input**: choosing the most predictable line through
+a root/rock section (rather than the technically shortest one) lets braking zones be planned in
+advance instead of improvised mid-section, and staying loose and light (weight managed through the
+feet, per FND-5, rather than braced through the arms) lets the bike track the terrain instead of
+skipping across it under load.
+- *Prereq:* BRK-4/BRK-5 (brake-before-not-during, the grip budget — this fact is their direct
+  low-traction application), BRK-7 (surface reading), FND-5 (heavy feet, light hands — the "stay
+  loose" component).
+- *Gear:* helmet; practice on a known, low-consequence wet-root or loose section first, not an
+  unfamiliar one.
+- *Progression:* **introduce** the split-brake timing (brake before, release across, resume after)
+  on a single known wet root or slick patch at low speed, deliberately over-releasing rather than
+  under-releasing while learning → **develop** the lean-angle-scaled front-brake reduction by
+  noticing, on a known off-camber or loose corner, how little front brake is actually usable while
+  leaned → **commit** to linking multiple hazards in sequence (a string of wet roots, a loose,
+  rooty corner) once the single-hazard version is automatic. This directly feeds
+  `terrain-features.md` TER-8b's rock-garden/root braking-point content and `cornering.md` COR-8's
+  off-camber smooth-inputs rule — this fact is their shared braking mechanism, named once here.
+- *Common errors → corrections:* braking directly on a wet root or slick rock instead of before it
+  → the single most-cited slide-out cause in this material; move the braking zone earlier. Holding
+  normal (dry-surface) front-brake bias while leaned into a corner on loose or wet ground → spends
+  grip the tyre doesn't have to spare; lighten the front specifically, not just "brake less
+  overall." Aggressive/heavy braking generally in these conditions → "overly aggressive braking is a
+  big problem" here specifically, since low-traction terrain has far less margin than BRK-2's
+  firm-surface progressive-squeeze baseline assumes; treat the same dimmer-not-switch principle as
+  needing a gentler dimmer.
+- *Tier:* B-consensus. Source: Jeff Kendall-Weed (*How to Ride Wet Roots* — the split-braking
+  sequence quoted above, the lean-angle-scaled front-brake reduction, the predictable-line and
+  stay-loose supporting technique — a named practitioner/content creator already establishing a
+  coherent method across multiple fetched pages in this corpus's source base), MBR (*You've been
+  braking incorrectly all this time* — independently corroborating "brake where it's safe and let
+  go where it's difficult," naming cambers and steep-chute run-ups specifically as safe-braking
+  zones, and the rear-skid-is-more-recoverable-than-front-washout principle that grounds why the
+  front gets lightened first when grip is scarce).
+
+---
+
 ## PROGRESSIONS (the organizing principle)
 
 ### The ladder (what depends on what)
@@ -221,7 +303,13 @@ aggressive calibration is *earned*, per SAFETY-FIRST.
   (thetoliver.com) as an advanced technique but is **not yet a safe, laddered progression here** —
   it partly contradicts the clean "finish braking before you lean" L1 rule and needs a Tier-A/B
   treatment with its own prerequisites before it goes in as anything but a flagged advanced note.
-  L2/L3 gap. **Do not teach it as L1.**
-- **No wet-weather / mud-specific braking depth** — L2 gap.
-- **No modulation-drill progression with measurable milestones** (e.g. "brake to a mark") —
-  L2 gap; belongs with a coaching-methodology source.
+  L2/L3 gap. **Do not teach it as L1.** Unchanged this round.
+- ~~**No wet-weather / mud-specific braking depth**~~ **RESOLVED round 3 (2026-07-18) via BRK-13**
+  (Jeff Kendall-Weed, MBR — split-braking around hazards, lean-angle-scaled front-brake reduction).
+  Remaining thinness: no source specifically addresses deep mud (vs. wet roots/rock) or studded/
+  winter-specific tyre-and-brake interaction — a narrower gap than the open one this round closed.
+- ~~**No modulation-drill progression with measurable milestones**~~ **RESOLVED round 3
+  (2026-07-18) via BRK-12** (Trek's five-lap, stick-marked stopping-distance drill).
+- **The "flying catapult" common-error note (in PROGRESSIONS below) still has no dedicated
+  Prereq/Gear/Progression triad of its own** — it is folded into the common-errors list rather than
+  laddered as a stand-alone fact; a future round could split it out if it needs one.
