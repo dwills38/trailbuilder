@@ -1,5 +1,18 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — 🏁 BUILDMYBMX IS LIVE
+
+- The full pre-authorized pipeline completed: flip-prep merged (BMX validator wired into
+  validate.js as the third OK line — it caught + fixed the GT Speed Series axle slot-width trap;
+  Envy SL → confirmed RS7; Keyboard grip dedupe; disc message polish; suite 700 → 710) →
+  the held feat/buildmybmx-page branch merged (3 conflicts resolved: BMX nav button added,
+  emoji-free logo kept, CLAUDE.md rows combined + off-live language retired) → bmx.html matched
+  to the new emoji-free header. Browser-verified: 225 parts render, engine loads, pick →
+  "✓ No conflicts found", unverified-sample framing present, zero auto-popups, no console
+  errors, nav wired both directions. deploy.yml ships bmx.html + data/bmx.js.
+  **Final state at flip: 225 BMX rows / 59 verified (26.2%) / Opus-audited GO / Douglas's
+  Option A.** Per the MTB-flagship priority, BMX now PAUSES — no new BMX rounds by default.
+
 ## 2026-07-18 — shared-checkout orphan diff: attribution corrected, salvage routed to cleanup ledger
 
 - The +32-line uncommitted diff found in the shared D:\ checkout was NOT cb-sheets-4's work
