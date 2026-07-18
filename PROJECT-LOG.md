@@ -1,5 +1,15 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 (midday) — overnight closeout sweep: EMTB final batches merged; cleanup session retired
+
+- EMTB all-nighter's rebased chain merged (6ec0682): 66 bikes / 28 makers final for the
+  build-out phase, 0 verified by posture (verification is Douglas-gated). Worker queried for
+  its closeout declaration. The cleanup mega-pass session died overnight with every COMPLETED
+  cluster already merged — archived; its unfinished tail (Fasthouse lifecycle, Spur Deore,
+  drift-CHANGED corrections) becomes a fresh chip. Fleet now nearly quiet; pending-Douglas
+  list: EMTB 4 decisions, dot-contrast fix (the twice-confirmed HIGH), bdata top-up, EUR
+  policy, gravel design confirmations, coach memberships.
+
 ## 2026-07-18 — Pee Wee theme removed from live (preserved for re-add)
 
 - Douglas's call: 🎀 Pee Wee Herman mode OFF the live site, kept for possible return. Executed
