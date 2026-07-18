@@ -1,15 +1,18 @@
 # Wheels & Tires — Mechanic Corpus
 
-**Maturity: foundation** (L1 — general-public repair/compat literacy; see
-[`CURRICULUM.md`](CURRICULUM.md). This chapter has broad L1 coverage of wheel size, axles, and
-tire↔rim fit, plus foundation-level truing/tubeless/lacing terminology as of the 2026-07-17 L1
-deepening pass. An **L3 start** landed the same day (WHL-26 through WHL-34: DT Swiss's fetched
-spoke-tension target/tolerance tables + quantified stress-relief procedure, and Sapim's fetched
-fatigue-test protocols + spoke-breakage causal taxonomy) — still graded `foundation` overall
-because the L1 gaps below (torque-spec table, hub bearing/press-fit service) remain untouched and
-the L3 depth so far covers only two of the five L3 domains CURRICULUM.md lists for this chapter
-(wheel-building/spoke-tension is now underway; tubeless engineering has none). See "## Gaps"
-below for what's now closed vs still open.)
+**Maturity: foundation, with a new hub-internals L2 slice** (L1 — general-public repair/compat
+literacy; see [`CURRICULUM.md`](CURRICULUM.md). This chapter has broad L1 coverage of wheel
+size, axles, and tire↔rim fit, plus foundation-level truing/tubeless/lacing terminology as of
+the 2026-07-17 L1 deepening pass. An **L3 start** landed the same day (WHL-26 through WHL-34:
+DT Swiss's fetched spoke-tension target/tolerance tables + quantified stress-relief procedure,
+and Sapim's fetched fatigue-test protocols + spoke-breakage causal taxonomy). **2026-07-18:
+hub bearing/freehub internals landed too (WHL-36/37)** — DT Swiss's Ratchet-system freehub
+service (four mechanically distinct sub-variants) and Shimano's contrasting cup-and-cone
+architecture, closing this chapter's named round-4/5 pickup point. Still graded `foundation`
+overall: the torque-spec table remains thin (one spoke-nipple data point), and the L3 depth
+covers only two of the five L3 domains CURRICULUM.md lists for this chapter (wheel-building/
+spoke-tension is underway; tubeless engineering has none). See "## Gaps" below for what's now
+closed vs still open.)
 
 Wheel size · hubs · axles · rims · tires · ETRTO envelope · clearance.
 Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline, conventions).
@@ -267,6 +270,65 @@ a steel frame can be "cold set" (spread) to fit a wider modern hub, aluminum/car
 cannot. *Confidence: confirmed (fetched); dated source flagged explicitly.* Source:
 sheldonbrown.com "Bicycle Frame/Hub Spacing" (fetched 2026-07-17).
 
+## Hub bearings & freehub internals (L2 — DT Swiss + Shimano hub service manuals)
+
+**WHL-36 — DT Swiss's Ratchet freehub system is NOT a pawl-and-spring mechanism despite the
+generic "freehub pawls" language riders use — it's two toothed rings under spring pressure,
+and DT Swiss's own manuals document FOUR mechanically distinct Ratchet variants that are not
+interchangeable service procedures.** Ratchet (two loose ratchets, seal on the hub side),
+Ratchet EXP (one loose + one THREADED ratchet — the threaded ratchet screws into the hub
+shell and must be unscrewed with a dedicated tool before the bearing is accessible, "due to
+the torque acting on the ring nut during pedaling, the ring tightens while riding... requires
+a high force"), Ratchet LN, and Ratchet DEG (with an optional second "DF" ratchet/ring-nut
+stage) each have their OWN numbered disassembly sequence in DT Swiss's technical manuals —
+picking the wrong manual for a given hub's Ratchet sub-type risks damaging a part the
+procedure assumes is absent (e.g., attempting EXP's threaded-ratchet removal tool on a
+plain-Ratchet hub that has no threaded ratchet to grip). **Grease quantity is safety-critical,
+not cosmetic**: DT Swiss's explicit warning — *"If too much grease is applied on the ratchets,
+the actuation of the ratchets may not work. The ratchets may slip during pedaling"* — only a
+thin, even layer of the red DT Swiss-specific grease is correct; more is a functional failure,
+not just a maintenance nicety (contrast typical bearing grease, where more is rarely harmful).
+Hub bearings are sealed cartridge units pressed in/out with a dedicated installation cylinder
+(no cup-and-cone preload adjustment exists on these hubs at all — see WHL-37 for the
+architecturally different Shimano approach); a drive-side bearing is pressed to protrude
+**1-2 mm beyond the ratchet** before final seating, a specific tolerance, not "flush." Freehub
+spacer length is a documented failure-mode check, not just a part to reinstall: if a
+thru-axle over-tightening has compressed the spacer, DT Swiss gives an exact minimum
+length below which it must be replaced — **10.7 mm** (180-hub Ratchet EXP manual) /
+**15.4 mm** (Ratchet LN manual, a different hub family with a different-length spacer) —
+a spacer shorter than spec presents as a blocked/non-engaging freewheel that looks like a
+ratchet fault but is actually a compressed-spacer fault. *Confidence: confirmed (fetched
+primary, four separate technical manuals cross-checked for the variant-specific procedure
+claim).* Source: DT Swiss "Ratchet Hubs (180, 240, 350) Technical Manual" V2022.09
+(dtswiss.com/pmt/…/MAN_WXD10000000896S_WEB_EN_001.pdf, fetched) + "Ratchet EXP Hubs Technical
+Manual" V2022.01 + "Ratchet LN Hub Technical Manual" + "Ratchet DEG Hubs Technical Manual"
+(all dtswiss.com, fetched 2026-07-18).
+
+**WHL-37 ⚠ potential mechanic-education gap (not a catalog contradiction) — Shimano's hub
+architecture is fundamentally different from DT Swiss's, not just a different brand of the
+same design: cup-and-cone with a FEEL-ADJUSTED preload, not a sealed press-fit cartridge.**
+Shimano's dealer manuals describe tightening a **cone** against the bearing race by hand-feel
+("adjust the bearing preload") BEFORE torquing a separate **lock nut** against it to
+"double-lock the assembly" — the cone sets play/preload, the lock nut only prevents the cone
+from working loose, a two-step adjustment procedure with no DT Swiss equivalent (DT Swiss's
+cartridge bearings have no adjustable preload at all — replace the sealed unit, don't tune
+it). Lock-nut double-lock torque is genuinely model-specific, not one number: **18-20 N·m**
+(front hub, one dealer manual), **17-22 N·m** (freehub, general spec), **15-19 N·m**
+specifically for the WH-RX870/WH-RX570 wheel models — three different figures across a
+handful of fetched pages, the hub-bearing analog of this chapter's already-established
+"don't assume one torque spec generalizes" pattern (mirrors `cockpit-contact.md` CKP-12/13's
+bar/stem finding). **Mechanic takeaway with no engine-rule equivalent (this is technique
+knowledge, not a `checkBuild` fact — flagged per corpus convention for a genuinely different
+kind of fact, not a contradiction to an existing rule):** a mechanic who services a DT Swiss
+hub like a Shimano hub (hunting for a cone to adjust) or a Shimano hub like a DT Swiss hub
+(assuming the bearing is a sealed drop-in unit with no preload step) will get the job wrong in
+opposite ways — over-tightening a DT Swiss cartridge bearing seat that was never meant to be
+adjusted, or under/over-preloading a Shimano cone left too loose/tight because no torque spec
+alone captures the by-feel step. *Confidence: confirmed (fetched primary, multiple si.shimano.com
+dealer manuals).* Source: si.shimano.com "Hub Set (Disc Brake)" (DM-MAHB001, fetched) +
+(DM-GAWH001-03, DM-GAWH001-06, DM-HB0003-07, DM-LAHB001-01, DM-RAHB002-02, all si.shimano.com,
+fetched 2026-07-18).
+
 ## Spoke count & lacing (foundation)
 
 **WHL-25 — Spoke crossing pattern is named by how many other same-flange spokes each spoke
@@ -492,6 +554,16 @@ not a direct primary quote, so kept qualitative only here).
   +valve first, bead seated at high pressure (not riding pressure) second, sealant added/cured
   third — skipping or reordering these (or mixing non-tubeless-ready parts) is a setup failure
   mode independent of anything `checkBuild` currently checks (no tubeless field exists yet).
+- **A DT Swiss Ratchet EXP hub's threaded ratchet must come out before the bearing is
+  reachable at all** (WHL-36): the dedicated unscrewing tool is a hard prerequisite step, not
+  an optional shortcut — the manual explicitly warns the ring tightens further while riding,
+  so a mechanic skipping straight to "pull the bearing" on this specific Ratchet sub-variant
+  is stuck until the correct tool and step order is used.
+- **Shimano's hub preload is set by FEEL before the lock nut is ever torqued** (WHL-37): the
+  cone-then-lock-nut sequence is inherently two-step and order-dependent — torquing the lock
+  nut before the cone's play/preload is dialed in locks in whatever (wrong) preload the cone
+  happened to be at, the hub-bearing analog of `suspension.md` SUS-21/22/23's "sag before
+  damping" install-order rule.
 
 ### Wear / setup couplings
 - **Rim width shapes the tire's real profile:** a wide tire on a narrow rim balloons (squirm,
@@ -554,9 +626,20 @@ to target (per INDEX.md corpus rule 7 / CURRICULUM.md "target the weakest chapte
   cover setup mechanics and the "brands aren't always compatible" warning, but not *why* (latex
   vs. other sealant chemistry, clogging, burp-pressure-by-casing thresholds) — CURRICULUM.md's
   other named L3 example for this chapter.
-- **No hub bearing/press-fit engineering — L2/L3 gap, untouched this round.** Nothing here on
-  cup-and-cone adjustment procedure, cartridge-bearing press specs/tolerances, or freehub
-  pawl/ratchet service — this chapter covers axle *spacing/diameter* only, not hub internals.
+- **CLOSED 2026-07-18 (WHL-36/37) — hub bearing/freehub internals now sourced for both major
+  architectures.** DT Swiss's Ratchet-system freehub service (four mechanically distinct
+  sub-variants — Ratchet/EXP/LN/DEG — each with its own disassembly sequence, sealed cartridge
+  bearings with no adjustable preload, a safety-critical thin-grease-only warning, and two
+  documented minimum spacer lengths for the failure-mode check) and Shimano's architecturally
+  different cup-and-cone system (feel-adjusted cone preload set BEFORE a separate lock-nut
+  torque, with per-model torque figures ranging 15-22 N·m across the fetched pages). **Narrowed,
+  not fully closed:** Industry Nine (a third major MTB hub-brand, known for its own distinct
+  pawl-based engagement system) has no service internals sourced yet; and neither DT Swiss's
+  nor Shimano's *bearing press-fit tolerance* numbers (bore/shell dimensional specs, as opposed
+  to the *procedure*) were found on the fetched pages — `frame-standards-bearings.md`'s FRM
+  press-fit facts cover BB shells, not hub shells, so this remains a real cross-chapter gap.
+  **L2/L3 gap narrowed to: Industry Nine hub service + hub bearing dimensional press-fit specs
+  (as opposed to the assembly procedure, now sourced).**
 - **No general torque-spec table — L2 gap, one data point added.** WHL-34 adds one real number
   (Sapim TCS nipples: 200+ Nm without twisting) but that's a single spoke-system spec, not a
   torque table across thru-axle/rotor-bolt/cassette-lockring/spoke-nipple fasteners; WHL-23 still
