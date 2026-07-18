@@ -1,18 +1,31 @@
 # Wheels & Tires — Mechanic Corpus
 
-**Maturity: foundation, with a new hub-internals L2 slice** (L1 — general-public repair/compat
-literacy; see [`CURRICULUM.md`](CURRICULUM.md). This chapter has broad L1 coverage of wheel
-size, axles, and tire↔rim fit, plus foundation-level truing/tubeless/lacing terminology as of
-the 2026-07-17 L1 deepening pass. An **L3 start** landed the same day (WHL-26 through WHL-34:
-DT Swiss's fetched spoke-tension target/tolerance tables + quantified stress-relief procedure,
-and Sapim's fetched fatigue-test protocols + spoke-breakage causal taxonomy). **2026-07-18:
-hub bearing/freehub internals landed too (WHL-36/37)** — DT Swiss's Ratchet-system freehub
-service (four mechanically distinct sub-variants) and Shimano's contrasting cup-and-cone
-architecture, closing this chapter's named round-4/5 pickup point. Still graded `foundation`
-overall: the torque-spec table remains thin (one spoke-nipple data point), and the L3 depth
-covers only two of the five L3 domains CURRICULUM.md lists for this chapter (wheel-building/
-spoke-tension is underway; tubeless engineering has none). See "## Gaps" below for what's now
-closed vs still open.)
+**Maturity: foundation, with hub-service and wheel-building L2/L3 slices now covering most of
+the chapter's parts** (L1 — general-public repair/compat literacy; see
+[`CURRICULUM.md`](CURRICULUM.md). This chapter has broad L1 coverage of wheel size, axles, and
+tire↔rim fit, plus foundation-level truing/tubeless/lacing terminology as of the 2026-07-17 L1
+deepening pass. An **L3 start** landed the same day (WHL-26 through WHL-34: DT Swiss's fetched
+spoke-tension target/tolerance tables + quantified stress-relief procedure, and Sapim's fetched
+fatigue-test protocols + spoke-breakage causal taxonomy). **2026-07-18 (first pass): hub
+bearing/freehub internals landed (WHL-36/37)** — DT Swiss's Ratchet-system freehub service (four
+mechanically distinct sub-variants) and Shimano's contrasting cup-and-cone architecture.
+**2026-07-18 (second pass): five more facts landed (WHL-38 through WHL-42)** — WHL-38 closed
+WHL-35's cross-brand tensiometer problem with two actual fetched conversion charts (Park Tool
+TM-1 + a DT Swiss meter's Sapim calibration sheet); WHL-39 deepened tubeless install to real
+service-manual numbers (DT Swiss's 75 ml sealant fill / 10-15 cm tape overlap / hand-tight valve,
+Stan's tape-width rule); WHL-40 closed the WHL-36/37 gap note by adding Industry Nine's Hydra
+service architecture (a third distinct design, tool-free by philosophy) and confirmed Hope uses
+generic ISO cartridge bearings; WHL-41 landed the ERD/spoke-length trigonometry formula and
+measuring-stick method (an L1 theory gap, not L3, but previously undocumented); WHL-42 landed a
+fetched manufacturer restatement of the actual ETRTO/ISO 5775 rim-width×tire-width×pressure
+tables (Mavic), the direction-aware TC/TSS compatibility rule, and ENVE's mechanical explanation
+of why hookless tubeless works. **Still graded `foundation` overall, not `professional`:**
+wheel-size configuration and axle-spacing facts (WHL-1 through WHL-8) remain pure L1 — no
+service-manual depth on axle install torque or frame-spacing tolerances exists yet — so the L2/L3
+depth this chapter has built is concentrated in hubs, tubeless, wheel-building/tension, and tire-
+standard restatement, not spread across every part category CURRICULUM.md's "professional" bar
+requires ("meaningful L2 depth... across most of the chapter's parts" — axles/wheel-size are the
+holdout). See "## Gaps" below for what's now closed vs still open.)
 
 Wheel size · hubs · axles · rims · tires · ETRTO envelope · clearance.
 Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline, conventions).
@@ -191,6 +204,48 @@ Dictionary. *Confidence: confirmed (fetched, org's own site).* Source: etrto.org
 2026-07-17). Context fact for WHL-9/WHL-17 — explains why "ETRTO" is treated as the credible
 default envelope in this corpus (a standards body, not one brand's marketing).
 
+**WHL-42 — The ETRTO/ISO 5775 standard is paywalled itself, but Mavic publishes a fetchable
+technical-manual restatement of its actual rim-width × tire-width × pressure tables, and it
+encodes the same direction-aware, "lowest published max wins" pattern this corpus already uses
+for other envelope checks.** Mavic's own "ETRTO / ISO Recommended Rim-Tyre Combination" PDF
+(technicalmanual.mavic.com, fetched primary, authored in-house) opens by naming its source
+plainly: *"This organisation developed the ISO 5775 norm... Authorised tyre and rim compatibility
+in the following charts are directly issued from this norm"* — i.e. Mavic is restating, not
+inventing, the numbers. It distinguishes **TC (Tubeless Crotchet — hooked, "rim's internal
+flanges have hooks to maintain the tyre") from TSS (Tubeless Straight Side — hookless)** and
+states the compatibility is direction-aware exactly like WHL-10/11's tire-vs-rim pattern: *"TSS
+compatible tyres can usually also be used on TC setups, but TC compatible tyres can't be used
+[on] TSS setups"* and *"TSS runs at lower pressures than TC."* The published max-pressure table
+itself is granular by both rim internal width (15–100 mm, TC and TSS tracked separately) and
+tire width (23–75+ mm) — e.g. for a 700C/29" wheel, a 28 mm tire on a 19 mm-internal TC rim
+maxes at 6.73 bar (97.6 psi) but the same tire on the 19 mm TSS variant of that same nominal rim
+width maxes at only 5.59 bar (81.1 psi), quantifying "TSS runs lower" rather than leaving it
+qualitative. Mavic's own cross-check rule matches WHL-10's engine-pattern reasoning exactly:
+*"Don't forget to also check the maximum pressures allowed by both the rim and the tyre. Compare
+them with the pressure from the chart and if they are not the same, just use the lowest of the
+three."* Continental's own ETRTO-restatement pages (continental-tires.com, fetched primary)
+independently confirm the same "lowest value wins" doctrine with a worked example (tire-max 87
+psi vs rim-max 101 psi → follow 87 psi) and add a **quantified temperature effect not covered
+elsewhere in this chapter: inflation pressure rises roughly 0.17 bar (2.5 psi) per 10°C (18°F)
+rise in temperature**, relevant to why a pressure set at the shop can exceed a hookless max by
+the time a bike sits in a hot car or garage. ENVE's own hookless explainer (enve.com, fetched
+primary) gives the mechanical "why" TC's hook became optional: a tubeless tire's bead is
+"quite stiff" and seals against the rim's flat bead-seat shelf via air pressure and friction —
+the hook was originally developed for tubed clincher tires with lighter, more elastic Kevlar
+beads, not for tubeless — and cites the actual ISO 4210 blow-off test standard: a tire must hold
+110% of its stated max pressure (e.g. 5 bar/72.5 psi × 1.10) for five minutes, a test ENVE calls
+"widely known to be... inadequate," which is why ENVE's own internal qualification bar for a
+TSS-listed tire is stricter — 165% of the ETRTO/ISO max (120 psi against a 72.5 psi stated max in
+their example) rather than the ISO minimum of 110%. *Confidence: confirmed (fetched
+manufacturer restatements of the standard's actual numbers, three independent makers — Mavic's
+full table, Continental's cross-check doctrine, ENVE's mechanical explanation and test-standard
+citation — cross-corroborating rather than contradicting); the ISO 5775/4210 documents themselves
+were not fetched (paywalled per the task brief), so figures are one hop removed from the primary
+standard, the same tier WHL-9/10's Schwalbe/WTB restatements already carry in this chapter.*
+Source: technicalmanual.mavic.com "ETRTO / ISO Recommended Rim-Tyre Combination" (fetched PDF);
+continental-tires.com "Tire/Rim Combinations | ETRTO Standards" + "Hookless vs. Hooked Rims"
+(both fetched); enve.com "Hookless Rim Technology 101" (fetched), all 2026-07-18.
+
 ## Wheel truing basics
 
 **WHL-19 — "True" means no lateral or radial deviation as the wheel spins; the two axes are
@@ -239,6 +294,35 @@ compatible across brands" — switching sealant chemistry means cleaning the tir
 modelling at all** — no `tubeless`/`tubelessReady` field on wheel or tire rows, so this isn't a
 ⚠ CONTRADICTION (nothing exists to contradict), but it is a real fit-relevant axis the engine is
 silent on; flagging as a candidate-rule note, not a rule to add unilaterally.
+
+**WHL-39 — Rim-tape installation is quantified by two makers with different numbers for the same
+step, plus a third maker's install sequence that could only be corroborated at search-summary
+tier — a genuine cross-maker torque/spec table does not exist for this step the way CKP-20 built
+one for cockpit fasteners.** DT Swiss's own Tubeless Ready Kit User Manual (V2013.11, fetched
+primary PDF): start the tape "between the first and the second spoke hole next to the valve
+hole," apply it "under tension" and centered in the rim bed, **overlap the tape ends by 10–15
+cm** and cut, then mount the valve with the nut **"handtight without using any tools."** Sealant
+fill is a stated volume, not "to taste": **"Fill 75 ml of sealing fluid into the tire"** before
+seating the rest of the bead, and the sealant itself must be stored "in a dry, dark place at
+between 15 and 25 °C" or discarded if it hardens/clumps after shaking. Inflate "quickly to the
+lower max. pressure of either the rim or the tire" (the same "lowest of the published maxes
+wins" principle WHL-10/42 apply elsewhere), then visually confirm even bead contact around the
+full circumference before riding. Stan's NoTubes (stans.com "Tubeless Guide," fetched) gives a
+**width rule instead of an overlap figure**: rim tape should be selected "1–2 millimeters wider
+than the rim bed itself," sold in 21/25/27/30/33/36 mm widths, and lower tubeless pressures run
+"7–10 psi (0.5–0.7 bar) below" equivalent tubed pressures on or off-road. Shimano's dealer
+literature (si.shimano.com tubeless install pages, indexed via search-result synthesis — the
+primary PDF (SI-0036A) fetched as a valid PDF but rendered with no extractable text on this
+round, so this datum is flagged lower-tier pending a cleaner fetch) reportedly specifies
+starting the tape opposite the valve and a **~10 cm overlap** — close to but not identical to DT
+Swiss's 10–15 cm figure, plus an explicit "genuine SHIMANO tape only, never reused" caution.
+*Confidence: confirmed (DT Swiss 75 ml/10-15cm/handtight, fetched primary manual); confirmed
+(Stan's 1-2mm width rule, fetched primary page); low/search-summary tier (Shimano's ~10cm figure
+— primary PDF fetched but not text-readable this round, see Gaps).* Source: DT Swiss "Tubeless
+Ready Kit User Manual V2013.11" (dtswiss.com, fetched PDF via bottico.cz mirror); stans.com
+"Tubeless Guide" (fetched); si.shimano.com "Installing and removing tubeless tires" SI-0036A
+(fetched as PDF but pictogram-only/non-extractable — corroborating quotes are search-summary
+tier only), all 2026-07-18.
 
 ## Axle standards (identification & history)
 
@@ -329,6 +413,44 @@ dealer manuals).* Source: si.shimano.com "Hub Set (Disc Brake)" (DM-MAHB001, fet
 (DM-GAWH001-03, DM-GAWH001-06, DM-HB0003-07, DM-LAHB001-01, DM-RAHB002-02, all si.shimano.com,
 fetched 2026-07-18).
 
+**WHL-40 — Closing the WHL-36/37 gap note by name: Industry Nine's own fetched Hydra service
+document confirms a THIRD distinct hub architecture (neither DT Swiss's Ratchet toothed-ring nor
+Shimano's cup-and-cone), and Hope's parts diagram confirms Hope uses generic ISO-standard
+cartridge bearings rather than a proprietary bearing design.** Industry Nine's Hydra service PDF
+(industrynine.com/documents/hydraservice.pdf, fetched primary): endcaps pull off by hand (held
+by an o-ring, "do not requ[ire tools]"), the freehub then "can be pulled off by hand" with a
+counterclockwise twist, and the **drive mechanism's pawls and springs simply "slide out of the
+pawl and spring pockets" by hand** once the freehub is off — no threaded ratchet-removal tool
+(contrast WHL-36's DT Swiss Ratchet EXP) and no cone/lock-nut preload adjustment (contrast
+WHL-37's Shimano). Bearing replacement is straight cartridge press-fit: the document's own
+**Bearing Layout Chart names exact ISO bearing part numbers per hub variant** (e.g. 6-bolt
+mountain front = 1× 61804 both sides; 6-bolt mountain rear = 1× 15307 drive-side, 1× 61804
+non-drive; Micro Spline freehub = 1× 152610 inboard + 2× 6802 outboard), pressed in with the
+explicit orientation rule **"grey side of bearing is designed to face outward,"** removed by
+tapping the axle from one side to drive out the opposite bearing. Industry Nine states this
+tool-free, no-proprietary-parts design as a deliberate product philosophy, not an accident:
+their own support-page copy calls it engineered "so that servicing the product is accessible and
+intuitive," with "no proprietary tools required" repeated verbatim across both the Hydra and
+Torch support pages. Hope Technology's own Pro 5 rear-hub assembly diagram (hopetech.com,
+fetched primary) independently confirms the same generic-cartridge pattern on a different maker:
+its 150 mm rear hub uses a plain **S6903 (17×30×7 mm) cartridge bearing** — a standard ISO
+bearing size sold by any bearing supplier, not a hub-specific part — at both bearing positions,
+the same "sealed cartridge, no adjustable preload" family as DT Swiss's architecture (WHL-36)
+rather than Shimano's feel-adjusted cup-and-cone (WHL-37). **Mechanic takeaway (technique
+knowledge, no `checkBuild` equivalent, per WHL-37's convention):** three major MTB hub brands
+now have sourced service architecture, and they split two ways, not three — DT Swiss and Hope
+both use sealed non-adjustable cartridge bearings (replace, don't tune), while only Shimano uses
+an adjustable cup-and-cone; Industry Nine's Hydra additionally distinguishes itself by needing NO
+dedicated tool for the freehub/pawl service step at all, where DT Swiss's Ratchet EXP variant
+requires one. *Confidence: confirmed (both fetched primary — I9's own service PDF with named
+bearing part numbers, and Hope's own assembly diagram with a named bearing spec).* Source:
+industrynine.com "Hydra Service" (documents/hydraservice.pdf, fetched) + "Hydra Product Support"
+page (industrynine.com/support/hydra, fetched); hopetech.com "PRO5 Rear Hub Assembly"
+(_repository/1/documents/PRO5_157_Assembly.pdf, fetched), all 2026-07-18. **Narrowed, not fully
+closed:** hub bearing dimensional press-fit tolerances (bore/shell interference specs, as
+opposed to the part number / assembly sequence now sourced for three brands) remain unsourced —
+see Gaps, unchanged from the prior round's note.
+
 ## Spoke count & lacing (foundation)
 
 **WHL-25 — Spoke crossing pattern is named by how many other same-flange spokes each spoke
@@ -345,6 +467,43 @@ under torque and risks spoke/hub failure. Typical cross counts by spoke count: 4
 — no spoke-tension target/balance numbers or fatigue-failure modelling; that's the L3 gap below.
 The catalog has no lacing-pattern field on wheel rows (wheels are sold as complete built wheels),
 so this is background knowledge for the mechanic agent, not a fact that feeds `checkBuild`.
+
+## Spoke-length calculation (ERD theory)
+
+**WHL-41 — Spoke length is a two-step trigonometry problem (law of cosines, then a Pythagorean
+correction), and Effective Rim Diameter (ERD) — not the rim's outer or bead-seat diameter — is
+the one measurement errors most easily hide in.** Sheldon Brown's site (author John Allen,
+fetched primary): the first step applies the law of cosines, `C = √(A² + B² − 2AB·cos θ)`, where
+A and B are the hub flange's spoke-hole-circle radius and the rim's spoke-hole-circle radius
+(i.e. ERD ÷ 2) and θ is the angle between adjacent spoke holes (set by spoke count and cross
+pattern); the second step applies the Pythagorean theorem with a small correction for the hub
+flange's offset from the wheel centerline and the spoke hole's own diameter: `L = √(C² + w²) −
+d/2`. **ERD is explicitly NOT the rim's outer diameter, the bead-seat diameter (BSD, WHL-17), or
+the inner-hoop diameter** — it's "the diameter on which you want the ends of the spokes to lie,"
+i.e. the diameter through the point where the spoke nipple head sits, and Sheldon Brown's own
+framing (quoting Howard Sutherland) is blunt about why this matters: *"One measurement is worth
+50 expert opinions"* — published ERD databases exist and are useful for identification, but
+"only after you have mostly laced up a wheel will you discover whether spoke length is correct,"
+so measuring your own rim/hub is the professional practice, not a shortcut around it. Park Tool's
+own ERD article (parktool.com, fetched primary) gives the practical measuring-stick technique —
+two spare spokes with nipples threaded exactly to the nipple's slot-bottom ("a 'perfect' spoke
+length would result in the spoke ending just at the bottom of the slot"), inserted into two
+holes 180° apart, to derive ERD without a rim database at all — and quantifies the tolerance
+window a correct spoke length actually has: too long causes the spoke to protrude past the
+nipple (can puncture the rim strip/tube, or run out of threads before reaching final tension);
+too short risks inadequate thread engagement and loosening; but the safe window in between is
+**"a larger window than you might expect"** — a spoke ending anywhere from filling all the
+nipple's threads down to about 4 mm shorter is still "totally acceptable," because bicycle
+spokes run a 56 TPI thread (≈0.45 mm pitch per full turn), so a few visible threads below the
+nipple represent only ~1.5 mm of reduced engagement out of roughly 10 mm of total thread length
+inside a typical nipple. *Confidence: confirmed (both fetched primary — Sheldon Brown/John
+Allen's formula derivation and Park Tool's independent measuring-stick method and tolerance
+figures corroborate each other without contradiction).* Source: sheldonbrown.com "Measurements
+for Bicycle Spoke-Length Calculations" by John Allen (fetched); parktool.com "Measuring
+Effective Rim Diameter" (Calvin's Corner blog, fetched), both 2026-07-18. This is the calculation
+theory underneath WHL-19/20/25's truing/lacing facts and WHL-17's BSD/ERD distinction — the
+catalog has no lacing/ERD fields (wheels are sold complete, per WHL-25's closing note), so this
+is mechanic-agent background knowledge, not a `checkBuild` input.
 
 ---
 
@@ -502,6 +661,30 @@ citing Birzman); Park Tool TM-1 product/instructions pages (fetched but PDF text
 failed — mechanism description corroborated via search-result synthesis of the product page,
 not a direct primary quote, so kept qualitative only here).
 
+**WHL-38 — WHL-35's cross-brand tensiometer problem, now landed as two actual fetched charts:
+Park Tool's own 2024 TM-1 conversion table (14 spoke-gauge/material columns) and a DT Swiss
+tensiometer's factory calibration sheet issued FOR Sapim spokes — and side by side they prove
+the "no universal reading" warning quantitatively, not just in principle.** Park Tool's TM-1
+Tension Meter Conversion Table (parktool.com, official PDF, fetched) gives a full deflection-
+reading-to-kgf grid across 23 spoke types: steel round 1.4/1.5/1.6/1.7/1.8/2.0/2.3/2.5/2.6 mm,
+nine steel bladed profiles, aluminum round/blade, titanium round/bladed, Berd PolyLight, DT
+Swiss Revolite, Mavic R2R carbon blade, and three Spinergy PBO profiles — **at the same
+deflection reading of 20, a 1.4 mm steel round spoke reads 172 kgf while a 2.0 mm steel round
+spoke reads only 70 kgf**, a 2.5x difference at one identical instrument reading, exactly the
+"different gauges deflect differently under the same force" mechanism WHL-35 described in the
+abstract. Separately, a DT Swiss-brand tension meter's own factory calibration sheet issued
+specifically **for Sapim's spoke range** (ref. YD370943, "Customer: SAPIM," fetched via
+wheelpro.co.uk) shows the same cross-model spread on ONE tensiometer body: at 120 kg (1.177 kN)
+actual tension, the instrument reads **312 for a Sapim G13 (2.30 mm round)** but only **68 for a
+Sapim CX-Ray** (bladed aero) — proving the calibration divide isn't just cross-*brand* (a DT
+Swiss meter vs a Sapim spoke) but cross-*model within one brand's own range* (thick round vs
+thin bladed), a sharper and more concrete version of WHL-35's warning than the prior round could
+document. *Confidence: confirmed (both fetched primary tables — Park Tool's official 2024 PDF
+and a DT Swiss/Sapim factory calibration document via a wheel-building retailer's tensiometer
+support page).* Source: parktool.com "TM-1 Tension Meter Conversion Table" 2024 edition (fetched
+PDF); wheelpro.co.uk "sapim_dt_chart.pdf" — DT Swiss tension-meter-to-Sapim-spoke-range
+calibration sheet, ref. YD370943 (fetched PDF), both 2026-07-18.
+
 ---
 
 ## INTERACTIONS (the organizing principle)
@@ -525,6 +708,17 @@ not a direct primary quote, so kept qualitative only here).
   the mechanical reason a 29" tire and a 27.5" tire are simply different objects, not just
   different widths. WHL-1's per-end wheel-size matching is this rule expressed at the catalog's
   `wheel` vocab level.
+- **Hooked (TC) vs hookless (TSS) rim/tire compatibility is direction-aware, the same shape as
+  WHL-10's rotor/adapter asymmetry** (WHL-42): a TSS-rated tire can go on either a TC or a TSS
+  rim, but a TC-only tire cannot safely go on a TSS rim — one direction is a strict subset of the
+  other, not a symmetric either-way pairing, and TSS additionally caps max pressure lower than
+  the same nominal size on TC (quantified per rim-width/tire-width cell in WHL-42's fetched
+  table).
+- **ERD is the hidden variable underneath every spoke-length figure** (WHL-41): WHL-9's tire-width
+  envelope and WHL-1's wheel-size matching both describe what fits ON a built wheel, but ERD
+  governs whether the wheel gets built correctly in the first place — a rim with the right BSD
+  and the right published ETRTO width can still take the wrong spoke length if its ERD was
+  guessed rather than measured (WHL-41's "one measurement is worth 50 expert opinions").
 - **Hub/frame spacing is a moving historical target, and Boost/SuperBoost (WHL-4/5) are just the
   newest values on a decades-long widening trend** (WHL-24) — a mechanic reading an older frame's
   spacing (110–135 mm) is reading an earlier step of the same axis the catalog's 142/148/157
@@ -554,6 +748,12 @@ not a direct primary quote, so kept qualitative only here).
   +valve first, bead seated at high pressure (not riding pressure) second, sealant added/cured
   third — skipping or reordering these (or mixing non-tubeless-ready parts) is a setup failure
   mode independent of anything `checkBuild` currently checks (no tubeless field exists yet).
+  DT Swiss's own numbers make the sequence concrete (WHL-39): tape overlaps 10-15 cm and seats
+  before the valve is punched through it, the valve nut goes hand-tight only (over-torquing it
+  is not the fix for a leaking base), and sealant is a stated 75 ml poured before the second bead
+  goes on — inflation to "the lower max of either the rim or the tire" comes last, the same
+  lowest-of-the-published-maxes principle WHL-10/42 apply to the rim/tire width and pressure
+  envelopes.
 - **A DT Swiss Ratchet EXP hub's threaded ratchet must come out before the bearing is
   reachable at all** (WHL-36): the dedicated unscrewing tool is a hard prerequisite step, not
   an optional shortcut — the manual explicitly warns the ring tightens further while riding,
@@ -564,6 +764,19 @@ not a direct primary quote, so kept qualitative only here).
   nut before the cone's play/preload is dialed in locks in whatever (wrong) preload the cone
   happened to be at, the hub-bearing analog of `suspension.md` SUS-21/22/23's "sag before
   damping" install-order rule.
+- **Industry Nine's Hydra freehub disassembles in the opposite order from DT Swiss's Ratchet
+  EXP** (WHL-40 vs WHL-36): where a Ratchet EXP hub requires a dedicated tool to unscrew a
+  threaded ratchet BEFORE the bearing is reachable, a Hydra freehub pulls off by hand with no
+  tool at all, and its pawls/springs then lift out of their pockets by hand too — the same
+  "check which architecture you're holding before reaching for a tool" caution WHL-37 raised for
+  Shimano now applies three ways, not two, and picking the wrong hub's procedure at the wrong
+  step (assuming a tool is needed when it isn't, or the reverse) wastes a step either direction.
+- **A DT Swiss tensiometer reading must be looked up against the SPOKE actually installed, not
+  a spoke-model-agnostic scale** (WHL-38, sharpening WHL-35): the DT-Swiss-for-Sapim calibration
+  sheet exists specifically because a generic reading is meaningless without knowing which of
+  Sapim's own spoke models (G13 vs CX-Ray, a 4.6x reading spread at identical tension) is on the
+  wheel — checking tension is itself an install-order-adjacent step that depends on correctly
+  identifying the part before the tool is even used.
 
 ### Wear / setup couplings
 - **Rim width shapes the tire's real profile:** a wide tire on a narrow rim balloons (squirm,
@@ -610,11 +823,20 @@ to target (per INDEX.md corpus rule 7 / CURRICULUM.md "target the weakest chapte
   pages were fetchable — see WHL-31/32/33/34); a cross-brand comparison table is still missing.
   The "average tension" band in WHL-26 also carries a lower-confidence OCR-reconstruction caveat
   that a future round should re-verify against the manual's rendered PDF, not extracted text.
-  **WHL-35 (this round) explains WHY a cross-brand table is hard, not just unfetched:** dial
+  **WHL-35 explains WHY a cross-brand table is hard, not just unfetched:** dial
   tensiometers read spring deflection, not tension directly, so a DT Swiss reading can't be
   validly compared to a Sapim spoke without each maker's own gauge-specific conversion chart —
   a true cross-brand table needs matched conversion charts as well as matched target numbers,
-  raising the bar on what "closing this gap" actually requires.
+  raising the bar on what "closing this gap" actually requires. **CLOSED 2026-07-18 (WHL-38) —
+  the actual conversion charts WHL-35 called for are now landed:** Park Tool's own 2024 TM-1
+  conversion table (23 spoke-type columns) and a DT Swiss tensiometer's factory calibration
+  sheet issued specifically for Sapim's spoke range, both fetched primary, quantify the
+  cross-gauge divide WHL-35 could only describe in principle (e.g. a 2.5x reading spread between
+  1.4mm and 2.0mm steel spokes at one identical deflection reading). Sapim's own numeric
+  tension-target table (as opposed to a DT-meter-for-Sapim-spokes calibration sheet, which is a
+  different document) is still not sourced — Sapim's site continues to 404 on its own
+  spoke-tension-meter pages — so DT Swiss remains the only maker with its own **target** table
+  (WHL-26/27), even though the **conversion-chart** gap WHL-35 raised is now closed.
 - **Fatigue-failure data — L3 gap, PARTIALLY CLOSED 2026-07-17.** WHL-30/31/32 now carry DT
   Swiss's own load/unload-cycle mechanism (quantified: ~430 cycles/km on a 29" wheel) and named
   under-/over-tension failure directions, plus Sapim's fetched fatigue-test protocols (endurance
@@ -622,24 +844,38 @@ to target (per INDEX.md corpus rule 7 / CURRICULUM.md "target the weakest chapte
   **S-N curve** (stress amplitude vs. cycles-to-failure) for a specific spoke gauge/alloy — what's
   sourced is test *methodology* and qualitative failure causes, not a quantitative
   fatigue-life dataset a wheelbuilder could design against.
-- **No tubeless sealant chemistry/failure-mode depth — L3 gap, untouched this round.** WHL-21/22
-  cover setup mechanics and the "brands aren't always compatible" warning, but not *why* (latex
-  vs. other sealant chemistry, clogging, burp-pressure-by-casing thresholds) — CURRICULUM.md's
-  other named L3 example for this chapter.
+- **No tubeless sealant chemistry/failure-mode depth — L3 gap, still open.** WHL-21/22/39 now
+  cover setup mechanics with real numbers (75 ml sealant fill, 10-15 cm tape overlap, tape-width
+  selection, storage temperature) and the "brands aren't always compatible" warning, but not
+  *why* (latex vs. other sealant chemistry, clogging mechanism, burp-pressure-by-casing
+  thresholds) — CURRICULUM.md's other named L3 example for this chapter, unchanged by this
+  round's WHL-39 addition (which deepened the *install* procedure, not the chemistry).
+- **Shimano's tubeless-tape SI document (SI-0036A) is a source-quality gap, not a content gap —
+  flagged 2026-07-18 (WHL-39).** The PDF fetches successfully (valid PDF, confirmed via `file`)
+  but extracts as either blank or as a corrupted/undecodable stream on every tool tried this
+  round (WebFetch, Exa fetch, Bright Data scrape + local pdftotext) — likely a pictogram-only
+  Shimano SI sheet with no embedded text layer, or a compression scheme the available extractors
+  don't support. WHL-39's Shimano figures are search-summary tier as a result. A future round
+  with a working PDF-to-image + OCR path (or a text-bearing dealer manual covering the same
+  procedure) could upgrade this to fetched-primary.
 - **CLOSED 2026-07-18 (WHL-36/37) — hub bearing/freehub internals now sourced for both major
   architectures.** DT Swiss's Ratchet-system freehub service (four mechanically distinct
   sub-variants — Ratchet/EXP/LN/DEG — each with its own disassembly sequence, sealed cartridge
   bearings with no adjustable preload, a safety-critical thin-grease-only warning, and two
   documented minimum spacer lengths for the failure-mode check) and Shimano's architecturally
   different cup-and-cone system (feel-adjusted cone preload set BEFORE a separate lock-nut
-  torque, with per-model torque figures ranging 15-22 N·m across the fetched pages). **Narrowed,
-  not fully closed:** Industry Nine (a third major MTB hub-brand, known for its own distinct
-  pawl-based engagement system) has no service internals sourced yet; and neither DT Swiss's
-  nor Shimano's *bearing press-fit tolerance* numbers (bore/shell dimensional specs, as opposed
-  to the *procedure*) were found on the fetched pages — `frame-standards-bearings.md`'s FRM
-  press-fit facts cover BB shells, not hub shells, so this remains a real cross-chapter gap.
-  **L2/L3 gap narrowed to: Industry Nine hub service + hub bearing dimensional press-fit specs
-  (as opposed to the assembly procedure, now sourced).**
+  torque, with per-model torque figures ranging 15-22 N·m across the fetched pages). **Narrowed further, CLOSED 2026-07-18 (WHL-40) for the named brand-coverage gap:** Industry
+  Nine's Hydra service architecture is now sourced (fetched primary — tool-free freehub/pawl
+  service, named ISO cartridge bearing part numbers per hub variant, grey-side-out orientation
+  rule) and Hope Technology's generic-cartridge-bearing pattern is independently confirmed
+  (S6903 17x30x7mm on the Pro 5 rear hub) — three major MTB hub architectures now sourced (DT
+  Swiss Ratchet, Shimano cup-and-cone, Industry Nine/Hope sealed-cartridge). Still open: neither
+  DT Swiss's, Shimano's, Industry Nine's, nor Hope's *bearing press-fit tolerance* numbers
+  (bore/shell dimensional interference specs, as opposed to the part number / assembly
+  *procedure*, now sourced for all four) were found on any fetched page —
+  `frame-standards-bearings.md`'s FRM press-fit facts cover BB shells, not hub shells, so this
+  remains a real cross-chapter gap. **L2/L3 gap narrowed to: hub bearing dimensional press-fit
+  specs only** (the brand-coverage half of this gap is now closed).
 - **No general torque-spec table — L2 gap, one data point added.** WHL-34 adds one real number
   (Sapim TCS nipples: 200+ Nm without twisting) but that's a single spoke-system spec, not a
   torque table across thru-axle/rotor-bolt/cassette-lockring/spoke-nipple fasteners; WHL-23 still
@@ -661,6 +897,25 @@ to target (per INDEX.md corpus rule 7 / CURRICULUM.md "target the weakest chapte
   design-doc/community tier they currently carry.
 - **No race-day wheel/tire setup judgment (pressure-as-strategy, pit-wheel-swap procedure) —
   L4 gap**, and expected to arrive last per CURRICULUM.md.
+- **CLOSED 2026-07-18 (WHL-41) — spoke-length/ERD calculation theory, a previously-undocumented
+  L1 gap.** The trigonometric derivation (law of cosines + Pythagorean correction) and the
+  practical measuring-stick method for deriving ERD without a rim database are now sourced from
+  two independent fetched primaries (Sheldon Brown/John Allen, Park Tool) that corroborate each
+  other. Still missing: dish/offset-specific spoke-length variants (the two-flange-distance case
+  for a disc-brake front or a cassette-dished rear needs the same formula applied twice with
+  different `w` values — WHL-41 states the formula handles this via the flange-to-centerline
+  term but doesn't walk a worked dished-wheel example), and no spoke-length calculator's specific
+  rounding/safety-margin convention (round down vs round to nearest even mm) was sourced.
+- **CLOSED 2026-07-18 (WHL-42) — a fetched manufacturer restatement of the actual ETRTO/ISO 5775
+  numeric tables, closing a real gap this chapter had (WHL-9/10/17/18 established the standard's
+  existence and Schwalbe/WTB's width-envelope restatements, but no source had actually shown the
+  standard's own rim-width × tire-width × pressure grid before this round).** Mavic's full table
+  was only read for the 700C/29" tubeless sheet (page 4 of the source PDF) — the 650B/27.5",
+  26", and tube-type sheets (pages 5-9) exist in the same document but weren't individually
+  transcribed this round, a narrow-but-real completeness gap for a future pass. The ISO
+  5775/4210 standards themselves remain unfetched (paywalled, per this round's brief) — every
+  figure in WHL-42 is one hop removed via a manufacturer's own restatement, the same tier this
+  chapter already carries for WHL-9/10.
 
 ## Open mechanic questions (for the human review — do not act)
 - WHL-2: any defensible deliberate 27.5F/29R build (trials/DJ conversions)?
