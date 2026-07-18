@@ -1,5 +1,17 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — VERIFICATION MEGA FAN-OUT #1: CAMPAIGN COMPLETE (53.2% → 60.0%)
+
+- The long-run fan-out declared its closeout: final cockpit cluster (+9) landed it at
+  3,016/5,026 = **60.01% verified** on the merged state — the campaign goal MET (its own report
+  says 59.97% against its base; the merge's row alignment tips it over). Journey: 53.2% at
+  campaign start → 60.0%, across 9 harvested batch-groups, the Specialized/archive.org walls
+  broken via bdata, the Trek service-manual crack found, the DVO/Öhlins/DT Swiss/KMC method
+  playbook written into per-cluster progress docs, and a final walls-map closeout
+  (tools/verify-fanout-1-CLOSEOUT.md) for the next campaign. Final job sync reconciled
+  post-merge (runner auto-sync; 8 tombstones preserved). Harness byte-identical to the end.
+  Session archived with honors. The DATA-MODEL CLEANUP mega-pass precondition is now MET — GO sent.
+
 ## 2026-07-18 — GIGA WAVE COMPLETE: six catalogs, six validators, one gate
 
 - **validate.js is now the single gate for SIX catalogs** (DATA/KIT/BMX/STRIDER/ROAD/GRAVEL OK —
