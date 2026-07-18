@@ -263,11 +263,16 @@ var GRAVEL_PARTS = [
 
   // ===== TIRES ===========================================================
   { id: 'gti-wtb-riddler-700x37', cat: 'tire', brand: 'WTB', model: 'Riddler', family: 'wtb-riddler',
-    wheel: '700c', width: 37, casing: 'tcs-light', compound: 'fast-rolling', tubeless: true, weight: 400, price: 55 },
+    wheel: '700c', width: 37, casing: 'tcs-light', compound: 'fast-rolling', tubeless: true, weight: 446, price: 55,
+    note: 'gravel-3 verification pass: FETCHED wtb.com/products/riddler700c (manufacturer, confirms 37-622 = "Riddler 37 x 700 TCS Light/Fast Rolling" — casing/compound already correct) + bicyclerollingresistance.com\'s independent scale test of the same TCS Light 37 SKU: "Measured Weight: 446 grams" (19g under WTB\'s own 465g claim). WEIGHT CORRECTED 400->446 using the independent measured figure per the sourceType:measured policy.',
+    sourceType: 'measured', weightSource: 'https://www.bicyclerollingresistance.com/cx-gravel-reviews/wtb-riddler',
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.wtb.com/products/riddler700c' },
   { id: 'gti-wtb-riddler-700x45', cat: 'tire', brand: 'WTB', model: 'Riddler', family: 'wtb-riddler',
     wheel: '700c', width: 45, casing: 'tcs-light', compound: 'fast-rolling', tubeless: true, weight: 460, price: 55 },
   { id: 'gti-wtb-resolute-700x42', cat: 'tire', brand: 'WTB', model: 'Resolute', family: 'wtb-resolute',
-    wheel: '700c', width: 42, casing: 'tcs-tough', compound: 'high-grip', tubeless: true, weight: 550, price: 65 },
+    wheel: '700c', width: 42, casing: 'tcs-light', compound: 'fast-rolling', tubeless: true, weight: 484, price: 65,
+    note: 'gravel-3 verification pass: web-corroborated (multiple retailers: Modern Bike, Tree Fort Bikes, BikeTiresDirect, Worldwide Cyclery) that the 700x42 Resolute ships as "TCS Light/Fast Rolling, 120tpi, Dual DNA SG2" — CORRECTS a prior-wave error (was casing:tcs-tough/compound:high-grip, which is not how WTB actually sells this size). bicyclerollingresistance.com\'s scale test of this exact TCS Light 42 SKU: "Measured Weight: 484 grams" (24g over WTB\'s own 460g claim). WEIGHT CORRECTED 550->484 using the independent measured figure.',
+    sourceType: 'measured', weightSource: 'https://www.bicyclerollingresistance.com/cx-gravel-reviews/wtb-resolute' },
   { id: 'gti-wtb-raddler-700x40', cat: 'tire', brand: 'WTB', model: 'Raddler', family: 'wtb-raddler',
     wheel: '700c', width: 40, casing: 'tcs-light', compound: 'fast-rolling', tubeless: true, weight: 470, price: 60 },
   { id: 'gti-wtb-raddler-700x44', cat: 'tire', brand: 'WTB', model: 'Raddler', family: 'wtb-raddler',
