@@ -1089,6 +1089,32 @@ rim-width×tire×pressure), WHL-49.
 
 ---
 
+## L4 race-craft — what a pit mechanic is actually permitted to do (master round 2, batch 6)
+
+**WHL-53 [L4, governing-body tier — the chapter's first race-craft fact] — a World Cup XCO
+"pit" is regulated as a *feed/technical assistance zone* with credentialed, quota-limited
+access, and team space in it is an allocated resource.** The wheels-tires L4 gap named
+"pit-wheel-swap procedure" as a target. The **precondition** for any such procedure is
+regulatory, and it is sourced here from the UCI's own rulebook: UCI Part 4 (Mountain Bike)
+structures rider support around the **feed/technical assistance zone (FTA zone)**, and access
+is a credentialed team benefit, not open pit lane. Registered UCI Elite MTB teams receive
+*"World cup season long feed/technical assistance zone passes"* and *"Separated space in
+feed/technical assistance zone"*, with overall venue credentials issued on a rider-count quota
+(*"teams with 2-3 riders obtain 6 passes, teams with 4 riders and more obtain 12 passes"*).
+**Why this matters mechanically and not just administratively:** a pit wheel swap is only
+possible where a mechanic is *permitted to stand with the spare*, so FTA-zone geography and pass
+allocation are upstream constraints on race-day wheel/tyre strategy — how many spare wheelsets
+can be staged, and where. *Confidence: confirmed for these provisions (fetched UCI primary);
+**scope caveat — the document obtained is the 19-page version-on-01.01.2019 amendments excerpt,
+not the complete Part 4 rulebook**, so the detailed FTA-zone conduct articles (what handling is
+permitted, outside-assistance penalties) are **not** sourced here and must not be inferred.*
+Source: UCI Cycling Regulations, **Part 4 Mountain Bike**, version on 01.01.2019 (fetched
+2026-07-18 via Wayback: `web.archive.org/web/20240615212732if_/uci.org/docs/default-source/
+rules-and-regulations-right-column/2018.09.25-2019-4-mtb-eng.pdf`). Cross-reference: the L4 gap
+below.
+
+---
+
 ## Gaps
 
 Honest list of what's still missing to climb past **foundation** — for the next training round
@@ -1267,7 +1293,34 @@ to target (per INDEX.md corpus rule 7 / CURRICULUM.md "target the weakest chapte
   foundation bar; a future round could deepen BMX peg/axle and DJ wheel-size sourcing beyond the
   design-doc/community tier they currently carry.
 - **No race-day wheel/tire setup judgment (pressure-as-strategy, pit-wheel-swap procedure) —
-  L4 gap**, and expected to arrive last per CURRICULUM.md.
+  L4 gap. FIRST FACT LANDED 2026-07-18 master round 2 (WHL-53); the rest stays OPEN, now with a
+  DOCUMENTED source-availability finding rather than an assumption.**
+  **Landed:** the regulatory precondition for pit work — UCI Part 4 structures rider support
+  around the credentialed, quota-limited **feed/technical assistance zone**, with team passes and
+  *"separated space"* as allocated resources. That is upstream of any wheel-swap procedure: it
+  governs where a mechanic may stand with a spare.
+  **Attempted and blocked this round (recorded so a future round doesn't repeat it):**
+  1. **UCI full Part 4 rulebook** — `uci.org/regulations` is **JS-rendered**; WebFetch and Bright
+     Data both return the nav shell with no document links. Wayback's CDX index for
+     `uci.org/docs/default-source/rules-and-regulations*` holds **only amendment excerpts and
+     1-page stubs** (the 19-page 2019 excerpt WHL-53 cites is the largest obtained). The
+     complete Part 4 — which contains the FTA-zone *conduct* articles — was **not** reached.
+     **Next route to try:** a national federation's mirror of the UCI regulations (federations
+     routinely republish Part 4 as a static PDF), or `docs.uci.org` with a direct document ID.
+  2. **Manufacturer pressure-as-strategy guidance** — ENVE's `pages/tire-pressure` is a
+     **JS-rendered calculator** with no static text; Bright Data returned navigation only. Reserve
+     publishes only maximum pressures (WHL-52), not situational race guidance.
+     **Next route:** a pressure calculator's published *methodology* page (rather than the
+     calculator itself), or a tyre maker's race-support documentation.
+  **Honest assessment:** CURRICULUM.md predicted L4 would be *"the level with the thinnest public
+  documentation"* and would *"arrive last and slowest"* — **this round confirms that empirically
+  rather than by assumption.** The blockers found were **JS-rendering and partial archiving, not
+  absence of the knowledge**; the material exists but is not in static, fetchable form. Per the
+  brief, genuine L4 practitioner content (race-mechanic interviews) is admissible as **labelled
+  Tier-B** — deliberately **not** harvested this round, because doing it properly means sourcing
+  named practitioners on the record, and a thin pass would have produced exactly the
+  dressed-up-consensus this corpus's rule 2 forbids. That is the recommended shape of the next
+  L4 attempt.
 - **CLOSED 2026-07-18 (WHL-41) — spoke-length/ERD calculation theory, a previously-undocumented
   L1 gap.** The trigonometric derivation (law of cosines + Pythagorean correction) and the
   practical measuring-stick method for deriving ERD without a rim database are now sourced from

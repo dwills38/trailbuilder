@@ -20,10 +20,12 @@ freehub, chain, crank/BB/chainline), crossing the CURRICULUM.md bar for `profess
 survival curve (named SRAM/Shimano rep quotes + a controlled Friction Facts efficiency test) and
 lubrication chemistry (a controlled multi-thousand-km ZFC test program quantifying wet/dry/
 wax-emulsion/immersive-wax lubricant categories). What's left toward `master` is narrower now:
-no cross-generation AXS firmware-compatibility table, no non-DT-Swiss freehub internals (Shimano
-MicroSpline, Hope, Industry Nine), no 11/12-speed chain-width cross-tolerance data, and real L4
-race-craft content is still thin (one tangential pro-team chain-interval note in DRV-42) — see
-`## Gaps`.)
+no cross-generation AXS firmware-compatibility table, no Shimano-MicroSpline/Hope freehub
+internals, and real L4 race-craft content is still thin (one tangential pro-team chain-interval
+note in DRV-42) — see `## Gaps`. **2026-07-18 master round 2 closed the chain-width item**
+(DRV-64–67): 9–12-speed chains share one internal-width class, so cross-speed substitution is a
+clearance question, not an engagement one — with Shimano declared source-exhausted for chain
+geometry and the 11↔12 substitution question explicitly NOT promoted into an engine allowance.)
 
 Shifter · derailleur · cassette · chain · crank · chainring · freehub/driver bodies ·
 single-speed cog. Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline,
