@@ -1,5 +1,20 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — First Bike Finder spec landed (the fitter's first deliverable)
+
+- design/first-bike-finder merged: the matching algorithm fully corpus-traced (4-band inseam
+  verdict, the REFUSE band as the highest-value output "even when it costs a sale", growth
+  room in inches, weight-ratio as graded signal, the balance-vs-pedal RULE SWITCH named as a
+  safety boundary — v1 is balancebike-only by design). Validation: CLEAN NEGATIVE on the
+  strider data (no impossible/fabricated rows — blanks-discipline held) with 3 structural
+  blockers: 4 rows blank-gated (must show "fit data not published", never dropped/inferred),
+  standover 0/36, and the sharpest — two makers publish CHILD-INSEAM ranges (the perfect fit
+  datum) that the schema cannot store (inseamMin/Max fields needed). 2 corrections flagged to
+  STRIDER-MODEL §5 (no "years" of growth; +2in as ranking not filter). 6 decisions packaged
+  for Douglas (2 blocking: barefoot-vs-shoes; inches-vs-growth-data). Schema/vocab follow-ups
+  (inseam fields, footbrake vocab, convertible tag) queued for a strider-schema-v2 chip —
+  seat 13's natural first catalog chip.
+
 ## 2026-07-18 — recall notes SHIPPED on the 2 confirmed-match rows (Douglas's call)
 
 - Data-tier recall disclosure live: fr-transition-tr11-alloy + cb-transition-tr11-alloy-gx
