@@ -218,6 +218,40 @@ var EMTB_PARTS = [
     disciplines: ['e-trail'], weight: 18100, price: 11500,
     note: 'Top-tier lightweight Fuel EXe trim; acoustic-close trail-bike handling.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Santa Cruz depth + Ibis
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-santa-cruz-bullit-xx', cat: 'emtb', brand: 'Santa Cruz', model: 'Bullit XX AXS',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-enduro'], weight: 23200, price: 12000,
+    note: 'Top-tier Bullit build; SRAM XX Transmission + Maven brakes.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-santa-cruz-heckler-sl', cat: 'emtb', brand: 'Santa Cruz', model: 'Heckler SL',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
+    batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-trail'], weight: 19100, price: 7500,
+    note: 'Lightweight SL sibling to the full-power Heckler; Fazua Ride 60 motor.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-ibis-oso', cat: 'emtb', brand: 'Ibis', model: 'Oso',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 155,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23800, price: 8500,
+    note: "Ibis's Bosch-powered full-power e-MTB; mixed-wheel trail/enduro platform.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
