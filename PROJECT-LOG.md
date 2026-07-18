@@ -2131,3 +2131,33 @@ per wave/decision; large reconstructions are handed to a worker session.
   exclusive single body class (the exclusivity fix confirmed); zero open `<dialog>`s across every
   route tested (popup scan clean); zero console errors. `bmx.html`/`KitBuilder` grep-confirmed not
   to share the view-toggle code — untouched.
+
+## 2026-07-18 — sweep: ui-expert batch 6 (platform-conventions MASTER) + campaign-3 Bright Data round
+
+- **ui-expert batch 6** (own-additions of 3603976, `tools/ui-expert/platform-conventions.md`):
+  **platform-conventions → MASTER** (PLT-9..14). Best items: **PLT-10 a FALSE-FINDING GUARD** — SC
+  1.4.13 exempts native `title` tooltips (UA-controlled), so the site's 46 `title=` attributes are
+  NOT 46 violations; recorded so a future round or automated scan doesn't report them as such.
+  **PLT-11 reasoned no-action** — zero `@media (hover:)` queries is CORRECT: all 36 `:hover` rules
+  are cosmetic colour/background only (none touch display/visibility/opacity), so nothing is
+  hover-gated; conditional on that staying true, with the grep trigger to re-open. **PLT-14 a
+  deliberate NON-closure** — PLT-2's override-web-native-with-platform-convention rule stays
+  inference-grade; the worker reported the FAILED source hunt and where the likely unlock is
+  (NN/g cross-platform, not a vendor HIG) rather than padding. Board: **6 MASTER / 1 professional
+  (responsive-layout) / research-methods (new L4) not started.**
+- **campaign-3 Bright Data round** (batches 5–7 job-state + `712c225` promotions): with the free-pool
+  `bdata scrape` doctrine corrected, the worker cleared rate-limited walls and **promoted 2 frames to
+  verified:true**, each with a warning-tier spec CORRECTION that the coordinator independently
+  re-verified via `bdata scrape` (WebFetch was 429-limited, exactly as reported):
+  - `fr-revel-ritual-v3` **maxRotorR 200→223** — Revel's own frame-kit page states verbatim "200mm
+    post mount/223mm max rotor size"; the prior pass had read the post-mount size as the ceiling. I
+    confirmed line-for-line before merge (it's the field that most needs it: a wrongly-low ceiling
+    silently suppresses a legitimate rotor-oversize warning).
+  - `fr-revel-rascal-v3` **designForkTravel 150→140** — page FAQ disambiguates "designed to use a
+    140mm fork...may use a 150mm fork" (150 stays the max).
+  Verdict harness BYTE-IDENTICAL (both corrections are per-row data, no engine rule touched);
+  validate 7×OK (3,016 verified), 764 tests, tsc clean. Worker correctly LEFT `fr-santacruz-highball`
+  Failed — the weight/price it found are for the "Highball CC Frame" SKU, but the catalog row's
+  source is the "Highball 3" build kit and the material tier couldn't be confirmed identical
+  (possibly-mismatched figures beat a wrong verified row). Job-json conflict at merge resolved by
+  taking campaign-3's newer full-sync copy (my earlier sweep applies had advanced main's copy).
