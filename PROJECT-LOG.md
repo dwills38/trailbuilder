@@ -1,5 +1,14 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — Pee Wee theme removed from live (preserved for re-add)
+
+- Douglas's call: 🎀 Pee Wee Herman mode OFF the live site, kept for possible return. Executed
+  as a clean revert of its merge (b74180a reverted; -140 lines across the 3 pages + ui-common).
+  PRESERVED: branch ui/theme-peewee + tag keep/theme-peewee hold the complete, contrast-audited
+  implementation — re-adding later = revert the revert (or re-apply the branch) + a fresh
+  browser pass. Verified: a user with 'peewee' still in localStorage degrades gracefully to the
+  light default, menu clean, zero errors. Gates green (757/757). The 4 shipped themes untouched.
+
 ## 2026-07-18 — MEGA SWEEP: 🎀 Pee Wee theme LIVE + mobile audit + mechanic r5 + road/gravel waves + EMTB 66
 
 - **🎀 "Pee Wee Herman" theme SHIPPED** (5th theme, all 3 app pages + ui-common registry; legal
