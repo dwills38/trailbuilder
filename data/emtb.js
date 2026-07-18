@@ -732,6 +732,20 @@ var EMTB_PARTS = [
     disciplines: ['e-enduro'], weight: 25600, price: 4800,
     note: 'Budget direct-to-consumer gravity e-MTB; 27.5in wheels, Bosch CX motor.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Kona (new maker) — Remote
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-kona-remote-160', cat: 'emtb', brand: 'Kona', model: 'Remote 160',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-trail'], weight: 23800, price: 5900,
+    note: "Kona's full-power trail e-MTB on the Shimano EP8 motor.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
