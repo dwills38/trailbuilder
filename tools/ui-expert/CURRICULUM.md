@@ -53,7 +53,38 @@ Grade **honestly** — a chapter with one L2 pattern and mostly L1 floors is sti
 A pattern documented without its accessibility contract does not count toward maturity at all.
 Each chapter ends with a **## Gaps** section the next round reads to pick its target.
 
-## Current state (round 3, 2026-07-18)
+## Current state (round 4 — the master round, 2026-07-18)
+
+**All seven chapters are `master`.** Round 4 took each remaining chapter to master by pairing a
+fetched-primary pass with a **live-DOM audit of the shipped app** — which is what produced the
+round's real value: three findings that shipped as fixes (DNS-17's SC 2.5.7 failure, ACC-22's
+`100vh` and `autofocus` items), one contradiction still open (NAV-16), and several *reasoned
+non-actions* recorded so future rounds don't re-open settled ground.
+
+| Chapter | Level | Maturity | Round-4 note |
+|---|---|---|---|
+| `accessibility.md` | L1+L2+L4 | **master** | live-DOM audit of all nine dialogs (ACC-22), WCAG 2.2's new SCs applied (ACC-23), screen-reader testing doctrine (ACC-21), dot-contrast closed (ACC-24) |
+| `forms-filters-density.md` | L1+L2+L3 | **master** | the dual-slider wiring contract; a Tier-A vs Tier-B conflict resolved (DNS-16); the round's one violation-grade finding, now fixed (DNS-17 → DNS-21) |
+| `performance-perceived.md` | L1+L2+L4 | **master** | field-measurement doctrine; Cloudflare's real CWV capability + its Chromium-only bias; the site's own field data found already-collecting-but-unread (PRF-16) |
+| `navigation-ia.md` | L1+L2+L3 | **master** | the places-vs-state routing doctrine (NAV-15); back-button depth audited across all four page views (NAV-16, open) |
+| `mobile-fundamentals.md` | L1+L2+L3 | **master** | foldable form factors, Viewport Segments API + its Baseline status, large-phone reach; a reasoned no-action (MOB-45) |
+| `platform-conventions.md` | L1+L2+L3 | **master** | desktop input conventions; SC 1.4.13's `title` exemption as a false-finding guard (PLT-10); PLT-2 honestly still open (PLT-14) |
+| `responsive-layout.md` | L1+L2+L3 | **master** | Every Layout primary pinned, breakpoint-count sourced, and the intrinsic-layout-beats-breakpoints doctrine (RSP-19) |
+
+### What "master" did and did not mean here
+
+Grading stayed honest per the rule below. Two things worth stating so the grade isn't
+over-read:
+
+- **No chapter earned master by adding citations alone.** Each pairs its L3/L4 depth with an
+  audit whose result is checkable against the repo.
+- **Master does not mean finished.** `platform-conventions` carries an openly unsourced core
+  rule (PLT-2); `performance-perceived` cannot verify its own numbers until someone opens
+  Vitals Explorer; `accessibility` records that **a real screen-reader session has never been
+  run on this site** and that no amount of markup auditing substitutes. Those are in the
+  chapters' Gaps, not papered over.
+
+## Historical state (round 3, 2026-07-18)
 
 | Chapter | Level | Maturity | Note |
 |---|---|---|---|
@@ -65,10 +96,28 @@ Each chapter ends with a **## Gaps** section the next round reads to pick its ta
 | `performance-perceived.md` | L1+L2 | **professional** | round 3 — INP subpart mechanism (input/processing/presentation delay), NN/g's 0.1/1/10s canon, skeleton-vs-spinner research (mixed, informational-leaning), bfcache, font-display + script defer/async doctrine, CLS seeded |
 | `platform-conventions.md` | L1+L2 | **professional** | round 3 — NN/g web-form canon, the 100vh trap resolved (svh/lvh/dvh), overscroll-behavior for modal/dialog scroll containment, PWA installability criteria |
 
-## Corpus rule: target the weakest chapter
+## Corpus rule: target the weakest chapter — and what replaces it now
 
 Restated from [`INDEX.md`](INDEX.md) rule 7: future rounds read every chapter's Maturity +
-Gaps first and prioritize the weakest-graded chapter(s). Round 2 (2026-07-18) took
+Gaps first and prioritize the weakest-graded chapter(s).
+
+**With all seven at master, rule 7 no longer discriminates.** The successor rule for round 5+,
+in priority order:
+
+1. **Verify what the corpus asserts but has never measured.** The highest-value open items are
+   not unfetched citations — they are unrun checks the corpus itself flagged: read Vitals
+   Explorer (PRF-16), resize across 769 px with state in flight (MOB-47), measure the rail at
+   375 px to settle facet collapsing (DNS-20), audit where mobile controls sit vs the reachable
+   thumb region (MOB-46). Each needs a browser or an account, not a fetch.
+2. **Re-check the conditional recommendations.** Several round-4 no-actions are explicitly
+   conditional and go stale silently: MOB-45 (Viewport Segments still non-Baseline?), PLT-11
+   (every `:hover` still cosmetic?), PRF-14/17 (has Cloudflare shipped Safari/Firefox CWV?).
+   These are cheap and should be swept every round.
+3. **Then** chase the remaining honest gaps (PLT-2's decision rule, keyboard-shortcut
+   conventions, the L3 density judgment layer).
+
+**Do not re-open items the corpus has already closed with a reason** — MOB-45, PLT-11, RSP-20
+and DNS-18 are all *deliberate* non-actions with their reasoning recorded, not oversights. Round 2 (2026-07-18) took
 `accessibility.md` and `forms-filters-density.md` to professional via the WAI-ARIA APG
 ingest (slider/disclosure/listbox/combobox/tabs/dialog) and Baymard/NN/g filter research, plus
 a theme-contrast contradiction-hunt (see `accessibility.md`'s ⚠ CONTRADICTION section). Round 3
