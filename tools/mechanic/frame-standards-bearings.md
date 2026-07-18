@@ -601,6 +601,39 @@ both land in the same ~0.05–0.2 mm order of magnitude.* Source: Cane Creek "OE
 Specification Guide" Revision B (b2b.vpg.no-hosted distributor mirror, fetched); parktool.com
 HHP-3 headset-cup-press instructions (fetched), 2026-07-18. Cross-reference: FRM-33.
 
+## Campagnolo Ultra-Torque — a genuinely different BB architecture (closes half of a named L2 gap)
+
+**FRM-49 — Campagnolo's Ultra-Torque system puts the bearings ON THE CRANK ARMS, not in the
+cups — the opposite architecture from every other BB system this chapter covers — and uses a
+wave washer to absorb shell-width variance instead of a fixed-depth press.** Campagnolo's own
+dealer technical manual: *"The cups contain no bearings. The bearings are inserted into the cups
+as the arms are installed. Each arm has one-half of the spindle"* — so removing the crank pulls
+the bearing out WITH it (Park Tool's own service walkthrough: a C-clip retains the pressed
+cartridge bearing on the right-arm spindle, removed with a small screwdriver before a dedicated
+bearing puller extracts it). A **wave washer** sits under the left-side bearing specifically to
+absorb BB-shell-width manufacturing variance — Campagnolo's own tolerance for the common English/
+BSC shell is stated as **67.2–68.8 mm**, and the wave washer (not a shim stack, unlike Shimano's
+spacer approach, DRV-51) is the mechanism that takes up that range. Two independent torque
+figures, both confirmed from Campagnolo's own manual: BB cup install = **35 N·m (310 in-lb)**
+each side (Park Tool's independent service page states an identical 310 in-lb, corroborating);
+central crank-joining bolt = **42–60 N·m (372–531 in-lb)** — with an explicit exception: *"the
+titanium central screw FC-SR008 mounted exclusively on the Ultra Torque Super Record 12v
+crankset... has a LEFT-HAND thread (to tighten, turn anti-clockwise, to loosen, turn
+clockwise)"* — a single specific SKU within one crank family that reverses the tightening
+direction of every other Ultra-Torque bolt, a genuine mechanic trap if handled on autopilot.
+Chainring retaining screws torque to **8 N·m (71 in-lb)**, and Campagnolo explicitly instructs
+replacing the screws (not just re-tightening) every time the chainrings are changed. Campagnolo's
+own shell-compatibility table gives real dimensions corroborating (and extending, with a fourth
+independent manufacturer) FRM-18/32's bore-family data: BB86 = 86.5×41 mm, BB30 = 68×42 mm,
+PF30 = 68×46 mm, BBright = 79×46 mm, BB386 = 86.5×46 mm — matching the PF41/PF42/PF46 bore
+families exactly. *Confidence: confirmed (fetched Campagnolo's own dealer technical manuals,
+direct quotes, cross-checked against Park Tool's independent Ultra-Torque service page).*
+Source: campagnolo.com dealer PDFs "Technical manual — bottom bracket cup" (Rev03, fetched) +
+"12s Crankset Technical manual — Ultra-Torque" (Rev04, fetched); bikeshop.no-hosted Campagnolo
+13-speed frame-spec manual (fetched, shell table); parktool.com "Campagnolo Ultra-Torque and
+Record Group" + "Crank & Bottom Bracket Removal & Installation: Campagnolo Ultra-Torque" (both
+fetched, corroborating), 2026-07-18. Cross-reference: FRM-18, FRM-32, [`drivetrain.md`](drivetrain.md) DRV-51.
+
 ## Headset locknut + UDH hanger-bolt torque (closes FRM-34's remaining named gap)
 
 **FRM-46 — Threaded-headset locknut torque IS in Park Tool's cross-manufacturer table (FRM-34
@@ -870,11 +903,14 @@ close, most-specific first:
   medium-high confidence, not confirmed, per corpus rule 5. Engine decision (FRM-15) to skip
   matrix-level verdicts in favor of purchasable-BB exact checks stands; this closes the
   knowledge gap without implying a rule change.
-- **No Shimano/Campagnolo/other-brand press-fit or proprietary BB service internals (L2 gap,
-  unchanged).** This round's press-fit sourcing (Park Tool, Wheels Mfg, SRAM, Chris King) covers
-  identification/naming/interference-spec for the SRAM/generic/Chris-King side well now, but not
-  Shimano- or Campagnolo-specific service procedures or torque specs — full service-manual
-  coverage stays L2.
+- **PARTIALLY CLOSED 2026-07-18 (FRM-49) — Campagnolo Ultra-Torque service internals.**
+  Campagnolo's own dealer manuals now source the genuinely different bearings-on-the-crank-arm
+  architecture, the wave-washer shell-tolerance mechanism, cup/central-bolt/chainring-screw
+  torque figures, and the left-hand-thread titanium-bolt exception on one specific SKU. **Still
+  open: Shimano proprietary press-fit BB service internals specific to this chapter** (DRV-35 in
+  `drivetrain.md` covers Shimano crank-side torque, but a frame-side press/removal procedure for
+  Shimano's own press-fit BB families hasn't been sourced here) — narrowed from "Shimano AND
+  Campagnolo" to "Shimano only," still L2.
 - **Headset creak isolation (FRM-27) has no equivalent BB-vs-frame-crack differential test
   sourced yet** — Park Tool's noisy-drivetrain page mentions frame cracks as a creak source
   ("A crack in a weld... can also cause a creaking sound") but this round did not source a
