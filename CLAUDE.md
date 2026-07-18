@@ -15,9 +15,13 @@ unverified specs as real. See "Provenance" below.
 
 ## Hard rules (Douglas — non-negotiable)
 
-1. **NO E-BIKES.** Do not add ANY e-bike / e-MTB / motor / battery / e-specific part to the catalog
-   until Douglas EXPLICITLY says so. Exclude every e-MTB frame (Levo, Rail, Bullit, Meta Power, …)
-   and any e-bike-only variant. He'll add them someday — only on his word.
+1. **E-BIKES ARE CONTAINED (rule amended on Douglas's explicit word, 2026-07-18).** The MTB
+   catalog (`src/compat.js` `PARTS`) remains **100% e-bike-free permanently** — no e-bike / e-MTB /
+   motor / battery / e-specific part may EVER enter it, and no other catalog gains e-parts either.
+   The ONLY e-bike surface is **BuildMyEMTB** (`data/emtb.js` + its own schema/validator + a future
+   separate `emtb.html` page — the BuildMyBMX pattern), authorized reluctantly and explicitly by
+   Douglas 2026-07-18, off-live until his flip word. Douglas dislikes this domain: keep every
+   e-MTB decision routed to him as a compact packet, never spec-level detail.
 2. **NO POP-UP ADS / UNSOLICITED POP-UPS, EVER.** The site loads straight to the data — never an ad,
    newsletter/promo/cookie interstitial, or any auto-appearing pop-up, for any reason. Click-triggered
    cards/tabs/modals the user opens themselves (a part's spec card, the login dialog) are fine;
