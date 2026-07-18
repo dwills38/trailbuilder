@@ -107,7 +107,7 @@ test('golden BRAKELESS freecoaster build (Colony Sweet Tooth) - clean AND comple
     handlebar: bp('bmx-hb-fitbikeco-vh'),
     stem: bp('bmx-st-cult-hi-fi'),
     grips: bp('bmx-gr-odi-longneck'),
-    seat: bp('bmx-se-odyssey-fedaykin'),
+    seat: bp('bmx-se-wethepeople-team'),         // pivotal (swapped 2026-07-17: the prior bmx-se-odyssey-fedaykin row was removed as fabricated)
     seatpost: bp('bmx-sp-cult-pivotal-post'),
     pedals: bp('bmx-pd-shadow-metalalloy')
   };
