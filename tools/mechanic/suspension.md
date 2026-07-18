@@ -1,20 +1,21 @@
 # Suspension — Mechanic Corpus
 
-**Maturity: foundation, with substantial rear-shock AND fork L2 depth, approaching
-professional** (L1 coverage + the RockShox Suspension Theory Guide's DAMPER/FRICTION/
-TUNING sections landed 2026-07-17 (SUS-26–31), followed same-day by a genuine per-model
-SERVICE-manual pass — the RockShox 2018-2022 Deluxe service manual (SUS-32–37: torque
-table, IFP-depth-by-stroke, oil-fill methods, bottomless-token limits), Fox's FLOAT X + 36
-tech-center pages (SUS-38–41), and the RockShox 2019-2022 Lyrik / 2019-2023 Yari fork
-service manual (SUS-42). **2026-07-18: the current-generation (2023-2026) ZEB/Lyrik/Pike
-fork service manual landed too (SUS-43/44), and the SAME round recovered SUS-42's
-originally-garbled 2019-2022 oil-volume table in full (SUS-45)** — RockShox fork-side L2
-now spans both the prior and current generation with complete torque AND oil-volume
-tables, closing both of this chapter's round-4 pickup points. Still short of
-`professional`: Fox's fork-side is still part-info pages only (no Fox SERVICE manual
-proper), coil-shock/coil-fork internals (Vivid/Super Deluxe Coil, RockShox coil fork
-options) are untouched, and no unified cross-brand torque-spec table exists yet — see
-"## Gaps" below.)
+**Maturity: professional** (L1 coverage + the RockShox Suspension Theory Guide's
+DAMPER/FRICTION/TUNING sections landed 2026-07-17 (SUS-26–31), followed same-day by a
+genuine per-model SERVICE-manual pass — the RockShox 2018-2022 Deluxe service manual
+(SUS-32–37: torque table, IFP-depth-by-stroke, oil-fill methods, bottomless-token
+limits), Fox's FLOAT X + 36 tech-center pages (SUS-38–41), and the RockShox 2019-2022
+Lyrik / 2019-2023 Yari fork service manual (SUS-42). **2026-07-18: the current-generation
+(2023-2026) ZEB/Lyrik/Pike fork service manual landed too (SUS-43/44), the same round
+recovered SUS-42's originally-garbled 2019-2022 oil-volume table in full (SUS-45), AND
+Fox's own current-gen fork (air spring + GRIP X damper, SUS-46) and shock (FLOAT X + DHX,
+SUS-47) service manuals proper landed** — both majors now have genuine L2 service-manual
+depth across BOTH fork and rear-shock, closing every round-4 pickup point for this
+chapter. Now meets CURRICULUM.md's `professional` bar (L1 complete + meaningful L2 depth
+across most of the chapter's parts) rather than merely approaching it. Still short of
+`master`: coil-shock/coil-fork internals (Vivid/Super Deluxe Coil, RockShox coil fork
+options, Fox DHX2/coil variants) are untouched, no unified cross-brand torque-spec table
+exists yet, and no L3 kinematics/leverage-ratio depth — see "## Gaps" below.)
 
 Fork · rear shock · travel · trunnion/standard eyes · coil approval · fork↔frame bundling.
 Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline, conventions).
@@ -550,6 +551,58 @@ direct image read after two text-extraction methods both collapsed the table).* 
 sram.com "2019-2022 Lyrik 2019-2023 Yari Service Manual" (GEN.0000000007193 Rev C), same
 PDF SUS-42 cited, re-fetched via direct download + local `pdftoppm` 2026-07-18.
 
+**SUS-46 — Fox's own current-gen FORK service manual (not the part-info pages SUS-41
+used) is fetched and mined for both halves of the fork: air spring and damper.** Unlike
+RockShox's PDF manuals, Fox publishes these as numbered step-by-step web pages at
+tech.ridefox.com/bike/service-procedures/ — some are text throughout (fetched cleanly via
+Exa after WebFetch returned only the parts/tools lists and warnings, not the numbered
+steps), while others genuinely defer the actual procedure to an embedded video with no
+text fallback (confirmed dead end, not a fetch failure — see the tier note below). The
+**2026-2027 36SL FLOAT NA3 Glidecore air spring rebuild** (text, 25 numbered steps) gives:
+base stud torque 50 in-lb (5.7 N·m) with red Loctite 262 on the shaft threads, main air
+chamber fill 3 cc of FOX 20wt Gold oil, topcap torque 220 in-lb (24.8 N·m), lower-leg
+bottom nuts 50 in-lb (5.7 N·m) each side. The **2025-2026 GRIP X damper rebuild** (text,
+23 numbered steps — Fox's current-gen damper, a genuine SERVICE-manual-depth text page
+unlike the older/other-size-fork "2017-2027 GRIP Damper Rebuild" page which defers
+entirely to video) gives: LSR check housing 9 in-lb, check-shim T6 Torx fastener 4 in-lb,
+piston base 30 in-lb, HSC adjust-hat set screws 2.5 in-lb (0.3 N·m), piston bolt 17 in-lb,
+damper fill FOX 4wt oil to the level of the bleed holes, topcap 100 in-lb (11.3 N·m) with
+blue Loctite 243 on the threads. **Tier note (corpus rule 5):** the older-generation "GRIP
+Damper Rebuild (32/34/36/38/40mm)" page was checked and confirmed to have NO text
+procedure at all — both WebFetch and Exa return only the required-parts/tools list and
+safety warnings, with the actual numbered steps stated to live "in the video"; this is a
+Fox documentation-format choice (video-only for that specific page), not a tool
+limitation, and a future round should not re-attempt fetching that particular page's
+steps as text — an OCR/video-transcription tool would be needed, not a better fetcher.
+*Confidence: confirmed (fetched primary, numbered procedure text, current-gen pages).*
+Source: tech.ridefox.com "2026-2027 36SL FLOAT NA3 Glidecore Air Spring Rebuild"
+(service-procedures/3065) + "2025-2026 GRIP X Damper Rebuild" (service-procedures/2934),
+both fetched via Exa 2026-07-18.
+
+**SUS-47 — Fox's own current-gen SHOCK service manual (FLOAT X and DHX, 2022-2026) is
+fetched too, and it exposes a genuine cross-model torque difference on a part the
+manual itself calls shared.** Both manuals open with "many assemblies are shared between
+the FLOAT X and DHX shocks... some images... may show a [the other] shock" — yet the
+**shaft eyelet install torque is NOT the same number between them**: FLOAT X eyelet
+110 in-lb (12.4 N·m) vs. DHX eyelet 245 in-lb (27.7 N·m), both with red Loctite 277 on
+the first 2-3 threads — more than double, on a part described as shared design. This is
+exactly the kind of cross-model torque-generalization trap `cockpit-contact.md` CKP-12/13
+and `wheels-tires.md` WHL-37 already documented in other categories — worth flagging
+explicitly since the manual's own "shared assemblies" language could mislead a mechanic
+into assuming a shared torque too. Other current-gen figures, common to both where the
+procedures overlap (both use FOX 4wt Suspension Fluid): base valve bolt 60 in-lb (6.8
+N·m), main piston bolt 80 in-lb (9.0 N·m), reservoir-to-body 240 in-lb (27.1 N·m) with
+blue Loctite 243, IFP bleed screw 7-8 in-lb (0.8-0.9 N·m), air fill cap 3 in-lb (0.3
+N·m). IFP pressure is set during vacuum-bleed fill, not just measured: DHX's procedure
+sets it to **150 psi** at final assembly. A "stuck down" failure-mode test is documented
+for both (pressurize to 250 psi/17 bar after fully releasing positive-chamber air; if the
+shock doesn't fully extend, it's stuck down and must NOT be serviced further — contact an
+Authorized Service Center) — a genuine safety-relevant diagnostic fact with no RockShox
+rear-shock equivalent sourced in this chapter yet. *Confidence: confirmed (fetched
+primary, numbered procedure text, current-gen pages).* Source: tech.ridefox.com
+"2022-2026 FLOAT X Rebuild" (service-procedures/1139) + "2022-2026 DHX Rebuild"
+(service-procedures/1140), both fetched via Exa 2026-07-18.
+
 ## Fork travel vs frame
 
 **SUS-8 — Over-travel fork vs frame rated max = WARNING; where a maker publishes an APPROVED
@@ -780,10 +833,17 @@ Honest list of what a future round needs to close to move this chapter past `fou
   `pdftotext` column-collapse artifact and the image read recovered every cell). Text
   extraction and image reading can fail in different ways on the same PDF; when one gives
   a suspiciously sparse or jumbled table, try the other before citing "not established."
-  Still open: coil-shock service internals (RockShox Super Deluxe Coil, Fox DHX, Öhlins/
-  EXT/Cane Creek) and Fox's own fork-side SERVICE manual (vs. the part-info pages SUS-41
-  used) remain untouched — **L2 gap narrowed to: coil-shock/coil-fork service manual +
-  Fox's fork service manual proper.**
+  **CLOSED 2026-07-18 (SUS-46/47) — Fox's own current-gen fork (air spring + GRIP X
+  damper) and shock (FLOAT X + DHX) SERVICE manuals proper are fetched**, closing the
+  "part-info pages only" gap SUS-41 left open. One page format caveat worth remembering:
+  Fox's OLDER/other-size-fork "GRIP Damper Rebuild (32/34/36/38/40mm)" page is video-only
+  with no text procedure at all (confirmed dead end, both WebFetch and Exa agree) — the
+  CURRENT-gen "GRIP X Damper Rebuild" page that superseded it for text purposes is a full
+  numbered-step text page; if a future round needs the older GRIP/GRIP2 damper's exact
+  torques, that will need an OCR/video-transcription tool, not a better fetcher. Still
+  open: coil-shock/coil-fork service internals (RockShox Super Deluxe Coil, Fox
+  DHX2/coil variants, Öhlins/EXT/Cane Creek) remain untouched — **L2 gap narrowed to:
+  coil-shock/coil-fork service manual only.**
 - **No unified cross-brand torque-spec table** exists yet as a standalone reference (the
   values are now IN the chapter, SUS-32/SUS-40, but scattered across per-model facts
   rather than collected into one lookup table). Worth a follow-up pass to compile once
