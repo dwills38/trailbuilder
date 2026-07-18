@@ -78,3 +78,16 @@ the natural next waves are (1) a fetch-verification pass to earn real `verified:
 (2) breadth expansion (more frame/wheel/tire brands — Cervelo Aspero, Kona Sutra, Ritchey,
 Ibis Hakka, Fairlight; DT Swiss/Praxis wheel depth; Panaracer/WTB width variants), (3) the
 schema-gravel.js validator once Douglas's DECISIONS-FOR-DOUGLAS calls land.
+
+## Addendum (gravel-3, 2026-07-18) - row-count reconciliation + Panaracer fix
+The "151 rows" claimed above was the wave-1 landing count (commit c404675). The wave-2
+schema-gravel.js validator pass (0714261) tightened several fields and dropped/merged
+non-conforming rows, landing main at 140 rows by the time gravel-3 branched - validator-driven
+cleanup between waves, not silent data loss; no gravel-catalog-2-progress.md was ever written,
+so the discrepancy looked undocumented. gravel-3 also fixed a fabrication-adjacent flag:
+wave-1's gti-panaracer-gravelking-sk-700x38/-700x43 cited widths the GravelKing SK line
+doesn't sell. Re-fetched panaracerusa.com's GravelKing SK product page (2026-07-18): real 700c
+sizes are 28/30/35/40/45mm (50 explicitly marked unavailable), plus 650B x43/48/54. Removed
+the two phantom rows, added gti-panaracer-gravelking-sk-700x35, -700x40 (real 700c sizes) and
+-650x43 (real 650B size) - net 140 -> 141 rows. The neighboring gravelking-ss-700x35 row was
+independently confirmed real (GravelKing SS ships 28/32/35/43mm) and left untouched.
