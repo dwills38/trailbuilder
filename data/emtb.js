@@ -774,6 +774,20 @@ var EMTB_PARTS = [
     disciplines: ['e-enduro'], weight: 25200, price: 5200,
     note: 'Entry alloy eONE-SIXTY trim; same motor/battery as the carbon 8000.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Focus (new maker) — Jam2 SL (lightweight)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-focus-jam2-sl-8-9', cat: 'emtb', brand: 'Focus', model: 'Jam2 SL 8.9',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
+    batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-trail'], weight: 19400, price: 8200,
+    note: "German brand's lightweight-class trail e-MTB on the Fazua Ride 60 motor.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
