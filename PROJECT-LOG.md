@@ -2047,3 +2047,26 @@ per wave/decision; large reconstructions are handed to a worker session.
   confirmed (spot-checked `catalog/cb7-w5-leads2`: its bike ids are all already on main). The
   own-additions apply pattern doesn't create merge ancestry, so pointer age is not evidence of
   unmerged work. Ground truth is content, never the pointer.
+
+## 2026-07-18 — CORRECTION: Bright Data free pool was never exhausted (coordinator error)
+
+- **The error:** the coordinator read `bdata budget` → `balance: 1.39` and told Douglas there was
+  no free tier on the account and no free usage would return, then instructed campaign-3 (and the
+  sweep messages) to stop using Bright Data entirely and stay on WebFetch/WebSearch. **Douglas
+  caught it from the Bright Data dashboard: 4,273 free credits remaining of 5,000, renewing
+  2026-08-01.**
+- **Root cause:** `bdata budget` reports ONLY the paid/test balance — it has no visibility into the
+  monthly free-credit pool, which is dashboard-only. Asserting a negative ("no free tier") from a
+  tool that structurally cannot observe it was the mistake; the correct answer was "the CLI can't
+  see this, check the dashboard."
+- **The $1.39 is a different thing entirely:** a $2 test credit scoped to Proxies & Browser API
+  (explicitly NOT free-tier covered), expiring ~2026-07-24.
+- **Cost of the error:** campaign-3 ran two-plus batches deliberately avoiding Bright Data, taking
+  Failed-retry on rate-limited/walled rows (santacruzbicycles, intensecycles, dmrbikes, revelbikes
+  429s) that the free pool would have cleared. No bad data resulted — the loss is throughput only.
+- **Fix landed in `tools/VERIFY-PROTOCOL.md`** (new "BILLING — read before ANY bdata call"
+  section): the two-pool table (`bdata scrape`/`search` = free 5,000/mo renewing;
+  `bdata browser` = real money, coordinator approval required), an explicit "do NOT avoid scrape to
+  save credits — the whole walled backlog fits in one month's pool", and a standing warning that
+  `bdata budget` cannot see the free pool so free-pool state must never be inferred from the CLI.
+- Workers notified to resume Bright Data on the free pool for walled targets.

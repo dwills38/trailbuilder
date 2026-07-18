@@ -171,8 +171,35 @@ in bash:
   finding exact product URLs before scraping).
 
 USE IT FOR WALLED TARGETS ONLY — plain WebFetch remains first choice for pages
-that already fetch (credits: ~5,000/month free pool, 1 credit/request, hard-stop
-no-surprise-bill). Newly unlocked wall list to retarget: Specialized (403),
+that already fetch.
+
+### ★ BILLING — read before ANY bdata call (corrected 2026-07-18)
+
+**Two separate pools. Confusing them wastes real money or needlessly blocks work.**
+
+| Product | CLI command | Zone | Billing |
+|---|---|---|---|
+| **Web Unlocker** | `bdata scrape` | `cli_unlocker` | **FREE POOL** — 5,000 credits/month, 1 credit/request, renews monthly (next: 2026-08-01) |
+| **SERP** | `bdata search` | — | **FREE POOL** (same 5,000) |
+| **Browser API / proxies** | `bdata browser` | `cli_browser` | ❌ **NOT free-tier covered — bills real money** |
+
+- **`bdata scrape` and `bdata search` are the default and are effectively free.**
+  Do NOT avoid them to "save credits" — that just leaves walled rows unverified.
+  At 5,000/month renewing, the whole remaining walled backlog fits inside one
+  month's free pool.
+- **`bdata browser` costs money — do not use it without explicit coordinator
+  approval.** Reach for it only when a page genuinely requires an interactive
+  browser session that `scrape` cannot render.
+- **`bdata budget` DOES NOT SHOW THE FREE POOL.** It reports only the paid
+  balance, so a low number there does NOT mean credits are exhausted — it
+  reports the paid/test balance only. **The free-credit count is visible ONLY
+  in the Bright Data dashboard.** A coordinator misread `balance: 1.39` as
+  total exhaustion on 2026-07-18 and told workers to stop using Bright Data
+  entirely; Douglas caught it from the dashboard (4,273 free credits remaining).
+  **Never infer free-pool state from the CLI.** If free-pool state matters,
+  ask Douglas to check the dashboard rather than guessing from `bdata budget`.
+
+Newly unlocked wall list to retarget: Specialized (403),
 Trek/Giant/Pivot/Yeti (JS-rendered), Fox Racing/Giro/Bell (Vista bot-wall),
 Five Ten/Adidas, Bolle, Pearl Izumi, IXS geo-wall, Michelin, and any
 `archiveUrl`/Wayback lookup. THE BAR IS UNCHANGED: a bdata-fetched maker page
