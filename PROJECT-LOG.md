@@ -1,5 +1,21 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — GIGA WAVE COMPLETE: six catalogs, six validators, one gate
+
+- **validate.js is now the single gate for SIX catalogs** (DATA/KIT/BMX/STRIDER/ROAD/GRAVEL OK —
+  all 0 problems, 735 tests). Wave-2 closeout: road-2 merged (143 rows, validator caught 18
+  wave-1 id violations + a wrong-vocab cross-check; bb90-road/bb30a/pf86/ultra-torque widened
+  with rationale); gravel-2 merged (validator caught a missing exports guard + vocab bugs;
+  4 XPLR RDs verified off SRAM model pages with price corrections; both-additive validate.js
+  conflict resolved keeping both blocks); striders-2 merged earlier (28 bikes, 93% seat-height).
+- **Flagged for gravel wave 3 (fabrication-adjacent):** wave-1's Panaracer GravelKing SK
+  700x38/700x43 rows cite sizes the SK line doesn't sell (real lineup: 700×30/35/40/45/50 +
+  650×43B per the fetched panaracer.com table) — needs correction/replacement, not fudging;
+  also the progress doc's 151-vs-140 row-count discrepancy.
+- Totals across the platform: MTB 5,026 (3,007 verified, 59.8%) · Kit 714 (433, 60.6%) ·
+  BMX 225 live (59) · Road 143 off-live (9) · Gravel 140 off-live (4) · Kids 28 off-live
+  (26/28 seat-height). Every catalog has a schema validator; every merge passed the same gates.
+
 ## 2026-07-18 — cb-sheets-4b merged: 2 price corrections; EUR-price policy question queued
 
 - verify/cb-sheets-4b merged: Whyte 905 GBP1,699→2,099 + Rose Root Miller 2 $1,943→$2,699 (the
