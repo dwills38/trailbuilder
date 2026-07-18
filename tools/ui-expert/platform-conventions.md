@@ -178,6 +178,15 @@ Closes this chapter's clearest standing Gap ("desktop-specific conventions … r
   rather than a vendor HIG, since a vendor will never publish "prefer the web's convention over
   ours."
 
+- **PLT-15 — PLT-11's conditional re-checked (round 5, 2026-07-18): HOLDS.** Grepped every
+  `:hover` rule across all six HTML entry points (59 occurrences: `index.html` 35, `bmx.html`
+  9, `KitBuilder/index.html` 9, the three legal pages 2 each) for
+  `display|visibility|opacity|pointer-events` inside the declaration block: **zero matches**.
+  Every `:hover` remains cosmetic (color/border/underline feedback), no content or control is
+  hover-gated, so PLT-11's zero-`@media (hover:…)` no-action recommendation stands unchanged.
+  *Method: multiline regex over the repo at `origin/main` @ `2ff6e6c`; the cheap per-round
+  sweep PLT-11's Gap prescribed.*
+
 ## Gaps (next-round targets)
 
 - **PLT-2 still needs a real source** — round 4 tried and failed; see **PLT-14** for what was
@@ -189,7 +198,7 @@ Closes this chapter's clearest standing Gap ("desktop-specific conventions … r
   remains open and is the narrower successor to this Gap.
 - **PLT-11's no-action recommendation is conditional** and must be re-checked whenever CSS
   changes: it holds only while every `:hover` rule stays cosmetic. Cheap test — grep `:hover`
-  for `display|visibility|opacity`.
+  for `display|visibility|opacity`. **Last re-checked round 5 (2026-07-18) by PLT-15: holds.**
 - Material's own M3 pages remain unpinned (walled); if a future round needs an M3-specific
   fact (state layers, elevation), find the developer.android.com or research-blog carrier.
 - PLT-8 (PWA) is seeded but entirely dormant — revisit only if an installable-app ask surfaces.

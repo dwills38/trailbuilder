@@ -213,7 +213,16 @@ picked cassette in its own words, drops a built-in-cassette info when cassette-l
 `slotRequired` exempts the cassette slot from completeness, hardtail-shock style; incl. 6c: an XD
 cassette on an XDR-driver wheel = adapter-tier WARNING with a structured fix naming SRAM's 1.85 mm
 spacer — SRAM-documented; every other freehub mismatch, including the reverse direction, stays the
-exact-match error); brake caliper mounts;
+exact-match error); brake caliper mounts (direction-aware on the rule-9 adapter template, NOT a
+plain exact-match: a Post-mount caliper on an **I.S.** frame/fork mount = adapter-tier WARNING with
+a structured `fix` naming the rotor-size-specific I.S.-to-post adapter (Shimano SM-MA-R160P/S rear
+/ F160P/S front — Shimano DM-SMMA00A plus Banshee's and Cotic's own pages describing this exact
+setup); **PM↔FM both directions** likewise warn with a `fix` (Shimano SM-MA flat-mount line one way,
+Wolf Tooth Post-to-Flat the other, whose message flags the +20 mm-only step and boss clearance);
+**FM-on-I.S.** stays an ERROR (only a boutique rotor-limited part exists — a `fix` would be a false
+"fits"), and an **I.S. caliper** on any other mount stays an ERROR, dormant-but-correct since no
+I.S. caliper is cataloged. Live on the 3 I.S. frames (Cotic BFe/Jeht, Banshee Paradox V3), which
+went from 0/104 buildable to PM-caliper-buildable; the I.S. *fork* branch is dormant);
 rotor interface vs hub (direction-aware: Center-Lock rotor on a 6-bolt hub = error;
 6-bolt rotor on a Center-Lock hub = adapter warning carrying a structured `fix`); rotor size vs
 frame/fork max AND vs the fork's native-mount minimum (error; sourced forks only) AND vs the

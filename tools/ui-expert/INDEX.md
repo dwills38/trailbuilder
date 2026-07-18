@@ -131,6 +131,11 @@ mockups (see the agent file), and keeps the corpus to what sources can carry.
 
 ---
 
+**Audit artifacts** (method executions, not chapters):
+[`HEURISTIC-EVAL-2026-07-18.md`](HEURISTIC-EVAL-2026-07-18.md) — round 5's RES-4 run across
+builder/forum/guides; findings recorded as facts in the owning chapters (ACC-26/27, NAV-18,
+PRF-19), method record in RES-14.
+
 ## Seed provenance (where this corpus's first facts came from)
 
 Seeded 2026-07-18 in the ui-expert bootstrap round, from **fetched** primary pages:

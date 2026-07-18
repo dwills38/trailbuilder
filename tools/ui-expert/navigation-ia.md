@@ -212,8 +212,24 @@ and what the Back button consequently does in each of its views. *Method: static
   pursued, the honest scope is mobile-only and dialog-by-dialog** — and it is a good candidate
   for a real usability test rather than a corpus assertion.
 
+- **NAV-18 — `document.title` is maintained by exactly one view: guides. Every other view
+  shows a stale or wrong title (round-5 finding, verified live + in source).** The app's only
+  three `document.title` assignments are the guides paths (`index.html:4654` index, `:4669`
+  article, `:4673` restore-builder-default); the `#forum`, `#inventory` and `#profile` views
+  never set it. Observed live: navigating guides → forum leaves the tab titled "How BuildMyMTB
+  Checks Your Build — BuildMyMTB Guides" while the user reads the forum. Costs: the tab is
+  mislabeled among open tabs, history/bookmark entries carry the wrong label, and a
+  screen-reader user tabbing back into the window is announced the wrong context — the guides
+  flow itself proves the site already knows the right pattern (per-article titles were a
+  round-4-noted strength). **Fix shape: set a per-view title wherever the hash router toggles
+  page sections, reusing the guides convention** ("Discussions — BuildMyMTB" etc.). Flagged as
+  HE-4 in [`HEURISTIC-EVAL-2026-07-18.md`](HEURISTIC-EVAL-2026-07-18.md); severity 2. *Note
+  this is adjacent to, and would naturally ship with, NAV-16's router work — same code site.*
+
 ## Gaps (next-round targets)
 
+- **NAV-18 (per-view `document.title`) is an open coordinator fix-chip** — smallest of the
+  round-5 items, and it rides along with NAV-16's router consolidation if that lands.
 - NAV-6/7 give the *method*, not a completed study — no card sort or tree test has actually
   been run on BuildMyMTB's own nav; that's a recommend-to-coordinator action item, not a corpus
   fact to seed further.

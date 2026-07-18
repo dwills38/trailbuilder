@@ -408,6 +408,41 @@ round-4 live-DOM audits raised against the shipped app are now closed**, which i
 the flag-never-implement boundary is supposed to produce: the corpus found them, named the fix
 precisely enough to be actionable, and the app changed.
 
+## ⚠ CONTRADICTION — ACC-26: forum thread rows fail SC 2.1.1 Keyboard, Level A (round 5 heuristic evaluation, 2026-07-18)
+
+**The forum's thread-list rows are keyboard-inaccessible — a violation-grade finding.** Rows are
+rendered as `<div class="grow clickable">` with only a `div.onclick` handler
+(`index.html:4381–4386`): no `tabindex`, no role, no keydown handling, no inner link on the
+title. A keyboard-only user (and any switch/AT user driving the page by focus) can *see* the
+thread list but **cannot open any thread**; the only alternative is hand-typing a
+`#forum/<uuid>` hash, which is not an accessibility-supported path. **SC 2.1.1 Keyboard is
+Level A** — this clears INDEX's bar for the word "violation" (a Tier-A criterion the shipped
+pattern testably fails). The sharpening detail: the author-name inside each row IS a real
+`<button>` (`wireAuthorLinks`), so focus reaches the row's *author* but not the thread itself —
+and the guides surface already solved the identical list-of-activatable-cards problem with real
+`<button class="guide-card">` elements carrying `:focus-visible` styling. The repo contains its
+own correct pattern; the fix is to apply it (title as `<button>`, or `role="link"` +
+`tabindex="0"` + Enter/Space on the row). *Method: live-DOM probe + source verification, round-5
+heuristic evaluation — full context in
+[`HEURISTIC-EVAL-2026-07-18.md`](HEURISTIC-EVAL-2026-07-18.md) (HE-2). For the coordinator to
+triage; this corpus does not edit `index.html`.*
+
+## ACC-27 — two AT-semantics hardening notes from the round-5 evaluation (not violations)
+
+- **Guide cards: `role="listitem"` on a `<button>` overrides the button role for AT**
+  (`index.html:1254` grid `role="list"`; `:4640` cards). The cards stay focusable and
+  Enter/Space-activatable (native semantics), but a screen reader announces "list item," not
+  "button" — the activability is hidden precisely from users who can't see the hover/focus
+  styling. Not a Level-A failure (operation still succeeds); recorded as a fix-chip candidate:
+  `<ul><li><button>` structure, or drop the list roles entirely.
+- **The build-slot Remove button's accessible name is the glyph "×"** (name-from-content;
+  `title="Remove"` contributes only the description), announced as "times"/"multiplication x".
+  One attribute (`aria-label="Remove <part name>"`) fixes it. Size context, measured round 5:
+  21×17 px on desktop — **passes SC 2.5.8 via the spacing exception** (44 px clearance between
+  adjacent targets; 24 px circles don't intersect) — and correctly upsizes to 38×38 px at the
+  mobile breakpoint. Recorded as a checked non-violation with the numbers so no future round
+  re-derives it.
+
 ## Gaps (next-round targets)
 
 **Closed in round 4 (2026-07-18)** — kept as a record, do not re-open:
@@ -420,6 +455,10 @@ precisely enough to be actionable, and the app changed.
   pass 5** (already correctly implemented — the speculation was wrong in the site's favor).
 
 **Still open:**
+- **ACC-26 (forum thread rows, SC 2.1.1 Level A) is an open coordinator fix-chip** — the round-5
+  evaluation's one violation-grade finding; the in-repo fix pattern is the guides card.
+- ACC-27's two hardening notes (guide-card `role="listitem"`, Remove-button accessible name)
+  ride along with any forum/guides touch — small, not urgent alone.
 - **Screen-reader *flows*** — the *doctrine* is now pinned (ACC-21) and live regions are
   verified (ACC-22), but heading-structure and landmark auditing of the shipped pages has not
   been done. That is a concrete, static-auditable next target (`h1`→`h6` order, `<main>`/`<nav>`/

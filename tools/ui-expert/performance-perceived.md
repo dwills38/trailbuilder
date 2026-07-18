@@ -214,6 +214,32 @@ this round by fetching the vendor docs rather than reasoning about them. The hea
   would close this gap for free. *Corpus judgment applying SITE-CONSTRAINTS to PRF-14/16;
   flagged as the corpus's own call.*
 
+- **PRF-18 — PRF-14/17's Cloudflare limitation re-checked (round 5, 2026-07-18): UNCHANGED.**
+  Fetched the Cloudflare Web Analytics CWV docs page again: "Core Web Vitals is currently only
+  supported in Chromium browsers, with Safari and Firefox coming soon" — byte-for-byte the
+  same position PRF-14 recorded. The Chromium-only sampling caveat stands on any number quoted
+  from Vitals Explorer, and PRF-17's do-not-vendor recommendation stands with it (its revisit
+  trigger has not fired). *Tier A, fetched
+  https://developers.cloudflare.com/web-analytics/data-metrics/core-web-vitals/ 2026-07-18.*
+
+- **PRF-19 — Unbounded catalog DOM: the "All parts" view renders 2,986 cards → 57,120 DOM
+  nodes in one synchronous pass (measured live, round 5).** `renderCatalog()` builds a card
+  for every matching part with no pagination, no incremental reveal, no virtualization; at
+  375 px the Complete Bikes category alone (436 cards) produced a 61,046 px document. Chrome's
+  DOM-size guidance flags ~1,400 nodes as the excessive threshold — this is ~40× that, and the
+  cost grows linearly with a catalog that is actively expanding. **Scope of the existing
+  doctrine, stated precisely: DNS-15's input/change split bounds re-render *frequency*;
+  nothing bounds re-render *size*.** Style recalc, layout and memory scale with total node
+  count even when no re-render fires, and every `change`-commit re-pays the full build cost.
+  **Deliberately a flagged candidate, not a prescription** — the honest sequencing is PRF-16
+  first (read the field data: if real-user INP/LCP are green even on "All parts," this is a
+  scaling watch-item, not a defect), then a design decision among per-category default views /
+  pagination / "show more" / virtualization, each of which has a discoverability or
+  no-build-step cost the coordinator must weigh. Full context: HE-3 in
+  [`HEURISTIC-EVAL-2026-07-18.md`](HEURISTIC-EVAL-2026-07-18.md). *Method: live DOM count +
+  source verification; threshold from Chrome's Lighthouse DOM-size audit doc (previously
+  fetched web.dev family, Tier A).*
+
 ## Gaps (next-round targets)
 
 **Closed in round 4 (2026-07-18)** — kept as a record, do not re-open:
@@ -231,7 +257,9 @@ this round by fetching the vendor docs rather than reasoning about them. The hea
   PRF-1's inference about which element is the LCP element.
 - **The Chromium-only sampling bias** (PRF-14/17) is a permanent caveat on any figure quoted
   from that source until Cloudflare ships Safari/Firefox support. Worth re-checking each round —
-  it closes for free.
+  it closes for free. **Last re-checked round 5 (2026-07-18) by PRF-18: unchanged.**
+- **PRF-19 (unbounded catalog DOM) needs a design decision before the 4,000-part era** —
+  sequenced behind PRF-16's field-data read, which would show whether it is already biting.
 - PRF-8's lean (skeleton screens likely suit an informational catalog better) has never been
   tested on this site specifically — a real recommend-and-measure step, not a corpus fact. Note
   this is now *testable*: PRF-16's data plus a usability study design would settle it, which is

@@ -53,7 +53,52 @@ Grade **honestly** — a chapter with one L2 pattern and mostly L1 floors is sti
 A pattern documented without its accessibility contract does not count toward maturity at all.
 Each chapter ends with a **## Gaps** section the next round reads to pick its target.
 
-## Current state (round 4 — the master round, 2026-07-18)
+## Current state (round 5 — the execution round, 2026-07-18)
+
+Round 5 ran the successor rule exactly as written, in its priority order — and it was the first
+round whose product is **findings and closed questions, not new citations**:
+
+- **Priority 0 — the RES-4 heuristic evaluation RAN** (RES-14;
+  [`HEURISTIC-EVAL-2026-07-18.md`](HEURISTIC-EVAL-2026-07-18.md)): ten heuristics × builder /
+  forum / guides. **9 findings: 3 severity-3** — HE-1 reset destroys the build with no
+  confirm/undo (Back can't recover: the hash is `replaceState`d); **HE-2/ACC-26 forum thread
+  rows fail SC 2.1.1 Keyboard, Level A — the round's one violation-grade item** (click-only
+  `<div>`s; the guides' `<button>` cards are the in-repo fix pattern); HE-3/PRF-19 the
+  "All parts" view renders 2,986 cards / 57,120 DOM nodes unbounded — **4 severity-2**
+  (NAV-18 stale `document.title` outside guides; ACC-27 guide-card `role="listitem"` hiding
+  buttonness from AT; the 24%-of-viewport mobile chrome measurement; the forum's 460 px
+  17-chip category wall) — 2 severity-1, plus a recorded strengths list (status/aria-live
+  discipline, dialog hygiene, guides quality) so settled ground isn't re-litigated. One
+  candidate **died in verification** (New-thread "dead button" — it's `hidden` gating working
+  correctly; synthetic clicks bypass it) and is kept in the report as the method lesson:
+  **gate scripted audits on real visibility before claiming a broken control.**
+- **Priority 1 — all three unrun measurements RAN**: MOB-48 (the 769 px crossing with build +
+  open dialog + mid-edit field: **everything survives, MOB-47's risk refuted** — the only
+  resize listener syncs a CSS var); MOB-49 (reachability audit: build bar bottom-fixed = the
+  pie model working; sticky search is the acceptable top-zone trade); DNS-22 (worst rail 323 px
+  ≈ 40% viewport, no facet over 6 values — **facet collapsing not earned, RES-10 closed**).
+  PRF-16 (Vitals Explorer) remains Douglas-only and unread; per the standing note, no
+  performance claim is treated as measured until he opens it.
+- **Priority 2 — all three conditional no-actions re-checked, all HOLD**: MOB-44/45 (Viewport
+  Segments still explicitly not Baseline, MDN), PLT-15 (all 59 `:hover` rules still cosmetic),
+  PRF-18 (Cloudflare CWV still Chromium-only, "Safari and Firefox coming soon" verbatim
+  unchanged).
+
+Maturity grid unchanged from round 4 (seven masters + research-methods professional) —
+executing one agent-runnable method and closing measurements does not re-grade chapters, and
+`research-methods` honestly stays professional until a *human* study runs.
+
+**Round 6 should target, in order:** (1) the coordinator-side outcomes of this round's three
+severity-3 findings — ACC-26 is a Level-A violation with a small in-repo fix, HE-1 is the
+highest pain-per-fix, PRF-19 needs a design decision sequenced behind PRF-16's field-data
+read — append confirming facts as fixes land, ACC-24-style; (2) the untouched priority-3 tail
+(PLT-2's decision rule, keyboard-shortcut conventions, the L3 density judgment layer, RES-8's
+recruiting/remote-testing pins); (3) the standing per-round sweeps (MOB-44 Baseline, PLT-11
+hover grep, PRF-14/17 Cloudflare — all cheap, all dated in their chapters). Do NOT re-run the
+heuristic evaluation against an unchanged app (RES-14's own caveat) — re-run it when the home
+page, a router rework, or another new surface ships.
+
+## Historical state (round 4 — the master round, 2026-07-18)
 
 **All seven original chapters are `master`, and an eighth (L4) chapter was added.** Round 4 took
 each remaining chapter to master by pairing a

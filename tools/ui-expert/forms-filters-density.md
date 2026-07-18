@@ -304,8 +304,30 @@ corpus does not edit `index.html`.*
   and it is anyway inherent to offering a second input path at all. Recorded so a future round
   doesn't flag it as a duplicate-name defect. *Method: static re-audit of the shipped code.*
 
+- **DNS-22 — DNS-20's measurement RUN (round 5, 2026-07-18): facet collapsing is NOT earned;
+  the filter block clears the reachability concern in every category.** Measured live at
+  375×812 against `origin/main` @ `2ff6e6c`, per-category `#subFilters` rendered height and
+  per-facet value counts (the categories with the densest filter UIs): **Frame 323 px** (the
+  worst case: materials ×6, types ×3, two range rows), **Tires 288 px** (sizes ×4, compounds
+  ×5, casings ×6, one range row), **Complete Bikes 265 px**, **Rear Shock 204 px**, **Seatpost
+  172 px**; every other category ≤ 76 px. Two conclusions against the chapter's own
+  thresholds: (1) **no facet exceeds DNS-8's >6-value collapse threshold** — the largest chip
+  rows are exactly 6 (frame materials, tire casings); (2) the worst-case block is **~40% of one
+  812 px viewport** and scrolls away with the page — the "lower facets unreachable in
+  practice" condition DNS-20 set as the trigger simply does not occur. **Always-visible facets
+  keep their NAV-2 discoverability advantage for free. RES-10 resolves as: measurement run,
+  no design question left to study** — revisit only if a category's facet count grows past 6
+  values or a new category's block approaches a full viewport. *(Contrast: the FORUM's
+  17-value category chip row ≈ 460 px is the surface that DOES blow past DNS-8 — flagged as
+  HE-7 in [`HEURISTIC-EVAL-2026-07-18.md`](HEURISTIC-EVAL-2026-07-18.md); it is navigation,
+  not a part facet, so DNS-8's threshold is advisory there, but the number is recorded.)*
+  *Method: scripted live-DOM measurement, per-category chip clicks.*
+
 ## Gaps (next-round targets)
 
+- ~~DNS-20's measurement is unrun~~ → **CLOSED round 5 by DNS-22**: run at 375 px; worst case
+  (Frame) is 323 px ≈ 40% of a viewport, no facet exceeds 6 values — collapsing not earned,
+  RES-10 resolved as a non-question at current catalog shape.
 - A sourced pattern for the part-list card at 375 px (what data survives, what folds).
 - Responsive data-table strategies (column priority, row-to-card collapse) — currently only
   the DNS-7 exception is pinned, not any positive pattern.

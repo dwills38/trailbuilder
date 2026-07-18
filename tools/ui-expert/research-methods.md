@@ -1,7 +1,9 @@
 # Research & Measurement Methods (L4)
 
 **Maturity: professional** (L4 method canon seeded and applied to the corpus's own parked
-questions; round 4, 2026-07-18 — new chapter)
+questions, round 4; **first method executed — RES-4's heuristic evaluation, RES-14 — and
+RES-10's measurement run (see DNS-22), round 5, 2026-07-18.** Still professional, honestly: no
+human study has been run, and recruiting/remote-testing sources remain unpinned)
 
 How to *know* instead of guess. Read [`INDEX.md`](INDEX.md) first for corpus rules and tiers.
 
@@ -188,12 +190,41 @@ by decision value, not by ease.
 
 ---
 
+---
+
+## Executed methods (the chapter's first — round 5)
+
+- **RES-14 — The RES-4 heuristic evaluation has been RUN (round 5, 2026-07-18) — the corpus's
+  first executed research method.** Ten heuristics × three surfaces (builder, forum, guides)
+  against `origin/main` @ `2ff6e6c`, live DOM at 375×812 and 1280×800 with source verification
+  of every candidate. Full report:
+  [`HEURISTIC-EVAL-2026-07-18.md`](HEURISTIC-EVAL-2026-07-18.md). Yield: **9 findings — three
+  severity-3** (HE-1 reset-without-confirm-or-undo; HE-2 forum thread rows failing SC 2.1.1
+  Level A, the round's one violation-grade item, recorded as ACC-26; HE-3 the unbounded
+  2,986-card catalog render, recorded as PRF-19), **four severity-2** (stale `document.title`
+  → NAV-18; guide-card role override → ACC-27; mobile chrome ≈24% measurement; the forum's
+  17-chip category wall), **two severity-1**, plus a deliberate strengths record so settled
+  ground isn't re-litigated. Two method lessons now part of the canon:
+  1. **RES-4's "expert judgment, not user evidence" limit was demonstrated, not just cited** —
+     one plausible candidate ("＋ New thread does nothing signed-out") **died in verification**:
+     the button is `hidden` for signed-out users and only a synthetic `.click()` could reach
+     its handler. **Scripted audits must gate on real visibility (`hidden`/`offsetParent`),
+     never on `querySelectorAll`/`textContent` presence, before claiming a dead or misbehaving
+     control.** This is the evaluator-side twin of RES-2's facilitator-bias rule: the
+     instrument can manufacture the finding.
+  2. **The evaluation produced exactly what RES-8 needs**: HE-1 (does anyone lose a build to
+     reset?) and the dot-meaning question can share one 5-user protocol; the heuristic pass
+     proposes, users dispose.
+
 ## Gaps (next-round targets)
 
-- **A heuristic evaluation (RES-4) has never been run on this site** — and it is the *only*
-  method here an agent can execute unaided. That makes it the obvious next round's work:
-  ten heuristics × the builder, forum, and guides surfaces, findings flagged per the usual
-  boundary. It would also very likely surface candidates RES-8 should then test with humans.
+- ~~A heuristic evaluation (RES-4) has never been run on this site~~ → **CLOSED round 5 by
+  RES-14**: run across all three surfaces; 9 findings (1 violation-grade); see the report doc.
+  Re-run only after substantial UI change (a new surface, the home page, a router rework) —
+  re-running against an unchanged app re-finds the same list.
+- **RES-10 is resolved**: DNS-20's measurement ran round 5 (see `forms-filters-density.md`
+  DNS-22) — the rail never approaches the unreachable condition, so facet collapsing closes as
+  a non-question at current catalog shape; no user study needed.
 - No source is pinned yet on **remote/unmoderated testing** or on **recruiting**, which is the
   practical blocker for RES-8 (Douglas would need 5 mountain bikers who haven't seen the site).
   A future round should pin NN/g's remote-testing guidance so the recommendation is actionable

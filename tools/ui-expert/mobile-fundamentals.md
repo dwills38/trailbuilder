@@ -250,15 +250,83 @@ Read [`INDEX.md`](INDEX.md) first for corpus rules and tiers.
   needs only a desktop browser with a resizable window — no foldable hardware. *Explicitly a
   hypothesis, not a finding.*
 
+- **MOB-48 — MOB-47's breakpoint-crossing hypothesis is now RUN, and in-flight state survives
+  clean.** Live-driven on the built site (a resizable browser, no foldable hardware needed),
+  crossing the `769px` boundary in both directions (desktop→mobile and back) with state
+  deliberately in flight:
+  - **(a) partially-filled build** (a frame picked, nothing else) — the `#slots` panel content
+    was byte-identical before and after the crossing in both directions.
+  - **(b) an open dialog** (`#partModal`, opened via the frame's `.sl-part.sl-clickable` row) —
+    stayed open, correctly relaid-out at each width (`getBoundingClientRect()` matched the new
+    viewport), and its Close button stayed functional after the crossing. (Caveat: this run also
+    surfaced that `#compareModal` — a native `<dialog open>` — was left open from an earlier click
+    and sat *underneath* `#partModal`, undetected by an `offsetParent` check because the app's
+    modals are `position:fixed` — `offsetParent` is reliably `null` for fixed-position elements
+    in this browser regardless of visibility, a tooling gotcha for future MOB audits, not a site
+    bug. `getComputedStyle().position/display/visibility` is the correct check instead.)
+  - **(c) a scrolled filter rail** — the page's `scrollY` (the site scrolls the whole document,
+    not an inner rail container) is preserved as a **raw pixel offset** across the crossing, not
+    a semantic/content-anchored position: at `scrollY:400` the element under a fixed test point
+    was `Complete Bikes` chip pre-crossing and unrelated filter-rail content mid-crossing (mobile
+    layout is ~2.2× taller when stacked), then back to `Complete Bikes` on the return crossing
+    once the layout matched again. This is standard browser scroll-restoration behavior (pixel
+    offset, not scroll-anchored) present on effectively every responsive site without custom
+    scroll-anchoring JS — **not a TrailBuilder-specific defect**, just worth knowing it's not
+    content-stable mid-crossing.
+  - **(d) a mid-edit numeric range-filter field** (DNS-21's Fork-travel min input, focused with
+    an unblurred, uncommitted `"15"` typed via a native-setter `input` event) — `document.activeElement`
+    stayed the same node and its `.value` stayed `"15"` across both crossings; nothing lost focus
+    or reset.
+  - **(e) an open routed page** — both `#guide/fork-travel` (a deep guide route) and `#forum`
+    (the community view) kept their hash, their content (`#guideArticle` un-hidden with its text
+    intact; the forum's "BuildMyMTB Discussions" content) present and rendered correctly across
+    both crossings.
+  **Net: no defect found.** MOB-47's risk (in-flight state lost on a live breakpoint crossing) does
+  not reproduce on any of the five state-in-flight scenarios tested. The resize→re-render
+  machinery MOB-47 flagged as risky is, on this evidence, state-preserving. *Tier A for this site
+  — directly observed via DOM inspection (`getComputedStyle`, `getBoundingClientRect`,
+  `document.activeElement`) pre/post crossing in both directions, not inferred from source reading.*
+  **Independently replicated by round 5's heuristic-eval lane the same day** (its run added the
+  root cause from source: the layout swap is pure CSS media query — the app's ONLY `resize`
+  listener, `index.html:4904–4911`, syncs the `--hdr-h` custom property and renders nothing;
+  build state lives in JS/hash independent of layout, and dialogs are native `<dialog>` elements
+  the breakpoint CSS restyles but never re-creates). Two independent same-day runs, agreeing
+  conclusions = strong corroboration. **Conditional**: the "no risk" answer holds only while the
+  app continues to NOT re-render on resize — if a JS resize/orientation handler that rebuilds
+  DOM is ever added, this test must re-run.
+
+- **MOB-49 — MOB-46's site-side audit RUN (round 5, 2026-07-18): the persistent mobile controls
+  split cleanly into a bottom-zone action and a top-zone search; nothing frequently-used hides
+  in the far corners.** Measured at 375×812: exactly two persistent (fixed/sticky) control
+  surfaces exist. (1) **`#mobileBar` — the build-status/jump control — is `position:fixed` at
+  the bottom edge, full-width 44 px**: squarely inside MOB-46's pie for either hand, and it is
+  the control a mid-build user touches most. This is the reachability model working. (2) **The
+  `sticky` header (150 px) holds the nav row and the `#search` field (full-width, 34 px tall,
+  top ≈ 108 px)** — the top zone is the pie's *worst* region, but a full-width bar is reachable
+  at its grip-side end, and search is a deliberate-mode action (typing already demands grip
+  adjustment), so this is recorded as an acceptable trade, not a finding. Everything else
+  (toolbar toggles, reset, category rail, facet chips, card pick buttons) scrolls in normal
+  flow — position is user-controlled, so the pie model doesn't constrain them. **One number
+  worth keeping: header 150 + bar 44 = 194 px of permanent chrome ≈ 24% of this viewport (~29%
+  on a 667 px phone)** — a density observation for any future header-condense conversation
+  (HE-6 in [`HEURISTIC-EVAL-2026-07-18.md`](HEURISTIC-EVAL-2026-07-18.md)), not a reachability
+  problem. *Method: computed-style sweep for fixed/sticky + `getBoundingClientRect` on the
+  frequently-used controls, live DOM.*
+
 ## Gaps (next-round targets)
 
-- **MOB-47's breakpoint-crossing test is unrun** and is this chapter's best next action: resize
-  a desktop browser across 769 px with a build in progress, a dialog open, and a numeric filter
-  field mid-edit, and check what survives. Needs no foldable hardware.
-- **MOB-46's site-side audit is unrun**: where do the frequently-used mobile controls actually
-  sit relative to the reachable pie? Deliberately not asserted this round.
+- ~~MOB-47's breakpoint-crossing test is unrun~~ → **CLOSED round 5 by MOB-48** (two independent
+  same-day runs, five in-flight-state scenarios total; everything survives; risk refuted,
+  conditional on the app continuing to not re-render on resize). Still genuinely open within it:
+  **real foldable hardware** — a physical fold event may differ from a synthetic resize (real
+  orientation/`visualViewport` events firing alongside the width change).
+- ~~MOB-46's site-side audit is unrun~~ → **CLOSED round 5 by MOB-49**: run; the two persistent
+  controls are correctly placed (build bar bottom-fixed, search the acceptable top-zone trade);
+  no frequently-used control in the far corners.
 - MOB-44 should be **re-checked each round for Baseline status** — MOB-45's "don't adopt it"
-  recommendation is explicitly conditional on the API staying non-Baseline.
+  recommendation is explicitly conditional on the API staying non-Baseline. **Re-checked round
+  5 (2026-07-18): still "Limited availability" / explicitly not Baseline per MDN — MOB-45
+  stands unchanged.**
 - MOB-15's Apple HIG Gestures citation still rides on a Tier-D mirror (exa-search-highlight of
   the real developer.apple.com URL returned title-only, no body text, this round) — retry
   periodically in case Exa's index of that page changes.
