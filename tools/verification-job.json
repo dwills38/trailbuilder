@@ -1,23 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T15:29:09.579Z",
+ "updated": "2026-07-18T15:32:58.508Z",
  "batchSize": 25,
- "lastCompleted": "fr-intense-sniper-xc",
+ "lastCompleted": "fr-chromag-monk",
  "currentCategory": "frame",
  "queue": [
-  "fr-vitus-sentier",
-  "fr-chromag-rootdown",
-  "fr-ragley-blue-pig",
-  "fr-yt-jeffsy",
-  "fr-yt-jeffsy-al",
-  "fr-santacruz-jackal",
-  "fr-kona-shonky",
-  "fr-dmr-sect",
-  "fr-nsbikes-zircus",
-  "fr-commencal-absolut",
-  "fr-marin-alcatraz",
-  "fr-chromag-monk",
   "fr-octaneone-void",
   "fr-scott-voltage-yz01",
   "fr-salsa-timberjack-2",
@@ -16786,11 +16774,11 @@
   },
   "fr-yt-jeffsy": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:32:33.307Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: YT sells the Jeffsy as completes only, confirmed via the fetched Vital spec table; no frameset SKU exists to source price/weight from."
   },
   "fr-raaw-jibb-lt-v22": {
    "cat": "frame",
@@ -25194,9 +25182,9 @@
   },
   "fr-santacruz-jackal": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-14T11:47:30.246Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:32:56.930Z",
+   "error": "santacruzbicycles.com/en-US/product-support/jackal rate-limited (HTTP 429) this session - desc already flags 'headTube confirmed... joins when re-fetched', so this is a known pending re-fetch, not a new gap. Retry next session.",
    "source": null,
    "note": null
   },
@@ -25210,49 +25198,49 @@
   },
   "fr-kona-shonky": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-14T11:47:30.246Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:32:57.165Z",
+   "error": "FETCHED archive.konaworld.com/archive/2021/shonky.cfm this session - a genuine Kona-domain spec table (rear axle 'Formula 142x12mm' matches catalog; BB 'Samox Dirt Jumper'; seatpost 31.6mm matches; maxRotorR candidate 160mm both ends, vs catalog's 203; headset 'FSA Orbit 1.5B ZS' which reads as possibly a STRAIGHT 1.5in steerer fit, not the catalog's tapered - needs a careful reviewer eye before overwriting, not a rushed flip; frame-only price 75 found; still no frame weight anywhere). Retry: disambiguate the 1.5B-ZS headset code against a second Kona source before editing headset/maxRotorR.",
    "source": null,
    "note": null
   },
   "fr-dmr-sect": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-14T11:47:30.246Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:32:57.408Z",
+   "error": "dmrbikes.com/products/dmr-sect-26-frame rate-limited (HTTP 429) this session; WebSearch snippets only confirm 135mm rear hub spacing + 30.0mm seat clamp (not usable per the search-summaries-lie policy - needs an actual fetch). Retry next session.",
    "source": null,
    "note": null
   },
   "fr-nsbikes-zircus": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-14T11:47:30.246Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:32:57.663Z",
+   "error": "No manufacturer frame-only SKU found this session (NS Bikes appears to sell the Zircus as completes only across all found years/prices); the catalog's frameOnly:true + $459 price could not be corroborated or refuted - needs a direct nsbikes.com fetch, not WebSearch snippets, before touching. No new weight source found (the search-echoed '2090g' matches our own catalog value, likely circular, not independent).",
    "source": null,
    "note": null
   },
   "fr-commencal-absolut": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-14T11:47:30.246Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:32:57.902Z",
+   "error": "FETCHED commencal.com/us/en/frame-commencal-absolut-dirt/21CABSOLUTDT.html directly this session - real manufacturer page, but the AI-summarized extraction is internally inconsistent (rear axle read as 'Threaded rod, 180mm, M10' vs catalog's 10x135-bolt; brake mount read as IS160 vs catalog's PM+maxRotorR203; weight read as 1.9kg vs catalog's 2250g sample) - too ambiguous to edit blind. Retry: re-fetch and read the raw spec table carefully (ideally via a second tool) before changing rearAxle/brakeMount/weight; this page is real and worth revisiting properly.",
    "source": null,
    "note": null
   },
   "fr-marin-alcatraz": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-14T11:47:30.246Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:32:58.142Z",
+   "error": "Partial WebSearch-only specs found (BB 73mm threaded matches catalog, 135x10mm dropouts matches catalog's 10x135-bolt) but no rotor size or weight; marinbikes.com/products/2023-alcatraz and marinbikes.com/collections/alcatraz not yet directly fetched this session. Retry with a direct fetch.",
    "source": null,
    "note": null
   },
   "fr-chromag-monk": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-14T11:47:30.246Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:32:58.380Z",
+   "error": "Not fetched this session (budget spent on the rest of this DJ-frame cluster); desc already flags 'spec estimate - not fetched from chromagbikes.com this pass'. Retry: fetch us.chromagbikes.com's Monk product page directly.",
    "source": null,
    "note": null
   },
@@ -26026,17 +26014,17 @@
   },
   "fr-vitus-sentier": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:32:33.057Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: Vitus sells this as a complete bike only (frameOnly:false already), no frameset SKU/weight anywhere on the fetched vitusbikes.com page (already re-confirmed 2026-07-16, only a 13.3kg complete-bike figure exists)."
   },
   "fr-chromag-rootdown": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:32:33.818Z",
+   "error": "Weight bar already met (maker-stated 3234g). Price bar gap only: found retailer-listed frame-only SKUs (dracobikes.com, thelostco.com, competitivecyclist.com all sell a 'Chromag Rootdown Frame' separately) but no current manufacturer-confirmed frame-only USD price this session (us.chromagbikes.com/collections/frames 404d). Retry: find the live chromagbikes.com frame-only product page.",
    "source": null,
    "note": null
   },
@@ -26050,19 +26038,19 @@
   },
   "fr-ragley-blue-pig": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:32:34.076Z",
+   "error": "Only weight figure found (3.05kg, Wiggle retailer listing) is not a reputable-measured-weight source per the sourceType:measured policy (retailer listings are explicitly rejected). ragleybikes.com frame pages don't publish weight. Retry: search a proper measured-weight database (weightweenies-style) instead of a retailer spec field.",
    "source": null,
    "note": null
   },
   "fr-yt-jeffsy-al": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:32:33.563Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: same YT completes-only wall as the carbon fr-yt-jeffsy sibling; no frameset SKU published."
   },
   "fr-scott-voltage-yz01": {
    "cat": "frame",
