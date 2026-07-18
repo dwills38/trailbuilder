@@ -760,6 +760,20 @@ var EMTB_PARTS = [
     disciplines: ['e-trail', 'e-enduro'], weight: 23600, price: 6200,
     note: "Canadian brand's full-power trail/enduro e-MTB on the Shimano EP8 motor.",
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Merida depth (eONE-SIXTY 900 alloy)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-merida-eone-sixty-900', cat: 'emtb', brand: 'Merida', model: 'eONE-SIXTY 900',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
+    disciplines: ['e-enduro'], weight: 25200, price: 5200,
+    note: 'Entry alloy eONE-SIXTY trim; same motor/battery as the carbon 8000.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
