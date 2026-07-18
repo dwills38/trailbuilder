@@ -1944,3 +1944,33 @@ per wave/decision; large reconstructions are handed to a worker session.
   exhaustion (plain curl + pdftotext worked first try on three "exhausted" brakes gaps), and
   multi-column spec tables extract WRONGLY as text but CORRECTLY as an image via pdftoppm.
   Gates: validate 7×OK / 757 tests / tsc clean. Worker continues to L4 race-craft.
+
+## 2026-07-18 — mechanic master round 2 COMPLETE (batch 6 merged, round stood down)
+
+- **Merged batch 6** (590e8f2 + 0e1a3ac): **WHL-53**, the corpus's first L4 race-craft fact at
+  governing-body tier — a World Cup XCO pit is a regulated feed/technical-assistance zone with
+  credentialed, quota-limited access, which is the precondition for the "pit wheel-swap procedure"
+  the gap named (a swap is only possible where a mechanic may legally stand with the spare). Scope
+  caveat stated in-fact: only the 19-page 2019 amendments excerpt was obtainable, NOT complete
+  Part 4, so FTA conduct articles are explicitly not sourced and must not be inferred. Also a
+  stale-header sweep on drivetrain.md (batch 1 had closed the 11/12sp chain-width item; the
+  Maturity header still listed it open).
+- **L4 marked complete-as-scoped, NOT closed — and the worker's restraint is the right call.** Its
+  brief permitted labelled Tier-B race-mechanic interviews; it deliberately declined, on the
+  grounds that a thin pass produces exactly the dressed-up community consensus corpus rule 2
+  forbids, and a documented gap beats that. Four independent routes were tried and all blocked,
+  each now written into the chapters with next routes so nobody repeats them: UCI Part 4
+  (uci.org JS-rendered — WebFetch AND Bright Data both return the nav shell; Wayback holds only
+  amendment excerpts), ENVE pressure guidance (JS calculator, no static text), SRAM "Suspension
+  Setup and Tuning Guide" (**that URL is not a PDF — it HTML-redirects to the docs.sram.com
+  Suspension UM already mined, so no separate RockShox race-tuning document exists behind that
+  name**), Reserve (max pressures only). Empirical refinement of CURRICULUM.md's prediction: the
+  L4 blocker is JS-rendering and partial archiving, NOT absence of knowledge.
+- **ROUND TOTALS: 6 batches, 20 facts** — DRV-64-67, WHL-46-53, SUS-50-53 (renumbered from the
+  authored 48-51 at the prior merge), BRK-46-49, FRM-51-53. Zero engine contradictions across the
+  whole round; three engine rules gained supporting citations; one CONTRADICTION explicitly
+  DECLINED on bar grounds (FRM-53). Zero intake items. Gates: validate 7×OK / 757 tests / tsc
+  clean; SUS id sequence re-verified contiguous with no duplicates after this merge.
+- **Round STOOD DOWN on Douglas's word** (2026-07-18) — no Tier-B interview pass for now. Session
+  archived. Mechanic chapter maturity and the documented blocker list carry forward for a future
+  round; the material exists, it just isn't in static fetchable form today.
