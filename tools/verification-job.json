@@ -1,21 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T15:44:10.899Z",
+ "updated": "2026-07-18T15:45:43.276Z",
  "batchSize": 25,
- "lastCompleted": "fr-norco-optic",
+ "lastCompleted": "fr-norco-torrent-ht-s",
  "currentCategory": "frame",
  "queue": [
-  "fr-kona-honzo",
-  "fr-kona-honzo-esd",
-  "fr-marin-san-quentin-2",
-  "fr-marin-san-quentin-3",
-  "fr-giant-fathom-1",
-  "fr-giant-talon-1",
-  "fr-giant-talon-2-2027",
-  "fr-giant-fathom-2",
-  "fr-norco-fluid-ht",
-  "fr-norco-torrent-ht-s",
   "fr-norco-torrent-ht-a",
   "fr-norco-shore-park",
   "fr-ari-delanopeak",
@@ -26684,35 +26674,35 @@
   },
   "fr-kona-honzo": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:30.265Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: konaworld.com publishes no frame-only weight; WebSearch this session found only an ambiguous-generation forum/review figure (2495g), not a reputable measured-weight source. Price is real but weight blocks verified:true."
   },
   "fr-kona-honzo-esd": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:30.502Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: konaworld.com publishes no frame-only weight for this steel flagship hardtail either."
   },
   "fr-marin-san-quentin-2": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:30.748Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: marinbikes.com publishes no frame-only weight."
   },
   "fr-marin-san-quentin-3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:30.995Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable (no frame-only weight published); seatTube is also inferred from a sibling row rather than independently stated on this page - two gaps, not one."
   },
   "fr-trek-marlin-7-gen3": {
    "cat": "frame",
@@ -26732,51 +26722,51 @@
   },
   "fr-giant-fathom-1": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:31.255Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: Giant sells Fathom as completes only, no frameset weight/price published."
   },
   "fr-giant-talon-1": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:42.109Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: Giant sells Talon as completes only; WebSearch this session found only complete-bike weights, no frame-only figure."
   },
   "fr-giant-talon-2-2027": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:42.352Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same wall as the Talon 1 sibling: no frame-only weight/price published."
   },
   "fr-giant-fathom-2": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:42.605Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same wall as the Fathom 1 sibling: no frame-only weight/price published."
   },
   "fr-norco-fluid-ht": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:42.873Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: norco.com JS-walled, sourced from two dealer reprints; no frameset weight/price found on either. brakeMount/udh are also class-typical inferences, not page-stated."
   },
   "fr-norco-torrent-ht-s": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:45:43.141Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: sourced from a Vital MTB reprint (norco.com JS-walled); no frameset weight/price found, only the complete-bike $3,799 MSRP."
   },
   "fr-norco-torrent-ht-a": {
    "cat": "frame",
