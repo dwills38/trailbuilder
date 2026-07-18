@@ -2273,3 +2273,42 @@ per wave/decision; large reconstructions are handed to a worker session.
   all 8 labels emoji-free by unicode-range test, popup scan clean (0 open dialogs), and a real
   demoTrail click still generates a complete build (Sample total $3,918.36, build hash written), so
   the handlers survived the label edit.
+
+## 2026-07-18 — cb-verification cluster + ARC BB error-tier fix + ui-expert ROUND 4 COMPLETE
+
+- **Merged `verify/completebikes-1`** (380bbd4, the first of the four parallel verification
+  clusters): two real PRICING-POLICY bugs fixed — `cb-yeti-sb160-t2`/`-t3` had the SALE price
+  stored in `price` (MSRP-always policy violated); corrected to price=MSRP + streetPrice=sale, and
+  T3's MSRP had drifted $9,500→$10,800. **Coordinator re-fetched yeticycles.com/bikes/sb160 and
+  confirmed both verbatim** ("$10,800.00 $8,640.00" / "$8,500.00 $6,800.00"). Remaining 18 Yeti
+  rows confirmed correct, several as intentional model-year snapshots. Cluster respected the
+  no-job-json rule (dispositions in tools/verify-notes-completebikes.md). Key capability note: the
+  free-pool unlocker renders yeticycles.com's JS kit lists — the move verify-cb-sheets-4 flagged as
+  highest-yield; ~130 rows across Pivot/Ibis/Cannondale/RM/Mondraker/Ghost/Norco/Devinci/Propain
+  sit behind the same wall class and are now plausibly reachable.
+- **`fr-yeti-arc` bb BSA73→PF92 — an ERROR-TIER defect on a VERIFIED frame, fixed in-seat.** The
+  cluster flagged it (out of its scope, correctly); the coordinator fetched Yeti's own support
+  article directly: "The ARC bottom-bracket standard is PF92 [92mm]". The old value was wrong in
+  BOTH rule-7 directions (threaded BB false-green, correct PF92 BB false-red). Correction note
+  written into the row's desc with the verbatim quote; prior provenance retained. Harness
+  BYTE-IDENTICAL (no scenario builds on the ARC). *Also a live datapoint for the queued
+  verified-flag audit: a verified row carried a wrong error-tier interface for 8 days.*
+  (Process note, honestly: the coordinator's first attempt at the desc note violated the
+  string-splice rule — an unescaped apostrophe broke compat.js and the immediate-parse-check was
+  batched instead of run immediately, exactly what CLAUDE.md's caution exists to prevent. Caught on
+  the gate, redone apostrophe-free with parse-check-first. The rule is right; follow it.)
+- **Merged ui-expert batch 8 — ROUND 4 IS COMPLETE.** New L4 chapter `tools/ui-expert/
+  research-methods.md` (RES-1..12), self-graded PROFESSIONAL deliberately ("claiming master for a
+  measurement chapter that has measured nothing would be self-congratulation"). Board: 7 MASTER + 1
+  professional. **RES-6 is a strategic finding Douglas should know: A/B testing is effectively
+  unavailable on this stack** (static hosting can't split; the cookieless analytics can't attribute
+  a variant; traffic is below power thresholds anyway) — design questions here are settled by
+  qualitative testing + expert judgment, which is a reason for method rigor, not guessing.
+  **RES-8 names the study with the highest decision value: does the compat dot's MEANING land?**
+  (contrast/channels now verified, comprehension never tested; watch-item: do users read "No
+  conflicts found" as "this bike is fine"? — that would be the honest-data value failing in
+  practice). RES-11 recommends CLOSING PRF-8 (skeleton-vs-spinner) rather than testing it, gated on
+  the Vitals Explorer read. Round-4 totals: ~45 facts, 3 findings shipped as fixes (DNS-17,
+  ACC-22×2), 1 open contradiction (NAV-16 — since shipped), 4 reasoned non-actions with a
+  do-not-reopen list, 1 false-finding guard, 2 honest non-closures. Round 5's Priority 0: the
+  heuristic evaluation (RES-4), the one L4 method an agent can run unaided.
