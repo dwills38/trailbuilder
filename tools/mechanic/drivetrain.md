@@ -1,22 +1,24 @@
 # Drivetrain — Mechanic Corpus
 
-**Maturity: foundation, approaching professional** (L1 complete + a growing slice of L2
-service-manual depth: the 2026-07-17 first pass landed Shimano XT/XTR derailleur
-dealer-manual internals + SRAM Transmission install-torque facts (DRV-27–32); a same-day
-second pass closed the Shimano MTB crank/BB dealer-manual gap (DRV-35–36, recovered via
-Wayback Machine after three direct-fetch routes failed) and added SRAM mechanical Eagle
-derailleur install torque + a confirmed-absence finding on clutch/spring rebuild
-documentation (DRV-37–39). **2026-07-18: Zero Friction Cycling's own chain-wear-testing
-PDFs, previously misdiagnosed as image-only, are fetched and mined directly (DRV-41/42)** —
-real per-model km-to-wear figures with their worst-case-lubricant caveat, plus the
-HARDCHROME/Vickers-hardness metallurgy behind SRAM Eagle's tier gap. **2026-07-18 same-day
-second pass (DRV-43–47) closes the AXS pairing/firmware/battery-service gap** (SRAM's own
-pairing handshake, firmware-update procedure, and battery LED/app codes) **and lands DT Swiss
-Ratchet EXP freehub internal service** (spacer/spring/ratchet rebuild, the grease-type/amount
-warning, maintenance interval, a documented factory defect). Still short of `professional`:
-no cross-generation AXS firmware-compatibility table, no non-DT-Swiss freehub internals
-(Shimano MicroSpline, Hope, Industry Nine), no cross-brand crank/BB torque table beyond the
-Shimano derailleur/crank and SRAM derailleur families covered so far — see `## Gaps`.)
+**Maturity: professional** (L1 complete + L2 service-manual depth now spans most of the
+chapter's parts: the 2026-07-17 first pass landed Shimano XT/XTR derailleur dealer-manual
+internals + SRAM Transmission install-torque facts (DRV-27–32); a same-day second pass closed
+the Shimano MTB crank/BB dealer-manual gap (DRV-35–36, recovered via Wayback Machine after
+three direct-fetch routes failed) and added SRAM mechanical Eagle derailleur install torque +
+a confirmed-absence finding on clutch/spring rebuild documentation (DRV-37–39). **2026-07-18:
+Zero Friction Cycling's own chain-wear-testing PDFs, previously misdiagnosed as image-only,
+are fetched and mined directly (DRV-41/42)** — real per-model km-to-wear figures with their
+worst-case-lubricant caveat, plus the HARDCHROME/Vickers-hardness metallurgy behind SRAM
+Eagle's tier gap. **2026-07-18 second same-day pass (DRV-43–51) closes the AXS
+pairing/firmware/battery-service gap, lands DT Swiss Ratchet EXP freehub internal service,
+cross-checks chain-wear % against SRAM's own 0.8% spec, sources the genuine SRAM Eagle
+Transmission Service Manual's rebuild/cross-compatibility rules, and sources the Shimano
+BB-spacer chainline-adjustment mechanism** — with this pass, L2 depth now covers every major
+part family in this chapter (shifter/electronics, derailleur ×3 SRAM tiers + Shimano, cassette/
+freehub, chain, crank/BB/chainline), crossing the CURRICULUM.md bar for `professional`. What's
+missing is genuinely L3/L4 territory, not more L2 breadth: no cassette/ring wear-cycle survival
+curve, no lubrication chemistry, no cross-generation AXS firmware-compatibility table, no
+non-DT-Swiss freehub internals (Shimano MicroSpline, Hope, Industry Nine) — see `## Gaps`.)
 
 Shifter · derailleur · cassette · chain · crank · chainring · freehub/driver bodies ·
 single-speed cog. Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline,
@@ -703,6 +705,73 @@ confirmed (fetched DT Swiss maintenance-notice page + maintenance manual trouble
 direct quotes).* Source: dtswiss.com/en/ratchet-exp-maintenance-notice (fetched) + DT Swiss
 Ratchet EXP Maintenance Manual troubleshooting section (as DRV-46), 2026-07-18.
 
+## SRAM Eagle Transmission — rebuild depth beyond install (L2, closes a named gap)
+
+**DRV-49 — SRAM publishes a genuine Eagle Transmission SERVICE Manual, distinct from the
+installation-focused User Manual DRV-32/33/34 already cite, with modular down-to-small-parts
+rebuild kits and one real cross-tier compatibility rule: the cage assembly is universal, but the
+skid plate/parallelogram/battery-lever are NOT.** SRAM's own rebuildability page states T-Type
+derailleurs have "an unmatched level of rebuildability, with modular rebuild kits available down
+to the smallest parts," and names the specific kits available per tier: Cage Assembly, Mounting
+Bolt + Frame Sleeve, Cover/Skid Plate, Pulley Wheels, Setup Key/Cage Lock — with Eagle 90/70
+(the cable-actuated Transmission tiers, DRV-50) additionally offering Inner/Outer Link, Bushing,
+P-Knuckle, and (Eagle 90 only) B-Knuckle kits, a deeper individual-part rebuild than the AXS
+tiers list. SRAM's own service-video descriptions state the cross-compatibility rule directly and
+by exception: *"GX and S1000 parallelogram parts are NOT compatible with SRAM Transmission XXSL,
+XX, and XO derailleurs"* and the same exclusion for skid plates and battery latches — **but**
+*"The derailleur cage replacement and damper assembly are interchangeable between SRAM
+Transmission XXSL, XX, X0, GX and S1000 derailleurs"* — i.e. the single most commonly serviced
+part (cage, hit in a crash) is deliberately cross-tier compatible while the tier-specific
+cosmetic/structural parts are not. This directly answers DRV-39's mechanical-Eagle finding (no
+service manual exists for that family) by contrast: Transmission's genuinely different mounting
+mechanism (DRV-32) comes with a genuinely different, real service-manual tier that mechanical
+Eagle lacks. *Confidence: confirmed (fetched SRAM primary — rebuildability page + service-manual
+table of contents + linked service videos' own on-screen compatibility callouts).* Source:
+sram.com/en/learn/eagle-transmission-rebuildability (fetched); docs.sram.com Eagle Transmission
+Service Manual (`5jblJ4SRpeHwjcuWG1vPy4`, "derailleur-service" section, fetched); SRAM TECH
+YouTube "SRAM GX and S1000 Eagle Transmission Rear Derailleur Rebuild" +
+"SRAM XXSL, XX, and XO Eagle Transmission Rear Derailleur Rebuild" (video descriptions, fetched);
+support.sram.com article 13828179402267 ("How do I replace the cage assembly..."), 2026-07-18.
+
+**DRV-50 — "Mechanical Transmission" (Eagle 70/90) is a THIRD family distinct from both "AXS
+Transmission" (DRV-32) and "mechanical Eagle" (DRV-37) — a genuine naming trap for a mechanic
+reading spec sheets casually.** SRAM's rebuildability page splits every Transmission derailleur
+into an "AXS" tab and a "Mechanical" tab — the Mechanical tab covers Eagle 90 and Eagle 70, which
+are cable-actuated (no battery/electronics) **but still use the hangerless Full Mount / UDH
+direct-mount design** that defines Transmission (DRV-10's frame prerequisite, DRV-32's
+Setup-Key/no-limit-screws mechanism) — they are NOT the conventional-hanger "mechanical Eagle"
+family DRV-37/38 describe (SX/NX/GX/X01 mechanical derailleurs + the UDH Half Mount adapter
+plate). A mechanic hearing "mechanical Eagle Transmission" needs to ask which of these two
+genuinely different derailleur designs is meant — one bolts to a conventional hanger and adjusts
+with H/L screws (DRV-37), the other direct-mounts around the axle with no hanger and no
+limit-screw adjustment at all (Eagle 70/90, same as AXS Transmission per DRV-32) — sharing only
+the word "mechanical." *Confidence: confirmed (fetched, SRAM's own AXS/Mechanical tab
+structure directly implies the shared Full-Mount design for both Transmission tabs).* Source:
+sram.com/en/learn/eagle-transmission-rebuildability (as DRV-49); cross-reference DRV-32/37.
+
+## Chainline is physically set by a BB spacer stack, not a fixed crank spec (refines DRV-15)
+
+**DRV-51 — Shimano's own crank/BB dealer manuals show chainline is actually set at install time
+by choosing a spacer combination (0.7 mm / 1.8 mm / 2.5 mm) at the bottom bracket, not fixed by
+the crank model alone — a real adjustment mechanism behind DRV-15's "chainline is real but not a
+catalog rule" finding.** Multiple Shimano crank dealer manuals (DM-LAFC001, DM-GAFC001,
+DM-RAFC010 — Cues/utility and step-through crank families) publish an explicit spacer-selection
+table keyed to BB shell width (68/73 mm) and whether a chain case/chain device is fitted: a
+2.5 mm spacer alone, or a combined 1.8 mm + 0.7 mm stack (**explicitly interchangeable with a
+single 2.5 mm spacer** — "A 1.8 mm spacer and 0.7 mm spacer can be used together instead of a
+2.5 mm spacer"), selects the axle's effective position in the shell and therefore the chainline,
+before the crank arm and chainring are ever installed. This is the mechanical answer to DRV-15's
+open question about chainline in non-nominal frames: chainline on a Shimano-spec build is not a
+single fixed number stamped on the crank, it is a spacer-stack decision made at BB-install time,
+which is also why a naive "chainring standard determines chainline" rule would be too simple even
+before considering frame-side SuperBoost/Boost variance. *Confidence: confirmed (fetched Shimano
+dealer manuals, direct spacer-table data); scope caveat: these specific manuals cover
+Cues/utility-crank families, not the XT/XTR performance MTB cranks DRV-35/36 already source — a
+future round should confirm whether XT/XTR press-fit/threaded BB families use an equivalent
+spacer table (not checked this round).* Source: si.shimano.com DM-LAFC001-04 + DM-GAFC001-03 +
+DM-RAFC010-02 (fetched); si.shimano.com SI-1L60A-003-ENG (chain-device spacer table,
+corroborating), 2026-07-18. Cross-reference: DRV-15.
+
 ## Chain width — historical cross-speed tolerance
 
 **DRV-26 [refines the DRV-12/13 pattern to geared drivetrains] — Historically,
@@ -748,6 +817,10 @@ figures table).
   (DRV-47) — an over-torqued thru-axle can compress a DT Swiss Ratchet EXP's internal
   spacer and block the freewheel, a cross-component failure the freehub's own spec sheet
   cannot predict in isolation.
+- **Chainline is set by a BB spacer stack, not read off a crank spec sheet** (DRV-51) —
+  which is part of why DRV-15's SuperBoost/Boost non-rule holds: the same crank can land
+  at different chainlines depending on spacer choice at install, so a frame-standard-vs-
+  crank-standard rule was always checking the wrong layer.
 
 ### Mismatch failure modes (how it actually fails)
 - **Hard "won't fit / won't index":** wrong system or wrong actuation (DRV-1/2); Flattop chain
@@ -905,6 +978,16 @@ figures table).
   wear-adjacent drivetrain science** — **L3 gap** (out of this chapter's core scope but
   noted since crank/BB touches both `drivetrain.md` and
   `frame-standards-bearings.md`).
+- **CLOSED 2026-07-18 (DRV-49/50) — SRAM Eagle Transmission full-mount rebuild/service
+  depth beyond install torque.** A genuine SRAM Service Manual (distinct from the
+  install-focused User Manual DRV-32-34 already source) is now cited, with the real
+  cross-tier compatibility rule (cage assembly universal, skid-plate/parallelogram/
+  battery-lever tier-locked) and the "Mechanical Transmission" (Eagle 70/90) naming trap
+  vs. "mechanical Eagle" (DRV-37) resolved. **Partially closed (DRV-51) — chainline is
+  now sourced as a real spacer-stack adjustment mechanism** for Shimano Cues/utility
+  crank families; **still open: whether XT/XTR performance MTB cranks (DRV-35/36) use an
+  equivalent spacer-selection table** — not checked this round, a narrow, specific
+  follow-up rather than a broad chainline-service gap.
 
 ## Open mechanic questions (for the human review — do not act)
 - DRV-8: does a missed b-gap reset on a cassette swap earn a warning, or is it routine install?
