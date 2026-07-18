@@ -1,0 +1,266 @@
+'use strict';
+/* =============================================================================
+   GRAVEL SCHEMA + VALIDATOR  (OFF-LIVE — mirrors src/schema-bmx.js's approach)
+   -----------------------------------------------------------------------------
+   data/gravel.js (151 rows, landed catalog/gravel-1) had no schema/validator —
+   same gap schema-bmx.js closed for data/bmx.js before its pre-flip audit. This
+   is the same "bouncer at the door" pattern, scoped to GRAVEL_PARTS with a
+   small self-contained GRAVEL_VOCAB (gravel has no compat engine yet to import
+   vocab from, unlike BMX's compat-bmx.js).
+
+   NOT LOADED BY THE LIVE APP — same off-live status as data/gravel.js itself
+   (CLAUDE.md hard rule 3 — non-MTB catalog types stay off-live until Douglas's
+   go-live word). Wired only into validate.js (as a "GRAVEL OK" line) and this
+   module's own test.
+
+   Field sets below are derived from the ACTUAL data: every field name and
+   required/optional split was read off the live data/gravel.js rows (a field
+   present on 100% of a category's rows is required; anything less is
+   optional) cross-checked against data/GRAVEL-MODEL.md §3's schema deltas —
+   never invented. Vocab value-sets are the literal distinct values already
+   shipped in data/gravel.js rows this session, not guessed standards.
+   ========================================================================== */
+
+/** @param {string} v */
+function isStr(v){ return typeof v === 'string' && v.length > 0; }
+/** @param {any} v */
+function isNum(v){ return typeof v === 'number' && isFinite(v); }
+/** @param {any} v */
+function isBool(v){ return typeof v === 'boolean'; }
+/** @param {any} v */
+function urlOk(v){ return isStr(v) && /^https?:\/\//.test(v); }
+/** @param {any} v @param {Date} today */
+function dateOk(v, today){
+  if(!isStr(v) || !/^\d{4}-\d{2}-\d{2}$/.test(v)) return false;
+  var d = new Date(v + 'T00:00:00Z');
+  return !isNaN(d.getTime()) && d.getTime() <= today.getTime();
+}
+
+/* Self-contained vocab — the literal distinct values shipped in
+   data/gravel.js as of the gravel-2 wave (2026-07-17), grouped by field
+   family. Widening this needs a real new row backing the value, same
+   discipline as compat-bmx.js's BMX_VOCAB. */
+/** @type {Object.<string, Array<string|number>>} */
+var GRAVEL_VOCAB = {
+  wheel:        ['700c', '650b'],
+  rearAxle:     ['12x142'],
+  axle:         ['12x100', '12x142', 'lefty-proprietary'],
+  hub:          ['12x100', '12x142'],
+  brakeMount:   ['flat-mount'],
+  brakeSystem:  ['disc-flat', 'disc', 'disc-hydraulic'],
+  bb:           ['bsa-road', 'bb86', 'bb30a', 'pf86', 'pf30', 'hollowtech-ii-road', 'dub', 'dub-wide', 'ultra-torque'],
+  shell:        ['bsa-road', 't47-road'],
+  spindle:      ['hollowtech-ii-road', 'dub'],
+  seatpost:     ['27.2'],
+  steerer:      ['tapered'],
+  frontDerailleurMount: ['none', 'braze-on'],
+  material:     ['alloy', 'steel'],
+  freehub:      ['xdr', 'n3w', 'micro-spline-road', 'hg-road'],
+  rotorMount:   ['center-lock'],
+  casing:       ['tcs-light', 'tcs-tough', 'zsg', 'shieldwall', 'hardwall', 'super-ground', 'exo', 'tubeless-complete', 'trail'],
+  compound:     ['fast-rolling', 'high-grip', 'std', 'blackchili', 'smartnet', 'addix-speedgrip', 'addix', 'dual', 'dynamic-rs', 'g2'],
+  actuation:    ['di2-wired', 'mechanical', 'axs-wireless', 'hydraulic'],
+  side:         ['pair'],
+  system:       ['shimano-grx-12', 'shimano-grx-11', 'sram-xplr-12', 'sram-xplr-13', 'sram-apex-mech-12',
+                  'campag-ekar-13', 'sram-axs-road', 'hg', 'flattop', 'campag'],
+  cage:         ['gs', 'sgs', 'xplr'],
+  mount:        ['std-hanger', 'udh-fullmount', 'braze-on', 'flat-mount', 'center-lock', '6-bolt'],
+  minCog:       [9, 10, 11],
+  speeds:       [11, 12, 13],
+  chainrings:   ['1x', '2x'],
+  ringStd:      ['t-type'],
+  clamp:        ['31.8'],
+  style:        ['clip'],
+  suspension:   ['rigid', 'suspension']
+};
+
+/** @typedef {{type: 'number'|'string'|'bool'|'numArray'|'strArray'|'map'|'numOrNull'|'strOrNull', vocab?: string, optional?: boolean}} GravelFieldRule */
+
+/* Per-category required/optional field set. Every non-optional field is
+   present on 100% of the category's current data/gravel.js rows
+   (checked 2026-07-17); `vocab` names a GRAVEL_VOCAB key. */
+/** @type {Object.<string, Object.<string, GravelFieldRule>>} */
+var GRAVEL_SCHEMA = {
+  frame: {
+    wheelSizes:{type:'strArray',vocab:'wheel'}, rearAxle:{type:'string',vocab:'rearAxle'},
+    brakeSystem:{type:'string',vocab:'brakeSystem'}, brakeMount:{type:'string',vocab:'brakeMount'},
+    bb:{type:'string',vocab:'bb'}, seatpost:{type:'string',vocab:'seatpost'}, steerer:{type:'string',vocab:'steerer'},
+    maxTireByWheel:{type:'map'}, frontDerailleurMount:{type:'string',vocab:'frontDerailleurMount'},
+    frameOnly:{type:'bool'}, material:{type:'string',vocab:'material',optional:true},
+    gen:{type:'string',optional:true}
+  },
+  fork: {
+    wheel:{type:'strArray',vocab:'wheel'}, axle:{type:'string',vocab:'axle'}, steerer:{type:'string',vocab:'steerer'},
+    brakeSystem:{type:'string',vocab:'brakeSystem'}, brakeMount:{type:'string',vocab:'brakeMount'},
+    maxRotorF:{type:'number'}, travel:{type:'number'}, suspension:{type:'string',vocab:'suspension'}
+  },
+  frontwheel: {
+    wheel:{type:'string',vocab:'wheel'}, hub:{type:'string',vocab:'hub'}, freehub:{type:'string',vocab:'freehub'},
+    brakeSystem:{type:'string',vocab:'brakeSystem'}, rotorMount:{type:'string',vocab:'rotorMount'},
+    intWidth:{type:'number'}, maxTire:{type:'number'}
+  },
+  rearwheel: {
+    wheel:{type:'string',vocab:'wheel'}, hub:{type:'string',vocab:'hub'}, freehub:{type:'string',vocab:'freehub'},
+    brakeSystem:{type:'string',vocab:'brakeSystem'}, rotorMount:{type:'string',vocab:'rotorMount'},
+    intWidth:{type:'number'}, maxTire:{type:'number'}
+  },
+  tire: {
+    wheel:{type:'string',vocab:'wheel'}, width:{type:'number'}, casing:{type:'string',vocab:'casing'},
+    compound:{type:'string',vocab:'compound'}, tubeless:{type:'bool'}
+  },
+  shifter: {
+    system:{type:'string',vocab:'system'}, speeds:{type:'number',vocab:'speeds'}, actuation:{type:'string',vocab:'actuation'},
+    brakeSystem:{type:'string',vocab:'brakeSystem'}, side:{type:'string',vocab:'side'}, frontShift:{type:'bool'}
+  },
+  derailleur: {
+    system:{type:'string',vocab:'system'}, speeds:{type:'number',vocab:'speeds'}, actuation:{type:'string',vocab:'actuation'},
+    mount:{type:'string',vocab:'mount'}, cage:{type:'string',vocab:'cage',optional:true},
+    maxCog:{type:'number',optional:true}, capacity:{type:'number',optional:true}
+  },
+  cassette: {
+    system:{type:'string',vocab:'system'}, speeds:{type:'number',vocab:'speeds'}, freehub:{type:'string',vocab:'freehub'},
+    minCog:{type:'number',vocab:'minCog'}, maxCog:{type:'number'}
+  },
+  chain: {
+    system:{type:'string',vocab:'system'}, speeds:{type:'number',vocab:'speeds'}
+  },
+  crankset: {
+    bb:{type:'string',vocab:'bb'}, chainrings:{type:'string',vocab:'chainrings'}, ring:{type:'number'},
+    ringStd:{type:'strOrNull',vocab:'ringStd',optional:true}, speeds:{type:'number',vocab:'speeds'}, chainline:{type:'number'}
+  },
+  bb: {
+    shell:{type:'string',vocab:'shell'}, spindle:{type:'string',vocab:'spindle'}
+  },
+  headset: {
+    upper:{type:'string'}, lower:{type:'string'}, steerer:{type:'string',vocab:'steerer'}
+  },
+  brake: {
+    mount:{type:'string',vocab:'mount'}, pistons:{type:'number'}, actuation:{type:'string',vocab:'actuation'},
+    brakeSystem:{type:'string',vocab:'brakeSystem'}, leverPair:{type:'string'}
+  },
+  rotor: {
+    size:{type:'number'}, mount:{type:'string',vocab:'mount'}
+  },
+  handlebar: {
+    clamp:{type:'string',vocab:'clamp'}, flare:{type:'number'}, dropBar:{type:'bool'}, width:{type:'number'}
+  },
+  stem: {
+    clamp:{type:'string',vocab:'clamp'}, steerer:{type:'string',vocab:'steerer'}, length:{type:'number'}
+  },
+  seatpost: {
+    diameter:{type:'string',vocab:'seatpost'}, setback:{type:'number'}
+  },
+  dropper: {
+    diameter:{type:'string',vocab:'seatpost'}, drop:{type:'number'}, actuation:{type:'string',vocab:'actuation'}
+  },
+  saddle: {},
+  pedal: {
+    style:{type:'string',vocab:'style'}
+  },
+  bartape: {}
+};
+
+/** @param {string} vocabKey @returns {Array<string|number>|undefined} */
+function vocabValues(vocabKey){ return GRAVEL_VOCAB[vocabKey]; }
+
+/** @param {any} p @param {Date} today @returns {string[]} */
+function validateGravelPart(p, today){
+  /** @type {string[]} */ var probs = [];
+  var at = '[' + (p && p.id ? p.id : '?') + ']';
+  /** @param {string} m */
+  function bad(m){ probs.push(at + ' ' + m); }
+
+  if(!isStr(p.id)) { probs.push('[?] gravel part with missing/blank id'); return probs; }
+  if(!isStr(p.cat) || !GRAVEL_SCHEMA[p.cat]) { bad('unknown gravel category "' + p.cat + '"'); return probs; }
+  if(!isStr(p.brand)) bad('missing brand');
+  if(!isStr(p.model)) bad('missing model');
+  if(!/^[a-z0-9-]+$/.test(p.id) || p.id.split('-').length < 3) bad('id must be lowercase "g<cat>-<brand>-<model...>" tokens separated by "-"');
+
+  if(!('price' in p)) bad('missing price');
+  else if(!(isNum(p.price) && p.price >= 0)) bad('price must be a number >= 0 (USD MSRP)');
+  if('weight' in p && p.weight != null && !(isNum(p.weight) && p.weight >= 0)) bad('weight must be a number >= 0 (grams)');
+
+  // provenance — same contract as schema.js/schema-bmx.js: verified:true
+  // needs a real fetched source URL and a non-future lastChecked date.
+  if('verified' in p && !isBool(p.verified)) bad('verified must be true/false');
+  if(p.verified === true){
+    if(!urlOk(p.source)) bad('verified:true requires a valid http(s) source URL');
+    if(!dateOk(p.lastChecked, today)) bad('verified:true requires a lastChecked date (YYYY-MM-DD, not in the future)');
+    if(p.sourceType === 'retailer') bad('verified:true rejects sourceType:"retailer" (retailer "measured" weights are not accepted)');
+    if(p.sourceType === 'measured' && !urlOk(p.weightSource)) bad('sourceType:"measured" requires a weightSource URL');
+  } else {
+    if('source' in p && p.source != null && typeof p.source !== 'string') bad('source must be a string');
+    if('lastChecked' in p && p.lastChecked != null && !/^\d{4}-\d{2}-\d{2}$/.test(p.lastChecked)) bad('lastChecked must be YYYY-MM-DD');
+  }
+  if('family' in p && p.family != null && !(isStr(p.family) && /^[a-z0-9-]+$/.test(p.family))) bad('family must be a lowercase slug');
+  if('modelYear' in p && p.modelYear != null && !(isNum(p.modelYear) && p.modelYear >= 1980 && p.modelYear <= 2100))
+    bad('modelYear must be a number between 1980 and 2100');
+
+  var spec = GRAVEL_SCHEMA[p.cat];
+  Object.keys(spec).forEach(function(field){
+    var rule = spec[field];
+    var has = field in p && p[field] != null;
+    if(!has){
+      if(!rule.optional) bad('missing required field "' + field + '"');
+      return;
+    }
+    var v = p[field];
+    if(rule.type === 'number' && !isNum(v)) { bad('"' + field + '" must be a number'); return; }
+    if(rule.type === 'bool' && !isBool(v)) { bad('"' + field + '" must be true/false'); return; }
+    if(rule.type === 'string' && !isStr(v)) { bad('"' + field + '" must be a non-empty string'); return; }
+    if(rule.type === 'strArray'){
+      if(!Array.isArray(v) || v.length === 0 || !v.every(isStr)) { bad('"' + field + '" must be a non-empty array of strings'); return; }
+    }
+    if(rule.type === 'map'){
+      if(typeof v !== 'object' || v === null || Array.isArray(v)) { bad('"' + field + '" must be an object map'); return; }
+      return; // per-wheel-size numeric values, no fixed key set to check
+    }
+    if(rule.type === 'numOrNull'){
+      if(v !== null && !isNum(v)) { bad('"' + field + '" must be a number or null'); return; }
+      if(v === null) return; // null is always valid regardless of vocab
+    }
+    if(rule.type === 'strOrNull'){
+      if(v !== null && !isStr(v)) { bad('"' + field + '" must be a string or null'); return; }
+      if(v === null) return; // null is always valid regardless of vocab
+    }
+    if(rule.vocab){
+      var vals = vocabValues(rule.vocab);
+      /** @type {Array<string|number>} */
+      var checkVals = rule.type === 'strArray' ? v : [v];
+      checkVals.forEach(function(/** @type {string|number} */ cv){
+        if(vals && vals.indexOf(cv) < 0) bad('"' + field + '" value "' + cv + '" not in ' + rule.vocab + ' [' + vals.join(', ') + ']');
+      });
+    }
+  });
+
+  // reject stray fields not in the category's schema or the common set —
+  // catches typos (a field spelled differently than every other row).
+  /** @type {Object.<string, number>} */
+  var COMMON = { id:1, cat:1, brand:1, model:1, price:1, weight:1, note:1, verified:1, lastChecked:1, source:1,
+    family:1, modelYear:1, mfgPn:1, sourceType:1, weightSource:1, archiveUrl:1 };
+  Object.keys(p).forEach(function(k){
+    if(COMMON[k] || spec[k]) return;
+    bad('unknown field "' + k + '" for category "' + p.cat + '"');
+  });
+
+  return probs;
+}
+
+/** @param {any[]} parts @param {Date} [today] @returns {string[]} */
+function validateGravelCatalog(parts, today){
+  var t = today || new Date();
+  /** @type {string[]} */ var probs = [];
+  /** @type {Object.<string, boolean>} */ var seenIds = {};
+  parts.forEach(function(p){
+    if(p && isStr(p.id)){
+      if(seenIds[p.id]) probs.push('[' + p.id + '] duplicate id');
+      seenIds[p.id] = true;
+    }
+    probs = probs.concat(validateGravelPart(p, t));
+  });
+  return probs;
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { GRAVEL_VOCAB: GRAVEL_VOCAB, GRAVEL_SCHEMA: GRAVEL_SCHEMA, validateGravelPart: validateGravelPart, validateGravelCatalog: validateGravelCatalog };
+}

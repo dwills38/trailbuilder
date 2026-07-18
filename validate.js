@@ -11,6 +11,8 @@ var SD = require('./data/striders.js');
 var SS = require('./src/schema-strider.js');
 var RD = require('./data/road.js');
 var RS = require('./src/schema-road.js');
+var GD = require('./data/gravel.js');
+var GS = require('./src/schema-gravel.js');
 
 var problems = S.validateCatalog(C);
 if(problems.length){
@@ -82,3 +84,17 @@ if(roadProblems.length){
 }
 var roadVerified = RD.ROAD_PARTS.filter(function(p){ return p.verified === true; }).length;
 console.log('ROAD OK - ' + RD.ROAD_PARTS.length + ' parts, 0 problems (' + roadVerified + ' verified, ' + (RD.ROAD_PARTS.length - roadVerified) + ' unverified).');
+/* GRAVEL (OFF-LIVE, data/gravel.js + src/schema-gravel.js) - validated here too
+   so `node validate.js` stays the single gate for ALL catalog data. Never wired
+   into the live app; a failure here does not affect buildmymtb.com.
+   NOTE (coordination): a sibling road-2 worker may add a parallel ROAD block to
+   this file in the same wave - this block is additive-only (new requires above,
+   new block here) to keep both merges conflict-light for the coordinator. */
+var gravelProblems = GS.validateGravelCatalog(GD.GRAVEL_PARTS);
+if(gravelProblems.length){
+  console.log('GRAVEL DATA INVALID - ' + gravelProblems.length + ' problem(s):');
+  gravelProblems.forEach(function(p){ console.log('  - ' + p); });
+  process.exit(1);
+}
+var gravelVerified = GD.GRAVEL_PARTS.filter(function(p){ return p.verified === true; }).length;
+console.log('GRAVEL OK - ' + GD.GRAVEL_PARTS.length + ' parts, 0 problems (' + gravelVerified + ' verified, ' + (GD.GRAVEL_PARTS.length - gravelVerified) + ' unverified).');
