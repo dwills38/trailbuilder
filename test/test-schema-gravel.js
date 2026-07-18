@@ -18,7 +18,11 @@ function aFrame(){
 }
 
 test('the real gravel catalog validates clean', function(){
-  var probs = S.validateGravelCatalog(D.GRAVEL_PARTS, TODAY);
+  // uses the live date, not the fixed TODAY below (which is for the
+  // negative date-boundary tests) — otherwise this drifts stale every time
+  // a session verifies a part with today's real date, same fix test-data.js
+  // already applies for the main MTB catalog.
+  var probs = S.validateGravelCatalog(D.GRAVEL_PARTS, new Date());
   eq(probs.length, 0, probs.join('\n'));
 });
 
