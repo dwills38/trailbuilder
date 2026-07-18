@@ -816,6 +816,20 @@ var EMTB_PARTS = [
     disciplines: ['e-enduro'], weight: 26200, price: 5200,
     note: 'Entry alloy E-180 trim; same Bosch CX motor as the RS.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Radon depth (Jealous 9.0)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-radon-jealous-9-0', cat: 'emtb', brand: 'Radon', model: 'Jealous 9.0',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 155,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24200, price: 5200,
+    note: 'Entry alloy Jealous trim; same motor/battery as the carbon 10.0.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
