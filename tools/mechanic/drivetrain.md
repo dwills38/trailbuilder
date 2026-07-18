@@ -1011,8 +1011,230 @@ figures table).
 
 ---
 
+## AXS cross-generation compatibility (closes a named master-tier gap)
+
+**DRV-56 — SRAM states the AXS controller↔derailleur matrix is FULLY cross-compatible, in its
+own words — this is the manufacturer-primary source behind the engine's one-system exemption
+for electronic SRAM controllers.** SRAM's Rider Support article, verbatim: *"All AXS controllers
+will work with all AXS derailleurs. So, you can use the new Eagle Transmission Pod Controllers
+with Eagle AXS Drivetrain, or the Eagle Drivetrain controller with Eagle Transmission."* The
+AXS Component Compatibility Map corroborates this structurally rather than by prose: it lists
+**one shared System Controller table** (`EC-AXS-POD-D1`, `EC-AXS-PODU-D1`, `EC-AXS-PODR-D1`,
+`EC-GX-AXS-A1`, `EC-AXS-ROCK-A1`, the `EC-BLIP-B1` wireless button, …) that serves *both* the
+MTB rear-derailleur column and the Road rear-derailleur column — controllers are not segmented
+by drivetrain family anywhere in the document. **Engine status: CONFIRMS a live rule, no
+contradiction.** `compat.js`'s drivetrain one-system rule already exempts electronic SRAM
+controllers from the one-system check while keeping them red on non-SRAM systems; that exemption
+was previously carried on the project's own reading of SRAM's documentation, and is now pinned to
+a fetched SRAM page plus the compatibility map that shows the same thing in table form.
+*Confidence: confirmed (fetched manufacturer support article + fetched manufacturer compatibility
+PDF, two independent SRAM documents agreeing).* Sources:
+support.sram.com/hc/en-us/articles/13820865674011 (fetched via Bright Data — the host 403s
+WebFetch) + sram.com/globalassets/document-hierarchy/compatibility-map/road/axs-components-compatibility-map.pdf
+(GEN.0000000005877 Rev AC, © 2026 SRAM, fetched directly and text-extracted), 2026-07-18.
+
+**DRV-57 — Eagle Transmission (T-Type) and Eagle Drivetrain are, as a family, NOT
+backward-compatible — with exactly two documented exceptions, and the chainring exception is
+DIRECTIONAL.** SRAM: *"No. Generally speaking, Eagle Transmission components are not backward
+compatible with Eagle Drivetrain components."* The two stated exceptions: (1) **controllers**
+(DRV-56), and (2) **chainrings, one direction only** — *"Eagle Transmission T-Type chainrings are
+compatible with Eagle chains, so they can be used on Eagle Drivetrains when mounted to an Eagle
+Transmission crankset. However, Non-T-Type Eagle Drivetrain chainrings are incompatible with
+Eagle Transmission T-Type chains."* So: T-Type ring + Eagle chain = **fine**; non-T-Type ring +
+T-Type chain = **incompatible**. **Engine status: CONFIRMS the live rule's direction, no
+contradiction.** `compat.js`'s `chainring-standard` error fires only inside a T-Type-chain guard
+and only when `crankset.ringStd !== 't-type'` — i.e. exactly the direction SRAM documents as
+broken, staying silent on the reverse direction SRAM documents as fine. The rule was already
+direction-aware; this is its manufacturer citation. *Confidence: confirmed (fetched manufacturer
+support article).* Source: support.sram.com/hc/en-us/articles/13820865674011 (Bright Data),
+2026-07-18. Cross-reference: DRV-56, DRV-58, DRV-59.
+
+**DRV-58 — A T-Type cassette on an Eagle Drivetrain derailleur is not merely "won't index" — SRAM
+documents it as causing physical interference and FRAME damage, and gives the geometric reason.**
+SRAM: *"No. SRAM Eagle Transmission cassettes are designed, tested, and optimized for use with
+T-Type components only. Transmission's unique Hangerless Interface places the T-Type cassette
+farther outboard, utilizing space previously occupied by the Universal Derailleur Hanger.
+Installation of an Eagle Transmission cassette on a bike with an Eagle Drivetrain derailleur will
+lead to interference, binding, and damage to the frame and surrounding components."* The
+mechanically load-bearing part is the **outboard cassette shift**: the hangerless interface
+reclaims the UDH's axial space, so the T-Type stack does not sit where a hanger-mounted mech
+expects it. **Engine status: already covered — no new rule needed.** The catalog models these as
+distinct `system` values (`sram-transmission` vs `sram-eagle`), so the existing one-system rule
+already raises a hard error on this pairing; this fact upgrades the *justification* for that
+error from "different system" to a manufacturer-documented frame-damage mechanism, which is well
+above the bar for keeping it an error. *Confidence: confirmed (fetched manufacturer support
+article).* Source: support.sram.com/hc/en-us/articles/22387919584411 (Bright Data), 2026-07-18.
+The reverse direction is separately documented and also negative: *"No. Eagle Transmission
+Flattop chains have unique design features to optimize their use with the full X-Sync technology
+of the Eagle Transmission cassette."* (support.sram.com/hc/en-us/articles/22387529286427, fetched).
+
+**DRV-59 — Quick-link (PowerLock) interchangeability across SRAM chain families is a real,
+manufacturer-documented failure mode driven by PIN LENGTH — not a fungible small part.** SRAM:
+*"No. Each chain has a unique link shape and pin size. Eagle Drivetrain Chains and PowerLocks
+have longer pins and if used on a T-Type chain they will have side-to-side movement. Using a
+PowerLock meant for a different chain will lead to compromised functionality or failure."*
+T-Type PowerLock part numbers are published: **00.2518.059.006** (black) and **00.2518.059.008**
+(black PVD — physical vapor deposition, SRAM's stated reason being *"increased strength and
+durability"*). This is a genuinely new dimension for the corpus: the catalog models chains but
+not their quick-links, and a rider swapping a T-Type chain with a spare Eagle PowerLock has a
+documented failure path. **Not a rule candidate** — quick-links are not a build slot and the
+catalog carries no PowerLock rows; recorded as mechanic knowledge, not as an engine finding.
+*Confidence: confirmed (fetched manufacturer support article, part numbers stated on-page).*
+Source: support.sram.com/hc/en-us/articles/26180202731931 (Bright Data), 2026-07-18.
+
+**DRV-60 — The AXS Component Compatibility Map is the authoritative, model-code-level
+cassette-range and cross-family table, and it documents THREE intra-T-Type exceptions that a
+naive "all T-Type parts interoperate" model would get wrong.** The map splits MTB into two
+mechanical families with explicit min/max cog and cassette lists:
+- **Eagle Drivetrain** (`RD-XX-1E-A1`, `RD-X0-1E-A1`, `RD-GX-1E-A1`, `RD-X-1E-A1`,
+  `RD-S500-E-B1`) — max cog **50–52T**; cassettes 11-50 / 10-50 / 10-52 (`CS-PG-1230-A1`,
+  `CS-PG-1210-A1/B1`, `CS-XG-1299-A#/B1/C1`, `CS-XG-1295-A#/B1`, `CS-XG-1275-A1/B1/C1`).
+- **Eagle Transmission** (`RD-XX-SLE-B1`, `RD-XX-E-B1`, `RD-X0-E-B1`, `RD-GX-E-B1`,
+  `RD-S1000-E-A1`, `RD-XX-DHE-A1`) — **52T max / 24T min**; cassettes 10-52 (`CS-XS-1299-A1`,
+  `CS-XS-1297-A1`, `CS-XS-1295-A1`, `CS-XS-1275-A1`, `CS-XS-1270-A1`) and 11-24
+  (`CS-XS-797-A1`, `CS-XS-797S-A1` — the DH cassettes).
+
+The three exceptions **inside** the T-Type family, quoted from the map's own notes:
+1. *"The RD-DH-A1 is not designed to be used with the XXSL chain."* — a T-Type mech that
+   excludes one specific T-Type chain (`CN-TTYP-XXSL-A1`).
+2. *"The FC-XX-DH-A1 55mm chainline version is compatible with all T-Type cassettes. The
+   FC-XX-DH-A1 56.5mm chainline version is only compatible with the CS-XS-797S-A1 and
+   CS-XS-797-A1 cassettes."* — the same crank part number in two chainline variants with
+   *different* cassette compatibility.
+3. *"The RD-XX-DHE-A1 is compatible with any T-Type crank and chainring with a 55 mm chainline."*
+   — a derailleur whose compatibility is stated in terms of **chainline**, not system.
+
+⚠ **Note for the coordinator (not a contradiction — a modelling limit).** Exceptions 2 and 3 are
+real manufacturer-documented compatibility facts that the current schema **cannot express**:
+`chainline` is explicitly a display-only field that never feeds `checkBuild`, and there is no
+chain-level exclusion field. These cases are DH-specific (`RD-XX-DHE-A1`/`FC-XX-DH-A1`) and none
+of those part numbers are in the catalog today, so nothing is mis-verdicting **now** — but if DH
+T-Type parts are ever catalogued, a green verdict would be unearned on these three pairings.
+Filed as a scope note for `MECHANIC-FINDINGS-INTAKE.md`, not a rule proposal.
+
+The map also pins a real **firmware version gate**, the only hard version number SRAM publishes
+in it: ANT+ head-unit functionality requires *"the RD firmware is 2.46.5 or greater and the AXS
+App is iOS v 2.13.0 / Android v 2.10.1 or greater."* Note this is a **telemetry/head-unit**
+threshold, not a shifting-compatibility threshold — SRAM documents no firmware version below
+which AXS controllers and derailleurs stop shifting together, consistent with DRV-56's
+unconditional cross-compatibility claim. *Confidence: confirmed (fetched manufacturer PDF,
+GEN.0000000005877 Rev AC, © 2026 SRAM; every quoted note read from the extracted document text,
+not a summary).* Source:
+sram.com/globalassets/document-hierarchy/compatibility-map/road/axs-components-compatibility-map.pdf,
+2026-07-18.
+
+**DRV-61 — SRAM documents Eagle Transmission as compatible with Super Boost frames, via a DUB
+Wide crank rather than a Super Boost crank — bearing directly on the deliberately-REJECTED
+chainline rule.** SRAM: *"Yes. As long as your frame is compatible with the Hangerless Interface,
+you will be able to use the Eagle Transmission DUB Wide cranksets instead of a Super Boost
+crankset."* — directing the reader to the DUB MTB bottom-bracket compatibility chart's "MTB Wide"
+crankset option for their frame's shell standard. **Engine status: SUPPORTS the existing decision
+to NOT add a rule.** `CLAUDE.md`'s coverage roadmap records "Crankset chainline vs frame (Boost vs
+SuperBoost)" as **REJECTED for now** on the grounds that a naive "SuperBoost frame needs a
+SuperBoost crank" rule would fire a false error. This is manufacturer confirmation of exactly
+that reasoning: SRAM's own answer to "Super Boost frame + Transmission?" is *yes, with a
+non-SuperBoost crank*. The rejection stands, now on a fetched maker source rather than inference.
+This partially addresses open question **DRV-15** (real-world behaviour of Boost-chainline cranks
+in SuperBoost frames): it confirms the maker sanctions a non-SuperBoost crank in a SuperBoost
+frame for this family, though it does not give per-frame chainline tolerances in general.
+*Confidence: confirmed (fetched manufacturer support article).* Source:
+support.sram.com/hc/en-us/articles/14257316183707 (Bright Data), 2026-07-18. Cross-reference:
+DRV-15, and `CLAUDE.md` coverage-roadmap "REJECTED for now".
+
+## Non-DT freehub internals (partially closes a named master-tier gap)
+
+**DRV-62 — Industry Nine's pawl-and-drivering freehub architecture is now sourced at
+manufacturer-primary tier from i9's own service guides, closing the i9 half of the "non-DT
+freehub internals" gap for SERVICE depth.** From the Hydra2 and Torch hub-service guides
+(i9's own documents), the mechanically load-bearing facts:
+- **Architecture.** A pawl-and-drivering freehub (contrast DT Swiss's face-ratchet Star/EXP
+  design already covered in this chapter): pawls live in **pawl pockets** in the freehub body,
+  each backed by its own spring in a spring-hole, engaging a **drivering** pressed in the hub
+  shell. The Torch guide names its drivering explicitly as a **"120 point drive ring."**
+- **Service posture.** Both guides open with i9's stated design claim: *"Regular service and
+  maintenance is simple and can be performed with basic tools readily available to the home or
+  shop mechanic - no proprietary tools are required."* Pawls and springs *"easily slide out of
+  the pawl and spring pockets"* by hand once the freehub is off — no press or special tool for
+  the ratchet mechanism itself (unlike bearing work, which does need a press).
+- **Lubrication is a documented SOUND/DRAG tuning choice, not just maintenance** — this is a
+  genuine practitioner fact and i9 states both directions: *"Apply grease to drivering and pawls
+  to quiet the freehub sound. Apply oil to drivering and pawls to increase the freehub sound."*
+  The specified product family is **Dumonde Tech freehub grease/oil**; the assembly step is
+  *"a few drops of Dumonde Tech Freehub Oil to the drivering, pawls, and freehub seal, as well as
+  a thin film of grease to the axle."*
+- **Endcap sealing uses a different lubricant class on purpose:** **marine (waterproof) grease**
+  on the front face of the bearing seal before the endcap goes on, i9's stated reason being that
+  it *"will create a membrane"* — a water-exclusion barrier, not a friction lubricant. Grease
+  squeezing out at the endcap edges on assembly is documented as expected, not an error.
+- **Bearing sizes are published per hubshell/freehub type** (metric cartridge codes, so
+  cross-checkable at a bearing supplier). Hydra2: 15 mm Native Mountain Front 61903/61903;
+  20 mm Native Mountain Front 61805/61805; MicroSpline freehub 152610 inboard / 31802 outboard;
+  XD, HG, SS freehub 152610 inboard / 15267 outboard. Torch: 6-bolt Mountain Front 61804/61804;
+  6-bolt Mountain Rear 61903 drive / 61804 non-drive; Center Lock Mountain Front 18307/18307;
+  Center Lock Mountain Rear 61903/61903; Lefty Front 61902/61805; Torch XD/HG/MicroSpline
+  freehub 31803 inboard / 61803 outboard. Bearings are directional in assembly — *"note grey side
+  of bearing is designed to face outward."*
+- **A caution worth carrying:** the Torch guide flags that *"any service requiring removal of the
+  120 point drive ring"* is beyond routine service — the drivering is a pressed part, not a
+  user-serviceable one, even though the pawls in front of it are.
+
+*Confidence: confirmed (fetched manufacturer service PDFs, text-extracted). Fetch route worth
+recording: industrynine.com's live PDF URLs return an HTML bot-wall page to `curl` and 403/429 to
+WebFetch, and the Shopify product pages are JS-thin to Bright Data — but the **Wayback CDX index**
+(`web.archive.org/cdx/search/cdx?url=industrynine.com/documents*`) lists i9's whole document
+library, and the snapshots extract cleanly with `pdftotext`. This is the same Wayback-beats-the-wall
+route that closed the Shimano DM-MBFC001-04 gap in round 2.* Sources:
+web.archive.org snapshot of industrynine.com/documents/hydra2-service-guide.pdf (snapshot
+20250405140045) + industrynine.com/documents/torchservice_dec22.pdf (snapshot 20240410150726),
+2026-07-18. Cross-reference: WHL-44, WHL-45 (the same document set's wheel-building and
+bearing-preload content, filed in `wheels-tires.md`).
+
+**DRV-63 — NOT ESTABLISHED at primary tier: Industry Nine Hydra's headline "690 points of
+engagement" figure.** The 690-POE/0.52° claim is repeated consistently across retailers, reviews
+and search summaries, and i9's own *Torch* service guide does pin that family at a "120 point
+drive ring" (DRV-62) — but **no fetched i9 page or PDF stating 690 for Hydra was obtained this
+round**: the live product/tech pages are Shopify JS-rendered (Bright Data returned the nav shell
+with no spec text), `industrynine.com/pages/hydra` has **no Wayback snapshot at all**, and the
+archived Hydra document set is exploded-view diagrams and service steps that describe the
+mechanism without quoting an engagement count. Per corpus rule 2 (*search-result summaries lie*)
+and rule 6 (*silence beats a confident wrong fact*), the figure is **recorded as unestablished
+rather than asserted**. This is an *unfetched* gap, not a source-exhausted one — a future round
+with a rendering fetch (or an i9 print catalogue snapshot, several of which are in the Wayback
+index) would likely close it. *Confidence: not established.* Attempted 2026-07-18.
+
+---
+
 ## Gaps
 
+- **CLOSED 2026-07-18 master round (DRV-56–61) — AXS cross-generation compatibility, the
+  gap this chapter carried as its headline master-tier remainder.** Sourced from SRAM's own
+  documents at two independent levels: five Rider Support articles (fetched via Bright Data —
+  support.sram.com 403s WebFetch) and the **AXS Component Compatibility Map PDF**
+  (GEN.0000000005877 Rev AC, © 2026 SRAM, fetched directly from sram.com and text-extracted).
+  What landed: the verbatim controller-universality statement behind the engine's electronic-SRAM
+  one-system exemption (DRV-56); the Transmission↔Eagle-Drivetrain non-backward-compatibility
+  rule with its two exceptions and the DIRECTIONAL chainring asymmetry that confirms
+  `chainring-standard`'s existing direction-awareness (DRV-57); the frame-damage mechanism behind
+  the T-Type-cassette-on-Eagle-mech error, i.e. the hangerless interface's outboard cassette
+  placement (DRV-58); PowerLock pin-length non-interchangeability with published part numbers
+  (DRV-59); the model-code-level cassette-range table plus **three intra-T-Type exceptions**
+  (DRV-60); and manufacturer confirmation that Transmission works on Super Boost frames via a
+  DUB Wide crank, which independently supports keeping the chainline rule REJECTED (DRV-61).
+  **Three engine rules gained manufacturer citations and NONE were contradicted.**
+  **A real finding for the coordinator, filed in DRV-60:** two of the three intra-T-Type
+  exceptions are stated in terms of **chainline**, which the schema explicitly cannot use for
+  verdicts (`chainline` is display-only), and one is a chain-level exclusion the schema has no
+  field for. No live mis-verdict today — the affected part numbers (`RD-XX-DHE-A1`,
+  `FC-XX-DH-A1`, `CN-TTYP-XXSL-A1`) are all absent from the catalog — but it is a known
+  unearned-green if DH T-Type parts are ever catalogued.
+  **Honest remainder on this gap:** SRAM publishes **no shifting-compatibility firmware floor**
+  at all. The only hard version numbers in the compatibility map are a *telemetry* threshold
+  (RD firmware 2.46.5 / AXS app iOS 2.13.0 / Android 2.10.1 for ANT+ head units). Per-derailleur
+  firmware *changelogs* (e.g. the MicroAdjust and cassette-mapping firmware releases) exist as
+  individual support articles but were not individually mined this round — a narrow, specific
+  follow-up, not a broad gap. The load-bearing compatibility question ("does controller
+  generation X drive derailleur generation Y") is **answered and closed**: unconditionally yes,
+  within AXS.
 - **Closed 2026-07-17 round 2 (DRV-35–36):** the Shimano MTB crank/BB dealer manual
   DM-MBFC001-04 gap flagged at the end of round 1 (WebFetch 403, Exa PDF-crawl timeout,
   Bright-Data-returned PDF encrypted/unopenable) is now resolved — the same PDF, fetched
@@ -1063,6 +1285,22 @@ figures table).
   MicroSpline/HG freehub internals and Hope/Industry Nine pawl-hub service** — this
   round covered DT Swiss only (the brand with the most complete public technical/
   maintenance-manual tier); other brands' freehub rebuild depth remains an L2 gap.
+  **— UPDATE, PARTIALLY CLOSED 2026-07-18 (DRV-62): the Industry Nine half is now done at
+  manufacturer-primary tier** (Hydra2 + Torch service guides: pawl/spring pocket architecture,
+  the named "120 point drive ring", per-hubshell bearing-size tables, the grease-vs-oil
+  freehub-sound tuning choice, marine-grease endcap sealing, and the pressed-drivering
+  service boundary), via the Wayback CDX route now documented in DRV-62. This also gives the
+  corpus its first **pawl-and-drivering** freehub architecture to set against DT Swiss's
+  face-ratchet design, which was the mechanically interesting part of the gap.
+  **Genuinely still open: Shimano MicroSpline/HG freehub internals and Hope pawl-hub
+  service** — neither attempted this round (the round's fetch budget went to the SRAM AXS
+  cross-generation gap and the i9 document library). Both remain *unfetched*, NOT
+  source-exhausted: Shimano's si.shimano.com dealer manuals are known-reachable via the
+  Wayback route (DRV-35/36 precedent) and Hope publishes technical documents, so a future
+  round should treat these as live leads rather than walls. **Also open and now confirmed as a
+  specific miss rather than a vague one: the Hydra "690 points of engagement" figure is
+  NOT ESTABLISHED at primary tier — see DRV-63** for exactly what was tried and what the
+  remaining lead is (i9 print-catalogue snapshots in the Wayback index).
 - DRV-26's chain-width cross-tolerance is sourced only through ~10-speed; **no sourced
   data for 11/12-speed narrow-chain substitution tolerance** — explicitly flagged not
   established, a candidate for a dedicated fetch in a future round.
