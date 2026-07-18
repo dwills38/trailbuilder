@@ -1974,3 +1974,29 @@ per wave/decision; large reconstructions are handed to a worker session.
 - **Round STOOD DOWN on Douglas's word** (2026-07-18) — no Tier-B interview pass for now. Session
   archived. Mechanic chapter maturity and the documented blocker list carry forward for a future
   round; the material exists, it just isn't in static fetchable form today.
+
+## 2026-07-18 — verification campaign 3, batches 1–2 merged
+
+- **Merged `verify/campaign-3`** (e17f87c + 01b1761): 16 Skipped-with-reason, 11 Failed-retry, and
+  **2 real catalog corrections**. Job-state + two `src/compat.js` field additions only — no new
+  rows, no id changes, no engine/schema edits (lane respected).
+- **`fr-intense-m1` gained `minRotorR:200` — ERROR-TIER, so coordinator-verified independently.**
+  Rule 10b turns this into a hard reject, so a wrong value would manufacture a false "won't fit".
+  I re-fetched eu.intensecycles.com/pages/m1-frame-build-specs myself rather than trusting the
+  report: the page states the rear rotor range as **"200mm - 223mm"**, confirming the worker's
+  second-source claim and resolving the prior pass's deliberately-left FLAG (mount floor vs stock
+  brake spec). Blast radius checked and judged CORRECT: 115 of 189 catalog rotors now error on this
+  frame's rear — expected and physically right for a DH frame whose native post mount is 200mm
+  (adapters size rotors UP, never down). **Verdict harness byte-identical before/after** (the
+  affected build shapes aren't in the harness's scenario set), validate 7×OK, 757 tests, tsc clean.
+- **`fr-bird-zero-am` gained `weight:1900`** from a directly-fetched bird.bike/frame-data-geometry/
+  maker weights table no prior pass had tried ("Zero AM | Size Medium | 1.9kg/4.2lbs", painted).
+  Weight bar now met; row stays UNVERIFIED overall because rearAxle + maxRotorR remain
+  WebSearch-only — correctly flagged rather than promoted.
+- **Two ambiguous rows deliberately NOT touched** — the judgment call worth recording:
+  `fr-kona-shonky` (a real archive.konaworld.com page's "FSA Orbit 1.5B ZS" headset code conflicts
+  with the catalog's `tapered`) and `fr-commencal-absolut` (a real commencal.com fetch came back
+  internally inconsistent on rear axle/brake mount/weight). Both flagged with specifics for a
+  careful re-read instead of a speculative edit — a blank beats an invented value.
+- Bright Data untouched this wave (WebFetch/WebSearch only); balance stays ~$1.39 pending Douglas's
+  top-up. Worker continues grinding the frame queue.
