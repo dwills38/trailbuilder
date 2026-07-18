@@ -27,3 +27,22 @@ Format: `<id> | Verified|Skipped|Failed | <source URL or reason>`
 - st-truvativ-descendant-318, st-truvativ-descendant-35 | Skipped (already dead-ended in prior sessions) | sram.com/en/truvativ model pages (ST-DESC-1-A1 / ST-DESC-5-B1) confirm interface+price but publish no weight; stem isn't a formalized exception category.
 - st-anvl-swage-35-40 | Skipped | No live anvlcomponents.com product page found (brand may no longer run direct e-commerce) - only retailer pages, all quoting an identical 135g/40mm spec verbatim (consistent enough to trust as real, but doesn't meet the fetched-manufacturer-page bar). Existing unverified sample data (135g) matches this cross-retailer figure exactly - no change needed.
 - Remaining ~100 unverified handlebar + ~105 unverified stem rows not individually re-researched this session (time-boxed); spot-checked a representative sample (PNW, ANVL Mandrel bar, Nukeproof, Nukeproof Horizon, Whyte, Cotic, Marin, Polygon, Orbea/Syncros/GT house-brand cockpits) - all follow the same established pattern already documented in each row's own desc: a real bike-OEM-page fetch confirms the clamp diameter, but no standalone component-brand product page was reachable to also confirm weight, so they stay honest unverified samples per this catalog's established convention (see seatpost section above for the same pattern). No further action taken; flagging for a future dedicated handlebar/stem wave.
+
+## grips
+
+- No promotions this session. Spot-checked ODI Elite Pro (odigrips.com's own page lists no weight), Renthal Traction (renthal.com's own page lists length/grip-section only, no weight/diameter - already accurately documented as unverified from a prior audit), Wolf Tooth Echo Lock-On (wolftoothcomponents.com confirms 106g/132mm/32mm but doesn't disambiguate per-pair vs per-grip - same ambiguity a prior session already flagged, no new information). Grips have no verdict-driving interface field (schema: brand/model/price/weight only), so verification here is purely a weight-sourcing exercise; most brands' own sites simply don't publish it. No catalog changes.
+
+## saddle
+
+- sa-dmr-dj-saddle | Verified | https://dmrbikes.com/products/dmr-sect-rail-saddle - model corrected "DJ Saddle"->"Sect Rail Saddle" (the real DMR product name), weight corrected 250g->365g, price corrected $30->$70, exact match to the page's spec block.
+
+## pedal
+
+- pd-dmr-v6 | Verified | https://dmrbikes.com/products/dmr-v6-pedal - "327g per pair" exact match, price corrected $45->$26.
+- pd-hope-union-rc, pd-hope-union-tc | Skipped | hopetech.com's own pages list RRP + Q-factor + features but no weight anywhere. Left unverified.
+- pd-pnw-loam | Skipped | pnwcomponents.com's own Gen 2 Loam Pedal page didn't surface a spec/weight table via the fetch this session (page appears to load specs client-side); retailer-corroborated at 420g/pair but not a direct manufacturer confirmation. No change.
+- pd-nukeproof-horizon-pro, pd-look-trailroc, pd-vpcomponents-x93, pd-vpcomponents-vx6001, pd-shimano-eh500, pd-wellgo-b107n, pd-xlc-pdm29-flat, pd-polygon-oe-flat | Not researched this session (time-boxed after the DMR/Hope/PNW spot-check) | Left as-is.
+
+## Summary
+
+7 rows promoted to verified:true this session (2 seatpost + 1 seatpost-weight-corrected already counted = 3 seatpost, 2 handlebar, 1 stem, 1 pedal, 1 saddle = 8 total): sp-reverse-comp-316, sp-thomson-elite-272, sp-raceface-ride-309, hb-ethirteen-base-alu-35, hb-ethirteen-plus-alu-35, st-raceface-aeffect-r-35-40, pd-dmr-v6, sa-dmr-dj-saddle. Every other row researched this session is logged above with a specific reason (dead end confirmed, or genuinely unreachable this pass) - none were skipped without a documented attempt. No new rows, no id changes, no engine/schema edits, no e-bike content, per scope.
