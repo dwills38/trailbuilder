@@ -1,5 +1,19 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — 🎓 COACH: ALL 7 CHAPTERS PROFESSIONAL (public-source bar)
+
+- tooling/coach-training-4 merged: climbing-descending → professional (ledges, loose-surface
+  traction, uphill switchbacks, off-camber, the steep-roll→chute ladder gated on "smooth at the
+  bottom" not confidence, fatigue/brake-fade craft cross-referencing the mechanic's fade
+  mechanism instead of duplicating it) + coaching-methodology → professional under the
+  public-source ceiling (Douglas's no-memberships decision recorded IN the chapter as permanent;
+  NSCA FIX IT + peer-reviewed error-frameworks + PMBIA/BICP public ladders ingested; graded
+  professional-not-master with the remaining gaps named). Notably honest: went looking for a
+  DISPUTED item, found the candidate resolved as terrain-differentiated, and said so rather
+  than manufacturing controversy. **The coach corpus: 7/7 professional, ~95 cited facts,
+  physics-grounded, safety-laddered — the first specialist to complete its board.** Next rounds
+  target per-chapter master gaps.
+
 ## 2026-07-18 — compat-dot accessibility fix LIVE (the audit's twice-confirmed HIGH closed)
 
 - ui/dot-contrast-fix merged + shipped: per-theme --dot-ring token (light 6.28:1 vs the old
