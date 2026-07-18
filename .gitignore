@@ -14,3 +14,6 @@ Thumbs.db
 
 # generated standalone sample (regenerate by inlining src/compat.js into index.html)
 TrailBuilder-sample.html
+
+# scratch downloads for mechanic-corpus research (fetched PDFs/renders, never committed)
+_fetch/

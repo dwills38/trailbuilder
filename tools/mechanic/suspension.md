@@ -489,10 +489,23 @@ Damper Upper Tube oil VOLUME (mL) cell is genuinely blank for every fork/tier in
 table — RockShox publishes the upper-tube damper oil WEIGHT (7wt for Charger 3.1 RC2 /
 Charger 3 RC2 / Delta RC; 3wt for Charger RC / Rush RC) but not a fill volume in mL for
 any current-gen damper, a real change from SUS-32's rear-shock tables which do carry
-volumes. Three numeric fills ARE published, each as a single value merged across the
-*entire* table (all of ZEB/Lyrik/Pike, every tier and model year shown) rather than
-varying per model: Damper Lower Leg oil volume **30 mL**, Spring Upper Tube oil volume
-**3 mL (+) / 1 mL (−)**, Spring Lower Leg oil volume **15 mL**. Lubricant *type* (not
+volumes. Three numeric fills ARE published — Damper Lower Leg oil volume **30 mL**,
+Spring Upper Tube oil volume **3 mL (+) / 1 mL (−)**, Spring Lower Leg oil volume
+**15 mL** — but **CORRECTION to an earlier draft of this fact: these are NOT a
+table-wide constant.** A dedicated crop isolating just the numeric columns across the
+full row range (`pdftoppm -r 400`, `-x/-y/-W/-H` to trace exact row alignment) shows the
+RC/RC2-tier rows (Ultimate/Select+/Select/Base × Charger 3/3.1/RC/Rush RC, both ZEB and
+Lyrik/Pike) have blank Volume(mL) cells throughout — ruling out a constant spanning the
+*whole* table. The three numbers sit specifically at the **2027 ZEB (A3) Base Delta RC**
+row. Whether they also apply to the externally-identical **2027 Lyrik (D2) Base Delta
+RC** row (same damper, same lubricant TYPE labels — Lube Medium / Lube Heavy / SG920
+Grease) could NOT be confirmed: a crop of that row's Volume(mL) cells shows them blank
+too, and because the ZEB and Lyrik Delta RC rows are non-adjacent in the table (the
+2023+ Lyrik (D1)/Pike (C1) block sits between them), one merged cell cannot literally
+span both — so a "published for ZEB only" reading and a "merged but my crop cut it off"
+reading are both consistent with what's on the page. **Treat 30/3/1/15 mL as confirmed
+for the ZEB (A3) Base Delta RC row only; not confirmed for Lyrik (D2) Base Delta RC** —
+per corpus rule 6, silence beats guessing they're shared. Lubricant *type* (not
 volume) does vary, and it varies specifically at one tier boundary: every RC/RC2-tier
 damper (Ultimate/Select+/Select/Base's Charger 3, Charger 3.1, Charger RC, Rush RC) uses
 Maxima PLUSH Dynamic Suspension Lube **Light** (damper lower leg) / **Heavy** (spring
@@ -760,8 +773,10 @@ Honest list of what a future round needs to close to move this chapter past `fou
   assume it's unrecoverable — render the specific page with `pdftoppm -png -r 250-400`
   (crop with `-x/-y/-W/-H` for a close read) and read it as an image. This resolved BOTH
   the current-gen table (SUS-44, where the apparent sparseness turned out to be genuine —
-  the manual really does only publish 3 of ~8 numeric columns as universal constants, not
-  an extraction failure) and the 2019-2022 table (SUS-45, where it genuinely was a
+  the RC/RC2-tier rows really do publish no mL figures at all, not an extraction failure;
+  the 3 numbers the table DOES carry pin to the ZEB Delta RC row specifically, corrected
+  from an earlier draft of SUS-44 that read them as a table-wide constant before checking
+  the Lyrik Delta RC row's own cells) and the 2019-2022 table (SUS-45, where it genuinely was a
   `pdftotext` column-collapse artifact and the image read recovered every cell). Text
   extraction and image reading can fail in different ways on the same PDF; when one gives
   a suspiciously sparse or jumbled table, try the other before citing "not established."
