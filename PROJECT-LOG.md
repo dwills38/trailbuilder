@@ -2409,3 +2409,34 @@ per wave/decision; large reconstructions are handed to a worker session.
   retry round, 101 queue items (1,751→1,650), 3 promotions each with a coordinator-confirmed spec
   correction, the frameset-sibling heuristic that became standing doctrine, and the
   `fr-devinci-troy-st` flag that triggered the 55-row verified-flag audit. Worktree/branch pruned.
+
+## 2026-07-18 — complete-bikes cluster round 2 merged; cluster wrapped
+
+- **Merged `verify/completebikes-1` round 2** (d3e2ad3): **4 fill-level errors fixed on Ibis rows,
+  two of which were ALREADY VERIFIED** — `cb-ibis-ripmo-af-sram-90` and `-deore` carried the wrong
+  front tire (Minion DHF where the maker page says Assegai) and wrong headset tier (Cane Creek 40
+  vs 50); `cb-ibis-ripmo-v3-gx-axs` had wheels/rotors/brakes contradicting its own cited source;
+  `cb-ibis-ripley-v5-gx-transmission` had a shock fill (Float X) contradicting its own quoted desc
+  text (plain Float). Same class as the ARC BB defect: **verified rows can carry wrong fills, and
+  only a re-read against the maker sheet finds them.** Harness BYTE-IDENTICAL (every swap was an
+  already-cataloged part in the same interface family), validate 7×OK, 764 tests, tsc clean.
+  ⚠ **Coordinator limitation recorded honestly: I could NOT independently re-verify the Ibis
+  corrections** — ibiscycles.com/build-kits/<slug> did not render under bdata scrape in my seat
+  (the worker reports it does in theirs). Merged on the strength of: direction-of-travel (toward
+  the maker sheet), interface-compatibility, harness neutrality, and the Ripley case being
+  self-evidenced by the row's own contradictory desc. **Flagged for the next drift-check run.**
+- **Brand-wall map extended** (tools/verify-notes-completebikes.md): Pivot + Rocky Mountain UNLOCKED
+  via Shopify `/collections/<model>` (14 + 5 rows spot-checked, all correct); Devinci per-product
+  pages fine (5 rows exact). Still walled, one attempt each per budget: Norco 404s even under the
+  unlocker, Cannondale renders no pricing (client-side API, not SSR), **Propain is a NEW blocker
+  class** — its bike-builder configurator IS the pricing surface, so no static page will ever carry
+  it (not solvable by a better unlocker; needs a different approach entirely).
+- **Two items handed to the next seat, correctly not self-resolved:** (1) a DEDUP CALL —
+  `cb-ibis-ripmo-v3-gx-axs`/`-gx-transmission` and `cb-ibis-ripley-v5-gx-axs`/`-gx-transmission`
+  are each almost certainly one real product entered twice (same price, same source URL; "GX AXS"
+  and "GX Transmission" are Ibis's two labels for the same SRAM Eagle Transmission build) — an
+  id retirement + ALIASES move, coordinator-tier, deliberately not done by a field-level cluster;
+  (2) a CATALOG GAP — Ibis Deore builds spec Shimano **M6200** derailleur/cassette/crank/brakes but
+  only an M6200 *shifter* exists in the catalog, so those rows document a substitution to M6100-tier
+  siblings. Cluster session archived; the remaining ~400-row completebike set continues via the
+  staged blocks.
