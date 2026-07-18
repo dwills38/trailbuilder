@@ -252,6 +252,30 @@ var EMTB_PARTS = [
     disciplines: ['e-trail', 'e-enduro'], weight: 23800, price: 8500,
     note: "Ibis's Bosch-powered full-power e-MTB; mixed-wheel trail/enduro platform.",
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Commencal depth (Meta Power 29 + Meta Power SX Signature)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-commencal-meta-power-29', cat: 'emtb', brand: 'Commencal', model: 'Meta Power 29',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'Formula Cura 4',
+    disciplines: ['e-trail'], weight: 23000, price: 5500,
+    note: 'More XC/trail-leaning 29er sibling to the Meta Power SX; shorter travel, smaller battery.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-commencal-meta-power-sx-signature', cat: 'emtb', brand: 'Commencal', model: 'Meta Power SX Signature',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'Formula Cura 4',
+    disciplines: ['e-enduro'], weight: 24200, price: 8000,
+    note: 'Top-tier Meta Power SX build; SRAM X0 Transmission upgrade over the base SX.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
