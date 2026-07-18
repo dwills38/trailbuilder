@@ -2020,8 +2020,24 @@ per wave/decision; large reconstructions are handed to a worker session.
   (partial build, open dialog, mid-edit numeric filter) survive crossing 769px? Untested, needs no
   foldable hardware — queued as a cheap test. Board: 5 MASTER / 2 professional / research-methods
   not started.
-- **campaign-3 batch 3** (7e61cb7, `tools/verification-job.json` only): 11 Skipped, 1 Failed-retry,
-  no catalog or engine changes. JSON re-parsed post-apply per the string-splice rule.
+- **campaign-3 batches 3 AND 4** (7e61cb7 + d35063c, `tools/verification-job.json` only): 19
+  Skipped, 4 Failed-retry, no catalog or engine changes. JSON re-parsed post-apply per the
+  string-splice rule. *(Corrected same-session: this entry originally read "batch 3". The worker
+  committed batch 4 BETWEEN the sweep's branch-listing step and its `git diff` apply step, so the
+  apply resolved `verify/campaign-3` at its newer tip and silently captured both batches. Content
+  verified correct and identical to d35063c; only the log undercounted. **Lesson: a sweep must
+  pin the branch to an explicit SHA at listing time and diff against that SHA, not the branch
+  name — a live worker can advance its branch mid-sweep.**)*
+  All Skips this round are the same shape: complete-bike-only frames whose interfaces are already
+  sourced but which have no frameset SKU, so price/weight can never clear the bar (Scott Voltage YZ,
+  Salsa Timberjack, two Marins, Nukeproof Dissent, two Whytes, two Mondrakers, Merida One-Forty,
+  Ghost Kato/Riot, Propain Rage, Orbea Oiz, Devinci Django, Chromag Stylus MX). Three Failed-retry
+  rows flagged as genuinely close rather than abandoned: `fr-ari-lasalpeak` and `fr-revel-rascal-v3`
+  each have BOTH maker-fetched frame weight and frameset price (rare in this queue) with only
+  brakeMount/maxRotorR third-party; `fr-devinci-marshall-29` has a candidate weight of unclear
+  provenance. `fr-octaneone-void`: real maker page found but it 500s on an expired SSL cert, and
+  WebSearch hints at an IS-vs-PM brakeMount discrepancy against our cataloged value — flagged for a
+  reviewer, deliberately not flipped.
 - **Both branches were STALE-BASED** — a raw merge would have reverted live work (ui-expert's diff
   vs main showed `index.html -131`, i.e. undoing the slider fix, plus PROJECT-LOG and mechanic-corpus
   deletions). Applied own-additions only from each branch's merge-base, per the standing pattern.
