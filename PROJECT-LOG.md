@@ -1817,3 +1817,28 @@ per wave/decision; large reconstructions are handed to a worker session.
   isn't gate-covered and this was a hand-resolved merge, so Douglas to eyeball Guides↔profile hash
   nav. Purpose: value-add written content for the AvantLink application. Follow-up flagged: static
   pre-render for real search-SEO would be the project's first build step — deferred, deliberate call.
+
+## 2026-07-18 — seat 13 first harvest: UI-expert master round batch 3 (corpus only)
+
+- **Seat 13 seated**: seat 12 archived, hourly fleet-sweep cron re-armed, slider-fix chip
+  (DNS-17, WCAG 2.2 SC 2.5.7) handed to Douglas and now running as its own session. Images
+  program KICKED OFF on Douglas's word + architecture PDF (independent API-first ImageService
+  repo) — coordinator review delivered, [Fable, high] TDD design chip queued; roadmap/coding
+  gated on his approval. Legal ground rules unchanged: scraping/hotlinking ruled out; sources =
+  maker permission (Affiliate lane) + affiliate datafeeds (~Nov).
+- **Merged `tooling/ui-expert-master-1` batch 3** (27dcf33 + 8dd7128, docs-only under
+  tools/ui-expert/): **ACC-24** closes the round-2 dot-contrast contradiction against the
+  shipped fix `b269e2d` — ring-vs-card recomputed 6.28–13.84:1 across all four themes (SC 1.4.11
+  PASS), glyph non-colour channel confirmed, 8px-glyph reinforcing-only caveat recorded;
+  anti-drift doctrine written up (fills/glyphs defined once, shared by dot + legend — third
+  instance of the remove-divergence-opportunity pattern). **performance-perceived → MASTER**
+  (PRF-13..17): headline PRF-16 — the Cloudflare Web Analytics beacon (index.html:954, live
+  since 2026-07-16) IS a CWV RUM collector, so real LCP/INP/CLS p75s for buildmymtb.com already
+  exist unread in Vitals Explorer; Chromium-only caveat is load-bearing (iOS Safari invisible);
+  CrUX below-threshold expectation-setter recorded; do-NOT-vendor web-vitals (PRF-17).
+  Coordinator spot-checked the beacon line, --dot-ring border and role="img" against index.html
+  before merge. Gates: validate 7×OK / 757 tests / tsc clean. Board: 3 MASTER
+  (accessibility, forms-filters-density, performance-perceived), 4 professional, research-methods
+  not started. Worker continues to batch 4 (navigation-ia).
+- **New Douglas-only action queued**: read Cloudflare Vitals Explorer (minutes, no code) —
+  converts every corpus performance claim from inference to measured fact (PRF-16).
