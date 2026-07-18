@@ -385,6 +385,29 @@ independent one for a low-vision sighted user who is not using AT. The ring + fi
 combination still comfortably beats the round-2 state; flagged only so a future round doesn't
 treat the glyph as carrying more load than it does.
 
+---
+
+## ACC-25 — ACC-22's two findings are FIXED (re-audit, round 4, 2026-07-18)
+
+Both shipped 2026-07-18 (merged with batch 4). Re-audited against the shipped tree; recorded as
+a new fact per append-only, ACC-22's findings left standing as the historical record.
+
+- **FINDING 1 (profileModal missing `autofocus`) — FIXED.** All **nine** dialogs now place
+  initial focus deliberately; the eight-of-nine inconsistency is gone.
+- **FINDING 2 (`100vh` height caps) — FIXED, and completely.** `index.html` now contains **zero**
+  occurrences of `100vh`. Both sites moved to the corpus's own PLT-6 recommendation:
+  `max-height:calc(100svh - 32px)` for the nine dialogs and `calc(100svh - 86px)` for the sticky
+  filter rail. `svh` resolves against the *smallest* viewport (browser chrome expanded), so the
+  dialog's `.rm-foot` action row — the Close and primary buttons — can no longer be pushed under
+  mobile browser chrome. The related SC 2.4.11 concern ACC-22 raised but deliberately declined to
+  call a violation is resolved along with it.
+
+*Cross-reference:* the third ACC-22-era finding, DNS-17's SC 2.5.7 failure, also shipped in the
+same merge — see **DNS-21** in `forms-filters-density.md` for that re-audit. **All findings the
+round-4 live-DOM audits raised against the shipped app are now closed**, which is the outcome
+the flag-never-implement boundary is supposed to produce: the corpus found them, named the fix
+precisely enough to be actionable, and the app changed.
+
 ## Gaps (next-round targets)
 
 **Closed in round 4 (2026-07-18)** — kept as a record, do not re-open:
@@ -407,6 +430,6 @@ treat the glyph as carrying more load than it does.
 - ~~The dot-contrast finding (round 2) needs a coordinator decision + a follow-up fact once
   fixed~~ → **CLOSED round 4 by ACC-24**: fix shipped `b269e2d`, re-audited, SC 1.4.11 passes in
   all four themes (6.28–13.84:1) and the non-colour channel ACC-4 asked for now exists (glyphs).
-- **FINDING 1 (profileModal `autofocus`) and FINDING 2 (`100vh` → `100svh`) from ACC-22 are
-  open coordinator actions**, not corpus gaps — they close when the app changes, and each
-  should get a new confirming fact then.
+- ~~FINDING 1 (profileModal `autofocus`) and FINDING 2 (`100vh` → `100svh`) from ACC-22~~ →
+  **BOTH CLOSED 2026-07-18 by ACC-25**: shipped and re-audited; zero `100vh` remain, all nine
+  dialogs carry `autofocus`.

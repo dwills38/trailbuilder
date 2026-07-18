@@ -1,33 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T15:32:58.508Z",
+ "updated": "2026-07-18T15:37:53.403Z",
  "batchSize": 25,
- "lastCompleted": "fr-chromag-monk",
+ "lastCompleted": "fr-chromag-stylus-mx",
  "currentCategory": "frame",
  "queue": [
-  "fr-octaneone-void",
-  "fr-scott-voltage-yz01",
-  "fr-salsa-timberjack-2",
-  "fr-marin-pine-mountain-2",
-  "fr-marin-rift-zone",
-  "fr-nukeproof-dissent-carbon-297",
-  "fr-whyte-t140",
-  "fr-whyte-sythe",
-  "fr-mondraker-raze-r",
-  "fr-merida-one-forty-400",
-  "fr-ghost-kato-fs",
-  "fr-propain-rage-3-cf",
-  "fr-orbea-oiz-m10",
-  "fr-devinci-marshall-29",
-  "fr-devinci-django-alloy",
-  "fr-ghost-riot-am-cf",
-  "fr-ari-lasalpeak",
-  "fr-ghost-riot-trail-cf",
-  "fr-mondraker-foxy-r",
-  "fr-mondraker-foxy-carbon-r",
-  "fr-revel-rascal-v3",
-  "fr-chromag-stylus-mx",
   "fr-revel-ranger-v3",
   "fr-revel-ritual-v3",
   "fr-pivot-trail-429",
@@ -25246,9 +25224,9 @@
   },
   "fr-octaneone-void": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-14T11:47:30.246Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:34:58.125Z",
+   "error": "Found the real manufacturer page (octane-one.com/part/void-dirt-frame-for-26-wheels/) but WebFetch failed with 'certificate has expired' (site SSL issue, not a content wall). WebSearch snippets suggest brakeMount may actually be IS (International Standard, '51mm IS, 185mm max'), not the catalog's PM - and weight ~2550-2580g vs cataloged 2400g sample. Flagging both for a reviewer; not editing on snippet-only evidence. Retry: try Wayback Machine or a different fetch path for the cert-expired manufacturer page.",
    "source": null,
    "note": null
   },
@@ -26054,11 +26032,11 @@
   },
   "fr-scott-voltage-yz01": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:34:58.375Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: no frame-only weight on either cross-corroborated retailer source (thebackcountry.com, damianharriscycles.co.uk); Scott's own scott-sports.com 404s for this SKU. Interfaces already solidly cross-confirmed by a prior session."
   },
   "fr-vitus-sommet-290-crx": {
    "cat": "frame",
@@ -26070,35 +26048,35 @@
   },
   "fr-salsa-timberjack-2": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:34:58.626Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: salsacycles.com page is complete-bike only (frameOnly:false), no separate frameset SKU/weight found."
   },
   "fr-marin-pine-mountain-2": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:34:58.876Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: sourced from a dealer complete-bike listing (marinbikes.com's own collection page unavailable this pass); no frameset SKU/weight found anywhere."
   },
   "fr-marin-rift-zone": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:34:59.131Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: real manufacturer complete-bike page (marinbikes.com) gives a genuine MSRP but Marin sells no separate frameset SKU/weight for this model."
   },
   "fr-nukeproof-dissent-carbon-297": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:35:16.797Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: nukeproof.com's own fetched page is a complete-bike spec page (frameOnly:false); no frameset weight published despite every interface field being directly manufacturer-confirmed."
   },
   "fr-forbidden-dreadnought-v2": {
    "cat": "frame",
@@ -26110,43 +26088,43 @@
   },
   "fr-whyte-t140": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:35:17.050Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: whytebikes.com sells the T-140 as complete-bike-only, confirmed via two directly-fetched pages; price is already a documented GBP->USD sample conversion, not a real frameset MSRP."
   },
   "fr-whyte-sythe": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:35:17.327Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: same Whyte completes-only wall as the T-140 sibling; price is a documented GBP->USD sample conversion. headTube bore pair already correctly left unset (page is internally inconsistent on ZS56 vs 1 1/8in)."
   },
   "fr-mondraker-raze-r": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:35:17.578Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: sourced from an authorized-dealer reprint (mondraker.com itself is a JS SPA); no frameset SKU/weight found, price is the dealer-listed MSRP for the complete bike."
   },
   "fr-merida-one-forty-400": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:35:17.852Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: sourced from cross-confirmed dealer reprints (merida-bikes.com's own page was stale/wrong-generation); no frameset SKU/weight found, price is a documented GBP->USD sample conversion."
   },
   "fr-ghost-kato-fs": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:35:18.127Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: sourced from an authorized-dealer reprint; several interface fields (rearAxle, headset, brakeMount) are already flagged as judgment calls, not page-stated - stacked with the missing frameset weight/price, this row is well short of the bar."
   },
   "fr-propain-tyee-al": {
    "cat": "frame",
@@ -26166,11 +26144,11 @@
   },
   "fr-propain-rage-3-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:35:18.394Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: sourced from a Vital MTB reprint (propain-bikes.com stays 403-walled, consistent with every other Propain row); Vital's spec guide is a complete-bike page, no frameset weight published."
   },
   "fr-polygon-collosus-n9": {
    "cat": "frame",
@@ -26214,11 +26192,11 @@
   },
   "fr-orbea-oiz-m10": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:37:28.281Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: orbea.com 403-walled; Vital's ,999 figure is the complete-bike price, no frameset weight/price found."
   },
   "fr-polygon-siskiu-t7-29": {
    "cat": "frame",
@@ -26230,27 +26208,27 @@
   },
   "fr-devinci-marshall-29": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:37:28.525Z",
+   "error": "WebSearch found a candidate frame-only weight (3740g) but its source is unclear (likely Vital's frame-guide reprint, not an independently fetched manufacturer figure or a reputable measured-weight database entry) - doesn't clearly clear the weight bar. All interfaces already sourced from a third-party review (theloamwolf.com), not a live devinci.com fetch (devinci.com renders no spec table, documented JS-shell wall). Retry: try devinci.com's Marshall product page again for a direct interface+weight confirmation.",
    "source": null,
    "note": null
   },
   "fr-devinci-django-alloy": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:37:28.775Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Price bar unmeetable: weight (2560g) is genuinely two-source-confirmed, but Devinci sells this frame as completes only - the $3,329 price is a documented complete-bike-price proxy, not a real frameset MSRP, so it cannot support verified:true."
   },
   "fr-ghost-riot-am-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:37:29.021Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+interface bar unmeetable: rearAxle/bb/headset/brakeMount/maxRotorR are all cross-generation samples (confirmed absent from two direct fetches of the current-gen ghost-bikes.com page), and no frameset weight/price exists (Ghost sells completes only)."
   },
   "fr-rose-root-miller": {
    "cat": "frame",
@@ -26262,19 +26240,19 @@
   },
   "fr-ari-lasalpeak": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:37:52.281Z",
+   "error": "Genuinely close: frameset price ($2,699) and frame weight (2900g) are BOTH directly fetched from aribikes.com (maker's own site, confirmed again this session - the geometry table renders but has no drivetrain/brake spec section). The blocking gap is rearAxle/bb/headset/brakeMount/maxRotorR/shockMount, all sourced from two cross-corroborating Vital MTB build-guide reprints, not a maker-fetched page - aribikes.com itself is JS-walled for that content. Retry: look for an aribikes.com geometry-PDF or spec-sheet download (the Trek-manual-PDF technique) before accepting the Vital-only ceiling.",
    "source": null,
    "note": null
   },
   "fr-ghost-riot-trail-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:37:29.264Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same wall as the Riot AM CF sibling: rearAxle/bb/headset/brakeMount/maxRotorR are cross-generation samples, no frameset weight/price exists."
   },
   "fr-salsa-spearfish-c": {
    "cat": "frame",
@@ -26294,35 +26272,35 @@
   },
   "fr-mondraker-foxy-r": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:37:52.520Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: mondraker.com JS-walled; the fetched Vital figures ($4,499 / 16,200g) are this exact complete-bike build's own numbers, not frame-only."
   },
   "fr-mondraker-foxy-carbon-r": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:37:52.770Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same Mondraker wall as the alloy Foxy R sibling, plus several interfaces are WebSearch-summary sourced rather than independently fetched. No frameset weight/price."
   },
   "fr-revel-rascal-v3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:37:53.020Z",
+   "error": "Genuinely close: frame weight (3350g) and frameset price ($3,399) are BOTH directly fetched from revelbikes.com's own Frame Kit product page. The sole blocking gap is brakeMount/maxRotorR, which the fetched Revel page does not itemize at all (only stock-build rotors on completebike rows) - corroborated only via a WebSearch-summarized Vital MTB frame guide (180mm PM / 203mm max), not an independent fetch, so it stays below bar item 1. Retry: fetch vitalmtb.com/product/guide/frames/revel/rascal-sl-v3-64506 directly (was rate-limited this session) to see if it can be treated as a corroborating third-party spec reprint, or find a Revel geometry PDF.",
    "source": null,
    "note": null
   },
   "fr-chromag-stylus-mx": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:37:53.277Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable (Chromag publishes none, same as the Rootdown sibling); price is a documented complete-bike-price proxy (Eagle 90 build), not a real frameset MSRP."
   },
   "fr-revel-ranger-v3": {
    "cat": "frame",

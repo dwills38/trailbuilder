@@ -1,6 +1,8 @@
 # Mobile Fundamentals
 
-**Maturity: professional** (L1 complete + L2 gesture/input-control patterns, round 3, 2026-07-18)
+**Maturity: master** (L1+L2 complete + L3 depth on foldable form factors, the Viewport Segments
+API and its Baseline status, and large-phone reachability — with a reasoned "no action needed"
+recommendation (MOB-45) rather than speculative support; round 4, 2026-07-18)
 
 Touch-target minimums, thumb-reach zones, gesture conventions, viewport/safe-area handling.
 Read [`INDEX.md`](INDEX.md) first for corpus rules and tiers.
@@ -176,8 +178,87 @@ Read [`INDEX.md`](INDEX.md) first for corpus rules and tiers.
   platform-vendor facts; flagged as a design constraint, not yet a shipped-pattern check since
   the site has no swipe gestures today.*
 
+---
+
+## Foldables & large-phone reachability (round 4 / master, 2026-07-18)
+
+- **MOB-43 — Foldable form factors and what actually changes.** Two categories: **fold-out**
+  phones that open horizontally into a **7.6–10.2″** tablet-sized screen (with a
+  phone-sized external display when folded), and **flip** phones that fold vertically clamshell-
+  style with a small **1.5–3″** cover screen. The UX consequence is not merely "more pixels":
+  the *interaction mode changes with the posture* — **two-handed on the expanded screen,
+  one-handed when folded** — and the expanded state unlocks genuinely different use cases
+  (media, document reading, split-screen multitasking). NN/g's recorded design guidance:
+  **set responsive breakpoints for the unconventional foldable sizes**, increase target sizes in
+  tablet mode per Fitts's Law, and — the load-bearing one — **keep workflows consistent across
+  postures**: "If primary workflows differ significantly between screen sizes, users may feel as
+  if they need to relearn the app." *Tier B, fetched
+  https://www.nngroup.com/articles/foldable-smartphones/ 2026-07-18. Note the article does not
+  address the crease/hinge's UX impact — that gap is MOB-44's territory, and NN/g does not fill
+  it.*
+
+- **MOB-44 — The Viewport Segments API is the hinge-aware mechanism, and it is NOT Baseline.**
+  `horizontal-viewport-segments` / `vertical-viewport-segments` media features report the
+  segment count (`1` = non-foldable *or* unfolded; `2` = a hinged/folded posture; `>2` =
+  multi-fold), and `env(viewport-segment-width|height|top|bottom|left|right <row> <col>)` expose
+  each segment's geometry — so the hinge gap is computable as e.g.
+  `calc(env(viewport-segment-top 0 1) - env(viewport-segment-bottom 0 0))`. A companion Device
+  Posture API reports `continuous` vs `folded`.
+  **Status: experimental, explicitly *not* Baseline, "does not work in all widely-used
+  browsers"** (Chrome origin-trial territory). *Tier A, fetched
+  https://developer.mozilla.org/en-US/docs/Web/CSS/@media/vertical-viewport-segments 2026-07-18.*
+
+- **MOB-45 — Recommendation for THIS site: handle foldables via breakpoints, NOT the segments
+  API.** Composing MOB-43 + MOB-44 against SITE-CONSTRAINTS, the honest call is **do not adopt
+  viewport-segment CSS**. Reasons, in order: it is not Baseline (a no-build-step site with no
+  polyfill layer should not depend on origin-trial CSS); the site has **no split-view or
+  master-detail layout** that a hinge would bisect — its layouts are a filter rail plus a card
+  grid, both of which reflow rather than split; and MOB-43's actually-actionable advice
+  (breakpoints, target sizes, workflow consistency) is achievable with plain media queries the
+  site already uses. **What a fold-out unfolding to ~7.6–10.2″ does today**: it lands above the
+  site's `min-width:769px` breakpoint, so it gets the desktop layout — sticky rail plus grid —
+  which is the correct outcome and requires no new code. **This is a "no action needed, and here
+  is why" entry, deliberately recorded** so a future round doesn't treat foldable support as an
+  unclosed gap. *Corpus judgment, flagged as such; revisit if the segments API reaches Baseline
+  or if the site ever ships a genuine two-pane layout.*
+
+- **MOB-46 — Large-phone reachability: the reachable region is a pie, not a band, and it is
+  handedness-dependent.** Phone displays have grown from 1.5–2.5″ (pre-iPhone) to **6.1–6.8″**
+  today, and the growth has a usability ceiling because larger screens compromise one-handed
+  use. Holding a large phone in one hand gives the thumb a **pie-shaped reachable region at the
+  bottom and toward the grip side** — its radius set by thumb length, so it varies by hand size
+  — while **the far corner diagonally opposite the thumb is the hardest point on the screen**.
+  Apple's Reachability (pull the top half down) is a platform-level mitigation, but it works by
+  *shrinking the usable screen*, which "defeats the benefit of large screen smartphones."
+  *Tier B/C — this is the consensus across the sources surfaced this round (NN/g's mobile
+  canon plus the HCI literature on one-handed operation); recorded at the confidence the
+  sourcing supports. It refines MOB-17's thumb-zone data for the large-phone case rather than
+  replacing it.*
+  **Site consequence, stated as a design constraint rather than a finding:** any control that is
+  *frequently* used one-handed should sit low and avoid the top corners. The corpus has **not**
+  measured where the site's frequently-used mobile controls actually sit — that is a concrete
+  next-round audit (and a good usability-test target), not something to assert now.
+
+- **MOB-47 — ⚠ The one foldable case that is a real risk here: posture change is a resize, and
+  the site re-renders on resize.** Folding or unfolding fires the same viewport-change machinery
+  as a rotation, so a foldable user crossing the `769px` boundary mid-session moves between the
+  mobile and desktop layouts **live**. Per MOB-43's consistency guidance, the risk is not the
+  layout swap itself (that is correct behaviour) but whether **in-progress state survives it** —
+  a partially-filled build, an open dialog, a scrolled filter rail, a mid-edit numeric filter
+  field (DNS-21). **Unverified**: the corpus has not tested a live breakpoint crossing with
+  state in flight. Flagged as the highest-value *testable* item this chapter produced, since it
+  needs only a desktop browser with a resizable window — no foldable hardware. *Explicitly a
+  hypothesis, not a finding.*
+
 ## Gaps (next-round targets)
 
+- **MOB-47's breakpoint-crossing test is unrun** and is this chapter's best next action: resize
+  a desktop browser across 769 px with a build in progress, a dialog open, and a numeric filter
+  field mid-edit, and check what survives. Needs no foldable hardware.
+- **MOB-46's site-side audit is unrun**: where do the frequently-used mobile controls actually
+  sit relative to the reachable pie? Deliberately not asserted this round.
+- MOB-44 should be **re-checked each round for Baseline status** — MOB-45's "don't adopt it"
+  recommendation is explicitly conditional on the API staying non-Baseline.
 - MOB-15's Apple HIG Gestures citation still rides on a Tier-D mirror (exa-search-highlight of
   the real developer.apple.com URL returned title-only, no body text, this round) — retry
   periodically in case Exa's index of that page changes.

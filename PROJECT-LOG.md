@@ -2000,3 +2000,34 @@ per wave/decision; large reconstructions are handed to a worker session.
   careful re-read instead of a speculative edit — a blank beats an invented value.
 - Bright Data untouched this wave (WebFetch/WebSearch only); balance stays ~$1.39 pending Douglas's
   top-up. Worker continues grinding the frame queue.
+
+## 2026-07-18 — sweep wave: ui-expert batch 5 + campaign-3 batch 3 (both stale-base applied)
+
+- **ui-expert batch 5** (own-additions of 0729d30 + cfefb92, `tools/ui-expert/` only): **DNS-21 +
+  ACC-25 confirm all three round-4 findings CLOSED against the shipped tree** — SC 2.5.7 now passes
+  on all seven range axes, all nine dialogs carry autofocus, zero `100vh` remain. The re-audit
+  credited three things the slider chip did that the spec did NOT demand, each otherwise a silent
+  regression: the 24px min-height (the bare box landed ~22px, so a 2.5.7 remedy would itself have
+  failed 2.5.8), the preserved input/change split on the new controls, and crossed-bound resolution
+  mirroring the sliders' precedent. One item recorded as an OBSERVATION-not-finding: slider and
+  number field share an accessible name but differ in ROLE, so AT disambiguates — noted so a future
+  round doesn't "discover" a duplicate-name defect. **mobile-fundamentals → MASTER** (MOB-43..47):
+  the valuable result is a REASONED NO-ACTION — handle foldables via breakpoints, not the
+  experimental non-Baseline Viewport Segments API (no split-view layout exists for a hinge to
+  bisect; a fold-out lands above the 769px breakpoint and correctly gets desktop). Recorded as
+  standing "no action needed, and why", explicitly CONDITIONAL on the API staying non-Baseline.
+  **MOB-47 flagged as HYPOTHESIS not finding**: posture change is a resize, so does in-flight state
+  (partial build, open dialog, mid-edit numeric filter) survive crossing 769px? Untested, needs no
+  foldable hardware — queued as a cheap test. Board: 5 MASTER / 2 professional / research-methods
+  not started.
+- **campaign-3 batch 3** (7e61cb7, `tools/verification-job.json` only): 11 Skipped, 1 Failed-retry,
+  no catalog or engine changes. JSON re-parsed post-apply per the string-splice rule.
+- **Both branches were STALE-BASED** — a raw merge would have reverted live work (ui-expert's diff
+  vs main showed `index.html -131`, i.e. undoing the slider fix, plus PROJECT-LOG and mechanic-corpus
+  deletions). Applied own-additions only from each branch's merge-base, per the standing pattern.
+  Gates: validate 7×OK / 757 tests / tsc clean; confirmed zero diff to `index.html` and
+  `src/compat.js`, so no live surface moved and no harness run was owed.
+- **Sweep note:** ~140 branch pointers read as "ahead of main" but are historical — content-grep
+  confirmed (spot-checked `catalog/cb7-w5-leads2`: its bike ids are all already on main). The
+  own-additions apply pattern doesn't create merge ancestry, so pointer age is not evidence of
+  unmerged work. Ground truth is content, never the pointer.

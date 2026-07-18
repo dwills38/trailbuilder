@@ -271,6 +271,39 @@ corpus does not edit `index.html`.*
   forward-looking guidance rather than a description of shipped code, and DNS-11 should be read
   that way.
 
+- **DNS-21 — ✅ DNS-17 is FIXED. SC 2.5.7 now passes on all seven range axes.** Shipped
+  2026-07-18 (merged with batch 4). Re-audited against the shipped `rangeRowEl()`; recorded as a
+  new fact per append-only, DNS-17 left standing as the historical finding.
+  **The fix implements DNS-16's joint resolution exactly**: two `<input type="number">` per row
+  (`.range-num-min` / `.range-num-max`), `inputMode='numeric'`, `min`/`max`/`step` mirroring the
+  slider, and `aria-label` "Minimum — <heading>" / "Maximum — <heading>". **Click-to-jump on the
+  track stayed disabled**, so Baymard's dual-handle ambiguity concern is still honoured — both
+  the Tier-A floor and the Tier-B recommendation are satisfied simultaneously, which was the
+  whole point of DNS-16. The numeric fields are ordinary pointer-clickable form controls, so the
+  single-pointer non-drag path 2.5.7 requires now exists.
+  **The fix also honoured the placement guidance**: the numeric pair *replaces* the row's former
+  static "min – max" label in the same horizontal space rather than adding a row, so the
+  vertical cost to an already-dense rail is ~zero, and they are **not** hidden behind a
+  disclosure.
+  **Three things the implementation got right that the spec did not explicitly demand** — worth
+  recording, because each would have been a silent regression:
+  1. **`min-height:24px` with `box-sizing:border-box`.** The implementer measured that a bare
+     `2px/12px` padding+font box lands at ~22 px — *just under* DNS-6/MOB-3's 24 px pointer-target
+     floor. A 2.5.7 remedy that itself failed 2.5.8 would have been a poor trade; it doesn't.
+  2. **The `input`/`change` split is preserved.** The number fields' `input` handlers only call
+     `refresh()` (repaint this row); only `change` reaches `commit()` → `renderCatalog()`. So
+     typing "170" does not re-filter 3000 rows three times — DNS-15's pass-5 INP doctrine holds
+     for the new controls, not just the sliders.
+  3. **Crossed-bound resolution mirrors the sliders' precedent** (the just-edited bound yields,
+     never the other), so typing and dragging can never resolve a crossed min/max differently —
+     a consistency trap that two independently-written handlers usually fall into.
+  *Observation, explicitly NOT a finding:* each bound's slider and number field now share an
+  identical accessible name ("Minimum — Fork travel"), so a screen-reader user meets that string
+  twice per bound. This is **not** an ACC-19 unique-name problem, because the two controls
+  differ in **role** — AT announces "…slider" then "…spin button", which disambiguates them —
+  and it is anyway inherent to offering a second input path at all. Recorded so a future round
+  doesn't flag it as a duplicate-name defect. *Method: static re-audit of the shipped code.*
+
 ## Gaps (next-round targets)
 
 - A sourced pattern for the part-list card at 375 px (what data survives, what folds).
@@ -285,7 +318,8 @@ corpus does not edit `index.html`.*
   (member-walled past the blog-post layer) is the likely next unlock.
 - **DNS-20's measurement is unrun**: rail rendered height + per-facet value counts at 375 px,
   which is what would settle whether facet collapsing is earned. Needs a browser, not a fetch.
-- **DNS-17 is an open coordinator fix-chip** (SC 2.5.7 numeric fallback across all seven range
-  axes), not a corpus gap — it closes when the app changes; append a confirming fact then.
+- ~~DNS-17 is an open coordinator fix-chip (SC 2.5.7 numeric fallback)~~ → **CLOSED 2026-07-18
+  by DNS-21**: shipped, re-audited, SC 2.5.7 passes on all seven axes with the Tier-B
+  click-to-jump concern still honoured.
 - DNS-19 (dual-thumb visual affordance) is parked as a Douglas taste call + a usability-test
   candidate, deliberately not a corpus assertion.
