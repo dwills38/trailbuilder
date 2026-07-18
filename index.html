@@ -3722,7 +3722,10 @@
   function openMyProfile(){
     var me = (typeof currentUser==='function') ? currentUser() : null;
     if(!me || !_profilesOn) return;
-    if(_myProfile && _myProfile.username){ openProfilePage(me.id); }
+    // A real page (route via hash, NAV-16) once a username exists; before that
+    // there's nothing to view yet, so it opens the username-setup dialog
+    // instead — a modal, not a place, so it stays off the hash (NAV-17).
+    if(_myProfile && _myProfile.username){ location.hash = '#profile/' + encodeURIComponent(me.id); }
     else { openProfile(); }
   }
 
@@ -3731,6 +3734,7 @@
   function openProfilePage(userId){
     if(!userId || !_profilesOn) return;
     _profileCurrentId = userId;
+    exitOtherRoutedPages();
     document.body.classList.add('profile-page');
     window.scrollTo(0,0);
     $('profilePageBody').innerHTML = '<div class="gempty">Loading…</div>';
@@ -4007,24 +4011,20 @@
     }).catch(function(){ rEl.innerHTML = '<div class="gempty">Could not load replies.</div>'; });
   }
 
-  /* Leave the profile page and open a thread in the forum page. */
-  function jumpToForumThread(threadId){
-    closeProfilePage();
-    if(!_forumReady){ return; }
-    document.body.classList.add('forum-page');
-    window.scrollTo(0,0);
-    renderForumNav();
-    renderForumThreads();   // populate the list behind so "← All threads" works
-    openForumThread(threadId);
-  }
+  /* Leave the profile page and open a thread in the forum page — a real
+     navigation between two routed places, so it goes through the hash
+     (NAV-16) rather than calling the open functions directly; routeToForumThread
+     does the same openForum()+openForumThread() sequence this used to do by hand. */
+  function jumpToForumThread(threadId){ location.hash = '#forum/' + encodeURIComponent(threadId); }
 
   /* Wire any forum author links inside a container to open the profile page.
      stopPropagation so an author link inside a clickable thread row opens the
-     profile, not the thread. */
+     profile, not the thread. Routes via hash (NAV-16) so the profile page is
+     a real, shareable, Back-button-visible place. */
   function wireAuthorLinks(el){
     if(!el) return;
     el.querySelectorAll('.authlink').forEach(function(b){
-      b.onclick = function(e){ e.stopPropagation(); openProfilePage(b.getAttribute('data-uid')); };
+      b.onclick = function(e){ e.stopPropagation(); location.hash = '#profile/' + encodeURIComponent(b.getAttribute('data-uid')); };
     });
   }
   /* Author name as HTML: a clickable link to the profile page when the author
@@ -4194,7 +4194,7 @@
     }).catch(function(e){ toast(e.message||'Save failed'); });
   }
 
-  function openInventory(){ if(!_acctReady || !currentUser()) return; document.body.classList.add('inv-page'); window.scrollTo(0,0); renderInventory(); }
+  function openInventory(){ if(!_acctReady || !currentUser()) return; exitOtherRoutedPages(); document.body.classList.add('inv-page'); window.scrollTo(0,0); renderInventory(); }
   function closeInventoryPage(){ document.body.classList.remove('inv-page'); }
   function renderInventory(){
     var el = $('invList'); el.innerHTML = '<div class="gempty">Loading…</div>';
@@ -4249,6 +4249,7 @@
 
   function openForum(){
     if(!_forumReady) return;
+    exitOtherRoutedPages();
     document.body.classList.add('forum-page');
     window.scrollTo(0,0);
     closeForumThread();
@@ -4382,7 +4383,7 @@
         '<div class="gmain"><div class="gname">'+(row.pinned?'📌 ':'')+esc(row.title)+'</div>'+
         '<div class="gmeta">'+forumCatPill(row)+forumAuthorHTML(row.author_id)+' · '+new Date(row.created_at).toLocaleDateString()+'</div></div>'+
         (canModerate(row.author_id) ? '<div class="gacts"><button type="button" class="del" data-a="delthread" title="Delete this thread">🗑 Delete</button></div>' : '');
-      div.onclick = function(){ openForumThread(row.id); };
+      div.onclick = function(){ location.hash = '#forum/' + encodeURIComponent(row.id); };
       var db = div.querySelector('[data-a=delthread]');
       if(db){ db.onclick = function(e){ e.stopPropagation(); confirmDeleteThread(row); }; }
       el.appendChild(div);
@@ -4455,8 +4456,7 @@
     if(!window.confirm('Delete this thread and all its replies? This cannot be undone.')) return;
     deleteThread(row.id).then(function(){
       toast('Thread deleted');
-      closeForumThread();
-      renderForumThreads();
+      location.hash = '#forum';   // the deleted thread's own #forum/<id> hash must not linger
     }).catch(function(e){ toast(e.message || 'Could not delete thread'); });
   }
   function confirmDeletePost(postId, threadId){
@@ -4522,6 +4522,103 @@
     el.className = n===0 ? '' : (r.errors.length ? 'err' : r.warnings.length ? 'warn' : 'ok');
   }
 
+  /* ================= Site-wide hash router (NAV-16) =================
+     Generalizes the guides views' hash routing (originally routeGuidesHash)
+     into ONE router owning every full-page view: #guides, #guide/<slug>,
+     #forum, #forum/<threadId>, #inventory, #profile/<userId>. Doctrine
+     (NAV-15, recorded in tools/ui-expert/navigation-ia.md): a PLACE the user
+     can be gets a real hash entry (location.hash=…, so Back/Forward walk it);
+     STATE describing the current place (the in-progress build) uses
+     history.replaceState via writeHash(), which never creates an entry — that
+     split is why picking parts doesn't flood history, and it's preserved
+     here unchanged. writeHash()'s existing guard against clobbering a routed
+     deep-link (previously "while guides-page is active") is generalized to
+     ANY of the four routed page classes, below.
+
+     Parsing the hash itself is a pure function (parseRouteHash, src/compat.js)
+     so it's unit-tested without a DOM; this router just dispatches on it and
+     does the actual page open/close side effects. */
+  var ROUTED_PAGE_CLASSES = ['guides-page','forum-page','inv-page','profile-page'];
+  var _authInitDone = false;   // has the initial session-restore round-trip (initAccount's first callback) finished?
+  var _routePending = false;   // a route is mid-async-decision (auth restore / feature probe) — writeHash() must not clobber the hash meanwhile
+
+  /* Every open*Page() function below calls this FIRST so only one full-page
+     view is ever active at once. (Previously profile-page could stack on top
+     of forum-page when an author link was clicked mid-thread, since
+     openProfilePage never cleared it — NAV-16 incidental fix.) */
+  function exitOtherRoutedPages(){ document.body.classList.remove.apply(document.body.classList, ROUTED_PAGE_CLASSES); }
+  function activeRoutedPage(){
+    for(var i=0;i<ROUTED_PAGE_CLASSES.length;i++){ if(document.body.classList.contains(ROUTED_PAGE_CLASSES[i])) return ROUTED_PAGE_CLASSES[i]; }
+    return null;
+  }
+  /* Close whichever routed page is currently open (if any) — the "leave this
+     place" half of a Back-button pop or a bounce-to-builder fallback. */
+  function leaveRoutedPage(){
+    var active = activeRoutedPage();
+    if(active === 'guides-page') closeGuides();
+    else if(active === 'forum-page') closeForum();
+    else if(active === 'inv-page') closeInventoryPage();
+    else if(active === 'profile-page') closeProfilePage();
+  }
+  /* Land on the builder from any routed page (a failed auth/feature gate, or
+     an in-page "← Back to builder" control): close the page, then replaceState
+     the URL back to the build hash — same replaceState-not-pushState choice
+     guidesBack always made, so this never adds a history entry. */
+  function bounceToBuilder(){ leaveRoutedPage(); writeHash(); }
+
+  function routeToForum(){
+    if(!_forumReady){ bounceToBuilder(); return; }
+    openForum();
+  }
+  function routeToForumThread(id){
+    if(!_forumReady || !id){ bounceToBuilder(); return; }
+    openForum();            // populates the thread list behind the detail view
+    openForumThread(id);
+  }
+  /* Inventory is auth-gated (Phase 3 accounts). currentUser() is null until
+     the async session-restore round-trip completes (see initAccount in
+     src/account.js), so a cold #inventory link from an actually-signed-in
+     visitor must not be bounced before we know that — _routePending holds
+     writeHash() off the hash meanwhile, and the initAccount callback below
+     re-runs routeHash() once the real state is known. Never a broken page
+     either way: until resolved, the visitor simply keeps seeing the builder. */
+  function routeToInventory(){
+    if(!_acctReady){ _routePending = false; bounceToBuilder(); return; }
+    if(currentUser()){ _routePending = false; openInventory(); return; }
+    if(_authInitDone){ _routePending = false; bounceToBuilder(); openAuth(); return; }
+    _routePending = true;
+  }
+  /* Profiles are world-readable (no auth gate) but feature-detected: _profilesOn
+     only flips true once hasProfiles() has actually probed the DB. A cold
+     #profile/<id> link probes it directly (mirroring what openForum() already
+     does for logged-out visitors) instead of silently no-oping forever. */
+  function routeToProfile(id){
+    if(!id){ bounceToBuilder(); return; }
+    if(_profilesOn){ openProfilePage(id); return; }
+    if(typeof hasProfiles !== 'function'){ bounceToBuilder(); return; }
+    var startHash = location.hash;
+    _routePending = true;
+    hasProfiles().then(function(on){
+      _routePending = false;
+      _profilesOn = on;
+      if(!on){ bounceToBuilder(); return; }
+      if(location.hash === startHash){ openProfilePage(id); }   // still on this route — no newer nav won the race
+    });
+  }
+  /* The single hash router — runs on load and on every hashchange. Replaces
+     the guides-only routeGuidesHash. Build-share hashes (#b=…) are left to
+     readHash(); anything else while a routed page is showing closes it. */
+  function routeHash(){
+    var r = parseRouteHash(location.hash);
+    if(r.view === 'guide'){ openGuide(r.slug); }
+    else if(r.view === 'guides'){ openGuidesIndex(); }
+    else if(r.view === 'forumThread'){ routeToForumThread(r.id); }
+    else if(r.view === 'forum'){ routeToForum(); }
+    else if(r.view === 'inventory'){ routeToInventory(); }
+    else if(r.view === 'profile'){ routeToProfile(r.id); }
+    else if(activeRoutedPage()){ leaveRoutedPage(); }
+  }
+
   /* ---- Guides (buyer's / compatibility guides) ----
      A full-width view like inventory/forum/profile (body.guides-page). Two inner
      states: the card index and a single article. DEEP-LINKABLE: #guides opens the
@@ -4531,8 +4628,7 @@
      the nav button and the browser Back button behave identically. */
   function guidesList(){ return (typeof GUIDES !== 'undefined' && GUIDES) ? GUIDES : []; }
   function enterGuidesPage(){
-    // Exclusive with the other full-width views (only one body page-class at a time).
-    document.body.classList.remove('inv-page','forum-page','profile-page');
+    exitOtherRoutedPages();   // exclusive with the other full-width views
     document.body.classList.add('guides-page');
     window.scrollTo(0,0);
   }
@@ -4576,21 +4672,15 @@
     document.body.classList.remove('guides-page');
     document.title = 'BuildMyMTB — MTB build & compatibility checker';
   }
-  /* Hash router for the guides views. Runs on load and on every hashchange so a
-     shared #guide/<slug> URL opens straight to that article, and the Back button
-     moves between article -> index -> builder. Build-share hashes (#b=…) are left
-     to readHash(); anything else on the guides page returns to the builder. */
-  function routeGuidesHash(){
-    var h = location.hash || '';
-    if(h.indexOf('#guide/') === 0){ openGuide(decodeURIComponent(h.slice(7))); }
-    else if(h === '#guides'){ openGuidesIndex(); }
-    else if(document.body.classList.contains('guides-page')){ closeGuides(); }
-  }
 
   /* ---- share / restore (build + presetBy) ---- */
-  // Skip while the guides page is active so a #guides / #guide/<slug> deep-link
-  // isn't clobbered by the build hash (the guides views own the hash then).
-  function writeHash(){ if(document.body.classList.contains('guides-page')) return;
+  // Skip while ANY routed page is active (NAV-16: was guides-page only) so a
+  // #guides/#guide/<slug>/#forum/#forum/<id>/#inventory/#profile/<id> deep-link
+  // isn't clobbered by the build hash — those views own the hash while shown.
+  // _routePending covers the async window (auth restore / profiles probe)
+  // where a route has been chosen but no page class is up yet — see
+  // routeToInventory/routeToProfile above.
+  function writeHash(){ if(activeRoutedPage() || _routePending) return;
     try{ history.replaceState(null,'','#b='+btoa(encodeURIComponent(JSON.stringify({b:build,p:presetBy})))); }catch(e){} }
   function readHash(){
     try{ var m=location.hash.match(/b=([^&]+)/); if(!m) return;
@@ -4893,9 +4983,9 @@
   $('acctLogin').onclick = openAuth;
   $('acctLogout').onclick = function(){ signOut().then(function(){ toast('Logged out'); }).catch(function(e){ toast(e.message||'Logout failed'); }); };
   $('acctGarage').onclick = openGarage;
-  $('acctInventory').onclick = openInventory;
+  $('acctInventory').onclick = function(){ location.hash = '#inventory'; };
   $('acctProfile').onclick = function(){ openMyProfile(); };
-  $('profileBack').onclick = closeProfilePage;
+  $('profileBack').onclick = function(){ closeProfilePage(); writeHash(); };
   $('saveGarage').onclick = saveCurrentToGarage;
   $('authClose').onclick = function(){ $('authModal').close(); };
   /* profile / username modal (forum-profiles.sql) */
@@ -4914,12 +5004,14 @@
   $('garageClose').onclick = function(){ $('garageModal').close(); };
   $('garageSaveCurrent').onclick = saveCurrentToGarage;
   $('garageModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
-  $('invBack').onclick = closeInventoryPage;
+  $('invBack').onclick = function(){ closeInventoryPage(); writeHash(); };
   $('invAddBuild').onclick = addBuildToInventory;
 
-  /* forum controls (Phase 4) — inert while the forum is unconfigured */
-  $('forumNavBtn').onclick = openForum;
-  $('forumBack').onclick = closeForum;
+  /* forum controls (Phase 4) — inert while the forum is unconfigured. Hash-routed
+     (NAV-16): the nav button and thread rows navigate via location.hash so the
+     forum, individual threads, and Back button all behave like real places. */
+  $('forumNavBtn').onclick = function(){ location.hash = '#forum'; };
+  $('forumBack').onclick = function(){ closeForum(); writeHash(); };
 
   /* Kit Builder (separate /KitBuilder page): reveal the nav button only when the
      feature is enabled (same committed-constant gate as reportGithub). The href is
@@ -4936,9 +5028,9 @@
     writeHash();
   };
   $('guideBackToIndex').onclick = function(){ location.hash = '#guides'; };
-  window.addEventListener('hashchange', routeGuidesHash);
+  window.addEventListener('hashchange', routeHash);
   $('forumSignInLink').onclick = openAuth;
-  $('forumDetailBack').onclick = closeForumThread;
+  $('forumDetailBack').onclick = function(){ location.hash = '#forum'; };   // the list is its own place too — real nav, not just a close
   $('forumDeleteThread').onclick = function(){ confirmDeleteThread(_forumCurrentThreadRow); };
   $('forumNewThread').onclick = openForumNewThread;
   $('forumReplySubmit').onclick = submitForumReply;
@@ -4948,10 +5040,12 @@
   $('forumNewThreadModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
 
   readHash();
-  // Route the guides hash BEFORE sync() — sync()->writeHash() would otherwise
-  // overwrite a #guides / #guide/<slug> deep-link with the build hash. writeHash
-  // is guarded to no-op while the guides page is active, so the deep-link sticks.
-  routeGuidesHash();
+  // Route the hash BEFORE sync() — sync()->writeHash() would otherwise overwrite
+  // a routed deep-link (#guides/#guide/<slug>/#forum/#forum/<id>/#inventory/
+  // #profile/<id>) with the build hash. writeHash() is guarded (activeRoutedPage()
+  // || _routePending) so the deep-link sticks either way — synchronously (guides,
+  // forum) or through the pending window (inventory/profile, below).
+  routeHash();
   renderDiscChips(); renderChips(); renderSubChips(); renderSubFilters(); sync();
   // Wire auth state -> account UI. When accounts are unconfigured this no-ops.
   if(typeof initAccount === 'function'){
@@ -4964,6 +5058,11 @@
       // moderation controls), and nudge for a username on first sign-in.
       // reflectProfile() re-renders the forum itself, so no separate block here.
       reflectProfile(u);
+      // First auth callback = the session-restore round-trip just finished.
+      // If a cold #inventory deep-link was waiting on that (routeToInventory,
+      // NAV-16), resolve it now with the real signed-in state. Harmless no-op
+      // otherwise (nothing was left pending).
+      if(!_authInitDone){ _authInitDone = true; if(_routePending){ routeHash(); } }
     });
   }
   renderAccount();

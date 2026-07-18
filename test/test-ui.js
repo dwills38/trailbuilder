@@ -94,3 +94,40 @@ test('fisherYatesShuffle mutates and returns the same array (in-place, chainable
   var out = C.fisherYatesShuffle(input, C.mulberry32(7));
   ok(out === input, 'expected the same array reference back');
 });
+
+/* ---- parseRouteHash(): the site-wide hash router's pure parser (NAV-16) --
+   index.html's routeHash() calls this to decide which full-page view (if any)
+   a hash names; kept pure/exported so the parsing itself is unit-testable
+   without a DOM. Covers every route the router owns plus the "not a routed
+   page" cases (build hash, empty, garbage) it must fall through on. -------- */
+test('parseRouteHash recognizes the guides index and a guide article', function(){
+  eq(C.parseRouteHash('#guides').view, 'guides');
+  var g = C.parseRouteHash('#guide/tire-width-fitment');
+  eq(g.view, 'guide'); eq(g.slug, 'tire-width-fitment');
+});
+test('parseRouteHash recognizes the forum thread list and a specific thread', function(){
+  eq(C.parseRouteHash('#forum').view, 'forum');
+  var t = C.parseRouteHash('#forum/abc-123');
+  eq(t.view, 'forumThread'); eq(t.id, 'abc-123');
+});
+test('parseRouteHash recognizes inventory and a profile id', function(){
+  eq(C.parseRouteHash('#inventory').view, 'inventory');
+  var p = C.parseRouteHash('#profile/9f3a7c');
+  eq(p.view, 'profile'); eq(p.id, '9f3a7c');
+});
+test('parseRouteHash decodes a percent-encoded slug/id', function(){
+  eq(C.parseRouteHash('#guide/a%2Fb').slug, 'a/b');
+  eq(C.parseRouteHash('#forum/thread%20one').id, 'thread one');
+  eq(C.parseRouteHash('#profile/rider%20name').id, 'rider name');
+});
+test('parseRouteHash treats the build hash, empty hash, and unrecognized hashes as NOT a routed page', function(){
+  eq(C.parseRouteHash('#b=eyJiIjp7fX0=').view, null);
+  eq(C.parseRouteHash('').view, null);
+  eq(C.parseRouteHash(null).view, null);
+  eq(C.parseRouteHash(undefined).view, null);
+  eq(C.parseRouteHash('#nonsense').view, null);
+});
+test('parseRouteHash requires a non-empty id after #forum/ and #profile/ (a bare trailing slash is not a route)', function(){
+  eq(C.parseRouteHash('#forum/').view, null);
+  eq(C.parseRouteHash('#profile/').view, null);
+});
