@@ -55,7 +55,8 @@ Each chapter ends with a **## Gaps** section the next round reads to pick its ta
 
 ## Current state (round 4 — the master round, 2026-07-18)
 
-**All seven chapters are `master`.** Round 4 took each remaining chapter to master by pairing a
+**All seven original chapters are `master`, and an eighth (L4) chapter was added.** Round 4 took
+each remaining chapter to master by pairing a
 fetched-primary pass with a **live-DOM audit of the shipped app** — which is what produced the
 round's real value: three findings that shipped as fixes (DNS-17's SC 2.5.7 failure, ACC-22's
 `100vh` and `autofocus` items), one contradiction still open (NAV-16), and several *reasoned
@@ -70,6 +71,7 @@ non-actions* recorded so future rounds don't re-open settled ground.
 | `mobile-fundamentals.md` | L1+L2+L3 | **master** | foldable form factors, Viewport Segments API + its Baseline status, large-phone reach; a reasoned no-action (MOB-45) |
 | `platform-conventions.md` | L1+L2+L3 | **master** | desktop input conventions; SC 1.4.13's `title` exemption as a false-finding guard (PLT-10); PLT-2 honestly still open (PLT-14) |
 | `responsive-layout.md` | L1+L2+L3 | **master** | Every Layout primary pinned, breakpoint-count sourced, and the intrinsic-layout-beats-breakpoints doctrine (RSP-19) |
+| `research-methods.md` | L4 | **professional** | **NEW round 4** — the L4 method canon (5-user model + its exceptions, thinking-aloud, task-scenario design, Nielsen's 10, method-selection routing) plus runnable study designs for the corpus's own parked questions, and the finding that **A/B testing is unavailable on this stack** (RES-6) |
 
 ### What "master" did and did not mean here
 
@@ -104,6 +106,10 @@ Gaps first and prioritize the weakest-graded chapter(s).
 **With all seven at master, rule 7 no longer discriminates.** The successor rule for round 5+,
 in priority order:
 
+0. **Run the heuristic evaluation** (`research-methods.md` RES-4). It is the **only** method in
+   the L4 canon an agent can execute unaided — ten heuristics across the builder, forum and
+   guides surfaces — and it is the most likely source of the next round of real findings. It
+   would also generate the candidate list that RES-8's user study should then test with humans.
 1. **Verify what the corpus asserts but has never measured.** The highest-value open items are
    not unfetched citations — they are unrun checks the corpus itself flagged: read Vitals
    Explorer (PRF-16), resize across 769 px with state in flight (MOB-47), measure the rail at
