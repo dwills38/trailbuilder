@@ -1,8 +1,13 @@
 # Discipline Craft — Coach Corpus
 
-**Maturity: professional** (L3 — round 3, 2026-07-18: every discipline now carries a second
-sourced, fetched fact with a real Prereq/Gear/Progression treatment beyond the round-2 seed; see
-Gaps for what still separates this chapter from `master`). XC · enduro · DH race technique · DJ /
+**Maturity: professional** (L3 — round 3, 2026-07-18 gave every discipline a second sourced fact;
+**round 5, 2026-07-18** added cross-discipline race-craft (DSC-11), closed the DH compression/G-out
+gap (DSC-12) and the DJ/park scrub gap (DSC-13). **Still `professional`, not `master`, by this
+chapter's own stated criterion:** DH and DJ/park now carry the 3+-item progression sets that
+criterion asks for, but **XC and enduro still carry only two facts each** — that asymmetry is the
+specific thing holding the chapter back, and it is the next round's clearest target. Note also that
+round 5's additions are **Tier B practitioner interviews**, labelled as such; race-craft has no
+public Tier-A source. See Gaps). XC · enduro · DH race technique · DJ /
 pump-track / park basics. Read [`INDEX.md`](INDEX.md) first (corpus rules, tiers, SAFETY-FIRST
 PROGRESSION, tacit-layer disclaimer).
 
@@ -308,6 +313,161 @@ the bootstrap round — still a named gap, not yet fetched.
 
 ---
 
+## Race-craft and the remaining discipline gaps (round 5, 2026-07-18)
+
+**⚠ TIER NOTE for this section.** The three facts below lean on **pro-rider and pro-coach
+interviews** — a practitioner tier. Per the corpus's tier ladder these are **Tier B (named
+authority, published)**, *not* Tier A, and they are **not** peer-reviewed. Where a claim is one
+rider's personal method rather than a general principle, it is labelled as such. This is the
+honest ceiling for race-craft: it is the least-documented layer in the sport, and the public record
+is interviews, not curricula.
+
+**DSC-11 — RACE-CRAFT: the race run is the smallest part of the weekend. The documented craft is
+(a) a track walk that produces DECISIONS, not impressions, (b) deliberate practice-time rationing,
+and (c) a structured post-race debrief.** This closes the chapter's standing "race-day prep, pit
+procedures, failure-mode prevention under race loads" gap.
+
+*The weekend has a fixed shape, and craft means knowing what each slot is for.* A current World Cup
+DH weekend runs: **Wed** registration + track walk · **Thu** ~3.5 h practice · **Fri** ~2 h practice
++ qualifying · **Sat** ~1 h practice + semi-final + race run. Practice time is a **finite,
+front-loaded budget** — the craft is spending it, not filling it.
+
+*The track walk is a decision-making session.* A coach running an official USA Cycling / Pro Downhill
+Series track-walk program lists what a walk actually produces: **initial bike setup**, the **starting
+gear** to leave the gate in, **braking points**, and a **weather model for the weekend** — explicitly
+asking whether it will be dry in practice but wet on race day, because that determines whether the
+lines you learn in practice will still exist on race day. The framing is that the track walk is when
+"the work starts for the weekend," setting up a successful race run at the end of it. **The coaching
+translation: walk the track with a checklist, and leave with answers, not vibes.**
+
+*Ration practice; do not maximize it.* A named failure mode, in riders' own words: "it's so easy to
+just go up and do 4 or 5 laps and then you'll just be tired" — arriving at qualifying already
+depleted. The counter-craft is a deliberate split, and there is a **genuine strategic disagreement**
+among elite riders worth presenting as such rather than resolving:
+- Some prioritize **learning the track first**, deferring bike changes ("I'm more just learning the
+  flow and the speed of the track … If I'm struggling with something later, we'll address it").
+- Others prioritize **bike setup in first practice** specifically so it is not consuming attention
+  later ("I'm really focused on bike setup … the first practice day you need to get that dialled in").
+  Both are stated by World Cup–level riders. Present the trade-off; do not teach one as correct.
+- A shared tool across both camps: **GoPro review between runs** to memorize the track, and (where
+  available) a **coach or line-spotter trackside** comparing lines and rival speeds and feeding
+  changes back between runs — the race-weekend form of CCH-6/CCH-11 external error detection.
+
+*Failure-mode prevention.* Two concrete, sourced ones: **evolving track** — on fresh or soft tracks
+the surface changes materially between sessions, so a line learned in the morning may not exist by
+the afternoon and must be re-checked rather than assumed; **altitude** — a rider states that arriving
+"3–4 days before the event to acclimate" does not work, that meaningful adaptation needs 2–3 weeks,
+and that the second week is often the hardest. (Physiological detail is outside this corpus's scope
+and this is a practitioner claim, not a cited study — flagged as such.)
+
+*Debrief, structurally.* Post-race, riders are described debriefing with coaches and mentors to put
+the run in perspective — "the negatives can be identified and dumped, and the positives noted and
+prioritised." Note this mirrors CCH-17's NICA rule of debriefing after **every** practice: the same
+discipline, applied to a race.
+
+*The mental-management layer, reported consistently.* Independent accounts converge on
+**deliberately reducing scope** before the run: focusing only on what is controllable and explicitly
+dropping the "what ifs"; one rider wrote "Have Fun" and "Be Present" on her handlebars at a World
+Cup and made finals. Treat as reported practitioner method (Tier B/D boundary), not as sports-
+psychology evidence — but note it is consistent with CCH-16's finding that a divided,
+non-committed mental state is the dangerous one.
+- *Tier:* B (named authorities and published interviews; race-craft's public ceiling). Sources:
+  Flow Mountain Bike, *The Best of the Best — How seasoned racers tackle a World Cup Track* (2023;
+  weekend structure, line spotters, coach debrief, the mental-scope accounts incl. Elliot Jackson and
+  Sian A'Hern); Vital MTB *The Inside Line* — Luca Cometti's Pro Downhill Series Rock Creek track-walk
+  interviews (2026), incl. Dylan Lamar on the USA Cycling–partnered track-walk program and its
+  checklist; Pinkbike, *What Changes Are Riders Making For the Steeps of La Thuile?* (2025;
+  practice-rationing, the learn-track-vs-setup-bike split, GoPro review, evolving-track effects);
+  UNPAVED TV, *Aaron Gwin Masterclass* (2026; altitude timing). Fetched/search-highlighted 2026-07-18.
+- *⚠ Level & scope:* this is **elite-racing** craft. Most of it scales down to a regional race
+  weekend (checklist track walk, ration practice, debrief), but the weekend structure itself is
+  World Cup–specific. It teaches nothing about riding technique and must not be read as doing so.
+- *Corpus use:* the chapter's first genuine **race-craft** (as opposed to race-*technique*) fact, and
+  the L4-adjacent overlap `coaching-methodology.md` flagged — DSC-11's debrief and trackside error
+  detection are CCH-6/CCH-11/CCH-17 applied under race conditions.
+
+**DSC-12 — DH: holding position under big compression loads is a STRENGTH problem as much as a
+technique problem — and that is why telling a rider "elbows up" often fails.** The chapter's named
+open gap ("holding body position through big compression loads/G-outs … stays an honest gap rather
+than a thin fact") — now closed with a specific, named-practitioner treatment.
+
+*The position.* The target under load is the familiar attack position held with **elbows out and up,
+hinged at the hips, back straight, weight through the feet** — but a World Cup winner specifies it
+geometrically as **"90/90"**: roughly a 90° angle at the elbow, 90° at the shoulder, and the upper
+arm roughly flat/square to the body — arm neither tucked in, nor dropped, nor pushed up. That is
+described as the working range you actually occupy on the bike.
+
+*Why it fails under load, and the correction.* The load path in a big G-out or bar-slam is through
+**chest, shoulders and especially the front deltoids** — named as "your big impact muscles when
+you're going to take a big slam into the bars and you got to maintain posture." The load-bearing
+coaching insight: *"you can tell somebody 'hey, keep your elbows up,' but if you don't have the
+strength and the reps in the gym to do that, it's really hard to maintain that posture on the bike."*
+**A cue cannot install a capacity the rider does not have.** The stated correction is off-bike and
+specific — train pressing and rowing movements *in the riding elbow position* (elbows out at ~90/90
+on bench press, overhead press and bent-over rows) rather than the tucked-elbow position lifters
+default to, so the strength is built in the range the bike demands.
+- *⚠ CONTRADICTION-adjacent note for the coordinator (not an engine contradiction):* this is the first
+  fact in the corpus where **the correct coaching response to a technique fault is not a technique
+  intervention at all.** It sits at the edge of the corpus's own boundary — INDEX's Boundaries
+  section forbids "fitness-prescription advice" for an individual rider. This fact is admitted
+  because it is a *diagnostic* principle (recognize when a position fault is a capacity fault) plus
+  a *named rider's own training method*, **not** a prescription. A coach should route an individual
+  rider's strength programming to a qualified S&C professional. Flagged so a future round keeps the
+  line where it is.
+- *Corroboration (independent).* A veteran skills coach's frame-by-frame analysis of the same rider
+  describes the same position from the outside: hinged at the hips, elbows up and out, weight on the
+  pedals, chin up — and adds a distinct observable: **the head stays still while the arms and legs
+  move through their complete range of motion.** That is a usable coaching *diagnostic* (watch the
+  head, not the limbs) and it corroborates the position claim from a second, independent source.
+- *Prereq:* the neutral/attack position (`fundamentals.md` FND-1/FND-2) solid at trail speed; the
+  rider-as-suspension model (`climbing-descending.md` CLD-8).
+- *Gear/terrain:* full-face and appropriate protection; bike-park or DH terrain with real
+  compressions. Suspension setup is a genuine co-factor for G-outs (spring rate/air, compression
+  damping, sag, progressivity) and a harsh-bottoming bike should be checked before the rider is told
+  it is their body position — but that is a **fit/setup** question and belongs to the mechanic
+  corpus, not here.
+- *Progression:* hold the 90/90 position through progressively larger rollers and compressions at
+  moderate speed → increase speed on a known compression → only then bring it to unfamiliar G-outs at
+  race pace. Line choice and speed management are legitimate ways to *reduce* the compression rather
+  than absorb it; teach those alongside, not after.
+- *Tier:* B (pro-rider interview + established coaching authority's video analysis; two independent
+  sources). Sources: UNPAVED TV, *Aaron Gwin Masterclass: What It Takes to Race Downhill* (2026 —
+  the 90/90 position, the impact-muscle load path, the strength-gates-technique insight, and the
+  elbow-position gym method); Gene Hamilton / BetterRide via Mountain Bike Action, *3 Things You Can
+  Learn From Aaron Gwin — Video Analysis* (the hinged position, elbows up and out, and the still-head
+  diagnostic). Both search-highlighted 2026-07-18.
+
+**DSC-13 — DJ/PARK: the SCRUB is the "too fast" tool, and it is the exact inverse of the pop.** The
+chapter's named gap ("DJ/park needs: the scrub — DSC-10 covers the whip only").
+
+*The three-speed model it belongs to.* A bike-park coaching progression frames jumping as three
+speed cases with three different tools: **too slow →** a J-hop to create height and clear the gap;
+**about right →** the level lift; **too fast →** the scrub, to absorb height and distance so you land
+on the landing instead of overshooting it.
+
+*The movement.* Where a pop means standing tall and being near-locked-out at the end of the lip, the
+scrub is the opposite: as you reach the lip **let the bike come up into you and get low**, then, as
+the front wheel is about to leave the lip, **push the bike down** — driving through **both feet and
+hands** — to get both wheels to the landing as soon as possible. The purpose is not style; it is
+**overshoot prevention** when you have arrived too fast to brake.
+- *⚠ SAFETY-FIRST / gating (stated by the source, not added here):* the scrub is explicitly an
+  advanced technique and the source "highly recommend[s] mastering the level lift and J-hop before
+  playing with the scrub." **Prereq:** consistent level-lift jumping and the J-hop, on tabletops,
+  with `terrain-features.md` TER-6/TER-7 solid. **Do not teach the scrub as a fix for a rider who is
+  regularly arriving at jumps too fast** — that is a speed-control and line problem (BRK/COR
+  material) and the scrub would be papering over it. It is a tool for the case where speed was
+  correct-but-high and there was no time to brake.
+- *Related, and deliberately kept separate:* the general rule that it is "always safer and more
+  controlled to undershoot a jump than to overshoot" — stated to hold even at slopestyle level. The
+  scrub does not change that rule; it is the recovery when you are already past it.
+- *Tier:* B (bike-park coaching programme, published). Source: Highland Mountain Bike Park,
+  *August Progression Guide — How To Jump* (2025). Single-source; a second named-coach source for the
+  scrub would raise this to B-consensus and remains open.
+- *Corpus use:* completes the DJ/park jump-tool set alongside DSC-10 (the whip); the underlying
+  ladder stays `terrain-features.md`'s.
+
+---
+
 ## PROGRESSIONS (the organizing principle)
 
 ### The ladder (what depends on what)
@@ -366,9 +526,27 @@ the bootstrap round — still a named gap, not yet fetched.
   whip only), transition-shape reading in more depth, a second named-coach source for DSC-10.
 - **The Tier-C biomechanics pass (DSC-6)** is the highest-rigor, non-walled deepening available and
   would strengthen facts corpus-wide — a strong standalone future round, unchanged from bootstrap.
-- **Race-craft (L4-adjacent): race-day prep, pit procedures, failure-mode prevention under race
-  loads** — thinnest public documentation, most community/practitioner-tiered; overlaps
-  `coaching-methodology.md`. Breadth gap, unchanged.
+- ~~**Race-craft (L4-adjacent): race-day prep, pit procedures, failure-mode prevention under race
+  loads**~~ **CLOSED round 5 (2026-07-18) via DSC-11** — the weekend's fixed structure and
+  practice-time budget, the track walk as a decision-producing session with a named checklist
+  (initial setup, start gear, braking points, weather model), the practice-rationing failure mode,
+  the genuine learn-track-vs-setup-bike strategic split presented unresolved, GoPro/line-spotter
+  external error detection, evolving-track and altitude failure modes, and the structured post-race
+  debrief. **Explicitly Tier B (interviews), labelled as such** — this is race-craft's public
+  ceiling, not a curriculum. Remaining: **actual pit/mechanic procedures** (spares policy, between-run
+  bike triage, wet-race changeover) are still not covered — the pit-side sources found were photo
+  features, not procedure. Narrower gap than before.
+- ~~**DH needs: holding body position through big compression loads/G-outs**~~ **CLOSED round 5
+  (2026-07-18) via DSC-12** — the 90/90 position geometry, the chest/front-delt load path, and the
+  load-bearing insight that a cue cannot install a capacity the rider lacks, corroborated
+  independently by a coach's video analysis (with the still-head diagnostic). Carries a boundary
+  flag: this is the first fact where the right answer to a technique fault is not a technique
+  intervention, and it stops deliberately short of individual fitness prescription.
+- ~~**DJ/park needs: the scrub**~~ **CLOSED round 5 (2026-07-18) via DSC-13** (the three-speed
+  J-hop/level-lift/scrub model; the scrub as the inverse of the pop; gated behind level lift + J-hop
+  by its own source, and explicitly not a fix for chronic over-speed). Single-source — a second
+  named-coach source would make it B-consensus. **Still open for DJ/park:** transition-shape reading
+  in depth, and a second source for DSC-10 (the whip).
 - **No certification-body discipline curricula** (e.g. DH-specific instructor tracks) — mostly
   walled; L4 gap, unchanged.
 - **Adaptive / e-assist disciplines** — out of scope until Douglas's word (e-bikes are a hard-rule
