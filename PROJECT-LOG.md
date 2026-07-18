@@ -2253,3 +2253,23 @@ per wave/decision; large reconstructions are handed to a worker session.
   1,751→1,650 queue, 101 processed, 3 promotions). Gates green throughout. Left running/idle, NOT
   archived — it resumes the tire queue on request. The dedicated parallel verification workers
   (wheels/cockpit/completebikes) + the verified-flag audit are the paste-blocks that scale this out.
+
+## 2026-07-18 — sample-build button emoji stripped (Douglas's word, confirmed directly)
+
+- Removed the emoji from all 8 sample-build buttons (index.html:1070-1077 — Budget 💵, Mid-range ⚙️,
+  High-end 💎, Mullet 🐟, DH ⛰️, Trail 🌲, XC 🐇, Hardtail 🪨), leaving text-only labels.
+  Consistent with the 2026-07-14 icon-direction reversal. Done IN-SEAT (small direct UI edit, the
+  sanctioned class) after Douglas confirmed the request directly — it had arrived relayed through
+  two worker hops, and the relay had corrupted 3 of the 8 emoji (💰/🐰/🍡 vs the file's real
+  💵/🐇/🪨), which would have made a grep-and-replace worker silently half-finish. Line numbers from
+  the UI-expert's read-only pre-verification were the reliable handle.
+- Per the UI-expert's ACC-19 note: NO aria-labels added — visible text is the accessible name, and
+  stripping the emoji from child content correctly strips it from the accessible name too. Small
+  accessibility improvement in itself (screen readers stop announcing "money with wings"/"rock"
+  after every label). The line-1285 "Mullet build demo" prose reference still matches its label.
+  Deliberately NOT touched (not in the ask): the 🚵 on the "Sample builds ▾" summary and the 🎲 in
+  the rail hint — flagged to Douglas in case he wants those too.
+- Verification: gates green (validate 7×OK / 764 tests / tsc clean); browser pass on the worktree —
+  all 8 labels emoji-free by unicode-range test, popup scan clean (0 open dialogs), and a real
+  demoTrail click still generates a complete build (Sample total $3,918.36, build hash written), so
+  the handlers survived the label edit.
