@@ -1558,7 +1558,8 @@
   var grams = function(g){ return g.toLocaleString() + ' g (' + (g/1000).toFixed(2) + ' kg / ' + (g/453.592).toFixed(2) + ' lb)'; };
   // esc() (HTML-escape) and partVerified() are shared from compat.js — one tested source of truth.
 
-  var ICONS = {frame:'🚲',fork:'🍴',shock:'🪐',wheels:'🛞',tire:'⚫',drivetrain:'⚙️',cog:'✳️',brakes:'🛑',bb:'🔩',headset:'🎧',dropper:'📐',seatpost:'📏',cockpit:'🔧',saddle:'🪑',pedals:'👟'};
+  /* Category emoji ICONS removed 2026-07-18 (Douglas) — completes the text-only
+     direction the rail took 2026-07-14 (retired icon program, bias rationale). */
 
   /* ---- clean per-category placeholder line-art (Phase 2, until real product
      photos are licensed) — one simple stroke icon per GROUPS key, themeable via
@@ -2865,7 +2866,7 @@
       var totHtml='';
       if(bundle) totHtml='<span class="gtot">'+money(bundle.price)+' · '+(partWeight(bundle)||0)+' g<span class="kit-tag">KIT</span></span>';
       else if(anyFilled) totHtml='<span class="gtot">'+money(sumP)+(sumW?' · '+sumW+' g':'')+'</span>';
-      sub.innerHTML='<span>'+(ICONS[g.key]||'')+' '+g.label+'</span>'+totHtml;
+      sub.innerHTML='<span>'+g.label+'</span>'+totHtml;
       host.appendChild(sub);
 
       g.slots.forEach(function(slot){
@@ -3086,7 +3087,7 @@
     var rows='';
     GROUPS.forEach(function(g){
       var bundle=(g.preset && bundleActive(g,res,presetBy)) ? byId(presetBy[g.key]) : null;
-      rows+='<div class="bm-gsub">'+(ICONS[g.key]||'')+' '+esc(g.label)+(bundle?' <span class="kit-tag">KIT · '+esc(bundle.brand+' '+bundle.model)+' · '+money(bundle.price)+'</span>':'')+'</div>';
+      rows+='<div class="bm-gsub">'+esc(g.label)+(bundle?' <span class="kit-tag">KIT · '+esc(bundle.brand+' '+bundle.model)+' · '+money(bundle.price)+'</span>':'')+'</div>';
       g.slots.forEach(function(s){
         var p=res[s.key]; if(!p) return;
         rows+='<div class="bm-row"><span class="bl">'+esc(s.label)+'</span><span class="bp">'+esc(p.brand+' '+p.model)+
@@ -3193,7 +3194,7 @@
       + '<div class="cmp-row"><span class="cmp-k">Weight</span><span>'+(tA.weight?grams(tA.weight):'—')+'</span><span>'+(tB.weight?grams(tB.weight):'—')+'</span></div>';
     GROUPS.forEach(function(g){
       var nA = groupNames(a.res, a.presetBy, g), nB = groupNames(b.res, b.presetBy, g);
-      rows += '<div class="cmp-row'+(nA!==nB?' cmp-diff':'')+'"><span class="cmp-k">'+(ICONS[g.key]||'')+' '+esc(g.label)+'</span><span>'+esc(nA)+'</span><span>'+esc(nB)+'</span></div>';
+      rows += '<div class="cmp-row'+(nA!==nB?' cmp-diff':'')+'"><span class="cmp-k">'+esc(g.label)+'</span><span>'+esc(nA)+'</span><span>'+esc(nB)+'</span></div>';
     });
     $('cmpResult').innerHTML = rows;
   }
