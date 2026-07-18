@@ -690,6 +690,20 @@ var EMTB_PARTS = [
     disciplines: ['e-enduro'], weight: 25400, price: 7200,
     note: "UK brand's long-travel gravity e-MTB; Bosch CX motor.",
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Marin (new maker) — Alpine Trail E
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-marin-alpine-trail-e2', cat: 'emtb', brand: 'Marin', model: 'Alpine Trail E2',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 165,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
+    disciplines: ['e-enduro'], weight: 25000, price: 5200,
+    note: 'Value-oriented alloy gravity e-MTB; long travel, mixed wheel.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
