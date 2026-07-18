@@ -86,36 +86,123 @@ V2017.03-based table lacks. **Figures deliberately NOT transcribed** — the cop
 truncated and could not be render-verified, so per corpus rule 6 the revision difference is
 recorded and the numbers are not.
 
+## Batch 3 — carbon rim doctrine + cross-brand tension (commit `8f0128a`)
+
+Gates: validate **7 OK / 0 problems**, **757 tests passed**, tsc clean.
+
+**WHL-51/52** open and largely close a gap the chapter never had named: **carbon rim
+inspection** (it previously held almost no carbon-specific content at all). ENVE's structured
+protocol — post-impact standard, damage vocabulary, the "new since your last ride" catch-all,
+the pulsing/surging stop-the-ride symptom, handling rules, and the truing-interval principle —
+plus two manufacturer-stated failure modes (riding a carbon rim flat; over-pressure, with
+Reserve's MTB cap of **50 psi / 3.4 bar**). Honestly scoped: much of ENVE's pre-ride list is
+rim-brake-braking-surface material that does not transfer to disc MTB, stated in-fact.
+
+**WHL-49 CORRECTS this round's own batch 2.** WHL-48's "DT Swiss is the only maker publishing a
+tension target" was **too strong and is withdrawn**: Reserve publishes one (tight side
+**1000–1300 N**) agreeing closely with DT Swiss's disc figures. **The cross-brand tension
+comparison is therefore CLOSED**, just not via Sapim. Also flags a source-internal unit error not
+to propagate (Reserve labels newtons as "Nm") and, in **WHL-50**, resolves which side the "higher
+tightened side" is (front = disc side, rear = driver side; HT/LT rim decals, arrow authoritative).
+
+## Batch 4 — volume-spacer selection + coil spring chart (commit `e28c99c`)
+
+Gates: validate **7 OK / 0 problems**, **757 tests passed**, tsc clean.
+
+**SUS-48/49** close an unnamed gap: *which* volume-spacer part fits. Token selection is keyed to
+**model code + air-spring type, never upper-tube diameter** (35 mm uppers appear under all four
+token P/Ns; Lyrik differs between DebonAir and Linear XL; Dual Position Air is unique). Rear
+hardware **changed architecture by generation**: Token (≤2022) → Ring → **O-ring (Super Deluxe
+D1), which has no standalone part number** and ships only in the 100HR/200HR service kits.
+
+**SUS-50** closes the named coil-spring-chart gap from a clean sram.com PDF, render-verified —
+scoped honestly to **TK (Coil) entry-tier forks only**, and to **colour/firmness codes, not lb/in
+rates**. **SUS-51** corrects the gap's premise: a leverage-adjusted chart **cannot exist for a
+fork** (leverage ratio is a rear-linkage property), so the entry is split — fork selection closed,
+rear spring-rate-vs-leverage reclassified to the kinematics L3 gap with a note to look at *frame*
+makers.
+
+## Batch 5 — Hayes + brake-fluid chemistry (commit `f018894`)
+
+Gates: validate **7 OK / 0 problems**, **757 tests passed**, tsc clean.
+
+**BRK-46/47** close the named Hayes gap — **5/5 major hydraulic makers** now at
+manufacturer-primary tier. The CDX route the gap named surfaced only Manitou docs; a plain `curl`
+on the Hayes Zendesk attachment worked **first try**. That is now **three** gaps in this chapter
+(TRP, Magura, Hayes) that were never source problems. **BRK-47 answers the "bleed fluid-volume
+table" item by establishing the table cannot exist**: no maker publishes an ml capacity; all
+specify fill fractions and flush-until-clear endpoints, deliberately, because volume varies with
+hose length. Declared EXTERNAL.
+
+**BRK-48/49** give the chapter its first **standards-body** source (FMVSS 116 / 49 CFR § 571.116):
+dry/wet ERBP minima per grade and the operational definition of "wet" (**3.70 ± 0.05 % water by
+weight**), which is the quantitative backbone under the chapter's hygroscopicity claims. BRK-49
+records the DOT 5 (silicone) vs DOT 5.1 (non-silicone) trap **and** an explicit
+**do-not-transfer caveat**: FMVSS's mandated fluid colours govern motor vehicles only and are
+contradicted by real bike products (Magura blue, Shimano red) — fluid family must never be
+identified by colour.
+
 ## Techniques banked (reusable, recorded in-corpus)
 
 - **si.shimano.com PDFs** 403 to WebFetch, curl **and** Bright Data — whose Web Unlocker silently
   returns a **corrupted PDF binary** rather than failing loudly. The **Wayback `/if_/`
   raw-content route works** and is the method of record for si.shimano.com.
 - **Column-scrambled PDF tables:** `pdftoppm -png` at ~160 dpi and read the page as an image.
+  Used four times this round (DT Swiss §6.1, both RockShox charts) — **every multi-column spec
+  table encountered extracted wrongly as text and correctly as an image.** Treat text extraction
+  of a table as unverified by default.
 - The UDH frame-builder zip 403s unless requested at its real `/downloads/` path, which must be
   read out of the page HTML.
+- **Federal regulation text:** ecfr.gov redirects to an unblock gateway and Bright Data returns
+  empty; the **GovInfo CFR XML mirror** (`govinfo.gov/content/pkg/CFR-<year>-title<N>-vol<M>/xml/…`)
+  is the working route.
+- **Zendesk-hosted manufacturer manuals** (Hayes): scrape the article for its
+  `hc/en-us/article_attachments/<id>` link, then plain `curl` that — no escalation needed.
+- **The strongest process lesson of the round, now proven four times across two chapters
+  (TRP, Magura, Hayes, Zero Friction):** before recording a document as walled or corrupt, try
+  the direct download + `pdftotext`. Fetch-tool artifacts have masqueraded as source exhaustion
+  repeatedly in this corpus.
 
 ## Source-exhaustion declarations
 
 - **Shimano, for chain geometry** — both chain dealer manuals (DM-MACN001-07 12-speed,
   DM-CN0001-07 11-speed) read end-to-end; **neither publishes any width, pin length or
   dimensional table**. They document orientation and tooling only.
-- **Sapim, for tension targets** — see WHL-48.
-- **Remaining EXTERNAL:** no maker publishes a per-SKU chain outer width in mm, nor a cross-speed
-  substitution tolerance; SRAM publishes no UDH revision *dates* or frame-model↔revision mapping,
-  and distributes only the current revision.
+- **Sapim, for tension targets** — see WHL-48 (domain migration + registration wall). Note the
+  *inference* drawn from it was later corrected by WHL-49; the exhaustion itself stands.
+- **Bleed fluid volumes in ml** — none of the five sourced brake makers publishes a system
+  capacity; fill fractions and flush-until-clear endpoints are the manufacturer-specified form,
+  deliberately, because volume varies with hose length (BRK-47).
+- **Carbon damage-mode engineering** — no maker publishes a delamination-detection method, tap
+  test, or cosmetic-vs-structural crack threshold; every maker routes that judgment to its
+  warranty department. Likely EXTERNAL; a future round should test composites-industry/standards
+  sources rather than bike-brand pages.
+- **Remaining EXTERNAL:** per-SKU chain outer width in mm and any cross-speed substitution
+  tolerance; UDH revision *dates* and frame-model↔revision mapping (SRAM distributes only the
+  current revision); coil spring rates in lb/in (RockShox publishes colour codes only);
+  per-product actual fluid boiling points (FMVSS gives grade *minima*, and bicycle fluids are not
+  FMVSS-bound) and any mineral-oil boiling standard.
 
 ## Engine impact
 
-**Nothing contradicted an engine rule this round.** Three rules gained supporting citations
-(`ss-chain-width` via DRV-65; the `udh` requirement via FRM-51/52; the revision-blindness of
-`udh` positively justified by FRM-53). No `⚠ CONTRADICTION` filed, and one was explicitly
-*declined* on bar grounds (FRM-53).
+**Nothing contradicted an engine rule across five batches.** Three rules gained supporting
+citations (`ss-chain-width` via DRV-65; the `udh` requirement via FRM-51/52; the
+revision-blindness of `udh` positively justified by FRM-53). **No `⚠ CONTRADICTION` filed**, and
+one was explicitly *declined* on bar grounds (FRM-53). Zero coordinator intake items.
 
-## Remaining brief items (not yet started)
+## Self-correction log (kept deliberately — corpus rule 1)
 
-11/12-speed chain widths ✅ · UDH revision history ✅ · spoke-tension charts ✅ — then:
-carbon rim/bar inspection doctrine · suspension tuning-range depth (volume spacers, the
-Suspension Theory Guide's advanced sections) · brakes bleed fluid-volume table completion +
-DOT/mineral chemistry · L4 race-craft where public sources exist (race-mechanic interviews =
-Tier-B, labelled).
+- **WHL-48 → corrected by WHL-49 (same round).** "DT Swiss is the only maker publishing a
+  tension target" was an over-generalisation from a single-brand exhaustion; Reserve publishes
+  one. Lesson recorded in the chapter Gaps: *an exhaustion finding about one brand is not
+  evidence about the field — check a third party before generalising.*
+- **SUS-51** corrects a *pre-existing* Gaps premise (fork vs rear-shock leverage ratio) rather
+  than a fact — recorded so the restructured gap doesn't look like scope drift.
+
+## Remaining brief items
+
+11/12-speed chain widths ✅ · UDH revision history ✅ · spoke-tension charts ✅ · carbon
+rim/bar inspection ✅ · suspension tuning-range depth ✅ · brakes bleed volumes + DOT/mineral
+chemistry ✅ — **remaining: L4 race-craft where public sources exist** (race-mechanic interviews
+= Tier-B, explicitly labelled). This is the thinnest-documented level per CURRICULUM.md and is
+expected to lean on labelled practitioner tiers rather than manufacturer-primary sources.
