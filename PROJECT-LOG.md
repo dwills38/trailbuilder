@@ -1,5 +1,20 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-17 — BMX pre-flip Opus audit: GO-WITH-FIXES (blocker found + fixed)
+
+- audit/bmx-preflip merged: the audit found and FIXED the one true blocker — GT Speed Series Pro
+  + Cult race frames carried a leftover 'caliper' rearBrakeMount (pre-disc-token edit), making
+  them false-error against the only disc brake and unable to take ANY brake. Engine walked
+  rule-by-rule otherwise clean; bias PASS (zero brand references/ordering; counts track real
+  catalog breadth); fabrication sampling clean (Standard 125R confirmed real; Envy "SL" variant
+  name unconfirmable — rename needed). Pre-flip requirements set by the audit: (1) a BMX
+  schema/validator (vocab-illegal values currently unguarded — two dormant out-of-vocab axle
+  values found); (2) Envy SL rename; non-blocking: Keyboard grip near-dup, message polish.
+  VERDICT: GO once those land, PROVIDED bmx.html carries the MTB app's honest framing
+  (unverified-sample labeling, "No conflicts found" wording, verified-only filter — the page
+  branch already follows the Kit/MTB template). Flip bar deviation (226/26.1% vs the authorized
+  300/40%) goes to Douglas.
+
 ## 2026-07-17 — BMX fabrication cleanup merged (264 → 226 honest rows, 26.1% verified) + cb-sheets-3 (GT complete)
 
 - **verify/bmx-1 merged** — the 11-cluster verification + fabrication cleanup: 38 fabrication-class
