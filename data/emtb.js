@@ -426,6 +426,30 @@ var EMTB_PARTS = [
     disciplines: ['e-enduro'], weight: 23800, price: 11500,
     note: 'Top-tier Altitude Powerplay carbon build.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Transition depth (Relay Alloy XT + Relay Carbon X0 AXS)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-transition-relay-alloy-xt', cat: 'emtb', brand: 'Transition', model: 'Relay Alloy XT',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
+    batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-trail'], weight: 20200, price: 6000,
+    note: 'Entry alloy Relay trim; same Fazua Ride 60 motor as the carbon range.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-transition-relay-carbon-x0-axs', cat: 'emtb', brand: 'Transition', model: 'Relay Carbon X0 AXS',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
+    batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-trail'], weight: 19100, price: 9500,
+    note: 'Higher-tier carbon Relay trim; SRAM X0 Transmission upgrade.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
