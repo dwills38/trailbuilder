@@ -13,6 +13,8 @@ var RD = require('./data/road.js');
 var RS = require('./src/schema-road.js');
 var GD = require('./data/gravel.js');
 var GS = require('./src/schema-gravel.js');
+var ED = require('./data/emtb.js');
+var ES = require('./src/schema-emtb.js');
 
 var problems = S.validateCatalog(C);
 if(problems.length){
@@ -98,3 +100,19 @@ if(gravelProblems.length){
 }
 var gravelVerified = GD.GRAVEL_PARTS.filter(function(p){ return p.verified === true; }).length;
 console.log('GRAVEL OK - ' + GD.GRAVEL_PARTS.length + ' parts, 0 problems (' + gravelVerified + ' verified, ' + (GD.GRAVEL_PARTS.length - gravelVerified) + ' unverified).');
+
+/* EMTB (OFF-LIVE, data/emtb.js + src/schema-emtb.js) - the ONLY e-bike surface
+   (CLAUDE.md hard rule 1, amended 2026-07-18: e-bikes CONTAINED to BuildMyEMTB;
+   the MTB catalog stays e-free permanently). Validated here so `node validate.js`
+   stays the single gate for ALL catalog data. Never wired into the live app; a
+   failure here does not affect buildmymtb.com. The both-ways containment guard
+   (MTB carries no e-field; every emtb row carries the e-system) lives in
+   test/test-emtb-containment.js, run by `npm test`. */
+var emtbProblems = ES.validateEmtbCatalog(ED.EMTB_PARTS);
+if(emtbProblems.length){
+  console.log('EMTB DATA INVALID - ' + emtbProblems.length + ' problem(s):');
+  emtbProblems.forEach(function(p){ console.log('  - ' + p); });
+  process.exit(1);
+}
+var emtbVerified = ED.EMTB_PARTS.filter(function(p){ return p.verified === true; }).length;
+console.log('EMTB OK - ' + ED.EMTB_PARTS.length + ' bikes, 0 problems (' + emtbVerified + ' verified, ' + (ED.EMTB_PARTS.length - emtbVerified) + ' unverified).');
