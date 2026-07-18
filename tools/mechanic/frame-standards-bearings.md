@@ -346,6 +346,39 @@ publish their own headset service manuals with cup press-fit specs — not yet f
 chapter; worth a follow-up pass to confirm whether 0.1 mm is a Chris-King-specific number or an
 industry-common headset figure.
 
+**FRM-35 — Enduro Bearings' own consumer-facing "Bearing Basics" page does NOT publish numeric
+ABEC bore/OD tolerance figures — closing the specific open fetch-attempt from the prior gap note,
+not the underlying gap.** The page states ABEC ratings run 1–9 (odd numbers only, 9 best) and
+that the standard defines *"precisely defined tolerances for inside and outside bearing
+diameters, roundness of ball, trueness of races, and the surface finish"* — but gives no actual
+mm/µm values on that page, and explicitly frames ABEC rating alone as insufficient to guarantee
+cycling-bearing performance (their own marketing angle for Enduro's cycling-specific product
+lines). A related search for a numeric shell-bore-vs-bearing-OD press-fit table on Enduro's
+industrial-seals division surfaced a generic engineering press-fit-allowance page, not confirmed
+to share technical basis with their bike-bearing cups — so it was NOT entered as a fact (corpus
+rule 6: a plausible-but-unconfirmed number is worse than the honest gap). **Net effect: FRM-29's
+Shimano/SRAM 0.05 mm shell-bore tolerance and FRM-33's Chris King 0.1 mm headset-cup interference
+remain the only numeric bike-specific press-fit figures on record; no bearing-maker (as opposed
+to frame-standard-maker) numeric tolerance was found despite two separate attempts.** *Confidence:
+confirmed (fetched, direct quote) that the source lacks the number — not a confirmed number
+itself.* Source: cycling.endurobearings.com "Bearing Basics" (fetched).
+
+**FRM-34 — Park Tool's own cross-manufacturer torque table gives per-brand bottom-bracket
+cartridge and crank-bolt torque, closing a slice of this chapter's L2 fastener-torque gap.**
+Bottom bracket (cartridge type, tightening the cups): Shimano 49.1–68.7 N·m, Shimano Hollowtech
+II 34.5–49.1 N·m, Campagnolo three-piece 70 N·m, Campagnolo Ultra-Torque cups 35 N·m, FSA
+39.2–49 N·m, Race Face 47.5 N·m, Truvativ 33.9–40.7 N·m, White Industries 27 N·m. Crank bolts:
+Shimano 34–44 N·m (Octalink XTR 40.3–49 N·m), Campagnolo 32–38 N·m (Ultra-Torque 42 N·m), FSA
+34–39 N·m (M14 steel 49–59 N·m), Race Face 54 N·m, Truvativ ISIS 43–47 N·m / square-spindle
+38–42 N·m, White Industries 27–34 N·m. Cassette lockring (cross-reference to drivetrain, same
+table): Shimano 29.4–49 N·m, SRAM 40 N·m, Campagnolo 50 N·m. Threadless-steerer stem binder
+bolts (cockpit cross-reference): Deda 8 N·m, FSA carbon 8.8 N·m, Thomson 5.4 N·m, Race Face
+6.2 N·m — a wide per-brand spread that means "torque the stem to spec" has no single universal
+number even within one clamp style. *Confidence: confirmed (fetched, manufacturer-sourced
+compilation).* Source: parktool.com "Torque Specifications and Concepts" (fetched). Still open
+within this same gap: headset locknut/UDH-hanger-bolt torque and Trek/Cannondale/Cervélo-specific
+BB figures are not in Park Tool's table and remain unsourced (see `## Gaps`).
+
 ## BMX frame/crank standards (off-live)
 
 **FRM-15 [BMX] — BB shell + crank spindle diameter together select the bearing set.** BMX frame
@@ -479,11 +512,12 @@ close, most-specific first:
   headset-cup figure (Chris King: 0.1 mm interference). **Still open within this sub-area:** no
   Cane Creek/FSA headset press-spec fetched yet (FRM-33's open question), no systematic
   frame-to-frame bore variance data beyond Kogel's anecdotal range, and no bearing outer-race
-  (as opposed to shell-bore) manufacturing-tolerance table from a bearing maker (Enduro Bearings'
-  cycling-specific technical pages were not successfully fetched this round — only its
-  industrial-seals division's generic press-fit-allowance table turned up in search, and that
-  wasn't fetched/entered since it's not confirmed to be the same technical basis as their
-  bike-bearing cups).
+  (as opposed to shell-bore) manufacturing-tolerance table from a bearing maker. **FRM-35
+  (this round) fetched Enduro Bearings' own "Bearing Basics" page directly and confirms it
+  genuinely does not publish numeric tolerance figures** (qualitative ABEC-rating description
+  only) — this is no longer an unfetched page, it's a confirmed dead end; the remaining path is
+  either a bearing-maker's B2B/OEM spec sheet (not on their consumer site) or a shop-tier source,
+  not another attempt at the same public page.
 - **CLOSED this round — BB30/PF30 tolerance-stack dispute (L3, was gap #4).** FRM-29/30/32 cover
   the dispute from three angles: the spec-vs-reality gap (FRM-29), the missing-preload mechanism
   (FRM-30), and the interface-count engineering distinction (FRM-32) — sourced from BikeRadar's
@@ -492,11 +526,13 @@ close, most-specific first:
   UDH's origin and verification method, but not whether the physical UDH spec itself has revised
   since 2019 (dimensional changes, axle-interface tweaks) — `CURRICULUM.md` names this explicitly
   under "Frame-standards minutiae." Not attempted this round.
-- **No torque-spec table for BB/headset/UDH-hanger fasteners beyond the two ad-hoc numbers
-  already on record (35 Nm BB lockring, FRM-27; ~20 Nm threaded-headset locknut, mentioned in the
-  Park Tool threaded-headset-adjustment page but not yet entered as a fact).** A full fastener
-  torque table (stem bolts, rotor bolts, cassette lockring, BB, headset, UDH hanger bolt) is
-  explicitly L2 (`CURRICULUM.md`) — not attempted this round; still the chapter's biggest L2 gap.
+- **PARTIALLY CLOSED this round (FRM-34) — BB cartridge + crank-bolt + cassette-lockring +
+  stem-binder torque table sourced from Park Tool's cross-manufacturer compilation.** Still
+  missing: headset locknut torque (Park Tool's threaded-headset-adjustment page references
+  ~20 Nm but that page wasn't fetched this round, so it's not entered as a fact), UDH hanger-bolt
+  torque, and rotor-bolt torque (now sourced in `brakes.md` BRK-41 instead, cross-reference).
+  A full fastener torque table is explicitly L2 (`CURRICULUM.md`) — this round narrows but does
+  not close the gap.
 - **No BMX bearing-kit matrix (L2/L3 gap, pre-existing, unchanged).** FRM-15's open mechanic
   question (enumerate the real shell×spindle bearing-kit matrix, incl. adapter combos) is still
   open — this round did not attempt it; it needs either manufacturer bearing-catalog data or a

@@ -81,6 +81,30 @@ two fetched primaries, not a claim either source makes about the other.* Source:
 Components "Carbon Handlebar & Stem Install Instructions" (can.oneupcomponents.com, fetched
 2026-07-17).
 
+**CKP-20 — Park Tool's own cross-manufacturer torque table gives per-brand stem-clamp,
+seatpost-clamp, saddle-rail-clamp, and pedal-spindle torque, closing a slice of this chapter's
+L2 fastener-torque gap (cross-reference: the same page seeded `FRM-34` for BB/crank/cassette
+torque and `BRK-41`-adjacent rotor/caliper torque lives in `brakes.md`).** Threadless-steerer
+stem binder bolts: Deda 8 N·m, FSA carbon 8.8 N·m, Syncros cotter-bolt 10.1 N·m, Thomson
+5.4 N·m, Time Monolink 5 N·m, Race Face 6.2 N·m. Stem 4-bolt faceplate: Control Tech
+13.6–16.3 N·m, Deda magnesium 8 N·m, FSA OS-115 carbon 8.8 N·m, Race Face 6.2 N·m, Thomson
+5.4 N·m, Time Monolink 6 N·m — this is the missing cross-brand table CKP-12/13 flagged (Park
+Tool's own generic 4–6 N·m band sits below every one of these named-brand figures, and OneUp's
+6 N·m carbon spec, CKP-13, lands inside the Deda/FSA range). Seatpost clamp bolts: Campagnolo
+4–6.8 N·m, with Park Tool's own note that *"seat posts require only minimal tightening to not
+slip downward"* — deliberately looser than a structural clamp. Saddle rail clamp bolts: Shimano
+20–30 N·m, Campagnolo 22 N·m, Control Tech two-bolt 16.3 N·m / one-bolt 33.9 N·m, Syncros
+5 N·m per bolt, Time Monolink 5 N·m, Truvativ M8 22–24 N·m / M6 6–7.1 N·m — a wide spread by
+clamp hardware size, not just brand. Pedal spindle-to-crank: Shimano 35 N·m minimum, Campagnolo
+40 N·m, Ritchey 34.7 N·m, Truvativ 31.2–33.9 N·m — this is the second independent source
+CKP-11's gap called for, and it corroborates the ballpark (mid-30s N·m) rather than the ~40 N·m
+figure CKP-11 cited from a different Park Tool page, itself worth noting as a minor cross-page
+inconsistency rather than a contradiction (both are Park Tool, likely reflecting real per-brand
+spread rather than an error). *Confidence: confirmed (fetched, manufacturer-sourced
+compilation).* Source: parktool.com "Torque Specifications and Concepts" (fetched). Still open:
+no dropper-post clamp torque appears on this page (dropper hydraulic/air internals remain a
+separate gap, see `## Gaps`).
+
 **CKP-14 — Grip install/removal is a technique, not a fit rule — but carbon bars change the safe
 removal method.** Lock-on grips just loosen/tighten a collar bolt (2.5/3/4 mm hex); slip-on grips
 are removed with an air gap + rubbing-alcohol lubricant, or as a last resort cut off — **except
@@ -291,11 +315,14 @@ data/DJ-BMX-COMPAT-ANALYSIS.md §2b. Engine: `bmx-freecoaster` INFO (never a con
 Specific, honest gaps for a future round — this pass stayed L1 (foundation) by design; none of
 the below were in scope this round:
 
-- **No torque-spec table across brands/interfaces (L2 gap).** CKP-12/13 show two real numbers
-  (Park Tool generic 4-6 Nm vs OneUp's carbon-specific 6/5 Nm) but that's two data points, not a
-  table. A real L2 chapter needs stem/bar/lever/seatpost-clamp/rotor-bolt/cassette-lockring/BB/
-  headset torque specs across SRAM, Shimano, Race Face, RockShox, and the other catalog brands —
-  flagged as a target in CURRICULUM.md's L2 definition.
+- **PARTIALLY CLOSED this round (CKP-20) — stem-clamp (threadless binder + 4-bolt faceplate),
+  seatpost-clamp, saddle-rail-clamp, and pedal-spindle torque now sourced across 6-7 brands
+  each from Park Tool's cross-manufacturer compilation** (the same page that seeded `FRM-34` in
+  `frame-standards-bearings.md` and is cross-referenced from `BRK-41` in `brakes.md`). Still
+  missing: rotor-bolt/caliper-mount torque (now covered in `brakes.md` BRK-41 instead — cross-
+  chapter, not this chapter's gap anymore), cassette-lockring/BB (covered in
+  `frame-standards-bearings.md` FRM-34 / `drivetrain.md`), and no dropper-post clamp torque
+  number exists on the fetched page at all — that stays a real gap (see next bullet).
 - **No dropper-post internal service/bleed procedure with exact specs (L2 gap).** This round
   covered external sizing/insertion only (CKP-16/17); the hydraulic/air internals (oil volume,
   IFP position, bleed procedure) that CURRICULUM.md's L2 calls out are untouched.
@@ -308,9 +335,11 @@ the below were in scope this round:
 - **No cross-brand bar-clamp-diameter-by-year adoption timeline (L3-adjacent gap).** CKP-19
   found that 35mm postdates Sheldon Brown's crib sheet but did not source WHEN 35mm was
   introduced or by which maker first (a genealogy fact, not a fit fact — lower priority).
-- **No pedal-thread torque cross-check against a second source.** CKP-11's ~40 Nm figure is
-  single-sourced (Park Tool); a second manufacturer torque table (e.g. Shimano's dealer manual,
-  L2-tier) would raise this from "confirmed, one source" to genuinely cross-verified.
+- **CLOSED this round — pedal torque now cross-checked.** CKP-20's Park Tool "Torque
+  Specifications" page gives Shimano 35 N·m minimum / Campagnolo 40 N·m / Ritchey 34.7 N·m /
+  Truvativ 31.2–33.9 N·m, corroborating CKP-11's ballpark from a second Park Tool page rather
+  than a second manufacturer — still one source-site, so genuinely independent (Shimano's own
+  dealer-manual) cross-verification remains a lower-priority follow-up.
 - **BMX cockpit (grips/bar/seat dimensions, CKP-10) got no new L1 pass this round** — this
   training targeted the live-catalog side of the chapter; a BMX-specific cockpit deepening stays
   queued behind the BMX go-live grind.

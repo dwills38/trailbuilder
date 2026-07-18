@@ -227,6 +227,29 @@ specifications").* Source: Park Tool "When to Replace a Worn Chain"
 (parktool.com/en-us/blog/repair-help/when-to-replace-a-chain-on-a-bicycle, fetched) +
 CC-4.2 product page (fetched).
 
+**DRV-40 — Zero Friction Cycling's measured chain-wear-cycle data quantifies WHY MTB chains
+wear faster than road chains, giving DRV-20's 0.5% threshold a real km-lifespan range instead
+of just a percentage.** ZFC's own methodology (per its published test-brief page): a KMC
+digital chain-wear checker measuring to 0.01 mm accuracy across an 8-link span (six such
+measures per 53-link test section), run across a claimed 300,000+ km of controlled chain-wear
+testing. The measured result: an MTB chain typically reaches the 0.5% replacement threshold at
+**~800–1,200 km**, versus **~3,000–5,000 km** for a dry-condition road chain — roughly a
+3-4x lifespan gap driven by grit contamination and wet/mud conditions accelerating pin-bore
+wear, not a difference in the chains themselves. Separately, the elongation-to-distance
+mapping: 0.5% wear ≈ 1.5 mm growth over a 12-inch/24-link span, 0.75% ≈ 2.3 mm, 1.0% ≈ 3.1 mm
+— the physical basis for graduated checkers like the Park Tool CC-3.2/CC-4 DRV-20 already
+cites. **Tier note (corpus rule 5):** ZFC's own test-brief/data PDFs are image-based and did
+not extract via WebFetch (tried twice — `Chain-Longevity-Testing-Full-test-brief.pdf` and
+`chainlongevitypg2.pdf`, both scanned/JPEG-embedded, no OCR text layer); the numbers above are
+attributed to ZFC by name but fetched from a secondary source (componentry.app's chain-wear
+guide) that cites ZFC's testing, not the ZFC page itself — **measured-source tier, one hop
+removed from primary**, not the same confidence as a directly-fetched manufacturer page. A
+future round should retry ZFC's PDFs with an OCR-capable tool, or find ZFC's own text-based
+results table (their site mentions "Chain efficiency and wear life data consol v4" as a
+separate PDF, not yet attempted). *Confidence: measured/third-party, one hop from primary.*
+Source: componentry.app "How to Measure Chain Stretch" (fetched), citing Zero Friction Cycling
+(zerofrictioncycling.com.au) test data by name.
+
 ## Cassette, freehub & crank service basics
 
 **DRV-21 — Cassette install: splines fit one way only; lockring torques to ~40 Nm;
@@ -627,9 +650,13 @@ figures table).
 - DRV-26's chain-width cross-tolerance is sourced only through ~10-speed; **no sourced
   data for 11/12-speed narrow-chain substitution tolerance** — explicitly flagged not
   established, a candidate for a dedicated fetch in a future round.
-- No **wear-coupling curve data** (how many chain-wear cycles a cassette/ring actually
-  survives, quantified) — this is drivetrain wear science and belongs at **L3** per
-  CURRICULUM.md, not this round's target.
+- **PARTIALLY CLOSED this round (DRV-40) — Zero Friction Cycling km-lifespan data (MTB
+  ~800-1,200 km vs road ~3,000-5,000 km to 0.5% wear, 300,000+ km test basis) sourced via a
+  secondary citation (componentry.app), since ZFC's own PDFs are image-based and didn't
+  extract.** Still missing: a genuine cassette/ring wear-cycle survival curve (how many chain
+  changes a cassette tolerates before ITS wear crosses a threshold) — DRV-40 has the chain side
+  of the wear-coupling but not the cassette/ring side; **L3 gap, narrowed not closed**. A future
+  round should also retry ZFC's own PDFs with OCR, or find their "data consol v4" table.
 - No **lubrication chemistry** (wet/dry lube selection, wax-based chain treatment
   tradeoffs) — **L3 gap**.
 - DRV-18's capacity-conservative claim is community-tier only; **no manufacturer

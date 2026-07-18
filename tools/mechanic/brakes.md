@@ -438,6 +438,21 @@ does, so misdiagnosing one as the other wastes a bleed kit on a problem it won't
 *Confidence: confirmed.* Source: sram.com "2023 G2 RE Service Manual" (as BRK-39), "Brake Pad
 Advancement."
 
+**BRK-41 — SRAM's own fastener torque table for rotor bolts, Center Lock lockring, and caliper
+mounting: 6-bolt rotor bolts 6.2 N·m (55 in-lb), tightened one turn at a time in an alternating
+(star) pattern with threadlock-prepped bolts; Center Lock rotor lockring 40 N·m using a Ø44 mm
+16-notch external BB tool; Post Mount / IS Mount caliper mounting bolts 9.5 N·m (84 in-lb); and a
+mount-bolt thread-engagement minimum of 9–13 mm when a caliper is bolted straight to a fork/frame
+(with or without a bracket/spacer) — SRAM's manual calls this out as a stated crash-risk warning,
+not a routine spec line, because under-engagement lets the caliper detach.** This is a genuine L2
+torque-table entry (`CURRICULUM.md`'s L2 bar) alongside the existing Shimano (4–6 N·m bleed
+nipple) and SRAM bleed-port (1.6 N·m, BRK-38) and G2 RE body-bolt (8.5–10.1 N·m, BRK-39) torque
+facts already on record — rotor/caliper-mount torque was the one fastener family this chapter
+hadn't sourced yet. *Confidence: confirmed (fetched primary PDF, exact figures + install sequence
+quoted).* Source: sram.com "User Manual — MTB Disc Brakes and Shifters" (fetched PDF,
+`document-hierarchy/user-manuals/sram-mtb/brakes-and-shifters/`, mined with `pdftotext -layout`
+per the round-3 pickup note).
+
 ## Pad compounds & bleed basics
 
 **BRK-23 — Pad compound is a three-way tradeoff (organic/resin vs sintered/metallic vs
