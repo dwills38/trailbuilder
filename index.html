@@ -404,6 +404,9 @@
   .side{position:sticky;top:80px;display:flex;flex-direction:column;gap:14px;scroll-margin-top:calc(var(--hdr-h,128px) + 12px)}   /* the #mobileBar tap jumps here — must clear the sticky banner like .cat-head */
   .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
   .panel h2{margin:0 0 8px;font-size:16px}
+  /* header row inside a panel: title left, action right ("Your build" + Share) */
+  .panel-hdr-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 8px}
+  .panel-hdr-row h2{margin:0}
   .muted{color:var(--ink-soft);font-size:12px}
   .meter{height:8px;background:#eceee9;border-radius:99px;overflow:hidden;margin:9px 0 4px}
   .meter > i{display:block;height:100%;background:var(--brand);width:0;transition:width .2s}
@@ -968,7 +971,8 @@
   <div class="wrap">
     <h1><a href="/" aria-label="BuildMyMTB — home">BuildMyMTB</a></h1>
     <input type="search" id="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" aria-label="Search parts by brand or model" />
-    <button class="btn primary" id="share" title="Copy a link that restores this exact build">Share<span class="hdr-long"> / save link</span></button>
+    <!-- Share button moved into the build panel next to "Your build" (Douglas 2026-07-18) -->
+
         <!-- Community. When the built-in forum is live (FORUM_ENABLED), this is an
              in-app toggle to the forum page; otherwise it falls back to the GitHub
              Discussions link (FORUM_URL, derived from REPORT_REPO) it will replace.
@@ -1110,7 +1114,10 @@
           <div class="report-cta"><button type="button" id="reportBtn" hidden>⚐ Report a wrong verdict</button></div>
         </div>
         <div class="panel">
-          <h2>Your build</h2>
+          <div class="panel-hdr-row">
+            <h2>Your build</h2>
+            <button class="btn primary" id="share" title="Copy a link that restores this exact build">Share<span class="hdr-long"> / save link</span></button>
+          </div>
           <!-- Complete Bikes dual-price block (2026-07-15): shown only when the
                current build was auto-filled from a completebike. Stays visible
                after a swap — the label switches to "Modified from ..." instead
