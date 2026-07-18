@@ -9,10 +9,14 @@ derailleur install torque + a confirmed-absence finding on clutch/spring rebuild
 documentation (DRV-37–39). **2026-07-18: Zero Friction Cycling's own chain-wear-testing
 PDFs, previously misdiagnosed as image-only, are fetched and mined directly (DRV-41/42)** —
 real per-model km-to-wear figures with their worst-case-lubricant caveat, plus the
-HARDCHROME/Vickers-hardness metallurgy behind SRAM Eagle's tier gap. Still short of
-`professional`: no AXS pairing/firmware service, no freehub internals, no cross-brand
-torque table beyond the Shimano derailleur/crank and SRAM derailleur families covered so
-far — see `## Gaps`.)
+HARDCHROME/Vickers-hardness metallurgy behind SRAM Eagle's tier gap. **2026-07-18 same-day
+second pass (DRV-43–47) closes the AXS pairing/firmware/battery-service gap** (SRAM's own
+pairing handshake, firmware-update procedure, and battery LED/app codes) **and lands DT Swiss
+Ratchet EXP freehub internal service** (spacer/spring/ratchet rebuild, the grease-type/amount
+warning, maintenance interval, a documented factory defect). Still short of `professional`:
+no cross-generation AXS firmware-compatibility table, no non-DT-Swiss freehub internals
+(Shimano MicroSpline, Hope, Industry Nine), no cross-brand crank/BB torque table beyond the
+Shimano derailleur/crank and SRAM derailleur families covered so far — see `## Gaps`.)
 
 Shifter · derailleur · cassette · chain · crank · chainring · freehub/driver bodies ·
 single-speed cog. Read [`INDEX.md`](INDEX.md) first (corpus rules, citation discipline,
@@ -571,6 +575,134 @@ chainring-bolt torque across a whole crank family risks over- or under-torquing 
 ring the family puts in the *other* bracket. *Confidence: confirmed (same fetched dealer
 manual as DRV-35).* Source: DM-MBFC001-04 (as DRV-35), "Replacing chainrings" sections.
 
+## Chain-wear threshold — manufacturer figures vs. tool-maker guidance (closes a named gap)
+
+**DRV-48 — SRAM's own published Eagle/T-Type replacement threshold is 0.8% elongation, a full
+0.3 percentage points LOOSER than DRV-20's Park Tool-sourced 0.5% figure for 11-speed-or-more
+chains — the two are genuinely different numbers from different tiers, not a rounding
+difference, and a mechanic should follow the chain's own maker spec over the generic tool-maker
+guidance where they conflict.** SRAM's support article states plainly: *"Replace the chain when
+it reaches 0.8% on an approved chain checker"* (support.sram.com, "When should I replace my SRAM
+Eagle chain?"), and SRAM's own Chains user manual repeats the identical figure for its general
+chain line: *"Replace your chain at 0.8% elongation to maintain performance and limit wear to the
+cassette and chainring."* This directly narrows DRV-20's caveat ("every drivetrain manufacturer
+has their own specifications") with a real number: for the live catalog's `sram-eagle` and
+`sram-transmission` systems specifically, 0.8% is SRAM's own bar, not Park Tool's blanket
+11-speed-or-more 0.5%. **Shimano, by contrast, does not appear to publish an explicit percentage
+figure at all** — Shimano's own TL-CN42 chain-wear-indicator product materials and its "How to
+Check Your Chain Length" consumer article describe only a physical go/no-go action ("the teeth of
+the chain gauge completely fall into the chain... then it is time to replace the chain") with no
+stated elongation percentage; the widely-repeated "Shimano's threshold is ~0.5%" claim traces to
+third-party tool comparisons (a Zero Friction Cycling product page, a bicycles.stackexchange
+community answer) reverse-engineering the tool's physical dimensions, not a Shimano-published
+number — so for `shimano-12`, DRV-20's 0.5% figure remains Park Tool-tier only, genuinely
+unconfirmed at the manufacturer level despite a real, careful search. *Confidence: confirmed
+(fetched SRAM support + user manual, direct quotes, two independent SRAM documents agreeing) for
+the SRAM 0.8% figure; confirmed-absence (not merely unfetched) for a Shimano-published
+percentage.* Source: support.sram.com article 5928711817755 ("When should I replace my SRAM
+Eagle chain?") + docs.sram.com "Chains" user manual (models cn-xx-1-a1, fetched); bike.shimano.com
+"How to Check Your Chain Length" (fetched, corroborating the no-percentage-stated pattern);
+zerofrictioncycling.com.au Shimano TL-CN-42 product page + bicycles.stackexchange.com/questions/
+81876 (community-tier, cited only for the reverse-engineered ~0.5% estimate, explicitly labelled
+as such), 2026-07-18.
+
+## SRAM AXS electronic service — pairing, firmware, battery (L2, closes a named 2026-07-18 gap)
+
+**DRV-43 — AXS pairing is a physical button-press handshake done OUTSIDE the app, with a strict
+primary-component-starts-and-ends structure; re-pairing is required on ANY component swap but
+NOT on a mere battery swap.** SRAM's AXS Pairing Guide: pairing "is done using the physical
+components, not in the AXS app." Each system has exactly one **primary** component (the
+derailleur, in every drivetrain/Transmission case fetched) that starts and ends the session; all
+others join as **secondary**. Procedure: (1) press-and-hold the primary's AXS button until its
+LED blinks green *slowly*, release; (2) press-and-hold each secondary's AXS button until ITS LED
+blinks green *quickly*, release — order among secondaries doesn't matter (except Pod controllers,
+which SRAM calls out as position-order-sensitive via video, not text); (3) press-and-release the
+primary's button to end the session, or let it time out after 30 seconds. **Any time a component
+is added, removed, or inadvertently left out, the WHOLE pairing process must be repeated for every
+component** — not just the changed one. By contrast, SRAM's Road AXS/XPLR user manual states
+explicitly the pairing process does **not** need to be repeated when batteries are removed or
+replaced — battery service and component service are different events with different consequences.
+For two-controller setups (e.g. a Pod + a Reverb AXS dropper), whichever controller is paired
+*first* becomes the default "right" controller in the app. *Confidence: confirmed (fetched SRAM
+support + user manual, direct procedure).* Source: sram.com/en/learn/mountain/how-to-guides/
+axs-pairing-guide (fetched); support.sram.com articles 6030638484507 ("How do I pair my AXS
+components together?") + 13819504361371 ("How do I pair my SRAM Eagle AXS Transmission system?");
+docs.sram.com "Road AXS and XPLR AXS" user manual (fetched), 2026-07-18.
+
+**DRV-44 — AXS firmware updates run per-component, in the app, gated by a physical button press
+distinct from pairing's press — mixing up press-and-hold (pairing) with press-and-release
+(firmware) is the most likely mechanic error here.** SRAM's firmware-update procedure: wake the
+primary component, select it in the AXS app, select "New Firmware Available" → "Install," then
+**press the component's AXS button for two seconds or less** (a press-and-release, NOT the
+press-and-hold used for pairing, DRV-43) to actually start the flash; the LED blinks rapidly
+during install and the app/screen must not be exited mid-update. **Firmware must be checked and
+installed on each individual component separately** — there is no fleet-wide "update all" action;
+the mechanic repeats the whole select-component → check → install loop once per part in the
+system. A pointed operational caution appears twice in SRAM's own text: **"if a component no
+longer shifts or actuates following an AXS App interaction [including a firmware update],
+complete the System Pairing process"** — i.e. a firmware update can silently break pairing, and
+the fix is DRV-43's full re-pair, not a firmware re-flash. The Beta/Alpha firmware channel uses
+an even more specific warning: a single press-and-release starts the beta install, and SRAM
+explicitly warns **"Do NOT Press-and-Hold the AXS button to start the [beta firmware] update"**
+— confirming the two gestures (hold=pairing, release=firmware) are a real, documented
+distinction, not incidental UI language. *Confidence: confirmed (fetched SRAM support, direct
+quotes).* Source: support.sram.com articles 6030691329307 ("How do I update firmware using the
+AXS App?") + 6030678012187 ("How do I install firmware through the AXS Beta and Alpha
+Programs?"), fetched 2026-07-18.
+
+**DRV-45 — AXS battery status is a simple 3-state LED/app code, and a full charge takes about an
+hour with a fast-enough 15-minute top-up to matter trailside.** Pressing a component's AXS button
+for ≤2 seconds flashes its LED: **green = Good, red = Low, rapidly-flashing red = Critically Low**
+(a red/green *alternating* flash is unrelated to battery — it signals a rejected shift). The AXS
+app mirrors the same three states as a ring around the component icon. SRAM's own charge-time
+figure: **"AXS Batteries charge from fully depleted to fully charged in approximately one hour"**,
+and explicitly frames a partial top-up as trailhead-viable: *"a quick fifteen minutes on the
+charger... might be all you need."* *Confidence: confirmed (fetched SRAM support, direct quote).*
+Source: support.sram.com article 6030792022171 ("How do I check the battery levels of my AXS
+components?"), fetched 2026-07-18.
+
+## Freehub / driver-body internal service (L2, closes a named gap — DT Swiss Ratchet EXP)
+
+**DRV-46 — DT Swiss Ratchet EXP freehub service is a genuine user/dealer-serviceable rebuild
+(spacer → spring → ratchet → washer stack), gated by a strict thin-layer-only, ONE-specific-grease
+rule — over-greasing causes the freehub to SLIP, not just run rough.** DT Swiss publishes three
+tiers of its own documentation for this system — a **User Manual** (install/use only), a
+**Technical Manual** (full maintain/spare-parts/technical-data reference), and a dedicated
+**Maintenance Manual** (the freewheel-system rebuild procedure specifically) — a mechanic should
+reach for the Maintenance Manual tier for this job, not the User Manual. The rebuild: remove end
+caps → pull the freewheel body → the internal stack is spacer, spring, ratchet (loose), washer,
+seated in that order in the freewheel body. DT Swiss's own DANGER-level warning: **"If too much
+grease is applied on the ratchets, the actuation of the ratchets may not work. The ratchets may
+slip during pedaling"** — the fix is a thin, even layer of the **red DT Swiss special grease
+only** (a different, named-specific grease from the "DT Swiss universal grease" used elsewhere on
+the same hub) brushed onto the ratchet teeth. Ratchets showing heavy wear are replaced immediately,
+not serviced further — DT Swiss frames this as a binary (fine to keep running vs. replace outright),
+no intermediate "worn but usable" guidance given. *Confidence: confirmed (fetched DT Swiss
+technical/maintenance manuals, direct quotes).* Source: dtswiss.com Ratchet EXP Technical Manual
+PDF (`MAN_HXD10000003111S_WEB_EN_001.pdf`, fetched) + Ratchet EXP Maintenance Manual (via
+manualslib.com mirror of the same DT Swiss document, fetched), 2026-07-18.
+
+**DRV-47 — DT Swiss's own Ratchet EXP maintenance interval is condition-dependent (annual vs.
+quarterly), and warranty is explicitly conditioned on following it — a fact with real
+recommendation weight, not just a service-tip.** DT Swiss's published maintenance-notice page:
+*"Maintenance of our hubs is recommended annually when used under normal conditions, and every 3
+months when used under extreme conditions (regular driving in dust, rain, snow or frequent
+transport in the rain)... In case of problems caused by insufficient or no maintenance, we reserve
+the right to refuse warranty claims."* Separately, DT Swiss's own trouble-shooting table names a
+specific install-order failure that couples to axle torque (cross-reference
+[`frame-standards-bearings.md`](frame-standards-bearings.md)'s thru-axle facts): **"Freewheel is
+blocked"** can be caused by an internal spacer "compressed by overtightening the thru axle," with
+a numeric field check — *"If the spacer is shorter than 10.7 mm, it must be replaced"* — i.e. an
+over-torqued thru-axle can crush a freehub-internal part, a cross-component failure mode
+independent of the axle's own torque spec. DT Swiss also separately documents a real, named
+manufacturing defect on Ratchet EXP specifically (identifiable by a "0" or "9" digit in the
+hub's production code): surface-finish variance on early-production ratchets causing premature
+wear and engagement restriction, remedied by free inspection/service through a DT Swiss Service
+Center — a confirmed, maker-acknowledged reliability issue, not a community rumor. *Confidence:
+confirmed (fetched DT Swiss maintenance-notice page + maintenance manual troubleshooting table,
+direct quotes).* Source: dtswiss.com/en/ratchet-exp-maintenance-notice (fetched) + DT Swiss
+Ratchet EXP Maintenance Manual troubleshooting section (as DRV-46), 2026-07-18.
+
 ## Chain width — historical cross-speed tolerance
 
 **DRV-26 [refines the DRV-12/13 pattern to geared drivetrains] — Historically,
@@ -612,6 +744,10 @@ figures table).
   (DRV-19) — the engine checks only the cassette/derailleur cog-max side (DRV-6); a
   future multi-chainring catalog row would need the combined formula, not just today's
   1x-collapsed case.
+- **A freehub's internal spacer couples it to axle torque, not just to the cassette**
+  (DRV-47) — an over-torqued thru-axle can compress a DT Swiss Ratchet EXP's internal
+  spacer and block the freewheel, a cross-component failure the freehub's own spec sheet
+  cannot predict in isolation.
 
 ### Mismatch failure modes (how it actually fails)
 - **Hard "won't fit / won't index":** wrong system or wrong actuation (DRV-1/2); Flattop chain
@@ -660,6 +796,17 @@ figures table).
   derailleur body (H/L screws, B-tension) and only swaps the hanger interface, so a
   mechanic who has just serviced a Transmission derailleur's Setup-Key workflow should not
   assume the same steps apply to a Half-Mount mechanical Eagle build on the same frame.
+- **AXS pairing and AXS firmware updates use two different button gestures, and doing one
+  can silently undo the other** (DRV-43/44): pairing is a press-and-HOLD per component, done
+  outside the app; firmware install is a press-and-RELEASE, done inside the app — and SRAM's
+  own text warns a firmware update (or any app interaction) can leave a component needing a
+  full re-pair. A mechanic should always re-verify pairing as the last step after any
+  firmware work, not assume it survived.
+- **DT Swiss Ratchet EXP's freehub rebuild has an install-order-sensitive grease step**
+  (DRV-46): grease goes on the ratchet teeth in a thin layer of ONE named grease before the
+  spring/spacer/washer stack is closed up — too much (or the wrong) grease doesn't show up
+  as a fit problem, it shows up as slipping under load, so the install order (clean → thin
+  correct-grease layer → reassemble) is itself the fix, not a torque or tolerance spec.
 
 ### Wear couplings
 - **Chain–cassette–ring wear as a set:** a worn chain accelerates cassette and ring wear; the
@@ -702,14 +849,33 @@ figures table).
   a re-fetch candidate — a future round would need a genuinely new lead (patent filing,
   an explicitly-labelled community teardown) rather than repeating the same service-page
   search. **L2 gap: closed as "not established," not reopened as unattempted.**
-- No **chain-wear tolerance table cross-checked against SRAM/Shimano's own published
-  %** — DRV-20 is tool-maker (Park Tool) guidance, explicitly caveated as "every
-  manufacturer has their own specifications" — **L2 gap**.
-- No **AXS pairing/firmware/electronic-service** facts (battery service, pairing
-  procedure, firmware-update compatibility across derailleur generations) — **L2 gap**.
-- No **freehub/driver-body internal service** (pawl/spring rebuild, DT Swiss
-  Ratchet/Ratchet EXP internals, drag/service intervals) beyond the swap-kit-exists fact
-  (DRV-9) — **L2 gap**.
+- **CLOSED 2026-07-18 (DRV-48) — chain-wear tolerance cross-checked against SRAM's own
+  published %.** SRAM's own support article + Chains user manual both give **0.8%** for
+  Eagle/T-Type — a real, confirmed number, and looser than DRV-20's Park Tool-sourced
+  0.5% blanket figure for 11-speed-or-more chains. **Still genuinely open: Shimano
+  publishes no percentage at all** (confirmed absence, not unfetched) — the ~0.5%
+  commonly cited for Shimano is a third-party reverse-engineering of the TL-CN42 tool's
+  dimensions, not a Shimano number. A future round could try si.shimano.com dealer
+  manuals specifically for the CN0001/CN0002 chain family (fetched for DRV-48 but the
+  numeric spec wasn't found there either) before concluding it's unpublished for good.
+- **CLOSED 2026-07-18 (DRV-43–45) — AXS pairing/firmware/battery-service facts.** The
+  pairing handshake (primary/secondary structure, hold-vs-release button distinction,
+  when re-pairing is/isn't required), the firmware-update procedure (per-component, the
+  "if it stops shifting after an app interaction, re-pair" caution), and battery LED/app
+  status codes + charge time are now sourced directly from SRAM support + the Road
+  AXS/XPLR user manual. **Still open:** firmware-update *compatibility* across derailleur
+  generations (e.g. does an old Eagle AXS mech need a firmware floor to pair with a new
+  Pod controller) — no cross-generation compatibility table fetched this round; treat as
+  a narrower residual L2 gap, not the original broad one.
+- **CLOSED 2026-07-18 (DRV-46/47) — DT Swiss Ratchet EXP freehub internal service**,
+  closing the freehub/driver-body internals slice of this gap for DT Swiss specifically:
+  the spacer/spring/ratchet rebuild stack, the grease-type-and-amount warning (wrong
+  grease or too much = slip, not just noise), the annual/quarterly maintenance-interval
+  + warranty conditioning, and a documented manufacturing defect (production-code-
+  identifiable early Ratchet EXP surface-finish wear issue). **Still open: Shimano
+  MicroSpline/HG freehub internals and Hope/Industry Nine pawl-hub service** — this
+  round covered DT Swiss only (the brand with the most complete public technical/
+  maintenance-manual tier); other brands' freehub rebuild depth remains an L2 gap.
 - DRV-26's chain-width cross-tolerance is sourced only through ~10-speed; **no sourced
   data for 11/12-speed narrow-chain substitution tolerance** — explicitly flagged not
   established, a candidate for a dedicated fetch in a future round.
