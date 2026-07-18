@@ -7,6 +7,8 @@ var S = require('./src/schema.js');
 var K = require('./src/kit.js');
 var BD = require('./data/bmx.js');
 var BS = require('./src/schema-bmx.js');
+var SD = require('./data/striders.js');
+var SS = require('./src/schema-strider.js');
 
 var problems = S.validateCatalog(C);
 if(problems.length){
@@ -52,3 +54,17 @@ if(bmxProblems.length){
 }
 var bmxVerified = BD.BMX_PARTS.filter(function(p){ return p.verified === true; }).length;
 console.log('BMX OK - ' + BD.BMX_PARTS.length + ' parts, 0 problems (' + bmxVerified + ' verified, ' + (BD.BMX_PARTS.length - bmxVerified) + ' unverified).');
+
+/* STRIDER (OFF-LIVE, data/striders.js + src/schema-strider.js) - validated here too
+   so `node validate.js` stays the single gate for ALL catalog data. Never wired into
+   the live app; a failure here does not affect buildmymtb.com. */
+var striderProblems = SS.validateStriderCatalog(SD.STRIDER_PARTS);
+if(striderProblems.length){
+  console.log('STRIDER DATA INVALID - ' + striderProblems.length + ' problem(s):');
+  striderProblems.forEach(function(p){ console.log('  - ' + p); });
+  process.exit(1);
+}
+var striderVerified = SD.STRIDER_PARTS.filter(function(p){ return p.verified === true; }).length;
+var striderWithSeat = SD.STRIDER_PARTS.filter(function(p){ return typeof p.seatMin === 'number' && typeof p.seatMax === 'number'; }).length;
+console.log('STRIDER OK - ' + SD.STRIDER_PARTS.length + ' bikes, 0 problems (' + striderVerified + ' verified, ' +
+  (SD.STRIDER_PARTS.length - striderVerified) + ' unverified, ' + striderWithSeat + '/' + SD.STRIDER_PARTS.length + ' with seat-height range).');
