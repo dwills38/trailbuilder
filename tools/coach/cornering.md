@@ -1,9 +1,14 @@
 # Cornering — Coach Corpus
 
-**Maturity: professional** (L1 core solid; round 2, 2026-07-17 added dedicated berm-line and
+**Maturity: master** (L1 core solid; round 2, 2026-07-17 added dedicated berm-line and
 switchback progressions; round 3, 2026-07-18 unblocked and laddered the stoppie-pivot family
-(COR-15/COR-16) for ultra-tight switchbacks — the "cutty" controlled-slide technique remains
-flagged-not-laddered, see Gaps). Flat · bermed · off-camber corners · line choice; dedicated
+(COR-15/COR-16) for ultra-tight switchbacks; **round 5, 2026-07-18 closed the low-grip gap** —
+COR-17's B-consensus loose/wet/off-camber cue set and COR-18's terramechanics cross-check, which
+qualifies COR-12's firm-surface model and gives BRK-10's friction budget its first loose-surface
+corroboration. Every corner type now carries L2 depth and the chapter has three Tier-C mechanism
+facts. Graded master with named residuals: the "cutty" remains flagged-not-laddered, COR-15/16 are
+single-source, deep mud is untreated, and trail braking stays a flagged advanced note — see Gaps.
+L3 race-line application lives in `discipline-craft.md` by design, not duplicated here). Flat · bermed · off-camber corners · line choice; dedicated
 switchback technique (COR-10); the stoppie-pivot escalation (COR-16). Read [`INDEX.md`](INDEX.md)
 first (corpus rules, tiers, SAFETY-FIRST PROGRESSION, tacit-layer disclaimer).
 
@@ -355,6 +360,153 @@ aiming to land the rotation balanced, without a foot dab.
 
 ---
 
+## Low-grip cornering: loose-over-hardpack, dust, wet and off-camber (round 5, 2026-07-18)
+
+**COR-17 — On LOW-GRIP surfaces the primary correction is not "better technique" — it is (a) more
+speed shed BEFORE the corner and (b) LESS body lean with MORE bike lean. Leaning body and bike
+together as one unit is the specific error that causes the washout riders blame on their tyres.**
+This closes the chapter's "no wet/loose-condition cornering depth" gap. The cues, in the order a
+coach should apply them:
+
+1. **Shed more speed, earlier — this is the correction, not a cue about form.** Available grip is
+   lower, so the limit arrives sooner. Sources are explicit that the fix for a slippery corner "isn't
+   better technique — it's more speed management on the approach."
+2. **Separate braking from turning, absolutely.** Braking and cornering compete for the same finite
+   grip (the BRK-10 friction budget). A named three-zone drill: **Zone 1** — 80% of speed control
+   while still upright and straight, both brakes; **Zone 2** — fully release both brakes for about
+   half a second, let the bike roll unweighted; **Zone 3** — lean and turn on a rolling, unbraked
+   tyre, with light *rear-only* drag after the apex if speed must be adjusted. One source quantifies
+   dust as reducing braking friction by roughly 30–50%, so any lean angle carried while braking
+   pushes past the limit fast. Brake-dragging into the corner also *polishes* the hard base, making
+   the surface worse for the next rider and the next lap.
+3. **Keep the chest more vertical and push the bike underneath you.** In loam you can lean body and
+   bike together; on loose-over-hardpack that "overloads the outer knobs" and moves your mass away
+   from your base of support. Increase bike lean, reduce body lean — i.e. **more bike-body
+   separation than a grippy corner needs** (`fundamentals.md` FND-9; the COR-13 physics).
+4. **Weight the outside foot, heel down, at 6 o'clock.** The mechanism matters and is worth teaching
+   (CCH-4's *why*): outside-foot pressure "increases vertical force on the tire without adding
+   lateral slide force." In friction-budget terms it raises the normal force `N` — enlarging the
+   whole budget — instead of spending budget on lateral demand. That is why it is the single highest-
+   value low-grip cue.
+5. **Rotate toward the exit.** A named coached technique for creating grip where the terrain gives
+   none: twist the body to lead the bike through the turn, initiating from the knees. This shifts
+   mass toward the outside and keeps it stacked over the contact patch, while physically creating
+   room to tip the bike further underneath you. Explicitly gated: it "relies on a rider to have
+   already consolidated a low, centred position and an ability to lean the bike underneath them."
+6. **Look to the exit early.** On loose surfaces "your vision controls your lean angle" — looking
+   only 2–3 feet ahead produces micro-corrections and surplus lean that the surface can't support.
+7. **Line:** take the wider, later-apex arc. A larger-radius line needs less lean angle for the same
+   speed, which leaves more grip in hand (the COR-12 relation read backwards). Diving to an early
+   inside apex forces a sharper angle "than the dirt can provide."
+8. **Setup (secondary to technique, and say so):** roughly 1–2 psi below the normal setting for
+   casing conformance; slow low-speed rebound slightly so the tyre settles rather than skipping over
+   the loose layer; softer front compound helps most in off-camber dust. But the strongest source
+   here is blunt that this ranks *below* technique — "technique and pressure fix 80% of dust issues,"
+   and a more aggressive tread is not the first fix.
+
+*Why loose-over-hardpack specifically behaves badly (the mechanism to teach):* dry dust sits on a
+baked-hard base. The tyre floats on the loose layer until it abruptly punches through to the hard
+surface; that transition has very low shear strength, so knobs tear through instead of digging in,
+and the hard base deflects tall knobs rather than letting them sink. Fine dust additionally acts as
+a lubricant, worst under braking and lean.
+
+*Off-camber (the same problem with gravity added).* Off-camber is cornering's mirror: in a corner
+the bike wants to go straight and you force it to turn; off-camber it wants to turn downhill and you
+force it straight — so the same grip budget applies. Sourced cues: lean the bike into the *upslope*
+to set the tyre edges, drop and heavily weight the *downslope* pedal, pull up on the outside grip
+while pushing down on the inner one to add outside-pedal pressure, **stay off the brakes entirely**
+(braking robs sideways grip), and **stay as high as you can** — losing height deliberately is far
+easier than regaining it. Read the surface for anything that gives an edge to hold: roots running
+*along* your path, rut edges, small erosion bars, and compressions that momentarily load the bike
+and can be spent to climb back up the slope. **Roots crossing the line must be hit square** — a root
+crossing a wet apex at 45° is named as a classic crash cause; go around it or straighten briefly.
+- *Tier:* B-consensus (five-plus independent method-serious sources agreeing on the core: upright
+  body / leaned bike, outside-foot loading, braking-turning separation, earlier speed shed).
+  Sources: promountainbike.com, *How To Corner On A Mountain Bike* (weight × lean-angle contact-patch
+  framing, wet/loose adjustments, washout causes); Bike Trekker, *Dusty Trail Traction* (the
+  loose-over-hardpack mechanism, the three-zone braking drill, the 30–50% dust braking-friction
+  figure) and *How to Stop Front-Wheel Washouts* (the five-drill flat-corner progression);
+  Mountain Bike Action, *the "tilt" not "lean" distinction* (side-knob loading, upper body stays
+  upright); Onward MTB Coaching (Rory Bingham), *Flat Corners* (the rotation technique and its
+  prerequisite gate); mtbtechniques.co.uk, *Advanced Off Camber* (the off-camber cue set — already a
+  corpus Tier-B source); REI Expert Advice, *Cornering Techniques* (off-camber line choice, hit roots
+  head-on, upright body for knob contact); BikeRadar, *tyre pressure guide* (pressure/conformance,
+  off-camber line-holding). All fetched or search-highlighted 2026-07-18.
+- *⚠ Direction/terrain envelope (rule 7 — this cue set INVERTS by surface).* This is **not**
+  universal cornering advice. On a supportive berm or in deep loam, leaning body and bike together
+  is fine and rotation is often unnecessary — one source notes the outside-foot-down convention is
+  "inefficient on turns where we don't need to lean the bike over much (e.g. big bike park berms)"
+  and that level pedals pump better. Teach COR-17 as **the low-grip variant**, keyed to the surface,
+  not as a correction to COR-2/COR-3.
+- *⚠ Level:* the cue set is L1/L2-safe; the **rotation** component (item 5) is explicitly advanced
+  and gated on a consolidated low/centred position and bike-lean competence. Its own source treats it
+  as "for advanced riders … as degrees of movement on a dial, not two pedal positions."
+- *Corpus use:* the low-grip counterpart to COR-2/COR-3/COR-4; consumes BRK-10's friction budget and
+  BRK-13's low-traction braking; supplies `climbing-descending.md` CLD-14/15 (off-camber traverses)
+  with its cornering-side twin — those facts cover the *traverse*, this covers the *turn*.
+
+**COR-18 — ⚠ Tier-C cross-check on COR-12: the steady-turn lean-angle model is FIRM-SURFACE physics,
+and on loose terrain the tyre's lateral-force behaviour changes SHAPE, not just magnitude. The
+practical consequence is that a loose surface gives less warning before it lets go — or much more,
+depending on the soil — and `tan θ = v²/(g·r)` should never be presented to a rider as a
+loose-surface number.** The chapter's Gaps flagged that "the steady-turn models assume firm-surface
+elastic tyres" and asked for MTB-specific loose/off-camber tyre-grip data. That MTB-specific data
+does not appear to exist publicly (see the caveat below), but the **terramechanics** literature —
+off-road tyres on deformable terrain — establishes the mechanism, and it materially qualifies COR-12:
+
+- **On firm surfaces**, lateral force rises with slip angle to a distinct peak (measured around
+  ~15° for the tyres studied) and then *falls* — the classic breakaway a rider feels as the moment
+  the tyre "lets go."
+- **On deformable terrain the curve changes shape.** Classic soil-bin work found the loose-soil
+  lateral-force curve "much flatter," still not having peaked even at 30° slip angle — i.e. no sharp
+  breakaway point, grip trailing off progressively instead. Other results in the same literature
+  report soft soils peaking at *lower* slip angles and being less sensitive to load and inflation
+  pressure than hard surfaces. **These are not contradictory so much as soil-dependent** — "loose"
+  and "soft" are different terrains (a dry granular layer vs. a cohesive deformable one) — and the
+  honest reading is that **the shape of the grip curve is a property of the surface, not a constant**.
+- **Mechanism:** on deformable ground a large share of lateral force comes from *shearing the
+  terrain* — the knobs build and load a soil failure surface — rather than from rubber-on-rock
+  friction. This is why tread pattern and sinkage are shown to strongly affect off-road tractive
+  performance, and it is the physical basis for COR-17's "knobs dig in" cues and for the
+  loose-over-hardpack failure mode (a thin loose layer cannot form a shear surface *and* the hard
+  base beneath won't let the knob sink).
+- **The friction ellipse survives the trip off-road.** An ATV-tyre study on clay, grass and sand
+  explicitly mapped a quadrant of the friction ellipse — lateral-force coefficient against braking-
+  force coefficient — on those loose natural surfaces. This is the first **loose-surface**
+  corroboration in this corpus for `braking-traction.md` **BRK-10** (the friction-circle grip budget),
+  which until now rested on firm-surface/road-biased sources. The budget concept holds off-road; what
+  changes is the *shape and warning behaviour* of its boundary, not its existence.
+- *⚠ SCALE CAVEAT — read before citing this, it is the reason this fact is a cross-check and not a
+  quantitative rule.* Every source here tested **agricultural, ATV, or automotive tyres** — vastly
+  different diameters, contact-patch sizes, vertical loads (kN, not a rider's fraction thereof) and
+  inflation pressures (18–42 psi on multi-kN loads) than an MTB tyre at ~22 psi. **The numbers do
+  not transfer, and no slip-angle figure from this literature should ever be quoted to a rider as an
+  MTB threshold.** What transfers is the *mechanism and the qualitative shape change* — which is
+  exactly what COR-12's caveat needed. The corpus rejected cyclocross remount material in
+  `discipline-craft.md` as a false-equivalence risk; this fact is admitted only because it is
+  explicitly confined to mechanism, and it is labelled here so a future round does not quietly
+  promote it into a number.
+- *Tier:* C (terramechanics / vehicle-dynamics primary research and review). Sources: *Lateral Tyre
+  Forces on Off-Road Surfaces* (PhD thesis, White Rose eTheses —
+  [etheses.whiterose.ac.uk](https://etheses.whiterose.ac.uk/id/eprint/227/1/uk_bl_ethos_383927.pdf))
+  summarising Schwanghart's soil-bin results and the firm-vs-loose curve-shape difference; Holloway,
+  D.C., Wilson, W.H. & Drach, T.J. (1989), *Examination of ATV Tire Forces Generated on Clay, Grass,
+  and Sand Surfaces*, SAE 891106, [DOI 10.4271/891106](https://doi.org/10.4271/891106) (the
+  loose-surface friction-ellipse quadrant); Zeng, H., Xu, W., Zang, M. & Yang, P. (2019),
+  *Experimental and Numerical Investigations of Tractive Performance of Off-Road Tires on Gravel
+  Terrain*, [DOI 10.1142/S0219876219500555](https://doi.org/10.1142/s0219876219500555) (tread pattern
+  and slip effects on granular terrain); Coutermarsh, B.A. & Shoop, S. (2010), *Lateral Force versus
+  Tire Angle Measurements for Various Field Conditions*, SAE 2010-01-0374,
+  [DOI 10.4271/2010-01-0374](https://doi.org/10.4271/2010-01-0374) (curve shape differs by surface
+  across snow, soil, gravel, pea stone).
+- *Corpus use:* **qualifies COR-12, supersedes nothing, and corroborates BRK-10 off-road.** It also
+  answers the standing Gaps request honestly: the MTB-specific loose-surface tyre data was searched
+  for and not found; what exists is adjacent-vehicle terramechanics, admitted at mechanism level
+  only. Coaching consequence, stated conservatively: **teach riders that a loose surface's limit is
+  found by feel and by conservative speed choice (COR-17 item 1), never by calculation.**
+
+---
+
 ## Physics notes (Tier C — the mechanism/why)
 
 *Added 2026-07-17 (biomechanics round). Vehicle-dynamics grounding for the qualitative L1 cues —
@@ -411,10 +563,23 @@ written pending a coordinator/mechanic-review call.
   before this could be considered `master`-level rather than `professional`.
 - ~~**No measured lean-angle / speed relationship**~~ **ADDRESSED 2026-07-17 (COR-12/COR-13):**
   `tan θ = v²/gr` and the combined-CoM basis of bike-body separation are now grounded (Cain 2010).
-  Remaining Tier-C depth: no MTB-specific loose/off-camber tyre-grip data (the steady-turn models
-  assume firm-surface elastic tyres).
-- **No wet/loose-condition cornering depth** (compound/pressure/line adaptations beyond "grippiest
-  path") — L2 gap.
+  ~~Remaining Tier-C depth: no MTB-specific loose/off-camber tyre-grip data~~ **ADDRESSED round 5
+  (2026-07-18) via COR-18, at mechanism level only.** MTB-specific loose-surface tyre data was
+  searched for and **not found**; the terramechanics literature (agricultural/ATV/automotive tyres on
+  deformable terrain) supplies the mechanism instead: the lateral-force-vs-slip-angle curve changes
+  *shape* off firm ground, grip comes substantially from shearing the terrain, and the friction
+  ellipse is confirmed on clay/grass/sand — the first loose-surface corroboration of BRK-10.
+  **Admitted at mechanism level with an explicit scale caveat** (those tyres carry kN loads; no
+  slip-angle number transfers to MTB). Genuinely still open: any MTB-scale measurement of loose- or
+  off-camber-surface tyre grip. That is a research gap, not a fetching gap.
+- ~~**No wet/loose-condition cornering depth**~~ **CLOSED round 5 (2026-07-18) via COR-17**
+  (loose-over-hardpack mechanism; the earlier-speed-shed-not-better-technique correction; the
+  three-zone brake/release/carry drill; upright-body/leaned-bike with the outside-foot normal-force
+  rationale; the rotation technique with its prerequisite gate; wider late-apex line; and the
+  off-camber cue set with its stay-high and hit-roots-square rules). B-consensus. Remaining
+  thinness: **deep mud specifically** (as opposed to dust, wet roots and wet rock) still has no
+  dedicated cornering treatment — the same narrower residue BRK-13 left in `braking-traction.md`,
+  and the two should be closed together by a future round.
 - **"Trail braking" into a corner** — flagged in `braking-traction.md` as an advanced, not-yet-
   laddered technique; it lands half here. Needs a Tier-A/B treatment before inclusion beyond a
   flagged note. **Do not teach as L1.**
