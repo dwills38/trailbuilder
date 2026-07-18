@@ -66,6 +66,41 @@ scoping; (7) bdata top-up (~160 walled complete bikes hang on it; balance ~$1.39
 (8) HOME PAGE (ancient standing TODO — remind periodically, needs his scoping); (9) kids-gear
 scope + style pass scheduling (old parked items).
 
+**★ FINAL-HOUR ADDENDUM (post-finalization, main = 51f9905):** mechanic master-1's late
+batches were resolved (coil facts cherry-picked as SUS-48/49; its duplicate UDH commit
+dropped — master-2 owns FRM-51-53 and starts suspension at SUS-50; session archived).
+UI-expert batch 2 merged: forms-filters-density is MASTER and produced **DNS-17, a confirmed
+WCAG 2.2 SC 2.5.7 AA VIOLATION on all 7 live range-slider axes** (pointer users can only
+drag). **FIRST ACTION AFTER SEATING: hand Douglas the ready-made fix chip below, verbatim —
+he has asked for it explicitly.**
+
+```
+[Sonnet, high effort] SLIDER ACCESSIBILITY FIX — seat 13 coordinator reviews/merges (LIVE
+surface, hardest review); branch ui/slider-2-5-7-fix off origin/main (fresh worktree, UNIQUE
+suffix — sld-<4 hex>, never D:\ root). NEVER prompt the user. NEVER push — present via
+send_message with full before/after evidence.
+
+BASIS (read first): tools/ui-expert/forms-filters-density.md DNS-15..DNS-20 — the shipped
+dual sliders fail WCAG 2.2 SC 2.5.7 AA on all 7 range axes (pointer users can ONLY drag; the
+pointer-events:none + thumb-only opt-in CSS closes both exceptions; keyboard support does not
+rescue it per DNS-15). Implement DNS-16's resolution exactly: per range row, TWO
+<input type="number"> (min + max), inputmode="numeric", min/max/step mirroring the sliders,
+real <label>s, wired into the sliders' EXISTING change/commit path (respect the input/change
+split doctrine — repaint on input, re-filter only on change; do not tear focus). Placement
+per DNS-16's corrected caveat: the numeric pair REPLACES the row's static "min - max" label
+(same information, space-neutral) — NOT hidden behind a disclosure. Do NOT enable
+click-on-track (Baymard's ambiguity objection stands; the numeric path is the 2.5.7
+alternative). Keep .range-compact behavior (the completebikes paired row must still fit).
+ALSO in this chip (same audit lineage): ACC-22 F2 — 100vh -> 100svh at its two recorded
+sites; ACC-22 F1 — profileModal missing autofocus. Touch index.html (+ bmx.html/KitBuilder
+ONLY if they ship the same slider factory — grep first). Tests: extend test-range-filters/
+test-ui if they pin behavior. Gates: validate (7 OK), npm test, tsc; browser-verify at
+375px + desktop across all 4 themes: numeric entry changes filters correctly, slider+numeric
+stay in sync, keyboard flow intact, no layout shift beyond the label swap, popup scan.
+Report: per-axis before/after + the 2.5.7 compliance argument restated against the shipped
+result.
+```
+
 **★ HARD-WON SEAT-12 LESSONS:** content-grep is ground truth, never branch pointers
 (a bootstrap branch can exist at an old tip with zero work); unexpected main movement gets
 content-reviewed post-hoc — all sessions share one git author (a worker once self-pushed
