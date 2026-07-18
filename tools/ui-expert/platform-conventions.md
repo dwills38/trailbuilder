@@ -1,6 +1,8 @@
 # Platform Conventions — iOS HIG vs Material vs web-native
 
-**Maturity: professional** (L1 complete + L2 web-native-first implementation patterns, round 3, 2026-07-18)
+**Maturity: master** (L1+L2 complete + L3 depth on desktop input conventions — capability media
+features, SC 1.4.13 and its `title` exemption, and a live hover/cursor audit yielding a reasoned
+no-action (PLT-11); round 4, 2026-07-18. PLT-2 remains honestly inference-grade — see PLT-14.)
 
 When to follow which convention set, for a web app used on both platforms. Read
 [`INDEX.md`](INDEX.md) first.
@@ -98,13 +100,96 @@ When to follow which convention set, for a web app used on both platforms. Read
   charter item; **recommend-to-coordinator if Douglas wants an installable app someday**, not
   something this corpus implements.*
 
+---
+
+## Desktop conventions: hover, pointer, cursor (round 4 / master, 2026-07-18)
+
+Closes this chapter's clearest standing Gap ("desktop-specific conventions … remain unfetched").
+
+- **PLT-9 — Input-capability media features: `hover` / `any-hover` / `pointer` / `any-pointer`.**
+  `hover` tests whether the **primary** input can conveniently hover (`hover` | `none`);
+  `pointer` describes the primary pointing device's accuracy (`fine` mouse/trackpad | `coarse`
+  touch | `none`). The `any-*` variants test whether *any* available input qualifies — which
+  matters on hybrid devices (a touchscreen laptop reports both). **The recommended pattern is
+  progressive enhancement, not detection-and-branch**: ship a baseline that works everywhere,
+  then use `@media (hover: hover)` to *add* hover affordances. The governing principle is
+  blunt — **never rely on hover for essential functionality**, because a touch user simply
+  cannot reach it. *Tier A, fetched
+  https://developer.mozilla.org/en-US/docs/Web/CSS/@media/hover 2026-07-18.*
+
+- **PLT-10 — SC 1.4.13 Content on Hover or Focus (AA) — and its `title` exemption.** Where
+  hover or focus reveals additional content, that content must be **dismissable** (without
+  moving pointer/focus), **hoverable** (the pointer can move onto it without it vanishing) and
+  **persistent** (it stays until dismissed, un-hovered, or invalidated). **Critical scoping
+  fact: native `title` tooltips are EXEMPT.** The criterion carves out content whose "visual
+  presentation … is controlled by the user agent and is not modified by the author," and the
+  Understanding page names browser tooltips from the HTML `title` attribute as the example.
+  *Tier A, fetched https://www.w3.org/WAI/WCAG22/Understanding/content-on-hover-or-focus.html
+  2026-07-18.* **Recorded specifically as a false-finding guard**: `index.html` carries **46**
+  `title=` attributes, and a future round scanning for 1.4.13 exposure would otherwise "find" 46
+  violations that are not violations. `title` has real *usability* weaknesses (PLT-12) — it just
+  isn't a 1.4.13 failure.
+
+### Live-DOM hover audit — another reasoned "no action needed"
+
+- **PLT-11 — ✅ The site has ZERO `@media (hover:…)` queries, and that is correct, because
+  nothing is hover-gated.** Audited all **36** `:hover` rules in `index.html`: **not one**
+  changes `display`, `visibility` or `opacity` — every rule is purely cosmetic (colour and
+  background state). No content, control or affordance is revealed by hover, so there is nothing
+  for a `hover: none` branch to rescue, and PLT-9's "never rely on hover for essential
+  functionality" is satisfied **by construction** rather than by capability-detection. Adding
+  `@media (hover: hover)` wrappers today would be ceremony with no behavioural difference.
+  *Standing condition on this recommendation:* it holds only while `:hover` stays cosmetic. **The
+  moment any rule reveals content on hover, PLT-9's branch and PLT-10's three conditions both
+  become live** — that is the trigger to re-open this, and it is cheap to re-check (grep `:hover`
+  for `display|visibility|opacity`).
+
+- **PLT-12 — The one genuinely hover-dependent channel is `title`, and it is already
+  backstopped.** The compat dot renders as
+  `role="img" aria-label="Compatibility: <reason>" title="<reason>"`. Screen-reader users get
+  the reason from `aria-label`; **mouse users** get it from the tooltip; **touch users get
+  neither**, since `title` never fires on touch. This was already found and mitigated by a prior
+  in-project phone audit (2026-07-14): the part-detail modal carries a `.pm-compat` line
+  showing the same reason, explicitly commented as "readable on TOUCH where the dot's hover
+  title never shows." **So the information is reachable on every input** — it just costs touch
+  users one extra interaction (open the part) versus a desktop hover. Recorded as an **accepted,
+  documented tradeoff, not a finding**: the alternative (always-visible reason text on every
+  card) collides head-on with DNS-6/DNS-8's density limits at 375 px. *Worth carrying into the
+  parked MOB-46 mobile-controls audit as a known asymmetry rather than re-deriving it there.*
+
+- **PLT-13 — Cursor semantics: consistent and conventional.** `index.html` uses exactly three
+  cursor values — `pointer` (18×, on clickable controls) and `grab`/`grabbing` (2× each, on the
+  range-slider thumbs, switching on `:active`). The grab/grabbing pair is the conventional
+  signal for a draggable object and correctly distinguishes "can be dragged" from "is being
+  dragged." No misuse found (no `pointer` on non-interactive text, no custom cursors).
+  **Cross-reference DNS-21:** now that the numeric fields provide the non-drag path, the `grab`
+  cursor honestly advertises drag as *one* way to operate the slider rather than the only one.
+  *Site audit; no single Tier-A source defines cursor semantics, so this is recorded as a
+  consistency check, not a sourced requirement.*
+
+- **PLT-14 — PLT-2 remains inference-grade; this round did not close it, and says so.** The Gap
+  asked for a real source for "when to override web-native with a platform convention."
+  PLT-9/PLT-10 sharpen the *mechanism* (capability queries, never user-agent sniffing) and
+  PLT-11 shows the doctrine working in practice, but **neither is a citable statement of the
+  decision rule itself**. This round's searching surfaced no Tier-A/B page stating it as a named
+  rule — the literature addresses specific conventions rather than the meta-question of
+  precedence. **Honest status: PLT-2 stays labelled inference.** Recording the *failed* search so
+  a future round doesn't repeat it: the likely unlock is an NN/g cross-platform/web-app piece
+  rather than a vendor HIG, since a vendor will never publish "prefer the web's convention over
+  ours."
+
 ## Gaps (next-round targets)
 
-- PLT-2 still needs a real source (it remains doctrine-grade inference) — none of this round's
-  fetches directly addressed "when to override web-native with a platform convention," though
-  PLT-1/PLT-5/PLT-6/PLT-7 all reinforce it by example rather than as a named citable rule.
-- Desktop-specific conventions (hover affordances, pointer `cursor` semantics, keyboard
-  shortcuts) remain unfetched — still the clearest next-round target for this chapter.
+- **PLT-2 still needs a real source** — round 4 tried and failed; see **PLT-14** for what was
+  searched and where the likely unlock is, so the effort isn't repeated blind.
+- ~~Desktop-specific conventions (hover affordances, pointer/`cursor` semantics)~~ → **CLOSED
+  round 4 by PLT-9–PLT-13.** *Keyboard shortcuts* were **not** covered: the site has ~10
+  `keydown`/key handlers but no documented shortcut scheme, and no source was fetched on
+  web-app shortcut conventions (discoverability, conflict with AT and browser bindings). That
+  remains open and is the narrower successor to this Gap.
+- **PLT-11's no-action recommendation is conditional** and must be re-checked whenever CSS
+  changes: it holds only while every `:hover` rule stays cosmetic. Cheap test — grep `:hover`
+  for `display|visibility|opacity`.
 - Material's own M3 pages remain unpinned (walled); if a future round needs an M3-specific
   fact (state layers, elevation), find the developer.android.com or research-blog carrier.
 - PLT-8 (PWA) is seeded but entirely dormant — revisit only if an installable-app ask surfaces.
