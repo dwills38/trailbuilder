@@ -1,16 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T13:11:00.454Z",
+ "updated": "2026-07-18T13:20:51.574Z",
  "batchSize": 25,
- "lastCompleted": "fr-trek-remedy-c",
+ "lastCompleted": "fr-rose-scrub-dc",
  "currentCategory": "frame",
  "queue": [
-  "fr-yt-capra-al",
-  "fr-kona-process-153-alloy-g3",
-  "fr-rockymountain-altitude-alloy",
-  "fr-propain-spindrift-al",
-  "fr-rose-scrub-dc",
   "fr-canyon-sender-cfr-hp",
   "fr-santacruz-hightower-4-c",
   "fr-scott-ransom-900-rc",
@@ -199,7 +194,6 @@
   "ti-veerubber-crowngem-275-28",
   "ti-bontrager-brevardpro-xr-275-25-dual",
   "ti-bontrager-brevardpro-xr-29-25-dual",
-  "ti-maxxis-ardentrace-29-22-exo",
   "ti-bontrager-sainteanne-proxr-29-24",
   "ti-bontrager-sainteanne-proxr-29-22",
   "fw-raceface-ar30-factor-29",
@@ -25610,11 +25604,11 @@
   },
   "fr-propain-spindrift-al": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-14T16:24:40.844Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:20:51.338Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "propain-bikes.com confirmed still WAF-403-blocked (documented Propain blocker). No new manufacturer data this session; existing carbon-sibling-shared interface data + sample price/weight stands."
   },
   "fr-trek-session-c-29": {
    "cat": "frame",
@@ -25674,27 +25668,27 @@
   },
   "fr-yt-capra-al": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.918Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:19:42.080Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Investigated a YT-hosted 'CAPRA-29-AL-TECHNICAL_INFORMATION_CUSTOMER_180118.pdf' exploded-drawing doc which states 92mm GXP Pressfit BB (contradicting this row's vitalmtb-sourced BSA73) - NOT applied: filename suggests a 2018-dated legacy doc, likely a pre-V4L generation (PF92 was common on older YT frames before the industry-wide press-fit-to-threaded shift), while the row's existing BSA73 came from a directly-fetched current-model vitalmtb spec guide. Left unchanged pending generation-dating confirmation; flagged for a future session. No manufacturer-direct fetch obtained for the current 2025 chassis this session (yt-industries.com tech-docs page did not yield a dated/current PDF)."
   },
   "fr-kona-process-153-alloy-g3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:20:50.875Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Searched for a Kona tech-doc PDF for this base alloy G3 trim (same pattern that verified the CR/DL carbon sibling) - none found this session (429 rate-limited on a direct product-page re-fetch, no PDF surfaced via search). Existing konaworld.com base-trim sourcing (price/BB/axle/seatpost maker-confirmed) stands, shock/rotor/fork-travel/headTube fields remain inherited-unconfirmed as already flagged in the row's own desc. No contradictions found."
   },
   "fr-rockymountain-altitude-alloy": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:20:51.107Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "bikes.com confirmed still JS-shell-blocked beyond headline fields (same documented Rocky Mountain wall). No new manufacturer data this session; existing carbon-sibling-inherited sample data stands, no contradictions found."
   },
   "fr-yeti-sb150": {
    "cat": "frame",
@@ -25714,11 +25708,11 @@
   },
   "fr-rose-scrub-dc": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:20:51.573Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Re-fetched rosebikes.pl's Frame Details PDF directly (52 pages, full text extracted via pdftotext) to check for a frame weight - none found beyond a max-system-weight rating (130kg rider+bike+gear), confirming the row's own prior note. Every interface field (BB/axle/brake-mount/seatpost/shock/travel/wheelConfig/UDH) is already manufacturer-PDF-confirmed and correct; weight remains the sole verification blocker (frames are not in the shock/wheel interface-only exception per VERIFY-PROTOCOL.md). No changes."
   },
   "fr-canyon-sender-cfr-hp": {
    "cat": "frame",
@@ -27785,14 +27779,6 @@
    "note": null
   },
   "ti-bontrager-brevardpro-xr-29-25-dual": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "ti-maxxis-ardentrace-29-22-exo": {
    "cat": "tire",
    "status": "Pending",
    "updated": "2026-07-17T14:04:42.919Z",
