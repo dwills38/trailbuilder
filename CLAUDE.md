@@ -5,7 +5,7 @@ Context for Claude Code working on this project. Read this before making changes
 
 ## What this is
 
-TrailBuilder is a "PCPartPicker for enduro mountain bikes": pick parts and it checks, in
+TrailBuilder is a parts-compatibility builder for enduro mountain bikes: pick parts and it checks, in
 real time, whether they fit together, plus running price and weight. It's an early
 prototype that runs entirely in the browser from a small built-in catalog.
 

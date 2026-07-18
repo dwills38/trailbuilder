@@ -18,7 +18,7 @@ cranks created exactly that way).
 
 ## 1. What one row is — the flat-SKU model
 
-**One row = one purchasable, fit-distinct configuration** (what PCPartPicker
+**One row = one purchasable, fit-distinct configuration** (what mature parts catalogs
 ships at full scale). Not one "model": the Maxxis Assegai is 25 SKUs on one
 page; a ZEB generation is up to 12 fit-distinct configs. Weight, price, and the
 provenance trio differ per SKU, so the SKU is the row.

@@ -116,7 +116,7 @@ on purpose. Rejected alternatives (opinion, grounded as noted):
   fields differ per SKU anyway, the shared "product shell" shrinks to ~5 fields while validate/tests/
   types/verify-job must all learn the expansion layer. Not worth it. If entry ergonomics demand it
   later, write a *generator script that emits flat rows* — tooling, not schema.
-- Flat rows are also what PCPartPicker demonstrably ships at full-market scale (one product page per
+- Flat rows are also what mature parts-catalog sites demonstrably ship at full-market scale (one product page per
   manufacturer part number; even colors are separate products). (fetched)
 
 ### The supporting kit (all schema-**optional** → zero forced retrofit of the 327 rows; **template-mandatory** for new rows)
@@ -416,7 +416,7 @@ them opportunistically. (All fetched examples.)
   frame.iscg captured now), **seatpost** (rigid — DH/budget; requires the slot to accept a category
   LIST `['dropper','seatpost']`, a small SLOTS/fills change), spring (rate/stroke-range; never rate
   recommendations), accessories tier (explicitly out for v1 — one generic price-only category later
-  if ever, per the PCPartPicker analog).
+  if ever, per the mature-parts-catalog analog).
 - **DH package** (gated on the discipline decision): `crown`, `stemMount`, `frontAxle:'20x110Boost'`,
   `steerer:'straight-1125'` + the rule-11 compat matrix + tests (rules 2-front/11 go from dead to
   live — REVIEW #15's tests ship in the same commit), `frameBb:'BSA83'/'PF107'`, `system:'sram-dh-7'`

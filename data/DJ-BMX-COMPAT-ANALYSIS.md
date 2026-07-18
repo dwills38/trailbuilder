@@ -13,7 +13,7 @@ diameter (the rule-13 twin), and the `dj` discipline chip joined the UI. **BMX s
 OFF-LIVE:** `src/compat-bmx.js` + `data/bmx.js` are loaded by nothing the site serves.
 
 **Scope:** two new bike types — **dirt-jump hardtails** and **BMX** — for a
-"PCPartPicker for bikes" fit-checker. Analyses the REAL mechanical compatibility
+parts-compatibility fit-checker. Analyses the REAL mechanical compatibility
 dimensions of each, maps them onto the existing 20-rule MTB engine (`src/compat.js`
 `checkBuild`), and recommends the engine architecture.
 

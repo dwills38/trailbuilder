@@ -24,7 +24,7 @@ Its companions:
 
 ## 1. What BuildMyMTB is, and the one contract that matters
 
-BuildMyMTB (repo name `trailbuilder`) is **"PCPartPicker for enduro mountain bikes"**: you pick
+BuildMyMTB (repo name `trailbuilder`) is a **parts-compatibility builder for enduro mountain bikes**: you pick
 parts and it checks, in real time, whether they fit together, plus a running price and weight
 total. It is a plain static browser app — `index.html` + `src/`, **no build step, no server** —
 that runs entirely from a small built-in catalog. It is live at **buildmymtb.com** (GitHub Pages)

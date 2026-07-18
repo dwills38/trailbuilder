@@ -234,7 +234,7 @@ latent risk / known limitation · `defect` = ships or will ship a wrong verdict.
   speed verdict; flagged for an engine decision"*), and three compatibility-token hacks paper over it
   (`ch-sram-pc-xx1` a physically-11-speed chain tagged `speeds:7`; the KMC X10/X9 tagged to microSHIFT
   speeds; the CUES CN-LG500 chain duplicated as a `speeds:9` sibling row). The rule is being *worked
-  around*, not satisfied — it is actively removing real, buyable parts from a "PCPartPicker for MTB."
+  around*, not satisfied — it is actively removing real, buyable parts from an MTB parts-compatibility builder.
 - **Evidence:** SRAM lists CS-XS-797 as a 7-speed DH cassette and the XX Transmission Flattop chain as
   compatible with it; a single Flattop chain family spans the 12 s and 7 s T-Type groups.
 - **Fix:** exclude the chain from the **speed**-equality set (compare speeds across

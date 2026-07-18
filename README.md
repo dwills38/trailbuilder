@@ -1,6 +1,6 @@
 # TrailBuilder
 
-A "PCPartPicker for enduro mountain bikes" — pick parts, and it checks in real time
+A parts-compatibility builder for enduro mountain bikes — pick parts, and it checks in real time
 whether they actually fit together. Early prototype.
 
 > **Sample data warning:** specs and prices in `src/compat.js` are illustrative sample data —

@@ -2070,3 +2070,29 @@ per wave/decision; large reconstructions are handed to a worker session.
   save credits — the whole walled backlog fits in one month's pool", and a standing warning that
   `bdata budget` cannot see the free pool so free-pool state must never be inferred from the CLI.
 - Workers notified to resume Bright Data on the free pool for walled targets.
+
+## 2026-07-18 — PCPartPicker references removed + security exposure audit (Douglas's ask)
+
+- **Scrub (Douglas 2026-07-18: "stop referencing PCPartPicker... no reference to it on the
+  website"):** the LIVE SITE was already clean — zero references in `index.html`, `bmx.html`,
+  `KitBuilder/`, `src/` or any deployed legal page (deploy.yml publishes only those). The
+  references lived in 10 TRACKED DOCS, which matter because **the repo is PUBLIC**
+  (dwills38/trailbuilder): README, CLAUDE.md, FOR-REVIEWERS, Getting-Started-Roadmap (×3),
+  DATA-MODEL-REVIEW (×2), ENGINE-CRITICAL-REVIEW, BUILDS-GALLERY-SCOPE, DATA-ENTRY-TEMPLATE,
+  DJ-BMX-COMPAT-ANALYSIS, ROAD-GRAVEL-COMPAT-ANALYSIS. All replaced with self-standing
+  descriptions ("a parts-compatibility builder for enduro mountain bikes"); meaning preserved in
+  every case, no historical claim altered — the phrase was always the project's own shorthand, never
+  a quotation from a source. Verified zero remaining matches for `pcpartpicker|pc part picker|pcpp`
+  across all tracked files. Gates: validate 7×OK / 757 tests / tsc clean.
+- **Security exposure audit — CLEAN, nothing to remediate.** Checked: (1) no business/PII doc is
+  tracked (LLC/affiliate/manufacturer/outreach/_PDFs/clearance files all correctly held by
+  `.git/info/exclude`, which applies across every worktree and branch); (2) **full git history**
+  scanned with `--diff-filter=A` for ever-committed sensitive filenames — only hits were
+  `MANUFACTURER-BIAS-AUDIT-2026-07-12.md` (a technical audit, intentional) and
+  `affiliate-disclosure.html` (an intentional public legal page); no `.env`, `.pem`, `.key`, or
+  credential file has EVER been committed; (3) no secrets in tracked content — every `service_role`
+  hit is documentation warning against using it, and the only committed Supabase values are the
+  publishable URL + anon key, which are safe by design because every row is owner-scoped by RLS;
+  (4) PII string sweep clean (apparent SSN-shaped hits were part numbers like `CS-LG300-10-1148`).
+- Standing note for future seats: the repo being PUBLIC means tracked docs are as visible as the
+  site itself — treat "is it on the website?" and "is it in the repo?" as two separate questions.

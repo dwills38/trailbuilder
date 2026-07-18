@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-14 · **Status:** SCOPE ONLY — no code written. · **Origin:** the 2026-07-14
 competitive-landscape audit named "completed-builds gallery with one-click share" as
-BuildMyMTB's #1 opportunity (Effort L, Fit HIGH): PCPartPicker's proven habit-loop + SEO
+BuildMyMTB's #1 opportunity (Effort L, Fit HIGH): the proven build-gallery habit-loop + SEO
 engine, and our biggest current feature gap. Douglas said "scope it."
 
 This document is decision-ready: recommendations are stated with reasons, and §8 lists the

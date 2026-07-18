@@ -5,7 +5,7 @@ built or wired to the live app; the road/gravel lines stay OFF-LIVE until his go
 (CLAUDE.md hard rule 3; the site may later split per type — BuildMyRoadBike /
 BuildMyGravelBike). This doc is the direct analogue of `data/DJ-BMX-COMPAT-ANALYSIS.md`.
 
-**Scope:** two new drop-bar bike types — **road** and **gravel** — for a "PCPartPicker for
+**Scope:** two new drop-bar bike types — **road** and **gravel** — for a parts-compatibility builder for
 bikes" fit-checker. It (1) enumerates the REAL mechanical compatibility rules of drop-bar
 disc bikes, backed by manufacturer/authoritative docs, (2) leans a severity per rule and
 flags fuzzy thresholds **[MECHANIC REVIEW]**, and (3) recommends the engine architecture,

@@ -1,6 +1,6 @@
 # TrailBuilder — Getting-Started Roadmap
 
-A plan for turning "PCPartPicker, but for enduro mountain bikes" into a live site, written for someone who is comfortable with light scripting but not full-stack development.
+A plan for turning a parts-compatibility builder for enduro mountain bikes into a live site, written for someone who is comfortable with light scripting but not full-stack development.
 
 ## What you have right now
 
@@ -10,7 +10,7 @@ This prototype exists to make the idea concrete and to prove out the one feature
 
 ## The honest reality of the scope you picked
 
-You chose all four features (compatibility checker, catalog with filters, price comparison, save & share) and "go live for others." That's the full PCPartPicker feature set, which is a real software product, not a weekend project. The good news is that it splits cleanly into an easy half and a hard half:
+You chose all four features (compatibility checker, catalog with filters, price comparison, save & share) and "go live for others." That's the full parts-builder feature set, which is a real software product, not a weekend project. The good news is that it splits cleanly into an easy half and a hard half:
 
 **The easy half** — catalog, filters, and the compatibility checker — needs no server. It's data plus logic, exactly what the prototype already is. You can host it for free and it will work for everyone.
 
@@ -28,7 +28,7 @@ The roadmap below front-loads the easy, high-value half so you have something re
 
 **Phase 3 — Prices.** Covered in its own section below — it's the messiest part and worth doing last.
 
-**Phase 4 — Community and growth.** User-submitted parts (with moderation), reviews, "builds other people made," compatibility-rule corrections from experts. This is what made PCPartPicker durable, but it only matters once you have visitors.
+**Phase 4 — Community and growth.** User-submitted parts (with moderation), reviews, "builds other people made," compatibility-rule corrections from experts. This is what makes such sites durable, but it only matters once you have visitors.
 
 ## The data question (you picked "scrape retailer sites")
 
