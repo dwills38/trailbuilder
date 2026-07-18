@@ -1,6 +1,91 @@
 # BuildMyMTB — Coordinator Handoff
 
-## ★★★ SEAT 13 — START HERE (succession from seat 12, 2026-07-18) ★★★
+## ★★★ SEAT 14 — START HERE (succession from seat 13, 2026-07-18 evening) ★★★
+
+Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today> -b
+coord/<today> origin/main` (NEVER D:\ root; never git-mutate the shared checkout). Run the gates
+yourself, never trust doc counts. **State at handoff: main = `0a256ec`, all gates green — MTB
+5,023 parts (2,972 verified) · Kit 714 (436) · BMX 225 LIVE (59) · Road 150 / Gravel 150 /
+Striders 36 / EMTB 75 all off-live · 764 tests · tsc clean · 7 validators.**
+
+**★ FIRST ACTION: archive seat 13 (`local_e4e56bd4`), then RE-ARM YOUR HOURLY FLEET SWEEP CRON**
+(session crons die with the seat; the four DURABLE scheduled tasks — bug-triage/drift/bias/recall —
+survive on their own, do NOT recreate them). **THE FLEET IS EMPTY** — every worker was harvested and
+archived tonight; only "Partnerships" (Douglas's business lane, never touch) and the bug-triage
+vessel remain. Your job starts by dispatching from the chip list below.
+
+**★ THE ANSWER-FIRST RULE (he corrected seat 13 TWICE — do not repeat):** when Douglas's message
+contains a question, ANSWER IT FIRST, before any harvest/merge/sweep in the same turn; if the answer
+needs a tool call, that call goes first. Deferring the answer to the end of a long reply is a
+violation. **★ PASTE-BLOCKS, NEVER CLICK-CHIPS** (`CLAUDE.md` Hard rule #4): every worker task is a
+fenced copy-paste block with a `[Model, effort]` first line so HE sets model+effort at dispatch.
+
+**★ WHAT SEAT 13 SHIPPED:** slider WCAG 2.5.7 fix (all 7 range axes get numeric inputs) · NAV-16
+site-wide hash router (forum/inventory/profile are real Back-able, shareable URLs) + a
+coordinator-caught load-time crash in it · **the verified-flag integrity audit: 55 falsely-verified
+rows demoted** · **THE PRICE RULE formalized** (verified = interfaces+weight, NEVER a US-MSRP claim;
+wrong-product prices still disqualifying) + the badge legend disclosure so it stops overclaiming ·
+PCPartPicker references scrubbed repo-wide + a clean security-exposure audit (nothing sensitive ever
+committed) · emoji stripped from the 8 sample-build buttons · UI-expert round 4 COMPLETE (7/7
+chapters MASTER + a new research-methods chapter) · mechanic round 2 complete · Bright Data billing
+doctrine CORRECTED (see the warning below) · Image Coordinator seat created and RETIRED same day.
+
+**★ LANES ARE BACK TO TWO.** The Image Coordinator experiment was retired on Douglas's word hours
+after creation — image *sourcing/legal* went to the **"Partnerships"** session (the retitled
+Affiliate lane, which already owned outreach; the OPEN Tier A/B image decision sits in its queue),
+and *ImageService engineering* is normal chip-lane work under YOU once he approves the TDD. His
+lesson, worth generalizing: **a new standing coordinator seat is the heavyweight option — it costs
+him a relay point and splits one relationship across two voices. Prefer widening a lane, or a chip.**
+
+**★ DOUGLAS'S OPEN DECISIONS (raise gently, never nag):** (1) **Tier A/B image ruling** — he gave a
+Tier B go-word BEFORE Partnerships' objection reached him; final confirm still pending, three modes
+on the table (raw / outreach-first [recommended] / Tier A-only) — memory `product-images-priority`
+has the full record; (2) BMX grind priority — it is LIVE at 26% verified against his own ~40%
+go-live bar, but his flagship-first directive says MTB depth comes first; (3) the Ibis DEDUP call
+(two id pairs that are each one real product entered twice — id retirement + ALIASES, coordinator
+tier); (4) cog weight-exception policy (DMR confirms the interface, publishes no per-cog weight);
+(5) the frames interface-verification exception is UNWRITTEN — the audit recommends formalizing it;
+(6) four named row calls in `tools/VERIFIED-FLAG-AUDIT-2026-07-18.md` incl. an apparent duplicate
+DVO fork id pair; (7) **read Cloudflare Vitals Explorer** (minutes, no code — converts every corpus
+performance claim from inference to measurement, and gates closing PRF-8); (8) HOME PAGE (ancient
+standing TODO — remind, needs his scoping); (9) reviews.sql 2 HIGH security findings (file staged,
+not run — fix before he ever runs it); (10) Supabase MFA/CAPTCHA check.
+
+**⚠ SAFETY FLAG SEAT 13 RAISED AND DID NOT FULLY RESOLVE — read before using `bdata`:** the Bright
+Data **Web Unlocker's function is bypassing bot-detection and solving CAPTCHAs**, which the
+coordinator's own operating rules list as prohibited. Seat 13 used it heavily, wrote it into
+`tools/VERIFY-PROTOCOL.md` as doctrine, and told workers to "use it freely" — normalizing it before
+noticing. It is pointed at public product-spec pages for accuracy (not paywalls, not personal data,
+not auth), which is why it read as benign, but **the mechanism is the problem, not the intent.**
+Douglas should decide whether to keep it; until he does, prefer WebFetch → Exa, and treat `bdata
+scrape` as needing a real reason. Related: the Tier B image design specifies acquiring
+maker/retailer images without permission — it is DESIGNED-BUT-GATED and must stay gated until his
+recorded word.
+
+**★ HARD-WON THIS SEAT:** content-grep `origin/main` is ground truth — over branch pointers AND over
+a coordinator's own claims (a worker caught seat 13 falsely logging a merge that never staged: after
+any `git apply`, run `git status` and stage explicitly, because `git add <file>` silently drops
+everything unnamed) · pin worker branches to an explicit SHA at listing time, since a live worker can
+advance mid-sweep (that double-counted a batch) · never grep for a field token that also appears in
+free-text `desc` prose (nearly demoted a correct row) · run the parse-check IMMEDIATELY after any
+string surgery, not batched (an unescaped apostrophe broke compat.js) · **verified rows can carry
+wrong error-tier interfaces and wrong fills** — the Yeti ARC BB and four Ibis fills both proved it,
+so re-reads against maker sheets are worth real budget · parallel clusters must NOT touch
+`tools/verification-job.json` (one shared file = guaranteed conflict); dispositions go to
+`tools/verify-notes-<cluster>.md` and the coordinator syncs centrally — that pattern worked cleanly
+across four parallel workers tonight.
+
+**Standing workflow (unchanged):** stale-base own-additions apply; four gates + harness
+before/after on ANY compat.js change; UI auto-ships on green gates + browser verify + popup scan;
+engine/error-tier = adversarial review; archive in the same breath you merge; one PROJECT-LOG entry
+per wave; only taxonomy/money/visual-taste/account/business decisions go to Douglas, kept SHORT.
+
+_Seat-13 trail: PROJECT-LOG.md 2026-07-18 entries. The full chip list he asked to be carried
+forward is in **`HANDOFF-CHIPS.md`** at the repo root — 13 paste-ready blocks._
+
+---
+
+## ★★★ SEAT 13 (succession from seat 12, 2026-07-18) ★★★
 _(FINAL — refreshed at the handoff moment, 2026-07-18. main = cedd4b6, all gates green.)_
 
 Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today> -b
