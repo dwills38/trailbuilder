@@ -1,5 +1,18 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — shared-checkout orphan diff: attribution corrected, salvage routed to cleanup ledger
+
+- The +32-line uncommitted diff found in the shared D:\ checkout was NOT cb-sheets-4's work
+  (coordinator mis-attribution, worker exonerated — its own conduct was spotless, worktree-only).
+  Self-labeled as the dead 2026-07-15 `catalog/cb-grind4-canyon-commencal-yt-propain` session's
+  unlanded work. cb-sheets-4 rescued it to `cb4-salvage.patch` (root, untracked) and restored
+  the shared checkout to clean. Contents: cb-canyon-stoic-4 + 3 supporting part rows (DT Swiss
+  LN370 pair + Canyon Iridium dropper). **Triage: cb-canyon-stoic-4 ALREADY EXISTS on main with
+  different fills** (landed via grind4-salvage) — the patch is an alternate build sheet, not
+  missing work. Routed to the data-model cleanup pass ledger as item 6: compare the two Stoic 4
+  build sheets against canyon.com, keep whichever matches the factory sheet, land the 3 part
+  rows only if the factory sheet needs them. Not applied to main.
+
 ## 2026-07-18 — fanout saddle-grips mini-batch merged: 3,005 verified — 59.8%
 
 - Overnight watch tick harvested an 8-row saddle/grips promotion cluster (Spank/ESI/PNW/ODI/
