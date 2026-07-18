@@ -1,21 +1,16 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T13:20:51.574Z",
+ "updated": "2026-07-18T13:25:46.570Z",
  "batchSize": 25,
- "lastCompleted": "fr-rose-scrub-dc",
+ "lastCompleted": "fr-rockymountain-instinct-alloy",
  "currentCategory": "frame",
  "queue": [
   "fr-canyon-sender-cfr-hp",
   "fr-santacruz-hightower-4-c",
-  "fr-scott-ransom-900-rc",
-  "fr-orange-switch-6",
-  "fr-commencal-clash-v3",
   "fr-giant-trance-x-advanced-sx",
   "fr-transition-smuggler-alloy",
   "fr-rockymountain-slayer-alloy",
-  "fr-rockymountain-instinct",
-  "fr-rockymountain-instinct-alloy",
   "fr-devinci-spartan-carbon",
   "fr-devinci-django-carbon",
   "fr-devinci-troy-carbon",
@@ -5133,11 +5128,11 @@
   },
   "fr-commencal-clash-v3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-08T20:23:31.753Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:22:09.895Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Formalizing this session (verify/campaign-2): the row's own desc already concludes 'Disposition Skipped stands (weight bar unmeetable)' from a prior re-confirm pass, but the job state was never updated to Skipped - it kept resurfacing as Pending. No new fetch needed; interfaces already maker-confirmed, only frame weight is unpublished."
   },
   "fr-commencal-meta-tr-v4": {
    "cat": "frame",
@@ -16692,27 +16687,27 @@
   },
   "fr-scott-ransom-900-rc": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:22:09.424Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Formalizing this session (verify/campaign-2): the row's own desc already concludes 'Disposition Skipped stands (weight bar unmeetable)' from a prior re-confirm pass, but the job state was never updated to Skipped - it kept resurfacing as Pending. No new fetch needed; interfaces already maker-confirmed, only frame weight is unpublished."
   },
   "fr-orange-switch-6": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:22:09.658Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Formalizing this session (verify/campaign-2): the row's own desc already concludes 'Disposition Skipped stands (weight bar unmeetable)' from a prior re-confirm pass, but the job state was never updated to Skipped - it kept resurfacing as Pending. No new fetch needed; interfaces already maker-confirmed, only frame weight is unpublished."
   },
   "fr-rockymountain-instinct": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-18T13:25:46.270Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://resources.bikes.com/en/bikes/instinct/2021",
+   "note": "Formalizing this session (verify/campaign-2): the row's own desc already concludes 'Disposition Skipped stands (weight bar unmeetable)' from a prior re-confirm pass, but the job state was never updated to Skipped - it kept resurfacing as Pending. No new fetch needed; interfaces already maker-confirmed, only frame weight is unpublished."
   },
   "fr-frameworks-dh-frame": {
    "cat": "frame",
@@ -25644,11 +25639,11 @@
   },
   "fr-rockymountain-instinct-alloy": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-14T16:24:40.844Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:25:46.569Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight mislabeling corrected (3140->3640 sample) - see the carbon sibling's now-verified desc for the full explanation. No standalone alloy-specific frame weight exists on resources.bikes.com/en/bikes/instinct/2021; interfaces remain inherited-unconfirmed for this specific trim (page doesn't split interfaces by material). Bar not met for verified:true."
   },
   "fr-devinci-troy-carbon": {
    "cat": "frame",
