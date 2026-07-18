@@ -41,7 +41,8 @@ A part may be marked `verified:true` in `src/compat.js` ONLY when **all** hold:
    weights are hose/config-dependent — note the quoted config in `desc`
    (weight-basis conventions live in DATA-ENTRY-TEMPLATE.md §5, e.g. coil
    shocks weigh in WITHOUT spring; `soldWithout` records what's excluded).
-3. You set the catalog fields **to match the source** (price = US MSRP in USD,
+3. You set the catalog fields **to match the source** (price = US MSRP in USD —
+   but see the PRICE RULE immediately below, it does NOT block verification),
    weight, and every interface field), using the vocabularies in
    `src/schema.js` — plus the capture-opportunistically fields the page shows
    anyway (`family`/`gen`/`mfgPn`, frame `maxTire`/`sizes`, `status` if
@@ -53,6 +54,35 @@ A part may be marked `verified:true` in `src/compat.js` ONLY when **all** hold:
    serving the next generation's page):** when practical, save the page to
    the Wayback Machine (`https://web.archive.org/save/<url>`) and record the
    snapshot in `archiveUrl`. Optional, but do it for load-bearing sources.
+
+### ★ THE PRICE RULE — price NEVER blocks verification (FORMALIZED 2026-07-18, Douglas)
+
+**`verified:true` is a claim about INTERFACES and WEIGHT. It has never been, and is not, a claim
+that `price` is a maker-published US MSRP.**
+
+Established by the 2026-07-18 verified-flag integrity audit
+(`tools/VERIFIED-FLAG-AUDIT-2026-07-18.md`), which found **1,000+ verified rows carrying honestly
+disclosed sample/converted prices** under a self-citing precedent chain: SRAM publishes no MSRP at
+all, the entire Shimano handbook set is spec-only, and many European makers publish EUR/GBP RRP
+with no US price. Those rows are correct data honestly labeled — demoting four digits of rows over
+a field the badge was never claiming would have destroyed far more truth than it created.
+
+**The rule:**
+1. **A missing or non-US-MSRP price NEVER blocks `verified:true`**, provided interfaces and weight
+   meet their own bars.
+2. **The basis MUST be stated in `desc`** — e.g. "EUR 30.90 RRP converted to a $34 USD sample, no
+   US price published", "same-tier sample, no MSRP on the page". An undisclosed price basis is
+   still a defect; the honesty is what makes the row acceptable.
+3. **A price that belongs to a DIFFERENT PRODUCT is always disqualifying** (a complete bike's price
+   on a frame row — the `fr-devinci-troy-st` class). That is not a sample, it is a wrong value.
+4. **Never invent a number with no basis.** A blank beats a fabricated price.
+5. Where a real US MSRP exists on the fetched page, use it — this rule is a floor for the cases
+   where it doesn't exist, not a licence to skip looking.
+
+**User-facing consequence (shipped 2026-07-18):** the app's verified-badge legend now reads
+"✓ Verified = interfaces & weight checked vs manufacturer spec (price may be a sample)", so the
+badge no longer overclaims price to riders. Keep those two facts in sync — if this rule ever
+changes, the legend changes with it.
 
 ### Interface verification — categories whose makers publish no per-SKU weights
 

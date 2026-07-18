@@ -1,5 +1,34 @@
 # BuildMyMTB — Image Coordinator Handoff
 
+## ★★★ SEAT RETIRED 2026-07-18 (Douglas's word, same day it was created) ★★★
+
+**This lane no longer exists as a standing session.** Douglas: separating image work from
+affiliate work wasn't the mistake — making Image a *coordinator* was. Every meaningful image
+decision in the seat's short life was settled by affiliate-lane facts, with the Main Coordinator
+relaying between two seats that kept needing each other. Ownership moved along the natural seam:
+
+- **Image SOURCING / LEGAL** (manufacturer permission asks, license scope + provenance records,
+  affiliate image datafeeds, the Tier A/B posture and its open decision) → the **"Partnerships"
+  session** (the retitled Affiliate session), which already owned the outreach channel. The open
+  Tier decision — go-word given, final confirm pending, three modes on the table
+  (raw / outreach-first / Tier A-only) — transferred to its queue.
+- **ImageService ENGINEERING** (TDD → repo → milestones) → the **Main Coordinator's normal
+  chip lane** once Douglas approves the design. No standing seat.
+
+The seat's contributions, preserved: the mode-agnostic TDD brief (in Douglas's hands), the
+sequencing catch on the Tier go-word (it refused to treat a pre-objection go-word as final and
+put the delta back to Douglas — correct under §2's never-by-default charter), and the truthful
+state records in memory `product-images-priority.md`. Its held `img/2026-07-18` branch had zero
+commits ahead of main; nothing was lost.
+
+**Everything below is preserved as the program's reference brief** — §1 (architecture + review),
+§2 (the legal conflict, still the single most important section), §3 (Douglas's six-step process
+with its approval gate), and §5 (the TDD paste-block) all remain current facts for whoever works
+the program next; read "Image Coordinator" as "Partnerships (sourcing) / Main Coordinator
+(engineering)" throughout.
+
+---
+
 _Created 2026-07-18 by Main Coordinator seat 13, at Douglas's direction: the product-image
 program gets its OWN long-lived session so it doesn't compete for attention with catalog/engine/
 UI coordination. Read this end-to-end, then `CLAUDE.md`, then the memory topic files named below,

@@ -2376,3 +2376,36 @@ per wave/decision; large reconstructions are handed to a worker session.
   overclaims PRICE specifically; alternative = demoting four digits of rows. (2) formalize the
   frames interface-verification exception (unwritten today). (3) four named row calls incl. an
   apparent duplicate DVO fork id pair. verification-job.json untouched — next sync observes.
+
+## 2026-07-18 — PRICE POLICY formalized + Image Coordinator lane retired + campaign-3 wrapped
+
+- **PRICE RULE FORMALIZED (Douglas's ruling, `tools/VERIFY-PROTOCOL.md`):** `verified:true` is a
+  claim about INTERFACES and WEIGHT — never about `price` being a maker-published US MSRP. A
+  missing/non-US price no longer blocks verification, PROVIDED the basis is stated in `desc`.
+  Guardrails kept sharp: a price belonging to a DIFFERENT PRODUCT is still always disqualifying
+  (the `fr-devinci-troy-st` class the audit demoted), an undisclosed basis is still a defect, an
+  invented number is never acceptable, and a real US MSRP must still be used where the page has
+  one. This resolves the audit's headline finding — 1,000+ verified rows carry honestly-disclosed
+  sample/converted prices under a self-citing precedent chain (SRAM publishes no MSRP; the Shimano
+  handbook set is spec-only; EUR/GBP RRP conversions) — without demoting four digits of correct,
+  honestly-labeled rows.
+- **UI DISCLOSURE SHIPPED (index.html legend):** "✓ Verified = **interfaces & weight** checked vs
+  manufacturer spec; **price may be a sample**". The badge no longer overclaims price to riders —
+  the audit's "the badge materially overclaims on the price axis" finding, closed. Protocol and
+  legend are cross-referenced so they stay in sync. Browser-verified (legend renders, popup scan
+  clean, emoji-free buttons intact, 436 rows render); gates validate 7×OK / 764 tests / tsc clean.
+- **IMAGE COORDINATOR SEAT RETIRED (Douglas's word, same day created).** His reasoning: separating
+  image from affiliate work wasn't the mistake — making Image a *coordinator* was; every meaningful
+  image decision was settled by affiliate-lane facts, with the Main Coordinator relaying between two
+  seats that kept needing each other, and one voice to manufacturers matters. Split along the
+  natural seam: **sourcing/legal → the "Partnerships" session** (Affiliate, retitled — it already
+  owned outreach; the open Tier A/B decision with its three modes transferred to its queue);
+  **ImageService engineering → the Main Coordinator's normal chip lane** once the design is
+  approved. `IMAGE-COORDINATOR-HANDOFF.md` amended with a retirement header; everything below it
+  preserved as the program's reference brief (§2's legal conflict remains the key section). The
+  seat's held `img/2026-07-18` branch had zero commits ahead — nothing lost. Both sessions notified;
+  Image archived.
+- **Verification campaign 3 WRAPPED and archived** — fully harvested: 9 batches + the Bright Data
+  retry round, 101 queue items (1,751→1,650), 3 promotions each with a coordinator-confirmed spec
+  correction, the frameset-sibling heuristic that became standing doctrine, and the
+  `fr-devinci-troy-st` flag that triggered the 55-row verified-flag audit. Worktree/branch pruned.
