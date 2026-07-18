@@ -280,17 +280,22 @@ function checkBmxBuild(build){
         ('none') frame/fork is brakeless-only as built. The brakeless INFO
         marks a bossless frame with no brake picked as by-design (never a
         completeness nag — decision 3). */
+  /* mount-type wording: 'u-brake'/'v-brake' bolt to frame/fork BOSSES, but
+     'disc' is a rotor + caliper post/flat MOUNT, not a boss - saying "disc
+     bosses" is inaccurate (message-polish fix, 2026-07-17 preflight audit). */
+  /** @param {string} m @returns {string} */
+  function mountPhrase(m){ return m === 'disc' ? 'a disc mount' : m + ' bosses'; }
   if(rBrake && frame && frame.rearBrakeMount && rBrake.mount !== frame.rearBrakeMount){
     if(frame.rearBrakeMount === 'none')
       err('bmx-rear-brake-mount', ['rearBrake', 'frame'], 'Brakeless-only frame: ' + bmxNameOf(frame) + ' has no rear brake bosses - the ' + bmxNameOf(rBrake) + ' has nowhere to mount.');
     else
-      err('bmx-rear-brake-mount', ['rearBrake', 'frame'], 'Rear brake mismatch: ' + bmxNameOf(rBrake) + ' is a ' + rBrake.mount + ' and ' + bmxNameOf(frame) + ' has ' + frame.rearBrakeMount + ' bosses.');
+      err('bmx-rear-brake-mount', ['rearBrake', 'frame'], 'Rear brake mismatch: ' + bmxNameOf(rBrake) + ' is a ' + rBrake.mount + ' and ' + bmxNameOf(frame) + ' has ' + mountPhrase(frame.rearBrakeMount) + '.');
   }
   if(fBrake && fork && fork.brakeMount && fBrake.mount !== fork.brakeMount){
     if(fork.brakeMount === 'none')
       err('bmx-front-brake-mount', ['frontBrake', 'fork'], 'Brakeless fork: ' + bmxNameOf(fork) + ' has no brake bosses - the ' + bmxNameOf(fBrake) + ' has nowhere to mount.');
     else
-      err('bmx-front-brake-mount', ['frontBrake', 'fork'], 'Front brake mismatch: ' + bmxNameOf(fBrake) + ' is a ' + fBrake.mount + ' and ' + bmxNameOf(fork) + ' has ' + fork.brakeMount + ' bosses.');
+      err('bmx-front-brake-mount', ['frontBrake', 'fork'], 'Front brake mismatch: ' + bmxNameOf(fBrake) + ' is a ' + fBrake.mount + ' and ' + bmxNameOf(fork) + ' has ' + mountPhrase(fork.brakeMount) + '.');
   }
   if(!rBrake && frame && frame.rearBrakeMount === 'none')
     info('bmx-brakeless', ['frame'], 'Brakeless by design: ' + bmxNameOf(frame) + ' ships with no rear brake bosses - a brakeless build is this frame\'s intended, complete configuration.');
