@@ -178,3 +178,10 @@ The seed is a *floor*, not a ceiling: the ui-expert agent appends every newly ve
 - Untested still (L2–L4 targets): Chrome for Developers case studies, Inclusive Components
   (inclusive-components.design), the WAI-ARIA APG's own accessible-name guidance page (ACC-8's
   remaining gap).
+- **Round 3 (2026-07-18) additions**: `uxmatters.com` and `interactions.acm.org` fetch cleanly
+  via WebFetch (used to pin Hoober's primary hold/grip study directly — MOB-17). The HIG
+  **Gestures** page (`.../human-interface-guidelines/gestures`) stays walled for both plain
+  fetch (`web_fetch_exa` → "An unknown error occurred") and exa-search-highlight (returned
+  title-only, no body text, unlike the Buttons page that seeded MOB-1) — pinned via the
+  Tier-D mirror route instead (see MOB-15). `w3.org/WAI/WCAG22/Understanding/*.html` per-SC
+  pages fetch cleanly via plain WebFetch (used for the 2.5.x family).

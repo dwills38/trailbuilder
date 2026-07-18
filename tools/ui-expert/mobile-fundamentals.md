@@ -1,6 +1,6 @@
 # Mobile Fundamentals
 
-**Maturity: foundation** (L1 seed, 2026-07-18)
+**Maturity: professional** (L1 complete + L2 gesture/input-control patterns, round 3, 2026-07-18)
 
 Touch-target minimums, thumb-reach zones, gesture conventions, viewport/safe-area handling.
 Read [`INDEX.md`](INDEX.md) first for corpus rules and tiers.
@@ -73,11 +73,120 @@ Read [`INDEX.md`](INDEX.md) first for corpus rules and tiers.
   display orientation unless essential. *Tier A, fetched https://www.w3.org/TR/WCAG22/
   2026-07-18.*
 
+- **MOB-11** — WCAG 2.2 **SC 2.5.2 Pointer Cancellation, Level A**: for single-pointer
+  functionality, at least one of — no down-event action, abort/undo available, up-event
+  reverses the down-event, or down-event completion is essential (e.g. keyboard-key emulation).
+  Rationale: gives a cancellation window against accidental activation (motor/visual/cognitive
+  disabilities). *Tier A, fetched https://www.w3.org/WAI/WCAG22/Understanding/pointer-cancellation.html
+  2026-07-18. Completes the 2.5.x pointer family alongside MOB-3/MOB-9.*
+
+- **MOB-12** — WCAG 2.2 **SC 2.5.3 Label in Name, Level A**: for a UI component whose visible
+  label includes text, its accessible name must contain that visible text (capitalization/
+  punctuation differences OK). Failing this breaks voice-control users, who speak the visible
+  label to activate a control. *Tier A, fetched
+  https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html 2026-07-18. Direct constraint
+  on any icon-only control or dot whose visible text (if any) diverges from its `aria-label`.*
+
+- **MOB-13** — WCAG 2.2 **SC 2.5.4 Motion Actuation, Level A**: functionality triggered by
+  device motion (tilt/shake) must also be operable via a normal UI control, and motion-response
+  must be disableable, except where the motion IS the essential function or is relayed through
+  an accessibility-supported API. *Tier A, fetched
+  https://www.w3.org/WAI/WCAG22/Understanding/motion-actuation.html 2026-07-18. Currently
+  dormant — the site has no motion-triggered UI — but binding if one is ever added (e.g. a
+  shake-to-reset gimmick).*
+
+- **MOB-14** — WCAG 2.2 **SC 2.5.6 Concurrent Input Mechanisms, Level AAA**: content must not
+  restrict which platform input modality (touch, mouse, keyboard, stylus) a user employs,
+  except for essential/security/user-setting reasons. *Tier A, same fetch family,
+  https://www.w3.org/WAI/WCAG22/Understanding/concurrent-input-mechanisms.html 2026-07-18. AAA,
+  so guidance not a floor — but directly endorses the site's existing behavior of never
+  locking an interaction to touch-only or pointer-only.*
+
+- **MOB-15** — Apple HIG's own **standard-gesture taxonomy** (Gestures page): tap (activate/
+  select), drag (move an element), flick (fast scroll/pan), swipe (one-finger = back/reveal;
+  four-finger iPad = switch apps), double-tap (zoom in/out), pinch (zoom), touch-and-hold
+  (cursor placement in text / rearrange mode). Best practices: use standard gestures rather
+  than redefining them (except in immersive/game contexts); never block systemwide
+  screen-edge gestures; offer shortcut gestures as a *supplement* to a visible tappable action,
+  never as the only way to do something; give immediate feedback and indicate clearly when a
+  gesture is unavailable. *Route: developer.apple.com/design/human-interface-guidelines/gestures
+  is triple-walled per the INDEX fetchability map, and this round's exa-search-highlight
+  attempts on that exact URL returned only the page title (no body text) — the primary itself
+  is not currently indexed with body text. Content pinned via a **Tier-D mirror**
+  (apple-docs.everest.mt/docs/design/human-interface-guidelines/gestures/, which reproduces the
+  current multi-platform HIG structure verbatim) — same re-pin-before-relying posture as MOB-1's
+  visionOS note. Re-pin via search-highlight once the primary indexes with text.*
+
+- **MOB-16** — `env(safe-area-inset-*)` requires the viewport meta tag to carry
+  `viewport-fit=cover`; without it, iOS Safari never reports nonzero insets (the content is
+  already letterboxed behind the safe area, so there's nothing to inset around) — this is
+  **not stated by MDN's own env()/"Using environment variables" pages** (checked directly,
+  2026-07-18, absent), but is explicit and consistent across two independent Tier-C/D
+  practitioner sources (CSS-Tricks "The Notch and CSS", Ben Frain's iPhone X env()
+  writeup) describing the same iOS behavior from the `constant()`-to-`env()` transition.
+  *Tier C/D corroboration only — softens MOB-8's gap, doesn't resolve it to Tier A. If BuildMyMTB
+  ever adds `viewport-fit=cover`, budget for the letterboxing tradeoff it also brings (the
+  practitioner sources note this is why Safari added the safe-area insets in the first place).*
+
+- **MOB-17** — Hoober's **primary study**, fetched directly this round (uxmatters.com, the
+  author's own venue — not a carrier): 1,333 field observations (ending 2013-01-08) of people
+  using phones in the wild; of 780 people touching the screen, **one-handed 49%, cradled
+  (two hands, one thumb/finger touching) 36%, two-handed (both thumbs) 15%**. Matches the
+  Smashing-carried numbers in MOB-6 exactly — MOB-6's Tier-C-carrier gap is now backed by the
+  primary itself. A 2015 follow-up (interactions.acm.org, same author) adds: people
+  touch-accuracy is highest at screen center and degrades toward corners/edges (both speed and
+  confidence drop), and users constantly shift grip between the three modes as tasks change —
+  a static single-grip assumption is wrong by construction. *Tier B (practitioner-published
+  primary field research with a stated N and dates), fetched
+  https://www.uxmatters.com/mt/archives/2013/02/how-do-users-really-hold-mobile-devices.php and
+  https://interactions.acm.org/archive/view/may-june-2015/fingers-thumbs-and-people 2026-07-18.*
+
+- **MOB-18** — The web-native mechanism for MOB-9/gesture conflicts is the CSS `touch-action`
+  property: it tells the browser which touch gestures to handle itself (pan/zoom) versus
+  release to the page's own `pointer*` event handlers, and reduces input latency by letting the
+  browser skip its default gesture-disambiguation delay. Values: `auto` (default, browser
+  handles everything), `none`, `pan-x`/`pan-y` (single-axis panning only), `manipulation`
+  (pan + pinch-zoom, but suppresses double-tap-to-zoom — the standard choice for a custom
+  slider/carousel/draggable control). **Accessibility caveat**: `touch-action: none` can also
+  suppress the browser's own pinch-zoom, which is an accessibility regression for low-vision
+  users relying on page zoom — never blanket it, scope it to the exact draggable element. *Tier
+  A, fetched https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action 2026-07-18. Directly
+  actionable for the range sliders `forms-filters-density.md` covers (DNS-5's touch-drag
+  surface) and any future swipe-to-compare UI (MOB-9's gap).*
+
+- **MOB-19** — Two independent, complementary levers control which virtual keyboard a touch
+  device shows: the `<input type="...">` attribute (`number`, `tel`, `email`, `url`) changes
+  both the keyboard **and** the browser's built-in validation/behavior; the `inputmode`
+  attribute (`numeric`, `decimal`, `tel`, `email`, `url`, `search`, `none`) changes **only** the
+  on-screen keyboard shown, leaving the element's type/behavior/validation untouched — the
+  right choice when you want a text input's normal behavior but a numeric-friendly keyboard
+  (e.g. a free-text price field that should still allow "$1,200-1,500"). *Tier A, fetched
+  https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/inputmode and
+  https://web.dev/learn/forms/attributes 2026-07-18. Directly answers the former gap for the
+  price/weight filter inputs.*
+
+- **MOB-20** — Site synthesis (labelled inference from the Android gesture-navigation docs,
+  developer.android.com/develop/ui/views/touch-and-input/gestures/gesturenav, fetched 2026-07-18,
+  plus the well-known iOS edge-swipe-back convention): both major mobile platforms claim the
+  **screen's left/right edges** for a system back-navigation swipe that a web page cannot
+  intercept or opt out of (Android exposes `systemGestureExclusionRects` for native apps only —
+  no web equivalent). Any future custom swipe gesture (swipe-to-compare, swipe-to-dismiss a
+  card) must start its hit region **away from the physical screen edges**, or it will silently
+  lose the gesture race to the OS back-navigation every time. *Inference, composing two Tier-A/
+  platform-vendor facts; flagged as a design constraint, not yet a shipped-pattern check since
+  the site has no swipe gestures today.*
+
 ## Gaps (next-round targets)
 
-- Hoober's primary study (uxmatters articles) unfetched — MOB-6 rides on a Tier-C carrier.
-- visionOS/60 pt number rides on a forum quote (MOB-1 note).
-- `viewport-fit=cover` precondition for MOB-8 not established from a primary.
-- No gesture-convention inventory yet (what swipe/long-press mean per platform) — L2.
-- No sourced guidance on touch keyboards (input types, `inputmode`) — L2, matters for the
-  price/weight filters.
+- MOB-15's Apple HIG Gestures citation still rides on a Tier-D mirror (exa-search-highlight of
+  the real developer.apple.com URL returned title-only, no body text, this round) — retry
+  periodically in case Exa's index of that page changes.
+- MOB-16's `viewport-fit=cover` precondition is Tier-C/D corroborated, not Tier-A confirmed —
+  no primary (WebKit blog, Safari release notes) pinned yet.
+- Gesture-convention inventory is now seeded (MOB-15/18/20) but not exhaustively cross-referenced
+  against every shipped interactive element (dots, sliders, chip rows) — an L2/L3
+  pattern-by-pattern audit is future work, not yet a ⚠ CONTRADICTION hunt.
+- Android's native `GestureDetector`/predictive-back APIs (fetched this round) are largely
+  Kotlin/Java implementation detail with no direct web analogue beyond the touch-slop *concept*
+  (MOB-20 captures the actionable edge-swipe consequence; the API surface itself doesn't apply
+  to a no-build-step web app and isn't worth further citing here).
