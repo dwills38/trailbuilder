@@ -127,6 +127,7 @@ mockups (see the agent file), and keeps the corpus to what sources can carry.
 | [`navigation-ia.md`](navigation-ia.md) | multi-page nav (MTB/BMX/Kit) · hamburger vs visible actions · deep links · back behavior | hidden-nav discoverability cost × a growing page family; `#guide/<slug>`-style hash routes |
 | [`performance-perceived.md`](performance-perceived.md) | LCP/INP budgets · no-build-step constraints · font/paint behavior | Core Web Vitals × one giant inline script + a large in-memory catalog |
 | [`platform-conventions.md`](platform-conventions.md) | iOS HIG vs Material vs web-native; when to follow which | a web app on both platforms: web-native first, platform conventions where they're load-bearing |
+| [`research-methods.md`](research-methods.md) | **L4 — how to know instead of guess**: usability-test design, thinking-aloud, task scenarios, heuristic evaluation, method selection | the machinery for *un-parking* the corpus's taste/preference questions; A/B is unavailable on this stack, so qualitative rigour has to carry the load |
 
 ---
 
