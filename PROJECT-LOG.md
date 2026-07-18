@@ -2467,3 +2467,22 @@ per wave/decision; large reconstructions are handed to a worker session.
   where weak; plus the Tier-B self-defeat risk, the UNBIASED values check, and FTC disclosure
   sanity — with explicit PII guardrails since the business docs are gitignored and carry his real
   address). Fleet is EMPTY at handoff: every worker harvested and archived tonight.
+
+## 2026-07-18 (seat 14) — Seating; 11-worker wave dispatched; affiliate process review harvested
+
+- **Seat 14 seated:** seat 13 archived; hourly fleet-sweep cron re-armed; standing SUCCESSION RULE
+  added to the handoff top (auto rename/archive/unpin at every seat change — Douglas's word,
+  2026-07-18); project-wide session-messaging permissions allowed (`.claude/settings.json`) so the
+  worker↔coordinator loop runs with zero clicks.
+- **Wave dispatched (Douglas, from HANDOFF-CHIPS.md + 3 seat-14 additions):** 11 workers running —
+  re-promotion, wheels-2, complete-bikes-3, frameset-sibling, forks/cockpit/kit, BMX-1, modelYear,
+  UI-expert round 5, coach round 6, MOB-47, affiliate process review. Seat-14 additions offered:
+  reviews.sql hardening, IS-mount adapter-tier fix, green-dot disclosure.
+- **FIRST HARVEST — affiliate/partnership process adversarial review** (`audit/affiliate-process-1`
+  → main `465a179`, docs-only, gates green, PII-scanned clean incl. LLC-identity scan; accepted a
+  scoped `.gitignore` negation for the PII-free tools/ deliverable). Verdicts: legacy
+  outreach-emails.md DO-NOT-SEND (superseded branding, false buy-link claim); partnership kit
+  templates NEEDS-WORK with inline rewrites; signup-runbook answers strongest. CRITICAL-1: Tier B
+  unlicensed images and outreach are mutually exclusive as written. CRITICAL-2: "every listing
+  links to purchase channels" is false today (0 rows carry retailerLinks). 5 decisions queued for
+  Douglas (§6 of the review doc).
