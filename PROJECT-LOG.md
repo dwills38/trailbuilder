@@ -2440,3 +2440,30 @@ per wave/decision; large reconstructions are handed to a worker session.
   only an M6200 *shifter* exists in the catalog, so those rows document a substitution to M6100-tier
   siblings. Cluster session archived; the remaining ~400-row completebike set continues via the
   staged blocks.
+
+## 2026-07-18 — FETCH ETHICS RULING (Douglas) + seat 14 handoff
+
+- **Douglas ruled: "let's keep it ethical so as not to upset any partners."** We do NOT defeat
+  anti-bot protection, on any brand, for any spec. Background: seat 13 noticed mid-session that the
+  Bright Data Web Unlocker's *function* is bot-detection/CAPTCHA bypass — which the coordinator's
+  own operating rules prohibit — after having used it heavily and written "use it freely" into
+  `tools/VERIFY-PROTOCOL.md`. Raised to Douglas rather than quietly continuing or quietly stopping.
+- **The distinction that makes the ethical path cheap, and it is now doctrine:** rendering
+  JavaScript is NOT circumvention (it is being a browser); defeating a bot-wall IS. Most project
+  "walls" were only the former. **PROVEN: the plain browser pane rendered pivotcycles.com's full
+  build-tier pricing** ($8,999/$7,399/$6,699/$6,499 with tier names) on a page a worker had reported
+  as "JS-loaded and uncaptured even under `bdata scrape`" — the clean path OUTPERFORMED the unlocker.
+- **New fetch order (VERIFY-PROTOCOL FETCH ETHICS section):** WebFetch → Exa → **browser pane**
+  (`preview_start {url}` + `javascript_tool`) → `bdata search` for URL lookup only → **STOP**. An
+  active anti-bot challenge is a documented wall, not a task: Skip/Fail naming the wall, or enter
+  the row as honest unverified sample data per the relaxed-inclusion policy. `bdata scrape` RETIRED
+  from routine use; `bdata browser` remains off (also bills real money). The stale "Bright Data for
+  the hardest bot-walls" line in the Exa section was struck so the protocol no longer contradicts
+  itself. **Douglas asked to be TOLD if this ever becomes a genuine roadblock so he can revisit —
+  escalate as a decision, never route around it.**
+- **SEAT 14 HANDOFF WRITTEN** (`COORDINATOR-HANDOFF.md` top block) + **`HANDOFF-CHIPS.md`: 13
+  paste-ready worker blocks**, led by the affiliate/partnership process adversarial review Douglas
+  asked for (every email draft checked for claims true-today, overclaim, spam-read, and rewritten
+  where weak; plus the Tier-B self-defeat risk, the UNBIASED values check, and FTC disclosure
+  sanity — with explicit PII guardrails since the business docs are gitignored and carry his real
+  address). Fleet is EMPTY at handoff: every worker harvested and archived tonight.

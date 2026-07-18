@@ -193,41 +193,62 @@ The fetch-wall era is over for most targets. The `bdata` CLI (Bright Data,
 `@brightdata/cli`, authenticated, zones `cli_unlocker`/`cli_browser`) is available
 in bash:
 
-- `bdata scrape "<url>" -f markdown` — clean markdown from ANY page, CAPTCHA/JS
-  handled. SMOKE-TESTED THROUGH: specialized.com (full product pages render —
-  the 403 wall is dead) and **web.archive.org** (renders — unlocks archived
-  old-gen Fox/maker pages).
-- `bdata search "<query>" --json` — Google SERP as structured JSON (good for
-  finding exact product URLs before scraping).
+## ★★★ FETCH ETHICS — DOUGLAS'S RULING 2026-07-18. READ BEFORE ANY FETCH. ★★★
 
-USE IT FOR WALLED TARGETS ONLY — plain WebFetch remains first choice for pages
-that already fetch.
+**"Let's keep it ethical so as not to upset any partners."** — Douglas, 2026-07-18, on being
+shown that the Bright Data Web Unlocker's function is **bot-detection / CAPTCHA bypass**.
 
-### ★ BILLING — read before ANY bdata call (corrected 2026-07-18)
+**THE RULE: we do not defeat anti-bot protection. Ever, on any brand.** Not for a spec, not for a
+price, not to close a verification. This is a values decision AND a business one: the makers behind
+the hardest bot-walls are precisely the brands the Partnerships lane is preparing to ask for
+licensing and image rights. Being detected circumventing a brand's protection while asking to
+become their partner is self-defeating in exactly the way the Tier-B image analysis was.
 
-**Two separate pools. Confusing them wastes real money or needlessly blocks work.**
+### The distinction that makes this cheap to honor
 
-| Product | CLI command | Zone | Billing |
-|---|---|---|---|
-| **Web Unlocker** | `bdata scrape` | `cli_unlocker` | **FREE POOL** — 5,000 credits/month, 1 credit/request, renews monthly (next: 2026-08-01) |
-| **SERP** | `bdata search` | — | **FREE POOL** (same 5,000) |
-| **Browser API / proxies** | `bdata browser` | `cli_browser` | ❌ **NOT free-tier covered — bills real money** |
+**Rendering JavaScript is NOT circumvention. Defeating a bot-wall IS.** Most "walls" in this
+project were only the former:
 
-- **`bdata scrape` and `bdata search` are the default and are effectively free.**
-  Do NOT avoid them to "save credits" — that just leaves walled rows unverified.
-  At 5,000/month renewing, the whole remaining walled backlog fits inside one
-  month's free pool.
-- **`bdata browser` costs money — do not use it without explicit coordinator
-  approval.** Reach for it only when a page genuinely requires an interactive
-  browser session that `scrape` cannot render.
-- **`bdata budget` DOES NOT SHOW THE FREE POOL.** It reports only the paid
-  balance, so a low number there does NOT mean credits are exhausted — it
-  reports the paid/test balance only. **The free-credit count is visible ONLY
-  in the Bright Data dashboard.** A coordinator misread `balance: 1.39` as
-  total exhaustion on 2026-07-18 and told workers to stop using Bright Data
-  entirely; Douglas caught it from the dashboard (4,273 free credits remaining).
-  **Never infer free-pool state from the CLI.** If free-pool state matters,
-  ask Douglas to check the dashboard rather than guessing from `bdata budget`.
+| Wall type | Example | Allowed tool |
+|---|---|---|
+| **JS-rendered content** (specs load client-side) | Pivot, Trek, Giant, Ibis, Yeti, Michelin, Cannondale | ✅ **Browser pane** (`preview_start {url}` + `javascript_tool`) or Exa — a normal browser loading a public page, same as a rider |
+| **Anti-bot / CAPTCHA / 403 challenge** | specialized.com's 403, DataDome/Akamai class | ❌ **Do not circumvent.** Enter the row as honest unverified sample data |
+
+**PROVEN 2026-07-18:** the plain browser pane rendered pivotcycles.com's full build-tier pricing
+($8,999 / $7,399 / $6,699 / $6,499, tiers named) on a page a worker had reported as
+"JS-loaded and uncaptured even under `bdata scrape`." The clean path **outperformed** the unlocker.
+
+### Fetch order (use in this order, stop at the first that works)
+
+1. **WebFetch** — open pages. Always first.
+2. **Exa MCP** (`web_fetch_exa`) — JS-rendered pages; batches URLs.
+3. **Browser pane** — `preview_start {url:"…"}` then `javascript_tool` to read `document.body.innerText`.
+   Best for JS-heavy maker pages and Shopify `/collections/<model>` build-tier lists. Close the tab
+   when done.
+4. **`bdata search`** — SERP lookup to FIND a product URL. This is a search query, not
+   circumvention, and remains fine.
+5. **STOP.** If a page is behind an active anti-bot challenge, that is a **documented wall, not a
+   task**: mark the row `Skipped`/`Failed` with the wall named, or enter it as unverified sample
+   data per the relaxed-inclusion policy. Say so plainly in your report.
+
+**`bdata scrape` (Web Unlocker) is RETIRED from routine use** by this ruling. Do not use it to
+defeat a challenge. Do not add it back to a worker brief. **If the ethical path ever becomes a
+genuine roadblock — a whole category stalls and it materially hurts the catalog — Douglas asked to
+be told so he can revisit the call.** Escalate it to him as a decision, never route around it.
+`bdata browser` remains off entirely (it also bills real money).
+
+_(Historical: `bdata scrape` was smoke-tested through specialized.com and web.archive.org and was
+briefly written into this protocol as "use it freely." That guidance was wrong on the ethics and is
+superseded by the ruling above.)_
+
+### ★ BILLING (retained for reference — but see the FETCH ETHICS ruling above)
+
+`bdata search` (SERP lookup, still allowed) draws on a **FREE 5,000-credit/month pool** that renews
+monthly. `bdata browser` is NOT free-tier covered and bills real money — do not use it.
+**`bdata budget` CANNOT see the free pool** — it reports only the paid/test balance, so a low number
+there does NOT mean credits are exhausted (a coordinator misread `balance: 1.39` as exhaustion on
+2026-07-18 and wrongly told workers to stop; Douglas corrected it from the dashboard, which showed
+4,273 free credits). Never infer free-pool state from the CLI; ask Douglas to check the dashboard.
 
 Newly unlocked wall list to retarget: Specialized (403),
 Trek/Giant/Pivot/Yeti (JS-rendered), Fox Racing/Giro/Bell (Vista bot-wall),
@@ -245,7 +266,11 @@ trekbikes.com's JS-walled SPEC TABLES (full frameset/fork/drivetrain lists —
 independently confirming the Boost141 + Powerspline entries from Trek's own
 page). Doctrine: WebFetch first for open pages; Exa next for JS-rendered
 walls (Trek/Giant class — and its batch-fetch is efficient for many URLs);
-Bright Data (`bdata scrape`) for the hardest bot-walls (Specialized-403/
-DataDome/Akamai class) and archive.org. An Exa-fetched maker page meets THE
+then the BROWSER PANE for anything Exa can't render (`preview_start {url}` +
+`javascript_tool`). ~~Bright Data (`bdata scrape`) for the hardest bot-walls~~
+— **SUPERSEDED 2026-07-18 by the FETCH ETHICS ruling above: hard bot-walls
+(Specialized-403 / DataDome / Akamai class) are NOT to be defeated. They are
+documented walls — Skip/Fail with the wall named, or enter the row as honest
+unverified sample data.** An Exa- or browser-pane-fetched maker page meets THE
 BAR like any fetched maker page; search highlights alone still never count —
 follow up with the full fetch.

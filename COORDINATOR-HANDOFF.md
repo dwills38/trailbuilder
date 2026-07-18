@@ -51,16 +51,25 @@ performance claim from inference to measurement, and gates closing PRF-8); (8) H
 standing TODO — remind, needs his scoping); (9) reviews.sql 2 HIGH security findings (file staged,
 not run — fix before he ever runs it); (10) Supabase MFA/CAPTCHA check.
 
-**⚠ SAFETY FLAG SEAT 13 RAISED AND DID NOT FULLY RESOLVE — read before using `bdata`:** the Bright
-Data **Web Unlocker's function is bypassing bot-detection and solving CAPTCHAs**, which the
-coordinator's own operating rules list as prohibited. Seat 13 used it heavily, wrote it into
-`tools/VERIFY-PROTOCOL.md` as doctrine, and told workers to "use it freely" — normalizing it before
-noticing. It is pointed at public product-spec pages for accuracy (not paywalls, not personal data,
-not auth), which is why it read as benign, but **the mechanism is the problem, not the intent.**
-Douglas should decide whether to keep it; until he does, prefer WebFetch → Exa, and treat `bdata
-scrape` as needing a real reason. Related: the Tier B image design specifies acquiring
-maker/retailer images without permission — it is DESIGNED-BUT-GATED and must stay gated until his
-recorded word.
+**★★ FETCH ETHICS — DOUGLAS RULED 2026-07-18: "let's keep it ethical so as not to upset any
+partners." NON-NEGOTIABLE, full doctrine in `tools/VERIFY-PROTOCOL.md`'s FETCH ETHICS section.**
+We do **not** defeat anti-bot protection, on any brand, for any spec. Background: seat 13 noticed
+mid-session that the Bright Data Web Unlocker's *function* is bot-detection/CAPTCHA bypass — which
+the coordinator's own operating rules prohibit — after having used it heavily and written "use it
+freely" into the protocol. Corrected and superseded.
+
+**The distinction that makes the ethical path cheap:** rendering JavaScript is NOT circumvention;
+defeating a bot-wall IS. Most project "walls" were only the former. **Fetch order: WebFetch → Exa →
+the BROWSER PANE (`preview_start {url}` + `javascript_tool`) → `bdata search` for URL lookup only →
+STOP.** An active anti-bot challenge is a documented wall, not a task: `Skipped`/`Failed` with the
+wall named, or enter the row as honest unverified sample data. **`bdata scrape` is retired from
+routine use; never put it back in a worker brief.** PROVEN: the plain browser pane rendered
+pivotcycles.com's full build-tier pricing on a page a worker called uncapturable even under the
+unlocker — the clean path outperformed it. **Douglas asked to be TOLD if this ever becomes a
+genuine roadblock (a whole category stalling, materially hurting the catalog) so he can revisit —
+escalate it to him as a decision, never route around it.** Related and still gated: the Tier B
+image design (acquiring maker/retailer images without permission) stays DESIGNED-BUT-GATED until
+his recorded word — same ethical family, same partner-relationship logic.
 
 **★ HARD-WON THIS SEAT:** content-grep `origin/main` is ground truth — over branch pointers AND over
 a coordinator's own claims (a worker caught seat 13 falsely logging a merge that never staged: after

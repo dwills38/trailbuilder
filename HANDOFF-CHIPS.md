@@ -14,10 +14,15 @@ branch via send_message, because the coordinator's independent review IS the qua
 commit per brand/chapter · no e-bike content in the MTB catalog, ever · a blank beats an invented
 value; Skipped-with-a-reason is a real result.
 
-**Fetch doctrine for every block:** WebFetch first → Exa MCP for JS walls → `bdata scrape` ONLY
-with a real reason (see the safety flag in COORDINATOR-HANDOFF: the Web Unlocker's function is
-bot-detection/CAPTCHA bypass and Douglas has not ruled on keeping it). NEVER `bdata browser` (bills
-real money). `bdata budget` cannot see the free pool — never infer pool state from it.
+**Fetch doctrine for every block — DOUGLAS'S ETHICS RULING 2026-07-18:** WebFetch → Exa MCP →
+**the BROWSER PANE** (`preview_start {url:"…"}` + `javascript_tool` reading
+`document.body.innerText`; close the tab after) → `bdata search` for URL lookup only. **We do NOT
+defeat anti-bot protection on any brand** — rendering JavaScript is fine (it's just being a
+browser), defeating a bot-wall is not. An active challenge/403 is a DOCUMENTED WALL, not a task:
+mark it Skipped/Failed naming the wall, or enter the row as honest unverified sample data.
+**`bdata scrape` is retired — never put it in a brief.** Full doctrine: the FETCH ETHICS section of
+`tools/VERIFY-PROTOCOL.md`. If the ethical path stalls a whole category, escalate to Douglas as a
+decision — he asked to be told so he can revisit.
 
 **Two watch-classes to repeat in any catalog block:** WRONG-SKU (a complete-bike page silently
 supplying frame-only fields — cost us the Canfield error) and FRAMESET-SIBLING (makers publish
