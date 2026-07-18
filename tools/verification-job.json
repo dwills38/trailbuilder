@@ -1,17 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T13:43:44.237Z",
+ "updated": "2026-07-18T14:35:38.357Z",
  "batchSize": 25,
- "lastCompleted": "fr-bird-aeris-9",
+ "lastCompleted": "fr-pivot-switchblade-v2",
  "currentCategory": "frame",
  "queue": [
-  "fr-stanton-slackline-gen3",
-  "fr-stanton-switchback-genv",
-  "fr-norco-fluid-fs-a",
-  "fr-cannondale-jekyll",
-  "fr-cannondale-habit-ht",
-  "fr-pivot-switchblade-v2",
   "fr-orbea-occam-sl",
   "fr-knolly-warden-170",
   "fr-knolly-fugitive-138",
@@ -6368,19 +6362,19 @@
   },
   "fr-cannondale-jekyll": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T14:35:38.120Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "cannondale.com bike pages JS-walled; interfaces cross-corroborated via cannondalespares.com + vitalmtb, brakeMount PM is an inference not a direct maker statement. No frame-only weight published. Bar not met."
   },
   "fr-pivot-switchblade-v2": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T14:35:38.356Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Pivot's own pages JS-walled/403 (documented blocker); interfaces cross-corroborated via vitalmtb+bikeperfect+rearshockfactory, all agreeing. No frame-only weight published (price already a documented estimate, corrected once). Bar not met."
   },
   "fr-orbea-occam-lt": {
    "cat": "frame",
@@ -25975,19 +25969,19 @@
   },
   "fr-stanton-slackline-gen3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T14:35:37.768Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Direct stantonbikes.com fetch confirms most interfaces; bb/brakeMount are same-brand-family inferences (flagged), no frame weight published anywhere. Bar not met."
   },
   "fr-stanton-switchback-genv": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T14:35:37.886Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Direct stantonbikes.com fetch confirms interfaces including headset S.H.I.S. codes; no frame weight published. Bar not met."
   },
   "fr-pipedream-sirius-s5": {
    "cat": "frame",
@@ -26007,19 +26001,19 @@
   },
   "fr-norco-fluid-fs-a": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T14:35:38.006Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "norco.com JS-walled (documented blocker); interfaces from vitalmtb.com build sheet, already corrected once (rotor 160->180). No frame-only weight/price published (sold as completes only). Bar not met."
   },
   "fr-cannondale-habit-ht": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T14:35:38.237Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same Cannondale JS-wall; interfaces via vitalmtb spec guide, brakeMount PM inferred not maker-stated, maxForkTravel conservatively set to stock (no rated max published). No frame weight/price published. Bar not met."
   },
   "fr-orbea-occam-sl": {
    "cat": "frame",
