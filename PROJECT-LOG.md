@@ -1,5 +1,11 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-18 — fanout saddle-grips mini-batch merged: 3,005 verified — 59.8%
+
+- Overnight watch tick harvested an 8-row saddle/grips promotion cluster (Spank/ESI/PNW/ODI/
+  Wolf Tooth/Ergon). ESI Chunky spot-checked live (60g/$20.99 exact). Harness byte-identical,
+  gates green. **2,997 → 3,005 verified = 59.79%** — the fan-out's 60% goal needs ~11 more rows.
+
 ## 2026-07-17 — BMX pre-flip Opus audit: GO-WITH-FIXES (blocker found + fixed)
 
 - audit/bmx-preflip merged: the audit found and FIXED the one true blocker — GT Speed Series Pro
