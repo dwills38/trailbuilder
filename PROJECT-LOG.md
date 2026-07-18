@@ -2161,3 +2161,24 @@ per wave/decision; large reconstructions are handed to a worker session.
   source is the "Highball 3" build kit and the material tier couldn't be confirmed identical
   (possibly-mismatched figures beat a wrong verified row). Job-json conflict at merge resolved by
   taking campaign-3's newer full-sync copy (my earlier sweep applies had advanced main's copy).
+
+## 2026-07-18 — campaign-3 batch 8 merged (3rd promotion; wrong-SKU sourcing caught)
+
+- **`fr-canfield-lithium-v3` promoted to verified:true** — and the underlying finding is the
+  valuable part: the row had been sourced from Canfield's COMPLETE-BIKE page, but a
+  `bdata scrape` of canfieldbikes.com/products/lithium-frameset found a genuine standalone
+  FRAMESET SKU. Corrections: `frameOnly` false→true, `price` 2500 (rounded sample)→2499.99 (exact),
+  `weight` 3400 (sample)→3492 (maker-stated 7.7 lb Medium, frame-only). Coordinator re-fetched the
+  page independently and confirmed all three verbatim ("LITHIUM V3 - Frameset", "$2,499.99",
+  "Medium weight: 7.7 lb (frame only)"); 7.7 lb converts to 3493 g vs the row's 3492 — a 1 g
+  rounding difference, within convention, not a data error. **Wrong-SKU sourcing is a class worth
+  watching: a complete-bike page can silently supply frame-only fields.**
+- 9 Skipped alongside. Norco confirmed a REAL content wall, not a rate-limit — norco.com returns
+  only a bare title even under `bdata scrape`, so those rows are correctly terminal for now rather
+  than retry-eligible. Several other gaps (Ari Delano Peak, Canyon Sender CFR gen3, Unno Dash,
+  Devinci Chainsaw DH, Diamondback Sync'r, Giant Talon 4, Orbea Laufey) re-tried under the unlocker
+  and confirmed genuine rather than tool artifacts — exactly the distinction VERIFY-PROTOCOL's new
+  fetch-doctrine section asks workers to make.
+- Session totals: verified 3,010 → 3,017 (3 promotions: Revel Ritual, Revel Rascal, Canfield
+  Lithium); queue 1,751 → 1,662 (89 processed across 8 batches + the retry round). Gates:
+  validate 7×OK / 764 tests / tsc clean; verdict harness BYTE-IDENTICAL.
