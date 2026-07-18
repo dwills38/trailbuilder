@@ -914,6 +914,20 @@ var EMTB_PARTS = [
     disciplines: ['e-enduro'], weight: 25200, price: 8200,
     note: 'Higher-tier Megawatt build; SRAM X0 Transmission upgrade over the Comp.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Cube depth (Stereo Hybrid 140, shorter-travel trail trim)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-cube-stereo-hybrid-140', cat: 'emtb', brand: 'Cube', model: 'Stereo Hybrid 140',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    batteryWh: 625, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 140,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
+    disciplines: ['e-trail'], weight: 23200, price: 5000,
+    note: 'Shorter-travel, more XC/trail-leaning sibling to the Stereo Hybrid 160.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
