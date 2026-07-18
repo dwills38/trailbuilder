@@ -2226,3 +2226,30 @@ per wave/decision; large reconstructions are handed to a worker session.
 - Worker continues to batch 8: the new L4 `research-methods.md`, which would give a home to the
   method facts currently scattered across ACC-21/PRF-13/NAV-6/7 and let the corpus DESIGN the studies
   that settle the parked taste questions instead of leaving them parked forever.
+
+## 2026-07-18 — campaign-3 batch 9 merged (tire transition); session pausing
+
+- **Merged campaign-3 batch 9** (8008a47): frame queue transitioned into tires. One data
+  correction: `ti-pirelli-scorpionxc-rc-29-24-pw-dual` weight 600→700 g, fetched from pirelli.com's
+  own tech-specs table ("weight 700, 120 TPI, ProWALL, Race Compound"), superseding a sample weight
+  and a vitalmtb-cited implausible 220 TPI. **Correctly NOT promoted to verified** — the worker
+  judged Pirelli's real "Race Compound" naming can't honestly map to the catalog's generic
+  `compound:'dual'` vocab value (a vocab gap, out of a field-pass's scope), so the row stays
+  unverified with a sharper sourced weight. (Coordinator near-miss worth recording: I misread the
+  branch diff — `grep -oE "verified:true"` matched the substring INSIDE the desc text "NOT promoted
+  to verified:true" and I briefly moved to demote a correctly-unverified row; `sed -n` on the raw
+  line showed there is no verified FIELD. Lesson: never grep for a field token that can appear in
+  free-text desc prose; anchor on the actual field position.) Frameset-sibling heuristic applied to
+  3 Pivot/BMC/Radon frames — none flipped, but each now has a sharper documented why (pivot.com is
+  an unrelated insurance company; the real pivotcycles.com Build-Specs tabs are JS-loaded and
+  uncaptured even under bdata scrape). Michelin's JS wall re-confirmed persistent even under the Web
+  Unlocker (7 Wild Enduro/DH34 rows, client-side spec tabs — a real content wall, not a rate-limit).
+- **Two reviewer flags surfaced, both correctly left untouched:** the Pirelli 2.2in sibling
+  (`ti-pirelli-scorpionxc-rc-29-22-pw-dual`) may have an identity problem — pirelli.com's 2.2in page
+  lists only a base ProWALL/Sport-Compound SKU, no "Team Edition" variant, conflicting with the
+  catalog; and the compound-vocab gap (no Pirelli-native compound value) is a schema decision for
+  Douglas, not a grind fix.
+- Session `local_e08b89fb` PAUSED by the worker after a long stretch (9 batches + retry round;
+  1,751→1,650 queue, 101 processed, 3 promotions). Gates green throughout. Left running/idle, NOT
+  archived — it resumes the tire queue on request. The dedicated parallel verification workers
+  (wheels/cockpit/completebikes) + the verified-flag audit are the paste-blocks that scale this out.
