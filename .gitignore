@@ -17,3 +17,20 @@ TrailBuilder-sample.html
 
 # scratch downloads for mechanic-corpus research (fetched PDFs/renders, never committed)
 _fetch/
+
+# --- business/personal docs (live at repo ROOT untracked; contain personal
+# addresses & business details — must NEVER reach the public remote; guard
+# against a stray `git add -A`; added 2026-07-18 on the Affiliate session's flag) ---
+_PDFs/
+AFFILIATE-*.md
+LLC-*.md
+COMPETITIVE-*.md
+DOMAIN-BRAINSTORM.md
+CLOUDFLARE-SETUP.md
+MANUFACTURER-*.md
+PRODUCT-IMAGE-SOURCING.md
+FRAME-MASTER-LIST-BY-DISCIPLINE.md
+FRAME-EXPANSION-GAPS.md
+ICON-HANDOFF.md
+outreach-emails.md
+cb4-salvage.patch
