@@ -378,6 +378,30 @@ var EMTB_PARTS = [
     disciplines: ['e-enduro'], weight: 23600, price: 10500,
     note: "Giant's gravity/enduro e-MTB; longer travel than the Trance X E+.",
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Cannondale depth (Moterra 1 + Moterra SL lightweight)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-cannondale-moterra-1', cat: 'emtb', brand: 'Cannondale', model: 'Moterra 1',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
+    disciplines: ['e-trail', 'e-enduro'], weight: 22800, price: 11000,
+    note: 'Top-tier Moterra build; SRAM XX SL Transmission.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-cannondale-moterra-sl-1', cat: 'emtb', brand: 'Cannondale', model: 'Moterra SL 1',
+    motorBrand: 'bosch', motorModel: 'Performance Line SX', motorTorque: 55,
+    batteryWh: 320, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
+    disciplines: ['e-trail'], weight: 18400, price: 10500,
+    note: 'Lightweight-class Cannondale on the Bosch Performance Line SX motor.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
