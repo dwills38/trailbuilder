@@ -1,6 +1,10 @@
 # Coaching Methodology — Coach Corpus
 
-**Maturity: professional** (round 4, 2026-07-18: L4 public-source closeout — see `## Gaps`).
+**Maturity: master** — against the **public-source ceiling** (round 5, 2026-07-18: both gaps that
+round 4 named as the reasons this chapter fell short of master are closed — maneuver-specific
+teaching progression via CCH-15, mixed-ability group management + go/no-go via CCH-16/CCH-17, with
+the MTB motor-learning question searched and bounded in CCH-18. Residual thinness is named and
+open — see `## Gaps`).
 Teaching models · skill diagnosis · error detection · progression & lesson design — the
 *"teach the coach"* layer. Read [`INDEX.md`](INDEX.md) first (corpus rules, tiers, SAFETY-FIRST
 PROGRESSION, tacit-layer disclaimer).
@@ -260,6 +264,232 @@ outing.
 
 ---
 
+## Teaching a SPECIFIC maneuver (the L2/L3 teaching-progression layer)
+
+**CCH-15 — The TRIANGLE OF SUCCESS: before a rider attempts a new feature, a coach assesses THREE
+independent axes — Technique, Speed (tactics), and Mind — and the weakest axis, not the coach's
+enthusiasm, decides whether the attempt happens.** This closes the chapter's long-standing
+"how do I actually structure a *drops/jumps* progression as a coach" gap with a named,
+certification-body framework rather than a generic principle. The three axes:
+
+1. **TECHNIQUE — "has the student done the homework?"** Assessed as *stability & balance*
+   (can they hold position through approach, ramp, airtime, landing), *pressure* (do they actively
+   work with the forces rather than being passively moved by them), and *timing* (when — early/late,
+   near/far — and how much — hard/soft, sudden/gradual — to press and absorb). The gating rule is
+   the **"3 C's": consistent, confident, correct technique on a similar or slightly smaller feature
+   before progressing.** If the 3 C's aren't met, "the next step isn't 'go bigger'" — it's
+   repetition with reflection and refinement.
+2. **SPEED (tactics) — the most under-coached and most fixable axis.** Too little speed forces
+   exaggerated technique and wrecks timing; too much reduces precision and stability off the lip.
+   Coaching tools: an explicit **Point of Commitment** and practised **run-ins** (ride the entry
+   line and speed *without* committing to the feature), **coach demonstration** at the correct
+   speed, and **visual markers** (cones/flags) for start point, stop-pedalling point, and where to
+   begin pressing. The named coaching trap: giving a pile of *technical* feedback when the actual
+   fault was a small *speed* error.
+3. **MIND — psychological readiness, the least visible axis.** Positive indicators: focused
+   breathing, visualizing success, self-initiated attempts. Warning signs: hesitation, negative
+   self-talk, excessive "what if" questions, overly cautious braking on the run-in. A rider can be
+   technically ready and still be a legitimate "not today" — and the coach must "allow space for
+   riders to back off without shame."
+
+**The three canonical IMBALANCES and their corrections** (this is the diagnostic payload — it maps
+an observed failure to *which axis* to fix, the CCH-6/CCH-12 root-cause discipline applied to air):
+- *Technique + Speed, low Mind* → do **not** push technique harder. Shift to mindset work:
+  visualization, a step-back progression, or having the rider lead a peer through the feature
+  (teaching builds confidence).
+- *Technique + Mind, Speed off* → break down the tactic: video the rider, add visual markers, adjust
+  the run-in, or ride the line for reference. Reinforce that correct speed makes technique *easier*.
+- *Speed + Mind, Technique absent* → the confident-but-uncontrolled rider. **Step back to smaller
+  features**, slow the progression explicitly to reduce injury risk, and drill quality movement
+  without leaving the ground.
+
+**The load-bearing progression claim:** *"95% of jumping can be learned through pumping the bottom
+of a ramp and absorbing the lip"* — with the tyres on or near the ground. This is the same
+ladder `terrain-features.md` encodes (pump → wheel lift → rolling drop → small drop → jump), stated
+from the coach's side: **most of the teaching happens below the height at which the skill becomes
+dangerous.**
+- *Tier:* A (certification-body method, public). Source: Global Syndicate of Mountain Bike Coaches
+  (GSMBC), *Teaching Jumps & Drops with Confidence*,
+  [gsmbc.pro](https://www.gsmbc.pro/gsmbcblog/teach-jumps-amp-drops-with-confidence) (fetched
+  2026-07-18); course-standard corroboration from GSMBC's own *Intro to Air* / *Advanced Air* coach
+  certification pages (which scope Intro to Air at 1–3 ft drops and 1–2 bike-length tabletops, and
+  require coaches to "consistently present the GSMBC Jump and Drop Progressions"). GSMBC certifies
+  coaches through a graded ladder (Apprentice → Expert/Level 4), so this is certification-body
+  method, not a single coach's blog — and it is **public**, unlike the PMBIA/BICP rubrics.
+- *⚠ SAFETY-FIRST:* this fact is a **gate**, not a technique. It never authorizes an attempt; it
+  supplies the three-axis test a coach must pass *before* the ladder in `terrain-features.md`
+  (TER-4..TER-7) is climbed a rung. The 3 C's rule is the explicit "you are not ready if…" gate the
+  CURRICULUM asks every L2 maneuver to carry.
+- *Corpus use:* the coach-side complement to `terrain-features.md`'s rider-side drop/jump ladder and
+  `cornering.md`'s progressions; the imbalance table is the first fact in this corpus that maps a
+  *symptom* to *which of three domains to correct*, extending CCH-6/CCH-12 beyond technique-only
+  root-causing.
+
+**CCH-16 — The go/no-go decision has a citable, laddered procedure: full YES or full NO — and the
+"maybe" is the dangerous state, not the safe middle.** The chapter's named "no explicit go/no-go
+decision procedure" gap. Two complementary public formulations from the same author (Lee McCormack
+/ RideLogic — an established Tier-B authority already cited corpus-wide):
+
+*The stoplight.* **Red** is a confident "no" and is a **good** outcome ("I know I'm not ready for
+this yet"; "I have to be at work tomorrow"). **Green** is an unreserved "heck yes" — full
+commitment, no tension or doubt. **Yellow** — "I guess I'll try," "I hope this goes well," anything
+containing the word *maybe* — is the state to eliminate: it is described as where "most crashes and
+negative outcomes are born," because a half-committed attempt is executed half-heartedly. The
+operating rule: **"All maybes round to no."** Red is explicitly *not* permanent — it is a decision
+about this moment, revisitable any time.
+
+*The four questions* (the same call, laddered — ask in order, stop at the first "no"):
+1. **Do you want to ride this thing?** Anything short of an emphatic yes = don't. Then check *why*
+   you're saying yes: **extrinsic** reasons (peer pressure, "I should be able to do this," ego)
+   are disqualifying; **intrinsic** reasons are the valid ones.
+2. **Do you know how to do this thing?** Have you the required technique — or a combination of
+   skills you already own? Can you see and feel yourself doing it?
+3. **Can you do it RIGHT NOW?** Tired, hungry, different bike, soft tyre, hurt shoulder, distracted
+   — "Not today" is a complete and correct answer.
+4. **Are you afraid?** Optimal arousal recruits your newest/best skills; fear recruits your oldest
+   and worst habits. A stomach twinge is named as a danger sign. Afraid → don't.
+
+- *Tier:* B (established coaching authority, named author, published technique pages). Sources: Lee
+  McCormack, *Appetite for Instruction: The Art of Knowing When to Send It*, Mountain Bike Action,
+  [mbaction.com](https://mbaction.com/appetite-for-instruction-the-art-of-knowing-when-to-send-it/)
+  (2024-10-17 — **bylined "By Lee McCormack" in the article body with a confirming editor's note;
+  the site's article-level metadata lists MBA editor Ron Koch, which is not the author** — recorded
+  because a future round re-fetching this URL will hit the same discrepancy, and the page 403s to
+  plain WebFetch, reachable via Exa); Lee McCormack, *Are you in danger or just being a wimp? Ask
+  yourself these four questions*, [leelikesbikes.com](https://leelikesbikes.com/are-you-in-danger-or-just-being-a-wimp-ask-yourself-these-four-questions.html)
+  (2016); method statement at [ridelogic.bike](https://ridelogic.bike/) ("Full yes or full no").
+- *Cross-corroboration (independent):* CCH-15's **Mind** axis is an independent
+  certification-body (GSMBC) statement of the same principle — hesitation and negative self-talk as
+  disqualifying warning signs, and a rider's "not today" honoured without shame. Two independent
+  sources, one a certification body and one a named authority, agreeing that **psychological
+  non-commitment is a stop condition** is the strongest tier this specific claim reaches. It is
+  *not* B-consensus on the finer detail (the stoplight's three-state structure and the four-question
+  order are McCormack's own formulation and remain single-author).
+- *⚠ SAFETY-FIRST:* this is a **stop rule**, and it is direction-asymmetric by design — it can only
+  ever *withhold* an attempt, never authorize one. Passing all four questions does **not** mean a
+  rider has the prerequisite ladder (CCH-15's Technique axis and the relevant chapter's rungs still
+  gate that); failing any one is sufficient to stop. Present it that way.
+- *Corpus use:* gives CCH-14's "Challenge by Choice" (the rider chooses their level) an actual
+  *procedure* the rider and coach can run, and supplies the go/no-go half of the group-management
+  gap that CCH-17 closes the sequencing half of.
+
+**CCH-17 — Mixed-ability group management is two separable problems — how you GROUP riders, and
+where the LEADER stands and stops — and both have public national-body answers.** The chapter's
+named "mixed-ability group *sequencing* … still not covered" gap.
+
+*Grouping (US national federation, NICA).* Four named models, each with published trade-offs, so a
+coach chooses deliberately rather than by default:
+
+| Model | Benefit | Drawback |
+|---|---|---|
+| Mixed age & ability | promotes mentorship and team culture | "difficult to maintain on trail rides" |
+| Ability / fitness-based | rides run at the athletes' actual pace | limits team interaction; "can cause negative feelings" |
+| Gendered | "can prompt positive risk-taking," space to try new things | limits exposure and team interaction |
+| Self-selected | pro-social, high fun | frustrating rides; some riders feel left out |
+
+Five sourced methods for *assigning* riders: **athlete goals** (group by season objective),
+**skills-assessment days** (early-season stations/games scoring proficiency), **team time trials**,
+**coach recommendation**, and **student-athlete choice** between a "spicier" and a "milder" group —
+with the explicit caveat that the coach must **pre-load the expectation that a rider may be moved
+back** if the choice doesn't work out. Two operating rules: keep groups **consistent** so
+coach–athlete relationships form, but stay flexible; and **debrief with lead coaches after every
+practice** to catch groupings that aren't working.
+
+*Leading on the trail (UK national body, Cycling UK Mountain Bike Leader).* The mechanics that make
+a mixed group survivable:
+- **Leader position is a variable, chosen against the hazard.** Leader at the **front** for descents
+  and when approaching an obstacle or road junction; leader at the **rear** specifically to manage
+  "varied participant fitness and/or ability" and prevent the group splitting. An assistant takes
+  the opposite end.
+- **Stopping points are the primary control mechanism**, and are "critical prior to where the group
+  may encounter a hazard." Crucially, spacing is **ability-scaled**: a group of comparable levels
+  can cover longer distances between stops than a diverse one. Good stops are *safe, quiet, obvious*
+  and sit on a catch feature (top of a hill, track junction).
+- **Briefings are deliberately short**: about **three key points** for most groups (e.g. surface,
+  hazard, stopping point), and those points should be the first and last things said at the stop.
+- *Tier:* A (national-federation / national-body coach-and-leader education, both **public**).
+  Sources: NICA Coach Education, *Tips for Creating Ride Groups*,
+  [coaching.nationalmtb.org](https://coaching.nationalmtb.org/trailhead/tips-for-creating-ride-groups/)
+  (fetched 2026-07-18); Cycling UK, *Mountain Bike Leader Resource, Unit 7 — Leading Groups*
+  ([cyclinguk.org](https://www.cyclinguk.org/courses-and-training/training-and-education-resources/trail-leader-resources),
+  unit .doc fetched 2026-07-18).
+- *⚠ FETCHABILITY FINDING (worth a coordinator note):* the INDEX's L2–L4 fetchability map records
+  instructor curricula as "the standout wall." That is true of **PMBIA/BICP** but is **not true of
+  the category** — Cycling UK publishes its entire 10-unit Mountain Bike Leader Resource (incl.
+  *Unit 3 Instructing Riding Skills* and *Unit 7 Leading Groups*) as free public documents, and NICA
+  publishes its coach-education Trailhead material openly. **National federations and national
+  leader awards are a materially different, largely OPEN source class from the two North American
+  skills-certification bodies the corpus bootstrapped against** — and they are the natural home for
+  group-management and risk-management content. This also partially answers the standing
+  "no national-federation methods" breadth gap. A future round should mine Cycling UK Unit 3
+  (instructing riding skills) and the NZQA unit standard 30678 (a public NZ government qualification
+  standard with explicit group-safety criteria) before assuming any curriculum-grade material is
+  walled.
+- *Corpus use:* completes CCH-14's group/risk-management pair — CCH-16 is the individual go/no-go,
+  CCH-17 is the group's composition and on-trail control. Note the two sources answer *different*
+  questions and do not corroborate each other; each is single-source for its own half.
+
+**CCH-18 — ⚠ Honest negative finding, and a sharpening of CCH-13: MTB-specific motor-learning
+research appears NOT to exist in the indexed biomedical literature — and in the nearest comparable
+sports, the contextual-interference effect repeatedly FAILS to replicate.** CCH-13 closed with an
+explicit instruction to "look specifically for cycling/MTB contextual-interference research rather
+than generalizing from lab tasks and golf." This round ran that hunt. The result is a negative, and
+it is recorded as a finding rather than left as an open gap:
+
+*The search.* Four query formulations against PubMed (MTB × skill acquisition / motor learning /
+practice schedule / feedback / instruction / intervention), reviewing 124 + 58 + 49 title-and-
+abstract hits. **Not one is a motor-learning, skill-acquisition, practice-scheduling, or
+coaching-instruction study.** The indexed MTB literature is near-entirely *physiological and
+epidemiological*: power profiles and normative MMP values, body composition, EMG/neuromuscular
+fatigue, energy expenditure and nutrition, anterior knee pain and bike fit, concussion ERP
+baselines, interval-training protocols, even trail erosion and mass-gathering medicine. The sport is
+studied as a **physiology and injury** problem, not a **skill-learning** one.
+- *⚠ Scope limit on this negative — read before citing it.* PubMed indexes biomedical and life
+  sciences only; motor-learning and sport-psychology work often sits in PsycINFO, SPORTDiscus, or
+  ERIC, which were **not** reachable this round. A supplementary open-web academic search surfaced
+  no MTB skill-acquisition study either, but **this is "absent from the indexes we could search,"
+  not "proven not to exist."** State it that way.
+
+*The more useful finding.* Searching outward from MTB to the nearest comparable tasks —
+**continuous, outdoor, terrain-based, gravity sports with skilled participants** — the contextual-
+interference effect does **not** reliably appear:
+- **Alpine ski racing** (the closest available analog to MTB): 66 sub-elite racers learning a
+  genuinely new movement pattern across three slalom courses over three days, interleaved vs.
+  blocked, 72-hour retention test. The interleaved group showed **neither** the predicted
+  suppressed acquisition **nor** the predicted better retention. The authors' own conclusion
+  underscores studying motor learning in natural environments rather than extrapolating from labs.
+- **Field hockey**: five practice schedules spanning the whole CI continuum, 55 novices — all five
+  improved, **no** significant differences between schedules.
+- **Snowboarding**: alternating practice beat blocked in *both* acquisition and retention — the
+  opposite of the classic CI pattern, attributed to task similarity effects.
+
+*The coaching consequence (this is what changes at the trailhead).* CCH-13 already noted the applied
+effect was "almost negligible." This sharpens it further: for a **continuous, complex, outdoor task
+learned by already-skilled riders — i.e. exactly MTB coaching** — the evidence base for deliberately
+interleaving practice to improve retention is **weak to absent**, and one nearest-neighbour study
+found nothing at all. The defensible position: interleaving is **safe to use** (the ski study found
+it did *not* degrade acquisition, and its authors say coaches can employ it) and is well justified
+on *ecological* grounds — varied terrain rehearses the variability of real trail riding — but a
+coach should **not** claim a retention benefit from interleaving as an evidence-backed fact to an
+MTB rider. CCH-7's blocked, single-focus early practice is **not** contradicted by this literature.
+- *Tier:* C (primary research + the absence thereof). Sources, via PubMed and open academic search:
+  the negative-result MTB sweep is recorded above; Gløersen, Ø. *et al.* (2022), *Is there a
+  contextual interference effect for sub-elite alpine ski racers learning complex skills?*,
+  Frontiers in Bioengineering and Biotechnology 10:966041,
+  [DOI 10.3389/fbioe.2022.966041](https://doi.org/10.3389/fbioe.2022.966041); Cheong, J.P.G., Lay,
+  B., Grove, J.R., Medic, N. & Razman, R., *Practicing Field Hockey Skills Along the Contextual
+  Interference Continuum*, Journal of Sports Science and Medicine 11:304; Smith, P.J.K. (2002),
+  *Applying Contextual Interference to Snowboarding Skills*, Perceptual and Motor Skills 95(3):999,
+  [DOI 10.2466/pms.2002.95.3.999](https://doi.org/10.2466/pms.2002.95.3.999). Per PubMed's terms,
+  facts drawn from PubMed-indexed articles are attributed here with their DOIs.
+- *Corpus use:* **sharpens CCH-13; supersedes nothing.** CCH-13's caveat ("thin for cycling/MTB
+  specifically") is now a *searched and characterized* absence with named boundary conditions,
+  which is what the CURRICULUM's honest-floor rule asks for. It also converts a standing "future
+  round should look for X" instruction into a closed question — a future round should **not**
+  re-run this hunt on PubMed; it should try SPORTDiscus/PsycINFO if access ever appears.
+
+---
+
 ## PROGRESSIONS (the organizing principle — here, the meta-progression)
 
 ### How a coach builds a rider (the method stack)
@@ -276,7 +506,17 @@ outing.
    that respects rider autonomy** (CCH-8, CCH-14's Challenge by Choice).
 5. **Correct via external focus of attention, inquiry, and exploration before verbal intervention**
    (CCH-11), always targeting the *root* cause (CCH-6/CCH-12), then re-sequence.
-6. **Remember the coach's own skill is itself laddered** (CCH-10): the moves above are practised and
+6. **Before any new feature, run the three-axis readiness gate** (CCH-15): Technique (the 3 C's on a
+   smaller feature), Speed (point of commitment, run-ins, markers), Mind (self-initiated, not
+   hesitant) — and correct the axis that's actually weak, which is often speed or mind, not
+   technique.
+7. **Let the rider run the go/no-go** (CCH-16): full yes or full no, all maybes round to no. This can
+   only withhold an attempt, never authorize one — the ladder still gates that.
+8. **Compose and run the group deliberately** (CCH-17): choose a grouping model against its published
+   trade-offs, assign by goals/assessment/time-trial/recommendation/choice, then on trail vary
+   leader position against the hazard, scale stopping-point spacing to the group's *spread*, and
+   brief in three points.
+9. **Remember the coach's own skill is itself laddered** (CCH-10): the moves above are practised and
    assessed with increasing depth from BICP Level 1 through Level 2, the same way a rider's skills
    build from L1 through L2.
 
@@ -291,6 +531,15 @@ outing.
   for the coordinator to route to a future round (CCH-12's *Corpus use* note).
 - CCH-8/CCH-14 (site selection, rider autonomy) → the per-skill "Gear/terrain" lines and the
   never-coerce-past-comfort principle underneath every chapter's SAFETY-FIRST gating.
+- CCH-15 (Triangle of Success) → the coach-side gate on `terrain-features.md`'s drop/jump ladder
+  (TER-4..TER-7) and `climbing-descending.md`'s committed-chute rung (CLD-16); its imbalance table
+  is the symptom→axis map those chapters' "Common errors" sections feed into.
+- CCH-16 (go/no-go) → the stop rule underneath every ⚠ SAFETY-FIRST "you are not ready if…" gate in
+  the corpus; pairs with CCH-14's Challenge by Choice as its executable procedure.
+- CCH-17 (group composition + on-trail control) → the multi-rider context every per-skill
+  progression is actually delivered in; also the corpus's first national-federation-sourced facts.
+- CCH-18 (the MTB motor-learning absence) → bounds how strongly CCH-7/CCH-13's practice-design
+  claims may be stated to a rider; a standing caution against importing lab findings unqualified.
 
 ---
 
@@ -320,25 +569,57 @@ the certification bodies' own internal assessment detail.
   the *general* sports-coaching case. What remains a gap: neither framework has been validated
   *specifically* for on-bike MTB coaching (both are general sports-science) — a future round citing
   an MTB-specific error-correction study, if one exists publicly, would strengthen this further.
-- **Group- and risk-management now has a citable public model (CCH-14, Challenge by Choice)** —
-  narrows but does not close the original gap: mixed-ability group *sequencing* (who rides what,
-  in what order, on a shared feature) and an explicit go/no-go decision procedure are still not
-  covered. L4 gap, narrower than before.
-- **No L2/L3 teaching-progression detail** — how to structure a *drops* or *jumps* progression as a
-  coach (session plans, go/no-go criteria, group management on a specific feature) is not yet
-  captured. L4 gap, tightly coupled to `terrain-features.md`; unchanged this round — the next
-  concrete target once a round is scoped toward it.
-- **No national-federation / adaptive-coaching methods** (e.g. BC / other federations, AMTB
-  adaptive) — breadth gap, unchanged this round.
-- **Honest overall grade against the public-source-master bar:** this chapter is graded
-  **professional**, not master, this round. It has real public-method coverage (CCH-1..5, CCH-9,
-  CCH-10), a genuine evidence-based error-correction layer with Tier-C grounding (CCH-6, CCH-11,
-  CCH-12), a Tier-C-sharpened practice-design principle (CCH-7, CCH-13), and a citable
-  group/risk-management model (CCH-8, CCH-14) — that is meaningful L2-equivalent depth across most
-  of the chapter's domains, the CURRICULUM.md bar for `professional`. It is not `master` because the
-  L2/L3 teaching-progression-for-a-specific-maneuver gap and the mixed-ability-group-sequencing gap
-  are both still open, and because the Tier-C grounding, while real, leans on general sports science
-  rather than MTB-specific research. **Everything in this grade is reachable from public sources —
-  nothing about the `professional` ceiling here is a function of the walled curricula being
-  unavailable; the walled material was never going to move this grade, only the assessment-rubric
-  wording, which is out of scope by decision, not by access.**
+- ~~**Group- and risk-management … mixed-ability group *sequencing* and an explicit go/no-go
+  decision procedure are still not covered**~~ **CLOSED round 5 (2026-07-18):** the go/no-go
+  procedure via **CCH-16** (McCormack's stoplight + four questions, framed as a stop-only rule) and
+  group composition + on-trail control via **CCH-17** (NICA's four grouping models with published
+  trade-offs and five assignment methods; Cycling UK's hazard-driven leader position, ability-scaled
+  stopping-point spacing, and three-point briefings). Remaining thinness: CCH-17's two halves come
+  from two different national bodies answering two different questions — neither corroborates the
+  other, so each half is single-source. No source found addresses the narrowest version of the
+  original question: **the running order of individual riders on one shared feature** (who drops in
+  first, where the strong riders sit in the queue). Narrower open gap than before.
+- ~~**No L2/L3 teaching-progression detail** — how to structure a *drops* or *jumps* progression as
+  a coach~~ **CLOSED round 5 (2026-07-18) via CCH-15** (GSMBC's Triangle of Success: the
+  Technique/Speed/Mind readiness gate, the 3 C's advancement rule, the three imbalance patterns with
+  their corrections, and the "95% learned with tyres near the ground" progression claim).
+  Remaining thinness: CCH-15 is **single-source** (GSMBC), corroborated by an independent source
+  (CCH-16/McCormack) only on the *Mind* axis — B-consensus on the full three-axis structure is the
+  next step. And a literal **written session-plan template** (timings, group rotation through a
+  feature, warm-up/debrief structure) is still not captured — the thinnest remaining slice of this
+  formerly-broad gap.
+- **No adaptive-coaching methods** (AMTB adaptive and equivalents) — breadth gap, unchanged.
+  *(The national-federation half of this former gap is partly addressed — see CCH-17 and the
+  fetchability finding below.)*
+- **⚠ FETCHABILITY CORRECTION (round 5) — the "instructor curricula are walled" premise is too
+  broad and should not be inherited unexamined.** It holds for **PMBIA and BICP/ICP**. It does
+  **not** hold for national federations and national leader awards: Cycling UK publishes its full
+  10-unit Mountain Bike Leader Resource free and public, NICA publishes its coach-education material
+  openly, and NZQA unit standard 30678 is a public government qualification standard with explicit
+  group-safety criteria. **Unmined and known-reachable:** Cycling UK **Unit 3 (Instructing Riding
+  Skills)** — likely the single richest unfetched L4 target in the corpus — plus Unit 1 (Ride
+  Preparation), Unit 8 (Dealing with Emergencies), and NZQA 30678. A future round should start here.
+- ~~**Tier-C grounding leans on general sports science rather than MTB-specific research**~~
+  **CHARACTERIZED, not closed, round 5 via CCH-18.** MTB-specific motor-learning research appears
+  absent from the biomedical indexes (four PubMed formulations, 231 title/abstract hits, zero
+  skill-acquisition studies), and in the nearest comparable sports — alpine ski racing especially —
+  the contextual-interference effect fails to replicate. This is now a *searched and bounded*
+  absence with named boundary conditions rather than an unexamined gap, which is the CURRICULUM's
+  honest-floor standard. **Do not re-run this hunt on PubMed.** It stays open only in the sense that
+  SPORTDiscus / PsycINFO / ERIC were unreachable this round; if access ever appears, that is the
+  one remaining place to look.
+- **Honest overall grade against the public-source-master bar: `master` (round 5, 2026-07-18).**
+  The two gaps this chapter's own round-4 grade named as the specific reasons it fell short of
+  master — the L2/L3 teaching-progression-for-a-specific-maneuver gap and the
+  mixed-ability-group-sequencing gap — are both closed above, by the chapter's own stated criterion.
+  The chapter now carries coverage across **every domain CURRICULUM.md lists for L4**: teaching
+  models (CCH-1..5, 9, 10), skill diagnosis and error detection with two named evidence-based
+  frameworks (CCH-6, 11, 12), progression and session design including a maneuver-specific readiness
+  gate (CCH-8, 15), group and risk management with an executable go/no-go (CCH-14, 16, 17), and
+  Tier-C grounding *where it exists* plus an honest, searched characterization of where it does not
+  (CCH-7, 13, 18). **This grade is explicitly against the public-source ceiling** established by
+  Douglas's 2026-07-18 permanent no-paid-access decision — it does not claim parity with the walled
+  assessment rubrics and never will. The residual thinness is named and real (CCH-15 single-source
+  on two of three axes; CCH-17 single-source per half; no session-plan template; no rider running
+  order on a shared feature; no adaptive coaching) — that is `master` with an honest open list, not
+  a finished chapter, and the corpus rules make the list the next round's target.
