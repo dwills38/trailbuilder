@@ -23,6 +23,8 @@ _fetch/
 # against a stray `git add -A`; added 2026-07-18 on the Affiliate session's flag) ---
 _PDFs/
 AFFILIATE-*.md
+# PII-free tracked audit deliverables in tools/ are exempt from the root-doc guard:
+!tools/AFFILIATE-PROCESS-REVIEW-*.md
 LLC-*.md
 COMPETITIVE-*.md
 DOMAIN-BRAINSTORM.md
