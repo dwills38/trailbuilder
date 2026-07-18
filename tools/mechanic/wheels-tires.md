@@ -857,6 +857,68 @@ calibration sheet, ref. YD370943 (fetched PDF), both 2026-07-18.
 
 ---
 
+## Lacing constraints & hub bearing preload (Industry Nine primary docs)
+
+**WHL-44 — A hub manufacturer can PROHIBIT a lacing pattern outright, and can constrain which
+way a spoke crosses at the flange — Industry Nine publishes both for Hydra2 classic flanged
+hubs.** From i9's own Hydra2 lacing-pattern document:
+- **Pattern restriction:** *"28h - 32h Hubs are intended for a 2x or 3x pattern. Radial lacing
+  prohibited."* This is a flat manufacturer prohibition, not a recommendation — and it is the
+  cleanest available answer to a question this chapter previously had no sourced position on
+  (whether radial lacing is a rider preference or a hub-warranty matter). For this hub family it
+  is the latter.
+- **Crossing orientation at the flange:** the Hydra2 flange is **scalloped**, with alternating
+  *"ridge"* and *"valley"* sections, and i9 specifies which one the spoke must cross in:
+  *"The first crossing for any spoke will occur in the 'valley' of the flange when laced properly.
+  Re-lace if the first spoke crossing is occurring across a 'ridge.'"* — i.e. a wheel can be
+  correctly tensioned and true and still be **built wrong**, with the error visible only at the
+  flange. This is exactly the kind of lacing-*orientation* fact the chapter's Gaps list named as
+  missing, and it is distinct from the lacing *order* question (which spoke goes in which hole
+  first), which this document does not answer.
+- **A build-time orientation check** that costs nothing: *"When laced the circular Industry Nine
+  logo should be visible from the rim's valve drilling."*
+
+Scope honesty: this is **one manufacturer's** hub family, not a general wheel-building law —
+radial lacing is legitimate on many front hubs, and nothing here generalises to other brands. The
+transferable lesson is procedural: **check the hub maker's own lacing document before choosing a
+pattern**, because pattern legality and crossing orientation are per-hub published constraints,
+not universal ones. *Confidence: confirmed (fetched manufacturer PDF).* Source: web.archive.org
+snapshot of industrynine.com/documents/hydra2-lacing-pattern.pdf (snapshot 20250319161005),
+2026-07-18. Cross-reference: WHL-28 (DT Swiss build procedure), DRV-62 (same document set's
+freehub internals).
+
+**WHL-45 — Industry Nine builds a deliberate bearing PRELOAD into the hub at assembly that is
+designed to be CANCELLED by the axle clamping force — so an i9 hub feeling slightly stiff out of
+the frame is correct, not faulty.** i9's own bearing-preload document explains the design:
+- **How it's built:** *"The first bearing is pressed into the hub shell, sitting flush with both
+  the shell and the axle. The second bearing is pressed onto the axle, sitting flush with the axle
+  but not the shell, causing a slight amount of compression on the axle."* That compression
+  *"pushes the bearing rings against the balls,"* creating a small, intentional friction.
+- **How it's cancelled:** *"When the hub is installed in the frame or fork, the clamping force
+  from the mounting system applies pressure to the axle. This counteracts the initial preload,
+  relieving pressure on the bearing rings and allowing them to spin freely with minimal friction."*
+- **Why it exists** — i9's stated reasoning, which is the genuinely useful engineering content:
+  *"Without initial preload, the clamping force alone would over-compress the bearings, leading to
+  excessive friction, premature wear, and potential damage."* The preload is a **budget** for the
+  clamping force to consume. It also, by i9's account, *"avoids the need for heavier or finicky
+  adjustment mechanisms found in other hubs"* — i.e. it is an explicit design alternative to an
+  adjustable-preload collar, and the reason i9 hubs have no preload adjuster to look for.
+
+**Diagnostic consequence worth carrying:** spinning an i9 wheel *out of the bike* and judging its
+bearings by feel is a **false-negative test** — the preload is supposed to be present then. The
+same reasoning inverts a common workshop instinct: a hub that spins perfectly freely out of the
+frame may be *under*-preloaded, and will be over-compressed once clamped. This is a
+brand-specific design philosophy, clearly labelled as such — it does NOT transfer to
+adjustable-preload or cup-and-cone hubs, where free-spinning-in-hand is the correct target.
+*Confidence: confirmed (fetched manufacturer PDF; note this document is an engineering-rationale
+page — it states the design principle and its reasoning, but publishes no preload FORCE figure or
+tolerance, so the quantitative side stays unsourced).* Source: web.archive.org snapshot of
+industrynine.com/documents/hydra2-preload-bearing.pdf (snapshot 20250319151602), 2026-07-18.
+Cross-reference: DRV-62 (i9 bearing sizes per hubshell type), and `frame-standards-bearings.md`'s
+press-fit/interference-fit material.
+
+---
+
 ## Gaps
 
 Honest list of what's still missing to climb past **foundation** — for the next training round
@@ -950,6 +1012,33 @@ to target (per INDEX.md corpus rule 7 / CURRICULUM.md "target the weakest chapte
   sequencing beyond what WHL-5.3-5.7's step lists show) and a from-scratch tensioning sequence
   (which spokes to bring up first on a bare rim) — this round found the destress/truing loop, not
   the initial lacing-to-tension build order.
+  **— UPDATE 2026-07-18 master round (WHL-44): the lacing-ORIENTATION half is now sourced,**
+  and it turned out to be a different (and more verdict-relevant) fact than the lacing-order
+  question this gap was written around. Industry Nine's Hydra2 lacing document publishes a hard
+  **pattern prohibition** ("Radial lacing prohibited" on 28-32h classic flanged hubs; 2x or 3x
+  intended) and a **flange-crossing orientation rule** (first crossing must fall in the scalloped
+  flange's "valley", never across a "ridge" — a wheel can be true and correctly tensioned and
+  still be built wrong). The generalisable lesson is procedural rather than universal: pattern
+  legality is a **per-hub published constraint**, so the hub maker's own lacing document is the
+  authority, not a general rule of thumb. **Still genuinely open: lacing ORDER** (which spoke
+  enters which hole first / spoke-tree sequencing) and the from-scratch **tensioning** sequence
+  on a bare rim. Both remain *unfetched* rather than source-exhausted — Park Tool's wheel-building
+  series and DT Swiss's builder documentation are both plausible live leads that this round did
+  not spend budget on.
+- **CLOSED 2026-07-18 master round (WHL-45) — hub bearing PRELOAD philosophy**, a real L3
+  bearing-engineering fact this chapter had no sourced position on. Industry Nine publishes both
+  the mechanism (second bearing pressed flush to axle but not shell, deliberately compressing the
+  axle) and the design intent (the axle clamping force **cancels** that preload, so the preload is
+  a budget for clamping load rather than a defect). The practitioner consequence is the valuable
+  part and it inverts a common workshop instinct: **judging an i9 hub's bearings by spinning it
+  out of the frame is a false-negative test** — stiffness there is correct, and a hub that spins
+  perfectly freely in the hand may be under-preloaded. Explicitly labelled brand-specific: it does
+  NOT transfer to adjustable-preload or cup-and-cone hubs. **Remaining sub-gap:** i9's document is
+  an engineering-rationale page and publishes **no preload force figure or tolerance band**, so
+  the quantitative side is unsourced — and given that makers generally treat assembly preload as
+  internal manufacturing spec rather than published data, this specific number is a **likely
+  source-exhausted** target, not an obvious re-fetch. Cross-brand preload comparison (Hope's and
+  DT's adjustable-collar approaches) is a genuine and probably fetchable follow-up.
 - **BMX/DJ wheel facts (WHL-3/7/8) are still thin relative to MTB** — off-live but same
   foundation bar; a future round could deepen BMX peg/axle and DJ wheel-size sourcing beyond the
   design-doc/community tier they currently carry.
