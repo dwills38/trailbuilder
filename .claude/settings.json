@@ -35,5 +35,20 @@
       "mcp__ccd_session_mgmt__list_events",
       "mcp__ccd_session_mgmt__set_session_title"
     ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node tools/hooks/guard-worktree-path.js",
+            "timeout": 10,
+            "statusMessage": "Checking file-containment rule"
+          }
+        ]
+      }
+    ]
   }
 }

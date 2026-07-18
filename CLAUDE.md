@@ -50,6 +50,14 @@ unverified specs as real. See "Provenance" below.
    be self-contained (scope, exclusions, THE BAR, unique worktree suffix, the four gates,
    never-prompt-Douglas, present-a-branch-never-push **with the why**). Also recorded in memory
    `parallel-work-delivery.md`.
+5. **FILE CONTAINMENT (Douglas, 2026-07-18): every session reads and writes files ONLY inside
+   `D:\MTB Bike Builder`.** Worktrees go at `.claude/worktrees/<unique-name>` INSIDE the project —
+   never at `D:\` root, never anywhere else on any drive (two workers created `D:\gdd-a3f1` and
+   `D:\mtb-wt-rsq-195f`; that is the banned pattern). The harness-managed temp scratchpad
+   (`AppData\Local\Temp\claude\...`) is the only exception, for throwaway files. Enforced by a
+   PreToolUse hook (`tools/hooks/guard-worktree-path.js`) that auto-denies `git worktree add` /
+   `git clone` targeting an outside path. Tool reads of system locations (node, npm, git) are
+   normal operation, not a violation — the rule is about where PROJECT files live.
 
 ## Files (src/ + test/ layout — these are the project)
 

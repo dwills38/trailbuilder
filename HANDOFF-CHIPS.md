@@ -5,7 +5,9 @@ paste-blocks, never click-chips). Ordered by value, not by size.
 
 **Clauses baked into every block below** (already written into each, listed once here so the
 coordinator can verify a block before handing it over): fresh worktree with a UNIQUE suffix off
-`origin/main`, never `D:\` root, never the shared checkout · NEVER prompt Douglas (no
+`origin/main` — **created at `.claude/worktrees/<name>` INSIDE `D:\MTB Bike Builder`; ALL file
+reads/writes stay inside the project (CLAUDE.md Hard rule #5 — never `D:\` root, never anywhere
+else on any drive; a PreToolUse hook auto-denies outside worktree paths)** — never the shared checkout · NEVER prompt Douglas (no
 AskUserQuestion — decide per THE BAR, log open questions in the report) · NEVER push; present the
 branch via send_message, because the coordinator's independent review IS the quality gate ·
 `tools/verification-job.json` is coordinator-only (dispositions go to
