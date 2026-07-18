@@ -82,7 +82,47 @@ count toward maturity at all** — an incomplete rung is a gap, not depth. Each 
 "no gap-jump progression past tabletop — L2 gap" or "no braking-dynamics biomechanics source —
 L3 gap"). The Gaps list is what the next round reads to pick its target.
 
-## Current state (round 4, 2026-07-18)
+## Current state (round 5, 2026-07-18 — the master round)
+
+**Round 5 summary.** Two chapters reached **master**: `coaching-methodology.md` (both gaps its own
+round-4 grade named as the reasons it fell short are closed — CCH-15 maneuver-specific teaching,
+CCH-16 go/no-go, CCH-17 mixed-ability group management, CCH-18 the MTB motor-learning finding) and
+`cornering.md` (COR-17's low-grip cue set, COR-18's terramechanics cross-check). `discipline-craft.md`
+closed three of four named gaps (DSC-11 race-craft, DSC-12 DH compression loads, DSC-13 the scrub)
+but stays `professional` because XC and enduro still carry only two facts each.
+`terrain-features.md` gained TER-14 (wet/loose) and stays `professional`.
+
+**Two corpus-wide corrections came out of this round, both recorded in `INDEX.md`:**
+1. **The "instructor curricula are walled" premise was over-generalized** from PMBIA/BICP. National
+   federations and national leader awards publish curriculum-grade material free and public —
+   Cycling UK's full 10-unit MTB Leader Resource, NICA's coach education, NZQA 30678, GSMBC's
+   teaching method. **Cycling UK Unit 3 (Instructing Riding Skills) is likely the richest unfetched
+   L4 target in the corpus.**
+2. **MTB-specific motor-learning research appears not to exist** in the biomedical indexes, and in
+   the nearest comparable sports the contextual-interference effect fails to replicate. That bounds
+   how strongly practice-design claims may be stated. Do not re-run the PubMed hunt (CCH-18).
+
+| Chapter | Level | Maturity (round 5) | Round-5 change |
+|---|---|---|---|
+| `fundamentals.md` | L1→L2 | professional | no new facts; FND-9's body-lean/bike-lean gap now has its *qualitative* half answered via COR-17/COR-18 (direction and driver sourced; no numeric threshold exists) |
+| `braking-traction.md` | L1→L2 | professional | no new facts; BRK-10's grip budget gained its **first loose-surface corroboration** via COR-18's ATV friction-ellipse result (mechanism only, scale-caveated) |
+| `cornering.md` | L1→L2 | **master** | COR-17 (low-grip loose/dust/wet/off-camber cue set, B-consensus, with an inverting terrain envelope) + COR-18 (terramechanics cross-check qualifying COR-12) |
+| `climbing-descending.md` | L1→L2 | professional | unchanged this round |
+| `terrain-features.md` | L2 | professional | TER-14 (wet/loose grip model + approach/run-out craft); wet takeoff/in-air technique recorded as **not established** |
+| `discipline-craft.md` | L3 | professional | DSC-11 race-craft, DSC-12 DH compression/G-outs, DSC-13 the scrub — all Tier B interviews, labelled; XC/enduro asymmetry holds the grade |
+| `coaching-methodology.md` | L4 | **master** (public-source ceiling) | CCH-15, CCH-16, CCH-17, CCH-18 |
+
+### Where round 6 should go
+1. **`discipline-craft.md` is now the clearest weakest link** — XC and enduro need a third fact each
+   (XC: technical race-line economy, ride-vs-walk decisions; enduro: B-consensus for DSC-3's pacing
+   claim, fatigue-state degradation specifics). Pit/mechanic procedure is also genuinely uncovered.
+2. **Mine Cycling UK Unit 3** (Instructing Riding Skills) — free, public, curriculum-grade, and it
+   bears on `coaching-methodology.md`'s remaining session-plan-template gap.
+3. **`terrain-features.md`'s L3 discipline application** and the manual/preload force-curve physics.
+4. **Corroborate the single-source depth facts**: CCH-15 (Triangle of Success, two of three axes),
+   COR-15/16 (stoppie pivot), DSC-13 (scrub), DSC-10 (whip).
+
+## Superseded state (round 4, 2026-07-18)
 
 | Chapter | Level | Maturity | Note |
 |---|---|---|---|
@@ -95,6 +135,13 @@ L3 gap"). The Gaps list is what the next round reads to pick its target.
 | `coaching-methodology.md` | L4 | professional | round 4 (2026-07-18) L4 public-source closeout: added the Training Wheel model + public assessment-progression bullets (CCH-9), BICP's own tiered coach-certification ladder (CCH-10), the NSCA "FIX IT" evidence-based error-correction framework (CCH-11), Hossner et al.'s peer-reviewed functional root-cause/personal-style framework (CCH-12), contextual-interference motor-learning research sharpening CCH-7 (CCH-13), and the "Challenge by Choice" group/risk-management model (CCH-14). **Per Douglas's 2026-07-18 decision, the walled graded rubrics (PMBIA's full six skills, BICP's named 16 + Minimum Ride Standard) are now PERMANENTLY out of scope — not a pending gap** — the chapter is graded `professional` against a public-source-master ceiling, honestly short of `master` on the still-open L2/L3 teaching-progression-for-a-specific-maneuver gap |
 
 ## Corpus rule: target the weakest chapter
+
+**Round 5 update (2026-07-18):** two chapters are now `master` (`coaching-methodology.md`,
+`cornering.md`) and five remain `professional`. The rule therefore bites again in its original form —
+there IS a weakest link now, and it is **`discipline-craft.md`** (see "Where round 6 should go"
+above). The paragraph below describes the round-4 situation and is kept for history.
+
+---
 
 Restated from [`INDEX.md`](INDEX.md) rule 9: future training rounds read every chapter's Maturity
 line + Gaps list first and prioritize the **weakest-graded chapter(s)**. After round 4 (2026-07-18),

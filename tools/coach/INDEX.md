@@ -166,10 +166,10 @@ a dispute — but never promote a rider up the ladder on its own.
 |---|---|---|---|
 | [`fundamentals.md`](fundamentals.md) | body position (neutral/ready-attack) · balance · vision · bike-body separation | L1→L2 | position→balance is the base of every other skill; vision feeds cornering & descending (professional maturity as of 2026-07-18 round 3 — vision/bike-body-separation drill depth) |
 | [`braking-traction.md`](braking-traction.md) | braking (front/rear, modulation, bracing) · traction & the grip budget · surface reading | L1→L2 | progressive braking → threshold control → brake-then-turn; the "grip budget" gates cornering (professional maturity as of 2026-07-18 round 3 — measured modulation drill + wet/mud technique) |
-| [`cornering.md`](cornering.md) | flat · bermed · off-camber corners · line choice · switchbacks · stoppie-pivot | L1→L2 | vision + outside-foot + bike-body separation assemble the corner; berms vs flat vs off-camber vs switchback vs stoppie-pivot (professional maturity as of 2026-07-17 round 2; stoppie-pivot family unblocked 2026-07-18 round 3) |
+| [`cornering.md`](cornering.md) | flat · bermed · off-camber corners · line choice · switchbacks · stoppie-pivot | L1→L2 | vision + outside-foot + bike-body separation assemble the corner; berms vs flat vs off-camber vs switchback vs stoppie-pivot (**master** as of round 5, 2026-07-18 — low-grip loose/wet/off-camber cue set COR-17 + the COR-18 terramechanics cross-check qualifying COR-12; residuals named in Gaps) |
 | [`climbing-descending.md`](climbing-descending.md) | climbing technique · descending · steeps · weight distribution by gradient | L1→L2 | centred base → gradient-driven weight shift → steep-roll commitment; the weight-back ⚠ DISPUTE (professional maturity as of 2026-07-18 round 4 — technical climbing, off-camber traverses, the steep-roll→chute three-rung ladder, and extended-descent fatigue/brake-fade craft all closed) |
-| [`terrain-features.md`](terrain-features.md) | pumping · manuals · wheel lifts · drops · jumps · rock gardens · switchbacks · steeps | L2 | wheel-lift → pump/manual → rolling drop → small drop → jump; the ladder that MUST NOT be skipped (professional maturity as of 2026-07-17 round 2; committed-chute gap closed 2026-07-18 round 3) |
-| [`discipline-craft.md`](discipline-craft.md) | XC · enduro · DH race technique · DJ/pump-track/park basics | L3 | discipline-specific application of L1/L2 skills under race/park constraints (professional maturity as of 2026-07-18 round 3 — a second sourced fact per discipline) |
+| [`terrain-features.md`](terrain-features.md) | pumping · manuals · wheel lifts · drops · jumps · rock gardens · switchbacks · steeps | L2 | wheel-lift → pump/manual → rolling drop → small drop → jump; the ladder that MUST NOT be skipped (professional; round 5 2026-07-18 added TER-14 wet/loose conditions — wet takeoff/in-air technique honestly recorded as not established) |
+| [`discipline-craft.md`](discipline-craft.md) | XC · enduro · DH race technique · DJ/pump-track/park basics | L3 | discipline-specific application of L1/L2 skills under race/park constraints (professional; round 5 2026-07-18 added race-craft DSC-11, DH compression DSC-12, the scrub DSC-13 — XC and enduro still two facts each, which is what holds the grade) |
 | [`coaching-methodology.md`](coaching-methodology.md) | teaching models (IDEA, What/Why/How, the Training Wheel) · skill diagnosis · error detection · progression & lesson design | L4 | how a coach *builds* the ladder for a rider — the "teach the coach" layer (professional maturity as of 2026-07-18 round 4 — L4 public-source closeout: the walled graded rubrics are now marked permanently out of scope by Douglas's decision, and the chapter is graded against a public-source-master ceiling instead) |
 
 **Level note.** The chapter level marks where its *core* content sits; each chapter is graded
@@ -200,10 +200,28 @@ areas plus the certification-body methodology, cross-corroborated across indepen
 
 ## L2–L4 fetchability map (for the next rounds)
 
-- **L4 instructor curricula are the standout wall.** PMBIA course manuals = member-only; BICP/ICP
-  Minimum Ride Standards & skill-demo videos = purchase-gated. The *methodology* is public; the
-  *graded skill lists and assessment rubrics* need a membership or a member contact. Flag to
-  Douglas as a potential paid-access decision for true L4 depth.
+- **⚠ CORRECTED round 5 (2026-07-18) — the wall is narrower than this map claimed. Read this before
+  assuming any curriculum-grade source is unreachable.** The original claim ("L4 instructor curricula
+  are the standout wall") is true of **PMBIA and BICP/ICP specifically**: PMBIA course manuals are
+  member-only, BICP/ICP Minimum Ride Standards & skill-demo videos are purchase-gated, and per
+  **Douglas's 2026-07-18 decision, paying for that access is permanently out of scope** (recorded in
+  `coaching-methodology.md`; do not re-propose it). But it is **not true of the category.** National
+  federations and national leader awards publish curriculum-grade material **free and public**:
+  - **Cycling UK** publishes the entire 10-unit *Mountain Bike Leader Resource* — including
+    **Unit 3 Instructing Riding Skills** and **Unit 7 Leading Groups** — as open documents
+    ([cyclinguk.org](https://www.cyclinguk.org/courses-and-training/training-and-education-resources/trail-leader-resources)).
+    Unit 7 is mined (CCH-17); **Unit 3 is unmined and is likely the single richest unfetched L4
+    target in this corpus.** Units 1 and 8 also unmined.
+  - **NICA** (US national federation) publishes its coach-education *Trailhead* material openly
+    ([coaching.nationalmtb.org](https://coaching.nationalmtb.org/)) — grouping models, assignment
+    methods, debrief discipline (CCH-17).
+  - **NZQA unit standard 30678** is a public NZ government qualification standard with explicit
+    group-safety and trip-management criteria. Unmined.
+  - **GSMBC** (certifies coaches Apprentice → Expert/L4) publishes real teaching method publicly,
+    including the Triangle of Success readiness framework (CCH-15).
+  **Lesson: the two North American skills-certification bodies are not the whole Tier-A landscape,
+  and the corpus over-generalized from them for four rounds.** Search national federations and
+  leader awards before recording anything as walled.
 - **Tier-B coach sites fetch well via Exa** (promountainbike, evo, BikeRadar, coach blogs).
   **REI times out on WebFetch and Exa's crawler returned CRAWL_NOT_FOUND** on the article URL —
   but Exa **search highlights** surface REI content reliably; use search-highlight for REI.
@@ -214,5 +232,19 @@ areas plus the certification-body methodology, cross-corroborated across indepen
   friction-circle (BRK-8..11), steady-turn lean angle `tan θ = v²/gr` + countersteer (COR-9..11),
   pumping-as-CoM-work + jump projectile motion (TER-11..13), rider-as-suspension + vibration cost +
   gradient weight-transfer (CLD-8..10). Sources reachable via PubMed MCP (Miller, Gotardi, Cowell)
-  and Exa (Klug, Skatulla/Maier, Cain, Golembiewski, Kogelbauer, Meijaard). Still thin: MTB-specific
-  loose-surface tyre/traction data (models are firm-surface/road-biased).
+  and Exa (Klug, Skatulla/Maier, Cain, Golembiewski, Kogelbauer, Meijaard). ~~Still thin:
+  MTB-specific loose-surface tyre/traction data (models are firm-surface/road-biased).~~
+  **Round 5 (2026-07-18) searched this and reports two findings.** (1) **Loose-surface tyre mechanics
+  — addressed at mechanism level** via the *terramechanics* literature (`cornering.md` COR-18):
+  off-road lateral force vs slip angle changes *shape* off firm ground, grip comes substantially from
+  shearing the terrain, and the friction ellipse is confirmed on clay/grass/sand — the first
+  loose-surface corroboration of BRK-10. Admitted with a hard scale caveat: those are
+  ATV/agricultural/automotive tyres at kN loads, so **no number transfers to MTB.** An MTB-scale
+  measurement remains a genuine research gap, not a fetching gap. (2) **MTB-specific motor-learning
+  research appears not to exist** in the biomedical indexes — four PubMed formulations across 231
+  title/abstract hits returned zero skill-acquisition studies; the indexed MTB literature is
+  physiology, injury and epidemiology (`coaching-methodology.md` CCH-18). More usefully, in the
+  nearest comparable sports — **alpine ski racing especially** — the contextual-interference effect
+  *fails to replicate*, which bounds how strongly this corpus may state practice-design claims to a
+  rider. **Do not re-run that PubMed hunt;** SPORTDiscus / PsycINFO / ERIC were unreachable this
+  round and are the only remaining place to look.

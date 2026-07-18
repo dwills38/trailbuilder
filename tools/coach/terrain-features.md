@@ -1,8 +1,10 @@
 # Terrain Features — Coach Corpus
 
 **Maturity: professional** (L2 core maneuver ladder now has full Prereq/Gear/Progression
-entries with cited sources; L3 discipline application and biomechanics grounding remain gaps —
-see below). Pumping · wheel lifts · manuals · bunny hops · drops · jumps · rock gardens & roots ·
+entries with cited sources; round 5, 2026-07-18 added TER-14's wet/loose conditions layer —
+partially closing that gap, with wet-specific *takeoff/in-air* technique honestly recorded as
+not established. L3 discipline application and the remaining force-curve biomechanics still gaps —
+see below; those are what hold this chapter short of master). Pumping · wheel lifts · manuals · bunny hops · drops · jumps · rock gardens & roots ·
 switchbacks · steeps & chutes. Read [`INDEX.md`](INDEX.md) first (corpus rules, tiers, and
 especially the **SAFETY-FIRST PROGRESSION** rule — it bites hardest in this chapter).
 
@@ -445,6 +447,89 @@ chute.
 
 ---
 
+## Wet & loose conditions on jumps and drops (round 5, 2026-07-18 — partial close, read the limits)
+
+**TER-14 — In the wet, grip splits into two DIFFERENT things a rider can trade between — rubber
+friction and mechanical (knob-into-ground) grip — and the correct trade depends on whether the
+surface is firm-and-wet or soft-and-muddy. For jumps and drops specifically, the sourced adjustments
+are all about the APPROACH and the RUN-OUT, not about changing the maneuver in the air.**
+The chapter's Gaps flagged "wet/loose-surface adjustments for jumps and drops specifically" as an
+open L2 gap. This closes the part that public sources actually support, and states plainly what they
+do not — because inventing a wet-jump cue is exactly the failure mode this corpus exists to avoid.
+
+*The grip model to teach (this is the useful, transferable part).* Water forms a thin layer that
+cuts **friction** — the rubber-on-surface component. But grip is not only friction: **mechanical
+grip** comes from the tread grabbing edges or digging into soft ground. The two respond oppositely
+to rubber compound, so the right choice is surface-dependent:
+- **Wet on FIRM ground** (slick rock, wet hardpack, wet roots): friction is what you lost, so you
+  want it back — an intermediate/dry tread with a **softer** compound and slightly lower pressure
+  generates more friction. Shorter, wider knobs maximize contact.
+- **Wet on SOFT ground** (mud): friction is nearly irrelevant; you need to **dig**. A wet-condition
+  tyre with **taller, narrower** knobs and a firmer rubber penetrates and sheds mud, generating
+  mechanical grip. Softer rubber can deform too much to bite.
+  This is the tyre-side twin of COR-18's finding that on deformable terrain grip comes from shearing
+  the ground rather than from friction.
+
+*Sourced technique for wet/loose approaches and landings:*
+- **Link grip points, don't fight the whole trail.** The named wet-riding method is to stop seeing
+  obstacles and start seeing the grippy bits, then **stay low and drive weight into the parts of the
+  trail you can trust** — turning "twenty negative connections into three deliberately positive
+  ones." Applied to a feature: choose where you set up, brake and press based on where grip *is*.
+- **Heavy / light / heavy over the slippery bit.** On wet roots, the honest sourced position is that
+  you *cannot* stop the tyre slipping — roots are slippery and there will be movement. What you can
+  do is get low, **generate weight against the trail either side of the root, go light across it, and
+  go heavy again after** — taking control back where grip is trustworthy. This is directly applicable
+  to a wet lip or a wet run-in crossed by roots.
+- **Undershoot rather than overshoot, always — and more so in the wet.** A bike-park coaching source
+  states it as a rule that holds at every level, up to slopestyle: it is "always safer and more
+  controlled to undershoot a jump than to overshoot." Wet conditions reduce approach speed
+  predictability, which makes conservative speed the correct default.
+- **The run-out is the wet hazard, not the landing.** Most drop crashes "don't actually happen on the
+  drop, they happen AFTER" — you are travelling faster on landing than on takeoff, and in the wet
+  that is where reduced braking grip bites. Look **past** the landing to where you want to go, and
+  inspect the run-out before committing.
+- **Do not grab brakes on touchdown** (already TER-6/TER-7's rule) — the consequence is simply larger
+  in the wet, where a skid starts sooner and recovers later.
+- **Setup for wet:** sintered brake pads generally perform better wet; reduce spring rate and quicken
+  rebound slightly (wet speeds and forces are lower, so the same settings ride harsh and skip);
+  reduce compression damping to improve low-speed traction; full-length mudguard and eye protection
+  are a visibility requirement, not a comfort item. Record any change so it can be reversed.
+- **⚠ The confidence trap, named by two independent sources.** Wet riding fails through *tentative*
+  riding — moving "weakly and hesitantly," which unloads the tyres exactly when they need weight. A
+  reader-reported pattern worth teaching: the first set of wet roots is ridden fine, then the rider
+  notices them, becomes careful, and crashes. The coaching answer is **not** "be brave" — it is
+  CCH-16's stop rule (if it isn't a full yes, don't) combined with dropping *back down* the ladder to
+  a feature the rider can commit to fully in these conditions. **A rider who is going to ride a
+  feature tentatively should ride a smaller feature instead.**
+
+- *⚠ HONEST LIMIT — what this fact does NOT establish.* No public source located this round gives
+  **wet-specific takeoff or in-air technique for jumps** — how a wet lip changes the press/pop
+  timing, whether a wet takeoff can slip under load, or how to adjust the extend-vs-absorb choice in
+  the wet. Everything above concerns approach, grip selection, speed choice, run-out and setup. The
+  in-air phase is, mechanically, unaffected by surface once the tyres leave the ground — but the
+  *takeoff loading* phase plausibly is, and **no source was found that addresses it**, so this corpus
+  does not. Per rule 8 the honest entry is: not established. What would settle it — a
+  certification-body wet/winter air module, or a named coach's wet bike-park breakdown.
+- *Tier:* B / B-consensus for the grip model and the wet-riding method (multiple independent
+  method-serious sources); B for the individual feature cues. Sources: Ben Cathro (former World Cup
+  DH racer), *How NOT to Bike — How To Not Suck When Riding In The Wet*, Pinkbike (2024) — the
+  friction-vs-mechanical-grip model, compound/tread trade by surface, brake-pad, suspension and
+  mudguard adjustments, and the tentativeness failure mode; Andy Barlow (Dirt School), *How to ride
+  wet roots and slippery trails*, MBR (2022) — grip-point linking, heavy/light/heavy, stay-low-and-use-
+  your-knees (already the corpus's BRK-13 source); Highland Mountain Bike Park, *Progression Guide —
+  How To Jump* (2025) — the undershoot-over-overshoot rule and the roll → pop-to-knuckle → build-speed
+  session progression; BetterRide (Gene Hamilton), *How to Hit Jumps and Drops at Any Age* — crashes
+  happen after the drop, look past the landing, inspect blind landings. Fetched/search-highlighted
+  2026-07-18.
+- *⚠ SAFETY-FIRST:* this fact **narrows** the envelope of TER-4..TER-7; it never widens it. Wet
+  conditions are a reason to drop a rung, not a technique for holding the same rung. The gear
+  assumptions of the underlying dry progressions are unchanged and still apply.
+- *Corpus use:* pairs with `braking-traction.md` BRK-13 (low-traction braking) and `cornering.md`
+  COR-17/COR-18 (low-grip cornering and its mechanism); supplies the conditions layer the drop/jump
+  ladder previously stated only for dry terrain.
+
+---
+
 ## Physics notes (Tier C — the mechanism/why)
 
 *Added 2026-07-17 (biomechanics round). This chapter's maneuver cues were laddered the same day
@@ -520,5 +605,12 @@ rung sits lowest and most load-bearing in the ladder (TER-1).
   `discipline-craft.md` DSC-6/7.
 - **No certification-body L2 skill list** (walled) to grade this chapter against — L4 gap, unchanged
   from the bootstrap round.
-- **Wet/loose-surface adjustments for jumps and drops specifically** (rock gardens now have some —
-  TER-8b) are not yet covered — L2 gap.
+- ~~**Wet/loose-surface adjustments for jumps and drops specifically**~~ **PARTIALLY CLOSED round 5
+  (2026-07-18) via TER-14** — the friction-vs-mechanical-grip model and its surface-dependent
+  compound/tread trade, grip-point linking, heavy/light/heavy, the undershoot-not-overshoot rule, the
+  run-out (not the landing) as the wet hazard, wet setup changes, and the tentativeness failure mode
+  with its ladder-drop answer. **Explicitly NOT closed:** no public source found addresses
+  **wet-specific takeoff loading or in-air technique** — whether a wet lip changes press/pop timing or
+  the extend-vs-absorb choice. Recorded in TER-14 as "not established" rather than filled with a
+  plausible-sounding cue. What would settle it: a certification-body wet/winter air module or a named
+  coach's wet bike-park breakdown.

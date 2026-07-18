@@ -271,3 +271,12 @@ checkpoint, not an afterthought to "leaning the bike."
   Cycling, tied to the COR-12/13 physics). Remaining: no source gives the actual angle/speed at
   which body-lean vs. bike-lean *should* flip by corner type — that finer-grained threshold is a
   narrower, still-open L2/L3 gap, distinct from the drill-progression gap this round closed.
+  **Round 5 (2026-07-18) partially addressed the *qualitative* half of this** via `cornering.md`
+  COR-17: sources are now consistent and explicit that the ratio should shift toward **more bike-lean
+  and less body-lean as grip falls** (loose-over-hardpack, dust, off-camber), and toward
+  leaning-together as support rises (berms, loam) — with the mechanism given in COR-18 (leaning as
+  one unit moves combined mass off the base of support and overloads the outer knobs). So the
+  *direction* of the flip and its *driver* (surface support, not just corner type) are now sourced.
+  **Still open: any numeric threshold** — no source gives an angle or speed at which to switch, and
+  COR-18's terramechanics sources are the wrong scale to supply one. Treat as a dial, not a switch,
+  which is how COR-17's rotation source frames it.
