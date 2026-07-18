@@ -5,6 +5,8 @@
 var C = require('./src/compat.js');
 var S = require('./src/schema.js');
 var K = require('./src/kit.js');
+var BD = require('./data/bmx.js');
+var BS = require('./src/schema-bmx.js');
 
 var problems = S.validateCatalog(C);
 if(problems.length){
@@ -38,3 +40,15 @@ kitWarnings.forEach(function(w){ console.log('  kit warn: ' + w); });
 var kitVerified = K.KIT_PARTS.filter(function(p){ return p.verified === true; }).length;
 console.log('KIT OK - ' + K.KIT_PARTS.length + ' kit parts, 0 problems' + (kitWarnings.length ? ', ' + kitWarnings.length + ' warning(s)' : '') +
   ' (' + kitVerified + ' verified, ' + (K.KIT_PARTS.length - kitVerified) + ' unverified).');
+
+/* BMX (OFF-LIVE, data/bmx.js + src/schema-bmx.js) - validated here too so
+   `node validate.js` stays the single gate for ALL catalog data, MTB or not.
+   Never wired into the live app; a failure here does not affect buildmymtb.com. */
+var bmxProblems = BS.validateBmxCatalog(BD.BMX_PARTS);
+if(bmxProblems.length){
+  console.log('BMX DATA INVALID - ' + bmxProblems.length + ' problem(s):');
+  bmxProblems.forEach(function(p){ console.log('  - ' + p); });
+  process.exit(1);
+}
+var bmxVerified = BD.BMX_PARTS.filter(function(p){ return p.verified === true; }).length;
+console.log('BMX OK - ' + BD.BMX_PARTS.length + ' parts, 0 problems (' + bmxVerified + ' verified, ' + (BD.BMX_PARTS.length - bmxVerified) + ' unverified).');

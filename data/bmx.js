@@ -143,10 +143,11 @@ var BMX_PARTS = [
     note: 'bbShell/headTube/rearBrakeMount and the 21.0in top tube (Pro XL size) confirmed against chasebicycles.com\'s RSP 3.0 frame-archive page 2026-07-17 (V-brake-only, BSA-threaded 68/73mm shell = this catalog\'s euro token, integrated headset); weight (1532g) is that page\'s per-size table for the Pro XL (21in) row. Price (549.99) and rearAxle are NOT stated on the archive page (this is a discontinued frame with no current listing), so left unverified rather than claiming verified on an unconfirmed price. Source: https://chasebicycles.com/frames/frame-archives/chase-rsp-3-0/'
   },
   {
-    id: 'bmx-fr-supercross-envy', cat: 'frame', brand: 'Supercross BMX', model: 'Envy SL',
+    id: 'bmx-fr-supercross-envy', cat: 'frame', brand: 'Supercross BMX', model: 'Envy RS7',
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: true,
-    price: 899.99, note: 'Alloy race frame (most others in this list are chromoly).'
+    price: 899.99,
+    note: 'RENAMED 2026-07-17 (preflight audit fix): the prior "Envy SL" name is not a real Supercross BMX SKU (unconfirmable, flagged by the 2026-07-17 pre-flip audit). Re-fetched supercrossbmx.com\'s current Envy lineup: the RS7 is Supercross\'s flagship current alloy race frame, sold frame-only, and its "Pro Plus" size lists a 20.75in top tube - an exact match for this row\'s topTube. RS7 spec pages describe a threaded/euro-style cold-forged BB shell across the line, and the RS7 FASTBACK is explicitly marketed as the separate "disc brake specific" variant, implying the base RS7 (this row) is the rim/v-brake configuration. Price ($899.99) and the exact 14mm rear-axle figure were not independently confirmed on the fetched pages (some retailer listings for a disc-specific RS7 SKU show a "15mm" dropout-slot-width figure, the same slot-width-vs-axle-diameter trap caught on the GT Speed Series Pro row this same pass) - kept as the best-credible-source estimate per catalog inclusion policy; left unverified (no verified:true/source claimed).'
   },
   {
     id: 'bmx-fr-chase-element', cat: 'frame', brand: 'Chase', model: 'Element',
@@ -173,10 +174,10 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-gt-speedseries-pro', cat: 'frame', brand: 'GT', model: 'Speed Series Pro',
     discipline: 'race', wheelSize: '20', bbShell: 'spanish', headTube: 'integrated-1-1/8',
-    topTube: 20.75, rearBrakeMount: 'disc', rearAxle: '15mm', frameOnly: false,
+    topTube: 20.75, rearBrakeMount: 'disc', rearAxle: '10mm', frameOnly: false,
     price: 900.00,
     verified: true, lastChecked: '2026-07-17', source: 'https://gtbicycles.com/products/speed-series-pro',
-    note: 'GT\'s race-team-tier complete bike. bbShell corrected euro -> spanish (frame is BB86 press-fit, unthreaded - the "Spanish BB" token, not the threaded Euro shell). rearBrakeMount corrected v-brake -> disc (disc-brake-only frame, "AL CNC/Forged Quick Change Disc Dropout system"). AUDIT 2026-07-17: was mistakenly \'caliper\' (rim-caliper token) after the earlier v-brake->caliper edit; re-corrected to the \'disc\' token added the same day (BMX_VOCAB.brakeMount), so the Avid BB5 (mount:\'disc\') and other disc calipers match instead of false-erroring. rearAxle corrected 14mm -> 15mm per the same disc dropout spec - NOTE: 15mm exceeds BMX_VOCAB.axle\'s documented [10mm,14mm] list (flagged for the coordinator/vocab update; frame.rearAxle is not itself read by checkBmxBuild so this is a data-accuracy fix, not a verdict change). headTube (integrated 1-1/8-1.5 taper) and topTube (20.75in Pro size) confirmed. Price corrected 799.99 -> 900.00 (gtbicycles.com/products/speed-series-pro.js); the separate frame-only SKU (gtbicycles.com/products/speed-series-pro-frame) is $262.50 for reference, not used here since this row is frameOnly:false.'
+    note: 'GT\'s race-team-tier complete bike. bbShell corrected euro -> spanish (frame is BB86 press-fit, unthreaded - the "Spanish BB" token, not the threaded Euro shell). rearBrakeMount corrected v-brake -> disc (disc-brake-only frame, "AL CNC/Forged Quick Change Disc Dropout system"). AUDIT 2026-07-17: was mistakenly \'caliper\' (rim-caliper token) after the earlier v-brake->caliper edit; re-corrected to the \'disc\' token added the same day (BMX_VOCAB.brakeMount), so the Avid BB5 (mount:\'disc\') and other disc calipers match instead of false-erroring. PREFLIGHT FIX 2026-07-17 (schema-bmx.js catch): rearAxle re-corrected 15mm -> 10mm - re-fetched gtbicycles.com/products/speed-series-pro, which lists "AL CNC/Forged Quick Change Disc Dropout SyStem" with "3/8\\" Dropouts" (the axle spec) and a separate "15mm" DROPOUT SLOT WIDTH figure the earlier pass mistook for the axle diameter; 3/8in is the standard BMX_VOCAB \'10mm\' token, matching every other race-frame row\'s rear axle. headTube (integrated 1-1/8-1.5 taper) and topTube (20.75in Pro size) confirmed. Price corrected 799.99 -> 900.00 (gtbicycles.com/products/speed-series-pro.js); the separate frame-only SKU (gtbicycles.com/products/speed-series-pro-frame) is $262.50 for reference, not used here since this row is frameOnly:false.'
   },
   {
     id: 'bmx-fr-haro-lineage-master', cat: 'frame', brand: 'Haro', model: 'Lineage Master',
@@ -1419,12 +1420,13 @@ var BMX_PARTS = [
     id: 'bmx-gr-odyssey-broc', cat: 'grips', brand: 'Odyssey', model: 'Broc Grips',
     length: 158, flangeless: false, price: 10.99,
     note: 'Broc Raiford signature grip, soft Kraton compound, ships with Odyssey Par Ends bar ends - danscomp.com product page (30mm OD/22mm ID/158mm length).'
-  },
-  {
-    id: 'bmx-gr-odyssey-keyboard', cat: 'grips', brand: 'Odyssey', model: 'Keyboard V1 Grips',
-    length: 143, flangeless: true, price: 11.99,
-    note: 'Aaron Ross signature grip - danscomp.com listing.'
   }
+  // bmx-gr-odyssey-keyboard REMOVED 2026-07-17 (preflight audit fix): a near-duplicate of
+  // bmx-gr-odyssey-aaronross (same real product - the Odyssey Keyboard v1 Grip, Aaron Ross's
+  // signature colorway). aaronross was re-fetched against shop.odysseybmx.com directly
+  // (length corrected to the maker-listed 158mm, price to $10.99); this row's 143mm/$11.99
+  // figures came from an older danscomp.com listing and are superseded. Verified nothing else
+  // in data/bmx.js, src/, or test/ referenced this id before removing.
 ];
 
 // Node/test consumption only — the browser path stays plain globals, matching
