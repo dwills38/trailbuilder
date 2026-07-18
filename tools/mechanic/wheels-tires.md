@@ -919,6 +919,74 @@ press-fit/interference-fit material.
 
 ---
 
+## Spoke tension — verification pass (master round 2)
+
+**WHL-46 [VERIFIES and upgrades WHL-26] — the DT Swiss average-tension band is re-read from the
+RENDERED table page and the OCR reconstruction is CONFIRMED correct.** WHL-26 flagged its
+"Average Spoke Tension" column as *medium* confidence because the PDF-to-text conversion
+scrambled the column's row order, and asked a future round to re-verify "against the manual's
+rendered PDF, not the extracted text." Done: the source PDF was re-fetched, §6.1 located at PDF
+page 66, and that page **rasterised to an image and read visually** rather than text-extracted.
+The rendered table reads, in full:
+
+| | | Max. tolerated [N] | Min. tolerated [N] | **Average [N]** |
+|---|---|---|---|---|
+| Disc brake | FW | 1 200 | 950 | **1 150 – 1 000** |
+| Disc brake | RW | 1 300 | 1 050 | **1 250 – 1 100** |
+| Rim brake | FW | 1 000 | 800 | **950 – 850** |
+| Rim brake | RW | 1 300 | 1 050 | **1 250 – 1 100** |
+
+(All figures are for *the higher-tightened wheel side*.) Every max/min cell matches WHL-26
+verbatim, and **all four average bands match WHL-26's reconstruction** — including the rim-FW
+band, which WHL-26 wrote as "≈850–950 N" and the table states as "950 – 850". **WHL-26's average
+band is therefore upgraded from *medium (OCR-reconstructed)* to *confirmed (render-verified)*.**
+*Method note worth reusing: when a table's extracted text is column-scrambled, `pdftoppm -png` at
+~160 dpi and reading the page as an image resolves it — the verification technique this corpus
+lacked.* *Confidence: confirmed.* Source: DT Swiss "SPLINE Technical Manual V2017.03" §6.1, PDF
+p.66 (printed p.65), rendered and read 2026-07-18; PDF at
+hollandbikeshop.com/images/DT-Swiss-Wheels-SPLINE-Technical-Manual-MY16-17_V2017-03_EN_low.pdf
+(the mirror WHL-26 used; dtswiss.com's own copy still exceeds the fetch tool's size limit).
+
+**WHL-47 [flag, NOT a fact — for a future round] — a LATER revision of the same manual
+(V2017.07) appears to carry an EXPANDED §6.2 tolerance table keyed to inner rim width, which
+WHL-27 (built on V2017.03) does not have.** Extracted text from a V2017.07 copy shows tolerance
+rows that V2017.03 lacks — splitting MTB by **inner rim width <30 mm vs >30 mm**, and splitting
+road into PRC/RC-rim-brake vs ERC/PRC/RC-disc-brake vs ER vs C/CR/E/P/PR/R. **The numbers are
+deliberately NOT transcribed here**: that copy's table extracted with the same column-scrambling
+WHL-46 had to defeat by rendering, and the copy obtained was a truncated 39-page extract whose
+rendered pages do not reach the tolerance page — so it could not be render-verified by the
+WHL-46 method. Per corpus rule 6, the *existence* of a revision difference is recorded and the
+*figures* are not. **Actionable next step for a future round:** obtain a complete V2017.07 (or
+later) SPLINE manual and render §6.2; if confirmed, WHL-27's tolerance table is
+revision-specific and should be labelled as V2017.03-era rather than current. *Confidence: not
+established (revision difference observed in extracted text only; figures unverified).*
+Attempted 2026-07-18. Cross-reference: WHL-27.
+
+**WHL-48 — SOURCE-EXHAUSTION DECLARATION: Sapim's own numeric spoke-tension TARGET table is not
+publicly obtainable, and the reason is now identified — a domain migration plus a registration
+wall, not merely dead links.** This chapter's Gaps have twice recorded that "Sapim's site
+returned 404s on its spoke-tension-meter/checklist pages." The cause is now established:
+**Sapim migrated from `sapim.be` to `sapim.eu`** (`www.sapim.be/spoke-tension-meter` and
+`www.sapim.be/sites/default/files/checklist.pdf` both return **HTTP 301 → sapim.eu**), and the
+migrated equivalents **404 on the new domain** — the indexed URLs are stale. The live
+`sapim.eu/downloads/` page is then **gated**: it states *"You do not have permission to see this
+content. Register below to access our Downloads page,"* and exposes only the two Terms &
+Conditions PDFs publicly. Archive routes were also exhausted: a Wayback CDX sweep of `sapim.be*`
+returns **no archived Sapim PDFs at all**, and the surviving archived checklist pages (2000–2013)
+carry their content as **images** (`sapimchecklist*.jpg`), not text or tables.
+**Conclusion: recorded as EXTERNAL.** Sapim's target table, if it exists, sits behind an account
+registration — which this corpus does not create — so **DT Swiss (WHL-26/46) remains the only
+manufacturer with a publicly sourced numeric tension-*target* table**, and the cross-brand
+comparison this chapter has wanted since its L3 start is **not achievable from public sources**.
+This is a genuine exhaustion, not an unfetched gap: it should not be re-attempted by URL-guessing
+in future rounds. (The separate *conversion-chart* half of the old gap was already closed by
+WHL-38.) *Confidence: confirmed (the 301s, the 404s, the gate wording and the empty CDX result
+were each observed directly).* Source: sapim.be → sapim.eu 301 redirects, sapim.eu/downloads/,
+and a web.archive.org CDX sweep of `sapim.be*`, all 2026-07-18. Cross-reference: WHL-26, WHL-35,
+WHL-38, WHL-46.
+
+---
+
 ## Gaps
 
 Honest list of what's still missing to climb past **foundation** — for the next training round
@@ -946,6 +1014,27 @@ to target (per INDEX.md corpus rule 7 / CURRICULUM.md "target the weakest chapte
   different document) is still not sourced — Sapim's site continues to 404 on its own
   spoke-tension-meter pages — so DT Swiss remains the only maker with its own **target** table
   (WHL-26/27), even though the **conversion-chart** gap WHL-35 raised is now closed.
+  **— RESOLVED 2026-07-18 master round 2, as far as public sources permit (WHL-46/47/48).**
+  Two distinct outcomes, both now settled:
+  **(a) The DT Swiss average-band caveat is CLOSED (WHL-46).** The "re-verify against the
+  manual's rendered PDF, not the extracted text" action was carried out — §6.1 was rasterised
+  with `pdftoppm` and read as an image — and **the OCR reconstruction proved correct in all four
+  rows**, so WHL-26's average band is upgraded from *medium* to *confirmed*. The
+  render-the-page-as-an-image method is the reusable fix for column-scrambled tables.
+  **(b) The Sapim target table is declared SOURCE-EXHAUSTED / EXTERNAL (WHL-48), with the cause
+  identified.** The 404s were never the real obstacle: **Sapim migrated `sapim.be` → `sapim.eu`**
+  (the old URLs 301 to a domain where they 404), and the live `sapim.eu/downloads/` page is
+  **behind a registration wall** — *"You do not have permission to see this content. Register
+  below…"*. A Wayback CDX sweep of `sapim.be*` returns **no archived Sapim PDFs at all**, and the
+  surviving archived checklists are **images, not tables**. A cross-brand tension-target
+  comparison is therefore **not achievable from public sources**; DT Swiss stands as the only
+  maker publishing one. **Future rounds should not re-attempt this by URL-guessing.**
+  **Newly opened, narrow and specific (WHL-47):** a later revision of the DT manual (V2017.07)
+  appears to carry an **expanded §6.2 tolerance table keyed to inner rim width (<30 mm vs
+  >30 mm)** that WHL-27's V2017.03-based table lacks. The figures were deliberately not
+  transcribed — the copy obtained was truncated and could not be render-verified. If confirmed,
+  **WHL-27's tolerance table is revision-specific and should be relabelled V2017.03-era.**
+  Obtaining a complete V2017.07+ SPLINE manual and rendering §6.2 is the concrete next action.
 - **Fatigue-failure data — L3 gap, PARTIALLY CLOSED 2026-07-17.** WHL-30/31/32 now carry DT
   Swiss's own load/unload-cycle mechanism (quantified: ~430 cycles/km on a 29" wheel) and named
   under-/over-tension failure directions, plus Sapim's fetched fatigue-test protocols (endurance
