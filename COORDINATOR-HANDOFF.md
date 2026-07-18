@@ -1,5 +1,87 @@
 # BuildMyMTB — Coordinator Handoff
 
+## ★★★ SEAT 13 — START HERE (succession from seat 12, 2026-07-18) ★★★
+_(Drafted pre-handoff; seat 12 will refresh the OPEN SESSIONS + state lines at the actual
+handoff moment — trust the LATEST commit of this block.)_
+
+Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today> -b
+coord/<today> origin/main` (NEVER at D:\ root; never git-mutate the shared checkout — it sits
+on a STALE branch pointer by prior accident; leave it). Run the gates yourself, never trust
+doc counts. State at drafting: **MTB 5,023 parts (3,014 verified, 60.0%) · Kit 714 (436,
+61.1%) · BMX 225 LIVE (59) · Road 150 off-live (32) · Gravel 150 off-live (26) · Striders 36
+off-live (5) · EMTB 75 off-live (0) — SEVEN validators, one `node validate.js` gate; 757
+tests; tsc clean.** Live surfaces: index.html (MTB), KitBuilder (BuildMyKit), bmx.html
+(BuildMyBMX), guides (42), 4 themes (Pee Wee is PRESERVED-NOT-LIVE: branch ui/theme-peewee +
+tag keep/theme-peewee; re-add = revert-the-revert + browser pass).
+
+**★ ABSOLUTE RULES (Douglas, non-negotiable — read memory: parallel-work-delivery +
+workflow-preferences + hard-rules):** (1) the coordinator NEVER runs grind/build/research
+tasks in its own seat — no background Agents, no Workflows; "do X" from Douglas means WRITE
+PASTE-READY CHIPS (model+effort header) unless he explicitly overrides against the rule
+(seat 12 drifted once; don't repeat). In-seat = review/merge/gates/small direct UI-doc
+edits/session mgmt/decision packets. (2) NO pop-ups ever. (3) E-bikes are CONTAINED to the
+EMTB surface (rule 1 amended 2026-07-18 on his word); the MTB catalog stays e-free forever —
+a containment test enforces it. (4) Never weaken a test; a blank beats an invented value;
+UNBIASED is load-bearing.
+
+**★ STANDING GRANTS (2026-07-18):** hourly fleet sweeps (re-arm your own cron — session
+crons DIE with the seat); AUTO-ARCHIVE fully-harvested sessions without asking; use/clean
+memory liberally; coordinator↔chip-session messaging both ways without pre-asking. Durable
+scheduled tasks (survive seats, in the app's Scheduled sidebar): daily bug-report triage
+(~8:52a), monthly drift triage (6th), monthly bias audit (12th), quarterly recall sweep
+(Jan/Apr/Jul/Oct 3). Chip briefs MUST include: UNIQUE worktree suffix (shared-path collisions
+happened twice), never-prompt-Douglas, present-don't-push WITH the why, per-brand/chapter
+commits, ID-range claims for corpus rounds.
+
+**★ THE SPECIALIST BENCH (tools/<name>/ + .claude/agents/<name>.md — the compounding-corpus
+pattern; memory: specialist-corpora):** coach 7/7 professional (public-source ceiling — NO
+paid memberships EVER, decided); mechanic 6/6 professional; ui-expert 7/7 professional;
+fitter 6 chapters foundation (peer-reviewed gold tier, wide open); recall-watchdog live
+(RECALL-LOG, quarterly task, recall NOTES shipped on RCL-9/RCL-12 rows — the BADGE feature
+is a parked Douglas taste call); security-expert 103 facts (RLS chapter born professional;
+its reviews.sql review found 2 HIGHs — see the decision queue). Master rounds for mechanic/
+coach/ui are IN FLIGHT at drafting.
+
+**★ OPEN SESSIONS at drafting (refresh at handoff):** MTB verification campaign 2
+(verify/campaign-2, presents ~150-row batch-groups, walls map in
+tools/verify-fanout-1-CLOSEOUT.md); mechanic-master-1 + coach-master-1 + ui-expert-master-1
+(marathon corpus rounds, present per batch); First Bike Finder grounding spec (polls for the
+fitter corpus, delivers data/FIRST-BIKE-FINDER-SPEC.md); Affiliate Setup (Douglas's business
+lane — NEVER touch; you are the only code-pusher); daily bug-triage session (the scheduled
+task's vessel).
+
+**★ DOUGLAS'S DECISION QUEUE (raise gently, never nag):** (1) EMTB four: browse-vs-builder
+shape / flip threshold (~75 models exist) / US-class display / emtb.html timing; (2)
+reviews.sql fix chip (2 HIGH security findings, file is STAGED not run — fix before he ever
+runs it); (3) Supabase dashboard: MFA enabled? signup CAPTCHA? (security expert's ask);
+(4) Finder blockers: inseam standard (rec: barefoot) + growth display (rec: inches);
+(5) fitter cert paywalls (rec: same no-membership answer as coach); (6) recall BADGE feature
+scoping; (7) bdata top-up (~160 walled complete bikes hang on it; balance ~$1.39);
+(8) HOME PAGE (ancient standing TODO — remind periodically, needs his scoping); (9) kids-gear
+scope + style pass scheduling (old parked items).
+
+**★ HARD-WON SEAT-12 LESSONS:** content-grep is ground truth, never branch pointers
+(a bootstrap branch can exist at an old tip with zero work); unexpected main movement gets
+content-reviewed post-hoc — all sessions share one git author (a worker once self-pushed
+with a coordinator-voice log entry); duplicate dispatches land in the SAME worktree path and
+mostly self-heal but fix is unique suffixes; parallel corpus rounds need ID ranges (COR-9
+collision); verify-job auto-sync STRIPS unmerged branches' state — hand-patch or sync only
+at a settled tip; the EUR/dated-ECB rule applies AT PROMOTION TIME only; .git/info/exclude
+carries the PII guard for ALL worktrees (business docs at root hold Douglas's addresses —
+NEVER let them stage); the stale chore/cloudflare-prep analytics portion is DO-NOT-SHIP.
+
+**Standing workflow (unchanged from seat 11, still correct):** stale-base own-additions
+apply when needed; four gates + harness section-compare on every compat.js/engine merge;
+UI auto-ships on green gates + browser verify + popup scan; engine/error-tier = adversarial
+review; only taxonomy/money/visual-taste/account/business decisions to Douglas, packets kept
+SHORT; archive in the same breath you merge; one PROJECT-LOG entry per wave.
+
+_Seat-12 trail: PROJECT-LOG.md 2026-07-17/18 (the BMX flip, the giga catalog wave, the
+specialist bench build-out, 53.2→60% verification, the recall program). Below: seat 12's
+inherited block, kept for depth._
+
+---
+
 ## ★★★ SEAT 12 — START HERE (succession from seat 11, 2026-07-17) ★★★
 
 Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today> -b
