@@ -9,6 +9,8 @@ var BD = require('./data/bmx.js');
 var BS = require('./src/schema-bmx.js');
 var SD = require('./data/striders.js');
 var SS = require('./src/schema-strider.js');
+var RD = require('./data/road.js');
+var RS = require('./src/schema-road.js');
 
 var problems = S.validateCatalog(C);
 if(problems.length){
@@ -68,3 +70,15 @@ var striderVerified = SD.STRIDER_PARTS.filter(function(p){ return p.verified ===
 var striderWithSeat = SD.STRIDER_PARTS.filter(function(p){ return typeof p.seatMin === 'number' && typeof p.seatMax === 'number'; }).length;
 console.log('STRIDER OK - ' + SD.STRIDER_PARTS.length + ' bikes, 0 problems (' + striderVerified + ' verified, ' +
   (SD.STRIDER_PARTS.length - striderVerified) + ' unverified, ' + striderWithSeat + '/' + SD.STRIDER_PARTS.length + ' with seat-height range).');
+
+/* ROAD (OFF-LIVE, data/road.js + src/schema-road.js) - validated here too so
+   `node validate.js` stays the single gate for ALL catalog data. Never wired into
+   the live app; a failure here does not affect buildmymtb.com. */
+var roadProblems = RS.validateRoadCatalog(RD.ROAD_PARTS);
+if(roadProblems.length){
+  console.log('ROAD DATA INVALID - ' + roadProblems.length + ' problem(s):');
+  roadProblems.forEach(function(p){ console.log('  - ' + p); });
+  process.exit(1);
+}
+var roadVerified = RD.ROAD_PARTS.filter(function(p){ return p.verified === true; }).length;
+console.log('ROAD OK - ' + RD.ROAD_PARTS.length + ' parts, 0 problems (' + roadVerified + ' verified, ' + (RD.ROAD_PARTS.length - roadVerified) + ' unverified).');

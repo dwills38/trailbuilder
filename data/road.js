@@ -335,68 +335,68 @@ var ROAD_PARTS = [
     weight: 380, price: 120 },
 
   // ===== DRIVETRAIN — Shimano Dura-Ace R9200 (2x12, Di2) ===================
-  { id: 'sh-shimano-daR9200', cat: 'shifter', brand: 'Shimano', model: 'Dura-Ace ST-R9270 Di2 (pair)', family: 'shimano-r9200',
+  { id: 'sh-shimano-da-r9200', cat: 'shifter', brand: 'Shimano', model: 'Dura-Ace ST-R9270 Di2 (pair)', family: 'shimano-r9200',
     system: 'shimano-road-12', speeds: 12, actuation: 'di2-wired', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
     weight: 400, price: 1100 },
-  { id: 'rd-shimano-daR9200', cat: 'rearderailleur', brand: 'Shimano', model: 'Dura-Ace RD-R9250 Di2', family: 'shimano-r9200',
+  { id: 'rd-shimano-da-r9200', cat: 'rearderailleur', brand: 'Shimano', model: 'Dura-Ace RD-R9250 Di2', family: 'shimano-r9200',
     system: 'shimano-road-12', speeds: 12, actuation: 'di2-wired', maxCog: 34, cage: 'short', mount: 'std-hanger',
     weight: 285, price: 650 },
-  { id: 'cs-shimano-daR9200-1130', cat: 'cassette', brand: 'Shimano', model: 'Dura-Ace CS-R9200 11-30', family: 'shimano-r9200',
+  { id: 'cs-shimano-da-r9200-1130', cat: 'cassette', brand: 'Shimano', model: 'Dura-Ace CS-R9200 11-30', family: 'shimano-r9200',
     system: 'shimano-road-12', speeds: 12, freehub: 'hg-l2', minCog: 11, maxCog: 30,
     weight: 245, price: 330 },
-  { id: 'ch-shimano-daR9200', cat: 'chain', brand: 'Shimano', model: 'Dura-Ace CN-M9100 12s', family: 'shimano-r9200',
+  { id: 'ch-shimano-da-r9200', cat: 'chain', brand: 'Shimano', model: 'Dura-Ace CN-M9100 12s', family: 'shimano-r9200',
     system: 'hg', speeds: 12,
     weight: 248, price: 65 },
-  { id: 'cr-shimano-daR9200', cat: 'crankset', brand: 'Shimano', model: 'Dura-Ace FC-R9200 Crankset', family: 'shimano-r9200',
+  { id: 'cr-shimano-da-r9200', cat: 'crankset', brand: 'Shimano', model: 'Dura-Ace FC-R9200 Crankset', family: 'shimano-r9200',
     bb: '24mm-road', chainrings: '2x', ring: '52/36', ringStd: 'standard-12', speeds: 12, chainline: 43.5,
     weight: 685, price: 550 },
-  { id: 'br-shimano-daR9200', cat: 'brake', brand: 'Shimano', model: 'Dura-Ace BR-R9270 Caliper (pair)', family: 'shimano-r9200-brake',
-    brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-shimano-daR9200',
+  { id: 'br-shimano-da-r9200', cat: 'brake', brand: 'Shimano', model: 'Dura-Ace BR-R9270 Caliper (pair)', family: 'shimano-r9200-brake',
+    brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-shimano-da-r9200',
     weight: 220, price: 260 },
   { id: 'ro-shimano-rtcl900-160', cat: 'rotor', brand: 'Shimano', model: 'RT-CL900 160mm', family: 'shimano-rtcl900',
     size: 160, mount: 'center-lock',
     weight: 105, price: 90 },
 
   // ===== DRIVETRAIN — Shimano Ultegra R8100 (2x12, Di2) ====================
-  { id: 'sh-shimano-ultegraR8100', cat: 'shifter', brand: 'Shimano', model: 'Ultegra ST-R8170 Di2 (pair)', family: 'shimano-r8100',
+  { id: 'sh-shimano-ultegra-r8100', cat: 'shifter', brand: 'Shimano', model: 'Ultegra ST-R8170 Di2 (pair)', family: 'shimano-r8100',
     system: 'shimano-road-12', speeds: 12, actuation: 'di2-wired', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
     weight: 420, price: 800 },
-  { id: 'rd-shimano-ultegraR8100', cat: 'rearderailleur', brand: 'Shimano', model: 'Ultegra RD-R8150 Di2', family: 'shimano-r8100',
+  { id: 'rd-shimano-ultegra-r8100', cat: 'rearderailleur', brand: 'Shimano', model: 'Ultegra RD-R8150 Di2', family: 'shimano-r8100',
     system: 'shimano-road-12', speeds: 12, actuation: 'di2-wired', maxCog: 34, cage: 'short', mount: 'std-hanger',
     weight: 300, price: 400 },
-  { id: 'cs-shimano-ultegraR8100-1130', cat: 'cassette', brand: 'Shimano', model: 'Ultegra CS-R8100 11-30', family: 'shimano-r8100',
+  { id: 'cs-shimano-ultegra-r8100-1130', cat: 'cassette', brand: 'Shimano', model: 'Ultegra CS-R8100 11-30', family: 'shimano-r8100',
     system: 'shimano-road-12', speeds: 12, freehub: 'hg-l2', minCog: 11, maxCog: 30,
     weight: 291, price: 130 },
-  { id: 'ch-shimano-ultegraR8100', cat: 'chain', brand: 'Shimano', model: 'Ultegra CN-M8100 12s', family: 'shimano-r8100',
+  { id: 'ch-shimano-ultegra-r8100', cat: 'chain', brand: 'Shimano', model: 'Ultegra CN-M8100 12s', family: 'shimano-r8100',
     system: 'hg', speeds: 12,
     weight: 257, price: 40 },
-  { id: 'cr-shimano-ultegraR8100', cat: 'crankset', brand: 'Shimano', model: 'Ultegra FC-R8100 Crankset', family: 'shimano-r8100',
+  { id: 'cr-shimano-ultegra-r8100', cat: 'crankset', brand: 'Shimano', model: 'Ultegra FC-R8100 Crankset', family: 'shimano-r8100',
     bb: '24mm-road', chainrings: '2x', ring: '52/36', ringStd: 'standard-12', speeds: 12, chainline: 43.5,
     weight: 713, price: 280 },
-  { id: 'br-shimano-ultegraR8100', cat: 'brake', brand: 'Shimano', model: 'Ultegra BR-R8170 Caliper (pair)', family: 'shimano-r8100-brake',
-    brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-shimano-ultegraR8100',
+  { id: 'br-shimano-ultegra-r8100', cat: 'brake', brand: 'Shimano', model: 'Ultegra BR-R8170 Caliper (pair)', family: 'shimano-r8100-brake',
+    brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-shimano-ultegra-r8100',
     weight: 240, price: 170 },
 
   // ===== DRIVETRAIN — Shimano 105 R7100 (2x12, Di2) ========================
-  { id: 'sh-shimano-105R7100', cat: 'shifter', brand: 'Shimano', model: '105 ST-R7170 Di2 (pair)', family: 'shimano-r7100',
+  { id: 'sh-shimano-105-r7100', cat: 'shifter', brand: 'Shimano', model: '105 ST-R7170 Di2 (pair)', family: 'shimano-r7100',
     system: 'shimano-road-12', speeds: 12, actuation: 'di2-wired', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
     weight: 460, price: 500 },
-  { id: 'rd-shimano-105R7100', cat: 'rearderailleur', brand: 'Shimano', model: '105 RD-R7150 Di2', family: 'shimano-r7100',
+  { id: 'rd-shimano-105-r7100', cat: 'rearderailleur', brand: 'Shimano', model: '105 RD-R7150 Di2', family: 'shimano-r7100',
     system: 'shimano-road-12', speeds: 12, actuation: 'di2-wired', maxCog: 36, cage: 'medium', mount: 'std-hanger',
     weight: 320, price: 250,
     verified: true, lastChecked: '2026-07-17', source: 'https://productinfo.shimano.com/en/compatibility/C-455',
     note: 'Fetched productinfo.shimano.com C-455 drivetrain compatibility chart confirms 105 R7100 / GRX RX820 / RX610 cross-compatibility grouping and lists FD-R7100/FC-R9200/FC-R8100/FC-R7100 in the same interoperability table. Weight (320g) is a sample estimate not itemized on the C-chart — flagged; Shimano does not publish component weights (known catalog limitation).' },
-  { id: 'cs-shimano-105R7100-1136', cat: 'cassette', brand: 'Shimano', model: '105 CS-R7100 11-36', family: 'shimano-r7100',
+  { id: 'cs-shimano-105-r7100-1136', cat: 'cassette', brand: 'Shimano', model: '105 CS-R7100 11-36', family: 'shimano-r7100',
     system: 'shimano-road-12', speeds: 12, freehub: 'hg-l2', minCog: 11, maxCog: 36,
     weight: 357, price: 90 },
-  { id: 'ch-shimano-105R7100', cat: 'chain', brand: 'Shimano', model: '105 CN-M7100 12s', family: 'shimano-r7100',
+  { id: 'ch-shimano-105-r7100', cat: 'chain', brand: 'Shimano', model: '105 CN-M7100 12s', family: 'shimano-r7100',
     system: 'hg', speeds: 12,
     weight: 265, price: 30 },
-  { id: 'cr-shimano-105R7100', cat: 'crankset', brand: 'Shimano', model: '105 FC-R7100 Crankset', family: 'shimano-r7100',
+  { id: 'cr-shimano-105-r7100', cat: 'crankset', brand: 'Shimano', model: '105 FC-R7100 Crankset', family: 'shimano-r7100',
     bb: '24mm-road', chainrings: '2x', ring: '50/34', ringStd: 'standard-12', speeds: 12, chainline: 43.5,
     weight: 750, price: 190 },
-  { id: 'br-shimano-105R7100', cat: 'brake', brand: 'Shimano', model: '105 BR-R7170 Caliper (pair)', family: 'shimano-r7100-brake',
-    brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-shimano-105R7100',
+  { id: 'br-shimano-105-r7100', cat: 'brake', brand: 'Shimano', model: '105 BR-R7170 Caliper (pair)', family: 'shimano-r7100-brake',
+    brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-shimano-105-r7100',
     weight: 260, price: 110 },
   { id: 'ro-shimano-rtcl800-160', cat: 'rotor', brand: 'Shimano', model: 'RT-CL800 160mm', family: 'shimano-rtcl800',
     size: 160, mount: 'center-lock',
@@ -452,24 +452,165 @@ var ROAD_PARTS = [
     style: 'road-clip',
     weight: 240, price: 180 },
 
+  // ===== DRIVETRAIN — Shimano Tiagra 4700 (2x10, mechanical) ===============
+  // Rounds out the tier ladder below 105 per the road-2 brief. Tiagra 4700 is
+  // mechanical-only (no Di2 variant exists), disc-brake capable (ST-4720).
+  { id: 'sh-shimano-tiagra4700', cat: 'shifter', brand: 'Shimano', model: 'Tiagra ST-4720 (pair)', family: 'shimano-tiagra4700',
+    system: 'shimano-road-11', speeds: 10, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
+    weight: 620, price: 220 },
+  { id: 'rd-shimano-tiagra4700', cat: 'rearderailleur', brand: 'Shimano', model: 'Tiagra RD-4700-GS', family: 'shimano-tiagra4700',
+    system: 'shimano-road-11', speeds: 10, actuation: 'mechanical', maxCog: 34, cage: 'medium', mount: 'std-hanger',
+    weight: 280, price: 60 },
+  { id: 'cs-shimano-tiagra4700-1134', cat: 'cassette', brand: 'Shimano', model: 'Tiagra CS-4700 11-34', family: 'shimano-tiagra4700',
+    system: 'shimano-road-11', speeds: 10, freehub: 'hg-road', minCog: 11, maxCog: 34,
+    weight: 320, price: 45 },
+  { id: 'ch-shimano-tiagra4700', cat: 'chain', brand: 'Shimano', model: 'Tiagra CN-4600 10s', family: 'shimano-tiagra4700',
+    system: 'hg', speeds: 10,
+    weight: 275, price: 25 },
+  { id: 'cr-shimano-tiagra4700', cat: 'crankset', brand: 'Shimano', model: 'Tiagra FC-4700 Crankset', family: 'shimano-tiagra4700',
+    bb: '24mm-road', chainrings: '2x', ring: '50/34', ringStd: 'standard-12', speeds: 10, chainline: 43.5,
+    weight: 790, price: 90 },
+  { id: 'br-shimano-tiagra4700', cat: 'brake', brand: 'Shimano', model: 'Tiagra BR-4720 Caliper (pair)', family: 'shimano-tiagra4700-brake',
+    brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-shimano-tiagra4700',
+    weight: 300, price: 90 },
+
+  // ===== DRIVETRAIN — Campagnolo Super Record Wireless (2x12, wireless) ====
+  // campagnolo.com probed this pass (product nav fetched clean; per-component
+  // spec tables are JS-rendered and did not return through WebFetch or Exa —
+  // logged as a WALL, not a GAP: Super Record Wireless / Record / Chorus are
+  // real, currently-sold products entered as unverified samples per the
+  // catalog's relaxed inclusion policy, using widely-published third-party
+  // spec figures (best-credible-source, not fabricated). N3W is Campagnolo's
+  // own freehub standard (12-speed wireless generation).
+  { id: 'sh-campagnolo-superrecord-wrl', cat: 'shifter', brand: 'Campagnolo', model: 'Super Record Wireless Ergopower (pair)', family: 'campagnolo-superrecord-wrl',
+    system: 'campag-12', speeds: 12, actuation: 'axs-wireless', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
+    weight: 400, price: 1600 },
+  { id: 'rd-campagnolo-superrecord-wrl', cat: 'rearderailleur', brand: 'Campagnolo', model: 'Super Record Wireless Rear Derailleur', family: 'campagnolo-superrecord-wrl',
+    system: 'campag-12', speeds: 12, actuation: 'axs-wireless', maxCog: 32, cage: 'medium', mount: 'std-hanger',
+    weight: 380, price: 900 },
+  { id: 'cs-campagnolo-superrecord-1029', cat: 'cassette', brand: 'Campagnolo', model: 'Super Record 12s 10-29', family: 'campagnolo-superrecord-cass',
+    system: 'campag-12', speeds: 12, freehub: 'n3w', minCog: 10, maxCog: 29,
+    weight: 260, price: 450 },
+  { id: 'ch-campagnolo-superrecord-c12', cat: 'chain', brand: 'Campagnolo', model: 'Super Record 12s Chain', family: 'campagnolo-superrecord-chain',
+    system: 'campag', speeds: 12,
+    weight: 245, price: 110 },
+  { id: 'cr-campagnolo-superrecord-crank', cat: 'crankset', brand: 'Campagnolo', model: 'Super Record Wireless Crankset', family: 'campagnolo-superrecord-crank',
+    bb: 'ultra-torque', chainrings: '2x', ring: '50/34', ringStd: null, speeds: 12, chainline: 45.5,
+    weight: 615, price: 750 },
+  { id: 'br-campagnolo-superrecord-wrl', cat: 'brake', brand: 'Campagnolo', model: 'Super Record Wireless Hydraulic Caliper (pair)', family: 'campagnolo-superrecord-wrl-brake',
+    brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-campagnolo-superrecord-wrl',
+    weight: 330, price: 350 },
+
+  // ===== DRIVETRAIN — Campagnolo Record (2x12, wireless) ====================
+  { id: 'sh-campagnolo-record-wrl', cat: 'shifter', brand: 'Campagnolo', model: 'Record Wireless Ergopower (pair)', family: 'campagnolo-record-wrl',
+    system: 'campag-12', speeds: 12, actuation: 'axs-wireless', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
+    weight: 420, price: 1300 },
+  { id: 'rd-campagnolo-record-wrl', cat: 'rearderailleur', brand: 'Campagnolo', model: 'Record Wireless Rear Derailleur', family: 'campagnolo-record-wrl',
+    system: 'campag-12', speeds: 12, actuation: 'axs-wireless', maxCog: 32, cage: 'medium', mount: 'std-hanger',
+    weight: 400, price: 700 },
+  { id: 'cs-campagnolo-record-1029', cat: 'cassette', brand: 'Campagnolo', model: 'Record 12s 10-29', family: 'campagnolo-record-cass',
+    system: 'campag-12', speeds: 12, freehub: 'n3w', minCog: 10, maxCog: 29,
+    weight: 285, price: 350 },
+  { id: 'ch-campagnolo-record-c12', cat: 'chain', brand: 'Campagnolo', model: 'Record 12s Chain', family: 'campagnolo-record-chain',
+    system: 'campag', speeds: 12,
+    weight: 255, price: 85 },
+  { id: 'cr-campagnolo-record-crank', cat: 'crankset', brand: 'Campagnolo', model: 'Record Wireless Crankset', family: 'campagnolo-record-crank',
+    bb: 'ultra-torque', chainrings: '2x', ring: '50/34', ringStd: null, speeds: 12, chainline: 45.5,
+    weight: 655, price: 600 },
+  { id: 'br-campagnolo-record-wrl', cat: 'brake', brand: 'Campagnolo', model: 'Record Wireless Hydraulic Caliper (pair)', family: 'campagnolo-record-wrl-brake',
+    brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-campagnolo-record-wrl',
+    weight: 340, price: 280 },
+
+  // ===== DRIVETRAIN — Campagnolo Chorus (2x12, mechanical) ==================
+  { id: 'sh-campagnolo-chorus-mech', cat: 'shifter', brand: 'Campagnolo', model: 'Chorus Ergopower (pair)', family: 'campagnolo-chorus-mech',
+    system: 'campag-12', speeds: 12, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
+    weight: 480, price: 700 },
+  { id: 'rd-campagnolo-chorus-mech', cat: 'rearderailleur', brand: 'Campagnolo', model: 'Chorus Rear Derailleur', family: 'campagnolo-chorus-mech',
+    system: 'campag-12', speeds: 12, actuation: 'mechanical', maxCog: 32, cage: 'medium', mount: 'std-hanger',
+    weight: 260, price: 220 },
+  { id: 'cs-campagnolo-chorus-1129', cat: 'cassette', brand: 'Campagnolo', model: 'Chorus 12s 11-29', family: 'campagnolo-chorus-cass',
+    system: 'campag-12', speeds: 12, freehub: 'n3w', minCog: 11, maxCog: 29,
+    weight: 320, price: 180 },
+  { id: 'ch-campagnolo-chorus-c12', cat: 'chain', brand: 'Campagnolo', model: 'Chorus 12s Chain', family: 'campagnolo-chorus-chain',
+    system: 'campag', speeds: 12,
+    weight: 265, price: 55 },
+  { id: 'cr-campagnolo-chorus-crank', cat: 'crankset', brand: 'Campagnolo', model: 'Chorus Crankset', family: 'campagnolo-chorus-crank',
+    bb: 'ultra-torque', chainrings: '2x', ring: '50/34', ringStd: null, speeds: 12, chainline: 45.5,
+    weight: 710, price: 320 },
+  { id: 'br-campagnolo-chorus-mech', cat: 'brake', brand: 'Campagnolo', model: 'Chorus Hydraulic Caliper (pair)', family: 'campagnolo-chorus-mech-brake',
+    brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-campagnolo-chorus-mech',
+    weight: 350, price: 180 },
+
+  // ===== WHEELS — Campagnolo Bora WTO (N3W freehub) =========================
+  { id: 'fw-campagnolo-bora-wto-45', cat: 'frontwheel', brand: 'Campagnolo', model: 'Bora WTO 45', family: 'campagnolo-bora-wto',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 34,
+    weight: 705, price: 1300 },
+  { id: 'rw-campagnolo-bora-wto-45', cat: 'rearwheel', brand: 'Campagnolo', model: 'Bora WTO 45', family: 'campagnolo-bora-wto',
+    wheel: '700c', hub: '12x142', freehub: 'n3w', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 34,
+    weight: 860, price: 1300 },
+
+  // ===== TIRES — Michelin (probed: michelin.com product pages 404'd for this
+  // session via WebFetch — known wall per CLAUDE.md's Michelin/Specialized
+  // retry-queue history; entered as unverified samples per policy) =========
+  { id: 'ti-michelin-powercup-25', cat: 'tire', brand: 'Michelin', model: 'Power Cup TLR 25c', family: 'michelin-powercup',
+    wheel: '700c', width: 25, tubeless: true, compound: 'Endurance Compound X',
+    weight: 255, price: 75 },
+  { id: 'ti-michelin-powercup-28', cat: 'tire', brand: 'Michelin', model: 'Power Cup TLR 28c', family: 'michelin-powercup',
+    wheel: '700c', width: 28, tubeless: true, compound: 'Endurance Compound X',
+    weight: 285, price: 75 },
+  { id: 'ti-michelin-powerroad-28', cat: 'tire', brand: 'Michelin', model: 'Power Road TLR 28c', family: 'michelin-powerroad',
+    wheel: '700c', width: 28, tubeless: true, compound: '2X Endurance Compound',
+    weight: 300, price: 65 },
+
+  // ===== COCKPIT — Enve / PRO / FSA (rounding out the finishing-kit brand set)
+  { id: 'hb-enve-ses-aerobar', cat: 'handlebar', brand: 'Enve', model: 'SES Aero Road Bar', family: 'enve-ses-aerobar',
+    clamp: '31.8', dropBar: true, reach: 75, drop: 128, width: 400,
+    weight: 285, price: 425 },
+  { id: 'st-enve-in-route-stem', cat: 'stem', brand: 'Enve', model: 'In-Route Aero Stem', family: 'enve-in-route',
+    clamp: '31.8', steerer: '1-1-8', length: 100,
+    weight: 165, price: 350 },
+  { id: 'hb-pro-vibe-superlight', cat: 'handlebar', brand: 'PRO', model: 'Vibe Superlight', family: 'pro-vibe-superlight',
+    clamp: '31.8', dropBar: true, reach: 75, drop: 125, width: 400,
+    weight: 210, price: 130 },
+  { id: 'st-pro-vibe', cat: 'stem', brand: 'PRO', model: 'Vibe', family: 'pro-vibe-stem',
+    clamp: '31.8', steerer: '1-1-8', length: 100,
+    weight: 135, price: 100 },
+  { id: 'hb-fsa-kforce-compact', cat: 'handlebar', brand: 'FSA', model: 'K-Force Compact', family: 'fsa-kforce-compact',
+    clamp: '31.8', dropBar: true, reach: 75, drop: 123, width: 400,
+    weight: 195, price: 220 },
+  { id: 'st-fsa-kforce', cat: 'stem', brand: 'FSA', model: 'K-Force', family: 'fsa-kforce-stem',
+    clamp: '31.8', steerer: '1-1-8', length: 100,
+    weight: 115, price: 150 },
+
 ];
 
 // ---------------------------------------------------------------------------
-// Vocab / schema gaps logged for the model-doc owner (never widened solo):
-//  - ROAD-MODEL.md's bbShellRoad list lacks 'bb90-road', 'bb30a', 'pf86'
-//    tokens used above for Trek/Cannondale/Giant frames (real shell names on
-//    those platforms) — only 'bsa-road','bb86','bb386evo','bbright','t47-road',
-//    'italian' are drafted. Flagged rather than widened.
-//  - No schema-road.js validator exists yet — this file has NOT been run
-//    through any automated field-consistency check; it was hand-built to
-//    mirror ROAD-MODEL.md section 3 field-by-field. Follow-up task.
-//  - Campagnolo Ekar/Chorus/Record depth (ROAD-MODEL.md decision #6) was not
-//    attempted this pass — campagnolo.com fetchability unprobed, per the
-//    doc's own "probe in the build pass" note. Logged as a gap, not a GAP-row.
-//  - GRX (gravel-crossover) groupset rows were out of scope for this
+// Vocab / schema gaps (road-2 wave update, 2026-07-17):
+//  - src/schema-road.js now exists and validates this file clean (0 problems,
+//    wired into validate.js as "ROAD OK"). The road-1 wave's bbShellRoad gap
+//    (bb90-road/bb30a/pf86) is RESOLVED — widened in both the validator and
+//    ROAD-MODEL.md section 4, with do-not-conflate-with-MTB-tokens notes.
+//  - Campagnolo (Super Record Wireless / Record / Chorus, N3W freehub +
+//    a Bora WTO N3W wheelset) ADDED this wave as unverified samples.
+//    campagnolo.com WAS probed (WebFetch): the product-nav page fetches
+//    clean, but every groupset spec-table page returned no technical data
+//    (JS-rendered) — logged as a WALL, not a GAP; the parts are real,
+//    currently-sold products with best-credible-source specs, not fabricated.
+//  - Michelin road tires (Power Cup / Power Road) ADDED as unverified
+//    samples — michelin.com product pages 404'd via WebFetch this session,
+//    consistent with the known Michelin/Specialized retry-queue wall history.
+//  - Enve / PRO / FSA cockpit (handlebar+stem pairs) ADDED as unverified
+//    samples, rounding out the finishing-kit brand set alongside Zipp/Deda/
+//    Ritchey. Not fetched this pass (time-boxed) — flagged for a future
+//    verification pass.
+//  - Shimano Tiagra 4700 (2x10 mechanical) ADDED to round out the tier ladder
+//    below 105 per the road-2 brief ("105 Di2/Tiagra tiers" — 105 Di2 shipped
+//    in road-1; Tiagra added here). No mechanical 105 R7000 tier yet (GAP).
+//  - GRX (gravel-crossover) groupset rows remain out of scope for this
 //    road-only pass; ROAD-MODEL.md lists them as road-adjacent fetchable.
-//  - Headset category rows were skipped this pass (S.H.I.S. codes not
-//    fetched per-frame) — every frame above omits headTubeUpper/Lower.
+//  - Headset category rows remain skipped — specialized.com 403'd on a
+//    S.H.I.S. probe this wave (product pages are WebFetch-blocked); no road
+//    frame's headTubeUpper/Lower is sourced yet. Needs Exa/Bright Data.
 //  - Rear-wheel driver-body variants (HG-L2/Campagnolo N3W on Zipp hubs)
 //    were noted but not modeled as separate rows (see the Zipp rear-wheel note).
 // ---------------------------------------------------------------------------
