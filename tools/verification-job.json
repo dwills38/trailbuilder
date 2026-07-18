@@ -1,12 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T13:25:46.570Z",
+ "updated": "2026-07-18T13:29:48.540Z",
  "batchSize": 25,
- "lastCompleted": "fr-rockymountain-instinct-alloy",
+ "lastCompleted": "fr-canyon-sender-cfr-hp",
  "currentCategory": "frame",
  "queue": [
-  "fr-canyon-sender-cfr-hp",
   "fr-santacruz-hightower-4-c",
   "fr-giant-trance-x-advanced-sx",
   "fr-transition-smuggler-alloy",
@@ -25763,11 +25762,11 @@
   },
   "fr-canyon-sender-cfr-hp": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T13:29:48.539Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "weight corrected 3400->4720 via a direct re-fetch of vitalmtb.com's spec guide (states 'Frame weight: 4720 g' verbatim, missed by a prior fetch) - real sourced figure, not manufacturer-direct though (canyon.com's own page states no weight), so bar not met for verified:true."
   },
   "fr-santacruz-hightower-4-c": {
    "cat": "frame",
