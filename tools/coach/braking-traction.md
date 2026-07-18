@@ -297,8 +297,19 @@ aggressive calibration is *earned*, per SAFETY-FIRST.
 - ~~**No Tier-C braking-dynamics source yet**~~ **ADDRESSED 2026-07-17 (BRK-8..BRK-11):** weight
   transfer, the pitch-over critical deceleration, the friction-circle grip budget, and the
   measured/perceptual nature of braking are now grounded in vehicle-dynamics + biomechanics
-  literature. Remaining Tier-C depth: no MTB-specific (loose-surface / low-μ) braking-dynamics study
-  fetched — the papers are firm-surface/road-biased.
+  literature. ~~Remaining Tier-C depth: no MTB-specific (loose-surface / low-μ) braking-dynamics study
+  fetched — the papers are firm-surface/road-biased.~~ **PARTIALLY ADDRESSED round 5 (2026-07-18) via
+  `cornering.md` COR-18:** an ATV-tyre study on clay, grass and sand mapped a friction-ellipse
+  quadrant (lateral-force coefficient vs braking-force coefficient) on genuinely loose natural
+  surfaces — the **first loose-surface corroboration of BRK-10's grip budget**, which until now
+  rested entirely on firm-surface/road-biased sources. The budget concept holds off-road; what
+  changes off-road is the *shape* of its boundary and how much warning the tyre gives before
+  breakaway. **Admitted at mechanism level only** — those were ATV/agricultural tyres at kN loads, so
+  no number transfers to MTB (see COR-18's scale caveat). Still genuinely open: any **MTB-scale**
+  loose-surface braking measurement. That is a research gap, not a fetching gap.
+  Round 5 also added a usable field figure from a coaching source rather than a study: **dust is
+  reported to cut braking friction by roughly 30–50%** (COR-17) — Tier B, not Tier C, and quoted as a
+  practitioner estimate, not a measurement.
 - **"Trail braking" (tapering brake off as you lean into a corner)** is mentioned by one source
   (thetoliver.com) as an advanced technique but is **not yet a safe, laddered progression here** —
   it partly contradicts the clean "finish braking before you lean" L1 rule and needs a Tier-A/B
