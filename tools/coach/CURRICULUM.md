@@ -82,22 +82,24 @@ count toward maturity at all** — an incomplete rung is a gap, not depth. Each 
 "no gap-jump progression past tabletop — L2 gap" or "no braking-dynamics biomechanics source —
 L3 gap"). The Gaps list is what the next round reads to pick its target.
 
-## Current state (bootstrap round, 2026-07-17)
+## Current state (round 3, 2026-07-18)
 
 | Chapter | Level | Maturity | Note |
 |---|---|---|---|
-| `fundamentals.md` | L1 | foundation | seeded — position/balance/vision core facts |
-| `braking-traction.md` | L1 | foundation | seeded — progressive braking, grip budget, front-brake primacy |
-| `cornering.md` | L1→L2 | professional | round 2 (2026-07-17) added dedicated berm-line + switchback progressions (COR-9/10); pivot/cutty family for ultra-tight switchbacks flagged not laddered (COR-10b) |
-| `climbing-descending.md` | L1→L2 | foundation | seeded — incl. the ⚠ DISPUTED weight-back item |
-| `terrain-features.md` | L2 | professional | 2026-07-17 round 2: full Prereq/Gear/Progression for pumping, front/rear wheel lifts, manual, bunny hop, drops, jumps, rock gardens/roots; switchback/chute cues + biomechanics still gaps |
-| `discipline-craft.md` | L3 | foundation | 2026-07-17 round 2: XC/enduro/DH/DJ each got a sourced core-craft fact; still short of full L2-style progressions per discipline |
-| `coaching-methodology.md` | L4 | foundation | seeded — IDEA / What-Why-How / lesson format / error detection |
+| `fundamentals.md` | L1→L2 | professional | round 3 (2026-07-18) added FND-8 (vision drill depth: near/far scanning, target-fixation correction) and FND-9 (bike-body-separation staged drill, tied to COR-12/13 physics) |
+| `braking-traction.md` | L1→L2 | professional | round 3 (2026-07-18) added BRK-12 (measured modulation drill with stick-marked milestones) and BRK-13 (wet-root/mud split-braking + lean-angle-scaled front-brake reduction) |
+| `cornering.md` | L1→L2 | professional | round 2 added dedicated berm-line + switchback progressions (COR-9/10); round 3 (2026-07-18) unblocked and laddered the stoppie-pivot family (COR-15/16), superseding COR-10b's withheld status — the "cutty" controlled-slide technique remains flagged-not-laddered |
+| `climbing-descending.md` | L1→L2 | foundation | seeded — incl. the ⚠ DISPUTED weight-back item; **now the weakest-graded chapter alongside `coaching-methodology.md`, unchanged this round — next round's priority target** |
+| `terrain-features.md` | L2 | professional | round 2: full Prereq/Gear/Progression for pumping, front/rear wheel lifts, manual, bunny hop, drops, jumps, rock gardens/roots; round 3 (2026-07-18) closed the TER-10 committed-chute gap; L3 discipline application + fuller biomechanics still gaps |
+| `discipline-craft.md` | L3 | professional | round 2 seeded one core-craft fact per discipline; round 3 (2026-07-18) added a second sourced fact per discipline (XC pacing, enduro stage-day logistics, DH line-choice process + maximal braking, the whip) — each discipline still short of a full 3+-fact progression *set* (see the chapter's Gaps) |
+| `coaching-methodology.md` | L4 | foundation | seeded — IDEA / What-Why-How / lesson format / error detection; unchanged this round |
 
 ## Corpus rule: target the weakest chapter
 
 Restated from [`INDEX.md`](INDEX.md) rule 9: future training rounds read every chapter's Maturity
-line + Gaps list first and prioritize the **weakest-graded chapter(s)** — currently the two
-skeletons (`terrain-features.md` for L2, `discipline-craft.md` for L3) — closing the specific
-listed gaps rather than re-covering ground a chapter already holds. This keeps the corpus climbing
-toward "master" evenly instead of over-deepening one skill family while others stay thin.
+line + Gaps list first and prioritize the **weakest-graded chapter(s)**. After round 3
+(2026-07-18), five of seven chapters are `professional`; `climbing-descending.md` and
+`coaching-methodology.md` are the two remaining `foundation`-graded chapters and are the explicit
+target for the next round — closing their specific listed gaps rather than re-covering ground the
+other five chapters already hold. This keeps the corpus climbing toward "master" evenly instead of
+over-deepening one skill family while others stay thin.
