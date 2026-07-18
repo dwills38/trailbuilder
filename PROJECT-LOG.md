@@ -1872,3 +1872,15 @@ per wave/decision; large reconstructions are handed to a worker session.
   fenced prompt blocks** with a `[Model, effort]` header, **never `spawn_task` click-chips**, so
   Douglas controls model+effort at dispatch. Fixes the long-known picker-inheritance leak. Memory
   `parallel-work-delivery.md` hardened; both pending image chips withdrawn and reissued as blocks.
+
+## 2026-07-18 — verification campaign 2 wrapped (session retired at context exhaustion)
+
+- Harvested the final banked commit of `verify/campaign-2` (`19129eb` → merged `af2df2a`): 6 frames
+  formalized Pending→Skipped with documented reasons (Stanton Slackline gen3/Switchback genV, Norco
+  Fluid FS A, Cannondale Jekyll/Habit HT, Pivot Switchblade V2 — JS-walled maker pages;
+  cross-corroborated interfaces stay unverified per THE BAR; no frame-only weights published).
+  verification-job.json only, no catalog rows. Gates: validate 7×OK / 757 tests / tsc clean.
+- Session `local_48b881aa` retired at 858 messages with the queue at ~1,751 remaining — a fresh
+  campaign-3 session block handed to Douglas (paste-block per the new delivery rule). Campaign-2's
+  full-session yield across its life: batch-group merges landed progressively by seats 12–13; walls
+  map remains tools/verify-fanout-1-CLOSEOUT.md.
