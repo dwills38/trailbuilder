@@ -450,6 +450,30 @@ var EMTB_PARTS = [
     disciplines: ['e-trail'], weight: 19100, price: 9500,
     note: 'Higher-tier carbon Relay trim; SRAM X0 Transmission upgrade.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Mondraker (new maker) — Crafty (full-power) + Level (lightweight)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-mondraker-crafty-carbon-r', cat: 'emtb', brand: 'Mondraker', model: 'Crafty Carbon R',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-enduro'], weight: 24000, price: 8500,
+    note: "Mondraker's gravity-leaning full-power e-MTB; long travel, mixed wheel.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-mondraker-level-carbon-rr', cat: 'emtb', brand: 'Mondraker', model: 'Level Carbon RR SL',
+    motorBrand: 'bosch', motorModel: 'Performance Line SX', motorTorque: 55,
+    batteryWh: 400, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 130,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
+    disciplines: ['e-trail'], weight: 18600, price: 9800,
+    note: 'Lightweight-class Mondraker on the Bosch Performance Line SX motor.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
