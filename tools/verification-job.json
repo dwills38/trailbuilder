@@ -1,21 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T15:42:22.722Z",
+ "updated": "2026-07-18T15:44:10.899Z",
  "batchSize": 25,
- "lastCompleted": "fr-gt-zaskar-lt-alloy",
+ "lastCompleted": "fr-norco-optic",
  "currentCategory": "frame",
  "queue": [
-  "fr-whyte-905",
-  "fr-radon-jealous-carbon",
-  "fr-marin-rift-zone-1",
-  "fr-giant-stance",
-  "fr-liv-pique-advanced-29",
-  "fr-liv-intrigue-x-advanced-2",
-  "fr-canyon-torque-mullet-cf",
-  "fr-scott-spark-rc",
-  "fr-yt-izzo",
-  "fr-norco-optic",
   "fr-kona-honzo",
   "fr-kona-honzo-esd",
   "fr-marin-san-quentin-2",
@@ -26566,11 +26556,11 @@
   },
   "fr-whyte-905": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:43:49.975Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable (documented sample, no frame-only weight published); price is kept as a raw GBP figure per this catalog's EU/UK sample convention, not a confirmed USD MSRP either."
   },
   "fr-whyte-secta": {
    "cat": "frame",
@@ -26582,27 +26572,27 @@
   },
   "fr-radon-jealous-carbon": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:43:50.224Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Price bar unmeetable: Radon sells this platform as completes only, no frameset SKU found. Weight bar IS met (920g maker-stated) and interfaces are solidly maker-fetched - flagging as close, but price stays the blocker."
   },
   "fr-marin-rift-zone-1": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:43:50.490Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: WebSearch this session found no frame-only weight for the 2025 Rift Zone 1 anywhere (marinbikes.com/99spokes/mtbdatabase all silent on it). Price bar IS met (real $1,899 maker-stated) and interfaces are solidly maker-fetched - flagging as close, but weight stays the blocker."
   },
   "fr-giant-stance": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:43:50.751Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable (documented samples, completes-only); headset field also flagged as internally-inconsistent on the fetched page (tapered vs straight-1.5 wording), not confirmed clean enough for verified:true regardless."
   },
   "fr-scott-genius-carbon": {
    "cat": "frame",
@@ -26638,35 +26628,35 @@
   },
   "fr-liv-pique-advanced-29": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:43:51.020Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Interface+weight+price bar unmeetable: liv-cycling.com is JS-thin/404-walled this session (documented); every field sourced from Vital/Loam Wolf third-party reprints or inferred from a sibling platform, never a maker-fetched Liv page."
   },
   "fr-liv-intrigue-x-advanced-2": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:44:09.730Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Same Liv wall as the Pique sibling: liv-cycling.com JS-thin/404-walled; rearAxle/bb/udh are inferred from a sibling Giant platform, not stated on any fetched Liv page. Weight is a documented sample despite price being real ($4,800)."
   },
   "fr-canyon-torque-mullet-cf": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:44:09.984Z",
+   "error": "Close: weight (2550g maker-stated) is directly fetched from canyon.com, and most interfaces are too (cross-fetched with vitalmtb.com only for shock size/exact rear travel). Sole blocker: canyon.com itself shows this SKU as 'Sold out' with no visible price (a known recurring Canyon members-only-pricing gap already documented on sibling rows) - the $4,199 figure is third-party-corroborated, not maker-confirmed. Retry: try a Canyon regional storefront (UK/EU) or an authorized-dealer listing for a confirmable current price.",
    "source": null,
    "note": null
   },
   "fr-scott-spark-rc": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:44:10.248Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight bar unmeetable: the only figure (1870g) is explicitly a FRAME+SHOCK combined marketing claim on scott-sports.com, not a split frame-only weight - would double-count vs a picked shock, same convention that keeps fr-atherton-s200/fr-intense-m1 unverified. Price is also an estimated figure between two unfetched trims."
   },
   "fr-scott-gambler": {
    "cat": "frame",
@@ -26678,17 +26668,17 @@
   },
   "fr-yt-izzo": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T15:44:10.502Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Weight+price bar unmeetable: both documented samples (YT completes-only, no frameset SKU); the fetched Vital page states only complete-bike figures."
   },
   "fr-norco-optic": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T15:44:10.760Z",
+   "error": "Close: weight (3.1kg) and price ($9,099) are BOTH genuine maker-stated figures per the fetched Vital MTB reprint of Norco's own spec table. Blocker: every interface is sourced from vitalmtb.com (third-party), never an independently maker-fetched norco.com page - my attempt this session to fetch norco.com/bikes/mountain/trail/optic/optic-c1-29/ returned only a bare page title, no spec content (JS-rendered, or wrong URL slug). Retry: find the correct current norco.com Optic C1 product URL and re-fetch directly.",
    "source": null,
    "note": null
   },
