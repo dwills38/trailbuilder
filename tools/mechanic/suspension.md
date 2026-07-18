@@ -1,15 +1,19 @@
 # Suspension — Mechanic Corpus
 
-**Maturity: foundation, with substantial rear-shock L2 depth** (L1 coverage + the RockShox
-Suspension Theory Guide's DAMPER/FRICTION/TUNING sections landed 2026-07-17 (SUS-26–31),
-followed same-day by a genuine per-model SERVICE-manual pass — the RockShox 2018-2022
-Deluxe service manual (SUS-32–37: torque table, IFP-depth-by-stroke, oil-fill methods,
-bottomless-token limits) and Fox's FLOAT X + 36 tech-center pages (SUS-38–41: IFP-by-
-reservoir, bath-oil volumes, fork/shock torque chains, current service interval); see
-[`CURRICULUM.md`](CURRICULUM.md). Still short of `professional`: rear-shock service
-internals now run deep for BOTH majors, but fork-side L2 is Fox-only (no RockShox fork
-service manual mined yet — Lyrik/Zeb/Pike), coil-shock internals (Vivid/Super Deluxe
-Coil) are untouched, and no unified cross-brand torque-spec table exists yet — see
+**Maturity: foundation, with substantial rear-shock AND fork L2 depth, approaching
+professional** (L1 coverage + the RockShox Suspension Theory Guide's DAMPER/FRICTION/
+TUNING sections landed 2026-07-17 (SUS-26–31), followed same-day by a genuine per-model
+SERVICE-manual pass — the RockShox 2018-2022 Deluxe service manual (SUS-32–37: torque
+table, IFP-depth-by-stroke, oil-fill methods, bottomless-token limits), Fox's FLOAT X + 36
+tech-center pages (SUS-38–41), and the RockShox 2019-2022 Lyrik / 2019-2023 Yari fork
+service manual (SUS-42). **2026-07-18: the current-generation (2023-2026) ZEB/Lyrik/Pike
+fork service manual landed too (SUS-43/44), and the SAME round recovered SUS-42's
+originally-garbled 2019-2022 oil-volume table in full (SUS-45)** — RockShox fork-side L2
+now spans both the prior and current generation with complete torque AND oil-volume
+tables, closing both of this chapter's round-4 pickup points. Still short of
+`professional`: Fox's fork-side is still part-info pages only (no Fox SERVICE manual
+proper), coil-shock/coil-fork internals (Vivid/Super Deluxe Coil, RockShox coil fork
+options) are untouched, and no unified cross-brand torque-spec table exists yet — see
 "## Gaps" below.)
 
 Fork · rear shock · travel · trunnion/standard eyes · coil approval · fork↔frame bundling.
@@ -440,17 +444,98 @@ circuit cleanly (Maxima PLUSH 3wt for Charger dampers' bleed, PLUSH Dynamic Susp
 Light/Heavy for DebonAir upper/lower legs, RockShox 5wt for Motion Control) and one clean
 figure — Motion Control lower-leg oil: **100-106 mm oil height, 180 mL** — but the per-model
 mL/height numbers for the DebonAir/Charger rows collapsed into an unreadable column jumble on
-extraction (a table-layout artifact, not a source ambiguity like SUS-35's). *Confidence:
-confirmed (fetched primary) for the torque table and the one clean oil figure; the rest of the
-oil-volume table needs a cleaner re-extraction (try `pdftotext -layout` on the raw PDF rather
-than a markdown-conversion fetch) before citing further numbers from it — flagged, not
-guessed.* Source: sram.com "2019-2022 Lyrik 2019-2023 Yari Service Manual"
+extraction (a table-layout artifact, not a source ambiguity like SUS-35's). **Fully recovered
+2026-07-18 — see SUS-45**: the Charger-family rows weren't actually garbled data, they were
+genuinely bleed-only (no oil-height/volume figure exists for them at all); Motion Control's
+100-106mm/180mL was the only numeric fill that row-type ever carried, so SUS-42's one clean
+figure was in fact the complete Motion Control answer. *Confidence: confirmed (fetched primary)
+for the torque table and the oil figures (both now complete via SUS-45).* Source: sram.com
+"2019-2022 Lyrik 2019-2023 Yari Service Manual"
 (GEN.0000000007193 Rev C, fetched via Exa after the raw PDF exceeded WebFetch's size limit).
-Still open: the CURRENT-generation (2023-2026) combined ZEB/Lyrik/Pike manual exists at
-sram.com but is too large to fetch even via Exa's default extraction — a future round should
-try a paginated/truncated fetch or `pdftotext` locally if the file can be downloaded. Coil-fork
-service (RockShox's own coil options) and Fox's fork-side service manual (vs. the part-info
-pages SUS-41 used) remain unattempted.
+Still open (at the time SUS-42 was written): the CURRENT-generation (2023-2026) combined
+ZEB/Lyrik/Pike manual exists at sram.com but is too large to fetch even via Exa's default
+extraction. **Closed this round — see SUS-43/44.** Coil-fork service (RockShox's own coil
+options) and Fox's fork-side service manual (vs. the part-info pages SUS-41 used) remain
+unattempted.
+
+**SUS-43 — RockShox's CURRENT-GENERATION combined fork service manual (2023-2026 ZEB /
+2023-2027 Pike / 2023-2026 Lyrik, GEN.0000000007161 Rev C) is now fetched and mined,
+closing the SUS-42 "too large to fetch" gap.** The raw PDF (33 MB, 187 pages) exceeded
+both WebFetch's and Exa's extraction caps, exactly as SUS-42 flagged — resolved by
+`curl -L`-ing the direct sram.com PDF URL to disk and running `pdftotext` locally. Full
+Torque Values table (page 10) extracted cleanly and cross-checked two ways: `pdftotext
+-raw` (row-major, Part/Tool/Torque triples in source order) against a rendered page image
+read directly — both agree exactly. Selected figures (all N·m): air spring top cap
+(DebonAir+ or Dual Position Air) 28.2, Bottomless Token 3.9, ButterCups housing (upper-
+to-lower, air spring or damper side) 14.1, piston nut — compression damper (Charger 3 /
+3.1) 1.1, piston nut — rebound damper (Charger 3 / 3.1) 3.2, sealhead-to-cartridge-tube
+(Charger RC / Rush RC) 16.9, sealhead-to-cartridge-tube (Charger 3 two-piece) 14.1, lower
+leg bottom bolt (air spring + damper) 7.3, lower leg plug 1.9, Maxle Stealth 9-13.5, fender
+bolt 0.3. This is a genuinely distinct, current-generation table from SUS-42's 2019-2023
+figures — several parts share the same N·m value across generations (e.g. Bottomless Token,
+ButterCups/top-cap family at 28.2/14.1) but the current Charger 3/3.1 piston-nut and
+sealhead figures are new part numbers not present in the prior-gen table. *Confidence:
+confirmed (fetched primary, cross-verified via two independent extraction methods).*
+Source: sram.com "2023-2026 ZEB and Lyrik 2023-2027 Pike Service Manual"
+(GEN.0000000007161 Rev C), fetched via direct PDF download + local `pdftotext`/
+`pdftoppm` 2026-07-18.
+
+**SUS-44 — The current-gen Oil Volume and Lubricant table (same manual, page 11) is
+mostly-sparse BY DESIGN, not by extraction failure — confirmed by reading the rendered
+table image directly, not by text extraction.** Unlike SUS-42's 2019-2023 table (garbled
+by a `pdftotext -layout` column-alignment artifact), this table's text-extraction
+"sparseness" is real: `pdftotext -raw` and a rendered-page visual read agree that the
+Damper Upper Tube oil VOLUME (mL) cell is genuinely blank for every fork/tier in the
+table — RockShox publishes the upper-tube damper oil WEIGHT (7wt for Charger 3.1 RC2 /
+Charger 3 RC2 / Delta RC; 3wt for Charger RC / Rush RC) but not a fill volume in mL for
+any current-gen damper, a real change from SUS-32's rear-shock tables which do carry
+volumes. Three numeric fills ARE published, each as a single value merged across the
+*entire* table (all of ZEB/Lyrik/Pike, every tier and model year shown) rather than
+varying per model: Damper Lower Leg oil volume **30 mL**, Spring Upper Tube oil volume
+**3 mL (+) / 1 mL (−)**, Spring Lower Leg oil volume **15 mL**. Lubricant *type* (not
+volume) does vary, and it varies specifically at one tier boundary: every RC/RC2-tier
+damper (Ultimate/Select+/Select/Base's Charger 3, Charger 3.1, Charger RC, Rush RC) uses
+Maxima PLUSH Dynamic Suspension Lube **Light** (damper lower leg) / **Heavy** (spring
+upper tube, universal) with **SRAM Butter Grease** on the air-piston, while the newest
+Base-tier **Delta RC** damper (2027 ZEB (A3) and 2027 Lyrik (D2)) switches to Maxima PLUSH
+Dynamic Suspension Lube **Medium** (both damper and spring lower leg) with **Maxima SG920
+Grease** on the air-piston — a real service-relevant distinction (wrong lube grade on a
+Delta RC lower leg service is a documented-vs-guessed error, not interchangeable with the
+RC/RC2 spec). One asymmetry confirmed by direct visual read, not assumed symmetric: the
+Damper Upper Tube Volume cell reads **"Bleed"** (no numeric fill, bleed-only procedure)
+for the **2027 ZEB (A3) Base Delta RC** row specifically; the equivalent **2027 Lyrik (D2)
+Base Delta RC** row's same cell is blank, not "Bleed" — the manual does not state the
+Lyrik Delta RC's upper-tube damper service method in this table at all. Spring type is
+DebonAir+ across nearly every row, with a Dual Position Air variant offered alongside
+DebonAir+ specifically on 2023+ ZEB (A2) Select and Base tiers. *Confidence: confirmed
+(fetched primary; every value in this fact was cross-checked against a directly-rendered
+page image, not inferred from ambiguous extracted text — the corpus rule 6 "not
+established" bar was the reason for the extra verification step, not skipped because of
+it).* Source: same manual as SUS-43, page 11 "Oil Volume and Lubricant" table.
+
+**SUS-45 — SUS-42's flagged "garbled" 2019-2022 Lyrik / 2019-2023 Yari oil-volume table
+is now fully recovered, closing that gap — and the recovery reveals the collapse was a
+genuine text-extraction failure this time (unlike SUS-44's superficially-similar
+sparseness), fixed the same way: `pdftoppm -png -r 250` + direct image read of manual page
+11.** Full table: every **Charger-family damper** (Charger 2, Charger 2.1, Charger RC —
+i.e. every RC2/RCT3/RCT R/RC/RC R tier Lyrik and the Yari RC's "Charger RC" option) is
+**bleed-only** — Maxima PLUSH 3wt oil weight, no oil height, Volume cell reads **"Bleed"**
+literally, matching the current-gen table's RC/RC2-tier pattern in SUS-44. Every **Motion
+Control damper** (Yari RC 2019-2020, Yari RC / Yari (29+) RC 2021-2023 — the non-Charger
+option) carries the one figure SUS-42 already had right: RockShox 5wt oil, **100-106 mm
+oil height, 180 mL**. Three more values are universal constants across the whole table
+(same merged-cell convention as SUS-44's current-gen table): Damper Lower Leg oil
+(Maxima PLUSH Dynamic Suspension Lube Light) volume **10 mL**; Spring Upper Tube oil
+(Maxima PLUSH Dynamic Suspension Lube Heavy) volume **3 mL (+) / 1 mL (−)** — identical
+figures to SUS-44's current-gen table, confirming the spring-side fill hasn't changed
+across generations; Spring Lower Leg oil (Maxima PLUSH Dynamic Suspension Lube Light)
+volume **10 mL**. Grease is SRAM Butter Grease on the air piston, universal (no SG920
+alternative exists in this generation — SUS-44's Delta RC/SG920 pairing is current-gen
+only). A footnote (*) clarifies "Oil Height" is measured from the crown top down to the
+oil, not from the lower-leg bottom. *Confidence: confirmed (fetched primary, recovered by
+direct image read after two text-extraction methods both collapsed the table).* Source:
+sram.com "2019-2022 Lyrik 2019-2023 Yari Service Manual" (GEN.0000000007193 Rev C), same
+PDF SUS-42 cited, re-fetched via direct download + local `pdftoppm` 2026-07-18.
 
 ## Fork travel vs frame
 
@@ -658,18 +743,32 @@ Honest list of what a future round needs to close to move this chapter past `fou
   the JSON-driven page structure — resolving the prior round's "Fox site structure
   resisted a clean fetch" note) for FLOAT X (IFP-by-reservoir, seal-kit PNs, base-valve
   torque) and the 36 fork (bath-oil volumes by circuit, NA3 Glidecore air-spring rebuild
-  torque chain, current-gen service interval). **CLOSED this round (SUS-42): RockShox's own
-  Lyrik/Yari fork service manual is fetched** — full torque table (top caps, air spring shaft
-  nut, bottom bolts, damper-specific fasteners) landed cleanly; the oil-volume table only
-  partially extracted (one clean Motion Control figure, the DebonAir/Charger rows garbled by
-  a table-layout artifact — flagged for a `pdftotext -layout` re-attempt, not guessed). **Still
-  open:** the CURRENT-gen (2023-2026) combined ZEB/Lyrik/Pike manual exists but is too large
-  to fetch (exceeded both WebFetch's size cap and Exa's default extraction) — this round's
-  Lyrik/Yari data is 2019-2023-generation, not current-gen. Coil-shock service internals
-  (RockShox Super Deluxe Coil, Fox DHX, Öhlins/EXT/Cane Creek) and Fox's own fork-side SERVICE
-  manual (vs. the part-info pages SUS-41 used) remain untouched. **L2 gap narrowed to:
-  current-gen RockShox fork manual (needs a paginated/local-download fetch strategy) + any
-  coil-shock/coil-fork service manual + Fox's fork service manual proper.**
+  torque chain, current-gen service interval). **CLOSED 2026-07-17 (SUS-42): RockShox's own
+  2019-2022 Lyrik/2019-2023 Yari fork service manual is fetched** — full torque table landed
+  cleanly; the oil-volume table only partially extracted at the time (one clean Motion
+  Control figure, the DebonAir/Charger rows garbled by a table-layout artifact).
+  **FULLY CLOSED 2026-07-18 (SUS-43/44/45), both this chapter's named round-4 pickup
+  points:** (1) the CURRENT-gen (2023-2026) combined ZEB/Lyrik/Pike manual — previously
+  "too large to fetch" via WebFetch/Exa — is now fetched by `curl -L`-ing the raw PDF to
+  disk and running `pdftotext`/`pdftoppm` locally instead (the same lesson as SUS-42's
+  Wayback-snapshot fix for DRV-35: when a hosted fetch tool's size cap is the blocker,
+  downloading the file and processing it locally sidesteps the cap entirely). Full
+  current-gen torque table sourced (SUS-43). (2) SUS-42's own garbled 2019-2022 table is
+  now fully recovered too (SUS-45), using the same download-and-process-locally approach.
+  **Lesson for future rounds, learned from doing both tables two different ways:** when a
+  table's numbers look shifted or missing after `pdftotext` (`-layout` OR `-raw`), don't
+  assume it's unrecoverable — render the specific page with `pdftoppm -png -r 250-400`
+  (crop with `-x/-y/-W/-H` for a close read) and read it as an image. This resolved BOTH
+  the current-gen table (SUS-44, where the apparent sparseness turned out to be genuine —
+  the manual really does only publish 3 of ~8 numeric columns as universal constants, not
+  an extraction failure) and the 2019-2022 table (SUS-45, where it genuinely was a
+  `pdftotext` column-collapse artifact and the image read recovered every cell). Text
+  extraction and image reading can fail in different ways on the same PDF; when one gives
+  a suspiciously sparse or jumbled table, try the other before citing "not established."
+  Still open: coil-shock service internals (RockShox Super Deluxe Coil, Fox DHX, Öhlins/
+  EXT/Cane Creek) and Fox's own fork-side SERVICE manual (vs. the part-info pages SUS-41
+  used) remain untouched — **L2 gap narrowed to: coil-shock/coil-fork service manual +
+  Fox's fork service manual proper.**
 - **No unified cross-brand torque-spec table** exists yet as a standalone reference (the
   values are now IN the chapter, SUS-32/SUS-40, but scattered across per-model facts
   rather than collected into one lookup table). Worth a follow-up pass to compile once
