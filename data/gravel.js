@@ -321,6 +321,10 @@ var GRAVEL_PARTS = [
     wheel: '700c', width: 40, casing: 'tubeless-complete', compound: 'dynamic-rs', tubeless: true, weight: 460, price: 65 },
   { id: 'gti-vittoria-terrenodry-700x40', cat: 'tire', brand: 'Vittoria', model: 'Terreno Dry',
     family: 'vittoria-terreno-dry', wheel: '700c', width: 40, casing: 'trail', compound: 'g2', tubeless: true, weight: 430, price: 60 },
+  { id: 'gti-reneherse-barlowpass-700x38-std', cat: 'tire', brand: 'Rene Herse', model: 'Barlow Pass 700x38 Standard',
+    family: 'reneherse-barlowpass', wheel: '700c', width: 38, casing: 'standard', compound: 'std', tubeless: true, weight: 385, price: 84,
+    note: 'gravel-3 row: FETCHED renehersecycles.com\'s 700Cx38 Barlow Pass product page — "Standard Casing: 385 g" (supple casing, tan sidewalls), "$84.00-$97.00". Rene Herse sells this size across three casing tiers (Standard 385g/$84, Extralight 350g, Endurance 400g, all $84-97 depending on color/tubeless) — this row models the Standard tier; the Extralight/Endurance siblings are not cataloged this pass. Added standard/extralight/endurance to the gravel casing vocab (schema-gravel.js) for Rene Herse\'s brand-native casing-tier naming.',
+    verified: true, lastChecked: '2026-07-17', source: 'https://www.renehersecycles.com/shop/components/tires/narrower-45mm-tires/700cx38-barlow-pass/' },
   { id: 'gti-vittoria-terrenomix-700x33', cat: 'tire', brand: 'Vittoria', model: 'Terreno Mix',
     family: 'vittoria-terreno-mix', wheel: '700c', width: 33, casing: 'trail', compound: 'g2', tubeless: true, weight: 350, price: 60 },
 
@@ -550,6 +554,12 @@ var GRAVEL_PARTS = [
     family: 'fizik-vento-microtex', weight: 70, price: 30 },
   { id: 'gtp-supacaz-super-sticky-kush', cat: 'bartape', brand: 'Supacaz', model: 'Super Sticky Kush',
     family: 'supacaz-super-sticky-kush', weight: 75, price: 25 },
+  { id: 'gtp-lizardskins-dsp-v2-25', cat: 'bartape', brand: 'Lizard Skins', model: 'DSP V2 2.5mm',
+    family: 'lizardskins-dsp-v2', weight: 74, price: 42,
+    note: 'gravel-3 row: real product (2.5mm thickness tier of the DSP V2 line). Weight/price are retailer-corroborated (Universal Cycles, Sport Factory Pro Shop, BIKE24) but not fetched directly off a lizardskins.com spec table (the product page did not render one in this session) — stays sample, not verified.' },
+  { id: 'gtp-pnw-coast', cat: 'bartape', brand: 'PNW', model: 'Coast Bar Tape',
+    family: 'pnw-coast-tape', weight: 85, price: 29,
+    note: 'gravel-3 row: real product — PNW Components\' gravel-tuned tape, 2.4mm thick, $29 confirmed via web search (singletracks.com review + pnwcomponents.com listing). Weight is an unconfirmed same-thickness-tier estimate (pnwcomponents.com product page 429\'d this session) — stays sample.' },
 
 ];
 
