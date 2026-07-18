@@ -36,17 +36,21 @@ var STRIDER_PARTS = [
 
   {
     id: 'sb-woom-1-go1', cat: 'balancebike', brand: 'woom', model: '1 / GO 1',
-    wheel: '12', seatMin: 264, seatMax: 366, bikeWeight: 2994, tire: 'air',
+    wheel: '12', seatMin: 259, seatMax: 353, bikeWeight: 2903, tire: 'air',
     brake: 'rear-hand', steeringLimiter: true, frameMaterial: 'aluminum', price: 249,
     note: 'Entry woom balance bike (sold as "GO 1" outside the US since a 2023 rebrand).',
-    desc: 'Unverified sample — spec basis: woom.com product page via Exa (STRIDER-MODEL.md sec 2) cross-checked against twowheelingtots.'
+    verified: true, lastChecked: '2026-07-18', sourceType: 'maker',
+    source: 'https://woom.com/en_US/products/go-1-toddler-balance-bike',
+    desc: 'Verified — woom.com GO 1 product page spec table (seat height 10.2-13.9in, weight 6lb 6oz, AA 6061 aluminum frame, mini V-brake).'
   },
   {
     id: 'sb-woom-1plus-go1plus', cat: 'balancebike', brand: 'woom', model: '1 PLUS / GO 1 PLUS',
-    wheel: '12', seatMin: 376, seatMax: 475, bikeWeight: 4354, tire: 'air',
+    wheel: '14', seatMin: 366, seatMax: 432, bikeWeight: 4337, tire: 'air',
     brake: 'dual-hand', steeringLimiter: true, frameMaterial: 'aluminum', price: 299,
-    note: 'Taller sibling of the woom 1, for kids who outgrow the 1 without needing a 14".',
-    desc: 'Unverified sample — spec basis: twowheelingtots (STRIDER-MODEL.md sec 2 table).'
+    note: 'Taller sibling of the woom 1, 14" wheel (corrected 2026-07-18 — prior wave incorrectly carried wheel:12 for this model).',
+    verified: true, lastChecked: '2026-07-18', sourceType: 'maker',
+    source: 'https://woom.com/en_US/products/go-1-plus-toddler-balance-bike',
+    desc: 'Verified — woom.com GO 1 PLUS product page spec table (seat height 14.4-17in, weight 9lb 9oz, 14in wheels, dual independent mini V-brakes, AA 6061 aluminum frame).'
   },
   {
     id: 'sb-strider-12-classic', cat: 'balancebike', brand: 'Strider', model: '12 Classic',
@@ -99,10 +103,12 @@ var STRIDER_PARTS = [
   },
   {
     id: 'sb-prevelo-alpha-zero', cat: 'balancebike', brand: 'Prevelo', model: 'Alpha Zero',
-    wheel: '12', seatMin: 273, seatMax: 371, bikeWeight: 3243, tire: 'air',
-    brake: 'rear-hand', frameMaterial: 'aluminum', price: 239,
-    note: 'Maker-stated weight varies 6.9-7.4lb by size/spec; bikeWeight uses the midpoint.',
-    desc: 'Unverified sample — spec basis: twowheelingtots + cascadegearreviews.com (STRIDER-MODEL.md sec 2).'
+    wheel: '12', seatMin: 277, seatMax: 355, bikeWeight: 3130, tire: 'air',
+    brake: 'rear-hand', frameMaterial: 'aluminum', price: 259,
+    note: 'Mk III. Corrected 2026-07-18 against the maker page (prior wave carried aggregator-estimated seat height/weight/price).',
+    verified: true, lastChecked: '2026-07-18', sourceType: 'maker',
+    source: 'https://prevelo.com/products/alpha-zero',
+    desc: 'Verified — prevelo.com Alpha Zero Mk III spec table (seat height 10.9-14in, weight 6.9lb, 6061 aluminum frame, rear hand brake, $259).'
   },
   {
     id: 'sb-earlyrider-bigfoot-12', cat: 'balancebike', brand: 'Early Rider', model: 'Big Foot 12',
@@ -135,9 +141,11 @@ var STRIDER_PARTS = [
   {
     id: 'sb-guardian-balance-bike', cat: 'balancebike', brand: 'Guardian', model: 'Balance Bike',
     wheel: '12', seatMin: 318, seatMax: 406, bikeWeight: 3856, tire: 'air',
-    brake: 'rear-hand', brakeReach: 'short', steeringLimiter: true, frameMaterial: 'steel', price: 149,
-    note: 'SureStop hand brake sized for small hands (short lever reach).',
-    desc: 'Unverified sample — spec basis: twowheelingtots (STRIDER-MODEL.md sec 2).'
+    brake: 'rear-hand', brakeReach: 'short', steeringLimiter: true, frameMaterial: 'aluminum', price: 149,
+    note: 'SureStop hand brake sized for small hands (short lever reach). Maker page confirms weight/price/frame/brake exactly; seatMin/seatMax carried from twowheelingtots since guardianbikes.com states only an 11.5in minimum leg length, not an explicit seat-height range.',
+    verified: true, lastChecked: '2026-07-18', sourceType: 'maker',
+    source: 'https://guardianbikes.com/products/balance-bike',
+    desc: 'Verified (partial) — guardianbikes.com product page confirms weight 8.5lb, price $149, aluminum frame, single-lever SureStop brake; seat height retained from twowheelingtots (maker states only min leg length, not a seat-height range). Corrected frameMaterial from steel to aluminum per the maker page.'
   },
   {
     id: 'sb-littlebig-3in1', cat: 'balancebike', brand: 'LittleBig', model: '3-in-1',
@@ -232,6 +240,68 @@ var STRIDER_PARTS = [
     brake: 'none', frameMaterial: 'aluminum', price: 169,
     note: 'REI\'s house-brand balance bike; REI publishes a child-inseam fit range (12-17in) rather than a seat-height range, so seatMin/seatMax are left blank rather than guessed (THE BAR) — inseam and seat height are related but not identical measurements. Maker confirms no brake ("The REV BAL does not have brakes").',
     desc: 'Unverified sample — spec basis: rei.com product/category pages (weight, price, inseam range) + Co-op REV BAL owner\'s manual (no-brake statement).'
+  },
+
+  // --- wave 3 (catalog/striders-3) — Early Rider infant tier, budget/lightweight
+  // brands, the Strider convertible top of the range, and three more EU brands ---
+
+  {
+    id: 'sb-earlyrider-bella-velio', cat: 'balancebike', brand: 'Early Rider', model: 'Bella Velio',
+    wheel: '8', seatMin: 215, seatMax: 245, bikeWeight: 2800, tire: 'foam',
+    brake: 'none', frameMaterial: 'wood', price: 229,
+    note: 'Infant-tier balance bike (8in spherical wheels, rear-wheel-steer "Active Balance Control" system) with a removable parent-tiller handle; girls\'-pattern sibling of the Velio.',
+    verified: true, lastChecked: '2026-07-18', sourceType: 'maker',
+    source: 'https://us.earlyrider.com/products/bella-velio-balance-bike-for-1-year-old',
+    desc: 'Verified — us.earlyrider.com product page spec table (seat height 8.46-9.65in, weight 2.8kg/6.2lb, walnut+birch laminate frame, puncture-proof EVA foam tires, no brake, $229).'
+  },
+  {
+    id: 'sb-radioflyer-ultra-lite', cat: 'balancebike', brand: 'Radio Flyer', model: 'Ultra Lite',
+    wheel: '12', seatMin: 318, seatMax: 419, bikeWeight: 3289, tire: 'air',
+    brake: 'none', frameMaterial: 'magnesium', price: 99.99,
+    note: 'Mass-retail lightweight magnesium-frame balance bike (Radio Flyer\'s step-up from the steel Air Ride); no brake.',
+    desc: 'Unverified sample — spec basis: twowheelingtots.com Radio Flyer balance-bike review (seat height, weight, frame material, tire, brake) + radioflyer.com product page ($99.99 list price).'
+  },
+  {
+    id: 'sb-bixe-12', cat: 'balancebike', brand: 'Bixe', model: '12',
+    wheel: '12', seatMin: 292, seatMax: 394, bikeWeight: 2086, tire: 'foam',
+    brake: 'none', frameMaterial: 'aluminum', price: 60,
+    note: 'Budget/lightweight Amazon-marketplace balance bike; foam tires on plastic rims, no brake.',
+    desc: 'Unverified sample — spec basis: twowheelingtots.com + kiddingzone.com Bixe reviews (seat height 11.5-15.5in, weight 4.6lb, aluminum frame, foam tires, no brake) + amazon.com listing (price).'
+  },
+  {
+    id: 'sb-bixe-16', cat: 'balancebike', brand: 'Bixe', model: '16',
+    wheel: '16', seatMin: 464, seatMax: 569, bikeWeight: 5443, tire: 'air',
+    brake: 'rear-hand', frameMaterial: 'aluminum', price: 90,
+    note: 'Step-up size in the Bixe lineup for bigger kids (ages ~4-9); air tires and a hand brake, unlike the 12in model. A separate "16 Pro" trim also exists (twowheelingtots cites 13-14.9lb for it) but wasn\'t pinned to a distinct sourced spec table this round, so only the base 16 is entered.',
+    desc: 'Unverified sample — spec basis: twowheelingtots.com Bixe review (seat height 18.25-22.4in, weight 12lb, aluminum frame) + campingworld.com/walmart.com listings (price, brake, tire).'
+  },
+  {
+    id: 'sb-strider-20x-sport', cat: 'balancebike', brand: 'Strider', model: '20x Sport',
+    wheel: '20', seatMin: 545, seatMax: 840, bikeWeight: 11700, tire: 'air',
+    brake: 'dual-hand', convertsToPedal: true, frameMaterial: 'aluminum', price: 379,
+    note: 'Top of the Strider convertible range — grows from a big-kid balance bike into a 20in-wheel pedal bike via a bolt-on kit (ages 8-adult, quick-release seatpost clamp). Pedal-kit compat modeling deferred (data/STRIDER-MODEL.md sec 6).',
+    desc: 'Unverified sample — spec basis: striderbikes.ca 20X Sport spec table (seat height 21.5-33.1in, weight w/o pedal kit 11.7kg/25.8lb, front+rear lever drum brakes) + 99spokes.com/hsmotorsports.net listings (price $379).'
+  },
+  {
+    id: 'sb-kubikes-12', cat: 'balancebike', brand: 'KUbikes', model: '12',
+    wheel: '12', bikeWeight: 3500, tire: 'air',
+    brake: 'rear-hand', frameMaterial: 'aluminum', price: 169,
+    note: 'German-assembled premium balance bike with hand-laced wheels. Only a recommended-inseam range (12.4-15.7in) is published, not a seat-height range, so seatMin/seatMax are left blank rather than guessed (THE BAR). Price converted from the EUR169 list price at time of research.',
+    desc: 'Unverified sample — spec basis: downtown-mag.com KUbikes 12 test (weight 3.5kg) + sm-parts.net listing (rear brake, aluminum frame, EUR169 price).'
+  },
+  {
+    id: 'sb-moustache-mercredi-12', cat: 'balancebike', brand: 'Moustache', model: 'Mercredi 12',
+    wheel: '12', seatMin: 340, seatMax: 410, bikeWeight: 3420, tire: 'air',
+    brake: 'none', frameMaterial: 'aluminum', footrest: true, price: 249,
+    note: 'French brand (best known for e-bikes) kids balance bike; single-tube hydroformed alloy frame + fork, removable footrest.',
+    desc: 'Unverified sample — spec basis: downtown-mag.com Moustache Mercredi 12 test (weight 3.42kg, seat height 34-41cm, price EUR249, footrest, alloy frame) + ribblevalley-e-bikes.co.uk listing.'
+  },
+  {
+    id: 'sb-propain-bambam', cat: 'balancebike', brand: 'Propain', model: 'Bam Bam',
+    wheel: '14', heightMin: 900, heightMax: 1100, bikeWeight: 4440, tire: 'rubber-foam',
+    brake: 'none', frameMaterial: 'aluminum', price: 249,
+    note: 'German gravity-brand\'s kids balance bike; maker fits by rider height (90-110cm), not seat height, so seatMin/seatMax are left blank (THE BAR). No brake by design (maker: young children lack the grip strength to use one safely); a disc-brake mount exists but ships without a caliper.',
+    desc: 'Unverified sample — spec basis: downtown-mag.com Propain Bam Bam test (weight 4.44kg) + propain-bikes.com/thebikedads.com press coverage (14in knobby tires, height fit 90-110cm, no-brake rationale, aluminum frame, EUR249 price).'
   }
 
 ];
