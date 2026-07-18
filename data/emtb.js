@@ -130,6 +130,50 @@ var EMTB_PARTS = [
     disciplines: ['e-enduro'], weight: 24600, price: 9500,
     note: 'In-house Dyname 4.0 motor — among the highest torque in the class.',
     desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Specialized depth (Turbo Levo / Levo SL / Kenevo SL trims)
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-specialized-turbo-levo-comp-alloy', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo Comp Alloy',
+    motorBrand: 'specialized', motorModel: 'Specialized 2.2 (Full Power System)', motorTorque: 90,
+    batteryWh: 700, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24500, price: 6500,
+    note: 'Entry-level alloy-frame Turbo Levo trim; same motor/battery as the carbon range.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-specialized-turbo-levo-pro', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo Pro',
+    motorBrand: 'specialized', motorModel: 'Specialized 2.2 (Full Power System)', motorTorque: 90,
+    batteryWh: 840, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
+    disciplines: ['e-trail', 'e-enduro'], weight: 21500, price: 11000,
+    note: 'Top-tier carbon Levo trim; largest-capacity 840 Wh battery option in the range.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-specialized-turbo-levo-sl-expert', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo SL Expert',
+    motorBrand: 'specialized', motorModel: 'Specialized SL 1.2', motorTorque: 50,
+    batteryWh: 320, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code RSC',
+    disciplines: ['e-trail'], weight: 18200, price: 9500,
+    note: 'Lightweight ("SL") class trail bike; acoustic-close handling, small 320 Wh battery.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-specialized-turbo-kenevo-sl-expert', cat: 'emtb', brand: 'Specialized', model: 'Turbo Kenevo SL Expert',
+    motorBrand: 'specialized', motorModel: 'Specialized SL 1.1', motorTorque: 35,
+    batteryWh: 320, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code RSC',
+    disciplines: ['e-enduro'], weight: 19200, price: 9000,
+    note: 'Lightweight gravity/enduro-travel SL platform; longest travel in the Specialized e-range.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
 ];
