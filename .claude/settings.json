@@ -30,7 +30,10 @@
       "mcp__Claude_Browser__read_page",
       "mcp__Claude_Browser__preview_console_logs",
       "mcp__Claude_Browser__preview_snapshot",
-      "mcp__ccd_session_mgmt__list_sessions"
+      "mcp__ccd_session_mgmt__list_sessions",
+      "mcp__ccd_session_mgmt__send_message",
+      "mcp__ccd_session_mgmt__list_events",
+      "mcp__ccd_session_mgmt__set_session_title"
     ]
   }
 }
