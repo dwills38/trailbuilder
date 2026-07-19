@@ -126,6 +126,17 @@ precedent) or a `sourceType:'measured'` figure exists, those still win, unchange
 the blanket "forks deliberately flagged" freeze: fork rows may now verify on the same terms as
 shocks and wheels.
 
+**KIT APPAREL — weight NOT required at all (Douglas 2026-07-19, via coordinator): "I don't
+think we need weights on kit apparel aside from helmets."** For kit-catalog (`src/kit.js`)
+apparel rows — jerseys, shorts/pants, gloves, armor/protection, eyewear, shoes, and any other
+worn-gear category — `verified:true` requires provenance + the row's real fields
+manufacturer-confirmed, and the **weight may be absent or a sample with no exception paperwork
+needed** (the kit catalog has zero engine rules, so nothing downstream reads it). **HELMETS are
+the one exception: weight still matters there** (riders shop helmets by weight) — helmet rows
+follow the normal bar incl. the `sourceType:'measured'` route where makers publish none. This
+supersedes the 2026-07-19 kit-tail wave's apparel weight-walls: those rows may re-verify on a
+maker-page fetch alone.
+
 ## Per-part loop (persist before moving on)
 
 For each work order from `next`:
