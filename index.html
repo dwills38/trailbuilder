@@ -302,10 +302,21 @@
      11px outer — no layout shift, and .list's -5.5px centering stays exact. */
   .dot{position:absolute;top:11px;right:11px;width:11px;height:11px;border-radius:50%;
     border:1.5px solid var(--dot-ring);display:flex}
-  /* No ARIA needed on the glyph: the dot span carries role="img" + an aria-label with
-     the real reason, and role="img" makes it a leaf node — assistive tech announces
-     the label and never descends into ::after content. (Legend swatches are
+  /* Card dots are <button>s (phone-fix-3, 2026-07-18 — the reason lived in `title`,
+     hover-only, invisible to touch). No extra ARIA needed: the button carries its own
+     aria-label with the real reason, which is its whole accessible name. The one
+     remaining <span class="dot"> (pmCompat, inside the modal the button opens) stays
+     role="img" + aria-hidden-adjacent text, decorative. (Legend swatches are
      aria-hidden and label themselves in adjacent text.) */
+  /* button.dot: reset UA button chrome so the circle stays byte-identical to the old
+     span, then an invisible ::before extends the HIT box to MOB-3's 24px AA floor
+     (2.5.8) without any layout shift — same technique as .prov .ver's touch-target
+     extension below (@media max-width:768px). Visual dot is unchanged; only touch
+     reachability changes. */
+  button.dot{cursor:pointer;padding:0;margin:0;appearance:none;-webkit-appearance:none;font-family:inherit}
+  button.dot::-moz-focus-inner{border:0;padding:0}
+  button.dot::before{content:"";position:absolute;inset:-7px}
+  button.dot:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
   /* Fills + glyphs are shared by the cards' .dot and the legend's key swatch, so the
      four state colours have ONE definition — the legend can never drift from the dots
      it explains (they were previously forked into inline styles on the legend). */
@@ -574,6 +585,11 @@
   .guides-intro{color:var(--ink-soft);font-size:14px;margin:6px 0 20px;max-width:680px}
   /* index grid of guide cards */
   .guides-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  /* wrapper carries role="listitem" so the AT-facing list semantics stay off
+     the button (ACC-27 — role="listitem" on the button itself hid its native
+     button role from screen readers); display:contents keeps it out of the
+     grid box model so the button is still the visual grid item */
+  .guide-card-wrap{display:contents}
   .guide-card{display:block;width:100%;text-align:left;border:1px solid var(--line);border-radius:12px;
     padding:16px 18px;background:var(--card);color:var(--ink);cursor:pointer;font:inherit}
   .guide-card:hover{border-color:var(--brand)}
@@ -600,11 +616,17 @@
   .acctbox .btn:hover{background:rgba(255,255,255,.26)}
   .acct-email{color:#fff;font-size:13px;font-weight:600;opacity:.95;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .glist{display:flex;flex-direction:column;gap:8px;max-height:52vh;overflow:auto}
-  .grow{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:9px 11px}
-  .grow .gmain{flex:1;min-width:0}
+  .grow{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:9px 11px;position:relative}
+  /* stretched-button pattern (ACC-26): a full-row button sits under the row's
+     own interactive children (gmain/gacts get z-index so they stay separately
+     clickable/focusable) — gives keyboard/AT users a way to open the row that
+     a bare click-only div never could, with zero visual change. */
+  .grow .grow-open{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;border:0;background:transparent;cursor:pointer}
+  .grow .grow-open:focus-visible{outline:2px solid var(--brand);outline-offset:2px;border-radius:10px}
+  .grow .gmain{flex:1;min-width:0;position:relative;z-index:1}
   .grow .gname{font-weight:700;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .grow .gmeta{font-size:12px;color:var(--ink-soft)}
-  .grow .gacts{display:flex;gap:6px;flex-wrap:wrap}
+  .grow .gacts{display:flex;gap:6px;flex-wrap:wrap;position:relative;z-index:1}
   .grow .gacts button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 8px;font-size:12px;cursor:pointer;font-weight:600;color:var(--ink)}
   /* moderation delete affordance (admin-only, or your own posts) — quiet until hover */
   .grow .gacts button.del{color:var(--ink-soft)}
@@ -817,6 +839,19 @@
     #rail .chips::-webkit-scrollbar{display:none}
     #rail .chip{flex:none;background:var(--chip);border-radius:999px}
     .rail-h{margin:10px 0 6px}
+  }
+  /* P-6 (PHONE-UI-REVIEW-2026-07-18 #113): the single-row carousel hides most
+     categories with zero affordance (1,283px of chips in a 317px viewport at
+     375w). Primary nav (#chips) gets the structural fix (b) — wrap to ~2 rows
+     instead of hiding content; minor rows (discipline) keep the single-row
+     carousel but gain affordance (a) — fade mask + snap — so they read as
+     scrollable instead of silently truncated. Desktop (>480px) is untouched. */
+  @media (max-width:480px){
+    #rail #chips{flex-wrap:wrap;overflow-x:visible;white-space:normal}
+    #rail #discChips{scroll-snap-type:x proximity;scrollbar-width:thin;
+      -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent);
+      mask-image:linear-gradient(90deg,#000 calc(100% - 28px),transparent)}
+    #rail #discChips .chip{scroll-snap-align:start}
   }
   /* mobile sticky build bar — mirrors the panel verdict + totals (renderReport
      wording, never reworded); tapping jumps to the build panel */
@@ -2507,7 +2542,7 @@
         ? '<span class="ver" title="Every size in this family is verified against a manufacturer spec">✓ Verified</span>'
         : '<span class="ver" title="'+fm.verifiedCount+' of '+fm.members.length+' sizes are verified against a manufacturer spec">✓ '+fm.verifiedCount+'/'+fm.members.length+' verified</span>';
     card.innerHTML =
-      '<span class="dot '+fm.state+'" role="img" aria-label="Compatibility: '+esc(fm.reason)+'" title="'+esc(fm.reason)+'"></span>'+
+      '<button type="button" class="dot '+fm.state+'" aria-label="Compatibility: '+esc(fm.reason)+'" title="'+esc(fm.reason)+'"></button>'+
       '<div class="pcard-head">'+thumbHtml+
         '<div class="pcard-headtext"><div class="kind">'+catLabel(cat)+' family</div>'+
         '<button type="button" class="name" aria-label="Browse '+esc(name)+' sizes">'+esc(name)+'</button></div></div>'+
@@ -2516,6 +2551,10 @@
       '<div class="row">'+priceHtml+'<span class="picks"></span></div>';
     var open=function(){ drillIntoFamily(groupKey, fm.family); };
     card.querySelector('.name').onclick=function(e){ e.stopPropagation(); open(); };
+    // Dot tap target opens the same drill-down as the name (phone-fix-3): a family
+    // card has no single part for a detail modal, so "why" for a family means
+    // seeing its sizes, same as the family docs already tell a desktop user.
+    card.querySelector('.dot').onclick=function(e){ e.stopPropagation(); open(); };
     var picks=card.querySelector('.picks');
     var btn=mkBtn('Browse sizes →', false, false);
     btn.onclick=open;
@@ -2758,7 +2797,7 @@
       : '<div class="pcard-thumb">'+placeholderIcon(CAT_GROUP[p.cat])+'</div>';
 
     card.innerHTML =
-      '<span class="dot '+compat.state+'" role="img" aria-label="Compatibility: '+esc(compat.reason)+'" title="'+esc(compat.reason)+'"></span>'+
+      '<button type="button" class="dot '+compat.state+'" aria-label="Compatibility: '+esc(compat.reason)+'" title="'+esc(compat.reason)+'"></button>'+
       '<div class="pcard-head">'+thumbHtml+
         '<div class="pcard-headtext"><div class="kind">'+kindLabel(p)+'</div>'+
         // .name is a <button> — the keyboard-reachable way to open the detail modal
@@ -2769,6 +2808,10 @@
       provHtml(p, ownedBadgeHtml(p))+
       '<div class="row">'+priceHtml+'<span class="picks"></span></div>';
     card.querySelector('.name').onclick=function(e){ e.stopPropagation(); openPartModal(p); };
+    // Dot is also a tap target (phone-fix-3, 2026-07-18): the reason lived in
+    // `title`, hover-only — a finger could never see it. Same modal as .name;
+    // it already renders this exact compat line as pmCompat (touch-readable).
+    card.querySelector('.dot').onclick=function(e){ e.stopPropagation(); openPartModal(p); };
     var picks=card.querySelector('.picks');
 
     if(isPresetPart(p)){
@@ -3006,7 +3049,7 @@
               row.appendChild(ownBtn);
             }
           }
-          var x=document.createElement('button'); x.className='x'; x.title='Remove'; x.textContent='×';
+          var x=document.createElement('button'); x.type='button'; x.className='x'; x.title='Remove'; x.setAttribute('aria-label','Remove'); x.textContent='×';
           x.onclick=function(){ setSlot(slot.key, null); }; row.appendChild(x); }
         host.appendChild(row);
       });
@@ -4380,11 +4423,16 @@
     el.innerHTML = '';
     rows.forEach(function(row){
       var div = document.createElement('div'); div.className = 'grow clickable';
-      div.innerHTML =
+      var openBtn = document.createElement('button');
+      openBtn.type = 'button';
+      openBtn.className = 'grow-open';
+      openBtn.setAttribute('aria-label', 'Open thread: ' + (row.pinned ? 'Pinned: ' : '') + row.title);
+      openBtn.onclick = function(){ location.hash = '#forum/' + encodeURIComponent(row.id); };
+      div.appendChild(openBtn);
+      div.insertAdjacentHTML('beforeend',
         '<div class="gmain"><div class="gname">'+(row.pinned?'📌 ':'')+esc(row.title)+'</div>'+
         '<div class="gmeta">'+forumCatPill(row)+forumAuthorHTML(row.author_id)+' · '+new Date(row.created_at).toLocaleDateString()+'</div></div>'+
-        (canModerate(row.author_id) ? '<div class="gacts"><button type="button" class="del" data-a="delthread" title="Delete this thread">🗑 Delete</button></div>' : '');
-      div.onclick = function(){ location.hash = '#forum/' + encodeURIComponent(row.id); };
+        (canModerate(row.author_id) ? '<div class="gacts"><button type="button" class="del" data-a="delthread" title="Delete this thread">🗑 Delete</button></div>' : ''));
       var db = div.querySelector('[data-a=delthread]');
       if(db){ db.onclick = function(e){ e.stopPropagation(); confirmDeleteThread(row); }; }
       el.appendChild(div);
@@ -4638,9 +4686,9 @@
     if(grid.childElementCount) return;   // content is static — build the cards once
     var html = '';
     guidesList().forEach(function(g){
-      html += '<button type="button" class="guide-card" role="listitem" data-slug="'+esc(g.slug)+'">' +
+      html += '<div class="guide-card-wrap" role="listitem"><button type="button" class="guide-card" data-slug="'+esc(g.slug)+'">' +
         '<h3>'+esc(g.title)+'</h3><p>'+esc(g.summary)+'</p>' +
-        '<span class="guide-read">'+esc(String(g.readMin))+' min read</span></button>';
+        '<span class="guide-read">'+esc(String(g.readMin))+' min read</span></button></div>';
     });
     grid.innerHTML = html || '<div class="gempty">Guides are coming soon.</div>';
     grid.querySelectorAll('.guide-card').forEach(function(b){

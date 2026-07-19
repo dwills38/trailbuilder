@@ -195,6 +195,43 @@
   .dot.w::after{content:"!"}       /* fits, but adds a warning */
   .dot.r::after{content:"\2715"}   /* ✕ adds a new error */
   .dot.n::after{content:"\2013"}   /* – nothing to compare against yet ("no data") */
+  /* Card dot is a <button> (phone-fix-3, 2026-07-18): the reason lived in `title`,
+     hover-only — there was no touch path to it at all on this page (no part modal
+     existed here before). Reset UA button chrome so the circle stays byte-identical,
+     then an invisible ::before extends the HIT box to MOB-3's 24px AA floor (2.5.8)
+     with no layout shift. Keep this block in sync with index.html's button.dot. */
+  button.dot{cursor:pointer;padding:0;margin:0;appearance:none;-webkit-appearance:none;font-family:inherit}
+  button.dot::-moz-focus-inner{border:0;padding:0}
+  button.dot::before{content:"";position:absolute;inset:-7px}
+  button.dot:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+  /* Minimal part-detail dialog (phone-fix-3): a self-contained BMX-only modal, NOT
+     imported from index.html — same ergonomics the phone review already confirmed
+     work well there (top-anchored via the native <dialog> UA box + svh cap, Close at
+     the bottom in the thumb zone, own scroll container), authored fresh for this page. */
+  dialog#bmxPartModal{border:none;border-radius:14px;padding:0;max-width:480px;width:calc(100% - 32px);
+    max-height:calc(100svh - 32px);color:var(--ink);background:var(--card);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog#bmxPartModal[open]{display:flex;flex-direction:column;overflow:hidden}
+  dialog#bmxPartModal::backdrop{background:rgba(18,28,22,.45)}
+  #bmxPartModal .rm-head{padding:18px 20px 4px;flex:none}
+  #bmxPartModal .rm-head h2{margin:0 0 5px;font-size:18px}
+  #bmxPartModal .rm-body{padding:10px 20px 16px;display:flex;flex-direction:column;gap:12px;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  #bmxPartModal .rm-foot{display:flex;justify-content:flex-end;padding:14px 20px 18px;flex:none}
+  /* Reuses the same reason string the card dot's title/aria-label already carry —
+     same "readable on touch" pattern as index.html's .pm-compat, authored fresh. */
+  .bpm-compat{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;border-radius:9px;padding:8px 11px;line-height:1.35}
+  .bpm-compat .dot{position:static;flex:none;cursor:default}
+  .bpm-compat .dot::before{content:none}
+  .bpm-compat.ok{background:var(--ok-bg);color:var(--ok)}
+  .bpm-compat.warn{background:var(--warn-bg);color:var(--warn)}
+  .bpm-compat.err{background:var(--err-bg);color:var(--err)}
+  .bpm-compat.none{background:var(--chip);color:var(--ink-soft)}
+  /* Per-slot diff breakdown for multi-slot categories (tire/brake/pegs front+rear) —
+     reuses the .issue e/w styling already defined for the fit-report panel. */
+  .bpm-lines{display:flex;flex-direction:column;gap:7px}
+  @media (max-width:768px){
+    dialog#bmxPartModal{width:calc(100% - 20px)}
+  }
 
   .grid.list{display:flex;flex-direction:column;gap:6px;container:bmxcat / inline-size}
   .list .pcard{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:9px 14px 9px 22px}
@@ -274,6 +311,16 @@
     .pick{min-height:40px;padding:9px 13px;display:inline-flex;align-items:center;justify-content:center}
     .slot .x{min-width:38px;min-height:38px;display:inline-flex;align-items:center;justify-content:center}
     footer{padding:18px 16px 40px}
+    /* P-7 (phone review): the #bSort catalog-sort select sits at 13px, under the
+       16px iOS-Safari focus-zoom floor — same fix as index.html's form-control block.
+       select.btn (not bare `select`): #bSort carries .btn, whose own font-size:13px
+       rule (class specificity) would otherwise outrank a plain type-selector override. */
+    select.btn{font-size:16px}
+    /* P-8: invisible hit-area extension for the ✓ Verified source link, same
+       technique as index.html (padding on a real ::after, not the visible pill,
+       so the badge itself never grows). */
+    .prov .ver{position:relative}
+    .prov .ver::after{content:"";position:absolute;inset:-10px -8px}
     .list .pcard{padding:10px 12px 10px 22px;gap:3px 10px;align-items:center}
     .list .pcard .namewrap{flex:1 1 auto;order:1;min-width:0}
     .list .pcard .row{flex:none;order:2;margin-left:auto;flex-direction:row;align-items:center;gap:12px}
@@ -348,6 +395,22 @@
   <span class="mb-w" id="mbWeight">—</span>
   <span class="mb-go">View ▸</span>
 </button>
+<!-- Minimal part-detail dialog (phone-fix-3, 2026-07-18): click-triggered, opened only
+     by tapping a card's compat dot — never appears on its own (no-popup rule). -->
+<dialog id="bmxPartModal" aria-labelledby="bpmTitle" role="dialog" aria-modal="true">
+  <div class="rm-head">
+    <h2 id="bpmTitle"></h2>
+    <div class="muted" id="bpmSpec"></div>
+  </div>
+  <div class="rm-body">
+    <div id="bpmCompat" class="bpm-compat none"></div>
+    <div id="bpmLines" class="bpm-lines"></div>
+    <div id="bpmProv"></div>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="bpmClose" autofocus>Close</button>
+  </div>
+</dialog>
 
 <script src="src/compat.js"></script>
 <script src="src/compat-bmx.js"></script>
@@ -470,6 +533,24 @@
     if(firstWarn!==null) return {state:'w', reason:firstWarn};
     return {state:'r', reason:(firstErr||'Conflicts with your current build')};
   }
+  /* Per-slot breakdown for the tap-opened detail card (phone-fix-3): bmxCompatOf
+     above already collapses a multi-slot part (tire/brake/pegs front+rear) down to
+     its single best-state reason for the card dot; this reruns the same
+     bmxPlacementDiff per slot so a part that, say, fits the front tire but conflicts
+     as a rear tire shows BOTH lines instead of just whichever one bmxCompatOf found
+     first. Single-slot categories are already fully covered by the header line
+     (bpmCompat), so this only has something to add when there's more than one slot. */
+  function bmxDiffLines(p, build){
+    var slots = CATSLOTS[p.cat] || [];
+    if(slots.length < 2 || Object.keys(build).length===0) return [];
+    var lines = [];
+    slots.forEach(function(slotKey){
+      var d = bmxPlacementDiff(p, slotKey, build);
+      if(d.error) lines.push({label:SLOT_LABEL[slotKey], text:d.error, cls:'e'});
+      else if(d.warning) lines.push({label:SLOT_LABEL[slotKey], text:d.warning, cls:'w'});
+    });
+    return lines;
+  }
 
   /* ---- display helpers -------------------------------------------------------- */
   function specLine(p){
@@ -502,6 +583,27 @@
   function provHtml(p){
     if(p.verified===true && p.source) return '<a class="ver" href="'+esc(p.source)+'" target="_blank" rel="noopener nofollow">✓ Verified</a>';
     return '<span class="est">Sample spec (unverified)</span>';
+  }
+
+  /* ---- part detail dialog (phone-fix-3, 2026-07-18): the card dot's tap target.
+     Minimal by design — a click-opened card (allowed by the no-popup rule) that
+     surfaces the exact reason string already computed for the dot's title/aria-label,
+     plus a per-slot breakdown for multi-slot categories. No engine change: every
+     string here already exists inside checkBmxBuild's Verdict objects. ---- */
+  function openBmxPartModal(p){
+    var build = resolvedBuild();
+    var compat = bmxCompatOf(p, build);
+    var cls = compat.state==='g' ? 'ok' : compat.state==='w' ? 'warn' : compat.state==='r' ? 'err' : 'none';
+    $('bpmTitle').textContent = p.brand+' '+p.model;
+    $('bpmSpec').textContent = catLabel(p.cat)+' · '+specLine(p);
+    $('bpmCompat').className = 'bpm-compat '+cls;
+    $('bpmCompat').innerHTML = '<span class="dot '+compat.state+'" aria-hidden="true"></span><span>'+esc(compat.reason)+'</span>';
+    $('bpmLines').innerHTML = bmxDiffLines(p, build).map(function(l){
+      return '<div class="issue '+l.cls+'"><span class="mk">'+(l.cls==='e'?'✗':'⚠')+'</span>'
+        + '<span><strong>'+esc(l.label)+':</strong> '+esc(l.text)+'</span></div>';
+    }).join('');
+    $('bpmProv').innerHTML = provHtml(p);
+    $('bmxPartModal').showModal();
   }
 
   /* ---- static skeleton -------------------------------------------------------- */
@@ -599,13 +701,19 @@
     var wt = typeof p.weight==='number' ? '<span class="wt">'+p.weight.toLocaleString()+' g</span>' : '';
 
     card.innerHTML =
-        '<span class="dot '+compat.state+'" role="img" aria-label="Compatibility: '+esc(compat.reason)+'" title="'+esc(compat.reason)+'"></span>'
+        '<button type="button" class="dot '+compat.state+'" aria-label="Compatibility: '+esc(compat.reason)+'" title="'+esc(compat.reason)+'"></button>'
       + '<div class="namewrap"><div class="kind">'+esc(catLabel(p.cat))+'</div>'
       +   '<div class="name">'+esc(p.brand)+' '+esc(p.model)+'</div></div>'
       + '<div class="spec">'+esc(specLine(p))+'</div>'
       + '<div class="metacol"><div class="prov">'+provHtml(p)+'</div></div>'
       + '<div class="row"><span class="price">'+money(p.price)+' '+wt+'</span>'
       +   '<span class="picks"></span></div>';
+
+    // Dot is the tap target for "why" (phone-fix-3): previously there was no path
+    // at all on this page — the name is a plain, non-interactive div (left alone
+    // here; out of this fix's scope) and the reason lived only in the dot's hover
+    // title. Opens the minimal detail dialog above.
+    card.querySelector('.dot').onclick=function(e){ e.stopPropagation(); openBmxPartModal(p); };
 
     var picks = card.querySelector('.picks');
     if(slots.length===1){
@@ -756,9 +864,15 @@
     setView(viewMode);
   }
 
+  function wirePartModal(){
+    $('bpmClose').onclick=function(){ $('bmxPartModal').close(); };
+    $('bmxPartModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
+  }
+
   /* ---- boot -------------------------------------------------------------------- */
   main.innerHTML = skeleton();
   wireToolbar();
+  wirePartModal();
   renderRail();
   renderCatalog();
   renderReport();

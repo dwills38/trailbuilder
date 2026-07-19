@@ -149,14 +149,14 @@ var KIT_PARTS = [
     type:'full-face', rotational:'mips', certs:['en1078'], disciplines:['enduro','dh'], sizes:['S','M','L'],
     desc:'Weight is size M (S 680g, L 850g on the maker page). Fetched poc.com: corrected price $350 -> $400 and sizes (maker only sells S/M/L, not XS/XL); only EN 1078 is cited on the page (no CPSC/ASTM), so certs stays single-token.',
     verified:true, lastChecked:'2026-07-16', source:'https://poc.com/en-us/product/otocon-race-mips-hydrogen-white-uranium-black-matt' },
-  { id:'hm-smith-forefront2-mips', cat:'helmet', brand:'Smith', model:'Forefront 2 MIPS', price:240, weight:380,
-    type:'half-shell', rotational:'mips', disciplines:['trail'], sizes:['S','M','L'],
-    status:'discontinued',
-    desc:'Discontinued: the base Forefront 2 MIPS has no live product page on smithoptics.com'
-      + ' (checked its Shopify product sitemap 2026-07-17 - only forefront-3-mips-r is current;'
-      + ' the only surviving Forefront2-line SKUs are the Aleck-crash-sensor "Twiceme" special'
-      + ' edition and accessory parts, replaced by the Forefront 3). Stays unverified sample data'
-      + ' (price/weight/sizes left as prior sample - no live maker page to confirm against).' },
+  { id:'hm-smith-forefront2-mips', cat:'helmet', brand:'Smith', model:'Forefront 2 MIPS', price:270, weight:380,
+    type:'half-shell', rotational:'mips', certs:['cpsc','en1078'], disciplines:['trail'], sizes:['S','M','L'],
+    verified:true, lastChecked:'2026-07-18',
+    source:'https://www.smithoptics.com/en_US/p/helmet/forefront-2-mips%C2%AE-mtb-helmet/FOREFRONT2-HELMET-MATTE-BLACK.html',
+    desc:'Weight (380g, size M), price ($270 USD MSRP), CPSC + CE EN1078 certs and MIPS rotational'
+      + ' protection confirmed on a live smithoptics.com product page 2026-07-18 (an earlier check'
+      + ' 2026-07-17 found this page 404ing / dropped from the sitemap - it has since returned, or'
+      + ' the earlier check hit a stale sitemap; re-verified against the live page directly).' },
   { id:'hm-smith-session-mips', cat:'helmet', brand:'Smith', model:'Session MIPS', price:200, weight:376,
     type:'half-shell', rotational:'mips', certs:['cpsc','en1078'], disciplines:['trail'], sizes:['S','M','L'],
     desc:'Price/type/rotational/certs confirmed on the Smith product page (weight not stated there); weight is BikeRadar\'s measured figure, size M.',
