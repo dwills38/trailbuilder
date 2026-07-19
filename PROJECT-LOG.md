@@ -2526,3 +2526,10 @@ per wave/decision; large reconstructions are handed to a worker session.
   live one) + 14 harvested branches. Worktrees ~210 → 185. `D:\scratch_cbgrind` (plain folder,
   not git) left for Douglas's call.
 - Fleet after this wave: only wheels w2 (quiet — nudge pending) + Partnerships + bug-triage.
+
+## 2026-07-19 (seat 14, sweep) — wheels wave 2 harvested; wave fully closed
+
+- Wheels w2 merged (`b56cfa8`): +8 net verified (Onyx Vesper XD→XDR correction, Race Face ARC
+  rim via PDF, both prior open questions resolved — XRC 1200 25mm real-but-discontinued via
+  Wayback, M1900 SuperBoost157 confirmed OE-only and honestly unverified). MTB verified 3,038.
+  Last D:\-root stray worktree (wt-wh2-c804) removed. Fleet: Partnerships + bug-triage only.
