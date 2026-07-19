@@ -578,3 +578,44 @@ Per INDEX rule 8, these could not be turned into exploits and are filed as quest
 - Supabase dashboard configuration (§C).
 
 **No changes were made to any file outside `tools/security/`.**
+
+---
+
+## CHANGES — fix pass (2026-07-18, branch `fix/reviews-sql-hardening-1`)
+
+Applied to `supabase/reviews.sql` only (still STAGED — nothing has been run against Supabase;
+Douglas alone executes it in the SQL editor). Each finding → what was done:
+
+| # | Status | Resolution in `supabase/reviews.sql` |
+|---|---|---|
+| F1 | **FIXED** | Whole file wrapped in one explicit `BEGIN`/`COMMIT` (psql/CLI path now all-or-nothing; inside the SQL editor's own wrapper the inner BEGIN is a harmless WARNING). Hard precondition `DO` block raises before creating anything if `touch_updated_at()` / `is_forum_admin()` are missing. `enable row level security` moved to immediately after each `create table` — belt on top of the transaction: even statement-level execution is fail-closed (RLS on + no policies = default deny). |
+| F2 | **FIXED** | `review photos read` is now `using (exists (select 1 from public.reviews r where r.id = review_id))` — parent RLS applies inside the subquery, so photo visibility inherits the review's exactly (anon sees visible-review photos only; author keeps own-hidden; admin sees all). Closes both the moderation defeat and the hidden-set enumeration. The line-294 honesty note rewritten to the true, weaker guarantee: hide removes the API-served reference; the public-read object survives until a hard storage DELETE — two-step moderation, stated as such. |
+| F3 | **FIXED** | `review photos owner insert` adds the third conjunct: `url like '<project>/review-photos/' || (select auth.uid())::text || '/%'` — a row can only reference the caller's OWN storage folder, making the table row agree with the object-level owner-writes-own-path policy. (CHECK constraints can't reference `auth.uid()`, so the pin lives in the policy, per the review's prescription.) |
+| F4 | **DEFERRED — documented, decision is Douglas's** | No mechanism chosen (the review itself calls it a design problem, not a patchable line). A prominent "ASTROTURFING COST ANCHOR — OPEN DESIGN DECISION" block now sits in the file header listing the four content-neutral levers (signup CAPTCHA — dashboard state unknown; account-age/activity gating; history/diversity-weighted aggregate; always-shown count+histogram) and why the marketplace purchase-gate doesn't transfer. Must be decided before review scores display prominently. |
+| F5 | **FIXED** | `review_photos_cap()` now takes a `FOR UPDATE` row lock on the parent review before counting — concurrent inserts to the same review serialize on the lock and the second transaction counts a fresh snapshot. Chosen over the slot-column alternative because it changes no client contract. The false "impossible even from a hand-crafted client" comment replaced with an accurate description of the lock semantics (including why FOR UPDATE under RLS works for owner/admin and no-ops for non-owners). |
+| F6 | **FIXED (audit + user_id pin) / OPEN QUESTION (narrowing)** | (a) `reviews_guard` now pins `new.user_id := old.user_id` on UPDATE **unconditionally** — owner, admin, and service_role alike; authorship reassignment has no path. (b) New append-only `public.review_moderation_log` (no FKs by design — entries must survive deletion of the review and the actor; `actor_id NULL` = service_role) written by a new `AFTER UPDATE OR DELETE` SECURITY DEFINER trigger `reviews_moderation_audit()`: logs every hide/unhide and every non-owner edit/delete with a full `before` image. RLS: admin-only SELECT, **no** end-user write/rewrite/purge path (no policies; the definer trigger is the only writer, and trigger-returning functions can't be RPC'd). Owner self-edits are deliberately not logged (user activity, not moderation). (c) **Narrowing admin UPDATE to hide-only (no content rewrite)** is flagged in the header as an open question for Douglas — the doctrine implies hide-not-rewrite, but it's a stated-intent change; today rewrite remains allowed **and logged**. |
+| F7 | **FIXED** | All three functions (`reviews_guard`, `review_photos_cap`, `reviews_moderation_audit`) get the hardening-file grant block: `revoke from public`, `revoke from anon`, `grant to authenticated`, `grant to service_role`. Filed honestly in-file as consistency (trigger-returning functions aren't directly invocable regardless), matching the review's own framing. |
+| F8 | **FIXED (this file)** | Every policy wraps `auth.uid()` / `is_forum_admin()` as `(select ...)` (initPlan caching) and names its roles with `TO` (`reviews read` / `review photos read` are `to anon, authenticated`; all writes `to authenticated`). The review's suggestion of a cross-migration sweep (schema.sql, forum-profiles*.sql) is **not** done here — separate task, flagged below. |
+| F9 | **RESOLVED (deliberate stance)** | Added `review reports reporter read` — a reporter may SELECT their **own** reports (leaks nothing, enables "you already reported this" UI, keeps a future `.insert().select()` from failing). Reporter UPDATE/DELETE (retraction) deliberately **withheld** pending Douglas's product decision, stated in the policy comment. |
+
+**Section B regression check.** B1/B2 (hidden guard + silent pin) — logic unchanged, only the
+unconditional user_id pin added above it. B3/B4 (escalation chain, invoker admin helper) —
+untouched; the one new SECURITY DEFINER function writes only to the log table and reads nothing
+privileged. B5 (video regex) — byte-identical. B6 (ownership checks) — strengthened (F3), none
+weakened. B7 (report queue) — admin-only except own-row (F9, deliberate). B8 (no auto-hide) —
+preserved; the log records hides, never causes them. B9 (bucket limits) — unchanged. B10
+(idempotency) — preserved: new table is `if not exists`, new policies drop-and-recreate, new
+constraints guarded, grants re-runnable; the transaction wrapper doesn't change re-runnability.
+B11 (engine firewall) — restated in header + invariants. B12 (walkthrough + invariants blocks) —
+both updated to cover the log, the user_id pin, and photo-visibility inheritance.
+
+**Still needs Douglas before/around running the file:**
+1. **F4** — pick astroturfing lever(s) before review scores are displayed prominently (and
+   answer §C-2: is signup CAPTCHA on?).
+2. **F6** — rule on narrowing admin UPDATE to hide-only (no content rewrite).
+3. **F9** — rule on reporter retraction (own-report DELETE).
+4. §C-1/C-3 remain open (SQL-editor transaction behavior — moot for correctness now but worth
+   knowing; Supabase account MFA + second owner).
+5. **Follow-up tasks, not this file:** the F1 "enable RLS in the same breath as CREATE TABLE" +
+   F8 idiom sweep across `schema.sql` / `forum-profiles*.sql`, and the review's §D
+   recommendation that the **live** forum tables get the next security pass.
