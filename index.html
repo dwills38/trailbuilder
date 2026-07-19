@@ -226,6 +226,33 @@
   .legend i{display:inline-flex;width:11px;height:11px;border-radius:50%;margin-right:5px;
     vertical-align:middle;border:1.5px solid var(--dot-ring)}
   .legend-note{font-size:11px;color:var(--ink-soft);margin:0 0 16px}
+  /* ---- Upgrade Advisor (feature slate #1 — "will it fit MY bike?") ----
+     Theme-safe by construction: every color is an existing token, so all four
+     themes (light/dark/rad/loam) style it with zero per-theme rules. */
+  .upgrade-bar{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:14px 16px;margin:0 0 14px}
+  .upgrade-bar h2{margin:0 0 4px;font-size:1.05rem}
+  .up-options{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 0}
+  .up-paste{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .up-paste input{flex:1 1 240px;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit;font-size:13px}
+  .up-err{flex:1 1 100%;color:var(--err);font-size:12px}
+  .up-base{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline;font-size:14px}
+  .up-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .up-note{margin:6px 0 0;font-size:12px;color:var(--ink-soft)}
+  /* the per-card verdict line — the flipped view's whole point on touch, where
+     the dot's hover title never shows. States share the dot's palette. */
+  .up-verdict{margin:6px 0 0;padding:5px 8px;border-radius:8px;font-size:12px;font-weight:600;line-height:1.35}
+  .up-verdict.g{background:var(--ok-bg);color:var(--ok)}
+  .up-verdict.w{background:var(--warn-bg);color:var(--warn)}
+  .up-verdict.r{background:var(--err-bg);color:var(--err)}
+  .up-verdict.n{background:var(--chip);color:var(--ink-soft)}
+  .list .pcard .up-verdict{flex:1 1 100%;margin:0;padding:3px 8px;font-size:11px;white-space:normal}
+  /* the part modal's "On your bike" block */
+  .pm-upgrade{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:10px 0 0}
+  .pm-upgrade h3{margin:0 0 6px;font-size:.92rem}
+  .pm-up-row{margin:4px 0;font-size:13px;line-height:1.4}
+  .pm-up-row.ok{color:var(--ok)}
+  .pm-up-row.warn{color:var(--warn)}
+  .pm-up-row.err{color:var(--err)}
   .layout{display:grid;grid-template-columns:210px minmax(0,1fr) 330px;gap:20px;align-items:start}   /* rail 250→210, side 350→330, gap 22→20 (2026-07-11): reclaims ~64px for the catalog column so one-line list rows engage at 1280-wide windows */
   .layout > *{min-width:0}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:12px;min-width:0}
@@ -1105,6 +1132,11 @@
 
 <main>
   <div class="toolbar">
+        <!-- Upgrade Advisor entry (feature slate #1): flips the builder's
+             direction — start from the bike you OWN, then browse parts and see
+             whether each one fits it. A mode over the existing machinery
+             (compatOf dots, catalog, hash), never a separate engine. -->
+        <button class="btn" id="upgradeNavBtn" title="Check whether a part fits a bike you already have — pick your bike, then browse any part" aria-pressed="false">🔧 Will it fit my bike?</button>
         <button class="btn" id="verifiedOnly" title="Show only parts verified against a manufacturer spec" aria-pressed="false">✓ Verified only</button>
         <button class="btn" id="ownedOnly" hidden title="Show only parts in your inventory" aria-pressed="false">🧰 Owned only</button>
         <button class="btn" id="compatibleOnly" title="Hide parts that would clash with your current build (parts with no build yet always show)" aria-pressed="false">🟢 Compatible only</button>
@@ -1147,6 +1179,36 @@
        simply publish no data for a given dimension. Mirrors the existing "No conflicts
        found" (not "All compatible") non-overclaim wording used throughout the app. -->
   <p class="legend-note">A green dot means no conflict among the dimensions we check — some parts publish no data, so it's not a guarantee of perfect fit.</p>
+  <!-- Upgrade Advisor bar (feature slate #1). Hidden until the mode is entered
+       via the toolbar button or a #upgrade deep-link — NEVER auto-appears (the
+       no-popups rule: everything here is click-driven). Two inner states:
+       the baseline picker (no bike chosen yet) and the active check header. -->
+  <section id="upgradeBar" class="upgrade-bar" hidden aria-label="Upgrade check — does a part fit my bike?">
+    <div id="upgradePick" hidden>
+      <h2>🔧 Will it fit my bike?</h2>
+      <p class="up-note">Start from the bike you own, then browse any part — every dot below answers for <strong>that bike</strong>, judged as your bike <em>with</em> the part swapped in (never against the part it replaces).</p>
+      <div class="up-options">
+        <button type="button" class="btn primary" id="upPickBike">🚲 Pick your bike from the catalog</button>
+        <button type="button" class="btn" id="upUseCurrent">🛠 Use my current build</button>
+        <button type="button" class="btn" id="upFromGarage" hidden>🅖 Load a saved build</button>
+      </div>
+      <div class="up-paste">
+        <input id="upShareInput" type="text" inputmode="url" placeholder="…or paste a BuildMyMTB share link" aria-label="Paste a BuildMyMTB share link to use that build as your bike">
+        <button type="button" class="btn" id="upShareLoad">Load</button>
+        <span class="up-err" id="upShareErr" hidden>Could not read a build from that — paste a full BuildMyMTB share link (or just its #b=… part).</span>
+      </div>
+      <div class="up-actions"><button type="button" class="btn" id="upCancel">✕ Exit upgrade check</button></div>
+    </div>
+    <div id="upgradeActive" hidden>
+      <div class="up-base">🔧 Checking parts against: <strong id="upBaseName"></strong> <span class="muted" id="upBaseMeta"></span></div>
+      <p class="up-note">Browse or search any part — its dot and verdict answer for this bike, swap-aware. Open a part for the full story (what it replaces, what it clears). Green = no conflicts among the dimensions we check, not a guarantee.</p>
+      <div class="up-actions">
+        <button type="button" class="btn" id="upChangeBike">Change bike</button>
+        <button type="button" class="btn" id="upShareCheck" title="Copy a link that opens this exact check">ᯤ Share this check</button>
+        <button type="button" class="btn" id="upExit">✕ Exit upgrade check</button>
+      </div>
+    </div>
+  </section>
   <div class="layout">
     <nav id="rail" aria-label="Catalog filters">
       <div class="rail-h">Discipline</div>
@@ -1415,6 +1477,11 @@
   </div>
   <div class="rm-body">
     <div id="pmCompat" class="pm-compat none"></div>
+    <!-- Upgrade Advisor detail (upgradeCheck, src/upgrade.js): the swap-aware
+         story vs the chosen baseline — slot, displaced parts, every new
+         error/warning, and which current conflicts the swap clears. Hidden
+         outside upgrade mode. -->
+    <div id="pmUpgrade" class="pm-upgrade" hidden></div>
     <div id="pmProv"></div>
     <div id="pmIdentity" class="pm-identity"></div>
     <div id="pmTags" class="pm-tags"></div>
@@ -1590,6 +1657,7 @@
 <script src="src/facets.js"></script>
 <script src="src/range-filters.js"></script>
 <script src="src/format-sizes.js"></script>
+<script src="src/upgrade.js"></script>
 <script>
 (function(){
   var build = {};            // slotKey -> part id
@@ -1601,6 +1669,12 @@
   // dual-price block's display + its "modified from" relabel once the build
   // diverges from the stock fills (decision #5).
   var activeCompleteBike = null;
+  /* Upgrade Advisor (feature slate #1): a MODE over the builder, never a fork
+     of it — the baseline "my bike" lives in the ordinary `build` map, so
+     every existing dot/total/verdict path just works. upgradeBaseline is the
+     conceptual label on top: null = mode is picking a baseline. */
+  var upgradeMode = false;
+  var upgradeBaseline = null;   // {kind:'bike', id, label} | {kind:'build', label}
   var activeGroup = 'completebikes'; // start the catalog on Complete Bikes (Douglas 2026-07-15 — the whole-bike entry point leads)
   var activeSub = 'all';     // active sub-category within a group ('all' = whole group)
   var sortBy = 'random';   // catalog order: random (uniform shuffle, unbiased default) | name | price | weight
@@ -2570,6 +2644,11 @@
         '<button type="button" class="name" aria-label="Browse '+esc(name)+' sizes">'+esc(name)+'</button></div></div>'+
       '<div class="spec">'+esc(specBits.join(' · '))+'</div>'+
       '<div class="prov">'+provBody+'</div>'+
+      // Upgrade mode: the family's aggregated verdict as a visible line, same
+      // as cardEl's per-part one (fm.reason already counts fitting sizes).
+      (upgradeMode && upgradeBaseline
+        ? '<div class="up-verdict '+fm.state+'">'+(fm.state==='g'?'✓':fm.state==='w'?'⚠':fm.state==='r'?'✗':'·')+' '+esc(fm.reason)+'</div>'
+        : '')+
       '<div class="row">'+priceHtml+'<span class="picks"></span></div>';
     var open=function(){ drillIntoFamily(groupKey, fm.family); };
     card.querySelector('.name').onclick=function(e){ e.stopPropagation(); open(); };
@@ -2791,7 +2870,7 @@
     var picks=card.querySelector('.picks');
     var inB = activeCompleteBike===p.id;
     if(inB) card.classList.add('selected');
-    var btn=mkBtn(inB?'✓ Built':'🚲 Build this bike', inB, true);
+    var btn=mkBtn(inB?(upgradeMode?'✓ Your bike':'✓ Built'):(upgradeMode?'🔧 This is my bike':'🚲 Build this bike'), inB, true);
     btn.onclick=function(){ applyCompleteBike(p.id); };
     picks.appendChild(btn);
     card.addEventListener('click', function(e){ if(e.target.closest('button,a')) return; openPartModal(p); });
@@ -2828,6 +2907,13 @@
         '<button type="button" class="name" aria-label="View details for '+esc(p.brand+' '+p.model)+'">'+esc(p.brand)+' '+esc(p.model)+'</button></div></div>'+
       '<div class="spec">'+esc(specSummary(p))+'</div>'+
       provHtml(p, ownedBadgeHtml(p))+
+      // Upgrade mode: the dot's reason as a visible line on every card — the
+      // flipped view's point on touch, where a hover title never shows. Same
+      // compatOf verdict as the dot (identical source, so they can't disagree);
+      // only rendered once a baseline is chosen.
+      (upgradeMode && upgradeBaseline
+        ? '<div class="up-verdict '+compat.state+'">'+(compat.state==='g'?'✓':compat.state==='w'?'⚠':compat.state==='r'?'✗':'·')+' '+esc(compat.reason)+'</div>'
+        : '')+
       '<div class="row">'+priceHtml+'<span class="picks"></span></div>';
     card.querySelector('.name').onclick=function(e){ e.stopPropagation(); openPartModal(p); };
     // Dot is also a tap target (phone-fix-3, 2026-07-18): the reason lived in
@@ -2957,8 +3043,15 @@
       // buildTotals never sums both. Symmetric, declared on both slots.
       if(slotDef && slotDef.excludes) slotDef.excludes.forEach(function(k){ delete build[k]; });
     }
-    var advanced = partId ? guidedAdvance(slotKey, wasComplete) : false;   // before sync() so the catalog paints once, on the final group+filter
+    // Upgrade mode suppresses the guided flow: the mode is a browse-anything
+    // checking lens, so auto-advancing categories would fight it. A pick there
+    // is applying the upgrade — say so instead.
+    var advanced = (partId && !upgradeMode) ? guidedAdvance(slotKey, wasComplete) : false;   // before sync() so the catalog paints once, on the final group+filter
     sync();
+    if(partId && upgradeMode){
+      var upPick = byId(partId);
+      toast('✓ '+(upPick ? upPick.brand+' '+upPick.model : 'Part')+' swapped in — checks now run against your updated bike.');
+    }
     // scroll only after sync() has re-rendered: an animated scroll aimed at the
     // pre-render layout dies when the list shrinks under it (found on mobile —
     // the page height collapses mid-animation and the jump strands mid-page),
@@ -2988,8 +3081,13 @@
     build = {}; presetBy = {};
     Object.keys(p.fills).forEach(function(slot){ build[slot]=p.fills[slot]; });
     activeCompleteBike = id;
+    // Upgrade mode: picking a complete bike IS choosing the baseline — the
+    // "pick your bike" entry path (or a mid-check bike switch) lands here.
+    if(upgradeMode){ upgradeBaseline = {kind:'bike', id:id, label:p.brand+' '+p.model}; }
     sync();
-    toast('🚲 Auto-filled '+p.brand+' '+p.model+' — '+money(p.price)+' complete'+(p.streetPrice?' (Sale '+money(p.streetPrice)+')':''));
+    toast(upgradeMode
+      ? '🔧 Checking against '+p.brand+' '+p.model+' — browse any part to see if it fits.'
+      : '🚲 Auto-filled '+p.brand+' '+p.model+' — '+money(p.price)+' complete'+(p.streetPrice?' (Sale '+money(p.streetPrice)+')':''));
   }
   /* Has the build diverged from the active complete bike's stock fills (any
      slot swapped, added, or removed)? Drives the dual-price block's "modified
@@ -3273,6 +3371,34 @@
     var pcCls = pc.state==='g' ? 'ok' : pc.state==='w' ? 'warn' : pc.state==='r' ? 'err' : 'none';
     $('pmCompat').className = 'pm-compat '+pcCls;
     $('pmCompat').innerHTML = '<span class="dot '+pc.state+'" aria-hidden="true"></span><span>'+esc(pc.reason)+'</span>';
+    /* Upgrade mode: the full swap-aware story vs the chosen baseline
+       (upgradeCheck, src/upgrade.js — its state is test-pinned to agree with
+       the compatOf dot above). Shows the placement slot, what the swap
+       displaces, EVERY new error/warning (the dot shows only the first), and
+       which of the bike's current conflicts the swap would clear. */
+    var upEl = $('pmUpgrade');
+    upEl.hidden = true;
+    if(upgradeMode && upgradeBaseline && p.cat!=='completebike'){
+      var uc = upgradeCheck(p, resolved(), { checkBuild:checkBuild, verdictKey:verdictKey, byId:byId, SLOTS:SLOTS, altSlotsOf:altSlotsOf });
+      if(uc && uc.state!=='n'){
+        var upSlot = uc.slotKey ? SLOTS.filter(function(s){ return s.key===uc.slotKey; })[0] : null;
+        var uh = '<h3>🔧 On '+esc(upgradeBaseline.label)+'</h3>';
+        if(upSlot) uh += '<div class="pm-up-row">Goes in: '+esc(upSlot.label)+'</div>';
+        if(uc.displaced.length) uh += '<div class="pm-up-row">Replaces: '+esc(uc.displaced.map(function(d){ return d.brand+' '+d.model; }).join(', '))+'</div>';
+        uc.newErrors.forEach(function(v){ uh += '<div class="pm-up-row err">✗ '+esc(String(v))+'</div>'; });
+        uc.newWarnings.forEach(function(v){ uh += '<div class="pm-up-row warn">⚠ '+esc(String(v))+'</div>'; });
+        if(!uc.newErrors.length && !uc.newWarnings.length){
+          uh += '<div class="pm-up-row ok">✓ No new conflicts on this bike (among the dimensions we check — some makers publish no spec data)</div>';
+        }
+        var upClears = uc.resolvesErrors.concat(uc.resolvesWarnings);
+        if(upClears.length){
+          uh += '<div class="pm-up-row ok">Swapping it in also clears '+upClears.length+' current issue'+(upClears.length>1?'s':'')+':</div>';
+          upClears.forEach(function(v){ uh += '<div class="pm-up-row ok">· '+esc(String(v))+'</div>'; });
+        }
+        upEl.innerHTML = uh;
+        upEl.hidden = false;
+      }
+    }
     $('pmProv').innerHTML = provHtml(p);
     var idBits=[];
     if(p.family) idBits.push('family: '+p.family);
@@ -4243,7 +4369,12 @@
             '<button data-a="load">Load</button><button data-a="rename">Rename</button>'+
             '<button data-a="toggle">'+(done?'Reopen':'Complete')+'</button><button data-a="del">Delete</button>'+
           '</div>';
-        div.querySelector('[data-a=load]').onclick = function(){ loadBuildData(row.data); $('garageModal').close(); toast('Loaded “'+(row.name||'build')+'”'); };
+        div.querySelector('[data-a=load]').onclick = function(){
+          // upgrade mode: a garage load IS choosing the baseline (entry path b)
+          if(upgradeMode){ upgradeBaseline = {kind:'build', label: row.name || 'Saved build'}; }
+          loadBuildData(row.data); $('garageModal').close();
+          toast(upgradeMode ? '🔧 Checking against “'+(row.name||'build')+'” — browse any part to see if it fits.' : 'Loaded “'+(row.name||'build')+'”');
+        };
         div.querySelector('[data-a=rename]').onclick = function(){ var n = prompt('Rename build', row.name || 'Untitled build'); if(n==null) return; updateBuild(row.id,{name:n}).then(renderGarage).catch(function(e){ toast(e.message||'Rename failed'); }); };
         div.querySelector('[data-a=toggle]').onclick = function(){ updateBuild(row.id,{status: done?'in_progress':'completed'}).then(renderGarage).catch(function(e){ toast(e.message||'Update failed'); }); };
         div.querySelector('[data-a=del]').onclick = function(){ if(!confirm('Delete “'+(row.name||'build')+'”?')) return; deleteBuild(row.id).then(renderGarage).catch(function(e){ toast(e.message||'Delete failed'); }); };
@@ -4575,7 +4706,7 @@
     }).catch(function(e){ status.textContent = e.message || 'Could not post thread.'; });
   }
 
-  function sync(){ renderCatalog(); renderPanel(); renderReport(); updateMobileBar(); writeHash(); }
+  function sync(){ renderCatalog(); renderPanel(); renderReport(); renderUpgradeBar(); updateMobileBar(); writeHash(); }
 
   /* ---- mobile sticky build bar: mirrors the panel verdict and totals so
      they're visible above the fold on phones. Verdict wording matches
@@ -4679,7 +4810,92 @@
   /* The single hash router — runs on load and on every hashchange. Replaces
      the guides-only routeGuidesHash. Build-share hashes (#b=…) are left to
      readHash(); anything else while a routed page is showing closes it. */
+  /* ---- Upgrade Advisor mode + routing (feature slate #1) ------------------
+     '#upgrade…' hashes are owned here, NOT by compat.js's parseRouteHash
+     (which returns view:null for them, untouched — zero engine changes).
+     Route shapes (parseUpgradeHash, src/upgrade.js): '#upgrade' = picker,
+     '#upgrade/bike/<id>' = pristine catalog bike, '#upgrade/b=<payload>' =
+     arbitrary baseline in the share-link grammar. */
+  function renderUpgradeBar(){
+    var bar = $('upgradeBar');
+    if(!upgradeMode){ bar.hidden = true; return; }
+    bar.hidden = false;
+    var picking = !upgradeBaseline || !Object.keys(build).length;
+    $('upgradePick').hidden = !picking;
+    $('upgradeActive').hidden = picking;
+    if(picking){
+      $('upUseCurrent').hidden = !Object.keys(build).length;
+      var gar = $('upFromGarage');
+      var acctOn = _acctReady && typeof currentUser==='function';
+      gar.hidden = !acctOn;
+      if(acctOn) gar.textContent = currentUser() ? '🅖 Load a saved build' : '🅖 Sign in for saved builds';
+      return;
+    }
+    var cb = upgradeBaseline.kind==='bike' ? byId(upgradeBaseline.id) : null;
+    var modified = !!(cb && 'fills' in cb && cb.fills && completeBikeDiverged(cb));
+    $('upBaseName').textContent = upgradeBaseline.label + (modified ? ' (modified)' : '');
+    var res = resolved(), r = checkBuild(res), t = buildTotals(res, presetBy);
+    $('upBaseMeta').textContent = money(t.price)+' as parts'
+      + (t.weight ? ' · '+grams(t.weight)+(t.missingWeight?' +':'') : '')
+      + ' · ' + verdictText(r);
+  }
+  // Point the catalog at Complete Bikes browse (the "pick your bike" surface) —
+  // the same state changes as clicking its rail chip (mkChip).
+  function openCompleteBikesBrowse(){
+    if(activeGroup==='completebikes') return;
+    activeGroup='completebikes'; activeSub='all';
+    resetSubFilters(); resetRangeFilters(); familyDrill={}; reshuffleCatalog();
+    renderChips(); renderSubChips(); renderSubFilters();
+  }
+  function setUpgradeMode(on){
+    upgradeMode = on;
+    if(!on) upgradeBaseline = null;
+    document.body.classList.toggle('upgrade-mode', on);
+    var nav = $('upgradeNavBtn');
+    nav.classList.toggle('primary', on);
+    nav.setAttribute('aria-pressed', String(on));
+  }
+  function applyUpgradeRoute(u){
+    var entering = !upgradeMode;
+    setUpgradeMode(true);
+    if(u.kind==='bike'){
+      var bike = resolveUpgradeBike(u.id, { byId:byId, canonicalId:canonicalId });
+      if(bike){
+        upgradeBaseline = {kind:'bike', id:bike.id, label:bike.brand+' '+bike.model};
+        if(activeCompleteBike !== bike.id){ applyCompleteBike(bike.id); } else { sync(); }
+        return;
+      }
+      upgradeBaseline = null;
+      toast('That bike isn’t in the catalog — pick yours below.');
+    } else if(u.kind==='build'){
+      var clean = decodeBuildPayload(u.payload, sanitizeShare);
+      if(clean){
+        upgradeBaseline = {kind:'build', label:'Shared build'};
+        loadBuildData({b:clean.build, p:clean.presetBy});   // re-sanitizes and syncs
+        return;
+      }
+      upgradeBaseline = null;
+      toast('Could not read that link — pick your bike below.');
+    } else {
+      upgradeBaseline = null;
+    }
+    // Landing in the picker: point the catalog at Complete Bikes so "pick your
+    // bike" is literally the list on screen (first entry only — a later
+    // hashchange back to '#upgrade' must not yank the user's browsing).
+    if(entering) openCompleteBikesBrowse();
+    sync();
+  }
+  function exitUpgradeMode(fromUi){
+    setUpgradeMode(false);
+    // fromUi: replace the URL back to the plain build hash (same replaceState
+    // convention as guidesBack). Router-driven exits (Back button) leave the
+    // hash alone — it already moved.
+    if(fromUi){ sync(); } else { renderUpgradeBar(); renderCatalog(); renderPanel(); }
+  }
   function routeHash(){
+    var u = parseUpgradeHash(location.hash);
+    if(u){ if(activeRoutedPage()) leaveRoutedPage(); applyUpgradeRoute(u); return; }
+    if(upgradeMode) exitUpgradeMode(false);   // the hash left the upgrade space (Back / another route) — drop the lens, keep the parts
     var r = parseRouteHash(location.hash);
     if(r.view === 'guide'){ openGuide(r.slug); }
     else if(r.view === 'guides'){ openGuidesIndex(); }
@@ -4751,8 +4967,27 @@
   // _routePending covers the async window (auth restore / profiles probe)
   // where a route has been chosen but no page class is up yet — see
   // routeToInventory/routeToProfile above.
+  // In upgrade mode the hash carries the MODE + BASELINE instead of the plain
+  // build payload (upgradeHashOf, src/upgrade.js): a pristine catalog bike
+  // stays the short '#upgrade/bike/<id>' form; any modification (or a garage/
+  // pasted baseline) falls through to '#upgrade/b=<payload>' — the same
+  // share-payload grammar, so the exact state stays shareable. Same
+  // replaceState-not-pushState choice as the build hash (NAV-15: state, not
+  // a new place).
+  function upgradeBaselineRef(){
+    if(!upgradeBaseline || !Object.keys(build).length) return {kind:'pick'};
+    if(upgradeBaseline.kind==='bike' && activeCompleteBike===upgradeBaseline.id){
+      var cb = byId(activeCompleteBike);
+      if(cb && 'fills' in cb && cb.fills && !completeBikeDiverged(cb)) return {kind:'bike', id:cb.id};
+    }
+    return {kind:'build', b:build, p:presetBy};
+  }
   function writeHash(){ if(activeRoutedPage() || _routePending) return;
-    try{ history.replaceState(null,'','#b='+btoa(encodeURIComponent(JSON.stringify({b:build,p:presetBy})))); }catch(e){} }
+    try{
+      var h = upgradeMode ? upgradeHashOf(upgradeBaselineRef())
+                          : '#b='+btoa(encodeURIComponent(JSON.stringify({b:build,p:presetBy})));
+      history.replaceState(null,'',h);
+    }catch(e){} }
   function readHash(){
     try{ var m=location.hash.match(/b=([^&]+)/); if(!m) return;
       var o=JSON.parse(decodeURIComponent(atob(m[1])));
@@ -4834,6 +5069,7 @@
   // only place guidedAdvance fires).
   function applyBuild(b, p){
     build = {}; presetBy = {}; activeCompleteBike = null;   // a wholesale load (sample/garage/share) is not a complete-bike pick
+    if(upgradeMode){ upgradeBaseline = {kind:'build', label:'Loaded build'}; }   // the lens stays on; the baseline is whatever was just loaded
     Object.keys(b).forEach(function(k){ build[k]=b[k]; });
     Object.keys(p||{}).forEach(function(k){ presetBy[k]=p[k]; });
     sync();
@@ -4877,6 +5113,7 @@
       frontBrake:'bk-shimano-xt-m8120',rearBrake:'bk-shimano-xt-m8120',frontRotor:'ro-shimano-rtmt800-203-cl',rearRotor:'ro-shimano-rtmt800-203-cl',
       handlebar:'hb-pnw-range-318',stem:'st-renthal-apex-35',grips:'gr-oneup-lockon',dropper:'dp-pnw-loam-309-175',saddle:'sa-wtb-volt',pedals:'pd-crankbrothers-stamp-7-large' };
     presetBy={}; activeCompleteBike = null;
+    if(upgradeMode){ upgradeBaseline = {kind:'build', label:'Demo clashes build'}; }
     sync(); toast('Loaded a build full of clashes');
   }
 
@@ -4963,7 +5200,7 @@
   $('demoXC').onclick=function(){ loadSample('xc'); };
   $('demoHardtail').onclick=function(){ loadSample('hardtail'); };
   $('demoBad').onclick=loadBad;
-  $('reset').onclick=function(){ build={}; presetBy={}; activeCompleteBike=null; sync(); toast('Build cleared'); };
+  $('reset').onclick=function(){ build={}; presetBy={}; activeCompleteBike=null; if(upgradeMode) upgradeBaseline=null; sync(); toast('Build cleared'); };
   $('share').onclick=function(){ writeHash(); var url=location.href;
     if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(
       function(){toast('Build link copied to clipboard');}, function(){toast('Build saved in the address bar');}); }
@@ -5120,6 +5357,48 @@
      in the markup; this just unhides it. Default OFF keeps a merge live-safe. */
   $('kitBuilderNavBtn').hidden = !(typeof KIT_ENABLED !== 'undefined' && KIT_ENABLED);
 
+  /* Upgrade Advisor controls (feature slate #1). Entering is a real history
+     entry (location.hash — NAV-15: a place); everything after is state via
+     writeHash()'s replaceState. All click-driven — nothing here ever
+     auto-appears (the no-popups rule). */
+  $('upgradeNavBtn').onclick = function(){
+    if(upgradeMode){ exitUpgradeMode(true); return; }   // toggle off = exit
+    location.hash = '#upgrade';
+  };
+  $('upPickBike').onclick = function(){
+    openCompleteBikesBrowse(); renderCatalog();
+    $('catCount').scrollIntoView({block:'start'});
+  };
+  $('upUseCurrent').onclick = function(){
+    if(!Object.keys(build).length) return;
+    upgradeBaseline = {kind:'build', label:'Your current build'};
+    sync();
+  };
+  $('upFromGarage').onclick = function(){
+    if(!_acctReady || typeof currentUser!=='function') return;
+    if(!currentUser()){ openAuth(); return; }
+    openGarage();   // its Load buttons know about upgrade mode (renderGarage)
+  };
+  function upLoadPastedShare(){
+    var clean = decodeBuildPayload($('upShareInput').value, sanitizeShare);
+    if(!clean){ $('upShareErr').hidden = false; return; }
+    $('upShareErr').hidden = true;
+    $('upShareInput').value = '';
+    upgradeBaseline = {kind:'build', label:'Shared build'};
+    loadBuildData({b:clean.build, p:clean.presetBy});
+    toast('Build loaded — browse any part to check it against this bike.');
+  }
+  $('upShareLoad').onclick = upLoadPastedShare;
+  $('upShareInput').addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); upLoadPastedShare(); } });
+  $('upChangeBike').onclick = function(){
+    upgradeBaseline = null;
+    openCompleteBikesBrowse();
+    sync();
+  };
+  $('upShareCheck').onclick = function(){ writeHash(); copyText(location.href, 'Upgrade-check link copied — it opens this exact check'); };
+  $('upExit').onclick = function(){ exitUpgradeMode(true); };
+  $('upCancel').onclick = function(){ exitUpgradeMode(true); };
+
   /* guides (buyer's / compatibility guides) — always-on, hash-routed */
   $('guidesNavBtn').onclick = function(){ location.hash = '#guides'; };
   $('guidesBack').onclick = function(){
@@ -5153,6 +5432,7 @@
   if(typeof initAccount === 'function'){
     initAccount(function(u){
       renderAccount(); syncHdrH(); refreshOwned();
+      renderUpgradeBar();   // the picker's garage option gates on the live auth state
       if(u && $('authModal').open){ $('authModal').close(); }
       if(!u){ closeInventoryPage(); closeProfilePage(); }
       // profiles/admin: feature-detect the table, load my profile + is_admin,
