@@ -783,7 +783,8 @@
      through the CSS variables so dark/RAD inherit. */
   /* svh, not vh — same ACC-22 F2 / PLT-6 reason as the dialog cap above */
   #rail{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;align-self:start;
-    position:sticky;top:70px;max-height:calc(100svh - 86px);overflow:auto}
+    position:sticky;top:70px;max-height:calc(100svh - 86px);overflow:auto;
+    scroll-margin-top:calc(var(--hdr-h,128px) + 12px)}   /* #backToFilters' jump target on phones */
   .rail-h{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft);font-weight:800;margin:16px 0 6px}
   .rail-h:first-child{margin-top:0}
   #rail .chips{flex-direction:column;align-items:stretch;gap:2px;margin-bottom:4px}
@@ -870,6 +871,22 @@
     footer{padding-bottom:118px}
   }
   body.inv-page #mobileBar,body.forum-page #mobileBar{display:none}
+
+  /* P-2a: scroll-revealed "^ Filters" button — a user-tapped control (shown only
+     past a deep-scroll threshold, no animation, corner-placed, never overlaps
+     content), NOT an unsolicited overlay; see the PR description for the
+     no-popup-rule argument. Mirrors #mobileBar's "View >" corner on the opposite
+     side, sitting just above it so the two never collide. */
+  #backToFilters{display:none}
+  @media (max-width:880px){
+    #backToFilters{position:fixed;left:12px;bottom:calc(58px + env(safe-area-inset-bottom));z-index:49;
+      width:40px;height:40px;border-radius:999px;border:1px solid var(--line);background:var(--card);
+      color:var(--ink);font:inherit;font-size:17px;line-height:1;cursor:pointer;
+      box-shadow:0 4px 14px rgba(0,0,0,.16);align-items:center;justify-content:center}
+    #backToFilters.show{display:flex}
+  }
+  body.inv-page #backToFilters,body.forum-page #backToFilters,
+  body.profile-page #backToFilters,body.guides-page #backToFilters{display:none !important}
 
   /* 🤘 RAD mode — purely cosmetic easter egg, zero honesty-bar risk (see CLAUDE.md roadmap) */
   html.rad{
@@ -1334,6 +1351,10 @@
   <span class="mb-w" id="mbWeight">—</span>
   <span class="mb-go">View ▸</span>
 </button>
+
+<!-- P-2a: scroll-revealed back-to-filters button (≤880px only) — shown past a deep-scroll
+     threshold, tap jumps to the category/filter rail. See index.js sync() for the toggle. -->
+<button type="button" id="backToFilters" aria-label="Back to filters">↑</button>
 
 <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
@@ -5011,6 +5032,23 @@
     // cached one from before the resize.
     var s=document.querySelector('.side'); if(s) s.scrollIntoView({block:'start'});
   };
+
+  // P-2a: scroll-revealed back-to-filters button. Phones only (CSS gates display);
+  // appears past 2 viewports of scroll (deep-list threshold), instant jump to the
+  // rail like the other guided-flow jumps — no smooth-scroll animation, no motion
+  // on appear/disappear, just a class toggle a rAF-throttled scroll listener flips.
+  (function(){
+    var btn=$('backToFilters'); if(!btn) return;
+    var ticking=false;
+    function update(){
+      ticking=false;
+      btn.classList.toggle('show', scrollY > innerHeight*2);
+    }
+    window.addEventListener('scroll', function(){
+      if(!ticking){ requestAnimationFrame(update); ticking=true; }
+    }, {passive:true});
+    btn.onclick=function(){ var r=$('rail'); if(r) r.scrollIntoView({block:'start'}); };
+  })();
 
   $('viewBuild').onclick=openBuildModal;
   $('bmClose').onclick=function(){ $('buildModal').close(); };
