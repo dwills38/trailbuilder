@@ -219,7 +219,8 @@
     }
   }
 
-  aside .side{position:sticky;top:calc(var(--hdr-h,116px) + 10px);display:flex;flex-direction:column;gap:14px}
+  aside .side{position:sticky;top:calc(var(--hdr-h,116px) + 10px);display:flex;flex-direction:column;gap:14px;
+    scroll-margin-top:calc(var(--hdr-h,116px) + 12px)}   /* the #mobileBar tap jumps here — must clear the sticky header */
   .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
   .panel h2{margin:0 0 8px;font-size:16px}
   .muted{color:var(--ink-soft);font-size:12px}
@@ -278,6 +279,24 @@
     .list .pcard .row{flex:none;order:2;margin-left:auto;flex-direction:row;align-items:center;gap:12px}
     .list .pcard .spec{flex:1 1 auto;order:3;white-space:normal;min-width:110px}
   }
+
+  /* mobile sticky build bar — ports index.html's #mobileBar (P-4): mirrors the
+     bReport verdict + bmxBuildTotals wording, never reworded; tapping jumps to
+     the build panel (.side). Same fixed placement/height/aria-label as index.html. */
+  #mobileBar{display:none}
+  @media (max-width:880px){
+    #mobileBar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;align-items:center;gap:9px;width:100%;
+      border:none;border-top:1px solid var(--line);background:var(--card);color:var(--ink);
+      padding:12px 14px calc(12px + env(safe-area-inset-bottom));font:inherit;font-size:13px;cursor:pointer;
+      box-shadow:0 -8px 24px rgba(0,0,0,.10);text-align:left}
+    #mobileBar .mb-v{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}
+    #mobileBar.ok .mb-v{color:var(--ok)} #mobileBar.warn .mb-v{color:var(--warn)} #mobileBar.err .mb-v{color:var(--err)}
+    #mobileBar .mb-t{font-weight:800;white-space:nowrap}
+    #mobileBar .mb-w{color:var(--ink-soft);font-size:11.5px;white-space:nowrap}
+    #mobileBar .mb-go{color:var(--brand);font-weight:800;font-size:12px;white-space:nowrap}
+    main{padding-bottom:92px}
+    footer{padding-bottom:118px}
+  }
 </style>
 <script src="src/ui-common.js"></script>
 <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "321537b0321746628c925f357de5a74a"}'></script>
@@ -321,6 +340,14 @@
   Prices &amp; weights are approximate <strong>sample data</strong> — not verified against manufacturers unless a ✓ badge says so.
   Builds are saved on this device only. · <a href="/">← Bike Builder</a> · <a href="KitBuilder/">BuildMyKit →</a>
 </footer>
+
+<!-- Mobile sticky build bar (≤880px only): verdict + totals mirror, tap = jump to panel -->
+<button type="button" id="mobileBar" aria-label="Build summary — tap to jump to the build panel">
+  <span class="mb-v" id="mbVerdict">Add parts to start checking.</span>
+  <span class="mb-t" id="mbTotal">≈ $0</span>
+  <span class="mb-w" id="mbWeight">—</span>
+  <span class="mb-go">View ▸</span>
+</button>
 
 <script src="src/compat.js"></script>
 <script src="src/compat-bmx.js"></script>
@@ -684,6 +711,25 @@
 
     var rms=host.querySelectorAll('[data-remove]');
     for(var i=0;i<rms.length;i++){ rms[i].onclick=function(){ delete KB[this.getAttribute('data-remove')]; save(); sync(); }; }
+
+    updateMobileBar();
+  }
+
+  /* ---- mobile sticky build bar (P-4): mirrors bReport's verdict wording and
+     bmxBuildTotals exactly — never reworded. Called from renderPanel() so
+     every code path that refreshes the panel keeps the bar in sync. ---- */
+  function updateMobileBar(){
+    var el=$('mobileBar'); if(!el) return;
+    var build = resolvedBuild();
+    var r = checkBmxBuild(build), t = bmxBuildTotals(build), n = Object.keys(KB).length;
+    var v = n===0 ? 'Add parts to start checking.'
+      : r.errors.length ? ('✗ '+r.errors.length+' problem'+(r.errors.length>1?'s':''))
+      : r.warnings.length ? ('⚠ '+r.warnings.length+' thing'+(r.warnings.length>1?'s':'')+' to check')
+      : '✓ No conflicts found';
+    $('mbVerdict').textContent = v;
+    $('mbTotal').textContent = '≈ ' + money(t.price);
+    $('mbWeight').textContent = t.weight ? ('≈ '+(t.weight/1000).toFixed(2)+' kg') : '—';
+    el.className = n===0 ? 'warn' : (r.errors.length ? 'err' : r.warnings.length ? 'warn' : 'ok');
   }
 
   function sync(){ renderCatalog(); renderReport(); renderPanel(); }
@@ -717,6 +763,7 @@
   renderCatalog();
   renderReport();
   renderPanel();
+  $('mobileBar').onclick=function(){ var s=document.querySelector('.side'); if(s) s.scrollIntoView({block:'start'}); };
   syncHdr();
 })();
 </script>
