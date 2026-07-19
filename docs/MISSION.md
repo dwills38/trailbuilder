@@ -311,6 +311,13 @@ Renderings stay deliberately generic silhouettes — never brand-identifiable sh
 the same way a ranking would. Click-driven progressive rendering, never a pop-up.
 Starts with a design/scoping round when the owner calls it up.
 
+**A dedicated phone app (owner-directed, 2026-07-19 — on the roadmap, unscheduled):**
+beyond the responsive site, a real installable app. Scoping decides the shape when
+called up — a PWA (installable, offline-capable, one codebase, no store gatekeeper)
+versus native store apps — judged by what genuinely serves riders, not by checkbox
+prestige; the same no-popups and loads-straight-to-the-data rules apply on every
+form factor.
+
 The specialist-corpus flywheel keeps compounding — every verified fact makes the
 next guide, audit, and rule review cheaper and better. On the far radar, in the
 owner's recorded ideas: **BuildMyToolBox** (workshop equipment, the same
