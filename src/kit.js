@@ -609,7 +609,10 @@ var KIT_PARTS = [
     verified:true, lastChecked:'2026-07-17', source:'https://www.adidas.com/us/five-ten-freerider-pro-mountain-bike-shoes/IF7425.html' },
   { id:'sho-shimano-me702', cat:'shoes', brand:'Shimano', model:'ME7 (SH-ME702)', price:200, weight:880,
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['40','41','42','43','44','45','46','47'],
-    desc:'2-bolt SPD clipless. BOA + strap. Weight per pair (approx). Checked 2026-07-17 (kit-fanout-2): SH-ME702 is current, but ride.shimano.com\'s own listing price could not be extracted from the fetched page; US retailers (universalcycles.com) cite MSRP $220.00 vs the catalog\'s $200 sample - close but not confirmed against the maker page itself. Left unverified, flagged as a likely near-miss price-correction candidate for a future pass.' },
+    desc:'2-bolt SPD clipless. BOA + strap. Weight per pair (approx). RE-CHECKED 2026-07-19:'
+      + ' ride.shimano.com/products/sh-me702 now redirects to the generic Footwear collection'
+      + ' page rather than an individual product page - stronger evidence than the 2026-07-17'
+      + ' "current but unpriced" finding that this exact SKU has been pulled. Left unverified.' },
   { id:'sho-crankbrothers-mallet-boa', cat:'shoes', brand:'Crankbrothers', model:'Mallet BOA', price:219.99, weight:848,
     soleType:'clipless', closure:'boa', disciplines:['enduro','dh'], sizes:['5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13','13.5','14','14.5','15'],
     desc:'2-bolt SPD-compatible Match System, BOA L6 + velcro strap. Weight per pair, size US9/EU42.',
@@ -677,7 +680,11 @@ var KIT_PARTS = [
     verified:true, lastChecked:'2026-07-16', source:'https://www.specialized.com/us/en/2fo-roost-clip-mountain-bike-shoes/p/187391' },
   { id:'sho-specialized-rime-2-0', cat:'shoes', brand:'Specialized', model:'Rime 2.0', price:160, weight:840,
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['36','37','38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','46.5','47','48','49'],
-    desc:'2-bolt SPD clipless enduro shoe, standard lace + Boa L6 dial (corrected closure 2026-07-16). Weight is a sample estimate - not published on the fetched page.' },
+    desc:'2-bolt SPD clipless enduro shoe, standard lace + Boa L6 dial. CHECKED 2026-07-19 via'
+      + ' browser-rendered specialized.com search (WebFetch 403s this domain): "Rime 2.0" returns'
+      + ' no results - the current Rime lineup is only "Rime Flat" ($139.99) and "Rime 1.0"'
+      + ' ($109.99), a clipless 2-bolt SKU. This row appears discontinued/superseded; left'
+      + ' unverified, no fields changed.' },
   { id:'sho-crankbrothers-mallet-speedlace', cat:'shoes', brand:'Crankbrothers', model:'Mallet Speedlace', price:179.99, weight:850,
     soleType:'clipless', closure:'lace', disciplines:['enduro','dh'],
     sizes:['5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13','13.5','14'],
@@ -723,8 +730,11 @@ var KIT_PARTS = [
     lastChecked:'2026-07-16', source:'https://www.northwave.com/en/bike/shoes/mtb/trailall-mountain/rockit-plus' },
   { id:'sho-leatt-clip-4-0', cat:'shoes', brand:'Leatt', model:'Shoe Clip 4.0', price:149, weight:750, status:'discontinued',
     soleType:'clipless', closure:'lace', disciplines:['trail','enduro'], sizes:['6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13'],
-    desc:'SPD clipless channel, RideGrip compound, speed laces, cleat shims included. Weight per pair (approx). Fetched us.leatt.com confirms the SPD channel + speed-lace design but lists no weight and tags the SKU Obsolete/clearance-priced ($96.85), so price/weight stay prior sample.',
-    lastChecked:'2026-07-16', source:'https://us.leatt.com/products/shoe-clip-4-0-sale' },
+    desc:'SPD clipless channel, RideGrip compound, speed laces, cleat shims included. Weight per'
+      + ' pair (approx). RE-CONFIRMED 2026-07-19: us.leatt.com still lists the SKU as'
+      + ' backordered/clearance at $149.00 regular MSRP ($96.85 sale), matching this row exactly.'
+      + ' No weight published there, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://us.leatt.com/products/shoe-clip-4-0-sale' },
 
   /* -- Shoes, expanded market-coverage batch (2026-07-14): more of the core
      brands' lineups + new brands. All sample data (best-credible, unverified)
@@ -807,11 +817,18 @@ var KIT_PARTS = [
   { id:'sho-specialized-2fo-cliplite', cat:'shoes', brand:'Specialized', model:'2FO Cliplite', price:200, weight:600,
     soleType:'clipless', closure:'boa', disciplines:['xc','trail'],
     sizes:['36','37','38','38.5','39','39.5','40','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','46.5','47','48','49'],
-    desc:'XC/trail clipless shoe, independent BOA Li2 dials, welded upper, SlipNot FG sole. Price+closure+soleType confirmed 2026-07-16 vs specialized.com; weight not published on the fetched page (stays sample) so left unverified.' },
-  { id:'sho-specialized-sworks-recon', cat:'shoes', brand:'Specialized', model:'S-Works Recon', price:425, weight:530,
+    desc:'XC/trail clipless shoe, independent BOA Li2 dials, welded upper, SlipNot FG sole.'
+      + ' RE-CHECKED 2026-07-19 via browser-rendered specialized.com search (WebFetch 403s this'
+      + ' domain): "2fo cliplite" now returns zero results, superseding the 2026-07-16 confirm -'
+      + ' appears discontinued since. Weight not published either way (stays sample). Left unverified.' },
+  { id:'sho-specialized-sworks-recon', cat:'shoes', brand:'Specialized', model:'S-Works Recon', price:499.99, weight:530,
     soleType:'clipless', closure:'boa', disciplines:['xc'],
     sizes:['36','37','38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','46.5','47','48','49'],
-    desc:'Flagship XC race clipless shoe, dual alloy BOA S3-Snap dials, FACT carbon plate (Stiffness Index 13.0). Weight not published on the fetched page (stays sample) so left unverified.' },
+    desc:'Flagship XC race clipless shoe, dual alloy BOA S3-Snap dials, FACT carbon plate'
+      + ' (Stiffness Index 13.0). Price CORRECTED 2026-07-19 from a stale $425 sample to $499.99,'
+      + ' confirmed live as "S-Works Recon Shoe" (browser-rendered specialized.com/us/en -'
+      + ' WebFetch 403s this domain). Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.specialized.com/us/en/shop/cycling-clothing/cycling-shoes/mountain-bike-shoes' },
   { id:'sho-specialized-sworks-2fo-roost', cat:'shoes', brand:'Specialized', model:'S-Works 2FO Roost', price:325, weight:700,
     soleType:'clipless', closure:'boa', disciplines:['enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
     desc:'Flagship enduro clipless shoe, dual BOA, carbon sole. Weight per pair (approx). NOTE 2026-07-16: no "S-Works 2FO Roost" product found on specialized.com - the current 2FO Roost tier has no S-Works trim (only Clip/Flat/Canvas). Appears discontinued; left unverified, no fields changed.' },
@@ -828,14 +845,21 @@ var KIT_PARTS = [
     desc:'Twin-BOA flat pedal shoe, Ultratac rubber sole. CORRECTED 2026-07-17: foxracing.com is now reachable via a bot-unblocker; price is the fetched $249.95 list (was sample $224.95). Weight is BikePerfect\'s measured 852g/pair (size 44 EU tested), unchanged.',
     verified:true, lastChecked:'2026-07-17', source:'https://www.foxracing.com/product/fox-union-boa-flat-shoes/33343.html',
     sourceType:'measured', weightSource:'https://www.bikeperfect.com/reviews/fox-union-boa-flat-review-high-performance-flat-pedal-shoes-with-a-hefty-price-tag' },
-  { id:'sho-leatt-clip-6-0', cat:'shoes', brand:'Leatt', model:'Shoe Clip 6.0', price:150, weight:800, status:'discontinued',
+  { id:'sho-leatt-clip-6-0', cat:'shoes', brand:'Leatt', model:'Shoe Clip 6.0', price:159.99, weight:920, status:'discontinued',
     soleType:'clipless', closure:'lace', disciplines:['enduro','dh'], sizes:['6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13'],
-    desc:'Top-tier enduro/gravity clipless shoe. CORRECTED 2026-07-16: fetched us.leatt.com describes the ATOP speed-lace system, not BOA - closure fixed lace<-boa. No weight published there and the SKU is tagged Obsolete/clearance-priced ($89.99-$95.99 by colorway), so price/weight stay prior sample.',
-    lastChecked:'2026-07-16', source:'https://us.leatt.com/products/shoes-clip-6-0-sale' },
-  { id:'sho-leatt-proflat-3-0', cat:'shoes', brand:'Leatt', model:'Shoe ProFlat 3.0', price:180, weight:780, status:'discontinued',
+    desc:'Top-tier enduro/gravity clipless shoe. RE-FETCHED 2026-07-19: ATOP speed-lace system'
+      + ' (not BOA) confirmed. Price CORRECTED $150->$159.99 (regular MSRP, currently on $95.99'
+      + ' clearance, SKU tagged unavailable in all sizes/colors). Weight CORRECTED 800->920 -'
+      + ' now published on the page: 920g per pair (US 9.5).',
+    verified:true, lastChecked:'2026-07-19', source:'https://us.leatt.com/products/shoes-clip-6-0-sale' },
+  { id:'sho-leatt-proflat-3-0', cat:'shoes', brand:'Leatt', model:'Shoe ProFlat 3.0', price:175, weight:750,
     soleType:'flat', closure:'boa', disciplines:['enduro','dh'], sizes:['6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13'],
-    desc:'Premium gravity flat shoe, RideGrip Pro compound. Fetched us.leatt.com confirms a MOZ micro-adjuster cable closure (dial-style, mapped to boa) but lists no weight and tags the SKU Obsolete/clearance-priced ($103.35), so price/weight stay prior sample.',
-    lastChecked:'2026-07-16', source:'https://us.leatt.com/products/shoe-proflat-3-0-sale' },
+    desc:'Premium gravity flat shoe, RideGrip Pro compound + WaffleGrip Pro tread, MOZ'
+      + ' micro-adjuster cable closure (dial-style, mapped to boa). RE-FETCHED 2026-07-19: NOT'
+      + ' discontinued after all - 6 pairs currently in stock, dropping the prior Obsolete status.'
+      + ' Price CORRECTED $180->$175.00 regular MSRP. Weight CORRECTED 780->750 - now published:'
+      + ' ~375g per shoe (size EU 43).',
+    verified:true, lastChecked:'2026-07-19', source:'https://us.leatt.com/products/shoe-proflat-3-0' },
   { id:'sho-leatt-proclip-9-0-race-boa', cat:'shoes', brand:'Leatt', model:'ProClip 9.0 Race Boa', price:429, weight:580,
     soleType:'clipless', closure:'boa', disciplines:['xc'], sizes:['6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13'],
     desc:'Flagship XC/gravel race shoe, 100% carbon sole, dual-dial BOA Li2 closure, injected RideGrip TPU studs, 2-bolt SPD. Weight = 290g/shoe (EU43) x2.',
@@ -858,7 +882,12 @@ var KIT_PARTS = [
     lastChecked:'2026-07-16', source:'https://www.northwave.com/en/bike/shoes/mtb/xc/origin-plus-2' },
   { id:'sho-shimano-xc7', cat:'shoes', brand:'Shimano', model:'XC7 (SH-XC702)', price:200, weight:600,
     soleType:'clipless', closure:'boa', disciplines:['xc'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'XC race clipless shoe, dual BOA dials, carbon sole. Weight per pair (approx). Checked 2026-07-17 (kit-fanout-2): ride.shimano.com/products/sh-xc702 currently renders as "SH-XC703" ($260, dual BOA, carbon sole) - the SKU appears to have been renumbered/superseded within the XC7 tier. Left unverified rather than blindly renaming the row to XC703 (a distinct SKU); price/weight kept as prior sample - a future pass should confirm whether XC702 still exists at retail or fold this into an XC703 row.' },
+    desc:'XC race clipless shoe, dual BOA dials, carbon sole. RE-CHECKED 2026-07-19:'
+      + ' ride.shimano.com/products/sh-xc702 still renders as "SH-XC703" ($260, dual BOA, carbon'
+      + ' sole per the 2026-07-17 finding), but that successor SKU itself now shows'
+      + ' DISCONTINUED/OUT OF STOCK on its own page - the whole XC702/XC703 line appears gone,'
+      + ' not just renumbered. Left unverified rather than renaming to a now-dead XC703 row;'
+      + ' price/weight kept as prior sample.' },
   { id:'sho-shimano-xc3', cat:'shoes', brand:'Shimano', model:'XC3 (SH-XC300)', price:90, weight:700,
     soleType:'clipless', closure:'velcro', disciplines:['xc','trail'], sizes:['39','40','41','42','43','44','45','46','47'],
     desc:'Entry-level XC clipless shoe. Weight per pair (approx). Checked 2026-07-17 (kit-fanout-2): SH-XC300 is current on ride.shimano.com but the live USD price could not be extracted from the fetched page; multiple US retailers (bikeshoes.com, performancebike.com) independently agree on $125.00 MSRP, well above the catalog\'s $90 sample. Left unverified (retailer consensus is not a manufacturer page) - flagged as a likely price-correction candidate for a future pass.' },
@@ -1090,13 +1119,22 @@ var KIT_PARTS = [
     desc:'UNVERIFIED - a 2026-07-16 check of raceface.com/collections/jerseys (full current jersey list fetched) found no "Trigger LS Jersey" or any current Trigger-line jersey; only Indy LS/SS, Diffuse LS, Commit 3/4/SS, Conspiracy DWR LS, Nimby SS, Sendy (kids), Traverse remain listed. Third-party retailers (Jenson, Incycle, Blister review) still reference a Trigger Jersey, but no raceface.com page was found to verify against - left as a sample row, not fabricated, and not marked discontinued on this weak evidence alone.' },
   { id:'jsy-100-celium-ss', cat:'jersey', brand:'100%', model:'Celium SS', price:60, weight:130,
     sleeve:'short', sizes:['S','M','L','XL','XXL'], disciplines:['trail','enduro'],
-    desc:'ATTEMPTED 2026-07-18: individual Celium product URLs (e.g. celium-jersey-dark-grey-black) now 404/redirect on 100percent.com, and the /collections product grids are JS-rendered (only the static filter-facet sidebar comes through on a scrape, not the priced product cards) - consistent with fanout-2\'s prior "Shopify .js endpoint" finding. Left unverified.' },
+    desc:'RE-CHECKED 2026-07-19 via browser pane (WebFetch JS-walled): the current 100percent.com'
+      + ' MTB Gear Collection (pages/mtb) lists only three lines - R-Core X, Airmatic, Ridecamp -'
+      + ' "Celium" is absent from all three and returns zero search results. Confirmed'
+      + ' discontinued/renamed. Left unverified, no fields changed.' },
   { id:'jsy-100-celium-ls', cat:'jersey', brand:'100%', model:'Celium LS', price:65, weight:160,
     sleeve:'long', sizes:['S','M','L','XL','XXL'], disciplines:['trail','enduro'],
-    desc:'ATTEMPTED 2026-07-18: see jsy-100-celium-ss - same 100percent.com wall (dead product-slug redirects + JS-only collection grids). Left unverified.' },
+    desc:'See jsy-100-celium-ss - the whole Celium line is confirmed discontinued/renamed'
+      + ' (RE-CHECKED 2026-07-19, zero results on 100percent.com search/collections). Left'
+      + ' unverified, no fields changed.' },
   { id:'jsy-100-ridecamp-ls', cat:'jersey', brand:'100%', model:'Ridecamp LS', price:50, weight:165,
     sleeve:'long', sizes:['S','M','L','XL','XXL'],
-    desc:'ATTEMPTED 2026-07-18: same 100percent.com wall as jsy-100-celium-ss (dead product-slug redirects + JS-only collection grids). Left unverified.' },
+    desc:'Polyester mesh, moisture-wicking, drop-tail coverage, internal goggle wipe. $44 EUR'
+      + ' RRP (100percent.eu, current parent-brand SP25 collection) converted to $50 USD sample -'
+      + ' no US-site page surfaced this session (100percent.com is Shopify JS-rendered, WebFetch'
+      + ' 403s/blank). Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://100percent.eu/collections/ridecamp-collection' },
   { id:'jsy-endura-mt500burnerlite-ls', cat:'jersey', brand:'Endura', model:'MT500 Burner Lite LS', price:90, weight:150,
     sleeve:'long', sizes:['S','M','L','XL','XXL'], disciplines:['trail','enduro'],
     verified:true, lastChecked:'2026-07-16', source:'https://www.endurasport.com/en-us/products/mens-mt500-burner-lite-l-s-tee-black-re3230bk',
@@ -1115,22 +1153,35 @@ var KIT_PARTS = [
     desc:'CONTRADICTION RESOLVED 2026-07-17 via bdata (same fix as jsy-endura-singletrack: canonical path is /en-us/collections/<collection>/products/womens-<slug>-<sku>, not the sitemap slug format that 404s). Fetched page confirms: "Regular price $90.00" (no active sale; corrected from the $60 sample), Gender:Women, Discipline:Mountain Bike, Collection:SingleTrack, sizes XS-2XL (corrected from XXL naming). No weight published on the page; weight kept as the prior sample estimate.' },
   { id:'jsy-specialized-enduro-ss', cat:'jersey', brand:'Specialized', model:'Enduro Grom SS', price:40, weight:140,
     sleeve:'short', sizes:['S','M','L'], disciplines:['enduro'],
-    desc:'Kids/youth jersey (Specialized "Grom" line), VaporRize woven construction. Corrected price 2026-07-16 to the fetched $40 MSRP; sizes corrected to S/M/L (no XL offered). Weight not published on the fetched page, so stays sample/unverified.' },
+    desc:'Kids/youth jersey (Specialized "Grom" line), VaporRize woven construction. RE-CHECKED'
+      + ' 2026-07-19 via browser-rendered specialized.com search (WebFetch 403s this domain):'
+      + ' "enduro grom" now returns zero results, superseding the 2026-07-16 confirm - the whole'
+      + ' Enduro Grom apparel line appears discontinued. Weight was never published either way.'
+      + ' Left unverified, no fields changed.' },
   { id:'jsy-specialized-trail-ss', cat:'jersey', brand:'Specialized', model:'Trail Jersey SS', price:59.99, weight:140,
     sleeve:'short', sizes:['XS','S','M','L','XL','XXL'], disciplines:['trail'],
-    desc:'MiniR fabric, UV 50+. Corrected price 2026-07-16 to the fetched $59.99 MSRP; sizes corrected to include XS. Weight not published on the fetched page, so stays sample/unverified.' },
-  { id:'jsy-specialized-trail-ss-womens', cat:'jersey', brand:'Specialized', model:'Women\'s Trail Short Sleeve Jersey', price:60,
+    desc:'MiniR fabric, UV 50+. $59.99 MSRP confirmed live as "Men\'s Trail Short Sleeve Jersey"'
+      + ' (currently on $44.99 sale, MSRP-basis kept). Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.specialized.com/us/en/shop/cycling-clothing/cycling-jerseys' },
+  { id:'jsy-specialized-trail-ss-womens', cat:'jersey', brand:'Specialized', model:'Women\'s Trail Short Sleeve Jersey', price:59.99,
     sleeve:'short', sizes:['XS','S','M','L','XL','XXL'], fitCut:'womens', disciplines:['trail'],
-    desc:'Grind-3 breadth add (2026-07-16): distinct women\'s-specific-fit SKU (MiniR fabric, "Women\'s Specific Regular Mountain Bike Fit" per the retailer listing). specialized.com itself 403s WebFetch (standing wall); price sourced from a retailer product page (bicyclewarehouse.com) showing $60 regular MSRP (currently on a $44.99 sale, not used here per MSRP-only pricing policy). No weight published, unverified.' },
+    desc:'Women\'s-specific-fit SKU (MiniR fabric). Price CORRECTED 2026-07-19 from a retailer-'
+      + ' sourced $60 to $59.99 - now manufacturer-confirmed live as "Women\'s Trail Short Sleeve'
+      + ' Jersey" (currently on $44.99 sale, MSRP-basis kept). Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.specialized.com/us/en/shop/cycling-clothing/cycling-jerseys' },
   { id:'jsy-leatt-mtbgravity-ls', cat:'jersey', brand:'Leatt', model:'MTB Gravity 4.0 LS', price:76.99,
     sleeve:'long', sizes:['S','M','L','XL','XXL','3XL'], disciplines:['enduro','dh'],
     verified:true, lastChecked:'2026-07-16',
     source:'https://us.leatt.com/products/jersey-mtb-gravity-4-0-long-sleeve',
     desc:'RE-CORRECTED 2026-07-16: the prior fetch found only the "-sale"-tagged Obsolete SKU (jersey-mtb-gravity-4-0-sale, $51.99, sleeve unconfirmed). This is a DIFFERENT, currently-active product page ("Jersey MTB Gravity 4.0 - Long Sleeve", in stock, not discontinued): confirmed long sleeve, $76.99 (exact price string on the page, .js API returns 7699 cents). No weight published on the page, omitted rather than guessed.' },
-  { id:'jsy-leatt-mtballmtn-ss', cat:'jersey', brand:'Leatt', model:'MTB AllMtn 2.0 SS', price:35.74, weight:135,
-    sleeve:'short', sizes:['XS','S','M','L','XL','XXL','3XL'], disciplines:['trail','enduro'], status:'discontinued',
-    desc:'CORRECTED 2026-07-16: fetched us.leatt.com prices Jersey MTB All Mountain 2.0 at $35.74, sizes XS-3XL, TENCEL soft-touch fabric, tagged Obsolete. No weight published there, stays prior sample.',
-    lastChecked:'2026-07-16', source:'https://us.leatt.com/products/jersey-mtb-allmtn-2-0-sale' },
+  { id:'jsy-leatt-mtballmtn-ss', cat:'jersey', brand:'Leatt', model:'MTB AllMtn 2.0 SS', price:67, weight:135,
+    sleeve:'short', sizes:['XS','S','M','L','XL','XXL','3XL'], disciplines:['trail','enduro'],
+    desc:'TENCEL soft-touch fabric, neck-brace-ready collar, wearable with or without body armor.'
+      + ' RE-CHECKED 2026-07-19: the US site\'s clearance SKU (fetched 2026-07-16 at a stale'
+      + ' $35.74) is gone from us.leatt.com\'s current jersey collection, but the same "Jersey MTB'
+      + ' All Mountain 2.0" is confirmed CURRENT on Leatt\'s Swiss site at CHF59.90, converted to'
+      + ' $67 USD sample (no live US MSRP page this session). Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://mtb.leatt.ch/products/jersey-mtb-allmtn-2-0' },
   { id:'jsy-leatt-mtbtrail-ls', cat:'jersey', brand:'Leatt', model:'MTB Trail 3.0 LS', price:49.49,
     sleeve:'long', sizes:['XS','S','M','L','XL','XXL','3XL'], disciplines:['trail'],
     verified:true, lastChecked:'2026-07-16',
@@ -1265,19 +1316,20 @@ var KIT_PARTS = [
   /* -- Jersey grind batch 3: iXS / Mons Royale / Chromag / O'Neal (2026-07-14) -- */
   { id:'jsy-ixs-triggerx-ss', cat:'jersey', brand:'iXS', model:'Trigger X Jersey', price:82, weight:140,
     sleeve:'short', sizes:['S','M','L','XL','XXL'], disciplines:['enduro'],
-    desc:'CORRECTED 2026-07-16: EUR-converted MSRP is ~$82 (was sample $55) - fetched'
-      + ' ixs.com/en-us/products/ixs-trigger-x-jersey-grau-schwarz lists EUR75.90. Recycled'
-      + ' X-Stretch fabric, mesh back, tailored race fit. Weight not published, stays sample.' },
+    desc:'Recycled X-Stretch fabric, mesh back, tailored race fit, neck-brace ready. EUR75.90'
+      + ' RRP converted to $82 USD sample - no US MSRP page found. Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-trigger-x-jersey-rot-schwarz' },
   { id:'jsy-ixs-triggerxair-ss', cat:'jersey', brand:'iXS', model:'Trigger X Air Jersey', price:82, weight:130,
     sleeve:'short', sizes:['S','M','L','XL','XXL'], disciplines:['enduro','dh'],
-    desc:'CORRECTED 2026-07-16: EUR-converted MSRP is ~$82 (was sample $60) - fetched'
-      + ' ixs.com/en/mtb/sale/jerseys/2358 lists EUR75.90 regular. Form-fitting race cut for'
-      + ' enduro/DH racing. Weight not published, stays sample.' },
+    desc:'Form-fitting race cut for enduro/DH racing, mesh back. EUR75.90 RRP converted to $82'
+      + ' USD sample - no US MSRP page found. Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-trigger-x-air-jersey-rot-graphit' },
   { id:'jsy-ixs-triggerevo-ls', cat:'jersey', brand:'iXS', model:'Trigger EVO Long Sleeve Jersey', price:97, weight:175,
     sleeve:'long', sizes:['S','M','L','XL','XXL'], disciplines:['enduro'],
-    desc:'CORRECTED 2026-07-16: EUR-converted MSRP is ~$97 (was sample $65) - EUR89.90 regular'
-      + ' price (search-indexed ixs.com product pages). X-mesh rear panel, silicone rear grip'
-      + ' strip, stretch cuffs. Weight not published, stays sample.' },
+    desc:'X-mesh rear panel, silicone rear grip strip, stretch cuffs. EUR89.90 RRP converted to'
+      + ' $97 USD sample - no US MSRP page found. Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19',
+    source:'https://www.ixs.com/en/products/ixs-trigger-evo-long-sleeve-jersey-anthrazit-schwarz' },
   { id:'jsy-monsroyale-diversion-ss', cat:'jersey', brand:'Mons Royale', model:'Diversion Merino Bike Jersey Short Sleeve', price:129.95,
     sleeve:'short', sizes:['S','M','L','XL','XXL'], fitCut:'mens', verified:true, lastChecked:'2026-07-14',
     source:'https://monsroyale.com/products/diversion-merino-bike-jersey-short-sleeve-black-mens', sourceType:'manufacturer',
@@ -1340,7 +1392,10 @@ var KIT_PARTS = [
     verified:true, lastChecked:'2026-07-17', source:'https://www.100percent.com/products/airmatic-shorts-black-1' },
   { id:'sht-100-ridecamp', cat:'shorts', brand:'100%', model:'Ridecamp Short', price:60, weight:230,
     liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38'],
-    desc:'ATTEMPTED 2026-07-18: same 100percent.com wall as jsy-100-celium-ss (dead product-slug redirects + JS-only collection grids). Left unverified.' },
+    desc:'RE-CHECKED 2026-07-19 via browser pane (both 100percent.com and 100percent.eu, both'
+      + ' WebFetch-walled): the current Ridecamp collection on both sites lists only the SS/LS'
+      + ' jersey and the Moto/MTB gloves - no Ridecamp shorts SKU. Appears discontinued. Left'
+      + ' unverified, no fields changed.' },
   { id:'sht-100-rcorex', cat:'shorts', brand:'100%', model:'R-Core X Shorts', price:129, weight:280,
     liner:false, disciplines:['enduro','dh'], sizes:['28','30','36','38'],
     verified:true, lastChecked:'2026-07-14', source:'https://www.100percent.com/products/r-core-x-shorts-black-1',
@@ -1359,18 +1414,29 @@ var KIT_PARTS = [
     desc:'Verified vs fetched raceface.com Shopify product JSON: compare_at_price (regular/list price) $102.00 USD, sizes S-XXL confirmed. Corrects price 90->102. No weight published on the page - omitted rather than guessed (was a 300g sample estimate).' },
   { id:'sht-specialized-trailair', cat:'shorts', brand:'Specialized', model:'Trail Air Short', price:129.99, weight:270,
     liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38','40','42','44'],
-    desc:'VaporRize woven fabric, 13.5in inseam (size 34), does not include a liner. Corrected price 2026-07-16 to the fetched $129.99 MSRP; sizes extended to the full 28-44 range. Weight not published on the fetched page, so stays sample/unverified.' },
+    desc:'VaporRize woven fabric, 13.5in inseam (size 34), does not include a liner. $129.99 MSRP'
+      + ' RE-CONFIRMED live 2026-07-19 as "Men\'s Trail Air Shorts" (currently on $39.99 sale,'
+      + ' MSRP-basis kept). Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.specialized.com/us/en/search?q=trail%20air%20short' },
   { id:'sht-specialized-enduro', cat:'shorts', brand:'Specialized', model:'Enduro Short', price:110, weight:310,
     liner:false, disciplines:['enduro'], sizes:['28','30','32','34','36','38'],
-    desc:'NOTE 2026-07-16: no "Enduro Short"/"Enduro Comp Shorts" product found on specialized.com (site search for "enduro shorts" returns no results) - the current shorts lineup uses "Trail" naming instead. Appears discontinued; left unverified, no fields changed.' },
+    desc:'RE-CHECKED 2026-07-19 via browser-rendered site search (specialized.com/us/en 403s'
+      + ' WebFetch): "enduro grom"/"enduro" apparel searches return zero results - the whole'
+      + ' Enduro apparel sub-line (jerseys, shorts) has been discontinued and replaced by the'
+      + ' Trail/Gravity/Traction lines. Left unverified, no fields changed.' },
   { id:'sht-leatt-mtbenduro3', cat:'shorts', brand:'Leatt', model:'MTB Enduro 3.0 Short', price:64.99,
     liner:false, disciplines:['enduro'], sizes:['XS','S','M','L','XL','XXL'], status:'discontinued',
     desc:'CORRECTED 2026-07-16: fetched us.leatt.com prices Shorts MTB Enduro 3.0 at $64.99, sizes XS-XXL, tagged Obsolete. No weight published there, omitted rather than guessed. Re-confirmed via .js product JSON (price 6499 cents, compare_at 9999, obsolete flag set).',
     verified:true, lastChecked:'2026-07-16', source:'https://us.leatt.com/products/shorts-mtb-enduro-3-0-sale' },
-  { id:'sht-leatt-mtballmtn2', cat:'shorts', brand:'Leatt', model:'MTB AllMtn 2.0 Short', price:47.99, weight:270,
-    liner:false, disciplines:['trail'], sizes:['XS','S','M','L','XL','XXL','3XL'], status:'discontinued',
-    desc:'CORRECTED 2026-07-16: fetched us.leatt.com prices Shorts MTB All Mountain 2.0 V21 at $47.99, sizes XS-3XL (28-40in), tagged Obsolete. No weight published there, stays prior sample.',
-    lastChecked:'2026-07-16', source:'https://us.leatt.com/products/shorts-mtb-2-0-all-mountain-v21-sale' },
+  { id:'sht-leatt-mtballmtn2', cat:'shorts', brand:'Leatt', model:'MTB AllMtn 2.0 Short', price:48.99, weight:270,
+    liner:false, disciplines:['trail'], sizes:['XS','S','M','L','XL','XXL','3XL'],
+    desc:'RE-CHECKED 2026-07-19: the V21 clearance SKU fetched 2026-07-16 ($47.99, tagged'
+      + ' Obsolete) has been superseded by a V23 refresh - "Shorts MTB All Mountain 2.0 V23" is'
+      + ' CURRENT and live on us.leatt.com\'s MTB Shorts collection at $48.99 (was $89.99),'
+      + ' matching this row within a rounding error. Status upgraded from discontinued: the'
+      + ' All Mountain 2.0 line itself is not gone, just refreshed. Weight not published, stays'
+      + ' sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://us.leatt.com/collections/mtb-shorts' },
   { id:'sht-dakine-syncline', cat:'shorts', brand:'Dakine', model:'Syncline 13" Bike Short', price:80, weight:260,
     liner:false, disciplines:['trail'], sizes:['XS','S','M','L','XL'], fitCut:'womens',
     desc:'RESOLVED+RETARGETED grind-3 (2026-07-16): the flagged men\'s Syncline Short row had no current SKU; retargeted to the real, currently-sold women\'s Syncline 13" Bike Short via its Shopify .js product JSON ($80 confirmed across all sizes/colorways; Dakine does not publish a per-variant weight for this SKU, so weight stays the prior sample figure). VERIFIED 2026-07-17: re-fetched dakine.com/products/syncline-13-inch-bike-short-womens.js, $80 (Black/Galactic Blue) confirmed, sizes XS-XL confirmed. Weight stays a nominal sample.',
@@ -1508,20 +1574,23 @@ var KIT_PARTS = [
     desc:'FLAG for coordinator review (2026-07-16): the only "Hunter Enduro Shorts" pages found on sweetprotection.com are the womens ("Dame"/"Damen") SKU - no mens variant found (current mens lineup is Hunter Shorts II / Hunter Light Shorts / Hunter Slashed Shorts). Left as an unverified sample pending a decision to retarget or remove this row.' },
   { id:'sht-ixs-carveevo', cat:'shorts', brand:'iXS', model:'Carve Evo Shorts', price:108, weight:290,
     liner:false, disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
-    desc:'CORRECTED 2026-07-16: EUR-converted MSRP is ~$108 (was sample $140) - fetched'
-      + ' ixs.com/en/products/ixs-carve-evo-shorts-schwarz lists EUR99.90 regular. Recycled'
-      + ' X-stretch fabric, silicone anti-slip print at rear, kneepad-compatible. Weight not'
-      + ' published, stays sample.' },
+    desc:'Recycled X-stretch fabric, silicone anti-slip print at rear, kneepad-compatible,'
+      + ' adjustable high waist. EUR99.90 RRP converted to $108 USD sample - no US MSRP page'
+      + ' found. Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-carve-evo-shorts-charcoal' },
   { id:'sht-ixs-carve1', cat:'shorts', brand:'iXS', model:'Carve 1.0 Shorts', price:161, weight:300,
     liner:false, disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
-    desc:'CORRECTED 2026-07-16: EUR-converted MSRP is ~$161 (was sample $165) - EUR149.00'
-      + ' regular price (search-indexed ixs.com product pages). Weight not published, stays sample.' },
+    desc:'Updated comfort-led cut, removable elastic belt, rear phone pocket, lift-card leg'
+      + ' pocket. EUR149.00 RRP converted to $161 USD sample - no US MSRP page found. Weight'
+      + ' not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/carve-1-0-shorts-schwarz' },
   { id:'sht-ixs-trigger', cat:'shorts', brand:'iXS', model:'Trigger Shorts', price:129, weight:310,
     liner:false, disciplines:['enduro','dh'],
-    desc:'CORRECTED 2026-07-16: EUR-converted MSRP is ~$129 (was sample $110) - fetched'
-      + ' ixs.com/en-us/products/ixs-trigger-shorts-schwarz-graphite lists EUR119.00 regular.'
+    desc:'Stretch ventilation inserts, 2 zippered pockets, tailored race-performance fit.'
+      + ' EUR119.00 RRP converted to $129 USD sample - no US MSRP page found.'
       + ' Light moisture-wicking x-stretch fabric aimed at enduro racers/downhillers. Weight not'
-      + ' published, stays sample.' },
+      + ' published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-trigger-shorts-marine-lime' },
   { id:'sht-scott-trailvertic-pad', cat:'shorts', brand:'Scott', model:'Trail Vertic Shorts w/Pad', price:90, weight:300,
     liner:true, disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
     desc:'"w/Pad" = a removable inner padded short bundled with the outer shell (Scott\'s liner convention). ATTEMPTED 2026-07-17: scott-sports.com is JS-rendered for US product pages (search + direct /us/en/product/ slugs both returned no content via WebFetch/Exa); left unverified.' },
@@ -1587,7 +1656,10 @@ var KIT_PARTS = [
     desc:'Verified 2026-07-16 vs fetched endurasport.com product page: "Men\'s Hummvee Trousers", "$130.00 USD" (was sampled at $100, corrected), ships with a removable liner short, sizes S-2XL. Weight kept as the prior sample estimate - the page/Shopify JSON weight is a flat shipping-placeholder figure.' },
   { id:'pnt-specialized-trail', cat:'pants', brand:'Specialized', model:'Trail Pant', price:134.99, weight:380,
     liner:false, disciplines:['trail'], sizes:['24','26','28','30','32','34','36','38','40','42','44'],
-    desc:'VaporRize woven fabric, laser perforated venting, no liner. Corrected price 2026-07-16 to the fetched $134.99 MSRP; sizes extended to the full 24-44 range. Weight not published on the fetched page, so stays sample/unverified.' },
+    desc:'VaporRize woven fabric, laser perforated venting, no liner. $134.99 MSRP RE-CONFIRMED'
+      + ' live 2026-07-19 as "Trail Pants" (currently on $119.99 sale, MSRP-basis kept). Weight'
+      + ' not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.specialized.com/us/en/search?q=trail%20pant' },
   { id:'pnt-leatt-mtb-trail-3', cat:'pants', brand:'Leatt', model:'MTB Trail 3.0 Pant', price:131,
     liner:true, disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL','XXL'],
     desc:'CORRECTED 2026-07-16: fetched us.leatt.com matches this to the current (non-Obsolete) "Pants MTB Trail 3.0 Liner" - $131-134 by colorway, sizes XS-XXL, and it ships with a removable chamois liner short (liner false->true). No trustworthy weight published (only an XS-only 360g figure that repeats identically across unrelated pant models, smelling like a Shopify placeholder, not a measured spec), so weight omitted rather than guessed. Re-confirmed via .js product JSON (price 13100 cents).',
@@ -1703,9 +1775,10 @@ var KIT_PARTS = [
       + ' the page - the prior 400g sample is dropped rather than carried as an unverified claim.' },
   { id:'pnt-ixs-trigger', cat:'pants', brand:'iXS', model:'Trigger Pants', price:172, weight:380,
     liner:false, disciplines:['enduro','dh'], sizes:['XXS','XS','S','M','L','XL','XXL'],
-    desc:'CORRECTED 2026-07-16: EUR-converted MSRP is ~$172 (was sample $130) - fetched'
-      + ' ixs.com/en-us/products/ixs-trigger-hose-schwarz lists EUR159.00 regular. Recycled PET'
-      + ' fiber, X-stretch fabric, tight aerodynamic fit. Weight not published, stays sample.' },
+    desc:'Recycled PET fiber, X-stretch fabric, tight aerodynamic race fit, stretch ventilation'
+      + ' inserts. EUR159.00 RRP converted to $172 USD sample - no US MSRP page found. Weight'
+      + ' not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-trigger-hose-schwarz' },
   { id:'pnt-sweetprotection-hunter-2', cat:'pants', brand:'Sweet Protection', model:'Hunter Pants II', price:139, weight:286,
     liner:false, disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
     desc:'Maker-stated weight (286g) and sizes (S-XL, corrected from S-XXL) confirmed via fetched sweetprotection.com/eu/en/hunter-pants-ii-mens-black/. Price is EUR129 converted at ~1.08 USD/EUR (no USD price shown on the EU page).',
@@ -1816,7 +1889,11 @@ var KIT_PARTS = [
     source:'https://www.dakine.com/products/cross-x-bike-glove',
     desc:'Verified 2026-07-16 via the .js Shopify product-JSON endpoint: $40.00 USD confirmed (standard colorways), sizes XS-XXL confirmed. Per-variant weight (per glove) sourced from the JSON - the standard colorways weigh 108g uniformly across sizes; used as the representative figure.' },
   { id:'glv-specialized-trailshield', cat:'gloves', brand:'Specialized', model:'Trail Shield Glove', price:44.99, weight:85,
-    sizes:['S','M','L','XL','XXL'], desc:'TPU knuckle guards, AX Suede palm, silicone-printed fingertips. Corrected price 2026-07-16 to the fetched $44.99 MSRP. Weight not published on the fetched page, so stays sample/unverified.' },
+    sizes:['S','M','L','XL','XXL'],
+    desc:'TPU knuckle guards, AX Suede palm, silicone-printed fingertips. $44.99 MSRP confirmed'
+      + ' live (Men\'s Trail Shield Gloves, browser-rendered specialized.com/us/en - WebFetch'
+      + ' 403s on this domain, product pages are JS-rendered). Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.specialized.com/us/en/shop/cycling-clothing/cycling-gloves' },
   { id:'glv-endura-mt500', cat:'gloves', brand:'Endura', model:'MT500 Glove', price:60, weight:90,
     sizes:['S','M','L','XL','XXL'],
     verified:true, lastChecked:'2026-07-16', source:'https://www.endurasport.com/en-us/products/mt500-d3o-gloves-black-re1346bk',
@@ -2003,18 +2080,22 @@ var KIT_PARTS = [
     desc:'FLAG for coordinator review (2026-07-16): the only Hunter Race Glove page found is an old product-id URL (828051.html) that 404s; current sweetprotection.com glove lineup is Hunter / Hunter Light / Hunter Pro - "Race" may be discontinued or renamed to "Pro". Left as an unverified sample.' },
   { id:'glv-ixs-carve', cat:'gloves', brand:'iXS', model:'Carve Glove', price:33, weight:65,
     sizes:['S','M','L','XL','XXL'],
-    desc:'CORRECTED 2026-07-16: EUR-converted price ~$33 (was sample $35) - search-indexed'
-      + ' ixs.com listings show EUR29.90-32.95 across colors. Weight per pair (approx, not published).' },
+    desc:'Preformed slip-on, abrasion-resistant synthetic palm, touchscreen-compatible, 90%'
+      + ' polyester/10% elastane. EUR29.90 RRP converted to $33 USD sample - no US MSRP page'
+      + ' found. Weight per pair (approx, not published).',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-carve-handschuhe-schwarz' },
   { id:'glv-ixs-carvedigger', cat:'gloves', brand:'iXS', model:'Carve Digger Glove', price:46, weight:80,
     sizes:['S','M','L','XL','XXL'],
-    desc:'CORRECTED 2026-07-16: EUR-converted price ~$46 (was sample $45, close already) -'
-      + ' search-indexed ixs.com listing shows EUR42.90. Reinforced palm/fingertips for digging'
-      + ' durability. Weight per pair (approx, not published).' },
+    desc:'Reinforced palm/fingertips for digging durability, touchscreen-compatible. EUR42.90'
+      + ' RRP converted to $46 USD sample - no US MSRP page found. Weight per pair (approx, not'
+      + ' published).',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-carve-digger-handschuhe-schwarz' },
   { id:'glv-ixs-carvewomens', cat:'gloves', brand:'iXS', model:'Women\'s Carve Glove', price:34, weight:60,
     fitCut:'womens', sizes:['XS','S','M','L'],
-    desc:'CORRECTED 2026-07-16: EUR-converted price ~$34 (was sample $35, close already) -'
-      + ' search-indexed ixs.com listings show EUR29.90-32.95 across colors. Weight per pair'
-      + ' (approx, not published).' },
+    desc:'Low-volume women\'s fit, abrasion-resistant synthetic palm, touchscreen-compatible.'
+      + ' EUR29.90 RRP converted to $34 USD sample - no US MSRP page found. Weight per pair'
+      + ' (approx, not published).',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/damen-carve-handschuhe-sage' },
   { id:'glv-scott-ridance', cat:'gloves', brand:'Scott', model:'Ridance LF Glove', price:30, weight:60,
     sizes:['S','M','L','XL','XXL'], desc:'Weight per pair (approx). ATTEMPTED 2026-07-17: scott-sports.com JS-walled for US product pages (/us/en/product/scott-ridance-lf-glove 404s; gb/global variants exist but aren\'t the US MSRP page); left unverified.' },
   { id:'glv-scott-traction', cat:'gloves', brand:'Scott', model:'Traction LF Glove', price:28, weight:62,
@@ -2093,9 +2174,20 @@ var KIT_PARTS = [
     sizes:['S','M','L','XL'],
     desc:'FLAG for coordinator review (2026-07-16): the only Ruckus Glove page found on troyleedesigns.com is a 2018-dated URL that redirects to the general bike collection - likely discontinued. Left as an unverified sample pending a decision to retarget or remove this row.' },
   { id:'glv-specialized-trailair', cat:'gloves', brand:'Specialized', model:'Trail Air Glove', price:29.99, weight:60,
-    sizes:['S','M','L','XL','XXL'], desc:'Micro-vented palm, power-knit mesh between fingers. Corrected price 2026-07-16 to the fetched $29.99 MSRP. Weight not published on the fetched page, so stays sample/unverified.' },
+    sizes:['S','M','L','XL','XXL'],
+    desc:'Micro-vented palm, power-knit mesh between fingers. $29.99 confirmed live but that is'
+      + ' the WOMEN\'S Trail Air Gloves price - the men\'s version is $34.99 on the same page;'
+      + ' this row is not gender-specific, so the lower confirmed price is kept (browser-rendered'
+      + ' specialized.com/us/en - WebFetch 403s on this domain). Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.specialized.com/us/en/shop/cycling-clothing/cycling-gloves' },
   { id:'glv-specialized-bggrail', cat:'gloves', brand:'Specialized', model:'Body Geometry Grail Glove', price:39.99, weight:80,
-    sizes:['S','M','L','XL','XXL'], desc:'Equalizer palm pad reduces pressure on the ulnar nerve. Corrected price 2026-07-16 to the fetched $39.99 MSRP. Weight not published on the fetched page, so stays sample/unverified.' },
+    sizes:['S','M','L','XL','XXL'],
+    desc:'Equalizer palm pad reduces pressure on the ulnar nerve. $39.99 confirmed live matches'
+      + ' the Body Geometry Grail SHORT Finger Gloves; the Long Finger version is $44.99 on the'
+      + ' same page and this row does not specify finger length, so the confirmed lower price is'
+      + ' kept (browser-rendered specialized.com/us/en - WebFetch 403s on this domain). Weight'
+      + ' not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.specialized.com/us/en/shop/cycling-clothing/cycling-gloves' },
   { id:'glv-madison-dte', cat:'gloves', brand:'Madison', model:'DTE 4 Season DWR Glove', price:45, weight:110,
     sizes:['S','M','L','XL','XXL'], desc:'Waterproof/windproof winter glove with Thinsulate insulation. Weight per pair (approx).' },
   { id:'glv-madison-flux', cat:'gloves', brand:'Madison', model:'Flux Glove', price:25, weight:55,
@@ -2199,25 +2291,41 @@ var KIT_PARTS = [
     desc:'Current Leatt knee-guard lineup member (fetched us.leatt.com/collections/mtb-protection/knee-guards 2026-07-16), a newer/higher tier than the discontinued 3DF 6.0 sibling row. CE Level 2 (3DF ventilated impact foam + hard-shell sliders). No weight published on the page, so omitted rather than guessed.' },
   { id:'knp-100-ridecamp', cat:'kneepad', brand:'100%', model:'Ridecamp Knee Guard', family:'100-ridecamp', price:60, weight:260,
     disciplines:['trail'], sizes:['S/M','L/XL'],
-    desc:'Weight per pair (approx). ATTEMPTED 2026-07-18: same 100percent.com wall as jsy-100-celium-ss (dead product-slug redirects + JS-only collection grids). Left unverified.' },
+    desc:'Weight per pair (approx). RE-CHECKED 2026-07-19 via browser pane (both'
+      + ' 100percent.com and 100percent.eu, both WebFetch-walled): the current Ridecamp'
+      + ' collection lists only the SS/LS jersey and Moto/MTB gloves - no knee guard SKU.'
+      + ' Appears discontinued. Left unverified, no fields changed.' },
   { id:'knp-100-teratec', cat:'kneepad', brand:'100%', model:'Teratec Knee Guard', family:'100-teratec', price:130, weight:450,
     disciplines:['enduro','dh'], sizes:['S/M','L/XL'],
-    desc:'Weight per pair (approx). ATTEMPTED 2026-07-18: same 100percent.com wall as jsy-100-celium-ss. Left unverified.' },
+    desc:'Weight per pair (approx). RE-CHECKED 2026-07-19 via browser-rendered 100percent.com'
+      + ' site search (WebFetch JS-walled): "teratec" returns zero results across the whole'
+      + ' site. Confirmed discontinued. Left unverified, no fields changed.' },
   { id:'knp-100-fortis', cat:'kneepad', brand:'100%', model:'Fortis Knee Guard', family:'100-fortis', price:150, weight:500,
     disciplines:['dh'], sizes:['S/M','L/XL'],
-    desc:'Weight per pair (approx). ATTEMPTED 2026-07-18: same 100percent.com wall as jsy-100-celium-ss. Left unverified.' },
+    desc:'Weight per pair (approx). RE-CHECKED 2026-07-19 via browser-rendered 100percent.com'
+      + ' site search (WebFetch JS-walled): "fortis" returns no matching guard product.'
+      + ' Confirmed discontinued. Left unverified, no fields changed.' },
   { id:'knp-ixs-trigger', cat:'kneepad', brand:'iXS', model:'Trigger Knee Guard', family:'ixs-trigger', price:139, weight:280,
     disciplines:['trail','enduro'], sizes:['S/M','L/XL'],
-    desc:'CORRECTED 2026-07-16: EUR-converted MSRP is ~$139 (was sample $70) - search-indexed'
-      + ' ixs.com listing shows EUR129.00 regular (grey colorway on sale at EUR103.20). Weight'
-      + ' per pair (approx, not published).' },
+    desc:'FLAG for coordinator review (2026-07-19): the current ixs.com knee-pad collection'
+      + ' lists only "Trigger Race" knee guards, not a plain "Trigger" (non-Race) SKU. A 2019-dated'
+      + ' page (ixs-trigger-knieschoner-grau) confirms an older-generation "Trigger" knee pad once'
+      + ' existed at this name, but it may be discontinued/renamed to Trigger Race - left'
+      + ' unverified rather than pinning current pricing/specs to a possibly superseded product.'
+      + ' Weight per pair (approx, not published).' },
   { id:'knp-ixs-trigger-lower', cat:'kneepad', brand:'iXS', model:'Trigger Lower Knee Guard', family:'ixs-trigger', price:50, weight:220,
-    disciplines:['trail'], sizes:['S/M','L/XL'], desc:'Weight per pair (approx).' },
+    disciplines:['trail'], sizes:['S/M','L/XL'],
+    desc:'FLAG for coordinator review (2026-07-19): no matching "Trigger Lower" KNEE guard found'
+      + ' on ixs.com - the only "Trigger Lower" product is "Trigger Lower Protective", a hip-'
+      + ' protective liner SHORT (chamois + hip pads), not a knee guard at all. This row may be a'
+      + ' mislabeled/fabricated catalog entry; left unverified pending a coordinator decision to'
+      + ' retarget or remove it. Weight per pair (approx).' },
   { id:'knp-ixs-carve-race', cat:'kneepad', brand:'iXS', model:'Carve Race Knee Guard', family:'ixs-carve', price:129, weight:330,
-    disciplines:['enduro','dh'], sizes:['S','M','L','XL'],
-    desc:'CORRECTED 2026-07-16: EUR-converted MSRP is ~$129 (was sample $90) - fetched'
-      + ' ixs.com/en/products/ixs-carve-race-knieschoner-schwarz lists EUR119.00 regular. Weight'
-      + ' per pair (approx, not published).' },
+    disciplines:['enduro','dh'], sizes:['S','M','L','XL'], certs:['en1621-1-l1'],
+    desc:'Xmatter padding + hard-shell skid plates on knee/shin, AeroMesh, EN1621-1:2012 L1'
+      + ' certified. EUR119.00 RRP converted to $129 USD sample - no US MSRP page found. Weight'
+      + ' per pair (approx, not published).',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.ixs.com/en-ch/products/ixs-carve-race-knieschoner-schwarz' },
   { id:'knp-7idp-sam-hill-lite', cat:'kneepad', brand:'7iDP', model:'Sam Hill Lite Knee', family:'7idp-sam-hill', price:84.99, weight:205,
     certs:['en1621-1-l1'], disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
     desc:'Weight per pair, size XL (maker-stated: "205G pair (size XL)").',
@@ -2310,10 +2418,11 @@ var KIT_PARTS = [
     source:'https://www.raceface.com/products/indy-knee',
     desc:'Verified vs fetched raceface.com Shopify product JSON + product page: compare_at_price (regular/list price) $90.00 USD, sizes XS-XXL confirmed (corrects 45->90 and the size range, which had no XS/XXL). No `certs` token: the page names a "D3O(R) LP1 foam pad" but states no CE/EN 1621-1 Level (one customer review calls it a "Level 1 knee pad", but that is not an official Race Face claim, so it is not tagged). No weight published on the page, so omitted rather than guessed (was a 230g sample estimate).' },
   { id:'knp-ixs-flow-evo', cat:'kneepad', brand:'iXS', model:'Flow Evo+ Knee Guard', family:'ixs-flow', price:86, weight:240,
-    disciplines:['trail'], sizes:['S/M','L/XL'],
-    desc:'CORRECTED 2026-07-16: EUR-converted MSRP is ~$86 (was sample $60) - search-indexed'
-      + ' ixs.com listing shows EUR79.90 regular (from EUR53.48 sale). Weight per pair'
-      + ' (approx, not published).' },
+    disciplines:['trail'], sizes:['S/M','L/XL'], certs:['en1621-1-l1'],
+    desc:'Soft, no-hard-shell guard, removable Xmatter padding, AeroMesh, EN1621-1:2012 L1'
+      + ' certified. EUR79.90 RRP converted to $86 USD sample - no US MSRP page found. Weight'
+      + ' per pair (approx, not published).',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-flow-evo-knieschoner-camel' },
 
   /* -- Knee pads, batch 3 (grind/kit-kneepad continuation, 2026-07-14): three
      more brands (O'Neal, Demon United, Fly Racing) - the moto-crossover corner
@@ -2400,10 +2509,14 @@ var KIT_PARTS = [
     desc:'D3O pad, sleeve construction. Verified 2026-07-16 via the .js Shopify product-JSON endpoint: $100.00 USD compare-at price confirmed, sizes confirmed. Per-variant weight (per pad) sourced from the JSON (XS/SM 272g, MD/LG/XL/2X 318g) - 272g (XS/SM) used as the representative figure. No cert standard published.' },
   { id:'elp-100-ridecamp', cat:'elbowpad', brand:'100%', model:'Ridecamp Elbow Guard', price:60, weight:190,
     disciplines:['trail','enduro'], sizes:['S/M','L/XL'],
-    desc:'Weight per pair (approx). ATTEMPTED 2026-07-18: same 100percent.com wall as jsy-100-celium-ss. Left unverified.' },
+    desc:'Weight per pair (approx). RE-CHECKED 2026-07-19 - see knp-100-ridecamp: the current'
+      + ' Ridecamp collection (both .com and .eu) has no elbow guard SKU. Appears discontinued.'
+      + ' Left unverified, no fields changed.' },
   { id:'elp-100-teratec', cat:'elbowpad', brand:'100%', model:'Teratec Elbow Guard', price:75, weight:230,
     disciplines:['enduro','dh'], sizes:['S/M','L/XL'],
-    desc:'D3O padding, gravity-oriented. Weight per pair (approx). ATTEMPTED 2026-07-18: same 100percent.com wall as jsy-100-celium-ss. Left unverified.' },
+    desc:'D3O padding, gravity-oriented. Weight per pair (approx). RE-CHECKED 2026-07-19 - see'
+      + ' knp-100-teratec: "teratec" returns zero results site-wide. Confirmed discontinued.'
+      + ' Left unverified, no fields changed.' },
   { id:'elp-leatt-reaflex', cat:'elbowpad', brand:'Leatt', model:'ReaFlex Elbow Guard', price:99.99, weight:240,
     disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'], certs:['en1621-1-l1'], verified:true, lastChecked:'2026-07-14',
     source:'https://us.leatt.com/collections/mtb-protection/products/elbow-guard-reaflex',
@@ -2423,9 +2536,17 @@ var KIT_PARTS = [
     desc:'Signature gravity-oriented pad. Weight per pair, size XL (maker-stated: "105G pair (size XL)").',
     verified:true, lastChecked:'2026-07-16', source:'https://7idp.com/products/sam-hill-lite-elbow' },
   { id:'elp-ixs-flow-evo-plus', cat:'elbowpad', brand:'iXS', model:'Flow Evo+ Elbow Guard', price:85, weight:180,
-    disciplines:['trail','enduro'], sizes:['S/M','L/XL','XXL'], desc:'No-hard-shell soft guard. Weight per pair (approx). Price is a USD estimate from the EUR79.90 ixs.com listing (not independently fetched this session).' },
+    disciplines:['trail','enduro'], sizes:['S/M','L/XL','XXL'], certs:['en1621-1-l1'],
+    desc:'No-hard-shell soft guard, removable Xmatter padding, AeroMesh, EN1621-1:2012 L1'
+      + ' certified. EUR79.90 RRP converted to $85 USD sample - no US MSRP page found. Weight'
+      + ' per pair (approx).',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-flow-evo-ellbogenschoner-olive' },
   { id:'elp-ixs-carve-evo-plus', cat:'elbowpad', brand:'iXS', model:'Carve Evo+ Elbow', price:45, weight:150,
-    disciplines:['trail'], sizes:['S/M','L/XL'], desc:'Weight per pair (approx).' },
+    disciplines:['trail'], sizes:['S/M','L/XL'], certs:['en1621-1-l1'],
+    desc:'Xmatter high-impact padding, removable/exchangeable, AeroMesh, EN1621-1:2012 L1'
+      + ' certified. Price is a same-tier USD sample (no independent US MSRP page fetched this'
+      + ' session). Weight per pair (approx).',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-carve-evo-ellbogenschoner' },
   { id:'elp-dainese-trailskins-air', cat:'elbowpad', brand:'Dainese', model:'Trail Skins Air Elbow Guard', price:75, weight:170,
     disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL'],
     desc:'Pro-Shape 2.0 protector, highly ventilated (55% open surface). Re-fetched dainese.com (2026-07-17): $75 MSRP confirmed (currently on sale at $22.50, sale price not used per MSRP-basis pricing policy), sizes XS-XL confirmed. Cert text reads "CE EN 1621.1" without an explicit L1/L2 qualifier, so no cert token is stored. Weight not published; kept as the existing sample per the kit weight policy.',
@@ -2512,11 +2633,17 @@ var KIT_PARTS = [
     desc:'Verified 2026-07-16 via the .js Shopify product-JSON endpoint: $195.00 USD price confirmed, sizes confirmed. Maker states a CE EN14021 Stone Shield front plate and a D3O back insert exceeding "CE EN1621 Level 1" without naming the exact -2/-3 sub-standard, so no `certs` token is asserted (would be a guess). Per-variant weight sourced from the JSON (XS/SM 907g, MD/LG 1089g, XL/2X 1270g) - 1089g (MD/LG) used as the representative figure, correcting the prior 450g sample (which undercounted a full front+back chest protector).' },
   { id:'arm-100-tarka-vest', cat:'bodyarmor', brand:'100%', model:'Tarka Vest', price:149, weight:620,
     coverage:'chest-back', disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
-    desc:'Full-mesh base-layer vest, front+back protection. ATTEMPTED 2026-07-18: same 100percent.com wall as jsy-100-celium-ss. Left unverified.' },
+    desc:'Full-mesh base-layer vest, front+back protection. RE-CHECKED 2026-07-19 via'
+      + ' browser-rendered 100percent.com site search (WebFetch JS-walled): "tarka" returns zero'
+      + ' results site-wide. Confirmed discontinued. Left unverified, no fields changed.' },
   { id:'arm-ixs-trigger-upper', cat:'bodyarmor', brand:'iXS', model:'Trigger Upper Body Protective', price:270, weight:900,
     coverage:'chest-back', certs:['en1621-2-l1'], disciplines:['trail','enduro'],
     sizes:['S','M','L','XL'], source:'https://www.ixs.com/en/products/ixs-trigger-upper-body-protective-grau',
-    desc:'Xmatter back/shoulder/elbow padding + NockOut chest/rib padding. Price approx, converted from EUR MSRP.' },
+    desc:'Xmatter back/shoulder/elbow padding (EN1621-1:2012 L1) + NockOut chest/rib padding'
+      + ' (back panel is EN1621-2:2014 L1, the certs token), FlexZip front closure. EUR249.90'
+      + ' RRP converted to $270 USD sample - no US MSRP page found. Weight not published, stays'
+      + ' sample.',
+    verified:true, lastChecked:'2026-07-19' },
   { id:'arm-dainese-trail-skins-air-vest', cat:'bodyarmor', brand:'Dainese', model:'Trail Skins Air Vest', price:139, weight:420,
     certs:['en1621-2-l1'], coverage:'chest-back', disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
     desc:'Fetched dainese.com: CORRECTED price $150 -> $139 (currently on sale at $69.50, sale price not used per MSRP-basis pricing policy), sizes extend to XXL, coverage corrected to chest-back (removable Pro-Shape shoulder + back protectors, Auxagon back protector + Auxetic chest protection, "CE EN 1621.2 Level 1" confirmed). Weight = maker-published size-L figure (420g).',
@@ -2826,10 +2953,19 @@ var KIT_PARTS = [
     type:'glasses', sizes:['OSFA'] },
   { id:'ewr-100-s3', cat:'eyewear', brand:'100%', model:'S3', price:149.95, weight:26,
     type:'glasses', sizes:['OSFA'],
-    desc:'Weight approx, unconfirmed. Price confirmed/corrected from the live 100percent.com base-colorway product JSON ($149.95-$159.95 across the S3 lens/frame range; $149.95 used as the base). Not tagged verified: the product-JSON grams field reads ~294g for this SKU, which is a shipping weight (a pair of sport sunglasses is genuinely ~26-34g) — see the 100% glove rows for the same caveat.' },
+    desc:'RE-CONFIRMED 2026-07-19 via browser-rendered 100percent.com/collections/s3 (WebFetch'
+      + ' JS-walled): base-tier colorways run $149.95-$189.95, $149.95 confirmed as an in-lineup'
+      + ' price (Satin Storm Metallic, Soft Tact Black). Weight not published (the product-JSON'
+      + ' grams field is a shipping weight, not a garment weight - see the 100% glove rows for'
+      + ' the same caveat), stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://100percent.com/collections/s3' },
   { id:'ewr-100-speedcraft', cat:'eyewear', brand:'100%', model:'Speedcraft', price:159.95, weight:34,
     type:'glasses', sizes:['OSFA'],
-    desc:'Weight approx, unconfirmed. Price corrected from the live 100percent.com base-colorway product JSON (the standard Speedcraft runs $139.95-$189.95 across colorways/lenses; $159.95 used as the base, e.g. the Matte Black/HiPER Blue Multilayer SKU). Not tagged verified: the product-JSON grams field is a shipping weight, not a garment/frame weight (see the S3 row and the 100% glove rows).' },
+    desc:'RE-CONFIRMED 2026-07-19 via browser-rendered 100percent.com/collections/speedcraft'
+      + ' (WebFetch JS-walled): $159.95 confirmed as the Matte Black/HiPER Blue Multilayer SKU'
+      + ' price (colorways run $139.95-$189.95). Weight not published (shipping-weight caveat,'
+      + ' see the S3 row), stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://100percent.com/collections/speedcraft' },
   { id:'ewr-100-glendale', cat:'eyewear', brand:'100%', model:'Glendale', price:139.95, weight:30,
     type:'glasses', sizes:['OSFA'],
     desc:'Weight approx, unconfirmed (the product-JSON grams field is a shipping weight, not a frame weight - see the S3 row; kit weight policy: never blocks verification). Re-fetched 100percent.com product JSON (2026-07-17): confirmed $139.95.',
@@ -2947,10 +3083,12 @@ var KIT_PARTS = [
     type:'glasses', sizes:['OSFA'] },
   { id:'ewr-ixs-trigger', cat:'eyewear', brand:'iXS', model:'Trigger', price:102, weight:130,
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
-    desc:'CORRECTED 2026-07-16: EUR-converted price ~$102 (was sample $65) - search-indexed'
-      + ' ixs.com listings show the base Trigger goggle at EUR94.95 (variants range EUR69.90'
-      + ' clear-lens to EUR179.95 Trigger+ Polarized; exact SKU/lens tier not pinned, so this'
-      + ' stays an approximate correction). Weight not confirmed against a fetched page, stays sample.' },
+    desc:'Mirrored anti-fog/anti-scratch single lens, 178x78-degree field of view, universal'
+      + ' helmet-compatible outriggers, roll-off/tear-off compatible. Certified EN1938:2010 (not'
+      + ' in the eyewear cert vocab - ansi-z87/en166 - so no `certs` token). EUR94.95 base-tier'
+      + ' RRP converted to $102 USD sample - no US MSRP page found; lens-tier variants range'
+      + ' EUR69.90-179.95. Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-goggle-trigger-camel-gold-verspiegelt' },
   { id:'ewr-eksbrand-lucid', cat:'eyewear', brand:'EKS Brand', model:'Lucid', price:109, weight:120,
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
     desc:'Price corrected to $109 (was a stale $45 sample) via a fetched eksbrand.com/pages/lucid-goggle spec page; that page states no weight, so weight stays the prior approx sample - unverified.', source:'https://eksbrand.com/pages/lucid-goggle', lastChecked:'2026-07-16' },
@@ -2968,7 +3106,13 @@ var KIT_PARTS = [
     desc:'CORRECTED type from goggles -> glasses (2026-07-16): sweetprotection.com markets Ronin as "Sport Performance Sunglasses," not goggles. FLAG for coordinator review: the weight (135g) and price ($90) read as more typical of a goggle than lightweight sport sunglasses, and this row and ewr-sweetprotection-clockwork may have had their weight/price values swapped at entry; could not fetch a live product page (old URL patterns 404) to confirm exact current figures. Left unverified.' },
   { id:'ewr-100-racecraft2', cat:'eyewear', brand:'100%', model:'Racecraft2', price:70, weight:130,
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
-    desc:'ATTEMPTED 2026-07-18: individual colorway product URLs (e.g. racecraft-2-goggle-red) 404/redirect to the homepage on 100percent.com, and the /collections/goggles Racecraft2 filter (confirmed 1 matching product) only surfaces via a JS-rendered product grid, not a static scrape. Left unverified - unlike the sunglass-line siblings (ewr-100-s3/speedcraft/speedcraft-sl), whose product JSON was reachable in an earlier session.' },
+    desc:'RE-ATTEMPTED 2026-07-19 via browser pane (WebFetch JS-walled): the "Racecraft 2®'
+      + ' Goggles" line is confirmed CURRENT and marketed for "motocross, mountain bike, and'
+      + ' snow" on 100percent.com/pages/mtb-goggles, but the base-goggle product page (as opposed'
+      + ' to its replacement-lens/tear-off accessories, which are $10-30 and easy to find) never'
+      + ' surfaced through site search this session - could not pin an exact base price. Left'
+      + ' unverified; the discontinuation risk from the 2026-07-18 note is resolved (it is NOT'
+      + ' discontinued), just still unpriced against a fetched page.' },
   { id:'ewr-leatt-velocity-65', cat:'eyewear', brand:'Leatt', model:'Velocity 6.5', price:120, weight:130,
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
     desc:'Fetched us.leatt.com (2026-07-17): CORRECTED price $90 -> $120 (base list; page also shows a $84 sale, not used here). Weight not published there, stays sample.',
@@ -2977,7 +3121,12 @@ var KIT_PARTS = [
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'] },
   { id:'ewr-100-speedcraft-sl', cat:'eyewear', brand:'100%', model:'Speedcraft SL', price:149.95, weight:29,
     type:'glasses', sizes:['OSFA'],
-    desc:'Distinct lighter/slimmer model in the 100% Speedcraft family (separate collection page from the base Speedcraft), not a colorway of ewr-100-speedcraft. Price confirmed real via multiple 100percent.com product URLs found live (speedcraft-sl-matte-black-gloss-black-black-mirror etc, $139.95-$189.95 across colorways/lenses); $149.95 used as a representative base price, matching the pattern of the other 100% eyewear rows. Weight not confirmed (100%\'s Shopify weight field is a shipping weight, per the S3/Speedcraft/Glendale rows), stays an unconfirmed sample. Unverified: no single fetched product page pinned to one exact SKU this session.' },
+    desc:'Distinct lighter/slimmer model in the 100% Speedcraft family (separate collection page'
+      + ' from the base Speedcraft), not a colorway of ewr-100-speedcraft. RE-CONFIRMED 2026-07-19'
+      + ' via browser-rendered 100percent.com/collections/speedcraft-sl (WebFetch JS-walled):'
+      + ' $149.95 confirmed as the Tokyo Night colorway price (range $139.95-$189.95). Weight not'
+      + ' published (shipping-weight caveat, see the S3 row), stays sample.',
+    verified:true, lastChecked:'2026-07-19', source:'https://100percent.com/collections/speedcraft-sl' },
   { id:'ewr-smith-attack-mag-mtb', cat:'eyewear', brand:'Smith', model:'Attack MAG MTB', price:259, weight:33,
     type:'glasses', disciplines:['trail','enduro'], sizes:['OSFA'],
     status:'discontinued',

@@ -108,7 +108,7 @@ prompt was stale).
 - Gates: `node validate.js` 0 problems, `npm test` 764/764 passed,
   `npx tsc --noEmit` clean — all after the single Smith commit.
 
-## Recommendation for the next kit-verification session
+## Recommendation for the next kit-verification session (superseded below — see verify/kit-3)
 
 Given how thin the yield was per-brand this session (mostly apparel, which
 doesn't publish weight, and several catalogued model names that have aged
@@ -126,3 +126,39 @@ out of current lineups), the highest-value next targets are:
    in favor of a deliberate `sourceType:'measured'` pass (BikeRadar/MBR/
    Bikerumor teardowns) once Douglas/coordinator confirms that's the intended
    route for this category class, mirroring the Shimano/SRAM-rotor precedent.
+
+**This recommendation is now superseded.** Later on 2026-07-19, Douglas ruled that kit
+apparel (jerseys, shorts, gloves, armor, eyewear, shoes) verifies on provenance + confirmed
+fields ALONE — no weight required (`tools/VERIFY-PROTOCOL.md`, "KIT APPAREL" section).
+Helmets keep the normal weight bar. This unblocked most of the "no published weight" walls
+recorded above. See the `verify/kit-3` section below for the wave that used the new bar.
+
+---
+
+# verify/kit-3 (2026-07-19) — apparel-bar wave
+
+Ran under the new KIT APPAREL rule above. Worked the highest-yield unverified brand
+clusters in `src/kit.js`, highest count first: iXS (18), Specialized (16), 100% (14), Leatt
+(13), then a partial pass on Shimano shoes (9). **Result: 437 -> 470 verified (277 -> 244
+unverified), +33 net across the session**, plus real corrections/discontinuation findings
+on rows that stayed unverified. Full detail in the file's top section
+("Kit verification notes ...") above this line — that section documents the same wave.
+
+Key process notes that weren't obvious going in:
+- **specialized.com and 100percent.com both 403/crawl-fail WebFetch and Exa, but the
+  browser pane (`preview_start`/`navigate` + `get_page_text`) renders them cleanly.** This
+  resolved two of the four brand-level "wall" entries recorded in the kit-2 log above
+  (100% and, by extension, any other Shopify-storefront brand hitting the same JS-render
+  wall). Neither site is an anti-bot CAPTCHA wall — they're just JS-rendered, which is
+  explicitly the allowed lane per the FETCH ETHICS ruling.
+- `read_page`/`find` frequently return an empty/0x0 tree on these Shopify sites even when
+  `get_page_text` works fine on the same page — go straight to `get_page_text`, don't
+  retry `read_page`.
+- Regional storefronts of the same brand (100percent.eu, mtb.leatt.ch, mtb.leatt.com.au)
+  are legitimate manufacturer sources when a SKU has been pulled from the US site — cite
+  them with the currency-conversion basis stated in `desc`, same as any other non-US price.
+- Leatt in particular refreshes SKU generations fast (V21->V23 shorts, Obsolete->back-in-
+  stock ProFlat 3.0) — a "discontinued" note from even 2-3 days earlier can already be stale.
+- The Shimano 700-tier shoe line (ME702, XC702/XC703) appears to have been pulled entirely
+  in the ~2 days since the kit-2 log's WALLS entry above was written; not worth re-attempting
+  the exact old model numbers again without first re-deriving Shimano's current shoe names.

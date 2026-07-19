@@ -147,6 +147,16 @@ weights get surfaced prominently in the UI (vs stored quietly on the row) is a s
 decision informed by the expert weight-materiality consult — data-gathering is liberal,
 interface real estate is curated.
 
+### JS-rendered ≠ bot-walled (kit wave 3, 2026-07-19 — try the browser pane before declaring a wall)
+
+**specialized.com and 100percent.com defeat WebFetch/Exa but render CLEANLY in the browser
+pane** — they are JS-rendered SPAs, not anti-bot walls, squarely in the FETCH ETHICS "allowed"
+lane (rendering JS is just being a browser). Do not burn budget re-proving the WebFetch 403,
+and do not mark these brands Walled: go straight to `preview_start {url}` + `javascript_tool`
+reading `document.body.innerText`. NOTE FOR THE FRAMES BACKLOG: the long-standing
+"Specialized/Trek frames fetch-walled" blocker should be re-tested through this lane before
+being repeated — the kit wave proved at least specialized.com's product pages readable.
+
 ### ★ THE PHANTOM-NUMBER HAZARD (BMX wave 2, 2026-07-19 — treat fetched figures as leads)
 
 WebSearch/WebFetch summaries have now been caught REPORTING SPECIFIC WEIGHT FIGURES that do not
