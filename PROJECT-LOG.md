@@ -2558,3 +2558,17 @@ per wave/decision; large reconstructions are handed to a worker session.
 - Fix 6 ("↑ Filters" return button) shipped `35f30bf` on Douglas's explicit no-popup sign-off
   ("make the other phone fixes live"). The entire PHONE-UI-REVIEW immediate-fix list is now in
   production; deploy pipeline carries it live on push.
+
+## 2026-07-19 (seat 14) — Mission adopted; kit-weight policy settled; docs debt flagged
+
+- **Kit weight policy (Douglas):** apparel needs no weight EXCEPT helmets (`4f8b2ea`), refined
+  same day with the MORE-INFO PRINCIPLE — accurate data gathered liberally, UI curated
+  (`e38941b`). Expert consult (`bc01856`) independently supported the helmets-only bar
+  (neck-torque mechanism; shoes/armor marginal — real levers are stiffness/cleat and bulk).
+- **docs/MISSION.md merged** (`3331f20`) — overview, 10-phase full-realization roadmap,
+  public-safety re-scanned clean. **Douglas adopted mission statement B** (plain-spoken)
+  (`5763d68`); recorded verbatim in memory. README's ancient "46 verified" fixed to count-free
+  wording (`dbb7b7b`).
+- Stale-docs debt from the mission research (NEXT-STEPS frozen at 07-13, Getting-Started
+  phase-order inversion + pre-ethics scraping advice, CLAUDE.md rule-3 wording lag) — refresh
+  chip offered, awaiting Douglas.
