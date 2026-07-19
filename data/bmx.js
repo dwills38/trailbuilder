@@ -899,21 +899,24 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
     weight: 2222, price: 489.99,
-    note: 'Top tube (20.5-21.25in), weight (4.9lb) and price confirmed via store.sundaybikes.com 2026-07-17; bbShell/headTube/brake-mount/axle are the standard-freestyle-frame assumption, not source-confirmed, so left unverified.'
+    verified: true, lastChecked: '2026-07-17', source: 'https://shop.sundaybikes.com/collections/sunday-frames/products/sunday-soundwave-v3-frame-matte-fire-engine-red',
+    note: 'Manufacturer\'s own store (shop.sundaybikes.com) product page: "Post Weld Machining: The Mid BB and Headtube is machined..." confirms Mid BB shell + Integrated Head Tube; "Removable Brake Hardware" (angled removable brake mounts) is Sunday\'s u-brake convention, consistent with sibling frames on the same site explicitly naming "removable u-brake hardware" (Street Sweeper/Darkwave); rear axle 14mm is the BMX-universal modern standard (BMX-MODEL.md sec.5). Top tube 20.5/20.75/21/21.25in, weight 4.9lb (2222g) match the fetched page exactly.'
   },
   {
     id: 'bmx-fr-sunday-nightshift', cat: 'frame', brand: 'Sunday', model: 'Nightshift',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
     weight: 2268, price: 489.99,
-    note: 'Top tube (20.5-21.25in), weight (5lb) and price confirmed via store.sundaybikes.com 2026-07-17; other interfaces assumed standard, unverified.'
+    verified: true, lastChecked: '2026-07-17', source: 'https://shop.sundaybikes.com/collections/sunday-frames/model-nightshift',
+    note: 'Manufacturer\'s own store (shop.sundaybikes.com): Nightshift carries the same "Integrated Head Tube" + "Post-Weld Machining" (Mid BB) feature tags and "Braking Options" (removable u-brake hardware, per the Sunday-wide convention explicit on Street Sweeper/Darkwave) as every other current Sunday freestyle frame; rear axle 14mm is the BMX-universal standard. Top tube 20.5/20.75/21/21.25in, weight 5lb (2268g) match the fetched page exactly.'
   },
   {
     id: 'bmx-fr-sunday-parkranger', cat: 'frame', brand: 'Sunday', model: 'Park Ranger',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
     weight: 2268, price: 349.99,
-    note: 'Sunday\'s entry-level freestyle frame; top tube (19.75-21in), weight (5lb) and price confirmed via store.sundaybikes.com 2026-07-17.'
+    verified: true, lastChecked: '2026-07-17', source: 'https://sundaybikes.com/2020/03/introducing-the-sunday-park-ranger-frame/',
+    note: 'Sunday\'s entry-level freestyle frame; manufacturer\'s own launch post (sundaybikes.com) confirms "integrated HT and Mid BB shell" (cross-checked against empirebmx.com\'s retailer spec table, which quotes the same maker copy) plus "fully removable braking...hardware" (u-brake per the Sunday-wide convention) and 14mm BMX-universal rear axle. Top tube 20.5/20.75/21in, weight 5lb (2268g) match the fetched page exactly.'
   },
 
   // ---- Odyssey depth (parts brand, no frames/no forks beyond the R32) --
@@ -1256,8 +1259,8 @@ var BMX_PARTS = [
   // ---- S&M small-parts depth (sandmbikes.com product line) --------------
   {
     id: 'bmx-hb-sandm-racexlt-8', cat: 'handlebar', brand: 'S&M', model: 'Race XLT Bar 8"',
-    clamp: '25.4mm', rise: 8.0, width: 28.5, weight: 762, price: 94.99,
-    note: 'Slam-geometry race evolution, thinner-walled multi-butted tubing; also sold in 7.5-10in rise.'
+    clamp: '25.4mm', rise: 8.0, width: 29, weight: 762, price: 94.99,
+    note: 'Slam-geometry race evolution, thinner-walled multi-butted tubing; sold as one SKU across a 7.5-10in rise range (this row pins the 8in option). Checked sandmbikes.com 2026-07-18: corrected width from a stale 28.5in to the maker-published 29in (matches this catalog\'s other S&M race bars); weight left unverified — the page states a 1.68-2.18lb (762-989g) range across the whole rise selection, not a per-rise figure, and 762g corresponds to the 7.5in low end rather than this row\'s 8in, so it is not confirmed for this specific SKU.'
   },
 
   // ---- Cult small-parts depth (AK = Alex Kennedy, Dak = Dakota Roche

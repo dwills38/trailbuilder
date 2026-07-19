@@ -1,11 +1,39 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-18T16:15:50.242Z",
+ "updated": "2026-07-19T00:25:50.759Z",
  "batchSize": 25,
  "lastCompleted": "ti-pirelli-scorpionxc-rc-29-22-pw-dual",
- "currentCategory": "tire",
+ "currentCategory": "frame",
  "queue": [
+  "fr-norco-range-c1",
+  "fr-giant-reign-advanced",
+  "fr-pivot-firebird",
+  "fr-kona-process-153",
+  "fr-kona-process-153-carbon",
+  "fr-orbea-rallon-mteam",
+  "fr-propain-spindrift-cf",
+  "fr-canyon-spectral-al",
+  "fr-commencal-supreme-dh-v5",
+  "fr-trek-session-8-29",
+  "fr-commencal-frs",
+  "fr-trek-fuel-ex-c-gen6",
+  "fr-commencal-meta-ht-v3",
+  "fr-commencal-supreme-dh-v52",
+  "fr-specialized-status-2-170",
+  "fr-nukeproof-mega-290-alloy",
+  "fr-nukeproof-mega-297-carbon",
+  "fr-nukeproof-reactor-290-alloy",
+  "fr-nukeproof-scout-290",
+  "fr-norco-sight",
+  "fr-orbea-occam-lt",
+  "fr-propain-tyee-cf",
+  "fr-devinci-troy-st",
+  "fr-transition-sentinel-alloy",
+  "fr-propain-tyee-al",
+  "fr-propain-hugene-cf",
+  "fr-pivot-mach-6",
+  "fr-trek-procaliber-c-gen3",
   "ti-cst-camber-29-225",
   "ti-bontrager-xr1-29-22-innerstrength-tmspeed",
   "ti-bontrager-xr5-29-25-tmgrip",
@@ -134,6 +162,7 @@
   "fw-marin-house-29-boost",
   "fw-marin-pinemountain2-29",
   "fw-marin-formula-dc711-29",
+  "fw-dtswiss-exc1501-29",
   "fw-stans-flow-s2-29",
   "fw-wtb-stlight-29",
   "fw-vitus-kt-wtb-komtrail-i30-29",
@@ -260,7 +289,6 @@
   "rw-weareone-triad-29",
   "rw-weareone-triad-29-ms",
   "rw-weareone-triad-29-hg",
-  "rw-dtswiss-ex-1700-29-hg",
   "rw-industrynine-whisp-29-ms",
   "rw-industrynine-whisp-29-xd",
   "rw-dtswiss-xrc1200-spline25-29-ms",
@@ -355,8 +383,8 @@
   "rw-marin-pinemountain2-29-ms",
   "rw-marin-formula-dcl3482-275-xd",
   "rw-marin-formula-dcl3482-29-xd",
+  "rw-dtswiss-exc1501-29-xd",
   "rw-industrynine-enduro-s-29-xd",
-  "rw-dtswiss-ex-1700-275-xd",
   "rw-dtswiss-fr-1500-275-157-hg",
   "rw-wtb-stlight-29-xd",
   "rw-vitus-kt-wtb-komtrail-i30-29",
@@ -571,26 +599,7 @@
   "sh-fox-float-x2-factory-230x57p5",
   "sh-fox-nude6-165x45-trun",
   "fk-fox-36-performance-elite-my27-29-150",
-  "fk-dvo-diamond-boost-29-130",
-  "fk-dvo-diamond-boost-29-160",
-  "fk-dvo-diamond-boost-275-140",
-  "fk-dvo-diamond-boost-275-170",
-  "fk-dvo-sapphire-32-275-100",
-  "fk-dvo-sapphire-32-275-140",
-  "fk-dvo-sapphire-32-29-100",
-  "fk-dvo-sapphire-32-29-140",
-  "fk-dvo-sapphire-34-275-130",
-  "fk-dvo-sapphire-34-275-140",
-  "fk-dvo-sapphire-34-275-150",
-  "fk-dvo-sapphire-34-29-120",
-  "fk-dvo-sapphire-34-29-130",
-  "fk-dvo-sapphire-34-29-140",
-  "fk-ext-era-v2-29-140",
-  "fk-ext-era-v2-29-150",
-  "fk-ext-era-v2-29-160",
-  "fk-ext-vaia-29-200",
-  "fk-ext-vaia-29-170",
-  "fk-fox-34-factory-29-120",
+  "fk-fox-40-factory-29-203",
   "fk-fox-36-sl-factory-29-120",
   "fk-fox-32-sc-factory-275-100",
   "fk-xfusion-sweep-275-150",
@@ -598,12 +607,6 @@
   "fk-srsuntour-aion-34-29-140",
   "fk-srsuntour-aion-34-275-140",
   "fk-srsuntour-aion-34-275-150",
-  "fk-rockshox-boxxer-ultimate-d2-29-180",
-  "fk-rockshox-boxxer-ultimate-d2-29-190",
-  "fk-rockshox-boxxer-ultimate-d2-29-200",
-  "fk-rockshox-boxxer-ultimate-d2-275-180",
-  "fk-rockshox-boxxer-ultimate-d2-275-190",
-  "fk-rockshox-boxxer-ultimate-d2-275-200",
   "fk-rockshox-boxxer-select-d2-29-180",
   "fk-rockshox-boxxer-select-d2-29-190",
   "fk-rockshox-boxxer-select-d2-29-200",
@@ -629,9 +632,8 @@
   "fk-fox-36-sl-performance-29-140",
   "fk-manitou-circus-expert-26-100",
   "fk-manitou-circus-expert-26-100-straight",
-  "fk-dvo-sapphire-26-100",
+  "fk-fox-38-performance-29-170",
   "fk-fox-38-performance-29-180",
-  "fk-fox-36-rhythm-29-150",
   "fk-fox-34-performance-29-140",
   "fk-rockshox-revelation-rc-29-130",
   "fk-fox-34-performance-elite-29-140",
@@ -646,14 +648,11 @@
   "fk-rockshox-35-gold-rl-29-160",
   "fk-rockshox-sid-base-29-110",
   "fk-marzocchi-z2-airrail-29-150",
-  "fk-fox-36-performance-29-150",
   "fk-fox-36-performance-29-170",
-  "fk-fox-36-performance-275-150",
   "fk-rockshox-recon-silver-rl-29-110",
   "fk-rockshox-sid-29-110",
   "fk-rockshox-sid-base-29-120",
   "fk-rockshox-35-gold-rl-29-140",
-  "fk-fox-36-rhythm-29-140",
   "fk-fox-34-rythm-29-130",
   "fk-fox-36-rhythm-29-160",
   "fk-fox-38-rhythm-29-170",
@@ -723,10 +722,8 @@
   "hb-raceface-turbine-r-35",
   "hb-rockymountain-am-780",
   "hb-xlc-riser-m34-35",
-  "hb-ethirteen-base-alu-35",
   "hb-ari-team-35",
   "hb-groundfiftyone-318-800",
-  "hb-ethirteen-plus-alu-35",
   "hb-kona-xcbc-35",
   "hb-gt-alloy-780-30",
   "hb-salsa-alloy-oe-35",
@@ -971,6 +968,8 @@
   "dp-ks-lev-ci-316-175",
   "dp-fox-transfer-factory-309-240",
   "dp-pro-koryak-70-272-70",
+  "dp-pro-koryak-120-309-120",
+  "dp-pro-koryak-120-316-120",
   "dp-pro-koryak-150-309-150",
   "dp-pro-koryak-150-316-150",
   "dp-pro-koryak-170-309-170",
@@ -1039,7 +1038,6 @@
   "sa-ergon-sm-enduro-comp",
   "sa-ergon-sm-enduro-pro-ti",
   "sa-specialized-henge-comp",
-  "sa-dmr-dj-saddle",
   "sa-syncros-dj15",
   "sa-forbidden-143-atmos",
   "sa-ergon-sm10-enduro",
@@ -1117,7 +1115,6 @@
   "pd-hope-union-rc",
   "pd-hope-union-tc",
   "pd-hope-union-gc",
-  "pd-dmr-v6",
   "pd-wellgo-b107n",
   "pd-xlc-pdm29-flat",
   "pd-polygon-oe-flat",
@@ -1310,6 +1307,7 @@
   "cb-rose-scrub-dc3",
   "cb-privateer-161-g2",
   "cb-privateer-141-g2",
+  "cb-devinci-django-carbon-gx",
   "cb-intense-sniper-xc-pro",
   "cb-chromag-rootdown-ti-xo",
   "cb-dmr-sect-pro",
@@ -1323,6 +1321,7 @@
   "cb-transition-spur-carbon-deore",
   "cb-transition-spur-carbon-gx",
   "cb-marin-pine-mountain-2",
+  "cb-marin-alpine-trail-1",
   "cb-yt-jeffsy-core4-cf",
   "cb-yt-jeffsy-core3-cf",
   "cb-yt-jeffsy-core2-al",
@@ -1335,8 +1334,9 @@
   "cb-norco-sight-c1-mx",
   "cb-norco-range-c1",
   "cb-norco-fluid-fs-a2",
+  "cb-norco-fluid-fs-a1-sram",
+  "cb-forbidden-dreadnought-v2-mx-dreadnought1",
   "cb-forbidden-reya-tier3",
-  "cb-canyon-spectral-cf-7",
   "cb-cotic-solaris-silver-slx",
   "cb-mondraker-raze-r",
   "cb-merida-one-forty-400",
@@ -1359,6 +1359,7 @@
   "cb-orbea-rallon-mteam",
   "cb-orbea-oiz-m10",
   "cb-devinci-marshall-29-deore",
+  "cb-devinci-django-nx-12s",
   "cb-rockymountain-altitude-c70",
   "cb-rockymountain-altitude-c50",
   "cb-rockymountain-altitude-a30",
@@ -1368,6 +1369,7 @@
   "cb-ghost-riot-trail-cf-pro",
   "cb-ari-lasalpeak-pro",
   "cb-ari-lasalpeak-elite",
+  "cb-salsa-blackthorn-145-c-deore-12",
   "cb-mondraker-foxy-r",
   "cb-mondraker-foxy-carbon-r",
   "cb-chromag-rootdown-eagle90",
@@ -1468,6 +1470,7 @@
   "cb-canyon-stoic-4",
   "cb-canyon-stoic-3",
   "cb-yt-tues-core3",
+  "cb-propain-spindrift-al-base",
   "cb-propain-spindrift-cf-base",
   "cb-whyte-905",
   "cb-radon-jealous-90",
@@ -1534,6 +1537,7 @@
   "cb-orbea-occam-lt-mteam",
   "cb-norco-sight-c3-mx",
   "cb-norco-optic-c1",
+  "cb-norco-optic-c2",
   "cb-kona-honzo-esd",
   "cb-trek-marlin-7-gen3",
   "cb-giant-fathom-1",
@@ -1562,6 +1566,7 @@
   "cb-antidote-carbonjack-t47-ohlins-x01",
   "cb-productionprivee-shanno5-classic",
   "cb-last-coal-v4-fox-x0axs",
+  "cb-alutech-fanes29-trailready",
   "cb-stanton-slackline-4130",
   "cb-canyon-sender-cfr-gen3-cllctv",
   "cb-trek-marlin-4-gen3",
@@ -1591,10 +1596,9 @@
   "cb-orbea-oiz-m30",
   "cb-scott-spark-rc-pro",
   "cb-pivot-mach4sl-team-xtr",
+  "cb-forbidden-druid-v2-29-tier1",
   "cb-radon-cragger-70",
   "sp-sonder-316",
-  "sp-reverse-comp-316",
-  "sp-thomson-elite-272",
   "sp-dmr-dj-272",
   "sp-syncros-dj15-316",
   "sp-gt-alloy-316",
@@ -1609,7 +1613,6 @@
   "sp-newmen-advanced-carbon-272-400",
   "sp-syncros-duncan20-316-rigid",
   "sp-syncros-dh20-316",
-  "sp-raceface-ride-309",
   "sp-sdg-v2comp-349",
   "sp-pivot-phoenix-race-alu-272",
   "sp-bmc-3dforged-272",
@@ -1669,10 +1672,10 @@
   "fr-yt-capra-core4": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-06T20:40:42.312Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "yt-industries.com Capra Core 4 page publishes only complete-bike weight (15.9 kg), no frame weight, no shock size/UDH/axle details, no USD price on fetched page. SRAM DUB Pressfit BB consistent with cataloged PF92. Nothing to fix; weight bar not met."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found; tried yt-industries.com /products/parts/frame-sets/, /products/parts/frames/, /en-us/Parts-Accessories/Parts/frames/ - all resolve to generic nav, no frameset SKUs. YT's own FAQ (yt-industries.com/Support/FAQ/, mirrored en-us/en-uk/en-ca) states directly: \"At the moment, we do not offer frame kits.\" Brand-wide policy, not a per-model gap - applies to every YT id in this catalog."
   },
   "fr-canyon-strive-cfr": {
    "cat": "frame",
@@ -1692,11 +1695,11 @@
   },
   "fr-norco-range-c1": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.981Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/bikes/norco/range-30501",
-   "note": "norco.com framekit page fetches only a title/nav shell (JS-rendered specs); no frame-only weight; editorial gives complete-bike weights only. Interfaces already web-sourced. Weight bar unmeetable."
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-transition-spire-alloy": {
    "cat": "frame",
@@ -1716,51 +1719,51 @@
   },
   "fr-giant-reign-advanced": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.giant-bicycles.com/us/reign-advanced-frameset-2025",
-   "note": "giant-bicycles.com Reign Advanced Frameset 2025 page confirms 205x62.5 trunnion, 12x148, 160mm, 27.5/29 rear compat, and states max tire 2.5in (ADDED - rule 18 now active on 7 frames) + frameset MSRP \\ (price FIXED). Giant policy: no published weights ('have your local dealer weigh it') - weight bar unmeetable."
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-pivot-firebird": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/frames/pivot/firebird-63621",
-   "note": "pivotcycles.com/en-us/bikes/firebird fetches but frame weight is behind JS expandable spec sections (not in fetched content); Pivot publishes no bare-frame weight; no editorial teardown weight. Interfaces already web-sourced. Weight bar unmeetable."
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-nukeproof-giga-290": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-08T17:12:51.081Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Nukeproof (in administration 2023, brand dormant) - no fetchable current product page; sold as complete bikes only, no frame-only weight; no editorial teardown weight. Interfaces already web-sourced. Weight bar unmeetable."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): nukeproof.com's own current Giga Carbon model pages offer a \"Frameset\" build option directly in the configurator (~€3,000 US region / £2,400 UK region per this session's fetch) - NOT applied to the row because the regional pricing readback was internally inconsistent (a EUR figure attributed to the \"US region\") and needs a clean single re-fetch before trusting a number. Not a genuine completes-only case; flagged for a follow-up pass. No frame-only weight found (a third-party 3,880g estimate exists but is unsourced, do not use)."
   },
   "fr-kona-process-153": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/Frames,7/Kona/Process-153-29,31022",
-   "note": "konaworld.com Process 153 CR/DL Frame page states \\ USD frameset MSRP (price FIXED) + 29/mullet flip-chip (matches wheelConfigs) but NO frame weight and no interface details on page - weight bar not met."
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-orbea-rallon-mteam": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/bikes/orbea/rallon-44576",
-   "note": "orbea.com 403-blocked to WebFetch (still); Orbea sells complete bikes / Rallon frameset weight not published, no editorial teardown weight. Interfaces already web-sourced. Weight bar unmeetable."
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-rockymountain-altitude-c70": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-08T17:12:51.198Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "bikes.com (Rocky Mountain) fetch-blocked; complete-bike weights only, no frame-only figure; no editorial teardown weight. Interfaces already web-sourced. Weight bar unmeetable."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): premise corrected - bikes.com sells a real \"Altitude Carbon Frameset\" (shared across C50/C70/C90); price corrected $4,500->$3,499 (current bikes.com FAQ price; ships with Fox Float X2 Factory shock bundled - flag for bundledShock review). Weight still unconfirmed (rate-limited re-fetch)."
   },
   "fr-commencal-meta-sx-v5": {
    "cat": "frame",
@@ -1772,11 +1775,11 @@
   },
   "fr-propain-spindrift-cf": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/bikes/propain/spindrift-55456",
-   "note": "propain-bikes.com 403-blocked to WebFetch (still); custom-config direct brand, no published frame-only weight; no editorial teardown weight. Interfaces already web-sourced. Weight bar unmeetable."
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-ibis-hd6": {
    "cat": "frame",
@@ -2020,10 +2023,10 @@
   },
   "rw-dtswiss-ex-1700-29": {
    "cat": "rearwheel",
-   "status": "Skipped",
-   "updated": "2026-07-08T17:22:42.713Z",
+   "status": "Verified",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
-   "source": null,
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/enduro/ex-1700-spline",
    "note": "DT Swiss (dtswiss.com) configurator/spec pages are on the standing fetch-block list; per-wheel weights only there. Interfaces already sourced. Weight bar unmeetable."
   },
   "rw-reserve-30-hd-29": {
@@ -2372,11 +2375,11 @@
   },
   "fk-dvo-onyx-sc-d1-29-170": {
    "cat": "fork",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:25.994Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": "https://www.vitalmtb.com/product/guide/Forks,33/DVO/Onyx-SC,30464",
-   "note": "dvosuspension.com product pages don't yield weight via fetch (cart-page content only, or general product listing without specs table). No third-party measured figure found either. Bar not met."
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fk-fox-36-factory-29-160": {
    "cat": "fork",
@@ -2396,11 +2399,11 @@
   },
   "fk-ext-era-v2-29-170": {
    "cat": "fork",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T17:33:34.914Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/forks/ext/era-v2-1-45756",
-   "note": "extremeshox.com's own Era V2 page gives price (EUR only) but no weight; third-party figures (2275g) were search-summary-only, not confirmed on a fetched page. Bar not met."
+   "note": "Checked extremeshox.com/product/ext-era-v2-1/ and extremeshox.com/product/vaia/ + extusa.bike directly (browser-rendered, full page text) - manufacturer confirms travel + axle (and EXT-USA gives a config-labeled weight for the Era) but NONE of EXT's own pages state steerer type, brake mount standard, or rotor size for either model - the bar's full interface set cannot be met from any EXT-owned source found this session. Current steerer/brakeMount/rotor values are inherited from press/database sources (Vital, enduro-mtb.com) below THE BAR. Not a transient fetch failure - a real content gap on EXT's site; revisit if EXT publishes a spec sheet with those fields."
   },
   "fk-formula-selva-s-29-160": {
    "cat": "fork",
@@ -4094,34 +4097,34 @@
   "fr-canyon-spectral-cf": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-08T17:14:22.703Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Interfaces sourced from fetched canyon.com Spectral CF 8 spec page (prior pass); canyon.com pages are JS-rendered overviews with no frame-only weight (sold as complete bike). No editorial teardown weight. Weight bar unmeetable."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no CURRENT frameset SKU; tried canyon.com product pages + site-wide \"frameset\" search + 2026 buyer's guide. Nuance: Canyon DID sell a 2020 Spectral CFR Frameset ($2,799, secondary market via Pro's Closet) - discontinued, not currently sold. Canyon's current MTB lineup (Spectral/Exceed/Neuron/Lux/Torque/Sender) is complete-bike-only on canyon.com today; frameset SKUs currently exist only on Canyon's road side."
   },
   "fr-commencal-supreme-dh-v5": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-09T15:23:10.945Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.commencal.com/us/en/frame-commencal-supreme-dh-v5-chalk/23CSUP1.html",
-   "note": "Weight 5,3kg MAKER-CONFIRMED (23CSUP1) but verification DEFERRED: maker complete-bike page (23SUPR) states rear hub 157x12mm (native SuperBoost157 + 157->150 conversion kit A22WHADAPDHV5), so catalog rearAxle 150x12 is WRONG and travel is 220 not 200. Correcting rearAxle->SuperBoost157 breaks the DH-race golden (its rear wheel is 12x150) - needs a 157 DH rear wheel added first. Scoped follow-up; finding recorded in the row desc."
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-canyon-sender-cfr": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-08T17:14:22.765Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "canyon.com Sender page re-fetched: JS marketing overview, no frameset weight, no frameset-only option surfaced. Interfaces sourced from Vital spec table (prior pass). Weight bar unmeetable."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found; tried /downhill-bikes/sender/sender-cfr/, /sender-cfr-team/, en-us/en-gb/en-es locales, canyon newsroom launch article. Only two complete builds exist (Sender CFR Team $7,799, Sender CFR Underdog/CLLCTV €4,499) - Canyon's own newsroom launch article explicitly describes only two trim levels, no frameset."
   },
   "fr-yt-tues-cf-29": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-08T17:14:22.823Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "yt-industries.com re-fetched: JS overview, only travel figures; no frame weight (sold as complete bike, 15.2-15.4kg). Interfaces sourced from yt page + bikes.fan/99spokes (prior pass). Weight bar unmeetable."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found; same YT brand-wide no-frame-kits policy per yt-industries.com/Support/FAQ/ - see fr-yt-capra-core4 for the sourced quote."
   },
   "fr-santacruz-v10-8": {
    "cat": "frame",
@@ -4133,11 +4136,11 @@
   },
   "fr-trek-session-8-29": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-18T03:13:42.821Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://media.trekbikes.com/image/upload/v1694708420/TK_Session_MY22_ServiceManual_EN-GB_2022-02-21.pdf",
-   "note": "trekbikes.com fetches only JS/nav shell; frame weight not obtainable; editorial weighs complete bikes. Interfaces already sourced (Vital 2022 spec table per desc). Weight bar unmeetable."
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-raaw-yalla-v2": {
    "cat": "frame",
@@ -4149,19 +4152,19 @@
   },
   "fr-commencal-frs": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-08T16:33:28.701Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.commencal.com/us/en/frame-commencal-frs-pure-white/FT4FRS3.html",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-canyon-exceed-cf": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-08T17:14:22.876Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Interfaces sourced from fetched BikeRadar + canyon.com listing (prior pass); canyon.com is JS overview with no frame-only weight. CFR frame ~835g is a maker claim, not measured/fetched-page-confirmed. Weight bar unmeetable."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no CURRENT frameset SKU; same Canyon-current-MTB-lineup wall as fr-canyon-spectral-cf. Nuance: 2019/2021 Exceed CF SLX Framesets (~$1,235-1,700) existed on the secondary market (99spokes) - discontinued, not currently sold."
   },
   "fr-raaw-jibb": {
    "cat": "frame",
@@ -4189,11 +4192,11 @@
   },
   "fr-trek-fuel-ex-c-gen6": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-18T03:13:42.821Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://media.trekbikes.com/image/upload/v1691156199/TK_Fuel_Ex_ServiceManual_MY23_Rev2_EN-GB_2023-10-13.pdf",
-   "note": "trekbikes.com fetches only JS/nav shell; no frame-only weight; editorial weighs complete bikes. Interfaces already sourced. Weight bar unmeetable."
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-santacruz-hightower-3": {
    "cat": "frame",
@@ -4213,11 +4216,11 @@
   },
   "fr-commencal-meta-ht-v3": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-08T16:33:28.702Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.commencal.com/us/en/commencal-meta-ht-v3-hardtail-mtb-frame-2025-us/FT5MHTV31.html",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-cotic-solaris": {
    "cat": "frame",
@@ -4781,11 +4784,11 @@
   },
   "fk-fox-40-factory-29-203": {
    "cat": "fork",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/forks/fox/40-factory-grip-x2-50511",
-   "note": "Weight wall + gen mismatch. ridefox.com/products/fox-40-factory-grip-x2 gives a STARTING WEIGHT for the 27.5 config only (2745g), not our 29; and that page is the newer GripX2 gen ($1,999) while our row is modelYear 2025 ($1,900). No editorial teardown of the exact 29/203 2025 SKU. Interfaces (20x110, 1-1/8 straight DC) documented; left unverified."
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fk-marzocchi-bomber-58-275-200": {
    "cat": "fork",
@@ -5005,11 +5008,11 @@
   },
   "fr-commencal-supreme-dh-v52": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-08T20:23:31.753Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.commencal.com/us/en/FT7SUPV521.html",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-commencal-clash-v3": {
    "cat": "frame",
@@ -5093,11 +5096,11 @@
   },
   "rw-dtswiss-ex-1700-29-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-08T20:44:32.453Z",
+   "status": "Verified",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/enduro/ex-1700-spline",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-hope-fortus-30-29-hg": {
    "cat": "rearwheel",
@@ -5789,11 +5792,11 @@
   },
   "fr-specialized-status-2-170": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-18T03:13:42.821Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.specialized.com/us/en/status-2-170-frameset/p/221255",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-specialized-demo-race": {
    "cat": "frame",
@@ -6189,35 +6192,35 @@
   },
   "fr-nukeproof-mega-290-alloy": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/Frames,7/Nukeproof/Mega-Alloy-290,31895",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-nukeproof-mega-297-carbon": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/Frames,7/Nukeproof/Mega-297-Carbon,35295",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-nukeproof-reactor-290-alloy": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/Frames,7/Nukeproof/Reactor-290,27539",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-nukeproof-scout-290": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/Frames,7/Nukeproof/Scout-290,36921",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-polygon-siskiu-t8-29": {
    "cat": "frame",
@@ -6253,43 +6256,43 @@
   },
   "fr-norco-sight": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/bikes/norco/sight-47406",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-cannondale-jekyll": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T14:35:38.120Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "cannondale.com bike pages JS-walled; interfaces cross-corroborated via cannondalespares.com + vitalmtb, brakeMount PM is an inference not a direct maker statement. No frame-only weight published. Bar not met."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): premise corrected - cannondale.com sells a real frameset SKU; price corrected $3,000->$3,725 (dealer-corroborated, bicyclewarehouse.com+baxcycles.com). Weight still unpublished by Cannondale; row stays unverified."
   },
   "fr-pivot-switchblade-v2": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T14:35:38.356Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Pivot's own pages JS-walled/403 (documented blocker); interfaces cross-corroborated via vitalmtb+bikeperfect+rearshockfactory, all agreeing. No frame-only weight published (price already a documented estimate, corrected once). Bar not met."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): pivotcycles.com no longer lists this V2-generation frame-only (only current-gen at $4,499). UK retailers (yorkcycleworks.com £3,900-4,400, giftsforcyclists.net) carry genuine Pivot \"Switchblade V2 Frame\" SKUs with real part numbers, but one retailer's own page copy self-contradicts (\"complete bike ONLY\" vs \"Frame & Build Kit\" option) - NOT applied to the row pending a cleaner source. No frame-only weight found."
   },
   "fr-orbea-occam-lt": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/bikes/orbea/occam-44411",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-propain-tyee-cf": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/frames/propain/tyee-6-1-cf-enduro-66821",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "ti-vittoria-mezcal-29-24-trail-4c": {
    "cat": "tire",
@@ -8773,171 +8776,171 @@
   },
   "fk-dvo-onyx-sc-d1-29-160": {
    "cat": "fork",
-   "status": "Verified",
-   "updated": "2026-07-17T18:56:38.958Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:26.248Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": "https://www.vitalmtb.com/product/guide/Forks,33/DVO/Onyx-SC,30464",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fk-dvo-onyx-sc-d1-29-180": {
    "cat": "fork",
-   "status": "Verified",
-   "updated": "2026-07-17T18:56:38.958Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:26.507Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": "https://www.vitalmtb.com/product/guide/Forks,33/DVO/Onyx-SC,30464",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fk-dvo-onyx-sc-d1-275-160": {
    "cat": "fork",
-   "status": "Verified",
-   "updated": "2026-07-17T18:56:38.958Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:26.753Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": "https://www.vitalmtb.com/product/guide/Forks,33/DVO/Onyx-SC,30464",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fk-dvo-onyx-sc-d1-275-170": {
    "cat": "fork",
-   "status": "Verified",
-   "updated": "2026-07-17T18:56:38.958Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:27.013Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": "https://www.vitalmtb.com/product/guide/Forks,33/DVO/Onyx-SC,30464",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fk-dvo-onyx-sc-d1-275-180": {
    "cat": "fork",
-   "status": "Verified",
-   "updated": "2026-07-17T18:56:38.958Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:27.268Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": "https://www.vitalmtb.com/product/guide/Forks,33/DVO/Onyx-SC,30464",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fk-dvo-diamond-boost-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:27.524Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": null,
    "note": null
   },
   "fk-dvo-diamond-boost-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:27.777Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": null,
    "note": null
   },
   "fk-dvo-diamond-boost-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:28.037Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": null,
    "note": null
   },
   "fk-dvo-diamond-boost-275-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:28.294Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": null,
    "note": null
   },
   "fk-dvo-sapphire-32-275-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:28.572Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": null,
    "note": null
   },
   "fk-dvo-sapphire-32-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:28.833Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": null,
    "note": null
   },
   "fk-dvo-sapphire-32-29-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:29.085Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": null,
    "note": null
   },
   "fk-dvo-sapphire-32-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:29.339Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": null,
    "note": null
   },
   "fk-dvo-sapphire-34-275-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:29.598Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": null,
    "note": null
   },
   "fk-dvo-sapphire-34-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:29.853Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": null,
    "note": null
   },
   "fk-dvo-sapphire-34-275-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:30.113Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": null,
    "note": null
   },
   "fk-dvo-sapphire-34-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:30.358Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": null,
    "note": null
   },
   "fk-dvo-sapphire-34-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:30.624Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": null,
    "note": null
   },
   "fk-dvo-sapphire-34-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:30.891Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": null,
    "note": null
   },
   "fk-dvo-onyx-d1-38-29-160": {
    "cat": "fork",
-   "status": "Verified",
-   "updated": "2026-07-17T18:56:38.958Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:31.147Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": "https://www.vitalmtb.com/product/guide/forks/dvo/onyx-d1-38-44566",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fk-dvo-onyx-d1-38-29-180": {
    "cat": "fork",
-   "status": "Verified",
-   "updated": "2026-07-17T18:56:38.958Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:31.396Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": "https://www.vitalmtb.com/product/guide/forks/dvo/onyx-d1-38-44566",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fk-dvo-onyx-dc-275-203": {
    "cat": "fork",
@@ -9029,27 +9032,27 @@
   },
   "fk-ext-era-v2-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T17:33:35.302Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Checked extremeshox.com/product/ext-era-v2-1/ and extremeshox.com/product/vaia/ + extusa.bike directly (browser-rendered, full page text) - manufacturer confirms travel + axle (and EXT-USA gives a config-labeled weight for the Era) but NONE of EXT's own pages state steerer type, brake mount standard, or rotor size for either model - the bar's full interface set cannot be met from any EXT-owned source found this session. Current steerer/brakeMount/rotor values are inherited from press/database sources (Vital, enduro-mtb.com) below THE BAR. Not a transient fetch failure - a real content gap on EXT's site; revisit if EXT publishes a spec sheet with those fields."
   },
   "fk-ext-era-v2-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T17:33:35.592Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Checked extremeshox.com/product/ext-era-v2-1/ and extremeshox.com/product/vaia/ + extusa.bike directly (browser-rendered, full page text) - manufacturer confirms travel + axle (and EXT-USA gives a config-labeled weight for the Era) but NONE of EXT's own pages state steerer type, brake mount standard, or rotor size for either model - the bar's full interface set cannot be met from any EXT-owned source found this session. Current steerer/brakeMount/rotor values are inherited from press/database sources (Vital, enduro-mtb.com) below THE BAR. Not a transient fetch failure - a real content gap on EXT's site; revisit if EXT publishes a spec sheet with those fields."
   },
   "fk-ext-era-v2-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T17:33:35.925Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Checked extremeshox.com/product/ext-era-v2-1/ and extremeshox.com/product/vaia/ + extusa.bike directly (browser-rendered, full page text) - manufacturer confirms travel + axle (and EXT-USA gives a config-labeled weight for the Era) but NONE of EXT's own pages state steerer type, brake mount standard, or rotor size for either model - the bar's full interface set cannot be met from any EXT-owned source found this session. Current steerer/brakeMount/rotor values are inherited from press/database sources (Vital, enduro-mtb.com) below THE BAR. Not a transient fetch failure - a real content gap on EXT's site; revisit if EXT publishes a spec sheet with those fields."
   },
   "fk-formula-selva-s-29-120": {
    "cat": "fork",
@@ -9645,11 +9648,11 @@
   },
   "fk-fox-34-factory-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-18T17:46:28.851Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://tech.ridefox.com/bike/spec-sheets/3074/2025-2027-34mm-user-specifications",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-34-factory-29-130": {
    "cat": "fork",
@@ -11821,19 +11824,19 @@
   },
   "dp-pro-koryak-120-309-120": {
    "cat": "dropper",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/Seatposts,30/Pro/Koryak-120,24643",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "dp-pro-koryak-120-316-120": {
    "cat": "dropper",
-   "status": "Verified",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/Seatposts,30/Pro/Koryak-120,24643",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "dp-pro-koryak-150-309-150": {
    "cat": "dropper",
@@ -15004,19 +15007,19 @@
   },
   "fk-ext-vaia-29-200": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-10T16:54:08.064Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T17:33:36.236Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Checked extremeshox.com/product/ext-era-v2-1/ and extremeshox.com/product/vaia/ + extusa.bike directly (browser-rendered, full page text) - manufacturer confirms travel + axle (and EXT-USA gives a config-labeled weight for the Era) but NONE of EXT's own pages state steerer type, brake mount standard, or rotor size for either model - the bar's full interface set cannot be met from any EXT-owned source found this session. Current steerer/brakeMount/rotor values are inherited from press/database sources (Vital, enduro-mtb.com) below THE BAR. Not a transient fetch failure - a real content gap on EXT's site; revisit if EXT publishes a spec sheet with those fields."
   },
   "fk-ext-vaia-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-10T16:54:08.064Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T17:33:36.540Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "Checked extremeshox.com/product/ext-era-v2-1/ and extremeshox.com/product/vaia/ + extusa.bike directly (browser-rendered, full page text) - manufacturer confirms travel + axle (and EXT-USA gives a config-labeled weight for the Era) but NONE of EXT's own pages state steerer type, brake mount standard, or rotor size for either model - the bar's full interface set cannot be met from any EXT-owned source found this session. Current steerer/brakeMount/rotor values are inherited from press/database sources (Vital, enduro-mtb.com) below THE BAR. Not a transient fetch failure - a real content gap on EXT's site; revisit if EXT publishes a spec sheet with those fields."
   },
   "fk-rockshox-domain-gold-r-29-160": {
    "cat": "fork",
@@ -15341,10 +15344,10 @@
   "fr-knolly-fugitive-138": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:28:35.279Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight + frameset-price bars unmeetable - re-confirmed 2 independent fetches of knollybikes.com/products/fugitive-138; Knolly sells this as complete-bike kits only, no frameset SKU/weight published."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU for the 138 specifically - knollybikes.com/products/fugitive-138 lists exactly 4 build kits, no frame-only option; fugitive-138-frame 404s. Only the SUCCESSOR model, Fugitive 140, has a frameset SKU ($3,099 at /products/fugitive-140-frame) - the 138 itself is genuinely completes-only."
   },
   "bb-sram-dub-bsa68": {
    "cat": "bb",
@@ -16701,10 +16704,10 @@
   "fr-yt-jeffsy": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:32:33.307Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: YT sells the Jeffsy as completes only, confirmed via the fetched Vital spec table; no frameset SKU exists to source price/weight from."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found; same YT brand-wide no-frame-kits policy per yt-industries.com/Support/FAQ/ - see fr-yt-capra-core4 for the sourced quote."
   },
   "fr-raaw-jibb-lt-v22": {
    "cat": "frame",
@@ -16716,19 +16719,19 @@
   },
   "fr-devinci-troy-st": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.devinci.com/en/bikes/mountain/troy-st-gx-axs-12s-stoneware-orange/",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-transition-sentinel-alloy": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.transitionbikes.com/Bikes/Sentinel",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "ti-maxxis-crossmark-ii-275-225-exo-dual": {
    "cat": "tire",
@@ -23492,51 +23495,51 @@
   },
   "fk-rockshox-boxxer-ultimate-d2-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-19T00:25:50.757Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-bxr-ult-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-ultimate-d2-29-190": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-19T00:25:50.758Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-bxr-ult-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-ultimate-d2-29-200": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-19T00:25:50.758Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-bxr-ult-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-ultimate-d2-275-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-19T00:25:50.758Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-bxr-ult-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-ultimate-d2-275-190": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-19T00:25:50.758Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-bxr-ult-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-ultimate-d2-275-200": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-19T00:25:50.758Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-bxr-ult-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-select-d2-29-180": {
    "cat": "fork",
@@ -23988,11 +23991,11 @@
   },
   "fk-dvo-onyx-d1-38-29-170": {
    "cat": "fork",
-   "status": "Verified",
-   "updated": "2026-07-17T18:56:38.958Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:31.642Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": "https://www.vitalmtb.com/product/guide/forks/dvo/onyx-d1-38-44566",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fk-canecreek-helm-mkii-coil-29-160": {
    "cat": "fork",
@@ -25300,9 +25303,9 @@
   },
   "fk-dvo-sapphire-26-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-14T11:47:30.247Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:31.896Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": null,
    "note": null
   },
@@ -25364,11 +25367,11 @@
   },
   "sp-thomson-elite-272": {
    "cat": "seatpost",
-   "status": "Pending",
-   "updated": "2026-07-14T11:47:30.247Z",
+   "status": "Verified",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://bikethomson.com/product/elite-seatpost/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-weareone-triad-29": {
    "cat": "frontwheel",
@@ -25524,11 +25527,11 @@
   },
   "fr-kona-process-153-carbon": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-14T16:24:40.844Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://konaworld.com/products/process-153-cr-dl-frame",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-propain-spindrift-al": {
    "cat": "frame",
@@ -25565,10 +25568,10 @@
   "fr-rockymountain-slayer-alloy": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T13:43:43.516Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "BB/maxRotorR/udh inherited from carbon sibling, not independently re-pinned for alloy. Weight sample (typical alloy-vs-carbon delta, no frame-only weight published)."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found for the ALLOY Slayer; Rocky Mountain sells alloy Slayer as complete-bike-only (Alloy 50/Alloy 30 tiers). Only the CARBON Slayer has a frameset SKU ($4,199, ~3,984g incl. hardware+shock) - not applicable to this alloy row."
   },
   "fr-rockymountain-instinct-alloy": {
    "cat": "frame",
@@ -25628,11 +25631,11 @@
   },
   "fr-canyon-spectral-al": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.canyon.com/en-us/mountain-bikes/trail-bikes/spectral/al/spectral-6/4012.html",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-rose-scrub-dc": {
    "cat": "frame",
@@ -25901,10 +25904,10 @@
   "fr-norco-fluid-fs-a": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T14:35:38.006Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "norco.com JS-walled (documented blocker); interfaces from vitalmtb.com build sheet, already corrected once (rotor 160->180). No frame-only weight/price published (sold as completes only). Bar not met."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found for the ALLOY Fluid FS; tried /bikes/fluid-fs-frameset/ (404), the live norco.com/bikes/mountain/trail/fluid-fs/ page (completes only, no frame-kit SKU). Nuance: a Fluid FS CARBON Frame Kit exists at $2,599 (norco.com/bikes/mountain/trail/fluid-fs-carbon/2024-fluid-fs-c-frame-kit/) - different material/catalog row, not applicable here."
   },
   "fr-cannondale-habit-ht": {
    "cat": "frame",
@@ -25917,10 +25920,10 @@
   "fr-orbea-occam-sl": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:28:19.200Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Orbea sells MyO-completes only; orbea.com 403-walled; no frameset-only price/weight on any fetched source (vitalmtb build sheet). Interface fields already sourced (2026-07-16 pass) but weight bar unmeetable."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): orbea.com/en-us/occam-sl BLOCKED (403, confirms the known wall). No third-party source (Vital/Pinkbike/Loam Wolf) publishes frameset pricing either. Orbea's MyO system is structurally a complete-bike configurator (directly confirmed on the Oiz M10 sibling, see fr-orbea-oiz-m10) - likely genuine no-frameset, but orbea.com itself couldn't be directly re-checked this pass."
   },
   "fr-intense-primer": {
    "cat": "frame",
@@ -25941,10 +25944,10 @@
   "fr-vitus-sentier": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:32:33.057Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: Vitus sells this as a complete bike only (frameOnly:false already), no frameset SKU/weight anywhere on the fetched vitusbikes.com page (already re-confirmed 2026-07-16, only a 13.3kg complete-bike figure exists)."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU - every Vitus Sentier listing (2021-2026 model years) is a complete bike; Vitus (a Chain Reaction/Wiggle house brand) doesn't sell hardtail Sentier framesets."
   },
   "fr-chromag-rootdown": {
    "cat": "frame",
@@ -25973,18 +25976,18 @@
   "fr-yt-jeffsy-al": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:32:33.563Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: same YT completes-only wall as the carbon fr-yt-jeffsy sibling; no frameset SKU published."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found; same YT brand-wide no-frame-kits policy per yt-industries.com/Support/FAQ/ - see fr-yt-capra-core4 for the sourced quote."
   },
   "fr-scott-voltage-yz01": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:34:58.375Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight bar unmeetable: no frame-only weight on either cross-corroborated retailer source (thebackcountry.com, damianharriscycles.co.uk); Scott's own scott-sports.com 404s for this SKU. Interfaces already solidly cross-confirmed by a prior session."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found anywhere. SEPARATE FLAG for Douglas: every source (mtbdatabase, findabike, Scott's own spec text) describes this as a dirt-jump/street hardtail (26in wheels, single-speed, 100mm fork), not a DH bike - the catalog row's \"(DH)\" discipline label looks like a miscategorization worth a dedicated look, outside this sweep's scope."
   },
   "fr-vitus-sommet-290-crx": {
    "cat": "frame",
@@ -25997,34 +26000,34 @@
   "fr-salsa-timberjack-2": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:34:58.626Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: salsacycles.com page is complete-bike only (frameOnly:false), no separate frameset SKU/weight found."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): premise corrected - salsacycles.com sells a real \"Timberjack Frame\" SKU. Price corrected $1,799->$699, weight corrected 2,600->2,495g, frameOnly false->true - all manufacturer/cross-retailer sourced (salsacycles.com + Performance Bicycle + Vital MTB agree on 2,495g exactly). Strong verified:true candidate for a future pass with a first-hand fetch."
   },
   "fr-marin-pine-mountain-2": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:34:58.876Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: sourced from a dealer complete-bike listing (marinbikes.com's own collection page unavailable this pass); no frameset SKU/weight found anywhere."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found; tried /us/en/pine-mountain-2-frameset (404), marinbikes.com/collections/pine-mountain (0 products), the live 2024-pine-mountain-2 product page (no Frame Kit tab/variant), search for \"Pine Mountain\" \"frame kit\" (no hits). Marin genuinely doesn't sell a Pine Mountain frameset."
   },
   "fr-marin-rift-zone": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:34:59.131Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight bar unmeetable: real manufacturer complete-bike page (marinbikes.com) gives a genuine MSRP but Marin sells no separate frameset SKU/weight for this model."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found for the current aluminum line; tried /us/en/rift-zone-frameset (404), marinbikes.com/collections/rift-zone (live, only 4 completes, no frame kit). Nuance: a Rift Zone Carbon XR Frame Kit existed 2021/2023 (separate carbon XR sub-line, marinbikes.com/bikes/2023-rift-zone-29-carbon-xr-frame-kit now 404s) - doesn't unlock this aluminum-trim row."
   },
   "fr-nukeproof-dissent-carbon-297": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:35:16.797Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight bar unmeetable: nukeproof.com's own fetched page is a complete-bike spec page (frameOnly:false); no frameset weight published despite every interface field being directly manufacturer-confirmed."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): premise corrected - the $5,999 was this SKU's real complete-bike price (correctly fetched, wrong figure for a frame row); nukeproof.com's configurator offers a genuine \"Frameset\" option at ~€2,500 (~$2,700). Price corrected $5,999->$2,700. Weight added 3,480g (Pinkbike 2023 launch coverage quoting Nukeproof directly - brand-sourced to press, not independently measured, stays unverified)."
   },
   "fr-forbidden-dreadnought-v2": {
    "cat": "frame",
@@ -26037,10 +26040,10 @@
   "fr-whyte-t140": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:35:17.050Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: whytebikes.com sells the T-140 as complete-bike-only, confirmed via two directly-fetched pages; price is already a documented GBP->USD sample conversion, not a real frameset MSRP."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU - whytebikes.com/collections/t140 loaded successfully and lists only 3 complete-bike SKUs (T-140 RS/S/27 Junior), no frameset. Confirmed directly from Whyte's own site, not just inferred from a 403."
   },
   "fr-whyte-sythe": {
    "cat": "frame",
@@ -26053,18 +26056,18 @@
   "fr-mondraker-raze-r": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:35:17.578Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: sourced from an authorized-dealer reprint (mondraker.com itself is a JS SPA); no frameset SKU/weight found, price is the dealer-listed MSRP for the complete bike."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): premise corrected - a real \"Raze R Frame\" SKU is sold through Mondraker's Spain-sourced EU dealer network (biketart.com £2,149, mount7.com €2,299 in stock) rather than mondraker.com direct. Price corrected $2,999 (unsourced fraction)->$2,480, frameOnly false->true. No frame-only weight found at either retailer."
   },
   "fr-merida-one-forty-400": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:35:17.852Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: sourced from cross-confirmed dealer reprints (merida-bikes.com's own page was stale/wrong-generation); no frameset SKU/weight found, price is a documented GBP->USD sample conversion."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU - checked merida-bikes.com for every One-Forty tier (400/600/700/7000), none has a frame-only SKU; Merida sells the entire range as complete bikes only."
   },
   "fr-ghost-kato-fs": {
    "cat": "frame",
@@ -26076,27 +26079,27 @@
   },
   "fr-propain-tyee-al": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/frames/propain/tyee-6-1-al-enduro-66826",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-propain-hugene-cf": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/frames/propain/hugene-3-cf-68086",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-propain-rage-3-cf": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:35:18.394Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight bar unmeetable: sourced from a Vital MTB reprint (propain-bikes.com stays 403-walled, consistent with every other Propain row); Vital's spec guide is a complete-bike page, no frameset weight published."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): premise corrected - propain-bikes.com/en/product/frame-sets/frameset-rage-cf-my21/ (the plain \"Rage 3 CF\" my21 SKU, not the newer \"Rage 3 R CF\" variant) fetched DIRECTLY (notably not 403-walled, unlike other Propain pages), lists frame-only €3,999 (~$4,313) + 3.7kg (3,700g). Price corrected $5,679->$4,313, weight added 3,700g. Kept unverified pending independent re-fetch + USD-native price."
   },
   "fr-polygon-collosus-n9": {
    "cat": "frame",
@@ -26141,10 +26144,10 @@
   "fr-orbea-oiz-m10": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:37:28.281Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: orbea.com 403-walled; Vital's ,999 figure is the complete-bike price, no frameset weight/price found."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU - orbea.com/en-us/oiz-m10 loaded successfully (not blocked) and its MyO configurator requires selecting every build-kit component (fork/crankset/bar/brakes/saddle/tires/seatpost) with no \"frame only\" option - direct evidence Orbea sells this build-to-order completes only."
   },
   "fr-polygon-siskiu-t7-29": {
    "cat": "frame",
@@ -26165,18 +26168,18 @@
   "fr-devinci-django-alloy": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:37:28.775Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Price bar unmeetable: weight (2560g) is genuinely two-source-confirmed, but Devinci sells this frame as completes only - the $3,329 price is a documented complete-bike-price proxy, not a real frameset MSRP, so it cannot support verified:true."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no CURRENT frameset SKU - confirmed for the current Django alloy generation across devinci.com + dealer sites. Nuance: in 2016 (launch year) Devinci DID sell an official aluminum Django frameset ($1,899 CAD) - discontinued now, not usable as a live correction, but the \"always completes-only\" framing wasn't always true."
   },
   "fr-ghost-riot-am-cf": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:37:29.021Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+interface bar unmeetable: rearAxle/bb/headset/brakeMount/maxRotorR are all cross-generation samples (confirmed absent from two direct fetches of the current-gen ghost-bikes.com page), and no frameset weight/price exists (Ghost sells completes only)."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found; tried ghost-bikes.com/int-en/riot/, /gb-en/riot/, /en/bikes/fully/line/riot-am (404), /en-int/collections/riot. Only complete \"Full Party\"/\"Essential\" builds listed; \"frame kit\" hits were unrelated RideWrap protective wraps. Caveat: Ghost's catalog is region-split/JS-heavy, a frameset on an unindexed locale can't be fully ruled out."
   },
   "fr-rose-root-miller": {
    "cat": "frame",
@@ -26197,10 +26200,10 @@
   "fr-ghost-riot-trail-cf": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:37:29.264Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Same wall as the Riot AM CF sibling: rearAxle/bb/headset/brakeMount/maxRotorR are cross-generation samples, no frameset weight/price exists."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found - same Riot-line wall as fr-ghost-riot-am-cf."
   },
   "fr-salsa-spearfish-c": {
    "cat": "frame",
@@ -26221,18 +26224,18 @@
   "fr-mondraker-foxy-r": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:37:52.520Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: mondraker.com JS-walled; the fetched Vital figures ($4,499 / 16,200g) are this exact complete-bike build's own numbers, not frame-only."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): a real \"Foxy R Frameset - 2024\" SKU existed at €2,399 (former MSRP) via Mount7/Freeborn UK, but both retailers now show it sold out/discontinued (\"no longer produced\"). NOT applied to the row since it's not currently orderable at any price; the completes-only premise stands for practical purposes even though a real frameset SKU existed historically. No frame-only weight found at either retailer."
   },
   "fr-mondraker-foxy-carbon-r": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:37:52.770Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Same Mondraker wall as the alloy Foxy R sibling, plus several interfaces are WebSearch-summary sourced rather than independently fetched. No frameset weight/price."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): mondraker.com currently sells a \"Foxy Carbon RR Frameset\" directly ($4,499) - but that's the RR (higher-spec) trim, not this row's R trim; Mondraker's own copy states R/XR/RR \"share exactly the same frame\" but no R-labeled frameset SKU was found. NOT applied to the row (trim mismatch, and the RR frameset's own listed weight, 14.3kg, is almost certainly a data-entry bug - a carbon frame+shock+headset should weigh ~3kg, not 14+ - so don't reuse it either). Flagged for a follow-up fetch of a Spanish/German retailer before adding a frameOnly row."
   },
   "fr-revel-rascal-v3": {
    "cat": "frame",
@@ -26245,10 +26248,10 @@
   "fr-chromag-stylus-mx": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:37:53.277Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight bar unmeetable (Chromag publishes none, same as the Rootdown sibling); price is a documented complete-bike-price proxy (Eagle 90 build), not a real frameset MSRP."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): premise corrected - Chromag sells a \"Stylus MX Frame\" at a real frame-only price ($900, chromagbikes.com per fanatikbike.com/Radavist + bikecomponents-us.com). Price corrected $3,650->$900, frameOnly false->true. Weight remains genuinely unpublished (blank placeholder on maker spec sheet)."
   },
   "fr-revel-ranger-v3": {
    "cat": "frame",
@@ -26332,11 +26335,11 @@
   },
   "fr-pivot-mach-6": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/frames/pivot/mach-6-66566",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-cannondale-scalpel-ht": {
    "cat": "frame",
@@ -26517,18 +26520,18 @@
   "fr-gt-zaskar-lt-alloy": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:42:22.594Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: both explicitly documented as samples (GT sells completes only, doesn't publish frame-only weight); maxForkTravel/brakeMount are also documented conventions rather than page-stated."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): gtbicycles.com (US) sells completes only, confirmed. A real frameset SKU exists via an EU retailer (mtbiker.shop, €529, likely a 2021-model-year GT regional-distributor channel, not the US DTC line) - NOT applied to the row given the year/region mismatch; flagged as a lower-confidence supplementary source, not a primary-manufacturer citation. Weight genuinely unpublished per the retailer's own customer-support reply."
   },
   "fr-whyte-905": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:43:49.975Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight bar unmeetable (documented sample, no frame-only weight published); price is kept as a raw GBP figure per this catalog's EU/UK sample convention, not a confirmed USD MSRP either."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU - all indexed whytebikes.com 905 pages (V2 through current V5) are complete-bike SKUs; no frame-only listing found anywhere."
   },
   "fr-whyte-secta": {
    "cat": "frame",
@@ -26541,18 +26544,18 @@
   "fr-radon-jealous-carbon": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:43:50.224Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Price bar unmeetable: Radon sells this platform as completes only, no frameset SKU found. Weight bar IS met (920g maker-stated) and interfaces are solidly maker-fetched - flagging as close, but price stays the blocker."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): a real frameset SKU exists (bikefactoryshop.com \"Radon Jealous 1x Frameset\" $360, likely clearance/close-out pricing on a discontinued Superlight 1x variant; other EU retailers show ~€1,300-1,500 for a \"New Jealous CF Superlite 1x\" - inconsistent pricing across generations/tiers). Weight bar was already met (890g Superlight vs the row's existing 920g, likely a different generation). NOT applied to the row - price is too murky across sources (discontinued/clearance vs current) to pick confidently; flagged for Douglas's judgment on which generation/price to trust."
   },
   "fr-marin-rift-zone-1": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:43:50.490Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight bar unmeetable: WebSearch this session found no frame-only weight for the 2025 Rift Zone 1 anywhere (marinbikes.com/99spokes/mtbdatabase all silent on it). Price bar IS met (real $1,899 maker-stated) and interfaces are solidly maker-fetched - flagging as close, but weight stays the blocker."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found for the current aluminum line - same wall as fr-marin-rift-zone (the historical carbon XR Frame Kit doesn't apply to this aluminum trim)."
   },
   "fr-giant-stance": {
    "cat": "frame",
@@ -26621,10 +26624,10 @@
   "fr-scott-spark-rc": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:44:10.248Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight bar unmeetable: the only figure (1870g) is explicitly a FRAME+SHOCK combined marketing claim on scott-sports.com, not a split frame-only weight - would double-count vs a picked shock, same convention that keeps fr-atherton-s200/fr-intense-m1 unverified. Price is also an estimated figure between two unfetched trims."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): confirmed no isolated frame-only SKU/weight exists - Scott only sells \"Frame+Fork\" bundles (e.g. $5,999.99 World Cup HMX), and even those bundles' published weight is explicitly \"Frame incl. Shock\" (shock-inclusive) - directly confirms the original reasoning that any figure would double-count against a picked shock."
   },
   "fr-scott-gambler": {
    "cat": "frame",
@@ -26637,10 +26640,10 @@
   "fr-yt-izzo": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:44:10.502Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: both documented samples (YT completes-only, no frameset SKU); the fetched Vital page states only complete-bike figures."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found; same YT brand-wide no-frame-kits policy per yt-industries.com/Support/FAQ/ - see fr-yt-capra-core4 for the sourced quote."
   },
   "fr-norco-optic": {
    "cat": "frame",
@@ -26653,34 +26656,34 @@
   "fr-kona-honzo": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:45:30.265Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight bar unmeetable: konaworld.com publishes no frame-only weight; WebSearch this session found only an ambiguous-generation forum/review figure (2495g), not a reputable measured-weight source. Price is real but weight blocks verified:true."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found for the plain aluminum Honzo; tried konaworld.com/products/honzo-frame (404), honzo-dl-frame/honzo-st-frame (different models/geometry, not this SKU). Note the ESD sibling (fr-kona-honzo-esd) DOES have a real frameset SKU and WAS corrected - the plain Honzo genuinely doesn't."
   },
   "fr-kona-honzo-esd": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:45:30.502Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight bar unmeetable: konaworld.com publishes no frame-only weight for this steel flagship hardtail either."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): premise corrected - konaworld.com sells a live \"Honzo ESD Frame\" SKU ($750, contact-dealer/out-of-stock-online but real). Price corrected $2,399->$750, frameOnly false->true. Weight still unpublished."
   },
   "fr-marin-san-quentin-2": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:45:30.748Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight bar unmeetable: marinbikes.com publishes no frame-only weight."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found; marinbikes.com/collections/san-quentin (live) lists San Quentin 1/2/3 completes + only a San Quentin 3 Frame Kit (see fr-marin-san-quentin-3, which WAS corrected) - no SQ2-specific kit exists."
   },
   "fr-marin-san-quentin-3": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:45:30.995Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight bar unmeetable (no frame-only weight published); seatTube is also inferred from a sibling row rather than independently stated on this page - two gaps, not one."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): premise corrected - marinbikes.com sells a live \"San Quentin 3 Frame Kit\" SKU. Price corrected $1,999->$629, frameOnly false->true. Page has no weight spec; weight stays sample."
   },
   "fr-trek-marlin-7-gen3": {
    "cat": "frame",
@@ -26701,34 +26704,34 @@
   "fr-giant-fathom-1": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:45:31.255Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: Giant sells Fathom as completes only, no frameset weight/price published."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found; tried giant-bicycles.com/us/fathom-1-frameset (404) + Giant's official frameset program page (giant-bicycles.com/us/frameset, lists every frameset Giant sells: Glory/Reign/Trance/Revolt/TCX/Defy/Propel/TCR Advanced lines) - Fathom is absent. Giant restricts framesets to its higher-tier \"Advanced\" carbon lines; Fathom is a budget aluminum completes-only model."
   },
   "fr-giant-talon-1": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:45:42.109Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: Giant sells Talon as completes only; WebSearch this session found only complete-bike weights, no frame-only figure."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found; same Giant frameset-program-page check as fr-giant-fathom-1 - Talon is absent (budget aluminum completes-only, framesets restricted to \"Advanced\" carbon lines)."
   },
   "fr-giant-talon-2-2027": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:45:42.352Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Same wall as the Talon 1 sibling: no frame-only weight/price published."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found - same wall as fr-giant-talon-1."
   },
   "fr-giant-fathom-2": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:45:42.605Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Same wall as the Fathom 1 sibling: no frame-only weight/price published."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found - same wall as fr-giant-fathom-1 (absent from Giant's official frameset program page)."
   },
   "fr-norco-fluid-ht": {
    "cat": "frame",
@@ -26741,18 +26744,18 @@
   "fr-norco-torrent-ht-s": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T15:45:43.141Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: sourced from a Vital MTB reprint (norco.com JS-walled); no frameset weight/price found, only the complete-bike $3,799 MSRP."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): premise corrected - a real \"Torrent HT S Frame\" SKU exists ($899, VitalMTB mirror of norco.com data). Price corrected $1,499->$899, frameOnly false->true. Weight still unpublished."
   },
   "fr-norco-torrent-ht-a": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T16:01:45.482Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: norco.com JS-walled (confirmed this session via bdata scrape too); sourced from Vital reprint, only complete-bike price found."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found for the current A-trim naming; extensive search found none on norco.com or any retailer/aggregator (current lineup sells only A1/A2 as completes). Nuance: a pre-split, undifferentiated \"Torrent HT Frame\" (2018-2019 alloy, $599, norco.com/bike-archives/2018/torrent-ht-framekit/) existed but predates today's A/S trim naming - a judgment call for data-entry policy, not applied here."
   },
   "fr-norco-shore-park": {
    "cat": "frame",
@@ -26781,10 +26784,10 @@
   "fr-canyon-sender-cfr-gen3": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T16:01:46.259Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight bar unmeetable: no frame-only weight published; the catalog figure is an explicitly-flagged carryover sample from an older row's ballpark, not a real figure. Price is the complete-bike Team-trim price, not frame-only. Shock size also not independently re-confirmed on canyon.com itself."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found; same Sender CFR wall as the sibling gen row - see fr-canyon-sender-cfr."
   },
   "fr-trek-marlin-4-gen3": {
    "cat": "frame",
@@ -26845,10 +26848,10 @@
   "fr-diamondback-syncr": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T16:02:02.023Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: Diamondback sells completes only, both documented samples. BB shell is also a class-typical inference, not page-stated."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found anywhere - only individual-seller used-frame resale listings ($150-419, informal, not manufacturer/authorized-retailer product). Confirms both the price and weight documented-sample-proxy reasoning."
   },
   "fr-giant-talon-4-2027": {
    "cat": "frame",
@@ -26885,26 +26888,26 @@
   "fr-bmc-twostroke-01": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T16:10:47.635Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Price bar unmeetable: tried a frameset-SKU URL guess (twostroke-01-frameset) per the coordinator's new heuristic, 404'd - BMC does not appear to sell this frame separately. Price stays the complete-bike MSRP; weight not published at all. Interfaces are otherwise solidly maker-fetched."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): premise corrected in substance - a real \"Twostroke 01 FRS\" frameset SKU exists ($1,699 + 1,037g, VitalMTB + 5 international retailers corroborated), but NOT applied to the row: doing so drops frame price low enough that the linked completebike bundle (cb-bmc-twostroke-01-two, $3,399 real manufacturer price) would exceed its parts sum, tripping the bundle-price validator. Needs a joint follow-up pass touching both rows. Documented in the frame row's desc."
   },
   "fr-trek-procaliber-c-gen3": {
    "cat": "frame",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/frames/trek/procaliber-c-gen-3-55876",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-radon-cragger": {
    "cat": "frame",
    "status": "Skipped",
-   "updated": "2026-07-18T16:10:47.877Z",
+   "updated": "2026-07-18T00:00:00.000Z",
    "error": null,
    "source": null,
-   "note": "Weight+price bar unmeetable: Radon sells this platform as completes only (no frameset SKU found), and no frame-only weight is published (only a complete-bike figure, which this catalog's policy forbids splitting/inventing)."
+   "note": "FRAMESET-SIBLING SWEEP (2026-07-18): weight sourced - bike-discount.de (authorized German Radon retailer) component spec table lists frame weight 1,850g. Weight added. Price stays sample; re-confirmed no purchasable frameset SKU exists anywhere (tried radon-bikes.de frame/frameset/frame-kit patterns + EU retailer search) - Radon genuinely sells this platform as completes only."
   },
   "ti-maxxis-minion-dhf-29-25-exo-mg": {
    "cat": "tire",
@@ -27964,11 +27967,11 @@
   },
   "fw-dtswiss-exc1501-29": {
    "cat": "frontwheel",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://worldwidecyclery.com/products/dt-swiss-exc-1501-spline-one-front-wheel-27-5-15-x-110mm-boost-6-bolt-black",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fw-stans-flow-s2-29": {
    "cat": "frontwheel",
@@ -29324,11 +29327,11 @@
   },
   "rw-dtswiss-exc1501-29-xd": {
    "cat": "rearwheel",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.bikeradar.com/reviews/components/wheels/wheel-sets/dt-swiss-exc-1501-spline-one-wheelset-review",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "rw-crankbrothers-synthesis-enduro-alloy-29-hg": {
    "cat": "rearwheel",
@@ -29348,11 +29351,11 @@
   },
   "rw-dtswiss-ex-1700-275-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/enduro/ex-1700-spline",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-dtswiss-fr-1500-275-157-hg": {
    "cat": "rearwheel",
@@ -31500,11 +31503,11 @@
   },
   "fk-fox-38-performance-29-170": {
    "cat": "fork",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.982Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/Forks,33/FOX/38-Performance,33708",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fk-fox-38-performance-29-180": {
    "cat": "fork",
@@ -31524,11 +31527,11 @@
   },
   "fk-fox-36-rhythm-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T17:46:28.852Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-34-performance-29-140": {
    "cat": "fork",
@@ -31684,11 +31687,11 @@
   },
   "fk-fox-36-performance-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T17:46:28.852Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://tech.ridefox.com/bike/spec-sheets/3119/2026-36mm-user-specifications",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-performance-29-170": {
    "cat": "fork",
@@ -31700,11 +31703,11 @@
   },
   "fk-fox-36-performance-275-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Skipped",
+   "updated": "2026-07-18T17:46:28.975Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "FETCHED the MY26 FOX 36 27.5in User Spec CAD sheet directly (tech.ridefox.com/img/help/page3119-W7AZ/MY26_FOX_36_275in_User_Spec.jpg) - it states '200mm BOOST DISC BRAKE POST MOUNT PATTERN', i.e. the current 27.5in-chassis native mount is 200mm, matching the 29in sibling. This does NOT resolve the row's existing conflict (noted by a prior session): the SB135 C2 stock-build source this row cites ships a 180mm front rotor on this exact fork, which cannot pair with a 200mm-native PM mount via a standard adapter (adapters step UP, not down). The contradiction suggests the SB135's actual stock fork is an OLDER 36 Performance generation (180mm-native, pre-MY26) despite this row's modelYear:2026 tag - a possible mislabeled generation, not a fixable interface value. Leaving minRotorF unset as the prior session did; not verified pending resolution of which generation this row actually represents."
   },
   "fk-rockshox-recon-silver-rl-29-110": {
    "cat": "fork",
@@ -31740,11 +31743,11 @@
   },
   "fk-fox-36-rhythm-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T17:46:28.852Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-srsuntour-xcm34-lo-29-130": {
    "cat": "fork",
@@ -32100,11 +32103,11 @@
   },
   "fk-dvo-onyx-38-d1-29-170": {
    "cat": "fork",
-   "status": "Verified",
-   "updated": "2026-07-17T18:56:38.958Z",
-   "error": null,
+   "status": "Failed",
+   "updated": "2026-07-18T17:30:32.145Z",
+   "error": "dvosuspension.com serves an empty JS-shell cart page for every product URL (confirmed via WebFetch AND full browser-pane rendering, seat 12 2026-07-18 - this is the 3rd session to hit the same wall; tech.dvosuspension.com also renders no body content). No manufacturer spec page is fetchable. Not routing around it (fetch-ethics ruling) - retry once DVO's site is fixed, or if a future session finds a working URL.",
    "source": "https://www.vitalmtb.com/product/guide/forks/dvo/onyx-d1-38-44566",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fk-fox-40-performance-29-203": {
    "cat": "fork",
@@ -32452,11 +32455,11 @@
   },
   "hb-ethirteen-base-alu-35": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ethirteen.com/products/base-handlebar",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-ari-team-35": {
    "cat": "handlebar",
@@ -32476,11 +32479,11 @@
   },
   "hb-ethirteen-plus-alu-35": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ethirteen.com/products/plus-handlebar",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-kona-xcbc-35": {
    "cat": "handlebar",
@@ -34948,11 +34951,11 @@
   },
   "sa-dmr-dj-saddle": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dmrbikes.com/products/dmr-sect-rail-saddle",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-syncros-dj15": {
    "cat": "saddle",
@@ -35572,11 +35575,11 @@
   },
   "pd-dmr-v6": {
    "cat": "pedal",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://dmrbikes.com/products/dmr-v6-pedal",
+   "note": "auto-promoted: already verified in catalog"
   },
   "pd-wellgo-b107n": {
    "cat": "pedal",
@@ -36948,11 +36951,11 @@
   },
   "cb-devinci-django-carbon-gx": {
    "cat": "completebike",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/bikes/devinci/django-67866",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "cb-gt-force-comp": {
    "cat": "completebike",
@@ -37140,11 +37143,11 @@
   },
   "cb-marin-alpine-trail-1": {
    "cat": "completebike",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
    "source": "https://marinbikes.com/products/alpine-trail",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "cb-marin-alpine-trail-xr": {
    "cat": "completebike",
@@ -37252,11 +37255,11 @@
   },
   "cb-norco-fluid-fs-a1-sram": {
    "cat": "completebike",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
    "source": "https://www.thebackcountry.com/2024-norco-fluid-fs-a1-sram.html",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "cb-forbidden-dreadnought-v2-mx-buildkit3": {
    "cat": "completebike",
@@ -37268,11 +37271,11 @@
   },
   "cb-forbidden-dreadnought-v2-mx-dreadnought1": {
    "cat": "completebike",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
    "source": "https://worldwidecyclery.com/products/forbidden-dreadnought-v2-sram-x0-t-type-kx500-mx",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "cb-forbidden-dreadnought-v2-mx-dreadnought2": {
    "cat": "completebike",
@@ -37348,11 +37351,11 @@
   },
   "cb-canyon-spectral-cf-7": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-19T00:25:50.758Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canyon.com/en-us/mountain-bikes/trail-bikes/spectral/cf/spectral-cf-7/3637.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-canyon-spectral-cf-9": {
    "cat": "completebike",
@@ -37748,11 +37751,11 @@
   },
   "cb-devinci-django-nx-12s": {
    "cat": "completebike",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/bikes/devinci/django-67881",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "cb-devinci-troy-deore": {
    "cat": "completebike",
@@ -37908,11 +37911,11 @@
   },
   "cb-salsa-blackthorn-145-c-deore-12": {
    "cat": "completebike",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/bikes/salsa/blackthorn-145-66611",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "cb-salsa-blackthorn-145-c-gx-transmission": {
    "cat": "completebike",
@@ -39196,11 +39199,11 @@
   },
   "cb-propain-spindrift-al-base": {
    "cat": "completebike",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/bikes/propain/spindrift-55456",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "cb-propain-spindrift-cf-base": {
    "cat": "completebike",
@@ -39868,11 +39871,11 @@
   },
   "cb-norco-optic-c2": {
    "cat": "completebike",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
    "source": "https://www.vitalmtb.com/product/guide/bikes/norco/optic-60231",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "cb-kona-honzo-esd": {
    "cat": "completebike",
@@ -40132,11 +40135,11 @@
   },
   "cb-alutech-fanes29-trailready": {
    "cat": "completebike",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
    "source": "https://alutech-cycles.com/Fanes-29_1",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "cb-stanton-slackline-4130": {
    "cat": "completebike",
@@ -40380,11 +40383,11 @@
   },
   "cb-forbidden-druid-v2-29-tier1": {
    "cat": "completebike",
-   "status": "Verified",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Pending",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
    "source": "https://www.worldwidecyclery.com/products/forbidden-druid-v2-sram-x0-t-type-bike-blue-monday-29-27-5-mx",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "WARNING: catalog lost verified flag - recheck"
   },
   "cb-transition-tr11-alloy-gx": {
    "cat": "completebike",
@@ -40412,11 +40415,11 @@
   },
   "sp-reverse-comp-316": {
    "cat": "seatpost",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://reverse-components.com/en/products/comp-%C3%B8316mm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sp-raceface-next-sl-272-400": {
    "cat": "seatpost",
@@ -40540,11 +40543,11 @@
   },
   "sp-raceface-ride-309": {
    "cat": "seatpost",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-18T17:28:03.983Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.raceface.com/products/ride-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sp-sdg-v2comp-349": {
    "cat": "seatpost",
