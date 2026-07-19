@@ -379,13 +379,14 @@
     </details>
   </div>
 </header>
-<div class="honesty-strip"><span class="badge">Prototype · sample data</span> BuildMyBMX checks BB shell/spindle, brake mounts, peg/axle fit, seat/post system, wheel size and chain pitch as you pick parts.</div>
+<div class="honesty-strip"><span class="badge">Prototype · sample data</span> BuildMyBMX checks BB shell/spindle, brake mounts, peg/axle fit, seat/post system, wheel size and chain pitch as you pick parts. A green dot means no conflict among the dimensions we check — some makers publish no spec data, so it's not a guarantee of perfect fit.</div>
 
 <main id="bmxMain"><!-- rendered by the script below --></main>
 
 <footer id="bmxFooter">
   Prices &amp; weights are approximate <strong>sample data</strong> — not verified against manufacturers unless a ✓ badge says so.
-  Builds are saved on this device only. · <a href="/">← Bike Builder</a> · <a href="KitBuilder/">BuildMyRideKit →</a>
+  Builds are saved on this device only. Green = no conflicts among the dimensions we check, not a guarantee.
+  · <a href="/">← Bike Builder</a> · <a href="KitBuilder/">BuildMyRideKit →</a>
 </footer>
 
 <!-- Mobile sticky build bar (≤880px only): verdict + totals mirror, tap = jump to panel -->
@@ -456,6 +457,18 @@
   var CATSLOTS = {}; BMX_SLOTS.forEach(function(s){ (CATSLOTS[s.cat] = CATSLOTS[s.cat] || []).push(s.key); });
   var SLOT_LABEL = {}; BMX_SLOTS.forEach(function(s){ SLOT_LABEL[s.key] = s.label; });
   var CAT_ORDER = {}; BMX_SLOTS.forEach(function(s,i){ if(!(s.cat in CAT_ORDER)) CAT_ORDER[s.cat] = i; });
+  /* "Featured" sort (bias audit round 4 #2): category grouping via CAT_ORDER is
+     kept, but the WITHIN-category tiebreak is a uniform Fisher-Yates shuffle
+     (fisherYatesShuffle, shared from src/compat.js) instead of catalog insertion
+     order — insertion order let whichever brand was entered first permanently
+     top every category (Odyssey #1 in 8/20 cats), the exact pattern index.html
+     fixed for the MTB catalog. Computed once at page load, not per render, so
+     filtering/search never reshuffles what's already visible. */
+  var BMX_SHUFFLE_ORDER = {};
+  (function(){
+    var order = fisherYatesShuffle(BMX_PARTS.map(function(p){ return p.id; }));
+    order.forEach(function(id, i){ BMX_SHUFFLE_ORDER[id] = i; });
+  })();
   var CATLABEL = {
     frame:'Frame', fork:'Fork', headset:'Headset', cranks:'Cranks', bb:'Bottom Bracket',
     sprocket:'Sprocket', chain:'Chain', rearCog:'Rear Cog', frontWheel:'Front Wheel',
@@ -526,7 +539,7 @@
     var firstErr=null, firstWarn=null;
     for(var i=0;i<slots.length;i++){
       var d = bmxPlacementDiff(p, slots[i], build);
-      if(!d.error && !d.warning) return {state:'g', reason:'No conflicts with your current build'};
+      if(!d.error && !d.warning) return {state:'g', reason:'No conflicts with your current build (among the dimensions we check - some makers publish no spec data)'};
       if(!d.error){ if(firstWarn===null) firstWarn=d.warning; }
       else if(firstErr===null) firstErr=d.error;
     }
@@ -755,7 +768,7 @@
       return;
     }
 
-    var idx={}; BMX_PARTS.forEach(function(p,i){ idx[p.id]=i; });
+    var idx=BMX_SHUFFLE_ORDER;
     var wt=function(p,missing){ return typeof p.weight==='number'? p.weight : missing; };
     var SORTS={
       featured:      function(a,b){ return (CAT_ORDER[a.cat]-CAT_ORDER[b.cat]) || (idx[a.id]-idx[b.id]); },
@@ -777,7 +790,7 @@
     if(n===0) html='<div class="status warn">Add parts to start checking.</div>';
     else if(r.errors.length) html='<div class="status err">✗ '+r.errors.length+' problem'+(r.errors.length>1?'s':'')+'</div>';
     else if(r.warnings.length) html='<div class="status warn">⚠ '+r.warnings.length+' thing'+(r.warnings.length>1?'s':'')+' to check</div>';
-    else html='<div class="status ok">✓ No conflicts found</div>';
+    else html='<div class="status ok">✓ No conflicts found (among the dimensions we check - some makers publish no spec data)</div>';
     r.errors.forEach(function(v){ html+='<div class="issue e"><span class="mk">✗</span><span>'+esc(String(v))+'</span></div>'; });
     r.warnings.forEach(function(v){ html+='<div class="issue w"><span class="mk">⚠</span><span>'+esc(String(v))+'</span></div>'; });
     r.infos.forEach(function(v){ html+='<div class="issue i"><span class="mk">i</span><span>'+esc(String(v))+'</span></div>'; });
@@ -833,7 +846,7 @@
     var v = n===0 ? 'Add parts to start checking.'
       : r.errors.length ? ('✗ '+r.errors.length+' problem'+(r.errors.length>1?'s':''))
       : r.warnings.length ? ('⚠ '+r.warnings.length+' thing'+(r.warnings.length>1?'s':'')+' to check')
-      : '✓ No conflicts found';
+      : '✓ No conflicts found (among the dimensions we check - some makers publish no spec data)';
     $('mbVerdict').textContent = v;
     $('mbTotal').textContent = '≈ ' + money(t.price);
     $('mbWeight').textContent = t.weight ? ('≈ '+(t.weight/1000).toFixed(2)+' kg') : '—';

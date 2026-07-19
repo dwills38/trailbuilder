@@ -453,6 +453,29 @@
   var SLOTKEY_OF = {}; KIT_SLOTS.forEach(function(s){ SLOTKEY_OF[s.cat] = s.key; });   // one slot per cat
   var CAT_ORDER = {};  KIT_SLOTS.forEach(function(s,i){ CAT_ORDER[s.cat] = i; });
 
+  /* Uniform in-place Fisher-Yates shuffle — identical algorithm to src/compat.js's
+     fisherYatesShuffle (not loaded on this page, so duplicated rather than pulling
+     in the whole bike-compat engine for one utility function). `arr.sort(() =>
+     Math.random()-0.5)` is NOT uniform. @param {any[]} arr @returns {any[]} */
+  function fisherYatesShuffle(arr){
+    for(var i = arr.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+    }
+    return arr;
+  }
+  /* "Featured" sort (bias audit round 4 #2): category grouping via CAT_ORDER is
+     kept, but the WITHIN-category tiebreak is a uniform shuffle instead of
+     catalog insertion order — insertion order let whichever brand was entered
+     first permanently top every category (Fox held 9/36 top-3 slots), the exact
+     pattern index.html fixed for the MTB catalog. Computed once at page load,
+     not per render, so filtering/search never reshuffles what's already visible. */
+  var KIT_SHUFFLE_ORDER = {};
+  (function(){
+    var order = fisherYatesShuffle(KIT_PARTS.map(function(p){ return p.id; }));
+    order.forEach(function(id, i){ KIT_SHUFFLE_ORDER[id] = i; });
+  })();
+
   /* ---- selection + filter state -------------------------------------------- */
   var LS_KEY = 'tb-kit-build';
   /** slotKey -> part id (one slot per category) */
@@ -681,7 +704,7 @@
       return;
     }
 
-    var idx={}; KIT_PARTS.forEach(function(p,i){ idx[p.id]=i; });
+    var idx=KIT_SHUFFLE_ORDER;
     var wt=function(p,missing){ return typeof p.weight==='number'? p.weight : missing; };
     var SORTS={
       featured:      function(a,b){ return (CAT_ORDER[a.cat]-CAT_ORDER[b.cat]) || (idx[a.id]-idx[b.id]); },
