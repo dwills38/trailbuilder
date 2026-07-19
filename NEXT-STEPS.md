@@ -1,5 +1,11 @@
 # Where we are + next steps
 
+> **⚠ STALE SNAPSHOT (flagged 2026-07-19).** The state below is frozen at 2026-07-13/14 and is
+> materially out of date (BMX/BuildMyRideKit are LIVE, 7 catalogs validate, the counts and test
+> numbers below are wrong). **The current picture lives in `docs/MISSION.md`** (overview +
+> roadmap + where-we-are marker) and `PROJECT-LOG.md` (dated history). This doc awaits a full
+> refresh chip; until then trust MISSION.md over anything below.
+
 _A living snapshot — a pointer doc, not a second log. Architecture/conventions live in
 `CLAUDE.md`; the full dated history is `PROJECT-LOG.md` (newest first) + `git log`._
 
