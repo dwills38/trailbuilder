@@ -188,3 +188,85 @@ working unlocker for yeticycles.com specifically — worth trying on the other J
 brands flagged in `verify-cb-sheets-4-progress.md` (Pivot, Ibis, Cannondale, Rocky
 Mountain, Mondraker, Ghost, Norco, Devinci, Propain, ~130 rows) in a follow-up session;
 not attempted this round (time-boxed to Yeti as the proof-of-concept brand).
+
+## Wave 4 (2026-07-18, `verify/completebikes-4`): Santa Cruz, Giant, Evil, Orbea, Scott
+
+Three catalog-worker sub-sessions ran in parallel (each its own worktree/branch off
+origin/main), covering the no-recorded-wall brands the coordinator flagged for yield:
+Santa Cruz (33 rows), Giant (17) + Evil (15), Orbea (13) + Scott (11) — 89 rows total,
+none previously touched by waves 1-3. Trek/Specialized (known walls) and the
+"remaining smaller makers" tail were NOT attempted this wave — deferred to a follow-up,
+per the coordinator's yield-first sequencing. All three branches merged cleanly into
+`verify/completebikes-4` (no conflicts — disjoint id ranges).
+
+**Santa Cruz** (santacruzbicycles.com `/pages/product-support/<model>-my<year>` build-kit
+tables, fetched via Exa after WebFetch hit a 429 — no bot wall, Exa resolved the
+Shopify/Alpine.js rendering cleanly): 33/33 rows checked. 17 Fixed (mostly a systematic
+Centerline→HS2 rotor-family correction plus several tire compound/casing drifts against
+the exact live trim, and one major re-source of `cb-santacruz-hightower-gx-axs-rsv` off a
+third-party review onto the real manufacturer page — corrected drivetrain family
+mechanical-AXS→Transmission plus fork/shock/brakes/rotors/tire). 13 Confirmed-clean.
+Component-category gaps noted (not fabricated, left as documented approximations): no
+plain-EXO 27.5×2.4 3C MaxxTerra DHR II row, no 27.5×2.5 EXO Aggressor row, no Rekon Race
+29×2.35 EXO row, no RaceFace ARC-27/30 rim-width variants, no "direct mount" DH stem
+mount type in the schema (V10 8 bar/stem naming approximations, non-verdict-driving).
+
+**Giant + Evil** (giant-bicycles.com, evilbikes.com): 32/32 rows checked. Giant: 1 real
+fix (Reign Advanced 1 rear tire EXO+→DoubleDown), 1 drivetrain-SKU correction (Talon 1's
+Advent X substitution replaced with real cataloged Advent MX rows), 6 promoted to
+`verified:true` on exact-match re-fetch, rest already-verified/skipped-clean. Evil: 6
+rows Fixed→Verified (tire casing/compound, rotor size, shock air→coil, brake tier,
+saddle-model corrections against the exact live build tab), 3 Skipped-wall (GX/i9 Hydra
+tier has no matching live spec tab, left on its documented 99spokes sourcing). **Escalated,
+not resolved:** `cb-evil-following-ls-xx-transmission` and the two Wreckoning LS XX rows —
+evilbikes.com's own "XX Eagle Transmission" tab lists cassette code XG-1295 (a standard
+AXS code, not a genuine Transmission code) with chain wording that doesn't match a
+flattop-compatible cassette, internally contradictory on Evil's own page; correcting the
+derailleur/cassette/chain/crank family would be verdict-driving (system/actuation/mount)
+and needs a second source (ideally a direct SRAM compatibility check) plus confirming the
+frame's derailleur-hanger mount — flagged in each row's `desc`, left unchanged pending a
+coordinator follow-up. One gate near-miss caught and fixed pre-merge: an initial
+Trance X Advanced 1 shock swap picked an `oemOnly`+`forFrames`-restricted alloy-frame
+shock for the carbon-frame row; `test-golden.js`/`test-invariants.js` caught it, reverted
+to the frame's own `bundledShock`.
+
+**Orbea + Scott**: 24/24 rows checked. Orbea (orbea.com): confirmed still wall-blocked
+(WebFetch 403, Exa 403/CRAWL_NOT_FOUND, browser pane root loads but every model path
+404s — same WAF wall prior sessions documented, not circumvented per the fetch-ethics
+ruling). All 13 rows instead cross-checked against their own already-cited vitalmtb.com
+source for drift — zero drift found, all Confirmed-clean. Scott (scott-sports.com, no
+wall): 3 rows Fixed (Ransom 910 added missing `streetPrice`+re-sourced off vitalmtb to a
+direct fetch; Spark RC Team's brake+rotor family drifted SRAM DB6/Centerline on the live
+page and was corrected; Gambler 10 price rounding $5899→$5899.99), 1 Skipped-snapshot
+(Genius 910, retired MY2023 listing, legitimate), 1 Skipped-wall (Voltage YZ01 DJ SKU,
+already documented), rest Confirmed-clean. **Flagged, not fixed:**
+`cb-scott-ransom-900-rc`'s `price` field equals its `streetPrice` rather than the real
+$9,999.99 MSRP — correcting it fails the bundle-price-vs-component-sum validator check
+against this catalog's current sample component prices (component sum is $9,507.99,
+under the true MSRP); needs either a documented exception or a components-pricing
+follow-up, out of this wave's completebike-only scope.
+
+### Wave 4 gates
+
+- `node validate.js`: `DATA OK - 5023 parts, 0 problems (2997 verified, 2026 unverified)`
+  (+ KIT/BMX/STRIDER/ROAD/GRAVEL/EMTB all OK — 7/7)
+- `npm test`: 764/764 passed (29 files)
+- `npx tsc --noEmit`: clean, no output
+- `node tools/verdict-audit-harness.js`: unaffected — C1 stays 329 clean/0 errors, C2
+  5/5 wheel-substitution clean, D 15/15 clashes correctly flagged, D2 2/2 clean partials
+  correct. The E-section's 5 flagged fork families (dvo-diamond-d1sl, dvo-onyx-sc,
+  srsuntour-aion-34/durolux/xce) are pre-existing and unrelated to this wave's brands.
+
+### Wave 4 tally
+
+89 completebike rows checked across 5 brands (Santa Cruz 33, Giant 17, Evil 15, Orbea 13,
+Scott 11): 27 Fixed with real corrections (rotor family, tire compound/casing, shock
+type, brake tier, drivetrain SKU, price rounding/missing streetPrice), 8 promoted to
+`verified:true` on exact-match re-fetch, ~5 Skipped (snapshot or wall), rest
+Confirmed-clean. 3 rows escalated with unresolved drivetrain ambiguity (Evil XX
+Transmission tier); 1 row escalated with a price-vs-validator tension (Scott Ransom 900
+RC). No new completebike rows added or removed; no ids changed; `tools/
+verification-job.json` untouched (out of scope — that job tracks individual parts).
+Trek, Specialized (known walls) and the remaining smaller-maker tail (Transition,
+Forbidden, Commencal, GT, Vitus, Polygon, Marin, Cube, Whyte, Salsa, Revel, Nukeproof,
+Merida, and ~20 single/few-row brands) not attempted this wave — candidates for wave 5.
