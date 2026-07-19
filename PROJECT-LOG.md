@@ -2598,3 +2598,12 @@ per wave/decision; large reconstructions are handed to a worker session.
   ported to BMX; fork tire-clearance dormancy asymmetry; two grind-order visibility skews.
   Round 3 opens re-measured; defenses-verified section clean with numbers. Fix chips handed
   to Douglas.
+
+## 2026-07-19 (seat 14, sweep) — Bias r4's actionable findings all closed same day
+
+- Fix 1 (`ba36a8b`): rotor fills 74→5 false-warning bikes; survivors documented genuine
+  adapter builds (new rotorAdapterDocumented flag + lint, test-pinned); entry rule in template.
+- Fix 2 (`19fbd3a`): BMX+RideKit neutral shuffled sort tiebreak (measured de-skew ≤~11% top-slot
+  share over 300 reshuffles); BMX honesty disclosure ported verbatim.
+- Remaining r4 items are grind-order visibility skews that close as verification proceeds, plus
+  the non-rotor warning tail folded into the next complete-bikes wave.
