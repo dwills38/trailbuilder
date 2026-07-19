@@ -2587,3 +2587,14 @@ per wave/decision; large reconstructions are handed to a worker session.
   sources; Shopify weight = shipping bucket) and JS-RENDERED ≠ BOT-WALLED (specialized.com +
   100percent.com read cleanly in the browser pane — re-test the Specialized/Trek frames
   "wall" through that lane).
+
+## 2026-07-19 (seat 14) — Bias audit round 4 harvested: ACTION-NEEDED, no favoritism
+
+- Round 4 merged (`8e44d69`; its handoff message hung — harvested from the branch, session
+  archived). HIGH: 50/436 factory bikes carry a FALSE Center-Lock-adapter warning pair on their
+  own stock builds (6-bolt rotor fills vs CL wheels — entry artifact; Pivot 86%/Yeti 45%/
+  Transition 39%), amplified by the Upgrade Advisor's "clears N issues" credit. MEDIUMs: BMX +
+  RideKit insertion-order "featured" sort (the r2 pattern on new surfaces); disclosure not
+  ported to BMX; fork tire-clearance dormancy asymmetry; two grind-order visibility skews.
+  Round 3 opens re-measured; defenses-verified section clean with numbers. Fix chips handed
+  to Douglas.
