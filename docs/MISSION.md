@@ -302,18 +302,18 @@ layer's moderation muscle (Phase 7), and revenue stability (Phase 8).
 ### The owner-picked feature slate (selected 2026-07-19 — committed to implement)
 
 From the 22-idea product brainstorm (`docs/PRODUCT-IDEAS-2026-07-19.md`), the owner
-picked nine for the plan. These are committed features awaiting sequencing, not
+picked eight for the plan. These are committed features awaiting sequencing, not
 ideas: **Upgrade Advisor** ("does this part fit MY bike"), **Upgrade Optimizer**
 ($/gram-saved swap ranking), **Garage service log** (mechanic-corpus-cited
 intervals on parts the garage already knows), **Personal recall watcher** (recall
 notes × garage), **Mechanic-ready build sheet** (print/export with cited torque
 specs), **Build diff** (two builds side by side), **Owned-vs-to-buy planner**
-(have-it/need-it slots + remaining cost), **Discontinued-parts archive view**
-(lifecycle browse — interface data that outlives product cycles), and
-**theft-registry integration** (owner-overrode the brainstorm's out-of-mission
-log; scoped as the garage linking OUT to official serial registries, never
-mirroring one). Each gets its own scoping/build chip when called up; sequencing
-respects the flagship-first directive.
+(have-it/need-it slots + remaining cost), and **Discontinued-parts archive view**
+(lifecycle browse — interface data that outlives product cycles). Theft-registry
+integration was briefly picked, then deferred same day on the owner's word —
+it stays logged with the brainstorm's original reasoning. Each committed feature
+gets its own scoping/build chip when called up; sequencing respects the
+flagship-first directive.
 
 The owner has also asked for **another brainstorm round near the end** of the
 current roadmap — when the committed phases approach completion, re-run the
