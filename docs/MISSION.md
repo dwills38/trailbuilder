@@ -50,7 +50,7 @@ compatible."
   adversarial pre-launch audit. The honest note: BMX brands mostly sell complete
   bikes rather than standalone parts, so its verified fraction is source-limited —
   that ceiling is documented, not hidden.
-- **BuildMyKit** — rider gear (helmets, shoes, apparel, protection: 714 items, 437
+- **BuildMyRideKit** — rider gear (helmets, shoes, apparel, protection: 714 items, 437
   verified). Deliberately independent of the bike engine: gear has sizing and
   certification data, not mechanical compatibility, and the site doesn't pretend
   otherwise. Certifications are shown only when fetched from a real source.
@@ -324,7 +324,7 @@ merits when picked up.
 ### Where we are on this map today (2026-07-18)
 
 **Live:** the MTB builder (5,023 parts / 60.5% verified and climbing), BuildMyBMX,
-BuildMyKit, accounts + garage, the forum, 42 guides, recall notes, legal pages —
+BuildMyRideKit, accounts + garage, the forum, 42 guides, recall notes, legal pages —
 all popup-free, all honest about sample vs. verified data. **Built and gated:**
 road, gravel, balance-bike fit guide, contained e-MTB — each awaiting its word.
 **Designed on paper:** reviews, builds gallery, marketplace security. **In

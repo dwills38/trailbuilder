@@ -39,7 +39,8 @@ unverified specs as real. See "Provenance" below.
    `Verdict`/`verdictKey` primitives (compat.js loads first on that page for that reason).
    index.html itself is untouched by this — it never loads the BMX engine or data, so the MTB
    app's own behavior can't drift. Nav: index.html and KitBuilder both link to BuildMyBMX;
-   the former "Kit Builder" nav button/label is renamed **BuildMyKit** (routes/ids unchanged).
+   the former "Kit Builder" nav button/label is renamed **BuildMyKit**, then rebranded
+   **BuildMyRideKit** 2026-07-19 (Douglas owns buildmyridekit.com) — routes/ids unchanged.
 4. **WORK IS HANDED OFF AS PASTE-READY PROMPT BLOCKS — NEVER CLICK-CHIPS (Douglas, 2026-07-18).**
    Every worker task goes to Douglas as a **fenced copy-paste prompt block** whose first line is a
    `[Model, effort]` header (e.g. `[Sonnet, high effort]`), so **he** sets the model and effort in
