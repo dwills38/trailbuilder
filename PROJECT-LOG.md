@@ -2552,3 +2552,9 @@ per wave/decision; large reconstructions are handed to a worker session.
 - ACC-26/27 fixed: forum rows keyboard-operable (WCAG 2.1.1 Level A violation closed).
 - Cockpit w2 + kit tail merged: MTB verified 3,041; kit's apparel weight-walls documented —
   recommendation: a measured-weight (sourceType:'measured') apparel pass, Douglas's call.
+
+## 2026-07-19 (seat 14) — Phone-fix wave CLOSED: 6/6 live
+
+- Fix 6 ("↑ Filters" return button) shipped `35f30bf` on Douglas's explicit no-popup sign-off
+  ("make the other phone fixes live"). The entire PHONE-UI-REVIEW immediate-fix list is now in
+  production; deploy pipeline carries it live on push.
