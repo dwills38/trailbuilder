@@ -340,6 +340,26 @@ test('lint: a wheelset kit mixing wheel sizes warns', function(){
     id:'ws-dtswiss-mixed-29', fills:{ frontWheel:'fw-dtswiss-ex-1700-29', rearWheel:'rw-dtswiss-e-1900-275' } }));
   some(S.lintCatalog({ PARTS: C.PARTS.concat([bad]), SLOTS: C.SLOTS }), 'mix wheel sizes');
 });
+test('lint: a completebike rotor fill that disagrees with its stock wheel rotorMount warns', function(){
+  var bike = /** @type {any} */ (Object.assign({}, C.byId('cb-forbidden-druid-v2-29-buildkit3')));
+  var bad = /** @type {any} */ (Object.assign({}, bike, {
+    id:'cb-bad-rotor-mount', fills: Object.assign({}, bike.fills, { frontRotor:'ro-sram-hs2-180-6b' }) }));
+  some(S.lintCatalog({ PARTS: C.PARTS.concat([bad]), SLOTS: C.SLOTS }), 'frontRotor mount');
+});
+test('lint: rotorAdapterDocumented:true suppresses the rotor-mount warning on that bike', function(){
+  var bike = /** @type {any} */ (Object.assign({}, C.byId('cb-forbidden-druid-v2-29-buildkit3')));
+  var documented = /** @type {any} */ (Object.assign({}, bike, {
+    id:'cb-forbidden-documented-rotor-adapter', rotorAdapterDocumented:true,
+    fills: Object.assign({}, bike.fills, { frontRotor:'ro-sram-hs2-180-6b' }) }));
+  var warnings = S.lintCatalog({ PARTS: C.PARTS.concat([documented]), SLOTS: C.SLOTS });
+  eq(warnings.filter(function(w){ return w.indexOf('cb-forbidden-documented-rotor-adapter') >= 0; }).length, 0,
+    'rotorAdapterDocumented should opt the bike out of the rotor-mount advisory');
+});
+test('lint: the shipped catalog has zero rotor-mount mismatches (bias-r4 rotor wave, 2026-07-19)', function(){
+  var warnings = S.lintCatalog(C);
+  eq(warnings.filter(function(w){ return /frontRotor mount|rearRotor mount/.test(w); }).length, 0,
+    'every completebike rotor fill must match its stock wheel rotorMount, or carry rotorAdapterDocumented:true');
+});
 test('catalog-level: a duplicate id is caught', function(){
   var cat = { PARTS: C.PARTS.concat([ U.part('fr-santacruz-megatower-cc') ]), SLOTS: C.SLOTS };
   some(S.validateCatalog(cat, TODAY), 'duplicate');

@@ -147,6 +147,34 @@ that exist; DATA-MODEL-REVIEW §5.2 lists the rest (they land through Phase
 - **tire:** `casing` + `compound` (mandatory for new tire rows)
 - **everything:** `family`/`gen`/`mfgPn`, provenance trio when verifying
 
+## 6a. Complete-bike rotor fills must match the stock wheel's rotor mount
+
+**A `completebike`'s `frontRotor`/`rearRotor` fill must match its stock
+`frontWheel`/`rearWheel` fill's `rotorMount`.** When the build sheet only names
+a rotor brand/size (no mount, the common case), **the hub decides**: pick the
+6-bolt or Center-Lock SKU that matches the wheel's `rotorMount`, not whichever
+row happened to exist first. Entering the mismatched-but-existing row was the
+2026-07-19 bias-r4 rotor wave's root cause — 50 bikes (100 rotor fills) landed
+on a false "needs a Center-Lock adapter" warning on their own stock build,
+concentrated on whichever makers we'd cataloged 6-bolt-first.
+
+- If the maker/size you need doesn't yet have a Center-Lock (or 6-bolt) row,
+  check whether the real product line even makes one before entering a new row
+  — some rotor lines are genuinely one-mount-only (e.g. Hayes' D-Series is
+  6-bolt-only; TRP has no 220/223mm Center-Lock disc). Fabricating a SKU that
+  doesn't exist is worse than leaving the mismatch, per THE BAR.
+- If no real matching-mount SKU exists, leave the fill as-is, add a `desc`
+  note stating that fact + why (the fitment then genuinely needs the hub's
+  own 6-bolt adapter, a real accessory), and set `rotorAdapterDocumented:true`
+  on the bike row — don't force a wrong repoint, and don't leave an
+  undocumented mismatch either.
+- `lintCatalog` runs a standing advisory for this: every `completebike`
+  (without `rotorAdapterDocumented:true`) whose rotor fill's `mount` disagrees
+  with its wheel fill's `rotorMount`. Must read **0 hits** on the shipped
+  catalog — check `node validate.js`'s lint output when adding new
+  complete-bike rows; a hit means either a repoint is needed or the bike is a
+  genuine no-real-SKU exception that needs the flag + the sourced note.
+
 ## 7. Provenance quick reference
 
 - `verified:true` requires `source` (real URL) + `lastChecked` (not future) —

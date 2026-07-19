@@ -172,7 +172,10 @@
  * entry (see compat.js GROUPS comment) - price is always the list MSRP;
  * streetPrice is an optional lower current/sale figure shown as the headline
  * when present (COMPLETE-BIKES-SCOPE.md decision #3).
- * @typedef {CommonFields & {cat: 'completebike', fills: Object.<string, string>, streetPrice?: number}} CompleteBikePart */
+ * rotorAdapterDocumented (bias-r4, 2026-07-19) opts a bike out of lintCatalog's
+ * rotor-fill-vs-wheel-rotorMount advisory when the stock rotor brand/size
+ * publishes no real SKU in the wheel's mount (DATA-ENTRY-TEMPLATE.md §6a).
+ * @typedef {CommonFields & {cat: 'completebike', fills: Object.<string, string>, streetPrice?: number, rotorAdapterDocumented?: boolean}} CompleteBikePart */
 
 /** A drivetrain component (the four parts that share `system` + `speeds`).
  * @typedef {ShifterPart|DerailleurPart|CassettePart|ChainPart} DrivetrainPart */

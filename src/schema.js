@@ -662,7 +662,13 @@ var SCHEMA = {
      current/sale figure shown as the headline when present. Both are plain
      numbers, never swapped for weight, and only `price` is what the <=-sum
      lint checks (a discount makes that lint EASIER to pass, never harder). */
-  completebike: { fills:{type:'fills'}, streetPrice:{type:'number',optional:true} },
+  /* rotorAdapterDocumented (bias-r4 rotor wave, 2026-07-19 — DATA-ENTRY-TEMPLATE.md
+     §6a): opt-out for lintCatalog's rotor-fill-vs-wheel-rotorMount advisory, for
+     the rare bike whose stock rotor brand/size publishes no real SKU in the
+     wheel's mount (so the fill can't be repointed to a real product) — the desc
+     must carry the sourced explanation; this flag just tells the lint the
+     mismatch is known and documented, not a stray entry-time slip. */
+  completebike: { fills:{type:'fills'}, streetPrice:{type:'number',optional:true}, rotorAdapterDocumented:{type:'bool',optional:true} },
 
   /* ============================================================================
      RIDER KIT categories (Kit Builder, 2026-07-14). 12 apparel/protection
@@ -1258,6 +1264,20 @@ function lintCatalog(C){
     var brands = parts.map(function(w){ return w.brand; }).filter(function(v, i, a){ return a.indexOf(v) === i; });
     if(sizes.length > 1) warnings.push('[' + p.id + '] wheelset fills mix wheel sizes: ' + sizes.join(', '));
     if(brands.length > 1) warnings.push('[' + p.id + '] wheelset fills mix brands: ' + brands.join(', '));
+  });
+
+  // a completebike's rotor fill should match its stock wheel's rotorMount -
+  // advisory only (not a hard error): the rare bike that genuinely ships an
+  // adapter earns a sourced desc note and keeps tripping this, on purpose
+  // (bias-r4 rotor wave, 2026-07-19 - see DATA-ENTRY-TEMPLATE.md §6a)
+  C.PARTS.filter(function(p){ return p.cat === 'completebike' && isObj(p.fills) && !p.rotorAdapterDocumented; }).forEach(function(p){
+    ['frontRotor', 'rearRotor'].forEach(function(slot){
+      var wheelSlot = slot === 'frontRotor' ? 'frontWheel' : 'rearWheel';
+      var rotor = byIdMap[p.fills[slot]], wheel = byIdMap[p.fills[wheelSlot]];
+      if(!rotor || !wheel || !rotor.mount || !wheel.rotorMount) return;
+      if(rotor.mount !== wheel.rotorMount)
+        warnings.push('[' + p.id + '] ' + slot + ' mount (' + rotor.mount + ') does not match ' + wheelSlot + '\'s rotorMount (' + wheel.rotorMount + ') - see DATA-ENTRY-TEMPLATE.md §6a');
+    });
   });
 
   return warnings;
