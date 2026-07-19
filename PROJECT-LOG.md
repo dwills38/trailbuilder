@@ -2508,3 +2508,21 @@ per wave/decision; large reconstructions are handed to a worker session.
   file stays STAGED (Douglas runs it); 3 design levers remain his call.
 - Sessions archived as harvested (9 total this wave). Still running: modelYear, re-promotion,
   complete-bikes w4, live-SQL audit, stray-folder cleanup, coach r6, wheels w2 (quiet).
+
+## 2026-07-18 (seat 14, late) — Second harvest: six more lanes; fleet drained to two
+
+- **Docs+security** (`be9af03`): coach round 6 (Cycling UK Unit 3 ingest; XC/enduro asymmetry
+  closed); live-migrations security audit — **H1 HIGH: any signed-in user could self-PIN a forum
+  thread** (no guard on forum_threads.pinned; lands on UNBIASED) + 5 MEDIUMs;
+  `supabase/hardening-2.sql` STAGED with the fixes, adversarially reviewed (policy re-creation
+  verified to drop no live guarantee). Douglas must run the review's §M1 RLS query first.
+- **Catalog** (`92136a5`): complete-bikes wave 4 (27 corrections + 8 promotions across
+  SC/Giant/Evil/Orbea/Scott), the re-promotion grind (~24 of 55 audit demotions honestly
+  re-verified; ~21 walls sharpened), modelYear backfill (41 sourced, 137 deliberately blank).
+  Cross-lane conflicts resolved at field level (frameset prices kept over stale re-prints;
+  modelYear tokens re-inserted onto post-harvest lines). **MTB verified 2,983 → 3,030.**
+- **Hygiene:** cleanup lane removed 6 stray worktrees + 202 fully-merged branches; coordinator
+  removed 15 more harvested worktrees (incl. all 6 D:\-root strays except the wheels lane's
+  live one) + 14 harvested branches. Worktrees ~210 → 185. `D:\scratch_cbgrind` (plain folder,
+  not git) left for Douglas's call.
+- Fleet after this wave: only wheels w2 (quiet — nudge pending) + Partnerships + bug-triage.
