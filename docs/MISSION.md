@@ -1,5 +1,10 @@
 # BuildMyMTB — Mission & Full-Realization Roadmap
 
+> **Our mission:** BuildMyMTB is a free, unbiased bike-building tool with accurate
+> data: it tells you whether parts fit together, what they cost, and what they
+> weigh — verified against the people who make them, favoring no manufacturer, and
+> honest about what it doesn't yet know.
+
 _The project's north-star document: what this is, why it exists, and the path from
 today to the whole planned project. Written 2026-07-18. Live counts cited below are
 from that date and grow daily — `node validate.js` prints the current ones; trust it
@@ -137,34 +142,22 @@ until then the product's language stays calibrated to what's actually proven.
 
 ---
 
-## Part 2 — The mission statement (three candidates)
+## Part 2 — The mission statement
 
-Drafted from the owner's own recorded words — "trustworthy, accurate data, no bias,
-just a tool for users to help them build or have fun"; "we are building the best
-bike website"; information the community can *trust and count on*; unbiased as
-load-bearing; every bike type eventually; more accurate info over less. Pick one, or
-edit freely.
-
-**Candidate A — rider-emotional:**
-
-> Every rider has a build in their head. BuildMyMTB exists so you can trust it into
-> existence — pick every part, see honestly what fits, what it costs, and what it
-> weighs, with no brand's thumb on the scale and nothing between you and the
-> answer. Build it for real, or build it for fun. Either way, the data is straight.
-
-**Candidate B — plain-spoken:**
+**Adopted by the owner, 2026-07-19:**
 
 > BuildMyMTB is a free, unbiased bike-building tool with accurate data: it tells
 > you whether parts fit together, what they cost, and what they weigh — verified
 > against the people who make them, favoring no manufacturer, and honest about
 > what it doesn't yet know.
 
-**Candidate C — ambitious:**
-
-> We are building the best bike website: trustworthy data for every kind of bike
-> and every kind of rider, verified at the source, biased toward no one, and free
-> to use. It will take as long as honest work takes — trust is the product, and we
-> won't ship anything less.
+Drafted from the owner's own recorded words — "trustworthy, accurate data, no bias,
+just a tool for users to help them build or have fun"; "we are building the best
+bike website"; information the community can *trust and count on*; unbiased as
+load-bearing; every bike type eventually; more accurate info over less. Two
+alternate drafts (a rider-emotional voice and an ambitious voice) were considered
+and set aside in favor of this plain-spoken one — the statement's honesty IS the
+brand voice.
 
 ---
 
