@@ -264,3 +264,18 @@ this round by fetching the vendor docs rather than reasoning about them. The hea
   tested on this site specifically — a real recommend-and-measure step, not a corpus fact. Note
   this is now *testable*: PRF-16's data plus a usability study design would settle it, which is
   what the planned L4 research-methods chapter is for.
+
+---
+
+## Round 6 appends (2026-07-18 — phone-UI hard review, PHONE-UI-REVIEW-2026-07-18.md)
+
+- **PRF-20 — Per-category rendered document heights at 375 px (measured; refines PRF-19's
+  DOM-size finding with the navigation cost).** Complete Bikes (the *landing* view):
+  61,418 px ≈ 75 viewports; Frame 30,184 px; Tires 27,861 px; KitBuilder 90,726 px. The
+  category rail is in normal flow at the top and there is no back-to-top control (verified —
+  the only "top" DOM match is the `hdrTopo` SVG pattern id), so from depth the only exits are
+  dozens of flick-scrolls or the sticky search (which strands — MOB-50). PRF-19 recorded the
+  render cost; this records the *wayfinding* cost, and it applies to every long category, not
+  just "All parts". Interim nav fixes specced as P-2; the real fix remains PRF-19's
+  pagination/virtualization decision, still sequenced behind PRF-16's field-data read.
+  *Live-DOM measurement.*

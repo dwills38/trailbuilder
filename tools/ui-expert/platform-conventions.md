@@ -202,3 +202,17 @@ Closes this chapter's clearest standing Gap ("desktop-specific conventions … r
 - Material's own M3 pages remain unpinned (walled); if a future round needs an M3-specific
   fact (state layers, elevation), find the developer.android.com or research-blog carrier.
 - PLT-8 (PWA) is seeded but entirely dormant — revisit only if an installable-app ask surfaces.
+
+---
+
+## Round 6 appends (2026-07-18 — phone-UI hard review, PHONE-UI-REVIEW-2026-07-18.md)
+
+- **PLT-16 — ⚠ CONTRADICTION: the shipped dialogs use no scroll containment, against PLT-7's
+  own Tier-A canon (measured).** `#partModal` open at 375 px: `overscroll-behavior: auto` on
+  the dialog and on its `.rm-body` inner scroller, `body` scrollable behind — on touch,
+  scrolling past the modal body's end chains to the page, so closing the modal loses the
+  user's list position. PLT-7 (MDN, fetched) names exactly this case: `overscroll-behavior:
+  contain` on a modal's scrollable body. Collides with the shipped dialog CSS in
+  `index.html` (all nine dialogs of ACC-22's inventory). One-rule fix specced as P-9 —
+  a coordinator triage item per the boundaries, not a change made here. *Live-DOM
+  measurement against PLT-7's fetched primary.*

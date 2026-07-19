@@ -345,3 +345,29 @@ corpus does not edit `index.html`.*
   click-to-jump concern still honoured.
 - DNS-19 (dual-thumb visual affordance) is parked as a Douglas taste call + a usability-test
   candidate, deliberately not a corpus assertion.
+
+---
+
+## Round 6 appends (2026-07-18 — phone-UI hard review, PHONE-UI-REVIEW-2026-07-18.md)
+
+- **DNS-23 — The category chip carousel hides 11 of 15 categories with zero affordance
+  (measured).** `#chips` at 375 px: 1,283 px of content in a 317 px box with
+  `scrollbar-width: none`, no fade mask, no scroll-snap — the row visually ends at "Rear
+  Shock" and nothing signals Brakes/Seatpost/Cockpit/Pedals exist. Same pattern on
+  `#discChips` (406/317), BMX (441/314), Kit (402/314); the forum's chip block *wraps*
+  instead (HE-7's 460 px wall) — the factory ships both extremes of the visible-vs-compact
+  trade. NAV-2's hidden-content cost applies to the builder's *primary* catalog nav here.
+  Fix options specced as P-6 (recommend: 2-row wrap for `#chips` at ≤480 px — DNS-22's
+  block-height headroom absorbs the extra 44 px; fade + visible scrollbar for minor rows).
+  *Live-DOM measurement.*
+
+- **DNS-24 — Sub-16px form controls on the range rows are an iOS focus-zoom trap
+  (precondition measured).** Inventory at 375 px: 8 controls on `index.html` (range-row
+  `input[type=number]` at 12 px font; `input[type=range]` at 13.3 px) + KitBuilder's `#kSort`
+  select (13 px). Mobile Safari zooms the viewport on focusing a text control under 16 px —
+  the "tap a price field and the page lurches in and stays zoomed" clunk. The sub-16px
+  precondition is DOM-measured; the zoom itself is documented platform behavior, not observed
+  on-device in this rig (no iOS hardware — stated per the both-errors-cost rule).
+  `inputmode="numeric"` is already correct (MOB-19's mechanism). Fix: `font-size: 16px` (or
+  `max(16px, 1em)`) on number inputs/selects at mobile widths — specced as P-7.
+  *Live-DOM measurement + platform-documented behavior.*

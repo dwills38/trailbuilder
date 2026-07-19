@@ -246,3 +246,19 @@ and what the Back button consequently does in each of its views. *Method: static
 - NAV-9 opens the door to a future site-search feature; if one is ever built, NN/g's site-search
   usability guidelines (autosuggest quality, zero-results handling) are the next fetch target —
   out of scope while the site has no search box.
+
+---
+
+## Round 6 appends (2026-07-18 — phone-UI hard review, PHONE-UI-REVIEW-2026-07-18.md)
+
+- **NAV-19 — The touch path to a compat dot's reason is undiscoverable on MTB and absent on
+  BMX (measured).** The dot is a `<span role="img">` whose reason lives in `title` —
+  hover-only, no click handler, so a finger can never surface it directly. On `index.html`
+  the reason *is* reachable but unsignposted: tap the 19 px part name → `#partModal`, which
+  does render the verdict line (verified live: "Fork travel: 150mm exceeds the frame's rated
+  max of 100mm."). Family-card tooltips even say "open a size for why" — advice a touch user
+  cannot read. On `bmx.html` the path does not exist: the card name is a non-interactive
+  `<div>`, there is no part modal, so a phone user can never learn why a dot is red — the
+  engine's core value silent on touch for a whole surface. Related: the build panel's
+  Compatibility rows are plain text with no tap-through to the offending slot/category.
+  Fixes specced as P-3 and P-5(2). *Live-DOM measurement.*

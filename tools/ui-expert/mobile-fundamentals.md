@@ -339,3 +339,41 @@ Read [`INDEX.md`](INDEX.md) first for corpus rules and tiers.
   Kotlin/Java implementation detail with no direct web analogue beyond the touch-slop *concept*
   (MOB-20 captures the actionable edge-swipe consequence; the API surface itself doesn't apply
   to a no-build-step web app and isn't worth further citing here).
+
+---
+
+## Round 6 appends (2026-07-18 — phone-UI hard review, PHONE-UI-REVIEW-2026-07-18.md)
+
+- **MOB-50 — Searching from depth strands the user at the document footer (measured).** At
+  375×812 against `origin/main` @ `43c0888`: Tires view (27,861 px document), scrolled to
+  12,000 px, typing in the sticky `#search` re-renders the list, the document shrinks to
+  10,597 px, and the browser clamps scroll to 9,785 px — the viewport lands on the page footer
+  with the results ~9,300 px above and no feedback. Mechanism: a re-render that shrinks
+  `scrollHeight` below the current scroll position never restores a meaningful scroll anchor.
+  This *undermines MOB-49's trade* — the sticky search is the top-zone control judged worth its
+  cost, and its from-depth behavior reads as broken. *Live-DOM measurement (this review's
+  method record); fix specced as P-1.*
+
+- **MOB-51 — The `#mobileBar` jump mis-lands: `.side` carries `scroll-margin-top: 393px`
+  against a 150 px mobile header (measured, reproducible).** The handler is
+  `.side.scrollIntoView({block:'start'})`; with the stale 393 px margin the panel top parks
+  393 px down — sticky header (150 px) + 243 px of unrelated catalog cards — putting the
+  Compatibility heading mid-screen (≈59% down on a 667 px viewport). Two runs, identical
+  landing (scrollY 1,969; panel top 2,362). Refines MOB-49: the bottom-fixed bar is correctly
+  *placed*, but its one action lands wrong. *Live-DOM measurement; fix specced as P-5.*
+
+- **MOB-52 — `bmx.html` and `KitBuilder/` ship no `#mobileBar` at all (measured).** BMX build
+  panel top at doc 27,693 of 28,141 px; Kit summary at doc 90,372 of 90,726 px — on a phone,
+  no build status and no jump; the entire catalog must be scrolled to see the build. The
+  MOB-46/49 reachability model (bottom-fixed status/jump) exists only on `index.html` —
+  in-repo mobile drift between the three surfaces. *Live-DOM measurement; fix specced as P-4.*
+
+- **MOB-53 — Primary per-card affordances measure 19–20 px tall, at scale (measured).** One
+  Complete-Bikes view at 375 px: 607 interactive elements under 24 px — dominated by
+  `button.name` (19 px; the only path to the part modal and its verdict lines), the
+  `🧾/✓ Verified` source links (19–20 px), and the build panel's `.sl-part.sl-clickable` rows
+  (19 px). KitBuilder: 437; BMX: 64. Spot-measured instances pass SC 2.5.8 **only via the
+  spacing exception** (≥30 px vertical gap in-card — the HE-8 precedent), so this is recorded
+  as a *usability flag at the MOB-1/MOB-2 recommendation tier (44 pt / 48 dp), not a
+  violation*. Hit-area padding (visuals unchanged) is the fix shape — specced as P-8.
+  *Live-DOM measurement.*
