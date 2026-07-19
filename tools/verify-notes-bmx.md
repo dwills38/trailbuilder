@@ -123,3 +123,134 @@ verified rows, i.e. 28 more. The clean path forward:
    double-digit unverified counts and likely-fetchable DTC sites (thebuildingdistro.com/similar
    for the harder brands, direct brand sites for the easier ones) — a further 1-2 waves focused
    there should clear 28+ rows without hitting the complete-bike-weight wall at all.
+
+---
+
+# BMX verification wave 2 — 2026-07-19 (verify/bmx-2)
+
+Scope: `data/bmx.js` only. Branch cut fresh off `origin/main` (commit `e9fdbe8`). Target per
+the coordinator's brief: Odyssey/Cult/Colony small parts, flagged by wave 1 as the best
+remaining yield.
+
+## Before → after
+
+- Before: 62/225 verified (27.6%)
+- After: **66/225 verified (29.3%)** — 4 new verifications, all Colony (colonybmx.com.au is a
+  genuinely static/server-rendered WordPress site with real per-product weight text — see the
+  "critical finding" below for why Odyssey and Cult yielded zero this session despite heavy
+  research effort).
+
+## Verified (4), all colonybmx.com.au (Colony's own site)
+
+1. **`bmx-gr-colony-mountjoy`** (Mountjoy Grips) — "140mm...diameter", plastic push-in bar
+   ends (flangeless), "Weight: 124 grams (4.37oz) per pair". **Correction:** length 143→140.
+2. **`bmx-pg-colony-oneway`** (Oneway CrMo Peg) — "Forged & machined from 4140 CrMo...", `3/8"
+   & 14mm axle slots` (dual-bore, confirms `reducerIncluded:false` at this row's 14mm), "169
+   grams each (5.96oz)".
+3. **`bmx-pg-colony-jamcircle`** (Jam Circle Peg) — "6061T6 Alloy", `10/14mm with adaptor`
+   (native 14mm bore, adaptor steps down to 10mm — confirms `reducerIncluded:false` at 14mm),
+   "Weight: 99 grams".
+4. **`bmx-rh-colony-wasp`** (Wasp Cassette Hub) — "14mm axle...9T driver...Weight: 469grams
+   (16.54oz)" — matches `driverType:'cassette'`/`driverTeeth:9`/`axle:'14mm'` exactly.
+
+All four: price left as the existing sample (colonybmx.com.au is an AU site, no USD shown);
+disclosed in each row's `note` per THE PRICE RULE.
+
+## ★ Critical finding: WebSearch/WebFetch can fabricate weight figures that never appear on the cited page — always cross-check with a raw `curl` + `grep` before trusting a number
+
+This cost most of the session's research time and is worth flagging loudly for future waves.
+
+Pattern: ask WebSearch/WebFetch for a spec, it returns a specific, plausible-sounding number
+*and cites a real URL* — but the number is not actually present in that page's HTML. Caught
+three times this session:
+
+- **Odyssey Calibur V2 Cranks**: WebSearch reported "1lb 11.8oz (≈770-788g)" citing
+  `shop.odysseybmx.com/products/odyssey-calibur-v2-bmx-cranks-rustproof-black`. Raw `curl` of
+  that exact URL: the only weight-related text on the page is the boilerplate disclaimer
+  ("Weights listed may vary slightly per batch"). No number anywhere in the HTML.
+- **Odyssey GTX-S Gyro**: WebSearch reported "1.5 oz" citing the shop page. Same result on
+  `curl` — no weight number present, only the same disclaimer.
+- **Odyssey R32 Forks / Elementary V2 Stem**: WebSearch reported 885g and 230g respectively —
+  both suspiciously **matching this catalog's pre-existing unverified sample weights exactly**.
+  `curl` of the real product pages' `<meta name="description">` (the actual on-page spec
+  summary) shows neither page states a weight at all (R32: "41-Thermal lifetime replacement
+  warranty. 32mm traditional offset. 4mm thick dropouts. 3/8″ axle slot." — no weight token).
+  The exact-match-to-sample-data is the tell: a model reproducing an existing figure it saw
+  associated with this part elsewhere (BMX wiki/forum context in training data, or this
+  catalog's own prior git history if that leaked into a search index) rather than reading it
+  off the fetched page.
+
+**Consequence for this session:** every Odyssey and Cult verification candidate researched via
+WebSearch/WebFetch alone was **abandoned rather than committed**, even where the returned
+number looked clean, unless a follow-up raw `curl … | grep` independently reproduced the exact
+figure in the page's actual HTML. The 4 Colony verifications above all cleared that second
+check (see the `grep` hits quoted in each note). **Protocol suggestion for future waves:**
+treat any WebSearch/WebFetch-reported weight as a lead, never a source — the fetched-page
+requirement in THE BAR item 1 isn't satisfied until a raw fetch reproduces the literal string.
+
+## Also confirmed real (raw `curl`), but NOT verified — reasons below
+
+- **`bmx-rh-cult-matchv2`** (Cult Match V2 Cassette Hub) — re-checked `cultcrew.com`'s current
+  "Crew Cassette Hub" page raw HTML: no weight number present (same shipping-weight-bucket
+  problem wave 1 already found, `3629g`, applies to `cultcrew.com` broadly — its Shopify
+  storefront doesn't expose real per-SKU weight in page text, unlike `colonybmx.com.au`). No
+  change from wave 1's finding.
+- **`bmx-st-colony-official`** (Official Stem) — raw-confirmed weight 248g ("Weight: 248 grams
+  (8.74oz)") but the page states no clamp diameter anywhere, and `checkBmxBuild`'s bar/stem
+  clamp rule reads that field — bar item 1 (interfaces manufacturer-sourced, no exceptions)
+  isn't met. Left unverified/unchanged.
+- **`bmx-st-colony-variant`** (Variant Stem) — same story: raw-confirmed "52mm reach, 22.5mm
+  Rise... Weight: 271 grams (52mm reach) / 234 grams (35mm reach)" but no clamp diameter on
+  the page. Left unverified/unchanged.
+- **`bmx-hb-colony-rick`** (Rick Bars) — raw-confirmed real specs, but Colony currently sells
+  **two** rise/width variants (8.65"/1039g and 9.3"/1056g, both 28.0"-29" wide) and this
+  catalog's single generic row (`rise:8, width:29`) doesn't cleanly identify which one it is —
+  the classic flat-SKU ambiguity DATA-ENTRY-TEMPLATE.md warns about. Left unverified/unchanged;
+  a future pass could split this into two rows per the template's variant-token convention.
+- **`bmx-hb-colony-guardian`** (Guardian Bars) — same ambiguity: two real variants (8.8"/864g
+  and 9.4"/942g, both 29.0" wide — width matches this row's `width:29` exactly, rise doesn't
+  cleanly match either 8.8 or 9.4 against the row's `rise:8`). Left unverified/unchanged.
+- **`bmx-rh-colony-wasprace`** (Wasp Race Cassette Hubset) — raw-confirmed "Weight: 560 grams
+  for full set (205 grams for front & 355 grams for rear)... ships standard with a 16T cog"
+  (confirms `driverTeeth:16`). **Not verified**: it's a genuine front+rear hubSET, and this
+  row's `$129.99` price and `cat:'rearWheel'` scope don't cleanly correspond to "rear half of a
+  set" — THE PRICE RULE item 3 (a price belonging to a different product is disqualifying)
+  applies. Flagged for the same kind of policy call as wave 1's Haro/Mongoose finding, not
+  edited.
+- **`bmx-fw-colony-wasp`** (Wasp Front Hub) — raw-confirmed weight (284g bare / 305g w/
+  guards) but the page's only axle-related text is "Female bolt style with CrMo axle for
+  strength" — no diameter number anywhere (a `10mm` string on the page turned out to be "10mm
+  bolts only", i.e. the wrench size for the axle bolts, not the axle diameter — worth noting
+  since it's an easy misread). This row's existing note claims a sourced "14mm hollow chromoly
+  axle" from a past pass; today's page doesn't support that specific number either way. Left
+  unchanged (existing unverified sample), flagged for a future pass with a sharper source.
+
+## Odyssey / Cult: researched, zero yield this session
+
+Every Odyssey small part investigated (grips, chains, sprockets, cranks, fork, gyro, stem) hit
+one of two walls: (1) `shop.odysseybmx.com`'s Shopify product-level `weight` field is a
+shipping-weight bucket, not a net product weight — proven by pulling the raw `.js` variant JSON
+for the Trailmix Looseball Pedals (`weight:1361`, i.e. 1.36kg, for a pedal pair that every other
+source puts at 340-561g) and by two different grip models (Keyboard v1, Broc) both showing an
+identical `weight:141` — a single shop-wide default, not a per-product figure; or (2) the
+WebSearch fabrication pattern above. Every Cult small part investigated (grips, pegs, Hi-Fi
+stem) hit the same Shopify-weight-bucket wall on `cultcrew.com`, **plus** several catalog model
+names no longer match current SKUs (no "Hi-Fi Stem", "AK Grips"/"Alloy Pegs"/"Steel Pegs" don't
+map to a single current product — Cult's current lineup uses specific names like "Butter Peg"/
+"Doomsday Peg" instead of the generic "Alloy"/"Steel" this catalog uses), mirroring wave 1's Fly
+Bikes/Redline discontinued-naming pattern. No catalog edits made for either brand this session.
+
+## Distance to Douglas's 40% (90/225) go-live bar
+
+62→66 this wave (+4). 24 more needed. Given this session's findings, the highest-confidence
+path is **NOT** more Odyssey/Cult small parts (both brands' storefronts actively obstruct
+weight verification via the Shopify-weight-bucket problem) — it's:
+
+1. **The wave-1 policy question is still the biggest lever and is still open**: extending the
+   interface-verification exception to "complete-bike-only frames" (Haro Downtown/DLX, Mongoose
+   Legion, likely more in Redline/Subrosa/GT) would promote roughly 6-10 rows immediately.
+2. **Brands with real static (non-Shopify-JS) sites are the next best target** —
+   `colonybmx.com.au` (WordPress) yielded 4/4 clean this session; the same pattern likely holds
+   for other non-Shopify BMX brands not yet swept (worth checking platform type — static HTML
+   with a `<meta name="description">` spec summary vs. a Shopify storefront — before spending
+   research time on a brand).

@@ -147,6 +147,20 @@ weights get surfaced prominently in the UI (vs stored quietly on the row) is a s
 decision informed by the expert weight-materiality consult — data-gathering is liberal,
 interface real estate is curated.
 
+### ★ THE PHANTOM-NUMBER HAZARD (BMX wave 2, 2026-07-19 — treat fetched figures as leads)
+
+WebSearch/WebFetch summaries have now been caught REPORTING SPECIFIC WEIGHT FIGURES that do not
+exist on the cited manufacturer page — two of them exactly matching the catalog's own pre-existing
+UNVERIFIED SAMPLE values, i.e. the summarizer reproduced a familiar-looking number instead of
+reading the page. Before committing any weight (or other load-bearing figure) sourced through a
+fetch/search summary, CROSS-CHECK it against the raw page (`curl <url> | grep`, or the browser
+pane's `document.body.innerText`) — the number must be literally present. A summary-reported
+figure is a LEAD, never a source. Related trap, same wave: **Shopify storefronts' product-JSON
+`weight` field is often a SHIPPING-weight bucket, not net product weight** (proved on Odyssey/
+Cult; a pedal pair listed at 1361g vs the real ~350-550g) — the Shopify `/products/X.js` trick
+remains gold for interfaces/variants, but its grams are only trustworthy where they vary
+per-variant and pass a sanity check.
+
 ## Per-part loop (persist before moving on)
 
 For each work order from `next`:

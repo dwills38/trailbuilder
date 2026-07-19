@@ -1292,15 +1292,21 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-gr-colony-mountjoy', cat: 'grips', brand: 'Colony', model: 'Mountjoy Grips',
-    length: 143, flangeless: true, price: 10.99
+    length: 140, flangeless: true, weight: 124, price: 10.99,
+    verified: true, lastChecked: '2026-07-19', source: 'https://colonybmx.com.au/products/mountjoy-grips/',
+    note: 'colonybmx.com.au: "140mm...diameter", plastic push-in style bar ends (flangeless), "Weight: 124 grams (4.37oz) per pair". Length corrected 143->140. Price unconfirmed on the AU page (no USD shown); left as the existing $10.99 sample, matching this catalog\'s established Colony/Odyssey grip pricing convention.'
   },
   {
     id: 'bmx-pg-colony-oneway', cat: 'pegs', brand: 'Colony', model: 'Oneway CrMo Peg',
-    axleFit: '14mm', material: 'steel', reducerIncluded: false, price: 19.99
+    axleFit: '14mm', material: 'steel', reducerIncluded: false, weight: 169, price: 19.99,
+    verified: true, lastChecked: '2026-07-19', source: 'https://colonybmx.com.au/products/oneway-crmo-peg/',
+    note: 'colonybmx.com.au: "Forged & machined from 4140 CrMo then heat treated", "3/8\\" & 14mm axle slots" (dual-bore, no reducer needed at 14mm - matches reducerIncluded:false), "169 grams each (5.96oz)". Price unconfirmed on the AU page; left as the existing $19.99 sample.'
   },
   {
     id: 'bmx-pg-colony-jamcircle', cat: 'pegs', brand: 'Colony', model: 'Jam Circle Peg',
-    axleFit: '14mm', material: 'alloy', reducerIncluded: false, price: 24.99
+    axleFit: '14mm', material: 'alloy', reducerIncluded: false, weight: 99, price: 24.99,
+    verified: true, lastChecked: '2026-07-19', source: 'https://colonybmx.com.au/products/jam-circle-pegs/',
+    note: 'colonybmx.com.au: "6061T6 Alloy", "10/14mm with adaptor" (native 14mm bore, adaptor steps down to 10mm - so no reducer needed at this row\'s 14mm), "Weight: 99 grams". Price unconfirmed on the AU page; left as the existing $24.99 sample.'
   },
   {
     id: 'bmx-fw-colony-wasp', cat: 'frontWheel', brand: 'Colony', model: 'Wasp Front Hub',
@@ -1309,8 +1315,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-rh-colony-wasp', cat: 'rearWheel', brand: 'Colony', model: 'Wasp Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 99.99,
-    note: 'Popular freestyle cassette hub - 6 pawls, high engagement.'
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 469, price: 99.99,
+    verified: true, lastChecked: '2026-07-19', source: 'https://colonybmx.com.au/products/wasp-cassette-hub/',
+    note: 'colonybmx.com.au: "14mm axle...9T driver...Weight: 469grams (16.54oz)" - matches this row\'s cassette/9T/14mm exactly (standalone rear hub, not the Race hubset). Price unconfirmed on the AU page; left as the existing $99.99 sample.'
   },
   {
     id: 'bmx-rh-colony-wasprace', cat: 'rearWheel', brand: 'Colony', model: 'Wasp Race Cassette Hubset',
