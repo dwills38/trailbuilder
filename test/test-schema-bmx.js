@@ -6,7 +6,11 @@ var S = require('../src/schema-bmx.js');
 var U = require('./test-util.js');
 var eq = U.eq, ok = U.ok;
 
-var TODAY = new Date('2026-07-17T00:00:00Z');
+// The validator's clock: the REAL current date, matching validate.js's own
+// behavior — a pinned date here goes stale and skews every future BMX
+// verification wave's lastChecked (it bit wave 1 on 2026-07-18). The
+// future-date negative below uses a fixed 2099 date, so it stays deterministic.
+var TODAY = new Date();
 
 // a real BMX frame row to clone/mutate for negative tests (throws if the
 // catalog somehow ships no frames, rather than silently testing `undefined`)

@@ -2486,3 +2486,25 @@ per wave/decision; large reconstructions are handed to a worker session.
   unlicensed images and outreach are mutually exclusive as written. CRITICAL-2: "every listing
   links to purchase channels" is false today (0 rows carry retailerLinks). 5 decisions queued for
   Douglas (§6 of the review doc).
+
+## 2026-07-18 (seat 14, evening) — Nine-lane harvest merged; containment rule enforced
+
+- **File-containment hard rule #5 shipped + enforced** (`e3475d9`): all session files inside
+  `D:\MTB Bike Builder`; PreToolUse hook auto-denies outside worktree/clone paths (caught and
+  survived its own false-positive class — unquoted space-truncated project paths — before landing).
+  Session-messaging permissions project-wide (`5276599`) — the fleet runs click-free.
+- **Docs harvest** (`78d15b8`): IS-mount CLAUDE.md correction (engine fix f1685b4 predated the
+  chip; bias-audit r3 HIGH-1 RESOLVED); MOB-48/49 measurements (breakpoint-crossing risk REFUTED
+  by two independent same-day runs, merged at field level); ui-expert round 5 heuristic eval
+  (ACC-26 forum-rows keyboard violation = the round's one violation-grade finding; HE-1 reset
+  destroys builds unconfirmed; PRF-19 unbounded All-parts render).
+- **Green-dot disclosure live** (`d6528ca`): bias-audit r3's cheapest win — hover + legend now say
+  green = no conflict among CHECKED dimensions; some makers publish no data.
+- **Catalog harvest** (`764a79e`): BMX w1 (59→62), complete-bikes w3 (Canyon pass; 2 flags held),
+  forks (+10 net verified; Rhythm maxRotorF 203→230 off Fox CAD; DVO wall = 3rd honest stop),
+  frameset-sibling sweep (11 real frameset SKUs corrected, 34 skip-reasons rewritten, 6 flagged).
+  verification-job.json merged three-way at entry level, zero collisions. MTB verified 2972→2983.
+- **reviews.sql hardened** (`2e2e65a`) after coordinator adversarial review — both HIGHs closed,
+  file stays STAGED (Douglas runs it); 3 design levers remain his call.
+- Sessions archived as harvested (9 total this wave). Still running: modelYear, re-promotion,
+  complete-bikes w4, live-SQL audit, stray-folder cleanup, coach r6, wheels w2 (quiet).
