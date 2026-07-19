@@ -2572,3 +2572,18 @@ per wave/decision; large reconstructions are handed to a worker session.
 - Stale-docs debt from the mission research (NEXT-STEPS frozen at 07-13, Getting-Started
   phase-order inversion + pre-ethics scraping advice, CLAUDE.md rule-3 wording lag) — refresh
   chip offered, awaiting Douglas.
+
+## 2026-07-19 (seat 14) — Upgrade Advisor LIVE; kit apparel wave; BMX w2; two doctrine catches
+
+- **Feature slate #1 SHIPPED (`97f62bb`): the Upgrade Advisor** — "will it fit my bike" mode;
+  swap-aware verdicts (displaced parts, new conflicts, conflicts cleared), deep-linkable in the
+  share grammar, sanitizer-guarded; src/upgrade.js pure module + 17 tests (781 total); zero
+  engine changes, harness byte-identical; verdict-based sorting deliberately deferred (bias).
+- **Kit apparel wave (`d8beece`): 437 → 470 verified** under the new no-weight bar; real drift
+  caught (Leatt restock); 2 suspicious iXS kneepad rows flagged for investigation.
+- **BMX w2 (`b78e186`): 66/225**; 24 to the 40% bar (frame-exception ruling would close ~6-10).
+- **Doctrine hardened twice:** the PHANTOM-NUMBER hazard (fetch summaries invented weights
+  matching our own sample values — caught by raw-curl cross-check; figures are leads, never
+  sources; Shopify weight = shipping bucket) and JS-RENDERED ≠ BOT-WALLED (specialized.com +
+  100percent.com read cleanly in the browser pane — re-test the Specialized/Trek frames
+  "wall" through that lane).
