@@ -301,6 +301,16 @@ layer's moderation muscle (Phase 7), and revenue stability (Phase 8).
 
 ### Horizon items (real, unscheduled)
 
+**The visual build (owner-directed, 2026-07-19 — a committed part of the ultimate
+plan, unscheduled):** every builder gains a live **bike diagram** that fills in as
+you pick — choose a frame and it appears, add the fork and it slots in — so a
+rider *sees* their build take shape; BuildMyRideKit gains the same idea as a
+**rider figure** that gets dressed as helmet, jersey, shoes, and armor are chosen.
+Renderings stay deliberately generic silhouettes — never brand-identifiable shapes
+— because a diagram that flatters one maker's part would break the unbiased rule
+the same way a ranking would. Click-driven progressive rendering, never a pop-up.
+Starts with a design/scoping round when the owner calls it up.
+
 The specialist-corpus flywheel keeps compounding — every verified fact makes the
 next guide, audit, and rule review cheaper and better. On the far radar, in the
 owner's recorded ideas: **BuildMyToolBox** (workshop equipment, the same
