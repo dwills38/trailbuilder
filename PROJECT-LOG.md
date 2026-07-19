@@ -2541,3 +2541,14 @@ per wave/decision; large reconstructions are handed to a worker session.
   responsive-patchable). Top clunk: search strands users at the footer, 28k–90k px lists with no
   way back up, hover-only dot reasons on touch, #mobileBar absent on bmx/Kit. 6 fix chips handed
   to Douglas; ACC-26/HE-1/HE-7/NAV-18/PRF-19 deliberately not duplicated.
+
+## 2026-07-19 (seat 14) — Phone-fix wave: 5 of 6 live; ACC-26 closed; cockpit/kit tails
+
+- Phone fixes 1-5 all LIVE (`03adf8b`..`c8a67ea`): mobileBar on BMX+Kit, search-strand +
+  root-caused --hdr-h staleness, tappable dots (BMX's first verdict card), CSS ergonomics
+  (16px zoom guards, hit-areas, dialog overscroll containment — PLT-16 closed), chips 2-row
+  wrap. Fix 6 (scroll-revealed "↑ Filters") built on branch ui/phone-fix-backtotop, HELD for
+  Douglas's no-popup sign-off per design.
+- ACC-26/27 fixed: forum rows keyboard-operable (WCAG 2.1.1 Level A violation closed).
+- Cockpit w2 + kit tail merged: MTB verified 3,041; kit's apparel weight-walls documented —
+  recommendation: a measured-weight (sourceType:'measured') apparel pass, Douglas's call.
