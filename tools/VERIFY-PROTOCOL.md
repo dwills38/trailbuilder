@@ -137,6 +137,16 @@ follow the normal bar incl. the `sourceType:'measured'` route where makers publi
 supersedes the 2026-07-19 kit-tail wave's apparel weight-walls: those rows may re-verify on a
 maker-page fetch alone.
 
+**REFINED same day (Douglas 2026-07-19): err on the side of MORE accurate info, never less.**
+"If people care about the weights of shoes or any other category, let's include it… It doesn't
+mean we have to blow up the interfaces with nonsense no one cares about though." Operating rule:
+an ACCURATE weight (maker-stated or `sourceType:'measured'`) is WELCOME on every kit row and
+should be captured whenever a pass encounters one — absence just never *blocks* apparel
+verification. Never a fabricated or retailer-guessed figure (unchanged). Which categories'
+weights get surfaced prominently in the UI (vs stored quietly on the row) is a separate display
+decision informed by the expert weight-materiality consult — data-gathering is liberal,
+interface real estate is curated.
+
 ## Per-part loop (persist before moving on)
 
 For each work order from `next`:
