@@ -4810,7 +4810,15 @@
     sync(); toast('Loaded a build full of clashes');
   }
 
-  $('search').addEventListener('input', function(e){ search=e.target.value; renderCatalog(); });
+  $('search').addEventListener('input', function(e){
+    search=e.target.value;
+    var wasDeep = window.scrollY > window.innerHeight;   // PHONE-UI-REVIEW P-1: filtering while
+    renderCatalog();                                      // scrolled past a screen can shrink the
+    // list out from under the scroll position, stranding the user at the footer with zero
+    // feedback anything matched — jump back to the results head (same instant-jump convention
+    // as the guided-flow advance below). Skipped near the top so normal typing isn't yanked.
+    if(wasDeep){ var h=$('catHead'); if(h) h.scrollIntoView({block:'start'}); }
+  });
   $('sortBy').onchange=function(){ sortBy=this.value; renderCatalog(); };
   $('verifiedOnly').onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary', verifiedOnly); this.setAttribute('aria-pressed', String(verifiedOnly)); renderCatalog(); };
   $('compatibleOnly').onclick=function(){
@@ -4948,7 +4956,13 @@
   // smooth — the catalog page is thousands of px tall on phones, so an animated
   // scroll that far is slow (the guided-flow work established instant jumps here).
   // (The filter rail is always visible now — no drawer/toggle machinery.)
-  $('mobileBar').onclick=function(){ var s=document.querySelector('.side'); if(s) s.scrollIntoView({block:'start'}); };
+  $('mobileBar').onclick=function(){
+    syncHdrH();   // PHONE-UI-REVIEW P-5: --hdr-h can go stale after a viewport resize the
+    // ResizeObserver/resize listener miss (e.g. orientation change) — recompute right before
+    // the jump so .side's scroll-margin-top always clears the CURRENT header height, not a
+    // cached one from before the resize.
+    var s=document.querySelector('.side'); if(s) s.scrollIntoView({block:'start'});
+  };
 
   $('viewBuild').onclick=openBuildModal;
   $('bmClose').onclick=function(){ $('buildModal').close(); };
