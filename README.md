@@ -140,7 +140,7 @@ The next push then deploys, and the site goes live at
 2. ✅ Data schema + validator, with optional per-part `verified` + `lastChecked` + `source`.
 3. ✅ Type-checking via JSDoc + `tsc --noEmit` (`npm run typecheck`) — full `strict`, with `Part` modeled as a per-category discriminated union, so missing / mistyped / cross-category fields are caught as you type. No build step.
 4. ✅ Vitest test runner + GitHub Actions CI — `validate` + `tests` + `typecheck` on every push / PR.
-5. 🚧 Adding real, verified manufacturers and parts — **46 verified so far** (SRAM Eagle/Transmission drivetrain parts, RockShox shocks, six frames, six Maxxis tires, pedals, wheels, droppers; run `node validate.js` for the live count); the rest is still sample data.
+5. 🚧 Adding real, verified manufacturers and parts — **thousands verified against manufacturer sources** and growing daily (run `node validate.js` for the live counts across all catalogs); unverified rows are honest sample data and labeled as such. See [docs/MISSION.md](docs/MISSION.md) for the full picture.
 6. 🚧 Deploy so real riders can hammer it — the GitHub Pages workflow is ready (`.github/workflows/deploy.yml`); it just needs a public GitHub remote and Pages enabled (see **Deploy** above).
 
 **Parked (planned, not now):** ride categories — **enduro / trail / downhill** — so the catalog
