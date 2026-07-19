@@ -2533,3 +2533,11 @@ per wave/decision; large reconstructions are handed to a worker session.
   rim via PDF, both prior open questions resolved — XRC 1200 25mm real-but-discontinued via
   Wayback, M1900 SuperBoost157 confirmed OE-only and honestly unverified). MTB verified 3,038.
   Last D:\-root stray worktree (wt-wh2-c804) removed. Fleet: Partnerships + bug-triage only.
+
+## 2026-07-19 (seat 14) — Phone-UI hard review: NO m-dot; 6-chip fix list
+
+- ui-expert phone teardown merged (`bd88bcd`): m.buildmymtb.com REJECTED with evidence (drift
+  risk on a no-build-step codebase, SEO/canonical burden, share-hash breakage; every clunk is
+  responsive-patchable). Top clunk: search strands users at the footer, 28k–90k px lists with no
+  way back up, hover-only dot reasons on touch, #mobileBar absent on bmx/Kit. 6 fix chips handed
+  to Douglas; ACC-26/HE-1/HE-7/NAV-18/PRF-19 deliberately not duplicated.
