@@ -112,15 +112,50 @@ but stays `professional` because XC and enduro still carry only two facts each.
 | `discipline-craft.md` | L3 | professional | DSC-11 race-craft, DSC-12 DH compression/G-outs, DSC-13 the scrub — all Tier B interviews, labelled; XC/enduro asymmetry holds the grade |
 | `coaching-methodology.md` | L4 | **master** (public-source ceiling) | CCH-15, CCH-16, CCH-17, CCH-18 |
 
-### Where round 6 should go
-1. **`discipline-craft.md` is now the clearest weakest link** — XC and enduro need a third fact each
-   (XC: technical race-line economy, ride-vs-walk decisions; enduro: B-consensus for DSC-3's pacing
-   claim, fatigue-state degradation specifics). Pit/mechanic procedure is also genuinely uncovered.
-2. **Mine Cycling UK Unit 3** (Instructing Riding Skills) — free, public, curriculum-grade, and it
-   bears on `coaching-methodology.md`'s remaining session-plan-template gap.
-3. **`terrain-features.md`'s L3 discipline application** and the manual/preload force-curve physics.
-4. **Corroborate the single-source depth facts**: CCH-15 (Triangle of Success, two of three axes),
-   COR-15/16 (stoppie pivot), DSC-13 (scrub), DSC-10 (whip).
+## Round 6 (2026-07-18)
+
+**Round 6 summary.** Closed both of round 5's named priorities. `discipline-craft.md`: DSC-14 (XC
+technical race-line efficiency) and DSC-15 (enduro fatigue-state technique degradation — which also
+supplies DSC-3's first independent corroboration) bring every discipline to three fetched facts,
+closing the specific asymmetry that held the chapter at `professional`; DSC-16 separately closed
+DSC-11's own named remainder, actual pit/mechanic race procedure. `coaching-methodology.md`: mined
+Cycling UK Unit 3 as round 5 flagged — CCH-19 (the 4 E's, a session-level gate above the existing
+teaching-model stack, Maslow-grounded), CCH-20 (positive-framing error correction +
+how/what/where/when/why feedback), CCH-21 (games-first/incidental-learning session design, narrowing
+but not closing the session-plan-template gap).
+
+**Grading note:** `discipline-craft.md` stays `professional`, not `master`, despite closing the
+asymmetry — DSC-6 (Tier-C biomechanics) is still unfetched, and the CURRICULUM's own master bar for
+this chapter requires biomechanics grounding where it exists. `coaching-methodology.md` stays
+`master` (public-source ceiling, unchanged) — CCH-19/20/21 are new depth within an already-master
+chapter, not a maturity change, and they are honestly flagged single-source (Cycling UK Unit 3
+only) pending future corroboration.
+
+| Chapter | Level | Maturity (round 6) | Round-6 change |
+|---|---|---|---|
+| `fundamentals.md` | L1→L2 | professional | no change |
+| `braking-traction.md` | L1→L2 | professional | no change |
+| `cornering.md` | L1→L2 | master | no change |
+| `climbing-descending.md` | L1→L2 | professional | no change |
+| `terrain-features.md` | L2 | professional | no change — round 7's clearest target (see below) |
+| `discipline-craft.md` | L3 | professional | DSC-14, DSC-15, DSC-16 — XC/enduro asymmetry closed, pit/mechanic procedure closed; DSC-6 biomechanics is now the specific gap holding `master` |
+| `coaching-methodology.md` | L4 | master (public-source ceiling) | CCH-19, CCH-20, CCH-21 (Cycling UK Unit 3) |
+
+### Where round 7 should go
+1. **`terrain-features.md` is now the clearest remaining target** — it has had no new facts since
+   TER-14 (round 5) and its L3 discipline application + the manual/preload force-curve physics gap
+   (named since the bootstrap round) are both still open.
+2. **`discipline-craft.md`'s DSC-6 (Tier-C biomechanics)** — the specific, named reason the chapter
+   stays `professional` despite every discipline now carrying three facts; a strong standalone
+   target since it would deepen facts corpus-wide, not just this chapter (same argument the chapter's
+   own Gaps section has made since the bootstrap round).
+3. **Corroborate single-source depth facts**: CCH-15 (Triangle of Success, two of three axes),
+   COR-15/16 (stoppie pivot), DSC-10 (whip), DSC-13 (scrub), DSC-14/DSC-15 (XC line efficiency,
+   enduro fatigue craft — new this round), and CCH-19/20/21 (all single-source to Cycling UK Unit 3
+   — new this round, no independent corroboration yet).
+4. **Cycling UK Units 1 (Ride Preparation) and 8 (Dealing with Emergencies)** remain unmined, as does
+   NZQA unit standard 30678 — the national-federation-source vein round 5 opened and round 6 mined
+   one unit of is not exhausted.
 
 ## Superseded state (round 4, 2026-07-18)
 
@@ -135,6 +170,12 @@ but stays `professional` because XC and enduro still carry only two facts each.
 | `coaching-methodology.md` | L4 | professional | round 4 (2026-07-18) L4 public-source closeout: added the Training Wheel model + public assessment-progression bullets (CCH-9), BICP's own tiered coach-certification ladder (CCH-10), the NSCA "FIX IT" evidence-based error-correction framework (CCH-11), Hossner et al.'s peer-reviewed functional root-cause/personal-style framework (CCH-12), contextual-interference motor-learning research sharpening CCH-7 (CCH-13), and the "Challenge by Choice" group/risk-management model (CCH-14). **Per Douglas's 2026-07-18 decision, the walled graded rubrics (PMBIA's full six skills, BICP's named 16 + Minimum Ride Standard) are now PERMANENTLY out of scope — not a pending gap** — the chapter is graded `professional` against a public-source-master ceiling, honestly short of `master` on the still-open L2/L3 teaching-progression-for-a-specific-maneuver gap |
 
 ## Corpus rule: target the weakest chapter
+
+**Round 6 update (2026-07-18):** two chapters remain `master` (`coaching-methodology.md`,
+`cornering.md`) and five remain `professional`, but `discipline-craft.md`'s round-5 weakness (the
+XC/enduro fact-count asymmetry) is now closed — see "Round 6" above. **`terrain-features.md`, with
+no new facts since round 5, is the weakest link entering round 7** (see "Where round 7 should go"
+above).
 
 **Round 5 update (2026-07-18):** two chapters are now `master` (`coaching-methodology.md`,
 `cornering.md`) and five remain `professional`. The rule therefore bites again in its original form —

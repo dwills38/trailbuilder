@@ -1,23 +1,29 @@
 # Discipline Craft — Coach Corpus
 
 **Maturity: professional** (L3 — round 3, 2026-07-18 gave every discipline a second sourced fact;
-**round 5, 2026-07-18** added cross-discipline race-craft (DSC-11), closed the DH compression/G-out
-gap (DSC-12) and the DJ/park scrub gap (DSC-13). **Still `professional`, not `master`, by this
-chapter's own stated criterion:** DH and DJ/park now carry the 3+-item progression sets that
-criterion asks for, but **XC and enduro still carry only two facts each** — that asymmetry is the
-specific thing holding the chapter back, and it is the next round's clearest target. Note also that
-round 5's additions are **Tier B practitioner interviews**, labelled as such; race-craft has no
-public Tier-A source. See Gaps). XC · enduro · DH race technique · DJ /
+round 5 added cross-discipline race-craft (DSC-11), closed the DH compression/G-out gap (DSC-12)
+and the DJ/park scrub gap (DSC-13). **Round 6, 2026-07-18** closed the specific asymmetry round 5
+named as "the next round's clearest target": XC (DSC-14, technical race-line efficiency in rock
+gardens) and enduro (DSC-15, fatigue-state technique degradation — which also supplies the first
+independent corroboration of DSC-3's single-source "smooth is fast" claim) now carry **three**
+fetched facts each, matching DH and DJ/park. Round 6 also closed DSC-11's own named remainder —
+**actual pit/mechanic procedures** — with DSC-16 (checklist discipline, fresh-wheel policy,
+wet-weather doctrine, crash-swap contingency). **Still `professional`, not `master`:** the
+CURRICULUM's master bar for this chapter explicitly asks for biomechanics (Tier-C) grounding, and
+DSC-6 remains unfetched — that, not the discipline asymmetry, is now the chapter's clearest
+remaining gap. Race-craft/pit content stays **Tier B practitioner interviews**, labelled as such;
+this domain has no public Tier-A source. See Gaps). XC · enduro · DH race technique · DJ /
 pump-track / park basics. Read [`INDEX.md`](INDEX.md) first (corpus rules, tiers, SAFETY-FIRST
 PROGRESSION, tacit-layer disclaimer).
 
-Fact IDs are stable and append-only (`DSC-n`). Each discipline now carries **two** fetched, cited
-facts: the round-2 core-craft seed plus a round-3 addition that either deepens race/park tactics
-(XC pacing, enduro stage-day logistics) or ladders a genuine physical technique with a
-Prereq/Gear/Progression triad (DH line-choice process + maximal-braking, DJ whip). Tactical/pacing
-facts (DSC-3, DSC-7, DSC-8) honestly carry no maneuver ladder — per DSC-3's precedent, a pacing or
-race-logistics fact is not a physical skill with an injury-risk progression, so SAFETY-FIRST rule 4
-does not apply to it; it is marked `n/a` rather than force-fit into a ladder it doesn't have.
+Fact IDs are stable and append-only (`DSC-n`). Every discipline now carries **three** fetched, cited
+facts spanning core craft, race/park tactics, and either a laddered physical technique or a second
+tactical layer (XC line efficiency, enduro fatigue craft, DH line-choice + maximal-braking, DJ whip
++ scrub). Tactical/pacing facts (DSC-3, DSC-7, DSC-8, DSC-14, DSC-15) honestly carry no maneuver
+ladder where the content is judgment/timing rather than a new physical movement — per DSC-3's
+precedent, a pacing or race-logistics fact is not a physical skill with an injury-risk progression,
+so SAFETY-FIRST rule 4 does not apply to it; it is marked `n/a` rather than force-fit into a ladder
+it doesn't have.
 
 ---
 
@@ -79,6 +85,36 @@ terrain rather than holding one posture throughout.
   carries). Source: rideabout.co (*5 XC Mountain Bike Skills*, coach Michael Guilford — the
   lap-one target-position start, "stretching the elastic" rider-tactics framing, repeated-lap course
   memorization, and the standing/seated dynamic-pedaling cue for rough/loose terrain beyond climbs).
+
+**DSC-14 — XC technical-section efficiency: look where you want to go rather than at what to avoid,
+pre-load momentum before entry, and commit to one line rather than correcting mid-section — "every
+change bleeds speed."** Closes the chapter's named XC gap ("technical race-line efficiency beyond
+climbing/pacing"), the third XC fact needed to match the other three disciplines' fact counts.
+**Line selection:** ask "what is the fastest way?" rather than defaulting to the familiar or
+most-ridden line — a popular line is not necessarily the fast one; where the terrain is unfamiliar,
+position **wide** through the section, which keeps more line options open than committing early to
+one gap between rocks/roots. **Momentum before entry:** downshift to a harder gear and give one or
+two hard pedal strokes immediately before a technical zone, so speed (not pedaling) carries the bike
+through — matching the corpus's general "speed smooths technique" principle to the XC-specific habit
+of pedaling right up to the section's edge. **Commitment over correction:** every steering/weighting
+adjustment inside a technical section costs speed, so the coaching cue is to set the line and body
+position once at entry and hold it, rather than repeatedly micro-correcting through the section.
+**The fallback plan:** have an explicit plan to dismount and run a section rather than risk a crash
+trying to save a line that has gone wrong — named as real racing judgment, not just a beginner
+concession.
+- *Prereq:* COR-1 (vision/scanning — "look where you want to go, not at what to avoid" is the same
+  mechanism this corpus already uses for cornering, applied to rock-garden line choice), DSC-2 (XC
+  base technique).
+- *Gear:* standard trail/XC kit, as DSC-2.
+- *Progression:* practice the pre-load-then-commit pattern (hard strokes into the section, one line,
+  no mid-section correction) on a known, moderate rock garden at trail pace before applying it at
+  race effort, where the cost of an uncommitted correction is highest; the wide-positioning habit for
+  unfamiliar terrain is a default to adopt on sight, not something requiring its own drill.
+- *Tier:* B (single named-practitioner source — flagged for future corroboration, same caveat DSC-7
+  carries). Source: TrainerRoad Blog, *How XC Pros Ride Rock Gardens* (fetched 2026-07-18) — draws on
+  Keegan Swenson (Stan's–Pivot Pro Team) via the *Ask a Cycling Coach* podcast for the
+  look-where-you-want-to-go and wide-positioning cues, and states the momentum-preloading and
+  minimize-adjustments cues directly.
 
 ### Enduro — timed descents, untimed transitions, over a long day
 
@@ -145,6 +181,47 @@ named former EDR (Enduro World Cup) racer.
   enduro mountain biking* — switchback wide-entry and "keep the front wheel rolling" cues that
   corroborate `cornering.md` COR-10 in a race-specific context, independently naming line-choice/
   flow/technical-section reading as core enduro skills alongside the pacing point).
+
+**DSC-15 — Enduro fatigue-state technique degradation has a specific, named failure mode — LOSS OF
+BRAKE FEEL through the hands, not generic tiredness — and the documented correction independently
+CORROBORATES DSC-3's "smooth is fast" claim.** Closes the chapter's named enduro gap ("fatigue-state
+technique degradation specifics beyond the DSC-3/TER-2 cross-reference") and gives DSC-3's
+previously single-source pacing claim its first independent corroboration.
+
+A named racer's first-person account of a multi-stage enduro day (5+ hours of racing before the
+stage in question) describes the degradation concretely, not abstractly: "my hands were giving up.
+I couldn't feel. Was I braking? I had no idea." This sharpens the corpus's generic "fatigue affects
+technique" notion into a specific, coachable failure mode — grip/hand fatigue removes the tactile
+feedback progressive braking (BRK-2) depends on, before the legs or judgment necessarily go. **The
+documented correction is a deliberate strategy switch, made in real time on recognizing the
+degradation:** "I decided that keeping it smooth would be better than trying to go as fast as
+possible" — which produced her best stage result of the weekend. This is the exact "smooth is fast"
+claim DSC-3 makes from a Super-D power/HR data comparison, now independently corroborated by a
+different rider's own real-time account of *choosing* smoothness under fatigue rather than measuring
+it after the fact — two different sources, two different kinds of evidence (measured data vs. named
+first-person account), converging on the same coaching principle.
+
+**A second, transferable craft point:** the value of the untimed **transfer stages between timed
+runs** is explicitly named as a composure-recovery tool, not dead time — "it gives you the time to
+process, reflect, recollect, reevaluate, and hopefully find your composure" before the next stage.
+This gives DSC-8's stage-day pacing content a concrete use for the gaps between stages, and echoes
+CCH-16's stop-rule framing (a divided, non-committed mental state is the dangerous one) applied to
+the specific moment of recovering from a bad stage rather than carrying its rattled state into the
+next one.
+- *Prereq:* DSC-3 (enduro pacing/"smooth is fast" — this fact corroborates and sharpens it), BRK-2
+  (progressive braking — the mechanism that grip fatigue specifically degrades).
+- *Gear:* n/a — a race-strategy/fatigue-management fact, not a maneuver.
+- *Progression:* n/a (recognizing and responding to one's own fatigue state is judgment, not a
+  physical-skill ladder) — the practical takeaway for a coach is naming the specific symptom
+  (loss of brake *feel*, not just "tired hands") so a rider can recognize it as a cue to deliberately
+  downshift effort, rather than pushing through it unaware of what is actually degrading.
+- *Tier:* B (single named racer's first-person race report — a practitioner account, not a
+  certification-body or coaching-authority method page, but functions as genuine independent
+  corroboration of DSC-3's central claim). Source: Liv Cycling, *Enduro Racing Strategy: Risk and
+  Reward* — Leonie Picton race report (fetched 2026-07-18).
+- *Corpus use:* the first fact in this chapter built specifically to corroborate an existing
+  single-source claim (DSC-3), per CURRICULUM's round-6 target #4 ("corroborate the single-source
+  depth facts").
 
 ### DH (downhill) race technique — maximum speed on committed terrain
 
@@ -386,6 +463,80 @@ non-committed mental state is the dangerous one.
   the L4-adjacent overlap `coaching-methodology.md` flagged — DSC-11's debrief and trackside error
   detection are CCH-6/CCH-11/CCH-17 applied under race conditions.
 
+**DSC-16 — RACE-CRAFT/PIT: the mechanic's discipline is a FIXED checklist run every session, a hard
+cutoff before the timed run, fresh wheels for timed runs specifically, and a prepared (not
+improvised) wet-weather doctrine.** Closes DSC-11's own named remainder: "actual pit/mechanic
+procedures (spares policy, between-run bike triage, wet-race changeover) are still not covered — the
+pit-side sources found were photo features, not procedure."
+
+*The fixed pre-session checklist, same order every time.* A World Cup mechanic names the sequence
+run before every practice/qualifying/race session: **bolt check → wheel/spoke-tension check →
+tire-pressure check → suspension-pressure check.** The stated reason for the fixed order and
+repetition is discipline against doubt, not redundancy for its own sake: it "stops any second
+guessing of myself."
+
+*A hard cutoff before the timed run — the checklist has an end.* The same mechanic states a personal
+rule: the final tire-pressure check happens **exactly 20 minutes before drop time**, and the bike is
+not touched again after that. The reasoning is a named failure mode, not caution for its own sake:
+"you can do 1000 bolt checks, but the one you don't need to do will be the one you shear a head off
+an alloy bolt right before a timed run." **Late over-checking is itself a risk**, not a safety
+margin.
+
+*Fresh wheels are budgeted for timed runs specifically, not every run.* Where budget allows, a
+**freshly built wheelset** — pre-stretched spokes, fresh rim, fresh-glued tyres — is prepared for
+each **timed** run (qualifying, race) rather than every practice lap, because wheels absorb the most
+impact energy of any component on the bike and a timed run is judged worth the fresh-build cost even
+though practice laps aren't.
+
+*The teardown depth scales with the session's stakes, not a fixed procedure.* After a single
+practice lap: a stand-side inspection, fix anything broken, adjust settings. Between a full practice
+day and qualifying: a full strip-down, clean, rebuild, and brake bleed. Qualifying into race day: the
+same again. The mechanic matches the depth of the work to how much time is available and how much is
+riding on the next session, rather than running one procedure regardless of context.
+
+*Wet-weather doctrine is pre-built, not improvised on the day.* Multiple team mechanics, interviewed
+independently, describe carrying a **complete spare wheelset mounted with wet tyres** to the top of
+the track for every timed run whenever rain is even *possible* — alongside caliper covers and
+mudguards in graduated sizes (half/medium/full) — so a weather change mid-session is a wheel swap,
+not a rebuild. Asked what actually changes in the wet, the mechanics converge on a ranked list:
+**tyre compound/cut is the dominant lever** (named first and most emphatically by every mechanic
+interviewed); **brake pad compound** second; a **rotor with larger vent holes** to shed water and mud
+third; a **slightly lower spoke tension**, reasoned as letting the wheel track rough, wet ground more
+than a taut wheel would, is a smaller fourth lever. Suspension changes are explicitly described as
+minor by comparison — "not anything too major."
+
+*Crash-contingency is a named doctrine, not a hypothetical.* Two independently reported real-race
+incidents describe a **full frame/chassis swap** — every component stripped from a crash-damaged
+bike and rebuilt onto a spare frame — completed in under an hour before a race run was due (one
+account: roughly 40 minutes, mid-event, after a crash wrote off the frame). The mechanics' own
+stated lesson is to carry a spare **frame**, not just spare parts, at World Cup level — the same
+"have a fallback" discipline DSC-14 names for a rider's line choice, applied to the pit.
+- *Prereq:* n/a — pit/mechanic procedure, not a rider skill; sits alongside DSC-11's race-weekend
+  structure as the mechanical-support layer under it.
+- *Gear:* n/a.
+- *Progression:* n/a (procedure and logistics, not a physical maneuver) — SAFETY-FIRST rule 4 does
+  not apply, same reasoning as DSC-3/DSC-7/DSC-8/DSC-14/DSC-15.
+- *⚠ Level & scope:* this is **World Cup–level team-mechanic** practice; the checklist discipline and
+  the wet-weather ranked-lever list scale down usefully to any race weekend, but the fresh-wheel-per-
+  timed-run budget and the spare-frame doctrine are resource levels most riders/privateers won't have
+  access to. Present the checklist and cutoff-timing habits as broadly applicable; present the
+  fresh-wheels and spare-frame content as what top-level support looks like, not a baseline
+  expectation.
+- *Tier:* B (named team mechanics, quoted in trade-press interviews; race-craft/pit support has no
+  public Tier-A source, same ceiling DSC-11 states for race-craft generally). Sources: [R]evolution
+  MTB, *Behind the scenes // How a world cup mechanic prepares a bike for racing* (2025, fetched
+  2026-07-18 — the fixed checklist order, the 20-minute cutoff rule, the fresh-wheel-for-timed-runs
+  policy, the practice→qualifying→race teardown-depth scaling); Pinkbike, *Interview: 5 World Cup
+  Mechanics Talk About Stressful Fixes, Favorite Tools, & More* (2023, fetched 2026-07-18 — the two
+  independent crash frame-swap accounts); Pinkbike, *Downhill Tech: Wet Weather Set Up Changes*
+  (2024, fetched 2026-07-18 — multiple named team mechanics, incl. Malcolm Finnie/Propain, ranking
+  tyre-compound-first wet-weather changes); Pinkbike, *Tech Randoms II: Andorra DH World Cup 2026*
+  (2026, fetched 2026-07-18 — light corroboration: wet-weather rotor covers carried even with no rain
+  forecast, spare bars/rotors kept in team pits, final pressure checks as a stated race-morning step).
+- *Corpus use:* completes DSC-11's race-weekend picture with the mechanical-support layer; the
+  20-minute-cutoff and fixed-order-checklist habits are a direct pit-side analog of CCH-16's
+  go/no-go discipline (a clear stop point beats indefinite "just one more check").
+
 **DSC-12 — DH: holding position under big compression loads is a STRENGTH problem as much as a
 technique problem — and that is why telling a rider "elbows up" often fails.** The chapter's named
 open gap ("holding body position through big compression loads/G-outs … stays an honest gap rather
@@ -494,11 +645,16 @@ hands** — to get both wheels to the landing as soon as possible. The purpose i
   neck/body protection — the discipline's norms are part of the coaching content, not an aside.
 
 ### How this chapter couples
-- XC (DSC-2, DSC-7) ↔ climbing-descending (climbing economy) + braking (efficiency) + COR-1/FND-6
-  (vision — course memorization and log-hop line adjustment are both vision/attention applications).
-- Enduro (DSC-3, DSC-8) ↔ the whole corpus at race intensity + fatigue-state technique; specifically
-  leans on `terrain-features.md` TER-2 (pumping) as the skill that degrades first under fatigue, and
-  on FND-5 (heels down) for the cleat-position lesson.
+- XC (DSC-2, DSC-7, DSC-14) ↔ climbing-descending (climbing economy) + braking (efficiency) +
+  COR-1/FND-6 (vision — course memorization, technical-section line choice, and log-hop line
+  adjustment are all vision/attention applications).
+- Enduro (DSC-3, DSC-8, DSC-15) ↔ the whole corpus at race intensity + fatigue-state technique;
+  specifically leans on `terrain-features.md` TER-2 (pumping) as the skill that degrades first under
+  fatigue, BRK-2 (progressive braking — the mechanism DSC-15's grip-fatigue failure mode degrades),
+  and FND-5 (heels down) for the cleat-position lesson.
+- DSC-16 (pit/mechanic race procedure) ↔ DSC-11 (the race-weekend structure it operates inside) and
+  CCH-16 (the go/no-go stop-rule — the 20-minute pre-run cutoff is the same "a clear stop point beats
+  indefinite checking" discipline applied to a mechanic's hands rather than a rider's decision).
 - DH (DSC-4, DSC-9) ↔ braking-traction (BRK-1..5) + cornering (COR-2) + `terrain-features.md` TER-5
   (the manual — maximal-braking's mechanic) + TER-8b (rock-garden braking points) + TER-10 (steeps/
   chutes — the sustained-position sibling technique to DSC-9's burst technique) — the same braking
@@ -511,19 +667,18 @@ hands** — to get both wheels to the landing as soon as possible. The purpose i
 ---
 
 ## Gaps (updated — what's left for the next round)
-- **Each discipline now has two sourced facts (one core-craft, one tactics/technique); still short
-  of a full L2-style progression *set* per discipline (3+ laddered maneuvers/tactics each).** XC
-  still needs: technical race-line efficiency beyond climbing/pacing (log hops, feature ride-vs-walk
-  decision economy under race pressure), true MTB-specific remounts (the fetchable public material
-  is overwhelmingly cyclocross-specific — drop-bar, different dismount mechanics — and was correctly
-  NOT absorbed here as a false-equivalence risk; this remains an open, likely thin, MTB-specific
-  gap). Enduro needs: B-consensus corroboration of DSC-3's single-source pacing claim (DSC-8 doesn't
-  independently corroborate it — different sources, adjacent topic), fatigue-state technique
-  degradation specifics beyond the DSC-3/TER-2 cross-reference. DH needs: holding body position
-  through big compression loads/G-outs (searched this round; available sources were either too
-  general — restating basic body-position cues — or unfetchable in enough depth to meet the corpus
-  bar; stays an honest gap rather than a thin fact). DJ/park needs: the scrub (DSC-10 covers the
-  whip only), transition-shape reading in more depth, a second named-coach source for DSC-10.
+- ~~**Each discipline now has two sourced facts … still short of a full L2-style progression *set*
+  per discipline (3+ laddered maneuvers/tactics each)**~~ **CLOSED round 6 (2026-07-18):** every
+  discipline now carries **three** fetched facts — XC via DSC-14 (technical race-line efficiency:
+  look-where-you-want-to-go, wide positioning, momentum pre-loading, single-line commitment, the
+  dismount fallback plan), enduro via DSC-15 (fatigue-state technique degradation — the specific
+  loss-of-brake-feel failure mode, plus the first independent corroboration of DSC-3's "smooth is
+  fast" claim). DH (DSC-4/9/12) and DJ/park (DSC-5/10/13) already had three. **Remaining thinness,
+  narrower than before:** DSC-14 and DSC-15 are each single-source (same corroboration caveat as
+  DSC-7/DSC-10); true MTB-specific remounts remain an open, likely-thin gap (the fetchable public
+  material is overwhelmingly cyclocross-specific — drop-bar, different dismount mechanics — and was
+  correctly NOT absorbed as a false-equivalence risk); DJ/park still wants transition-shape reading
+  in more depth and a second named-coach source for DSC-10 (the whip).
 - **The Tier-C biomechanics pass (DSC-6)** is the highest-rigor, non-walled deepening available and
   would strengthen facts corpus-wide — a strong standalone future round, unchanged from bootstrap.
 - ~~**Race-craft (L4-adjacent): race-day prep, pit procedures, failure-mode prevention under race
@@ -533,9 +688,11 @@ hands** — to get both wheels to the landing as soon as possible. The purpose i
   the genuine learn-track-vs-setup-bike strategic split presented unresolved, GoPro/line-spotter
   external error detection, evolving-track and altitude failure modes, and the structured post-race
   debrief. **Explicitly Tier B (interviews), labelled as such** — this is race-craft's public
-  ceiling, not a curriculum. Remaining: **actual pit/mechanic procedures** (spares policy, between-run
-  bike triage, wet-race changeover) are still not covered — the pit-side sources found were photo
-  features, not procedure. Narrower gap than before.
+  ceiling, not a curriculum. ~~Remaining: **actual pit/mechanic procedures**~~ **CLOSED round 6
+  (2026-07-18) via DSC-16:** the fixed pre-session checklist order, the hard 20-minute cutoff before
+  a timed run, the fresh-wheel-for-timed-runs budget, teardown depth scaled to session stakes, a
+  ranked wet-weather changeover list (tyre compound first), and two named crash frame-swap incidents.
+  Flagged as World Cup–level support, not a baseline every rider has access to.
 - ~~**DH needs: holding body position through big compression loads/G-outs**~~ **CLOSED round 5
   (2026-07-18) via DSC-12** — the 90/90 position geometry, the chest/front-delt load path, and the
   load-bearing insight that a cue cannot install a capacity the rider lacks, corroborated

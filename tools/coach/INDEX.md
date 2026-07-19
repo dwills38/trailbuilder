@@ -210,8 +210,10 @@ areas plus the certification-body methodology, cross-corroborated across indepen
   - **Cycling UK** publishes the entire 10-unit *Mountain Bike Leader Resource* — including
     **Unit 3 Instructing Riding Skills** and **Unit 7 Leading Groups** — as open documents
     ([cyclinguk.org](https://www.cyclinguk.org/courses-and-training/training-and-education-resources/trail-leader-resources)).
-    Unit 7 is mined (CCH-17); **Unit 3 is unmined and is likely the single richest unfetched L4
-    target in this corpus.** Units 1 and 8 also unmined.
+    Unit 7 is mined (CCH-17); **Unit 3 was mined round 6, 2026-07-18** (CCH-19/20/21 —
+    `coaching-methodology.md`: the 4 E's teaching model, positive-framing error correction,
+    games-first/incidental-learning session design), confirming it was indeed a rich target. Units 1
+    and 8 remain unmined.
   - **NICA** (US national federation) publishes its coach-education *Trailhead* material openly
     ([coaching.nationalmtb.org](https://coaching.nationalmtb.org/)) — grouping models, assignment
     methods, debrief discipline (CCH-17).

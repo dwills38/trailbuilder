@@ -3,8 +3,13 @@
 **Maturity: master** — against the **public-source ceiling** (round 5, 2026-07-18: both gaps that
 round 4 named as the reasons this chapter fell short of master are closed — maneuver-specific
 teaching progression via CCH-15, mixed-ability group management + go/no-go via CCH-16/CCH-17, with
-the MTB motor-learning question searched and bounded in CCH-18. Residual thinness is named and
-open — see `## Gaps`).
+the MTB motor-learning question searched and bounded in CCH-18. **Round 6, 2026-07-18** mined
+Cycling UK Unit 3 — Instructing Riding Skills, the source CCH-17's fetchability finding named as
+"likely the single richest unfetched L4 target in the corpus" — adding a genuinely new named
+teaching model (CCH-19, the 4 E's), a national-body statement of positive-framing error correction
+(CCH-20), and games-first/incidental-learning session-design guidance that narrows, without fully
+closing, the standing session-plan-template gap (CCH-21). Residual thinness is named and open —
+see `## Gaps`).
 Teaching models · skill diagnosis · error detection · progression & lesson design — the
 *"teach the coach"* layer. Read [`INDEX.md`](INDEX.md) first (corpus rules, tiers, SAFETY-FIRST
 PROGRESSION, tacit-layer disclaimer).
@@ -421,10 +426,11 @@ a mixed group survivable:
   leader awards are a materially different, largely OPEN source class from the two North American
   skills-certification bodies the corpus bootstrapped against** — and they are the natural home for
   group-management and risk-management content. This also partially answers the standing
-  "no national-federation methods" breadth gap. A future round should mine Cycling UK Unit 3
-  (instructing riding skills) and the NZQA unit standard 30678 (a public NZ government qualification
-  standard with explicit group-safety criteria) before assuming any curriculum-grade material is
-  walled.
+  "no national-federation methods" breadth gap. **Cycling UK Unit 3 was mined round 6 (2026-07-18)
+  — see CCH-19/CCH-20/CCH-21.** A future round should still try the NZQA unit standard 30678 (a
+  public NZ government qualification standard with explicit group-safety criteria) and Cycling UK
+  Units 1 (Ride Preparation) and 8 (Dealing with Emergencies), unmined, before assuming any
+  curriculum-grade material is walled.
 - *Corpus use:* completes CCH-14's group/risk-management pair — CCH-16 is the individual go/no-go,
   CCH-17 is the group's composition and on-trail control. Note the two sources answer *different*
   questions and do not corroborate each other; each is single-source for its own half.
@@ -490,9 +496,106 @@ MTB rider. CCH-7's blocked, single-focus early practice is **not** contradicted 
 
 ---
 
+## The Cycling UK Unit 3 ingest (round 6)
+
+**Source note.** CCH-17 (round 5) flagged Cycling UK's full 10-unit *Mountain Bike Leader Resource*
+as free and public, with **Unit 3 — Instructing Riding Skills** named as "likely the single richest
+unfetched L4 target in the corpus." This round fetched it. It is a **national-body leader-training
+document** — Tier A by this chapter's tier ladder (national federation, public), though aimed at
+volunteer/trail-leader instruction rather than a performance-coaching certification specifically;
+treat it as public national-body method, the same tier CCH-17's Unit 7 citation already established
+for this source.
+
+**CCH-19 — Cycling UK names its own core teaching model "THE 4 E's," and — like CCH-9's Training
+Wheel/IDEA pairing — it is a genuinely distinct, named model from every other one in this chapter,
+built on a explicit dependency chain rather than a flat checklist.** The sequence: **Ensure Safety →
+Engagement → Enjoyment → Education**, with the document's own load-bearing claim stated directly:
+*"Each of the previous steps need to be in place before the next can become effective."* Two things
+make this a new fact rather than a restatement of CCH-1/CCH-3: (1) **it is a gate on the whole
+session, not a single skill's introduction** — CCH-1 (the six-skill pyramid) and CCH-3 (IDEA) both
+describe how a *skill* is built up; the 4 E's describes the *environment* that has to exist before
+any skill-teaching (What/Why/How, IDEA, the Training Wheel) can work at all, so it sits **above**
+those models in the stack, not alongside them; (2) it is explicitly grounded in **Maslow's Hierarchy
+of Needs** — safety and belonging before esteem/self-actualization (education) — which is a named,
+citable psychological framework this corpus has not previously carried for *why* the safety-first
+sequencing works, beyond the injury-risk argument SAFETY-FIRST already makes. Two components,
+un-abbreviated: **Safety is explicitly framed as also about *perception*** — a rider who does not
+*feel* safe won't learn even if the objective risk is low, so venue choice and reducing external
+distractions matter independently of actual hazard; and the document ties leader *confidence* to
+this directly — "participants detect leader uncertainty," so a hesitant coach undermines the safety
+step even with a genuinely safe plan. **Engagement** has three named tools: communication (two-way —
+can the group hear, see, and comfortably ask questions, not just "did I explain it"), achievable
+challenges (matched to *individual* capacity within a mixed group, not one difficulty for everyone),
+and involvement (games that keep the *whole* group active, explicitly contrasted with isolated
+"drills" that leave most of a group standing around watching one rider).
+- *Tier:* A (national-body method, public). Source: Cycling UK, *Mountain Bike Leader Resource,
+  Unit 3 — Instructing Riding Skills* (cyclinguk.org, fetched 2026-07-18).
+- *Corpus use:* extends the method stack in `## PROGRESSIONS` with a **step 0** above CCH-1/3/4/5/9:
+  the 4 E's gates whether the rest of the stack can function at all, the same way SAFETY-FIRST gates
+  whether a rung of a rider's ladder may be attempted.
+
+**CCH-20 — Cycling UK names POSITIVE FRAMING as an explicit error-correction instruction, with its
+own worked example, and pairs it with a "how/what/where/when/why" feedback formula that widens
+CCH-4's What/Why/How.** This sharpens CCH-6/CCH-11/CCH-12's "root not symptom" discipline with a
+*language*-level instruction those facts don't carry: the document's own contrast is "explaining and
+demonstrating **how to keep your weight back** when braking … is much more effective than saying
+**'no skidding!'**" — i.e. the correction is to state the *positive target movement*, not to name
+the *negative outcome to avoid*. This is a genuinely new mechanism, not a restatement: CCH-11's
+external-focus-of-attention framework (direct the effect, not the body part) and this positive-
+framing instruction are **compatible but distinct** — external focus is about *what the rider
+attends to* (the bike/ground, not their knee), positive framing is about *what the coach says*
+(the target behavior, not the failure to avoid), and a correction can get one right while getting
+the other wrong (e.g. "watch the front wheel" is external-focus but still names what to avoid
+rather than the target). The feedback formula — **how, what, where, when, and why** — is presented
+as the factors that make feedback effective, and is a *superset* of CCH-4's What/Why/How
+(introduction) applied to *correction* rather than *introduction*: adding **how** (the mechanics of
+the fix) and **when/where** (the specific moment/location the error occurred) to the reasoning CCH-4
+already asks for.
+- *Tier:* A (national-body method, public, with the document's own worked example). Source: Cycling
+  UK, *Mountain Bike Leader Resource, Unit 3* (fetched 2026-07-18).
+- *Corpus use:* a **recommendation for the coordinator, not a change made here** (INDEX's boundary
+  rule, same as CCH-12's note): the corpus's existing "Common errors → corrections" sections were
+  written before this fact existed, and several already lean negative-outcome-framed ("trusting the
+  visibly worn 'main line' … → missed free speed" reads as outcome-avoidance rather than a positive
+  target) — a future audit pass could check each one against positive-framing as well as CCH-12's
+  functional-error test.
+
+**CCH-21 — Cycling UK gives concrete SESSION-DESIGN guidance for a first session specifically: it
+may be entirely NON-RIDING, built from location-based GAMES that teach through "incidental
+(subconscious/hidden) learning" rather than isolated drills — narrowing, but not closing, the
+chapter's standing session-plan-template gap.** The document states a first session "may avoid
+riding entirely, instead using location based activities to build confidence, awareness and skills"
+through games, and names the mechanism explicitly: **"incidental learning (sometimes called
+subconscious or hidden learning) through games"** — the rider absorbs a skill (braking control, line
+choice, group awareness) as a side effect of playing a game built around it, rather than through a
+named drill they consciously practice. This is the clearest concrete session-*structure* content
+this chapter has found: eight named games are cited from Cycling UK's own *50 Mountain Bike Games*
+resource — **Brake in a Box, Slalom, Hill Shifts, Figure of Eight, Red Arrows, Leapfrog, Traffic
+Lights, Follow My Leader** — each presumably mapped to a specific skill (the titles suggest braking,
+cornering/line choice, gear changes, and group-awareness games respectively, though this round did
+not fetch the games document itself to confirm each mapping — flagged for a future round). **Why
+this narrows rather than closes the session-plan-template gap** (named in round 5's Gaps as "the
+thinnest remaining slice"): this is real, citable session-*philosophy* (games over drills, especially
+early; incidental learning as the mechanism; non-riding sessions as legitimate) but it is still not
+a literal timed template (warm-up minutes, rotation-through-a-feature structure, debrief timing) —
+CCH-21 answers "what should a first session *be*," not "how long should each part *last*."
+- *Tier:* A (national-body method, public); the eight named games are cited titles from a linked
+  Cycling UK resource, not independently verified content — treat the *titles and implied skill
+  mapping* as B until the games document itself is fetched. Source: Cycling UK, *Mountain Bike
+  Leader Resource, Unit 3* (fetched 2026-07-18), referencing Cycling UK's *50 Mountain Bike Games*.
+- *Corpus use:* strengthens CCH-5's "practice ≥60%, doing not talking" principle with a concrete
+  *form* that practice can take for beginners (games, not isolated drills) and gives CCH-8's site
+  selection an explicit non-riding option for session 1 specifically.
+
+---
+
 ## PROGRESSIONS (the organizing principle — here, the meta-progression)
 
 ### How a coach builds a rider (the method stack)
+0. **Gate the session on the 4 E's before any skill-teaching model runs** (CCH-19): Ensure Safety
+   (including *perceived* safety and leader confidence) → Engagement → Enjoyment → Education — each
+   step must be in place before the next can work, so this sits above steps 1–9 rather than beside
+   them.
 1. **Diagnose bottom-up** (CCH-1/CCH-6), tracing symptoms to their functional root rather than
    correcting where the error is merely visible (CCH-12) — and distinguishing a real error from a
    rider's personal style (CCH-12).
@@ -519,6 +622,11 @@ MTB rider. CCH-7's blocked, single-focus early practice is **not** contradicted 
 9. **Remember the coach's own skill is itself laddered** (CCH-10): the moves above are practised and
    assessed with increasing depth from BICP Level 1 through Level 2, the same way a rider's skills
    build from L1 through L2.
+10. **Correct with positive framing, not just root-cause targeting** (CCH-20): state the target
+    movement ("keep your weight back"), not the outcome to avoid ("no skidding!"), and cover
+    how/what/where/when/why — a language-level discipline layered on top of CCH-6/11/12's diagnostic
+    discipline. **For a first session specifically, consider a non-riding, games-based structure**
+    (CCH-21) that teaches through incidental learning before any drill-based teaching begins.
 
 ### How this chapter couples to the rest of the corpus
 - CCH-1 (pyramid) → why `fundamentals.md` is the base of everything and diagnosis runs bottom-up.
@@ -540,6 +648,13 @@ MTB rider. CCH-7's blocked, single-focus early practice is **not** contradicted 
   progression is actually delivered in; also the corpus's first national-federation-sourced facts.
 - CCH-18 (the MTB motor-learning absence) → bounds how strongly CCH-7/CCH-13's practice-design
   claims may be stated to a rider; a standing caution against importing lab findings unqualified.
+- CCH-19 (the 4 E's) → sits *above* CCH-1/3/4/5/9 in the method stack as the session-level gate;
+  its Maslow grounding gives SAFETY-FIRST a psychological rationale alongside its injury-risk one.
+- CCH-20 (positive framing + how/what/where/when/why) → a language-level addition to every chapter's
+  "Common errors → corrections" sections, flagged for a future coordinator-routed audit alongside
+  CCH-12's functional-error test.
+- CCH-21 (games-first, incidental learning) → gives CCH-5's ≥60%-practice principle a concrete
+  beginner-session *form*, and CCH-8's site selection an explicit non-riding option for session 1.
 
 ---
 
@@ -585,9 +700,11 @@ the certification bodies' own internal assessment detail.
   their corrections, and the "95% learned with tyres near the ground" progression claim).
   Remaining thinness: CCH-15 is **single-source** (GSMBC), corroborated by an independent source
   (CCH-16/McCormack) only on the *Mind* axis — B-consensus on the full three-axis structure is the
-  next step. And a literal **written session-plan template** (timings, group rotation through a
-  feature, warm-up/debrief structure) is still not captured — the thinnest remaining slice of this
-  formerly-broad gap.
+  next step. **The literal written session-plan template gap is narrowed, not closed, round 6
+  (2026-07-18) via CCH-21:** Cycling UK Unit 3 supplies real session-*philosophy* (a first session
+  may be non-riding and games-based, teaching through incidental learning) and eight named game
+  titles, but still no timed structure (warm-up minutes, rotation-through-a-feature timing, debrief
+  length) — that literal template remains the thinnest open slice.
 - **No adaptive-coaching methods** (AMTB adaptive and equivalents) — breadth gap, unchanged.
   *(The national-federation half of this former gap is partly addressed — see CCH-17 and the
   fetchability finding below.)*
@@ -620,6 +737,8 @@ the certification bodies' own internal assessment detail.
   (CCH-7, 13, 18). **This grade is explicitly against the public-source ceiling** established by
   Douglas's 2026-07-18 permanent no-paid-access decision — it does not claim parity with the walled
   assessment rubrics and never will. The residual thinness is named and real (CCH-15 single-source
-  on two of three axes; CCH-17 single-source per half; no session-plan template; no rider running
-  order on a shared feature; no adaptive coaching) — that is `master` with an honest open list, not
-  a finished chapter, and the corpus rules make the list the next round's target.
+  on two of three axes; CCH-17 single-source per half; CCH-19/20/21 all single-source to Cycling UK
+  Unit 3, unlike the McCormack/GSMBC/NICA cross-corroboration elsewhere in this chapter; a literal
+  timed session-plan template, narrowed by CCH-21 but not closed; no rider running order on a shared
+  feature; no adaptive coaching) — that is `master` with an honest open list, not a finished chapter,
+  and the corpus rules make the list the next round's target.
