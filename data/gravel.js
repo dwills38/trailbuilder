@@ -574,7 +574,8 @@ var GRAVEL_PARTS = [
     brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: false, weight: 750, price: 350 },
   { id: 'gsft-campagnolo-ekar', cat: 'shifter', brand: 'Campagnolo', model: 'Ekar',
     family: 'campagnolo-ekar', system: 'campag-ekar-13', speeds: 13, actuation: 'mechanical',
-    brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: false, weight: 700, price: 950 },
+    brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: false, weight: 420, price: 950,
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.campagnolo.com/us-en/ekar-ergopower-controls/CCLEKAR1X13S.html' },
 
   // ===== REAR DERAILLEUR ==================================================
   { id: 'grd-shimano-grx-rd-rx822-1x12', cat: 'rearderailleur', brand: 'Shimano', model: 'GRX RD-RX822',
@@ -751,7 +752,8 @@ var GRAVEL_PARTS = [
     actuation: 'hydraulic', leverPair: 'gsft-sram-force-xplr-axs', weight: 260, price: 240 },
   { id: 'gbr-campagnolo-ekar-brake', cat: 'brake', brand: 'Campagnolo', model: 'Ekar Hydraulic Disc Brake',
     family: 'campagnolo-ekar', brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2,
-    actuation: 'hydraulic', leverPair: 'gsft-campagnolo-ekar', weight: 285, price: 250 },
+    actuation: 'hydraulic', leverPair: 'gsft-campagnolo-ekar', weight: 110, price: 250,
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.campagnolo.com/lu-en/caliper-ekar/CCPEKAR1X13S.html' },
   { id: 'gbr-sram-apex-hydraulic', cat: 'brake', brand: 'SRAM', model: 'Apex Disc Brake', family: 'sram-apex-xplr',
     brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2,
     actuation: 'hydraulic', leverPair: 'gsft-sram-apex-xplr-mech', weight: 300, price: 225,
