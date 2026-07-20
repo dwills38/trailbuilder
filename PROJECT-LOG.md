@@ -2670,3 +2670,19 @@ per wave/decision; large reconstructions are handed to a worker session.
   Douglas's pick; recommendation D1+D4). Douglas's open engine Qs queued: §1d completeness
   confirm, tire-clearance severity (mechanic item), Di2-FD/Ultra-Torque-BB catalog gaps, the
   hollowtech-vs-24mm token unification, road's miscataloged Apex chain std.
+
+## 2026-07-20 (seat 14) — Triple harvest: BMX w4, road grind w1, stale-docs closed
+
+- BMX w4 (`0addbd7` wave): 69→75 verified (33.3%) cashing the frame ruling — Mongoose via the
+  international site's full spec table, Sunday via direct product pages wave 3 missed; a real
+  brake-mount bug fixed on the archived Downtown DLX; Standard Byke conflict resolved
+  (build-to-order either/or → 'none'). Honest read: easy lever spent, ~15 rows to the bar via
+  small-parts sweeps on proven static sites.
+- Road grind w1: 150→211 rows, 68 verified. frontderailleur 0→11 (100% verified — closes the
+  total-gap category the engine goldens documented); first headset/cockpit rows; XPLR 13sp E1
+  depth. Trek seatMAST/BMC steerer honestly skipped (schema misfit ≠ force-fit). Follow-up
+  flag: 105/Ultegra hg-l2 tokens likely hg-road per shared-standards.
+- Stale-docs debt CLOSED: NEXT-STEPS is a true pointer doc again; Getting-Started's pre-ethics
+  scraping advice rewritten to the ruling.
+- Fleet: home-page round HELD OPEN for Douglas's D1-D4 pick (mockups on :8167); otherwise
+  Partnerships + triage vessels only.
