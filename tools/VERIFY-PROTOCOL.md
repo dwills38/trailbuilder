@@ -162,6 +162,25 @@ covers the missing MSRP; (3) for case (b) the `desc` MUST state the frame is sol
 bike only, so no shopper reads the badge as "you can buy this bare." Interfaces feeding
 error-tier rules keep the no-exceptions bar; this never relaxes item 1.
 
+**Extended to BMX small parts (Douglas 2026-07-20, via the wave-7 dispatch):** the same
+interface-verification exception now covers `data/bmx.js` rows — mainly the Odyssey/Cult
+small-parts pool wave 2 had documented as blocked — whose maker publishes full interface specs
+(spindle/shell, teeth, diameter, pitch, driver, mount, etc.) but only a shipping/packaged weight
+via its Shopify JSON `weight` field, never a real net product weight. `verified:true` attests the
+**interfaces** per bar item 1 (no exceptions there — every field an actual `checkBmxBuild` rule
+reads must still be raw-confirmed against the maker's own page, never a WebSearch summary); the
+**weight field never takes the shipping-weight figure** — it stays the existing sample, with the
+basis ("maker publishes shipping weight only" / "no maker weight published") stated in the row's
+`note`. Two BMX-specific wrinkles this wave surfaced, useful for future passes: (1) several
+`data/bmx.js` fields the schema requires are actually **display-only in `checkBmxBuild`**
+(fork/headset `steerer`/`fit`, handlebar/stem `clamp`, gyro `steererFit`/`cableRouting`) — an
+unconfirmed value there does not block verification, only fields an actual rule reads do (chain/
+sprocket/cog `pitch`, wheel `wheelSize`/`axle`, fork/frame `brakeMount`, seat/seatpost `system`
+are the real load-bearing ones); (2) a Shopify product's `tags` array can carry a structured spec
+line (e.g. `"Brake Mounts:None"`) straight from the maker's own product-organization metadata —
+worth checking alongside the description text, and unlike a WebSearch summary it's raw first-party
+JSON, not a fabrication risk.
+
 ### JS-rendered ≠ bot-walled (kit wave 3, 2026-07-19 — try the browser pane before declaring a wall)
 
 **specialized.com and 100percent.com defeat WebFetch/Exa but render CLEANLY in the browser

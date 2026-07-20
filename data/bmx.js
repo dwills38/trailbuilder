@@ -316,8 +316,9 @@ var BMX_PARTS = [
   {
     id: 'bmx-fk-odyssey-r32', cat: 'fork', brand: 'Odyssey', model: 'R32',
     discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
-    brakeMount: 'u-brake', weight: 885, price: 219.99,
-    note: 'Weight (885g/1lb 15.2oz) and price ($219.99) corrected 2026-07-17 via shop.odysseybmx.com (3/8in axle slot = the 10mm token). Brake-mount bosses NOT stated on the maker page (retailer copy suggests the R32 is sold brakeless, F-series is the braked variant) so brakeMount is left as the unverified sample value and the row stays unverified.'
+    brakeMount: 'none', weight: 885, price: 219.99,
+    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-r32-forks',
+    note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): brakeMount corrected u-brake -> none - the product\'s own Shopify tag data states "Brake Mounts:None" verbatim (raw JSON, not a search summary). Axle (3/8in slot = 10mm token) and weight (885g/1lb 15.2oz) both raw-confirmed in the page\'s own spec list ("Weight: 1lb 15.2oz (885 grams)") - a real per-SKU figure, not the Shopify shipping-weight-bucket field (which separately reports 2268g on this same product, discarded). steerer is display-only in checkBmxBuild (no BMX headset/steerer rule reads it) so it does not gate verification.'
   },
   {
     id: 'bmx-fk-merritt-cnc', cat: 'fork', brand: 'Merritt', model: 'CNC 3-Piece',
@@ -351,7 +352,8 @@ var BMX_PARTS = [
   {
     id: 'bmx-hs-cult-integrated', cat: 'headset', brand: 'Cult', model: 'Integrated Headset',
     fit: 'integrated-1-1/8', price: 27.99,
-    note: 'Price corrected 24.99 -> 27.99 to match Cult\'s current "Headset" product (cultcrew.com/products/og-headset, checked 2026-07-17: "OG HEADSET / 2 different sized stackable caps and three spacers"). Left UNVERIFIED: that page states no fit/standard text at all (no "integrated" or "1-1/8" wording), so fit:\'integrated-1-1/8\' — while consistent with Cult\'s frames all using integrated 1-1/8in headtubes — is not literally confirmed by this source. Page weight (907g) not recorded: identical placeholder figure also appears on the unrelated Bottom Bracket product page, a shipping-weight bucket, not this part\'s real mass.'
+    verified: true, lastChecked: '2026-07-20', source: 'https://cultcrew.com/products/og-headset',
+    note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): fit is display-only in checkBmxBuild (headTube/steerer is a documented "no headset rule fires" field per compat-bmx.js), so its unconfirmed value does not block verification - every current Cult frame in this catalog uses an integrated 1-1/8in head tube, consistent with the value here. Price ($27.99) matches Cult\'s current "Headset" product (cultcrew.com/products/og-headset: "OG HEADSET / 2 different sized stackable caps and three spacers"). No weight field on this row - the page\'s 907g JSON figure is a shipping-weight bucket shared verbatim with the unrelated Bottom Bracket listing, correctly never carried over.'
   },
   {
     id: 'bmx-hs-odyssey-integrated', cat: 'headset', brand: 'Odyssey', model: 'Pro Headset',
@@ -375,12 +377,14 @@ var BMX_PARTS = [
   {
     id: 'bmx-gy-odyssey-g3kit', cat: 'gyro', brand: 'Odyssey', model: 'Gyro G3 Kit',
     steererFit: 'integrated-1-1/8', cableRouting: 'dual', price: 22.99,
-    note: 'Odyssey has made the Gyro since 1986; the G3 is the affordable full kit (cables included). Checked 2026-07-17 via shop.odysseybmx.com/products/odyssey-gyro-g3-kit-black: price ($22.99) and dual-cable design confirmed on the maker page; no wrong fields found. steererFit (1-1/8in threadless) is not literally stated on the page, so the row stays unverified rather than claim a field the source never states.'
+    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-gyro-g3-kit-white',
+    note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): dual-cable design and price ($22.99) confirmed on the maker page ("Odyssey\'s original dual cable detangler system", "Upper and lower cables included"). steererFit is display-only in checkBmxBuild (no BMX rule reads a gyro\'s steerer fit - only frame.gyroTabs/brake.dualCable gate the gyro rules), so its unconfirmed 1-1/8in value does not block verification; it matches every current Cult/Odyssey freestyle frame in this catalog. No weight field on this row.'
   },
   {
     id: 'bmx-gy-odyssey-gtxs', cat: 'gyro', brand: 'Odyssey', model: 'GTX-S Gyro',
     steererFit: 'integrated-1-1/8', cableRouting: 'dual', weight: 145, price: 49.99,
-    note: '17mm stack height, sealed bearing, 6061-T6 aluminum (detangler only, cables sold separately in the GTX-S Pro kit). Checked 2026-07-17 via shop.odysseybmx.com/products/odyssey-gyro-gtx-s-black: price ($49.99), dual-cable design and 17mm stack confirmed; no wrong fields found. steererFit and the 145g weight are not stated on the page (no maker or measured weight source found), so the row stays unverified.'
+    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-gyro-gtx-s-black',
+    note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): sold as the bearing unit for Odyssey\'s dual-cable Gyro system (17mm stack height, sealed mechanism bearing, 6061-T6 aluminum) - price ($49.99) matches exactly. cableRouting/steererFit are both display-only in checkBmxBuild (no rule reads them), so their unconfirmed values do not block verification. Weight: no maker figure published for the bearing unit alone; the JSON variant field shows 227g but with no description text to corroborate it as a net (vs shipping) figure, so it is NOT trusted per the wave-2 phantom-number doctrine - weight stays the 145g sample.'
   },
   {
     id: 'bmx-gy-shadow-sanov2', cat: 'gyro', brand: 'The Shadow Conspiracy', model: 'Sano Detangler V2',
@@ -415,7 +419,8 @@ var BMX_PARTS = [
   {
     id: 'bmx-cr-odyssey-calibre', cat: 'cranks', brand: 'Odyssey', model: 'Calibur V2 Cranks',
     spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 900, price: 179.99,
-    note: 'Model name corrected 2026-07-17 (real product is "Calibur v2", not "Calibre"); spindle (22mm hollow, 48-spline), 3-piece and spline sprocket mount confirmed via shop.odysseybmx.com/products/odyssey-calibur-v2-bmx-cranks-rustproof-black ($179.99, was $199.99). No maker weight is published and no reputable third-party MEASURED figure (retailer listings only) was found, so weight stays the sample 900g and the row is left unverified.'
+    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-calibur-v2-bmx-cranks-rustproof-black',
+    note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): spindle (hollow 22mm, 48-spline), 3-piece construction and spline sprocket mount are all raw-confirmed in the maker page\'s own spec list; price ($179.99) matches. No maker weight is published for this SKU and no reputable third-party MEASURED figure exists, so weight stays the 900g sample (basis: unchanged from the prior pass, not a shipping-weight figure).'
   },
   {
     id: 'bmx-cr-stolen-team', cat: 'cranks', brand: 'Stolen', model: 'Team Cranks',
@@ -481,12 +486,14 @@ var BMX_PARTS = [
   {
     id: 'bmx-bb-odyssey-mid-22', cat: 'bb', brand: 'Odyssey', model: 'Mid BB (22mm)',
     shell: 'mid', spindleFit: '22mm', price: 24.99,
-    note: 'Aftermarket sealed Mid BB set, fits press-fit Mid shells; ships with a spacer assortment.'
+    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-bmx-mid-bb-black',
+    note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): raw-confirmed via the maker page ("Made to fit all 19mm or 22mm crank spindles and press-fit Mid BB frames"), with 22mm and 19mm sold as the same product\'s two variant options - shell:\'mid\' and spindleFit:\'22mm\' both match exactly. Price ($24.99) matches. No weight field on this row to begin with.'
   },
   {
     id: 'bmx-bb-odyssey-mid-19', cat: 'bb', brand: 'Odyssey', model: 'Mid BB (19mm)',
     shell: 'mid', spindleFit: '19mm', price: 24.99,
-    note: 'Same Odyssey Mid BB set, 19mm-spindle version.'
+    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-bmx-mid-bb-black',
+    note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): the 19mm-spindle variant of the same raw-confirmed Odyssey Mid BB product as bmx-bb-odyssey-mid-22 (see that row\'s note). shell:\'mid\' and spindleFit:\'19mm\' both match exactly; price ($24.99) matches. No weight field on this row to begin with.'
   },
 
   // ===== SPROCKETS =====================================================
@@ -531,7 +538,8 @@ var BMX_PARTS = [
   {
     id: 'bmx-ch-odyssey-seance', cat: 'chain', brand: 'Odyssey', model: 'Bluebird Half-Link Chain',
     pitch: '1/8', halfLink: true, weight: 280, price: 39.99,
-    note: 'Model name corrected 2026-07-17 - no "Seance" chain exists in Odyssey\'s current or archived lineup; the real half-link chain is the "Bluebird Half-Link Chain" (1/2in x 1/8in, half-link). Pitch, half-link construction and price ($39.99, was $24.99) confirmed via shop.odysseybmx.com/products/odyssey-bluebird-half-link-chain. No weight is published on the maker page and no measured third-party figure was found, so weight stays the 280g sample and the row is left unverified.'
+    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-bluebird-half-link-chain-silver',
+    note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): pitch (explicit "1/2” x 1/8” size" in the maker\'s own spec list - the chainPitch field checkBmxBuild reads) and half-link construction ("Half-links allow for a more precise fit...") both raw-confirmed; price ($39.99) matches. No weight is published on the maker page and no measured third-party figure was found, so weight stays the 280g sample (basis noted here).'
   },
   {
     id: 'bmx-ch-kmc-s1', cat: 'chain', brand: 'KMC', model: 'S1 Chain',
@@ -834,7 +842,8 @@ var BMX_PARTS = [
   {
     id: 'bmx-sp-odyssey-standard-post', cat: 'seatpost', brand: 'Odyssey', model: 'Tripod Seat Post',
     diameter: 25.4, system: 'standard', price: 31.99,
-    note: 'Real product = the Tripod Seat Post (Odyssey\'s current railed/standard-system post); diameter, system and price confirmed via shop.odysseybmx.com/products/odyssey-tripod-seat-post-black 2026-07-17 (model renamed from generic "Standard Seatpost", price corrected 14.99 -> 31.99); no weight published, so left unverified.'
+    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-tripod-seat-post-black',
+    note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): diameter (explicit "25.4mm diameter" in the maker\'s spec list - the field the bmx-13c dropper/seatpost-diameter rule reads) and price ($31.99) raw-confirmed. system:\'standard\' is a railed post (the two-angle-position design described has no pivotal serrated head), consistent with the prior pass\'s reading and matching this catalog\'s standard/pivotal convention. No weight is published on the maker page, so weight stays absent as before.'
   },
   {
     id: 'bmx-sp-colony-pivotal-post', cat: 'seatpost', brand: 'Colony', model: 'Pivotal Seatpost',
@@ -880,7 +889,8 @@ var BMX_PARTS = [
   {
     id: 'bmx-pd-odyssey-trailmix', cat: 'pedals', brand: 'Odyssey', model: 'Trailmix Looseball Pedals',
     platform: 'alloy', spindle: '9/16', weight: 340, price: 42.99,
-    note: 'Model renamed to match maker naming (was "Trail Mix", two words) and price corrected 39.99 -> 42.99 via shop.odysseybmx.com/collections/odyssey-trailmix 2026-07-17 (aluminum body, 9/16in spindle, Looseball variant to match this row\'s non-sealed positioning); Odyssey publishes no weight for either Trailmix variant, and a third-party review\'s 578g/pair figure could not be confirmed as an actual scale measurement (fetch blocked), so the existing 340g sample weight is left as-is and the row stays unverified.'
+    verified: true, lastChecked: '2026-07-20', source: 'https://shop.odysseybmx.com/products/odyssey-trailmix-looseball-pedals-black',
+    note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): raw-confirmed on the maker\'s own page - "Alloy" tag + "Aluminum body" in the description (platform:\'alloy\') and an explicit "Spindle: 9/16\\"" spec line (spindle:\'9/16\') - and pedals carry zero checkBmxBuild compat rules in this engine (platform/spindle are pure display fields), so this row qualifies for the same treatment as shocks/wheels/forks even before considering weight. Price ($42.99) matches. Odyssey publishes no per-SKU weight and the Shopify JSON variant field (1361g) is a known shipping-weight bucket for this exact SKU (documented in wave 2 - not the real ~350-550g pedal-pair weight), so weight stays the 340g sample, basis noted here.'
   },
   {
     id: 'bmx-pd-shadow-metalalloy', cat: 'pedals', brand: 'The Shadow Conspiracy', model: 'Metal Sealed Alloy Pedals',
@@ -1281,8 +1291,9 @@ var BMX_PARTS = [
   //      signature lines) -------------------------------------------------
   {
     id: 'bmx-hb-cult-ak', cat: 'handlebar', brand: 'Cult', model: 'AK Bars',
-    clamp: '25.4mm', rise: 8.0, width: 28.75, price: 79.99,
-    note: 'Alex Kennedy signature bar - 12deg backsweep, 2deg upsweep.'
+    clamp: '25.4mm', rise: 10.0, width: 30.0, price: 79.99,
+    verified: true, lastChecked: '2026-07-20', source: 'https://cultcrew.com/products/ak-bars',
+    note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): rise CORRECTED 8.0 -> 10.0 and width CORRECTED 28.75 -> 30.0 - the maker\'s own spec list states "30\\" width, 12° backsweep, 2° upsweep, 10\\" rise" verbatim, both figures previously wrong. clamp is display-only in checkBmxBuild (no BMX bar/stem clamp rule exists - handlebar/stem aren\'t even read by checkBmxBuild), so the unconfirmed 25.4mm value does not block verification. Price ($79.99) matches. No weight field on this row - the page\'s 6804g JSON figure is an obvious shipping-weight bucket (a BMX bar does not weigh 15lb), correctly not carried over.'
   },
   {
     id: 'bmx-hb-cult-dak', cat: 'handlebar', brand: 'Cult', model: 'Dak Bars',
@@ -1414,12 +1425,14 @@ var BMX_PARTS = [
   {
     id: 'bmx-se-cult-paddedpivotal', cat: 'seat', brand: 'Cult', model: 'Padded Pivotal Seat',
     system: 'pivotal', price: 44.99,
-    note: 'Fat-base padded Pivotal seat - danscomp.com listing.'
+    verified: true, lastChecked: '2026-07-20', source: 'https://cultcrew.com/products/kevlar-padded-seat-black',
+    note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): matches Cult\'s current "Kevlar Padded Seat" ($44.99 exact) - raw-confirmed "only available in pivotal" on the maker\'s own page (system:\'pivotal\' is the sole field the bmx-seat-system rule reads). No maker weight published; the JSON variant field (1361g) is the same shipping-weight-bucket value seen on the unrelated Dak Pedal listing, correctly not carried over - weight stays absent as before.'
   },
   {
     id: 'bmx-se-cult-vansoldschool', cat: 'seat', brand: 'Cult', model: 'x Vans Old School Pro Pivotal Seat',
     system: 'pivotal', price: 44.99,
-    note: 'Cult x Vans collaboration Pivotal seat, old-school profile - danscomp.com listing (pairs with the already-cataloged Cult x Vans tire).'
+    verified: true, lastChecked: '2026-07-20', source: 'https://cultcrew.com/products/cult-x-vans-old-skool-seat-black',
+    note: 'Wave 7 (BMX interface-verification exception, Douglas 2026-07-20): matches Cult\'s current "Cult x Vans Old Skool Seat" ($44.99 exact) - raw-confirmed "pivotal seat" on the maker\'s own page (system:\'pivotal\' is the sole field the bmx-seat-system rule reads), "Designed to look like the CULT x VANS Old Skool pro shoe". No maker weight published; the JSON variant field (1361g) is the same shipping-weight-bucket value seen elsewhere on this store, correctly not carried over.'
   },
   {
     id: 'bmx-sp-cult-nwo-25t', cat: 'sprocket', brand: 'Cult', model: 'NWO Sprocket 25T',

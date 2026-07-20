@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-20T19:15:58.982Z",
+ "updated": "2026-07-20T19:57:33.263Z",
  "batchSize": 25,
  "lastCompleted": "ti-pirelli-scorpionxc-rc-29-22-pw-dual",
  "currentCategory": "frame",
@@ -17,8 +17,16 @@
   "fr-nukeproof-reactor-290-alloy",
   "fr-orbea-occam-lt",
   "fr-propain-tyee-cf",
+  "fr-starling-murmur",
+  "fr-starling-twist",
+  "fr-orange-p7-29",
+  "fr-orange-p7-mx",
+  "fr-surly-karate-monkey",
+  "fr-surly-krampus",
+  "fr-chromag-doctahawk",
   "fr-propain-tyee-al",
   "fr-propain-hugene-cf",
+  "fr-canfield-nimble-9",
   "ti-cst-camber-29-225",
   "ti-bontrager-xr1-29-22-innerstrength-tmspeed",
   "ti-bontrager-xr5-29-25-tmgrip",
@@ -40691,6 +40699,70 @@
    "cat": "completebike",
    "status": "Pending",
    "updated": "2026-07-20T18:15:48.203Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-starling-murmur": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-20T19:57:33.260Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-starling-twist": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-20T19:57:33.261Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-orange-p7-29": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-20T19:57:33.261Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-orange-p7-mx": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-20T19:57:33.261Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-surly-karate-monkey": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-20T19:57:33.261Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-surly-krampus": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-20T19:57:33.261Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-chromag-doctahawk": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-20T19:57:33.261Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-canfield-nimble-9": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-20T19:57:33.261Z",
    "error": null,
    "source": null,
    "note": null
