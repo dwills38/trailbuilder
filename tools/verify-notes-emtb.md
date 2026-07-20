@@ -25,3 +25,21 @@ Format per row: `id — Verified|Skipped|Failed — one-line reason`.
 
 ## YT (2026-07-20) — both Skipped
 - em-yt-decoy-core-3, em-yt-decoy-uncaged-8 — Skipped — YT went through administration and relaunched the whole Decoy line as "Decoy X" (Avinox M2S motor 150Nm, 800Wh, RockShox ZEB/Vivid, SRAM Eagle 90 Transmission, 170/160 travel). Catalog rows carry Shimano EP8/85Nm/630Wh/160-150mm — the old, now-discontinued Decoy MX generation; "Uncaged 8" trim no longer exists at all. Needs full re-entry.
+
+## Radon (2026-07-20) — both Skipped
+- em-radon-jealous-10-0, em-radon-jealous-9-0 — Skipped — real Radon "Jealous Hybrid" line is a Bosch 5th-gen CX-motor short-travel bike (~120mm fork, XC/light-trail category), not the Shimano EP8/160-155mm enduro-mullet bike the catalog describes. Category mismatch, not just a spec drift — needs re-entry against a real Radon enduro e-MTB (e.g. Swoop Hybrid) or correction of the model name.
+
+## Wave 1 summary (2026-07-20, session close)
+Checked 6 brands / 16 rows: Commencal (2 verified, 1 skipped), Canyon (0/4), Rocky Mountain (0/3),
+YT (0/2), Radon (0/2). **Pattern found repeatedly: e-MTB platforms churn motor vendor/battery/travel
+generation-to-generation faster than most MTB parts, and this catalog's unverified seed data mostly
+reflects a stale (pre-relaunch) generation** — wrong motor brand entirely in most cases (Shimano
+guessed where the real current bike is Bosch/DJI/Avinox), not just a minor number drift. This means
+most of the remaining 59 rows likely need the same treatment: fetch → compare → either correct+verify
+(clean SKU/price match, ~1-in-8 hit rate so far) or Skip with the generation-drift note.
+Remaining brands not yet touched (59 rows): Specialized, Trek, Santa Cruz, Orbea (started, walled —
+SPA lazy-loads specs, not re-attempted), Cannondale, Transition, Giant, Cube, Ibis, Mondraker, Haibike,
+Propain, Pivot, Norco, Scott, Merida, Whyte, Marin, Devinci, Vitus, Kona, Focus, Nukeproof.
+Walls hit: orbea.com renders via JS-SPA with lazy spec tabs (browser pane got the price but not the
+spec sheet in one pass — needs a click-through, not yet a hard anti-bot wall); bikes.com (Rocky
+Mountain) hCaptcha-gated on the newsletter popup only, product data still readable via Exa.
