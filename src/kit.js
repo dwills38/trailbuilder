@@ -2103,12 +2103,20 @@ var KIT_PARTS = [
     sizes:['S','M','L','XL'],
     desc:'Maker states weight "36g" without specifying single-glove-vs-pair (kept as-published rather than guessed-doubled). Price is EUR39 converted at ~1.08 USD/EUR (no USD price shown on the EU page); sizes corrected to the maker\'s S-XL run.',
     verified:true, lastChecked:'2026-07-16', source:'https://www.sweetprotection.com/eu/en/hunter-light-bike-gloves-mens-black/' },
-  { id:'glv-sweetprotection-huntermid', cat:'gloves', brand:'Sweet Protection', model:'Hunter Mid Glove', price:40, weight:65,
+  { id:'glv-sweetprotection-huntermid', cat:'gloves', brand:'Sweet Protection', model:'Hunter Mid Glove', price:40, weight:65, status:'discontinued',
     sizes:['S','M','L','XL','XXL'],
-    desc:'FLAG for coordinator review (2026-07-16): the only Hunter Mid Glove page found is an old product-id URL (828052.html) that 404s; current sweetprotection.com glove lineup is Hunter / Hunter Light / Hunter Pro - "Mid" may be discontinued or renamed to "Pro". Left as an unverified sample.' },
-  { id:'glv-sweetprotection-hunterrace', cat:'gloves', brand:'Sweet Protection', model:'Hunter Race Glove', price:45, weight:70,
+    desc:'RE-CHECKED kit-7 (2026-07-20): the old product-id URL (828052.html) from the 2026-07-16'
+      + ' pass still 404s. Confirmed via search across sweetprotection.com\'s current catalog: the'
+      + ' full glove lineup is exactly three tiers - Hunter, Hunter Light, Hunter Pro - no "Mid"'
+      + ' tier at any price point. Tagged discontinued rather than guessing which of the three'
+      + ' tiers it should map to.' },
+  { id:'glv-sweetprotection-hunterrace', cat:'gloves', brand:'Sweet Protection', model:'Hunter Race Glove', price:45, weight:70, status:'discontinued',
     sizes:['S','M','L','XL','XXL'],
-    desc:'FLAG for coordinator review (2026-07-16): the only Hunter Race Glove page found is an old product-id URL (828051.html) that 404s; current sweetprotection.com glove lineup is Hunter / Hunter Light / Hunter Pro - "Race" may be discontinued or renamed to "Pro". Left as an unverified sample.' },
+    desc:'RE-CHECKED kit-7 (2026-07-20): the old product-id URL (828051.html) from the 2026-07-16'
+      + ' pass still 404s. Confirmed via search across sweetprotection.com\'s current catalog: the'
+      + ' full glove lineup is exactly three tiers - Hunter, Hunter Light, Hunter Pro - no "Race"'
+      + ' tier at any price point. Tagged discontinued rather than guessing which of the three'
+      + ' tiers it should map to.' },
   { id:'glv-ixs-carve', cat:'gloves', brand:'iXS', model:'Carve Glove', price:33, weight:65,
     sizes:['S','M','L','XL','XXL'],
     desc:'Preformed slip-on, abrasion-resistant synthetic palm, touchscreen-compatible, 90%'
