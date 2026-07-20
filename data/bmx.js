@@ -1166,8 +1166,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-pd-colony-fantom', cat: 'pedals', brand: 'Colony', model: 'Fantastic Plastic Pedals',
-    platform: 'plastic', spindle: '9/16', weight: 350, price: 44.99,
-    note: 'CORRECTED model+platform 2026-07-17 (audit): no "Fantom" pedal exists; Colony\'s real pedal is the "Fantastic Plastic Pedals" (nylon/plastic platform, 9/16in), confirmed via colonybmx.com.au/products/category/pedals + albes.com/products/colony-fantastic-plastic-pedals. platform corrected alloy->plastic. Id retains the legacy "fantom" token (ids are append-only). Weight is an unverified sample.'
+    platform: 'plastic', spindle: '9/16', weight: 371, price: 44.99,
+    verified: true, lastChecked: '2026-07-20', source: 'https://colonybmx.com.au/products/fantastic-plastic-pedals', sourceType: 'manufacturer',
+    note: 'CORRECTED model+platform 2026-07-17 (audit): no "Fantom" pedal exists; Colony\'s real pedal is the "Fantastic Plastic Pedals" (nylon/plastic platform, 9/16in). VERIFIED 2026-07-20: colonybmx.com.au product page raw-text-confirms "Looseball axle type only in 9/16″" (platform:plastic, spindle:9/16) and "Weight per pair: 371 grams (13.08oz)" (corrected from the prior unverified 350g sample). Id retains the legacy "fantom" token (ids are append-only).'
   },
   {
     id: 'bmx-pd-chase-rsp-clip', cat: 'pedals', brand: 'Chase', model: 'RSP Clip Pedals',

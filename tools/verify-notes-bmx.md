@@ -254,3 +254,88 @@ weight verification via the Shopify-weight-bucket problem) — it's:
    for other non-Shopify BMX brands not yet swept (worth checking platform type — static HTML
    with a `<meta name="description">` spec summary vs. a Shopify storefront — before spending
    research time on a brand).
+
+---
+
+# BMX verification wave 3 — 2026-07-20 (verify/bmx-3)
+
+Scope: `data/bmx.js` only. Branch cut fresh off `origin/main` (commit `f3e91a4`). Target: sweep
+untouched small BMX brands + the remaining Colony/Sunday/Shadow gaps for wave-1/2-style yield.
+
+## Before → after
+
+- Before: 66/225 verified (29.3%)
+- After: **67/225 verified (29.8%)** — 1 new verification.
+
+## Verified (1)
+
+- **`bmx-pd-colony-fantom`** (Colony Fantastic Plastic Pedals) — raw-`curl`-confirmed on
+  `colonybmx.com.au/products/fantastic-plastic-pedals`: "Looseball axle type only in 9/16″"
+  (confirms `spindle:'9/16'`, `platform:'plastic'`) and **"Weight per pair: 371 grams
+  (13.08oz)"** — corrected from the prior 350g unverified sample. `sourceType:'manufacturer'`.
+
+## Researched, walls confirmed (no catalog edit — matches/extends wave 1-2 findings)
+
+- **8 untouched small brands swept** (Alienation, Verde, Mankind, Standard Byke Co, Supercross
+  BMX, United BMX, Premium BMX, Radio Bikes) via a research sub-agent, then two independently
+  raw-`curl`-verified myself per the phantom-number doctrine:
+  - **Standard Byke STA** (`bmx-fr-standard-sta`) — raw-confirmed on standardbyke.com: "Mid bb"
+    (matches `bbShell:'mid'`), "1/4″ thick 14mm laser cut drop outs" (matches `rearAxle:'14mm'`),
+    top-tube options "20.5, 20.75 and 21″" (matches the row's 20.75). **But**: the page's own
+    spec list states **"No brake mounts or welded on brake mounts"** as the no-cost-option
+    default — directly conflicting with this row's `rearBrakeMount:'u-brake'`. Also, the only
+    weight figure found ("Weight: 5.00 LBS") sits in a cart-system field directly next to
+    "Shipping: $45.00 (Fixed shipping cost)" — indistinguishable from a shipping-weight bucket,
+    the same trap that burned Odyssey/Cult in wave 2. **Not verified** — flagging the
+    brake-mount conflict for a human/coordinator call rather than silently editing it; the
+    frame's `headTube` field also isn't stated anywhere on the page.
+  - **Mankind Sunchaser (Ed Black)** (`bmx-fr-mankind-sunchaser`) — mankindbmx.com's German
+    storefront states a weight "2.1 kg bei 21.0″" — i.e. for the **21.0in size**, not this
+    row's 20.5in top tube. This exactly matches the row's existing sample weight (2100g),
+    which is suspicious (same "search figure matches pre-existing sample" tell as the wave-2
+    Odyssey false positives) — **not independently re-fetched by me** (the research sub-agent's
+    fetch, not a raw curl), so treat the existing 2100g figure as unconfirmed for the correct
+    size, not as newly verified. Left unchanged.
+  - **Alienation Sabbath** front/rear wheel — alienationbmx.com's own page confirms the wheel
+    actually uses a "Venus Hub," not a distinct "Sabbath" hub, and its weight field is present
+    but empty on the page. No usable data.
+  - **Verde Cadet/Eon, Supercross Envy RS7/BLK2, United Supreme, Radio Darko** — manufacturer
+    pages exist but the sub-agent was rate-limited (HTTP 429) before getting raw text; only
+    WebSearch-summary numbers were returned, which per the phantom-number doctrine are NOT
+    trustworthy without independent raw confirmation. **Not researched further this session —
+    a future wave should retry these with spaced-out requests** (a real lead, not yet cleared).
+  - **Premium BMX** — domain (premiumbmxproducts.com) is dead (DNS failure); brand appears to
+    have no current standalone site. Likely a permanent skip.
+  - Domain corrections for future waves: Verde is at **verdebicycles.com** (not verdebrand.com);
+    Standard Byke is at **standardbyke.com** (not standardbykeco.com); United is at
+    **unitedbikeco.com** (not unitedbmx.com, unconfirmed).
+- **Chase** (`bmx-fr-chase-rsp30` etc., 10 rows) — re-confirmed the existing wall note: no
+  standalone-parts section exists on chasebicycles.com. No new research needed, matches prior.
+- **Sunday Forecaster/Blueprint frames** — raw-`curl`-confirmed a NEW wall, extending the
+  Haro/Mongoose "complete-bike-only" pattern: `shop.sundaybikes.com`'s Frames collection page
+  links "Forecaster" and "Blueprint" to `/collections/sunday-bikes-forecaster` and
+  `/collections/sunday-bikes-blueprint` — i.e. these are **complete-bike model families**, not
+  standalone frame SKUs, on Sunday's own site (which otherwise sells real frame-only products,
+  e.g. the wave-1-verified Soundwave/Nightshift/Park Ranger). No frame-only product page exists
+  to fetch. Left unverified, no edit.
+- **Colony remainder** (Sweet Tooth frame, Cassette Cog 9T, Pivotal Seat, Wasp hubs, Rick/Guardian
+  bars, stems) — re-checked; all match the existing documented walls from wave 2 (variant
+  ambiguity, no standalone SKU, sold-bundled pricing mismatch, missing clamp spec). No new
+  findings, no edits.
+- **The Shadow Conspiracy remainder** (MFG Alloy Pegs, Feather Bars) — existing notes already
+  document these as discontinued/no-current-SKU-match. Re-confirmed, no new findings.
+
+## Distance to Douglas's 40% (90/225) go-live bar
+
+66→67 this wave (+1). 23 more needed. The small-untouched-brand sweep this session was mostly a
+wall (Chase/Sunday/Colony/Shadow already fully picked over by waves 1-2; the 8 newly-swept small
+brands split between dead domains, rate-limited fetches, and one real data-quality finding — the
+Standard Byke brake-mount conflict). **The two open levers from wave 2 are unchanged and remain
+the best path to 40%:**
+
+1. The complete-bike-only-frame policy call (still open, still Douglas's) — now extends to Sunday
+   Forecaster/Blueprint in addition to Haro/Mongoose, so the potential yield if approved is larger
+   than wave 2 estimated.
+2. A retry pass on the rate-limited fetches (Verde, Supercross, United, Radio) with spaced-out
+   requests — these are real unresearched leads, not confirmed walls, unlike most of what this
+   wave's brand list turned out to be.
