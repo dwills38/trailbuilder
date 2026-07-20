@@ -1,5 +1,14 @@
 # TrailBuilder — Getting-Started Roadmap
 
+> **Historical starter guide.** This is the original non-coder onboarding doc, written
+> when the project was a single-file prototype. Its phased plan (below) has long since
+> been overtaken by what actually shipped — the site went live as **BuildMyMTB**, with
+> accounts, a forum, BuildMyBMX/BuildMyRideKit as separate pages, and affiliate
+> infrastructure built (though not yet fed with live prices) well before some of the
+> "later" phases below were reached. **For the current state and roadmap, see
+> [`docs/MISSION.md`](docs/MISSION.md)** — this doc is kept for its still-useful
+> compatibility-domain primer and is not a live status page.
+
 A plan for turning a parts-compatibility builder for enduro mountain bikes into a live site, written for someone who is comfortable with light scripting but not full-stack development.
 
 ## What you have right now
@@ -30,15 +39,21 @@ The roadmap below front-loads the easy, high-value half so you have something re
 
 **Phase 4 — Community and growth.** User-submitted parts (with moderation), reviews, "builds other people made," compatibility-rule corrections from experts. This is what makes such sites durable, but it only matters once you have visitors.
 
-## The data question (you picked "scrape retailer sites")
+## The data question (sourcing specs and prices)
 
-Scraping is the obvious instinct, and it can work, but go in with eyes open. I'm not a lawyer, so treat this as practical engineering input, not legal advice, and check anything important with a professional:
+> **This section's original advice ("treat scraping as a last resort") is superseded by
+> the project's fetch-ethics ruling** (Douglas, 2026-07-18 — see `tools/VERIFY-PROTOCOL.md`
+> and memory `fetch-ethics-ruling`): **never defeat anti-bot or CAPTCHA protection on any
+> brand's site, full stop** — not as a last resort, not for a gap no feed covers. Rendering
+> JavaScript to read a public page is fine; circumventing a block is not. A fetch wall is
+> documented as a wall and the row stays honestly unverified — it is never a task to route
+> around. The fetch order in practice is manufacturer page → other legitimate sources → stop.
 
-- **Terms of service and robots.txt.** Many retailers' terms prohibit automated collection, and ignoring that can get you IP-banned or worse. Check each site's `robots.txt` and terms before scraping it.
-- **It's brittle.** Sites change layout constantly; scrapers break and need babysitting. Prices and stock go stale fast, so you'd need to re-scrape frequently.
-- **The cleaner alternative: affiliate feeds.** Most big bike retailers run affiliate programs (often via networks like AvantLink, Sovrn/VigLink, Impact, or Amazon Associates). These give you a *structured product feed with prices and links you're allowed to use* — and you earn a commission on click-throughs, which is a natural way to fund the site. This is very likely how a price-comparison MTB site should monetize and source pricing, and it sidesteps most of the scraping headaches.
+- **Terms of service and robots.txt.** Many retailers' terms prohibit automated collection. Check each site's `robots.txt` and terms before fetching from it, and never bypass a block you find.
+- **Hand-curated, manufacturer-sourced data is the actual model in production.** The live catalog's provenance fields (`verified`/`source`) are set only from a *fetched* manufacturer page — never a search-result snippet or retailer summary, which have repeatedly turned out to be wrong.
+- **Affiliate feeds for pricing.** Most big bike retailers run affiliate programs (via networks like AvantLink, Impact, or Amazon Associates). These give you a *structured product feed with prices and links you're allowed to use* — and a commission on click-throughs funds the site. This is the sourcing plan for live prices; the affiliate infrastructure exists in the repo today but isn't yet wired to a live feed.
 
-Recommended approach: **start with a hand-curated seed catalog** (reliable, no legal risk, lets you build now), then **layer in affiliate feeds for pricing** as the scalable path, and treat scraping as a last resort for filling specific gaps where no feed exists, done carefully and respectfully.
+Recommended approach: **hand-curated, manufacturer-sourced specs first** (what's actually shipped), **affiliate feeds for pricing** as the scalable path once the network applications clear — with the ethics rule above applying to every fetch, no exceptions.
 
 ## Ways to actually build the "live" version as a non-coder
 
@@ -80,6 +95,13 @@ This is your core domain knowledge — the dimensions a real checker must model.
 
 ## Progress so far
 
+This section is frozen at the prototype stage this doc was written for. The project has
+since gone live as **BuildMyMTB** with far more than this list — see
+[`docs/MISSION.md`](docs/MISSION.md) for what's actually shipped (a 20-rule-area engine
+across a 5,000+-part catalog, BuildMyBMX, BuildMyRideKit, accounts, a forum, guides, and
+more) and run `node validate.js` / `npm test` for live counts. Kept here as a snapshot of
+where the prototype stood before the real build began:
+
 - Component-level builds (drivetrain / wheels / brakes / cockpit) with groupset / wheelset / brake-set / cockpit presets that quick-fill the parts.
 - Compatibility engine (17 rules): wheel size, axles, drivetrain system/speed, UDH/Transmission, freehub, rotor interface & size, steerer, fork travel, dropper diameter, bar/stem clamp, rear-shock fit, and frame–shock bundling.
 - Green / red / grey compatibility dots, catalog sorted compatible-first.
@@ -87,4 +109,4 @@ This is your core domain knowledge — the dimensions a real checker must model.
 - **Mullet** (29 front / 27.5 rear) on mullet-capable frames; front and rear tires are separate slots.
 - A real repo: 64-test suite on Vitest (`npm test`) plus a data validator (`node validate.js`) with provenance fields.
 
-*Reminder: all catalog data in the prototype is sample data for demonstration and must be verified before anyone relies on it.*
+*Reminder: all catalog data in the prototype is sample data for demonstration and must be verified before anyone relies on it — much of the live catalog now carries real verified provenance; see MISSION.md's "quality machinery" section for the current bar.*
