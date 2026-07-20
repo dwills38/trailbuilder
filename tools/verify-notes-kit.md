@@ -92,3 +92,47 @@ When a catalog row's exact mfgPn no longer exists on the maker's site:
   Uvex, Cairn, Salice, Von Zipper, Gatorz, Blenders, Torege, EKS, Fly Racing,
   Cratoni). Apparel bar per VERIFY-PROTOCOL (no weight requirement) should make this
   faster per-row than shoes/helmets, but there are a lot of tiny brands to fetch.
+
+## Kit Wave 5 (2026-07-20, branch `verify/kit-5`)
+
+### Tiebreak: kit-3 vs kit-4 disagreement (3 rows, resolved from a fresh fetch each)
+
+Background: `ffef073` (the wave-4 row-block merge) found 3 rows where the kit-4 branch
+wanted to un-verify a kit-3-verified row, and deliberately KEPT kit-3's state rather than
+silently regress, flagging the conflict for Douglas. Resolved here from a single fresh
+fetch per row (browser pane for JS-heavy sites), ignoring both waves' memory:
+
+- **`hm-troyleedesigns-d4-composite-mips`** (TLD D4 Composite MIPS) — **kit-3 was right,
+  kit-4 was wrong.** kit-4 claimed troyleedesigns.com "publishes only a line-wide
+  1000-1150g range... not a per-SKU figure" and paired sizing (XS/S, M/L, XL/2X).
+  Re-fetched `troyleedesigns.com/products/sp24-d4-composite-helmet-w-mips-stealth-black`
+  fresh: the page states outright "we were able to get the D4 Composite helmet to
+  **1050 grams**" (a specific, per-model figure, not a range) and lists **six individual
+  sizes** (XS, SM, MD, LG, XL, 2X) as separate size-selector options, not three paired
+  sizes. kit-3's row (1050g, price $469, sizes XS/SM/MD/LG/XL/2X, verified:true) matches
+  the fresh fetch exactly — **no catalog change needed**, already correct in `src/kit.js`.
+- **`hm-100-altec`** (100% Altec helmet) — **split verdict, catalog corrected.** kit-3
+  verified specs (350g, $165, XS/SM+LG/XL sizes) via a Wayback Machine snapshot of
+  100percent.com's own product page; kit-4 un-verified it, arguing "100percent.com's
+  current site" shows no MTB helmets. Fresh fetch of BOTH: (1) the same Wayback snapshot
+  re-confirms weight 350g, price $165, sizes XS/SM + LG/XL verbatim — a genuine, real
+  archived manufacturer page, and an archived maker page is an accepted fetch per
+  VERIFY-PROTOCOL's Bright Data doctrine (it explicitly sanctions web.archive.org as an
+  unblocked source), so kit-3's `verified:true` on the SPECS is correct and stands; (2)
+  fresh fetch of `100percent.com/collections/mtb` (the live site, 2026-07-20) confirms
+  the MTB collection page today lists ONLY goggles/gloves/sunglasses sub-categories —
+  zero helmets, live nav or otherwise. 100% has genuinely exited the MTB helmet category
+  entirely (not a renamed SKU). **Fix applied:** kept `verified:true` (the specs ARE
+  manufacturer-sourced and correct) and added `status:'discontinued'` (whole-category-gone
+  case per the re-scope-vs-discontinued rule) — splitting the difference kit-3 and kit-4
+  each got half right: kit-3 was right that the specs are real/verified; kit-4 was right
+  that the product is gone from the brand's site.
+- **`sho-shimano-xc5`** (Shimano XC5) — **kit-4 was right, kit-3 was stale.** kit-3 had
+  `SH-XC502`, $175 (from a 2026-07-17 fetch of `ride.shimano.com/products/sh-xc502`);
+  kit-4 wanted `SH-XC503`, $190. Fresh fetch of `ride.shimano.com/collections/mountain`
+  (2026-07-20) confirms the plain men's `SH-XC502` SKU no longer exists in the current
+  lineup — it underwent the exact running-change pattern already documented in this file
+  (XC502->XC503) — only `SH-XC502 WOMEN'S` ($175, a different, still-live SKU) remains.
+  `ride.shimano.com/products/sh-xc503` confirms $190, BOA L6C dial, sizes 40-48 (the row's
+  old 39-47 range is stale too). **Fix applied:** re-scoped the row to `SH-XC503`/$190/
+  sizes 40-48, `lastChecked` bumped, `source` updated to the xc503 product page.
