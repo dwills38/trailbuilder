@@ -1,5 +1,16 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-20 — D2c LANDS AT buildmymtb.com/home (Douglas's domain call)
+
+- The approved D2c family front door moved from its placeholder home
+  (`sites/family/index.html`) to `/home.html` on the live site, replacing the brief
+  About-redirect stub at that path (the About page stays `/about.html`). Placeholder
+  filled with the real canonical, links relativized, `sites/family/` removed so there is
+  one source. Coordinator browser-verified pre-push: cold-load 0 dialogs, doors ordered
+  MTB → BMX → Road/Gravel/E-MTB (soon) → Rider gear last, mission verbatim, zero
+  horizontal overflow. Gates green at 838. D2a remains staged at `sites/ddubsworks/`
+  awaiting its own hosting target (one custom domain per GH Pages site).
+
 ## 2026-07-20 — SIX-WORKER HARVEST (apex pages, BMX 5, forks tail, recall watcher, kit 5, gravel 2)
 
 - **feat/apex-d2a-1 + feat/apex-d2c-1 merged**: both Douglas-approved apex pages are real
