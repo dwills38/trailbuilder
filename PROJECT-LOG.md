@@ -1,5 +1,23 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-20 — D1 family switcher + D4 /home.html SHIPPED (live surface)
+
+- **ui/home-d1-d4 merged** (Douglas-approved directions, built from the round-1 mockups):
+  D1 = the header wordmark on index/bmx/KitBuilder becomes a click-opened `<details>`
+  family switcher (live surfaces + an About link + the mission line as menu footer; never
+  auto-opens); D4 = `/home.html`, a standalone About page on the privacy.html pattern
+  (mission verbatim, honesty strip, what-verified-means, 3 live family cards, no off-live
+  tease). deploy.yml gained the `cp home.html _site/` line (the silent-404 trap).
+  Coordinator verification on top of the worker's: cold-load popup scan clean (famPop
+  checkVisibility false, zero open dialogs on index + home), menu opens/closes on demand,
+  gear-last ordering (Douglas's 2026-07-20 ruling — memory `home-page-decisions.md`),
+  mission verbatim, zero horizontal overflow; gates green at 832 tests. Worker's own pass
+  additionally covered 4 themes, 375px (catching a real off-viewport popup bug pre-review),
+  Escape/outside-click/keyboard conventions on all three pages.
+- **Home-page decision state**: Douglas likes D2a + D2c from round 2 (rider gear moved to
+  last in both mockups on his word — the ordering is now a standing rule); D2c's domain
+  undecided; D2b/D3a not picked. Round-2 mockups preserved on `design/home-page-round2`.
+
 ## 2026-07-20 — SEAT 15 seated + drop-bar cleanup merged + home-page round 2 delivered
 
 - **Seat 15 succession complete**: rename handshake confirmed, seat 14 archived, its merged
