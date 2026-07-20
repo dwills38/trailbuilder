@@ -41,7 +41,7 @@
 var RECALL_NOTES = [
   {
     recallId: 'RCL-12',
-    partIds: ['fr-transition-tr11-alloy'],
+    partIds: ['fr-transition-tr11-alloy', 'cb-transition-tr11-alloy-gx'],
     confidence: 'CONFIRMED MATCH',
     hazard: 'Chainstay yoke weld may not have been heated sufficiently during welding, which can lead to poor weld penetration and premature failure.',
     scopeNote: 'Scoped to frames with serial numbers TBC4801XXX, TBC4802XXX, or TBC4803XXX — not every TR11 Alloy ever sold. Check your frame’s serial number against those ranges before assuming this applies to your bike.',

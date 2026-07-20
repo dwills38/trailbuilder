@@ -25,6 +25,12 @@ test('recallNoteForPartId finds a known recalled part', function(){
   ok(note.scopeNote.indexOf('TBC48') !== -1, 'scope note should carry the serial-range caveat');
 });
 
+test('the RCL-12 complete bike is covered, not just the frame (ledger names both)', function(){
+  var note = RN.recallNoteForPartId('cb-transition-tr11-alloy-gx');
+  if(!note) throw new Error('expected the TR11 Alloy GX complete bike to carry RCL-12');
+  eq(note.recallId, 'RCL-12');
+});
+
 test('recallNoteForPartId returns null for an unrecalled part and for empty input', function(){
   eq(RN.recallNoteForPartId('fr-raaw-madonna-v3'), null);
   eq(RN.recallNoteForPartId(''), null);
