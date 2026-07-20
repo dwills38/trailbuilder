@@ -44,7 +44,7 @@ function dateOk(v, today){
 var GRAVEL_VOCAB = {
   wheel:        ['700c', '650b'],
   rearAxle:     ['12x142'],
-  axle:         ['12x100', '12x142', 'lefty-proprietary'],
+  axle:         ['12x100', '12x142', 'lefty-proprietary', '15x100'],
   hub:          ['12x100', '12x142'],
   brakeMount:   ['flat-mount'],
   brakeSystem:  ['disc-flat', 'disc', 'disc-hydraulic'],
@@ -54,7 +54,7 @@ var GRAVEL_VOCAB = {
   seatpost:     ['27.2', '31.6', '30.9'],
   steerer:      ['tapered'],
   frontDerailleurMount: ['none', 'braze-on'],
-  material:     ['alloy', 'steel'],
+  material:     ['alloy', 'steel', 'titanium'],
   freehub:      ['xdr', 'n3w', 'micro-spline-road', 'hg-road'],
   rotorMount:   ['center-lock'],
   casing:       ['tcs-light', 'tcs-tough', 'zsg', 'shieldwall', 'protection', 'hardwall', 'super-ground', 'exo', 'tubeless-complete', 'trail', 'standard', 'extralight', 'endurance'],
