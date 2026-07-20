@@ -66,7 +66,9 @@ var BMX_PARTS = [
     id: 'bmx-fr-sunday-forecaster', cat: 'frame', brand: 'Sunday', model: 'Forecaster',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    weight: 2100, price: 439.99
+    price: 439.99,
+    verified: true, lastChecked: '2026-07-20', source: 'https://shop.sundaybikes.com/products/2023-sunday-forecaster-matte-maroon-with-20-75-tt',
+    note: 'BMX wave 4 (frame-exception harvest): Sunday sells Forecaster only as a complete bike (shop.sundaybikes.com\'s Frames collection links this model to a complete-bike collection, no frame-only SKU) - verified on interfaces alone per the 2026-07-20 policy extension. Fetched complete-bike page (20.75in TT variant, matching this row exactly) states verbatim: "Sunday Forecaster, 20.75\\" TT, 100% chromoly frame with integrated 1-1/8\\" head tube, and removable brake hardware" (confirms headTube + corroborates u-brake convention), "BB Parts: Sealed, Mid, 19mm" (confirms bbShell:mid), "Brakes: Odyssey Springfield U-brake" (confirms rearBrakeMount:u-brake exactly), "Rear Hub: ...14mm female axle" (confirms rearAxle:14mm). No frame-only weight exists (page states only the ~26.78lb complete-bike weight, not used here) - weight intentionally left unset. Price kept as the prior sample; not independently reconfirmed on this page.'
   },
   {
     id: 'bmx-fr-fitbikeco-seriesone', cat: 'frame', brand: 'Fit Bike Co', model: 'Series One',
@@ -98,7 +100,9 @@ var BMX_PARTS = [
     id: 'bmx-fr-haro-downtown', cat: 'frame', brand: 'Haro', model: 'Downtown',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 379.99
+    price: 469.00,
+    verified: true, lastChecked: '2026-07-20', source: 'https://harobikes.com/products/downtown-20-2025',
+    note: 'BMX wave 4 (frame-exception harvest): sold as a complete bike only (no frame-only SKU) - verified on interfaces alone per the 2026-07-20 policy extension. Current-year page (downtown-20-2025) states: "Hi-tension steel frame. 20.5\\" top tube. Integrated head tube. Welded brake bosses. Mid bottom bracket." (confirms bbShell:mid, headTube, topTube:20.5 exactly) and current Shopify price $469.00 (corrected from $379.99). The 2025 page names the brake bosses but not the mount TYPE explicitly; cross-checked against Haro\'s own archived spec sheet for the same current-generation model (archive.harobikes.com/bmx/2023-freestyle/downtown-20-2023, same 20.5in TT / Mid BB / integrated-headtube frame, unchanged since), which states verbatim "990 Brake Mounts" and "Brakes: Radius Alloy 990 U-Brake" - confirms rearBrakeMount:u-brake and rearAxle:14mm ("14mm Axle Drop-outs") exactly. No frame-only weight exists on either page (Shopify\'s "weight" field is a shipping-weight bucket, not net product weight, per the wave-2 phantom-number doctrine - not used); weight intentionally left unset.'
   },
   {
     id: 'bmx-fr-mongoose-legion', cat: 'frame', brand: 'Mongoose', model: 'Legion L20',
@@ -189,8 +193,9 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-haro-downtown-dlx', cat: 'frame', brand: 'Haro', model: 'Downtown DLX',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.75, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
-    price: 449.99, note: 'Upgraded Downtown chassis; commonly run brakeless.'
+    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    price: 449.99,
+    note: 'BMX wave 4: CORRECTED, NOT VERIFIED. No current harobikes.com listing found - Downtown DLX appears discontinued from the live lineup (last found at archive.harobikes.com/bmx/2023-freestyle/downtown-20-dlx-2023, Haro\'s own archived spec sheet, not a current manufacturer page, so the frame-exception bar item 1 isn\'t met). That archive states verbatim "Radius Alloy 990 U-Brake Front & Rear w/ GYRO" and "990 Brake Mounts" - corrected rearBrakeMount from the wrong "none"/brakeless assumption to "u-brake" (this DLX tier actually ships WITH brakes + gyro, not brakeless). Also corrected topTube 20.75->20.5: the archive\'s geometry table lists only two sizes (19.5in and 20.5in), no 20.75in option exists. Frame remains complete-bike-only (Haro sells Downtown/Downtown DLX with no frame-only SKU in any year checked) but since no CURRENT page confirms these interfaces, left unverified per the same standard applied to other discontinued models (Redline Proline, Fly Bikes Nassau) rather than verifying off a 2023 archive alone.'
   },
   {
     id: 'bmx-fr-bsd-focus', cat: 'frame', brand: 'BSD', model: 'Focus',
@@ -263,7 +268,8 @@ var BMX_PARTS = [
     family: 'verde-eon', modelYear: 2021, discipline: 'freestyle', wheelSize: '20',
     bbShell: 'mid', headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake',
     rearAxle: '14mm', frameOnly: false, price: 529.99,
-    note: 'Frame spec pulled from the Eon complete-bike page (verdebicycles.com); also offered in 21in (XL) top tube; hi-ten frame w/ chromoly top/down tube, Mid BB, alloy U-brake.'
+    verified: true, lastChecked: '2026-07-20', source: 'https://verdebicycles.com/products/2021-verde-eon',
+    note: 'BMX wave 4 (frame-exception harvest): sold as a complete bike only - verified on interfaces alone per the 2026-07-20 policy extension. Raw-fetched verdebicycles.com product page states verbatim: "CNC machined integrated head tube, Mid BB" (confirms bbShell:mid + headTube), "Top Tube Length: 20.5\\"" (confirms topTube exactly), "Brake: Alloy U-brake" (confirms rearBrakeMount:u-brake exactly), "Rear Hub: Verde 100, fully sealed, alloy, 14mm axle" (confirms rearAxle:14mm exactly) - every rule-relevant field matches with zero corrections needed. Also offered in 21in (XL) top tube. No frame-only weight exists (complete-bike-only); a price figure ($399.99) appeared in the page\'s raw JSON but could not be confirmed as this SKU\'s own price rather than a related-product price (same ambiguity the Blueprint fetch hit) - price kept as the prior sample, not changed.'
   },
   {
     id: 'bmx-fr-united-supreme', cat: 'frame', brand: 'United', model: 'Supreme',
@@ -277,21 +283,24 @@ var BMX_PARTS = [
     family: 'mongoose-legion', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
     headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm',
     frameOnly: false, price: 281.99,
-    note: 'Frame spec pulled from the Legion L60 complete-bike page (mongoose.com); Hi-Ten steel frame, Mid BB shell, aluminum U-brake and levers.'
+    verified: true, lastChecked: '2026-07-20', source: 'https://int.mongoose.com/products/legion-l60',
+    note: 'BMX wave 4 (frame-exception harvest): sold as a complete bike only (Mongoose does not sell Legion frames standalone) - verified on interfaces alone per the 2026-07-20 policy extension. int.mongoose.com (Mongoose\'s own first-party international site) states verbatim: "Hi-Ten steel frame, removable brake mounts, and mid BB shell" (confirms bbShell:mid), spec table "Rear Hub: Steel, sealed-bearing cassette, 14 mm axle" (confirms rearAxle:14mm) and "Brakes: U-brake, aluminum" (confirms rearBrakeMount:u-brake exactly), "20.5-inch top tube length" (confirms topTube:20.5 exactly). Current mongoose.com (US) price $281.99 confirmed via raw fetch of the same SKU. No frame-only weight exists (complete-bike-only); weight intentionally left unset.'
   },
   {
     id: 'bmx-fr-mongoose-legionl100', cat: 'frame', brand: 'Mongoose', model: 'Legion L100',
     family: 'mongoose-legion', discipline: 'freestyle', wheelSize: '20', bbShell: 'mid',
     headTube: 'integrated-1-1/8', topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm',
     frameOnly: false, price: 298.99,
-    note: 'Frame spec pulled from the Legion L100 complete-bike page (int.mongoose.com / current Walmart listing); full 4130 chromoly frame (step up from the L60\'s Hi-Ten), Mid BB shell, aluminum U-brake.'
+    verified: true, lastChecked: '2026-07-20', source: 'https://int.mongoose.com/products/legion-l100',
+    note: 'BMX wave 4 (frame-exception harvest): sold as a complete bike only (Mongoose does not sell Legion frames standalone) - verified on interfaces alone per the 2026-07-20 policy extension. int.mongoose.com (Mongoose\'s own first-party international site) states verbatim: "Mongoose full 4130 Chromoly frame, tapered headtube, removable brake mounts, and mid BB shell" (confirms bbShell:mid), spec table "Rear Hub: Aluminum, sealed-bearing cassette, 14 mm axle" (confirms rearAxle:14mm) and "Brakes: U-brake, aluminum" (confirms rearBrakeMount:u-brake exactly). Top-tube length not independently reconfirmed on this page (left at the prior 21in sample). Current mongoose.com (US) price $298.99 (sale price, WebSearch-corroborated only - not independently raw-confirmed, kept as prior sample). No frame-only weight exists (complete-bike-only); weight intentionally left unset.'
   },
   {
     id: 'bmx-fr-sunday-blueprint', cat: 'frame', brand: 'Sunday', model: 'Blueprint',
     family: 'sunday-blueprint', modelYear: 2023, discipline: 'freestyle', wheelSize: '20',
     bbShell: 'american', headTube: 'integrated-1-1/8', topTube: 20.5, rearBrakeMount: 'u-brake',
     rearAxle: '14mm', frameOnly: false, price: 469.99,
-    note: 'Frame spec pulled from the Blueprint complete-bike page (shop.sundaybikes.com); also offered in 20in top tube. BB parts are listed as "Loose-ball, American, 19mm" - American-shell BB, unusual for an entry frame but per maker spec.'
+    verified: true, lastChecked: '2026-07-20', source: 'https://shop.sundaybikes.com/products/2023-sunday-blueprint-gloss-black-with-20-5-tt',
+    note: 'BMX wave 4 (frame-exception harvest): sold as a complete bike only (Sunday\'s own Frames collection links "Blueprint" to a complete-bike collection, no frame-only SKU exists) - verified on interfaces alone per the 2026-07-20 policy extension. Fetched complete-bike page (Gloss Black, 20.5in TT variant, matching this row exactly) states verbatim: "Frame: Sunday Blueprint, 20.5\\" top tube, integrated 1-1/8\\" head tube" (confirms topTube + headTube exactly), "BB Parts: Loose-ball, American, 19mm" (confirms bbShell:american exactly - genuinely unusual for an entry frame but literally maker-stated), "Brakes: Odyssey Springfield U-brake" (confirms rearBrakeMount:u-brake), "Rear Hub: Sunday, 36H, 14mm axle w/ 9t Driver" (confirms rearAxle:14mm). Also offered in 20in top tube (not this row). No frame-only weight exists (page states only the ~26lb complete-bike weight, not used here). Price kept as the prior sample; not independently reconfirmed on this page.'
   },
   {
     id: 'bmx-fr-supercross-envyblk2-expertxl', cat: 'frame', brand: 'Supercross BMX', model: 'ENVY BLK 2 Expert XL',
@@ -1212,9 +1221,9 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-standard-sta', cat: 'frame', brand: 'Standard Byke Co', model: 'STA',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    topTube: 20.75, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
     price: 419.99,
-    note: 'STA500 platform - Standard\'s long-running freestyle frame, approaching 25 years in production per the maker.'
+    note: 'STA500 platform - Standard\'s long-running freestyle frame, approaching 25 years in production per the maker. BMX wave 4: CORRECTED (not verified). Re-read standardbyke.com/sta500/ raw HTML for the wave-3-flagged brake-mount conflict: the spec list literally reads "No brake mounts or welded on brake mounts" directly above "Drilled/tapped for gyro tabs, a no cost option" - this is a build-to-order EITHER/OR choice (handmade-to-order frame), not a fixed stock spec, and brakeless is listed first/primary. Corrected rearBrakeMount from the wrong \'u-brake\' to \'none\' (this catalog\'s convention for other brakeless-primary/optional-mount frames, e.g. bmx-fr-totalbmx-killabee) rather than leaving a claim the page contradicts. "Mid bb" and "1/4\\" thick 14mm laser cut drop outs" reconfirm bbShell:mid and rearAxle:14mm. Not marked verified: no head tube spec stated on the page, and the only weight figure sits in a shipping-cost field (same trap as wave 3 found), not a real product weight.'
   },
   {
     id: 'bmx-fr-standard-125r', cat: 'frame', brand: 'Standard Byke Co', model: '125R',
