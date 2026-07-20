@@ -1,5 +1,20 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-20 — ★★ ROAD + EMTB GO LIVE (Douglas: "do them all at once")
+
+- **BuildMyRoadbike (road.html) and BuildMyEMTB (emtb.html) flipped LIVE** on
+  buildmymtb.com: deploy.yml stages both pages + data/road.js + data/emtb.js; the family
+  switcher on all five app pages gains both entries (verified byte-identical, gear-last,
+  across index/bmx/KitBuilder/road/emtb); /home's Road + E-MTB doors went live (gravel
+  stays the one coming-soon); /about gains both family cards. emtb.html's switcher was
+  reordered to gear-last and its off-live-preview label removed at flip. Gates green
+  (838, 7 validators, tsc, mojibake scan) + all-page switcher/dialog sweep pre-push.
+- Road ships at 217 parts / 81 verified (above BMX's own 59-verified flip precedent);
+  EMTB ships as a browse/compare surface, 75 bikes / 2 verified, every row honestly
+  sample-labeled (wave-2 triage queued to refresh stale generations).
+- The BuildMy* domain Cloudflare redirect packet handed to Douglas (his account = his
+  clicks); gravelbike targets /home until a gravel page exists.
+
 ## 2026-07-20 — ★ BMX 40% BAR CLEARED (90/225) + EMTB wave 1
 
 - **verify/bmx-7 merged**: 77→90/225 verified — **Douglas's 40% go-live bar hit exactly**,
