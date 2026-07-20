@@ -197,6 +197,16 @@ var ROAD_PARTS = [
     weight: 798, price: 1350,
     verified: true, lastChecked: '2026-07-18', source: 'https://www.dtswiss.com/en/support/product-support?matnr=WARC110NIDJCA12572',
     note: 'road-4 wave: weight 850(sample)->798g. Fetched dtswiss.com product-support page (matnr WARC110NIDJCA12572, "ARC 1100 DICUT db 50 12/142 mm Shimano"): "Net weight [g]: 798.000", "Inner width: 20 mm". Ships with a Shimano HG-L freehub body installed by default but includes an "SRAM XDR Road freehub body kit" in the box per the same page — matches this row\'s freehub:\'xdr\' modeling. maxTire same correction/caveat as the front row. | RECALL NOTE (2026-07-18, RECALL-LOG RCL-9): this wheel line is named in CPSC recall #25-445 (Aug 2025) - carbon rim delamination crash hazard on units with DT Swiss ID 2740000+ (Vietnam-made, delivered Aug 2024 onward; Poland-made rims excluded). Unit-specific - check your wheel ID at dtswiss.com/en/recall; remedy is stop-use + free replacement.' },
+  { id: 'fw-dtswiss-arc1100-dicut-38', cat: 'frontwheel', brand: 'DT Swiss', model: 'ARC 1100 DICUT DB 38', family: 'dtswiss-arc1100',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 20, maxTire: 32,
+    weight: 587, price: 1200,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.dtswiss.com/en/support/product-support?matnr=WARC110AIDXCO22333',
+    note: 'road-grind-1: shallower-depth sibling to the existing verified ARC 1100 DICUT DB 50 pair (same AERO+ 20mm-internal-width rim family). Fetched dtswiss.com product-support page (matnr WARC110AIDXCO22333, "ARC 1100 DICUT db 38 12/100 mm"): "Net weight 587 grams", "Inner Rim Width 20 mm", "Disc Center Lock", "12/100 mm" axle. maxTire reuses the same rim-family "25-32mm recommended" sourced ceiling as the DB 50 pair (not a page-confirmed figure for this exact SKU, same flag). price is an unsourced sample scaled off the DB 50 pair\'s price (shallower rim, lower typical MSRP) — not maker-published.' },
+  { id: 'rw-dtswiss-arc1100-dicut-38', cat: 'rearwheel', brand: 'DT Swiss', model: 'ARC 1100 DICUT DB 38', family: 'dtswiss-arc1100',
+    wheel: '700c', hub: '12x142', freehub: 'hg-road', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 20, maxTire: 32,
+    weight: 712, price: 1200,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.dtswiss.com/en/support/product-support?matnr=WARC110NIDJCO22334',
+    note: 'road-grind-1: Fetched dtswiss.com product-support page (matnr WARC110NIDJCO22334, "ARC 1100 DICUT db 38 12/142 mm Shimano"): "Net weight 712 g", "Inner width 20 mm", "Disc Center Lock", freehub "Shim. RD. 11SP Light S ASLS11" (DT Swiss\'s Shimano Road 11-speed driver naming) — modeled as freehub:\'hg-road\' (NOT xdr like the DB 50 sibling, which explicitly notes an included XDR kit; this SKU\'s page did not state one, so it is not assumed). maxTire/price caveats same as the front row.' },
   { id: 'fw-roval-rapide-clx-ii', cat: 'frontwheel', brand: 'Roval', model: 'Rapide CLX II', family: 'roval-rapide-clx',
     wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 42,
     weight: 675, price: 2500 },
@@ -284,6 +294,23 @@ var ROAD_PARTS = [
   { id: 'ro-sram-paceline-160', cat: 'rotor', brand: 'SRAM', model: 'Paceline 160mm', family: 'sram-paceline',
     size: 160, mount: 'center-lock',
     weight: 208, price: 100 },
+  { id: 'fd-sram-red-axs', cat: 'frontderailleur', brand: 'SRAM', model: 'RED AXS Front Derailleur', family: 'sram-red-axs',
+    system: 'sram-axs-road', speeds: 12, actuation: 'axs-wireless', mount: 'braze-on', maxChainringDiff: 13,
+    weight: 144, price: 495,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.sram.com/en/sram/models/fd-red-e-e1',
+    sourceType: 'measured', weightSource: 'https://www.bikeradar.com/features/tech/2024-sram-red-axs-weights',
+    note: 'sram.com model page (FD-RED-E-E1) fetched: braze-on only mount, 12-speed AXS wireless, chainring combos 46/33 through 56/43T (each pair a constant 13T difference -> maxChainringDiff:13), 45mm chainline, $495 MSRP; no weight listed there (SRAM road model pages omit component weights, per the RED/Force pattern already noted elsewhere in this file). Weight is BikeRadar\'s independently-weighed 144g (SRAM claims 145g).' },
+  { id: 'rd-sram-red-xplr-e1', cat: 'rearderailleur', brand: 'SRAM', model: 'RED XPLR AXS Rear Derailleur E1 (13-speed)', family: 'sram-red-xplr',
+    system: 'sram-xplr-13', speeds: 13, actuation: 'axs-wireless', maxCog: 46, cage: 'xplr', mount: 'udh-fullmount',
+    weight: 375, price: 770,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.sram.com/en/sram/models/rd-red-1e-e1',
+    sourceType: 'measured', weightSource: 'https://bikerumor.com/sram-red-xplr-13-speed-groupset/',
+    note: 'sram.com model page (RD-RED-1E-E1) fetched: 13-speed, wireless AXS, "Full Mount with UDH interface" (hangerless, direct dropout mount -> mount:\'udh-fullmount\'), 46T max cog, 10-46T XPLR 13-speed cassette + Road Flattop D1/E1 chain compatibility, 1x-only, $770 MSRP (sram.com price; Bikerumor\'s hands-on piece quotes $700, likely an earlier press-launch price point — flagged, not reconciled). Weight is Bikerumor\'s measured 375g (no weight listed on the sram.com page itself).' },
+  { id: 'cs-sram-red-xg1391-1046', cat: 'cassette', brand: 'SRAM', model: 'RED XPLR XG-1391 10-46 (13-speed)', family: 'sram-red-xplr',
+    system: 'sram-xplr-13', speeds: 13, freehub: 'xdr', minCog: 10, maxCog: 46,
+    weight: 288, price: 660,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.sram.com/en/sram/models/cs-xg-1391-e1',
+    note: 'sram.com model page (CS-XG-1391-E1) fetched: 13-speed, XDR driver, cog spread 10-11-12-13-15-17-19-21-24-28-32-38-46T, "designed for 1x XPLR rear derailleurs" + Flattop chains, $660 MSRP, and the page itself states a 288g weight (manufacturer-published, not a third-party measurement — no sourceType/weightSource pair needed).' },
 
   // ===== DRIVETRAIN — SRAM Force AXS (2x12, wireless) =====================
   { id: 'sh-sram-force-axs', cat: 'shifter', brand: 'SRAM', model: 'Force AXS Shifter/Brake Lever (pair)', family: 'sram-force-axs',
@@ -315,6 +342,24 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-18', source: 'https://www.sram.com/en/sram/models/gs-frc-e-e1',
     sourceType: 'measured', weightSource: 'https://www.bikeradar.com/features/sram-force-axs-weight',
     note: 'Weight is BikeRadar\'s independently-weighed 286g for the caliper pair (130g front + 156g rear, each with hose and fluid installed).' },
+  { id: 'fd-sram-force-axs', cat: 'frontderailleur', brand: 'SRAM', model: 'Force AXS Front Derailleur', family: 'sram-force-axs',
+    system: 'sram-axs-road', speeds: 12, actuation: 'axs-wireless', mount: 'braze-on', maxChainringDiff: 13,
+    weight: 182, price: 270,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.sram.com/en/sram/models/fd-frc-e-e1',
+    sourceType: 'measured', weightSource: 'https://www.bikeradar.com/features/sram-force-axs-weight',
+    note: 'sram.com model page (FD-FRC-E-E1) fetched: braze-on/clamp-compatible mount (SRAM sells the clamp interface as a separate accessory, AC-FDCL-A1 — this remains a single braze-on-mount SKU, not two rows), 12-speed AXS wireless, chainring combos 46/33, 48/35, 50/37T (constant 13T diff -> maxChainringDiff:13), 45mm chainline, $270 MSRP; no weight listed there. Weight is BikeRadar\'s independently-weighed 182g including battery (same Force AXS weight article already used for this file\'s RD/chain/brake rows).' },
+  { id: 'rd-sram-force-xplr-e1', cat: 'rearderailleur', brand: 'SRAM', model: 'Force XPLR AXS Rear Derailleur E1 (13-speed)', family: 'sram-force-xplr',
+    system: 'sram-xplr-13', speeds: 13, actuation: 'axs-wireless', maxCog: 46, cage: 'xplr', mount: 'udh-fullmount',
+    weight: 440, price: 475,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.sram.com/en/sram/models/rd-frc-1e-e1',
+    sourceType: 'measured', weightSource: 'https://bikerumor.com/sram-force-rival-12-axs-13-axs-xplr-prices-actual-weights/',
+    note: 'sram.com model page (RD-FRC-1E-E1) fetched: 13-speed, wireless AXS, Full Mount hangerless interface (-> mount:\'udh-fullmount\'), 46T max cog, 10-46T XPLR 13-speed cassette + Road Flattop D1/E1 chain compatibility, 1x-only, $475 MSRP. Weight is Bikerumor\'s actual-measured 440g (no weight listed on the sram.com page itself).' },
+  { id: 'cs-sram-force-xg1371-1046', cat: 'cassette', brand: 'SRAM', model: 'Force XPLR XG-1371 10-46 (13-speed)', family: 'sram-force-xplr',
+    system: 'sram-xplr-13', speeds: 13, freehub: 'xdr', minCog: 10, maxCog: 46,
+    weight: 348, price: 305,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.sram.com/en/sram/models/cs-xg-1371-e1',
+    sourceType: 'measured', weightSource: 'https://bikerumor.com/sram-force-rival-12-axs-13-axs-xplr-prices-actual-weights/',
+    note: 'sram.com model page (CS-XG-1371-E1) fetched: 13-speed, XDR driver, 10-46T range, "compatible with all XD cassettes (with a 1.85mm spacer)", $305 MSRP; no weight listed on the page. Weight is Bikerumor\'s actual-measured 348g.' },
 
   // ===== DRIVETRAIN — SRAM Rival AXS (2x12, wireless) ======================
   { id: 'sh-sram-rival-axs', cat: 'shifter', brand: 'SRAM', model: 'Rival AXS Shifter/Brake Lever (pair)', family: 'sram-rival-axs',
@@ -335,6 +380,24 @@ var ROAD_PARTS = [
   { id: 'br-sram-rival-axs', cat: 'brake', brand: 'SRAM', model: 'Rival AXS HRD Caliper (pair)', family: 'sram-rival-axs-brake',
     brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-sram-rival-axs',
     weight: 360, price: 180 },
+  { id: 'fd-sram-rival-axs', cat: 'frontderailleur', brand: 'SRAM', model: 'Rival AXS Front Derailleur', family: 'sram-rival-axs',
+    system: 'sram-axs-road', speeds: 12, actuation: 'axs-wireless', mount: 'braze-on', maxChainringDiff: 13,
+    weight: 151, price: 195,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.sram.com/en/sram/models/fd-riv-e-e1',
+    sourceType: 'measured', weightSource: 'https://bikerumor.com/hands-on-complete-rival-etap-axs-wireless-road-group-with-actual-weights/',
+    note: 'sram.com model page (FD-RIV-E-E1) fetched: braze-on/clamp-compatible mount, 12-speed AXS wireless, chainring combos 46/33, 48/35, 50/37T (constant 13T diff -> maxChainringDiff:13), 45mm chainline, $195 MSRP; no weight listed there. Weight is Bikerumor\'s actual-measured 151g (without battery, matching this file\'s existing convention).' },
+  { id: 'rd-sram-rival-xplr-e1', cat: 'rearderailleur', brand: 'SRAM', model: 'Rival XPLR AXS Rear Derailleur E1 (13-speed)', family: 'sram-rival-xplr',
+    system: 'sram-xplr-13', speeds: 13, actuation: 'axs-wireless', maxCog: 46, cage: 'xplr', mount: 'udh-fullmount',
+    weight: 435, price: 360,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.sram.com/en/sram/models/rd-riv-1e-e1',
+    sourceType: 'measured', weightSource: 'https://nminus1bikes.substack.com/p/2026-sram-rival-xplr-groupset-review',
+    note: 'sram.com model page (RD-RIV-1E-E1) fetched: 13-speed, wireless AXS, Full Mount hangerless interface (-> mount:\'udh-fullmount\'), 46T max cog, 10-46T XPLR 13-speed cassette + Road Flattop D1/E1 chain compatibility, 1x-only, $360 MSRP. Weight is a road-media hands-on review\'s stated 435g (no weight listed on the sram.com page itself; this is the least-corroborated of the three XPLR E1 RD weights in this batch — flagged for a future cross-check against a second source).' },
+  { id: 'cs-sram-rival-xg1351-1046', cat: 'cassette', brand: 'SRAM', model: 'Rival XPLR XG-1351 10-46 (13-speed)', family: 'sram-rival-xplr',
+    system: 'sram-xplr-13', speeds: 13, freehub: 'xdr', minCog: 10, maxCog: 46,
+    weight: 383, price: 215,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.sram.com/en/sram/models/cs-xg-1351-e1',
+    sourceType: 'measured', weightSource: 'https://nminus1bikes.substack.com/p/2026-sram-rival-xplr-groupset-review',
+    note: 'sram.com model page (CS-XG-1351-E1) fetched: 13-speed, XDR driver, 10-46T range (cogs 10-11-12-13-15-17-19-21-24-28-32-38-46), Road Flattop D1/E1 chain compatibility, $215 MSRP; no weight listed on the page. Weight is a road-media hands-on review\'s stated 383g — same flag as the RD row above.' },
 
   // ===== DRIVETRAIN — SRAM Apex (1x12, mechanical) =========================
   { id: 'sh-sram-apex-mech', cat: 'shifter', brand: 'SRAM', model: 'Apex Shifter/Brake Lever (pair)', family: 'sram-apex-mech',
@@ -355,6 +418,29 @@ var ROAD_PARTS = [
   { id: 'br-sram-apex-mech', cat: 'brake', brand: 'SRAM', model: 'Apex HRD Caliper (pair)', family: 'sram-apex-mech-brake',
     brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-sram-apex-mech',
     weight: 380, price: 120 },
+
+  // ===== ROTORS — SRAM Paceline / Paceline X depth (road-grind-1-sram wave) =
+  // Rotor coverage was thin catalog-wide (3 rows total) before this pass.
+  // The existing 'ro-sram-paceline-160' row (mount:'center-lock') maps to
+  // SRAM's RT-PLN-A2 Centerlock Paceline SKU; the two rows below fill the
+  // genuinely missing configurations: the 6-bolt Paceline (a distinct SKU,
+  // RT-PLN-A1) and the lighter RED-tier Paceline X (Centerlock-only,
+  // RT-PLN-X-A1). Both sram.com model pages were fetched directly (WebFetch
+  // did not 403 this session, unlike the support.sram.com KB articles used
+  // for cross-checking elsewhere in this wave). Only 160mm rows are entered
+  // — both products also ship in 140mm, but neither fetched page broke out
+  // a per-size price, and inventing one would violate THE BAR; 140mm stays
+  // a GAP for a future pass with a per-size source.
+  { id: 'ro-sram-paceline-160-6b', cat: 'rotor', brand: 'SRAM', model: 'Paceline 160mm (6-bolt)', family: 'sram-paceline',
+    size: 160, mount: '6-bolt',
+    price: 45,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.sram.com/en/sram/models/rt-pln-a1',
+    note: 'sram.com model page (RT-PLN-A1) fetched: 6-bolt mount (the RT-PLN-A2 SKU is the Centerlock version of the same Paceline line — already cataloged as ro-sram-paceline-160), 140/160mm sizes, "brake track vent design for smooth, quiet braking", $45 MSRP. No weight listed on the page and no reputable third-party MEASURED (not retailer-claimed) figure was found this pass — left blank rather than invented (retailer listing weights for this SKU ranged 112-160g across sources with no fetched teardown backing any single number, so none qualifies as sourceType:\'measured\').' },
+  { id: 'ro-sram-pacelinex-160-cl', cat: 'rotor', brand: 'SRAM', model: 'Paceline X 160mm', family: 'sram-pacelinex',
+    size: 160, mount: 'center-lock',
+    price: 75,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.sram.com/en/sram/models/rt-pln-x-a1',
+    note: 'sram.com model page (RT-PLN-X-A1) fetched: Centerlock-only mount, 140/160mm sizes, "lightest aluminum carrier we\'ve made yet" (the RED-tier rotor line, paired with rd-sram-red-axs/br-sram-red-axs elsewhere in this file), $75 MSRP, lockring sold separately. The page states "280g based on two 160mm rotors with SRAM lockrings" (a PAIR figure, not a per-rotor one) — left the per-unit weight field blank rather than dividing an unstated lockring share, per THE BAR.' },
 
   // ===== DRIVETRAIN — Shimano Dura-Ace R9200 (2x12, Di2) ===================
   { id: 'sh-shimano-da-r9200', cat: 'shifter', brand: 'Shimano', model: 'Dura-Ace ST-R9270 Di2 (pair)', family: 'shimano-r9200',
@@ -423,6 +509,186 @@ var ROAD_PARTS = [
   { id: 'ro-shimano-rtcl800-160', cat: 'rotor', brand: 'Shimano', model: 'RT-CL800 160mm', family: 'shimano-rtcl800',
     size: 160, mount: 'center-lock',
     weight: 130, price: 55 },
+  { id: 'ro-shimano-rtmt800-160', cat: 'rotor', brand: 'Shimano', model: 'RT-MT800 160mm (Ice Tech Freeza)', family: 'shimano-rtmt800',
+    size: 160, mount: 'center-lock',
+    weight: 130, price: 60,
+    note: 'road-5 wave (rotor depth): this file previously carried only 3 rotor rows total (RT-CL900/RT-CL800/SRAM Paceline). RT-MT800 is a genuinely different SKU, not a duplicate of the RT-CL800/900 road rotors already cataloged — it is Shimano\'s Ice Technologies FREEZA finned/3-layer construction, commonly paired with GRX 1x and MTB-shared 12-speed drivetrains for extra heat capacity on gravel/off-road descents (sold in 203/180/160/140mm, Center Lock only, per multiple bike.shimano.com regional product-page titles surfaced via WebSearch: "SHIMANO CENTER LOCK Disc Brake Rotor ICE TECHNOLOGIES FREEZA 203/180/160/140 mm"). This pass\'s own browser-pane fetch of the bike.shimano.com product page returned a client-side-routing-mismatched title/content pairing (a real wall, not a clean confirmation) — kept as an UNVERIFIED sample rather than claiming a fetch that did not cleanly resolve; size/mount/weight-class are still real, not fabricated. A dedicated road-specific SM-RT900/SM-RT800-tier rotor SKU search turned up no distinct road-only rotor family beyond the RT-CL line already in this file — Shimano rotors are shared hardware across road/MTB/GRX by design (Center-Lock or 6-bolt, sized by mm, no drivetrain-specific rotor exists), so "reuse, don\'t duplicate" is the right call there; RT-MT800 earns its own row only because it is mechanically distinct (Ice Tech Freeza) from the RT-CL family, not because it is road-vs-GRX-specific.' },
+
+  // ===== FRONT DERAILLEURS — Shimano road (R9200/R8100/R7100) + GRX ========
+  // road-5 wave (Shimano depth): catalog previously had ZERO frontderailleur
+  // rows despite full shifter/RD/cassette/chain/crank/brake depth for these
+  // tiers. Model existence, speeds and system pairing for the six road FDs
+  // below are confirmed via productinfo.shimano.com/en/compatibility/C-455
+  // (fetched: "FD-R9200 and FD-R9250: Paired with FC-R9200/FC-R9200-P... 2x12
+  // DURA-ACE"; "FD-R8100 and FD-R8150: ...ULTEGRA"; "FD-R7100 and FD-R7150:
+  // ...SHIMANO 105"). Mount (braze-on) is the modern Shimano road/GRX FD
+  // native standard — Shimano sells a separate SM-AD91 clamp-band adapter
+  // for frames without a braze-on tab (na.s-tec.shimano.com spec sheet +
+  // corroborating retailer/explainer pages), so 'band' is never the native
+  // SKU. Weights are NOT itemized on any fetched Shimano page (known
+  // catalog-wide Shimano limitation) — sample estimates, flagged per row,
+  // never promoted as sourced.
+  { id: 'fd-shimano-da-r9200', cat: 'frontderailleur', brand: 'Shimano', model: 'Dura-Ace FD-R9200 (mechanical)', family: 'shimano-r9200',
+    system: 'shimano-road-12', speeds: 12, actuation: 'mechanical', mount: 'braze-on',
+    weight: 88, price: 220,
+    verified: true, lastChecked: '2026-07-18', source: 'https://productinfo.shimano.com/en/compatibility/C-455',
+    note: 'road-5 wave: fetched productinfo.shimano.com C-455 confirms "FD-R9200 and FD-R9250: Paired with FC-R9200/FC-R9200-P cranksets in 2x12-speed DURA-ACE configurations" — FD-R9200 is the mechanical member of the pair (FD-R9250 is Di2, separate row below). No matching mechanical Dura-Ace shifter/rear-derailleur row exists in this catalog yet (this family\'s other rows are all Di2 R9270/R9250) — flagged as a GAP, out of this pass\'s scope (front derailleurs only). Mount (braze-on) per the native-standard reasoning in the section header comment, not a per-model unique fetch. Weight (88g) is an unsourced sample estimate — Shimano does not publish component weights.' },
+  { id: 'fd-shimano-da-r9250', cat: 'frontderailleur', brand: 'Shimano', model: 'Dura-Ace FD-R9250 Di2', family: 'shimano-r9200',
+    system: 'shimano-road-12', speeds: 12, actuation: 'di2-wired', mount: 'braze-on',
+    weight: 98, price: 270,
+    verified: true, lastChecked: '2026-07-18', source: 'https://productinfo.shimano.com/en/compatibility/C-455',
+    note: 'road-5 wave: same C-455 fetch/citation as the FD-R9200 row above; this is the Di2 member of the pair, matching this catalog\'s existing Di2-only R9200-family shifter/RD rows. Weight (98g) unsourced sample.' },
+  { id: 'fd-shimano-ultegra-r8100', cat: 'frontderailleur', brand: 'Shimano', model: 'Ultegra FD-R8100 (mechanical)', family: 'shimano-r8100',
+    system: 'shimano-road-12', speeds: 12, actuation: 'mechanical', mount: 'braze-on',
+    weight: 95, price: 100,
+    verified: true, lastChecked: '2026-07-18', source: 'https://productinfo.shimano.com/en/compatibility/C-455',
+    note: 'road-5 wave: fetched productinfo.shimano.com C-455 confirms "FD-R8100 and FD-R8150: Compatible with FC-R8100/FC-R8100-P in 2x12-speed ULTEGRA setups" — FD-R8100 is the mechanical member. No mechanical Ultegra shifter/RD row exists in this catalog (same GAP as Dura-Ace, flagged, out of scope). Weight (95g) unsourced sample.' },
+  { id: 'fd-shimano-ultegra-r8150', cat: 'frontderailleur', brand: 'Shimano', model: 'Ultegra FD-R8150 Di2', family: 'shimano-r8100',
+    system: 'shimano-road-12', speeds: 12, actuation: 'di2-wired', mount: 'braze-on',
+    weight: 108, price: 150,
+    verified: true, lastChecked: '2026-07-18', source: 'https://productinfo.shimano.com/en/compatibility/C-455',
+    note: 'road-5 wave: same C-455 citation; Di2 member, matches this catalog\'s existing Di2 R8100-family rows. Weight (108g) unsourced sample.' },
+  { id: 'fd-shimano-105-r7100', cat: 'frontderailleur', brand: 'Shimano', model: '105 FD-R7100 (mechanical)', family: 'shimano-r7100',
+    system: 'shimano-road-12', speeds: 12, actuation: 'mechanical', mount: 'braze-on',
+    weight: 100, price: 55,
+    verified: true, lastChecked: '2026-07-18', source: 'https://productinfo.shimano.com/en/compatibility/C-455',
+    note: 'road-5 wave: fetched productinfo.shimano.com C-455 confirms "FD-R7100 and FD-R7150: Work with FC-R7100/FC-RS520 in 2x12-speed SHIMANO 105 applications" — FD-R7100 is the mechanical member (this catalog\'s existing 105-family shifter/RD rows are Di2 R7170/R7150; a mechanical 105 groupset otherwise stays a GAP, out of this pass\'s FD-only scope). Weight (100g) unsourced sample.' },
+  { id: 'fd-shimano-105-r7150', cat: 'frontderailleur', brand: 'Shimano', model: '105 FD-R7150 Di2', family: 'shimano-r7100',
+    system: 'shimano-road-12', speeds: 12, actuation: 'di2-wired', mount: 'braze-on',
+    weight: 115, price: 90,
+    verified: true, lastChecked: '2026-07-18', source: 'https://productinfo.shimano.com/en/compatibility/C-455',
+    note: 'road-5 wave: same C-455 citation; Di2 member, matches this catalog\'s existing Di2 R7100-family rows (which already cite this same C-455 URL on the rd-shimano-105-r7100 row). Weight (115g) unsourced sample.' },
+  { id: 'fd-shimano-grx-rx820', cat: 'frontderailleur', brand: 'Shimano', model: 'GRX FD-RX820 (mechanical, 2x12)', family: 'shimano-grx-rx820',
+    system: 'shimano-grx-12', speeds: 12, actuation: 'mechanical', mount: 'braze-on',
+    weight: 105, price: 70,
+    verified: true, lastChecked: '2026-07-18', source: 'https://bike.shimano.com/en-NA/products/components/pdp.P-FD-RX820.html',
+    note: 'road-5 wave: fetched bike.shimano.com product page (title "GRX FRONT DERAILLEUR 2X12s"; spec table: "Model No FD-RX820", "Front speeds 2", "Rear speeds 12", "Compatible chain HG 12-speed", "Action Down swing") via the browser pane per VERIFY-PROTOCOL\'s "JS-rendered != bot-walled" guidance (WebFetch 403s bike.shimano.com; the browser pane renders it clean, same page any visitor sees — not a bot-wall defeat). GRX IS applicable here: RX820/RX610 both offer a real 2x12 tier alongside the more common 1x — verified before adding, per the brief\'s instruction not to invent one. Weight (105g) unsourced sample.' },
+  { id: 'fd-shimano-grx-rx825', cat: 'frontderailleur', brand: 'Shimano', model: 'GRX Di2 FD-RX825 (2x12)', family: 'shimano-grx-rx820',
+    system: 'shimano-grx-12', speeds: 12, actuation: 'di2-wired', mount: 'braze-on',
+    weight: 120, price: 140,
+    verified: true, lastChecked: '2026-07-18', source: 'https://bike.shimano.com/en-NA/products/components/pdp.P-FD-RX825.html',
+    note: 'road-5 wave: fetched bike.shimano.com product page (title "GRX Di2 FRONT DERAILLEUR 2x12s"; spec table: "Model No FD-RX825", "Front speeds 2", "Rear speeds 12", "Compatible chain HG 12-speed") via the browser pane, same fetch-doctrine note as FD-RX820. This is the Di2 electronic member of the GRX 2x12 pair (productinfo.shimano.com C-455 also lists "FD-RX825" linked to "FC-RX610-2"). No GRX Di2 shifter/RD rows exist in this catalog yet — flagged as a GAP for a future GRX Di2 depth pass, out of this pass\'s scope. Weight (120g) unsourced sample.' },
+
+  // ===== DRIVETRAIN — Shimano GRX RX820/RX610 (12-speed) ===================
+  // road-5 wave: catalog had ZERO GRX rows despite the road-1/2 trailing
+  // comment flagging this as an explicit GAP. RX820 (top tier) and RX610
+  // (mid tier) share the same rear derailleurs (RD-RX820 for 2x, RD-RX822
+  // GS/SGS for 1x — confirmed via WebSearch that no distinct "RD-RX610"
+  // 12-speed derailleur exists; RX610 differs only in shifter/crank
+  // material tier) and the same cassette/chain — see notes per row for the
+  // exact fetch each fact traces to. Per ROAD-GRAVEL-SHARED-STANDARDS.md
+  // section 2: 2x12 GRX uses the HG-road freehub with 11-34/11-36T
+  // cassettes (this catalog's existing cs-shimano-105-r7100-1136 row,
+  // 11-36T, is reused rather than duplicated — confirmed via WebSearch
+  // citing "the 2x GRX is expected to be the 11-36 from R7100"), while
+  // 1x12 GRX uses Micro Spline and shares real Shimano MTB cassettes
+  // (CS-M8100-12) — modeled below as its own row per the brief's
+  // instruction NOT to invent a road-only cassette, only reference the
+  // real shared SKU. The chain is likewise shared with the MTB 12-speed
+  // HG+ family and already has a matching row in this file
+  // (ch-shimano-ultegra-r8100, "Ultegra CN-M8100 12s") — reused, not
+  // duplicated.
+  { id: 'sh-shimano-grx-rx820-2x', cat: 'shifter', brand: 'Shimano', model: 'GRX ST-RX820 Shift/Brake Lever (pair, 2x)', family: 'shimano-grx-rx820',
+    system: 'shimano-grx-12', speeds: 12, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
+    weight: 780, price: 380,
+    verified: true, lastChecked: '2026-07-18', source: 'https://bike.shimano.com/en-NA/products/components/pdp.P-ST-RX820-L.html',
+    note: 'road-5 wave: fetched bike.shimano.com (browser pane; WebFetch 403s this host): title "GRX DUAL CONTROL LEVER 2X12s", spec table "Model No ST-RX820-L", "Front speeds 2", "Shifter type DUAL CONTROL LEVER" — confirms this is a mechanical (cable, not Di2) 2x lever with an integrated hydraulic brake. Weight (780g pair, sample) and price are unsourced estimates — Shimano does not publish component weights.' },
+  { id: 'sh-shimano-grx-rx820-1x', cat: 'shifter', brand: 'Shimano', model: 'GRX ST-RX820-LA Shift/Brake Lever (pair, 1x)', family: 'shimano-grx-rx820',
+    system: 'shimano-grx-12', speeds: 12, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: false,
+    weight: 760, price: 360,
+    note: 'road-5 wave: GRX 1x uses the same right-side 12-speed shifter (ST-RX820-R) as the 2x pair, but a distinct LEFT lever with no front shift — the ST-RX820-LA, confirmed real via WebSearch surfacing its own bike.shimano.com product page (Polish/Japanese locales fetched by the search engine; title translates to "GRX Brake Lever - Dropper Post Lever"), which this pass did not itself render through the browser pane (time-boxed) — kept unverified rather than claiming a fetch that did not happen. Weight/price unsourced samples.' },
+  { id: 'sh-shimano-grx-rx610-2x', cat: 'shifter', brand: 'Shimano', model: 'GRX ST-RX610 Shift/Brake Lever (pair, 2x)', family: 'shimano-grx-rx610',
+    system: 'shimano-grx-12', speeds: 12, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
+    weight: 820, price: 260,
+    verified: true, lastChecked: '2026-07-18', source: 'https://productinfo.shimano.com/en/compatibility/C-454',
+    note: 'road-5 wave: fetched productinfo.shimano.com C-454 rear-drivetrain compatibility chart: "Shifters: ST-RX820: 2x12-speed, ST-RX610: 2x12-speed, ST-RX600: 2x11-speed" — confirms ST-RX610 as a real, distinct 2x12 shifter (the mid-tier sibling of ST-RX820, cheaper materials/finish per Shimano\'s tiering, same mechanical 12-speed mechanism). Weight/price unsourced samples.' },
+  { id: 'rd-shimano-grx-rx820-2x', cat: 'rearderailleur', brand: 'Shimano', model: 'GRX RD-RX820 (2x12)', family: 'shimano-grx-rx820',
+    system: 'shimano-grx-12', speeds: 12, actuation: 'mechanical', maxCog: 36, cage: 'medium', mount: 'std-hanger',
+    weight: 280, price: 130,
+    verified: true, lastChecked: '2026-07-18', source: 'https://bike.shimano.com/en-NA/products/components/pdp.P-RD-RX820.html',
+    note: 'road-5 wave: fetched bike.shimano.com (browser pane): title "GRX REAR DERAILLEUR 12s (FOR 11-34/36T)", spec table "Model No RD-RX820", "Rear speeds 12", "Compatible chain HG 12-speed", "RD construction SHIMANO SHADOW RD+", "Mount Direct attachment (conventional)". maxCog:36 covers the page-stated 34/36T cassette range (this catalog\'s cassette schema wants a single number; 36 is the wider/safer max). mount:\'std-hanger\' maps the page\'s "Direct attachment (conventional)" (not the UDH full-mount token). This is the shared 2x12 rear derailleur for BOTH the RX820 and RX610 tiers (WebSearch corroborated no separate "RD-RX610" 12-speed part exists). Weight/price unsourced samples.' },
+  { id: 'rd-shimano-grx-rx822-gs', cat: 'rearderailleur', brand: 'Shimano', model: 'GRX RD-RX822-GS (1x12, 10-45T)', family: 'shimano-grx-rx822',
+    system: 'shimano-grx-12', speeds: 12, actuation: 'mechanical', maxCog: 45, cage: 'medium', mount: 'std-hanger',
+    weight: 290, price: 140,
+    verified: true, lastChecked: '2026-07-18', source: 'https://bike.shimano.com/en-NA/products/components/pdp.P-RD-RX822-GS.html',
+    note: 'road-5 wave: fetched bike.shimano.com (browser pane): title "GRX REAR DERAILLEUR 12s (FOR 10-45T)", spec table "Model No RD-RX822-GS", "Rear speeds 12", "Compatible chain HG 12-speed", "Mount Direct attachment (conventional)" — confirms the GS (medium/"Shadow Plus") cage 1x12 derailleur, max sprocket 45T. Shared by both RX820 and RX610 1x builds (same part, one SKU per cage length, not per shifter tier). Weight/price unsourced samples.' },
+  { id: 'rd-shimano-grx-rx822-sgs', cat: 'rearderailleur', brand: 'Shimano', model: 'GRX RD-RX822-SGS (1x12, 10-51T)', family: 'shimano-grx-rx822',
+    system: 'shimano-grx-12', speeds: 12, actuation: 'mechanical', maxCog: 51, cage: 'long', mount: 'std-hanger',
+    weight: 305, price: 150,
+    verified: true, lastChecked: '2026-07-18', source: 'https://bike.shimano.com/en-NA/products/components/pdp.P-RD-RX822-SGS.html',
+    note: 'road-5 wave: fetched bike.shimano.com (browser pane): title "GRX REAR DERAILLEUR 12s (FOR 10-51T)", spec table "Model No RD-RX822-SGS", same construction/mount fields as the GS row — the long-cage sibling, max sprocket 51T, for the widest-range 1x12 cassettes. Weight/price unsourced samples.' },
+  { id: 'cs-shimano-grx-m8100-1045', cat: 'cassette', brand: 'Shimano', model: 'Deore XT CS-M8100-12 10-45T (GRX 1x12 shared)', family: 'shimano-grx-cs-m8100',
+    system: 'shimano-grx-12', speeds: 12, freehub: 'micro-spline-road', minCog: 10, maxCog: 45,
+    weight: 470, price: 165,
+    verified: true, lastChecked: '2026-07-18', source: 'https://bike.shimano.com/en-NA/products/components/pdp.P-RD-RX822-GS.html',
+    note: 'road-5 wave: per ROAD-GRAVEL-SHARED-STANDARDS.md section 2, GRX 1x12 uses Micro Spline and shares real Shimano MTB cassettes rather than a road-only SKU — this row is that literal MTB part (CS-M8100-12), not an invented road cassette. Range (10-45T) matches the fetched RD-RX822-GS page\'s own title ("FOR 10-45T") — the derailleur\'s own spec page is the source for the cassette range it\'s designed around, corroborated by productinfo.shimano.com C-454\'s fetched "CS-M9100-12 CS-M8100-12 CS-M7100-12 CS-M6100-12(10-51T)" 12-speed family listing (the 51T sibling is the separate row below). freehub:\'micro-spline-road\' is this file\'s own vocab token for the GRX-side Micro Spline driver (LOCAL_VOCAB.freehubRG) — physically the same spline as the MTB freehub, tagged distinctly per ROAD-MODEL.md\'s "never reuse an MTB token" discipline. Weight/price unsourced samples.' },
+  { id: 'cs-shimano-grx-m8100-1051', cat: 'cassette', brand: 'Shimano', model: 'Deore XT CS-M8100-12 10-51T (GRX 1x12 shared)', family: 'shimano-grx-cs-m8100',
+    system: 'shimano-grx-12', speeds: 12, freehub: 'micro-spline-road', minCog: 10, maxCog: 51,
+    weight: 505, price: 175,
+    verified: true, lastChecked: '2026-07-18', source: 'https://productinfo.shimano.com/en/compatibility/C-454',
+    note: 'road-5 wave: same MTB-shared-cassette reasoning as the 10-45T row above; range (10-51T) fetched directly off productinfo.shimano.com C-454\'s "CS-M9100-12 CS-M8100-12 CS-M7100-12 CS-M6100-12(10-51T)" line, and matches the fetched RD-RX822-SGS page title ("FOR 10-51T"). Weight/price unsourced samples.' },
+  { id: 'cr-shimano-grx-rx820-2x', cat: 'crankset', brand: 'Shimano', model: 'GRX FC-RX820-2 Crankset', family: 'shimano-grx-rx820',
+    bb: '24mm-road', chainrings: '2x', ring: '48/31', ringStd: 'standard-12', speeds: 12,
+    weight: 700, price: 380,
+    verified: true, lastChecked: '2026-07-18', source: 'https://bike.shimano.com/products/components/pdp.P-FC-RX820-2.html',
+    note: 'road-5 wave: fetched bike.shimano.com (browser pane): title "GRX CRANKSET - 2X12s", model FC-RX820-2. Ring (48/31T) and HOLLOWTECH II construction (-> bb:\'24mm-road\', this file\'s existing token for Shimano\'s Hollowtech II spindle, matching every other Shimano road crank in this catalog) are corroborated across multiple retailer listings quoting Shimano\'s own product copy (bike-components.de, spokex.com, probikesupply.com all independently state "48-31T... Hollowtech II"). chainline not sourced for this specific 2x SKU (the 1x820/2x610 rows below have a page-confirmed chainline; this one does not — left blank rather than guessed). Weight/price unsourced samples.' },
+  { id: 'cr-shimano-grx-rx820-1x', cat: 'crankset', brand: 'Shimano', model: 'GRX FC-RX820-1 Crankset', family: 'shimano-grx-rx820',
+    bb: '24mm-road', chainrings: '1x', ring: '40', ringStd: 'standard-12', speeds: 12, chainline: 49.7,
+    weight: 650, price: 320,
+    verified: true, lastChecked: '2026-07-18', source: 'https://bike.shimano.com/en-NA/products/components/pdp.P-FC-RX820-1.html',
+    note: 'road-5 wave: fetched bike.shimano.com (browser pane): title "GRX CRANKSET - 1X12s", spec table "Model No FC-RX820-1", "Rear speeds 12", "Compatible chain HG 12-speed", "Chain line (mm) 49.7", "P.C.D. (mm) 110" — both figures page-confirmed. ring:\'40\' is the smaller of the two factory ring options (40T/42T are both real per retailer listings); the 42T sibling is a GAP, not modeled as a separate row this pass. Weight/price unsourced samples.' },
+  { id: 'cr-shimano-grx-rx610-2x', cat: 'crankset', brand: 'Shimano', model: 'GRX FC-RX610-2 Crankset', family: 'shimano-grx-rx610',
+    bb: '24mm-road', chainrings: '2x', ring: '46/30', ringStd: 'standard-12', speeds: 12, chainline: 47,
+    weight: 750, price: 220,
+    verified: true, lastChecked: '2026-07-18', source: 'https://bike.shimano.com/en-NA/products/components/pdp.P-FC-RX610-2.html',
+    note: 'road-5 wave: fetched bike.shimano.com (browser pane): title "GRX CRANKSET - 2X12s", spec table "Model No FC-RX610-2", "Chain line (mm) 47", "P.C.D. (mm) 110/80" — both page-confirmed. Ring (46/30T) corroborated across multiple retailer listings quoting Shimano\'s own copy (spokex.com, probikesupply.com, Amazon OEM listing all state "46-30T"). Weight/price unsourced samples.' },
+  { id: 'br-shimano-grx-rx820', cat: 'brake', brand: 'Shimano', model: 'GRX BR-RX820 Caliper (pair)', family: 'shimano-grx-rx820-brake',
+    brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-shimano-grx-rx820-2x',
+    weight: 270, price: 130,
+    verified: true, lastChecked: '2026-07-18', source: 'https://bike.shimano.com/en-NA/products/components/pdp.P-BR-RX820.html',
+    note: 'road-5 wave: fetched bike.shimano.com (browser pane): title "GRX - FLAT MOUNT - BRAKE CALIPER" for model BR-RX820, confirming brakeSystem/mount. pistons:2 matches this file\'s convention for every other Shimano/SRAM road flat-mount caliper (not itemized on the fetched page, a reasonable same-tier inference, flagged). Weight/price unsourced samples.' },
+
+  // ===== DRIVETRAIN — Shimano GRX RX810/RX600 (11-speed, legacy) ===========
+  // Older GRX generation (predates the 2023 12-speed RX820/RX610 launch),
+  // still real/sold. Not individually fetched through the browser pane this
+  // pass (time-boxed) — sourced from BikeRadar's GRX launch/review coverage
+  // (a reputable cycling publication relaying Shimano's own published specs,
+  // not an independent teardown) cross-checked against multiple retailer
+  // listings; entered as unverified samples per the catalog's relaxed
+  // inclusion policy (real, current-or-recently-sold products, never
+  // fabricated) rather than claiming a manufacturer fetch that didn't happen.
+  { id: 'sh-shimano-grx-rx810-2x', cat: 'shifter', brand: 'Shimano', model: 'GRX ST-RX810 Shift/Brake Lever (pair, 2x)', family: 'shimano-grx-rx810',
+    system: 'shimano-grx-11', speeds: 11, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
+    weight: 800, price: 280,
+    note: 'road-5 wave: BikeRadar GRX review/launch coverage describes ST-RX810 as the 11-speed dual-control lever with integrated hydraulic brake. Not independently fetched this pass — unverified sample.' },
+  { id: 'sh-shimano-grx-rx600-2x', cat: 'shifter', brand: 'Shimano', model: 'GRX ST-RX600 Shift/Brake Lever (pair, 2x)', family: 'shimano-grx-rx600',
+    system: 'shimano-grx-11', speeds: 11, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
+    weight: 850, price: 180,
+    note: 'road-5 wave: same source/caveat as ST-RX810 — the budget-tier 11-speed sibling; productinfo.shimano.com C-454 corroborates "ST-RX600: 2x11-speed" (fetched, cited on the RX820-tier rows above). Unverified sample (weight/price).' },
+  { id: 'rd-shimano-grx-rx810', cat: 'rearderailleur', brand: 'Shimano', model: 'GRX RD-RX810 (2x11)', family: 'shimano-grx-rx810',
+    system: 'shimano-grx-11', speeds: 11, actuation: 'mechanical', maxCog: 34, cage: 'medium', mount: 'std-hanger',
+    weight: 290, price: 100,
+    note: 'road-5 wave: BikeRadar: "The RD-RX810 rear derailleur has a medium cage designed for road-style cassettes up to 34 teeth" — real product, not independently fetched this pass. Unverified sample.' },
+  { id: 'cs-shimano-grx-hg800-1134', cat: 'cassette', brand: 'Shimano', model: 'CS-HG800-11 11-34T', family: 'shimano-grx-cs-hg800',
+    system: 'shimano-grx-11', speeds: 11, freehub: 'hg-road', minCog: 11, maxCog: 34,
+    weight: 380, price: 70,
+    note: 'road-5 wave: BikeRadar/retailer-corroborated GRX RX600/RX810 mini-groupset cassette ("CS-HG800 cassette in 11-34T"). Unverified sample.' },
+  { id: 'ch-shimano-grx-hg701', cat: 'chain', brand: 'Shimano', model: 'CN-HG701-11 Chain', family: 'shimano-grx-cn-hg701',
+    system: 'hg', speeds: 11,
+    weight: 257, price: 30,
+    note: 'road-5 wave: BikeRadar: "Ultegra CN-HG701-11 Chain with Quick Link Chain Connector" — the 11-speed HG chain paired with GRX RX810/RX600 (shared with Ultegra 11sp, matching this file\'s convention of tagging shared HG chains system:\'hg\'). Unverified sample.' },
+  { id: 'cr-shimano-grx-rx810-2x', cat: 'crankset', brand: 'Shimano', model: 'GRX FC-RX810-2 Crankset', family: 'shimano-grx-rx810',
+    bb: '24mm-road', chainrings: '2x', ring: '48/31', ringStd: 'standard-12', speeds: 11,
+    weight: 720, price: 220,
+    note: 'road-5 wave: BikeRadar: "if you want the bigger 48/31 option, you\'ll need the more expensive RX810 2x [crank]". Unverified sample.' },
+  { id: 'cr-shimano-grx-rx600-2x', cat: 'crankset', brand: 'Shimano', model: 'GRX FC-RX600-2 Crankset', family: 'shimano-grx-rx600',
+    bb: '24mm-road', chainrings: '2x', ring: '46/30', ringStd: 'standard-12', speeds: 11,
+    weight: 780, price: 130,
+    note: 'road-5 wave: BikeRadar: "The 2x11-speed RX600 crank is 46/30 only". Unverified sample. 1x RX810/RX600 crank variants (40T/40-42T per BikeRadar) are a GAP, not modeled this pass.' },
+  { id: 'br-shimano-grx-rx810', cat: 'brake', brand: 'Shimano', model: 'GRX BR-RX810 Caliper (pair)', family: 'shimano-grx-rx810-brake',
+    brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-shimano-grx-rx810-2x',
+    weight: 290, price: 110,
+    note: 'road-5 wave: flat-mount hydraulic caliper matching this file\'s convention for every other Shimano/SRAM road/GRX brake row. Unverified sample.' },
 
   // ===== COCKPIT (handlebar / stem) =======================================
   { id: 'hb-zipp-sl70-aero', cat: 'handlebar', brand: 'Zipp', model: 'SL-70 Aero', family: 'zipp-sl70-aero',
@@ -467,6 +733,30 @@ var ROAD_PARTS = [
   { id: 'bb-sram-dub-bb86', cat: 'bb', brand: 'SRAM', model: 'DUB PressFit BB86', family: 'sram-dub-bb86',
     shell: 'bb86', spindle: 'dub',
     weight: 80, price: 45 },
+
+  // ===== HEADSETS (complete upper+lower assemblies; tapered — every ROAD_PARTS
+  //   frame in this file uses steerer:'tapered'. ZERO headset rows existed
+  //   before this wave — road-1..4 all flagged it a GAP (specialized.com
+  //   S.H.I.S. probes 403'd). road-grind-1 wave: fsaproshop.com and
+  //   canecreek.com BOTH fetched (WebFetch, no bot-wall), but neither page's
+  //   raw body text cleanly stated its own weight figure on a single fetch —
+  //   one fetch returned a "5.3/12.8" fragment that reads like leaked bearing
+  //   dimensions, not a component weight (the PHANTOM-NUMBER hazard per
+  //   VERIFY-PROTOCOL.md); the Cane Creek page's S.H.I.S. codes came from its
+  //   own product-slug/SKU naming (Cane Creek's own naming convention, not an
+  //   invented guess) rather than confirmed body prose. So: real, currently-
+  //   sold SKUs with maker-page-corroborated S.H.I.S. codes, but NOT marked
+  //   verified:true (weight unconfirmed / codes not in clean prose) — logged
+  //   here rather than silently upgraded. =====
+  { id: 'hs-fsa-orbit-15-zs44-zs56', cat: 'headset', brand: 'FSA', model: 'Orbit 1.5 ZS', family: 'fsa-orbit',
+    upper: 'ZS44/28.6', lower: 'ZS56/40', steerer: 'tapered',
+    price: 59.99, lastChecked: '2026-07-20', source: 'https://www.fsaproshop.com/products/orbit-1-5-zs-internal-headset',
+    note: 'road-grind-1: fetched fsaproshop.com product page directly (WebFetch, no wall) — part number 141-2044, upper ZS44/28.6, lower reported as "ZS56/39.78" (rounds to the catalog\'s existing ZS56/40 token, matching the same SKU already cataloged unverified in the MTB catalog at src/compat.js hs-fsa-orbit-15-zs44-zs56 with price $59.99/weight 125g from independent retailer cross-checks). This fetch itself returned inconsistent price ($57 sale/$76 list) and an uninterpretable weight fragment ("5.3/12.8") — NOT trusted per the phantom-number hazard, so weight is omitted here and verified:true is withheld despite having fetched the maker page, because the fetched figures did not cleanly confirm.' },
+  { id: 'hs-canecreek-110-zs44-zs56', cat: 'headset', brand: 'Cane Creek', model: '110 ZS44/28.6-H8 | ZS56/40', family: 'canecreek-110',
+    upper: 'ZS44/28.6', lower: 'ZS56/40', steerer: 'tapered',
+    mfgPn: 'BAA0825K', price: 99.99, lastChecked: '2026-07-20', source: 'https://canecreek.com/product/110-series-zs44-28-6-h8-zs56-40-complete-baa0825k/',
+    note: 'road-grind-1: fetched canecreek.com product page directly (WebFetch, no wall) — product title "110 Premium Bicycle Headset with Stainless Steel Bearings", price confirmed $99.99 in the fetched body. Upper/lower S.H.I.S. codes (ZS44/28.6, ZS56/40) come from Cane Creek\'s own SKU slug/part-number naming for this exact listing ("110-series-zs44-28-6-h8-zs56-40-complete-baa0825k", BAA0825K) rather than being stated in clean prose on the fetched page body, so not marked verified:true; steerer:\'tapered\' follows from the ZS56/40 lower bore per the same S.H.I.S.-code convention used catalog-wide (a 40mm lower bore is the tapered-fork cup). No weight published.' },
+
   { id: 'pd-shimano-pdr550', cat: 'pedal', brand: 'Shimano', model: 'PD-R550 SPD-SL', family: 'shimano-pdr550',
     style: 'road-clip',
     weight: 310, price: 65 },
@@ -678,6 +968,122 @@ var ROAD_PARTS = [
   { id: 'bt-supacaz-super-sticky-kush', cat: 'bartape', brand: 'Supacaz', model: 'Super Sticky Kush', family: 'supacaz-super-sticky-kush',
     weight: 75, price: 30 },
 
+  // ===== COCKPIT — one-piece integrated bar/stem (road-5 wave, first rows) ==
+  // Zero rows existed pre-wave despite the category being modeled since
+  // ROAD-MODEL.md section 3. Manufacturer product pages (specialized.com,
+  // enve.com, deda.com) 403'd/429'd WebFetch this pass (Specialized is the
+  // established wall from the tire batch; enve.com rate-limited; deda.com
+  // 404'd on the direct product path) — entered as unverified samples with
+  // dimensions cross-checked across 3+ independent retailer/press
+  // republications of each maker's own spec sheet (racycles.com,
+  // dedaelementi.com listings, bikerumor.com, bikeradar.com, velo.outsideonline.com),
+  // same standing as the file's other search-corroborated rows (e.g. the
+  // Trek Domane SLR maxTire note above). No plausible fabrication risk: the
+  // steerer interface (1-1/8" tapered) is the universal road standard already
+  // used by every stem in this file.
+  { id: 'ck-roval-rapide-cockpit', cat: 'cockpit', brand: 'Roval', model: 'Rapide Cockpit', family: 'roval-rapide-cockpit',
+    steerer: '1-1-8', width: 420, reach: 75, drop: 125, integrated: true,
+    weight: 310, price: 700,
+    note: 'specialized.com/support.specialized.com both 403\'d WebFetch this pass (known wall). Dims (310g @ 100x420mm, 380-440mm widths, 75-125mm stem lengths, 75mm reach x 125mm drop, -6deg stem angle) cross-checked across specialized.com search snippets, Velo/Outside\'s "one-piece bar/stem combo" writeup, and multiple retailer spec-sheet republications (Bobcat Bicycles, The Mob Shop, Riverside Cycle) all agreeing on the same figures. Unverified — not fetched.' },
+  { id: 'ck-deda-alanera-rs', cat: 'cockpit', brand: 'Deda', model: 'Alanera RS', family: 'deda-alanera-rs',
+    steerer: '1-1-8', width: 420, reach: 75, drop: 120, integrated: true,
+    weight: 340, price: 796,
+    note: 'deda.com product path 404\'d WebFetch this pass. Dims (340g @ 110x42cm, 40/42/44cm widths, 90-130mm stem lengths, 75mm reach x 120mm drop, 6deg flare) cross-checked across dedaelementi.com listing snippets, Bikerumor\'s launch writeup, and RA Cycles/Golden Sports/Cicli Corsa retailer spec tables all agreeing. Unverified — not fetched.' },
+  { id: 'ck-enve-ses-ar-onepiece', cat: 'cockpit', brand: 'Enve', model: 'SES AR One-Piece Handlebar', family: 'enve-ses-ar-onepiece',
+    steerer: '1-1-8', width: 400, reach: 76, drop: 127, integrated: true,
+    weight: 345, price: 1200,
+    note: 'enve.com 429\'d WebFetch (rate-limited) both attempts this pass. Dims (330-360g depending on size, 38-44cm widths x 90-130mm stem lengths standard/up to 46cm x 140mm special-order, 76mm reach x 127mm drop, $1200 USD) cross-checked across Bikerumor, BikeRadar and Velo/Outside\'s launch coverage, all citing the same Enve-published numbers. Unverified — not fetched; weight entered as the range midpoint.' },
+
+  // ===== HANDLEBAR/STEM depth — 35mm oversize clamp pair (road-5 wave) =====
+  // Every existing hb/st pair in this file is 31.8mm clamp; adds the 35mm
+  // oversize standard (widening from "6 handlebar / 6 stem" toward covering
+  // both clamp diameters the schema vocab (clampRG) already allows).
+  { id: 'hb-deda-m35', cat: 'handlebar', brand: 'Deda', model: 'Trentacinque M35 RHM', family: 'deda-m35',
+    clamp: '35', dropBar: true, reach: 75, drop: 129, width: 420,
+    weight: 278, price: 295,
+    note: 'Unverified sample — deda.com 404\'d. Dims (278g @ 42cm, 42/44/46cm widths, 75mm reach x 129mm drop) and $295 carbon-version price cross-checked across RA Cycles, LafoBikes and BikeRadar\'s M35+Trentacinque-stem review.' },
+  { id: 'st-deda-trentacinque-35', cat: 'stem', brand: 'Deda', model: 'Trentacinque 35', family: 'deda-trentacinque-35',
+    clamp: '35', steerer: '1-1-8', length: 110,
+    weight: 136, price: 70,
+    note: 'Unverified sample — deda.com 404\'d. Purpose-built pairing for the M35 bar above (35mm clamp, 1-1/8" steerer, 82deg angle, 40mm clamp height). 136g @ 110mm and ~$70 cross-checked across RA Cycles, Ridewill and Bicyclehero listings.' },
+
+  // ===== SEATPOST depth — round diameters + a 2nd proprietary lock (road-5) =
+  { id: 'sp-thomson-elite-309', cat: 'seatpost', brand: 'Thomson', model: 'Elite Setback 30.9', family: 'thomson-elite',
+    diameter: '30.9', setback: 0,
+    weight: 201, price: 70,
+    verified: true, lastChecked: '2026-07-18', source: 'https://bikethomson.com/product/elite-seatpost/',
+    note: 'Fetched bikethomson.com clean: 30.9mm is one of the Elite\'s published diameter offerings ("25.0mm...30.9mm...32.4mm"), straight/16mm-setback options, and "approximately 201 grams (250 length)" (the page does not break weight out per-diameter, so 201g is the maker\'s own stated approximate figure, not a per-SKU exact number — flagged). Price entered at the page\'s quoted range floor ($69.95-$134.95, varies by config).' },
+  { id: 'sp-thomson-elite-316', cat: 'seatpost', brand: 'Thomson', model: 'Elite Setback 31.6', family: 'thomson-elite',
+    diameter: '31.6', setback: 16,
+    weight: 201, price: 75,
+    verified: true, lastChecked: '2026-07-18', source: 'https://bikethomson.com/product/elite-seatpost/',
+    note: 'Same fetched source/caveat as the 30.9 row above (31.6mm also in the page\'s published diameter list); this row uses the 16mm-setback config the same page names ("Straight / Setback(16mm)"). Price is a sample estimate within the page\'s quoted range.' },
+  { id: 'sp-cannondale-c140aero-20', cat: 'seatpost', brand: 'Cannondale', model: 'C1 40 Aero Seatpost 20mm Offset', family: 'cannondale-c140aero',
+    proprietary: true, forFrames: ['fr-cannondale-supersix-evo'], setback: 20,
+    weight: 165, price: 210,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.cannondale.com/en-us/gear/components/seatposts/road-seatposts/c1-40-aero-seatpost-20mm-offset',
+    note: 'Fetched cannondale.com clean: "Weight: 165g", "Offset: 20mm", 330mm length, 65mm min insertion, sold as "a replacement seatpost" for the SuperSix Evo (2023-current) — matches this catalog\'s fr-cannondale-supersix-evo frame. Price ($210) is a retailer figure (Locally.com), not read off the fetched page — flagged.' },
+
+  // ===== SADDLE depth (road-5 wave) =========================================
+  { id: 'sd-sanmarco-aspide-carbonfx', cat: 'saddle', brand: 'Selle San Marco', model: 'Aspide Carbon FX Open-Fit', family: 'sanmarco-aspide-carbonfx',
+    weight: 147, price: 280,
+    note: 'Unverified sample — not fetched. Weight (147g, Open-Fit Narrow 277x132mm) and $280 USD price cross-checked across BikeRadar\'s review, road.cc\'s review and multiple retailer listings (Excel Sports, Competitive Cyclist, Amazon) citing the same Selle San Marco spec sheet.' },
+  { id: 'sd-prologo-scratch-m5', cat: 'saddle', brand: 'Prologo', model: 'Scratch M5 PAS Tirox', family: 'prologo-scratch-m5',
+    weight: 189, price: 129,
+    note: 'Unverified sample — not fetched. Weight (189g, Tirox-rail version, 250x140mm) and Tirox price ($129) cross-checked across prologo.it product listing snippets and multiple retailer spec tables (BikeTiresDirect, Western Bike Works, RA Cycles).' },
+
+  // ===== PEDAL depth (road-5 wave) ==========================================
+  { id: 'pd-shimano-pdr8000', cat: 'pedal', brand: 'Shimano', model: 'Ultegra PD-R8000', family: 'shimano-pdr8000',
+    style: 'road-clip',
+    weight: 248, price: 170,
+    note: 'Unverified sample — ride.shimano.com 429\'d WebFetch this pass (rate-limited). Weight (248g/pair) cross-checked across Power Meter City, Jenson USA and Cyclist\'s review, all citing Shimano\'s own published figure; price is a sample USD estimate (a GBP figure was the only currency found cleanly this pass, flagged rather than converted).' },
+  { id: 'pd-wahoo-speedplay-zero', cat: 'pedal', brand: 'Wahoo', model: 'Speedplay Zero', family: 'wahoo-speedplay-zero',
+    style: 'road-clip',
+    weight: 222, price: 230,
+    note: 'Unverified sample — not fetched. Weight (222g claimed/pair) and $230 USD price cross-checked across wahoofitness.com search snippets, BikeRadar\'s and Cyclist\'s reviews, and REI\'s listing, all agreeing. Speedplay\'s lollipop-cleat system is a road clip-in standard (not SPD 2-bolt) — modeled as style:\'road-clip\' per the pedalStyleRoad vocab\'s display-only intent.' },
+
+  // ===== TIRE depth — Specialized (road-5 wave) =============================
+  // Attempted per the coordinator brief: specialized.com/support.specialized.com
+  // both 403'd WebFetch this pass (same wall already logged above for the
+  // Roval cockpit and the road-4 headset probe) — entered as unverified
+  // samples, not fetched. Michelin (also asked to retry) 404'd on
+  // michelin.com/en/products-services/moto-bike/power-cup/ this pass —
+  // consistent with the existing Power Cup/Power Road rows' wall note; no
+  // new Michelin row added since the two already-cataloged SKUs stand.
+  { id: 'ti-specialized-turbocotton-26', cat: 'tire', brand: 'Specialized', model: 'Turbo Cotton 26c', family: 'specialized-turbocotton',
+    wheel: '700c', width: 26, tubeless: false, compound: 'GRIPTON',
+    weight: 240, price: 70,
+    note: 'Unverified sample — specialized.com 403\'d. 320 TPI polycotton clincher (not tubeless). Weight (240g) and compound cross-checked across Bicycle Rolling Resistance\'s measured test (an independent test-house figure, not entered as sourceType:measured since it is corroborating rather than the sole basis) and road.cc/Velo reviews quoting Specialized\'s own spec.' },
+  { id: 'ti-specialized-turbocotton-28', cat: 'tire', brand: 'Specialized', model: 'Turbo Cotton 28c', family: 'specialized-turbocotton',
+    wheel: '700c', width: 28, tubeless: false, compound: 'GRIPTON',
+    weight: 260, price: 70,
+    note: 'Same source/caveat as the 26c row above; also marketed as "Hell of the North" per Velo\'s review. Weight 260g.' },
+
+  // ===== HEADSETS (road-5, Shimano-depth wave) ===============================
+  // road-5 wave: the headset category previously had ZERO rows (the road-2/4
+  // trailing comments both flagged this as an open GAP after a specialized.com
+  // S.H.I.S. probe was blocked). Shimano does not make headsets, so per the
+  // brief this uses real, fetchable tapered-steerer road headset brands
+  // instead — headset is its own single-slot GROUP per ROAD-MODEL.md section
+  // 2, not brand-specific to whichever groupset a build uses. All three rows
+  // are genuinely complete ZS44/28.6 upper (1-1/8" steerer bore, 28.6mm stem
+  // clamp) + a tapered lower cup S.H.I.S. code (EC44/40 or ZS-series 40/55/56mm
+  // crown race) — the standard modern tapered road/gravel head-tube pairing
+  // already used by every frame in this file (steerer:'tapered').
+  { id: 'hs-canecreek-40-zs44-ec44', cat: 'headset', brand: 'Cane Creek', model: '40-Series ZS44/28.6 - EC44/40', family: 'canecreek-40-series',
+    upper: 'ZS44/28.6', lower: 'EC44/40', steerer: 'tapered',
+    weight: 171, price: 50,
+    verified: true, lastChecked: '2026-07-18', source: 'https://www.canecreek.com/products/40',
+    note: 'road-5 wave: fetched canecreek.com/products/40 (their own product page, cleanly fetchable via WebFetch): the "40-ZS44-EC44" part-number combination (BAA0717K/BAA0719K) is listed among the Forty\'s real SKU/part-number table, confirming the ZS44/28.6 upper + EC44/40 tapered-lower combo is a genuine purchasable Cane Creek 40-Series configuration; price ($49.99) is stated on the same page. Weight (171g) is NOT itemized on the fetched page — a commonly-cited third-party figure, kept as an unsourced sample per this catalog\'s "verified:true can coexist with a flagged sample weight" convention (same pattern as rd-shimano-105-r7100 elsewhere in this file) rather than inventing or over-claiming it.' },
+  { id: 'hs-fsa-orbit-zs44-zs56', cat: 'headset', brand: 'FSA', model: 'Orbit ZS44/28.6 - ZS56/40', family: 'fsa-orbit',
+    upper: 'ZS44/28.6', lower: 'ZS56/40', steerer: 'tapered',
+    weight: 124, price: 40,
+    note: 'road-5 wave: real, currently-sold FSA headset (fullspeedahead.com itself was not successfully fetched this pass — not probed via WebFetch/browser pane, time-boxed) — spec (ZS44/28.6 upper, ZS56/40 tapered lower, ~124g) cross-checked across multiple independent retailer listings (Performance Bicycle, BIKE24, The Lions Cyclery) all quoting the same FSA-published S.H.I.S. codes. Kept as an unverified sample per the catalog\'s relaxed inclusion policy (real product, not fabricated) rather than a manufacturer-page fetch that did not happen.' },
+  { id: 'hs-ritchey-comp-zero-zs44-zs55', cat: 'headset', brand: 'Ritchey', model: 'Comp Zero Logic ZS44/28.6 - ZS55/40 Tapered', family: 'ritchey-comp-zero',
+    upper: 'ZS44/28.6', lower: 'ZS55/40', steerer: 'tapered',
+    weight: 109, price: 45,
+    note: 'road-5 wave: real, currently-sold Ritchey headset (Ritchey already appears elsewhere in this file as a cockpit brand — Ritchey WCS bar/stem). ritchey-logic.com itself was not probed this pass (time-boxed); spec (ZS44/28.6 upper, ZS55/40 tapered lower, 109g, "Stem Clamp Diameter: 28.6") cross-checked across bike24.com/bike-components.de retailer listings quoting Ritchey\'s own published S.H.I.S. codes. Unverified sample, same caveat as the FSA row above.' },
+
 ];
 
 // ---------------------------------------------------------------------------
@@ -740,6 +1146,79 @@ var ROAD_PARTS = [
 //    code Trek itself uses — converting bearing OD/ID to a S.H.I.S. token
 //    without a maker-published lookup would be inventing data. Still a GAP;
 //    the specialized.com wall noted above also still stands.
+//
+// road-5 wave (2026-07-20) — finishing-kit + tire depth pass (worktree
+// rd1-finish-a93f, branch catalog/road-grind-1-finishing):
+//  - COCKPIT: first 3 rows ever in this category (Roval Rapide, Deda Alanera
+//    RS, Enve SES AR One-Piece) — all unverified samples; specialized.com
+//    403'd, deda.com 404'd, enve.com 429'd (rate-limited) on every attempt
+//    this pass. Steerer modeled as universal '1-1-8' (every road frame/fork
+//    in this file is tapered-with-1-1/8-lower, matching every stem row).
+//  - HANDLEBAR/STEM: added the file's first 35mm-clamp pair (Deda Trentacinque
+//    M35 bar + Trentacinque 35 stem) — previously every row was 31.8mm.
+//  - SEATPOST: added Thomson Elite 30.9 and 31.6 (bikethomson.com FETCHED
+//    clean, verified:true — the first non-27.2/non-proprietary rows in this
+//    category) and a 2nd proprietary lock, Cannondale's own C1 40 Aero
+//    Seatpost 20mm Offset for the SuperSix Evo (cannondale.com FETCHED
+//    clean, verified:true). Trek Emonda's own post was investigated but Trek
+//    markets a seatMAST cap (Bontrager Ride Tuned), a different mechanism
+//    the seatpost schema (diameter/proprietary+forFrames) doesn't model —
+//    skipped rather than force-fit, flagged for a future seatmast-aware
+//    schema pass (DECISION).
+//  - SADDLE: +2 (Selle San Marco Aspide Carbon FX, Prologo Scratch M5),
+//    unverified samples, cross-retailer corroborated.
+//  - PEDAL: +2 (Shimano Ultegra PD-R8000, Wahoo Speedplay Zero), unverified
+//    samples; Speedplay's lollipop cleat modeled as style:'road-clip'
+//    (DECISION — closer to the road-clip family than SPD 2-bolt).
+//  - TIRE: +2 Specialized Turbo Cotton (26c/28c, clincher not tubeless) as
+//    unverified samples — specialized.com 403'd again (consistent wall).
+//    Michelin retry: michelin.com 404'd this pass too — no new Michelin row,
+//    existing Power Cup/Power Road rows stand as-is.
+//  - No src/schema-road.js vocab changes this wave — every value used
+//    (clamp:'35', diameter:'30.9'/'31.6', steerer:'1-1-8', tubeless:false,
+//    style:'road-clip') already existed in LOCAL_VOCAB.
+//
+// road-5 wave update (2026-07-18, Shimano depth pass — see per-row notes for
+// full sourcing detail):
+//  - GAP RESOLVED: frontderailleur rows (previously ZERO) — 6 road (105/
+//    Ultegra/Dura-Ace, mechanical + Di2 each) + 2 GRX (FD-RX820 mechanical,
+//    FD-RX825 Di2 — GRX's real 2x12 tier, verified before adding rather than
+//    assumed 1x-only).
+//  - GAP RESOLVED: "GRX groupset rows remain out of scope" (this bullet, road-2
+//    wave) — RX820/RX610 (12-speed) and RX810/RX600 (11-speed) added: shifters,
+//    rear derailleurs (2x + both 1x cage lengths), crank/brake per tier, a
+//    1x12 cassette pair that references the real shared MTB CS-M8100-12 SKU
+//    (not a road-only invention), an 11-speed cassette/chain pair. The
+//    existing 105 R7100 cassette and Ultegra CN-M8100 chain rows are reused
+//    for the GRX 2x12 tier rather than duplicated.
+//  - Rotor depth: RT-MT800 (Ice Tech Freeza) ADDED — a mechanically distinct
+//    SKU from the existing RT-CL800/900, not a duplicate. No separate
+//    road-only rotor family found beyond RT-CL; Shimano rotors are shared
+//    Center-Lock/6-bolt hardware across road/MTB/GRX.
+//  - GAP RESOLVED: "Headset category rows remain skipped" (road-2/4 waves) —
+//    3 rows added (Cane Creek 40-Series, verified via a clean canecreek.com
+//    fetch; FSA Orbit and Ritchey Comp Zero, unverified samples). Shimano
+//    doesn't make headsets, so per DECISIONS-FOR-DOUGLAS below this uses
+//    neutral tapered-steerer road headset brands instead — headset is its
+//    own single-slot GROUP per ROAD-MODEL.md section 2, not groupset-specific.
+//    The specialized.com S.H.I.S. wall (road-2/4) and the Trek bearing-vs-
+//    S.H.I.S.-code gap (road-4) both still stand for THOSE frames specifically
+//    — unrelated to the headset PARTS added here, which are Cane Creek/FSA/
+//    Ritchey products, not frame-side head-tube facts.
+//  - No new src/schema-road.js vocab was needed this wave — systemRoad
+//    already carried 'shimano-grx-12'/'shimano-grx-11', frontDerailleurMount
+//    already carried 'braze-on', and freehubRG already carried
+//    'micro-spline-road'/'hg-road'. Flagged per the coordinator brief even
+//    though the answer is "no vocab changed."
+//  - OBSERVATION for Douglas (not fixed, out of this pass's scope): the
+//    existing cs-shimano-105-r7100-1136 and cs-shimano-ultegra-r8100-1130
+//    cassette rows both carry freehub:'hg-l2', but ROAD-GRAVEL-SHARED-
+//    STANDARDS.md section 2 (fetched Shimano 12-speed freehub guide) states
+//    HG L2 is compatible with "12-speed DURA-ACE 9200 ONLY" — the 105/Ultegra
+//    cassettes should likely be freehub:'hg-road' (the wider-compatible body),
+//    not 'hg-l2'. Left untouched (front-derailleur/GRX/rotor/headset was this
+//    pass's scope, not a cassette-freehub audit), but flagged for a future
+//    correction pass.
 // ---------------------------------------------------------------------------
 
 if (typeof module !== 'undefined' && module.exports) {
