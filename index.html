@@ -855,7 +855,7 @@
   /* Family switcher (D1, 2026-07-20): the header wordmark is a click-opened
      <details> menu — same disclosure idiom as .theme-menu/.samples-menu above,
      never auto-opens (no-popups rule). Lists only LIVE BuildMy surfaces + a
-     link to /home.html; the mission line is the menu's own footer. */
+     link to /about.html; the mission line is the menu's own footer. */
   .fam-menu{position:relative;display:inline-block}
   .fam-menu summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:2px}
   .fam-menu summary::-webkit-details-marker{display:none}
@@ -1097,7 +1097,7 @@
   </svg>
   <div class="wrap">
     <!-- Family switcher (D1): the wordmark is a click-opened <details> menu listing
-         only LIVE BuildMy surfaces + a link to /home.html, with the mission line as
+         only LIVE BuildMy surfaces + a link to /about.html, with the mission line as
          its footer. "/" still loads straight into the builder — this only adds a
          one-click path to the rest of the family, never a step in front of it. -->
     <details class="fam-menu" id="famMenu">
@@ -1108,7 +1108,7 @@
         <a class="here" href="/" role="menuitem" aria-current="page">🚵 BuildMyMTB <span class="fam-soft">— you're here</span></a>
         <a href="bmx.html" role="menuitem">🏁 BuildMyBMX</a>
         <a href="KitBuilder/" role="menuitem">🧰 BuildMyRideKit</a>
-        <a href="home.html" role="menuitem">ℹ️ About BuildMy <span class="fam-soft">— mission, family &amp; what verified means</span></a>
+        <a href="about.html" role="menuitem">ℹ️ About BuildMy <span class="fam-soft">— mission, family &amp; what verified means</span></a>
         <div class="fam-mission">BuildMyMTB is a free, unbiased bike-building tool with accurate data — pick parts and see, in real time, whether they fit. Same tool, every ride style.</div>
       </div>
     </details>
@@ -1143,9 +1143,9 @@
              content from src/guides.js — no account/feature gate). Opens #guidesPage. -->
         <button type="button" class="btn" id="guidesNavBtn"
           title="Buyer's &amp; compatibility guides">📚<span class="hdr-long"> Guides</span></button>
-        <!-- About (D4): a real standalone page (home.html), not an in-app view —
+        <!-- About (D4): a real standalone page (about.html), not an in-app view —
              the mission, the family, and what "verified" means. -->
-        <a class="btn" href="home.html" title="About BuildMyMTB">ℹ️<span class="hdr-long"> About</span></a>
+        <a class="btn" href="about.html" title="About BuildMyMTB">ℹ️<span class="hdr-long"> About</span></a>
         <!-- Account control (Phase 3). Hidden entirely until Supabase config is set
              (ACCOUNTS_ENABLED). renderAccount() toggles logged-in vs logged-out. -->
         <div class="acctbox" id="acctBox" hidden>
@@ -1442,7 +1442,7 @@
   the suite. <b>Mullet</b> (29 front / 27.5 rear) builds work on mullet-capable frames — try the <b>Mullet build</b> demo
   or pick a 27.5 rear wheel + tire on the YT Capra.</p>
   <p class="footer-legal">
-    <a href="home.html">About</a> &middot;
+    <a href="about.html">About</a> &middot;
     <a href="privacy.html">Privacy</a> &middot;
     <a href="terms.html">Terms</a> &middot;
     <a href="affiliate-disclosure.html">Affiliate Disclosure</a>

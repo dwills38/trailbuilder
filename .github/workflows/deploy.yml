@@ -55,8 +55,11 @@ jobs:
           cp privacy.html _site/
           cp terms.html _site/
           cp affiliate-disclosure.html _site/
-          # /home.html (D4, the "About" page) — same trap: a new root .html
-          # silently 404s in production unless it's staged explicitly here.
+          # /about.html (D4, the "About" page; renamed from home.html on Douglas's
+          # word 2026-07-20) — same trap: a new root .html silently 404s in
+          # production unless it's staged explicitly here. home.html is the
+          # redirect stub kept for links minted during its few live hours.
+          cp about.html _site/
           cp home.html _site/
           # Kit Builder page (separate /KitBuilder route — a real directory index that
           # shares src/ via ../src). Same staging trap: not served unless copied.
