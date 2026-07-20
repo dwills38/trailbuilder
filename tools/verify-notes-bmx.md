@@ -539,3 +539,126 @@ clearing, they're discontinued products.
    has only been applied to Shimano/SRAM-rotor classes).
 2. The still-open policy call from waves 1/2/3/5: several genuinely-confirmed-real specs (Colony
    stem/bar clamp+variant ambiguity) are blocked on one missing field, not a research gap.
+
+---
+
+# BMX verification wave 7 — 2026-07-20 (verify/bmx-7)
+
+Scope: `data/bmx.js` only. Branch cut fresh off `origin/main` (commit `3a6293c`). Target per
+Douglas's dispatch: the ~40 unverified Odyssey/Cult small parts, now unblocked by a same-day
+ruling extending the interface-verification exception to BMX small parts (see
+`tools/VERIFY-PROTOCOL.md`'s new "Extended to BMX small parts" paragraph) - `verified:true` can
+attest interfaces alone; the weight field never takes a Shopify shipping-weight figure.
+
+## Before -> after
+
+- Before: 77/225 verified (34.2%)
+- After: **90/225 verified (40.0%)** - 13 new verifications. **Bar cleared exactly on the nose.**
+
+## Method
+
+Raw-`curl`'d `shop.odysseybmx.com/products.json` and `cultcrew.com/products.json` (both
+Shopify) across their full paginated catalogs (~1170 Odyssey-family products across Fairdale/
+BSD/Sunday/Odyssey, ~266 Cult products) to find each row's real current product handle, then
+raw-fetched each `/products/<handle>.js` for its description text, tags array, and variants -
+never trusting a WebSearch/WebFetch summary per the phantom-number doctrine. New finding this
+wave: a Shopify product's `tags` array sometimes carries a structured spec line straight from
+the maker's own catalog metadata (e.g. Odyssey's R32 fork page tags include literally
+`"Brake Mounts:None"`) - raw first-party JSON, not a fabrication risk, worth checking alongside
+the description body.
+
+Before verifying anything, cross-checked which fields are ACTUALLY read by `checkBmxBuild`
+(`src/compat-bmx.js`) vs schema-required-but-display-only, since the wave-2/5 notes had been
+treating some display-only fields as load-bearing gates:
+- **Display-only (confirmed via grep - no rule references them):** fork/headset `steerer`/`fit`
+  (line 62's own comment: "no headset rule fires"), handlebar/stem `clamp` (line 64: "display-only
+  ... no clamp rule" - `checkBmxBuild` doesn't even destructure `handlebar`/`stem` from the build),
+  gyro `steererFit`/`cableRouting`, handlebar `rise`/`width`, pedal `platform`/`spindle` (pedals
+  carry zero compat rules of any kind).
+- **Load-bearing (a rule genuinely reads it, confirmed by grep):** wheel `wheelSize`/`axle`, fork/
+  frame `brakeMount`, chain/sprocket/rearCog `pitch` (two real values, 1/8 vs 3/32 - genuinely
+  two-way, unlike clamp), seat/seatpost `system`, crank `spindle`/`pieces`/`ringMount`, bb `shell`/
+  `spindleFit`, headset none (dormant).
+This matters: several wave-2/5 rows were left unverified purely because a *display-only* field
+(steererFit, clamp) wasn't stated on the maker page - that was never actually blocking, and this
+wave's clarified reading is now recorded in `VERIFY-PROTOCOL.md` for future sessions.
+
+## Verified (13)
+
+**Odyssey (9), all shop.odysseybmx.com:**
+
+1. **`bmx-fk-odyssey-r32`** (R32 fork) - **brakeMount CORRECTED `u-brake` -> `none`**: the page's
+   own Shopify tags state `"Brake Mounts:None"` verbatim. Axle (10mm) and weight (885g) both
+   raw-confirmed in the spec list text ("Weight: 1lb 15.2oz (885 grams)") - a real per-SKU figure,
+   independently corroborated as NOT the JSON shipping-weight-bucket field (which separately shows
+   2268g on the same product). Fixed a stale test fixture in `test/test-bmx-engine.js` that had
+   used this fork as a "u-brake bosses" positive-match example - swapped to
+   `bmx-fk-fitbikeco-tibs`, which genuinely carries `u-brake`.
+2. **`bmx-cr-odyssey-calibre`** (Calibur v2 Cranks) - spindle/pieces/ringMount all raw-confirmed;
+   no maker weight, stays sample.
+3. **`bmx-bb-odyssey-mid-22`** / 4. **`bmx-bb-odyssey-mid-19`** (Mid BB, both spindle variants) -
+   raw-confirmed as the same product's two variant options ("fit all 19mm or 22mm crank
+   spindles... press-fit Mid BB frames"); no weight field on either row.
+5. **`bmx-sp-odyssey-standard-post`** (Tripod Seat Post) - diameter (25.4mm) explicit in the spec
+   list; system:'standard' consistent with the railed (non-pivotal) design described.
+6. **`bmx-ch-odyssey-seance`** (Bluebird Half-Link Chain) - pitch explicit ("1/2 x 1/8 size")
+   and half-link construction both raw-confirmed.
+7. **`bmx-gy-odyssey-g3kit`** / 8. **`bmx-gy-odyssey-gtxs`** (Gyro G3 Kit, GTX-S Gyro) -
+   dual-cable design and price confirmed; steererFit/cableRouting are display-only so their
+   unconfirmed values don't gate. GTX-S's JSON weight field (227g) had no description-text
+   corroboration, so NOT trusted per the phantom-number doctrine - weight stays sample.
+9. **`bmx-pd-odyssey-trailmix`** (Trailmix Looseball Pedals) - platform ("Alloy" tag + "Aluminum
+   body") and spindle (explicit "Spindle: 9/16 inch" spec line) both raw-confirmed; pedals carry
+   zero `checkBmxBuild` rules at all, so this is the cleanest possible case. The 1361g JSON weight
+   is the exact shipping-bucket figure wave 2 already caught on this SKU - correctly not carried
+   over.
+
+**Cult (4), all cultcrew.com:**
+
+10. **`bmx-hs-cult-integrated`** (Integrated Headset -> real product "Headset"/`og-headset`) -
+    `fit` is display-only (no BMX headset rule fires at all), so its unconfirmed value doesn't
+    gate; price ($27.99) matches. No weight field on the row.
+11. **`bmx-se-cult-paddedpivotal`** (Padded Pivotal Seat -> real product "Kevlar Padded Seat") -
+    raw-confirmed "only available in pivotal" (system:'pivotal' is the one field the
+    bmx-seat-system rule reads); price ($44.99) matches exactly.
+12. **`bmx-se-cult-vansoldschool`** (x Vans Old School Pro Pivotal Seat -> real product "Cult x
+    Vans Old Skool Seat") - raw-confirmed "pivotal seat" in the description; price ($44.99)
+    matches exactly.
+13. **`bmx-hb-cult-ak`** (AK Bars) - **rise CORRECTED 8.0 -> 10.0, width CORRECTED 28.75 -> 30.0**:
+    the maker's own spec list states 30in width, 12deg backsweep, 2deg upsweep, 10in rise
+    verbatim, both figures were wrong. clamp is display-only (handlebar/stem aren't even read by
+    `checkBmxBuild`), so its unconfirmed value doesn't gate. Price ($79.99) matches.
+
+All 13 rows' JSON `weight` variant fields were checked and discarded where present (907g/1361g/
+2268g/6804g - round-number Shopify shipping-bucket defaults, several literally identical across
+unrelated products on the same store) except the two cases (R32 fork, Trailmix pedals) where the
+real weight was independently corroborated in the description's own spec-list text, not the JSON
+field.
+
+## Researched, NOT verified - genuine walls, no edit
+
+- **Cult small parts with no current-SKU match:** Dak Bars, Dak Grips (no "Dak Bars"/"Dak Grips"
+  product exists on cultcrew.com - current Dak-branded items are Frame/Sprocket/Pedal only, same
+  discontinued-naming pattern as prior waves), Spline Drive Sprocket 28T (current sprocket lines
+  are NWO/DAK Guard, neither literally "Spline Drive"), generic Pivotal Seat (still no plain
+  $29.99 SKU - the current lineup's cheapest pivotal seat is $44.99, matching wave 4's finding).
+- **Cult NWO Sprocket 25T/28T** - teeth confirmed exactly (25t/28t/30t real variants), but pitch
+  (a genuine two-way vocab field, 1/8 vs 3/32, unlike clamp) is never stated on the page
+  ("Compatible with all BMX chains" is the closest text) - stays unverified, consistent with the
+  Odyssey Utility Pro Sprocket 30T call below.
+- **Odyssey Utility Pro Sprocket 30T** - re-confirmed teeth (30T, sprocket-only variant) and
+  price, but pitch still unconfirmed (no maker statement, no tag) - same call as wave 4, left
+  unverified.
+- **Odyssey Vandero Pro Front Hub** - axle confirmed, but `wheelSize` (load-bearing, rule 1) is
+  never stated on a hub-only product page (hubs aren't sized) - genuinely unconfirmable from this
+  source, left unverified per wave 4's original reasoning (re-confirmed, not overridden).
+- **Odyssey Elementary Stem / Elementary Stem V2, Cult Hi-Fi Stem, Cult Dak Grips** - no matching
+  current-SKU product found in either store's full product listing (discontinued/renamed),
+  matching prior waves' conclusion.
+- **Odyssey Keyboard v1 Grip (Aaron Ross), BROC Bar** - grip colorway exists but the specific
+  "Aaron Ross" trim wasn't isolated with confidence in the time available; BROC bar wasn't found
+  under that name (only BROC seat/grip/stem SKUs). Left unchanged, a real lead for a future pass.
+
+## Distance to Douglas's 40% (90/225) go-live bar
+
+77->90 this wave (+13). **Bar cleared exactly on the nose (90/225 = 40.0%).**

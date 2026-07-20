@@ -58,7 +58,7 @@ test('BMX vocab discipline: every enum field value is in BMX_VOCAB', function(){
 test('golden braked freestyle build (Kink Williams) - zero errors, zero warnings, complete', function(){
   var build = {
     frame: bp('bmx-fr-kink-williams'),            // mid shell, u-brake bosses, 14mm rear, 20in - VERIFIED row
-    fork: bp('bmx-fk-odyssey-r32'),               // 20in, 10mm, u-brake bosses
+    fork: bp('bmx-fk-odyssey-r32'),               // 20in, 10mm, no brake mounts (no frontBrake in this build)
     headset: bp('bmx-hs-cult-integrated'),
     cranks: bp('bmx-cr-odyssey-calibre'),         // 3-piece, 22mm
     bb: bp('bmx-bb-totalbmx-mid-22'),             // mid shell, 22mm - matches frame + cranks

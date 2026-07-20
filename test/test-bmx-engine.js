@@ -172,7 +172,7 @@ test('a bossless frame with no brake picked reads as by-design (info), never a n
 test('front brake vs fork bosses: error on a brakeless fork, silent on a match', function(){
   var r = BMX.checkBmxBuild({ fork: bp('bmx-fk-merritt-cnc'), frontBrake: bp('bmx-br-odyssey-evo25') });
   eq(r.errors.filter(function(v){ return v.ruleId === 'bmx-front-brake-mount'; }).length, 1, 'bossless fork');
-  var r2 = BMX.checkBmxBuild({ fork: bp('bmx-fk-odyssey-r32'), frontBrake: bp('bmx-br-odyssey-evo25') });
+  var r2 = BMX.checkBmxBuild({ fork: bp('bmx-fk-fitbikeco-tibs'), frontBrake: bp('bmx-br-odyssey-evo25') });
   eq(of(r2, 'bmx-front-brake-mount').length, 0, 'u-brake on u-brake bosses fits');
 });
 
