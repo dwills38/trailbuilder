@@ -1,5 +1,19 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-20 — DISCONTINUED ARCHIVE VIEW SHIPPED (feature slate #16)
+
+- **feat/discontinued-archive-1 merged + deployed** (index.html only, zero engine changes —
+  checkBuild never reads status): default-off session-only "🗄 Include discontinued" toggle
+  (fresh visits always land current-market), honest count-line disclosure ("N discontinued
+  hidden") + gate-aware empty-state hint, brand-neutral data-driven lifecycle chip + modal
+  banner (status + supersededBy linked through canonicalId/byId, degrades gracefully;
+  'recalled' wording ready but dormant, 0 rows), and the Upgrade-Advisor interplay: entering
+  "Will it fit my bike?" visibly switches the archive on with a toast (used parts are the
+  point), restores the exact pre-mode state on exit, transition-guarded against in-mode hash
+  re-captures. Coordinator browser-verified on top of the worker's 9-shot evidence pass:
+  forks view discloses 19 hidden / 430 total, toggle round-trip exact. Gates 838, CI +
+  deploy green.
+
 ## 2026-07-20 — D2c LANDS AT buildmymtb.com/home (Douglas's domain call)
 
 - The approved D2c family front door moved from its placeholder home
