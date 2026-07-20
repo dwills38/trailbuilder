@@ -387,6 +387,32 @@ var GRAVEL_PARTS = [
     family: 'fulcrum-rapidred-42', wheel: '700c', hub: '12x142', freehub: 'n3w', brakeSystem: 'disc',
     rotorMount: 'center-lock', intWidth: 21, maxTire: 42, weight: 900, price: 600 },
 
+  // dropbar-cleanup-1 item 2: GRX wheel gap — every gravel wheel row above carries
+  // freehub 'xdr' or 'n3w'; nothing in the catalog accepts 'hg-road' or
+  // 'micro-spline-road', so no GRX build (2x11 CS-HG700 or 1x12 CS-M7100, both
+  // freehub-locked per ROAD-GRAVEL-SHARED-STANDARDS.md section 2) had a
+  // conflict-free wheel choice. Two real pairs added to close the trap:
+  { id: 'gfw-dtswiss-grc1400-shimano-700c', cat: 'frontwheel', brand: 'DT Swiss', model: 'GRC 1400 Spline db 42 (Shimano)',
+    family: 'dtswiss-grc1400-shimano', wheel: '700c', hub: '12x100', freehub: 'hg-road', brakeSystem: 'disc',
+    rotorMount: 'center-lock', intWidth: 24, maxTire: 50, weight: 746, price: 1200,
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.dtswiss.com/en/support/product-support?matnr=WGRC140AIDXCA10662',
+    note: 'dropbar-cleanup-1 item 2: fetched dtswiss.com product-support (matnr WGRC140AIDXCA10662, "GRC 1400 SPLINE db 42 Front Wheel"): 700C, "100mm built-in dimension with 12mm Thru Axle", "24mm inner width", "746g net weight", Center Lock. Same rim family as the existing xdr-driver gfw-dtswiss-grc1400-700c row; this is the Shimano-driver sibling SKU. price reuses that sibling\'s 1200 sample (page publishes no MSRP) — not maker-published, flagged.' },
+  { id: 'grw-dtswiss-grc1400-shimano-700c', cat: 'rearwheel', brand: 'DT Swiss', model: 'GRC 1400 Spline db 42 (Shimano)',
+    family: 'dtswiss-grc1400-shimano', wheel: '700c', hub: '12x142', freehub: 'hg-road', brakeSystem: 'disc',
+    rotorMount: 'center-lock', intWidth: 24, maxTire: 50, weight: 861, price: 1200,
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.dtswiss.com/en/support/product-support?matnr=WGRC140NIDJCO10663',
+    note: 'dropbar-cleanup-1 item 2: fetched dtswiss.com product-support (matnr WGRC140NIDJCO10663, "GRC 1400 SPLINE db 42 Rear Wheel"): 700C, "142mm" 12mm thru-axle, freehub body named "Shimano Road 11-speed (Shimano RD. 11SP Light S ASLS11)" -> modeled as freehub:\'hg-road\' (the same DT Swiss road-driver naming already used for rw-dtswiss-arc1100-dicut-38 in road.js, not xdr like this rim family\'s existing sibling row). "24mm inner width", "861g net weight", Center Lock. Fills the GRX 2x11 (CS-HG700, hg-road) freehub gap.' },
+  { id: 'gfw-shimano-grx-rx880-700c', cat: 'frontwheel', brand: 'Shimano', model: 'GRX WH-RX880',
+    family: 'shimano-grx-rx880', wheel: '700c', hub: '12x100', freehub: 'micro-spline-road', brakeSystem: 'disc',
+    rotorMount: 'center-lock', intWidth: 25, maxTire: 50, weight: 635, price: 825,
+    verified: true, lastChecked: '2026-07-20', source: 'https://ride.shimano.com/products/wh-rx880-700c',
+    note: 'dropbar-cleanup-1 item 2: fetched ride.shimano.com (Shimano\'s own store), WH-RX880 spec table: "Wheel Size 700c", "Front Axle 12mm E-THRU", "Hub Spacing O.L.D. Front 100mm", "Internal Width 25mm", "Front Weight 635g", "Brake Type CENTER LOCK Disc Brake". Sold as a Front/Rear/Pair variant selector with a shared $825 "Regular price" (the page did not expose a distinct per-wheel price on interaction, so both rows carry the same figure, matching this catalog\'s existing pair-price convention e.g. rw/fw-roval-terra-clx-700c).' },
+  { id: 'grw-shimano-grx-rx880-700c', cat: 'rearwheel', brand: 'Shimano', model: 'GRX WH-RX880',
+    family: 'shimano-grx-rx880', wheel: '700c', hub: '12x142', freehub: 'micro-spline-road', brakeSystem: 'disc',
+    rotorMount: 'center-lock', intWidth: 25, maxTire: 50, weight: 762, price: 825,
+    verified: true, lastChecked: '2026-07-20', source: 'https://ride.shimano.com/products/wh-rx880-700c',
+    note: 'dropbar-cleanup-1 item 2: fetched ride.shimano.com WH-RX880 spec table: "Hub Spacing O.L.D. Rear 142mm", "Rear Weight 762g", "Freehub HG L2 or MICRO SPLINE" (a two-driver-variant SKU; this row models the MICRO SPLINE variant per "MICRO SPLINE freehub body compatible with 12-speed 9-45T, 10-45T, and 10-51T cassettes" — the exact range Shimano GRX 1x12 / MTB 12-speed cassettes use). "24H J-Bend Spokes", Center Lock, "25 mm internal width supports tires from 32-50mm". Fills the GRX 1x12 (CS-M7100, micro-spline-road) freehub gap — the wave this catalog was missing entirely.' },
+
   // ===== TIRES ===========================================================
   { id: 'gti-wtb-riddler-700x37', cat: 'tire', brand: 'WTB', model: 'Riddler', family: 'wtb-riddler',
     wheel: '700c', width: 37, casing: 'tcs-light', compound: 'fast-rolling', tubeless: true, weight: 446, price: 55,

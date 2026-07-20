@@ -177,6 +177,38 @@ test('golden: Aspero / Ekar 13sp N3W gravel build is complete and conflict-free 
   assertComplete(build);
 });
 
+/* ---- golden: Checkpoint SL 7 / GRX RX820 1x12 gravel build — proves the
+   micro-spline-road wheel gap (dropbar-cleanup-1 item 2) is closed */
+test('golden: Checkpoint SL 7 / GRX RX820 1x12 gravel build is complete and conflict-free', function(){
+  /** @type {Object.<string, any>} */
+  var build = {
+    frame: gp('gfr-trek-checkpoint-sl-7'),
+    fork: gp('gfk-trek-checkpoint-isospeed-carbon'),
+    frontWheel: gp('gfw-shimano-grx-rx880-700c'),
+    rearWheel: gp('grw-shimano-grx-rx880-700c'),
+    frontTire: gp('gti-wtb-riddler-700x37'),
+    rearTire: gp('gti-wtb-riddler-700x37'),
+    shifter: gp('gsft-shimano-grx-rx820-1x12'),
+    rearDerailleur: gp('grd-shimano-grx-rd-rx822-1x12'),
+    cassette: gp('gca-shimano-grx-cs-m7100-1045'),
+    chain: gp('gch-shimano-cn-m6100-12'),
+    crankset: gp('gcr-shimano-grx-fc-rx820-1x'),
+    bb: gp('gbb-shimano-sm-bb52-bb86'),
+    frontBrake: gp('gbr-shimano-grx-br-rx820'),
+    rearBrake: gp('gbr-shimano-grx-br-rx820'),
+    frontRotor: gp('gro-shimano-rt-cl800-160-cl'),
+    rearRotor: gp('gro-shimano-rt-cl800-160-cl'),
+    handlebar: gp('ghb-salsa-cowbell-318'),
+    stem: gp('gst-ritchey-wcs-4axis-100'),
+    seatpost: gp('gsp-thomson-elite-272'),
+    saddle: gp('gsa-wtb-volt')
+  };
+  var r = ROAD.checkRoadBuild(build);
+  eq(r.errors.length, 0, 'no errors: ' + describeConflicts(r));
+  eq(r.warnings.length, 0, 'no warnings: ' + describeConflicts(r));
+  assertComplete(build);   // no frontDerailleur: a 1x crank never requires one
+});
+
 /* ---- golden 4: 2x Shimano Ultegra Di2 road build — clean, honestly incomplete */
 test('golden: Ultimate CF SLX / Ultegra Di2 checks clean; the missing Di2 FD is an honest completeness gap', function(){
   /** @type {Object.<string, any>} */
