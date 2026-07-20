@@ -2654,3 +2654,19 @@ per wave/decision; large reconstructions are handed to a worker session.
 - HARVEST NOTE: second stale-base row-block merge today; the pattern (parse multi-line row blocks
   by id, apply changed blocks onto HEAD, guard verified regressions, assert row counts) is now
   the standard tool for stale-base catalog branches.
+
+## 2026-07-20 (seat 14) — Road+gravel: ONE shared drop-bar engine; gravel catalog wave 1
+
+- Gravel wave 1 merged (`a002e7e`): 150→198 rows, BB86 vocab backed, Trek Checkpoint shell gap
+  closed. Gravel engine round merged (`9c13600`) then SUPERSEDED same day by the reconciliation:
+- **checkRoadBuild adopted as THE shared drop-bar engine (`b162f18`)** — the analysis doc's §3
+  chosen architecture; compat-gravel.js + its tests retired same-commit (two engines for one
+  domain = the doc's rejected option + the proven drift hazard). Divergences resolved on
+  sources: AC21-N3W adapter tier live (real pairs), speed-defined chains in the speed pool
+  (fetched Campagnolo manual), §1d data-driven completeness. Goldens pass on BOTH datasets;
+  off-live containment test guards index/bmx/Kit never loading it. 831 tests; MTB harness
+  byte-identical throughout.
+- Home-page round 1 delivered: 4 mockups live at localhost:8167 (session held open for
+  Douglas's pick; recommendation D1+D4). Douglas's open engine Qs queued: §1d completeness
+  confirm, tire-clearance severity (mechanic item), Di2-FD/Ultra-Torque-BB catalog gaps, the
+  hollowtech-vs-24mm token unification, road's miscataloged Apex chain std.
