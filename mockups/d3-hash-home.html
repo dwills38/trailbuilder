@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en" class="loam">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>D3 — #home view inside the app (home-page round 1)</title>
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  /* D3: the home is an in-app VIEW (#home), the Guides-page pattern. The builder
+     still owns "/" — this view only appears when the user clicks the wordmark
+     or shares a #home link. Header + honesty strip identical to the app. */
+  .home-hero{text-align:center;padding:26px 12px 6px}
+  .home-hero h2{margin:0 0 8px;font-size:26px}
+  .home-hero p{max-width:620px;margin:0 auto;color:var(--ink-soft);font-size:15px}
+  .steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:22px}
+  .steps .card{position:relative;padding-top:22px}
+  .steps .n{position:absolute;top:-13px;left:14px;width:26px;height:26px;border-radius:999px;
+    background:var(--brand);color:#fff;font-weight:800;font-size:13px;display:flex;
+    align-items:center;justify-content:center}
+  .steps h3{margin:0 0 6px;font-size:14px}
+  .steps p{margin:0;font-size:13px;color:var(--ink-soft)}
+  .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:26px 0 8px}
+  .cta .btn{font-size:15px;padding:12px 20px}
+  .fam-row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+  .dot-demo{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:12px;
+    font-size:13px;color:var(--ink-soft)}
+  .dot-demo i{display:inline-block;width:12px;height:12px;border-radius:999px;margin-right:5px;vertical-align:-1px}
+  .dot-demo .g{background:#1f8a4c}.dot-demo .w{background:#e8b25c}.dot-demo .r{background:#c23b3b}
+  section{margin-top:30px}
+  section > h2{font-size:14px;letter-spacing:.4px;text-transform:uppercase;color:var(--ink-soft);text-align:center}
+</style>
+</head>
+<body>
+<div class="mock-note">DESIGN MOCKUP D3 — “#home view inside the app” · nothing here ships · <a href="index.html">round hub</a></div>
+
+<header>
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <div class="wrap">
+    <h1><a href="#" aria-label="BuildMyMTB — about this tool" title="About this tool (#home)">BuildMyMTB</a></h1>
+    <a class="btn" href="#">🏁<span class="hdr-long"> BuildMyBMX</span></a>
+    <a class="btn" href="#">🧰<span class="hdr-long"> BuildMyRideKit</span></a>
+    <button type="button" class="btn">📚<span class="hdr-long"> Guides</span></button>
+    <button type="button" class="btn" aria-label="More options">⋯</button>
+    <input type="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" aria-label="Search parts" />
+  </div>
+</header>
+<div class="honesty-strip"><span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span> Browse bike parts, click to add, and it checks fit, price and weight as you build.</div>
+
+<main>
+  <!-- what renders inside <main> when location.hash === '#home' (body.home-page,
+       the guides-page/inv-page pattern). "/" with no hash still IS the builder. -->
+  <div class="home-hero">
+    <h2>Will it all fit? Know before you buy.</h2>
+    <p>BuildMyMTB is a free, unbiased bike-building tool with accurate data — pick parts and
+      see, in real time, whether they fit together, plus running price and weight.</p>
+    <div class="dot-demo">
+      <span><i class="g"></i>No conflicts found</span>
+      <span><i class="w"></i>Check first — adds a warning</span>
+      <span><i class="r"></i>Won't fit</span>
+    </div>
+  </div>
+
+  <div class="cta">
+    <a class="btn primary" href="#">🚵 Open the builder</a>
+    <a class="btn" href="#">🔧 Will it fit my bike?</a>
+    <a class="btn" href="#">📚 Read the guides</a>
+  </div>
+
+  <section>
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="card"><span class="n">1</span><h3>Pick parts</h3>
+        <p>Browse the catalog by category — frames, forks, drivetrain, wheels, brakes, cockpit —
+        or search a brand or model.</p></div>
+      <div class="card"><span class="n">2</span><h3>See the fit, live</h3>
+        <p>Every part shows a dot against your current build. Open a part to read exactly why
+        something clashes, in plain mechanic language.</p></div>
+      <div class="card"><span class="n">3</span><h3>Watch price &amp; weight</h3>
+        <p>Running totals as you build. Bundle pricing when a groupset matches. MSRP basis,
+        sale prices always labeled.</p></div>
+      <div class="card"><span class="n">4</span><h3>Share or save</h3>
+        <p>Every build is a link. Share it, compare it, keep it in your garage.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The whole family</h2>
+    <div class="fam-row">
+      <a class="btn" href="#">🚵 BuildMyMTB — you're here</a>
+      <a class="btn" href="#">🏁 BuildMyBMX</a>
+      <a class="btn" href="#">🧰 BuildMyRideKit</a>
+      <span class="chip" title="Coming soon">🚴 Road — soon</span>
+      <span class="chip" title="Coming soon">🌾 Gravel — soon</span>
+    </div>
+  </section>
+</main>
+
+<script src="mock.js"></script>
+</body>
+</html>

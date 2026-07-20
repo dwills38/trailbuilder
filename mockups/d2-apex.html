@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" class="loam">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>D2 — Family landing at the apex only (home-page round 1)</title>
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  /* D2: a real landing page — but it lives ONLY where there is no builder to gate
+     (the apex/brand domain). Taller topo hero, then builder cards. */
+  .hero{background:var(--hdr-bg);color:#fff;position:relative;padding:56px 24px 48px;text-align:center}
+  .hero .hdr-topo{z-index:0}
+  .hero > *:not(.hdr-topo){position:relative;z-index:1}
+  .hero h1{margin:0 0 10px;font-size:34px;letter-spacing:.3px}
+  .hero p{max-width:640px;margin:0 auto;font-size:16px;color:#dceadfcc}
+  .hero .mission{color:#fff;font-weight:600}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:18px}
+  .site{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:18px;text-decoration:none;color:var(--ink)}
+  .site:hover{border-color:var(--brand)}
+  .site h2{margin:0;font-size:17px}
+  .site .go{margin-top:auto;padding-top:10px;color:var(--brand);font-weight:700;font-size:13px}
+  html.loam .site .go,html.dark .site .go{color:var(--ok)}
+  .site.soon{opacity:.6}
+  .site.soon .go{color:var(--ink-soft)}
+  .values{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:10px}
+  .values .card h3{margin:0 0 6px;font-size:14px}
+  .values .card p{margin:0;font-size:13px;color:var(--ink-soft)}
+  section{margin-top:34px}
+  section > h2{font-size:15px;letter-spacing:.4px;text-transform:uppercase;color:var(--ink-soft)}
+  footer{border-top:1px solid var(--line);margin-top:44px;padding:18px 24px;font-size:12px;
+    color:var(--ink-soft);text-align:center}
+  footer a{color:inherit}
+</style>
+</head>
+<body>
+<div class="mock-note">DESIGN MOCKUP D2 — “Family landing at the apex only” · nothing here ships · <a href="index.html">round hub</a></div>
+
+<div class="hero">
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <h1>Build the ride. Check the fit.</h1>
+  <p class="mission">BuildMyMTB is a free, unbiased bike-building tool with accurate data —
+    pick parts and see, in real time, whether they fit together, plus running price and weight.</p>
+  <p style="margin-top:10px;font-size:13.5px">One tool, every ride style. Pick your builder —
+    each one loads straight to the parts, no sign-up, no interstitials, ever.</p>
+</div>
+<div class="honesty-strip"><span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span> The honesty strip travels with every builder in the family.</div>
+
+<main>
+  <section style="margin-top:8px">
+    <h2>The builders</h2>
+    <div class="grid">
+      <a class="site" href="#"><h2>🚵 BuildMyMTB</h2>
+        <p class="soft" style="margin:0;font-size:13px">Mountain bikes — XC to DH, hardtail to mullet.
+        26 build slots, 20 live compatibility rule areas.</p><span class="go">Open the builder →</span></a>
+      <a class="site" href="#"><h2>🏁 BuildMyBMX</h2>
+        <p class="soft" style="margin:0;font-size:13px">BMX — frame, fork, drivetrain, wheels, cockpit.
+        Brakeless builds understood.</p><span class="go">Open the builder →</span></a>
+      <a class="site" href="#"><h2>🧰 BuildMyRideKit</h2>
+        <p class="soft" style="margin:0;font-size:13px">Rider gear — helmets, shoes, apparel,
+        protection. Price and weight for the kit you wear.</p><span class="go">Open the builder →</span></a>
+      <div class="site soon"><h2>🚴 BuildMyRoadbike</h2>
+        <p class="soft" style="margin:0;font-size:13px">Road builds.</p><span class="go">Coming soon</span></div>
+      <div class="site soon"><h2>🌾 BuildMyGravelBike</h2>
+        <p class="soft" style="margin:0;font-size:13px">Gravel builds.</p><span class="go">Coming soon</span></div>
+      <div class="site soon"><h2>⚙️ BuildMyEMTB</h2>
+        <p class="soft" style="margin:0;font-size:13px">E-MTB builds, fully separate from the MTB catalog.</p><span class="go">Coming soon</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Why riders trust it</h2>
+    <div class="values">
+      <div class="card"><h3>Unbiased, always</h3><p>No brand pays for placement. No featured
+        manufacturers, no sponsored sort order — the data is the data.</p></div>
+      <div class="card"><h3>Honest about its data</h3><p>✓ Verified means checked against the
+        manufacturer's own published spec, with the source linked. Everything else says so.</p></div>
+      <div class="card"><h3>Straight to the parts</h3><p>Every builder loads directly to the
+        catalog. No pop-ups, no newsletter walls, no cookie interstitials — ever.</p></div>
+      <div class="card"><h3>Fit checked as you pick</h3><p>Every part shows green, yellow or red
+        the moment you consider it — axles, freehubs, travel, mounts and more.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>© D-Dubs Works · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Affiliate disclosure</a></footer>
+
+<script src="mock.js"></script>
+</body>
+</html>

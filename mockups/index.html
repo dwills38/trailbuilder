@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" class="loam">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Home-page design round 1 — four directions</title>
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  .dir{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:18px;margin-top:14px;text-decoration:none;color:var(--ink)}
+  .dir:hover{border-color:var(--brand)}
+  .dir h2{margin:0 0 6px;font-size:17px}
+  .dir p{margin:0 0 8px;font-size:13.5px;color:var(--ink-soft)}
+  .dir .meta{font-size:12px;color:var(--ink-soft)}
+  .dir .meta b{color:var(--ink)}
+  .tension{border-left:3px solid var(--accent);padding-left:14px;margin-top:16px}
+</style>
+</head>
+<body>
+<div class="mock-note">HOME-PAGE DESIGN ROUND 1 — mockups for Douglas's pick · nothing here ships</div>
+
+<header>
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <div class="wrap"><h1>Home page — round 1 (4 directions)</h1></div>
+</header>
+
+<main style="max-width:860px">
+  <div class="card tension">
+    <strong>The tension every direction must answer:</strong>
+    <span class="soft">the site's identity is “loads straight to the data — no pop-ups, no
+    interstitials.” A home page must never become a gate in front of the builder. The one option
+    deliberately NOT offered: putting a landing page at <code>/</code> in front of the MTB builder —
+    that is the betrayal, in any form.</span>
+  </div>
+
+  <a class="dir" href="d1-switcher.html">
+    <h2>D1 — Switcher, not a page</h2>
+    <p>No home page exists. The header wordmark becomes a click-opened family switcher with the
+    mission line as its footer. The family is one click away from every builder.</p>
+    <span class="meta"><b>Cost:</b> tiny (one menu, per family page) · <b>Gate risk:</b> zero</span>
+  </a>
+
+  <a class="dir" href="d2-apex.html">
+    <h2>D2 — Family landing at the apex only</h2>
+    <p>A real landing page — but only where there is no builder to gate (the apex/brand domain,
+    e.g. ddubsworks.com). Every BuildMy domain still loads straight to its builder.</p>
+    <span class="meta"><b>Cost:</b> small static page + apex hosting · <b>Gate risk:</b> zero on product domains</span>
+  </a>
+
+  <a class="dir" href="d3-hash-home.html">
+    <h2>D3 — #home view inside the app</h2>
+    <p>Home is an in-app view (the Guides pattern), opened by clicking the wordmark or sharing
+    a #home link. “/” with no hash is still the builder.</p>
+    <span class="meta"><b>Cost:</b> medium (a view in index.html's router) · <b>Gate risk:</b> zero, but the wordmark's click target changes meaning</span>
+  </a>
+
+  <a class="dir" href="d4-home-html.html">
+    <h2>D4 — /home.html behind an About link</h2>
+    <p>A standalone static page (the privacy.html pattern) linked from an ℹ️ About button and the
+    footers. The fullest story — mission, provenance, family — zero builder changes.</p>
+    <span class="meta"><b>Cost:</b> small (one page + a deploy.yml cp line) · <b>Gate risk:</b> zero</span>
+  </a>
+
+  <p class="soft" style="font-size:12.5px;margin-top:18px">Directions compose: D1+D4 or D2+D4 are
+  natural pairs. Theme picker bottom-right on every mockup (Loam-first). Mission statement appears
+  verbatim in each: “BuildMyMTB is a free, unbiased bike-building tool with accurate data…”</p>
+</main>
+
+<script src="mock.js"></script>
+</body>
+</html>

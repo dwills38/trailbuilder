@@ -1,0 +1,88 @@
+/* mockups/tokens.css — design-round static mockups ONLY (untracked, never shipped).
+   Tokens + header/btn/chip/honesty idiom lifted verbatim from index.html so the
+   mockups render in the real design language across all four themes. */
+:root{
+  --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
+  --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
+  --ok:#166534; --ok-bg:#e7f5ec; --warn:#92400e; --warn-bg:#fdf3e1;
+  --err:#c23b3b; --err-bg:#fbeaea; --chip:#eef1ec;
+  --hdr-bg:#123f2b; --hdr-topo:rgba(255,255,255,.11);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+     color:var(--ink);background:var(--bg);line-height:1.45}
+header{background:var(--hdr-bg);color:#fff;padding:10px 24px;min-height:109px;position:sticky;top:0;z-index:40}
+.hdr-topo{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+html.rad .hdr-topo{display:none}
+header .wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+header h1{margin:0;font-size:19px;white-space:nowrap}
+header h1 a{color:inherit;text-decoration:none}
+header .btn{white-space:nowrap}
+header input[type=search]{flex:1 1 100%;order:5;min-width:120px;padding:9px 12px;border:none;border-radius:10px;font-size:16px;background:#fff;color:#1c2321}
+.badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:12px;padding:5px 10px;border-radius:999px}
+.honesty-strip{background:#10271b;color:#cfe8d8;font-size:12px;padding:6px 12px;text-align:center}
+.honesty-strip .badge{border-color:rgba(255,255,255,.25)}
+main{max-width:1380px;margin:0 auto;padding:18px 24px 60px}
+.btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;border-radius:10px;font-size:13px;cursor:pointer;font-weight:600;text-decoration:none;display:inline-block}
+.btn:hover{border-color:#c7ccc6}
+.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.chip{background:var(--chip);border:1px solid transparent;border-radius:999px;padding:7px 13px;font-size:13px;cursor:pointer;color:var(--ink-soft);font-weight:600;font-family:inherit}
+.chip.active{background:var(--ink);color:#fff}
+
+/* theme variable overrides — copied from the shipped themes */
+html.rad{
+  --ink:#f4eaff; --ink-soft:#c9a6ff; --line:#ff2fd0; --bg:#150029;
+  --card:#22093f; --brand:#ff2fd0; --brand-d:#a3007f; --accent:#00e5ff;
+  --ok:#39ff14; --ok-bg:#0a2e12; --warn:#ffe600; --warn-bg:#332b00;
+  --err:#ff2020; --err-bg:#330000; --chip:#3a1466;
+}
+html.rad body{background:
+  repeating-linear-gradient(45deg,#1a0033 0 2px,transparent 2px 40px),
+  repeating-linear-gradient(-45deg,#1a0033 0 2px,transparent 2px 40px),
+  var(--bg);}
+html.rad header{background:
+  repeating-conic-gradient(#000 0% 25%,#ff2fd0 0% 50%) 50% / 34px 34px;
+  box-shadow:inset 0 0 0 999px rgba(21,0,41,.72);}
+html.rad header h1{font-family:Impact,"Arial Black","Segoe UI Black",sans-serif;
+  letter-spacing:.5px;text-shadow:0 0 6px var(--accent),0 0 14px var(--brand)}
+html.rad .btn.primary{background:linear-gradient(90deg,var(--brand),var(--accent));border-color:transparent;color:#150029;font-weight:800}
+html.rad .btn,html.rad header input[type=search]{background:var(--card);color:var(--ink)}
+html.rad .honesty-strip{background:#1c0836}
+
+html.dark{
+  color-scheme:dark;
+  --ink:#e6ebe7; --ink-soft:#a8b3ab; --line:#3a423d; --bg:#161a18;
+  --card:#1f2522; --brand-d:#123f2b; --accent:#e0703c;
+  --ok:#7fd6a2; --ok-bg:#17301f; --warn:#e8b25c; --warn-bg:#33270f;
+  --err:#e57575; --err-bg:#331717; --chip:#262d29;
+  --hdr-bg:#0c2b1c; --hdr-topo:rgba(255,255,255,.09);
+}
+html.dark .btn,html.dark header input[type=search]{background:var(--card);color:var(--ink)}
+html.dark header input[type=search]{border:1px solid var(--line)}
+html.dark .honesty-strip{background:#0b1d13}
+html.dark .btn:hover{border-color:#4d5750}
+
+html.loam{
+  color-scheme:dark;
+  --ink:#f2e8d8; --ink-soft:#c2ad92; --line:#3c2e22; --bg:#1a1310;
+  --card:#241a13; --brand:#2f7048; --brand-d:#1e4a30; --accent:#e2a94a;
+  --ok:#84cf97; --ok-bg:#16301d; --warn:#e6b45c; --warn-bg:#33270f;
+  --err:#e88b7b; --err-bg:#331a14; --chip:#30241a;
+  --hdr-bg:#14301f; --hdr-topo:rgba(242,232,216,.11);
+}
+html.loam .btn,html.loam header input[type=search]{background:var(--card);color:var(--ink)}
+html.loam header input[type=search]{border:1px solid var(--line)}
+html.loam .honesty-strip{background:#140d08}
+html.loam .btn:hover{border-color:#5a4636}
+
+/* ---- shared mockup chrome (not app styles): the round banner + theme picker ---- */
+.mock-note{background:var(--warn-bg);color:var(--warn);font-size:12px;font-weight:700;
+  padding:6px 12px;text-align:center;border-bottom:1px solid var(--line)}
+.mock-note a{color:inherit}
+.theme-row{position:fixed;right:10px;bottom:10px;z-index:60;display:flex;gap:6px;
+  background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px}
+.theme-row .btn{padding:6px 9px;font-size:12px}
+/* card + section idiom used across the mockups (derived from the app's .pcard look) */
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.soft{color:var(--ink-soft)}
