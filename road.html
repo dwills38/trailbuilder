@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BuildMyRoadbike — BuildMyMTB</title>
+<meta name="description" content="Build a road bike — frame, fork, drivetrain, wheels and cockpit — and see in real time whether the parts fit together, plus running price and weight. A free prototype." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="BuildMyRoadbike — BuildMyMTB" />
+<meta property="og:description" content="Pick road bike parts and check fit, price, and weight in real time." />
+<meta property="og:url" content="https://buildmymtb.com/road.html" />
+<meta property="og:site_name" content="BuildMyMTB" />
+<link rel="canonical" href="https://buildmymtb.com/road.html" />
+<meta name="theme-color" id="metaThemeColor" content="#16523a" />
+<!--
+  BuildMyRoadbike — a SEPARATE page (root-level, like index.html/bmx.html),
+  built OFF-LIVE per CLAUDE.md hard rule 3: nothing the site serves loads this
+  page or its scripts today. deploy.yml is UNTOUCHED by this branch — it only
+  stages files it explicitly `cp`s, so this file and its data simply never
+  reach the deployed site until Douglas adds the cp lines on his go-live word
+  (the exact mechanism that kept BMX off-live before its 2026-07-17 flip).
+
+  Loads src/compat.js first (for the shared Verdict/verdictKey primitives —
+  src/compat-road.js's browser path reads them off globalThis, the bmx.html
+  seam), then src/compat-road.js (checkRoadBuild/ROAD_GROUPS/ROAD_SLOTS/
+  roadSlotRequired/roadBuildTotals — the ONE shared engine that will also
+  serve a future BuildMyGravelBike page), then data/road.js (ROAD_PARTS —
+  owned by a concurrent road-5 wave; this page only READS it, never edits it).
+
+  LAYOUT: mirrors the Bike Builder / BuildMyBMX three-pane UX — a LEFT rail
+  (discipline + road categories, text-only), a CENTER list of product ROWS
+  with a live compat DOT (green/yellow/red/grey, computed locally below — the
+  same four-state contract as compatOf/bmxCompatOf, over checkRoadBuild
+  instead), and a RIGHT panel with the fit report + selected build + running
+  total. No pop-ups, ever (hard rule 2): nothing here opens without a click.
+
+  Family switcher (this page's own <details> menu, same click-only idiom as
+  every other page): lists only the LIVE BuildMy surfaces plus this page
+  itself — never a tease of any other off-live surface (gravel/EMTB/etc. have
+  no page yet). Never linked TO from any live page (index.html/bmx.html/
+  KitBuilder/home.html/about.html are all untouched by this branch).
+-->
+<style>
+  :root{
+    --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
+    --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
+    --ok:#166534; --ok-bg:#e7f5ec; --warn:#92400e; --warn-bg:#fdf3e1;
+    --err:#c23b3b; --err-bg:#fbeaea; --chip:#eef1ec;
+    --dot-ring:#5a625e;   /* compat-dot boundary, >=5.40:1 on every light dot background */
+    --hdr-bg:#123f2b; --hdr-topo:rgba(255,255,255,.11);
+  }
+  html.dark{
+    color-scheme:dark;
+    --ink:#e6ebe7; --ink-soft:#a8b3ab; --line:#3a423d; --bg:#161a18;
+    --card:#1f2522; --brand:#1f6f4a; --brand-d:#123f2b; --accent:#e0703c;
+    --ok:#7fd6a2; --ok-bg:#17301f; --warn:#e8b25c; --warn-bg:#33270f;
+    --err:#e57575; --err-bg:#331717; --chip:#262d29;
+    --dot-ring:#dfe4e0;   /* >=10.95:1 on every dark dot background */
+    --hdr-bg:#0c2b1c; --hdr-topo:rgba(255,255,255,.09);
+  }
+  html.loam{
+    color-scheme:dark;
+    --ink:#f2e8d8; --ink-soft:#c2ad92; --line:#3c2e22; --bg:#1a1310;
+    --card:#241a13; --brand:#2f7048; --brand-d:#1e4a30; --accent:#e2a94a;
+    --ok:#84cf97; --ok-bg:#16301d; --warn:#e6b45c; --warn-bg:#33270f;
+    --err:#e88b7b; --err-bg:#331a14; --chip:#30241a;
+    --dot-ring:#dfe4e0;   /* >=11.06:1 on every loam dot background */
+    --hdr-bg:#14301f; --hdr-topo:rgba(242,232,216,.11);
+  }
+  html.rad{
+    --ink:#f4eaff; --ink-soft:#c9a6ff; --line:#ff2fd0; --bg:#150029;
+    --card:#22093f; --brand:#ff2fd0; --brand-d:#a3007f; --accent:#00e5ff;
+    --ok:#39ff14; --ok-bg:#0a2e12; --warn:#ffe600; --warn-bg:#332b00;
+    --err:#ff2020; --err-bg:#330000; --chip:#3a1466;
+    --dot-ring:#dfe4e0;   /* >=10.97:1 on every rad dot background */
+    --hdr-bg:#22093f; --hdr-topo:rgba(255,255,255,.14);
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.45}
+
+  header{background:var(--hdr-bg);color:#fff;padding:10px 24px;position:sticky;top:0;z-index:40}
+  .hdr-topo{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+  html.rad .hdr-topo{display:none}
+  html.rad header{background:repeating-conic-gradient(#000 0% 25%,#ff2fd0 0% 50%) 50% / 34px 34px;
+    box-shadow:inset 0 0 0 999px rgba(21,0,41,.72)}
+  html.rad header h1{font-family:Impact,"Arial Black","Segoe UI Black",sans-serif;
+    letter-spacing:.5px;text-shadow:0 0 6px var(--accent),0 0 14px var(--brand)}
+  header .wrap{max-width:1380px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  header h1{margin:0;font-size:19px;white-space:nowrap}
+  header h1 a{color:inherit;text-decoration:none}
+  .page-tag{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;
+    font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;white-space:nowrap}
+  header .spacer{flex:1 1 auto}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:9px 13px;border-radius:10px;
+    font-size:13px;cursor:pointer;font-weight:600;font-family:inherit;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+  .btn:hover{border-color:#c7ccc6}
+  html.dark .btn:hover{border-color:#4d5750} html.loam .btn:hover{border-color:#5a4636}
+  .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  html.rad .btn.primary{background:linear-gradient(90deg,var(--brand),var(--accent));border-color:transparent;color:#150029;font-weight:800}
+  .btn.ghost{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.4);color:#fff}
+  .btn.ghost:hover{background:rgba(255,255,255,.18)}
+  .btn.danger{border-color:var(--err);color:var(--err);background:var(--card)}
+  .btn.danger:hover{border-color:var(--err);background:var(--err-bg)}
+  .theme-menu{position:relative;display:inline-block}
+  .theme-menu summary{list-style:none;cursor:pointer}
+  .theme-menu summary::-webkit-details-marker{display:none}
+  .theme-pop{position:absolute;right:0;top:calc(100% + 6px);background:var(--card);border:1px solid var(--line);
+    border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.18);padding:6px;display:flex;flex-direction:column;gap:4px;min-width:172px;z-index:80}
+  .theme-pop .btn{width:100%;text-align:left;border-color:transparent;background:none;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .theme-pop .btn:hover{background:var(--chip)}
+  .theme-pop .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  .theme-pop .btn.primary::after{content:"✓";margin-left:auto;font-weight:800}
+  /* Family switcher: the header wordmark is a click-opened <details> menu —
+     same disclosure idiom as .theme-menu, never auto-opens (no-popups rule).
+     Lists only LIVE BuildMy surfaces + this page itself + /about.html. */
+  .fam-menu{position:relative;display:inline-block}
+  .fam-menu summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:2px}
+  .fam-menu summary::-webkit-details-marker{display:none}
+  .fam-menu summary h1{margin:0}
+  .fam-menu .fam-caret{font-size:12px;opacity:.8}
+  .fam-pop{position:absolute;left:0;top:calc(100% + 6px);min-width:280px;z-index:80;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:10px;box-shadow:0 12px 34px rgba(0,0,0,.18)}
+  .fam-pop a{display:flex;align-items:baseline;gap:8px;padding:9px 10px;border-radius:9px;
+    color:var(--ink);text-decoration:none;font-weight:600;font-size:13.5px}
+  .fam-pop a:hover{background:var(--chip)}
+  .fam-pop a .fam-soft{font-weight:500;font-size:12px;color:var(--ink-soft)}
+  .fam-pop a.here{background:var(--chip);outline:1px solid var(--line)}
+  .fam-mission{border-top:1px solid var(--line);margin-top:8px;padding:9px 10px 3px;
+    font-size:11.5px;color:var(--ink-soft);line-height:1.5}
+
+  .honesty-strip{background:#10271b;color:#cfe8d8;font-size:12px;padding:6px 12px;text-align:center}
+  html.dark .honesty-strip{background:#0b1d13}
+  html.loam .honesty-strip{background:#140d08}
+  html.rad .honesty-strip{background:#1c0836}
+  .honesty-strip .badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:3px 9px;border-radius:999px}
+
+  main{max-width:1380px;margin:0 auto;padding:18px 24px 80px}
+  .intro{margin:2px 0 14px}
+  .intro h2{margin:0 0 4px;font-size:22px}
+  .intro p{margin:0;color:var(--ink-soft);font-size:14px;max-width:74ch}
+
+  .toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:14px 0 12px}
+  .toolbar .grow{flex:1 1 auto}
+  .btn[aria-pressed="true"],.btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  html.rad .btn[aria-pressed="true"]{background:linear-gradient(90deg,var(--brand),var(--accent));border-color:transparent;color:#150029}
+
+  .layout{display:grid;grid-template-columns:210px minmax(0,1fr) 330px;gap:20px;align-items:start}
+  .layout > *{min-width:0}
+
+  #rail{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;align-self:start;
+    position:sticky;top:calc(var(--hdr-h,116px) + 10px);max-height:calc(100vh - var(--hdr-h,116px) - 24px);overflow:auto}
+  .rail-h{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft);font-weight:800;margin:16px 0 6px}
+  .rail-h:first-child{margin-top:0}
+  .rail-sub{font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink-soft);font-weight:700;opacity:.75;margin:8px 0 3px 2px}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+  .chip{background:var(--chip);border:1px solid transparent;border-radius:999px;padding:7px 13px;font-size:13px;
+    cursor:pointer;color:var(--ink-soft);font-weight:600;font-family:inherit}
+  .chip:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  .chip.active{background:var(--ink);color:var(--card)}
+  html.rad .chip.active{background:var(--brand);color:#150029}
+  #rail .chips{flex-direction:column;align-items:stretch;gap:2px;margin-bottom:4px}
+  #rail .chip{display:flex;justify-content:flex-start;border-radius:9px;background:none;text-align:left}
+  #rail .chip:hover{background:var(--chip)}
+  #rail .chip.active{background:var(--ink);color:var(--card)}
+  html.rad #rail .chip.active{background:var(--brand);color:#150029}
+  #rail .chip .c-count{margin-left:auto;font-size:11px;font-weight:700;color:var(--ink-soft);opacity:.8}
+  #rail .chip.active .c-count{color:inherit;opacity:.85}
+
+  .cat-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+  .cat-title{font-size:17px;font-weight:800;margin:0}
+  .cat-tools{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .catcount{margin:0;color:var(--ink-soft);font-size:12px}
+  .viewseg{display:inline-flex}
+  .viewseg .btn:first-child{border-radius:10px 0 0 10px}
+  .viewseg .btn:last-child{border-radius:0 10px 10px 0;margin-left:-1px}
+  select.btn{padding-right:8px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:12px;min-width:0}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px;display:flex;
+    flex-direction:column;gap:6px;position:relative;min-width:0}
+  html.rad .pcard{box-shadow:0 0 0 1px var(--line)}
+  .pcard.selected{border-color:var(--brand);box-shadow:0 0 0 2px rgba(31,111,74,.16)}
+  html.rad .pcard.selected{box-shadow:0 0 0 2px var(--accent),0 0 16px rgba(0,229,255,.5)}
+  .pcard .kind{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--brand);font-weight:700}
+  .pcard .name{font-weight:700;font-size:14px}
+  .pcard .spec{font-size:12px;color:var(--ink-soft);min-height:16px}
+  .prov{font-size:11px;min-height:16px}
+  .prov .ver{display:inline-flex;align-items:center;gap:3px;background:var(--ok-bg);color:var(--ok);
+    font-weight:700;padding:1px 7px;border-radius:999px;text-decoration:none;border:1px solid rgba(31,138,76,.25)}
+  .prov a.ver:hover{text-decoration:underline}
+  .prov .est{color:var(--ink-soft);font-weight:600}
+  .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:2px}
+  .price{font-weight:700;font-size:13px;white-space:nowrap}
+  .price .wt{color:var(--ink-soft);font-weight:500;font-size:11px;margin-left:5px}
+  .picks{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+  .pick{border:1px solid var(--brand);color:var(--brand);background:var(--card);border-radius:8px;padding:6px 10px;
+    font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap}
+  .pick:hover{background:var(--ok-bg)}
+  html.dark .pick,html.loam .pick{color:var(--ok)}
+  .pick.in{background:var(--brand);color:#fff;border-color:var(--brand)}
+  html.dark .pick.in,html.loam .pick.in{color:#fff}
+  html.rad .pick.in{color:#150029}
+
+  /* compat dot — same four-state palette + accessibility treatment as the Bike
+     Builder / BuildMyBMX .dot (MOBILE-UI-AUDIT-1 HIGH-1): fills unchanged,
+     contrast carried by --dot-ring (>=3:1 vs --card in all four themes), plus
+     a glyph so state survives greyscale. Keep in sync with index.html's. */
+  .dot{position:absolute;top:11px;right:11px;width:11px;height:11px;border-radius:50%;
+    border:1.5px solid var(--dot-ring);
+    display:flex;align-items:center;justify-content:center;
+    font-size:8px;line-height:1;font-weight:700;color:#141816;
+    font-family:"Segoe UI Symbol","Apple Symbols",system-ui,sans-serif;
+    text-indent:0;letter-spacing:0}
+  .dot.g{background:#2aa35a}
+  .dot.w{background:#e0a52e}
+  .dot.r{background:#d23b3b}
+  .dot.n{background:#d2d7d1}
+  .dot.g::after{content:"\2713"}   /* ✓ no new conflict */
+  .dot.w::after{content:"!"}       /* fits, but adds a warning */
+  .dot.r::after{content:"\2715"}   /* ✕ adds a new error */
+  .dot.n::after{content:"\2013"}   /* – nothing to compare against yet ("no data") */
+  /* Card dot is a <button> (phone-fix-3 pattern): the reason lives in `title`,
+     hover-only otherwise. Reset UA button chrome so the circle stays
+     byte-identical, then an invisible ::before extends the hit box to the
+     24px AA floor (2.5.8) with no layout shift. */
+  button.dot{cursor:pointer;padding:0;margin:0;appearance:none;-webkit-appearance:none;font-family:inherit}
+  button.dot::-moz-focus-inner{border:0;padding:0}
+  button.dot::before{content:"";position:absolute;inset:-7px}
+  button.dot:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+
+  /* Minimal part-detail dialog (the bmx.html phone-fix-3 pattern): a
+     self-contained road-only modal, opened only by tapping a card's dot. */
+  dialog#roadPartModal{border:none;border-radius:14px;padding:0;max-width:480px;width:calc(100% - 32px);
+    max-height:calc(100svh - 32px);color:var(--ink);background:var(--card);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog#roadPartModal[open]{display:flex;flex-direction:column;overflow:hidden}
+  dialog#roadPartModal::backdrop{background:rgba(18,28,22,.45)}
+  #roadPartModal .rm-head{padding:18px 20px 4px;flex:none}
+  #roadPartModal .rm-head h2{margin:0 0 5px;font-size:18px}
+  #roadPartModal .rm-body{padding:10px 20px 16px;display:flex;flex-direction:column;gap:12px;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  #roadPartModal .rm-foot{display:flex;justify-content:flex-end;padding:14px 20px 18px;flex:none}
+  .rpm-compat{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;border-radius:9px;padding:8px 11px;line-height:1.35}
+  .rpm-compat .dot{position:static;flex:none;cursor:default}
+  .rpm-compat .dot::before{content:none}
+  .rpm-compat.ok{background:var(--ok-bg);color:var(--ok)}
+  .rpm-compat.warn{background:var(--warn-bg);color:var(--warn)}
+  .rpm-compat.err{background:var(--err-bg);color:var(--err)}
+  .rpm-compat.none{background:var(--chip);color:var(--ink-soft)}
+  .rpm-lines{display:flex;flex-direction:column;gap:7px}
+  @media (max-width:768px){
+    dialog#roadPartModal{width:calc(100% - 20px)}
+  }
+
+  .grid.list{display:flex;flex-direction:column;gap:6px;container:rdcat / inline-size}
+  .list .pcard{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:9px 14px 9px 22px}
+  .list .pcard .namewrap{flex:0 1 220px;min-width:0;display:flex;flex-direction:column;gap:1px}
+  .list .pcard .kind{font-size:10px}
+  .list .pcard .name{font-size:13px}
+  .list .pcard .spec{flex:1 1 150px;min-width:0;min-height:0}
+  .list .pcard .prov{flex:none;min-height:0}
+  .list .pcard .row{margin:0 0 0 auto;flex:none;gap:12px}
+  .list .dot{top:50%;transform:translateY(-50%);left:8px;right:auto}
+  @media (min-width:769px){
+    .grid.list{gap:5px}
+    @container rdcat (min-width:600px){
+      .list .pcard{display:grid;grid-template-columns:minmax(160px,220px) minmax(130px,1fr) max-content minmax(150px,182px);
+        column-gap:14px;align-items:start;padding:9px 14px 9px 22px}
+      .list .pcard .namewrap{flex:none}
+      .list .pcard .name{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.2}
+      .list .pcard .spec{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-top:1px}
+      .list .pcard .metacol{display:flex;flex-direction:column;align-items:flex-end;gap:4px;min-width:0}
+      .list .pcard .row{margin:0;flex-direction:column;align-items:flex-end;gap:4px}
+      .list .pcard .price{padding-top:2px}
+    }
+  }
+
+  aside .side{position:sticky;top:calc(var(--hdr-h,116px) + 10px);display:flex;flex-direction:column;gap:14px;
+    scroll-margin-top:calc(var(--hdr-h,116px) + 12px)}   /* the #mobileBar tap jumps here — must clear the sticky header */
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .panel h2{margin:0 0 8px;font-size:16px}
+  .muted{color:var(--ink-soft);font-size:12px}
+  .slot{display:flex;align-items:center;gap:8px;font-size:13px;padding:6px 0;border-bottom:1px dashed var(--line)}
+  .slot:last-of-type{border-bottom:none}
+  .slot .sl-main{flex:1;min-width:0}
+  .slot .sl-cat{font-size:10px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink-soft);font-weight:700}
+  .slot .sl-part{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .slot .sl-part .vchk{color:var(--ok);font-weight:800;margin-left:3px;font-size:12px}
+  .slot .pr{font-size:11.5px;color:var(--ink-soft);white-space:nowrap}
+  .slot .x{cursor:pointer;color:var(--ink-soft);border:none;background:none;font-size:16px;line-height:1;padding:0 2px}
+  .slot .x:hover{color:var(--err)}
+  .total{display:flex;align-items:baseline;justify-content:space-between;margin-top:12px;border-top:1px solid var(--line);padding-top:12px}
+  .total b{font-size:23px}
+  .wrow{display:flex;align-items:baseline;justify-content:space-between;margin-top:4px}
+  .wrow .more{color:var(--warn);font-weight:700}
+  .panel .empty{font-size:12.5px;color:var(--ink-soft);margin-top:4px;line-height:1.5}
+  .panel .clr{margin-top:14px;width:100%;justify-content:center}
+  .road-note{font-size:11px;color:var(--ink-soft);margin-top:12px;line-height:1.45}
+
+  .status{display:flex;align-items:center;gap:8px;font-weight:700;border-radius:9px;padding:9px 11px;font-size:14px;margin-bottom:8px}
+  .status.ok{background:var(--ok-bg);color:var(--ok)}
+  .status.warn{background:var(--warn-bg);color:var(--warn)}
+  .status.err{background:var(--err-bg);color:var(--err)}
+  .issue{font-size:12.5px;padding:8px 10px;border-radius:8px;margin-top:7px;display:flex;gap:7px;line-height:1.4}
+  .issue.e{background:var(--err-bg);color:var(--err)}
+  .issue.w{background:var(--warn-bg);color:var(--warn)}
+  .issue.i{background:var(--chip);color:var(--ink-soft)}
+  .issue .mk{font-weight:800;flex:none}
+
+  .cat-empty{color:var(--ink-soft);font-size:13px;padding:18px 4px}
+
+  footer{max-width:1380px;margin:0 auto;padding:22px 24px 40px;color:var(--ink-soft);font-size:12px;border-top:1px solid var(--line)}
+  footer a{color:var(--brand)}
+  html.dark footer a,html.loam footer a{color:var(--ok)}
+
+  @media (max-width:880px){
+    .layout{grid-template-columns:1fr}
+    aside .side{position:static}
+    #rail{position:static;max-height:none}
+    #rail .chips{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;gap:6px}
+    #rail .chips::-webkit-scrollbar{display:none}
+    #rail .chip{flex:none;background:var(--chip);border-radius:999px}
+    #rail .chip .c-count{display:none}
+  }
+  @media (max-width:768px){
+    header{padding:14px 16px}
+    main{padding:14px 16px 60px}
+    .btn,.chip{min-height:44px;display:inline-flex;align-items:center;padding:10px 14px}
+    #rail .chip{justify-content:center}
+    .pick{min-height:40px;padding:9px 13px;display:inline-flex;align-items:center;justify-content:center}
+    .slot .x{min-width:38px;min-height:38px;display:inline-flex;align-items:center;justify-content:center}
+    footer{padding:18px 16px 40px}
+    select.btn{font-size:16px}
+    .prov .ver{position:relative}
+    .prov .ver::after{content:"";position:absolute;inset:-10px -8px}
+    .list .pcard{padding:10px 12px 10px 22px;gap:3px 10px;align-items:center}
+    .list .pcard .namewrap{flex:1 1 auto;order:1;min-width:0}
+    .list .pcard .row{flex:none;order:2;margin-left:auto;flex-direction:row;align-items:center;gap:12px}
+    .list .pcard .spec{flex:1 1 auto;order:3;white-space:normal;min-width:110px}
+  }
+
+  /* mobile sticky build bar — ports index.html's/bmx.html's #mobileBar: mirrors
+     the report verdict + roadBuildTotals wording, never reworded; tapping
+     jumps to the build panel (.side). */
+  #mobileBar{display:none}
+  @media (max-width:880px){
+    #mobileBar{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;align-items:center;gap:9px;width:100%;
+      border:none;border-top:1px solid var(--line);background:var(--card);color:var(--ink);
+      padding:12px 14px calc(12px + env(safe-area-inset-bottom));font:inherit;font-size:13px;cursor:pointer;
+      box-shadow:0 -8px 24px rgba(0,0,0,.10);text-align:left}
+    #mobileBar .mb-v{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}
+    #mobileBar.ok .mb-v{color:var(--ok)} #mobileBar.warn .mb-v{color:var(--warn)} #mobileBar.err .mb-v{color:var(--err)}
+    #mobileBar .mb-t{font-weight:800;white-space:nowrap}
+    #mobileBar .mb-w{color:var(--ink-soft);font-size:11.5px;white-space:nowrap}
+    #mobileBar .mb-go{color:var(--brand);font-weight:800;font-size:12px;white-space:nowrap}
+    main{padding-bottom:92px}
+    footer{padding-bottom:118px}
+  }
+</style>
+<script src="src/ui-common.js"></script>
+</head>
+<body>
+<header>
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <div class="wrap">
+    <!-- Family switcher: click-opened <details> menu, same idiom as every
+         other page's wordmark. LIVE surfaces + this page, gear (BuildMyRideKit)
+         last before About — never a tease of any other off-live page. -->
+    <details class="fam-menu" id="famMenu">
+      <summary aria-haspopup="true" aria-label="BuildMyMTB — open the BuildMy family switcher">
+        <h1>BuildMyMTB</h1><span class="fam-caret" aria-hidden="true">▾</span>
+      </summary>
+      <div class="fam-pop" role="menu" aria-label="The BuildMy family">
+        <a href="/" role="menuitem">🚵 BuildMyMTB</a>
+        <a href="bmx.html" role="menuitem">🏁 BuildMyBMX</a>
+        <a class="here" href="road.html" role="menuitem" aria-current="page">🚴 BuildMyRoadbike <span class="fam-soft">— you're here</span></a>
+        <a href="KitBuilder/" role="menuitem">🧰 BuildMyRideKit</a>
+        <a href="about.html" role="menuitem">ℹ️ About BuildMy <span class="fam-soft">— mission, family &amp; what verified means</span></a>
+        <div class="fam-mission">BuildMyMTB is a free, unbiased bike-building tool with accurate data — pick parts and see, in real time, whether they fit. Same tool, every ride style.</div>
+      </div>
+    </details>
+    <span class="page-tag">BuildMyRoadbike</span>
+    <span class="spacer"></span>
+    <a class="btn ghost" href="/" title="Back to the Bike Builder">🚵 Bike Builder</a>
+    <a class="btn ghost" href="KitBuilder/" title="Rider kit — helmets, shoes, apparel &amp; protection">🧰 BuildMyRideKit</a>
+    <a class="btn ghost" href="about.html" title="About BuildMyMTB">ℹ️ About</a>
+    <details class="theme-menu" id="themeMenu">
+      <summary class="btn ghost" title="Theme">🎨</summary>
+      <div class="theme-pop" role="menu">
+        <button type="button" class="btn" data-theme="light" role="menuitemradio">☀️ Light</button>
+        <button type="button" class="btn" data-theme="dark" role="menuitemradio">🌙 Dark</button>
+        <button type="button" class="btn" data-theme="loam" role="menuitemradio">🍂 Loam</button>
+        <button type="button" class="btn" data-theme="rad" role="menuitemradio">⚡ RAD</button>
+      </div>
+    </details>
+  </div>
+</header>
+<div class="honesty-strip"><span class="badge">Prototype · sample data</span> BuildMyRoadbike checks wheel size, thru-axle fit, freehub vs cassette, flat-mount brakes vs frame/fork, tapered steerer, BB shell/spindle, tire clearance and drivetrain system/speed/actuation as you pick parts. A green dot means no conflict among the dimensions we check — some makers publish no spec data, so it's not a guarantee of perfect fit.</div>
+
+<main id="roadMain"><!-- rendered by the script below --></main>
+
+<footer id="roadFooter">
+  Prices &amp; weights are approximate <strong>sample data</strong> — not verified against manufacturers unless a ✓ badge says so.
+  Builds are saved on this device only. Green = no conflicts among the dimensions we check, not a guarantee.
+  Disc-brake road only — rim-brake road isn't modeled yet.
+  · <a href="/">← Bike Builder</a> · <a href="KitBuilder/">BuildMyRideKit →</a> · <a href="about.html">ℹ️ About</a>
+</footer>
+
+<!-- Mobile sticky build bar (≤880px only): verdict + totals mirror, tap = jump to panel -->
+<button type="button" id="mobileBar" aria-label="Build summary — tap to jump to the build panel">
+  <span class="mb-v" id="mbVerdict">Add parts to start checking.</span>
+  <span class="mb-t" id="mbTotal">≈ $0</span>
+  <span class="mb-w" id="mbWeight">—</span>
+  <span class="mb-go">View ▸</span>
+</button>
+<!-- Minimal part-detail dialog: click-triggered, opened only by tapping a
+     card's compat dot — never appears on its own (no-popup rule). -->
+<dialog id="roadPartModal" aria-labelledby="rpmTitle" role="dialog" aria-modal="true">
+  <div class="rm-head">
+    <h2 id="rpmTitle"></h2>
+    <div class="muted" id="rpmSpec"></div>
+  </div>
+  <div class="rm-body">
+    <div id="rpmCompat" class="rpm-compat none"></div>
+    <div id="rpmLines" class="rpm-lines"></div>
+    <div id="rpmProv"></div>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="rpmClose" autofocus>Close</button>
+  </div>
+</dialog>
+
+<script src="src/compat.js"></script>
+<script src="src/compat-road.js"></script>
+<script src="data/road.js"></script>
+<script>
+/* ==========================================================================
+   BuildMyRoadbike page glue (browser-only; not type-checked, like index.html's
+   inline script and bmx.html's). Reads ROAD_GROUPS/ROAD_SLOTS/ROAD_PARTS/
+   checkRoadBuild/roadBuildTotals/roadSlotRequired (src/compat-road.js +
+   data/road.js) and the shared Verdict/verdictKey primitives (src/compat.js,
+   loaded first).
+   ========================================================================== */
+(function(){
+  'use strict';
+  var $ = function(id){ return document.getElementById(id); };
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+  var money = tbMoney;
+
+  (function(){
+    function mark(name){
+      var btns=document.querySelectorAll('.theme-pop [data-theme]');
+      for(var i=0;i<btns.length;i++){ var on=btns[i].getAttribute('data-theme')===name; btns[i].classList.toggle('primary',on); btns[i].setAttribute('aria-checked',String(on)); }
+      var m=$('metaThemeColor'); if(m) m.setAttribute('content', TB_THEME_META[name]||TB_THEME_META.light);
+    }
+    function set(name){
+      tbApplyTheme(name);
+      mark(name); var d=$('themeMenu'); if(d) d.open=false;
+      syncHdr();
+    }
+    var btns=document.querySelectorAll('.theme-pop [data-theme]');
+    for(var i=0;i<btns.length;i++){ (function(b){ b.onclick=function(){ set(b.getAttribute('data-theme')); }; })(btns[i]); }
+    mark(tbCurrentTheme());
+    document.addEventListener('click', function(e){ var d=$('themeMenu'); if(d&&d.open&&!d.contains(e.target)) d.open=false; });
+  })();
+
+  // Family switcher: click an item / click outside / Escape all close it.
+  // Never auto-opens (no-popups rule).
+  (function(){
+    var d=$('famMenu'); if(!d) return;
+    d.addEventListener('click', function(e){ if(e.target.closest('.fam-pop a')) d.open=false; });
+    document.addEventListener('click', function(e){ if(d.open && !d.contains(e.target)) d.open=false; });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape' && d.open){ d.open=false; var s=d.querySelector('summary'); if(s) s.focus(); } });
+  })();
+
+  function syncHdr(){ var h=document.querySelector('header'); if(h) document.documentElement.style.setProperty('--hdr-h', h.offsetHeight+'px'); }
+  window.addEventListener('resize', syncHdr); syncHdr();
+
+  var main = $('roadMain');
+
+  /* ---- lookups derived from the engine + data (one source of truth) -------- */
+  var BY_ID = {}; ROAD_PARTS.forEach(function(p){ BY_ID[p.id] = p; });
+  function roadById(id){ return BY_ID[id]; }
+  var CATSLOTS = {}; ROAD_SLOTS.forEach(function(s){ (CATSLOTS[s.cat] = CATSLOTS[s.cat] || []).push(s.key); });
+  var SLOT_LABEL = {}; ROAD_SLOTS.forEach(function(s){ SLOT_LABEL[s.key] = s.label; });
+  var CAT_ORDER = {}; ROAD_SLOTS.forEach(function(s,i){ if(!(s.cat in CAT_ORDER)) CAT_ORDER[s.cat] = i; });
+  /* "Featured" sort (the bias-audit round-4 #2 fix, ported): category grouping
+     via CAT_ORDER, WITHIN-category tiebreak a uniform Fisher-Yates shuffle
+     (shared from src/compat.js) instead of catalog insertion order — computed
+     once at page load so filtering/search never reshuffles what's visible. */
+  var ROAD_SHUFFLE_ORDER = {};
+  (function(){
+    var order = fisherYatesShuffle(ROAD_PARTS.map(function(p){ return p.id; }));
+    order.forEach(function(id, i){ ROAD_SHUFFLE_ORDER[id] = i; });
+  })();
+  var CATLABEL = {
+    frame:'Frame', fork:'Fork', headset:'Headset', frontwheel:'Front Wheel',
+    rearwheel:'Rear Wheel / Hub', tire:'Tires', shifter:'Shifter/Brake Levers',
+    frontderailleur:'Front Derailleur', rearderailleur:'Rear Derailleur',
+    cassette:'Cassette', chain:'Chain', crankset:'Crankset', bb:'Bottom Bracket',
+    brake:'Brakes', rotor:'Rotors', handlebar:'Handlebar', stem:'Stem',
+    cockpit:'One-piece Cockpit', bartape:'Bar Tape', seatpost:'Seatpost',
+    dropper:'Dropper Post', saddle:'Saddle', pedal:'Pedals'
+  };
+  function catLabel(c){ return CATLABEL[c] || c; }
+
+  /* ---- selection + filter state --------------------------------------------- */
+  var LS_KEY = 'tb-road-build';
+  /** slotKey -> part id */
+  var KB = {};
+  var activeCat = 'all';
+  var disciplineFilter = 'all';   // 'all' | a disciplines[] token — absence on a part = universal
+  var verifiedOnly = false;
+  var viewMode = 'list'; try{ if(localStorage.getItem('tb-road-view')==='cards') viewMode='cards'; }catch(e){}
+  var sortBy = 'featured';
+
+  (function load(){
+    var raw=null; try{ raw=localStorage.getItem(LS_KEY); }catch(e){}
+    if(!raw) return;
+    try{
+      var obj=JSON.parse(raw), slotCat={};
+      ROAD_SLOTS.forEach(function(s){ slotCat[s.key]=s.cat; });
+      Object.keys(obj).forEach(function(k){
+        var p=roadById(obj[k]);
+        if(p && slotCat[k] && p.cat===slotCat[k]) KB[k]=p.id;
+      });
+    }catch(e){}
+  })();
+  function save(){ try{ localStorage.setItem(LS_KEY, JSON.stringify(KB)); }catch(e){} }
+  function resolvedBuild(){ var out={}; Object.keys(KB).forEach(function(k){ var p=roadById(KB[k]); if(p) out[k]=p; }); return out; }
+
+  var DISC_LABEL = { road:'Road', aero:'Aero', endurance:'Endurance', allroad:'All-road', cx:'Cyclocross' };
+  function discLabel(d){ return DISC_LABEL[d] || (d.charAt(0).toUpperCase()+d.slice(1)); }
+  var presentDiscs = (function(){
+    var seen={}; ROAD_PARTS.forEach(function(p){ if(Array.isArray(p.disciplines)) p.disciplines.forEach(function(d){ seen[d]=1; }); });
+    return Object.keys(seen).sort();
+  })();
+  var anyVerified = ROAD_PARTS.some(function(p){ return p.verified===true && p.source; });
+
+  function passesNonCat(p){
+    if(verifiedOnly && !(p.verified===true && p.source)) return false;
+    if(disciplineFilter!=='all' && Array.isArray(p.disciplines) && p.disciplines.indexOf(disciplineFilter)<0) return false;
+    return true;
+  }
+
+  /* ---- road-local compat dot: same four-state contract as the Bike Builder's
+     compatOf / bmx.html's bmxCompatOf, computed over checkRoadBuild. Extended
+     to try every slot a multi-slot category can fill (tire/brake/rotor) and
+     report the best (green > yellow > red). ---- */
+  function roadPlacementDiff(part, slotKey, build){
+    var base = Object.assign({}, build); delete base[slotKey];
+    var before = checkRoadBuild(base);
+    var beforeE = before.errors.map(verdictKey), beforeW = before.warnings.map(verdictKey);
+    var test = Object.assign({}, base); test[slotKey] = part;
+    var after = checkRoadBuild(test);
+    var e=null, w=null;
+    for(var i=0;i<after.errors.length;i++){ if(beforeE.indexOf(verdictKey(after.errors[i]))<0){ e=String(after.errors[i]); break; } }
+    for(var j=0;j<after.warnings.length;j++){ if(beforeW.indexOf(verdictKey(after.warnings[j]))<0){ w=String(after.warnings[j]); break; } }
+    return { error:e, warning:w };
+  }
+  function roadCompatOf(p, build){
+    if(Object.keys(build).length===0) return {state:'n', reason:'Pick some parts first to check fit'};
+    var slots = CATSLOTS[p.cat] || [];
+    var firstErr=null, firstWarn=null;
+    for(var i=0;i<slots.length;i++){
+      var d = roadPlacementDiff(p, slots[i], build);
+      if(!d.error && !d.warning) return {state:'g', reason:'No conflicts with your current build (among the dimensions we check - some makers publish no spec data)'};
+      if(!d.error){ if(firstWarn===null) firstWarn=d.warning; }
+      else if(firstErr===null) firstErr=d.error;
+    }
+    if(firstWarn!==null) return {state:'w', reason:firstWarn};
+    return {state:'r', reason:(firstErr||'Conflicts with your current build')};
+  }
+  /* Per-slot breakdown for the tap-opened detail card: roadCompatOf above
+     already collapses a multi-slot part (tire/brake/rotor front+rear) down to
+     its single best-state reason for the card dot; this reruns per slot so a
+     part that fits the front but conflicts as the rear shows BOTH lines. */
+  function roadDiffLines(p, build){
+    var slots = CATSLOTS[p.cat] || [];
+    if(slots.length < 2 || Object.keys(build).length===0) return [];
+    var lines = [];
+    slots.forEach(function(slotKey){
+      var d = roadPlacementDiff(p, slotKey, build);
+      if(d.error) lines.push({label:SLOT_LABEL[slotKey], text:d.error, cls:'e'});
+      else if(d.warning) lines.push({label:SLOT_LABEL[slotKey], text:d.warning, cls:'w'});
+    });
+    return lines;
+  }
+
+  /* ---- display helpers -------------------------------------------------------- */
+  function specLine(p){
+    var bits=[];
+    switch(p.cat){
+      case 'frame':
+        if(Array.isArray(p.wheelSizes)) bits.push(p.wheelSizes.join('/'));
+        if(p.bb) bits.push(p.bb+' shell');
+        if(p.brakeMount) bits.push(p.brakeMount);
+        bits.push(p.frameOnly?'Frame only':'Frame + fork');
+        break;
+      case 'fork': bits.push(p.wheel); if(p.axle) bits.push(p.axle+' axle'); if(p.brakeMount) bits.push(p.brakeMount); break;
+      case 'headset': if(p.upper||p.lower) bits.push((p.upper||'?')+' / '+(p.lower||'?')); if(p.steerer) bits.push(p.steerer); break;
+      case 'frontwheel': bits.push(p.wheel); if(p.hub) bits.push(p.hub+' axle'); if(p.rotorMount) bits.push(p.rotorMount); break;
+      case 'rearwheel': bits.push(p.wheel); if(p.freehub) bits.push(p.freehub); if(p.rotorMount) bits.push(p.rotorMount); break;
+      case 'tire': bits.push(p.wheel); if(typeof p.width==='number') bits.push(p.width+'mm'); if(p.tubeless) bits.push('Tubeless'); if(p.compound) bits.push(p.compound); break;
+      case 'shifter': if(p.system) bits.push(p.system); if(typeof p.speeds==='number') bits.push(p.speeds+'sp'); if(p.actuation) bits.push(p.actuation); break;
+      case 'frontderailleur': if(p.system) bits.push(p.system); if(p.actuation) bits.push(p.actuation); if(p.mount) bits.push(p.mount); break;
+      case 'rearderailleur': if(p.system) bits.push(p.system); if(p.actuation) bits.push(p.actuation); if(typeof p.maxCog==='number') bits.push(p.maxCog+'T max'); break;
+      case 'cassette': if(p.freehub) bits.push(p.freehub); if(typeof p.minCog==='number'&&typeof p.maxCog==='number') bits.push(p.minCog+'-'+p.maxCog+'T'); if(typeof p.speeds==='number') bits.push(p.speeds+'sp'); break;
+      case 'chain': if(p.system) bits.push(p.system); if(typeof p.speeds==='number') bits.push(p.speeds+'sp'); break;
+      case 'crankset': if(p.bb) bits.push(p.bb+' spindle'); if(p.chainrings) bits.push(p.chainrings); if(p.ring) bits.push(p.ring+'T'); break;
+      case 'bb': if(p.shell) bits.push(p.shell+' shell'); if(p.spindle) bits.push(p.spindle+' spindle'); break;
+      case 'brake': if(p.mount) bits.push(p.mount); if(p.actuation) bits.push(p.actuation); if(typeof p.pistons==='number') bits.push(p.pistons+'-piston'); break;
+      case 'rotor': if(typeof p.size==='number') bits.push(p.size+'mm'); if(p.mount) bits.push(p.mount); break;
+      case 'handlebar': if(p.clamp) bits.push(p.clamp+'mm clamp'); if(typeof p.width==='number') bits.push(p.width+'mm wide'); break;
+      case 'stem': if(p.clamp) bits.push(p.clamp+'mm clamp'); if(typeof p.length==='number') bits.push(p.length+'mm'); break;
+      case 'cockpit': if(p.steerer) bits.push(p.steerer+' steerer'); if(typeof p.width==='number') bits.push(p.width+'mm wide'); break;
+      case 'seatpost': bits.push(p.proprietary?'Proprietary':(p.diameter+'mm')); break;
+      case 'dropper': if(p.diameter) bits.push(p.diameter+'mm'); if(typeof p.drop==='number') bits.push(p.drop+'mm drop'); break;
+      case 'pedal': if(p.style) bits.push(p.style); break;
+    }
+    if(Array.isArray(p.disciplines) && p.disciplines.length) bits.push(p.disciplines.map(function(d){ return discLabel(d); }).join('/'));
+    return bits.filter(Boolean).join(' · ');
+  }
+  function provHtml(p){
+    if(p.verified===true && p.source) return '<a class="ver" href="'+esc(p.source)+'" target="_blank" rel="noopener nofollow">✓ Verified</a>';
+    return '<span class="est">Sample spec (unverified)</span>';
+  }
+
+  /* ---- part detail dialog: the card dot's tap target. Minimal by design — a
+     click-opened card (allowed by the no-popup rule) that surfaces the exact
+     reason string already computed for the dot's title/aria-label, plus a
+     per-slot breakdown for multi-slot categories. ---- */
+  function openRoadPartModal(p){
+    var build = resolvedBuild();
+    var compat = roadCompatOf(p, build);
+    var cls = compat.state==='g' ? 'ok' : compat.state==='w' ? 'warn' : compat.state==='r' ? 'err' : 'none';
+    $('rpmTitle').textContent = p.brand+' '+p.model;
+    $('rpmSpec').textContent = catLabel(p.cat)+' · '+specLine(p);
+    $('rpmCompat').className = 'rpm-compat '+cls;
+    $('rpmCompat').innerHTML = '<span class="dot '+compat.state+'" aria-hidden="true"></span><span>'+esc(compat.reason)+'</span>';
+    $('rpmLines').innerHTML = roadDiffLines(p, build).map(function(l){
+      return '<div class="issue '+l.cls+'"><span class="mk">'+(l.cls==='e'?'✗':'⚠')+'</span>'
+        + '<span><strong>'+esc(l.label)+':</strong> '+esc(l.text)+'</span></div>';
+    }).join('');
+    $('rpmProv').innerHTML = provHtml(p);
+    $('roadPartModal').showModal();
+  }
+
+  /* ---- static skeleton -------------------------------------------------------- */
+  function skeleton(){
+    return ''
+      + '<div class="intro"><h2>🚴 BuildMyRoadbike</h2>'
+      + '<p>Pick a frame, fork, drivetrain, wheels and cockpit and watch fit, price and weight update live. '
+      + 'This catalog is disc-brake road bikes only — rim-brake road isn\'t modeled yet.</p></div>'
+      + '<div class="toolbar">'
+      +   (anyVerified ? '<button type="button" class="btn" id="rdVerified" title="Show only parts verified against a manufacturer source" aria-pressed="false">✓ Verified only</button>' : '')
+      +   '<span class="grow"></span>'
+      +   '<button type="button" class="btn danger" id="rdClear" title="Clear every selected part">↺ Clear build</button>'
+      + '</div>'
+      + '<div class="layout">'
+      +   '<nav id="rail" aria-label="Road filters"></nav>'
+      +   '<section aria-label="Road catalog">'
+      +     '<div class="cat-head">'
+      +       '<h2 class="cat-title" id="rdCatTitle" aria-live="polite"></h2>'
+      +       '<div class="cat-tools">'
+      +         '<span class="catcount" id="rdCatCount" aria-live="polite"></span>'
+      +         '<span class="viewseg" role="group" aria-label="Catalog view">'
+      +           '<button type="button" class="btn" id="rdViewCards" aria-pressed="false" title="Card grid">▦ Cards</button>'
+      +           '<button type="button" class="btn primary" id="rdViewList" aria-pressed="true" title="Dense list — one row each">☰ List</button>'
+      +         '</span>'
+      +         '<select class="btn" id="rdSort" title="Sort the catalog" aria-label="Sort the catalog">'
+      +           '<option value="featured">Sort: Featured</option>'
+      +           '<option value="name">Name A–Z</option>'
+      +           '<option value="price-asc">Price: low → high</option>'
+      +           '<option value="price-desc">Price: high → low</option>'
+      +           '<option value="weight-asc">Weight: light → heavy</option>'
+      +           '<option value="weight-desc">Weight: heavy → light</option>'
+      +         '</select>'
+      +       '</div>'
+      +     '</div>'
+      +     '<div class="grid" id="rdCatalog"></div>'
+      +   '</section>'
+      +   '<aside><div class="side"><div class="panel" id="rdReport"></div><div class="panel" id="rdPanel"></div></div></aside>'
+      + '</div>';
+  }
+
+  /* ---- left rail: discipline filter + road categories ------------------------- */
+  function mkChip(label, active, onClick, extraHtml){
+    var b=document.createElement('button');
+    b.type='button';
+    b.className='chip'+(active?' active':'');
+    b.setAttribute('aria-pressed', active?'true':'false');
+    b.innerHTML=esc(label)+(extraHtml||'');
+    b.onclick=onClick;
+    return b;
+  }
+  function countFor(cat){
+    return ROAD_PARTS.filter(function(p){ return p.cat===cat && passesNonCat(p); }).length;
+  }
+  function catsForGroup(g){
+    var seen={}, out=[];
+    g.slots.forEach(function(s){ if(!seen[s.cat]){ seen[s.cat]=1; out.push(s.cat); } });
+    return out;
+  }
+
+  function renderRail(){
+    var rail=$('rail'); rail.innerHTML='';
+    if(presentDiscs.length){
+      var dh=document.createElement('div'); dh.className='rail-h'; dh.textContent='Discipline'; rail.appendChild(dh);
+      var dc=document.createElement('div'); dc.className='chips'; dc.setAttribute('role','group'); dc.setAttribute('aria-label','Filter by riding discipline — parts without a tag are universal and always show');
+      dc.appendChild(mkChip('All disciplines', disciplineFilter==='all', function(){ disciplineFilter='all'; onFilterChange(); }));
+      presentDiscs.forEach(function(d){ dc.appendChild(mkChip(discLabel(d), disciplineFilter===d, function(){ disciplineFilter=d; onFilterChange(); })); });
+      rail.appendChild(dc);
+    }
+    var ch=document.createElement('div'); ch.className='rail-h'; ch.textContent='Category'; rail.appendChild(ch);
+    var allWrap=document.createElement('div'); allWrap.className='chips';
+    allWrap.appendChild(mkChip('All parts', activeCat==='all', function(){ activeCat='all'; onCatChange(); },
+      '<span class="c-count">'+ROAD_PARTS.filter(passesNonCat).length+'</span>'));
+    rail.appendChild(allWrap);
+    ROAD_GROUPS.forEach(function(g){
+      var sub=document.createElement('div'); sub.className='rail-sub'; sub.textContent=g.label; rail.appendChild(sub);
+      var cc=document.createElement('div'); cc.className='chips'; cc.setAttribute('role','group'); cc.setAttribute('aria-label',g.label+' categories');
+      catsForGroup(g).forEach(function(cat){
+        var n=countFor(cat);
+        cc.appendChild(mkChip(catLabel(cat), activeCat===cat, (function(c){ return function(){ activeCat=c; onCatChange(); }; })(cat),
+          '<span class="c-count">'+n+'</span>'));
+      });
+      rail.appendChild(cc);
+    });
+  }
+
+  /* ---- centre: product rows for the active category --------------------------- */
+  function rowEl(p){
+    var build = resolvedBuild();
+    var slots = CATSLOTS[p.cat] || [];
+    var inAny = slots.some(function(k){ return KB[k]===p.id; });
+    var compat = roadCompatOf(p, build);
+    var card=document.createElement('div');
+    card.className='pcard'+(inAny?' selected':'');
+
+    var wt = typeof p.weight==='number' ? '<span class="wt">'+p.weight.toLocaleString()+' g</span>' : '';
+
+    card.innerHTML =
+        '<button type="button" class="dot '+compat.state+'" aria-label="Compatibility: '+esc(compat.reason)+'" title="'+esc(compat.reason)+'"></button>'
+      + '<div class="namewrap"><div class="kind">'+esc(catLabel(p.cat))+'</div>'
+      +   '<div class="name">'+esc(p.brand)+' '+esc(p.model)+'</div></div>'
+      + '<div class="spec">'+esc(specLine(p))+'</div>'
+      + '<div class="metacol"><div class="prov">'+provHtml(p)+'</div></div>'
+      + '<div class="row"><span class="price">'+money(p.price)+' '+wt+'</span>'
+      +   '<span class="picks"></span></div>';
+
+    // Dot is the tap target for "why": opens the minimal detail dialog above.
+    card.querySelector('.dot').onclick=function(e){ e.stopPropagation(); openRoadPartModal(p); };
+
+    var picks = card.querySelector('.picks');
+    if(slots.length===1){
+      var k=slots[0], inB=KB[k]===p.id;
+      var btn=document.createElement('button'); btn.type='button';
+      btn.className='pick'+(inB?' in':''); btn.textContent = inB?'✓ In build':'Add to build';
+      btn.onclick=function(){ if(KB[k]===p.id) delete KB[k]; else KB[k]=p.id; save(); sync(); };
+      picks.appendChild(btn);
+    } else {
+      slots.forEach(function(k){
+        var inB=KB[k]===p.id;
+        var btn=document.createElement('button'); btn.type='button';
+        btn.className='pick'+(inB?' in':''); btn.textContent = (inB?'✓ ':'')+SLOT_LABEL[k].split(' ')[0];
+        btn.onclick=function(){ if(KB[k]===p.id) delete KB[k]; else KB[k]=p.id; save(); sync(); };
+        picks.appendChild(btn);
+      });
+    }
+    return card;
+  }
+
+  function renderCatalog(){
+    var el=$('rdCatalog'); el.innerHTML='';
+    el.classList.toggle('list', viewMode==='list');
+
+    var list=ROAD_PARTS.filter(function(p){
+      if(activeCat!=='all' && p.cat!==activeCat) return false;
+      return passesNonCat(p);
+    });
+
+    $('rdCatTitle').textContent = activeCat==='all' ? 'All parts' : catLabel(activeCat);
+    var totalInScope = ROAD_PARTS.filter(function(p){ return activeCat==='all' || p.cat===activeCat; }).length;
+    $('rdCatCount').textContent = 'Showing '+list.length+' of '+totalInScope+' product'+(totalInScope===1?'':'s');
+
+    if(!list.length){
+      el.classList.remove('list');
+      el.innerHTML='<div class="cat-empty">'+(verifiedOnly?'No verified parts here yet — toggle “✓ Verified only” off to see sample parts.':
+        disciplineFilter!=='all'?'No parts tagged for this discipline here — try “All disciplines”.':
+        'No products in this category yet.')+'</div>';
+      return;
+    }
+
+    var idx=ROAD_SHUFFLE_ORDER;
+    var wt=function(p,missing){ return typeof p.weight==='number'? p.weight : missing; };
+    var SORTS={
+      featured:      function(a,b){ return (CAT_ORDER[a.cat]-CAT_ORDER[b.cat]) || (idx[a.id]-idx[b.id]); },
+      name:          function(a,b){ return (a.brand+' '+a.model).localeCompare(b.brand+' '+b.model) || (idx[a.id]-idx[b.id]); },
+      'price-asc':   function(a,b){ return ((a.price||0)-(b.price||0)) || (idx[a.id]-idx[b.id]); },
+      'price-desc':  function(a,b){ return ((b.price||0)-(a.price||0)) || (idx[a.id]-idx[b.id]); },
+      'weight-asc':  function(a,b){ return (wt(a,Infinity)-wt(b,Infinity)) || (idx[a.id]-idx[b.id]); },
+      'weight-desc': function(a,b){ return (wt(b,-Infinity)-wt(a,-Infinity)) || (idx[a.id]-idx[b.id]); }
+    };
+    list.sort(SORTS[sortBy]||SORTS.featured);
+    list.forEach(function(p){ el.appendChild(rowEl(p)); });
+  }
+
+  /* ---- right panels: fit report, then the selected build + running total ------ */
+  function renderReport(){
+    var build = resolvedBuild();
+    var r = checkRoadBuild(build);
+    var n = Object.keys(KB).length, html='';
+    if(n===0) html='<div class="status warn">Add parts to start checking.</div>';
+    else if(r.errors.length) html='<div class="status err">✗ '+r.errors.length+' problem'+(r.errors.length>1?'s':'')+'</div>';
+    else if(r.warnings.length) html='<div class="status warn">⚠ '+r.warnings.length+' thing'+(r.warnings.length>1?'s':'')+' to check</div>';
+    else html='<div class="status ok">✓ No conflicts found (among the dimensions we check - some makers publish no spec data)</div>';
+    r.errors.forEach(function(v){ html+='<div class="issue e"><span class="mk">✗</span><span>'+esc(String(v))+'</span></div>'; });
+    r.warnings.forEach(function(v){ html+='<div class="issue w"><span class="mk">⚠</span><span>'+esc(String(v))+'</span></div>'; });
+    r.infos.forEach(function(v){ html+='<div class="issue i"><span class="mk">i</span><span>'+esc(String(v))+'</span></div>'; });
+    $('rdReport').innerHTML = html;
+  }
+
+  function renderPanel(){
+    var host=$('rdPanel');
+    var build = resolvedBuild();
+    var t = roadBuildTotals(build);
+    /* roadSlotRequired is BUILD-DEPENDENT (2x crank -> front derailleur,
+       rim-brake frame -> no rotors, a picked cockpit/dropper drops its
+       counterpart slots) — recompute against the current build every render,
+       never a static list (the bmx.html REQUIRED_KEYS shortcut doesn't apply here). */
+    var reqSlots = ROAD_SLOTS.filter(function(s){ return roadSlotRequired(s, build); });
+    var filled = reqSlots.filter(function(s){ return KB[s.key]; }).length;
+
+    var h='<h2>Your Build</h2><div class="muted">'+Object.keys(build).length+' part'+(Object.keys(build).length===1?'':'s')+' selected · '+filled+'/'+reqSlots.length+' required slots filled</div>';
+
+    var picked='';
+    ROAD_SLOTS.forEach(function(s){
+      var p=roadById(KB[s.key]); if(!p) return;
+      var vchk = (p.verified===true && p.source) ? ' <span class="vchk" title="Verified against a source">✓</span>' : '';
+      var pr = (typeof p.weight==='number'? p.weight+' g · ':'') + money(p.price);
+      picked+='<div class="slot"><div class="sl-main"><div class="sl-cat">'+esc(s.label)+'</div>'
+        + '<div class="sl-part">'+esc(p.brand+' '+p.model)+vchk+'</div></div>'
+        + '<span class="pr">'+pr+'</span>'
+        + '<button type="button" class="x" data-remove="'+esc(s.key)+'" title="Remove" aria-label="Remove '+esc(p.brand+' '+p.model)+'">×</button></div>';
+    });
+
+    if(picked){
+      h+=picked;
+      h+='<div class="total"><span class="muted">Build total</span><b>'+money(t.price)+'</b></div>';
+      h+='<div class="wrow"><span class="muted">Est. weight</span><span class="muted">'
+        + (t.weight ? (t.weight.toLocaleString()+' g') + (t.missingWeight?' <span class="more">+</span>':'') : '<span class="more">—</span>')
+        + '</span></div>';
+    } else {
+      h+='<div class="empty">Nothing selected yet — pick a category on the left and start with a frame.</div>';
+    }
+    h+='<div class="road-note">Bottom bracket, headset, pedals and bar tape are commonly sold separately — not required for a complete build. Front derailleur is required only on a 2x crankset; rotors are dropped on a rim-brake frame (every current frame is disc, so rotors are required today). A one-piece cockpit fills both the handlebar and stem roles.</div>';
+    host.innerHTML=h;
+
+    var rms=host.querySelectorAll('[data-remove]');
+    for(var i=0;i<rms.length;i++){ rms[i].onclick=function(){ delete KB[this.getAttribute('data-remove')]; save(); sync(); }; }
+
+    updateMobileBar();
+  }
+
+  /* ---- mobile sticky build bar: mirrors rdReport's verdict wording and
+     roadBuildTotals exactly — never reworded. Called from renderPanel() so
+     every code path that refreshes the panel keeps the bar in sync. ---- */
+  function updateMobileBar(){
+    var el=$('mobileBar'); if(!el) return;
+    var build = resolvedBuild();
+    var r = checkRoadBuild(build), t = roadBuildTotals(build), n = Object.keys(KB).length;
+    var v = n===0 ? 'Add parts to start checking.'
+      : r.errors.length ? ('✗ '+r.errors.length+' problem'+(r.errors.length>1?'s':''))
+      : r.warnings.length ? ('⚠ '+r.warnings.length+' thing'+(r.warnings.length>1?'s':'')+' to check')
+      : '✓ No conflicts found (among the dimensions we check - some makers publish no spec data)';
+    $('mbVerdict').textContent = v;
+    $('mbTotal').textContent = '≈ ' + money(t.price);
+    $('mbWeight').textContent = t.weight ? ('≈ '+(t.weight/1000).toFixed(2)+' kg') : '—';
+    el.className = n===0 ? 'warn' : (r.errors.length ? 'err' : r.warnings.length ? 'warn' : 'ok');
+  }
+
+  function sync(){ renderCatalog(); renderReport(); renderPanel(); }
+
+  /* ---- interaction glue ------------------------------------------------------- */
+  function onFilterChange(){ renderRail(); renderCatalog(); }
+  function onCatChange(){ renderRail(); renderCatalog(); }
+
+  function wireToolbar(){
+    var v=$('rdVerified');
+    if(v) v.onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary',verifiedOnly); this.setAttribute('aria-pressed',String(verifiedOnly)); onFilterChange(); };
+    $('rdClear').onclick=function(){ KB={}; save(); sync(); };
+    function setView(m){
+      viewMode=m;
+      $('rdViewCards').classList.toggle('primary',m==='cards'); $('rdViewCards').setAttribute('aria-pressed',String(m==='cards'));
+      $('rdViewList').classList.toggle('primary',m==='list');   $('rdViewList').setAttribute('aria-pressed',String(m==='list'));
+      try{ localStorage.setItem('tb-road-view',m); }catch(e){}
+      renderCatalog();
+    }
+    $('rdViewCards').onclick=function(){ setView('cards'); };
+    $('rdViewList').onclick=function(){ setView('list'); };
+    $('rdSort').value=sortBy;
+    $('rdSort').onchange=function(){ sortBy=this.value; renderCatalog(); };
+    setView(viewMode);
+  }
+
+  function wirePartModal(){
+    $('rpmClose').onclick=function(){ $('roadPartModal').close(); };
+    $('roadPartModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
+  }
+
+  /* ---- boot -------------------------------------------------------------------- */
+  main.innerHTML = skeleton();
+  wireToolbar();
+  wirePartModal();
+  renderRail();
+  renderCatalog();
+  renderReport();
+  renderPanel();
+  $('mobileBar').onclick=function(){ var s=document.querySelector('.side'); if(s) s.scrollIntoView({block:'start'}); };
+  syncHdr();
+})();
+</script>
+</body>
+</html>
