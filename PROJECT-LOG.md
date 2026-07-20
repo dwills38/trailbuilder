@@ -2636,3 +2636,21 @@ per wave/decision; large reconstructions are handed to a worker session.
   ALIASES-retire vs status:'discontinued' call. Flagged in tools/verify-notes-frames.md.
 - **DOCTRINE:** re-test any "walled" claim through the browser pane before repeating it. Two of
   today's three waves found the wall was tooling, not policy.
+
+## 2026-07-20 (seat 14) — The wall list was fiction: ZERO real walls found
+
+- Wall re-test sweep merged (`4b1140f`). **Every brand we called "fetch-walled" RENDERS in the
+  browser pane** — Norco, Cannondale, Propain, Orbea (client-side tab/modal spec tables WebFetch
+  cannot trigger), plus the 4 BMX brands that 429'd in wave 3 (a throttle, not a wall).
+  Five Ten/adidas remains the ONLY confirmed wall (CAPTCHA) — left alone per the ethics ruling.
+  Three separate waves this week traced "walls" to tooling gaps; the wall list was suppressing
+  real brands and feeding a bias-audit visibility finding.
+- 9 frames verified (Norco ×2, Cannondale ×4, Propain, Orbea ×2). MTB verified 3,045 → 3,054.
+- ★ ERROR-TIER: 3 Cannondale frames carried udh:false INFERRED from their stock derailleurs
+  while their own spec lines state a UDH hanger — a false "won't fit" against real SRAM
+  Transmission upgrades. Fixed and proven (checkBuild now returns 0 UDH errors on them).
+- Propain Spindrift 180-vs-203 rotor conflict flagged, NOT forced — correcting it would raise a
+  false warning on a real sourced build. Gen-split follow-up.
+- HARVEST NOTE: second stale-base row-block merge today; the pattern (parse multi-line row blocks
+  by id, apply changed blocks onto HEAD, guard verified regressions, assert row counts) is now
+  the standard tool for stale-base catalog branches.
