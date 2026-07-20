@@ -239,3 +239,100 @@ Several rows across prior waves had a real manufacturer-fetched price recorded i
 — likely because the weight bar blocked them before the 2026-07-19 kit-apparel policy
 relaxed it. Worth a scan for more of these before spending fetch budget on brand-new
 brands: they're free verifications, no research needed, just re-confirm-and-flag.
+
+## Wave 7 (2026-07-20) — shoe-tail finish + gloves quiet-backlog
+
+Branch `verify/kit-7`. Scope: close out the shoe-tail list wave 6 left open, then
+continue into the gloves quiet backlog by yield. Kit went 497 -> 510 verified this wave
+(7 commits, all gated: `node validate.js` + `npm test` clean after every commit).
+
+### Shoe tail — CLOSED OUT
+
+**Northwave Rockit 2 / Origin Plus 2 — both resolved.** Northwave's site paginates its
+category grids (page 2 needs a `?p=2&page=2` link click, not just a URL guess — WebFetch
+alone only ever sees page 1, which is why this sat ambiguous since kit-fanout-1). A full
+browser-rendered sweep of both Trail/All-Mountain (37 SKUs) and XC (37 SKUs) pages settled
+it: **"Rockit 2" has never existed** — only plain "Rockit" (EUR129.99, closeout) and
+"Rockit Plus" (EUR149.99, standing SKU) do. Re-scoped to Rockit Plus, formalized verified.
+**"Origin Plus 2"'s URL now 404-redirects** to the XC category page, and no matching SKU
+is in the current 37-item grid (the category copy still name-drops it as filler text —
+don't trust category-page marketing copy over the actual product grid). Tagged
+discontinued.
+
+**Bontrager Rally/Foray/Flatline — all three verified, two had real spec errors.**
+trekbikes.com serves all three as live CLOSEOUT SKUs (comp. value = full list price, use
+that not the clearance price). **Rally was mis-cataloged**: it's actually a clipless
+2-bolt-SPD shoe with a hook-and-loop strap, not the flat/lace shoe the row claimed —
+a genuine data error, not just a stale price. Foray's closure was wrong too (ratchet ->
+boa, single L6 dial). Flatline was already correct, just needed price/size updates. Noted
+in passing: Trek has started rebranding this footwear line as "Trek Foray" ($169.99) as a
+parallel SKU — didn't touch it, flagging for whoever eventually does a Trek-branded pass.
+
+**Sidi Dust — resolved via site search, not URL guessing.** "MTB Dust" is real but is
+a technical-gravel/MTB crossover shoe ($369.99), not the XC race tier the row assumed
+("Sidi Tecno ratchet closure" was invented — this model uses a dial-and-cable system,
+mapped to `boa`). Lesson: Sidi's collection pages don't surface every model in the grid
+(compare the ALL-TERRAIN and XC category sweeps, neither showed Dust) — the site's own
+search (`sidi.com/en-us/search?q=...`) found it when category browsing didn't. Worth
+trying search-first on future Sidi rows before declaring a model doesn't exist.
+
+**Vaude AM Moab — disambiguated to "AM Moab Gravity."** VAUDE sells several AM Moab
+variants (Mid Winter STX, Tech, Mid STX II, Gravity) — the row's 390g/shoe + canvas/suede
+spec only matches Gravity. EUR137 -> $149 USD sample per THE PRICE RULE (still no US
+store).
+
+**Scott Sport Crus-r Flat BOA — discontinued, and the 2026-07-17 blocker is now explained.**
+scott-sports.com's search box doesn't submit via a URL query param or a plain click (it's
+a JS SPA that needs its own event wiring); browsing the two real category URLs
+(`/products/bike-equipment-mw-all-mountain-cycling-shoes`, `/products/bike-equipment-mw-mtb-shoes`,
+found via `document.querySelectorAll('a')` on the homepage, not guessed) was the way in.
+No men's Crus-r Flat BOA or plain Crus-r BOA survives — only four women's Crus-r BOA
+variants remain, all on clearance.
+
+**O'Neal Session SPD — resolved.** Never existed; re-scoped to "Pinned SPD" (the real
+clipless cousin of the already-cataloged Pinned Flat row), $99.99 confirmed, lace closure
+(was wrongly velcro).
+
+**Troy Lee Designs Grind/Roost — re-attempted, same conclusion as kit-5/6.** Homepage nav
+has zero shoe/footwear links; a fresh site-search finds nothing. Still a likely-fabricated
+pair of rows pending a coordinator/Douglas call on whether to retarget them at a real
+Five Ten x TLD SKU or remove them. Not re-verified, not touched further this wave — see
+the existing FLAG text on both rows.
+
+**Five Ten** — not re-attempted (confirmed adidas.com CAPTCHA wall per kit-6).
+
+### Gloves quiet-backlog (by yield, after shoe tail closed)
+
+Six rows already carried a real fetched price with a disclosed conversion basis from
+earlier waves but were stuck unverified purely because their maker page publishes no
+per-glove weight — a bar THE KIT-APPAREL POLICY (Douglas 2026-07-19) retired. Re-confirmed
+each live and formalized `verified:true`: O'Neal Matrix ($24.99), Fly Racing Kinetic
+($32.95), Royal Racing Apex (re-scoped to "Apex Glove - LTD Edition" — that's the only
+current SKU family despite the name, GBP29.99), Royal Racing Core (GBP24.99 + velcro
+closure), HandUp Most Days ($29.00, stretch-cuff not velcro), Fist Handwear Stocker
+(AUD49.95). **This "quiet backlog" pattern (flagged in kit-6's notes) is real and cheap —
+worth another sweep across jerseys/shorts/pants/protection before spending fetch budget on
+brand-new brands.** A grep for the pattern (`Corrected|confirmed exactly|CORRECTED` in
+`desc` without `verified:true`) turned up ~35 more candidates across jsy/sht/pnt/glv/elp/
+arm/shg/ewr not reached this wave.
+
+ZOIC's three unverified gloves (Ether/Empire/Sarge) were re-checked and still can't
+formalize: zoic.com's own site currently has **no glove category or product pages at
+all** (homepage nav has zero glove links, guessed URLs 404) — the brand appears to have
+stopped selling gloves direct, retailer-only now. Stays retailer-sourced, unverified.
+
+Sweet Protection Hunter Mid/Race gloves — re-checked, still dead product-id URLs
+(828052/828051.html). Confirmed via search the current lineup is exactly three tiers
+(Hunter, Hunter Light, Hunter Pro), no Mid/Race at any price. Tagged discontinued rather
+than guessing which tier "Race" was meant to become.
+
+Sombrio's four remaining glove rows (Vanquish/Spun/Cartel/Epik) — not re-attempted, prior
+waves already established no live Sombrio storefront exists at all.
+
+### Not attempted this wave (next wave's scope)
+
+The ~35-candidate quiet-backlog list beyond gloves (jerseys/shorts/pants/protection/
+eyewear/armguards/shinguards — grep `Corrected|confirmed exactly|CORRECTED` in `desc`
+without `verified:true` across `src/kit.js`). Remaining gloves not yet attempted at all:
+everything past `glv-clubride-ladyfinger` alphabetically in the unverified set (Club Ride,
+Dharco, and the rest of the ZOIC apparel line).

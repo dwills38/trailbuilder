@@ -698,10 +698,16 @@ var KIT_PARTS = [
     soleType:'clipless', closure:'lace', disciplines:['enduro','dh'], sizes:['7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13'],
     desc:'2-bolt SPD clipless gravity shoe, ClipGrip outsole with a 40mm cleat box, D3O High Impact Zone insole, RC PowerDrive nylon shank. Weight per pair (483g/shoe x2, size M9).',
     verified:true, lastChecked:'2026-07-16', source:'https://rideconcepts.com/products/mens-hellion-clip', sourceType:'manufacturer' },
-  { id:'sho-northwave-rockit-2', cat:'shoes', brand:'Northwave', model:'Rockit 2', price:140, weight:700,
+  { id:'sho-northwave-rockit-2', cat:'shoes', brand:'Northwave', model:'Rockit Plus', price:162, weight:700,
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['37','38','39','40','41','42','43','44','45','46','47','48'],
-    desc:'2-bolt SPD clipless trail/enduro shoe. Weight per pair (approx). CORRECTED 2026-07-16: northwave.com\'s current product at this URL is named "Rockit Plus" (not "Rockit 2" - no "Rockit 2" was found on the site; a plain "Rockit" also exists at EUR129.99), and it closes with an SLW3 dial, not laces (closure lace->boa). Sizes corrected to 37-48. No USD manufacturer price found (EUR149.99 listed), so price stays prior sample; model name left as-is (append-only id).',
-    lastChecked:'2026-07-16', source:'https://www.northwave.com/en/bike/shoes/mtb/trailall-mountain/rockit-plus' },
+    desc:'2-bolt SPD clipless trail/enduro shoe, Single X-Dial SLW3 dial closure. RE-RESOLVED kit-7'
+      + ' (2026-07-20): no "Rockit 2" has ever existed on northwave.com in a full current-lineup'
+      + ' sweep of both Trail/All-Mountain pages (37 SKUs, browser-rendered) - only plain "Rockit"'
+      + ' (EUR129.99, LAST ITEMS IN STOCK/closeout) and "Rockit Plus" (EUR149.99, standing current'
+      + ' product) exist. Re-scoped model name Rockit 2 -> Rockit Plus (the standing, non-closeout'
+      + ' SKU - the id stays append-only). Price EUR149.99 -> $162 USD sample per THE PRICE RULE'
+      + ' (basis disclosed, no US price published). No per-shoe weight published, stays prior sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.northwave.com/en/bike/shoes/mtb/trailall-mountain/rockit-plus' },
   { id:'sho-leatt-clip-4-0', cat:'shoes', brand:'Leatt', model:'Shoe Clip 4.0', price:149, weight:750, status:'discontinued',
     soleType:'clipless', closure:'lace', disciplines:['trail','enduro'], sizes:['6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13'],
     desc:'SPD clipless channel, RideGrip compound, speed laces, cleat shims included. Weight per'
@@ -854,10 +860,9 @@ var KIT_PARTS = [
     soleType:'clipless', closure:'boa', disciplines:['enduro'], sizes:['38','40','41','42','43','44','45','46','47','48'],
     desc:'Mid-cut enduro clipless shoe with ankle protection. Weight per pair (approx). CORRECTED 2026-07-16: fetched northwave.com - closes with a single X-Dial SLW3 (step-by-step + full-release dial), not laces (closure lace->boa). Sizes corrected to 38,40-48 (39 not offered). No USD manufacturer price found (EUR179.99 listed). Kit-6 (2026-07-20): price set to a EUR->USD sample ($194, basis disclosed) per THE PRICE RULE, formalizing verified:true.',
     verified:true, lastChecked:'2026-07-20', source:'https://www.northwave.com/en/bike/shoes/mtb/trailall-mountain/enduro-mid-2' },
-  { id:'sho-northwave-origin-plus-2', cat:'shoes', brand:'Northwave', model:'Origin Plus 2', price:200, weight:600,
+  { id:'sho-northwave-origin-plus-2', cat:'shoes', brand:'Northwave', model:'Origin Plus 2', price:200, weight:600, status:'discontinued',
     soleType:'clipless', closure:'boa', disciplines:['xc'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'XC race clipless shoe, carbon-reinforced triple-density sole. CORRECTED 2026-07-16: fetched northwave.com - the SLW3 system is a dial closure, not a ratchet buckle (closure ratchet->boa). Weight per pair (approx), not published on the fetched page so stays prior sample; no USD manufacturer price found either.',
-    lastChecked:'2026-07-16', source:'https://www.northwave.com/en/bike/shoes/mtb/xc/origin-plus-2' },
+    desc:'XC race clipless shoe, carbon-reinforced triple-density sole. CORRECTED 2026-07-16: fetched northwave.com - the SLW3 system is a dial closure, not a ratchet buckle (closure ratchet->boa). RESOLVED kit-7 (2026-07-20): the /xc/origin-plus-2 URL now redirects to the generic XC category page, and a full current XC lineup sweep (37 SKUs across both category pages, browser-rendered) confirms no "Origin Plus 2" SKU exists - the category page\'s own marketing copy still name-drops "Origin Plus 2" as a description string, but no matching product card is in the grid. Marked discontinued rather than guessing a successor (no obvious 1:1 replacement in the current XC tier list). Price/weight left as prior sample, not marked verified.' },
   { id:'sho-shimano-xc7', cat:'shoes', brand:'Shimano', model:'XC7 (SH-XC703)', price:260, weight:600,
     soleType:'clipless', closure:'boa', disciplines:['xc'], sizes:['38','39','40','41','42','43','44','45','46','47','48'],
     desc:'XC race clipless shoe, carbon-reinforced sole. SH-XC702 has been superseded by SH-XC703 on ride.shimano.com; row re-scoped to the live SKU. ride.shimano.com publishes no per-SKU weight — weight kept as the prior sample figure. Kit-6 (2026-07-20): price $260 re-confirmed exactly via ride.shimano.com/collections/mountain; formalizing verified:true (weight not required for kit apparel).',
@@ -899,9 +904,15 @@ var KIT_PARTS = [
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
     desc:'Fetched oneal.com (Gray/Red colorway): CORRECTED price $100 -> $79.99. Honey Rubber Hexagon sole, PU upper, lace closure, removable footbed, reinforced toe cap confirmed. Weight not published; kept as the existing sample per the kit weight policy.',
     verified:true, lastChecked:'2026-07-17', source:'https://oneal.com/products/pinned-flat-pedal-shoe-gray-red' },
-  { id:'sho-oneal-session-spd', cat:'shoes', brand:"O'Neal", model:'Session SPD', price:120, weight:800,
-    soleType:'clipless', closure:'velcro', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'UNVERIFIED (2026-07-17): Session SPD not found on oneal.com (US storefront); only listed on oneal.eu. Left as an unverified sample rather than sourcing a non-US price.' },
+  { id:'sho-oneal-session-spd', cat:'shoes', brand:"O'Neal", model:'Pinned SPD', price:99.99, weight:800,
+    soleType:'clipless', closure:'lace', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
+    desc:'RESOLVED kit-7 (2026-07-20): "Session SPD" confirmed not to exist - the oneal.com US'
+      + ' Cycling Shoes collection carries exactly one clipless SKU, "Pinned SPD Shoe" (the SPD'
+      + ' cousin of the already-cataloged Pinned Flat row), so this row is re-scoped to that real'
+      + ' product. Lace-up closure confirmed (corrected from velcro), SPD cleat compatible,'
+      + ' O\'Neal Honey Rubber sole, PU upper. Price $99.99 confirmed exactly (was sample $120).'
+      + ' Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://oneal.com/collections/cycling-shoes/products/pinned-spd-shoe' },
   { id:'sho-endura-hummvee-flat', cat:'shoes', brand:'Endura', model:'Hummvee Flat', price:130, weight:850,
     soleType:'flat', closure:'lace', disciplines:['trail'], sizes:['39','40','41','42','43','44','45','46','47'],
     verified:true, lastChecked:'2026-07-16', source:'https://www.endurasport.com/en-us/products/hummvee-flat-shoes-black-re9500bk',
@@ -920,32 +931,72 @@ var KIT_PARTS = [
   { id:'sho-poc-resistance-ultra-clip', cat:'shoes', brand:'POC', model:'Resistance Ultra Clipless', price:250, weight:650,
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'], status:'discontinued',
     desc:'Lightweight trail/enduro clipless shoe, BOA closure. Weight per pair (approx). Discontinued: POC has exited footwear entirely (poc.com\'s current nav and both /footwear category URLs 404 this pass, cycling or otherwise), so there is no live maker page to fetch. Stays unverified.' },
-  { id:'sho-bontrager-rally', cat:'shoes', brand:'Bontrager', model:'Rally', price:130, weight:850,
-    soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'Trail/enduro flat pedal shoe. Weight per pair (approx).' },
-  { id:'sho-bontrager-foray', cat:'shoes', brand:'Bontrager', model:'Foray', price:150, weight:750,
-    soleType:'clipless', closure:'ratchet', disciplines:['xc','trail'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'XC/trail clipless shoe, ratchet buckle. Weight per pair (approx).' },
-  { id:'sho-bontrager-flatline', cat:'shoes', brand:'Bontrager', model:'Flatline', price:170, weight:900,
-    soleType:'flat', closure:'lace', disciplines:['enduro','dh'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'Gravity/DH flat pedal shoe. Weight per pair (approx).' },
+  { id:'sho-bontrager-rally', cat:'shoes', brand:'Bontrager', model:'Rally', price:149.99, weight:850,
+    soleType:'clipless', closure:'velcro', disciplines:['trail','enduro'], sizes:['36','37','38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','47','48'],
+    desc:'VERIFIED kit-7 (2026-07-20) via browser-rendered trekbikes.com (still sold, model 592742,'
+      + ' tagged CLOSEOUT): row was mis-cataloged as a flat lace shoe (soleType flat->clipless,'
+      + ' closure lace->velcro) - the page explicitly confirms 2-bolt SPD-style cleat compatibility'
+      + ' and a hook-and-loop strap closure, not laces. Price $149.99 list (comp. value; not the'
+      + ' active $23.93 clearance price) confirmed exactly. Sizes widened to the full 36-48 run'
+      + ' shown. Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.trekbikes.com/us/en_US/bike-clothing/cycling-shoes/mountain-bike-shoes/bontrager-rally-mountain-bike-shoe/p/24883/' },
+  { id:'sho-bontrager-foray', cat:'shoes', brand:'Bontrager', model:'Foray', price:164.99, weight:750,
+    soleType:'clipless', closure:'boa', disciplines:['xc','trail'], sizes:['36','37','38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','47','48'],
+    desc:'VERIFIED kit-7 (2026-07-20) via browser-rendered trekbikes.com (model 5253425, tagged'
+      + ' CLOSEOUT): closure corrected ratchet->boa (single BOA L6 dial, not a ratchet buckle);'
+      + ' clipless/2-bolt SPD-compatible confirmed. Price $164.99 list (comp. value, not the active'
+      + ' $24.93 clearance price) confirmed exactly. Sizes widened to the full 36-48 run shown.'
+      + ' Trek has begun rebranding this line as "Trek Foray" ($169.99, a distinct SKU/id not added'
+      + ' here) while this Bontrager-branded SKU remains sold as a closeout - not the same product,'
+      + ' left unmerged. Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.trekbikes.com/us/en_US/bike-clothing/cycling-shoes/mountain-bike-shoes/bontrager-foray-mountain-bike-shoe/p/34130/' },
+  { id:'sho-bontrager-flatline', cat:'shoes', brand:'Bontrager', model:'Flatline', price:139.99, weight:900,
+    soleType:'flat', closure:'lace', disciplines:['enduro','dh'], sizes:['36','37','38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','47','48'],
+    desc:'VERIFIED kit-7 (2026-07-20) via browser-rendered trekbikes.com (model 5256933, tagged'
+      + ' CLOSEOUT): flat pedal + lace closure confirmed as cataloged (Vibram outsole, integrated'
+      + ' lace keeper). Price $139.99 list (comp. value, not the active $20.93 clearance price)'
+      + ' confirmed exactly (was sample $170). Sizes widened to the full 36-48 run shown. Weight'
+      + ' not published, stays sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.trekbikes.com/us/en_US/bike-clothing/cycling-shoes/mountain-bike-shoes/mens-mountain-bike-shoes/bontrager-flatline-mountain-bike-shoe/p/34790/' },
   { id:'sho-giant-line', cat:'shoes', brand:'Giant', model:'Line', price:90, weight:800,
     soleType:'flat', closure:'lace', disciplines:['trail'], sizes:['39','40','41','42','43','44','45','46','47'],
     status:'discontinued',
     desc:'House-brand value trail flat shoe. Weight per pair (approx). Checked 2026-07-16: giant-bicycles.com/us/showcase/line-shoe is now marketing copy only with no purchasable SKU or price (giant-bicycles.com/us/shoes lists Shuttle Flat Lace/BOA, Charge, Surge instead; giant-bicycles.com/us/line-shoe and /us/line-shoe-2020 both 404). Flagged discontinued/superseded; price/weight left as prior sample.' },
-  { id:'sho-sidi-dust', cat:'shoes', brand:'Sidi', model:'Dust', price:250, weight:700,
-    soleType:'clipless', closure:'ratchet', disciplines:['xc'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'XC race clipless shoe, Sidi Tecno ratchet closure. Weight per pair (approx).' },
-  { id:'sho-vaude-am-moab', cat:'shoes', brand:'Vaude', model:'AM Moab', price:140, weight:780,
-    soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'Unisex canvas/leather flat-pedal trail shoe, VAUDE AM Dirt SUPtraction sole (AM Moab Gravity spec sheet: 390g, basis unstated on the page, taken as per-shoe -> ~780g/pair). vaude.com international site prices in EUR only (EUR137 MSRP) with no VAUDE-direct USD store found, so price stays an unconfirmed US-market estimate and the row stays unverified.' },
+  { id:'sho-sidi-dust', cat:'shoes', brand:'Sidi', model:'Dust', price:369.99, weight:700,
+    soleType:'clipless', closure:'boa', disciplines:['xc','trail'], sizes:['38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','46.5','47','48'],
+    desc:'VERIFIED kit-7 (2026-07-20) via browser-rendered sidi.com (site-search resolved it -'
+      + ' "MTB Dust" is real, marketed as a technical-gravel/MTB crossover shoe, not the plain XC'
+      + ' race tier the row assumed). Closure corrected from "Tecno ratchet" (an older Sidi system'
+      + ' this model does not use) to a SIDI Wire dial-with-cable system (mapped to boa, the closest'
+      + ' vocab match, same mechanism family as Northwave\'s SLW3). Clipless MTB SR17 sole (2-bolt'
+      + ' SPD-style, screw-replaceable toe) confirmed. Price $369.99 regular (comp. value, not the'
+      + ' active -30% $258.99 sale) corrected from a $250 sample. Sizes widened to the full 38-48'
+      + ' half-size run shown. Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://sidi.com/en-us/products/mtb-dust-grig' },
+  { id:'sho-vaude-am-moab', cat:'shoes', brand:'Vaude', model:'AM Moab Gravity', price:149, weight:780,
+    soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['36','37','38','39','40','41','42','43','44','45','46','47','48','49','50'],
+    desc:'VERIFIED kit-7 (2026-07-20): the row matches VAUDE\'s "AM Moab Gravity" specifically (one'
+      + ' of several current AM Moab variants - Mid Winter STX, Tech, Mid STX II also exist) --'
+      + ' model corrected to disambiguate. Unisex canvas/hydrophobic-suede flat-pedal shoe,'
+      + ' SUPtraction sole, lace closure confirmed (page text + a customer review both describe'
+      + ' laces, not a dial/ratchet system). Weight 390g/shoe confirmed on the page (780g/pair).'
+      + ' vaude.com prices in EUR only (EUR137.00, no US store) -- converted to a $149 USD sample'
+      + ' per THE PRICE RULE, basis disclosed. Sizes widened to the full EU 36-50 run shown.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.vaude.com/int/en/20539-am-moab-gravity-cycling-shoes.html' },
   { id:'sho-scott-mtb-comp-boa', cat:'shoes', brand:'Scott', model:'MTB Comp BOA', price:109.99, weight:740,
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['40','41','42','43','44','45','46','47','48'],
     desc:'Trail/enduro clipless shoe, single BOA L6 dial, 2-bolt cleat compatible. Weight per pair (fetched scott-sports.com: 370g per shoe, US 8.5). Fetched page also corrected price $170 -> $109.99 and sizes to the maker\'s EU 40-48 range.',
     verified:true, lastChecked:'2026-07-16', source:'https://www.scott-sports.com/us/en/product/scott-mtb-comp-boa-shoe' },
-  { id:'sho-scott-sport-crus-r-flat-boa', cat:'shoes', brand:'Scott', model:'Sport Crus-r Flat BOA', price:150, weight:750,
+  { id:'sho-scott-sport-crus-r-flat-boa', cat:'shoes', brand:'Scott', model:'Sport Crus-r Flat BOA', price:150, weight:750, status:'discontinued',
     soleType:'flat', closure:'boa', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'Flat pedal shoe with BOA closure. Weight per pair (approx). ATTEMPTED 2026-07-17: scott-sports.com/us/en/product/... and /global/en/product/... both 404 for this slug; the US-market page could not be located (Scott\'s site is JS-driven, WebFetch/Exa returned no product content). Left unverified.' },
+    desc:'RESOLVED kit-7 (2026-07-20): the direct product-slug 404 from 2026-07-17 is now explained --'
+      + ' browsed (not searched, the site\'s own search box does not submit via URL params or a plain'
+      + ' click) the full current "All Mountain Shoes" (12 SKUs) and "Mountain Bike Shoes" (16 SKUs)'
+      + ' category listings on scott-sports.com/us/en. The only surviving "Sport Crus-r BOA" SKUs are'
+      + ' four WOMEN\'S variants (plain/ECO/PLUS/Reflective, all -50% clearance); no men\'s "Sport'
+      + ' Crus-r Flat BOA" or any plain men\'s "Sport Crus-r BOA" remains. Marked discontinued rather'
+      + ' than guessing a re-scope onto a women\'s-fit SKU. Price/weight left as prior sample, not'
+      + ' marked verified.' },
 
   /* -- Jerseys (all fields optional) -- */
   { id:'jsy-fox-flexair', cat:'jersey', brand:'Fox', model:'Flexair', price:104.95, weight:135,
@@ -1878,7 +1929,13 @@ var KIT_PARTS = [
     desc:'Verified 2026-07-16 vs fetched endurasport.com product page: "Hummvee Plus Gloves", "$45.00 USD" (was sampled at $35, corrected), sizes XS-2XL. Weight kept as the prior sample estimate - the page/Shopify JSON weight is a flat shipping-placeholder figure.' },
   { id:'glv-fisthandwear-stocker', cat:'gloves', brand:'Fist Handwear', model:'Stocker Glove', price:33, weight:65,
     disciplines:['dj'], sizes:['S','M','L','XL','XXL'],
-    desc:'Weight per pair (approx, no weight published). Corrected price ($30 sample -> $33, fetched fisthandwear.com.au AUD49.95 converted at ~0.66 USD/AUD - the brand\'s primary site (fisthandwear.com) now redirects entirely to the .com.au domain, AUD-only pricing).' },
+    desc:'Weight per pair (approx, no weight published). Corrected price ($30 sample -> $33, fetched'
+      + ' fisthandwear.com.au AUD49.95 converted at ~0.66 USD/AUD - the brand\'s primary site'
+      + ' (fisthandwear.com) now redirects entirely to the .com.au domain, AUD-only pricing).'
+      + ' Kit-7 (2026-07-20): re-confirmed live at AUD49.95 exactly (Black colorway), custom FIST'
+      + ' closure + single-layer Clarino palm confirmed. Formalizing verified:true per THE PRICE'
+      + ' RULE (basis disclosed) - weight not required for kit apparel (stays sample).',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.fisthandwear.com.au/products/black-stocker' },
   { id:'glv-poc-resistanceenduro', cat:'gloves', brand:'POC', model:'Resistance Enduro Glove', price:60, weight:43,
     disciplines:['enduro'], sizes:['XS','S','M','L','XL'],
     desc:'Weight per pair, size M (maker-stated; independently corroborated at 43-46g by third-party reviews). Fetched poc.com: price $60 confirmed (page showed a 40%-off $36 sale price), corrected weight 90g -> 43g, sizes to XS-XL (was missing XS, had a non-existent XXL).',
@@ -2046,12 +2103,20 @@ var KIT_PARTS = [
     sizes:['S','M','L','XL'],
     desc:'Maker states weight "36g" without specifying single-glove-vs-pair (kept as-published rather than guessed-doubled). Price is EUR39 converted at ~1.08 USD/EUR (no USD price shown on the EU page); sizes corrected to the maker\'s S-XL run.',
     verified:true, lastChecked:'2026-07-16', source:'https://www.sweetprotection.com/eu/en/hunter-light-bike-gloves-mens-black/' },
-  { id:'glv-sweetprotection-huntermid', cat:'gloves', brand:'Sweet Protection', model:'Hunter Mid Glove', price:40, weight:65,
+  { id:'glv-sweetprotection-huntermid', cat:'gloves', brand:'Sweet Protection', model:'Hunter Mid Glove', price:40, weight:65, status:'discontinued',
     sizes:['S','M','L','XL','XXL'],
-    desc:'FLAG for coordinator review (2026-07-16): the only Hunter Mid Glove page found is an old product-id URL (828052.html) that 404s; current sweetprotection.com glove lineup is Hunter / Hunter Light / Hunter Pro - "Mid" may be discontinued or renamed to "Pro". Left as an unverified sample.' },
-  { id:'glv-sweetprotection-hunterrace', cat:'gloves', brand:'Sweet Protection', model:'Hunter Race Glove', price:45, weight:70,
+    desc:'RE-CHECKED kit-7 (2026-07-20): the old product-id URL (828052.html) from the 2026-07-16'
+      + ' pass still 404s. Confirmed via search across sweetprotection.com\'s current catalog: the'
+      + ' full glove lineup is exactly three tiers - Hunter, Hunter Light, Hunter Pro - no "Mid"'
+      + ' tier at any price point. Tagged discontinued rather than guessing which of the three'
+      + ' tiers it should map to.' },
+  { id:'glv-sweetprotection-hunterrace', cat:'gloves', brand:'Sweet Protection', model:'Hunter Race Glove', price:45, weight:70, status:'discontinued',
     sizes:['S','M','L','XL','XXL'],
-    desc:'FLAG for coordinator review (2026-07-16): the only Hunter Race Glove page found is an old product-id URL (828051.html) that 404s; current sweetprotection.com glove lineup is Hunter / Hunter Light / Hunter Pro - "Race" may be discontinued or renamed to "Pro". Left as an unverified sample.' },
+    desc:'RE-CHECKED kit-7 (2026-07-20): the old product-id URL (828051.html) from the 2026-07-16'
+      + ' pass still 404s. Confirmed via search across sweetprotection.com\'s current catalog: the'
+      + ' full glove lineup is exactly three tiers - Hunter, Hunter Light, Hunter Pro - no "Race"'
+      + ' tier at any price point. Tagged discontinued rather than guessing which of the three'
+      + ' tiers it should map to.' },
   { id:'glv-ixs-carve', cat:'gloves', brand:'iXS', model:'Carve Glove', price:33, weight:65,
     sizes:['S','M','L','XL','XXL'],
     desc:'Preformed slip-on, abrasion-resistant synthetic palm, touchscreen-compatible, 90%'
@@ -2092,22 +2157,50 @@ var KIT_PARTS = [
     desc:'Fetched oneal.com/collections/element-glove: CORRECTED price $18 -> $24.99 (all 7 colorways list at that price). Weight not published; kept as the existing sample per the kit weight policy.',
     verified:true, lastChecked:'2026-07-17', source:'https://oneal.com/collections/element-glove' },
   { id:'glv-oneal-matrix', cat:'gloves', brand:'O\'Neal', model:'Matrix Glove', price:24.99, weight:65,
-    sizes:['S','M','L','XL','XXL'], desc:'Weight per pair (approx, not published on the maker page - stays unverified for that reason). Fetched oneal.com (Matrix Glove Stacked Black): corrected price $22 -> $24.99; sizes confirmed (8/9/10/11/12 = S/M/L/XL/XXL).' },
+    sizes:['S','M','L','XL','XXL'],
+    desc:'Weight per pair (approx, not published on the maker page). Fetched oneal.com (Matrix'
+      + ' Glove Stacked Black): corrected price $22 -> $24.99; sizes confirmed (8/9/10/11/12 ='
+      + ' S/M/L/XL/XXL). Kit-7 (2026-07-20): formalizing verified:true - weight is not required'
+      + ' for kit apparel (Douglas 2026-07-19); every other field is manufacturer-confirmed.',
+    verified:true, lastChecked:'2026-07-20', source:'https://oneal.com/products/matrix-glove-stacked-black' },
   { id:'glv-flyracing-kinetic', cat:'gloves', brand:'Fly Racing', model:'Kinetic Glove', price:33, weight:68,
     sizes:['XS','S','M','L','XL','XXL','XXXL'],
-    desc:'Corrected price ($28 sample -> $33, fetched flyracing.com/kinetic-gloves/ regular $32.95) and sizes to the maker\'s XS-3XL run. Fly markets Kinetic primarily for "motocross, BMX, and off-road performance" (not MTB-specific), though it is also listed in Fly\'s Bicycle > MTB > Gloves collection. Weight per pair (approx, no weight published).' },
+    desc:'Corrected price ($28 sample -> $33, fetched flyracing.com/kinetic-gloves/ regular $32.95)'
+      + ' and sizes to the maker\'s XS-3XL run. Fly markets Kinetic primarily for "motocross, BMX,'
+      + ' and off-road performance" (not MTB-specific), though it is also listed in Fly\'s'
+      + ' Bicycle > MTB > Gloves collection. Kit-7 (2026-07-20): re-confirmed live at $32.95,'
+      + ' formalizing verified:true - weight not required for kit apparel (stays sample).',
+    verified:true, lastChecked:'2026-07-20', source:'https://flyracing.com/kinetic-gloves/' },
   { id:'glv-flyracing-media', cat:'gloves', brand:'Fly Racing', model:'Media Glove', price:25, weight:62,
     sizes:['S','M','L','XL','XXL'],
     desc:'FLAG for coordinator review (2026-07-16): the only Media Glove page found is a legacy pre-2018 URL pattern (flyracing.com/product/mtb/riderwear/gloves/media-glove/...) not reachable on the current site; likely discontinued. Left as an unverified sample.' },
-  { id:'glv-royalracing-apex', cat:'gloves', brand:'Royal Racing', model:'Apex Glove', price:38, weight:65,
+  { id:'glv-royalracing-apex', cat:'gloves', brand:'Royal Racing', model:'Apex Glove - LTD Edition', price:38, weight:65,
     disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL','XXL'],
-    desc:'Corrected price ($40 sample -> $38, GBP29.99 fetched regular price converted at ~1.27 USD/GBP) and sizes to the maker\'s XS-XXL run. Weight per pair (approx, no weight published).' },
+    desc:'Corrected price ($40 sample -> $38, GBP29.99 fetched regular price converted at ~1.27'
+      + ' USD/GBP) and sizes to the maker\'s XS-XXL run. Kit-7 (2026-07-20): the full current'
+      + ' royalracing.com/collections/gloves lineup (browser-rendered) shows Apex Glove only ever'
+      + ' sold as "LTD Edition" colorways (Black/Blast/Rally, all GBP29.99 - the exact match for'
+      + ' this row) - model name disambiguated to match; not a special/rotating limited run despite'
+      + ' the name, it is the standing current SKU. Formalizing verified:true - weight not required'
+      + ' for kit apparel (stays sample).',
+    verified:true, lastChecked:'2026-07-20', source:'https://royalracing.com/collections/gloves' },
   { id:'glv-royalracing-core', cat:'gloves', brand:'Royal Racing', model:'Core Glove', price:32, weight:60,
     sizes:['XS','S','M','L','XL','XXL'],
-    desc:'Corrected price ($25 sample -> $32, GBP24.99 fetched regular price converted at ~1.27 USD/GBP, royalracing.com/products/core-glove-black) and sizes to the maker\'s XS-XXL run. Weight per pair (approx, no weight published).' },
+    desc:'Corrected price ($25 sample -> $32, GBP24.99 fetched regular price converted at ~1.27'
+      + ' USD/GBP, royalracing.com/products/core-glove-black) and sizes to the maker\'s XS-XXL run.'
+      + ' Kit-7 (2026-07-20): re-confirmed live at GBP24.99 exactly, hook-and-loop (velcro) closure'
+      + ' + AX suede palm confirmed. Formalizing verified:true - weight not required for kit apparel'
+      + ' (stays sample).',
+    verified:true, lastChecked:'2026-07-20', source:'https://royalracing.com/products/core-glove-black' },
   { id:'glv-handup-mostdays', cat:'gloves', brand:'Handup', model:'Most Days Glove', price:29, weight:60,
     sizes:['XXS','XS','S','M','L','XL','XXL','XXXL'],
-    desc:'Weight per pair (approx, not published on the maker page - stays unverified for that reason). Fetched handupco.com: corrected price $27 -> $29.00 and added the maker\'s full XXS-XXXL size range (was missing XXS/XS/XXXL).' },
+    desc:'Weight per pair (approx, not published on the maker page). Fetched handupco.com: corrected'
+      + ' price $27 -> $29.00 and added the maker\'s full XXS-XXXL size range (was missing'
+      + ' XXS/XS/XXXL). Kit-7 (2026-07-20): re-confirmed live at $29.00 exactly (Pure Black'
+      + ' colorway, one of 29 current Most Days styles), FullTouch touchscreen palm + stretch-cuff'
+      + ' pull-on (no velcro strap) confirmed. Formalizing verified:true - weight not required for'
+      + ' kit apparel (stays sample).',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.handupco.com/products/gloves-pure-black' },
   { id:'glv-bluegrass-prizma3d', cat:'gloves', brand:'Bluegrass', model:'Prizma 3D Glove', price:49, weight:80,
     disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL'],
     desc:'3D TPR knuckle protection. Re-fetched met-helmets.com (2026-07-17): price EUR45 (~$49 at ~1.08 USD/EUR), sizes XS-XL confirmed. Weight not published; kept as the existing sample per the kit weight policy.',
