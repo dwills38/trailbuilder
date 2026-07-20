@@ -183,8 +183,8 @@ test('golden: Ultimate CF SLX / Ultegra Di2 checks clean; the missing Di2 FD is 
   var build = {
     frame: rp('fr-canyon-ultimate-cfslx'),
     fork: rp('fk-canyon-ultimate-cfslx'),
-    frontWheel: rp('fw-shimano-c50-r9270'),
-    rearWheel: rp('rw-shimano-c50-r9270'),
+    frontWheel: rp('fw-dtswiss-arc1100-dicut-38'),
+    rearWheel: rp('rw-dtswiss-arc1100-dicut-38'),
     frontTire: rp('ti-continental-gp5000stre-28'),
     rearTire: rp('ti-continental-gp5000stre-28'),
     shifter: rp('sh-shimano-ultegra-r8100'),
