@@ -2619,3 +2619,20 @@ per wave/decision; large reconstructions are handed to a worker session.
 - ★ OPEN FOR DOUGLAS: 3 rows kit-4 wanted to un-verify that kit-3 had verified — hm-100-altec,
   hm-troyleedesigns-d4-composite-mips, sho-shimano-xc5. Kept HEAD's verified state (no silent
   regression); genuine kit-3-vs-kit-4 data disagreement needing a tiebreak fetch someday.
+
+## 2026-07-20 (seat 14) — The Specialized/Trek "fetch wall" was never a wall
+
+- **Premise falsified** (`6c3906a`): neither specialized.com nor trekbikes.com is bot-walled.
+  Trek's Specs tab LAZY-LOADS ON CLICK — WebFetch/bdata never trigger it, the browser pane does.
+  A tooling gap masqueraded as a wall and suppressed two of the catalog's biggest brands for
+  weeks (it also drove bias-audit r4 §5's visibility-skew finding).
+- Trek frames 16/21 → 20/21 verified. Specialized was already 17/17 (07-17 wave).
+- ★ ERROR-TIER FIX: fr-trek-roscoe-gen4 maxRotorR 180→203 (+minRotorR:180) off Trek's own
+  frameset page — the old value was the STOCK rotor misread as the frame ceiling, i.e. a false
+  "won't fit" against 203mm rotors. Coordinator-verified the provenance before merge (a
+  relaxation is the false-FITS direction and gets scrutiny); harness byte-identical.
+- ★ OPEN FOR DOUGLAS: fr-trek-slash looks like an orphaned pre-split duplicate (zero complete
+  bikes reference it; gen6 rows cover the platform verified). Ids can't be deleted — needs an
+  ALIASES-retire vs status:'discontinued' call. Flagged in tools/verify-notes-frames.md.
+- **DOCTRINE:** re-test any "walled" claim through the browser pane before repeating it. Two of
+  today's three waves found the wall was tooling, not policy.
