@@ -1,5 +1,29 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-20 — FIVE-GRIND HARVEST (late evening) + THE HG-L2 RESOLUTION
+
+- **All five evening grind chips harvested in one sweep** (every final send_message hung —
+  reports pulled from transcripts; all five cut from fresh main): forks tail (3 SR Suntour
+  maxRotorF 180→160, restrictive direction, maker-fetched) · kit 7 (497→510; shoe tail
+  CLOSED — Bontrager closure corrections, fake-SKU re-scopes; TLD Grind/Roost stay flagged
+  for Douglas; ~35-row "quiet backlog" of near-verified apparel noted) · road 6 (81→108
+  verified — the productinfo.shimano.com per-SKU route WORKS in the browser pane and
+  carries real per-SKU weights, contradicting the "Shimano publishes no weights" lore for
+  current-gen road; SM-BB72 shell bsa→pf86 rule-11 fix; 2 fake SKUs re-scoped) · gravel 3
+  (218/45; Ekar fabricated weights corrected off campagnolo.com; Orbea BB386EVO via Exa;
+  Kanzo Fast honestly excluded) · EMTB 2 (75→83 bikes; full triage table; 4 wrong-brand
+  platforms re-entered; schema gains status/supersededBy).
+- **HG-L2 SOURCE CONFLICT RESOLVED (coordinator, C-731 fetched verbatim):** the chart's
+  matrix reads "HG spline L2 (ROAD 12-speed dedicated): ROAD 12-speed ✔" — the L2 body
+  accepts ALL road-12 cassettes (Dura-Ace/Ultegra/105), and the same cassettes also ✔ on
+  HG spline L. The bike.shimano.com article's "Dura-Ace only" wording predates the
+  Ultegra/105 12s launches. CONSEQUENCE: a single freehub token can't express road-12's
+  dual-body fit — the current catalog false-errors 105/Ultegra-on-L2-wheel AND
+  Dura-Ace-on-hg-road-wheel (both false-WON'T-fit, the safe direction, but road.html is
+  live now). Fix = an engine rule in compat-road.js's freehub check (road-12 cassette
+  class accepts {hg-l2, hg-road}), chipped for adversarial review per the engine bar.
+- Totals: Kit 714 (510) · Road 217 (108 — crossed 50%) · Gravel 218 (45) · EMTB 83 (2).
+
 ## 2026-07-20 — ★★ ROAD + EMTB GO LIVE (Douglas: "do them all at once")
 
 - **BuildMyRoadbike (road.html) and BuildMyEMTB (emtb.html) flipped LIVE** on
