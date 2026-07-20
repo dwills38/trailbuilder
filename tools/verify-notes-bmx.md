@@ -431,3 +431,111 @@ Reaching 90 needs either:
    and prior waves (Colony stem clamp diameters, Colony bar variant mapping, Colony hub axle
    diameter) are blocked purely on one missing/ambiguous field on an otherwise-solid manufacturer
    page — no amount of re-fetching will produce a number the page doesn't state.
+
+---
+
+# BMX verification wave 6 — 2026-07-20 (verify/bmx-6)
+
+Scope: `data/bmx.js` only. Branch cut fresh off `origin/main` (commit `ea11e17`). Target per the
+coordinator's brief: widen beyond wave 5's near-exhausted pool into the larger unverified brands
+— Chase (10), Fly Bikes (9), S&M (7), Profile Racing (8), GT (4), Haro (3), BSD (2), Total BMX (2)
+— 45 rows total, raw-`curl`-first per the phantom-number doctrine (no WebSearch-summary trust).
+
+## Before → after
+
+- Before: 76/225 verified (33.8%)
+- After: **77/225 verified (34.2%)** — 1 new verification (S&M Pitchfork fork), 2 price
+  corrections (Pitchfork + S&M Fat Pivotal Seat). Bar (40%/90 rows) not reached.
+
+## Verified (1) + corrected (1 more, stays unverified)
+
+Both raw-`curl`-confirmed on **sandmbikes.com** (S&M's own site) — see the wave-6 commit for
+full detail:
+
+1. **`bmx-fr-sandm-pitchfork`** (fork) — promoted. Real per-size spec table states "2.17 lb
+   (.98 kg) 20"" = 980g, exact match to the existing sample weight. **Price corrected 459.99 →
+   209.95** (real price for the exact SKU — no-brake-mount, 3/8"/10mm dropout, 20in; the
+   990-brake-mount variant on the same page runs $219.95, still nowhere near the old figure).
+2. **`bmx-se-sm-fatpivotal`** (seat) — **price corrected 49.95 → 29.95** (real sandmbikes.com
+   price, replacing a stale albes.com-retailer figure). **Not verified**: only a generic "1 lbs"
+   shipping-box figure exists on the page, no per-product weight — the Odyssey/Cult
+   shipping-weight-bucket trap (wave 2 doctrine), and seat isn't an interface-verification-
+   exception category.
+
+## Every other targeted row: wall re-confirmed by independent raw fetch (no edits)
+
+**Chase (10/10)** — re-confirmed chasebicycles.com has no parts/shop/components section at all
+(home nav = Bikes/Team/Frames/Gear/Technologies only, `/collections/parts` 404s). Identical to
+wave 3's finding.
+
+**Fly Bikes (9/9)** — flybikes.com is a custom (non-Shopify) site with no discoverable product
+catalog path from its home nav; matches waves 1/3's "discontinued/renamed, not in current
+lineup" conclusion for Nassau frame + the PZ1/Mid-BB/sprocket/pegs/bars/seat/grips remainder.
+
+**Profile Racing (8/8)** — all 8 rows were already independently exhausted by the 2026-07-17/18
+depth passes (in-repo notes on each row: no matching current SKU name, price, or spec found on
+profileracing.com for Race Cranks 22mm, the three sprocket "Race" names, both freecoaster/
+cassette cogs, the Elite Front Wheel, or the Race Stem). Re-confirmed via this session's own
+research (Column 22mm Crankset search) that Profile's real current crank lineup uses different
+naming/specs than this catalog's rows assume — no new edit made, matches the existing notes.
+
+**GT (4/4)** — gtbicycles.com's Freestyle BMX collection (Performer/Slammer/Team/Fueler/Pro
+Performer tiers) has no "Fly" frame; its full parts-and-components catalog (2 pages, raw-fetched)
+has no "Performer Stem," "Performer Grips," or "Mid BB" product — only differently-named generic
+hardware (2pc Performer BMX Bar, BK Elevated/Mallet/NBS stems, Power Series cranks/BB). Wall
+confirmed for all 4 rows.
+
+**Haro (3/3)** — Lineage Master and Downtown DLX: harobikes.com's current BMX collection has no
+matching product (only Downtown/Downtown 16/18/20/24-2025, matching wave 4's finding that the
+plain Downtown frame — already verified under the frame exception — is the only current SKU;
+DLX site-search returns zero hits). Downtown Fork: no standalone fork SKU exists on the current
+site either (fork sold only as part of the complete Downtown bike) — this is the
+complete-bike-only pattern, but the frame exception (VERIFY-PROTOCOL "Extended to FRAMES") is
+scoped to `cat:'frame'` only, not forks, so it doesn't apply here. Left unverified, no edit.
+
+**BSD (2/2)** — us.bsdforever.com's current hub lineup is Backstreet Pro / Swerve / West Coaster
+/ Front Street Pro; a site search for "mind" returns literally "0 results" (confirmed via the
+site's own search endpoint, not just a missing nav link). "Mind" hubs are discontinued. Wall
+confirmed for both rows (front + rear).
+
+**S&M remainder (5 of 7, beyond the 2 above)** — Holmes frame, Speedball bars, and Old School
+Layback seatpost: site search for each term returns zero product results (confirmed discontinued/
+never-existed-under-that-name, matching the Race XLT Bar 8" and Speedball-bars findings wave 1
+already logged for the same brand). Race XLT Stem: re-fetched its real current page (found via
+search, not previously located) — reach (49/53/55/57mm) and weight (10.2/10.5/10.9oz) are real,
+but the page states no bar-clamp diameter anywhere, so it stays unverified under the same
+precedent wave 5 applied to the Colony Official/Variant stems (clamp is a genuine two-way vocab
+field, not a formality).
+
+**Total BMX (2/2)** — the Rotary Sprocket product URLs found via search both 404 on
+totalbmx.com/Shopify (redirect to the site's 404 page), and the live Sprockets collection page
+contains zero "rotary" hits — Total's current sprocket lineup is Killabee-only. The "Slim
+Pivotal Seat" doesn't exist either; the current Seats collection has "Slim Combo Seat" (a
+seat+post integrated combo, a structurally different product) but no standalone pivotal seat by
+that name. Both rows confirmed discontinued/renamed, no edit made.
+
+## Honest reachability call (wave 6)
+
+**Still not reachable from this brand list — the wave-5 forecast held.** 44 of the 45 targeted
+rows independently re-confirmed as genuine walls (discontinued models, no-current-SKU-match, or
+missing a single interface field the engine reads); only 1 new verification and 1 additional
+honest price correction came out of the full 8-brand, 45-row sweep. 76→77 (+1); 13 more needed
+for 90.
+
+**This wave's finding sharpens wave 5's diagnosis rather than changing it**: the assigned brand
+list (Chase/Fly Bikes/Profile Racing/GT/Haro/BSD/Total BMX) is a genuinely *smaller* boutique-BMX
+tier than Colony/Sunday/Odyssey/Cult — most of these brands simply don't sell parts standalone
+online at all (Chase, Fly Bikes, much of GT), or their catalog has drifted enough since this
+data was entered that specific SKU names/specs no longer exist (Profile Racing, Total BMX,
+S&M Holmes/Speedball, BSD Mind). Unlike Colony (wave 2/3/5), there is no real-but-blocked
+research residue left in this pool — the rows that didn't verify aren't one fetch away from
+clearing, they're discontinued products.
+
+**The two paths to 90 remain unchanged and are now the only ones left standing:**
+1. A brand-scope expansion to Odyssey/Cult (40 unverified rows combined) — but both are the
+   documented Shopify shipping-weight-bucket wall (wave 2); clearing them needs either a policy
+   change (accept a shipping-weight bucket as a rough sample, clearly labeled) or a different data
+   source entirely (e.g. a third-party measured-weight database per THE BAR item 2b, which so far
+   has only been applied to Shimano/SRAM-rotor classes).
+2. The still-open policy call from waves 1/2/3/5: several genuinely-confirmed-real specs (Colony
+   stem/bar clamp+variant ambiguity) are blocked on one missing field, not a research gap.
