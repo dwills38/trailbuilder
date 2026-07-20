@@ -1,39 +1,24 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-19T00:25:50.759Z",
+ "updated": "2026-07-20T18:27:05.333Z",
  "batchSize": 25,
  "lastCompleted": "ti-pirelli-scorpionxc-rc-29-22-pw-dual",
  "currentCategory": "frame",
  "queue": [
-  "fr-norco-range-c1",
   "fr-giant-reign-advanced",
-  "fr-pivot-firebird",
   "fr-kona-process-153",
   "fr-kona-process-153-carbon",
   "fr-orbea-rallon-mteam",
   "fr-propain-spindrift-cf",
-  "fr-canyon-spectral-al",
-  "fr-commencal-supreme-dh-v5",
   "fr-trek-session-8-29",
-  "fr-commencal-frs",
   "fr-trek-fuel-ex-c-gen6",
-  "fr-commencal-meta-ht-v3",
-  "fr-commencal-supreme-dh-v52",
   "fr-specialized-status-2-170",
-  "fr-nukeproof-mega-290-alloy",
-  "fr-nukeproof-mega-297-carbon",
   "fr-nukeproof-reactor-290-alloy",
-  "fr-nukeproof-scout-290",
-  "fr-norco-sight",
   "fr-orbea-occam-lt",
   "fr-propain-tyee-cf",
-  "fr-devinci-troy-st",
-  "fr-transition-sentinel-alloy",
   "fr-propain-tyee-al",
   "fr-propain-hugene-cf",
-  "fr-pivot-mach-6",
-  "fr-trek-procaliber-c-gen3",
   "ti-cst-camber-29-225",
   "ti-bontrager-xr1-29-22-innerstrength-tmspeed",
   "ti-bontrager-xr5-29-25-tmgrip",
@@ -108,7 +93,6 @@
   "fw-weareone-triad-29",
   "fw-weareone-triad-275",
   "fw-industrynine-whisp-29",
-  "fw-dtswiss-xrc1200-spline25-29",
   "fw-dtswiss-xr1700-29",
   "fw-ethirteen-lg1r-29",
   "fw-ethirteen-lg1r-275",
@@ -162,7 +146,6 @@
   "fw-marin-house-29-boost",
   "fw-marin-pinemountain2-29",
   "fw-marin-formula-dc711-29",
-  "fw-dtswiss-exc1501-29",
   "fw-stans-flow-s2-29",
   "fw-wtb-stlight-29",
   "fw-vitus-kt-wtb-komtrail-i30-29",
@@ -291,8 +274,6 @@
   "rw-weareone-triad-29-hg",
   "rw-industrynine-whisp-29-ms",
   "rw-industrynine-whisp-29-xd",
-  "rw-dtswiss-xrc1200-spline25-29-ms",
-  "rw-dtswiss-xrc1200-spline25-29-xd",
   "rw-dtswiss-fr-1500-29-150-hg",
   "rw-weareone-triad-275",
   "rw-weareone-triad-275-ms",
@@ -383,7 +364,6 @@
   "rw-marin-pinemountain2-29-ms",
   "rw-marin-formula-dcl3482-275-xd",
   "rw-marin-formula-dcl3482-29-xd",
-  "rw-dtswiss-exc1501-29-xd",
   "rw-industrynine-enduro-s-29-xd",
   "rw-dtswiss-fr-1500-275-157-hg",
   "rw-wtb-stlight-29-xd",
@@ -604,90 +584,43 @@
   "fk-fox-32-sc-factory-275-100",
   "fk-xfusion-sweep-275-150",
   "fk-fox-38-performance-275-160",
-  "fk-srsuntour-aion-34-29-140",
-  "fk-srsuntour-aion-34-275-140",
-  "fk-srsuntour-aion-34-275-150",
-  "fk-rockshox-boxxer-select-d2-29-180",
-  "fk-rockshox-boxxer-select-d2-29-190",
-  "fk-rockshox-boxxer-select-d2-29-200",
-  "fk-rockshox-boxxer-select-d2-275-180",
-  "fk-rockshox-boxxer-select-d2-275-190",
-  "fk-rockshox-boxxer-select-d2-275-200",
   "fk-formula-nero-r-275-200",
   "fk-formula-nero-r-29-180",
   "fk-formula-nero-r-29-190",
   "fk-formula-nero-r-29-200",
   "fk-formula-nero-c-275-200",
   "fk-formula-nero-c-29-200",
-  "fk-ohlins-dh38-m1-29-180",
-  "fk-ohlins-dh38-m1-275-180",
   "fk-formula-selva-c-29-170",
-  "fk-rockshox-sid-sl-select-29-110",
-  "fk-rockshox-sid-sl-select-29-100",
   "fk-fox-34-sc-performance-29-110",
-  "fk-fox-34-sc-performance-29-120",
   "fk-fox-podium-29-170",
   "fk-fox-podium-29-160",
   "fk-fox-36-sl-performance-elite-29-140",
   "fk-fox-36-sl-performance-29-140",
   "fk-manitou-circus-expert-26-100",
   "fk-manitou-circus-expert-26-100-straight",
-  "fk-fox-38-performance-29-170",
   "fk-fox-38-performance-29-180",
   "fk-fox-34-performance-29-140",
-  "fk-rockshox-revelation-rc-29-130",
   "fk-fox-34-performance-elite-29-140",
-  "fk-rockshox-lyrik-ultimate-29-170",
-  "fk-fox-34-rhythm-29-120",
-  "fk-fox-34-rhythm-29-130",
   "fk-fox-34-rhythm-29-140",
-  "fk-fox-32-rhythm-29-120",
-  "fk-rockshox-recon-silver-rl-29-130",
-  "fk-rockshox-revelation-rc-29-140",
   "fk-fox-38-performance-29-160",
-  "fk-rockshox-35-gold-rl-29-160",
-  "fk-rockshox-sid-base-29-110",
   "fk-marzocchi-z2-airrail-29-150",
   "fk-fox-36-performance-29-170",
-  "fk-rockshox-recon-silver-rl-29-110",
-  "fk-rockshox-sid-29-110",
-  "fk-rockshox-sid-base-29-120",
-  "fk-rockshox-35-gold-rl-29-140",
   "fk-fox-34-rythm-29-130",
-  "fk-fox-36-rhythm-29-160",
-  "fk-fox-38-rhythm-29-170",
-  "fk-rockshox-recon-rl-29-130",
   "fk-rockshox-recon-silver-rl-275-130",
-  "fk-rockshox-yari-rc-275-150",
   "fk-rockshox-revelation-rc-275-130",
-  "fk-rockshox-reckon-rl-29-140",
-  "fk-rockshox-judy-silver-tk-29-130",
-  "fk-rockshox-yari-rc-29-170",
-  "fk-rockshox-yari-rc-29-160",
-  "fk-rockshox-35-gold-rl-29-130",
-  "fk-rockshox-recon-gold-rl-29-120",
-  "fk-rockshox-judy-gold-rl-29-120",
-  "fk-rockshox-35-silver-tk-29-140",
   "fk-giant-stl34-29-140",
-  "fk-rockshox-lyrik-select-rc-29-160",
   "fk-fox-34-performance-elite-29-120",
   "fk-marzocchi-bomber-z1-29-140",
   "fk-fox-34-floatsc-performanceelite-29-110",
-  "fk-rockshox-judy-silver-tk-29-100-qr",
-  "fk-rockshox-judy-silver-tk-29-100-boost",
   "fk-giant-crest34-275-130",
   "fk-giant-sxc32-29-100",
   "fk-giant-sxc32-3-29-100",
-  "fk-rockshox-35-gold-rl-29-150",
   "fk-srsuntour-xce28-29-100-qr",
   "fk-srsuntour-xct30-29-100-qr",
-  "fk-fox-40-performance-29-203",
-  "fk-rockshox-judy-29-100-qr-rockhopper",
   "fk-srsuntour-xcm-29-100-qr",
   "fk-rockshox-recon-silver-rl-275-140",
   "fk-srsuntour-xce-29-100-15qr",
   "fk-fox-36-rhythm-29-170",
-  "fk-rockshox-judy-silver-tk-29-110",
   "hb-sonder-aspect-780",
   "hb-norco-alloy-35",
   "hb-anvl-mandrel-35",
@@ -1035,8 +968,6 @@
   "sa-sonder-abode",
   "sa-wtb-volt-pro",
   "sa-sdg-belair-v3-steel",
-  "sa-ergon-sm-enduro-comp",
-  "sa-ergon-sm-enduro-pro-ti",
   "sa-specialized-henge-comp",
   "sa-syncros-dj15",
   "sa-forbidden-143-atmos",
@@ -1307,6 +1238,7 @@
   "cb-rose-scrub-dc3",
   "cb-privateer-161-g2",
   "cb-privateer-141-g2",
+  "cb-geometron-g1-gx-eagle",
   "cb-devinci-django-carbon-gx",
   "cb-intense-sniper-xc-pro",
   "cb-chromag-rootdown-ti-xo",
@@ -1334,7 +1266,6 @@
   "cb-norco-sight-c1-mx",
   "cb-norco-range-c1",
   "cb-norco-fluid-fs-a2",
-  "cb-norco-fluid-fs-a1-sram",
   "cb-forbidden-dreadnought-v2-mx-dreadnought1",
   "cb-forbidden-reya-tier3",
   "cb-cotic-solaris-silver-slx",
@@ -1344,8 +1275,6 @@
   "cb-ibis-ripmo-v3-deore",
   "cb-ibis-ripmo-v3-xt",
   "cb-ibis-ripmo-v2-nxgx-2021",
-  "cb-santacruz-bronson-70",
-  "cb-santacruz-bronson-90",
   "cb-ibis-ripley-v5-deore",
   "cb-ibis-ripley-v5-xt",
   "cb-ibis-ripley-af-deore",
@@ -1369,26 +1298,16 @@
   "cb-ghost-riot-trail-cf-pro",
   "cb-ari-lasalpeak-pro",
   "cb-ari-lasalpeak-elite",
-  "cb-salsa-blackthorn-145-c-deore-12",
   "cb-mondraker-foxy-r",
   "cb-mondraker-foxy-carbon-r",
   "cb-chromag-rootdown-eagle90",
   "cb-chromag-stylus-mx-eagle90",
   "cb-chromag-stylus-mx-gx",
-  "cb-santacruz-5010-r",
-  "cb-santacruz-5010-s",
-  "cb-santacruz-tallboy-r",
-  "cb-santacruz-tallboy-s",
-  "cb-santacruz-nomad-r",
-  "cb-santacruz-nomad-s",
   "cb-santacruz-nomad-x0-axs",
   "cb-santacruz-megatower-r",
   "cb-santacruz-megatower-s",
   "cb-santacruz-chameleon-d",
   "cb-santacruz-chameleon-r",
-  "cb-santacruz-highball-gx-axs",
-  "cb-santacruz-highball-r",
-  "cb-giant-trance-x-advanced-sx",
   "cb-scott-ransom-910",
   "cb-pivot-firebird-gx-ttype-jenson",
   "cb-pivot-firebird-ride-slxxt",
@@ -1419,13 +1338,9 @@
   "cb-cannondale-scalpel-ht-carbon-2",
   "cb-cannondale-scalpel-4",
   "cb-cannondale-jekyll-1",
-  "cb-evil-offering-v4-xx-transmission",
-  "cb-evil-following-ls-x0-transmission",
   "cb-evil-following-ls-gx-i9-hydra",
   "cb-evil-following-ls-xx-transmission",
-  "cb-evil-insurgent-ls-x0-transmission",
   "cb-evil-insurgent-ls-gx-i9-hydra",
-  "cb-evil-insurgent-ls-xx-transmission",
   "cb-evil-wreckoning-ls-x0-transmission",
   "cb-evil-wreckoning-ls-gx-i9-hydra",
   "cb-evil-wreckoning-ls-xx-transmission",
@@ -1481,17 +1396,12 @@
   "cb-vitus-escarpe-290-cr",
   "cb-commencal-meta-ht-v3-ohlins",
   "cb-commencal-supreme-dh-v5-ohlins",
-  "cb-giant-trance-x-advanced-1",
-  "cb-giant-stance",
   "cb-scott-genius-920",
   "cb-scott-genius-910",
   "cb-ibis-ripmo-v3-gx-transmission",
   "cb-ibis-ripmo-v3-xt-di2",
   "cb-ibis-ripley-v5-gx-transmission",
-  "cb-santacruz-hightower-r",
-  "cb-santacruz-hightower-s",
   "cb-ibis-ripley-v5-xt-di2",
-  "cb-santacruz-hightower-gx-axs-rsv",
   "cb-yeti-sb140-c3",
   "cb-yeti-arc-t2",
   "cb-yeti-arc-t1-xt-di2",
@@ -1537,12 +1447,8 @@
   "cb-orbea-occam-lt-mteam",
   "cb-norco-sight-c3-mx",
   "cb-norco-optic-c1",
-  "cb-norco-optic-c2",
   "cb-kona-honzo-esd",
   "cb-trek-marlin-7-gen3",
-  "cb-giant-fathom-1",
-  "cb-giant-talon-1",
-  "cb-giant-talon-2",
   "cb-trek-xcaliber-8",
   "cb-specialized-fuse-expert-29",
   "cb-norco-fluid-ht-1",
@@ -1574,7 +1480,6 @@
   "cb-trek-marlin-6-gen3",
   "cb-trek-session-9-x01",
   "cb-canyon-lux-world-cup-cf-8",
-  "cb-giant-anthem-advanced-29-2",
   "cb-canfield-lithium-v3-base",
   "cb-unno-dash-race",
   "cb-devinci-chainsaw-dh-gx",
@@ -1586,7 +1491,6 @@
   "cb-specialized-rockhopper-comp",
   "cb-specialized-rockhopper-expert",
   "cb-diamondback-syncr",
-  "cb-giant-talon-4",
   "cb-trek-slash-8-gen6",
   "cb-orbea-laufey-h30",
   "cb-pivot-les-sl-ride-slxxt",
@@ -1596,7 +1500,6 @@
   "cb-orbea-oiz-m30",
   "cb-scott-spark-rc-pro",
   "cb-pivot-mach4sl-team-xtr",
-  "cb-forbidden-druid-v2-29-tier1",
   "cb-radon-cragger-70",
   "sp-sonder-316",
   "sp-dmr-dj-272",
@@ -1619,7 +1522,6 @@
   "sp-tranzx-sp66-316",
   "fh-industrynine-hydra2-20x110",
   "fh-industrynine-hydra2-20x110-nonboost",
-  "fh-onyx-vesper-iso-boost110",
   "fh-ethirteen-race-alloy-boost110",
   "rh-dtswiss-350-boost148-ms",
   "rh-dtswiss-350-boost148-hg",
@@ -1632,16 +1534,12 @@
   "rh-industrynine-hydraclassic-superboost157-xd",
   "rh-raceface-vault-boost148-xd",
   "rh-raceface-vault-boost148-ms",
-  "rh-onyx-vesper-boost148-xd",
-  "rh-onyx-vesper-boost148-ms",
-  "rh-onyx-vesper-boost148-hg",
   "rh-ethirteen-race-alloy-boost148-xd",
   "rh-ethirteen-race-alloy-superboost157-xd",
   "rm-industrynine-endurosv2-29",
   "rm-industrynine-endurosv2-275",
   "rm-spank-359-29",
   "rm-weareone-union-29",
-  "rm-raceface-arc25-29",
   "bb-ethirteen-bsa68-p3",
   "bb-kogel-pf92-24mm",
   "bb-kogel-pf865-24mm",
@@ -1695,10 +1593,10 @@
   },
   "fr-norco-range-c1": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.981Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.201Z",
    "error": null,
-   "source": "https://www.vitalmtb.com/product/guide/bikes/norco/range-30501",
+   "source": "https://www.norco.com/cmsb/uploads/bikes/bikes/range-assembler-doc-revb-my22-2022-06-02-customer.pdf",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-transition-spire-alloy": {
@@ -1727,10 +1625,10 @@
   },
   "fr-pivot-firebird": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": "https://www.vitalmtb.com/product/guide/frames/pivot/firebird-63621",
+   "source": "https://www.pivotcycles.com/en-us/products/firebird-frame",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-nukeproof-giga-290": {
@@ -2919,10 +2817,10 @@
   },
   "sa-ergon-sm-enduro": {
    "cat": "saddle",
-   "status": "Skipped",
-   "updated": "2026-07-07T18:53:19.992Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
+   "source": "https://www.ergonbike.com/en/product-details.html?anr=44071000&s=smemtb&a=saettel",
    "note": "Ergon publishes CroMo/foam/shell materials but no weight on either the base or Comp SM Enduro product pages (ergonbike.shop). ergon-bike.com itself SSL-errors on fetch. Bar not met."
   },
   "sa-specialized-bridge": {
@@ -4104,8 +4002,8 @@
   },
   "fr-commencal-supreme-dh-v5": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
    "source": "https://www.commencal.com/us/en/frame-commencal-supreme-dh-v5-chalk/23CSUP1.html",
    "note": "WARNING: catalog lost verified flag - recheck"
@@ -4152,8 +4050,8 @@
   },
   "fr-commencal-frs": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
    "source": "https://www.commencal.com/us/en/frame-commencal-frs-pure-white/FT4FRS3.html",
    "note": "WARNING: catalog lost verified flag - recheck"
@@ -4216,8 +4114,8 @@
   },
   "fr-commencal-meta-ht-v3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
    "source": "https://www.commencal.com/us/en/commencal-meta-ht-v3-hardtail-mtb-frame-2025-us/FT5MHTV31.html",
    "note": "WARNING: catalog lost verified flag - recheck"
@@ -5008,8 +4906,8 @@
   },
   "fr-commencal-supreme-dh-v52": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
    "source": "https://www.commencal.com/us/en/FT7SUPV521.html",
    "note": "WARNING: catalog lost verified flag - recheck"
@@ -5472,11 +5370,11 @@
   },
   "rm-raceface-arc25-29": {
    "cat": "rim",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.raceface.com/products/arc-offset-rim",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rm-stans-flowex3-29": {
    "cat": "rim",
@@ -6192,18 +6090,18 @@
   },
   "fr-nukeproof-mega-290-alloy": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": "https://www.vitalmtb.com/product/guide/Frames,7/Nukeproof/Mega-Alloy-290,31895",
+   "source": "https://www.nukeproof.com/en_US/bikes/SBIMEANKP009",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-nukeproof-mega-297-carbon": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": "https://www.vitalmtb.com/product/guide/Frames,7/Nukeproof/Mega-297-Carbon,35295",
+   "source": "https://www.nukeproof.com/en_US/bikes/SBIMECNKP002",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-nukeproof-reactor-290-alloy": {
@@ -6216,10 +6114,10 @@
   },
   "fr-nukeproof-scout-290": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": "https://www.vitalmtb.com/product/guide/Frames,7/Nukeproof/Scout-290,36921",
+   "source": "https://www.nukeproof.com/en_US/bikes/FRSSC9NKP001",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-polygon-siskiu-t8-29": {
@@ -6256,18 +6154,18 @@
   },
   "fr-norco-sight": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": "https://www.vitalmtb.com/product/guide/bikes/norco/sight-47406",
+   "source": "https://www.norco.com/bikes/mountain/all-mountain/sight/24-sight-C1/?localize=en_US",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-cannondale-jekyll": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-18T00:00:00.000Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
+   "source": "https://www.cannondale.com/en-us/bikes/mountain/trail-bikes/jekyll/jekyll-carbon-frameset",
    "note": "FRAMESET-SIBLING SWEEP (2026-07-18): premise corrected - cannondale.com sells a real frameset SKU; price corrected $3,000->$3,725 (dealer-corroborated, bicyclewarehouse.com+baxcycles.com). Weight still unpublished by Cannondale; row stays unverified."
   },
   "fr-pivot-switchblade-v2": {
@@ -12144,19 +12042,19 @@
   },
   "sa-ergon-sm-enduro-comp": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ergonbike.com/en/product-details.html?anr=44071003&s=smemtb&w=enduro",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-ergon-sm-enduro-pro-ti": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ergonbike.com/en/product-details.html?anr=44071002&s=smemtb&w=enduro",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-selleitalia-slr-boost-x-cross-ti316-superflow": {
    "cat": "saddle",
@@ -14799,11 +14697,11 @@
   },
   "fh-onyx-vesper-iso-boost110": {
    "cat": "fronthub",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.883Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://onyxrp.com/store/mtb-hubs/mtb-boost/onyx-vesper-mtb-boost-iso-110-15-thru-bolt-front-hub/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rh-chrisking-boost-6bolt-148-xd": {
    "cat": "rearhub",
@@ -14831,27 +14729,27 @@
   },
   "rh-onyx-vesper-boost148-xd": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.883Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://onyxrp.com/store/mtb-hubs/mtb-boost/onyx-vesper-mtb-boost-iso-xdr-148-12-thru-bolt-rear-hub/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rh-onyx-vesper-boost148-ms": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.883Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://onyxrp.com/store/mtb-hubs/mtb-boost/onyx-vesper-mtb-boost-iso-ms-148-12-thru-bolt-rear-hub/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rh-onyx-vesper-boost148-hg": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.883Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://onyxrp.com/store/mtb-hubs/mtb-boost/onyx-vesper-mtb-boost-iso-hg-11spd-148-12-thru-bolt-rear-hub/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rm-industrynine-endurosv2-275": {
    "cat": "rim",
@@ -16719,16 +16617,16 @@
   },
   "fr-devinci-troy-st": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
    "source": "https://www.devinci.com/en/bikes/mountain/troy-st-gx-axs-12s-stoneware-orange/",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-transition-sentinel-alloy": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
    "source": "https://www.transitionbikes.com/Bikes/Sentinel",
    "note": "WARNING: catalog lost verified flag - recheck"
@@ -17095,11 +16993,11 @@
   },
   "fw-dtswiss-xrc1200-spline25-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/20220119012434/https://www.dtswiss.com/en/wheels/wheels-mtb/cross-country/xrc-1200-spline",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-dtswiss-xrc1200-spline30-29": {
    "cat": "frontwheel",
@@ -17295,19 +17193,19 @@
   },
   "rw-dtswiss-xrc1200-spline25-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/20220119012434/https://www.dtswiss.com/en/wheels/wheels-mtb/cross-country/xrc-1200-spline",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-dtswiss-xrc1200-spline25-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://web.archive.org/web/20220119012434/https://www.dtswiss.com/en/wheels/wheels-mtb/cross-country/xrc-1200-spline",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-dtswiss-xrc1200-spline30-29-ms": {
    "cat": "rearwheel",
@@ -23463,11 +23361,11 @@
   },
   "fk-srsuntour-aion-34-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.srsuntour.com/ga/products/fork/Aion-34-29-5583.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-srsuntour-aion-34-275-130": {
    "cat": "fork",
@@ -23479,19 +23377,19 @@
   },
   "fk-srsuntour-aion-34-275-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.srsuntour.com/ga/products/fork/Aion-34-27-5-5584.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-srsuntour-aion-34-275-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.srsuntour.com/ga/products/fork/Aion-34-27-5-5584.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-ultimate-d2-29-180": {
    "cat": "fork",
@@ -23543,51 +23441,51 @@
   },
   "fk-rockshox-boxxer-select-d2-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-bxr-sel-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-select-d2-29-190": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-bxr-sel-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-select-d2-29-200": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-bxr-sel-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-select-d2-275-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-bxr-sel-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-select-d2-275-190": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-bxr-sel-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-select-d2-275-200": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-bxr-sel-d2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-boxxer-base-d1-29-180": {
    "cat": "fork",
@@ -23807,19 +23705,19 @@
   },
   "fk-ohlins-dh38-m1-29-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-dh38-air-ttx18-29-27-5-180",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-ohlins-dh38-m1-275-180": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ohlins.com/en-us/mountain-bike/front-forks/am-dh38-air-ttx18-29-27-5-180",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-base-29-160": {
    "cat": "fork",
@@ -24071,19 +23969,19 @@
   },
   "fk-rockshox-sid-sl-select-29-110": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-sids-sel3-e1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-sid-sl-select-29-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-sids-sel3-e1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-32-sc-performance-29-100": {
    "cat": "fork",
@@ -24103,11 +24001,11 @@
   },
   "fk-fox-34-sc-performance-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.498Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://ridefox.com/collections/fox-34-step-cast",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-srsuntour-axon-werx-34-29-100": {
    "cat": "fork",
@@ -25631,8 +25529,8 @@
   },
   "fr-canyon-spectral-al": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
    "source": "https://www.canyon.com/en-us/mountain-bikes/trail-bikes/spectral/al/spectral-6/4012.html",
    "note": "WARNING: catalog lost verified flag - recheck"
@@ -25775,18 +25673,18 @@
   },
   "fr-trek-remedy-al": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-18T13:11:00.163Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
+   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/trail-mountain-bikes/remedy/remedy-al-frameset/p/38642/",
    "note": "No Trek service-manual PDF found for Remedy (searched extensively); trekbikes.com product page JS-walled (confirmed again via direct bdata scrape - nav only). Existing Vital MTB + WebSearch sourcing left as-is, already documented with flags in desc. No new manufacturer data this session."
   },
   "fr-trek-remedy-c": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-18T13:11:00.453Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
+   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/trail-mountain-bikes/remedy/remedy-27-5-c-frameset/p/35214/",
    "note": "Same wall as Remedy AL sibling - no manufacturer PDF found, trekbikes.com JS-walled (bdata confirmed). No new data this session."
   },
   "fr-trek-full-stache-8": {
@@ -25903,18 +25801,18 @@
   },
   "fr-norco-fluid-fs-a": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-18T00:00:00.000Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
+   "source": "https://www.norco.com/bikes/mountain/trail/fluid-fs/25-fluid-fs-a2/",
    "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU found for the ALLOY Fluid FS; tried /bikes/fluid-fs-frameset/ (404), the live norco.com/bikes/mountain/trail/fluid-fs/ page (completes only, no frame-kit SKU). Nuance: a Fluid FS CARBON Frame Kit exists at $2,599 (norco.com/bikes/mountain/trail/fluid-fs-carbon/2024-fluid-fs-c-frame-kit/) - different material/catalog row, not applicable here."
   },
   "fr-cannondale-habit-ht": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-18T14:35:38.237Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
+   "source": "https://www.cannondale.com/en-us/bikes/mountain/trail-bikes/habit-ht/habit-ht-1",
    "note": "Same Cannondale JS-wall; interfaces via vitalmtb spec guide, brakeMount PM inferred not maker-stated, maxForkTravel conservatively set to stock (no rated max published). No frame weight/price published. Bar not met."
   },
   "fr-orbea-occam-sl": {
@@ -26095,10 +25993,10 @@
   },
   "fr-propain-rage-3-cf": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-18T00:00:00.000Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
+   "source": "https://www.propain-bikes.com/us/product/bikes/downhill/rage-3-r-cf/",
    "note": "FRAMESET-SIBLING SWEEP (2026-07-18): premise corrected - propain-bikes.com/en/product/frame-sets/frameset-rage-cf-my21/ (the plain \"Rage 3 CF\" my21 SKU, not the newer \"Rage 3 R CF\" variant) fetched DIRECTLY (notably not 403-walled, unlike other Propain pages), lists frame-only €3,999 (~$4,313) + 3.7kg (3,700g). Price corrected $5,679->$4,313, weight added 3,700g. Kept unverified pending independent re-fetch + USD-native price."
   },
   "fr-polygon-collosus-n9": {
@@ -26143,10 +26041,10 @@
   },
   "fr-orbea-oiz-m10": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-18T00:00:00.000Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
+   "source": "https://www.orbea.com/en-us/oiz-m10",
    "note": "FRAMESET-SIBLING SWEEP (2026-07-18): no frameset SKU - orbea.com/en-us/oiz-m10 loaded successfully (not blocked) and its MyO configurator requires selecting every build-kit component (fork/crankset/bar/brakes/saddle/tires/seatpost) with no \"frame only\" option - direct evidence Orbea sells this build-to-order completes only."
   },
   "fr-polygon-siskiu-t7-29": {
@@ -26335,34 +26233,34 @@
   },
   "fr-pivot-mach-6": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": "https://www.vitalmtb.com/product/guide/frames/pivot/mach-6-66566",
+   "source": "https://www.pivotcycles.com/en-us/bike-archive/mach-6",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-cannondale-scalpel-ht": {
    "cat": "frame",
-   "status": "Failed",
-   "updated": "2026-07-18T15:55:56.858Z",
-   "error": "Retried via bdata scrape - cannondale.com/en-us/.../scalpel-ht-carbon-3 renders cleanly but genuinely shows no price anywhere in the static content (likely a JS-loaded pricing widget, same class of gap as the norco.com wall). Weight (895g) and every interface remain directly maker-fetched and solid; only price blocks verified:true.",
-   "source": null,
-   "note": null
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
+   "error": null,
+   "source": "https://www.cannondale.com/en-us/bikes/mountain/cross-country/scalpel-ht/scalpel-ht-carbon-3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-cannondale-scalpel": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-18T15:42:21.850Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
+   "source": "https://www.cannondale.com/en-us/bikes/mountain/cross-country/scalpel/scalpel-4-c24554u",
    "note": "Weight+price bar unmeetable: both are documented samples (no maker-stated frame weight found on the fetched cannondale.com page, unlike the Scalpel HT sibling; price cites an unfetched retailer listing). Interfaces are solidly maker-fetched."
   },
   "fr-trek-roscoe-gen4": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-18T13:08:17.498Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
+   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/trail-mountain-bikes/roscoe/roscoe-gen-4-frameset/p/61559/",
    "note": "udh/frameOnly/price/weight corrected via 99spokes structured spec + cyclonline review (both non-manufacturer); trekbikes.com JS-wall confirmed again via bdata. Bar not met for verified:true - flag for future direct-fetch attempt."
   },
   "fr-merida-big-trail-300": {
@@ -26647,11 +26545,11 @@
   },
   "fr-norco-optic": {
    "cat": "frame",
-   "status": "Failed",
-   "updated": "2026-07-18T15:55:56.325Z",
-   "error": "Retried via bdata scrape (rate-limit-proof) at the correct URL (norco.com/bikes/mountain/trail/optic/24-optic-C1/) - still only returns a bare page title, no spec content. This is a genuine JS-rendering wall (norco.com), not a rate-limit or wrong-URL issue - would need bdata's browser tier (not approved for use without explicit sign-off per standing budget rules) or a different fetch route. Weight+price stay genuinely maker-confirmed via the Vital reprint; only interface provenance blocks verified:true.",
-   "source": null,
-   "note": null
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
+   "error": null,
+   "source": "https://www.norco.com/bikes/mountain/trail/optic/24-optic-C1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-kona-honzo": {
    "cat": "frame",
@@ -26695,10 +26593,10 @@
   },
   "fr-trek-xcaliber-8": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-18T13:10:59.698Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
+   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/cross-country-mountain-bikes/x-caliber/x-caliber-frameset/p/35867/",
    "note": "headset straight->tapered corrected (real bug: prior entry conflated separate headset+head-tube fields on the source page); trekbikes.com JS-wall confirmed again via bdata. Bar not met for verified:true."
   },
   "fr-giant-fathom-1": {
@@ -26871,10 +26769,10 @@
   },
   "fr-orbea-laufey": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-18T16:02:02.536Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
+   "source": "https://www.orbea.com/en-us/laufey-h30",
    "note": "Weight+price bar unmeetable: both documented same-tier samples; sourced from 99spokes.com reprint, not a direct orbea.com fetch (orbea.com is the documented 403 blocker)."
   },
   "fr-pivot-les-sl": {
@@ -26895,10 +26793,10 @@
   },
   "fr-trek-procaliber-c-gen3": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": "https://www.vitalmtb.com/product/guide/frames/trek/procaliber-c-gen-3-55876",
+   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/cross-country-mountain-bikes/procaliber/procaliber-c-frameset-gen-3/p/5326555/",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fr-radon-cragger": {
@@ -27967,10 +27865,10 @@
   },
   "fw-dtswiss-exc1501-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": "https://worldwidecyclery.com/products/dt-swiss-exc-1501-spline-one-front-wheel-27-5-15-x-110mm-boost-6-bolt-black",
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/enduro/exc-1501-spline-one",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fw-stans-flow-s2-29": {
@@ -29327,10 +29225,10 @@
   },
   "rw-dtswiss-exc1501-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": "https://www.bikeradar.com/reviews/components/wheels/wheel-sets/dt-swiss-exc-1501-spline-one-wheelset-review",
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/enduro/exc-1501-spline-one",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "rw-crankbrothers-synthesis-enduro-alloy-29-hg": {
@@ -31503,10 +31401,10 @@
   },
   "fk-fox-38-performance-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.982Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": "https://www.vitalmtb.com/product/guide/Forks,33/FOX/38-Performance,33708",
+   "source": "https://tech.ridefox.com/bike/search/serial/1129153-0081-T",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "fk-fox-38-performance-29-180": {
@@ -31543,11 +31441,11 @@
   },
   "fk-rockshox-revelation-rc-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.580Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-rvl-rc-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-34-performance-elite-29-140": {
    "cat": "fork",
@@ -31559,11 +31457,11 @@
   },
   "fk-rockshox-lyrik-ultimate-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:27:05.331Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.whytebikes.com/products/sythe-rs",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-srsuntour-xcr34-2cr-29-130": {
    "cat": "fork",
@@ -31575,19 +31473,19 @@
   },
   "fk-fox-34-rhythm-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitalmtb.com/product/guide/bikes/transition/spur-68101",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-34-rhythm-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.santacruzbicycles.com/pages/product-support/chameleon-8-my23",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-34-rhythm-29-140": {
    "cat": "fork",
@@ -31599,11 +31497,11 @@
   },
   "fk-fox-32-rhythm-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.canyon.com/en-gb/mountain-bikes/trail-bikes/grand-canyon/grand-canyon/grand-canyon-al-8/4161.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-recon-silver-rl-29-140": {
    "cat": "fork",
@@ -31623,19 +31521,19 @@
   },
   "fk-rockshox-recon-silver-rl-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-rcns-rl-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-revelation-rc-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-rvl-rc-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-38-performance-29-160": {
    "cat": "fork",
@@ -31647,11 +31545,11 @@
   },
   "fk-rockshox-35-gold-rl-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-35g-rl-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-selectplus-29-160": {
    "cat": "fork",
@@ -31663,11 +31561,11 @@
   },
   "fk-rockshox-sid-base-29-110": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/anthem-advanced-29-3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-marzocchi-z2-airrail-29-150": {
    "cat": "fork",
@@ -31711,35 +31609,35 @@
   },
   "fk-rockshox-recon-silver-rl-29-110": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-rcns-rl-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-sid-29-110": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.cannondale.com/en-us/bikes/scalpel-hardtail/scalpel-ht-carbon-2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-sid-base-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.cannondale.com/en-us/bikes/scalpel/scalpel-4",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-35-gold-rl-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-35g-rl-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-rhythm-29-140": {
    "cat": "fork",
@@ -31807,19 +31705,19 @@
   },
   "fk-fox-36-rhythm-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitalmtb.com/product/guide/bikes/specialized/stumpjumper-15-evo-68296",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-38-rhythm-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitalmtb.com/product/guide/bikes/specialized/status-53806",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-recon-silver-rl-29-120": {
    "cat": "fork",
@@ -31831,11 +31729,11 @@
   },
   "fk-rockshox-recon-rl-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-rcn-rl-b1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-recon-silver-rl-275-130": {
    "cat": "fork",
@@ -31847,11 +31745,11 @@
   },
   "fk-rockshox-yari-rc-275-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.ragleybikes.com/products/blue-pig-hardtail-bike-2022",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-revelation-rc-275-130": {
    "cat": "fork",
@@ -31863,35 +31761,35 @@
   },
   "fk-rockshox-reckon-rl-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitusbikes.com/mythique-29-cr-2022",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-judy-silver-tk-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-jdys-tk-a3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-yari-rc-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-yari-rc-b3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-yari-rc-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://konaworld.com/products/process-153-g3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-marzocchi-bomber-z2-29-150": {
    "cat": "fork",
@@ -31903,11 +31801,11 @@
   },
   "fk-rockshox-35-gold-rl-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-35g-rl-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-psylo-gold-rc-29-140": {
    "cat": "fork",
@@ -31927,27 +31825,27 @@
   },
   "fk-rockshox-recon-gold-rl-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-rcng-rl-c1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-judy-gold-rl-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-jdyg-rl-a3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-35-silver-tk-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-35s-tk-a1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-zeb-r-29-180": {
    "cat": "fork",
@@ -31975,11 +31873,11 @@
   },
   "fk-rockshox-lyrik-select-rc-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitalmtb.com/product/guide/Bikes,3/Kona/Process-153-DL-29,34791",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-34-performance-elite-29-130": {
    "cat": "fork",
@@ -32023,19 +31921,19 @@
   },
   "fk-rockshox-judy-silver-tk-29-100-qr": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-jdys-tk-a3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-judy-silver-tk-29-100-boost": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-jdys-tk-a3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-giant-crest34-275-130": {
    "cat": "fork",
@@ -32063,11 +31961,11 @@
   },
   "fk-rockshox-35-gold-rl-29-150": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitalmtb.com/product/guide/bikes/norco/torrent-ht-30741",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-dvo-diamond-d1sl-29-150": {
    "cat": "fork",
@@ -32111,19 +32009,19 @@
   },
   "fk-fox-40-performance-29-203": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.commencal.com/us/en/fox-40-float-performance-grip-203mm-29-2022/A22FRKFOX40PS29.html",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-judy-29-100-qr-rockhopper": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-jdys-tk-a3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-srsuntour-xcm-29-100-qr": {
    "cat": "fork",
@@ -32159,11 +32057,11 @@
   },
   "fk-rockshox-judy-silver-tk-29-110": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.202Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-jdys-tk-a3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-psylo-gold-rc-275-150": {
    "cat": "fork",
@@ -37255,10 +37153,10 @@
   },
   "cb-norco-fluid-fs-a1-sram": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.983Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": "https://www.thebackcountry.com/2024-norco-fluid-fs-a1-sram.html",
+   "source": "https://www.norco.com/bikes/mountain/trail/fluid-fs/fluid-fs-a1-sram/",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "cb-forbidden-dreadnought-v2-mx-buildkit3": {
@@ -37495,19 +37393,19 @@
   },
   "cb-santacruz-bronson-70": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.santacruzbicycles.com/pages/product-support/bronson-5-my26",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-santacruz-bronson-90": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.santacruzbicycles.com/pages/product-support/bronson-5-my26",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-santacruz-bronson-gx-axs": {
    "cat": "completebike",
@@ -37911,10 +37809,10 @@
   },
   "cb-salsa-blackthorn-145-c-deore-12": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.983Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": "https://www.vitalmtb.com/product/guide/bikes/salsa/blackthorn-145-66611",
+   "source": "https://www.salsacycles.com/products/2025-blackthorn-145-c-deore-12",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "cb-salsa-blackthorn-145-c-gx-transmission": {
@@ -38039,19 +37937,19 @@
   },
   "cb-santacruz-5010-r": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.santacruzbicycles.com/pages/product-support/5010-5-my25",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-santacruz-5010-s": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.santacruzbicycles.com/pages/product-support/5010-5-my25",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-santacruz-5010-gx-axs": {
    "cat": "completebike",
@@ -38071,19 +37969,19 @@
   },
   "cb-santacruz-tallboy-r": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.santacruzbicycles.com/pages/product-support/tallboy-5-my25",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-santacruz-tallboy-s": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.santacruzbicycles.com/pages/product-support/tallboy-5-my25",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-santacruz-tallboy-gx-axs": {
    "cat": "completebike",
@@ -38103,19 +38001,19 @@
   },
   "cb-santacruz-nomad-r": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.santacruzbicycles.com/pages/product-support/nomad-6-my25",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-santacruz-nomad-s": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.santacruzbicycles.com/pages/product-support/nomad-6-my25",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-santacruz-nomad-x0-axs": {
    "cat": "completebike",
@@ -38199,19 +38097,19 @@
   },
   "cb-santacruz-highball-gx-axs": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.santacruzbicycles.com/pages/product-support/highball-3-my25",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-santacruz-highball-r": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.santacruzbicycles.com/pages/product-support/highball-3-my25",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-giant-reign-advanced-1": {
    "cat": "completebike",
@@ -38239,11 +38137,11 @@
   },
   "cb-giant-trance-x-advanced-sx": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/trance-x-advanced-sx-2024",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-scott-ransom-900-rc": {
    "cat": "completebike",
@@ -38527,11 +38425,11 @@
   },
   "cb-evil-offering-v4-xx-transmission": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://evil-bikes.com/products/offering-v4",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-evil-offering-v4-eagle90-superdeluxe": {
    "cat": "completebike",
@@ -38551,11 +38449,11 @@
   },
   "cb-evil-following-ls-x0-transmission": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://evil-bikes.com/products/following-ls",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-evil-following-ls-eagle90": {
    "cat": "completebike",
@@ -38583,11 +38481,11 @@
   },
   "cb-evil-insurgent-ls-x0-transmission": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://evil-bikes.com/products/insurgent-ls",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-evil-insurgent-ls-eagle90": {
    "cat": "completebike",
@@ -38607,11 +38505,11 @@
   },
   "cb-evil-insurgent-ls-xx-transmission": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://evil-bikes.com/products/insurgent-ls",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-evil-wreckoning-ls-x0-transmission": {
    "cat": "completebike",
@@ -39359,11 +39257,11 @@
   },
   "cb-giant-trance-x-advanced-1": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/trance-x-advanced-1-2024",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-giant-reign-advanced-2": {
    "cat": "completebike",
@@ -39383,11 +39281,11 @@
   },
   "cb-giant-stance": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/stance",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-scott-genius-920": {
    "cat": "completebike",
@@ -39431,19 +39329,19 @@
   },
   "cb-santacruz-hightower-r": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.santacruzbicycles.com/pages/product-support/hightower-3-my24",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-santacruz-hightower-s": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.santacruzbicycles.com/pages/product-support/hightower-3-my24",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-ibis-ripley-v5-xt-di2": {
    "cat": "completebike",
@@ -39455,11 +39353,11 @@
   },
   "cb-santacruz-hightower-gx-axs-rsv": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.santacruzbicycles.com/pages/product-support/hightower-3-my24",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-yeti-sb140-c3": {
    "cat": "completebike",
@@ -39871,10 +39769,10 @@
   },
   "cb-norco-optic-c2": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.983Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": "https://www.vitalmtb.com/product/guide/bikes/norco/optic-60231",
+   "source": "https://www.norco.com/bikes/mountain/trail/optic/25-optic-C2/",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "cb-kona-honzo-esd": {
@@ -39903,27 +39801,27 @@
   },
   "cb-giant-fathom-1": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/fathom-1-2025",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-giant-talon-1": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/talon-1-2027",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-giant-talon-2": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/talon-2-2027",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-giant-fathom-2": {
    "cat": "completebike",
@@ -40199,11 +40097,11 @@
   },
   "cb-giant-anthem-advanced-29-2": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/int/anthem-advanced-29-2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-canfield-lithium-v3-base": {
    "cat": "completebike",
@@ -40295,11 +40193,11 @@
   },
   "cb-giant-talon-4": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/talon-4-2027",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-trek-slash-8-gen6": {
    "cat": "completebike",
@@ -40383,10 +40281,10 @@
   },
   "cb-forbidden-druid-v2-29-tier1": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-18T17:28:03.983Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
-   "source": "https://www.worldwidecyclery.com/products/forbidden-druid-v2-sram-x0-t-type-bike-blue-monday-29-27-5-mx",
+   "source": "https://forbiddenbike.com/bikes/druid/",
    "note": "WARNING: catalog lost verified flag - recheck"
   },
   "cb-transition-tr11-alloy-gx": {
@@ -40785,6 +40683,14 @@
    "cat": "handlebar",
    "status": "Pending",
    "updated": "2026-07-17T18:56:38.958Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cb-geometron-g1-gx-eagle": {
+   "cat": "completebike",
+   "status": "Pending",
+   "updated": "2026-07-20T18:15:48.203Z",
    "error": null,
    "source": null,
    "note": null
