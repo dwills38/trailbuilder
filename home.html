@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About — BuildMyMTB</title>
+<meta name="description" content="BuildMyMTB is a free, unbiased bike-building tool with accurate data. What the mission is, what a green dot actually promises, what &quot;verified&quot; means, and the rest of the BuildMy family." />
+<meta name="robots" content="index, follow" />
+
+<!-- Social preview — no image tag, same reason as index.html: no licensed
+     site-level image yet (see CLAUDE.md Provenance/roadmap). -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="About — BuildMyMTB" />
+<meta property="og:description" content="A free, unbiased bike-building tool with accurate data — pick parts and see, in real time, whether they fit together, plus running price and weight." />
+<meta property="og:url" content="https://buildmymtb.com/home.html" />
+<meta property="og:site_name" content="BuildMyMTB" />
+<link rel="canonical" href="https://buildmymtb.com/home.html" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="About — BuildMyMTB" />
+<meta name="twitter:description" content="A free, unbiased bike-building tool with accurate data — pick parts and see, in real time, whether they fit together." />
+<meta name="theme-color" id="metaThemeColor" content="#16523a" />
+<style>
+  :root{
+    --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
+    --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
+    --ok:#166534; --ok-bg:#e7f5ec; --warn:#92400e; --warn-bg:#fdf3e1;
+    --err:#c23b3b; --err-bg:#fbeaea; --chip:#eef1ec;
+    --hdr-bg:#123f2b; --hdr-topo:rgba(255,255,255,.11);
+  }
+  html.dark{
+    color-scheme:dark;
+    --ink:#e6ebe7; --ink-soft:#a8b3ab; --line:#3a423d; --bg:#161a18;
+    --card:#1f2522; --brand:#1f6f4a; --brand-d:#123f2b; --accent:#e0703c;
+    --ok:#7fd6a2; --ok-bg:#17301f; --warn:#e8b25c; --warn-bg:#33270f;
+    --err:#e57575; --err-bg:#331717; --chip:#262d29;
+    --hdr-bg:#0c2b1c; --hdr-topo:rgba(255,255,255,.09);
+  }
+  html.loam{
+    color-scheme:dark;
+    --ink:#f2e8d8; --ink-soft:#c2ad92; --line:#3c2e22; --bg:#1a1310;
+    --card:#241a13; --brand:#2f7048; --brand-d:#1e4a30; --accent:#e2a94a;
+    --ok:#84cf97; --ok-bg:#16301d; --warn:#e6b45c; --warn-bg:#33270f;
+    --err:#e88b7b; --err-bg:#331a14; --chip:#30241a;
+    --hdr-bg:#14301f; --hdr-topo:rgba(242,232,216,.11);
+  }
+  html.rad{
+    --ink:#f4eaff; --ink-soft:#c9a6ff; --line:#ff2fd0; --bg:#150029;
+    --card:#22093f; --brand:#ff2fd0; --brand-d:#a3007f; --accent:#00e5ff;
+    --ok:#39ff14; --ok-bg:#0a2e12; --warn:#ffe600; --warn-bg:#332b00;
+    --err:#ff2020; --err-bg:#330000; --chip:#3a1466;
+    --hdr-bg:#22093f; --hdr-topo:rgba(255,255,255,.14);
+  }
+  html.rad body{background:
+    repeating-linear-gradient(45deg,#1a0033 0 2px,transparent 2px 40px),
+    repeating-linear-gradient(-45deg,#1a0033 0 2px,transparent 2px 40px),
+    var(--bg);}
+  html.rad .hero{background:repeating-conic-gradient(#000 0% 25%,#ff2fd0 0% 50%) 50% / 34px 34px;
+    box-shadow:inset 0 0 0 999px rgba(21,0,41,.78)}
+  html.rad .hero h1{font-family:Impact,"Arial Black","Segoe UI Black",sans-serif;
+    letter-spacing:.5px;text-shadow:0 0 6px var(--accent),0 0 14px var(--brand)}
+  html.rad .btn.primary{background:linear-gradient(90deg,var(--brand),var(--accent));border-color:transparent;color:#150029;font-weight:800}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.5}
+  a{color:var(--brand);font-weight:600}
+  html.dark a,html.loam a{color:#6fcf97}
+  html.rad a{color:var(--accent)}
+  /* Hero: the topo header family (same SVG pattern as the app), just taller —
+     this IS the header for this page (no separate slim nav bar). */
+  .hero{background:var(--hdr-bg);color:#fff;position:relative;padding:34px 24px 30px}
+  .hero .hdr-topo{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  html.rad .hero .hdr-topo{display:none}
+  .hero .inner{position:relative;z-index:1;max-width:860px;margin:0 auto}
+  .hero .back{font-size:13px;opacity:.85;margin-bottom:16px}
+  .hero .back a{color:#fff}
+  .hero h1{margin:0 0 10px;font-size:28px}
+  .hero p{max-width:640px;margin:0;font-size:15px;color:#dceadfd9}
+  html.rad .hero p{color:#f4eaffd9}
+  .hero .mission{color:#fff;font-weight:600;font-size:16.5px}
+  .hero .cta{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+  main{max-width:860px;margin:0 auto;padding:26px 24px 20px}
+  .btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 16px;border-radius:10px;
+    font-size:14px;cursor:pointer;font-weight:600;text-decoration:none;display:inline-block}
+  .btn:hover{border-color:#c7ccc6}
+  .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  html.dark .btn,html.loam .btn{background:var(--card);color:var(--ink);border-color:var(--line)}
+  html.rad .btn{background:var(--card);color:var(--ink);border-color:var(--line)}
+  .badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:12px;padding:5px 10px;border-radius:999px}
+  .honesty-strip{background:#10271b;color:#cfe8d8;font-size:12px;padding:7px 12px;text-align:center}
+  html.rad .honesty-strip{background:#1c0836}
+  section{margin-top:32px}
+  section > h2{font-size:14px;letter-spacing:.4px;text-transform:uppercase;color:var(--ink-soft);margin:0 0 10px}
+  .cols{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .card h3{margin:0 0 6px;font-size:14px}
+  .card p{margin:0;font-size:13.5px;color:var(--ink-soft)}
+  a.card{text-decoration:none;color:var(--ink);display:block}
+  .prov{border-left:3px solid var(--brand);padding-left:15px}
+  .prov .v{color:var(--ok);font-weight:800}
+  ul.plain{margin:8px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-soft)}
+  ul.plain li{margin-bottom:6px}
+  footer{border-top:1px solid var(--line);margin-top:38px;padding:18px 24px 40px;font-size:12px;
+    color:var(--ink-soft);text-align:center}
+  footer a{color:inherit;text-decoration:underline;font-weight:600}
+  footer a:hover{color:var(--brand)}
+  footer .legal-links{margin:0 0 8px}
+  @media (max-width:520px){ .hero h1{font-size:23px} .hero{padding:22px 18px 26px} main{padding:20px 18px 16px} }
+</style>
+<!-- Pre-paint theme guard + shared money/theme helpers (src/ui-common.js) — same
+     'tb-theme' key as index.html/bmx.html/KitBuilder, so a theme choice made
+     anywhere in the family already applies here before first paint. -->
+<script src="src/ui-common.js"></script>
+<!-- Cloudflare Web Analytics (privacy-first, cookie-less; same publishable token as every other page). -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "321537b0321746628c925f357de5a74a"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<div class="hero">
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <div class="inner">
+    <p class="back"><a href="index.html">← Back to the builder</a></p>
+    <h1>About BuildMyMTB</h1>
+    <p class="mission">BuildMyMTB is a free, unbiased bike-building tool with accurate data —
+      pick parts and see, in real time, whether they fit together, plus running price and weight.</p>
+    <p style="margin-top:12px">You never had to read this page to use the tool — the builder is
+      always the front door. This page is for the people who want to know who makes it, what
+      the dots mean, and what &ldquo;verified&rdquo; actually verifies.</p>
+    <div class="cta">
+      <a class="btn primary" href="index.html">🚵 Open the builder</a>
+      <a class="btn" href="index.html#guides">📚 Guides</a>
+    </div>
+  </div>
+</div>
+<div class="honesty-strip"><span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span> Same honesty strip as the builder — the disclaimer never hides, here either.</div>
+
+<main>
+  <section>
+    <h2>What the tool promises</h2>
+    <div class="cols">
+      <div class="card"><h3>Unbiased</h3>
+        <p>No manufacturer pays for placement, ordering, or a favorable verdict. Affiliate links
+        may help fund the site — they never bias a result, and every one is labeled.</p></div>
+      <div class="card"><h3>Straight to the data</h3>
+        <p>The site loads directly to the parts. No pop-ups, no newsletter walls, no cookie
+        interstitials — a rule, not a preference.</p></div>
+      <div class="card"><h3>Honest verdicts</h3>
+        <p>&ldquo;No conflicts found&rdquo; means exactly that — no conflict among the dimensions
+        this tool checks, never a blanket guarantee of perfect fit.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What &ldquo;verified&rdquo; means</h2>
+    <div class="card prov">
+      <p><span class="v">✓ Verified</span> on a part means its interfaces and weight were checked
+      against the manufacturer's own published spec (or, where a maker publishes no weight, a
+      reputable third-party <em>measured</em> weight — interfaces still always come from the
+      maker), with the source linked on the part card. Everything else is honestly labeled
+      <strong>≈ sample data</strong> until it earns the check.</p>
+      <ul class="plain">
+        <li>Sources are manufacturer pages and documents — never search-result summaries.</li>
+        <li>Prices are USD MSRP; sale prices are always labeled as sale prices.</li>
+        <li>Spot a wrong verdict? Every build has a one-click report link.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>The family</h2>
+    <div class="cols">
+      <a class="card" href="index.html"><strong>🚵 BuildMyMTB</strong>
+        <p style="margin-top:4px">Mountain bikes — this site.</p></a>
+      <a class="card" href="bmx.html"><strong>🏁 BuildMyBMX</strong>
+        <p style="margin-top:4px">BMX builds, brakeless understood.</p></a>
+      <a class="card" href="KitBuilder/"><strong>🧰 BuildMyRideKit</strong>
+        <p style="margin-top:4px">Helmets, shoes, apparel, protection.</p></a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p class="legal-links">
+    <a href="privacy.html">Privacy</a> &middot;
+    <a href="terms.html">Terms</a> &middot;
+    <a href="affiliate-disclosure.html">Affiliate Disclosure</a> &middot;
+    <a href="index.html">Back to the app</a>
+  </p>
+  <p>&copy; 2026 BuildMyMTB. BuildMyMTB is an independent project and is not affiliated with or endorsed
+  by any of the component manufacturers named in its catalog.</p>
+</footer>
+</body>
+</html>

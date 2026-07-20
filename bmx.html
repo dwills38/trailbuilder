@@ -103,6 +103,28 @@
   .theme-pop .btn:hover{background:var(--chip)}
   .theme-pop .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
   .theme-pop .btn.primary::after{content:"✓";margin-left:auto;font-weight:800}
+  /* Family switcher (D1, 2026-07-20): the header wordmark is a click-opened
+     <details> menu — same disclosure idiom as .theme-menu above, never
+     auto-opens (no-popups rule). Lists only LIVE BuildMy surfaces + a link
+     to /home.html; the mission line is the menu's own footer. */
+  .fam-menu{position:relative;display:inline-block}
+  .fam-menu summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:2px}
+  .fam-menu summary::-webkit-details-marker{display:none}
+  .fam-menu summary h1{margin:0}
+  .fam-menu .fam-caret{font-size:12px;opacity:.8}
+  .fam-pop{position:absolute;left:0;top:calc(100% + 6px);min-width:280px;z-index:80;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:10px;box-shadow:0 12px 34px rgba(0,0,0,.18)}
+  .fam-pop a{display:flex;align-items:baseline;gap:8px;padding:9px 10px;border-radius:9px;
+    color:var(--ink);text-decoration:none;font-weight:600;font-size:13.5px}
+  .fam-pop a:hover{background:var(--chip)}
+  .fam-pop a .fam-soft{font-weight:500;font-size:12px;color:var(--ink-soft)}
+  .fam-pop a.here{background:var(--chip);outline:1px solid var(--line)}
+  .fam-mission{border-top:1px solid var(--line);margin-top:8px;padding:9px 10px 3px;
+    font-size:11.5px;color:var(--ink-soft);line-height:1.5}
+  /* fam-menu sits at the FAR LEFT of the header (unlike .theme-menu, which sits
+     toward the right and correctly flips right-aligned on phones) — its default
+     left:0 already keeps the popup on-screen at every width, so no flip. */
 
   .honesty-strip{background:#10271b;color:#cfe8d8;font-size:12px;padding:6px 12px;text-align:center}
   html.dark .honesty-strip{background:#0b1d13}
@@ -363,11 +385,26 @@
     <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
   </svg>
   <div class="wrap">
-    <h1><a href="/" aria-label="BuildMyMTB — home">BuildMyMTB</a></h1>
+    <!-- Family switcher (D1): the wordmark is a click-opened <details> menu listing
+         only LIVE BuildMy surfaces + a link to /home.html, with the mission line as
+         its footer. Every domain still loads straight into its own builder. -->
+    <details class="fam-menu" id="famMenu">
+      <summary aria-haspopup="true" aria-label="BuildMyMTB — open the BuildMy family switcher">
+        <h1>BuildMyMTB</h1><span class="fam-caret" aria-hidden="true">▾</span>
+      </summary>
+      <div class="fam-pop" role="menu" aria-label="The BuildMy family">
+        <a href="/" role="menuitem">🚵 BuildMyMTB</a>
+        <a class="here" href="bmx.html" role="menuitem" aria-current="page">🏁 BuildMyBMX <span class="fam-soft">— you're here</span></a>
+        <a href="KitBuilder/" role="menuitem">🧰 BuildMyRideKit</a>
+        <a href="home.html" role="menuitem">ℹ️ About BuildMy <span class="fam-soft">— mission, family &amp; what verified means</span></a>
+        <div class="fam-mission">BuildMyMTB is a free, unbiased bike-building tool with accurate data — pick parts and see, in real time, whether they fit. Same tool, every ride style.</div>
+      </div>
+    </details>
     <span class="page-tag">BuildMyBMX</span>
     <span class="spacer"></span>
     <a class="btn ghost" href="/" title="Back to the Bike Builder">🚴 Bike Builder</a>
     <a class="btn ghost" href="KitBuilder/" title="Rider kit — helmets, shoes, apparel &amp; protection">🧰 BuildMyRideKit</a>
+    <a class="btn ghost" href="home.html" title="About BuildMyMTB">ℹ️ About</a>
     <details class="theme-menu" id="themeMenu">
       <summary class="btn ghost" title="Theme">🎨</summary>
       <div class="theme-pop" role="menu">
@@ -386,7 +423,7 @@
 <footer id="bmxFooter">
   Prices &amp; weights are approximate <strong>sample data</strong> — not verified against manufacturers unless a ✓ badge says so.
   Builds are saved on this device only. Green = no conflicts among the dimensions we check, not a guarantee.
-  · <a href="/">← Bike Builder</a> · <a href="KitBuilder/">BuildMyRideKit →</a>
+  · <a href="/">← Bike Builder</a> · <a href="KitBuilder/">BuildMyRideKit →</a> · <a href="home.html">ℹ️ About</a>
 </footer>
 
 <!-- Mobile sticky build bar (≤880px only): verdict + totals mirror, tap = jump to panel -->
@@ -444,6 +481,15 @@
     for(var i=0;i<btns.length;i++){ (function(b){ b.onclick=function(){ set(b.getAttribute('data-theme')); }; })(btns[i]); }
     mark(tbCurrentTheme());
     document.addEventListener('click', function(e){ var d=$('themeMenu'); if(d&&d.open&&!d.contains(e.target)) d.open=false; });
+  })();
+
+  // Family switcher (D1, header wordmark): click an item / click outside /
+  // Escape all close it. Never auto-opens (no-popups rule).
+  (function(){
+    var d=$('famMenu'); if(!d) return;
+    d.addEventListener('click', function(e){ if(e.target.closest('.fam-pop a')) d.open=false; });
+    document.addEventListener('click', function(e){ if(d.open && !d.contains(e.target)) d.open=false; });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape' && d.open){ d.open=false; var s=d.querySelector('summary'); if(s) s.focus(); } });
   })();
 
   function syncHdr(){ var h=document.querySelector('header'); if(h) document.documentElement.style.setProperty('--hdr-h', h.offsetHeight+'px'); }
