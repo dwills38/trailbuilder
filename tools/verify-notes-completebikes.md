@@ -270,3 +270,80 @@ verification-job.json` untouched (out of scope — that job tracks individual pa
 Trek, Specialized (known walls) and the remaining smaller-maker tail (Transition,
 Forbidden, Commencal, GT, Vitus, Polygon, Marin, Cube, Whyte, Salsa, Revel, Nukeproof,
 Merida, and ~20 single/few-row brands) not attempted this wave — candidates for wave 5.
+
+## Wave 5 (2026-07-19, `verify/completebikes-5`): stale-scope check + bias-r4 non-rotor tail + 1 new small-maker row
+
+**Scope reality check first:** the wave-5 brief (written against an older coordinator
+snapshot) named Transition/Forbidden/Commencal/GT/Vitus/Polygon/Marin/Cube/Whyte/Salsa/
+Revel/Nukeproof/Merida as "untouched by waves 1-4" — but `origin/main` had moved far past
+that snapshot by the time this session ran (`git log` shows grind #6/#7/cb7-w1..w5 already
+landed 2-4+ rows for every one of those brands). Branched fresh off `origin/main`
+(`039a018`, containing all of grind-7 + the 2026-07-19 bias-r4 fixes) rather than off the
+stale local `main` ref, confirmed via `git merge-base --is-ancestor`. Re-scoped to the
+brief's second half (the bias-r4 non-rotor tail) plus a genuine small-maker gap found by
+diffing frame brands against completebike brands, since the named-brand grind itself is
+already deep.
+
+**Bias-r4 non-rotor tail re-check** (`tools/BIAS-AUDIT-2026-07-19.md` §1's tail: Deviate
+4/4 rear-rotor-max, Nukeproof x2, Propain x2, Chromag x2, Intense x2, Ragley x1,
+`cb-marin-pine-mountain-2` fork-travel): wrote a throwaway `checkBuild`-over-every-bike
+harness to re-measure live. **8 of 9 items are NOT bugs** — each completebike row's own
+`desc` already documents (from prior sessions' direct manufacturer-page fetches) that the
+factory bike genuinely ships a rotor exceeding the frame's own maker-stated native
+post-mount max (an honest adapter-tier warning, same class as the Salsa XDR-spacer
+warning the audit doc itself says "should stay"). Left all 8 untouched — re-opening a
+warning that's already correctly sourced would be regressing real data to chase a
+false "0 warnings" number.
+
+**1 real bug found and fixed:** `cb-marin-pine-mountain-2`'s fork fill pointed at
+`fk-marzocchi-bomber-z2-29-150` (150mm) against a frame whose own maker-sourced
+`maxForkTravel` is 120mm — the frame's real fork (per the row's own desc) is a "RockShox
+FS 35, 120mm Travel" with no cataloged equivalent, and an earlier session's tier
+substitution picked the wrong travel point from the same Marzocchi family instead of the
+120mm sibling (`fk-marzocchi-bomber-z2-29-120`, already cataloged). Repointed to the
+120mm row — zero warnings now, and it's a genuinely better real-world match (same
+120mm travel the frame is actually rated/sold for), not just a silenced warning.
+
+**1 new completebike row** (`cb-geometron-g1-gx-eagle`): found via a frame-brand vs
+completebike-brand diff (`PARTS.filter(frame).map(brand)` minus the same for
+`completebike`) — 10 brands have a frame row but zero completebikes; most are genuinely
+frame-only (Banshee, Orange, Nicolai, Pipedream, Contra, Atherton, NS Bikes, Octane One,
+all `frameOnly:true`), but Frameworks and Geometron both have `frameOnly:false` frame
+rows with no completebike row at all. FETCHED geometronbikes.co.uk/bikes/g1-2 directly
+(the same page the already-verified `fr-geometron-g1` frame row cites) — it lists two
+full build kits with itemized components; modeled the "SRAM GX Eagle Build" (GBP 7,499).
+Every fill reuses an already-cataloged part (several already `verified:true`: the Formula
+Selva R fork, Hope Fortus wheels, Hope Tech 4 E4 brakes) — zero new part rows needed.
+Two documented either/or component picks (fork: Formula Selva R vs EXT ERA V2 — modeled
+via the Selva R since its travel ceiling matches the frame's own recorded
+`designForkTravel` exactly; brakes: Hope Tech 4 vs Formula Cura 4 — modeled via Hope
+since only Hope is separately cataloged) keep the row below the verified bar despite
+every individual fill being a verified, exact-match part. Price entered at $9,299 (a
+documented rounding-down from the raw ~$9,699 GBP:USD conversion, since the raw figure
+sits inside this build's own $9,673.25 component sum and would fail the bundle-price
+lint) — the underlying GBP MSRP is real, only the display figure is nudged. Frameworks
+was evaluated too but its "frame+shock" sale (not a full build kit with drivetrain) gives
+no build sheet to model — left for a future session if Frameworks ever lists a complete
+bike.
+
+**Did not attempt:** the named-brand depth grind itself (Transition/Forbidden/Commencal/
+GT/Vitus/Polygon/Marin/Cube/Whyte/Salsa/Revel/Nukeproof/Merida) — those brands already
+have 2-4 rows each from grind-6/7/cb7-w1..w5 and re-grinding them wasn't where this
+session's time went; a genuine "add more trims to these 13 makers" pass is still a valid
+future wave if the coordinator wants more depth there specifically.
+
+### Wave 5 gates
+
+- `node validate.js`: `DATA OK - 5024 parts, 0 problems (3041 verified, 1983 unverified)`
+  (+ KIT/BMX/STRIDER/ROAD/GRAVEL/EMTB all OK — 7/7)
+- `npm test`: 784/784 passed (30 files)
+- `npm run typecheck`: clean, no output
+
+### Wave 5 tally
+
+1 real fill-level bug fixed (Marin Pine Mountain 2 fork travel mismatch — a false
+warning on the bike's own stock build, now zero warnings). 1 new completebike row added
+(Geometron G1 SRAM GX Eagle), zero new part rows needed. 8 bias-r4-flagged warnings
+re-verified as genuine sourced findings, correctly left as-is. `tools/
+verification-job.json` untouched (out of scope, tracks individual parts not
+completebikes).
