@@ -608,9 +608,15 @@ var KIT_PARTS = [
     soleType:'flat', closure:'lace', disciplines:['trail'], sizes:['35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50'],
     desc:'Vibram flat sole. Weight is size 43 (430g/shoe per giro.com).',
     verified:true, lastChecked:'2026-07-19', source:'https://www.giro.com/p/riddance-downhill-bike-shoes/350060001200000013.html' },
-  { id:'sho-specialized-2fo-flat-2', cat:'shoes', brand:'Specialized', model:'2FO Flat 2.0', price:120, weight:900,
+  { id:'sho-specialized-2fo-flat-2', cat:'shoes', brand:'Specialized', model:'2FO Roost Flat', price:119.99, weight:900,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47','48'],
-    desc:'SlipNot rubber flat sole, dual-density EVA midsole. Weight per pair (approx). NOTE 2026-07-16: this exact model name no longer appears on specialized.com (the direct product URL 404s); the current 2FO flat-pedal lineup shows "2FO Roost Flat" ($119.99 MSRP, ~360g/shoe) as its apparent successor, but that is a distinct SKU/name, not confirmation of this row - left unverified, no fields changed.' },
+    desc:'SlipNot rubber flat sole, dual-density EVA midsole. RE-SCOPED kit-6 (2026-07-20): confirmed'
+      + ' via specialized.com/us/en/shoes/mountain-bike-shoes (browser pane) that the full current'
+      + ' 16-shoe MTB lineup has no "2FO Flat 2.0" -- "2FO Roost Flat" ($119.99, currently on sale at'
+      + ' $97.99) is the direct successor in the same flat-pedal tier (a running-change rename, same'
+      + ' pattern as the Shimano ME->GE consolidation). Re-scoped model under the same id. No weight'
+      + ' published; kept as the prior sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.specialized.com/us/en/shoes/mountain-bike-shoes/c/mountain-bike-shoes' },
   { id:'sho-fox-union', cat:'shoes', brand:'Fox', model:'Union', price:149.95, weight:870,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'],
     sizes:['37','38','39','40','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','47'],
@@ -644,12 +650,16 @@ var KIT_PARTS = [
     sizes:['36','37','38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','46.5','47','48','49'],
     desc:'2-bolt SPD clipless, lace closure (not BOA - corrected 2026-07-16), SlipNot FG rubber sole. Weight = 367g/shoe (size 42) x2.',
     verified:true, lastChecked:'2026-07-16', source:'https://www.specialized.com/us/en/2fo-roost-clip-mountain-bike-shoes/p/187391' },
-  { id:'sho-specialized-rime-2-0', cat:'shoes', brand:'Specialized', model:'Rime 2.0', price:160, weight:840,
+  { id:'sho-specialized-rime-2-0', cat:'shoes', brand:'Specialized', model:'Rime 2.0', price:160, weight:840, status:'discontinued',
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['36','37','38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','46.5','47','48','49'],
     desc:'2-bolt SPD clipless enduro shoe, standard lace + Boa L6 dial. CHECKED 2026-07-19 via'
       + ' browser-rendered specialized.com search (WebFetch 403s this domain): "Rime 2.0" returns'
       + ' no results - the current Rime lineup is only "Rime Flat" ($139.99) and "Rime 1.0"'
-      + ' ($109.99), a clipless 2-bolt SKU. This row appears discontinued/superseded; left'
+      + ' ($109.99), a clipless 2-bolt SKU. Kit-6 (2026-07-20): reconfirmed via the full current'
+      + ' 16-shoe MTB lineup -- still no "Rime 2.0" or "Rime 3.0"; the naming resets to "1.0" rather'
+      + ' than incrementing past 2.0, so this is NOT a clean running-change successor (unlike the'
+      + ' Shimano/2FO patterns). Tagged discontinued rather than force-mapping onto Rime 1.0. This'
+      + ' row appears discontinued/superseded; left'
       + ' unverified, no fields changed.' },
   { id:'sho-crankbrothers-mallet-speedlace', cat:'shoes', brand:'Crankbrothers', model:'Mallet Speedlace', price:179.99, weight:850,
     soleType:'clipless', closure:'lace', disciplines:['enduro','dh'],
@@ -784,7 +794,11 @@ var KIT_PARTS = [
     desc:'XC/trail clipless shoe, independent BOA Li2 dials, welded upper, SlipNot FG sole.'
       + ' RE-CHECKED 2026-07-19 via browser-rendered specialized.com search (WebFetch 403s this'
       + ' domain): "2fo cliplite" now returns zero results, superseding the 2026-07-16 confirm -'
-      + ' appears discontinued since. Weight not published either way (stays sample). Left unverified.' },
+      + ' appears discontinued since. Weight not published either way (stays sample). Kit-6'
+      + ' (2026-07-20): confirmed via the full current 16-shoe MTB lineup (browser pane) -- no'
+      + ' clipless XC/trail tier close enough to call a 1:1 successor (2FO Roost Clip is enduro-tier,'
+      + ' 2FO DH Clip is DH-tier). Tagged discontinued rather than guessing a re-scope.',
+      status:'discontinued' },
   { id:'sho-specialized-sworks-recon', cat:'shoes', brand:'Specialized', model:'S-Works Recon', price:499.99, weight:530,
     soleType:'clipless', closure:'boa', disciplines:['xc'],
     sizes:['36','37','38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','46.5','47','48','49'],
@@ -793,9 +807,9 @@ var KIT_PARTS = [
       + ' confirmed live as "S-Works Recon Shoe" (browser-rendered specialized.com/us/en -'
       + ' WebFetch 403s this domain). Weight not published, stays sample.',
     verified:true, lastChecked:'2026-07-19', source:'https://www.specialized.com/us/en/shop/cycling-clothing/cycling-shoes/mountain-bike-shoes' },
-  { id:'sho-specialized-sworks-2fo-roost', cat:'shoes', brand:'Specialized', model:'S-Works 2FO Roost', price:325, weight:700,
+  { id:'sho-specialized-sworks-2fo-roost', cat:'shoes', brand:'Specialized', model:'S-Works 2FO Roost', price:325, weight:700, status:'discontinued',
     soleType:'clipless', closure:'boa', disciplines:['enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'Flagship enduro clipless shoe, dual BOA, carbon sole. Weight per pair (approx). NOTE 2026-07-16: no "S-Works 2FO Roost" product found on specialized.com - the current 2FO Roost tier has no S-Works trim (only Clip/Flat/Canvas). Appears discontinued; left unverified, no fields changed.' },
+    desc:'Flagship enduro clipless shoe, dual BOA, carbon sole. Weight per pair (approx). NOTE 2026-07-16: no "S-Works 2FO Roost" product found on specialized.com - the current 2FO Roost tier has no S-Works trim (only Clip/Flat/Canvas). Kit-6 (2026-07-20): reconfirmed via the full current 16-shoe MTB lineup (browser pane) -- still no S-Works trim of any 2FO Roost variant. Tagged discontinued.' },
   { id:'sho-fox-union-boa', cat:'shoes', brand:'Fox', model:'Union BOA', price:249.95, weight:880,
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
     desc:'CORRECTED 2026-07-17: the maker page for this model name ("Fox Union BOA") is the 2-bolt SPD CLIPLESS BOA shoe (soleType flat->clipless, was a duplicate of union-boa-flat below); list price $249.95 (was sample $170; page shows a $174.99 sale, not used). Search reviews cite conflicting per-shoe weights (443-504g/shoe across sources) so weight stays prior sample rather than picking one.',
