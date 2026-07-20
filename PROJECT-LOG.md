@@ -1,5 +1,24 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-20 — /about rename + D2c apex page merged
+
+- **About page renamed** on Douglas's word: `/home.html` → `/about.html` (bare
+  `buildmymtb.com/about` also resolves — GH Pages extensionless). All switcher/toolbar/
+  footer links + og/canonical updated; `/home.html` kept as a noindex redirect stub for
+  links minted during its few live hours; deploy.yml stages both. Verified live post-deploy
+  (cache-busted). Also: index.html toolbar swapped to BMX-before-RideKit (the gear-last
+  rule; the D1/D4 worker's out-of-scope flag — bmx/KitBuilder toolbars were already
+  bikes-first). Coordinator note for the record: the first rename attempt used a PowerShell
+  `-replace`/`Set-Content` pass that mojibake'd every non-ASCII char across 5 files (PS5.1
+  reads UTF-8-no-BOM as ANSI); caught by diff-stat size before commit, fully reverted,
+  redone with the Edit tool. LESSON: never bulk-edit repo text via PowerShell string ops.
+- **feat/apex-d2c-1 merged**: `sites/family/index.html` — the Douglas-approved D2c hybrid
+  (doors + maker story) as a real self-contained page. Domain UNDECIDED by design:
+  `DOMAIN_PLACEHOLDER` token in og:url/canonical, neutral copy, one-token fill later.
+  Gear-last doors, mission verbatim, absolute buildmymtb.com links, 4 themes inline, NOT
+  in deploy.yml (nothing new ships to buildmymtb.com). Gates green at 832. D2a chip still
+  out with a worker (owns sites/README.md; no file overlap).
+
 ## 2026-07-20 — D1 family switcher + D4 /home.html SHIPPED (live surface)
 
 - **ui/home-d1-d4 merged** (Douglas-approved directions, built from the round-1 mockups):
