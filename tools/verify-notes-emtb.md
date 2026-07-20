@@ -22,3 +22,6 @@ Format per row: `id — Verified|Skipped|Failed — one-line reason`.
 ## Rocky Mountain (2026-07-20) — all Skipped
 - em-rocky-mountain-altitude-powerplay, em-rocky-mountain-altitude-powerplay-c90 — Skipped — current Altitude Powerplay III lineup (bikes.com) confirms motor/torque/battery (Dyname [S4 Pro]/108Nm/720Wh) and travel (170/160) match, BUT wheel is 29in-only (not mullet) and only 3 SKUs exist (C70 $10,799 SRAM Eagle 90 Transmission, A50 $7,899, A30 $6,099 Shimano Deore) — no "C90" tier or SRAM X0 Transmission build exists in the current lineup; catalog rows reference a discontinued C90-era generation.
 - em-rocky-mountain-instinct-powerplay — Skipped — bikes.com nav shows a new "Instinct Powerplay SL" line alongside the standard Instinct Powerplay (lineup changed); product-listing fetch didn't return spec content in this pass (JS-lazy list), not re-verified.
+
+## YT (2026-07-20) — both Skipped
+- em-yt-decoy-core-3, em-yt-decoy-uncaged-8 — Skipped — YT went through administration and relaunched the whole Decoy line as "Decoy X" (Avinox M2S motor 150Nm, 800Wh, RockShox ZEB/Vivid, SRAM Eagle 90 Transmission, 170/160 travel). Catalog rows carry Shimano EP8/85Nm/630Wh/160-150mm — the old, now-discontinued Decoy MX generation; "Uncaged 8" trim no longer exists at all. Needs full re-entry.
