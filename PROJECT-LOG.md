@@ -1,5 +1,30 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-20 — SEAT 15 seated + drop-bar cleanup merged + home-page round 2 delivered
+
+- **Seat 15 succession complete**: rename handshake confirmed, seat 14 archived, its merged
+  worktree/branch removed, hourly fleet-sweep cron re-armed. Gates re-run from scratch on
+  origin/main before any action — all green, counts matched the handoff exactly.
+- **"Home page design directions" closed on Douglas's word**: round-1 mockups (7 files) were
+  untracked-only in its worktree; committed + pushed to `design/home-page-round1` before
+  archiving the session and removing worktree hp1-87cc. Round-2 mockups (D2a/b/c maker/
+  front-door/hybrid apex pages + D3a in-switcher #home) likewise preserved on
+  `design/home-page-round2`; decision packet presented to Douglas (worker + coordinator
+  recommend D2c; D3a independent and deferrable). Round-2 session held open only for the
+  live preview (port 8169) until his pick.
+- **catalog/dropbar-cleanup-1 merged** (4 commits, gates green at 832 tests, gravel 198→202
+  / 27→31 verified): (1) ERROR-TIER FIX — 105 CS-R7100 + Ultegra CS-R8100 cassettes carried
+  freehub:'hg-l2'; Shimano's own 12-speed freehub guide (bike.shimano.com, quote
+  independently re-fetched by the coordinator via the browser pane) states verbatim "The HG
+  L2 freehub is only compatible with Dura-Ace 12-speed road cassettes" — corrected to
+  'hg-road', which also unmasked a coincidental hg-l2 pairing in the Ultegra Di2 golden
+  (wheels swapped to the DT Swiss ARC 1100 pair). (2) GRX freehub trap closed: gravel had
+  ZERO hg-road/micro-spline-road wheels; added sourced DT Swiss GRC 1400 (Shimano driver)
+  + Shimano WH-RX880 pairs and a new conflict-free Checkpoint SL 7 / GRX 1x12 golden.
+  (3) gravel derailleur cat split into frontderailleur/rearderailleur to match road.js, with
+  a new mountRD vocab. (4) 'hollowtech-ii-road' unified onto '24mm-road' (same physical
+  spindle, gravel-wave drift; design docs only ever used the latter).
+
 ## 2026-07-18 — post-handoff ID-collision defused (mechanic master-1's late batches)
 
 - The stood-down master-1 session disclosed 2 committed-but-unmerged batches carrying IDs
