@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-20T18:15:48.204Z",
+ "updated": "2026-07-20T18:27:05.333Z",
  "batchSize": 25,
  "lastCompleted": "ti-pirelli-scorpionxc-rc-29-22-pw-dual",
  "currentCategory": "frame",
@@ -600,27 +600,15 @@
   "fk-manitou-circus-expert-26-100-straight",
   "fk-fox-38-performance-29-180",
   "fk-fox-34-performance-29-140",
-  "fk-rockshox-revelation-rc-29-130",
   "fk-fox-34-performance-elite-29-140",
-  "fk-rockshox-lyrik-ultimate-29-170",
   "fk-fox-34-rhythm-29-140",
-  "fk-rockshox-recon-silver-rl-29-130",
-  "fk-rockshox-revelation-rc-29-140",
   "fk-fox-38-performance-29-160",
-  "fk-rockshox-35-gold-rl-29-160",
-  "fk-rockshox-sid-base-29-110",
   "fk-marzocchi-z2-airrail-29-150",
   "fk-fox-36-performance-29-170",
-  "fk-rockshox-recon-silver-rl-29-110",
-  "fk-rockshox-sid-29-110",
-  "fk-rockshox-sid-base-29-120",
-  "fk-rockshox-35-gold-rl-29-140",
   "fk-fox-34-rythm-29-130",
   "fk-rockshox-recon-silver-rl-275-130",
   "fk-rockshox-revelation-rc-275-130",
-  "fk-rockshox-reckon-rl-29-140",
   "fk-giant-stl34-29-140",
-  "fk-rockshox-lyrik-select-rc-29-160",
   "fk-fox-34-performance-elite-29-120",
   "fk-marzocchi-bomber-z1-29-140",
   "fk-fox-34-floatsc-performanceelite-29-110",
@@ -31453,11 +31441,11 @@
   },
   "fk-rockshox-revelation-rc-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.580Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-rvl-rc-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-34-performance-elite-29-140": {
    "cat": "fork",
@@ -31469,11 +31457,11 @@
   },
   "fk-rockshox-lyrik-ultimate-29-170": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:27:05.331Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.whytebikes.com/products/sythe-rs",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-srsuntour-xcr34-2cr-29-130": {
    "cat": "fork",
@@ -31533,19 +31521,19 @@
   },
   "fk-rockshox-recon-silver-rl-29-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-rcns-rl-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-revelation-rc-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-rvl-rc-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-38-performance-29-160": {
    "cat": "fork",
@@ -31557,11 +31545,11 @@
   },
   "fk-rockshox-35-gold-rl-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-35g-rl-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-selectplus-29-160": {
    "cat": "fork",
@@ -31573,11 +31561,11 @@
   },
   "fk-rockshox-sid-base-29-110": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/anthem-advanced-29-3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-marzocchi-z2-airrail-29-150": {
    "cat": "fork",
@@ -31621,35 +31609,35 @@
   },
   "fk-rockshox-recon-silver-rl-29-110": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/rockshox/models/fs-rcns-rl-d1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-sid-29-110": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.cannondale.com/en-us/bikes/scalpel-hardtail/scalpel-ht-carbon-2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-sid-base-29-120": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.cannondale.com/en-us/bikes/scalpel/scalpel-4",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-35-gold-rl-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.sram.com/en/service/models/fs-35g-rl-a2",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-36-rhythm-29-140": {
    "cat": "fork",
@@ -31773,11 +31761,11 @@
   },
   "fk-rockshox-reckon-rl-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitusbikes.com/mythique-29-cr-2022",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-judy-silver-tk-29-130": {
    "cat": "fork",
@@ -31885,11 +31873,11 @@
   },
   "fk-rockshox-lyrik-select-rc-29-160": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-20T18:26:11.581Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.vitalmtb.com/product/guide/Bikes,3/Kona/Process-153-DL-29,34791",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-fox-34-performance-elite-29-130": {
    "cat": "fork",
