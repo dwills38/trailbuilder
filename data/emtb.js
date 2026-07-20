@@ -58,8 +58,9 @@ var EMTB_PARTS = [
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code RSC',
     disciplines: ['e-enduro'], weight: 24000, price: 9000,
+    status: 'discontinued', supersededBy: 'em-santa-cruz-bullit-bosch-cx',
     note: 'Gravity-leaning mixed-wheel e-enduro bike on Shimano EP801.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed.'
+    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Superseded: Santa Cruz dropped Shimano on the Bullit entirely for the 2026 model year (verify/emtb-2 wave 2 phase 2).'
   },
   {
     id: 'em-santa-cruz-heckler', cat: 'emtb', brand: 'Santa Cruz', model: 'Heckler',
@@ -231,8 +232,9 @@ var EMTB_PARTS = [
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission', brakes: 'SRAM Maven Silver',
     disciplines: ['e-enduro'], weight: 23200, price: 12000,
+    status: 'discontinued', supersededBy: 'em-santa-cruz-bullit-bosch-x0-axs-rsv',
     note: 'Top-tier Bullit build; SRAM XX Transmission + Maven brakes.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: Santa Cruz dropped Shimano on the Bullit entirely for the 2026 model year (verify/emtb-2 wave 2 phase 2).'
   },
   {
     id: 'em-santa-cruz-heckler-sl', cat: 'emtb', brand: 'Santa Cruz', model: 'Heckler SL',
@@ -704,8 +706,9 @@ var EMTB_PARTS = [
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 165,
     frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
     disciplines: ['e-enduro'], weight: 25000, price: 5200,
+    status: 'discontinued', supersededBy: 'em-marin-alpine-trail-e2-2026',
     note: 'Value-oriented alloy gravity e-MTB; long travel, mixed wheel.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: Marin moved the Alpine Trail E line from Shimano to Bosch (verify/emtb-2 wave 2 phase 2).'
   },
 
   // ---------------------------------------------------------------------------
@@ -760,8 +763,9 @@ var EMTB_PARTS = [
     wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
     disciplines: ['e-trail', 'e-enduro'], weight: 23600, price: 6200,
+    status: 'discontinued', supersededBy: 'em-devinci-e-troy-bosch-29',
     note: "Canadian brand's full-power trail/enduro e-MTB on the Shimano EP8 motor.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the redesigned E-Troy switched from Shimano to Bosch (verify/emtb-2 wave 2 phase 2).'
   },
 
   // ---------------------------------------------------------------------------
@@ -802,8 +806,9 @@ var EMTB_PARTS = [
     wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
     frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
     disciplines: ['e-enduro'], weight: 25800, price: 6500,
+    status: 'discontinued', supersededBy: 'em-nukeproof-megawatt-297-carbon-pro',
     note: "Nukeproof's longest-travel gravity e-MTB; Bosch CX motor, DH-adjacent geometry.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the Megawatt moved off Bosch entirely to a full-carbon frame on SRAM Eagle Powertrain (verify/emtb-2 wave 2 phase 2).'
   },
 
   // ---------------------------------------------------------------------------
@@ -872,8 +877,9 @@ var EMTB_PARTS = [
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 165,
     frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
     disciplines: ['e-enduro'], weight: 25600, price: 4500,
+    status: 'discontinued', supersededBy: 'em-marin-alpine-trail-e1-2026',
     note: 'Entry alloy trim beneath the E2; same motor/battery.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: Marin moved the Alpine Trail E line from Shimano to Bosch (verify/emtb-2 wave 2 phase 2).'
   },
 
   // ---------------------------------------------------------------------------
@@ -886,8 +892,9 @@ var EMTB_PARTS = [
     wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
     disciplines: ['e-trail', 'e-enduro'], weight: 21800, price: 9200,
+    status: 'discontinued', supersededBy: 'em-devinci-e-troy-bosch-carbon',
     note: 'Top-tier carbon E-Troy build.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: "Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the redesigned E-Troy switched from Shimano to Bosch (verify/emtb-2 wave 2 phase 2). NOTE: Devinci's current lineup does not show an SRAM X0 Transmission Bosch E-Troy trim — this row's replacement uses the confirmed base-trim Bosch spec instead; a carbon-frame Bosch E-Troy tier was not independently confirmed this pass."
   },
 
   // ---------------------------------------------------------------------------
@@ -914,8 +921,9 @@ var EMTB_PARTS = [
     wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
     frameMaterial: 'aluminum', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code Ultimate',
     disciplines: ['e-enduro'], weight: 25200, price: 8200,
+    status: 'discontinued', supersededBy: 'em-nukeproof-megawatt-297-carbon-rs',
     note: 'Higher-tier Megawatt build; SRAM X0 Transmission upgrade over the Comp.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the Megawatt moved off Bosch entirely to a full-carbon frame on SRAM Eagle Powertrain (verify/emtb-2 wave 2 phase 2).'
   },
 
   // ---------------------------------------------------------------------------
@@ -929,6 +937,93 @@ var EMTB_PARTS = [
     frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
     disciplines: ['e-trail'], weight: 23200, price: 5000,
     note: 'Shorter-travel, more XC/trail-leaning sibling to the Stereo Hybrid 160.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Wave 2 phase 2 re-entries (2026-07-20) — motor-brand platform switches found
+  // in the wave-2 phase 1 triage (tools/verify-notes-emtb.md). Each supersedes a
+  // discontinued row above via status/supersededBy; specs are best-credible-public
+  // from the current maker pages, still unverified (not a fetched-page confirm).
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-santa-cruz-bullit-bosch-cx', cat: 'emtb', brand: 'Santa Cruz', model: 'Bullit',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 600, batteryRemovable: false, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-enduro'], weight: 21800, price: 8500,
+    note: 'Santa Cruz moved the Bullit off Shimano entirely for 2026, onto Bosch CX Gen 5 with a non-removable internal battery.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-santa-cruz-bullit-bosch-x0-axs-rsv', cat: 'emtb', brand: 'Santa Cruz', model: 'Bullit X0 AXS RSV',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 600, batteryRemovable: false, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-enduro'], weight: 21900, price: 9999,
+    note: 'Top-tier 2026 Bullit build; Bosch CX Gen 5 replaces the prior Shimano/SRAM XX Transmission spec.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-marin-alpine-trail-e2-2026', cat: 'emtb', brand: 'Marin', model: 'Alpine Trail E2',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 120, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
+    disciplines: ['e-enduro'], weight: 26400, price: 8999,
+    note: 'Marin moved the Alpine Trail E line from Shimano to Bosch CX Gen 5 with a bigger 800Wh battery and updated MultiTrac 2 suspension.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-marin-alpine-trail-e1-2026', cat: 'emtb', brand: 'Marin', model: 'Alpine Trail E1',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 120, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
+    disciplines: ['e-enduro'], weight: 27000, price: 5999,
+    note: 'Entry alloy trim beneath the E2; same Bosch CX Gen 5 motor/battery.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-nukeproof-megawatt-297-carbon-pro', cat: 'emtb', brand: 'Nukeproof', model: 'Megawatt 297 Carbon Pro',
+    motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain', motorTorque: 90,
+    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-enduro'], weight: 24000, price: 9899,
+    note: 'The Megawatt moved to a full-carbon frame and SRAM Eagle Powertrain, dropping Bosch entirely.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-nukeproof-megawatt-297-carbon-rs', cat: 'emtb', brand: 'Nukeproof', model: 'Megawatt 297 Carbon RS',
+    motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain', motorTorque: 90,
+    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission', brakes: 'SRAM Maven',
+    disciplines: ['e-enduro'], weight: 23600, price: 10899,
+    note: 'Top-tier carbon Megawatt build on SRAM Eagle Powertrain.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-devinci-e-troy-bosch-29', cat: 'emtb', brand: 'Devinci', model: 'E-Troy',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 625, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24900, price: 6399,
+    note: "Devinci's redesigned E-Troy switched from Shimano EP8 to Bosch Performance Line CX.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-devinci-e-troy-bosch-carbon', cat: 'emtb', brand: 'Devinci', model: 'E-Troy',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 625, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23800, price: 7999,
+    note: 'Top-tier 2026 E-Troy build (frame material listed as aluminum per current maker copy — a carbon-frame Bosch E-Troy trim was not independently confirmed this pass; see verify-notes-emtb.md).',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 

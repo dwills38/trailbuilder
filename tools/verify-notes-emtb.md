@@ -125,3 +125,38 @@ wave confirms wave 1's finding at full-catalog scale: e-MTB motor platforms turn
 model year, and an unverified seed catalog skews stale by default. The **Stale-wrong-brand** bucket
 (17 rows) is the priority queue for phase 2 re-entry — those aren't spec drift, the maker itself
 changed.
+
+## Wave 2 phase 2 (2026-07-20) — re-entry of 4 highest-value wrong-brand platforms (8 rows)
+
+Schema extended first: `src/schema-emtb.js` gained `status`/`supersededBy` (mirrors `schema.js`'s
+frame lifecycle convention — the emtb schema had no way to retire a row before this) and widened
+`motorBrand` to include `sram` (the Nukeproof Megawatt's real current motor maker — a genuine new
+value, not a typo). Old rows marked `status:'discontinued'` + `supersededBy` pointing at a new
+appended row (append-only id convention); new rows carry corrected motor/battery/travel/price/
+weight from wave-2-phase-1's search findings, still unverified samples (no fetched-page confirm
+yet, so no `verified:true`).
+
+Re-entered (old id → new id):
+- `em-santa-cruz-bullit` → `em-santa-cruz-bullit-bosch-cx` — Bosch CX Gen 5, non-removable 600Wh, Shimano dropped entirely for 2026.
+- `em-santa-cruz-bullit-xx` → `em-santa-cruz-bullit-bosch-x0-axs-rsv` — same platform switch, top X0 AXS RSV trim.
+- `em-marin-alpine-trail-e2` → `em-marin-alpine-trail-e2-2026` — Bosch CX Gen 5 (120Nm/750W), 800Wh, replaces Shimano EP8.
+- `em-marin-alpine-trail-e1` → `em-marin-alpine-trail-e1-2026` — same platform switch, entry alloy trim.
+- `em-nukeproof-megawatt-297-comp` → `em-nukeproof-megawatt-297-carbon-pro` — full-carbon frame + SRAM Eagle Powertrain (90Nm), Bosch dropped entirely.
+- `em-nukeproof-megawatt-297-elite` → `em-nukeproof-megawatt-297-carbon-rs` — same platform switch, top RS trim.
+- `em-devinci-e-troy-29` → `em-devinci-e-troy-bosch-29` — Bosch Performance Line CX replaces Shimano EP8.
+- `em-devinci-e-troy-carbon` → `em-devinci-e-troy-bosch-carbon` — same platform switch; **open question**: couldn't independently confirm a carbon-frame SRAM-X0-Transmission Bosch E-Troy trim exists in the current lineup (current maker copy only shows an aluminum frame across all three 2026 builds) — flagged in the row's `desc`, not stated as fact.
+
+Remaining 9 stale-wrong-brand rows not yet re-entered this wave: Cannondale Moterra SL 1, Propain
+Ekano ×2, Pivot Shuttle AM, Norco Sight VLT ×2, Scott Genius eRIDE, Vitus E-Sommet ×2. Plus 19
+same-brand-wrong-gen rows and 2 Haibike Unclear rows. All still carry their wave-2-phase-1
+disposition above — untouched this session, next wave's queue.
+
+Gates after phase 2: `node validate.js` → EMTB OK, 83 bikes, 0 problems (2 verified, 81
+unverified); `npm test` → 838/838 passed; `npm run typecheck` → clean.
+
+## Wave 2 session close (2026-07-20)
+
+Phase 3 (deep-verify current-gen survivors) not started this session — the 17 phase-1 "Current"
+rows + the 8 phase-2 re-entries (25 total) are the phase-3 backlog for the next wave. Prioritize
+Transition Relay (3 rows, clean Fazua match, Fazua's own site likely fetchable) and Santa Cruz
+Heckler (2 rows, motor matched cleanly) as easy wins.

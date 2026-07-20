@@ -46,7 +46,7 @@ function dateOk(v, today){
 /** @type {Object.<string, string[]>} */
 var EMTB_VOCAB = {
   // data-derived (distinct values shipped in data/emtb.js — widen only with a new row)
-  motorBrand:    ['bosch', 'shimano', 'specialized', 'fazua', 'rocky-mountain', 'tq', 'giant', 'yamaha'],
+  motorBrand:    ['bosch', 'shimano', 'specialized', 'fazua', 'rocky-mountain', 'tq', 'giant', 'yamaha', 'sram'],
   display:       ['top-tube', 'system-controller'],
   frameMaterial: ['aluminum', 'carbon', 'steel', 'mixed'],
   // closed enums (mirror fixed live-schema conventions)
@@ -54,7 +54,8 @@ var EMTB_VOCAB = {
   suspension:    ['full', 'hardtail'],
   assist:        ['full-power', 'lightweight'],
   disciplines:   ['e-xc', 'e-trail', 'e-enduro', 'e-dh'],
-  sourceType:    ['maker', 'measured']
+  sourceType:    ['maker', 'measured'],
+  status:        ['current', 'discontinued']   // absent = current — mirrors schema.js's frame lifecycle convention
 };
 
 /** @typedef {{type: 'number'|'string'|'bool'|'strArray', vocab?: string, optional?: boolean}} EmtbFieldRule */
@@ -124,6 +125,12 @@ function validateEmtbPart(p, today){
   if('family' in p && p.family != null && !(isStr(p.family) && /^[a-z0-9-]+$/.test(p.family))) bad('family must be a lowercase slug');
   if('modelYear' in p && p.modelYear != null && !(isNum(p.modelYear) && p.modelYear >= 1980 && p.modelYear <= 2100))
     bad('modelYear must be a number between 1980 and 2100');
+  if('status' in p && p.status != null){
+    var statusVals = vocabValues('status');
+    if(!isStr(p.status) || !statusVals || statusVals.indexOf(p.status) < 0)
+      bad('status "' + p.status + '" not in [' + (statusVals || []).join(', ') + ']');
+  }
+  if('supersededBy' in p && p.supersededBy != null && !isStr(p.supersededBy)) bad('supersededBy must be a part id');
 
   var spec = EMTB_SCHEMA;
   Object.keys(spec).forEach(function(field){
@@ -161,7 +168,7 @@ function validateEmtbPart(p, today){
   // catches typos (a field spelled differently than every other row).
   /** @type {Object.<string, number>} */
   var COMMON = { id:1, cat:1, brand:1, model:1, price:1, weight:1, note:1, desc:1, verified:1, lastChecked:1, source:1,
-    family:1, gen:1, modelYear:1, mfgPn:1, sourceType:1, weightSource:1, archiveUrl:1 };
+    family:1, gen:1, modelYear:1, mfgPn:1, sourceType:1, weightSource:1, archiveUrl:1, status:1, supersededBy:1 };
   Object.keys(p).forEach(function(k){
     if(COMMON[k] || spec[k]) return;
     bad('unknown field "' + k + '" for category "' + p.cat + '"');
@@ -181,6 +188,12 @@ function validateEmtbCatalog(parts, today){
       seenIds[p.id] = true;
     }
     probs = probs.concat(validateEmtbPart(p, t));
+  });
+  parts.forEach(function(p){
+    if(!p || !isStr(p.id) || p.supersededBy == null) return;
+    var at = '[' + p.id + ']';
+    if(!seenIds[p.supersededBy]) probs.push(at + ' supersededBy references unknown part "' + p.supersededBy + '"');
+    else if(p.supersededBy === p.id) probs.push(at + ' a part cannot supersede itself');
   });
   return probs;
 }
