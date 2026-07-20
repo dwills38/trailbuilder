@@ -925,15 +925,33 @@ var KIT_PARTS = [
   { id:'sho-poc-resistance-ultra-clip', cat:'shoes', brand:'POC', model:'Resistance Ultra Clipless', price:250, weight:650,
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'], status:'discontinued',
     desc:'Lightweight trail/enduro clipless shoe, BOA closure. Weight per pair (approx). Discontinued: POC has exited footwear entirely (poc.com\'s current nav and both /footwear category URLs 404 this pass, cycling or otherwise), so there is no live maker page to fetch. Stays unverified.' },
-  { id:'sho-bontrager-rally', cat:'shoes', brand:'Bontrager', model:'Rally', price:130, weight:850,
-    soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'Trail/enduro flat pedal shoe. Weight per pair (approx).' },
-  { id:'sho-bontrager-foray', cat:'shoes', brand:'Bontrager', model:'Foray', price:150, weight:750,
-    soleType:'clipless', closure:'ratchet', disciplines:['xc','trail'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'XC/trail clipless shoe, ratchet buckle. Weight per pair (approx).' },
-  { id:'sho-bontrager-flatline', cat:'shoes', brand:'Bontrager', model:'Flatline', price:170, weight:900,
-    soleType:'flat', closure:'lace', disciplines:['enduro','dh'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'Gravity/DH flat pedal shoe. Weight per pair (approx).' },
+  { id:'sho-bontrager-rally', cat:'shoes', brand:'Bontrager', model:'Rally', price:149.99, weight:850,
+    soleType:'clipless', closure:'velcro', disciplines:['trail','enduro'], sizes:['36','37','38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','47','48'],
+    desc:'VERIFIED kit-7 (2026-07-20) via browser-rendered trekbikes.com (still sold, model 592742,'
+      + ' tagged CLOSEOUT): row was mis-cataloged as a flat lace shoe (soleType flat->clipless,'
+      + ' closure lace->velcro) - the page explicitly confirms 2-bolt SPD-style cleat compatibility'
+      + ' and a hook-and-loop strap closure, not laces. Price $149.99 list (comp. value; not the'
+      + ' active $23.93 clearance price) confirmed exactly. Sizes widened to the full 36-48 run'
+      + ' shown. Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.trekbikes.com/us/en_US/bike-clothing/cycling-shoes/mountain-bike-shoes/bontrager-rally-mountain-bike-shoe/p/24883/' },
+  { id:'sho-bontrager-foray', cat:'shoes', brand:'Bontrager', model:'Foray', price:164.99, weight:750,
+    soleType:'clipless', closure:'boa', disciplines:['xc','trail'], sizes:['36','37','38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','47','48'],
+    desc:'VERIFIED kit-7 (2026-07-20) via browser-rendered trekbikes.com (model 5253425, tagged'
+      + ' CLOSEOUT): closure corrected ratchet->boa (single BOA L6 dial, not a ratchet buckle);'
+      + ' clipless/2-bolt SPD-compatible confirmed. Price $164.99 list (comp. value, not the active'
+      + ' $24.93 clearance price) confirmed exactly. Sizes widened to the full 36-48 run shown.'
+      + ' Trek has begun rebranding this line as "Trek Foray" ($169.99, a distinct SKU/id not added'
+      + ' here) while this Bontrager-branded SKU remains sold as a closeout - not the same product,'
+      + ' left unmerged. Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.trekbikes.com/us/en_US/bike-clothing/cycling-shoes/mountain-bike-shoes/bontrager-foray-mountain-bike-shoe/p/34130/' },
+  { id:'sho-bontrager-flatline', cat:'shoes', brand:'Bontrager', model:'Flatline', price:139.99, weight:900,
+    soleType:'flat', closure:'lace', disciplines:['enduro','dh'], sizes:['36','37','38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','47','48'],
+    desc:'VERIFIED kit-7 (2026-07-20) via browser-rendered trekbikes.com (model 5256933, tagged'
+      + ' CLOSEOUT): flat pedal + lace closure confirmed as cataloged (Vibram outsole, integrated'
+      + ' lace keeper). Price $139.99 list (comp. value, not the active $20.93 clearance price)'
+      + ' confirmed exactly (was sample $170). Sizes widened to the full 36-48 run shown. Weight'
+      + ' not published, stays sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.trekbikes.com/us/en_US/bike-clothing/cycling-shoes/mountain-bike-shoes/mens-mountain-bike-shoes/bontrager-flatline-mountain-bike-shoe/p/34790/' },
   { id:'sho-giant-line', cat:'shoes', brand:'Giant', model:'Line', price:90, weight:800,
     soleType:'flat', closure:'lace', disciplines:['trail'], sizes:['39','40','41','42','43','44','45','46','47'],
     status:'discontinued',
