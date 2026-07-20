@@ -1929,7 +1929,13 @@ var KIT_PARTS = [
     desc:'Verified 2026-07-16 vs fetched endurasport.com product page: "Hummvee Plus Gloves", "$45.00 USD" (was sampled at $35, corrected), sizes XS-2XL. Weight kept as the prior sample estimate - the page/Shopify JSON weight is a flat shipping-placeholder figure.' },
   { id:'glv-fisthandwear-stocker', cat:'gloves', brand:'Fist Handwear', model:'Stocker Glove', price:33, weight:65,
     disciplines:['dj'], sizes:['S','M','L','XL','XXL'],
-    desc:'Weight per pair (approx, no weight published). Corrected price ($30 sample -> $33, fetched fisthandwear.com.au AUD49.95 converted at ~0.66 USD/AUD - the brand\'s primary site (fisthandwear.com) now redirects entirely to the .com.au domain, AUD-only pricing).' },
+    desc:'Weight per pair (approx, no weight published). Corrected price ($30 sample -> $33, fetched'
+      + ' fisthandwear.com.au AUD49.95 converted at ~0.66 USD/AUD - the brand\'s primary site'
+      + ' (fisthandwear.com) now redirects entirely to the .com.au domain, AUD-only pricing).'
+      + ' Kit-7 (2026-07-20): re-confirmed live at AUD49.95 exactly (Black colorway), custom FIST'
+      + ' closure + single-layer Clarino palm confirmed. Formalizing verified:true per THE PRICE'
+      + ' RULE (basis disclosed) - weight not required for kit apparel (stays sample).',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.fisthandwear.com.au/products/black-stocker' },
   { id:'glv-poc-resistanceenduro', cat:'gloves', brand:'POC', model:'Resistance Enduro Glove', price:60, weight:43,
     disciplines:['enduro'], sizes:['XS','S','M','L','XL'],
     desc:'Weight per pair, size M (maker-stated; independently corroborated at 43-46g by third-party reviews). Fetched poc.com: price $60 confirmed (page showed a 40%-off $36 sale price), corrected weight 90g -> 43g, sizes to XS-XL (was missing XS, had a non-existent XXL).',
@@ -2143,22 +2149,50 @@ var KIT_PARTS = [
     desc:'Fetched oneal.com/collections/element-glove: CORRECTED price $18 -> $24.99 (all 7 colorways list at that price). Weight not published; kept as the existing sample per the kit weight policy.',
     verified:true, lastChecked:'2026-07-17', source:'https://oneal.com/collections/element-glove' },
   { id:'glv-oneal-matrix', cat:'gloves', brand:'O\'Neal', model:'Matrix Glove', price:24.99, weight:65,
-    sizes:['S','M','L','XL','XXL'], desc:'Weight per pair (approx, not published on the maker page - stays unverified for that reason). Fetched oneal.com (Matrix Glove Stacked Black): corrected price $22 -> $24.99; sizes confirmed (8/9/10/11/12 = S/M/L/XL/XXL).' },
+    sizes:['S','M','L','XL','XXL'],
+    desc:'Weight per pair (approx, not published on the maker page). Fetched oneal.com (Matrix'
+      + ' Glove Stacked Black): corrected price $22 -> $24.99; sizes confirmed (8/9/10/11/12 ='
+      + ' S/M/L/XL/XXL). Kit-7 (2026-07-20): formalizing verified:true - weight is not required'
+      + ' for kit apparel (Douglas 2026-07-19); every other field is manufacturer-confirmed.',
+    verified:true, lastChecked:'2026-07-20', source:'https://oneal.com/products/matrix-glove-stacked-black' },
   { id:'glv-flyracing-kinetic', cat:'gloves', brand:'Fly Racing', model:'Kinetic Glove', price:33, weight:68,
     sizes:['XS','S','M','L','XL','XXL','XXXL'],
-    desc:'Corrected price ($28 sample -> $33, fetched flyracing.com/kinetic-gloves/ regular $32.95) and sizes to the maker\'s XS-3XL run. Fly markets Kinetic primarily for "motocross, BMX, and off-road performance" (not MTB-specific), though it is also listed in Fly\'s Bicycle > MTB > Gloves collection. Weight per pair (approx, no weight published).' },
+    desc:'Corrected price ($28 sample -> $33, fetched flyracing.com/kinetic-gloves/ regular $32.95)'
+      + ' and sizes to the maker\'s XS-3XL run. Fly markets Kinetic primarily for "motocross, BMX,'
+      + ' and off-road performance" (not MTB-specific), though it is also listed in Fly\'s'
+      + ' Bicycle > MTB > Gloves collection. Kit-7 (2026-07-20): re-confirmed live at $32.95,'
+      + ' formalizing verified:true - weight not required for kit apparel (stays sample).',
+    verified:true, lastChecked:'2026-07-20', source:'https://flyracing.com/kinetic-gloves/' },
   { id:'glv-flyracing-media', cat:'gloves', brand:'Fly Racing', model:'Media Glove', price:25, weight:62,
     sizes:['S','M','L','XL','XXL'],
     desc:'FLAG for coordinator review (2026-07-16): the only Media Glove page found is a legacy pre-2018 URL pattern (flyracing.com/product/mtb/riderwear/gloves/media-glove/...) not reachable on the current site; likely discontinued. Left as an unverified sample.' },
-  { id:'glv-royalracing-apex', cat:'gloves', brand:'Royal Racing', model:'Apex Glove', price:38, weight:65,
+  { id:'glv-royalracing-apex', cat:'gloves', brand:'Royal Racing', model:'Apex Glove - LTD Edition', price:38, weight:65,
     disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL','XXL'],
-    desc:'Corrected price ($40 sample -> $38, GBP29.99 fetched regular price converted at ~1.27 USD/GBP) and sizes to the maker\'s XS-XXL run. Weight per pair (approx, no weight published).' },
+    desc:'Corrected price ($40 sample -> $38, GBP29.99 fetched regular price converted at ~1.27'
+      + ' USD/GBP) and sizes to the maker\'s XS-XXL run. Kit-7 (2026-07-20): the full current'
+      + ' royalracing.com/collections/gloves lineup (browser-rendered) shows Apex Glove only ever'
+      + ' sold as "LTD Edition" colorways (Black/Blast/Rally, all GBP29.99 - the exact match for'
+      + ' this row) - model name disambiguated to match; not a special/rotating limited run despite'
+      + ' the name, it is the standing current SKU. Formalizing verified:true - weight not required'
+      + ' for kit apparel (stays sample).',
+    verified:true, lastChecked:'2026-07-20', source:'https://royalracing.com/collections/gloves' },
   { id:'glv-royalracing-core', cat:'gloves', brand:'Royal Racing', model:'Core Glove', price:32, weight:60,
     sizes:['XS','S','M','L','XL','XXL'],
-    desc:'Corrected price ($25 sample -> $32, GBP24.99 fetched regular price converted at ~1.27 USD/GBP, royalracing.com/products/core-glove-black) and sizes to the maker\'s XS-XXL run. Weight per pair (approx, no weight published).' },
+    desc:'Corrected price ($25 sample -> $32, GBP24.99 fetched regular price converted at ~1.27'
+      + ' USD/GBP, royalracing.com/products/core-glove-black) and sizes to the maker\'s XS-XXL run.'
+      + ' Kit-7 (2026-07-20): re-confirmed live at GBP24.99 exactly, hook-and-loop (velcro) closure'
+      + ' + AX suede palm confirmed. Formalizing verified:true - weight not required for kit apparel'
+      + ' (stays sample).',
+    verified:true, lastChecked:'2026-07-20', source:'https://royalracing.com/products/core-glove-black' },
   { id:'glv-handup-mostdays', cat:'gloves', brand:'Handup', model:'Most Days Glove', price:29, weight:60,
     sizes:['XXS','XS','S','M','L','XL','XXL','XXXL'],
-    desc:'Weight per pair (approx, not published on the maker page - stays unverified for that reason). Fetched handupco.com: corrected price $27 -> $29.00 and added the maker\'s full XXS-XXXL size range (was missing XXS/XS/XXXL).' },
+    desc:'Weight per pair (approx, not published on the maker page). Fetched handupco.com: corrected'
+      + ' price $27 -> $29.00 and added the maker\'s full XXS-XXXL size range (was missing'
+      + ' XXS/XS/XXXL). Kit-7 (2026-07-20): re-confirmed live at $29.00 exactly (Pure Black'
+      + ' colorway, one of 29 current Most Days styles), FullTouch touchscreen palm + stretch-cuff'
+      + ' pull-on (no velcro strap) confirmed. Formalizing verified:true - weight not required for'
+      + ' kit apparel (stays sample).',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.handupco.com/products/gloves-pure-black' },
   { id:'glv-bluegrass-prizma3d', cat:'gloves', brand:'Bluegrass', model:'Prizma 3D Glove', price:49, weight:80,
     disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL'],
     desc:'3D TPR knuckle protection. Re-fetched met-helmets.com (2026-07-17): price EUR45 (~$49 at ~1.08 USD/EUR), sizes XS-XL confirmed. Weight not published; kept as the existing sample per the kit weight policy.',
