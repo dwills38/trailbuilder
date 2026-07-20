@@ -2607,3 +2607,15 @@ per wave/decision; large reconstructions are handed to a worker session.
   share over 300 reshuffles); BMX honesty disclosure ported verbatim.
 - Remaining r4 items are grind-order visibility skews that close as verification proceeds, plus
   the non-rotor warning tail folded into the next complete-bikes wave.
+
+## 2026-07-20 (seat 14) — grind harvest: complete-bikes w5 + kit w4 (careful multi-line merge)
+
+- cb5 (`1275eea`): fixed cb-marin-pine-mountain-2 fork fill (false warning on its own build) +
+  added cb-geometron-g1-gx-eagle; bias-r4 non-rotor tail confirmed genuine, not bugs. 5024 parts.
+- kit w4 (`ffef073`): helmet corrections (Leatt 850->439g etc.), Shimano shoes re-scoped to live
+  model names, GE700 flat->SPD fix. HARVEST NOTE: kit-4 branched pre-kit-3, and kit rows are
+  MULTI-LINE — a naive "take theirs" dropped 7 rows (caught by count check); redone as a
+  row-BLOCK merge (41 kit-4 blocks onto HEAD's 714-row set, all kit-3 rows preserved).
+- ★ OPEN FOR DOUGLAS: 3 rows kit-4 wanted to un-verify that kit-3 had verified — hm-100-altec,
+  hm-troyleedesigns-d4-composite-mips, sho-shimano-xc5. Kept HEAD's verified state (no silent
+  regression); genuine kit-3-vs-kit-4 data disagreement needing a tiebreak fetch someday.
