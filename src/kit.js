@@ -956,12 +956,27 @@ var KIT_PARTS = [
     soleType:'flat', closure:'lace', disciplines:['trail'], sizes:['39','40','41','42','43','44','45','46','47'],
     status:'discontinued',
     desc:'House-brand value trail flat shoe. Weight per pair (approx). Checked 2026-07-16: giant-bicycles.com/us/showcase/line-shoe is now marketing copy only with no purchasable SKU or price (giant-bicycles.com/us/shoes lists Shuttle Flat Lace/BOA, Charge, Surge instead; giant-bicycles.com/us/line-shoe and /us/line-shoe-2020 both 404). Flagged discontinued/superseded; price/weight left as prior sample.' },
-  { id:'sho-sidi-dust', cat:'shoes', brand:'Sidi', model:'Dust', price:250, weight:700,
-    soleType:'clipless', closure:'ratchet', disciplines:['xc'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'XC race clipless shoe, Sidi Tecno ratchet closure. Weight per pair (approx).' },
-  { id:'sho-vaude-am-moab', cat:'shoes', brand:'Vaude', model:'AM Moab', price:140, weight:780,
-    soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'Unisex canvas/leather flat-pedal trail shoe, VAUDE AM Dirt SUPtraction sole (AM Moab Gravity spec sheet: 390g, basis unstated on the page, taken as per-shoe -> ~780g/pair). vaude.com international site prices in EUR only (EUR137 MSRP) with no VAUDE-direct USD store found, so price stays an unconfirmed US-market estimate and the row stays unverified.' },
+  { id:'sho-sidi-dust', cat:'shoes', brand:'Sidi', model:'Dust', price:369.99, weight:700,
+    soleType:'clipless', closure:'boa', disciplines:['xc','trail'], sizes:['38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','46.5','47','48'],
+    desc:'VERIFIED kit-7 (2026-07-20) via browser-rendered sidi.com (site-search resolved it -'
+      + ' "MTB Dust" is real, marketed as a technical-gravel/MTB crossover shoe, not the plain XC'
+      + ' race tier the row assumed). Closure corrected from "Tecno ratchet" (an older Sidi system'
+      + ' this model does not use) to a SIDI Wire dial-with-cable system (mapped to boa, the closest'
+      + ' vocab match, same mechanism family as Northwave\'s SLW3). Clipless MTB SR17 sole (2-bolt'
+      + ' SPD-style, screw-replaceable toe) confirmed. Price $369.99 regular (comp. value, not the'
+      + ' active -30% $258.99 sale) corrected from a $250 sample. Sizes widened to the full 38-48'
+      + ' half-size run shown. Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://sidi.com/en-us/products/mtb-dust-grig' },
+  { id:'sho-vaude-am-moab', cat:'shoes', brand:'Vaude', model:'AM Moab Gravity', price:149, weight:780,
+    soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['36','37','38','39','40','41','42','43','44','45','46','47','48','49','50'],
+    desc:'VERIFIED kit-7 (2026-07-20): the row matches VAUDE\'s "AM Moab Gravity" specifically (one'
+      + ' of several current AM Moab variants - Mid Winter STX, Tech, Mid STX II also exist) --'
+      + ' model corrected to disambiguate. Unisex canvas/hydrophobic-suede flat-pedal shoe,'
+      + ' SUPtraction sole, lace closure confirmed (page text + a customer review both describe'
+      + ' laces, not a dial/ratchet system). Weight 390g/shoe confirmed on the page (780g/pair).'
+      + ' vaude.com prices in EUR only (EUR137.00, no US store) -- converted to a $149 USD sample'
+      + ' per THE PRICE RULE, basis disclosed. Sizes widened to the full EU 36-50 run shown.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.vaude.com/int/en/20539-am-moab-gravity-cycling-shoes.html' },
   { id:'sho-scott-mtb-comp-boa', cat:'shoes', brand:'Scott', model:'MTB Comp BOA', price:109.99, weight:740,
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['40','41','42','43','44','45','46','47','48'],
     desc:'Trail/enduro clipless shoe, single BOA L6 dial, 2-bolt cleat compatible. Weight per pair (fetched scott-sports.com: 370g per shoe, US 8.5). Fetched page also corrected price $170 -> $109.99 and sizes to the maker\'s EU 40-48 range.',
