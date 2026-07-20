@@ -51,7 +51,7 @@ var GRAVEL_VOCAB = {
   bb:           ['bsa-road', 'bb86', 'bb30a', 'pf86', 'pf30', '24mm-road', 'dub', 'dub-wide', 'ultra-torque', 'bbright', 't47-road'],
   shell:        ['bsa-road', 't47-road', 'bb86'],
   spindle:      ['24mm-road', 'dub'],
-  seatpost:     ['27.2', '31.6'],
+  seatpost:     ['27.2', '31.6', '30.9'],
   steerer:      ['tapered'],
   frontDerailleurMount: ['none', 'braze-on'],
   material:     ['alloy', 'steel'],
@@ -249,7 +249,7 @@ function validateGravelPart(p, today){
   // catches typos (a field spelled differently than every other row).
   /** @type {Object.<string, number>} */
   var COMMON = { id:1, cat:1, brand:1, model:1, price:1, weight:1, note:1, verified:1, lastChecked:1, source:1,
-    family:1, modelYear:1, mfgPn:1, sourceType:1, weightSource:1, archiveUrl:1 };
+    family:1, modelYear:1, mfgPn:1, sourceType:1, weightSource:1, archiveUrl:1, gen:1 };
   Object.keys(p).forEach(function(k){
     if(COMMON[k] || spec[k]) return;
     bad('unknown field "' + k + '" for category "' + p.cat + '"');
