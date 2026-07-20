@@ -73,13 +73,14 @@ var EMTB_PARTS = [
   },
   {
     id: 'em-commencal-meta-power-sx', cat: 'emtb', brand: 'Commencal', model: 'Meta Power SX',
-    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
-    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'Formula Cura 4',
-    disciplines: ['e-enduro'], weight: 24500, price: 6500,
-    note: 'Aluminium value e-enduro bike; long-travel mixed wheel.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed.'
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85,
+    batteryWh: 625, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 165,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX 12-speed', brakes: 'Shimano SLX 4-piston',
+    disciplines: ['e-enduro'], weight: 25000, price: 6500,
+    note: 'Meta Power SX V4 Bosch Essential; aluminium value e-enduro bike, long-travel mixed wheel.',
+    desc: 'Verified vs the maker page for the Bosch Essential build; MSRP $6,500 matches (site listed at a temporary discount).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.commencal.com/us/en/BT3MSXPWE4L.html'
   },
   {
     id: 'em-orbea-wild', cat: 'emtb', brand: 'Orbea', model: 'Wild',
@@ -269,13 +270,14 @@ var EMTB_PARTS = [
   },
   {
     id: 'em-commencal-meta-power-sx-signature', cat: 'emtb', brand: 'Commencal', model: 'Meta Power SX Signature',
-    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
-    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'Formula Cura 4',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85,
+    batteryWh: 625, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 165,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore XT 12-speed', brakes: 'Shimano XT 4-piston',
     disciplines: ['e-enduro'], weight: 24200, price: 8000,
-    note: 'Top-tier Meta Power SX build; SRAM X0 Transmission upgrade over the base SX.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    note: 'Meta Power SX V4 Bosch Signature; top-tier build over the base SX Essential.',
+    desc: 'Verified vs the maker page for the Bosch Signature build; MSRP $8,000 and 24.2kg weight both match exactly.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.commencal.com/us/en/commencal-meta-power-sx-bosch-signature-pure-white/22METAPWSG2.html'
   },
 
   // ---------------------------------------------------------------------------
