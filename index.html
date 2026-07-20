@@ -253,6 +253,9 @@
   .pm-up-row.ok{color:var(--ok)}
   .pm-up-row.warn{color:var(--warn)}
   .pm-up-row.err{color:var(--err)}
+  /* lifecycle banner in the part modal (feature slate #16) */
+  .pm-lifecycle{background:var(--warn-bg);color:var(--warn);border-radius:10px;padding:8px 12px;margin:10px 0 0;font-size:13px;line-height:1.45}
+  .pm-lc-link{background:none;border:none;padding:0;font:inherit;color:inherit;font-weight:700;text-decoration:underline;cursor:pointer}
   .layout{display:grid;grid-template-columns:210px minmax(0,1fr) 330px;gap:20px;align-items:start}   /* rail 250→210, side 350→330, gap 22→20 (2026-07-11): reclaims ~64px for the catalog column so one-line list rows engage at 1280-wide windows */
   .layout > *{min-width:0}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(236px,1fr));gap:12px;min-width:0}
@@ -367,6 +370,9 @@
   /* was #9aa39b (~2.6:1 on white — fails WCAG AA); ink-soft passes at ~6.5:1 */
   .prov .est{color:var(--ink-soft);font-weight:600}
   .prov .owned{display:inline-flex;align-items:center;gap:3px;background:var(--chip);color:var(--brand);font-weight:700;padding:1px 7px;border-radius:999px;border:1px solid var(--line);margin-left:5px}
+  /* lifecycle chip (feature slate #16) — pure data-driven off part.status, so every
+     brand gets the identical treatment; theme-var colors cover all four themes */
+  .prov .lifecycle{display:inline-flex;align-items:center;gap:3px;background:var(--warn-bg);color:var(--warn);font-weight:700;padding:1px 7px;border-radius:999px;border:1px solid var(--line);margin-left:5px}
   /* Complete-bike "build-sheet verified" badge — deliberately distinct from
      .ver's green (part-level verified) so the two different claims never look
      like the same badge (bias-r3, 2026-07-17). */
@@ -431,7 +437,7 @@
       /* provenance as a right-anchored column; badges never split mid-pill —
          an owned badge wraps whole onto a second line inside the track */
       .list .pcard .prov{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;row-gap:2px}
-      .list .pcard .prov .ver,.list .pcard .prov .sheet-ver,.list .pcard .prov .est,.list .pcard .prov .owned{white-space:nowrap}
+      .list .pcard .prov .ver,.list .pcard .prov .sheet-ver,.list .pcard .prov .est,.list .pcard .prov .owned,.list .pcard .prov .lifecycle{white-space:nowrap}
       /* col-4 stacks the price on top with the pick buttons SIDE BY SIDE below it —
          a second button (the 🧰 Own button, shown only when signed in) used to wrap
          into a taller two-button stack (Douglas 2026-07-11). Both stay right-anchored. */
@@ -1189,6 +1195,11 @@
              (compatOf dots, catalog, hash), never a separate engine. -->
         <button class="btn" id="upgradeNavBtn" title="Check whether a part fits a bike you already have — pick your bike, then browse any part" aria-pressed="false">🔧 Will it fit my bike?</button>
         <button class="btn" id="verifiedOnly" title="Show only parts verified against a manufacturer spec" aria-pressed="false">✓ Verified only</button>
+        <!-- Discontinued archive (feature slate #16): user-opted browse mode, NEVER
+             default-on — the default catalog stays current-market. Interface data
+             outlives product cycles, so archived rows keep checking fit exactly like
+             any part (visibility only; zero engine changes). -->
+        <button class="btn" id="includeDiscontinued" title="Also show parts no longer sold new — the archive. Their specs still check fit exactly like any other part (handy for used-market shopping); off = current-market parts only" aria-pressed="false">🗄 Include discontinued</button>
         <button class="btn" id="ownedOnly" hidden title="Show only parts in your inventory" aria-pressed="false">🧰 Owned only</button>
         <button class="btn" id="compatibleOnly" title="Hide parts that would clash with your current build (parts with no build yet always show)" aria-pressed="false">🟢 Compatible only</button>
         <details class="theme-menu" id="themeMenu">
@@ -1252,7 +1263,7 @@
     </div>
     <div id="upgradeActive" hidden>
       <div class="up-base">🔧 Checking parts against: <strong id="upBaseName"></strong> <span class="muted" id="upBaseMeta"></span></div>
-      <p class="up-note">Browse or search any part — its dot and verdict answer for this bike, swap-aware. Open a part for the full story (what it replaces, what it clears). Green = no conflicts among the dimensions we check, not a guarantee.</p>
+      <p class="up-note">Browse or search any part — its dot and verdict answer for this bike, swap-aware. Open a part for the full story (what it replaces, what it clears). Green = no conflicts among the dimensions we check, not a guarantee. 🗄 Discontinued parts are included here — checking a used part against your bike is exactly what this mode is for.</p>
       <div class="up-actions">
         <button type="button" class="btn" id="upChangeBike">Change bike</button>
         <button type="button" class="btn" id="upShareCheck" title="Copy a link that opens this exact check">ᯤ Share this check</button>
@@ -1529,6 +1540,10 @@
   </div>
   <div class="rm-body">
     <div id="pmCompat" class="pm-compat none"></div>
+    <!-- Lifecycle banner (feature slate #16): shown only when the part's own
+         status field says discontinued/recalled — status + what supersedes it,
+         linked. Data-driven, identical for every brand. -->
+    <div id="pmLifecycle" class="pm-lifecycle" hidden></div>
     <!-- Upgrade Advisor detail (upgradeCheck, src/upgrade.js): the swap-aware
          story vs the chosen baseline — slot, displaced parts, every new
          error/warning, and which current conflicts the swap clears. Hidden
@@ -1733,6 +1748,23 @@
   var sortBy = 'random';   // catalog order: random (uniform shuffle, unbiased default) | name | price | weight
   var search = '';
   var verifiedOnly = false;  // when on, show only manufacturer-verified parts/kits
+  // Discontinued archive (feature slate #16): user-opted, NEVER default-on — the
+  // default catalog stays current-market. Session-only like verifiedOnly (no
+  // persistence, so a fresh visit always lands on current-market). Visibility
+  // only: an archived part already in the build / a share link still renders,
+  // totals, and verdicts exactly as before — checkBuild never sees status.
+  var includeDiscontinued = false;
+  var discontinuedPreUpgrade = null;   // toggle state to restore when upgrade mode exits (null = not in upgrade mode)
+  // 'recalled' is in the schema vocab but has zero catalog rows today — handled
+  // here (own banner wording) so a future recalled row hides from the default
+  // browse too rather than silently reading as current-market.
+  function partArchived(p){ return p.status==='discontinued' || p.status==='recalled'; }
+  function setIncludeDiscontinued(v){
+    includeDiscontinued = v;
+    var b = $('includeDiscontinued');
+    b.classList.toggle('primary', v);
+    b.setAttribute('aria-pressed', String(v));
+  }
   var ownedOnly = false;     // when on, show only parts in the signed-in user's inventory
   var ownedIds = {};         // canonicalId(part_id) -> true, cache kept fresh by refreshOwned() (renderCatalog stays sync)
   var compatibleOnly = false;  // when on, hide parts whose compat dot would be red (state 'r'); yellow still shows (it still fits)
@@ -1916,6 +1948,13 @@
      (ownedIds cache, kept fresh by refreshOwned()). '' when not owned/not signed in. */
   function ownedBadgeHtml(p){
     return ownedIds[canonicalId(p.id)] ? '<span class="owned" title="You already own this part">🧰 Owned</span>' : '';
+  }
+  /* Lifecycle chip (feature slate #16) — driven purely by the part's own
+     status field, so every brand gets the identical treatment. */
+  function lifecycleChipHtml(p){
+    if(p.status==='recalled') return '<span class="lifecycle" title="This part has a manufacturer recall — open it for details">⚠ Recalled</span>';
+    if(p.status==='discontinued') return '<span class="lifecycle" title="No longer sold new — archived for reference and used-market checks; fit verdicts work exactly like any other part">🗄 Discontinued</span>';
+    return '';
   }
 
   /* ---- chips ---- */
@@ -2756,7 +2795,10 @@
     // Every filter EXCEPT compatibleOnly — the family-card branch below needs this
     // "candidate" set to decide whether a family survives (>=1 member still non-
     // red) BEFORE compatibleOnly narrows the drilled-in list to just the fits.
-    function baseMatch(p){
+    // baseMatchCore = every filter except the discontinued-archive gate, so the
+    // honest "N discontinued hidden" disclosure below can count exactly what the
+    // gate (and nothing else) is hiding; baseMatch = core + the gate.
+    function baseMatchCore(p){
       if(p.cat==='completebike' && activeGroup!=='completebikes') return false;
       if(activeCats && activeCats.indexOf(p.cat)<0) return false;
       if(activeGroup!=='all' && activeSub!=='all'){ var subM=SUBCHIP_META[activeSub];
@@ -2778,6 +2820,19 @@
       if(!window.rangeFiltersMatch(RANGEFILTERS, rangeFilter, p)) return false;
       return true;
     }
+    function baseMatch(p){ return (includeDiscontinued || !partArchived(p)) && baseMatchCore(p); }
+    // How many rows the archive gate alone is hiding in the current scope —
+    // shown on the count line so the default view never silently understates
+    // what the catalog knows (drillFam narrowing applied where active).
+    var hiddenArchived = includeDiscontinued ? 0 : PARTS.filter(function(p){
+      if(!partArchived(p) || !baseMatchCore(p)) return false;
+      if(drillFam && (p.family||null)!==drillFam) return false;
+      return true;
+    }).length;
+    var hiddenArchivedNote = hiddenArchived ? ' · '+hiddenArchived+' discontinued hidden' : '';
+    var archivedEmptyHint = hiddenArchived
+      ? 'The matching part'+(hiddenArchived>1?'s':'')+' here '+(hiddenArchived>1?'are':'is')+' discontinued — toggle “🗄 Include discontinued” to browse the archive.'
+      : null;
 
     // ---- family CARDS (not drilled into one yet): group the candidate parts by
     // `family` into one browse card per model line (a part with no family value
@@ -2799,11 +2854,11 @@
       if(compatibleOnly) rows = rows.filter(function(r){ return r.state!=='r'; });
       var totalInScope = PARTS.filter(function(p){ return activeCats.indexOf(p.cat)>=0; }).length;
       var shownSizes = rows.reduce(function(s,r){ return s+r.members.length; }, 0);
-      $('catCount').textContent = rows.length
+      $('catCount').textContent = (rows.length
         ? 'Showing '+rows.length+' model famil'+(rows.length===1?'y':'ies')+' — '+shownSizes+' of '+totalInScope+' sizes'
-        : 'Showing 0 of '+totalInScope+' sizes';
+        : 'Showing 0 of '+totalInScope+' sizes')+hiddenArchivedNote;
       if(!rows.length){
-        el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>';
+        el.innerHTML='<p class="muted">'+(archivedEmptyHint?archivedEmptyHint:ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>';
         return;
       }
       var famWt=function(r,missing){ return r.weightLo!=null ? r.weightLo : missing; };
@@ -2834,13 +2889,13 @@
     // count line above the catalog — set before the empty-state return so it
     // honestly reads "Showing 0 of N parts" when every part is filtered out
     if(activeGroup==='completebikes'){
-      $('catCount').textContent = 'Showing '+list.length+' of '+COMPLETEBIKE_COUNT+' complete bikes';
+      $('catCount').textContent = 'Showing '+list.length+' of '+COMPLETEBIKE_COUNT+' complete bikes'+hiddenArchivedNote;
     } else if(drillFam){
       var famCatKey = groupByKey[activeGroup].slots[0].cat;
       var familyTotal = PARTS.filter(function(p){ return p.cat===famCatKey && p.family===drillFam; }).length;
-      $('catCount').textContent = 'Showing '+list.length+' of '+familyTotal+' sizes';
+      $('catCount').textContent = 'Showing '+list.length+' of '+familyTotal+' sizes'+hiddenArchivedNote;
     } else {
-      $('catCount').textContent = 'Showing '+list.length+' of '+PARTS.length+' parts';
+      $('catCount').textContent = 'Showing '+list.length+' of '+PARTS.length+' parts'+hiddenArchivedNote;
     }
     if(!list.length){
       // Wheelset presets are pre-built matched pairs — not every real axle combo
@@ -2851,7 +2906,7 @@
       var wheelsetEmptyHint = (compatibleOnly && activeSub==='wheelset')
         ? 'No compatible pre-built wheelsets for this build — matched pairs aren’t cataloged for every axle combo. Try “Front Wheel” / “Rear Wheel” above to build the pair from individually-compatible wheels.'
         : null;
-      el.innerHTML='<p class="muted">'+(ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':wheelsetEmptyHint?wheelsetEmptyHint:drillFam?'No sizes in this family match — try adjusting filters, or use “← All '+esc(groupByKey[activeGroup].label)+'” above to browse other families.':compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>'; return;
+      el.innerHTML='<p class="muted">'+(archivedEmptyHint?archivedEmptyHint:ownedOnly?'No owned parts in this category yet — toggle “🧰 Owned only” off, or add parts to your inventory.':verifiedOnly?'No verified parts in this category yet — toggle “✓ Verified only” off to see sample parts.':wheelsetEmptyHint?wheelsetEmptyHint:drillFam?'No sizes in this family match — try adjusting filters, or use “← All '+esc(groupByKey[activeGroup].label)+'” above to browse other families.':compatibleOnly?'No compatible parts in this category with your current build — toggle “🟢 Compatible only” off to see the rest.':'No parts match.')+'</p>'; return;
     }
     var meta=list.map(function(p,i){ var c=compatOf(p, res); return {p:p,c:c,sh:partShuffleOrder[p.id],i:i}; });
     // "Random" is a genuine uniform shuffle (see reshuffleCatalog above) — no
@@ -2909,7 +2964,7 @@
         '<div class="pcard-headtext"><div class="kind">'+catLabel(p.cat)+(discLabel?' · '+esc(discLabel):'')+'</div>'+
         '<button type="button" class="name" aria-label="View details for '+esc(p.brand+' '+p.model)+'">'+esc(p.brand)+' '+esc(p.model)+'</button></div></div>'+
       '<div class="spec">'+Object.keys(p.fills).length+' factory-stock parts — faithful build, checked by the engine</div>'+
-      provHtml(p)+
+      provHtml(p, lifecycleChipHtml(p))+
       '<div class="cb-priceaction">'+
       '<div class="cb-card-price">'+
         '<span class="cb-card-complete">'+money(p.price)+' <small>complete</small></span>'+
@@ -2959,7 +3014,7 @@
         // disallows focusable descendants of a role=button container).
         '<button type="button" class="name" aria-label="View details for '+esc(p.brand+' '+p.model)+'">'+esc(p.brand)+' '+esc(p.model)+'</button></div></div>'+
       '<div class="spec">'+esc(specSummary(p))+'</div>'+
-      provHtml(p, ownedBadgeHtml(p))+
+      provHtml(p, lifecycleChipHtml(p)+ownedBadgeHtml(p))+
       // Upgrade mode: the dot's reason as a visible line on every card — the
       // flipped view's point on touch, where a hover title never shows. Same
       // compatOf verdict as the dot (identical source, so they can't disagree);
@@ -3424,6 +3479,24 @@
     var pcCls = pc.state==='g' ? 'ok' : pc.state==='w' ? 'warn' : pc.state==='r' ? 'err' : 'none';
     $('pmCompat').className = 'pm-compat '+pcCls;
     $('pmCompat').innerHTML = '<span class="dot '+pc.state+'" aria-hidden="true"></span><span>'+esc(pc.reason)+'</span>';
+    /* Lifecycle banner (feature slate #16): status + what supersedes it, linked.
+       supersededBy is validator-guaranteed to reference a real catalog id, but
+       resolve through canonicalId/byId anyway — a missing successor degrades to
+       plain text, never a crash. Verdicts above are untouched: checkBuild never
+       reads status. */
+    var lcEl = $('pmLifecycle');
+    if(p.status && p.status!=='current'){
+      var lcSup = p.supersededBy ? byId(canonicalId(p.supersededBy)) : null;
+      var lcHtml = p.status==='recalled'
+        ? '<strong>⚠ Recalled</strong> — this part has a manufacturer recall. Check the manufacturer’s recall notice before riding it.'
+        : '<strong>🗄 Discontinued</strong> — no longer sold new by '+esc(p.brand)+'. Its specs are archived for reference and used-market fit checks; verdicts work exactly like any other part.';
+      if(lcSup) lcHtml += ' Succeeded by <button type="button" class="pm-lc-link" id="pmLcSup">'+esc(lcSup.brand+' '+lcSup.model)+'</button>.';
+      lcEl.innerHTML = lcHtml;
+      lcEl.hidden = false;
+      if(lcSup){ $('pmLcSup').onclick = function(){ openPartModal(lcSup); }; }
+    } else {
+      lcEl.hidden = true;
+    }
     /* Upgrade mode: the full swap-aware story vs the chosen baseline
        (upgradeCheck, src/upgrade.js — its state is test-pinned to agree with
        the compatOf dot above). Shows the placement slot, what the swap
@@ -4926,8 +4999,28 @@
     renderChips(); renderSubChips(); renderSubFilters();
   }
   function setUpgradeMode(on){
+    var was = upgradeMode;
     upgradeMode = on;
     if(!on) upgradeBaseline = null;
+    /* Discontinued-archive interplay (feature slate #16): checking a USED part
+       against your bike is the upgrade lens's core use case, and used parts are
+       very often discontinued ones — so entering the mode switches the archive
+       on VISIBLY (the toolbar toggle lights up and stays fully user-operable;
+       turning it off mid-mode is respected). Exiting restores whatever the
+       toggle was before the mode, so the default catalog stays current-market.
+       Guarded on the actual transition — applyUpgradeRoute re-calls this on
+       every in-mode hash change and must not re-capture or re-flip. */
+    if(on && !was){
+      discontinuedPreUpgrade = includeDiscontinued;
+      if(!includeDiscontinued){
+        setIncludeDiscontinued(true);
+        toast('🗄 Discontinued parts are included while checking your bike — used parts are the point. The toggle above hides them again.');
+      }
+    }
+    if(!on && was && discontinuedPreUpgrade!==null){
+      setIncludeDiscontinued(discontinuedPreUpgrade);
+      discontinuedPreUpgrade = null;
+    }
     document.body.classList.toggle('upgrade-mode', on);
     var nav = $('upgradeNavBtn');
     nav.classList.toggle('primary', on);
@@ -5206,6 +5299,7 @@
   });
   $('sortBy').onchange=function(){ sortBy=this.value; renderCatalog(); };
   $('verifiedOnly').onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary', verifiedOnly); this.setAttribute('aria-pressed', String(verifiedOnly)); renderCatalog(); };
+  $('includeDiscontinued').onclick=function(){ setIncludeDiscontinued(!includeDiscontinued); renderCatalog(); };
   $('compatibleOnly').onclick=function(){
     setCompatibleOnly(!compatibleOnly);
     // the user's explicit choice outlasts the guided flow for this session:
