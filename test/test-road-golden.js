@@ -41,11 +41,14 @@ function describeConflicts(r){
 
 /* ---- dataset sanity -------------------------------------------------------- */
 test('road+gravel datasets: unique ids, engine-known categories', function(){
-  /* gravel uses cat:'derailleur' for BOTH front and rear derailleurs while
-     road splits frontderailleur/rearderailleur — a known dataset divergence
-     (flagged in this round's report); the engine is slot-keyed so both work,
-     and this sanity list accepts the union until the datasets converge. */
-  /** @type {Object.<string, boolean>} */ var knownCats = { derailleur: true, dropper: true };
+  /* dropbar-cleanup-1 item 3: gravel used to lump cat:'derailleur' for BOTH
+     front and rear derailleurs while road split frontderailleur/
+     rearderailleur (a known dataset divergence this list used to paper
+     over with an extra 'derailleur' entry). gravel now matches road's split
+     (its gfd-/grd- id prefixes already distinguished them, only the cat
+     field was lumped), so every cat in both datasets maps to a real
+     ROAD_SLOTS entry — no manual seed needed. */
+  /** @type {Object.<string, boolean>} */ var knownCats = {};
   ROAD.ROAD_SLOTS.forEach(function(/** @type {any} */ s){ knownCats[s.cat] = true; });
   /** @type {Object.<string, boolean>} */ var seen = {};
   RD.ROAD_PARTS.concat(GD.GRAVEL_PARTS).forEach(function(/** @type {any} */ p){

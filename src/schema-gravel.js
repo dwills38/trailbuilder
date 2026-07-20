@@ -64,7 +64,8 @@ var GRAVEL_VOCAB = {
   system:       ['shimano-grx-12', 'shimano-grx-11', 'sram-xplr-12', 'sram-xplr-13', 'sram-apex-mech-12',
                   'campag-ekar-13', 'sram-axs-road', 'hg', 'flattop', 'campag'],
   cage:         ['gs', 'sgs', 'xplr'],
-  mount:        ['std-hanger', 'udh-fullmount', 'braze-on', 'flat-mount', 'center-lock', '6-bolt'],
+  mount:        ['flat-mount', 'center-lock', '6-bolt'],
+  mountRD:      ['std-hanger', 'udh-fullmount'],
   minCog:       [9, 10, 11],
   speeds:       [11, 12, 13],
   chainrings:   ['1x', '2x'],
@@ -112,10 +113,21 @@ var GRAVEL_SCHEMA = {
     system:{type:'string',vocab:'system'}, speeds:{type:'number',vocab:'speeds'}, actuation:{type:'string',vocab:'actuation'},
     brakeSystem:{type:'string',vocab:'brakeSystem'}, side:{type:'string',vocab:'side'}, frontShift:{type:'bool'}
   },
-  derailleur: {
+  /* dropbar-cleanup-1 item 3: split from a single shared 'derailleur' cat
+     into frontderailleur/rearderailleur, matching src/schema-road.js's split
+     (gfd-/grd- id prefixes already distinguished them; only the cat field
+     was lumped). mount vocabs diverge too: front takes frontDerailleurMount
+     ('none'/'braze-on', shared with frames), rear takes the new mountRD
+     ('std-hanger'/'udh-fullmount') — those two token sets never overlap in
+     meaning, so keeping them one shared 'mount' vocab risked a FD row
+     validating with a hanger-mount token or vice versa. */
+  frontderailleur: {
     system:{type:'string',vocab:'system'}, speeds:{type:'number',vocab:'speeds'}, actuation:{type:'string',vocab:'actuation'},
-    mount:{type:'string',vocab:'mount'}, cage:{type:'string',vocab:'cage',optional:true},
-    maxCog:{type:'number',optional:true}, capacity:{type:'number',optional:true}
+    mount:{type:'string',vocab:'frontDerailleurMount'}, capacity:{type:'number',optional:true}
+  },
+  rearderailleur: {
+    system:{type:'string',vocab:'system'}, speeds:{type:'number',vocab:'speeds'}, actuation:{type:'string',vocab:'actuation'},
+    maxCog:{type:'number'}, cage:{type:'string',vocab:'cage'}, mount:{type:'string',vocab:'mountRD'}
   },
   cassette: {
     system:{type:'string',vocab:'system'}, speeds:{type:'number',vocab:'speeds'}, freehub:{type:'string',vocab:'freehub'},
