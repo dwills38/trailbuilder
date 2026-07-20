@@ -816,6 +816,10 @@ var GRAVEL_PARTS = [
     note: 'gravel-grind-1 row: real product, not independently fetched this session — stays unverified sample.' },
   { id: 'gst-thomson-elite-x4-100', cat: 'stem', brand: 'Thomson', model: 'Elite X4', family: 'thomson-elite-x4',
     clamp: '31.8', steerer: 'tapered', length: 100, weight: 145, price: 115 },
+  { id: 'gst-deda-zero100-110', cat: 'stem', brand: 'Deda', model: 'Zero100', family: 'deda-zero100',
+    clamp: '31.8', steerer: 'tapered', length: 110, weight: 126, price: 90,
+    verified: true, lastChecked: '2026-07-20', source: 'https://dedaelementi.com/zero100-stem',
+    note: 'gravel-3b: dedaelementi.com (manufacturer, fetched clean via Exa) states 126g at the 110mm length — row uses that exact size/weight pairing rather than interpolating to the catalog\'s usual 100mm to avoid a fabricated number. 31.7mm clamp rounds to the catalog\'s 31.8 vocab token (same convention as every other stem row).' },
 
   // ===== SEATPOST =======================================================
   { id: 'gsp-zipp-scsl-272', cat: 'seatpost', brand: 'Zipp', model: 'Service Course SL Seatpost',
@@ -827,6 +831,10 @@ var GRAVEL_PARTS = [
     note: 'gravel-grind-1 row: real product, not independently fetched this session — stays unverified sample.' },
   { id: 'gsp-easton-ec70-272', cat: 'seatpost', brand: 'Easton', model: 'EC70 Carbon Seatpost', family: 'easton-ec70-seatpost',
     diameter: '27.2', setback: 20, weight: 200, price: 150 },
+  { id: 'gsp-ritchey-wcs-carbonlink-272', cat: 'seatpost', brand: 'Ritchey', model: 'WCS Carbon Link FlexLogic', family: 'ritchey-wcs-carbonlink',
+    diameter: '27.2', setback: 15, weight: 195, price: 130,
+    verified: true, lastChecked: '2026-07-20', source: 'https://ritcheylogic.com/bike/seatposts/wcs-carbon-link-flexlogic-seatpost',
+    note: 'gravel-3b: ritcheylogic.com (manufacturer, fetched clean via Exa) states 195g for the 27.2x350mm/15mm-offset build; also sold in 30.9/31.6mm, this row pins the gravel-standard 27.2. Price is an unsourced retail estimate — sample.' },
 
   // ===== DROPPER (gravel-specific, short travel) =========================
   { id: 'gdp-pnw-coast-272-60', cat: 'dropper', brand: 'PNW', model: 'Coast Suspension Seatpost',
@@ -855,6 +863,10 @@ var GRAVEL_PARTS = [
     weight: 400, price: 150 },
   { id: 'gsa-ergon-sr-allroad-core', cat: 'saddle', brand: 'Ergon', model: 'SR Allroad Core', family: 'ergon-sr-allroad',
     weight: 260, price: 90 },
+  { id: 'gsa-prologo-dimension-143', cat: 'saddle', brand: 'Prologo', model: 'Dimension 143', family: 'prologo-dimension-143',
+    weight: 158, price: 120,
+    verified: true, lastChecked: '2026-07-20', source: 'https://prologo.it/en/products/dimension-143',
+    note: 'gravel-3b: prologo.it (manufacturer, fetched clean via Exa) lists 158g for the Nack-rail build (of a 158/205/226g rail-material spread) at EUR109; price converted/rounded to a USD estimate ($120) since the catalog is USD-basis — the EUR figure itself is manufacturer-real, only the conversion is a sample.' },
 
   // ===== PEDALS ==========================================================
   { id: 'gpd-shimano-pd-grx600', cat: 'pedal', brand: 'Shimano', model: 'PD-GRX600', family: 'shimano-grx-pedal',
@@ -866,6 +878,9 @@ var GRAVEL_PARTS = [
     note: 'gravel-grind-1 row: real product, not independently fetched this session — stays unverified sample.' },
   { id: 'gpd-time-atac-xc2', cat: 'pedal', brand: 'Time', model: 'ATAC XC 2', family: 'time-atac-xc2',
     style: 'clip', weight: 330, price: 90 },
+  { id: 'gpd-ht-t1-clip', cat: 'pedal', brand: 'HT Components', model: 'T1', family: 'ht-t1',
+    style: 'clip', weight: 368, price: 135,
+    note: 'gravel-3b: real product — an XC/trail clipless pedal (X1E/X1/X1F cleat system), universal 9/16" thread so it fits a gravel crank same as the catalog\'s existing Time/Crankbrothers pedal rows. 368g/pair per a retailer spec table (fulltiltbike.com) and independently corroborated by a Bikerumor review that weighed a pair at 373g; no htcomponents.com manufacturer page was fetched this session — stays unverified sample.' },
 
   // ===== BARTAPE ==========================================================
   { id: 'gtp-fizik-vento-microtex-tacky', cat: 'bartape', brand: 'Fizik', model: 'Vento Microtex Tacky',
