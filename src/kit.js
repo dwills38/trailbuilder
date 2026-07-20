@@ -904,9 +904,15 @@ var KIT_PARTS = [
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
     desc:'Fetched oneal.com (Gray/Red colorway): CORRECTED price $100 -> $79.99. Honey Rubber Hexagon sole, PU upper, lace closure, removable footbed, reinforced toe cap confirmed. Weight not published; kept as the existing sample per the kit weight policy.',
     verified:true, lastChecked:'2026-07-17', source:'https://oneal.com/products/pinned-flat-pedal-shoe-gray-red' },
-  { id:'sho-oneal-session-spd', cat:'shoes', brand:"O'Neal", model:'Session SPD', price:120, weight:800,
-    soleType:'clipless', closure:'velcro', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'UNVERIFIED (2026-07-17): Session SPD not found on oneal.com (US storefront); only listed on oneal.eu. Left as an unverified sample rather than sourcing a non-US price.' },
+  { id:'sho-oneal-session-spd', cat:'shoes', brand:"O'Neal", model:'Pinned SPD', price:99.99, weight:800,
+    soleType:'clipless', closure:'lace', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
+    desc:'RESOLVED kit-7 (2026-07-20): "Session SPD" confirmed not to exist - the oneal.com US'
+      + ' Cycling Shoes collection carries exactly one clipless SKU, "Pinned SPD Shoe" (the SPD'
+      + ' cousin of the already-cataloged Pinned Flat row), so this row is re-scoped to that real'
+      + ' product. Lace-up closure confirmed (corrected from velcro), SPD cleat compatible,'
+      + ' O\'Neal Honey Rubber sole, PU upper. Price $99.99 confirmed exactly (was sample $120).'
+      + ' Weight not published, stays sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://oneal.com/collections/cycling-shoes/products/pinned-spd-shoe' },
   { id:'sho-endura-hummvee-flat', cat:'shoes', brand:'Endura', model:'Hummvee Flat', price:130, weight:850,
     soleType:'flat', closure:'lace', disciplines:['trail'], sizes:['39','40','41','42','43','44','45','46','47'],
     verified:true, lastChecked:'2026-07-16', source:'https://www.endurasport.com/en-us/products/hummvee-flat-shoes-black-re9500bk',
@@ -981,9 +987,16 @@ var KIT_PARTS = [
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['40','41','42','43','44','45','46','47','48'],
     desc:'Trail/enduro clipless shoe, single BOA L6 dial, 2-bolt cleat compatible. Weight per pair (fetched scott-sports.com: 370g per shoe, US 8.5). Fetched page also corrected price $170 -> $109.99 and sizes to the maker\'s EU 40-48 range.',
     verified:true, lastChecked:'2026-07-16', source:'https://www.scott-sports.com/us/en/product/scott-mtb-comp-boa-shoe' },
-  { id:'sho-scott-sport-crus-r-flat-boa', cat:'shoes', brand:'Scott', model:'Sport Crus-r Flat BOA', price:150, weight:750,
+  { id:'sho-scott-sport-crus-r-flat-boa', cat:'shoes', brand:'Scott', model:'Sport Crus-r Flat BOA', price:150, weight:750, status:'discontinued',
     soleType:'flat', closure:'boa', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'Flat pedal shoe with BOA closure. Weight per pair (approx). ATTEMPTED 2026-07-17: scott-sports.com/us/en/product/... and /global/en/product/... both 404 for this slug; the US-market page could not be located (Scott\'s site is JS-driven, WebFetch/Exa returned no product content). Left unverified.' },
+    desc:'RESOLVED kit-7 (2026-07-20): the direct product-slug 404 from 2026-07-17 is now explained --'
+      + ' browsed (not searched, the site\'s own search box does not submit via URL params or a plain'
+      + ' click) the full current "All Mountain Shoes" (12 SKUs) and "Mountain Bike Shoes" (16 SKUs)'
+      + ' category listings on scott-sports.com/us/en. The only surviving "Sport Crus-r BOA" SKUs are'
+      + ' four WOMEN\'S variants (plain/ECO/PLUS/Reflective, all -50% clearance); no men\'s "Sport'
+      + ' Crus-r Flat BOA" or any plain men\'s "Sport Crus-r BOA" remains. Marked discontinued rather'
+      + ' than guessing a re-scope onto a women\'s-fit SKU. Price/weight left as prior sample, not'
+      + ' marked verified.' },
 
   /* -- Jerseys (all fields optional) -- */
   { id:'jsy-fox-flexair', cat:'jersey', brand:'Fox', model:'Flexair', price:104.95, weight:135,
