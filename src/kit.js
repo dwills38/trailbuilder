@@ -698,10 +698,16 @@ var KIT_PARTS = [
     soleType:'clipless', closure:'lace', disciplines:['enduro','dh'], sizes:['7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13'],
     desc:'2-bolt SPD clipless gravity shoe, ClipGrip outsole with a 40mm cleat box, D3O High Impact Zone insole, RC PowerDrive nylon shank. Weight per pair (483g/shoe x2, size M9).',
     verified:true, lastChecked:'2026-07-16', source:'https://rideconcepts.com/products/mens-hellion-clip', sourceType:'manufacturer' },
-  { id:'sho-northwave-rockit-2', cat:'shoes', brand:'Northwave', model:'Rockit 2', price:140, weight:700,
+  { id:'sho-northwave-rockit-2', cat:'shoes', brand:'Northwave', model:'Rockit Plus', price:162, weight:700,
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['37','38','39','40','41','42','43','44','45','46','47','48'],
-    desc:'2-bolt SPD clipless trail/enduro shoe. Weight per pair (approx). CORRECTED 2026-07-16: northwave.com\'s current product at this URL is named "Rockit Plus" (not "Rockit 2" - no "Rockit 2" was found on the site; a plain "Rockit" also exists at EUR129.99), and it closes with an SLW3 dial, not laces (closure lace->boa). Sizes corrected to 37-48. No USD manufacturer price found (EUR149.99 listed), so price stays prior sample; model name left as-is (append-only id).',
-    lastChecked:'2026-07-16', source:'https://www.northwave.com/en/bike/shoes/mtb/trailall-mountain/rockit-plus' },
+    desc:'2-bolt SPD clipless trail/enduro shoe, Single X-Dial SLW3 dial closure. RE-RESOLVED kit-7'
+      + ' (2026-07-20): no "Rockit 2" has ever existed on northwave.com in a full current-lineup'
+      + ' sweep of both Trail/All-Mountain pages (37 SKUs, browser-rendered) - only plain "Rockit"'
+      + ' (EUR129.99, LAST ITEMS IN STOCK/closeout) and "Rockit Plus" (EUR149.99, standing current'
+      + ' product) exist. Re-scoped model name Rockit 2 -> Rockit Plus (the standing, non-closeout'
+      + ' SKU - the id stays append-only). Price EUR149.99 -> $162 USD sample per THE PRICE RULE'
+      + ' (basis disclosed, no US price published). No per-shoe weight published, stays prior sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.northwave.com/en/bike/shoes/mtb/trailall-mountain/rockit-plus' },
   { id:'sho-leatt-clip-4-0', cat:'shoes', brand:'Leatt', model:'Shoe Clip 4.0', price:149, weight:750, status:'discontinued',
     soleType:'clipless', closure:'lace', disciplines:['trail','enduro'], sizes:['6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13'],
     desc:'SPD clipless channel, RideGrip compound, speed laces, cleat shims included. Weight per'
@@ -854,10 +860,9 @@ var KIT_PARTS = [
     soleType:'clipless', closure:'boa', disciplines:['enduro'], sizes:['38','40','41','42','43','44','45','46','47','48'],
     desc:'Mid-cut enduro clipless shoe with ankle protection. Weight per pair (approx). CORRECTED 2026-07-16: fetched northwave.com - closes with a single X-Dial SLW3 (step-by-step + full-release dial), not laces (closure lace->boa). Sizes corrected to 38,40-48 (39 not offered). No USD manufacturer price found (EUR179.99 listed). Kit-6 (2026-07-20): price set to a EUR->USD sample ($194, basis disclosed) per THE PRICE RULE, formalizing verified:true.',
     verified:true, lastChecked:'2026-07-20', source:'https://www.northwave.com/en/bike/shoes/mtb/trailall-mountain/enduro-mid-2' },
-  { id:'sho-northwave-origin-plus-2', cat:'shoes', brand:'Northwave', model:'Origin Plus 2', price:200, weight:600,
+  { id:'sho-northwave-origin-plus-2', cat:'shoes', brand:'Northwave', model:'Origin Plus 2', price:200, weight:600, status:'discontinued',
     soleType:'clipless', closure:'boa', disciplines:['xc'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'XC race clipless shoe, carbon-reinforced triple-density sole. CORRECTED 2026-07-16: fetched northwave.com - the SLW3 system is a dial closure, not a ratchet buckle (closure ratchet->boa). Weight per pair (approx), not published on the fetched page so stays prior sample; no USD manufacturer price found either.',
-    lastChecked:'2026-07-16', source:'https://www.northwave.com/en/bike/shoes/mtb/xc/origin-plus-2' },
+    desc:'XC race clipless shoe, carbon-reinforced triple-density sole. CORRECTED 2026-07-16: fetched northwave.com - the SLW3 system is a dial closure, not a ratchet buckle (closure ratchet->boa). RESOLVED kit-7 (2026-07-20): the /xc/origin-plus-2 URL now redirects to the generic XC category page, and a full current XC lineup sweep (37 SKUs across both category pages, browser-rendered) confirms no "Origin Plus 2" SKU exists - the category page\'s own marketing copy still name-drops "Origin Plus 2" as a description string, but no matching product card is in the grid. Marked discontinued rather than guessing a successor (no obvious 1:1 replacement in the current XC tier list). Price/weight left as prior sample, not marked verified.' },
   { id:'sho-shimano-xc7', cat:'shoes', brand:'Shimano', model:'XC7 (SH-XC703)', price:260, weight:600,
     soleType:'clipless', closure:'boa', disciplines:['xc'], sizes:['38','39','40','41','42','43','44','45','46','47','48'],
     desc:'XC race clipless shoe, carbon-reinforced sole. SH-XC702 has been superseded by SH-XC703 on ride.shimano.com; row re-scoped to the live SKU. ride.shimano.com publishes no per-SKU weight — weight kept as the prior sample figure. Kit-6 (2026-07-20): price $260 re-confirmed exactly via ride.shimano.com/collections/mountain; formalizing verified:true (weight not required for kit apparel).',
