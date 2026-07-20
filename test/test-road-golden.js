@@ -1,12 +1,11 @@
 'use strict';
 /* =============================================================================
    Road/gravel golden builds — whole real bikes through checkRoadBuild
-   (OFF-LIVE). A 2x AXS road build, a 1x XPLR gravel build and a 1x Ekar/N3W
-   gravel build must check clean AND count as complete; a 2x Di2 road build
-   must check clean while roadSlotRequired honestly reports its front
-   derailleur missing (no Di2 FD row exists in either dataset yet — a catalog
-   GAP, not an engine hole); a deliberately-wrong build must fail on every
-   planted conflict. Plus dataset sanity and the off-live containment guard.
+   (OFF-LIVE). A 2x AXS road build, a 1x XPLR gravel build, a 1x Ekar/N3W
+   gravel build and a 2x Shimano Ultegra Di2 road build (now that
+   fd-shimano-ultegra-r8150 exists — road-5 wave) must all check clean AND
+   count as complete; a deliberately-wrong build must fail on every planted
+   conflict. Plus dataset sanity and the off-live containment guard.
    ========================================================================== */
 var fs = require('fs');
 var path = require('path');
@@ -212,8 +211,8 @@ test('golden: Checkpoint SL 7 / GRX RX820 1x12 gravel build is complete and conf
   assertComplete(build);   // no frontDerailleur: a 1x crank never requires one
 });
 
-/* ---- golden 4: 2x Shimano Ultegra Di2 road build — clean, honestly incomplete */
-test('golden: Ultimate CF SLX / Ultegra Di2 checks clean; the missing Di2 FD is an honest completeness gap', function(){
+/* ---- golden 4: 2x Shimano Ultegra Di2 road build — clean and complete ------ */
+test('golden: Ultimate CF SLX / Ultegra Di2 checks clean and complete (fd-shimano-ultegra-r8150)', function(){
   /** @type {Object.<string, any>} */
   var build = {
     frame: rp('fr-canyon-ultimate-cfslx'),
@@ -224,6 +223,7 @@ test('golden: Ultimate CF SLX / Ultegra Di2 checks clean; the missing Di2 FD is 
     rearTire: rp('ti-continental-gp5000stre-28'),
     shifter: rp('sh-shimano-ultegra-r8100'),
     rearDerailleur: rp('rd-shimano-ultegra-r8100'),
+    frontDerailleur: rp('fd-shimano-ultegra-r8150'),
     cassette: rp('cs-shimano-ultegra-r8100-1130'),
     chain: rp('ch-shimano-ultegra-r8100'),
     crankset: rp('cr-shimano-ultegra-r8100'),
@@ -239,9 +239,7 @@ test('golden: Ultimate CF SLX / Ultegra Di2 checks clean; the missing Di2 FD is 
   var r = ROAD.checkRoadBuild(build);
   eq(r.errors.length, 0, 'no errors: ' + describeConflicts(r));
   eq(r.warnings.length, 0, 'no warnings: ' + describeConflicts(r));
-  var fdSlot = ROAD.ROAD_SLOTS.filter(function(/** @type {any} */ s){ return s.key === 'frontDerailleur'; })[0];
-  eq(ROAD.roadSlotRequired(fdSlot, build), true,
-    'the 2x crank makes the FD slot required — neither dataset has a Di2 FD row yet (catalog GAP, reported), so this build is honestly incomplete');
+  assertComplete(build);
 });
 
 /* ---- known-bad build ------------------------------------------------------- */
