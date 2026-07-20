@@ -20,6 +20,95 @@ seat does the housekeeping automatically — Douglas never renames/unpins/archiv
 
 ---
 
+## ★★★ SEAT 15 — START HERE (succession from seat 14, 2026-07-20 evening) ★★★
+
+Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s15 -b
+coord/<today>-s15 origin/main` (Hard rule #5: INSIDE the project, never D:\ root; never
+git-mutate the shared checkout — it sits on a stale branch pointer, leave it). Run the gates
+yourself, never trust doc counts. **State at handoff: main green — MTB 5,024 (3,054 verified,
+60.8%) · Kit 714 (471) · BMX 225 LIVE (75, 33.3%) · Road 211 off-live (68) · Gravel 198
+off-live (27) · Striders 36 · EMTB 75 · 831 tests · tsc clean · 7 validators · ONE shared
+drop-bar engine (`src/compat-road.js`, off-live, containment-tested).**
+
+**★ SEATING SEQUENCE (in order):**
+1. **THE SUCCESSION RULE (top of this file) is LIVE** — send_message the session titled
+   **"Main Coordinator (Seat 14)"** (find it via list_sessions; titles are the identifier)
+   asking it to run set_session_title on you → "Main Coordinator (Seat 15)"; on its confirm,
+   archive it. If it never wakes, one line to Douglas, don't block.
+2. **RE-ARM YOUR HOURLY FLEET SWEEP CRON** (session crons die with the seat; the FOUR durable
+   scheduled tasks — daily bug-triage ~8:52a, monthly drift 6th, monthly bias 12th, quarterly
+   recall — survive on their own, do NOT recreate them). Sweep = list_sessions → harvest idle
+   reports (list_events; workers' send_message can hang — a frozen lastActivityAt with a
+   trailing send_message means HARVEST FROM THE BRANCH directly) → stale-base own-additions
+   apply → gates → push → PROJECT-LOG → archive in the same breath.
+3. Read HANDOFF-CHIPS.md (refreshed for this seat) + memory MEMORY.md topics + CLAUDE.md
+   (note Hard rules 1-5, esp. #4 paste-blocks-never-click-chips and #5 file containment,
+   hook-enforced).
+
+**★ OPEN SESSIONS AT HANDOFF (verify with list_sessions — this list ages):**
+- **"Drop-bar catalog cleanup"** (RUNNING) — hg-l2 error-tier token check, GRX wheel gap +
+  golden, gravel FD split, BB token unification. Harvest normally; the hg-l2 item is
+  error-tier so verify its Shimano-doc quote before merging.
+- **"Home page D1/D4 build"** (RUNNING) — Douglas-approved family switcher + /home.html.
+  LIVE-SURFACE UI: popup scan + keyboard walk + the deploy.yml cp line are the review points
+  (a new root .html silently 404s in production without that cp line).
+- **"Home page mockups round 2"** (RUNNING) — D2/D3 decision aids for Douglas. NOTHING ships
+  from it; deliverable = preview + packet for his pick.
+- **"Home page design directions"** (IDLE — DO NOT ARCHIVE) — round 1's mockups live UNTRACKED
+  in its worktree `.claude/worktrees/hp1-87cc`; preview relaunches via
+  `preview_start {name:"hp1-87cc"}` (port 8167). Hold until Douglas decides D2/D3 AND round 2
+  has copied the mockups; then archive + remove the worktree.
+- **"Affiliate Setup"** = Douglas's Partnerships/business lane — NEVER touch; you are the only
+  code-pusher. Three **"Bug report triage"** vessels (daily durable task spawns one per run;
+  they accumulate — harmless, leave them).
+
+**★ DOUGLAS'S DECISION QUEUE (raise gently, never nag):** (1) D2/D3 home-page call once
+round-2 mockups land; (2) the kit 3-row verified disagreement (hm-100-altec,
+hm-troyleedesigns-d4-composite-mips, sho-shimano-xc5 — kit-3 verified them, kit-4 says
+discontinued; needs one tiebreak fetch); (3) fr-trek-slash orphan dedupe (ALIASES-retire vs
+status:'discontinued'); (4) old standing items: Ibis dedup pair, verified-badge semantics +
+price-policy gap, gallery six, reviews.sql three levers + running hardening-2.sql (M1 query
+FIRST) + reviews.sql itself, Supabase MFA/CAPTCHA check, Cloudflare Vitals Explorer read,
+EMTB four, Finder two, recall-badge scoping, fitter paywalls. (5) Eventually: road/gravel
+page-build + flip words (engines + catalogs now exist; drop-bar cleanup closes the data
+flags); BMX 40% bar is 15 rows away (small-parts sweeps on static-HTML brands per wave 4's
+honest read).
+
+**★ THE RULES THAT WERE EARNED-OR-REAFFIRMED THIS SEAT (all in VERIFY-PROTOCOL.md / CLAUDE.md
+— read them there; headlines only):** ANSWER-FIRST when Douglas asks a question ·
+paste-blocks with [Model, effort] headers, never click-chips · FILE CONTAINMENT hook-enforced
+(worktrees at .claude/worktrees/ only) · FETCH ETHICS (never defeat anti-bot; CAPTCHA = wall;
+Five Ten/adidas is the ONLY confirmed wall left) · **JS-RENDERED ≠ BOT-WALLED** (click the
+Specs tabs in the browser pane before calling anything walled — three "walls" fell this way:
+Trek, Specialized, Norco/Cannondale/Propain/Orbea) · **PHANTOM-NUMBER hazard** (fetch/search
+summaries invent figures; every committed number must be literally present in raw page text) ·
+kit apparel needs no weight except helmets; accurate weights welcome everywhere (more-info
+principle: data liberal, UI curated) · frames interface-exception incl. complete-bike-only
+(three mandatory conditions) · THE PRICE RULE · mission statement B is OFFICIAL (top of
+docs/MISSION.md — quote verbatim, never paraphrase into overclaim).
+
+**★ HARD-WON MECHANICS (will bite you if skipped):** catalog rows are MULTI-LINE — never
+resolve stale-base conflicts with whole-hunk "take theirs"; use the ROW-BLOCK MERGE (parse
+blocks by id, apply changed blocks onto HEAD, guard verified:true regressions, assert row
+counts before/after — a naive merge silently deleted 7 kit rows before the count check caught
+it; pattern recorded in PROJECT-LOG 2026-07-20) · e-bike grep hits on "complete-bike"
+substrings — read context · relaxing an error-tier ceiling (maxRotor/travel/udh) is the
+false-FITS direction: verify the maker quote yourself before merging (the Roscoe 180→203 and
+Cannondale udh fixes were both stock-part-inference bugs — never infer limits from stock
+parts) · verdict-audit harness pins part scenarios, NOT complete-bike fills — byte-identical
+harness does not prove a cb-fills change is safe, re-measure with the committed bias-r4 scan
+scripts · workers' final send_message can hang: harvest from the branch, archive clears the
+hung process.
+
+**Standing workflow (unchanged):** stale-base own-additions apply (row-block variant for
+catalogs); four gates + harness before/after on any compat.js change; UI auto-ships on green
+gates + browser verify + popup scan; engine/error-tier = adversarial review; catalog =
+coordinator-reviewed; archive in the same breath you merge; one PROJECT-LOG entry per
+wave; only taxonomy/money/visual-taste/account/business decisions to Douglas, kept SHORT.
+Seat-14 trail: PROJECT-LOG.md 2026-07-18 → 2026-07-20 entries.
+
+---
+
 ## ★★★ SEAT 14 — START HERE (succession from seat 13, 2026-07-18 evening) ★★★
 
 Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today> -b

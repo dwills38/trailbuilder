@@ -2686,3 +2686,16 @@ per wave/decision; large reconstructions are handed to a worker session.
   scraping advice rewritten to the ruling.
 - Fleet: home-page round HELD OPEN for Douglas's D1-D4 pick (mockups on :8167); otherwise
   Partnerships + triage vessels only.
+
+## 2026-07-20 (seat 14, evening) — Seat 15 handoff written
+
+- SEAT 15 block atop COORDINATOR-HANDOFF.md: state (5,024/3,054 MTB · 831 tests · shared
+  drop-bar engine), seating sequence (succession handshake via the "Main Coordinator (Seat 14)"
+  title, sweep-cron re-arm), the open-session map (3 running chips, the HELD home-page round-1
+  session with untracked mockups, Partnerships never-touch, triage vessels), Douglas's decision
+  queue, the earned doctrine (JS-rendered≠walled, phantom-number, row-block merge, stock-part
+  inference = error-tier bug class), and the hung-send harvest pattern.
+- HANDOFF-CHIPS.md fully refreshed: seat-13's 13 blocks all shipped; new queue = BMX w5,
+  kit w5 (+ the 3-row tiebreak), gravel w2, forks tail, feature slate #4 recall watcher,
+  #16 discontinued archive.
+- Moot Monday road reminder cleared (both road chips already ran and merged).
