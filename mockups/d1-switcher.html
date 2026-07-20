@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" class="loam">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>D1 — Switcher, not a page (home-page round 1)</title>
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  /* D1-specific: the family switcher menu, shown OPEN for the mockup */
+  .fam-menu{position:relative}
+  .fam-pop{position:absolute;top:calc(100% + 8px);left:0;min-width:300px;z-index:50;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:10px;box-shadow:0 10px 30px rgba(0,0,0,.28)}
+  .fam-pop a{display:flex;align-items:baseline;gap:8px;padding:9px 10px;border-radius:9px;
+    color:var(--ink);text-decoration:none;font-weight:600;font-size:13.5px}
+  .fam-pop a:hover{background:var(--chip)}
+  .fam-pop a .soft{font-weight:500;font-size:12px}
+  .fam-pop .here{background:var(--chip);outline:1px solid var(--line)}
+  .fam-pop .soon{opacity:.55;cursor:default}
+  .fam-pop .soon:hover{background:none}
+  .fam-mission{border-top:1px solid var(--line);margin-top:8px;padding:9px 10px 3px;
+    font-size:11.5px;color:var(--ink-soft);line-height:1.5}
+  /* the wireframe stand-in for the untouched builder below (NOT a screenshot —
+     grey boxes only, so nothing about the real UI is fabricated) */
+  .wire{border:1px dashed var(--line);border-radius:12px;padding:14px;margin-top:14px}
+  .wire .row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .wire .blk{background:var(--chip);border-radius:8px;height:34px;flex:1 1 120px;min-width:90px}
+  .wire .tall{height:120px}
+  .wire .label{font-size:12px;color:var(--ink-soft);font-weight:700;margin-bottom:8px}
+  @media (max-width:480px){ .fam-pop{left:auto;right:0;min-width:260px} }
+</style>
+</head>
+<body>
+<div class="mock-note">DESIGN MOCKUP D1 — “Switcher, not a page” · nothing here ships · <a href="index.html">round hub</a></div>
+
+<header>
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <div class="wrap">
+    <!-- THE ONLY CHANGE D1 MAKES: the wordmark becomes the family switcher.
+         Click-triggered menu (the theme-menu <details> pattern) — shown open here. -->
+    <div class="fam-menu">
+      <h1 style="display:inline">BuildMyMTB <span style="font-size:13px;opacity:.8">▾</span></h1>
+      <div class="fam-pop" role="menu" aria-label="The BuildMy family">
+        <a class="here" href="#" role="menuitem">🚵 BuildMyMTB <span class="soft">— you're here</span></a>
+        <a href="#" role="menuitem">🏁 BuildMyBMX</a>
+        <a href="#" role="menuitem">🧰 BuildMyRideKit <span class="soft">— rider gear</span></a>
+        <a class="soon" role="menuitem" aria-disabled="true">🚴 BuildMyRoadbike <span class="soft">— coming soon</span></a>
+        <a class="soon" role="menuitem" aria-disabled="true">🌾 BuildMyGravelBike <span class="soft">— coming soon</span></a>
+        <div class="fam-mission">BuildMyMTB is a free, unbiased bike-building tool with accurate
+          data — pick parts and see, in real time, whether they fit. Same tool, every ride style.</div>
+      </div>
+    </div>
+    <a class="btn" href="#">🏁<span class="hdr-long"> BuildMyBMX</span></a>
+    <a class="btn" href="#">🧰<span class="hdr-long"> BuildMyRideKit</span></a>
+    <button type="button" class="btn">📚<span class="hdr-long"> Guides</span></button>
+    <button type="button" class="btn" aria-label="More options">⋯</button>
+    <input type="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" aria-label="Search parts" />
+  </div>
+</header>
+<div class="honesty-strip"><span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span> Browse bike parts, click to add, and it checks fit, price and weight as you build.</div>
+
+<main>
+  <div class="card" style="margin-bottom:14px">
+    <strong>What D1 is:</strong> <span class="soft">there is no home page. The wordmark in the
+    header becomes a click-opened family switcher (shown open above) with the mission line as its
+    footer. Every BuildMy domain keeps loading straight to its own builder — the “home” is the
+    family being one click away from everywhere, in both directions. Nothing else on the page
+    changes; the wireframe below stands in for today's builder, untouched.</span>
+  </div>
+
+  <div class="wire" aria-hidden="true">
+    <div class="label">⬇ the existing builder, exactly as it is today (wireframe stand-in, not a screenshot)</div>
+    <div class="row"><div class="blk" style="max-width:170px"></div><div class="blk" style="max-width:150px"></div><div class="blk" style="max-width:130px"></div><div class="blk" style="max-width:140px"></div></div>
+    <div class="row"><div class="blk tall" style="flex:0 0 220px"></div><div class="blk tall"></div><div class="blk tall" style="flex:0 0 260px"></div></div>
+    <div class="row"><div class="blk"></div><div class="blk"></div><div class="blk"></div></div>
+  </div>
+</main>
+
+<script src="mock.js"></script>
+</body>
+</html>

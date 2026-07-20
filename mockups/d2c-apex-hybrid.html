@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" class="loam">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>D2c — One apex, both jobs (home-page round 2)</title>
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  /* D2c: the synthesis of D2a and D2b — one page at ddubsworks.com that leads
+     product-first (builder doors above the fold, D2b's job) and stands as the
+     maker's page below (about/values, D2a's job). Exists because the only apex
+     domain currently owned IS the company domain: both jobs land on the same
+     URL either way, so one page doing both cleanly beats picking a tone. */
+  .hero{background:var(--hdr-bg);color:#fff;position:relative;padding:36px 24px 28px;text-align:center}
+  .hero .hdr-topo{z-index:0}
+  .hero > *:not(.hdr-topo){position:relative;z-index:1}
+  .hero .kicker{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+  .hero h1{margin:0 0 6px;font-size:28px}
+  .hero p{max-width:620px;margin:0 auto;font-size:14px;color:#dceadfcc}
+  .doors{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:14px;margin-top:18px}
+  .door{display:flex;flex-direction:column;gap:7px;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:18px;text-decoration:none;color:var(--ink);text-align:center}
+  .door:hover{border-color:var(--brand)}
+  .door .ico{font-size:30px;line-height:1}
+  .door h2{margin:0;font-size:17px}
+  .door p{margin:0;font-size:12.5px;color:var(--ink-soft)}
+  .door .go{margin-top:auto;padding-top:8px;color:var(--ok);font-weight:700;font-size:13px}
+  .door.soon{opacity:.6}
+  .door.soon .go{color:var(--ink-soft)}
+  .about-band{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:20px 22px;margin-top:30px}
+  .about-band h2{margin:0 0 8px;font-size:18px}
+  .about-band p{margin:0 0 10px;font-size:13.5px;color:var(--ink-soft)}
+  .mission-quote{border-left:3px solid var(--brand);padding:4px 0 4px 14px;margin:12px 0 0;
+    font-size:13.5px;color:var(--ink-soft)}
+  .values{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+  .values .card h3{margin:0 0 5px;font-size:13.5px}
+  .values .card p{margin:0;font-size:12.5px;color:var(--ink-soft)}
+  .coexist{border-left:3px solid var(--accent);padding-left:14px}
+  .coexist ul{margin:8px 0 0;padding-left:18px;font-size:13px;color:var(--ink-soft)}
+  .coexist li{margin-bottom:6px}
+  section{margin-top:26px}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 24px;font-size:12px;
+    color:var(--ink-soft);text-align:center}
+  footer a{color:inherit}
+</style>
+</head>
+<body>
+<div class="mock-note">DESIGN MOCKUP D2c — “One apex, both jobs” (D2a ⊕ D2b) · nothing here ships · <a href="index.html">round hub</a></div>
+
+<div class="hero">
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <div class="kicker">ddubsworks.com</div>
+  <h1>D-Dubs Works — builders for every ride</h1>
+  <p>Free tools that check whether bike parts actually fit together. Pick yours — each loads
+    straight to the parts, no sign-up, no interstitials, ever.</p>
+</div>
+<div class="honesty-strip"><span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span> Every tool we ship carries this same honesty strip.</div>
+
+<main style="max-width:1000px">
+  <!-- D2b's job: the doors, first thing on the page -->
+  <div class="doors" style="margin-top:16px">
+    <a class="door" href="#"><span class="ico">🚵</span><h2>Mountain</h2>
+      <p>XC to DH, hardtail to mullet. 26 build slots, 20 live rule areas.</p>
+      <span class="go">BuildMyMTB →</span></a>
+    <a class="door" href="#"><span class="ico">🏁</span><h2>BMX</h2>
+      <p>Frame to cockpit. Brakeless builds understood.</p>
+      <span class="go">BuildMyBMX →</span></a>
+    <a class="door" href="#"><span class="ico">🧰</span><h2>Rider gear</h2>
+      <p>Helmets, shoes, apparel, protection.</p>
+      <span class="go">BuildMyRideKit →</span></a>
+    <div class="door soon"><span class="ico">🚴</span><h2>Road</h2><p>Road builds.</p><span class="go">Coming soon</span></div>
+    <div class="door soon"><span class="ico">🌾</span><h2>Gravel</h2><p>Gravel builds.</p><span class="go">Coming soon</span></div>
+    <div class="door soon"><span class="ico">⚙️</span><h2>E-MTB</h2><p>Fully separate from the MTB catalog.</p><span class="go">Coming soon</span></div>
+  </div>
+
+  <!-- D2a's job: the maker's story, below the doors -->
+  <div class="about-band">
+    <h2>The shop behind the tools</h2>
+    <p>D-Dubs Works is an independent maker. No manufacturer pays for placement, sort order, or a
+      favorable verdict — the tools exist so a rider can know, before spending a dollar, whether
+      the parts they want actually fit. Affiliate links may fund the site; they never bias it,
+      and every one is labeled.</p>
+    <div class="mission-quote">The flagship's promise, kept family-wide: “BuildMyMTB is a free,
+      unbiased bike-building tool with accurate data — pick parts and see, in real time, whether
+      they fit together, plus running price and weight.”</div>
+    <div class="values">
+      <div class="card"><h3>Straight to the data</h3><p>No pop-ups, no newsletter walls, no cookie
+        interstitials — a rule, not a preference. This page lives where no tool is.</p></div>
+      <div class="card"><h3>Honest about sources</h3><p>✓ Verified means checked against the
+        manufacturer's own published spec, source linked. Everything else says sample data.</p></div>
+      <div class="card"><h3>Free to use</h3><p>No account required to build, check fit, or share
+        a build link.</p></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="card coexist">
+      <strong>How D2c coexists with the approved D1 + D4 (it's an addition, not a replacement):</strong>
+      <ul>
+        <li><b>Why it exists:</b> D2a and D2b are two tones for the <i>same URL</i> — the only apex
+          currently owned is ddubsworks.com. Whichever tone is picked, the other job still lands on
+          that domain. One page doing both (doors above the fold, maker below) means one page to
+          maintain instead of choosing what to turn away.</li>
+        <li><b>With D1 (family switcher):</b> untouched — D1 keeps serving cross-hops inside the
+          product sites; no product domain gains any landing page.</li>
+        <li><b>Beyond D4 (/home.html):</b> everything D2a and D2b each add that D4 can't — the
+          canonical company face for partners <i>and</i> the bike-type-agnostic front door —
+          without a second apex page. D4 stays the deep per-product story; this page links to it
+          rather than repeating it.</li>
+        <li><b>Cost:</b> small — one static page plus pointing the apex domain at it. Slightly more
+          copy to maintain than D2a or D2b alone, one page instead of two.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>© D-Dubs Works · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Affiliate disclosure</a></footer>
+
+<script src="mock.js"></script>
+</body>
+</html>

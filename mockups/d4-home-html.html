@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en" class="loam">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>D4 — /home.html behind an About link (home-page round 1)</title>
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  /* D4: a real standalone page at buildmymtb.com/home.html (the privacy.html /
+     terms.html pattern) linked from an ℹ️ About button in the header and the
+     footer of every family page. "/" remains the builder, untouched. */
+  .hero{background:var(--hdr-bg);color:#fff;position:relative;padding:44px 24px 38px}
+  .hero .hdr-topo{z-index:0}
+  .hero .inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+  .hero h1{margin:0 0 8px;font-size:30px}
+  .hero .word{font-size:14px;opacity:.85;margin-bottom:18px}
+  .hero .word a{color:#fff}
+  .hero p{max-width:640px;margin:0;font-size:15.5px;color:#dceadfd9}
+  .hero .mission{color:#fff;font-weight:600;font-size:17px}
+  .hero .cta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
+  .hero .cta .btn{font-size:15px;padding:12px 20px}
+  .cols{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+  section{margin-top:34px}
+  section > h2{font-size:15px;letter-spacing:.4px;text-transform:uppercase;color:var(--ink-soft)}
+  .prov{border-left:3px solid var(--brand);padding-left:14px}
+  .prov .v{color:var(--ok);font-weight:800}
+  ul.plain{margin:8px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-soft)}
+  ul.plain li{margin-bottom:6px}
+  footer{border-top:1px solid var(--line);margin-top:44px;padding:18px 24px;font-size:12px;
+    color:var(--ink-soft);text-align:center}
+  footer a{color:inherit}
+</style>
+</head>
+<body>
+<div class="mock-note">DESIGN MOCKUP D4 — “/home.html behind an About link” · nothing here ships · <a href="index.html">round hub</a></div>
+
+<div class="hero">
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <div class="inner">
+    <div class="word"><a href="#">← Back to the builder</a></div>
+    <h1>About BuildMyMTB</h1>
+    <p class="mission">BuildMyMTB is a free, unbiased bike-building tool with accurate data —
+      pick parts and see, in real time, whether they fit together, plus running price and weight.</p>
+    <p style="margin-top:12px">You never had to read this page to use the tool — the builder is
+      always the front door. This page exists for the people who want to know who makes it,
+      what the dots mean, and what “verified” actually verifies.</p>
+    <div class="cta">
+      <a class="btn primary" href="#">🚵 Open the builder</a>
+      <a class="btn" href="#">📚 Guides</a>
+    </div>
+  </div>
+</div>
+<div class="honesty-strip"><span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span> Same honesty strip as the app — the disclaimer never hides, here either.</div>
+
+<main>
+  <section>
+    <h2>What the tool promises</h2>
+    <div class="cols">
+      <div class="card"><h3 style="margin:0 0 6px;font-size:14px">Unbiased</h3>
+        <p class="soft" style="margin:0;font-size:13.5px">No manufacturer pays for placement,
+        ordering, or favorable verdicts. Affiliate links may fund the site — they never bias it,
+        and every one is labeled.</p></div>
+      <div class="card"><h3 style="margin:0 0 6px;font-size:14px">Straight to the data</h3>
+        <p class="soft" style="margin:0;font-size:13.5px">The site loads directly to the parts.
+        No pop-ups, no newsletter walls, no cookie interstitials — a rule, not a preference.</p></div>
+      <div class="card"><h3 style="margin:0 0 6px;font-size:14px">Honest verdicts</h3>
+        <p class="soft" style="margin:0;font-size:13.5px">“No conflicts found” means exactly
+        that — no conflict among the dimensions we check, never a blanket guarantee.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What “verified” means</h2>
+    <div class="card prov">
+      <p style="margin:0;font-size:13.5px"><span class="v">✓ Verified</span> on a part means its
+      interfaces and weight were checked against the manufacturer's own published spec, and the
+      source is linked on the part card. Everything else is honestly labeled
+      <strong>≈ sample data</strong> until it earns the check.</p>
+      <ul class="plain">
+        <li>Sources are manufacturer pages and documents — never search-result summaries.</li>
+        <li>Prices are USD MSRP; sale prices are always labeled as sale prices.</li>
+        <li>Spot a wrong verdict? Every build has a one-click report link.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>The family</h2>
+    <div class="cols">
+      <a class="card" style="text-decoration:none;color:var(--ink)" href="#"><strong>🚵 BuildMyMTB</strong>
+        <span class="soft" style="display:block;font-size:13px;margin-top:4px">Mountain bikes — this site.</span></a>
+      <a class="card" style="text-decoration:none;color:var(--ink)" href="#"><strong>🏁 BuildMyBMX</strong>
+        <span class="soft" style="display:block;font-size:13px;margin-top:4px">BMX builds, brakeless understood.</span></a>
+      <a class="card" style="text-decoration:none;color:var(--ink)" href="#"><strong>🧰 BuildMyRideKit</strong>
+        <span class="soft" style="display:block;font-size:13px;margin-top:4px">Helmets, shoes, apparel, protection.</span></a>
+      <div class="card" style="opacity:.6"><strong>🚴 Road · 🌾 Gravel</strong>
+        <span class="soft" style="display:block;font-size:13px;margin-top:4px">Coming soon.</span></div>
+    </div>
+  </section>
+</main>
+
+<footer>© D-Dubs Works · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Affiliate disclosure</a></footer>
+
+<script src="mock.js"></script>
+</body>
+</html>

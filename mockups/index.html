@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en" class="loam">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Home-page design round 2 — D2/D3 variants</title>
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  .dir{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:18px;margin-top:14px;text-decoration:none;color:var(--ink)}
+  .dir:hover{border-color:var(--brand)}
+  .dir h2{margin:0 0 6px;font-size:17px}
+  .dir p{margin:0 0 8px;font-size:13.5px;color:var(--ink-soft)}
+  .dir .meta{font-size:12px;color:var(--ink-soft)}
+  .dir .meta b{color:var(--ink)}
+  .status{border-left:3px solid var(--brand);padding-left:14px;margin-top:16px}
+  .rec{border-left:3px solid var(--accent);padding-left:14px;margin-top:16px}
+  .rec ol{margin:8px 0 0;padding-left:20px;font-size:13px;color:var(--ink-soft)}
+  .rec li{margin-bottom:6px}
+  .old{opacity:.75}
+  .old h2{font-size:15px}
+  section > h2{font-size:14px;letter-spacing:.4px;text-transform:uppercase;color:var(--ink-soft);margin-top:30px}
+</style>
+</head>
+<body>
+<div class="mock-note">HOME-PAGE DESIGN ROUND 2 — mockups for Douglas's D2/D3 decision · nothing here ships</div>
+
+<header>
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <div class="wrap"><h1>Home page — round 2 (the undecided pair)</h1></div>
+</header>
+
+<main style="max-width:860px">
+  <div class="card status">
+    <strong>Where the decision stands:</strong>
+    <span class="soft">D1 (family switcher) + D4 (/home.html) are <b>approved and building</b>.
+    Still deciding: D2 (a landing at the apex domain) and D3 (a #home view inside the app).
+    Every variant below is an <b>addition</b> to D1+D4, never a replacement — and each states,
+    on-page, what it adds that D4's static page doesn't already give. The round-1 rule stands:
+    no landing page ever appears at “/” in front of a builder.</span>
+  </div>
+
+  <section>
+    <h2>New this round</h2>
+
+    <a class="dir" href="d2a-apex-maker.html">
+      <h2>D2a — The maker's page at ddubsworks.com</h2>
+      <p>The apex landing as the COMPANY'S page: about-the-builder tone, the products as cards.
+      The canonical face a partner or curious rider finds when they look up who makes these.</p>
+      <span class="meta"><b>Cost:</b> one static page + apex hosting · <b>Gate risk:</b> zero (no builder lives there)</span>
+    </a>
+
+    <a class="dir" href="d2b-apex-frontdoor.html">
+      <h2>D2b — Apex as the family front door</h2>
+      <p>The apex landing as a product-first front door: “what do you ride?” doors, company as a
+      footnote. One URL to hand a new rider before they know which builder they need. Named
+      neutrally — it assumes whichever family apex domain points at it.</p>
+      <span class="meta"><b>Cost:</b> one static page + apex hosting · <b>Gate risk:</b> zero · <b>Caveat:</b> overlaps D1's menu most</span>
+    </a>
+
+    <a class="dir" href="d2c-apex-hybrid.html">
+      <h2>D2c — One apex, both jobs (D2a ⊕ D2b)</h2>
+      <p>The synthesis: doors above the fold, maker's story below — because the only apex
+      currently owned IS the company domain, so both jobs land on the same URL either way.</p>
+      <span class="meta"><b>Cost:</b> one static page + apex hosting · <b>Gate risk:</b> zero</span>
+    </a>
+
+    <a class="dir" href="d3a-home-in-switcher.html">
+      <h2>D3a — #home, opened from the D1 switcher</h2>
+      <p>Round 1's D3 re-entered through the approved D1: the #home view's only entry is one new
+      item in the family switcher menu. The wordmark keeps its current reload behavior —
+      round 1's semantics objection, answered.</p>
+      <span class="meta"><b>Cost:</b> medium (a view in index.html's router) · <b>Gate risk:</b> zero — nothing ever auto-opens it</span>
+    </a>
+
+    <p class="soft" style="font-size:12.5px;margin-top:14px">Considered and deliberately NOT mocked:
+    a first-visit auto-shown #home (D3b) — an unsolicited interstitial in all but name, banned by
+    the no-popups rule.</p>
+  </section>
+
+  <div class="card rec">
+    <strong>Ranked recommendation, given D1+D4 now exist:</strong>
+    <ol>
+      <li><b>D2c</b> — the apex domain is bought and empty; both apex jobs land on it either way;
+        one small static page, zero gate risk, zero app changes.</li>
+      <li><b>D2a</b> — if a single pure tone is preferred: the company face is the one job nothing
+        approved covers; the front-door job is already mostly served by D1's switcher.</li>
+      <li><b>D3a</b> — genuinely pleasant (orientation without losing your build) but the third
+        orientation surface after D1's menu and D4's page, at medium cost inside the app. Defer;
+        revisit if D4's About link sees real mid-build use.</li>
+      <li><b>D2b</b> — weakest standalone: overlaps D1's menu most, and a pure product-first tone
+        sits oddly on the company domain, the only apex owned.</li>
+    </ol>
+  </div>
+
+  <section>
+    <h2>Round 1 — for reference (side by side)</h2>
+    <a class="dir old" href="round1-hub.html"><h2>Round-1 hub — the original four directions</h2>
+      <p>D1 switcher (approved) · D2 apex landing · D3 #home view · D4 /home.html (approved).</p></a>
+    <a class="dir old" href="d1-switcher.html"><h2>D1 — Switcher, not a page <span class="soft">(APPROVED — building)</span></h2></a>
+    <a class="dir old" href="d2-apex.html"><h2>D2 — Family landing at the apex only <span class="soft">(deciding — this round's D2a/b/c)</span></h2></a>
+    <a class="dir old" href="d3-hash-home.html"><h2>D3 — #home view inside the app <span class="soft">(deciding — this round's D3a)</span></h2></a>
+    <a class="dir old" href="d4-home-html.html"><h2>D4 — /home.html behind an About link <span class="soft">(APPROVED — building)</span></h2></a>
+  </section>
+</main>
+
+<script src="mock.js"></script>
+</body>
+</html>

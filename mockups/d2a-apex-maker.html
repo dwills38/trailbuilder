@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en" class="loam">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>D2a — The maker's page at ddubsworks.com (home-page round 2)</title>
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  /* D2a: the apex landing as the MAKER'S page — the company behind the family.
+     About-the-builder tone; the products appear as cards, not as the headline.
+     Lives ONLY at the apex (ddubsworks.com) — no builder exists there to gate. */
+  .hero{background:var(--hdr-bg);color:#fff;position:relative;padding:52px 24px 44px}
+  .hero .hdr-topo{z-index:0}
+  .hero .inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+  .hero .kicker{font-size:13px;letter-spacing:1.2px;text-transform:uppercase;opacity:.8;margin-bottom:10px}
+  .hero h1{margin:0 0 12px;font-size:32px}
+  .hero p{max-width:640px;margin:0;font-size:15.5px;color:#dceadfd9}
+  .hero .cta{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+  section{margin-top:34px}
+  section > h2{font-size:15px;letter-spacing:.4px;text-transform:uppercase;color:var(--ink-soft)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+  .site{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:18px;text-decoration:none;color:var(--ink)}
+  .site:hover{border-color:var(--brand)}
+  .site h3{margin:0;font-size:17px}
+  .site p{margin:0;font-size:13px;color:var(--ink-soft)}
+  .site .go{margin-top:auto;padding-top:10px;color:var(--ok);font-weight:700;font-size:13px}
+  .site.soon{opacity:.6}
+  .site.soon .go{color:var(--ink-soft)}
+  .mission-quote{border-left:3px solid var(--brand);padding:4px 0 4px 14px;margin-top:10px;
+    font-size:13.5px;color:var(--ink-soft)}
+  .coexist{border-left:3px solid var(--accent);padding-left:14px}
+  .coexist ul{margin:8px 0 0;padding-left:18px;font-size:13px;color:var(--ink-soft)}
+  .coexist li{margin-bottom:6px}
+  .values{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+  .values .card h3{margin:0 0 6px;font-size:14px}
+  .values .card p{margin:0;font-size:13px;color:var(--ink-soft)}
+  footer{border-top:1px solid var(--line);margin-top:44px;padding:18px 24px;font-size:12px;
+    color:var(--ink-soft);text-align:center}
+  footer a{color:inherit}
+</style>
+</head>
+<body>
+<div class="mock-note">DESIGN MOCKUP D2a — “The maker's page at ddubsworks.com” · nothing here ships · <a href="index.html">round hub</a></div>
+
+<div class="hero">
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <div class="inner">
+    <div class="kicker">ddubsworks.com — the shop behind the BuildMy family</div>
+    <h1>D-Dubs Works</h1>
+    <p>An independent maker of free bike-building tools. No manufacturer pays us for placement,
+      ordering, or verdicts — the tools exist so a rider can know, before spending a dollar,
+      whether the parts they want actually fit together.</p>
+    <div class="cta">
+      <a class="btn primary" href="#builders">🔧 See the builders</a>
+      <a class="btn" href="#how">How we work</a>
+    </div>
+  </div>
+</div>
+<div class="honesty-strip"><span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span> Every tool we ship carries this same honesty strip — the disclaimer never hides.</div>
+
+<main style="max-width:1000px">
+  <div class="card coexist" style="margin-top:18px">
+    <strong>How D2a coexists with the approved D1 + D4 (it's an addition, not a replacement):</strong>
+    <ul>
+      <li><b>With D1 (family switcher):</b> D1 moves people who are already <i>inside</i> a builder
+        between builders. D2a lives on a domain none of them touch — the apex has no builder to
+        gate, so the no-interstitial identity is untouched on every product domain.</li>
+      <li><b>Beyond D4 (/home.html):</b> D4 tells BuildMyMTB's story, on BuildMyMTB's domain. What
+        D4 cannot give: a canonical <i>company</i> surface. ddubsworks.com is already owned and
+        currently serves nothing — this is the page a manufacturer, affiliate partner, or curious
+        rider finds when they look up who makes these tools, and the page outreach email domains
+        resolve to. One static page; zero changes to any product site.</li>
+      <li><b>Cost:</b> small — one static page plus pointing the apex domain at it.</li>
+    </ul>
+  </div>
+
+  <section id="builders">
+    <h2>What we build</h2>
+    <div class="grid">
+      <a class="site" href="#"><h3>🚵 BuildMyMTB</h3>
+        <p>The flagship. Mountain bikes — XC to DH, hardtail to mullet. 26 build slots,
+        20 live compatibility rule areas.</p>
+        <div class="mission-quote">“BuildMyMTB is a free, unbiased bike-building tool with accurate
+        data — pick parts and see, in real time, whether they fit together, plus running price and
+        weight.”</div>
+        <span class="go">Open the builder →</span></a>
+      <a class="site" href="#"><h3>🏁 BuildMyBMX</h3>
+        <p>BMX — frame, fork, drivetrain, wheels, cockpit. Brakeless builds understood.</p>
+        <span class="go">Open the builder →</span></a>
+      <a class="site" href="#"><h3>🧰 BuildMyRideKit</h3>
+        <p>Rider gear — helmets, shoes, apparel, protection. Price and weight for the kit you wear.</p>
+        <span class="go">Open the builder →</span></a>
+      <div class="site soon"><h3>🚴 BuildMyRoadbike</h3><p>Road builds.</p><span class="go">Coming soon</span></div>
+      <div class="site soon"><h3>🌾 BuildMyGravelBike</h3><p>Gravel builds.</p><span class="go">Coming soon</span></div>
+      <div class="site soon"><h3>⚙️ BuildMyEMTB</h3><p>E-MTB builds, fully separate from the MTB catalog.</p><span class="go">Coming soon</span></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <h2>How we work</h2>
+    <div class="values">
+      <div class="card"><h3>Unbiased, structurally</h3><p>No brand pays for placement, sort order,
+        or a favorable verdict. Affiliate links may fund the tools — they never bias them, and
+        every one is labeled.</p></div>
+      <div class="card"><h3>Straight to the data</h3><p>Every builder loads directly to the parts.
+        No pop-ups, no newsletter walls, no cookie interstitials — a rule, not a preference.
+        This page is the one “brochure” we allow ourselves, and it lives where no tool is.</p></div>
+      <div class="card"><h3>Honest about sources</h3><p>✓ Verified means checked against the
+        manufacturer's own published spec, source linked on the part card. Everything else is
+        labeled sample data until it earns the check.</p></div>
+      <div class="card"><h3>Free to use</h3><p>Every builder is free. No account is required to
+        build, check fit, or share a build link.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>© D-Dubs Works · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Affiliate disclosure</a></footer>
+
+<script src="mock.js"></script>
+</body>
+</html>

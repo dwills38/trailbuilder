@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en" class="loam">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>D2b — Apex as the family front door (home-page round 2)</title>
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  /* D2b: the apex landing as a product-first FRONT DOOR — "pick your bike type"
+     is the hero; the company is a footnote. Named neutrally on purpose: it assumes
+     *a* family apex domain, whichever address Douglas points at it. */
+  .hero{background:var(--hdr-bg);color:#fff;position:relative;padding:44px 24px 34px;text-align:center}
+  .hero .hdr-topo{z-index:0}
+  .hero > *:not(.hdr-topo){position:relative;z-index:1}
+  .hero .addr{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);
+    border-radius:999px;font-size:12px;padding:4px 12px;margin-bottom:14px}
+  .hero h1{margin:0 0 8px;font-size:34px}
+  .hero p{max-width:620px;margin:0 auto;font-size:14px;color:#dceadfcc}
+  .doors{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:18px}
+  .door{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:22px 18px;text-decoration:none;color:var(--ink);text-align:center}
+  .door:hover{border-color:var(--brand)}
+  .door .ico{font-size:34px;line-height:1}
+  .door h2{margin:0;font-size:19px}
+  .door p{margin:0;font-size:13px;color:var(--ink-soft)}
+  .door .go{margin-top:auto;padding-top:8px;color:var(--ok);font-weight:700;font-size:13px}
+  .door.soon{opacity:.6}
+  .door.soon .go{color:var(--ink-soft)}
+  .mission-line{max-width:680px;margin:22px auto 0;text-align:center;font-size:13.5px;color:var(--ink-soft)}
+  .coexist{border-left:3px solid var(--accent);padding-left:14px}
+  .coexist ul{margin:8px 0 0;padding-left:18px;font-size:13px;color:var(--ink-soft)}
+  .coexist li{margin-bottom:6px}
+  section{margin-top:30px}
+  footer{border-top:1px solid var(--line);margin-top:44px;padding:18px 24px;font-size:12px;
+    color:var(--ink-soft);text-align:center}
+  footer a{color:inherit}
+</style>
+</head>
+<body>
+<div class="mock-note">DESIGN MOCKUP D2b — “Apex as the family front door” · nothing here ships · <a href="index.html">round hub</a></div>
+
+<div class="hero">
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <span class="addr">⌂ the family apex domain — named neutrally on purpose; whichever address points here</span>
+  <h1>What do you ride?</h1>
+  <p>Pick a builder. Each one loads straight to the parts — no sign-up, no interstitials, ever.</p>
+</div>
+<div class="honesty-strip"><span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span> The honesty strip travels with every builder in the family.</div>
+
+<main style="max-width:1000px">
+  <div class="doors" style="margin-top:18px">
+    <a class="door" href="#"><span class="ico">🚵</span><h2>Mountain</h2>
+      <p>XC to DH, hardtail to mullet. 26 build slots, 20 live compatibility rule areas.</p>
+      <span class="go">BuildMyMTB →</span></a>
+    <a class="door" href="#"><span class="ico">🏁</span><h2>BMX</h2>
+      <p>Frame, fork, drivetrain, wheels, cockpit. Brakeless builds understood.</p>
+      <span class="go">BuildMyBMX →</span></a>
+    <a class="door" href="#"><span class="ico">🧰</span><h2>Rider gear</h2>
+      <p>Helmets, shoes, apparel, protection — price and weight for the kit you wear.</p>
+      <span class="go">BuildMyRideKit →</span></a>
+    <div class="door soon"><span class="ico">🚴</span><h2>Road</h2><p>Road builds.</p><span class="go">Coming soon</span></div>
+    <div class="door soon"><span class="ico">🌾</span><h2>Gravel</h2><p>Gravel builds.</p><span class="go">Coming soon</span></div>
+    <div class="door soon"><span class="ico">⚙️</span><h2>E-MTB</h2><p>Fully separate from the MTB catalog.</p><span class="go">Coming soon</span></div>
+  </div>
+
+  <p class="mission-line">The flagship's promise holds family-wide: “BuildMyMTB is a free, unbiased
+    bike-building tool with accurate data — pick parts and see, in real time, whether they fit
+    together, plus running price and weight.” Same tool, every ride style.</p>
+
+  <section>
+    <div class="card coexist">
+      <strong>How D2b coexists with the approved D1 + D4 (it's an addition, not a replacement):</strong>
+      <ul>
+        <li><b>With D1 (family switcher):</b> D1 serves people already <i>inside</i> a builder.
+          D2b serves people who aren't in yet — it is one URL you can print on a sticker or say
+          out loud, that answers “which site do I want?” before any product domain is chosen.
+          Every product domain still loads straight to its builder; the front door only exists
+          where there is no builder to gate.</li>
+        <li><b>Beyond D4 (/home.html):</b> D4 orients people around <i>BuildMyMTB</i>, on
+          BuildMyMTB's domain — a road rider landing there is already in the wrong shop. D2b is
+          the only surface that is bike-type-agnostic <i>before</i> the choice is made.</li>
+        <li><b>Honest caveat:</b> of this round's variants it overlaps most with what D1's menu
+          already gives — its value hangs on whether a single promotable family URL is wanted.
+          And the only apex currently owned is the company domain (ddubsworks.com), where a
+          pure product-first tone reads slightly odd — see D2c for the merge.</li>
+        <li><b>Cost:</b> small — one static page plus pointing an apex domain at it.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>Made by <a href="#">D-Dubs Works</a> · <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Affiliate disclosure</a></footer>
+
+<script src="mock.js"></script>
+</body>
+</html>

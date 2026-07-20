@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en" class="loam">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>D3a — #home view, opened from the D1 switcher (home-page round 2)</title>
+<link rel="stylesheet" href="tokens.css" />
+<style>
+  /* D3a: round 1's D3 re-entered through the approved D1. The #home view is
+     unchanged in spirit (an in-app view, the Guides pattern) but its ONLY entry
+     point is one new item in D1's family switcher menu — the wordmark keeps its
+     current reload behavior, answering round 1's semantics objection. */
+  .fam-menu{position:relative;display:inline-flex;align-items:center;gap:6px}
+  .fam-caret{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff;
+    border-radius:8px;font-size:12px;padding:4px 8px;cursor:pointer}
+  .fam-pop{position:absolute;top:calc(100% + 8px);left:0;min-width:300px;z-index:50;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:10px;box-shadow:0 10px 30px rgba(0,0,0,.28)}
+  .fam-pop a{display:flex;align-items:baseline;gap:8px;padding:9px 10px;border-radius:9px;
+    color:var(--ink);text-decoration:none;font-weight:600;font-size:13.5px}
+  .fam-pop a:hover{background:var(--chip)}
+  .fam-pop a .soft{font-weight:500;font-size:12px}
+  .fam-pop .here{background:var(--chip);outline:1px solid var(--line)}
+  .fam-pop .soon{opacity:.55;cursor:default}
+  .fam-pop .soon:hover{background:none}
+  .fam-pop .new-item{outline:2px solid var(--accent);position:relative}
+  .fam-pop .new-tag{position:absolute;right:8px;top:50%;transform:translateY(-50%);
+    background:var(--accent);color:#fff;font-size:10px;font-weight:800;border-radius:999px;
+    padding:2px 7px;letter-spacing:.5px}
+  .fam-mission{border-top:1px solid var(--line);margin-top:8px;padding:9px 10px 3px;
+    font-size:11.5px;color:var(--ink-soft);line-height:1.5}
+  /* the #home view content (what <main> renders when location.hash === '#home') */
+  .home-hero{text-align:center;padding:26px 12px 6px}
+  .home-hero h2{margin:0 0 8px;font-size:26px}
+  .home-hero p{max-width:620px;margin:0 auto;color:var(--ink-soft);font-size:15px}
+  .dot-demo{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:12px;
+    font-size:13px;color:var(--ink-soft)}
+  .dot-demo i{display:inline-block;width:12px;height:12px;border-radius:999px;margin-right:5px;vertical-align:-1px}
+  .dot-demo .g{background:#1f8a4c}.dot-demo .w{background:#e8b25c}.dot-demo .r{background:#c23b3b}
+  .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:24px 0 8px}
+  .cta .btn{font-size:15px;padding:12px 20px}
+  .keeps{max-width:640px;margin:14px auto 0;text-align:center;font-size:12.5px;color:var(--ink-soft)}
+  .steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:22px}
+  .steps .card{position:relative;padding-top:22px}
+  .steps .n{position:absolute;top:-13px;left:14px;width:26px;height:26px;border-radius:999px;
+    background:var(--brand);color:#fff;font-weight:800;font-size:13px;display:flex;
+    align-items:center;justify-content:center}
+  .steps h3{margin:0 0 6px;font-size:14px}
+  .steps p{margin:0;font-size:13px;color:var(--ink-soft)}
+  .coexist{border-left:3px solid var(--accent);padding-left:14px}
+  .coexist ul{margin:8px 0 0;padding-left:18px;font-size:13px;color:var(--ink-soft)}
+  .coexist li{margin-bottom:6px}
+  section{margin-top:30px}
+  section > h2{font-size:14px;letter-spacing:.4px;text-transform:uppercase;color:var(--ink-soft);text-align:center}
+  @media (max-width:480px){ .fam-pop{left:auto;right:-40px;min-width:260px} }
+</style>
+</head>
+<body>
+<div class="mock-note">DESIGN MOCKUP D3a — “#home, opened from the D1 switcher” · nothing here ships · <a href="index.html">round hub</a></div>
+
+<header>
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <div class="wrap">
+    <!-- D1's switcher, shown OPEN. The wordmark itself keeps its current reload
+         behavior (round 1's objection, answered); the caret opens the menu — the
+         exact affordance is the D1 build's call, D3a only needs the menu to exist.
+         THE ONLY THING D3a ADDS: the outlined "About this tool" item. -->
+    <div class="fam-menu">
+      <h1><a href="#" title="Reload the builder (unchanged)">BuildMyMTB</a></h1>
+      <button type="button" class="fam-caret" aria-label="The BuildMy family">▾</button>
+      <div class="fam-pop" role="menu" aria-label="The BuildMy family">
+        <a class="here" href="#" role="menuitem">🚵 BuildMyMTB <span class="soft">— you're here</span></a>
+        <a href="#" role="menuitem">🏁 BuildMyBMX</a>
+        <a href="#" role="menuitem">🧰 BuildMyRideKit <span class="soft">— rider gear</span></a>
+        <a class="soon" role="menuitem" aria-disabled="true">🚴 BuildMyRoadbike <span class="soft">— coming soon</span></a>
+        <a class="soon" role="menuitem" aria-disabled="true">🌾 BuildMyGravelBike <span class="soft">— coming soon</span></a>
+        <a class="new-item" href="#" role="menuitem">ℹ️ About this tool <span class="soft">— opens #home below</span>
+          <span class="new-tag">THE ONE NEW ITEM</span></a>
+        <div class="fam-mission">BuildMyMTB is a free, unbiased bike-building tool with accurate
+          data — pick parts and see, in real time, whether they fit together, plus running price
+          and weight.</div>
+      </div>
+    </div>
+    <a class="btn" href="#">🏁<span class="hdr-long"> BuildMyBMX</span></a>
+    <a class="btn" href="#">🧰<span class="hdr-long"> BuildMyRideKit</span></a>
+    <button type="button" class="btn">📚<span class="hdr-long"> Guides</span></button>
+    <button type="button" class="btn" aria-label="More options">⋯</button>
+    <input type="search" placeholder="Search brand or model (e.g. ZEB, XT, Code)…" aria-label="Search parts" />
+  </div>
+</header>
+<div class="honesty-strip"><span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span> Browse bike parts, click to add, and it checks fit, price and weight as you build.</div>
+
+<main>
+  <!-- what renders inside <main> when location.hash === '#home' (the guides-page
+       pattern). "/" with no hash is still the builder; nothing opens this view
+       except the user clicking the menu item or following a shared #home link. -->
+  <div class="home-hero">
+    <h2>Will it all fit? Know before you buy.</h2>
+    <p>BuildMyMTB is a free, unbiased bike-building tool with accurate data — pick parts and
+      see, in real time, whether they fit together, plus running price and weight.</p>
+    <div class="dot-demo">
+      <span><i class="g"></i>No conflicts found</span>
+      <span><i class="w"></i>Check first — adds a warning</span>
+      <span><i class="r"></i>Won't fit</span>
+    </div>
+  </div>
+
+  <div class="cta">
+    <a class="btn primary" href="#">← Back to the builder</a>
+    <a class="btn" href="#">📚 Read the guides</a>
+    <a class="btn" href="#">ℹ️ The full story (home.html)</a>
+  </div>
+  <p class="keeps">Closing this view returns to the builder <b>with your in-progress build exactly
+    as you left it</b> — it's a hash view inside the loaded app, not a navigation away from it.</p>
+
+  <section>
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="card"><span class="n">1</span><h3>Pick parts</h3>
+        <p>Browse the catalog by category — frames, forks, drivetrain, wheels, brakes, cockpit —
+        or search a brand or model.</p></div>
+      <div class="card"><span class="n">2</span><h3>See the fit, live</h3>
+        <p>Every part shows a dot against your current build. Open a part to read exactly why
+        something clashes, in plain mechanic language.</p></div>
+      <div class="card"><span class="n">3</span><h3>Watch price &amp; weight</h3>
+        <p>Running totals as you build. Bundle pricing when a groupset matches. MSRP basis,
+        sale prices always labeled.</p></div>
+      <div class="card"><span class="n">4</span><h3>Share or save</h3>
+        <p>Every build is a link. Share it, compare it, keep it in your garage.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="card coexist" style="text-align:left">
+      <strong>How D3a coexists with the approved D1 + D4 (it's an addition, not a replacement):</strong>
+      <ul>
+        <li><b>With D1 (family switcher):</b> D3a lives <i>inside</i> D1 — it adds exactly one item
+          to the approved menu and changes nothing else. The wordmark keeps its current reload
+          behavior; nothing auto-opens this view, ever (the no-popups rule applies to views too —
+          a first-visit auto-home was considered and rejected as an interstitial).</li>
+        <li><b>Beyond D4 (/home.html):</b> D4 is the full story on a separate page — navigating
+          there mid-build means leaving the app. D3a is the 20-second orientation that keeps your
+          in-progress build loaded, plus a shareable <code>#home</code> deep link; it links onward
+          to D4 for depth rather than repeating it.</li>
+        <li><b>Cost:</b> medium — a view in index.html's router (the Guides pattern) and ongoing
+          copy maintenance inside the app, vs. zero app changes for the D2 family. The honest
+          question: with D1's menu and D4 shipped, is a third orientation surface earning that?</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<script src="mock.js"></script>
+</body>
+</html>
