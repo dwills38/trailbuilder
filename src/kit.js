@@ -608,9 +608,15 @@ var KIT_PARTS = [
     soleType:'flat', closure:'lace', disciplines:['trail'], sizes:['35','36','37','38','39','40','41','42','43','44','45','46','47','48','49','50'],
     desc:'Vibram flat sole. Weight is size 43 (430g/shoe per giro.com).',
     verified:true, lastChecked:'2026-07-19', source:'https://www.giro.com/p/riddance-downhill-bike-shoes/350060001200000013.html' },
-  { id:'sho-specialized-2fo-flat-2', cat:'shoes', brand:'Specialized', model:'2FO Flat 2.0', price:120, weight:900,
+  { id:'sho-specialized-2fo-flat-2', cat:'shoes', brand:'Specialized', model:'2FO Roost Flat', price:119.99, weight:900,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47','48'],
-    desc:'SlipNot rubber flat sole, dual-density EVA midsole. Weight per pair (approx). NOTE 2026-07-16: this exact model name no longer appears on specialized.com (the direct product URL 404s); the current 2FO flat-pedal lineup shows "2FO Roost Flat" ($119.99 MSRP, ~360g/shoe) as its apparent successor, but that is a distinct SKU/name, not confirmation of this row - left unverified, no fields changed.' },
+    desc:'SlipNot rubber flat sole, dual-density EVA midsole. RE-SCOPED kit-6 (2026-07-20): confirmed'
+      + ' via specialized.com/us/en/shoes/mountain-bike-shoes (browser pane) that the full current'
+      + ' 16-shoe MTB lineup has no "2FO Flat 2.0" -- "2FO Roost Flat" ($119.99, currently on sale at'
+      + ' $97.99) is the direct successor in the same flat-pedal tier (a running-change rename, same'
+      + ' pattern as the Shimano ME->GE consolidation). Re-scoped model under the same id. No weight'
+      + ' published; kept as the prior sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.specialized.com/us/en/shoes/mountain-bike-shoes/c/mountain-bike-shoes' },
   { id:'sho-fox-union', cat:'shoes', brand:'Fox', model:'Union', price:149.95, weight:870,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'],
     sizes:['37','38','39','40','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','47'],
@@ -624,13 +630,14 @@ var KIT_PARTS = [
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13'],
     desc:'RideGrip PRO compound, WaffleGrip Pro tread, compression laces. Weight per pair, size EU43.',
     verified:true, lastChecked:'2026-07-14', source:'https://us.leatt.com/products/shoe-flat-3-0', sourceType:'manufacturer' },
-  { id:'sho-northwave-clan-2', cat:'shoes', brand:'Northwave', model:'Clan 2', price:150, weight:850,
+  { id:'sho-northwave-clan-2', cat:'shoes', brand:'Northwave', model:'Clan 2', price:162, weight:850,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['36','37','38','39','40','41','42','43','44','45','46','47','48','49'],
-    desc:'Enduro flat-pedal shoe with reinforced heel/toe. Weight per pair (approx). Fetched northwave.com confirms non-stretch laces (closure) and sizes 36-49; lists EUR149.99 (no USD manufacturer price found - northwave.com is EU-priced), so price stays prior USD sample.',
-    lastChecked:'2026-07-16', source:'https://www.northwave.com/en/bike/shoes/mtb/trailall-mountain/clan-2' },
+    desc:'Enduro flat-pedal shoe with reinforced heel/toe. Weight per pair (approx). Fetched northwave.com confirms non-stretch laces (closure) and sizes 36-49; lists EUR149.99 (no USD manufacturer price found - northwave.com is EU-priced). Kit-6 (2026-07-20): price set to a EUR->USD sample ($162, basis disclosed) per THE PRICE RULE, formalizing verified:true.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.northwave.com/en/bike/shoes/mtb/trailall-mountain/clan-2' },
   { id:'sho-shimano-gr7', cat:'shoes', brand:'Shimano', model:'GR7 (SH-GF600)', price:180, weight:800,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['38','39','40','41','42','43','44','45','46','47','48'],
-    desc:'ULTREAD GF flat-pedal sole, gravity/trail shoe. The GR line (SH-GR701) was retired in favor of the GF (Gravity Flat) line on ride.shimano.com; row re-scoped to the live SH-GF600. ride.shimano.com publishes no per-SKU weight — weight kept as the prior sample figure.' },
+    desc:'ULTREAD GF flat-pedal sole, gravity/trail shoe. The GR line (SH-GR701) was retired in favor of the GF (Gravity Flat) line on ride.shimano.com; row re-scoped to the live SH-GF600. ride.shimano.com publishes no per-SKU weight — weight kept as the prior sample figure. Kit-6 (2026-07-20): price $180 re-confirmed exactly via ride.shimano.com/collections/mountain; formalizing verified:true (weight not required for kit apparel).',
+    verified:true, lastChecked:'2026-07-20', source:'https://ride.shimano.com/collections/mountain' },
   { id:'sho-shimano-xc5', cat:'shoes', brand:'Shimano', model:'XC5 (SH-XC503)', price:190, weight:660,
     soleType:'clipless', closure:'boa', disciplines:['xc','trail'], sizes:['40','41','42','43','44','45','46','47','48'],
     desc:'2-bolt SPD clipless XC/trail shoe, BOA L6C dial. Kit-5 tiebreak (2026-07-20): re-fetched ride.shimano.com/collections/mountain -- the plain men\'s SH-XC502 SKU is gone from the current lineup (running-change succeeded by SH-XC503 at $190; only "SH-XC502 WOMEN\'S" at $175 remains, a different SKU than this row). Re-scoped this row from SH-XC502 to the live SH-XC503 per the running-change rule (XC502->XC503 is the documented exemplar). Confirmed via ride.shimano.com/products/sh-xc503: $190, BOA L6C dial (single dial, no velcro), sizes 40-48. No weight published; kept as sample (kit weight policy: never blocks verification).',
@@ -643,12 +650,16 @@ var KIT_PARTS = [
     sizes:['36','37','38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','46.5','47','48','49'],
     desc:'2-bolt SPD clipless, lace closure (not BOA - corrected 2026-07-16), SlipNot FG rubber sole. Weight = 367g/shoe (size 42) x2.',
     verified:true, lastChecked:'2026-07-16', source:'https://www.specialized.com/us/en/2fo-roost-clip-mountain-bike-shoes/p/187391' },
-  { id:'sho-specialized-rime-2-0', cat:'shoes', brand:'Specialized', model:'Rime 2.0', price:160, weight:840,
+  { id:'sho-specialized-rime-2-0', cat:'shoes', brand:'Specialized', model:'Rime 2.0', price:160, weight:840, status:'discontinued',
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['36','37','38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','46.5','47','48','49'],
     desc:'2-bolt SPD clipless enduro shoe, standard lace + Boa L6 dial. CHECKED 2026-07-19 via'
       + ' browser-rendered specialized.com search (WebFetch 403s this domain): "Rime 2.0" returns'
       + ' no results - the current Rime lineup is only "Rime Flat" ($139.99) and "Rime 1.0"'
-      + ' ($109.99), a clipless 2-bolt SKU. This row appears discontinued/superseded; left'
+      + ' ($109.99), a clipless 2-bolt SKU. Kit-6 (2026-07-20): reconfirmed via the full current'
+      + ' 16-shoe MTB lineup -- still no "Rime 2.0" or "Rime 3.0"; the naming resets to "1.0" rather'
+      + ' than incrementing past 2.0, so this is NOT a clean running-change successor (unlike the'
+      + ' Shimano/2FO patterns). Tagged discontinued rather than force-mapping onto Rime 1.0. This'
+      + ' row appears discontinued/superseded; left'
       + ' unverified, no fields changed.' },
   { id:'sho-crankbrothers-mallet-speedlace', cat:'shoes', brand:'Crankbrothers', model:'Mallet Speedlace', price:179.99, weight:850,
     soleType:'clipless', closure:'lace', disciplines:['enduro','dh'],
@@ -783,7 +794,11 @@ var KIT_PARTS = [
     desc:'XC/trail clipless shoe, independent BOA Li2 dials, welded upper, SlipNot FG sole.'
       + ' RE-CHECKED 2026-07-19 via browser-rendered specialized.com search (WebFetch 403s this'
       + ' domain): "2fo cliplite" now returns zero results, superseding the 2026-07-16 confirm -'
-      + ' appears discontinued since. Weight not published either way (stays sample). Left unverified.' },
+      + ' appears discontinued since. Weight not published either way (stays sample). Kit-6'
+      + ' (2026-07-20): confirmed via the full current 16-shoe MTB lineup (browser pane) -- no'
+      + ' clipless XC/trail tier close enough to call a 1:1 successor (2FO Roost Clip is enduro-tier,'
+      + ' 2FO DH Clip is DH-tier). Tagged discontinued rather than guessing a re-scope.',
+      status:'discontinued' },
   { id:'sho-specialized-sworks-recon', cat:'shoes', brand:'Specialized', model:'S-Works Recon', price:499.99, weight:530,
     soleType:'clipless', closure:'boa', disciplines:['xc'],
     sizes:['36','37','38','38.5','39','39.5','40','40.5','41','41.5','42','42.5','43','43.5','44','44.5','45','45.5','46','46.5','47','48','49'],
@@ -792,9 +807,9 @@ var KIT_PARTS = [
       + ' confirmed live as "S-Works Recon Shoe" (browser-rendered specialized.com/us/en -'
       + ' WebFetch 403s this domain). Weight not published, stays sample.',
     verified:true, lastChecked:'2026-07-19', source:'https://www.specialized.com/us/en/shop/cycling-clothing/cycling-shoes/mountain-bike-shoes' },
-  { id:'sho-specialized-sworks-2fo-roost', cat:'shoes', brand:'Specialized', model:'S-Works 2FO Roost', price:325, weight:700,
+  { id:'sho-specialized-sworks-2fo-roost', cat:'shoes', brand:'Specialized', model:'S-Works 2FO Roost', price:325, weight:700, status:'discontinued',
     soleType:'clipless', closure:'boa', disciplines:['enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'Flagship enduro clipless shoe, dual BOA, carbon sole. Weight per pair (approx). NOTE 2026-07-16: no "S-Works 2FO Roost" product found on specialized.com - the current 2FO Roost tier has no S-Works trim (only Clip/Flat/Canvas). Appears discontinued; left unverified, no fields changed.' },
+    desc:'Flagship enduro clipless shoe, dual BOA, carbon sole. Weight per pair (approx). NOTE 2026-07-16: no "S-Works 2FO Roost" product found on specialized.com - the current 2FO Roost tier has no S-Works trim (only Clip/Flat/Canvas). Kit-6 (2026-07-20): reconfirmed via the full current 16-shoe MTB lineup (browser pane) -- still no S-Works trim of any 2FO Roost variant. Tagged discontinued.' },
   { id:'sho-fox-union-boa', cat:'shoes', brand:'Fox', model:'Union BOA', price:249.95, weight:880,
     soleType:'clipless', closure:'boa', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
     desc:'CORRECTED 2026-07-17: the maker page for this model name ("Fox Union BOA") is the 2-bolt SPD CLIPLESS BOA shoe (soleType flat->clipless, was a duplicate of union-boa-flat below); list price $249.95 (was sample $170; page shows a $174.99 sale, not used). Search reviews cite conflicting per-shoe weights (443-504g/shoe across sources) so weight stays prior sample rather than picking one.',
@@ -835,20 +850,22 @@ var KIT_PARTS = [
     soleType:'clipless', closure:'lace', disciplines:['trail','enduro'], sizes:['6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13'],
     desc:'Entry-tier endurance clip shoe, RideGrip compound, traditional lace closure, 2-bolt SPD via included cleat shims. Weight = 360g/shoe (EU43) x2.',
     verified:true, lastChecked:'2026-07-16', source:'https://us.leatt.com/collections/mtb-shoes/products/shoe-clip-2-0-endurance' },
-  { id:'sho-northwave-enduro-mid-2', cat:'shoes', brand:'Northwave', model:'Enduro Mid 2', price:180, weight:750,
+  { id:'sho-northwave-enduro-mid-2', cat:'shoes', brand:'Northwave', model:'Enduro Mid 2', price:194, weight:750,
     soleType:'clipless', closure:'boa', disciplines:['enduro'], sizes:['38','40','41','42','43','44','45','46','47','48'],
-    desc:'Mid-cut enduro clipless shoe with ankle protection. Weight per pair (approx). CORRECTED 2026-07-16: fetched northwave.com - closes with a single X-Dial SLW3 (step-by-step + full-release dial), not laces (closure lace->boa). Sizes corrected to 38,40-48 (39 not offered). No USD manufacturer price found (EUR179.99 listed), so price stays prior sample.',
-    lastChecked:'2026-07-16', source:'https://www.northwave.com/en/bike/shoes/mtb/trailall-mountain/enduro-mid-2' },
+    desc:'Mid-cut enduro clipless shoe with ankle protection. Weight per pair (approx). CORRECTED 2026-07-16: fetched northwave.com - closes with a single X-Dial SLW3 (step-by-step + full-release dial), not laces (closure lace->boa). Sizes corrected to 38,40-48 (39 not offered). No USD manufacturer price found (EUR179.99 listed). Kit-6 (2026-07-20): price set to a EUR->USD sample ($194, basis disclosed) per THE PRICE RULE, formalizing verified:true.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.northwave.com/en/bike/shoes/mtb/trailall-mountain/enduro-mid-2' },
   { id:'sho-northwave-origin-plus-2', cat:'shoes', brand:'Northwave', model:'Origin Plus 2', price:200, weight:600,
     soleType:'clipless', closure:'boa', disciplines:['xc'], sizes:['39','40','41','42','43','44','45','46','47'],
     desc:'XC race clipless shoe, carbon-reinforced triple-density sole. CORRECTED 2026-07-16: fetched northwave.com - the SLW3 system is a dial closure, not a ratchet buckle (closure ratchet->boa). Weight per pair (approx), not published on the fetched page so stays prior sample; no USD manufacturer price found either.',
     lastChecked:'2026-07-16', source:'https://www.northwave.com/en/bike/shoes/mtb/xc/origin-plus-2' },
   { id:'sho-shimano-xc7', cat:'shoes', brand:'Shimano', model:'XC7 (SH-XC703)', price:260, weight:600,
     soleType:'clipless', closure:'boa', disciplines:['xc'], sizes:['38','39','40','41','42','43','44','45','46','47','48'],
-    desc:'XC race clipless shoe, carbon-reinforced sole. SH-XC702 has been superseded by SH-XC703 on ride.shimano.com; row re-scoped to the live SKU. ride.shimano.com publishes no per-SKU weight — weight kept as the prior sample figure.' },
+    desc:'XC race clipless shoe, carbon-reinforced sole. SH-XC702 has been superseded by SH-XC703 on ride.shimano.com; row re-scoped to the live SKU. ride.shimano.com publishes no per-SKU weight — weight kept as the prior sample figure. Kit-6 (2026-07-20): price $260 re-confirmed exactly via ride.shimano.com/collections/mountain; formalizing verified:true (weight not required for kit apparel).',
+    verified:true, lastChecked:'2026-07-20', source:'https://ride.shimano.com/collections/mountain' },
   { id:'sho-shimano-xc3', cat:'shoes', brand:'Shimano', model:'XC3 (SH-XC302)', price:140, weight:700,
     soleType:'clipless', closure:'boa', disciplines:['xc','trail'], sizes:['40','41','42','43','44','45','46','47','48'],
-    desc:'Entry-level XC clipless shoe. SH-XC300 has been superseded by SH-XC302 (single BOA L6E dial, was velcro on the 300) on ride.shimano.com; row re-scoped to the live SKU. ride.shimano.com publishes no per-SKU weight — weight kept as the prior sample figure.' },
+    desc:'Entry-level XC clipless shoe. SH-XC300 has been superseded by SH-XC302 (single BOA L6E dial, was velcro on the 300) on ride.shimano.com; row re-scoped to the live SKU. ride.shimano.com publishes no per-SKU weight — weight kept as the prior sample figure. Kit-6 (2026-07-20): price $140 re-confirmed exactly via ride.shimano.com/collections/mountain; formalizing verified:true (weight not required for kit apparel).',
+    verified:true, lastChecked:'2026-07-20', source:'https://ride.shimano.com/collections/mountain' },
   { id:'sho-shimano-am9', cat:'shoes', brand:'Shimano', model:'AM9 (SH-AM902)', price:230, weight:900,
     soleType:'clipless', closure:'boa', status:'discontinued', disciplines:['enduro','dh'], sizes:['39','40','41','42','43','44','45','46','47'],
     desc:'Gravity/DH clipless shoe, dual BOA dials. Weight per pair (approx). The AM line has been retired and consolidated into the GE (Gravity Enduro) line on ride.shimano.com — no clean 1:1 successor SKU, so this row is kept as a discontinued sample rather than re-scoped (see sho-shimano-ge7 for the live GE700 entry).' },
@@ -862,7 +879,8 @@ var KIT_PARTS = [
     verified:true, lastChecked:'2026-07-19', source:'https://ride.shimano.com/products/sh-ge700' },
   { id:'sho-shimano-gr9', cat:'shoes', brand:'Shimano', model:'GR9 (SH-GF800)', price:200, weight:800,
     soleType:'flat', closure:'boa', disciplines:['enduro','dh'], sizes:['38','39','40','41','42','43','44','45','46','47','48'],
-    desc:'Premium gravity flat shoe, BOA closure. The GR line (SH-GR901) was retired in favor of the GF (Gravity Flat) line on ride.shimano.com; row re-scoped to the live flagship SH-GF800. ride.shimano.com publishes no per-SKU weight — weight kept as the prior sample figure.' },
+    desc:'Premium gravity flat shoe, BOA closure. The GR line (SH-GR901) was retired in favor of the GF (Gravity Flat) line on ride.shimano.com; row re-scoped to the live flagship SH-GF800. ride.shimano.com publishes no per-SKU weight — weight kept as the prior sample figure. Kit-6 (2026-07-20): price $200 re-confirmed exactly via ride.shimano.com/collections/mountain; formalizing verified:true (weight not required for kit apparel).',
+    verified:true, lastChecked:'2026-07-20', source:'https://ride.shimano.com/collections/mountain' },
   { id:'sho-shimano-ge500', cat:'shoes', brand:'Shimano', model:'GE5 (SH-GE500)', price:150, weight:798,
     soleType:'clipless', closure:'lace', disciplines:['enduro','dh'], sizes:['40','41','42','43','44','45','46','47','48'],
     desc:'Entry tier of the Gravity Enduro line, TORBAL 2.0 midsole + ULTREAD GE outsole, 2-bolt SPD, lace + instep strap closure. Price ($150, exact match) + closure/sole confirmed on ride.shimano.com; Shimano does not publish per-shoe weight, so weight is a retailer-quoted approx (399g/shoe, size 42, doubled for the pair) - kept as sample (kit weight policy: never blocks verification).',
@@ -2894,8 +2912,10 @@ var KIT_PARTS = [
     disciplines:['dh'], sizes:['S','M','L','XL'], desc:'Arti-Lage impact knee pad + removable hard-shell shin guard, Kevlar-stretch panel; per pair. Weight now maker-stated ("524 g") on the fetched ridetsg.com product page (was previously unpublished). Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.' },
 
   /* -- Eyewear (type required: glasses / goggles) -- */
-  { id:'ewr-oakley-sutro', cat:'eyewear', brand:'Oakley', model:'Sutro', price:180, weight:32,
-    type:'glasses', sizes:['OSFA'] },
+  { id:'ewr-oakley-sutro', cat:'eyewear', brand:'Oakley', model:'Sutro', price:203, weight:32,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, lastChecked:'2026-07-20', source:'https://www.oakley.com/en-us/product/W0OO9406',
+    desc:'Fetched oakley.com (browser pane, WebFetch 403): confirmed price $203 (Polished Black/Prizm Sapphire). Oakley does not publish weight; kept as sample.' },
   { id:'ewr-poc-devour', cat:'eyewear', brand:'POC', model:'Devour', price:300, weight:39,
     type:'glasses', sizes:['OSFA'],
     verified:true, lastChecked:'2026-07-16', source:'https://poc.com/en-us/product/devour-uranium-black',
@@ -2905,8 +2925,10 @@ var KIT_PARTS = [
     desc:'Price/type confirmed on the Smith product page (weight not stated there); weight is Bikerumor\'s measured figure.',
     verified:true, lastChecked:'2026-07-16', source:'https://www.smithoptics.com/en-us/products/squad-mtb',
     sourceType:'measured', weightSource:'https://bikerumor.com/review-smith-squad-mtb-goggles-give-wide-field-of-view-with-minimal-fogging/' },
-  { id:'ewr-oakley-radar-ev-path', cat:'eyewear', brand:'Oakley', model:'Radar EV Path', price:203, weight:28,
-    type:'glasses', sizes:['OSFA'] },
+  { id:'ewr-oakley-radar-ev-path', cat:'eyewear', brand:'Oakley', model:'Radar EV Path', price:244, weight:28,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, lastChecked:'2026-07-20', source:'https://www.oakley.com/en-us/product/W0OO9208',
+    desc:'Fetched oakley.com (browser pane, WebFetch 403): confirmed price $244 (Polished Black/Prizm Black). Oakley does not publish weight; kept as sample.' },
   { id:'ewr-100-s3', cat:'eyewear', brand:'100%', model:'S3', price:149.95, weight:26,
     type:'glasses', sizes:['OSFA'],
     desc:'RE-CONFIRMED 2026-07-19 via browser-rendered 100percent.com/collections/s3 (WebFetch'
@@ -2952,9 +2974,10 @@ var KIT_PARTS = [
     type:'goggles', sizes:['OSFA'],
     desc:'CORRECTED 2026-07-16: this is Leatt\'s Velocity MTB goggle line (type glasses<-goggles) - us.leatt.com sells no product called "Velocity" sunglasses (their glasses lines are Sunglasses Core/TheViz/MadViz/RideViz/SpeedViz). Fetched page confirms the Velocity 4.0 MTB goggle is real but tags it Obsolete/clearance with no published weight and a price that varies by colorway ($24.99 sale seen), so price/weight stay prior sample.',
     lastChecked:'2026-07-16', source:'https://us.leatt.com/products/goggle-velocity-4-0-mtb-sale' },
-  { id:'ewr-bliz-breeze', cat:'eyewear', brand:'Bliz', model:'Breeze', price:90, weight:29,
+  { id:'ewr-bliz-breeze', cat:'eyewear', brand:'Bliz', model:'Breeze', price:118, weight:29,
     type:'glasses', sizes:['OSFA'],
-    desc:'ATTEMPTED 2026-07-20: bliz.se (the old Bliz domain) has been sold off as a parked domain (nameshift.com); the brand\'s live site is bliz.com. Fetched bliz.com/en-be/sunglasses/ZB7002-7318480115194 (Breeze, EU store): colorway prices run EUR89-109 (a "FLASH SALE" banner suggests these may be discounted, not MSRP). No clean USD price found -- bliz.com/en-us/sunglasses lists no products (empty collection page, likely JS-gated). Same EUR-only situation as TSG/Cube/Loose Riders elsewhere in this file; no weight published on the page either. Left unverified, prior sample kept rather than guess a USD conversion off a possibly-discounted EUR figure.', lastChecked:'2026-07-20', source:'https://www.bliz.com/en-be/sunglasses/ZB7002-7318480115194' },
+    desc:'Kit-6 (2026-07-20): re-fetched bliz.com/en-be/sunglasses/ZB7002-7318480115194 (browser pane) and inspected the raw price element (class "pdp-js-price") directly: EUR109.00, no strikethrough/discount markup despite an active perpetual "FLASH SALE" countdown banner (Bliz runs one continuously per Settings.FlashSales in the page script) -- this IS the standing price, not a temporary markdown. bliz.com/en-us shows no price at all for any product (storefront bug, "Price: Free" placeholder). Price is a EUR->USD sample ($118, basis disclosed) per THE PRICE RULE; no weight published, kept as sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.bliz.com/en-be/sunglasses/ZB7002-7318480115194' },
   { id:'ewr-tifosi-sledge', cat:'eyewear', brand:'Tifosi', model:'Sledge', price:79.95, weight:37,
     type:'glasses', sizes:['OSFA'],
     desc:'CORRECTED 2026-07-16, weight confirmed kit-5 (2026-07-20): fetched tifosioptics.com/products/sledge confirms $79.95 regular price (currently on sale at $49.95 - MSRP used, not the sale price), interchangeable Grilamid TR-90 frame with vented photochromic lens. The page\'s visible DETAILS section states "Weight: 37G" in plain text (the prior session only saw an implausible 181g Shopify shipping-weight field and stayed sample) - 37g is the real per-unit maker-stated weight, correcting the prior 32g sample figure.',
@@ -3025,24 +3048,31 @@ var KIT_PARTS = [
   { id:'ewr-sweetprotection-clockwork', cat:'eyewear', brand:'Sweet Protection', model:'Clockwork', price:169, weight:26, status:'discontinued',
     type:'goggles', sizes:['OSFA'],
     desc:'CORRECTED type from glasses -> goggles (2026-07-16): sweetprotection.com markets Clockwork as an "All Mountain Goggles" / ski-snowboard goggle, not sunglasses. Kit-5 (2026-07-20): fetched sweetprotection.com/us/en/goggles-and-sunglasses/mtb-goggles/ (17 products: Deckard/Durden/Firewall families only) AND the sunglasses page (41 products) fresh -- Clockwork appears in neither. The swapped-weight/price suspicion is now moot (Ronin\'s own fresh fetch confirms 31g/$160, nothing like Clockwork\'s 26g/$169, so no evidence of a data-entry swap after all). Clockwork is simply gone from the current lineup with no clean successor; tagged discontinued, stays unverified sample.' },
-  { id:'ewr-alpina-ram-hr-qlite', cat:'eyewear', brand:'Alpina', model:'Ram HR Q-Lite', price:150, weight:27,
+  { id:'ewr-alpina-ram-hr-qlite', cat:'eyewear', brand:'Alpina', model:'Ram 2.0 Q-Lite', price:86, weight:27,
     type:'glasses', sizes:['OSFA'],
-    desc:'Checked 2026-07-16: confirmed as a real current Alpina "enduro sports glasses" product (multiple alpina-sports.com colorway pages found via search), but every specific product-page fetch attempted either 404s or throws a header-overflow parse error - could not confirm price/weight. Left as an unverified sample, price/weight unchanged.' },
-  { id:'ewr-uvex-sportstyle-227', cat:'eyewear', brand:'Uvex', model:'Sportstyle 227', price:90, weight:26,
-    type:'glasses', sizes:['OSFA'] },
+    desc:'RE-SCOPED kit-6 (2026-07-20): alpina-sports.com/en/eyewear/sports-glasses/ (browser pane) lists no "Ram HR Q-Lite" anymore -- the current product is "RAM 2.0 Q-LITE", whose own page states outright "The evolution of the popular Ram: the Ram 2.0" (a direct 1:1 successor, same re-scope rule as the Shimano running-change pattern). Re-scoped model/id-target under the same id per the append-only id convention. EUR79.95 RRP confirmed on the maker page; price is a EUR->USD sample ($86, basis disclosed) per THE PRICE RULE. No weight published, kept as sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.alpina-sports.com/en/eyewear/sports-glasses/ram-2.0-q-lite/' },
+  { id:'ewr-uvex-sportstyle-227', cat:'eyewear', brand:'Uvex', model:'Sportstyle 227', price:108, weight:26,
+    type:'glasses', sizes:['OSFA'],
+    desc:'Kit-6 (2026-07-20): fetched uvex-sports.com EU eyewear page (browser pane) -- confirms the model is CURRENT (article S5320662216), EUR99.95 RRP (no US price -- uvexsports.us\'s 20-product US lineup has moved on to sportstyle 235/236, not 227). Price is a same-tier EUR->USD sample ($108, basis disclosed) per THE PRICE RULE; weight not published, kept as sample.',
+    verified:true, source:'https://www.uvex-sports.com/en/eyewear/sports-eyewear/uvex-sportstyle-227-black-mat-mirsilver-4043197345482', lastChecked:'2026-07-20' },
   { id:'ewr-cairn-ride', cat:'eyewear', brand:'Cairn', model:'Ride', price:29, weight:28,
     type:'glasses', sizes:['OSFA'],
     desc:'CORRECTION 2026-07-16: multiple independent retailers (AlpinStore, Kidinn/tradeinn) and cairn-sport.com\'s own site-search list "Ride" as a JUNIOR/kids sunglasses model (ages ~8-12, flexible frame, rubber temple grip), retailing around EUR17-27 - not the $80 adult "Photochromic" MTB glasses this row previously claimed. No current adult Cairn cycling-glasses model is named "Ride" (the adult lineup is Roc/Trax/Core/Flyin per cairn-sport.com). Price corrected to a converted USD estimate from the EUR26.99 regular retail price; the "Photochromic" claim is dropped since no source confirms it. cairn-sport.com itself returned 429/404 on every direct fetch attempt this session, so this stays an UNVERIFIED sample correction, not a verified row. FLAGGED for a product-scope decision: this may not belong in an adult MTB kit catalog at all (see report).', lastChecked:'2026-07-16' },
-  { id:'ewr-salice-016rw', cat:'eyewear', brand:'Salice', model:'016 RW', price:70, weight:26,
-    type:'glasses', sizes:['OSFA'] },
+  { id:'ewr-salice-016rw', cat:'eyewear', brand:'Salice', model:'016 RW', price:137, weight:26,
+    type:'glasses', sizes:['OSFA'],
+    desc:'Kit-6 (2026-07-20): confirmed the 016 model is CURRENT on salice.co.uk (Salice\'s official UK/US-priced site, browser pane) -- standard "SALICE 016 SUNGLASSES MIRROR LENS" runs $137 across all colorways (polarised $192, light-adaptive $172 tiers also exist). The site categorizes by lens-color name rather than the "RW" designation retailers use; could not confirm "RW" maps to a specific one of those colorways, but the base 016 mirror-lens price ($137) is a solid floor for this row. Price corrected from a stale $70 sample.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.salice.co.uk/collections/016' },
   { id:'ewr-vonzipper-approach', cat:'eyewear', brand:'Von Zipper', model:'Approach', price:100, weight:29,
     type:'glasses', sizes:['OSFA'],
-    desc:'CORRECTED 2026-07-16: fetched vonzipper.com/products/approach confirms $100.00 (was $120), Grilamid nylon frame, polycarbonate or Wildlife Polarized lens, Base 6 spherical design, stainless-steel hinges. No weight published on the page, stays prior sample.',
-    lastChecked:'2026-07-16', source:'https://vonzipper.com/products/approach' },
+    desc:'CORRECTED 2026-07-16: fetched vonzipper.com/products/approach confirms $100.00 (was $120), Grilamid nylon frame, polycarbonate or Wildlife Polarized lens, Base 6 spherical design, stainless-steel hinges. No weight published on the page, stays prior sample. Kit-6 (2026-07-20): re-confirmed still current, formalizing verified:true (weight not required for kit apparel).',
+    verified:true, lastChecked:'2026-07-20', source:'https://vonzipper.com/products/approach' },
   { id:'ewr-gatorz-wraptor', cat:'eyewear', brand:'Gatorz', model:'Wraptor', price:129, weight:32,
-    type:'glasses', sizes:['OSFA'] },
+    type:'glasses', sizes:['OSFA'], status:'discontinued',
+    desc:'Kit-6 (2026-07-20): confirmed gone from gatorz.com (browser pane) -- both /collections/wraptor and /collections/wraptor-frame return "COLLECTION IS EMPTY", and the site\'s current full lineup (Revenant, Wraith, Sentix, Blastshield/B2, Warhawk, Rig, Havok, Marauder, Magnum, Delta/Delta-M4, Specter, Skyhook) has no Wraptor or obvious 1:1-named successor. Tagged discontinued rather than guessing a re-scope target. Left unverified/sample.' },
   { id:'ewr-torege-tr90', cat:'eyewear', brand:'Torege', model:'TR90 Polarized Sport', price:25, weight:24,
-    type:'glasses', sizes:['OSFA'] },
+    type:'glasses', sizes:['OSFA'],
+    desc:'Kit-6 (2026-07-20): fetched torege.com/collections/polarized-sunglasses (browser pane) -- "TR90" is Torege\'s common frame MATERIAL used across its whole current lineup (Theseus, Pure, Quietness, Unique, Fantastic, Apollo, Highway, Dreamy Lake, all $35-47), not a standalone named model called "TR90 Polarized Sport". No product by that exact name exists to verify against. Flagging for a catalog-scope decision (same pattern as the Cairn Ride flag) rather than force-matching an arbitrary named model. Left unverified, price/weight unchanged.' },
   { id:'ewr-ixs-trigger', cat:'eyewear', brand:'iXS', model:'Trigger', price:102, weight:130,
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
     desc:'Mirrored anti-fog/anti-scratch single lens, 178x78-degree field of view, universal'
@@ -3053,29 +3083,37 @@ var KIT_PARTS = [
     verified:true, lastChecked:'2026-07-19', source:'https://www.ixs.com/en/products/ixs-goggle-trigger-camel-gold-verspiegelt' },
   { id:'ewr-eksbrand-lucid', cat:'eyewear', brand:'EKS Brand', model:'Lucid', price:109, weight:120,
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
-    desc:'Price corrected to $109 (was a stale $45 sample) via a fetched eksbrand.com/pages/lucid-goggle spec page; that page states no weight, so weight stays the prior approx sample - unverified.', source:'https://eksbrand.com/pages/lucid-goggle', lastChecked:'2026-07-16' },
-  { id:'ewr-oneal-b10', cat:'eyewear', brand:"O'Neal", model:'B-10', price:40, weight:125,
-    type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'] },
+    desc:'Price $109 re-confirmed kit-6 (2026-07-20) via browser pane fetch of eksbrand.com/pages/lucid-goggle (whole Lucid collection lists at $109). No weight published; kept as sample per kit-apparel no-weight-required policy.',
+    verified:true, source:'https://eksbrand.com/pages/lucid-goggle', lastChecked:'2026-07-20' },
+  { id:'ewr-oneal-b10', cat:'eyewear', brand:"O'Neal", model:'B-10', price:57, weight:125,
+    type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
+    desc:'Kit-6 (2026-07-20): oneal.com (US) sells no goggles/eyewear at all currently (jerseys/pants/helmets/gearsets only); fetched oneal.eu (browser pane) instead -- same manufacturer\'s EU site -- confirming the B-10 SOLID SKU is current at EUR52.99. Price is a same-tier EUR->USD sample ($57, basis disclosed) per THE PRICE RULE; weight not published, kept as sample.',
+    verified:true, source:'https://www.oneal.eu/en/products/oneal-b-10-glasses-solid', lastChecked:'2026-07-20' },
   { id:'ewr-oneal-bflex', cat:'eyewear', brand:"O'Neal", model:'B-Flex', price:55, weight:135,
-    type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'] },
+    type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'], status:'discontinued',
+    desc:'Kit-6 (2026-07-20): confirmed gone from oneal.eu\'s current goggle lineup (browser pane) -- the live categories are B-10/B-20/B-22/B-30/B-33/B-50/B-55/B-Zero; no "B-Flex" collection or product exists anymore. No clean 1:1 successor named, so tagged discontinued rather than re-scoped. Left unverified/sample.' },
   { id:'ewr-flyracing-zone', cat:'eyewear', brand:'Fly Racing', model:'Zone', price:44.95, weight:130,
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
-    desc:'Price confirmed (44.95 regular, fetched flyracing.com/zone-goggle-2025/, listed under Fly\'s Bicycle > MTB > Goggles collection). No weight published (130g remains an unverified sample figure).' },
-  { id:'ewr-uvex-athletic-cv', cat:'eyewear', brand:'Uvex', model:'Athletic CV', price:70, weight:140,
-    type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'] },
+    desc:'Price re-confirmed kit-6 (2026-07-20) via flyracing.com/zone-goggle-2025/: $44.95 regular price (currently on sale at $35.96, not used here). No weight published; kept as sample per kit-apparel no-weight-required policy.',
+    verified:true, source:'https://flyracing.com/zone-goggle-2025/', lastChecked:'2026-07-20' },
+  { id:'ewr-uvex-athletic-cv', cat:'eyewear', brand:'Uvex', model:'Athletic CV', price:108, weight:140,
+    type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
+    desc:'Kit-6 (2026-07-20): fetched uvex-sports.com\'s "athletic CV bike" colorway page (browser pane) -- confirmed CURRENT, marketed for "downhill action" (a real bike-specific SKU of a chassis the site files under Ski Goggles nav), EUR99.95 RRP, no US price found. Price is a same-tier EUR->USD sample ($108, basis disclosed) per THE PRICE RULE; weight not published, kept as sample.',
+    verified:true, source:'https://www.uvex-sports.com/en/wintersports/ski-goggles/uvex-athletic-cv-black-mat-sl-blue-green-4043197339085', lastChecked:'2026-07-20' },
   { id:'ewr-sweetprotection-ronin', cat:'eyewear', brand:'Sweet Protection', model:'Ronin', price:160, weight:31,
     type:'glasses', disciplines:['enduro','dh'], sizes:['OSFA'],
     desc:'CORRECTED type from goggles -> glasses (2026-07-16): sweetprotection.com markets Ronin as "Sport Performance Sunglasses," not goggles. Kit-5 (2026-07-20): fetched the live Ronin RIG Reflect product page fresh -- confirms weight 31g and price $160.00, resolving the prior swapped-weight/price flag (the real weight/price were neither the old 135g/$90 sample nor a swap with Clockwork -- both were simply stale).',
     verified:true, lastChecked:'2026-07-20', source:'https://www.sweetprotection.com/us/en/ronin-rig-reflect-rig-obsidianmatte-black/' },
   { id:'ewr-100-racecraft2', cat:'eyewear', brand:'100%', model:'Racecraft2', price:70, weight:130,
-    type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
-    desc:'RE-ATTEMPTED 2026-07-19 via browser pane (WebFetch JS-walled): the "Racecraft 2®'
-      + ' Goggles" line is confirmed CURRENT and marketed for "motocross, mountain bike, and'
-      + ' snow" on 100percent.com/pages/mtb-goggles, but the base-goggle product page (as opposed'
-      + ' to its replacement-lens/tear-off accessories, which are $10-30 and easy to find) never'
-      + ' surfaced through site search this session - could not pin an exact base price. Left'
-      + ' unverified; the discontinuation risk from the 2026-07-18 note is resolved (it is NOT'
-      + ' discontinued), just still unpriced against a fetched page.' },
+    type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'], status:'discontinued',
+    desc:'Kit-6 (2026-07-20): confirmed genuinely gone via 100percent.com/collections/mtb-goggles'
+      + ' (browser pane) -- the current MTB goggle lineup is DUAL ARMEGA/ARMEGA/ACCURI 2/STRATA 2/'
+      + 'ARmatic/Barstow; Racecraft2 is absent from both the collection grid and the "Shop by'
+      + ' Model" nav. A site search for "racecraft" returns only RACECRAFT/ACCURI/STRATA-branded'
+      + ' replacement-lens and tear-off accessories (RC2/AC2/ST2 shared-fit SKUs) -- no standalone'
+      + ' base goggle product exists to buy. No clean 1:1 successor named (ACCURI 2 shares the'
+      + ' accessory-compatibility tag but is a distinct existing catalog row), so tagged'
+      + ' discontinued rather than re-scoped. Left unverified/sample.' },
   { id:'ewr-leatt-velocity-65', cat:'eyewear', brand:'Leatt', model:'Velocity 6.5', price:120, weight:130,
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
     desc:'Fetched us.leatt.com (2026-07-17): CORRECTED price $90 -> $120 (base list; page also shows a $84 sale, not used here). Weight not published there, stays sample.',

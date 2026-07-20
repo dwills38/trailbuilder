@@ -136,3 +136,106 @@ fetch per row (browser pane for JS-heavy sites), ignoring both waves' memory:
   `ride.shimano.com/products/sh-xc503` confirms $190, BOA L6C dial, sizes 40-48 (the row's
   old 39-47 range is stale too). **Fix applied:** re-scoped the row to `SH-XC503`/$190/
   sizes 40-48, `lastChecked` bumped, `source` updated to the xc503 product page.
+
+## Kit Wave 6 (2026-07-20, branch `verify/kit-6`)
+
+Scope: eyewear MAIN POOL (the 18 active-unverified rows left after clusters 1-4, i.e.
+everything past Melon/Tifosi/Fox/Dragon Alliance/Rudy/Julbo/Adidas/Native/Spy/Optic
+Nerve/Sweet Protection) + the shoe tail (Giro remainder, Shimano current-SKU formalization,
+a first pass on Specialized/Northwave). Apparel bar per VERIFY-PROTOCOL: **no weight
+required** for kit-catalog rows except helmets — this unblocked a lot of already-fetched-
+but-never-flagged rows from prior waves (see "quiet backlog" below).
+
+### Eyewear main pool — 18 active rows, disposition
+
+**Verified (10):** Oakley Sutro ($203) and Radar EV Path ($244) — oakley.com never
+publishes weight, confirmed via browser pane (WebFetch 403s this domain). EKS Brand Lucid
+($109) and Fly Racing Zone ($44.95) — both already had real fetched prices from prior
+waves but were missing the `verified:true` flag; simply formalized under the no-weight
+policy. Uvex Sportstyle 227 and Athletic CV — both EUR99.95 RRP on uvex-sports.com (no US
+price exists; Athletic CV is a real bike-specific colorway the site files under its Ski
+Goggles nav, not a scope error). O'Neal B-10 — oneal.com (US) sells no eyewear at all;
+fetched oneal.eu instead (same manufacturer, different region — not a wall, just a
+regional catalog gap). Bliz Breeze — inspected the raw price DOM element directly
+(`pdp-js-price` class) to confirm EUR109 is the STANDING price despite an always-on
+"FLASH SALE" countdown banner (Bliz apparently runs one continuously per its own page
+script's `Settings.FlashSales`) — don't take flash-sale banners at face value, check the
+actual price element. Salice 016 RW — confirmed current on salice.co.uk at $137
+(standard mirror lens; the site categorizes by lens-color name, not the "RW" designation
+retailers use, so the RW-specific SKU couldn't be pinned exactly). Von Zipper Approach —
+already had a real fetched price from wave 5-ish; formalized.
+
+**Re-scoped (1):** Alpina "Ram HR Q-Lite" → "Ram 2.0 Q-Lite" — the maker's own page states
+outright "the evolution of the popular Ram: the Ram 2.0", a clean running-change signal
+(same pattern as Shimano's numbered-SKU successions). EUR79.95 RRP.
+
+**Newly discontinued (3):** 100% Racecraft2 — genuinely gone from the current MTB goggle
+lineup (ARMEGA/ACCURI 2/STRATA 2/ARmatic/Barstow); survives only as an accessory-
+compatibility tag on replacement lenses. O'Neal B-Flex — gone from oneal.eu's current
+B-10/20/22/30/33/50/55/Zero lineup. Gatorz Wraptor — both `/collections/wraptor` and
+`/collections/wraptor-frame` return "COLLECTION IS EMPTY"; no successor in the current
+12-model lineup (Revenant/Wraith/Sentix/Blastshield/Warhawk/Rig/Havok/Marauder/Magnum/
+Delta/Specter/Skyhook).
+
+**Confirmed walled / scope-flagged, left untouched (4):** Scott Shield and Scott Fury
+Goggle — scott-sports.com is a genuine Incapsula bot-wall (browser pane navigation itself
+was denied), consistent with prior waves' finding; not re-attempted further per the fetch-
+ethics ruling. Cairn Ride — already flagged in a prior wave as likely a kids'/junior model,
+not the adult MTB glasses the row claims; left as-is, still needs a Douglas scope call.
+Torege "TR90 Polarized Sport" — **new finding this wave**: TR90 is Torege's common frame
+MATERIAL used across its entire current lineup (Theseus/Pure/Quietness/Unique/Fantastic/
+Apollo/Highway/Dreamy Lake, all named products at $35-47), not a standalone model with that
+exact name. Flagged for the same kind of scope decision as Cairn Ride rather than guessing
+which named product it should map to.
+
+This closes out the eyewear main pool from CLAUDE.md's wave-4/5 backlog list. Remaining
+eyewear backlog (untouched, low priority / tiny brands not yet attempted): none from the
+original wave-4 list remain unattempted — every brand named there (100%, POC, Smith, Leatt,
+Scott + the long tail) has now been through at least one fetch attempt across waves 4-6.
+
+### Shoe tail
+
+**Giro:** `sho-giro-manta` checked and confirmed already correctly `status:'discontinued'`
+from a 2026-07-17 wave (real historical SKU, no current men's/unisex Manta on giro.com —
+only a Women's Manta Lace, a different closure). No further Giro work needed this wave;
+Sector and other Giro rows are already verified from prior waves.
+
+**Shimano — formalized, no new fetches needed:** `sho-shimano-gr7` (SH-GF600, $180),
+`sho-shimano-xc7` (SH-XC703, $260), `sho-shimano-xc3` (SH-XC302, $140), and
+`sho-shimano-gr9` (SH-GF800, $200) all ALREADY carried the correct current-SKU model name
+and price from prior re-scoping waves — a fresh fetch of `ride.shimano.com/collections/
+mountain` re-confirmed every price exactly, so these just needed the `verified:true` flag
+formalized under the no-weight-required policy. The ME/AM lines' discontinued tags
+(`sho-shimano-me702/me502/am9/am7`) were spot-checked and remain correct (GE line has no
+clean 1:1 successor for any of them).
+
+**Specialized — full current 16-shoe MTB lineup pulled** (specialized.com renders cleanly
+in the browser pane; WebFetch 403s it, per the established JS-rendered-not-walled
+distinction): `sho-specialized-2fo-flat-2` re-scoped to "2FO Roost Flat" ($119.99, direct
+same-tier successor). `sho-specialized-rime-2-0`, `sho-specialized-2fo-cliplite`, and
+`sho-specialized-sworks-2fo-roost` confirmed gone with **no** clean 1:1 successor (Rime's
+naming resets to "1.0" rather than continuing past 2.0 — don't force-map a reset onto a
+successor; 2FO Cliplite has no equivalent clipless XC/trail tier left; 2FO Roost carries no
+S-Works trim) — all three tagged `discontinued` rather than guessed.
+
+**Northwave — partial:** `sho-northwave-clan-2` (EUR149.99->$162 sample) and
+`sho-northwave-enduro-mid-2` (EUR179.99->$194 sample) already had real fetched EUR prices
+from a 2026-07-16 wave; converted to disclosed-basis USD and formalized verified. Left
+untouched: `sho-northwave-rockit-2` (the row's exact name maps ambiguously between "Rockit"
+and "Rockit Plus" on the current site — a prior wave already flagged this, not re-resolved)
+and `sho-northwave-origin-plus-2` (product URL guesses all 404'd this session; no working
+page found — needs a fresh site-search pass, not a URL guess, next time).
+
+**Not attempted this wave** (next wave's shoe-tail scope): remaining Northwave ambiguity
+above, Troy Lee Designs (Grind, Roost), O'Neal Session SPD, POC Resistance Strong Mid/Ultra
+Clipless (already discontinued from a prior wave, not re-verified), Bontrager (Rally,
+Foray, Flatline), Giant Line (already discontinued), Sidi Dust, Vaude AM Moab, Scott Sport
+Crus-r Flat BOA. Five Ten stays untouched per the confirmed adidas.com CAPTCHA wall.
+
+### Quiet backlog worth knowing about
+
+Several rows across prior waves had a real manufacturer-fetched price recorded in `desc`
+(sometimes with `source`/`lastChecked` already set) but were never flagged `verified:true`
+— likely because the weight bar blocked them before the 2026-07-19 kit-apparel policy
+relaxed it. Worth a scan for more of these before spending fetch budget on brand-new
+brands: they're free verifications, no research needed, just re-confirm-and-flag.
