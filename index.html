@@ -478,6 +478,16 @@
   .invlist .grow.clickable{cursor:pointer}
   .invlist .grow.clickable:hover{border-color:var(--brand);background:#f7faf8}
   .invlist .gprice{font-weight:700;font-size:13px;white-space:nowrap}
+  /* Recall watcher (Phase 4/5): a quiet, IN-PAGE notice for owned parts that
+     the recall-watchdog corpus (tools/recalls/RECALL-LOG.md) has a citation
+     for — never a popup, only ever inside the inventory page the user opened.
+     Uses --err vars (a recall is the sharpest safety signal this app carries)
+     but reads as a banner, not an engine-verdict row. */
+  .recall-banner{border:1px solid var(--err);background:var(--err-bg);border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.45;margin-bottom:4px}
+  .recall-banner .rb-head{font-weight:700;color:var(--err);margin-bottom:3px}
+  .recall-banner .rb-part{font-weight:600}
+  .recall-banner .rb-scope{color:var(--ink-soft);font-style:italic}
+  .recall-banner a{color:inherit;font-weight:700}
   /* Forum page (Phase 4, FORUM_ENABLED): same full-width-view convention as the
      inventory page above. body.forum-page hides the builder and reveals this. */
   #forumPage{display:none}
@@ -1497,6 +1507,7 @@
      account/forum UI stays hidden — the app runs exactly as before. -->
 <script src="src/vendor/supabase.min.js"></script>
 <script src="src/config.js"></script>
+<script src="src/recall-notes.js"></script>
 <script src="src/account.js"></script>
 <script src="src/forum.js"></script>
 <script src="src/guides.js"></script>
@@ -4101,12 +4112,37 @@
 
   function openInventory(){ if(!_acctReady || !currentUser()) return; document.body.classList.add('inv-page'); window.scrollTo(0,0); renderInventory(); }
   function closeInventoryPage(){ document.body.classList.remove('inv-page'); }
+
+  /* Recall watcher: quiet, in-page notices for owned parts the recall-watchdog
+     corpus (tools/recalls/RECALL-LOG.md, joined via src/recall-notes.js) has a
+     citation for. Renders INSIDE the inventory page only, never a popup, and
+     only for the signed-in user's own garage — never auto-appearing site-wide.
+     No engine change: this is a pure read-join over rows already fetched for
+     the inventory list. */
+  function renderRecallBanners(el, rows){
+    if(typeof recallNoticesForOwnedParts !== 'function') return;
+    var ids = rows.map(function(row){ return canonicalId(row.part_id); });
+    var notices = recallNoticesForOwnedParts(ids);
+    if(!notices.length) return;
+    notices.forEach(function(hit){
+      var p = byId(hit.partId);
+      var div = document.createElement('div'); div.className = 'recall-banner';
+      div.innerHTML =
+        '<div class="rb-head">⚠ Recall notice for a part in your garage</div>' +
+        '<div><span class="rb-part">' + esc(p ? nameOf(p) : hit.partId) + '</span> — ' + esc(hit.note.hazard) + '</div>' +
+        '<div class="rb-scope">' + esc(hit.note.scopeNote) + '</div>' +
+        '<div>Remedy: ' + esc(hit.note.remedy) + ' — <a href="' + esc(hit.note.sourceUrl) + '" target="_blank" rel="noopener">' + esc(hit.note.sourceLabel) + '</a></div>';
+      el.appendChild(div);
+    });
+  }
+
   function renderInventory(){
     var el = $('invList'); el.innerHTML = '<div class="gempty">Loading…</div>';
     listInventory().then(function(rows){
       if(!rows || !rows.length){ el.innerHTML = '<div class="gempty">No parts yet. Use “＋ Add current build’s parts”.</div>'; return; }
       rows.sort(function(a,b){ var pa=byId(canonicalId(a.part_id)), pb=byId(canonicalId(b.part_id)); return ((pa&&pa.cat)||'').localeCompare((pb&&pb.cat)||''); });
       el.innerHTML = '';
+      renderRecallBanners(el, rows);
       rows.forEach(function(row){
         var p = byId(canonicalId(row.part_id));
         var div = document.createElement('div'); div.className = 'grow'+(p?' clickable':'');
