@@ -1,5 +1,26 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-20 — BMX 6 + ROAD 5 + FRAME EXPANSION merged (evening wave 2)
+
+- **verify/bmx-6**: 77/225 (34.2%). 8-brand scope expansion honestly exhausted the boutique
+  tier — 44/45 targeted rows independently re-confirmed walls. The two remaining paths to
+  Douglas's 40% bar are BOTH his policy calls: (1) Odyssey/Cult's 40 rows need a ruling on
+  Shopify shipping-weight-bucket data; (2) the Colony clamp/variant-ambiguity questions.
+- **catalog/road-5**: road 211→217 rows, 68→81 verified. TWO LIVE FALSE-VERDICT FIXES in
+  SRAM Apex, both coordinator-re-fetched on sram.com CS-PG-1231-D1 (verbatim: DRIVER BODY
+  INTERFACE Splined 11; CHAIN TECHNOLOGY Road Flattop D1/E1): cassette freehub xdr→hg-road
+  (was wrongly demanding an XDR wheel), chain system hg→flattop (was tripping a false
+  mismatch on SRAM's own intended pairing). Wheel build-path gaps closed: GRX 1x12, 105,
+  Campagnolo Zonda — GRX/Chorus/Ultegra builds now conflict-free via checkRoadBuild.
+  Shimano depth (40 rows) deferred — C-chart PDF didn't parse this session.
+- **catalog/frames-expansion-1**: +8 frames (validator-confirmed; the worker's prose said 9
+  but its own table lists 8), 7 hardtails (the live priority), 3 new brands (Starling,
+  Orange, Surly) + Canfield Nimble 9 + Chromag Doctahawk. All honest sample rows —
+  interfaces maker-fetched live, no maker frame weights. DMR Trailstar Ti and Polygon
+  Xtrada correctly NOT added (would have required the banned geometry/stock-part guess).
+  MTB total 5,024→5,032.
+- Running: BuildMyRoadbike page, BuildMyEMTB page, EMTB verification wave 1.
+
 ## 2026-07-20 — KIT WAVE 6 + GRAVEL WAVE 2B merged
 
 - **verify/kit-6** (8 commits): kit 481→497 verified. Eyewear main pool COMPLETE — 10
