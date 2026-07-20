@@ -1,5 +1,22 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-20 — ★ BMX 40% BAR CLEARED (90/225) + EMTB wave 1
+
+- **verify/bmx-7 merged**: 77→90/225 verified — **Douglas's 40% go-live bar hit exactly**,
+  via his 2026-07-20 ruling (given by dispatching the chip): the interface-verification
+  exception extends to BMX small parts whose makers publish only shipping weights. 13
+  verifications (9 Odyssey, 4 Cult) on raw Shopify product JSON; shipping weights NEVER
+  entered the weight field. Two corrections: R32 fork brakeMount u-brake→none (maker's own
+  tag "Brake Mounts:None"; restrictive direction), AK Bars rise/width to spec-sheet values.
+  Wave finding now in VERIFY-PROTOCOL: several schema-required BMX fields are display-only
+  (no checkBmxBuild rule reads them) — only rule-read fields gate verification.
+- **verify/emtb-1 merged (compact)**: 2/75 verified; core finding = most seed rows are a
+  stale platform generation (wrong motor brand, not drift). Wave-2 directive (coordinator
+  call, keeping Douglas's e-exposure minimal): triage all 75 by motor-brand spot-check
+  first, then deep-verify the survivors.
+- Day totals now: MTB 5,032 (3,100) · Kit 714 (497) · BMX 225 (90 — bar) · Road 217 (81) ·
+  Gravel 212 (38) · EMTB 75 (2) · 838 tests · ddubsworks.com live.
+
 ## 2026-07-20 — road.html + emtb.html BUILT (both OFF-LIVE) + ddubsworks hosting
 
 - **feat/buildmyroadbike-page merged**: `road.html` (BuildMyRoadbike) on the bmx.html
