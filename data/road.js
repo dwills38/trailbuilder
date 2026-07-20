@@ -226,6 +226,41 @@ var ROAD_PARTS = [
     wheel: '700c', hub: '12x142', freehub: 'hg-l2', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 32,
     weight: 800, price: 2000 },
 
+  // ===== WHEELS — road-5 build-path gap fill ===============================
+  // Priority-2 gap (the GRX-trap lesson): before this pass, the only
+  // hg-road rearwheel in the whole file was the ARC 1100 DICUT DB 38 (an
+  // aero wheel, not an entry/mid-tier one), and NO wheel anywhere carried
+  // micro-spline-road or campag-11 — meaning a GRX 1x12 build (cassette
+  // freehub:'micro-spline-road') and a Chorus/Record build (freehub:
+  // 'campag-11') had literally zero conflict-free wheel choice. These three
+  // pairs are real, credible-source SAMPLE rows (retailer/review-sourced,
+  // not a fetched manufacturer page — left unverified per THE BAR) closing
+  // that gap for every drivetrain tier.
+  { id: 'fw-shimano-rx880-grx', cat: 'frontwheel', brand: 'Shimano', model: 'GRX WH-RX880', family: 'shimano-rx880',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 25, maxTire: 50,
+    weight: 627, price: 800,
+    note: 'road-5 gap-fill: carbon GRX gravel wheelset, converts between MICRO SPLINE and HG-L2 12-speed freehub bodies (this pair modeled with the micro-spline-road driver installed, the GRX 1x12 build-path this file was missing). Specs (25mm internal width, 32-50mm tire range, 1394g claimed pair weight) are retailer/Shimano-storefront sourced (ride.shimano.com, bike24, universalcycles), not a fetched shimano.com model page, so left unverified. No front/rear split is published — this row\'s 627g is an estimated ~45% share of the 1394g pair total, flagged as unconfirmed rather than a page-stated figure. Price ($800) is an unsourced sample — no retailer in this pass listed a clear MSRP.' },
+  { id: 'rw-shimano-rx880-grx', cat: 'rearwheel', brand: 'Shimano', model: 'GRX WH-RX880', family: 'shimano-rx880',
+    wheel: '700c', hub: '12x142', freehub: 'micro-spline-road', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 25, maxTire: 50,
+    weight: 767, price: 800,
+    note: 'road-5 gap-fill: see front-wheel note (fw-shimano-rx880-grx) for full sourcing — this is the micro-spline-road-driver rear half of the same pair, closing the file\'s only gap for a GRX 1x12 (cs-shimano-grx-m8100-*) drivetrain build. 767g is the estimated ~55% share of the 1394g claimed pair weight, not a page-stated split.' },
+  { id: 'fw-shimano-rs710-c46', cat: 'frontwheel', brand: 'Shimano', model: '105 WH-RS710-C46-TL', family: 'shimano-rs710',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 32,
+    weight: 719, price: 625,
+    note: 'road-5 gap-fill: entry/mid-tier (105-tier) carbon disc wheelset — before this pass the file\'s only hg-road wheel was an aero-tier DT Swiss pair, leaving 105/Ultegra/Tiagra 2x builds with almost no wheel choice. Specs (46mm rim height, 21mm internal width, 25-32mm tire range, 719g front / 893g rear / 1612g set, $625 MSRP) are retailer-sourced (BikeRadar review + Jenson USA/Universal Cycles listings), not a fetched shimano.com model page, so left unverified rather than marked verified.' },
+  { id: 'rw-shimano-rs710-c46', cat: 'rearwheel', brand: 'Shimano', model: '105 WH-RS710-C46-TL', family: 'shimano-rs710',
+    wheel: '700c', hub: '12x142', freehub: 'hg-road', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 32,
+    weight: 893, price: 625,
+    note: 'road-5 gap-fill: see front-wheel note (fw-shimano-rs710-c46) for full sourcing — this is the hg-road-driver rear half of the same pair (compatible with 11- and 12-speed Shimano road cassettes: Ultegra R8100, 105 R7100, Tiagra 4700, GRX 2x RX810/RX600 in this file), closing the entry/mid-tier wheel gap.' },
+  { id: 'fw-campagnolo-zonda-c17-disc', cat: 'frontwheel', brand: 'Campagnolo', model: 'Zonda C17 Disc', family: 'campagnolo-zonda-c17',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 17, maxTire: 32,
+    weight: 754, price: 550,
+    note: 'road-5 gap-fill: before this pass NO wheel in the file carried the traditional Campagnolo splined driver (campag-11) — the file\'s one Campagnolo wheel (Bora WTO 45) is N3W, which fits only the Super Record cassette here, leaving the Chorus/Record (freehub:\'campag-11\') tier with zero conflict-free wheel choice. Specs (17mm internal width, up to 32mm tire clearance, ~1675g claimed pair weight) are retailer/review-sourced (Excel Sports, Condor Cycles, BikeTestReviews), not a fetched campagnolo.com model page, so left unverified. No front/rear split is published — this row\'s 754g is an estimated ~45% share of the 1675g pair total. Price ($550) is an unsourced sample within the ~$500-600 retail range multiple sources cited, not an official Campagnolo MSRP.' },
+  { id: 'rw-campagnolo-zonda-c17-disc', cat: 'rearwheel', brand: 'Campagnolo', model: 'Zonda C17 Disc', family: 'campagnolo-zonda-c17',
+    wheel: '700c', hub: '12x142', freehub: 'campag-11', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 17, maxTire: 32,
+    weight: 921, price: 550,
+    note: 'road-5 gap-fill: see front-wheel note (fw-campagnolo-zonda-c17-disc) for full sourcing — this is the campag-11-driver rear half of the same pair (Campagnolo also sells a Shimano-HG-driver version of this same wheel; this row is specifically the Campagnolo-driver SKU), closing the file\'s Chorus/Record wheel gap. 921g is the estimated ~55% share of the ~1675g claimed pair weight, not a page-stated split.' },
+
   // ===== TIRES (mm width; front & rear both draw from cat:'tire') ========
   { id: 'ti-continental-gp5000stre-25', cat: 'tire', brand: 'Continental', model: 'Grand Prix 5000 S TR 25c', family: 'continental-gp5000stre',
     wheel: '700c', width: 25, tubeless: true, compound: 'BlackChili',
