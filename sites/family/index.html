@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>D-Dubs Works — free bike & gear compatibility builders</title>
+<meta name="description" content="Free tools that check whether bike parts actually fit together — pick yours. No sign-up, no interstitials, ever." />
+<!-- DOMAIN_PLACEHOLDER: this page's canonical URL is not yet assigned (the apex
+     domain for this family front door is still undecided as of 2026-07-20). Every
+     spot below marked DOMAIN_PLACEHOLDER is a one-token fill once it's picked —
+     search-replace "DOMAIN_PLACEHOLDER" for the real absolute URL and nothing
+     else on this page needs to change. The page's own copy never names a domain. -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="D-Dubs Works — free bike & gear compatibility builders" />
+<meta property="og:description" content="Free tools that check whether bike parts actually fit together — pick yours. No sign-up, no interstitials, ever." />
+<meta property="og:url" content="DOMAIN_PLACEHOLDER" />
+<link rel="canonical" href="DOMAIN_PLACEHOLDER" />
+<meta name="theme-color" id="metaThemeColor" content="#123f2b" />
+<style>
+/* ---- tokens + shared idiom, inlined verbatim from mockups/tokens.css (design
+   round, Douglas-approved 2026-07-20) so this page has zero src/ dependency and
+   no external stylesheet request. ---- */
+:root{
+  --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
+  --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
+  --ok:#166534; --ok-bg:#e7f5ec; --warn:#92400e; --warn-bg:#fdf3e1;
+  --err:#c23b3b; --err-bg:#fbeaea; --chip:#eef1ec;
+  --hdr-bg:#123f2b; --hdr-topo:rgba(255,255,255,.11);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+     color:var(--ink);background:var(--bg);line-height:1.45}
+.btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:9px 13px;border-radius:10px;font-size:13px;cursor:pointer;font-weight:600;text-decoration:none;display:inline-block}
+.btn:hover{border-color:#c7ccc6}
+.badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:12px;padding:5px 10px;border-radius:999px}
+.honesty-strip{background:#10271b;color:#cfe8d8;font-size:12px;padding:7px 12px;text-align:center}
+.honesty-strip .badge{border-color:rgba(255,255,255,.25)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.soft{color:var(--ink-soft)}
+
+/* theme overrides — copied verbatim from the shipped themes (tokens.css) */
+html.rad{
+  --ink:#f4eaff; --ink-soft:#c9a6ff; --line:#ff2fd0; --bg:#150029;
+  --card:#22093f; --brand:#ff2fd0; --brand-d:#a3007f; --accent:#00e5ff;
+  --ok:#39ff14; --ok-bg:#0a2e12; --warn:#ffe600; --warn-bg:#332b00;
+  --err:#ff2020; --err-bg:#330000; --chip:#3a1466;
+  --hdr-bg:#150029; --hdr-topo:rgba(255,255,255,.11);
+}
+html.rad body{background:
+  repeating-linear-gradient(45deg,#1a0033 0 2px,transparent 2px 40px),
+  repeating-linear-gradient(-45deg,#1a0033 0 2px,transparent 2px 40px),
+  var(--bg);}
+html.rad .hero{background:
+  repeating-conic-gradient(#000 0% 25%,#ff2fd0 0% 50%) 50% / 34px 34px;
+  box-shadow:inset 0 0 0 999px rgba(21,0,41,.72);}
+html.rad .hero h1{font-family:Impact,"Arial Black","Segoe UI Black",sans-serif;
+  letter-spacing:.5px;text-shadow:0 0 6px var(--accent),0 0 14px var(--brand)}
+html.rad .btn.primary{background:linear-gradient(90deg,var(--brand),var(--accent));border-color:transparent;color:#150029;font-weight:800}
+html.rad .btn{background:var(--card);color:var(--ink)}
+html.rad .honesty-strip{background:#1c0836}
+
+html.dark{
+  color-scheme:dark;
+  --ink:#e6ebe7; --ink-soft:#a8b3ab; --line:#3a423d; --bg:#161a18;
+  --card:#1f2522; --brand:#1f6f4a; --brand-d:#123f2b; --accent:#e0703c;
+  --ok:#7fd6a2; --ok-bg:#17301f; --warn:#e8b25c; --warn-bg:#33270f;
+  --err:#e57575; --err-bg:#331717; --chip:#262d29;
+  --hdr-bg:#0c2b1c; --hdr-topo:rgba(255,255,255,.09);
+}
+html.dark .btn{background:var(--card);color:var(--ink)}
+html.dark .honesty-strip{background:#0b1d13}
+html.dark .btn:hover{border-color:#4d5750}
+
+html.loam{
+  color-scheme:dark;
+  --ink:#f2e8d8; --ink-soft:#c2ad92; --line:#3c2e22; --bg:#1a1310;
+  --card:#241a13; --brand:#2f7048; --brand-d:#1e4a30; --accent:#e2a94a;
+  --ok:#84cf97; --ok-bg:#16301d; --warn:#e6b45c; --warn-bg:#33270f;
+  --err:#e88b7b; --err-bg:#331a14; --chip:#30241a;
+  --hdr-bg:#14301f; --hdr-topo:rgba(242,232,216,.11);
+}
+html.loam .btn{background:var(--card);color:var(--ink)}
+html.loam .btn:hover{border-color:#5a4636}
+
+/* ---- page-specific: D2c "one apex, both jobs" hero + doors + about band ---- */
+.hero{background:var(--hdr-bg);color:#fff;position:relative;padding:36px 24px 28px;text-align:center;overflow:hidden}
+.hero .hdr-topo{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+html.rad .hero .hdr-topo{display:none}
+.hero > *:not(.hdr-topo){position:relative;z-index:1}
+.hero .kicker{font-size:12px;letter-spacing:1.2px;text-transform:uppercase;opacity:.8;margin-bottom:8px}
+.hero h1{margin:0 0 6px;font-size:28px}
+.hero p{max-width:620px;margin:0 auto;font-size:14px;color:#dceadfcc}
+main{max-width:1000px;margin:0 auto;padding:18px 24px 60px}
+.doors{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:14px;margin-top:16px}
+.door{display:flex;flex-direction:column;gap:7px;background:var(--card);border:1px solid var(--line);
+  border-radius:14px;padding:18px;text-decoration:none;color:var(--ink);text-align:center}
+.door:hover{border-color:var(--brand)}
+.door .ico{font-size:30px;line-height:1}
+.door h2{margin:0;font-size:17px}
+.door p{margin:0;font-size:12.5px;color:var(--ink-soft)}
+.door .go{margin-top:auto;padding-top:8px;color:var(--ok);font-weight:700;font-size:13px}
+.door.soon{opacity:.6}
+.door.soon .go{color:var(--ink-soft)}
+.about-band{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:20px 22px;margin-top:30px}
+.about-band h2{margin:0 0 8px;font-size:18px}
+.about-band p{margin:0 0 10px;font-size:13.5px;color:var(--ink-soft)}
+.about-band .more{font-size:13px;font-weight:600}
+.mission-quote{border-left:3px solid var(--brand);padding:4px 0 4px 14px;margin:12px 0 0;
+  font-size:13.5px;color:var(--ink-soft);font-style:italic}
+.values{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-top:14px}
+.values .card h3{margin:0 0 5px;font-size:13.5px}
+.values .card p{margin:0;font-size:12.5px;color:var(--ink-soft)}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:18px 24px;font-size:12px;
+  color:var(--ink-soft);text-align:center}
+footer a{color:inherit}
+.theme-row{position:fixed;right:10px;bottom:10px;z-index:60;display:flex;gap:6px;
+  background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px;
+  box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.theme-row .btn{padding:6px 9px;font-size:12px}
+.theme-row .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+@media (max-width:480px){
+  .hero{padding:26px 16px 20px}
+  .hero h1{font-size:22px}
+  main{padding:14px 14px 60px}
+  .theme-row{right:6px;bottom:6px}
+}
+</style>
+<!-- Pre-paint theme guard, inlined (self-contained — this page loads nothing from
+   src/): applies the saved or OS-preferred theme before first paint so there's
+   no light/dark flash. Same 'tb-theme' localStorage key + class convention as
+   the rest of the family of sites (src/ui-common.js), so a theme choice made
+   anywhere in the family is honored here too if the browser ever shares storage
+   (same-origin only) — otherwise this page simply falls back to OS preference. -->
+<script>
+(function(){
+  var t = null; try { t = localStorage.getItem('tb-theme'); } catch(e) {}
+  if (t === null && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+  if (t === 'dark' || t === 'rad' || t === 'loam') document.documentElement.classList.add(t);
+  var META = {light:'#123f2b',dark:'#0c2b1c',rad:'#150029',loam:'#14301f'};
+  var m = document.getElementById('metaThemeColor');
+  if (m) m.setAttribute('content', META[t] || META.light);
+})();
+</script>
+</head>
+<body>
+
+<div class="hero">
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <div class="kicker">D-Dubs Works</div>
+  <h1>Builders for every ride</h1>
+  <p>Free tools that check whether bike parts actually fit together. Pick yours — each loads
+    straight to the parts, no sign-up, no interstitials, ever.</p>
+</div>
+<div class="honesty-strip"><span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span> Every tool we ship carries this same honesty strip.</div>
+
+<main>
+  <div class="doors">
+    <a class="door" href="https://buildmymtb.com/"><span class="ico" aria-hidden="true">🚵</span><h2>Mountain</h2>
+      <p>XC to DH, hardtail to mullet. 26 build slots, 20 live rule areas.</p>
+      <span class="go">BuildMyMTB →</span></a>
+    <a class="door" href="https://buildmymtb.com/bmx.html"><span class="ico" aria-hidden="true">🏁</span><h2>BMX</h2>
+      <p>Frame to cockpit. Brakeless builds understood.</p>
+      <span class="go">BuildMyBMX →</span></a>
+    <div class="door soon"><span class="ico" aria-hidden="true">🚴</span><h2>Road</h2><p>Road builds.</p><span class="go">Coming soon</span></div>
+    <div class="door soon"><span class="ico" aria-hidden="true">🌾</span><h2>Gravel</h2><p>Gravel builds.</p><span class="go">Coming soon</span></div>
+    <div class="door soon"><span class="ico" aria-hidden="true">⚙️</span><h2>E-MTB</h2><p>Fully separate from the MTB catalog.</p><span class="go">Coming soon</span></div>
+    <a class="door" href="https://buildmymtb.com/KitBuilder/"><span class="ico" aria-hidden="true">🧰</span><h2>Rider gear</h2>
+      <p>Helmets, shoes, apparel, protection.</p>
+      <span class="go">BuildMyRideKit →</span></a>
+  </div>
+
+  <div class="about-band">
+    <h2>The shop behind the tools</h2>
+    <p>D-Dubs Works is an independent maker. No manufacturer pays for placement, sort order, or a
+      favorable verdict — the tools exist so a rider can know, before spending a dollar, whether
+      the parts they want actually fit. Affiliate links may fund the site; they never bias it,
+      and every one is labeled.</p>
+    <div class="mission-quote">"BuildMyMTB is a free, unbiased bike-building tool with accurate
+      data: it tells you whether parts fit together, what they cost, and what they weigh —
+      verified against the people who make them, favoring no manufacturer, and honest about what
+      it doesn't yet know." <span class="soft" style="font-style:normal">— the flagship's
+      mission, kept family-wide.</span></div>
+    <p class="more" style="margin-top:14px"><a href="https://buildmymtb.com/about.html">More about D-Dubs Works →</a></p>
+    <div class="values">
+      <div class="card"><h3>Straight to the data</h3><p>No pop-ups, no newsletter walls, no cookie
+        interstitials — a rule, not a preference. This page lives where no tool is.</p></div>
+      <div class="card"><h3>Honest about sources</h3><p>✓ Verified means checked against the
+        manufacturer's own published spec, source linked. Everything else says sample data.</p></div>
+      <div class="card"><h3>Free to use</h3><p>No account required to build, check fit, or share
+        a build link.</p></div>
+    </div>
+  </div>
+</main>
+
+<footer>© D-Dubs Works ·
+  <a href="https://buildmymtb.com/privacy.html">Privacy</a> ·
+  <a href="https://buildmymtb.com/terms.html">Terms</a> ·
+  <a href="https://buildmymtb.com/affiliate-disclosure.html">Affiliate disclosure</a>
+</footer>
+
+<div class="theme-row" role="group" aria-label="Color theme">
+  <button class="btn" id="theme-light" data-theme="light" title="Light theme" aria-pressed="false">☀️</button>
+  <button class="btn" id="theme-dark" data-theme="dark" title="Dark theme" aria-pressed="false">🌙</button>
+  <button class="btn" id="theme-rad" data-theme="rad" title="RAD theme — purely cosmetic" aria-pressed="false">⚡</button>
+  <button class="btn" id="theme-loam" data-theme="loam" title="Loam theme" aria-pressed="false">🍂</button>
+</div>
+
+<script>
+(function(){
+  var META = {light:'#123f2b',dark:'#0c2b1c',rad:'#150029',loam:'#14301f'};
+  function current(){
+    var c = document.documentElement.classList;
+    return c.contains('rad') ? 'rad' : c.contains('loam') ? 'loam' : c.contains('dark') ? 'dark' : 'light';
+  }
+  function apply(name){
+    var root = document.documentElement.classList;
+    root.remove('dark', 'rad', 'loam');
+    if (name !== 'light') root.add(name);
+    try { localStorage.setItem('tb-theme', name); } catch(e) {}
+    var meta = document.getElementById('metaThemeColor');
+    if (meta) meta.setAttribute('content', META[name] || META.light);
+    sync();
+  }
+  function sync(){
+    var now = current();
+    ['light','dark','rad','loam'].forEach(function(name){
+      var btn = document.getElementById('theme-' + name);
+      if (!btn) return;
+      var active = name === now;
+      btn.classList.toggle('primary', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+  }
+  ['light','dark','rad','loam'].forEach(function(name){
+    var btn = document.getElementById('theme-' + name);
+    if (btn) btn.addEventListener('click', function(){ apply(name); });
+  });
+  sync();
+})();
+</script>
+</body>
+</html>
