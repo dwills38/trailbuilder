@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D-Dubs Works — the shop behind the BuildMy family</title>
+<meta name="description" content="D-Dubs Works is an independent maker of free bike-building tools — BuildMyMTB, BuildMyBMX, and BuildMyRideKit. No manufacturer pays for placement, ordering, or a favorable verdict." />
+<meta name="robots" content="index, follow" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="D-Dubs Works" />
+<meta property="og:description" content="An independent maker of free bike-building tools. No manufacturer pays us for placement, ordering, or verdicts." />
+<meta property="og:url" content="https://ddubsworks.com/" />
+<meta property="og:site_name" content="D-Dubs Works" />
+<link rel="canonical" href="https://ddubsworks.com/" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="D-Dubs Works" />
+<meta name="twitter:description" content="An independent maker of free bike-building tools — BuildMyMTB, BuildMyBMX, and BuildMyRideKit." />
+<meta name="theme-color" id="metaThemeColor" content="#123f2b" />
+
+<style>
+  /* Self-contained — no dependency on src/ or any app page. Tokens + header/
+     honesty-strip idiom adapted from the approved D2a mockup (design/home-page-round2,
+     mockups/tokens.css + mockups/d2a-apex-maker.html), re-implemented here as real,
+     shippable markup with a real (non-mock) theme switcher. */
+  :root{
+    --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
+    --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
+    --ok:#166534; --chip:#eef1ec;
+    --hdr-bg:#123f2b; --hdr-topo:rgba(255,255,255,.11);
+  }
+  html.dark{
+    color-scheme:dark;
+    --ink:#e6ebe7; --ink-soft:#a8b3ab; --line:#3a423d; --bg:#161a18;
+    --card:#1f2522; --brand:#1f6f4a; --brand-d:#123f2b; --accent:#e0703c;
+    --ok:#7fd6a2; --chip:#262d29;
+    --hdr-bg:#0c2b1c; --hdr-topo:rgba(255,255,255,.09);
+  }
+  html.loam{
+    color-scheme:dark;
+    --ink:#f2e8d8; --ink-soft:#c2ad92; --line:#3c2e22; --bg:#1a1310;
+    --card:#241a13; --brand:#2f7048; --brand-d:#1e4a30; --accent:#e2a94a;
+    --ok:#84cf97; --chip:#30241a;
+    --hdr-bg:#14301f; --hdr-topo:rgba(242,232,216,.11);
+  }
+  html.rad{
+    --ink:#f4eaff; --ink-soft:#c9a6ff; --line:#ff2fd0; --bg:#150029;
+    --card:#22093f; --brand:#ff2fd0; --brand-d:#a3007f; --accent:#00e5ff;
+    --ok:#39ff14; --chip:#3a1466;
+    --hdr-bg:#22093f; --hdr-topo:rgba(255,255,255,.14);
+  }
+  html.rad body{background:
+    repeating-linear-gradient(45deg,#1a0033 0 2px,transparent 2px 40px),
+    repeating-linear-gradient(-45deg,#1a0033 0 2px,transparent 2px 40px),
+    var(--bg);}
+  html.rad .hero{background:repeating-conic-gradient(#000 0% 25%,#ff2fd0 0% 50%) 50% / 34px 34px;
+    box-shadow:inset 0 0 0 999px rgba(21,0,41,.78)}
+  html.rad .hero h1{font-family:Impact,"Arial Black","Segoe UI Black",sans-serif;
+    letter-spacing:.5px;text-shadow:0 0 6px var(--accent),0 0 14px var(--brand)}
+  html.rad .btn.primary{background:linear-gradient(90deg,var(--brand),var(--accent));border-color:transparent;color:#150029;font-weight:800}
+  html.rad .hero .hdr-topo{display:none}
+  html.rad a{color:var(--accent)}
+  html.rad .honesty-strip{background:#1c0836}
+
+  *{box-sizing:border-box}
+  html,body{max-width:100%;overflow-x:hidden}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.5}
+  a{color:var(--brand);font-weight:600}
+  html.dark a,html.loam a{color:#6fcf97}
+
+  .hero{background:var(--hdr-bg);color:#fff;position:relative;padding:44px 20px 38px}
+  .hero .hdr-topo{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+  .hero .inner{position:relative;z-index:1;max-width:880px;margin:0 auto}
+  .hero .kicker{font-size:12.5px;letter-spacing:1.1px;text-transform:uppercase;opacity:.82;margin-bottom:10px}
+  .hero h1{margin:0 0 12px;font-size:clamp(24px,5vw,32px)}
+  .hero p{max-width:640px;margin:0;font-size:15px;color:#dceadfd9}
+  html.rad .hero p{color:#f4eaffd9}
+  .hero .cta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
+
+  main{max-width:1000px;margin:0 auto;padding:26px 20px 20px}
+  .btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 15px;border-radius:10px;
+    font-size:13.5px;cursor:pointer;font-weight:600;text-decoration:none;display:inline-block}
+  .btn:hover{border-color:#c7ccc6}
+  .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  html.dark .btn,html.loam .btn{background:var(--card);color:var(--ink);border-color:var(--line)}
+  html.rad .btn{background:var(--card);color:var(--ink);border-color:var(--line)}
+  .badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:12px;padding:5px 10px;border-radius:999px}
+  .honesty-strip{background:#10271b;color:#cfe8d8;font-size:12px;padding:7px 12px;text-align:center}
+
+  section{margin-top:34px}
+  section > h2{font-size:14px;letter-spacing:.4px;text-transform:uppercase;color:var(--ink-soft);margin:0 0 12px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+  .site{display:flex;flex-direction:column;gap:6px;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:18px;text-decoration:none;color:var(--ink)}
+  .site:hover{border-color:var(--brand)}
+  .site h3{margin:0;font-size:16.5px}
+  .site p{margin:0;font-size:13px;color:var(--ink-soft)}
+  .site .go{margin-top:auto;padding-top:10px;color:var(--ok);font-weight:700;font-size:13px}
+  .site.soon{opacity:.62}
+  .site.soon .go{color:var(--ink-soft)}
+  .mission-quote{border-left:3px solid var(--brand);padding:3px 0 3px 13px;margin-top:8px;
+    font-size:13px;color:var(--ink-soft)}
+
+  .values{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .card h3{margin:0 0 6px;font-size:14px}
+  .card p{margin:0;font-size:13px;color:var(--ink-soft)}
+
+  footer{border-top:1px solid var(--line);margin-top:44px;padding:18px 20px 40px;font-size:12px;
+    color:var(--ink-soft);text-align:center}
+  footer a{color:inherit;text-decoration:underline;font-weight:600}
+  footer a:hover{color:var(--brand)}
+  footer .legal-links{margin:0 0 8px}
+
+  .theme-row{position:fixed;right:10px;bottom:10px;z-index:60;display:flex;gap:6px;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px}
+  .theme-row .btn{padding:6px 9px;font-size:12px}
+  .theme-row .btn.active{background:var(--brand);border-color:var(--brand);color:#fff}
+
+  @media (max-width:520px){
+    .hero{padding:30px 16px 26px}
+    main{padding:20px 16px 16px}
+    .theme-row{right:8px;bottom:8px}
+  }
+</style>
+<script>
+  /* Pre-paint theme guard — same 'tb-theme' localStorage key as the BuildMy
+     product pages, so a theme picked there already applies here on arrival
+     (and vice versa). Self-contained: no src/ui-common.js dependency. */
+  (function(){
+    var META = {light:'#123f2b',dark:'#0c2b1c',rad:'#22093f',loam:'#14301f'};
+    var t = null; try { t = localStorage.getItem('tb-theme'); } catch(e) {}
+    if (t === null && window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+    if (t === 'dark' || t === 'rad' || t === 'loam') document.documentElement.classList.add(t);
+    window.__tbThemeMeta = META;
+  })();
+</script>
+</head>
+<body>
+<div class="hero">
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <div class="inner">
+    <div class="kicker">ddubsworks.com — the shop behind the BuildMy family</div>
+    <h1>D-Dubs Works</h1>
+    <p>An independent maker of free bike-building tools. No manufacturer pays us for placement,
+      ordering, or verdicts — the tools exist so a rider can know, before spending a dollar,
+      whether the parts they want actually fit together.</p>
+    <div class="cta">
+      <a class="btn primary" href="#builders">🔧 See the builders</a>
+      <a class="btn" href="#how">How we work</a>
+    </div>
+  </div>
+</div>
+<div class="honesty-strip"><span class="badge">Prototype · ✓ = verified vs manufacturer · the rest is sample data</span> Every tool we ship carries this same honesty strip — the disclaimer never hides. No pop-ups, ever.</div>
+
+<main>
+  <section id="builders">
+    <h2>What we build</h2>
+    <div class="grid">
+      <a class="site" href="https://buildmymtb.com/"><h3>🚵 BuildMyMTB</h3>
+        <p>The flagship. Mountain bikes — XC to DH, hardtail to mullet. 26 build slots,
+        20 live compatibility rule areas.</p>
+        <div class="mission-quote">&ldquo;BuildMyMTB is a free, unbiased bike-building tool with
+        accurate data: it tells you whether parts fit together, what they cost, and what they
+        weigh — verified against the people who make them, favoring no manufacturer, and honest
+        about what it doesn't yet know.&rdquo;</div>
+        <span class="go">Open the builder →</span></a>
+      <a class="site" href="https://buildmymtb.com/bmx.html"><h3>🏁 BuildMyBMX</h3>
+        <p>BMX — frame, fork, drivetrain, wheels, cockpit. Brakeless builds understood.</p>
+        <span class="go">Open the builder →</span></a>
+      <div class="site soon"><h3>🚴 BuildMyRoadbike</h3><p>Road builds.</p><span class="go">Coming soon</span></div>
+      <div class="site soon"><h3>🌾 BuildMyGravelBike</h3><p>Gravel builds.</p><span class="go">Coming soon</span></div>
+      <div class="site soon"><h3>⚙️ BuildMyEMTB</h3><p>E-MTB builds, fully separate from the MTB catalog.</p><span class="go">Coming soon</span></div>
+      <a class="site" href="https://buildmymtb.com/KitBuilder/"><h3>🧰 BuildMyRideKit</h3>
+        <p>Rider gear — helmets, shoes, apparel, protection. Price and weight for the kit you wear.</p>
+        <span class="go">Open the builder →</span></a>
+    </div>
+  </section>
+
+  <section id="how">
+    <h2>How we work</h2>
+    <div class="values">
+      <div class="card"><h3>Unbiased, structurally</h3><p>No brand pays for placement, sort order,
+        or a favorable verdict. Affiliate links may fund the tools — they never bias them, and
+        every one is labeled.</p></div>
+      <div class="card"><h3>Straight to the data</h3><p>Every builder loads directly to the parts.
+        No pop-ups, no newsletter walls, no cookie interstitials — a rule, not a preference.
+        This page is the one &ldquo;brochure&rdquo; we allow ourselves, and it lives where no tool is.</p></div>
+      <div class="card"><h3>Honest about sources</h3><p>✓ Verified means checked against the
+        manufacturer's own published spec, source linked on the part card. Everything else is
+        labeled sample data until it earns the check.</p></div>
+      <div class="card"><h3>Free to use</h3><p>Every builder is free. No account is required to
+        build, check fit, or share a build link.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p class="legal-links">
+    <a href="https://buildmymtb.com/about.html">About</a> &middot;
+    <a href="https://buildmymtb.com/privacy.html">Privacy</a> &middot;
+    <a href="https://buildmymtb.com/terms.html">Terms</a> &middot;
+    <a href="https://buildmymtb.com/affiliate-disclosure.html">Affiliate Disclosure</a>
+  </p>
+  <p>&copy; 2026 D-Dubs Works. Independent maker of the BuildMy family of tools; not affiliated
+  with or endorsed by any of the component manufacturers named in its catalogs.</p>
+</footer>
+
+<div class="theme-row" role="group" aria-label="Theme">
+  <button class="btn" data-theme="light">Light</button>
+  <button class="btn" data-theme="dark">Dark</button>
+  <button class="btn" data-theme="loam">Loam</button>
+  <button class="btn" data-theme="rad">Rad</button>
+</div>
+
+<script>
+  (function(){
+    function current(){
+      var c = document.documentElement.classList;
+      return c.contains('rad') ? 'rad' : c.contains('loam') ? 'loam' : c.contains('dark') ? 'dark' : 'light';
+    }
+    function apply(name){
+      var root = document.documentElement.classList;
+      root.remove('dark', 'rad', 'loam');
+      if (name !== 'light') root.add(name);
+      try { localStorage.setItem('tb-theme', name); } catch(e) {}
+      var meta = document.getElementById('metaThemeColor');
+      if (meta) meta.setAttribute('content', (window.__tbThemeMeta || {})[name] || '#123f2b');
+      mark();
+    }
+    function mark(){
+      var now = current();
+      var btns = document.querySelectorAll('.theme-row [data-theme]');
+      for (var i = 0; i < btns.length; i++) {
+        btns[i].classList.toggle('active', btns[i].getAttribute('data-theme') === now);
+      }
+    }
+    var row = document.querySelector('.theme-row');
+    row.addEventListener('click', function(e){
+      var b = e.target.closest && e.target.closest('[data-theme]');
+      if (b) apply(b.getAttribute('data-theme'));
+    });
+    mark();
+  })();
+</script>
+</body>
+</html>
