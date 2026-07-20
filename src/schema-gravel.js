@@ -49,7 +49,7 @@ var GRAVEL_VOCAB = {
   brakeMount:   ['flat-mount'],
   brakeSystem:  ['disc-flat', 'disc', 'disc-hydraulic'],
   bb:           ['bsa-road', 'bb86', 'bb30a', 'pf86', 'pf30', 'hollowtech-ii-road', 'dub', 'dub-wide', 'ultra-torque', 'bbright', 't47-road'],
-  shell:        ['bsa-road', 't47-road'],
+  shell:        ['bsa-road', 't47-road', 'bb86'],
   spindle:      ['hollowtech-ii-road', 'dub'],
   seatpost:     ['27.2', '31.6'],
   steerer:      ['tapered'],
