@@ -71,6 +71,13 @@ jobs:
           cp bmx.html _site/
           mkdir -p _site/data
           cp data/bmx.js _site/data/
+          # BuildMyRoadbike (road.html) + BuildMyEMTB (emtb.html) — LIVE on Douglas's
+          # flip word 2026-07-20 ("do them all at once"). Each needs its data file;
+          # src/compat-road.js and src/schema-emtb.js already ship via `cp -r src`.
+          cp road.html _site/
+          cp data/road.js _site/data/
+          cp emtb.html _site/
+          cp data/emtb.js _site/data/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
