@@ -1,5 +1,42 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-20 — SIX-WORKER HARVEST (apex pages, BMX 5, forks tail, recall watcher, kit 5, gravel 2)
+
+- **feat/apex-d2a-1 + feat/apex-d2c-1 merged**: both Douglas-approved apex pages are real
+  files — `sites/ddubsworks/index.html` (D2a, canonical ddubsworks.com) + `sites/README.md`
+  (one-domain-per-Pages-site constraint), and `sites/family/index.html` (D2c,
+  DOMAIN_PLACEHOLDER token until Douglas picks). Both: mission verbatim, gear-last lists,
+  self-contained, NOT in deploy.yml.
+- **verify/bmx-5 merged**: 76/225 (33.8%). Honest scoping find: the chip's brand list was
+  already exhausted (11 unverified rows, 10 confirmed walls) — the 40% bar needs brand-scope
+  expansion (Chase/Fly/S&M/Profile pools) or a policy call; levers in verify-notes-bmx.md.
+- **verify/forks-3 merged (+7-row coordinator follow-up)**: fork Verified 292→339 under the
+  2026-07-17 interface exception; Revelation RC maxRotorF 203→220 + minRotorF 180 + maxTire
+  — ERROR-TIER, coordinator re-fetched sram.com fs-rvl-rc-a2 and confirmed verbatim (MAXIMUM
+  ROTOR SIZE 220mm / MINIMUM 180mm). DVO re-confirmed a true wall (4th independent check).
+  MTB verified 3054→3100. Deviation noted: worker wrote verification-job.json despite the
+  coordinator-only clause (runner auto-sync; harmless, gates green). 7 promoted rows kept
+  stale not-marked-verified desc phrasing — dated coordinator note appended.
+- **feat/recall-watcher-1 merged (feature slate #4)**: src/recall-notes.js (pure join,
+  hand-maintained, staleness-tested) + quiet in-garage banners; RCL-12 (Transition TR11
+  Alloy stop-ride) is the first live entry with honest serial-range framing. COORDINATOR
+  CATCH: the ledger names the complete bike (cb-transition-tr11-alloy-gx) too — module
+  covered only the frame; fixed + test added. Browser-verified: cold-load 0 dialogs, join
+  returns RCL-12 for the cb id live. 838 tests.
+- **verify/kit-5 merged (partial wave — session went idle mid-work; committed clusters
+  harvested)**: eyewear clusters 1-2 (Melon/Tifosi/Rudy verified incl. a 181g
+  shipping-weight misread corrected to maker-stated 37g; Fox/Dragon/Julbo/Adidas/Native
+  tagged discontinued on fresh evidence). THE 3-ROW TIEBREAK RESOLVED (Douglas decision-queue
+  item): D4 Composite MIPS = kit-3 right; 100% Altec = specs stand + discontinued; XC5 =
+  kit-4 right, re-scoped SH-XC502→SH-XC503 under the running-change rule (id untouched).
+  Kit verified 471→475.
+- **catalog/gravel-grind-2 applied as own-additions (NOT merged)**: the worker branched from
+  a seat-13-era base — pre-FD-split — so the branch was unmergeable as-is; its 2 sourced rows
+  were applied by hand onto HEAD (Otso Waheela C superseding the wave-1 sample row whose
+  guessed specs the maker page refutes; Rival XPLR E1 RD recategorized to rearderailleur).
+  Gravel 203/33 verified. LESSON REINFORCED: verify a worker's base before review — the
+  stale-base playbook exists for exactly this.
+
 ## 2026-07-20 — /about rename + D2c apex page merged
 
 - **About page renamed** on Douglas's word: `/home.html` → `/about.html` (bare
