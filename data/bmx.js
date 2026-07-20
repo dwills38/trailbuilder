@@ -214,8 +214,9 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-sandm-pitchfork', cat: 'fork', brand: 'S&M', model: 'Pitchfork',
     discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
-    brakeMount: 'none', weight: 980, price: 459.99,
-    note: 'RECATEGORIZED frame->fork 2026-07-17 (audit): "Pitchfork" is S&M\'s long-running 4130 CrMo FORK, never a frame (confirmed via sandmbikes.com/product/hardgoods/pitchfork + us.sourcebmx.com/products/s-m-pitchfork). 20in, 1-piece CNC integrated 1-1/8in steerer, laser-cut 3/8in (10mm) dropouts, 33mm offset, ~0.98kg. Sold brakeless and with brake mounts; modeled brakeless (brakeMount:none). Id retains the legacy bmx-fr- prefix (ids are append-only). Interfaces from retailer spec pages, not a fetched maker spec table, so left unverified.'
+    brakeMount: 'none', weight: 980, price: 209.95,
+    verified: true, lastChecked: '2026-07-20', source: 'https://sandmbikes.com/product/hardgoods/forks/pitchfork/',
+    note: 'RECATEGORIZED frame->fork 2026-07-17 (audit): "Pitchfork" is S&M\'s long-running 4130 CrMo FORK, never a frame. BMX wave 6: PROMOTED to verified off sandmbikes.com\'s own product page (raw-fetched, not a WebSearch summary) - its variation JSON confirms the 20in/"None"-brake-mount/"38" (3/8in=10mm) dropout SKU (sku 02-PF-BLK-20) weighs "3 lbs" shipping-bucket but the spec table\'s stated per-size weight is authoritative: "2.17 lb (.98 kg) 20\\"" = 980g exact match. Steerer text ("1 Piece CNC-Machined 4130 CrMo... Requires standard bearing race included with headset") confirms the integrated-1-1/8 convention. PRICE CORRECTED 459.99 -> 209.95: the page\'s real price for this exact SKU (20in/none/3/8in) is $209.95, not the stale $459.99 sample (a 990-brake-mount variant on the same page runs $219.95, still nowhere near the old figure). Dropouts also confirmed to ship in a 14mm variant (different SKU, not this row).'
   },
 
   // ===== FRAMES — seat 12 depth pass (new brands) =====================
@@ -1392,8 +1393,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-se-sm-fatpivotal', cat: 'seat', brand: 'S&M', model: 'Fat Pivotal Seat',
-    system: 'pivotal', price: 49.95,
-    note: 'Fat-size padded Pivotal seat - albes.com listing.'
+    system: 'pivotal', price: 29.95,
+    note: 'BMX wave 6: raw-fetched sandmbikes.com/product/hardgoods/seating/fat-pivotal-seat/ (the manufacturer\'s own page) - confirms "PIVOTAL" mount and PADDED construction (matches system:\'pivotal\'), and the real price ("price":"29.95") - CORRECTED from the stale 49.95 albes.com-retailer figure. NOT VERIFIED: no per-product weight anywhere on the page, only a generic "1 lbs" shipping-box figure indistinguishable from the Odyssey/Cult shipping-weight-bucket trap (wave 2 doctrine) - fails THE BAR item 2 (seat is not an interface-verification-exception category). Left unverified.'
   },
   {
     id: 'bmx-st-sm-racexlt', cat: 'stem', brand: 'S&M', model: 'Race XLT Stem',
