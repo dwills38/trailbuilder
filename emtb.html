@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BuildMyEMTB — BuildMyMTB</title>
+<meta name="description" content="Browse and compare complete e-MTBs — motor, battery, travel, wheel config, price and weight, side by side. A free catalog." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="BuildMyEMTB — BuildMyMTB" />
+<meta property="og:description" content="Browse and compare complete e-MTBs — motor, battery, travel, price and weight, side by side." />
+<meta property="og:url" content="https://buildmymtb.com/emtb.html" />
+<meta property="og:site_name" content="BuildMyMTB" />
+<link rel="canonical" href="https://buildmymtb.com/emtb.html" />
+<meta name="theme-color" id="metaThemeColor" content="#16523a" />
+<!--
+  BuildMyEMTB — OFF-LIVE. Not linked from index.html, bmx.html, KitBuilder, or
+  about.html, and not touched by .github/workflows/deploy.yml — nothing the
+  live site serves points here. Stays off-live until Douglas's explicit flip
+  word (CLAUDE.md hard rule 1, amended 2026-07-18; data/EMTB-MODEL.md §5/§8).
+
+  Loads src/ui-common.js (theme system + tbMoney) and src/range-filters.js
+  (the generic, catalog-agnostic slider/filter helpers already shared by
+  index.html/bmx.html), then data/emtb.js (EMTB_PARTS). Deliberately does
+  NOT load src/compat.js or src/compat-bmx.js — there is no compat engine
+  here and none is needed: an e-MTB's motor/battery/frame are a closed
+  OEM-locked system (EMTB-MODEL.md §1/§4), so this is a browse/compare/
+  filter surface over complete bikes, not a parts builder. No slot map, no
+  four-state pick dot, no checkBuild-equivalent.
+
+  LAYOUT: a LEFT rail of filters (riding style, assist class, motor brand,
+  wheel size, then dual-ended range sliders for price/weight/torque/battery/
+  travel — every axis EMTB-MODEL.md §4 names), a full-width CENTER grid/list
+  of bike cards, and a click-opened spec-sheet dialog per card (never appears
+  on its own — no-popups rule). No aside/build panel: there is nothing to
+  build.
+-->
+<style>
+  :root{
+    --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
+    --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
+    --ok:#166534; --ok-bg:#e7f5ec; --warn:#92400e; --warn-bg:#fdf3e1;
+    --err:#c23b3b; --err-bg:#fbeaea; --chip:#eef1ec;
+    --dot-ring:#5a625e;
+    --hdr-bg:#123f2b; --hdr-topo:rgba(255,255,255,.11);
+  }
+  html.dark{
+    color-scheme:dark;
+    --ink:#e6ebe7; --ink-soft:#a8b3ab; --line:#3a423d; --bg:#161a18;
+    --card:#1f2522; --brand:#1f6f4a; --brand-d:#123f2b; --accent:#e0703c;
+    --ok:#7fd6a2; --ok-bg:#17301f; --warn:#e8b25c; --warn-bg:#33270f;
+    --err:#e57575; --err-bg:#331717; --chip:#262d29;
+    --dot-ring:#dfe4e0;
+    --hdr-bg:#0c2b1c; --hdr-topo:rgba(255,255,255,.09);
+  }
+  html.loam{
+    color-scheme:dark;
+    --ink:#f2e8d8; --ink-soft:#c2ad92; --line:#3c2e22; --bg:#1a1310;
+    --card:#241a13; --brand:#2f7048; --brand-d:#1e4a30; --accent:#e2a94a;
+    --ok:#84cf97; --ok-bg:#16301d; --warn:#e6b45c; --warn-bg:#33270f;
+    --err:#e88b7b; --err-bg:#331a14; --chip:#30241a;
+    --dot-ring:#dfe4e0;
+    --hdr-bg:#14301f; --hdr-topo:rgba(242,232,216,.11);
+  }
+  html.rad{
+    --ink:#f4eaff; --ink-soft:#c9a6ff; --line:#ff2fd0; --bg:#150029;
+    --card:#22093f; --brand:#ff2fd0; --brand-d:#a3007f; --accent:#00e5ff;
+    --ok:#39ff14; --ok-bg:#0a2e12; --warn:#ffe600; --warn-bg:#332b00;
+    --err:#ff2020; --err-bg:#330000; --chip:#3a1466;
+    --dot-ring:#dfe4e0;
+    --hdr-bg:#22093f; --hdr-topo:rgba(255,255,255,.14);
+  }
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.45}
+
+  header{background:var(--hdr-bg);color:#fff;padding:10px 24px;position:sticky;top:0;z-index:40}
+  .hdr-topo{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+  html.rad .hdr-topo{display:none}
+  html.rad header{background:repeating-conic-gradient(#000 0% 25%,#ff2fd0 0% 50%) 50% / 34px 34px;
+    box-shadow:inset 0 0 0 999px rgba(21,0,41,.72)}
+  html.rad header h1{font-family:Impact,"Arial Black","Segoe UI Black",sans-serif;
+    letter-spacing:.5px;text-shadow:0 0 6px var(--accent),0 0 14px var(--brand)}
+  header .wrap{max-width:1380px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  header h1{margin:0;font-size:19px;white-space:nowrap}
+  header h1 a{color:inherit;text-decoration:none}
+  .page-tag{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;
+    font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;white-space:nowrap}
+  header .spacer{flex:1 1 auto}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:9px 13px;border-radius:10px;
+    font-size:13px;cursor:pointer;font-weight:600;font-family:inherit;text-decoration:none;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+  .btn:hover{border-color:#c7ccc6}
+  html.dark .btn:hover{border-color:#4d5750} html.loam .btn:hover{border-color:#5a4636}
+  .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  html.rad .btn.primary{background:linear-gradient(90deg,var(--brand),var(--accent));border-color:transparent;color:#150029;font-weight:800}
+  .btn.ghost{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.4);color:#fff}
+  .btn.ghost:hover{background:rgba(255,255,255,.18)}
+  .btn.danger{border-color:var(--err);color:var(--err);background:var(--card)}
+  .btn.danger:hover{border-color:var(--err);background:var(--err-bg)}
+  .theme-menu{position:relative;display:inline-block}
+  .theme-menu summary{list-style:none;cursor:pointer}
+  .theme-menu summary::-webkit-details-marker{display:none}
+  .theme-pop{position:absolute;right:0;top:calc(100% + 6px);background:var(--card);border:1px solid var(--line);
+    border-radius:12px;box-shadow:0 12px 34px rgba(0,0,0,.18);padding:6px;display:flex;flex-direction:column;gap:4px;min-width:172px;z-index:80}
+  .theme-pop .btn{width:100%;text-align:left;border-color:transparent;background:none;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .theme-pop .btn:hover{background:var(--chip)}
+  .theme-pop .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+  .theme-pop .btn.primary::after{content:"✓";margin-left:auto;font-weight:800}
+  /* Family switcher (mirrors bmx.html's — a click-opened <details> menu, never
+     auto-opens). This page's own copy adds a "you're here" row for EMTB;
+     index.html/bmx.html/KitBuilder/about.html are UNTOUCHED — nothing there
+     gains an EMTB entry, so nothing live links in here. */
+  .fam-menu{position:relative;display:inline-block}
+  .fam-menu summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:2px}
+  .fam-menu summary::-webkit-details-marker{display:none}
+  .fam-menu summary h1{margin:0}
+  .fam-menu .fam-caret{font-size:12px;opacity:.8}
+  .fam-pop{position:absolute;left:0;top:calc(100% + 6px);min-width:280px;z-index:80;
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:10px;box-shadow:0 12px 34px rgba(0,0,0,.18)}
+  .fam-pop a{display:flex;align-items:baseline;gap:8px;padding:9px 10px;border-radius:9px;
+    color:var(--ink);text-decoration:none;font-weight:600;font-size:13.5px}
+  .fam-pop a:hover{background:var(--chip)}
+  .fam-pop a .fam-soft{font-weight:500;font-size:12px;color:var(--ink-soft)}
+  .fam-pop a.here{background:var(--chip);outline:1px solid var(--line)}
+  .fam-mission{border-top:1px solid var(--line);margin-top:8px;padding:9px 10px 3px;
+    font-size:11.5px;color:var(--ink-soft);line-height:1.5}
+
+  .honesty-strip{background:#10271b;color:#cfe8d8;font-size:12px;padding:6px 12px;text-align:center}
+  html.dark .honesty-strip{background:#0b1d13}
+  html.loam .honesty-strip{background:#140d08}
+  html.rad .honesty-strip{background:#1c0836}
+  .honesty-strip .badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:3px 9px;border-radius:999px}
+
+  main{max-width:1380px;margin:0 auto;padding:18px 24px 80px}
+  .intro{margin:2px 0 14px}
+  .intro h2{margin:0 0 4px;font-size:22px}
+  .intro p{margin:0;color:var(--ink-soft);font-size:14px;max-width:74ch}
+
+  .toolbar{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin:14px 0 12px}
+  .toolbar .grow{flex:1 1 auto}
+  .btn[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff}
+  html.rad .btn[aria-pressed="true"]{background:linear-gradient(90deg,var(--brand),var(--accent));border-color:transparent;color:#150029}
+
+  .layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:20px;align-items:start}
+  .layout > *{min-width:0}
+
+  #rail{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;align-self:start;
+    position:sticky;top:calc(var(--hdr-h,116px) + 10px);max-height:calc(100vh - var(--hdr-h,116px) - 24px);overflow:auto}
+  .rail-h{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--ink-soft);font-weight:800;margin:16px 0 6px}
+  .rail-h:first-child{margin-top:0}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+  .chip{background:var(--chip);border:1px solid transparent;border-radius:999px;padding:7px 13px;font-size:13px;
+    cursor:pointer;color:var(--ink-soft);font-weight:600;font-family:inherit}
+  .chip:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  .chip.active{background:var(--ink);color:var(--card)}
+  html.rad .chip.active{background:var(--brand);color:#150029}
+  #rail .chips{flex-direction:column;align-items:stretch;gap:2px;margin-bottom:4px}
+  #rail .chip{display:flex;justify-content:flex-start;border-radius:9px;background:none;text-align:left}
+  #rail .chip:hover{background:var(--chip)}
+  #rail .chip.active{background:var(--ink);color:var(--card)}
+  html.rad #rail .chip.active{background:var(--brand);color:#150029}
+  #rail .chip .c-count{margin-left:auto;font-size:11px;font-weight:700;color:var(--ink-soft);opacity:.8}
+  #rail .chip.active .c-count{color:inherit;opacity:.85}
+
+  .cat-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+  .cat-title{font-size:17px;font-weight:800;margin:0}
+  .cat-tools{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .catcount{margin:0;color:var(--ink-soft);font-size:12px}
+  .viewseg{display:inline-flex}
+  .viewseg .btn:first-child{border-radius:10px 0 0 10px}
+  .viewseg .btn:last-child{border-radius:0 10px 10px 0;margin-left:-1px}
+  select.btn{padding-right:8px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;min-width:0}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:13px;display:flex;
+    flex-direction:column;gap:6px;position:relative;min-width:0}
+  html.rad .pcard{box-shadow:0 0 0 1px var(--line)}
+  .pcard .kind{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--brand);font-weight:700}
+  .pcard .name{font-weight:700;font-size:14px}
+  .pcard .spec{font-size:12px;color:var(--ink-soft);min-height:16px}
+  .prov{font-size:11px;min-height:16px}
+  .prov .ver{display:inline-flex;align-items:center;gap:3px;background:var(--ok-bg);color:var(--ok);
+    font-weight:700;padding:1px 7px;border-radius:999px;text-decoration:none;border:1px solid rgba(31,138,76,.25)}
+  .prov a.ver:hover{text-decoration:underline}
+  .prov .est{color:var(--ink-soft);font-weight:600}
+  .row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:2px}
+  .price{font-weight:700;font-size:13px;white-space:nowrap}
+  .price .wt{color:var(--ink-soft);font-weight:500;font-size:11px;margin-left:5px}
+  .picks{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+  .pick{border:1px solid var(--brand);color:var(--brand);background:var(--card);border-radius:8px;padding:6px 10px;
+    font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap}
+  .pick:hover{background:var(--ok-bg)}
+  html.dark .pick,html.loam .pick{color:var(--ok)}
+
+  /* Minimal spec-sheet dialog (bmx.html phone-fix-3 pattern): click-triggered
+     only — opened by the card's "Spec sheet" button, never appears on its own. */
+  dialog#emtbModal{border:none;border-radius:14px;padding:0;max-width:480px;width:calc(100% - 32px);
+    max-height:calc(100svh - 32px);color:var(--ink);background:var(--card);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog#emtbModal[open]{display:flex;flex-direction:column;overflow:hidden}
+  dialog#emtbModal::backdrop{background:rgba(18,28,22,.45)}
+  #emtbModal .rm-head{padding:18px 20px 4px;flex:none}
+  #emtbModal .rm-head h2{margin:0 0 5px;font-size:18px}
+  #emtbModal .rm-body{padding:10px 20px 16px;display:flex;flex-direction:column;gap:12px;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  #emtbModal .rm-foot{display:flex;justify-content:flex-end;padding:14px 20px 18px;flex:none}
+  .spec-grid{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:13px;margin:0}
+  .spec-grid dt{color:var(--ink-soft);font-weight:600;margin:0}
+  .spec-grid dd{margin:0;font-weight:600;text-align:right}
+  @media (max-width:768px){
+    dialog#emtbModal{width:calc(100% - 20px)}
+  }
+
+  .grid.list{display:flex;flex-direction:column;gap:6px;container:emtbcat / inline-size}
+  .list .pcard{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:9px 14px}
+  .list .pcard .namewrap{flex:0 1 220px;min-width:0;display:flex;flex-direction:column;gap:1px}
+  .list .pcard .kind{font-size:10px}
+  .list .pcard .name{font-size:13px}
+  .list .pcard .spec{flex:1 1 220px;min-width:0;min-height:0}
+  .list .pcard .prov{flex:none;min-height:0}
+  .list .pcard .row{margin:0 0 0 auto;flex:none;gap:12px}
+  @media (min-width:769px){
+    .grid.list{gap:5px}
+    @container emtbcat (min-width:640px){
+      .list .pcard{display:grid;grid-template-columns:minmax(170px,220px) minmax(160px,1fr) max-content minmax(150px,182px);
+        column-gap:14px;align-items:start;padding:9px 14px}
+      .list .pcard .namewrap{flex:none}
+      .list .pcard .name{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.2}
+      .list .pcard .spec{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-top:1px}
+      .list .pcard .metacol{display:flex;flex-direction:column;align-items:flex-end;gap:4px;min-width:0}
+      .list .pcard .row{margin:0;flex-direction:column;align-items:flex-end;gap:4px}
+      .list .pcard .price{padding-top:2px}
+    }
+  }
+
+  .cat-empty{color:var(--ink-soft);font-size:13px;padding:18px 4px}
+
+  /* ---- dual-ended range sliders (ports index.html's dependency-free
+     two-overlaid-native-<input type=range> technique + its WCAG 2.5.7
+     numeric-input alternative — see that file's header comment for the full
+     rationale). Adapted here to stack vertically full-width, to fit the
+     narrow left rail instead of a wide above-grid row. ---- */
+  .range-row{display:flex;flex-direction:column;align-items:stretch;gap:4px;padding:8px 0;border-bottom:1px dashed var(--line)}
+  .range-row:last-child{border-bottom:none}
+  .range-label{font-size:11px;font-weight:700;color:var(--ink-soft);white-space:nowrap}
+  .range-nums{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--ink-soft);justify-content:space-between}
+  .range-num{width:4.4em;min-height:24px;box-sizing:border-box;font-size:12px;padding:2px 4px;
+    border:1px solid var(--line);border-radius:6px;
+    background:var(--card);color:var(--ink);font-family:inherit;text-align:center;-moz-appearance:textfield}
+  .range-num::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .range-num::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+  .range-num:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  .range-dash,.range-unit{color:var(--ink-soft)}
+  .range-reset{background:none;border:1px solid var(--line);border-radius:999px;color:var(--ink-soft);
+    font-size:11px;font-weight:700;width:20px;height:20px;line-height:1;padding:0;cursor:pointer;
+    font-family:inherit;flex:none}
+  .range-reset:hover{border-color:#c7ccc6}
+  .range-reset:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+  .range-note{font-size:10px;color:var(--ink-soft);margin:2px 0 0}
+  .range-wrap{position:relative;height:18px;margin:2px 0 0;width:100%}
+  .range-track{position:absolute;left:0;right:0;top:50%;height:3px;margin-top:-1.5px;border-radius:999px;background:var(--chip)}
+  .range-fill{position:absolute;top:0;bottom:0;background:var(--brand);border-radius:999px}
+  .range-input{-webkit-appearance:none;appearance:none;position:absolute;top:0;left:0;width:100%;height:18px;
+    margin:0;background:none;pointer-events:none}
+  .range-input::-webkit-slider-runnable-track{-webkit-appearance:none;height:18px;background:none;border:none}
+  .range-input::-moz-range-track{height:18px;background:none;border:none}
+  .range-input::-webkit-slider-thumb{-webkit-appearance:none;box-sizing:border-box;pointer-events:auto;
+    width:14px;height:14px;margin-top:2px;border-radius:50%;background:var(--card);border:2px solid var(--brand);
+    cursor:grab;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+  .range-input::-moz-range-thumb{box-sizing:border-box;pointer-events:auto;width:14px;height:14px;
+    border-radius:50%;background:var(--card);border:2px solid var(--brand);cursor:grab;
+    box-shadow:0 1px 3px rgba(0,0,0,.25)}
+  .range-input::-webkit-slider-thumb:active{cursor:grabbing}
+  .range-input::-moz-range-thumb:active{cursor:grabbing}
+  .range-input:focus-visible::-webkit-slider-thumb{outline:2px solid var(--brand);outline-offset:2px}
+  .range-input:focus-visible::-moz-range-thumb{outline:2px solid var(--brand);outline-offset:2px}
+  @media (max-width:768px){
+    .range-wrap{height:38px}
+    .range-input{height:38px}
+    .range-input::-webkit-slider-runnable-track{height:38px}
+    .range-input::-moz-range-track{height:38px}
+    .range-input::-webkit-slider-thumb{width:38px;height:38px;margin-top:0;border:none;box-shadow:none;
+      background:radial-gradient(circle,var(--card) 0 5px,var(--brand) 5px 7px,transparent 7px 100%)}
+    .range-input::-moz-range-thumb{width:38px;height:38px;border:none;box-shadow:none;
+      background:radial-gradient(circle,var(--card) 0 5px,var(--brand) 5px 7px,transparent 7px 100%)}
+  }
+
+  footer{max-width:1380px;margin:0 auto;padding:22px 24px 40px;color:var(--ink-soft);font-size:12px;border-top:1px solid var(--line)}
+  footer a{color:var(--brand)}
+  html.dark footer a,html.loam footer a{color:var(--ok)}
+  footer blockquote{margin:10px 0;padding:8px 0 8px 12px;border-left:2px solid var(--line);font-style:italic}
+
+  @media (max-width:880px){
+    .layout{grid-template-columns:1fr}
+    #rail{position:static;max-height:none}
+    #rail .chips{flex-direction:row;flex-wrap:wrap;overflow-x:visible;gap:6px}
+    #rail .chip{flex:none;background:var(--chip);border-radius:999px}
+    #rail .chip .c-count{display:none}
+  }
+  @media (max-width:768px){
+    header{padding:14px 16px}
+    main{padding:14px 16px 60px}
+    .btn,.chip{min-height:44px;display:inline-flex;align-items:center;padding:10px 14px}
+    #rail .chip{justify-content:center}
+    footer{padding:18px 16px 40px}
+    select.btn{font-size:16px}
+    .prov .ver{position:relative}
+    .prov .ver::after{content:"";position:absolute;inset:-10px -8px}
+    .list .pcard{padding:10px 12px;gap:3px 10px;align-items:center}
+    .list .pcard .namewrap{flex:1 1 auto;order:1;min-width:0}
+    .list .pcard .row{flex:none;order:2;margin-left:auto;flex-direction:row;align-items:center;gap:12px}
+    .list .pcard .spec{flex:1 1 auto;order:3;white-space:normal;min-width:110px}
+  }
+</style>
+<script src="src/ui-common.js"></script>
+</head>
+<body>
+<header>
+  <svg class="hdr-topo" aria-hidden="true"><defs>
+    <pattern id="hdrTopo" width="150" height="100" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="var(--hdr-topo)" stroke-width="1">
+        <path d="M25,50 C22,28 48,14 72,18 C98,22 112,40 102,60 C92,79 52,82 34,68 C26,61 27,57 25,50 Z"/>
+        <path d="M42,48 C42,35 58,27 72,31 C87,35 94,47 86,57 C77,68 52,64 42,48 Z"/>
+        <path d="M56,46 C58,40 68,38 74,42 C80,46 78,53 70,55 C62,57 55,52 56,46 Z"/>
+        <path d="M120,6 C132,20 140,40 132,58 C128,68 120,76 108,82"/>
+        <path d="M134,0 C146,18 154,44 146,66 C142,76 134,86 122,94"/>
+      </g>
+    </pattern></defs>
+    <rect width="100%" height="100%" fill="url(#hdrTopo)"/>
+  </svg>
+  <div class="wrap">
+    <details class="fam-menu" id="famMenu">
+      <summary aria-haspopup="true" aria-label="BuildMyEMTB — open the BuildMy family switcher">
+        <h1>BuildMyEMTB</h1><span class="fam-caret" aria-hidden="true">▾</span>
+      </summary>
+      <div class="fam-pop" role="menu" aria-label="The BuildMy family">
+        <a href="index.html" role="menuitem">🚵 BuildMyMTB</a>
+        <a href="bmx.html" role="menuitem">🏁 BuildMyBMX</a>
+        <a href="KitBuilder/" role="menuitem">🧰 BuildMyRideKit</a>
+        <a class="here" href="emtb.html" role="menuitem" aria-current="page">🔋 BuildMyEMTB <span class="fam-soft">— you're here (off-live preview)</span></a>
+        <a href="about.html" role="menuitem">ℹ️ About BuildMy <span class="fam-soft">— mission, family &amp; what verified means</span></a>
+        <div class="fam-mission">Our mission: BuildMyMTB is a free, unbiased bike-building tool with accurate data: it tells you whether parts fit together, what they cost, and what they weigh — verified against the people who make them, favoring no manufacturer, and honest about what it doesn't yet know.</div>
+      </div>
+    </details>
+    <span class="page-tag">BuildMyEMTB · off-live preview</span>
+    <span class="spacer"></span>
+    <a class="btn ghost" href="index.html" title="Back to the Bike Builder">🚵 Bike Builder</a>
+    <a class="btn ghost" href="bmx.html" title="BuildMyBMX">🏁 BuildMyBMX</a>
+    <a class="btn ghost" href="KitBuilder/" title="Rider kit — helmets, shoes, apparel &amp; protection">🧰 BuildMyRideKit</a>
+    <a class="btn ghost" href="about.html" title="About BuildMyMTB">ℹ️ About</a>
+    <details class="theme-menu" id="themeMenu">
+      <summary class="btn ghost" title="Theme">🎨</summary>
+      <div class="theme-pop" role="menu">
+        <button type="button" class="btn" data-theme="light" role="menuitemradio">☀️ Light</button>
+        <button type="button" class="btn" data-theme="dark" role="menuitemradio">🌙 Dark</button>
+        <button type="button" class="btn" data-theme="loam" role="menuitemradio">🍂 Loam</button>
+        <button type="button" class="btn" data-theme="rad" role="menuitemradio">⚡ RAD</button>
+      </div>
+    </details>
+  </div>
+</header>
+<div class="honesty-strip"><span class="badge">Off-live preview · sample data</span> BuildMyEMTB is a browse-and-compare catalog of complete e-MTBs, not a parts builder — an e-bike's motor, battery and frame are a closed, OEM-locked system, so there's no part-to-part fit to check the way the acoustic MTB builder checks one. Every spec below is an unverified sample pending a manufacturer-sourced verification pass.</div>
+
+<main id="emtbMain"><!-- rendered by the script below --></main>
+
+<footer>
+  Prices &amp; weights are approximate <strong>sample data</strong> — none of the e-MTBs below is verified against a manufacturer source yet; a ✓ badge will appear on a row once one is.
+  <blockquote>Our mission: BuildMyMTB is a free, unbiased bike-building tool with accurate data: it tells you whether parts fit together, what they cost, and what they weigh — verified against the people who make them, favoring no manufacturer, and honest about what it doesn't yet know.</blockquote>
+  This page is an off-live internal preview — it is not linked from, or reachable through, the live site.
+  · <a href="index.html">← Bike Builder</a> · <a href="bmx.html">BuildMyBMX</a> · <a href="KitBuilder/">BuildMyRideKit</a> · <a href="about.html">ℹ️ About</a>
+</footer>
+
+<!-- Spec-sheet dialog: click-triggered only (a card's "Spec sheet" button) — never appears on its own. -->
+<dialog id="emtbModal" aria-labelledby="emtbTitle" role="dialog" aria-modal="true">
+  <div class="rm-head">
+    <h2 id="emtbTitle"></h2>
+    <div class="muted" id="emtbSub"></div>
+  </div>
+  <div class="rm-body">
+    <dl class="spec-grid" id="emtbSpecGrid"></dl>
+    <div id="emtbProv"></div>
+    <div id="emtbNote"></div>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="emtbClose" autofocus>Close</button>
+  </div>
+</dialog>
+
+<script src="src/range-filters.js"></script>
+<script src="data/emtb.js"></script>
+<script>
+/* ==========================================================================
+   BuildMyEMTB page glue (browser-only; not type-checked, like index.html's
+   and bmx.html's inline scripts). Reads EMTB_PARTS (data/emtb.js) and the
+   shared distinctVals/numBoundsOf/inOrder/rangeMatch/rangeFiltersMatch
+   helpers (src/range-filters.js) + tbMoney/tbApplyTheme/tbCurrentTheme
+   (src/ui-common.js). No compat engine — see the head comment.
+   ========================================================================== */
+(function(){
+  'use strict';
+  var $ = function(id){ return document.getElementById(id); };
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+  var money = tbMoney;
+
+  /* ---- theme menu (identical pattern to bmx.html) --------------------------- */
+  (function(){
+    function mark(name){
+      var btns=document.querySelectorAll('.theme-pop [data-theme]');
+      for(var i=0;i<btns.length;i++){ var on=btns[i].getAttribute('data-theme')===name; btns[i].classList.toggle('primary',on); btns[i].setAttribute('aria-checked',String(on)); }
+      var m=$('metaThemeColor'); if(m) m.setAttribute('content', TB_THEME_META[name]||TB_THEME_META.light);
+    }
+    function set(name){
+      tbApplyTheme(name);
+      mark(name); var d=$('themeMenu'); if(d) d.open=false;
+      syncHdr();
+    }
+    var btns=document.querySelectorAll('.theme-pop [data-theme]');
+    for(var i=0;i<btns.length;i++){ (function(b){ b.onclick=function(){ set(b.getAttribute('data-theme')); }; })(btns[i]); }
+    mark(tbCurrentTheme());
+    document.addEventListener('click', function(e){ var d=$('themeMenu'); if(d&&d.open&&!d.contains(e.target)) d.open=false; });
+  })();
+
+  /* ---- family menu (identical pattern to bmx.html) --------------------------- */
+  (function(){
+    var d=$('famMenu'); if(!d) return;
+    d.addEventListener('click', function(e){ if(e.target.closest('.fam-pop a')) d.open=false; });
+    document.addEventListener('click', function(e){ if(d.open && !d.contains(e.target)) d.open=false; });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape' && d.open){ d.open=false; var s=d.querySelector('summary'); if(s) s.focus(); } });
+  })();
+
+  function syncHdr(){ var h=document.querySelector('header'); if(h) document.documentElement.style.setProperty('--hdr-h', h.offsetHeight+'px'); }
+  window.addEventListener('resize', syncHdr);
+
+  var main = $('emtbMain');
+
+  /* ---- unbiased default order (bias-audit precedent, bmx.html/index.html):
+     catalog INSERTION order would let whichever brand was entered first
+     permanently top the grid under "Featured". Shuffle once at load, not
+     per-render, so filtering never reshuffles what's already visible. ---- */
+  function fisherYatesShuffle(arr){
+    for(var i=arr.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=arr[i]; arr[i]=arr[j]; arr[j]=t; }
+    return arr;
+  }
+  var SHUFFLE_ORDER = {};
+  (function(){
+    var order = fisherYatesShuffle(EMTB_PARTS.map(function(p){ return p.id; }));
+    order.forEach(function(id,i){ SHUFFLE_ORDER[id]=i; });
+  })();
+
+  /* ---- vocab labels (display only — never invented, mirrors src/schema-emtb.js EMTB_VOCAB) ---- */
+  var MOTOR_LABEL = { bosch:'Bosch', shimano:'Shimano', specialized:'Specialized', fazua:'Fazua',
+    'rocky-mountain':'Rocky Mountain', tq:'TQ', giant:'Giant', yamaha:'Yamaha' };
+  function motorLabel(v){ return MOTOR_LABEL[v] || v; }
+  var WHEEL_LABEL = { '29':'29"', '275':'27.5"', mullet:'Mullet' };
+  function wheelLabel(v){ return WHEEL_LABEL[v] || v; }
+  var ASSIST_LABEL = { 'full-power':'Full-power', lightweight:'Lightweight' };
+  function assistLabel(v){ return ASSIST_LABEL[v] || v; }
+  var DISC_LABEL = { 'e-xc':'e-XC', 'e-trail':'e-Trail', 'e-enduro':'e-Enduro', 'e-dh':'e-DH' };
+  function discLabel(v){ return DISC_LABEL[v] || v; }
+  var DISPLAY_LABEL = { 'top-tube':'Top-tube display', 'system-controller':'System controller / remote' };
+  function displayLabel(v){ return DISPLAY_LABEL[v] || v; }
+  var FRAME_MAT_LABEL = { aluminum:'Aluminum', carbon:'Carbon', steel:'Steel', mixed:'Mixed / carbon-alloy' };
+  function frameMatLabel(v){ return FRAME_MAT_LABEL[v] || v; }
+
+  function provHtml(p){
+    if(p.verified===true && p.source) return '<a class="ver" href="'+esc(p.source)+'" target="_blank" rel="noopener nofollow">✓ Verified</a>';
+    return '<span class="est">Sample spec (unverified)</span>';
+  }
+  function specLine(p){
+    var bits=[];
+    bits.push(motorLabel(p.motorBrand)+' '+p.motorModel);
+    bits.push(p.motorTorque+' Nm');
+    bits.push(p.batteryWh+' Wh');
+    bits.push(p.travelFront+'/'+p.travelRear+'mm travel');
+    bits.push(wheelLabel(p.wheelConfig));
+    return bits.filter(Boolean).join(' · ');
+  }
+
+  /* ---- filter state ----------------------------------------------------------- */
+  var motorFilter = 'all';
+  var assistFilter = 'all';
+  var wheelFilter = 'all';
+  var discFilter = 'all';
+  var verifiedOnly = false;
+  var rangeFilter = {};   // id -> {lo,hi}
+  var viewMode = 'cards'; try{ if(localStorage.getItem('tb-emtb-view')==='list') viewMode='list'; }catch(e){}
+  var sortBy = 'featured';
+
+  var anyVerified = EMTB_PARTS.some(function(p){ return p.verified===true && p.source; });
+
+  /* Discipline is an array field (a bike may carry more than one riding
+     style) — absence on a row means universal, same convention as every
+     other disciplines/discipline field in the catalog. */
+  function passesDiscipline(p){
+    if(discFilter==='all') return true;
+    return !p.disciplines || !p.disciplines.length || p.disciplines.indexOf(discFilter) >= 0;
+  }
+  function passesFilters(p){
+    if(verifiedOnly && !(p.verified===true && p.source)) return false;
+    if(motorFilter!=='all' && p.motorBrand!==motorFilter) return false;
+    if(assistFilter!=='all' && p.assist!==assistFilter) return false;
+    if(wheelFilter!=='all' && p.wheelConfig!==wheelFilter) return false;
+    if(!passesDiscipline(p)) return false;
+    if(!window.rangeFiltersMatch(RANGEFILTERS, rangeFilter, p)) return false;
+    return true;
+  }
+
+  /* ---- range filter axes (EMTB-MODEL.md §4's own list: motor brand, torque,
+     battery Wh, class, travel, wheel config, price, weight, discipline —
+     the discrete axes are chips above; these six are the numeric ones). ---- */
+  var RANGEFILTERS = [
+    { id:'price', heading:'Price', unit:'$', step:100, aria:'Filter e-MTBs by price',
+      bounds:function(){ return window.numBoundsOf(EMTB_PARTS, function(p){ return typeof p.price==='number'; }, function(p){ return p.price; }); },
+      match:function(p,lo,hi){ return window.rangeMatch(p.price, lo, hi); } },
+    { id:'weight', heading:'Weight', unit:'g', step:100, aria:'Filter e-MTBs by weight',
+      bounds:function(){ return window.numBoundsOf(EMTB_PARTS, function(p){ return typeof p.weight==='number'; }, function(p){ return p.weight; }); },
+      match:function(p,lo,hi){ return p.weight==null || window.rangeMatch(p.weight, lo, hi); } },
+    { id:'motorTorque', heading:'Motor torque', unit:'Nm', step:1, aria:'Filter e-MTBs by motor torque',
+      bounds:function(){ return window.numBoundsOf(EMTB_PARTS, function(p){ return typeof p.motorTorque==='number'; }, function(p){ return p.motorTorque; }); },
+      match:function(p,lo,hi){ return window.rangeMatch(p.motorTorque, lo, hi); } },
+    { id:'batteryWh', heading:'Battery', unit:'Wh', step:10, aria:'Filter e-MTBs by battery capacity',
+      bounds:function(){ return window.numBoundsOf(EMTB_PARTS, function(p){ return typeof p.batteryWh==='number'; }, function(p){ return p.batteryWh; }); },
+      match:function(p,lo,hi){ return window.rangeMatch(p.batteryWh, lo, hi); } },
+    { id:'travelFront', heading:'Front travel', unit:'mm', step:5, aria:'Filter e-MTBs by front (fork) travel',
+      bounds:function(){ return window.numBoundsOf(EMTB_PARTS, function(p){ return typeof p.travelFront==='number'; }, function(p){ return p.travelFront; }); },
+      match:function(p,lo,hi){ return window.rangeMatch(p.travelFront, lo, hi); } },
+    { id:'travelRear', heading:'Rear travel', unit:'mm', step:5, note:'0 mm = hardtail', aria:'Filter e-MTBs by rear travel — 0mm is a hardtail',
+      bounds:function(){ return window.numBoundsOf(EMTB_PARTS, function(p){ return typeof p.travelRear==='number'; }, function(p){ return p.travelRear; }); },
+      match:function(p,lo,hi){ return window.rangeMatch(p.travelRear, lo, hi); } }
+  ];
+
+  /* ---- static skeleton -------------------------------------------------------- */
+  function skeleton(){
+    return ''
+      + '<div class="intro"><h2>🔋 BuildMyEMTB</h2>'
+      + '<p>Compare complete e-MTBs side by side — motor, battery, assist class, suspension travel, wheel '
+      + 'config, price and weight. An e-MTB’s motor, battery and frame are a closed, OEM-locked system, so '
+      + 'there’s nothing to “pick and check fit” the way the acoustic MTB builder does — this is a '
+      + 'browse-and-filter catalog, not a parts builder.</p></div>'
+      + '<div class="toolbar">'
+      +   (anyVerified ? '<button type="button" class="btn" id="eVerified" title="Show only e-MTBs verified against a manufacturer source" aria-pressed="false">✓ Verified only</button>' : '')
+      +   '<span class="grow"></span>'
+      +   '<button type="button" class="btn" id="eReset" title="Reset every filter back to its default">↺ Reset filters</button>'
+      + '</div>'
+      + '<div class="layout">'
+      +   '<nav id="rail" aria-label="e-MTB filters"></nav>'
+      +   '<section aria-label="Complete e-MTB catalog">'
+      +     '<div class="cat-head">'
+      +       '<h2 class="cat-title">Complete e-MTBs</h2>'
+      +       '<div class="cat-tools">'
+      +         '<span class="catcount" id="eCatCount" aria-live="polite"></span>'
+      +         '<span class="viewseg" role="group" aria-label="Catalog view">'
+      +           '<button type="button" class="btn" id="eViewCards" aria-pressed="false" title="Card grid">▦ Cards</button>'
+      +           '<button type="button" class="btn" id="eViewList" aria-pressed="false" title="Dense list — one row each">☰ List</button>'
+      +         '</span>'
+      +         '<select class="btn" id="eSort" title="Sort the catalog" aria-label="Sort the catalog">'
+      +           '<option value="featured">Sort: Featured</option>'
+      +           '<option value="name">Name A–Z</option>'
+      +           '<option value="price-asc">Price: low → high</option>'
+      +           '<option value="price-desc">Price: high → low</option>'
+      +           '<option value="weight-asc">Weight: light → heavy</option>'
+      +           '<option value="weight-desc">Weight: heavy → light</option>'
+      +           '<option value="torque-asc">Motor torque: low → high</option>'
+      +           '<option value="torque-desc">Motor torque: high → low</option>'
+      +           '<option value="battery-asc">Battery: small → large</option>'
+      +           '<option value="battery-desc">Battery: large → small</option>'
+      +         '</select>'
+      +       '</div>'
+      +     '</div>'
+      +     '<div class="grid" id="eCatalog"></div>'
+      +   '</section>'
+      + '</div>';
+  }
+
+  /* ---- left rail: filter chips + range sliders -------------------------------- */
+  function mkChip(label, active, onClick, extraHtml){
+    var b=document.createElement('button');
+    b.type='button';
+    b.className='chip'+(active?' active':'');
+    b.setAttribute('aria-pressed', active?'true':'false');
+    b.innerHTML=esc(label)+(extraHtml||'');
+    b.onclick=onClick;
+    return b;
+  }
+  function countBadge(n){ return '<span class="c-count">'+n+'</span>'; }
+  function chipsRow(ariaLabel){
+    var row=document.createElement('div'); row.className='chips'; row.setAttribute('role','group'); row.setAttribute('aria-label',ariaLabel);
+    return row;
+  }
+  function railHeader(text){ var h=document.createElement('div'); h.className='rail-h'; h.textContent=text; return h; }
+
+  function scopedFor(overrides){
+    // Count parts matching every filter EXCEPT the axis a chip belongs to (so
+    // a chip's own count reflects "if I pick this" against the OTHER active
+    // filters, not a stale total).
+    return EMTB_PARTS.filter(function(p){
+      var mF = 'motorFilter' in overrides ? overrides.motorFilter : motorFilter;
+      var aF = 'assistFilter' in overrides ? overrides.assistFilter : assistFilter;
+      var wF = 'wheelFilter' in overrides ? overrides.wheelFilter : wheelFilter;
+      var dF = 'discFilter' in overrides ? overrides.discFilter : discFilter;
+      if(verifiedOnly && !(p.verified===true && p.source)) return false;
+      if(mF!=='all' && p.motorBrand!==mF) return false;
+      if(aF!=='all' && p.assist!==aF) return false;
+      if(wF!=='all' && p.wheelConfig!==wF) return false;
+      if(dF!=='all' && !(!p.disciplines || !p.disciplines.length || p.disciplines.indexOf(dF)>=0)) return false;
+      if(!window.rangeFiltersMatch(RANGEFILTERS, rangeFilter, p)) return false;
+      return true;
+    }).length;
+  }
+
+  function renderRail(){
+    var rail=$('rail'); rail.innerHTML='';
+
+    // disciplines is an array field — flatten every row's array, then de-dupe.
+    var allDiscs = Array.prototype.concat.apply([], EMTB_PARTS.map(function(p){ return p.disciplines||[]; }));
+    var presentDiscs = window.inOrder(
+      allDiscs.filter(function(v,i,a){ return a.indexOf(v)===i; }),
+      ['e-xc','e-trail','e-enduro','e-dh']
+    );
+    if(presentDiscs.length){
+      rail.appendChild(railHeader('Riding style'));
+      var dc=chipsRow('Filter by riding style — bikes without a tag are universal and always show');
+      dc.appendChild(mkChip('All styles', discFilter==='all', function(){ discFilter='all'; renderRail(); renderCatalog(); }));
+      presentDiscs.forEach(function(d){
+        dc.appendChild(mkChip(discLabel(d), discFilter===d, function(){ discFilter=d; renderRail(); renderCatalog(); },
+          countBadge(scopedFor({discFilter:d}))));
+      });
+      rail.appendChild(dc);
+    }
+
+    rail.appendChild(railHeader('Assist class'));
+    var ac=chipsRow('Filter by assist class — full-power or lightweight/SL');
+    ac.appendChild(mkChip('All classes', assistFilter==='all', function(){ assistFilter='all'; renderRail(); renderCatalog(); }));
+    window.inOrder(window.distinctVals(EMTB_PARTS, function(){ return true; }, function(p){ return p.assist; }), ['full-power','lightweight']).forEach(function(a){
+      ac.appendChild(mkChip(assistLabel(a), assistFilter===a, function(){ assistFilter=a; renderRail(); renderCatalog(); },
+        countBadge(scopedFor({assistFilter:a}))));
+    });
+    rail.appendChild(ac);
+
+    rail.appendChild(railHeader('Motor brand'));
+    var mc=chipsRow('Filter by motor brand');
+    mc.appendChild(mkChip('All brands', motorFilter==='all', function(){ motorFilter='all'; renderRail(); renderCatalog(); }));
+    // Alphabetical by label — a plain filter list, not a ranked/default sort,
+    // so this doesn't carry the "Featured" default-order bias the shuffle
+    // above is guarding against (see product-values: unbiased, structurally).
+    window.distinctVals(EMTB_PARTS, function(){ return true; }, function(p){ return p.motorBrand; })
+      .sort(function(a,b){ return motorLabel(a).localeCompare(motorLabel(b)); })
+      .forEach(function(m){
+        mc.appendChild(mkChip(motorLabel(m), motorFilter===m, function(){ motorFilter=m; renderRail(); renderCatalog(); },
+          countBadge(scopedFor({motorFilter:m}))));
+      });
+    rail.appendChild(mc);
+
+    rail.appendChild(railHeader('Wheel size'));
+    var wc=chipsRow('Filter by wheel size');
+    wc.appendChild(mkChip('All sizes', wheelFilter==='all', function(){ wheelFilter='all'; renderRail(); renderCatalog(); }));
+    window.inOrder(window.distinctVals(EMTB_PARTS, function(){ return true; }, function(p){ return p.wheelConfig; }), ['29','275','mullet']).forEach(function(w){
+      wc.appendChild(mkChip(wheelLabel(w), wheelFilter===w, function(){ wheelFilter=w; renderRail(); renderCatalog(); },
+        countBadge(scopedFor({wheelFilter:w}))));
+    });
+    rail.appendChild(wc);
+
+    rail.appendChild(railHeader('Range filters'));
+    var rangeHost=document.createElement('div');
+    rail.appendChild(rangeHost);
+    RANGEFILTERS.forEach(function(rf){
+      var b=rf.bounds();
+      if(!b || b.lo===b.hi) return;   // no data, or every bike shares one value — nothing to narrow
+      var cur=rangeFilter[rf.id];
+      var lo = cur ? Math.max(b.lo, Math.min(cur.lo, b.hi)) : b.lo;
+      var hi = cur ? Math.min(b.hi, Math.max(cur.hi, b.lo)) : b.hi;
+      rangeHost.appendChild(rangeRowEl(rf, b, lo, hi));
+    });
+  }
+
+  /* ---- one dual-ended slider row (adapted from index.html's rangeRowEl —
+     see that file + the CSS block above for the full a11y rationale: two
+     overlaid native <input type=range> plus a same-value <input type=number>
+     pair as the WCAG 2.5.7 non-drag alternative). 'input' repaints this row
+     only; 'change' (release/blur/Enter) is the sole commit point that writes
+     rangeFilter[] and re-filters the catalog. ---- */
+  // NB: these feed <input type="number">.value — that element silently
+  // rejects a comma-grouped string (e.g. "4,500" is not a valid number and
+  // the input just goes blank), so no toLocaleString() here even for price.
+  function fmtRangeNum(v){
+    return String(Math.round(v));
+  }
+  function rangeRowEl(rf, b, lo, hi){
+    var row=document.createElement('div');
+    row.className='range-row';
+    row.setAttribute('role','group');
+    row.setAttribute('aria-label', rf.aria);
+    row.title = rf.aria;
+
+    var label=document.createElement('span'); label.className='range-label';
+    label.textContent = rf.heading+':';
+    row.appendChild(label);
+
+    var step = rf.step || 1;
+
+    var nums=document.createElement('span'); nums.className='range-nums';
+    var numMinInput=document.createElement('input');
+    numMinInput.type='number'; numMinInput.className='range-num range-num-min';
+    numMinInput.inputMode='numeric'; numMinInput.min=b.lo; numMinInput.max=b.hi; numMinInput.step=step;
+    numMinInput.setAttribute('aria-label','Minimum — '+rf.heading);
+    var numMaxInput=document.createElement('input');
+    numMaxInput.type='number'; numMaxInput.className='range-num range-num-max';
+    numMaxInput.inputMode='numeric'; numMaxInput.min=b.lo; numMaxInput.max=b.hi; numMaxInput.step=step;
+    numMaxInput.setAttribute('aria-label','Maximum — '+rf.heading);
+    var dash=document.createElement('span'); dash.className='range-dash'; dash.setAttribute('aria-hidden','true'); dash.textContent='–';
+
+    if(rf.unit==='$'){
+      var d1=document.createElement('span'); d1.className='range-unit'; d1.setAttribute('aria-hidden','true'); d1.textContent='$';
+      nums.appendChild(d1); nums.appendChild(numMinInput); nums.appendChild(dash);
+      var d2=document.createElement('span'); d2.className='range-unit'; d2.setAttribute('aria-hidden','true'); d2.textContent='$';
+      nums.appendChild(d2); nums.appendChild(numMaxInput);
+    } else {
+      nums.appendChild(numMinInput); nums.appendChild(dash); nums.appendChild(numMaxInput);
+      var unitEl=document.createElement('span'); unitEl.className='range-unit'; unitEl.setAttribute('aria-hidden','true'); unitEl.textContent=' '+rf.unit;
+      nums.appendChild(unitEl);
+    }
+    row.appendChild(nums);
+
+    var wrap=document.createElement('div'); wrap.className='range-wrap';
+    var track=document.createElement('div'); track.className='range-track';
+    var fill=document.createElement('div'); fill.className='range-fill';
+    track.appendChild(fill);
+    var minInput=document.createElement('input');
+    minInput.type='range'; minInput.className='range-input range-min';
+    minInput.min=b.lo; minInput.max=b.hi; minInput.step=step;
+    minInput.setAttribute('aria-label','Minimum — '+rf.heading);
+    var maxInput=document.createElement('input');
+    maxInput.type='range'; maxInput.className='range-input range-max';
+    maxInput.min=b.lo; maxInput.max=b.hi; maxInput.step=step;
+    maxInput.setAttribute('aria-label','Maximum — '+rf.heading);
+    wrap.appendChild(track); wrap.appendChild(minInput); wrap.appendChild(maxInput);
+    row.appendChild(wrap);
+
+    var resetBtn=document.createElement('button');
+    resetBtn.type='button'; resetBtn.className='range-reset'; resetBtn.textContent='✕';
+    resetBtn.title='Reset to the full range';
+    resetBtn.setAttribute('aria-label','Reset '+rf.heading+' to the full range');
+    row.appendChild(resetBtn);
+
+    if(rf.note){ var note=document.createElement('div'); note.className='range-note'; note.textContent=rf.note; row.appendChild(note); }
+
+    function refresh(curLo, curHi, skipNum){
+      minInput.value=curLo; maxInput.value=curHi;
+      if(skipNum!=='min') numMinInput.value = fmtRangeNum(curLo);
+      if(skipNum!=='max') numMaxInput.value = fmtRangeNum(curHi);
+      var span=(b.hi-b.lo)||1;
+      fill.style.left=(((curLo-b.lo)/span)*100)+'%';
+      fill.style.right=(100-((curHi-b.lo)/span)*100)+'%';
+      var mid=(b.lo+b.hi)/2;
+      if(curHi<mid){ maxInput.style.zIndex=4; minInput.style.zIndex=3; }
+      else { minInput.style.zIndex=4; maxInput.style.zIndex=3; }
+      resetBtn.hidden = !(curLo>b.lo || curHi<b.hi);
+    }
+    refresh(lo, hi);
+
+    minInput.addEventListener('input', function(){
+      var v=parseFloat(minInput.value), h=parseFloat(maxInput.value);
+      if(v>h) v=h;
+      refresh(v, h);
+    });
+    maxInput.addEventListener('input', function(){
+      var v=parseFloat(maxInput.value), l=parseFloat(minInput.value);
+      if(v<l) v=l;
+      refresh(l, v);
+    });
+    function commit(){
+      var l=parseFloat(minInput.value), h=parseFloat(maxInput.value);
+      if(l<=b.lo && h>=b.hi) delete rangeFilter[rf.id]; else rangeFilter[rf.id] = { lo:l, hi:h };
+      renderCatalog();
+    }
+    minInput.addEventListener('change', commit);
+    maxInput.addEventListener('change', commit);
+    numMinInput.addEventListener('input', function(){ var v=parseFloat(numMinInput.value); if(!isNaN(v)) refresh(v, parseFloat(maxInput.value), 'min'); });
+    numMaxInput.addEventListener('input', function(){ var v=parseFloat(numMaxInput.value); if(!isNaN(v)) refresh(parseFloat(minInput.value), v, 'max'); });
+    function commitFromNum(edited){
+      var l=parseFloat(numMinInput.value), h=parseFloat(numMaxInput.value);
+      if(isNaN(l)) l=parseFloat(minInput.value);
+      if(isNaN(h)) h=parseFloat(maxInput.value);
+      l=Math.max(b.lo, Math.min(l, b.hi));
+      h=Math.max(b.lo, Math.min(h, b.hi));
+      if(l>h){ if(edited==='min') l=h; else h=l; }
+      refresh(l, h);
+      commit();
+    }
+    numMinInput.addEventListener('change', function(){ commitFromNum('min'); });
+    numMaxInput.addEventListener('change', function(){ commitFromNum('max'); });
+    resetBtn.addEventListener('click', function(){ delete rangeFilter[rf.id]; refresh(b.lo, b.hi); renderCatalog(); });
+
+    return row;
+  }
+
+  /* ---- centre: bike cards ------------------------------------------------------ */
+  function cardEl(p){
+    var card=document.createElement('div');
+    card.className='pcard';
+    var wt = typeof p.weight==='number' ? '<span class="wt">'+p.weight.toLocaleString()+' g</span>' : '';
+    card.innerHTML =
+        '<div class="namewrap"><div class="kind">'+esc(assistLabel(p.assist))+'</div>'
+      +   '<div class="name">'+esc(p.brand)+' '+esc(p.model)+'</div></div>'
+      + '<div class="spec">'+esc(specLine(p))+'</div>'
+      + '<div class="metacol"><div class="prov">'+provHtml(p)+'</div></div>'
+      + '<div class="row"><span class="price">'+money(p.price)+' '+wt+'</span>'
+      +   '<span class="picks"><button type="button" class="pick">Spec sheet ▸</button></span></div>';
+    card.querySelector('.pick').onclick=function(){ openEmtbModal(p); };
+    return card;
+  }
+
+  function renderCatalog(){
+    var el=$('eCatalog'); el.innerHTML='';
+    el.classList.toggle('list', viewMode==='list');
+
+    var list = EMTB_PARTS.filter(passesFilters);
+    $('eCatCount').textContent = 'Showing '+list.length+' of '+EMTB_PARTS.length+' e-MTB'+(EMTB_PARTS.length===1?'':'s');
+
+    if(!list.length){
+      el.classList.remove('list');
+      el.innerHTML='<div class="cat-empty">No e-MTBs match these filters — <a href="#" id="eEmptyReset">reset filters</a> to see the full catalog.</div>';
+      var r=$('eEmptyReset'); if(r) r.onclick=function(e){ e.preventDefault(); resetFilters(); };
+      return;
+    }
+
+    var idx=SHUFFLE_ORDER;
+    var wt=function(p,missing){ return typeof p.weight==='number' ? p.weight : missing; };
+    var SORTS={
+      featured:        function(a,b){ return idx[a.id]-idx[b.id]; },
+      name:            function(a,b){ return (a.brand+' '+a.model).localeCompare(b.brand+' '+b.model) || (idx[a.id]-idx[b.id]); },
+      'price-asc':     function(a,b){ return (a.price-b.price) || (idx[a.id]-idx[b.id]); },
+      'price-desc':    function(a,b){ return (b.price-a.price) || (idx[a.id]-idx[b.id]); },
+      'weight-asc':    function(a,b){ return (wt(a,Infinity)-wt(b,Infinity)) || (idx[a.id]-idx[b.id]); },
+      'weight-desc':   function(a,b){ return (wt(b,-Infinity)-wt(a,-Infinity)) || (idx[a.id]-idx[b.id]); },
+      'torque-asc':    function(a,b){ return (a.motorTorque-b.motorTorque) || (idx[a.id]-idx[b.id]); },
+      'torque-desc':   function(a,b){ return (b.motorTorque-a.motorTorque) || (idx[a.id]-idx[b.id]); },
+      'battery-asc':   function(a,b){ return (a.batteryWh-b.batteryWh) || (idx[a.id]-idx[b.id]); },
+      'battery-desc':  function(a,b){ return (b.batteryWh-a.batteryWh) || (idx[a.id]-idx[b.id]); }
+    };
+    list.sort(SORTS[sortBy]||SORTS.featured);
+    list.forEach(function(p){ el.appendChild(cardEl(p)); });
+  }
+
+  /* ---- spec-sheet dialog ------------------------------------------------------- */
+  function openEmtbModal(p){
+    $('emtbTitle').textContent = p.brand+' '+p.model+(p.modelYear?' ('+p.modelYear+')':'');
+    $('emtbSub').textContent = assistLabel(p.assist)+' · '+wheelLabel(p.wheelConfig)+' · '+money(p.price);
+
+    var rows=[];
+    rows.push(['Motor', motorLabel(p.motorBrand)+' — '+p.motorModel]);
+    rows.push(['Torque', p.motorTorque+' Nm']);
+    if(typeof p.motorPowerPeak==='number') rows.push(['Peak power', p.motorPowerPeak+' W']);
+    rows.push(['Battery', p.batteryWh+' Wh']);
+    if(typeof p.batteryRemovable==='boolean') rows.push(['Removable battery', p.batteryRemovable?'Yes':'No']);
+    if(typeof p.rangeExtender==='boolean') rows.push(['Range extender', p.rangeExtender?'Available':'Not offered']);
+    rows.push(['Assist class', assistLabel(p.assist)]);
+    if(p.display) rows.push(['Display', displayLabel(p.display)]);
+    rows.push(['Wheel config', wheelLabel(p.wheelConfig)]);
+    rows.push(['Suspension', p.suspension==='hardtail' ? 'Hardtail' : 'Full suspension']);
+    rows.push(['Travel (F/R)', p.travelFront+' / '+p.travelRear+' mm']);
+    if(p.frameMaterial) rows.push(['Frame material', frameMatLabel(p.frameMaterial)]);
+    if(p.drivetrain) rows.push(['Drivetrain', p.drivetrain]);
+    if(p.brakes) rows.push(['Brakes', p.brakes]);
+    if(p.disciplines && p.disciplines.length) rows.push(['Riding style', p.disciplines.map(discLabel).join(', ')]);
+    rows.push(['Price', money(p.price)+' MSRP']);
+    if(typeof p.weight==='number') rows.push(['Weight', p.weight.toLocaleString()+' g']);
+
+    $('emtbSpecGrid').innerHTML = rows.map(function(r){ return '<dt>'+esc(r[0])+'</dt><dd>'+esc(r[1])+'</dd>'; }).join('');
+    $('emtbProv').innerHTML = provHtml(p);
+    $('emtbNote').innerHTML = p.note ? '<div class="muted">'+esc(p.note)+'</div>' : '';
+    $('emtbModal').showModal();
+  }
+  function wireModal(){
+    $('emtbClose').onclick=function(){ $('emtbModal').close(); };
+    $('emtbModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
+  }
+
+  /* ---- toolbar + reset --------------------------------------------------------- */
+  function resetFilters(){
+    motorFilter='all'; assistFilter='all'; wheelFilter='all'; discFilter='all'; verifiedOnly=false; rangeFilter={};
+    var v=$('eVerified'); if(v){ v.classList.remove('primary'); v.setAttribute('aria-pressed','false'); }
+    renderRail(); renderCatalog();
+  }
+  function wireToolbar(){
+    var v=$('eVerified');
+    if(v) v.onclick=function(){ verifiedOnly=!verifiedOnly; this.classList.toggle('primary',verifiedOnly); this.setAttribute('aria-pressed',String(verifiedOnly)); renderRail(); renderCatalog(); };
+    $('eReset').onclick=resetFilters;
+    function setView(m){
+      viewMode=m;
+      $('eViewCards').classList.toggle('primary',m==='cards'); $('eViewCards').setAttribute('aria-pressed',String(m==='cards'));
+      $('eViewList').classList.toggle('primary',m==='list');   $('eViewList').setAttribute('aria-pressed',String(m==='list'));
+      try{ localStorage.setItem('tb-emtb-view',m); }catch(e){}
+      renderCatalog();
+    }
+    $('eViewCards').onclick=function(){ setView('cards'); };
+    $('eViewList').onclick=function(){ setView('list'); };
+    $('eSort').value=sortBy;
+    $('eSort').onchange=function(){ sortBy=this.value; renderCatalog(); };
+    setView(viewMode);
+  }
+
+  /* ---- boot -------------------------------------------------------------------- */
+  main.innerHTML = skeleton();
+  wireToolbar();
+  wireModal();
+  renderRail();
+  renderCatalog();
+  syncHdr();
+})();
+</script>
+</body>
+</html>
