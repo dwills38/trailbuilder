@@ -147,6 +147,21 @@ weights get surfaced prominently in the UI (vs stored quietly on the row) is a s
 decision informed by the expert weight-materiality consult — data-gathering is liberal,
 interface real estate is curated.
 
+**Extended to FRAMES — including complete-bike-only frames (Douglas 2026-07-20, "yes, with the
+conditions above"):** a frame row may carry `verified:true` on **interfaces alone** — every
+engine-read field (BB, head tube, brake mounts, axle/dropouts, seat tube, shock fit where
+applicable) manufacturer-confirmed — in BOTH of these cases:
+(a) the frame is sold standalone but the maker publishes no frame-only weight (the long-standing
+frames practice, now formalized — closes the verified-flag audit's "unwritten exception" flag);
+(b) **the frame exists ONLY inside a complete bike** (Haro/Mongoose/Sunday pattern): no frame
+SKU, so no frame-only weight or price will ever exist.
+THE CONDITIONS (mandatory, all three): (1) interfaces sourced from the EXACT complete bike's
+fetched maker page (or the frameset page for case a); (2) weight stays blank or an
+honestly-labeled sample with its basis stated in `desc` — never invented, and THE PRICE RULE
+covers the missing MSRP; (3) for case (b) the `desc` MUST state the frame is sold as a complete
+bike only, so no shopper reads the badge as "you can buy this bare." Interfaces feeding
+error-tier rules keep the no-exceptions bar; this never relaxes item 1.
+
 ### JS-rendered ≠ bot-walled (kit wave 3, 2026-07-19 — try the browser pane before declaring a wall)
 
 **specialized.com and 100percent.com defeat WebFetch/Exa but render CLEANLY in the browser
