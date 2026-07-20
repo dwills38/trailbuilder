@@ -2894,8 +2894,10 @@ var KIT_PARTS = [
     disciplines:['dh'], sizes:['S','M','L','XL'], desc:'Arti-Lage impact knee pad + removable hard-shell shin guard, Kevlar-stretch panel; per pair. Weight now maker-stated ("524 g") on the fetched ridetsg.com product page (was previously unpublished). Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.' },
 
   /* -- Eyewear (type required: glasses / goggles) -- */
-  { id:'ewr-oakley-sutro', cat:'eyewear', brand:'Oakley', model:'Sutro', price:180, weight:32,
-    type:'glasses', sizes:['OSFA'] },
+  { id:'ewr-oakley-sutro', cat:'eyewear', brand:'Oakley', model:'Sutro', price:203, weight:32,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, lastChecked:'2026-07-20', source:'https://www.oakley.com/en-us/product/W0OO9406',
+    desc:'Fetched oakley.com (browser pane, WebFetch 403): confirmed price $203 (Polished Black/Prizm Sapphire). Oakley does not publish weight; kept as sample.' },
   { id:'ewr-poc-devour', cat:'eyewear', brand:'POC', model:'Devour', price:300, weight:39,
     type:'glasses', sizes:['OSFA'],
     verified:true, lastChecked:'2026-07-16', source:'https://poc.com/en-us/product/devour-uranium-black',
@@ -2905,8 +2907,10 @@ var KIT_PARTS = [
     desc:'Price/type confirmed on the Smith product page (weight not stated there); weight is Bikerumor\'s measured figure.',
     verified:true, lastChecked:'2026-07-16', source:'https://www.smithoptics.com/en-us/products/squad-mtb',
     sourceType:'measured', weightSource:'https://bikerumor.com/review-smith-squad-mtb-goggles-give-wide-field-of-view-with-minimal-fogging/' },
-  { id:'ewr-oakley-radar-ev-path', cat:'eyewear', brand:'Oakley', model:'Radar EV Path', price:203, weight:28,
-    type:'glasses', sizes:['OSFA'] },
+  { id:'ewr-oakley-radar-ev-path', cat:'eyewear', brand:'Oakley', model:'Radar EV Path', price:244, weight:28,
+    type:'glasses', sizes:['OSFA'],
+    verified:true, lastChecked:'2026-07-20', source:'https://www.oakley.com/en-us/product/W0OO9208',
+    desc:'Fetched oakley.com (browser pane, WebFetch 403): confirmed price $244 (Polished Black/Prizm Black). Oakley does not publish weight; kept as sample.' },
   { id:'ewr-100-s3', cat:'eyewear', brand:'100%', model:'S3', price:149.95, weight:26,
     type:'glasses', sizes:['OSFA'],
     desc:'RE-CONFIRMED 2026-07-19 via browser-rendered 100percent.com/collections/s3 (WebFetch'
@@ -3068,14 +3072,15 @@ var KIT_PARTS = [
     desc:'CORRECTED type from goggles -> glasses (2026-07-16): sweetprotection.com markets Ronin as "Sport Performance Sunglasses," not goggles. Kit-5 (2026-07-20): fetched the live Ronin RIG Reflect product page fresh -- confirms weight 31g and price $160.00, resolving the prior swapped-weight/price flag (the real weight/price were neither the old 135g/$90 sample nor a swap with Clockwork -- both were simply stale).',
     verified:true, lastChecked:'2026-07-20', source:'https://www.sweetprotection.com/us/en/ronin-rig-reflect-rig-obsidianmatte-black/' },
   { id:'ewr-100-racecraft2', cat:'eyewear', brand:'100%', model:'Racecraft2', price:70, weight:130,
-    type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
-    desc:'RE-ATTEMPTED 2026-07-19 via browser pane (WebFetch JS-walled): the "Racecraft 2®'
-      + ' Goggles" line is confirmed CURRENT and marketed for "motocross, mountain bike, and'
-      + ' snow" on 100percent.com/pages/mtb-goggles, but the base-goggle product page (as opposed'
-      + ' to its replacement-lens/tear-off accessories, which are $10-30 and easy to find) never'
-      + ' surfaced through site search this session - could not pin an exact base price. Left'
-      + ' unverified; the discontinuation risk from the 2026-07-18 note is resolved (it is NOT'
-      + ' discontinued), just still unpriced against a fetched page.' },
+    type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'], status:'discontinued',
+    desc:'Kit-6 (2026-07-20): confirmed genuinely gone via 100percent.com/collections/mtb-goggles'
+      + ' (browser pane) -- the current MTB goggle lineup is DUAL ARMEGA/ARMEGA/ACCURI 2/STRATA 2/'
+      + 'ARmatic/Barstow; Racecraft2 is absent from both the collection grid and the "Shop by'
+      + ' Model" nav. A site search for "racecraft" returns only RACECRAFT/ACCURI/STRATA-branded'
+      + ' replacement-lens and tear-off accessories (RC2/AC2/ST2 shared-fit SKUs) -- no standalone'
+      + ' base goggle product exists to buy. No clean 1:1 successor named (ACCURI 2 shares the'
+      + ' accessory-compatibility tag but is a distinct existing catalog row), so tagged'
+      + ' discontinued rather than re-scoped. Left unverified/sample.' },
   { id:'ewr-leatt-velocity-65', cat:'eyewear', brand:'Leatt', model:'Velocity 6.5', price:120, weight:130,
     type:'goggles', disciplines:['enduro','dh'], sizes:['OSFA'],
     desc:'Fetched us.leatt.com (2026-07-17): CORRECTED price $90 -> $120 (base list; page also shows a $84 sale, not used here). Weight not published there, stays sample.',
