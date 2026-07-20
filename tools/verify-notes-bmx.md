@@ -339,3 +339,95 @@ the best path to 40%:**
 2. A retry pass on the rate-limited fetches (Verde, Supercross, United, Radio) with spaced-out
    requests — these are real unresearched leads, not confirmed walls, unlike most of what this
    wave's brand list turned out to be.
+
+---
+
+# BMX verification wave 5 — 2026-07-20 (verify/bmx-5)
+
+Scope: `data/bmx.js` only. Branch cut fresh off `origin/main` (commit `9fe0465`). Target per the
+coordinator's brief: small parts (bars/stems/cranks/pedals/seats/pegs/hubs) on Colony, Mongoose
+international, Verde, Sunday, Supercross, United, Radio — first-party static pages, complete-bike
+frames allowed under the 2026-07-20 frame-exception ruling's three conditions.
+
+## Before → after
+
+- Before: 75/225 verified (33.3%)
+- After: **76/225 verified (33.8%)** — 1 new verification. Bar (40%/90 rows) not reached.
+
+## ★ Scoping finding — the named-brand pool was nearly exhausted before this wave started
+
+Checked unverified-row counts per named brand before researching: **Mongoose (0 unverified),
+Verde (0), Sunday (0), Radio (0)** — all fully verified already by waves 1-4. Only **Colony (9)**,
+**Supercross BMX (1)**, and **United (1)** had any unverified rows at all — an addressable pool of
+**11 rows total**, not enough to reach the 90-row bar (+15 needed) even at a 100% yield. This
+matches wave 2/3's own conclusion that Colony/Sunday/Chase/Shadow were "already fully picked
+over."
+
+## Verified (1)
+
+- **`bmx-fr-supercross-envyblk2-expertxl`** (Supercross BMX ENVY BLK2 Expert XL frame) —
+  raw-`curl`-confirmed on `supercrossbmx.com`'s own product page: the 4-column geometry table
+  (Junior/Expert/Expert XL/Expert XXL) gives Expert XL = **20.0in top tube** (exact match), the
+  page explicitly states **10mm (3/8") rear axle** for this size, **threaded Euro BB shell**,
+  **integrated 1-1/8"-1.5" head tube**, a **removable V-brake system**, and the Shopify JSON
+  `price` field is **119595 = $1195.95** (exact match to the existing catalog price). No frame
+  weight published anywhere on the page (frame-only SKU, never bundled into a complete bike) —
+  verified under the frames no-published-weight exception (case a), weight stays unset.
+
+## Colony (9 targeted, 0 new — every row independently re-confirmed as a genuine wall)
+
+Re-fetched all 9 raw via `curl` (not WebSearch-summary — the phantom-number doctrine) and got
+**identical results to waves 2-3's own findings**, byte-for-byte on the specs that matter:
+
+- **Sweet Tooth frame** (`bmx-fr-colony-sweettooth`) — probed 4 plausible colonybmx.com.au product
+  slugs; the two that 200'd are a sticker-kit page and an empty/stale placeholder, neither a real
+  spec page. Confirmed: not on Colony's own current standalone-frame lineup (wave 1's finding
+  stands).
+- **Cassette Cog 9T** (`bmx-rc-colony-cassette-9`) — re-confirmed no standalone cog SKU exists;
+  cogs ship bundled with hubs only (e.g. Wasp Race Hubset's 16T cog).
+- **Pivotal Seat** (`bmx-se-colony-pivotal`) — re-confirmed the generic name isn't a real SKU;
+  Colony's current seats are all specifically named (Mini Pivotal, Wallwork, Blaster, Paterico).
+  Still flagged for a coordinator naming decision, not something to silently guess.
+- **Official Stem / Variant Stem** (`bmx-st-colony-official`/`-variant`) — raw-confirmed real
+  weights (248g / 271g-234g) but **zero mention of bar-clamp diameter** on either page (searched
+  "clamp", "bar", "22.2", "25.4", "31.8" — no hits beyond nav-menu boilerplate). BMX's
+  `clamp` field is a genuine two-way vocab (`25.4mm`/`oversized`, not a universal constant like
+  rear axle), so this stays a real interface gap, not a formality — left unverified.
+- **Wasp Front Hub** (`bmx-fw-colony-wasp`) — raw-confirmed the exact same text wave 2 found:
+  "10mm bolts only" is the axle-bolt wrench size, not the axle diameter; no diameter number
+  anywhere on the page. Wall confirmed, unchanged.
+- **Wasp Race Cassette Hubset** (`bmx-rh-colony-wasprace`) — the product page (and its color-variant
+  sub-URLs) still sells this **only as a Front/Rear pair**, no standalone rear-only SKU — the same
+  THE PRICE RULE item-3 mismatch (a `rearWheel`-scoped row, price for a bundled set) wave 2 found.
+- **Rick Bars / Guardian Bars** (`bmx-hb-colony-rick`/`-guardian`) — raw-confirmed both bars ship in
+  2 rise/width variants each (Rick: 8.65in/28.0in-width vs 9.3in/29.0in-width; Guardian: 8.8in vs
+  9.4in, both 29.0in-width) and this catalog's single generic row per model doesn't cleanly match
+  either variant's rise+width pairing. Same variant-ambiguity wall wave 2 documented; left
+  unverified/unchanged.
+
+## United (1 targeted, 0 new)
+
+- **`bmx-fr-united-supreme`** — confirmed Supreme is **not** in unitedbikeco.com's current Frames
+  collection (checked the full product-title list: Zuin Miki Fleck, Prime Mover, Pro Model — no
+  Supreme). Its only current first-party mention is a discount announcement blog post
+  (`.../our-supreme-yellow-turquoise-fade-bmx-is-now-only-259-99`) which carries **no spec
+  content** (no BB/head-tube/axle/brake text, just a £259.99 price that doesn't match this row's
+  $465 anyway). Per the frame exception's case-(b) condition 1 ("interfaces sourced from the EXACT
+  complete bike's fetched maker page"), a discount blurb with zero specs doesn't clear the bar —
+  left unverified, no edit.
+
+## Honest reachability call
+
+**40% (90/225) is not reachable from this wave's assigned brand list, full stop — the pool was
+already down to 11 addressable rows before this session started, and 10 of those 11 are
+confirmed-exhausted walls (re-independently verified, not just re-cited from prior notes).**
+Reaching 90 needs either:
+1. **A brand-scope expansion beyond this wave's list** — per-brand unverified counts (Odyssey 21,
+   Cult 19, Fit Bike Co 17, Fly Bikes 9, Chase 10, S&M 7, Profile Racing 8) are far larger pools,
+   but Odyssey/Cult are the documented Shopify-shipping-weight-bucket wall (wave 2) and Chase/Fly
+   Bikes/S&M were sample-only per waves 1/3's own findings — none are free wins, but they're the
+   only pools left with enough rows to matter.
+2. **A policy call, not a research problem**: several genuinely-confirmed-real specs in this wave
+   and prior waves (Colony stem clamp diameters, Colony bar variant mapping, Colony hub axle
+   diameter) are blocked purely on one missing/ambiguous field on an otherwise-solid manufacturer
+   page — no amount of re-fetching will produce a number the page doesn't state.
