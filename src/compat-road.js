@@ -74,7 +74,7 @@ var ROAD_VOCAB = {
   chainStd:     ['hg', 'flattop', 'campag'],               // chain `system` field carries these, not a systemRoad token
   bbShell:      ['bsa-road', 'bb86', 'bb386evo', 'bbright', 'pf30', 't47-road', 'italian',
                  'bb90-road', 'bb30a', 'pf86'],
-  crankBb:      ['dub', 'dub-wide', '24mm-road', '30mm', 'ultra-torque', 'hollowtech-ii-road'],
+  crankBb:      ['dub', 'dub-wide', '24mm-road', '30mm', 'ultra-torque'],
   seatpostDia:  ['27.2', '30.9', '31.6'],
   clamp:        ['31.8', '35'],
   fdMount:      ['braze-on', 'band', 'none'],              // 'none' = 1x-only frame (no FD provision)

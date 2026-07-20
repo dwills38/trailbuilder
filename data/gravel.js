@@ -616,10 +616,10 @@ var GRAVEL_PARTS = [
 
   // ===== CRANKSET ===========================================================
   { id: 'gcr-shimano-grx-fc-rx820-1x', cat: 'crankset', brand: 'Shimano', model: 'GRX FC-RX820',
-    family: 'shimano-grx-rx820', bb: 'hollowtech-ii-road', chainrings: '1x', ring: 40, ringStd: null,
+    family: 'shimano-grx-rx820', bb: '24mm-road', chainrings: '1x', ring: 40, ringStd: null,
     speeds: 12, chainline: 47.5, weight: 620, price: 300 },
   { id: 'gcr-shimano-grx-fc-rx610-2x', cat: 'crankset', brand: 'Shimano', model: 'GRX FC-RX610',
-    family: 'shimano-grx-rx610', bb: 'hollowtech-ii-road', chainrings: '2x', ring: 48, ringStd: null,
+    family: 'shimano-grx-rx610', bb: '24mm-road', chainrings: '2x', ring: 48, ringStd: null,
     speeds: 12, chainline: 46, weight: 700, price: 220 },
   { id: 'gcr-sram-rival-xplr-axs-1x', cat: 'crankset', brand: 'SRAM', model: 'Rival XPLR AXS Crank',
     family: 'sram-rival-xplr', bb: 'dub', chainrings: '1x', ring: 40, ringStd: 't-type', speeds: 12,
@@ -647,14 +647,14 @@ var GRAVEL_PARTS = [
 
   // ===== BOTTOM BRACKET ======================================================
   { id: 'gbb-shimano-sm-bb72-bsa', cat: 'bb', brand: 'Shimano', model: 'SM-BB72', family: 'shimano-sm-bb72',
-    shell: 'bsa-road', spindle: 'hollowtech-ii-road', weight: 90, price: 30 },
+    shell: 'bsa-road', spindle: '24mm-road', weight: 90, price: 30 },
   { id: 'gbb-sram-dub-bsa', cat: 'bb', brand: 'SRAM', model: 'DUB BSA PressFit/Threaded', family: 'sram-dub-bb',
     shell: 'bsa-road', spindle: 'dub', weight: 70, price: 45 },
   { id: 'gbb-praxis-t47', cat: 'bb', brand: 'Praxis', model: 'T47 BB', family: 'praxis-t47',
     shell: 't47-road', spindle: 'dub', weight: 85, price: 65 },
   { id: 'gbb-shimano-sm-bb52-bb86', cat: 'bb', brand: 'Shimano', model: 'SM-BB52', family: 'shimano-sm-bb52',
-    shell: 'bb86', spindle: 'hollowtech-ii-road', weight: 80, price: 35,
-    note: 'gravel-grind-1 row: fills the BB86 PressFit gap the Trek Checkpoint SL 7 frame row (bb:\'bb86\') left unbuildable — widened GRAVEL_VOCAB.shell with \'bb86\' in schema-gravel.js to back it. Real product, not independently fetched this session.' },
+    shell: 'bb86', spindle: '24mm-road', weight: 80, price: 35,
+    note: 'gravel-grind-1 row: fills the BB86 PressFit gap the Trek Checkpoint SL 7 frame row (bb:\'bb86\') left unbuildable — widened GRAVEL_VOCAB.shell with \'bb86\' in schema-gravel.js to back it. Real product, not independently fetched this session. spindle CORRECTED (dropbar-cleanup-1 item 4): was \'hollowtech-ii-road\', a gravel-only token describing the same physical 24mm Shimano Hollowtech II spindle road.js already models as \'24mm-road\' (used on every Shimano road crankset/bb) — the design docs (ROAD-MODEL.md, ROAD-GRAVEL-COMPAT-ANALYSIS.md) only ever specified \'24mm-road\'; \'hollowtech-ii-road\' never appears in them. Unified onto \'24mm-road\' catalog-wide so a cross-dataset compare (e.g. a shared engine) never false-reds on two spellings of the same standard.' },
   { id: 'gbb-wheelsmfg-t47-outboard', cat: 'bb', brand: 'Wheels Manufacturing', model: 'T47 Outboard', family: 'wheelsmfg-t47-outboard',
     shell: 't47-road', spindle: 'dub', weight: 75, price: 70 },
 
