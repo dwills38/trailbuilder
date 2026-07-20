@@ -154,9 +154,36 @@ disposition above — untouched this session, next wave's queue.
 Gates after phase 2: `node validate.js` → EMTB OK, 83 bikes, 0 problems (2 verified, 81
 unverified); `npm test` → 838/838 passed; `npm run typecheck` → clean.
 
+## Wave 2 phase 3 attempt (2026-07-20) — Transition Relay + Santa Cruz Heckler, both Skipped
+
+Tried the two rows flagged as "easy wins" (motor family matched cleanly in phase 1). Both turned
+up a **trim-naming mismatch** that blocks a clean `verified:true` even though the motor is right:
+
+- **Transition Relay** (3 rows) — transitionbikes.com/Bikes/Relay lists three live builds ("Relay
+  PNW Alloy Eagle 90", "Relay Carbon Eagle 90", "Relay PNW Carbon Eagle 90"), all on **SRAM Eagle
+  90 Transmission**. The catalog's three rows are named "Relay", "Relay Alloy XT" and "Relay
+  Carbon X0 AXS" — the "Alloy XT"/"Carbon X0 AXS" trim names don't exist in the current lineup
+  (no Shimano-XT-derailleur Relay build, no distinct "X0 AXS" tier separate from "Eagle 90").
+  Motor (Fazua Ride 60) is confirmed current; drivetrain trim identity is stale/invented. Needs a
+  re-entry (3 real trims: PNW Alloy, Carbon, PNW Carbon, all Eagle 90) rather than a same-id fix.
+- **Santa Cruz Heckler** (2 rows) — santacruzbicycles.com lists five 2026 builds (R, S, GX AXS,
+  X0 AXS RSV, XX AXS RSV), all confirmed 720Wh/full-power, but the fetched page didn't surface
+  motor brand/model text (site is JS-heavy) so the Shimano EP8 match from phase 1's WebSearch
+  isn't page-confirmed. Catalog's single "Heckler" row (no trim suffix) doesn't map cleanly to
+  any of the five named trims. Price ($8,500 in catalog) only compares against sale prices from
+  this fetch, not MSRP — per the MSRP-only policy that's not a valid match either.
+
+**Disposition: both Skipped, not Verified.** Forcing `verified:true` off a motor-family match
+alone would violate THE BAR (trim/SKU identity must be confirmed, not just the motor) — logged
+here instead per protocol. Next wave: re-fetch Heckler via browser pane (JS-rendered spec table)
+and re-enter Relay's three real trim names before attempting verification again.
+
 ## Wave 2 session close (2026-07-20)
 
-Phase 3 (deep-verify current-gen survivors) not started this session — the 17 phase-1 "Current"
-rows + the 8 phase-2 re-entries (25 total) are the phase-3 backlog for the next wave. Prioritize
-Transition Relay (3 rows, clean Fazua match, Fazua's own site likely fetchable) and Santa Cruz
-Heckler (2 rows, motor matched cleanly) as easy wins.
+Net this wave: catalog grew 75 → 83 bikes (8 re-entered current-gen platforms), verified count
+unchanged at 2/83 (no row cleared the trim-identity bar this pass). Remaining backlog for the next
+wave: 9 stale-wrong-brand rows not yet re-entered (Cannondale Moterra SL 1, Propain Ekano ×2,
+Pivot Shuttle AM, Norco Sight VLT ×2, Scott Genius eRIDE, Vitus E-Sommet ×2), 19 same-brand-wrong-
+gen rows, 2 Haibike Unclear rows, and the full phase-3 deep-verify pass (attempt it via browser
+pane for JS-heavy maker sites — Transition/Santa Cruz both needed it and phase 3 stalled without
+it this wave).
