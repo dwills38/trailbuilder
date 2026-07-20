@@ -473,7 +473,7 @@ var ROAD_PARTS = [
     system: 'shimano-road-12', speeds: 12, actuation: 'di2-wired', maxCog: 34, cage: 'short', mount: 'std-hanger',
     weight: 300, price: 400 },
   { id: 'cs-shimano-ultegra-r8100-1130', cat: 'cassette', brand: 'Shimano', model: 'Ultegra CS-R8100 11-30', family: 'shimano-r8100',
-    system: 'shimano-road-12', speeds: 12, freehub: 'hg-l2', minCog: 11, maxCog: 30,
+    system: 'shimano-road-12', speeds: 12, freehub: 'hg-road', minCog: 11, maxCog: 30,
     weight: 291, price: 130 },
   { id: 'ch-shimano-ultegra-r8100', cat: 'chain', brand: 'Shimano', model: 'Ultegra CN-M8100 12s', family: 'shimano-r8100',
     system: 'hg', speeds: 12,
@@ -495,7 +495,7 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-17', source: 'https://productinfo.shimano.com/en/compatibility/C-455',
     note: 'Fetched productinfo.shimano.com C-455 drivetrain compatibility chart confirms 105 R7100 / GRX RX820 / RX610 cross-compatibility grouping and lists FD-R7100/FC-R9200/FC-R8100/FC-R7100 in the same interoperability table. Weight (320g) is a sample estimate not itemized on the C-chart — flagged; Shimano does not publish component weights (known catalog limitation).' },
   { id: 'cs-shimano-105-r7100-1136', cat: 'cassette', brand: 'Shimano', model: '105 CS-R7100 11-36', family: 'shimano-r7100',
-    system: 'shimano-road-12', speeds: 12, freehub: 'hg-l2', minCog: 11, maxCog: 36,
+    system: 'shimano-road-12', speeds: 12, freehub: 'hg-road', minCog: 11, maxCog: 36,
     weight: 357, price: 90 },
   { id: 'ch-shimano-105-r7100', cat: 'chain', brand: 'Shimano', model: '105 CN-M7100 12s', family: 'shimano-r7100',
     system: 'hg', speeds: 12,
@@ -1210,15 +1210,16 @@ var ROAD_PARTS = [
 //    already carried 'braze-on', and freehubRG already carried
 //    'micro-spline-road'/'hg-road'. Flagged per the coordinator brief even
 //    though the answer is "no vocab changed."
-//  - OBSERVATION for Douglas (not fixed, out of this pass's scope): the
-//    existing cs-shimano-105-r7100-1136 and cs-shimano-ultegra-r8100-1130
-//    cassette rows both carry freehub:'hg-l2', but ROAD-GRAVEL-SHARED-
-//    STANDARDS.md section 2 (fetched Shimano 12-speed freehub guide) states
-//    HG L2 is compatible with "12-speed DURA-ACE 9200 ONLY" — the 105/Ultegra
-//    cassettes should likely be freehub:'hg-road' (the wider-compatible body),
-//    not 'hg-l2'. Left untouched (front-derailleur/GRX/rotor/headset was this
-//    pass's scope, not a cassette-freehub audit), but flagged for a future
-//    correction pass.
+//  - FIXED (catalog/dropbar-cleanup-1, item 1): cs-shimano-105-r7100-1136 and
+//    cs-shimano-ultegra-r8100-1130 carried freehub:'hg-l2'; re-fetched
+//    bike.shimano.com's "Features of MICRO SPLINE, HG L2 and HG Freehubs"
+//    (via browser pane, WebFetch 403'd) and confirmed verbatim: "The HG L2
+//    freehub is only compatible with Dura-Ace 12-speed road cassettes" —
+//    Ultegra R8100 and 105 R7100 are NOT HG L2. Corrected both to
+//    freehub:'hg-road' (the same page: "HG Freehub ... Designed For: 12- and
+//    11-speed road and gravel"). cs-shimano-da-r9200-1130 and the Dura-Ace
+//    WH-R9270-C50 rear wheel correctly keep 'hg-l2' — both are genuine
+//    Dura-Ace 9200 parts.
 // ---------------------------------------------------------------------------
 
 if (typeof module !== 'undefined' && module.exports) {
