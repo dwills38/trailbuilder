@@ -1,57 +1,103 @@
-# Frame verification notes — non-runner-state dispositions
+# Verify notes — frames (verify/wall-retest-1, 2026-07-20)
 
-Free-form log for frame-row verification passes (per CLAUDE.md, `tools/verification-job.json`
-is coordinator-only; this file is where a frame-only pass records its findings).
+Dispositions from the wall re-test sweep. See the branch commits for full
+per-field detail; this is the summary index.
 
-## verify/spectrek-1 (2026-07-20) — Specialized/Trek re-test
+## Norco (norco.com — RENDERS, was a WebFetch tooling gap)
 
-**Task:** re-test whether specialized.com and trekbikes.com are actually bot-walled, per a
-stale premise carried in the frames backlog. Answer: **NO, neither is walled.**
+Norco's spec sheet loads only after clicking the client-side "Frameset" tab —
+invisible to plain WebFetch/innerText, which is why it read as a "JS-only
+shell to a fetch" wall. The browser pane renders it fully.
 
-### Readable-or-walled verdict
+- `fr-norco-optic` — upgraded to verified:true. norco.com's `24-optic-C1` page
+  confirms rearAxle/headset/bb/maxForkTravel/travel/maxRotorR exactly.
+- `fr-norco-fluid-fs-a` — upgraded to verified:true. norco.com's `25-fluid-fs-a2`
+  page confirms rearAxle/bb/headset/seatTube/maxRotorR(180, resolving the prior
+  160->180 correction with a primary source)/maxForkTravel/travel/price exactly.
+- `fr-norco-fluid-ht`, `fr-norco-torrent-ht-a`, `fr-norco-torrent-ht-s`,
+  `fr-norco-shore-park` — **not re-verified**: all four are discontinued from
+  norco.com's current lineup (not in the nav, no current product page found).
+  Existing vitalmtb/dealer-page sourcing stands as the best available.
 
-- **specialized.com: READABLE**, always was via a real browser. Confirmed independently this
-  session (search results, category pages, and full product/frameset spec+geometry tables all
-  render cleanly via the Claude Browser preview pane). Turns out this was already re-tested and
-  fully exploited in `verify/fanout-1-trek-specialized-frames` (merged to main 2026-07-17) via a
-  Bright Data unblocker route — **all 17 Specialized frame rows are now `verified:true`**. No
-  work remained here; confirmed via a fresh independent fetch of the Stumpjumper 15 Alloy
-  Frameset page rather than trusting the prior session's claim.
-- **trekbikes.com: READABLE**, and the "JS-rendered/fetch-blocked"/"JS wall" notes stamped on
-  several Trek rows (dated as recently as 2026-07-18) are a **tooling gap, not a real wall**:
-  WebFetch/bdata static scrapes get nav-only HTML because Trek's product-detail "Specs" tab
-  (`#tab-productSpecsTabB2C`) **lazy-loads its content on click**, not on page load. A static
-  fetcher that doesn't execute the click never sees the spec table; the Claude Browser preview
-  pane does (`el.click()` via `javascript_tool`, then re-read `document.body.innerText`). No
-  CAPTCHA, no interstitial, no real anti-bot wall was ever encountered on trekbikes.com this
-  session — every product/frameset page tried rendered fully after a decline-cookies click. This
-  finding should retire the "trekbikes.com fetch-blocked" boilerplate line repeated across many
-  Trek `desc` fields catalog-wide (left as-is on rows this pass didn't touch — a future pass can
-  sweep them, low priority since the *specs* aren't wrong, just the wall attribution).
+## Cannondale (cannondale.com — RENDERS, was a WebFetch tooling gap)
 
-### Rows changed this pass (all frame, all Trek — Specialized was already 17/17 on main)
+Same pattern: specs load only after clicking the client-side "Specs" tab.
 
-| id | change |
-|---|---|
-| `fr-trek-remedy-al` | verified:true; weight 3310→3950g (maker M-size, corrects vitalmtb figure) |
-| `fr-trek-remedy-c` | verified:true; weight 2630→2620g; +maxTire:2.8 (new field, maker-stated) |
-| `fr-trek-xcaliber-8` | verified:true; price 750→799.99 (real frameset SKU exists, contra the prior "completes only" note); weight 2050→2170g; +maxTire:2.4 |
-| `fr-trek-roscoe-gen4` | verified:true; maxRotorR 180→203 (was reading the stock rotor size as the ceiling) +minRotorR:180 (new, rule 10b-eligible); weight 2268→2250g; price 699→699.99; udh:true upgraded from third-party-corroborated to direct-manufacturer-confirmed |
+- `fr-cannondale-jekyll` — upgraded to verified:true. Every field re-confirmed
+  verbatim; frameset price corrected $3,000 (sample) -> $3,725 (real, maker-
+  stated, page now prints "Jekyll Frameset $3,725").
+- `fr-cannondale-scalpel` — upgraded to verified:true. **Real bug**: `udh` was
+  `false` (inferred from the stock non-Transmission derailleur); the frame's
+  own spec line explicitly reads "...UDH, post-mount disc – 160mm native" —
+  corrected to `true`. brakeMount/maxRotorR upgraded from inference to a
+  literal maker-stated ceiling.
+- `fr-cannondale-scalpel-ht` — upgraded to verified:true. Same bug: frame spec
+  line reads "...w/UDH hanger" — `udh` corrected `false` -> `true`.
+- `fr-cannondale-habit-ht` — upgraded to verified:true. Same bug again: "...
+  Boost 148, 55mm chainline, UDH hanger" — `udh` corrected `false` -> `true`.
+  brakeMount upgraded from inference to "post mount disc" (maker-stated).
 
-Gates run after every row: `node validate.js` (0 problems), `npx vitest run` (757/757), `npx tsc
---noEmit` (clean) — all green after the full batch.
+**Pattern**: all three false `udh:false` bugs were the same mistake — inferring
+UDH absence from the *stock derailleur* rather than checking the frame's own
+hanger spec line. The frame having a UDH hanger and shipping a non-Transmission
+derailleur stock are unrelated facts; a false `udh:false` blocks a real,
+compatible SRAM Transmission upgrade path with a false "won't fit".
 
-### Left open
+## Propain (propain-bikes.com — RENDERS, was a WAF-403 tooling gap)
 
-- **`fr-trek-slash`** (id, "Slash 9.9", carbon, 2024, no `gen` field) — **0 complete bikes
-  reference this row** (`fills.frame` search across the whole catalog returns zero hits) and it
-  looks like a pre-split duplicate of the platform now properly modeled as
-  `fr-trek-slash-c-gen6`/`fr-trek-slash-al-gen6`/`fr-trek-slash-alloy-gen6` (all three already
-  `verified:true`, same `family:'trek-slash'`, same 2024-2025 high-pivot generation). Did not
-  touch it or spend a verification fetch on it — guessing which SLR/carbon tier it's meant to
-  represent risked planting a wrong weight/price on an orphaned row. **Flagging for the
-  coordinator**: either retire it via a documented "superseded, kept per append-only" note (no
-  deletion, ids are permanent) or confirm it's meant to model something the gen6 rows don't
-  (e.g. the top SLR frame tier) and verify it properly against that specific frameset SKU.
-- Did not attempt the generic "trekbikes.com fetch-blocked" wording sweep across untouched Trek
-  rows (out of scope for this pass, flagged above).
+propain-bikes.com loads with no 403/WAF challenge from the browser pane; its
+"Technical Data" tab (client-side, loads on click) is a full primary-source
+spec table per model.
+
+- `fr-propain-rage-3-cf` — upgraded to verified:true. Every field confirmed;
+  brakeMount/maxRotorR upgraded from the documented-stock-max convention to a
+  literal "Postmount 200" maker-stated ceiling.
+- `fr-propain-spindrift-al` — **not upgraded to verified**, one field flagged
+  not fixed: `maxForkTravel` corrected 190->200 (a real, safely-wider maker
+  ceiling). The live page states a 180mm rotor ceiling, but this catalog's
+  `cb-propain-spindrift-al-swedish-gold` complete bike ships real 203mm rotors
+  per its own Propain-sourced build sheet and that row's own desc cites "the
+  frame's 203mm-max native-mount tolerance" — likely a cross-generation
+  mismatch between the live page (current Spindrift AL) and that 2024 Swedish
+  Gold build. Left `maxRotorR` at 203 (the value the real shipped product
+  needs) rather than narrowing it and breaking that build with a false
+  warning. **Flagged for a follow-up gen-split reconciliation, not resolved.**
+
+## Orbea (orbea.com — RENDERS, was a WAF-403 tooling gap)
+
+orbea.com loads with no 403 from the browser pane. Its per-trim "Standard
+configuration" panel is a DOM-present, `display:none` modal opened by
+clicking a toggle — invisible to a plain WebFetch/innerText scrape, which
+explains the prior false-wall read.
+
+- `fr-orbea-laufey` — upgraded to verified:true via the exact `laufey-h30` SKU
+  page. rearAxle/headset/seatTube/maxForkTravel confirmed exactly.
+- `fr-orbea-oiz-m10` — upgraded to verified:true via the exact `oiz-m10` SKU
+  page. shockEye/shockStroke/maxForkTravel/rearAxle/bb/seatTube confirmed
+  exactly. Noted (not resolved): orbea.com names this trim's stock fork "Fox
+  34 Float SL Factory" vs the vitalmtb-sourced "FOX FLOAT 34 Step-Cast (SC)
+  Factory" already used on this frame's completebike fills — likely a running
+  model-year fork-lineup refresh (SC succeeded by SL), flagged for a
+  fork-fill follow-up, out of scope for the frame row itself.
+- `fr-orbea-occam-sl` — **not re-verified**: discontinued from orbea.com's
+  current lineup (`bikes-mountain-occam_sl` 404s, not in the mountain-bikes
+  nav at all). Existing vitalmtb sourcing stands.
+
+## Stale "walled" notes that should be rewritten
+
+Every repo note claiming these four brands are walled should be treated as
+**superseded** by this pass:
+- Norco: "norco.com is a JS-only shell to a fetch (the documented Norco
+  blocker)" — appears on multiple frame-row `desc` fields. Not a wall; a
+  click-to-load tab the fetch tooling never triggered.
+- Cannondale: "cannondale.com bike product pages are JS-rendered/fetch-
+  blocked" / "the documented Cannondale blocker" — same pattern, same fix
+  (click the "Specs" tab).
+- Propain: "propain-bikes.com WAF-403" / "the documented Propain fetch wall" —
+  not a WAF block; renders cleanly, spec data is behind a "Technical Data"
+  tab click.
+- Orbea: "orbea.com is 403-walled" / "the documented Orbea blocker" — not a
+  403; spec data is behind a `display:none` modal opened by a button click.
+
+None of these four should be re-flagged as walled in future sessions without
+first trying the browser pane + a tab/modal click.
