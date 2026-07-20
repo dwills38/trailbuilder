@@ -222,8 +222,8 @@ test('rg-bb-shell / rg-bb-spindle error their mismatches; advisory info with no 
   eq(errOf(r, 'rg-bb-shell').length, 1, 'BB86 cups in a threaded BSA shell');
   var r2 = ROAD.checkRoadBuild({ bb: rp('bb-shimano-smbb72-41'), crankset: rp('cr-sram-red-axs-crank') });
   eq(errOf(r2, 'rg-bb-spindle').length, 1, '24mm bearing set under a DUB spindle');
-  var r3 = ROAD.checkRoadBuild({ frame: rp('fr-specialized-sworks-tarmac-sl8'), bb: rp('bb-shimano-smbb72-41'), crankset: rp('cr-shimano-da-r9200') });
-  eq(of(r3, 'rg-bb-shell').length + of(r3, 'rg-bb-spindle').length, 0, 'BSA shell + BSA BB + 24mm crank all match');
+  var r3 = ROAD.checkRoadBuild({ frame: rp('fr-giant-tcr-advsl'), bb: rp('bb-shimano-smbb72-41'), crankset: rp('cr-shimano-da-r9200') });
+  eq(of(r3, 'rg-bb-shell').length + of(r3, 'rg-bb-spindle').length, 0, 'PF86 shell + PF86 BB + 24mm crank all match');
   var r4 = ROAD.checkRoadBuild({ frame: rp('fr-specialized-sworks-tarmac-sl8'), crankset: rp('cr-shimano-da-r9200') });
   eq(infoOf(r4, 'rg-bb-advisory').length, 1, 'sold-separately nudge');
 });
