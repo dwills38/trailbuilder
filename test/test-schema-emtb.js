@@ -6,7 +6,7 @@ var S = require('../src/schema-emtb.js');
 var U = require('./test-util.js');
 var eq = U.eq, ok = U.ok;
 
-var TODAY = new Date('2026-07-18T00:00:00Z');
+var TODAY = new Date('2026-07-20T00:00:00Z');
 
 // a real e-MTB row to clone/mutate for negative tests (throws if the catalog
 // somehow ships no bikes, rather than silently testing `undefined`)
