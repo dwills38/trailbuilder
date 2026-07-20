@@ -1,5 +1,24 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-20 — KIT WAVE 6 + GRAVEL WAVE 2B merged
+
+- **verify/kit-6** (8 commits): kit 481→497 verified. Eyewear main pool COMPLETE — 10
+  verified (Oakley Sutro/Radar EV, EKS, Fly Racing, Uvex ×2, O'Neal B-10, Bliz, Salice,
+  Von Zipper), 3 discontinued (100% Racecraft2, O'Neal B-Flex, Gatorz Wraptor), Alpina
+  re-scoped to its maker-confirmed successor; Scott = confirmed Incapsula bot-wall; Torege
+  "TR90" scope flag (frame material, not a model). Shoe tail partial: Shimano
+  GR7/XC7/XC3/GR9 formalized, Specialized 2FO re-scope + 3 discontinued, Northwave ×2
+  verified; remainder (TLD/Bontrager/Sidi/Vaude/Scott/O'Neal) noted for a future wave.
+- **catalog/gravel-2b** (2 commits): gravel 203→212 rows, 33→38 verified. 7 new frame
+  brands (Orbea, Moots — titanium vocab, Allied, Bianchi, Liv, Fuji, Lauf) + the Lauf Grit
+  SL leaf-spring fork (15x100 vocab, sourced). Route discovery: campagnolo.com per-part
+  pages fetch clean — all 3 Ekar cassettes + RD + crank verified with maker weights (the
+  ambiguous shifter/lever weight honestly left alone). Chris King = confirmed 429 wall
+  (two spaced fetches); InSet 7 entered as an honest unverified sample row.
+- Both cut from fresh main (verified 66acab0 base), both reports harvested from
+  transcripts (the hung-send_message pattern again). Gates green: 838 tests, all 7
+  validators, tsc clean. Running still: BMX wave 6, MTB frame expansion, road wave 5.
+
 ## 2026-07-20 — DISCONTINUED ARCHIVE VIEW SHIPPED (feature slate #16)
 
 - **feat/discontinued-archive-1 merged + deployed** (index.html only, zero engine changes —
