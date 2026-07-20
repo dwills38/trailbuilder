@@ -8,7 +8,7 @@ var S = require('../src/schema.js');
 var K = require('../src/kit.js');
 var eq = U.eq, ok = U.ok, some = U.some;
 
-var TODAY = new Date('2026-07-17T00:00:00Z');
+var TODAY = new Date('2026-07-19T00:00:00Z');
 var kitCat = { PARTS: K.KIT_PARTS, SLOTS: K.KIT_SLOTS };
 var ctx = S._ctx(kitCat, TODAY);
 /** @param {*} part @returns {string[]} */

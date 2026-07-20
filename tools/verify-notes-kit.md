@@ -1,164 +1,94 @@
-# verify-notes-kit.md — src/kit.js verification tail log
+# Kit verification notes — running log
 
-Log of dispositions for the kit-catalog verification grind (`src/kit.js` ONLY —
-this file, unlike `tools/verification-job.json`, is kit-specific and not
-touched by the main-catalog job runner). Bar = THE BAR in the task brief:
-fetched manufacturer page (or accepted `sourceType:'measured'` third-party
-weight) required for `verified:true`; search snippets never count.
+Free-form notes from the kit (`src/kit.js`) verification grind, one wave per section.
+Not a formal protocol — see `tools/VERIFY-PROTOCOL.md` for the actual bar/loop (it's
+written for `src/compat.js`'s `tools/verify-job.js` state file, which kit doesn't use;
+kit verification is currently ad hoc, cluster-by-brand).
 
-Live count at session start (re-derived, not trusted from the prior estimate):
-**714 kit rows, 437 verified / 277 unverified after this session** (started at
-436 verified / 278 unverified — matches the "prior estimate was 278 of 714"
-note in the brief almost exactly, so the 137/692 figure quoted in the task
-prompt was stale).
+## Kit Wave 4 (2026-07-19, branch `verify/kit-4`)
 
-## Branch: verify/kit-2
+Scope: helmets, shoes, eyewear. **Helmet category closed**: 31 unverified -> 5 left
+(each blocked by a real documented reason, not effort — see below). Shoes: 66 -> 62
+unverified (Shimano fully re-scoped; Giro cluster started). Eyewear: untouched, 56
+unverified.
 
-### VERIFIED (1)
+### Fetchability by brand (new data points this wave)
 
-- **`hm-smith-forefront2-mips`** (Smith Forefront 2 MIPS helmet) — the row
-  carried a note from an earlier session (2026-07-17) saying the base model's
-  product page 404'd / had dropped off the Shopify sitemap, replaced by the
-  Forefront 3. Re-checked 2026-07-18: `https://www.smithoptics.com/en_US/p/helmet/forefront-2-mips%C2%AE-mtb-helmet/FOREFRONT2-HELMET-MATTE-BLACK.html`
-  is live and fetched cleanly (via Exa, WebFetch itself 404'd on this specific
-  URL encoding — the page is real, just finicky about how the client hits it).
-  Confirms: weight 380 g (size M) exactly matching the prior sample value,
-  CPSC + CE EN1078 certs, MIPS rotational system, price **$270 USD MSRP**
-  (prior sample was $240 — corrected to match the source page; current listing
-  shows a $162 sale price but $270 is the stated regular/MSRP price). Removed
-  the stale `status:'discontinued'` field since the page is live. Set
-  `verified:true`, `lastChecked:'2026-07-18'`, `source`. Committed on its own
-  (brand: Smith).
+- **foxracing.com, giro.com, bellhelmets.com** (same Salesforce Commerce Cloud
+  platform, Vista Outdoor family): per-product page has a collapsible
+  `<a data-target="#collapseN">Certifications & Weight</a>` tab whose target `<div>`
+  holds `"<cert>,<weight>g (Size Medium CPSC/CE)"` as plain text — not always present
+  (Giro's Latch shoe has no such tab even though Riddance/Chamber II on the same site
+  do). Click via JS (`el.click()`) then read `el.closest('details')`/`getElementById`
+  innerText; no need for `computer` screenshots (which reliably time out — use
+  `javascript_tool` for all DOM reads on JS-heavy sites).
+- **troyleedesigns.com, smithoptics.com, leatt.com** (Shopify): specs live under a
+  `<summary>Specifications</summary>` `<details>` block; click the summary via JS to
+  populate/reveal it, then read `.closest('details').innerText`. **None of these three
+  brands publish per-SKU weight anywhere on their sites** — every verified row from
+  them uses a reputable third-party measured figure (`sourceType:'measured'` +
+  `weightSource`), same as the Shimano/SRAM-rotor pattern in VERIFY-PROTOCOL.md.
+- **specialized.com**: confirmed NOT walled (per CLAUDE.md) — browser pane loads
+  clean, weight is inline in Product Details text ("Average weight: NNN grams (size
+  medium)"). Straightforward.
+- **met-helmets.com**: WebFetch works directly (not JS-blocked) — weight/certs are
+  plain text on the page. EU site, prices in €; no reliable USD MSRP page found for
+  the one MET row checked (Parachute MCR) — kept an approximate USD conversion, noted
+  in `desc`.
+- **lazersport.com**: `/global/helmets/off-road/<slug>` pages work, `SPECIFICATIONS`
+  section has weight/sizes as plain text (get_page_text finds it, no JS click needed).
+  Site shows no USD price anywhere Douglas can see — every Lazer row keeps its prior
+  sample price with a note. Lazer's non-KinetiCore ("MIPS") helmet lines are being
+  phased out in favor of KinetiCore (their own rotational-EPS system, not MIPS
+  licensed) — check the `-kineticore` URL slug if the plain name 404s.
+- **kaliprotectives.com**: works directly, weight is plain "WEIGHT: NNN g" text.
+  Their MX-market DH lineup churns fast — "Shiva 2.0" (this catalog's row) is gone,
+  replaced by "Shiva 3.0 Carbon" and "Shiva Nano"; always check the current
+  `/collections/bike` listing before trusting an old model name still exists.
+- **adidas.com (Five Ten)**: **BOT-WALLED** — hit a "not a Robot" CAPTCHA challenge via
+  the browser pane. Per the fetch-ethics ruling this is a documented wall, not a task
+  to route around. Five Ten/adidas rows are untouched this wave; flag for Douglas or a
+  future session if Five Ten coverage matters (7 unverified rows).
+- **ride100percent.com / 100percent.com**: the brand's site no longer lists ANY MTB
+  helmets on its live nav (`/mountainbike` shows only apparel) — the catalog's one
+  100% helmet row (Altec) is likely fully discontinued from their own site, not just a
+  renamed SKU. Left unverified with a note; don't keep re-chasing it without new
+  evidence the product still exists somewhere official.
+- **ride.shimano.com**: SPD/BOA info is plain page text (no click needed), but **never
+  publishes per-SKU shoe weight** — matches the fork/rotor pattern already documented
+  in CLAUDE.md for this brand. The collection page at
+  `ride.shimano.com/collections/mountain` is the fastest way to see the *entire*
+  current lineup at once (with prices) — use it before touching individual old model
+  numbers, since Shimano's shoe naming churns every generation or two (ME/AM/GR lines
+  fully retired, replaced by GE "Gravity Enduro" / GF "Gravity Flat"; XC series just
+  gets incremented running-change suffixes: 502->503, 702->703, 300->302).
 
-### WALLS HIT / STILL UNVERIFIED (recorded so the next session doesn't re-tread)
+### Re-scope vs. discontinued-tag decision rule (used repeatedly this wave)
 
-- **Race Face** (jerseys/pants/gloves/armor, 6 rows): current raceface.com
-  catalog has moved on from several catalogued SKUs — `Diffuse SS Jersey`
-  (site now lists LS only), `Khyber Glove` (not found in the current gloves
-  collection at all — likely discontinued/renamed). Apparel weight is not
-  published on raceface.com product pages generally (confirmed by browsing
-  the Trigger/Ruxton/Indy pages' visible content — spec sections show fabric
-  and fit, never grams). Left unverified; a future pass should re-derive
-  current-generation model names before attempting rather than assuming the
-  catalogued name still matches a live SKU.
-- **100%** (14 rows, eyewear + apparel + protection): eyewear product URLs
-  guessed from the model name (`/products/s3`, `/products/speedcraft`, etc.)
-  do not resolve to the actual SKU pages — 100percent.com's real slugs are
-  colorway-specific (e.g. `/products/a2-aspire-matte-white-...`) and the
-  legacy S3/Speedcraft/Racecraft2 models don't obviously map to a current
-  slug without manual browsing per model. Also hit a 429 (rate limit, not a
-  bot-wall) on two direct WebFetch attempts. The Ridecamp Knee Guard page DID
-  fetch cleanly but its visible/cached content didn't include a weight figure
-  (may be further down the page in a spec accordion not captured by the
-  fetch). Left unverified — a fresh session with fresh rate-limit budget and
-  patience for slug-hunting could likely clear several of these.
-- **Sweet Protection** (Ronin, Clockwork eyewear): both models appear to have
-  aged out of the *current* sweetprotection.com eyewear lineup (fetching
-  `/eyewear/` today lists Shinobi/Memento/Falconer-family products, no
-  Ronin/Clockwork). A WebSearch snippet claimed "31g" for Ronin but per THE
-  BAR a search snippet is not a fetched page, so this was NOT recorded — left
-  unverified rather than trust the snippet.
-- **POC** (elbow/knee/armor, 7 rows): fetched `pocsports.com/products/joint-vpd-air-elbow`
-  successfully (450 g **per pair**, size M) — but the catalog row is
-  `elp-poc-joint-vpd-air-plus` ("Joint VPD Air**+** Elbow"), a different,
-  apparently older/discontinued generation not in POC's current lineup (only
-  "Joint VPD Air", "Joint VPD 2.0", and "VPD Air Flow" are live now). Did NOT
-  verify the row against the wrong product's page — recording the mismatch so
-  a future session doesn't repeat the fetch and can instead decide whether to
-  correct the model name to the current "Joint VPD Air Elbow" (family/gen
-  change, not just a provenance fill) or leave it as a discontinued sample row.
-- **Leatt** (13 rows): Velocity 4.0 eyewear pages fetch fine but do not state
-  a weight figure in their spec bullets (confirmed via WebSearch summary of
-  the actual page content, several product variants checked). Apparel rows
-  in this brand almost certainly hit the same "no published weight" wall as
-  every other apparel maker checked this session.
-- **Bontrager** (3 shoe rows): trekbikes.com is JS-rendered; Exa's cached
-  fetch of the Flatline shoe page returned only nav/cross-sell content, no
-  spec table, likely because the specs load into a tab/accordion the crawl
-  snapshot didn't expand. Would need the browser pane (`preview_start` +
-  `javascript_tool`) to get the live DOM — not attempted this session due to
-  time budget; flagged for a follow-up session.
-- **Shimano shoes** (9 rows) — CLAUDE.md already documents Shimano doesn't
-  publish component weights; tested whether shoe pages differ (they might,
-  since shoes are a "measured" product like a helmet). The SH-ME702 URL found
-  via WebSearch actually 301/redirected to the bike.shimano.com homepage on
-  fetch (stale/removed product slug) rather than showing a spec page — a dead
-  link, not a bot-wall. Left unverified; would need fresh URL discovery.
-- **General apparel pattern (jerseys/shorts/pants/gloves) across every brand
-  sampled this session** (Race Face, 100%, Sweet Protection, Endura, Troy Lee
-  Designs, iXS): none of the maker sites checked publish a per-garment weight
-  figure on the retail product page — consistent with the CLAUDE.md-documented
-  pattern for Shimano components and SRAM rotors (some categories just don't
-  get maker weights). These rows likely need the `sourceType:'measured'`
-  third-party-weight route (a teardown/review site with a scale) rather than
-  ever finding it on a maker page — same policy already used for Shimano/SRAM
-  rotor rows in the main catalog. Flagging this as a process note for
-  whoever picks the job back up: apparel weight verification may need the
-  measured-weight route by default, not a repeated search for a maker figure
-  that doesn't exist.
+When a catalog row's exact mfgPn no longer exists on the maker's site:
+- If there's a **direct 1:1 successor in the same tier** (XC502->Xc503, GR701->GF600):
+  correct the row's `model`/`mfgPn`/specs to the live SKU **under the same id** (ids
+  encode a family/tier slug like `sho-shimano-xc5`, not a literal SKU — a running
+  change isn't a new product for id purposes).
+- If the line was **retired with no clean 1:1 successor** (Shimano's ME/AM merging
+  into one GE line spanning three price tiers): tag `status:'discontinued'`, do NOT
+  invent a re-scope, leave unverified. Re-scoping ME7/ME5/AM9/AM7 all onto the same
+  GE700 row would have made four rows claim to be one SKU — worse than leaving them
+  stale.
+- If the **whole product category is gone from the brand's site** (100% MTB helmets,
+  Kali Shiva 2.0's non-carbon tier): `status:'discontinued'`, note it, move on — don't
+  spend more fetch budget chasing a product that isn't sold anywhere findable.
 
-## Summary this session
+### What's left for the next wave
 
-- Verified: **1** row (Smith, helmet category).
-- Rows attempted and left honestly unverified (wall documented above): ~10
-  spanning Race Face, 100%, Sweet Protection, POC, Leatt, Bontrager, Shimano.
-- No data corrections beyond the Smith row's price/status/certs fix (which
-  was part of verifying it).
-- No new vocab needed.
-- Gates: `node validate.js` 0 problems, `npm test` 764/764 passed,
-  `npx tsc --noEmit` clean — all after the single Smith commit.
-
-## Recommendation for the next kit-verification session (superseded below — see verify/kit-3)
-
-Given how thin the yield was per-brand this session (mostly apparel, which
-doesn't publish weight, and several catalogued model names that have aged
-out of current lineups), the highest-value next targets are:
-1. **Helmets and shoes** across the remaining unverified brands (iXS, Fox,
-   Alpinestars, Sidi, MET, Lazer, Giant, Bontrager) — these categories are
-   the ones that reliably publish weight, per this session's one hit.
-   `node -e "console.log(require('./src/kit.js').KIT_PARTS.filter(p=>!p.verified && ['helmet','shoes'].includes(p.cat)).map(p=>p.id))"`
-   is a fast way to pull that worklist.
-2. **Eyewear** (sunglasses/goggles) as a second tier — POC/100%/Smith/Leatt
-   sunglasses pages do sometimes state weight, but require careful slug
-   discovery per exact SKU (colorway-specific URLs are common on Shopify
-   storefronts).
-3. Apparel (jersey/shorts/pants/gloves/armor) should probably be deprioritized
-   in favor of a deliberate `sourceType:'measured'` pass (BikeRadar/MBR/
-   Bikerumor teardowns) once Douglas/coordinator confirms that's the intended
-   route for this category class, mirroring the Shimano/SRAM-rotor precedent.
-
-**This recommendation is now superseded.** Later on 2026-07-19, Douglas ruled that kit
-apparel (jerseys, shorts, gloves, armor, eyewear, shoes) verifies on provenance + confirmed
-fields ALONE — no weight required (`tools/VERIFY-PROTOCOL.md`, "KIT APPAREL" section).
-Helmets keep the normal weight bar. This unblocked most of the "no published weight" walls
-recorded above. See the `verify/kit-3` section below for the wave that used the new bar.
-
----
-
-# verify/kit-3 (2026-07-19) — apparel-bar wave
-
-Ran under the new KIT APPAREL rule above. Worked the highest-yield unverified brand
-clusters in `src/kit.js`, highest count first: iXS (18), Specialized (16), 100% (14), Leatt
-(13), then a partial pass on Shimano shoes (9). **Result: 437 -> 470 verified (277 -> 244
-unverified), +33 net across the session**, plus real corrections/discontinuation findings
-on rows that stayed unverified. Full detail in the file's top section
-("Kit verification notes ...") above this line — that section documents the same wave.
-
-Key process notes that weren't obvious going in:
-- **specialized.com and 100percent.com both 403/crawl-fail WebFetch and Exa, but the
-  browser pane (`preview_start`/`navigate` + `get_page_text`) renders them cleanly.** This
-  resolved two of the four brand-level "wall" entries recorded in the kit-2 log above
-  (100% and, by extension, any other Shopify-storefront brand hitting the same JS-render
-  wall). Neither site is an anti-bot CAPTCHA wall — they're just JS-rendered, which is
-  explicitly the allowed lane per the FETCH ETHICS ruling.
-- `read_page`/`find` frequently return an empty/0x0 tree on these Shopify sites even when
-  `get_page_text` works fine on the same page — go straight to `get_page_text`, don't
-  retry `read_page`.
-- Regional storefronts of the same brand (100percent.eu, mtb.leatt.ch, mtb.leatt.com.au)
-  are legitimate manufacturer sources when a SKU has been pulled from the US site — cite
-  them with the currency-conversion basis stated in `desc`, same as any other non-US price.
-- Leatt in particular refreshes SKU generations fast (V21->V23 shorts, Obsolete->back-in-
-  stock ProFlat 3.0) — a "discontinued" note from even 2-3 days earlier can already be stale.
-- The Shimano 700-tier shoe line (ME702, XC702/XC703) appears to have been pulled entirely
-  in the ~2 days since the kit-2 log's WALLS entry above was written; not worth re-attempting
-  the exact old model numbers again without first re-deriving Shimano's current shoe names.
+- **Shoes** (62 unverified): Five Ten (adidas-walled, needs Douglas's call on how to
+  proceed — official-channel alternative? accept as permanently blocked?),
+  Specialized, Northwave, Fox, Crankbrothers, Ride Concepts, Leatt, O'Neal, Endura,
+  POC, Alpinestars, Bontrager, Giant, Sidi, Vaude, iXS, Nukeproof, Scott, remaining
+  Giro (Jacket II, Manta, Sector), remaining Troy Lee Designs (Grind, Roost).
+- **Eyewear** (56 unverified, untouched this wave): 100%, POC, Smith, Oakley, Leatt,
+  Scott + a long tail of smaller brands (Melon, Dragon Alliance, Bliz, Tifosi, Julbo,
+  Rudy Project, Bolle, Native, Spy, Optic Nerve, Ryders, Sweet Protection, Alpina,
+  Uvex, Cairn, Salice, Von Zipper, Gatorz, Blenders, Torege, EKS, Fly Racing,
+  Cratoni). Apparel bar per VERIFY-PROTOCOL (no weight requirement) should make this
+  faster per-row than shoes/helmets, but there are a lot of tiny brands to fetch.
