@@ -1,5 +1,25 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-20 — road.html + emtb.html BUILT (both OFF-LIVE) + ddubsworks hosting
+
+- **feat/buildmyroadbike-page merged**: `road.html` (BuildMyRoadbike) on the bmx.html
+  pattern over the shared drop-bar engine — build-dependent completeness (2x⇒FD required,
+  rim-brake⇒no rotors), four-state dots, family switcher (gear-last, no gravel/EMTB tease).
+  Coordinator browser check: engine live, 217 parts picked up at runtime (the road-5 data,
+  newer than the page's fork point — new-file merge, no conflict), zero dialogs cold.
+  Worker flag for a future road pass: golden-4's "no Di2 FD exists" comment is stale —
+  fd-shimano-ultegra-r8150 now exists.
+- **feat/buildmyemtb-page merged**: `emtb.html` (BuildMyEMTB) — browse/compare/filter over
+  data/emtb.js, deliberately NO compat engine (EMTB-MODEL's own call: OEM-locked platforms).
+  Coordinator check: loads no compat.js (verified in-browser), 75 cards render, zero
+  overflow/dialogs. Hard rule #1 containment intact; nothing live links to either page;
+  deploy.yml untouched — both pages are repo-only until Douglas's flip words.
+- **ddubsworks.com hosting built** (Douglas: "GitHub, under dwills38"): repo
+  dwills38/ddubsworks serves the D2a maker page via its own Pages site, custom domain set,
+  build green. Awaiting Douglas's one Cloudflare CNAME (@ → dwills38.github.io, grey-cloud
+  until cert) then HTTPS-enforce. sites/README.md records the source-of-truth split.
+- Still running: EMTB verification wave 1 (2 batches committed so far).
+
 ## 2026-07-20 — BMX 6 + ROAD 5 + FRAME EXPANSION merged (evening wave 2)
 
 - **verify/bmx-6**: 77/225 (34.2%). 8-brand scope expansion honestly exhausted the boutique
