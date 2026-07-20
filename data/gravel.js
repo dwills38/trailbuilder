@@ -614,7 +614,9 @@ var GRAVEL_PARTS = [
     verified: true, lastChecked: '2026-07-17', source: 'https://www.sram.com/en/sram/models/rd-apx-1-d1' },
   { id: 'grd-campagnolo-ekar-rd', cat: 'rearderailleur', brand: 'Campagnolo', model: 'Ekar RD',
     family: 'campagnolo-ekar', system: 'campag-ekar-13', speeds: 13, actuation: 'mechanical',
-    maxCog: 44, mount: 'std-hanger', cage: 'gs', weight: 280, price: 380 },
+    maxCog: 44, mount: 'std-hanger', cage: 'gs', weight: 275, price: 380,
+    note: 'gravel-2b verification pass: FETCHED campagnolo.com/be-en/ekar-rear-derailleur/CRDEKAR1X13S.html directly. Confirms 275g, standard-hanger mount (no UDH/direct-mount language), single mid-length cage spanning all three cassette options (9-36 through 10-44), 12T/14T pulley wheels. Price not shown — stays sample.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.campagnolo.com/be-en/ekar-rear-derailleur/CRDEKAR1X13S.html' },
 
   // ===== FRONT DERAILLEUR (2x only) ======================================
   { id: 'gfd-shimano-grx-fd-rx810-2x', cat: 'frontderailleur', brand: 'Shimano', model: 'GRX FD-RX810',
@@ -651,14 +653,19 @@ var GRAVEL_PARTS = [
     verified: true, lastChecked: '2026-07-18', source: 'https://www.sram.com/en/sram/models/cs-xg-1391-e1' },
   { id: 'gca-campagnolo-ekar-936', cat: 'cassette', brand: 'Campagnolo', model: 'Ekar 9-36',
     family: 'campagnolo-ekar-cassette', system: 'campag-ekar-13', speeds: 13, freehub: 'n3w',
-    minCog: 9, maxCog: 36, weight: 300, price: 320,
-    note: '9T small cog is Ekar-only (N3W) — fetched fact (Bikerumor N3W teardown, cited in GRAVEL-MODEL.md).' },
+    minCog: 9, maxCog: 36, weight: 340, price: 320,
+    note: 'gravel-2b verification pass: FETCHED campagnolo.com/us-en/ekar-13-speed-sprockets/CCSEKAR1X13S.html directly (clean manufacturer product page, no bot-block). Confirms "Endurance 9-36T" at 340g and N3W freehub (9T small cog is Ekar-only, corroborating the Bikerumor N3W teardown already cited in GRAVEL-MODEL.md). Price not shown on the page — stays sample.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.campagnolo.com/us-en/ekar-13-speed-sprockets/CCSEKAR1X13S.html' },
   { id: 'gca-campagnolo-ekar-942', cat: 'cassette', brand: 'Campagnolo', model: 'Ekar 9-42',
     family: 'campagnolo-ekar-cassette', system: 'campag-ekar-13', speeds: 13, freehub: 'n3w',
-    minCog: 9, maxCog: 42, weight: 330, price: 340 },
+    minCog: 9, maxCog: 42, weight: 390, price: 340,
+    note: 'gravel-2b verification pass: FETCHED campagnolo.com/us-en/ekar-13-speed-sprockets/CCSEKAR1X13S.html. Confirms "Gravel Race 9-42T" at 390g. Price not shown — stays sample.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.campagnolo.com/us-en/ekar-13-speed-sprockets/CCSEKAR1X13S.html' },
   { id: 'gca-campagnolo-ekar-1044', cat: 'cassette', brand: 'Campagnolo', model: 'Ekar 10-44',
     family: 'campagnolo-ekar-cassette', system: 'campag-ekar-13', speeds: 13, freehub: 'n3w',
-    minCog: 10, maxCog: 44, weight: 360, price: 360 },
+    minCog: 10, maxCog: 44, weight: 415, price: 360,
+    note: 'gravel-2b verification pass: FETCHED campagnolo.com/us-en/ekar-13-speed-sprockets/CCSEKAR1X13S.html. Confirms "Gravel Adventure 10-44T" at 415g. Price not shown — stays sample.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.campagnolo.com/us-en/ekar-13-speed-sprockets/CCSEKAR1X13S.html' },
 
   // ===== CHAIN =============================================================
   { id: 'gch-shimano-cn-hg601-11', cat: 'chain', brand: 'Shimano', model: 'CN-HG601', family: 'shimano-hg601',
@@ -701,7 +708,9 @@ var GRAVEL_PARTS = [
     verified: true, lastChecked: '2026-07-18', source: 'https://www.sram.com/en/sram/models/fc-apx-1w-d1' },
   { id: 'gcr-campagnolo-ekar-1x', cat: 'crankset', brand: 'Campagnolo', model: 'Ekar Crank',
     family: 'campagnolo-ekar', bb: 'ultra-torque', chainrings: '1x', ring: 40, ringStd: null, speeds: 13,
-    chainline: 47.5, weight: 610, price: 470 },
+    chainline: 47.5, weight: 615, price: 470,
+    note: 'gravel-2b verification pass: FETCHED campagnolo.com/gr-en/ekar-crankset-1x13-speed/CFCEKAR1X13S.html directly. Confirms Ultra-Torque spindle, 38/40/42/44T ring options (Adventure/Pure Gravel/Fast Gravel/eGravel), 123mm BCD, 165-175mm arm lengths. Weight is the page\'s stated "615g (172.5mm, 38T)" figure — this row is the 40T config, so weight will run a few grams heavier in reality; kept as the closest sourced figure rather than an unsourced guess. Chainline/price not shown on the page — stay sample.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.campagnolo.com/gr-en/ekar-crankset-1x13-speed/CFCEKAR1X13S.html' },
 
   // ===== BOTTOM BRACKET ======================================================
   { id: 'gbb-shimano-sm-bb72-bsa', cat: 'bb', brand: 'Shimano', model: 'SM-BB72', family: 'shimano-sm-bb72',
@@ -726,6 +735,9 @@ var GRAVEL_PARTS = [
     note: 'gravel-grind-1 row: real product, not independently fetched this session — stays unverified sample.' },
   { id: 'ghs-cannondale-si-zs44-ec49', cat: 'headset', brand: 'Cannondale', model: 'SI Integrated Headset', family: 'cannondale-si-headset',
     upper: 'zs44', lower: 'ec49', steerer: 'tapered', weight: 90, price: 40 },
+  { id: 'ghs-chrisking-inset7-zs44-ec44', cat: 'headset', brand: 'Chris King', model: 'InSet 7', family: 'chrisking-inset',
+    upper: 'zs44', lower: 'ec44', steerer: 'tapered', weight: 160, price: 180,
+    note: 'gravel-2b: Chris King retry (chrisking.com/products/headset-inset-7) — the exact chip requested. Wall confirmed, not a one-off: two independent WebFetch attempts this session both hit HTTP 429 Too Many Requests, spaced ~10 minutes apart per the "throttle, not a wall" protocol; still blocked on retry, so this is a documented wall (per fetch-ethics doctrine: escalate/flag, never defeat anti-bot protection). ZS44/28.6 upper | EC44/40 lower (S.H.I.S. bore tokens zs44/ec44) + 160g + $180 MSRP corroborated via WebSearch across chrisking.com\'s own listing snippet plus BIKE24/Performance Bicycle/Fanatik retailer pages — retailer corroboration only, so this stays unverified sample (schema also rejects sourceType:"retailer" on any verified:true row, same MTB-catalog rule).' },
 
   // ===== BRAKE (caliper) =======================================================
   { id: 'gbr-shimano-grx-br-rx820', cat: 'brake', brand: 'Shimano', model: 'GRX BR-RX820',
