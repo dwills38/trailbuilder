@@ -20,3 +20,10 @@ under `sites/` is staged by `deploy.yml` today.
 
 - `ddubsworks/index.html` — the maker's page for **ddubsworks.com**, the company site
   behind the BuildMy family (D2a, home-page round 2, Douglas-approved 2026-07-20).
+  **HOSTED (2026-07-20, Douglas's word "GitHub, under dwills38"):** the repo
+  [dwills38/ddubsworks](https://github.com/dwills38/ddubsworks) serves it via its own
+  GitHub Pages site with custom domain ddubsworks.com (branch-deploy from main; a
+  `CNAME` file pins the domain). THIS file here remains the source of truth — edit
+  here first, then copy `index.html` into that repo. DNS: one Cloudflare CNAME,
+  `ddubsworks.com` → `dwills38.github.io` (Cloudflare flattens at the apex);
+  HTTPS-enforce flips on in the hosting repo's Pages settings once the cert issues.
