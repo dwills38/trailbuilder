@@ -712,7 +712,9 @@ var GRAVEL_PARTS = [
   { id: 'gch-sram-apex-flattop-12', cat: 'chain', brand: 'SRAM', model: 'Apex Flattop', family: 'sram-apex-chain',
     system: 'flattop', speeds: 12, weight: 260, price: 30 },
   { id: 'gch-campagnolo-ekar-13', cat: 'chain', brand: 'Campagnolo', model: 'Ekar 13s', family: 'campagnolo-ekar-chain',
-    system: 'campag', speeds: 13, weight: 255, price: 55 },
+    system: 'campag', speeds: 13, weight: 242, price: 55,
+    note: 'gravel-4b: FETCHED campagnolo.com/us-en/ekar-gt-c13-chain/CCNEKAR1X13SGT.html — "EKAR GT C13 CHAIN", 13-speed, "242 G (117 LINKS / C-LINK)/242 G (118 LINKS / PIN)" manufacturer-published. WEIGHT CORRECTED 255->242. Price not shown on the page — stays sample.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.campagnolo.com/us-en/ekar-gt-c13-chain/CCNEKAR1X13SGT.html' },
 
   // ===== CRANKSET ===========================================================
   { id: 'gcr-shimano-grx-fc-rx820-1x', cat: 'crankset', brand: 'Shimano', model: 'GRX FC-RX820',
