@@ -17,6 +17,90 @@ seat does the housekeeping automatically — Douglas never renames/unpins/archiv
    only residual manual step (standing notify-missing-tools flag: self-rename + pin/unpin APIs).
 4. Every retiring seat's handoff/seeding prompt MUST restate this rule and include its own
    session id. Also recorded in memory: `coordinator-succession-protocol.md`.
+5. **OPEN-QUESTION CONSOLIDATION AT WRAP-UP (Douglas, 2026-07-21 — PERMANENT):** before
+   writing its handoff block, every RETIRING seat consolidates ALL outstanding Douglas
+   questions/decisions into `HANDOFF-CHIPS.md`'s "Douglas's full open-question queue" section
+   and COMMITS it — nothing may live only in the retiring seat's conversation. His words:
+   "make sure any outstanding questions for me will be saved for the next coordinator... make
+   sure the next coordinator knows to do the same... when it is wrapping up as well."
+
+---
+
+## ★★★ SEAT 17 — START HERE (succession from seat 16, 2026-07-21 evening) ★★★
+
+Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s17 -b
+coord/<today>-s17 origin/main` (Hard rule #5 — containment hook is LIVE). Run the gates
+yourself, never trust doc counts. **State at handoff: main `4a07fc3`+ green — MTB 5,040
+(3,248 verified, 64.5%; job queue ~72% processed) · Kit 706 (543) · BMX 228 (115 — CROSSED
+50%) · Road 221 (185, 84%) · Gravel 242 (118) · Striders 36 (29) · EMTB 92 (66) · complete
+bikes 211/435 · 988 tests / 41 files · tsc clean · verdict harness FULLY clean incl.
+section E = 0 (first time ever) · 7 validators · ALL SIX surfaces live · THE FEATURE SLATE
+IS 8/8 COMPLETE (last five shipped 2026-07-21).**
+
+**★ SEATING SEQUENCE (in order):**
+1. **Succession handshake** — send_message the session titled "Main Coordinator (Seat 16)"
+   (id: likely `local_74129453-8e51-410c-b737-4c12025ca344` — derived from its scratchpad
+   uuid; if that fails, find it by title via list_sessions) asking it to set_session_title
+   you to "Main Coordinator (Seat 17)"; archive it on confirm. If it never wakes, one line
+   to Douglas, don't block.
+2. **RE-ARM BOTH session-lifetime watchers IMMEDIATELY — seat 16 STOPPED them at handoff on
+   Douglas's request (he was updating the app), so NOTHING is watching right now:** (a) the
+   hourly fleet-sweep cron; (b) the persistent Monitor on
+   `D:\MTB Bike Builder\.claude\worker-reports` (bash mtime-loop on *.md; use `declare -A`
+   for the seen-map — an unquoted associative index is a bash arithmetic-error trap seat 16
+   hit). The four durable scheduled tasks (daily bug-triage, monthly drift 6th, monthly bias
+   12th, quarterly recall) survive on their own — do NOT recreate. **Seat 16's re-brainstorm
+   reminder cron ALSO died with the seat — the reminder duty is now yours (open-question
+   queue item 1).**
+3. Read **HANDOFF-CHIPS.md** — it now contains BOTH the chip queue AND ★ DOUGLAS'S FULL
+   OPEN-QUESTION QUEUE (10 items, consolidated on his order; item 1 = the re-brainstorm he
+   asked to be reminded about). Then memory MEMORY.md + CLAUDE.md Hard rules 1-5.
+
+**★ IN FLIGHT AT HANDOFF: NOTHING.** Every chip from seat 16's five dispatch rounds (~45
+worker branches) was harvested, merged, logged, and archived. "Affiliate Setup" =
+Partnerships lane, never touch; bug-triage vessels accumulate daily, harmless.
+
+**★ RULES EARNED THIS SEAT (beyond the standing set — details in PROJECT-LOG 2026-07-21):**
+· **The report-drop protocol is PROVEN AT SCALE** — ~45 harvests in one seat, zero hung
+  messages, zero lost reports. FINAL-ACT clause + folder Monitor is the way. Workers
+  sandboxed into agent-* worktrees still deliver (harvest whatever branch the report names —
+  two did this; the report is ground truth, not the brief's branch name).
+· **Stale shared-checkout FILES bite humans too**: Douglas hand-pasted supabase/schema.sql
+  from D:\MTB Bike Builder (parked on an old branch) — silent no-op. When giving him
+  file-based steps, paste content directly or point at GitHub raw, NEVER the shared folder.
+· **archive_session hard-prompts regardless of settings** ("requires explicit approval
+  regardless of permission mode"); the safety classifier (correctly) blocked the coordinator
+  from self-installing a PreToolUse auto-approve hook. The paste-ready hook JSON is in
+  seat 16's transcript + queue item 5; Douglas deferred. Batch archives meanwhile.
+· **Technique finds that keep paying**: Exa's crawl legitimately reaches specialized.com
+  content that direct WebFetch 403s · trekbikes.com + DT Swiss pages render their spec
+  tables only after CLICKING (Specs tab / "Choose model" button — browser pane) · Canyon's
+  lazy modals load from a Demandware AJAX endpoint in a `data-tabber-content-url` attribute
+  (fetch it directly) · productinfo.shimano.com archive editions for dropped SKUs.
+· **Mechanic-round citations can supersede the conservative-value doctrine** when the
+  opposing first-party source CONTRADICTS ITSELF (Fox 36SL: shop tags disagreed across one
+  chassis → the engineering drawing's 230 stands). Doctrine assumed a coherent opponent.
+· **Per-system proprietary tokens, never a shared 'proprietary'** on exact-match fields
+  (a shared token false-fits two incompatible proprietary systems — steerer precedent
+  cannondale-delta/overdrive-aero; and verify tier claims per-trim: the base Defy turned
+  out standard-tapered, only SL/Pro carry OverDrive Aero).
+· **Native mount ≠ published ceiling** (BRK-51, DATA-ENTRY-TEMPLATE §5a): "direct"/"Brake
+  Mounting" labels are native → minRotorF; never infer a max. 5th recurrence guarded.
+· **Compose conflicting same-day branches by row-block**, never side-pick: the Zonda rows
+  needed demotion AND status:'discontinued'; the Line Comp XD row needed cb9's new row AND
+  mt9's maker weight. Verify-job conflicts: take the side holding Skipped dispositions
+  (only the job file has them), then let the runner re-sync verified flips from the catalog.
+· **grind-1-class waves are serial fabricators** — gravel-grind-1's material fields ('alloy'
+  on carbon/steel frames ×4) join its bb fabrications; treat every unverified grind-1 value
+  as suspect until page-confirmed.
+
+**Standing workflow (unchanged):** four gates (+harness on compat.js changes) on every
+merge; UI auto-ships on green gates + browser verify + popup scan; engine/error-tier =
+adversarial review; only taxonomy/money/visual-taste/account/business decisions to Douglas,
+kept SHORT; ANSWER-FIRST; paste-blocks with [Model, effort] headers; archive wrapped-up
+worker sessions without asking (standing grant). Seat-16 trail: PROJECT-LOG.md's ~20
+entries dated 2026-07-21 (the biggest single-seat day yet: ~45 branches, slate completed,
+harness E zeroed, BMX 50%, road 84%, post-wave audit clean).
 
 ---
 

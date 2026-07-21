@@ -1,10 +1,8 @@
-# Paste-ready worker blocks — refreshed by seat 16 (2026-07-21)
+# Paste-ready worker blocks — refreshed by seat 16 at wrap-up (2026-07-21 evening)
 
 Douglas dispatches these himself so he controls model + effort (CLAUDE.md Hard rule #4).
-**Nothing is in flight right now** — every chip from the last two dispatch rounds (gravel-7,
-kit-11, service log, fabricate-fill audit + its fix chip, cb-sheets-6, road-11, mtb-tail-5,
-gravel-8, emtb-6, road-12, build-diff-1) landed on main this seat, and the bb86/pf86 vocab
-merge is done. Queue below is fully open to dispatch.
+**Nothing is in flight** — all ~45 of seat 16's worker branches landed on main. The queue
+below is the fresh next round, built from the day's own reports' next-wave leads.
 
 **Clauses baked into every block** (verify before handing one over): fresh worktree with a
 UNIQUE suffix off `origin/main` at `.claude/worktrees/<name>` INSIDE `D:\MTB Bike Builder`
@@ -27,59 +25,50 @@ quote (two conflicting first-party sources = the conservative value stands).
 
 ---
 
-## Queue (dispatch when a lane frees up)
+## Queue (dispatch when a lane frees up — all leads sourced from 07-21's own reports)
 
-### 1. [Sonnet, medium] MTB tail 6 — rotors, Fox forks, Ibis duplicate call
-~1,876 unverified MTB rows. Three concrete levers left, each genuinely hard (prior waves
-hit real dead ends, don't just repeat the same searches): (a) 17 unverified SRAM rotor rows
-— SRAM publishes no rotor weights at all, needs a `sourceType:'measured'` figure that
-survives a raw-page re-check (mtb-tail-5 rejected a WebSearch-summary figure that didn't
-appear on the actual cited page — phantom-number hazard, verify before committing); (b) ~15
-Fox forks are OE-only travel points with no standalone SKU page — the ones with an
-engineering PDF/JPG spec sheet need a vision read (pdftoppm-rendered), not pdftotext; (c) the
-Ibis Ripmo V3 / Ripley V5 GX-AXS-vs-GX-Transmission duplicate-SKU pairs are flagged in their
-own `desc` fields from two prior waves now — this pass should make the id-merge CALL (not
-just re-flag it a third time): confirm via ibiscycles.com whether each pair is really one SKU
-sold under two catalog ids, and if so do the retirement properly (ALIASES + verify-job
-tombstone). Also worth a look: Formula/Tektro/Clarks/TRP/Galfer entry-tier rotors (untouched
-so far). Gates: node validate.js + npm test + npx tsc --noEmit + node
-tools/verdict-audit-harness.js (compat.js changes). Never push — present the branch. Final
-act: write the report to .claude/worker-reports/mtb-tail-6.md before any send_message.
+### 1. [Sonnet, medium] BMX PRICE-BLOCKED SWEEP + Fit/Chase
+bmx-depth-7's structural finding: many BMX small-part categories have zero engine-read
+fields beyond identity, so THE PRICE RULE leaves dozens of interface-confirmed rows one
+edit from verified — re-sweep ALL brands for that shape (not just the eight covered).
+Then the two untouched high-headroom brands: Fit Bike Co (1/18 verified) and Chase (0/10).
+The 3/8" axle vocab gap stays flagged, don't fabricate (bmx-fr-cult-race). Gates: all four
+incl. BMX validator. Never push. Report to .claude/worker-reports/bmx-price-sweep.md.
 
-### 2. [Sonnet, medium] GRAVEL 9 — breadth + two loose threads
-Toward the ~300-row target. Two specific follow-ups from gravel-8 worth closing rather than
-re-flagging: Liv Devote Advanced 1's bb86 is still an inference (try Liv's geometry/spec PDF,
-not linked from the current product page); the Cannondale SI ZS44/EC49 headset row is
-probably a brand/spec mismatch (Cannondale's real "SI" system is Lefty/Headshok IS42-family,
-not a ZS44/EC49 SKU) — re-source it as a real Cane Creek/WOOdman product or drop it. Then
-general breadth: frame brands with static pages, 650b wheel depth. The schema-vocab non-fits
-logged so far (square-taper, slider dropouts, 36.1mm post, Wilier's straight steerer,
-Tumbleweed/Curve's out-of-vocab axle spacings) stay logged — don't invent vocab or force a
-fit; the axle-spacing ones need an engine-level change in compat-road.js, out of scope for a
-data wave. Gates: node validate.js + npm test + npx tsc --noEmit. Never push — present the
-branch. Final act: write the report to .claude/worker-reports/gravel-9.md before any
-send_message.
+### 2. [Sonnet, medium] CB-SHEETS-10 — Yeti (the largest unverified complete-bike brand)
+20 unverified Yeti bikes; cb-sheets-6 already confirmed yeti.com is un-walled and corrected
+its price rows. Sheet-verify fills per the proven method; the Roscoe-9 lesson applies (page
+text vs engine schema → the test suite arbitrates, document don't force). Next after Yeti:
+Transition (14), Pivot (14 — mostly retired trims, expect archive work), Orbea (13 — WAF
+wall, browser pane only). Gates: all four + harness. Never push. Report to
+.claude/worker-reports/cb-sheets-10.md.
 
-### 3. [Sonnet, medium] ROAD 13 — Ritchey identity chase + breadth
-Three Ritchey cockpit rows (hb-ritchey-wcs-streem, st-ritchey-wcs-c260,
-sp-ritchey-comp-two-bolt) look like the same stale-naming pattern road-11/12 already solved
-twice (Shimano FC-RX600-2, Deda M35) — Ritchey's current lineup has "WCS Streem Internal
-Routing" and "Superlogic C260 84D" but nothing matching these exact names. Chase down real
-current-catalog matches or confirm discontinued, same discipline as the Deda resolution.
-Also worth a look: st-fsa-kforce (4 current K-Force stem variants, none cleanly matches),
-pd-look-keo-blade-carbon (naming may be descriptive not a tier), bt-supacaz-super-sticky-kush
-(walled both routes last time — retry once). Then general unverified-count breadth. Gates:
-node validate.js + npm test + npx tsc --noEmit. Never push — present the branch. Final act:
-write the report to .claude/worker-reports/road-13.md before any send_message.
+### 3. [Sonnet, medium] GRAVEL VERIFY 3 — material-mislabel grep + the aftermarket tail
+Lead with gravel-verify-2's systemic finding: grep every remaining unverified gravel
+frame's `material` field against its maker page (4 mislabels caught so far, all
+grind-1-entered 'alloy' on real carbon/steel frames). Then the aftermarket tail (~118
+rows: tires 11, forks 12, wheels 20, headsets 5, cockpit, saddles, pedals, bartape) —
+cleaner single-purpose pages than frames, likely faster per-row. statebicycle.com 429
+retry. Gates: all four. Never push. Report to .claude/worker-reports/gravel-verify-3.md.
 
-### 4. [Sonnet, low] KIT 12 — ION/Loose Riders/Pearl Izumi retry, one more pass
-The SKU-ambiguity walls on these three brands have now been independently re-confirmed twice
-(kit-10, kit-11) — low expected yield, but worth one more pass specifically hunting the
-"prior session fetched real data into `desc` but never flagged `verified:true`" pattern
-kit-11 found (7 candidates surfaced, only 2 were safe to promote) — scan the rest of the kit
-catalog for that shape before spending budget on new fetches. Gates: node validate.js + npm
-test + npx tsc --noEmit. Never push — present the branch. Final act: write the report to
-.claude/worker-reports/kit-12.md before any send_message.
+### 4. [Sonnet, medium] MTB TAIL 10 — OE-wheel sampling + the ti- tail + XM1700 CL fix
+(a) Sample the OE-spec wheel brands with real maker sites (We Are One, Industry Nine,
+Reserve) before bulk-Skipping the rest; (b) the ~50-row ti- tail
+(Panaracer/Schwalbe/Kenda/Specialized/WTB/Continental — Specialized via Exa, proven);
+(c) the flagged XM1700 rotor-mount fix: DT Swiss says the family is native CENTER-LOCK
+with an included 6-bolt adapter, catalog says sixbolt — fix the wheel rows AND re-check
+the ~10 dependent completebike fills in one pass (warning-tier both ways). Dispositions to
+tools/verify-notes-tail10.md, never the job file. Gates: all four + harness. Never push.
+Report to .claude/worker-reports/mtb-tail-10.md.
+
+### 5. [Sonnet, low] ROAD 17 — the last 36
+road is 185/221 (84%). The remaining 36 are mostly documented dead ends — this pass is a
+close-out audit, not breadth: re-check only rows whose notes name a retryable condition
+(Ritchey C260 regional TLS cert, Prologo Dimension identity, statebicycle-class 429s,
+frames blocked purely on the no-frame-weight pattern), and confirm the rest are correctly
+parked. If Douglas rules YES on the seatpost exception (open-question item 2), apply it to
+the 2 waiting posts. Gates: all four. Never push. Report to
+.claude/worker-reports/road-17.md.
 
 ---
 
