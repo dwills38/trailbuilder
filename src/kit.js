@@ -1991,13 +1991,10 @@ var KIT_PARTS = [
     desc:'VERIFIED 2026-07-17 via bdata-rendered giro.com: MSRP $44.95 confirmed (page showed "Price reduced'
       + ' from $44.95" to a $31.99 sale price - list price used). No weight published; stays sample.',
     verified:true, lastChecked:'2026-07-17', source:'https://www.giro.com/product/xnetic-trail-glove/350020000200000032.html' },
-  { id:'glv-giro-trailbuilder', cat:'gloves', brand:'Giro', model:'Trail Builder Glove', price:30, weight:70, status:'discontinued',
-    sizes:['S','M','L','XL','XXL'],
-    desc:'Durable work-style build for digging/shoveling as well as riding. Weight per pair (approx). CHECKED'
-      + ' 2026-07-17: bdata-rendered giro.com/cycling/accessories/gloves/mtb/ (full current MTB glove listing'
-      + ' fetched) has no Trail Builder Glove - the product URL 404s ("Page Not Found"). Not currently sold;'
-      + ' marked discontinued rather than removed (WebSearch corroborates it was a real historical SKU); specs'
-      + ' left as prior sample, not marked verified.' },
+  { id:'glv-giro-trailbuilder', cat:'gloves', brand:'Giro', model:'Trail Builder Glove', price:27.95, mfgPn:'GR-7127913',
+    sizes:['XS','S','M','L','XL','XXL'],
+    desc:'Durable work-style build for digging/shoveling as well as riding (Laredo microsuede palm, reinforced fourchettes, Super Fit Engineering). Weight not published on the maker page (kit apparel does not require it). RE-CHECKED 2026-07-20: the collection-listing 404 that led a prior wave to tag this discontinued was a stale URL - the direct product page (giro.com/p/trail-builder-mountain-bike-gloves/350020000200000026.html) is live and purchasable, MSRP $27.95 (was showing a 21%-off sale price of $21.99 at fetch time; MSRP used per THE PRICE RULE), sizes XS-XXL (was S-XXL). `status:discontinued` removed - this was a false discontinued tag, not a real one.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.giro.com/p/trail-builder-mountain-bike-gloves/350020000200000026.html' },
   { id:'glv-giro-gnar', cat:'gloves', brand:'Giro', model:'Gnar Glove', price:49.95, weight:90,
     disciplines:['enduro','dh'], sizes:['S','M','L','XL','XXL'],
     desc:'VERIFIED 2026-07-17 via bdata-rendered giro.com: MSRP $49.95 confirmed (was sample $50). D3O Impact'
@@ -2268,7 +2265,8 @@ var KIT_PARTS = [
     sizes:['S','M','L','XL','XXL'], desc:'Weight per pair (approx).' },
   { id:'glv-clubride-ladyfinger', cat:'gloves', brand:'Club Ride', model:'Lady Finger Glove', price:30, weight:55,
     fitCut:'womens', sizes:['S','M','L'],
-    desc:'Price ($30) and current S/M/L size range confirmed on clubrideapparel.com (page no longer lists XS/XL); weight per pair remains an unconfirmed approx sample (not stated on the product page).' },
+    desc:'Price ($30) and current S/M/L size range re-confirmed on clubrideapparel.com 2026-07-20 (page no longer lists XS/XL); weight per pair remains an unconfirmed approx sample (not stated on the product page - kit apparel does not require it).',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.clubrideapparel.com/products/womens-gloves' },
   { id:'glv-dharco-race', cat:'gloves', brand:'DHaRCO', model:'Race Glove', price:44.95, weight:60,
     sizes:['S','M','L','XL'],
     desc:'Fetched us.dharco.com: CORRECTED price $35 -> $44.95, sizes S-XL (no XXL). Velcro-less easy entry, silicone palm grip, 2025 redesign. Weight not published; kept as the existing sample per the kit weight policy.',
