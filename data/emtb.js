@@ -1026,24 +1026,26 @@ var EMTB_PARTS = [
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   },
   {
-    id: 'em-devinci-e-troy-bosch-29', cat: 'emtb', brand: 'Devinci', model: 'E-Troy',
+    id: 'em-devinci-e-troy-bosch-29', cat: 'emtb', brand: 'Devinci', model: 'E-Troy Bosch GX 12s',
     motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85, motorPowerPeak: 600,
     batteryWh: 625, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
-    disciplines: ['e-trail', 'e-enduro'], weight: 24900, price: 6399,
-    note: "Devinci's redesigned E-Troy switched from Shimano EP8 to Bosch Performance Line CX.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    disciplines: ['e-trail', 'e-enduro'], weight: 24900, price: 7299,
+    note: "Devinci's redesigned E-Troy switched from Shimano EP8 to Bosch Performance Line CX; the mid-tier GX 12s of the three-model E-Troy Bosch lineup (Deore/GX/GX LTD).",
+    desc: 'Verified vs the fetched maker page (devinci.com E-Troy GX 12S). Wheel config and model name corrected verify/emtb-4 wave 4 cluster A: the E-Troy Bosch is a dedicated mixed-wheel (mullet, 29in front/27.5in rear) platform, not 29in-only, and the generic "E-Troy" model name is retitled to the real GX 12s SKU to distinguish it from the LTD trim (previously both Bosch rows shared the identical model string). Drivetrain/brakes/travel/weight already matched. Price updated to the current devinci.com listing of $7,299 (was $6,999-7,299 across recent model years).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.devinci.com/en/2025-bikes/e-mountain-2025/e-troy-gx-12s-green-gold/'
   },
   {
-    id: 'em-devinci-e-troy-bosch-carbon', cat: 'emtb', brand: 'Devinci', model: 'E-Troy',
-    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85, motorPowerPeak: 600,
-    batteryWh: 625, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail', 'e-enduro'], weight: 23800, price: 7999,
-    note: 'Top-tier 2026 E-Troy build (frame material listed as aluminum per current maker copy — a carbon-frame Bosch E-Troy trim was not independently confirmed this pass; see verify-notes-emtb.md).',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-devinci-e-troy-bosch-carbon', cat: 'emtb', brand: 'Devinci', model: 'E-Troy Bosch GX 12s LTD',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Smart System)', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 625, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24650, price: 7999,
+    note: 'Top-tier build of the three-model E-Troy Bosch lineup (Deore/GX/GX LTD) — 170mm fork (vs 160mm on GX/Deore), Bosch Smart System with the System Controller display. Devinci confirms the E-Troy Bosch is aluminum-only across all three trims; no carbon-frame Bosch E-Troy exists (settling the prior wave\'s open question).',
+    desc: 'Verified vs the fetched maker page (devinci.com E-Troy GX LTD 12S) plus Devinci\'s own E-Troy Bosch launch page (official GX-LTD-vs-GX comparison table). Model/drivetrain/brakes/travel/weight corrected verify/emtb-4 wave 4 cluster A: retitled the duplicate generic "E-Troy" model name (identical to the sibling GX 12s row) to the real GX 12s LTD SKU; drivetrain corrected SRAM X0 Eagle Transmission -> SRAM GX Eagle (the LTD trim does NOT run a wireless Transmission group — GX/GX LTD/Deore all share the same mechanical SRAM GX Eagle derailleur, only fork travel/motor display differ); brakes SRAM Code -> SRAM Code R; front travel 160 -> 170mm (the LTD-specific spec); wheel config 29in-only -> mullet (29 front/27.5 rear, confirmed dedicated mixed-wheel platform across the whole E-Troy Bosch line); weight 23.8kg -> 24.65kg (Devinci-published size-Medium figure, corroborated by Pinkbike\'s independent review at 24.6kg). Price confirmed at $7,999 (matches the existing sample exactly, cross-checked against a 2024-model-year devinci.com listing and Pinkbike\'s $7,499 2023-launch price, both consistent with year-over-year increases).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.devinci.com/en/bikes-2024/e-mountain-2024/e-troy-gx-12s-ltd-green-gold/'
   },
 
   // ---------------------------------------------------------------------------
