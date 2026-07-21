@@ -752,7 +752,8 @@ var BMX_PARTS = [
   // ===== HANDLEBAR ======================================================
   {
     id: 'bmx-hb-sandm-speedball', cat: 'handlebar', brand: 'S&M', model: 'Speedball Bars',
-    clamp: '25.4mm', rise: 8.25, width: 29, price: 74.99
+    clamp: '25.4mm', rise: 8.25, width: 29, price: 74.99, status: 'discontinued',
+    note: 'RETIRED — bmx-depth-7 finding (2026-07-21): "Speedball" is a phantom bar name, the same chimera failure mode as the retired bmx-fr-redline-prolineflight row. Checked sandmbikes.com\'s full WooCommerce product sitemap (wp-sitemap-posts-product-1.xml, 292 products) plus a web search: "Speedball" is EXCLUSIVELY S&M\'s street tire name (sandmbikes.com/product/hardgoods/rubber/speedball-tire/) — no handlebar of that name exists in the sitemap, on retailer listings, or anywhere searched. S&M\'s real current bar lineup is Race XLT Bar (this file\'s bmx-hb-sandm-racexlt-8, verified), Perfect 10 Bar, Elevenz Bar, 12 Step Bar, FU Bar, Credence XL Bar — none of which is a plausible rename target at this row\'s specific rise/width/price, so retired without a supersededBy rather than guessing one. Kept via status per the append-only id convention (never deleted/renamed) — do not un-retire without a real fetched source naming this exact product.'
   },
   {
     id: 'bmx-hb-fitbikeco-vh', cat: 'handlebar', brand: 'Fit Bike Co', model: 'VH Bars',
@@ -1294,8 +1295,9 @@ var BMX_PARTS = [
   // ---- S&M small-parts depth (sandmbikes.com product line) --------------
   {
     id: 'bmx-hb-sandm-racexlt-8', cat: 'handlebar', brand: 'S&M', model: 'Race XLT Bar 8"',
-    clamp: '25.4mm', rise: 8.0, width: 29, weight: 762, price: 94.99,
-    note: 'Slam-geometry race evolution, thinner-walled multi-butted tubing; sold as one SKU across a 7.5-10in rise range (this row pins the 8in option). Checked sandmbikes.com 2026-07-18: corrected width from a stale 28.5in to the maker-published 29in (matches this catalog\'s other S&M race bars); weight left unverified — the page states a 1.68-2.18lb (762-989g) range across the whole rise selection, not a per-rise figure, and 762g corresponds to the 7.5in low end rather than this row\'s 8in, so it is not confirmed for this specific SKU.'
+    clamp: '25.4mm', rise: 8.0, width: 28, weight: 726, price: 94.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://sandmbikes.com/product/hardgoods/bars/race-xlt-bar/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, correcting the 2026-07-18 pass\'s open weight question. sandmbikes.com/product/hardgoods/bars/race-xlt-bar/ (page title literally "Race XLT Bar 8″ (Slam Geo.)") is a DEDICATED single-SKU page for this exact 8in bar, distinct from the multi-size "S&M Race XLT Bar 7.5″-10″" selector page the 2026-07-18 pass read from — its own spec table states verbatim: RISE 8″, WIDTH 28″, UPSWEEP 1°, BACK SWEEP 12°, CROSS BAR .625″, WEIGHT "1.6 lb (.73 kg)" (726g, computed from the maker-stated pounds figure). width CORRECTED 29->28in (the 29in figure was carried over from the different multi-size selector product, not this dedicated SKU); weight CORRECTED 762->726g against this SKU\'s own stated figure (762g was the 7.5in low end of the OTHER product\'s range, never this row\'s 8in). clamp (25.4mm) is NOT stated on either page and is a checkBmxBuild DISPLAY-ONLY field per the BMX small-parts exception (VERIFY-PROTOCOL.md) — left as the pre-existing plausible sample, does not block verification. Price: this dedicated SKU is currently marked "Out of stock" on the maker page with no live price shown (schema.org price 0.00, an out-of-stock placeholder, not a real $0 MSRP) — kept the pre-existing $94.99 sample per THE PRICE RULE (a temporarily out-of-stock real product is still real; a missing live price never blocks verified:true).'
   },
 
   // ---- Cult small-parts depth (AK = Alex Kennedy, Dak = Dakota Roche
@@ -1420,8 +1422,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-st-sm-racexlt', cat: 'stem', brand: 'S&M', model: 'Race XLT Stem',
-    clamp: '25.4mm', price: 64.95,
-    note: 'CNC-machined 6061 topload race stem, offered in 49/53/55/57mm reach - danscomp.com listing (53mm).'
+    clamp: '25.4mm', price: 64.95, verified: true, lastChecked: '2026-07-21',
+    source: 'https://sandmbikes.com/product/hardgoods/stems/race-xlt-stem/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, upgrading the prior danscomp.com retailer-listing basis to a direct manufacturer fetch. sandmbikes.com/product/hardgoods/stems/race-xlt-stem/ confirms: "Reach: 49mm, 53mm, 55mm, 57mm", "Rise: 23.5mm / 8.1mm Inverted", "Weight: 10.2oz, 10.5oz, 10.9oz" (per reach), and its own price range "$64.95 - $69.95" with the 53mm reach option EXACT-matching this row\'s existing $64.95. `clamp` is a checkBmxBuild DISPLAY-ONLY field for stems (VERIFY-PROTOCOL.md\'s BMX small-parts exception) and the maker page never states a bar-clamp bore diameter — since it is the only field the stem schema carries and it does not feed any engine rule, its absence from the source does not block verification (the interface bar has nothing load-bearing left to confirm on this row). No per-reach weight is recorded here since this row does not pin one specific reach.'
   },
   {
     id: 'bmx-sp-odyssey-utilitypro-25t', cat: 'sprocket', brand: 'Odyssey', model: 'Utility Pro Guard Sprocket 25T',
