@@ -139,6 +139,16 @@ test('proprietary steerer systems: same-system fits, cross-system and standard b
   eq(of(r4, 'rg-steerer').length, 0, 'Delta frame + Delta fork (real OEM pair) fits');
 });
 
+test('proprietary steerer pair with no headset gets the integrated-headset info; a picked headset still errors truthfully', function(){
+  var r = ROAD.checkRoadBuild({ frame: rp('fr-cannondale-supersix-evo'), fork: rp('fk-cannondale-supersix-evo') });
+  eq(infoOf(r, 'rg-headset-proprietary').length, 1, 'matched Delta pair, no headset -> explanatory info');
+  var r2 = ROAD.checkRoadBuild({ frame: rp('fr-cannondale-supersix-evo'), fork: rp('fk-cannondale-supersix-evo'), headset: gp('ghs-canecreek-40-zs44-zs56') });
+  eq(errOf(r2, 'rg-headset-steerer').length, 1, 'a standard tapered headset still errors — true won\'t-fit stays an error');
+  eq(infoOf(r2, 'rg-headset-proprietary').length, 0, 'info suppressed once a headset is picked (the error explains it)');
+  var r3 = ROAD.checkRoadBuild({ frame: rp('fr-canyon-ultimate-cfslx'), fork: rp('fk-canyon-ultimate-cfslx') });
+  eq(infoOf(r3, 'rg-headset-proprietary').length, 0, 'standard tapered pair never gets the proprietary info');
+});
+
 /* ---- R5 freehub ----------------------------------------------------------- */
 test('rg-freehub: exact-match error side (XDR cassette on an HG-L2 wheel)', function(){
   var r = ROAD.checkRoadBuild({ cassette: rp('cs-sram-red-xg1290-1033'), rearWheel: rp('rw-shimano-c50-r9270') });

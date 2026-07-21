@@ -332,6 +332,22 @@ function checkRoadBuild(build){
     err('rg-steerer', ['frame', 'fork'], 'Steerer mismatch: ' + roadNameOf(fork) + ' has a ' + fork.steerer + ' steerer but ' + roadNameOf(frame) + ' takes ' + frame.steerer + '.');
   if(hset && fork && hset.steerer != null && fork.steerer != null && hset.steerer !== fork.steerer)
     err('rg-headset-steerer', ['headset', 'fork'], 'Headset steerer mismatch: ' + roadNameOf(hset) + ' accepts a ' + hset.steerer + ' steerer but ' + roadNameOf(fork) + ' is ' + fork.steerer + '.');
+  /* Proprietary-steerer integrated-headset info (coordinator, 2026-07-21 —
+     post-wave-audit M1 resolution): for the per-system non-round steerers
+     (cannondale-delta / overdrive-aero) NO complete aftermarket headset SKU
+     exists — the maker services these via bearing kits only (oem-posts-1
+     wave researched both: Cannondale sells Delta service parts, not a
+     complete headset; Giant's OverDrive Aero has aftermarket bearing kits
+     only, and this catalog's "complete headsets only" rule excludes those).
+     The rg-headset-steerer mismatch ERRORS above stay — a standard headset
+     genuinely does not fit these steerers, and downgrading a true won't-fit
+     would be a false-fits change. This info fires on the matched OEM
+     frame+fork pair with no headset picked, so the rider understands why
+     every cataloged headset shows red rather than reading it as a catalog
+     gap. */
+  if(frame && fork && !hset && frame.steerer != null && frame.steerer === fork.steerer &&
+     (frame.steerer === 'cannondale-delta' || frame.steerer === 'overdrive-aero'))
+    info('rg-headset-proprietary', ['frame', 'fork'], roadNameOf(frame) + ' uses the maker\'s own integrated headset for its proprietary steerer (serviced via bearing kits); aftermarket complete headsets do not fit, so no cataloged headset will show as compatible.');
 
   /* R5. Freehub body vs cassette — the highest-value drop-bar rule (Shimano
         12-speed freehub guide + SRAM XDR + Campagnolo N3W, all fetched for
