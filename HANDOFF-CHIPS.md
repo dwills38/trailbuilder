@@ -83,7 +83,47 @@ test + npx tsc --noEmit. Never push — present the branch. Final act: write the
 
 ---
 
-**Held pending Douglas:**
-- The Cloudflare redirect batch (5 rows, his clicks — table in domain-portfolio memory)
-- gravel CX-tag + rim-brake vocab
-- the carried decision-queue tail (see the SEAT 16 block in COORDINATOR-HANDOFF.md)
+**★ DOUGLAS'S FULL OPEN-QUESTION QUEUE (consolidated 2026-07-21 end-of-seat-16 on his
+instruction — "make sure any outstanding questions for me will be saved for the next
+coordinator." Raise gently, never nag; items 1-2 are the freshest.)**
+
+1. **THE RE-BRAINSTORM SESSION IS DUE** — the 2026-07-19 feature slate completed 8/8 on
+   2026-07-21; his recorded words: "once we get closer to the end, I will want to run
+   another brainstorming session." He asked to be reminded "a little later" — seat 16's
+   reminder cron dies with the seat, so the NEXT coordinator inherits the reminder duty.
+2. **Seatpost interface-exception question** (road-16, 2026-07-21): should seatposts join
+   the ratified interface-verification exception list? Weight isn't engine-read for
+   seatposts (only diameter/setback feed compat) and makers often publish none — a yes
+   promotes sp-trek-domane-slr-kvf + sp-cannondale-synapse-save immediately and unblocks
+   the class. Same shape as the six exceptions already ratified.
+3. **Gravel vocab-widening packet** — now 4+ REAL products blocked by missing tokens:
+   QR rear axles (Salsa Journeyman 10x135, Kona Rove AL), straight steerers (Kona Rove AL,
+   Ritchey Outback, possibly Marin Nicasio+ base tier), square-taper BB shell (Nicasio+),
+   36.1mm post, Wilier's 1-1/4 straight. Each needs a token + possibly engine awareness;
+   worth one consolidated ruling instead of per-row flags. (Related: gravel CX-tag +
+   rim-brake vocab, carried from earlier waves.)
+4. **The Cloudflare redirect batch** (5 rows, his clicks — table in domain-portfolio
+   memory). Standing since 2026-07-20.
+5. **archive_session auto-approve hook** — the harness always-prompts on session archiving;
+   the safety classifier (correctly) blocked the coordinator from self-installing the
+   auto-approve hook. The exact JSON block to paste into .claude/settings.json's PreToolUse
+   array is in seat 16's transcript (2026-07-21 evening); he deferred ("not going to worry
+   about that now"). Batching archives is the workaround meanwhile.
+6. **Audit L4 follow-through (optional)**: round-robin the verification queue by maker so no
+   single brand absorbs a day's badge grants (Specialized took 70% on 07-21 for legitimate
+   unwalling reasons; the disclosure line already shipped). Process tweak, coordinator can
+   implement on his nod.
+7. **"Sort: Random" wording nit** (ui-honesty caveat): the 5 non-MTB pages shuffle
+   per-category (grouped, then shuffled within) vs index.html's whole-catalog shuffle — both
+   provably maker-unbiased; unifying the algorithms or tightening wording is his taste call.
+   Low priority.
+8. **Audit M7 / rule-18 wheel-size-aware clearance** — MTB's scalar maxTire mis-warns
+   maker-approved plus-tires on dual-wheel-size frames (Surly 27.5x3.0 case); gravel's
+   maxTireByWheel is the model. Engine change → adversarial review when picked up.
+9. **Carried older tail** (from the SEAT 16 block, still open): fr-trek-slash orphan dedupe,
+   verified-badge semantics + price-policy gap (1,000+ sample-price verified rows), gallery
+   six, reviews.sql levers + hardening-2.sql, Supabase MFA/CAPTCHA check, Cloudflare Vitals
+   Explorer read, Finder two, recall-badge scoping, fitter paywalls, the empty
+   D:\mtb-worktrees shell folder (his one manual right-click).
+10. **BMX cadence**: he pasted BMX depth 7 on 2026-07-21 (his word for that wave);
+    flagship-first still governs — future BMX chips still need his paste.
