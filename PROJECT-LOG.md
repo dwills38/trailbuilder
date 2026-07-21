@@ -3257,3 +3257,18 @@ per wave/decision; large reconstructions are handed to a worker session.
 - Gates green throughout (validate 0 problems / 895 tests / tsc clean / verdict harness clean)
   at `8884719`. **All chips in flight at this seat's start are now harvested.**
 
+
+## 2026-07-21 (seat 16) — Striders 2 merged
+
+- **verify/striders-2** merged (`100b625`): the retry pass on the 8 no-maker-weight-blocked
+  strider rows. 1 of 8 promoted — Puky LR M, via downtown-mag.com's "3,56 kg" measured figure
+  (exact match to the existing sample, and downtown-mag is already this file's accepted
+  measured-weight precedent from the Moustache Mercredi 12 row). 7 stayed unverified for
+  honest reasons: 4 have no surviving/current manufacturer page at all (Strider 12 Classic,
+  Schwinn Skip 2, both Bixe models); 3 have a maker page but every weight source found either
+  states no measurement method (Kinderfeets, ChillaFish) or comes from a source with no
+  existing accepted-precedent status in this file (bikeexchange.com for the Giant Pre —
+  flagged as a near-miss if Douglas wants to extend the precedent list). Low yield expected
+  and delivered — this was always going to be the hard-to-source tail.
+- Gates green (validate 0 problems / 895 tests / tsc clean) at `100b625`.
+
