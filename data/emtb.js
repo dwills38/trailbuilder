@@ -516,24 +516,26 @@ var EMTB_PARTS = [
   // Cube (new maker) — Stereo Hybrid 160 + Stereo Hybrid ONE55 SL (lightweight)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-cube-stereo-hybrid-160', cat: 'emtb', brand: 'Cube', model: 'Stereo Hybrid 160',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 4)', motorTorque: 85,
-    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail', 'e-enduro'], weight: 24000, price: 5800,
-    note: "Cube's full-power all-mountain e-MTB on the Bosch CX motor — confirmed still Gen 4 (not yet moved to Gen 5), 750Wh matches the current HPC SLX 750 build exactly.",
-    desc: "Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor gen confirmed (not corrected) verify/emtb-3 wave 3 phase 2 — wave 2's \"Stale-likely\" flag turned out to be a false positive; only the missing Gen 4 label was added."
+    id: 'em-cube-stereo-hybrid-160', cat: 'emtb', brand: 'Cube', model: 'Stereo Hybrid ONE77 HPC SLT 800',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX-R (Gen 5)', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle AXS Transmission', brakes: 'Magura Gustav Pro 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23800, price: 10199,
+    note: "Cube's full-power all-mountain e-MTB, now on the Bosch CX-R Gen 5 motor; top-tier SLT 800 build of the renamed ONE77 platform (170mm mullet).",
+    desc: 'Verified vs the fetched maker page (cube.eu Stereo Hybrid ONE77 HPC SLT 800). CUBE fully renamed its numeric Stereo Hybrid range (160/140/ONE55) to the ONE22/ONE44/ONE77 nomenclature for 2025-26 — "Stereo Hybrid 160" is no longer a real, currently-sold SKU (cube.eu/uk-en/e-bikes/mountainbike/fullsuspension/stereo-hybrid-160 404s). Retitled verify/emtb-4 wave 4 cluster A to the direct 170mm/mullet successor, the ONE77 platform, top SLT 800 trim (frame material also corrected aluminum -> carbon, motor Gen 4 CX -> Gen 5 CX-R, drivetrain/brakes Shimano XT -> SRAM XX Eagle AXS Transmission/Magura Gustav Pro, travel 160/160 -> 170/170). Weight (23.8kg) is maker-page-listed. Price: no direct SLT-800 GBP RRP found on cube.eu itself; used a UK dealer listing (damianharriscycles.co.uk) at £7,999, converted to a ~$10,199 USD sample — not independently confirmed, basis stated per THE PRICE RULE.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.cube.eu/cube-stereo-hybrid-one77-hpc-slt-800-galaxy-n-orange/103600'
   },
   {
     id: 'em-cube-stereo-hybrid-one55-sl', cat: 'emtb', brand: 'Cube', model: 'Stereo Hybrid ONE55 C:68X SLT 750',
     motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 4)', motorTorque: 85, motorPowerPeak: 600,
     batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX1 Eagle AXS', brakes: 'SRAM Code',
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX1 Eagle AXS', brakes: 'Magura MT7',
     disciplines: ['e-trail', 'e-enduro'], weight: 21900, price: 8999,
-    note: 'The real ONE55 line is full-power (Bosch Gen 4 CX, not a lightweight SX motor) across all three trims (SLX/TM/SLT); this is the flagship SLT 750 build — carbon frame, Newmen carbon wheels, wireless SRAM XX1 AXS, 29in-only.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor/frame/drivetrain/wheel corrected verify/emtb-3 wave 3 phase 2b (Bosch SX lightweight -> Bosch Gen 4 CX full-power, mullet -> 29in, Shimano XT -> SRAM XX1 AXS matching the real SLT 750 tier); price sourced from UK MSRP (£8,999), not independently confirmed in USD.'
+    status: 'discontinued',
+    note: 'The real ONE55 line was full-power (Bosch Gen 4 CX, not a lightweight SX motor) across all three trims (SLX/TM/SLT); this was the flagship SLT 750 build — carbon frame, Newmen carbon wheels, wireless SRAM XX1 AXS, 29in-only, Magura MT7 brakes.',
+    desc: 'Corrected but left unverified verify/emtb-4 wave 4 cluster A. CUBE has fully renamed its numeric Stereo Hybrid range (160/140/ONE55) to the ONE22/ONE44/ONE77 nomenclature for 2025-26 — cube.eu/e-bikes/mountainbike/fullsuspension/stereo-hybrid-one55 404s, and the current fullsuspension lineup lists only ONE22/ONE44/AMS Hybrid ONE44/ONE77/AMS Hybrid 177 families, no ONE55. Unlike Stereo Hybrid 160 (clean 170mm/mullet -> ONE77 match) and Stereo Hybrid 140 (clean 140mm/29in -> ONE44 match), ONE55 sat between those two travel points with no clean 1:1 successor, so per THE BAR this is marked status:discontinued and left unverified rather than guessing a replacement SKU. Brakes corrected from SRAM Code to Magura MT7 (the real spec, confirmed across three independent retailer listings for the last-sold 2023/24 model year — rabe-bike.de, westbrookcycles.co.uk, freeborn.co.uk — all matching consistently), a real error in the prior wave\'s entry worth fixing even though the row can\'t be verified against a live maker page. Price basis unchanged from the prior wave (UK MSRP £8,999, not independently confirmed in USD).'
   },
 
   // ---------------------------------------------------------------------------
@@ -946,14 +948,15 @@ var EMTB_PARTS = [
   // Cube depth (Stereo Hybrid 140, shorter-travel trail trim)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-cube-stereo-hybrid-140', cat: 'emtb', brand: 'Cube', model: 'Stereo Hybrid 140',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
-    batteryWh: 625, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 140,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-trail'], weight: 23200, price: 5000,
-    note: 'Shorter-travel, more XC/trail-leaning sibling to the Stereo Hybrid 160.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-cube-stereo-hybrid-140', cat: 'emtb', brand: 'Cube', model: 'Stereo Hybrid ONE44 HPC SLX 800',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT 12-speed', brakes: 'Shimano XT M8220 4-piston',
+    disciplines: ['e-trail'], weight: 24200, price: 6599,
+    note: 'Shorter-travel, more XC/trail-leaning sibling to the Stereo Hybrid ONE77; mid-tier SLX 800 build of the renamed ONE44 platform.',
+    desc: 'Verified vs the fetched maker page (cube.eu Stereo Hybrid ONE44 HPC SLX 800). CUBE renamed the "Stereo Hybrid 140" family to ONE44 for 2025-26 (same reason as the ONE77/Stereo Hybrid 160 correction on this branch) — retitled verify/emtb-4 wave 4 cluster A to the direct 140mm-rear successor, mid-tier SLX 800 trim. Battery/travel/frame/drivetrain/brakes corrected (625Wh -> 800Wh, 140mm front -> 150mm, aluminum -> carbon main triangle, Shimano Deore -> Shimano XT 1x12, Shimano MT420 -> Shimano XT M8220 4-piston). Weight left as an honest sample within the confirmed comparable-trim range (23.4-24.9kg across the ONE44 lineup) — the exact SLX-800 page did not display a standalone weight figure. Price is uncertain: community-sourced GBP figures for this trim conflict (a clean spec/price table showed GBP 5,199, a separate forum summary GBP 6,999); used the table figure converted to a ~$6,599 USD sample, stated here per THE PRICE RULE.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.cube.eu/cube-stereo-hybrid-one44-hpc-slx-800-slabgrey-n-orange/102500'
   },
 
   // ---------------------------------------------------------------------------
