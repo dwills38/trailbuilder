@@ -3427,3 +3427,35 @@ auto-merges); full gates + verdict harness green throughout.
   `8c55198`. **All four chips from this dispatch round (mtb-tail-6, gravel-9, road-13, kit-12)
   are now harvested — queue is empty again.**
 
+
+## 2026-07-21 (seat 16) — gravel-10 + mtb-tail-7 + discontinued-archive merged; doc truth pass
+
+- **Doc staleness retired repo-wide**: NEXT-STEPS.md, data/road.js, data/emtb.js,
+  src/compat-road.js, src/schema-road.js all still claimed road/gravel/EMTB were OFF-LIVE —
+  every header now states the real live dates (road+emtb 2026-07-20, gravel 2026-07-21) and
+  NEXT-STEPS reflects all six surfaces + the shipped home page.
+- **catalog/gravel-10** merged: +4 frame brands closing gravel-9's follow-up list exactly
+  (Merida Silex 4000, Focus Atlas 6.8 MY26, Cinelli King Zydeco II, Scott Addict Gravel RC —
+  all current-gen, all maker-fetched, none force-verified since each mixes source tiers).
+  Two vocab non-fits honestly logged (Scott's 1-1/4→1-1/2 eccentric steerer approximated as
+  tapered + flagged; Praxis M30 crank skipped, no matching spindle token). Gravel 238 rows.
+- **verify/mtb-tail-7** merged: +7 verified — 6 frames under the frames interface-exception
+  (Starling Murmur/Twist, Surly Karate Monkey/Krampus, Canfield Nimble 9, Airdrop Edit MX)
+  plus a real PHANTOM-NUMBER catch: the Maxxis DTH 26x2.3's 620g weight matched none of the
+  four real SKUs on Maxxis's own spec grid — corrected to the maker-stated 773g with mfgPn/
+  casing/compound captured. MTB 3172 verified. The worker also wrote the clearest map yet of
+  the genuinely-walled queue front (Orbea/Propain WAF, Trek product-page 403s, Nukeproof gen
+  mismatch) + two forward leads (Bontrager Team Issue naming migration, DT Swiss URL-pattern
+  refresh). A verify-job.json timestamp-only merge conflict resolved (both sides had made the
+  identical FC-MT510-1 sync independently).
+- **feat/discontinued-archive-1** merged (feature slate #16 — 6 of 8 slate picks now built):
+  browsable click-opened archive of every status:'discontinued' part with supersededBy
+  resolution (strictly same-source, dangling pointers disclosed never guessed, recalled parts
+  excluded — recalls have their own surface). Wired to PARTS only on index.html (hard rules
+  1/3 forbid loading BMX/EMTB data there — per-page adoption is a trivial follow-up, and a
+  family-wide archive.html mixing e-content is DOUGLAS'S CALL, correctly left unmade). 19 new
+  tests (930 total). Coordinator browser-verified: zero dialogs on load, click-open works
+  ("70 discontinued parts on record"), zero console errors.
+- Gates green throughout (validate 0 problems / 930 tests / tsc clean / harness clean) at
+  `cbfb906`.
+
