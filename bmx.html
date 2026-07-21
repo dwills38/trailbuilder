@@ -255,6 +255,38 @@
     dialog#bmxPartModal{width:calc(100% - 20px)}
   }
 
+  /* Discontinued archive dialog (feature slate, 2026-07-21 per-page adoption):
+     click-opened from the header button only, never appears on its own. */
+  .gempty{color:var(--ink-soft);font-size:13px;padding:14px 2px;text-align:center}
+  dialog#archiveModal{border:none;border-radius:14px;padding:0;max-width:640px;width:calc(100% - 32px);
+    max-height:calc(100svh - 32px);color:var(--ink);background:var(--card);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog#archiveModal[open]{display:flex;flex-direction:column;overflow:hidden}
+  dialog#archiveModal::backdrop{background:rgba(18,28,22,.45)}
+  #archiveModal .rm-head{padding:18px 20px 4px;flex:none}
+  #archiveModal .rm-head h2{margin:0 0 5px;font-size:18px}
+  #archiveModal .rm-head p{margin:0;font-size:13px;color:var(--ink-soft)}
+  #archiveModal .rm-body{padding:10px 20px 16px;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
+  #archiveModal .rm-foot{display:flex;justify-content:flex-end;padding:14px 20px 18px;flex:none}
+  .da-summary{font-size:12.5px;color:var(--ink-soft);margin:6px 0}
+  .da-cat{font-size:12px;text-transform:uppercase;letter-spacing:.3px;color:var(--ink-soft);margin:14px 0 6px}
+  .da-count{font-weight:400;color:var(--ink-soft)}
+  .da-list{display:flex;flex-direction:column;gap:8px}
+  .da-row{border:1px solid var(--line);border-radius:10px;padding:8px 11px;font-size:13px}
+  .da-main{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .da-name{font-weight:700}
+  .da-year{color:var(--ink-soft);font-size:11.5px}
+  .da-verified{color:var(--ok,#1f8a4c);font-size:11px;font-weight:700;cursor:help}
+  .da-price{margin-left:auto;white-space:nowrap}
+  .da-pricenote{color:var(--ink-soft);font-size:10.5px;text-transform:uppercase;letter-spacing:.3px}
+  .da-succ{font-size:12px;color:var(--ink-soft);margin-top:3px}
+  .da-succ code{font-size:11px}
+  .da-succ-note{font-size:11px}
+  .da-succ-none{font-style:italic}
+  .da-disclosure{font-size:11px;color:var(--ink-soft);margin:12px 0 0}
+  @media (max-width:768px){
+    dialog#archiveModal{width:calc(100% - 20px)}
+  }
+
   .grid.list{display:flex;flex-direction:column;gap:6px;container:bmxcat / inline-size}
   .list .pcard{flex-direction:row;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:9px 14px 9px 22px}
   .list .pcard .namewrap{flex:0 1 220px;min-width:0;display:flex;flex-direction:column;gap:1px}
@@ -408,6 +440,7 @@
     <a class="btn ghost" href="/" title="Back to the Bike Builder">🚴 Bike Builder</a>
     <a class="btn ghost" href="KitBuilder/" title="Rider kit — helmets, shoes, apparel &amp; protection">🧰 BuildMyRideKit</a>
     <a class="btn ghost" href="about.html" title="About BuildMyMTB">ℹ️ About</a>
+    <button type="button" class="btn ghost" id="archiveBtn" title="Parts no longer sold new, and what replaced them">🗄 Archive</button>
     <details class="theme-menu" id="themeMenu">
       <summary class="btn ghost" title="Theme">🎨</summary>
       <div class="theme-pop" role="menu">
@@ -453,8 +486,27 @@
   </div>
 </dialog>
 
+<!-- Discontinued archive (feature slate, 2026-07-21 per-page adoption): pure
+     logic + renderer in src/discontinued-archive.js, tested in
+     test/test-discontinued-archive.js. Click-opened from the header button
+     only — never appears on its own. Wires ONLY this page's own catalog
+     (BMX_PARTS). -->
+<dialog id="archiveModal" aria-labelledby="daTitle" role="dialog" aria-modal="true">
+  <div class="rm-head">
+    <h2 id="daTitle">🗄 Discontinued archive</h2>
+    <p>Parts our records show as no longer sold new — kept browsable for old builds and used-market shopping, with the replacement named where our data records one. Specs are illustrative sample data unless a part shows ✓ Verified in the app.</p>
+  </div>
+  <div class="rm-body">
+    <div id="daBody"></div>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="daClose" autofocus>Close</button>
+  </div>
+</dialog>
+
 <script src="src/compat.js"></script>
 <script src="src/compat-bmx.js"></script>
+<script src="src/discontinued-archive.js"></script>
 <script src="data/bmx.js"></script>
 <script>
 /* ==========================================================================
@@ -936,10 +988,31 @@
     $('bmxPartModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
   }
 
+  /* ---- discontinued archive (feature slate, 2026-07-21 per-page adoption):
+     pure logic + renderer in src/discontinued-archive.js. Click-opened from
+     the header button only — never appears on its own. This page wires ONLY
+     its own catalog (BMX_PARTS); the fragment is static per load, so it's
+     built once and cached. ---- */
+  var _archiveHtml = null;
+  function wireArchive(){
+    $('archiveBtn').onclick = function(){
+      if(_archiveHtml == null){
+        _archiveHtml = renderDiscontinuedArchiveHtml(
+          discontinuedArchiveModel([{ label: 'BMX', parts: BMX_PARTS }]),
+          { esc: esc, money: money, catLabel: catLabel });
+      }
+      $('daBody').innerHTML = _archiveHtml;
+      $('archiveModal').showModal();
+    };
+    $('daClose').onclick = function(){ $('archiveModal').close(); };
+    $('archiveModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
+  }
+
   /* ---- boot -------------------------------------------------------------------- */
   main.innerHTML = skeleton();
   wireToolbar();
   wirePartModal();
+  wireArchive();
   renderRail();
   renderCatalog();
   renderReport();
