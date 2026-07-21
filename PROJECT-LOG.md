@@ -3641,3 +3641,16 @@ All eight chips from the final dispatch round are now landed (main `e10dbc2`+). 
 - Gates green throughout (validate 0 problems / 951 tests / tsc clean / harness clean).
   MTB 3,210 verified · road 178 (83%) · gravel 113 (47%) · complete bikes 206 (47%).
 
+
+## 2026-07-21 (seat 16) — vf-demote-2 merged (audit M2/M8 closed)
+
+- **verify/vf-demote-2** merged: both audit-flagged rows demoted after genuine re-source
+  attempts, not rubber-stamped. Zonda pair: found the still-live campagnolo.com page (li-en
+  locale) — it reconfirms everything EXCEPT the freehub field, which Campagnolo simply never
+  itemizes; unconfirmed error-tier field = no badge, both demoted, Wayback URL moved to
+  archiveUrl where it belongs. Tarmac SL8 fork: pulled Specialized's own spec tables via Exa —
+  the maker never states a steerer type anywhere; 'tapered' traces only to retailer listings,
+  demoted. Interfaces stay (correct values, honest provenance tier). Test fixture confirmed
+  unaffected. Road 175/215 verified — the count going DOWN here is the system working.
+- Gates green (validate 0 problems / 951 tests / tsc clean) at merge.
+
