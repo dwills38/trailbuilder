@@ -1991,13 +1991,10 @@ var KIT_PARTS = [
     desc:'VERIFIED 2026-07-17 via bdata-rendered giro.com: MSRP $44.95 confirmed (page showed "Price reduced'
       + ' from $44.95" to a $31.99 sale price - list price used). No weight published; stays sample.',
     verified:true, lastChecked:'2026-07-17', source:'https://www.giro.com/product/xnetic-trail-glove/350020000200000032.html' },
-  { id:'glv-giro-trailbuilder', cat:'gloves', brand:'Giro', model:'Trail Builder Glove', price:30, weight:70, status:'discontinued',
-    sizes:['S','M','L','XL','XXL'],
-    desc:'Durable work-style build for digging/shoveling as well as riding. Weight per pair (approx). CHECKED'
-      + ' 2026-07-17: bdata-rendered giro.com/cycling/accessories/gloves/mtb/ (full current MTB glove listing'
-      + ' fetched) has no Trail Builder Glove - the product URL 404s ("Page Not Found"). Not currently sold;'
-      + ' marked discontinued rather than removed (WebSearch corroborates it was a real historical SKU); specs'
-      + ' left as prior sample, not marked verified.' },
+  { id:'glv-giro-trailbuilder', cat:'gloves', brand:'Giro', model:'Trail Builder Glove', price:27.95, mfgPn:'GR-7127913',
+    sizes:['XS','S','M','L','XL','XXL'],
+    desc:'Durable work-style build for digging/shoveling as well as riding (Laredo microsuede palm, reinforced fourchettes, Super Fit Engineering). Weight not published on the maker page (kit apparel does not require it). RE-CHECKED 2026-07-20: the collection-listing 404 that led a prior wave to tag this discontinued was a stale URL - the direct product page (giro.com/p/trail-builder-mountain-bike-gloves/350020000200000026.html) is live and purchasable, MSRP $27.95 (was showing a 21%-off sale price of $21.99 at fetch time; MSRP used per THE PRICE RULE), sizes XS-XXL (was S-XXL). `status:discontinued` removed - this was a false discontinued tag, not a real one.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.giro.com/p/trail-builder-mountain-bike-gloves/350020000200000026.html' },
   { id:'glv-giro-gnar', cat:'gloves', brand:'Giro', model:'Gnar Glove', price:49.95, weight:90,
     disciplines:['enduro','dh'], sizes:['S','M','L','XL','XXL'],
     desc:'VERIFIED 2026-07-17 via bdata-rendered giro.com: MSRP $49.95 confirmed (was sample $50). D3O Impact'
@@ -2268,7 +2265,8 @@ var KIT_PARTS = [
     sizes:['S','M','L','XL','XXL'], desc:'Weight per pair (approx).' },
   { id:'glv-clubride-ladyfinger', cat:'gloves', brand:'Club Ride', model:'Lady Finger Glove', price:30, weight:55,
     fitCut:'womens', sizes:['S','M','L'],
-    desc:'Price ($30) and current S/M/L size range confirmed on clubrideapparel.com (page no longer lists XS/XL); weight per pair remains an unconfirmed approx sample (not stated on the product page).' },
+    desc:'Price ($30) and current S/M/L size range re-confirmed on clubrideapparel.com 2026-07-20 (page no longer lists XS/XL); weight per pair remains an unconfirmed approx sample (not stated on the product page - kit apparel does not require it).',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.clubrideapparel.com/products/womens-gloves' },
   { id:'glv-dharco-race', cat:'gloves', brand:'DHaRCO', model:'Race Glove', price:44.95, weight:60,
     sizes:['S','M','L','XL'],
     desc:'Fetched us.dharco.com: CORRECTED price $35 -> $44.95, sizes S-XL (no XXL). Velcro-less easy entry, silicone palm grip, 2025 redesign. Weight not published; kept as the existing sample per the kit weight policy.',
@@ -2664,12 +2662,14 @@ var KIT_PARTS = [
   { id:'elp-bluegrass-skinny-d3o', cat:'elbowpad', brand:'Bluegrass', model:'Skinny D3O Elbow Pads', price:120, weight:130,
     disciplines:['enduro','dh'], sizes:['S','M','L','XL'], status:'discontinued',
     desc:'D3O-padded tier above the standard Skinny pad. CORRECTED to discontinued (2026-07-17): the "Skinny" line is absent from the current met-helmets.com/en/shop/gravity/bluegrass-protections/ catalog (see knp-bluegrass-skinny-d3o); no successor SKU confirmed by name.' },
-  { id:'elp-oneal-flow', cat:'elbowpad', brand:'O\'Neal', model:'Flow Elbow Guard', price:59.99, weight:180,
+  { id:'elp-oneal-flow', cat:'elbowpad', brand:'O\'Neal', model:'Flow Elbow Guard', price:59.99, weight:180, mfgPn:'0259-103',
     disciplines:['trail','enduro'], sizes:['M','L','XL'],
-    desc:'IPX soft-gel/Lycra combination pad. Weight per pair (approx, not published on the maker page - stays unverified for that reason). Fetched oneal.com: corrected price $60 -> $59.99 and sizes (maker sells M/L/XL, not split S/M-L/XL); no cert standard is cited on the maker page (a retailer-only EN1621-1 claim was not used per the fetched-source-only rule).' },
-  { id:'elp-tsg-joint-sleeve', cat:'elbowpad', brand:'TSG', model:'Joint Elbow Sleeve', price:65, weight:291,
+    desc:'IPX soft-gel/Lycra combination pad. Weight per pair (approx, not published on the maker page - kit apparel does not require it). Re-fetched oneal.com 2026-07-20: confirms $59.99 and sizes M/L/XL exactly; no cert standard is stated on the page itself (a retailer-only EN1621-1 claim was not used per the fetched-source-only rule).',
+    verified:true, lastChecked:'2026-07-20', source:'https://oneal.com/products/flow-elbow-guard' },
+  { id:'elp-tsg-joint-sleeve', cat:'elbowpad', brand:'TSG', model:'Joint Elbow Sleeve', price:75.55, weight:291,
     disciplines:['trail'], sizes:['XXS/XS','S/M','L/XL','XXL'],
-    desc:'Softshell slip-on sleeve, low-profile trail guard. Weight per pair, maker-stated ("291 g") on the fetched ridetsg.com product page; sizes corrected to add XXL. Price NOT corrected: ridetsg.com prices in EUR (€69.95) with no confirmed USD storefront reached this session, and a currency conversion is not a real US MSRP (policy) -- price stays the existing sample. Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.' },
+    desc:'Softshell slip-on sleeve, low-profile trail guard. Weight per pair, maker-stated ("291 g") on the fetched ridetsg.com product page; sizes corrected to add XXL. Price is EUR69.95 (VAT incl.) converted to a $75.55 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront, matching the catalog\'s existing EUR-conversion precedent for this class of source) -- basis disclosed per THE PRICE RULE. Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
+    verified:true, lastChecked:'2026-07-20', source:'https://ridetsg.com/shop/elbowsleeve-joint/72014-25-102' },
 
   /* -- Body armor (coverage optional) -- */
   { id:'arm-fox-baseframe-pro', cat:'bodyarmor', brand:'Fox', model:'Baseframe Pro D3O', price:214.95, weight:640,
@@ -2956,8 +2956,9 @@ var KIT_PARTS = [
   { id:'shg-evs-tp199', cat:'shinguard', brand:'EVS', model:'TP199 Knee/Shin Guard', price:150,
     disciplines:['dh'], sizes:['S/M','L/XL','XXL'], desc:'Reactive Memory Foam knee cup + polyflex shin guard; per pair. Weight not published. (Maker page cites a CE1621-2 cup rating, not EN1621-1 - not tagged here since it does not map to this catalog\'s shin cert vocab.)',
     verified:true, lastChecked:'2026-07-14', source:'https://www.evs-sports.com/products/tp199-knee-guard-2', sourceType:'manufacturer' },
-  { id:'shg-evs-option', cat:'shinguard', brand:'EVS', model:'Option Knee/Shin Guard', price:26,
-    disciplines:['dh'], sizes:['Adult'], desc:'Hard molded polypropylene shell, knee-to-shin coverage; per pair. Weight not published.' },
+  { id:'shg-evs-option', cat:'shinguard', brand:'EVS', model:'Option Knee/Shin Guard', price:30, mfgPn:'OPTK16-BK-A',
+    disciplines:['dh'], sizes:['Mini','Youth','Adult'], desc:'Hard molded polypropylene shell, perforated bio-foam liner, knee-to-shin coverage, reinforced TPR hinge, asymmetric left/right fit; sold in pairs. Weight not published on the maker page (kit apparel does not require it). Price corrected $26 -> $30 (fetched evs-sports.com); sizes widened to the maker\'s full Mini/Youth/Adult range.',
+    verified:true, lastChecked:'2026-07-20', source:'https://www.evs-sports.com/products/copy-of-option-knee-pad' },
   { id:'shg-troyleedesigns-triad', cat:'shinguard', brand:'Troy Lee Designs', model:'Triad Knee/Shin Guard Hard Shell', price:145,
     disciplines:['enduro','dh'], sizes:['XS/SM','MD/LG','XL/2X'], desc:'Articulated hard-shell guard with D3O liner, full knee-to-shin coverage; per pair. Weight not published.',
     verified:true, lastChecked:'2026-07-14', source:'https://troyleedesigns.com/products/sp22-triad-knee-shin-guard-black', sourceType:'manufacturer' },
@@ -3020,10 +3021,12 @@ var KIT_PARTS = [
   { id:'shg-tsg-samir', cat:'shinguard', brand:'TSG', model:'Shinguard Samir', price:89.95, weight:500,
     disciplines:['dh'], sizes:['S/M','L/XL'], desc:'Short-style removable PE hardshell + foam, designed to layer under a separate knee guard; weight per pair per mfr page. Cert protocol (PPE TS0013, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
     verified:true, lastChecked:'2026-07-14', source:'https://www.ridetsg.com/shop/protection-all/shinguard-samir/76016-35-147/', sourceType:'manufacturer' },
-  { id:'shg-tsg-bmx', cat:'shinguard', brand:'TSG', model:'Shinguard BMX', price:59.95, weight:461,
-    disciplines:['dh'], sizes:['S/M','L/XL'], desc:'Neoprene sleeve + removable high-density PE shin splint, EVA foam; weight per pair. Cert protocol (PPE TS0013, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.' },
-  { id:'shg-tsg-tempera2', cat:'shinguard', brand:'TSG', model:'Temper A 2.0 Knee-Shinguard', price:129.95, weight:524,
-    disciplines:['dh'], sizes:['S','M','L','XL'], desc:'Arti-Lage impact knee pad + removable hard-shell shin guard, Kevlar-stretch panel; per pair. Weight now maker-stated ("524 g") on the fetched ridetsg.com product page (was previously unpublished). Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.' },
+  { id:'shg-tsg-bmx', cat:'shinguard', brand:'TSG', model:'Shinguard BMX', price:75.55, weight:461,
+    disciplines:['dh'], sizes:['S/M','L/XL'], desc:'Neoprene sleeve + removable high-density PE shin splint, EVA foam; weight per pair, maker-stated ("461 g") on the fetched ridetsg.com product page. Price is EUR69.95 (VAT incl.) converted to a $75.55 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront) -- basis disclosed per THE PRICE RULE. Cert protocol (PPE TS0013, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
+    verified:true, lastChecked:'2026-07-20', source:'https://ridetsg.com/shop/shinguard-bmx/76012-35-102' },
+  { id:'shg-tsg-tempera2', cat:'shinguard', brand:'TSG', model:'Temper A 2.0 Knee-Shinguard', price:145.75, weight:524,
+    disciplines:['dh'], sizes:['S','M','L','XL'], desc:'Arti-Lage impact knee pad + removable hard-shell shin guard, Kevlar-stretch panel; per pair. Weight maker-stated ("524 g") on the fetched ridetsg.com product page. Price is EUR134.95 (VAT incl.) converted to a $145.75 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront) -- basis disclosed per THE PRICE RULE. Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
+    verified:true, lastChecked:'2026-07-20', source:'https://ridetsg.com/shop/kneeshinguard-temper-a-20/7102801-40-030' },
 
   /* -- Eyewear (type required: glasses / goggles) -- */
   { id:'ewr-oakley-sutro', cat:'eyewear', brand:'Oakley', model:'Sutro', price:203, weight:32,

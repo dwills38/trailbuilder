@@ -398,3 +398,65 @@ wave 7, untouched again this wave since the quiet-backlog scan took priority. Th
 estimate is now unreliable (undercounts and overcounts vs the real `source`-without-
 `verified` signal) — future waves should use the `source:` + no `verified:true` scan
 instead when hunting for more quiet-backlog rows.
+
+## Wave 9 (2026-07-20) — jersey/shorts/pants dead-end confirmation + protection/gloves yield
+
+Branch `verify/kit-9`. Scope per dispatch: jerseys, shorts, pants, protection leftovers, then
+the gloves tail, prioritized by yield. Kit went 527 -> 531 verified this wave (4 commits, all
+gated clean: `node validate.js`, `npm test`, `npx tsc --noEmit`, `node
+tools/verdict-audit-harness.js` after every commit).
+
+**Reconnaissance finding (important for future dispatches): jerseys/shorts/pants are NOT
+fresh ground.** A full read of all 39 unverified jersey rows + 29 shorts + 14 pants (82 rows)
+found every single one already carries a detailed `desc` documenting a real fetch attempt from
+waves 4-8 (`UNVERIFIED`, `ATTEMPTED`, `RESOLVED...discontinued`, `FLAG for coordinator review`,
+`Checked <date>: no live storefront`, etc.) — the maker's own site was searched and the exact
+SKU name genuinely could not be confirmed, or the brand has no live storefront at all (Sombrio,
+SixSixOne 403-wide). These are documented walls, not missed rows — re-attempting them without
+new information (a new maker URL, a brand relaunch) would just re-run the same dead ends prior
+waves already ran. **Recommendation for the next apparel-scope dispatch: don't re-grind
+jerseys/shorts/pants from scratch — either (a) hand Douglas the ~15 "FLAG for coordinator
+review" rows for a naming-ambiguity ruling (Fasthouse Alloy Cole/Rufio/Classic, Royal Racing
+Turbulence/Impact/Apex, TLD Ruckus SS, Sweet Protection Hunter Enduro — these need a human
+picking which real current SKU the row should re-scope to, not another fetch), or (b) target
+brand-new brands not yet in the catalog at all.**
+
+**Protection + gloves — real yield found, 7 rows verified (source freshly fetched this
+session for every one, none promoted on a stale prior-wave fetch alone per THE BAR):**
+
+- **TSG (`elp-tsg-joint-sleeve`, `shg-tsg-bmx`, `shg-tsg-tempera2`)** — ridetsg.com's Shopify
+  storefront (`/shop/<slug>/<sku>`) fetches cleanly and the maker-stated weights (291g/461g/
+  524g) matched the catalog's existing sample figures exactly, confirming those were accurately
+  captured by a prior wave's fetch even though `verified:true`/`source` were never set. Prices
+  are EUR-only (no US storefront) — converted at the catalog's existing ~1.08 USD/EUR
+  disclosed-basis precedent (same one wave-8 used for the bodyarmor EUR class) and promoted.
+- **EVS Option Knee/Shin Guard** — evs-sports.com (`/products/copy-of-option-knee-pad`) fetches
+  cleanly (first WebFetch attempt hit a transient 429, Exa's `web_fetch_exa` succeeded on retry).
+  Real price is $30 (row had a stale $26 sample) and the maker sells Mini/Youth/Adult, not just
+  Adult — both corrected. No weight published; not required under the kit-apparel policy.
+- **O'Neal Flow Elbow Guard** — oneal.com/products/flow-elbow-guard confirms the row's existing
+  $59.99 / M-L-XL exactly; only the provenance flag was missing (a genuine quiet-backlog row).
+- **Club Ride Lady Finger Glove** — the row's `/products/lady-finger-glove` URL 404s; the real
+  live slug is `/products/womens-gloves` (found via search, not guessed) - confirms $30 and
+  S/M/L exactly. Formalized.
+- **Giro Trail Builder Glove — a real CORRECTION, not just a formalize.** A prior wave (kit-6ish)
+  tagged this `status:'discontinued'` off a stale collection-page 404. The direct product page
+  (`giro.com/p/trail-builder-mountain-bike-gloves/350020000200000026.html`) is live and
+  purchasable: MSRP $27.95 (was a stale $30 sample), sizes XS-XXL (was S-XXL, missing XS).
+  **Lesson: a 404 on a collection/listing URL is not proof a product is gone — always try the
+  direct product-page URL (found via search) before tagging `discontinued`,** the same trap the
+  Northwave-pagination and TLD-D4-range findings already caught in earlier waves.
+
+### Not attempted this wave (next wave's scope)
+
+- The rest of the `source:`-without-`verified:true` quiet backlog beyond what's listed above
+  (a fresh scan would find the count — wave 8 found 18, this wave's protection/gloves sweep took
+  6 of the easy ones plus 1 real correction; scan again before assuming the well is dry).
+- Gloves past `glv-clubride-ladyfinger` alphabetically (Club Ride's other rows if any, Dharco,
+  ZOIC) — still not reached across three waves now.
+- kneepad (13 unverified), bodyarmor (10), shinguard (9 remaining after this wave's 2), shoes
+  (18, TLD Grind/Roost off-limits per Douglas's flag), eyewear (16) — all still at their wave-6/7
+  disposition, not re-touched this wave.
+- Madison gloves (DTE, Flux) — madison.co.uk redirects to freewheel.co.uk (retailer, not maker);
+  the apparent maker domain madison.cc renders JS-only (WebFetch/Exa both returned an empty
+  shell) — worth a browser-pane attempt next time, not re-tried here.
