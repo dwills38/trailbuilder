@@ -3168,3 +3168,26 @@ per wave/decision; large reconstructions are handed to a worker session.
   Vessels archived (report harvested, no branch to merge — audit touched zero files).
 - Gates green throughout (validate 0 problems / 875 tests / tsc clean) at `9caa7d7`.
 
+
+## 2026-07-21 (seat 16) — Service log feature merged (feature slate #2)
+
+- **feat/service-log-1** merged (`6e18eb3`): signed-in riders log service events (date + what +
+  optional note) against a garage build or inventory part; read back per-build/per-part/all-
+  history. Framed strictly as a notebook — no maintenance-schedule/interval claims, no reminders
+  (empty state + dialog subtitle say so explicitly). `service_events` table (Phase 5 stanza,
+  `supabase/schema.sql` + `SETUP.md §10`) — `build_id` ON DELETE SET NULL (history survives a
+  deleted build), owner-only RLS, feature-detected via a `hasServiceLog()` probe so it lights up
+  with zero further action once Douglas runs the SQL once. `src/service-log.js` (DI, tsc-checked,
+  19 tests) + `index.html` wiring (per-build/per-part 🔧 buttons, one click-opened dialog, never
+  auto-appears). Bonus fix: rad theme was missing the dialog-surface repaint dark/loam both have
+  (every dialog rendered white-on-lavender in rad) — one-line fix, spot-checked against the
+  pre-existing part modal too.
+- Coordinator verification: gates green (validate 0 problems, 894 tests, tsc clean) + own
+  browser popup-scan on the worker's running preview (all 11 dialogs closed on load incl. the
+  new `svcModal`, zero console errors) on top of the worker's own 14-screenshot 4-theme/mobile
+  evidence set.
+- Note: seat 15 is still active and pushing to main concurrently this window (merged the
+  fabricate-fill audit branch + a gravel live-status doc fix in parallel) — no conflicts seen,
+  histories stayed linear via fast-forward syncs before each of my pushes. Succession handshake
+  still pending its confirmation.
+
