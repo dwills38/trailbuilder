@@ -54,31 +54,37 @@ var STRIDER_PARTS = [
   },
   {
     id: 'sb-strider-12-classic', cat: 'balancebike', brand: 'Strider', model: '12 Classic',
-    wheel: '12', seatMin: 279, seatMax: 406, bikeWeight: 3039, tire: 'foam',
+    wheel: '12', seatMin: 279, seatMax: 406, bikeWeight: 2900, tire: 'foam',
     brake: 'none', frameMaterial: 'steel', price: 89.99,
-    note: 'The category-defining minimalist balance bike; steel frame, puncture-proof foam tires.',
-    desc: 'Unverified sample — spec basis: readysetpedal.com 12" comparison chart (STRIDER-MODEL.md sec 2).'
+    note: 'The category-defining minimalist balance bike; steel frame, puncture-proof foam tires. NOTE (2026-07-20): appears DISCONTINUED — no product page survives on striderbikes.com (only "12 Sport", "12 Pro" and a new composite-frame "12 Comp" remain in the current lineup); Performance Bicycle and FortNine both list this exact SKU as "Discontinued"/"discontinued and no longer available for purchase". Row kept (a real, formerly-sold model, not fabricated) since it may still show up secondhand/in old retailer stock.',
+    desc: 'Unverified sample (maker page gone — see note) — spec basis: byte-identical manufacturer copy syndicated across 5 independent retailers (babycommon.com, shorelineoftahoe.com, grasseriveroutfitters.com, albrechtcycle.com, gcmurphy.com — Assembled Weight 2.9kg/6.5lb, Seat Height 28-41cm/11-16in, Steel Frame, Max Rider Weight 27kg/60lb), cross-checked 2026-07-20 via Exa search. Does not meet THE BAR for verified:true (no fetched striderbikes.com page — the model itself is gone from their site), but the retailer-syndicated text is corroborated highly enough to trust as sample data.'
   },
   {
     id: 'sb-strider-12-sport', cat: 'balancebike', brand: 'Strider', model: '12 Sport',
     wheel: '12', seatMin: 279, seatMax: 432, bikeWeight: 3039, tire: 'foam',
-    brake: 'none', frameMaterial: 'steel', price: 119.99,
-    note: 'Adds an XL seatpost (extends max seat height to ~19in/483mm per the maker; stock post shown here).',
-    desc: 'Unverified sample — spec basis: readysetpedal.com (STRIDER-MODEL.md sec 2).'
+    brake: 'none', frameMaterial: 'steel', price: 169.99,
+    note: 'Adds an XL seatpost (extends max seat height to ~19in/483mm per the maker; stock post shown here). Price corrected 2026-07-20 from a stale $119.99 sample to the current striderbikes.com $169.99 MSRP.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://striderbikes.com/balance-bikes/12-sport/',
+    desc: 'Verified — striderbikes.com 12 Sport product page (Exa-fetched 2026-07-20, striderbikes.com direct WebFetch 403s): Seat Height 28-43cm/11-17in, Assembled Weight 3.0kg/6.7lb, Steel Frame, Flat-Free Foam Rubber 12in Tires, no brake, $169.99 (schema.org Offer price).'
   },
   {
     id: 'sb-strider-12-pro', cat: 'balancebike', brand: 'Strider', model: '12 Pro',
-    wheel: '12', seatMin: 279, seatMax: 406, bikeWeight: 2404, tire: 'foam',
-    brake: 'none', frameMaterial: 'aluminum', price: 169.99,
-    note: 'Aluminum frame drops ~1.4lb vs the Classic/Sport.',
-    desc: 'Unverified sample — spec basis: readysetpedal.com (STRIDER-MODEL.md sec 2).'
+    wheel: '12', seatMin: 279, seatMax: 432, bikeWeight: 2500, tire: 'foam',
+    brake: 'none', frameMaterial: 'aluminum', price: 219.99,
+    note: '"World\'s Lightest Strider" — aluminum frame. Corrected 2026-07-20: seatMax was 406 (11-16in), maker states 11-17in (432); weight/price corrected against the maker page.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://striderbikes.com/balance-bikes/12-pro/',
+    desc: 'Verified — striderbikes.com 12 Pro product page (Exa-fetched 2026-07-20, striderbikes.com direct WebFetch 403s): Seat Height 28-43cm/11-17in, "World\'s Lightest Strider" 2.5kg/5.6lb, Aluminum Frame, Foam Rubber 12in Tires, no brake, $219.99 (schema.org Offer price).'
   },
   {
     id: 'sb-strider-14x', cat: 'balancebike', brand: 'Strider', model: '14x',
     wheel: '14', seatMin: 381, seatMax: 559, bikeWeight: 5670, tire: 'air',
-    brake: 'none', convertsToPedal: true, frameMaterial: 'aluminum', price: 249,
-    note: 'Balance-to-pedal convertible; an Easy-Ride pedal kit ($89) bolts on and adds a coaster brake. Pedal-kit row/pedalkit-fit compat rule not yet modeled this round (data/STRIDER-MODEL.md sec 6) — future work.',
-    desc: 'Unverified sample — spec basis: twowheelingtots + rascalrides.com convertible-bike coverage (STRIDER-MODEL.md sec 2).'
+    brake: 'none', convertsToPedal: true, frameMaterial: 'steel', price: 249.99,
+    note: 'Balance-to-pedal convertible; an Easy-Ride pedal kit ($89-99) bolts on and adds a coaster brake (weight with kit: 6.9kg/15.1lb). Pedal-kit row/pedalkit-fit compat rule not yet modeled this round (data/STRIDER-MODEL.md sec 6) — future work. Corrected 2026-07-20: frameMaterial was "aluminum", maker states steel frame and fork.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://striderbikes.com/convertible-bikes/14x-classic/',
+    desc: 'Verified — striderbikes.com 14x product page (Exa-fetched 2026-07-20, striderbikes.com direct WebFetch 403s): Seat Height 38-55cm/15-22in, Weight w/o pedal kit 5.7kg/12.5lb, Frame and Fork Steel, 14x1.75in air tires (Schrader tube), Brakes in Balance Mode: None, $249.99 (schema.org Offer price).'
   },
   {
     id: 'sb-specialized-hotwalk', cat: 'balancebike', brand: 'Specialized', model: 'Hotwalk',
@@ -278,9 +284,11 @@ var STRIDER_PARTS = [
   {
     id: 'sb-strider-20x-sport', cat: 'balancebike', brand: 'Strider', model: '20x Sport',
     wheel: '20', seatMin: 545, seatMax: 840, bikeWeight: 11700, tire: 'air',
-    brake: 'dual-hand', convertsToPedal: true, frameMaterial: 'aluminum', price: 379,
-    note: 'Top of the Strider convertible range — grows from a big-kid balance bike into a 20in-wheel pedal bike via a bolt-on kit (ages 8-adult, quick-release seatpost clamp). Pedal-kit compat modeling deferred (data/STRIDER-MODEL.md sec 6).',
-    desc: 'Unverified sample — spec basis: striderbikes.ca 20X Sport spec table (seat height 21.5-33.1in, weight w/o pedal kit 11.7kg/25.8lb, front+rear lever drum brakes) + 99spokes.com/hsmotorsports.net listings (price $379).'
+    brake: 'dual-hand', convertsToPedal: true, frameMaterial: 'steel', price: 399.99,
+    note: 'Top of the Strider convertible range — grows from a big-kid balance bike into a 20in-wheel pedal bike via a bolt-on kit (ages 8-adult, quick-release seatpost clamp). Pedal-kit compat modeling deferred (data/STRIDER-MODEL.md sec 6). Brake is front+rear lever-operated drum brakes (mapped to dual-hand — two separate hand levers, drum not rim). Corrected 2026-07-20: frameMaterial was "aluminum", maker states steel frame and fork; price corrected from a stale $379 sample to the current $399.99 MSRP.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://striderbikes.com/convertible-bikes/20x-sport/',
+    desc: 'Verified — striderbikes.com 20x Sport product page (Exa-fetched 2026-07-20, striderbikes.com direct WebFetch 403s): Seat Height 54.5-84cm/21.5-33.1in, Weight w/o pedal kit 11.7kg/25.8lb, Frame and Fork Steel, 20x1.75in air tires, Front and Rear Lever Operated Drum Brakes, $399.99 (schema.org Offer price).'
   },
   {
     id: 'sb-kubikes-12', cat: 'balancebike', brand: 'KUbikes', model: '12',
