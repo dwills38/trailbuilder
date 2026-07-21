@@ -219,12 +219,16 @@ var ROAD_PARTS = [
   { id: 'rw-hunt-3648-aerodynamicist', cat: 'rearwheel', brand: 'HUNT', model: '36/48 Aerodynamicist Carbon Disc', family: 'hunt-3648-aero',
     wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 19, maxTire: 45,
     weight: 890, price: 900 },
-  { id: 'fw-shimano-c50-r9270', cat: 'frontwheel', brand: 'Shimano', model: 'Dura-Ace WH-R9270-C50', family: 'shimano-r9270',
+  { id: 'fw-shimano-c50-r9270', cat: 'frontwheel', brand: 'Shimano', model: 'Dura-Ace WH-R9270-C50-TL', family: 'shimano-r9270',
     wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 32,
-    weight: 690, price: 2000 },
-  { id: 'rw-shimano-c50-r9270', cat: 'rearwheel', brand: 'Shimano', model: 'Dura-Ace WH-R9270-C50', family: 'shimano-r9270',
+    weight: 674, price: 2000,
+    verified: true, lastChecked: '2026-07-20', source: 'https://productinfo.shimano.com/en/product/WH-R9270-C50-TL-F',
+    note: 'road-7 wave: productinfo.shimano.com spec table (WH-R9270-C50-TL-F) confirms "Internal width (mm) 21", "Recommended size 25-622 - 32-622" (maxTire:32), "Thru axle 100 x 12 ✔" (12x100), "Disc mount CENTER LOCK ✔". "Average weight (g) (w/o quick release, rim tape, tubeless tape, valve stem, lock ring) 674" replaces the 690g sample. Model corrected to the page\'s "Model name" (WH-R9270-C50-TL — the plain "-C50" is not a purchasable SKU, only the -TL/-TU front/rear split codes are). Price ($2000) is an unsourced sample; no MSRP field on this page.' },
+  { id: 'rw-shimano-c50-r9270', cat: 'rearwheel', brand: 'Shimano', model: 'Dura-Ace WH-R9270-C50-TL', family: 'shimano-r9270',
     wheel: '700c', hub: '12x142', freehub: 'hg-l2', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 32,
-    weight: 800, price: 2000 },
+    weight: 787, price: 2000,
+    verified: true, lastChecked: '2026-07-20', source: 'https://productinfo.shimano.com/en/product/WH-R9270-C50-TL-R',
+    note: 'road-7 wave: productinfo.shimano.com spec table (WH-R9270-C50-TL-R) confirms "HG spline L2 (ROAD 12-speed dedicated) ✔" (hg-l2), "Thru axle 142 x 12 ✔" (12x142), "Rear speeds 12", same rim/tire specs as the front. "Average weight (g) (w/o quick release, rim tape, tubeless tape, valve stem, lock ring) 787" replaces the 800g sample. See front-wheel note for the model-name correction (WH-R9270-C50-TL). Price ($2000) is an unsourced sample.' },
 
   // ===== WHEELS — road-5 build-path gap fill ===============================
   // Priority-2 gap (the GRX-trap lesson): before this pass, the only
@@ -236,22 +240,26 @@ var ROAD_PARTS = [
   // pairs are real, credible-source SAMPLE rows (retailer/review-sourced,
   // not a fetched manufacturer page — left unverified per THE BAR) closing
   // that gap for every drivetrain tier.
-  { id: 'fw-shimano-rx880-grx', cat: 'frontwheel', brand: 'Shimano', model: 'GRX WH-RX880', family: 'shimano-rx880',
+  { id: 'fw-shimano-rx880-grx', cat: 'frontwheel', brand: 'Shimano', model: 'WH-RX880-TL', family: 'shimano-rx880',
     wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 25, maxTire: 50,
-    weight: 627, price: 800,
-    note: 'road-5 gap-fill: carbon GRX gravel wheelset, converts between MICRO SPLINE and HG-L2 12-speed freehub bodies (this pair modeled with the micro-spline-road driver installed, the GRX 1x12 build-path this file was missing). Specs (25mm internal width, 32-50mm tire range, 1394g claimed pair weight) are retailer/Shimano-storefront sourced (ride.shimano.com, bike24, universalcycles), not a fetched shimano.com model page, so left unverified. No front/rear split is published — this row\'s 627g is an estimated ~45% share of the 1394g pair total, flagged as unconfirmed rather than a page-stated figure. Price ($800) is an unsourced sample — no retailer in this pass listed a clear MSRP.' },
-  { id: 'rw-shimano-rx880-grx', cat: 'rearwheel', brand: 'Shimano', model: 'GRX WH-RX880', family: 'shimano-rx880',
+    weight: 635, price: 800,
+    verified: true, lastChecked: '2026-07-20', source: 'https://productinfo.shimano.com/en/product/WH-RX880-TL-F12-700C',
+    note: 'road-7 wave: productinfo.shimano.com spec table (WH-RX880-TL-F12-700C) confirms "Internal width (mm) 25", "Recommended size 32-622 - 50-622" (maxTire:50), "Thru axle 100 x 12 ✔", "Disc mount CENTER LOCK ✔" — upgrading the road-5 gap-fill\'s retailer-sourced figures to a fetched maker page. "Average weight (g) (w/o quick release, rim tape, tubeless tape, valve stem, lock ring) 635" replaces the previous estimated-split 627g (that figure was a guessed ~45% share of a claimed pair weight; this is the page-stated front figure).' },
+  { id: 'rw-shimano-rx880-grx', cat: 'rearwheel', brand: 'Shimano', model: 'WH-RX880-TL', family: 'shimano-rx880',
     wheel: '700c', hub: '12x142', freehub: 'micro-spline-road', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 25, maxTire: 50,
-    weight: 767, price: 800,
-    note: 'road-5 gap-fill: see front-wheel note (fw-shimano-rx880-grx) for full sourcing — this is the micro-spline-road-driver rear half of the same pair, closing the file\'s only gap for a GRX 1x12 (cs-shimano-grx-m8100-*) drivetrain build. 767g is the estimated ~55% share of the 1394g claimed pair weight, not a page-stated split.' },
-  { id: 'fw-shimano-rs710-c46', cat: 'frontwheel', brand: 'Shimano', model: '105 WH-RS710-C46-TL', family: 'shimano-rs710',
+    weight: 759, price: 800,
+    verified: true, lastChecked: '2026-07-20', source: 'https://productinfo.shimano.com/en/product/WH-RX880-TL-R12-700C',
+    note: 'road-7 wave: productinfo.shimano.com spec table (WH-RX880-TL-R12-700C) confirms the rear hub is dual-driver convertible — "Spline type MICRO SPLINE ✔" AND "HG spline L2 (ROAD 12-speed dedicated) ✔" both checked, with per-driver weights listed separately: "762 (HG-spline L2) / 759 (MICRO SPLINE)". This row models the MICRO SPLINE build (759g, closing the file\'s GRX 1x12 gap per the road-5 rationale — cs-shimano-grx-m8100-* cassettes), replacing the previous estimated-split 767g. "Thru axle 142 x 12 ✔" confirmed. See front-wheel note for the model-name correction (WH-RX880-TL, not "GRX WH-RX880").' },
+  { id: 'fw-shimano-rs710-c46', cat: 'frontwheel', brand: 'Shimano', model: 'WH-RS710-C46-TL', family: 'shimano-rs710',
     wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 32,
     weight: 719, price: 625,
-    note: 'road-5 gap-fill: entry/mid-tier (105-tier) carbon disc wheelset — before this pass the file\'s only hg-road wheel was an aero-tier DT Swiss pair, leaving 105/Ultegra/Tiagra 2x builds with almost no wheel choice. Specs (46mm rim height, 21mm internal width, 25-32mm tire range, 719g front / 893g rear / 1612g set, $625 MSRP) are retailer-sourced (BikeRadar review + Jenson USA/Universal Cycles listings), not a fetched shimano.com model page, so left unverified rather than marked verified.' },
-  { id: 'rw-shimano-rs710-c46', cat: 'rearwheel', brand: 'Shimano', model: '105 WH-RS710-C46-TL', family: 'shimano-rs710',
+    verified: true, lastChecked: '2026-07-20', source: 'https://productinfo.shimano.com/en/product/WH-RS710-C46-TL-F',
+    note: 'road-7 wave: productinfo.shimano.com spec table (WH-RS710-C46-TL-F, "Model name WH-RS710") confirms "Internal width (mm) 21", "Recommended size 25-622 - 32-622" (maxTire:32), "Thru axle 100 x 12 ✔", "Disc mount CENTER LOCK ✔". "Average weight (g) (w/o quick release, rim tape, tubeless tape, valve stem, lock ring) 719" matches the road-5 gap-fill retailer figure exactly, now upgraded to a fetched maker page. Model corrected to drop the retailer "105" prefix (the page\'s own "Series" field reads "SHIMANO", not "105" — WH-RS710 is a Shimano-branded wheel, not badged under the 105 groupset name).' },
+  { id: 'rw-shimano-rs710-c46', cat: 'rearwheel', brand: 'Shimano', model: 'WH-RS710-C46-TL', family: 'shimano-rs710',
     wheel: '700c', hub: '12x142', freehub: 'hg-road', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 32,
     weight: 893, price: 625,
-    note: 'road-5 gap-fill: see front-wheel note (fw-shimano-rs710-c46) for full sourcing — this is the hg-road-driver rear half of the same pair (compatible with 11- and 12-speed Shimano road cassettes: Ultegra R8100, 105 R7100, Tiagra 4700, GRX 2x RX810/RX600 in this file), closing the entry/mid-tier wheel gap.' },
+    verified: true, lastChecked: '2026-07-20', source: 'https://productinfo.shimano.com/en/product/WH-RS710-C46-TL-R',
+    note: 'road-7 wave: productinfo.shimano.com spec table (WH-RS710-C46-TL-R) confirms "HG spline L (ROAD 12/11-speed) ✔" (this file\'s hg-road freehub token), "Thru axle 142 x 12 ✔", "Rear speeds 12/11" (compatible with both this file\'s 11- and 12-speed hg-road cassettes: Ultegra R8100, 105 R7100, Tiagra 4700, GRX RX810/RX600). "Average weight (g) ... 893" matches the road-5 sample exactly. See front-wheel note for the model-name correction.' },
   { id: 'fw-campagnolo-zonda-c17-disc', cat: 'frontwheel', brand: 'Campagnolo', model: 'Zonda C17 Disc', family: 'campagnolo-zonda-c17',
     wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 17, maxTire: 32,
     weight: 754, price: 550,
@@ -305,7 +313,8 @@ var ROAD_PARTS = [
   // ===== DRIVETRAIN — SRAM RED AXS (2x12, wireless) ========================
   { id: 'sh-sram-red-axs', cat: 'shifter', brand: 'SRAM', model: 'RED AXS Shifter/Brake Lever (pair)', family: 'sram-red-axs',
     system: 'sram-axs-road', speeds: 12, actuation: 'axs-wireless', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
-    weight: 370, price: 1250 },
+    weight: 370, price: 1250,
+    note: 'road-7 wave: fetched sram.com/en/sram/models/ed-red-e1 (the RED AXS HRD Shift-Brake System page) — confirms "LEVER ORIENTATION Left, Right", "DEFAULT FUNCTION AXS - Front Derailleur, AXS - Rear Derailleur" (frontShift:true, axs-wireless), "BRAKE ORIENTATION Front, Rear" (hydraulic disc, matching brakeSystem). Same wall as the road-5 Rival/Apex rows: the only published weight (1378g) and price ($745 MSRP) cover the BUNDLED lever+caliper system, not this row\'s lever-only split, so left unverified rather than guess a per-part share. Also flagging a pre-existing pricing oddity for a future pass: this row\'s $1250 + br-sram-red-axs\'s $400 sums to $1650, well above SRAM\'s $745 bundle MSRP — both are unsourced samples, not something this wave invented, but worth a look.' },
   { id: 'rd-sram-red-axs', cat: 'rearderailleur', brand: 'SRAM', model: 'RED AXS Rear Derailleur', family: 'sram-red-axs',
     system: 'sram-axs-road', speeds: 12, actuation: 'axs-wireless', maxCog: 36, cage: 'medium', mount: 'std-hanger',
     price: 770,
@@ -561,7 +570,8 @@ var ROAD_PARTS = [
   { id: 'cs-shimano-ultegra-r8100-1130', cat: 'cassette', brand: 'Shimano', model: 'Ultegra CS-R8101-12 11-30', family: 'shimano-r8100',
     system: 'shimano-road-12', speeds: 12, freehub: 'hg-road', minCog: 11, maxCog: 30,
     weight: 291, price: 130,
-    note: 'road-6 wave: LEFT UNVERIFIED — a real conflict surfaced this pass. productinfo.shimano.com\'s spec table for CS-R8101-12 (the current SKU string, superseding "CS-R8100" — https://productinfo.shimano.com/en/product/CS-R8101-12, combination 11-30T/11-34T confirmed, 361g measured on the 105-tier sibling page) marks "HG spline L2 (ROAD 12-speed dedicated)" CHECKED for this cassette, same as the undisputed Dura-Ace CS-R9200-12 row above and productinfo\'s own C-731 freehub/cassette-spline compatibility chart ("HG spline L2: for 12-speed ROAD cassettes" generally, not Dura-Ace-only). This directly conflicts with THIS FILE\'s existing dropbar-cleanup-1 correction (see the trailing comment near EOF) which set this row\'s freehub to \'hg-road\' on the strength of a bike.shimano.com "Features of MICRO SPLINE, HG L2 and HG Freehubs" article quote ("HG L2 freehub is only compatible with Dura-Ace 12-speed road cassettes"). Both are Shimano-owned pages saying opposite things. Per the task brief\'s explicit instruction not to re-introduce hg-l2 here, this row is left AS-IS (freehub unchanged, NOT marked verified) rather than resolved unilaterally — this is a real compatibility-correctness question (wrong either way risks a false "fits"/"won\'t fit"), escalated to Douglas rather than routed around. Model string corrected from the retired "CS-R8100" to the current "CS-R8101-12" SKU (both real; -12 is Shimano\'s running revision suffix, confirmed via the bike.shimano.com CS-R8101-12 product page).' },
+    verified: true, lastChecked: '2026-07-20', source: 'https://productinfo.shimano.com/en/product/CS-R8101-12',
+    note: 'road-7 wave: the road-6 wave\'s freehub conflict (hg-l2 vs hg-road, full writeup was here) is now RESOLVED at the engine level — C-731\'s compatibility chart (fetched verbatim 2026-07-20) confirmed HG spline L2 accepts the whole ROAD-12 cassette class (not Dura-Ace-only), and compat-road.js\'s rg-freehub rule now silently fits a road-12 cassette on either hg-road or hg-l2 regardless of which token the row carries (see src/compat-road.js "HG-L2 DUAL-BODY FIT" comment, PROJECT-LOG.md 2026-07-20). That clears the blocker — re-fetched productinfo.shimano.com/en/product/CS-R8101-12 fresh this wave and confirmed "Combination name (Group name) 11-30T, 11-34T" (11-30T real) and "Average weight (g) 291 (11-30T)" — exact match to this row\'s existing 291g. Now marked verified. Model string (CS-R8101-12) unchanged from the road-6 correction.' },
   { id: 'ch-shimano-ultegra-r8100', cat: 'chain', brand: 'Shimano', model: 'Ultegra CN-M8100 12s', family: 'shimano-r8100',
     system: 'hg', speeds: 12,
     weight: 252, price: 40,
@@ -592,7 +602,7 @@ var ROAD_PARTS = [
   { id: 'cs-shimano-105-r7100-1136', cat: 'cassette', brand: 'Shimano', model: '105 CS-R7101-12 11-36', family: 'shimano-r7100',
     system: 'shimano-road-12', speeds: 12, freehub: 'hg-road', minCog: 11, maxCog: 36,
     weight: 361, price: 90,
-    note: 'road-6 wave: LEFT UNVERIFIED — same freehub conflict as cs-shimano-ultegra-r8100-1130 above (see that row\'s note for the full writeup). productinfo.shimano.com\'s CS-R7101-12 spec page (https://productinfo.shimano.com/en/product/CS-R7101-12) confirms "Combination name (Group name) 11-34T" and lists an 11-34T teeth breakdown, NOT 11-36 — this catalog row\'s "11-36" combo does not appear on that page at all (11-36 may be a different/older SKU or a data error; not resolved this pass, flagged alongside the freehub conflict). Also marks "HG spline L2 (ROAD 12-speed dedicated)" CHECKED, conflicting with this row\'s current hg-road freehub (kept unchanged per the same escalate-don\'t-override reasoning). Model string corrected from retired "CS-R7100" to current "CS-R7101-12" SKU naming (both real). Weight 361g is the page\'s stated figure for the 11-34T config (was a 357g sample) — used as an informative update even though the row stays unverified, since the SKU/weight correspondence is itself uncertain pending the range mismatch above.' },
+    note: 'road-6 wave: LEFT UNVERIFIED — see original writeup below (freehub conflict + range mismatch). road-7 wave (2026-07-20) re-fetched productinfo.shimano.com/en/product/CS-R7101-12 fresh: STILL confirms only "Combination name (Group name) 11-34T" — no 11-36T combination exists for CS-R7101-12. The freehub half of the original conflict is now resolved at the engine level (see cs-shimano-ultegra-r8100-1130\'s note / PROJECT-LOG.md 2026-07-20 C-731 dual-body fix — compat-road.js\'s rg-freehub rule now silently fits road-12 cassettes on either hg-road or hg-l2), but the maxCog:36-vs-page\'s-11-34T range mismatch is UNCHANGED and STILL BLOCKS verification: correcting maxCog 36→34 would flip test/test-road-engine.js\'s "rg-rd-capacity errors a cassette over the RD max cog" case (lines ~182-186, which pins "36T over a 34T-max short cage" and "36T within a 36T max" against this exact row) — test-road-engine.js is outside this wave\'s data/road.js-only scope, so this is escalated rather than fixed unilaterally. Model string corrected from retired "CS-R7100" to current "CS-R7101-12" SKU naming (both real). Weight 361g is the page\'s stated figure for the 11-34T config (was a 357g sample) — used as an informative update even though the row stays unverified, since the SKU/weight correspondence is itself uncertain pending the range mismatch above.' },
   { id: 'ch-shimano-105-r7100', cat: 'chain', brand: 'Shimano', model: '105 CN-M7100 12s', family: 'shimano-r7100',
     system: 'hg', speeds: 12,
     weight: 252, price: 30,
@@ -763,16 +773,19 @@ var ROAD_PARTS = [
   // fabricated) rather than claiming a manufacturer fetch that didn't happen.
   { id: 'sh-shimano-grx-rx810-2x', cat: 'shifter', brand: 'Shimano', model: 'GRX ST-RX810 Shift/Brake Lever (pair, 2x)', family: 'shimano-grx-rx810',
     system: 'shimano-grx-11', speeds: 11, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
-    weight: 800, price: 280,
-    note: 'road-5 wave: BikeRadar GRX review/launch coverage describes ST-RX810 as the 11-speed dual-control lever with integrated hydraulic brake. Not independently fetched this pass — unverified sample.' },
+    weight: 570, price: 280,
+    verified: true, lastChecked: '2026-07-20', source: 'https://productinfo.shimano.com/en/product/ST-RX810-R',
+    note: 'road-7 wave: productinfo.shimano.com spec tables for both halves confirm the pairing — ST-RX810-R: "Rear speeds 11", "Oil SHIMANO Mineral" (disc-hydraulic), average weight 286g; ST-RX810-L: "Front speeds 2" (frontShift:true), "Recommended brake caliper BR-RX810, BR-RX820", average weight 284g. Pair weight (570g) is the page-stated L+R sum, replacing the 800g unsourced sample. Price ($280) unsourced.' },
   { id: 'sh-shimano-grx-rx600-2x', cat: 'shifter', brand: 'Shimano', model: 'GRX ST-RX600 Shift/Brake Lever (pair, 2x)', family: 'shimano-grx-rx600',
     system: 'shimano-grx-11', speeds: 11, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
-    weight: 850, price: 180,
-    note: 'road-5 wave: same source/caveat as ST-RX810 — the budget-tier 11-speed sibling; productinfo.shimano.com C-454 corroborates "ST-RX600: 2x11-speed" (fetched, cited on the RX820-tier rows above). Unverified sample (weight/price).' },
+    weight: 613, price: 180,
+    verified: true, lastChecked: '2026-07-20', source: 'https://productinfo.shimano.com/en/product/ST-RX600-R',
+    note: 'road-7 wave: productinfo.shimano.com spec tables for both halves: ST-RX600-R: "Rear speeds 11", "Oil SHIMANO Mineral" (disc-hydraulic), average weight 307g; ST-RX600-L: "Front speeds 2" (frontShift:true), average weight 306g — the budget-tier 11-speed sibling of ST-RX810 (also corroborated by productinfo.shimano.com C-454\'s "ST-RX600: 2x11-speed", already cited on the RX820-tier rows). Pair weight (613g) is the page-stated L+R sum, replacing the 850g unsourced sample. Price ($180) unsourced.' },
   { id: 'rd-shimano-grx-rx810', cat: 'rearderailleur', brand: 'Shimano', model: 'GRX RD-RX810 (2x11)', family: 'shimano-grx-rx810',
     system: 'shimano-grx-11', speeds: 11, actuation: 'mechanical', maxCog: 34, cage: 'medium', mount: 'std-hanger',
-    weight: 290, price: 100,
-    note: 'road-5 wave: BikeRadar: "The RD-RX810 rear derailleur has a medium cage designed for road-style cassettes up to 34 teeth" — real product, not independently fetched this pass. Unverified sample.' },
+    weight: 255, price: 100,
+    verified: true, lastChecked: '2026-07-20', source: 'https://productinfo.shimano.com/en/product/RD-RX810',
+    note: 'road-7 wave: productinfo.shimano.com spec table confirms "Rear speeds 11", "Low sprocket Max. 34T" (maxCog:34, matching the road-5 BikeRadar figure), "SHIMANO ROAD type: Direct attachment (conventional) ✔" (std-hanger). Average weight 255g replaces the 290g sample. cage:\'medium\' is this file\'s convention for the SHADOW RD+ single-cage GRX 11-speed mech (page does not itemize a cage-length field, only construction "SHIMANO SHADOW RD+ ✔").' },
   { id: 'cs-shimano-grx-hg800-1134', cat: 'cassette', brand: 'Shimano', model: 'CS-HG800-11 11-34T', family: 'shimano-grx-cs-hg800',
     system: 'shimano-grx-11', speeds: 11, freehub: 'hg-road', minCog: 11, maxCog: 34,
     weight: 335, price: 70,
@@ -781,7 +794,8 @@ var ROAD_PARTS = [
   { id: 'ch-shimano-grx-hg701', cat: 'chain', brand: 'Shimano', model: 'CN-HG701-11 Chain', family: 'shimano-grx-cn-hg701',
     system: 'hg', speeds: 11,
     weight: 257, price: 30,
-    note: 'road-5 wave: BikeRadar: "Ultegra CN-HG701-11 Chain with Quick Link Chain Connector" — the 11-speed HG chain paired with GRX RX810/RX600 (shared with Ultegra 11sp, matching this file\'s convention of tagging shared HG chains system:\'hg\'). Unverified sample.' },
+    verified: true, lastChecked: '2026-07-20', source: 'https://productinfo.shimano.com/en/product/CN-HG701-11',
+    note: 'road-7 wave: productinfo.shimano.com spec table confirms "Type LINKGLIDE, HG 11-speed" and "Average weight (g) (114 links) 257" — exact match to the existing 257g sample, now upgraded from the road-5 BikeRadar citation to a fetched maker page. The 11-speed HG chain paired with GRX RX810/RX600 (shared with Ultegra 11sp, matching this file\'s convention of tagging shared HG chains system:\'hg\'). Price ($30) unsourced.' },
   { id: 'cr-shimano-grx-rx810-2x', cat: 'crankset', brand: 'Shimano', model: 'GRX FC-RX810-2 Crankset', family: 'shimano-grx-rx810',
     bb: '24mm-road', chainrings: '2x', ring: '48/31', ringStd: 'standard-12', speeds: 11, chainline: 47,
     weight: 710, price: 220,
@@ -837,7 +851,8 @@ var ROAD_PARTS = [
     note: 'road-6 wave: CORRECTION — this row was previously labeled "(BSA Road)" with shell:\'bsa-road\' (threaded), but productinfo.shimano.com\'s spec table for SM-BB72-41B shows "HOLLOWTECH II bottom bracket: Threaded bottom bracket type -" (unchecked) / "Press-Fit type ✔" / "Press-Fit bottom bracket shell width (mm) 86.5 ✔" — this is a Press-Fit 86.5mm shell BB, not threaded BSA. Corrected shell to \'pf86\' (ROAD_VOCAB\'s "Shimano-style press-fit road shell, 86.5mm wide" token, per schema-road.js\'s own description — an exact match) and the model label to match. This also matches the "Recommended bottom bracket: Press-Fit SM-BB72(-41B)" line on the FC-R8100/FC-R7100/FC-RX810-2 crankset pages fetched elsewhere in this wave. A rule-11 exact-match error check (bb.shell vs frame.bb) means the old mislabeling would have wrongly greenlit BSA-threaded frames and wrongly reddened the file\'s two pf86 frames — a real false-fit/false-conflict risk this correction fixes. Average weight 69g (was a 90g sample).' },
   { id: 'bb-praxis-t47-road', cat: 'bb', brand: 'Praxis', model: 'T47 Road BB', family: 'praxis-t47-road',
     shell: 't47-road', spindle: 'dub',
-    weight: 95, price: 70 },
+    weight: 95, price: 70,
+    note: 'road-7 wave: WebSearch of praxiscycles.com\'s bottom-bracket line (Shimano T47 E.B./I.B., M30-THRU T47 for Praxis Doon/Lyft/SRAM-30mm/RaceFace-Cinch/Rotor/CaneCreek cranks) found no Praxis T47-for-DUB-spindle product — the real "T47 DUB Bottom Bracket" (BB-DUB-T47-A1) fetchable at sram.com/en/sram/models/bb-dub-t47-a1 is a SRAM part, not Praxis. This row may be a brand-attribution error (a real T47-road/DUB BB exists, just not under this brand) rather than a fabricated part. Not corrected this pass — a brand change is a bigger identity edit than a routine spec fix and deserves its own scoped look rather than a rushed fix inside a verification-tail wave; flagged for the coordinator instead of guessed.' },
   { id: 'bb-sram-dub-bb86', cat: 'bb', brand: 'SRAM', model: 'DUB PressFit BB86', family: 'sram-dub-bb86',
     shell: 'bb86', spindle: 'dub',
     price: 50,
@@ -879,6 +894,29 @@ var ROAD_PARTS = [
   // ===== DRIVETRAIN — Shimano Tiagra 4700 (2x10, mechanical) ===============
   // Rounds out the tier ladder below 105 per the road-2 brief. Tiagra 4700 is
   // mechanical-only (no Di2 variant exists), disc-brake capable (ST-4720).
+  // road-7 wave (2026-07-20) AUDITED the system:'shimano-road-11' token on all
+  // three geared parts below against speeds:10 — re-fetched ST-4720-R live via
+  // browser pane (productinfo.shimano.com confirms "Series TIAGRA" /
+  // "Rear speeds 10", independently reconfirming the road-6 note). VERDICT:
+  // no field changes. `systemRoad` (src/schema-road.js, ROAD-MODEL.md §4) has
+  // ONLY 'shimano-road-12'/'shimano-road-11' for Shimano mechanical road — the
+  // "-11" is a leftover of that token meaning 11-speed 105/Ultegra/DA, and
+  // Tiagra 4700 is a genuine 10-speed family with no vocab slot of its own.
+  // Two options were weighed: (a) leave 'shimano-road-11' — cosmetically odd,
+  // but functionally safe: R13's independent speed-count check (rg-drivetrain-
+  // speeds) already reds out any cross-pairing with a real 11-speed part on
+  // speeds alone, so no false "fits" verdict is possible; R15's chain-standard
+  // check also still correctly fires (ROAD_SYSTEM_CHAIN['shimano-road-11'] =
+  // 'hg', which matches ch-shimano-tiagra4700's own 'hg' chain). (b) switch to
+  // the generic 'hg' token (already schema-legal, reused by the chain's own
+  // `system` field) — but ROAD_SYSTEM_CHAIN has no 'hg' key, so this would
+  // silently DROP the correctly-firing R15 check for zero gain in false-
+  // positive prevention. (a) is strictly safer, so system/speeds are left
+  // UNCHANGED on all three rows. OPEN QUESTION for the coordinator: add a
+  // real 'shimano-road-10' token to systemRoad (schema-road.js LOCAL_VOCAB +
+  // compat-road.js VOCAB + ROAD_SYSTEM_CHAIN) as a follow-up label-accuracy
+  // pass? Not done here per the road-7 brief's "don't invent new vocab"
+  // instruction — flagged instead of guessed.
   { id: 'sh-shimano-tiagra4700', cat: 'shifter', brand: 'Shimano', model: 'Tiagra ST-4720 (pair)', family: 'shimano-tiagra4700',
     system: 'shimano-road-11', speeds: 10, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
     weight: 620, price: 220,
