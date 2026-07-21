@@ -84,14 +84,16 @@ var EMTB_PARTS = [
     verified: true, lastChecked: '2026-07-20', source: 'https://www.commencal.com/us/en/BT3MSXPWE4L.html'
   },
   {
-    id: 'em-orbea-wild', cat: 'emtb', brand: 'Orbea', model: 'Wild H10',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
-    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    id: 'em-orbea-wild', cat: 'emtb', brand: 'Orbea', model: 'Wild LT H10',
+    family: 'orbea-wild-lt', modelYear: 2026,
+    motorBrand: 'avinox', motorModel: 'Avinox M2S', motorTorque: 130, motorPowerPeak: 1500,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 170,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail', 'e-enduro'], weight: 22500, price: 6999,
-    note: 'Bosch Gen 5 CX-powered 29er full-power enduro bike (170mm travel); the alloy "Hydro" tier — Wild is now offered in both carbon and alloy chassis.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Gen/travel/frame corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, alloy H10 tier, 170mm travel not 160/150).'
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore/XT mix (M6200/M8200)', brakes: 'Shimano MT620',
+    disciplines: ['e-trail', 'e-enduro'], weight: 22500, price: 7717,
+    note: 'Orbea replaced the whole Wild line with "Wild LT" and switched off Bosch entirely onto the new Avinox M2S motor (130Nm continuous / up to 150Nm boost, 1500W boost peak) — the plain "Wild H10" name and Bosch Gen 5 CX spec no longer exist on orbea.com; H10 is the entry alloy ("Hydro") trim. Fork/shock: Fox 38 Float Performance 170 / Fox Float X Performance trunnion 205x65mm.',
+    desc: "Verified vs the maker's own product-configurator page (motor/battery/travel/frame/drivetrain/brakes/price all confirmed; MSRP $7,717 matches exactly). Model/motor platform corrected wave 4 cluster C — this is a full generation switch, not a spec tweak: motorBrand bosch->avinox, motorModel/torque/power all replaced (Avinox M2S 130/150Nm, 1500W peak vs the prior Bosch CX 85Nm/750W), batteryWh 750->800, drivetrain Shimano XT-only -> the real mixed Deore/XT build, brakes Shimano XT 4-piston -> the real Shimano MT620, price $6,999 sample -> the confirmed $7,717 MSRP. REQUIRES a new motorBrand vocab value: added 'avinox' to EMTB_VOCAB in src/schema-emtb.js (flagged in the wave report — Avinox is a real, newly-launched e-MTB motor maker, not a fabricated value, confirmed via its own 2026-04-09 press release and independent lab tests).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.orbea.com/en-us/wild-lt-h10-20mph'
   },
   {
     id: 'em-canyon-spectral-on', cat: 'emtb', brand: 'Canyon', model: 'Spectral:ON',
@@ -286,34 +288,40 @@ var EMTB_PARTS = [
   // Orbea depth (Wild + Rise lightweight line)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-orbea-wild-m-team', cat: 'emtb', brand: 'Orbea', model: 'Wild M-Team',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
-    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    id: 'em-orbea-wild-m-team', cat: 'emtb', brand: 'Orbea', model: 'Wild LT M-TEAM RS',
+    family: 'orbea-wild-lt', gen: '2027', modelYear: 2027,
+    motorBrand: 'avinox', motorModel: 'Avinox M2S', motorTorque: 130, motorPowerPeak: 1500,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 170,
-    frameMaterial: 'carbon', drivetrain: 'Shimano XT Di2', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail', 'e-enduro'], weight: 21800, price: 9999,
-    note: 'Top-tier configurable carbon Wild build (M-Team); real current spec is Shimano XT Di2 with an optional Bosch CX-R motor upgrade, not a SRAM XX SL drivetrain.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Gen/drivetrain/travel corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, Shimano XT Di2 not SRAM XX SL, 170mm travel not 160/150, price matched to current M-Team MSRP).'
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: 21800, price: 11024,
+    note: 'Top-tier configurable carbon Wild build; Orbea replaced the whole Wild line with "Wild LT" and switched off Bosch entirely onto the Avinox M2S motor (130Nm continuous / up to 150Nm boost, 1500W peak) — the "Wild M-Team" name and Shimano XT Di2/Bosch spec no longer exist on orbea.com. Frame is the new "Orbea Wild OMR 2027" carbon layup; Fox 38 Float Factory 170 / Fox Float X2 Factory trunnion 205x65mm.',
+    desc: "Verified vs the maker's own product-configurator page (motor/battery/travel/frame/drivetrain/brakes/price all confirmed; MSRP $11,024 matches exactly). Model/motor platform corrected wave 4 cluster C — a full generation switch: motorBrand bosch->avinox, motorModel/torque/power replaced (Avinox M2S vs Bosch CX 85Nm/750W), batteryWh 750->800, drivetrain Shimano XT Di2 -> the real SRAM GX Eagle AXS build, brakes Shimano XT 4-piston -> SRAM Maven Silver, price $9,999 sample -> the confirmed $11,024 MSRP. Uses the same new 'avinox' motorBrand vocab value added to src/schema-emtb.js this wave (see em-orbea-wild's desc / the wave report).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.orbea.com/en-us/wild-lt-m-team-rs-20mph'
   },
   {
-    id: 'em-orbea-rise-m-team', cat: 'emtb', brand: 'Orbea', model: 'Rise M-Team',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8 RS', motorTorque: 60,
-    batteryWh: 360, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-trail'], weight: 17800, price: 11500,
-    note: 'Lightweight-class Orbea; custom-tuned Shimano EP8 RS motor, top-tier build.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-orbea-rise-m-team', cat: 'emtb', brand: 'Orbea', model: 'Rise SL M-LTD',
+    family: 'orbea-rise-sl', modelYear: 2026,
+    motorBrand: 'shimano', motorModel: 'Shimano EP801 RS Gen2 MC', motorTorque: 60,
+    batteryWh: 420, batteryRemovable: false, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XTR Di2', brakes: 'Shimano XTR 9220',
+    disciplines: ['e-trail'], weight: 17800, price: 11549,
+    note: 'Lightweight-class Orbea; the "Rise M-Team" trim name was retired — the current top-tier Rise SL build is called "Rise SL M-LTD" (Orbea\'s "Rise" family is now split into "Rise SL"/"Rise LT" sub-lines). Motor delivers 60Nm in its default RS mode, switchable to an 85Nm RS+ mode via the RS Control System (same integrated unit also drives the display + electronic dropper off the main battery, so no separate top-tube display). Frame: Orbea Rise SL OMR 2025 carbon, 140mm travel both ends (not 150/140).',
+    desc: "Verified vs the maker's own product-configurator page (motor/battery/travel/frame/drivetrain/brakes/price all confirmed; MSRP $11,548.95 rounds to the catalog's $11,549). Model/spec corrected wave 4 cluster C: model 'Rise M-Team' -> 'Rise SL M-LTD' (the real current top trim name); motorModel 'Shimano EP8 RS' -> 'Shimano EP801 RS Gen2 MC'; batteryWh 360 -> 420; batteryRemovable true -> false (Orbea brands this pack 'Internal', non-user-removable, unlike the Wild's swappable PowerTube-style packs); rangeExtender true -> removed (the maker page states 'Range Extender: N/A' for this exact build); travelFront 150 -> 140; drivetrain 'SRAM XX SL Eagle Transmission' -> the real Shimano XTR Di2 electronic build (no SRAM parts on this bike at all); brakes 'SRAM Code Ultimate' -> Shimano XTR 9220. motorTorque kept at 60 (the maker page confirms Rise ships in its default RS/60Nm mode; an RS+/85Nm boost mode exists but is a Nm figure, not Watts, so it is described here rather than stuffed into the Watts-typed motorPowerPeak field — Shimano does not publish a peak-Watts number for this unit).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.orbea.com/en-us/rise-sl-m-ltd-20mph'
   },
   {
-    id: 'em-orbea-rise-h30', cat: 'emtb', brand: 'Orbea', model: 'Rise H30',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8 RS', motorTorque: 60,
-    batteryWh: 360, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-trail'], weight: 19500, price: 5800,
-    note: 'Entry alloy Rise trim; same lightweight EP8 RS motor as the carbon range.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-orbea-rise-h30', cat: 'emtb', brand: 'Orbea', model: 'Rise SL H30',
+    family: 'orbea-rise-sl', modelYear: 2026,
+    motorBrand: 'shimano', motorModel: 'Shimano EP600 RS Gen2 MC', motorTorque: 60,
+    batteryWh: 540, batteryRemovable: false, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 140,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT201',
+    disciplines: ['e-trail'], weight: 19500, price: 5039,
+    note: 'Entry alloy Rise trim; the current full name is "Rise SL H30" (Orbea\'s "Rise" family is now split into "Rise SL"/"Rise LT" sub-lines). Frame: Orbea Rise SL Hydro 2025 aluminum, 140mm travel both ends (not 150/140); Shimano EP600 RS Gen2 MC motor (not the carbon range\'s EP801 RS), same RS Control System integration.',
+    desc: "Verified vs the maker's own product-configurator page (motor/battery/travel/frame/drivetrain/brakes/price all confirmed; MSRP $5,038.95 rounds to the catalog's $5,039). Model/spec corrected wave 4 cluster C: model 'Rise H30' -> 'Rise SL H30'; motorModel 'Shimano EP8 RS' -> 'Shimano EP600 RS Gen2 MC' (the H30 uses the lower-tier EP600 unit, not the same EP801 as the carbon M-team); batteryWh 360 -> 540; batteryRemovable true -> false ('Internal' branded, non-user-removable); rangeExtender true -> removed (page states 'Range Extender: N/A'); travelFront 150 -> 140; brakes 'Shimano MT420' -> the real Shimano MT201.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.orbea.com/en-us/rise-sl-h30-20mph'
   },
 
   // ---------------------------------------------------------------------------
