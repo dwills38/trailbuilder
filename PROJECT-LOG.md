@@ -3559,3 +3559,18 @@ auto-merges); full gates + verdict harness green throughout.
   with captured source URLs — the vocab blocker is gone, the provenance bar still applies.
 - Gates green at `3ef3e21`.
 
+
+## 2026-07-21 (seat 16) — SJ15 EVO seat-tube audit merged (frame row was wrong)
+
+- **verify/sj15evo-seattube** merged: the cb-sheets-7 flag resolved decisively — the frame row
+  (fr-specialized-stumpjumper-15-evo-carbon) carried a WRONG 30.9mm seatTube (traced to a
+  vitalmtb cross-check); three direct specialized.com build sheets unanimously state 34.9mm
+  droppers, the frameset page prints no seat-tube diameter at all (only the 38.6mm binder —
+  a different spec), and the alloy sibling already carried 34.9. Frame corrected 30.9→34.9;
+  the 3 flagged complete-bike dropper fills moved to their real 34.9mm SKUs (all already
+  cataloged, no new rows). Error-tier change in the false-fits direction, so per doctrine the
+  coordinator re-fetched the EVO Pro page independently before merging — "Bike Yoke, Revive
+  Max 3.0, 34.9" verbatim confirmed. The old value was itself a live false-WON'T-FIT (real
+  34.9 droppers errored on this frame) — both directions now truthful.
+- Gates green (validate 0 problems / 931 tests / tsc clean / harness clean) at merge.
+
