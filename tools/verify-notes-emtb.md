@@ -292,6 +292,67 @@ All 19 same-brand-wrong-gen rows + both Haibike Unclear rows are cleared, and th
 wave 2 phase 1 had marked "Current"/"Current-likely" (Cube Stereo Hybrid ONE55 SL, Whyte
 E-180 RS) got a closer look in **phase 2b** anyway and both turned out to need real fixes:
 
+## Wave 5 (2026-07-21) — re-test pass on the 26 rows left unverified after wave 4
+
+Wave 4 (merged `24dbbbe`, "deep verify 2->66 of 92") took the verified count from 2 to 66;
+this wave's scope was the remaining 26 unverified rows, most carrying wave 4's own
+"no maker-stated weight" / "no fetchable live page" notes. Re-tested each once via WebFetch
+first (per protocol), with one browser-pane follow-up (Norco):
+
+- `em-santa-cruz-bullit` / `-xx` — santacruzbicycles.com/bullit fetched cleanly (static
+  content, no browser pane needed) and confirms rear travel 170mm, MX (mullet) wheels,
+  Bosch motor, 600Wh battery — but **no weight anywhere on the page**, and the current
+  build lineup is Bullit 70 / 90 / GX AXS / X0 AXS RSV / XT Di2 RSV — no "XX AXS" trim
+  exists. The catalog's "Bullit XX AXS" doesn't match a real current SKU name (flagged for
+  a future data-entry correction, out of this wave's re-verify-only scope). Stays
+  unverified; note added.
+- `em-cannondale-moterra-sl-1` — cannondale.com/moterra-sl-1 404s (region-gated), the
+  Moterra SL landing page loads but the spec table is JS-rendered and returned empty
+  content to WebFetch. Not escalated to browser pane this pass (time-boxed re-test, one
+  attempt per protocol). Stays unverified, same finding as wave 4.
+- `em-haibike-allmtn-9` (aka "AllMtn 3" per wave 4's rename), `em-haibike-nduro-8` —
+  haibike.com/en/bikes/allmtn/allmtn-3 404s (URL guess wrong, Haibike's site structure
+  doesn't expose a guessable per-model path). Stays unverified per wave 4's own note (no
+  maker-stated bike weight found in that wave either).
+- `em-cube-stereo-hybrid-one55-sl` — cube.eu category URL 404s (Cube's real product URLs
+  aren't predictable slugs). Stays unverified.
+- `em-propain-ekano-mix-line` / `-highend-line` — propainbikes.com/en/ekano loads but is a
+  client-side "Loading..." shell to WebFetch; no spec data retrievable without JS
+  rendering. Stays unverified.
+- `em-pivot-shuttle-am` — pivotcycles.com/bikes/shuttle-am fetched cleanly: confirms Bosch
+  Performance Line CX & CX-R (Gen 5), 800Wh battery (+ optional 250Wh PowerMore extender),
+  120Nm/750W — but the page has no weight figure. Motor/battery specs match the catalog
+  row already; stays unverified for weight only (a weight-only gap, same bar as the
+  Shimano/rotor policy — no third-party measured weight sourced this pass either).
+- `em-norco-sight-vlt-a1` / `-c1` — norco.com/bikes/sight-vlt/ 404s to WebFetch; escalated
+  to browser pane (norco.com/bikes/2026/sight-vlt/, guessed path) which also 404'd. Norco's
+  real current URL wasn't found this pass. Stays unverified.
+- `em-scott-genius-eride-910`, `em-scott-genius-eride-910-bosch-cx-gen4` — scott-sports.com
+  product URL 404s (Scott's product URLs carry a numeric SKU id, not a guessable slug).
+  Stays unverified.
+- `em-marin-alpine-trail-e2`, `-e1`, `-e2-2026`, `-e1-2026` — marinbikes.com/us/alpine-trail-e2
+  404s. Stays unverified per wave 4's own "spec sourced from a [secondary source]" note.
+- `em-vitus-e-sommet-27` / `-29` — vitusbikes.com category URL 429 rate-limited, not
+  retried this pass (protocol is one attempt). Stays unverified.
+- `em-kona-remote-160`, `em-kona-remote-150` (aka "Remote X") — konaworld.com product URL
+  404s (Kona's current URL slugs differ from the guess). Stays unverified per wave 4's own
+  note that Kona does not publish bike weight.
+- `em-devinci-e-troy-29` / `-carbon` — devinci.com/en/bikes/mountain/e-troy 404s. Stays
+  unverified.
+- `em-nukeproof-megawatt-297-comp` / `-elite` / `-carbon-rs` — nukeproof.com/bikes/megawatt-297/
+  404s. The Carbon RS row's wave-4 note already says "not fetchable as a live current maker
+  [page]" — consistent finding this pass, no change.
+
+**Net this wave: 0 of the 26 promoted to `verified:true`.** Every row's wave 4 finding
+(no maker-published weight, or no fetchable live product page under a guessed URL) was
+independently re-confirmed via a fresh fetch attempt rather than just carried forward
+unchecked. No catalog data changed — this was a re-test-only pass per the assignment scope,
+not a data-entry pass (the Bullit XX-AXS trim-name mismatch is flagged above for a future
+correction pass, not fixed here). Gates: `node validate.js` and `npm test` both still pass
+unchanged (no catalog edits). Remaining queue for a future wave: proper per-brand URL
+discovery (via WebSearch/Exa, not guessed paths) before another weight-fetch attempt, plus
+the flagged Bullit trim-name correction.
+
 ## Wave 3 phase 2b (2026-07-20) — the 2 "Current"/"Current-likely" rows, double-checked
 
 - `em-cube-stereo-hybrid-one55-sl` → renamed row "Stereo Hybrid ONE55 C:68X SLT 750" —
