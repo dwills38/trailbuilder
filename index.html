@@ -527,12 +527,12 @@
   /* svh (not vh): vh resolves against the LARGEST viewport (chrome retracted), so a
      mobile browser with its address bar expanded would render this cap's bottom
      edge — the .rm-foot action row — below the visible area (ACC-22 F2, PLT-6). */
-  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal,dialog#buildSheetModal,dialog#svcModal,dialog#buildDiffModal,dialog#archiveModal,dialog#upgradeOptModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);max-height:calc(100svh - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal,dialog#buildSheetModal,dialog#svcModal,dialog#buildDiffModal,dialog#archiveModal,dialog#upgradeOptModal,dialog#ovbModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);max-height:calc(100svh - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
   /* Scoped to [open] so display:flex only ever applies while the dialog is actually
      showing — the UA stylesheet's dialog:not([open]){display:none} must stay in charge
      when closed, or the dialog would render invisibly-but-present in the layout. */
-  dialog#reportModal[open],dialog#buildModal[open],dialog#partModal[open],dialog#compareModal[open],dialog#specCardModal[open],dialog#authModal[open],dialog#garageModal[open],dialog#forumNewThreadModal[open],dialog#profileModal[open],dialog#buildSheetModal[open],dialog#svcModal[open],dialog#buildDiffModal[open],dialog#archiveModal[open],dialog#upgradeOptModal[open]{display:flex;flex-direction:column;overflow:hidden}
-  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop,dialog#authModal::backdrop,dialog#garageModal::backdrop,dialog#forumNewThreadModal::backdrop,dialog#profileModal::backdrop,dialog#buildSheetModal::backdrop,dialog#svcModal::backdrop,dialog#buildDiffModal::backdrop,dialog#archiveModal::backdrop,dialog#upgradeOptModal::backdrop{background:rgba(18,28,22,.45)}
+  dialog#reportModal[open],dialog#buildModal[open],dialog#partModal[open],dialog#compareModal[open],dialog#specCardModal[open],dialog#authModal[open],dialog#garageModal[open],dialog#forumNewThreadModal[open],dialog#profileModal[open],dialog#buildSheetModal[open],dialog#svcModal[open],dialog#buildDiffModal[open],dialog#archiveModal[open],dialog#upgradeOptModal[open],dialog#ovbModal[open]{display:flex;flex-direction:column;overflow:hidden}
+  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop,dialog#authModal::backdrop,dialog#garageModal::backdrop,dialog#forumNewThreadModal::backdrop,dialog#profileModal::backdrop,dialog#buildSheetModal::backdrop,dialog#svcModal::backdrop,dialog#buildDiffModal::backdrop,dialog#archiveModal::backdrop,dialog#upgradeOptModal::backdrop,dialog#ovbModal::backdrop{background:rgba(18,28,22,.45)}
   .rm-head,.rm-foot{flex:none}
   .rm-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
   /* Inventory page (Phase 3): a full-width view, not a modal. body.inv-page hides
@@ -890,6 +890,29 @@
   .uo-excluded{font-size:12px;color:var(--ink-soft);margin:8px 0 0}
   .uo-method{font-size:11.5px;color:var(--ink-soft);margin:10px 0 0}
   .uo-disclosure{font-size:11px;color:var(--ink-soft);margin:8px 0 0}
+
+  /* Owned-vs-to-buy planner (feature slate; pure logic in src/owned-vs-buy.js).
+     Click-opened from the build panel, signed-in only — NEVER auto-appears
+     (hard rule #2). */
+  dialog#ovbModal{max-width:720px}
+  .ovb-summary{font-size:12.5px;color:var(--ink-soft);margin:6px 0}
+  .ovb-table{width:100%;border-collapse:collapse;font-size:12.5px;margin:4px 0 10px}
+  .ovb-table th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.3px;color:var(--ink-soft);padding:4px 6px;border-bottom:1px solid var(--line)}
+  .ovb-table td{padding:5px 6px;border-bottom:1px dashed #eef0ec;vertical-align:top}
+  .ovb-num{white-space:nowrap;text-align:right}
+  .ovb-owned{color:var(--ok,#1f8a4c);font-weight:700}
+  .ovb-buy{color:var(--ink-soft);font-weight:700}
+  .ovb-qty{font-size:11.5px;color:var(--ink-soft);margin-top:2px}
+  .ovb-alts td{border-bottom:1px dashed #eef0ec;padding:2px 6px 7px 18px}
+  .ovb-alts-label{font-size:11px;text-transform:uppercase;letter-spacing:.3px;color:var(--ink-soft)}
+  .ovb-alts ul{list-style:none;margin:2px 0 0;padding:0;font-size:12px}
+  .ovb-alts li{padding:1px 0}
+  .ovb-alt-w{color:var(--warn,#b9791b)}
+  .ovb-totals th{border-bottom:none;text-transform:none;font-size:12.5px;color:var(--ink);padding-top:7px}
+  .ovb-totals td{border-bottom:none;font-weight:700;padding-top:7px}
+  .ovb-left th,.ovb-left td{font-size:13.5px}
+  .ovb-note{font-size:12px;color:var(--ink-soft);margin:8px 0 0}
+  .ovb-disclosure{font-size:11px;color:var(--ink-soft);margin:8px 0 0}
   @media (max-width:880px){ .layout{display:block} .side{position:static} }
 
   /* Mobile touch targets + small-viewport tightening. Scoped to ≤768px so desktop
@@ -924,7 +947,7 @@
     .prov .ver::after,.prov .sheet-ver::after{content:"";position:absolute;inset:-10px -8px}
     .fam-menu summary{padding:9px 6px;margin:-9px -6px}
     .footer-legal a{display:inline-block;padding:11px 4px;margin:-8px 0}
-    dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal,dialog#buildSheetModal,dialog#svcModal,dialog#buildDiffModal,dialog#archiveModal,dialog#upgradeOptModal{width:calc(100% - 20px)}
+    dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal,dialog#buildSheetModal,dialog#svcModal,dialog#buildDiffModal,dialog#archiveModal,dialog#upgradeOptModal,dialog#ovbModal{width:calc(100% - 20px)}
     /* list rows on phones: the spec line drops, the name column flexes; wide
        rows (kits' "fills" tail, Front|Rear pickers) wrap to a second line
        rather than force sideways scroll */
@@ -1486,6 +1509,7 @@
           <button type="button" class="btn viewbuild" id="shareImageBtn" hidden>🖼️ Spec-card image</button>
           <button type="button" class="btn viewbuild" id="buildSheetBtn" hidden>🖨️ Build sheet</button>
           <button type="button" class="btn viewbuild" id="upgradeOptBtn" hidden>⚖️ Upgrade optimizer</button>
+          <button type="button" class="btn viewbuild" id="ovbBtn" hidden title="Which of this build's parts do you already own, and what's left to buy?">🧰 Owned vs to-buy</button>
         </div>
       </div>
     </aside>
@@ -1856,6 +1880,22 @@
   </div>
 </dialog>
 
+<!-- Owned-vs-to-buy planner (feature slate; pure logic + renderer in
+     src/owned-vs-buy.js). Click-opened from the build panel, signed-in
+     only — NEVER auto-appears (hard rule #2). -->
+<dialog id="ovbModal" aria-labelledby="ovbTitle" role="dialog" aria-modal="true">
+  <div class="rm-head">
+    <h2 id="ovbTitle">🧰 Owned vs to-buy</h2>
+    <p>Which of this build’s parts are already in your inventory — matched by catalog part, not condition — and what’s left to buy at each part’s own MSRP. Specs are illustrative sample data unless a part shows ✓ Verified in the app.</p>
+  </div>
+  <div class="rm-body">
+    <div id="ovbResult"></div>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="ovbClose" autofocus>Close</button>
+  </div>
+</dialog>
+
 <!-- Discontinued archive (feature slate; pure logic + renderer in
      src/discontinued-archive.js). Click-opened from the ⋯ menu only —
      NEVER auto-appears (hard rule #2). -->
@@ -1985,6 +2025,7 @@
 <script src="src/build-diff.js"></script>
 <script src="src/upgrade-optimizer.js"></script>
 <script src="src/service-log.js"></script>
+<script src="src/owned-vs-buy.js"></script>
 <script src="src/discontinued-archive.js"></script>
 <script>
 (function(){
@@ -3551,6 +3592,8 @@
     $('shareImageBtn').hidden = (Object.keys(build).length === 0);   // works on a partial build too
     $('buildSheetBtn').hidden = (Object.keys(build).length === 0);   // build sheet too — a partial build is still worth printing
     $('upgradeOptBtn').hidden = (Object.keys(build).length === 0);   // optimizer needs a current build to rank against
+    // Owned-vs-to-buy: signed-in surface only (inventory is account data) AND a non-empty build
+    $('ovbBtn').hidden = (Object.keys(build).length === 0) || !_acctReady || !currentUser();
     renderCompleteBikeBlock(t);
     renderRadness(res, t, filled);
   }
@@ -3767,6 +3810,28 @@
       checkBuild: checkBuild, verdictKey: verdictKey, altSlotsOf: altSlotsOf, byId: byId });
     $('uoResult').innerHTML = renderUpgradeOptimizerHtml(m, {}, {esc: esc, money: money});
     $('upgradeOptModal').showModal();
+  }
+
+  /* ---- owned-vs-to-buy planner (feature slate; pure logic + renderer in
+     src/owned-vs-buy.js, tested in test/test-owned-vs-buy.js). Click-opened
+     from the build panel, signed-in only — never auto-appears. Fetches the
+     inventory FRESH on every open (the openBuildDiff convention) so the
+     split never lags an add/remove; ownership matching, qty allocation and
+     the compat gate on owned alternatives all live in the pure model. */
+  function openOvb(){
+    if(!_acctReady || !currentUser()) return;
+    if(!Object.keys(build).length){ toast('Add a part first, then the planner has something to split'); return; }
+    listInventory().then(function(rows){
+      /** raw part_id -> qty; the model resolves through canonicalId itself */
+      var ownedQty = {};
+      (rows || []).forEach(function(r){ if(r && r.part_id){ ownedQty[r.part_id] = (ownedQty[r.part_id] || 0) + (r.qty || 1); } });
+      var m = ownedVsBuyModel(resolved(), presetBy, ownedQty, {
+        SLOTS: SLOTS, buildTotals: buildTotals, byId: byId, canonicalId: canonicalId,
+        placementDiff: upgradePlacementDiff,
+        checkBuild: checkBuild, verdictKey: verdictKey, altSlotsOf: altSlotsOf });
+      $('ovbResult').innerHTML = renderOwnedVsBuyHtml(m, {esc: esc, money: money});
+      $('ovbModal').showModal();
+    }).catch(function(e){ toast((e && e.message) || 'Could not load your inventory'); });
   }
 
   /* ---- part detail modal (click any card) ---- */
@@ -4138,6 +4203,7 @@
     }
     $('acctGarage').hidden = !inU;
     $('acctInventory').hidden = !inU;
+    $('ovbBtn').hidden = !inU || (Object.keys(build).length === 0);   // signed-in + non-empty build (mirrors renderPanel)
     $('acctLogout').hidden = !inU;
     $('saveGarage').hidden = !inU;
     $('ownedOnly').hidden = !inU;
@@ -5921,6 +5987,9 @@
   $('upgradeOptBtn').onclick=openUpgradeOptimizer;
   $('uoClose').onclick=function(){ $('upgradeOptModal').close(); };
   $('upgradeOptModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
+  $('ovbBtn').onclick=openOvb;
+  $('ovbClose').onclick=function(){ $('ovbModal').close(); };
+  $('ovbModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
   $('bsClose').onclick=function(){ $('buildSheetModal').close(); };
   $('bsPrint').onclick=function(){ window.print(); };
   $('buildSheetModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
