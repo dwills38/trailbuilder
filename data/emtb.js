@@ -538,24 +538,26 @@ var EMTB_PARTS = [
   // YT (new maker) — Decoy Core 3 + Decoy Uncaged 8
   // ---------------------------------------------------------------------------
   {
-    id: 'em-yt-decoy-core-3', cat: 'emtb', brand: 'YT', model: 'Decoy Core 3',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail', 'e-enduro'], weight: 23800, price: 5500,
-    note: "Direct-to-consumer YT Decoy; entry alloy trim.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-yt-decoy-core-3', cat: 'emtb', brand: 'YT', model: 'Decoy X MX CORE 1 AL',
+    motorBrand: 'dji', motorModel: 'Avinox M2S', motorTorque: 150, motorPowerPeak: 1300,
+    batteryWh: 800, batteryRemovable: false, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM S100 Eagle Transmission', brakes: 'SRAM DB8 Stealth',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24800, price: 4499,
+    note: "Direct-to-consumer YT Decoy; entry alloy trim. YT retired the whole Shimano-EP8-powered Decoy/Uncaged naming — the current alloy tier is the DJI Avinox-motor \"Decoy X\" sub-line (fixed 800Wh battery, not removable).",
+    desc: 'Verified vs the fetched maker product page (yt-industries.com, via Exa fetch — full Tech & Spec table); motor torque/peak-power cross-checked against YT\'s own Decoy X launch coverage (Bikerumor, Velomotion) since the raw spec table names the drive unit but not its Nm/W figures. Model/trim corrected verify/emtb-4 wave 4 cluster F: "Decoy Core 3" (Shimano EP8, no such trim currently sold) -> real current entry-alloy trim "Decoy X MX CORE 1 AL" (YT switched the whole Decoy line off Shimano — the carbon tier is now Bosch-powered, the alloy "X" tier is DJI Avinox-powered; no Shimano Decoy remains). All e-system/drivetrain/weight/price fields rewritten to match: motor Shimano EP8 -> DJI Avinox M2S (150Nm/1300W peak), battery 630->800Wh (fixed, non-removable), drivetrain Shimano XT -> SRAM S100 Eagle Transmission, brakes Shimano XT 4-piston -> SRAM DB8 Stealth, weight 23800->24800g, rear travel 150->160mm. PRICE RULE: EUR/GBP 4,499 launch price (Bikerumor/Velomotion coverage of YT\'s own announcement) used as a $4,499 USD sample — no separate US price found; basis disclosed.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.yt-industries.com/en-us/E-MTB/Avinox-Decoy-X/CORE-1/'
   },
   {
-    id: 'em-yt-decoy-uncaged-8', cat: 'emtb', brand: 'YT', model: 'Decoy Uncaged 8',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail', 'e-enduro'], weight: 22600, price: 8500,
-    note: 'Top-tier carbon Decoy build.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-yt-decoy-uncaged-8', cat: 'emtb', brand: 'YT', model: 'Decoy MX CORE 3 CF',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM S1000 Eagle Transmission', brakes: 'TRP EVO PRO',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23200, price: 7999,
+    note: 'Top-tier carbon Decoy build. The whole "Uncaged" sub-brand naming and Shimano EP8 motor were retired — the current top-tier carbon Decoy runs a Bosch Performance Line CX motor on an all-new "Ultra Modulus Carbon" frame with 180mm front / 170mm rear travel.',
+    desc: 'Verified vs the fetched maker product page (yt-industries.com, via Exa fetch — full Tech & Spec table); front/rear travel split and motor torque/peak-power cross-checked against an independent MBR first-ride review of the same 2026 Decoy Core relaunch (the raw page badge order was ambiguous). Model/trim corrected verify/emtb-4 wave 4 cluster F: "Decoy Uncaged 8" (Shimano EP8, no such trim/naming currently sold) -> real current top-carbon trim "Decoy MX CORE 3 CF". All e-system/drivetrain/weight/price fields rewritten to match: motor Shimano EP8 85Nm -> Bosch Performance Line CX 100Nm/750W peak, battery 630->800Wh (removable PowerTube), drivetrain SRAM X0 Eagle Transmission -> SRAM S1000 Eagle Transmission (SRAM\'s newer S-series naming), brakes SRAM Code -> TRP EVO PRO, weight 22600->23200g, travel 160/150 -> 180/170mm. PRICE RULE: GBP 7,999.00 RRP (yt-industries.com UK pricing page) used as a $7,999 USD sample — no separate US price found; basis disclosed.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.yt-industries.com/en-us/E-MTB/Bosch-Decoy/CORE-3/'
   },
 
   // ---------------------------------------------------------------------------
