@@ -818,10 +818,132 @@ S5.2.2 (labeling), via govinfo.gov (fetched 2026-07-18). Cross-reference: BRK-40
 
 ---
 
+## Source-CLASS discipline for rotor min/max (mechanic review round 3, 2026-07-21)
+
+*Round 3 was asked to adjudicate two queued rotor questions. Both turned out to be the same
+question — **what class of claim is this number?** — so the finding is recorded once, here, and
+applied twice.*
+
+**BRK-50 [RESOLVES the Fox 36 SL `maxRotorF` 203-vs-230 first-party conflict] — Fox's
+ridefox.com shop-page "Rotor Size" tag is a per-SKU metafield that CONTRADICTS ITSELF within
+one chassis; the tech.ridefox.com engineering drawing does not.** The catalog carried a
+standing flag: Fox's shop page says *"Rotor Size: 180 direct Post Mount | Up to 203
+compatible"* while Fox's own engineering drawing says *"FORK IS DESIGNED TO USE 180-230 MM
+OUTSIDE DIAMETER DISC ROTORS"* — two first-party sources disagreeing, with the conservative
+203 left standing. **Fetching all four current 36 SL SKUs breaks the tie**, because the shop
+tag is not one claim, it is four, and they disagree with each other on a chassis feature:
+
+| Fox product page (all fetched 2026-07-21) | its own "Rotor Size" tag |
+|---|---|
+| `my27-fox-36-sl-factory-gripx` (36 SL Factory GRIP X) | 180 direct Post Mount \| Up to **203** |
+| `my27-fox-36-sl-factory-gripx2-d6e1dcf0` (36 SL Factory GRIP X2) | 180 direct Post Mount \| Up to **203** |
+| `my27-fox-34-sl-pse-1cbe99ea` (titled *36 SL Performance Elite*) | **200** direct \| Up to **230** |
+| `36-sl-performance-grip-ac46fc71` (36 SL Performance) | **200** direct \| Up to **230** |
+| `my27-fox-34-sl-factory-gripx` (34 SL Factory) | *tag absent entirely* |
+
+The brake mount is a **lowers-casting feature**; a damper tier (GRIP X vs GRIP X2 vs
+Performance) cannot change it, and the 34 SL page shows the field is optional and sometimes
+simply unpopulated. So the tag behaves like a template dropdown offering fixed pairs
+("180/203" or "200/230") applied per-SKU — and the 36 SL, whose true pairing is 180 native /
+230 max, has no matching preset, so half of it is wrong on every page. **The drawing is the
+only source consistent with both halves of the shop-tag set**: it gives 180 native (agreeing
+with the Factory pages) and 230 max (agreeing with the Performance pages). Verified this round
+by reading the drawing image directly at full resolution — Fox Factory, Inc. title block,
+*"User Spec: 2026 Fox 36 SL 29in Fork"*, Rev A: note 12 verbatim *"FORK IS DESIGNED TO USE
+180-230 MM OUTSIDE DIAMETER DISC ROTORS. DISC CALIPER MOUNTING BOLT PATTERN IS MADE TO THE
+INTERNATIONAL POST MOUNT DISC BRAKE STANDARD"*, and the lower-leg callout reads
+`180mm "BOOST" DISC BRAKE POST MOUNT PATTERN [12]` at 74.17 mm post spacing. The catalog's own
+2026-07-09 fork batch already recorded that the **34, 36 and 38 sheets each carry this
+identical note**, and those three families are stored at `maxRotorF:230` today — the 36 SL is
+the lone family stored at 203 off the same evidence class. *Confidence: confirmed (drawing
+read directly as an image; all five shop pages fetched this round).* Sources:
+tech.ridefox.com/img/help/page3120-G2JM/MY26_FOX_36SL_29in_User_Spec.jpg (via spec-sheets/3120)
++ the five ridefox.com product pages tabulated above, all fetched 2026-07-21.
+**⚠ CONTRADICTION with a catalog value, not with an engine rule** — flagged for the
+coordinator, not applied here (INDEX "Boundaries"): 5 `fox-36-sl` rows carry `maxRotorF:203`.
+**Generalizable lesson: a self-contradicting source class cannot outrank a dimensional
+engineering drawing, however "first-party" it is.** Cross-reference: BRK-7, BRK-8, BRK-51.
+
+**BRK-51 [⚠ CONTRADICTION — resolves the rule-10 probe-E question] — a maker's brake spec
+field may state the NATIVE mount size or a MAXIMUM rotor diameter, and the field's own LABEL
+is not a reliable guide to which.** The engine's `maxRotorF`/`maxRotorR` is a single number
+that must mean "published ceiling" (BRK-7). But makers publish two different facts in
+label-shaped ways:
+- **DVO** labels its field **"Brake Mounting: Direct Mount 180mm"** — unambiguously a *mount
+  type*, with no ceiling published anywhere. (Fetched dvosuspension.com/product/diamond-d1-2024/,
+  2026-07-21.)
+- **SR Suntour** labels its field **"Brake Mount (Max Rotor DIA.)"** and fills it with values
+  like *"Postmount 160mm Direct"* (XCM/XCT/XCE), *"Postmount 160mm"* (Aion 34, **Auron**) and
+  *"Postmount 180mm"* (Durolux). The label says max; **the value is the native mount.** Three
+  independent proofs, all fetched 2026-07-21:
+  1. **SR Suntour's own category tag contradicts it.** The Auron page states
+     *"Category: Enduro, AM"* alongside *"Brake Mount (Max Rotor DIA.) Postmount 160mm"*. No
+     enduro/all-mountain fork on the market has a 160 mm rotor ceiling — the comparable
+     RockShox 35 mm-stanchion class is 180 min / 220 max (BRK-8).
+  2. **Two major OEMs ship one size up on these exact forks.** Trek (Marlin 4 Gen 3, Marlin 5
+     Gen 3) and Specialized (Rockhopper, Rockhopper Sport) all factory-spec **180 mm** front
+     rotors on XCE 28 / XCT 30 / XCM chassis whose field reads 160. Four production bikes from
+     two of the largest bike makers do not ship out-of-spec brakes; the 160 is the native post
+     mount and the standard +20 mm bracket (BRK-16) takes it to 180.
+  3. **The word "Direct" is in the value itself** on XCM/XCT/XCE — the same wording Fox uses
+     for its native size (*"180 direct Post Mount"*, BRK-50).
+
+  This is the exact failure mode the catalog has already corrected three times on other brands
+  — Marzocchi Bomber Z1/Z2 and Manitou Mattoc all had a native mount stored as a max, each
+  producing a false rotor-max warning on a standard rotor, each corrected 2026-07-09.
+*Confidence: confirmed (maker pages fetched; the OEM cross-check is manufacturer-primary on
+both sides — Trek/Specialized build sheets vs SR Suntour spec tables).* Sources:
+srsuntour.com product pages for Durolux-5834, Aion-34-29-5583, Auron-5836, XCM-6236,
+XCT30-6259, XCE28-6330; dvosuspension.com/product/diamond-d1-2024/ (all fetched 2026-07-21).
+**⚠ Flagged for the coordinator:** 7 catalog fork families store a native mount in
+`maxRotorF`; see the round-3 report for the per-family disposition. **Not an engine-tier
+question** — BRK-7's warning tier is unaffected and confirmed; this is a *data-class* defect
+that makes a correct rule fire on wrong inputs.
+
+**BRK-52 [L2 fastener + clearance data from a Fox engineering drawing — a source class this
+chapter had not mined for torque] — Fox publishes caliper-bolt thread engagement, a torque
+CEILING (not a target), and the rotor-to-lower-leg clearance envelope that explains what a
+"designed to use X–Y mm rotors" note actually asserts.** From the same 36 SL user-spec drawing
+as BRK-50:
+- **Note 9:** *"DISC BRAKE CALIPER MOUNT BOLTS MUST HAVE 10-12 MM OF THREAD ENGAGEMENT. TORQUE
+  BOLTS TO MANUFACTURERS SPECIFICATION. BOLT TORQUE MUST NOT EXCEED 90 IN-LB."* Note the shape:
+  Fox gives an **upper bound (90 in-lb ≈ 10.2 N·m)** and defers the target to the *caliper*
+  maker — so a mechanic torquing a Shimano caliper on a Fox fork uses Shimano's 6–8 N·m
+  (BRK-30), and Fox's number is only the do-not-exceed. This **independently corroborates
+  SRAM's 9–13 mm thread-engagement minimum** (BRK-41) from a fork maker rather than a brake
+  maker — two makers, opposite sides of the same joint, agreeing.
+- **Note 8:** rotor-to-lower-leg clearance is *"NOMINALLY 1.50 MM WITH 10.00-10.50 MM
+  ROTOR-HUB MOUNTING OFFSET. ABSOLUTE MINIMUM ALLOWABLE ROTOR TO LOWER LEG CLEARANCE IS 0.51
+  MM, DESIGNED IN ACCORDANCE WITH SHIMANO DISC BRAKE HUB AND ROTOR SPECIFICATION C-076, TYPE
+  C."* This is the mechanism behind note 12's rotor range: the upper figure is a **dimensional
+  clearance envelope** (will a 230 mm disc sweep past the lower leg), which is why a fork's
+  stated max is a *chassis* fact and generation-stable, while the native mount (BRK-8) is what
+  moves. It also shows Fox designing to a **Shimano** hub/rotor standard (C-076 Type C) — a
+  cross-brand standards dependency not previously recorded in this chapter.
+*Confidence: confirmed (drawing read directly at full resolution).* Source: as BRK-50.
+Cross-reference: BRK-30, BRK-41, BRK-7.
+
+---
+
 ## Gaps
 
 Honest list of what a future round should close, per `CURRICULUM.md`'s "target the weakest
 chapter" rule — this chapter is graded `professional` as of this round, not yet `master`:
+
+- **NEW, opened 2026-07-21 (BRK-51): no maker publishes a post-mount ADAPTER CEILING in a
+  fetchable place.** The corpus can now tell a native mount from a published max, but for the
+  many forks that publish only a native mount (all DVO, all SR Suntour), the true ceiling is
+  unsourced — the catalog's existing practice fills it from The Lost Co's post-mount database
+  (a shop source, community tier). A manufacturer-tier adapter-range table, if one exists,
+  would let `maxRotorF` be sourced rather than inferred on those families. Try Shimano's SM-MA
+  dealer manual (already fetched for BRK-28) for its maximum bracket step, and Hope/Galfer
+  adapter catalogues for the largest PM bracket actually sold.
+- **NEW, opened 2026-07-21 (BRK-50): the Öhlins DH38 m.2 is an unadjudicated adjacent case.**
+  Its ohlins.com page states *"designed for 200/203mm disc brakes"* — a design statement naming
+  a pairing rather than a range — yet two OEM DH builds in the catalog (Commencal Supreme DH V5,
+  Specialized Demo Race) ship 220/223 mm rotors on it. Same shape as BRK-51's SR Suntour case
+  but with weaker evidence (one maker sentence, two OEM builds, DH-only). Left **not
+  established** this round rather than guessed.
 
 - **CLOSED 2026-07-17 (BRK-35–37): the Shimano bleed procedure gap is fully closed.** The
   round-1 stopping point (drain steps mined, "Adding SHIMANO genuine mineral oil and bleeding
@@ -934,6 +1056,14 @@ chapter" rule — this chapter is graded `professional` as of this round, not ye
   catalog is disc-only, but flagged in case a future non-MTB expansion needs it.
 
 ## Open mechanic questions (for the human review — do not act)
+- BRK-51 (new 2026-07-21): for a fork that publishes only a native post-mount size and no
+  ceiling (every DVO and SR Suntour fork), what would you tell a customer the real ceiling is —
+  native +20 mm (one bracket), native +40 mm (two steps), or "whatever bracket you can buy"?
+  The corpus can source the native size but not the ceiling, and the engine needs one number.
+- BRK-50/BRK-51 (new 2026-07-21): when a maker's marketing page and its own engineering drawing
+  disagree about a fork's rotor range, which do you trust at the bench? (This round argued the
+  drawing, on the grounds that the shop tag contradicted itself across SKUs of one chassis —
+  confirm that is how a mechanic would call it.)
 - BRK-5: physical confirmation that two-piece / floating 6-bolt rotors (Hope, alloy-carrier)
   won't seat on the SM-RTAD05-class adapter; and confirm warning (not info) is the right tier.
 - BRK-7: would you refuse to assemble an over-max build (→ error), or build it with a
