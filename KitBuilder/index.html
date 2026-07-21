@@ -541,8 +541,13 @@
     try{
       var obj=JSON.parse(raw), slotKeys={};
       KIT_SLOTS.forEach(function(s){ slotKeys[s.key]=s.cat; });
+      // canonicalKitId (src/kit.js): a build saved before an id was retired
+      // into KIT_ALIASES resolves to its current row instead of silently
+      // dropping the slot on load - this page has no hash-based share link
+      // (unlike index.html's readHash/sanitizeShare), so the saved-build
+      // restore here is the analogous integration point (mirrors bmx.html).
       Object.keys(obj).forEach(function(k){
-        var p=kitById(obj[k]);
+        var p=kitById(canonicalKitId(obj[k]));
         // survive only if the slot is real AND the part's category matches it
         if(p && slotKeys[k] && p.cat===slotKeys[k]) KB[k]=p.id;
       });
