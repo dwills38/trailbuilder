@@ -592,13 +592,15 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-rh-eclat-shift-freecoaster', cat: 'rearWheel', brand: 'Eclat', model: 'Shift Freecoaster Hub',
-    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 480, price: 227.00,
-    note: 'WeThePeople "Hybrid System" internals - converts between freecoaster and cassette mode without extra parts; magnetic driver.'
+    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 510, price: 164.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://eclatbmx.com/products/shift-freecoaster-hub',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Directly fetched eclatbmx.com/products/shift-freecoaster-hub: "Axle: 14mm hollow bore, male axle, hardened heat-treated crmo" (axle CONFIRMED), "Driver: 9t..." (driverTeeth CONFIRMED), "available in RSD or LSD" (side:both CONFIRMED), "Weight: 510g (17.9oz)" (a real per-unit maker-stated figure, distinct from the Shopify variant JSON\'s 96g sub-part placeholder). weight CORRECTED 480 -> 510g and price CORRECTED 227.00 -> 164.99 to match this page exactly (both RSD/LSD variants list $164.99). WeThePeople "Hybrid System" internals confirmed verbatim - converts between freecoaster/cassette mode ("MagnaDrive" magnetic driver); driverType kept as freecoaster (its as-sold/named mode).'
   },
   {
     id: 'bmx-rh-eclat-cortexevo-freecoaster', cat: 'rearWheel', brand: 'Eclat', model: 'Cortex Evo FC Hub',
-    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', price: 169.99,
-    note: '3-pin clutch freecoaster internals, available RSD or LSD.'
+    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', price: 169.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://eclatbmx.com/products/eclat-cortex-evo-fc-hub',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Directly fetched eclatbmx.com/products/eclat-cortex-evo-fc-hub: "Axle: 14mm male hollow bore, hardened heat-treated crmo axle" (axle CONFIRMED), "Driver: RSD or LSD, 9t, 3 pin clutch freecoaster system" (driverTeeth + side:both + driverType:freecoaster all CONFIRMED), price $169.99 EXACT match on both RSD/LSD variants (no correction needed). Shopify variant weight shows 0g (never a real figure) - no weight field set.'
   },
 
   // ===== REAR COG =======================================================
@@ -1129,8 +1131,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-sp-eclat-bios-post', cat: 'seatpost', brand: 'Eclat', model: 'Torch Pivotal Seat Post',
-    diameter: 25.4, system: 'pivotal', price: 16.99,
-    note: 'CORRECTED model 2026-07-17 (audit): "Bios" is Eclat\'s SEAT name, not a post; the real Eclat pivotal post is the Torch Pivotal Seat Post (6061-T6, 25.4mm, 135/230/330mm lengths), confirmed via eclatbmx.com/products/torch-pivotal-seatpost. diameter (25.4) and system (pivotal) already matched the real Torch and are unchanged. Id retains the legacy "bios" token (ids are append-only). Left unverified (price not confirmed to a fetched maker spec table).'
+    diameter: 25.4, system: 'pivotal', price: 35.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://eclatbmx.com/products/torch-pivotal-seatpost',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Re-fetched eclatbmx.com/products/torch-pivotal-seatpost directly: "Size: 25.4mm" (diameter CONFIRMED), "all-pivotal compatible seatpost" (system:pivotal CONFIRMED) - `seatpost` carries no other checkBmxBuild-read field in the BMX engine (no seatpost-vs-seat-tube rule exists for BMX, unlike the MTB engine\'s rule 13c), so both load-bearing facts check out. Price CORRECTED 16.99 -> 35.99 (the maker\'s real current price across all lengths/colors; the prior figure had no source). Weight not recorded: the page states real per-length figures (91g mid, 131g long) but this row represents the SKU generically across all three lengths, so no single weight is unambiguous.'
   },
   {
     id: 'bmx-pg-eclat-alloy', cat: 'pegs', brand: 'Eclat', model: 'Alloy Pegs',
