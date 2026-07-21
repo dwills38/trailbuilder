@@ -3503,3 +3503,19 @@ auto-merges); full gates + verdict harness green throughout.
 - Decision-queue item closed: service-log turn-on. Feature slate #2 is now fully DONE
   (code shipped 2026-07-21 morning, DB migrated + live-verified same day).
 
+
+## 2026-07-21 (seat 16) — Archive per-page adoption merged (all six surfaces covered)
+
+- **feat/archive-perpage-1** merged: Douglas's per-page ruling implemented same-day — the
+  🗄 Discontinued archive is now on all six surfaces, each loading ONLY its own catalog
+  (KitBuilder 68 rows, emtb 20, gravel 6, road 0-but-wired, bmx 1; index.html already had
+  its 70). Zero module/engine/data changes — pure page-glue replication; containment intact
+  (worker verified no cross-catalog data loading per page). Worker browser-verified all 5
+  pages (zero auto-open dialogs, click-open + counts + Close all correct, zero console
+  errors, singular grammar on bmx's "1 discontinued part"); coordinator independently
+  spot-checked emtb.html — clean.
+- Worker flagged one optional follow-up: index.html also has an includeDiscontinued browse-
+  list toggle (folds archived parts into the main list) that was correctly out of scope —
+  port it to the other pages only if Douglas wants it.
+- Gates green (validate 0 problems / 930 tests / tsc clean) at merge.
+
