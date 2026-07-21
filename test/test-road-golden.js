@@ -195,7 +195,7 @@ test('golden: Checkpoint SL 7 / GRX RX820 1x12 gravel build is complete and conf
     cassette: gp('gca-shimano-grx-cs-m7100-1045'),
     chain: gp('gch-shimano-cn-m6100-12'),
     crankset: gp('gcr-shimano-grx-fc-rx820-1x'),
-    bb: gp('gbb-shimano-sm-bb52-bb86'),
+    bb: gp('gbb-shimano-sm-bb72-bsa'),
     frontBrake: gp('gbr-shimano-grx-br-rx820'),
     rearBrake: gp('gbr-shimano-grx-br-rx820'),
     frontRotor: gp('gro-shimano-rt-cl800-160-cl'),
