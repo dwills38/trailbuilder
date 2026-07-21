@@ -1000,7 +1000,9 @@ var ROAD_PARTS = [
   // own freehub standard (12-speed wireless generation).
   { id: 'sh-campagnolo-superrecord-wrl', cat: 'shifter', brand: 'Campagnolo', model: 'Super Record Wireless Ergopower (pair)', family: 'campagnolo-superrecord-wrl',
     system: 'campag-12', speeds: 12, actuation: 'axs-wireless', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
-    weight: 400, price: 1600 },
+    weight: 745, price: 1600,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/super-record-wireless-ergopower-controls/CCLSUPERRECORDWRLDB12S.html',
+    note: 'road-13 wave (breadth pass): FETCHED campagnolo.com product page directly (WebFetch, no wall). "Weight: 745 g / pair" — CORRECTED 400->745 (the prior sample was far below the real wireless-shifter+hydraulic-lever pair weight). 12-speed wireless electronic actuation and disc-hydraulic brake system confirmed (already correct on this row).' },
   { id: 'rd-campagnolo-superrecord-wrl', cat: 'rearderailleur', brand: 'Campagnolo', model: 'Super Record Wireless Rear Derailleur', family: 'campagnolo-superrecord-wrl',
     system: 'campag-12', speeds: 12, actuation: 'axs-wireless', maxCog: 29, cage: 'medium', mount: 'std-hanger',
     weight: 295, price: 900,
@@ -1039,8 +1041,9 @@ var ROAD_PARTS = [
   // between id and real spec is intentional and documented here + per-row.
   { id: 'sh-campagnolo-record-wrl', cat: 'shifter', brand: 'Campagnolo', model: 'Record Ergopower (pair)', family: 'campagnolo-record-wrl',
     system: 'campag-12', speeds: 12, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
-    weight: 420, price: 1300,
-    note: 'road-4 wave FIX: actuation corrected axs-wireless -> mechanical (no wireless Record 12s product exists; see the family-header comment above). Weight (420g, sample) not sourced this pass.' },
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/record-disc-brake-ergopower-controls/CCLRECORDDB12S.html',
+    weight: 463, price: 1300,
+    note: 'road-4 wave FIX: actuation corrected axs-wireless -> mechanical (no wireless Record 12s product exists; see the family-header comment above). road-13 wave: FETCHED campagnolo.com/us-en/record-disc-brake-ergopower-controls/CCLRECORDDB12S.html directly (WebFetch, no wall) — "Weight: 463 grams" (CORRECTED 420->463), mechanical actuation and disc brake system confirmed.' },
   { id: 'rd-campagnolo-record-wrl', cat: 'rearderailleur', brand: 'Campagnolo', model: 'Record Rear Derailleur', family: 'campagnolo-record-wrl',
     system: 'campag-12', speeds: 12, actuation: 'mechanical', maxCog: 34, cage: 'medium', mount: 'std-hanger',
     weight: 216, price: 700,
@@ -1069,7 +1072,9 @@ var ROAD_PARTS = [
   // ===== DRIVETRAIN — Campagnolo Chorus (2x12, mechanical) ==================
   { id: 'sh-campagnolo-chorus-mech', cat: 'shifter', brand: 'Campagnolo', model: 'Chorus Ergopower (pair)', family: 'campagnolo-chorus-mech',
     system: 'campag-12', speeds: 12, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
-    weight: 480, price: 700 },
+    weight: 488, price: 700,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/cz-en/chorus-ergopower-disc-brake-controls/CCLCHORUSDB12S.html',
+    note: 'road-13 wave (breadth pass): FETCHED campagnolo.com product page directly (WebFetch, no wall). "Weight: 488 grams" (CORRECTED 480->488, close but not exact on the prior sample). 12-speed mechanical actuation, disc-hydraulic brake system confirmed.' },
   { id: 'rd-campagnolo-chorus-mech', cat: 'rearderailleur', brand: 'Campagnolo', model: 'Chorus Rear Derailleur', family: 'campagnolo-chorus-mech',
     system: 'campag-12', speeds: 12, actuation: 'mechanical', maxCog: 32, cage: 'medium', mount: 'std-hanger',
     weight: 220, price: 220,
@@ -1082,7 +1087,9 @@ var ROAD_PARTS = [
     note: 'road-4 wave FIX: freehub corrected n3w->campag-11 (same ED-body fact as the Record cassette fix above; retailer spec sheet: "Freehub Type: ED Campagnolo (10, 11, 12sp)"). Weight 320(sample)->310g, exact match ("Weight 310 grams (11-29 version)" on the fetched product page).' },
   { id: 'ch-campagnolo-chorus-c12', cat: 'chain', brand: 'Campagnolo', model: 'Chorus 12s Chain', family: 'campagnolo-chorus-chain',
     system: 'campag', speeds: 12,
-    weight: 265, price: 55 },
+    weight: 243, price: 55,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/chorus-12-speed-chain/CCNCHORUS12S.html',
+    note: 'road-13 wave (breadth pass): FETCHED campagnolo.com product page directly (WebFetch, no wall). "Weight: 243 grams (110 links)" — CORRECTED 265->243. 12-speed confirmed.' },
   { id: 'cr-campagnolo-chorus-crank', cat: 'crankset', brand: 'Campagnolo', model: 'Chorus Crankset', family: 'campagnolo-chorus-crank',
     bb: 'ultra-torque', chainrings: '2x', ring: '50/34', ringStd: null, speeds: 12, chainline: 45.5,
     weight: 710, price: 320,
@@ -1307,7 +1314,7 @@ var ROAD_PARTS = [
   { id: 'hs-ritchey-comp-zero-zs44-zs55', cat: 'headset', brand: 'Ritchey', model: 'Comp Zero Logic ZS44/28.6 - ZS55/40 Tapered', family: 'ritchey-comp-zero',
     upper: 'ZS44/28.6', lower: 'ZS55/40', steerer: 'tapered',
     weight: 109, price: 45,
-    note: 'road-5 wave: real, currently-sold Ritchey headset (Ritchey already appears elsewhere in this file as a cockpit brand — Ritchey WCS bar/stem). ritchey-logic.com itself was not probed this pass (time-boxed); spec (ZS44/28.6 upper, ZS55/40 tapered lower, 109g, "Stem Clamp Diameter: 28.6") cross-checked across bike24.com/bike-components.de retailer listings quoting Ritchey\'s own published S.H.I.S. codes. Unverified sample, same caveat as the FSA row above.' },
+    note: 'road-5 wave: real, currently-sold Ritchey headset (Ritchey already appears elsewhere in this file as a cockpit brand — Ritchey WCS bar/stem). ritchey-logic.com itself was not probed this pass (time-boxed); spec (ZS44/28.6 upper, ZS55/40 tapered lower, 109g, "Stem Clamp Diameter: 28.6") cross-checked across bike24.com/bike-components.de retailer listings quoting Ritchey\'s own published S.H.I.S. codes. Unverified sample, same caveat as the FSA row above. road-13 wave: FETCHED ritcheylogic.com/bike/headsets/comp-semi-integrated-zs-headset (WebFetch, no wall) — this current product lists lower options "ZS44/30 (1 1/8\"), ZS55/40 (1.5\"), ZS56/40" alongside upper "ZS44/28.6 (1 1/8\")", i.e. the same bore pair this row models IS one of its selectable configs — but the page never uses the name "Comp Zero"/"Comp Zero Logic" (this row\'s model string) and states weight "83g (1 1/8\")" for the generic listing, not this row\'s 109g. Plausible same-family product under a renamed/generic current SKU, but not a confirmed identity match (weight mismatch, no name bridge) — left unrenamed/unverified rather than guess.' },
 
 ];
 
