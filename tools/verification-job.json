@@ -1,11 +1,14 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T20:08:23.281Z",
+ "updated": "2026-07-21T20:09:46.304Z",
  "batchSize": 25,
  "lastCompleted": "rw-bontrager-line-elite-30-275-hg",
- "currentCategory": "frame",
+ "currentCategory": "frontwheel",
  "queue": [
+  "fw-bontrager-line-comp-30-29",
+  "rw-bontrager-line-comp-30-29-hg",
+  "rw-bontrager-line-comp-30-29-ms",
   "fr-giant-reign-advanced",
   "fr-kona-process-153",
   "fr-kona-process-153-carbon",
@@ -159,7 +162,6 @@
   "fw-syncros-silverton2-29",
   "fw-giant-xct-29",
   "fw-wtb-sti25-scalpelht3-29",
-  "fw-bontrager-line-comp-30-29",
   "fw-bontrager-linetlr30-roscoeoe-29",
   "fw-bontrager-linedh-30-29-20x110",
   "fw-wtb-sti30-habitht-29",
@@ -363,8 +365,6 @@
   "rw-giant-xct-29-ms",
   "rw-syncros-x30s-29-hg",
   "rw-wtb-sti25-scalpelht3-29-ms",
-  "rw-bontrager-line-comp-30-29-hg",
-  "rw-bontrager-line-comp-30-29-ms",
   "rw-bontrager-linetlr30-roscoeoe-29",
   "rw-bontrager-linedh-30-29-157-hg",
   "rw-wtb-sti30-habitht-29-hg",
@@ -28068,8 +28068,8 @@
   },
   "fw-bontrager-line-comp-30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "InProgress",
+   "updated": "2026-07-21T20:09:46.074Z",
    "error": null,
    "source": null,
    "note": null
@@ -29620,16 +29620,16 @@
   },
   "rw-bontrager-line-comp-30-29-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "InProgress",
+   "updated": "2026-07-21T20:09:46.192Z",
    "error": null,
    "source": null,
    "note": null
   },
   "rw-bontrager-line-comp-30-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "InProgress",
+   "updated": "2026-07-21T20:09:46.303Z",
    "error": null,
    "source": null,
    "note": null
