@@ -3370,3 +3370,32 @@ auto-merges); full gates + verdict harness green throughout.
   walls by two prior sessions already). Gates green (validate 0 problems / 911 tests / tsc
   clean) at `e86dc36`.
 
+
+## 2026-07-21 (seat 16) — Gravel 9 + Road 13 merged
+
+- **catalog/gravel-9** merged (`d2bcdb1` wave): closed both flagged items instead of re-flagging.
+  Liv Devote's bb86 went from bare inference to a real maker-channel confirmation — Giant's OEM
+  parts store lists a SRAM DUB PressFit 86.5mm BB whose fitment list names the 2023 Devote
+  Advanced Pro explicitly (same frame platform, Liv's own spec sheets confirm the Pro/Advanced 1
+  split is build-kit-only). Cannondale's SI ZS44/EC49 headset confirmed fabricated-brand-pairing
+  (Cannondale's real "SI" system is Lefty/Headshok IS42, a different bore) — retired via
+  status/supersededBy pointing at the already-real Cane Creek 110 row. +4 breadth (DT Swiss GRC
+  650b wheels, a Continental 650b tire, GT Grade Carbon Elite as a new frame brand) — one
+  duplicate research effort caught before landing (Panaracer GravelKing SK 650x48 already
+  existed from gravel-7). Vocab non-fits consolidated into a header comment in data/gravel.js
+  for the next pass rather than re-discovered each wave.
+- **catalog/road-13** merged (same wave): 2 of 3 Ritchey identity flags resolved (WCS Streem →
+  its real current name "WCS Streem Internal Routing", Comp Two-Bolt → "Comp 2-Bolt" with a
+  genuine setback correction 15→25mm, now verified), 1 stayed correctly unresolved — the
+  US-domain WCS C260 stem looks superseded by a C220 but the regional subdomain that lists it
+  is unreachable (expired TLS cert, a documented wall) so it wasn't force-renamed. FSA K-Force
+  and Look Keo Blade Carbon both retargeted to their closest real current-catalog SKU (4 and 8
+  live variants respectively, neither an exact bare-name match) without flipping to verified
+  where the weight basis didn't cleanly transfer. Supacaz Kush bartape: WebFetch still 403's but
+  **Exa got through** on the same URL — good reminder the fetch-order fallback still has real
+  yield even on a re-confirmed wall. +4 Campagnolo drivetrain rows verified, including a large
+  weight correction on Super Record wireless (400→745g — the old sample was far too light for a
+  shifter+lever pair). Two identity-adjacent headset rows investigated and correctly left alone
+  (plausible family match, not a confirmed identity).
+- Gates green (validate 0 problems / 911 tests / tsc clean) at `d2bcdb1`.
+
