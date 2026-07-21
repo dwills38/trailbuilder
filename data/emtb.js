@@ -43,14 +43,15 @@ var EMTB_PARTS = [
     verified: true, lastChecked: '2026-07-20', source: 'https://www.specialized.com/us/en/turbo-levo-4-expert/p/4218704'
   },
   {
-    id: 'em-trek-rail', cat: 'emtb', brand: 'Trek', model: 'Rail+',
+    id: 'em-trek-rail', cat: 'emtb', brand: 'Trek', model: 'Rail+ 9.8 GX AXS T-Type Gen 5',
     motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail', 'e-enduro'], weight: 23900, price: 8000,
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24180, price: 8499.97,
     note: 'Bosch-powered full-power trail/enduro bike; big 800 Wh PowerTube. Line renamed Rail+ on Gen 5 CX (85Nm stock, app-tunable to 100Nm/750W).',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Model/gen corrected verify/emtb-3 wave 3 phase 2 (Rail -> Rail+, Gen 5 CX).'
+    desc: 'Verified vs the fetched maker product page (browser pane, Specs tab). Model/trim corrected verify/emtb-4 wave 4 cluster F (generic "Rail+" -> real current mid-carbon trim "Rail+ 9.8 GX AXS T-Type Gen 5"; drivetrain X0->GX AXS T-Type Transmission, brakes Code->Maven Bronze, weight 23900->24180g (M, w/ TLR sealant no tubes), rear travel 150->160mm, price 8000->8499.97 sale price, US MSRP $10,699.99).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/electric-mountain-bikes/rail/rail-9-8-gx-axs-t-type-gen-5/p/5328977/'
   },
   {
     id: 'em-santa-cruz-bullit', cat: 'emtb', brand: 'Santa Cruz', model: 'Bullit',
@@ -194,44 +195,48 @@ var EMTB_PARTS = [
   // Trek depth (Rail / Fuel EXe trims)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-trek-rail-9-5', cat: 'emtb', brand: 'Trek', model: 'Rail+ 9.5',
+    id: 'em-trek-rail-9-5', cat: 'emtb', brand: 'Trek', model: 'Rail+ 8 Gen 5',
     motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
-    disciplines: ['e-trail', 'e-enduro'], weight: 25200, price: 6500,
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 70 T-Type Transmission', brakes: 'Shimano MT620',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24680, price: 5999.99,
     note: 'Entry alloy Rail+ trim; same Gen 5 Bosch CX motor/800 Wh PowerTube as the carbon range.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Model/gen corrected verify/emtb-3 wave 3 phase 2 (Rail -> Rail+, Gen 5 CX).'
+    desc: 'Verified vs the fetched maker product page (browser pane, model-selector + Specs tab). Model/trim corrected verify/emtb-4 wave 4 cluster F ("Rail+ 9.5", no such trim -> real current entry-alloy trim "Rail+ 8 Gen 5"; drivetrain SRAM GX Eagle -> SRAM Eagle 70 T-Type Transmission, brakes SRAM Code R -> Shimano MT620 (real build swaps to Shimano brakes), weight 25200->24680g (M), rear travel 150->160mm, price 6500->5999.99 MSRP).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/electric-mountain-bikes/rail/f/F344/rail+-8-gen-5/79221/5348383/'
   },
   {
-    id: 'em-trek-rail-9-9-xx', cat: 'emtb', brand: 'Trek', model: 'Rail+ 9.9 XX AXS T-Type',
+    id: 'em-trek-rail-9-9-xx', cat: 'emtb', brand: 'Trek', model: 'Rail+ 9.9 X0 AXS T-Type Gen 5',
     motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission', brakes: 'SRAM Maven Silver',
-    disciplines: ['e-trail', 'e-enduro'], weight: 23400, price: 12500,
-    note: 'Top-tier Rail+ carbon trim; SRAM XX Transmission + Maven brakes.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Model/gen corrected verify/emtb-3 wave 3 phase 2 (Rail -> Rail+, Gen 5 CX).'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23980, price: 9999.97,
+    note: 'Top-tier Rail+ carbon trim; SRAM X0 Transmission + Maven Silver brakes (real current top trim is X0, not XX — no XX-spec Rail+ is sold).',
+    desc: 'Verified vs the fetched maker product page (browser pane, Specs tab). Model/trim corrected verify/emtb-4 wave 4 cluster F ("Rail+ 9.9 XX AXS T-Type", no such trim -> real top-tier "Rail+ 9.9 X0 AXS T-Type Gen 5"; drivetrain XX->X0 Eagle AXS T-Type Transmission, weight 23400->23980g (M), rear travel 150->160mm, price 12500->9999.97 current sale price; US Comp. Value/original price $12,299.99, close to the prior sample).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/electric-mountain-bikes/rail/rail-9-9-x0-axs-t-type-gen-5/p/48461/'
   },
   {
-    id: 'em-trek-fuel-exe-9-5', cat: 'emtb', brand: 'Trek', model: 'Fuel+ EX 8',
+    id: 'em-trek-fuel-exe-9-5', cat: 'emtb', brand: 'Trek', model: 'Fuel+ EX 9.7 Gen 2',
     motorBrand: 'tq', motorModel: 'TQ-HPR60', motorTorque: 60, motorPowerPeak: 350,
     batteryWh: 580, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
     wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 145,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 70 T-Type Transmission', brakes: 'SRAM DB8',
-    disciplines: ['e-trail'], weight: 20900, price: 7000,
-    note: 'The line renamed Fuel+ (Gen 2); the new TQ HPR60 replaces HPR50 with more torque (60 vs 50Nm) and a bigger 580Wh battery (vs 360Wh) — no more clip-on range extender.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Model/motor corrected verify/emtb-3 wave 3 phase 2 (Fuel EXe -> Fuel+, HPR50 -> HPR60).'
+    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 70 T-Type Transmission', brakes: 'SRAM DB8',
+    disciplines: ['e-trail'], weight: 20680, price: 5999.99,
+    note: 'The line renamed Fuel+ (Gen 2); the new TQ HPR60 replaces HPR50 with more torque (60 vs 50Nm) and a bigger 580Wh battery (vs 360Wh) — no more clip-on range extender. Entry Fuel+ trim; the whole Fuel+ EX range is carbon-only (no alloy tier).',
+    desc: 'Verified vs the fetched maker product page (browser pane, model-selector + Specs tab). Model/trim corrected verify/emtb-4 wave 4 cluster F ("Fuel+ EX 8", no such trim exists -> real current entry trim "Fuel+ EX 9.7 Gen 2"; frame corrected aluminum -> carbon (the Fuel+ range has no alloy tier), weight 20900->20680g (M), price 7000->5999.99 MSRP; drivetrain/brakes already matched the real 9.7 build (SRAM Eagle 70 T-Type Transmission, SRAM DB8) so those fields were unchanged).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/electric-mountain-bikes/fuel/f/F370/fuel+-ex-9-7-gen-2/79613/5349090/'
   },
   {
-    id: 'em-trek-fuel-exe-9-9-xx', cat: 'emtb', brand: 'Trek', model: 'Fuel+ EX 9.8 XO AXS',
+    id: 'em-trek-fuel-exe-9-9-xx', cat: 'emtb', brand: 'Trek', model: 'Fuel+ EX 9.9 X0 AXS Gen 2',
     motorBrand: 'tq', motorModel: 'TQ-HPR60', motorTorque: 60, motorPowerPeak: 350,
     batteryWh: 580, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
     wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 145,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XO Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Silver',
-    disciplines: ['e-trail'], weight: 19400, price: 11500,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail'], weight: 19580, price: 9999.97,
     note: 'Top-tier lightweight Fuel+ trim; acoustic-close trail-bike handling on the new TQ HPR60.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Model/motor corrected verify/emtb-3 wave 3 phase 2 (Fuel EXe -> Fuel+, HPR50 -> HPR60).'
+    desc: 'Verified vs the fetched maker product page (browser pane, model-selector + Specs tab). Model/trim corrected verify/emtb-4 wave 4 cluster F ("Fuel+ EX 9.8 XO AXS", no such trim -> real top-tier "Fuel+ EX 9.9 X0 AXS Gen 2"; drivetrain typo XO->X0 Eagle AXS T-Type Transmission, weight 19400->19580g (M), price 11500->9999.97 MSRP).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/electric-mountain-bikes/fuel/f/F370/fuel-ex-9-9-x0-axs-gen-2/56079/5335087/'
   },
 
   // ---------------------------------------------------------------------------
@@ -571,24 +576,26 @@ var EMTB_PARTS = [
   // YT (new maker) — Decoy Core 3 + Decoy Uncaged 8
   // ---------------------------------------------------------------------------
   {
-    id: 'em-yt-decoy-core-3', cat: 'emtb', brand: 'YT', model: 'Decoy Core 3',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail', 'e-enduro'], weight: 23800, price: 5500,
-    note: "Direct-to-consumer YT Decoy; entry alloy trim.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-yt-decoy-core-3', cat: 'emtb', brand: 'YT', model: 'Decoy X MX CORE 1 AL',
+    motorBrand: 'dji', motorModel: 'Avinox M2S', motorTorque: 150, motorPowerPeak: 1300,
+    batteryWh: 800, batteryRemovable: false, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM S100 Eagle Transmission', brakes: 'SRAM DB8 Stealth',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24800, price: 4499,
+    note: "Direct-to-consumer YT Decoy; entry alloy trim. YT retired the whole Shimano-EP8-powered Decoy/Uncaged naming — the current alloy tier is the DJI Avinox-motor \"Decoy X\" sub-line (fixed 800Wh battery, not removable).",
+    desc: 'Verified vs the fetched maker product page (yt-industries.com, via Exa fetch — full Tech & Spec table); motor torque/peak-power cross-checked against YT\'s own Decoy X launch coverage (Bikerumor, Velomotion) since the raw spec table names the drive unit but not its Nm/W figures. Model/trim corrected verify/emtb-4 wave 4 cluster F: "Decoy Core 3" (Shimano EP8, no such trim currently sold) -> real current entry-alloy trim "Decoy X MX CORE 1 AL" (YT switched the whole Decoy line off Shimano — the carbon tier is now Bosch-powered, the alloy "X" tier is DJI Avinox-powered; no Shimano Decoy remains). All e-system/drivetrain/weight/price fields rewritten to match: motor Shimano EP8 -> DJI Avinox M2S (150Nm/1300W peak), battery 630->800Wh (fixed, non-removable), drivetrain Shimano XT -> SRAM S100 Eagle Transmission, brakes Shimano XT 4-piston -> SRAM DB8 Stealth, weight 23800->24800g, rear travel 150->160mm. PRICE RULE: EUR/GBP 4,499 launch price (Bikerumor/Velomotion coverage of YT\'s own announcement) used as a $4,499 USD sample — no separate US price found; basis disclosed.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.yt-industries.com/en-us/E-MTB/Avinox-Decoy-X/CORE-1/'
   },
   {
-    id: 'em-yt-decoy-uncaged-8', cat: 'emtb', brand: 'YT', model: 'Decoy Uncaged 8',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail', 'e-enduro'], weight: 22600, price: 8500,
-    note: 'Top-tier carbon Decoy build.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-yt-decoy-uncaged-8', cat: 'emtb', brand: 'YT', model: 'Decoy MX CORE 3 CF',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM S1000 Eagle Transmission', brakes: 'TRP EVO PRO',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23200, price: 7999,
+    note: 'Top-tier carbon Decoy build. The whole "Uncaged" sub-brand naming and Shimano EP8 motor were retired — the current top-tier carbon Decoy runs a Bosch Performance Line CX motor on an all-new "Ultra Modulus Carbon" frame with 180mm front / 170mm rear travel.',
+    desc: 'Verified vs the fetched maker product page (yt-industries.com, via Exa fetch — full Tech & Spec table); front/rear travel split and motor torque/peak-power cross-checked against an independent MBR first-ride review of the same 2026 Decoy Core relaunch (the raw page badge order was ambiguous). Model/trim corrected verify/emtb-4 wave 4 cluster F: "Decoy Uncaged 8" (Shimano EP8, no such trim/naming currently sold) -> real current top-carbon trim "Decoy MX CORE 3 CF". All e-system/drivetrain/weight/price fields rewritten to match: motor Shimano EP8 85Nm -> Bosch Performance Line CX 100Nm/750W peak, battery 630->800Wh (removable PowerTube), drivetrain SRAM X0 Eagle Transmission -> SRAM S1000 Eagle Transmission (SRAM\'s newer S-series naming), brakes SRAM Code -> TRP EVO PRO, weight 22600->23200g, travel 160/150 -> 180/170mm. PRICE RULE: GBP 7,999.00 RRP (yt-industries.com UK pricing page) used as a $7,999 USD sample — no separate US price found; basis disclosed.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.yt-industries.com/en-us/E-MTB/Bosch-Decoy/CORE-3/'
   },
 
   // ---------------------------------------------------------------------------
@@ -739,13 +746,14 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-whyte-e-180-rs', cat: 'emtb', brand: 'Whyte', model: 'E-180 RSX',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX Race (LE)', motorTorque: 85, motorPowerPeak: 600,
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85, motorPowerPeak: 600,
     batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM X01 Eagle AXS', brakes: 'SRAM Code',
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle AXS T-Type Transmission', brakes: 'SRAM Code RSC',
     disciplines: ['e-enduro'], weight: 26100, price: 5499,
-    note: "UK brand's long-travel gravity e-MTB; real current trim is \"RSX\" (catalog had \"RS\", no such trim currently sold), Bosch Performance Line CX Race LE motor, wireless SRAM X01 AXS.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Trim name/drivetrain/battery corrected verify/emtb-3 wave 3 phase 2b (RS -> RSX, SRAM GX -> X01 AXS, 720 -> 750Wh, price matched to whytebikes.com/UK MBR coverage — Whyte also launched a 2026 "Karve" Avinox-motor line that may supersede E-180 in some markets; not re-entered as this row since E-180 RSX is still a live product page).'
+    note: "UK brand's long-travel gravity e-MTB; real current trim is \"RSX\", Bosch Performance Line CX (Smart System) motor, wireless SRAM GX AXS T-Type drivetrain (the maker's own marketing prose says \"X01\" but the maker's own spec table lists the actual rear mech/chain/cassette as GX T-Type — the spec table wins).",
+    desc: 'Verified vs the fetched maker product page (whytebikes.com, via Exa fetch — full Specs table). Corrections verify/emtb-4 wave 4 cluster F: motor "Performance Line CX Race (LE)" -> plain "Performance Line CX" (no Race/LE variant on this page), drivetrain "SRAM X01 Eagle AXS" -> "SRAM GX Eagle AXS T-Type Transmission" (page\'s spec table lists REAR MECH/CHAIN/CASSETTE all as GX T-Type, contradicting its own marketing-prose "X01" mention — trusted the load-bearing spec table per the phantom-number-hazard precedent), brakes "SRAM Code" -> "SRAM Code RSC" (exact model). Weight (26.1kg M = 26100g) and travel (180/170mm) already matched exactly; unchanged. PRICE RULE: GBP 5,499.00 RRP (whytebikes.com, Whyte is UK-only, no US market) — the existing $5,499 sample already numerically mirrors the GBP figure; basis now disclosed.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://whytebikes.com/products/e-180-rsx'
   },
 
   // ---------------------------------------------------------------------------
@@ -872,13 +880,14 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-whyte-e-180-s', cat: 'emtb', brand: 'Whyte', model: 'E-180 S',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
-    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-enduro'], weight: 26200, price: 5200,
-    note: 'Entry alloy E-180 trim; same Bosch CX motor as the RS.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle AXS', brakes: 'SRAM Code R',
+    disciplines: ['e-enduro'], weight: 26400, price: 4499,
+    note: 'Entry alloy E-180 trim; same Bosch CX motor as the RSX, but a mechanical-hanger SRAM GX Eagle AXS drivetrain (not T-Type Transmission) and a RockShox ZEB/Super Deluxe Select R chassis.',
+    desc: 'Verified vs the fetched maker product page (whytebikes.com, via Exa fetch — full Specs table). Corrections verify/emtb-4 wave 4 cluster F: drivetrain "Shimano Deore" -> "SRAM GX Eagle AXS" (page spec table: REAR MECH/SHIFT LEVERS "SRAM GX AXS Eagle", CASSETTE "SRAM PG-1210 Eagle" 11-50T — a standard-hanger cassette, not T-Type direct-mount, so kept distinct from the RSX row\'s Transmission wording), brakes "Shimano MT420" -> "SRAM Code R", battery 720->750Wh, weight 26200->26400g (M), motorPowerPeak added (600W, stated in the page\'s own Highlights section for this motor). PRICE RULE: GBP 4,499.00 RRP (whytebikes.com, Whyte is UK-only, no US market) converted 1:1 as a $4,499 USD sample (mirrors the RSX row\'s existing convention) — basis disclosed.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://whytebikes.com/products/e-180-s-my24'
   },
 
   // ---------------------------------------------------------------------------
@@ -1182,21 +1191,23 @@ var EMTB_PARTS = [
     id: 'em-vitus-e-sommet-297-vrx', cat: 'emtb', brand: 'Vitus', model: 'E-Sommet 297 VRX',
     motorBrand: 'shimano', motorModel: 'Shimano STEPS EP801', motorTorque: 85, motorPowerPeak: 600,
     batteryWh: 630, batteryRemovable: false, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle T-Type Transmission', brakes: 'Hayes Dominion A4',
-    disciplines: ['e-enduro'], weight: 25000, price: 7699,
-    note: 'The real E-Sommet runs Shimano STEPS motors (not Bosch), on a redesigned mullet-only "297" chassis with RockShox ZEB/Vivid Ultimate suspension.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 167,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle T-Type AXS Transmission', brakes: 'Hayes Dominion A4',
+    disciplines: ['e-enduro'], weight: 24200, price: 7619.99,
+    note: 'The real E-Sommet runs Shimano STEPS motors (not Bosch), on a redesigned mullet-only "297" chassis; real fork/shock are RockShox ZEB Ultimate + Super Deluxe Ultimate RC2T (not Vivid).',
+    desc: 'Verified vs the fetched maker product page (vitusbikes.com UK, via Exa fetch — full Specs table). Corrections verify/emtb-4 wave 4 cluster F: rear travel 160->167mm, weight 25000->24200g (M, tubeless), suspension note ZEB/Vivid Ultimate -> ZEB/Super Deluxe Ultimate RC2T (Vivid was never correct for this trim), drivetrain wording tightened to SRAM GX Eagle T-Type AXS Transmission (matches the page\'s "SRAM GX Eagle T-Type AXS" rear derailleur). PRICE RULE: GBP 5,999.99 RRP (vitusbikes.com, Vitus is UK-based) converted to a $7,619.99 USD sample at ~1.27 — no current US listing found for the 297 chassis (us.vitusbikes.com still lists only the older non-297 VRX).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://vitusbikes.com/products/vitus-e-sommet-297-vrx-mountain-bike-07e7'
   },
   {
     id: 'em-vitus-e-sommet-297-vrs', cat: 'emtb', brand: 'Vitus', model: 'E-Sommet 297 VRS',
     motorBrand: 'shimano', motorModel: 'Shimano STEPS EP801', motorTorque: 85, motorPowerPeak: 600,
     batteryWh: 630, batteryRemovable: false, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX', brakes: 'SRAM DB8',
-    disciplines: ['e-enduro'], weight: 25400, price: 6399,
-    note: 'Entry-tier mullet E-Sommet 297 build; RockShox ZEB/Super Deluxe Select suspension.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 167,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX M7100', brakes: 'SRAM DB8',
+    disciplines: ['e-enduro'], weight: 24400, price: 6349.99,
+    note: 'Entry-tier mullet E-Sommet 297 build; real fork/shock are RockShox ZEB Select + Super Deluxe Select R.',
+    desc: 'Verified vs the fetched maker product page (vitusbikes.com UK, via Exa fetch — full Specs table). Corrections verify/emtb-4 wave 4 cluster F: rear travel 160->167mm, weight 25400->24400g (M, tubeless), drivetrain "Shimano SLX" -> "Shimano SLX M7100" (exact SKU). PRICE RULE: GBP 4,999.99 RRP (vitusbikes.com, Vitus is UK-based) converted to a $6,349.99 USD sample at ~1.27 — no current US listing found for the 297 chassis.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://vitusbikes.com/products/vitus-e-sommet-297-vrs-mountain-bike-07e7'
   }
 
 ];
