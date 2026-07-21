@@ -59,8 +59,10 @@ var ROAD_PARTS = [
     id: 'fr-specialized-allez', cat: 'frame', brand: 'Specialized', model: 'Allez',
     family: 'specialized-allez', modelYear: 2024, disciplines: ['road'], material: 'alu',
     wheelSizes: ['700c'], rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount',
-    bb: 'bsa-road', seatpost: '27.2', steerer: 'tapered', maxTire: 30, frontDerailleurMount: 'braze-on',
-    frameOnly: false, weight: 1450, price: 1200
+    bb: 'bsa-road', seatpost: '27.2', steerer: 'tapered', maxTire: 35, frontDerailleurMount: 'braze-on',
+    frameOnly: false, weight: 1375, price: 1200,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.specialized.com/us/en/allez-comp-shimano-105/p/4221810',
+    note: 'road-14 wave: specialized.com current Allez pages confirm E5 Premium Aluminum frame, 12x142mm thru-axle, flat-mount disc, Shimano Threaded BSA BB, 27.2mm 2-bolt alloy seatpost, and the maker-stated frame weight "1,375 grams" (catalog had 1450g, corrected). maxTire corrected 30->35mm ("tire clearance up to a beefy 35 mm (32 mm with Fenders)"). Price kept as the existing $1200 sample (page lists complete-bike prices only, no frameset-only US MSRP found).'
   },
   {
     id: 'fr-trek-emonda-slr', cat: 'frame', brand: 'Trek', model: 'Émonda SLR Frameset',
