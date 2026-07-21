@@ -199,6 +199,26 @@ line (e.g. `"Brake Mounts:None"`) straight from the maker's own product-organiza
 worth checking alongside the description text, and unlike a WebSearch summary it's raw first-party
 JSON, not a fabrication risk.
 
+**Extended to BUNDLED SHIFT-BRAKE SYSTEMS (Douglas 2026-07-21, by dispatching the road-10 chip):**
+the same interface-verification exception now covers **road hydraulic shift-brake lever rows**
+(`data/road.js` and any future `data/gravel.js` analog) that a maker sells only as one lever+caliper
+SKU, with no per-unit price or weight ever published — the SRAM RED/Rival/Apex AXS-and-mechanical
+"shift-brake system" pattern (e.g. `ED-RED-E1`, `ED-RIV-E1`), where this catalog's schema splits one
+real bundle across two engine slots (`shifter` + `brake`) purely because `checkBuild` models front/
+rear brakes as their own slot. `verified:true` attests the **INTERFACES** — every field the engine
+reads (`system`, `speeds`, `actuation`, `brakeSystem`, `mount` — no exceptions there, raw-confirmed
+on the maker's own bundle page each session, never a search summary); **per-slot PRICE** stays an
+honestly labeled ESTIMATE that sums to the real bundle MSRP (never claims a per-unit MSRP — THE
+PRICE RULE governs the split itself, not just its presence); **per-slot WEIGHT** stays a nominal/
+sample figure with its basis stated in the row's `note` ("maker publishes bundle-only weight" / "no
+weight published at all"). A wrinkle this wave surfaced: not every maker bundles by SHIFTER-VS-
+CALIPER slot — SRAM's mechanical Apex line instead bundles by SIDE (`SD-APX-D1` = right shift-brake
+lever+caliper, `DB-APX-D1` = left brake-only lever+caliper, no pair-covering SKU at all). The
+exception still applies: re-split proportionally across the two engine slots so they sum to the
+real total of both side-SKUs, and document the per-side shape in `note` so a future pass isn't
+misled into thinking a pair bundle exists. This does not relax item 1 for any other field, and does
+not apply where a maker DOES publish a clean per-unit price/weight (use that instead).
+
 ### JS-rendered ≠ bot-walled (kit wave 3, 2026-07-19 — try the browser pane before declaring a wall)
 
 **specialized.com and 100percent.com defeat WebFetch/Exa but render CLEANLY in the browser
