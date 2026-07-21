@@ -324,24 +324,31 @@ var STRIDER_PARTS = [
   },
   {
     id: 'sb-kubikes-12', cat: 'balancebike', brand: 'KUbikes', model: '12',
-    wheel: '12', bikeWeight: 3500, tire: 'air',
+    wheel: '12', bikeWeight: 3730, tire: 'air',
     brake: 'rear-hand', frameMaterial: 'aluminum', price: 169,
-    note: 'German-assembled premium balance bike with hand-laced wheels. Only a recommended-inseam range (12.4-15.7in) is published, not a seat-height range, so seatMin/seatMax are left blank rather than guessed (THE BAR). Price converted from the EUR169 list price at time of research.',
-    desc: 'Unverified sample — spec basis: downtown-mag.com KUbikes 12 test (weight 3.5kg) + sm-parts.net listing (rear brake, aluminum frame, EUR169 price).'
+    note: 'German-assembled premium balance bike with hand-laced wheels. Only a recommended-inseam range (12.4-15.7in / 88cm height) is published, not a seat-height range, so seatMin/seatMax are left blank rather than guessed (THE BAR). Price confirmed exactly at kubikes.de\'s own EUR169 list price. Corrected 2026-07-20: weight was downtown-mag\'s independently-measured 3.5kg sample; kubikes.de\'s own spec table for this exact SKU (12in with rear brake) states 3.73kg, used instead per THE BAR\'s maker-source preference (a "superlight" no-brake trim starts from 2.9kg — different SKU, not this row\'s brake-equipped config).',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://www.kubikes.de/kubikes_shop/Bikes/KUbikes-12/Laufrad-KUbikes-12.html',
+    desc: 'Verified — kubikes.de Laufrad KUbikes 12 product page (Exa-fetched 2026-07-20): 6061 T6 aluminum frame/fork, Kenda Booster 12x2.0 tires, aluminum V-brake (rear), Gewicht 3.73kg, EUR169.00, for ages 2+/~88cm height.'
   },
   {
     id: 'sb-moustache-mercredi-12', cat: 'balancebike', brand: 'Moustache', model: 'Mercredi 12',
     wheel: '12', seatMin: 340, seatMax: 410, bikeWeight: 3420, tire: 'air',
     brake: 'none', frameMaterial: 'aluminum', footrest: true, price: 249,
-    note: 'French brand (best known for e-bikes) kids balance bike; single-tube hydroformed alloy frame + fork, removable footrest.',
-    desc: 'Unverified sample — spec basis: downtown-mag.com Moustache Mercredi 12 test (weight 3.42kg, seat height 34-41cm, price EUR249, footrest, alloy frame) + ribblevalley-e-bikes.co.uk listing.'
+    note: 'French brand (best known for e-bikes) kids balance bike; single-tube hydroformed alloy frame + fork, removable footrest — frame/fork/footrest confirmed directly on moustachebikes.com 2026-07-20 ("Aeronautical hydroformed variable thickness alloy, single tube, ergonomic footrest"; "Rigid fork, aeronautical alloy, single-sided"). Seat height and weight sourced from downtown-mag.com\'s independently measured review (moustachebikes.com\'s own spec table doesn\'t surface a seat-height number in the fetched content) — already matched the existing sample exactly, no corrections needed.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'measured',
+    source: 'https://moustachebikes.com/us/en/electric-bikes/draisienne-mercredi-12/mercredi-12/',
+    weightSource: 'https://downtown-mag.com/en/moustache-mercredi-test-balance-bike-test-quick-guide-kids-bikes/',
+    desc: 'Verified — moustachebikes.com Mercredi 12 product page (Exa-fetched 2026-07-20: aeronautical hydroformed alloy frame/fork, integrated 25.4mm seatpost, footrest) + downtown-mag.com\'s independently measured test (weight 3.42kg, seat height 34-41cm, price EUR249 — all exact matches to the existing row).'
   },
   {
     id: 'sb-propain-bambam', cat: 'balancebike', brand: 'Propain', model: 'Bam Bam',
-    wheel: '14', heightMin: 900, heightMax: 1100, bikeWeight: 4440, tire: 'rubber-foam',
-    brake: 'none', frameMaterial: 'aluminum', price: 249,
-    note: 'German gravity-brand\'s kids balance bike; maker fits by rider height (90-110cm), not seat height, so seatMin/seatMax are left blank (THE BAR). No brake by design (maker: young children lack the grip strength to use one safely); a disc-brake mount exists but ships without a caliper.',
-    desc: 'Unverified sample — spec basis: downtown-mag.com Propain Bam Bam test (weight 4.44kg) + propain-bikes.com/thebikedads.com press coverage (14in knobby tires, height fit 90-110cm, no-brake rationale, aluminum frame, EUR249 price).'
+    wheel: '14', heightMin: 900, heightMax: 1100, bikeWeight: 4500, tire: 'air',
+    brake: 'none', frameMaterial: 'aluminum', price: 195,
+    note: 'German gravity-brand\'s kids balance bike; maker fits by rider height (90-110cm), not seat height, so seatMin/seatMax are left blank (THE BAR). No brake by design (maker: young children lack the grip strength to use one safely); a disc-brake mount (IS to PM, max 160mm rotor) exists but ships without a caliper. Corrected 2026-07-20 against propain-bikes.com directly: price was EUR249 (a copy/transcription error — that\'s actually the Moustache Mercredi 12\'s price, not Propain\'s), the maker\'s own EN and DE pages both state EUR179.00 (downtown-mag\'s test corroborates: "Price: EUR 179"); tire was "rubber-foam", the maker\'s own spec table lists knobbly VEE (pneumatic MTB-brand) tires, mapped to "air"; weight updated to the maker\'s own labeled "Bike weight: 4.5kg" spec-table field (was 4440g, downtown-mag\'s as-tested figure without the optional disc brake — close but the maker\'s own table field takes precedence per THE BAR). Price shown as a EUR179-converted USD sample, no US MSRP published (THE PRICE RULE).',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://www.propain-bikes.com/en/product/bikes/kids/bambam/',
+    desc: 'Verified — propain-bikes.com Bam Bam product page (Exa-fetched 2026-07-20): Aluminum frame, 14in wheels, disc-brake-mountable (not included), Bike weight 4.5kg, 90-110cm rider height, EUR179.00 ("From EUR179" list price); cross-checked against downtown-mag.com\'s independent measured test (4.44kg, EUR179, knobbly VEE Tires).'
   }
 
 ];
