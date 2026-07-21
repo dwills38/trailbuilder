@@ -227,10 +227,10 @@ unverified); `npm test` → 838/838 passed; `npm run typecheck` → clean.
 
 Remaining queue for phase 2: 19 same-brand-wrong-gen rows (Specialized Levo ×3, Kenevo SL,
 Trek Rail ×3, Fuel EXe ×2, Orbea Wild ×2, Cannondale Moterra ×2, Giant Reign E+, Ibis Oso,
-Mondraker Crafty + Level, Cube Stereo Hybrid 160 + ONE55 SL, Scott Patron eRIDE, Whyte E-180
-RS) and 2 Haibike Unclear rows (AllMtn 9, Nduro 8) — untouched this phase, next phase's queue.
+Mondraker Crafty + Level, Cube Stereo Hybrid 160, Scott Patron eRIDE) and 2 Haibike Unclear
+rows (AllMtn 9, Nduro 8) — untouched this phase, next phase's queue.
 
-## Wave 3 phase 2 (2026-07-20) — 19 of 21 same-brand-wrong-gen rows + both Haibike Unclear rows corrected in place
+## Wave 3 phase 2 (2026-07-20) — all 19 same-brand-wrong-gen rows + both Haibike Unclear rows corrected in place
 
 Unlike phase 1 (wrong-brand → append-only re-entry), these rows are the **same real
 platform**, just carrying a stale generation's motor/spec — corrected in place on the
@@ -267,6 +267,10 @@ Corrected (id unchanged unless noted):
   5), not the lightweight Bosch SX guess; frame corrected carbon → aluminum, wheel 29in →
   mullet, travel 140/130mm → 180/170mm — a near-total re-spec, kept on the same id since
   it's still the same named platform, not a different SKU.
+- `em-cube-stereo-hybrid-160` — the one row that turned out NOT stale: still genuinely Gen
+  4 CX with 750Wh, matching the catalog exactly. Only the missing "(Gen 4)" label was
+  added — logged as a reminder that a "Stale-likely" flag needs confirmation, not automatic
+  correction.
 - `em-scott-patron-eride-900-tuned` — Bosch CX gen tagged "(Gen 5, BDU384Y)"; battery
   750Wh → 800Wh, wheel mullet → 29in, travel 170/160mm → 150/150mm.
 - `em-haibike-allmtn-9` — wave 2 phase 1's "Unclear" flag turned out to be a false
@@ -284,5 +288,19 @@ unrelated pre-existing JS syntax bug found while gating: `2.2''s` in the Turbo L
 string used SQL-style `''` quote-escaping instead of JS's `\'`, which crashed
 `node validate.js` at parse time — corrected to `2.2\'s`.)
 
-Remaining queue: 2 rows (Cube Stereo Hybrid ONE55 SL, Whyte E-180 RS) — the only two of
-the original 21-row same-brand-wrong-gen/Unclear queue not yet re-checked this phase.
+All 19 same-brand-wrong-gen rows + both Haibike Unclear rows are now cleared — the phase-2
+queue is empty. (Cube Stereo Hybrid ONE55 SL and Whyte E-180 RS were never in this bucket —
+wave 2 phase 1 classified both "Current-likely"/"Current", not "Stale"/"Unclear" — so they're
+correctly untouched, not a leftover.)
+
+## Wave 3 session close (2026-07-20)
+
+Net this wave: catalog grew 83 → 92 bikes (phase 1's 9 append-only re-entries); phase 2's 19 +
+2 in-place corrections left the bike count unchanged but fixed motor/gen/spec identity across
+every row wave 2 phase 1 flagged Stale/Stale-likely/Unclear. Verified count still 2/92 — this
+wave corrected motor/spec/gen identity but did not attempt fresh `verified:true` fetches (that
+remains a phase-3-style deep-verification pass, still queued, still needs the browser pane for
+JS-heavy maker sites per wave 2's finding — Transition/Santa Cruz both needed it there). Every
+EMTB row touched across waves 2–3 now reflects a currently-sold real trim to the best of
+WebSearch/Exa-sourced confidence; the full wave-2-phase-1 triage table above is now fully
+worked through with no open dispositions left unaddressed.

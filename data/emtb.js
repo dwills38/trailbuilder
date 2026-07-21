@@ -519,14 +519,14 @@ var EMTB_PARTS = [
     desc: "Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor gen confirmed (not corrected) verify/emtb-3 wave 3 phase 2 — wave 2's \"Stale-likely\" flag turned out to be a false positive; only the missing Gen 4 label was added."
   },
   {
-    id: 'em-cube-stereo-hybrid-one55-sl', cat: 'emtb', brand: 'Cube', model: 'Stereo Hybrid ONE55 SL',
-    motorBrand: 'bosch', motorModel: 'Performance Line SX', motorTorque: 55,
-    batteryWh: 400, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 145,
-    frameMaterial: 'carbon', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail'], weight: 18900, price: 8200,
-    note: 'Lightweight-class Cube on the Bosch Performance Line SX motor.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-cube-stereo-hybrid-one55-sl', cat: 'emtb', brand: 'Cube', model: 'Stereo Hybrid ONE55 C:68X SLT 750',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 4)', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX1 Eagle AXS', brakes: 'SRAM Code',
+    disciplines: ['e-trail', 'e-enduro'], weight: 21900, price: 8999,
+    note: 'The real ONE55 line is full-power (Bosch Gen 4 CX, not a lightweight SX motor) across all three trims (SLX/TM/SLT); this is the flagship SLT 750 build — carbon frame, Newmen carbon wheels, wireless SRAM XX1 AXS, 29in-only.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor/frame/drivetrain/wheel corrected verify/emtb-3 wave 3 phase 2b (Bosch SX lightweight -> Bosch Gen 4 CX full-power, mullet -> 29in, Shimano XT -> SRAM XX1 AXS matching the real SLT 750 tier); price sourced from UK MSRP (£8,999), not independently confirmed in USD.'
   },
 
   // ---------------------------------------------------------------------------
