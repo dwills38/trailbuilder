@@ -55,7 +55,7 @@ var EMTB_VOCAB = {
   assist:        ['full-power', 'lightweight'],
   disciplines:   ['e-xc', 'e-trail', 'e-enduro', 'e-dh'],
   sourceType:    ['maker', 'measured'],
-  status:        ['current', 'discontinued']   // absent = current — mirrors schema.js's frame lifecycle convention
+  status:        ['current', 'discontinued', 'recalled']   // absent = current — mirrors schema.js's frame lifecycle convention
 };
 
 /** @typedef {{type: 'number'|'string'|'bool'|'strArray', vocab?: string, optional?: boolean}} EmtbFieldRule */

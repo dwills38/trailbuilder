@@ -92,3 +92,29 @@ test('a duplicate id across the catalog is caught', function(){
   var probs = S.validateGravelCatalog(D.GRAVEL_PARTS.concat([Object.assign({}, frame)]), TODAY);
   ok(probs.some(function(m){ return /duplicate id/.test(m); }), probs.join('\n'));
 });
+
+test('a frontwheel row with no freehub validates clean (a front hub has no driver body)', function(){
+  var fw = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'frontwheel'; });
+  if(!fw) throw new Error('no gravel frontwheel row found');
+  var bad = Object.assign({}, fw); delete bad.freehub;
+  eq(S.validateGravelPart(bad, new Date()).length, 0);
+});
+
+test('the real gravel catalog no longer fabricates a frontwheel freehub value', function(){
+  var withFreehub = D.GRAVEL_PARTS.filter(function(p){ return p.cat === 'frontwheel' && p.freehub != null; });
+  eq(withFreehub.length, 0, withFreehub.map(function(p){ return p.id; }).join(', '));
+});
+
+test('a dropper diameter of "proprietary" (a rigid-seatpost-only token) is rejected', function(){
+  var dp = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'dropper'; });
+  if(!dp) throw new Error('no gravel dropper row found');
+  var bad = Object.assign({}, dp, { diameter: 'proprietary' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /"diameter".*not in dropperDiameter/.test(m); }), probs.join('\n'));
+});
+
+test('a real dropper diameter still validates clean', function(){
+  var dp = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'dropper'; });
+  if(!dp) throw new Error('no gravel dropper row found');
+  eq(S.validateGravelPart(dp, TODAY).length, 0);
+});
