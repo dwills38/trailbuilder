@@ -859,12 +859,14 @@ var ROAD_PARTS = [
     weight: 126, price: 90,
     verified: true, lastChecked: '2026-07-21', source: 'https://dedaelementi.com/zero100-stem',
     note: 'road-11 wave (wheels/cockpit tail): FETCHED dedaelementi.com/zero100-stem directly: "Diameter: 31,7mm" (clamp:31.8 kept, standard rounding), "Fork Steerer: 1 1/8\" (28,6mm)" (confirms steerer:\'1-1-8\'), sizes "80mm...140mm" (100mm is a real SKU, D100B100/D100BOB100). WEIGHT CORRECTED 130->126: the page states "Weight: 126g (110mm)" — no per-100mm figure is published, so this is the closest sourced data point (and fixes a physically-implausible reading where the old 130g/100mm sample was heavier than the real 110mm-length weight, which should never happen since shorter stems weigh less). Price: page states "FROM €68.00" (~$75); this row\'s existing $90 sample stays (in the right ballpark, not corrected to avoid a shaky EUR->USD conversion for a THE-PRICE-RULE-exempt field).' },
-  { id: 'hb-ritchey-wcs-streem', cat: 'handlebar', brand: 'Ritchey', model: 'WCS Streem II', family: 'ritchey-wcs-streem',
-    clamp: '31.8', dropBar: true, reach: 75, drop: 121, width: 400,
-    weight: 220, price: 150 },
+  { id: 'hb-ritchey-wcs-streem', cat: 'handlebar', brand: 'Ritchey', model: 'WCS Streem', family: 'ritchey-wcs-streem',
+    clamp: '31.8', dropBar: true, reach: 73, drop: 128, width: 400,
+    weight: 220, price: 150,
+    note: 'road-13 wave: Ritchey identity chase. FETCHED ritcheylogic.com/bike/handlebars/wcs-streem-internal-routing-handlebar directly (WebFetch, no wall) — this is a REAL, currently-sold Ritchey product; the row\'s prior model string "WCS Streem II" is not the maker\'s current name (the page calls it plainly "WCS Streem Internal Routing Handlebar" / "WCS Streem" throughout, no "II" anywhere) — MODEL CORRECTED (id kept, append-only). Spec table: "Accessory Mount Diameter: 31.8mm" (clamp confirmed), "Reach: 73mm" (CORRECTED 75->73), "Drop: 128mm" (CORRECTED 121->128), "Width Options: 38, 40, 42, 44, 46cm" (confirms width:400 is a real SKU). NOT marked verified:true: the page publishes only one weight figure, "287g (42cm)" — a different width than this row\'s 400mm/40cm SKU, so the weight bar (VERIFY-PROTOCOL item 2, exact-SKU weight) isn\'t met; the existing 220g stays an unsourced sample, flagged. No price on the page. Material is triple-butted 6066 ALLOY per the page (not carbon, despite this file\'s prior "II" naming implying the carbon-tier Streem lineage) — the maker\'s carbon variant is a separate current product, "WCS Carbon Streem"/Superlogic Streem, a different SKU entirely, not this row.' },
   { id: 'st-ritchey-wcs-c260', cat: 'stem', brand: 'Ritchey', model: 'WCS C260', family: 'ritchey-wcs-c260',
     clamp: '31.8', steerer: '1-1-8', length: 100,
-    weight: 130, price: 100 },
+    weight: 130, price: 100,
+    note: 'road-13 wave: Ritchey identity chase — INCONCLUSIVE, left as-is. Ritchey\'s reachable US site (ritcheylogic.com, no wall) currently lists only a "Superlogic C260 84D Stem" (carbon, 128g/100mm, steerer 1-1/8" or 1-1/4") and a "WCS C220 84D Stem" (alloy, 132g/100mm) whose own product copy markets itself as rivaling "the revolutionary C260 stem design, but... quicker and easier to install" — i.e. C220 reads as the current alloy successor in that clamp family. No live product page for a plain alloy "WCS C260" was found on the reachable main domain; only a spare-parts page ("C260 Stem Face Plate Replacement", ambiguous as to which C260 tier it services) references the name. The eu./us. regional subdomains (which search snippets show DO list a "WCS C260 84D Stem") are unreachable — expired TLS certs on both (WebFetch + browser pane both failed with "certificate has expired"/navigation denied), a documented wall, not routed around. Multiple US retailers (Jenson USA, ModernBike) show the WCS C260 alloy stem as out of stock/discontinued, consistent with C220 having superseded it, but that is not a manufacturer confirmation. Given the genuine ambiguity between "still sold in other regions" vs "discontinued, replaced by C220" vs "the page just resolves under Superlogic C260 now", this row is NOT renamed (renaming to C220 or Superlogic C260 would conflate three distinct real products under one id) and stays unverified sample data pending a working fetch of the regional page or maker confirmation.' },
 
   // ===== SEATPOST / SADDLE / BB / PEDALS ==================================
   { id: 'sp-zipp-sl-speed', cat: 'seatpost', brand: 'Zipp', model: 'SL Speed', family: 'zipp-sl-speed',
@@ -926,9 +928,10 @@ var ROAD_PARTS = [
     weight: 310, price: 65,
     verified: true, lastChecked: '2026-07-20', source: 'https://productinfo.shimano.com/en/product/PD-R550',
     note: 'road-6 wave: productinfo.shimano.com spec table confirms "Type: SPD-SL", single-sided binding. Average weight 310g/pair exactly matches the catalog\'s existing sample figure.' },
-  { id: 'pd-look-keo-blade-carbon', cat: 'pedal', brand: 'Look', model: 'Keo Blade Carbon', family: 'look-keo-blade',
+  { id: 'pd-look-keo-blade-carbon', cat: 'pedal', brand: 'Look', model: 'Keo Blade – Q Factor 53mm', family: 'look-keo-blade',
     style: 'road-clip',
-    weight: 240, price: 180 },
+    weight: 240, price: 195,
+    note: 'road-13 wave: FETCHED lookcycle.com (WebFetch, no wall — note the maker\'s real domain is lookcycle.com, not look-cycle.com, which does not resolve) — Look currently sells 8 distinct Keo Blade SKUs (Ceramic Vision $325, Ceramic TI $400, two Ceramic Prisme/plain $275 tiers x 2 Q-factors, three base Chromoly $195 tiers x Q-factor/edition), none plainly named "Keo Blade Carbon". This row\'s model string doesn\'t match any current SKU exactly; renamed to the base-tier "Keo Blade – Q Factor 53mm" ($195, Chromoly+ axle, the closest non-ceramic/non-limited match to what a generic "Keo Blade Carbon" sample row likely meant — id kept, append-only). PRICE CORRECTED 180->195 (the base tier\'s real MSRP). NOT marked verified:true: the fetched page states weight "300 g" but EXPLICITLY "including cleats" — not comparable to this catalog\'s per-pair-pedal-only convention (DATA-ENTRY-TEMPLATE §5), so the existing 240g sample is left unverified/unconfirmed rather than replaced with a mismatched-basis figure.' },
 
   // ===== DRIVETRAIN — Shimano Tiagra 4700 (2x10, mechanical) ===============
   // Rounds out the tier ladder below 105 per the road-2 brief. Tiagra 4700 is
@@ -997,7 +1000,9 @@ var ROAD_PARTS = [
   // own freehub standard (12-speed wireless generation).
   { id: 'sh-campagnolo-superrecord-wrl', cat: 'shifter', brand: 'Campagnolo', model: 'Super Record Wireless Ergopower (pair)', family: 'campagnolo-superrecord-wrl',
     system: 'campag-12', speeds: 12, actuation: 'axs-wireless', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
-    weight: 400, price: 1600 },
+    weight: 745, price: 1600,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/super-record-wireless-ergopower-controls/CCLSUPERRECORDWRLDB12S.html',
+    note: 'road-13 wave (breadth pass): FETCHED campagnolo.com product page directly (WebFetch, no wall). "Weight: 745 g / pair" — CORRECTED 400->745 (the prior sample was far below the real wireless-shifter+hydraulic-lever pair weight). 12-speed wireless electronic actuation and disc-hydraulic brake system confirmed (already correct on this row).' },
   { id: 'rd-campagnolo-superrecord-wrl', cat: 'rearderailleur', brand: 'Campagnolo', model: 'Super Record Wireless Rear Derailleur', family: 'campagnolo-superrecord-wrl',
     system: 'campag-12', speeds: 12, actuation: 'axs-wireless', maxCog: 29, cage: 'medium', mount: 'std-hanger',
     weight: 295, price: 900,
@@ -1036,8 +1041,9 @@ var ROAD_PARTS = [
   // between id and real spec is intentional and documented here + per-row.
   { id: 'sh-campagnolo-record-wrl', cat: 'shifter', brand: 'Campagnolo', model: 'Record Ergopower (pair)', family: 'campagnolo-record-wrl',
     system: 'campag-12', speeds: 12, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
-    weight: 420, price: 1300,
-    note: 'road-4 wave FIX: actuation corrected axs-wireless -> mechanical (no wireless Record 12s product exists; see the family-header comment above). Weight (420g, sample) not sourced this pass.' },
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/record-disc-brake-ergopower-controls/CCLRECORDDB12S.html',
+    weight: 463, price: 1300,
+    note: 'road-4 wave FIX: actuation corrected axs-wireless -> mechanical (no wireless Record 12s product exists; see the family-header comment above). road-13 wave: FETCHED campagnolo.com/us-en/record-disc-brake-ergopower-controls/CCLRECORDDB12S.html directly (WebFetch, no wall) — "Weight: 463 grams" (CORRECTED 420->463), mechanical actuation and disc brake system confirmed.' },
   { id: 'rd-campagnolo-record-wrl', cat: 'rearderailleur', brand: 'Campagnolo', model: 'Record Rear Derailleur', family: 'campagnolo-record-wrl',
     system: 'campag-12', speeds: 12, actuation: 'mechanical', maxCog: 34, cage: 'medium', mount: 'std-hanger',
     weight: 216, price: 700,
@@ -1066,7 +1072,9 @@ var ROAD_PARTS = [
   // ===== DRIVETRAIN — Campagnolo Chorus (2x12, mechanical) ==================
   { id: 'sh-campagnolo-chorus-mech', cat: 'shifter', brand: 'Campagnolo', model: 'Chorus Ergopower (pair)', family: 'campagnolo-chorus-mech',
     system: 'campag-12', speeds: 12, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
-    weight: 480, price: 700 },
+    weight: 488, price: 700,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/cz-en/chorus-ergopower-disc-brake-controls/CCLCHORUSDB12S.html',
+    note: 'road-13 wave (breadth pass): FETCHED campagnolo.com product page directly (WebFetch, no wall). "Weight: 488 grams" (CORRECTED 480->488, close but not exact on the prior sample). 12-speed mechanical actuation, disc-hydraulic brake system confirmed.' },
   { id: 'rd-campagnolo-chorus-mech', cat: 'rearderailleur', brand: 'Campagnolo', model: 'Chorus Rear Derailleur', family: 'campagnolo-chorus-mech',
     system: 'campag-12', speeds: 12, actuation: 'mechanical', maxCog: 32, cage: 'medium', mount: 'std-hanger',
     weight: 220, price: 220,
@@ -1079,7 +1087,9 @@ var ROAD_PARTS = [
     note: 'road-4 wave FIX: freehub corrected n3w->campag-11 (same ED-body fact as the Record cassette fix above; retailer spec sheet: "Freehub Type: ED Campagnolo (10, 11, 12sp)"). Weight 320(sample)->310g, exact match ("Weight 310 grams (11-29 version)" on the fetched product page).' },
   { id: 'ch-campagnolo-chorus-c12', cat: 'chain', brand: 'Campagnolo', model: 'Chorus 12s Chain', family: 'campagnolo-chorus-chain',
     system: 'campag', speeds: 12,
-    weight: 265, price: 55 },
+    weight: 243, price: 55,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/chorus-12-speed-chain/CCNCHORUS12S.html',
+    note: 'road-13 wave (breadth pass): FETCHED campagnolo.com product page directly (WebFetch, no wall). "Weight: 243 grams (110 links)" — CORRECTED 265->243. 12-speed confirmed.' },
   { id: 'cr-campagnolo-chorus-crank', cat: 'crankset', brand: 'Campagnolo', model: 'Chorus Crankset', family: 'campagnolo-chorus-crank',
     bb: 'ultra-torque', chainrings: '2x', ring: '50/34', ringStd: null, speeds: 12, chainline: 45.5,
     weight: 710, price: 320,
@@ -1138,9 +1148,10 @@ var ROAD_PARTS = [
     weight: 180, price: 220,
     verified: true, lastChecked: '2026-07-21', source: 'https://www.fsaproshop.com/products/k-force-compact-handlebar',
     note: 'road-12 wave: FETCHED fsaproshop.com directly. Spec table: "Ø31.8mm" clamp (confirmed), "80mm reach" (CORRECTED 75->80), "125mm drop" (CORRECTED 123->125), "W400, 420, 440mm" (confirms width:400 is a real SKU), weight "180 grams (400mm)" (CORRECTED 195->180, exact same width this row models).' },
-  { id: 'st-fsa-kforce', cat: 'stem', brand: 'FSA', model: 'K-Force', family: 'fsa-kforce-stem',
+  { id: 'st-fsa-kforce', cat: 'stem', brand: 'FSA', model: 'K-Force 2.0', family: 'fsa-kforce-stem',
     clamp: '31.8', steerer: '1-1-8', length: 100,
-    weight: 115, price: 150 },
+    weight: 123, price: 182,
+    note: 'road-13 wave: FETCHED fsaproshop.com/products/k-force-2-0-stem directly (WebFetch, no wall) — FSA currently sells 4 distinct K-Force-family stems (K-Force 2.0 alloy $182 MSRP/123g@100mm -6°; K-Force OS-99 carbon-wrap $?/126g ±6°; K-Force -12° CSI $?/143g@100mm; K-Force Carbon monocoque $297 MSRP/193g@100mm -6°), none plainly named just "K-Force". Renamed to the closest current match, "K-Force 2.0" (alloy 6061/T6, the generic non-suffixed successor tier, weight closest to this row\'s pre-existing 115g of the four — id kept, append-only). WEIGHT CORRECTED 115->123 (page: "123 grams (100mm)"), PRICE CORRECTED 150->182 (page: "$182.00 MSRP", sale-priced lower but MSRP is this catalog\'s price-field convention). NOT marked verified:true: the page confirms clamp "Ø31.8mm" but does not state a steerer-tube diameter compatible with a plain description (only "33.5mm fork clamp stack height", ambiguous vs this row\'s existing steerer:\'1-1-8\' — left unconfirmed/unchanged rather than guessed) — a real interface field stays unsourced, so the bar for verified:true isn\'t met.' },
 
   // Cervelo R5 and Factor Ostro VAM: this worktree was concurrently edited by
   // another road-4 session this pass, which landed both (fr/fk-cervelo-r5-disc,
@@ -1170,16 +1181,18 @@ var ROAD_PARTS = [
     weight: 218, price: 180 },
   { id: 'sd-prologo-dimension-tirox', cat: 'saddle', brand: 'Prologo', model: 'Dimension T2.0 Tirox', family: 'prologo-dimension',
     weight: 227, price: 150 },
-  { id: 'sp-ritchey-comp-two-bolt', cat: 'seatpost', brand: 'Ritchey', model: 'Comp Two-Bolt', family: 'ritchey-comp-two-bolt',
-    diameter: '27.2', setback: 15,
+  { id: 'sp-ritchey-comp-two-bolt', cat: 'seatpost', brand: 'Ritchey', model: 'Comp 2-Bolt', family: 'ritchey-comp-two-bolt',
+    diameter: '27.2', setback: 25,
     weight: 260, price: 45,
-    note: 'Entry-tier alloy post — fills the gap for the Allez\'s 27.2mm non-proprietary seat tube (the only other 27.2 post in this file, the Zipp SL Speed, is a premium carbon part).' },
+    verified: true, lastChecked: '2026-07-21', source: 'https://ritcheylogic.com/bike/seatposts/comp-2-bolt-seatpost',
+    note: 'road-13 wave: Ritchey identity chase. FETCHED ritcheylogic.com/bike/seatposts/comp-2-bolt-seatpost directly (WebFetch, no wall) — the maker\'s current name is "Comp 2-Bolt Seatpost" (MODEL CORRECTED from the row\'s prior "Comp Two-Bolt" spelling to match, id kept, append-only — this is the same product, not a different one; the prior row already had the specs right). Spec table: "Diameter Options: 26.8, 27.0, 27.2, 30.9, 31.4, 31.6mm" (confirms diameter:\'27.2\' is a real SKU), "Setback/Offset: 25mm" (SETBACK CORRECTED 15->25 — an exact match to the maker\'s stated offset, the prior 15mm was wrong), "Weight: 260g (27.2x350mm)" (EXACT match to this row\'s pre-existing 260g, confirming it), "Material: 6061 alloy". No price on the page; this row\'s existing $45 sample stays. Entry-tier alloy post — fills the gap for the Allez\'s 27.2mm non-proprietary seat tube (the only other 27.2 post in this file, the Zipp SL Speed, is a premium carbon part).' },
   { id: 'bt-fizik-vento-microtex-tacky', cat: 'bartape', brand: 'Fizik', model: 'Racefeel 2mm Tacky', family: 'fizik-vento-microtex',
     weight: 77, price: 30,
     verified: true, lastChecked: '2026-07-21', source: 'https://www.fizik.com/en-us/products/bartapes-racefeel-2mm-tacky-white-bt09000a00044',
     note: 'road-12 wave: FETCHED fizik.com directly — the product page states verbatim "This product was previously the Vento Microtex 2mm Tacky," i.e. Fizik\'s current-catalog name for the exact same tape this row already modeled (model string CORRECTED to the current name; id/family kept unchanged per the append-only convention). Tech spec table: "Weight: 77 g" (CORRECTED 65->77), "Technology: Microtex", "Finish: Tacky", "Thickness: 2 mm" (all consistent with this row).' },
   { id: 'bt-supacaz-super-sticky-kush', cat: 'bartape', brand: 'Supacaz', model: 'Super Sticky Kush', family: 'supacaz-super-sticky-kush',
-    weight: 75, price: 30 },
+    weight: 75, price: 45,
+    note: 'road-13 wave: RETRY SUCCEEDED — this row previously walled BOTH WebFetch and Exa (per road-12 wave notes); WebFetch on supacaz.com/products/super-sticky-kush and supacaz.com/product/super-sticky-kush-black/ both still 403 this pass, but Exa\'s fetch tool got through on the same product URL (supacaz.com/product/super-sticky-kush-black/) per the fetch-ethics doctrine\'s WebFetch->Exa order. Page confirms: "Material: PU Length: 2200mm Width: 30mm Thickness: 2.5mm", "$45.00". PRICE CORRECTED 30->45 (exact match to the fetched MSRP). NOT marked verified:true: no weight is published anywhere on the page (only length/width/thickness) — the existing 75g sample stays an unsourced-but-plausible figure, flagged rather than fabricated a source for it.' },
 
   // ===== COCKPIT — one-piece integrated bar/stem (road-5 wave, first rows) ==
   // Zero rows existed pre-wave despite the category being modeled since
@@ -1301,7 +1314,7 @@ var ROAD_PARTS = [
   { id: 'hs-ritchey-comp-zero-zs44-zs55', cat: 'headset', brand: 'Ritchey', model: 'Comp Zero Logic ZS44/28.6 - ZS55/40 Tapered', family: 'ritchey-comp-zero',
     upper: 'ZS44/28.6', lower: 'ZS55/40', steerer: 'tapered',
     weight: 109, price: 45,
-    note: 'road-5 wave: real, currently-sold Ritchey headset (Ritchey already appears elsewhere in this file as a cockpit brand — Ritchey WCS bar/stem). ritchey-logic.com itself was not probed this pass (time-boxed); spec (ZS44/28.6 upper, ZS55/40 tapered lower, 109g, "Stem Clamp Diameter: 28.6") cross-checked across bike24.com/bike-components.de retailer listings quoting Ritchey\'s own published S.H.I.S. codes. Unverified sample, same caveat as the FSA row above.' },
+    note: 'road-5 wave: real, currently-sold Ritchey headset (Ritchey already appears elsewhere in this file as a cockpit brand — Ritchey WCS bar/stem). ritchey-logic.com itself was not probed this pass (time-boxed); spec (ZS44/28.6 upper, ZS55/40 tapered lower, 109g, "Stem Clamp Diameter: 28.6") cross-checked across bike24.com/bike-components.de retailer listings quoting Ritchey\'s own published S.H.I.S. codes. Unverified sample, same caveat as the FSA row above. road-13 wave: FETCHED ritcheylogic.com/bike/headsets/comp-semi-integrated-zs-headset (WebFetch, no wall) — this current product lists lower options "ZS44/30 (1 1/8\"), ZS55/40 (1.5\"), ZS56/40" alongside upper "ZS44/28.6 (1 1/8\")", i.e. the same bore pair this row models IS one of its selectable configs — but the page never uses the name "Comp Zero"/"Comp Zero Logic" (this row\'s model string) and states weight "83g (1 1/8\")" for the generic listing, not this row\'s 109g. Plausible same-family product under a renamed/generic current SKU, but not a confirmed identity match (weight mismatch, no name bridge) — left unrenamed/unverified rather than guess.' },
 
 ];
 
