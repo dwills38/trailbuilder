@@ -145,6 +145,38 @@ test('rg-freehub: the REVERSE (N3W-native cassette on an ED/campag-11 wheel) sta
   eq(errOf(r, 'rg-freehub').length, 1, 'no adapter exists in this direction');
   eq(warnOf(r, 'rg-freehub').length, 0, 'and no adapter tier is claimed');
 });
+/* HG-L2 dual-body fit (Shimano C-731: the ROAD 12-speed cassette class fits
+   BOTH "HG spline L2" and "HG spline L") — the class is silent across the two
+   bodies in both directions; everything outside the class keeps the error. */
+test('rg-freehub C-731: 105 (hg-road token) on an HG-L2 wheel is SILENT', function(){
+  var r = ROAD.checkRoadBuild({ cassette: rp('cs-shimano-105-r7100-1136'), rearWheel: rp('rw-shimano-c50-r9270') });
+  eq(of(r, 'rg-freehub').length, 0, 'road-12 class fits the L2 body natively');
+});
+test('rg-freehub C-731: Ultegra (hg-road token) on an HG-L2 wheel is SILENT', function(){
+  var r = ROAD.checkRoadBuild({ cassette: rp('cs-shimano-ultegra-r8100-1130'), rearWheel: rp('rw-shimano-c50-r9270') });
+  eq(of(r, 'rg-freehub').length, 0, 'all road-12 tiers, not Dura-Ace only');
+});
+test('rg-freehub C-731: Dura-Ace (hg-l2 token) on an hg-road wheel is SILENT', function(){
+  var r = ROAD.checkRoadBuild({ cassette: rp('cs-shimano-da-r9200-1130'), rearWheel: rp('rw-shimano-rs710-c46') });
+  eq(of(r, 'rg-freehub').length, 0, 'the same cassettes also fit HG spline L');
+});
+test('rg-freehub C-731: an 11-speed cassette on an HG-L2 wheel STAYS the error (L2 is 12s dedicated)', function(){
+  var r = ROAD.checkRoadBuild({ cassette: rp('cs-shimano-grx-hg800-1134'), rearWheel: rp('rw-shimano-c50-r9270') });
+  eq(errOf(r, 'rg-freehub').length, 1, 'GRX 11s on hg-l2');
+  var r2 = ROAD.checkRoadBuild({ cassette: rp('cs-shimano-tiagra4700-1134'), rearWheel: rp('rw-shimano-c50-r9270') });
+  eq(errOf(r2, 'rg-freehub').length, 1, 'Tiagra on hg-l2');
+});
+test('rg-freehub C-731: the class gate is SYSTEM-scoped, not token-scoped - a SRAM hg-road cassette on hg-l2 stays the error', function(){
+  var r = ROAD.checkRoadBuild({ cassette: rp('cs-sram-apex-xg1231-1144'), rearWheel: rp('rw-shimano-c50-r9270') });
+  eq(errOf(r, 'rg-freehub').length, 1, 'sram-xplr-12 carries hg-road but is not the C-731 class');
+});
+test('rg-freehub C-731: a mis-tokened road-12 row (freehub outside the two HG bodies) keeps the error', function(){
+  var badToken = syn(rp('cs-shimano-105-r7100-1136'), { id: 'cs-syn-road12-xdr', freehub: 'xdr' });
+  var r = ROAD.checkRoadBuild({ cassette: badToken, rearWheel: rp('rw-shimano-rs710-c46') });
+  eq(errOf(r, 'rg-freehub').length, 1, 'the dual-body silence never covers a non-HG token');
+  var r2 = ROAD.checkRoadBuild({ cassette: rp('cs-shimano-da-r9200-1130'), rearWheel: rp('rw-shimano-rx880-grx') });
+  eq(errOf(r2, 'rg-freehub').length, 1, 'road-12 on a micro-spline-road wheel stays the error');
+});
 
 /* ---- R6 RD capacity ------------------------------------------------------- */
 test('rg-rd-capacity errors a cassette over the RD max cog, silent within', function(){

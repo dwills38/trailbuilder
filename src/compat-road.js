@@ -335,12 +335,30 @@ function checkRoadBuild(build){
         campagnolo.com CCSSUPERRECORD12S page + the Bikerumor N3W teardown
         cited in the analysis doc). The REVERSE (an N3W-native 9/10T cassette
         on the longer ED body) has no adapter and stays the ERROR.
-        The HG↔HG-L2 interchange direction and the HG 1.85mm-spacer tier are
-        [MECHANIC REVIEW] in the doc and are deliberately NOT softened here —
-        they stay exact-match ERRORs until that review lands (a wrong adapter
-        claim is a false "fits"). */
+        HG-L2 DUAL-BODY FIT (Shimano C-731 compatibility chart,
+        productinfo.shimano.com, fetched verbatim 2026-07-20): the chart's
+        matrix marks "HG spline L2 (ROAD 12-speed dedicated)" ✔ for the
+        ROAD 12-speed cassette CLASS — all tiers (Dura-Ace/Ultegra/105),
+        not Dura-Ace only (the bike.shimano.com article's "Dura-Ace only"
+        wording predates the Ultegra/105 12s launches) — and the same
+        cassettes also ✔ on "HG spline L" (our 'hg-road'). So a Shimano
+        ROAD 12-speed cassette fits BOTH bodies natively — no adapter, no
+        caveat — whichever of the two tokens its row carries; the pairing
+        is SILENT. The class gate is deliberately narrow: BOTH tokens must
+        be in {hg-road, hg-l2} (a road-12 row mis-tokened e.g. 'xdr' keeps
+        the error rather than gaining a false "fits"), and non-road-12
+        cassettes on an L2 wheel keep the exact-match ERROR — C-731 calls
+        L2 "ROAD 12-speed dedicated", so an 11-speed cassette on hg-l2 is
+        a true won't-fit. The HG 1.85mm-spacer tier stays [MECHANIC REVIEW]
+        and is deliberately NOT softened here (a wrong adapter claim is a
+        false "fits"). */
   if(cassette && rW && cassette.freehub != null && rW.freehub != null && cassette.freehub !== rW.freehub){
-    if(cassette.freehub === 'campag-11' && rW.freehub === 'n3w')
+    var hgRoadBodies = ['hg-road', 'hg-l2'];
+    if(cassette.system === 'shimano-road-12' && cassette.speeds === 12
+       && hgRoadBodies.indexOf(cassette.freehub) >= 0 && hgRoadBodies.indexOf(rW.freehub) >= 0){
+      /* silent — C-731 dual-body fit, see the rule note above */
+    }
+    else if(cassette.freehub === 'campag-11' && rW.freehub === 'n3w')
       warn('rg-freehub', ['cassette', 'rearWheel'],
         'Freehub adapter needed: ' + roadNameOf(cassette) + ' fits Campagnolo\'s classic ED freehub body, and ' + roadNameOf(rW) + ' has the shorter N3W body - Campagnolo\'s AC21-N3W adapter ring (with its longer lockring) mounts it.',
         {kind: 'adapter', name: 'Campagnolo AC21-N3W adapter'});
