@@ -181,38 +181,44 @@ var STRIDER_PARTS = [
 
   {
     id: 'sb-puky-lr-m', cat: 'balancebike', brand: 'Puky', model: 'LR M',
-    wheel: '8', seatMin: 300, seatMax: 400, bikeWeight: 3560, tire: 'solid-rubber',
-    brake: 'none', frameMaterial: 'steel', footrest: true, steeringLimiter: false, price: 108,
-    note: 'German budget-entry balance bike (8.8in solid-plastic wheels; nearest catalog wheel vocab value "8" used, actual size noted here). No steering limiter (downtown-mag: "There\'s no steering limiter either"). Price converted from the EUR99 list price at time of research.',
-    desc: 'Unverified sample — spec basis: downtown-mag.com PUKY LR M test (weight, price) + kidsbikeshop.co.uk PUKY sizing guide (seat height 30-40cm) + puky.de product page.'
+    wheel: '8', seatMin: 300, seatMax: 430, bikeWeight: 3560, tire: 'foam',
+    brake: 'none', frameMaterial: 'steel', footrest: true, steeringLimiter: false, price: 99.99,
+    note: 'German budget-entry balance bike (8.8in wheels; nearest catalog wheel vocab value "8" used, actual size noted here). No steering limiter (downtown-mag: "There\'s no steering limiter either" — puky.de\'s own spec table doesn\'t list one either, consistent). Price confirmed at puky.de\'s current EUR99.99 list price (was a stale EUR99-converted sample, now an exact match). Corrected 2026-07-20: tire was "solid-rubber", puky.de states "hochwertige EVA-Bereifung" (EVA foam tire) — mapped to foam; seatMax was 400 (30-40cm sample), puky.de states an exact 30-43cm range.',
+    desc: 'Unverified sample (weight not published by puky.de — no manufacturer figure or measured source, so verified:true withheld per THE BAR) — spec basis: puky.de LR M product page (Exa-fetched 2026-07-20, direct WebFetch not attempted — Puky\'s domain is fetchable via Exa): Seat height 30-43cm, EVA foam tires, height-adjustable saddle/handlebar, max load 25kg, EUR99.99. Weight retained from downtown-mag.com (matches original wave sourcing).'
   },
   {
     id: 'sb-kokua-likeabike-jumper-12', cat: 'balancebike', brand: 'Kokua', model: 'LIKEaBIKE Jumper 12',
     wheel: '12', seatMin: 340, seatMax: 440, bikeWeight: 3400, tire: 'air',
     brake: 'none', frameMaterial: 'aluminum', steeringLimiter: true, price: 328,
-    note: 'Premium German balance bike; ships with a rear elastomer suspension (not modeled — schema has no suspension field) and a steering damper (mapped to steeringLimiter). No hand brake.',
-    desc: 'Unverified sample — spec basis: kokua-shop.com / kokuabikesusa.com product pages (seat height, weight, price) cross-checked against twowheelingtots\' Jumper review (BRAKES: No).'
+    note: 'Premium German balance bike; ships with a rear elastomer suspension (not modeled — schema has no suspension field) and a steering damper (mapped to steeringLimiter). No hand brake. Every field independently confirmed against the maker page 2026-07-20 with zero corrections needed (seat height, weight, and price all already matched exactly).',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://kokuabikesusa.com/products/like-a-bike-jumper-12',
+    desc: 'Verified — kokuabikesusa.com LIKEaBIKE Jumper 12 product page (Exa-fetched 2026-07-20): 7005 aircraft-grade aluminum frame, adjustable seat height 340-440mm (two seat posts included), Schwalbe "Big Apple" air tires, steering damper, Weight 3400g (kokua-shop.com DE spec table), $328.00.'
   },
   {
     id: 'sb-banwood-first-go', cat: 'balancebike', brand: 'Banwood', model: 'First Go',
     wheel: '12', seatMin: 370, seatMax: 440, bikeWeight: 4500, tire: 'air',
     brake: 'none', frameMaterial: 'steel', price: 199,
-    note: 'Design-forward premium steel balance bike with wicker basket; maker states no brake system ("The first go has no brake system").',
-    desc: 'Unverified sample — spec basis: banwood.us product page (seat height, weight, price, no-brake statement).'
+    note: 'Design-forward premium steel balance bike with wicker basket; maker states no brake system ("The first go has no brake system"). Weight and price confirmed exactly against banwood.us 2026-07-20. Seat height varies slightly by color-variant listing on banwood.us (37-44cm on some pages, 44-50cm on others, likely a copy inconsistency across SKUs) — the catalog\'s existing 37-44cm range matches the majority of listings, kept as-is.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://banwood.us/products/balance-bike-pink',
+    desc: 'Verified — banwood.us First Go product page (Exa-fetched 2026-07-20): 12in steel frame, adaptable seat height 37-44cm (most color variants; one variant page lists 44-50cm), 12in wheels, Weight 4.5kg, $199.00, no brake.'
   },
   {
     id: 'sb-schwinn-elm', cat: 'balancebike', brand: 'Schwinn', model: 'Elm',
     wheel: '12', seatMin: 362, seatMax: 425, bikeWeight: 3810, tire: 'foam',
-    brake: 'none', frameMaterial: 'steel', steeringLimiter: true, price: 69,
-    note: 'Budget-tier steel balance bike with foam (Mag wheel/EVA) tires and a ball-bearing headset steering limiter; sold mainly via Amazon/mass retail under $70.',
-    desc: 'Unverified sample — spec basis: twowheelingtots.com Schwinn balance-bike roundup (own-measured seat height/weight, since Schwinn/Amazon don\'t publish them) + schwinnbikes.com product page (features, price).'
+    brake: 'none', frameMaterial: 'steel', steeringLimiter: true, price: 69.99,
+    note: 'Budget-tier steel balance bike with foam (Mag wheel/EVA) tires and a ball-bearing headset steering limiter; sold mainly via Amazon/mass retail. Price corrected 2026-07-20 from a stale $69 sample to schwinnbikes.com\'s exact $69.99. Frame material, tire, brakeless design, and steering limiter all confirmed against the maker page; seat height/weight retained from twowheelingtots (schwinnbikes.com doesn\'t publish either) — Guardian-row "verified (partial)" precedent.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://www.schwinnbikes.com/products/elm-12-balance-kids-bike',
+    desc: 'Verified (partial) — schwinnbikes.com Elm Balance Bike 12in product page (Exa-fetched 2026-07-20): Steel 12in frame with Schwinn SmartStart, Mag wheels with EVA foam tires, ball-bearing headset with steering limiter, tool-free adjustable seat, $69.99. No brake mentioned (balance bike, consistent with "none"). Seat height/weight not published by Schwinn — retained from twowheelingtots.'
   },
   {
     id: 'sb-schwinn-skip2', cat: 'balancebike', brand: 'Schwinn', model: 'Skip 2',
     wheel: '12', seatMin: 381, seatMax: 432, bikeWeight: 3266, tire: 'foam',
     brake: 'none', frameMaterial: 'steel', price: 59,
-    note: 'Entry model of the older Schwinn Skip line (predecessor to Elm/Koen); lightest and cheapest of the Schwinn balance-bike lineup.',
-    desc: 'Unverified sample — spec basis: twowheelingtots.com Schwinn balance-bike roundup (own-measured seat height/weight — Schwinn/Amazon don\'t publish them).'
+    note: 'Entry model of the older Schwinn Skip line (predecessor to Elm/Koen); lightest and cheapest of the Schwinn balance-bike lineup. NOTE (2026-07-20): no longer sold on schwinnbikes.com (only Koen/Elm/Spitfire remain in the current lineup) — Skip 2 is Amazon/mass-retail-exclusive now, so no manufacturer product page exists to fetch. twowheelingtots\' 7.2lb weight figure cross-checked exactly against kiddingzone.com\'s independent review (also 7.2lb = 3266g) — high-confidence sample even without a maker page.',
+    desc: 'Unverified sample — spec basis: twowheelingtots.com Schwinn balance-bike roundup, cross-checked 2026-07-20 against kiddingzone.com\'s independent Skip 2 review (both cite 7.2lb/3266g) — Schwinn/Amazon publish no official spec page for this model.'
   },
   {
     id: 'sb-wishbone-recycled-3in1', cat: 'balancebike', brand: 'Wishbone', model: 'Recycled 3-in-1',
