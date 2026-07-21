@@ -2667,9 +2667,10 @@ var KIT_PARTS = [
   { id:'elp-oneal-flow', cat:'elbowpad', brand:'O\'Neal', model:'Flow Elbow Guard', price:59.99, weight:180,
     disciplines:['trail','enduro'], sizes:['M','L','XL'],
     desc:'IPX soft-gel/Lycra combination pad. Weight per pair (approx, not published on the maker page - stays unverified for that reason). Fetched oneal.com: corrected price $60 -> $59.99 and sizes (maker sells M/L/XL, not split S/M-L/XL); no cert standard is cited on the maker page (a retailer-only EN1621-1 claim was not used per the fetched-source-only rule).' },
-  { id:'elp-tsg-joint-sleeve', cat:'elbowpad', brand:'TSG', model:'Joint Elbow Sleeve', price:65, weight:291,
+  { id:'elp-tsg-joint-sleeve', cat:'elbowpad', brand:'TSG', model:'Joint Elbow Sleeve', price:75.55, weight:291,
     disciplines:['trail'], sizes:['XXS/XS','S/M','L/XL','XXL'],
-    desc:'Softshell slip-on sleeve, low-profile trail guard. Weight per pair, maker-stated ("291 g") on the fetched ridetsg.com product page; sizes corrected to add XXL. Price NOT corrected: ridetsg.com prices in EUR (€69.95) with no confirmed USD storefront reached this session, and a currency conversion is not a real US MSRP (policy) -- price stays the existing sample. Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.' },
+    desc:'Softshell slip-on sleeve, low-profile trail guard. Weight per pair, maker-stated ("291 g") on the fetched ridetsg.com product page; sizes corrected to add XXL. Price is EUR69.95 (VAT incl.) converted to a $75.55 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront, matching the catalog\'s existing EUR-conversion precedent for this class of source) -- basis disclosed per THE PRICE RULE. Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
+    verified:true, lastChecked:'2026-07-20', source:'https://ridetsg.com/shop/elbowsleeve-joint/72014-25-102' },
 
   /* -- Body armor (coverage optional) -- */
   { id:'arm-fox-baseframe-pro', cat:'bodyarmor', brand:'Fox', model:'Baseframe Pro D3O', price:214.95, weight:640,
@@ -3020,10 +3021,12 @@ var KIT_PARTS = [
   { id:'shg-tsg-samir', cat:'shinguard', brand:'TSG', model:'Shinguard Samir', price:89.95, weight:500,
     disciplines:['dh'], sizes:['S/M','L/XL'], desc:'Short-style removable PE hardshell + foam, designed to layer under a separate knee guard; weight per pair per mfr page. Cert protocol (PPE TS0013, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
     verified:true, lastChecked:'2026-07-14', source:'https://www.ridetsg.com/shop/protection-all/shinguard-samir/76016-35-147/', sourceType:'manufacturer' },
-  { id:'shg-tsg-bmx', cat:'shinguard', brand:'TSG', model:'Shinguard BMX', price:59.95, weight:461,
-    disciplines:['dh'], sizes:['S/M','L/XL'], desc:'Neoprene sleeve + removable high-density PE shin splint, EVA foam; weight per pair. Cert protocol (PPE TS0013, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.' },
-  { id:'shg-tsg-tempera2', cat:'shinguard', brand:'TSG', model:'Temper A 2.0 Knee-Shinguard', price:129.95, weight:524,
-    disciplines:['dh'], sizes:['S','M','L','XL'], desc:'Arti-Lage impact knee pad + removable hard-shell shin guard, Kevlar-stretch panel; per pair. Weight now maker-stated ("524 g") on the fetched ridetsg.com product page (was previously unpublished). Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.' },
+  { id:'shg-tsg-bmx', cat:'shinguard', brand:'TSG', model:'Shinguard BMX', price:75.55, weight:461,
+    disciplines:['dh'], sizes:['S/M','L/XL'], desc:'Neoprene sleeve + removable high-density PE shin splint, EVA foam; weight per pair, maker-stated ("461 g") on the fetched ridetsg.com product page. Price is EUR69.95 (VAT incl.) converted to a $75.55 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront) -- basis disclosed per THE PRICE RULE. Cert protocol (PPE TS0013, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
+    verified:true, lastChecked:'2026-07-20', source:'https://ridetsg.com/shop/shinguard-bmx/76012-35-102' },
+  { id:'shg-tsg-tempera2', cat:'shinguard', brand:'TSG', model:'Temper A 2.0 Knee-Shinguard', price:145.75, weight:524,
+    disciplines:['dh'], sizes:['S','M','L','XL'], desc:'Arti-Lage impact knee pad + removable hard-shell shin guard, Kevlar-stretch panel; per pair. Weight maker-stated ("524 g") on the fetched ridetsg.com product page. Price is EUR134.95 (VAT incl.) converted to a $145.75 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront) -- basis disclosed per THE PRICE RULE. Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
+    verified:true, lastChecked:'2026-07-20', source:'https://ridetsg.com/shop/kneeshinguard-temper-a-20/7102801-40-030' },
 
   /* -- Eyewear (type required: glasses / goggles) -- */
   { id:'ewr-oakley-sutro', cat:'eyewear', brand:'Oakley', model:'Sutro', price:203, weight:32,
