@@ -163,6 +163,31 @@ values (public.profile_norm('Some Name'), 'Some Name', 'blocked') on conflict (n
 delete from public.reserved_usernames where norm = public.profile_norm('Some Name');
 ```
 
+## 10. Service log (Phase 5 — garage maintenance records)
+
+Signed-in riders can log service events ("fork lowers service", "new chain") against a saved
+garage build or an owned inventory part, and read the history back inside the garage — the
+rider's own notebook, nothing more (no maintenance-schedule claims). Ships **inert** like
+everything above: the UI **feature-detects** the `service_events` table and stays completely
+hidden until this migration runs, so deploy order is safe in both directions.
+
+1. **Run the SQL.** SQL Editor → **New query** → paste the entire `schema.sql` again (it's
+   re-runnable — the Phase 5 stanza was appended to the bottom) → **Run**. Confirm in
+   **Table Editor**: a `service_events` table, RLS enabled, with an owner-only policy.
+2. Merge + push the service-log UI (or nothing, if it's already deployed — it lights up by
+   itself on the next visit once the table exists).
+3. 60-second smoke test, signed in: **Garage** → **🔧 Service log** on a saved build → add an
+   event (date, what was done, optional note) → it appears in the list → the all-history view
+   (garage header's 🔧 Service log button) shows it too. **Inventory** → 🔧 on an owned part
+   works the same way. Delete the event; it's gone.
+
+Notes:
+- Deleting a garage build does **not** delete its service history — those events keep their
+  date/title/note and show as "a build you've since deleted" (the schema sets `build_id` null
+  instead of cascading; a notebook should survive the bike).
+- Everything is owner-scoped by the same RLS model as builds/inventory — nobody can read or
+  write another rider's log.
+
 **Why a normal user can't make themselves admin (or a Verified Pro):** both `is_admin` and
 `verified_pro` are server-authoritative. The profiles RLS lets a signed-in user create/rename only
 their own row (`auth.uid() = user_id`), and a `BEFORE INSERT/UPDATE` trigger *pins* both flags for

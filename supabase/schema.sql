@@ -180,3 +180,45 @@ update public.forum_threads
    set category = 'announcements'
  where title = 'Welcome to TrailBuilder Discussions'
    and category = 'general';
+
+-- ---------------------------------------------------------------------------
+-- Phase 5: service log (feature slate #2 — the rider's own maintenance
+-- notebook). One row per service event a signed-in rider logs against either
+-- a saved garage build (`build_id`) or an owned catalog part (`part_id` — a
+-- catalog id string, resolved through canonicalId() on read exactly like
+-- inventory.part_id). Owner-only RLS, same model as builds/inventory: the
+-- anon key can only ever touch the caller's own rows.
+--
+-- Both target columns are nullable ON PURPOSE and there is NO at-least-one
+-- CHECK: deleting a garage build sets build_id null (on delete set null)
+-- rather than erasing the rider's history — a notebook should survive the
+-- bike. The app requires a target at insert time (src/service-log.js);
+-- a later-orphaned row renders as "a build you've since deleted".
+--
+-- `done_on` is the rider-stated service date (what the log is ABOUT);
+-- `created_at` is when the row was written. No maintenance-schedule /
+-- interval columns — this table records what the rider says happened,
+-- nothing more.
+-- ---------------------------------------------------------------------------
+create table if not exists public.service_events (
+  id         uuid primary key default gen_random_uuid(),
+  user_id    uuid not null default auth.uid() references auth.users(id) on delete cascade,
+  build_id   uuid references public.builds(id) on delete set null,
+  part_id    text,
+  done_on    date not null default current_date,
+  title      text not null,
+  note       text,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists service_events_user_done_idx
+  on public.service_events (user_id, done_on desc, created_at desc);
+
+alter table public.service_events enable row level security;
+
+drop policy if exists "own service events" on public.service_events;
+
+create policy "own service events" on public.service_events
+  for all
+  using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);

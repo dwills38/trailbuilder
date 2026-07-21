@@ -105,6 +105,52 @@ function setInventoryQty(id, qty){
 }
 function removeInventoryItem(id){ _need(); return _sb.from('inventory').delete().eq('id', id).then(_unwrap); }
 
+/* ---- service log (schema.sql Phase 5) -------------------------------------
+ * The rider's maintenance notebook: events logged against a garage build
+ * (build_id) or an owned catalog part (part_id). Owner-only RLS, so list
+ * returns only the caller's rows. Feature-detected with the same
+ * probe-and-cache pattern as hasProfiles: a 1-row select of the table; an
+ * error (missing table) means the owner hasn't run the Phase 5 migration and
+ * ALL service-log UI stays hidden. Positive answers are cached for the
+ * session; negatives re-probe, so it self-heals once the SQL runs. */
+var _serviceLogProbe = null;
+function hasServiceLog(){
+  if(!_sb) return Promise.resolve(false);
+  if(_serviceLogProbe) return _serviceLogProbe;
+  _serviceLogProbe = _sb.from('service_events').select('id').limit(1)
+    .then(function(res){ return !(res && res.error); },
+          function(){ return false; })
+    .then(function(on){ if(!on){ _serviceLogProbe = null; } return on; });
+  return _serviceLogProbe;
+}
+
+/* All of the caller's events, newest service date first (ties: newest row
+   first). RLS scopes this to the signed-in user; no filters needed. */
+function listServiceEvents(){
+  _need();
+  return _sb.from('service_events').select('*')
+    .order('done_on', { ascending: false })
+    .order('created_at', { ascending: false })
+    .then(_unwrap);
+}
+/* Insert one event. `ev` is the normalized {build_id?, part_id?, done_on,
+   title, note?} produced by src/service-log.js's normalizeServiceEvent —
+   user_id is never sent (DB default + RLS, like every other table). */
+function addServiceEvent(ev){
+  _need();
+  return _sb.from('service_events').insert({
+    build_id: ev.build_id || null,
+    part_id:  ev.part_id  || null,
+    done_on:  ev.done_on,
+    title:    ev.title,
+    note:     ev.note || null
+  }).select().then(_unwrap);
+}
+function deleteServiceEvent(id){
+  _need();
+  return _sb.from('service_events').delete().eq('id', id).then(_unwrap);
+}
+
 /* ---- profiles / usernames (forum-profiles.sql) ---------------------------
  * A `profiles` row is one-per-user: a PUBLIC display `username` (world-readable
  * — usernames show on the forum) plus an `is_admin` moderation flag. is_admin
@@ -273,6 +319,8 @@ if (typeof module !== 'undefined' && module.exports) {
     listBuilds: listBuilds, saveBuild: saveBuild, updateBuild: updateBuild, deleteBuild: deleteBuild,
     listInventory: listInventory, addInventoryItem: addInventoryItem,
     setInventoryQty: setInventoryQty, removeInventoryItem: removeInventoryItem,
+    hasServiceLog: hasServiceLog, listServiceEvents: listServiceEvents,
+    addServiceEvent: addServiceEvent, deleteServiceEvent: deleteServiceEvent,
     hasProfiles: hasProfiles, getMyProfile: getMyProfile, getProfilesByIds: getProfilesByIds,
     getProfileById: getProfileById, hasRichProfiles: hasRichProfiles,
     hasRichProfiles2: hasRichProfiles2, uploadAvatar: uploadAvatar,
