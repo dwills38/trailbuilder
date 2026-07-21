@@ -265,15 +265,17 @@ var STRIDER_PARTS = [
     id: 'sb-giant-pre', cat: 'balancebike', brand: 'Giant', model: 'Pre',
     wheel: '12', seatMin: 310, seatMax: 430, bikeWeight: 4010, tire: 'air',
     brake: 'none', frameMaterial: 'aluminum', footrest: true, price: 130,
-    note: 'Giant\'s entry kids\' balance bike (ALUXX aluminum frame, thermo-formed polymer fork); US RRP cited by BikeExchange\'s group test (giant.com regional pricing varies).',
-    desc: 'Unverified sample — spec basis: bikeexchange.com group-test measurements (weight, seat height, US RRP) + giant.com/giantnorthlakes.com.au product pages (frame/fork materials, footrest).'
+    note: 'Giant\'s entry kids\' balance bike (ALUXX aluminum frame, thermo-formed polymer fork, removable footrest, Giant Easy Balance 12x2.125in air tires — all confirmed against giant-bicycles.com 2026-07-20); US RRP cited by BikeExchange\'s group test (giant.com itself publishes AU RRP $299, not US pricing; regional pricing varies). Giant\'s own geometry chart gives only a 367mm standover height, no seat-height range or bike weight ("the most accurate way to determine any bike\'s weight is to have your local dealer weigh it" — Giant explicitly declines to publish one) — both fields retained from bikeexchange.com\'s measured group test, so verified:true is withheld per THE BAR (no maker-stated or measured weight).',
+    desc: 'Unverified sample (weight not published by giant-bicycles.com) — spec basis: giant-bicycles.com/au/pre-2024 product page (Exa-fetched 2026-07-20: ALUXX aluminum frame, thermo-formed polymer fork, Giant Easy Balance 12x2.125in tires, removable footrest, AU$299 RRP) + bikeexchange.com group-test measurements (seat height, weight, US RRP).'
   },
   {
     id: 'sb-coop-rev-12', cat: 'balancebike', brand: 'Co-op Cycles', model: 'REV 12',
     wheel: '12', bikeWeight: 4091, tire: 'air',
     brake: 'none', frameMaterial: 'aluminum', price: 169,
-    note: 'REI\'s house-brand balance bike; REI publishes a child-inseam fit range (12-17in) rather than a seat-height range, so seatMin/seatMax are left blank rather than guessed (THE BAR) — inseam and seat height are related but not identical measurements. Maker confirms no brake ("The REV BAL does not have brakes").',
-    desc: 'Unverified sample — spec basis: rei.com product/category pages (weight, price, inseam range) + Co-op REV BAL owner\'s manual (no-brake statement).'
+    note: 'REI\'s house-brand balance bike (sold exclusively through REI — rei.com is the maker\'s own retail channel for this private label); REI publishes a child-inseam fit range (12-17in) rather than a seat-height range, so seatMin/seatMax are left blank rather than guessed (THE BAR) — inseam and seat height are related but not identical measurements. Maker confirms no brake ("The REV BAL does not have brakes"). Re-confirmed 2026-07-20: rei.com\'s own listed weight (9lb 0.3oz = 4090.5g) and price ($169.00) both match the existing row exactly — no corrections needed.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://www.rei.com/product/160837/co-op-cycles-rev-12-kids-balance-bike',
+    desc: 'Verified — rei.com Co-op Cycles REV 12 listing (Exa-fetched 2026-07-20): Weight 9lb 0.3oz (4091g), Child Inseam 12-17in, $169.00, aluminum frame, air tires, no brake (Co-op REV BAL owner\'s manual).'
   },
 
   // --- wave 3 (catalog/striders-3) — Early Rider infant tier, budget/lightweight
@@ -290,24 +292,26 @@ var STRIDER_PARTS = [
   },
   {
     id: 'sb-radioflyer-ultra-lite', cat: 'balancebike', brand: 'Radio Flyer', model: 'Ultra Lite',
-    wheel: '12', seatMin: 318, seatMax: 419, bikeWeight: 3289, tire: 'air',
+    wheel: '12', seatMin: 318, seatMax: 419, bikeWeight: 3447, tire: 'air',
     brake: 'none', frameMaterial: 'magnesium', price: 99.99,
-    note: 'Mass-retail lightweight magnesium-frame balance bike (Radio Flyer\'s step-up from the steel Air Ride); no brake.',
-    desc: 'Unverified sample — spec basis: twowheelingtots.com Radio Flyer balance-bike review (seat height, weight, frame material, tire, brake) + radioflyer.com product page ($99.99 list price).'
+    note: 'Mass-retail lightweight magnesium-frame balance bike (Radio Flyer\'s step-up from the steel Air Ride); no brake. Corrected 2026-07-20: weight was a twowheelingtots-sourced 3289g estimate, updated to radioflyer.com\'s own stated 7.6lb (3447g); price already matched the maker\'s $99.99 exactly.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://www.radioflyer.com/products/flyer-ultra-lite-balance-bike-black',
+    desc: 'Verified — radioflyer.com Flyer Ultra Lite product page (Exa-fetched 2026-07-20): "Lightweight magnesium alloy frame", "Rubber air tires", pedal-free (no brake), Weight 7.6lb, $99.99. Seat height retained from twowheelingtots (radioflyer.com states only body/carton dimensions, not a seat-height range).'
   },
   {
     id: 'sb-bixe-12', cat: 'balancebike', brand: 'Bixe', model: '12',
     wheel: '12', seatMin: 292, seatMax: 394, bikeWeight: 2086, tire: 'foam',
     brake: 'none', frameMaterial: 'aluminum', price: 60,
-    note: 'Budget/lightweight Amazon-marketplace balance bike; foam tires on plastic rims, no brake.',
-    desc: 'Unverified sample — spec basis: twowheelingtots.com + kiddingzone.com Bixe reviews (seat height 11.5-15.5in, weight 4.6lb, aluminum frame, foam tires, no brake) + amazon.com listing (price).'
+    note: 'Budget/lightweight Amazon-marketplace balance bike; foam tires on plastic rims, no brake. Re-confirmed 2026-07-20: seat height (11.5-15.5in), weight (4.6lb), frame material, and no-brake design all independently double-corroborated by kiddingzone.com AND twowheelingtots.com (byte-identical figures) — no bixebalancebike.com maker page publishes a spec table to promote past this to full "verified" (THE BAR requires the manufacturer\'s own page, not converging aggregators), but the double-independent-source agreement is about as strong as unverified sample data gets.',
+    desc: 'Unverified sample — spec basis: twowheelingtots.com + kiddingzone.com Bixe reviews, independently agreeing exactly (seat height 11.5-15.5in, weight 4.6lb, aluminum frame, foam tires, no brake) + amazon.com listing (price); bixebalancebike.com (the maker\'s own site) lists no spec table to fetch.'
   },
   {
     id: 'sb-bixe-16', cat: 'balancebike', brand: 'Bixe', model: '16',
     wheel: '16', seatMin: 464, seatMax: 569, bikeWeight: 5443, tire: 'air',
-    brake: 'rear-hand', frameMaterial: 'aluminum', price: 90,
-    note: 'Step-up size in the Bixe lineup for bigger kids (ages ~4-9); air tires and a hand brake, unlike the 12in model. A separate "16 Pro" trim also exists (twowheelingtots cites 13-14.9lb for it) but wasn\'t pinned to a distinct sourced spec table this round, so only the base 16 is entered.',
-    desc: 'Unverified sample — spec basis: twowheelingtots.com Bixe review (seat height 18.25-22.4in, weight 12lb, aluminum frame) + campingworld.com/walmart.com listings (price, brake, tire).'
+    brake: 'none', frameMaterial: 'steel', price: 110,
+    note: 'Step-up size in the Bixe lineup for bigger kids (ages ~4-9); air tires, unlike the 12in model\'s foam. Corrected 2026-07-20 against twowheelingtots.com: frameMaterial was "aluminum", the maker text explicitly states "the Bixe 16 features a steel frame"; brake was "rear-hand", twowheelingtots\' own comparison table lists Bixe 16 Pro brakes as "None" ("we wish it had a hand brake" — it doesn\'t); price was a stale $90 sample, twowheelingtots states $110 MSRP. A separate "16 Pro" trim also exists at a lighter 14.9lb but wasn\'t pinned to a distinct sourced spec table this round.',
+    desc: 'Unverified sample (no bixebalancebike.com spec table found — see Bixe 12 note) — spec basis: twowheelingtots.com Bixe review (seat height 18.25-22.4in, weight 12lb, steel frame, no brake, $110 MSRP), cross-checked against kiddingzone.com (same seat height/weight/frame figures).'
   },
   {
     id: 'sb-strider-20x-sport', cat: 'balancebike', brand: 'Strider', model: '20x Sport',
