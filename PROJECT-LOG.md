@@ -3732,3 +3732,19 @@ All eight chips from the final dispatch round are now landed (main `e10dbc2`+). 
   slate is done — the re-brainstorm is now formally due, on his word.
 - Gates green (validate 0 problems / 988 tests / tsc clean) at merge.
 
+
+## 2026-07-21 (seat 16) — gravel-verify-2 merged (partial frame batch, honest)
+
+- **verify/gravel-verify-2** merged: the frame batch of the ~125-row target (+5 verified,
+  gravel 118/242) — self-declared partial, not padded. Real catches: Jamis Renegade Elite's
+  bb was 'bsa-road' when the real shell is EVO386 PF30 (an error-tier interface fix — the old
+  value would have wrongly greenlit threaded BBs); Marin Headlands 1 + Jamis are CARBON and
+  Mason InSearchOf + Marin Nicasio+ are STEEL, all four mislabeled 'alloy' by grind-1 — **a
+  new systemic pattern: grep the remaining unverified gravel frames' material fields before
+  trusting any of them** (queued for the next gravel chip). Two more instances of the
+  QR/straight-steerer vocab gap logged honestly (Kona Rove AL joins Salsa Journeyman;
+  Ritchey Outback's straight steerer also can't be represented) — the gravel vocab-widening
+  decision now has 3+ real products waiting on it, worth a Douglas packet soon. Diamondback
+  Haanjo line appears pulled from their site (404s); statebicycle.com 429-walled.
+- Gates green (validate 0 problems / 988 tests / tsc clean / harness clean incl. E=0).
+
