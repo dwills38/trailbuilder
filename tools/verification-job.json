@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T02:25:36.818Z",
+ "updated": "2026-07-21T12:39:10.347Z",
  "batchSize": 25,
- "lastCompleted": "ca-shimano-deore-m5100-1151",
+ "lastCompleted": "cr-shimano-mt612-30",
  "currentCategory": "frame",
  "queue": [
   "fr-giant-reign-advanced",
@@ -570,6 +570,7 @@
   "sh-fox-float-x-performance-210x55",
   "sh-fox-dhx-performance-230x62p5",
   "sh-xfusion-o2-pro-rl-210x55",
+  "sh-xfusion-o2-pro-r-210x55",
   "sh-fox-rhythm-210x52p5",
   "sh-fox-nude-5t-185x55-trun",
   "sh-fox-float-x-performance-205x62p5-trun",
@@ -1058,14 +1059,9 @@
   "bk-tektro-m5140",
   "bk-sram-guide-g2-r",
   "bk-sram-level-tl",
-  "bk-shimano-mt400",
   "bk-sram-guide-r",
   "bk-sram-g2-rs",
-  "bk-shimano-mt200",
-  "bk-shimano-mt201",
-  "bk-shimano-mt501",
   "bk-trp-slate-evo-t4",
-  "bk-shimano-mt401",
   "bk-sram-guide-t",
   "bk-magura-mt8-pro",
   "bk-tektro-m3120",
@@ -1124,23 +1120,14 @@
   "sft-microshift-advent-m9295",
   "sft-sram-nx-11",
   "sft-sram-gx-dh",
-  "sft-shimano-deore-m4100",
   "sft-microshift-advent-mx-m7115",
-  "sft-shimano-deore-m6200",
-  "sft-shimano-m315-8",
-  "sft-shimano-altus-sl-m2000-9",
   "sft-microshift-acolyte-sl-m6180",
   "dr-sram-xx-dh-transmission",
   "dr-microshift-advent-m6195l",
   "dr-sram-gx-dh",
-  "dr-shimano-deore-m5100-sgs",
   "dr-sunrace-rdms300",
   "dr-microshift-advent-mx-m7005",
-  "dr-shimano-cues-u6000",
   "dr-microshift-advent-m6195m",
-  "dr-shimano-deore-m5120",
-  "dr-shimano-essa-u2000",
-  "dr-shimano-altus-rd-m2000-sgs",
   "dr-microshift-acolyte-rd-m5185m",
   "ca-sram-xs797",
   "ca-microshift-advent-x-h104-1148",
@@ -1151,13 +1138,8 @@
   "ca-sram-pg720",
   "ca-sunrace-csms8-1150",
   "ca-sunrace-u9-1146",
-  "ca-shimano-deore-m5100-1151",
   "ca-sunrace-ms2-1146",
-  "ca-shimano-cues-lg400-11-1150",
   "ca-microshift-advent-mx-h114-1150",
-  "ca-shimano-cues-lg300-1148",
-  "ca-shimano-deore-m4100-1146",
-  "ca-shimano-hg300-8-1145",
   "ca-trp-evo7-dh-1124",
   "ca-sunrace-csm98-1136",
   "ca-sunrace-csmz800-1251",
@@ -1181,8 +1163,6 @@
   "cr-dmr-2piece-170-30t",
   "cr-scott-crmo-170-25t",
   "cr-fsa-comet-32",
-  "cr-shimano-mt612-30",
-  "cr-shimano-mt510-30",
   "cr-fsa-grid-modular",
   "cr-fsa-comet-hd-30",
   "cr-marin-forged-alloy-30t",
@@ -1192,21 +1172,15 @@
   "cr-sram-x1-1000-eagle-dub-30t",
   "cr-prowheel-habitht-30t",
   "cr-merida-experttrii-165-32",
-  "cr-shimano-deore-m5100-10sp-30t",
   "cr-prowheel-32t-10sp",
-  "cr-shimano-cues-u6000-1x",
-  "cr-shimano-mt512-30",
   "cr-sram-descendant-dh",
-  "cr-shimano-cues-u6000",
   "cr-sram-x0-transmission-powermeter",
   "cr-praxis-cadet-hd-m24",
   "cr-sram-sx-eagle-powerspline",
   "cr-prowheel-charm-30t",
   "cr-praxis-cadet-m24-30t",
   "cr-fsa-vdrive-30",
-  "cr-shimano-mt512-32",
   "cr-prowheel-marlin4-32t",
-  "cr-shimano-cues-u4001-170-32",
   "cr-canfield-am-cranks",
   "cr-specialized-stout-30t-9sp",
   "cr-specialized-stout-30t-12sp",
@@ -1338,14 +1312,12 @@
   "cb-cannondale-habit-ht-2",
   "cb-cannondale-habit-ht-3",
   "cb-intense-tracer-279-expert",
-  "cb-specialized-stumpjumper-15-comp-alloy",
   "cb-specialized-stumpjumper-15-expert",
   "cb-specialized-stumpjumper-15-alloy",
   "cb-specialized-stumpjumper-15-evo-comp-alloy",
   "cb-specialized-enduro-comp",
   "cb-specialized-enduro-expert",
   "cb-specialized-enduro-pro",
-  "cb-specialized-epic-8-comp",
   "cb-specialized-status-2-170",
   "cb-specialized-chisel-sram",
   "cb-specialized-chisel-shimano",
@@ -1369,7 +1341,6 @@
   "cb-radon-jealous-80",
   "cb-rose-root-miller-2",
   "cb-ghost-riot-am-cf-full-party",
-  "cb-marin-rift-zone-1",
   "cb-vitus-escarpe-290-cr",
   "cb-commencal-meta-ht-v3-ohlins",
   "cb-commencal-supreme-dh-v5-ohlins",
@@ -35527,11 +35498,11 @@
   },
   "bk-shimano-mt400": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2019-2020_Specifications_v034_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-sram-guide-r": {
    "cat": "brake",
@@ -35551,11 +35522,11 @@
   },
   "bk-shimano-mt200": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-magura-mt-thirty-pm": {
    "cat": "brake",
@@ -35567,19 +35538,19 @@
   },
   "bk-shimano-mt201": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-shimano-mt501": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2019-2020_Specifications_v034_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-trp-slate-evo-t4": {
    "cat": "brake",
@@ -35599,11 +35570,11 @@
   },
   "bk-shimano-mt401": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-sram-guide-t": {
    "cat": "brake",
@@ -35647,10 +35618,10 @@
   },
   "bk-shimano-mt600": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-21T02:00:00.000Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "mtb-tail-2: FETCHED productinfo.shimano.com per-SKU page - interfaces (rotor compat, mount, piston count, lever pairing) fully confirmed but Average weight (g) is blank across this brake tier (budget MT410 through Deore MT600 both checked directly) - Shimano does not publish hydraulic-brake-caliper weight on productinfo, mechanical or not. No reputable measured-weight source located this pass."
   },
   "bk-tektro-hd-m275": {
@@ -35863,19 +35834,19 @@
   },
   "sft-shimano-deore-m5100": {
    "cat": "shifter",
-   "status": "Skipped",
-   "updated": "2026-07-21T01:24:32.593Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "Deore-tier mechanical shifter SL-M5100-R; productinfo confirms interfaces (11-speed, clamp band, 2-WAY RELEASE) but Average weight blank - same Shimano mechanical-tier weight gap as the crank."
   },
   "sft-shimano-deore-m4100": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sft-microshift-advent-mx-m7115": {
    "cat": "shifter",
@@ -35903,19 +35874,19 @@
   },
   "sft-shimano-deore-m6200": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sft-shimano-m315-8": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sft-trp-evo7-dh": {
    "cat": "shifter",
@@ -35927,11 +35898,11 @@
   },
   "sft-shimano-altus-sl-m2000-9": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2019-2020_Specifications_v034_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sft-microshift-acolyte-sl-m6180": {
    "cat": "shifter",
@@ -35967,11 +35938,11 @@
   },
   "dr-shimano-deore-m5100-sgs": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-21T01:24:38.217Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dr-sunrace-rdms300": {
    "cat": "derailleur",
@@ -35991,11 +35962,11 @@
   },
   "dr-shimano-cues-u6000": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dr-shimano-xt-m8250-di2": {
    "cat": "derailleur",
@@ -36015,19 +35986,19 @@
   },
   "dr-shimano-deore-m5120": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dr-shimano-essa-u2000": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dr-trp-evo7-dh": {
    "cat": "derailleur",
@@ -36039,11 +36010,11 @@
   },
   "dr-shimano-altus-rd-m2000-sgs": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2019-2020_Specifications_v034_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dr-microshift-acolyte-rd-m5185m": {
    "cat": "derailleur",
@@ -36199,10 +36170,10 @@
   },
   "ca-shimano-deore-m5100-1151": {
    "cat": "cassette",
-   "status": "Pending",
-   "updated": "2026-07-21T01:24:32.823Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "Deferred this pass - bundled with the M5100 mechanical group, same productinfo weight-gap expected for CS-M5100 cassette; not fetched yet, leaving Pending for a future pass rather than guessing."
   },
   "ca-sunrace-ms2-1146": {
@@ -36215,11 +36186,11 @@
   },
   "ca-shimano-cues-lg400-11-1150": {
    "cat": "cassette",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ca-microshift-advent-mx-h114-1150": {
    "cat": "cassette",
@@ -36231,27 +36202,27 @@
   },
   "ca-shimano-cues-lg300-1148": {
    "cat": "cassette",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ca-shimano-deore-m4100-1146": {
    "cat": "cassette",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ca-shimano-hg300-8-1145": {
    "cat": "cassette",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ca-ethirteen-helix-r-950-xd": {
    "cat": "cassette",
@@ -36463,19 +36434,19 @@
   },
   "cr-shimano-mt612-30": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T12:39:10.345Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-4 (2026-07-21): FC-MT612 not found in ANY of 6 fetched Shimano MTB spec-handbook editions (2018-2019, 2019-2020, 2020-2021, 2022-2023, 2024-2025, current 2026 latest) - searched every crankset table across all editions for FC-MT612/FC-MT610 variants; only FC-MT610-2/610-B2/510-1/511-1/512-1 appear alongside FC-M6130-1 (2022-2023 p.60). Genuine handbook gap, not a fetch blocker (all 6 PDFs fetched and read cleanly via curl+pdftotext+pdftoppm visual rendering). The row's own desc (verify-fanout-1-shimano, 2026-07-17) already flagged this as retailer/eBay-corroborated only, never handbook-confirmed - flagging for the coordinator: may be a legitimate OEM-only SKU absent from consumer handbooks, or a data-entry error for FC-MT610/FC-MT612-1. Left unverified; row unchanged."
   },
   "cr-shimano-mt510-30": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2022-2023_Specifications_v035_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-fsa-grid-modular": {
    "cat": "crankset",
@@ -36615,11 +36586,11 @@
   },
   "cr-shimano-deore-m5100-10sp-30t": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-prowheel-32t-10sp": {
    "cat": "crankset",
@@ -36631,19 +36602,19 @@
   },
   "cr-shimano-cues-u6000-1x": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-shimano-mt512-30": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2022-2023_Specifications_v035_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-whyte-secta-165-32": {
    "cat": "crankset",
@@ -36663,11 +36634,11 @@
   },
   "cr-shimano-cues-u6000": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-sram-x0-transmission-powermeter": {
    "cat": "crankset",
@@ -36711,10 +36682,10 @@
   },
   "cr-shimano-deore-m5100": {
    "cat": "crankset",
-   "status": "Skipped",
-   "updated": "2026-07-21T01:24:32.479Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "Deore-tier mechanical crank; productinfo.shimano.com FC-M5100-1 confirms full interface data (52mm chainline, 96 BCD, outboard BB, thru/QR compat) but 'Average weight (g)' is blank - Shimano publishes no weight for Deore-tier mechanical parts on productinfo (contrast: Di2 XT M8250 electronic parts DO carry weight). No reputable measured-weight source found in this pass. Interfaces already correct in catalog; cannot meet weight bar."
   },
   "cr-fsa-vdrive-30": {
@@ -36727,11 +36698,11 @@
   },
   "cr-shimano-mt512-32": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/archive/2022-2023_Specifications_v035_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-prowheel-marlin4-32t": {
    "cat": "crankset",
@@ -36743,11 +36714,11 @@
   },
   "cr-shimano-cues-u4001-170-32": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-canfield-am-cranks": {
    "cat": "crankset",
@@ -38783,11 +38754,11 @@
   },
   "cb-specialized-stumpjumper-15-comp-alloy": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/stumpjumper-15-comp-alloy-shimano-slx-fox-rhythm/p/4221397",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-stumpjumper-15-expert": {
    "cat": "completebike",
@@ -38839,11 +38810,11 @@
   },
   "cb-specialized-epic-8-comp": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/epic-8-comp-sram-s-1000-axs-rockshox-select/p/4221499",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-status-2-170": {
    "cat": "completebike",
@@ -39183,11 +39154,11 @@
   },
   "cb-marin-rift-zone-1": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T12:37:56.155Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://marinbikes.com/products/2025-1-rift-zone-1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-vitus-escarpe-290-cr": {
    "cat": "completebike",
@@ -40729,6 +40700,14 @@
    "cat": "frame",
    "status": "Pending",
    "updated": "2026-07-20T19:57:33.261Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-xfusion-o2-pro-r-210x55": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-21T12:37:56.154Z",
    "error": null,
    "source": null,
    "note": null
