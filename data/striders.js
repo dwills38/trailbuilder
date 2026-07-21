@@ -88,24 +88,30 @@ var STRIDER_PARTS = [
   },
   {
     id: 'sb-specialized-hotwalk', cat: 'balancebike', brand: 'Specialized', model: 'Hotwalk',
-    wheel: '12', seatMin: 310, seatMax: 432, bikeWeight: 4082, tire: 'air',
-    brake: 'none', frameMaterial: 'aluminum', price: 269,
-    note: 'Airless-tire option also sold; brakeless by design like the Strider line.',
-    desc: 'Unverified sample — spec basis: specialized.com product page via Exa search (STRIDER-MODEL.md sec 2), cross-checked against twowheelingtots\' Hotwalk review.'
+    wheel: '12', seatMin: 310, seatMax: 432, bikeWeight: 4100, tire: 'foam',
+    brake: 'none', frameMaterial: 'aluminum', price: 224.99,
+    note: 'Brakeless by design like the Strider line. Corrected 2026-07-20: tire is "Rhythm Lite Airless" — non-pneumatic/flat-free, mapped to the foam-tire vocab value, not "air" (was wrong). Price corrected from a stale $269 sample to the 2023 model-year $224.99 MSRP. Specialized publishes no adjustable seat-height range (only seatpost/seat-tube geometry) — seatMin/seatMax retained from the prior aggregator source per the Guardian-row "verified (partial)" precedent.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://www.specialized.com/us/en/hotwalk/p/216861',
+    desc: 'Verified (partial) — specialized.com 2023 Hotwalk product page (Exa-fetched 2026-07-20, direct WebFetch 403s): Specialized A1 Premium Aluminum frame, Rhythm Lite Airless 12x2.3 tires (no brake), Weight 4.1kg, $224.99. Seat height retained from the prior aggregator source (specialized.com states no seat-height range, only geometry: Seat-Tube Length 160mm, Seatpost Length 230mm).'
   },
   {
     id: 'sb-specialized-hotwalk-carbon', cat: 'balancebike', brand: 'Specialized', model: 'Hotwalk Carbon',
-    wheel: '12', seatMin: 330, seatMax: 432, bikeWeight: 1999, tire: 'air',
+    wheel: '12', seatMin: 330, seatMax: 432, bikeWeight: 2000, tire: 'foam',
     brake: 'none', frameMaterial: 'carbon', price: 1000,
-    note: 'Halo carbon frame/fork/bars/wheels; the lightest bike in this catalog by a wide margin.',
-    desc: 'Unverified sample — spec basis: specialized.com product page via Exa search (STRIDER-MODEL.md sec 2).'
+    note: 'Halo carbon frame/fork/bars/wheels; the lightest bike in this catalog by a wide margin. Corrected 2026-07-20: tire is "Rhythm Lite" airless/lightweight-casing (same non-pneumatic family as the base Hotwalk), mapped to foam not "air". Specialized publishes no adjustable seat-height range — seatMin/seatMax retained from the prior aggregator source (Guardian-row "verified (partial)" precedent).',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://www.specialized.com/us/en/hotwalk-carbon/p/216961',
+    desc: 'Verified (partial) — specialized.com 2023 Hotwalk Carbon product page (Exa-fetched 2026-07-20, direct WebFetch 403s): FACT 9r Carbon frame/fork/bars, Fact Carbon 12in wheels with Rhythm Lite tires, no brake, Weight 2.0kg (4lb 6.5oz), $1,000. Seat height retained from the prior aggregator source (no seat-height range published, only geometry).'
   },
   {
     id: 'sb-cannondale-kids-trail-balance', cat: 'balancebike', brand: 'Cannondale', model: 'Kids Trail Balance',
     wheel: '12', heightMin: 940, heightMax: 1070, bikeWeight: 3901, tire: 'air',
     brake: 'rear-hand', frameMaterial: 'aluminum', price: 180,
-    note: 'Seat-height range not published by Cannondale — only a rider-height range (94-107cm); seatMin/seatMax intentionally left blank rather than derived/guessed (THE BAR).',
-    desc: 'Unverified sample — spec basis: cannondale.com product page via Exa (STRIDER-MODEL.md sec 2) + Cannondale kids buying guide.'
+    note: 'Lil\' Lefty single-sided fork. Seat-height range not published by Cannondale — only a rider-height range (94-107cm); seatMin/seatMax intentionally left blank rather than derived/guessed (THE BAR). Boy\'s/girl\'s color variants publish slightly different weights (4.0kg/8.7lb boys, 3.9kg/8.6lb girls); bikeWeight uses the girls\' figure (near-identical, catalog row is the generic unisex platform). Price not shown on the maker page outside the buy flow; retailer prices for this exact model range $150-180, kept at the existing $180 sample pending a firmer MSRP.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://www.cannondale.com/en-us/bikes/kids/1-to-4/kids-trail-1-to-4/kids-trail-balance',
+    desc: 'Verified (partial) — cannondale.com Kids Trail Balance product page (Exa-fetched 2026-07-20): "Teaching balance fundamentals, Kids 3\'1"-3\'6" (94cm-107cm)", durable lightweight aluminum frame, Lil\' Lefty single-sided fork, rear hand brake sized for small hands. No seat-height range or on-page price published (confirmed via boy\'s/girl\'s variant pages: weight 4.0kg/3.9kg).'
   },
   {
     id: 'sb-prevelo-alpha-zero', cat: 'balancebike', brand: 'Prevelo', model: 'Alpha Zero',
