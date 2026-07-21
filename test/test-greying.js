@@ -106,7 +106,7 @@ test('REVIEW #13 regression: a 29in REAR tire on a mullet-only frame is a new co
 test('oversize rotor (220 vs 203-max fork AND frame) is YELLOW at pick time, not green', function(){
   // Both rotor slots must be constrained: with only a fork, the rear placement
   // is unconstrained and the dot legitimately reports that clean best placement.
-  var c = C.compatOf(part('ro-sram-hs2-220-6b'), B({fork:'fk-dvo-onyx-sc-d1-29-170', frame:'fr-yeti-sb160'}));
+  var c = C.compatOf(part('ro-sram-hs2-220-6b'), B({fork:'fk-marzocchi-bomber-z1-29-160', frame:'fr-yeti-sb160'}));
   eq(c.state, 'w'); some([c.reason], 'exceeds the fork max');
 });
 test('over-travel fork (180 on a 170-rated frame) is YELLOW at pick time', function(){
