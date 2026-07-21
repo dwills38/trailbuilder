@@ -1,5 +1,25 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — NINE-CHIP NIGHT WAVE: dedupe incident + rolling harvest
+
+- **Double-dispatch incident (UI-side double paste), fully contained:** 4 of 9 chips ran
+  twice (kit-8, gravel page, MTB tail 2, EMTB 3). Zero data damage — git's
+  one-branch-one-worktree rule made every collision safe; kit-8's twin 2 found twin 1's
+  finished branch and stood down on its own. Coordinator archived the redundant twins
+  (kept the further-along one per pair). LESSON → future chip boilerplate gains: "if your
+  exact branch already exists with commits, stand down and report."
+- **Harvested so far this wave** (rolling): kit-8 (kit 524 verified) · gravel.html BUILT
+  off-live — the family is SIX-FOR-SIX on surfaces; GRX build proven end-to-end ·
+  MTB tail 2 (MTB 3,114 verified; productinfo route generalizes to MTB INTERFACES
+  everywhere but weights only on Di2/pedals — CLAUDE.md needs a footnote not a rewrite;
+  Fox tech sheets are image-only, gold for interfaces) — WITH a coordinator REVERT: the
+  36 SL maxRotorF 203→230 relaxation hit a Fox-vs-Fox source conflict (shop page "Up to
+  203 compatible" vs drawing "180-230MM"); conservative 203 restored on all 5 rows, both
+  quotes in desc, flagged for mechanic review · EMTB 3 (92 bikes — 9 wrong-brand
+  re-entries + 19 gen fixes; identity now current, deep-verify queued) · striders 1b
+  (5→28/36 verified; 9 real spec corrections incl. a copied-price catch).
+- Still working: road 7, gravel 4, BMX hygiene, build sheet.
+
 ## 2026-07-20 — HG-L2 dual-body rule SHIPPED (the last live false verdict of the day)
 
 - **fix/road-hgl2-class merged + deployed**: road-12 Shimano cassettes now fit both HG
