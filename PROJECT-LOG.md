@@ -1,5 +1,27 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — gravel-verify-3: material check CLEAN, 18 promotions, 12 fabrication flags
+
+- **verify/gravel-verify-3 merged**: gravel 118→135 verified. Task A (the systemic
+  material-mislabel grep over all 32 remaining unverified frames): CLEAN — zero mislabels
+  this pass, unlike verify-2's four. Task B (aftermarket tail, 71 real rows — the brief's
+  ~118 was stale): 18 rows promoted with maker-confirmed corrections (notable: ESI Chunky
+  was ~2x too heavy at 120g vs real 60g; Ergon "SR Allroad Core" was a nonexistent SKU —
+  model corrected to "SR Allroad", id kept append-only and flagged for a future alias pass).
+- **The 12 fabrication/wrong-model FLAGS are the headline** (all left in-row, unchanged,
+  per doctrine — coordinator/Douglas call): Zipp 303 S is SRAM's own ROAD wheel mislabeled
+  gravel (real gravel SKU = 303 XPLR S); Teravail Sparwood has no 700c size at all; I9
+  "Solstice G" doesn't exist (real line = SOLiX G); Fulcrum "Rapid Red 42 DB" absent from
+  Fulcrum's own lineup; HUNT Adventure Sport 700c phantom (650b-only product); Bontrager
+  "Paradigm Elite Gravel" no such SKU; FSA Orbit C-40 is IS42/52 not ZS44/56; 3T "Discus"
+  fork doesn't exist (Discus = wheels; real fork = Fango); Trek "Checkpoint IsoSpeed fork"
+  conflates a frame tech; Continental Terra Speed 650x47 is a Terra Trail size; Schwalbe
+  G-One R/Bite trim ambiguity; 3T Superergo flare matches no variant. Most are grind-1-era
+  rows — the serial-fabricator pattern again. Fix/retire list needs a decision pass.
+- Documented walls (one honest retry each): ridefox 429, specialized 403, goodyearbike,
+  vittoria, pro-bikegear 429×4, us.3t.bike 429. No new vocab gaps.
+- Gates: 7 validators OK, 988/988 tests, tsc clean (no compat.js change).
+
 ## 2026-07-21 — Seat 17 wave 1: cb-sheets-10 + bmx-price-sweep + mtb-tail-10
 
 - **verify/cb-sheets-10 merged**: Yeti's 20 "unverified" rows were a stale-brief artifact —
