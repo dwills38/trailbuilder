@@ -84,10 +84,6 @@ test + npx tsc --noEmit. Never push — present the branch. Final act: write the
 ---
 
 **Held pending Douglas:**
-- **FC-MT612 identity** (new, mtb-tail-5): Shimano's current spec table has no FC-MT610/611/612
-  at all — the row's chainline (52mm) matches FC-MT510-1 far better than the 511/512 siblings.
-  Your call: correct the mfgPn to FC-MT510-1, or re-check against Canyon's own spec page first
-  (this part's likely origin) before deciding.
 - The Cloudflare redirect batch (5 rows, his clicks — table in domain-portfolio memory)
 - gravel CX-tag + rim-brake vocab
 - the carried decision-queue tail (see the SEAT 16 block in COORDINATOR-HANDOFF.md)
