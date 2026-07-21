@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T01:35:33.593Z",
+ "updated": "2026-07-21T02:25:36.818Z",
  "batchSize": 25,
  "lastCompleted": "ca-shimano-deore-m5100-1151",
  "currentCategory": "frame",
@@ -1048,7 +1048,6 @@
   "bk-magura-mt8-sl-fm",
   "bk-sram-code-r",
   "bk-magura-gustav-pro",
-  "bk-shimano-mt420",
   "bk-trp-quadiem",
   "bk-trickstuff-piccola-hd-titanium",
   "bk-trp-evo-expert",
@@ -1116,24 +1115,17 @@
   "ro-clarks-ccl-203-cl",
   "ro-tektro-m275-180-6b",
   "ro-tektro-m275-160-6b",
-  "ro-shimano-rt10-180-cl",
   "ro-tektro-200-6b",
   "ro-tektro-180-6b",
   "ro-trp-200-6b",
-  "ro-shimano-rt26-180-6b",
-  "ro-shimano-rt26-160-6b",
   "ro-trp-25-203-6b",
   "ro-trp-25-180-6b",
-  "ro-shimano-rt66-203-6b",
-  "ro-shimano-rt66-160-6b",
-  "ro-shimano-rt10-160-cl",
   "ro-trp-rs01e-203-6b",
   "sft-microshift-advent-m9295",
   "sft-sram-nx-11",
   "sft-sram-gx-dh",
   "sft-shimano-deore-m4100",
   "sft-microshift-advent-mx-m7115",
-  "sft-shimano-cues-u6000",
   "sft-shimano-deore-m6200",
   "sft-shimano-m315-8",
   "sft-shimano-altus-sl-m2000-9",
@@ -1141,7 +1133,6 @@
   "dr-sram-xx-dh-transmission",
   "dr-microshift-advent-m6195l",
   "dr-sram-gx-dh",
-  "dr-shimano-cues-u6000-10-gs",
   "dr-shimano-deore-m5100-sgs",
   "dr-sunrace-rdms300",
   "dr-microshift-advent-mx-m7005",
@@ -1159,7 +1150,6 @@
   "ca-ethirteen-lg1-dh-924",
   "ca-sram-pg720",
   "ca-sunrace-csms8-1150",
-  "ca-shimano-cues-lg300-10-1148",
   "ca-sunrace-u9-1146",
   "ca-shimano-deore-m5100-1151",
   "ca-sunrace-ms2-1146",
@@ -1201,9 +1191,7 @@
   "cr-sram-descendant-7k-eagle-dub-32t",
   "cr-sram-x1-1000-eagle-dub-30t",
   "cr-prowheel-habitht-30t",
-  "cr-shimano-mt511",
   "cr-merida-experttrii-165-32",
-  "cr-shimano-mt511-32",
   "cr-shimano-deore-m5100-10sp-30t",
   "cr-prowheel-32t-10sp",
   "cr-shimano-cues-u6000-1x",
@@ -24435,19 +24423,19 @@
   },
   "bk-shimano-mt410": {
    "cat": "brake",
-   "status": "Skipped",
-   "updated": "2026-07-21T02:00:00.000Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.816Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "mtb-tail-2: FETCHED productinfo.shimano.com per-SKU page - interfaces (rotor compat, mount, piston count, lever pairing) fully confirmed but Average weight (g) is blank across this brake tier (budget MT410 through Deore MT600 both checked directly) - Shimano does not publish hydraulic-brake-caliper weight on productinfo, mechanical or not. No reputable measured-weight source located this pass."
   },
   "bk-shimano-mt420": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.499Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "bk-shimano-mt520": {
    "cat": "brake",
@@ -35723,11 +35711,11 @@
   },
   "ro-shimano-rt10-180-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-tektro-200-6b": {
    "cat": "rotor",
@@ -35763,19 +35751,19 @@
   },
   "ro-shimano-rt26-180-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-rt26-160-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-smrt10-180-cl": {
    "cat": "rotor",
@@ -35811,27 +35799,27 @@
   },
   "ro-shimano-rt66-180-6b": {
    "cat": "rotor",
-   "status": "Skipped",
-   "updated": "2026-07-21T02:00:00.000Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "mtb-tail-2: FETCHED productinfo.shimano.com SM-RT64/SM-RT66 pages - rotor size/bolt-pattern/thickness interfaces fully confirmed (matches catalog) but Average weight (g) is blank on both - Shimano does not publish rotor weight on productinfo (same gap CLAUDE.md documents for SRAM rotors). No reputable measured-weight source located this pass."
   },
   "ro-shimano-rt66-203-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-rt66-160-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ro-shimano-rt56-180-6b": {
    "cat": "rotor",
@@ -35851,11 +35839,11 @@
   },
   "ro-shimano-rt10-160-cl": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sft-sram-s200-eagle": {
    "cat": "shifter",
@@ -35899,11 +35887,11 @@
   },
   "sft-shimano-cues-u6000": {
    "cat": "shifter",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sft-shimano-xt-m8250-di2": {
    "cat": "shifter",
@@ -35971,11 +35959,11 @@
   },
   "dr-shimano-cues-u6000-10-gs": {
    "cat": "derailleur",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dr-shimano-deore-m5100-sgs": {
    "cat": "derailleur",
@@ -36195,11 +36183,11 @@
   },
   "ca-shimano-cues-lg300-10-1148": {
    "cat": "cassette",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ca-sunrace-u9-1146": {
    "cat": "cassette",
@@ -36579,11 +36567,11 @@
   },
   "cr-shimano-mt511": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-merida-experttrii-165-32": {
    "cat": "crankset",
@@ -36603,11 +36591,11 @@
   },
   "cr-shimano-mt511-32": {
    "cat": "crankset",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cr-shimano-cues-u6000-170-32": {
    "cat": "crankset",
@@ -40499,18 +40487,18 @@
   },
   "bb-shimano-smbb52-bsa73-24mm": {
    "cat": "bb",
-   "status": "Skipped",
-   "updated": "2026-07-21T02:00:00.000Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "mtb-tail-2: FETCHED productinfo.shimano.com SM-BB52/BB-MT501 pages - shell width / spindle interfaces fully confirmed but Average weight (g) is blank on both - Shimano does not publish BB weight on productinfo. No reputable measured-weight source located this pass."
   },
   "bb-shimano-mt501-bsa73": {
    "cat": "bb",
-   "status": "Skipped",
-   "updated": "2026-07-21T02:00:00.000Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "mtb-tail-2: FETCHED productinfo.shimano.com SM-BB52/BB-MT501 pages - shell width / spindle interfaces fully confirmed but Average weight (g) is blank on both - Shimano does not publish BB weight on productinfo. No reputable measured-weight source located this pass."
   },
   "bb-samox-bsa73-24mm": {
@@ -40539,10 +40527,10 @@
   },
   "bb-shimano-mt501-bsa68": {
    "cat": "bb",
-   "status": "Skipped",
-   "updated": "2026-07-21T02:00:00.000Z",
+   "status": "Verified",
+   "updated": "2026-07-21T02:25:36.817Z",
    "error": null,
-   "source": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "mtb-tail-2: FETCHED productinfo.shimano.com SM-BB52/BB-MT501 pages - shell width / spindle interfaces fully confirmed but Average weight (g) is blank on both - Shimano does not publish BB weight on productinfo. No reputable measured-weight source located this pass."
   },
   "bb-sram-powerspline-bsa73": {
