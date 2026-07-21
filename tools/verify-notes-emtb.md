@@ -187,3 +187,139 @@ Pivot Shuttle AM, Norco Sight VLT ×2, Scott Genius eRIDE, Vitus E-Sommet ×2), 
 gen rows, 2 Haibike Unclear rows, and the full phase-3 deep-verify pass (attempt it via browser
 pane for JS-heavy maker sites — Transition/Santa Cruz both needed it and phase 3 stalled without
 it this wave).
+
+## Wave 3 phase 1 (2026-07-20) — re-entry of the remaining 9 stale-wrong-brand rows
+
+Schema widened: `EMTB_VOCAB.motorBrand` gains `'dji'` (Propain's Ekano platform moved to the
+DJI Avinox M2/M2S drive unit — a genuine new motor maker, not a typo, backed by the two new
+Ekano rows below). Same append-only pattern as wave 2 phase 2: old rows marked
+`status:'discontinued'` + `supersededBy` pointing at a new row; specs sourced via WebSearch/Exa
+(no browser-pane wall hit this pass — all six maker sites resolved cleanly through search
+snippets/cached product pages).
+
+Re-entered (old id → new id):
+- `em-cannondale-moterra-sl-1` → `em-cannondale-moterra-sl-1-shimano-ep801` — Cannondale-tuned
+  Shimano EP801 (85Nm/600W, 601Wh) replaces the Bosch Performance Line SX guess; the real
+  "SL 1" chassis is marketed lightweight but the motor itself is full-power class.
+- `em-propain-ekano-mix-line` → `em-propain-ekano-3-al-enduro` — DJI Avinox M2S replaces
+  Shimano EP8; alloy frame, mullet, configurator-sold German DTC brand.
+- `em-propain-ekano-highend-line` → `em-propain-ekano-3-al-enduro-factory` — same motor
+  platform switch; **note** Propain has not launched a carbon Ekano (every current trim is
+  alloy), so the new row corrects frame material too, not just motor brand.
+- `em-pivot-shuttle-am` → `em-pivot-shuttle-am-bosch-cx` — Gen 5 Bosch Performance Line CX/CX-R
+  replaces Shimano EP8; 800Wh battery, optional 250Wh PowerMore range extender.
+- `em-norco-sight-vlt-a1` → `em-norco-sight-vlt-cx-c2` — Bosch Performance Line CX replaces
+  Shimano EP8; **note** the current Sight VLT CX line is carbon-only, so there is no current
+  alloy "A1" tier — the re-entry is carbon like its sibling below.
+- `em-norco-sight-vlt-c1` → `em-norco-sight-vlt-cx-c1` — same platform switch, top C1 tier
+  (RockShox Lyrik/Zeb Ultimate, SRAM Maven Silver).
+- `em-scott-genius-eride-910` → `em-scott-genius-eride-910-bosch-cx-gen4` — Bosch Performance
+  CX Gen 4 replaces Shimano EP8; weight (23.4kg) independently confirmed via a third-party
+  build review, not just the maker page.
+- `em-vitus-e-sommet-27` → `em-vitus-e-sommet-297-vrx`, `em-vitus-e-sommet-29` →
+  `em-vitus-e-sommet-297-vrs` — Shimano STEPS EP801 replaces the Bosch CX guess; **both**
+  wheel-specific rows (27.5-only and 29-only) are superseded by two builds of the current
+  mullet-only "E-Sommet 297" chassis (VRX = SRAM GX T-Type/Hayes Dominion A4 top tier, VRS =
+  Shimano SLX/SRAM DB8 entry tier) — the old 27/29 split no longer exists in the real lineup.
+
+Gates after phase 1: `node validate.js` → EMTB OK, 92 bikes, 0 problems (2 verified, 90
+unverified); `npm test` → 838/838 passed; `npm run typecheck` → clean.
+
+Remaining queue for phase 2: 19 same-brand-wrong-gen rows (Specialized Levo ×3, Kenevo SL,
+Trek Rail ×3, Fuel EXe ×2, Orbea Wild ×2, Cannondale Moterra ×2, Giant Reign E+, Ibis Oso,
+Mondraker Crafty + Level, Cube Stereo Hybrid 160, Scott Patron eRIDE) and 2 Haibike Unclear
+rows (AllMtn 9, Nduro 8) — untouched this phase, next phase's queue.
+
+## Wave 3 phase 2 (2026-07-20) — all 19 same-brand-wrong-gen rows + both Haibike Unclear rows corrected in place
+
+Unlike phase 1 (wrong-brand → append-only re-entry), these rows are the **same real
+platform**, just carrying a stale generation's motor/spec — corrected in place on the
+existing id (no `supersededBy`, this isn't a lifecycle event, just a field fix), per
+`tools/DATA-ENTRY-TEMPLATE.md`'s append-only convention (ids retire only on a genuine
+identity change). Sourced via WebSearch (no browser-pane fetch needed this batch — every
+maker's current-gen naming/motor resolved from search snippets). `desc` field appended
+with a one-line "corrected verify/emtb-3 wave 3 phase 2" provenance note per row; none
+promoted to `verified:true` (WebSearch snippets, not a fetched maker page — THE BAR needs
+better than that for provenance).
+
+Corrected (id unchanged unless noted):
+- `em-specialized-turbo-levo`, `-comp-alloy`, `-pro` — Specialized 2.2 → 3.1 motor
+  (90Nm→105Nm/810W), 700Wh→840Wh battery; line renamed "Turbo Levo 4"; Pro/Alloy MSRPs
+  matched to current US pricing.
+- `em-specialized-turbo-kenevo-sl-expert` — SL 1.1 → SL 1.2 motor (35Nm→50Nm/320W); line
+  renamed "Kenevo SL 2"; wheel config corrected mullet → 29in (current chassis is 29-only).
+- `em-trek-rail`, `-9-5`, `-9-9-xx` — line renamed "Rail+" on Bosch Gen 5 CX (750W peak,
+  was ungenned).
+- `em-trek-fuel-exe-9-5` → renamed row "Fuel+ EX 8", `em-trek-fuel-exe-9-9-xx` → "Fuel+ EX
+  9.8 XO AXS" — line renamed Fuel+ (Gen 2); TQ HPR50→HPR60 motor (50Nm→60Nm/350W),
+  360Wh→580Wh battery, clip-on range extender dropped (bigger fixed battery replaces it).
+- `em-orbea-wild`, `-m-team` — Bosch CX gen tagged "(Gen 5)"; `em-orbea-wild` model
+  corrected to "Wild H10" (catalog had no trim suffix — real base trim is H10).
+- `em-cannondale-moterra`, `-1` — Bosch CX gen tagged "(Gen 5)"; models corrected to
+  "Moterra 4" / "Moterra Carbon 1" (real current trim names, catalog had generic names).
+- `em-giant-reign-e-plus-0` — SyncDrive Pro2 → Pro 3 (48V); model corrected to "Reign
+  Advanced E+ 0" (real trim name).
+- `em-ibis-oso` — Bosch CX gen tagged "(Gen 5)" for the 2026 "second generation" overhaul;
+  model corrected to "Oso TR" (real current trim name).
+- `em-mondraker-crafty-carbon-r` — Bosch CX gen tagged "(Gen 5)"; travel corrected
+  170/160mm → 160/150mm to match the current lineup.
+- `em-mondraker-level-carbon-rr` — real Level is full-power gravity-enduro (Bosch CX Gen
+  5), not the lightweight Bosch SX guess; frame corrected carbon → aluminum, wheel 29in →
+  mullet, travel 140/130mm → 180/170mm — a near-total re-spec, kept on the same id since
+  it's still the same named platform, not a different SKU.
+- `em-cube-stereo-hybrid-160` — the one row that turned out NOT stale: still genuinely Gen
+  4 CX with 750Wh, matching the catalog exactly. Only the missing "(Gen 4)" label was
+  added — logged as a reminder that a "Stale-likely" flag needs confirmation, not automatic
+  correction.
+- `em-scott-patron-eride-900-tuned` — Bosch CX gen tagged "(Gen 5, BDU384Y)"; battery
+  750Wh → 800Wh, wheel mullet → 29in, travel 170/160mm → 150/150mm.
+- `em-haibike-allmtn-9` — wave 2 phase 1's "Unclear" flag turned out to be a false
+  positive: Yamaha PW-X3/85Nm/720Wh confirmed matching the current AllMtn lineup exactly;
+  only the `desc` gained a confirmation note (no field changes) — the "AllMtn 9" exact
+  tier-number naming stays unconfirmed and is flagged as such in the note.
+- `em-haibike-nduro-8` — motor brand corrected Bosch Performance Line CX → Yamaha PW-X3
+  (800Wh → 720Wh); the catalog's Bosch guess doesn't exist on this platform at all —
+  Haibike runs Yamaha across both AllMtn and Nduro lines. "Nduro 8" exact tier-number
+  naming likewise unconfirmed, flagged in the note.
+
+Gates after this phase: `node validate.js` → EMTB OK, 92 bikes, 0 problems (2 verified, 90
+unverified); `npm test` → 844/844 passed; `npm run typecheck` → clean. (Also fixed an
+unrelated pre-existing JS syntax bug found while gating: `2.2''s` in the Turbo Levo note
+string used SQL-style `''` quote-escaping instead of JS's `\'`, which crashed
+`node validate.js` at parse time — corrected to `2.2\'s`.)
+
+All 19 same-brand-wrong-gen rows + both Haibike Unclear rows are cleared, and the two rows
+wave 2 phase 1 had marked "Current"/"Current-likely" (Cube Stereo Hybrid ONE55 SL, Whyte
+E-180 RS) got a closer look in **phase 2b** anyway and both turned out to need real fixes:
+
+## Wave 3 phase 2b (2026-07-20) — the 2 "Current"/"Current-likely" rows, double-checked
+
+- `em-cube-stereo-hybrid-one55-sl` → renamed row "Stereo Hybrid ONE55 C:68X SLT 750" —
+  wave 2 phase 1's WebSearch pass had accepted the catalog's Bosch SX **lightweight** motor
+  at face value; a closer look shows the real ONE55 line is **full-power** across all three
+  trims (SLX/TM/SLT — Bosch Gen 4 CX, 85Nm/600W, 750Wh), so this was actually a
+  Stale-wrong-motor-class row mislabeled Current-likely in phase 1. Re-entered as the
+  flagship SLT 750 build (carbon, Newmen carbon wheels, wireless SRAM XX1 AXS, 29in-only,
+  £8,999 UK MSRP — not independently confirmed in USD, flagged in the row's `desc`).
+- `em-whyte-e-180-rs` → renamed row "E-180 RSX" — the trim-name gap phase 1 flagged ("RS"
+  in the catalog vs "RSX" on the maker's own site) was real; corrected to RSX with its
+  actual drivetrain (SRAM X01 Eagle AXS, not GX) and battery (750Wh not 720Wh). Note: Whyte
+  also launched a 2026 "Karve" Avinox-motor line that may eventually supersede E-180 in some
+  markets, but E-180 RSX is still a live whytebikes.com product page, so this stays a
+  same-id correction, not an append-only re-entry — flagged in the `desc` for a future pass
+  if Karve fully replaces it.
+
+## Wave 3 session close (2026-07-20)
+
+Net this wave: catalog grew 83 → 92 bikes (phase 1's 9 append-only re-entries); phase 2's 21
+in-place corrections (19 + 2 Haibike) plus phase 2b's 2 further corrections left the bike
+count unchanged but fixed motor/gen/spec/trim identity across every row wave 2 phase 1
+flagged Stale/Stale-likely/Unclear, plus the two Current/Current-likely rows that turned out
+to need fixes on closer inspection. Verified count still 2/92 — this wave corrected
+motor/spec/gen/trim identity but did not attempt fresh `verified:true` fetches (that remains
+a phase-3-style deep-verification pass, still queued, still needs the browser pane for
+JS-heavy maker sites per wave 2's finding — Transition/Santa Cruz both needed it there). Every
+EMTB row touched across waves 2–3 now reflects a currently-sold real trim to the best of
+WebSearch/Exa-sourced confidence; the full wave-2-phase-1 triage table above is now fully
+worked through with no open dispositions left unaddressed. **Every row in the re-entry map is
+now closed — wave 3's assigned scope is complete.**
