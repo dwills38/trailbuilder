@@ -24430,10 +24430,10 @@
   "pd-shimano-eh500": {
    "cat": "pedal",
    "status": "Verified",
-   "updated": "2026-07-21T01:32:30.321Z",
+   "updated": "2026-07-21T02:00:00.000Z",
    "error": null,
    "source": "https://productinfo.shimano.com/en/product/PD-EH500",
-   "note": "auto-promoted: already verified in catalog"
+   "note": "mtb-tail-2: FETCHED productinfo.shimano.com/en/product/PD-EH500 - Average weight (g) 379 (/pair), a real manufacturer spec-sheet figure. Corrected 383->379 in catalog, promoted verified:true. Confirms pedals ARE in the productinfo weight-publishing set, unlike mechanical brakes/rotors/BBs/Deore-tier drivetrain."
   },
   "bk-sram-g2-ultimate": {
    "cat": "brake",
@@ -24445,11 +24445,11 @@
   },
   "bk-shimano-mt410": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.499Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T02:00:00.000Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-2: FETCHED productinfo.shimano.com per-SKU page - interfaces (rotor compat, mount, piston count, lever pairing) fully confirmed but Average weight (g) is blank across this brake tier (budget MT410 through Deore MT600 both checked directly) - Shimano does not publish hydraulic-brake-caliper weight on productinfo, mechanical or not. No reputable measured-weight source located this pass."
   },
   "bk-shimano-mt420": {
    "cat": "brake",
@@ -35669,11 +35669,11 @@
   },
   "bk-shimano-mt600": {
    "cat": "brake",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T02:00:00.000Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-2: FETCHED productinfo.shimano.com per-SKU page - interfaces (rotor compat, mount, piston count, lever pairing) fully confirmed but Average weight (g) is blank across this brake tier (budget MT410 through Deore MT600 both checked directly) - Shimano does not publish hydraulic-brake-caliper weight on productinfo, mechanical or not. No reputable measured-weight source located this pass."
   },
   "bk-tektro-hd-m275": {
    "cat": "brake",
@@ -35821,11 +35821,11 @@
   },
   "ro-shimano-rt66-180-6b": {
    "cat": "rotor",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T02:00:00.000Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-2: FETCHED productinfo.shimano.com SM-RT64/SM-RT66 pages - rotor size/bolt-pattern/thickness interfaces fully confirmed (matches catalog) but Average weight (g) is blank on both - Shimano does not publish rotor weight on productinfo (same gap CLAUDE.md documents for SRAM rotors). No reputable measured-weight source located this pass."
   },
   "ro-shimano-rt66-203-6b": {
    "cat": "rotor",
@@ -40509,19 +40509,19 @@
   },
   "bb-shimano-smbb52-bsa73-24mm": {
    "cat": "bb",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T02:00:00.000Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-2: FETCHED productinfo.shimano.com SM-BB52/BB-MT501 pages - shell width / spindle interfaces fully confirmed but Average weight (g) is blank on both - Shimano does not publish BB weight on productinfo. No reputable measured-weight source located this pass."
   },
   "bb-shimano-mt501-bsa73": {
    "cat": "bb",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T02:00:00.000Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-2: FETCHED productinfo.shimano.com SM-BB52/BB-MT501 pages - shell width / spindle interfaces fully confirmed but Average weight (g) is blank on both - Shimano does not publish BB weight on productinfo. No reputable measured-weight source located this pass."
   },
   "bb-samox-bsa73-24mm": {
    "cat": "bb",
@@ -40549,11 +40549,11 @@
   },
   "bb-shimano-mt501-bsa68": {
    "cat": "bb",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T02:00:00.000Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-2: FETCHED productinfo.shimano.com SM-BB52/BB-MT501 pages - shell width / spindle interfaces fully confirmed but Average weight (g) is blank on both - Shimano does not publish BB weight on productinfo. No reputable measured-weight source located this pass."
   },
   "bb-sram-powerspline-bsa73": {
    "cat": "bb",
