@@ -685,12 +685,13 @@ var EMTB_PARTS = [
   {
     id: 'em-merida-eone-sixty-8000', cat: 'emtb', brand: 'Merida', model: 'eONE-SIXTY 8000',
     motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
-    frameMaterial: 'carbon', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-enduro'], weight: 23400, price: 7500,
-    note: "Merida's mixed-wheel enduro-travel e-MTB on the Shimano EP8 motor.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    batteryWh: 600, batteryRemovable: false, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 174,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT Di2', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-enduro'], weight: 23200, price: 7500,
+    note: "Merida's mixed-wheel enduro-travel e-MTB (eONE-SIXTY CF range) on the Shimano EP801 motor; Fox 38 Performance fork, Fox Float X2 Performance shock. Wireless Shimano XT Di2 LinkGlide drivetrain with Auto/Free Shift. A flip chip allows a full-29in setup that drops rear travel to 160mm.",
+    desc: "Verified vs the maker page. Battery corrected 720Wh removable -> 600Wh non-removable (the eONE-SIXTY CF's internal battery is fixed/integrated, not a swap pack; a 360Wh range extender is optional, added as rangeExtender:true). Travel corrected 160/160 -> 170 front / 174 rear (stock mullet config; the current top build runs wireless Di2, not a cable XT drivetrain — drivetrain field updated to reflect that). Weight set to the maker-stated 23.2kg (size M). No US/EUR price published on the maker page; price kept as the prior sample.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.merida-bikes.com/en/bike/5692/eone-sixty-8000'
   },
 
   // ---------------------------------------------------------------------------
@@ -784,14 +785,15 @@ var EMTB_PARTS = [
   // Merida depth (eONE-SIXTY 900 alloy)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-merida-eone-sixty-900', cat: 'emtb', brand: 'Merida', model: 'eONE-SIXTY 900',
+    id: 'em-merida-eone-sixty-900', cat: 'emtb', brand: 'Merida', model: 'eONE-SIXTY 875',
     motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-enduro'], weight: 25200, price: 5200,
-    note: 'Entry alloy eONE-SIXTY trim; same motor/battery as the carbon 8000.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    batteryWh: 712, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 174,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT LinkGlide', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-enduro'], weight: 26000, price: 5200,
+    note: 'Entry alloy eONE-SIXTY LITE trim; same Shimano EP801 motor as the carbon 8000, with a larger user-removable 712Wh battery (vs the CF\'s fixed 600Wh) and an optional 360Wh range extender. RockShox Zeb fork, RockShox Super Deluxe shock.',
+    desc: 'Verified vs the maker page. Model corrected: "eONE-SIXTY 900" is a retired 2019-collection SKU (Shimano E8000 70Nm motor, 500Wh battery, 27.5+ wheels — nothing like the current lineup) still listed on a regional distributor archive page, not a currently-sold trim. The current aluminum "LITE" sibling to the carbon 8000 is the eONE-SIXTY 875. Corrected: battery 720Wh -> 712Wh (real user-removable pack) + rangeExtender:true (360Wh optional), travel 160/160 -> 170 front/174 rear, drivetrain Shimano Deore -> Shimano XT LinkGlide (RDM8130 mechanical), brakes Shimano MT420 -> Shimano XT 4-piston. Weight set to the maker-stated ~26kg (size M). No price published on the maker page; price kept as the prior sample.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.merida-bikes.com/en/bike/5695/eone-sixty-875'
   },
 
   // ---------------------------------------------------------------------------
