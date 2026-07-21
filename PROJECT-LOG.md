@@ -3519,3 +3519,26 @@ auto-merges); full gates + verdict harness green throughout.
   port it to the other pages only if Douglas wants it.
 - Gates green (validate 0 problems / 930 tests / tsc clean) at merge.
 
+
+## 2026-07-21 (seat 16) — CB-SHEETS-7 merged: complete bikes 197/435 (45%)
+
+- **verify/cb-sheets-7** merged: +23 complete bikes verified (174→197). All 20 assigned
+  Specialized rows landed (Exa's crawl legitimately reaches specialized.com content that
+  direct WebFetch 403s), plus a 3-row Trek bonus batch via the browser pane. TWO real
+  correctness bugs fixed: cb-specialized-chisel-shimano was a full-suspension build wrongly
+  mounted on the HARDTAIL Chisel frame with no shock fill at all (swapped to chisel-evo +
+  shock added); cb-specialized-epic-8-evo-expert paired an HG cassette with what the real
+  bike ships — an XD-driver XS-1275 (self-consistent-but-wrong pairing, cassette + rear
+  wheel corrected together).
+- **The Roscoe 9 near-miss deserves the log**: the worker "corrected" the BB to match Trek's
+  page text ("Shimano SM-BB52") — and test-golden/test-invariants CAUGHT it (the build's e13
+  Helix crank needs a P3-spindle BB; a 24mm Shimano BB would be a false fit). Reverted,
+  discrepancy documented instead of trusted. Second time this month the suite has stopped a
+  page-literal "fix" from breaking real compatibility (Cannondale HT2 chain, cb-sheets-6).
+- Flagged for future passes: the Stumpjumper 15 EVO dropper-diameter discrepancy (3 trims'
+  guides say 34.9mm vs the frame's audited 30.9 seat tube — needs a frame-seatTube re-audit,
+  not a per-row edit); ~18 remaining Trek rows (browser-pane method proven, just time-boxed);
+  Epic 8 S-Works price pinned at fills-sum pending component re-pricing.
+- Gates green (validate 0 problems / 930 tests / tsc clean / harness clean) at merge.
+  **MTB 3,197 verified; every chip from all three dispatch rounds today is now harvested.**
+
