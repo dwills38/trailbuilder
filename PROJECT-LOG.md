@@ -1,5 +1,22 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — mtb-tail-4: MTB 3,163 verified + the walled-brands list falls
+
+- **verify/mtb-tail-4 merged**: 29/30 Shimano mechanical rows verified via the handbook
+  PDF route (6 editions incl. archives; NEW DOCTRINE for dense Shimano tables — render
+  pages as images at 150dpi and read visually, pdftotext -layout produces false column
+  alignments). Real false-fit fixed: CUES FC-U4000-1 is SQUARE-TAPER, not the tier's
+  24mm (handbook p.188 sole checked box); Marlin 5 fill swapped to the real BSA73
+  square-taper BB. FC-MT612 honestly skipped — absent from every edition 2018-2026;
+  flagged as possible OEM-only or entry error, Douglas/coordinator call.
+- **Lane 2 — the walled-brands re-test**: 9 of the 10 "JS-build-kit walled" complete-bike
+  brands are NOT walled (Yeti/Ibis/Mondraker/Norco/Devinci render spec tables outright;
+  Rocky Mountain/Ghost are native <details> accordions — one JS open call; Cannondale's
+  "wall" was a wrong URL pattern, /trail-bikes/ not /trail/; Pivot's data routes return
+  real JSON). Only Propain is a genuine async configurator, and even that is NOT
+  bot-detection. The stale wall list gated a large cb-sheet verification pool — a
+  per-brand cb-sheets-6 fan-out is the obvious next MTB lane.
+
 ## 2026-07-21 — kit ALIASES port + road-10 bundled-SKU ruling executed
 
 - **feat/kit-aliases-1 merged**: KIT_ALIASES/canonicalKitId (third alias port — MTB, BMX,
