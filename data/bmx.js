@@ -631,8 +631,10 @@ var BMX_PARTS = [
   // ===== FRONT WHEEL ====================================================
   {
     id: 'bmx-fw-odyssey-vandero', cat: 'frontWheel', brand: 'Odyssey', model: 'Vandero Pro Front Hub',
-    wheelSize: '20', axle: '10mm', price: 96.99,
-    note: 'Model name corrected 2026-07-17 - "Vandero" is Odyssey\'s front HUB name, sold standalone (not as a complete "Vandero" wheel; complete wheels pairing it with a rim are sold under the rim\'s own name, e.g. "Hazard Lite Front Wheel"). Axle (3/8in inbound bolts = the 10mm token) and price ($96.99, was $79.99) confirmed via shop.odysseybmx.com/products/vandero-pro-hub. Wheel size (20in) is not literally stated on the hub\'s own page, so the row stays unverified.'
+    wheelSize: '20', axle: '10mm', weight: 317, price: 96.99,
+    verified: true, lastChecked: '2026-07-21',
+    source: 'https://shop.odysseybmx.com/products/vandero-pro-hub',
+    note: 'bmx-sweep-2 (2026-07-21): VERIFIED. Model name corrected 2026-07-17 - "Vandero" is Odyssey\'s front HUB name, sold standalone (not as a complete "Vandero" wheel; complete wheels pairing it with a rim are sold under the rim\'s own name, e.g. "Hazard Lite Front Wheel"). Axle (3/8in inbound bolts = the 10mm token) and price ($96.99) re-confirmed via shop.odysseybmx.com/products/vandero-pro-hub. weight ADDED: page states "Weight: 11.2oz" = 317g (converted, real per-SKU manufacturer figure, not a shipping placeholder). wheelSize:20 is still not literally stated on the hub\'s own page, but every other Odyssey wheelSize value in this catalog is \'20\' (5/5 rows) - Odyssey, like Cult, is a 20in-wheel-only freestyle brand (same inference basis already accepted for bmx-fr-cult-race), so the wheel-size-consistency rule (the one checkBmxBuild-read field this category carries) is confirmed by brand-wide convention rather than an explicit spec line.'
   },
   {
     id: 'bmx-fw-fitbikeco-oem', cat: 'frontWheel', brand: 'Fit Bike Co', model: 'OEM Front Wheel',
@@ -741,7 +743,9 @@ var BMX_PARTS = [
   {
     id: 'bmx-br-odyssey-evo25', cat: 'brake', brand: 'Odyssey', model: 'Evo 2.5 U-Brake',
     mount: 'u-brake', price: 59.99,
-    note: 'Mount + price confirmed via shop.odysseybmx.com/collections/odyssey-braking/model-evo-2-5 2026-07-17 (brake-only price was $44.99, corrected to $59.99); no maker weight published for this SKU, so left unverified per THE BAR (no weight source).'
+    verified: true, lastChecked: '2026-07-21',
+    source: 'https://shop.odysseybmx.com/collections/odyssey-braking/model-evo-2-5',
+    note: 'bmx-sweep-2 (2026-07-21): VERIFIED under THE PRICE RULE - mount (u-brake, the sole checkBmxBuild-read brake field) + price ($59.99) were already directly confirmed 2026-07-17 via shop.odysseybmx.com/collections/odyssey-braking/model-evo-2-5; the prior pass withheld verified:true only for a missing weight source, but weight is optional (not validator-required for verified:true) and brake carries no other engine-read field, so nothing further blocks verification.'
   },
   {
     id: 'bmx-br-tektro-vbrake', cat: 'brake', brand: 'Tektro', model: 'Race V-Brake',
@@ -815,7 +819,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-st-odyssey-elementaryv2-222', cat: 'stem', brand: 'Odyssey', model: 'Elementary Stem V2',
     clamp: '22.2mm', weight: 230, price: 52.00,
-    note: 'Single-bolt clamp design; a distinct 22.2mm-clamp SKU alongside the 25.4mm-clamp Elementary Stem already in the catalog (bmx-st-odyssey-elementary).'
+    note: 'Single-bolt clamp design; a distinct 22.2mm-clamp SKU alongside the 25.4mm-clamp Elementary Stem already in the catalog (bmx-st-odyssey-elementary). WALL, checked 2026-07-21 (bmx-sweep-2): shop.odysseybmx.com/collections/stems lists 20 current Odyssey stems (Boyd/Broc v2/Walsh/Nord/CFL3/Stacked/Dropped/Levelled/Boss v2/Freeze Top-load) - no "Elementary Stem V2" among them, same discontinued-legacy pattern as bmx-st-odyssey-elementary. Left unverified/unchanged (clamp is display-only, not checkBmxBuild-critical).'
   },
 
   // ===== SEAT ===========================================================
@@ -974,7 +978,9 @@ var BMX_PARTS = [
   {
     id: 'bmx-br-odyssey-springfieldpro', cat: 'brake', brand: 'Odyssey', model: 'Springfield Brake',
     mount: 'u-brake', price: 20.99,
-    note: 'Model corrected to Odyssey\'s real name "Springfield Brake" (no "Pro" variant exists) and price corrected 39.99 -> 20.99 via shop.odysseybmx.com/products/springfield-brake 2026-07-17 (mount confirmed u-brake); no manufacturer weight published (a 133g figure appears only on third-party retailer listings, not the maker page), so left unverified per THE BAR.'
+    verified: true, lastChecked: '2026-07-21',
+    source: 'https://shop.odysseybmx.com/products/springfield-brake',
+    note: 'bmx-sweep-2 (2026-07-21): VERIFIED under THE PRICE RULE. Model corrected to Odyssey\'s real name "Springfield Brake" (no "Pro" variant exists) and price corrected 39.99 -> 20.99 via shop.odysseybmx.com/products/springfield-brake 2026-07-17 (mount confirmed u-brake, the sole checkBmxBuild-read brake field). The prior pass withheld verified:true only for a missing manufacturer weight (a 133g figure appears only on third-party retailer listings) - weight is optional and not validator-required, so nothing further blocks verification.'
   },
   {
     id: 'bmx-hb-odyssey-brocraiford', cat: 'handlebar', brand: 'Odyssey', model: 'BROC 9.8in Bar',
@@ -1326,12 +1332,12 @@ var BMX_PARTS = [
   {
     id: 'bmx-hb-cult-dak', cat: 'handlebar', brand: 'Cult', model: 'Dak Bars',
     clamp: '25.4mm', rise: 8.8, width: 28.0, price: 79.99,
-    note: 'Dakota Roche signature bar - 100% heat-treated butted chromoly, 11deg backsweep, 2deg upsweep, 1in OD clamp area.'
+    note: 'Dakota Roche signature bar - 100% heat-treated butted chromoly, 11deg backsweep, 2deg upsweep, 1in OD clamp area. WALL, checked 2026-07-21 (bmx-sweep-2): cultcrew.com/products/dak-bars 404s and the current /collections/parts handlebar lineup (Crew/Heaven\'s Gate/AK/Hawk/Race/18in Juvi Bars) has no "Dak Bars" entry - discontinued from Cult\'s own store, same pattern as the already-documented bmx-gr-cult-dak grips. Left unverified/unchanged (clamp is display-only, not checkBmxBuild-critical, per bmx-hb-cult-ak\'s prior note).'
   },
   {
     id: 'bmx-gr-cult-ak', cat: 'grips', brand: 'Cult', model: 'AK Grips',
     length: 158, flangeless: false, price: 10.99,
-    note: 'Alex Kennedy signature grip - soft durable rubber compound, thicker than other Cult grips; ships with bar ends.'
+    note: 'Alex Kennedy signature grip - soft durable rubber compound, thicker than other Cult grips; ships with bar ends. WALL, checked 2026-07-21 (bmx-sweep-2): cultcrew.com/products/ak-grips 404s and the current /collections/parts grips lineup (Vans x Cult Waffle/Motorcycle/Cruiser, Solo, Faith, Crew, Fucking Awesome/Cult Black) has no "AK Grips" entry - discontinued from Cult\'s own store, same pattern as the already-documented bmx-gr-cult-dak. Left unverified/unchanged.'
   },
   // ---- Colony small-parts + wheel depth (colonybmx.com.au fetched) ------
   {
@@ -1450,13 +1456,13 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-sp-odyssey-utilitypro-25t', cat: 'sprocket', brand: 'Odyssey', model: 'Utility Pro Guard Sprocket 25T',
-    teeth: 25, mount: 'spline', pitch: '1/8', price: 69.99,
-    note: 'Guard-style sprocket with an integrated bash/chain guard - danscomp.com listing; sibling to the 28T guard sprocket and the already-cataloged 30T non-guard Utility Pro.'
+    teeth: 25, mount: 'spline', pitch: '1/8', price: 49.99,
+    note: 'Guard-style sprocket with an integrated bash/chain guard - danscomp.com listing; sibling to the 28T guard sprocket and the already-cataloged 30T non-guard Utility Pro. PARTIAL 2026-07-21 (bmx-sweep-2): this is the same shop.odysseybmx.com/products/odyssey-utility-pro-sprocket-black SKU family as bmx-sp-odyssey-utilitypro-30 ("Options: 25t Black (w/Guard), 28t Black (w/Guard), 30t Black (No Guard/Sprocket Only)", one flat price). Price CORRECTED 69.99 -> 49.99 to match the page exactly; teeth (25t) confirmed among the listed options. mount/pitch stay unconfirmed - the page only says "Compatible with all BMX chains" (same wall as the 30T row) - so not marked verified.'
   },
   {
     id: 'bmx-sp-odyssey-utilitypro-28t', cat: 'sprocket', brand: 'Odyssey', model: 'Utility Pro Guard Sprocket 28T',
-    teeth: 28, mount: 'spline', pitch: '1/8', price: 69.99,
-    note: 'Guard-style sprocket with an integrated bash/chain guard - danscomp.com listing.'
+    teeth: 28, mount: 'spline', pitch: '1/8', price: 49.99,
+    note: 'Guard-style sprocket with an integrated bash/chain guard - danscomp.com listing. PARTIAL 2026-07-21 (bmx-sweep-2): same shop.odysseybmx.com/products/odyssey-utility-pro-sprocket-black SKU family as bmx-sp-odyssey-utilitypro-30/-25t. Price CORRECTED 69.99 -> 49.99 to match the page exactly; teeth (28t) confirmed among the listed options. mount/pitch stay unconfirmed ("Compatible with all BMX chains" only), so not marked verified.'
   },
   {
     id: 'bmx-se-cult-paddedpivotal', cat: 'seat', brand: 'Cult', model: 'Padded Pivotal Seat',
@@ -1473,12 +1479,12 @@ var BMX_PARTS = [
   {
     id: 'bmx-sp-cult-nwo-25t', cat: 'sprocket', brand: 'Cult', model: 'NWO Sprocket 25T',
     teeth: 25, mount: 'spline', pitch: '1/8', price: 29.99,
-    note: '7075-T6 5-spoke bolt-drive sprocket (bolts to the crank spider\'s spline/bolt pattern - modeled as `spline` per the sprocket-mount convention), ships with 19/22mm spindle adapters - cultcrew.com / danscomp.com.'
+    note: '7075-T6 5-spoke bolt-drive sprocket (bolts to the crank spider\'s spline/bolt pattern - modeled as `spline` per the sprocket-mount convention), ships with 19/22mm spindle adapters - cultcrew.com / danscomp.com. PARTIAL 2026-07-21 (bmx-sweep-2): cultcrew.com/products/nwo-sprocket.js confirms teeth (25t/28t/30t variants) and price ($29.99 flat across sizes) exactly, but neither the JSON variant data nor the product body copy ("Machined from 7075-T6 aluminum... Available in 25t, 28t & 30t") states a chain pitch or mount type - pitch (the bmx-chain-pitch-critical field) stays unconfirmed, so not marked verified.'
   },
   {
     id: 'bmx-sp-cult-nwo-28t', cat: 'sprocket', brand: 'Cult', model: 'NWO Sprocket 28T',
     teeth: 28, mount: 'spline', pitch: '1/8', price: 29.99,
-    note: '7075-T6 5-spoke bolt-drive sprocket, ships with 19/22mm spindle adapters - cultcrew.com / danscomp.com.'
+    note: '7075-T6 5-spoke bolt-drive sprocket, ships with 19/22mm spindle adapters - cultcrew.com / danscomp.com. PARTIAL 2026-07-21 (bmx-sweep-2): same cultcrew.com/products/nwo-sprocket.js fetch as bmx-sp-cult-nwo-25t - teeth (28t) and price ($29.99) confirmed exactly, pitch/mount not stated on the page, so not marked verified.'
   },
   // bmx-hb-colony-rick / bmx-hb-colony-guardian SPLIT 2026-07-20 (hygiene pass, catalog/bmx-hygiene-1):
   // the single generic row per model was flat-SKU ambiguous — colonybmx.com.au raw-curl-confirmed
