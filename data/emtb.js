@@ -1001,23 +1001,27 @@ var EMTB_PARTS = [
   },
   {
     id: 'em-nukeproof-megawatt-297-carbon-pro', cat: 'emtb', brand: 'Nukeproof', model: 'Megawatt 297 Carbon Pro',
-    motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain', motorTorque: 90,
+    family: 'nukeproof-megawatt-carbon', modelYear: 2026,
+    motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain', motorTorque: 90, motorPowerPeak: 680,
     batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-enduro'], weight: 24000, price: 9899,
-    note: 'The Megawatt moved to a full-carbon frame and SRAM Eagle Powertrain, dropping Bosch entirely.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS Transmission', brakes: 'SRAM G2 RE',
+    disciplines: ['e-enduro'], weight: 23830, price: 9899,
+    note: 'The Megawatt moved to a full-carbon frame and SRAM Eagle Powertrain, dropping Bosch entirely; RockShox Zeb Select+/Vivid Select+ suspension.',
+    desc: "Verified vs the maker's own product page (motor/battery/travel/frame/wheel-config/drivetrain/weight all confirmed; page-stated bike weight 23.83kg S/M). Brakes corrected wave 4 cluster C (SRAM Code -> SRAM G2 RE, the actual sintered-pad 4-piston brake on this trim per the maker page and confirmed by two independent launch-spec sources); weight corrected to the maker-published 23830g (was 24000g sample). No US price is published on the maker's own site (nukeproof.com shows GBP/EUR RRP only, checkout geo-blocked in the US) — the existing $9,899 sample is retained because it matches the brand's own 2023 US launch-price press release (Notebookcheck, citing Nukeproof) exactly.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.nukeproof.com/en_GB/bikes/SBIMWCNKP002'
   },
   {
     id: 'em-nukeproof-megawatt-297-carbon-rs', cat: 'emtb', brand: 'Nukeproof', model: 'Megawatt 297 Carbon RS',
-    motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain', motorTorque: 90,
+    family: 'nukeproof-megawatt-carbon', modelYear: 2024, status: 'discontinued',
+    motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain', motorTorque: 90, motorPowerPeak: 680,
     batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission', brakes: 'SRAM Maven',
-    disciplines: ['e-enduro'], weight: 23600, price: 10899,
-    note: 'Top-tier carbon Megawatt build on SRAM Eagle Powertrain.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'SRAM Code RSC',
+    disciplines: ['e-enduro'], weight: 24300, price: 10899,
+    note: 'Top-tier carbon Megawatt build on SRAM Eagle Powertrain (2024 launch spec); RockShox Zeb Ultimate/Vivid Ultimate suspension. As of this pass, nukeproof.com/en_GB/bikes/platform/MEGAWATT_CRB lists only ONE current Megawatt Carbon SKU (SBIMWCNKP002, the Carbon Pro, cataloged as em-nukeproof-megawatt-297-carbon-pro) — the RS trim does not appear anywhere in the site\'s current bikes/ebikes navigation, so it looks to have been dropped from the lineup with the Pro remaining the sole current carbon trim (not a 1:1 successor SKU, so no supersededBy is set).',
+    desc: "NOT re-verified this wave — the RS trim is not fetchable as a live current maker page (only the Carbon Pro SKU is listed on nukeproof.com's Megawatt Carbon platform page and ebikes nav, checked wave 4 cluster C). Fields corrected from best-credible launch-era sources (drivetrain SRAM XX Eagle -> SRAM X0 Eagle AXS Transmission — SRAM XX was never offered on this bike; brakes SRAM Maven -> SRAM Code RSC; weight 23600g sample -> 24300g) cross-checked across the brand's own 2024 launch press materials (as quoted by Bike Perfect) and two independent retailer spec tables that agree with each other, but none of that is a currently-fetchable manufacturer product page, so verified:true is withheld per THE BAR and status:discontinued is set instead of inventing a live source.",
+    lastChecked: '2026-07-20'
   },
   {
     id: 'em-devinci-e-troy-bosch-29', cat: 'emtb', brand: 'Devinci', model: 'E-Troy',
