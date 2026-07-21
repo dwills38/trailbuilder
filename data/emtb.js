@@ -755,14 +755,14 @@ var EMTB_PARTS = [
   // Kona (new maker) — Remote
   // ---------------------------------------------------------------------------
   {
-    id: 'em-kona-remote-160', cat: 'emtb', brand: 'Kona', model: 'Remote 160',
+    id: 'em-kona-remote-160', cat: 'emtb', brand: 'Kona', model: 'Remote 160 DL',
     motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail'], weight: 23800, price: 5900,
-    note: "Kona's full-power trail e-MTB on the Shimano EP8 motor.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    batteryWh: 612, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23800, price: 5399,
+    note: "Kona's full-power trail/enduro e-MTB on the Shimano EP800 motor (a Process 153 chassis turned e-bike); RockShox Zeb Select fork, RockShox Super Deluxe Select shock.",
+    desc: 'Corrected, still unverified verify/emtb-4 wave 4 cluster B (Kona does not publish a complete-bike weight on this page — interfaces fetched-page-confirmed but weight bar not met, so verified:true withheld; weight kept as the prior sample). Model corrected: no current Kona "Remote 160" trim exists bare — the real aluminum/Shimano EP8 SKU is the "Remote 160 DL" (the flagship is now a separate carbon/Bosch-SX "Remote 160 CR", out of scope here since it does not match this row\'s Shimano-motor spec). Corrected: rear travel 150 -> 160mm, drivetrain Shimano XT -> SRAM GX Eagle (real R/D + shifter), brakes Shimano XT 4-piston -> SRAM Code R (real calipers/levers), battery 630 -> 612Wh (Darfon 612Wh pack), price corrected to the real US MSRP $5,399.'
   },
 
   // ---------------------------------------------------------------------------
@@ -856,14 +856,14 @@ var EMTB_PARTS = [
   // Kona depth (Remote 150)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-kona-remote-150', cat: 'emtb', brand: 'Kona', model: 'Remote 150',
+    id: 'em-kona-remote-150', cat: 'emtb', brand: 'Kona', model: 'Remote X',
     motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX', brakes: 'Shimano MT520',
-    disciplines: ['e-trail'], weight: 23400, price: 5200,
-    note: 'Shorter-travel, more XC/trail-leaning sibling to the Remote 160.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    batteryWh: 612, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 180, travelRear: 178,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano SLX',
+    disciplines: ['e-enduro'], weight: 23400, price: 5399,
+    note: "Kona's longest-travel gravity Remote (Process X chassis turned e-bike); Fox 38 Performance 180mm fork, Fox Float X Performance Elite shock.",
+    desc: 'Corrected, still unverified verify/emtb-4 wave 4 cluster B (Kona does not publish a complete-bike weight on this page — interfaces fetched-page-confirmed but weight bar not met, so verified:true withheld; weight kept as the prior sample). Model/trim corrected: no Kona Remote trim is named or specced "150" — the current lineup has no 150mm-travel Remote at all; the closest distinct real SKU (vs the 160-travel row above) is the Remote X, a 178-180mm gravity build, not a shorter-travel XC/trail sibling as the prior note claimed. Corrected: travel 150/140 -> 180 front/178 rear, drivetrain Shimano SLX -> Shimano Deore (real R/D + shifters), brakes Shimano MT520 -> Shimano SLX (real calipers/levers), battery 630 -> 612Wh (Darfon 612Wh), disciplines e-trail -> e-enduro (gravity bike, not XC/trail), price corrected to the real US MSRP $5,399.'
   },
 
   // ---------------------------------------------------------------------------
