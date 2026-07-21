@@ -3748,3 +3748,30 @@ All eight chips from the final dispatch round are now landed (main `e10dbc2`+). 
   Haanjo line appears pulled from their site (404s); statebicycle.com 429-walled.
 - Gates green (validate 0 problems / 988 tests / tsc clean / harness clean incl. E=0).
 
+
+## 2026-07-21 (seat 16) — cb-sheets-9 + road-16 merged
+
+- **verify/cb-sheets-9** merged: Trek complete-bikes CLOSED OUT — +4 verified (Procaliber 9.5,
+  Fuel EX 9.9 XX T-Type, Top Fuel 9.8, Fuel EX 8) + 4 honest status:'discontinued' calls
+  (Session 8/9, Supercaliber 9.8 XT, X-Caliber 8, all archive-confirmed). Two brief-premise
+  corrections by the worker: the Procaliber "M6200/MT520" claim from cb-sheets-8 didn't match
+  the LIVE page (existing M6100 fill was already right — the stale-summary hazard caught
+  again), and Remedy 8 DOES have an archived listing (different drivetrain generation —
+  documented for a dedicated pass, not forced). Biggest catch: the Top Fuel 9.8's whole fill
+  was the pre-Transmission 2023 spec; the archived maker page shows the final production spec
+  (T-Type cassette, alloy wheels, RSL tires, Level Bronze brakes, 34.9 dropper) — corrected
+  with 3 new part rows. Trek down to 5 documented-sample rows. Next-largest unverified brand:
+  Yeti (20).
+- **catalog/road-16** merged: +8 verified — **road 185/221 (84%)**. The Canyon Aeroad fork
+  generation puzzle RESOLVED via a real technique find (the lazy modal's content lives at a
+  Demandware AJAX endpoint in a data-tabber-content-url attribute — fetched directly from
+  canyon.com): fork is the FK0137 with a straight 1-1/8 steerer (first live use of that
+  token), fork+frame corrected and verified. Fizik Antares Versus→Vento Antares retarget
+  (road-12 precedent), 3 more saddles verified, the FSA Orbit duplicate retired via
+  status/supersededBy. 2 OEM posts verified, 2 corrected-not-promoted (makers publish no
+  weight). **NEW DOUGLAS QUESTION flagged by the worker: should seatposts join the
+  interface-verification exception list?** Weight isn't engine-read for seatposts
+  (setback/diameter are the compat fields) — an exception would promote 2 rows now and more
+  later; his call, queued.
+- Gates green (validate 0 problems / 988 tests / tsc clean / harness clean, E=0).
+
