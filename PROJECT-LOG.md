@@ -3334,3 +3334,19 @@ auto-merges); full gates + verdict harness green throughout.
 - Gates green throughout (validate 0 problems / 911 tests / tsc clean / verdict harness clean,
   section E pre-existing/unrelated) at `4cd9cc3`.
 
+
+## 2026-07-21 (seat 16) — FC-MT612 identity resolved (Douglas-sourced second confirmation)
+
+- Douglas found Shimano's own official Dealer's Manual PDF for this crankset family
+  (`DM-MAFC002-10`, si.shimano.com) and asked whether it clarified the open FC-MT612 identity
+  question mtb-tail-5 flagged. It did, decisively: the manual's own front-page index lists the
+  complete Non-Series crankset lineup by name — FC-MT900/611/610/511/510 — and FC-MT612 is
+  absent from it, same as productinfo.shimano.com's spec table mtb-tail-5 had already checked.
+  Two independent first-party Shimano sources now agree it isn't a real SKU.
+- Corrected `cr-shimano-mt612-30`'s model/mfgPn to the real **FC-MT510-1** (its own
+  chainline:52 was already the match — FC-MT511-1/512-1 are 55mm). Id/family kept unchanged
+  (append-only convention). Marked `verified:true` (interfaces now confirmed via two sources;
+  weight stays the pre-existing documented sample, same precedent this same-day CN-4601 fix
+  set — no weight published by either source).
+- Gates green (validate 0 problems / 911 tests / tsc clean / verdict harness clean) at `75ad948`.
+
