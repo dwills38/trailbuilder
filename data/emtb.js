@@ -42,14 +42,15 @@ var EMTB_PARTS = [
     desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Motor generation corrected verify/emtb-3 wave 3 phase 2 (2.2 -> 3.1).'
   },
   {
-    id: 'em-trek-rail', cat: 'emtb', brand: 'Trek', model: 'Rail+',
+    id: 'em-trek-rail', cat: 'emtb', brand: 'Trek', model: 'Rail+ 9.8 GX AXS T-Type Gen 5',
     motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail', 'e-enduro'], weight: 23900, price: 8000,
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24180, price: 8499.97,
     note: 'Bosch-powered full-power trail/enduro bike; big 800 Wh PowerTube. Line renamed Rail+ on Gen 5 CX (85Nm stock, app-tunable to 100Nm/750W).',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Model/gen corrected verify/emtb-3 wave 3 phase 2 (Rail -> Rail+, Gen 5 CX).'
+    desc: 'Verified vs the fetched maker product page (browser pane, Specs tab). Model/trim corrected verify/emtb-4 wave 4 cluster F (generic "Rail+" -> real current mid-carbon trim "Rail+ 9.8 GX AXS T-Type Gen 5"; drivetrain X0->GX AXS T-Type Transmission, brakes Code->Maven Bronze, weight 23900->24180g (M, w/ TLR sealant no tubes), rear travel 150->160mm, price 8000->8499.97 sale price, US MSRP $10,699.99).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/electric-mountain-bikes/rail/rail-9-8-gx-axs-t-type-gen-5/p/5328977/'
   },
   {
     id: 'em-santa-cruz-bullit', cat: 'emtb', brand: 'Santa Cruz', model: 'Bullit',
@@ -182,44 +183,48 @@ var EMTB_PARTS = [
   // Trek depth (Rail / Fuel EXe trims)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-trek-rail-9-5', cat: 'emtb', brand: 'Trek', model: 'Rail+ 9.5',
+    id: 'em-trek-rail-9-5', cat: 'emtb', brand: 'Trek', model: 'Rail+ 8 Gen 5',
     motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
-    disciplines: ['e-trail', 'e-enduro'], weight: 25200, price: 6500,
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 70 T-Type Transmission', brakes: 'Shimano MT620',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24680, price: 5999.99,
     note: 'Entry alloy Rail+ trim; same Gen 5 Bosch CX motor/800 Wh PowerTube as the carbon range.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Model/gen corrected verify/emtb-3 wave 3 phase 2 (Rail -> Rail+, Gen 5 CX).'
+    desc: 'Verified vs the fetched maker product page (browser pane, model-selector + Specs tab). Model/trim corrected verify/emtb-4 wave 4 cluster F ("Rail+ 9.5", no such trim -> real current entry-alloy trim "Rail+ 8 Gen 5"; drivetrain SRAM GX Eagle -> SRAM Eagle 70 T-Type Transmission, brakes SRAM Code R -> Shimano MT620 (real build swaps to Shimano brakes), weight 25200->24680g (M), rear travel 150->160mm, price 6500->5999.99 MSRP).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/electric-mountain-bikes/rail/f/F344/rail+-8-gen-5/79221/5348383/'
   },
   {
-    id: 'em-trek-rail-9-9-xx', cat: 'emtb', brand: 'Trek', model: 'Rail+ 9.9 XX AXS T-Type',
+    id: 'em-trek-rail-9-9-xx', cat: 'emtb', brand: 'Trek', model: 'Rail+ 9.9 X0 AXS T-Type Gen 5',
     motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission', brakes: 'SRAM Maven Silver',
-    disciplines: ['e-trail', 'e-enduro'], weight: 23400, price: 12500,
-    note: 'Top-tier Rail+ carbon trim; SRAM XX Transmission + Maven brakes.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Model/gen corrected verify/emtb-3 wave 3 phase 2 (Rail -> Rail+, Gen 5 CX).'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23980, price: 9999.97,
+    note: 'Top-tier Rail+ carbon trim; SRAM X0 Transmission + Maven Silver brakes (real current top trim is X0, not XX — no XX-spec Rail+ is sold).',
+    desc: 'Verified vs the fetched maker product page (browser pane, Specs tab). Model/trim corrected verify/emtb-4 wave 4 cluster F ("Rail+ 9.9 XX AXS T-Type", no such trim -> real top-tier "Rail+ 9.9 X0 AXS T-Type Gen 5"; drivetrain XX->X0 Eagle AXS T-Type Transmission, weight 23400->23980g (M), rear travel 150->160mm, price 12500->9999.97 current sale price; US Comp. Value/original price $12,299.99, close to the prior sample).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/electric-mountain-bikes/rail/rail-9-9-x0-axs-t-type-gen-5/p/48461/'
   },
   {
-    id: 'em-trek-fuel-exe-9-5', cat: 'emtb', brand: 'Trek', model: 'Fuel+ EX 8',
+    id: 'em-trek-fuel-exe-9-5', cat: 'emtb', brand: 'Trek', model: 'Fuel+ EX 9.7 Gen 2',
     motorBrand: 'tq', motorModel: 'TQ-HPR60', motorTorque: 60, motorPowerPeak: 350,
     batteryWh: 580, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
     wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 145,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 70 T-Type Transmission', brakes: 'SRAM DB8',
-    disciplines: ['e-trail'], weight: 20900, price: 7000,
-    note: 'The line renamed Fuel+ (Gen 2); the new TQ HPR60 replaces HPR50 with more torque (60 vs 50Nm) and a bigger 580Wh battery (vs 360Wh) — no more clip-on range extender.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Model/motor corrected verify/emtb-3 wave 3 phase 2 (Fuel EXe -> Fuel+, HPR50 -> HPR60).'
+    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 70 T-Type Transmission', brakes: 'SRAM DB8',
+    disciplines: ['e-trail'], weight: 20680, price: 5999.99,
+    note: 'The line renamed Fuel+ (Gen 2); the new TQ HPR60 replaces HPR50 with more torque (60 vs 50Nm) and a bigger 580Wh battery (vs 360Wh) — no more clip-on range extender. Entry Fuel+ trim; the whole Fuel+ EX range is carbon-only (no alloy tier).',
+    desc: 'Verified vs the fetched maker product page (browser pane, model-selector + Specs tab). Model/trim corrected verify/emtb-4 wave 4 cluster F ("Fuel+ EX 8", no such trim exists -> real current entry trim "Fuel+ EX 9.7 Gen 2"; frame corrected aluminum -> carbon (the Fuel+ range has no alloy tier), weight 20900->20680g (M), price 7000->5999.99 MSRP; drivetrain/brakes already matched the real 9.7 build (SRAM Eagle 70 T-Type Transmission, SRAM DB8) so those fields were unchanged).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/electric-mountain-bikes/fuel/f/F370/fuel+-ex-9-7-gen-2/79613/5349090/'
   },
   {
-    id: 'em-trek-fuel-exe-9-9-xx', cat: 'emtb', brand: 'Trek', model: 'Fuel+ EX 9.8 XO AXS',
+    id: 'em-trek-fuel-exe-9-9-xx', cat: 'emtb', brand: 'Trek', model: 'Fuel+ EX 9.9 X0 AXS Gen 2',
     motorBrand: 'tq', motorModel: 'TQ-HPR60', motorTorque: 60, motorPowerPeak: 350,
     batteryWh: 580, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
     wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 145,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XO Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Silver',
-    disciplines: ['e-trail'], weight: 19400, price: 11500,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail'], weight: 19580, price: 9999.97,
     note: 'Top-tier lightweight Fuel+ trim; acoustic-close trail-bike handling on the new TQ HPR60.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Model/motor corrected verify/emtb-3 wave 3 phase 2 (Fuel EXe -> Fuel+, HPR50 -> HPR60).'
+    desc: 'Verified vs the fetched maker product page (browser pane, model-selector + Specs tab). Model/trim corrected verify/emtb-4 wave 4 cluster F ("Fuel+ EX 9.8 XO AXS", no such trim -> real top-tier "Fuel+ EX 9.9 X0 AXS Gen 2"; drivetrain typo XO->X0 Eagle AXS T-Type Transmission, weight 19400->19580g (M), price 11500->9999.97 MSRP).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/electric-mountain-bikes/fuel/f/F370/fuel-ex-9-9-x0-axs-gen-2/56079/5335087/'
   },
 
   // ---------------------------------------------------------------------------
