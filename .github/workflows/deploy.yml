@@ -78,6 +78,9 @@ jobs:
           cp data/road.js _site/data/
           cp emtb.html _site/
           cp data/emtb.js _site/data/
+          # BuildMyGravelBike (gravel.html) — LIVE on Douglas's flip word 2026-07-21.
+          cp gravel.html _site/
+          cp data/gravel.js _site/data/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
