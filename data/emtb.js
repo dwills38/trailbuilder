@@ -986,20 +986,20 @@ var EMTB_PARTS = [
     motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 120, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-enduro'], weight: 26400, price: 8999,
-    note: 'Marin moved the Alpine Trail E line from Shimano to Bosch CX Gen 5 with a bigger 800Wh battery and updated MultiTrac 2 suspension.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 70 T-Type', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-enduro'], weight: 26400, price: 7899,
+    note: 'Marin moved the Alpine Trail E line from Shimano to Bosch CX Gen 5 with a bigger 800Wh battery and updated MultiTrac 2 suspension; RockShox Zeb Select+ fork, RockShox Vivid Air Select+ shock.',
+    desc: "Corrected, still unverified verify/emtb-4 wave 4 cluster B (spec sourced from a UK retailer reproducing Marin's own spec sheet for this exact SKU, not a raw marinbikes.com fetch of the new-generation product page — marinbikes.com's own site still serves the prior-generation Fox/Shimano spec at the '2025-alpine-trail-e2' URLs, so verified:true is withheld pending a direct maker-page fetch of the new SKU; no weight found on either source). Drivetrain corrected Shimano Deore -> SRAM Eagle 70 T-Type (SRAM Eagle 70 derailleur / Eagle 90 shifter), brakes Shimano MT420 -> SRAM Maven Bronze — the real new-generation Alpine Trail E2 spec is SRAM/RockShox, not Shimano; Shimano CUES/TRP is the E1's spec, not E2's. Price corrected to the current marinbikes.com/collections/alpine-trail-e US listing for this higher (new-generation) tier: $7,899 (a second, cheaper Alpine Trail E2 SKU at $5,279 is also listed — the prior-generation carryover matching the discontinued row above)."
   },
   {
     id: 'em-marin-alpine-trail-e1-2026', cat: 'emtb', brand: 'Marin', model: 'Alpine Trail E1',
     motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 120, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-enduro'], weight: 27000, price: 5999,
-    note: 'Entry alloy trim beneath the E2; same Bosch CX Gen 5 motor/battery.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'aluminum', drivetrain: 'Shimano CUES', brakes: 'TRP DHR EVO Comp 4-piston',
+    disciplines: ['e-enduro'], weight: 27000, price: 6299,
+    note: 'Entry alloy trim beneath the E2; same Bosch CX Gen 5 motor/battery; X-Fusion Vengeance fork, X-Fusion H3A Air shock.',
+    desc: "Corrected, still unverified verify/emtb-4 wave 4 cluster B (spec sourced from a UK retailer reproducing Marin's own spec sheet for this exact SKU, not a raw marinbikes.com fetch of the new-generation product page — marinbikes.com's own site still serves the prior-generation Marzocchi/Shimano spec at the '2025-alpine-trail-e1' URLs, so verified:true is withheld pending a direct maker-page fetch of the new SKU; no weight found on either source). Drivetrain corrected Shimano Deore -> Shimano CUES (RD-U6000 10-speed), brakes Shimano MT420 -> TRP DHR EVO Comp 4-piston (200mm rotor). Price corrected to the current marinbikes.com/collections/alpine-trail-e US listing for this higher (new-generation) tier: $6,299 (a second, cheaper Alpine Trail E1 SKU at $4,559 is also listed — the prior-generation carryover matching the discontinued row above)."
   },
   {
     id: 'em-nukeproof-megawatt-297-carbon-pro', cat: 'emtb', brand: 'Nukeproof', model: 'Megawatt 297 Carbon Pro',
