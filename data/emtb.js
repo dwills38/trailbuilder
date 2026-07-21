@@ -264,13 +264,14 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-commencal-meta-power-29', cat: 'emtb', brand: 'Commencal', model: 'Meta Power 29',
-    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
+    motorBrand: 'shimano', motorModel: 'Shimano EP8 (DU-EP800)', motorTorque: 85, motorPowerPeak: 250,
     batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'Formula Cura 4',
-    disciplines: ['e-trail'], weight: 23000, price: 5500,
-    note: 'More XC/trail-leaning 29er sibling to the Meta Power SX; shorter travel, smaller battery.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 155,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX 12-speed', brakes: 'Shimano Deore 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24800, price: 6900,
+    note: 'The 29in-wheel sibling to the mixed-wheel Meta Power SX; this is the Essential Dirt trim, the entry build in the Meta Power 29 range.',
+    desc: 'Verified vs the fetched maker page (commencal.com/us Meta Power 29 Shimano Essential Dirt). Motor/travel/drivetrain/brakes/weight/price all corrected verify/emtb-4 wave 4 cluster A: motor is the Shimano EP8 (DU-EP800, 250W/85Nm), not EP801; travel is 170mm front/155mm rear, not 150/140; drivetrain is Shimano SLX 12-speed with an E13 crankset and Deore chain/cassette, not SRAM GX Eagle; brakes are Shimano Deore 4-piston, not Formula Cura 4. Weight (24.8kg, size S average) and price ($6,900 MSRP, site currently shows a $4,300 sale) are both maker-page-stated.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.commencal.com/us/en/commencal-meta-power-29-essential-dirt/21METAPW29EDT.html'
   },
   {
     id: 'em-commencal-meta-power-sx-signature', cat: 'emtb', brand: 'Commencal', model: 'Meta Power SX Signature',
