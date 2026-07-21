@@ -1,11 +1,12 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T16:33:36.553Z",
+ "updated": "2026-07-21T17:03:52.622Z",
  "batchSize": 25,
  "lastCompleted": "cr-shimano-mt612-30",
  "currentCategory": "frame",
  "queue": [
+  "fr-airdrop-edit-mx",
   "fr-giant-reign-advanced",
   "fr-kona-process-153",
   "fr-kona-process-153-carbon",
@@ -17,16 +18,11 @@
   "fr-nukeproof-reactor-290-alloy",
   "fr-orbea-occam-lt",
   "fr-propain-tyee-cf",
-  "fr-starling-murmur",
-  "fr-starling-twist",
   "fr-orange-p7-29",
   "fr-orange-p7-mx",
-  "fr-surly-karate-monkey",
-  "fr-surly-krampus",
   "fr-chromag-doctahawk",
   "fr-propain-tyee-al",
   "fr-propain-hugene-cf",
-  "fr-canfield-nimble-9",
   "ti-cst-camber-29-225",
   "ti-bontrager-xr1-29-22-innerstrength-tmspeed",
   "ti-bontrager-xr5-29-25-tmgrip",
@@ -49,7 +45,6 @@
   "ti-continental-kryptotal-fr-29-24-enduro-supersoft",
   "ti-schwalbe-dirty-dan-275-235-sdh-aus",
   "ti-schwalbe-rock-razor-275-26-st-asg",
-  "ti-maxxis-dth-26-23",
   "ti-kenda-krad-26-23",
   "ti-schwalbe-tabletop-26-225",
   "ti-dmr-motodj-26-22",
@@ -25030,11 +25025,11 @@
   },
   "ti-maxxis-dth-26-23": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-14T11:47:30.246Z",
+   "status": "Verified",
+   "updated": "2026-07-21T17:03:52.619Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/dth/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-kenda-krad-26-23": {
    "cat": "tire",
@@ -25702,8 +25697,8 @@
   },
   "fr-airdrop-edit-mx": {
    "cat": "frame",
-   "status": "Skipped",
-   "updated": "2026-07-18T13:43:44.115Z",
+   "status": "InProgress",
+   "updated": "2026-07-21T17:03:52.621Z",
    "error": null,
    "source": null,
    "note": "Interfaces maker-confirmed (airdropbikes.com direct fetch) but no frame weight published anywhere on the fetched page. Weight bar unmeetable."
@@ -36438,10 +36433,10 @@
   },
   "cr-shimano-mt612-30": {
    "cat": "crankset",
-   "status": "Skipped",
-   "updated": "2026-07-21T12:39:10.345Z",
+   "status": "Verified",
+   "updated": "2026-07-21T16:54:28.870Z",
    "error": null,
-   "source": null,
+   "source": "https://si.shimano.com/en/pdfs/dm/MAFC002/DM-MAFC002-10-ENG.pdf",
    "note": "mtb-tail-4 (2026-07-21): FC-MT612 not found in ANY of 6 fetched Shimano MTB spec-handbook editions (2018-2019, 2019-2020, 2020-2021, 2022-2023, 2024-2025, current 2026 latest) - searched every crankset table across all editions for FC-MT612/FC-MT610 variants; only FC-MT610-2/610-B2/510-1/511-1/512-1 appear alongside FC-M6130-1 (2022-2023 p.60). Genuine handbook gap, not a fetch blocker (all 6 PDFs fetched and read cleanly via curl+pdftotext+pdftoppm visual rendering). The row's own desc (verify-fanout-1-shimano, 2026-07-17) already flagged this as retailer/eBay-corroborated only, never handbook-confirmed - flagging for the coordinator: may be a legitimate OEM-only SKU absent from consumer handbooks, or a data-entry error for FC-MT610/FC-MT612-1. Left unverified; row unchanged."
   },
   "cr-shimano-mt510-30": {
@@ -40630,19 +40625,19 @@
   },
   "fr-starling-murmur": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-20T19:57:33.260Z",
+   "status": "Verified",
+   "updated": "2026-07-21T16:55:36.467Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.starlingcycles.com/frames/murmur/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-starling-twist": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-20T19:57:33.261Z",
+   "status": "Verified",
+   "updated": "2026-07-21T16:56:47.317Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.starlingcycles.com/frames/twist/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-orange-p7-29": {
    "cat": "frame",
@@ -40662,19 +40657,19 @@
   },
   "fr-surly-karate-monkey": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-20T19:57:33.261Z",
+   "status": "Verified",
+   "updated": "2026-07-21T16:57:45.543Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://surlybikes.com/products/karate-monkey-frameset-snow-mold-white",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-surly-krampus": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-20T19:57:33.261Z",
+   "status": "Verified",
+   "updated": "2026-07-21T16:57:45.544Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://surlybikes.com/products/krampus-frameset-sage-green",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-chromag-doctahawk": {
    "cat": "frame",
@@ -40686,11 +40681,11 @@
   },
   "fr-canfield-nimble-9": {
    "cat": "frame",
-   "status": "Pending",
-   "updated": "2026-07-20T19:57:33.261Z",
+   "status": "Verified",
+   "updated": "2026-07-21T16:57:45.544Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://canfieldbikes.com/products/nimble-9-frameset",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sh-xfusion-o2-pro-r-210x55": {
    "cat": "shock",
