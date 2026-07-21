@@ -32,14 +32,15 @@
 var EMTB_PARTS = [
 
   {
-    id: 'em-specialized-turbo-levo', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo 4',
+    id: 'em-specialized-turbo-levo', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo 4 Expert',
     motorBrand: 'specialized', motorModel: 'Specialized 3.1 (Full Power System)', motorTorque: 105, motorPowerPeak: 810,
     batteryWh: 840, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail', 'e-enduro'], weight: 22700, price: 8500,
-    note: 'The category-defining full-power trail e-MTB, now on the 3.1 motor (105Nm/810W, up from the 2.2\'s 90Nm); mixed-wheel, MasterMind TCU top-tube display.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Motor generation corrected verify/emtb-3 wave 3 phase 2 (2.2 -> 3.1).'
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24410, price: 8499,
+    note: 'The category-defining full-power trail e-MTB, on the 3.1 motor (105Nm/810W); mixed-wheel (29in front/27.5in rear), MasterMind TCU top-tube display, FOX 38 Performance Elite/FLOAT X Performance Elite suspension. There is no plain unsuffixed "Turbo Levo 4" SKU — this is the Expert build.',
+    desc: 'Verified vs the maker spec page (motor/battery/travel/frame/drivetrain/brakes/weight/price all confirmed). Model corrected verify/emtb-4 wave 4 cluster E ("Turbo Levo 4" is not a sold SKU name -> "Turbo Levo 4 Expert", the closest-priced real trim); brakes corrected (SRAM Code -> Maven Silver); weight corrected to the maker\'s exact size-S4 figure (22.7kg sample -> 24.41kg real, size S4); price $8,500 sample -> $8,499.99 exact MSRP.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.specialized.com/us/en/turbo-levo-4-expert/p/4218704'
   },
   {
     id: 'em-trek-rail', cat: 'emtb', brand: 'Trek', model: 'Rail+',
@@ -143,40 +144,44 @@ var EMTB_PARTS = [
     motorBrand: 'specialized', motorModel: 'Specialized 3.1 (Full Power System)', motorTorque: 105, motorPowerPeak: 810,
     batteryWh: 840, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
-    disciplines: ['e-trail', 'e-enduro'], weight: 24500, price: 4999,
-    note: 'Entry-level alloy-frame Turbo Levo trim; same motor/battery as the carbon range.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor generation corrected verify/emtb-3 wave 3 phase 2 (2.2 -> 3.1); price matched to the current Turbo Levo 4 Alloy US MSRP.'
+    frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 70 T-Type', brakes: 'SRAM DB8 Stealth',
+    disciplines: ['e-trail', 'e-enduro'], weight: 26080, price: 4999,
+    note: 'Entry-level alloy-frame Turbo Levo trim; same motor/battery as the carbon range, but a mechanical (non-AXS) SRAM Eagle 70 T-Type drivetrain and SRAM DB8 brakes, not GX Eagle/Code R.',
+    desc: 'Verified vs the maker spec page (motor/battery/travel/frame/drivetrain/brakes/weight/price all confirmed). Drivetrain and brakes corrected verify/emtb-4 wave 4 cluster E (SRAM GX Eagle -> SRAM Eagle 70 T-Type mechanical, SRAM Code R -> SRAM DB8 Stealth); weight corrected to the maker\'s exact size-S4 figure (24.5kg sample -> 26.08kg real). Price ($4,999.99) already matched exactly.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.specialized.com/us/en/turbo-levo-4-alloy/p/4221347'
   },
   {
     id: 'em-specialized-turbo-levo-pro', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo 4 Pro',
     motorBrand: 'specialized', motorModel: 'Specialized 3.1 (Full Power System)', motorTorque: 105, motorPowerPeak: 810,
     batteryWh: 840, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-trail', 'e-enduro'], weight: 21500, price: 10299,
-    note: 'Top-tier non-S-Works carbon Levo trim; 840 Wh battery, up to 1120Wh with the range extender.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor generation corrected verify/emtb-3 wave 3 phase 2 (2.2 -> 3.1); price matched to the current Levo 4 Pro MSRP.'
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23940, price: 9999,
+    note: 'Top-tier non-S-Works carbon Levo trim; 840 Wh battery, up to 1120Wh with the range extender. Real drivetrain is SRAM X0 Eagle Transmission (not XX SL) with Maven Silver brakes.',
+    desc: 'Verified vs the maker spec page (motor/battery/travel/frame/drivetrain/brakes/weight/price all confirmed). Drivetrain/brakes/weight/price corrected verify/emtb-4 wave 4 cluster E (SRAM XX SL Eagle Transmission -> SRAM X0 Eagle Transmission [no XX SL Levo 4 trim exists below S-Works], SRAM Code Ultimate -> Maven Silver, 21.5kg sample -> 23.94kg real size-S4 weight, $10,299 sample -> $9,999.99 MSRP).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.specialized.com/us/en/turbo-levo-4-pro/p/4218702'
   },
   {
-    id: 'em-specialized-turbo-levo-sl-expert', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo SL Expert',
-    motorBrand: 'specialized', motorModel: 'Specialized SL 1.2', motorTorque: 50,
+    id: 'em-specialized-turbo-levo-sl-expert', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo SL 2 Expert',
+    motorBrand: 'specialized', motorModel: 'Specialized SL 1.2', motorTorque: 50, motorPowerPeak: 320,
     batteryWh: 320, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code RSC',
-    disciplines: ['e-trail'], weight: 18200, price: 9500,
-    note: 'Lightweight ("SL") class trail bike; acoustic-close handling, small 320 Wh battery.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-trail'], weight: 18980, price: 8999,
+    note: 'Lightweight ("SL") class trail bike; acoustic-close handling, small 320 Wh battery. The current lineup is "Levo SL 2" (not plain "Levo SL"); real fork travel is 160mm (frame\'s "150mm travel" figure is the rear).',
+    desc: 'Verified vs the maker spec page (motor/battery/travel/frame/drivetrain/brakes/weight/price all confirmed). Model/travel/drivetrain/brakes/weight/price corrected verify/emtb-4 wave 4 cluster E (Turbo Levo SL Expert -> Turbo Levo SL 2 Expert [current gen name], 150/150 -> 160/150 travel, SRAM X0 Eagle Transmission -> SRAM GX Eagle Transmission, SRAM Code RSC -> Maven Bronze, 18.2kg sample -> 18.98kg real size-S4 weight, $9,500 sample -> $8,999.99 MSRP).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.specialized.com/us/en/turbo-levo-sl-2-expert/p/4277412'
   },
   {
     id: 'em-specialized-turbo-kenevo-sl-expert', cat: 'emtb', brand: 'Specialized', model: 'Turbo Kenevo SL 2 Expert',
     motorBrand: 'specialized', motorModel: 'Specialized SL 1.2', motorTorque: 50, motorPowerPeak: 320,
     batteryWh: 320, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
     wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 170,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code RSC',
-    disciplines: ['e-enduro'], weight: 19200, price: 8499,
-    note: 'The line renamed Kenevo SL 2; lightweight gravity/enduro-travel SL platform, longest travel in the Specialized e-range, now on 29in wheels (was mullet) and 29% more torque via the SL 1.2 motor.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor generation + wheel config corrected verify/emtb-3 wave 3 phase 2 (SL 1.1 -> SL 1.2, mullet -> 29in).'
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-enduro'], weight: 20320, price: 8499,
+    note: 'The line renamed Kenevo SL 2; lightweight gravity/enduro-travel SL platform, longest travel in the Specialized e-range, on 29in wheels and the SL 1.2 motor. Real brakes are SRAM Maven Bronze (not Code RSC).',
+    desc: 'Verified vs the maker spec page (motor/battery/travel/frame/drivetrain/brakes/weight/price all confirmed). Brakes/weight corrected verify/emtb-4 wave 4 cluster E (SRAM Code RSC -> Maven Bronze, 19.2kg sample -> 20.32kg real size-S4 weight); price ($8,499.99) and 29in wheel config already matched exactly (wheel config was previously corrected verify/emtb-3, reconfirmed this pass).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.specialized.com/us/en/turbo-kenevo-sl-2-expert/p/4277407'
   },
 
   // ---------------------------------------------------------------------------
