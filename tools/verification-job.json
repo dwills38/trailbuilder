@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T18:50:13.976Z",
+ "updated": "2026-07-21T19:47:11.289Z",
  "batchSize": 25,
- "lastCompleted": "cr-shimano-mt612-30",
+ "lastCompleted": "rw-dtswiss-fr-1500-275-148-xd",
  "currentCategory": "frame",
  "queue": [
   "fr-giant-reign-advanced",
@@ -93,7 +93,6 @@
   "fw-weareone-triad-29",
   "fw-weareone-triad-275",
   "fw-industrynine-whisp-29",
-  "fw-dtswiss-xr1700-29",
   "fw-ethirteen-lg1r-29",
   "fw-ethirteen-lg1r-275",
   "fw-zipp-3zero-moto-275",
@@ -135,13 +134,10 @@
   "fw-halo-combat-26-15x100",
   "fw-alexrims-dm24-26-15x100",
   "fw-syncros-md25-26-15x100",
-  "fw-dtswiss-e593-29",
   "fw-wtb-sti27-29",
-  "fw-dtswiss-xm1700-275",
   "fw-nukeproof-horizon-v2-29",
   "fw-wtb-novatec-i30-29",
   "fw-marin-shimano-mt410-29",
-  "fw-dtswiss-lnxc-29",
   "fw-shimano-tc500-wtbsti30-29-cl",
   "fw-marin-house-29-boost",
   "fw-marin-pinemountain2-29",
@@ -167,8 +163,6 @@
   "fw-xlc-wrm39-29",
   "fw-sunringle-duroc-sd37-comp-29",
   "fw-wtb-frequency-i30-29",
-  "fw-dtswiss-370classic-wtbstlight-i30-29",
-  "fw-dtswiss-350-komtrail-i30-29",
   "fw-formula-wtbsti30-29",
   "fw-stans-flowex3-formula-29-20x110",
   "fw-formula-wtbkomtrail-i30-29",
@@ -194,7 +188,6 @@
   "fw-focus-ar27-formula-29",
   "fw-newmen-performance30-dh-275",
   "fw-specialized-alloy-30-29",
-  "fw-dtswiss-370-roval-alloy-29",
   "fw-specialized-alloy-29-29",
   "fw-specialized-alloy-28-29",
   "fw-specialized-alloy-27-29",
@@ -207,7 +200,6 @@
   "fw-vitus-formuladc711-29",
   "fw-formula-dc511-wtbsti30-29",
   "fw-alexrims-dp25-tc500-29",
-  "fw-dtswiss-amln370-29",
   "fw-canyon-iridium30-29",
   "fw-alexrims-dp30-tc500-29",
   "fw-spank-spikerace33-formula-29",
@@ -215,7 +207,6 @@
   "fw-whyte-secta-rs-alloy-29",
   "fw-whyte-secta-r-alloy-29",
   "fw-marin-house-275-boost",
-  "fw-dtswiss-370-ex511-29",
   "fw-giant-am30-29",
   "fw-raceface-trace-29",
   "fw-roval-traverse-sl-carbon-29",
@@ -237,8 +228,6 @@
   "fw-wtb-sporterra-i30-29",
   "fw-reserve-30hd-al-29-dh",
   "fw-ethirteen-grappler-race-29-dh",
-  "fw-dtswiss-fr541-240-29",
-  "fw-dtswiss-e532-29",
   "fw-stanton-wtbsti29-275",
   "fw-bontrager-connection-marlinoe-29",
   "fw-giant-xcr2-29",
@@ -258,7 +247,6 @@
   "rw-raceface-ar30-factor-29-sb157-xd",
   "rw-stans-flow-s2-29-ms",
   "rw-sonder-nova-29-hg",
-  "rw-dtswiss-xr1700-29-xd",
   "rw-bontrager-linecomp-30-275-ms",
   "rw-bontrager-linepro-30-275-xd",
   "rw-bontrager-lineelite-30-275-xd",
@@ -274,7 +262,6 @@
   "rw-weareone-triad-29-hg",
   "rw-industrynine-whisp-29-ms",
   "rw-industrynine-whisp-29-xd",
-  "rw-dtswiss-fr-1500-29-150-hg",
   "rw-weareone-triad-275",
   "rw-weareone-triad-275-ms",
   "rw-weareone-triad-275-hg",
@@ -323,8 +310,6 @@
   "rw-weareone-deal-29-157-xd",
   "rw-weareone-deal-275-148-xd",
   "rw-weareone-deal-275-157-xd",
-  "rw-dtswiss-f-1900-29-157-ms",
-  "rw-dtswiss-f-1900-275-157-ms",
   "rw-industrynine-hydra2-dh-29-xd",
   "rw-industrynine-hydra2-dh-29-ms",
   "rw-industrynine-hydra2-dh-29-hg",
@@ -350,22 +335,17 @@
   "rw-halo-combat-26-ss",
   "rw-alexrims-dm24-26-ss",
   "rw-syncros-md25-26-ss",
-  "rw-dtswiss-e593-275-ms",
   "rw-wtb-sti27-29-ms",
-  "rw-dtswiss-m1900-275-157-xd",
-  "rw-dtswiss-xm1700-275-xd",
   "rw-nukeproof-horizon-v2-29-xd",
   "rw-nukeproof-horizon-v2-275-xd",
   "rw-wtb-novatec-i30-29-hg",
   "rw-marin-shimano-mt410-275-ms",
-  "rw-dtswiss-lnxc-29-ms",
   "rw-shimano-tc500-wtbsti30-29-cl-ms",
   "rw-marin-house-29-boost-ms",
   "rw-marin-pinemountain2-29-ms",
   "rw-marin-formula-dcl3482-275-xd",
   "rw-marin-formula-dcl3482-29-xd",
   "rw-industrynine-enduro-s-29-xd",
-  "rw-dtswiss-fr-1500-275-157-hg",
   "rw-wtb-stlight-29-xd",
   "rw-vitus-kt-wtb-komtrail-i30-29",
   "rw-vitus-kt-wtb-stlight-i30-29-hg",
@@ -394,8 +374,6 @@
   "rw-xlc-wrm39-29-ms",
   "rw-sunringle-duroc-sd37-comp-29-hg",
   "rw-wtb-frequency-i30-29-ms",
-  "rw-dtswiss-370classic-wtbstlight-i30-29-ms",
-  "rw-dtswiss-350-komtrail-i30-29-xd",
   "rw-formula-wtbsti30-29-hg",
   "rw-stans-flowex3-sram-275-hg",
   "rw-formula-wtbkomtrail-i30-29-hg",
@@ -413,8 +391,6 @@
   "rw-giant-trx-0-275-ms",
   "rw-giant-xct-29-ms",
   "rw-syncros-x30s-29-hg",
-  "rw-dtswiss-m1900-29-157-xd",
-  "rw-dtswiss-m1900-29-157-ms",
   "rw-wtb-sti25-scalpelht3-29-ms",
   "rw-bontrager-line-comp-30-29-hg",
   "rw-bontrager-line-comp-30-29-ms",
@@ -433,7 +409,6 @@
   "rw-acid-slx30-29-hg",
   "rw-newmen-performance30-dh-275-superboost157",
   "rw-specialized-alloy-30-29-ms",
-  "rw-dtswiss-370-roval-alloy-29-xd",
   "rw-specialized-alloy-29-29-ms",
   "rw-specialized-alloy-30-29-hg",
   "rw-specialized-alloy-30-275-ms",
@@ -454,14 +429,12 @@
   "rw-raceface-ar30-275-hg",
   "rw-raceface-ar30-275-xd",
   "rw-alexrims-dp25-tc500-29-ms",
-  "rw-dtswiss-amln370-29-ms",
   "rw-canyon-iridium30-29-hg",
   "rw-alexrims-dp30-tc500-29-hg",
   "rw-spank-spikerace33-formula-29-hg",
   "rw-wtb-sti35tcs20-275-hg",
   "rw-whyte-secta-r-alloy-29-hg",
   "rw-marin-house-275-boost-hg",
-  "rw-dtswiss-370-ex511-29-hg",
   "rw-giant-am30-29-ms",
   "rw-giant-tra2-275-ms",
   "rw-raceface-trace-29-xd",
@@ -489,10 +462,6 @@
   "rw-wtb-sporterra-i30-29-ms",
   "rw-reserve-30hd-al-275-157-hg",
   "rw-ethirteen-grappler-race-275-157-hg",
-  "rw-dtswiss-fr-1500-275-148-xd",
-  "rw-dtswiss-fr-1500-29-157-hg",
-  "rw-dtswiss-fr541-240-29-xd",
-  "rw-dtswiss-e532-29-hg",
   "rw-stanton-wtbsti29-275-hg",
   "rw-bontrager-connection-marlinoe-29",
   "rw-giant-xcr2-29-ms",
@@ -1432,8 +1401,6 @@
   "fh-industrynine-hydra2-20x110",
   "fh-industrynine-hydra2-20x110-nonboost",
   "fh-ethirteen-race-alloy-boost110",
-  "rh-dtswiss-350-boost148-ms",
-  "rh-dtswiss-350-boost148-hg",
   "rh-industrynine-hydraclassic-boost148-ms",
   "rh-industrynine-hydraclassic-boost148-xd",
   "rh-industrynine-hydraclassic-boost148-hg",
@@ -5116,19 +5083,19 @@
   },
   "rh-dtswiss-350-boost148-ms": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:46:51.791Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: RE-CONFIRMED interfaces via dtswiss.com/en/support/product-support?matnr=H350TCD2R28SA5242S (browser pane) - states axle/built-in-dimension/brake-interface/freehub-body exactly matching the row, but the support/spare-parts page lists no weight field at all (only spare-part material numbers). No maker weight source exists for this exact hub SKU after three sessions' worth of attempts (2026-07-09/10, verify/wheels-2 2026-07-18, this session) - genuine, persistent gap. Stays unverified, closing out the job entry."
   },
   "rh-dtswiss-350-boost148-hg": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:46:52.033Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: same persistent weight gap as the Micro Spline sibling (interfaces confirmed via product-support page, no weight field published; retailer weight figures conflict 225-359g across sources so none is usable). Stays unverified, closing out the job entry."
   },
   "rh-hope-pro5-boost148-xd": {
    "cat": "rearhub",
@@ -17281,14 +17248,6 @@
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
   },
-  "rw-dtswiss-f-1900-29-157-ms": {
-   "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
   "rw-dtswiss-f-1900-275-xd": {
    "cat": "rearwheel",
    "status": "Verified",
@@ -17312,14 +17271,6 @@
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
-  },
-  "rw-dtswiss-f-1900-275-157-ms": {
-   "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
-   "error": null,
-   "source": null,
-   "note": null
   },
   "rw-industrynine-hydra2-dh-29-xd": {
    "cat": "rearwheel",
@@ -27571,11 +27522,11 @@
   },
   "fw-dtswiss-xr1700-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:23.653Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: re-confirms mtb-tail-8's finding (already in the row's own desc) - dtswiss.com's current wheels-mtb/cross-country listing has no plain 'XR 1700 SPLINE' product; only XRC1700 (carbon) and XM1700 (all-mountain alloy) exist at the 1700 tier. Genuinely discontinued/delisted (status:discontinued already set), not a fetch-tooling gap. No maker page exists to verify against - stays unverified sample, closing out the job entry."
   },
   "fw-bontrager-linecomp-30-29": {
    "cat": "frontwheel",
@@ -27659,11 +27610,11 @@
   },
   "fw-dtswiss-e593-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:03.397Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: re-checked dtswiss.com/en/wheels/wheels-mtb (full category listing, all 7 categories) via browser pane - no E593/E 593 complete-wheel product exists in the current lineup at all (Enduro category lists only EXC1200/EXC1500/EX1700/E1900). Confirms the existing catalog note: E 593 is sold only as a standalone RIM (dtswiss.com rims-mtb page), built into a complete wheel by OEMs (Commencal) - no maker complete-wheel page to fetch, so the bar cannot be met. Stays unverified sample."
   },
   "fw-dtswiss-m1900-29": {
    "cat": "frontwheel",
@@ -27731,11 +27682,11 @@
   },
   "fw-dtswiss-lnxc-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:11.505Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: re-checked dtswiss.com's full wheels-mtb category listing via browser pane - no 'LN XC' product exists anywhere in the current lineup (Cross Country category: XRC1200/XRC1500/XRC1700/X1900 only). Confirms existing note: this is a Canyon house/OE naming, not a DT Swiss retail SKU name - no maker page to fetch. Stays unverified sample (Canyon OE build-sheet sourced)."
   },
   "fw-shimano-tc500-wtbsti30-29-cl": {
    "cat": "frontwheel",
@@ -27979,19 +27930,19 @@
   },
   "fw-dtswiss-370classic-wtbstlight-i30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:07.763Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "fw-dtswiss-350-komtrail-i30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:08.239Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "fw-formula-wtbsti30-29": {
    "cat": "frontwheel",
@@ -28299,11 +28250,11 @@
   },
   "fw-dtswiss-370-roval-alloy-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:08.699Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "fw-specialized-alloy-29-29": {
    "cat": "frontwheel",
@@ -28403,11 +28354,11 @@
   },
   "fw-dtswiss-amln370-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:09.159Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "fw-canyon-iridium30-29": {
    "cat": "frontwheel",
@@ -28475,11 +28426,11 @@
   },
   "fw-dtswiss-370-ex511-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:09.624Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "fw-giant-am30-29": {
    "cat": "frontwheel",
@@ -28651,19 +28602,19 @@
   },
   "fw-dtswiss-fr541-240-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:10.098Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "fw-dtswiss-e532-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:10.573Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "fw-stanton-wtbsti29-275": {
    "cat": "frontwheel",
@@ -28835,11 +28786,11 @@
   },
   "rw-dtswiss-xr1700-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:23.887Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: same finding as the front wheel sibling - genuinely delisted DT Swiss product, no current maker page. Stays unverified sample."
   },
   "rw-dtswiss-fr-1500-275-148-hg": {
    "cat": "rearwheel",
@@ -28931,11 +28882,11 @@
   },
   "rw-dtswiss-fr-1500-29-150-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:11.048Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-spank-359-275-157-xd": {
    "cat": "rearwheel",
@@ -28979,11 +28930,11 @@
   },
   "rw-dtswiss-e593-275-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:03.641Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: same finding as the front wheel - no E593 complete-wheel product on dtswiss.com's current site; rim-only product, OEM-built. Stays unverified sample."
   },
   "rw-dtswiss-m1900-29-xd": {
    "cat": "rearwheel",
@@ -29019,11 +28970,11 @@
   },
   "rw-dtswiss-m1900-275-157-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:53.625Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: RE-CONFIRMED via dtswiss.com's M 1900 SPLINE model-finder (14 SKUs, browser pane) - no 12/157mm (SuperBoost) built-in dimension exists on DT Swiss's own retail configurator, only 148mm Boost. Matches this row's own already-thorough desc (verify/wheels-2, 2026-07-18): a real OEM-only Pivot-contract spacing confirmed via bike-maker pages (pivotcycles.co.nz), never a DT Swiss retail SKU - the provenance tier THE BAR requires for verified:true is unmet. Stays unverified, closing out the job entry per established precedent."
   },
   "rw-dtswiss-xm1700-29-xd": {
    "cat": "rearwheel",
@@ -29083,11 +29034,11 @@
   },
   "rw-dtswiss-lnxc-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:11.734Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: same finding as the front wheel - no 'LN XC' product on dtswiss.com. Stays unverified sample."
   },
   "rw-shimano-tc500-wtbsti30-29-cl-ms": {
    "cat": "rearwheel",
@@ -29163,11 +29114,11 @@
   },
   "rw-dtswiss-fr-1500-275-157-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:45:56.426Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/fr-1500-classic",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-wtb-stlight-29-xd": {
    "cat": "rearwheel",
@@ -29475,19 +29426,19 @@
   },
   "rw-dtswiss-370classic-wtbstlight-i30-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:08.001Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-dtswiss-350-komtrail-i30-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:08.468Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-formula-wtbsti30-29-hg": {
    "cat": "rearwheel",
@@ -29651,19 +29602,19 @@
   },
   "rw-dtswiss-m1900-29-157-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:53.858Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: RE-CONFIRMED via dtswiss.com's M 1900 SPLINE model-finder (14 SKUs, browser pane) - no 12/157mm (SuperBoost) built-in dimension exists on DT Swiss's own retail configurator, only 148mm Boost. Matches this row's own already-thorough desc (verify/wheels-2, 2026-07-18): a real OEM-only Pivot-contract spacing confirmed via bike-maker pages (pivotcycles.co.nz), never a DT Swiss retail SKU - the provenance tier THE BAR requires for verified:true is unmet. Stays unverified, closing out the job entry per established precedent."
   },
   "rw-dtswiss-m1900-29-157-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:54.092Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: RE-CONFIRMED via dtswiss.com's M 1900 SPLINE model-finder (14 SKUs, browser pane) - no 12/157mm (SuperBoost) built-in dimension exists on DT Swiss's own retail configurator, only 148mm Boost. Matches this row's own already-thorough desc (verify/wheels-2, 2026-07-18): a real OEM-only Pivot-contract spacing confirmed via bike-maker pages (pivotcycles.co.nz), never a DT Swiss retail SKU - the provenance tier THE BAR requires for verified:true is unmet. Stays unverified, closing out the job entry per established precedent."
   },
   "rw-dtswiss-x1900-29-xd": {
    "cat": "rearwheel",
@@ -29907,11 +29858,11 @@
   },
   "rw-dtswiss-370-roval-alloy-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:08.934Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-specialized-alloy-29-29-ms": {
    "cat": "rearwheel",
@@ -30075,11 +30026,11 @@
   },
   "rw-dtswiss-amln370-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:09.391Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-canyon-iridium30-29-hg": {
    "cat": "rearwheel",
@@ -30179,11 +30130,11 @@
   },
   "rw-dtswiss-370-ex511-29-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:09.863Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-dtswiss-f1900-classic-275-superboost": {
    "cat": "rearwheel",
@@ -30411,11 +30362,11 @@
   },
   "rw-dtswiss-fr-1500-275-148-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:11.288Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-dtswiss-fr-1500-29-148-hg": {
    "cat": "rearwheel",
@@ -30427,27 +30378,27 @@
   },
   "rw-dtswiss-fr-1500-29-157-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:45:56.427Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/fr-1500-classic",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-dtswiss-fr541-240-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:10.331Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-dtswiss-e532-29-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:10.811Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-stanton-wtbsti29-275-hg": {
    "cat": "rearwheel",
@@ -40555,19 +40506,19 @@
   },
   "fw-dtswiss-xm1700-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T18:56:38.957Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:42:56.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/all-mountain/xm-1700-spline",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-dtswiss-xm1700-275-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T18:56:38.958Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:42:56.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/all-mountain/xm-1700-spline",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-yeti-carbon-780-35": {
    "cat": "handlebar",
@@ -40719,6 +40670,22 @@
    "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
    "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/trail-mountain-bikes/roscoe/roscoe-8/p/35117/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-dtswiss-f-1900-29-157-hg": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-21T19:43:50.813Z",
+   "error": null,
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-dtswiss-f-1900-275-157-hg": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-21T19:43:50.814Z",
+   "error": null,
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
   }
  }
