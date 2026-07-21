@@ -1,5 +1,22 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — Seat 17 seated + road-17 close-out audit
+
+- **Seat 17 succession complete** (evening): handshake/rename confirmed, seat 16 archived,
+  both session-lifetime watchers re-armed (hourly fleet-sweep cron + worker-reports
+  Monitor), seat 16's merged coord worktree/branch and stale launch.json entries
+  (coord-s15/coord-s16) cleaned. Fleet was empty at seating.
+- **verify/road-17 merged (note-only)**: the close-out audit of road's last 36 unverified
+  rows. 3 retryable conditions re-attempted, all confirmed parked: Ritchey C260 regional
+  TLS wall unchanged; Prologo Dimension narrowed to prologo.it/en/products/dimension-143
+  ("Weight with Tirox rail: 205 g" maker figure) but NOT promoted — retailers quoting
+  179/202g under the plain name leave a real identity/weight conflict; Roubaix Expert
+  re-fetch reconfirmed every engine-read field with no published frameset weight (the
+  documented road no-frame-weight pattern). statebicycle lead was a gravel-catalog
+  artifact — zero road rows source it. Seatpost pair (Domane KVF / Synapse SAVE) untouched
+  pending Douglas's interface-exception ruling (open-question item 2). Road stays 185/221;
+  no promotions, no spec-field changes. Gates: 7 validators OK, 988 tests, tsc clean.
+
 ## 2026-07-21 — THE FABRICATE-FILL AUDIT LANDS + gravel-7/kit-11 + doc truth
 
 - **audit/fabricate-fill-1 merged (report-only)** — the headline goes further than the
