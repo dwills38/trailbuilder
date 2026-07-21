@@ -3775,3 +3775,26 @@ All eight chips from the final dispatch round are now landed (main `e10dbc2`+). 
   later; his call, queued.
 - Gates green (validate 0 problems / 988 tests / tsc clean / harness clean, E=0).
 
+
+## 2026-07-21 (seat 16) — mtb-tail-9 merged: +32 verified via two new technique finds
+
+- **verify/mtb-tail-9** merged: MTB 3,248 verified (~72% of the job queue processed). Two
+  technique finds that keep paying forward: (1) DT Swiss's "Choose model" button
+  (click-triggered, browser pane) opens a model-finder table with REAL per-SKU net weights —
+  9 wheel rows verified/corrected incl. a genuine freehub mislabel (F1900 MicroSpline→HG);
+  (2) trekbikes.com equipment pages render fully once the Specs tab is CLICKED — ~28
+  Bontrager tire/wheel rows verified/corrected, 3 confirmed same-SKU near-dup ids retired to
+  ALIASES with fills repointed. ~35 more rows honestly Skipped with specific per-row reasons
+  (full disposition ledger committed at tools/verify-notes-tail9.md). New casing vocab
+  'downhill-strength' (Bontrager G5) + a types.js drift fix (pro-xr was schema-only).
+- **Flagged, not fixed** (correctly — touches ~10 completebike fills): DT Swiss's own page
+  says the XM1700 family is native CENTER-LOCK with an included 6-bolt adapter, while the
+  catalog models it sixbolt — a dedicated pass item, net effect would be a truthful adapter
+  warning, not an error.
+- Merge composition note: two real conflicts vs cb-sheets-9's same-day work — the Line Comp
+  30 XD row (cb9's addition) composed with mt9's maker-stated 1035g fetch (mt9's own record
+  says the fetched rear figure IS the XD tier), and the job file resolved theirs-then-resync
+  (mt9's Skipped dispositions live only in the job file; cb9's verified flips re-derive from
+  the catalog — runner re-synced clean, 3526/4899 processed).
+- Gates green (validate 0 problems / 988 tests / tsc clean / harness clean, E=0).
+
