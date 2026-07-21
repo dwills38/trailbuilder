@@ -1,5 +1,26 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — REPORT-DROP CHANNEL PROVEN + gravel 78 verified + kit-10 + road-9
+
+- **The click-free harvest channel works end-to-end**: emtb-5, road-9, kit-10, and
+  gravel-6 all reported via .claude/worker-reports/ drops — the coordinator's folder
+  Monitor fired within a minute of each finish, zero Douglas clicks. The hung-send
+  pattern is dead.
+- **catalog/gravel-6 merged**: 54→78 verified (+24, depth over breadth). INTEGRITY
+  CATCHES: a prior wave had DELIBERATELY swapped two BB shell labels to fabricate-fill
+  the Checkpoint SL 7's BB86 gap (SM-BB72 is really pf86, SM-BB52 really threaded —
+  cross-corroborated by road-6's independent productinfo fetch; golden repointed
+  honestly); PD-GRX600 isn't a real SKU (→PD-ES600); Paceline + Campagnolo AFS rotors
+  are center-lock-only, not 6-bolt; GRX RX610 has no 48T ring (→46T). Levante wheelset
+  discontinued (successor Bora X Gravel) — schema-gravel lacks status/supersededBy,
+  flagged for sign-off. RECOMMENDATION QUEUED: a scoped fabricate-fill audit (the
+  catalog-auditor pattern) over rows entered by the same wave that planted the BB swap.
+- **verify/kit-10 merged**: 17 ambiguity verdicts, kit 534 verified; TLD Grind/Roost
+  (Douglas's standing flag) = both fabricated; 8 retirements parked on the kit-ALIASES
+  port (chip dispatched). **catalog/road-9 merged**: GRX 1x lever pair verified with
+  per-lever maker weights; SRAM bundled-SKU policy question escalated → Douglas ratified
+  wave road-10 by dispatch. **verify/emtb-5 merged**: honest zero-yield re-test.
+
 ## 2026-07-21 — FILE-CONTAINMENT AUDIT (Douglas's catch) + enforcement actually ON
 
 - **Douglas found stray project folders on D:\** — full audit run. Removed: all 19
