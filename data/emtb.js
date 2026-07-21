@@ -63,14 +63,15 @@ var EMTB_PARTS = [
     desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Superseded: Santa Cruz dropped Shimano on the Bullit entirely for the 2026 model year (verify/emtb-2 wave 2 phase 2).'
   },
   {
-    id: 'em-santa-cruz-heckler', cat: 'emtb', brand: 'Santa Cruz', model: 'Heckler',
+    id: 'em-santa-cruz-heckler', cat: 'emtb', brand: 'Santa Cruz', model: 'Heckler GX AXS',
     motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
     batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail', 'e-enduro'], weight: 23600, price: 8500,
-    note: 'All-mountain full-power stablemate to the Bullit; shorter travel, same EP801.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed.'
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS Transmission', brakes: 'SRAM Code R',
+    disciplines: ['e-trail', 'e-enduro'], weight: 22190, price: 7599,
+    note: 'All-mountain full-power stablemate to the Bullit; shorter travel, same EP801. Removable Darfon 720Wh battery (4mm Allen, confirmed via Santa Cruz support docs).',
+    desc: 'Verified vs Santa Cruz product-support spec pages. Model/trim corrected verify/emtb-4 wave 4 cluster D (generic "Heckler" -> real current SKU "Heckler GX AXS"); drivetrain/brakes casing corrected to match the maker page; weight corrected 23.6kg sample -> maker-published 22.19kg (48.92lb) for this build. Price $7,599 is the current bikes.com listing (may reflect a running promo vs full RRP).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.santacruzbicycles.com/pages/product-support/heckler-9-my24'
   },
   {
     id: 'em-commencal-meta-power-sx', cat: 'emtb', brand: 'Commencal', model: 'Meta Power SX',
@@ -128,14 +129,15 @@ var EMTB_PARTS = [
     desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — the lightweight-class representative; specs approximate, not maker-confirmed.'
   },
   {
-    id: 'em-rocky-mountain-altitude-powerplay', cat: 'emtb', brand: 'Rocky Mountain', model: 'Altitude Powerplay',
-    motorBrand: 'rocky-mountain', motorModel: 'Dyname 4.0', motorTorque: 108,
+    id: 'em-rocky-mountain-altitude-powerplay', cat: 'emtb', brand: 'Rocky Mountain', model: 'Altitude Powerplay Alloy 50',
+    motorBrand: 'rocky-mountain', motorModel: 'Dyname S4 Pro', motorTorque: 108, motorPowerPeak: 1000,
     batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-enduro'], weight: 24600, price: 9500,
-    note: 'In-house Dyname 4.0 motor — among the highest torque in the class.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed.'
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 90 Transmission', brakes: 'SRAM Maven',
+    disciplines: ['e-enduro'], weight: 24700, price: 7899,
+    note: 'In-house Dyname S4 Pro motor (108Nm/1000W peak) — among the highest torque in the class. Removable 720Wh battery.',
+    desc: 'Interfaces verified vs bikes.com product/collection pages: motor generation, battery, wheel size and frame material are maker-confirmed. Model/trim corrected verify/emtb-4 wave 4 cluster D (generic "Altitude Powerplay" -> real current mid-tier SKU "Altitude Powerplay Alloy 50", the Altitude Powerplay III generation); motor corrected Dyname 4.0 -> Dyname S4 Pro (same 108Nm torque, now with a stated 1000W peak); wheelConfig corrected mullet -> 29 (Rocky\'s own Altitude Powerplay III collection banner states 29in wheels); frame corrected carbon -> aluminum to match the real Alloy 50 SKU; drivetrain corrected to the current build\'s SRAM Eagle 90 Transmission. Brakes and weight are NOT independently confirmed for this exact 2026 build (kept as same-tier samples — SRAM Maven is Rocky\'s common current-year pairing, weight carried over from an older Dyname-4.0-era Alloy 50 spec sheet); price $7,899 is the current bikes.com listing.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://bikes.com/collections/altitude-powerplay'
   },
 
   // ---------------------------------------------------------------------------
@@ -241,14 +243,15 @@ var EMTB_PARTS = [
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: Santa Cruz dropped Shimano on the Bullit entirely for the 2026 model year (verify/emtb-2 wave 2 phase 2).'
   },
   {
-    id: 'em-santa-cruz-heckler-sl', cat: 'emtb', brand: 'Santa Cruz', model: 'Heckler SL',
+    id: 'em-santa-cruz-heckler-sl', cat: 'emtb', brand: 'Santa Cruz', model: 'Heckler SL GX AXS',
     motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
     batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 140,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail'], weight: 19100, price: 7500,
-    note: 'Lightweight SL sibling to the full-power Heckler; Fazua Ride 60 motor.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS Transmission', brakes: 'SRAM Maven Base',
+    disciplines: ['e-trail'], weight: 19880, price: 7500,
+    note: 'Lightweight SL sibling to the full-power Heckler; Fazua Ride 60 motor, removable 430Wh battery.',
+    desc: 'Verified vs Santa Cruz product page. Model/trim corrected verify/emtb-4 wave 4 cluster D (generic "Heckler SL" -> real current SKU "Heckler SL GX AXS"); travel corrected 150/140 -> maker-published 160/150 (matches the full-power Heckler); weight corrected 19.1kg sample -> maker-published 19.88kg (43.84lb). Price kept as pre-existing same-tier sample — Loam Wolf review cites a 5-model SL range of EUR 7,499-12,999, no confirmed US MSRP for this exact build.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.santacruzbicycles.com/en-eu/products/heckler-sl-gx-axs-2026-1-1'
   },
   {
     id: 'em-ibis-oso', cat: 'emtb', brand: 'Ibis', model: 'Oso TR',
@@ -432,24 +435,26 @@ var EMTB_PARTS = [
   // Rocky Mountain depth (Instinct Powerplay + Altitude Powerplay Carbon 90)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-rocky-mountain-instinct-powerplay', cat: 'emtb', brand: 'Rocky Mountain', model: 'Instinct Powerplay',
-    motorBrand: 'rocky-mountain', motorModel: 'Dyname 4.0', motorTorque: 108,
+    id: 'em-rocky-mountain-instinct-powerplay', cat: 'emtb', brand: 'Rocky Mountain', model: 'Instinct Powerplay Alloy 50',
+    motorBrand: 'rocky-mountain', motorModel: 'Dyname 4.0', motorTorque: 108, motorPowerPeak: 700,
     batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
     frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
     disciplines: ['e-trail'], weight: 23400, price: 6800,
-    note: 'Shorter-travel trail sibling to the Altitude Powerplay; same in-house Dyname 4.0 motor.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    note: 'Shorter-travel trail sibling to the Altitude Powerplay; same in-house Dyname 4.0 motor (still current — unlike the Altitude, the non-SL Instinct Powerplay was not moved to Dyname S4 Pro).',
+    desc: 'Interfaces verified vs bikes.com product/comparison pages: motor (still Dyname 4.0, confirmed via Rocky\'s own "Instinct Powerplay vs Devinci e-Troy" comparison page: 108Nm/700W peak/720Wh), wheel size and frame material match the real current SKU. Model/trim corrected verify/emtb-4 wave 4 cluster D (generic "Instinct Powerplay" -> real current SKU "Instinct Powerplay Alloy 50"; note a separate NEW "Instinct Powerplay SL" trim also launched on a different Dyname S4 Lite motor — this row is the full-power, non-SL bike, which the catalog already correctly described). Drivetrain/brakes/weight/price for this exact Alloy 50 build were NOT independently re-confirmed this pass (kept as pre-existing same-tier samples).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://bikes.com/en-intl/pages/instinct-powerplay-vs-devinci-e-troy'
   },
   {
-    id: 'em-rocky-mountain-altitude-powerplay-c90', cat: 'emtb', brand: 'Rocky Mountain', model: 'Altitude Powerplay Carbon 90',
-    motorBrand: 'rocky-mountain', motorModel: 'Dyname 4.0', motorTorque: 108,
+    id: 'em-rocky-mountain-altitude-powerplay-c90', cat: 'emtb', brand: 'Rocky Mountain', model: 'Altitude Powerplay Carbon 70',
+    motorBrand: 'rocky-mountain', motorModel: 'Dyname S4 Pro', motorTorque: 108, motorPowerPeak: 1000,
     batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-enduro'], weight: 23800, price: 11500,
-    note: 'Top-tier Altitude Powerplay carbon build.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 90 Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-enduro'], weight: 25000, price: 10799,
+    note: 'Top-tier Altitude Powerplay carbon build — the "Carbon 90" tier no longer exists; Carbon 70 is now the only/top carbon trim.',
+    desc: 'Verified vs bikes.com collection page + The Loam Wolf\'s as-tested review. Major trim correction verify/emtb-4 wave 4 cluster D: "Altitude Powerplay Carbon 90" is stale — the current Altitude Powerplay III lineup is only 3 SKUs (Carbon 70 / Alloy 50 / Alloy 30), no Carbon 90. Corrected model to the real current top/only-carbon SKU "Altitude Powerplay Carbon 70"; motor corrected Dyname 4.0 -> Dyname S4 Pro (108Nm, now 1000W peak); wheelConfig corrected mullet -> 29 (collection banner); drivetrain/brakes corrected to SRAM Eagle 90 Transmission / SRAM Maven Silver (The Loam Wolf\'s as-tested C70 build); weight corrected to the as-tested 25kg (55.3lb, size L, no maker per-size spec published); price $10,799 is the current bikes.com listing.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://bikes.com/collections/altitude-powerplay'
   },
 
   // ---------------------------------------------------------------------------
@@ -752,14 +757,15 @@ var EMTB_PARTS = [
   // Radon (new maker, DTC German brand) — Jealous
   // ---------------------------------------------------------------------------
   {
-    id: 'em-radon-jealous-10-0', cat: 'emtb', brand: 'Radon', model: 'Jealous 10.0',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 155,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail', 'e-enduro'], weight: 22800, price: 6800,
-    note: 'Direct-to-consumer German full-power e-MTB; strong value-to-spec ratio.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-radon-jealous-10-0', cat: 'emtb', brand: 'Radon', model: 'Render 10.0 800',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT Di2', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23400, price: 6800,
+    note: 'Direct-to-consumer German full-power e-MTB; carbon main frame + aluminium rear triangle; strong value-to-spec ratio.',
+    desc: 'Verified vs radon-bikes.de product page. Major trim/platform correction verify/emtb-4 wave 4 cluster D: "Jealous" is actually Radon\'s HARDTAIL touring/trail e-bike line (JEALOUS HYBRID, 120mm fork, no rear travel) — a full-suspension mullet "Jealous" e-enduro platform does not exist. Remapped to Radon\'s real full-suspension carbon e-trail/enduro line, RENDER (29in wheels, not mullet; 160mm front/140mm rear), and corrected motor/battery/drivetrain/brakes/wheelConfig/travel/price to the current RENDER 10.0 800 spec. Price: EUR 6,299 RRP converted to a $6,800 USD sample — no US price published on the DE site.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.radon-bikes.de/en/e-bike/mountainbike/render/render-10-0-800-2026/'
   },
 
   // ---------------------------------------------------------------------------
@@ -869,14 +875,15 @@ var EMTB_PARTS = [
   // Radon depth (Jealous 9.0)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-radon-jealous-9-0', cat: 'emtb', brand: 'Radon', model: 'Jealous 9.0',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 155,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail', 'e-enduro'], weight: 24200, price: 5200,
-    note: 'Entry alloy Jealous trim; same motor/battery as the carbon 10.0.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-radon-jealous-9-0', cat: 'emtb', brand: 'Radon', model: 'Render 9.0 800',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Maven',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24450, price: 5939,
+    note: 'Mid-tier RENDER trim; same carbon-main/aluminium-rear frame and Bosch CX Gen 5 motor as the 10.0.',
+    desc: 'Verified vs radon-bikes.de product page. Major trim/platform correction verify/emtb-4 wave 4 cluster D (same fix as the 10.0 sibling row): remapped from the non-existent full-suspension "Jealous" to Radon\'s real RENDER platform. Frame corrected aluminum -> carbon (RENDER 800 is carbon-main/alloy-rear across all its trims, including 9.0 — there is no all-alloy Jealous FS bike); wheelConfig corrected mullet -> 29in; travel/drivetrain/brakes/weight corrected to the current RENDER 9.0 800 spec. Price: EUR 5,499 RRP converted to a $5,939 USD sample — no US price published on the DE site.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.radon-bikes.de/en/e-bike/mountainbike/render/render-9-0-800-2026/'
   },
 
   // ---------------------------------------------------------------------------
@@ -990,24 +997,26 @@ var EMTB_PARTS = [
   // from the current maker pages, still unverified (not a fetched-page confirm).
   // ---------------------------------------------------------------------------
   {
-    id: 'em-santa-cruz-bullit-bosch-cx', cat: 'emtb', brand: 'Santa Cruz', model: 'Bullit',
-    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 600,
+    id: 'em-santa-cruz-bullit-bosch-cx', cat: 'emtb', brand: 'Santa Cruz', model: 'Bullit GX AXS',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 100, motorPowerPeak: 750,
     batteryWh: 600, batteryRemovable: false, rangeExtender: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-enduro'], weight: 21800, price: 8500,
-    note: 'Santa Cruz moved the Bullit off Shimano entirely for 2026, onto Bosch CX Gen 5 with a non-removable internal battery.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS Transmission', brakes: 'SRAM Maven',
+    disciplines: ['e-enduro'], weight: 22410, price: 10149,
+    note: 'Santa Cruz moved the Bullit off Shimano entirely for 2026, onto Bosch CX Gen 5 with a non-removable internal battery + optional PowerMore 250Wh range extender.',
+    desc: 'Verified vs Santa Cruz product page + corroborated by Vital MTB spec sheet. Model/trim corrected verify/emtb-4 wave 4 cluster D (generic "Bullit" -> real current mid/top SKU "Bullit GX AXS"); motorPowerPeak was a data-entry bug (600 duplicated the battery Wh, not the real 750W peak power figure) — fixed; torque corrected 85 -> maker/reviewer-confirmed 100Nm peak; travelRear corrected 150 -> 170 (current-gen Bullit runs 170mm front AND rear, not the old 170/150 split); brakes corrected SRAM Code -> SRAM Maven; weight/price corrected to the maker-published 22.41kg / $10,149 for this build.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.santacruzbicycles.com/products/bullit-gx-axs-2026'
   },
   {
     id: 'em-santa-cruz-bullit-bosch-x0-axs-rsv', cat: 'emtb', brand: 'Santa Cruz', model: 'Bullit X0 AXS RSV',
-    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 600,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 100, motorPowerPeak: 750,
     batteryWh: 600, batteryRemovable: false, rangeExtender: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Maven Silver',
-    disciplines: ['e-enduro'], weight: 21900, price: 9999,
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-enduro'], weight: 21950, price: 9999,
     note: 'Top-tier 2026 Bullit build; Bosch CX Gen 5 replaces the prior Shimano/SRAM XX Transmission spec.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Verified vs Santa Cruz product page (model name/drivetrain/brakes/battery already matched a real current SKU from a prior wave). motorPowerPeak was a data-entry bug (600 duplicated the battery Wh) — fixed to the maker-confirmed 750W peak; torque corrected 85 -> 100Nm peak; travelRear corrected 150 -> 170 (both ends run 170mm on the current Bullit); weight corrected 21.9kg sample -> maker-published 21.95kg (48.4lb, smallest-size convention) — BikeRadar independently measured a size-Large test bike at 22.27kg, both figures are consistent for a size-dependent spec.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.santacruzbicycles.com/products/bullit-x0-axs-rsv-2026'
   },
   {
     id: 'em-marin-alpine-trail-e2-2026', cat: 'emtb', brand: 'Marin', model: 'Alpine Trail E2',
@@ -1092,23 +1101,25 @@ var EMTB_PARTS = [
   },
   {
     id: 'em-propain-ekano-3-al-enduro', cat: 'emtb', brand: 'Propain', model: 'Ekano 3 AL Enduro',
-    motorBrand: 'dji', motorModel: 'DJI Avinox M2S', motorTorque: 130, motorPowerPeak: 1300,
-    batteryWh: 800, batteryRemovable: false, assist: 'full-power', display: 'top-tube',
+    motorBrand: 'dji', motorModel: 'DJI Avinox M2', motorTorque: 125, motorPowerPeak: 1100,
+    batteryWh: 600, batteryRemovable: false, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
     frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle AXS Transmission', brakes: 'SRAM Maven Bronze',
-    disciplines: ['e-enduro'], weight: 24500, price: 6499,
-    note: 'Propain replaced the whole Ekano line with an alloy DJI Avinox-motor platform (M2/M2S options, configurator-sold); Shimano/SRAM-motor builds are gone.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    disciplines: ['e-enduro'], weight: 23200, price: 5799,
+    note: 'Propain replaced the whole Ekano line with an alloy DJI Avinox-motor platform (M2/M2S options, fully configurator-sold); Shimano/SRAM-motor builds are gone. This row is the base M2/600Wh config; the "Factory" row is the upgraded M2S/800Wh config.',
+    desc: 'Interfaces verified vs propain-bikes.com (motor/battery/travel/frame/wheel are maker-confirmed for the base config). Corrected verify/emtb-4 wave 4 cluster D: base-tier motor was wrongly set to the upgraded M2S — fixed to the real base motor M2 (125Nm/1100W peak per Propain\'s own spec table); battery corrected 800Wh -> the base config\'s 600Wh (800Wh is the M2S/Factory upgrade); weight corrected to Propain\'s own stated ~23.2kg (size M, base config, "approximate — tolerances in frame and component weights may result in slight variations"); price corrected to the real base US price $5,799. Drivetrain/brakes stay as a plausible configurator selection (Propain sells this bike fully build-to-order — no fixed named "GX AXS" SKU exists, only a starting spec).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.propain-bikes.com/us/product/bikes/enduro/ekano-al-enduro/'
   },
   {
     id: 'em-propain-ekano-3-al-enduro-factory', cat: 'emtb', brand: 'Propain', model: 'Ekano 3 AL Enduro Factory',
-    motorBrand: 'dji', motorModel: 'DJI Avinox M2S', motorTorque: 130, motorPowerPeak: 1300,
+    motorBrand: 'dji', motorModel: 'DJI Avinox M2S', motorTorque: 150, motorPowerPeak: 1300,
     batteryWh: 800, batteryRemovable: false, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
     frameMaterial: 'aluminum', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'Trickstuff Direttissima',
     disciplines: ['e-enduro'], weight: 25480, price: 10999,
-    note: 'Top-tier configured Ekano 3 AL build (FOX Factory suspension, Trickstuff brakes); Propain has not launched a carbon Ekano — every current trim is alloy.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    note: 'Top-tier configured Ekano 3 AL build (FOX Factory suspension, Trickstuff brakes); Propain has not launched a carbon Ekano — every current trim is alloy. "Factory" describes a high-end configurator selection, not a fixed named SKU.',
+    desc: 'Interfaces verified vs propain-bikes.com (motor/battery/travel/frame/wheel are maker-confirmed for the M2S/800Wh config). Corrected verify/emtb-4 wave 4 cluster D: torque corrected 130 -> Propain\'s own headline "Max Torque: 150 Nm" for the M2S (130Nm is the M2S\'s non-boost-mode figure, not the maker-marketed max). Drivetrain/brakes/weight/price are a plausible top-tier configurator selection, not a fixed maker-published spec — The Loam Wolf\'s as-tested custom M2/800Wh Ekano 3 AL Enduro build (a different, cheaper motor pairing) weighed 25.1kg, consistent with this row\'s 25.48kg sample for a heavier top-spec build.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.propain-bikes.com/us/product/bikes/enduro/ekano-al-enduro/'
   },
   {
     id: 'em-pivot-shuttle-am-bosch-cx', cat: 'emtb', brand: 'Pivot', model: 'Shuttle AM Pro X0 Eagle Transmission',
