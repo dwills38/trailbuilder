@@ -733,6 +733,7 @@
       + 'Brakeless builds are fully supported — a bossless frame with no brake picked is a complete build, not an error.</p></div>'
       + '<div class="toolbar">'
       +   (anyVerified ? '<button type="button" class="btn" id="bVerified" title="Show only parts verified against a manufacturer source" aria-pressed="false">✓ Verified only</button>' : '')
+      +   (anyVerified ? '<span class="muted" style="font-size:.85em">No ✓ usually means the maker doesn\'t publish the spec — not that the part is worse.</span>' : '')
       +   '<span class="grow"></span>'
       +   '<button type="button" class="btn danger" id="bClear" title="Clear every selected part">↺ Clear build</button>'
       + '</div>'
@@ -748,7 +749,7 @@
       +           '<button type="button" class="btn primary" id="bViewList" aria-pressed="true" title="Dense list — one row each">☰ List</button>'
       +         '</span>'
       +         '<select class="btn" id="bSort" title="Sort the catalog" aria-label="Sort the catalog">'
-      +           '<option value="featured">Sort: Featured</option>'
+      +           '<option value="featured">Sort: Random</option>'
       +           '<option value="name">Name A–Z</option>'
       +           '<option value="price-asc">Price: low → high</option>'
       +           '<option value="price-desc">Price: high → low</option>'

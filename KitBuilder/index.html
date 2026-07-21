@@ -685,6 +685,7 @@
       + 'Every piece is optional; pick a category on the left, then add what you ride in. This is a separate build from your bike.</p></div>'
       + '<div class="toolbar">'
       +   (anyVerified ? '<button type="button" class="btn" id="kVerified" title="Show only kit verified against a manufacturer/standards source" aria-pressed="false">✓ Verified only</button>' : '')
+      +   (anyVerified ? '<span class="muted" style="font-size:.85em">No ✓ usually means the maker doesn\'t publish the spec — not that the piece is worse.</span>' : '')
       +   '<span class="grow"></span>'
       +   '<button type="button" class="btn danger" id="kClear" title="Clear every selected piece">↺ Clear kit</button>'
       + '</div>'
@@ -700,7 +701,7 @@
       +           '<button type="button" class="btn primary" id="kViewList" aria-pressed="true" title="Dense list — one row each">☰ List</button>'
       +         '</span>'
       +         '<select class="btn" id="kSort" title="Sort the catalog" aria-label="Sort the catalog">'
-      +           '<option value="featured">Sort: Featured</option>'
+      +           '<option value="featured">Sort: Random</option>'
       +           '<option value="name">Name A–Z</option>'
       +           '<option value="price-asc">Price: low → high</option>'
       +           '<option value="price-desc">Price: high → low</option>'
