@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T20:13:14.487Z",
+ "updated": "2026-07-21T20:16:31.311Z",
  "batchSize": 25,
  "lastCompleted": "rw-bontrager-connection-marlinoe-29",
  "currentCategory": "frame",
@@ -42,8 +42,6 @@
   "ti-schwalbe-magic-mary-275-25-tp-as",
   "ti-schwalbe-nobbynic-29-24-supertrail-soft",
   "ti-schwalbe-nobbynic-29-24-superground-speed",
-  "ti-maxxis-minion-dhf-29-25-mt",
-  "ti-maxxis-dissector-29-24-mt",
   "ti-schwalbe-magic-mary-29-25-st-aus",
   "ti-schwalbe-magic-mary-275-25-sg-as",
   "ti-xlc-vtm20-summit-29-225",
@@ -26867,19 +26865,11 @@
   },
   "ti-maxxis-minion-dhf-29-25-mt": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:16:31.308Z",
    "error": null,
-   "source": null,
-   "note": null
-  },
-  "ti-maxxis-dissector-29-24-mt": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/minion-dhf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-schwalbe-magic-mary-29-25-st-aus": {
    "cat": "tire",
