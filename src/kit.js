@@ -894,12 +894,14 @@ var KIT_PARTS = [
     soleType:'clipless', closure:'boa', disciplines:['xc'], sizes:['38','39','40','41','42','43','44','45','46','47','48'],
     desc:'Flagship XC/gravel race shoe, stiff carbon sole, dual low-profile BOA Li2 dials, ULTREAD XC outsole, 2-bolt SPD. Price ($480, exact match) + closure/sole re-confirmed on ride.shimano.com (kit-fanout-2, 2026-07-17); Shimano does not publish per-shoe weight, so weight is a review-quoted approx (~600g/pair) - kept as sample (kit weight policy: never blocks verification).',
     verified:true, lastChecked:'2026-07-17', source:'https://ride.shimano.com/products/sh-xc903' },
-  { id:'sho-troyleedesigns-grind', cat:'shoes', brand:'Troy Lee Designs', model:'Grind', price:150, weight:800,
-    soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'FLAG for coordinator review (2026-07-16 verification pass): could not confirm this model exists. Troy Lee Designs does not sell standalone-branded shoes; its footwear is a Five Ten collaboration line (Freerider Pro TLD, Hellcat Pro TLD, Team TLD Adidas Shoe) with no "Grind" SKU found on troyleedesigns.com, Five Ten, or any retailer searched. RECONFIRMED kit-10 (2026-07-21): troyleedesigns.com site search for "grind" returns exactly 3 products, all colorways of the "Grind Flannel" casual shirt ($117-120) - no footwear. Web search across retailers (Jenson, Modern Bike, Incycle, bikeshoes.com) confirms every TLD-branded shoe is a Five Ten/Adidas collab (Freerider Pro TLD, Sleuth DLX TLD, Hellcat Pro TLD, Impact Pro TLD, Kestrel Pro Boa TLD) - none named Grind. Verdict: FABRICATED (name likely borrowed from the Grind Flannel). Recommend retirement; kit has no ALIASES table yet, so removal needs one first if share-links must keep resolving.' },
-  { id:'sho-troyleedesigns-roost', cat:'shoes', brand:'Troy Lee Designs', model:'Roost', price:170, weight:800,
-    soleType:'clipless', closure:'lace', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
-    desc:'FLAG for coordinator review (2026-07-16 verification pass): could not confirm this model exists. Troy Lee Designs does not sell standalone-branded shoes; its footwear is a Five Ten collaboration line (Freerider Pro TLD, Hellcat Pro TLD, Team TLD Adidas Shoe) with no "Roost" SKU found on troyleedesigns.com, Five Ten, or any retailer searched. RECONFIRMED kit-10 (2026-07-21): troyleedesigns.com site search for "roost" returns 29 products (gloves/apparel keyword hits), zero footwear. Retailer sweep confirms the TLD shoe universe is the Five Ten collab line only - no clipless "Roost" shoe anywhere. Verdict: FABRICATED. Recommend retirement; kit has no ALIASES table yet, so removal needs one first if share-links must keep resolving.' },
+  /* RETIRED kit-10 (2026-07-21): sho-troyleedesigns-grind + sho-troyleedesigns-roost -
+     FABRICATED (Douglas's standing flag). TLD sells no standalone-branded footwear (its
+     shoe line is a Five Ten/Adidas collab - Freerider Pro TLD, Hellcat Pro TLD, etc.);
+     "grind" and "roost" match zero TLD footwear across the maker site or any retailer
+     searched (troyleedesigns.com search: "grind" = 3 hits, all the Grind Flannel shirt;
+     "roost" = 29 hits, zero footwear). No real successor to retarget to - plain
+     tombstone, no KIT_ALIASES entry (KitBuilder's restore path already drops an
+     unresolvable id rather than throwing). See tools/verify-notes-kit.md "Kit Wave 10". */
   { id:'sho-oneal-pinned-flat', cat:'shoes', brand:"O'Neal", model:'Pinned Flat Pedal Shoe', price:79.99, weight:850,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['39','40','41','42','43','44','45','46','47'],
     desc:'Fetched oneal.com (Gray/Red colorway): CORRECTED price $100 -> $79.99. Honey Rubber Hexagon sole, PU upper, lace closure, removable footbed, reinforced toe cap confirmed. Weight not published; kept as the existing sample per the kit weight policy.',
@@ -1106,8 +1108,12 @@ var KIT_PARTS = [
     sleeve:'short', sizes:['S','M','L','XL','XXL'],
     verified:true, lastChecked:'2026-07-21', source:'https://www.foxracing.com/product/ranger-jersey/32436.html',
     desc:'RESOLVED kit-10 (2026-07-21): a plain "Ranger Jersey" DOES exist as a live product page (style #32436) even though it was absent from the mtb-jerseys category listing the 07-17 pass swept - fetched directly: $54.95 list (corrected from the $45 sample), sizes S-2XL, TruDri 85% polyester / 15% cotton, drop-tail MTB tailoring. Black colorway shows sold-out inventory but the page and list price are current. No weight published; 130g stays a sample per the kit weight policy.' },
-  { id:'jsy-fox-ranger-foxguard-ls', cat:'jersey', brand:'Fox', model:'Ranger Foxguard Jersey', price:70, weight:190,
-    sleeve:'long', sizes:['S','M','L','XL','XXL'], disciplines:['trail','enduro'], desc:'Integrated elbow-guard-compatible sleeve construction. RECONFIRMED kit-10 (2026-07-21): no product named "Foxguard" exists on foxracing.com or at ANY retailer/review site searched, current or historical - unlike genuinely discontinued Fox SKUs, which leave retailer/archive traces. The guard-compatible-jersey concept in Fox\'s live line is the "Defend Long Sleeve Jersey" (style #32367, relaxed fit sized for elbow guards). Verdict: FABRICATED name. Recommend retirement (or coordinator-approved retarget to Defend LS - note jsy-fox-defend-ss already covers the Defend SS tier); kit has no ALIASES table yet.' },
+  /* RETIRED kit-10 (2026-07-21): jsy-fox-ranger-foxguard-ls - FABRICATED. No product
+     named "Foxguard" exists on foxracing.com or any retailer/review site, current or
+     historical. Retargeted (coordinator-approved, see tools/verify-notes-kit.md "Kit
+     Wave 10") to KIT_ALIASES -> jsy-fox-defend, the real guard-compatible jersey in
+     Fox's live line (the "Defend Long Sleeve Jersey", style #32367; jsy-fox-defend-ss
+     already covers the Defend SS tier). */
   { id:'jsy-fox-defend-ss', cat:'jersey', brand:'Fox', model:'Defend Jersey', price:79.95, weight:140,
     sleeve:'short', sizes:['S','M','L','XL','XXL'], disciplines:['trail','enduro'],
     desc:'CORRECTED 2026-07-17: price is the fetched $79.95 list for the current "Defend Jersey" (was sample $55; page currently on sale at $55.99, list used per policy; sourced from the live mtb-jerseys category listing). No weight published, stays prior sample.',
@@ -1239,12 +1245,13 @@ var KIT_PARTS = [
   { id:'jsy-ion-seek-amp-ls', cat:'jersey', brand:'ION', model:'Seek AMP LS', price:75, weight:185,
     sleeve:'long', sizes:['S','M','L','XL','XXL'], disciplines:['trail','enduro'],
     desc:'ATTEMPTED 2026-07-18: ion-products.com lists multiple Seek Amp LS SKUs across generations ("2.0", numbered variants) with prices not surfaced cleanly via search; same SKU-proliferation issue as the Scrub Amp cluster. Left unverified.' },
-  { id:'jsy-fasthouse-alloycole-ss', cat:'jersey', brand:'Fasthouse', model:'Alloy Cole SS', price:40, weight:130,
-    sleeve:'short', sizes:['S','M','L','XL','XXL'],
-    desc:'FLAG for coordinator review (2026-07-17): no "Alloy Cole" SKU found on fasthouse.com/collections/bike-jerseys. Current Alloy colorway names are Rally/Mesa/Ronin/Sidewinder/Slade/Block - "Cole" does not match any. RECONFIRMED kit-10 (2026-07-21): fresh web sweep (fasthouse.com Alloy MTB collection + Cycle Gear/Planet Cyclery/Performance retailer listings) surfaces Rally/Mesa/Ronin/Stripe Alloy colorways - "Cole" appears nowhere, current or historical. Verdict: FABRICATED colorway name. Recommend retirement; kit has no ALIASES table yet.' },
-  { id:'jsy-fasthouse-alloyrufio-ls', cat:'jersey', brand:'Fasthouse', model:'Alloy Rufio LS', price:48, weight:160,
-    sleeve:'long', sizes:['S','M','L','XL','XXL'],
-    desc:'FLAG for coordinator review (2026-07-17): no "Alloy Rufio" SKU found on fasthouse.com - only a "Grindhouse Rufio Jersey" (a different, non-Alloy line) uses the Rufio name. RECONFIRMED kit-10 (2026-07-21): the only live Rufio is the "Grindhouse Rufio Jersey" (fasthouse.com/products/grindhouse-rufio-jersey-black-purple), and Grindhouse is Fasthouse\'s MOTO/MX line (sold via RevZilla-motorcycle / RockyMountainATV) - not an MTB Alloy product, so a retarget would pull a motocross jersey into the MTB kit catalog. Verdict: FABRICATED (Alloy line x moto colorway mashup). Recommend retirement rather than retarget; kit has no ALIASES table yet.' },
+  /* RETIRED kit-10 (2026-07-21): jsy-fasthouse-alloycole-ss + jsy-fasthouse-alloyrufio-ls -
+     FABRICATED. Alloy colorways across maker + retailers are Rally/Mesa/Ronin/Stripe/
+     Sidewinder/Slade/Block - "Cole" matches none, any era. The only live "Rufio" is the
+     Grindhouse Rufio Jersey, Fasthouse's MOTO/MX line (RevZilla-motorcycle,
+     RockyMountainATV) - retarget explicitly NOT advised (would pull a motocross jersey
+     into MTB kit). Plain tombstone, no KIT_ALIASES entry for either. See
+     tools/verify-notes-kit.md "Kit Wave 10". */
   { id:'jsy-fasthouse-classic-ss', cat:'jersey', brand:'Fasthouse', model:'Classic Outland SS Jersey', price:60, weight:125,
     sleeve:'short', sizes:['S','M','L','XL','XXL','XXXL'],
     verified:true, lastChecked:'2026-07-21', source:'https://www.fasthouse.com/products/classic-outland-ss-jersey-cream',
@@ -1283,9 +1290,12 @@ var KIT_PARTS = [
     verified:true, lastChecked:'2026-07-20',
     desc:'Re-fetched 7mesh.com (en-US) 2026-07-20: still $48-80 by colorway (top of range matches prior sample) and sizes XS-XXL, matching the 2026-07-16 pass exactly. No weight published; omitted rather than guessed.',
     source:'https://7mesh.com/en-US/products/mens-roam-shirt-ls' },
-  { id:'jsy-7mesh-slab-ls', cat:'jersey', brand:'7mesh', model:'Slab Shirt LS', price:95, weight:200,
-    sleeve:'long', sizes:['S','M','L','XL','XXL'], disciplines:['enduro','dh'],
-    desc:'Heavier-duty gravity-oriented long-sleeve. RECONFIRMED kit-10 (2026-07-21): "Slab" has only ever named 7mesh SHORTS - Singletracks\' launch coverage pairs "7mesh Slab Shorts and Desperado Shirt", and no Slab-named shirt/jersey appears on 7mesh.com, Jenson, Backcountry, Competitive Cyclist, or in Blister\'s jersey roundups, current or historical (7mesh shirt lines: Roam/Atlas/Compound/Desperado/Sight). Verdict: FABRICATED (real shorts name x invented shirt variant). Recommend retirement; kit has no ALIASES table yet.' },
+  /* RETIRED kit-10 (2026-07-21): jsy-7mesh-slab-ls - FABRICATED. "Slab" has only ever
+     named a 7mesh SHORTS model (Singletracks' launch coverage pairs "7mesh Slab Shorts
+     and Desperado Shirt"); no Slab-named shirt/jersey appears on 7mesh.com or any
+     retailer, current or historical (7mesh shirt lines: Roam/Atlas/Compound/Desperado/
+     Sight). Plain tombstone, no KIT_ALIASES entry (no real "Slab" shirt to retarget to).
+     See tools/verify-notes-kit.md "Kit Wave 10". */
   { id:'jsy-sombrio-badass-ls', cat:'jersey', brand:'Sombrio', model:'Badass LS', price:55, weight:170,
     sleeve:'long', sizes:['S','M','L','XL','XXL'], disciplines:['trail','enduro'],
     desc:'Checked 2026-07-16: Sombrio has no live maker storefront - sombrio.com refuses connection, sombriocartel.com and the us-store.sombriocartel.com subdomain both canonical-redirect to garneau.com\'s generic homepage (the us-store subdomain also serves an expired TLS certificate) with no surviving Sombrio product pages. Left unchanged as an unverified sample; the brand is retailer-distribution-only today.' },
@@ -1548,9 +1558,12 @@ var KIT_PARTS = [
     liner:false, disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
     status:'discontinued',
     desc:'RESOLVED kit-10 (2026-07-21): tagged discontinued. The Impact short was a real, multi-year staple of the Royal catalog (Vital MTB covered the 2017 AND 2018 model years plus a "First Ride: 2018 Royal Racing Core, Impact, and Drift" feature; BTO Sports explicitly lists it "discontinued by the manufacturer"; Jenson/Amazon listings persist). Fresh fetch of royalracing.com\'s Shorts & Pants collection confirms only Apex Pants (+ gloves/accessories) remain - no shorts of any kind in the current line. Price/weight left as prior sample.' },
-  { id:'sht-royalracing-apex', cat:'shorts', brand:'Royal Racing', model:'Apex Shorts', price:140, weight:300,
-    liner:false, disciplines:['enduro','dh'], sizes:['S','M','L','XL'],
-    desc:'Royal\'s top-tier DH/enduro race short - shape/fabric fed by pro-rider input. RECONFIRMED kit-10 (2026-07-21): the Apex line has been PANTS-only in every source found - the current royalracing.com collection (Apex Pants LTD editions only, no shorts at all), the off-road.cc "Apex Race Pants" review era, and retailer sweeps (Jenson, eBay historical). Royal\'s historical shorts lines were Race/Impact/Core/Drift/Matrix/Turbulence - never Apex. Unlike the genuinely discontinued Turbulence/Impact rows, an "Apex Shorts" leaves zero retailer/review trace. Verdict: FABRICATED (real line x invented variant). Recommend retirement; kit has no ALIASES table yet.' },
+  /* RETIRED kit-10 (2026-07-21): sht-royalracing-apex - FABRICATED. The Apex line has
+     been PANTS-only in every source found (current royalracing.com collection, the
+     off-road.cc "Apex Race Pants" review era, retailer sweeps); Royal's historical
+     shorts lines are Race/Impact/Core/Drift/Matrix/Turbulence - never Apex. Plain
+     tombstone, no KIT_ALIASES entry (no real "Apex Shorts" to retarget to). See
+     tools/verify-notes-kit.md "Kit Wave 10". */
   { id:'sht-zoic-ether-liner', cat:'shorts', brand:'Zoic', model:'Ether Shorts + Essential Liner', price:95, weight:320,
     liner:true, disciplines:['trail'], sizes:['S','M','L','XL','XXL','XXXL'],
     desc:'Ripstop nylon outer + removable ZO-Tech chamois liner; sold as a shell+liner bundle. ATTEMPTED 2026-07-17: zoic.com rate-limited (429) every direct fetch this session; a collection-page banner cited a $38 sale price (not a reliable MSRP figure). Left unverified rather than using an unconfirmed sale price.' },
@@ -1732,9 +1745,13 @@ var KIT_PARTS = [
     verified:true, lastChecked:'2026-07-20',
     desc:'Re-fetched 7mesh.com (en-US) 2026-07-20: still $144-180 by colorway and sizes XS-XXL, matching the 2026-07-16 pass exactly. No weight published; omitted rather than guessed.',
     source:'https://7mesh.com/en-US/products/mens-glidepath-pant' },
-  { id:'pnt-poc-resistance-enduro', cat:'pants', brand:'POC', model:'Resistance Enduro Pants', price:180, weight:400,
-    liner:false, disciplines:['enduro'], sizes:['S','M','L','XL'],
-    desc:'RECONFIRMED kit-10 (2026-07-21): fresh sweep (poc.com global + US, ROSE/BIKE24/Bikeinn retailers, Blister 2024 MTB pant roundup, bikeperfect Resistance Enduro SHORTS review) - "Resistance Enduro" has only ever named POC shorts; the pants tier is "Rhythm Resistance Pants" and "Resistance Pro DH Pants". No "Resistance Enduro Pants" exists anywhere, current or historical. Verdict: FABRICATED (real shorts line x invented pants variant). Recommend retirement, or coordinator-approved retarget to Rhythm Resistance Pants; kit has no ALIASES table yet.' },
+  /* RETIRED kit-10 (2026-07-21): pnt-poc-resistance-enduro - FABRICATED. "Resistance
+     Enduro" has only ever named POC shorts; the pants tier is "Rhythm Resistance Pants"
+     and "Resistance Pro DH Pants" - no "Resistance Enduro Pants" exists anywhere. The
+     report's suggested retarget (Rhythm Resistance Pants) has no existing catalog row
+     to alias to, so this is a plain tombstone (no KIT_ALIASES entry) rather than a
+     retarget - adding the Rhythm Resistance Pants as a new row is a data-entry task,
+     out of scope here. See tools/verify-notes-kit.md "Kit Wave 10". */
   { id:'pnt-fox-flexair', cat:'pants', brand:'Fox', model:'Flexair Pant', price:174.95, weight:390,
     liner:false, disciplines:['trail','enduro'], sizes:['28','30','32','34','36','38'],
     desc:'TruMotion 4-way stretch, tapered fit, TruDri moisture-wicking. CORRECTED 2026-07-17: price is the fetched $174.95 list (was sample $200; page currently on sale at $139.99, list used per policy). No weight published on the fetched page, stays prior sample.',
@@ -3273,11 +3290,37 @@ var KIT_PARTS = [
     verified:true, lastChecked:'2026-07-20', source:'https://melonoptics.com/us/shop/kingpin/' }
 ];
 
+/* ---- legacy id aliases -----------------------------------------------------
+   Same APPEND-ONLY contract as the MTB catalog and the BMX port
+   (DATA-MODEL-REVIEW.md §3.1; src/compat-bmx.js's BMX_ALIASES/canonicalBmxId):
+   a kit id is never renamed or reused. When a row must be retired (e.g. the
+   kit-10 naming-ambiguity wave's 8 fabricated rows - never-existed products
+   surfaced by the verification grind, tools/verify-notes-kit.md "Kit Wave
+   10"), the old id retires into this map (old -> current) instead of being
+   deleted outright, and every id-shaped input this builder reads resolves
+   through canonicalKitId first - same single-hop, no-chaining contract as
+   compat.js's ALIASES/canonicalId (test/test-ids.js's last 4 cases, mirrored
+   for kit by test/test-kit-aliases.js).
+
+   Only rows with a genuine like-for-like successor in the live catalog get an
+   entry here (a retarget must resolve to a REAL current row - the same
+   invariant test-ids.js pins for the MTB table: every alias value must
+   byId()-resolve). A fabricated row with no such successor is retired with NO
+   entry here (a "plain tombstone"): the id simply stops resolving, and
+   KitBuilder's restore path already drops any id kitById can't find rather
+   than throwing (mirrors bmx.html's load() - see KitBuilder/index.html). */
+/** @type {Object.<string, string>} */
+var KIT_ALIASES = {
+  'jsy-fox-ranger-foxguard-ls': 'jsy-fox-defend'   // kit-10 (2026-07-21): no Fox "Foxguard" jersey ever existed; coordinator-approved retarget to the Defend LS (style #32367), the guard-compatible jersey in Fox's live line - see tools/verify-notes-kit.md "Kit Wave 10".
+};
+/** @param {string|null|undefined} id @returns {string|null|undefined} */
+function canonicalKitId(id){ return (id && Object.prototype.hasOwnProperty.call(KIT_ALIASES, id)) ? KIT_ALIASES[id] : id; }
+
 /* id -> kit part (null-prototype so a crafted id can't resolve to an inherited value). */
 /** @type {Object.<string, KitPart>} */
 var _KIT_BY_ID = Object.create(null);
 KIT_PARTS.forEach(function(p){ _KIT_BY_ID[p.id] = p; });
-/** @param {string} id @returns {KitPart|null} */
+/** @param {string|null|undefined} id @returns {KitPart|null} */
 function kitById(id){ return (typeof id === 'string' && _KIT_BY_ID[id]) || null; }
 
 /* ---- kitTotals -------------------------------------------------------------
@@ -3304,5 +3347,6 @@ function kitTotals(build){
 /* ---- Export for Node (validate.js + tests); ignored by the browser --------- */
 if(typeof module !== 'undefined' && module.exports){
   module.exports = { KIT_GROUPS:KIT_GROUPS, KIT_SLOTS:KIT_SLOTS, KIT_CATS:KIT_CATS,
-    KIT_PARTS:KIT_PARTS, kitById:kitById, kitTotals:kitTotals };
+    KIT_PARTS:KIT_PARTS, kitById:kitById, kitTotals:kitTotals,
+    KIT_ALIASES:KIT_ALIASES, canonicalKitId:canonicalKitId };
 }

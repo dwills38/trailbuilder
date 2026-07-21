@@ -505,3 +505,15 @@ Full per-row verdict table with URLs: this wave's worker report
 - **Not in this wave** (flagged but not naming-ambiguity): the ION Traze/Scrub/Seek AMP cluster
   (SKU/price proliferation — identity clear, price isn't) and the Loose Riders C/S row
   (EUR-pricing policy pending with Douglas).
+
+**RESOLVED (branch `feat/kit-aliases-1`, 2026-07-21):** the structural flag above is closed.
+`src/kit.js` now carries `KIT_ALIASES`/`canonicalKitId` (mirrors `compat.js`'s `ALIASES`/
+`canonicalId` and its BMX port), wired into `KitBuilder/index.html`'s localStorage restore path.
+All 8 fabricated rows are retired: `jsy-fox-ranger-foxguard-ls` retargeted to `jsy-fox-defend`
+(the real Defend LS jersey, coordinator-approved); the other 7 — `sho-troyleedesigns-grind`,
+`sho-troyleedesigns-roost`, `jsy-fasthouse-alloycole-ss`, `jsy-fasthouse-alloyrufio-ls`,
+`sht-royalracing-apex`, `pnt-poc-resistance-enduro`, `jsy-7mesh-slab-ls` — are plain tombstones
+(no real successor to alias to; POC's suggested Rhythm Resistance Pants retarget has no existing
+catalog row, so it stays a tombstone too pending a future data-entry pass). Tests in
+`test/test-kit-aliases.js`; a retired-id restore verified in-browser (retarget resolves, tombstone
+drops silently, no console error).
