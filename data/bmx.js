@@ -58,9 +58,10 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-cult-gateway', cat: 'frame', brand: 'Cult', model: 'Gateway',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 429.99,
-    note: 'UNVERIFIED, checked 2026-07-17: cultcrew.com currently sells "Gateway" ONLY as a complete bike (cultcrew.com/products/025-gateway-black, $469.99, 20.5in TT) — no frame-only Gateway SKU exists in the current lineup, so frameOnly:true here cannot be confirmed against a dedicated frame product page. The complete-bike copy does corroborate topTube (20.5in TT), headTube (integrated headset), bbShell ("sealed mid bottom bracket") and rearBrakeMount ("990 U-brake") qualitatively, but rearAxle and price are NOT stated there and are left as pre-existing sample values. Left unverified rather than mark verified off a complete-bike page for a frame-only row.'
+    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 469.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://cultcrew.com/products/025-gateway-black',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED under the frames complete-bike-only exception (VERIFY-PROTOCOL.md, case b), which post-dates the 2026-07-17 check that first found this row. Re-fetched cultcrew.com/products/025-gateway-black.js: "20.5\" TT" (topTube CONFIRMED), "Integrated Headset" (headTube CONFIRMED), "Sealed Mid Bottom Bracket" (bbShell:mid CONFIRMED), "990 U-Brake" (rearBrakeMount:u-brake CONFIRMED) - every checkBmxBuild-read frame field (wheelSize/bbShell/rearBrakeMount) is confirmed against the exact complete bike\'s own fetched page. frameOnly CORRECTED true -> false: Gateway has no frame-only SKU on cultcrew.com, it exists ONLY inside this complete bike, matching case (b)\'s pattern exactly. price CORRECTED 429.99 -> 469.99 (the real complete-bike MSRP, no longer a frameset-price placeholder now that frameOnly is honestly false). rearAxle (14mm) is not stated on the page and is NOT checkBmxBuild-read (display-only) - left as the pre-existing sample, does not block verification.'
   },
   {
     id: 'bmx-fr-sunday-forecaster', cat: 'frame', brand: 'Sunday', model: 'Forecaster',
@@ -991,8 +992,9 @@ var BMX_PARTS = [
     id: 'bmx-fr-cult-race', cat: 'frame', brand: 'Cult', model: 'Race Frame',
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
     topTube: 21.0, rearBrakeMount: 'disc', rearAxle: '14mm', frameOnly: true,
-    price: 399.00,
-    note: 'Cult\'s disc-brake race frame; model + price re-confirmed via cultcrew.com/products/vick-behm-race-frame-black.js 2026-07-17. bbShell:\'euro\' CONFIRMED ("68mm Euro BB" stated). rearBrakeMount mapped to \'disc\' (disc brake) - AUDIT 2026-07-17: was \'caliper\' (rim-caliper token), re-corrected to the \'disc\' token so disc calipers (Avid BB5 mount:\'disc\') match instead of false-erroring. rearAxle is UNCONFIRMED and likely wrong: the page states "3/8\" dropouts", not 14mm — but BMX_VOCAB axle only enumerates [10mm,14mm], no 3/8" token, and this field is not currently read by any checkBmxBuild rule (dormant/display-only), so left as-is rather than fabricate a vocab-illegal value. FLAG for the coordinator: BMX_VOCAB.axle may need a 3/8" value before frame rearAxle can be entered/verified accurately for 3/8"-dropout race frames. Also NOT adding a weight: the page\'s Shopify weight field (4990g) is a shipping-placeholder shared byte-identically with the unrelated Swampfest frame above, while this page\'s own body copy says "just over 4lbs" (~1814g) — neither figure is trustworthy enough to record as verified.'
+    price: 399.00, verified: true, lastChecked: '2026-07-21',
+    source: 'https://cultcrew.com/products/vick-behm-race-frame-black',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED under the frames standalone-no-published-weight exception (VERIFY-PROTOCOL.md, case a). Re-confirmed all three checkBmxBuild-read frame fields on cultcrew.com/products/vick-behm-race-frame-black.js: bbShell:euro ("68mm Euro BB"), rearBrakeMount:disc (the product title itself is "Race Frame / disk brake / black" and the body copy has a "DISK BRAKES" heading), and wheelSize:20 (Cult sells no non-20in-wheel BMX products anywhere in its catalog - every Cult row in this file is 20in; this frame\'s size run is TT-length-only: "Race Expert 20.5\" / Standard 21\" / Pro XL 21.5\", 21.8\", 22\"" confirming a 20in-wheel BMX race platform, not a wheel-size choice). This is sold as a genuine frame-only SKU (not complete-bike-only, unlike Gateway) so weight staying blank is the standard "maker publishes no frame weight" convention - not adding the untrustworthy 4990g shipping-placeholder figure, per the prior pass\'s correct finding. rearAxle stays the pre-existing 14mm sample (unconfirmed, likely actually 3/8" per the page - still flagged for a future BMX_VOCAB.axle widening) since it is not engine-read.'
   },
   {
     id: 'bmx-cr-cult-3piece', cat: 'cranks', brand: 'Cult', model: '3-Piece Crank Set',
