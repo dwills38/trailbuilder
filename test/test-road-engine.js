@@ -441,6 +441,6 @@ test('roadBuildTotals sums price/weight and flags a missing weight', function(){
   eq(t.price, 4700 + 450, 'price sum');
   eq(t.weight, 685 + 370, 'weight sum');
   eq(t.missingWeight, false, 'both weights known');
-  var t2 = ROAD.roadBuildTotals({ frontWheel: rp('fw-dtswiss-erc1100-dicut-45') });
-  eq(t2.missingWeight, true, 'the ERC 1100 row honestly omits weight');
+  var t2 = ROAD.roadBuildTotals({ rearDerailleur: rp('rd-sram-red-axs') });
+  eq(t2.missingWeight, true, 'the RED AXS rear derailleur row honestly omits weight');
 });
