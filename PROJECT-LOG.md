@@ -1,5 +1,32 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — SIX-CHIP OVERNIGHT HARVEST (all merged, gates green)
+
+- **road-8**: 105 cassette corrected 11-36→11-34 (coordinator re-fetched productinfo
+  CS-R7101-12: "Combination 11-34T" verbatim, sole combination — page even publishes
+  361g); Praxis T47 was really SRAM's BB-DUB-T47-A1 (id token flagged for a future road
+  id-migration pass — road.js has no ALIASES yet); RED AXS lever+caliper re-split to sum
+  to the real $745 bundle. Road 121 verified.
+- **mtb-tail-3**: the Shimano mechanical-MTB interface exception (Douglas-ratified by
+  dispatch) landed in VERIFY-PROTOCOL; +17 rows; the worker caught two errors in the
+  dispatch brief itself. ~31-row follow-up set flagged. MTB 3,134 verified.
+- **emtb-4**: THE BIG ONE — EMTB deep-verify 2→66 of 92 across 27 brands (avinox vocab,
+  sourced; Bullit Wh-in-power-field copy bug; Radon Jealous→Render platform remap; Scott
+  Genius eRIDE nameplate retirement recorded, not invented). Live surface now genuinely
+  sourced.
+- **kit-9**: kit 531; Giro TrailBuilder UN-discontinued (prior wave misread a stale 404);
+  the jersey/shorts/pants tail honestly confirmed dead-ended (~15 naming ambiguities
+  await human review).
+- **cb-sheets-5**: complete bikes 174 sheet-verified; **specialized.com is NOT walled**
+  in the browser pane (stale-wall doctrine strikes again) — ~30 more Specialized cb rows
+  unlocked; the JS-build-kit "walled" brand list (Yeti/Pivot/Ibis/…) deserves the same
+  re-test. Enduro Comp dropper conflict left for a dedicated frame re-check.
+- **gravel-5b**: 223/54; GRX fabrication catches off bike.shimano.com per-SKU (FD-RX810-F
+  130→96g; FD-RX600 = same physical SKU, corrected not deleted); four schema-vocab
+  non-fits logged (square-taper, slider dropouts, 36.1mm post, noisy Wilier data).
+- Board: MTB 5,033 (3,134) · Kit 714 (531) · BMX 227 (90) · Road 217 (121) · Gravel 223
+  (54) · Striders 36 (28) · EMTB 92 (66) · cb 174/437 sheet-verified · 869 tests.
+
 ## 2026-07-21 — BMX ALIASES mechanism shipped (share-restore integrity)
 
 - **feat/bmx-aliases-1 merged + deployed**: BMX_ALIASES/canonicalBmxId in compat-bmx.js
