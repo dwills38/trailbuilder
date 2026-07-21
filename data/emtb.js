@@ -248,13 +248,14 @@ var EMTB_PARTS = [
   },
   {
     id: 'em-ibis-oso', cat: 'emtb', brand: 'Ibis', model: 'Oso TR',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 100, motorPowerPeak: 750,
+    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 120, motorPowerPeak: 750,
     batteryWh: 600, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 90 T-Type', brakes: 'SRAM Maven Base',
-    disciplines: ['e-trail', 'e-enduro'], weight: 22800, price: 8499,
-    note: "Ibis's second-generation modular Oso platform (HD/TR/S travel classes) stayed on Bosch — did not follow the industry trend to DJI Avinox — with a smaller, lower-mounted 600Wh battery (down from 800Wh) plus an optional 250Wh PowerMore extender.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Gen/battery corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, 800Wh -> 600Wh, drivetrain matched to the real TR mechanical build).'
+    disciplines: ['e-trail', 'e-enduro'], weight: 22770, price: 8499,
+    note: "Ibis's second-generation modular Oso platform (HD/TR/S travel classes) stayed on Bosch — did not follow the industry trend to DJI Avinox — with a smaller, lower-mounted 600Wh battery (down from 800Wh) plus an optional 250Wh PowerMore extender. This is the base $8,499 mechanical build (SRAM Eagle 90 Transmission + Maven Base); a $9,699 SRAM AXS/GX Eagle Transmission + Maven Silver build is also offered.",
+    desc: 'Verified vs the maker page. Gen/battery corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, 800Wh -> 600Wh, drivetrain matched to the real TR mechanical build) — that reading holds and is now maker-page-confirmed exactly: SRAM Eagle 90 Transmission derailleur/shifter, SRAM Maven Base brakes/SRAM Centerline 220mm rotors, RockShox Lyrik Base 160mm fork, RockShox Super Deluxe Select+ 230x60mm shock, price $8,499 exact match. Torque corrected verify/emtb-4 wave 4 cluster B: 100 -> 120Nm ("up to 120 Nm" on the current bikes/oso-tr page — a firmware/torque update since an earlier 100Nm reading). Weight set to the maker-stated 22.77kg complete-build claimed figure (size XM, with frame protection + tire sealant, no pedals).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.ibiscycles.com/bikes/oso-tr'
   },
 
   // ---------------------------------------------------------------------------
