@@ -1276,6 +1276,54 @@ from this round.
 
 ---
 
+## Single-speed chain width — the severity question settled (round 3, 2026-07-21)
+
+**DRV-68 [UPGRADES DRV-12 from community tier to MANUFACTURER tier, and gives DRV-13's
+direction asymmetry a dimensional mechanism] — KMC states the ring/cog/chain width match as a
+compatibility requirement in its own words, and publishes the mating TOOTH THICKNESS for each
+width class.** DRV-12 recorded the ring/cog/chain width-match rule at *medium* confidence
+because *"no maker publishes chain/sprocket width-tolerance bulletins."* That is no longer
+true — KMC's glossary publishes both the requirement and the numbers, re-fetched verbatim this
+round:
+
+- **The requirement, in KMC's own words:** *"When choosing a chain, the chain width (1/8",
+  3/32", 11/128") and the thickness of the chainring and sprocket must always match."* And
+  again on the Sprocket entry: *"The thickness of the sprocket and the dimensions of the chain
+  (wide 1/8", narrow 3/32" or super narrow 11/128") must be matched."*
+- **Wide (1/2 × 1/8"):** *"only for single speed/internal geared bikes"*, overall width
+  8–10 mm — *"Matching chainrings and sprockets have **3 mm** tooth thickness."*
+- **Narrow (1/2 × 3/32"):** single-speed **and** derailleur to 8-speed, width 7.0–7.8 mm —
+  *"Matching chainrings and sprockets have approx. **2 – 2.3 mm** tooth thickness."*
+- **Super narrow (1/2 × 11/128"):** 9–12 speed, width 5.2–6.6 mm — *"Chainrings and sprockets
+  must not exceed **1.9 mm** thickness **in order to fit into the chain's inner links**."*
+
+**The mechanism DRV-13 was missing.** That last clause names the failure as *fitting into the
+inner links* — an interference between sprocket thickness and the chain's internal width. Apply
+it across the two single-speed classes and the asymmetry falls out of the numbers:
+- **1/8" chain on 3/32" sprockets** (chain sized for 3 mm teeth, given 2–2.3 mm teeth): the
+  sprocket is *thinner* than the chain expects. Nothing interferes; the chain sits with side
+  play. This is exactly the direction DRV-13's community reports call *"side play / not ideal"*
+  and riders tolerate for months.
+- **3/32" chain on 1/8" sprockets** (chain sized for ~2–2.3 mm teeth, given 3 mm teeth): the
+  sprocket is *thicker* than the chain's inner-link gap. This is the direction DRV-13's reports
+  associate with chain-retention trouble, and KMC's clause explains why.
+
+**Severity reading — deliberately NOT a hardening recommendation.** The engine's `ss-chain-width`
+warning tier is now **manufacturer-backed rather than provisional**, and the maker's phrasing
+("must always match") supports keeping it firing in both directions. But it should stay a
+**warning, not an error**, for two honest reasons: KMC's tooth figures are *class ranges* with
+its own hedge (*"approx. 2 – 2.3 mm"*), not per-SKU dimensions, and the real-world reports in
+DRV-13 describe a *retention/wear* failure, not a part that cannot be installed. Per
+`MECHANIC-FINDINGS-INTAKE.md` §2 a hard red needs a document saying it will not fit; KMC's says
+it will not *match*. *Confidence: confirmed (fetched manufacturer glossary) for the requirement
+and the tooth-thickness figures; the direction reading is confirmed-mechanism applied to
+medium-tier field reports, so it inherits their tier.* Source: kmcchain.eu/service/glossary
+(re-fetched 2026-07-21; same page as DRV-64/65, mined for a different table this round).
+Cross-reference: DRV-12, DRV-13, DRV-64, DRV-65; engine rule `ss-chain-width` (MTB) /
+`bmx-chain-pitch` (BMX).
+
+---
+
 ## Gaps
 
 - **CLOSED 2026-07-18 master round (DRV-56–61) — AXS cross-generation compatibility, the
@@ -1447,8 +1495,14 @@ from this round.
 - DRV-8: does a missed b-gap reset on a cassette swap earn a warning, or is it routine install?
 - DRV-7: does anyone run big-capacity mechs on small (below-minimum) cassettes, and does it
   shift acceptably — worth modelling or noise?
-- DRV-13: should the single-speed chain-width warning become direction-aware (wide-on-narrow
-  tolerated, narrow-on-wide flagged), matching rules 9 / 6c?
+- DRV-13 [now MANUFACTURER-BACKED by DRV-68, 2026-07-21 — the question is narrower, not
+  answered]: KMC's published per-class tooth thicknesses (1/8" ↔ 3 mm, 3/32" ↔ 2–2.3 mm) supply
+  the interference mechanism for the asymmetry, so "wide-on-narrow tolerated, narrow-on-wide
+  flagged" now has a dimensional basis rather than only forum reports. **The remaining question
+  is a shop-judgment one:** would you fit a 3/32" chain to a 1/8" cog and send a customer out on
+  it (→ keep one warning both directions), or is that a refuse-to-build (→ direction-aware, red
+  one way)? The corpus recommends keeping the single warning tier absent a maker document that
+  says it will not fit.
 - DRV-15: real-world behaviour of Boost-chainline cranks in SuperBoost frames.
 - DRV-18: is there ANY manufacturer document (not just community/forum consensus) that
   states an explicit safety margin above published max-cog/capacity ratings? Without one

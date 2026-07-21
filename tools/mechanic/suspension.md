@@ -947,9 +947,53 @@ renumbered with them. Ids stay append-only.*
 
 ---
 
+## Fork travel ↔ geometry: the 1:1 assumption, now maker-confirmed (round 3, 2026-07-21)
+
+**SUS-54 [closes SUS-11's load-bearing assumption — the one part of it that was NOT math] —
+Fox's own engineering drawing confirms that on a single chassis, axle-to-crown length tracks
+travel EXACTLY 1:1.** SUS-11 derived "~1° of head angle per 20 mm" from
+Δangle ≈ arcsin(h / wheelbase), and that geometry is unarguable — but it rests on an unstated
+assumption: that changing a fork's *travel* by 20 mm changes its *axle-to-crown length* by
+20 mm. The 2026 Fox 36 SL user-spec drawing publishes the A-dimension (axle-to-crown) per
+travel on one chassis:
+
+| Travel | A ±5.0 mm (extended) | B ±5.0 mm |
+|---|---|---|
+| ALL 120 mm forks | **536.0** (416.0 compressed) | 508.7 (388.7) |
+| ALL 130 mm forks | **546.0** (416.0) | 518.7 (388.7) |
+| ALL 140 mm forks | **556.0** (416.0) | 528.7 (388.7) |
+
+Ten millimetres of travel = exactly ten millimetres of axle-to-crown, twice over, on the
+maker's own dimensioned drawing (and note the *compressed* A stays 416.0 across all three — the
+chassis is identical; travel is set entirely by the air-shaft/spacer stack, SUS-13's territory).
+So SUS-11's ratio is no longer an inference stacked on an assumption: the assumption is
+manufacturer-confirmed, and only the wheelbase term is approximated. For this catalog's
+enduro wheelbases (1230–1280 mm), **a 20 mm travel drop = a 20 mm axle drop ≈ 0.92°** of head-
+angle steepening. *Confidence: confirmed for the 1:1 travel↔A-C relation (fetched Fox
+engineering drawing, read at full resolution); the head-angle conversion remains an inference
+with the math shown, per SUS-11.* Source: tech.ridefox.com/img/help/page3120-G2JM/
+MY26_FOX_36SL_29in_User_Spec.jpg (fetched 2026-07-21). **Engine relevance:** this is the
+citation under rule 12c's 20 mm grace band and under the *"steepens the head angle ~1° per
+20mm"* wording rules 12b and 12c already put in front of riders — that sentence is now
+maker-anchored on its physical half. Cross-reference: SUS-11, SUS-8, SUS-10, SUS-13.
+
+---
+
 ## Gaps
 
 Honest list of what a future round needs to close to move this chapter past `foundation`:
+
+- **NEW, opened 2026-07-21 (SUS-54): no maker publishes an under-forking TOLERANCE BAND.**
+  SUS-54 pins what 20 mm of under-forking *does* (≈0.92° steeper head angle, BB drop of roughly
+  the same order), but no fetched manufacturer document says how far below design travel is
+  acceptable. The only maker text on the subject anywhere in this chapter is Santa Cruz's
+  advisory sentence in SUS-9 (*"We wouldn't recommend less travel than that, as the BB will get
+  a bit low"*) — advisory, unquantified, one brand. So a threshold for rule 12c can be
+  *justified* by geometry but cannot be *sourced* as a maker limit, and the honest framing is
+  "this much geometry change" rather than "the maker disallows this." A future round could try
+  frame-maker warranty documents (which sometimes bound fork length rather than travel) and
+  angle-headset makers' own step sizes as an industry proxy for "how much head-angle change is
+  worth a product."
 
 - **Closed 2026-07-17 (SUS-26–31): the RockShox Suspension Theory Guide's DAMPER (p.14),
   FRICTION (p.21) and TUNING (p.26) sections are now mined** — damper construction/
