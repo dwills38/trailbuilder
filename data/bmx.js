@@ -58,9 +58,10 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-cult-gateway', cat: 'frame', brand: 'Cult', model: 'Gateway',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
-    price: 429.99,
-    note: 'UNVERIFIED, checked 2026-07-17: cultcrew.com currently sells "Gateway" ONLY as a complete bike (cultcrew.com/products/025-gateway-black, $469.99, 20.5in TT) — no frame-only Gateway SKU exists in the current lineup, so frameOnly:true here cannot be confirmed against a dedicated frame product page. The complete-bike copy does corroborate topTube (20.5in TT), headTube (integrated headset), bbShell ("sealed mid bottom bracket") and rearBrakeMount ("990 U-brake") qualitatively, but rearAxle and price are NOT stated there and are left as pre-existing sample values. Left unverified rather than mark verified off a complete-bike page for a frame-only row.'
+    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 469.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://cultcrew.com/products/025-gateway-black',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED under the frames complete-bike-only exception (VERIFY-PROTOCOL.md, case b), which post-dates the 2026-07-17 check that first found this row. Re-fetched cultcrew.com/products/025-gateway-black.js: "20.5\" TT" (topTube CONFIRMED), "Integrated Headset" (headTube CONFIRMED), "Sealed Mid Bottom Bracket" (bbShell:mid CONFIRMED), "990 U-Brake" (rearBrakeMount:u-brake CONFIRMED) - every checkBmxBuild-read frame field (wheelSize/bbShell/rearBrakeMount) is confirmed against the exact complete bike\'s own fetched page. frameOnly CORRECTED true -> false: Gateway has no frame-only SKU on cultcrew.com, it exists ONLY inside this complete bike, matching case (b)\'s pattern exactly. price CORRECTED 429.99 -> 469.99 (the real complete-bike MSRP, no longer a frameset-price placeholder now that frameOnly is honestly false). rearAxle (14mm) is not stated on the page and is NOT checkBmxBuild-read (display-only) - left as the pre-existing sample, does not block verification.'
   },
   {
     id: 'bmx-fr-sunday-forecaster', cat: 'frame', brand: 'Sunday', model: 'Forecaster',
@@ -503,19 +504,22 @@ var BMX_PARTS = [
     note: 'Teeth (30T, sold as "Sprocket Only" without the guard at this size) and price ($49.99, was $44.99) confirmed 2026-07-17 via shop.odysseybmx.com/products/odyssey-utility-pro-sprocket-black. Chain pitch is not literally stated on the page ("compatible with all BMX chains"), so the verdict-driving pitch field is left as the 1/8in sample value (correct for every other Odyssey freestyle sprocket in this catalog) and the row stays unverified.'
   },
   {
-    id: 'bmx-sp-profile-race-25', cat: 'sprocket', brand: 'Profile Racing', model: 'Imperial 23T-30T Spline Drive (25T)',
-    teeth: 25, mount: 'spline', pitch: '1/8', price: 57.99,
-    note: 'RENAMED/re-priced 2026-07-18 (id kept, append-only): re-fetched profileracing.com/product-category/profile-bmx/profile-sprockets/ - "Race Sprocket" was never a real Profile product name; the real current spline-drive lines are Sabre, Imperial, Signet Guard, Galaxy. 25T falls inside the real "Imperial 23T-30T" SKU, listed at a flat $57.99 across its whole tooth range (not broken out per-tooth on the page) - price corrected to that flat SKU price. Still left unverified: the page does not confirm the row is literally a 1/8in-pitch, spline-mount product beyond the family default, so provenance trio withheld.'
+    id: 'bmx-sp-profile-race-25', cat: 'sprocket', brand: 'Profile Racing', model: 'Imperial 23T-30T Sprocket (25T)',
+    teeth: 25, mount: 'press-on', pitch: '3/32', price: 57.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://www.profileracing.com/product/imperial-23-30/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, correcting two wrong fields the 2026-07-18 pass left unresolved. Directly fetched profileracing.com/product/imperial-23-30/ (page title literally "IMPERIAL 23T-30T SPROCKET" — the prior "Spline Drive" in this row\'s model name was never the real product name, corrected here). The page states verbatim: "-The Imperial is \'bolt on\' style and requires a sprocket bolt to be attached to crank arm" (NOT spline-drive at all) -> mount CORRECTED spline -> press-on, matching this catalog\'s existing convention that the bolt-on-boss Profile Race Crank rows (bmx-cr-profile-race/-22) also use mount:press-on for the same bolt-on-boss mounting style; "-3/32″ tooth width" -> pitch CORRECTED 1/8 -> 3/32. 25t is explicitly listed among the "Silver & Black: 23t,24t,25t,26t,27t,28t,29t,30t" size run -> teeth:25 CONFIRMED real. Flat $57.99 SKU price (2026-07-18 pass) unchanged/re-confirmed by this fetch (single price across the whole Additional-information color/size variant list). Weight is a per-color-run reference (67g at 26t) not this exact SKU\'s figure, so left without a weight field.'
   },
   {
-    id: 'bmx-sp-profile-race-28', cat: 'sprocket', brand: 'Profile Racing', model: 'Imperial 23T-30T Spline Drive (28T)',
-    teeth: 28, mount: 'spline', pitch: '1/8', price: 57.99,
-    note: 'RENAMED/re-priced 2026-07-18 (id kept, append-only): same correction as bmx-sp-profile-race-25 - 28T also falls inside the real "Imperial 23T-30T" SKU at its flat $57.99 price. Left unverified for the same reason.'
+    id: 'bmx-sp-profile-race-28', cat: 'sprocket', brand: 'Profile Racing', model: 'Imperial 23T-30T Sprocket (28T)',
+    teeth: 28, mount: 'press-on', pitch: '3/32', price: 57.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://www.profileracing.com/product/imperial-23-30/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, same correction as bmx-sp-profile-race-25 (fetched the same profileracing.com/product/imperial-23-30/ page): model name corrected to the real "Imperial 23T-30T Sprocket" (no "Spline Drive" in the real name), mount CORRECTED spline -> press-on ("bolt on style... requires a sprocket bolt to be attached to crank arm"), pitch CORRECTED 1/8 -> 3/32 ("3/32″ tooth width"). 28t confirmed among the page\'s listed sizes. $57.99 flat SKU price re-confirmed.'
   },
   {
     id: 'bmx-sp-profile-race-33', cat: 'sprocket', brand: 'Profile Racing', model: 'Sabre Universal Spline Drive (33T)',
-    teeth: 33, mount: 'spline', pitch: '1/8', price: 75.99,
-    note: 'RENAMED/re-priced 2026-07-18 (id kept, append-only): 33T is the top of the real "Sabre Universal Spline Drive 25T-33T" SKU, priced $64.99-75.99 across its range on profileracing.com; top-of-range price used as the conservative estimate. Left unverified for the same reason as the 25T/28T rows.'
+    teeth: 33, mount: 'spline', pitch: '1/8', price: 75.99, weight: 122, verified: true, lastChecked: '2026-07-21',
+    source: 'https://www.profileracing.com/product/sabre-universal-spline-drive-sprocket-25t-33t/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Directly fetched profileracing.com/product/sabre-universal-spline-drive-sprocket-25t-33t/ (page title "SABRE UNIVERSAL SPLINE DRIVE SPROCKET (25T-33T)"). The Sabre is a genuinely universal sprocket sold with a choice of adapter insert ("uses an adapter insert to make the sprocket compatible with spline drive or bolt on style cranks... A. 19mm Spline Drive, B. 22mm Spline Drive, C. 19mm Bolt On, D. 22mm Bolt On, E. 24mm Bolt On") — mount:spline here represents the "A/B Spline Drive" adapter configuration, a real purchasable option per DATA-ENTRY-TEMPLATE\'s config-dependent-spec guidance (kept as one of the valid options rather than invented). 33t confirmed in the page\'s variant list; the page\'s own JSON variant pricing (data-product_variations) shows 33t + "A. 19mm Spline Drive" = exactly $75.99, matching this row\'s existing price EXACTLY (no correction needed). Weight ADDED: page states "Weight (without insert): ...33t: 122g/4.3oz" — a real per-SKU figure (basis "without insert" noted here per the weight-conventions soldWithout practice). pitch "1/8″ chain width" confirmed unchanged.'
   },
   {
     id: 'bmx-sp-flybikes-alloy-28', cat: 'sprocket', brand: 'Fly Bikes', model: 'Alloy Sprocket 28T',
@@ -582,18 +586,21 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-rh-bsd-mind', cat: 'rearWheel', brand: 'BSD', model: 'Mind Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 279.99,
-    note: 'Real, current product: the "Back Street Pro Mind Wheel" (bsdforever.com), built from the BSD Back Street Pro cassette hub + NASA rim - a complete wheel, not a bare hub. Price corrected from 99.99 to the confirmed US-store $279.99. The manufacturer page confirms RHD/LHD ("side":both) and a cassette-type hub, but its own spec table does not itself state axle mm or driver tooth count (those figures - 14mm male, 9T - are independently confirmed only by third-party retailer listings, consistently across several). Left unverified per THE BAR (interface facts must come from the fetched maker page itself); values are very likely correct.'
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 279.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://us.bsdforever.com/products/bsd-back-street-pro-cassette-rear-wheel',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, closing the exact axle-mm gap the prior pass correctly flagged. The "Mind" name is retired from BSD\'s current storefront — the same underlying product (Back Street Pro cassette hub + BSD Forever rim, RHD/LHD, Jersey Barrier hub guards) is now sold as "FOREVER x BACK STREET PRO - REAR WHEEL" (us.bsdforever.com, Shopify products.json confirms price $279.99 EXACT match on the Black/RHD variant; RHD AND LHD variants both exist -> side:both CONFIRMED). The wheel page\'s own Tech Specs table states "Hub: BSD Back Street Pro hub" (driverType:cassette CONFIRMED) but only "Axle: Male" without a digit; the standalone "Back Street Pro Hub" product page (us.bsdforever.com/products/back-street-pro-cassette-hub, the same named hub) states verbatim "Axle: 14mm 4140 heat treated chromo" and "...now also coming in male 14mm axle version" -> axle:14mm CONFIRMED via the hub\'s own maker page. driverTeeth (9) is NOT engine-read (display-only, bmxGearInfo) so its absence from either page does not block verification per the BMX small-parts exception. Shopify variant weight (2600g, IDENTICAL across all 4 color/side variants) is the shipping-weight-bucket trap (VERIFY-PROTOCOL phantom-number hazard), not a real product weight - no weight field set.'
   },
   {
     id: 'bmx-rh-eclat-shift-freecoaster', cat: 'rearWheel', brand: 'Eclat', model: 'Shift Freecoaster Hub',
-    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 480, price: 227.00,
-    note: 'WeThePeople "Hybrid System" internals - converts between freecoaster and cassette mode without extra parts; magnetic driver.'
+    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 510, price: 164.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://eclatbmx.com/products/shift-freecoaster-hub',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Directly fetched eclatbmx.com/products/shift-freecoaster-hub: "Axle: 14mm hollow bore, male axle, hardened heat-treated crmo" (axle CONFIRMED), "Driver: 9t..." (driverTeeth CONFIRMED), "available in RSD or LSD" (side:both CONFIRMED), "Weight: 510g (17.9oz)" (a real per-unit maker-stated figure, distinct from the Shopify variant JSON\'s 96g sub-part placeholder). weight CORRECTED 480 -> 510g and price CORRECTED 227.00 -> 164.99 to match this page exactly (both RSD/LSD variants list $164.99). WeThePeople "Hybrid System" internals confirmed verbatim - converts between freecoaster/cassette mode ("MagnaDrive" magnetic driver); driverType kept as freecoaster (its as-sold/named mode).'
   },
   {
     id: 'bmx-rh-eclat-cortexevo-freecoaster', cat: 'rearWheel', brand: 'Eclat', model: 'Cortex Evo FC Hub',
-    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', price: 169.99,
-    note: '3-pin clutch freecoaster internals, available RSD or LSD.'
+    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', price: 169.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://eclatbmx.com/products/eclat-cortex-evo-fc-hub',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Directly fetched eclatbmx.com/products/eclat-cortex-evo-fc-hub: "Axle: 14mm male hollow bore, hardened heat-treated crmo axle" (axle CONFIRMED), "Driver: RSD or LSD, 9t, 3 pin clutch freecoaster system" (driverTeeth + side:both + driverType:freecoaster all CONFIRMED), price $169.99 EXACT match on both RSD/LSD variants (no correction needed). Shopify variant weight shows 0g (never a real figure) - no weight field set.'
   },
 
   // ===== REAR COG =======================================================
@@ -636,8 +643,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-fw-bsd-mind', cat: 'frontWheel', brand: 'BSD', model: 'Mind Front Wheel',
-    wheelSize: '20', axle: '10mm', price: 169.99,
-    note: 'Real, current product: the "Front Street Pro Mind Wheel" (bsdforever.com), built from the BSD Front Street Pro hub + NASA rim, ships with hubguards. Price corrected from 74.99 to the confirmed US-store $169.99 (a full built wheel, not a bare hub, so the prior sample price was too low). Axle mm is not itself printed on the fetched page (10mm is the standard BMX front-axle value and matches this row) - left unverified per THE BAR pending an interface-specific source.'
+    wheelSize: '20', axle: '10mm', price: 179.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://us.bsdforever.com/products/forever-front-street-pro-front-wheel',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, closing the axle-mm gap the prior pass flagged. Same retired-name situation as bmx-rh-bsd-mind: the "Mind" branding is gone from the current storefront, but the identical product (Front Street Pro hub + BSD Forever rim, Jersey Barrier hubguards included) is now sold as "FOREVER x FRONT STREET PRO - FRONT WHEEL" (us.bsdforever.com). Price CORRECTED 169.99 -> 179.99 (Black variant, current live price; Chrome is 199.99). The wheel page\'s Tech Specs table states "Hub: BSD Front Street Pro hub" (wheelSize:20 CONFIRMED - this is BSD\'s only 20in front-hub-based wheel line) but no axle digit; the standalone "Front Street Pro Hub" product page (us.bsdforever.com/products/front-street-pro-hub, the same named hub) states "Bolts: 10mm 4140 heat treated chromo" -> axle:10mm CONFIRMED (BMX front-hub specs are conventionally given by their axle-bolt diameter). Shopify variant weight (2600g, identical Black/Chrome) is the same shipping-weight-bucket trap as the rear wheel row - no weight field set.'
   },
 
   // ===== TIRES ==========================================================
@@ -749,7 +757,8 @@ var BMX_PARTS = [
   // ===== HANDLEBAR ======================================================
   {
     id: 'bmx-hb-sandm-speedball', cat: 'handlebar', brand: 'S&M', model: 'Speedball Bars',
-    clamp: '25.4mm', rise: 8.25, width: 29, price: 74.99
+    clamp: '25.4mm', rise: 8.25, width: 29, price: 74.99, status: 'discontinued',
+    note: 'RETIRED — bmx-depth-7 finding (2026-07-21): "Speedball" is a phantom bar name, the same chimera failure mode as the retired bmx-fr-redline-prolineflight row. Checked sandmbikes.com\'s full WooCommerce product sitemap (wp-sitemap-posts-product-1.xml, 292 products) plus a web search: "Speedball" is EXCLUSIVELY S&M\'s street tire name (sandmbikes.com/product/hardgoods/rubber/speedball-tire/) — no handlebar of that name exists in the sitemap, on retailer listings, or anywhere searched. S&M\'s real current bar lineup is Race XLT Bar (this file\'s bmx-hb-sandm-racexlt-8, verified), Perfect 10 Bar, Elevenz Bar, 12 Step Bar, FU Bar, Credence XL Bar — none of which is a plausible rename target at this row\'s specific rise/width/price, so retired without a supersededBy rather than guessing one. Kept via status per the append-only id convention (never deleted/renamed) — do not un-retire without a real fetched source naming this exact product.'
   },
   {
     id: 'bmx-hb-fitbikeco-vh', cat: 'handlebar', brand: 'Fit Bike Co', model: 'VH Bars',
@@ -855,8 +864,9 @@ var BMX_PARTS = [
   // ===== GRIPS ==========================================================
   {
     id: 'bmx-gr-odyssey-aaronross', cat: 'grips', brand: 'Odyssey', model: 'Keyboard v1 Grip (Aaron Ross Signature)',
-    length: 158, flangeless: true, price: 10.99,
-    note: 'Real product = the Keyboard v1 Grip, Aaron Ross\'s long-running signature colorway; length, flangeless (bar ends included, no flange) and price confirmed via shop.odysseybmx.com/products/odyssey-keyboard-v1-grip-black 2026-07-17 (model renamed, length corrected 143 -> 158mm, price corrected 9.99 -> 10.99); no weight published, so left unverified.'
+    length: 158, flangeless: true, price: 10.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://shop.odysseybmx.com/products/odyssey-keyboard-v1-grip-black',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. The interface fields (length 158mm, flangeless:true, price $10.99) were already directly fetched and corrected 2026-07-17; `grips` carries no checkBmxBuild-read field at all (length/flangeless are display-only, VERIFY-PROTOCOL\'s BMX small-parts exception), so once the fetch confirmed the real product+specs there was nothing further to block verified:true. No weight is published on the maker page (kept blank, not fabricated).'
   },
   {
     id: 'bmx-gr-odi-longneck', cat: 'grips', brand: 'ODI', model: 'Longneck Grips',
@@ -964,8 +974,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-hb-odyssey-brocraiford', cat: 'handlebar', brand: 'Odyssey', model: 'BROC 9.8in Bar',
-    clamp: '22.2mm', rise: 9.8, width: 29, price: 129.99,
-    note: 'Model renamed to the real product (BROC 9.8in Bar, Broc Raiford\'s signature); clamp corrected 25.4mm -> 22.2mm (maker page: "traditional 7/8in crossbar"), rise corrected 8.5 -> 9.8in, price corrected 84.99 -> 129.99, all via shop.odysseybmx.com/products/odyssey-broc-9-8-bar 2026-07-17; no weight published, so left unverified.'
+    clamp: '22.2mm', rise: 9.8, width: 29, price: 129.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://shop.odysseybmx.com/products/odyssey-broc-9-8-bar',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. clamp/rise/width/price were already directly fetched and corrected 2026-07-17; `handlebar`\'s clamp/rise/width are all checkBmxBuild DISPLAY-ONLY fields (VERIFY-PROTOCOL\'s BMX small-parts exception), so once the fetch confirmed the real product+specs there was no remaining engine-read fact to block verified:true. No weight is published on the maker page (kept blank, not fabricated).'
   },
 
   // ---- Cult depth (cultcrew.com/collections/frames fetched 2026-07-17:
@@ -983,8 +994,9 @@ var BMX_PARTS = [
     id: 'bmx-fr-cult-race', cat: 'frame', brand: 'Cult', model: 'Race Frame',
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
     topTube: 21.0, rearBrakeMount: 'disc', rearAxle: '14mm', frameOnly: true,
-    price: 399.00,
-    note: 'Cult\'s disc-brake race frame; model + price re-confirmed via cultcrew.com/products/vick-behm-race-frame-black.js 2026-07-17. bbShell:\'euro\' CONFIRMED ("68mm Euro BB" stated). rearBrakeMount mapped to \'disc\' (disc brake) - AUDIT 2026-07-17: was \'caliper\' (rim-caliper token), re-corrected to the \'disc\' token so disc calipers (Avid BB5 mount:\'disc\') match instead of false-erroring. rearAxle is UNCONFIRMED and likely wrong: the page states "3/8\" dropouts", not 14mm — but BMX_VOCAB axle only enumerates [10mm,14mm], no 3/8" token, and this field is not currently read by any checkBmxBuild rule (dormant/display-only), so left as-is rather than fabricate a vocab-illegal value. FLAG for the coordinator: BMX_VOCAB.axle may need a 3/8" value before frame rearAxle can be entered/verified accurately for 3/8"-dropout race frames. Also NOT adding a weight: the page\'s Shopify weight field (4990g) is a shipping-placeholder shared byte-identically with the unrelated Swampfest frame above, while this page\'s own body copy says "just over 4lbs" (~1814g) — neither figure is trustworthy enough to record as verified.'
+    price: 399.00, verified: true, lastChecked: '2026-07-21',
+    source: 'https://cultcrew.com/products/vick-behm-race-frame-black',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED under the frames standalone-no-published-weight exception (VERIFY-PROTOCOL.md, case a). Re-confirmed all three checkBmxBuild-read frame fields on cultcrew.com/products/vick-behm-race-frame-black.js: bbShell:euro ("68mm Euro BB"), rearBrakeMount:disc (the product title itself is "Race Frame / disk brake / black" and the body copy has a "DISK BRAKES" heading), and wheelSize:20 (Cult sells no non-20in-wheel BMX products anywhere in its catalog - every Cult row in this file is 20in; this frame\'s size run is TT-length-only: "Race Expert 20.5\" / Standard 21\" / Pro XL 21.5\", 21.8\", 22\"" confirming a 20in-wheel BMX race platform, not a wheel-size choice). This is sold as a genuine frame-only SKU (not complete-bike-only, unlike Gateway) so weight staying blank is the standard "maker publishes no frame weight" convention - not adding the untrustworthy 4990g shipping-placeholder figure, per the prior pass\'s correct finding. rearAxle stays the pre-existing 14mm sample (unconfirmed, likely actually 3/8" per the page - still flagged for a future BMX_VOCAB.axle widening) since it is not engine-read.'
   },
   {
     id: 'bmx-cr-cult-3piece', cat: 'cranks', brand: 'Cult', model: '3-Piece Crank Set',
@@ -1119,8 +1131,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-sp-eclat-bios-post', cat: 'seatpost', brand: 'Eclat', model: 'Torch Pivotal Seat Post',
-    diameter: 25.4, system: 'pivotal', price: 16.99,
-    note: 'CORRECTED model 2026-07-17 (audit): "Bios" is Eclat\'s SEAT name, not a post; the real Eclat pivotal post is the Torch Pivotal Seat Post (6061-T6, 25.4mm, 135/230/330mm lengths), confirmed via eclatbmx.com/products/torch-pivotal-seatpost. diameter (25.4) and system (pivotal) already matched the real Torch and are unchanged. Id retains the legacy "bios" token (ids are append-only). Left unverified (price not confirmed to a fetched maker spec table).'
+    diameter: 25.4, system: 'pivotal', price: 35.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://eclatbmx.com/products/torch-pivotal-seatpost',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Re-fetched eclatbmx.com/products/torch-pivotal-seatpost directly: "Size: 25.4mm" (diameter CONFIRMED), "all-pivotal compatible seatpost" (system:pivotal CONFIRMED) - `seatpost` carries no other checkBmxBuild-read field in the BMX engine (no seatpost-vs-seat-tube rule exists for BMX, unlike the MTB engine\'s rule 13c), so both load-bearing facts check out. Price CORRECTED 16.99 -> 35.99 (the maker\'s real current price across all lengths/colors; the prior figure had no source). Weight not recorded: the page states real per-length figures (91g mid, 131g long) but this row represents the SKU generically across all three lengths, so no single weight is unambiguous.'
   },
   {
     id: 'bmx-pg-eclat-alloy', cat: 'pegs', brand: 'Eclat', model: 'Alloy Pegs',
@@ -1226,9 +1239,10 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-redline-prolineexpert', cat: 'frame', brand: 'Redline', model: 'Proline Expert',
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
-    topTube: 20.75, rearBrakeMount: 'disc', rearAxle: '14mm', frameOnly: true,
-    price: 650.00, status: 'current',
-    note: 'gravel-8 priority-3 new row (2026-07-21): the real replacement for the retired bmx-fr-redline-prolineflight phantom above. "Proline Expert" is a genuine current Redline race model — confirmed on diamondback.com/collections/redline-bmx (Redline\'s current parent brand storefront; redlinebicycles.com now redirects there), which lists exactly 6 current products including "Proline Expert" and "Proline Expert XL", both disc-brake-spec ($650, complete-bike price used here as a frameset-price placeholder since no frameset-only SKU is listed — flagged as a price estimate, not maker-published frameset MSRP). Recent-model-year reviews/retailer copy (americancycle.com, J&R Bicycles) describe Avid disc brakes + a sealed Euro bottom bracket on this tier, matching bbShell:\'euro\'/rearBrakeMount:\'disc\' — corroborating (not page-fetched per-spec) sources, so this row stays unverified sample despite fixing the phantom-name problem.'
+    topTube: 20.75, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: false,
+    price: 650.00, status: 'current', verified: true, lastChecked: '2026-07-21',
+    source: 'https://diamondback.com/products/proline-expert',
+    note: 'bmx-depth-7 (2026-07-21): CORRECTED, not the retailer-corroborated disc-brake claim the prior note carried. Directly fetched diamondback.com/products/proline-expert (Shopify products.json + rendered page — Redline\'s current parent-brand storefront) and read its spec table verbatim: "BOTTOM BRACKET: Sealed Euro BB" -> bbShell:euro CONFIRMED; "HEADSET: Sealed Integrated Headset 1 1/8, Aluminum top cap" -> headTube:integrated-1-1/8 CONFIRMED; "RIMS: A-M6 Alloy Race, 20 x 1.5, 32h" + "TIRES: ...20 x 1.95in Front / 20 x 1.75in Rear" -> wheelSize:20 CONFIRMED. Critically, "BRAKE LEVERS: Tektro 316A Linear" is a linear-pull lever spec — the page never mentions a disc brake, disc rotor, or disc caliper anywhere (checked) — so rearBrakeMount is CORRECTED disc -> v-brake (the prior row\'s "Avid disc brakes" claim came from corroborating retailer copy for a DIFFERENT current model year, the exact search-summary trap VERIFY-PROTOCOL warns about — phantom-number/phantom-spec, not a fabrication, but wrong). frameOnly CORRECTED true -> false: this SKU (06-780-6000, $650) is a complete-bike-only product_type "BMX Bikes" with no separate frameset SKU on the page — the $650 is therefore a real maker-published complete-bike price, not a frameset placeholder (THE PRICE RULE / frames extension case (b) — sold as a complete bike only). topTube (20.75in) and rearAxle (14mm) are NOT restated on this page and are NOT checkBmxBuild-read fields (display-only per the BMX small-parts exception, VERIFY-PROTOCOL.md), so their absence does not block verification; retained unchanged as the pre-existing plausible sample. The products.json variant grams figure (13608g, identical across four unrelated Redline models incl. a 27.5+ cruiser) is a shared placeholder/shipping-weight bucket, not a real product weight — the phantom-number hazard\'s Shopify-weight trap — so no weight field is set. bmx-fr-redline-prolineflight (retired, above) and bmx-br-avid-bb5-bmx\'s note both still describe a "Redline Proline Flight class" disc-brake race tier; that description is now unconfirmed for the current Proline Expert lineage and should be re-examined by a future pass, not relied on.'
   },
   {
     id: 'bmx-br-avid-bb5-bmx', cat: 'brake', brand: 'Avid', model: 'BB5 Mechanical Disc Brake',
@@ -1290,8 +1304,9 @@ var BMX_PARTS = [
   // ---- S&M small-parts depth (sandmbikes.com product line) --------------
   {
     id: 'bmx-hb-sandm-racexlt-8', cat: 'handlebar', brand: 'S&M', model: 'Race XLT Bar 8"',
-    clamp: '25.4mm', rise: 8.0, width: 29, weight: 762, price: 94.99,
-    note: 'Slam-geometry race evolution, thinner-walled multi-butted tubing; sold as one SKU across a 7.5-10in rise range (this row pins the 8in option). Checked sandmbikes.com 2026-07-18: corrected width from a stale 28.5in to the maker-published 29in (matches this catalog\'s other S&M race bars); weight left unverified — the page states a 1.68-2.18lb (762-989g) range across the whole rise selection, not a per-rise figure, and 762g corresponds to the 7.5in low end rather than this row\'s 8in, so it is not confirmed for this specific SKU.'
+    clamp: '25.4mm', rise: 8.0, width: 28, weight: 726, price: 94.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://sandmbikes.com/product/hardgoods/bars/race-xlt-bar/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, correcting the 2026-07-18 pass\'s open weight question. sandmbikes.com/product/hardgoods/bars/race-xlt-bar/ (page title literally "Race XLT Bar 8″ (Slam Geo.)") is a DEDICATED single-SKU page for this exact 8in bar, distinct from the multi-size "S&M Race XLT Bar 7.5″-10″" selector page the 2026-07-18 pass read from — its own spec table states verbatim: RISE 8″, WIDTH 28″, UPSWEEP 1°, BACK SWEEP 12°, CROSS BAR .625″, WEIGHT "1.6 lb (.73 kg)" (726g, computed from the maker-stated pounds figure). width CORRECTED 29->28in (the 29in figure was carried over from the different multi-size selector product, not this dedicated SKU); weight CORRECTED 762->726g against this SKU\'s own stated figure (762g was the 7.5in low end of the OTHER product\'s range, never this row\'s 8in). clamp (25.4mm) is NOT stated on either page and is a checkBmxBuild DISPLAY-ONLY field per the BMX small-parts exception (VERIFY-PROTOCOL.md) — left as the pre-existing plausible sample, does not block verification. Price: this dedicated SKU is currently marked "Out of stock" on the maker page with no live price shown (schema.org price 0.00, an out-of-stock placeholder, not a real $0 MSRP) — kept the pre-existing $94.99 sample per THE PRICE RULE (a temporarily out-of-stock real product is still real; a missing live price never blocks verified:true).'
   },
 
   // ---- Cult small-parts depth (AK = Alex Kennedy, Dak = Dakota Roche
@@ -1315,12 +1330,15 @@ var BMX_PARTS = [
   // ---- Colony small-parts + wheel depth (colonybmx.com.au fetched) ------
   {
     id: 'bmx-st-colony-official', cat: 'stem', brand: 'Colony', model: 'Official Stem',
-    clamp: '25.4mm', price: 54.99
+    clamp: '25.4mm', price: 54.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/official-stem-2/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Confirmed on colonybmx.com.au/products/official-stem-2/ (listed live in the current stems category) as "the Colony Official BMX Stem" - "a classic look with a front load" (topload). `clamp` is the only field the stem schema carries and is checkBmxBuild DISPLAY-ONLY (VERIFY-PROTOCOL\'s BMX small-parts exception) - not stated on the page, but its absence does not block verification since there is no other interface fact to confirm. Price kept as the pre-existing sample (no live AU price found).'
   },
   {
     id: 'bmx-st-colony-variant', cat: 'stem', brand: 'Colony', model: 'Variant Stem',
-    clamp: '25.4mm', price: 49.99,
-    note: '52mm topload stem.'
+    clamp: '25.4mm', price: 49.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/variant-stem/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Confirmed on colonybmx.com.au/products/variant-stem/ (listed live in the current stems category). Same reasoning as bmx-st-colony-official: clamp is display-only and the only stem field, so a real, current product page is sufficient to clear the interface bar. "52mm topload stem" retained from the existing note (unchanged, plausible). Price kept as the pre-existing sample.'
   },
   {
     id: 'bmx-gr-colony-mountjoy', cat: 'grips', brand: 'Colony', model: 'Mountjoy Grips',
@@ -1342,8 +1360,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-fw-colony-wasp', cat: 'frontWheel', brand: 'Colony', model: 'Wasp Front Hub',
-    axle: '14mm', wheelSize: '20', price: 79.99,
-    note: '6061-T6 low-flange front hub on a 14mm hollow chromoly axle (a freestyle front-hub upsize from the 10mm default) - colonybmx.com.au product page.'
+    axle: '10mm', wheelSize: '20', weight: 284, price: 79.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/wasp-front-hub/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, correcting a wrong axle spec. Directly fetched colonybmx.com.au/products/wasp-front-hub/, which states verbatim: "Female bolt style with CrMo axle for strength", "10mm bolts only", "36 hole only", "Weight: 284 grams (10.01oz), 305 grams (10.75oz) with [plastic hub guards]". axle CORRECTED 14mm -> 10mm: the prior row\'s "14mm...a freestyle front-hub upsize from the 10mm default" claim directly contradicts the maker\'s own "10mm bolts only" line - a real spec error, not a config choice (the front hub has no 14mm option). weight ADDED (284g, bare, without the optional plastic guards) - a real per-unit maker-stated figure. Price not restated on this page (AU brand site, no live checkout price found) - kept the pre-existing $79.99 sample per THE PRICE RULE.'
   },
   {
     id: 'bmx-rh-colony-wasp', cat: 'rearWheel', brand: 'Colony', model: 'Wasp Cassette Hub',
@@ -1353,8 +1372,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-rh-colony-wasprace', cat: 'rearWheel', brand: 'Colony', model: 'Wasp Race Cassette Hubset',
-    driverType: 'cassette', driverTeeth: 16, side: 'both', axle: '14mm', price: 129.99,
-    note: 'Race version - alloy driver and axle for reduced weight, ships standard with a 16T cog (colonybmx.com.au product page).'
+    driverType: 'cassette', driverTeeth: 16, side: 'both', axle: '10mm', weight: 355, price: 129.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/wasp-race-cassette-hub/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, correcting an assumed axle spec. colonybmx.com.au/products/wasp-race-cassette-hub/ (titled "Wasp Race Front / Rear Cassette Hubset") states verbatim: "6061T6 alloy hub shell", "7075T6 alloy female axle", "10mm hardened CrMo allen head bolts", "Direct engagement Shimano fitment...alloy driver" (driverType:cassette CONFIRMED), "Comes with light weight 16T cog" (driverTeeth:16 CONFIRMED), "Weight: 560 grams for full set (205 grams for front & 355 grams for rear)". axle CORRECTED 14mm -> 10mm: the prior row\'s note ("alloy driver and axle for reduced weight") was a plausible-sounding guess, not sourced - the maker page unambiguously states 10mm bolts for this race-tier hubset (its lighter alloy axle uses the same 10mm bolt diameter as the standard/race front hub, distinct from the standard REAR Wasp Cassette Hub\'s confirmed 14mm - bmx-rh-colony-wasp, a genuinely different, heavier tier). weight ADDED: 355g is this row\'s own rear-specific figure (the page also confirms the front half at 205g, matching bmx-fw-colony-wasp\'s 284g standard-tier front hub as a DIFFERENT, non-race product - the two Wasp front hubs are not the same SKU). No RHD/LHD wording found on the page; side:both left unchanged (not an engine-read field).'
   },
 
   // ---- Alienation (new brand: alienationbmx.com, race wheels) -----------
@@ -1396,8 +1416,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-ch-odyssey-bluebird', cat: 'chain', brand: 'Odyssey', model: 'Bluebird Chain',
-    pitch: '1/8', halfLink: true, price: 25.88,
-    note: 'Same plate/pin dimensions as the popular KMC freestyle chain, ships with a factory-installed half link on one end.'
+    pitch: '1/8', halfLink: true, price: 42.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://shop.odysseybmx.com/products/odyssey-bluebird-half-link-chain-silver',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Directly fetched shop.odysseybmx.com/products/odyssey-bluebird-half-link-chain-silver: "1/2\" x 1/8\" size" -> pitch:1/8 CONFIRMED (the only checkBmxBuild-read chain field); the product name itself and "Half-Link" throughout the page confirm halfLink:true (display-only, not engine-read, but real). Price CORRECTED 25.88 -> 42.99 (this row had no source at all before; $42.99 is the maker\'s displayed regular price for this exact SKU).'
   },
   {
     id: 'bmx-ch-kmc-z1ehx', cat: 'chain', brand: 'KMC', model: 'Z1eHX Wide Chain',
@@ -1416,8 +1437,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-st-sm-racexlt', cat: 'stem', brand: 'S&M', model: 'Race XLT Stem',
-    clamp: '25.4mm', price: 64.95,
-    note: 'CNC-machined 6061 topload race stem, offered in 49/53/55/57mm reach - danscomp.com listing (53mm).'
+    clamp: '25.4mm', price: 64.95, verified: true, lastChecked: '2026-07-21',
+    source: 'https://sandmbikes.com/product/hardgoods/stems/race-xlt-stem/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, upgrading the prior danscomp.com retailer-listing basis to a direct manufacturer fetch. sandmbikes.com/product/hardgoods/stems/race-xlt-stem/ confirms: "Reach: 49mm, 53mm, 55mm, 57mm", "Rise: 23.5mm / 8.1mm Inverted", "Weight: 10.2oz, 10.5oz, 10.9oz" (per reach), and its own price range "$64.95 - $69.95" with the 53mm reach option EXACT-matching this row\'s existing $64.95. `clamp` is a checkBmxBuild DISPLAY-ONLY field for stems (VERIFY-PROTOCOL.md\'s BMX small-parts exception) and the maker page never states a bar-clamp bore diameter — since it is the only field the stem schema carries and it does not feed any engine rule, its absence from the source does not block verification (the interface bar has nothing load-bearing left to confirm on this row). No per-reach weight is recorded here since this row does not pin one specific reach.'
   },
   {
     id: 'bmx-sp-odyssey-utilitypro-25t', cat: 'sprocket', brand: 'Odyssey', model: 'Utility Pro Guard Sprocket 25T',
@@ -1466,28 +1488,33 @@ var BMX_PARTS = [
   // unconfirmed per-variant, so these stay unverified samples, not verified:true.
   {
     id: 'bmx-hb-colony-rick-865-28', cat: 'handlebar', brand: 'Colony', model: 'Rick Bars 8.65in',
-    clamp: '25.4mm', rise: 8.65, width: 28, weight: 1039, price: 109.99,
-    note: 'colonybmx.com.au (raw-curl-confirmed, BMX verify waves 2/3/5): "8.65in" rise, "28.0in" width, 1039g. Price is the old danscomp.com retailer listing, unconfirmed for this specific variant — left unverified.'
+    clamp: '25.4mm', rise: 8.65, width: 28, weight: 1039, price: 109.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/rick-bars/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Re-fetched colonybmx.com.au/products/rick-bars/ directly (the raw page waves 2/3/5 had already curl-confirmed): "Rise: 8.7\" & 9.3\"", "Width: 28.0\".(8.65\" rise) 29\" (9.3\" rise)", "Weight: 1039 grams & 1056 grams" - EXACT match to this row\'s rise/width/weight. Price ($109.99) has no live figure on this AU brand page (no checkout price shown) - kept as the pre-existing danscomp.com-sourced sample per THE PRICE RULE (price never blocks verified:true once interfaces are confirmed).'
   },
   {
     id: 'bmx-hb-colony-rick-93-29', cat: 'handlebar', brand: 'Colony', model: 'Rick Bars 9.3in',
-    clamp: '25.4mm', rise: 9.3, width: 29, weight: 1056, price: 109.99,
-    note: 'colonybmx.com.au (raw-curl-confirmed, BMX verify waves 2/3/5): "9.3in" rise, "29.0in" width, 1056g. Price is the old danscomp.com retailer listing, unconfirmed for this specific variant — left unverified.'
+    clamp: '25.4mm', rise: 9.3, width: 29, weight: 1056, price: 109.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/rick-bars/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED - same fetch and same reasoning as bmx-hb-colony-rick-865-28 (one product page covers both rise variants). 9.3in rise / 29in width / 1056g EXACT match. Price kept as the pre-existing sample per THE PRICE RULE.'
   },
   {
     id: 'bmx-hb-colony-guardian-88-29', cat: 'handlebar', brand: 'Colony', model: 'Guardian Bars 8.8in',
-    clamp: '25.4mm', rise: 8.8, width: 29, weight: 864, price: 89.99,
-    note: 'colonybmx.com.au (raw-curl-confirmed, BMX verify waves 2/3/5): "8.8in" rise, "29.0in" width, 864g. Price is the old danscomp.com retailer listing, unconfirmed for this specific variant — left unverified.'
+    clamp: '25.4mm', rise: 8.8, width: 29, weight: 864, price: 89.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/guardian-bars/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Re-fetched colonybmx.com.au/products/guardian-bars/ directly: "Height: 8.8\" or 9.4\" tall", "Width: 29.0\" wide", "Weight: 8.8\" 864g 1.9lbs, 9.4\" 942g (2.08lbs)" - EXACT match. Price kept as the pre-existing sample per THE PRICE RULE (no live AU price shown on the page).'
   },
   {
     id: 'bmx-hb-colony-guardian-94-29', cat: 'handlebar', brand: 'Colony', model: 'Guardian Bars 9.4in',
-    clamp: '25.4mm', rise: 9.4, width: 29, weight: 942, price: 89.99,
-    note: 'colonybmx.com.au (raw-curl-confirmed, BMX verify waves 2/3/5): "9.4in" rise, "29.0in" width, 942g. Price is the old danscomp.com retailer listing, unconfirmed for this specific variant — left unverified.'
+    clamp: '25.4mm', rise: 9.4, width: 29, weight: 942, price: 89.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/guardian-bars/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED - same fetch as bmx-hb-colony-guardian-88-29 (one page covers both rise variants). 9.4in rise / 29in width / 942g EXACT match. Price kept as the pre-existing sample per THE PRICE RULE.'
   },
   {
     id: 'bmx-gr-odyssey-broc', cat: 'grips', brand: 'Odyssey', model: 'Broc Grips',
-    length: 158, flangeless: false, price: 10.99,
-    note: 'Broc Raiford signature grip, soft Kraton compound, ships with Odyssey Par Ends bar ends - danscomp.com product page (30mm OD/22mm ID/158mm length).'
+    length: 160, flangeless: false, price: 10.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://shop.odysseybmx.com/products/odyssey-broc-grip-bright-red',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, upgrading from the prior danscomp.com retailer basis. Directly fetched shop.odysseybmx.com/products/odyssey-broc-grip-bright-red (the maker\'s own current listing, titled "Odyssey BROC Grip"): "Broc Raiford signature", "Comfortable ribbed design", "Par Ends included", "160mm length". length CORRECTED 158 -> 160mm to match the maker\'s own figure exactly (the retailer listing\'s 158mm was close but not exact). `grips` carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar regardless; flangeless left unchanged (not stated either way on the page, not fabricated).'
   }
   // bmx-gr-odyssey-keyboard REMOVED 2026-07-17 (preflight audit fix): a near-duplicate of
   // bmx-gr-odyssey-aaronross (same real product - the Odyssey Keyboard v1 Grip, Aaron Ross's
