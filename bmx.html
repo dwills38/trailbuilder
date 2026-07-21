@@ -543,8 +543,13 @@
     try{
       var obj=JSON.parse(raw), slotCat={};
       BMX_SLOTS.forEach(function(s){ slotCat[s.key]=s.cat; });
+      // canonicalBmxId (src/compat-bmx.js): a build saved before an id was
+      // retired into BMX_ALIASES resolves to its current row instead of
+      // silently dropping the slot on load - this page has no hash-based
+      // share link (unlike index.html's readHash/sanitizeShare), so the
+      // saved-build restore here is the analogous integration point.
       Object.keys(obj).forEach(function(k){
-        var p=bmxById(obj[k]);
+        var p=bmxById(canonicalBmxId(obj[k]));
         if(p && slotCat[k] && p.cat===slotCat[k]) KB[k]=p.id;
       });
     }catch(e){}

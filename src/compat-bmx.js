@@ -115,6 +115,48 @@ var BMX_SLOTS = BMX_GROUPS.reduce(function(a, g){
   return a.concat(g.slots.map(function(s){ return Object.assign({group: g.key}, s); }));
 }, /** @type {Array<{key: string, label: string, cat: string, optional?: boolean, group: string}>} */ ([]));
 
+/* ---- legacy id aliases -----------------------------------------------------
+   Same APPEND-ONLY contract as the MTB catalog (DATA-MODEL-REVIEW.md §3.1,
+   mirrored here verbatim): a BMX id is never renamed or reused. When a row
+   must be retired, the old id RETIRES into this map (old -> current) instead
+   of being deleted, and every id-shaped input this builder reads resolves
+   through canonicalBmxId first — same single-hop, no-chaining contract as
+   compat.js's ALIASES/canonicalId (test/test-ids.js's last 4 cases, mirrored
+   for BMX by test/test-bmx-aliases.js).
+
+   Kept here rather than in data/bmx.js on purpose, even though the ids named
+   below are catalog facts: this table is a pure string->string map that never
+   reads BMX_PARTS (canonicalBmxId doesn't either), so it costs this file
+   nothing to hold it, and it keeps the whole alias contract — table +
+   resolver — in one place the way compat.js keeps ALIASES next to
+   canonicalId. data/bmx.js and this file stay ship/split-independent per this
+   file's header.
+
+   SEEDED 2026-07-2x with the 3 BMX id removals that predate this mechanism
+   (PROJECT-LOG 2026-07-21 requires ALIASES for any removal from here on;
+   these three are grandfathered in by this seed since no mechanism existed
+   yet when they happened):
+     - catalog/bmx-hygiene-1 (2026-07-20) split the single generic Colony
+       Rick/Guardian bar rows into 2 real rise/width variants each and
+       removed the 2 generic ids outright (commit b6b25f3). Nearest-variant
+       picks below: both new Rick rows share the old row's guessed rise (8in)
+       but only rick-93-29 shares its width (29in) exactly, so width (the
+       dimension the old guess got right) breaks the tie; the two Guardian
+       rows both match the old width (29in) exactly, so rise breaks the tie
+       there instead (8in guess vs 8.8in, closer than the 9.4in sibling).
+     - the 2026-07-17 preflight audit deduped bmx-gr-odyssey-keyboard into
+       bmx-gr-odyssey-aaronross — both rows were the same real product (the
+       Odyssey Keyboard v1 Grip, Aaron Ross's signature colorway); aaronross
+       is the one re-fetched against shop.odysseybmx.com and kept. */
+/** @type {Object.<string, string>} */
+var BMX_ALIASES = {
+  'bmx-hb-colony-rick': 'bmx-hb-colony-rick-93-29',
+  'bmx-hb-colony-guardian': 'bmx-hb-colony-guardian-88-29',
+  'bmx-gr-odyssey-keyboard': 'bmx-gr-odyssey-aaronross'
+};
+/** @param {string|null|undefined} id @returns {string|null|undefined} */
+function canonicalBmxId(id){ return (id && Object.prototype.hasOwnProperty.call(BMX_ALIASES, id)) ? BMX_ALIASES[id] : id; }
+
 /* Is this slot required for a "complete" BMX build? UI-completeness only —
    never a fit verdict (mirrors compat.js's slotRequired contract). BMX needs
    no frame-dependent drops: the optionality is static (brakes/gyro/pegs/bb/
@@ -373,6 +415,7 @@ if (typeof module !== 'undefined' && module.exports) {
     BMX_VOCAB: BMX_VOCAB, BMX_GROUPS: BMX_GROUPS, BMX_SLOTS: BMX_SLOTS,
     bmxSlotRequired: bmxSlotRequired, checkBmxBuild: checkBmxBuild,
     bmxGearInfo: bmxGearInfo, bmxBuildTotals: bmxBuildTotals,
-    verdictKey: bmxVerdictKey
+    verdictKey: bmxVerdictKey,
+    BMX_ALIASES: BMX_ALIASES, canonicalBmxId: canonicalBmxId
   };
 }
