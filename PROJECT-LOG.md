@@ -3542,3 +3542,20 @@ auto-merges); full gates + verdict harness green throughout.
 - Gates green (validate 0 problems / 930 tests / tsc clean / harness clean) at merge.
   **MTB 3,197 verified; every chip from all three dispatch rounds today is now harvested.**
 
+
+## 2026-07-21 (seat 16) — Proprietary steerer vocab resolved (Douglas-ruled)
+
+- Douglas confirmed the intent (proprietary steerer = maker-matched only, no standard headset
+  fits) and approved the token. Implementation refined one step beyond the original
+  "documentation-only 'proprietary'" lean: because rg-steerer/rg-headset-steerer are
+  EXACT-MATCH, a single shared token would have greened a Cannondale Delta fork on a Giant
+  OverDrive frame — a false fits between two incompatible proprietary systems. Went with
+  per-system tokens instead ('cannondale-delta', 'overdrive-aero'; gravel's
+  'lefty-proprietary' precedent), which get fully truthful behavior with zero engine changes.
+- 3 forks + 3 frames token-corrected (the frames' old 'tapered' was itself a false-fit — a
+  standard tapered fork showed as fitting a Delta/OverDrive head tube). Synapse left alone
+  (its Delta status never fetched-confirmed). All 4 pairing directions engine-verified
+  directly + pinned as a new test (931 total). Forks stay unverified pending fresh fetches
+  with captured source URLs — the vocab blocker is gone, the provenance bar still applies.
+- Gates green at `3ef3e21`.
+
