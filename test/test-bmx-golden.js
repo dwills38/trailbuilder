@@ -95,7 +95,7 @@ test('golden BRAKELESS freecoaster build (Colony Sweet Tooth) - clean AND comple
     headset: bp('bmx-hs-salt-pro'),
     cranks: bp('bmx-cr-profile-race'),            // 3-piece, 19mm
     bb: bp('bmx-bb-salt-mid-19'),                 // mid, 19mm
-    sprocket: bp('bmx-sp-profile-race-25'),       // 25T 1/8
+    sprocket: bp('bmx-sp-eclat-spline-25'),       // 25T 1/8
     chain: bp('bmx-ch-odyssey-seance'),           // 1/8 half-link
     frontWheel: bp('bmx-fw-fitbikeco-oem'),       // 20in, 10mm
     rearWheel: bp('bmx-rh-odyssey-clutchv2'),     // freecoaster, 14mm, 9T

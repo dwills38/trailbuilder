@@ -88,12 +88,12 @@ test('a 3-piece crank in an American shell warns with the conversion-BB fix - un
 /* ---- BMX-3 chain pitch ----------------------------------------------------- */
 test('bmx-chain-pitch warns on a 1/8 sprocket with a 3/32 chain (provisional warning tier)', function(){
   var raceChain = /** @type {any} */ (Object.assign({}, bp('bmx-ch-kmc-z410'), { id:'bmx-ch-synthetic-332', pitch:'3/32' }));
-  var r = BMX.checkBmxBuild({ sprocket: bp('bmx-sp-profile-race-25'), chain: raceChain });
+  var r = BMX.checkBmxBuild({ sprocket: bp('bmx-sp-eclat-spline-25'), chain: raceChain });
   eq(r.errors.length, 0, 'warning, never an error');
   eq(r.warnings.filter(function(v){ return v.ruleId === 'bmx-chain-pitch'; }).length, 1);
 });
 test('bmx-chain-pitch is silent on an all-1/8 drivetrain', function(){
-  var r = BMX.checkBmxBuild({ sprocket: bp('bmx-sp-profile-race-25'), chain: bp('bmx-ch-kmc-z410'), rearCog: bp('bmx-rc-cult-cassette-9') });
+  var r = BMX.checkBmxBuild({ sprocket: bp('bmx-sp-eclat-spline-25'), chain: bp('bmx-ch-kmc-z410'), rearCog: bp('bmx-rc-cult-cassette-9') });
   eq(of(r, 'bmx-chain-pitch').length, 0);
 });
 
@@ -203,7 +203,7 @@ test('tire clearance warns off a sourced maxTire and stays dormant without one',
 
 /* ---- Display-only: gear ratio (Q10) + slot requiredness ------------------------ */
 test('gear ratio is computed for display and NEVER appears as a verdict', function(){
-  var build = { sprocket: bp('bmx-sp-profile-race-25'), rearWheel: bp('bmx-rh-cult-matchv2'), frame: bp('bmx-fr-kink-williams') };
+  var build = { sprocket: bp('bmx-sp-eclat-spline-25'), rearWheel: bp('bmx-rh-cult-matchv2'), frame: bp('bmx-fr-kink-williams') };
   var g = BMX.bmxGearInfo(build);
   ok(g && Math.abs(g.ratio - 2.78) < 0.01, '25T / 9T driver = ~2.78');
   ok(g && g.rollout && g.rollout > 170 && g.rollout < 180, 'rollout ~ 20in x ratio x pi');
