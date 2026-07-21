@@ -1,5 +1,16 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — ★★★ BUILDMYGRAVELBIKE LIVE — THE FAMILY IS COMPLETE ★★★
+
+- **gravel.html flipped live** on Douglas's word (223 parts / 54 verified at flip — every
+  unverified row honestly sample-labeled, same convention every surface shipped under).
+  deploy.yml stages page+data; all six switchers uniform (verified byte-order across
+  every page); /home has NO coming-soon doors left; /about carries all six cards.
+- **Six live surfaces**: BuildMyMTB · BuildMyBMX · BuildMyRoadbike · BuildMyGravelBike ·
+  BuildMyEMTB · BuildMyRideKit, plus /home, /about, and ddubsworks.com. The domain
+  redirect batch (Douglas's all-at-once) is now fully un-gated — five Cloudflare rules,
+  all targets real.
+
 ## 2026-07-21 — SIX-CHIP OVERNIGHT HARVEST (all merged, gates green)
 
 - **road-8**: 105 cassette corrected 11-36→11-34 (coordinator re-fetched productinfo
