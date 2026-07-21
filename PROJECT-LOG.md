@@ -3682,3 +3682,33 @@ All eight chips from the final dispatch round are now landed (main `e10dbc2`+). 
   resolved it by retargeting — the brief's premise was stale).
 - Gates green (validate 0 problems / 964 tests / tsc clean) at `1b1f882`.
 
+
+## 2026-07-21 (seat 16) — oem-posts-1 + rotor-reclass-1 merged; harness section E clears to ZERO
+
+- **catalog/oem-posts-1** merged (audit H1 CLOSED): all 10 proprietary-post dead-end frames
+  now have a real matching OEM seatpost (10 new rows, 2 verified via direct maker fetches,
+  the rest honest unverified with disclosed price-conversion bases). Two brief errors caught
+  by the worker: "Canyon CP0018" is the Aerocockpit not a seatpost (real part: S27 VCLS CF,
+  Canyon's own page names the Aeroad trident shape) and Giant's TCR post is the 2024+
+  "Variant" (the brief's "Vector" is the pre-2016 generation, explicitly incompatible).
+  Job 2 honestly NOT done: no complete-headset SKU exists for cannondale-delta or
+  overdrive-aero (bearing kits only) — routed back to the coordinator as briefed.
+- **Coordinator engine ruling on the returned M1 question**: the rg-headset-steerer mismatch
+  ERRORS stay (a standard headset genuinely doesn't fit a Delta/OverDrive steerer —
+  downgrading a true won't-fit is a false-fits change); instead a matched proprietary
+  frame+fork pair with no headset picked now gets an explanatory info
+  (rg-headset-proprietary) so the all-red headset column reads as physics, not a catalog
+  gap. Suppressed once a headset is picked. 4-case test (965 total).
+- **fix/rotor-reclass-1** merged: the mechanic round-3 adjudication applied — Fox 36SL + 34
+  Factory 130/140 to maxRotorF:230 (BRK-50: the shop tags contradict THEMSELVES across one
+  chassis; supersedes the earlier conservative-203 coordinator call, which assumed a coherent
+  opponent); 27 SR Suntour/DVO rows' native mounts moved to minRotorF with maxRotorF honestly
+  UNSET (BRK-51 — never infer a ceiling); the 28th (xcr34-lo) kept its genuinely maker-framed
+  "Max Rotor Size: 180mm" and its inferred-203 siblings were cleaned to match; schema.js/
+  types.js made maxRotorF optional + rotorOverMax got an explicit undefined guard;
+  DATA-ENTRY-TEMPLATE.md §5a claim-class guard added (5th recurrence prevented). Two test
+  fixtures swapped for accuracy (not weakened). The live cb-ari-delanopeak-comp false warning
+  is gone. **Verdict harness section E now reads 0 fork families would false-warn — first
+  zero since the probe existed.**
+- Gates green (validate 0 problems / 965 tests / tsc clean / harness fully clean incl. E=0).
+
