@@ -1156,12 +1156,30 @@ var ROAD_PARTS = [
   // ===== TIRES — Michelin (probed: michelin.com product pages 404'd for this
   // session via WebFetch — known wall per CLAUDE.md's Michelin/Specialized
   // retry-queue history; entered as unverified samples per policy) =========
+  // road-15 wave RETRY (one honest attempt per protocol): michelin.com/en/products-services/moto-bike/power-cup/
+  // still 404s (WebFetch + Exa search both confirm no such page exists on the maker's global
+  // domain). Found the real maker page instead: michelinman.com/bicycle/tires/michelin-power-cup-tlr-competition-line
+  // (Michelin's US consumer-bike domain, fetched via Exa + driven directly in the browser pane,
+  // incl. clicking "Find your size" and a specific 25-622/BLACK size tile) — it confirms this
+  // exact SKU exists in 25/28/30/32-622 sizes (MSPN part numbers listed per size/colorway) but the
+  // page is a marketing+reviews page with NO spec table: no TPI, no per-size weight, no compound
+  // name anywhere in the rendered DOM. Retailer/distributor listings (Halfords UK, gambacicli.com,
+  // hlc.bike) corroborate weights in the 255-305g range and "4x120 TPI"/"GUM-X compound" naming,
+  // roughly matching this row's sample figures, but those are retailer pages, not the maker's own —
+  // does not meet THE BAR. STILL UNVERIFIED after the retry; leaving as-is rather than promoting off
+  // retailer corroboration.
   { id: 'ti-michelin-powercup-25', cat: 'tire', brand: 'Michelin', model: 'Power Cup TLR 25c', family: 'michelin-powercup',
     wheel: '700c', width: 25, tubeless: true, compound: 'Endurance Compound X',
     weight: 255, price: 75 },
   { id: 'ti-michelin-powercup-28', cat: 'tire', brand: 'Michelin', model: 'Power Cup TLR 28c', family: 'michelin-powercup',
     wheel: '700c', width: 28, tubeless: true, compound: 'Endurance Compound X',
     weight: 285, price: 75 },
+  // road-15 wave RETRY: Power Road does not appear anywhere in Michelin's current
+  // lineup (michelin.com/michelinman.com/michelin.ca all searched) - independent
+  // reporting (tradeinn.com customer review, road.cc's 2019/2020 launch coverage)
+  // indicates Michelin has since discontinued/replaced the Power Road line with
+  // Power Cup/Power Protection TLR. No live maker page exists to fetch. STILL
+  // UNVERIFIED after the retry - a genuinely gone product, not a bot wall.
   { id: 'ti-michelin-powerroad-28', cat: 'tire', brand: 'Michelin', model: 'Power Road TLR 28c', family: 'michelin-powerroad',
     wheel: '700c', width: 28, tubeless: true, compound: '2X Endurance Compound',
     weight: 300, price: 65 },
@@ -1325,13 +1343,15 @@ var ROAD_PARTS = [
   // consistent with the existing Power Cup/Power Road rows' wall note; no
   // new Michelin row added since the two already-cataloged SKUs stand.
   { id: 'ti-specialized-turbocotton-26', cat: 'tire', brand: 'Specialized', model: 'Turbo Cotton 26c', family: 'specialized-turbocotton',
-    wheel: '700c', width: 26, tubeless: false, compound: 'GRIPTON',
+    wheel: '700c', width: 26, tubeless: false, compound: 'GRIPTON', casing: '320 TPI Polycotton',
     weight: 240, price: 70,
-    note: 'Unverified sample — specialized.com 403\'d. 320 TPI polycotton clincher (not tubeless). Weight (240g) and compound cross-checked across Bicycle Rolling Resistance\'s measured test (an independent test-house figure, not entered as sourceType:measured since it is corroborating rather than the sole basis) and road.cc/Velo reviews quoting Specialized\'s own spec.' },
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.specialized.com/us/en/turbo-cotton/p/155771',
+    note: 'road-15 wave: PROMOTED — specialized.com fetched directly via Exa (the WebFetch 403 previously logged for this domain is a bot-wall, not JS-rendering; Exa\'s render cleared it, closing the road-14/prior "specialized.com 403" flag). Product page states verbatim: "Casing: 320 TPI Polycotton", "Compound: GRIPTON", "700 x 26mm, psi 95-115, approximate weight 240g" — every catalog field matches exactly, no corrections needed. Not tubeless (clincher only), matches this row. Price ($70) is the existing sample figure; the fetched page shows no US MSRP text in the extracted content, so price basis is left as an honestly-labeled sample per THE PRICE RULE.' },
   { id: 'ti-specialized-turbocotton-28', cat: 'tire', brand: 'Specialized', model: 'Turbo Cotton 28c', family: 'specialized-turbocotton',
-    wheel: '700c', width: 28, tubeless: false, compound: 'GRIPTON',
+    wheel: '700c', width: 28, tubeless: false, compound: 'GRIPTON', casing: '320 TPI Polycotton',
     weight: 260, price: 70,
-    note: 'Same source/caveat as the 26c row above; also marketed as "Hell of the North" per Velo\'s review. Weight 260g.' },
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.specialized.com/us/en/turbo-cotton/p/155771',
+    note: 'road-15 wave: PROMOTED — same specialized.com fetch as the 26c row above. Product page states verbatim: "700 x 28mm, Hell of the North, psi 85-95, approximate weight 260g" — matches this row exactly (also marketed under the "Hell of the North" name on the maker\'s own page, not just a retailer nickname). Price ($70) kept as an honestly-labeled sample (no US MSRP text captured on the fetched page).' },
 
   // ===== HEADSETS (road-5, Shimano-depth wave) ===============================
   // road-5 wave: the headset category previously had ZERO rows (the road-2/4
