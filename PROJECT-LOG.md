@@ -3272,3 +3272,65 @@ per wave/decision; large reconstructions are handed to a worker session.
   and delivered — this was always going to be the hard-to-source tail.
 - Gates green (validate 0 problems / 895 tests / tsc clean) at `100b625`.
 
+
+## 2026-07-21 (seat 16) — Five-chip wave merged: MTB tail 5, gravel-8, EMTB 6, road-12, build-diff
+
+All five chips Douglas dispatched this window landed together (no file overlaps, clean
+auto-merges); full gates + verdict harness green throughout.
+
+- **verify/mtb-tail-5**: `cb-specialized-chisel-sram` fully corrected — Specialized split
+  "Chisel" into a new full-suspension model and a separately-named "Chisel Hardtail"; this row
+  is the latter, re-priced and re-filled against the real live page (fork, tires, derailleur
+  SX→NX, and a genuine crank/BB spindle bug — DUB in the catalog vs Powerspline on the real
+  bike, 2 new/reused rows fix it). FC-MT612 identity flagged, not guessed: Shimano's current
+  spec table has no FC-MT610/611/612 at all; the row's chainline matches FC-MT510-1 far
+  better than the 511/512 siblings — needs your call (or a Canyon spec-sheet re-check) on
+  whether to correct the mfgPn. Ibis duplicate-SKU pairs confirmed still open (id-merge
+  decision, untouched). Investigated-no-change: SRAM rotor weights (WebSearch summary figures
+  didn't survive a raw-page check — phantom-number hazard caught again), 15 OE-only Fox forks
+  (no standalone SKU pages exist to verify against).
+- **catalog/gravel-8**: re-verified 6 gravel-1 bb86 frame claims per the fabricate-fill
+  audit's lead — 4 confirmed (Canyon Grail/Grizl, BMC URS, Bianchi Impulso), 1 genuinely
+  fabricated (**Rondo Ruut CF2 was never bb86 — maker page says EVO386/PF30**, corrected), 1
+  still an inference (Liv Devote, flagged). Caught a second bug on the BMC URS page-visit: its
+  seatpost was wrongly modeled as a generic 27.2mm round tube when the frame only takes its own
+  proprietary D-shaped aero post — fixed with a new OEM seatpost row + a `seatpost:'proprietary'`
+  vocab widen mirroring road's existing pattern (no engine change needed, `compat-road.js`
+  already handles it). Breadth: +2 wheels (Reynolds ATR 650B), +1 tire (Rene Herse 650B), all
+  fetch-sourced. Confirmed `bmx-fr-redline-prolineflight` (the fabricate-fill audit's suspect)
+  IS fictitious — retired for the real Proline Expert tier. 3 real bikes considered and
+  correctly rejected rather than force-fit (Wilier Jena's straight steerer, Tumbleweed/Curve's
+  out-of-vocab axle spacings, Argon 18's unconfirmable T47 width) — the axle-spacing ones need
+  an engine-level change, not just a vocab token, logged as out of scope. Worth flagging:
+  gravel.js's own header comment still called this "OFF-LIVE" in the worker's task brief even
+  though it's been live since this same day — the worker caught the staleness itself and
+  self-corrected its bar; a doc-hygiene pass should retire every remaining OFF-LIVE gravel
+  reference.
+- **verify/emtb-6**: fixed the Bullit XX trim-identity flag from emtb-5 — "Bullit XX AXS" was
+  fabricated (SRAM never sold an XX-tier Bullit); retitled to the real Shimano-era top trim
+  "Bullit X01 AXS RSV" with a full drivetrain/brake/motor/battery/travel/weight/price
+  correction sourced to BikeRadar's actual review. Measured-weight attempt on the other 6
+  blocked rows: 0 promoted — one promising bike-magazin.de figure rejected because its brake
+  spec contradicted the maker page (same discipline as the SRAM-rotor phantom-number catch
+  above).
+- **catalog/road-12**: resolved both road-11-flagged rows with real decisions, not more
+  flags — HUNT 36/48 Aerodynamicist confirmed fictitious (re-verified independently: only
+  three depth combos ever existed in HUNT's current or 2019-archived lineup) and **removed**
+  outright (no share link could reference it, road went live only the day before); Deda
+  M35/Trentacinque **retargeted** to its real current-catalog identity, "Superleggera 35"
+  (verbatim-matching tech copy confirms it's the same bar under a new name, not a different
+  product). Breadth: +7 cockpit/bartape rows verified (Zipp ×3 via SRAM's own model pages, FSA,
+  PRO, Fizik — the Fizik row's model string also needed correcting, "Vento Microtex" is now
+  sold as "Racefeel"). 6 more rows explicitly left unverified for stated reasons (ambiguous
+  SKU-family matches, walled page) rather than guessed.
+- **feat/build-diff-1**: the next feature-slate pick, landed. Garage-pair diff view following
+  the build-sheet precedent exactly — pure DI'd model + renderer, zero engine changes, 16 new
+  tests. Diffs by `verdictKey` (never message text), shows signed price/weight deltas (null,
+  never fabricated, against a weightless side), and one real-engine discovery baked into a
+  test comment: a fork swap legitimately produces a rule-20c advisory info on BOTH sides
+  (it names the fork), which looked at first like double-reporting but is the diff working
+  correctly. Coordinator browser-verified: `buildDiffModal` closed on load among all 12
+  dialogs, zero console errors, popup scan clean.
+- Gates green throughout (validate 0 problems / 911 tests / tsc clean / verdict harness clean,
+  section E pre-existing/unrelated) at `4cd9cc3`.
+
