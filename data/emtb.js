@@ -94,14 +94,15 @@ var EMTB_PARTS = [
     desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Gen/travel/frame corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, alloy H10 tier, 170mm travel not 160/150).'
   },
   {
-    id: 'em-canyon-spectral-on', cat: 'emtb', brand: 'Canyon', model: 'Spectral:ON',
+    id: 'em-canyon-spectral-on', cat: 'emtb', brand: 'Canyon', model: 'Spectral:ON CF 8',
     motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
-    batteryWh: 900, batteryRemovable: false, assist: 'full-power', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail', 'e-enduro'], weight: 24800, price: 7000,
-    note: 'Direct-to-consumer full-power trail bike; notably large 900 Wh battery.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed.'
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 155,
+    frameMaterial: 'carbon', drivetrain: 'Shimano Deore XT/SLX 12-speed', brakes: 'Shimano SLX M7120 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24440, price: 5999,
+    note: 'Direct-to-consumer full-power trail bike; mid-tier CF 8 build (Fox 36 Rhythm fork, Shimano XT/SLX drivetrain).',
+    desc: 'Verified vs the fetched maker page (canyon.com Spectral:ON CF 8). Model/wheel/battery/travel/drivetrain/brakes/weight/price corrected verify/emtb-4 wave 4 cluster A: the generic "Spectral:ON" row actually described no real single SKU — the platform is mullet (29in front/27.5in rear), not 29in-only; battery is 800Wh removable, not 900Wh fixed; rear travel is 155mm, not 150mm; and no current mainline trim runs SRAM GX Eagle Transmission/SRAM Code (that combo matched only the CF 9 AXS trim, now in Canyon\'s outlet/clearance section, not the active lineup) — retitled to the real, currently-sold CF 8 SKU with its confirmed Shimano XT/SLX drivetrain and SLX brakes. Weight (24.44kg) and price ($5,999 MSRP, site currently shows a $4,499 sale) both maker-page-sourced.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.canyon.com/en-gb/electric-bikes/electric-mountain-bikes/spectral-on/spectral-on-cf/spectral-on-cf-8/4077.html'
   },
   {
     id: 'em-cannondale-moterra', cat: 'emtb', brand: 'Cannondale', model: 'Moterra 4',
@@ -323,32 +324,35 @@ var EMTB_PARTS = [
   {
     id: 'em-canyon-spectral-on-cfr', cat: 'emtb', brand: 'Canyon', model: 'Spectral:ON CFR',
     motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
-    batteryWh: 900, batteryRemovable: false, assist: 'full-power', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Maven Silver',
-    disciplines: ['e-trail', 'e-enduro'], weight: 22900, price: 11500,
-    note: 'Top-tier CFR carbon Spectral:ON build.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 155,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'SRAM Maven Ultimate',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23900, price: 9499,
+    note: 'Top-tier CFR carbon Spectral:ON build (Fox 38 Factory fork option).',
+    desc: 'Verified vs the fetched maker page (canyon.com Spectral:ON CFR). Wheel/battery/travel/drivetrain/brakes/price corrected verify/emtb-4 wave 4 cluster A: mullet not 29in-only, 800Wh removable not 900Wh fixed, 155mm rear travel not 150mm, SRAM X0 Eagle AXS Transmission not XX SL, SRAM Maven Ultimate not Maven Silver. Weight (23.9kg) already matched the sample exactly. Price corrected to the $9,499 US MSRP (base-page listing shows a current $6,899 sale); the row already used the CFR name, which correctly identifies this real current top-tier SKU.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.canyon.com/en-gb/electric-bikes/electric-mountain-bikes/spectral-on/spectral-on-cfr/spectral-on-cfr/3530.html'
   },
   {
-    id: 'em-canyon-strive-on', cat: 'emtb', brand: 'Canyon', model: 'Strive:ON',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    id: 'em-canyon-strive-on', cat: 'emtb', brand: 'Canyon', model: 'Strive:ON CFR',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-enduro'], weight: 24500, price: 7500,
-    note: "Canyon's gravity-leaning e-enduro platform; longer travel than the Spectral:ON.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'carbon', drivetrain: 'Shimano Deore XT M8100 12-speed', brakes: 'Shimano Deore XT M8120 4-piston',
+    disciplines: ['e-enduro'], weight: 24300, price: 7499,
+    note: "Canyon's gravity-leaning e-enduro platform; longer travel than the Spectral:ON. Canyon relaunched the Strive:ON in May 2026 with a Bosch Gen 5 CX/CX-R motor (120Nm/750W) and a 750Wh battery, but that redesign is UK/EU/Canada-only with no announced US availability — this row instead matches the current US-market Strive:ON CFR (still Bosch-powered, previous-gen CX motor), the only Strive:ON actually sold in the same USD market as the rest of this row's fields.",
+    desc: 'Verified vs the fetched maker page (canyon.com/en-us Strive:ON CFR). Motor brand corrected verify/emtb-4 wave 4 cluster A (Shimano EP8 -> Bosch Performance Line CX — the catalog had the wrong motor maker entirely) plus drivetrain/brakes (SRAM GX Eagle Transmission/SRAM Code -> Shimano Deore XT M8100/M8120, the real CFR spec) and model retitled Strive:ON -> Strive:ON CFR to name the actual verified SKU. Wheel/travel/frame already matched. Weight (53.58lb/24.3kg) is maker-page-listed. Price set to the $7,499 US MSRP; the page currently shows a $6,399 sale.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.canyon.com/en-us/electric-bikes/electric-mountain-bikes/mountain-ebikes-striveon/cfr/strive-on-cfr/3429.html'
   },
   {
-    id: 'em-canyon-neuron-on', cat: 'emtb', brand: 'Canyon', model: 'Neuron:ON',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 130,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail'], weight: 22200, price: 5500,
-    note: "Canyon's lighter, shorter-travel XC/trail e-bike; smaller 630 Wh battery.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-canyon-neuron-on', cat: 'emtb', brand: 'Canyon', model: 'Neuron:ON AL 9',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 145,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM S1000 Eagle AXS Transmission', brakes: 'SRAM DB8 Stealth 4-piston',
+    disciplines: ['e-trail'], weight: 24900, price: 6439,
+    note: "Canyon's lighter, shorter-travel XC/trail e-bike; top-tier AL 9 build of the alloy Neuron:ON AL range (relaunched 2025 on Bosch power, not Shimano).",
+    desc: 'Verified vs the fetched maker page (canyon.com Neuron:ON AL 9) plus Canyon\'s own 2025 launch press release. Motor brand corrected verify/emtb-4 wave 4 cluster A (Shimano EP8 -> Bosch Performance Line CX — another wrong-motor-maker catch) plus battery/travel/drivetrain/brakes (630Wh -> 800Wh, 140/130mm -> 150/145mm travel, Shimano XT -> SRAM S1000 Eagle AXS Transmission, Shimano XT 4-piston -> SRAM DB8 Stealth 4-piston) and model retitled Neuron:ON -> Neuron:ON AL 9 to name the real top-tier SKU actually matching the drivetrain/brake spec. Weight (24.9kg) is maker-page-listed. Price: no US canyon.com listing found; EU RRP is EUR 5,499 (GBP 5,149) — used a US retailer (thebicyclesshops.com) selling the same SKU at $6,439 as the USD sample basis, stated here per THE PRICE RULE.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.canyon.com/en-gb/electric-bikes/electric-mountain-bikes/neuron-on/al/neuron-on-al-9/4059.html'
   },
 
   // ---------------------------------------------------------------------------
