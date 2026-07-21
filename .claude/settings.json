@@ -39,13 +39,13 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash",
+        "matcher": "Bash|PowerShell",
         "hooks": [
           {
             "type": "command",
-            "command": "node tools/hooks/guard-worktree-path.js",
+            "command": "node \"D:\\MTB Bike Builder\\tools\\hooks\\guard-worktree-path.js\"",
             "timeout": 10,
-            "statusMessage": "Checking file-containment rule"
+            "statusMessage": "File-containment guard"
           }
         ]
       }
