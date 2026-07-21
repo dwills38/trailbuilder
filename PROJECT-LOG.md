@@ -3712,3 +3712,23 @@ All eight chips from the final dispatch round are now landed (main `e10dbc2`+). 
   zero since the probe existed.**
 - Gates green (validate 0 problems / 965 tests / tsc clean / harness fully clean incl. E=0).
 
+
+## 2026-07-21 (seat 16) — Owned-vs-to-buy planner merged: THE FEATURE SLATE IS 8 OF 8 COMPLETE
+
+- **feat/owned-vs-buy-1** merged: the 8th and final committed slate pick (Douglas's 2026-07-19
+  brainstorm selections — Upgrade Advisor, Upgrade Optimizer, service log, recall watcher,
+  build sheet, build diff, owned-vs-buy planner, discontinued archive — ALL now shipped, the
+  last five of them today). The planner splits the current build into owned/to-buy per slot
+  for a signed-in rider: exact-id matching through canonicalId (retired ids still match,
+  unknown ids disclosed never dropped), quantity-honest allocation (qty 1 covers one of two
+  brake slots, reason spelled out), compat-gated owned-alternative suggestions via the
+  injected upgradePlacementDiff (error-adding alts excluded + disclosed, warning-only shown
+  with the engine's words verbatim, brand-blind tie-break), MSRP-only to-buy subtotal with
+  the kit-billing gap disclosed. 23 new tests (988 total). Coordinator browser-verified:
+  zero auto-open dialogs, button correctly hidden logged-out, zero console errors — on top
+  of the worker's stubbed-signed-in end-to-end evidence run.
+- **Per the feature-slate memory, slate completion triggers the follow-up Douglas asked for:
+  "once we get closer to the end, I will want to run another brainstorming session."** The
+  slate is done — the re-brainstorm is now formally due, on his word.
+- Gates green (validate 0 problems / 988 tests / tsc clean) at merge.
+
