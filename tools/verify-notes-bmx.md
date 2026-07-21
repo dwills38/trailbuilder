@@ -662,3 +662,50 @@ field.
 ## Distance to Douglas's 40% (90/225) go-live bar
 
 77->90 this wave (+13). **Bar cleared exactly on the nose (90/225 = 40.0%).**
+
+---
+
+# BMX hygiene pass — 2026-07-20 (catalog/bmx-hygiene-1)
+
+Scope: `data/bmx.js` only, per the coordinator's brief — NOT a verification wave (the 40%
+bar was already cleared by wave 7 above). Target: the Colony variant-ambiguity set flagged
+across waves 2/3/5 (see "Also confirmed real (raw curl), but NOT verified" above and its
+wave-5 re-confirmation) — products sold in 2+ rise/width variants behind one generic catalog
+row. A grep of the whole notes file for this pattern turned up exactly two candidates, both
+Colony bar models (`bmx-hb-colony-rick`, `bmx-hb-colony-guardian`); the Colony stem pair
+(Official/Variant) is a *different* wall (missing clamp-diameter field, not a rise/width
+split) and was left untouched.
+
+## Rows before -> after
+
+225 -> 227 (net +2: 2 generic rows removed, 4 variant-specific rows added).
+
+## Split map
+
+| Old (removed) | New rows | Source of split fields |
+|---|---|---|
+| `bmx-hb-colony-rick` (rise:8, width:29 guess) | `bmx-hb-colony-rick-865-28` (8.65in / 28.0in / 1039g), `bmx-hb-colony-rick-93-29` (9.3in / 29.0in / 1056g) | colonybmx.com.au, raw-curl-confirmed by BMX verify waves 2/3/5 (not re-fetched this pass) |
+| `bmx-hb-colony-guardian` (rise:8, width:29 guess) | `bmx-hb-colony-guardian-88-29` (8.8in / 29.0in / 864g), `bmx-hb-colony-guardian-94-29` (9.4in / 29.0in / 942g) | same |
+
+Both old ids retired by removal (not `status`/`supersededBy` or `ALIASES`): BMX has neither
+mechanism — `src/schema-bmx.js`'s `COMMON` field allowlist has no `status`/`supersededBy`
+entry, and BMX carries no `ALIASES`/`canonicalId` table (that's MTB-only, `src/compat.js`).
+Editing `src/schema-bmx.js` to add them was out of this pass's scope (`data/bmx.js` +
+this file only). Confirmed via grep across `data/`, `src/`, `test/` that neither old id was
+referenced anywhere before removal — same check the file's own prior
+`bmx-gr-odyssey-keyboard` removal (2026-07-17) applied, which is the precedent this pass
+follows. New ids are net-new strings, so the append-only rule (never reuse a retired id)
+still holds even without a formal alias record.
+
+Price on all 4 new rows is unchanged from the old row's danscomp.com (retailer) figure,
+carried forward per variant since no manufacturer per-variant USD price was found — none of
+the 4 rows are `verified:true` (weight/rise/width are real colonybmx.com.au numbers per the
+prior waves' raw-curl findings, but this pass didn't re-fetch them itself, and price
+provenance doesn't clear THE BAR). Verified count is unchanged at 90 (now 90/227, a smaller
+share of a slightly larger catalog) — expected for a hygiene pass, not a verification wave.
+
+## Gates
+
+`node validate.js`: **DATA OK / KIT OK / BMX OK (227 parts, 0 problems, 90 verified) / STRIDER
+OK / ROAD OK / GRAVEL OK / EMTB OK**. `npm test`: **844 passed (844)**. `npm run typecheck`:
+clean, no output.

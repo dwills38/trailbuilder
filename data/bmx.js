@@ -1444,15 +1444,38 @@ var BMX_PARTS = [
     teeth: 28, mount: 'spline', pitch: '1/8', price: 29.99,
     note: '7075-T6 5-spoke bolt-drive sprocket, ships with 19/22mm spindle adapters - cultcrew.com / danscomp.com.'
   },
+  // bmx-hb-colony-rick / bmx-hb-colony-guardian SPLIT 2026-07-20 (hygiene pass, catalog/bmx-hygiene-1):
+  // the single generic row per model was flat-SKU ambiguous — colonybmx.com.au raw-curl-confirmed
+  // (BMX verification waves 2/3/5, tools/verify-notes-bmx.md) that Colony currently sells BOTH
+  // bars in two real rise/width variants each, and the old row's rise:8/width:29 guess (never
+  // itemized on the danscomp.com listing it came from) didn't cleanly match either. Removed rather
+  // than aliased/status-flagged: BMX has no ALIASES/canonicalId or status/supersededBy field
+  // support (src/schema-bmx.js's COMMON allowlist has neither), and a grep of data/, src/, test/
+  // confirmed nothing referenced either id before removal (same check applied to the
+  // bmx-gr-odyssey-keyboard removal above). Both new ids are net-new, so the append-only id rule
+  // (never reuse a retired string) still holds. Per-variant rise/width/weight below are the
+  // colonybmx.com.au numbers the prior waves raw-curl-confirmed but left unpromoted for the
+  // ambiguity this split now resolves; price is still the old danscomp.com (retailer) figure,
+  // unconfirmed per-variant, so these stay unverified samples, not verified:true.
   {
-    id: 'bmx-hb-colony-rick', cat: 'handlebar', brand: 'Colony', model: 'Rick Bars',
-    clamp: '25.4mm', rise: 8, width: 29, price: 109.99,
-    note: 'danscomp.com listing; rise/width per this catalog\'s established Colony/freestyle-bar convention (not itemized in the listing snippet).'
+    id: 'bmx-hb-colony-rick-865-28', cat: 'handlebar', brand: 'Colony', model: 'Rick Bars 8.65in',
+    clamp: '25.4mm', rise: 8.65, width: 28, weight: 1039, price: 109.99,
+    note: 'colonybmx.com.au (raw-curl-confirmed, BMX verify waves 2/3/5): "8.65in" rise, "28.0in" width, 1039g. Price is the old danscomp.com retailer listing, unconfirmed for this specific variant — left unverified.'
   },
   {
-    id: 'bmx-hb-colony-guardian', cat: 'handlebar', brand: 'Colony', model: 'Guardian Bars',
-    clamp: '25.4mm', rise: 8, width: 29, price: 89.99,
-    note: 'danscomp.com listing; rise/width per this catalog\'s established Colony/freestyle-bar convention (not itemized in the listing snippet).'
+    id: 'bmx-hb-colony-rick-93-29', cat: 'handlebar', brand: 'Colony', model: 'Rick Bars 9.3in',
+    clamp: '25.4mm', rise: 9.3, width: 29, weight: 1056, price: 109.99,
+    note: 'colonybmx.com.au (raw-curl-confirmed, BMX verify waves 2/3/5): "9.3in" rise, "29.0in" width, 1056g. Price is the old danscomp.com retailer listing, unconfirmed for this specific variant — left unverified.'
+  },
+  {
+    id: 'bmx-hb-colony-guardian-88-29', cat: 'handlebar', brand: 'Colony', model: 'Guardian Bars 8.8in',
+    clamp: '25.4mm', rise: 8.8, width: 29, weight: 864, price: 89.99,
+    note: 'colonybmx.com.au (raw-curl-confirmed, BMX verify waves 2/3/5): "8.8in" rise, "29.0in" width, 864g. Price is the old danscomp.com retailer listing, unconfirmed for this specific variant — left unverified.'
+  },
+  {
+    id: 'bmx-hb-colony-guardian-94-29', cat: 'handlebar', brand: 'Colony', model: 'Guardian Bars 9.4in',
+    clamp: '25.4mm', rise: 9.4, width: 29, weight: 942, price: 89.99,
+    note: 'colonybmx.com.au (raw-curl-confirmed, BMX verify waves 2/3/5): "9.4in" rise, "29.0in" width, 942g. Price is the old danscomp.com retailer listing, unconfirmed for this specific variant — left unverified.'
   },
   {
     id: 'bmx-gr-odyssey-broc', cat: 'grips', brand: 'Odyssey', model: 'Broc Grips',
