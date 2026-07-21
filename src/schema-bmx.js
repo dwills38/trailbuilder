@@ -51,7 +51,11 @@ var LOCAL_VOCAB = {
      (clipless pedal, a real shipped value — pedals are the one BMX category
      that legitimately comes in flat AND clipless, same as the MTB catalog's
      pedal.style axis). */
-  platform:    ['plastic', 'alloy', 'clip']
+  platform:    ['plastic', 'alloy', 'clip'],
+  /* Lifecycle status — mirrors src/schema.js's VOCAB.status verbatim (added
+     alongside BMX_ALIASES, src/compat-bmx.js, for the id-retirement/tombstone
+     mechanism). Absent = current. */
+  status:      ['current', 'discontinued', 'recalled']
 };
 
 /** @param {string} v */
@@ -126,8 +130,8 @@ function vocabValues(vocabKey){
   return (BMX_VOCAB && BMX_VOCAB[vocabKey]) || LOCAL_VOCAB[vocabKey];
 }
 
-/** @param {any} p @param {Date} today @returns {string[]} */
-function validateBmxPart(p, today){
+/** @param {any} p @param {Date} today @param {Object.<string, boolean>} [idSet] optional full-catalog id set, for the supersededBy cross-check (validateBmxCatalog passes it; a direct validateBmxPart(p, today) call — as the existing tests do — skips only that one cross-reference check) @returns {string[]} */
+function validateBmxPart(p, today, idSet){
   /** @type {string[]} */ var probs = [];
   var at = '[' + (p && p.id ? p.id : '?') + ']';
   /** @param {string} m */
@@ -157,6 +161,19 @@ function validateBmxPart(p, today){
   if('modelYear' in p && p.modelYear != null && !(isNum(p.modelYear) && p.modelYear >= 1980 && p.modelYear <= 2100))
     bad('modelYear must be a number between 1980 and 2100');
 
+  // lifecycle status + supersededBy — mirrors schema.js's contract verbatim.
+  // supersededBy's cross-reference check only runs when the caller passed an
+  // idSet (validateBmxCatalog always does; a bare validateBmxPart(p, today)
+  // call, like the existing direct-call tests use, skips just that one check
+  // rather than requiring every caller to thread a full-catalog id set).
+  if('status' in p && p.status != null && (!isStr(p.status) || LOCAL_VOCAB.status.indexOf(p.status) < 0))
+    bad('status "' + p.status + '" not in [' + LOCAL_VOCAB.status.join(', ') + ']');
+  if('supersededBy' in p && p.supersededBy != null){
+    if(!isStr(p.supersededBy)) bad('supersededBy must be a part id');
+    else if(idSet && !idSet[p.supersededBy]) bad('supersededBy references unknown BMX part "' + p.supersededBy + '"');
+    else if(p.supersededBy === p.id) bad('a part cannot supersede itself');
+  }
+
   var spec = BMX_SCHEMA[p.cat];
   Object.keys(spec).forEach(function(field){
     var rule = spec[field];
@@ -179,7 +196,7 @@ function validateBmxPart(p, today){
   // catches typos (a field spelled differently than every other row).
   /** @type {Object.<string, number>} */
   var COMMON = { id:1, cat:1, brand:1, model:1, price:1, weight:1, note:1, verified:1, lastChecked:1, source:1,
-    family:1, modelYear:1, mfgPn:1, sourceType:1, weightSource:1 };
+    family:1, modelYear:1, mfgPn:1, sourceType:1, weightSource:1, status:1, supersededBy:1 };
   Object.keys(p).forEach(function(k){
     if(COMMON[k] || spec[k]) return;
     bad('unknown field "' + k + '" for category "' + p.cat + '"');
@@ -192,13 +209,18 @@ function validateBmxPart(p, today){
 function validateBmxCatalog(parts, today){
   var t = today || new Date();
   /** @type {string[]} */ var probs = [];
+  // Built in its own pass, before per-part validation, so supersededBy can
+  // reference a part appearing anywhere in the array (order-independent) —
+  // same idea as schema.js's ctx.has, scoped down to just the id set.
+  /** @type {Object.<string, boolean>} */ var idSet = {};
+  parts.forEach(function(p){ if(p && isStr(p.id)) idSet[p.id] = true; });
   /** @type {Object.<string, boolean>} */ var seenIds = {};
   parts.forEach(function(p){
     if(p && isStr(p.id)){
       if(seenIds[p.id]) probs.push('[' + p.id + '] duplicate id');
       seenIds[p.id] = true;
     }
-    probs = probs.concat(validateBmxPart(p, t));
+    probs = probs.concat(validateBmxPart(p, t, idSet));
   });
   return probs;
 }

@@ -85,3 +85,41 @@ test('a duplicate id across the catalog is caught', function(){
   var probs = S.validateBmxCatalog(D.BMX_PARTS.concat([Object.assign({}, frame)]), TODAY);
   ok(probs.some(function(m){ return /duplicate id/.test(m); }), probs.join('\n'));
 });
+
+/* ---- status / supersededBy (added alongside BMX_ALIASES, src/compat-bmx.js) */
+
+test('a bad status value is caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { status: 'sold-out' });
+  var probs = S.validateBmxPart(bad, TODAY);
+  ok(probs.some(function(m){ return /status.*not in/.test(m); }), probs.join('\n'));
+});
+
+test('a valid status value passes', function(){
+  var frame = aFrame();
+  var good = Object.assign({}, frame, { status: 'discontinued' });
+  eq(S.validateBmxPart(good, TODAY).length, 0);
+});
+
+test('a dangling supersededBy is caught when the catalog id set is known', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { supersededBy: 'bmx-fr-never-existed' });
+  var probs = S.validateBmxCatalog(D.BMX_PARTS.map(function(p){ return p.id === frame.id ? bad : p; }), TODAY);
+  ok(probs.some(function(m){ return /supersededBy references unknown/.test(m); }), probs.join('\n'));
+});
+
+test('a self-referencing supersededBy is caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { supersededBy: frame.id });
+  var probs = S.validateBmxPart(bad, TODAY);
+  ok(probs.some(function(m){ return /supersede itself/.test(m); }), probs.join('\n'));
+});
+
+test('a valid supersededBy pointing at a real BMX part passes', function(){
+  var frame = aFrame();
+  var other = D.BMX_PARTS.find(function(p){ return p.cat === 'frame' && p.id !== frame.id; });
+  if(!other) throw new Error('need a second BMX frame row for this test');
+  var good = Object.assign({}, frame, { supersededBy: other.id });
+  var probs = S.validateBmxCatalog(D.BMX_PARTS.map(function(p){ return p.id === frame.id ? good : p; }), TODAY);
+  ok(!probs.some(function(m){ return /supersededBy/.test(m); }), probs.join('\n'));
+});
