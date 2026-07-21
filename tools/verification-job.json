@@ -1,12 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T17:03:52.622Z",
+ "updated": "2026-07-21T18:21:50.232Z",
  "batchSize": 25,
  "lastCompleted": "cr-shimano-mt612-30",
  "currentCategory": "frame",
  "queue": [
-  "fr-airdrop-edit-mx",
   "fr-giant-reign-advanced",
   "fr-kona-process-153",
   "fr-kona-process-153-carbon",
@@ -26,7 +25,6 @@
   "ti-cst-camber-29-225",
   "ti-bontrager-xr1-29-22-innerstrength-tmspeed",
   "ti-bontrager-xr5-29-25-tmgrip",
-  "ti-bontrager-xr5-275-25-tmgrip",
   "ti-bontrager-se5-275-25-corestrength-tmgrip",
   "ti-bontrager-se5-275-26-corestrength-tmgrip",
   "ti-bontrager-se4-275-26-tmgrip",
@@ -62,7 +60,6 @@
   "ti-schwalbe-racing-ray-29-225-sg-asg",
   "ti-maxxis-ardent-race-29-22-exo",
   "ti-bontrager-xr4-29-26-innerstrength-tmgrip",
-  "ti-bontrager-gunnisonpro-xr-29-24",
   "ti-bontrager-g5-29-25",
   "ti-bontrager-xr4-29-24-innerstrength-tmgrip",
   "ti-wtb-breakout-29-23",
@@ -87,8 +84,6 @@
   "ti-schwalbe-racing-ray-29-235-sg-asg",
   "ti-veerubber-crowngem-275-28",
   "ti-bontrager-brevardpro-xr-275-25-dual",
-  "ti-bontrager-brevardpro-xr-29-25-dual",
-  "ti-bontrager-sainteanne-proxr-29-24",
   "ti-bontrager-sainteanne-proxr-29-22",
   "fw-raceface-ar30-factor-29",
   "fw-sonder-nova-29",
@@ -1296,9 +1291,7 @@
   "cb-evil-wreckoning-ls-x0-transmission",
   "cb-evil-wreckoning-ls-gx-i9-hydra",
   "cb-evil-wreckoning-ls-xx-transmission",
-  "cb-trek-roscoe-8-gen3",
   "cb-trek-roscoe-7-gen4",
-  "cb-trek-roscoe-9",
   "cb-trek-session-8-29-gx",
   "cb-trek-topfuel-9-8-gx-axs-gen4",
   "cb-trek-fuelex-98-xt-gen6",
@@ -1313,20 +1306,11 @@
   "cb-cannondale-habit-ht-2",
   "cb-cannondale-habit-ht-3",
   "cb-intense-tracer-279-expert",
-  "cb-specialized-stumpjumper-15-expert",
   "cb-specialized-stumpjumper-15-alloy",
-  "cb-specialized-stumpjumper-15-evo-comp-alloy",
   "cb-specialized-enduro-comp",
-  "cb-specialized-enduro-expert",
-  "cb-specialized-enduro-pro",
   "cb-specialized-status-2-170",
   "cb-specialized-chisel-sram",
-  "cb-specialized-chisel-shimano",
-  "cb-specialized-fuse-comp-29",
-  "cb-specialized-stumpjumper-15-evo-pro",
-  "cb-specialized-stumpjumper-15-evo-comp",
   "cb-specialized-epic-world-cup-expert",
-  "cb-specialized-epic-world-cup-pro",
   "cb-chromag-rootdown-gx",
   "cb-nukeproof-scout-290-race",
   "cb-focus-jam-68",
@@ -1377,16 +1361,6 @@
   "cb-orbea-rallon-m20",
   "cb-orbea-rallon-m10",
   "cb-orbea-rallon-mltd",
-  "cb-specialized-stumpjumper-15-pro",
-  "cb-specialized-stumpjumper-15-sworks",
-  "cb-specialized-stumpjumper-15-evo-expert-di2",
-  "cb-specialized-epic-8-pro",
-  "cb-specialized-epic-8-sworks",
-  "cb-specialized-epic-8-evo-pro",
-  "cb-specialized-epic-8-evo-expert",
-  "cb-specialized-chisel-comp-evo",
-  "cb-specialized-chisel-hardtail-comp",
-  "cb-specialized-status-2-140",
   "cb-canyon-torque-mullet-cf-7",
   "cb-canyon-torque-mullet-cf-8",
   "cb-scott-spark-rc-team",
@@ -1395,9 +1369,7 @@
   "cb-norco-sight-c3-mx",
   "cb-norco-optic-c1",
   "cb-kona-honzo-esd",
-  "cb-trek-marlin-7-gen3",
   "cb-trek-xcaliber-8",
-  "cb-specialized-fuse-expert-29",
   "cb-norco-fluid-ht-1",
   "cb-norco-fluid-ht-2",
   "cb-norco-torrent-ht-s1",
@@ -1434,7 +1406,6 @@
   "cb-intense-m1-pro",
   "cb-yt-tues-core4",
   "cb-specialized-rockhopper",
-  "cb-specialized-rockhopper-sport",
   "cb-specialized-rockhopper-comp",
   "cb-specialized-rockhopper-expert",
   "cb-diamondback-syncr",
@@ -25697,10 +25668,10 @@
   },
   "fr-airdrop-edit-mx": {
    "cat": "frame",
-   "status": "InProgress",
-   "updated": "2026-07-21T17:03:52.621Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.229Z",
    "error": null,
-   "source": null,
+   "source": "https://www.airdropbikes.com/en-us/pages/edit-mx-frame-specification",
    "note": "Interfaces maker-confirmed (airdropbikes.com direct fetch) but no frame weight published anywhere on the fetched page. Weight bar unmeetable."
   },
   "fr-bird-aeris-9": {
@@ -26833,11 +26804,11 @@
   },
   "ti-bontrager-xr5-275-25-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/tubeless-ready-bike-tires/tubeless-ready-mountain-bike-tires/bontrager-xr5-team-issue-tlr-mtb-tire/p/5253213/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-bontrager-se5-275-25-corestrength-tmgrip": {
    "cat": "tire",
@@ -27193,11 +27164,11 @@
   },
   "ti-bontrager-gunnisonpro-xr-29-24": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/tubeless-ready-bike-tires/tubeless-ready-mountain-bike-tires/bontrager-gunnison-pro-xr-tlr-mtb-tire/p/44489/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-bontrager-g5-29-25": {
    "cat": "tire",
@@ -27553,11 +27524,11 @@
   },
   "ti-bontrager-brevardpro-xr-29-25-dual": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/tubeless-ready-bike-tires/tubeless-ready-mountain-bike-tires/bontrager-brevard-pro-xr-tlr-mtb-tire/p/44576/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-maxxis-minion-dhr-ii-29-23-exo-mt": {
    "cat": "tire",
@@ -27569,11 +27540,11 @@
   },
   "ti-bontrager-sainteanne-proxr-29-24": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/tubeless-ready-bike-tires/tubeless-ready-mountain-bike-tires/bontrager-sainte-anne-pro-xr-tlr-mtb-tire/p/44575/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-bontrager-sainteanne-proxr-29-22": {
    "cat": "tire",
@@ -38489,11 +38460,11 @@
   },
   "cb-trek-roscoe-8-gen3": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/trail-mountain-bikes/roscoe/roscoe-8/p/35117/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-trek-roscoe-7-gen4": {
    "cat": "completebike",
@@ -38505,11 +38476,11 @@
   },
   "cb-trek-roscoe-9": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/trail-mountain-bikes/roscoe/roscoe-9/p/35118/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-trek-session-8-29-gx": {
    "cat": "completebike",
@@ -38761,11 +38732,11 @@
   },
   "cb-specialized-stumpjumper-15-expert": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/stumpjumper-15-expert-sram-gx-axs-fox-performance-elite/p/4221401",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-stumpjumper-15-alloy": {
    "cat": "completebike",
@@ -38777,11 +38748,11 @@
   },
   "cb-specialized-stumpjumper-15-evo-comp-alloy": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/stumpjumper-15-evo-alloy-comp-sram-eagle-70-fox-rhythm/p/4221474",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-enduro-comp": {
    "cat": "completebike",
@@ -38793,19 +38764,19 @@
   },
   "cb-specialized-enduro-expert": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/enduro-expert/p/221257",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-enduro-pro": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/enduro-pro/p/4276010",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-epic-8-comp": {
    "cat": "completebike",
@@ -38833,35 +38804,35 @@
   },
   "cb-specialized-chisel-shimano": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/chisel-shimano/p/4274029",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-fuse-comp-29": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/fuse-comp-29/p/199945",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-stumpjumper-15-evo-pro": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/stumpjumper-15-evo-pro-sram-x0-axs-fox-factory/p/4221482",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-stumpjumper-15-evo-comp": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/stumpjumper-15-evo-comp-sram-s-1000-axs-fox-rhythm/p/4221472",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-epic-world-cup-expert": {
    "cat": "completebike",
@@ -38873,11 +38844,11 @@
   },
   "cb-specialized-epic-world-cup-pro": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/epic-world-cup-pro-sram-x0-axs-rockshox-ultimate/p/4221514",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-chromag-rootdown-gx": {
    "cat": "completebike",
@@ -39513,83 +39484,83 @@
   },
   "cb-specialized-stumpjumper-15-pro": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.231Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/stumpjumper-15-pro-sram-x0-axs-fox-factory/p/4221403",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-stumpjumper-15-sworks": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.231Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/s-works-stumpjumper-15-sram-xx-axs-fox-factory/p/4221406",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-stumpjumper-15-evo-expert-di2": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.231Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/stumpjumper-15-evo-expert-shimano-xt-di2-fox-performance-elite/p/4291645",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-epic-8-pro": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.231Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/epic-8-pro-sram-x0-axs-rockshox-ultimate/p/220874",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-epic-8-sworks": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.231Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/s-works-epic-8-sram-xx-sl-axs-rockshox-ultimate-flight-attendant/p/220875",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-epic-8-evo-pro": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.231Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/epic-8-evo-pro-sram-x0-axs-fox-factory/p/220885",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-epic-8-evo-expert": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.231Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/epic-8-evo-expert-sram-gx-axs-fox-performance-elite/p/4275710",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-chisel-comp-evo": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.231Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/chisel-comp-evo/p/4274939",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-chisel-hardtail-comp": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.231Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/chisel-hardtail-comp/p/4221772",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-status-2-140": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.231Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/status-2-140/p/4221412",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-liv-pique-advanced-29-2": {
    "cat": "completebike",
@@ -39721,11 +39692,11 @@
   },
   "cb-trek-marlin-7-gen3": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.231Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekstore.co.uk/shop/bikes/mountain/trek-2026-marlin-7-gen-3-18485/option/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-giant-fathom-1": {
    "cat": "completebike",
@@ -39769,11 +39740,11 @@
   },
   "cb-specialized-fuse-expert-29": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.231Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/fuse-expert-29/p/199944",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-norco-fluid-ht-1": {
    "cat": "completebike",
@@ -40089,11 +40060,11 @@
   },
   "cb-specialized-rockhopper-sport": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.231Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/rockhopper-sport/p/4221767",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-rockhopper-comp": {
    "cat": "completebike",
@@ -40749,6 +40720,14 @@
    "updated": "2026-07-21T16:07:50.975Z",
    "error": null,
    "source": "https://www.sram.com/en/sram/models/fc-sx-1-a1",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "st-bontrager-comp-318-7deg-50": {
+   "cat": "stem",
+   "status": "Verified",
+   "updated": "2026-07-21T18:21:50.230Z",
+   "error": null,
+   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/trail-mountain-bikes/roscoe/roscoe-8/p/35117/",
    "note": "auto-promoted: already verified in catalog"
   }
  }
