@@ -32,14 +32,15 @@
 var EMTB_PARTS = [
 
   {
-    id: 'em-specialized-turbo-levo', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo 4',
+    id: 'em-specialized-turbo-levo', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo 4 Expert',
     motorBrand: 'specialized', motorModel: 'Specialized 3.1 (Full Power System)', motorTorque: 105, motorPowerPeak: 810,
     batteryWh: 840, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail', 'e-enduro'], weight: 22700, price: 8500,
-    note: 'The category-defining full-power trail e-MTB, now on the 3.1 motor (105Nm/810W, up from the 2.2\'s 90Nm); mixed-wheel, MasterMind TCU top-tube display.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Motor generation corrected verify/emtb-3 wave 3 phase 2 (2.2 -> 3.1).'
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24410, price: 8499,
+    note: 'The category-defining full-power trail e-MTB, on the 3.1 motor (105Nm/810W); mixed-wheel (29in front/27.5in rear), MasterMind TCU top-tube display, FOX 38 Performance Elite/FLOAT X Performance Elite suspension. There is no plain unsuffixed "Turbo Levo 4" SKU — this is the Expert build.',
+    desc: 'Verified vs the maker spec page (motor/battery/travel/frame/drivetrain/brakes/weight/price all confirmed). Model corrected verify/emtb-4 wave 4 cluster E ("Turbo Levo 4" is not a sold SKU name -> "Turbo Levo 4 Expert", the closest-priced real trim); brakes corrected (SRAM Code -> Maven Silver); weight corrected to the maker\'s exact size-S4 figure (22.7kg sample -> 24.41kg real, size S4); price $8,500 sample -> $8,499.99 exact MSRP.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.specialized.com/us/en/turbo-levo-4-expert/p/4218704'
   },
   {
     id: 'em-trek-rail', cat: 'emtb', brand: 'Trek', model: 'Rail+',
@@ -119,14 +120,15 @@ var EMTB_PARTS = [
     verified: true, lastChecked: '2026-07-20', source: 'https://www.cannondale.com/en-us/bikes/electric/e-mountain/moterra-neo/moterra-4-smu'
   },
   {
-    id: 'em-transition-relay', cat: 'emtb', brand: 'Transition', model: 'Relay',
-    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
+    id: 'em-transition-relay', cat: 'emtb', brand: 'Transition', model: 'Relay Carbon',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60, motorPowerPeak: 450,
     batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail'], weight: 19500, price: 8000,
-    note: 'Lightweight ("SL") Fazua-powered bike — rides close to an acoustic trail bike.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — the lightweight-class representative; specs approximate, not maker-confirmed.'
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 90 Transmission', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-trail'], weight: 19500, price: 9199,
+    note: 'Lightweight ("SL") Fazua-powered bike — rides close to an acoustic trail bike. The real Relay carbon base build runs 29in wheels at 160mm F/R (mixed-wheel/170mm is the separate Relay PNW variant), SRAM Eagle 90 mechanical Transmission (not GX AXS), and Maven Bronze brakes.',
+    desc: 'Verified vs the maker page (transitionbikes.com/Bikes/Relay, build-select spec table) for motor/battery/travel/wheel/frame/drivetrain/brakes and MSRP ($9,199; site also shows a $5,999 sale price, basis noted). Weight kept as the pre-existing nominal sample: Transition publishes only an aggregate "starting at 42.5lb/19.27kg with battery" figure, not tied to this exact build/size, so per the fork/wheel/shock interface-verification convention the weight stays unverified/nominal while interfaces are maker-confirmed. Model/wheel/travel/drivetrain/brakes/price corrected verify/emtb-4 wave 4 cluster E (Relay -> Relay Carbon, mullet 160/150 -> 29in 160/160, GX Eagle Transmission -> SRAM Eagle 90 Transmission, SRAM Code -> Maven Bronze, $8000 -> $9,199 MSRP). No Shimano-drivetrain Relay trim exists.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.transitionbikes.com/Bikes/Relay'
   },
   {
     id: 'em-rocky-mountain-altitude-powerplay', cat: 'emtb', brand: 'Rocky Mountain', model: 'Altitude Powerplay Alloy 50',
@@ -148,40 +150,44 @@ var EMTB_PARTS = [
     motorBrand: 'specialized', motorModel: 'Specialized 3.1 (Full Power System)', motorTorque: 105, motorPowerPeak: 810,
     batteryWh: 840, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
-    disciplines: ['e-trail', 'e-enduro'], weight: 24500, price: 4999,
-    note: 'Entry-level alloy-frame Turbo Levo trim; same motor/battery as the carbon range.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor generation corrected verify/emtb-3 wave 3 phase 2 (2.2 -> 3.1); price matched to the current Turbo Levo 4 Alloy US MSRP.'
+    frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 70 T-Type', brakes: 'SRAM DB8 Stealth',
+    disciplines: ['e-trail', 'e-enduro'], weight: 26080, price: 4999,
+    note: 'Entry-level alloy-frame Turbo Levo trim; same motor/battery as the carbon range, but a mechanical (non-AXS) SRAM Eagle 70 T-Type drivetrain and SRAM DB8 brakes, not GX Eagle/Code R.',
+    desc: 'Verified vs the maker spec page (motor/battery/travel/frame/drivetrain/brakes/weight/price all confirmed). Drivetrain and brakes corrected verify/emtb-4 wave 4 cluster E (SRAM GX Eagle -> SRAM Eagle 70 T-Type mechanical, SRAM Code R -> SRAM DB8 Stealth); weight corrected to the maker\'s exact size-S4 figure (24.5kg sample -> 26.08kg real). Price ($4,999.99) already matched exactly.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.specialized.com/us/en/turbo-levo-4-alloy/p/4221347'
   },
   {
     id: 'em-specialized-turbo-levo-pro', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo 4 Pro',
     motorBrand: 'specialized', motorModel: 'Specialized 3.1 (Full Power System)', motorTorque: 105, motorPowerPeak: 810,
     batteryWh: 840, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-trail', 'e-enduro'], weight: 21500, price: 10299,
-    note: 'Top-tier non-S-Works carbon Levo trim; 840 Wh battery, up to 1120Wh with the range extender.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor generation corrected verify/emtb-3 wave 3 phase 2 (2.2 -> 3.1); price matched to the current Levo 4 Pro MSRP.'
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23940, price: 9999,
+    note: 'Top-tier non-S-Works carbon Levo trim; 840 Wh battery, up to 1120Wh with the range extender. Real drivetrain is SRAM X0 Eagle Transmission (not XX SL) with Maven Silver brakes.',
+    desc: 'Verified vs the maker spec page (motor/battery/travel/frame/drivetrain/brakes/weight/price all confirmed). Drivetrain/brakes/weight/price corrected verify/emtb-4 wave 4 cluster E (SRAM XX SL Eagle Transmission -> SRAM X0 Eagle Transmission [no XX SL Levo 4 trim exists below S-Works], SRAM Code Ultimate -> Maven Silver, 21.5kg sample -> 23.94kg real size-S4 weight, $10,299 sample -> $9,999.99 MSRP).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.specialized.com/us/en/turbo-levo-4-pro/p/4218702'
   },
   {
-    id: 'em-specialized-turbo-levo-sl-expert', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo SL Expert',
-    motorBrand: 'specialized', motorModel: 'Specialized SL 1.2', motorTorque: 50,
+    id: 'em-specialized-turbo-levo-sl-expert', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo SL 2 Expert',
+    motorBrand: 'specialized', motorModel: 'Specialized SL 1.2', motorTorque: 50, motorPowerPeak: 320,
     batteryWh: 320, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code RSC',
-    disciplines: ['e-trail'], weight: 18200, price: 9500,
-    note: 'Lightweight ("SL") class trail bike; acoustic-close handling, small 320 Wh battery.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-trail'], weight: 18980, price: 8999,
+    note: 'Lightweight ("SL") class trail bike; acoustic-close handling, small 320 Wh battery. The current lineup is "Levo SL 2" (not plain "Levo SL"); real fork travel is 160mm (frame\'s "150mm travel" figure is the rear).',
+    desc: 'Verified vs the maker spec page (motor/battery/travel/frame/drivetrain/brakes/weight/price all confirmed). Model/travel/drivetrain/brakes/weight/price corrected verify/emtb-4 wave 4 cluster E (Turbo Levo SL Expert -> Turbo Levo SL 2 Expert [current gen name], 150/150 -> 160/150 travel, SRAM X0 Eagle Transmission -> SRAM GX Eagle Transmission, SRAM Code RSC -> Maven Bronze, 18.2kg sample -> 18.98kg real size-S4 weight, $9,500 sample -> $8,999.99 MSRP).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.specialized.com/us/en/turbo-levo-sl-2-expert/p/4277412'
   },
   {
     id: 'em-specialized-turbo-kenevo-sl-expert', cat: 'emtb', brand: 'Specialized', model: 'Turbo Kenevo SL 2 Expert',
     motorBrand: 'specialized', motorModel: 'Specialized SL 1.2', motorTorque: 50, motorPowerPeak: 320,
     batteryWh: 320, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
     wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 170,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code RSC',
-    disciplines: ['e-enduro'], weight: 19200, price: 8499,
-    note: 'The line renamed Kenevo SL 2; lightweight gravity/enduro-travel SL platform, longest travel in the Specialized e-range, now on 29in wheels (was mullet) and 29% more torque via the SL 1.2 motor.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor generation + wheel config corrected verify/emtb-3 wave 3 phase 2 (SL 1.1 -> SL 1.2, mullet -> 29in).'
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-enduro'], weight: 20320, price: 8499,
+    note: 'The line renamed Kenevo SL 2; lightweight gravity/enduro-travel SL platform, longest travel in the Specialized e-range, on 29in wheels and the SL 1.2 motor. Real brakes are SRAM Maven Bronze (not Code RSC).',
+    desc: 'Verified vs the maker spec page (motor/battery/travel/frame/drivetrain/brakes/weight/price all confirmed). Brakes/weight corrected verify/emtb-4 wave 4 cluster E (SRAM Code RSC -> Maven Bronze, 19.2kg sample -> 20.32kg real size-S4 weight); price ($8,499.99) and 29in wheel config already matched exactly (wheel config was previously corrected verify/emtb-3, reconfirmed this pass).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.specialized.com/us/en/turbo-kenevo-sl-2-expert/p/4277407'
   },
 
   // ---------------------------------------------------------------------------
@@ -461,24 +467,26 @@ var EMTB_PARTS = [
   // Transition depth (Relay Alloy XT + Relay Carbon X0 AXS)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-transition-relay-alloy-xt', cat: 'emtb', brand: 'Transition', model: 'Relay Alloy XT',
-    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
+    id: 'em-transition-relay-alloy-xt', cat: 'emtb', brand: 'Transition', model: 'Relay PNW Alloy',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60, motorPowerPeak: 450,
     batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail'], weight: 20200, price: 6000,
-    note: 'Entry alloy Relay trim; same Fazua Ride 60 motor as the carbon range.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 90 Transmission', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-trail'], weight: 20200, price: 7899,
+    note: 'Entry alloy Relay trim; same Fazua Ride 60 motor as the carbon range. The real mixed-wheel/170mm build is branded "Relay PNW" (a flip-chip sibling of the 29in/160mm "Relay"); there is no Shimano-drivetrain trim.',
+    desc: 'Verified vs the maker page (transitionbikes.com/Bikes/Relay, build-select spec table) for motor/battery/travel/wheel/frame/drivetrain/brakes and MSRP ($7,899; site also shows a $4,999 sale price, basis noted). Weight kept as the pre-existing nominal sample per the fork/wheel/shock interface-verification convention — Transition publishes only an aggregate "starting at" bike weight, not a per-build figure. Model/travel/drivetrain/brakes/price corrected verify/emtb-4 wave 4 cluster E (Relay Alloy XT -> Relay PNW Alloy [no XT trim exists], 160/150 -> 170/170, Shimano XT -> SRAM Eagle 90 Transmission, Shimano XT 4-piston -> SRAM Maven Bronze, $6,000 -> $7,899 MSRP).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.transitionbikes.com/Bikes/Relay'
   },
   {
-    id: 'em-transition-relay-carbon-x0-axs', cat: 'emtb', brand: 'Transition', model: 'Relay Carbon X0 AXS',
-    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
+    id: 'em-transition-relay-carbon-x0-axs', cat: 'emtb', brand: 'Transition', model: 'Relay PNW Carbon',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60, motorPowerPeak: 450,
     batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail'], weight: 19100, price: 9500,
-    note: 'Higher-tier carbon Relay trim; SRAM X0 Transmission upgrade.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 90 Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail'], weight: 19100, price: 9999,
+    note: 'Top-tier carbon Relay PNW build (mixed wheel, 170mm F/R); SRAM Maven Silver brakes + HS2 rotors over the base Maven Bronze/Centerline spec. Drivetrain is the same mechanical SRAM Eagle 90 Transmission as every other Relay build, not an X0 AXS electronic group — no AXS Relay trim exists.',
+    desc: 'Verified vs the maker page (transitionbikes.com/Bikes/Relay, build-select spec table) for motor/battery/travel/wheel/frame/drivetrain/brakes and MSRP ($9,999; site also shows a $6,599 sale price, basis noted). Weight kept as the pre-existing nominal sample per the fork/wheel/shock interface-verification convention — Transition publishes only an aggregate "starting at" bike weight, not a per-build figure. Model/travel/drivetrain/brakes/price corrected verify/emtb-4 wave 4 cluster E (Relay Carbon X0 AXS -> Relay PNW Carbon [no AXS trim exists], 160/150 -> 170/170, SRAM X0 Eagle Transmission -> SRAM Eagle 90 Transmission (mechanical), SRAM Code -> Maven Silver, $9,500 -> $9,999 MSRP).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.transitionbikes.com/Bikes/Relay'
   },
 
   // ---------------------------------------------------------------------------
@@ -678,14 +686,15 @@ var EMTB_PARTS = [
   // Scott (new maker) — Patron eRIDE (gravity), Genius eRide (trail), Lumen eRIDE (lightweight)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-scott-patron-eride-900-tuned', cat: 'emtb', brand: 'Scott', model: 'Patron eRIDE 900 Tuned',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5, BDU384Y)', motorTorque: 85, motorPowerPeak: 750,
+    id: 'em-scott-patron-eride-900-tuned', cat: 'emtb', brand: 'Scott', model: 'Patron ST 900 Tuned',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX-R (BDU386Y, SmartSystem)', motorTorque: 85, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-enduro'], weight: 24800, price: 10500,
-    note: "Scott's Patron confirmed still Bosch Performance Line CX (Gen 5, BDU384Y), now on the larger 800Wh PowerTube; current lineup runs 29in wheels (not mixed) with 150mm travel front and rear.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Gen/battery/wheel/travel corrected verify/emtb-3 wave 3 phase 2 (Gen 5 confirmed, 750->800Wh, mullet->29in, 170/160->150/150mm).'
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-enduro'], weight: 24400, price: 13299,
+    note: 'The current Patron eRIDE splits into a "900" do-it-all series and an "ST" (Super Trail) series for bigger impacts; this is the ST 900 Tuned, the range-topper — no plain "Patron eRIDE 900 Tuned" (non-ST) SKU exists. Real spec is Bosch CX-R (SmartSystem, BDU386Y) on 170mm front/150mm rear travel, 29in wheels both ends (not mixed), SRAM X0 Eagle AXS Transmission, SRAM Maven Silver brakes.',
+    desc: 'Verified vs the maker product page (motor/battery/travel/wheel/frame/drivetrain/brakes/weight all confirmed). Model/travel/drivetrain/brakes/weight corrected verify/emtb-4 wave 4 cluster E ("Patron eRIDE 900 Tuned" -> "Patron ST 900 Tuned" [real SKU name], 150/150 -> 170/150 travel, SRAM X0 Eagle Transmission -> SRAM X0 Eagle AXS Transmission, SRAM Code Ultimate -> Maven Silver, 24.8kg -> 24.4kg maker-stated weight). PRICE RULE: this SKU is not sold in the US (scott-sports.com/us/en 404s on it) — price is GBP 10,599 maker RRP converted to a ~$13,299 USD sample at time of check; no US MSRP exists.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.scott-sports.com/global/en/product/scott-patron-st-900-tuned-bike'
   },
   {
     id: 'em-scott-genius-eride-910', cat: 'emtb', brand: 'Scott', model: 'Genius eRide 910',
@@ -696,17 +705,18 @@ var EMTB_PARTS = [
     disciplines: ['e-trail'], weight: 22600, price: 6200,
     status: 'discontinued', supersededBy: 'em-scott-genius-eride-910-bosch-cx-gen4',
     note: "Scott's full-power trail e-MTB on the Shimano EP8 motor.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the Genius eRIDE runs Bosch Performance CX Gen 4, not Shimano EP8 (verify/emtb-3).'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the Genius eRIDE runs Bosch Performance CX Gen 4, not Shimano EP8 (verify/emtb-3). Wave 4 cluster E finding (2026-07-20): the whole Genius eRIDE nameplate has since been retired by Scott — scott-sports.com no longer lists "Genius eRIDE" under E-Bikes at all, replaced by the new "Voltage eRIDE" line (TQ-HPR motor, not Bosch). No Voltage row exists in this catalog yet (out of this cluster\'s scope), so supersededBy still points at the last real Genius eRIDE row rather than inventing one; left unverified per policy.'
   },
   {
-    id: 'em-scott-lumen-eride-910', cat: 'emtb', brand: 'Scott', model: 'Lumen eRIDE 910',
+    id: 'em-scott-lumen-eride-910', cat: 'emtb', brand: 'Scott', model: 'Lumen eRIDE 900',
     motorBrand: 'tq', motorModel: 'TQ-HPR50', motorTorque: 50,
     batteryWh: 360, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 120, travelRear: 120,
-    frameMaterial: 'carbon', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail'], weight: 16800, price: 8500,
-    note: 'Lightweight XC/downcountry-leaning Scott on the quiet TQ HPR50 motor.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: '29', suspension: 'full', travelFront: 130, travelRear: 130,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS Transmission', brakes: 'SRAM Level Silver',
+    disciplines: ['e-trail'], weight: 16600, price: 9999,
+    note: 'Lightweight XC/downcountry-leaning Scott on the quiet TQ HPR50 motor. The current range-topper is "Lumen eRIDE 900" — there is no "910" trim in the current lineup. Real drivetrain is SRAM GX Eagle AXS Transmission (not Shimano XT) with SRAM Level Silver brakes.',
+    desc: 'Verified vs the maker product page (motor/battery/travel/wheel/frame/drivetrain/brakes/weight all confirmed). Model/travel/drivetrain/brakes/weight/price corrected verify/emtb-4 wave 4 cluster E ("Lumen eRIDE 910" -> "Lumen eRIDE 900" [current top trim, no 910 exists], 120/120 -> 130/130 travel, Shimano XT -> SRAM GX Eagle AXS Transmission, Shimano XT 4-piston -> SRAM Level Silver, 16.8kg sample -> 16.6kg maker weight, $8,500 sample -> $9,999.99 confirmed US MSRP via scott-sports.com/us/en/lumen).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.scott-sports.com/gb/en/product/scott-lumen-eride-900-bike'
   },
 
   // ---------------------------------------------------------------------------
@@ -1164,8 +1174,9 @@ var EMTB_PARTS = [
     wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS Transmission', brakes: 'SRAM Code',
     disciplines: ['e-trail'], weight: 23400, price: 6559,
-    note: "Scott's full-power trail e-MTB runs Bosch Performance CX Gen 4, not Shimano EP8; optional 500Wh Range Booster brings total capacity to 1125Wh.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    status: 'discontinued',
+    note: "Scott's full-power trail e-MTB ran Bosch Performance CX Gen 4, not Shimano EP8; optional 500Wh Range Booster brought total capacity to 1125Wh. Wave 4 cluster E finding (2026-07-20): Scott has since fully retired the \"Genius eRIDE\" nameplate — scott-sports.com's E-Bikes > Mountain nav now lists only Lumen, Voltage and Patron; Genius eRIDE is gone entirely, replaced by the new \"Voltage eRIDE\" line (TQ-HPR motor). This row is marked discontinued rather than re-pointed at a fabricated successor id.",
+    desc: 'Unverified sample (best-credible-public) — not maker-confirmed; the bar cannot be met because the maker page this row would need no longer exists (Genius eRIDE was removed from scott-sports.com, not merely updated). Marked status:discontinued verify/emtb-4 wave 4 cluster E rather than leaving it looking current; left unverified per protocol (no live maker page to confirm against, and inventing a Voltage eRIDE successor row is out of this cluster\'s scope).'
   },
   {
     id: 'em-vitus-e-sommet-297-vrx', cat: 'emtb', brand: 'Vitus', model: 'E-Sommet 297 VRX',
