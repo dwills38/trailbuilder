@@ -1,5 +1,15 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — kit-12: the promotion-hunt pattern mostly evaporates (a good sign)
+
+- **verify/kit-12 merged**: kit 543→544. The kit-11 "fetched-but-never-flagged" lead
+  largely dissolved on inspection — of 46 keyword candidates, 45 were correctly-withheld
+  rows (documented walls, identity ambiguity, plain samples); only ONE genuine
+  ran-out-of-time gap existed (Scott Fury goggle). Promoted it with a fresh re-fetch that
+  caught real price drift ($59.95→$79.95 since 07-17 — notes DO go stale; the re-fetch-
+  before-promote rule paid for itself immediately). Negative finding worth keeping: the
+  prior waves' withholding discipline was near-perfect. Gates: 7 OK, 988 tests, tsc clean.
+
 ## 2026-07-21 — gravel-verify-3: material check CLEAN, 18 promotions, 12 fabrication flags
 
 - **verify/gravel-verify-3 merged**: gravel 118→135 verified. Task A (the systemic
