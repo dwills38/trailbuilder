@@ -1,8 +1,9 @@
 # Paste-ready worker blocks — refreshed by seat 16 (2026-07-21)
 
 Douglas dispatches these himself so he controls model + effort (CLAUDE.md Hard rule #4).
-**Nothing is in flight right now** — gravel-7, kit-11, service log, the fabricate-fill audit,
-its fix chip, cb-sheets-6, and road-11 all landed on main this seat, and the bb86/pf86 vocab
+**Nothing is in flight right now** — every chip from the last two dispatch rounds (gravel-7,
+kit-11, service log, fabricate-fill audit + its fix chip, cb-sheets-6, road-11, mtb-tail-5,
+gravel-8, emtb-6, road-12, build-diff-1) landed on main this seat, and the bb86/pf86 vocab
 merge is done. Queue below is fully open to dispatch.
 
 **Clauses baked into every block** (verify before handing one over): fresh worktree with a
@@ -28,47 +29,65 @@ quote (two conflicting first-party sources = the conservative value stands).
 
 ## Queue (dispatch when a lane frees up)
 
-### 1. [Sonnet, medium] MTB tail 5 — the remaining verification tail
-~1,880 unverified MTB rows; the biggest levers left: rotors via measured-weight sources
-(SRAM/Shimano/Campagnolo publish none), the FC-MT612 identity call (Douglas), Fox fork
-weights (tech sheets are dimensional-only), plus 2 flagged-not-fixed items from cb-sheets-6
-worth a quick follow-up look: 2 Ibis duplicate-SKU pairs (an id-merge decision) and
-`cb-specialized-chisel-sram` (no live match — likely discontinued).
+### 1. [Sonnet, medium] MTB tail 6 — rotors, Fox forks, Ibis duplicate call
+~1,876 unverified MTB rows. Three concrete levers left, each genuinely hard (prior waves
+hit real dead ends, don't just repeat the same searches): (a) 17 unverified SRAM rotor rows
+— SRAM publishes no rotor weights at all, needs a `sourceType:'measured'` figure that
+survives a raw-page re-check (mtb-tail-5 rejected a WebSearch-summary figure that didn't
+appear on the actual cited page — phantom-number hazard, verify before committing); (b) ~15
+Fox forks are OE-only travel points with no standalone SKU page — the ones with an
+engineering PDF/JPG spec sheet need a vision read (pdftoppm-rendered), not pdftotext; (c) the
+Ibis Ripmo V3 / Ripley V5 GX-AXS-vs-GX-Transmission duplicate-SKU pairs are flagged in their
+own `desc` fields from two prior waves now — this pass should make the id-merge CALL (not
+just re-flag it a third time): confirm via ibiscycles.com whether each pair is really one SKU
+sold under two catalog ids, and if so do the retirement properly (ALIASES + verify-job
+tombstone). Also worth a look: Formula/Tektro/Clarks/TRP/Galfer entry-tier rotors (untouched
+so far). Gates: node validate.js + npm test + npx tsc --noEmit + node
+tools/verdict-audit-harness.js (compat.js changes). Never push — present the branch. Final
+act: write the report to .claude/worker-reports/mtb-tail-6.md before any send_message.
 
-### 2. [Sonnet, medium] GRAVEL 8 — toward the ~300-row target
-Breadth again after two depth waves + the fabricate-fill fix. Frame brands with static
-pages, 650b wheel depth. The four logged schema-vocab non-fits stay logged (square-taper,
-slider dropouts, 36.1mm post, Wilier) unless Douglas rules on vocab additions. Lead with
-gravel-1's remaining bb86 frame claims (Canyon Grail CF SL, Grizl, BMC URS, Rondo Ruut,
-Bianchi Impulso, Liv Devote) — plausible-but-unfetched and share the exact field two rows
-just proved fabricated. Two suspects from the fabricate-fill audit still need their own
-fetch: `bmx-fr-redline-prolineflight` (redlinebicycles.com) and
-`ghs-cannondale-si-zs44-ec49` (unsourced, non-load-bearing).
+### 2. [Sonnet, medium] GRAVEL 9 — breadth + two loose threads
+Toward the ~300-row target. Two specific follow-ups from gravel-8 worth closing rather than
+re-flagging: Liv Devote Advanced 1's bb86 is still an inference (try Liv's geometry/spec PDF,
+not linked from the current product page); the Cannondale SI ZS44/EC49 headset row is
+probably a brand/spec mismatch (Cannondale's real "SI" system is Lefty/Headshok IS42-family,
+not a ZS44/EC49 SKU) — re-source it as a real Cane Creek/WOOdman product or drop it. Then
+general breadth: frame brands with static pages, 650b wheel depth. The schema-vocab non-fits
+logged so far (square-taper, slider dropouts, 36.1mm post, Wilier's straight steerer,
+Tumbleweed/Curve's out-of-vocab axle spacings) stay logged — don't invent vocab or force a
+fit; the axle-spacing ones need an engine-level change in compat-road.js, out of scope for a
+data wave. Gates: node validate.js + npm test + npx tsc --noEmit. Never push — present the
+branch. Final act: write the report to .claude/worker-reports/gravel-9.md before any
+send_message.
 
-### 3. [Sonnet, low] STRIDERS 2 — the blocked eight, one retry
-8/36 rows blocked on no-maker-weight; a measured-weight (sourceType:'measured') sweep is
-the only path; low yield expected, low effort priced in.
+### 3. [Sonnet, medium] ROAD 13 — Ritchey identity chase + breadth
+Three Ritchey cockpit rows (hb-ritchey-wcs-streem, st-ritchey-wcs-c260,
+sp-ritchey-comp-two-bolt) look like the same stale-naming pattern road-11/12 already solved
+twice (Shimano FC-RX600-2, Deda M35) — Ritchey's current lineup has "WCS Streem Internal
+Routing" and "Superlogic C260 84D" but nothing matching these exact names. Chase down real
+current-catalog matches or confirm discontinued, same discipline as the Deda resolution.
+Also worth a look: st-fsa-kforce (4 current K-Force stem variants, none cleanly matches),
+pd-look-keo-blade-carbon (naming may be descriptive not a tier), bt-supacaz-super-sticky-kush
+(walled both routes last time — retry once). Then general unverified-count breadth. Gates:
+node validate.js + npm test + npx tsc --noEmit. Never push — present the branch. Final act:
+write the report to .claude/worker-reports/road-13.md before any send_message.
 
-### 4. [Fable, high] FEATURE SLATE — BUILD DIFF (compare two saved builds)
-The next committed slate pick, now that service-log has landed (same index.html lane — ONE
-at a time). Garage-pair diff view: parts added/removed/swapped, price/weight deltas, verdict
-deltas via checkBuild on both builds. Click-opened, zero engine changes, DI-extracted
-module + tests, the build-sheet precedent for print styling if wanted.
-
-### 5. [Sonnet, medium] EMTB 6 — measured-weight + trim tail
-26 blocked rows (twice-confirmed walls) need sourceType:'measured' figures or stay honest;
-plus the Bullit XX trim-identity fix from emtb-5's flag. Compact packet, e-content in
-data/emtb.js only.
-
-### 6. [Sonnet, medium] ROAD 12 — Specialized remainder + wheel/cockpit close-out
-road-11 closed the wheels/cockpit tail it took; road still has open threads worth a wave:
-the 2 flagged-not-fixed rows (HUNT 36/48 Aerodynamicist — likely fictitious SKU, no matching
-product found anywhere, consider retiring; Deda M35/Trentacinque — conflates two different
-Deda products, retarget or retire) need a coordinator-style call baked into the brief rather
-than left open again, plus whatever road-brand breadth is still thin.
+### 4. [Sonnet, low] KIT 12 — ION/Loose Riders/Pearl Izumi retry, one more pass
+The SKU-ambiguity walls on these three brands have now been independently re-confirmed twice
+(kit-10, kit-11) — low expected yield, but worth one more pass specifically hunting the
+"prior session fetched real data into `desc` but never flagged `verified:true`" pattern
+kit-11 found (7 candidates surfaced, only 2 were safe to promote) — scan the rest of the kit
+catalog for that shape before spending budget on new fetches. Gates: node validate.js + npm
+test + npx tsc --noEmit. Never push — present the branch. Final act: write the report to
+.claude/worker-reports/kit-12.md before any send_message.
 
 ---
 
-**Held pending Douglas:** the Cloudflare redirect batch (5 rows, his clicks — table in
-domain-portfolio memory); FC-MT612 identity; gravel CX-tag + rim-brake vocab; the carried
-decision-queue tail (see the SEAT 16 block).
+**Held pending Douglas:**
+- **FC-MT612 identity** (new, mtb-tail-5): Shimano's current spec table has no FC-MT610/611/612
+  at all — the row's chainline (52mm) matches FC-MT510-1 far better than the 511/512 siblings.
+  Your call: correct the mfgPn to FC-MT510-1, or re-check against Canyon's own spec page first
+  (this part's likely origin) before deciding.
+- The Cloudflare redirect batch (5 rows, his clicks — table in domain-portfolio memory)
+- gravel CX-tag + rim-brake vocab
+- the carried decision-queue tail (see the SEAT 16 block in COORDINATOR-HANDOFF.md)
