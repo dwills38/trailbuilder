@@ -72,7 +72,10 @@ var GRAVEL_VOCAB = {
   ringStd:      ['t-type'],
   clamp:        ['31.8'],
   style:        ['clip'],
-  suspension:   ['rigid', 'suspension']
+  suspension:   ['rigid', 'suspension'],
+  // lifecycle (ported from src/schema.js — mirrors its frame lifecycle convention;
+  // absent = current). Same 3-value vocab as the live catalog's VOCAB.status.
+  status:       ['current', 'discontinued', 'recalled']
 };
 
 /** @typedef {{type: 'number'|'string'|'bool'|'numArray'|'strArray'|'map'|'numOrNull'|'strOrNull', vocab?: string, optional?: boolean}} GravelFieldRule */
@@ -208,6 +211,22 @@ function validateGravelPart(p, today){
   if('modelYear' in p && p.modelYear != null && !(isNum(p.modelYear) && p.modelYear >= 1980 && p.modelYear <= 2100))
     bad('modelYear must be a number between 1980 and 2100');
 
+  // lifecycle (ported from src/schema.js): status is a closed vocab; supersededBy
+  // is type-checked here (must be a string, can't self-reference) but its
+  // cross-reference against real catalog ids happens in validateGravelCatalog's
+  // second pass, same as schema-emtb.js's port — a single-part check can't see
+  // sibling ids, and a forward reference (superseding a part later in the array)
+  // must not false-positive.
+  if('status' in p && p.status != null){
+    var statusVals = vocabValues('status');
+    if(!isStr(p.status) || !statusVals || statusVals.indexOf(p.status) < 0)
+      bad('status "' + p.status + '" not in [' + (statusVals || []).join(', ') + ']');
+  }
+  if('supersededBy' in p && p.supersededBy != null){
+    if(!isStr(p.supersededBy)) bad('supersededBy must be a part id');
+    else if(p.supersededBy === p.id) bad('a part cannot supersede itself');
+  }
+
   var spec = GRAVEL_SCHEMA[p.cat];
   Object.keys(spec).forEach(function(field){
     var rule = spec[field];
@@ -249,7 +268,7 @@ function validateGravelPart(p, today){
   // catches typos (a field spelled differently than every other row).
   /** @type {Object.<string, number>} */
   var COMMON = { id:1, cat:1, brand:1, model:1, price:1, weight:1, note:1, verified:1, lastChecked:1, source:1,
-    family:1, modelYear:1, mfgPn:1, sourceType:1, weightSource:1, archiveUrl:1, gen:1 };
+    family:1, modelYear:1, mfgPn:1, sourceType:1, weightSource:1, archiveUrl:1, gen:1, status:1, supersededBy:1 };
   Object.keys(p).forEach(function(k){
     if(COMMON[k] || spec[k]) return;
     bad('unknown field "' + k + '" for category "' + p.cat + '"');
@@ -269,6 +288,11 @@ function validateGravelCatalog(parts, today){
       seenIds[p.id] = true;
     }
     probs = probs.concat(validateGravelPart(p, t));
+  });
+  parts.forEach(function(p){
+    if(!p || !isStr(p.id) || p.supersededBy == null) return;
+    var at = '[' + p.id + ']';
+    if(!seenIds[p.supersededBy]) probs.push(at + ' supersededBy references unknown part "' + p.supersededBy + '"');
   });
   return probs;
 }
