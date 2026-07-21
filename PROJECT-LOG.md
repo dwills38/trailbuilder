@@ -3117,3 +3117,32 @@ per wave/decision; large reconstructions are handed to a worker session.
   kit w5 (+ the 3-row tiebreak), gravel w2, forks tail, feature slate #4 recall watcher,
   #16 discontinued archive.
 - Moot Monday road reminder cleared (both road chips already ran and merged).
+
+## 2026-07-21 (seat 16) — Seating + first harvest: gravel-7, kit-11 merged; fabricate-fill audit lands
+
+- Seated as seat 16 (succession handshake sent to seat 15; watchers re-armed: hourly fleet
+  sweep cron + persistent worker-reports folder Monitor, both session-lifetime).
+- **catalog/gravel-7** merged (`9caa7d7` wave): Ekar Ergopower/caliper split reconfirmed (real
+  two-SKU product, not a bundle — the 07-21 bundled-shift-brake exception doesn't apply);
+  `status`/`supersededBy` lifecycle ported into `schema-gravel.js` (schema-emtb.js precedent),
+  applied to the two discontinued Levante rows; +8 verified via WTB/Panaracer tire fetches
+  (gravel 78→86 verified). Flagged doc-staleness: CLAUDE.md/data/gravel.js header still say
+  gravel is off-live even though `00f1531`/`6bafffc` flipped it live 2026-07-21 — follow-up.
+- **verify/kit-11** merged: +5 verified (Handup shorts/pants, DHaRCO Gravity Shorts, Bliss
+  ARG Minimalist+ kneepad, Fasthouse Crossline 2.0 — kit 534→539). Re-confirmed ION/Loose
+  Riders/Pearl Izumi walls are still real (SKU proliferation / site migration / rate-limits,
+  not staleness). Judgment note worth reusing: prior-session real fetches recorded in `desc`
+  but never flagged `verified:true` are a real backlog class — re-confirm live, then promote.
+- **audit/fabricate-fill-1 (fabricate-fill audit) — REPORT ONLY, nothing merged.** Traced the
+  gravel-6-caught BB86/BB72 swap to two already-merged waves (gravel-1, gravel-grind-1) and
+  found the root cause is worse than the swap: **`gfr-trek-checkpoint-sl-7`'s `bb:'bb86'` is
+  itself fabricated — Trek's own spec table says T47 internal-bearing** — so the Checkpoint
+  golden currently pairs a real frame with a physically wrong BB family. 3 more confirmed-wrong
+  rows (Checkpoint ALR 5 same bb error, `gbb-praxis-t47`'s DUB pairing invented — Praxis makes
+  no DUB T47, Hunt "650B Adventure Wide" is a phantom model chimera-ing two real SKUs) + 2
+  unconfirmed suspects (Redline "Proline Flight" — no such trim; Cannondale SI ZS44/EC49
+  headset, unsourced). Fix list is 9 items (`.claude/worker-reports/fabricate-fill-audit.md`
+  §6) — routes through Douglas before any catalog edit, per the audit's REPORT-ONLY design.
+  Vessels archived (report harvested, no branch to merge — audit touched zero files).
+- Gates green throughout (validate 0 problems / 875 tests / tsc clean) at `9caa7d7`.
+
