@@ -460,3 +460,48 @@ session for every one, none promoted on a stale prior-wave fetch alone per THE B
 - Madison gloves (DTE, Flux) — madison.co.uk redirects to freewheel.co.uk (retailer, not maker);
   the apparent maker domain madison.cc renders JS-only (WebFetch/Exa both returned an empty
   shell) — worth a browser-pane attempt next time, not re-tried here.
+
+## Kit Wave 10 (2026-07-21, branch `verify/kit-10`) — naming-ambiguity resolution
+
+Scope: the waves-4–9 flagged set — 17 rows whose catalog name matched no live SKU, including
+Douglas's standing TLD Grind/Roost flag. Every verdict has a fetched-page basis. Verdicts:
+**retargeted** = renamed live product, re-scoped per the running-change rule (id append-only);
+**discontinued** = provably existed (maker/retailer/review trail), gone from the maker's current
+line → `status:'discontinued'`; **fabricated** = no trace the name ever existed → row left in
+place with the finding recorded in `desc`, retirement recommended.
+
+Full per-row verdict table with URLs: this wave's worker report
+(`.claude/worker-reports/kit-10.md`). Summary:
+
+- **Retargeted (3):** `jsy-troyleedesigns-ruckus-ss` → "Ruckus Ride 3/4 Tee" $83 verified
+  (maker collection: 35 Ruckus products, all 3/4 or LS — a short-sleeve never existed; 3/4
+  modeled as `long` per the no-3/4-token precedent); `jsy-fasthouse-classic-ss` → "Classic
+  Outland SS Jersey" $60 verified (Classic line sells per-colorway); `jsy-pearlizumi-summit-ls`
+  → "Canyon LS" $65 **unverified** (rename evidence: competitivecyclist's summit-LS slug serves
+  the Canyon LS page; pearlizumi.com still 429-walls every fetch — retry candidate).
+- **Resolved live (1):** `jsy-fox-ranger-ss` — the plain "Ranger Jersey" (#32436, $54.95) has a
+  live product page despite being absent from the 106-item category listing swept on 07-17.
+  Lesson: **a Fox category listing is not the full catalog — probe `/product/<slug>/<style>.html`
+  before concluding a plain-name row is dead.**
+- **Discontinued (5):** `jsy-fox-flexair-pro-ls` (28865 404s; live Pro tier is SS-only),
+  `jsy-royalracing-turbulence-ss` (BikeRadar-reviewed; current Royal line is Apex/Core only),
+  `sht-royalracing-impact` (Vital 2017+2018 model years; BTO says maker-discontinued),
+  `jsy-shimano-explorer-ss` (exact-name Chain Reaction/Backcountry listings from the 2021
+  Explorer Collection — overturns the 07-17 "couldn't pin identity" verdict),
+  `sht-sweetprotection-hunterenduro` (men's SKU Blister/feedthehabit-reviewed; only the womens
+  survives on the maker site).
+- **Fabricated (6, retirement recommended):** `sho-troyleedesigns-grind` (Grind = a TLD flannel
+  shirt, not a shoe), `sho-troyleedesigns-roost` (zero footwear in 29 maker-search hits),
+  `jsy-fox-ranger-foxguard-ls` (no "Foxguard" anywhere ever; concept = the live Defend LS),
+  `jsy-fasthouse-alloycole-ss` ("Cole" matches no Alloy colorway any era),
+  `jsy-fasthouse-alloyrufio-ls` (Rufio exists only in the Grindhouse MOTO line — retarget not
+  advised), `sht-royalracing-apex` (Apex has been pants-only in every source),
+  `pnt-poc-resistance-enduro` ("Resistance Enduro" only ever named shorts; pants tier is Rhythm
+  Resistance / Resistance Pro DH), `jsy-7mesh-slab-ls` ("Slab" only ever named shorts). [8 total
+  incl. the two TLD shoes.]
+- **Structural flag:** 8 fabrication verdicts now sit in-catalog awaiting retirement, and
+  `src/kit.js` has **no ALIASES/tombstone mechanism** — one is needed (compat.js pattern)
+  before any row can be removed without breaking kit share-links/garage payloads.
+- **Not in this wave** (flagged but not naming-ambiguity): the ION Traze/Scrub/Seek AMP cluster
+  (SKU/price proliferation — identity clear, price isn't) and the Loose Riders C/S row
+  (EUR-pricing policy pending with Douglas).
