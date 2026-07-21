@@ -488,24 +488,24 @@ var EMTB_PARTS = [
   // Haibike (new maker) — AllMtn (Yamaha) + Nduro (Bosch)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-haibike-allmtn-9', cat: 'emtb', brand: 'Haibike', model: 'AllMtn 9',
+    id: 'em-haibike-allmtn-9', cat: 'emtb', brand: 'Haibike', model: 'AllMtn 3',
     motorBrand: 'yamaha', motorModel: 'Yamaha PW-X3', motorTorque: 85, motorPowerPeak: 250,
     batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail', 'e-enduro'], weight: 23600, price: 8000,
-    note: "Haibike's flagship full-power trail/enduro bike on the Yamaha PW-X3 motor (250W/85Nm/720Wh InTube battery — confirmed continuous across the current AllMtn 2/3 lineup); the exact \"AllMtn 9\" tier-number naming was not independently confirmed against the current lineup's numbering.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor spec confirmed verify/emtb-3 wave 3 phase 2 (PW-X3/85Nm/720Wh matches current AllMtn pages exactly); wave 2 phase 1 flagged this "Unclear" but the platform turned out correct as entered.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano Deore 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23600, price: 5600,
+    note: "Haibike's flagship full-power all-mountain bike on the Yamaha PW-X3 motor (250W/85Nm/720Wh InTube battery).",
+    desc: 'Corrected, still unverified verify/emtb-4 wave 4 cluster B (no maker-stated bike weight found — interfaces fetched-page-confirmed but weight bar not met, so verified:true withheld). Model/trim corrected: no Haibike AllMtn trim is numbered "9" — the current lineup runs AllMtn 1/2/3, and 3 is the top full-power trim (Shimano Deore drivetrain + Deore BR-MT420 4-piston brakes, RockShox 35 Gold RL fork, RockShox Deluxe Select R shock, 160mm front AND rear travel). Frame corrected carbon -> aluminum, rear travel 150 -> 160mm, drivetrain SRAM GX Eagle Transmission -> Shimano Deore (real spec, no SRAM Transmission on any current AllMtn trim), brakes SRAM Code -> Shimano Deore 4-piston. Price: EUR 5,199 RRP (haibike.com int/US-toggle page, still EUR-denominated) converted to a $5,600 USD sample — no confirmed US MSRP found. Previously flagged verify/emtb-3 as "PW-X3/85Nm/720Wh matches current AllMtn pages exactly" — that motor/battery reading holds; the frame/drivetrain/brake fields did not and are corrected here.'
   },
   {
-    id: 'em-haibike-nduro-8', cat: 'emtb', brand: 'Haibike', model: 'Nduro 8',
+    id: 'em-haibike-nduro-8', cat: 'emtb', brand: 'Haibike', model: 'Nduro 8 Freeride',
     motorBrand: 'yamaha', motorModel: 'Yamaha PW-X3', motorTorque: 85, motorPowerPeak: 250,
     batteryWh: 720, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-enduro'], weight: 25200, price: 6200,
-    note: 'Gravity-leaning Haibike Enduro platform; every current NDURO 6/7 build runs the Yamaha PW-X3 (720Wh InTube battery, optional range extender), not Bosch — the exact "Nduro 8" tier-number naming was not independently confirmed against the current lineup.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor brand corrected verify/emtb-3 wave 3 phase 2 (Bosch Performance Line CX -> Yamaha PW-X3, 800 -> 720Wh) — this row was the wave 2 phase 1 "Unclear" flag guessing a Yamaha/Bosch split that does not exist; Haibike runs Yamaha across both AllMtn and Nduro.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 180,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-enduro'], weight: 25200, price: 8100,
+    note: 'Gravity/freeride-leaning Haibike Enduro platform on the Yamaha PW-X3 (720Wh InTube battery, optional range extender); RockShox ZEB Ultimate fork, Mavic E-Deemax wheels.',
+    desc: 'Corrected, still unverified verify/emtb-4 wave 4 cluster B (no maker-stated bike weight found — interfaces fetched-page-confirmed but weight bar not met, so verified:true withheld). "Nduro 8" is real but the maker\'s full name is "NDURO 8 FREERIDE" — added to the model field. Corrected: travel 170/160 -> 180/180mm (RockShox ZEB Ultimate front, matching rear), drivetrain Shimano XT -> SRAM GX Eagle (real spec: Sram GX Eagle 12s shifter/derailleur/chain), brakes Shimano XT 4-piston -> SRAM DB Maven Bronze 4-piston (220mm front/203mm rear). Price: EUR 7,499 RRP converted to a $8,100 USD sample — no confirmed US MSRP found. Previously corrected verify/emtb-3 wave 3 phase 2 (motor brand Bosch -> Yamaha, 800 -> 720Wh) — that reading holds; frame/drivetrain/brake/travel fields did not and are corrected here.'
   },
 
   // ---------------------------------------------------------------------------
