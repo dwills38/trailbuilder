@@ -1,11 +1,14 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T19:58:18.193Z",
+ "updated": "2026-07-21T20:04:02.407Z",
  "batchSize": 25,
  "lastCompleted": "ti-bontrager-g5-29-25",
- "currentCategory": "frame",
+ "currentCategory": "frontwheel",
  "queue": [
+  "fw-bontrager-linepro-30-29",
+  "rw-bontrager-linepro-30-275-xd",
+  "rw-bontrager-linepro-30-29-xd",
   "fr-giant-reign-advanced",
   "fr-kona-process-153",
   "fr-kona-process-153-carbon",
@@ -85,13 +88,9 @@
   "fw-zipp-3zero-moto-275",
   "fw-roval-control-sl-29",
   "fw-roval-control-sl-29-cl",
-  "fw-bontrager-line-pro-30-275",
   "fw-bontrager-linecomp-30-29",
   "fw-bontrager-linecomp-30-275",
-  "fw-bontrager-linepro-30-29",
   "fw-bontrager-lineelite-30-275",
-  "fw-bontrager-line-elite-30-29",
-  "fw-bontrager-line-elite-30-275",
   "fw-bontrager-kovee-elite-30-29",
   "fw-reserve-30sl-29",
   "fw-reserve-30sl-275",
@@ -235,7 +234,6 @@
   "rw-stans-flow-s2-29-ms",
   "rw-sonder-nova-29-hg",
   "rw-bontrager-linecomp-30-275-ms",
-  "rw-bontrager-linepro-30-275-xd",
   "rw-bontrager-lineelite-30-275-xd",
   "rw-bontrager-kovee-elite-30-29-ms",
   "rw-bontrager-linecomp-30-29-xd",
@@ -268,10 +266,8 @@
   "rw-roval-traverse-hd-275-ms",
   "rw-roval-control-sl-29-xd",
   "rw-roval-control-sl-29-ms",
-  "rw-bontrager-line-pro-30-275-xd",
   "rw-bontrager-line-pro-30-29-ms",
   "rw-bontrager-line-pro-30-275-ms",
-  "rw-bontrager-line-elite-30-29-xd",
   "rw-bontrager-line-elite-30-29-ms",
   "rw-bontrager-line-elite-30-29-hg",
   "rw-bontrager-line-elite-30-275-xd",
@@ -383,7 +379,6 @@
   "rw-bontrager-line-comp-30-29-ms",
   "rw-bontrager-linetlr30-roscoeoe-29",
   "rw-bontrager-linedh-30-29-157-hg",
-  "rw-bontrager-linepro-30-29-xd",
   "rw-wtb-sti30-habitht-29-hg",
   "rw-wtb-stxi25-habitht2-29-hg",
   "rw-wtb-stxi25-mt400-29-hg",
@@ -7198,27 +7193,27 @@
   },
   "fw-bontrager-line-pro-30-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:00:11.209Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-pro-30-tlr-boost-27-5-mtb-wheel/p/29086/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-bontrager-line-elite-30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:01:22.471Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-elite-30-tlr-boost-29-mtb-wheel/p/29540/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-bontrager-line-elite-30-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:04:02.174Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-elite-30-tlr-boost-27-5-mtb-wheel/p/29539/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-reserve-31dh-29": {
    "cat": "frontwheel",
@@ -7758,11 +7753,11 @@
   },
   "rw-bontrager-line-pro-30-275-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:01:08.800Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-pro-30-tlr-boost-27-5-mtb-wheel/p/29086/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-line-pro-30-29-ms": {
    "cat": "rearwheel",
@@ -7782,11 +7777,11 @@
   },
   "rw-bontrager-line-elite-30-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:01:56.894Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-elite-30-tlr-boost-29-mtb-wheel/p/29540/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-line-elite-30-29-ms": {
    "cat": "rearwheel",
@@ -27533,8 +27528,8 @@
   },
   "fw-bontrager-linepro-30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "InProgress",
+   "updated": "2026-07-21T20:04:02.176Z",
    "error": null,
    "source": null,
    "note": null
@@ -28797,8 +28792,8 @@
   },
   "rw-bontrager-linepro-30-275-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "InProgress",
+   "updated": "2026-07-21T20:04:02.293Z",
    "error": null,
    "source": null,
    "note": null
@@ -29685,8 +29680,8 @@
   },
   "rw-bontrager-linepro-30-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "InProgress",
+   "updated": "2026-07-21T20:04:02.406Z",
    "error": null,
    "source": null,
    "note": null
