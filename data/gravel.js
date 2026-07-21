@@ -103,7 +103,7 @@ var GRAVEL_PARTS = [
     rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount', bb: 't47-86',
     seatpost: '27.2', steerer: 'tapered', maxTireByWheel: { '700c': 45 },
     frontDerailleurMount: 'braze-on', frameOnly: false, weight: 1700, price: 1750,
-    note: 'fabricate-fill audit fix (2026-07-21): bb CORRECTED bsa-road->t47-86 — the whole Checkpoint ALR line uses a T47 threaded bottom bracket (Trek moved off the old BB90 press-fit design catalog-wide), not a BSA threaded shell.',
+    note: 'fabricate-fill audit fix (2026-07-21): bb CORRECTED bsa-road->t47-86 — the whole Checkpoint ALR line uses a T47 threaded bottom bracket (Trek moved off the old BB90 press-fit design catalog-wide), not a BSA threaded shell. Trek\'s own frame spec table lists "SRAM DUB Wide, T47 threaded, internal bearing" (coordinator-verified verbatim, PROJECT-LOG 2026-07-21 seat-16) for the Checkpoint family.',
     verified: true, lastChecked: '2026-07-21', source: 'https://www.trekbikes.com/us/en_US/bikes/bikepacking-touring-bikes/checkpoint/checkpoint-alr/checkpoint-alr-5-gen-2/p/41640/' },
   { id: 'gfr-canyon-grail-cf-sl', cat: 'frame', brand: 'Canyon', model: 'Grail CF SL',
     family: 'canyon-grail', modelYear: 2024, wheelSizes: ['700c'],

@@ -725,6 +725,7 @@
       + 'This catalog is disc-brake road bikes only — rim-brake road isn\'t modeled yet.</p></div>'
       + '<div class="toolbar">'
       +   (anyVerified ? '<button type="button" class="btn" id="rdVerified" title="Show only parts verified against a manufacturer source" aria-pressed="false">✓ Verified only</button>' : '')
+      +   (anyVerified ? '<span class="muted" style="font-size:.85em">No ✓ usually means the maker doesn\'t publish the spec — not that the part is worse.</span>' : '')
       +   '<span class="grow"></span>'
       +   '<button type="button" class="btn danger" id="rdClear" title="Clear every selected part">↺ Clear build</button>'
       + '</div>'
@@ -740,7 +741,7 @@
       +           '<button type="button" class="btn primary" id="rdViewList" aria-pressed="true" title="Dense list — one row each">☰ List</button>'
       +         '</span>'
       +         '<select class="btn" id="rdSort" title="Sort the catalog" aria-label="Sort the catalog">'
-      +           '<option value="featured">Sort: Featured</option>'
+      +           '<option value="featured">Sort: Random</option>'
       +           '<option value="name">Name A–Z</option>'
       +           '<option value="price-asc">Price: low → high</option>'
       +           '<option value="price-desc">Price: high → low</option>'

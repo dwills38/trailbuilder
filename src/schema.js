@@ -371,8 +371,8 @@ var VOCAB = {
      trail hardtail is a real thing and would carry it honestly.
      chainWidth: the single-speed width class shared by ring, cog and chain -
      1/8in (BMX-derived, the DJ default) vs 3/32in (derailleur-width). Feeds
-     rule ss-chain-width (a WARNING - provisional severity per analysis-doc
-     Q6: it turns but runs poorly; mechanic review pending).
+     rule ss-chain-width (a WARNING - severity confirmed by DRV-68, KMC's
+     manufacturer width-class tier: it turns but runs poorly).
      dropoutType: how a single-speed tensions its chain (analysis-doc rule
      DJ-2). Only 'vertical' feeds a verdict (the ss-tension INFO: a vertical
      dropout run single-speed needs a tensioner / half-link); the

@@ -246,11 +246,11 @@ dormant elsewhere); steerer/headset;
 fork travel vs frame rated max AND sourced approved minimum (under-forking — live per-frame as
 `minForkTravel` is sourced) AND vs maker-stated design travel (rule 12c: warns >20 mm below
 `designForkTravel`, 20 mm grace for deliberate builds, suppressed when the 12b floor already
-fired; threshold flagged for the mechanic review); dropper diameter vs seat tube (direction-aware: too big = error,
+fired; threshold confirmed by SUS-54, 20 mm ≈ 0.92° head-angle change, maker-anchored); dropper diameter vs seat tube (direction-aware: too big = error,
 smaller = reducing-shim warning; ≥200 mm drop adds an insertion-depth info; rule 13c applies the
 same direction-aware check to the rigid `seatpost` slot — DJ go-live 2026-07-14); single-speed
 rules (DJ): `ss-chain-width` (ring/cog/chain must share a `1/8`/`3/32` width class — warning,
-provisional severity for the mechanic review) and `ss-tension` (vertical-dropout single-speed
+severity confirmed by DRV-68, KMC's manufacturer width-class tier) and `ss-tension` (vertical-dropout single-speed
 frame needs a tensioner/half-link — info; every current DJ frame is `'sliding'`, so dormant);
 tire width vs wheel clearance AND vs fork chassis clearance (dormant until forks carry `maxTire`)
 AND too-narrow tire vs a wide rim (rule 14c — soft warning, live-dormant until a wheel declares a

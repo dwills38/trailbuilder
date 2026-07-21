@@ -213,7 +213,8 @@ rated max = warning (~40 frames' max is still a permissive sample — a red from
 number would be a false "won't fit"), and >20 mm under maker-stated design travel = the 12c
 warning (the 20 mm grace RETAINED for design-only frames: no maker prohibition = no red; e.g.
 Ibis approves 150 on a design-160 platform). Applied on branch `dossier-findings-13-14-16`.
-Still open for the mechanic: the ~1°/20 mm wording, and the Privateer "Max Fork Travel —
+The ~1°/20 mm wording is confirmed by SUS-54 (20 mm ≈ 0.92° head-angle change, maker-anchored).
+Still open for the mechanic: the Privateer "Max Fork Travel —
 200mm Dual Crown Forks" crown-type nuance (the engine doesn't model crown type).
 
 ### 13. Dropper vs seat tube — direction-aware + insertion nudge
