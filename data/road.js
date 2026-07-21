@@ -219,14 +219,19 @@ var ROAD_PARTS = [
     weight: 810, price: 1175,
     verified: true, lastChecked: '2026-07-21', source: 'https://www.specialized.com/us/en/roval-rapide-clx-ii/p/205440',
     note: 'road-11 wave (wheels/cockpit tail): FETCHED specialized.com via the browser pane, same page/session as the front row. Spec table: "Rear Rim Dimensions: Depth 60mm, Internal Width 21mm" (confirms intWidth:21), "Rear Hub: Roval Aero Hub (AFD02R), CenterLock, 142x12mm, DT Swiss EXP" (confirms hub:\'12x142\'), "Rear Freehub Body: DT Swiss Ratchet EXP Shimano 11spd" — FREEHUB CORRECTED xdr->hg-road (a real false-fit bug: the prior xdr value would have wrongly required an XDR-driver cassette and wrongly rejected this file\'s Shimano hg-road-driver cassettes, when the maker page states the shipped driver is Shimano 11-speed). "Approved Tire Widths: 24mm-38mm" (maxTire CORRECTED 42->38). "Rear Weight: 810g (including 15g tubeless rim tape, tubeless valve, HG Freehub)" (weight CORRECTED 815->810). Price: same per-wheel-vs-pair ambiguity as the front row\'s note; $1175 replaces the 2500 unsourced sample.' },
-  { id: 'fw-hunt-3648-aerodynamicist', cat: 'frontwheel', brand: 'HUNT', model: '36/48 Aerodynamicist Carbon Disc', family: 'hunt-3648-aero',
-    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 19, maxTire: 45,
-    weight: 750, price: 900,
-    note: 'road-11 wave (wheels/cockpit tail) FLAG, NOT FIXED — could not confirm this SKU exists: huntbikewheels.com\'s current Aerodynamicist range (fetched directly) sells only 34_34, 44_46 and 54_58 depth combos (plus a discontinued 44_54, "This model is no longer available") — no "36/48" combo appears anywhere in the current catalog, the discontinued-models list, or a targeted WebSearch for "HUNT 36/48 Aerodynamicist" (zero hits naming that exact combo, current or historical). The closest real sibling, 44_46 Aerodynamicist Carbon Disc, has a materially different spec profile (22mm internal width vs this row\'s 19mm; 1346g pair vs this row\'s implied ~1640g pair; "Shimano/SRAM HG Splined" freehub vs this row\'s xdr) — not close enough to confidently treat as the same product under a stale name. Per THE BAR (never guess a verdict-driving field), left UNVERIFIED rather than force either a "verified" claim or an unconfident model-name correction. Escalating to the coordinator: this row may describe a genuinely fictitious/non-existent HUNT SKU and could warrant removal or a full re-source pass, not just a field tweak.' },
-  { id: 'rw-hunt-3648-aerodynamicist', cat: 'rearwheel', brand: 'HUNT', model: '36/48 Aerodynamicist Carbon Disc', family: 'hunt-3648-aero',
-    wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 19, maxTire: 45,
-    weight: 890, price: 900,
-    note: 'road-11 wave (wheels/cockpit tail) FLAG, NOT FIXED — see the front-wheel row\'s note (fw-hunt-3648-aerodynamicist) for the full finding: no "36/48" HUNT Aerodynamicist combo could be confirmed to exist, current or discontinued, across huntbikewheels.com\'s own catalog and a dedicated WebSearch. Left UNVERIFIED; escalated to the coordinator as a possible fictitious-SKU row.' },
+  // fw/rw-hunt-3648-aerodynamicist REMOVED (road-12 wave): road-11 flagged "HUNT 36/48
+  // Aerodynamicist" as possibly fictitious after an exhaustive check found no "36/48" combo
+  // in HUNT's current or discontinued Aerodynamicist lineup. road-12 re-verified directly —
+  // huntbikewheels.com's live Aerodynamicist collection page (fetched via the browser pane)
+  // lists exactly three depth combos, current-gen: 34_34, 44_46, 54_58 (no 36, no 48, no
+  // 36/48); a 2019-window Wayback capture of the same collection page shows the identical
+  // three-combo range, so this isn't a dropped older-gen SKU either. A dedicated web search
+  // for "HUNT 36 Aerodynamicist" surfaces only an unrelated real product, the rim-brake-era
+  // "HUNT 36 Carbon Wide Aero" (a single-depth, non-Aerodynamicist-branded wheelset with no
+  // front/rear split) — not a plausible source of this row's name. No manufacturer page, no
+  // archive snapshot, and no retailer/review listing anywhere names a "36/48 Aerodynamicist."
+  // Confirmed fictitious per THE BAR; removed rather than left as a permanent flag (ids were
+  // never exposed to a real share link — road.html went live only 2026-07-20).
   { id: 'fw-shimano-c50-r9270', cat: 'frontwheel', brand: 'Shimano', model: 'Dura-Ace WH-R9270-C50-TL', family: 'shimano-r9270',
     wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 32,
     weight: 674, price: 2000,
@@ -835,11 +840,15 @@ var ROAD_PARTS = [
 
   // ===== COCKPIT (handlebar / stem) =======================================
   { id: 'hb-zipp-sl70-aero', cat: 'handlebar', brand: 'Zipp', model: 'SL-70 Aero', family: 'zipp-sl70-aero',
-    clamp: '31.8', dropBar: true, reach: 80, drop: 128, width: 400,
-    weight: 260, price: 240 },
+    clamp: '31.8', dropBar: true, reach: 70, drop: 128, width: 400,
+    weight: 240, price: 240,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/zipp/models/hb-dbsl-70a-a2',
+    note: 'road-12 wave: FETCHED sram.com\'s Zipp SL-70 Aero model page (HB-DBSL-70A-A2) directly. Spec table: "Clamp diameter: 31.8mm" (confirmed), "Reach: 70mm" (CORRECTED 80->70), "Drop: 128mm" (exact match, unchanged), "Available widths: 38cm, 40cm, 42cm, 44cm" (confirms width:400 is a real SKU). "Weight: 240g (based on 42cm size)" — CORRECTED 260->240; this row\'s width is the 40cm size, so the true 40cm weight is a shade under 240g, but 42cm is the only figure SRAM publishes.' },
   { id: 'st-zipp-sl-sprint', cat: 'stem', brand: 'Zipp', model: 'SL Sprint', family: 'zipp-sl-sprint',
     clamp: '31.8', steerer: '1-1-8', length: 100,
-    weight: 130, price: 150 },
+    weight: 167, price: 150,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/zipp/models/st-sl-spnt-a3',
+    note: 'road-12 wave: FETCHED sram.com\'s Zipp SL Sprint Stem model page (ST-SL-SPNT-A3) directly. Spec table: "Clamp diameter: 31.8mm" (confirmed), "Steerer clamp diameter: 1-1/8 in" (confirms steerer:\'1-1-8\'), "Material: Unidirectional Carbon", "Available lengths: 90mm, 100mm, 110mm, 120mm, 130mm, 140mm" (confirms length:100 is a real SKU). "Weight: 167g (based on 100mm stem)" — CORRECTED 130->167 at the exact same 100mm length this row models.' },
   { id: 'hb-deda-superzero', cat: 'handlebar', brand: 'Deda', model: 'Superzero RS Carbon Handlebar', family: 'deda-superzero',
     clamp: '31.8', dropBar: true, reach: 75, drop: 120, width: 400,
     weight: 235, price: 340,
@@ -860,7 +869,9 @@ var ROAD_PARTS = [
   // ===== SEATPOST / SADDLE / BB / PEDALS ==================================
   { id: 'sp-zipp-sl-speed', cat: 'seatpost', brand: 'Zipp', model: 'SL Speed', family: 'zipp-sl-speed',
     diameter: '27.2', setback: 20,
-    weight: 195, price: 200 },
+    weight: 170, price: 200,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/zipp/models/sp-sl-s-b1',
+    note: 'road-12 wave: FETCHED sram.com\'s Zipp SL Speed Seatpost model page (SP-SL-S-B1) directly. Spec table: "Diameter: 27.2mm, 31.6mm" (confirms diameter:\'27.2\' is a real SKU), "Offset: 0mm, 20mm" (confirms setback:20 is a real SKU), "Material: Unidirectional Carbon". "Weight: 170g (based on 27.2mm, 0 offset, 330mm length)" — CORRECTED 195->170; this row is the 20mm-offset variant, so the true weight may run a touch higher than the 0-offset baseline SRAM publishes, but 170g is the only sourced figure.' },
   { id: 'sp-specialized-tarmac-sl8', cat: 'seatpost', brand: 'Specialized', model: 'Tarmac SL8 Carbon Post', family: 'specialized-tarmac-sl8',
     proprietary: true, forFrames: ['fr-specialized-sworks-tarmac-sl8', 'fr-specialized-tarmac-sl8'], setback: 0,
     weight: 160, price: 250 },
@@ -1115,14 +1126,18 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-21', source: 'https://enve.com/collections/in-route-stem/products/stem-aero-in-route',
     note: 'road-11 wave (wheels/cockpit tail): FETCHED enve.com directly. Product Specs table (per-length row): "100mm: Reach 8.2, Stack 99.5, Weight 177g" (WEIGHT CORRECTED 165->177, exact maker figure at this row\'s modeled 100mm length), "Clamp Diameter 31.8mm" (confirmed), "Steer Tube Clamp Diameter 1 1/8\"" (confirms steerer). "Regular price $350.00" — exact match to this row\'s pre-existing $350 (confirmed, not corrected).' },
   { id: 'hb-pro-vibe-superlight', cat: 'handlebar', brand: 'PRO', model: 'Vibe Superlight', family: 'pro-vibe-superlight',
-    clamp: '31.8', dropBar: true, reach: 75, drop: 125, width: 400,
-    weight: 210, price: 130 },
+    clamp: '31.8', dropBar: true, reach: 80, drop: 130, width: 400,
+    weight: 157, price: 130,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.pro-bikegear.com/products/pro-vibe-superlight-handlebar',
+    note: 'road-12 wave: FETCHED pro-bikegear.com directly. Product copy + spec table: "130 millimeter drop, 80 millimeter reach" (DROP CORRECTED 125->130, REACH CORRECTED 75->80), "31.8 millimeter clamping diameter" (confirmed), "available in 38-, 40- and 42-centimeter widths" (confirms width:400 is a real SKU) with a per-width weight row "154g / 157g / 160g" for 380/400/420 — 157g is this row\'s 400mm figure (WEIGHT CORRECTED 210->157).' },
   { id: 'st-pro-vibe', cat: 'stem', brand: 'PRO', model: 'Vibe', family: 'pro-vibe-stem',
     clamp: '31.8', steerer: '1-1-8', length: 100,
     weight: 135, price: 100 },
   { id: 'hb-fsa-kforce-compact', cat: 'handlebar', brand: 'FSA', model: 'K-Force Compact', family: 'fsa-kforce-compact',
-    clamp: '31.8', dropBar: true, reach: 75, drop: 123, width: 400,
-    weight: 195, price: 220 },
+    clamp: '31.8', dropBar: true, reach: 80, drop: 125, width: 400,
+    weight: 180, price: 220,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.fsaproshop.com/products/k-force-compact-handlebar',
+    note: 'road-12 wave: FETCHED fsaproshop.com directly. Spec table: "Ø31.8mm" clamp (confirmed), "80mm reach" (CORRECTED 75->80), "125mm drop" (CORRECTED 123->125), "W400, 420, 440mm" (confirms width:400 is a real SKU), weight "180 grams (400mm)" (CORRECTED 195->180, exact same width this row models).' },
   { id: 'st-fsa-kforce', cat: 'stem', brand: 'FSA', model: 'K-Force', family: 'fsa-kforce-stem',
     clamp: '31.8', steerer: '1-1-8', length: 100,
     weight: 115, price: 150 },
@@ -1159,8 +1174,10 @@ var ROAD_PARTS = [
     diameter: '27.2', setback: 15,
     weight: 260, price: 45,
     note: 'Entry-tier alloy post — fills the gap for the Allez\'s 27.2mm non-proprietary seat tube (the only other 27.2 post in this file, the Zipp SL Speed, is a premium carbon part).' },
-  { id: 'bt-fizik-vento-microtex-tacky', cat: 'bartape', brand: 'Fizik', model: 'Vento Microtex Tacky', family: 'fizik-vento-microtex',
-    weight: 65, price: 30 },
+  { id: 'bt-fizik-vento-microtex-tacky', cat: 'bartape', brand: 'Fizik', model: 'Racefeel 2mm Tacky', family: 'fizik-vento-microtex',
+    weight: 77, price: 30,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.fizik.com/en-us/products/bartapes-racefeel-2mm-tacky-white-bt09000a00044',
+    note: 'road-12 wave: FETCHED fizik.com directly — the product page states verbatim "This product was previously the Vento Microtex 2mm Tacky," i.e. Fizik\'s current-catalog name for the exact same tape this row already modeled (model string CORRECTED to the current name; id/family kept unchanged per the append-only convention). Tech spec table: "Weight: 77 g" (CORRECTED 65->77), "Technology: Microtex", "Finish: Tacky", "Thickness: 2 mm" (all consistent with this row).' },
   { id: 'bt-supacaz-super-sticky-kush', cat: 'bartape', brand: 'Supacaz', model: 'Super Sticky Kush', family: 'supacaz-super-sticky-kush',
     weight: 75, price: 30 },
 
@@ -1197,10 +1214,11 @@ var ROAD_PARTS = [
   // Every existing hb/st pair in this file is 31.8mm clamp; adds the 35mm
   // oversize standard (widening from "6 handlebar / 6 stem" toward covering
   // both clamp diameters the schema vocab (clampRG) already allows).
-  { id: 'hb-deda-m35', cat: 'handlebar', brand: 'Deda', model: 'Trentacinque M35 RHM', family: 'deda-m35',
-    clamp: '35', dropBar: true, reach: 75, drop: 129, width: 420,
-    weight: 278, price: 295,
-    note: 'road-11 wave (wheels/cockpit tail): dedaelementi.com\'s "35 Trentacinque" series filter (dedaelementi.com/series/trentacinque, the carbon-bar line this row appears to describe) returns "We can\'t find products matching the selection" — the carbon Trentacinque handlebar is NOT currently sold; a WebSearch corroborates this is a genuinely older product (BikeRadar\'s "M35 Bar & Trentacinque stem review," first widely released ~2011 road/2013 MTB per that review, citing a 224g/44cm weight — a different width than this row\'s 420mm/42cm, not directly comparable, and a review citation rather than a maker page). SEPARATELY, dedaelementi.com does currently sell an unrelated-but-similarly-named "M35 RHM handlebar" (dedaelementi.com/m35-rhm-handlebar, an alloy outlet item, "FROM €19.00", sizes 42/44/46cm only, no weight/reach/drop published) — this row\'s model string conflates the two Deda product names (the carbon "Trentacinque" bar + the alloy "M35 RHM" bar are NOT the same SKU). Left UNVERIFIED and flagged rather than force a fetch-backed correction: no manufacturer page confirms this row\'s exact 278g/75mm-reach/129mm-drop combination for either candidate product, and the carbon Trentacinque appears to be a genuinely superseded/discontinued prior-gen part on Deda\'s own current site. Escalating for a coordinator/human call on whether to retarget this row at the current alloy M35 RHM SKU (spec-thin) or retire it.' },
+  { id: 'hb-deda-m35', cat: 'handlebar', brand: 'Deda', model: 'Superleggera 35', family: 'deda-superleggera-35',
+    clamp: '35', dropBar: true, reach: 75, drop: 130, width: 420,
+    weight: 180, price: 200,
+    verified: true, lastChecked: '2026-07-21', source: 'https://dedaelementi.com/superleggera-35-handlebar',
+    note: 'road-12 wave: RETARGETED — road-11 flagged this row\'s old "Trentacinque M35 RHM" model string as a conflation of two different Deda products (the discontinued carbon "35 Trentacinque" bar, whose series page at dedaelementi.com/series/trentacinque returns "We can\'t find products matching the selection," and an unrelated current alloy "M35 RHM" outlet item). FETCHED dedaelementi.com/superleggera-35-handlebar directly: its tech-copy is verbatim identical to the discontinued Trentacinque series page ("technology behind the superleggera combined with the 35 innovation... HR40 carbon fiber... modern RHM shape") — Deda\'s current-catalog successor to the same bar under a new name, not a different product. TECH SPECS table: "Handlebar: 35mm" (confirms clamp), "Reach: 75mm" (exact match, unchanged), "Drop: 130mm" (CORRECTED 129->130), "Sizes: 42 (SLC3542)/44/46, outside to outside" (420mm width = the 42cm size, confirmed a real SKU), "Weight: 180 grams (based on a size 42cm)" (CORRECTED 278->180). Price "FROM €200.00 VAT NOT INCLUDED" — CORRECTED 295->200 (same conservative EUR-read-as-USD convention this file already applies to the paired Deda stem\'s €90 figure). id/family kept distinct from the live "M35 RHM" alloy product (m35-rhm-handlebar) as a different SKU.' },
   { id: 'st-deda-trentacinque-35', cat: 'stem', brand: 'Deda', model: 'Trentacinque Stem', family: 'deda-trentacinque-35',
     clamp: '35', steerer: '1-1-8', length: 110,
     weight: 136, price: 90,
