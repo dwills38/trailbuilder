@@ -3459,3 +3459,11 @@ auto-merges); full gates + verdict harness green throughout.
 - Gates green throughout (validate 0 problems / 930 tests / tsc clean / harness clean) at
   `cbfb906`.
 
+
+## 2026-07-21 (seat 16) — Douglas rulings: archive goes per-page; service-log SQL walkthrough
+
+- **Discontinued archive "across catalogs" scope RESOLVED — Douglas ruled per-page** (not a
+  family-wide archive.html): each live surface wires src/discontinued-archive.js to its own
+  catalog only, so e-content stays contained on emtb.html per hard rules 1/3. Chip written
+  (feat/archive-perpage-1) covering KitBuilder/emtb/gravel/road/bmx.
+- Service-log turn-on walkthrough delivered (SETUP.md §10 — his one Supabase SQL paste).
