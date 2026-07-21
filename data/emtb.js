@@ -108,10 +108,11 @@ var EMTB_PARTS = [
     motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
     batteryWh: 600, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano CUES U6000', brakes: 'Tektro M535 4-piston',
+    frameMaterial: 'aluminum', drivetrain: 'Shimano CUES U6000 LinkGlide 11-speed', brakes: 'Tektro Gemini SL 4-piston',
     disciplines: ['e-trail', 'e-enduro'], weight: 24700, price: 5499,
     note: 'The redesigned Moterra is alloy-only and 29in-only at this entry tier (SmartForm C1 alloy frame), not mixed-wheel carbon; Bosch Gen 5 CX with a 600Wh battery.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Frame/wheel/gen corrected verify/emtb-3 wave 3 phase 2 (alloy not carbon, 29in not mullet, Gen 5 CX, price matched to current Moterra 4 MSRP).'
+    desc: 'Verified vs the fetched maker page (cannondale.com/en-us Moterra 4). Brakes corrected verify/emtb-4 wave 4 cluster A (Tektro M535 -> Tektro Gemini SL 4-piston, the current US-market spec; M535 matches a UK listing instead). Price $5,499 matches exactly (bikemag.com MSRP confirmation). Weight stays the existing sample — Cannondale publishes no bike-level weight on the spec page; a bikemag.com review reports 56.6lb/25.7kg sourced from Cannondale press materials, not an independent scale measurement, so it is not used per THE BAR.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.cannondale.com/en-us/bikes/electric/e-mountain/moterra-neo/moterra-4-smu'
   },
   {
     id: 'em-transition-relay', cat: 'emtb', brand: 'Transition', model: 'Relay',
@@ -390,12 +391,13 @@ var EMTB_PARTS = [
   {
     id: 'em-cannondale-moterra-1', cat: 'emtb', brand: 'Cannondale', model: 'Moterra Carbon 1',
     motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
-    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XO/GX Eagle AXS Transmission', brakes: 'Magura MT7',
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'mixed', drivetrain: 'Shimano XTR/XT 12-speed', brakes: 'Shimano XT 8120 4-piston',
     disciplines: ['e-trail', 'e-enduro'], weight: 22800, price: 12999,
-    note: 'Top-tier Moterra Carbon build; real drivetrain is a blended SRAM XO/GX AXS Transmission with Magura MT7 brakes, not a SRAM XX SL group, and the frame is 29in-only (not mullet).',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Wheel/drivetrain/gen/price corrected verify/emtb-3 wave 3 phase 2 (29in not mullet, Gen 5 CX, 800Wh, price matched to current Moterra Carbon 1 MSRP).'
+    note: 'Moterra Carbon 1 (model code C25172U) is a distinct mid-tier build below the full-carbon Moterra 1: carbon front triangle with a SmartForm C1 alloy swingarm, RockShox Lyrik/Deluxe Select+ suspension (150mm f/r), and Shimano XTR/XT 12-speed drivetrain — not the SRAM AXS Transmission group.',
+    desc: 'Verified vs the fetched maker page (cannondale.com/en Moterra Carbon 1, model code C25172U). Battery/travel/frame/drivetrain/brakes corrected verify/emtb-4 wave 4 cluster A (800Wh -> 750Wh; travelFront 160 -> 150mm to match the RockShox Lyrik Select+ fork spec; frame corrected to mixed carbon-front/alloy-swingarm construction; drivetrain SRAM XO/GX AXS Transmission -> Shimano XTR/XT 12-speed; brakes Magura MT7 -> Shimano XT 8120 4-piston — the prior row had actually described the different, higher-tier "Moterra 1" build). Weight and price are not published on the fetched page (this is an international/non-US listing); price stays the existing $12,999 sample, unconfirmed — Australian dealer listings show the same figure in AUD, not USD, so it is not treated as a confirmed match.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.cannondale.com/en/bikes/electric/e-mountain/moterra-neo/moterra-neo-carbon-1-c25172u'
   },
   {
     id: 'em-cannondale-moterra-sl-1', cat: 'emtb', brand: 'Cannondale', model: 'Moterra SL 1',
@@ -1045,9 +1047,10 @@ var EMTB_PARTS = [
     batteryWh: 601, batteryRemovable: false, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM XO Eagle AXS Transmission', brakes: 'Magura MT7',
-    disciplines: ['e-trail'], weight: 22000, price: 9999,
+    disciplines: ['e-trail'], weight: 22000, price: 11549,
     note: 'Moterra SL replaces its Bosch SX-motor generation with a Cannondale-tuned Shimano EP801 — still branded "lightweight-chassis" but the motor itself is full-power class (85Nm/600W, 601Wh custom internal battery).',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Verified vs the fetched maker page (cannondale.com/en-us Moterra SL 1, model code C65185U) — motor, battery, wheel config, travel, frame, drivetrain and brakes all match exactly, no corrections needed. Weight is not published on the maker page (stays the existing sample). Price corrected verify/emtb-4 wave 4 cluster A ($9,999 sample -> $11,549, corroborated by two independent US retailers — Bicycle Warehouse and Cycle Craft — quoting the identical figure; not itself on the fetched cannondale.com page, so basis is stated here per THE PRICE RULE).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.cannondale.com/en-us/bikes/electric/e-mountain/moterra-sl/moterra-sl-1'
   },
   {
     id: 'em-propain-ekano-3-al-enduro', cat: 'emtb', brand: 'Propain', model: 'Ekano 3 AL Enduro',
