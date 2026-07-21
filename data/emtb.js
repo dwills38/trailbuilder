@@ -699,13 +699,14 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-whyte-e-180-rs', cat: 'emtb', brand: 'Whyte', model: 'E-180 RSX',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX Race (LE)', motorTorque: 85, motorPowerPeak: 600,
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85, motorPowerPeak: 600,
     batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM X01 Eagle AXS', brakes: 'SRAM Code',
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle AXS T-Type Transmission', brakes: 'SRAM Code RSC',
     disciplines: ['e-enduro'], weight: 26100, price: 5499,
-    note: "UK brand's long-travel gravity e-MTB; real current trim is \"RSX\" (catalog had \"RS\", no such trim currently sold), Bosch Performance Line CX Race LE motor, wireless SRAM X01 AXS.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Trim name/drivetrain/battery corrected verify/emtb-3 wave 3 phase 2b (RS -> RSX, SRAM GX -> X01 AXS, 720 -> 750Wh, price matched to whytebikes.com/UK MBR coverage — Whyte also launched a 2026 "Karve" Avinox-motor line that may supersede E-180 in some markets; not re-entered as this row since E-180 RSX is still a live product page).'
+    note: "UK brand's long-travel gravity e-MTB; real current trim is \"RSX\", Bosch Performance Line CX (Smart System) motor, wireless SRAM GX AXS T-Type drivetrain (the maker's own marketing prose says \"X01\" but the maker's own spec table lists the actual rear mech/chain/cassette as GX T-Type — the spec table wins).",
+    desc: 'Verified vs the fetched maker product page (whytebikes.com, via Exa fetch — full Specs table). Corrections verify/emtb-4 wave 4 cluster F: motor "Performance Line CX Race (LE)" -> plain "Performance Line CX" (no Race/LE variant on this page), drivetrain "SRAM X01 Eagle AXS" -> "SRAM GX Eagle AXS T-Type Transmission" (page\'s spec table lists REAR MECH/CHAIN/CASSETTE all as GX T-Type, contradicting its own marketing-prose "X01" mention — trusted the load-bearing spec table per the phantom-number-hazard precedent), brakes "SRAM Code" -> "SRAM Code RSC" (exact model). Weight (26.1kg M = 26100g) and travel (180/170mm) already matched exactly; unchanged. PRICE RULE: GBP 5,499.00 RRP (whytebikes.com, Whyte is UK-only, no US market) — the existing $5,499 sample already numerically mirrors the GBP figure; basis now disclosed.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://whytebikes.com/products/e-180-rsx'
   },
 
   // ---------------------------------------------------------------------------
@@ -829,13 +830,14 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-whyte-e-180-s', cat: 'emtb', brand: 'Whyte', model: 'E-180 S',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
-    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-enduro'], weight: 26200, price: 5200,
-    note: 'Entry alloy E-180 trim; same Bosch CX motor as the RS.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle AXS', brakes: 'SRAM Code R',
+    disciplines: ['e-enduro'], weight: 26400, price: 4499,
+    note: 'Entry alloy E-180 trim; same Bosch CX motor as the RSX, but a mechanical-hanger SRAM GX Eagle AXS drivetrain (not T-Type Transmission) and a RockShox ZEB/Super Deluxe Select R chassis.',
+    desc: 'Verified vs the fetched maker product page (whytebikes.com, via Exa fetch — full Specs table). Corrections verify/emtb-4 wave 4 cluster F: drivetrain "Shimano Deore" -> "SRAM GX Eagle AXS" (page spec table: REAR MECH/SHIFT LEVERS "SRAM GX AXS Eagle", CASSETTE "SRAM PG-1210 Eagle" 11-50T — a standard-hanger cassette, not T-Type direct-mount, so kept distinct from the RSX row\'s Transmission wording), brakes "Shimano MT420" -> "SRAM Code R", battery 720->750Wh, weight 26200->26400g (M), motorPowerPeak added (600W, stated in the page\'s own Highlights section for this motor). PRICE RULE: GBP 4,499.00 RRP (whytebikes.com, Whyte is UK-only, no US market) converted 1:1 as a $4,499 USD sample (mirrors the RSX row\'s existing convention) — basis disclosed.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://whytebikes.com/products/e-180-s-my24'
   },
 
   // ---------------------------------------------------------------------------
