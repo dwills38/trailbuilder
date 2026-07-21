@@ -288,19 +288,38 @@ unrelated pre-existing JS syntax bug found while gating: `2.2''s` in the Turbo L
 string used SQL-style `''` quote-escaping instead of JS's `\'`, which crashed
 `node validate.js` at parse time — corrected to `2.2\'s`.)
 
-All 19 same-brand-wrong-gen rows + both Haibike Unclear rows are now cleared — the phase-2
-queue is empty. (Cube Stereo Hybrid ONE55 SL and Whyte E-180 RS were never in this bucket —
-wave 2 phase 1 classified both "Current-likely"/"Current", not "Stale"/"Unclear" — so they're
-correctly untouched, not a leftover.)
+All 19 same-brand-wrong-gen rows + both Haibike Unclear rows are cleared, and the two rows
+wave 2 phase 1 had marked "Current"/"Current-likely" (Cube Stereo Hybrid ONE55 SL, Whyte
+E-180 RS) got a closer look in **phase 2b** anyway and both turned out to need real fixes:
+
+## Wave 3 phase 2b (2026-07-20) — the 2 "Current"/"Current-likely" rows, double-checked
+
+- `em-cube-stereo-hybrid-one55-sl` → renamed row "Stereo Hybrid ONE55 C:68X SLT 750" —
+  wave 2 phase 1's WebSearch pass had accepted the catalog's Bosch SX **lightweight** motor
+  at face value; a closer look shows the real ONE55 line is **full-power** across all three
+  trims (SLX/TM/SLT — Bosch Gen 4 CX, 85Nm/600W, 750Wh), so this was actually a
+  Stale-wrong-motor-class row mislabeled Current-likely in phase 1. Re-entered as the
+  flagship SLT 750 build (carbon, Newmen carbon wheels, wireless SRAM XX1 AXS, 29in-only,
+  £8,999 UK MSRP — not independently confirmed in USD, flagged in the row's `desc`).
+- `em-whyte-e-180-rs` → renamed row "E-180 RSX" — the trim-name gap phase 1 flagged ("RS"
+  in the catalog vs "RSX" on the maker's own site) was real; corrected to RSX with its
+  actual drivetrain (SRAM X01 Eagle AXS, not GX) and battery (750Wh not 720Wh). Note: Whyte
+  also launched a 2026 "Karve" Avinox-motor line that may eventually supersede E-180 in some
+  markets, but E-180 RSX is still a live whytebikes.com product page, so this stays a
+  same-id correction, not an append-only re-entry — flagged in the `desc` for a future pass
+  if Karve fully replaces it.
 
 ## Wave 3 session close (2026-07-20)
 
-Net this wave: catalog grew 83 → 92 bikes (phase 1's 9 append-only re-entries); phase 2's 19 +
-2 in-place corrections left the bike count unchanged but fixed motor/gen/spec identity across
-every row wave 2 phase 1 flagged Stale/Stale-likely/Unclear. Verified count still 2/92 — this
-wave corrected motor/spec/gen identity but did not attempt fresh `verified:true` fetches (that
-remains a phase-3-style deep-verification pass, still queued, still needs the browser pane for
+Net this wave: catalog grew 83 → 92 bikes (phase 1's 9 append-only re-entries); phase 2's 21
+in-place corrections (19 + 2 Haibike) plus phase 2b's 2 further corrections left the bike
+count unchanged but fixed motor/gen/spec/trim identity across every row wave 2 phase 1
+flagged Stale/Stale-likely/Unclear, plus the two Current/Current-likely rows that turned out
+to need fixes on closer inspection. Verified count still 2/92 — this wave corrected
+motor/spec/gen/trim identity but did not attempt fresh `verified:true` fetches (that remains
+a phase-3-style deep-verification pass, still queued, still needs the browser pane for
 JS-heavy maker sites per wave 2's finding — Transition/Santa Cruz both needed it there). Every
 EMTB row touched across waves 2–3 now reflects a currently-sold real trim to the best of
 WebSearch/Exa-sourced confidence; the full wave-2-phase-1 triage table above is now fully
-worked through with no open dispositions left unaddressed.
+worked through with no open dispositions left unaddressed. **Every row in the re-entry map is
+now closed — wave 3's assigned scope is complete.**

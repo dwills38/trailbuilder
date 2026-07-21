@@ -693,14 +693,14 @@ var EMTB_PARTS = [
   // Whyte (new maker, UK) — E-180 RS
   // ---------------------------------------------------------------------------
   {
-    id: 'em-whyte-e-180-rs', cat: 'emtb', brand: 'Whyte', model: 'E-180 RS',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
-    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    id: 'em-whyte-e-180-rs', cat: 'emtb', brand: 'Whyte', model: 'E-180 RSX',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX Race (LE)', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code',
-    disciplines: ['e-enduro'], weight: 25400, price: 7200,
-    note: "UK brand's long-travel gravity e-MTB; Bosch CX motor.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'aluminum', drivetrain: 'SRAM X01 Eagle AXS', brakes: 'SRAM Code',
+    disciplines: ['e-enduro'], weight: 26100, price: 5499,
+    note: "UK brand's long-travel gravity e-MTB; real current trim is \"RSX\" (catalog had \"RS\", no such trim currently sold), Bosch Performance Line CX Race LE motor, wireless SRAM X01 AXS.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Trim name/drivetrain/battery corrected verify/emtb-3 wave 3 phase 2b (RS -> RSX, SRAM GX -> X01 AXS, 720 -> 750Wh, price matched to whytebikes.com/UK MBR coverage — Whyte also launched a 2026 "Karve" Avinox-motor line that may supersede E-180 in some markets; not re-entered as this row since E-180 RSX is still a live product page).'
   },
 
   // ---------------------------------------------------------------------------
