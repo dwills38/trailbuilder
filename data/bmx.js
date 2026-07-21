@@ -76,7 +76,8 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
     price: 419.99,
-    note: 'Checked thebuildingdistro.com (Fit\'s current webstore, fitbikeco.com/shop/* now 301s there) 2026-07-17: Series One is a current 2026 complete-bike platform (multiple TT lengths/colors) and Fit still sells a companion Series One fork ($114.95) standalone, but no frame-only Series One SKU was found on the current site — cannot verify this frameOnly row against a live manufacturer page. Left unverified; spec unchanged (plausible sample).'
+    verified: true, lastChecked: '2026-07-21', source: 'https://thebuildingdistro.com/product/2026-series-one-gloss-black-20-75-tt/',
+    note: 'Sold as a complete bike only - Fit sells no frame-only Series One SKU on its current store (thebuildingdistro.com, fitbikeco.com/shop/* 301s there), so no shopper should read this as "buy this bare." Interfaces confirmed against the 2026 SERIES ONE GLOSS BLACK 20.75 TT complete-bike spec sheet 2026-07-21: BB shell "Sealed Mid" = mid, head tube "Integrated w/Gyro Holes" = integrated-1-1/8, "U-Brake w/Low Tension Springs" = u-brake, top tube 20.75in matches this row\'s modeled size exactly. rearAxle not stated on the page (display-only field, no rule reads it) - stays a sample. Weight not published for this platform. Price stays the prior 419.99 sample (NOT the $469.95 complete-bike price, which THE PRICE RULE #3 forbids putting on a frame row) - no bare-frame MSRP exists to cite.'
   },
   {
     id: 'bmx-fr-subrosa-salinas', cat: 'frame', brand: 'Subrosa', model: 'Salinas',
@@ -146,7 +147,8 @@ var BMX_PARTS = [
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
     topTube: 21.0, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: true,
     weight: 1532, price: 549.99,
-    note: 'bbShell/headTube/rearBrakeMount and the 21.0in top tube (Pro XL size) confirmed against chasebicycles.com\'s RSP 3.0 frame-archive page 2026-07-17 (V-brake-only, BSA-threaded 68/73mm shell = this catalog\'s euro token, integrated headset); weight (1532g) is that page\'s per-size table for the Pro XL (21in) row. Price (549.99) and rearAxle are NOT stated on the archive page (this is a discontinued frame with no current listing), so left unverified rather than claiming verified on an unconfirmed price. Source: https://chasebicycles.com/frames/frame-archives/chase-rsp-3-0/'
+    verified: true, lastChecked: '2026-07-21', source: 'https://chasebicycles.com/frames/frame-archives/chase-rsp-3-0/',
+    note: 'Every engine-read field confirmed against chasebicycles.com\'s RSP 3.0 frame-archive page (re-fetched 2026-07-21, raw text cross-checked - a discontinued frame, archive-only): wheelSize=20in (standard), bbShell=euro (page: "BSA Threaded BB on both the earlier RSP frames"), rearBrakeMount=v-brake (V-brake-only frame); weight 1532g is the same page\'s per-size table for the 21.0in/Pro-XL row (this row\'s modeled size). headTube and rearAxle are catalog-required but display-only in checkBmxBuild (no rule reads them) and the archive page states neither, so both stay unconfirmed samples per the interface-verification exception - retained unchanged rather than guessed. Price (549.99) has no located source on this or any other fetched page (2016-era discontinued frame, no surviving retailer listing found); kept as a pre-existing sample figure with NO disclosed original basis - flagged here rather than presented as MSRP, per THE PRICE RULE.'
   },
   {
     id: 'bmx-fr-supercross-envy', cat: 'frame', brand: 'Supercross BMX', model: 'Envy RS7',
@@ -559,8 +561,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-rh-fitbikeco-oem-9t', cat: 'rearWheel', brand: 'Fit Bike Co', model: 'OEM Sealed Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'RHD', axle: '14mm', price: 69.99,
-    note: 'Checked thebuildingdistro.com 2026-07-17: Fit no longer sells this hub/wheel standalone — only as the "FIT OEM 20in LHD/RHD Wheelset" ($79.95, 50% off from $159.95). That current wheelset page confirms cassette driver / 9T / 14mm rear axle (matching this row) but the SKU is a wheelset, not a standalone hub, so price/verified are left as-is (interfaces corroborated, not independently verifiable at the row level).'
+    driverType: 'cassette', driverTeeth: 9, side: 'RHD', axle: '14mm', weight: 1406, price: 69.99,
+    verified: true, lastChecked: '2026-07-21', source: 'https://thebuildingdistro.com/product/fit-oem-20-lhd-rhd-wheelset/',
+    note: 'Re-fetched 2026-07-21: Fit no longer sells this hub/wheel standalone, only inside the "FIT OEM 20in LHD/RHD Wheelset" - every engine-read field this row carries is confirmed on that current page ("9T Cassette Driver", "14mm Rear Axle Male", "fully sealed hubs"; side kept RHD, the wheelset\'s LHD/RHD is a build choice, not a spec fact, and side is display-only in checkBmxBuild anyway). Weight 1406g = the page\'s stated 3.10lb rear-wheel figure (weight IS split per side on this page, so this is a real per-part number, not a bundle-only shipping weight). Price stays the prior 69.99 sample - the page only lists the wheelset\'s combined $79.95 (a different, bundled product; THE PRICE RULE covers a missing per-part price, not a wrong one).'
   },
   {
     id: 'bmx-rh-odyssey-clutchv2', cat: 'rearWheel', brand: 'Odyssey', model: 'Clutch V2 Freecoaster Hub',
@@ -633,8 +636,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-fw-fitbikeco-oem', cat: 'frontWheel', brand: 'Fit Bike Co', model: 'OEM Front Wheel',
-    wheelSize: '20', axle: '10mm', price: 49.99,
-    note: 'Checked thebuildingdistro.com 2026-07-17: same situation as bmx-rh-fitbikeco-oem-9t — Fit no longer sells this standalone, only bundled in the current OEM 20in wheelset. Left unverified; spec unchanged (used in test/test-bmx-golden.js — do not alter wheelSize/axle without re-running the golden test).'
+    wheelSize: '20', axle: '10mm', weight: 1066, price: 49.99,
+    verified: true, lastChecked: '2026-07-21', source: 'https://thebuildingdistro.com/product/fit-oem-20-lhd-rhd-wheelset/',
+    note: 'Re-fetched 2026-07-21: same situation as bmx-rh-fitbikeco-oem-9t — Fit no longer sells this standalone, only bundled in the current OEM 20in wheelset. That page confirms "3/8in Front Axle Male" (=10mm, this catalog\'s single token per BMX_VOCAB) and 20in wheel size (unchanged from before, used in test/test-bmx-golden.js). Weight 1066g = the page\'s 2.35lb front-wheel figure (a real per-part split, not a bundle-only shipping weight). Price stays the prior 49.99 sample - the page only lists the wheelset\'s combined $79.95 (a different, bundled product).'
   },
   {
     id: 'bmx-fw-profile-elite', cat: 'frontWheel', brand: 'Profile Racing', model: 'Elite Front Wheel',
@@ -1272,14 +1276,16 @@ var BMX_PARTS = [
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
     price: 449.99,
-    note: 'Street frame - chromoly front triangle with double gussets, Sealed Mid BB confirmed on the maker\'s spec page.'
+    verified: true, lastChecked: '2026-07-21', source: 'https://thebuildingdistro.com/product/2026-str-flat-black-20-75-tt/',
+    note: 'Sold as a complete bike only (thebuildingdistro.com, Fit\'s current store) - no frame-only STR SKU exists, so no shopper reads this as "buy this bare." Re-checked 2026-07-21 against the 2026 STR FLAT BLACK 20.75 TT spec sheet: "Sealed Mid" BB = mid, "Integrated w/Gyro Holes" head tube = integrated-1-1/8, "Cable U-Brake w/Low Tension Springs" = u-brake, 20.75in top tube matches this row exactly. rearAxle/weight not stated (rearAxle is display-only, no rule reads it) - stay samples. Price stays the prior 449.99 sample, not the $579.95 complete-bike price (THE PRICE RULE #3) - no bare-frame MSRP exists.'
   },
   {
     id: 'bmx-fr-fitbikeco-prk', cat: 'frame', brand: 'Fit Bike Co', model: 'PRK',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 20.5, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
+    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
     price: 459.99,
-    note: 'Park/transition frame - Mid Sealed BB confirmed on the maker\'s spec page; commonly run brakeless. Also sold in a 20in top-tube size.'
+    verified: true, lastChecked: '2026-07-21', source: 'https://thebuildingdistro.com/product/2026-prk-oxford-blue-20-5-tt/',
+    note: 'Sold as a complete bike only (thebuildingdistro.com, Fit\'s current store) - no frame-only PRK SKU exists. CORRECTED rearBrakeMount from a prior "none"/brakeless guess: the 2026 PRK OXFORD BLUE 20.5 TT ships with "BRAKES: U-Brake w/Low Tension Springs" (raw page text, 2026-07-21), so this frame has U-brake mounts, not none - "commonly run brakeless" was an unconfirmed assumption. BB "Sealed Mid" = mid, head tube "Integrated w/Gyro Holes" = integrated-1-1/8, top tube 20.5in matches this row exactly. rearAxle/weight not stated (rearAxle display-only) - stay samples. Price stays the prior 459.99 sample, not the $564.95 complete-bike price (THE PRICE RULE #3).'
   },
   {
     id: 'bmx-fk-fitbikeco-shivv3', cat: 'fork', brand: 'Fit Bike Co', model: 'Shiv V3',
@@ -1398,8 +1404,9 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-chase-rsp50', cat: 'frame', brand: 'Chase', model: 'RSP 5.0',
     discipline: 'race', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 21, rearBrakeMount: 'disc', rearAxle: '14mm', frameOnly: true, price: 609.99,
-    note: 'Chase\'s current-gen alloy race frame - chasebicycles.com states RSP 5.0 frames are "made exclusively for disc braking" (post+flat mount via a separately sold adapter) with Press Fit BBs on Expert XL and larger sizes (bbShell modeled as mid/press-fit); Pro-size top tube. Price from a BRG Store listing (pre-sale $609.99).'
+    topTube: 21, rearBrakeMount: 'disc', rearAxle: '10mm', frameOnly: true, weight: 1680, price: 609.99,
+    verified: true, lastChecked: '2026-07-21', source: 'https://chasebicycles.com/frames/chase-rsp-5-0-frame/',
+    note: 'Full per-size geometry table fetched 2026-07-21 (chasebicycles.com/frames/chase-rsp-5-0-frame). This row = "Pro XL" size (21in/533.4mm top tube, the catalog\'s modeled size): Press Fit BB86 (mid), Integrated IS 42/52 head tube (integrated-1-1/8), Post-or-Flat-mount 120/140mm brakes (disc), Enclosed 3/8"-10mm rear dropout - CORRECTED rearAxle from a prior 14mm guess to the page\'s stated 10mm (all sizes share this spacing), weight 1.68kg=1680g from the same per-size table. No price on the page (frame-only Chase parts aren\'t sold direct); price stays the prior BRG Store sample per THE PRICE RULE.'
   },
   {
     id: 'bmx-fr-redline-roam', cat: 'frame', brand: 'Redline', model: 'Roam',
