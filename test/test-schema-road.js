@@ -6,7 +6,7 @@ var S = require('../src/schema-road.js');
 var U = require('./test-util.js');
 var eq = U.eq, ok = U.ok;
 
-var TODAY = new Date('2026-07-20T00:00:00Z');
+var TODAY = new Date('2026-07-21T00:00:00Z');
 
 /** @returns {any} */
 function aFrame(){
