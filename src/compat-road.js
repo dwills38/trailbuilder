@@ -66,7 +66,15 @@ var ROAD_VOCAB = {
   brakeMount:   ['flat-mount', 'post-mount'],              // road/gravel meaning — NOT the MTB PM/FM tokens
   rearAxle:     ['12x142', 'qr130', 'qr135'],
   frontAxle:    ['12x100', 'qr100'],
-  steerer:      ['tapered', 'straight-1-1-8'],
+  steerer:      ['tapered', 'straight-1-1-8',
+                 // Proprietary non-round steerer SYSTEMS (Douglas-ruled 2026-07-21) — one
+                 // token per system, NEVER one shared 'proprietary' token: the rg-steerer /
+                 // rg-headset-steerer checks are exact-match, so a shared token would let a
+                 // Cannondale Delta fork "fit" a Giant OverDrive frame (false fits). Per-system
+                 // tokens make same-system pairs fit and everything else error, truthfully,
+                 // with zero engine changes. Precedent: gravel's 'lefty-proprietary' axle.
+                 'cannondale-delta',   // Cannondale "Delta" 1-1/8→1-1/4 non-round (SuperSix EVO)
+                 'overdrive-aero'],    // Giant D-shaped "OverDrive Aero" (TCR/Defy/Propel)
   system:       ['shimano-road-12', 'shimano-road-11', 'shimano-grx-12', 'shimano-grx-11',
                  'sram-axs-road', 'sram-xplr-12', 'sram-xplr-13', 'sram-apex-mech-12',
                  'campag-ekar-13', 'campag-12', 'campag-11'],

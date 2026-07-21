@@ -72,7 +72,13 @@ var LOCAL_VOCAB = {
   brakeMountRG: ['flat-mount', 'post-mount'],
   rearAxleRG:   ['12x142', 'qr130', 'qr135'],
   frontAxleRG:  ['12x100', 'qr100'],
-  steererRG:    ['tapered', 'straight-1-1-8', '1-1-8'],
+  steererRG:    ['tapered', 'straight-1-1-8', '1-1-8',
+                 /* Per-system proprietary non-round steerers (Douglas-ruled 2026-07-21).
+                    One token PER SYSTEM, never a shared 'proprietary' — the engine's
+                    exact-match steerer checks would otherwise green a cross-brand pairing
+                    of two different proprietary systems (false fits). See compat-road.js's
+                    steerer vocab comment; precedent: gravel's 'lefty-proprietary' axle. */
+                 'cannondale-delta', 'overdrive-aero'],
   systemRoad:   ['shimano-road-12', 'shimano-road-11', 'shimano-grx-12', 'shimano-grx-11',
                  'sram-axs-road', 'sram-xplr-12', 'sram-xplr-13', 'sram-apex-mech-12',
                  'campag-ekar-13', 'campag-12', 'campag-11', 'flattop', 'hg', 'campag'],

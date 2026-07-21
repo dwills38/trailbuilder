@@ -113,8 +113,9 @@ var ROAD_PARTS = [
     id: 'fr-cannondale-supersix-evo', cat: 'frame', brand: 'Cannondale', model: 'SuperSix EVO Frameset',
     family: 'cannondale-supersix', modelYear: 2024, disciplines: ['road'],
     wheelSizes: ['700c'], rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount',
-    bb: 'bb30a', seatpost: 'proprietary', steerer: 'tapered', maxTire: 30, frontDerailleurMount: 'braze-on',
-    frameOnly: true, weight: 800, price: 3200
+    bb: 'bb30a', seatpost: 'proprietary', steerer: 'cannondale-delta', maxTire: 30, frontDerailleurMount: 'braze-on',
+    frameOnly: true, weight: 800, price: 3200,
+    note: '2026-07-21 steerer-vocab resolution (coordinator, Douglas-ruled): steerer CORRECTED tapered->cannondale-delta to match its own OEM fork (fk-cannondale-supersix-evo, whose Delta steerer cannondale.com confirmed in the road-14 wave) — the frame\'s head tube takes only that proprietary non-round steerer, so the old "tapered" value would have false-fitted standard tapered forks. Exact-match rule now fits the real pairing and errors everything else.'
   },
   {
     id: 'fr-cannondale-synapse', cat: 'frame', brand: 'Cannondale', model: 'Synapse Carbon Frameset',
@@ -127,17 +128,17 @@ var ROAD_PARTS = [
     id: 'fr-giant-tcr-advsl', cat: 'frame', brand: 'Giant', model: 'TCR Advanced SL Frameset',
     family: 'giant-tcr', modelYear: 2024, disciplines: ['road'],
     wheelSizes: ['700c'], rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount',
-    bb: 'bb86', seatpost: 'proprietary', steerer: 'tapered', maxTire: 32, frontDerailleurMount: 'braze-on',
+    bb: 'bb86', seatpost: 'proprietary', steerer: 'overdrive-aero', maxTire: 32, frontDerailleurMount: 'braze-on',
     frameOnly: true, weight: 790, price: 3900,
-    note: '2026-07-21 vocab merge (coordinator, Douglas-ruled): bb CORRECTED pf86->bb86 — pf86 and bb86 both described the same physical 86.5mm press-fit road shell (Shimano SM-BB72-41B\'s own spec table says "Press-Fit... 86.5" for the pf86-tagged row; SRAM\'s BB-DUB-PF-A1 page literally lists "PF 86.5" as its bb86-tagged tier) under two different vocab spellings. bb86 kept as canonical (majority usage across road+gravel); pf86 retired from both schemas.'
+    note: '2026-07-21 vocab merge (coordinator, Douglas-ruled): bb CORRECTED pf86->bb86 — pf86 and bb86 both described the same physical 86.5mm press-fit road shell (Shimano SM-BB72-41B\'s own spec table says "Press-Fit... 86.5" for the pf86-tagged row; SRAM\'s BB-DUB-PF-A1 page literally lists "PF 86.5" as its bb86-tagged tier) under two different vocab spellings. bb86 kept as canonical (majority usage across road+gravel); pf86 retired from both schemas. | 2026-07-21 steerer-vocab resolution (same day): steerer CORRECTED tapered->overdrive-aero to match its OEM fork (fk-giant-tcr-advsl; Giant\'s own copy confirms the D-shaped OverDrive Aero system spans TCR/Defy/Propel) — the old "tapered" would have false-fitted standard forks/headsets.'
   },
   {
     id: 'fr-giant-defy-adv', cat: 'frame', brand: 'Giant', model: 'Defy Advanced Frameset',
     family: 'giant-defy', modelYear: 2024, disciplines: ['road', 'endurance'],
     wheelSizes: ['700c'], rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount',
-    bb: 'bb86', seatpost: 'proprietary', steerer: 'tapered', maxTire: 35, frontDerailleurMount: 'braze-on',
+    bb: 'bb86', seatpost: 'proprietary', steerer: 'overdrive-aero', maxTire: 35, frontDerailleurMount: 'braze-on',
     frameOnly: true, weight: 970, price: 2400,
-    note: '2026-07-21 vocab merge (coordinator, Douglas-ruled): bb CORRECTED pf86->bb86, same rationale as fr-giant-tcr-advsl above — pf86/bb86 were synonym tokens for one physical 86.5mm press-fit shell.'
+    note: '2026-07-21 vocab merge (coordinator, Douglas-ruled): bb CORRECTED pf86->bb86, same rationale as fr-giant-tcr-advsl above — pf86/bb86 were synonym tokens for one physical 86.5mm press-fit shell. | 2026-07-21 steerer-vocab resolution (same day): steerer CORRECTED tapered->overdrive-aero, same OEM-system rationale as the TCR above (Giant\'s OverDrive Aero spans TCR/Defy/Propel).'
   },
 
   // ===== FORKS (rigid, travel:0 per ROAD-MODEL uniform-field convention) ==
@@ -176,17 +177,17 @@ var ROAD_PARTS = [
     weight: 410, price: 480,
     note: 'road-14 wave: LEFT UNVERIFIED — flagged for follow-up. Multiple bike-spec aggregators citing Canyon\'s own sheet (asiacycles.com, roadbikedatabase.com, 99spokes.com) list the Aeroad CFR fork (Canyon FK0060) steerer as a STRAIGHT "1 1/8\"" tube, not tapered, which would contradict this row\'s steerer:"tapered". Tire clearance also reads 31-32mm across sources vs this row\'s 30mm. Did not promote to verified without a direct canyon.com product-page fetch confirming the exact steerer/clearance for this generation — a wrong steerer value would risk a false headset-fit verdict.' },
   { id: 'fk-cannondale-supersix-evo', cat: 'fork', brand: 'Cannondale', model: 'SuperSix EVO Fork', family: 'cannondale-supersix',
-    wheel: '700c', axle: '12x100', steerer: 'tapered', brakeSystem: 'disc-flat', brakeMount: 'flat-mount', maxRotorF: 160, maxTire: 30, travel: 0,
+    wheel: '700c', axle: '12x100', steerer: 'cannondale-delta', brakeSystem: 'disc-flat', brakeMount: 'flat-mount', maxRotorF: 160, maxTire: 30, travel: 0,
     weight: 380, price: 420,
-    note: 'road-14 wave: LEFT UNVERIFIED — cannondale.com (fetched) confirms fork axle 12x100mm + flat-mount disc, but the steerer is Cannondale\'s proprietary "1-1/8\" to 1-1/4\" Delta steerer" (a non-round, non-standard bore), which the catalog\'s steererRG vocab (tapered/straight-1-1-8/1-1-8) has no accurate token for. Setting steerer:"tapered" would misrepresent a proprietary interface, so this row is NOT promoted to verified. Flagging for the coordinator: a "delta"-class steerer vocab entry may be needed before this (and other Cannondale SmartSense/Delta-steerer road forks) can be verified correctly. Tire clearance also varies 30-32mm by generation on cannondale.com, left unchanged.' },
+    note: 'road-14 wave: cannondale.com (fetched) confirms fork axle 12x100mm + flat-mount disc; steerer is Cannondale\'s proprietary "1-1/8\" to 1-1/4\" Delta steerer" (non-round bore). VOCAB RESOLVED 2026-07-21 (coordinator, Douglas-ruled): steerer CORRECTED tapered->cannondale-delta (new per-system token — see schema-road.js; deliberately not a shared "proprietary" token, which would false-fit cross-brand proprietary pairings under the exact-match steerer rule). Matching frame row carries the same token, so the real OEM pairing fits and a standard headset/other-brand frame correctly errors. STILL UNVERIFIED: the road-14 fetch predates this token and the row carries no captured source URL — one fresh cannondale.com fetch away from promotion (tire clearance also varies 30-32mm by generation, unresolved).' },
   { id: 'fk-giant-tcr-advsl', cat: 'fork', brand: 'Giant', model: 'TCR Advanced SL Fork', family: 'giant-tcr',
-    wheel: '700c', axle: '12x100', steerer: 'tapered', brakeSystem: 'disc-flat', brakeMount: 'flat-mount', maxRotorF: 160, maxTire: 32, travel: 0,
+    wheel: '700c', axle: '12x100', steerer: 'overdrive-aero', brakeSystem: 'disc-flat', brakeMount: 'flat-mount', maxRotorF: 160, maxTire: 33, travel: 0,
     weight: 375, price: 400,
-    note: 'road-14 wave: LEFT UNVERIFIED — giant-bicycles.com (fetched, incl. its own spec-sheet PDF) confirms fork axle 12x100mm + disc, and max tire clearance is actually 33mm (catalog has 32mm), but the steerer is Giant\'s proprietary "D-shaped OverDrive Aero steerer tube" (used across TCR/Defy/Propel), not a round tapered steerer. The catalog vocab has no matching token, so steerer:"tapered" would misrepresent it; not promoted to verified. Same vocab gap as the Cannondale Delta steerer above — flagging together for the coordinator.' },
+    note: 'road-14 wave: giant-bicycles.com (fetched, incl. its own spec-sheet PDF) confirms fork axle 12x100mm + disc, max tire clearance 33mm (CORRECTED 32->33 at the 2026-07-21 vocab resolution — the road-14 note had the maker figure but left the field pending the steerer decision); steerer is Giant\'s proprietary "D-shaped OverDrive Aero steerer tube" (TCR/Defy/Propel). VOCAB RESOLVED 2026-07-21 (coordinator, Douglas-ruled): steerer CORRECTED tapered->overdrive-aero (per-system token, see schema-road.js — never a shared "proprietary", which would false-fit a Delta fork on an OverDrive frame). STILL UNVERIFIED pending a fresh fetch with a captured source URL.' },
   { id: 'fk-giant-defy-adv', cat: 'fork', brand: 'Giant', model: 'Defy Advanced Fork', family: 'giant-defy',
-    wheel: '700c', axle: '12x100', steerer: 'tapered', brakeSystem: 'disc-flat', brakeMount: 'flat-mount', maxRotorF: 160, maxTire: 35, travel: 0,
+    wheel: '700c', axle: '12x100', steerer: 'overdrive-aero', brakeSystem: 'disc-flat', brakeMount: 'flat-mount', maxRotorF: 160, maxTire: 35, travel: 0,
     weight: 410, price: 420,
-    note: 'road-14 wave: LEFT UNVERIFIED — giant-bicycles.com confirms the Defy range shares the same D-shaped "OverDrive Aero" proprietary steerer as the TCR (see fk-giant-tcr-advsl note); no accurate vocab token exists for it, so this row is not promoted to verified either. Did not separately re-confirm axle/tire-clearance figures for Defy specifically given the steerer blocker either way.' },
+    note: 'road-14 wave: giant-bicycles.com confirms the Defy range shares the same D-shaped "OverDrive Aero" proprietary steerer as the TCR (see fk-giant-tcr-advsl). VOCAB RESOLVED 2026-07-21 (coordinator, Douglas-ruled): steerer CORRECTED tapered->overdrive-aero. STILL UNVERIFIED: axle/tire-clearance were never separately re-confirmed for Defy specifically — needs its own fetch before promotion.' },
 
   // ===== WHEELS (front/rear rows, disc, Center-Lock unless noted) ========
   { id: 'fw-zipp-303-firecrest-tld', cat: 'frontwheel', brand: 'Zipp', model: '303 Firecrest Tubeless Disc (WH-303-FTLD-A1)', family: 'zipp-303-firecrest',

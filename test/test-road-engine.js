@@ -125,6 +125,20 @@ test('rg-steerer errors frame/fork and headset/fork mismatches, silent matched',
   eq(of(r3, 'rg-steerer').length + of(r3, 'rg-headset-steerer').length, 0, 'tapered end to end');
 });
 
+test('proprietary steerer systems: same-system fits, cross-system and standard both error (Douglas-ruled 2026-07-21)', function(){
+  // Real catalog rows: Giant OverDrive Aero (D-shaped) and Cannondale Delta are distinct
+  // per-system tokens ON PURPOSE — a shared 'proprietary' token would let the exact-match
+  // rule green a Delta fork on an OverDrive frame (false fits). Pin all four directions.
+  var r = ROAD.checkRoadBuild({ frame: rp('fr-giant-tcr-advsl'), fork: rp('fk-giant-tcr-advsl') });
+  eq(of(r, 'rg-steerer').length, 0, 'OverDrive frame + OverDrive fork (real OEM pair) fits');
+  var r2 = ROAD.checkRoadBuild({ frame: rp('fr-giant-tcr-advsl'), fork: rp('fk-specialized-tarmac-sl8') });
+  eq(errOf(r2, 'rg-steerer').length, 1, 'standard tapered fork in an OverDrive frame errors');
+  var r3 = ROAD.checkRoadBuild({ frame: rp('fr-cannondale-supersix-evo'), fork: rp('fk-giant-tcr-advsl') });
+  eq(errOf(r3, 'rg-steerer').length, 1, 'cross-proprietary (OverDrive fork in a Delta frame) errors — the shared-token trap this vocab design avoids');
+  var r4 = ROAD.checkRoadBuild({ frame: rp('fr-cannondale-supersix-evo'), fork: rp('fk-cannondale-supersix-evo') });
+  eq(of(r4, 'rg-steerer').length, 0, 'Delta frame + Delta fork (real OEM pair) fits');
+});
+
 /* ---- R5 freehub ----------------------------------------------------------- */
 test('rg-freehub: exact-match error side (XDR cassette on an HG-L2 wheel)', function(){
   var r = ROAD.checkRoadBuild({ cassette: rp('cs-sram-red-xg1290-1033'), rearWheel: rp('rw-shimano-c50-r9270') });

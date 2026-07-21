@@ -144,7 +144,16 @@ brakeSystem: ['disc-flat', 'disc-post', 'rim-caliper']     // disc-post = rare/l
 brakeMountRG:['flat-mount', 'post-mount']                  // road/gravel = flat; NOT PM/FM disc tokens' meaning
 rearAxleRG:  ['12x142', 'qr130', 'qr135']                  // qr = rim-brake legacy tail
 frontAxleRG: ['12x100', 'qr100']
-steererRG:   ['tapered', 'straight-1-1-8']                 // tapered near-universal; straight = legacy
+steererRG:   ['tapered', 'straight-1-1-8',                 // tapered near-universal; straight = legacy
+              'cannondale-delta', 'overdrive-aero']        // ADDED 2026-07-21 (Douglas-ruled): per-SYSTEM
+                                                           // tokens for proprietary non-round steerers
+                                                           // (Cannondale Delta; Giant D-shaped OverDrive
+                                                           // Aero). Deliberately NOT one shared
+                                                           // 'proprietary' token — the exact-match steerer
+                                                           // rules would green a Delta fork on an OverDrive
+                                                           // frame (false fits). Same-system pairs fit;
+                                                           // everything else (incl. standard headsets)
+                                                           // correctly errors.
 systemRoad:  ['shimano-road-12', 'shimano-road-11',        // 105/Ultegra/DA R7100/R8100/R9200; older 11sp
               'shimano-grx-12', 'shimano-grx-11',           // GRX RX820/RX610 (12), RX810/RX600 (11)
               'sram-axs-road', 'sram-xplr-12', 'sram-xplr-13', // Rival/Force/RED AXS; XPLR 12sp & E1 13sp
