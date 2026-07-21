@@ -1651,10 +1651,12 @@ var KIT_PARTS = [
     desc:'Pro tier: adds a waist adjuster, side-seam venting and a glove pocket over the base Trail Vertic. ATTEMPTED 2026-07-17: scott-sports.com JS-walled for US product pages (see sht-scott-trailvertic-pad); left unverified.' },
   { id:'sht-handup-atplus', cat:'shorts', brand:'Handup', model:'A.T. Plus Shorts', price:49, weight:270,
     liner:false, disciplines:['trail'], sizes:['26','28','30','32','34','36','38','40'],
-    desc:'Fetched handupco.com: corrected price $79 -> $49.00 (confirmed across 3 colorways) and corrected sizes to the maker\'s numeric waist range (was mistakenly using an S-XXL apparel scale). No liner/chamois; weight not published, stays a sample.' },
+    desc:'Re-fetched handupco.com/products/a-t-plus-short-charcoal-grey kit-11 (2026-07-21): $49.00 USD, sizes 26-40 (waist 29"-43"), no liner/chamois - all reconfirmed exactly matching the prior 2026-07-16 fetch. 90% Nylon/10% Spandex, 9" inseam, four-way stretch. No weight published - stays a sample per the kit-apparel weight-exemption policy (weight never blocks apparel verification).',
+    verified:true, lastChecked:'2026-07-21', source:'https://www.handupco.com/products/a-t-plus-short-charcoal-grey' },
   { id:'sht-dharco-gravity', cat:'shorts', brand:'DHaRCO', model:'Gravity Shorts', price:107, weight:300,
     liner:false, disciplines:['enduro','dh'], sizes:['S','M','L','XL','2XL','3XL'],
-    desc:'Fetched us.dharco.com (the US-region storefront) 2026-07-16: corrected price to the DIRECTLY-confirmed USD MSRP $107.00 (superseding the earlier AUD-converted estimate). Standard Fit, "relatively long" per the maker\'s own fit guide (kneepad-gap coverage), Blue Sign approved fabric, no built-in liner/chamois. Weight not published, stays a sample, so this stays unverified.' },
+    desc:'Fetched us.dharco.com (the US-region storefront) 2026-07-16: DIRECTLY-confirmed USD MSRP $107.00 (superseding an earlier AUD-converted estimate). Standard Fit, "relatively long" per the maker\'s own fit guide (kneepad-gap coverage), Blue Sign approved fabric, no built-in liner/chamois. RE-CONFIRMED kit-11 (2026-07-21, us.dharco.com 429\'d this session so cross-checked via dharco.com/products/mens-mtb-gravity-shorts-black - AUD-region page, same product, sizes S-3XL match exactly, no liner mentioned). Weight not published on either regional page, stays a sample per the kit-apparel weight-exemption policy.',
+    verified:true, lastChecked:'2026-07-16', source:'https://us.dharco.com/products/mens-mtb-gravity-shorts-black' },
 
   /* -- Shorts batch 3 (grind continuation, 2026-07-14): more brands -- */
   { id:'sht-monsroyale-momentum2', cat:'shorts', brand:'Mons Royale', model:'Momentum 2.0 Bike Shorts', price:130, weight:280, status:'discontinued',
@@ -1873,7 +1875,8 @@ var KIT_PARTS = [
     desc:'3-layer AmFIB softshell for cold-weather riding. Price corrected 2026-07-16 to the maker\'s compare_at_price/MSRP of $175.00 (a $122.50 sale price is live on the page - not used, per the price=MSRP policy; two clusters disagreed here, resolved 2026-07-16 by a direct re-fetch of pearlizumi.com/products/mens-summit-amfib-lite-pants-19112112.js). Sizes corrected to the maker\'s numeric waist range (28-38, 28/30 currently out of stock). RE-CONFIRMED 2026-07-17 via bdata re-fetch of the .js product JSON: compare_at_price $175.00 (matches). No trustworthy weight published; stays sample.', lastChecked:'2026-07-17', source:'https://www.pearlizumi.com/products/mens-summit-amfib-lite-pants-19112112' },
   { id:'pnt-handup-at-plus', cat:'pants', brand:'Handup', model:'A.T. Plus Pants', price:64, weight:380,
     liner:false, disciplines:['trail'], sizes:['26','28','30','32','34','36','38','40'],
-    desc:'Fetched handupco.com: corrected price $80 -> $64.00 (regular MSRP; page showed a $39 sale price) and corrected sizes to the maker\'s numeric waist range (was mistakenly using an S-XXL apparel scale; the maker also splits by 30/32/34 inseam, not captured in the flat sizeList). No liner/chamois; weight not published, stays a sample.' },
+    desc:'Re-fetched handupco.com/products/a-t-plus-pants-obsidian-1 kit-11 (2026-07-21): regular MSRP $64.00 reconfirmed (currently $39 on sale, sale price not used per MSRP-basis pricing policy), waist sizes 26-40 (also split by 30/32/34 inseam, not captured in the flat sizeList), no liner/chamois. 90% Nylon/10% Spandex, four-way stretch. No absolute weight published ("14% lighter" than prior year, no figure) - stays a sample per the kit-apparel weight-exemption policy.',
+    verified:true, lastChecked:'2026-07-21', source:'https://www.handupco.com/products/a-t-plus-pants-obsidian-1' },
 
   /* -- Gloves (all UNVERIFIED samples; weight is PER PAIR, approx USD MSRP) -- */
   { id:'glv-fox-dirtpaw', cat:'gloves', brand:'Fox', model:'Dirtpaw', price:39.95, weight:70, sizes:['S','M','L','XL','XXL','3XL','4XL'],
