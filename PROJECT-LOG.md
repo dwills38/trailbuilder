@@ -3574,3 +3574,18 @@ auto-merges); full gates + verdict harness green throughout.
   34.9 droppers errored on this frame) — both directions now truthful.
 - Gates green (validate 0 problems / 931 tests / tsc clean / harness clean) at merge.
 
+
+## 2026-07-21 (seat 16) — MTB tail 8 merged (Bontrager migration + DT Swiss truth)
+
+- **verify/mtb-tail-8** merged: the Bontrager Team Issue → Brevard/Gunnison/Montrose/
+  Sainte-Anne naming migration reconciled — 4 tires verified against the new line's real
+  trekbikes.com pages (browser pane; direct WebFetch/Exa still nav-shell), 1 real-sourced but
+  honestly left unverified (page names no compound and the tire gate requires it), the legacy
+  XR5 closeout re-verified + status:discontinued. New casing vocab value 'pro-xr' (real
+  construction-tier name). DT Swiss URL-pattern lead resolved: the XR 1700 Spline pair is a
+  REAL discontinuation (current 1700 tier is XRC/XM only) — status:discontinued, kept per
+  append-only. Frame-queue scan: next 15 all at their prior documented ceilings, no quick
+  wins, honestly reported rather than padded. MTB 3,201 verified (~70% of the job queue
+  processed). Verify-job synced by the coordinator per the parallel-work convention.
+- Gates green (validate 0 problems / 931 tests / tsc clean / harness clean) at `6f8e4c6`.
+
