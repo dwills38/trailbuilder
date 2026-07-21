@@ -1,5 +1,33 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — Seat 17 wave 1: cb-sheets-10 + bmx-price-sweep + mtb-tail-10
+
+- **verify/cb-sheets-10 merged**: Yeti's 20 "unverified" rows were a stale-brief artifact —
+  already sheet-verified 2026-07-18; a fresh drift re-check found 0 changes. The real find:
+  **transitionbikes.com's fetch wall is DOWN** — full itemized build tables render clean.
+  6 real Transition drift bugs fixed + 5 rows promoted (Sentinel/Patrol/Smuggler; incl. a
+  pre-existing desc/fill self-contradiction resolved in the fills' favor). 9 retired-trim
+  rows correctly left snapshotted. MTB 3,253 verified. Pivot (14) / Orbea (13) still open.
+- **verify/bmx-price-sweep merged**: BMX 115→122 verified. Chase RSP 3.0/5.0 promoted with
+  a real correction (RSP 5.0 rearAxle 14mm→10mm per the maker's own geometry table); Fit
+  Bike Co 1→6 verified incl. the PRK rearBrakeMount none→u-brake correction (the
+  "commonly run brakeless" guess contradicted the shipping build). THE PRICE RULE honored
+  throughout (no complete-bike prices on frame rows). Doctrine confirmed by grep: BMX frame
+  headTube/rearAxle + fork steerer/axle are display-only. NEW WALLS: sandm.cc unreachable
+  (infrastructure, not bot — WebFetch socket-closed AND browser pane fail); Chase sells no
+  standalone parts (structural, re-confirmed current). ~25 brands still un-swept for the
+  price-rule shape — listed in the report, good next dispatch 2-3 brands at a time.
+- **verify/mtb-tail-10 merged**: the XM1700 fix — DT Swiss model-finder confirms native
+  CENTER-LOCK + included 6-bolt adapter; 5 wheel rows corrected, ~10 dependent
+  complete-bike fills flagged rotorAdapterDocumented:true (validate warnings 20→0).
+  OE-wheel fabrication sample (We Are One/Industry Nine/Reserve) clean — note the real
+  domain is weareonecomposites.com. Tire tail: 7 rows fixed incl. a Specialized
+  near-duplicate row and a caught-and-discarded phantom number. Dispositions in
+  tools/verify-notes-tail10.md. Open: ~90 OE-wheel rows unverified (sampled only), WTB
+  Breakout casing vocab gap, Cross King PDF via the r.jina.ai route.
+- Combined gates: 7 validators OK (MTB 5,040/3,258 verified), 988/988 tests, tsc clean,
+  verdict harness fully clean (A-E incl. E=0).
+
 ## 2026-07-21 — Seat 17 seated + road-17 close-out audit
 
 - **Seat 17 succession complete** (evening): handshake/rename confirmed, seat 16 archived,
