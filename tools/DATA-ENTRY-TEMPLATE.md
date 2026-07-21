@@ -147,6 +147,38 @@ that exist; DATA-MODEL-REVIEW §5.2 lists the rest (they land through Phase
 - **tire:** `casing` + `compound` (mandatory for new tire rows)
 - **everything:** `family`/`gen`/`mfgPn`, provenance trio when verifying
 
+### 5a. Rotor claim-class guard: a brake-mount field's LABEL is not proof of what it means
+
+**A maker's brake-mount spec field may state the fork's NATIVE mount size or a
+MAXIMUM rotor diameter, and the field's own label is not a reliable guide to
+which — read the value's wording, not the column header, before deciding
+`maxRotorF` vs `minRotorF`** (mechanic round-3 finding, `tools/mechanic/brakes.md`
+BRK-51, proposal 4b, verbatim): **"direct"/"Brake Mounting" labels = native →
+`minRotorF`; only maker-framed ceilings → `maxRotorF`.**
+
+- Wording like *"Direct Mount 180mm"*, *"180 direct Post Mount"*, or a bare
+  *"Postmount 160mm"* with no qualifier names a fixed mount size, not a
+  ceiling — enter it as `minRotorF`, leave `maxRotorF` unset unless a
+  separate maker source states a real adapter ceiling. **Never infer one**
+  (no "+20mm standard adapter" guess, no OEM-observed-larger-rotor
+  back-fill) — absent `maxRotorF` means rule 10 stays dormant for that row,
+  which is honest; a guessed ceiling is not.
+- Wording that explicitly frames a ceiling (*"Max Rotor Size: 180mm"*,
+  *"maximum rotor diameter"*) is a real maker-stated max — enter it as
+  `maxRotorF` as normal.
+- **The label alone lies.** SR Suntour's own field is literally headed
+  "Brake Mount (Max Rotor DIA.)" yet fills it with values that are the
+  *native* mount on the Aion 34, Auron, XCM/XCT/XCE lines (proven by two
+  independent OEM cross-checks: Trek/Specialized factory-ship one size up on
+  these exact chassis) — don't trust the column header over the value's own
+  wording and independent corroboration (an OEM build sheet, a second maker
+  page, a sibling SKU's differently-worded page).
+- This is the same failure mode already corrected on Marzocchi Bomber Z1/Z2
+  and Manitou Mattoc (2026-07-09) and, in bulk, on 27 DVO/SR Suntour fork
+  rows (2026-07-21, `fix/rotor-reclass-1`) — a native mount stored as a max
+  trips a false "exceeds rotor max" warning on a bike's own factory-stock
+  rotor. Check for it on every new fork row before entering `maxRotorF`.
+
 ## 6a. Complete-bike rotor fills must match the stock wheel's rotor mount
 
 **A `completebike`'s `frontRotor`/`rearRotor` fill must match its stock

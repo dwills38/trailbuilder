@@ -52,7 +52,7 @@ test('same rotor model front AND rear -> TWO verdicts with distinct verdictKeys 
 
 /* ---- rule 10: rotor size — max keys on fork (front) vs FRAME (rear) ------- */
 test('front rotor-max warning is [frontRotor, fork]; rear is [rearRotor, frame]', function(){
-  var res = chk({fork:'fk-dvo-onyx-sc-d1-29-170', frame:'fr-commencal-meta-sx-v5',
+  var res = chk({fork:'fk-marzocchi-bomber-z1-29-160', frame:'fr-commencal-meta-sx-v5',
                  frontRotor:'ro-sram-hs2-220-6b', rearRotor:'ro-sram-hs2-220-6b'});
   slotsEq(only(res.warnings, 'front-rotor-max'), ['frontRotor','fork']);
   slotsEq(only(res.warnings, 'rear-rotor-max'), ['rearRotor','frame']);

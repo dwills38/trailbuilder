@@ -532,7 +532,12 @@ var SCHEMA = {
   },
   fork: {
     wheel:{type:'string',vocab:'wheel'}, travel:{type:'number'}, axle:{type:'string',vocab:'frontAxle'},
-    steerer:{type:'string',vocab:'steerer'}, brakeMount:{type:'string',vocab:'brakeMount'}, maxRotorF:{type:'number'},
+    steerer:{type:'string',vocab:'steerer'}, brakeMount:{type:'string',vocab:'brakeMount'},
+    /* optional since 2026-07-21 (fix/rotor-reclass-1, mechanic BRK-51): a fork whose only
+       sourced brake-mount fact is its NATIVE post-mount size (minRotorF) may have no
+       maker-published ceiling at all - encoding a guessed maxRotorF is worse than leaving
+       rule 10 dormant (DATA-ENTRY-TEMPLATE.md §5a claim-class guard). */
+    maxRotorF:{type:'number',optional:true},
     minRotorF:{type:'number',optional:true},
     /* dormant-until-sourced: crown/arch tire clearance from the maker's chassis
        spec (Fox/RockShox publish per chassis) - the fork-side twin of
