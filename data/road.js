@@ -879,6 +879,29 @@ var ROAD_PARTS = [
   // ===== DRIVETRAIN — Shimano Tiagra 4700 (2x10, mechanical) ===============
   // Rounds out the tier ladder below 105 per the road-2 brief. Tiagra 4700 is
   // mechanical-only (no Di2 variant exists), disc-brake capable (ST-4720).
+  // road-7 wave (2026-07-20) AUDITED the system:'shimano-road-11' token on all
+  // three geared parts below against speeds:10 — re-fetched ST-4720-R live via
+  // browser pane (productinfo.shimano.com confirms "Series TIAGRA" /
+  // "Rear speeds 10", independently reconfirming the road-6 note). VERDICT:
+  // no field changes. `systemRoad` (src/schema-road.js, ROAD-MODEL.md §4) has
+  // ONLY 'shimano-road-12'/'shimano-road-11' for Shimano mechanical road — the
+  // "-11" is a leftover of that token meaning 11-speed 105/Ultegra/DA, and
+  // Tiagra 4700 is a genuine 10-speed family with no vocab slot of its own.
+  // Two options were weighed: (a) leave 'shimano-road-11' — cosmetically odd,
+  // but functionally safe: R13's independent speed-count check (rg-drivetrain-
+  // speeds) already reds out any cross-pairing with a real 11-speed part on
+  // speeds alone, so no false "fits" verdict is possible; R15's chain-standard
+  // check also still correctly fires (ROAD_SYSTEM_CHAIN['shimano-road-11'] =
+  // 'hg', which matches ch-shimano-tiagra4700's own 'hg' chain). (b) switch to
+  // the generic 'hg' token (already schema-legal, reused by the chain's own
+  // `system` field) — but ROAD_SYSTEM_CHAIN has no 'hg' key, so this would
+  // silently DROP the correctly-firing R15 check for zero gain in false-
+  // positive prevention. (a) is strictly safer, so system/speeds are left
+  // UNCHANGED on all three rows. OPEN QUESTION for the coordinator: add a
+  // real 'shimano-road-10' token to systemRoad (schema-road.js LOCAL_VOCAB +
+  // compat-road.js VOCAB + ROAD_SYSTEM_CHAIN) as a follow-up label-accuracy
+  // pass? Not done here per the road-7 brief's "don't invent new vocab"
+  // instruction — flagged instead of guessed.
   { id: 'sh-shimano-tiagra4700', cat: 'shifter', brand: 'Shimano', model: 'Tiagra ST-4720 (pair)', family: 'shimano-tiagra4700',
     system: 'shimano-road-11', speeds: 10, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
     weight: 620, price: 220,
