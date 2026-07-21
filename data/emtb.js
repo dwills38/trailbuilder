@@ -243,15 +243,15 @@ var EMTB_PARTS = [
   // Santa Cruz depth + Ibis
   // ---------------------------------------------------------------------------
   {
-    id: 'em-santa-cruz-bullit-xx', cat: 'emtb', brand: 'Santa Cruz', model: 'Bullit XX AXS',
-    motorBrand: 'shimano', motorModel: 'Shimano EP801', motorTorque: 85,
-    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission', brakes: 'SRAM Maven Silver',
-    disciplines: ['e-enduro'], weight: 23200, price: 12000,
+    id: 'em-santa-cruz-bullit-xx', cat: 'emtb', brand: 'Santa Cruz', model: 'Bullit X01 AXS RSV',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8 (DU-EP800)', motorTorque: 85, motorPowerPeak: 250,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X01 Eagle', brakes: 'SRAM Code RSC',
+    disciplines: ['e-enduro'], weight: 21250, price: 11499,
     status: 'discontinued', supersededBy: 'em-santa-cruz-bullit-bosch-x0-axs-rsv',
-    note: 'Top-tier Bullit build; SRAM XX Transmission + Maven brakes.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: Santa Cruz dropped Shimano on the Bullit entirely for the 2026 model year (verify/emtb-2 wave 2 phase 2).'
+    note: 'Top-tier Shimano-era Bullit build; SRAM X01 Eagle mechanical 12-speed with SRAM\'s e-bike-specific shifter (not an AXS Transmission — "AXS RSV" is Santa Cruz\'s own build-tier label) and SRAM Code RSC brakes.',
+    desc: 'Trim-identity fix, verify/emtb-6 (flagged unresolved by verify/emtb-5): "Bullit XX AXS" is not a real Santa Cruz Bullit trim — SRAM never offered an XX-level build on this bike. Retitled to the real top-tier Shimano-era SKU, "Bullit X01 AXS RSV" (confirmed via BikeRadar\'s full review + corroborating Bikerumor/99spokes/Vital MTB listings of the 2022-2024 lineup). Drivetrain corrected SRAM XX Eagle Transmission -> SRAM X01 Eagle (mechanical, not AXS/Transmission); brakes corrected SRAM Maven Silver -> SRAM Code RSC (Maven did not exist for most of this generation\'s production run); motor model corrected EP801 -> EP8/DU-EP800 (85Nm, 250W peak); battery corrected 720 -> 630Wh; rear travel corrected 150 -> 170mm (both ends run 170mm on the Shimano-era Bullit, matching the base Bullit row above). Weight set to BikeRadar\'s tested/measured 21.25kg; price set to BikeRadar\'s as-tested $11,499. Still unverified (best-credible-public) — no live Santa Cruz product page exists for this discontinued SKU to fetch directly, so verified:true is withheld per THE BAR. Superseded: Santa Cruz dropped Shimano on the Bullit entirely for the 2026 model year (verify/emtb-2 wave 2 phase 2).'
   },
   {
     id: 'em-santa-cruz-heckler-sl', cat: 'emtb', brand: 'Santa Cruz', model: 'Heckler SL GX AXS',
