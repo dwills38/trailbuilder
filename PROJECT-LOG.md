@@ -3489,3 +3489,17 @@ auto-merges); full gates + verdict harness green throughout.
   the branch landed as road-14-cont — harvested normally, no stray road-14 branch existed.
 - Gates green (validate 0 problems / 930 tests / tsc clean) at merge.
 
+
+## 2026-07-21 (seat 16) — Service log LIVE end-to-end (Douglas ran the SQL + tested)
+
+- Douglas ran the Phase 5 `service_events` migration in the Supabase SQL editor and smoke-
+  tested the feature live on buildmymtb.com — working. One snag worth remembering: his first
+  paste silently did nothing because he'd copied `supabase/schema.sql` from the SHARED
+  CHECKOUT, which sits on a stale work branch that predates the Phase 5 stanza — the "shared
+  checkout files lag main" trap now has a second confirmed victim class (first was
+  settings.json/the containment hook). Resolution: pasted just the self-contained Phase 5
+  stanza from main. Standing guidance given: grab repo files from GitHub raw, never the
+  shared checkout folder.
+- Decision-queue item closed: service-log turn-on. Feature slate #2 is now fully DONE
+  (code shipped 2026-07-21 morning, DB migrated + live-verified same day).
+
