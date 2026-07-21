@@ -1,5 +1,19 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — kit ALIASES port + road-10 bundled-SKU ruling executed
+
+- **feat/kit-aliases-1 merged**: KIT_ALIASES/canonicalKitId (third alias port — MTB, BMX,
+  and kit are all tombstone-capable now), wired into KitBuilder's localStorage restore,
+  and the 8 kit-10 fabricated rows retired (1 retarget Foxguard→Defend, 7 tombstones,
+  inline rationale preserved at each former location). Douglas's standing TLD Grind/Roost
+  flag CLOSED. Kit 706 parts / 534 verified; 875 tests (6 new).
+- **catalog/road-10 merged** (Douglas's sixth interface-exception extension, ratified by
+  dispatch): bundled shift-brake systems verify on interfaces; per-slot prices are labeled
+  estimates summing to real bundle MSRPs (RED $745, Rival $280, Apex $270+$225 — the Apex
+  per-SIDE bundle shape is a documented protocol caveat); weights stay nominal. Road 128
+  verified. Ekar Ergopower analog queued for a future gravel wave under the same ruling.
+- Still out: mtb-tail-4 (the last runner).
+
 ## 2026-07-21 — REPORT-DROP CHANNEL PROVEN + gravel 78 verified + kit-10 + road-9
 
 - **The click-free harvest channel works end-to-end**: emtb-5, road-9, kit-10, and
