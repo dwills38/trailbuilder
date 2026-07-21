@@ -222,38 +222,44 @@ var STRIDER_PARTS = [
   },
   {
     id: 'sb-wishbone-recycled-3in1', cat: 'balancebike', brand: 'Wishbone', model: 'Recycled 3-in-1',
-    wheel: '12', seatMin: 229, seatMax: 508, bikeWeight: 5171, tire: 'air',
+    wheel: '12', seatMin: 229, seatMax: 508, bikeWeight: 5800, tire: 'air',
     brake: 'none', frameMaterial: 'composite', price: 229.99,
-    note: 'Trike-to-balance-bike convertible made from recycled ocean/carpet plastic; the widest seat-height range in this catalog (9-20in) via a flip-frame + adjustable seatpost. bikeWeight is the 2-wheel balance-bike configuration (11.4lb per rascalrides); the 3-wheel trike mode weighs more. Retail price varies $199.99-$289.99 across sellers; $229.99 used (shopkidsplaysets.com).',
-    desc: 'Unverified sample — spec basis: twowheelingtots.com + rascalrides.com reviews (seat height, weight) + wishbonedesign.com product page; price from shopkidsplaysets.com.'
+    note: 'Trike-to-balance-bike convertible made from recycled ocean/carpet plastic; the widest seat-height range in this catalog (9-20in) via a flip-frame + adjustable seatpost. Corrected 2026-07-20: bikeWeight was 5171g (11.4lb per rascalrides, describing the 2-wheel-only configuration); updated to wishbonedesign.com\'s own stated "assembled weight" of 5.8kg (12.8lb) to meet THE BAR\'s maker-sourced-weight requirement for verified:true — this is likely the full 3-in-1 kit\'s assembled/shipping weight rather than the stripped 2-wheel mode, so it may run slightly heavy for balance-mode-only comparisons; flagged here rather than silently swapped.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://wishbonedesign.com/products/wishbone-bike-re2-3in1',
+    desc: 'Verified — wishbonedesign.com Recycled 3-in-1 product page (Exa-fetched 2026-07-20): "Adjustable seat from 9\\" - 20\\" / 23 to 51cm", made from recycled bottles & carpet (composite frame), assembled weight 5.8kg (12.8lb), $229.99 (US price, exact match).'
   },
   {
     id: 'sb-kinderfeets-classic', cat: 'balancebike', brand: 'Kinderfeets', model: 'Classic',
-    wheel: '12', seatMin: 300, seatMax: 380, bikeWeight: 3300, tire: 'foam',
+    wheel: '12', seatMin: 300, seatMax: 380, bikeWeight: 3700, tire: 'foam',
     brake: 'none', frameMaterial: 'wood', footrest: true, price: 139.99,
-    note: 'Birch-wood balance bike with footpegs and EVA airless (foam) tires. Wheel diameter not explicitly published by the maker; 12in used per the bike\'s stated seat-height/size class and is consistent with comparable wood balance bikes (display-only field, not fit-critical per STRIDER-MODEL.md sec 4).',
-    desc: 'Unverified sample — spec basis: kinderfeets.com/kinderfeets.co.nz product pages (seat height, weight, price, materials).'
+    note: 'Birch-wood balance bike with footpegs and EVA airless (foam) tires. Wheel diameter not explicitly published by the maker; 12in used per the bike\'s stated seat-height/size class and is consistent with comparable wood balance bikes (display-only field, not fit-critical per STRIDER-MODEL.md sec 4). Corrected 2026-07-20: weight was a rough 3300g estimate, updated to 3700g per an authorized reseller\'s product-weight field (juegoyjardin.com — kinderfeets.com itself publishes no weight, only "up to 65lb/30kg" rider capacity, so verified:true is withheld per THE BAR).',
+    desc: 'Unverified sample (weight not published by kinderfeets.com — no manufacturer figure or measured source meets THE BAR) — spec basis: kinderfeets.com Classic Balance Bike page (Exa-fetched 2026-07-20, seat height 12-15in/30-38cm exact match, birch wood, $139.99, rider capacity 65lb/30kg) + juegoyjardin.com authorized-reseller listing (weight 3700g) + junabear.com.au ("weighs about 8lb", corroborating).'
   },
   {
     id: 'sb-chillafish-bmxie2', cat: 'balancebike', brand: 'Chillafish', model: 'BMXie2',
-    wheel: '12', seatMin: 320, seatMax: 390, bikeWeight: 3600, tire: 'rubber-foam',
-    brake: 'none', frameMaterial: 'composite', footrest: true, price: 75,
-    note: 'Reinforced-plastic BMX-styled balance bike with airless "Rubberskin"-covered foam tires (puncture-proof) and an integrated footbrake — no vocab value exists for a foot-operated brake (schema brake enum is hand/coaster only), so brake is left "none"; the footbrake is a real feature, noted here rather than misrepresented as a hand brake.',
-    desc: 'Unverified sample — spec basis: twowheelingtots.com Chillafish review (seat height, weight, tire construction) + info.chillafish.com/product/bmxie-nb (official seat-height spec, price).'
+    wheel: '12', seatMin: 311, seatMax: 387, bikeWeight: 3856, tire: 'rubber-foam',
+    brake: 'none', frameMaterial: 'composite', footrest: true, price: 74.99,
+    note: 'Reinforced-plastic BMX-styled balance bike with airless "Rubberskin"-covered foam tires (puncture-proof) and an integrated footbrake — no vocab value exists for a foot-operated brake (schema brake enum is hand/coaster only), so brake is left "none"; the footbrake is a real feature, confirmed directly on chillafish.com/products/bmxie2\'s own title ("...lightweight balance bike with foot brake"), not just via twowheelingtots as the prior wave cited. Corrected 2026-07-20: seat height was 12.6-15.35in (320-390mm) sample, twowheelingtots\' own measured range is 12.25-15.25in (311-387mm); weight updated to twowheelingtots\' measured 8.5lb (chillafish.com/info.chillafish.com publish no weight, so verified:true is withheld per THE BAR); price to Target/chillafish.com\'s $74.99.',
+    desc: 'Unverified sample (weight not published by chillafish.com — no manufacturer figure meets THE BAR) — spec basis: info.chillafish.com/product/bmxie-nb (seat height 32-39cm/12.5-15.2in maker spec, footrest, airless rubber-skin foam tires) + chillafish.com/products/bmxie2 (footbrake confirmed in the product title, EUR79.99) + twowheelingtots.com measured review (seat height 12.25-15.25in, weight 8.5lb) + Target.com listing ($74.99, weight 8.4lb corroborating).'
   },
   {
     id: 'sb-yedoo-tootoo', cat: 'balancebike', brand: 'Yedoo', model: 'TooToo',
-    wheel: '12', seatMin: 317, seatMax: 419, bikeWeight: 3765, tire: 'air',
-    brake: 'rear-hand', frameMaterial: 'steel', price: 159,
-    note: 'Steel-frame balance bike with a Tektro short-reach hand brake and Kenda pneumatic tires; low ~12in standover suits younger toddlers. An optional extended seat post (shared with Strider) raises max seat height to ~19.5in.',
-    desc: 'Unverified sample — spec basis: twowheelingtots.com Yedoo TooToo/YooToo review (seat height, weight, price, brake).'
+    wheel: '12', seatMin: 300, seatMax: 410, bikeWeight: 3700, tire: 'air',
+    brake: 'rear-hand', steeringLimiter: true, frameMaterial: 'steel', price: 159,
+    note: 'Steel-frame balance bike with a Tektro rear V-brake (junior lever) and Kenda/Innova pneumatic tires; bearing headset "with stoppers that prevent handlebar rotation" (steeringLimiter, added 2026-07-20 — confirmed by the maker, was missing from this row). An optional extended seat post (shared with Strider) raises max seat height further per twowheelingtots. Corrected 2026-07-20: seat height 317-419mm sample -> yedoo.eu\'s exact 30-41cm (300-410mm); weight 3765->3700g (yedoo.eu\'s stated 3.7kg). US price not published by yedoo.eu (EUR-only site, EUR129.90); kept at the existing $159 twowheelingtots-cited US price.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://www.yedoo.eu/en/product/tootoo-3aBvYe',
+    desc: 'Verified (partial) — yedoo.eu TooToo product page (Exa-fetched 2026-07-20): Hi-ten steel frame/fork, seat height 30-41cm, weight 3.7kg, Rear V-brake Tektro w/ junior lever, Headset bearing with steering-rotation stoppers, EUR129.90. US price retained from twowheelingtots (yedoo.eu sells EUR-only).'
   },
   {
     id: 'sb-yedoo-yootoo', cat: 'balancebike', brand: 'Yedoo', model: 'YooToo',
-    wheel: '12', seatMin: 305, seatMax: 438, bikeWeight: 3583, tire: 'air',
-    brake: 'rear-hand', frameMaterial: 'aluminum', price: 199,
-    note: 'Aluminum-frame step-up sibling of the Yedoo TooToo; lighter, taller max seat height, same Tektro hand brake.',
-    desc: 'Unverified sample — spec basis: twowheelingtots.com Yedoo TooToo/YooToo review (seat height, weight, price, brake).'
+    wheel: '12', seatMin: 290, seatMax: 430, bikeWeight: 3400, tire: 'air',
+    brake: 'rear-hand', steeringLimiter: true, frameMaterial: 'aluminum', price: 199,
+    note: 'Aluminum-frame step-up sibling of the Yedoo TooToo; lighter, taller max seat height, same Tektro rear hand brake, same steering-limiter headset (added 2026-07-20, confirmed by the maker). Corrected 2026-07-20: seat height 305-438mm sample -> yedoo.eu\'s exact 29-43cm (290-430mm); weight 3583->3400g (yedoo.eu\'s stated 3.4kg). US price not published by yedoo.eu (EUR129.90); kept at the existing $199 twowheelingtots-cited US price.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://www.yedoo.eu/en/product/yedoo-yootoo-alu-balance-bike-w-reflective-elements-7kquBY',
+    desc: 'Verified (partial) — yedoo.eu YooToo product page (Exa-fetched 2026-07-20): Aluminium frame with two-position rear fork, seat height 29-43cm, weight 3.4kg, Rear V-brake Tektro w/ junior lever, Headset bearing with steering limiters, EUR179.90. US price retained from twowheelingtots (yedoo.eu sells EUR-only).'
   },
   {
     id: 'sb-giant-pre', cat: 'balancebike', brand: 'Giant', model: 'Pre',
