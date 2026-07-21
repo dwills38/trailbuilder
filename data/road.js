@@ -1058,7 +1058,8 @@ var ROAD_PARTS = [
     note: 'Fetched campagnolo.com: bb (Ultra-Torque, titanium axle) confirmed; "Combinations: 45x29, 48x32, 50x34" confirms this row\'s ring:\'50/34\' is a real factory combo. Weight (615g, sample) NOT promoted — the page publishes only the 45x29 combo\'s weight (585g @ 172.5mm), not this row\'s 50x34.' },
   { id: 'br-campagnolo-superrecord-wrl', cat: 'brake', brand: 'Campagnolo', model: 'Super Record Wireless Hydraulic Caliper (pair)', family: 'campagnolo-superrecord-wrl-brake',
     brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-campagnolo-superrecord-wrl',
-    weight: 330, price: 350 },
+    weight: 330, price: 350,
+    note: 'road-14 wave: checked the road-13-flagged single-caliper-vs-pair-weight hypothesis raised for br-campagnolo-record-wrl - confirmed it applies identically here. campagnolo.com\'s Super Record Wireless caliper page (CCPSUPERRECORDWRLDB12S) states only a single 140mm caliper weight (118g incl. pads), same figure Campagnolo publishes for every 12s-13s tier (Record, Chorus) since they share the same physical caliper. No pair total is published anywhere on campagnolo.com, so - matching road-13\'s call on Record - this row is NOT promoted to verified: doubling 118g to estimate a pair total would be an invented figure, not a sourced one. Interfaces (flat-mount, hydraulic, 2-piston) are correct and unambiguous regardless.' },
 
   // ===== DRIVETRAIN — Campagnolo Record (2x12, wireless) ====================
   // road-4 wave CORRECTION: this family was originally entered as a "Record Wireless"
@@ -1130,7 +1131,8 @@ var ROAD_PARTS = [
     note: 'Fetched campagnolo.com: Ultra-Torque axle confirmed ("has an Ultra-Torque steel axle like the Record crankset"); "Combinations 32/48, 34/50, 36/52" confirms this row\'s ring:\'50/34\' is a real combo. Weight (710g, sample) NOT promoted — the page publishes only the 32/48 combo\'s weight (728g @ 172.5mm), not this row\'s 34/50.' },
   { id: 'br-campagnolo-chorus-mech', cat: 'brake', brand: 'Campagnolo', model: 'Chorus Hydraulic Caliper (pair)', family: 'campagnolo-chorus-mech-brake',
     brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-campagnolo-chorus-mech',
-    weight: 350, price: 180 },
+    weight: 350, price: 180,
+    note: 'road-14 wave: same single-caliper-vs-pair-weight problem road-13 documented for br-campagnolo-record-wrl, confirmed here too. Campagnolo publishes one shared 140mm caliper across the Chorus/Record/Super Record 12s tiers - a Chorus-specific listing (e-bike.ee, quoting Campagnolo\'s own spec) states "Caliper weight 118g (140mm, 1 pz - pads included)", the identical figure Record and Super Record Wireless carry. No pair total is published, so not promoting to verified: doubling would be an invented number, not a sourced one. Interfaces (flat-mount, hydraulic, 2-piston) are unambiguous and unaffected.' },
 
   // ===== WHEELS — Campagnolo Bora WTO (N3W freehub) =========================
   { id: 'fw-campagnolo-bora-wto-45', cat: 'frontwheel', brand: 'Campagnolo', model: 'Bora WTO 45 C23 Disc Brake', family: 'campagnolo-bora-wto',
