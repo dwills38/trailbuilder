@@ -114,14 +114,15 @@ var EMTB_PARTS = [
     desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Frame/wheel/gen corrected verify/emtb-3 wave 3 phase 2 (alloy not carbon, 29in not mullet, Gen 5 CX, price matched to current Moterra 4 MSRP).'
   },
   {
-    id: 'em-transition-relay', cat: 'emtb', brand: 'Transition', model: 'Relay',
-    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
+    id: 'em-transition-relay', cat: 'emtb', brand: 'Transition', model: 'Relay Carbon',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60, motorPowerPeak: 450,
     batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail'], weight: 19500, price: 8000,
-    note: 'Lightweight ("SL") Fazua-powered bike — rides close to an acoustic trail bike.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — the lightweight-class representative; specs approximate, not maker-confirmed.'
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 90 Transmission', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-trail'], weight: 19500, price: 9199,
+    note: 'Lightweight ("SL") Fazua-powered bike — rides close to an acoustic trail bike. The real Relay carbon base build runs 29in wheels at 160mm F/R (mixed-wheel/170mm is the separate Relay PNW variant), SRAM Eagle 90 mechanical Transmission (not GX AXS), and Maven Bronze brakes.',
+    desc: 'Verified vs the maker page (transitionbikes.com/Bikes/Relay, build-select spec table) for motor/battery/travel/wheel/frame/drivetrain/brakes and MSRP ($9,199; site also shows a $5,999 sale price, basis noted). Weight kept as the pre-existing nominal sample: Transition publishes only an aggregate "starting at 42.5lb/19.27kg with battery" figure, not tied to this exact build/size, so per the fork/wheel/shock interface-verification convention the weight stays unverified/nominal while interfaces are maker-confirmed. Model/wheel/travel/drivetrain/brakes/price corrected verify/emtb-4 wave 4 cluster E (Relay -> Relay Carbon, mullet 160/150 -> 29in 160/160, GX Eagle Transmission -> SRAM Eagle 90 Transmission, SRAM Code -> Maven Bronze, $8000 -> $9,199 MSRP). No Shimano-drivetrain Relay trim exists.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.transitionbikes.com/Bikes/Relay'
   },
   {
     id: 'em-rocky-mountain-altitude-powerplay', cat: 'emtb', brand: 'Rocky Mountain', model: 'Altitude Powerplay',
@@ -437,24 +438,26 @@ var EMTB_PARTS = [
   // Transition depth (Relay Alloy XT + Relay Carbon X0 AXS)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-transition-relay-alloy-xt', cat: 'emtb', brand: 'Transition', model: 'Relay Alloy XT',
-    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
+    id: 'em-transition-relay-alloy-xt', cat: 'emtb', brand: 'Transition', model: 'Relay PNW Alloy',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60, motorPowerPeak: 450,
     batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail'], weight: 20200, price: 6000,
-    note: 'Entry alloy Relay trim; same Fazua Ride 60 motor as the carbon range.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 90 Transmission', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-trail'], weight: 20200, price: 7899,
+    note: 'Entry alloy Relay trim; same Fazua Ride 60 motor as the carbon range. The real mixed-wheel/170mm build is branded "Relay PNW" (a flip-chip sibling of the 29in/160mm "Relay"); there is no Shimano-drivetrain trim.',
+    desc: 'Verified vs the maker page (transitionbikes.com/Bikes/Relay, build-select spec table) for motor/battery/travel/wheel/frame/drivetrain/brakes and MSRP ($7,899; site also shows a $4,999 sale price, basis noted). Weight kept as the pre-existing nominal sample per the fork/wheel/shock interface-verification convention — Transition publishes only an aggregate "starting at" bike weight, not a per-build figure. Model/travel/drivetrain/brakes/price corrected verify/emtb-4 wave 4 cluster E (Relay Alloy XT -> Relay PNW Alloy [no XT trim exists], 160/150 -> 170/170, Shimano XT -> SRAM Eagle 90 Transmission, Shimano XT 4-piston -> SRAM Maven Bronze, $6,000 -> $7,899 MSRP).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.transitionbikes.com/Bikes/Relay'
   },
   {
-    id: 'em-transition-relay-carbon-x0-axs', cat: 'emtb', brand: 'Transition', model: 'Relay Carbon X0 AXS',
-    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
+    id: 'em-transition-relay-carbon-x0-axs', cat: 'emtb', brand: 'Transition', model: 'Relay PNW Carbon',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60, motorPowerPeak: 450,
     batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail'], weight: 19100, price: 9500,
-    note: 'Higher-tier carbon Relay trim; SRAM X0 Transmission upgrade.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 90 Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail'], weight: 19100, price: 9999,
+    note: 'Top-tier carbon Relay PNW build (mixed wheel, 170mm F/R); SRAM Maven Silver brakes + HS2 rotors over the base Maven Bronze/Centerline spec. Drivetrain is the same mechanical SRAM Eagle 90 Transmission as every other Relay build, not an X0 AXS electronic group — no AXS Relay trim exists.',
+    desc: 'Verified vs the maker page (transitionbikes.com/Bikes/Relay, build-select spec table) for motor/battery/travel/wheel/frame/drivetrain/brakes and MSRP ($9,999; site also shows a $6,599 sale price, basis noted). Weight kept as the pre-existing nominal sample per the fork/wheel/shock interface-verification convention — Transition publishes only an aggregate "starting at" bike weight, not a per-build figure. Model/travel/drivetrain/brakes/price corrected verify/emtb-4 wave 4 cluster E (Relay Carbon X0 AXS -> Relay PNW Carbon [no AXS trim exists], 160/150 -> 170/170, SRAM X0 Eagle Transmission -> SRAM Eagle 90 Transmission (mechanical), SRAM Code -> Maven Silver, $9,500 -> $9,999 MSRP).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.transitionbikes.com/Bikes/Relay'
   },
 
   // ---------------------------------------------------------------------------
