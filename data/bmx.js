@@ -1220,8 +1220,15 @@ var BMX_PARTS = [
     id: 'bmx-fr-redline-prolineflight', cat: 'frame', brand: 'Redline', model: 'Proline Flight',
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
     topTube: 20.75, rearBrakeMount: 'disc', rearAxle: '14mm', frameOnly: true,
-    price: 549.99,
-    note: 'Disc-brake-equipped tier of the Redline Proline race platform (Redline has added Avid disc-brake spec to Proline); unblocks the depth-3 disc-vocab gap.'
+    price: 549.99, status: 'discontinued', supersededBy: 'bmx-fr-redline-prolineexpert',
+    note: 'RETIRED — gravel-8 priority-3 finding (2026-07-21): "Proline Flight" is a phantom trim name — Redline sells "Proline" (this file\'s base row, v-brake) and "Proline Expert"/"Proline Expert XL" as its current disc-brake race tier, and separately a completely different "Flight"/"Flight Pro Carbon" frame line (J&R Bicycles: "Redline Flight Pro Carbon BMX Race Frame") — but no product anywhere named "Proline Flight" exists on redlinebicycles.com (now redirects to diamondback.com/collections/redline-bmx), current retailer listings, or search results. This row appears to have chimera\'d the two real names together to fill the depth-3 disc-brake vocab gap, the same failure mode as the gravel catalog\'s retired HUNT "Adventure Wide" row. Retired via status/supersededBy per the append-only id convention rather than deleted or silently renamed. Superseded by bmx-fr-redline-prolineexpert, a real current model with the matching disc-brake/Euro-BB spec.'
+  },
+  {
+    id: 'bmx-fr-redline-prolineexpert', cat: 'frame', brand: 'Redline', model: 'Proline Expert',
+    discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'disc', rearAxle: '14mm', frameOnly: true,
+    price: 650.00, status: 'current',
+    note: 'gravel-8 priority-3 new row (2026-07-21): the real replacement for the retired bmx-fr-redline-prolineflight phantom above. "Proline Expert" is a genuine current Redline race model — confirmed on diamondback.com/collections/redline-bmx (Redline\'s current parent brand storefront; redlinebicycles.com now redirects there), which lists exactly 6 current products including "Proline Expert" and "Proline Expert XL", both disc-brake-spec ($650, complete-bike price used here as a frameset-price placeholder since no frameset-only SKU is listed — flagged as a price estimate, not maker-published frameset MSRP). Recent-model-year reviews/retailer copy (americancycle.com, J&R Bicycles) describe Avid disc brakes + a sealed Euro bottom bracket on this tier, matching bbShell:\'euro\'/rearBrakeMount:\'disc\' — corroborating (not page-fetched per-spec) sources, so this row stays unverified sample despite fixing the phantom-name problem.'
   },
   {
     id: 'bmx-br-avid-bb5-bmx', cat: 'brake', brand: 'Avid', model: 'BB5 Mechanical Disc Brake',

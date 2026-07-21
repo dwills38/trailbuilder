@@ -51,7 +51,7 @@ var GRAVEL_VOCAB = {
   bb:           ['bsa-road', 'bb86', 'bb30a', 'pf30', '24mm-road', 'dub', 'dub-wide', 'ultra-torque', 'bbright', 't47-road', 'bb386evo', 't47-86'],   // 'pf86' retired 2026-07-21 — merged into 'bb86' (same physical 86.5mm press-fit shell; see schema-road.js's header note). Fixes the 2 Giant Revolt frames that had NO matching BB row under the old split.
   shell:        ['bsa-road', 't47-road', 'bb86', 't47-86'],
   spindle:      ['24mm-road', 'dub'],
-  seatpost:     ['27.2', '31.6', '30.9'],
+  seatpost:     ['27.2', '31.6', '30.9', 'proprietary'],
   steerer:      ['tapered'],
   frontDerailleurMount: ['none', 'braze-on'],
   material:     ['alloy', 'steel', 'titanium'],
@@ -78,7 +78,7 @@ var GRAVEL_VOCAB = {
   status:       ['current', 'discontinued', 'recalled']
 };
 
-/** @typedef {{type: 'number'|'string'|'bool'|'numArray'|'strArray'|'map'|'numOrNull'|'strOrNull', vocab?: string, optional?: boolean}} GravelFieldRule */
+/** @typedef {{type: 'number'|'string'|'bool'|'numArray'|'strArray'|'map'|'numOrNull'|'strOrNull'|'array', vocab?: string, optional?: boolean}} GravelFieldRule */
 
 /* Per-category required/optional field set. Every non-optional field is
    present on 100% of the category's current data/gravel.js rows
@@ -163,7 +163,11 @@ var GRAVEL_SCHEMA = {
     clamp:{type:'string',vocab:'clamp'}, steerer:{type:'string',vocab:'steerer'}, length:{type:'number'}
   },
   seatpost: {
-    diameter:{type:'string',vocab:'seatpost'}, setback:{type:'number'}
+    // diameter is optional (a proprietary/D-shaped post — BMC URS LT's own
+    // aero seatpost, gravel-8 finding — carries no round diameter at all,
+    // mirroring src/schema-road.js's seatpost.diameter/proprietary/forFrames pattern).
+    diameter:{type:'string',vocab:'seatpost',optional:true}, setback:{type:'number'},
+    proprietary:{type:'bool',optional:true}, forFrames:{type:'array',optional:true}
   },
   dropper: {
     diameter:{type:'string',vocab:'seatpost'}, drop:{type:'number'}, actuation:{type:'string',vocab:'actuation'}
