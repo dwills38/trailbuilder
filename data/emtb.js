@@ -1085,23 +1085,27 @@ var EMTB_PARTS = [
   },
   {
     id: 'em-norco-sight-vlt-cx-c2', cat: 'emtb', brand: 'Norco', model: 'Sight VLT CX C2',
-    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 100, motorPowerPeak: 750,
-    batteryWh: 800, batteryRemovable: false, assist: 'full-power', display: 'system-controller',
+    family: 'norco-sight-vlt-cx', gen: 'Gen 4', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Bronze',
+    frameMaterial: 'carbon', drivetrain: 'SRAM S1000 Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Bronze',
     disciplines: ['e-trail', 'e-enduro'], weight: 22200, price: 7999,
-    note: 'Mid-tier build of the Bosch-powered Sight VLT CX; the platform is carbon-only now — there is no current alloy "A1" tier.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    note: 'Mid-tier build of the Bosch-powered Sight VLT CX Gen 4; the platform is carbon-only now — there is no current alloy "A1" tier. Ships at 85Nm/600W stock, app-unlockable to 120Nm/750W (Bosch Performance Upgrade 2.0).',
+    desc: "Verified vs the maker's own product page (motor/battery/travel/frame/drivetrain/brakes/weight all confirmed; MSRP $7,999 US price matches 'In Shops' tier exactly, 22.2kg S3 weight matches exactly). motorTorque/motorPowerPeak corrected wave 4 cluster C (100/750 -> 85/600, the shipped stock tune — 100Nm/750W, now up to 120Nm/750W via the optional Bosch Flow App update, was the unlocked figure, not what ships); batteryRemovable corrected (false -> true, Bosch PowerTube is a removable pack); rangeExtender added (Bosch PowerMore 250 compatible, confirmed on the page); drivetrain refined to the actual derailleur tier (SRAM S1000 Eagle AXS T-Type, not the prior generic label).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.norco.com/bikes/e-mountain/e-all-mountain/sight-vlt-cx/25-sight-vlt-cx-c2/'
   },
   {
     id: 'em-norco-sight-vlt-cx-c1', cat: 'emtb', brand: 'Norco', model: 'Sight VLT CX C1',
-    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 100, motorPowerPeak: 750,
-    batteryWh: 800, batteryRemovable: false, assist: 'full-power', display: 'system-controller',
+    family: 'norco-sight-vlt-cx', gen: 'Gen 4', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'SRAM Maven Silver',
-    disciplines: ['e-trail', 'e-enduro'], weight: 22600, price: 9999,
-    note: 'Top-tier Sight VLT CX build; Bosch Performance Line CX replaces the prior Shimano EP8 generation.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: 21700, price: 9999,
+    note: 'Top-tier Sight VLT CX Gen 4 build; Bosch Performance Line CX replaces the prior Shimano EP8 generation. Ships at 85Nm/600W stock, app-unlockable to 120Nm/750W (Bosch Performance Upgrade 2.0).',
+    desc: "Verified vs the maker's own product page (motor/battery/travel/frame/drivetrain/brakes/weight all confirmed; MSRP $9,999 US price matches 'In Shops' tier exactly, 21.7kg S3 weight maker-published). motorTorque/motorPowerPeak corrected wave 4 cluster C (100/750 -> 85/600, the shipped stock tune, not the app-unlocked figure); batteryRemovable corrected (false -> true, Bosch PowerTube is removable); rangeExtender added (Bosch PowerMore 250 compatible); drivetrain corrected (SRAM X0 Eagle AXS -> the actual SRAM GX Eagle AXS T-Type derailleur per the spec sheet); weight corrected (22600g sample -> 21700g maker-published).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.norco.com/bikes/e-mountain/e-all-mountain/sight-vlt-cx/25-sight-vlt-cx-c1/'
   },
   {
     id: 'em-scott-genius-eride-910-bosch-cx-gen4', cat: 'emtb', brand: 'Scott', model: 'Genius eRide 910',
