@@ -585,8 +585,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-rh-bsd-mind', cat: 'rearWheel', brand: 'BSD', model: 'Mind Cassette Hub',
-    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 279.99,
-    note: 'Real, current product: the "Back Street Pro Mind Wheel" (bsdforever.com), built from the BSD Back Street Pro cassette hub + NASA rim - a complete wheel, not a bare hub. Price corrected from 99.99 to the confirmed US-store $279.99. The manufacturer page confirms RHD/LHD ("side":both) and a cassette-type hub, but its own spec table does not itself state axle mm or driver tooth count (those figures - 14mm male, 9T - are independently confirmed only by third-party retailer listings, consistently across several). Left unverified per THE BAR (interface facts must come from the fetched maker page itself); values are very likely correct.'
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 279.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://us.bsdforever.com/products/bsd-back-street-pro-cassette-rear-wheel',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, closing the exact axle-mm gap the prior pass correctly flagged. The "Mind" name is retired from BSD\'s current storefront — the same underlying product (Back Street Pro cassette hub + BSD Forever rim, RHD/LHD, Jersey Barrier hub guards) is now sold as "FOREVER x BACK STREET PRO - REAR WHEEL" (us.bsdforever.com, Shopify products.json confirms price $279.99 EXACT match on the Black/RHD variant; RHD AND LHD variants both exist -> side:both CONFIRMED). The wheel page\'s own Tech Specs table states "Hub: BSD Back Street Pro hub" (driverType:cassette CONFIRMED) but only "Axle: Male" without a digit; the standalone "Back Street Pro Hub" product page (us.bsdforever.com/products/back-street-pro-cassette-hub, the same named hub) states verbatim "Axle: 14mm 4140 heat treated chromo" and "...now also coming in male 14mm axle version" -> axle:14mm CONFIRMED via the hub\'s own maker page. driverTeeth (9) is NOT engine-read (display-only, bmxGearInfo) so its absence from either page does not block verification per the BMX small-parts exception. Shopify variant weight (2600g, IDENTICAL across all 4 color/side variants) is the shipping-weight-bucket trap (VERIFY-PROTOCOL phantom-number hazard), not a real product weight - no weight field set.'
   },
   {
     id: 'bmx-rh-eclat-shift-freecoaster', cat: 'rearWheel', brand: 'Eclat', model: 'Shift Freecoaster Hub',
@@ -639,8 +640,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-fw-bsd-mind', cat: 'frontWheel', brand: 'BSD', model: 'Mind Front Wheel',
-    wheelSize: '20', axle: '10mm', price: 169.99,
-    note: 'Real, current product: the "Front Street Pro Mind Wheel" (bsdforever.com), built from the BSD Front Street Pro hub + NASA rim, ships with hubguards. Price corrected from 74.99 to the confirmed US-store $169.99 (a full built wheel, not a bare hub, so the prior sample price was too low). Axle mm is not itself printed on the fetched page (10mm is the standard BMX front-axle value and matches this row) - left unverified per THE BAR pending an interface-specific source.'
+    wheelSize: '20', axle: '10mm', price: 179.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://us.bsdforever.com/products/forever-front-street-pro-front-wheel',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, closing the axle-mm gap the prior pass flagged. Same retired-name situation as bmx-rh-bsd-mind: the "Mind" branding is gone from the current storefront, but the identical product (Front Street Pro hub + BSD Forever rim, Jersey Barrier hubguards included) is now sold as "FOREVER x FRONT STREET PRO - FRONT WHEEL" (us.bsdforever.com). Price CORRECTED 169.99 -> 179.99 (Black variant, current live price; Chrome is 199.99). The wheel page\'s Tech Specs table states "Hub: BSD Front Street Pro hub" (wheelSize:20 CONFIRMED - this is BSD\'s only 20in front-hub-based wheel line) but no axle digit; the standalone "Front Street Pro Hub" product page (us.bsdforever.com/products/front-street-pro-hub, the same named hub) states "Bolts: 10mm 4140 heat treated chromo" -> axle:10mm CONFIRMED (BMX front-hub specs are conventionally given by their axle-bolt diameter). Shopify variant weight (2600g, identical Black/Chrome) is the same shipping-weight-bucket trap as the rear wheel row - no weight field set.'
   },
 
   // ===== TIRES ==========================================================
