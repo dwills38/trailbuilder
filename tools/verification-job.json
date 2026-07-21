@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T01:32:30.322Z",
+ "updated": "2026-07-21T01:35:02.490Z",
  "batchSize": 25,
  "lastCompleted": "ca-shimano-deore-m5100-1151",
  "currentCategory": "frame",
@@ -609,13 +609,9 @@
   "fk-fox-34-rythm-29-130",
   "fk-rockshox-recon-silver-rl-275-130",
   "fk-rockshox-revelation-rc-275-130",
-  "fk-giant-stl34-29-140",
   "fk-fox-34-performance-elite-29-120",
   "fk-marzocchi-bomber-z1-29-140",
   "fk-fox-34-floatsc-performanceelite-29-110",
-  "fk-giant-crest34-275-130",
-  "fk-giant-sxc32-29-100",
-  "fk-giant-sxc32-3-29-100",
   "fk-srsuntour-xce28-29-100-qr",
   "fk-srsuntour-xct30-29-100-qr",
   "fk-srsuntour-xcm-29-100-qr",
@@ -1052,7 +1048,6 @@
   "bk-magura-mt8-sl-fm",
   "bk-sram-code-r",
   "bk-magura-gustav-pro",
-  "bk-shimano-mt410",
   "bk-shimano-mt420",
   "bk-trp-quadiem",
   "bk-trickstuff-piccola-hd-titanium",
@@ -1076,7 +1071,6 @@
   "bk-magura-mt8-pro",
   "bk-tektro-m3120",
   "bk-sram-code-bronze",
-  "bk-shimano-mt600",
   "bk-tektro-hd-m275",
   "bk-tektro-mechanical-disc-generic",
   "ro-trp-r1-223-6b",
@@ -1130,7 +1124,6 @@
   "ro-shimano-rt26-160-6b",
   "ro-trp-25-203-6b",
   "ro-trp-25-180-6b",
-  "ro-shimano-rt66-180-6b",
   "ro-shimano-rt66-203-6b",
   "ro-shimano-rt66-160-6b",
   "ro-shimano-rt10-160-cl",
@@ -1541,10 +1534,7 @@
   "bb-kogel-pf865-24mm",
   "bb-kogel-pf865-dub",
   "bb-jienyuan-pf92-19mm",
-  "bb-shimano-smbb52-bsa73-24mm",
-  "bb-shimano-mt501-bsa73",
   "bb-samox-bsa73-24mm",
-  "bb-shimano-mt501-bsa68",
   "bb-prowheel-fpb902w-bsa68",
   "bb-praxisworks-m24-pf92-24mm",
   "bb-fsa-megaexo-bsa73-24mm",
@@ -31861,11 +31851,11 @@
   },
   "fk-giant-stl34-29-140": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T01:35:02.487Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/stance-2026",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-lyrik-select-rc-29-160": {
    "cat": "fork",
@@ -31933,27 +31923,27 @@
   },
   "fk-giant-crest34-275-130": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T01:35:02.488Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/fathom-1-2025",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-giant-sxc32-29-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T01:35:02.488Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/talon-1-2027",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-giant-sxc32-3-29-100": {
    "cat": "fork",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-21T01:35:02.488Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/talon-2-2027",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fk-rockshox-35-gold-rl-29-150": {
    "cat": "fork",
