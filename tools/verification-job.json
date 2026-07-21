@@ -1,13 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T19:53:31.568Z",
+ "updated": "2026-07-21T19:58:18.193Z",
  "batchSize": 25,
- "lastCompleted": "ti-bontrager-se5-275-25-corestrength-tmgrip",
- "currentCategory": "tire",
+ "lastCompleted": "ti-bontrager-g5-29-25",
+ "currentCategory": "frame",
  "queue": [
-  "ti-bontrager-xr4-29-26-innerstrength-tmgrip",
-  "ti-bontrager-xr4-29-24-innerstrength-tmgrip",
   "fr-giant-reign-advanced",
   "fr-kona-process-153",
   "fr-kona-process-153-carbon",
@@ -54,7 +52,6 @@
   "ti-continental-kryptotal-re-275-24-downhill-supersoft",
   "ti-schwalbe-racing-ray-29-225-sg-asg",
   "ti-maxxis-ardent-race-29-22-exo",
-  "ti-bontrager-g5-29-25",
   "ti-wtb-breakout-29-23",
   "ti-wtb-trailboss-29-225-comp",
   "ti-kenda-regolith-29-24",
@@ -72,12 +69,9 @@
   "ti-maxxis-ardentrace-275-26-exo-tr",
   "ti-maxxis-ardent-29-24-exo-dual",
   "ti-wtb-vigilante-275-25-lightsg2-gripton",
-  "ti-bontrager-montrose-comp-29-24",
   "ti-schwalbe-racing-ralph-29-235-sg-as",
   "ti-schwalbe-racing-ray-29-235-sg-asg",
   "ti-veerubber-crowngem-275-28",
-  "ti-bontrager-brevardpro-xr-275-25-dual",
-  "ti-bontrager-sainteanne-proxr-29-22",
   "fw-raceface-ar30-factor-29",
   "fw-sonder-nova-29",
   "fw-reserve-30tr-al-29",
@@ -27091,11 +27085,11 @@
   },
   "ti-bontrager-xr4-29-26-innerstrength-tmgrip": {
    "cat": "tire",
-   "status": "InProgress",
-   "updated": "2026-07-21T19:53:31.454Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:55:38.104Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/mountain-bike-tires/bontrager-xr4-team-issue-tlr-mtb-tire/p/13585/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-bontrager-gunnisonpro-xr-29-24": {
    "cat": "tire",
@@ -27107,19 +27101,19 @@
   },
   "ti-bontrager-g5-29-25": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:58:18.192Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/mountain-bike-tires/bontrager-g5-team-issue-mtb-tire/p/11207/",
+   "note": "mtb-tail-9: FETCHED trekbikes.com's G5 Team Issue page directly, corrected weight/price/casing to real maker-stated figures - but the page names no compound tier at all, so it cannot clear the tire-batch gate's casing+compound requirement for verified:true. Real-sourced, closing out the job entry as Skipped (policy gate, not a wall)."
   },
   "ti-bontrager-xr4-29-24-innerstrength-tmgrip": {
    "cat": "tire",
-   "status": "InProgress",
-   "updated": "2026-07-21T19:53:31.567Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:55:38.104Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/mountain-bike-tires/bontrager-xr4-team-issue-tlr-mtb-tire/p/13585/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-wtb-breakout-29-23": {
    "cat": "tire",
@@ -27419,11 +27413,11 @@
   },
   "ti-bontrager-montrose-comp-29-24": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:57:00.933Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: row already real-page-sourced (mtb-tail-8, trekbikes.com fetched directly) but cannot clear verified:true - the page names no compound tier at all and test-data.js requires both casing+compound on a verified tire. No further data available this session. Stays unverified, closing out the job entry."
   },
   "ti-schwalbe-racing-ralph-29-235-sg-as": {
    "cat": "tire",
@@ -27451,11 +27445,11 @@
   },
   "ti-bontrager-brevardpro-xr-275-25-dual": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:57:01.166Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: RE-CONFIRMED mtb-tail-8's finding - WebSearch across trekbikes.com regional sites finds no distinct 27.5x2.5 Brevard Pro XR product page (the verified 29in sibling's SKU page, model 5312043, offers 29in only). Genuine open question (real OE-only size vs vitalmtb over-generalization), not a fetch wall. Stays unverified, closing out the job entry."
   },
   "ti-bontrager-brevardpro-xr-29-25-dual": {
    "cat": "tire",
@@ -27483,11 +27477,11 @@
   },
   "ti-bontrager-sainteanne-proxr-29-22": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:57:01.407Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: RE-CONFIRMED mtb-tail-8's finding - the verified 29x2.4 Sainte-Anne Pro XR sibling's SKU page (model 44575) offers only that one size, no 2.2in option found on any Trek regional site. Genuine open question, not a fetch wall. Stays unverified, closing out the job entry."
   },
   "fw-raceface-ar30-factor-29": {
    "cat": "frontwheel",
