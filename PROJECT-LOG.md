@@ -3399,3 +3399,31 @@ auto-merges); full gates + verdict harness green throughout.
   (plausible family match, not a confirmed identity).
 - Gates green (validate 0 problems / 911 tests / tsc clean) at `d2bcdb1`.
 
+
+## 2026-07-21 (seat 16) — MTB tail 6 merged: Ibis duplicate-SKU call finally resolved
+
+- **verify/mtb-tail-6** merged (`8c55198`): the Ibis Ripmo V3 / Ripley V5 GX-AXS-vs-Transmission
+  duplicate-SKU pairs that TWO prior waves flagged for a coordinator call, never made — this
+  one made it. Live-fetched ibiscycles.com: each model lists exactly one Transmission-tier
+  build kit, and the build-kit page both catalog rows cited headers itself "GX AXS" — "GX
+  Transmission" was never a distinct Ibis tier, just this catalog's own second label for the
+  same build. Retired both duplicate ids via ALIASES onto their verified siblings (part count
+  5040→5038). One test fragility caught + fixed in the process: `test-account-serialize.js`
+  reads `Object.keys(C.ALIASES)[0]` and broke when a completebike alias (no build SLOTS entry)
+  landed first — fixed by appending new ALIASES at the end; flagged as a convention for any
+  future completebike alias.
+- Three thoroughly-researched dead ends, each closed with a stronger negative-proof than
+  before rather than left open again: **SRAM rotor weights** — confirmed SRAM publishes none
+  anywhere across all 21 unverified rows; the one MBR figure with an ambiguous mount was
+  independently re-confirmed as correctly-still-unverified, and a WebSearch-summarized
+  "measured" CenterLine X figure was traced back to source and found NOT to appear on the
+  actual cited thread — caught before it could contaminate a row. **Fox OE-only fork
+  weights** — did the vision-read of the engineering JPG spec sheets the brief asked for
+  (2025/2026 Fox User Spec sheets); confirmed they are pure dimensional/geometry drawings
+  with NO weight data in any generation — closes this question definitively rather than
+  leaving "try a vision read" open forever. **Formula/Tektro/Clarks entry rotors** — same
+  no-published-weight pattern, budget-tier thin spec sheets rather than a deliberate gap.
+- Gates green (validate 0 problems / 911 tests / tsc clean / verdict harness clean) at
+  `8c55198`. **All four chips from this dispatch round (mtb-tail-6, gravel-9, road-13, kit-12)
+  are now harvested — queue is empty again.**
+
