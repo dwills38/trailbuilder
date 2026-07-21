@@ -3467,3 +3467,25 @@ auto-merges); full gates + verdict harness green throughout.
   catalog only, so e-content stays contained on emtb.html per hard rules 1/3. Chip written
   (feat/archive-perpage-1) covering KitBuilder/emtb/gravel/road/bmx.
 - Service-log turn-on walkthrough delivered (SETUP.md §10 — his one Supabase SQL paste).
+
+## 2026-07-21 (seat 16) — Road 14 merged
+
+- **catalog/road-14-cont** merged: +15 verified (road 158→173, 80%). Tires: Vittoria/Pirelli/
+  Schwalbe/Goodyear all maker-fetched with real weight corrections (Pirelli's samples were
+  simply wrong — 255→290g, 290→315g; Goodyear's compound tier corrected GSR→UHP). Forks: 6
+  verified under the interface exception (Specialized SL8/Roubaix, Trek Émonda/Domane/Madone,
+  Canyon Ultimate incl. a maxTire 32→33 fix applied to fork AND frame). Frames: Specialized
+  Allez verified with a REAL maker-stated frame weight (1,375g — corrected from the 1450g
+  sample) + maxTire 30→35. Campagnolo caliper single-vs-pair hypothesis CONFIRMED across all
+  three tiers (same physical 118g caliper, no pair total published anywhere — notes added so
+  no future pass re-discovers it; correctly not promoted, doubling would be invented data).
+- **NEW VOCAB DECISION for Douglas/coordinator**: schema-road.js's steerer vocab has no token
+  for proprietary non-round steerers (Cannondale "Delta", Giant "OverDrive Aero" D-shaped) —
+  blocks verifying 3 real forks now and more Cannondale/Giant road parts later. Design
+  question: does rule-20 need a real "accepts no standard headset" state, or just a
+  documentation-only 'proprietary' token? Also open: Canyon Aeroad CFR fork steerer conflict
+  (aggregators citing Canyon's sheet say straight 1-1/8, row says tapered — needs a direct
+  canyon.com fetch). Branch-name note: worker's sandbox pinned it to an agent worktree, so
+  the branch landed as road-14-cont — harvested normally, no stray road-14 branch existed.
+- Gates green (validate 0 problems / 930 tests / tsc clean) at merge.
+
