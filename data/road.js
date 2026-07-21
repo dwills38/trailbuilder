@@ -1265,8 +1265,10 @@ var ROAD_PARTS = [
 // Vocab / schema gaps (road-2 wave update, 2026-07-17):
 //  - src/schema-road.js now exists and validates this file clean (0 problems,
 //    wired into validate.js as "ROAD OK"). The road-1 wave's bbShellRoad gap
-//    (bb90-road/bb30a/pf86) is RESOLVED — widened in both the validator and
+//    (bb90-road/bb30a) is RESOLVED — widened in both the validator and
 //    ROAD-MODEL.md section 4, with do-not-conflate-with-MTB-tokens notes.
+//    ('pf86' was also added here originally but RETIRED 2026-07-21 — merged
+//    into 'bb86', same physical shell; see schema-road.js's header note.)
 //  - Campagnolo (Super Record Wireless / Record / Chorus, N3W freehub +
 //    a Bora WTO N3W wheelset) ADDED this wave as unverified samples.
 //    campagnolo.com WAS probed (WebFetch): the product-nav page fetches
