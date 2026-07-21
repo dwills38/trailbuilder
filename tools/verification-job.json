@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T18:50:13.976Z",
+ "updated": "2026-07-21T19:57:08.030Z",
  "batchSize": 25,
  "lastCompleted": "cr-shimano-mt612-30",
  "currentCategory": "frame",
@@ -60,6 +60,8 @@
   "ti-schwalbe-racing-ray-29-225-sg-asg",
   "ti-maxxis-ardent-race-29-22-exo",
   "ti-bontrager-xr4-29-26-innerstrength-tmgrip",
+  "ti-bontrager-gunnison-rsl-xt-29-24",
+  "ti-bontrager-montrose-rsl-xt-29-24",
   "ti-bontrager-g5-29-25",
   "ti-bontrager-xr4-29-24-innerstrength-tmgrip",
   "ti-wtb-breakout-29-23",
@@ -418,6 +420,7 @@
   "rw-wtb-sti25-scalpelht3-29-ms",
   "rw-bontrager-line-comp-30-29-hg",
   "rw-bontrager-line-comp-30-29-ms",
+  "rw-bontrager-line-comp-30-29-xd",
   "rw-bontrager-linetlr30-roscoeoe-29",
   "rw-bontrager-linedh-30-29-157-hg",
   "rw-bontrager-linepro-30-29-xd",
@@ -1292,10 +1295,7 @@
   "cb-evil-wreckoning-ls-gx-i9-hydra",
   "cb-evil-wreckoning-ls-xx-transmission",
   "cb-trek-session-8-29-gx",
-  "cb-trek-topfuel-9-8-gx-axs-gen4",
-  "cb-trek-fuelex-99-xx-axs-gen6",
   "cb-trek-remedy-8",
-  "cb-trek-fuelex-8-gx-axs-gen6",
   "cb-trek-supercaliber-slr-98-xt-gen2",
   "cb-cannondale-habit-ht-1",
   "cb-cannondale-habit-ht-2",
@@ -1405,7 +1405,6 @@
   "cb-pivot-les-sl-ride-slxxt",
   "cb-diamondback-release-29-1",
   "cb-bmc-twostroke-01-two",
-  "cb-trek-procaliber-95-gen3",
   "cb-orbea-oiz-m30",
   "cb-scott-spark-rc-pro",
   "cb-pivot-mach4sl-team-xtr",
@@ -38483,11 +38482,11 @@
   },
   "cb-trek-topfuel-9-8-gx-axs-gen4": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:57:08.029Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/trail-mountain-bikes/top-fuel/top-fuel-9-8-gx-axs-gen-4/p/5319437/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-trek-fuelex-98-xt-gen6": {
    "cat": "completebike",
@@ -38499,11 +38498,11 @@
   },
   "cb-trek-fuelex-99-xx-axs-gen6": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:57:08.029Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/trail-mountain-bikes/fuel-ex/fuel-ex-9-9-xx-axs-t-type-gen-6/p/47249/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-trek-slash-98-xt-gen6": {
    "cat": "completebike",
@@ -38539,11 +38538,11 @@
   },
   "cb-trek-fuelex-8-gx-axs-gen6": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:57:08.029Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/trail-mountain-bikes/fuel-ex/fuel-ex-8-gx-axs-t-type-gen-6/p/41328/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-trek-supercaliber-slr-98-xt-gen2": {
    "cat": "completebike",
@@ -40131,11 +40130,11 @@
   },
   "cb-trek-procaliber-95-gen3": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:41:50.611Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/cross-country-mountain-bikes/procaliber/procaliber-9-5-gen-3/p/5323502/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-orbea-oiz-m30": {
    "cat": "completebike",
@@ -40720,6 +40719,38 @@
    "error": null,
    "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/trail-mountain-bikes/roscoe/roscoe-8/p/35117/",
    "note": "auto-promoted: already verified in catalog"
+  },
+  "bb-shimano-mt500-pf92": {
+   "cat": "bb",
+   "status": "Verified",
+   "updated": "2026-07-21T19:41:50.611Z",
+   "error": null,
+   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "ti-bontrager-gunnison-rsl-xt-29-24": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-21T19:57:08.028Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-bontrager-montrose-rsl-xt-29-24": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-21T19:57:08.028Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-bontrager-line-comp-30-29-xd": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-21T19:57:08.029Z",
+   "error": null,
+   "source": null,
+   "note": null
   }
  }
 }
