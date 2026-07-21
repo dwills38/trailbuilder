@@ -606,24 +606,28 @@ var EMTB_PARTS = [
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the next-gen Shuttle AM dropped Shimano entirely for Bosch Gen 5 Performance Line CX/CX-R (verify/emtb-3).'
   },
   {
-    id: 'em-pivot-shuttle-lt', cat: 'emtb', brand: 'Pivot', model: 'Shuttle LT',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 165,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-enduro'], weight: 23600, price: 10500,
-    note: 'Longer-travel gravity sibling to the Shuttle AM; mixed wheel.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-pivot-shuttle-lt', cat: 'emtb', brand: 'Pivot', model: 'Shuttle LT Pro X0 Eagle Transmission',
+    family: 'pivot-shuttle-lt', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance CX-R (Race Edition), Gen 5', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 162,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-enduro'], weight: 23600, price: 12599,
+    note: "Longer-travel gravity sibling to the Shuttle AM; mixed wheel. This row was still carrying the previous-generation Shimano EP8 spec (630Wh, 165mm rear) — like the old em-pivot-shuttle-am row, Pivot dropped Shimano entirely across the Shuttle range for Gen 5 Bosch Performance CX/CX-R, with a bigger 800Wh removable battery and Bosch's PowerMore 250 range-extender option. Headline geometry is 162mm rear (short Swinger dropout setting) / 170mm front — Pivot's patented Swinger dropout also allows a 165mm-rear long setting, user-adjustable, not a separate SKU.",
+    desc: "Verified vs the maker's own bike-family page (pivotcycles.com/en-us/bikes/shuttle-lt: motor family, headline 162/170mm travel, mixed wheel, 800Wh removable battery all confirmed there) plus the specific Pro X0 Eagle Transmission product page (pivotcycles.com: model name + MSRP $12,599 confirmed directly). Motor generation corrected wave 4 cluster C (Shimano EP8 85Nm/630Wh -> Bosch Performance CX-R Gen 5 100Nm/750W/800Wh, a full motor-brand switch); travelRear corrected 165->162 (the maker's own headline figure for the default/short setting); brakes corrected SRAM Code -> SRAM Maven Silver; price $10,500 sample -> the confirmed $12,599 MSRP. Brakes/derailleur-tier naming cross-checked against three independent, mutually-agreeing dealer spec-feed listings (bikesale.com, danvillebikes.com, mikesbikes.com) that mirror Pivot's own distributed dealer spec sheet — Pivot's own itemized build-spec table is behind a JS-lazy-loaded accordion that did not render text even through the browser pane, so the itemized component list is corroborated rather than directly screen-scraped; the load-bearing facts (motor/battery/travel/price/model) came straight off fetched pivotcycles.com pages.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.pivotcycles.com/en-us/bikes/shuttle-lt'
   },
   {
-    id: 'em-pivot-shuttle-sl', cat: 'emtb', brand: 'Pivot', model: 'Shuttle SL',
-    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
+    id: 'em-pivot-shuttle-sl', cat: 'emtb', brand: 'Pivot', model: 'Shuttle SL Pro X0 Eagle Transmission',
+    family: 'pivot-shuttle-sl', modelYear: 2026,
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60, motorPowerPeak: 450,
     batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 130,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Level Ultimate',
-    disciplines: ['e-trail'], weight: 17600, price: 9500,
-    note: 'Lightweight-class Pivot; acoustic-close XC/trail handling on the Fazua Ride 60.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 132,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'Shimano XT M8120 4-piston',
+    disciplines: ['e-trail'], weight: 17600, price: 10899,
+    note: 'Lightweight-class Pivot; acoustic-close XC/trail handling on the Fazua Ride 60 (60Nm, 450W peak). Headline geometry is 132mm rear travel / 140-150mm fork range (150mm on this Pro trim) — the 140/130mm previously cataloged undersold both numbers.',
+    desc: "Verified vs the maker's own bike-family page (pivotcycles.com/en-us/bikes/shuttle-sl: motor spec 60Nm/450W peak, headline 132mm rear / 140-150mm front travel, 430Wh battery, 29in wheel all confirmed there) plus the specific Pro X0 Eagle Transmission product page (pivotcycles.com: model name + MSRP $10,899 confirmed directly). Corrected wave 4 cluster C: travelFront 140->150 (Pro-trim Fox 36 GRIP2 is 150mm, not the lower-tier 140mm); brakes 'SRAM Level Ultimate' -> Shimano XT M8120 4-piston (SRAM does not make a 'Level Ultimate' MTB brake — this looks like a fabricated value from an earlier pass; Shimano XT is the real spec on every independent dealer listing checked); motorPowerPeak added (450W, maker-stated); price $9,500 sample -> the confirmed $10,899 MSRP. Brakes/fork tier cross-checked against three independent, mutually-agreeing dealer spec-feed listings (bikesale.com, danvillebikes.com, stedmansbikeshop.com) mirroring Pivot's own distributed spec sheet, for the same JS-lazy-load reason noted on the Shuttle LT row this wave.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.pivotcycles.com/en-us/bikes/shuttle-sl'
   },
 
   // ---------------------------------------------------------------------------
@@ -1086,14 +1090,16 @@ var EMTB_PARTS = [
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   },
   {
-    id: 'em-pivot-shuttle-am-bosch-cx', cat: 'emtb', brand: 'Pivot', model: 'Shuttle AM',
-    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 100, motorPowerPeak: 750,
-    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    id: 'em-pivot-shuttle-am-bosch-cx', cat: 'emtb', brand: 'Pivot', model: 'Shuttle AM Pro X0 Eagle Transmission',
+    family: 'pivot-shuttle-am', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance CX-R (Race Edition), Gen 5', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail'], weight: 23000, price: 10799,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail'], weight: 23000, price: 11999,
     note: 'The next-gen Shuttle AM switched from Shimano EP8 to Gen 5 Bosch Performance CX/CX-R, with an 800Wh battery and optional 250Wh PowerMore range extender.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: "Verified vs the maker's own product page (pivotcycles.com/en-us/products/shuttle-am-pro-x0-eagle-transmission: model name, Bosch Gen 5 CX/CX-R motor family, MSRP all fetched directly) plus the Shuttle AM bike-family page (motor torque/power, 800Wh battery, 160/150mm travel, carbon frame, 29in wheel, PowerMore range-extender compatibility). Pivot's own itemized build-spec accordion is JS-lazy-loaded and did not render as text even via the browser pane (same wrinkle noted on the Shuttle LT/SL rows this wave), so drivetrain/brakes are cross-checked against a dealer listing (basecampvt.com, 2026-01-22) that mirrors Pivot's own distributed spec feed field-for-field — corroboration, not the primary source. Brakes corrected wave 4 cluster C (SRAM Code -> SRAM Maven Silver, the real current-gen spec); price corrected to the maker's own $11,999 MSRP (the previously-cataloged $10,799 was pivotcycles.com's current promotional SALE price, not MSRP — THE PRICE RULE requires MSRP in this field). No bike weight is published for this SKU (weight stays the prior sample estimate, noted honestly).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.pivotcycles.com/en-us/products/shuttle-am-pro-x0-eagle-transmission'
   },
   {
     id: 'em-norco-sight-vlt-cx-c2', cat: 'emtb', brand: 'Norco', model: 'Sight VLT CX C2',
