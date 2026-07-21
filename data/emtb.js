@@ -652,14 +652,15 @@ var EMTB_PARTS = [
   // Scott (new maker) — Patron eRIDE (gravity), Genius eRide (trail), Lumen eRIDE (lightweight)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-scott-patron-eride-900-tuned', cat: 'emtb', brand: 'Scott', model: 'Patron eRIDE 900 Tuned',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5, BDU384Y)', motorTorque: 85, motorPowerPeak: 750,
+    id: 'em-scott-patron-eride-900-tuned', cat: 'emtb', brand: 'Scott', model: 'Patron ST 900 Tuned',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX-R (BDU386Y, SmartSystem)', motorTorque: 85, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-enduro'], weight: 24800, price: 10500,
-    note: "Scott's Patron confirmed still Bosch Performance Line CX (Gen 5, BDU384Y), now on the larger 800Wh PowerTube; current lineup runs 29in wheels (not mixed) with 150mm travel front and rear.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Gen/battery/wheel/travel corrected verify/emtb-3 wave 3 phase 2 (Gen 5 confirmed, 750->800Wh, mullet->29in, 170/160->150/150mm).'
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-enduro'], weight: 24400, price: 13299,
+    note: 'The current Patron eRIDE splits into a "900" do-it-all series and an "ST" (Super Trail) series for bigger impacts; this is the ST 900 Tuned, the range-topper — no plain "Patron eRIDE 900 Tuned" (non-ST) SKU exists. Real spec is Bosch CX-R (SmartSystem, BDU386Y) on 170mm front/150mm rear travel, 29in wheels both ends (not mixed), SRAM X0 Eagle AXS Transmission, SRAM Maven Silver brakes.',
+    desc: 'Verified vs the maker product page (motor/battery/travel/wheel/frame/drivetrain/brakes/weight all confirmed). Model/travel/drivetrain/brakes/weight corrected verify/emtb-4 wave 4 cluster E ("Patron eRIDE 900 Tuned" -> "Patron ST 900 Tuned" [real SKU name], 150/150 -> 170/150 travel, SRAM X0 Eagle Transmission -> SRAM X0 Eagle AXS Transmission, SRAM Code Ultimate -> Maven Silver, 24.8kg -> 24.4kg maker-stated weight). PRICE RULE: this SKU is not sold in the US (scott-sports.com/us/en 404s on it) — price is GBP 10,599 maker RRP converted to a ~$13,299 USD sample at time of check; no US MSRP exists.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.scott-sports.com/global/en/product/scott-patron-st-900-tuned-bike'
   },
   {
     id: 'em-scott-genius-eride-910', cat: 'emtb', brand: 'Scott', model: 'Genius eRide 910',
@@ -670,17 +671,18 @@ var EMTB_PARTS = [
     disciplines: ['e-trail'], weight: 22600, price: 6200,
     status: 'discontinued', supersededBy: 'em-scott-genius-eride-910-bosch-cx-gen4',
     note: "Scott's full-power trail e-MTB on the Shimano EP8 motor.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the Genius eRIDE runs Bosch Performance CX Gen 4, not Shimano EP8 (verify/emtb-3).'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the Genius eRIDE runs Bosch Performance CX Gen 4, not Shimano EP8 (verify/emtb-3). Wave 4 cluster E finding (2026-07-20): the whole Genius eRIDE nameplate has since been retired by Scott — scott-sports.com no longer lists "Genius eRIDE" under E-Bikes at all, replaced by the new "Voltage eRIDE" line (TQ-HPR motor, not Bosch). No Voltage row exists in this catalog yet (out of this cluster\'s scope), so supersededBy still points at the last real Genius eRIDE row rather than inventing one; left unverified per policy.'
   },
   {
-    id: 'em-scott-lumen-eride-910', cat: 'emtb', brand: 'Scott', model: 'Lumen eRIDE 910',
+    id: 'em-scott-lumen-eride-910', cat: 'emtb', brand: 'Scott', model: 'Lumen eRIDE 900',
     motorBrand: 'tq', motorModel: 'TQ-HPR50', motorTorque: 50,
     batteryWh: 360, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 120, travelRear: 120,
-    frameMaterial: 'carbon', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail'], weight: 16800, price: 8500,
-    note: 'Lightweight XC/downcountry-leaning Scott on the quiet TQ HPR50 motor.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: '29', suspension: 'full', travelFront: 130, travelRear: 130,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS Transmission', brakes: 'SRAM Level Silver',
+    disciplines: ['e-trail'], weight: 16600, price: 9999,
+    note: 'Lightweight XC/downcountry-leaning Scott on the quiet TQ HPR50 motor. The current range-topper is "Lumen eRIDE 900" — there is no "910" trim in the current lineup. Real drivetrain is SRAM GX Eagle AXS Transmission (not Shimano XT) with SRAM Level Silver brakes.',
+    desc: 'Verified vs the maker product page (motor/battery/travel/wheel/frame/drivetrain/brakes/weight all confirmed). Model/travel/drivetrain/brakes/weight/price corrected verify/emtb-4 wave 4 cluster E ("Lumen eRIDE 910" -> "Lumen eRIDE 900" [current top trim, no 910 exists], 120/120 -> 130/130 travel, Shimano XT -> SRAM GX Eagle AXS Transmission, Shimano XT 4-piston -> SRAM Level Silver, 16.8kg sample -> 16.6kg maker weight, $8,500 sample -> $9,999.99 confirmed US MSRP via scott-sports.com/us/en/lumen).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.scott-sports.com/gb/en/product/scott-lumen-eride-900-bike'
   },
 
   // ---------------------------------------------------------------------------
@@ -1114,8 +1116,9 @@ var EMTB_PARTS = [
     wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS Transmission', brakes: 'SRAM Code',
     disciplines: ['e-trail'], weight: 23400, price: 6559,
-    note: "Scott's full-power trail e-MTB runs Bosch Performance CX Gen 4, not Shimano EP8; optional 500Wh Range Booster brings total capacity to 1125Wh.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    status: 'discontinued',
+    note: "Scott's full-power trail e-MTB ran Bosch Performance CX Gen 4, not Shimano EP8; optional 500Wh Range Booster brought total capacity to 1125Wh. Wave 4 cluster E finding (2026-07-20): Scott has since fully retired the \"Genius eRIDE\" nameplate — scott-sports.com's E-Bikes > Mountain nav now lists only Lumen, Voltage and Patron; Genius eRIDE is gone entirely, replaced by the new \"Voltage eRIDE\" line (TQ-HPR motor). This row is marked discontinued rather than re-pointed at a fabricated successor id.",
+    desc: 'Unverified sample (best-credible-public) — not maker-confirmed; the bar cannot be met because the maker page this row would need no longer exists (Genius eRIDE was removed from scott-sports.com, not merely updated). Marked status:discontinued verify/emtb-4 wave 4 cluster E rather than leaving it looking current; left unverified per protocol (no live maker page to confirm against, and inventing a Voltage eRIDE successor row is out of this cluster\'s scope).'
   },
   {
     id: 'em-vitus-e-sommet-297-vrx', cat: 'emtb', brand: 'Vitus', model: 'E-Sommet 297 VRX',
