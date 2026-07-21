@@ -639,7 +639,8 @@ var GRAVEL_PARTS = [
   { id: 'gsft-campagnolo-ekar', cat: 'shifter', brand: 'Campagnolo', model: 'Ekar',
     family: 'campagnolo-ekar', system: 'campag-ekar-13', speeds: 13, actuation: 'mechanical',
     brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: false, weight: 420, price: 950,
-    verified: true, lastChecked: '2026-07-20', source: 'https://www.campagnolo.com/us-en/ekar-ergopower-controls/CCLEKAR1X13S.html' },
+    note: 'gravel-7 re-fetch: RECONFIRMED campagnolo.com/us-en/ekar-ergopower-controls/CCLEKAR1X13S.html — "Ekar Ergopower Controls", 420g. The page sells the lever/control unit standalone; no caliper is bundled into this SKU or mentioned as included (the caliper is Campagnolo\'s separate "Caliper Ekar" product, CCPEKAR1X13S — its own row gbr-campagnolo-ekar-brake, linked via leverPair). Confirms Campagnolo genuinely SPLITS lever and caliper as two purchasable SKUs (unlike SRAM\'s bundled shift-brake systems, e.g. SD-APX-D1) — the 2026-07-21 bundled shift-brake exception in VERIFY-PROTOCOL.md does not apply here since there is no single bundle SKU to re-split; the existing two-row model is already the correct shape. Price not shown on the page — stays sample.',
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/ekar-ergopower-controls/CCLEKAR1X13S.html' },
 
   // ===== REAR DERAILLEUR ==================================================
   { id: 'grd-shimano-grx-rd-rx822-1x12', cat: 'rearderailleur', brand: 'Shimano', model: 'GRX RD-RX822',
@@ -853,7 +854,8 @@ var GRAVEL_PARTS = [
   { id: 'gbr-campagnolo-ekar-brake', cat: 'brake', brand: 'Campagnolo', model: 'Ekar Hydraulic Disc Brake',
     family: 'campagnolo-ekar', brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2,
     actuation: 'hydraulic', leverPair: 'gsft-campagnolo-ekar', weight: 110, price: 250,
-    verified: true, lastChecked: '2026-07-20', source: 'https://www.campagnolo.com/lu-en/caliper-ekar/CCPEKAR1X13S.html' },
+    note: 'gravel-7 re-fetch: RECONFIRMED campagnolo.com/lu-en/caliper-ekar/CCPEKAR1X13S.html — "Caliper Ekar", sold as its own standalone SKU (CCPEKAR1X13S) separate from the Ergopower lever (CCLEKAR1X13S). Page states 110g front (adapter included) / 95g rear; this row keeps the pre-existing 110g (front, with adapter) as the single representative figure since the schema models one brake id for both slots. Mount/piston count not restated on the page — kept as the prior-wave sourced values. Price not shown — stays sample.',
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/lu-en/caliper-ekar/CCPEKAR1X13S.html' },
   { id: 'gbr-sram-apex-hydraulic', cat: 'brake', brand: 'SRAM', model: 'Apex Disc Brake', family: 'sram-apex-xplr',
     brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2,
     actuation: 'hydraulic', leverPair: 'gsft-sram-apex-xplr-mech', weight: 300, price: 225,
