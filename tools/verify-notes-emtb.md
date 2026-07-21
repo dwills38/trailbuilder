@@ -229,3 +229,60 @@ Remaining queue for phase 2: 19 same-brand-wrong-gen rows (Specialized Levo ×3,
 Trek Rail ×3, Fuel EXe ×2, Orbea Wild ×2, Cannondale Moterra ×2, Giant Reign E+, Ibis Oso,
 Mondraker Crafty + Level, Cube Stereo Hybrid 160 + ONE55 SL, Scott Patron eRIDE, Whyte E-180
 RS) and 2 Haibike Unclear rows (AllMtn 9, Nduro 8) — untouched this phase, next phase's queue.
+
+## Wave 3 phase 2 (2026-07-20) — 19 of 21 same-brand-wrong-gen rows + both Haibike Unclear rows corrected in place
+
+Unlike phase 1 (wrong-brand → append-only re-entry), these rows are the **same real
+platform**, just carrying a stale generation's motor/spec — corrected in place on the
+existing id (no `supersededBy`, this isn't a lifecycle event, just a field fix), per
+`tools/DATA-ENTRY-TEMPLATE.md`'s append-only convention (ids retire only on a genuine
+identity change). Sourced via WebSearch (no browser-pane fetch needed this batch — every
+maker's current-gen naming/motor resolved from search snippets). `desc` field appended
+with a one-line "corrected verify/emtb-3 wave 3 phase 2" provenance note per row; none
+promoted to `verified:true` (WebSearch snippets, not a fetched maker page — THE BAR needs
+better than that for provenance).
+
+Corrected (id unchanged unless noted):
+- `em-specialized-turbo-levo`, `-comp-alloy`, `-pro` — Specialized 2.2 → 3.1 motor
+  (90Nm→105Nm/810W), 700Wh→840Wh battery; line renamed "Turbo Levo 4"; Pro/Alloy MSRPs
+  matched to current US pricing.
+- `em-specialized-turbo-kenevo-sl-expert` — SL 1.1 → SL 1.2 motor (35Nm→50Nm/320W); line
+  renamed "Kenevo SL 2"; wheel config corrected mullet → 29in (current chassis is 29-only).
+- `em-trek-rail`, `-9-5`, `-9-9-xx` — line renamed "Rail+" on Bosch Gen 5 CX (750W peak,
+  was ungenned).
+- `em-trek-fuel-exe-9-5` → renamed row "Fuel+ EX 8", `em-trek-fuel-exe-9-9-xx` → "Fuel+ EX
+  9.8 XO AXS" — line renamed Fuel+ (Gen 2); TQ HPR50→HPR60 motor (50Nm→60Nm/350W),
+  360Wh→580Wh battery, clip-on range extender dropped (bigger fixed battery replaces it).
+- `em-orbea-wild`, `-m-team` — Bosch CX gen tagged "(Gen 5)"; `em-orbea-wild` model
+  corrected to "Wild H10" (catalog had no trim suffix — real base trim is H10).
+- `em-cannondale-moterra`, `-1` — Bosch CX gen tagged "(Gen 5)"; models corrected to
+  "Moterra 4" / "Moterra Carbon 1" (real current trim names, catalog had generic names).
+- `em-giant-reign-e-plus-0` — SyncDrive Pro2 → Pro 3 (48V); model corrected to "Reign
+  Advanced E+ 0" (real trim name).
+- `em-ibis-oso` — Bosch CX gen tagged "(Gen 5)" for the 2026 "second generation" overhaul;
+  model corrected to "Oso TR" (real current trim name).
+- `em-mondraker-crafty-carbon-r` — Bosch CX gen tagged "(Gen 5)"; travel corrected
+  170/160mm → 160/150mm to match the current lineup.
+- `em-mondraker-level-carbon-rr` — real Level is full-power gravity-enduro (Bosch CX Gen
+  5), not the lightweight Bosch SX guess; frame corrected carbon → aluminum, wheel 29in →
+  mullet, travel 140/130mm → 180/170mm — a near-total re-spec, kept on the same id since
+  it's still the same named platform, not a different SKU.
+- `em-scott-patron-eride-900-tuned` — Bosch CX gen tagged "(Gen 5, BDU384Y)"; battery
+  750Wh → 800Wh, wheel mullet → 29in, travel 170/160mm → 150/150mm.
+- `em-haibike-allmtn-9` — wave 2 phase 1's "Unclear" flag turned out to be a false
+  positive: Yamaha PW-X3/85Nm/720Wh confirmed matching the current AllMtn lineup exactly;
+  only the `desc` gained a confirmation note (no field changes) — the "AllMtn 9" exact
+  tier-number naming stays unconfirmed and is flagged as such in the note.
+- `em-haibike-nduro-8` — motor brand corrected Bosch Performance Line CX → Yamaha PW-X3
+  (800Wh → 720Wh); the catalog's Bosch guess doesn't exist on this platform at all —
+  Haibike runs Yamaha across both AllMtn and Nduro lines. "Nduro 8" exact tier-number
+  naming likewise unconfirmed, flagged in the note.
+
+Gates after this phase: `node validate.js` → EMTB OK, 92 bikes, 0 problems (2 verified, 90
+unverified); `npm test` → 844/844 passed; `npm run typecheck` → clean. (Also fixed an
+unrelated pre-existing JS syntax bug found while gating: `2.2''s` in the Turbo Levo note
+string used SQL-style `''` quote-escaping instead of JS's `\'`, which crashed
+`node validate.js` at parse time — corrected to `2.2\'s`.)
+
+Remaining queue: 2 rows (Cube Stereo Hybrid ONE55 SL, Whyte E-180 RS) — the only two of
+the original 21-row same-brand-wrong-gen/Unclear queue not yet re-checked this phase.

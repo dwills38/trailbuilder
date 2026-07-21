@@ -32,24 +32,24 @@
 var EMTB_PARTS = [
 
   {
-    id: 'em-specialized-turbo-levo', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo',
-    motorBrand: 'specialized', motorModel: 'Specialized 2.2 (Full Power System)', motorTorque: 90,
-    batteryWh: 700, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    id: 'em-specialized-turbo-levo', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo 4',
+    motorBrand: 'specialized', motorModel: 'Specialized 3.1 (Full Power System)', motorTorque: 105, motorPowerPeak: 810,
+    batteryWh: 840, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
     disciplines: ['e-trail', 'e-enduro'], weight: 22700, price: 8500,
-    note: 'The category-defining full-power trail e-MTB; mixed-wheel, MasterMind TCU top-tube display.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed.'
+    note: 'The category-defining full-power trail e-MTB, now on the 3.1 motor (105Nm/810W, up from the 2.2\'s 90Nm); mixed-wheel, MasterMind TCU top-tube display.',
+    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Motor generation corrected verify/emtb-3 wave 3 phase 2 (2.2 -> 3.1).'
   },
   {
-    id: 'em-trek-rail', cat: 'emtb', brand: 'Trek', model: 'Rail',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    id: 'em-trek-rail', cat: 'emtb', brand: 'Trek', model: 'Rail+',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
     disciplines: ['e-trail', 'e-enduro'], weight: 23900, price: 8000,
-    note: 'Bosch-powered full-power trail/enduro bike; big 800 Wh PowerTube.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed.'
+    note: 'Bosch-powered full-power trail/enduro bike; big 800 Wh PowerTube. Line renamed Rail+ on Gen 5 CX (85Nm stock, app-tunable to 100Nm/750W).',
+    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Model/gen corrected verify/emtb-3 wave 3 phase 2 (Rail -> Rail+, Gen 5 CX).'
   },
   {
     id: 'em-santa-cruz-bullit', cat: 'emtb', brand: 'Santa Cruz', model: 'Bullit',
@@ -84,14 +84,14 @@ var EMTB_PARTS = [
     verified: true, lastChecked: '2026-07-20', source: 'https://www.commencal.com/us/en/BT3MSXPWE4L.html'
   },
   {
-    id: 'em-orbea-wild', cat: 'emtb', brand: 'Orbea', model: 'Wild',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    id: 'em-orbea-wild', cat: 'emtb', brand: 'Orbea', model: 'Wild H10',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
     batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail', 'e-enduro'], weight: 22500, price: 8200,
-    note: 'Bosch-powered 29er full-power trail bike; integrated 750 Wh battery.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed.'
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 22500, price: 6999,
+    note: 'Bosch Gen 5 CX-powered 29er full-power enduro bike (170mm travel); the alloy "Hydro" tier — Wild is now offered in both carbon and alloy chassis.',
+    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Gen/travel/frame corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, alloy H10 tier, 170mm travel not 160/150).'
   },
   {
     id: 'em-canyon-spectral-on', cat: 'emtb', brand: 'Canyon', model: 'Spectral:ON',
@@ -104,14 +104,14 @@ var EMTB_PARTS = [
     desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed.'
   },
   {
-    id: 'em-cannondale-moterra', cat: 'emtb', brand: 'Cannondale', model: 'Moterra',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
-    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail', 'e-enduro'], weight: 24200, price: 7500,
-    note: 'Bosch-powered mixed-wheel full-power trail bike.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed.'
+    id: 'em-cannondale-moterra', cat: 'emtb', brand: 'Cannondale', model: 'Moterra 4',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
+    batteryWh: 600, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano CUES U6000', brakes: 'Tektro M535 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24700, price: 5499,
+    note: 'The redesigned Moterra is alloy-only and 29in-only at this entry tier (SmartForm C1 alloy frame), not mixed-wheel carbon; Bosch Gen 5 CX with a 600Wh battery.',
+    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Frame/wheel/gen corrected verify/emtb-3 wave 3 phase 2 (alloy not carbon, 29in not mullet, Gen 5 CX, price matched to current Moterra 4 MSRP).'
   },
   {
     id: 'em-transition-relay', cat: 'emtb', brand: 'Transition', model: 'Relay',
@@ -138,24 +138,24 @@ var EMTB_PARTS = [
   // Specialized depth (Turbo Levo / Levo SL / Kenevo SL trims)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-specialized-turbo-levo-comp-alloy', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo Comp Alloy',
-    motorBrand: 'specialized', motorModel: 'Specialized 2.2 (Full Power System)', motorTorque: 90,
-    batteryWh: 700, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    id: 'em-specialized-turbo-levo-comp-alloy', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo 4 Alloy',
+    motorBrand: 'specialized', motorModel: 'Specialized 3.1 (Full Power System)', motorTorque: 105, motorPowerPeak: 810,
+    batteryWh: 840, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
-    disciplines: ['e-trail', 'e-enduro'], weight: 24500, price: 6500,
+    disciplines: ['e-trail', 'e-enduro'], weight: 24500, price: 4999,
     note: 'Entry-level alloy-frame Turbo Levo trim; same motor/battery as the carbon range.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor generation corrected verify/emtb-3 wave 3 phase 2 (2.2 -> 3.1); price matched to the current Turbo Levo 4 Alloy US MSRP.'
   },
   {
-    id: 'em-specialized-turbo-levo-pro', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo Pro',
-    motorBrand: 'specialized', motorModel: 'Specialized 2.2 (Full Power System)', motorTorque: 90,
+    id: 'em-specialized-turbo-levo-pro', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo 4 Pro',
+    motorBrand: 'specialized', motorModel: 'Specialized 3.1 (Full Power System)', motorTorque: 105, motorPowerPeak: 810,
     batteryWh: 840, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-trail', 'e-enduro'], weight: 21500, price: 11000,
-    note: 'Top-tier carbon Levo trim; largest-capacity 840 Wh battery option in the range.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    disciplines: ['e-trail', 'e-enduro'], weight: 21500, price: 10299,
+    note: 'Top-tier non-S-Works carbon Levo trim; 840 Wh battery, up to 1120Wh with the range extender.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor generation corrected verify/emtb-3 wave 3 phase 2 (2.2 -> 3.1); price matched to the current Levo 4 Pro MSRP.'
   },
   {
     id: 'em-specialized-turbo-levo-sl-expert', cat: 'emtb', brand: 'Specialized', model: 'Turbo Levo SL Expert',
@@ -168,58 +168,58 @@ var EMTB_PARTS = [
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   },
   {
-    id: 'em-specialized-turbo-kenevo-sl-expert', cat: 'emtb', brand: 'Specialized', model: 'Turbo Kenevo SL Expert',
-    motorBrand: 'specialized', motorModel: 'Specialized SL 1.1', motorTorque: 35,
+    id: 'em-specialized-turbo-kenevo-sl-expert', cat: 'emtb', brand: 'Specialized', model: 'Turbo Kenevo SL 2 Expert',
+    motorBrand: 'specialized', motorModel: 'Specialized SL 1.2', motorTorque: 50, motorPowerPeak: 320,
     batteryWh: 320, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 170,
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code RSC',
-    disciplines: ['e-enduro'], weight: 19200, price: 9000,
-    note: 'Lightweight gravity/enduro-travel SL platform; longest travel in the Specialized e-range.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    disciplines: ['e-enduro'], weight: 19200, price: 8499,
+    note: 'The line renamed Kenevo SL 2; lightweight gravity/enduro-travel SL platform, longest travel in the Specialized e-range, now on 29in wheels (was mullet) and 29% more torque via the SL 1.2 motor.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor generation + wheel config corrected verify/emtb-3 wave 3 phase 2 (SL 1.1 -> SL 1.2, mullet -> 29in).'
   },
 
   // ---------------------------------------------------------------------------
   // Trek depth (Rail / Fuel EXe trims)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-trek-rail-9-5', cat: 'emtb', brand: 'Trek', model: 'Rail 9.5',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    id: 'em-trek-rail-9-5', cat: 'emtb', brand: 'Trek', model: 'Rail+ 9.5',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
     disciplines: ['e-trail', 'e-enduro'], weight: 25200, price: 6500,
-    note: 'Entry alloy Rail trim; same Bosch CX motor/800 Wh PowerTube as the carbon range.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    note: 'Entry alloy Rail+ trim; same Gen 5 Bosch CX motor/800 Wh PowerTube as the carbon range.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Model/gen corrected verify/emtb-3 wave 3 phase 2 (Rail -> Rail+, Gen 5 CX).'
   },
   {
-    id: 'em-trek-rail-9-9-xx', cat: 'emtb', brand: 'Trek', model: 'Rail 9.9 XX AXS T-Type',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    id: 'em-trek-rail-9-9-xx', cat: 'emtb', brand: 'Trek', model: 'Rail+ 9.9 XX AXS T-Type',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission', brakes: 'SRAM Maven Silver',
     disciplines: ['e-trail', 'e-enduro'], weight: 23400, price: 12500,
-    note: 'Top-tier Rail carbon trim; SRAM XX Transmission + Maven brakes.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    note: 'Top-tier Rail+ carbon trim; SRAM XX Transmission + Maven brakes.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Model/gen corrected verify/emtb-3 wave 3 phase 2 (Rail -> Rail+, Gen 5 CX).'
   },
   {
-    id: 'em-trek-fuel-exe-9-5', cat: 'emtb', brand: 'Trek', model: 'Fuel EXe 9.5',
-    motorBrand: 'tq', motorModel: 'TQ-HPR50', motorTorque: 50,
-    batteryWh: 360, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 130,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM DB8',
-    disciplines: ['e-trail'], weight: 19800, price: 6300,
-    note: 'Entry alloy Fuel EXe; quiet, low-profile TQ HPR50 hub-style motor.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-trek-fuel-exe-9-5', cat: 'emtb', brand: 'Trek', model: 'Fuel+ EX 8',
+    motorBrand: 'tq', motorModel: 'TQ-HPR60', motorTorque: 60, motorPowerPeak: 350,
+    batteryWh: 580, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 145,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 70 T-Type Transmission', brakes: 'SRAM DB8',
+    disciplines: ['e-trail'], weight: 20900, price: 7000,
+    note: 'The line renamed Fuel+ (Gen 2); the new TQ HPR60 replaces HPR50 with more torque (60 vs 50Nm) and a bigger 580Wh battery (vs 360Wh) — no more clip-on range extender.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Model/motor corrected verify/emtb-3 wave 3 phase 2 (Fuel EXe -> Fuel+, HPR50 -> HPR60).'
   },
   {
-    id: 'em-trek-fuel-exe-9-9-xx', cat: 'emtb', brand: 'Trek', model: 'Fuel EXe 9.9 XX AXS',
-    motorBrand: 'tq', motorModel: 'TQ-HPR50', motorTorque: 50,
-    batteryWh: 360, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 130,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission', brakes: 'SRAM Maven Silver',
-    disciplines: ['e-trail'], weight: 18100, price: 11500,
-    note: 'Top-tier lightweight Fuel EXe trim; acoustic-close trail-bike handling.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-trek-fuel-exe-9-9-xx', cat: 'emtb', brand: 'Trek', model: 'Fuel+ EX 9.8 XO AXS',
+    motorBrand: 'tq', motorModel: 'TQ-HPR60', motorTorque: 60, motorPowerPeak: 350,
+    batteryWh: 580, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 145,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XO Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail'], weight: 19400, price: 11500,
+    note: 'Top-tier lightweight Fuel+ trim; acoustic-close trail-bike handling on the new TQ HPR60.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Model/motor corrected verify/emtb-3 wave 3 phase 2 (Fuel EXe -> Fuel+, HPR50 -> HPR60).'
   },
 
   // ---------------------------------------------------------------------------
@@ -247,14 +247,14 @@ var EMTB_PARTS = [
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   },
   {
-    id: 'em-ibis-oso', cat: 'emtb', brand: 'Ibis', model: 'Oso',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
-    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 155,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail', 'e-enduro'], weight: 23800, price: 8500,
-    note: "Ibis's Bosch-powered full-power e-MTB; mixed-wheel trail/enduro platform.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-ibis-oso', cat: 'emtb', brand: 'Ibis', model: 'Oso TR',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 600, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 90 T-Type', brakes: 'SRAM Maven Base',
+    disciplines: ['e-trail', 'e-enduro'], weight: 22800, price: 8499,
+    note: "Ibis's second-generation modular Oso platform (HD/TR/S travel classes) stayed on Bosch — did not follow the industry trend to DJI Avinox — with a smaller, lower-mounted 600Wh battery (down from 800Wh) plus an optional 250Wh PowerMore extender.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Gen/battery corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, 800Wh -> 600Wh, drivetrain matched to the real TR mechanical build).'
   },
 
   // ---------------------------------------------------------------------------
@@ -287,13 +287,13 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-orbea-wild-m-team', cat: 'emtb', brand: 'Orbea', model: 'Wild M-Team',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
     batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-trail', 'e-enduro'], weight: 21800, price: 12500,
-    note: 'Top-tier Wild build; SRAM XX SL Transmission.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT Di2', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 21800, price: 9999,
+    note: 'Top-tier configurable carbon Wild build (M-Team); real current spec is Shimano XT Di2 with an optional Bosch CX-R motor upgrade, not a SRAM XX SL drivetrain.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Gen/drivetrain/travel corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, Shimano XT Di2 not SRAM XX SL, 170mm travel not 160/150, price matched to current M-Team MSRP).'
   },
   {
     id: 'em-orbea-rise-m-team', cat: 'emtb', brand: 'Orbea', model: 'Rise M-Team',
@@ -374,28 +374,28 @@ var EMTB_PARTS = [
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   },
   {
-    id: 'em-giant-reign-e-plus-0', cat: 'emtb', brand: 'Giant', model: 'Reign E+ 0',
-    motorBrand: 'giant', motorModel: 'SyncDrive Pro2', motorTorque: 85,
-    batteryWh: 850, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    id: 'em-giant-reign-e-plus-0', cat: 'emtb', brand: 'Giant', model: 'Reign Advanced E+ 0',
+    motorBrand: 'giant', motorModel: 'SyncDrive Pro 3', motorTorque: 90, motorPowerPeak: 800,
+    batteryWh: 560, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
     frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-enduro'], weight: 23600, price: 10500,
-    note: "Giant's gravity/enduro e-MTB; longer travel than the Trance X E+.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    disciplines: ['e-enduro'], weight: 22300, price: 9999,
+    note: "Giant's gravity/enduro e-MTB moved to the new 48V SyncDrive Pro 3 (90Nm/800W peak, up from Pro2's 85Nm), with a smaller but higher-density 560Wh EnergyPak Smart battery plus an optional 280Wh range extender.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor generation corrected verify/emtb-3 wave 3 phase 2 (SyncDrive Pro2 -> Pro 3).'
   },
 
   // ---------------------------------------------------------------------------
   // Cannondale depth (Moterra 1 + Moterra SL lightweight)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-cannondale-moterra-1', cat: 'emtb', brand: 'Cannondale', model: 'Moterra 1',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
-    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-trail', 'e-enduro'], weight: 22800, price: 11000,
-    note: 'Top-tier Moterra build; SRAM XX SL Transmission.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-cannondale-moterra-1', cat: 'emtb', brand: 'Cannondale', model: 'Moterra Carbon 1',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XO/GX Eagle AXS Transmission', brakes: 'Magura MT7',
+    disciplines: ['e-trail', 'e-enduro'], weight: 22800, price: 12999,
+    note: 'Top-tier Moterra Carbon build; real drivetrain is a blended SRAM XO/GX AXS Transmission with Magura MT7 brakes, not a SRAM XX SL group, and the frame is 29in-only (not mullet).',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Wheel/drivetrain/gen/price corrected verify/emtb-3 wave 3 phase 2 (29in not mullet, Gen 5 CX, 800Wh, price matched to current Moterra Carbon 1 MSRP).'
   },
   {
     id: 'em-cannondale-moterra-sl-1', cat: 'emtb', brand: 'Cannondale', model: 'Moterra SL 1',
@@ -462,23 +462,23 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-mondraker-crafty-carbon-r', cat: 'emtb', brand: 'Mondraker', model: 'Crafty Carbon R',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-enduro'], weight: 24000, price: 8500,
-    note: "Mondraker's gravity-leaning full-power e-MTB; long travel, mixed wheel.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    disciplines: ['e-enduro'], weight: 24000, price: 8499,
+    note: "Mondraker's gravity-leaning full-power e-MTB confirmed still on Bosch, now the Gen 5 CX (85Nm stock, OTA-upgradable to 100Nm/750W); long travel, mixed wheel.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Gen/travel corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, 160/150mm not 170/160mm).'
   },
   {
-    id: 'em-mondraker-level-carbon-rr', cat: 'emtb', brand: 'Mondraker', model: 'Level Carbon RR SL',
-    motorBrand: 'bosch', motorModel: 'Performance Line SX', motorTorque: 55,
-    batteryWh: 400, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 130,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-trail'], weight: 18600, price: 9800,
-    note: 'Lightweight-class Mondraker on the Bosch Performance Line SX motor.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-mondraker-level-carbon-rr', cat: 'emtb', brand: 'Mondraker', model: 'Level RR',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-enduro'], weight: 24500, price: 8999,
+    note: "The real Level is a full-power gravity enduro bike (Bosch Gen 5 CX, not a lightweight SX motor), aluminum-only (not carbon), mullet-wheel with 180/170mm travel.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor/frame/assist-class corrected verify/emtb-3 wave 3 phase 2 (Bosch SX lightweight -> Bosch CX Gen 5 full-power, carbon -> aluminum, 29in -> mullet, 140/130mm -> 180/170mm).'
   },
 
   // ---------------------------------------------------------------------------
@@ -486,23 +486,23 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-haibike-allmtn-9', cat: 'emtb', brand: 'Haibike', model: 'AllMtn 9',
-    motorBrand: 'yamaha', motorModel: 'Yamaha PW-X3', motorTorque: 85,
+    motorBrand: 'yamaha', motorModel: 'Yamaha PW-X3', motorTorque: 85, motorPowerPeak: 250,
     batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
     disciplines: ['e-trail', 'e-enduro'], weight: 23600, price: 8000,
-    note: "Haibike's flagship full-power trail/enduro bike on the Yamaha PW-X3 motor.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    note: "Haibike's flagship full-power trail/enduro bike on the Yamaha PW-X3 motor (250W/85Nm/720Wh InTube battery — confirmed continuous across the current AllMtn 2/3 lineup); the exact \"AllMtn 9\" tier-number naming was not independently confirmed against the current lineup's numbering.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor spec confirmed verify/emtb-3 wave 3 phase 2 (PW-X3/85Nm/720Wh matches current AllMtn pages exactly); wave 2 phase 1 flagged this "Unclear" but the platform turned out correct as entered.'
   },
   {
     id: 'em-haibike-nduro-8', cat: 'emtb', brand: 'Haibike', model: 'Nduro 8',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
-    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    motorBrand: 'yamaha', motorModel: 'Yamaha PW-X3', motorTorque: 85, motorPowerPeak: 250,
+    batteryWh: 720, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
     frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
     disciplines: ['e-enduro'], weight: 25200, price: 6200,
-    note: 'Gravity-leaning Bosch-powered Haibike; alloy frame, long travel.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    note: 'Gravity-leaning Haibike Enduro platform; every current NDURO 6/7 build runs the Yamaha PW-X3 (720Wh InTube battery, optional range extender), not Bosch — the exact "Nduro 8" tier-number naming was not independently confirmed against the current lineup.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor brand corrected verify/emtb-3 wave 3 phase 2 (Bosch Performance Line CX -> Yamaha PW-X3, 800 -> 720Wh) — this row was the wave 2 phase 1 "Unclear" flag guessing a Yamaha/Bosch split that does not exist; Haibike runs Yamaha across both AllMtn and Nduro.'
   },
 
   // ---------------------------------------------------------------------------
@@ -510,13 +510,13 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-cube-stereo-hybrid-160', cat: 'emtb', brand: 'Cube', model: 'Stereo Hybrid 160',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
+    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 4)', motorTorque: 85,
     batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
     frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
     disciplines: ['e-trail', 'e-enduro'], weight: 24000, price: 5800,
-    note: "Cube's full-power all-mountain e-MTB on the Bosch CX motor.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    note: "Cube's full-power all-mountain e-MTB on the Bosch CX motor — confirmed still Gen 4 (not yet moved to Gen 5), 750Wh matches the current HPC SLX 750 build exactly.",
+    desc: "Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor gen confirmed (not corrected) verify/emtb-3 wave 3 phase 2 — wave 2's \"Stale-likely\" flag turned out to be a false positive; only the missing Gen 4 label was added."
   },
   {
     id: 'em-cube-stereo-hybrid-one55-sl', cat: 'emtb', brand: 'Cube', model: 'Stereo Hybrid ONE55 SL',
@@ -645,13 +645,13 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-scott-patron-eride-900-tuned', cat: 'emtb', brand: 'Scott', model: 'Patron eRIDE 900 Tuned',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
-    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5, BDU384Y)', motorTorque: 85, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-enduro'], weight: 23800, price: 10500,
-    note: "Scott's gravity/enduro e-MTB; Bosch CX motor, long travel, mixed wheel.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    disciplines: ['e-enduro'], weight: 24800, price: 10500,
+    note: "Scott's Patron confirmed still Bosch Performance Line CX (Gen 5, BDU384Y), now on the larger 800Wh PowerTube; current lineup runs 29in wheels (not mixed) with 150mm travel front and rear.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Gen/battery/wheel/travel corrected verify/emtb-3 wave 3 phase 2 (Gen 5 confirmed, 750->800Wh, mullet->29in, 170/160->150/150mm).'
   },
   {
     id: 'em-scott-genius-eride-910', cat: 'emtb', brand: 'Scott', model: 'Genius eRide 910',
