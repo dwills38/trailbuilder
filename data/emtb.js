@@ -794,14 +794,15 @@ var EMTB_PARTS = [
   // Focus (new maker) — Jam2 SL (lightweight)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-focus-jam2-sl-8-9', cat: 'emtb', brand: 'Focus', model: 'Jam2 SL 8.9',
-    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
+    id: 'em-focus-jam2-sl-8-9', cat: 'emtb', brand: 'Focus', model: 'Jam2 SL 9.9',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60, motorPowerPeak: 450,
     batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail'], weight: 19400, price: 8200,
-    note: "German brand's lightweight-class trail e-MTB on the Fazua Ride 60 motor.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-trail'], weight: 19200, price: 9700,
+    note: "German brand's lightweight-class trail e-MTB on the Fazua Ride 60 motor (60Nm/450W peak).",
+    desc: 'Verified vs the maker page. Model/trim corrected verify/emtb-4 wave 4 cluster B (Jam2 SL 8.9 does not exist — no Focus Jam2 SL trim runs SRAM GX Eagle Transmission or SRAM Code; real top trim is the MAX-carbon Jam2 SL 9.9, Shimano XT M8100 mechanical drivetrain + Shimano XT M8120 4-piston brakes, 19.2kg with 430Wh battery, fork travel corrected 150->160mm). Price: EUR 8,999 RRP (de_en) converted to a $9,700 USD sample — Focus does not sell in the US market, no US MSRP exists.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.focus-bikes.com/int/jam2-sl-9-9'
   },
 
   // ---------------------------------------------------------------------------
@@ -912,12 +913,13 @@ var EMTB_PARTS = [
   {
     id: 'em-focus-jam2-6-9', cat: 'emtb', brand: 'Focus', model: 'Jam2 6.9',
     motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
-    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 155,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail', 'e-enduro'], weight: 24600, price: 6000,
-    note: 'Full-power sibling to the lightweight Jam2 SL; Bosch CX motor.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    batteryWh: 600, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore XT', brakes: 'TRP EVO Pro 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 25400, price: 7200,
+    note: 'Full-power sibling to the lightweight Jam2 SL; Bosch CX motor, base 600Wh battery (800Wh and a 250Wh range extender also offered, up to 1050Wh combined).',
+    desc: "Verified vs the maker page (int/de market). Corrected verify/emtb-4 wave 4 cluster B: wheelConfig mullet -> 29 (both wheels are 29in), rear travel 155 -> 150mm, battery 750Wh -> base 600Wh (750Wh was an AU/GB-market-only config with different TRP-vs-then-Shimano brake spec that does not match the int/de canonical page), brakes SRAM/Shimano XT -> TRP EVO Pro 4-piston, drivetrain refined to Shimano Deore XT (Deore shifter, XT M8100 rear derailleur), weight set to the maker-stated 25.4kg (600Wh config). Price: EUR 6,699 RRP (de_en, direct \"FROM\" price on the fetched page) converted to a $7,200 USD sample — Focus does not sell in the US market.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.focus-bikes.com/de_en/jam2-6-9'
   },
 
   // ---------------------------------------------------------------------------
