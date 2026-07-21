@@ -3654,3 +3654,31 @@ All eight chips from the final dispatch round are now landed (main `e10dbc2`+). 
   unaffected. Road 175/215 verified — the count going DOWN here is the system working.
 - Gates green (validate 0 problems / 951 tests / tsc clean) at merge.
 
+
+## 2026-07-21 (seat 16) — ui-honesty-1 + schema-parity-1 merged
+
+- **ui/honesty-smalls-1** merged: "Sort: Featured"→"Sort: Random" renamed on the 5 non-MTB
+  surfaces + the ✓-badge disclosure line ("No ✓ usually means the maker doesn't publish the
+  spec — not that the part is worse") on all six; both provisional engine flags closed with
+  their round-3 citations (12c→SUS-54, ss-chain-width→DRV-68) across compat.js/CLAUDE.md/
+  dossier — comments only, zero behavior change. Worker's honest caveat logged: the 5 pages'
+  shuffle is per-category (grouped by CAT_ORDER, shuffled within) vs index.html's whole-
+  catalog shuffle — both provably maker-unbiased, but "Random" mildly overstates their
+  sameness; algorithm unification is a future nicety, not a bias issue. CLAUDE.md BMX rows
+  turned out already fixed (the audit quoted a stale snapshot) — correctly no-op'd.
+  Coordinator addition at merge: tightened the Trek ALR 5 note to cite the audit's own
+  ALR-5-page fetch (the quote is page-attested for that exact SKU, not family-inferred).
+- **fix/schema-parity-1** merged: road's validator now enforces measured→weightSource and
+  status/supersededBy (it accepted status:'banana' before, proven); 3 real discontinued road
+  rows backfilled so road.html's archive stops rendering empty (Zonda pair + Michelin Power
+  Road→supersededBy Power Cup); emtb schema gains 'recalled' (recall watcher unblocked);
+  gravel's frontwheel.freehub made optional + all 17 invented values deleted (front hubs have
+  no driver body — schema-mandated fabrication removed, incl. from 7 verified rows where it
+  was never part of the verified claim); dropper.diameter split from the seatpost vocab so
+  'proprietary' can't leak in. 13 new negative tests (964 total). One real merge conflict
+  composed by hand: the Zonda rows needed BOTH vf-demote-2's demotion AND the new
+  status:'discontinued' — resolved keeping demoted+discontinued (row-block reasoning, counts
+  asserted). Worker also correctly no-op'd the Deda Trentacinque backfill (road-12 already
+  resolved it by retargeting — the brief's premise was stale).
+- Gates green (validate 0 problems / 964 tests / tsc clean) at `1b1f882`.
+
