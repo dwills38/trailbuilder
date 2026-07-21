@@ -180,10 +180,17 @@ test('rg-freehub C-731: a mis-tokened road-12 row (freehub outside the two HG bo
 
 /* ---- R6 RD capacity ------------------------------------------------------- */
 test('rg-rd-capacity errors a cassette over the RD max cog, silent within', function(){
-  var r = ROAD.checkRoadBuild({ cassette: rp('cs-shimano-105-r7100-1136'), rearDerailleur: rp('rd-shimano-da-r9200') });
-  eq(errOf(r, 'rg-rd-capacity').length, 1, '36T over a 34T-max short cage');
+  /* road-8 wave (2026-07-20): cs-shimano-105-r7100-1136 was corrected maxCog 36->34
+     (productinfo.shimano.com/en/product/CS-R7101-12 confirms only an 11-34T combination
+     exists). Every real cataloged road-12 derailleur maxes out at >=34T, so the "over
+     capacity" branch is now demonstrated with a synthesized 30T-max short cage (syn(),
+     same pattern used elsewhere in this file, e.g. line 174's badToken) rather than a
+     real part - a real fixture for this branch no longer exists in the catalog. */
+  var shortCage30 = syn(rp('rd-shimano-da-r9200'), { id: 'rd-syn-30-max', maxCog: 30 });
+  var r = ROAD.checkRoadBuild({ cassette: rp('cs-shimano-105-r7100-1136'), rearDerailleur: shortCage30 });
+  eq(errOf(r, 'rg-rd-capacity').length, 1, '34T over a 30T-max short cage');
   var r2 = ROAD.checkRoadBuild({ cassette: rp('cs-shimano-105-r7100-1136'), rearDerailleur: rp('rd-shimano-105-r7100') });
-  eq(of(r2, 'rg-rd-capacity').length, 0, '36T within a 36T max');
+  eq(of(r2, 'rg-rd-capacity').length, 0, '34T within a 36T max');
 });
 
 /* ---- R7 rotor interface --------------------------------------------------- */
