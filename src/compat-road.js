@@ -1,10 +1,11 @@
 'use strict';
 /* =============================================================================
-   ROAD + GRAVEL COMPATIBILITY ENGINE — checkRoadBuild  (OFF-LIVE)
+   ROAD + GRAVEL COMPATIBILITY ENGINE — checkRoadBuild  (LIVE)
    -----------------------------------------------------------------------------
-   *** LOADED BY NOTHING THE SITE SERVES. *** index.html and bmx.html do not
-   reference this file; road/gravel stays OFF-LIVE until Douglas's flip word
-   (CLAUDE.md hard rule 3). Data: data/road.js + data/gravel.js (also off-live).
+   *** LIVE: served by road.html (2026-07-20) AND gravel.html (2026-07-21),
+   each on Douglas's flip word. *** index.html and bmx.html still never
+   reference this file — the MTB/BMX apps are untouched by it.
+   Data: data/road.js + data/gravel.js (both live with their pages).
 
    ARCHITECTURE (data/ROAD-GRAVEL-COMPAT-ANALYSIS.md §3, Option b): ONE shared
    engine serves BOTH future pages (BuildMyRoadBike + BuildMyGravelBike) —

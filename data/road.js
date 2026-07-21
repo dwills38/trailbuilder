@@ -1,12 +1,13 @@
-// data/road.js — Road catalog (OFF-LIVE research/build)
+// data/road.js — Road catalog (LIVE — served by road.html/BuildMyRoadbike)
 //
-// Version: 0.1.0  |  Date: 2026-07-17
+// Version: 0.1.0  |  Date: 2026-07-17  |  WENT LIVE 2026-07-20 (Douglas's flip word)
 //
-// *** OFF-LIVE. *** Loaded by NOTHING the site serves. No engine file
-// (src/compat-road.js) or schema (src/schema-road.js) exists yet — this is
-// data-only, built per data/ROAD-MODEL.md's slot/category/vocab draft
-// (that doc is the authority for the shape below; do not widen its vocab
-// solo — log gaps instead, see the header note near the bottom).
+// *** LIVE. *** road.html loads src/compat-road.js (the shared drop-bar
+// engine) + this file in production. Built per data/ROAD-MODEL.md's
+// slot/category/vocab draft (that doc is the authority for the shape below;
+// do not widen its vocab solo — log gaps instead, see the header note near
+// the bottom). Header said OFF-LIVE until 2026-07-21 — staleness fixed at
+// the seat-16 doc pass.
 //
 // DISC-ONLY v1 per ROAD-MODEL.md section 6 decision #2 recommendation
 // (rim-brake road excluded entirely from this file).

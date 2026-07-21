@@ -1,6 +1,6 @@
 'use strict';
 /* =============================================================================
-   ROAD SCHEMA + VALIDATOR  (OFF-LIVE — mirrors src/schema-bmx.js's approach)
+   ROAD SCHEMA + VALIDATOR  (mirrors src/schema-bmx.js's approach)
    -----------------------------------------------------------------------------
    data/road.js (built in the catalog/road-1 wave, 108 rows) had NO validator —
    it was hand-built to mirror data/ROAD-MODEL.md section 3 field-by-field with
@@ -8,9 +8,10 @@
    tools/road-catalog-1-progress.md). This is the same "bouncer at the door"
    pattern as src/schema-bmx.js / src/schema-strider.js, scoped to ROAD_PARTS.
 
-   NOT LOADED BY THE LIVE APP — road stays OFF-LIVE (CLAUDE.md hard rule 3;
-   no src/compat-road.js engine exists yet either). Wired only into
-   validate.js (a fifth "ROAD OK" line) and this module's own tests.
+   data/road.js WENT LIVE 2026-07-20 (road.html serves it via the shared
+   src/compat-road.js engine). This schema file itself is still loaded only
+   by validate.js (the "ROAD OK" line) and its own test — road.html does not
+   load the validator at runtime, same as every other catalog's schema file.
 
    Field sets below are derived from data/ROAD-MODEL.md section 3 (the
    proposed per-category schema) cross-checked against every row that shipped

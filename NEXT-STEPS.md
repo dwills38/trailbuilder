@@ -4,7 +4,7 @@ _A living snapshot — a pointer doc, not a second log. Architecture/conventions
 `CLAUDE.md`; the full roadmap and mission live in `docs/MISSION.md`; the full dated
 history is `PROJECT-LOG.md` (newest first) + `git log`._
 
-## Where we are (refreshed 2026-07-20 — see `docs/MISSION.md` for the full picture)
+## Where we are (refreshed 2026-07-21 — see `docs/MISSION.md` for the full picture)
 
 **Live:** [buildmymtb.com](https://buildmymtb.com/) (custom domain, HTTPS, Supabase auth). Repo:
 [github.com/dwills38/trailbuilder](https://github.com/dwills38/trailbuilder).
@@ -14,20 +14,21 @@ run `node validate.js` for current per-catalog counts (MTB, KIT, BMX, STRIDER, R
 EMTB all validate 0 problems), `npm test` for the full Vitest suite, `npx tsc --noEmit` for
 type-checking. CI + GitHub Pages deploy green on `main`.
 
-**Live surfaces today:**
+**ALL SIX surfaces are LIVE (as of 2026-07-21, each on Douglas's flip word):**
 - **BuildMyMTB** (`index.html`) — the flagship: a 26-slot build checked by a 20-rule-area
   compatibility engine, including dirt-jump/single-speed support (live since 2026-07-14).
-- **BuildMyBMX** (`bmx.html`) — a separate page + engine (`src/compat-bmx.js`), live since
-  2026-07-17, deliberately paused for deeper work while MTB takes priority.
-- **BuildMyRideKit** (formerly Kit Builder) — rider gear builder, independent of the bike
-  engine.
-- Accounts + saved builds + a garage (Supabase), a forum, guides, recall notes, legal +
-  affiliate-disclosure pages.
+- **BuildMyBMX** (`bmx.html`) — separate page + engine (`src/compat-bmx.js`), live 2026-07-17.
+- **BuildMyRoadbike** (`road.html`) + **BuildMyEMTB** (`emtb.html`) — live 2026-07-20
+  ("do them all at once").
+- **BuildMyGravelBike** (`gravel.html`) — live 2026-07-21 (road + gravel share the
+  `src/compat-road.js` drop-bar engine).
+- **BuildMyRideKit** — rider gear builder, independent of the bike engines.
+- Plus `/home` (the family front door), `/about`, accounts + saved builds + garage + service
+  log (Supabase), a forum, guides, recall notes, legal + affiliate-disclosure pages.
 
-**Built off-live, awaiting Douglas's word to flip:** Road, Gravel, balance-bike fit guide
-(kids' striders), and the contained BuildMyEMTB — each has a validated dataset already
-(see `node validate.js`'s ROAD/GRAVEL/STRIDER/EMTB lines). The MTB catalog itself stays
-**permanently e-bike-free**; EMTB lives only on its own future page (Hard rule #1).
+**Still off-live:** only the balance-bike fit guide (kids' striders) — validated dataset, no
+page yet. The MTB catalog itself stays **permanently e-bike-free**; e-MTB lives only on its
+own contained page (Hard rule #1).
 
 ## The bar that governs everything
 
@@ -47,8 +48,8 @@ Standing items worth knowing about:
    fetch-ethics rule: never defeat anti-bot protection, a wall is documented not routed around).
 2. **Frame/catalog completeness gaps** — remaining category breadth and complete-bike
    build-sheet verification, tracked as they're found.
-3. **A proper home page** — the site currently loads straight into the builder; a real front
-   door (no-pop-up rule applies) is queued for Douglas's kickoff — remind him periodically.
+3. ✅ **Home page shipped** (2026-07-20): `/home` is the family front door (D2c design,
+   Douglas's pick) + `/about`; the builder root stays loads-straight-to-data (no pop-ups ever).
 4. **Style pass** — Loam-first direction picked; polish continues opportunistically.
 5. **The human expert review** — engine rule severities in front of professional mechanics
    (packet exists in `EXPERT-REVIEW-DOSSIER.md`).

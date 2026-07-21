@@ -2,11 +2,12 @@
 //
 // Version: 0.1.0  |  Date: 2026-07-18
 //
-// *** OFF-LIVE. *** Nothing the site serves (index.html, bmx.html, src/compat.js,
-// src/compat-bmx.js) loads this file. See data/EMTB-MODEL.md for the data-model spec
-// (section 3 = the field set; section 4 = the browse/compare-not-builder recommendation;
-// section 5 = containment). Wired only into validate.js (an "EMTB OK" gate line) and this
-// module's own tests. Stays off-live until Douglas's explicit flip word.
+// *** LIVE (2026-07-20, Douglas's flip word — "do them all at once"). *** Served by
+// emtb.html/BuildMyEMTB, the ONLY page that loads this file — index.html, bmx.html,
+// src/compat.js, src/compat-bmx.js still never touch it (containment holds). See
+// data/EMTB-MODEL.md for the data-model spec (section 3 = the field set; section 4 =
+// the browse/compare-not-builder recommendation; section 5 = containment). Also wired
+// into validate.js (the "EMTB OK" gate line) and this module's own tests.
 //
 // CONTAINMENT (CLAUDE.md hard rule 1, amended 2026-07-18): e-bikes were authorized
 // reluctantly and CONTAINED. The MTB catalog (src/compat.js PARTS) stays 100% e-bike-free
