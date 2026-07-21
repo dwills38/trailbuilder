@@ -462,23 +462,27 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-mondraker-crafty-carbon-r', cat: 'emtb', brand: 'Mondraker', model: 'Crafty Carbon R',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
+    family: 'mondraker-crafty', gen: 'Gen 5', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5, BDU384Y)', motorTorque: 85, motorPowerPeak: 600,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'mixed', drivetrain: 'SRAM S1000 Eagle AXS T-Type Transmission (SRAM GX Eagle T-Type chain/cassette)', brakes: 'SRAM Maven Base',
     disciplines: ['e-enduro'], weight: 24000, price: 8499,
-    note: "Mondraker's gravity-leaning full-power e-MTB confirmed still on Bosch, now the Gen 5 CX (85Nm stock, OTA-upgradable to 100Nm/750W); long travel, mixed wheel.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Gen/travel corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, 160/150mm not 170/160mm).'
+    note: "Mondraker's gravity-leaning full-power e-MTB: Bosch CX Gen 5 (BDU384Y), 85Nm/600W stock (page: \"the same 85Nm of torque and 600W peak power as the previous model\"); Stealth Air carbon front triangle + alloy rear triangle (mixed, not full carbon); 29in wheels both ends (not mullet as previously cataloged) per the maker's own tire spec (29x2.5 front and rear) and wheel-size badge.",
+    desc: "Verified vs the maker's own product page (motor/battery/travel/frame/wheel-size/drivetrain/brakes all confirmed; MSRP $8,499 matches exactly). Wheel config corrected wave 4 cluster C (mullet -> 29, the page's own badge + tire spec both say 29in F+R); motor power peak corrected (750W -> 600W, the page explicitly states 600W for this bike); frameMaterial corrected (carbon -> mixed, carbon front triangle/alloy rear triangle per the page's own construction text); drivetrain/brakes corrected to the actual build-sheet components (SRAM S1000 Eagle AXS T-Type derailleur, not GX Eagle; SRAM Maven Base, not Code). Weight stays the prior sample estimate — the maker page publishes no bike weight for this SKU (interface-verification exception, VERIFY-PROTOCOL.md's frames precedent applied to a complete-bike row).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://mondraker.com/us/en/crafty-carbon-r1783597201'
   },
   {
     id: 'em-mondraker-level-carbon-rr', cat: 'emtb', brand: 'Mondraker', model: 'Level RR',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
+    family: 'mondraker-level', gen: 'Gen 5', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5, BDU384Y)', motorTorque: 100, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'SRAM Maven Silver',
-    disciplines: ['e-enduro'], weight: 24500, price: 8999,
-    note: "The real Level is a full-power gravity enduro bike (Bosch Gen 5 CX, not a lightweight SX motor), aluminum-only (not carbon), mullet-wheel with 180/170mm travel.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor/frame/assist-class corrected verify/emtb-3 wave 3 phase 2 (Bosch SX lightweight -> Bosch CX Gen 5 full-power, carbon -> aluminum, 29in -> mullet, 140/130mm -> 180/170mm).'
+    frameMaterial: 'aluminum', drivetrain: 'SRAM S1000 Eagle AXS T-Type Transmission (SRAM GX Eagle T-Type chain/cassette)', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-enduro'], weight: 26900, price: 8999,
+    note: "Mondraker's full-power gravity enduro bike (id/model string says \"Level Carbon RR\" but the CURRENT Level range is 6061 alloy-only, not carbon — the id is a legacy token, kept append-only per policy); Bosch CX Gen 5 (BDU384Y) at the Level's shipped 100Nm/750W tune (the page: \"the new firmware unlocks... boosting the peak from 600W and 85Nm to a massive 750W and 100Nm\"); mullet wheels, 180/170mm travel.",
+    desc: "Verified vs the maker's own product page (motor/battery/travel/frame/wheel-config/drivetrain/brakes all confirmed; weight 59.3 lb = 26900g maker-published; MSRP $8,999 matches exactly). Drivetrain/brakes corrected wave 4 cluster C (SRAM X0 Eagle AXS -> the actual SRAM S1000 Eagle AXS T-Type derailleur; SRAM Maven Silver -> SRAM Maven Bronze, the real build-sheet brake); motorTorque corrected (85 -> 100Nm, matching the shipped 750W tune the page states, resolving the prior 85Nm+750W mismatched pair); weight corrected to the maker-published 26900g (was 24500g sample).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://mondraker.com/us/en/level-rr1750250055'
   },
 
   // ---------------------------------------------------------------------------
