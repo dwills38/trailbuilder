@@ -354,34 +354,37 @@ var EMTB_PARTS = [
   // Giant (new maker) — Trance X E+ / Reign E+
   // ---------------------------------------------------------------------------
   {
-    id: 'em-giant-trance-x-e-plus-elite', cat: 'emtb', brand: 'Giant', model: 'Trance X E+ Elite',
+    id: 'em-giant-trance-x-e-plus-elite', cat: 'emtb', brand: 'Giant', model: 'Trance X E+ 2 20MPH',
     motorBrand: 'giant', motorModel: 'SyncDrive Pro2', motorTorque: 85,
-    batteryWh: 850, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-trail'], weight: 23800, price: 5800,
-    note: "Giant's in-house SyncDrive Pro2 motor (co-engineered with Yamaha); large 850 Wh EnergyPak.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX', brakes: 'Shimano Deore 4-piston',
+    disciplines: ['e-trail'], weight: 25690, price: 6400,
+    note: "Giant's in-house SyncDrive Pro2 motor (co-engineered with Yamaha); 800 Wh EnergyPak.",
+    desc: 'Verified vs the maker page. Model/trim corrected verify/emtb-4 wave 4 cluster B (no aluminum Giant Trance X E+ trim is named "Elite" — Elite is exclusive to the composite Trance X Advanced E+ line; the real top aluminum US trim is the Trance X E+ 2 20MPH, 800Wh not 850Wh, Shimano SLX shifter/derailleur not Deore, Shimano Deore BR-M6120 4-piston brakes not MT420, weight the maker-stated 25.69kg size M, price the real US MSRP $6,400).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.giant-bicycles.com/us/trance-x-eplus-2-20mph-2023'
   },
   {
-    id: 'em-giant-trance-x-advanced-e-plus-0', cat: 'emtb', brand: 'Giant', model: 'Trance X Advanced E+ 0',
+    id: 'em-giant-trance-x-advanced-e-plus-0', cat: 'emtb', brand: 'Giant', model: 'Trance X Advanced E+ Elite 0',
     motorBrand: 'giant', motorModel: 'SyncDrive Pro2', motorTorque: 85,
-    batteryWh: 850, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-trail'], weight: 21200, price: 12000,
-    note: 'Top-tier carbon Trance X Advanced E+ build.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    batteryWh: 400, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission AXS', brakes: 'SRAM G2 Ultimate 4-piston',
+    disciplines: ['e-trail'], weight: 19240, price: 13500,
+    note: 'Top-tier carbon Trance X Advanced E+ Elite build; mullet wheels (29in front, 27.5in rear), Zipp 3MOTO carbon wheelset.',
+    desc: 'Verified vs the maker page. Model corrected verify/emtb-4 wave 4 cluster B (real name carries "Elite": Trance X Advanced E+ Elite 0, not "Trance X Advanced E+ 0"). Battery corrected 850Wh -> 400Wh (EnergyPak 400, ultra-slim pack; a 200Wh EnergyPak Plus range extender is compatible), wheelConfig 29 -> mullet (29in front / 27.5in rear per the fetched spec table), drivetrain SRAM XX SL Eagle Transmission -> SRAM XX Eagle Transmission AXS derailleur (cassette is the XX Eagle SL Transmission 10-52T), brakes SRAM Code Ultimate -> SRAM G2 Ultimate 4-piston (200mm front/180mm rear). Weight is the maker-stated 19.24kg for size S (smallest size; weight varies by size, no size-M figure was shown on the fetched page). Price is the real US MSRP $13,500 (size M; a size-L unit was on sale for $9,999 at fetch time).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.giant-bicycles.com/us/trance-x-advanced-eplus-elite-0'
   },
   {
     id: 'em-giant-reign-e-plus-0', cat: 'emtb', brand: 'Giant', model: 'Reign Advanced E+ 0',
     motorBrand: 'giant', motorModel: 'SyncDrive Pro 3', motorTorque: 90, motorPowerPeak: 800,
-    batteryWh: 560, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    batteryWh: 560, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-enduro'], weight: 22300, price: 9999,
-    note: "Giant's gravity/enduro e-MTB moved to the new 48V SyncDrive Pro 3 (90Nm/800W peak, up from Pro2's 85Nm), with a smaller but higher-density 560Wh EnergyPak Smart battery plus an optional 280Wh range extender.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor generation corrected verify/emtb-3 wave 3 phase 2 (SyncDrive Pro2 -> Pro 3).'
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission AXS', brakes: 'SRAM Maven Ultimate',
+    disciplines: ['e-enduro'], weight: 22300, price: 13500,
+    note: "Giant's gravity/enduro e-MTB moved to the new 48V SyncDrive Pro 3 (90Nm/800W peak, up from Pro2's 85Nm), with a smaller but higher-density 560Wh EnergyPak Smart battery plus an included 280Wh EnergyPak Plus range extender.",
+    desc: 'Verified vs the maker page. Motor generation corrected verify/emtb-3 wave 3 phase 2 (SyncDrive Pro2 -> Pro 3). Further corrected verify/emtb-4 wave 4 cluster B: drivetrain SRAM X0 Eagle Transmission -> SRAM XX Eagle Transmission AXS, brakes SRAM Code Ultimate -> SRAM Maven Ultimate 4-piston 200mm CenterLine (the real (2026) US top-tier build), weight matches the maker-stated 22.3kg (size M) exactly, price corrected $9,999 -> the real US MSRP $13,500.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.giant-bicycles.com/us/reign-advanced-eplus-0'
   },
 
   // ---------------------------------------------------------------------------
