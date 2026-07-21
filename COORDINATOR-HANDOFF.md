@@ -20,6 +20,99 @@ seat does the housekeeping automatically — Douglas never renames/unpins/archiv
 
 ---
 
+## ★★★ SEAT 16 — START HERE (succession from seat 15, 2026-07-21) ★★★
+
+Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s16 -b
+coord/<today>-s16 origin/main` (Hard rule #5 — and note: the containment hook is now ACTUALLY
+enforced, see the earned-rules below). Run the gates yourself, never trust doc counts.
+**State at handoff: main `c756232`+ green — MTB 5,033 (3,163 verified, 62.9%) · Kit 706 (534)
+· BMX 227 (90 — Douglas's 40% bar HIT) · Road 217 (128) · Gravel 223 (78) · Striders 36 (28)
+· EMTB 92 (66) · complete bikes 174/437 sheet-verified · 875 tests · tsc clean · 7 validators.
+ALL SIX SURFACES LIVE on buildmymtb.com (MTB, BMX, Road, Gravel, E-MTB, RideKit) plus /home
+(the D2c family front door), /about (D4), and ddubsworks.com (its own Pages repo
+dwills38/ddubsworks, HTTPS enforced — source of truth stays sites/ddubsworks/ here).**
+
+**★ SEATING SEQUENCE (in order):**
+1. **Succession handshake** — send_message the session titled "Main Coordinator (Seat 15)"
+   (id: `local_aff21c09-65a1-4cc1-ac36-aa7c7357f924`) asking it to set_session_title you to
+   "Main Coordinator (Seat 16)"; archive it on confirm. If it never wakes, one line to
+   Douglas, don't block.
+2. **RE-ARM TWO session-lifetime watchers** (they die with the seat; the four durable
+   scheduled tasks — daily bug-triage, monthly drift 6th, monthly bias 12th, quarterly
+   recall — survive on their own, do NOT recreate): (a) the hourly fleet-sweep cron;
+   (b) **the worker-report folder Monitor** on `D:\MTB Bike Builder\.claude\worker-reports`
+   (persistent bash loop watching for new .md files — THIS is how reports reach you now).
+3. Read HANDOFF-CHIPS.md (refreshed) + memory MEMORY.md + CLAUDE.md Hard rules 1-5.
+
+**★ THE REPORT-DROP PROTOCOL (seat 15's fix for the hung-message pattern — PERMANENT):**
+send_message ALWAYS prompts the SENDER's user, so unattended workers' final messages hang on
+Douglas's unclicked approval. Every chip's FINAL ACT = write the full report to
+`.claude/worker-reports/<branch-slug>.md`; your folder Monitor fires within a minute;
+send_message is optional best-effort, never waited on. Also in every chip: the STAND-DOWN
+clause ("if your exact branch already exists with commits, stand down and report") — Douglas
+double-pasted 4 of 9 chips once; git's one-branch-one-worktree rule made it safe, the clause
+makes it graceful. Harvest → review → merge in YOUR worktree → gates → push → PROJECT-LOG →
+archive vessel + remove worktree + delete merged branch, same breath.
+
+**★ OPEN SESSIONS AT HANDOFF (verify with list_sessions — this ages fast):** SIX workers in
+flight, all with the report-drop clause: **CB-SHEETS-6** (the nine un-walled brands —
+mtb-tail-4's report maps each brand's access technique), **Service log feature** (index.html
++ supabase/schema.sql — Douglas runs the SQL once at merge), **Fabricate-fill audit**
+(REPORT-ONLY by design — its fix list comes back through you before anything touches a
+catalog), **Gravel 7** (Ekar bundle + status/supersededBy schema port), **Kit 11**
+(remainder sweep), **Road 11** (archive chase + wheels/cockpit tail). Plus: "Affiliate
+Setup" = Douglas's Partnerships lane, NEVER touch; bug-triage vessels accumulate daily,
+harmless, leave them.
+
+**★ DOUGLAS'S DECISION QUEUE (raise gently, never nag):** (1) the five-row Cloudflare
+REDIRECT BATCH — all targets live, table in seat 15's transcript + domain-portfolio memory;
+his clicks whenever; (2) fabricate-fill audit verdicts when they land (fix list needs his
+eyes if anything ugly surfaces); (3) FC-MT612 — absent from 6 Shimano handbook editions:
+OEM-only or entry error, his call; (4) the empty D:\mtb-worktrees shell folder — one manual
+right-click to delete (top-level D:\ is deletion-protected from sessions, correctly);
+(5) gravel CX-tag + rim-brake vocab questions (logged across waves 2-6); (6) carried older
+items: fr-trek-slash orphan dedupe, Ibis dedup pair, verified-badge semantics + price-policy
+gap, gallery six, reviews.sql levers, Supabase MFA/CAPTCHA check, Cloudflare Vitals read,
+Finder two, recall-badge scoping, fitter paywalls.
+
+**★ RULES EARNED THIS SEAT (beyond the standing set — details in PROJECT-LOG 2026-07-20/21):**
+· **CONTAINMENT IS LIVE NOW**: the PreToolUse guard (tools/hooks/guard-worktree-path.js,
+  matcher Bash|PowerShell) was silently OFF for days because the SHARED checkout's stale
+  uncommitted settings.json predated the hooks block — live sessions read that file. If you
+  ever see shared-checkout settings.json drift from main, RE-SYNC IT IMMEDIATELY.
+· **Error-tier relaxations need YOUR OWN fetch** — and when two first-party sources conflict
+  (Fox shop page said 203, Fox engineering drawing said 230), the CONSERVATIVE ceiling stands
+  and the conflict goes to the mechanic-review queue. Seat 15 reverted a worker's relaxation
+  on exactly this.
+· **Walls are stale by default**: specialized.com, then NINE more "walled" brands, then
+  Cannondale's wall (a wrong URL pattern) all fell on re-test. Browser pane + one honest
+  retry before trusting any wall note older than a week.
+· **Shimano doctrine**: productinfo per-SKU pages work in the browser pane (WebFetch renders
+  them empty) and carry REAL weights for road/Di2/pedals (mechanical MTB tiers stay blank —
+  CLAUDE.md footnoted); dense handbook PDF tables must be READ AS RENDERED IMAGES (pdftoppm),
+  pdftotext -layout fabricates column alignments.
+· **Never bulk-edit repo text via PowerShell string ops** (PS5.1 reads UTF-8-no-BOM as ANSI —
+  a Set-Content pass mojibake'd 911 lines before the diff-stat caught it; use the Edit tool
+  or node fs with explicit utf8).
+· **The headless pane NEVER fires <dialog> close events** (and other quirks — memory
+  `browser-pane-screenshots.md`); verify close-dependent behavior via puppeteer.
+· **Interface-exception extensions are Douglas-ratified BY DISPATCHING the chip** — six on
+  the books now (shocks, wheels, forks, BMX small parts, Shimano mechanical MTB, bundled
+  shift-brake systems). The chip text must state the ruling explicitly.
+· **ALIASES everywhere**: MTB, BMX, and kit all carry the tombstone contract now; gravel/
+  road/EMTB get theirs at first need (gravel's status/supersededBy port is in-flight).
+  NEVER remove an id from a live catalog without one.
+
+**Standing workflow (unchanged otherwise):** four gates (+harness on compat.js changes) on
+every merge; UI auto-ships on green gates + browser verify + popup scan; engine/error-tier =
+adversarial review; only taxonomy/money/visual-taste/account/business decisions to Douglas,
+kept SHORT; ANSWER-FIRST; paste-blocks with [Model, effort] headers. Seat-15 trail:
+PROJECT-LOG.md 2026-07-20 evening → 2026-07-21 entries (the biggest single-seat shipping run
+yet: ~30 branches, six surfaces live, the family completed, ddubsworks launched, BMX bar hit,
+report-drop infrastructure, containment actually enforced).
+
+---
+
 ## ★★★ SEAT 15 — START HERE (succession from seat 14, 2026-07-20 evening) ★★★
 
 Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s15 -b
