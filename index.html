@@ -527,12 +527,12 @@
   /* svh (not vh): vh resolves against the LARGEST viewport (chrome retracted), so a
      mobile browser with its address bar expanded would render this cap's bottom
      edge — the .rm-foot action row — below the visible area (ACC-22 F2, PLT-6). */
-  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal,dialog#buildSheetModal,dialog#svcModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);max-height:calc(100svh - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal,dialog#buildSheetModal,dialog#svcModal,dialog#buildDiffModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);max-height:calc(100svh - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
   /* Scoped to [open] so display:flex only ever applies while the dialog is actually
      showing — the UA stylesheet's dialog:not([open]){display:none} must stay in charge
      when closed, or the dialog would render invisibly-but-present in the layout. */
-  dialog#reportModal[open],dialog#buildModal[open],dialog#partModal[open],dialog#compareModal[open],dialog#specCardModal[open],dialog#authModal[open],dialog#garageModal[open],dialog#forumNewThreadModal[open],dialog#profileModal[open],dialog#buildSheetModal[open],dialog#svcModal[open]{display:flex;flex-direction:column;overflow:hidden}
-  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop,dialog#authModal::backdrop,dialog#garageModal::backdrop,dialog#forumNewThreadModal::backdrop,dialog#profileModal::backdrop,dialog#buildSheetModal::backdrop,dialog#svcModal::backdrop{background:rgba(18,28,22,.45)}
+  dialog#reportModal[open],dialog#buildModal[open],dialog#partModal[open],dialog#compareModal[open],dialog#specCardModal[open],dialog#authModal[open],dialog#garageModal[open],dialog#forumNewThreadModal[open],dialog#profileModal[open],dialog#buildSheetModal[open],dialog#svcModal[open],dialog#buildDiffModal[open]{display:flex;flex-direction:column;overflow:hidden}
+  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop,dialog#authModal::backdrop,dialog#garageModal::backdrop,dialog#forumNewThreadModal::backdrop,dialog#profileModal::backdrop,dialog#buildSheetModal::backdrop,dialog#svcModal::backdrop,dialog#buildDiffModal::backdrop{background:rgba(18,28,22,.45)}
   .rm-head,.rm-foot{flex:none}
   .rm-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
   /* Inventory page (Phase 3): a full-width view, not a modal. body.inv-page hides
@@ -768,6 +768,7 @@
      body.bs-printing, which is set ONLY while the dialog is open) shows it and
      nothing else, so a normal Ctrl+P of the site is completely untouched. */
   dialog#buildSheetModal{max-width:720px}
+  dialog#buildDiffModal{max-width:720px}
   .bs-sheet{background:#fff;color:#15221a;border:1px solid var(--line);border-radius:9px;padding:18px 22px}
   .bs-head{border-bottom:2px solid #15221a;padding-bottom:10px;margin-bottom:12px}
   .bs-title-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
@@ -820,6 +821,34 @@
   .cmp-picks{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:4px 0 2px}
   .cmp-picks select{flex:1;min-width:120px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:13px;color:var(--ink)}
   .cmp-vs{color:var(--ink-soft);font-size:12px;font-weight:700}
+  /* build diff (feature slate; pure logic in src/build-diff.js). Shares the
+     cmp-picks select row; the fragment below is renderBuildDiffHtml's. */
+  .bd-cols{display:flex;align-items:center;gap:8px;font-weight:700;font-size:13px;margin:8px 0 2px}
+  .bd-arrow{color:var(--ink-soft)}
+  .bd-summary,.bd-same{font-size:12.5px;color:var(--ink-soft);margin:6px 0}
+  .bd-table{width:100%;border-collapse:collapse;font-size:12.5px;margin:4px 0 10px}
+  .bd-table th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.3px;color:var(--ink-soft);padding:4px 6px;border-bottom:1px solid var(--line)}
+  .bd-table td{padding:5px 6px;border-bottom:1px dashed #eef0ec;vertical-align:top}
+  .bd-kind{font-size:10px;text-transform:uppercase;letter-spacing:.4px;font-weight:700;border-radius:6px;padding:1px 6px;margin-left:4px;white-space:nowrap}
+  .bd-kind-added{background:var(--ok-bg,#e7f5ec);color:var(--ok,#1f8a4c)}
+  .bd-kind-removed{background:var(--err-bg,#fbeaea);color:var(--err,#c23b3b)}
+  .bd-kind-swapped{background:var(--warn-bg,#fdf3e1);color:var(--warn,#b9791b)}
+  .bd-none{color:var(--ink-soft)}
+  .bd-totals{border-top:1px solid var(--line);margin-top:4px;padding-top:6px}
+  .bd-trow{display:grid;grid-template-columns:100px 1fr 1fr auto;gap:10px;font-size:12.5px;padding:4px 0;align-items:baseline}
+  .bd-trow .bd-k{color:var(--ink-soft);font-size:11px;text-transform:uppercase;letter-spacing:.3px}
+  .bd-delta{font-weight:700}
+  .bd-approx{color:var(--ink-soft);cursor:help}
+  .bd-verdicts{margin-top:10px}
+  .bd-verdicts h3{font-size:12px;text-transform:uppercase;letter-spacing:.3px;color:var(--ink-soft);margin:0 0 4px}
+  .bd-vside{font-size:12px;font-weight:700;margin:6px 0 2px}
+  .bd-vlist{list-style:none;margin:0;padding:0;font-size:12.5px}
+  .bd-vlist li{padding:2px 0}
+  .bd-vlist .bd-err{color:var(--err)}
+  .bd-vlist .bd-warn{color:var(--warn)}
+  .bd-vlist .bd-info{color:var(--ink-soft)}
+  .bd-vnone,.bd-vshared{font-size:12px;color:var(--ink-soft);margin:4px 0}
+  .bd-disclosure{font-size:11px;color:var(--ink-soft);margin:10px 0 0}
   .cmp-or{text-align:center;color:var(--ink-soft);font-size:11px;margin:12px 0 4px}
   @media (max-width:880px){ .layout{display:block} .side{position:static} }
 
@@ -855,7 +884,7 @@
     .prov .ver::after,.prov .sheet-ver::after{content:"";position:absolute;inset:-10px -8px}
     .fam-menu summary{padding:9px 6px;margin:-9px -6px}
     .footer-legal a{display:inline-block;padding:11px 4px;margin:-8px 0}
-    dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal,dialog#buildSheetModal,dialog#svcModal{width:calc(100% - 20px)}
+    dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal,dialog#buildSheetModal,dialog#svcModal,dialog#buildDiffModal{width:calc(100% - 20px)}
     /* list rows on phones: the spec line drops, the name column flexes; wide
        rows (kits' "fills" tail, Front|Rear pickers) wrap to a second line
        rather than force sideways scroll */
@@ -1743,7 +1772,28 @@
   <div class="rm-foot">
     <button type="button" class="btn" id="garageClose" autofocus>Close</button>
     <button type="button" class="btn" id="garageSvcAll" hidden>🔧 Service log</button>
+    <button type="button" class="btn" id="garageDiff" hidden title="See exactly what changed between two builds">⇄ Diff two builds</button>
     <button type="button" class="btn primary" id="garageSaveCurrent">⭑ Save current build</button>
+  </div>
+</dialog>
+
+<!-- Build diff (feature slate; pure logic + renderer in src/build-diff.js).
+     Click-opened from the garage only — NEVER auto-appears (hard rule #2). -->
+<dialog id="buildDiffModal" aria-labelledby="bdTitle" role="dialog" aria-modal="true">
+  <div class="rm-head">
+    <h2 id="bdTitle">⇄ Build diff</h2>
+    <p>What changed between two builds — parts added, removed or swapped, the price and weight deltas, and any compatibility findings that differ. Specs are illustrative sample data unless a part shows ✓ Verified in the app.</p>
+  </div>
+  <div class="rm-body">
+    <div class="cmp-picks">
+      <select id="bdSelA" aria-label="Baseline build"></select>
+      <span class="cmp-vs">→</span>
+      <select id="bdSelB" aria-label="Build to compare against the baseline"></select>
+    </div>
+    <div id="bdResult"></div>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="bdClose" autofocus>Close</button>
   </div>
 </dialog>
 
@@ -1857,6 +1907,7 @@
 <script src="src/format-sizes.js"></script>
 <script src="src/upgrade.js"></script>
 <script src="src/build-sheet.js"></script>
+<script src="src/build-diff.js"></script>
 <script src="src/service-log.js"></script>
 <script>
 (function(){
@@ -3813,6 +3864,46 @@
     renderComparison(a, b);
   }
 
+  /* ---- build diff (feature slate; pure logic + renderer in src/build-diff.js,
+     tested in test/test-build-diff.js). Click-opened from the garage only —
+     never auto-appears. Where the compare modal shows two builds side by
+     side, the diff answers "what CHANGED": per-slot added/removed/swapped,
+     signed price/weight deltas, and the verdict delta (checkBuild on both
+     sides, diffed by verdictKey — the dots' identity contract — with the
+     engine's messages verbatim). Own garage cache, same resolution path as
+     cmpSource (_resolveData), so a corrupt saved payload degrades the same
+     way. ---- */
+  var _bdBuilds = [];   // garage builds cached for the diff dropdowns
+  function bdSource(key){
+    if(key==='current') return { res:resolved(), presetBy:presetBy, label:'Current build' };
+    var b = _bdBuilds.filter(function(x){ return String(x.id)===String(key); })[0];
+    if(!b) return null;
+    var d = _resolveData(b.data);
+    return { res:d.resolved, presetBy:d.clean.presetBy, label:(b.name||'Untitled build') };
+  }
+  function runBuildDiff(){
+    var a = bdSource($('bdSelA').value), b = bdSource($('bdSelB').value);
+    if(!a || !b) return;
+    var m = buildDiffModel(a, b, {SLOTS:SLOTS, checkBuild:checkBuild, buildTotals:buildTotals, verdictKey:verdictKey});
+    $('bdResult').innerHTML = renderBuildDiffHtml(m, {esc:esc, money:money, grams:grams});
+  }
+  function openBuildDiff(){
+    if(!_acctReady || !currentUser()) return;
+    listBuilds().then(function(rows){
+      _bdBuilds = rows || [];
+      var opts = '<option value="current">Current build</option>'
+        + _bdBuilds.map(function(b){ return '<option value="'+esc(b.id)+'">'+esc(b.name||'Untitled build')+'</option>'; }).join('');
+      $('bdSelA').innerHTML = opts; $('bdSelB').innerHTML = opts;
+      // Default: the older saved build as the baseline, the newest as the
+      // compared side (rows come newest-first); with one saved build, diff
+      // it against the current build.
+      if(_bdBuilds.length >= 2){ $('bdSelA').value = String(_bdBuilds[1].id); $('bdSelB').value = String(_bdBuilds[0].id); }
+      else if(_bdBuilds.length === 1){ $('bdSelA').value = String(_bdBuilds[0].id); $('bdSelB').value = 'current'; }
+      $('buildDiffModal').showModal();
+      runBuildDiff();
+    }).catch(function(e){ toast((e && e.message) || 'Could not load your builds'); });
+  }
+
   /* ---- spec-card share image (Phase 4, "start here" per the roadmap) — a
      self-contained SVG (fixed hex colors, not CSS vars — it has to look right
      serialized outside the page) rasterized client-side to a PNG download.
@@ -4637,6 +4728,7 @@
   function renderGarage(){
     var el = $('garageList'); el.innerHTML = '<div class="gempty">Loading…</div>';
     listBuilds().then(function(rows){
+      $('garageDiff').hidden = !rows || !rows.length;   // diff needs at least one saved build (vs current)
       if(!rows || !rows.length){ el.innerHTML = '<div class="gempty">No saved builds yet. Build a bike, then “⭑ Save to garage”.</div>'; return; }
       el.innerHTML = '';
       rows.forEach(function(row){
@@ -5772,6 +5864,11 @@
   $('garageClose').onclick = function(){ $('garageModal').close(); };
   $('garageSaveCurrent').onclick = saveCurrentToGarage;
   $('garageModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
+  $('garageDiff').onclick = openBuildDiff;
+  $('bdClose').onclick = function(){ $('buildDiffModal').close(); };
+  $('bdSelA').onchange = runBuildDiff;
+  $('bdSelB').onchange = runBuildDiff;
+  $('buildDiffModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
   $('svcClose').onclick = function(){ $('svcModal').close(); };
   $('svcModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
   $('svcAdd').onclick = addServiceRecord;
