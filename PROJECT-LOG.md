@@ -3798,3 +3798,20 @@ All eight chips from the final dispatch round are now landed (main `e10dbc2`+). 
   the catalog — runner re-synced clean, 3526/4899 processed).
 - Gates green (validate 0 problems / 988 tests / tsc clean / harness clean, E=0).
 
+
+## 2026-07-21 (seat 16) — BMX depth 7 merged: BMX CROSSES 50% — final chip of the seat
+
+- **verify/bmx-depth-7** merged (Douglas's paste = his word for this BMX wave): 90→115
+  verified, **50.4%** — target met. FIVE real data corrections on plausible-looking
+  unverified rows: Redline Proline Expert was marked disc-brake (it's a v-brake bike — the
+  retailer-copy different-model-year trap), Profile Imperial sprockets were spline/1-8 (real
+  product is bolt-on/3-32; broke 3 test fixtures, correctly swapped not weakened), both
+  Colony hubs carried assumed 14mm axles (maker says 10mm bolts), S&M "Speedball" handlebar
+  is a PHANTOM (Speedball is exclusively their tire name — full 292-product sitemap checked;
+  retired). Structural finding worth the log: many BMX small-part categories have zero
+  engine-read fields beyond identity, so THE PRICE RULE makes dozens of
+  interface-confirmed-but-price-blocked rows one edit from verified — the fastest future BMX
+  lever, plus Fit (1/18) and Chase (0/10) untouched, plus a 3/8" axle vocab need re-flagged.
+- Gates green (validate 0 problems / 988 tests / tsc clean) at merge. **All ten grind chips
+  from today's final rounds are now harvested. Fleet empty.**
+
