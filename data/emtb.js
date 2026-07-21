@@ -250,13 +250,14 @@ var EMTB_PARTS = [
   },
   {
     id: 'em-ibis-oso', cat: 'emtb', brand: 'Ibis', model: 'Oso TR',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 100, motorPowerPeak: 750,
+    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 120, motorPowerPeak: 750,
     batteryWh: 600, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM Eagle 90 T-Type', brakes: 'SRAM Maven Base',
-    disciplines: ['e-trail', 'e-enduro'], weight: 22800, price: 8499,
-    note: "Ibis's second-generation modular Oso platform (HD/TR/S travel classes) stayed on Bosch — did not follow the industry trend to DJI Avinox — with a smaller, lower-mounted 600Wh battery (down from 800Wh) plus an optional 250Wh PowerMore extender.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Gen/battery corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, 800Wh -> 600Wh, drivetrain matched to the real TR mechanical build).'
+    disciplines: ['e-trail', 'e-enduro'], weight: 22770, price: 8499,
+    note: "Ibis's second-generation modular Oso platform (HD/TR/S travel classes) stayed on Bosch — did not follow the industry trend to DJI Avinox — with a smaller, lower-mounted 600Wh battery (down from 800Wh) plus an optional 250Wh PowerMore extender. This is the base $8,499 mechanical build (SRAM Eagle 90 Transmission + Maven Base); a $9,699 SRAM AXS/GX Eagle Transmission + Maven Silver build is also offered.",
+    desc: 'Verified vs the maker page. Gen/battery corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, 800Wh -> 600Wh, drivetrain matched to the real TR mechanical build) — that reading holds and is now maker-page-confirmed exactly: SRAM Eagle 90 Transmission derailleur/shifter, SRAM Maven Base brakes/SRAM Centerline 220mm rotors, RockShox Lyrik Base 160mm fork, RockShox Super Deluxe Select+ 230x60mm shock, price $8,499 exact match. Torque corrected verify/emtb-4 wave 4 cluster B: 100 -> 120Nm ("up to 120 Nm" on the current bikes/oso-tr page — a firmware/torque update since an earlier 100Nm reading). Weight set to the maker-stated 22.77kg complete-build claimed figure (size XM, with frame protection + tire sealant, no pedals).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.ibiscycles.com/bikes/oso-tr'
   },
 
   // ---------------------------------------------------------------------------
@@ -360,34 +361,37 @@ var EMTB_PARTS = [
   // Giant (new maker) — Trance X E+ / Reign E+
   // ---------------------------------------------------------------------------
   {
-    id: 'em-giant-trance-x-e-plus-elite', cat: 'emtb', brand: 'Giant', model: 'Trance X E+ Elite',
+    id: 'em-giant-trance-x-e-plus-elite', cat: 'emtb', brand: 'Giant', model: 'Trance X E+ 2 20MPH',
     motorBrand: 'giant', motorModel: 'SyncDrive Pro2', motorTorque: 85,
-    batteryWh: 850, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-trail'], weight: 23800, price: 5800,
-    note: "Giant's in-house SyncDrive Pro2 motor (co-engineered with Yamaha); large 850 Wh EnergyPak.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX', brakes: 'Shimano Deore 4-piston',
+    disciplines: ['e-trail'], weight: 25690, price: 6400,
+    note: "Giant's in-house SyncDrive Pro2 motor (co-engineered with Yamaha); 800 Wh EnergyPak.",
+    desc: 'Verified vs the maker page. Model/trim corrected verify/emtb-4 wave 4 cluster B (no aluminum Giant Trance X E+ trim is named "Elite" — Elite is exclusive to the composite Trance X Advanced E+ line; the real top aluminum US trim is the Trance X E+ 2 20MPH, 800Wh not 850Wh, Shimano SLX shifter/derailleur not Deore, Shimano Deore BR-M6120 4-piston brakes not MT420, weight the maker-stated 25.69kg size M, price the real US MSRP $6,400).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.giant-bicycles.com/us/trance-x-eplus-2-20mph-2023'
   },
   {
-    id: 'em-giant-trance-x-advanced-e-plus-0', cat: 'emtb', brand: 'Giant', model: 'Trance X Advanced E+ 0',
+    id: 'em-giant-trance-x-advanced-e-plus-0', cat: 'emtb', brand: 'Giant', model: 'Trance X Advanced E+ Elite 0',
     motorBrand: 'giant', motorModel: 'SyncDrive Pro2', motorTorque: 85,
-    batteryWh: 850, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-trail'], weight: 21200, price: 12000,
-    note: 'Top-tier carbon Trance X Advanced E+ build.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    batteryWh: 400, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission AXS', brakes: 'SRAM G2 Ultimate 4-piston',
+    disciplines: ['e-trail'], weight: 19240, price: 13500,
+    note: 'Top-tier carbon Trance X Advanced E+ Elite build; mullet wheels (29in front, 27.5in rear), Zipp 3MOTO carbon wheelset.',
+    desc: 'Verified vs the maker page. Model corrected verify/emtb-4 wave 4 cluster B (real name carries "Elite": Trance X Advanced E+ Elite 0, not "Trance X Advanced E+ 0"). Battery corrected 850Wh -> 400Wh (EnergyPak 400, ultra-slim pack; a 200Wh EnergyPak Plus range extender is compatible), wheelConfig 29 -> mullet (29in front / 27.5in rear per the fetched spec table), drivetrain SRAM XX SL Eagle Transmission -> SRAM XX Eagle Transmission AXS derailleur (cassette is the XX Eagle SL Transmission 10-52T), brakes SRAM Code Ultimate -> SRAM G2 Ultimate 4-piston (200mm front/180mm rear). Weight is the maker-stated 19.24kg for size S (smallest size; weight varies by size, no size-M figure was shown on the fetched page). Price is the real US MSRP $13,500 (size M; a size-L unit was on sale for $9,999 at fetch time).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.giant-bicycles.com/us/trance-x-advanced-eplus-elite-0'
   },
   {
     id: 'em-giant-reign-e-plus-0', cat: 'emtb', brand: 'Giant', model: 'Reign Advanced E+ 0',
     motorBrand: 'giant', motorModel: 'SyncDrive Pro 3', motorTorque: 90, motorPowerPeak: 800,
-    batteryWh: 560, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    batteryWh: 560, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-enduro'], weight: 22300, price: 9999,
-    note: "Giant's gravity/enduro e-MTB moved to the new 48V SyncDrive Pro 3 (90Nm/800W peak, up from Pro2's 85Nm), with a smaller but higher-density 560Wh EnergyPak Smart battery plus an optional 280Wh range extender.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor generation corrected verify/emtb-3 wave 3 phase 2 (SyncDrive Pro2 -> Pro 3).'
+    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission AXS', brakes: 'SRAM Maven Ultimate',
+    disciplines: ['e-enduro'], weight: 22300, price: 13500,
+    note: "Giant's gravity/enduro e-MTB moved to the new 48V SyncDrive Pro 3 (90Nm/800W peak, up from Pro2's 85Nm), with a smaller but higher-density 560Wh EnergyPak Smart battery plus an included 280Wh EnergyPak Plus range extender.",
+    desc: 'Verified vs the maker page. Motor generation corrected verify/emtb-3 wave 3 phase 2 (SyncDrive Pro2 -> Pro 3). Further corrected verify/emtb-4 wave 4 cluster B: drivetrain SRAM X0 Eagle Transmission -> SRAM XX Eagle Transmission AXS, brakes SRAM Code Ultimate -> SRAM Maven Ultimate 4-piston 200mm CenterLine (the real (2026) US top-tier build), weight matches the maker-stated 22.3kg (size M) exactly, price corrected $9,999 -> the real US MSRP $13,500.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.giant-bicycles.com/us/reign-advanced-eplus-0'
   },
 
   // ---------------------------------------------------------------------------
@@ -492,24 +496,24 @@ var EMTB_PARTS = [
   // Haibike (new maker) — AllMtn (Yamaha) + Nduro (Bosch)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-haibike-allmtn-9', cat: 'emtb', brand: 'Haibike', model: 'AllMtn 9',
+    id: 'em-haibike-allmtn-9', cat: 'emtb', brand: 'Haibike', model: 'AllMtn 3',
     motorBrand: 'yamaha', motorModel: 'Yamaha PW-X3', motorTorque: 85, motorPowerPeak: 250,
     batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail', 'e-enduro'], weight: 23600, price: 8000,
-    note: "Haibike's flagship full-power trail/enduro bike on the Yamaha PW-X3 motor (250W/85Nm/720Wh InTube battery — confirmed continuous across the current AllMtn 2/3 lineup); the exact \"AllMtn 9\" tier-number naming was not independently confirmed against the current lineup's numbering.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor spec confirmed verify/emtb-3 wave 3 phase 2 (PW-X3/85Nm/720Wh matches current AllMtn pages exactly); wave 2 phase 1 flagged this "Unclear" but the platform turned out correct as entered.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano Deore 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23600, price: 5600,
+    note: "Haibike's flagship full-power all-mountain bike on the Yamaha PW-X3 motor (250W/85Nm/720Wh InTube battery).",
+    desc: 'Corrected, still unverified verify/emtb-4 wave 4 cluster B (no maker-stated bike weight found — interfaces fetched-page-confirmed but weight bar not met, so verified:true withheld). Model/trim corrected: no Haibike AllMtn trim is numbered "9" — the current lineup runs AllMtn 1/2/3, and 3 is the top full-power trim (Shimano Deore drivetrain + Deore BR-MT420 4-piston brakes, RockShox 35 Gold RL fork, RockShox Deluxe Select R shock, 160mm front AND rear travel). Frame corrected carbon -> aluminum, rear travel 150 -> 160mm, drivetrain SRAM GX Eagle Transmission -> Shimano Deore (real spec, no SRAM Transmission on any current AllMtn trim), brakes SRAM Code -> Shimano Deore 4-piston. Price: EUR 5,199 RRP (haibike.com int/US-toggle page, still EUR-denominated) converted to a $5,600 USD sample — no confirmed US MSRP found. Previously flagged verify/emtb-3 as "PW-X3/85Nm/720Wh matches current AllMtn pages exactly" — that motor/battery reading holds; the frame/drivetrain/brake fields did not and are corrected here.'
   },
   {
-    id: 'em-haibike-nduro-8', cat: 'emtb', brand: 'Haibike', model: 'Nduro 8',
+    id: 'em-haibike-nduro-8', cat: 'emtb', brand: 'Haibike', model: 'Nduro 8 Freeride',
     motorBrand: 'yamaha', motorModel: 'Yamaha PW-X3', motorTorque: 85, motorPowerPeak: 250,
     batteryWh: 720, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-enduro'], weight: 25200, price: 6200,
-    note: 'Gravity-leaning Haibike Enduro platform; every current NDURO 6/7 build runs the Yamaha PW-X3 (720Wh InTube battery, optional range extender), not Bosch — the exact "Nduro 8" tier-number naming was not independently confirmed against the current lineup.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor brand corrected verify/emtb-3 wave 3 phase 2 (Bosch Performance Line CX -> Yamaha PW-X3, 800 -> 720Wh) — this row was the wave 2 phase 1 "Unclear" flag guessing a Yamaha/Bosch split that does not exist; Haibike runs Yamaha across both AllMtn and Nduro.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 180,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-enduro'], weight: 25200, price: 8100,
+    note: 'Gravity/freeride-leaning Haibike Enduro platform on the Yamaha PW-X3 (720Wh InTube battery, optional range extender); RockShox ZEB Ultimate fork, Mavic E-Deemax wheels.',
+    desc: 'Corrected, still unverified verify/emtb-4 wave 4 cluster B (no maker-stated bike weight found — interfaces fetched-page-confirmed but weight bar not met, so verified:true withheld). "Nduro 8" is real but the maker\'s full name is "NDURO 8 FREERIDE" — added to the model field. Corrected: travel 170/160 -> 180/180mm (RockShox ZEB Ultimate front, matching rear), drivetrain Shimano XT -> SRAM GX Eagle (real spec: Sram GX Eagle 12s shifter/derailleur/chain), brakes Shimano XT 4-piston -> SRAM DB Maven Bronze 4-piston (220mm front/203mm rear). Price: EUR 7,499 RRP converted to a $8,100 USD sample — no confirmed US MSRP found. Previously corrected verify/emtb-3 wave 3 phase 2 (motor brand Bosch -> Yamaha, 800 -> 720Wh) — that reading holds; frame/drivetrain/brake/travel fields did not and are corrected here.'
   },
 
   // ---------------------------------------------------------------------------
@@ -690,12 +694,13 @@ var EMTB_PARTS = [
   {
     id: 'em-merida-eone-sixty-8000', cat: 'emtb', brand: 'Merida', model: 'eONE-SIXTY 8000',
     motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
-    frameMaterial: 'carbon', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-enduro'], weight: 23400, price: 7500,
-    note: "Merida's mixed-wheel enduro-travel e-MTB on the Shimano EP8 motor.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    batteryWh: 600, batteryRemovable: false, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 174,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT Di2', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-enduro'], weight: 23200, price: 7500,
+    note: "Merida's mixed-wheel enduro-travel e-MTB (eONE-SIXTY CF range) on the Shimano EP801 motor; Fox 38 Performance fork, Fox Float X2 Performance shock. Wireless Shimano XT Di2 LinkGlide drivetrain with Auto/Free Shift. A flip chip allows a full-29in setup that drops rear travel to 160mm.",
+    desc: "Verified vs the maker page. Battery corrected 720Wh removable -> 600Wh non-removable (the eONE-SIXTY CF's internal battery is fixed/integrated, not a swap pack; a 360Wh range extender is optional, added as rangeExtender:true). Travel corrected 160/160 -> 170 front / 174 rear (stock mullet config; the current top build runs wireless Di2, not a cable XT drivetrain — drivetrain field updated to reflect that). Weight set to the maker-stated 23.2kg (size M). No US/EUR price published on the maker page; price kept as the prior sample.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.merida-bikes.com/en/bike/5692/eone-sixty-8000'
   },
 
   // ---------------------------------------------------------------------------
@@ -760,14 +765,14 @@ var EMTB_PARTS = [
   // Kona (new maker) — Remote
   // ---------------------------------------------------------------------------
   {
-    id: 'em-kona-remote-160', cat: 'emtb', brand: 'Kona', model: 'Remote 160',
+    id: 'em-kona-remote-160', cat: 'emtb', brand: 'Kona', model: 'Remote 160 DL',
     motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail'], weight: 23800, price: 5900,
-    note: "Kona's full-power trail e-MTB on the Shimano EP8 motor.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    batteryWh: 612, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23800, price: 5399,
+    note: "Kona's full-power trail/enduro e-MTB on the Shimano EP800 motor (a Process 153 chassis turned e-bike); RockShox Zeb Select fork, RockShox Super Deluxe Select shock.",
+    desc: 'Corrected, still unverified verify/emtb-4 wave 4 cluster B (Kona does not publish a complete-bike weight on this page — interfaces fetched-page-confirmed but weight bar not met, so verified:true withheld; weight kept as the prior sample). Model corrected: no current Kona "Remote 160" trim exists bare — the real aluminum/Shimano EP8 SKU is the "Remote 160 DL" (the flagship is now a separate carbon/Bosch-SX "Remote 160 CR", out of scope here since it does not match this row\'s Shimano-motor spec). Corrected: rear travel 150 -> 160mm, drivetrain Shimano XT -> SRAM GX Eagle (real R/D + shifter), brakes Shimano XT 4-piston -> SRAM Code R (real calipers/levers), battery 630 -> 612Wh (Darfon 612Wh pack), price corrected to the real US MSRP $5,399.'
   },
 
   // ---------------------------------------------------------------------------
@@ -789,28 +794,30 @@ var EMTB_PARTS = [
   // Merida depth (eONE-SIXTY 900 alloy)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-merida-eone-sixty-900', cat: 'emtb', brand: 'Merida', model: 'eONE-SIXTY 900',
+    id: 'em-merida-eone-sixty-900', cat: 'emtb', brand: 'Merida', model: 'eONE-SIXTY 875',
     motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-enduro'], weight: 25200, price: 5200,
-    note: 'Entry alloy eONE-SIXTY trim; same motor/battery as the carbon 8000.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    batteryWh: 712, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 174,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT LinkGlide', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-enduro'], weight: 26000, price: 5200,
+    note: 'Entry alloy eONE-SIXTY LITE trim; same Shimano EP801 motor as the carbon 8000, with a larger user-removable 712Wh battery (vs the CF\'s fixed 600Wh) and an optional 360Wh range extender. RockShox Zeb fork, RockShox Super Deluxe shock.',
+    desc: 'Verified vs the maker page. Model corrected: "eONE-SIXTY 900" is a retired 2019-collection SKU (Shimano E8000 70Nm motor, 500Wh battery, 27.5+ wheels — nothing like the current lineup) still listed on a regional distributor archive page, not a currently-sold trim. The current aluminum "LITE" sibling to the carbon 8000 is the eONE-SIXTY 875. Corrected: battery 720Wh -> 712Wh (real user-removable pack) + rangeExtender:true (360Wh optional), travel 160/160 -> 170 front/174 rear, drivetrain Shimano Deore -> Shimano XT LinkGlide (RDM8130 mechanical), brakes Shimano MT420 -> Shimano XT 4-piston. Weight set to the maker-stated ~26kg (size M). No price published on the maker page; price kept as the prior sample.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.merida-bikes.com/en/bike/5695/eone-sixty-875'
   },
 
   // ---------------------------------------------------------------------------
   // Focus (new maker) — Jam2 SL (lightweight)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-focus-jam2-sl-8-9', cat: 'emtb', brand: 'Focus', model: 'Jam2 SL 8.9',
-    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
+    id: 'em-focus-jam2-sl-8-9', cat: 'emtb', brand: 'Focus', model: 'Jam2 SL 9.9',
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60, motorPowerPeak: 450,
     batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail'], weight: 19400, price: 8200,
-    note: "German brand's lightweight-class trail e-MTB on the Fazua Ride 60 motor.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-trail'], weight: 19200, price: 9700,
+    note: "German brand's lightweight-class trail e-MTB on the Fazua Ride 60 motor (60Nm/450W peak).",
+    desc: 'Verified vs the maker page. Model/trim corrected verify/emtb-4 wave 4 cluster B (Jam2 SL 8.9 does not exist — no Focus Jam2 SL trim runs SRAM GX Eagle Transmission or SRAM Code; real top trim is the MAX-carbon Jam2 SL 9.9, Shimano XT M8100 mechanical drivetrain + Shimano XT M8120 4-piston brakes, 19.2kg with 430Wh battery, fork travel corrected 150->160mm). Price: EUR 8,999 RRP (de_en) converted to a $9,700 USD sample — Focus does not sell in the US market, no US MSRP exists.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.focus-bikes.com/int/jam2-sl-9-9'
   },
 
   // ---------------------------------------------------------------------------
@@ -860,14 +867,14 @@ var EMTB_PARTS = [
   // Kona depth (Remote 150)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-kona-remote-150', cat: 'emtb', brand: 'Kona', model: 'Remote 150',
+    id: 'em-kona-remote-150', cat: 'emtb', brand: 'Kona', model: 'Remote X',
     motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX', brakes: 'Shimano MT520',
-    disciplines: ['e-trail'], weight: 23400, price: 5200,
-    note: 'Shorter-travel, more XC/trail-leaning sibling to the Remote 160.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    batteryWh: 612, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 180, travelRear: 178,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano SLX',
+    disciplines: ['e-enduro'], weight: 23400, price: 5399,
+    note: "Kona's longest-travel gravity Remote (Process X chassis turned e-bike); Fox 38 Performance 180mm fork, Fox Float X Performance Elite shock.",
+    desc: 'Corrected, still unverified verify/emtb-4 wave 4 cluster B (Kona does not publish a complete-bike weight on this page — interfaces fetched-page-confirmed but weight bar not met, so verified:true withheld; weight kept as the prior sample). Model/trim corrected: no Kona Remote trim is named or specced "150" — the current lineup has no 150mm-travel Remote at all; the closest distinct real SKU (vs the 160-travel row above) is the Remote X, a 178-180mm gravity build, not a shorter-travel XC/trail sibling as the prior note claimed. Corrected: travel 150/140 -> 180 front/178 rear, drivetrain Shimano SLX -> Shimano Deore (real R/D + shifters), brakes Shimano MT520 -> Shimano SLX (real calipers/levers), battery 630 -> 612Wh (Darfon 612Wh), disciplines e-trail -> e-enduro (gravity bike, not XC/trail), price corrected to the real US MSRP $5,399.'
   },
 
   // ---------------------------------------------------------------------------
@@ -921,12 +928,13 @@ var EMTB_PARTS = [
   {
     id: 'em-focus-jam2-6-9', cat: 'emtb', brand: 'Focus', model: 'Jam2 6.9',
     motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85,
-    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 155,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail', 'e-enduro'], weight: 24600, price: 6000,
-    note: 'Full-power sibling to the lightweight Jam2 SL; Bosch CX motor.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    batteryWh: 600, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore XT', brakes: 'TRP EVO Pro 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 25400, price: 7200,
+    note: 'Full-power sibling to the lightweight Jam2 SL; Bosch CX motor, base 600Wh battery (800Wh and a 250Wh range extender also offered, up to 1050Wh combined).',
+    desc: "Verified vs the maker page (int/de market). Corrected verify/emtb-4 wave 4 cluster B: wheelConfig mullet -> 29 (both wheels are 29in), rear travel 155 -> 150mm, battery 750Wh -> base 600Wh (750Wh was an AU/GB-market-only config with different TRP-vs-then-Shimano brake spec that does not match the int/de canonical page), brakes SRAM/Shimano XT -> TRP EVO Pro 4-piston, drivetrain refined to Shimano Deore XT (Deore shifter, XT M8100 rear derailleur), weight set to the maker-stated 25.4kg (600Wh config). Price: EUR 6,699 RRP (de_en, direct \"FROM\" price on the fetched page) converted to a $7,200 USD sample — Focus does not sell in the US market.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.focus-bikes.com/de_en/jam2-6-9'
   },
 
   // ---------------------------------------------------------------------------
@@ -990,20 +998,20 @@ var EMTB_PARTS = [
     motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 120, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-enduro'], weight: 26400, price: 8999,
-    note: 'Marin moved the Alpine Trail E line from Shimano to Bosch CX Gen 5 with a bigger 800Wh battery and updated MultiTrac 2 suspension.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'aluminum', drivetrain: 'SRAM Eagle 70 T-Type', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-enduro'], weight: 26400, price: 7899,
+    note: 'Marin moved the Alpine Trail E line from Shimano to Bosch CX Gen 5 with a bigger 800Wh battery and updated MultiTrac 2 suspension; RockShox Zeb Select+ fork, RockShox Vivid Air Select+ shock.',
+    desc: "Corrected, still unverified verify/emtb-4 wave 4 cluster B (spec sourced from a UK retailer reproducing Marin's own spec sheet for this exact SKU, not a raw marinbikes.com fetch of the new-generation product page — marinbikes.com's own site still serves the prior-generation Fox/Shimano spec at the '2025-alpine-trail-e2' URLs, so verified:true is withheld pending a direct maker-page fetch of the new SKU; no weight found on either source). Drivetrain corrected Shimano Deore -> SRAM Eagle 70 T-Type (SRAM Eagle 70 derailleur / Eagle 90 shifter), brakes Shimano MT420 -> SRAM Maven Bronze — the real new-generation Alpine Trail E2 spec is SRAM/RockShox, not Shimano; Shimano CUES/TRP is the E1's spec, not E2's. Price corrected to the current marinbikes.com/collections/alpine-trail-e US listing for this higher (new-generation) tier: $7,899 (a second, cheaper Alpine Trail E2 SKU at $5,279 is also listed — the prior-generation carryover matching the discontinued row above)."
   },
   {
     id: 'em-marin-alpine-trail-e1-2026', cat: 'emtb', brand: 'Marin', model: 'Alpine Trail E1',
     motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 120, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-enduro'], weight: 27000, price: 5999,
-    note: 'Entry alloy trim beneath the E2; same Bosch CX Gen 5 motor/battery.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'aluminum', drivetrain: 'Shimano CUES', brakes: 'TRP DHR EVO Comp 4-piston',
+    disciplines: ['e-enduro'], weight: 27000, price: 6299,
+    note: 'Entry alloy trim beneath the E2; same Bosch CX Gen 5 motor/battery; X-Fusion Vengeance fork, X-Fusion H3A Air shock.',
+    desc: "Corrected, still unverified verify/emtb-4 wave 4 cluster B (spec sourced from a UK retailer reproducing Marin's own spec sheet for this exact SKU, not a raw marinbikes.com fetch of the new-generation product page — marinbikes.com's own site still serves the prior-generation Marzocchi/Shimano spec at the '2025-alpine-trail-e1' URLs, so verified:true is withheld pending a direct maker-page fetch of the new SKU; no weight found on either source). Drivetrain corrected Shimano Deore -> Shimano CUES (RD-U6000 10-speed), brakes Shimano MT420 -> TRP DHR EVO Comp 4-piston (200mm rotor). Price corrected to the current marinbikes.com/collections/alpine-trail-e US listing for this higher (new-generation) tier: $6,299 (a second, cheaper Alpine Trail E1 SKU at $4,559 is also listed — the prior-generation carryover matching the discontinued row above)."
   },
   {
     id: 'em-nukeproof-megawatt-297-carbon-pro', cat: 'emtb', brand: 'Nukeproof', model: 'Megawatt 297 Carbon Pro',
