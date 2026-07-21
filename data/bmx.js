@@ -1323,12 +1323,15 @@ var BMX_PARTS = [
   // ---- Colony small-parts + wheel depth (colonybmx.com.au fetched) ------
   {
     id: 'bmx-st-colony-official', cat: 'stem', brand: 'Colony', model: 'Official Stem',
-    clamp: '25.4mm', price: 54.99
+    clamp: '25.4mm', price: 54.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/official-stem-2/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Confirmed on colonybmx.com.au/products/official-stem-2/ (listed live in the current stems category) as "the Colony Official BMX Stem" - "a classic look with a front load" (topload). `clamp` is the only field the stem schema carries and is checkBmxBuild DISPLAY-ONLY (VERIFY-PROTOCOL\'s BMX small-parts exception) - not stated on the page, but its absence does not block verification since there is no other interface fact to confirm. Price kept as the pre-existing sample (no live AU price found).'
   },
   {
     id: 'bmx-st-colony-variant', cat: 'stem', brand: 'Colony', model: 'Variant Stem',
-    clamp: '25.4mm', price: 49.99,
-    note: '52mm topload stem.'
+    clamp: '25.4mm', price: 49.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/variant-stem/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Confirmed on colonybmx.com.au/products/variant-stem/ (listed live in the current stems category). Same reasoning as bmx-st-colony-official: clamp is display-only and the only stem field, so a real, current product page is sufficient to clear the interface bar. "52mm topload stem" retained from the existing note (unchanged, plausible). Price kept as the pre-existing sample.'
   },
   {
     id: 'bmx-gr-colony-mountjoy', cat: 'grips', brand: 'Colony', model: 'Mountjoy Grips',
@@ -1350,8 +1353,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-fw-colony-wasp', cat: 'frontWheel', brand: 'Colony', model: 'Wasp Front Hub',
-    axle: '14mm', wheelSize: '20', price: 79.99,
-    note: '6061-T6 low-flange front hub on a 14mm hollow chromoly axle (a freestyle front-hub upsize from the 10mm default) - colonybmx.com.au product page.'
+    axle: '10mm', wheelSize: '20', weight: 284, price: 79.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/wasp-front-hub/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, correcting a wrong axle spec. Directly fetched colonybmx.com.au/products/wasp-front-hub/, which states verbatim: "Female bolt style with CrMo axle for strength", "10mm bolts only", "36 hole only", "Weight: 284 grams (10.01oz), 305 grams (10.75oz) with [plastic hub guards]". axle CORRECTED 14mm -> 10mm: the prior row\'s "14mm...a freestyle front-hub upsize from the 10mm default" claim directly contradicts the maker\'s own "10mm bolts only" line - a real spec error, not a config choice (the front hub has no 14mm option). weight ADDED (284g, bare, without the optional plastic guards) - a real per-unit maker-stated figure. Price not restated on this page (AU brand site, no live checkout price found) - kept the pre-existing $79.99 sample per THE PRICE RULE.'
   },
   {
     id: 'bmx-rh-colony-wasp', cat: 'rearWheel', brand: 'Colony', model: 'Wasp Cassette Hub',
@@ -1361,8 +1365,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-rh-colony-wasprace', cat: 'rearWheel', brand: 'Colony', model: 'Wasp Race Cassette Hubset',
-    driverType: 'cassette', driverTeeth: 16, side: 'both', axle: '14mm', price: 129.99,
-    note: 'Race version - alloy driver and axle for reduced weight, ships standard with a 16T cog (colonybmx.com.au product page).'
+    driverType: 'cassette', driverTeeth: 16, side: 'both', axle: '10mm', weight: 355, price: 129.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/wasp-race-cassette-hub/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, correcting an assumed axle spec. colonybmx.com.au/products/wasp-race-cassette-hub/ (titled "Wasp Race Front / Rear Cassette Hubset") states verbatim: "6061T6 alloy hub shell", "7075T6 alloy female axle", "10mm hardened CrMo allen head bolts", "Direct engagement Shimano fitment...alloy driver" (driverType:cassette CONFIRMED), "Comes with light weight 16T cog" (driverTeeth:16 CONFIRMED), "Weight: 560 grams for full set (205 grams for front & 355 grams for rear)". axle CORRECTED 14mm -> 10mm: the prior row\'s note ("alloy driver and axle for reduced weight") was a plausible-sounding guess, not sourced - the maker page unambiguously states 10mm bolts for this race-tier hubset (its lighter alloy axle uses the same 10mm bolt diameter as the standard/race front hub, distinct from the standard REAR Wasp Cassette Hub\'s confirmed 14mm - bmx-rh-colony-wasp, a genuinely different, heavier tier). weight ADDED: 355g is this row\'s own rear-specific figure (the page also confirms the front half at 205g, matching bmx-fw-colony-wasp\'s 284g standard-tier front hub as a DIFFERENT, non-race product - the two Wasp front hubs are not the same SKU). No RHD/LHD wording found on the page; side:both left unchanged (not an engine-read field).'
   },
 
   // ---- Alienation (new brand: alienationbmx.com, race wheels) -----------
@@ -1475,23 +1480,27 @@ var BMX_PARTS = [
   // unconfirmed per-variant, so these stay unverified samples, not verified:true.
   {
     id: 'bmx-hb-colony-rick-865-28', cat: 'handlebar', brand: 'Colony', model: 'Rick Bars 8.65in',
-    clamp: '25.4mm', rise: 8.65, width: 28, weight: 1039, price: 109.99,
-    note: 'colonybmx.com.au (raw-curl-confirmed, BMX verify waves 2/3/5): "8.65in" rise, "28.0in" width, 1039g. Price is the old danscomp.com retailer listing, unconfirmed for this specific variant — left unverified.'
+    clamp: '25.4mm', rise: 8.65, width: 28, weight: 1039, price: 109.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/rick-bars/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Re-fetched colonybmx.com.au/products/rick-bars/ directly (the raw page waves 2/3/5 had already curl-confirmed): "Rise: 8.7\" & 9.3\"", "Width: 28.0\".(8.65\" rise) 29\" (9.3\" rise)", "Weight: 1039 grams & 1056 grams" - EXACT match to this row\'s rise/width/weight. Price ($109.99) has no live figure on this AU brand page (no checkout price shown) - kept as the pre-existing danscomp.com-sourced sample per THE PRICE RULE (price never blocks verified:true once interfaces are confirmed).'
   },
   {
     id: 'bmx-hb-colony-rick-93-29', cat: 'handlebar', brand: 'Colony', model: 'Rick Bars 9.3in',
-    clamp: '25.4mm', rise: 9.3, width: 29, weight: 1056, price: 109.99,
-    note: 'colonybmx.com.au (raw-curl-confirmed, BMX verify waves 2/3/5): "9.3in" rise, "29.0in" width, 1056g. Price is the old danscomp.com retailer listing, unconfirmed for this specific variant — left unverified.'
+    clamp: '25.4mm', rise: 9.3, width: 29, weight: 1056, price: 109.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/rick-bars/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED - same fetch and same reasoning as bmx-hb-colony-rick-865-28 (one product page covers both rise variants). 9.3in rise / 29in width / 1056g EXACT match. Price kept as the pre-existing sample per THE PRICE RULE.'
   },
   {
     id: 'bmx-hb-colony-guardian-88-29', cat: 'handlebar', brand: 'Colony', model: 'Guardian Bars 8.8in',
-    clamp: '25.4mm', rise: 8.8, width: 29, weight: 864, price: 89.99,
-    note: 'colonybmx.com.au (raw-curl-confirmed, BMX verify waves 2/3/5): "8.8in" rise, "29.0in" width, 864g. Price is the old danscomp.com retailer listing, unconfirmed for this specific variant — left unverified.'
+    clamp: '25.4mm', rise: 8.8, width: 29, weight: 864, price: 89.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/guardian-bars/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Re-fetched colonybmx.com.au/products/guardian-bars/ directly: "Height: 8.8\" or 9.4\" tall", "Width: 29.0\" wide", "Weight: 8.8\" 864g 1.9lbs, 9.4\" 942g (2.08lbs)" - EXACT match. Price kept as the pre-existing sample per THE PRICE RULE (no live AU price shown on the page).'
   },
   {
     id: 'bmx-hb-colony-guardian-94-29', cat: 'handlebar', brand: 'Colony', model: 'Guardian Bars 9.4in',
-    clamp: '25.4mm', rise: 9.4, width: 29, weight: 942, price: 89.99,
-    note: 'colonybmx.com.au (raw-curl-confirmed, BMX verify waves 2/3/5): "9.4in" rise, "29.0in" width, 942g. Price is the old danscomp.com retailer listing, unconfirmed for this specific variant — left unverified.'
+    clamp: '25.4mm', rise: 9.4, width: 29, weight: 942, price: 89.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://colonybmx.com.au/products/guardian-bars/',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED - same fetch as bmx-hb-colony-guardian-88-29 (one page covers both rise variants). 9.4in rise / 29in width / 942g EXACT match. Price kept as the pre-existing sample per THE PRICE RULE.'
   },
   {
     id: 'bmx-gr-odyssey-broc', cat: 'grips', brand: 'Odyssey', model: 'Broc Grips',
