@@ -527,12 +527,12 @@
   /* svh (not vh): vh resolves against the LARGEST viewport (chrome retracted), so a
      mobile browser with its address bar expanded would render this cap's bottom
      edge — the .rm-foot action row — below the visible area (ACC-22 F2, PLT-6). */
-  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);max-height:calc(100svh - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal,dialog#buildSheetModal{border:none;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 32px);max-height:calc(100svh - 32px);color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.3)}
   /* Scoped to [open] so display:flex only ever applies while the dialog is actually
      showing — the UA stylesheet's dialog:not([open]){display:none} must stay in charge
      when closed, or the dialog would render invisibly-but-present in the layout. */
-  dialog#reportModal[open],dialog#buildModal[open],dialog#partModal[open],dialog#compareModal[open],dialog#specCardModal[open],dialog#authModal[open],dialog#garageModal[open],dialog#forumNewThreadModal[open],dialog#profileModal[open]{display:flex;flex-direction:column;overflow:hidden}
-  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop,dialog#authModal::backdrop,dialog#garageModal::backdrop,dialog#forumNewThreadModal::backdrop,dialog#profileModal::backdrop{background:rgba(18,28,22,.45)}
+  dialog#reportModal[open],dialog#buildModal[open],dialog#partModal[open],dialog#compareModal[open],dialog#specCardModal[open],dialog#authModal[open],dialog#garageModal[open],dialog#forumNewThreadModal[open],dialog#profileModal[open],dialog#buildSheetModal[open]{display:flex;flex-direction:column;overflow:hidden}
+  dialog#reportModal::backdrop,dialog#buildModal::backdrop,dialog#partModal::backdrop,dialog#compareModal::backdrop,dialog#specCardModal::backdrop,dialog#authModal::backdrop,dialog#garageModal::backdrop,dialog#forumNewThreadModal::backdrop,dialog#profileModal::backdrop,dialog#buildSheetModal::backdrop{background:rgba(18,28,22,.45)}
   .rm-head,.rm-foot{flex:none}
   .rm-body{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
   /* Inventory page (Phase 3): a full-width view, not a modal. body.inv-page hides
@@ -746,6 +746,58 @@
   /* build comparison */
   dialog#compareModal{max-width:640px}
   dialog#specCardModal{max-width:680px}
+
+  /* Printable build sheet (feature slate §5; pure logic in src/build-sheet.js).
+     The in-dialog preview IS the printed page: .bs-sheet is deliberately
+     paper-white with fixed inks in every theme, so what you see in the dark/rad/
+     loam dialogs is exactly what prints. #bsPrintRoot is a print-only copy of
+     the same fragment — hidden on screen; @media print (gated on
+     body.bs-printing, which is set ONLY while the dialog is open) shows it and
+     nothing else, so a normal Ctrl+P of the site is completely untouched. */
+  dialog#buildSheetModal{max-width:720px}
+  .bs-sheet{background:#fff;color:#15221a;border:1px solid var(--line);border-radius:9px;padding:18px 22px}
+  .bs-head{border-bottom:2px solid #15221a;padding-bottom:10px;margin-bottom:12px}
+  .bs-title-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .bs-logo{font-weight:800;font-size:16px}
+  .bs-doc{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:#55605a}
+  .bs-meta-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:6px;font-size:11.5px;color:#55605a}
+  .bs-verdict{font-weight:700}
+  .bs-verdict-ok{color:#1f8a4c}.bs-verdict-warn{color:#8a6d00}.bs-verdict-err{color:#b3261e}
+  .bs-table{width:100%;border-collapse:collapse;font-size:12px}
+  .bs-table th,.bs-table td{padding:4px 6px;text-align:left;vertical-align:baseline}
+  .bs-table thead th{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:#55605a;border-bottom:1px solid #d8ded9}
+  .bs-table tbody td{border-bottom:1px dashed #e4e9e4}
+  .bs-group th{padding-top:10px;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#39443c;border-bottom:1px solid #d8ded9}
+  .bs-kit{font-weight:600;color:#1f8a4c;text-transform:none;letter-spacing:0}
+  .bs-table .bs-num{text-align:right;white-space:nowrap}
+  .bs-ver{color:#1f8a4c;font-size:10.5px;font-weight:700;white-space:nowrap}
+  .bs-totals th,.bs-totals td{border-top:2px solid #15221a;font-weight:700;padding-top:8px}
+  .bs-totals th{font-size:11.5px}
+  .bs-conflicts{margin-top:14px}
+  .bs-conflicts h3{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:#39443c;margin:0 0 6px}
+  .bs-ok{color:#1f8a4c;font-weight:600;margin:0 0 4px;font-size:12px}
+  .bs-verdicts{list-style:none;margin:0;padding:0;font-size:12px}
+  .bs-verdicts li{padding:2px 0}
+  .bs-verdicts .bs-err{color:#b3261e}.bs-verdicts .bs-warn{color:#8a6d00}.bs-verdicts .bs-info{color:#55605a}
+  .bs-foot{margin-top:14px;border-top:1px solid #d8ded9;padding-top:8px;font-size:10.5px;color:#55605a}
+  .bs-foot p{margin:0 0 4px}
+  .bs-url{word-break:break-all}
+  /* Small phones: the long weight string ("13,802 g (13.80 kg / 30.43 lb)")
+     is the one cell that can outgrow a 355px dialog — let numeric cells wrap
+     there, with internal horizontal scroll as the backstop (the page itself
+     never scrolls sideways). */
+  #bsSheet{overflow-x:auto}
+  @media (max-width:480px){ .bs-table .bs-num{white-space:normal} }
+  #bsPrintRoot{display:none}
+  @media print{
+    body.bs-printing > *:not(#bsPrintRoot){display:none !important}
+    body.bs-printing{background:#fff}
+    body.bs-printing #bsPrintRoot{display:block !important;color:#000;background:#fff}
+    #bsPrintRoot .bs-sheet{border:none;border-radius:0;padding:0}
+    #bsPrintRoot .bs-group th{break-after:avoid;page-break-after:avoid}
+    #bsPrintRoot tr{break-inside:avoid;page-break-inside:avoid}
+    #bsPrintRoot .bs-conflicts,#bsPrintRoot .bs-foot{break-inside:avoid;page-break-inside:avoid}
+  }
   .sc-preview-wrap{border:1px solid var(--line);border-radius:9px;overflow:hidden;line-height:0}
   .sc-preview-wrap svg{width:100%;height:auto;display:block}
   .cmp-row{display:grid;grid-template-columns:100px 1fr 1fr;gap:10px;font-size:12.5px;padding:5px 0;border-bottom:1px dashed #eef0ec;align-items:baseline}
@@ -790,7 +842,7 @@
     .prov .ver::after,.prov .sheet-ver::after{content:"";position:absolute;inset:-10px -8px}
     .fam-menu summary{padding:9px 6px;margin:-9px -6px}
     .footer-legal a{display:inline-block;padding:11px 4px;margin:-8px 0}
-    dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal{width:calc(100% - 20px)}
+    dialog#reportModal,dialog#buildModal,dialog#partModal,dialog#compareModal,dialog#specCardModal,dialog#authModal,dialog#garageModal,dialog#forumNewThreadModal,dialog#profileModal,dialog#buildSheetModal{width:calc(100% - 20px)}
     /* list rows on phones: the spec line drops, the name column flexes; wide
        rows (kits' "fills" tail, Front|Rear pickers) wrap to a second line
        rather than force sideways scroll */
@@ -1343,6 +1395,7 @@
           <div class="meter" id="radMeterWrap" hidden><i id="radBar"></i></div>
           <button type="button" class="btn primary viewbuild" id="viewBuild" hidden>📋 View complete build</button>
           <button type="button" class="btn viewbuild" id="shareImageBtn" hidden>🖼️ Spec-card image</button>
+          <button type="button" class="btn viewbuild" id="buildSheetBtn" hidden>🖨️ Build sheet</button>
         </div>
       </div>
     </aside>
@@ -1606,6 +1659,25 @@
   </div>
 </dialog>
 
+<dialog id="buildSheetModal" aria-labelledby="bsTitle" role="dialog" aria-modal="true">
+  <div class="rm-head">
+    <h2 id="bsTitle">🖨️ Build sheet</h2>
+    <p>A clean printable spec sheet of your build — hand it to your mechanic or pin it on the workbench. Specs are illustrative sample data unless a part shows ✓ Verified in the app.</p>
+  </div>
+  <div class="rm-body">
+    <div id="bsSheet" class="bs-sheet"></div>
+  </div>
+  <div class="rm-foot">
+    <button type="button" class="btn" id="bsClose" autofocus>Close</button>
+    <button type="button" class="btn primary" id="bsPrint">🖨️ Print / save as PDF</button>
+  </div>
+</dialog>
+<!-- Print-only copy of the build sheet: hidden on screen; while the dialog is
+     open (body.bs-printing) the @media print rules show ONLY this element, so
+     the Print button — or Ctrl+P with the sheet open — prints the sheet alone.
+     A normal print of the site with the dialog closed is untouched. -->
+<div id="bsPrintRoot" aria-hidden="true"></div>
+
 <dialog id="authModal" aria-labelledby="authTitle" role="dialog" aria-modal="true">
   <div class="rm-head">
     <h2 id="authTitle">Sign in to BuildMyMTB</h2>
@@ -1728,6 +1800,7 @@
 <script src="src/range-filters.js"></script>
 <script src="src/format-sizes.js"></script>
 <script src="src/upgrade.js"></script>
+<script src="src/build-sheet.js"></script>
 <script>
 (function(){
   var build = {};            // slotKey -> part id
@@ -3291,6 +3364,7 @@
     $('meterBar').style.width = Math.round(filled/required.length*100)+'%';
     $('viewBuild').hidden = (filled !== required.length);   // appears once the build is complete
     $('shareImageBtn').hidden = (Object.keys(build).length === 0);   // works on a partial build too
+    $('buildSheetBtn').hidden = (Object.keys(build).length === 0);   // build sheet too — a partial build is still worth printing
     renderCompleteBikeBlock(t);
     renderRadness(res, t, filled);
   }
@@ -3468,6 +3542,29 @@
     $('bmPrice').textContent = money(t.price);
     $('bmWeight').textContent = t.weight ? (grams(t.weight)+(t.missingWeight?' +':'')) : '—';
     $('buildModal').showModal();
+  }
+
+  /* ---- printable build sheet (feature slate §5; pure logic + renderer in
+     src/build-sheet.js, tested in test/test-build-sheet.js). Click-opened
+     only — never auto-appears. The model reuses the SAME engine calls the
+     panel uses (checkBuild verdicts verbatim, buildTotals, bundleActive,
+     slotRequired/wheelPositionFilled for the N-of-M line) — nothing is
+     forked or reworded here. */
+  function openBuildSheet(){
+    if(!Object.keys(build).length){ toast('Add a part first, then the sheet has something to print'); return; }
+    var res=resolved();
+    var m=buildSheetModel(res, presetBy, {
+      GROUPS:GROUPS, SLOTS:SLOTS, checkBuild:checkBuild, buildTotals:buildTotals,
+      bundleActive:bundleActive, byId:byId, partVerified:partVerified, partWeight:partWeight,
+      slotRequired:slotRequired, effectiveWheel:effectiveWheel, wheelPositionFilled:wheelPositionFilled});
+    writeHash();   // the hash IS the share link — same convention as bmShare/buildSummaryText
+    var html=renderBuildSheetHtml(m,
+      {shareUrl:location.href, generated:new Date().toISOString().slice(0,10)},
+      {esc:esc, money:money, grams:grams});
+    $('bsSheet').innerHTML=html;
+    $('bsPrintRoot').innerHTML='<div class="bs-sheet">'+html+'</div>';
+    document.body.classList.add('bs-printing');   // while open, the Print button (or Ctrl+P) prints ONLY the sheet
+    $('buildSheetModal').showModal();
   }
 
   /* ---- part detail modal (click any card) ---- */
@@ -5492,6 +5589,14 @@
   $('scClose').onclick=function(){ $('specCardModal').close(); };
   $('scDownload').onclick=downloadSpecCard;
   $('specCardModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
+
+  $('buildSheetBtn').onclick=openBuildSheet;
+  $('bsClose').onclick=function(){ $('buildSheetModal').close(); };
+  $('bsPrint').onclick=function(){ window.print(); };
+  $('buildSheetModal').addEventListener('click', function(e){ if(e.target===this){ this.close(); } });
+  // 'close' (not just the button) so Esc also drops the print gate — a stale
+  // bs-printing class would silently hijack the user's next normal Ctrl+P.
+  $('buildSheetModal').addEventListener('close', function(){ document.body.classList.remove('bs-printing'); });
 
   $('reportBtn').onclick=openReport;
   $('reportCancel').onclick=function(){ $('reportModal').close(); };
