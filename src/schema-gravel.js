@@ -43,12 +43,12 @@ function dateOk(v, today){
 /** @type {Object.<string, Array<string|number>>} */
 var GRAVEL_VOCAB = {
   wheel:        ['700c', '650b'],
-  rearAxle:     ['12x142'],
+  rearAxle:     ['12x142', '12x148'],   // '12x148' (Boost, MTB-derived) added gravel-verify-1 (2026-07-21) — the Salsa Cutthroat's own frame-specs table states "Rear Spacing 148 x 12 mm Thru-axle" (a drop-bar-mountain-bike bikepacking platform, not a road-derived 142mm frame); a real, sourced value, not a guess.
   axle:         ['12x100', '12x142', 'lefty-proprietary', '15x100'],
   hub:          ['12x100', '12x142'],
   brakeMount:   ['flat-mount'],
   brakeSystem:  ['disc-flat', 'disc', 'disc-hydraulic'],
-  bb:           ['bsa-road', 'bb86', 'bb30a', 'pf30', '24mm-road', 'dub', 'dub-wide', 'ultra-torque', 'bbright', 't47-road', 'bb386evo', 't47-86'],   // 'pf86' retired 2026-07-21 — merged into 'bb86' (same physical 86.5mm press-fit shell; see schema-road.js's header note). Fixes the 2 Giant Revolt frames that had NO matching BB row under the old split.
+  bb:           ['bsa-road', 'bb86', 'bb30a', 'pf30', '24mm-road', 'dub', 'dub-wide', 'ultra-torque', 'bbright', 't47-road', 'bb386evo', 't47-86', 'pf92'],   // 'pf86' retired 2026-07-21 — merged into 'bb86' (same physical 86.5mm press-fit shell; see schema-road.js's header note). Fixes the 2 Giant Revolt frames that had NO matching BB row under the old split. 'pf92' added gravel-verify-1 (2026-07-21) — the Salsa Cutthroat's own frame-specs table states "Bottom Bracket Press Fit BB92, 41 x 92 mm", an MTB-style 92mm press-fit shell distinct from every existing gravel BB token (BB86 is 86.5mm).
   shell:        ['bsa-road', 't47-road', 'bb86', 't47-86'],
   spindle:      ['24mm-road', 'dub'],
   seatpost:     ['27.2', '31.6', '30.9', 'proprietary'],
