@@ -1,5 +1,18 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-20 — HG-L2 dual-body rule SHIPPED (the last live false verdict of the day)
+
+- **fix/road-hgl2-class merged + deployed**: road-12 Shimano cassettes now fit both HG
+  bodies per C-731 (coordinator-fetched verbatim). Exactly 5 catalog pairings change —
+  all false-won't-fit errors falling silent; a 650-pairing mechanical sweep proves
+  everything else byte-identical. The worker implemented NARROWER than the brief (both
+  tokens must be HG-family) so a mis-tokened row keeps its error rather than gaining a
+  false fits — the right call, adopted. 844 tests (6 new). The HG 1.85mm-spacer tier
+  stays [MECHANIC REVIEW], deliberately unsoftened.
+- Worker's passing flag for the next road wave: cs-shimano-tiagra4700-1134 carries
+  system:'shimano-road-11' with speeds:10 (Tiagra is 10s) — pre-existing identity oddity,
+  queue a scoped look.
+
 ## 2026-07-20 — FIVE-GRIND HARVEST (late evening) + THE HG-L2 RESOLUTION
 
 - **All five evening grind chips harvested in one sweep** (every final send_message hung —
