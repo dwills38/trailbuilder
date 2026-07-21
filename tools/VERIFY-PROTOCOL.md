@@ -114,6 +114,24 @@ spacing, freehub, rotor mount, internal width, max/min tire) but never publishes
 per-pair weight split — DT Swiss's combined "from Xg" set-weight pattern is the exemplar. Nominal
 weight stays, noted in `desc` with the basis, exactly as for shocks.
 
+**Extended to Shimano MECHANICAL MTB components (Douglas 2026-07-20, via coordinator — chip "MTB
+TAIL 3"):** the same interface-verification exception now applies to Shimano **mechanical
+(non-Di2/non-electronic) MTB** rows — brakes, rotors, bottom brackets, cassettes, derailleurs,
+shifters, cranksets — whose `productinfo.shimano.com` per-SKU specifications-handbook page (or a
+`bike.shimano.com` product page) confirms the full interface set (mount/pistons for brakes;
+shell/spindle for BBs; system/speeds/freehub/minCog/maxCog for cassettes;
+system/speeds/actuation/maxCog/mount for derailleurs; system/speeds/actuation/clampType for
+shifters; bb/ring/ringStd/speeds/chainline for cranksets) but publishes **no per-SKU weight** —
+Shimano's long-established policy for this tier (already noted elsewhere in this doc and in
+CLAUDE.md). `verified:true` attests the **interfaces** per bar item 1 (no exceptions there); the
+**weight stays a nominal/sample figure**, its basis stated in `desc` (e.g. "no maker weight
+published — Shimano mechanical MTB policy; nominal figure, see [source]"). Check for a real
+**measured** weight FIRST (`sourceType:'measured'` + `weightSource`, bar item 2b, reputable
+editorial/lab source — never a retailer) — a real weight always wins over a nominal one; only fall
+back to nominal when no measured figure exists. This does not apply to Shimano Di2/electronic MTB
+parts or to non-MTB Shimano tiers, and it does not relax item 1 — every interface field an actual
+engine rule reads must still come from a fetched manufacturer page, never a search summary.
+
 **Extended to forks (Douglas 2026-07-17, via coordinator):** the same exception now applies to
 fork rows whose maker confirms the full interface set (wheel size, travel, axle, steerer, brake
 mount, max/min rotor) but publishes no weight for that exact travel/wheel/damper configuration —
