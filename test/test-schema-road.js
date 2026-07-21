@@ -32,12 +32,19 @@ test('an out-of-vocab bb shell value is caught', function(){
   ok(probs.some(function(m){ return /"bb".*not in bbShellRoad/.test(m); }), probs.join('\n'));
 });
 
-test('bb90-road / bb30a / pf86 are accepted (coordinator-authorized widen)', function(){
+test('bb90-road / bb30a are accepted (coordinator-authorized widen)', function(){
   var frame = aFrame();
-  ['bb90-road', 'bb30a', 'pf86'].forEach(function(shell){
+  ['bb90-road', 'bb30a'].forEach(function(shell){
     var p = Object.assign({}, frame, { bb: shell });
     eq(S.validateRoadPart(p, TODAY).length, 0, shell + ' should validate clean');
   });
+});
+
+test('pf86 is rejected (retired 2026-07-21, merged into bb86)', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { bb: 'pf86' });
+  var probs = S.validateRoadPart(bad, TODAY);
+  ok(probs.some(function(m){ return /"bb".*not in bbShellRoad/.test(m); }), probs.join('\n'));
 });
 
 test('a missing required field is caught', function(){

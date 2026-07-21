@@ -73,7 +73,7 @@ var ROAD_VOCAB = {
   actuationBrake: ['hydraulic', 'mechanical'],             // caliper-side axis, distinct from shifter actuation
   chainStd:     ['hg', 'flattop', 'campag'],               // chain `system` field carries these, not a systemRoad token
   bbShell:      ['bsa-road', 'bb86', 'bb386evo', 'bbright', 'pf30', 't47-road', 'italian',
-                 'bb90-road', 'bb30a', 'pf86'],
+                 'bb90-road', 'bb30a'],   // 'pf86' retired 2026-07-21 — merged into 'bb86' (same physical 86.5mm press-fit shell, two spellings; see schema-road.js's header note)
   crankBb:      ['dub', 'dub-wide', '24mm-road', '30mm', 'ultra-torque'],
   seatpostDia:  ['27.2', '30.9', '31.6'],
   clamp:        ['31.8', '35'],

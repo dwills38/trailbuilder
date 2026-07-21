@@ -48,7 +48,7 @@ var GRAVEL_VOCAB = {
   hub:          ['12x100', '12x142'],
   brakeMount:   ['flat-mount'],
   brakeSystem:  ['disc-flat', 'disc', 'disc-hydraulic'],
-  bb:           ['bsa-road', 'bb86', 'bb30a', 'pf86', 'pf30', '24mm-road', 'dub', 'dub-wide', 'ultra-torque', 'bbright', 't47-road', 'bb386evo', 't47-86'],
+  bb:           ['bsa-road', 'bb86', 'bb30a', 'pf30', '24mm-road', 'dub', 'dub-wide', 'ultra-torque', 'bbright', 't47-road', 'bb386evo', 't47-86'],   // 'pf86' retired 2026-07-21 — merged into 'bb86' (same physical 86.5mm press-fit shell; see schema-road.js's header note). Fixes the 2 Giant Revolt frames that had NO matching BB row under the old split.
   shell:        ['bsa-road', 't47-road', 'bb86', 't47-86'],
   spindle:      ['24mm-road', 'dub'],
   seatpost:     ['27.2', '31.6', '30.9'],

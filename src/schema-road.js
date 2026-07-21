@@ -22,15 +22,25 @@
    WIDENED for this wave per the coordinator brief: bbShellRoad gains
    'bb90-road' (Trek's bearing-in-frame shell — press-fit bearings seated
    directly in the frame shell, NOT the MTB PF92/BB92 tokens, which are a
-   different width/seat), 'bb30a' (Cannondale's asymmetric 30mm-spindle
+   different width/seat), and 'bb30a' (Cannondale's asymmetric 30mm-spindle
    press-fit — visually similar to BB30 but NOT interchangeable; never
-   conflate with a generic 'bb30' token, which does not exist in this vocab),
-   and 'pf86' (Shimano-style press-fit road shell, 86.5mm wide — the road
-   sibling of the MTB PF92 token; NOT the same bearing/width, never conflate).
-   These three were used by the wave-1 Trek/Cannondale/Giant frame rows but
+   conflate with a generic 'bb30' token, which does not exist in this vocab).
+   These were used by the wave-1 Trek/Cannondale/Giant frame rows but
    were missing from the model doc's draft vocab (data/road.js's own trailing
    comment flagged the gap rather than widening solo) — now added here AND
    folded back into ROAD-MODEL.md section 4 by this pass.
+
+   2026-07-21 MERGE (coordinator, Douglas-ruled): a 'pf86' token also lived in
+   this vocab (and GRAVEL_VOCAB's sibling list), used by 2 road Giant frames +
+   2 gravel Giant Revolt frames + one Shimano BB row — but 'pf86' and 'bb86'
+   were never distinct standards, just two spellings of the SAME 86.5mm
+   press-fit shell (Shimano's own SM-BB72-41B spec table: "Press-Fit... 86.5";
+   SRAM's own BB-DUB-PF-A1 page: "PF 86.5" for its bb86-tagged SKU tier). The
+   exact-match rule-7/rule-11 checks were treating real-world-interchangeable
+   parts as incompatible. 'pf86' is retired; every row that used it now uses
+   'bb86' (bb86 was already the majority token). Do NOT reintroduce 'pf86' —
+   if a genuinely different 86.5mm-adjacent standard is ever sourced, give it
+   its own distinctly-named token instead of resurrecting this one.
    ========================================================================== */
 
 /** @param {string} v */
@@ -49,8 +59,10 @@ function dateOk(v, today){
 }
 
 /* ROAD-MODEL.md section 4 vocab draft, widened per this wave's coordinator
-   brief (see header note above for the bb90-road/bb30a/pf86 do-not-conflate
-   rationale — each is a DISTINCT real shell standard from any MTB token). */
+   brief (see header note above for the bb90-road/bb30a do-not-conflate
+   rationale — each is a DISTINCT real shell standard from any MTB token;
+   also see the 2026-07-21 pf86->bb86 merge note above — pf86 was retired,
+   not a distinct standard). */
 /** @type {Object.<string, Array.<string|null>>} */
 var LOCAL_VOCAB = {
   wheelRG:      ['700c', '650b'],
@@ -65,10 +77,11 @@ var LOCAL_VOCAB = {
                  'campag-ekar-13', 'campag-12', 'campag-11', 'flattop', 'hg', 'campag'],
   actuationRG:  ['mechanical', 'di2-wired', 'axs-wireless'],
   /* bbShellRoad — WIDENED this wave: 'bb90-road' (Trek bearing-in-frame),
-     'bb30a' (Cannondale asymmetric press-fit), 'pf86' (Shimano-style road
-     press-fit, 86.5mm) added alongside the original ROAD-MODEL.md draft. */
+     'bb30a' (Cannondale asymmetric press-fit) added alongside the original
+     ROAD-MODEL.md draft. 'pf86' retired 2026-07-21 — merged into 'bb86',
+     see header note. */
   bbShellRoad:  ['bsa-road', 'bb86', 'bb386evo', 'bbright', 'pf30', 't47-road', 'italian',
-                 'bb90-road', 'bb30a', 'pf86'],
+                 'bb90-road', 'bb30a'],
   /* 'ultra-torque' ADDED road-2 wave: Campagnolo's own splined half-axle
      spindle interface (Super Record/Record/Chorus) — a distinct standard
      from SRAM DUB / Shimano 24mm / a generic 30mm spindle, never conflate. */

@@ -123,15 +123,17 @@ var ROAD_PARTS = [
     id: 'fr-giant-tcr-advsl', cat: 'frame', brand: 'Giant', model: 'TCR Advanced SL Frameset',
     family: 'giant-tcr', modelYear: 2024, disciplines: ['road'],
     wheelSizes: ['700c'], rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount',
-    bb: 'pf86', seatpost: 'proprietary', steerer: 'tapered', maxTire: 32, frontDerailleurMount: 'braze-on',
-    frameOnly: true, weight: 790, price: 3900
+    bb: 'bb86', seatpost: 'proprietary', steerer: 'tapered', maxTire: 32, frontDerailleurMount: 'braze-on',
+    frameOnly: true, weight: 790, price: 3900,
+    note: '2026-07-21 vocab merge (coordinator, Douglas-ruled): bb CORRECTED pf86->bb86 — pf86 and bb86 both described the same physical 86.5mm press-fit road shell (Shimano SM-BB72-41B\'s own spec table says "Press-Fit... 86.5" for the pf86-tagged row; SRAM\'s BB-DUB-PF-A1 page literally lists "PF 86.5" as its bb86-tagged tier) under two different vocab spellings. bb86 kept as canonical (majority usage across road+gravel); pf86 retired from both schemas.'
   },
   {
     id: 'fr-giant-defy-adv', cat: 'frame', brand: 'Giant', model: 'Defy Advanced Frameset',
     family: 'giant-defy', modelYear: 2024, disciplines: ['road', 'endurance'],
     wheelSizes: ['700c'], rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount',
-    bb: 'pf86', seatpost: 'proprietary', steerer: 'tapered', maxTire: 35, frontDerailleurMount: 'braze-on',
-    frameOnly: true, weight: 970, price: 2400
+    bb: 'bb86', seatpost: 'proprietary', steerer: 'tapered', maxTire: 35, frontDerailleurMount: 'braze-on',
+    frameOnly: true, weight: 970, price: 2400,
+    note: '2026-07-21 vocab merge (coordinator, Douglas-ruled): bb CORRECTED pf86->bb86, same rationale as fr-giant-tcr-advsl above — pf86/bb86 were synonym tokens for one physical 86.5mm press-fit shell.'
   },
 
   // ===== FORKS (rigid, travel:0 per ROAD-MODEL uniform-field convention) ==
@@ -854,11 +856,11 @@ var ROAD_PARTS = [
     weight: 205, price: 180 },
   { id: 'sd-selleitalia-slr-boost', cat: 'saddle', brand: 'Selle Italia', model: 'SLR Boost Superflow', family: 'selleitalia-slr-boost',
     weight: 135, price: 200 },
-  { id: 'bb-shimano-smbb72-41', cat: 'bb', brand: 'Shimano', model: 'SM-BB72-41B (PF86 Press-Fit Road)', family: 'shimano-smbb72',
-    shell: 'pf86', spindle: '24mm-road',
+  { id: 'bb-shimano-smbb72-41', cat: 'bb', brand: 'Shimano', model: 'SM-BB72-41B (BB86/PF86 Press-Fit Road)', family: 'shimano-smbb72',
+    shell: 'bb86', spindle: '24mm-road',
     weight: 69, price: 30,
     verified: true, lastChecked: '2026-07-20', source: 'https://productinfo.shimano.com/en/product/SM-BB72-41B',
-    note: 'road-6 wave: CORRECTION — this row was previously labeled "(BSA Road)" with shell:\'bsa-road\' (threaded), but productinfo.shimano.com\'s spec table for SM-BB72-41B shows "HOLLOWTECH II bottom bracket: Threaded bottom bracket type -" (unchecked) / "Press-Fit type ✔" / "Press-Fit bottom bracket shell width (mm) 86.5 ✔" — this is a Press-Fit 86.5mm shell BB, not threaded BSA. Corrected shell to \'pf86\' (ROAD_VOCAB\'s "Shimano-style press-fit road shell, 86.5mm wide" token, per schema-road.js\'s own description — an exact match) and the model label to match. This also matches the "Recommended bottom bracket: Press-Fit SM-BB72(-41B)" line on the FC-R8100/FC-R7100/FC-RX810-2 crankset pages fetched elsewhere in this wave. A rule-11 exact-match error check (bb.shell vs frame.bb) means the old mislabeling would have wrongly greenlit BSA-threaded frames and wrongly reddened the file\'s two pf86 frames — a real false-fit/false-conflict risk this correction fixes. Average weight 69g (was a 90g sample).' },
+    note: 'road-6 wave: CORRECTION — this row was previously labeled "(BSA Road)" with shell:\'bsa-road\' (threaded), but productinfo.shimano.com\'s spec table for SM-BB72-41B shows "HOLLOWTECH II bottom bracket: Threaded bottom bracket type -" (unchecked) / "Press-Fit type ✔" / "Press-Fit bottom bracket shell width (mm) 86.5 ✔" — this is a Press-Fit 86.5mm shell BB, not threaded BSA. Corrected shell to \'pf86\' (ROAD_VOCAB\'s "Shimano-style press-fit road shell, 86.5mm wide" token, per schema-road.js\'s own description — an exact match) and the model label to match. This also matches the "Recommended bottom bracket: Press-Fit SM-BB72(-41B)" line on the FC-R8100/FC-R7100/FC-RX810-2 crankset pages fetched elsewhere in this wave. A rule-11 exact-match error check (bb.shell vs frame.bb) means the old mislabeling would have wrongly greenlit BSA-threaded frames and wrongly reddened the file\'s two pf86 frames — a real false-fit/false-conflict risk this correction fixes. Average weight 69g (was a 90g sample). 2026-07-21 vocab merge (coordinator, Douglas-ruled): shell CORRECTED pf86->bb86 — this row\'s own source text ("Press-Fit... 86.5") and bb-sram-dub-bb86\'s source text ("PF 86.5 = this row\'s bb86") describe the identical physical shell under the vocab\'s two different spellings; bb86 kept as canonical (majority usage), pf86 retired from ROAD_VOCAB/GRAVEL_VOCAB. Model label now reads BB86/PF86 to keep both maker-facing names discoverable.' },
   { id: 'bb-praxis-t47-road', cat: 'bb', brand: 'SRAM', model: 'DUB T47 Bottom Bracket', family: 'sram-dub-t47', mfgPn: 'BB-DUB-T47-A1',
     shell: 't47-road', spindle: 'dub',
     weight: 95, price: 70,

@@ -602,12 +602,16 @@
   }
 
   /* ---- display helpers -------------------------------------------------------- */
+  // bb86 and pf86 are the same physical 86.5mm press-fit shell under two maker-slang
+  // spellings (merged 2026-07-21 — see schema-road.js's header note); label it with
+  // both names so a rider searching either term recognizes the part.
+  function bbShellLabel(v){ return v==='bb86' ? 'BB86 (PF86)' : v; }
   function specLine(p){
     var bits=[];
     switch(p.cat){
       case 'frame':
         if(Array.isArray(p.wheelSizes)) bits.push(p.wheelSizes.join('/'));
-        if(p.bb) bits.push(p.bb+' shell');
+        if(p.bb) bits.push(bbShellLabel(p.bb)+' shell');
         if(p.brakeMount) bits.push(p.brakeMount);
         bits.push(p.frameOnly?'Frame only':'Frame + fork');
         break;
@@ -621,8 +625,8 @@
       case 'rearderailleur': if(p.system) bits.push(p.system); if(p.actuation) bits.push(p.actuation); if(typeof p.maxCog==='number') bits.push(p.maxCog+'T max'); break;
       case 'cassette': if(p.freehub) bits.push(p.freehub); if(typeof p.minCog==='number'&&typeof p.maxCog==='number') bits.push(p.minCog+'-'+p.maxCog+'T'); if(typeof p.speeds==='number') bits.push(p.speeds+'sp'); break;
       case 'chain': if(p.system) bits.push(p.system); if(typeof p.speeds==='number') bits.push(p.speeds+'sp'); break;
-      case 'crankset': if(p.bb) bits.push(p.bb+' spindle'); if(p.chainrings) bits.push(p.chainrings); if(p.ring) bits.push(p.ring+'T'); break;
-      case 'bb': if(p.shell) bits.push(p.shell+' shell'); if(p.spindle) bits.push(p.spindle+' spindle'); break;
+      case 'crankset': if(p.bb) bits.push(bbShellLabel(p.bb)+' spindle'); if(p.chainrings) bits.push(p.chainrings); if(p.ring) bits.push(p.ring+'T'); break;
+      case 'bb': if(p.shell) bits.push(bbShellLabel(p.shell)+' shell'); if(p.spindle) bits.push(p.spindle+' spindle'); break;
       case 'brake': if(p.mount) bits.push(p.mount); if(p.actuation) bits.push(p.actuation); if(typeof p.pistons==='number') bits.push(p.pistons+'-piston'); break;
       case 'rotor': if(typeof p.size==='number') bits.push(p.size+'mm'); if(p.mount) bits.push(p.mount); break;
       case 'handlebar': if(p.clamp) bits.push(p.clamp+'mm clamp'); if(typeof p.width==='number') bits.push(p.width+'mm wide'); break;
