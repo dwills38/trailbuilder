@@ -116,7 +116,10 @@ var LOCAL_VOCAB = {
      ROAD-MODEL.md section 3 lists both under the same field name "actuation"
      per category but the value sets do not overlap; kept separate here to
      avoid silently accepting a shifter-side token on a brake row or vice versa. */
-  actuationBrake: ['hydraulic', 'mechanical']
+  actuationBrake: ['hydraulic', 'mechanical'],
+  // lifecycle (ported from src/schema.js — mirrors its frame lifecycle convention;
+  // absent = current). Same 3-value vocab as the live catalog's VOCAB.status.
+  status: ['current', 'discontinued', 'recalled']
 };
 
 /** @param {string} vocabKey @returns {any[]|undefined} */
@@ -293,6 +296,7 @@ function validateRoadPart(p, today){
     if(!urlOk(p.source)) bad('verified:true requires a valid http(s) source URL');
     if(!dateOk(p.lastChecked, today)) bad('verified:true requires a lastChecked date (YYYY-MM-DD, not in the future)');
     if('sourceType' in p && p.sourceType === 'retailer') bad('verified:true rejects sourceType:"retailer" (measured/manufacturer only)');
+    if('sourceType' in p && p.sourceType === 'measured' && !urlOk(p.weightSource)) bad('sourceType:"measured" requires a weightSource URL');
   } else {
     if('source' in p && p.source != null && typeof p.source !== 'string') bad('source must be a string');
     if('lastChecked' in p && p.lastChecked != null && !/^\d{4}-\d{2}-\d{2}$/.test(p.lastChecked)) bad('lastChecked must be YYYY-MM-DD');
@@ -300,6 +304,22 @@ function validateRoadPart(p, today){
   if('family' in p && p.family != null && !(isStr(p.family) && /^[a-z0-9-]+$/.test(p.family))) bad('family must be a lowercase slug');
   if('modelYear' in p && p.modelYear != null && !(isNum(p.modelYear) && p.modelYear >= 1980 && p.modelYear <= 2100))
     bad('modelYear must be a number between 1980 and 2100');
+
+  // lifecycle (ported from src/schema.js, mirroring schema-gravel.js/schema-emtb.js's
+  // own port): status is a closed vocab; supersededBy is type-checked here (must be
+  // a string, can't self-reference) but its cross-reference against real catalog ids
+  // happens in validateRoadCatalog's second pass — a single-part check can't see
+  // sibling ids, and a forward reference must not false-positive.
+  if('status' in p && p.status != null){
+    var statusVals = LOCAL_VOCAB.status;
+    if(!isStr(p.status) || !statusVals || statusVals.indexOf(p.status) < 0)
+      bad('status "' + p.status + '" not in [' + (statusVals || []).join(', ') + ']');
+  }
+  if('supersededBy' in p && p.supersededBy != null){
+    if(!isStr(p.supersededBy)) bad('supersededBy must be a part id');
+    else if(p.supersededBy === p.id) bad('a part cannot supersede itself');
+  }
+
   if('disciplines' in p && p.disciplines != null){
     if(!Array.isArray(p.disciplines)) bad('disciplines must be an array');
     else p.disciplines.forEach(function(/** @type {string} */ d){
@@ -359,6 +379,11 @@ function validateRoadCatalog(parts, today){
       seenIds[p.id] = true;
     }
     probs = probs.concat(validateRoadPart(p, t));
+  });
+  parts.forEach(function(p){
+    if(!p || !isStr(p.id) || p.supersededBy == null) return;
+    var at = '[' + p.id + ']';
+    if(!seenIds[p.supersededBy]) probs.push(at + ' supersededBy references unknown part "' + p.supersededBy + '"');
   });
   return probs;
 }

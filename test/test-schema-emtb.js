@@ -97,3 +97,14 @@ test('a duplicate id across the catalog is caught', function(){
   var probs = S.validateEmtbCatalog(D.EMTB_PARTS.concat([Object.assign({}, aBike())]), TODAY);
   ok(probs.some(function(m){ return /duplicate id/.test(m); }), probs.join('\n'));
 });
+
+test('status:"recalled" validates clean (the recall watcher can mark an e-MTB recalled)', function(){
+  var p = Object.assign({}, aBike(), { status: 'recalled' });
+  eq(S.validateEmtbPart(p, TODAY).length, 0);
+});
+
+test('an out-of-vocab status value is still caught', function(){
+  var bad = Object.assign({}, aBike(), { status: 'banana' });
+  var probs = S.validateEmtbPart(bad, TODAY);
+  ok(probs.some(function(m){ return /status "banana" not in/.test(m); }), probs.join('\n'));
+});

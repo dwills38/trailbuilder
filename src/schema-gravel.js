@@ -52,6 +52,10 @@ var GRAVEL_VOCAB = {
   shell:        ['bsa-road', 't47-road', 'bb86', 't47-86'],
   spindle:      ['24mm-road', 'dub'],
   seatpost:     ['27.2', '31.6', '30.9', 'proprietary'],
+  // dropperDiameter — split from the 'seatpost' vocab above: a dropper is
+  // always a real round tube (never the rigid-seatpost 'proprietary' token,
+  // which would falsely validate a dropper diameter that can't exist).
+  dropperDiameter: ['27.2', '31.6', '30.9'],
   steerer:      ['tapered'],
   frontDerailleurMount: ['none', 'braze-on'],
   material:     ['alloy', 'steel', 'titanium'],
@@ -99,7 +103,10 @@ var GRAVEL_SCHEMA = {
     maxRotorF:{type:'number'}, travel:{type:'number'}, suspension:{type:'string',vocab:'suspension'}
   },
   frontwheel: {
-    wheel:{type:'string',vocab:'wheel'}, hub:{type:'string',vocab:'hub'}, freehub:{type:'string',vocab:'freehub'},
+    // freehub is OPTIONAL here (unlike rearwheel): a front hub has no driver
+    // body, so it carries no freehub standard at all — a value on this field
+    // is fabricated, not a real spec.
+    wheel:{type:'string',vocab:'wheel'}, hub:{type:'string',vocab:'hub'}, freehub:{type:'string',vocab:'freehub',optional:true},
     brakeSystem:{type:'string',vocab:'brakeSystem'}, rotorMount:{type:'string',vocab:'rotorMount'},
     intWidth:{type:'number'}, maxTire:{type:'number'}
   },
@@ -170,7 +177,7 @@ var GRAVEL_SCHEMA = {
     proprietary:{type:'bool',optional:true}, forFrames:{type:'array',optional:true}
   },
   dropper: {
-    diameter:{type:'string',vocab:'seatpost'}, drop:{type:'number'}, actuation:{type:'string',vocab:'actuation'}
+    diameter:{type:'string',vocab:'dropperDiameter'}, drop:{type:'number'}, actuation:{type:'string',vocab:'actuation'}
   },
   saddle: {},
   pedal: {

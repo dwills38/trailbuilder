@@ -113,3 +113,50 @@ test('a brake-caliper hydraulic/mechanical actuation validates on brake rows', f
   if(!br) throw new Error('no road brake row found');
   eq(S.validateRoadPart(br, TODAY).length, 0);
 });
+
+test('verified:true with sourceType:measured requires a weightSource URL', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { verified: true, source: 'https://example.com/x', lastChecked: '2026-07-01', sourceType: 'measured' });
+  var probs = S.validateRoadPart(bad, TODAY);
+  ok(probs.some(function(m){ return /sourceType:"measured".*weightSource URL/.test(m); }), probs.join('\n'));
+});
+
+test('verified:true with sourceType:measured and a weightSource URL is accepted', function(){
+  var frame = aFrame();
+  var good = Object.assign({}, frame, { verified: true, source: 'https://example.com/x', lastChecked: '2026-07-01', sourceType: 'measured', weightSource: 'https://example.com/weight' });
+  eq(S.validateRoadPart(good, TODAY).length, 0);
+});
+
+test('an out-of-vocab status value is caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { status: 'banana' });
+  var probs = S.validateRoadPart(bad, TODAY);
+  ok(probs.some(function(m){ return /status "banana" not in/.test(m); }), probs.join('\n'));
+});
+
+test('status current/discontinued/recalled all validate clean', function(){
+  var frame = aFrame();
+  ['current', 'discontinued', 'recalled'].forEach(function(s){
+    var p = Object.assign({}, frame, { status: s });
+    eq(S.validateRoadPart(p, TODAY).length, 0, s + ' should validate clean');
+  });
+});
+
+test('a part cannot supersede itself', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { supersededBy: frame.id });
+  var probs = S.validateRoadPart(bad, TODAY);
+  ok(probs.some(function(m){ return /cannot supersede itself/.test(m); }), probs.join('\n'));
+});
+
+test('supersededBy referencing an unknown part id is caught at the catalog level', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { id: frame.id + '-dupe-test', supersededBy: 'no-such-id-anywhere' });
+  var probs = S.validateRoadCatalog(D.ROAD_PARTS.concat([bad]), TODAY);
+  ok(probs.some(function(m){ return /supersededBy references unknown part/.test(m); }), probs.join('\n'));
+});
+
+test('the real road catalog\'s discontinued rows resolve any supersededBy pointer', function(){
+  var probs = S.validateRoadCatalog(D.ROAD_PARTS, new Date());
+  eq(probs.filter(function(m){ return /supersededBy references unknown part/.test(m); }).length, 0, probs.join('\n'));
+});
