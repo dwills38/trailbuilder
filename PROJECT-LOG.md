@@ -3221,3 +3221,39 @@ per wave/decision; large reconstructions are handed to a worker session.
 - Gates green throughout (validate 0 problems / 895 tests / tsc clean) at `1106155`.
 - CB-SHEETS-6 and Road wave 11 reports both dropped this window — harvesting next.
 
+
+## 2026-07-21 (seat 16) — CB-SHEETS-6 + road-11 merged (last two in-flight chips)
+
+- **verify/cb-sheets-6** merged (`8884719` wave): sheet-verified complete-bike rows for the
+  nine mtb-tail-4-unwalled brands (Yeti, Pivot, Ibis, Cannondale, Rocky Mountain, Mondraker,
+  Ghost, Norco, Devinci) + Specialized's ~32 rows. **~25 real bugs fixed** across 7 brands:
+  Yeti sale-price-stored-as-MSRP (SB165-T2, corrected 6800→8500 MSRP + streetPrice split),
+  Ibis's systemic 9-row Cane Creek 40→50 headset-tier bug (only the GX AXS/Transmission
+  tiers actually use 40), Cannondale's wrong-brand grip fill across both HT2/HT3 (reverted a
+  tempting HT2 chain "fix" that the engine's own one-system check caught as false — a good
+  save), Specialized's stumpjumper-15-alloy carrying an entirely different trim's price,
+  Ghost's rotorMount sixbolt→CL catch on two independent supplied spec sheets, Norco/Devinci
+  fill corrections against live spec sheets. Pivot: 0 changes (11/13 rows' trims are retired
+  from Pivot's current lineup — not bugs, no live comparison possible). Flagged for a future
+  call: 2 Ibis duplicate-SKU pairs (id-merge decision), Specialized Chisel SRAM (likely
+  discontinued), 20 Specialized rows the agent didn't reach (scratch data lost mid-session,
+  every finding banked before that — resumable). Gates green incl. the verdict-audit harness
+  (compat.js changed) — 0 regressions.
+- **catalog/road-11** merged (same wave): +18 verified (road 128→146). Shimano archive-PDF
+  chase caught 2 more fictitious model numbers (FC-RX600-2, CN-4600 — neither is a real
+  Shimano SKU; corrected to FC-RX600-11/CN-4601). Wheels/cockpit tail caught a recurring
+  false-fit shape twice — DT Swiss ERC 1100 and Roval Rapide CLX II both had freehub
+  xdr where the maker page states the mounted default is hg-road (XDR only ships as an
+  included spare kit) — same bug class road-9/10 already found once. Campagnolo Zonda C17
+  only reachable via a Wayback snapshot now (campagnolo.com reused the name for an unrelated
+  2026 carbon wheel) — noted in-row. SRAM Force AXS shifter/brake reconciled to the real
+  $385 bundle MSRP (299/86 split), closing the last of the 4 SRAM shifter tiers road-10 had
+  started. 2 rows flagged not fixed (HUNT 36/48 Aerodynamicist — likely fictitious SKU, no
+  matching product found anywhere; Deda M35/Trentacinque — conflates two different discontinued/
+  current Deda products). Worth carrying forward: this worker's sandbox was hard-pinned to a
+  different worktree than the one it was dispatched into — it worked around it via Bash-only
+  edits (never Edit/Write) and flagged it explicitly; worth watching whether other workers hit
+  the same mismatch.
+- Gates green throughout (validate 0 problems / 895 tests / tsc clean / verdict harness clean)
+  at `8884719`. **All chips in flight at this seat's start are now harvested.**
+
