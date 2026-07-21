@@ -1118,21 +1118,23 @@ var EMTB_PARTS = [
     id: 'em-vitus-e-sommet-297-vrx', cat: 'emtb', brand: 'Vitus', model: 'E-Sommet 297 VRX',
     motorBrand: 'shimano', motorModel: 'Shimano STEPS EP801', motorTorque: 85, motorPowerPeak: 600,
     batteryWh: 630, batteryRemovable: false, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle T-Type Transmission', brakes: 'Hayes Dominion A4',
-    disciplines: ['e-enduro'], weight: 25000, price: 7699,
-    note: 'The real E-Sommet runs Shimano STEPS motors (not Bosch), on a redesigned mullet-only "297" chassis with RockShox ZEB/Vivid Ultimate suspension.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 167,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle T-Type AXS Transmission', brakes: 'Hayes Dominion A4',
+    disciplines: ['e-enduro'], weight: 24200, price: 7619.99,
+    note: 'The real E-Sommet runs Shimano STEPS motors (not Bosch), on a redesigned mullet-only "297" chassis; real fork/shock are RockShox ZEB Ultimate + Super Deluxe Ultimate RC2T (not Vivid).',
+    desc: 'Verified vs the fetched maker product page (vitusbikes.com UK, via Exa fetch — full Specs table). Corrections verify/emtb-4 wave 4 cluster F: rear travel 160->167mm, weight 25000->24200g (M, tubeless), suspension note ZEB/Vivid Ultimate -> ZEB/Super Deluxe Ultimate RC2T (Vivid was never correct for this trim), drivetrain wording tightened to SRAM GX Eagle T-Type AXS Transmission (matches the page\'s "SRAM GX Eagle T-Type AXS" rear derailleur). PRICE RULE: GBP 5,999.99 RRP (vitusbikes.com, Vitus is UK-based) converted to a $7,619.99 USD sample at ~1.27 — no current US listing found for the 297 chassis (us.vitusbikes.com still lists only the older non-297 VRX).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://vitusbikes.com/products/vitus-e-sommet-297-vrx-mountain-bike-07e7'
   },
   {
     id: 'em-vitus-e-sommet-297-vrs', cat: 'emtb', brand: 'Vitus', model: 'E-Sommet 297 VRS',
     motorBrand: 'shimano', motorModel: 'Shimano STEPS EP801', motorTorque: 85, motorPowerPeak: 600,
     batteryWh: 630, batteryRemovable: false, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX', brakes: 'SRAM DB8',
-    disciplines: ['e-enduro'], weight: 25400, price: 6399,
-    note: 'Entry-tier mullet E-Sommet 297 build; RockShox ZEB/Super Deluxe Select suspension.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 167,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX M7100', brakes: 'SRAM DB8',
+    disciplines: ['e-enduro'], weight: 24400, price: 6349.99,
+    note: 'Entry-tier mullet E-Sommet 297 build; real fork/shock are RockShox ZEB Select + Super Deluxe Select R.',
+    desc: 'Verified vs the fetched maker product page (vitusbikes.com UK, via Exa fetch — full Specs table). Corrections verify/emtb-4 wave 4 cluster F: rear travel 160->167mm, weight 25400->24400g (M, tubeless), drivetrain "Shimano SLX" -> "Shimano SLX M7100" (exact SKU). PRICE RULE: GBP 4,999.99 RRP (vitusbikes.com, Vitus is UK-based) converted to a $6,349.99 USD sample at ~1.27 — no current US listing found for the 297 chassis.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://vitusbikes.com/products/vitus-e-sommet-297-vrs-mountain-bike-07e7'
   }
 
 ];
