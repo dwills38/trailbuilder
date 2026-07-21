@@ -861,8 +861,9 @@ var BMX_PARTS = [
   // ===== GRIPS ==========================================================
   {
     id: 'bmx-gr-odyssey-aaronross', cat: 'grips', brand: 'Odyssey', model: 'Keyboard v1 Grip (Aaron Ross Signature)',
-    length: 158, flangeless: true, price: 10.99,
-    note: 'Real product = the Keyboard v1 Grip, Aaron Ross\'s long-running signature colorway; length, flangeless (bar ends included, no flange) and price confirmed via shop.odysseybmx.com/products/odyssey-keyboard-v1-grip-black 2026-07-17 (model renamed, length corrected 143 -> 158mm, price corrected 9.99 -> 10.99); no weight published, so left unverified.'
+    length: 158, flangeless: true, price: 10.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://shop.odysseybmx.com/products/odyssey-keyboard-v1-grip-black',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. The interface fields (length 158mm, flangeless:true, price $10.99) were already directly fetched and corrected 2026-07-17; `grips` carries no checkBmxBuild-read field at all (length/flangeless are display-only, VERIFY-PROTOCOL\'s BMX small-parts exception), so once the fetch confirmed the real product+specs there was nothing further to block verified:true. No weight is published on the maker page (kept blank, not fabricated).'
   },
   {
     id: 'bmx-gr-odi-longneck', cat: 'grips', brand: 'ODI', model: 'Longneck Grips',
@@ -970,8 +971,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-hb-odyssey-brocraiford', cat: 'handlebar', brand: 'Odyssey', model: 'BROC 9.8in Bar',
-    clamp: '22.2mm', rise: 9.8, width: 29, price: 129.99,
-    note: 'Model renamed to the real product (BROC 9.8in Bar, Broc Raiford\'s signature); clamp corrected 25.4mm -> 22.2mm (maker page: "traditional 7/8in crossbar"), rise corrected 8.5 -> 9.8in, price corrected 84.99 -> 129.99, all via shop.odysseybmx.com/products/odyssey-broc-9-8-bar 2026-07-17; no weight published, so left unverified.'
+    clamp: '22.2mm', rise: 9.8, width: 29, price: 129.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://shop.odysseybmx.com/products/odyssey-broc-9-8-bar',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. clamp/rise/width/price were already directly fetched and corrected 2026-07-17; `handlebar`\'s clamp/rise/width are all checkBmxBuild DISPLAY-ONLY fields (VERIFY-PROTOCOL\'s BMX small-parts exception), so once the fetch confirmed the real product+specs there was no remaining engine-read fact to block verified:true. No weight is published on the maker page (kept blank, not fabricated).'
   },
 
   // ---- Cult depth (cultcrew.com/collections/frames fetched 2026-07-17:
@@ -1409,8 +1411,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-ch-odyssey-bluebird', cat: 'chain', brand: 'Odyssey', model: 'Bluebird Chain',
-    pitch: '1/8', halfLink: true, price: 25.88,
-    note: 'Same plate/pin dimensions as the popular KMC freestyle chain, ships with a factory-installed half link on one end.'
+    pitch: '1/8', halfLink: true, price: 42.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://shop.odysseybmx.com/products/odyssey-bluebird-half-link-chain-silver',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED. Directly fetched shop.odysseybmx.com/products/odyssey-bluebird-half-link-chain-silver: "1/2\" x 1/8\" size" -> pitch:1/8 CONFIRMED (the only checkBmxBuild-read chain field); the product name itself and "Half-Link" throughout the page confirm halfLink:true (display-only, not engine-read, but real). Price CORRECTED 25.88 -> 42.99 (this row had no source at all before; $42.99 is the maker\'s displayed regular price for this exact SKU).'
   },
   {
     id: 'bmx-ch-kmc-z1ehx', cat: 'chain', brand: 'KMC', model: 'Z1eHX Wide Chain',
@@ -1504,8 +1507,9 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-gr-odyssey-broc', cat: 'grips', brand: 'Odyssey', model: 'Broc Grips',
-    length: 158, flangeless: false, price: 10.99,
-    note: 'Broc Raiford signature grip, soft Kraton compound, ships with Odyssey Par Ends bar ends - danscomp.com product page (30mm OD/22mm ID/158mm length).'
+    length: 160, flangeless: false, price: 10.99, verified: true, lastChecked: '2026-07-21',
+    source: 'https://shop.odysseybmx.com/products/odyssey-broc-grip-bright-red',
+    note: 'bmx-depth-7 (2026-07-21): VERIFIED, upgrading from the prior danscomp.com retailer basis. Directly fetched shop.odysseybmx.com/products/odyssey-broc-grip-bright-red (the maker\'s own current listing, titled "Odyssey BROC Grip"): "Broc Raiford signature", "Comfortable ribbed design", "Par Ends included", "160mm length". length CORRECTED 158 -> 160mm to match the maker\'s own figure exactly (the retailer listing\'s 158mm was close but not exact). `grips` carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar regardless; flangeless left unchanged (not stated either way on the page, not fabricated).'
   }
   // bmx-gr-odyssey-keyboard REMOVED 2026-07-17 (preflight audit fix): a near-duplicate of
   // bmx-gr-odyssey-aaronross (same real product - the Odyssey Keyboard v1 Grip, Aaron Ross's
