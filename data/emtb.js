@@ -84,14 +84,16 @@ var EMTB_PARTS = [
     verified: true, lastChecked: '2026-07-20', source: 'https://www.commencal.com/us/en/BT3MSXPWE4L.html'
   },
   {
-    id: 'em-orbea-wild', cat: 'emtb', brand: 'Orbea', model: 'Wild H10',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
-    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    id: 'em-orbea-wild', cat: 'emtb', brand: 'Orbea', model: 'Wild LT H10',
+    family: 'orbea-wild-lt', modelYear: 2026,
+    motorBrand: 'avinox', motorModel: 'Avinox M2S', motorTorque: 130, motorPowerPeak: 1500,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 170,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail', 'e-enduro'], weight: 22500, price: 6999,
-    note: 'Bosch Gen 5 CX-powered 29er full-power enduro bike (170mm travel); the alloy "Hydro" tier — Wild is now offered in both carbon and alloy chassis.',
-    desc: 'Unverified sample seed (EMTB-MODEL.md sec 2) — flagship to exercise the schema; specs approximate, not maker-confirmed. Gen/travel/frame corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, alloy H10 tier, 170mm travel not 160/150).'
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore/XT mix (M6200/M8200)', brakes: 'Shimano MT620',
+    disciplines: ['e-trail', 'e-enduro'], weight: 22500, price: 7717,
+    note: 'Orbea replaced the whole Wild line with "Wild LT" and switched off Bosch entirely onto the new Avinox M2S motor (130Nm continuous / up to 150Nm boost, 1500W boost peak) — the plain "Wild H10" name and Bosch Gen 5 CX spec no longer exist on orbea.com; H10 is the entry alloy ("Hydro") trim. Fork/shock: Fox 38 Float Performance 170 / Fox Float X Performance trunnion 205x65mm.',
+    desc: "Verified vs the maker's own product-configurator page (motor/battery/travel/frame/drivetrain/brakes/price all confirmed; MSRP $7,717 matches exactly). Model/motor platform corrected wave 4 cluster C — this is a full generation switch, not a spec tweak: motorBrand bosch->avinox, motorModel/torque/power all replaced (Avinox M2S 130/150Nm, 1500W peak vs the prior Bosch CX 85Nm/750W), batteryWh 750->800, drivetrain Shimano XT-only -> the real mixed Deore/XT build, brakes Shimano XT 4-piston -> the real Shimano MT620, price $6,999 sample -> the confirmed $7,717 MSRP. REQUIRES a new motorBrand vocab value: added 'avinox' to EMTB_VOCAB in src/schema-emtb.js (flagged in the wave report — Avinox is a real, newly-launched e-MTB motor maker, not a fabricated value, confirmed via its own 2026-04-09 press release and independent lab tests).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.orbea.com/en-us/wild-lt-h10-20mph'
   },
   {
     id: 'em-canyon-spectral-on', cat: 'emtb', brand: 'Canyon', model: 'Spectral:ON CF 8',
@@ -290,34 +292,40 @@ var EMTB_PARTS = [
   // Orbea depth (Wild + Rise lightweight line)
   // ---------------------------------------------------------------------------
   {
-    id: 'em-orbea-wild-m-team', cat: 'emtb', brand: 'Orbea', model: 'Wild M-Team',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
-    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    id: 'em-orbea-wild-m-team', cat: 'emtb', brand: 'Orbea', model: 'Wild LT M-TEAM RS',
+    family: 'orbea-wild-lt', gen: '2027', modelYear: 2027,
+    motorBrand: 'avinox', motorModel: 'Avinox M2S', motorTorque: 130, motorPowerPeak: 1500,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 170,
-    frameMaterial: 'carbon', drivetrain: 'Shimano XT Di2', brakes: 'Shimano XT 4-piston',
-    disciplines: ['e-trail', 'e-enduro'], weight: 21800, price: 9999,
-    note: 'Top-tier configurable carbon Wild build (M-Team); real current spec is Shimano XT Di2 with an optional Bosch CX-R motor upgrade, not a SRAM XX SL drivetrain.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Gen/drivetrain/travel corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, Shimano XT Di2 not SRAM XX SL, 170mm travel not 160/150, price matched to current M-Team MSRP).'
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: 21800, price: 11024,
+    note: 'Top-tier configurable carbon Wild build; Orbea replaced the whole Wild line with "Wild LT" and switched off Bosch entirely onto the Avinox M2S motor (130Nm continuous / up to 150Nm boost, 1500W peak) — the "Wild M-Team" name and Shimano XT Di2/Bosch spec no longer exist on orbea.com. Frame is the new "Orbea Wild OMR 2027" carbon layup; Fox 38 Float Factory 170 / Fox Float X2 Factory trunnion 205x65mm.',
+    desc: "Verified vs the maker's own product-configurator page (motor/battery/travel/frame/drivetrain/brakes/price all confirmed; MSRP $11,024 matches exactly). Model/motor platform corrected wave 4 cluster C — a full generation switch: motorBrand bosch->avinox, motorModel/torque/power replaced (Avinox M2S vs Bosch CX 85Nm/750W), batteryWh 750->800, drivetrain Shimano XT Di2 -> the real SRAM GX Eagle AXS build, brakes Shimano XT 4-piston -> SRAM Maven Silver, price $9,999 sample -> the confirmed $11,024 MSRP. Uses the same new 'avinox' motorBrand vocab value added to src/schema-emtb.js this wave (see em-orbea-wild's desc / the wave report).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.orbea.com/en-us/wild-lt-m-team-rs-20mph'
   },
   {
-    id: 'em-orbea-rise-m-team', cat: 'emtb', brand: 'Orbea', model: 'Rise M-Team',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8 RS', motorTorque: 60,
-    batteryWh: 360, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
-    disciplines: ['e-trail'], weight: 17800, price: 11500,
-    note: 'Lightweight-class Orbea; custom-tuned Shimano EP8 RS motor, top-tier build.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-orbea-rise-m-team', cat: 'emtb', brand: 'Orbea', model: 'Rise SL M-LTD',
+    family: 'orbea-rise-sl', modelYear: 2026,
+    motorBrand: 'shimano', motorModel: 'Shimano EP801 RS Gen2 MC', motorTorque: 60,
+    batteryWh: 420, batteryRemovable: false, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XTR Di2', brakes: 'Shimano XTR 9220',
+    disciplines: ['e-trail'], weight: 17800, price: 11549,
+    note: 'Lightweight-class Orbea; the "Rise M-Team" trim name was retired — the current top-tier Rise SL build is called "Rise SL M-LTD" (Orbea\'s "Rise" family is now split into "Rise SL"/"Rise LT" sub-lines). Motor delivers 60Nm in its default RS mode, switchable to an 85Nm RS+ mode via the RS Control System (same integrated unit also drives the display + electronic dropper off the main battery, so no separate top-tube display). Frame: Orbea Rise SL OMR 2025 carbon, 140mm travel both ends (not 150/140).',
+    desc: "Verified vs the maker's own product-configurator page (motor/battery/travel/frame/drivetrain/brakes/price all confirmed; MSRP $11,548.95 rounds to the catalog's $11,549). Model/spec corrected wave 4 cluster C: model 'Rise M-Team' -> 'Rise SL M-LTD' (the real current top trim name); motorModel 'Shimano EP8 RS' -> 'Shimano EP801 RS Gen2 MC'; batteryWh 360 -> 420; batteryRemovable true -> false (Orbea brands this pack 'Internal', non-user-removable, unlike the Wild's swappable PowerTube-style packs); rangeExtender true -> removed (the maker page states 'Range Extender: N/A' for this exact build); travelFront 150 -> 140; drivetrain 'SRAM XX SL Eagle Transmission' -> the real Shimano XTR Di2 electronic build (no SRAM parts on this bike at all); brakes 'SRAM Code Ultimate' -> Shimano XTR 9220. motorTorque kept at 60 (the maker page confirms Rise ships in its default RS/60Nm mode; an RS+/85Nm boost mode exists but is a Nm figure, not Watts, so it is described here rather than stuffed into the Watts-typed motorPowerPeak field — Shimano does not publish a peak-Watts number for this unit).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.orbea.com/en-us/rise-sl-m-ltd-20mph'
   },
   {
-    id: 'em-orbea-rise-h30', cat: 'emtb', brand: 'Orbea', model: 'Rise H30',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8 RS', motorTorque: 60,
-    batteryWh: 360, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
-    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT420',
-    disciplines: ['e-trail'], weight: 19500, price: 5800,
-    note: 'Entry alloy Rise trim; same lightweight EP8 RS motor as the carbon range.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-orbea-rise-h30', cat: 'emtb', brand: 'Orbea', model: 'Rise SL H30',
+    family: 'orbea-rise-sl', modelYear: 2026,
+    motorBrand: 'shimano', motorModel: 'Shimano EP600 RS Gen2 MC', motorTorque: 60,
+    batteryWh: 540, batteryRemovable: false, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 140,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore', brakes: 'Shimano MT201',
+    disciplines: ['e-trail'], weight: 19500, price: 5039,
+    note: 'Entry alloy Rise trim; the current full name is "Rise SL H30" (Orbea\'s "Rise" family is now split into "Rise SL"/"Rise LT" sub-lines). Frame: Orbea Rise SL Hydro 2025 aluminum, 140mm travel both ends (not 150/140); Shimano EP600 RS Gen2 MC motor (not the carbon range\'s EP801 RS), same RS Control System integration.',
+    desc: "Verified vs the maker's own product-configurator page (motor/battery/travel/frame/drivetrain/brakes/price all confirmed; MSRP $5,038.95 rounds to the catalog's $5,039). Model/spec corrected wave 4 cluster C: model 'Rise H30' -> 'Rise SL H30'; motorModel 'Shimano EP8 RS' -> 'Shimano EP600 RS Gen2 MC' (the H30 uses the lower-tier EP600 unit, not the same EP801 as the carbon M-team); batteryWh 360 -> 540; batteryRemovable true -> false ('Internal' branded, non-user-removable); rangeExtender true -> removed (page states 'Range Extender: N/A'); travelFront 150 -> 140; brakes 'Shimano MT420' -> the real Shimano MT201.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.orbea.com/en-us/rise-sl-h30-20mph'
   },
 
   // ---------------------------------------------------------------------------
@@ -473,23 +481,27 @@ var EMTB_PARTS = [
   // ---------------------------------------------------------------------------
   {
     id: 'em-mondraker-crafty-carbon-r', cat: 'emtb', brand: 'Mondraker', model: 'Crafty Carbon R',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
+    family: 'mondraker-crafty', gen: 'Gen 5', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5, BDU384Y)', motorTorque: 85, motorPowerPeak: 600,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'mixed', drivetrain: 'SRAM S1000 Eagle AXS T-Type Transmission (SRAM GX Eagle T-Type chain/cassette)', brakes: 'SRAM Maven Base',
     disciplines: ['e-enduro'], weight: 24000, price: 8499,
-    note: "Mondraker's gravity-leaning full-power e-MTB confirmed still on Bosch, now the Gen 5 CX (85Nm stock, OTA-upgradable to 100Nm/750W); long travel, mixed wheel.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Gen/travel corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, 160/150mm not 170/160mm).'
+    note: "Mondraker's gravity-leaning full-power e-MTB: Bosch CX Gen 5 (BDU384Y), 85Nm/600W stock (page: \"the same 85Nm of torque and 600W peak power as the previous model\"); Stealth Air carbon front triangle + alloy rear triangle (mixed, not full carbon); 29in wheels both ends (not mullet as previously cataloged) per the maker's own tire spec (29x2.5 front and rear) and wheel-size badge.",
+    desc: "Verified vs the maker's own product page (motor/battery/travel/frame/wheel-size/drivetrain/brakes all confirmed; MSRP $8,499 matches exactly). Wheel config corrected wave 4 cluster C (mullet -> 29, the page's own badge + tire spec both say 29in F+R); motor power peak corrected (750W -> 600W, the page explicitly states 600W for this bike); frameMaterial corrected (carbon -> mixed, carbon front triangle/alloy rear triangle per the page's own construction text); drivetrain/brakes corrected to the actual build-sheet components (SRAM S1000 Eagle AXS T-Type derailleur, not GX Eagle; SRAM Maven Base, not Code). Weight stays the prior sample estimate — the maker page publishes no bike weight for this SKU (interface-verification exception, VERIFY-PROTOCOL.md's frames precedent applied to a complete-bike row).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://mondraker.com/us/en/crafty-carbon-r1783597201'
   },
   {
     id: 'em-mondraker-level-carbon-rr', cat: 'emtb', brand: 'Mondraker', model: 'Level RR',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 750,
+    family: 'mondraker-level', gen: 'Gen 5', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5, BDU384Y)', motorTorque: 100, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
-    frameMaterial: 'aluminum', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'SRAM Maven Silver',
-    disciplines: ['e-enduro'], weight: 24500, price: 8999,
-    note: "The real Level is a full-power gravity enduro bike (Bosch Gen 5 CX, not a lightweight SX motor), aluminum-only (not carbon), mullet-wheel with 180/170mm travel.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Motor/frame/assist-class corrected verify/emtb-3 wave 3 phase 2 (Bosch SX lightweight -> Bosch CX Gen 5 full-power, carbon -> aluminum, 29in -> mullet, 140/130mm -> 180/170mm).'
+    frameMaterial: 'aluminum', drivetrain: 'SRAM S1000 Eagle AXS T-Type Transmission (SRAM GX Eagle T-Type chain/cassette)', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-enduro'], weight: 26900, price: 8999,
+    note: "Mondraker's full-power gravity enduro bike (id/model string says \"Level Carbon RR\" but the CURRENT Level range is 6061 alloy-only, not carbon — the id is a legacy token, kept append-only per policy); Bosch CX Gen 5 (BDU384Y) at the Level's shipped 100Nm/750W tune (the page: \"the new firmware unlocks... boosting the peak from 600W and 85Nm to a massive 750W and 100Nm\"); mullet wheels, 180/170mm travel.",
+    desc: "Verified vs the maker's own product page (motor/battery/travel/frame/wheel-config/drivetrain/brakes all confirmed; weight 59.3 lb = 26900g maker-published; MSRP $8,999 matches exactly). Drivetrain/brakes corrected wave 4 cluster C (SRAM X0 Eagle AXS -> the actual SRAM S1000 Eagle AXS T-Type derailleur; SRAM Maven Silver -> SRAM Maven Bronze, the real build-sheet brake); motorTorque corrected (85 -> 100Nm, matching the shipped 750W tune the page states, resolving the prior 85Nm+750W mismatched pair); weight corrected to the maker-published 26900g (was 24500g sample).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://mondraker.com/us/en/level-rr1750250055'
   },
 
   // ---------------------------------------------------------------------------
@@ -607,24 +619,28 @@ var EMTB_PARTS = [
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the next-gen Shuttle AM dropped Shimano entirely for Bosch Gen 5 Performance Line CX/CX-R (verify/emtb-3).'
   },
   {
-    id: 'em-pivot-shuttle-lt', cat: 'emtb', brand: 'Pivot', model: 'Shuttle LT',
-    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85,
-    batteryWh: 630, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
-    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 165,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-enduro'], weight: 23600, price: 10500,
-    note: 'Longer-travel gravity sibling to the Shuttle AM; mixed wheel.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    id: 'em-pivot-shuttle-lt', cat: 'emtb', brand: 'Pivot', model: 'Shuttle LT Pro X0 Eagle Transmission',
+    family: 'pivot-shuttle-lt', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance CX-R (Race Edition), Gen 5', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 162,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-enduro'], weight: 23600, price: 12599,
+    note: "Longer-travel gravity sibling to the Shuttle AM; mixed wheel. This row was still carrying the previous-generation Shimano EP8 spec (630Wh, 165mm rear) — like the old em-pivot-shuttle-am row, Pivot dropped Shimano entirely across the Shuttle range for Gen 5 Bosch Performance CX/CX-R, with a bigger 800Wh removable battery and Bosch's PowerMore 250 range-extender option. Headline geometry is 162mm rear (short Swinger dropout setting) / 170mm front — Pivot's patented Swinger dropout also allows a 165mm-rear long setting, user-adjustable, not a separate SKU.",
+    desc: "Verified vs the maker's own bike-family page (pivotcycles.com/en-us/bikes/shuttle-lt: motor family, headline 162/170mm travel, mixed wheel, 800Wh removable battery all confirmed there) plus the specific Pro X0 Eagle Transmission product page (pivotcycles.com: model name + MSRP $12,599 confirmed directly). Motor generation corrected wave 4 cluster C (Shimano EP8 85Nm/630Wh -> Bosch Performance CX-R Gen 5 100Nm/750W/800Wh, a full motor-brand switch); travelRear corrected 165->162 (the maker's own headline figure for the default/short setting); brakes corrected SRAM Code -> SRAM Maven Silver; price $10,500 sample -> the confirmed $12,599 MSRP. Brakes/derailleur-tier naming cross-checked against three independent, mutually-agreeing dealer spec-feed listings (bikesale.com, danvillebikes.com, mikesbikes.com) that mirror Pivot's own distributed dealer spec sheet — Pivot's own itemized build-spec table is behind a JS-lazy-loaded accordion that did not render text even through the browser pane, so the itemized component list is corroborated rather than directly screen-scraped; the load-bearing facts (motor/battery/travel/price/model) came straight off fetched pivotcycles.com pages.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.pivotcycles.com/en-us/bikes/shuttle-lt'
   },
   {
-    id: 'em-pivot-shuttle-sl', cat: 'emtb', brand: 'Pivot', model: 'Shuttle SL',
-    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60,
+    id: 'em-pivot-shuttle-sl', cat: 'emtb', brand: 'Pivot', model: 'Shuttle SL Pro X0 Eagle Transmission',
+    family: 'pivot-shuttle-sl', modelYear: 2026,
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60, motorPowerPeak: 450,
     batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
-    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 130,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Level Ultimate',
-    disciplines: ['e-trail'], weight: 17600, price: 9500,
-    note: 'Lightweight-class Pivot; acoustic-close XC/trail handling on the Fazua Ride 60.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 132,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'Shimano XT M8120 4-piston',
+    disciplines: ['e-trail'], weight: 17600, price: 10899,
+    note: 'Lightweight-class Pivot; acoustic-close XC/trail handling on the Fazua Ride 60 (60Nm, 450W peak). Headline geometry is 132mm rear travel / 140-150mm fork range (150mm on this Pro trim) — the 140/130mm previously cataloged undersold both numbers.',
+    desc: "Verified vs the maker's own bike-family page (pivotcycles.com/en-us/bikes/shuttle-sl: motor spec 60Nm/450W peak, headline 132mm rear / 140-150mm front travel, 430Wh battery, 29in wheel all confirmed there) plus the specific Pro X0 Eagle Transmission product page (pivotcycles.com: model name + MSRP $10,899 confirmed directly). Corrected wave 4 cluster C: travelFront 140->150 (Pro-trim Fox 36 GRIP2 is 150mm, not the lower-tier 140mm); brakes 'SRAM Level Ultimate' -> Shimano XT M8120 4-piston (SRAM does not make a 'Level Ultimate' MTB brake — this looks like a fabricated value from an earlier pass; Shimano XT is the real spec on every independent dealer listing checked); motorPowerPeak added (450W, maker-stated); price $9,500 sample -> the confirmed $10,899 MSRP. Brakes/fork tier cross-checked against three independent, mutually-agreeing dealer spec-feed listings (bikesale.com, danvillebikes.com, stedmansbikeshop.com) mirroring Pivot's own distributed spec sheet, for the same JS-lazy-load reason noted on the Shuttle LT row this wave.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.pivotcycles.com/en-us/bikes/shuttle-sl'
   },
 
   // ---------------------------------------------------------------------------
@@ -1015,23 +1031,27 @@ var EMTB_PARTS = [
   },
   {
     id: 'em-nukeproof-megawatt-297-carbon-pro', cat: 'emtb', brand: 'Nukeproof', model: 'Megawatt 297 Carbon Pro',
-    motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain', motorTorque: 90,
+    family: 'nukeproof-megawatt-carbon', modelYear: 2026,
+    motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain', motorTorque: 90, motorPowerPeak: 680,
     batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
-    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-enduro'], weight: 24000, price: 9899,
-    note: 'The Megawatt moved to a full-carbon frame and SRAM Eagle Powertrain, dropping Bosch entirely.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS Transmission', brakes: 'SRAM G2 RE',
+    disciplines: ['e-enduro'], weight: 23830, price: 9899,
+    note: 'The Megawatt moved to a full-carbon frame and SRAM Eagle Powertrain, dropping Bosch entirely; RockShox Zeb Select+/Vivid Select+ suspension.',
+    desc: "Verified vs the maker's own product page (motor/battery/travel/frame/wheel-config/drivetrain/weight all confirmed; page-stated bike weight 23.83kg S/M). Brakes corrected wave 4 cluster C (SRAM Code -> SRAM G2 RE, the actual sintered-pad 4-piston brake on this trim per the maker page and confirmed by two independent launch-spec sources); weight corrected to the maker-published 23830g (was 24000g sample). No US price is published on the maker's own site (nukeproof.com shows GBP/EUR RRP only, checkout geo-blocked in the US) — the existing $9,899 sample is retained because it matches the brand's own 2023 US launch-price press release (Notebookcheck, citing Nukeproof) exactly.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.nukeproof.com/en_GB/bikes/SBIMWCNKP002'
   },
   {
     id: 'em-nukeproof-megawatt-297-carbon-rs', cat: 'emtb', brand: 'Nukeproof', model: 'Megawatt 297 Carbon RS',
-    motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain', motorTorque: 90,
+    family: 'nukeproof-megawatt-carbon', modelYear: 2024, status: 'discontinued',
+    motorBrand: 'sram', motorModel: 'SRAM Eagle Powertrain', motorTorque: 90, motorPowerPeak: 680,
     batteryWh: 720, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 170,
-    frameMaterial: 'carbon', drivetrain: 'SRAM XX Eagle Transmission', brakes: 'SRAM Maven',
-    disciplines: ['e-enduro'], weight: 23600, price: 10899,
-    note: 'Top-tier carbon Megawatt build on SRAM Eagle Powertrain.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'SRAM Code RSC',
+    disciplines: ['e-enduro'], weight: 24300, price: 10899,
+    note: 'Top-tier carbon Megawatt build on SRAM Eagle Powertrain (2024 launch spec); RockShox Zeb Ultimate/Vivid Ultimate suspension. As of this pass, nukeproof.com/en_GB/bikes/platform/MEGAWATT_CRB lists only ONE current Megawatt Carbon SKU (SBIMWCNKP002, the Carbon Pro, cataloged as em-nukeproof-megawatt-297-carbon-pro) — the RS trim does not appear anywhere in the site\'s current bikes/ebikes navigation, so it looks to have been dropped from the lineup with the Pro remaining the sole current carbon trim (not a 1:1 successor SKU, so no supersededBy is set).',
+    desc: "NOT re-verified this wave — the RS trim is not fetchable as a live current maker page (only the Carbon Pro SKU is listed on nukeproof.com's Megawatt Carbon platform page and ebikes nav, checked wave 4 cluster C). Fields corrected from best-credible launch-era sources (drivetrain SRAM XX Eagle -> SRAM X0 Eagle AXS Transmission — SRAM XX was never offered on this bike; brakes SRAM Maven -> SRAM Code RSC; weight 23600g sample -> 24300g) cross-checked across the brand's own 2024 launch press materials (as quoted by Bike Perfect) and two independent retailer spec tables that agree with each other, but none of that is a currently-fetchable manufacturer product page, so verified:true is withheld per THE BAR and status:discontinued is set instead of inventing a live source.",
+    lastChecked: '2026-07-20'
   },
   {
     id: 'em-devinci-e-troy-bosch-29', cat: 'emtb', brand: 'Devinci', model: 'E-Troy Bosch GX 12s',
@@ -1091,34 +1111,40 @@ var EMTB_PARTS = [
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   },
   {
-    id: 'em-pivot-shuttle-am-bosch-cx', cat: 'emtb', brand: 'Pivot', model: 'Shuttle AM',
-    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 100, motorPowerPeak: 750,
-    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    id: 'em-pivot-shuttle-am-bosch-cx', cat: 'emtb', brand: 'Pivot', model: 'Shuttle AM Pro X0 Eagle Transmission',
+    family: 'pivot-shuttle-am', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance CX-R (Race Edition), Gen 5', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'SRAM Code',
-    disciplines: ['e-trail'], weight: 23000, price: 10799,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail'], weight: 23000, price: 11999,
     note: 'The next-gen Shuttle AM switched from Shimano EP8 to Gen 5 Bosch Performance CX/CX-R, with an 800Wh battery and optional 250Wh PowerMore range extender.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: "Verified vs the maker's own product page (pivotcycles.com/en-us/products/shuttle-am-pro-x0-eagle-transmission: model name, Bosch Gen 5 CX/CX-R motor family, MSRP all fetched directly) plus the Shuttle AM bike-family page (motor torque/power, 800Wh battery, 160/150mm travel, carbon frame, 29in wheel, PowerMore range-extender compatibility). Pivot's own itemized build-spec accordion is JS-lazy-loaded and did not render as text even via the browser pane (same wrinkle noted on the Shuttle LT/SL rows this wave), so drivetrain/brakes are cross-checked against a dealer listing (basecampvt.com, 2026-01-22) that mirrors Pivot's own distributed spec feed field-for-field — corroboration, not the primary source. Brakes corrected wave 4 cluster C (SRAM Code -> SRAM Maven Silver, the real current-gen spec); price corrected to the maker's own $11,999 MSRP (the previously-cataloged $10,799 was pivotcycles.com's current promotional SALE price, not MSRP — THE PRICE RULE requires MSRP in this field). No bike weight is published for this SKU (weight stays the prior sample estimate, noted honestly).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.pivotcycles.com/en-us/products/shuttle-am-pro-x0-eagle-transmission'
   },
   {
     id: 'em-norco-sight-vlt-cx-c2', cat: 'emtb', brand: 'Norco', model: 'Sight VLT CX C2',
-    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 100, motorPowerPeak: 750,
-    batteryWh: 800, batteryRemovable: false, assist: 'full-power', display: 'system-controller',
+    family: 'norco-sight-vlt-cx', gen: 'Gen 4', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Bronze',
+    frameMaterial: 'carbon', drivetrain: 'SRAM S1000 Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Bronze',
     disciplines: ['e-trail', 'e-enduro'], weight: 22200, price: 7999,
-    note: 'Mid-tier build of the Bosch-powered Sight VLT CX; the platform is carbon-only now — there is no current alloy "A1" tier.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    note: 'Mid-tier build of the Bosch-powered Sight VLT CX Gen 4; the platform is carbon-only now — there is no current alloy "A1" tier. Ships at 85Nm/600W stock, app-unlockable to 120Nm/750W (Bosch Performance Upgrade 2.0).',
+    desc: "Verified vs the maker's own product page (motor/battery/travel/frame/drivetrain/brakes/weight all confirmed; MSRP $7,999 US price matches 'In Shops' tier exactly, 22.2kg S3 weight matches exactly). motorTorque/motorPowerPeak corrected wave 4 cluster C (100/750 -> 85/600, the shipped stock tune — 100Nm/750W, now up to 120Nm/750W via the optional Bosch Flow App update, was the unlocked figure, not what ships); batteryRemovable corrected (false -> true, Bosch PowerTube is a removable pack); rangeExtender added (Bosch PowerMore 250 compatible, confirmed on the page); drivetrain refined to the actual derailleur tier (SRAM S1000 Eagle AXS T-Type, not the prior generic label).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.norco.com/bikes/e-mountain/e-all-mountain/sight-vlt-cx/25-sight-vlt-cx-c2/'
   },
   {
     id: 'em-norco-sight-vlt-cx-c1', cat: 'emtb', brand: 'Norco', model: 'Sight VLT CX C1',
-    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 100, motorPowerPeak: 750,
-    batteryWh: 800, batteryRemovable: false, assist: 'full-power', display: 'system-controller',
+    family: 'norco-sight-vlt-cx', gen: 'Gen 4', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
-    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'SRAM Maven Silver',
-    disciplines: ['e-trail', 'e-enduro'], weight: 22600, price: 9999,
-    note: 'Top-tier Sight VLT CX build; Bosch Performance Line CX replaces the prior Shimano EP8 generation.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: 21700, price: 9999,
+    note: 'Top-tier Sight VLT CX Gen 4 build; Bosch Performance Line CX replaces the prior Shimano EP8 generation. Ships at 85Nm/600W stock, app-unlockable to 120Nm/750W (Bosch Performance Upgrade 2.0).',
+    desc: "Verified vs the maker's own product page (motor/battery/travel/frame/drivetrain/brakes/weight all confirmed; MSRP $9,999 US price matches 'In Shops' tier exactly, 21.7kg S3 weight maker-published). motorTorque/motorPowerPeak corrected wave 4 cluster C (100/750 -> 85/600, the shipped stock tune, not the app-unlocked figure); batteryRemovable corrected (false -> true, Bosch PowerTube is removable); rangeExtender added (Bosch PowerMore 250 compatible); drivetrain corrected (SRAM X0 Eagle AXS -> the actual SRAM GX Eagle AXS T-Type derailleur per the spec sheet); weight corrected (22600g sample -> 21700g maker-published).",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.norco.com/bikes/e-mountain/e-all-mountain/sight-vlt-cx/25-sight-vlt-cx-c1/'
   },
   {
     id: 'em-scott-genius-eride-910-bosch-cx-gen4', cat: 'emtb', brand: 'Scott', model: 'Genius eRide 910',
