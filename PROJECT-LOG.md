@@ -1,5 +1,26 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — FILE-CONTAINMENT AUDIT (Douglas's catch) + enforcement actually ON
+
+- **Douglas found stray project folders on D:\** — full audit run. Removed: all 19
+  D:\mtb-worktrees\ worktrees (18 merged+clean; 1 had only a regenerable
+  drift-report state diff), the C:\ emtb-1 worktree, the Temp mmr worktree (branches all
+  preserved in the repo — worktree removal never deletes commits), and
+  D:\scratch_cbgrind (6 tiny harness outputs, preserved at .claude/legacy-strays/).
+  D:\mtb-worktrees itself is empty; the top-level shell is deletion-protected from this
+  session — one manual click, or leave it. launch.json pruned of 4 outside-path entries.
+- **ROOT CAUSE FOUND — the containment hook was silently OFF in live sessions**: main's
+  committed settings.json has carried the PreToolUse guard since 2026-07-18, but the
+  SHARED checkout (which live sessions actually read) had stale uncommitted
+  settings.json modifications predating the hooks block. Every session since has run
+  unguarded — hence the strays. FIXED: guard upgraded (matcher Bash|PowerShell — workers
+  use both shells; absolute script path), pipe-tested (deny/allow/non-match), committed
+  to main, shared checkout synced byte-identical to main, and PROVEN LIVE — the hook
+  denied a tripwire command in the coordinator's own session.
+- **verify/emtb-5 merged**: honest zero-yield — all 26 blocked EMTB rows re-confirmed
+  with fresh fetches; Bullit XX trim flag queued. FIRST harvest delivered via the new
+  click-free report-drop channel (.claude/worker-reports/ + coordinator Monitor).
+
 ## 2026-07-21 — ★★★ BUILDMYGRAVELBIKE LIVE — THE FAMILY IS COMPLETE ★★★
 
 - **gravel.html flipped live** on Douglas's word (223 parts / 54 verified at flip — every
