@@ -1,5 +1,16 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — BMX ALIASES mechanism shipped (share-restore integrity)
+
+- **feat/bmx-aliases-1 merged + deployed**: BMX_ALIASES/canonicalBmxId in compat-bmx.js
+  (compat.js contract mirrored exactly), optional status/supersededBy in schema-bmx with
+  an order-independent cross-check, 3 pre-mechanism removals seeded with per-pick
+  reasoning. Honest premise correction by the worker: bmx.html has NO hash share links —
+  the localStorage restore is the real analog, and that's what resolves through
+  canonicalBmxId now (browser-proven: retired ids restore instead of silently dropping).
+  869 tests. The 2026-07-21 governance flag is CLOSED: future BMX retirements go through
+  this mechanism, never removal.
+
 ## 2026-07-21 — NINE-CHIP WAVE CLOSED (all nine harvested) + build sheet shipped
 
 - **feat/build-sheet-1 merged + deployed** (feature slate): click-opened printable build
