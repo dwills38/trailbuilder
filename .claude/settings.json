@@ -33,7 +33,8 @@
       "mcp__ccd_session_mgmt__list_sessions",
       "mcp__ccd_session_mgmt__send_message",
       "mcp__ccd_session_mgmt__list_events",
-      "mcp__ccd_session_mgmt__set_session_title"
+      "mcp__ccd_session_mgmt__set_session_title",
+      "mcp__ccd_session_mgmt__archive_session"
     ]
   },
   "hooks": {
