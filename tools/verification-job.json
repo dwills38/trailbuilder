@@ -1,9 +1,9 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T19:57:08.030Z",
+ "updated": "2026-07-21T20:16:31.311Z",
  "batchSize": 25,
- "lastCompleted": "cr-shimano-mt612-30",
+ "lastCompleted": "rw-bontrager-connection-marlinoe-29",
  "currentCategory": "frame",
  "queue": [
   "fr-giant-reign-advanced",
@@ -23,13 +23,6 @@
   "fr-propain-tyee-al",
   "fr-propain-hugene-cf",
   "ti-cst-camber-29-225",
-  "ti-bontrager-xr1-29-22-innerstrength-tmspeed",
-  "ti-bontrager-xr5-29-25-tmgrip",
-  "ti-bontrager-se5-275-25-corestrength-tmgrip",
-  "ti-bontrager-se5-275-26-corestrength-tmgrip",
-  "ti-bontrager-se4-275-26-tmgrip",
-  "ti-bontrager-se5-29-25-corestrength-tmgrip",
-  "ti-bontrager-se6-29-25-corestrength-tmgrip",
   "ti-panaracer-driverpro-29-22-zsg",
   "ti-panaracer-driverpro-29-24-triple",
   "ti-panaracer-driverpro-29-26-triple",
@@ -49,8 +42,6 @@
   "ti-schwalbe-magic-mary-275-25-tp-as",
   "ti-schwalbe-nobbynic-29-24-supertrail-soft",
   "ti-schwalbe-nobbynic-29-24-superground-speed",
-  "ti-maxxis-minion-dhf-29-25-mt",
-  "ti-maxxis-dissector-29-24-mt",
   "ti-schwalbe-magic-mary-29-25-st-aus",
   "ti-schwalbe-magic-mary-275-25-sg-as",
   "ti-xlc-vtm20-summit-29-225",
@@ -59,11 +50,6 @@
   "ti-continental-kryptotal-re-275-24-downhill-supersoft",
   "ti-schwalbe-racing-ray-29-225-sg-asg",
   "ti-maxxis-ardent-race-29-22-exo",
-  "ti-bontrager-xr4-29-26-innerstrength-tmgrip",
-  "ti-bontrager-gunnison-rsl-xt-29-24",
-  "ti-bontrager-montrose-rsl-xt-29-24",
-  "ti-bontrager-g5-29-25",
-  "ti-bontrager-xr4-29-24-innerstrength-tmgrip",
   "ti-wtb-breakout-29-23",
   "ti-wtb-trailboss-29-225-comp",
   "ti-kenda-regolith-29-24",
@@ -81,12 +67,9 @@
   "ti-maxxis-ardentrace-275-26-exo-tr",
   "ti-maxxis-ardent-29-24-exo-dual",
   "ti-wtb-vigilante-275-25-lightsg2-gripton",
-  "ti-bontrager-montrose-comp-29-24",
   "ti-schwalbe-racing-ralph-29-235-sg-as",
   "ti-schwalbe-racing-ray-29-235-sg-asg",
   "ti-veerubber-crowngem-275-28",
-  "ti-bontrager-brevardpro-xr-275-25-dual",
-  "ti-bontrager-sainteanne-proxr-29-22",
   "fw-raceface-ar30-factor-29",
   "fw-sonder-nova-29",
   "fw-reserve-30tr-al-29",
@@ -95,20 +78,12 @@
   "fw-weareone-triad-29",
   "fw-weareone-triad-275",
   "fw-industrynine-whisp-29",
-  "fw-dtswiss-xr1700-29",
   "fw-ethirteen-lg1r-29",
   "fw-ethirteen-lg1r-275",
   "fw-zipp-3zero-moto-275",
   "fw-roval-control-sl-29",
   "fw-roval-control-sl-29-cl",
-  "fw-bontrager-line-pro-30-275",
   "fw-bontrager-linecomp-30-29",
-  "fw-bontrager-linecomp-30-275",
-  "fw-bontrager-linepro-30-29",
-  "fw-bontrager-lineelite-30-275",
-  "fw-bontrager-line-elite-30-29",
-  "fw-bontrager-line-elite-30-275",
-  "fw-bontrager-kovee-elite-30-29",
   "fw-reserve-30sl-29",
   "fw-reserve-30sl-275",
   "fw-weareone-faction-29",
@@ -137,13 +112,10 @@
   "fw-halo-combat-26-15x100",
   "fw-alexrims-dm24-26-15x100",
   "fw-syncros-md25-26-15x100",
-  "fw-dtswiss-e593-29",
   "fw-wtb-sti27-29",
-  "fw-dtswiss-xm1700-275",
   "fw-nukeproof-horizon-v2-29",
   "fw-wtb-novatec-i30-29",
   "fw-marin-shimano-mt410-29",
-  "fw-dtswiss-lnxc-29",
   "fw-shimano-tc500-wtbsti30-29-cl",
   "fw-marin-house-29-boost",
   "fw-marin-pinemountain2-29",
@@ -169,8 +141,6 @@
   "fw-xlc-wrm39-29",
   "fw-sunringle-duroc-sd37-comp-29",
   "fw-wtb-frequency-i30-29",
-  "fw-dtswiss-370classic-wtbstlight-i30-29",
-  "fw-dtswiss-350-komtrail-i30-29",
   "fw-formula-wtbsti30-29",
   "fw-stans-flowex3-formula-29-20x110",
   "fw-formula-wtbkomtrail-i30-29",
@@ -185,9 +155,6 @@
   "fw-syncros-silverton2-29",
   "fw-giant-xct-29",
   "fw-wtb-sti25-scalpelht3-29",
-  "fw-bontrager-line-comp-30-29",
-  "fw-bontrager-linetlr30-roscoeoe-29",
-  "fw-bontrager-linedh-30-29-20x110",
   "fw-wtb-sti30-habitht-29",
   "fw-wtb-stxi25-habitht2-29",
   "fw-wtb-stxi25-mt400-29",
@@ -196,7 +163,6 @@
   "fw-focus-ar27-formula-29",
   "fw-newmen-performance30-dh-275",
   "fw-specialized-alloy-30-29",
-  "fw-dtswiss-370-roval-alloy-29",
   "fw-specialized-alloy-29-29",
   "fw-specialized-alloy-28-29",
   "fw-specialized-alloy-27-29",
@@ -209,7 +175,6 @@
   "fw-vitus-formuladc711-29",
   "fw-formula-dc511-wtbsti30-29",
   "fw-alexrims-dp25-tc500-29",
-  "fw-dtswiss-amln370-29",
   "fw-canyon-iridium30-29",
   "fw-alexrims-dp30-tc500-29",
   "fw-spank-spikerace33-formula-29",
@@ -217,7 +182,6 @@
   "fw-whyte-secta-rs-alloy-29",
   "fw-whyte-secta-r-alloy-29",
   "fw-marin-house-275-boost",
-  "fw-dtswiss-370-ex511-29",
   "fw-giant-am30-29",
   "fw-raceface-trace-29",
   "fw-roval-traverse-sl-carbon-29",
@@ -229,8 +193,6 @@
   "fw-shimano-tc500-alexdp25-29-cl",
   "fw-syncros-silverton25-29",
   "fw-alexrims-md30-29-formula-dh",
-  "fw-bontrager-kovee-marlinoe-29",
-  "fw-bontrager-kovee-xcaliberoe-29",
   "fw-giant-fathomoe-275",
   "fw-giant-talonoe-29",
   "fw-norco-alexdp30-shimano-29",
@@ -239,10 +201,7 @@
   "fw-wtb-sporterra-i30-29",
   "fw-reserve-30hd-al-29-dh",
   "fw-ethirteen-grappler-race-29-dh",
-  "fw-dtswiss-fr541-240-29",
-  "fw-dtswiss-e532-29",
   "fw-stanton-wtbsti29-275",
-  "fw-bontrager-connection-marlinoe-29",
   "fw-giant-xcr2-29",
   "fw-raceface-arc30-29-20x110",
   "fw-formula-dc20-rockhopper-29",
@@ -260,11 +219,6 @@
   "rw-raceface-ar30-factor-29-sb157-xd",
   "rw-stans-flow-s2-29-ms",
   "rw-sonder-nova-29-hg",
-  "rw-dtswiss-xr1700-29-xd",
-  "rw-bontrager-linecomp-30-275-ms",
-  "rw-bontrager-linepro-30-275-xd",
-  "rw-bontrager-lineelite-30-275-xd",
-  "rw-bontrager-kovee-elite-30-29-ms",
   "rw-bontrager-linecomp-30-29-xd",
   "rw-reserve-30tr-al-29-hg",
   "rw-industrynine-enduro-s-275",
@@ -276,7 +230,6 @@
   "rw-weareone-triad-29-hg",
   "rw-industrynine-whisp-29-ms",
   "rw-industrynine-whisp-29-xd",
-  "rw-dtswiss-fr-1500-29-150-hg",
   "rw-weareone-triad-275",
   "rw-weareone-triad-275-ms",
   "rw-weareone-triad-275-hg",
@@ -296,15 +249,6 @@
   "rw-roval-traverse-hd-275-ms",
   "rw-roval-control-sl-29-xd",
   "rw-roval-control-sl-29-ms",
-  "rw-bontrager-line-pro-30-275-xd",
-  "rw-bontrager-line-pro-30-29-ms",
-  "rw-bontrager-line-pro-30-275-ms",
-  "rw-bontrager-line-elite-30-29-xd",
-  "rw-bontrager-line-elite-30-29-ms",
-  "rw-bontrager-line-elite-30-29-hg",
-  "rw-bontrager-line-elite-30-275-xd",
-  "rw-bontrager-line-elite-30-275-ms",
-  "rw-bontrager-line-elite-30-275-hg",
   "rw-reserve-30slal-oneup-29-ms",
   "rw-reserve-30hdal-oneup-29-ms",
   "rw-weareone-union-29-ms",
@@ -325,8 +269,6 @@
   "rw-weareone-deal-29-157-xd",
   "rw-weareone-deal-275-148-xd",
   "rw-weareone-deal-275-157-xd",
-  "rw-dtswiss-f-1900-29-157-ms",
-  "rw-dtswiss-f-1900-275-157-ms",
   "rw-industrynine-hydra2-dh-29-xd",
   "rw-industrynine-hydra2-dh-29-ms",
   "rw-industrynine-hydra2-dh-29-hg",
@@ -352,22 +294,17 @@
   "rw-halo-combat-26-ss",
   "rw-alexrims-dm24-26-ss",
   "rw-syncros-md25-26-ss",
-  "rw-dtswiss-e593-275-ms",
   "rw-wtb-sti27-29-ms",
-  "rw-dtswiss-m1900-275-157-xd",
-  "rw-dtswiss-xm1700-275-xd",
   "rw-nukeproof-horizon-v2-29-xd",
   "rw-nukeproof-horizon-v2-275-xd",
   "rw-wtb-novatec-i30-29-hg",
   "rw-marin-shimano-mt410-275-ms",
-  "rw-dtswiss-lnxc-29-ms",
   "rw-shimano-tc500-wtbsti30-29-cl-ms",
   "rw-marin-house-29-boost-ms",
   "rw-marin-pinemountain2-29-ms",
   "rw-marin-formula-dcl3482-275-xd",
   "rw-marin-formula-dcl3482-29-xd",
   "rw-industrynine-enduro-s-29-xd",
-  "rw-dtswiss-fr-1500-275-157-hg",
   "rw-wtb-stlight-29-xd",
   "rw-vitus-kt-wtb-komtrail-i30-29",
   "rw-vitus-kt-wtb-stlight-i30-29-hg",
@@ -396,8 +333,6 @@
   "rw-xlc-wrm39-29-ms",
   "rw-sunringle-duroc-sd37-comp-29-hg",
   "rw-wtb-frequency-i30-29-ms",
-  "rw-dtswiss-370classic-wtbstlight-i30-29-ms",
-  "rw-dtswiss-350-komtrail-i30-29-xd",
   "rw-formula-wtbsti30-29-hg",
   "rw-stans-flowex3-sram-275-hg",
   "rw-formula-wtbkomtrail-i30-29-hg",
@@ -415,15 +350,7 @@
   "rw-giant-trx-0-275-ms",
   "rw-giant-xct-29-ms",
   "rw-syncros-x30s-29-hg",
-  "rw-dtswiss-m1900-29-157-xd",
-  "rw-dtswiss-m1900-29-157-ms",
   "rw-wtb-sti25-scalpelht3-29-ms",
-  "rw-bontrager-line-comp-30-29-hg",
-  "rw-bontrager-line-comp-30-29-ms",
-  "rw-bontrager-line-comp-30-29-xd",
-  "rw-bontrager-linetlr30-roscoeoe-29",
-  "rw-bontrager-linedh-30-29-157-hg",
-  "rw-bontrager-linepro-30-29-xd",
   "rw-wtb-sti30-habitht-29-hg",
   "rw-wtb-stxi25-habitht2-29-hg",
   "rw-wtb-stxi25-mt400-29-hg",
@@ -436,7 +363,6 @@
   "rw-acid-slx30-29-hg",
   "rw-newmen-performance30-dh-275-superboost157",
   "rw-specialized-alloy-30-29-ms",
-  "rw-dtswiss-370-roval-alloy-29-xd",
   "rw-specialized-alloy-29-29-ms",
   "rw-specialized-alloy-30-29-hg",
   "rw-specialized-alloy-30-275-ms",
@@ -457,14 +383,12 @@
   "rw-raceface-ar30-275-hg",
   "rw-raceface-ar30-275-xd",
   "rw-alexrims-dp25-tc500-29-ms",
-  "rw-dtswiss-amln370-29-ms",
   "rw-canyon-iridium30-29-hg",
   "rw-alexrims-dp30-tc500-29-hg",
   "rw-spank-spikerace33-formula-29-hg",
   "rw-wtb-sti35tcs20-275-hg",
   "rw-whyte-secta-r-alloy-29-hg",
   "rw-marin-house-275-boost-hg",
-  "rw-dtswiss-370-ex511-29-hg",
   "rw-giant-am30-29-ms",
   "rw-giant-tra2-275-ms",
   "rw-raceface-trace-29-xd",
@@ -480,8 +404,6 @@
   "rw-shimano-tc500-alexdp25-29-cl-ms",
   "rw-syncros-silverton25-29-xd",
   "rw-alexrims-md30-275-formula-superboost157",
-  "rw-bontrager-kovee-marlinoe-29",
-  "rw-bontrager-kovee-xcaliberoe-29",
   "rw-giant-fathomoe-275",
   "rw-giant-talonoe-29",
   "rw-specialized-alloy-29-29-b-xd",
@@ -492,12 +414,7 @@
   "rw-wtb-sporterra-i30-29-ms",
   "rw-reserve-30hd-al-275-157-hg",
   "rw-ethirteen-grappler-race-275-157-hg",
-  "rw-dtswiss-fr-1500-275-148-xd",
-  "rw-dtswiss-fr-1500-29-157-hg",
-  "rw-dtswiss-fr541-240-29-xd",
-  "rw-dtswiss-e532-29-hg",
   "rw-stanton-wtbsti29-275-hg",
-  "rw-bontrager-connection-marlinoe-29",
   "rw-giant-xcr2-29-ms",
   "rw-ethirteen-lg1-enduro-29-xd",
   "rw-raceface-arc30-275-sboost157-hg",
@@ -1295,7 +1212,10 @@
   "cb-evil-wreckoning-ls-gx-i9-hydra",
   "cb-evil-wreckoning-ls-xx-transmission",
   "cb-trek-session-8-29-gx",
+  "cb-trek-topfuel-9-8-gx-axs-gen4",
+  "cb-trek-fuelex-99-xx-axs-gen6",
   "cb-trek-remedy-8",
+  "cb-trek-fuelex-8-gx-axs-gen6",
   "cb-trek-supercaliber-slr-98-xt-gen2",
   "cb-cannondale-habit-ht-1",
   "cb-cannondale-habit-ht-2",
@@ -1405,6 +1325,7 @@
   "cb-pivot-les-sl-ride-slxxt",
   "cb-diamondback-release-29-1",
   "cb-bmc-twostroke-01-two",
+  "cb-trek-procaliber-95-gen3",
   "cb-orbea-oiz-m30",
   "cb-scott-spark-rc-pro",
   "cb-pivot-mach4sl-team-xtr",
@@ -1431,8 +1352,6 @@
   "fh-industrynine-hydra2-20x110",
   "fh-industrynine-hydra2-20x110-nonboost",
   "fh-ethirteen-race-alloy-boost110",
-  "rh-dtswiss-350-boost148-ms",
-  "rh-dtswiss-350-boost148-hg",
   "rh-industrynine-hydraclassic-boost148-ms",
   "rh-industrynine-hydraclassic-boost148-xd",
   "rh-industrynine-hydraclassic-boost148-hg",
@@ -5115,19 +5034,19 @@
   },
   "rh-dtswiss-350-boost148-ms": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:46:51.791Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: RE-CONFIRMED interfaces via dtswiss.com/en/support/product-support?matnr=H350TCD2R28SA5242S (browser pane) - states axle/built-in-dimension/brake-interface/freehub-body exactly matching the row, but the support/spare-parts page lists no weight field at all (only spare-part material numbers). No maker weight source exists for this exact hub SKU after three sessions' worth of attempts (2026-07-09/10, verify/wheels-2 2026-07-18, this session) - genuine, persistent gap. Stays unverified, closing out the job entry."
   },
   "rh-dtswiss-350-boost148-hg": {
    "cat": "rearhub",
-   "status": "Pending",
-   "updated": "2026-07-09T02:43:31.213Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:46:52.033Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: same persistent weight gap as the Micro Spline sibling (interfaces confirmed via product-support page, no weight field published; retailer weight figures conflict 225-359g across sources so none is usable). Stays unverified, closing out the job entry."
   },
   "rh-hope-pro5-boost148-xd": {
    "cat": "rearhub",
@@ -6747,35 +6666,35 @@
   },
   "ti-bontrager-xr1-29-22-innerstrength-tmspeed": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:53:31.452Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/mountain-bike-tires/xr-team-issue-mtb-tires/bontrager-xr1-team-issue-tlr-mtb-tire/p/5253708",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-bontrager-xr5-29-25-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:49:14.204Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: RE-CONFIRMED the mtb-tail-8 finding - no 29x2.5 XR5 Team Issue TLR product page exists on trekbikes.com (WebSearch across all Trek regional sites finds only the 27.5x2.5 closeout SKU p/5253213, already verified separately, plus an archived 2018-2022 29in listing offering only 2.3/2.6in widths, no 2.5in). Genuine non-existent-SKU gap, not a fetch wall. Stays unverified, closing out the job entry."
   },
   "ti-bontrager-se5-29-25-corestrength-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:50:55.083Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: FETCHED trekbikes.com's SE5 Team Issue TLR page (model 579274, archived 2018-2022 run) directly - its Specs tab lists all 4 sizes ever stocked: 27.5x2.3/2.6 and 29x2.3/2.6 only. No 2.5in width was ever a retail SE5 SKU. This row's sourcing (bikerumor.com press coverage) may be conflating this with the SE6 line (which does run 2.5in) or an OE-only width never sold at retail - cannot confirm either way this session. Stays unverified, flagged for a future cross-check rather than altered blind."
   },
   "ti-bontrager-se6-29-25-corestrength-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:52:03.405Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/mountain-bike-tires/trail-mountain-bike-tires/bontrager-se6-team-issue-tlr-mtb-tire/p/34494/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-panaracer-aliso-275-24-st-triple": {
    "cat": "tire",
@@ -7243,27 +7162,27 @@
   },
   "fw-bontrager-line-pro-30-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:00:11.209Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-pro-30-tlr-boost-27-5-mtb-wheel/p/29086/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-bontrager-line-elite-30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:01:22.471Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-elite-30-tlr-boost-29-mtb-wheel/p/29540/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-bontrager-line-elite-30-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:04:02.174Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-elite-30-tlr-boost-27-5-mtb-wheel/p/29539/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-reserve-31dh-29": {
    "cat": "frontwheel",
@@ -7803,75 +7722,75 @@
   },
   "rw-bontrager-line-pro-30-275-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:01:08.800Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-pro-30-tlr-boost-27-5-mtb-wheel/p/29086/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-line-pro-30-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:08:22.680Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-pro-30-tlr-boost-29-mtb-wheel/p/29087/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-line-pro-30-275-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:08:22.681Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-pro-30-tlr-boost-27-5-mtb-wheel/p/29086/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-line-elite-30-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:01:56.894Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-elite-30-tlr-boost-29-mtb-wheel/p/29540/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-line-elite-30-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:08:22.681Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-elite-30-tlr-boost-29-mtb-wheel/p/29540/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-line-elite-30-29-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:08:22.681Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-elite-30-tlr-boost-29-mtb-wheel/p/29540/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-line-elite-30-275-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:08:22.809Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: attempted to fetch a dedicated carbon-XD Line Elite 27.5in REAR wheel page - the only 27.5in Line Elite product pages found (models 14833/1040867) are either the front-only carbon SKU (already verified separately) or a DIFFERENT older aluminum-rim/HG-driver generation (model 545381, 782g/926g, Aluminum) that does not match this row's carbon+XD spec. No matching carbon-XD rear page found this session. Stays unverified sample, closing out the job entry."
   },
   "rw-bontrager-line-elite-30-275-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:08:23.044Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: attempted to fetch a dedicated carbon-XD Line Elite 27.5in REAR wheel page - the only 27.5in Line Elite product pages found (models 14833/1040867) are either the front-only carbon SKU (already verified separately) or a DIFFERENT older aluminum-rim/HG-driver generation (model 545381, 782g/926g, Aluminum) that does not match this row's carbon+XD spec. No matching carbon-XD rear page found this session. Stays unverified sample, closing out the job entry."
   },
   "rw-bontrager-line-elite-30-275-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:08:23.280Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: attempted to fetch a dedicated carbon-XD Line Elite 27.5in REAR wheel page - the only 27.5in Line Elite product pages found (models 14833/1040867) are either the front-only carbon SKU (already verified separately) or a DIFFERENT older aluminum-rim/HG-driver generation (model 545381, 782g/926g, Aluminum) that does not match this row's carbon+XD spec. No matching carbon-XD rear page found this session. Stays unverified sample, closing out the job entry."
   },
   "rw-reserve-31dh-29-xd": {
    "cat": "rearwheel",
@@ -17280,14 +17199,6 @@
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
   },
-  "rw-dtswiss-f-1900-29-157-ms": {
-   "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
   "rw-dtswiss-f-1900-275-xd": {
    "cat": "rearwheel",
    "status": "Verified",
@@ -17311,14 +17222,6 @@
    "error": null,
    "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
-  },
-  "rw-dtswiss-f-1900-275-157-ms": {
-   "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
-   "error": null,
-   "source": null,
-   "note": null
   },
   "rw-industrynine-hydra2-dh-29-xd": {
    "cat": "rearwheel",
@@ -26802,27 +26705,27 @@
   },
   "ti-bontrager-se5-275-25-corestrength-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:50:55.349Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: same finding as the 29in sibling - Trek's own SE5 Team Issue retail page never lists a 2.5in width (only 2.3/2.6 across its whole run). This row is sourced from a vitalmtb.com Trek Slash OE build-sheet citation (a real bike's stock-spec claim, different provenance tier) rather than Trek's own tire page, so it may be a genuine OE-only width Trek never sold at retail - left unverified/unaltered, flagged for a future cross-check."
   },
   "ti-bontrager-se5-275-26-corestrength-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:50:54.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/mountain-bike-tires/trail-mountain-bike-tires/bontrager-se5-team-issue-tlr-mtb-tire/p/12528/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-bontrager-se4-275-26-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:52:45.577Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/mountain-bike-tires/trail-mountain-bike-tires/bontrager-se4-team-issue-tlr-mtb-tire/p/13586/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-continental-kryptotal-fr-29-24-enduro-supersoft": {
    "cat": "tire",
@@ -26962,19 +26865,11 @@
   },
   "ti-maxxis-minion-dhf-29-25-mt": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:16:31.308Z",
    "error": null,
-   "source": null,
-   "note": null
-  },
-  "ti-maxxis-dissector-29-24-mt": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.maxxis.com/us/tire/minion-dhf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-schwalbe-magic-mary-29-25-st-aus": {
    "cat": "tire",
@@ -27146,11 +27041,11 @@
   },
   "ti-bontrager-xr4-29-26-innerstrength-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:55:38.104Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/mountain-bike-tires/bontrager-xr4-team-issue-tlr-mtb-tire/p/13585/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-bontrager-gunnisonpro-xr-29-24": {
    "cat": "tire",
@@ -27162,19 +27057,19 @@
   },
   "ti-bontrager-g5-29-25": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:58:18.192Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/mountain-bike-tires/bontrager-g5-team-issue-mtb-tire/p/11207/",
+   "note": "mtb-tail-9: FETCHED trekbikes.com's G5 Team Issue page directly, corrected weight/price/casing to real maker-stated figures - but the page names no compound tier at all, so it cannot clear the tire-batch gate's casing+compound requirement for verified:true. Real-sourced, closing out the job entry as Skipped (policy gate, not a wall)."
   },
   "ti-bontrager-xr4-29-24-innerstrength-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:55:38.104Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/mountain-bike-tires/bontrager-xr4-team-issue-tlr-mtb-tire/p/13585/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-wtb-breakout-29-23": {
    "cat": "tire",
@@ -27474,11 +27369,11 @@
   },
   "ti-bontrager-montrose-comp-29-24": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:57:00.933Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: row already real-page-sourced (mtb-tail-8, trekbikes.com fetched directly) but cannot clear verified:true - the page names no compound tier at all and test-data.js requires both casing+compound on a verified tire. No further data available this session. Stays unverified, closing out the job entry."
   },
   "ti-schwalbe-racing-ralph-29-235-sg-as": {
    "cat": "tire",
@@ -27506,11 +27401,11 @@
   },
   "ti-bontrager-brevardpro-xr-275-25-dual": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:57:01.166Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: RE-CONFIRMED mtb-tail-8's finding - WebSearch across trekbikes.com regional sites finds no distinct 27.5x2.5 Brevard Pro XR product page (the verified 29in sibling's SKU page, model 5312043, offers 29in only). Genuine open question (real OE-only size vs vitalmtb over-generalization), not a fetch wall. Stays unverified, closing out the job entry."
   },
   "ti-bontrager-brevardpro-xr-29-25-dual": {
    "cat": "tire",
@@ -27538,11 +27433,11 @@
   },
   "ti-bontrager-sainteanne-proxr-29-22": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:57:01.407Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: RE-CONFIRMED mtb-tail-8's finding - the verified 29x2.4 Sainte-Anne Pro XR sibling's SKU page (model 44575) offers only that one size, no 2.2in option found on any Trek regional site. Genuine open question, not a fetch wall. Stays unverified, closing out the job entry."
   },
   "fw-raceface-ar30-factor-29": {
    "cat": "frontwheel",
@@ -27570,11 +27465,11 @@
   },
   "fw-dtswiss-xr1700-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:23.653Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: re-confirms mtb-tail-8's finding (already in the row's own desc) - dtswiss.com's current wheels-mtb/cross-country listing has no plain 'XR 1700 SPLINE' product; only XRC1700 (carbon) and XM1700 (all-mountain alloy) exist at the 1700 tier. Genuinely discontinued/delisted (status:discontinued already set), not a fetch-tooling gap. No maker page exists to verify against - stays unverified sample, closing out the job entry."
   },
   "fw-bontrager-linecomp-30-29": {
    "cat": "frontwheel",
@@ -27586,35 +27481,27 @@
   },
   "fw-bontrager-linecomp-30-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:13:12.164Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-comp-30-tlr-boost-27-5-mtb-wheel/p/34497/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-bontrager-linepro-30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:06:03.748Z",
    "error": null,
-   "source": null,
-   "note": null
-  },
-  "fw-bontrager-lineelite-30-275": {
-   "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-pro-30-tlr-boost-29-mtb-wheel/p/29087/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-bontrager-kovee-elite-30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:12:43.972Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-kovee-elite-30-tlr-boost-29-mtb-wheel/p/37179/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-industrynine-11-enduro-275": {
    "cat": "frontwheel",
@@ -27658,11 +27545,11 @@
   },
   "fw-dtswiss-e593-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:03.397Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: re-checked dtswiss.com/en/wheels/wheels-mtb (full category listing, all 7 categories) via browser pane - no E593/E 593 complete-wheel product exists in the current lineup at all (Enduro category lists only EXC1200/EXC1500/EX1700/E1900). Confirms the existing catalog note: E 593 is sold only as a standalone RIM (dtswiss.com rims-mtb page), built into a complete wheel by OEMs (Commencal) - no maker complete-wheel page to fetch, so the bar cannot be met. Stays unverified sample."
   },
   "fw-dtswiss-m1900-29": {
    "cat": "frontwheel",
@@ -27730,11 +27617,11 @@
   },
   "fw-dtswiss-lnxc-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:11.505Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: re-checked dtswiss.com's full wheels-mtb category listing via browser pane - no 'LN XC' product exists anywhere in the current lineup (Cross Country category: XRC1200/XRC1500/XRC1700/X1900 only). Confirms existing note: this is a Canyon house/OE naming, not a DT Swiss retail SKU name - no maker page to fetch. Stays unverified sample (Canyon OE build-sheet sourced)."
   },
   "fw-shimano-tc500-wtbsti30-29-cl": {
    "cat": "frontwheel",
@@ -27978,19 +27865,19 @@
   },
   "fw-dtswiss-370classic-wtbstlight-i30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:07.763Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "fw-dtswiss-350-komtrail-i30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:08.239Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "fw-formula-wtbsti30-29": {
    "cat": "frontwheel",
@@ -28154,27 +28041,27 @@
   },
   "fw-bontrager-line-comp-30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:11:47.330Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-comp-30-tlr-boost-29-mtb-wheel/p/34498/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-bontrager-linetlr30-roscoeoe-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:12.289Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "fw-bontrager-linedh-30-29-20x110": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:12.805Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "fw-wtb-sti30-habitht-29": {
    "cat": "frontwheel",
@@ -28298,11 +28185,11 @@
   },
   "fw-dtswiss-370-roval-alloy-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:08.699Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "fw-specialized-alloy-29-29": {
    "cat": "frontwheel",
@@ -28402,11 +28289,11 @@
   },
   "fw-dtswiss-amln370-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:09.159Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "fw-canyon-iridium30-29": {
    "cat": "frontwheel",
@@ -28474,11 +28361,11 @@
   },
   "fw-dtswiss-370-ex511-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:09.624Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "fw-giant-am30-29": {
    "cat": "frontwheel",
@@ -28570,19 +28457,19 @@
   },
   "fw-bontrager-kovee-marlinoe-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:13.300Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "fw-bontrager-kovee-xcaliberoe-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:13.773Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "fw-giant-fathomoe-275": {
    "cat": "frontwheel",
@@ -28650,19 +28537,19 @@
   },
   "fw-dtswiss-fr541-240-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:10.098Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "fw-dtswiss-e532-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:10.573Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "fw-stanton-wtbsti29-275": {
    "cat": "frontwheel",
@@ -28674,11 +28561,11 @@
   },
   "fw-bontrager-connection-marlinoe-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:14.251Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "fw-giant-xcr2-29": {
    "cat": "frontwheel",
@@ -28834,11 +28721,11 @@
   },
   "rw-dtswiss-xr1700-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:23.887Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: same finding as the front wheel sibling - genuinely delisted DT Swiss product, no current maker page. Stays unverified sample."
   },
   "rw-dtswiss-fr-1500-275-148-hg": {
    "cat": "rearwheel",
@@ -28850,35 +28737,27 @@
   },
   "rw-bontrager-linecomp-30-275-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:13:12.165Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-comp-30-tlr-boost-27-5-mtb-wheel/p/34497/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-linepro-30-275-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:06:03.748Z",
    "error": null,
-   "source": null,
-   "note": null
-  },
-  "rw-bontrager-lineelite-30-275-xd": {
-   "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
-   "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-pro-30-tlr-boost-27-5-mtb-wheel/p/29086/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-kovee-elite-30-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:12:43.973Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-kovee-elite-30-tlr-boost-29-mtb-wheel/p/37179/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-linecomp-30-29-xd": {
    "cat": "rearwheel",
@@ -28930,11 +28809,11 @@
   },
   "rw-dtswiss-fr-1500-29-150-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:11.048Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-spank-359-275-157-xd": {
    "cat": "rearwheel",
@@ -28978,11 +28857,11 @@
   },
   "rw-dtswiss-e593-275-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:03.641Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: same finding as the front wheel - no E593 complete-wheel product on dtswiss.com's current site; rim-only product, OEM-built. Stays unverified sample."
   },
   "rw-dtswiss-m1900-29-xd": {
    "cat": "rearwheel",
@@ -29018,11 +28897,11 @@
   },
   "rw-dtswiss-m1900-275-157-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:53.625Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: RE-CONFIRMED via dtswiss.com's M 1900 SPLINE model-finder (14 SKUs, browser pane) - no 12/157mm (SuperBoost) built-in dimension exists on DT Swiss's own retail configurator, only 148mm Boost. Matches this row's own already-thorough desc (verify/wheels-2, 2026-07-18): a real OEM-only Pivot-contract spacing confirmed via bike-maker pages (pivotcycles.co.nz), never a DT Swiss retail SKU - the provenance tier THE BAR requires for verified:true is unmet. Stays unverified, closing out the job entry per established precedent."
   },
   "rw-dtswiss-xm1700-29-xd": {
    "cat": "rearwheel",
@@ -29082,11 +28961,11 @@
   },
   "rw-dtswiss-lnxc-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:11.734Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: same finding as the front wheel - no 'LN XC' product on dtswiss.com. Stays unverified sample."
   },
   "rw-shimano-tc500-wtbsti30-29-cl-ms": {
    "cat": "rearwheel",
@@ -29162,11 +29041,11 @@
   },
   "rw-dtswiss-fr-1500-275-157-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:45:56.426Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/fr-1500-classic",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-wtb-stlight-29-xd": {
    "cat": "rearwheel",
@@ -29474,19 +29353,19 @@
   },
   "rw-dtswiss-370classic-wtbstlight-i30-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:08.001Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-dtswiss-350-komtrail-i30-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:08.468Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-formula-wtbsti30-29-hg": {
    "cat": "rearwheel",
@@ -29650,19 +29529,19 @@
   },
   "rw-dtswiss-m1900-29-157-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:53.858Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: RE-CONFIRMED via dtswiss.com's M 1900 SPLINE model-finder (14 SKUs, browser pane) - no 12/157mm (SuperBoost) built-in dimension exists on DT Swiss's own retail configurator, only 148mm Boost. Matches this row's own already-thorough desc (verify/wheels-2, 2026-07-18): a real OEM-only Pivot-contract spacing confirmed via bike-maker pages (pivotcycles.co.nz), never a DT Swiss retail SKU - the provenance tier THE BAR requires for verified:true is unmet. Stays unverified, closing out the job entry per established precedent."
   },
   "rw-dtswiss-m1900-29-157-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:44:54.092Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: RE-CONFIRMED via dtswiss.com's M 1900 SPLINE model-finder (14 SKUs, browser pane) - no 12/157mm (SuperBoost) built-in dimension exists on DT Swiss's own retail configurator, only 148mm Boost. Matches this row's own already-thorough desc (verify/wheels-2, 2026-07-18): a real OEM-only Pivot-contract spacing confirmed via bike-maker pages (pivotcycles.co.nz), never a DT Swiss retail SKU - the provenance tier THE BAR requires for verified:true is unmet. Stays unverified, closing out the job entry per established precedent."
   },
   "rw-dtswiss-x1900-29-xd": {
    "cat": "rearwheel",
@@ -29714,43 +29593,43 @@
   },
   "rw-bontrager-line-comp-30-29-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:11:47.331Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-comp-30-tlr-boost-29-mtb-wheel/p/34498/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-line-comp-30-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:11:47.331Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-comp-30-tlr-boost-29-mtb-wheel/p/34498/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-linetlr30-roscoeoe-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:12.538Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "rw-bontrager-linedh-30-29-157-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:13.052Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "rw-bontrager-linepro-30-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:06:03.748Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-pro-30-tlr-boost-29-mtb-wheel/p/29087/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-wtb-sti30-habitht-29-hg": {
    "cat": "rearwheel",
@@ -29906,11 +29785,11 @@
   },
   "rw-dtswiss-370-roval-alloy-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:08.934Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-specialized-alloy-29-29-ms": {
    "cat": "rearwheel",
@@ -30074,11 +29953,11 @@
   },
   "rw-dtswiss-amln370-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:09.391Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-canyon-iridium30-29-hg": {
    "cat": "rearwheel",
@@ -30178,11 +30057,11 @@
   },
   "rw-dtswiss-370-ex511-29-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:09.863Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-dtswiss-f1900-classic-275-superboost": {
    "cat": "rearwheel",
@@ -30314,19 +30193,19 @@
   },
   "rw-bontrager-kovee-marlinoe-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:13.540Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "rw-bontrager-kovee-xcaliberoe-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:14.013Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "rw-giant-fathomoe-275": {
    "cat": "rearwheel",
@@ -30410,11 +30289,11 @@
   },
   "rw-dtswiss-fr-1500-275-148-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:11.288Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-dtswiss-fr-1500-29-148-hg": {
    "cat": "rearwheel",
@@ -30426,27 +30305,27 @@
   },
   "rw-dtswiss-fr-1500-29-157-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:45:56.427Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/fr-1500-classic",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-dtswiss-fr541-240-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:10.331Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-dtswiss-e532-29-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:47:10.811Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE hand-built hub+rim combo (DT Swiss hub laced to a third-party rim by the bike maker/OEM wheel builder) - no single dedicated DT Swiss OR rim-brand product page exists for this exact assembled wheel to fetch against; interfaces are well-documented standards, weight/price stay honest samples per the row's existing desc. Bar cannot be met - stays unverified sample, closing out the job entry (item 3 of this session's brief: OE-spec wheels without a maker page for the specific SKU)."
   },
   "rw-stanton-wtbsti29-275-hg": {
    "cat": "rearwheel",
@@ -30458,11 +30337,11 @@
   },
   "rw-bontrager-connection-marlinoe-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:14.486Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "rw-giant-xcr2-29-ms": {
    "cat": "rearwheel",
@@ -38482,11 +38361,11 @@
   },
   "cb-trek-topfuel-9-8-gx-axs-gen4": {
    "cat": "completebike",
-   "status": "Verified",
-   "updated": "2026-07-21T19:57:08.029Z",
+   "status": "Pending",
+   "updated": "2026-07-17T14:04:42.921Z",
    "error": null,
-   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/trail-mountain-bikes/top-fuel/top-fuel-9-8-gx-axs-gen-4/p/5319437/",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "cb-trek-fuelex-98-xt-gen6": {
    "cat": "completebike",
@@ -38498,11 +38377,11 @@
   },
   "cb-trek-fuelex-99-xx-axs-gen6": {
    "cat": "completebike",
-   "status": "Verified",
-   "updated": "2026-07-21T19:57:08.029Z",
+   "status": "Pending",
+   "updated": "2026-07-17T14:04:42.921Z",
    "error": null,
-   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/trail-mountain-bikes/fuel-ex/fuel-ex-9-9-xx-axs-t-type-gen-6/p/47249/",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "cb-trek-slash-98-xt-gen6": {
    "cat": "completebike",
@@ -38538,11 +38417,11 @@
   },
   "cb-trek-fuelex-8-gx-axs-gen6": {
    "cat": "completebike",
-   "status": "Verified",
-   "updated": "2026-07-21T19:57:08.029Z",
+   "status": "Pending",
+   "updated": "2026-07-17T14:04:42.921Z",
    "error": null,
-   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/trail-mountain-bikes/fuel-ex/fuel-ex-8-gx-axs-t-type-gen-6/p/41328/",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "cb-trek-supercaliber-slr-98-xt-gen2": {
    "cat": "completebike",
@@ -40130,11 +40009,11 @@
   },
   "cb-trek-procaliber-95-gen3": {
    "cat": "completebike",
-   "status": "Verified",
-   "updated": "2026-07-21T19:41:50.611Z",
+   "status": "Pending",
+   "updated": "2026-07-17T14:04:42.921Z",
    "error": null,
-   "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/cross-country-mountain-bikes/procaliber/procaliber-9-5-gen-3/p/5323502/",
-   "note": "auto-promoted: already verified in catalog"
+   "source": null,
+   "note": null
   },
   "cb-orbea-oiz-m30": {
    "cat": "completebike",
@@ -40554,19 +40433,19 @@
   },
   "fw-dtswiss-xm1700-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T18:56:38.957Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:42:56.817Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/all-mountain/xm-1700-spline",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-dtswiss-xm1700-275-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T18:56:38.958Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:42:56.818Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/all-mountain/xm-1700-spline",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-yeti-carbon-780-35": {
    "cat": "handlebar",
@@ -40720,37 +40599,21 @@
    "source": "https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/trail-mountain-bikes/roscoe/roscoe-8/p/35117/",
    "note": "auto-promoted: already verified in catalog"
   },
-  "bb-shimano-mt500-pf92": {
-   "cat": "bb",
+  "rw-dtswiss-f-1900-29-157-hg": {
+   "cat": "rearwheel",
    "status": "Verified",
-   "updated": "2026-07-21T19:41:50.611Z",
+   "updated": "2026-07-21T19:43:50.813Z",
    "error": null,
-   "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
    "note": "auto-promoted: already verified in catalog"
   },
-  "ti-bontrager-gunnison-rsl-xt-29-24": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-21T19:57:08.028Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "ti-bontrager-montrose-rsl-xt-29-24": {
-   "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-21T19:57:08.028Z",
-   "error": null,
-   "source": null,
-   "note": null
-  },
-  "rw-bontrager-line-comp-30-29-xd": {
+  "rw-dtswiss-f-1900-275-157-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-21T19:57:08.029Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:43:50.814Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.dtswiss.com/en/wheels/wheels-mtb/freeride-downhill/f-1900-classic",
+   "note": "auto-promoted: already verified in catalog"
   }
  }
 }
