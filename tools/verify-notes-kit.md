@@ -336,3 +336,65 @@ eyewear/armguards/shinguards — grep `Corrected|confirmed exactly|CORRECTED` in
 without `verified:true` across `src/kit.js`). Remaining gloves not yet attempted at all:
 everything past `glv-clubride-ladyfinger` alphabetically in the unverified set (Club Ride,
 Dharco, and the rest of the ZOIC apparel line).
+
+## Wave 8 (2026-07-20) — quiet backlog formalized
+
+Branch `verify/kit-8`. Scope per the wave-7 grep pattern refined to the real signal (a
+row carrying `source:` + `lastChecked:` but no `verified:true` — the actual "real fetched
+data, only missing the flag" shape; the literal `Corrected|confirmed exactly` string match
+undercounted). That scan found **18 candidates** on a fresh `origin/main` pull (most of
+wave 7's ~35 estimate had already been formalized by intervening waves before this one
+started). Re-fetched every candidate's source URL fresh this session (never promoted on a
+stale prior-wave fetch alone, per THE BAR) — **14 promoted to `verified:true`, 2 commits,
+both gated clean** (`node validate.js` + `npm test`).
+
+**Promoted (14):** Pearl iZUMi Summit SS jersey, 7mesh Roam Shirt LS jersey, 7mesh
+Glidepath Short/Pant, 7mesh Slab Short (cataloged as "Slab Enduro Short"), 7mesh Farside
+Short, EVS Option elbow pad, Demon Hyper X D3O elbow, POC Spine VPD 2.0 Vest, Demon
+FlexForce X V7 impact top, EVS Sports Sport Vest, EVS Sports Vex Roost Guard, EVS R3 Race
+Collar, Answer Apex knee/shin guard. Two real spec drifts caught in the process: EVS
+Option elbow pad was missing its "Mini" size tier (page lists Mini/Youth/Adult, row only
+had Youth/Adult); Demon Hyper X D3O elbow's price was off by a cent ($70 vs the actual
+$69.99).
+
+**Category weight-field convention, confirmed by grepping existing verified rows before
+touching anything:** jersey/shorts/pants/neckbrace/shinguard categories **omit** the
+`weight` field entirely when promoting a row whose page never published one (matches
+e.g. `jsy-raceface-indy`, `nkb-leatt-gpx-15-mini`); elbowpad/bodyarmor categories instead
+**keep the prior sample weight** with a "kept as the existing sample per the kit weight
+policy" note (matches e.g. `elp-dainese-trailskins-air`, `arm-fox-baseframe-pro`). Two
+different established conventions in the same file — followed whichever one the row's own
+category already uses, didn't invent a third.
+
+**EUR-conversion precedent applied once:** `arm-poc-spine-vpd-2-0-vest` was blocked on a
+"price is EUR-sourced, stays a sample" note from its original pass, but the SAME EUR
+maker-price situation is already accepted as `verified:true` elsewhere in the bodyarmor
+category (`arm-bluegrass-armour-lite`, `arm-ixs-flow-upper`, `arm-sweetprotection-back-
+protector-vest-2`, all converted at a disclosed ~1.08 USD/EUR and formalized verified).
+Re-fetched, confirmed the 230 EUR price still holds, converted to $248 on that same
+disclosed basis, and promoted for consistency with its own category's precedent.
+
+**Left unpromoted, 4 candidates — real blockers, not a missing flag:**
+- `sht-cube-cmpttrail` / `sht-cube-cmpttmtrail` — these two explicitly cite a *different*
+  rule than the EUR-conversion one above ("no-USD-source rule... left unverified" — no
+  disclosed-basis conversion attempted, unlike the armor precedent). This reads like it
+  may be the same kind of stale/inconsistent call the POC row above turned out to be, but
+  shorts/pants has no existing EUR-converted-and-verified precedent to point to the way
+  bodyarmor did, so this wave didn't unilaterally overrule it. **Flagging for a coordinator/
+  Douglas call: should the bodyarmor EUR-conversion convention extend to apparel, or is
+  apparel deliberately held to a stricter USD-source-only bar?** If yes, these two (and any
+  other apparel rows blocked the same way) are a quick follow-up wave.
+- `hm-lazer-jackal-mips` — genuinely blocked: lazersport.com shows no USD price anywhere
+  for this discontinued line, not just a missing weight. Re-confirmed still the case.
+- `ewr-leatt-velocity-40` — the fetched page shows an Obsolete/clearance SKU with a price
+  that "varies by colorway" and no stable MSRP (only a $24.99 sale price seen) - a genuine
+  price-instability blocker, not a weight-only one. Left unverified.
+
+### Not attempted this wave (next wave's scope)
+
+Gloves past `glv-clubride-ladyfinger` (Club Ride, Dharco, rest of ZOIC) — still open from
+wave 7, untouched again this wave since the quiet-backlog scan took priority. The
+`Corrected|confirmed exactly|CORRECTED`-without-`verified:true` grep pattern from wave 7's
+estimate is now unreliable (undercounts and overcounts vs the real `source`-without-
+`verified` signal) — future waves should use the `source:` + no `verified:true` scan
+instead when hunting for more quiet-backlog rows.
