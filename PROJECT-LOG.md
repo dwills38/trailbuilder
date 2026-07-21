@@ -3589,3 +3589,55 @@ auto-merges); full gates + verdict harness green throughout.
   processed). Verify-job synced by the coordinator per the parallel-work convention.
 - Gates green (validate 0 problems / 931 tests / tsc clean / harness clean) at `6f8e4c6`.
 
+
+## 2026-07-21 (seat 16) — Final six-chip harvest: audit clean, Optimizer ships, 2 same-day self-corrections
+
+All eight chips from the final dispatch round are now landed (main `e10dbc2`+). Highlights:
+
+- **POST-WAVE AUDIT (Opus, report-only)** — the mega-wave HOLDS: 10/10 adversarial re-fetches
+  of error-tier claims confirmed verbatim, incl. both rows created to satisfy goldens (the
+  exact fabricate-fill shape — both real); ordering mechanically unbiased on all six surfaces;
+  the auditor also recorded correcting ITS OWN first read (Starling maxRotor was in a
+  collapsed spec tab — "the row is right and my first read was wrong"). Real findings routed
+  to the fix queue: H1 (10 proprietary-post frames have an unfillable REQUIRED seatpost slot —
+  Trek 0/3, Giant 0/2 buildable), M1 (my steerer fix's side effect: 3 frames now error every
+  headset — needs per-system headset rows or an info downgrade), M3/M4 (schema-road missing
+  the measured→weightSource check and status/supersededBy validation — road's archive is
+  structurally empty), M5 (gravel schema REQUIRES frontwheel.freehub — schema-mandated
+  fabrication in 17 rows), M6 ("Sort: Featured" label on 5 surfaces misnames the unbiased
+  shuffle), M2/M8 (2 rows to demote: Zonda freehub self-documented-unconfirmed, Tarmac SL8
+  fork steerer retailer-sourced), plus the ✓-badge publisher-transparency disclosure (L4).
+- **MECHANIC REVIEW R3 (Opus)** — all four queued items adjudicated with citations: Fox 36SL
+  → 230 RESOLVED (the shop-page tags contradict THEMSELVES across one chassis — a
+  self-contradicting source class can't outrank the dimensional drawing; conservative-203
+  doctrine assumed a coherent opponent); rule 12c's 20mm KEPT (now geometry-anchored via
+  Fox's own A-dimension table proving travel↔axle-to-crown is 1:1, and 0 false fires across
+  435 real bikes); ss-chain-width WARNING CONFIRMED manufacturer-tier (KMC's "must always
+  match" + tooth-thickness table naming the interference mechanism); rotor-max tier RIGHT but
+  the DATA wrong — 28 SR Suntour/DVO rows store a NATIVE MOUNT in maxRotorF (the
+  Marzocchi/Mattoc failure mode, live on a real bike today). 5 new corpus facts committed.
+- **verify/cb-sheets-8**: +9 Trek complete bikes (Roscoe 7, Marlin 4/5/6, Fuel EX 9.8, Slash
+  ×3, Remedy 9.8 — incl. a real shock-identity fix DPX2→Float X Perf Elite). Applied the
+  Roscoe-9 lesson deliberately on Marlin 6 (Trek's template text says square-taper; kept the
+  independently-double-confirmed CUES pairing, documented the conflict). Complete bikes
+  206/435.
+- **gravel-verify-1**: +21 verified (gravel 92→113) and SEVEN fabrication catches from the
+  gravel-1 priority set — Revolt 1 alloy bb was press-fit-claimed but maker says THREADED
+  (also corrects my own same-day merge note's carbon-to-alloy overreach), both Revolts'
+  seatposts are really D-Fuse proprietary, Salsa Cutthroat is Boost 12x148 + PF92 (2 honest
+  vocab widenings), Warbird is BB86 not BSA, both OPEN frames are BB386EVO not PF30, ENVE
+  fork/wheel weights off by up to 30%.
+- **catalog/road-15**: +5 verified (road 178/215, 83%) — the 2 Giant/Cannondale proprietary
+  forks verified with fresh fetches, Specialized Turbo Cotton tires verified via Exa, AND a
+  **correction to the coordinator's own same-day steerer work**: the base Defy Advanced uses
+  a standard tapered steerer (OverDrive Aero is exclusive to SL/Pro trims per Giant's own
+  technology page) — fork+frame corrected back, avoiding a false restriction. Accepted after
+  review: direct multi-region maker fetches beat the road-14 note's platform inference.
+- **feat/upgrade-optimizer-1**: feature slate pick #2 SHIPS (7 of 8 built; owned-vs-buy is
+  the last). $/gram ranking with the honesty constraints load-bearing: only ✓-verified
+  weights rank (disclosed exclusion ledger), MSRP-only math, checkBuild-gated swaps, pure
+  arithmetic ("no brand is favored" stated in-dialog). 20 new tests (951 total). Coordinator
+  browser-verified: button hidden on empty build, click-open clean, zero console errors.
+- Gates green throughout (validate 0 problems / 951 tests / tsc clean / harness clean).
+  MTB 3,210 verified · road 178 (83%) · gravel 113 (47%) · complete bikes 206 (47%).
+
