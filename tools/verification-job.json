@@ -1,11 +1,13 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T19:47:11.289Z",
+ "updated": "2026-07-21T19:53:31.568Z",
  "batchSize": 25,
- "lastCompleted": "rw-dtswiss-fr-1500-275-148-xd",
- "currentCategory": "frame",
+ "lastCompleted": "ti-bontrager-se5-275-25-corestrength-tmgrip",
+ "currentCategory": "tire",
  "queue": [
+  "ti-bontrager-xr4-29-26-innerstrength-tmgrip",
+  "ti-bontrager-xr4-29-24-innerstrength-tmgrip",
   "fr-giant-reign-advanced",
   "fr-kona-process-153",
   "fr-kona-process-153-carbon",
@@ -23,13 +25,6 @@
   "fr-propain-tyee-al",
   "fr-propain-hugene-cf",
   "ti-cst-camber-29-225",
-  "ti-bontrager-xr1-29-22-innerstrength-tmspeed",
-  "ti-bontrager-xr5-29-25-tmgrip",
-  "ti-bontrager-se5-275-25-corestrength-tmgrip",
-  "ti-bontrager-se5-275-26-corestrength-tmgrip",
-  "ti-bontrager-se4-275-26-tmgrip",
-  "ti-bontrager-se5-29-25-corestrength-tmgrip",
-  "ti-bontrager-se6-29-25-corestrength-tmgrip",
   "ti-panaracer-driverpro-29-22-zsg",
   "ti-panaracer-driverpro-29-24-triple",
   "ti-panaracer-driverpro-29-26-triple",
@@ -59,9 +54,7 @@
   "ti-continental-kryptotal-re-275-24-downhill-supersoft",
   "ti-schwalbe-racing-ray-29-225-sg-asg",
   "ti-maxxis-ardent-race-29-22-exo",
-  "ti-bontrager-xr4-29-26-innerstrength-tmgrip",
   "ti-bontrager-g5-29-25",
-  "ti-bontrager-xr4-29-24-innerstrength-tmgrip",
   "ti-wtb-breakout-29-23",
   "ti-wtb-trailboss-29-225-comp",
   "ti-kenda-regolith-29-24",
@@ -6715,35 +6708,35 @@
   },
   "ti-bontrager-xr1-29-22-innerstrength-tmspeed": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:53:31.452Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/mountain-bike-tires/xr-team-issue-mtb-tires/bontrager-xr1-team-issue-tlr-mtb-tire/p/5253708",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-bontrager-xr5-29-25-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:49:14.204Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: RE-CONFIRMED the mtb-tail-8 finding - no 29x2.5 XR5 Team Issue TLR product page exists on trekbikes.com (WebSearch across all Trek regional sites finds only the 27.5x2.5 closeout SKU p/5253213, already verified separately, plus an archived 2018-2022 29in listing offering only 2.3/2.6in widths, no 2.5in). Genuine non-existent-SKU gap, not a fetch wall. Stays unverified, closing out the job entry."
   },
   "ti-bontrager-se5-29-25-corestrength-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:50:55.083Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: FETCHED trekbikes.com's SE5 Team Issue TLR page (model 579274, archived 2018-2022 run) directly - its Specs tab lists all 4 sizes ever stocked: 27.5x2.3/2.6 and 29x2.3/2.6 only. No 2.5in width was ever a retail SE5 SKU. This row's sourcing (bikerumor.com press coverage) may be conflating this with the SE6 line (which does run 2.5in) or an OE-only width never sold at retail - cannot confirm either way this session. Stays unverified, flagged for a future cross-check rather than altered blind."
   },
   "ti-bontrager-se6-29-25-corestrength-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.881Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:52:03.405Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/mountain-bike-tires/trail-mountain-bike-tires/bontrager-se6-team-issue-tlr-mtb-tire/p/34494/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-panaracer-aliso-275-24-st-triple": {
    "cat": "tire",
@@ -26754,27 +26747,27 @@
   },
   "ti-bontrager-se5-275-25-corestrength-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T19:50:55.349Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: same finding as the 29in sibling - Trek's own SE5 Team Issue retail page never lists a 2.5in width (only 2.3/2.6 across its whole run). This row is sourced from a vitalmtb.com Trek Slash OE build-sheet citation (a real bike's stock-spec claim, different provenance tier) rather than Trek's own tire page, so it may be a genuine OE-only width Trek never sold at retail - left unverified/unaltered, flagged for a future cross-check."
   },
   "ti-bontrager-se5-275-26-corestrength-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:50:54.957Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/mountain-bike-tires/trail-mountain-bike-tires/bontrager-se5-team-issue-tlr-mtb-tire/p/12528/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-bontrager-se4-275-26-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T19:52:45.577Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-tires/mountain-bike-tires/trail-mountain-bike-tires/bontrager-se4-team-issue-tlr-mtb-tire/p/13586/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-continental-kryptotal-fr-29-24-enduro-supersoft": {
    "cat": "tire",
@@ -27098,8 +27091,8 @@
   },
   "ti-bontrager-xr4-29-26-innerstrength-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "InProgress",
+   "updated": "2026-07-21T19:53:31.454Z",
    "error": null,
    "source": null,
    "note": null
@@ -27122,8 +27115,8 @@
   },
   "ti-bontrager-xr4-29-24-innerstrength-tmgrip": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "InProgress",
+   "updated": "2026-07-21T19:53:31.567Z",
    "error": null,
    "source": null,
    "note": null
