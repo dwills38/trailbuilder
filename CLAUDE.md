@@ -335,7 +335,11 @@ reports the verified/unverified counts.)
 
 **Verifiability by brand (learned the hard way — saves re-discovering it):** SRAM publishes
 exact component weights on its model pages (`sram.com/en/sram/models/<slug>`), so SRAM
-drivetrain is cleanly verifiable. **Shimano does NOT publish component weights**, and **SRAM
+drivetrain is cleanly verifiable. **Shimano does NOT publish component weights** *(footnote,
+2026-07-20/21 waves: productinfo.shimano.com per-SKU pages — browser pane only, WebFetch renders
+them empty — DO carry real per-SKU weights for current-gen ROAD components, Di2/electronic MTB
+parts, and pedals; still blank for mechanical MTB tiers (Deore/CUES/budget brakes/rotors/BBs).
+So: tier-gated, not absolute — try productinfo before declaring a weight wall)*, and **SRAM
 does not publish *rotor* weights** — interfaces can be confirmed but not the maker's weight.
 **Policy (decided 2026-07, DATA-MODEL-REVIEW §5.1-13):** a reputable third-party *measured*
 weight is accepted **for the weight only** — `sourceType:'measured'` + a `weightSource` URL

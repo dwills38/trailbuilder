@@ -1,5 +1,28 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — NINE-CHIP WAVE CLOSED (all nine harvested) + build sheet shipped
+
+- **feat/build-sheet-1 merged + deployed** (feature slate): click-opened printable build
+  sheet — verdicts verbatim, print CSS gated on dialog-open so normal printing untouched,
+  15 new tests (859 total). Review false-alarm turned into doctrine: the headless pane
+  NEVER dispatches dialog 'close' events (memory updated) — the worker's puppeteer
+  evidence proved the class-drop correct in real Chrome. QR + torque-specs deferred.
+- **catalog/road-7 merged**: road 119 verified. Tiagra CONFIRMED genuinely 10-speed
+  (fields already right; system token held pending a shimano-road-10 labeling decision).
+  Escalations logged: 105 cassette 11-36-vs-Shimano's-11-34 (fix collides with pinned
+  capacity tests — needs a scoped chip), Praxis T47 brand-attribution smell, RED AXS
+  pricing oddity.
+- **catalog/gravel-4b merged**: gravel 220/50; Bombtrack + Sonder frames; t47-86 vocab
+  (real 85.5mm T47, sourced); Standert/Poseidon 429 walls documented.
+- **catalog/bmx-hygiene-1 merged**: Colony bars split into 4 real variant rows (227
+  parts). GOVERNANCE FLAG: the split REMOVED the 2 generic ids (file precedent; BMX has
+  no ALIASES/status mechanism) — acceptable this once, but BMX is LIVE with share links:
+  a tombstone mechanism is REQUIRED before any further BMX id removals. Queued.
+- **CLAUDE.md Shimano-weights line footnoted** (coordinator): productinfo per-SKU pages
+  carry real weights for road/Di2/pedals; mechanical MTB tiers stay blank — tier-gated.
+- Board: MTB 5,032 (3,114) · Kit 714 (524) · BMX 227 (90) · Road 217 (119) · Gravel 220
+  (50) · Striders 36 (28) · EMTB 92 (2) · 859 tests · six surfaces built, four live.
+
 ## 2026-07-21 — NINE-CHIP NIGHT WAVE: dedupe incident + rolling harvest
 
 - **Double-dispatch incident (UI-side double paste), fully contained:** 4 of 9 chips ran
