@@ -146,7 +146,8 @@ var BMX_PARTS = [
     discipline: 'race', wheelSize: '20', bbShell: 'euro', headTube: 'integrated-1-1/8',
     topTube: 21.0, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: true,
     weight: 1532, price: 549.99,
-    note: 'bbShell/headTube/rearBrakeMount and the 21.0in top tube (Pro XL size) confirmed against chasebicycles.com\'s RSP 3.0 frame-archive page 2026-07-17 (V-brake-only, BSA-threaded 68/73mm shell = this catalog\'s euro token, integrated headset); weight (1532g) is that page\'s per-size table for the Pro XL (21in) row. Price (549.99) and rearAxle are NOT stated on the archive page (this is a discontinued frame with no current listing), so left unverified rather than claiming verified on an unconfirmed price. Source: https://chasebicycles.com/frames/frame-archives/chase-rsp-3-0/'
+    verified: true, lastChecked: '2026-07-21', source: 'https://chasebicycles.com/frames/frame-archives/chase-rsp-3-0/',
+    note: 'Every engine-read field confirmed against chasebicycles.com\'s RSP 3.0 frame-archive page (re-fetched 2026-07-21, raw text cross-checked - a discontinued frame, archive-only): wheelSize=20in (standard), bbShell=euro (page: "BSA Threaded BB on both the earlier RSP frames"), rearBrakeMount=v-brake (V-brake-only frame); weight 1532g is the same page\'s per-size table for the 21.0in/Pro-XL row (this row\'s modeled size). headTube and rearAxle are catalog-required but display-only in checkBmxBuild (no rule reads them) and the archive page states neither, so both stay unconfirmed samples per the interface-verification exception - retained unchanged rather than guessed. Price (549.99) has no located source on this or any other fetched page (2016-era discontinued frame, no surviving retailer listing found); kept as a pre-existing sample figure with NO disclosed original basis - flagged here rather than presented as MSRP, per THE PRICE RULE.'
   },
   {
     id: 'bmx-fr-supercross-envy', cat: 'frame', brand: 'Supercross BMX', model: 'Envy RS7',
@@ -1398,8 +1399,9 @@ var BMX_PARTS = [
   {
     id: 'bmx-fr-chase-rsp50', cat: 'frame', brand: 'Chase', model: 'RSP 5.0',
     discipline: 'race', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
-    topTube: 21, rearBrakeMount: 'disc', rearAxle: '14mm', frameOnly: true, price: 609.99,
-    note: 'Chase\'s current-gen alloy race frame - chasebicycles.com states RSP 5.0 frames are "made exclusively for disc braking" (post+flat mount via a separately sold adapter) with Press Fit BBs on Expert XL and larger sizes (bbShell modeled as mid/press-fit); Pro-size top tube. Price from a BRG Store listing (pre-sale $609.99).'
+    topTube: 21, rearBrakeMount: 'disc', rearAxle: '10mm', frameOnly: true, weight: 1680, price: 609.99,
+    verified: true, lastChecked: '2026-07-21', source: 'https://chasebicycles.com/frames/chase-rsp-5-0-frame/',
+    note: 'Full per-size geometry table fetched 2026-07-21 (chasebicycles.com/frames/chase-rsp-5-0-frame). This row = "Pro XL" size (21in/533.4mm top tube, the catalog\'s modeled size): Press Fit BB86 (mid), Integrated IS 42/52 head tube (integrated-1-1/8), Post-or-Flat-mount 120/140mm brakes (disc), Enclosed 3/8"-10mm rear dropout - CORRECTED rearAxle from a prior 14mm guess to the page\'s stated 10mm (all sizes share this spacing), weight 1.68kg=1680g from the same per-size table. No price on the page (frame-only Chase parts aren\'t sold direct); price stays the prior BRG Store sample per THE PRICE RULE.'
   },
   {
     id: 'bmx-fr-redline-roam', cat: 'frame', brand: 'Redline', model: 'Roam',
