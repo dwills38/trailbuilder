@@ -1,14 +1,13 @@
-// data/gravel.js — Gravel catalog (OFF-LIVE)
+// data/gravel.js — Gravel catalog (LIVE)
 //
-// Version: 0.1.0  |  Date: 2026-07-17
+// Version: 0.1.0  |  Date: 2026-07-17  |  WENT LIVE 2026-07-21 (Douglas's flip word)
 //
-// *** OFF-LIVE. *** Nothing the live app serves (index.html, bmx.html, src/compat.js,
-// src/compat-bmx.js) references this file. It is a standalone data set for the future
-// BuildMyGravelBike page (name decided by Douglas 2026-07-17). See data/GRAVEL-MODEL.md for
-// the design doc / field schema / vocab draft, data/ROAD-GRAVEL-SHARED-STANDARDS.md +
-// data/ROAD-GRAVEL-COMPAT-ANALYSIS.md for the shared road+gravel rule set this data is meant
-// to eventually drive. No schema-gravel.js exists yet (flagged as a follow-up in this
-// session's report) — this file is DATA ONLY and is not runtime-validated by anything today.
+// *** LIVE since 2026-07-21: *** gravel.html (BuildMyGravelBike) loads this file in
+// production over the shared drop-bar engine (src/compat-road.js) — every edit here ships
+// to users on the next deploy. Validated by src/schema-gravel.js via validate.js. See
+// data/GRAVEL-MODEL.md for the design doc, data/ROAD-GRAVEL-SHARED-STANDARDS.md +
+// data/ROAD-GRAVEL-COMPAT-ANALYSIS.md for the shared road+gravel rule set.
+// (Header said OFF-LIVE until 2026-07-21 — staleness caught by the gravel-7 wave.)
 //
 // Plain browser JavaScript, no build step, no imports/exports, no CDN — same convention as
 // data/bmx.js / src/compat.js. Defines one top-level `var` global.

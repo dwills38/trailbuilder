@@ -1,17 +1,17 @@
 'use strict';
 /* =============================================================================
-   GRAVEL SCHEMA + VALIDATOR  (OFF-LIVE — mirrors src/schema-bmx.js's approach)
+   GRAVEL SCHEMA + VALIDATOR  (mirrors src/schema-bmx.js's approach)
    -----------------------------------------------------------------------------
    data/gravel.js (151 rows, landed catalog/gravel-1) had no schema/validator —
    same gap schema-bmx.js closed for data/bmx.js before its pre-flip audit. This
    is the same "bouncer at the door" pattern, scoped to GRAVEL_PARTS with a
-   small self-contained GRAVEL_VOCAB (gravel has no compat engine yet to import
-   vocab from, unlike BMX's compat-bmx.js).
+   small self-contained GRAVEL_VOCAB (checkRoadBuild in src/compat-road.js is
+   the shared drop-bar engine gravel.html runs on).
 
-   NOT LOADED BY THE LIVE APP — same off-live status as data/gravel.js itself
-   (CLAUDE.md hard rule 3 — non-MTB catalog types stay off-live until Douglas's
-   go-live word). Wired only into validate.js (as a "GRAVEL OK" line) and this
-   module's own test.
+   data/gravel.js WENT LIVE 2026-07-21 (gravel.html serves it in production).
+   This schema file itself is still loaded only by validate.js (the "GRAVEL OK"
+   line) and its own test — gravel.html does not load the validator at runtime,
+   same as every other catalog's schema file.
 
    Field sets below are derived from the ACTUAL data: every field name and
    required/optional split was read off the live data/gravel.js rows (a field

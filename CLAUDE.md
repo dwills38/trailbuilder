@@ -27,10 +27,12 @@ unverified specs as real. See "Provenance" below.
    cards/tabs/modals the user opens themselves (a part's spec card, the login dialog) are fine;
    anything that appears WITHOUT the user asking is banned. No monetization pattern may ever use a pop-up.
 3. **Catalog scope:** MTB now (rounding out every MTB category; **hardtails are a near-term LIVE
-   priority**), expanding to ALL bike types over time. New non-MTB types (kids' balance bikes /
-   striders, road, gravel) are built OFF-LIVE — a separate dataset NOT wired into the live app —
-   until Douglas says go. The per-type split is REAL and live (bmx.html/BuildMyBMX,
-   KitBuilder/BuildMyRideKit; road/gravel/EMTB pages follow the same pattern, domains owned).
+   priority**), expanding to ALL bike types over time. New non-MTB types are built OFF-LIVE —
+   a separate dataset NOT wired into the live app — until Douglas says go. **As of 2026-07-21
+   ALL SIX surfaces are LIVE on his flip words**: bmx.html (2026-07-17), road.html + emtb.html
+   (2026-07-20 "do them all at once"), gravel.html (2026-07-21), plus KitBuilder/ and the
+   flagship. Striders remain the one off-live dataset (fit-guide design, no page). The
+   off-live discipline still applies to any FUTURE type.
    **Never e-bikes in the MTB catalog** (rule 1).
    **Dirt jump went LIVE on Douglas's word 2026-07-14** (25 rows in `PARTS`, `dj` discipline chip,
    `cog`+`seatpost` slots, `driveMode:'single-speed'` completeness drops incl. the confirmed

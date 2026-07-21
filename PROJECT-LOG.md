@@ -1,5 +1,27 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — THE FABRICATE-FILL AUDIT LANDS + gravel-7/kit-11 + doc truth
+
+- **audit/fabricate-fill-1 merged (report-only)** — the headline goes further than the
+  trigger: the Checkpoint SL 7's `bb:'bb86'` was ITSELF fabricated (gravel-1) — Trek's own
+  spec table says T47 threaded (coordinator re-fetched verbatim: "SRAM DUB Wide, T47
+  threaded, internal bearing"), so the "gap" the later BB swap "filled" never existed, and
+  the current Checkpoint golden pairs a physically wrong BB. Also confirmed-wrong:
+  Checkpoint ALR 5 (also T47), Praxis "DUB T47" (Praxis makes no DUB T47 — real product is
+  Shimano-24mm), and the phantom Hunt "Adventure Wide 650B" pair (Hunt's lineup has no such
+  model). gravel-1 is a serial offender (~10 fabrications traced); its 81 still-unverified
+  rows lead the next gravel deep wave. Fix list is chipped for Douglas (error-tier frame
+  fields + golden repoint + two retirements under the new gravel lifecycle fields).
+- **catalog/gravel-7 merged**: Ekar is genuinely a split lever/caliper (bundle exception
+  correctly NOT applied — a negative finding is a finding); status/supersededBy ported to
+  schema-gravel (Douglas sign-off by dispatch); Levante recorded discontinued; +8 tires
+  with maker weights. Gravel 86/223.
+- **verify/kit-11 merged**: kit 539; ION/Loose Riders re-mapped (identity, not price, is
+  the real wall; looseriders.com is now a parked domain — real site is loose-riders.com);
+  the "fetched-but-never-flagged" promotion pattern noted as a future hunt pass.
+- **Doc truth restored** (gravel-7's flag): CLAUDE.md hard rule 3, data/gravel.js header,
+  and schema-gravel.js header no longer claim gravel/road/EMTB are off-live.
+
 ## 2026-07-21 — mtb-tail-4: MTB 3,163 verified + the walled-brands list falls
 
 - **verify/mtb-tail-4 merged**: 29/30 Shimano mechanical rows verified via the handbook
