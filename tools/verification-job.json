@@ -1,14 +1,11 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T20:09:46.304Z",
+ "updated": "2026-07-21T20:13:14.487Z",
  "batchSize": 25,
- "lastCompleted": "rw-bontrager-line-elite-30-275-hg",
- "currentCategory": "frontwheel",
+ "lastCompleted": "rw-bontrager-connection-marlinoe-29",
+ "currentCategory": "frame",
  "queue": [
-  "fw-bontrager-line-comp-30-29",
-  "rw-bontrager-line-comp-30-29-hg",
-  "rw-bontrager-line-comp-30-29-ms",
   "fr-giant-reign-advanced",
   "fr-kona-process-153",
   "fr-kona-process-153-carbon",
@@ -89,8 +86,6 @@
   "fw-roval-control-sl-29",
   "fw-roval-control-sl-29-cl",
   "fw-bontrager-linecomp-30-29",
-  "fw-bontrager-linecomp-30-275",
-  "fw-bontrager-kovee-elite-30-29",
   "fw-reserve-30sl-29",
   "fw-reserve-30sl-275",
   "fw-weareone-faction-29",
@@ -162,8 +157,6 @@
   "fw-syncros-silverton2-29",
   "fw-giant-xct-29",
   "fw-wtb-sti25-scalpelht3-29",
-  "fw-bontrager-linetlr30-roscoeoe-29",
-  "fw-bontrager-linedh-30-29-20x110",
   "fw-wtb-sti30-habitht-29",
   "fw-wtb-stxi25-habitht2-29",
   "fw-wtb-stxi25-mt400-29",
@@ -202,8 +195,6 @@
   "fw-shimano-tc500-alexdp25-29-cl",
   "fw-syncros-silverton25-29",
   "fw-alexrims-md30-29-formula-dh",
-  "fw-bontrager-kovee-marlinoe-29",
-  "fw-bontrager-kovee-xcaliberoe-29",
   "fw-giant-fathomoe-275",
   "fw-giant-talonoe-29",
   "fw-norco-alexdp30-shimano-29",
@@ -213,7 +204,6 @@
   "fw-reserve-30hd-al-29-dh",
   "fw-ethirteen-grappler-race-29-dh",
   "fw-stanton-wtbsti29-275",
-  "fw-bontrager-connection-marlinoe-29",
   "fw-giant-xcr2-29",
   "fw-raceface-arc30-29-20x110",
   "fw-formula-dc20-rockhopper-29",
@@ -231,8 +221,6 @@
   "rw-raceface-ar30-factor-29-sb157-xd",
   "rw-stans-flow-s2-29-ms",
   "rw-sonder-nova-29-hg",
-  "rw-bontrager-linecomp-30-275-ms",
-  "rw-bontrager-kovee-elite-30-29-ms",
   "rw-bontrager-linecomp-30-29-xd",
   "rw-reserve-30tr-al-29-hg",
   "rw-industrynine-enduro-s-275",
@@ -365,8 +353,6 @@
   "rw-giant-xct-29-ms",
   "rw-syncros-x30s-29-hg",
   "rw-wtb-sti25-scalpelht3-29-ms",
-  "rw-bontrager-linetlr30-roscoeoe-29",
-  "rw-bontrager-linedh-30-29-157-hg",
   "rw-wtb-sti30-habitht-29-hg",
   "rw-wtb-stxi25-habitht2-29-hg",
   "rw-wtb-stxi25-mt400-29-hg",
@@ -420,8 +406,6 @@
   "rw-shimano-tc500-alexdp25-29-cl-ms",
   "rw-syncros-silverton25-29-xd",
   "rw-alexrims-md30-275-formula-superboost157",
-  "rw-bontrager-kovee-marlinoe-29",
-  "rw-bontrager-kovee-xcaliberoe-29",
   "rw-giant-fathomoe-275",
   "rw-giant-talonoe-29",
   "rw-specialized-alloy-29-29-b-xd",
@@ -433,7 +417,6 @@
   "rw-reserve-30hd-al-275-157-hg",
   "rw-ethirteen-grappler-race-275-157-hg",
   "rw-stanton-wtbsti29-275-hg",
-  "rw-bontrager-connection-marlinoe-29",
   "rw-giant-xcr2-29-ms",
   "rw-ethirteen-lg1-enduro-29-xd",
   "rw-raceface-arc30-275-sboost157-hg",
@@ -27508,11 +27491,11 @@
   },
   "fw-bontrager-linecomp-30-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:13:12.164Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-comp-30-tlr-boost-27-5-mtb-wheel/p/34497/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-bontrager-linepro-30-29": {
    "cat": "frontwheel",
@@ -27524,11 +27507,11 @@
   },
   "fw-bontrager-kovee-elite-30-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:12:43.972Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-kovee-elite-30-tlr-boost-29-mtb-wheel/p/37179/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-industrynine-11-enduro-275": {
    "cat": "frontwheel",
@@ -28068,27 +28051,27 @@
   },
   "fw-bontrager-line-comp-30-29": {
    "cat": "frontwheel",
-   "status": "InProgress",
-   "updated": "2026-07-21T20:09:46.074Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:11:47.330Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-comp-30-tlr-boost-29-mtb-wheel/p/34498/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-bontrager-linetlr30-roscoeoe-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:12.289Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "fw-bontrager-linedh-30-29-20x110": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:12.805Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "fw-wtb-sti30-habitht-29": {
    "cat": "frontwheel",
@@ -28484,19 +28467,19 @@
   },
   "fw-bontrager-kovee-marlinoe-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:13.300Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "fw-bontrager-kovee-xcaliberoe-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:13.773Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "fw-giant-fathomoe-275": {
    "cat": "frontwheel",
@@ -28588,11 +28571,11 @@
   },
   "fw-bontrager-connection-marlinoe-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:14.251Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "fw-giant-xcr2-29": {
    "cat": "frontwheel",
@@ -28764,11 +28747,11 @@
   },
   "rw-bontrager-linecomp-30-275-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:13:12.165Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-comp-30-tlr-boost-27-5-mtb-wheel/p/34497/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-linepro-30-275-xd": {
    "cat": "rearwheel",
@@ -28780,11 +28763,11 @@
   },
   "rw-bontrager-kovee-elite-30-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:12:43.973Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-kovee-elite-30-tlr-boost-29-mtb-wheel/p/37179/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-linecomp-30-29-xd": {
    "cat": "rearwheel",
@@ -29620,35 +29603,35 @@
   },
   "rw-bontrager-line-comp-30-29-hg": {
    "cat": "rearwheel",
-   "status": "InProgress",
-   "updated": "2026-07-21T20:09:46.192Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:11:47.331Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-comp-30-tlr-boost-29-mtb-wheel/p/34498/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-line-comp-30-29-ms": {
    "cat": "rearwheel",
-   "status": "InProgress",
-   "updated": "2026-07-21T20:09:46.303Z",
+   "status": "Verified",
+   "updated": "2026-07-21T20:11:47.331Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.trekbikes.com/us/en_US/equipment/cycling-components/bike-wheels/mountain-bike-wheels-wheelsets/bontrager-line-comp-30-tlr-boost-29-mtb-wheel/p/34498/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-bontrager-linetlr30-roscoeoe-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:12.538Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "rw-bontrager-linedh-30-29-157-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:13.052Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "rw-bontrager-linepro-30-29-xd": {
    "cat": "rearwheel",
@@ -30220,19 +30203,19 @@
   },
   "rw-bontrager-kovee-marlinoe-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:13.540Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "rw-bontrager-kovee-xcaliberoe-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:14.013Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "rw-giant-fathomoe-275": {
    "cat": "rearwheel",
@@ -30364,11 +30347,11 @@
   },
   "rw-bontrager-connection-marlinoe-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Skipped",
+   "updated": "2026-07-21T20:13:14.486Z",
    "error": null,
    "source": null,
-   "note": null
+   "note": "mtb-tail-9: OE house-badged wheel spec'd on an entry-level Trek complete bike (Marlin/X-Caliber/Roscoe/Session), sourced from a vitalmtb.com build-sheet citation rather than a standalone Bontrager/Trek retail product page - no dedicated maker page exists for this exact OE spec to fetch against. Bar cannot be met; stays unverified sample, closing out the job entry."
   },
   "rw-giant-xcr2-29-ms": {
    "cat": "rearwheel",
