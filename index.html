@@ -1040,6 +1040,10 @@
   html.rad .pcard{box-shadow:0 0 0 1px var(--line)}
   html.rad .pcard.selected{box-shadow:0 0 0 2px var(--accent),0 0 16px rgba(0,229,255,.5)}
   html.rad .btn.primary{background:linear-gradient(90deg,var(--brand),var(--accent));border-color:transparent;color:#150029;font-weight:800}
+  /* dark and loam both repaint dialog surfaces onto --card; rad was missing the
+     same rule, leaving every dialog white under rad's light --ink (lavender on
+     white = unreadable). Found at the service-log verification pass. */
+  html.rad dialog{background:var(--card);color:var(--ink);border-color:var(--line)}
   #radBar{background:linear-gradient(90deg,#ff2fd0,#00e5ff,#39ff14)}
   /* several controls hardcode a white background (fine against dark --ink text in
      normal mode) — RAD mode flips --ink light, so those need a dark bg or the text
