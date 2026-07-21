@@ -195,7 +195,7 @@ test('golden: Checkpoint SL 7 / GRX RX820 1x12 gravel build is complete and conf
     cassette: gp('gca-shimano-grx-cs-m7100-1045'),
     chain: gp('gch-shimano-cn-m6100-12'),
     crankset: gp('gcr-shimano-grx-fc-rx820-1x'),
-    bb: gp('gbb-shimano-sm-bb72-bsa'),
+    bb: gp('gbb-praxis-t47-ib-shimano'),
     frontBrake: gp('gbr-shimano-grx-br-rx820'),
     rearBrake: gp('gbr-shimano-grx-br-rx820'),
     frontRotor: gp('gro-shimano-rt-cl800-160-cl'),
@@ -247,7 +247,7 @@ test('known-bad build fails on every planted conflict', function(){
   /** @type {Object.<string, any>} */
   var build = {
     frame: rp('fr-trek-emonda-slr'),                       // 700c, maxTire 28, proprietary post
-    frontWheel: gp('gfw-hunt-adventurewide-650b'),         // 650b vs the 700c rear -> rg-wheel-size
+    frontWheel: gp('gfw-hunt-650b-adventurecarbon-disc'),  // 650b vs the 700c rear -> rg-wheel-size
     rearWheel: rp('rw-shimano-c50-r9270'),                 // hg-l2
     rearTire: rp('ti-continental-gp5000stre-32'),          // 32mm over the Emonda's 28mm -> rg-tire-clearance
     cassette: rp('cs-sram-red-xg1290-1033'),               // xdr on the hg-l2 wheel -> rg-freehub
