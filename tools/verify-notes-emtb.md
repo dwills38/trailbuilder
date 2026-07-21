@@ -187,3 +187,45 @@ Pivot Shuttle AM, Norco Sight VLT ×2, Scott Genius eRIDE, Vitus E-Sommet ×2), 
 gen rows, 2 Haibike Unclear rows, and the full phase-3 deep-verify pass (attempt it via browser
 pane for JS-heavy maker sites — Transition/Santa Cruz both needed it and phase 3 stalled without
 it this wave).
+
+## Wave 3 phase 1 (2026-07-20) — re-entry of the remaining 9 stale-wrong-brand rows
+
+Schema widened: `EMTB_VOCAB.motorBrand` gains `'dji'` (Propain's Ekano platform moved to the
+DJI Avinox M2/M2S drive unit — a genuine new motor maker, not a typo, backed by the two new
+Ekano rows below). Same append-only pattern as wave 2 phase 2: old rows marked
+`status:'discontinued'` + `supersededBy` pointing at a new row; specs sourced via WebSearch/Exa
+(no browser-pane wall hit this pass — all six maker sites resolved cleanly through search
+snippets/cached product pages).
+
+Re-entered (old id → new id):
+- `em-cannondale-moterra-sl-1` → `em-cannondale-moterra-sl-1-shimano-ep801` — Cannondale-tuned
+  Shimano EP801 (85Nm/600W, 601Wh) replaces the Bosch Performance Line SX guess; the real
+  "SL 1" chassis is marketed lightweight but the motor itself is full-power class.
+- `em-propain-ekano-mix-line` → `em-propain-ekano-3-al-enduro` — DJI Avinox M2S replaces
+  Shimano EP8; alloy frame, mullet, configurator-sold German DTC brand.
+- `em-propain-ekano-highend-line` → `em-propain-ekano-3-al-enduro-factory` — same motor
+  platform switch; **note** Propain has not launched a carbon Ekano (every current trim is
+  alloy), so the new row corrects frame material too, not just motor brand.
+- `em-pivot-shuttle-am` → `em-pivot-shuttle-am-bosch-cx` — Gen 5 Bosch Performance Line CX/CX-R
+  replaces Shimano EP8; 800Wh battery, optional 250Wh PowerMore range extender.
+- `em-norco-sight-vlt-a1` → `em-norco-sight-vlt-cx-c2` — Bosch Performance Line CX replaces
+  Shimano EP8; **note** the current Sight VLT CX line is carbon-only, so there is no current
+  alloy "A1" tier — the re-entry is carbon like its sibling below.
+- `em-norco-sight-vlt-c1` → `em-norco-sight-vlt-cx-c1` — same platform switch, top C1 tier
+  (RockShox Lyrik/Zeb Ultimate, SRAM Maven Silver).
+- `em-scott-genius-eride-910` → `em-scott-genius-eride-910-bosch-cx-gen4` — Bosch Performance
+  CX Gen 4 replaces Shimano EP8; weight (23.4kg) independently confirmed via a third-party
+  build review, not just the maker page.
+- `em-vitus-e-sommet-27` → `em-vitus-e-sommet-297-vrx`, `em-vitus-e-sommet-29` →
+  `em-vitus-e-sommet-297-vrs` — Shimano STEPS EP801 replaces the Bosch CX guess; **both**
+  wheel-specific rows (27.5-only and 29-only) are superseded by two builds of the current
+  mullet-only "E-Sommet 297" chassis (VRX = SRAM GX T-Type/Hayes Dominion A4 top tier, VRS =
+  Shimano SLX/SRAM DB8 entry tier) — the old 27/29 split no longer exists in the real lineup.
+
+Gates after phase 1: `node validate.js` → EMTB OK, 92 bikes, 0 problems (2 verified, 90
+unverified); `npm test` → 838/838 passed; `npm run typecheck` → clean.
+
+Remaining queue for phase 2: 19 same-brand-wrong-gen rows (Specialized Levo ×3, Kenevo SL,
+Trek Rail ×3, Fuel EXe ×2, Orbea Wild ×2, Cannondale Moterra ×2, Giant Reign E+, Ibis Oso,
+Mondraker Crafty + Level, Cube Stereo Hybrid 160 + ONE55 SL, Scott Patron eRIDE, Whyte E-180
+RS) and 2 Haibike Unclear rows (AllMtn 9, Nduro 8) — untouched this phase, next phase's queue.

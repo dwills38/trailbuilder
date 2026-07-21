@@ -404,8 +404,9 @@ var EMTB_PARTS = [
     wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 140,
     frameMaterial: 'carbon', drivetrain: 'SRAM XX SL Eagle Transmission', brakes: 'SRAM Code Ultimate',
     disciplines: ['e-trail'], weight: 18400, price: 10500,
+    status: 'discontinued', supersededBy: 'em-cannondale-moterra-sl-1-shimano-ep801',
     note: 'Lightweight-class Cannondale on the Bosch Performance Line SX motor.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the real "Moterra SL 1" trim runs Shimano EP801 (85Nm/600W), not a Bosch SX lightweight motor — wrong motor brand AND wrong assist class (verify/emtb-3).'
   },
 
   // ---------------------------------------------------------------------------
@@ -562,8 +563,9 @@ var EMTB_PARTS = [
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 155,
     frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
     disciplines: ['e-trail', 'e-enduro'], weight: 23600, price: 5200,
+    status: 'discontinued', supersededBy: 'em-propain-ekano-3-al-enduro',
     note: 'Direct-to-consumer German full-power e-MTB; custom build-config program.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: Propain consolidated the Ekano line onto the DJI Avinox M2/M2S motor — Shimano is no longer offered (verify/emtb-3).'
   },
   {
     id: 'em-propain-ekano-highend-line', cat: 'emtb', brand: 'Propain', model: 'Ekano Highend Line',
@@ -572,8 +574,9 @@ var EMTB_PARTS = [
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 155,
     frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
     disciplines: ['e-trail', 'e-enduro'], weight: 22200, price: 8200,
+    status: 'discontinued', supersededBy: 'em-propain-ekano-3-al-enduro-factory',
     note: 'Top-tier carbon Ekano build.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: current Ekano lineup is alloy-only (Propain has not launched a carbon Ekano) on the DJI Avinox M2S motor — both frame material AND motor brand were wrong (verify/emtb-3).'
   },
 
   // ---------------------------------------------------------------------------
@@ -586,8 +589,9 @@ var EMTB_PARTS = [
     wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Code',
     disciplines: ['e-trail'], weight: 22800, price: 9000,
+    status: 'discontinued', supersededBy: 'em-pivot-shuttle-am-bosch-cx',
     note: "Pivot's full-power all-mountain e-MTB on the Shimano EP8 motor.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the next-gen Shuttle AM dropped Shimano entirely for Bosch Gen 5 Performance Line CX/CX-R (verify/emtb-3).'
   },
   {
     id: 'em-pivot-shuttle-lt', cat: 'emtb', brand: 'Pivot', model: 'Shuttle LT',
@@ -620,8 +624,9 @@ var EMTB_PARTS = [
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
     disciplines: ['e-trail', 'e-enduro'], weight: 24200, price: 5800,
+    status: 'discontinued', supersededBy: 'em-norco-sight-vlt-cx-c2',
     note: 'Entry alloy Sight VLT trim.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: current Sight VLT CX is carbon-only on Bosch Performance Line CX — Shimano EP8 was the discontinued prior generation, and there is no current alloy "A1" tier (verify/emtb-3).'
   },
   {
     id: 'em-norco-sight-vlt-c1', cat: 'emtb', brand: 'Norco', model: 'Sight VLT C1',
@@ -630,8 +635,9 @@ var EMTB_PARTS = [
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
     frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
     disciplines: ['e-trail', 'e-enduro'], weight: 22600, price: 9500,
+    status: 'discontinued', supersededBy: 'em-norco-sight-vlt-cx-c1',
     note: 'Top-tier carbon Sight VLT build.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: current Sight VLT CX top-tier runs Bosch Performance Line CX, not Shimano EP8 (verify/emtb-3).'
   },
 
   // ---------------------------------------------------------------------------
@@ -654,8 +660,9 @@ var EMTB_PARTS = [
     wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
     frameMaterial: 'aluminum', drivetrain: 'Shimano XT', brakes: 'Shimano XT 4-piston',
     disciplines: ['e-trail'], weight: 22600, price: 6200,
+    status: 'discontinued', supersededBy: 'em-scott-genius-eride-910-bosch-cx-gen4',
     note: "Scott's full-power trail e-MTB on the Shimano EP8 motor.",
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the Genius eRIDE runs Bosch Performance CX Gen 4, not Shimano EP8 (verify/emtb-3).'
   },
   {
     id: 'em-scott-lumen-eride-910', cat: 'emtb', brand: 'Scott', model: 'Lumen eRIDE 910',
@@ -735,8 +742,9 @@ var EMTB_PARTS = [
     wheelConfig: '275', suspension: 'full', travelFront: 170, travelRear: 165,
     frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
     disciplines: ['e-enduro'], weight: 25600, price: 4800,
+    status: 'discontinued', supersededBy: 'em-vitus-e-sommet-297-vrx',
     note: 'Budget direct-to-consumer gravity e-MTB; 27.5in wheels, Bosch CX motor.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the real E-Sommet runs Shimano STEPS motors (not Bosch), and the current 27.5-only chassis was replaced by the mullet "E-Sommet 297" (verify/emtb-3).'
   },
 
   // ---------------------------------------------------------------------------
@@ -863,8 +871,9 @@ var EMTB_PARTS = [
     wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 155,
     frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle', brakes: 'SRAM Code R',
     disciplines: ['e-enduro'], weight: 25200, price: 4800,
+    status: 'discontinued', supersededBy: 'em-vitus-e-sommet-297-vrs',
     note: '29in-wheel sibling to the mixed/27.5 E-Sommet; same Bosch CX motor.',
-    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed. Superseded: the real E-Sommet runs Shimano STEPS motors (not Bosch) and a mullet-only "297" chassis, not a dedicated 29in-wheel version (verify/emtb-3).'
   },
 
   // ---------------------------------------------------------------------------
@@ -1024,6 +1033,100 @@ var EMTB_PARTS = [
     frameMaterial: 'aluminum', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code',
     disciplines: ['e-trail', 'e-enduro'], weight: 23800, price: 7999,
     note: 'Top-tier 2026 E-Troy build (frame material listed as aluminum per current maker copy — a carbon-frame Bosch E-Troy trim was not independently confirmed this pass; see verify-notes-emtb.md).',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Wave 3 re-entries (verify/emtb-3) — 9 stale-wrong-brand rows from wave 2 phase 1
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-cannondale-moterra-sl-1-shimano-ep801', cat: 'emtb', brand: 'Cannondale', model: 'Moterra SL 1',
+    motorBrand: 'shimano', motorModel: 'Shimano EP801 (Cannondale-tuned)', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 601, batteryRemovable: false, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM XO Eagle AXS Transmission', brakes: 'Magura MT7',
+    disciplines: ['e-trail'], weight: 22000, price: 9999,
+    note: 'Moterra SL replaces its Bosch SX-motor generation with a Cannondale-tuned Shimano EP801 — still branded "lightweight-chassis" but the motor itself is full-power class (85Nm/600W, 601Wh custom internal battery).',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-propain-ekano-3-al-enduro', cat: 'emtb', brand: 'Propain', model: 'Ekano 3 AL Enduro',
+    motorBrand: 'dji', motorModel: 'DJI Avinox M2S', motorTorque: 130, motorPowerPeak: 1300,
+    batteryWh: 800, batteryRemovable: false, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle AXS Transmission', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-enduro'], weight: 24500, price: 6499,
+    note: 'Propain replaced the whole Ekano line with an alloy DJI Avinox-motor platform (M2/M2S options, configurator-sold); Shimano/SRAM-motor builds are gone.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-propain-ekano-3-al-enduro-factory', cat: 'emtb', brand: 'Propain', model: 'Ekano 3 AL Enduro Factory',
+    motorBrand: 'dji', motorModel: 'DJI Avinox M2S', motorTorque: 130, motorPowerPeak: 1300,
+    batteryWh: 800, batteryRemovable: false, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'Trickstuff Direttissima',
+    disciplines: ['e-enduro'], weight: 25480, price: 10999,
+    note: 'Top-tier configured Ekano 3 AL build (FOX Factory suspension, Trickstuff brakes); Propain has not launched a carbon Ekano — every current trim is alloy.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-pivot-shuttle-am-bosch-cx', cat: 'emtb', brand: 'Pivot', model: 'Shuttle AM',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-trail'], weight: 23000, price: 10799,
+    note: 'The next-gen Shuttle AM switched from Shimano EP8 to Gen 5 Bosch Performance CX/CX-R, with an 800Wh battery and optional 250Wh PowerMore range extender.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-norco-sight-vlt-cx-c2', cat: 'emtb', brand: 'Norco', model: 'Sight VLT CX C2',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: false, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-trail', 'e-enduro'], weight: 22200, price: 7999,
+    note: 'Mid-tier build of the Bosch-powered Sight VLT CX; the platform is carbon-only now — there is no current alloy "A1" tier.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-norco-sight-vlt-cx-c1', cat: 'emtb', brand: 'Norco', model: 'Sight VLT CX C1',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: false, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: 22600, price: 9999,
+    note: 'Top-tier Sight VLT CX build; Bosch Performance Line CX replaces the prior Shimano EP8 generation.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-scott-genius-eride-910-bosch-cx-gen4', cat: 'emtb', brand: 'Scott', model: 'Genius eRide 910',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance CX (Gen 4)', motorTorque: 85,
+    batteryWh: 625, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS Transmission', brakes: 'SRAM Code',
+    disciplines: ['e-trail'], weight: 23400, price: 6559,
+    note: "Scott's full-power trail e-MTB runs Bosch Performance CX Gen 4, not Shimano EP8; optional 500Wh Range Booster brings total capacity to 1125Wh.",
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-vitus-e-sommet-297-vrx', cat: 'emtb', brand: 'Vitus', model: 'E-Sommet 297 VRX',
+    motorBrand: 'shimano', motorModel: 'Shimano STEPS EP801', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 630, batteryRemovable: false, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle T-Type Transmission', brakes: 'Hayes Dominion A4',
+    disciplines: ['e-enduro'], weight: 25000, price: 7699,
+    note: 'The real E-Sommet runs Shimano STEPS motors (not Bosch), on a redesigned mullet-only "297" chassis with RockShox ZEB/Vivid Ultimate suspension.',
+    desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
+  },
+  {
+    id: 'em-vitus-e-sommet-297-vrs', cat: 'emtb', brand: 'Vitus', model: 'E-Sommet 297 VRS',
+    motorBrand: 'shimano', motorModel: 'Shimano STEPS EP801', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 630, batteryRemovable: false, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX', brakes: 'SRAM DB8',
+    disciplines: ['e-enduro'], weight: 25400, price: 6399,
+    note: 'Entry-tier mullet E-Sommet 297 build; RockShox ZEB/Super Deluxe Select suspension.',
     desc: 'Unverified sample (best-credible-public) — real currently-sold trim, not maker-confirmed.'
   }
 
