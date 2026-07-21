@@ -1604,9 +1604,8 @@ var KIT_PARTS = [
     verified:true, lastChecked:'2026-07-17', source:'https://www.giro.com/product/men%27s-havoc-short/350250001000000031.html' },
   { id:'sht-fasthouse-crossline2', cat:'shorts', brand:'Fasthouse', model:'Crossline 2.0 Short', price:100, weight:260,
     liner:false, disciplines:['trail','enduro'], sizes:['28','30','32','34','36','38','40','42'],
-    desc:'CORRECTED 2026-07-16: US MSRP is $100 (was sample $65); sizes extend to 40/42 -'
-      + ' fetched fasthouse.com/products/crossline-2-short-black. Shell only (no liner/chamois)'
-      + ' confirmed on the same page; COOLMAX fabric, 12" inseam. Weight not published, stays sample.' },
+    desc:'Re-fetched fasthouse.com/products/crossline-2-short-black kit-11 (2026-07-21, via Exa - direct WebFetch 429\'d): $100 USD and sizes 28-42 reconfirmed exactly matching the 2026-07-16 pass. Shell only (no liner/chamois), 88% Polyester/7% Polyamide/5% Spandex COOLMAX fabric, 12" inseam. Weight not published - stays a sample per the kit-apparel weight-exemption policy.',
+    verified:true, lastChecked:'2026-07-21', source:'https://www.fasthouse.com/products/crossline-2-short-black' },
   { id:'sht-nukeproof-blackline-liner', cat:'shorts', brand:'Nukeproof', model:'Blackline Shorts With Liner', price:90, weight:310,
     liner:true, disciplines:['enduro'], sizes:['S','M','L','XL','XXL'],
     desc:'Price is a USD estimate converted from the GBP retail price (~GBP70) on Nukeproof\'s own site; left unverified. Cordura-reinforced 4-way-stretch fabric; a short-length version of the Nukeproof pants developed with Sam Hill.' },
@@ -2502,7 +2501,8 @@ var KIT_PARTS = [
   { id:'knp-sixsixone-recon', cat:'kneepad', brand:'SixSixOne', model:'Recon Knee Pad', family:'sixsixone-recon', price:85, weight:300,
     disciplines:['trail','enduro'], sizes:['S','M','L','XL'], desc:'D3O Ghost inserts, maker-stated CE EN 1621-1. Weight per pair (approx) - not asserted as `certs` (page not reliably fetchable this pass; a retailer/press mention isn\'t the fetched-source bar for a safety claim). Checked 2026-07-16: sixsixone.com now returns 403 Forbidden site-wide - the brand appears to have gone dark (see glv-sixsixone-comp for detail); no fetch possible.' },
   { id:'knp-blissprotection-arg-minimalist', cat:'kneepad', brand:'Bliss Protection', model:'ARG Minimalist+ Knee Pad', family:'blissprotection-arg-minimalist', price:84.90, weight:190,
-    disciplines:['trail'], sizes:['XS','S','M','L','XL'], desc:'Minimalist lycra + perforated ARG pad. Price + current model name (adds a "+") + sizes confirmed via a fetched blisscamp.com (BLISS Protection GmbH) product page; that page states no weight and no certs token, so weight stays the prior approx per-pair sample and no cert is asserted - not verified.' },
+    disciplines:['trail'], sizes:['XS','S','M','L','XL'], desc:'Minimalist lycra + perforated ARG pad, 55% Nylon/30% TPE/10% Elasthan/5% Polyester. Re-fetched blisscamp.com/us/arg-minimalist-knee-pad/123167000 kit-11 (2026-07-21): $84.90 USD and sizes XS-XL reconfirmed exactly. No weight published or cert token stated on the page - weight stays the prior approx per-pair sample per the kit-apparel weight-exemption policy; no cert asserted.',
+    verified:true, lastChecked:'2026-07-21', source:'https://blisscamp.com/us/arg-minimalist-knee-pad/123167000' },
   { id:'knp-bluegrass-skinny-d3o', cat:'kneepad', brand:'Bluegrass', model:'Skinny D3O Knee Pad', family:'bluegrass-skinny', price:100, weight:300,
     disciplines:['trail','enduro'], sizes:['S','M','L','XL'], status:'discontinued',
     desc:'CORRECTED to discontinued (2026-07-17): fetched met-helmets.com/en/shop/gravity/bluegrass-protections/ (the current Bluegrass protection catalog) - the "Skinny" line is absent; current knee pads are Aura Core/Aura/Arto/3Straps/Big Horn. The old skinny-knee/-d3o URL slugs 404. No successor SKU confirmed by name, so left as a documented discontinuation rather than guessing a replacement mapping.' },
