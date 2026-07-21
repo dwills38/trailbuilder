@@ -3350,3 +3350,23 @@ auto-merges); full gates + verdict harness green throughout.
   set — no weight published by either source).
 - Gates green (validate 0 problems / 911 tests / tsc clean / verdict harness clean) at `75ad948`.
 
+
+## 2026-07-21 (seat 16) — Kit 12 merged
+
+- **verify/kit-12** merged (`e86dc36`): +4 verified (kit 539→543) via the "fetched-but-unflagged"
+  pattern kit-11 discovered — scanned all ~706 kit rows for desc text documenting a real prior
+  fetch that never got a `verified:true` flip. Bliss ARG Vertical LD vest (was blocked on "no
+  weight" alone — invalid blocker, body armor is weight-exempt per policy), two Cube shorts +
+  a Royal Racing pants row (all blocked on a stale pre-THE-PRICE-RULE "no USD source" reading —
+  a disclosed EUR/GBP→USD basis has been valid since 2026-07-18). Every promotion re-fetched
+  the maker page live this session rather than trusting the old desc text. 5 more candidates
+  investigated and correctly rejected: a Specialized jersey's sleeve-length mismatch, a PNW
+  short with unconfirmed sizes, a Lazer helmet whose current page describes an entirely
+  different rotational-safety system (KinetiCore, not MIPS) than the row claims, a discontinued
+  Leatt eyewear row with an inconsistent sale price, and a Scott Fury goggle that turned out to
+  be a **motocross** product at a different price — not this row's MTB-tagged $59.95 at all;
+  that one got spawned as its own out-of-scope task (`task_ade9f4bf`) rather than silently
+  edited. ION/Loose Riders/Pearl Izumi correctly left untouched (independently re-confirmed
+  walls by two prior sessions already). Gates green (validate 0 problems / 911 tests / tsc
+  clean) at `e86dc36`.
+
