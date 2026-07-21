@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T12:39:10.347Z",
+ "updated": "2026-07-21T16:07:50.976Z",
  "batchSize": 25,
  "lastCompleted": "cr-shimano-mt612-30",
  "currentCategory": "frame",
@@ -77,6 +77,8 @@
   "ti-schwalbe-bigbetty-29-24",
   "ti-specialized-butcher-29-23-gridgravity-t9",
   "ti-specialized-butcher-275-23-gridtrail-t9",
+  "ti-specialized-butcher-29-23-gridtrail-t9",
+  "ti-specialized-butcher-275-23-gridgravity-t9",
   "ti-specialized-purgatory-29-24-grid-t9",
   "ti-specialized-eliminator-29-24-gridtrail-t7",
   "ti-wtb-breakout-comp-29-23",
@@ -655,6 +657,7 @@
   "hb-xlc-riser-m34-35",
   "hb-ari-team-35",
   "hb-groundfiftyone-318-800",
+  "hb-pmg-race-alloy-riser",
   "hb-kona-xcbc-35",
   "hb-gt-alloy-780-30",
   "hb-salsa-alloy-oe-35",
@@ -877,6 +880,7 @@
   "gr-bontrager-xrtrail-pro-lockon",
   "gr-esi-chunky-foam",
   "gr-cannondale-taperridge",
+  "gr-cannondale-locking",
   "gr-bontrager-xrtrail-comp-lockon",
   "gr-intense-lockon",
   "gr-merida-comptr",
@@ -1113,6 +1117,7 @@
   "ro-tektro-m275-160-6b",
   "ro-tektro-200-6b",
   "ro-tektro-180-6b",
+  "ro-tektro-180-cl",
   "ro-trp-200-6b",
   "ro-trp-25-203-6b",
   "ro-trp-25-180-6b",
@@ -1152,6 +1157,7 @@
   "ch-shimano-cues-lg500-10",
   "ch-kmc-x11-cues",
   "ch-kmc-x11-trp-evo7-dh",
+  "ch-kmc-x12ept",
   "ch-sram-pc1130",
   "cr-sram-x1-eagle-dubwide",
   "cr-truvativ-descendant-dh",
@@ -40711,6 +40717,62 @@
    "error": null,
    "source": null,
    "note": null
+  },
+  "ti-specialized-butcher-29-23-gridtrail-t9": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-21T15:55:52.388Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-specialized-butcher-275-23-gridgravity-t9": {
+   "cat": "tire",
+   "status": "Pending",
+   "updated": "2026-07-21T15:55:52.388Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "hb-pmg-race-alloy-riser": {
+   "cat": "handlebar",
+   "status": "Pending",
+   "updated": "2026-07-21T15:55:52.388Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "gr-cannondale-locking": {
+   "cat": "grips",
+   "status": "Pending",
+   "updated": "2026-07-21T15:55:52.388Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ro-tektro-180-cl": {
+   "cat": "rotor",
+   "status": "Pending",
+   "updated": "2026-07-21T15:55:52.389Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ch-kmc-x12ept": {
+   "cat": "chain",
+   "status": "Pending",
+   "updated": "2026-07-21T15:55:52.389Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cr-sram-sx-eagle-powerspline-32-boost": {
+   "cat": "crankset",
+   "status": "Verified",
+   "updated": "2026-07-21T16:07:50.975Z",
+   "error": null,
+   "source": "https://www.sram.com/en/sram/models/fc-sx-1-a1",
+   "note": "auto-promoted: already verified in catalog"
   }
  }
 }
