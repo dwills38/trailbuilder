@@ -124,31 +124,39 @@ var STRIDER_PARTS = [
   },
   {
     id: 'sb-earlyrider-bigfoot-12', cat: 'balancebike', brand: 'Early Rider', model: 'Big Foot 12',
-    wheel: '12', seatMin: 310, seatMax: 409, bikeWeight: 3765, tire: 'air',
-    brake: 'rear-hand', steeringLimiter: true, frameMaterial: 'aluminum', price: 269,
-    note: 'Knobby off-road tire; UK brand, EU-market strong.',
-    desc: 'Unverified sample — spec basis: cascadegearreviews.com + downtown-mag.com (STRIDER-MODEL.md sec 2).'
+    wheel: '12', seatMin: 310, seatMax: 409, bikeWeight: 3750, tire: 'air',
+    brake: 'rear-hand', steeringLimiter: true, frameMaterial: 'aluminum', price: 239,
+    note: 'Knobby off-road tire (Vee Crown Gem 12x2.25in); UK brand, EU-market strong. Price corrected 2026-07-20 from a stale $269 sample to $239 (us.earlyrider.com, confirmed at 3 US retailers). Maker publishes standover height (33cm) not an adjustable seat-height range — seatMin/seatMax retained from the prior aggregator source (Guardian-row "verified (partial)" precedent).',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://us.earlyrider.com/products/big-foot-12-kids-balance-bike',
+    desc: 'Verified (partial) — us.earlyrider.com Big Foot 12 product page (Exa-fetched 2026-07-20): AL6061 aluminum frame/fork, 12in pneumatic wheels w/ Vee Crown Gem tires, Tektro 837A V-brake w/ short-reach lever (single rear lever per the parts list), Weight 3.75kg (8.25lb), $239.00. No seat-height range published (only 33cm standover height).'
   },
   {
     id: 'sb-frog-tadpole-mini', cat: 'balancebike', brand: 'Frog', model: 'Tadpole Mini',
-    wheel: '10', seatMin: 241, seatMax: 312, bikeWeight: 3447, tire: 'air',
-    brake: 'rear-hand', steeringLimiter: true, frameMaterial: 'aluminum', price: 300,
-    note: 'The lowest seat-height bike in this catalog (10in wheel) — the "start them earliest" segment; Frog commissioned Brunel University child-fit research (STRIDER-ANALYSIS.md sec 1b).',
-    desc: 'Unverified sample — spec basis: cascadegearreviews.com (STRIDER-MODEL.md sec 2).'
+    wheel: '10', seatMin: 241, seatMax: 312, bikeWeight: 3460, tire: 'air',
+    brake: 'dual-hand', steeringLimiter: true, frameMaterial: 'aluminum', price: 270,
+    note: 'The lowest seat-height bike in this catalog (10in wheel) — the "start them earliest" segment; Frog commissioned Brunel University child-fit research (STRIDER-ANALYSIS.md sec 1b). Corrected 2026-07-20: brake was "rear-hand", maker states Tektro brakes front AND rear ("Brakes (F&R)") with both levers included — dual-hand. Price corrected from a stale $300 sample to the frogbikes.com US price ($270). Frog publishes an inseam-fit range, not an explicit seat-height range — seatMin/seatMax retained from the prior aggregator source (Guardian-row precedent).',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://www.frogbikes.com/en_US/bike-range/balance-bikes.html',
+    desc: 'Verified (partial) — frogbikes.com Tadpole Mini spec table (Exa-fetched 2026-07-20): 6061 T6 aluminum frame/fork, 10in wheels, Tektro J310 mini v-brakes front AND rear, safety steering stop (steeringLimiter), Weight 3.46kg, US$270.00. Seat height retained from the prior aggregator source (maker publishes a 23-30cm inseam-fit range, not a seat-height range).'
   },
   {
     id: 'sb-retrospec-cub', cat: 'balancebike', brand: 'Retrospec', model: 'Cub',
-    wheel: '12', seatMin: 292, seatMax: 381, bikeWeight: 3175, tire: 'foam',
-    brake: 'none', frameMaterial: 'steel', price: 79,
-    note: 'Budget-tier entry, foam tires, no brake.',
-    desc: 'Unverified sample — spec basis: twowheelingtots (STRIDER-MODEL.md sec 2).'
+    wheel: '12', seatMin: 279, seatMax: 381, bikeWeight: 3130, tire: 'foam',
+    brake: 'none', frameMaterial: 'steel', price: 69.99,
+    note: 'Budget-tier entry, airless EVA-foam tires, no brake, step-through low-standover frame. Corrected 2026-07-20 against retrospec.com: seatMin 292->279 (maker states 11-15in exactly, not 11.5in), weight 3175->3130g (retrospec\'s own published bike-weight table: 6.9lb), price 79->69.99 (current listing).',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://retrospec.com/products/cub-2-kids-balance-bike',
+    desc: 'Verified — retrospec.com Cub product page (Exa-fetched 2026-07-20): Seat Height Range 11-15in (ground-to-top of saddle), 12in air-free/flat-free EVA high-density foam-filled tires, no brake, $69.99; weight 6.9lb per retrospec\'s own "how much do your bikes weigh" page.'
   },
   {
     id: 'sb-retrospec-cub-plus', cat: 'balancebike', brand: 'Retrospec', model: 'Cub Plus',
-    wheel: '12', seatMin: 292, seatMax: 381, bikeWeight: 3946, tire: 'air',
-    brake: 'rear-hand', frameMaterial: 'steel', price: 119,
-    note: 'Air-tire/hand-brake step-up from the base Cub, same seat range.',
-    desc: 'Unverified sample — spec basis: twowheelingtots (STRIDER-MODEL.md sec 2).'
+    wheel: '12', seatMin: 292, seatMax: 387, bikeWeight: 3946, tire: 'air',
+    brake: 'rear-hand', frameMaterial: 'aluminum', price: 119.99,
+    note: 'Air-tire/hand-brake step-up from the base Cub. Corrected 2026-07-20: frameMaterial was "steel", maker states "rust-resistant aluminum frame"; seatMax 381->387 (maker states 11.5-15.25in, not 11.5-15in); price 119->119.99.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://retrospec.com/products/cub-plus-12-kids-balance-bike-2-3-yrs',
+    desc: 'Verified — retrospec.com Cub Plus product page (Exa-fetched 2026-07-20): Adjustable Seat Height 11.5-15.25in, aluminum alloy V-brake (rear, single reach-adjustable lever), 12x2.125 air-filled tires, aluminum frame, $119.99; weight 8.7lb per retrospec\'s "how much do your bikes weigh" page.'
   },
   {
     id: 'sb-guardian-balance-bike', cat: 'balancebike', brand: 'Guardian', model: 'Balance Bike',
@@ -161,10 +169,12 @@ var STRIDER_PARTS = [
   },
   {
     id: 'sb-littlebig-3in1', cat: 'balancebike', brand: 'LittleBig', model: '3-in-1',
-    wheel: '14', seatMin: 305, seatMax: 508, bikeWeight: 4627, tire: 'air',
+    wheel: '14', seatMin: 300, seatMax: 520, bikeWeight: 4300, tire: 'air',
     brake: 'dual-hand', convertsToPedal: true, frameMaterial: 'aluminum', price: 295,
-    note: 'Grows from a small balance bike into a larger balance bike, then a pedal bike, via included conversion parts (~$95 upgrade kit); bikeWeight is the smaller balance-mode configuration. Pedal-kit compat modeling deferred (data/STRIDER-MODEL.md sec 6).',
-    desc: 'Unverified sample — spec basis: littlebigbikes.com + rascalrides.com (STRIDER-MODEL.md sec 2).'
+    note: 'Grows from a small balance bike into a larger balance bike, then a pedal bike, via included conversion parts (~$95-99 upgrade kit); bikeWeight is the balance-mode configuration (6.2-6.3kg with the pedal kit attached). Pedal-kit compat modeling deferred (data/STRIDER-MODEL.md sec 6). Corrected 2026-07-20: seat height was 12-20in (305-508mm) sample, maker states an exact 30-52cm (300-520mm) saddle-height range; weight corrected to the maker\'s stated 4.3kg balance-mode figure (was 4627g). Price already matched the maker\'s $295 exactly.',
+    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    source: 'https://www.littlebigbikes.com/en-us/products/littlebig-convertible-balance-bike',
+    desc: 'Verified — littlebigbikes.com product page (Exa-fetched 2026-07-20): 6061 alloy frame/fork, 14in alloy-rim wheels (Innova or Vee Crown Gem air tires, Schrader valve), Saddle Height Range 30cm to 52cm, Weight balance mode 4.3kg / pedal mode 6.2kg, From $295.00 USD. Balance-to-pedal conversion confirmed (pedal kit sold separately).'
   },
 
   // --- wave 2 (catalog/striders-2) — broadened brand coverage ---------------
