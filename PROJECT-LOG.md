@@ -3191,3 +3191,33 @@ per wave/decision; large reconstructions are handed to a worker session.
   histories stayed linear via fast-forward syncs before each of my pushes. Succession handshake
   still pending its confirmation.
 
+
+## 2026-07-21 (seat 16) — bb86/pf86 vocab merge (Douglas-ruled) + gravel-fabfix-1 merged
+
+- **Douglas's ruling on the bb86/pf86 near-duplicate vocab token** (flagged by the fabricate-
+  fill audit): combine them under one token, displayed as "BB86 (PF86)". Investigated first —
+  confirmed from the catalog's own sourced rows that bb86 and pf86 are genuinely the same
+  physical 86.5mm press-fit BB shell, just two maker-slang spellings (Shimano SM-BB72-41B's
+  own spec table: "Press-Fit... 86.5"; SRAM BB-DUB-PF-A1's own page: "PF 86.5" for its
+  bb86-tagged tier) — not a real engineering distinction, so merging was correct, not just a
+  taxonomy convenience. Implemented directly (small + mechanical, no fetches needed): bb86 kept
+  canonical (majority usage — 10 frames + 2 real BB rows vs pf86's 4 frames + 1 BB row);
+  pf86 retired from ROAD_VOCAB/GRAVEL_VOCAB/compat-road.js's shared bbShell list; 2 road Giant
+  frames + 2 gravel Giant Revolt frames + 1 Shimano BB row switched pf86->bb86 with provenance
+  notes; road.html/gravel.html spec cards now render "BB86 (PF86)" so either name is
+  discoverable; test-schema-road.js's vocab-accept test updated (pf86 now asserted REJECTED).
+  This also fixes a real bug: the 2 Giant Revolt gravel frames had NO matching BB row before
+  (gravel's shell vocab never had a pf86 entry) — they were silently BB-unbuildable.
+- **catalog/gravel-fabfix-1** merged (`1106155` wave): the fabricate-fill audit's fix list,
+  landed same-day as the audit. Both Trek Checkpoint frames (SL 7, ALR 5) corrected to the
+  real T47-86 shell with fresh Trek-page provenance; `gbb-praxis-t47`'s fabricated DUB pairing
+  retired (`status:'discontinued'`) with a real replacement row (`gbb-praxis-t47-ib-shimano`,
+  fetched from praxiscycles.com); the phantom Hunt "Adventure Wide" 650b wheels retired for a
+  real Hunt SKU (`gfw/grw-hunt-650b-adventurecarbon-disc`, weight honestly flagged as a
+  proportional estimate — Hunt only publishes combined wheelset weight); the Checkpoint golden
+  repointed off the old BB86-shell BB onto the new T47 one. Clean auto-merge against the
+  vocab-merge commit (different rows, same file). 2 suspects left out of scope per the chip
+  (Redline "Proline Flight" trim, Cannondale SI headset) — both need their own fetch first.
+- Gates green throughout (validate 0 problems / 895 tests / tsc clean) at `1106155`.
+- CB-SHEETS-6 and Road wave 11 reports both dropped this window — harvesting next.
+
