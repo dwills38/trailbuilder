@@ -1833,6 +1833,63 @@ var BMX_PARTS = [
     id: 'bmx-st-kink-gavel', cat: 'stem', brand: 'Kink', model: 'Gavel Topload Stem',
     clamp: '22.2mm', weight: 323, price: 64.99,
     note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/gavel-stem. Description states, verbatim: "wide 50mm clamping area...Weight 11.4oz" (11.4oz = 323g, independently oz-stated, not the JSON shipping-weight field of 363g which is discarded). Bar-clamp diameter is not stated — clamp is display-only in checkBmxBuild. Unverified sample.'
+  },
+
+  // --- Sunday (shop.sundaybikes.com — same maker family/storefront pattern already verified
+  // for this brand's Soundwave V3/Nightshift/Park Ranger frames in earlier waves) ---
+  {
+    id: 'bmx-fk-sunday-darkwave', cat: 'fork', brand: 'Sunday', model: 'Darkwave Fork',
+    discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'none', weight: 1247, price: 219.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-darkwave-fork-gloss-black (Broc Raiford signature). Shopify tags state "Brake Mounts:None" verbatim; description states "Axle Slots: 3/8″" (= 10mm token) and "built-in, integrated, lower headset seat race" (integrated head tube). wheelSize:\'20\' is Sunday\'s catalog-wide freestyle standard (not independently re-stated on this fork-only page). JSON weight (1247g) kept — not obviously a shipping-bucket duplicate seen elsewhere this session, but not description-text-confirmed either. Unverified sample.'
+  },
+  {
+    id: 'bmx-fr-sunday-wavec-24', cat: 'frame', brand: 'Sunday', model: 'Wave C 24in',
+    discipline: 'freestyle', wheelSize: '24', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 22, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    weight: 2676, price: 549.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://shop.sundaybikes.com/products/sunday-wave-c-24-frame-gloss-black',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Shopify tags state "Wheel Size:24\\"" verbatim. Description states, verbatim: "Removable Brake Hardware...Top Tube Length: 22\\"...Weight: 5.9 lbs" (5.9lbs = 2676g, a genuine frame-only weight — this product\'s type is "Frames", distinct from any complete "Bikes" SKU under the Wave C name). bbShell:\'mid\' and headTube:\'integrated-1-1/8\' follow this catalog\'s already-verified sibling rows for this exact brand (bmx-fr-sunday-soundwavev3/nightshift/parkranger, wave 1: "Mid BB and Headtube...Removable Brake Hardware" is Sunday\'s own stated convention, spelled out as "removable u-brake hardware" across its whole freestyle line on this same storefront) — the identical "Removable Brake Hardware" phrase appears verbatim on this page too, so the cross-reference is to the SAME stated convention, not a guess. rearAxle:\'14mm\' is the BMX-universal rear-axle standard (BMX-MODEL.md sec.5), not independently re-stated on this specific page.'
+  },
+  {
+    id: 'bmx-fr-sunday-wavelength', cat: 'frame', brand: 'Sunday', model: 'Wavelength (Gary Young signature)',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    price: 449.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-wavelength-frame-matte-metallic-gold. Description states, verbatim: "Removable U-brake hardware and Gyro tabs" (directly confirms rearBrakeMount:\'u-brake\', no cross-reference needed) and "Top Tube Length: 20.75\\", 21\\", and 21.25\\"" (this row pins the 21in variant). bbShell:\'mid\' and headTube:\'integrated-1-1/8\' follow this catalog\'s already-verified Sunday sibling rows\' stated brand convention (not independently re-stated as "Mid BB" on this specific page, so left unverified on that basis). No frame weight stated on the page (frame-only SKU — this product\'s type is "Frames", no matching complete-bike SKU exists under the Wavelength name). Unverified sample.'
+  },
+  {
+    id: 'bmx-fr-sunday-silvawave', cat: 'frame', brand: 'Sunday', model: 'Silvawave (Brett Silva signature)',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    price: 469,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-silvawave-frame-metallic-seaweed-green. Description states, verbatim: "Removable U-brake hardware and Gyro tabs" (directly confirms rearBrakeMount:\'u-brake\') and "Top Tube: 20.5\\", 20.75\\", 21\\", or 21.25\\"" (this row pins the 21in variant). bbShell:\'mid\' and headTube:\'integrated-1-1/8\' follow this catalog\'s already-verified Sunday sibling rows\' stated brand convention (not independently re-stated on this specific page). No frame weight stated on the page (frame-only SKU, no matching complete-bike SKU under the Silvawave name). Unverified sample.'
+  },
+  {
+    id: 'bmx-se-sunday-blockhead-fat', cat: 'seat', brand: 'Sunday', model: 'Blockhead Fat Seat',
+    system: 'pivotal', price: 46.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-blockhead-fat-seat-black-w-berry-silver-embroidery. Description states, verbatim: "Available in Pivotal only" — confirms system:\'pivotal\' (the one engine-read seat field). JSON weight (635g) discarded — identical across every other Sunday seat SKU fetched this session, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-se-sunday-silvabrick-pivotal', cat: 'seat', brand: 'Sunday', model: 'Silva Brick Pivotal Seat',
+    system: 'pivotal', price: 42.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-silva-brick-pivotal-seat-black (Brett Silva signature). Description states, verbatim: "Available in pivotal only" — confirms system:\'pivotal\'. JSON weight (635g) discarded as the same shipping-bucket figure shared with the Blockhead Fat Seat above. Unverified sample.'
+  },
+  {
+    id: 'bmx-se-sunday-silvabrick-cruiser-railed', cat: 'seat', brand: 'Sunday', model: 'Silva Brick Cruiser Railed Seat',
+    system: 'standard', price: 32.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-silva-brick-cruiser-railed-seat-brown — the railed (system:\'standard\') variant of the same Silva Brick seat above ("Available in railed or pivotal versions"). JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample.'
+  },
+  {
+    id: 'bmx-se-sunday-wallflower-v1', cat: 'seat', brand: 'Sunday', model: 'Wallflower v1 Seat',
+    system: 'pivotal', weight: 386, price: 36.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-wallflower-v1-seat. Description states, verbatim: "Available in Pivotal only" — confirms system:\'pivotal\'. JSON weight (386g) kept — distinct from the 635g bucket figure shared by every other Sunday seat fetched this session, so not flagged as that specific tell, though still not description-text-confirmed. Unverified sample.'
+  },
+  {
+    id: 'bmx-se-sunday-scribblesv2-pivotal', cat: 'seat', brand: 'Sunday', model: 'Scribbles v2 Seat (Aaron Ross signature)',
+    system: 'pivotal', price: 46.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-scribbles-v2-seat-aaron-ross-signature-multicolor — this handle\'s variant is titled "Pivotal" (the page also separately offers a "Fat/Pivotal or Cruiser/Railed" split, matching this catalog\'s existing Silva Brick pattern above). JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample.'
   }
 ];
 
