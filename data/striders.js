@@ -234,17 +234,19 @@ var STRIDER_PARTS = [
   },
   {
     id: 'sb-kinderfeets-classic', cat: 'balancebike', brand: 'Kinderfeets', model: 'Classic',
-    wheel: '12', seatMin: 300, seatMax: 380, bikeWeight: 3700, tire: 'foam',
+    wheel: '12', seatMin: 300, seatMax: 380, bikeWeight: 3300, tire: 'foam',
     brake: 'none', frameMaterial: 'wood', footrest: true, price: 139.99,
-    note: 'Birch-wood balance bike with footpegs and EVA airless (foam) tires. Wheel diameter not explicitly published by the maker; 12in used per the bike\'s stated seat-height/size class and is consistent with comparable wood balance bikes (display-only field, not fit-critical per STRIDER-MODEL.md sec 4). Corrected 2026-07-20: weight was a rough 3300g estimate, updated to 3700g per an authorized reseller\'s product-weight field (juegoyjardin.com — kinderfeets.com itself publishes no weight, only "up to 65lb/30kg" rider capacity, so verified:true is withheld per THE BAR).',
-    desc: 'Unverified sample (weight not published by kinderfeets.com — no manufacturer figure or measured source meets THE BAR) — spec basis: kinderfeets.com Classic Balance Bike page (Exa-fetched 2026-07-20, seat height 12-15in/30-38cm exact match, birch wood, $139.99, rider capacity 65lb/30kg) + juegoyjardin.com authorized-reseller listing (weight 3700g) + junabear.com.au ("weighs about 8lb", corroborating).'
+    note: 'Birch-wood balance bike with footpegs and EVA airless (foam) tires. Wheel diameter not explicitly published by the maker; 12in used per the bike\'s stated seat-height/size class and is consistent with comparable wood balance bikes (display-only field, not fit-critical per STRIDER-MODEL.md sec 4). Promoted to verified 2026-07-21 (verify/striders-4): kinderfeets.co.nz — Kinderfeets\' own NZ regional storefront, same maker as kinderfeets.com/.ca — publishes a full spec block including "Bike weight: 3.3 kgs" (3300g, corrected from the prior 3700g juegoyjardin.com reseller-sourced sample) and "Seat height range: 30-38cm" (exact match to the existing figure); kinderfeets.com itself still publishes no weight (only rider capacity).',
+    verified: true, lastChecked: '2026-07-21', sourceType: 'maker',
+    source: 'https://www.kinderfeets.co.nz/products/balance-bike-black',
+    desc: 'Verified — kinderfeets.co.nz Classic Balance Bike (Black) product page (Exa-fetched 2026-07-21; kinderfeets.co.nz is Kinderfeets\' own NZ storefront, same brand as the US/CA sites already cited in this row\'s history): "Seat height range: 30-38cm", "Bike weight: 3.3 kgs", "Frame materials: Birch wood", "Tyres: EVA airless tyres", "Special features: Footpegs", "Maximum weight limit: Up to 30kgs". Price retained from the US kinderfeets.com listing ($139.99, NZ site is priced in NZD).'
   },
   {
     id: 'sb-chillafish-bmxie2', cat: 'balancebike', brand: 'Chillafish', model: 'BMXie2',
-    wheel: '12', seatMin: 311, seatMax: 387, bikeWeight: 3856, tire: 'rubber-foam',
+    wheel: '12', seatMin: 320, seatMax: 390, bikeWeight: 3856, tire: 'rubber-foam',
     brake: 'none', frameMaterial: 'composite', footrest: true, price: 74.99,
-    note: 'Reinforced-plastic BMX-styled balance bike with airless "Rubberskin"-covered foam tires (puncture-proof) and an integrated footbrake — no vocab value exists for a foot-operated brake (schema brake enum is hand/coaster only), so brake is left "none"; the footbrake is a real feature, confirmed directly on chillafish.com/products/bmxie2\'s own title ("...lightweight balance bike with foot brake"), not just via twowheelingtots as the prior wave cited. Corrected 2026-07-20: seat height was 12.6-15.35in (320-390mm) sample, twowheelingtots\' own measured range is 12.25-15.25in (311-387mm); weight updated to twowheelingtots\' measured 8.5lb (chillafish.com/info.chillafish.com publish no weight, so verified:true is withheld per THE BAR); price to Target/chillafish.com\'s $74.99.',
-    desc: 'Unverified sample (weight not published by chillafish.com — no manufacturer figure meets THE BAR) — spec basis: info.chillafish.com/product/bmxie-nb (seat height 32-39cm/12.5-15.2in maker spec, footrest, airless rubber-skin foam tires) + chillafish.com/products/bmxie2 (footbrake confirmed in the product title, EUR79.99) + twowheelingtots.com measured review (seat height 12.25-15.25in, weight 8.5lb) + Target.com listing ($74.99, weight 8.4lb corroborating).'
+    note: 'Reinforced-plastic BMX-styled balance bike with airless "Rubberskin"-covered foam tires (puncture-proof) and an integrated footbrake — no vocab value exists for a foot-operated brake (schema brake enum is hand/coaster only), so brake is left "none"; the footbrake is a real feature, confirmed directly on chillafish.com/products/bmxie2\'s own title ("...lightweight balance bike with foot brake"). Re-checked 2026-07-21 (verify/striders-4): chillafish.com/products/bmxie2\'s own current copy states "adjustable from 12,6 to 15,3 inch / 32 to 39cm" (320-390mm) — a small correction from the prior twowheelingtots-measured 311-387mm figure, now using the maker\'s own stated range instead. chillafish.com/info.chillafish.com still publish no weight figure anywhere on the product page, so verified:true stays withheld per THE BAR; weight retained from twowheelingtots\' measured 8.5lb.',
+    desc: 'Unverified sample (weight not published by chillafish.com — no manufacturer figure meets THE BAR) — spec basis: chillafish.com/products/bmxie2 (maker\'s own page, re-fetched 2026-07-21: seat height 32-39cm/12.6-15.3in, footbrake confirmed in the product title, airless RubberSkin tires) + twowheelingtots.com measured review (weight 8.5lb) + Target.com listing ($74.99, weight corroborating).'
   },
   {
     id: 'sb-yedoo-tootoo', cat: 'balancebike', brand: 'Yedoo', model: 'TooToo',
@@ -304,10 +306,12 @@ var STRIDER_PARTS = [
   },
   {
     id: 'sb-bixe-12', cat: 'balancebike', brand: 'Bixe', model: '12',
-    wheel: '12', seatMin: 292, seatMax: 394, bikeWeight: 2086, tire: 'foam',
+    wheel: '12', seatMin: 279, seatMax: 432, bikeWeight: 1814, tire: 'foam',
     brake: 'none', frameMaterial: 'aluminum', price: 60,
-    note: 'Budget/lightweight Amazon-marketplace balance bike; foam tires on plastic rims, no brake. Re-confirmed 2026-07-20: seat height (11.5-15.5in), weight (4.6lb), frame material, and no-brake design all independently double-corroborated by kiddingzone.com AND twowheelingtots.com (byte-identical figures) — no bixebalancebike.com maker page publishes a spec table to promote past this to full "verified" (THE BAR requires the manufacturer\'s own page, not converging aggregators), but the double-independent-source agreement is about as strong as unverified sample data gets.',
-    desc: 'Unverified sample — spec basis: twowheelingtots.com + kiddingzone.com Bixe reviews, independently agreeing exactly (seat height 11.5-15.5in, weight 4.6lb, aluminum frame, foam tires, no brake) + amazon.com listing (price); bixebalancebike.com (the maker\'s own site) lists no spec table to fetch.'
+    note: 'Budget/lightweight Amazon-marketplace balance bike; foam tires on plastic rims, no brake. Promoted to verified 2026-07-21 (verify/striders-4): a real bixebalancebike.com product page (Exa-fetched — direct WebFetch 403s like every other Strider-family retailer wall in this file) was found this round (the prior wave\'s "no maker page exists" note was incorrect), stating "weighing in at just 4 lbs" and "adjustable seat height, ranging from 11 to 17 inches" — both corrected from the prior twowheelingtots/kiddingzone-sourced 4.6lb/11.5-15.5in sample figures.',
+    verified: true, lastChecked: '2026-07-21', sourceType: 'maker',
+    source: 'https://bixebalancebike.com/product/bixe-aluminum-balance-bike-for-kids-and-toddlers-lightweight-4lbs-toddler-bike-no-pedal-sport-training-bicycle-bikes-for-18-months-to-2-3-4-5-6-year-old-green/',
+    desc: 'Verified — bixebalancebike.com product page (Exa-fetched 2026-07-21, direct WebFetch 403s): "weighing in at just 4 lbs", "adjustable seat height, ranging from 11 to 17 inches", 12in wheels, aluminum frame, no-pedal design. Tire type and price retained from the prior twowheelingtots/kiddingzone/amazon.com sample basis (not stated on the fetched maker page excerpt).'
   },
   {
     id: 'sb-bixe-16', cat: 'balancebike', brand: 'Bixe', model: '16',
