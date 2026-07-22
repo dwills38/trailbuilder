@@ -1,5 +1,24 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — the 6th token lands (Douglas: "yes third party token") + pb-emtb-2
+
+- **schema/pb-third-party-listed merged**: 'third-party-listed' in the enum across all 7
+  validators + types + pricing.js label ("no maker price exists — shown price is from a
+  third-party listing") + the VERIFY-PROTOCOL anti-pattern note (never
+  discontinued-no-msrp on a current product — the rejected-branch lesson codified). 51
+  rows classified per-row (never blind): striders CLEARED (2→0, second catalog done),
+  KS's $$$$$-tier 9, the GT tier-estimate, 28 Shimano + 6 SRAM + 3 BMX + 4 road rows with
+  NAMED third-party sources. The honest refinement: "kept as prior sample" with NO named
+  source qualifies for NOTHING — those rows need re-fetches, which is exactly the
+  finishing wave's job. 4 road rows reclassified msrp-confirmed on their own notes'
+  maker-page evidence (incl. both 7th-exception seatposts). Harness byte-identical.
+- **backfill/pb-emtb-2 merged (the rejection's redo, done right)**: 83→9, ZERO rows
+  added; its flag — two Trek Rail rows stored SALE prices — fixed by the coordinator at
+  merge (prices → the desc-disclosed $10,699.99/$12,299.99 MSRPs per the standing
+  MSRP-not-sale ruling).
+- Burndowns: MTB 2,063 · gravel 208 (redo queued) · road 155 · BMX 31 · EMTB 9 · kit 0 ·
+  striders 0. Gates: 7 OK, 1054/1054, tsc clean, harness clean.
+
 ## 2026-07-22 — backfill wave 2 + the dialogs: burndown 3,363→2,107 MTB; THE 6TH-TOKEN QUESTION IS NOW LOAD-BEARING
 
 - **ui/pb-dialog-wording merged**: build sheet, upgrade optimizer, owned-vs-buy now say
