@@ -2824,6 +2824,14 @@ var KIT_PARTS = [
     disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL'],
     desc:'Weight per pair (approx, not published on the fetched page - kept as prior sample). Fetched g-form.com directly 2026-07-18 (a prior pass only had this via a WebSearch snippet): CORRECTED price $60 -> $59.99, sizes corrected to add XS. No cert claim stated on this page.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-18', source:'https://g-form.com/products/mountain-bike-elbow-pads-guards-prox3' },
+  { id:'elp-gform-pro-rugged-2', cat:'elbowpad', brand:'G-Form', model:'Pro-Rugged 2 Elbow', price:124,
+    certs:['en1621-1-l1'], disciplines:['enduro','dh'], sizes:['XS','S','M','L','XL'],
+    desc:'G-Form\'s top-tier MTB elbow guard - all-mountain/enduro/DH/slopestyle tier, three-layer SmartFlex construction, CE EN1621-1 certified. No weight published on the fetched page. Added 2026-breadth-6 (kit-breadth-6) via g-form.com product page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://g-form.com/products/pro-rugged-2-elbow-guard-protection' },
+  { id:'elp-gform-x4', cat:'elbowpad', brand:'G-Form', model:'X4 Elbow (Adult)', price:79.99,
+    disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL'],
+    desc:'G-Form\'s current mid-tier trail elbow guard (re-engineered SmartFlex, extended coverage, low-profile). No cert or weight published on the fetched page. Added 2026-breadth-6 (kit-breadth-6) via g-form.com product page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://g-form.com/products/x4-elbow-guards' },
   { id:'elp-raceface-indy', cat:'elbowpad', brand:'Race Face', model:'Indy Elbow', price:65,
     disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL','XXL'], verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-16',
     source:'https://www.raceface.com/products/indy-elbow',
@@ -3145,6 +3153,10 @@ var KIT_PARTS = [
       + ' CHECKED kit-13 (2026-07-21): fetched g-form.com/products.json (129 SKUs, the full'
       + ' current catalog) - zero "vest" products (the only Pro-X3 match is a youth short-sleeve'
       + ' shirt, a different product). Appears discontinued/dropped from the current lineup. Left unverified, no fields changed.' },
+  { id:'arm-gform-x4-shortsleeve-shirt', cat:'bodyarmor', brand:'G-Form', model:'X4 Short Sleeve Shirt', price:139.99,
+    coverage:'chest-back', disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
+    desc:'The current G-Form MTB armored base layer (successor line to the now-dropped Pro-X3 Vest, kit-13 2026-07-21 finding above) - pre-curved SmartFlex pads at shoulders + ribs, slim-fit compression base layer. No CE/EN1621 standard stated on the page, so no cert token. No weight published. Added kit-breadth-6 via g-form.com product page.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://g-form.com/products/x4-short-sleeve-shirt' },
 
   /* -- Body armor grind batch 4 (2026-07-14) -- */
   { id:'arm-poc-vpd-system-chest', cat:'bodyarmor', brand:'POC', model:'VPD System Chest', price:130,
