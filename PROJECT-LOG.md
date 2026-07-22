@@ -4938,3 +4938,13 @@ dead-end). display/batteryRemovable honestly blank (Pinion's confirming page 404
 implies but does not state). 'pinion' added to EMTB_VOCAB.motorBrand backed by the row.
 Gates green.
 Report: emtb-haibike-allmtn.md.
+
+## 2026-07-22 — gravel-ui-ismount-polish merged (UI auto-ship, browser-verified)
+gravel.html only: mountLabel() helper on the bbShellLabel convention (is-mount renders as
+"I.S. (International Standard)" on the Nicasio+ card — rendered text confirmed in the pane)
++ the honesty strip now says "brake caliper mount vs frame/fork (flagging a documented
+I.S.-to-post-mount adapter path where it applies)" — grounded in the R18 comment, no
+overclaim. No pop-ups (diff reviewed). Gates green. NIT SPOTTED in the worker's own
+verification output: the Nicasio+ card also prints raw "square-taper shell" — the crankBb
+token has no pretty label; folded into the next gravel UI smalls pass.
+Report: gravel-ui-ismount.md.
