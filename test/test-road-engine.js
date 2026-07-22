@@ -441,6 +441,110 @@ test('rg-brake-mount errors a post-mount caliper on a flat-mount frame/fork', fu
   eq(of(r2, 'rg-brake-mount').length, 0, 'flat on flat');
 });
 
+/* ---- R18 I.S.-mount adapter tier (engine/gravel-is-mount, 2026-07-22) --------
+   Ported from the live MTB rule 8 (src/compat.js): ONLY a post-mount caliper on
+   an I.S. mount downgrades to an adapter-tier WARNING; every other pair stays
+   the exact-match ERROR. Sources cited at the rule (Shimano SM-MA-*P/S via
+   si.shimano.com DM-SMMA00A; Hope HBIS20/HBIS40 on hopetech.com's own
+   brake-mounts page). Real catalog rows drive the LIVE case — the Marin
+   Nicasio+ (the catalog's only I.S. frame) and the Hope RX4+ Postmount (its
+   pair caliper); synthetics cover the directions no row can produce yet. */
+test('rg-brake-mount: post-mount caliper on an I.S. FRAME is an adapter warning, not an error', function(){
+  var frame = gp('gfr-marin-nicasio-plus'), caliper = gp('gbr-hope-rx4-plus-postmount-min');
+  eq(frame.brakeMount, 'is-mount', 'the live I.S. frame this rule unblocks');
+  eq(caliper.mount, 'post-mount', 'its pair caliper');
+  var r = ROAD.checkRoadBuild({ frame: frame, rearBrake: caliper });
+  eq(errOf(r, 'rg-brake-mount').length, 0, 'never a false "won\'t fit"');
+  var w = warnOf(r, 'rg-brake-mount');
+  eq(w.length, 1);
+  ok(/I\.S\. \(International Standard\)/.test(w[0].msg), 'names the standard in full: ' + w[0].msg);
+  ok(/SM-MA-R160P\/S/.test(w[0].msg), 'names the REAR adapter example: ' + w[0].msg);
+  eq(w[0].slots.join(','), 'rearBrake,frame');
+  ok(w[0].fix && w[0].fix.kind === 'adapter', 'carries the structured adapter fix');
+  ok(/rotor-size-specific/.test(w[0].fix.name), 'the fix never promises one universal part: ' + w[0].fix.name);
+});
+
+test('rg-brake-mount: the I.S. adapter tier applies symmetrically at the FORK end', function(){
+  // no cataloged fork is I.S. — dormant-but-correct, so this end is synthetic.
+  var isFork = syn(gp('gfk-genesis-croixdefer-steel'), { id: 'gfk-syn-is', brakeMount: 'is-mount' });
+  var r = ROAD.checkRoadBuild({ fork: isFork, frontBrake: gp('gbr-hope-rx4-plus-postmount-min') });
+  eq(errOf(r, 'rg-brake-mount').length, 0);
+  var w = warnOf(r, 'rg-brake-mount');
+  eq(w.length, 1);
+  ok(/SM-MA-F160P\/S/.test(w[0].msg), 'the FRONT adapter example, not the rear one: ' + w[0].msg);
+  eq(w[0].slots.join(','), 'frontBrake,fork');
+});
+
+test('rg-brake-mount: a FLAT-mount caliper on an I.S. mount stays an ERROR (no fix claimed)', function(){
+  // the impossible direction: makers publish I.S.->POST brackets, not
+  // I.S.->flat-mount, so promising an adapter here would be a false "fits".
+  var r = ROAD.checkRoadBuild({ frame: gp('gfr-marin-nicasio-plus'), rearBrake: gp('gbr-shimano-grx-br-rx820') });
+  var e = errOf(r, 'rg-brake-mount');
+  eq(e.length, 1);
+  eq(warnOf(r, 'rg-brake-mount').length, 0, 'no adapter tier in this direction');
+  ok(!e[0].fix, 'an error never carries a fix');
+  ok(/post-mount caliper/.test(e[0].msg), 'points at the documented path instead of a bare mismatch: ' + e[0].msg);
+});
+
+test('rg-brake-mount: an I.S. CALIPER on a flat-mount frame stays an error (direction-aware now, dormant today)', function(){
+  // no I.S. caliper is cataloged (the token is not even in the caliper-side
+  // vocab) — this pins that the adapter tier is one-directional the day one is.
+  var isCaliper = syn(gp('gbr-shimano-grx-br-rx820'), { id: 'gbr-syn-is', mount: 'is-mount' });
+  var r = ROAD.checkRoadBuild({ frame: gp('gfr-kona-sutra-ltd'), rearBrake: isCaliper });
+  eq(errOf(r, 'rg-brake-mount').length, 1);
+  eq(warnOf(r, 'rg-brake-mount').length, 0);
+});
+
+test('rg-brake-mount: matched mounts stay silent, including I.S. on I.S. and post on post', function(){
+  var isCaliper = syn(gp('gbr-shimano-grx-br-rx820'), { id: 'gbr-syn-is2', mount: 'is-mount' });
+  var rIs = ROAD.checkRoadBuild({ frame: gp('gfr-marin-nicasio-plus'), rearBrake: isCaliper });
+  eq(of(rIs, 'rg-brake-mount').length, 0, 'I.S. caliper on an I.S. mount bolts straight on');
+  var pmFrame = syn(gp('gfr-kona-sutra-ltd'), { id: 'gfr-syn-pm', brakeMount: 'post-mount' });
+  var rPm = ROAD.checkRoadBuild({ frame: pmFrame, rearBrake: gp('gbr-hope-rx4-plus-postmount-min') });
+  eq(of(rPm, 'rg-brake-mount').length, 0, 'post caliper on a post mount');
+  var rFlat = ROAD.checkRoadBuild({ frame: gp('gfr-kona-sutra-ltd'), rearBrake: gp('gbr-shimano-grx-br-rx820') });
+  eq(of(rFlat, 'rg-brake-mount').length, 0, 'flat on flat (real rows)');
+});
+
+test('rg-brake-mount stays DORMANT when either side does not state its mount', function(){
+  var noMountCaliper = syn(gp('gbr-hope-rx4-plus-postmount-min'), { id: 'gbr-syn-nomount' });
+  delete noMountCaliper.mount;
+  eq(of(ROAD.checkRoadBuild({ frame: gp('gfr-marin-nicasio-plus'), rearBrake: noMountCaliper }), 'rg-brake-mount').length, 0,
+    'caliper mount unknown != mismatched');
+  var noMountFrame = syn(gp('gfr-marin-nicasio-plus'), { id: 'gfr-syn-nomount' });
+  delete noMountFrame.brakeMount;
+  eq(of(ROAD.checkRoadBuild({ frame: noMountFrame, rearBrake: gp('gbr-hope-rx4-plus-postmount-min') }), 'rg-brake-mount').length, 0,
+    'frame mount unknown != mismatched');
+  eq(of(ROAD.checkRoadBuild({ rearBrake: gp('gbr-hope-rx4-plus-postmount-min') }), 'rg-brake-mount').length, 0,
+    'a caliper with no frame at all');
+});
+
+test('the Marin Nicasio+ BRAKE END is unblocked: every cataloged caliper choice is now legal or honestly explained', function(){
+  // Before this change the catalog's only I.S. frame had no caliper it could
+  // legally take: every gravel caliper was flat-mount, so the rear brake slot
+  // was a guaranteed hard error whatever you picked. NOTE the deliberately
+  // narrow claim — this is the BRAKE end only. The frame keeps a SEPARATE,
+  // pre-existing coverage gap (its 135x9-qr rear spacing has no matching wheel
+  // in data/gravel.js, so rg-rear-axle still errors on any rear wheel); that is
+  // a data gap for a future pass, not something this rule can or should mask.
+  var frame = gp('gfr-marin-nicasio-plus');
+  var r = ROAD.checkRoadBuild({
+    frame: frame,
+    rearBrake: gp('gbr-hope-rx4-plus-postmount-min'),
+    shifter: gp('gsft-shimano-grx-rx820-1x12')
+  });
+  eq(r.errors.length, 0, 'frame + post-mount caliper + brifter: no errors at all: ' + r.errors.join(' | '));
+  eq(warnOf(r, 'rg-brake-mount').length, 1, 'the one thing to check is the adapter');
+  // and the flat-mount majority still errors — but with the actionable message,
+  // never a bare "mismatch" that reads like an engine gap.
+  GD.GRAVEL_PARTS.filter(function(p){ return p.cat === 'brake'; }).forEach(function(cal){
+    var rr = ROAD.checkRoadBuild({ frame: frame, rearBrake: cal });
+    var v = of(rr, 'rg-brake-mount');
+    if(cal.mount === 'post-mount'){ eq(warnOf(rr, 'rg-brake-mount').length, 1, cal.id + ' warns'); }
+    else { eq(errOf(rr, 'rg-brake-mount').length, 1, cal.id + ' errors'); ok(/post-mount caliper/.test(String(v[0])), cal.id + ' names the fix path'); }
+  });
+});
+
 /* ---- R19 brifter/caliper coupling --------------------------------------------- */
 test('rg-brifter-brake: hydraulic caliper behind a cable-disc lever errors; the reverse stays silent', function(){
   var mechLever = syn(rp('sh-sram-red-axs'), { id: 'sh-syn-mech-disc', brakeSystem: 'disc-mechanical' });

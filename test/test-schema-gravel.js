@@ -86,6 +86,52 @@ test('an out-of-vocab rearAxle value is still caught', function(){
   ok(probs.some(function(m){ return /rearAxle.*not in rearAxle/.test(m); }), probs.join('\n'));
 });
 
+// engine/gravel-is-mount (2026-07-22): the I.S. frame/fork brake-mount token
+// (Marin Nicasio+) and the caliperMount/rotorInterface split of what used to be
+// one shared `mount` vocab. Positive + negative on each, and — the point of the
+// split — proof the two token sets can no longer leak into each other.
+test('is-mount is a valid gravel frame AND fork brakeMount value', function(){
+  var frame = aFrame();
+  eq(S.validateGravelPart(Object.assign({}, frame, { brakeMount: 'is-mount' }), new Date()).length, 0);
+  var fork = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'fork'; });
+  if(!fork) throw new Error('no gravel fork row found in data/gravel.js');
+  eq(S.validateGravelPart(Object.assign({}, fork, { brakeMount: 'is-mount' }), new Date()).length, 0);
+});
+
+test('an out-of-vocab brakeMount is still caught, and post-mount is NOT a frame-side token', function(){
+  var frame = aFrame();
+  var bad = S.validateGravelPart(Object.assign({}, frame, { brakeMount: 'cantilever' }), TODAY);
+  ok(bad.some(function(m){ return /brakeMount.*not in brakeMount/.test(m); }), bad.join('\n'));
+  // deliberate: no cataloged GRAVEL frame/fork is post-mount, so the token is
+  // withheld on this side rather than added speculatively.
+  var pm = S.validateGravelPart(Object.assign({}, frame, { brakeMount: 'post-mount' }), TODAY);
+  ok(pm.some(function(m){ return /brakeMount.*not in brakeMount/.test(m); }), pm.join('\n'));
+});
+
+test('disc-is / disc-post are valid brakeSystem tokens; a junk value is still caught', function(){
+  var frame = aFrame();
+  eq(S.validateGravelPart(Object.assign({}, frame, { brakeSystem: 'disc-is' }), new Date()).length, 0);
+  var brake = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'brake'; });
+  if(!brake) throw new Error('no gravel brake row found in data/gravel.js');
+  eq(S.validateGravelPart(Object.assign({}, brake, { brakeSystem: 'disc-post' }), new Date()).length, 0);
+  var bad = S.validateGravelPart(Object.assign({}, frame, { brakeSystem: 'disc-is-mount' }), TODAY);
+  ok(bad.some(function(m){ return /brakeSystem.*not in brakeSystem/.test(m); }), bad.join('\n'));
+});
+
+test('caliperMount/rotorInterface are SPLIT: neither vocab accepts the other\'s tokens', function(){
+  var brake = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'brake'; });
+  var rotor = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'rotor'; });
+  if(!brake || !rotor) throw new Error('no gravel brake/rotor row found in data/gravel.js');
+  eq(S.validateGravelPart(Object.assign({}, brake, { mount: 'post-mount' }), new Date()).length, 0, 'post-mount IS a caliper mount');
+  // the split's whole purpose: adding post-mount must not have made
+  // `mount:'post-mount'` legal on a ROTOR, a value that cannot exist.
+  var rotorPm = S.validateGravelPart(Object.assign({}, rotor, { mount: 'post-mount' }), TODAY);
+  ok(rotorPm.some(function(m){ return /mount.*not in rotorInterface/.test(m); }), rotorPm.join('\n'));
+  var caliperCl = S.validateGravelPart(Object.assign({}, brake, { mount: 'center-lock' }), TODAY);
+  ok(caliperCl.some(function(m){ return /mount.*not in caliperMount/.test(m); }), caliperCl.join('\n'));
+  eq(S.validateGravelPart(Object.assign({}, rotor, { mount: '6-bolt' }), new Date()).length, 0, '6-bolt is still a rotor interface');
+});
+
 // vocab-tier1 (2026-07-22): ratified square-taper BB shell token (frame bb
 // field) + its matching crank spindle token — positive + negative.
 test('square-taper bb is a valid gravel frame value', function(){
