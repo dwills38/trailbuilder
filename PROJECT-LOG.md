@@ -4968,3 +4968,30 @@ one-URL-at-a-time browser-pane work, ~3 rows per fetch round. 148 rows remain = 
 session grind at that rate. TOP UP EXA before the next fetch-heavy chip. Resume:
 gfr-cannondale-topstone-carbon-4. Gates green.
 Report: pb-gravel-3.md.
+
+## 2026-07-22 — cb-11speed-1 merged: the two stale-doc-blocked bikes finally land (5116 to 5124)
+cb-kona-honzo ($1,299, re-fetched) + cb-ragley-bigal-10 (the 11-speed/dropper Big Al trim,
+ZERO new part rows needed) + 6 OE rows (Vee Crown Gem DCC rear tire, WTB ST i30/Shimano CL
+wheel pair, Shimano RT30 160+180 CL rotors, the 30T/11sp Deore crank point). Worker CORRECTED
+the prior report's premise: the Vee Flow Snap front tire already existed (price-leads-1 had
+claimed no Vee rows matched) — exactly the self-check we want. It also refused the Shimano
+handbook PDF rather than break the no-downloads order, corroborating the rotors via a fetched
+retailer page and NOT claiming handbook provenance.
+COORDINATOR CATCHES (build probes at review — neither was in the report):
+(1) FALSE WARNING, fixed: the new WTB wheels carried an INFERRED minTire 2.4 (carried from
+the CZR i30 sibling), which made rule 14c fire a too-narrow warning against KONA'S OWN stock
+2.35/2.3 tires on that very wheel. Rule 14c is documented to fire ONLY off a maker-published
+minTire — the inferred field was REMOVED (maxTire stays only because the schema requires it,
+disclosed as inferred). cb-kona-honzo now probes 0 errors / 0 warnings. LESSON: an inferred
+optional field is not neutral — it can manufacture a false verdict; check any new row that
+adds a rule-feeding optional field.
+(2) NOT a defect, recorded: cb-ragley-bigal-10 warns "rear rotor 180 exceeds frame max 160" —
+identical to the pre-existing cb-ragley-bigal-20 sibling. The frame's PM160 is its NATIVE
+mount and Ragley ships 180 with an adapter; rule 10 is a WARNING precisely because adapters
+exist, so this is designed behavior, not bad data. Strengthens the roadmap's existing
+"oversize-rotor adapter info" candidate.
+Also noted: the new Vee row's priceBasis stays BLANK with an explicit rationale — its price
+is Vee's single EUR RRP carried into a USD field with no disclosed conversion, matching all 7
+pre-existing Vee rows. QUEUED: one fetch+ruling for the whole 8-row Vee family, not per-row
+guesses. Gates green.
+Report: cb-11speed-1.md.
