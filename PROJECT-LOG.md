@@ -1,5 +1,23 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — cb-sheets-14: Norco+Propain grind (MTB 3,325) + two honest refusals
+
+- **verify/cb-sheets-14 merged**: Norco — 6 more verified incl. the same-generation
+  discipline that matters (Optic C1 verified against the 24- page, deliberately NOT the
+  materially-different 25- tier; Sight C2 + Torrent S1 found via ?localize=en_CA), plus
+  real fill fixes (Shore's udh false→true per three sources, exact-match grips/chains/
+  saddles replacing placeholders). Propain — 5 more verified via the softened WAF; the
+  Spindrift CF Base drivetrain-generation conflict documented, not guessed. Sight Gen 5
+  frame MINTED (fr-norco-sight-160, all interfaces off norco.com's 26-sight-c1-160 page).
+- **Two refusals that are the system working:** (1) NO Sight 160 completebike row —
+  validate's bundle-price invariant exposed that the SRAM Eagle-90/Transmission-tier
+  sample prices are implausibly low ($170 crank / $210 mech), a SYSTEMIC pricing gap that
+  would fake the savings figure; needs a dedicated pricing-accuracy pass first. (2) NO
+  Habit HT 2 current-gen mint — the worker's own fresh fetch of the un-suffixed URL shows
+  the archived-identical $1,299/XCM34 spec, CONTRADICTING cb-sheets-13's same-day $1,499/
+  Judy claim (likely retailer-derived); re-check before minting.
+- Gates: 7 OK (MTB 5,041 parts / 3,325 verified), 988/988, tsc clean, harness fully clean.
+
 ## 2026-07-22 — gravel-verify-5: the frames pass (gravel 166/258)
 
 - **verify/gravel-verify-5 merged**: all 32 candidate frames covered — 12 promoted/
