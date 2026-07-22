@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-21T20:20:42.553Z",
+ "updated": "2026-07-22T13:54:55.931Z",
  "batchSize": 25,
  "lastCompleted": "rw-bontrager-connection-marlinoe-29",
  "currentCategory": "frame",
@@ -13,13 +13,20 @@
   "fr-propain-spindrift-cf",
   "fr-trek-session-8-29",
   "fr-trek-fuel-ex-c-gen6",
+  "fr-commencal-meta-ht-v2",
   "fr-specialized-status-2-170",
   "fr-nukeproof-reactor-290-alloy",
+  "fr-norco-sight-160",
   "fr-orbea-occam-lt",
   "fr-propain-tyee-cf",
   "fr-orange-p7-29",
   "fr-orange-p7-mx",
   "fr-chromag-doctahawk",
+  "fr-ragley-mmmbop",
+  "fr-ragley-bigwig",
+  "fr-chromag-primer",
+  "fr-dartmoor-two6player-pro",
+  "fr-identiti-drjekyll",
   "fr-propain-tyee-al",
   "fr-propain-hugene-cf",
   "ti-cst-camber-29-225",
@@ -33,7 +40,6 @@
   "ti-teravail-honcho-275-24-ls-grip",
   "ti-teravail-honcho-275-24-dur-grip",
   "ti-teravail-honcho-275-26-ls-grip",
-  "ti-continental-kryptotal-fr-29-24-enduro-supersoft",
   "ti-schwalbe-dirty-dan-275-235-sdh-aus",
   "ti-schwalbe-rock-razor-275-26-st-asg",
   "ti-kenda-krad-26-23",
@@ -47,7 +53,6 @@
   "ti-xlc-vtm20-summit-29-225",
   "ti-xlc-vtm20-summit-275-225",
   "ti-schwalbe-hans-dampf-29-235-st-as",
-  "ti-continental-kryptotal-re-275-24-downhill-supersoft",
   "ti-schwalbe-racing-ray-29-225-sg-asg",
   "ti-maxxis-ardent-race-29-22-exo",
   "ti-bontrager-gunnison-rsl-xt-29-24",
@@ -59,10 +64,7 @@
   "ti-schwalbe-bigbetty-29-24",
   "ti-specialized-butcher-29-23-gridgravity-t9",
   "ti-specialized-butcher-275-23-gridtrail-t9",
-  "ti-specialized-butcher-29-23-gridtrail-t9",
   "ti-specialized-butcher-275-23-gridgravity-t9",
-  "ti-specialized-purgatory-29-24-grid-t9",
-  "ti-specialized-eliminator-29-24-gridtrail-t7",
   "ti-wtb-breakout-comp-29-23",
   "ti-delium-rugged-275-24",
   "ti-maxxis-ardent-race-29-235-exo-3cms",
@@ -73,40 +75,33 @@
   "ti-schwalbe-racing-ray-29-235-sg-asg",
   "ti-veerubber-crowngem-275-28",
   "fw-raceface-ar30-factor-29",
+  "fw-raceface-ar30-dtswiss350-29",
   "fw-sonder-nova-29",
   "fw-reserve-30tr-al-29",
   "fw-industrynine-enduro-s-275",
   "fw-weareone-union-275",
-  "fw-weareone-triad-29",
-  "fw-weareone-triad-275",
-  "fw-industrynine-whisp-29",
   "fw-ethirteen-lg1r-29",
   "fw-ethirteen-lg1r-275",
   "fw-zipp-3zero-moto-275",
   "fw-roval-control-sl-29",
   "fw-roval-control-sl-29-cl",
   "fw-bontrager-linecomp-30-29",
-  "fw-reserve-30sl-29",
-  "fw-reserve-30sl-275",
   "fw-weareone-faction-29",
   "fw-weareone-faction-275",
-  "fw-weareone-sector-29",
   "fw-weareone-strife-29",
   "fw-weareone-strife-29-20x110",
   "fw-weareone-strife-275",
   "fw-weareone-strife-275-20x110",
-  "fw-weareone-deal-29",
   "fw-weareone-deal-29-20x110",
-  "fw-weareone-deal-275",
+  "fw-weareone-deal-29-20x110-oneone",
   "fw-weareone-deal-275-20x110",
+  "fw-weareone-deal-275-20x110-oneone",
   "fw-hope-fortus-30-275",
   "fw-halo-ridgeline-29",
   "fw-halo-ridgeline-275",
   "fw-halo-vortex-29",
   "fw-halo-vortex-275",
   "fw-industrynine-11-enduro-275",
-  "fw-reserve-30slal-oneup-29",
-  "fw-reserve-30hdal-oneup-29",
   "fw-industrynine-hydra2-dh-29",
   "fw-industrynine-hydra2-dh-275",
   "fw-alexrims-recon30-29",
@@ -219,6 +214,7 @@
   "fw-sunringle-duroc35-29-boost110",
   "rw-hunt-enduro-wide-29-xd",
   "rw-raceface-ar30-factor-29-sb157-xd",
+  "rw-raceface-ar30-dtswiss350-275-xd",
   "rw-stans-flow-s2-29-ms",
   "rw-sonder-nova-29-hg",
   "rw-bontrager-linecomp-30-29-xd",
@@ -227,14 +223,6 @@
   "rw-industrynine-enduro-s-275-157",
   "rw-industrynine-enduro-s-275-157-ms",
   "rw-industrynine-11-enduro-275-157-ms",
-  "rw-weareone-triad-29",
-  "rw-weareone-triad-29-ms",
-  "rw-weareone-triad-29-hg",
-  "rw-industrynine-whisp-29-ms",
-  "rw-industrynine-whisp-29-xd",
-  "rw-weareone-triad-275",
-  "rw-weareone-triad-275-ms",
-  "rw-weareone-triad-275-hg",
   "rw-ethirteen-lg1r-29-150-xd",
   "rw-ethirteen-lg1r-29-150-hg",
   "rw-ethirteen-lg1r-275-150-xd",
@@ -251,8 +239,6 @@
   "rw-roval-traverse-hd-275-ms",
   "rw-roval-control-sl-29-xd",
   "rw-roval-control-sl-29-ms",
-  "rw-reserve-30slal-oneup-29-ms",
-  "rw-reserve-30hdal-oneup-29-ms",
   "rw-weareone-union-29-ms",
   "rw-weareone-union-29-hg",
   "rw-weareone-union-275-ms",
@@ -261,16 +247,10 @@
   "rw-weareone-faction-29-157-xd",
   "rw-weareone-faction-275-148-xd",
   "rw-weareone-faction-275-157-xd",
-  "rw-weareone-sector-29-148-xd",
-  "rw-weareone-sector-29-157-xd",
   "rw-weareone-strife-29-148-xd",
   "rw-weareone-strife-29-157-xd",
   "rw-weareone-strife-275-148-xd",
   "rw-weareone-strife-275-157-xd",
-  "rw-weareone-deal-29-148-xd",
-  "rw-weareone-deal-29-157-xd",
-  "rw-weareone-deal-275-148-xd",
-  "rw-weareone-deal-275-157-xd",
   "rw-industrynine-hydra2-dh-29-xd",
   "rw-industrynine-hydra2-dh-29-ms",
   "rw-industrynine-hydra2-dh-29-hg",
@@ -298,6 +278,7 @@
   "rw-syncros-md25-26-ss",
   "rw-wtb-sti27-29-ms",
   "rw-nukeproof-horizon-v2-29-xd",
+  "rw-nukeproof-horizon-v2-29-ms",
   "rw-nukeproof-horizon-v2-275-xd",
   "rw-wtb-novatec-i30-29-hg",
   "rw-marin-shimano-mt410-275-ms",
@@ -377,6 +358,7 @@
   "rw-nukeproof-neutron-275-hg",
   "rw-nukeproof-neutron-275-ms",
   "rw-nukeproof-neutron-v2-29-hg",
+  "rw-nukeproof-neutron-v2-29-ms",
   "rw-vitus-tc500-29-6b-hg",
   "rw-vitus-formula-29-hg",
   "rw-vitus-kt-wtb-stlight-i30-29-ms",
@@ -478,6 +460,7 @@
   "sh-fox-van-performance-250x72p5",
   "sh-fox-float-x-performance-185x55-trun",
   "sh-fox-dhx2-factory-205x65-trun",
+  "sh-fox-dhx2-205x65-trun",
   "sh-rockshox-sidluxe-selectplus-165x40-trun",
   "sh-fox-float-rythm-190x45",
   "sh-fox-float-performance-elite-210x55",
@@ -516,6 +499,7 @@
   "fk-fox-34-sc-performance-29-110",
   "fk-manitou-circus-expert-26-100",
   "fk-manitou-circus-expert-26-100-straight",
+  "fk-rst-dirt-t-26-80",
   "fk-fox-34-performance-29-140",
   "fk-fox-34-performance-elite-29-140",
   "fk-fox-34-rhythm-29-140",
@@ -580,7 +564,6 @@
   "hb-santacruz-35-carbon-800",
   "hb-giant-contacttr-35-800",
   "hb-giant-contacttr-35-780",
-  "hb-giant-contactslrtrail-ic-35-800",
   "hb-syncros-hixonic-35-780",
   "hb-syncros-hixon20-318-780",
   "hb-syncros-fraser15-318-740",
@@ -614,13 +597,11 @@
   "hb-canyon-iridium-flat-318",
   "hb-radon-jealous-carbon-740",
   "hb-newmen-advanced-318-740",
-  "hb-syncros-hixon15-318-780",
   "hb-norco-alloy-800-25",
   "hb-specialized-alloy-760-35",
   "hb-roval-control-rise-carbon-35",
   "hb-roval-control-sl-integrated-318",
   "hb-syncros-fraser20-318-740",
-  "hb-syncros-hixon15-dh-318-800",
   "hb-yt-780-35",
   "hb-giant-connecttrail-318-780",
   "hb-specialized-stout-750-318",
@@ -635,7 +616,6 @@
   "hb-diamondback-db35-780-15",
   "hb-bmc-mfb03-750-4",
   "hb-orbea-oc-mp30-alloy-760",
-  "hb-syncros-fraserics-318-740",
   "hb-pivot-phoenix-team-760",
   "hb-burgtec-ridehigh-35",
   "st-sonder-piskie",
@@ -685,9 +665,7 @@
   "st-giant-contactsl-35",
   "st-giant-contactslrtrail-ic-35",
   "st-syncros-hixonic-35",
-  "st-syncros-am20-318",
   "st-syncros-xr15-318",
-  "st-giant-contactsl-xc-35",
   "st-pivot-trail-v2-45-35",
   "st-pivot-phoenix-team-enduro-trail-55-35",
   "st-pivot-phoenix-team-enduro-trail-45-35",
@@ -715,14 +693,12 @@
   "st-specialized-trail-alloy-40-35",
   "st-specialized-3dforged-60-318",
   "st-ragley-alloy-318-50",
+  "st-ragley-alloy-318-40",
   "st-vitus-alloy-318-45",
   "st-canyon-st0039-45",
   "st-canyon-iridium-318",
-  "st-title-dm1-35",
   "st-radon-jealous-carbon-80",
-  "st-syncros-am15-318",
   "st-roval-control-sl-integrated-318",
-  "st-syncros-xc20-318",
   "st-syncros-dh15-318-50",
   "st-yt-50-35",
   "st-giant-sport-7deg-70",
@@ -736,7 +712,6 @@
   "st-deux-enduro-integrated-40-35",
   "st-diamondback-db35-35",
   "st-bmc-forged-6061-318",
-  "st-syncros-fraserics-318",
   "st-burgtec-mk3-directmount-35-50",
   "gr-privateer-propalm",
   "gr-sonder-clutch",
@@ -785,7 +760,6 @@
   "gr-onoff-desert-pro",
   "gr-revel-farlow-gap",
   "gr-pivot-thick-v2",
-  "gr-pivot-phoenix-factory-lockon",
   "gr-sram-silicone-xc",
   "gr-cannondale-xc-silicone",
   "gr-bontrager-xrtrail-elite-lockon",
@@ -803,7 +777,6 @@
   "gr-ragley-a20",
   "gr-velo-vlg1812d2",
   "gr-radon-racing-grips",
-  "gr-prologo-proxim-xshred",
   "gr-odi-elite-flow",
   "gr-liv-xcpro",
   "gr-giant-soleo",
@@ -812,7 +785,7 @@
   "gr-ocmountaincontrol-lockon",
   "gr-diamondback-db-lockon",
   "dp-gt-dropkick-316-150",
-  "dp-ks-lev-ci-316-175",
+  "dp-tranzx-ysi160-rad-349-200",
   "dp-fox-transfer-factory-309-240",
   "dp-pro-koryak-70-272-70",
   "dp-pro-koryak-120-309-120",
@@ -834,7 +807,6 @@
   "dp-canecreek-al-316-150",
   "dp-whyte-dropit-ii-309-150",
   "dp-xlc-spt21-316-150",
-  "dp-xfusion-manic-309-150",
   "dp-tranzx-jdysp39kl-349-170",
   "dp-orbea-oc-mc22-316-125",
   "dp-raceface-aeffect-r-309-150",
@@ -845,10 +817,7 @@
   "dp-tranzx-ysi05-rad-309-150",
   "dp-tranzx-reverse-309-180",
   "dp-onoff-pija-316-150",
-  "dp-giant-contactswitchat-309-140",
-  "dp-giant-contactswitchat-309-170",
   "dp-syncros-duncan25-316-150",
-  "dp-giant-contactswitchcore-309-120",
   "dp-bontrager-line-316-150",
   "dp-merida-experttrii-349-190",
   "dp-merida-comptrii-349-160",
@@ -856,8 +825,6 @@
   "dp-postmoderne-dp212-316-170",
   "dp-cube-dropper-309-125",
   "dp-cube-dropper-309-150",
-  "dp-xfusion-manic-349-170",
-  "dp-xfusion-manic-316-170",
   "dp-tranzx-ysi34-349-170",
   "dp-tranzx-slrle-349-170",
   "dp-ks-900i-316-150",
@@ -870,7 +837,6 @@
   "dp-tranzx-ysp23jl-309-170",
   "dp-bikeyoke-divine-sl-309-100",
   "dp-canyon-sp0081-349-150",
-  "dp-xfusion-manic-316-150",
   "dp-bird-downdropper-v21-316-200",
   "dp-twinworks-variostutze-316-170",
   "dp-tranzx-jdysi34-316-150",
@@ -881,7 +847,6 @@
   "sa-privateer-cromo",
   "sa-sonder-abode",
   "sa-wtb-volt-pro",
-  "sa-sdg-belair-v3-steel",
   "sa-specialized-henge-comp",
   "sa-syncros-dj15",
   "sa-forbidden-143-atmos",
@@ -897,16 +862,12 @@
   "sa-xlc-sas10-sport",
   "sa-sixpack-kamikaze",
   "sa-entity-linc-xtent-crmo",
-  "sa-fizik-vento-argo-x5",
-  "sa-prologo-proxim-w450",
   "sa-rose-selleitalia-edition",
   "sa-ergon-sm10",
   "sa-gt-scoop-shallow-sport",
   "sa-gt-scoop-flat",
-  "sa-giant-romero-sl",
   "sa-syncros-tofino15-ti",
   "sa-syncros-tofino25",
-  "sa-syncros-belcarra20",
   "sa-giant-grit-pp",
   "sa-velo-shuttle",
   "sa-pivot-phoenix-wtb-volt-race",
@@ -932,11 +893,8 @@
   "sa-vitus-steel-rail",
   "sa-selleitalia-x3-boost",
   "sa-velo-vl1c28-trail",
-  "sa-sdg-ifly-20",
   "sa-naturalfit-nuance-slt-x",
   "sa-naturalfit-nuance-pro",
-  "sa-fizik-terra-aidon-x5",
-  "sa-syncros-tofino20",
   "sa-selleitalia-slr-boostfill-ti",
   "sa-liv-grit-sl",
   "sa-liv-sylvia",
@@ -951,7 +909,6 @@
   "sa-diamondback-syncr",
   "sa-selleroyal-2058-drn",
   "sa-trek-verse-short",
-  "sa-syncros-belcarrav2-cutout",
   "sa-pivot-phoenix-wtb-volt-worldcup",
   "pd-look-trailroc",
   "pd-vpcomponents-x93",
@@ -1066,6 +1023,7 @@
   "ch-kmc-z410",
   "ch-ybn-mk918",
   "ch-kmc-z510",
+  "ch-kmc-x11-ept",
   "ch-shimano-cues-lg500-10",
   "ch-kmc-x11-cues",
   "ch-kmc-x11-trp-evo7-dh",
@@ -1134,7 +1092,6 @@
   "cb-nukeproof-mega-290-alloy-comp",
   "cb-norco-sight-c1-mx",
   "cb-norco-range-c1",
-  "cb-norco-fluid-fs-a2",
   "cb-forbidden-dreadnought-v2-mx-dreadnought1",
   "cb-forbidden-reya-tier3",
   "cb-cotic-solaris-silver-slx",
@@ -1147,10 +1104,6 @@
   "cb-ibis-ripley-v5-deore",
   "cb-ibis-ripley-v5-xt",
   "cb-ibis-ripley-af-deore",
-  "cb-propain-tyee-al-signature-spec-2",
-  "cb-propain-rage-3-r-cf-ultimate",
-  "cb-propain-hugene-cf-signature-spec-1",
-  "cb-propain-hugene-cf-signature-spec-2",
   "cb-propain-spindrift-al-swedish-gold",
   "cb-orbea-occam-lt-m10",
   "cb-orbea-occam-sl-h10",
@@ -1203,10 +1156,7 @@
   "cb-yeti-arc-c2",
   "cb-yeti-sb120-c3",
   "cb-yeti-sb120-t2",
-  "cb-cannondale-scalpel-ht-carbon-3",
   "cb-cannondale-scalpel-ht-carbon-2",
-  "cb-cannondale-scalpel-4",
-  "cb-cannondale-jekyll-1",
   "cb-evil-following-ls-gx-i9-hydra",
   "cb-evil-following-ls-xx-transmission",
   "cb-evil-insurgent-ls-gx-i9-hydra",
@@ -1216,17 +1166,13 @@
   "cb-trek-session-8-29-gx",
   "cb-trek-remedy-8",
   "cb-trek-supercaliber-slr-98-xt-gen2",
-  "cb-cannondale-habit-ht-1",
-  "cb-cannondale-habit-ht-2",
-  "cb-cannondale-habit-ht-3",
   "cb-intense-tracer-279-expert",
-  "cb-specialized-stumpjumper-15-alloy",
-  "cb-specialized-enduro-comp",
-  "cb-specialized-status-2-170",
   "cb-specialized-chisel-sram",
-  "cb-specialized-epic-world-cup-expert",
   "cb-chromag-rootdown-gx",
   "cb-nukeproof-scout-290-race",
+  "cb-ragley-mmmbop-20",
+  "cb-ragley-bigwig",
+  "cb-ragley-bigwig-race",
   "cb-focus-jam-68",
   "cb-canyon-grand-canyon-al-6",
   "cb-canyon-grand-canyon-al-7",
@@ -1254,17 +1200,11 @@
   "cb-yeti-sb160-t3",
   "cb-yeti-sb165-c2",
   "cb-yeti-sb165-t2",
-  "cb-transition-sentinel-carbon-eagle90",
   "cb-transition-sentinel-carbon-x0-axs",
-  "cb-transition-sentinel-alloy-eagle90",
   "cb-transition-spire-carbon-gx",
   "cb-transition-spire-carbon-x0-axs",
-  "cb-transition-patrol-carbon-gx-axs",
   "cb-transition-patrol-gx-carbon",
-  "cb-transition-patrol-alloy-eagle90",
-  "cb-transition-smuggler-alloy-deore",
   "cb-norco-range-c2",
-  "cb-norco-sight-c2-29",
   "cb-kona-process-153-dl-29",
   "cb-canyon-grand-canyon-al-8",
   "cb-canyon-grand-canyon-al-9",
@@ -1280,14 +1220,10 @@
   "cb-scott-spark-rc-team",
   "cb-yt-izzo-core1",
   "cb-orbea-occam-lt-mteam",
-  "cb-norco-sight-c3-mx",
-  "cb-norco-optic-c1",
   "cb-kona-honzo-esd",
   "cb-trek-xcaliber-8",
   "cb-norco-fluid-ht-1",
   "cb-norco-fluid-ht-2",
-  "cb-norco-torrent-ht-s1",
-  "cb-norco-torrent-ht-a1",
   "cb-norco-shore-a-park-fox38",
   "cb-ari-delanopeak-comp",
   "cb-deviate-claymore-elite",
@@ -1316,8 +1252,6 @@
   "cb-intense-m1-expert",
   "cb-intense-m1-pro",
   "cb-yt-tues-core4",
-  "cb-specialized-rockhopper",
-  "cb-specialized-rockhopper-comp",
   "cb-specialized-rockhopper-expert",
   "cb-diamondback-syncr",
   "cb-orbea-laufey-h30",
@@ -1333,7 +1267,6 @@
   "sp-syncros-dj15-316",
   "sp-gt-alloy-316",
   "sp-syncros-duncan15-316",
-  "sp-raceface-ride-272-400",
   "sp-bontrager-rhythmelite-316",
   "sp-sdg-tellis-316-rigid",
   "sp-cube-performance-post-316",
@@ -1341,7 +1274,6 @@
   "sp-ragley-alloy-316-400",
   "sp-canyon-sp20198-316",
   "sp-newmen-advanced-carbon-272-400",
-  "sp-syncros-duncan20-316-rigid",
   "sp-syncros-dh20-316",
   "sp-sdg-v2comp-349",
   "sp-pivot-phoenix-race-alu-272",
@@ -1377,6 +1309,7 @@
   "hs-fsa-orbit-15-zs44-zs56",
   "hs-vp-integrated-zs44-zs56",
   "cg-generic-ss-16t",
+  "cg-joytech-14t",
   "cg-dmr-13t",
   "cg-scott-12t"
  ],
@@ -2463,10 +2396,10 @@
   },
   "gr-renthal-traction": {
    "cat": "grips",
-   "status": "Skipped",
-   "updated": "2026-07-07T18:47:53.886Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
+   "source": "https://www.renthal.com/cycle/grips/lock-on-med",
    "note": "Renthal publishes no grip weights (same pattern as the Apex stem). The one MBR figure found (119g) is for the Ultra Tacky compound variant, not this generic Traction row, and is ambiguous single-vs-pair. Bar not met."
   },
   "gr-lizardskins-charger-evo": {
@@ -2703,10 +2636,10 @@
   },
   "sa-fizik-terra-alpaca": {
    "cat": "saddle",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:03:59.979Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
+   "source": "https://www.fizik.com/us_en/terra-alpaca-x5.html",
    "note": "fizik.com product pages 404 to WebFetch for this SKU (X5). A 238g/$99.99 figure surfaced in search summaries only, never confirmed on a fetched manufacturer page. Bar not met."
   },
   "sa-raceface-aeffect": {
@@ -2735,10 +2668,10 @@
   },
   "sa-selleitalia-model-x": {
    "cat": "saddle",
-   "status": "Skipped",
-   "updated": "2026-07-07T19:05:23.533Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
+   "source": "https://www.selleitalia.com/model-x-leaf/",
    "note": "Model X splits into several distinct SKUs (Leaf, Comfort Plus, base Greentech) with no weight published for any variant found. Bar not met."
   },
   "sa-pnw-loam": {
@@ -5376,10 +5309,10 @@
   },
   "hb-title-form-carbon-35": {
    "cat": "handlebar",
-   "status": "Skipped",
-   "updated": "2026-07-07T20:26:36.102Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
+   "source": "https://www.titlemtb.com/products/form-carbon-35-handlebars",
    "note": "Title MTB's current lineup has no 'AH2 Carbon 35' model -- their carbon options are 'FORM Carbon' (194g starting) and a 'CH1 Carbon' mentioned only in a comparison guide with no weight. Likely this row is a renamed/mis-keyed product. Flag for a data-entry decision (probably rename to FORM Carbon or CH1 once the right SKU is confirmed) rather than guessing."
   },
   "hb-protaper-a25-35": {
@@ -7200,19 +7133,19 @@
   },
   "fw-reserve-30sl-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.reservewheels.com/products/reserve-30sl-mountain-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-reserve-30sl-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-09T13:40:38.882Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.reservewheels.com/products/reserve-30sl-mountain-wheel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-weareone-faction-29": {
    "cat": "frontwheel",
@@ -16807,11 +16740,11 @@
   },
   "fw-industrynine-whisp-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/whisp-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-dtswiss-xrc1200-spline25-29": {
    "cat": "frontwheel",
@@ -16999,19 +16932,19 @@
   },
   "rw-industrynine-whisp-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/whisp-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-industrynine-whisp-29-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-13T16:16:45.497Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/whisp-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-dtswiss-xrc1200-spline25-29-ms": {
    "cat": "rearwheel",
@@ -25079,35 +25012,35 @@
   },
   "fw-weareone-triad-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-weareone-triad-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-weareone-sector-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/sector-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-weareone-deal-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/deal-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-weareone-deal-29-20x110": {
    "cat": "frontwheel",
@@ -25119,11 +25052,11 @@
   },
   "fw-weareone-deal-275": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/deal-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-weareone-deal-275-20x110": {
    "cat": "frontwheel",
@@ -25135,99 +25068,99 @@
   },
   "rw-weareone-triad-29": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-weareone-triad-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-weareone-triad-29-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-weareone-triad-275": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-weareone-triad-275-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-weareone-triad-275-hg": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-weareone-sector-29-148-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/sector-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-weareone-sector-29-157-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/sector-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-weareone-deal-29-148-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/deal-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-weareone-deal-29-157-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/deal-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-weareone-deal-275-148-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/deal-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-weareone-deal-275-157-xd": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-14T12:34:16.234Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://industrynine.com/products/deal-cr",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fr-kona-process-153-carbon": {
    "cat": "frame",
@@ -26727,11 +26660,11 @@
   },
   "ti-continental-kryptotal-fr-29-24-enduro-supersoft": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-maxxis-dissector-275-24-exo-3cmt": {
    "cat": "tire",
@@ -26959,11 +26892,11 @@
   },
   "ti-continental-kryptotal-re-275-24-downhill-supersoft": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.continental-tires.com/content/dam/conti-tires-cms/continental/b2c/downloads/bicycle/TireRange-Bicycle.pdf.coredownload.pdf",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-teravail-drawpoint-29-24-lighttrail-grip": {
    "cat": "tire",
@@ -27183,11 +27116,11 @@
   },
   "ti-specialized-purgatory-29-24-grid-t9": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/purgatory-grid-2bliss-ready-t9/p/1000161406",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-specialized-groundcontrol-29-235-grid-t7": {
    "cat": "tire",
@@ -27231,11 +27164,11 @@
   },
   "ti-specialized-eliminator-29-24-gridtrail-t7": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/eliminator-grid-trail-t7-tlr-trail-tire/p/1000233975",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-maxxis-minion-dhf-275-25-exop-mt": {
    "cat": "tire",
@@ -27511,19 +27444,19 @@
   },
   "fw-reserve-30slal-oneup-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.reservewheels.com/products/reserve-30-sl-al",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-reserve-30hdal-oneup-29": {
    "cat": "frontwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.reservewheels.com/products/reserve-30-hd-al",
+   "note": "auto-promoted: already verified in catalog"
   },
   "fw-alexrims-dm24-26-15x100": {
    "cat": "frontwheel",
@@ -28823,19 +28756,19 @@
   },
   "rw-reserve-30slal-oneup-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.reservewheels.com/products/reserve-30-sl-al",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-reserve-30hdal-oneup-29-ms": {
    "cat": "rearwheel",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.919Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.reservewheels.com/products/reserve-30-hd-al",
+   "note": "auto-promoted: already verified in catalog"
   },
   "rw-alexrims-dm24-26-ss": {
    "cat": "rearwheel",
@@ -32263,11 +32196,11 @@
   },
   "hb-giant-contactslrtrail-ic-35-800": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/contact-slr-tr-integrated-handlebar-2023",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-syncros-hixonic-35-780": {
    "cat": "handlebar",
@@ -32559,11 +32492,11 @@
   },
   "hb-syncros-hixon15-318-780": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.syncros.com/us/en/product/syncros-hixon-1-5-handlebar",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-norco-alloy-800-25": {
    "cat": "handlebar",
@@ -32607,11 +32540,11 @@
   },
   "hb-syncros-hixon15-dh-318-800": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.syncros.com/us/en/product/syncros-hixon-1-5-dh-handlebar",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-yt-780-35": {
    "cat": "handlebar",
@@ -32735,11 +32668,11 @@
   },
   "hb-syncros-fraserics-318-740": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.syncros.com/us/en/product/syncros-fraser-ic-sl-xc-integrated-cockpit?article=2944720135175",
+   "note": "auto-promoted: already verified in catalog"
   },
   "hb-pivot-phoenix-team-760": {
    "cat": "handlebar",
@@ -33119,11 +33052,11 @@
   },
   "st-syncros-am20-318": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.syncros.com/us/en/product/syncros-am-2-0-stem",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-syncros-xr15-318": {
    "cat": "stem",
@@ -33135,11 +33068,11 @@
   },
   "st-giant-contactsl-xc-35": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/contact-sl-xc-35-stem-2021",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-pivot-trail-v2-45-35": {
    "cat": "stem",
@@ -33399,11 +33332,11 @@
   },
   "st-title-dm1-35": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.titlemtb.com/products/dm1-35-direct-mount-stem",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-radon-jealous-carbon-80": {
    "cat": "stem",
@@ -33415,11 +33348,11 @@
   },
   "st-syncros-am15-318": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.syncros.com/us/en/product/syncros-am-1-5-stem",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-roval-control-sl-integrated-318": {
    "cat": "stem",
@@ -33431,11 +33364,11 @@
   },
   "st-syncros-xc20-318": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.syncros.com/us/en/product/syncros-xc-2-0-stem?article=2881170001175",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-syncros-dh15-318-50": {
    "cat": "stem",
@@ -33551,11 +33484,11 @@
   },
   "st-syncros-fraserics-318": {
    "cat": "stem",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.syncros.com/us/en/product/syncros-fraser-ic-sl-xc-integrated-cockpit?article=2944720135175",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-burgtec-mk3-directmount-35-50": {
    "cat": "stem",
@@ -33823,11 +33756,11 @@
   },
   "gr-pivot-phoenix-factory-lockon": {
    "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.pivotcycles.com/en-us/products/phoenix-factory-lock-on-grips",
+   "note": "auto-promoted: already verified in catalog"
   },
   "gr-sram-silicone-xc": {
    "cat": "grips",
@@ -33967,11 +33900,11 @@
   },
   "gr-prologo-proxim-xshred": {
    "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://prologo.it/en/products/x-shred-manopole",
+   "note": "auto-promoted: already verified in catalog"
   },
   "gr-odi-elite-flow": {
    "cat": "grips",
@@ -34055,11 +33988,11 @@
   },
   "dp-ks-lev-ci-316-175": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://kssuspension.com/products/dropper-seat-posts/lev-ci/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-cannondale-downlow-316-150": {
    "cat": "dropper",
@@ -34183,11 +34116,11 @@
   },
   "dp-xfusion-manic-309-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/44.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-jdysp39kl-349-170": {
    "cat": "dropper",
@@ -34279,19 +34212,19 @@
   },
   "dp-giant-contactswitchat-309-140": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/contact-switch-at-dropper-seatpost-2023",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-giant-contactswitchat-309-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/contact-switch-at-dropper-seatpost-2023",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-syncros-duncan15-316-150": {
    "cat": "dropper",
@@ -34311,11 +34244,11 @@
   },
   "dp-giant-contactswitchcore-309-120": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/contact-switch-core-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-jdysp18-316-130": {
    "cat": "dropper",
@@ -34407,19 +34340,19 @@
   },
   "dp-xfusion-manic-349-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/44.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-xfusion-manic-316-170": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/44.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-tranzx-ysi34-349-170": {
    "cat": "dropper",
@@ -34527,11 +34460,11 @@
   },
   "dp-xfusion-manic-316-150": {
    "cat": "dropper",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.xfusionshox.com/products_detail/44.htm",
+   "note": "auto-promoted: already verified in catalog"
   },
   "dp-bird-downdropper-v21-316-200": {
    "cat": "dropper",
@@ -34615,11 +34548,11 @@
   },
   "sa-sdg-belair-v3-steel": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/bel-air-v3-steel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-wtb-solano": {
    "cat": "saddle",
@@ -34783,19 +34716,19 @@
   },
   "sa-fizik-vento-argo-x5": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.fizik.com/en-us/products/saddles-vento-argo-x5-black-vargox5fa0",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-prologo-proxim-w450": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://prologo.it/en/products/proxim-w450-performance",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-rose-selleitalia-edition": {
    "cat": "saddle",
@@ -34831,11 +34764,11 @@
   },
   "sa-giant-romero-sl": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.giant-bicycles.com/us/romero-sl-saddle-2021",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-syncros-tofino15-ti": {
    "cat": "saddle",
@@ -34855,11 +34788,11 @@
   },
   "sa-syncros-belcarra20": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.syncros.com/us/en/product/syncros-belcarra-r-2-0-channel-saddle",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-giant-grit-pp": {
    "cat": "saddle",
@@ -35079,11 +35012,11 @@
   },
   "sa-sdg-ifly-20": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://sdgcomponents.com/products/i-fly-2-0-competition-saddle-solid-i-beam",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-naturalfit-nuance-slt-x": {
    "cat": "saddle",
@@ -35103,19 +35036,19 @@
   },
   "sa-fizik-terra-aidon-x5": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.fizik.com/en-us/products/saddles-terra-aidon-x5-black-aidonx5fa0",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-syncros-tofino20": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.syncros.com/us/en/product/syncros-tofino-r-2-0-cut-out-saddle",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-selleitalia-slr-boostfill-ti": {
    "cat": "saddle",
@@ -35239,11 +35172,11 @@
   },
   "sa-syncros-belcarrav2-cutout": {
    "cat": "saddle",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.syncros.com/us/en/product/syncros-belcarra-v-2-0-cut-out-saddle",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sa-pivot-phoenix-wtb-volt-worldcup": {
    "cat": "saddle",
@@ -36927,11 +36860,11 @@
   },
   "cb-norco-fluid-fs-a2": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.norco.com/bikes/mountain/trail/fluid-fs/25-fluid-fs-a2/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-norco-fluid-fs-a1-sram": {
    "cat": "completebike",
@@ -37255,35 +37188,35 @@
   },
   "cb-propain-tyee-al-signature-spec-2": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.propain-bikes.com/us/product/bikes/enduro/tyee-al/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-propain-rage-3-r-cf-ultimate": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.propain-bikes.com/us/product/bikes/downhill/rage-3-r-cf/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-propain-hugene-cf-signature-spec-1": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.propain-bikes.com/us/product/bikes/trail/hugene-cf/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-propain-hugene-cf-signature-spec-2": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.propain-bikes.com/us/product/bikes/trail/hugene-cf/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-propain-spindrift-al-swedish-gold": {
    "cat": "completebike",
@@ -38175,11 +38108,11 @@
   },
   "cb-cannondale-scalpel-ht-carbon-3": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.cannondale.com/en-us/bikes/mountain/cross-country/scalpel-ht/scalpel-ht-carbon-3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-cannondale-scalpel-ht-carbon-2": {
    "cat": "completebike",
@@ -38191,19 +38124,19 @@
   },
   "cb-cannondale-scalpel-4": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.cannondale.com/en-us/bikes/mountain/cross-country/scalpel/scalpel-4-c24554u",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-cannondale-jekyll-1": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.cannondale.com/en-us/bikes/mountain/trail-bikes/jekyll/jekyll-1-c21102u",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-evil-offering-v4-xx-transmission": {
    "cat": "completebike",
@@ -38431,27 +38364,27 @@
   },
   "cb-cannondale-habit-ht-1": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.cannondale.com/en-us/bikes/mountain/trail-bikes/habit-ht/habit-ht-1",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-cannondale-habit-ht-2": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.cannondale.com/en-us/bikes/mountain/trail-bikes/habit-ht/habit-ht-2/2023",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-cannondale-habit-ht-3": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.cannondale.com/en-us/bikes/mountain/trail-bikes/habit-ht/habit-ht-3",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-intense-tracer-279-pro": {
    "cat": "completebike",
@@ -38607,11 +38540,11 @@
   },
   "cb-specialized-stumpjumper-15-alloy": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/stumpjumper-15-alloy-shimano-deore-rockshoxx-fusion/p/4276239",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-stumpjumper-15-evo-comp-alloy": {
    "cat": "completebike",
@@ -38623,11 +38556,11 @@
   },
   "cb-specialized-enduro-comp": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/enduro-comp/p/4276011",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-enduro-expert": {
    "cat": "completebike",
@@ -38655,11 +38588,11 @@
   },
   "cb-specialized-status-2-170": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/status-2-170/p/221254",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-chisel-sram": {
    "cat": "completebike",
@@ -38703,11 +38636,11 @@
   },
   "cb-specialized-epic-world-cup-expert": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/epic-world-cup-expert-sram-gx-axs-rockshox-select/p/4221513",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-epic-world-cup-pro": {
    "cat": "completebike",
@@ -39183,11 +39116,11 @@
   },
   "cb-transition-sentinel-carbon-eagle90": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.transitionbikes.com/Bikes/Sentinel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-transition-sentinel-carbon-x0-axs": {
    "cat": "completebike",
@@ -39199,11 +39132,11 @@
   },
   "cb-transition-sentinel-alloy-eagle90": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.transitionbikes.com/Bikes/Sentinel",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-transition-spire-carbon-gx": {
    "cat": "completebike",
@@ -39223,11 +39156,11 @@
   },
   "cb-transition-patrol-carbon-gx-axs": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.transitionbikes.com/Bikes/Patrol",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-transition-patrol-gx-carbon": {
    "cat": "completebike",
@@ -39239,19 +39172,19 @@
   },
   "cb-transition-patrol-alloy-eagle90": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.transitionbikes.com/Bikes/Patrol",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-transition-smuggler-alloy-deore": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.transitionbikes.com/Bikes/Smuggler",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-norco-range-c2": {
    "cat": "completebike",
@@ -39263,11 +39196,11 @@
   },
   "cb-norco-sight-c2-29": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.norco.com/bikes/mountain/all-mountain/sight/24-sight-C2/?localize=en_CA",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-kona-process-153-dl-29": {
    "cat": "completebike",
@@ -39519,19 +39452,19 @@
   },
   "cb-norco-sight-c3-mx": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.norco.com/bikes/mountain/all-mountain/sight/24-sight-C3-MX/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-norco-optic-c1": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.norco.com/bikes/mountain/trail/optic/24-optic-C1/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-norco-optic-c2": {
    "cat": "completebike",
@@ -39631,19 +39564,19 @@
   },
   "cb-norco-torrent-ht-s1": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.norco.com/bikes/mountain/all-mountain/torrent/2023-torrent-s1-ht/?localize=en_CA",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-norco-torrent-ht-a1": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.norco.com/bikes/mountain/all-mountain/torrent/2023-torrent-a1-ht/",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-norco-shore-a-park-fox38": {
    "cat": "completebike",
@@ -39919,11 +39852,11 @@
   },
   "cb-specialized-rockhopper": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/rockhopper/p/4279921",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-rockhopper-sport": {
    "cat": "completebike",
@@ -39935,11 +39868,11 @@
   },
   "cb-specialized-rockhopper-comp": {
    "cat": "completebike",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/rockhopper-comp/p/4221743",
+   "note": "auto-promoted: already verified in catalog"
   },
   "cb-specialized-rockhopper-expert": {
    "cat": "completebike",
@@ -40127,11 +40060,11 @@
   },
   "sp-raceface-ride-272-400": {
    "cat": "seatpost",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.raceface.com/products/ride-seatpost",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sp-bontrager-rhythmelite-316": {
    "cat": "seatpost",
@@ -40191,11 +40124,11 @@
   },
   "sp-syncros-duncan20-316-rigid": {
    "cat": "seatpost",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.921Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.930Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.syncros.com/us/en/product/syncros-duncan-2-0-seatpost-0mm-offset",
+   "note": "auto-promoted: already verified in catalog"
   },
   "sp-syncros-dh20-316": {
    "cat": "seatpost",
@@ -40535,11 +40468,11 @@
   },
   "ti-specialized-butcher-29-23-gridtrail-t9": {
    "cat": "tire",
-   "status": "Pending",
-   "updated": "2026-07-21T15:55:52.388Z",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.specialized.com/us/en/butcher-grid-trail-2bliss-ready-t9/p/187347",
+   "note": "auto-promoted: already verified in catalog"
   },
   "ti-specialized-butcher-275-23-gridgravity-t9": {
    "cat": "tire",
@@ -40644,6 +40577,358 @@
    "error": null,
    "source": "https://productinfo.shimano.com/pdfs/product/latest/Specifications_en.pdf",
    "note": "auto-promoted: already verified in catalog"
+  },
+  "fr-commencal-meta-ht-v2": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.928Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-norco-sight-160": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-ragley-mmmbop": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-ragley-bigwig": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-chromag-primer": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-dartmoor-two6player-pro": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fr-identiti-drjekyll": {
+   "cat": "frame",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ti-maxxis-minion-dhr-ii-275-24-dd-mg": {
+   "cat": "tire",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://www.maxxis.com/us/tire/minion-dhr-ii/",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fw-raceface-ar30-dtswiss350-29": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-weareone-triad-29-oneone": {
+   "cat": "frontwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fw-weareone-triad-275-oneone": {
+   "cat": "frontwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fw-industrynine-whisp-29-oneone": {
+   "cat": "frontwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/whisp-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fw-weareone-sector-29-oneone": {
+   "cat": "frontwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/sector-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fw-weareone-deal-29-oneone": {
+   "cat": "frontwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/deal-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fw-weareone-deal-29-20x110-oneone": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fw-weareone-deal-275-oneone": {
+   "cat": "frontwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/deal-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "fw-weareone-deal-275-20x110-oneone": {
+   "cat": "frontwheel",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-raceface-ar30-dtswiss350-275-xd": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-weareone-triad-29-oneone": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-weareone-triad-29-ms-oneone": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-weareone-triad-29-hg-oneone": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-industrynine-whisp-29-ms-oneone": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/whisp-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-industrynine-whisp-29-xd-oneone": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/whisp-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-weareone-triad-275-oneone": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-weareone-triad-275-ms-oneone": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-weareone-triad-275-hg-oneone": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/triad-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-weareone-sector-29-148-xd-oneone": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/sector-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-weareone-sector-29-157-xd-oneone": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/sector-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-weareone-deal-29-148-xd-oneone": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/deal-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-weareone-deal-29-157-xd-oneone": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/deal-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-weareone-deal-275-148-xd-oneone": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/deal-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-weareone-deal-275-157-xd-oneone": {
+   "cat": "rearwheel",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://industrynine.com/products/deal-cr",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "rw-nukeproof-horizon-v2-29-ms": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "rw-nukeproof-neutron-v2-29-ms": {
+   "cat": "rearwheel",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "sh-fox-dhx2-205x65-trun": {
+   "cat": "shock",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "fk-rst-dirt-t-26-80": {
+   "cat": "fork",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "st-oneup-42-35": {
+   "cat": "stem",
+   "status": "Verified",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": "https://www.oneupcomponents.com/products/stem",
+   "note": "auto-promoted: already verified in catalog"
+  },
+  "st-ragley-alloy-318-40": {
+   "cat": "stem",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "dp-tranzx-ysi160-rad-349-200": {
+   "cat": "dropper",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.929Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "ch-kmc-x11-ept": {
+   "cat": "chain",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.930Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cb-ragley-mmmbop-20": {
+   "cat": "completebike",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.930Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cb-ragley-bigwig": {
+   "cat": "completebike",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.930Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cb-ragley-bigwig-race": {
+   "cat": "completebike",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.930Z",
+   "error": null,
+   "source": null,
+   "note": null
+  },
+  "cg-joytech-14t": {
+   "cat": "cog",
+   "status": "Pending",
+   "updated": "2026-07-22T13:54:55.930Z",
+   "error": null,
+   "source": null,
+   "note": null
   }
  }
 }
