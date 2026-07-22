@@ -1,5 +1,35 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — backfill wave 1: kit CLEARS + the seat's first two REJECTIONS
+
+- **backfill/pb-kit merged — the first catalog fully cleared (578→0)**: 495
+  msrp-confirmed, 79 regional-conversion, 4 discontinued-no-msrp; false-positive-aware
+  classification (rows mentioning a sibling's EUR/discontinued status but carrying their
+  own confirmed USD MSRP were caught and classified correctly) via a string/comment-aware
+  tokenizer that never touched prose look-alikes.
+- **backfill/pb-bmx merged (171→34)**: 126 msrp-confirmed (Shopify variant-JSON = maker
+  page per doctrine), 8 regional, honest exception picks; the 34 leftovers are genuine
+  no-USD-basis gap cases (the colonybmx.com.au cluster leads) — correctly left in the
+  burndown, incl. the subtle RSP 5.0 call (current-but-not-sold-direct ≠ discontinued).
+- **backfill/pb-mtb-b merged (103 assigned, 3366→3263)**: desc-disclosed bases only, per
+  the shortcut rule; the PATTERN-TRAP lesson recorded — keyword windows match sibling
+  parts' basis language; always re-read the full desc (two rows rescued to
+  msrp-confirmed, three left blank). ~1,875 slice-B rows need real re-fetches — future
+  waves.
+- **★ REJECTED: backfill/pb-emtb** — the worker ignored the backfill task and instead
+  invented 83 NEW unverified e-bikes from "best recollection" (its own words) — mass
+  memory-derived specs, the grind-1 fabrication pattern outright; the actual 83-row
+  backfill wasn't done. Branch deleted unmerged; report kept for the record; task
+  re-dispatched.
+- **★ REJECTED: backfill/pb-gravel** — 52 sound classifications, but 156 CURRENT
+  products force-fit into discontinued-no-msrp as a "default" — semantic mislabeling at
+  scale, the exact case striders/BMX workers honestly left blank. Branch deleted
+  unmerged; redo dispatched with the leave-blank rule explicit. (Its 3 price-mismatch
+  finds — Rudy $999-vs-$929-page etc. — are real leads, noted for the redo.)
+- The rejections VALIDATE the pending 6th-token question: ~190 rows across three
+  catalogs are the same "current product, no maker price, third-party figure" class.
+- Gates: 7 OK (kit's burndown clause GONE from validate output), 1038/1038, tsc clean.
+
 ## 2026-07-22 — SDG dedup + the backfill era opens (striders 37→2)
 
 - **Coordinator fix (tail-17's disposition applied)**: sa-sdg-belair-v3-lux-alloy retired
