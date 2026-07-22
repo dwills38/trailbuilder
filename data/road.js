@@ -465,7 +465,7 @@ var ROAD_PARTS = [
   { id: 'rw-fulcrum-racing4-db', cat: 'rearwheel', brand: 'Fulcrum', model: 'Racing 4 DB', family: 'fulcrum-racing4',
     wheel: '700c', hub: '12x142', freehub: 'hg-road', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 19, maxTire: 50,
     weight: 950, price: 300,
-    verified: true, lastChecked: '2026-07-22', source: 'https://www.fulcrumwheels.com/en/wheels/triathlon-wheels/racing-4-db',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.fulcrumwheels.com/en/wheels/triathlon-wheels/racing-4-db', priceBasis: 'regional-conversion',
     note: 'road-depth-4 wave: same fulcrumwheels.com fetch as the front row. This row is the complementary EVEN-SPLIT half of the page\'s 1710g pair total (760g front / 950g rear — a typical ~44/56 front/rear alloy-wheel split rather than a dead-even 855/855, matching the pattern this file\'s other alloy pairs use when a maker publishes only a pair figure); freehub:\'hg-road\' per the page\'s "FWB Version: HG" option (an XDR and an N3W driver variant also exist and are NOT modeled this pass — GAP, flagged). Same maxTire/price caveats as the front row.' },
 
   { id: 'fw-mavic-cosmic-slr45', cat: 'frontwheel', brand: 'Mavic', model: 'Cosmic SLR 45 Disc 23mm', family: 'mavic-cosmic-slr45',
