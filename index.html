@@ -3095,11 +3095,16 @@
     }
     var weightHtml = fm.weightLo!=null ? '<span class="wt">'+(fm.weightLo===fm.weightHi?fm.weightLo:fm.weightLo+'–'+fm.weightHi)+' g</span>' : '';
     var priceHtml = '<span class="price">'+(fm.lo===fm.hi?money(fm.lo):money(fm.lo)+'–'+money(fm.hi))+weightHtml+'</span>';
+    /* Family cards show ONE badge for several sizes, so the price clause is the
+       AGGREGATE (priceBasisSummary): uniform across the family => that phrase;
+       mixed => "varies by variant", never the best member's basis, which would
+       overclaim for the others. Same 2026-07-22 ruling as the per-part badge. */
+    var famPriceNote = esc(window.priceBasisSummary(fm.members));
     var provBody = fm.verifiedCount===0
-      ? '<span class="est" title="Sample data — approximate, not yet checked against a manufacturer spec">≈ estimate</span>'
+      ? '<span class="est" title="Sample data — approximate, not yet checked against a manufacturer spec ('+famPriceNote+')">≈ estimate</span>'
       : fm.verifiedCount===fm.members.length
-        ? '<span class="ver" title="Every size in this family is verified against a manufacturer spec">✓ Verified</span>'
-        : '<span class="ver" title="'+fm.verifiedCount+' of '+fm.members.length+' sizes are verified against a manufacturer spec">✓ '+fm.verifiedCount+'/'+fm.members.length+' verified</span>';
+        ? '<span class="ver" title="Every size in this family is verified against a manufacturer spec ('+famPriceNote+')">✓ Verified</span>'
+        : '<span class="ver" title="'+fm.verifiedCount+' of '+fm.members.length+' sizes are verified against a manufacturer spec ('+famPriceNote+')">✓ '+fm.verifiedCount+'/'+fm.members.length+' verified</span>';
     card.innerHTML =
       '<button type="button" class="dot '+fm.state+'" aria-label="Compatibility: '+esc(fm.reason)+'" title="'+esc(fm.reason)+'"></button>'+
       '<div class="pcard-head">'+thumbHtml+
@@ -3616,7 +3621,7 @@
         var altNote = slot.altOf ? ' (optional — or pick a complete wheel above)'
                     : altSlotsOf(slot.key).length ? (wheelPositionFilled(res,slot.key)?' (using hub + rim instead, below)':' (or build from hub + rim, below)')
                     : '';
-        var nm = p ? (esc(p.brand)+' '+esc(p.model) + (p.verified===true && p.source?' <span class="vchk" title="Verified against the manufacturer'+(p.lastChecked?' on '+esc(p.lastChecked):'')+'">✓</span>':''))
+        var nm = p ? (esc(p.brand)+' '+esc(p.model) + (p.verified===true && p.source?' <span class="vchk" title="Verified against the manufacturer'+(p.lastChecked?' on '+esc(p.lastChecked):'')+' ('+esc(window.priceBasisLabel(p))+')">✓</span>':''))
                    : (altNote ? ('— '+slot.label.toLowerCase()+altNote+' —')
                      : ('— '+slot.label.toLowerCase()+(slot.optional?' (optional)':(!slotRequired(slot,res.frame,eRW)?(slot.key==='cassette'?' (built into the rear wheel)':' (not needed for this frame)'):''))+' —'));
         row.innerHTML='<div class="sl-main"><div class="'+(p?'sl-part':'sl-part sl-empty')+'">'+nm+'</div></div>'+ right;

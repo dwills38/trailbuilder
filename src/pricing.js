@@ -95,6 +95,23 @@ function priceBasisLabel(p){
   }
 }
 
+/** Aggregate wording for a GROUP of rows shown under one badge — the catalog's
+ * family cards ("✓ Verified" over every size of a fork platform), where a
+ * single tooltip speaks for several parts that can each have a different
+ * basis. Uniform group => that group's phrase; mixed => say it varies rather
+ * than pick a winner (reporting the best basis would overclaim for the rest).
+ * @param {any[]|null|undefined} parts
+ * @returns {string} a plain-text phrase, always non-empty. */
+function priceBasisSummary(parts){
+  var list = (parts || []).filter(Boolean);
+  if(!list.length) return priceBasisLabel(null);
+  /** @type {Object.<string, boolean>} */ var seen = {};
+  list.forEach(function(p){ seen[(p && p.priceBasis) || ''] = true; });
+  var keys = Object.keys(seen);
+  if(keys.length === 1) return priceBasisLabel({ priceBasis: keys[0] || undefined });
+  return 'price basis varies by variant — open one to see it';
+}
+
 /** True only when a row's price is a confirmed maker MSRP. The four exception
  * tokens are deliberately FALSE here: they are disclosed real prices, not
  * confirmed MSRPs, and a caller asking "is the price confirmed?" must not get
@@ -106,5 +123,6 @@ function priceMsrpConfirmed(p){ return !!p && p.priceBasis === 'msrp-confirmed';
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { completeBikeSaveBasis:completeBikeSaveBasis,
     msrpCompareAsc:msrpCompareAsc, msrpCompareDesc:msrpCompareDesc,
-    priceBasisLabel:priceBasisLabel, priceMsrpConfirmed:priceMsrpConfirmed };
+    priceBasisLabel:priceBasisLabel, priceBasisSummary:priceBasisSummary,
+    priceMsrpConfirmed:priceMsrpConfirmed };
 }

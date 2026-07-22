@@ -124,3 +124,40 @@ test('the wording is plain text — callers escape it, so it must carry no marku
   S.VOCAB.priceBasis.forEach(function(token){ assertPlain(P.priceBasisLabel({ priceBasis:token })); });
   assertPlain(P.priceBasisLabel({}));   // the no-basis default travels the same path
 });
+
+/* ---- priceBasisSummary(): the FAMILY-card aggregate badge ------------------
+   A family card shows one ✓ badge over several sizes, each of which can carry
+   a different basis. The rule that matters: a mixed family must NEVER report
+   its best member's basis — that would overclaim for every other size. */
+
+test('a uniform group reports that group\'s own phrase', function(){
+  var all = [{ priceBasis:'msrp-confirmed' }, { priceBasis:'msrp-confirmed' }];
+  eq(P.priceBasisSummary(all), P.priceBasisLabel({ priceBasis:'msrp-confirmed' }));
+  var none = [{ verified:true }, { verified:true }];
+  eq(P.priceBasisSummary(none), P.priceBasisLabel({}));
+});
+
+test('a MIXED group says it varies — never the best member\'s basis', function(){
+  var mixed = [{ priceBasis:'msrp-confirmed' }, { priceBasis:'regional-conversion' }];
+  var out = P.priceBasisSummary(mixed);
+  ok(/varies/.test(out), 'a mixed family must say the basis varies, got: ' + out);
+  ok(out !== P.priceBasisLabel({ priceBasis:'msrp-confirmed' }), 'must not report the best member as the family\'s basis');
+});
+
+test('a group where only SOME sizes have a basis still counts as mixed (silence is a distinct state)', function(){
+  var partial = [{ priceBasis:'msrp-confirmed' }, { verified:true }];
+  ok(/varies/.test(P.priceBasisSummary(partial)), 'confirmed + no-basis is a mix, not a confirmation');
+});
+
+test('priceBasisSummary is safe on empty/null input and falls back to the sample wording', function(){
+  eq(P.priceBasisSummary([]), P.priceBasisLabel(null));
+  eq(P.priceBasisSummary(null), P.priceBasisLabel(null));
+  eq(P.priceBasisSummary([null, undefined]), P.priceBasisLabel(null));
+});
+
+test('priceBasisSummary output is plain text with no markup (it lands in a title=)', function(){
+  [[{priceBasis:'msrp-confirmed'}], [{priceBasis:'msrp-confirmed'},{priceBasis:'oe-only-no-msrp'}], []].forEach(function(g){
+    var s = P.priceBasisSummary(g);
+    ok(s.length > 0 && s.indexOf('<') < 0 && s.indexOf('>') < 0, 'bad summary wording: ' + s);
+  });
+});
