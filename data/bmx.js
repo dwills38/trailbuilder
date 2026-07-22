@@ -2345,6 +2345,31 @@ var BMX_PARTS = [
     rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true, price: 469.89,
     lastChecked: '2026-07-22', source: 'https://federalbikes.com/products/federal-boyd-v2-frame-matt-white',
     note: 'bmx-depth-9: Federal\'s own product page (fetched directly) states geometry (top tube 20.2-21.5", head angle 75.2°, ICS2 wishbone/dropouts) but NOT bbShell/headTube-type/brakeMount/rearAxle explicitly. Those four engine-read fields are sourced instead from a third-party retailer (kunstform.org) quoting Federal\'s own official spec sheet verbatim: "BB Shell Type: Mid BB", integrated headset ("75.2°" head tube angle, no threading mentioned), "removable brake hardware...delivery of the frame is without removable brake bosses" (ships brakeless stock -> rearBrakeMount:\'none\'), "Investment cast, 4130 CrMo, 5mm thick, 14mm slots" (-> rearAxle:\'14mm\'). Because THE BAR requires raw confirmation on the MAKER\'S OWN page for verified:true and this frame\'s own page does not state these fields, left unverified despite the strong retailer corroboration (sourceType:retailer, per policy, cannot itself carry verified:true). topTube:21.0 picked as a representative mid-size from the frame\'s five-size run (20.2/20.7/21/21.2/21.5"). Price: GBP RRP £369.99 converted to a $469.89 USD sample at ~1.27 USD/GBP, no US price published — THE PRICE RULE.'
+  },
+
+  // =======================================================================
+  // bmx-breadth-3 (2026-07-22): BREADTH pass targeting the catalog's thinnest
+  // categories (headset 11, pegs 11, pedals 11, rearWheel/frontWheel) with
+  // brands not previously covered by any depth pass. Fetch ethics per
+  // VERIFY-PROTOCOL: WebFetch -> Exa -> browser pane -> documented wall;
+  // several manufacturer storefronts (tallorderbmx.com, shop.gsportbmx.com,
+  // sourcebmx.com) 429/403'd repeatedly this session (documented walls, not
+  // routed around). Unverified rows below follow the DATA-ENTRY-TEMPLATE §7
+  // "credible source" tier (retailer/WebSearch-corroborated real products,
+  // no fabricated specs) rather than manufacturer-fetched verification.
+  // -----------------------------------------------------------------------
+
+  // ---- Merritt (existing brand, only 1 prior row — thin coverage; adds to
+  //      the thin headset category, not one of the 9 depth-passed brands) --
+  {
+    id: 'bmx-hs-merritt-lowtop', cat: 'headset', brand: 'Merritt', model: 'Low Top Integrated Headset',
+    fit: 'integrated-1-1/8', price: 27.95,
+    note: 'bmx-breadth-3 (2026-07-22): real current Merritt product ("for riders with high head tubes with low clearance or a shorter fork base" - a low-stack integrated 1-1/8in headset), WebSearch-corroborated across SkatePro ($27.95) and BMXGuru/C&W Cycle (listed $29.99, several colorways). merrittbmx.com itself was not located/fetched this session. Price entered at the SkatePro US-dollar figure ($27.95); the BMXGuru figure is close but not identical (color-variant pricing on that retailer). Left unverified (retailer-corroborated, not manufacturer-fetched).'
+  },
+  {
+    id: 'bmx-hs-merritt-hightop', cat: 'headset', brand: 'Merritt', model: 'High Top Integrated Headset',
+    fit: 'integrated-1-1/8', weight: 82, price: 29.99,
+    note: 'bmx-breadth-3 (2026-07-22): companion tier to the Low Top row above - "Campy spec integrated headset" for riders needing a taller stack (20mm CNC 6061 aluminum cap vs the Low Top\'s 10mm), two sealed bearings, aluminum compression ring. FETCHED bmxguru.com/products/merritt-high-top-1-1-8-integrated-bmx-headset-bronze directly, which states price $29.99 and "Stack Height: 20mm" verbatim; weight (82g / 2.9oz) corroborated by an independent WebSearch summary of the same product line, not itself restated on the fetched bmxguru.com page. bmxguru.com is a RETAILER, not Merritt\'s own site, so this cannot carry verified:true per the sourceType:retailer-is-rejected-on-verified-rows policy even though the page itself was fetched directly - left unverified.'
   }
 ];
 
