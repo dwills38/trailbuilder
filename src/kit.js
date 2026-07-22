@@ -692,6 +692,13 @@ var KIT_PARTS = [
     sizes:['5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13','13.5','14','14.5','15'],
     desc:'MC2 rubber flat sole tuned for Crankbrothers Stamp pedals (fits any flat pedal), BOA L6 dial. Weight = 384g/shoe (US9/EU42) x2.',
     verified:true, lastChecked:'2026-07-16', source:'https://www.crankbrothers.com/products/stamp-boa' },
+  { id:'sho-crankbrothers-stamp-lace', cat:'shoes', brand:'Crankbrothers', model:'Stamp Lace', price:139.99,
+    soleType:'flat', closure:'lace', disciplines:['trail','enduro'],
+    sizes:['3','4','5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13','14'],
+    desc:'kit-breadth-3 (2026-07-22): the entry lace-closure tier below the Stamp BOA/Speedlace'
+      + ' (sho-crankbrothers-stamp-boa / -speedlace) — same MC2 flat-sole family, classic lace'
+      + ' closure. List $139.99 confirmed across colorways. No weight published on the page.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.crankbrothers.com/products/stamp-lace-black-gum' },
   { id:'sho-crankbrothers-mallet-lace', cat:'shoes', brand:'Crankbrothers', model:'Mallet Lace', price:159.99, weight:830,
     soleType:'clipless', closure:'lace', disciplines:['enduro','dh'],
     sizes:['5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13','13.5','14'],
