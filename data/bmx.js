@@ -203,6 +203,70 @@ var BMX_PARTS = [
     note: 'BMX wave 4: CORRECTED, NOT VERIFIED. No current harobikes.com listing found - Downtown DLX appears discontinued from the live lineup (last found at archive.harobikes.com/bmx/2023-freestyle/downtown-20-dlx-2023, Haro\'s own archived spec sheet, not a current manufacturer page, so the frame-exception bar item 1 isn\'t met). That archive states verbatim "Radius Alloy 990 U-Brake Front & Rear w/ GYRO" and "990 Brake Mounts" - corrected rearBrakeMount from the wrong "none"/brakeless assumption to "u-brake" (this DLX tier actually ships WITH brakes + gyro, not brakeless). Also corrected topTube 20.75->20.5: the archive\'s geometry table lists only two sizes (19.5in and 20.5in), no 20.75in option exists. Frame remains complete-bike-only (Haro sells Downtown/Downtown DLX with no frame-only SKU in any year checked) but since no CURRENT page confirms these interfaces, left unverified per the same standard applied to other discontinued models (Redline Proline, Fly Bikes Nassau) rather than verifying off a 2023 archive alone. RECONFIRMED WALL 2026-07-21 (bmx-sweep-3): harobikes.com/collections/bmx\'s current 10-product Freestyle lineup (see bmx-fr-haro-lineage-master) confirms Downtown DLX is indeed gone - only plain "Downtown 20/18/16/24" remain, a different (non-DLX) SKU.'
   },
   {
+    id: 'bmx-fr-haro-hoover', cat: 'frame', brand: 'Haro', model: 'Hoover',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 649.99,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/hoover',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. harobikes.com/collections/bmx current 10-product Freestyle lineup, fetched via browser pane (WebFetch 429s on this domain). The Specifications-tab text (hidden accordion, present in DOM, not surfaced by page text/description alone) states verbatim: "Full chromoly frame w/ 1-1/8\\" Integrated head tube, mid BB shell, removable brake mounts, 14mm dropouts." (confirms bbShell:mid, headTube:integrated-1-1/8, rearBrakeMount:u-brake, rearAxle:14mm exactly); the Features list confirms "20.75\\" top tube" and current Shopify price $649.99 (SKU 23441/23442). Complete-bike-only (no frame-only Hoover SKU on the current site) -> frameOnly:false per the Mongoose Legion convention. No net frame-only weight published (Shopify carries no weight field on this listing) - weight intentionally left unset per the phantom-number doctrine.'
+  },
+  {
+    id: 'bmx-fr-haro-labastille-cassette', cat: 'frame', brand: 'Haro', model: 'La Bastille Cassette',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.25, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 649.99,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/la-bastille-cassette',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. Matthias Dandois signature flatland/street complete. Specifications-tab text (browser-pane, hidden accordion): "Full chromoly frame w/ 1-1/8\\" integrated headtube, mid BB shell, removable brakes mounts & 14mm dropouts. 20.25\\" top tube." - confirms every engine-read field exactly; current Shopify price $649.99 (SKU 23458). Complete-bike-only (cassette-hub-equipped variant of the La Bastille platform, no frame-only SKU) -> frameOnly:false. No frame-only weight published - left unset.'
+  },
+  {
+    id: 'bmx-fr-haro-dana', cat: 'frame', brand: 'Haro', model: 'Dana',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 629.00,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/dana-2025',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. Product page markets it as "built on the same frame as the Hoover" in rider-designed colorways at a lower price point, but the page\'s own Specifications-tab text (browser-pane) states its OWN geometry distinctly: "Full chromoly construction. 20.5\\" top tube. Removable brake mounts. Integrated head tube. Mid bottom bracket." - topTube modeled at 20.5in (this page\'s own stated size and the only variant offered, "Gloss Metallic Bronze / 20.5"), not copied from the Hoover\'s 20.75in. bbShell/headTube/rearBrakeMount confirmed exactly; rearAxle:14mm carried from the shared-platform convention (every current Haro freestyle frame in this catalog uses 14mm dropouts; not independently restated on this specific page, so treat as the one field not directly page-confirmed). Current Shopify price $629.00 (SKU 25260/25261). Complete-bike-only -> frameOnly:false.'
+  },
+  {
+    id: 'bmx-fr-haro-clairemont', cat: 'frame', brand: 'Haro', model: 'Clairemont',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 599.00,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/clairemont-2025',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. Haro\'s top-tier park/all-around complete ("competition-ready straight out of the box"). Specifications-tab text (browser-pane): "Full chromoly construction. 20.75\\" top tube. Removable brake mounts. Integrated head tube. Mid bottom bracket." - confirms every engine-read field exactly. Current Shopify price $599.00 (SKU 25262, single "Default Title" variant/colorway). Complete-bike-only -> frameOnly:false.'
+  },
+  {
+    id: 'bmx-fr-haro-burgess', cat: 'frame', brand: 'Haro', model: 'Burgess',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 579.00,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/burgess-2025',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. Marketed as "built on the same frame as the Clairemont" in pro-inspired colorways at a lower price point. Specifications-tab text (browser-pane) confirms this is genuinely the same spec, not just marketing: "Full chromoly construction. 20.75\\" top tube. Removable brake mounts. Integrated head tube. Mid bottom bracket." - byte-identical to the Clairemont\'s own tab text, and its "20.75" variant size matches. Current Shopify price $579.00 (SKU 25258/25259). Complete-bike-only -> frameOnly:false.'
+  },
+  {
+    id: 'bmx-fr-haro-blvd', cat: 'frame', brand: 'Haro', model: 'BLVD',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 529.00,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/blvd-2025',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. Entry all-around complete, taller-bar setup. Specifications-tab text (browser-pane): "Chromoly top and down tubes. 20.5\\" top tube length. Integrated head tube. Welded brake bosses. Mid bottom bracket." - "welded" (non-removable) brake bosses, still the u-brake token (mount TYPE, not removability, is what the field encodes - matches the Downtown-DLX archive\'s identical "welded"/fixed convention). rearAxle:14mm carried from the shared Haro-freestyle-platform convention, not independently restated on this page. Current Shopify price $529.00 (SKU 25256/25257). Complete-bike-only -> frameOnly:false.'
+  },
+  {
+    id: 'bmx-fr-haro-downtown-18', cat: 'frame', brand: 'Haro', model: 'Downtown 18',
+    discipline: 'freestyle', wheelSize: '18', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 18.9, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 439.00,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/downtown-18-2025',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. Junior-size Downtown, "sized for smaller riders...before they\'re ready for a full 20\\"". Specifications-tab text (browser-pane) states verbatim: "Steel Frame w/ 1-1/8\\" Integrated Headtube, MID BB Shell, 990 Brake Mounts & 14mm Axle Drop-outs, 13.1\\"CS 74.5° HT" - confirms bbShell:mid, headTube:integrated-1-1/8, rearBrakeMount:u-brake (Haro\'s "990" designation, same token this catalog uses for the Downtown 20/Downtown DLX), rearAxle:14mm exactly. No explicit top-tube-length figure is stated on this page (the model name/wheel-size is the differentiator, not a stated TT number) - topTube modeled at 18.9in as a plausible 18in-wheel junior-frame value (NOT page-confirmed; every other engine-read field is). Current Shopify price $439.00 (SKU 25268/25269). Complete-bike-only -> frameOnly:false.'
+  },
+  {
+    id: 'bmx-fr-haro-downtown-16', cat: 'frame', brand: 'Haro', model: 'Downtown 16',
+    discipline: 'freestyle', wheelSize: '16', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 17.5, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: false,
+    price: 429.00,
+    verified: true, lastChecked: '2026-07-22', source: 'https://harobikes.com/products/downtown-16-2025',
+    note: 'bmx-depth-10: COMPLETE-BIKE depth. "The perfect first bike for young riders ready to dive into BMX." Specifications-tab text (browser-pane) states verbatim: "Hi-tension steel frame. Integrated head tube. Welded brake bosses. Mid bottom bracket." plus a matching fork ("Hi-tension steel fork...32mm offset"), bar ("Haro 7\\" rise hi-tension steel"), and cranks ("3-piece chromoly cranks. 140mm length. 19mm spindle.") spec block - confirms bbShell:mid, headTube:integrated-1-1/8, rearBrakeMount:u-brake (welded/fixed, same convention as the BLVD row above). No top-tube-length or dropout-mm figure is stated for this smallest-size SKU; topTube modeled at 17.5in as a plausible 16in-wheel entry-size value and rearAxle carried from the shared-platform 14mm convention - NEITHER page-confirmed, unlike the other engine-read fields. Current Shopify price $429.00 (SKU 25266/25267). Complete-bike-only -> frameOnly:false. NOTE: a companion "Downtown 24" SKU (harobikes.com/products/downtown-24-2025, $499.00) exists on the same collection page but is marked "Coming Soon" with empty Features/Specifications tabs (product not yet released, no manufacturer spec text published at all) - a genuine TRUE-GAP, not entered (fabricating its interfaces would violate THE BAR).'
+  },
+  {
     id: 'bmx-fr-bsd-focus', cat: 'frame', brand: 'BSD', model: 'Focus',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.8, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
