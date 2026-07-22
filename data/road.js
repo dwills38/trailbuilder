@@ -1453,6 +1453,11 @@ var ROAD_PARTS = [
     price: 50,
     verified: true, lastChecked: '2026-07-20', source: 'https://www.sram.com/en/sram/models/bb-dub-pf-a1', priceBasis: 'msrp-confirmed',
     note: 'road-5: sram.com model page (BB-DUB-PF-A1, "DUB PressFit Bottom Bracket") fetched: one DUB-spindle SKU spans "PF 104.5, PF 107, PF 121, PF 86.5, PF 89.5, PF 92" shells (PF 86.5 = this row\'s bb86), price range "$50-$290" across the family (this row uses the $50 floor, the BB86/92 tier). Page states 72g "based on BB92 specification" — a different shell size in the same SKU family, so left the weight field blank rather than reuse a figure for a size this row is not (dropped the prior 80g sample).' },
+  { id: 'bb-wheelsmfg-pf30-outboard-24mm', cat: 'bb', brand: 'Wheels Manufacturing', model: 'PF30 Outboard ABEC-3 BB for 24mm Cranks', family: 'wheelsmfg-pf30-outboard',
+    shell: 'pf30', spindle: '24mm-road',
+    weight: 161, price: 138,
+    verified: true, lastChecked: '2026-07-22', source: 'https://wheelsmfg.com/pressfit-30-to-outboard-bottom-bracket-for-24mm-cranks-shimano-black.html', priceBasis: 'msrp-confirmed',
+    note: 'road-breadth-5 wave: FETCHED wheelsmfg.com own product page directly (via the browser pane — the domain 429\'d a plain WebFetch retry, resolved on a fresh navigation) — a third bb-category brand (Wheels Manufacturing, a specialist aftermarket BB maker), matching the task brief bb-category thinness gap (previously only Shimano + SRAM). Spec table: "Bottom Bracket/Frame Interface: PF30" (shell:\'pf30\'), "Crank Spindle Diameter: 24.00mm" (spindle:\'24mm-road\' — the page states this fits "Shimano, FSA, Etc." 24mm-spindle cranks, the same interface family as this file\'s existing Shimano rows), "Weight: 161g" and price "$138.00" both taken verbatim from the live product page (a real current MSRP, not a third-party listing). SKU: PF30-OUT-1 (the ABEC-3 bearing tier; the page also lists pricier Angular Contact/Ceramic Hybrid/ZERO-Ceramic bearing variants of the same shell/spindle interface — not modeled this pass, same-interface upsell only, no fit/price-distinct GAP).' },
 
   // ===== HEADSETS (complete upper+lower assemblies; tapered — every ROAD_PARTS
   //   frame in this file uses steerer:'tapered'. ZERO headset rows existed
