@@ -130,6 +130,21 @@ test('an out-of-vocab bb value distinct from bsa-73 is still caught', function()
   ok(probs.some(function(m){ return /bb.*not in bb/.test(m); }), probs.join('\n'));
 });
 
+// vocab-tier1 (2026-07-22): ratified t47a-bbright shell token (Cervelo
+// Aspero-5's asymmetric T47/BBright hybrid) — positive + negative.
+test('t47a-bbright bb is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { bb: 't47a-bbright' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab bb value distinct from t47a-bbright is still caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { bb: 't47a-road' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /bb.*not in bb/.test(m); }), probs.join('\n'));
+});
+
 // vocab-tier1 (2026-07-22): ratified band-28.6 front-derailleur-mount token
 // (clamp-on, not brazed/bolted-boss) — positive + negative.
 test('band-28.6 frontDerailleurMount is a valid gravel frame value', function(){
