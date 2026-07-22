@@ -1,5 +1,17 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — bmx-depth-9: the missed brands land, the race side stays honest (BMX 322)
+
+- **catalog/bmx-depth-9 merged**: +9 rows — Rant (via sparkysbrands.com, correctly
+  identified as Rant's own parent-company storefront, not a retailer), Mission (its own
+  domain, cleaner than rate-limited kinkbmx), and Federal UNBLOCKED (real domain is
+  federalbikes.com — depth-8's federalbikeco.com wall was just the wrong name). Mission's
+  Stealth-mechanism seats stayed skipped/tallied (the Kink precedent). Race side: NOTHING
+  entered — Answer has no storefront, supercrossbmx.com 429s hard (browser-pane retry
+  lead, the Pivot precedent), Chase's wall stands, GT Speed Series Expert's page states no
+  interfaces and its 1.0-lb Shopify weight is an obvious shipping phantom (not used).
+  Gates: 7 OK (BMX 322/155 verified), 989/989, tsc clean.
+
 ## 2026-07-22 — hardtail-breadth-1: the live-priority lane gets its first wave (MTB 5,053)
 
 - **catalog/hardtail-breadth-1-alt merged** (agent-sandboxed worktree — the report is
