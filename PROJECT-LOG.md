@@ -1,5 +1,17 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — mtb-tail-13: Giant falls (MTB 3,297)
+
+- **verify/mtb-tail-13 merged**: Giant fully worked, 16/16 — giant-bicycles.com serves
+  real standalone US product pages, overturning stale "OE-only" notes from earlier
+  sessions (the walls-stale rule again): 6 promotions with maker USD price + weight
+  (Romero SL, Contact SL XC stem, Contact SLR Trail integrated bar+stem, both Contact
+  Switch AT dropper sizes, Switch Core dropper), 3 corrected-not-promoted (short of THE
+  BAR honestly). Race Face + WTB opened (1 promotion); ~85 aftermarket-brand rows remain
+  with a prioritized ready-to-apply punch list in tools/verify-notes-tail13.md. NEW GAP:
+  Syncros has 25 unverified cockpit/saddle rows never assigned to any tail pass — the
+  biggest single cluster left. Gates: 7 OK (MTB 3,297), 988/988, tsc clean.
+
 ## 2026-07-22 — Pee Wee theme preservation deleted (Douglas's order)
 
 - Douglas 2026-07-21: kill the Pee Wee Herman theme entirely — the 2026-07-18 removal had
