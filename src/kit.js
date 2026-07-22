@@ -1786,6 +1786,14 @@ var KIT_PARTS = [
       + ' makes it better," developed with input from women riders, own fabric (88% recycled'
       + ' polyester/12% spandex) and its own size run (XXS-XXL). No weight published on the page.',
     verified:true, lastChecked:'2026-07-22', source:'https://www.specialized.com/us/en/womens-traction-pant/p/1000195134' },
+  { id:'pnt-leatt-trail-2-womens', cat:'pants', brand:'Leatt', model:'MTB Trail 2.0 Pant - Women', price:129,
+    liner:true, fitCut:'womens', disciplines:['trail'], sizes:['XS','S','M','L','XL','XXL'],
+    desc:'kit-breadth-3 (2026-07-22): genuinely distinct from the men\'s Trail 2.0 (pnt-leatt-trail-2)'
+      + ' - Leatt\'s own copy: a removable liner with a "dual high-density BERENIS chamois'
+      + ' specifically designed for women" and "design and ergonomics specific to ladies," not a'
+      + ' recolored men\'s cut. List $129.00 (currently on a $83.85 sale, list used per policy). No'
+      + ' weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://us.leatt.com/products/pant-mtb-trail-20-women-sale' },
   { id:'pnt-leatt-mtb-trail-3', cat:'pants', brand:'Leatt', model:'MTB Trail 3.0 Pant', price:131,
     liner:true, disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL','XXL'],
     desc:'CORRECTED 2026-07-16: fetched us.leatt.com matches this to the current (non-Obsolete) "Pants MTB Trail 3.0 Liner" - $131-134 by colorway, sizes XS-XXL, and it ships with a removable chamois liner short (liner false->true). No trustworthy weight published (only an XS-only 360g figure that repeats identically across unrelated pant models, smelling like a Shopify placeholder, not a measured spec), so weight omitted rather than guessed. Re-confirmed via .js product JSON (price 13100 cents).',
