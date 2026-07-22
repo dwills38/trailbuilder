@@ -4801,3 +4801,21 @@ the same hour. Worker flags for Douglas: wheel-PAIR split shape (Zipp/Fulcrum/Re
 GRC) has no honest token — a pair-split-estimate token is a vocab-tier candidate; Cinelli
 King Zydeco price needs a cinelli-milano.com re-fetch. Full gates + verdict harness green.
 Report: .claude/worker-reports/pb-gravel-2.md.
+
+## 2026-07-22 — gravel-is-mount merged (ADVERSARIAL REVIEW PASSED): the IS-mount trap closed
+R18 (compat-road) is now direction-aware, ported from MTB rule 8: post-mount caliper on an
+I.S. frame/fork = adapter WARNING (Shimano SM-MA-*P/S + Hope HBIS20/40, both maker-cited);
+flat-on-I.S. = its own actionable ERROR pointing at the post-mount path; I.S.-caliper
+direction pre-wired dormant. Nicasio+ corrected to is-mount/disc-is (stays unverified —
+marinbikes.com spec table is JS-walled; retailer table + maker's own Series-2 contrast +
+velonut corroborate) and its PAIR row entered: gbr-hope-rx4-plus-postmount-min (verified,
+maker-page-direct, $150.44 regional-conversion, hydraulic deliberately chosen so R19 can't
+false-clean a cable caliper). Vocab split caliperMount/rotorInterface is a tightening (a
+rotor can never validate as post-mount). +11 tests (1097), no test weakened; harness clean.
+Merge conflict vs pb-gravel-2 on the Apex brake row resolved keeping both sides' additions.
+WORKER FINDINGS QUEUED: (B) 4 QR gravel frames (Nicasio+ 135x9, Kona Rove + 2 more 135x10)
+have ZERO compatible rear wheels — vocab-tier1 legacy, needs a QR-wheel data chip; (C) no
+Marin fork row — front end stays a documented frankenbuild; (D) flat<->post adapter deferral
+now diverges from MTB BRK-28/29 — needs a ruling; (E) gravel.html prints the raw is-mount
+token — cosmetic UI candidate.
+Report: .claude/worker-reports/gravel-is-mount.md.
