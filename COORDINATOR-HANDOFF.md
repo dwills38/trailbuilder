@@ -26,6 +26,79 @@ seat does the housekeeping automatically — Douglas never renames/unpins/archiv
 
 ---
 
+## ★★★ SEAT 19 — START HERE (succession from seat 18, 2026-07-22 evening) ★★★
+
+Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s19 -b
+coord/<today>-s19 origin/main` (Hard rule #5 — the containment hook is LIVE **and HARDENED**).
+Run the gates yourself, never trust doc counts. **State at handoff: main `5d9d4bc` green —
+MTB 5,138 parts (3,374 verified) · kit 749 · BMX 352 · gravel 321 · road 314 · EMTB 109 ·
+striders 45 · 1,111 tests / 42 files · tsc clean · verdict harness clean · 7 validators at 0
+problems. priceBasis burndowns: MTB 1,690 · gravel 148 · road 3 · BMX 33 (all with honest
+per-row reasons — effectively done) · EMTB 5 · kit 0 · striders 0.**
+
+**★ SEATING SEQUENCE (in order):**
+1. **Succession handshake** — send_message the session titled "Main Coordinator (Seat 18)"
+   (id: `local_384c870d-273a-46ce-b9d9-e0dd4b7611e3`) asking it to set_session_title you to
+   "Main Coordinator (Seat 19)"; archive it on confirm. If it never wakes, one line to Douglas,
+   don't block.
+2. **RE-ARM BOTH session-lifetime watchers IMMEDIATELY** (they die with the seat): (a) the
+   hourly fleet-sweep cron — use the v2 prompt WITH THE LEAK SWEEP (scan `D:\` root against
+   the known-legit inventory + the home dir + Downloads for maker PDFs; quarantine strays into
+   `.claude/legacy-strays/`); (b) the persistent Monitor on `.claude/worker-reports` (bash
+   mtime loop, `declare -A` seen-map seeded with existing files). **WATCH FOR DUPLICATE CRONS**
+   — a process restart mid-seat left seat 18 with two identical sweeps firing; `CronList` after
+   arming and delete any dupe. The four durable scheduled tasks survive on their own.
+3. Read **HANDOFF-CHIPS.md** (chip queue + Douglas's re-consolidated open-question queue, 15
+   items) + memory MEMORY.md + CLAUDE.md Hard rules 1-5.
+
+**★ IN FLIGHT AT HANDOFF: NOTHING.** All 13 worker chips dispatched across three waves this
+seat were harvested, merged, logged and archived. "Affiliate Setup" = Partnerships lane, never
+touch; bug-triage vessels accumulate daily, harmless.
+
+**★ RULES EARNED THIS SEAT (beyond the standing set — details in PROJECT-LOG 2026-07-22):**
+· **THE REVIEW GATE CAUGHT SOMETHING IN EVERY SINGLE WAVE.** Four catches, all the same
+  disease — a token or claim overreaching what its evidence supports: 5 SRAM rows stamped
+  third-party-listed when sram.com publishes prices (2 real price corrections fell out of it);
+  17 Continental tires stamped regional-conversion whose own desc says "price = sample"; a
+  range MIDPOINT stamped msrp-confirmed; and an INFERRED `minTire` that made rule 14c fire a
+  FALSE too-narrow warning against **Kona's own stock tires on that very wheel**. READ REPORTS
+  ADVERSARIALLY AND PROBE THE BUILDS YOURSELF — `checkBuild` on every new completebike caught
+  what no report mentioned.
+· **CONTENT-CHECK EVERY "STALE BRANCH" VERDICT.** The worktree audit declared 41 branches of
+  complete-bike work "confirmed never landed" off a COMMIT-MESSAGE grep. Every sampled bike was
+  already on main under a different branch name. Cherry-picking would have manufactured
+  duplicate rows. unmerged-by-ancestry != unlanded-by-content — proven a third time.
+· **AN INFERRED OPTIONAL FIELD IS NOT NEUTRAL** — it can manufacture a false verdict. Check any
+  new row that adds a rule-feeding optional field (minTire/maxTire/minRotor/designForkTravel…).
+· **A DISCONTINUED STAMP NEEDS `status:'discontinued'` TOO**, or the row is invisible to
+  src/discontinued-archive.js. Check on every future discontinued-no-msrp.
+· **STALE DOCS COST REAL WORK.** CLAUDE.md's data-model line listed only 3 drivetrain system
+  tokens; `shimano-11`/`sram-11` had been live for two weeks. TWO cb workers skipped real bikes
+  (Kona Honzo, Ragley Big Al) citing that line before it was fixed. Fix stale docs on sight.
+· **VERIFY TOOL FAILURES FIRST-HAND** (Douglas's extended standing order, in memory
+  notify-missing-tools): the coordinator made TWO wrong Exa claims from second-hand reports.
+  One test call settles it. Also: connector INSTALLS need a fresh session to register;
+  credit/auth failures show up immediately.
+· **Technique finds:** ALPINE.JS = **focus-then-click** (`el.focus()` immediately before
+  `el.click()`) — broke the Santa Cruz spec-table wall two waves had called impassable;
+  Shopify `products.json` is great for variants/availability but carries NO build-kit specs;
+  backslashes do NOT survive this shell's heredocs — use the Write/Edit tools for JS string
+  literals (the coordinator hit this twice).
+· **Douglas's containment order was re-issued in ALL CAPS after a third leak** — the hook now
+  denies outside Write/Edit AND write-shaped shell commands, with a 12-case self-test
+  (`node tools/hooks/test-guard.js`). It has since blocked the coordinator's own sloppy command.
+  **NO BROWSER DOWNLOADS EVER** is now in the chip boilerplate (Chrome prompts were landing in
+  his Downloads folder).
+
+**Standing workflow (unchanged):** four gates (+harness on engine-read changes) on every merge;
+UI auto-ships on green gates + browser verify + popup scan; engine/error-tier = adversarial
+review; only taxonomy/money/visual-taste/account/business decisions to Douglas, kept SHORT;
+ANSWER-FIRST; paste-blocks with [Model, effort] headers; archive wrapped workers without
+asking, BATCHED LAST; at YOUR wrap-up consolidate all outstanding Douglas questions into
+HANDOFF-CHIPS.md and pass this instruction forward (succession rule 5).
+
+---
+
 ## ★★★ SEAT 18 — START HERE (succession from seat 17, 2026-07-22) ★★★
 
 Seed normally: `git fetch origin; git worktree add .claude/worktrees/coord-<today>-s18 -b

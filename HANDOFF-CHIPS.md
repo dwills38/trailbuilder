@@ -113,66 +113,90 @@ vocab token; needs sourcing + schema) · Giant Stance E+ (maker copy self-confli
 frame-only prices (Vue configurator state wall) · Canyon Strive CFR (member-gated) · the
 Bronson wall above if attempt 2 fails.
 
-**★ DOUGLAS'S FULL OPEN-QUESTION QUEUE (consolidated 2026-07-22 at seat-17 wrap per the
-standing rule — "make sure any outstanding questions for me will be saved for the next
-coordinator." Raise gently; the PDF mirror rule applies: `_PDFs/OPEN-QUESTIONS.pdf`,
-items enter only after TWO ignored asks, never removed until he rules, NEVER act on an
-unanswered question.)**
+**★ DOUGLAS'S FULL OPEN-QUESTION QUEUE (re-consolidated 2026-07-22 at seat-18 wrap per the
+standing rule. Raise gently; PDF mirror rule applies: `_PDFs/OPEN-QUESTIONS.pdf`, items enter
+after TWO ignored asks, never removed until he rules, NEVER act on an unanswered question.)**
 
-0. **★ PENDING SUPABASE SQL RUNS (he asked for REPEATED reminders until confirmed run;
-   he explicitly deferred "not tonight" on 2026-07-22 — resume reminding at natural
-   checkpoints).** Two idempotent files, paste-whole into the Supabase SQL editor (content
-   from GitHub raw off main, never the shared checkout):
+0. **★ PENDING SUPABASE SQL RUNS (he asked for REPEATED reminders until confirmed run).**
+   Two idempotent files, paste-whole into the Supabase SQL editor (content from GitHub raw off
+   main, never the shared checkout):
    a. `supabase/forum-reserved-additions.sql` — Dirt Jesus + 1,295 pro-rider names.
-   b. `supabase/forum-reserved-brands-influencers.sql` — 414 rows (manufacturers,
-      Seth Alvo/Berm Peak, Phil Kmetz/Skills With Phil, GMBN roster, Sploosh MTB…).
-   Verify which ran (his word / Table Editor counts) before striking.
-1. **THE RE-BRAINSTORM SESSION** — feature slate 8/8 since 2026-07-21; he asked to be
-   reminded. Standing.
-2. **Cloudflare redirect batch** (5 rows, his clicks — table in domain-portfolio memory).
-3. **PRICE_BASIS_STRICT flip** — coordinator flips (six constants + their pinned tests)
-   when every catalog burndown reads 0; not a Douglas question, but track it here so it
-   isn't lost. Kit is already 0.
-4. **99spokes aggregator policy** — maker-sourced spec copy for the JS-walled house
-   brands (~110 OE cockpit rows). Yes/no/park.
-5. **Propain rigid-post completeness gap** — three-remedy design packet (per-completebike
-   override / frame-level flag / accept-and-document) in propain-conflicts-1's report;
-   recurs on any rigid-base brand.
-6. **Whisp tier naming** — worker used I9's own "SOLiX Classic" label; uniform "Hydra2"
-   wording catalog-wide is his taste call.
-7. **Reserved-names smalls**: "100%" as bare "100"? road ProTeams tier (~1,000 more
-   names)? GCN presenter roster?
-8. **Kit scope calls**: Cairn "Ride" junior model in the adult catalog? O'Neal Park FR
-   SKU identity (maker sells knee-only; the cataloged combo is retailer-only).
-9. **dp-specialized-command-post-349-160** — "suspected fictional combo" flag stands.
-10. **Audit M7** — wheel-size-aware rule-18 clearance (Surly 27.5x3.0 case; gravel's
+   b. `supabase/forum-reserved-brands-influencers.sql` — 414 rows (manufacturers, Seth Alvo,
+      Phil Kmetz, GMBN roster, Sploosh MTB…).
+   Verify which ran (his word / Table Editor counts) before striking. STILL UNRUN at seat-18 wrap.
+
+1. **★ EXA IS OUT OF CREDITS — HTTP 402, VERIFIED FIRST-HAND TWICE (19:01 and 19:10).** Douglas
+   added $10 but the balance had NOT reached the key's account 9 minutes later; suspect the funds
+   landed on a different account/org than key `8a8d…0fe`. THIS IS THE #1 THROUGHPUT BRAKE: Exa is
+   step 2 of the fetch order, so every walled maker page falls to one-URL-at-a-time browser-pane
+   work (~3 rows per fetch round observed). ~1,840 catalog rows still need exactly that fetch.
+   Ask him to confirm the balance on the SAME account that issued the key, then RETEST (one call).
+
+2. **THE RE-BRAINSTORM SESSION** — feature slate 8/8 since 2026-07-21; he asked to be reminded.
+
+3. **Wheel-PAIR price-split token** — Zipp 303 XPLR S/101, Fulcrum Rapid Red Carbon, Reserve
+   4044 GR, DT Swiss GRC 1400: one real maker MSRP for the pair, split across front/rear rows.
+   No token names that shape (bundle-split-estimate is scoped to shift-brake systems). Ratify a
+   `pair-split-estimate` token, or leave those rows permanently blank? ASKED TWICE, UNANSWERED.
+
+4. **Cloudflare redirect batch** (5 rows, his clicks — table in domain-portfolio memory).
+
+5. **PRICE_BASIS_STRICT flip** — coordinator flips (six constants + their pinned tests) when
+   every catalog burndown reads 0. Kit + striders already 0; road at 3. Not a Douglas question,
+   tracked here so it is not lost.
+
+6. **99spokes aggregator policy** — maker-sourced spec copy for the JS-walled house brands
+   (~110 OE cockpit rows). Yes/no/park. (A worker deliberately avoided it this seat, correctly.)
+
+7. **Propain rigid-post completeness gap** — three-remedy design packet in propain-conflicts-1's
+   report; recurs on any rigid-base brand.
+
+8. **Whisp tier naming** — worker used I9's own "SOLiX Classic" label; uniform "Hydra2" wording
+   catalog-wide is his taste call.
+
+9. **Reserved-names smalls**: "100%" as bare "100"? road ProTeams tier (~1,000 more)? GCN roster?
+
+10. **Kit scope calls**: Cairn "Ride" junior model in the adult catalog? O'Neal Park FR SKU
+    identity (maker sells knee-only; the cataloged combo is retailer-only). Both fenced off from
+    kit-breadth-4 deliberately — still unruled.
+
+11. **dp-specialized-command-post-349-160** — "suspected fictional combo" flag stands.
+
+12. **Audit M7** — wheel-size-aware rule-18 clearance (Surly 27.5x3.0 case; gravel's
     maxTireByWheel is the model). Engine change → adversarial review when picked up.
-10d. **Wheel-PAIR price-split token** — pb-gravel-2: Zipp/Fulcrum/Reserve/DT GRC pair MSRPs
-    split across front/rear rows have no honest token (bundle-split-estimate is scoped to
-    shift-brake systems). Ratify a pair-split-estimate token, or leave those rows blank?
-11. **Older tail** (carried): archive_session auto-approve hook (JSON in seat-16's
-    transcript, he deferred) · Audit L4 verification round-robin (his nod = implement) ·
-    "Sort: Random" wording nit · gallery six · reviews.sql levers + hardening-2.sql ·
-    Supabase MFA/CAPTCHA check · Cloudflare Vitals read · Finder two · recall-badge
-    scoping · fitter paywalls · the empty D:\mtb-worktrees shell folder (one manual
-    right-click).
 
-**FLAT<->POST ADAPTER: RULED 2026-07-22 (Douglas: "flat to post = A") — PORT THE MTB
-BEHAVIOR to road/gravel.** Both directions become adapter-tier WARNINGS with structured
-fixes and the MTB rule's own maker citations (Shimano SM-MA flat-mount line one way, Wolf
-Tooth Post-to-Flat the other, whose message must keep the +20mm-rotor-step and boss-
-clearance caveats). FM-on-I.S. stays an ERROR (only a boutique rotor-limited part exists).
-Implementation chip queued below; adversarial review at merge.**
+13. **NEW 2026-07-22 — catalog data findings needing a call (from pb-mtb-b4):**
+    a. **Deviate Claymore**: the only Frame-Only SKU on deviatecycles.com is explicitly
+       "Non-UDH" while our row says `udh:true` — a genuine VARIANT mismatch that can change
+       verdicts (Transmission needs UDH). Correct the row, or split into two variants?
+    b. **Deviate Highlander II**: now sold ONLY as a bundled Frame+Shock SKU; our row is
+       frame-only with `bundledShock:null`.
+    c. **Evil Offering v4**: stored source has no price and the CURRENT Offering is a materially
+       different generation (151mm rear, $4,099 vs our $3,999) — a lifecycle question.
 
-**GRAVEL MULLET: RULED 2026-07-22 (Douglas: "no gravel mullet option") — option D, deliberate
-exclusion. Gravel stays drivetrain-frozen at road parity; no Eagle tokens, no xd freehub, no
-pullRatio field. tools/TIER2-DRIVETRAIN-DESIGN.md stands as the record; revisit ONLY if
-Douglas re-opens (e.g. at gravel complete-bikes). A mullet build stays inexpressible, which
-is honest — no false verdict either way.**
+14. **NEW — infrastructure decisions parked for him:**
+    a. **Worktree cleanup APPROVAL**: 90 merged-clean worktrees = ~1,213 MB reclaimable; plus
+       ~260 MB of node_modules deletable even in KEPT worktrees. Audit done, nothing deleted.
+       Chip is written and ready; needs his go. Child-before-parent order is load-bearing.
+    b. **compat.js is 3,562 KB / 3,729 parts in ONE file** — a real cost on every catalog agent.
+       Splitting PARTS into per-catalog files (no build step, extra <script> tags) touches 12
+       files. RECOMMENDATION: plan now, execute AFTER the MTB burndown clears — doing it mid-
+       burndown collides with every parallel catalog worker.
+    c. **Defender exclusions** for the project folder + npm cache (needs elevated PowerShell).
+    d. **Remaining plugin cleanup**: 15 `plugin:*` servers still require auth he will never
+       grant (carta-crm, the data suite, the engineering suite, guru, planetscale).
+    e. **PDF desktop connector**: reinstalled but NOT visible to a running session — a new
+       connector only registers at session start. TEST IN A FRESH SESSION (open
+       `_PDFs/OPEN-QUESTIONS.pdf`). Nothing is blocked: PDF write (headless Chrome), local read
+       (built-in Read), and web-PDF fetch all verified working after his restart.
 
-**RESOLVED THIS SEAT (for the record, don't re-ask):** seatpost interface exception
-(YES, 7th class, applied) · I9 hub tiers (SPLIT, applied) · vocab Tier-1 (ratified,
-implementation in flight at wrap) · verified-means-price-too (mechanism + backfill waves
-live) · the 6th priceBasis token (YES, third-party-listed, in flight at wrap) · RideKit
-new categories (NO, the 12 stand) · EMTB full-equal status (YES) · Zipp 303 S (both
-catalogs, applied) · EX44 = EC44 (FRM-54, applied).
+15. **Older tail** (carried): archive_session auto-approve hook (JSON in seat-16's transcript,
+    he deferred) · Audit L4 verification round-robin · "Sort: Random" wording nit · gallery six ·
+    reviews.sql levers + hardening-2.sql · Supabase MFA/CAPTCHA check · Cloudflare Vitals read ·
+    Finder two · recall-badge scoping · fitter paywalls · the empty D:\mtb-worktrees shell
+    folder · review/empty `.claude/legacy-strays/` (quarantined leak files).
+
+**RULED THIS SEAT (do NOT re-ask):** NO gravel mullet (option D, deliberate exclusion — the
+Apex-Eagle guard now enforces it) · flat↔post adapter = **A**, port the MTB both-ways behavior
+to road/gravel (chip 0 below, unstarted) · Spotify is a deliberate KEEP (personal use, never
+re-flag as dead weight).
