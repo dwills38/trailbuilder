@@ -2133,6 +2133,12 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-22', source: 'https://usa.cinelli-milano.com/products/cork-ribbon-bar-tape', priceBasis: 'msrp-confirmed',
     note: 'road-breadth-6 wave: FETCHED usa.cinelli-milano.com (Cinelli\'s own US storefront) directly - price "$23.00" confirmed verbatim (real current USD MSRP, the original 1987 cork-blend EVA tape this catalog was still missing). The fetched page states composition "SYNTHETIC" in its own spec tab (not itemizing weight) - weight (68g) is a third-party figure (Tacoma Bike & Ski\'s current listing for the same SKU), kept as an unsourced sample per this catalog\'s "verified:true can coexist with a flagged sample weight" convention (same pattern as hs-canecreek-40-zs44-ec44 elsewhere in this file) rather than invented or over-claimed.' },
 
+  // --- cockpit (was 3) ---
+  { id: 'ck-vision-metron-5d-acr-evo', cat: 'cockpit', brand: 'Vision', model: 'Metron 5D ACR EVO Integrated Handlebar', family: 'vision-metron-5d',
+    steerer: '1-1-8', width: 420, reach: 80, drop: 125, integrated: true, weight: 320, price: 770,
+    verified: true, lastChecked: '2026-07-22', source: 'https://shop.visiontechusa.com/en/handlebars/road/vision-hb-metron-5d-acr-evo', priceBasis: 'msrp-confirmed',
+    note: 'road-breadth-6 wave: FETCHED shop.visiontechusa.com (Vision/FSA\'s own storefront) directly - a fourth cockpit-category brand alongside Roval/Deda/Enve. Spec table: "Weight (gr) 320" (this row\'s 420mm-width/110mm-stem combo weight, the page\'s stated basis), price "$770.00" (matches fsaproshop.com\'s independent US listing of the same SKU exactly). Independent bike24.com listing of the same "Vision Metron 5D EVO Handlebar/Stem Unit" confirms drop:125mm/reach:80mm and "Steerer Tube Ø - Top: 1 1/8", 1 1/4"" - steerer modeled as this catalog\'s existing "1-1-8" token (the narrower of the two accepted diameters, same convention as every other cockpit row here); the wider 1-1/4" option is a real alternate fit not separately modeled (no vocab gap - matches only the universal-1-1/8" assumption already used catalog-wide).' },
+
 ];
 
 // ---------------------------------------------------------------------------
