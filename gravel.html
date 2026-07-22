@@ -463,7 +463,7 @@
     </details>
   </div>
 </header>
-<div class="honesty-strip"><span class="badge">Prototype · sample data</span> BuildMyGravelBike checks wheel size (700c/650b), thru-axle fit, freehub vs cassette, flat-mount brakes vs frame/fork, tapered steerer, BB shell/spindle, tire clearance and drivetrain system/speed/actuation as you pick parts. A green dot means no conflict among the dimensions we check — some makers publish no spec data, so it's not a guarantee of perfect fit.</div>
+<div class="honesty-strip"><span class="badge">Prototype · sample data</span> BuildMyGravelBike checks wheel size (700c/650b), thru-axle fit, freehub vs cassette, brake caliper mount vs frame/fork (flagging a documented I.S.-to-post-mount adapter path where it applies), tapered steerer, BB shell/spindle, tire clearance and drivetrain system/speed/actuation as you pick parts. A green dot means no conflict among the dimensions we check — some makers publish no spec data, so it's not a guarantee of perfect fit.</div>
 
 <main id="gravelMain"><!-- rendered by the script below --></main>
 
@@ -689,16 +689,18 @@
   // spellings (merged 2026-07-21 — see schema-gravel.js's header note); label it with
   // both names so a rider searching either term recognizes the part.
   function bbShellLabel(v){ return v==='bb86' ? 'BB86 (PF86)' : v; }
+  var MOUNT_LABEL = { 'flat-mount':'Flat-mount', 'is-mount':'I.S. (International Standard)', 'post-mount':'Post-mount' };
+  function mountLabel(v){ return MOUNT_LABEL[v] || v; }
   function specLine(p){
     var bits=[];
     switch(p.cat){
       case 'frame':
         if(Array.isArray(p.wheelSizes)) bits.push(p.wheelSizes.join('/'));
         if(p.bb) bits.push(bbShellLabel(p.bb)+' shell');
-        if(p.brakeMount) bits.push(p.brakeMount);
+        if(p.brakeMount) bits.push(mountLabel(p.brakeMount));
         bits.push(p.frameOnly?'Frame only':'Frame + fork');
         break;
-      case 'fork': bits.push(p.wheel); if(p.axle) bits.push(p.axle+' axle'); if(p.brakeMount) bits.push(p.brakeMount); if(typeof p.travel==='number' && p.travel>0) bits.push(p.travel+'mm travel'); break;
+      case 'fork': bits.push(p.wheel); if(p.axle) bits.push(p.axle+' axle'); if(p.brakeMount) bits.push(mountLabel(p.brakeMount)); if(typeof p.travel==='number' && p.travel>0) bits.push(p.travel+'mm travel'); break;
       case 'headset': if(p.upper||p.lower) bits.push((p.upper||'?')+' / '+(p.lower||'?')); if(p.steerer) bits.push(p.steerer); break;
       case 'frontwheel': bits.push(p.wheel); if(p.hub) bits.push(p.hub+' axle'); if(p.rotorMount) bits.push(p.rotorMount); break;
       case 'rearwheel': bits.push(p.wheel); if(p.freehub) bits.push(p.freehub); if(p.rotorMount) bits.push(p.rotorMount); break;
