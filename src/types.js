@@ -129,7 +129,7 @@
  * @property {DriveMode} [driveMode]  absence = geared; 'single-speed' drops the geared-drivetrain + brake slots from slotRequired (2026-07-13 DJ pass)
  * @property {DropoutType} [dropoutType]  single-speed chain-tensioning style; 'vertical' + single-speed => ss-tension info (dormant until sourced)
  * @property {'dropper'|'rigid'} [defaultSeatpost]  unify-seatpost override for the Seatpost rail's default sub-chip; absent = discipline heuristic (defaultSeatpostCat). UI/tie-break ONLY — never feeds checkBuild or completeness
- * @property {boolean} [noStockDropper]  true = this SPECIFIC frame's maker-published stock/OE spec ships without a dropper post (rigid post only), sourced per-row (e.g. XC race hardtails). Feeds slotRequired completeness ONLY, alongside the blanket dh-discipline exemption; absence = dropper assumed standard equipment
+ * @property {boolean} [noStockDropper]  true = this SPECIFIC frame's maker-published stock/OE spec ships without a dropper post (rigid post only), sourced per-row (e.g. XC race hardtails). Feeds slotRequired completeness ONLY, alongside the blanket dh-discipline exemption; absence = dropper assumed standard equipment. NARROWED IN EFFECT 2026-07-22 (Douglas's seat-position ruling): no frame requires a dropper any more — a rigid seatpost fills the seat position on every bike — so all this flag still does is exempt the seat position ENTIRELY (complete with NO post). Kept live because 13 postless complete-bike rows depend on it; see the slotRequired() header in compat.js
  * @property {boolean} udh
  * @property {string} [udhRetrofitKit]  maker-documented UDH retrofit kit name (rule 4 warns with a structured fix instead of erroring; dormant until sourced)
  * @property {boolean} frameOnly
@@ -276,6 +276,11 @@
  *   EXCLUSIVE with (the unified Seatpost group's dropper<->seatpost pair):
  *   picking this slot clears its peers in setSlot, and sanitizeShare drops the
  *   non-default peer if a legacy build carries both — one physical position.
+ * @property {string} [position] the physical POSITION on the bike this slot
+ *   fills, shared with its peers (today only 'seat': dropper + rigid seatpost).
+ *   Unlike `altOf` (an AND path — frontWheel needs a hub AND a rim), position
+ *   peers are an OR: EITHER slot fills the position, so completeness counts the
+ *   position once — see positionPeersOf()/wheelPositionFilled() in compat.js.
  */
 
 /** The wheel-shaped view checkBuild's rules read, whether it came from a

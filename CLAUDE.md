@@ -123,6 +123,7 @@ Entry points (`validate.js`, `index.html`) live at the root; tests run on Vitest
 | `test/test-account-serialize.js` | Garage/account serialization: a saved build's payload round-trips through the same `sanitizeShare()` as share links (pure logic, no network). |
 | `test/test-invariants.js` | Engine-fortress properties across every part and many pseudo-random builds: `checkBuild` never throws, never returns malformed output, is deterministic, and every preset/lookup stays internally consistent — structural contract, not specific verdicts (that's `test-engine.js`). |
 | `test/test-dj-singlespeed.js` | The DJ / single-speed surface (live since 2026-07-14): driveMode-blind checkBuild pinning, the slotRequired drops + inverted cog/seatpost requires, ss-chain-width/ss-tension, rule 13c, the schema cross-rules, and the golden DMR Sect build (complete + conflict-free in the live catalog). |
+| `test/test-seat-position.js` | **The seat position** (Douglas's 2026-07-22 ruling — no bike requires a dropper): the requiredness contract swept over every catalog frame (exactly one of dropper/rigid required, never both, zero only on the documented DH/`noStockDropper` exemptions), the four fill cases (dropper-only / rigid-only / neither / both), an enduro golden re-cut with a rigid post that must read complete AND conflict-free, the symmetric OR on a single-speed frame, `altOf`'s AND semantics re-pinned so the two never blur, rules 13/13c still firing on whichever post is picked, and pins on what deliberately did NOT move (`slotRequired`'s own returns; the postless complete-bike rows' dependence on the exemptions). |
 | `test/test-bmx-engine.js`, `test/test-bmx-golden.js` | The OFF-LIVE BMX engine (`src/compat-bmx.js` — loaded by nothing the site serves): every BMX rule fires + dormancy negatives; braked, brakeless-complete and known-bad golden builds. |
 | `test/test-schema-bmx.js` | The OFF-LIVE BMX schema/validator (`src/schema-bmx.js`): the real `data/bmx.js` catalog validates clean, plus negative cases (out-of-vocab value, missing required field, unknown category, bad price, verified-provenance rejections, stray field, duplicate id). |
 | `test/test-kit.js` | The Kit Builder data layer (`src/kit.js`): schema cross-rules, `kitTotals` edge cases, and its isolation from the bike compat engine. |
@@ -209,7 +210,16 @@ Category-specific fields (enforced by `schema.js` → `SCHEMA`, using vocabulari
   drivetrain (`teeth`, `chainWidth` of `1/8`/`3/32`); **seatpost** = a rigid post (`diameter`;
   droppers stay their own category). Each is its own single-slot GROUP (the bb/headset
   buildTotals reason) with INVERTED requiredness: required ONLY on a `driveMode:'single-speed'`
-  frame, never for geared frames or the no-frame default. Frames may carry
+  frame, never for geared frames or the no-frame default. **THE SEAT POSITION (Douglas,
+  2026-07-22): no bike requires a dropper.** The dropper slot and the rigid `seatpost` slot are ONE
+  physical position (GROUPS' `position:'seat'`), and completeness asks it ONCE — `slotRequired` is
+  unchanged (exactly one of the pair carries the flag per frame: dropper for geared, rigid post for
+  single-speed), while `wheelPositionFilled` now counts the position filled from EITHER slot
+  (`positionPeersOf`). So a rigid post completes a geared enduro build and a dropper completes a DJ
+  build; never both required, never neither. Distinct from `altOf`, which is an AND path (a wheel
+  needs hub AND rim). Rules 13/13c still fire on whichever post is picked. The DH-discipline and
+  `noStockDropper` dropper drops are UNCHANGED and now exempt the seat position outright — 24
+  complete-bike rows fill no post at all — see the `slotRequired()` header in `compat.js`. Frames may carry
   `driveMode:'single-speed'` (single-speed-only; drops shifter/derailleur/cassette/dropper +
   ALL brake slots from completeness — brakeless is a valid complete build, Douglas 2026-07-13)
   and `dropoutType` (`horizontal`/`sliding`/`ecc-bb`/`vertical`); chains/cranksets may carry
