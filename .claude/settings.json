@@ -40,7 +40,7 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash|PowerShell",
+        "matcher": "Bash|PowerShell|Write|Edit|NotebookEdit",
         "hooks": [
           {
             "type": "command",

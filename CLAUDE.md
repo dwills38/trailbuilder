@@ -60,8 +60,15 @@ unverified specs as real. See "Provenance" below.
    never at `D:\` root, never anywhere else on any drive (two workers created `D:\gdd-a3f1` and
    `D:\mtb-wt-rsq-195f`; that is the banned pattern). The harness-managed temp scratchpad
    (`AppData\Local\Temp\claude\...`) is the only exception, for throwaway files. Enforced by a
-   PreToolUse hook (`tools/hooks/guard-worktree-path.js`) that auto-denies `git worktree add` /
-   `git clone` targeting an outside path. Tool reads of system locations (node, npm, git) are
+   PreToolUse hook (`tools/hooks/guard-worktree-path.js`, HARDENED 2026-07-22 after scratch
+   files leaked to `D:\` root a second time — Douglas's all-caps re-order): it now auto-denies
+   (a) `git worktree add` / `git clone` targeting an outside path, (b) ANY Write/Edit/
+   NotebookEdit whose file_path is outside the project, and (c) write-shaped shell commands
+   (redirects, tee/mv/cp/mkdir/touch, Set-Content/Out-File/New-Item/Copy-Item/Move-Item)
+   carrying an outside absolute path. Self-test: `node tools/hooks/test-guard.js` (12 cases).
+   The hourly coordinator sweep also scans `D:\` root + the home dir and quarantines strays
+   into `.claude/legacy-strays/`. ALL scratch/temp/report files go inside the project or the
+   harness Temp\claude scratchpad — NEVER `D:\` root, NEVER anywhere else on any drive. Tool reads of system locations (node, npm, git) are
    normal operation, not a violation — the rule is about where PROJECT files live.
 
 ## Files (src/ + test/ layout — these are the project)
