@@ -4819,3 +4819,19 @@ Marin fork row — front end stays a documented frankenbuild; (D) flat<->post ad
 now diverges from MTB BRK-28/29 — needs a ruling; (E) gravel.html prints the raw is-mount
 token — cosmetic UI candidate.
 Report: .claude/worker-reports/gravel-is-mount.md.
+
+## 2026-07-22 — pb-mtb-a2 merged: MTB burndown 2029 -> 1895 (drivetrain/brake slice done)
+152-row scope: 134 third-party-listed (129 Shimano — all 5 productinfo handbook editions +
+bike.shimano/si.shimano pages re-fetched, no price anywhere, the expected brand fact; Formula/
+DTS/Clarks off their own desc-disclosed retailer figures), 2 msrp-confirmed (SRAM DB8 $150 +
+Maven Silver $290, fresh exact-match fetches — the Maven's old A1/B1 $265-290 ambiguity
+resolved), 16 honest blanks (microSHIFT/SRAM no-price service pages, configure-gates, OE-only-
+ambiguous BBs/cranks, a 403'd retailer wall). This worker applied the SRAM doctrine correctly
+unprompted: fetched every sram.com page, stamped only exact matches, FLAGGED ro-sram-
+centerline-200-6b (stored $45 sits BELOW the page's $50-65 range) instead of stamping. NOTE:
+the worker's sandbox pinned it to an agent worktree; its 3 commits were cherry-picked onto
+backfill/pb-mtb-a2 (report's reconciliation note) — coordinator verified the branch matches
+the report exactly (3 commits, 134 insertions, compat.js only) before merging. Follow-up
+leads: the CenterLine price fix + the 4 QR gravel wheels + Cinelli re-fetch all queued in
+HANDOFF-CHIPS. Gates green post-merge.
+Report: .claude/worker-reports/pb-mtb-a2.md.
