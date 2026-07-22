@@ -97,7 +97,7 @@ var BMX_PARTS = [
     id: 'bmx-fr-colony-sweettooth', cat: 'frame', brand: 'Colony', model: 'Sweet Tooth',
     discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
     topTube: 20.7, rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true,
-    price: 429.99, note: 'Alex Hiam signature frame; real published sizes are 18.9/19.2/20.4/20.7/21in (corrected from a non-existent 20.6in) — ships bossless with a removable brake-tab kit sold separately, so brakeless-stock is correct. Currently sold only via Colony\'s AU distributor/retail channel, not colonybmx.com.au\'s own current frame lineup, so it does not clear the manufacturer-own-page verification bar; weight/price remain sample.'
+    price: 429.99, note: 'Alex Hiam signature frame; real published sizes are 18.9/19.2/20.4/20.7/21in (corrected from a non-existent 20.6in) — ships bossless with a removable brake-tab kit sold separately, so brakeless-stock is correct. Currently sold only via Colony\'s AU distributor/retail channel, not colonybmx.com.au\'s own current frame lineup, so it does not clear the manufacturer-own-page verification bar; weight/price remain sample. RECONFIRMED 2026-07-21 (bmx-sweep-3): colonybmx.com.au/products/category/frames/ (maker\'s own current 9-product Frames category - Prody/Cadet 20/18/16/Bloody Oath Kit/Rico/Enishi/Prisma/Blaster/Horizon Alloy) still has no "Sweet Tooth". Left unverified/unchanged.'
   },
   {
     id: 'bmx-fr-haro-downtown', cat: 'frame', brand: 'Haro', model: 'Downtown',
@@ -728,7 +728,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-pg-totalbmx-rotary', cat: 'sprocket', brand: 'Total BMX', model: 'Rotary Sprocket 25T',
     teeth: 25, mount: 'spline', pitch: '1/8', weight: 59, price: 32.99,
-    note: 'RECATEGORIZED pegs->sprocket 2026-07-17 (audit): "Rotary" is a Total BMX SPROCKET (CNC 7075-T6, 25T/28T, 59g at 25T, 1/8in, bolt-drive with 19/22/24mm spindle adapters - modeled as spline per the sprocket-mount convention), never a peg (confirmed via sourcebmx.com/products/total-bmx-rotary-sprocket + 5150bmx.com/products/rotary-sprocket). Id retains the legacy bmx-pg- prefix (ids are append-only). Left unverified (retailer specs, not a fetched maker spec table).'
+    note: 'RECATEGORIZED pegs->sprocket 2026-07-17 (audit): "Rotary" is a Total BMX SPROCKET (CNC 7075-T6, 25T/28T, 59g at 25T, 1/8in, bolt-drive with 19/22/24mm spindle adapters - modeled as spline per the sprocket-mount convention), never a peg (confirmed via sourcebmx.com/products/total-bmx-rotary-sprocket + 5150bmx.com/products/rotary-sprocket). Id retains the legacy bmx-pg- prefix (ids are append-only). Left unverified (retailer specs, not a fetched maker spec table). WALL, checked 2026-07-21 (bmx-sweep-3): totalbmx.com/collections/sprockets (maker\'s own current 2-product collection) lists only Killabee Sprocket variants - no "Rotary" - confirming it is discontinued from the current storefront, matching the retailer-only sourcing already on this row. Left unverified/unchanged.'
   },
   {
     id: 'bmx-pg-flybikes-vandal', cat: 'pegs', brand: 'Fly Bikes', model: 'Vandal Pegs',
@@ -847,7 +847,7 @@ var BMX_PARTS = [
   {
     id: 'bmx-se-totalbmx-slim', cat: 'seat', brand: 'Total BMX', model: 'Slim Pivotal Seat',
     system: 'pivotal', price: 24.99,
-    note: 'No standalone "Slim Pivotal Seat" found for Total BMX; closest real products are the "Logo Slim Combo Seat" and "Killabee Slim Combo Bee Seat" (seat+post combo units, not sold as a bare seat). system:pivotal is plausible (Total\'s combo seats use pivotal-style mounting) but not confirmed against an exact matching SKU, so left unverified.'
+    note: 'No standalone "Slim Pivotal Seat" found for Total BMX; closest real products are the "Logo Slim Combo Seat" and "Killabee Slim Combo Bee Seat" (seat+post combo units, not sold as a bare seat). system:pivotal is plausible (Total\'s combo seats use pivotal-style mounting) but not confirmed against an exact matching SKU, so left unverified. RECONFIRMED 2026-07-21 (bmx-sweep-3): totalbmx.com/collections/seats (maker\'s own current 2-product collection) still lists only those same two Combo Seat SKUs ($52.00 each) - no bare pivotal seat sold separately. Left unverified/unchanged.'
   },
 
   // ===== SEATPOST =======================================================
