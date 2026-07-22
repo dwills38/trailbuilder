@@ -2153,6 +2153,12 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-22', source: 'https://www.fsaproshop.com/products/megaevo-threaded-bottom-bracket', priceBasis: 'msrp-confirmed',
     note: 'road-breadth-6 wave: FETCHED fsaproshop.com (FSA\'s own storefront) directly - a fifth bb-category brand. Spec table: "For use with all BB386EVO road cranksets", "Frame Dimension: BSA Compatibility: BB386", "Weight: 50g", price "$71.00 USD" all taken verbatim - MegaEVO is FSA\'s own threaded adapter that lets a 30mm-spindle BB386EVO crank thread into a standard 68mm BSA shell, so shell:"bsa-road" (the frame-side standard) + spindle:"30mm" (the crank interface this catalog\'s crankBbRoad vocab already carries) is the correct pairing, distinct from this file\'s existing Shimano/SRAM 24mm-spindle BSA-adjacent rows.' },
 
+  // --- pedal (was 5) ---
+  { id: 'pd-favero-assioma-duo', cat: 'pedal', brand: 'Favero', model: 'Assioma DUO', family: 'favero-assioma-duo',
+    style: 'road-clip', weight: 303, price: 499,
+    verified: true, lastChecked: '2026-07-22', source: 'https://cycling.favero.com/shop/assioma-duo/', priceBasis: 'msrp-confirmed',
+    note: 'road-breadth-6 wave: FETCHED cycling.favero.com (Favero\'s own consumer storefront) directly - a fifth pedal-category brand (Shimano/Look/Time/Wahoo already cataloged), and the file\'s first dual-sided power-meter pedal. Spec: "Weight per power pedal 151.5 g" (doubled to 303g for this catalog\'s per-pair convention, basis disclosed, same doubling convention already used elsewhere in this file), "Compatible cleats: Original LOOK Kéo and Favero cleats" (style:"road-clip", same vocab bucket as the existing Look/Shimano SPD-SL rows), price "$ 499,00" (maker\'s own USD-denominated consumer store, matches the .favero.com reseller page\'s independently listed figure for the same SKU art.772-02).' },
+
 ];
 
 // ---------------------------------------------------------------------------
