@@ -243,20 +243,30 @@ test('model: every row\'s part carries priceNote/priceConfirmed from pricing.js,
 });
 
 test('model: toBuySamplePriced counts only to-buy rows whose price is NOT a confirmed MSRP', function(){
-  // Empty inventory -> every slot is to-buy, none of the real catalog parts carry priceBasis.
+  // Compute the expectation from the parts themselves rather than assuming a
+  // catalog-wide state — the original "no priceBasis anywhere" premise went
+  // stale the day the priceBasis backfill waves started landing real
+  // msrp-confirmed tokens on GOOD's own drivetrain (coordinator fix,
+  // 2026-07-22, at the pb-mtb-a merge). The module contract under test is the
+  // per-row relationship, not the catalog's backfill progress.
+  /** @param {any} m */
+  function expectedSample(m){
+    return m.rows.filter(function(/** @type {any} */ r){ return !r.owned && !P.priceMsrpConfirmed(part(r.part.id)); }).length;
+  }
   var m0 = model(GOOD, {});
-  eq(m0.toBuySamplePriced, m0.counts.toBuy, 'no priceBasis anywhere => every to-buy row is sample-priced');
+  eq(m0.toBuySamplePriced, expectedSample(m0), 'sample tally must equal the to-buy rows whose part lacks a confirmed MSRP');
 
-  // A synthetic confirmed-MSRP saddle, to-buy (nothing owned).
+  // A synthetic confirmed-MSRP saddle, to-buy (nothing owned): the tally must
+  // drop by exactly one vs the same build with the plain (sample) saddle.
   var confirmedSaddle = clone('sa-wtb-volt', { priceBasis: 'msrp-confirmed' });
   var m1 = OVB.ownedVsBuyModel(bl(/** @type {*} */ (Object.assign({}, B(GOOD), { saddle: confirmedSaddle }))), {}, {}, DEPS);
-  eq(m1.toBuySamplePriced, m1.counts.toBuy - 1, 'the confirmed-MSRP saddle must not count toward the sample tally');
+  eq(m1.toBuySamplePriced, m0.toBuySamplePriced - 1, 'the confirmed-MSRP saddle must not count toward the sample tally');
 
   // An OWNED part is excluded from the to-buy subtotal entirely, so its price
   // basis (confirmed or not) must never move toBuySamplePriced.
   var m2 = model(GOOD, { 'sa-wtb-volt': 1 });
   eq(m2.counts.toBuy, Object.keys(GOOD).length - 1);
-  eq(m2.toBuySamplePriced, m2.counts.toBuy, 'owning the saddle just shrinks the to-buy set; the rest are still all sample-priced');
+  eq(m2.toBuySamplePriced, expectedSample(m2), 'owning the saddle just shrinks the to-buy set; the sample tally still matches the per-part relationship');
 });
 
 test('model: priceBasis never changes ownership, allocation, or the subtotal totals', function(){
