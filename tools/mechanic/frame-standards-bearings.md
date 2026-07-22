@@ -209,6 +209,44 @@ parktool.com "Standardized Headset Identification System" Tables #1–#5 (fetche
 "SHIS Poster" (bicycleretailer.com-hosted PDF, fetched, tables 1–3 corroborate); the 2010 founding
 press release (as FRM-36). Cross-reference: FRM-6, FRM-21, FRM-22.
 
+## "EX44" resolved — a house-notation variant of EC44, not a distinct S.H.I.S. class
+
+**FRM-54 — "EX44" is Nukeproof's (and at least one other brand's) own house notation for the
+standard S.H.I.S. EC44 external-cup class, not a fourth bore-family prefix — closes the Ragley
+Big Wig catalog-flag question.** The S.H.I.S. standard's own founding document and Park Tool's
+own SHIS reference (FRM-36/37) name exactly three bearing-location prefixes — EC (external cup),
+ZS (ZeroStack/semi-integrated), IS (integrated) — and neither source mentions "EX" anywhere;
+Park Tool's page was fetched specifically to check this and confirms only EC/ZS/IS. Separately,
+a Cane Creek 40-series SKU sold under the code **ZS44/28.6 | EC44/40** (bike24.com) is the exact
+same bore/steerer combination the Ragley Big Wig's own spec sheet lists as **ZS44/28.6 | EX44/40**
+— same upper, same lower bore number, same steerer size, differing only in whether the lower
+prefix is written EC or EX. A UK retailer (bananaindustries.co.uk) lists a Brand-X headset under
+the title "ZeroStack ZS44 / EX44 Tapered Headset" while its own product URL slug reads
+`zs44-ec44-tapered-headset` — i.e. the retailer's own internal identifier treats EX44 and EC44 as
+the same SKU, using EX only in the customer-facing title. A Singletrack Forum discussion
+(community-tier, corroborating only) independently reaches the same reading, naming Nukeproof
+specifically as the brand that writes "EX44/40" and guessing EX stands for "EXternal cup" — i.e.
+the same semantic content as EC, just a different two-letter abbreviation of the same English
+phrase. No source found documents any dimensional difference between an EX44 and an EC44 bore.
+*Confidence: medium-high (no primary S.H.I.S.-body or Nukeproof engineering document was found
+that explicitly says "EX = EC"; the case rests on convergent circumstantial evidence — the
+standard's own document excluding EX as a real prefix, a retailer's own SKU/slug treating the two
+as identical, and a second retailer's product title conflating them for a matching bore/steerer
+spec — not a single authoritative statement of equivalence).* Sources: parktool.com
+"Standardized Headset Identification System" (fetched, confirms only EC/ZS/IS exist); bike24.com
+Cane Creek 40.ZS44 product page (ZS44/28.6 | EC44/40, same spec as the Ragley's ZS44/28.6 |
+EX44/40); bananaindustries.co.uk Brand-X "ZeroStack ZS44 / EX44" listing (product-title EX44,
+URL-slug EC44 — same SKU); singletrackworld.com forum thread naming Nukeproof's EX44/40 usage
+(community tier, corroborating only). **Recommended catalog action: if/when a Ragley Big Wig (or
+any Nukeproof-headset) frame row is entered, record its lower head-tube bore as `EC44` (not a new
+`EX44` vocab token) and, if the row wants to preserve the maker's own wording for provenance,
+carry the literal "EX44/40" string in a free-text note/source field rather than the vocab-
+constrained `headTubeLower` field — do NOT add "EX44" as a new S.H.I.S. vocab value, since no
+source establishes it as dimensionally distinct from EC44. What would fully settle this: a
+Nukeproof or Ragley technical/service document (not a spec-sheet copy-paste) that either defines
+"EX" as its own house abbreviation or gives an EX44 numeric bore tolerance differing from FRM-37's
+EC44 figure (43.90–43.95 mm) — not found in this pass.* Cross-reference: FRM-6, FRM-36, FRM-37.
+
 ## UDH / Transmission mounting
 
 **FRM-10 — SRAM Transmission (Full Mount) needs a UDH frame.** A direct-mount (UDH) Transmission
