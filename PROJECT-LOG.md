@@ -1,5 +1,36 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — Seat 17 wave 2 lands: tail-11 + cb-sheets-11 + oewheels-1 + gravel-fabfix-2
+
+- **verify/mtb-tail-11 merged**: Syncros cluster — 5 promotions with real corrections (AM
+  1.5 stem price $30→$89.99, rise 4°→0° per the maker page vs a build-sheet claim). ~450
+  cockpit/saddle rows remain; brand breakdown in tools/verify-notes-tail11.md.
+- **verify/cb-sheets-11 merged**: both brands were already sheet-verified (worker correctly
+  drift-checked instead of redoing — the stale-brief guard worked). Pivot: 0 drift.
+  **Orbea's WAF wall is PASSABLE now** — the `en-us/` locale path loads clean in the
+  browser pane (`us-en/` still 404s; every prior wall note used the wrong path). 9 rows
+  re-priced off orbea.com itself (Oiz M-Team $8,599→$10,473!); 4 Rallon rows confirmed
+  retired (live Rallon line is now largely e-only — identified by URL and NOT fetched,
+  hard rule 1). Orbea fills still vitalmtb-sourced (configurator is WebGL/canvas, no DOM
+  text) — flagged per-row.
+- **verify/mtb-oewheels-1 merged**: 26 wheel promotions (Reserve 6, We Are One 17, I9 3).
+  ★ FINDING: **Industry Nine + We Are One appear merged for 2026** — industrynine.com now
+  sells the shared Deal/Fuse/Whisp/Wanderer/Triad/Sector range; I9's old branded lineup
+  (Enduro S, Hydra2 DH, 1/1, Blacklabel) all 404. 26 I9 rows have no live page — needs a
+  deliberate re-model decision (Douglas packet), not piecemeal patching.
+- **fix/gravel-fabfix-2 merged**: the 12 verify-3 flags fully dispositioned. 7 phantom
+  SKUs retired on the hunt-adventurewide precedent with REAL successor rows added (gravel
+  242→253): 3T Discus fork→Fango LTD, HUNT Adventure Sport 700c→4Season, I9 Solstice
+  G→SOLiX G GRCX (itself honestly discontinued), Bontrager Paradigm Elite Gravel→Elite 25
+  (+freehub xdr→hg-road fix), Fulcrum 42 DB→Rapid Red Carbon, Teravail Sparwood
+  700x47→700x56, Conti Terra Speed 650x47→Terra Trail 650x47. 4 name fixes in place (Trek
+  Checkpoint fork "IsoSpeed" fiction dropped; Schwalbe G-One R→AllRound; G-One Bite
+  trim pinned; FSA "Orbit C-40"→Orbit ZS Short). 2 thin-evidence rows honestly left. Open:
+  Zipp 303 S disposition (Douglas), 4 odd-id alias candidates, 2 vocab gaps (Teravail
+  Light&Supple casing, Conti PureGrip compound).
+- Combined gates: 7 validators OK (MTB 3,289 verified · gravel 253 parts), 988/988 tests,
+  tsc clean, verdict harness fully clean.
+
 ## 2026-07-21 — bmx-sweep-2: BMX 124 verified + a coordinator demotion on the review gate
 
 - **verify/bmx-sweep-2 merged (with one coordinator correction)**: Odyssey Evo 2.5 +
