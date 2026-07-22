@@ -5077,3 +5077,32 @@ UNRELATED existing builds — npm test caught it, fixed before any commit. The s
 earning its keep as the guardrail against exactly this.
 Gates green.
 Report: sc-bronson-trims.md.
+
+## 2026-07-22 — pb-mtb-b4 merged: MTB burndown 1778 -> 1690 (15 brands, Fox/Maxxis/RockShox un-skipped)
+88 rows msrp-confirmed, ALL off literal page figures (coordinator-verified: 88 stamps, zero
+non-msrp tokens, 88 price lines touched — the diff is exactly what the report claims once
+compared against its true merge base, not the advanced origin/main). 17 price corrections
+landed alongside: Devinci Troy 3299->2199 (stale sample vs the literal "Troy (Frameset)
+US$2,199.00"), 15 DVO Topaz Gen 1 rows 500->399, Evil Wreckoning 3750->3799.
+THE REFUSALS ARE THE QUALITY SIGNAL — 137 rows left blank, each with a re-fetched reason:
+DT Swiss (70) publishes only site-wide "from $X" FLOORS (confirmed across 4 model pages + a
+zero-price support page — a real site-wide wall, not a spot check); DVO Diamond ($629-1,049
+range) and Topaz Gen 3 ($300-350, stored $325 = the exact MIDPOINT, flagged); EXT Storia
+(EUR-excl-VAT only, stored sample matches no conversion); Forbidden (CAD only, 2 pages
+confirmed); Cube/Focus/GT (no price anywhere — dealer/marketing sites); e*thirteen Sidekick
+(variant-selector price doesn't map to either stored half). The b3 "skip Fox/Maxxis/RockShox"
+artifact is dead: this session's brief overrode it and the resume list now carries both with
+"INCLUDE, no ruling ever excluded them" — RockShox (520 rows) is flagged as deserving its own
+dedicated session since SRAM publishes clean MSRPs.
+NEW FINDINGS WORTH THEIR OWN CHIP (data, not pricing): Deviate Highlander II is now sold ONLY
+as a bundled Frame+Shock SKU while our row is frame-only with bundledShock:null; Deviate
+Claymore's only Frame-Only SKU is explicitly "Non-UDH" while our row says udh:true — a genuine
+VARIANT mismatch. Evil Offering v4's stored source has no price and the current Offering is a
+materially different generation (151mm rear, $4,099) — a lifecycle question, not a pricing one.
+Worker self-caught TWO script bugs (a desc-regex that broke on escaped apostrophes producing
+invalid JS, then unescaped quotes in an inserted note) — both caught by validate.js's syntax
+error BEFORE any commit, reverted clean, redone with a char-walking escape-aware parser. That
+is the fifth overbroad/naive-edit near-miss today, all caught by the gates. Exa confirmed still
+exhausted on first attempt. Resume: Goodyear, then alphabetically (Maxxis/RockShox included).
+All four gates + harness green.
+Report: pb-mtb-b4.md.
