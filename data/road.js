@@ -705,6 +705,54 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/pdfs/product/archive/2019-2020_Specifications_v034_en.pdf',
     note: 'road-11 wave (Shimano archive chase): productinfo.shimano.com\'s live SKU search 404s "RT-MT800" (current edition dropped it, same wall this file already hit on CN-4600/BR-RX810/FC-RX600); resolved via /en/archive\'s 2019-2020 Specifications PDF (Ver.3.4, Feb 14 2020), rendered at 150dpi per the mtb-tail-4 doctrine (pdftotext -layout garbles these dense tables) — GENERAL section, "Disc Brake Rotor" table, printed p.209 (file p.212): RT-MT800 row confirms Center Lock ✓, ICE TECHNOLOGIES ✓, ICE TECHNOLOGIES FREEZA ✓, 203/180/160/140mm all ✓ (matches size:160, mount:\'center-lock\'), "Average Weight (w/o lock ring): 164g (203mm), 132g (180mm), 109g (160mm), 88g (140mm)" — this row\'s 160mm figure corrected 130(sample)->109 (w/o lock ring, matching this file\'s other Shimano rotor rows\' weight-basis convention). Cross-corroborated on the same archive PDF\'s BR-RX810 caliper page (printed p.125): "Recommended brake rotor: SM-RT800 / RT-MT800" — confirms this is a genuine GRX-recommended SKU, not a fabricated/duplicate one.' },
 
+  // ===== DRIVETRAIN — Shimano 105 R7000 (2x11, mechanical) ==================
+  // road-depth-1 wave (2026-07-22): fills the mechanical 11-speed 105 tier
+  // BELOW the catalog's existing 105 R7100 (2x12, Di2-only) family — a
+  // real, distinct, still-widely-sold Shimano generation (105 R7000 shipped
+  // mechanical-only, hydraulic-disc-capable via ST-R7020). All interface
+  // fields + weights below are FETCHED live via the browser pane from
+  // productinfo.shimano.com (WebFetch renders this host empty, the catalog's
+  // known limitation). Brake caliper: ST-R7020's own page states "Recommended
+  // brake caliper BR-R7070, BR-R7170" — BR-R7170 is already this catalog's
+  // 105-R7100-tier caliper (br-shimano-105-r7100, verified); BR-R7070 itself
+  // 404s on productinfo (dropped-from-current-edition, same wall this file
+  // already hit on RT-MT800/CN-4600/BR-RX810/FC-RX600) and was not chased
+  // into the archive PDFs this pass (time-boxed) — no new brake row added for
+  // this tier; a 105 R7000 build pairs correctly with the existing
+  // br-shimano-105-r7100 caliper row (same maker-documented cross-tier
+  // recommendation), so this is a labeling GAP, not a compat gap.
+  { id: 'sh-shimano-105-r7000', cat: 'shifter', brand: 'Shimano', model: '105 ST-R7020 (pair)', family: 'shimano-105-r7000',
+    system: 'shimano-road-11', speeds: 11, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
+    weight: 610, price: 400,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/ST-R7020-R',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Series SHIMANO 105", "Rear speeds 11", mechanical dual-control lever (cable shift, OT-SP41/OT-RS900 outer casing) with hydraulic disc brake (SM-BH90 hose kit, SHIMANO Mineral oil), "Recommended brake caliper BR-R7070, BR-R7170" (see section note above). "Average weight (g) 610 ( /pair)" — a genuine pair figure (not doubled from a single-side spec like several sibling rows). Price ($400) is an unsourced estimate — Shimano does not publish consumer MSRP on productinfo.' },
+  { id: 'rd-shimano-105-r7000', cat: 'rearderailleur', brand: 'Shimano', model: '105 RD-R7000-GS', family: 'shimano-105-r7000',
+    system: 'shimano-road-11', speeds: 11, actuation: 'mechanical', maxCog: 34, cage: 'medium', mount: 'std-hanger',
+    weight: 232, price: 90,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/RD-R7000-GS',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Rear speeds 11", "Low sprocket Max. 34T / Min. 28T" (maxCog:34), "SHIMANO ROAD type: Direct attachment (conventional) ✔" (std-hanger, no UDH), "Total capacity 39T", mechanical cable-actuated (no Di2 fields on this page). Average weight (g) 232 (GS/medium-cage). Price unsourced sample.' },
+  { id: 'fd-shimano-105-r7000', cat: 'frontderailleur', brand: 'Shimano', model: '105 FD-R7000-F (braze-on)', family: 'shimano-105-r7000',
+    system: 'shimano-road-11', speeds: 11, actuation: 'mechanical', mount: 'braze-on',
+    weight: 96, price: 45,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/FD-R7000-F',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Front speeds 2", "Rear speeds 11", "Brazed-on ✔" (mount:braze-on; the sibling FD-R7000-B band-type SKU exists for frames without a braze-on tab, not modeled as a separate row per this catalog\'s one-mount-native-SKU convention), "Chain line (mm) 43.5", "Top gear teeth 46-53T". Average weight (g) (band type: L size, direct type w/ screw) 96. Price unsourced sample.' },
+  { id: 'cs-shimano-105-r7000-1134', cat: 'cassette', brand: 'Shimano', model: '105 CS-HG700-11 11-34', family: 'shimano-105-r7000-cass',
+    system: 'shimano-road-11', speeds: 11, freehub: 'hg-road', minCog: 11, maxCog: 34,
+    weight: 379, price: 65,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/CS-HG700-11',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Rear speeds 11", "Combination name (Group name) 11-34T", teeth "11-13-15-17-19-21-23-25-27-30-34T", "HG spline M (10/9/8-speed, MTB 11-speed, 7-speed CS-HG400/HG210) ✔" — the standard pre-12-speed HG freehub body, modeled as this catalog\'s existing generic \'hg-road\' token (same simplification already used by the verified 12-speed cs-shimano-105-r7100 row — this catalog does not split the HG-M/HG-L spline distinction into separate freehub vocab values). Average weight (g) 379. Price unsourced sample.' },
+  { id: 'ch-shimano-105-r7000', cat: 'chain', brand: 'Shimano', model: '105 CN-HG601-11', family: 'shimano-105-r7000',
+    system: 'hg', speeds: 11,
+    weight: 257, price: 25,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/CN-HG601-11',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Type LINKGLIDE, HG 11-speed", "E-BIKE rear derailleur system compatible ✔". Average weight (g) (114 links) 257. Price unsourced sample.' },
+  { id: 'cr-shimano-105-r7000', cat: 'crankset', brand: 'Shimano', model: '105 FC-R7000 Crankset', family: 'shimano-105-r7000',
+    bb: '24mm-road', chainrings: '2x', ring: '50/34', ringStd: 'standard-12', speeds: 11, chainline: 43.5,
+    weight: 713, price: 160,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/FC-R7000',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Chainring combination 50-34T, 52-36T, 53-39T" (50-34T confirmed real), "Chain line (mm) 43.5", "HOLLOWTECH II ✔" / "Compatible bottom bracket type: Outboard" (bb:\'24mm-road\', matches catalog). Average weight (170mm, w/o BB): "713.4 (50-34T)" — rounded to 713g. Price unsourced sample.' },
+
+
   // ===== FRONT DERAILLEURS — Shimano road (R9200/R8100/R7100) + GRX ========
   // road-5 wave (Shimano depth): catalog previously had ZERO frontderailleur
   // rows despite full shifter/RD/cassette/chain/crank/brake depth for these
