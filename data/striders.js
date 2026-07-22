@@ -442,6 +442,33 @@ var STRIDER_PARTS = [
     verified: true, lastChecked: '2026-07-22', sourceType: 'maker', priceBasis: 'msrp-confirmed',
     source: 'https://www.joovy.com/products/bicycoo-mg-lightweight-eco-friendly-training-balance-bike',
     desc: 'Verified (partial) — joovy.com Bicycoo Mg product page (Exa-fetched 2026-07-22): magnesium frame, pneumatic (air) 12in whitewall tires, integrated footrest, no brake, ages 18mo+/up to 55lb, weight 6.7lb (matches kiddingzone.com\'s independent review), MSRP $199.99. Seat height (12.8-15.5in) retained from kiddingzone.com (not published on joovy.com\'s page).'
+  },
+  {
+    id: 'sb-cruzee-ultralite', cat: 'balancebike', brand: 'Cruzee', model: 'UltraLite Balance Bike',
+    wheel: '12', bikeWeight: 1900, tire: 'foam',
+    brake: 'none', frameMaterial: 'aluminum', price: 199,
+    note: 'One of the lightest balance bikes on the market (marketed "widest size adjustability in its class" - 9in of seat adjustability + 5in of handlebar adjustability). cruzee.com\'s own product page (Exa-fetched 2026-07-22) confirms weight/price/tire/frame material but states seat range only as "9 inches of adjustability", not absolute min/max figures, so seatMin/seatMax are left blank here rather than back-calculated from a third-party aggregator\'s conflicting numbers (twowheelingtots cites 11-19in; an earlier search summary cited an 11.5in minimum) - THE BAR: a blank beats a guessed number.',
+    lastChecked: '2026-07-22', sourceType: 'maker',
+    source: 'https://www.cruzee.com/shop/balance-bikes/ultralite-balance-bike-balance-bikes/cruzee-balance-bike-black-with-white-wheels/',
+    desc: 'Unverified sample (partial maker data) — cruzee.com product page: price $199, weight 1.9kg, ages 18mo-5yr, rust-free anodized aluminum frame, maintenance-free EVA foam tires, no brake, 9in of seat-height adjustability (absolute min/max not stated). Not marked verified:true because the load-bearing seatMin/seatMax fields are not confirmed on the maker page.'
+  },
+  {
+    id: 'sb-yvolution-y-velo-junior', cat: 'balancebike', brand: 'Yvolution', model: 'Y Velo Junior',
+    wheel: '10', seatMin: 267, seatMax: 381, bikeWeight: 3492, tire: 'rubber-foam',
+    brake: 'none', frameMaterial: 'steel', price: 64.99,
+    note: 'Entry Yvolution balance bike for the 18-month-to-3-year range; distinctive dual-rear-wheel design (converts to a single rear wheel as the child\'s balance improves) - the widest stance in this catalog. yvolution.com\'s own product pages are JS-rendered and did not surface a spec table on fetch; spec table sourced from rascalrides.com\'s independent review (seat height 10.5-15in, weight 7.7lb, 10in non-marking rubber tires, no brake, $64.99 list price) - kept unverified sample per THE BAR (no fetched maker spec page).',
+    lastChecked: '2026-07-22', sourceType: 'maker',
+    source: 'https://rascalrides.com/yvolution-y-velo-junior-balance-bike-review/',
+    desc: 'Unverified sample (aggregator-sourced, rascalrides.com review fetched 2026-07-22) — seat height 10.5-15in (267-381mm), weight 7.7lb/3.49kg, 10in wheels w/ non-marking rubber tires (dual rear wheel convertible to single), no hand brake, $64.99 list price.'
+  },
+  {
+    id: 'sb-cleary-starfish', cat: 'balancebike', brand: 'Cleary', model: 'Starfish',
+    wheel: '12', bikeWeight: 5443, tire: 'air',
+    brake: 'dual-hand', frameMaterial: 'aluminum', price: 150,
+    note: 'Cleary Bikes (now-defunct - the brand ceased operations in 2024, per twowheelingtots) made only one balance bike, the Starfish; notable as one of the few balance bikes shipping with both front AND rear hand brakes (most in this catalog ship brakeless). sportique.com\'s retailer listing (Exa-fetched 2026-07-22) confirms 12in wheels, ~12lb weight, semi-slick tires, small-hand brake levers, and a $150 price, but does not state an absolute seat-height range (only "adjustable seat post") - left blank per THE BAR. Tire is inferred pneumatic/air (paired with rim-style hand brakes, "semi-slick" tread) rather than confirmed on a maker page (clearybikes.com no longer resolves) - flagged as the least-certain field on this row.',
+    lastChecked: '2026-07-22', sourceType: 'maker',
+    source: 'https://www.sportique.com/products/cleary-bikes-starfish-12-balance-bike-super-cream',
+    desc: 'Unverified sample (retailer-sourced, maker site defunct) — sportique.com listing: 12in wheel, ~12lb/5.4kg weight, semi-slick tires, front+rear hand brakes sized for small hands, vegan-leather saddle on an adjustable seatpost (no absolute seat-height figures published), $150 (model# 100102).'
   }
 
 ];
