@@ -1333,6 +1333,50 @@ var ROAD_PARTS = [
     weight: 350, price: 180,
     note: 'road-14 wave: same single-caliper-vs-pair-weight problem road-13 documented for br-campagnolo-record-wrl, confirmed here too. Campagnolo publishes one shared 140mm caliper across the Chorus/Record/Super Record 12s tiers - a Chorus-specific listing (e-bike.ee, quoting Campagnolo\'s own spec) states "Caliper weight 118g (140mm, 1 pz - pads included)", the identical figure Record and Super Record Wireless carry. No pair total is published, so not promoting to verified: doubling would be an invented number, not a sourced one. Interfaces (flat-mount, hydraulic, 2-piston) are unambiguous and unaffected.' },
 
+  // ===== DRIVETRAIN — Campagnolo Centaur (2x11, mechanical, RIM BRAKE) ======
+  // road-depth-1 wave (2026-07-22): Centaur is Campagnolo's entry tier below
+  // Chorus — no longer listed on campagnolo.com's current road groupset page
+  // (Record 13/Super Record 13/Chorus only), but its individual product
+  // pages ARE still live and fetchable (campagnolo.com/us-en/centaur-*),
+  // confirming it's a real, still-sold component line, not a discontinued
+  // one — fetched directly via WebFetch, no wall. Like Sora above, Centaur's
+  // Ergopower lever is RIM-BRAKE ONLY (no disc-hydraulic Centaur lever
+  // exists — confirmed by an explicit "centaur disc" search on
+  // campagnolo.com returning no dedicated disc product); same schema gap as
+  // Sora applies (ROAD_SCHEMA.brake has no rim-caliper shape), so no brake
+  // caliper row this tier either. system:'campag-11'/freehub:'campag-11'
+  // reuse this catalog's existing tokens (already used by the Record/Chorus
+  // 12s cassettes' shared classic-ED-driver freehub — Centaur mounts the
+  // same body). NOT added: a frontderailleur row — the fetched page states
+  // no mount type (braze-on vs clamp/band) anywhere and no second source was
+  // found this pass (time-boxed); a real GAP, not a fabricated 'braze-on'
+  // guess (the FD schema field has no safe default).
+  { id: 'sh-campagnolo-centaur-mech', cat: 'shifter', brand: 'Campagnolo', model: 'Centaur Ergopower (pair)', family: 'campagnolo-centaur-mech',
+    system: 'campag-11', speeds: 11, actuation: 'mechanical', brakeSystem: 'rim-caliper', side: 'pair', frontShift: true,
+    weight: 746, price: 250,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/centaur-ergopower-controls/CCLCENTAURBLACK11S.html',
+    note: 'road-depth-1 wave: campagnolo.com product page confirms "11-speed", rim brake (mechanical, PowerShift "1-lever-1-action"), "Weight: 373 grams" — per-lever figure, doubled to 746g for this catalog\'s per-pair shifter convention (basis disclosed, not a page-stated pair total). Price not published on the fetched page — 250 is an unsourced estimate.' },
+  { id: 'rd-campagnolo-centaur-mech', cat: 'rearderailleur', brand: 'Campagnolo', model: 'Centaur Rear Derailleur', family: 'campagnolo-centaur-mech',
+    system: 'campag-11', speeds: 11, actuation: 'mechanical', maxCog: 32, cage: 'medium', mount: 'std-hanger',
+    weight: 230, price: 90,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/centaur-rear-derailleur/CRDCENTAURBLACK11S.html',
+    note: 'road-depth-1 wave: campagnolo.com product page confirms "11-speed (mechanical)", "compatible with cassettes up to 32 teeth" (maxCog:32, matching the cassette row below), "Weight: 230 grams" (matches this row exactly, a real fetched figure — not a sample). Cage length and mount not itemized on the page; mount:\'std-hanger\' + cage:\'medium\' follow this catalog\'s existing Campagnolo convention (rd-campagnolo-chorus-mech). Price not published — 90 is an unsourced estimate.' },
+  { id: 'cs-campagnolo-centaur-1132', cat: 'cassette', brand: 'Campagnolo', model: 'Centaur Sprockets 11-32', family: 'campagnolo-centaur-cass',
+    system: 'campag-11', speeds: 11, freehub: 'campag-11', minCog: 11, maxCog: 32,
+    weight: 291, price: 75,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/centaur-sprockets/CCSCENTAURBLACK11S.html',
+    note: 'road-depth-1 wave: campagnolo.com product page confirms "11-speed", "Cog Range Options: 11-29, 11-32, 12-32" (this row: the 11-32T config, matching rd-campagnolo-centaur-mech\'s 32T max capacity), example teeth "11-12-13-14-15-17-19-22-25-28-32" cross-checks the 11-32T range. freehub:\'campag-11\' reused per this catalog\'s existing classic-ED-driver convention (cs-campagnolo-record-1129/cs-campagnolo-chorus-1129 — not independently re-confirmed on this specific page, which itemizes no driver-body field, but Centaur has never shipped an N3W-only cassette). "Weight: 291 g" matches this row exactly. Price not published — 75 is an unsourced estimate.' },
+  { id: 'ch-campagnolo-centaur-c11', cat: 'chain', brand: 'Campagnolo', model: 'Centaur 11s Chain', family: 'campagnolo-centaur-chain',
+    system: 'campag', speeds: 11,
+    weight: 269, price: 30,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/centaur-chain/CCNCENTAURBLACK11S.html',
+    note: 'road-depth-1 wave: campagnolo.com product page confirms "11-speed" (compatible 11/12-speed per the technical-manual reference), HD-Link fastening, "5.9mm special steel links". Weight stated on the page as "2.36 grams per link" — DERIVED to a 114-link total (this catalog\'s established Campagnolo weight-basis convention, e.g. Super Record/Record/Chorus chains above) as 2.36 x 114 = 269g; basis disclosed, not a page-stated pair/total figure. Price not published — 30 is an unsourced estimate.' },
+  { id: 'cr-campagnolo-centaur-crank', cat: 'crankset', brand: 'Campagnolo', model: 'Centaur Crankset', family: 'campagnolo-centaur-crank',
+    bb: 'ultra-torque', chainrings: '2x', ring: '50/34', ringStd: null, speeds: 11, chainline: 43.5,
+    weight: 875, price: 220,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/centaur-crankset/CFCCENTAURBLACK11S.html',
+    note: 'road-depth-1 wave: campagnolo.com product page confirms "Campagnolo Ultra-Torque BB cups required" (bb:\'ultra-torque\', matching this catalog\'s existing Record/Chorus crankset convention), "52/36 and 50/34 tooth combinations" (this row: the 50/34T config), four-arm design, "a single crank works with both chainring combinations" (ringStd:null, same sold-separately-rings convention as the Chorus crankset above). "Weight: 875 grams" matches this row exactly. Chainline and price not published on the fetched page — 43.5mm/220 are unsourced estimates (chainline matches this catalog\'s other 2x mechanical road cranksets).' },
+
   // ===== WHEELS — Campagnolo Bora WTO (N3W freehub) =========================
   { id: 'fw-campagnolo-bora-wto-45', cat: 'frontwheel', brand: 'Campagnolo', model: 'Bora WTO 45 C23 Disc Brake', family: 'campagnolo-bora-wto',
     wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 23, maxTire: 34,
