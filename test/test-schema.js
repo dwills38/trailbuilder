@@ -160,13 +160,13 @@ test('rim wheel size outside the vocab is caught', function(){
 });
 test('FM (flat mount) is valid brakeMount vocab; unknown mounts still rejected', function(){
   var p = over('bk-magura-mt7', { mount:'FM' });
-  delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.priceBasis;   // provenance-date noise
   eq(probs(p).length, 0);
   some(probs(over('bk-magura-mt7', { mount:'XYZ' })), 'mount');
 });
 test('IS (International Standard) is valid brakeMount vocab - widened grind-7 w5 after confirming IS is a genuinely distinct, non-interchangeable-without-adapter mount (51mm bolt spacing parallel to axle vs PM 74.2mm perpendicular)', function(){
   var p = over('bk-magura-mt7', { mount:'IS' });
-  delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.priceBasis;   // provenance-date noise
   eq(probs(p).length, 0);
 });
 test('a disciplines value outside the vocab is caught (ebike is deliberately not one)', function(){
