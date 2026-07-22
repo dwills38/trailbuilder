@@ -1570,6 +1570,17 @@ var EMTB_PARTS = [
     note: 'German light e-MTB pioneer\'s "Action All Mountain" flagship — handmade high-modulus carbon frame + carbon linkage, IPU375 carbon quick-release battery (one of the lightest removable e-MTB packs on the market), FOX 36/Float DPS suspension.',
     desc: 'Verified vs the fetched maker product page (rotwild.com/en/r.x375-pro/20614 — "Shimano EP8" motor, "85 Nm" torque, "500 W" peak power, "IPU375 Carbon, 360 Wh" removable battery, "150 mm" front / "140 mm" rear travel, high-modulus carbon frame, Shimano XT 8100 12-speed w/ e*thirteen Plus 34T crank and 10-51T cassette, Shimano XT 8120 203/180mm brakes, 19.5 kg bike weight, EUR 7,490.00 price). PRICE: EUR 7,490.00 maker RRP converted at the 2026-07-22 open.er-api.com rate (1.140653) -> $8,543.49 (regional-conversion, per this catalog\'s disclosed non-USD-market convention) — Rotwild has no US retail presence, no USD MSRP exists. Size M shown "Not available" on the page at fetch time; spec/price reflect the SKU\'s standard listing, not a stock state.',
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://www.rotwild.com/en/r.x375-pro/20614'
+  },
+  {
+    id: 'em-husqvarna-mountain-cross-mc6', cat: 'emtb', brand: 'Husqvarna', model: 'Mountain Cross MC6',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8 (DU-EP801)', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 720, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X01 Eagle 12-speed', brakes: 'Magura MT5 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: 24100, price: 7999,
+    note: 'Husqvarna E-Bicycles\' carbon flagship all-mountain e-MTB (motorcycle brand\'s bicycle division, made by parent Pierer Mobility, same group as GasGas/KTM e-bicycles); FOX 36 Factory 150mm fork / FOX Float X Factory 230x62.5mm shock. The maker page lists both 27.5in and 29in wheel options with no per-size breakdown given — cataloged at 29in, the page\'s primary listed spec.',
+    desc: 'Verified vs the fetched maker product page (husqvarna-bicycles.com/en-us/models/offroad/mountain-cross/mountain-cross-mc62023.html — "Shimano EP8 (DU-EP801)" motor, "Core S3+, 720 Wh" battery, "150mm" front/rear travel, New HQV Carbon frame, SRAM X01 Eagle 12-speed 34T/10-50T, Magura MT5 4-piston 203/203mm brakes, 24.1kg weight, "$7,999.00 USD" MSRP plus $60 freight (freight excluded from the cataloged price, same convention as other maker-quoted freight add-ons in this catalog)). Motor peak power (600W) is Shimano\'s own published DU-EP801 spec (bike.shimano.com/en-US/product/component/ep8-ep801/DU-EP801.html) — not restated on the Husqvarna page, which states only the 250W continuous/85Nm figures elsewhere on-brand. Page URL still carries a "2023" model-year token but is the live, currently-linked-from-homepage model page (not under the site\'s separate /archive/ path used for retired model years) — treated as the current-lineup listing. Battery-removable claim not stated; left unset rather than guessed.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.husqvarna-bicycles.com/en-us/models/offroad/mountain-cross/mountain-cross-mc62023.html'
   }
 
 ];
