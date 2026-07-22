@@ -53,7 +53,7 @@ test('an HG cassette claiming a 10T cog is caught (HG floor is 11T)', function()
 });
 test('the real SRAM XS-1270 (integrated 10T-on-HG design) is a valid allowlisted exception', function(){
   var p = over('ca-sram-xs1270');
-  delete p.verified; delete p.lastChecked; delete p.source;
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.priceBasis;
   eq(probs(p).length, 0, 'XS-1270 row should validate despite freehub:HG + minCog:10');
 });
 test('the HG-10T exception is scoped to the real mfgPn, not a blanket loosening', function(){
@@ -77,7 +77,7 @@ test('an armset-only crank (ringStd:null, no ring) is valid data', function(){
   // not about whichever verification date the live row happens to carry (which
   // drifts as sessions verify parts with today's real date against the fixed TODAY above).
   var p = over('cr-canecreek-eewings-allmountain');
-  delete p.verified; delete p.lastChecked; delete p.source; delete p.sourceType; delete p.weightSource;
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.sourceType; delete p.weightSource; delete p.priceBasis;
   eq(probs(p).length, 0, 'eeWings row should validate');
 });
 test('a string chainline is caught (must be mm)', function(){
@@ -99,17 +99,17 @@ test('a valid hardtail frame passes (hardtails are enterable now)', function(){
 });
 test('sram-dh-7 is valid system vocab (7-speed DH group enterable)', function(){
   var p = over('sft-sram-gx-eagle', { system:'sram-dh-7', speeds:7 });
-  delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise, same as the eeWings test
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.priceBasis;   // provenance-date noise, same as the eeWings test
   eq(probs(p).length, 0);
 });
 test('shimano-8 is valid system vocab (entry 8-speed group enterable)', function(){
   var p = over('sft-sram-gx-eagle', { system:'shimano-8', speeds:8 });
-  delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise, same as the sram-dh-7 test
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.priceBasis;   // provenance-date noise, same as the sram-dh-7 test
   eq(probs(p).length, 0);
 });
 test('trp-evo7-dh is valid system vocab (TRP EVO 7 DH group enterable)', function(){
   var p = over('sft-sram-gx-eagle', { system:'trp-evo7-dh', speeds:7 });
-  delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise, same as the sram-dh-7 test
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.priceBasis;   // provenance-date noise, same as the sram-dh-7 test
   eq(probs(p).length, 0);
 });
 test('a 20x110 dual-crown DH front axle is valid vocab (fork + front hub)', function(){
@@ -160,13 +160,13 @@ test('rim wheel size outside the vocab is caught', function(){
 });
 test('FM (flat mount) is valid brakeMount vocab; unknown mounts still rejected', function(){
   var p = over('bk-magura-mt7', { mount:'FM' });
-  delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.priceBasis;   // provenance-date noise
   eq(probs(p).length, 0);
   some(probs(over('bk-magura-mt7', { mount:'XYZ' })), 'mount');
 });
 test('IS (International Standard) is valid brakeMount vocab - widened grind-7 w5 after confirming IS is a genuinely distinct, non-interchangeable-without-adapter mount (51mm bolt spacing parallel to axle vs PM 74.2mm perpendicular)', function(){
   var p = over('bk-magura-mt7', { mount:'IS' });
-  delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.priceBasis;   // provenance-date noise
   eq(probs(p).length, 0);
 });
 test('a disciplines value outside the vocab is caught (ebike is deliberately not one)', function(){
@@ -381,7 +381,7 @@ test('a crankset with a spindle outside the crankBb vocab is caught', function()
   some(probs(over('cr-sram-gx-eagle', { bb:'square-tapre' })), 'bb');
 });
 test('a crankset with the square-taper crankBb spindle passes (2026-07-16 hardtail-depth vocab widening)', function(){
-  eq(probs(over('cr-sram-gx-eagle', { bb:'square-taper', verified:false, lastChecked:undefined, source:undefined })).length, 0);
+  eq(probs(over('cr-sram-gx-eagle', { bb:'square-taper', verified:false, lastChecked:undefined, source:undefined, priceBasis:undefined })).length, 0);
 });
 
 /* forkTravelHard cross-rule (engine-critical review C4, 2026-07-12): a hard
