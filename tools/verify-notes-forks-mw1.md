@@ -146,3 +146,67 @@ supplement to (not a wholesale reopening of) the mw1 finding.
 
 Route confirmed WORKING for future waves: browser pane (`preview_start` +
 `navigate` + `get_page_text`), not WebFetch, against blisterreview.com.
+
+## Follow-up: blister-sweep-1 (2026-07-22)
+
+Systematic sweep of the browser-pane route against the remaining unverified PREMIUM
+fork rows (Fox Factory/SL-Factory/Step-Cast tiers, DVO Onyx flagship, EXT Era/Vaia;
+RockShox's only unverified rows in this catalog are the budget Recon/Revelation
+tier, out of premium scope), plus a spot-check of shocks/droppers Blister covers.
+
+**0 promotions this pass** — every lead found either mismatched on config or wasn't
+a Blister-measured figure at all:
+
+- **`fk-ext-era-v2-29-170`** (EXT Era V2.1, 29"/170mm) — `blisterreview.com/gear-reviews/ext-era-v2-1-fork`
+  gives "Blister's Measured Weight (170 mm, uncut steerer tube): 2,369 g", an exact
+  travel/wheel match (Era V2.1 is 29"-only). **NOT promoted**: this row's interfaces
+  (wheel/steerer/brakeMount/rotor) are still vitalmtb-sourced, not maker-sourced (see
+  the row's own `desc` — extremeshox.com's HQ page states no wheel/steerer/rotor
+  info at all). Per policy a weight can't be promoted ahead of maker-sourced
+  interfaces. Tried extusa.bike as an alternate maker/distributor interface source —
+  404, page no longer exists. Left alone; a future wave should retry EXT's
+  distributor sites (extusa.bike moved/renamed?) before this can be promoted.
+- **`fk-ext-vaia-29-200`** (EXT Vaia, 29"/200mm/20mm axle) — `blisterreview.com/gear-reviews/ext-vaia-fork`
+  gives "Blister's Measured Weight (200 mm travel, 20mm axle, uncut steerer tube):
+  3,300 g". Wheel/travel/axle all match this row exactly, and interfaces are
+  already maker-sourced (extremeshox.com direct fetch) — looked like a clean
+  promotion at first. **NOT promoted on closer look**: the row's existing 3,195 g
+  figure is the manufacturer's own **cut-steerer-tube** basis (extremeshox.com
+  states "3195 gr...cut steerer tube, oil included" verbatim), while Blister's
+  3,300 g is explicitly **uncut-steerer-tube**. These are two different measurement
+  bases for the same physical fork, not a like-for-like re-measurement — swapping
+  in the uncut figure as if it superseded the cut one would be a config mismatch
+  disguised as a promotion (unlike the mw1 Fox 36 case, where the superseded figure
+  was an unqualified nominal "STARTING WEIGHT" with no stated basis at all). Left
+  alone; a blank/existing-sample beats a mismatched-basis "correction."
+- **DVO (Onyx SC D1, Onyx D1 38, Sapphire lines)** — Blister's own site search
+  (`?s=DVO+Onyx`) returns zero DVO fork reviews. Blister does not appear to cover
+  this brand at all. No further DVO checking planned for future Blister waves —
+  the class is closed for this outlet (though DVO stays open for other measured-
+  weight outlets in a future sweep).
+- **`fk-fox-32-sc-factory-275-100`** (Fox 32 Step-Cast Factory) — the closest
+  Blister content is the "Fox's Overhauled Fork Lineup" first-look piece, which
+  gives only a manufacturer **"Stated Weight: 1,297 g"** for the 32 Step-Cast (not
+  a Blister-measured figure) and for a 29" wheel config (this catalog row is
+  27.5"/100mm) — fails on both the measured-source bar and the config match.
+- **`fk-fox-34-sc-performance-29-110`** and the Fox 34 Performance/Performance
+  Elite/Rhythm 140mm rows — no dedicated Blister review found distinguishing these
+  specific SKUs from the "34 SL" (a different, newer, separately-catalogued
+  product line); not checked further this pass, logged for a future wave.
+- **`dp-fox-transfer-factory-309-240`** (dropper) — `blisterreview.com/gear-reviews/2025-fox-transfer`
+  covers the Transfer Factory/Performance Elite lineup but states no scale-measured
+  weight at all (spec box has travel/diameter/price only). No promotion possible.
+- **Shocks (57 unverified premium-brand rows)** — spot-checked Fox Float X2 Factory
+  coverage; Blister's Float X2 reviews found are all for the **all-new 2026
+  damper-architecture generation** (`2026 Fox Float X2 and DHX2`), a different
+  product from this catalog's older X2 Factory/Performance rows — config mismatch,
+  not checked further. The remaining 56 shock rows were NOT individually checked
+  this pass (time-budget cutoff) — flagged as an open follow-up for the next wave,
+  same one-row-at-a-time browser-pane method.
+
+**Net effect:** the browser-pane Blister route continues to work reliably, but
+this wave's yield was zero — every near-miss failed on a specific, principled
+guard (interface sourcing, measurement-basis mismatch, wrong generation, or
+manufacturer-only figures) rather than lack of searching. The DVO fork class is
+now confirmed closed for Blister specifically. Shocks remain a large unswept
+class for a future wave.
