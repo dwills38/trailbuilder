@@ -1,5 +1,31 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — kit-13 + the reserved-username batches (1,709 names)
+
+- **verify/kit-13 merged**: kit 544→548. The 11 biggest unverified clusters (79 rows) are
+  all settled dispositions — worked the 16 never-touched rows instead: Zoic Black Market
+  renamed to the live "Guide" SKU (verified), 2 Madison gloves (MSRP not sale price),
+  O'Neal STV via oneal.eu (EN1621-2 described in prose, no level token forced — Scott Fury
+  precedent). Category-exit findings via raw products.json evidence: Zoic sells ZERO gloves
+  now (4 rows), G-Form Pro-X3 vest gone, Royal Racing is a full brand relaunch (explains
+  all 4 stuck rows). patagonia.com is a genuine bot-queue wall (not JS) — honored, stopped.
+  Douglas scope calls queued: Cairn "Ride" junior model, O'Neal Park FR SKU identity.
+- **forum/pro-rider-reserved-names merged**: 1,295 held-kind rows across 10 disciplines
+  (DH 124, EDR 49, XCO 72, freeride 59, BMX race 46, BMX freestyle 112, road WT men 513 /
+  women 226, gravel 65, CX 29). Worker's scope judgment: road capped at WorldTour (full
+  ProTeams tier would've doubled it — flagged, not silently truncated). 12 names too long
+  for the 24-char shape (listed), 4 uncertain names excluded rather than guessed.
+- **forum/brand-influencer-reserved-names merged**: new forum-reserved-brands-influencers
+  .sql — 384 manufacturer names from all 7 catalogs (transliteration rules documented;
+  GT/HT/KS/VP/YT/3T/S&M too short for the 3-char floor, "100%" a flagged judgment call),
+  28 influencers (Seth Alvo + Berm Peak + Seths Bike Hacks, Phil Kmetz + Skills With Phil,
+  GMBN's presenter roster, Loam Wolf/Drew Rohde…; Singletrack Sampler's real name honestly
+  unsourced), Sploosh MTB + Sploosh (rider's real name unfindable — skipped, not guessed).
+- **★ NONE of it is live until Douglas runs both SQL files in the Supabase editor** —
+  standing reminder = HANDOFF-CHIPS.md open-question item 0 (he asked for repeated
+  reminders 2026-07-21).
+- Gates: 7 OK (kit 548), 988/988, tsc clean.
+
 ## 2026-07-22 — Seat 17 wave 3: tail-12 + bmx-sweep-3 + cb-sheets-12
 
 - **verify/mtb-tail-12 merged**: Pivot Phoenix grips verified (pivotcycles.com reachable

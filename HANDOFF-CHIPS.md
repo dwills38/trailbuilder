@@ -82,12 +82,11 @@ coordinator." Raise gently, never nag; items 1-2 are the freshest.)**
    seeds only exist in the DATABASE after he pastes them into the Supabase SQL editor —
    the repo files alone change nothing live. Outstanding runs (all idempotent, safe to
    re-run whole files; paste CONTENT from GitHub raw / chat, never the shared checkout):
-   a. `supabase/forum-reserved-additions.sql` — Dirt Jesus (held). Committed `d3e55ab`,
-      NOT yet run as of 2026-07-21 evening.
-   b. Same file, pro-rider batch — appended when the pro-riders-reserve chip lands.
-   c. `supabase/forum-reserved-brands-influencers.sql` — brands + influencers (Berm
-      Peak/Seth Alvo, Skills With Phil/Phil Kmetz, Sploosh MTB, …) — exists once the
-      brand-influencer-reserve chip lands.
+   a. `supabase/forum-reserved-additions.sql` — Dirt Jesus + 1,295 pro-rider names
+      (10 discipline batches). READY on main since 2026-07-22; NOT yet run.
+   b. `supabase/forum-reserved-brands-influencers.sql` — 414 rows: 384 manufacturer
+      names + 28 influencers (Berm Peak/Seth Alvo, Skills With Phil/Phil Kmetz, GMBN
+      presenters, …) + Sploosh MTB/Sploosh. READY on main since 2026-07-22; NOT yet run.
    Cross-seat rule: verify which have run (ask him / check the Table Editor counts)
    before striking any sub-item; carry the rest forward.
 1. **THE RE-BRAINSTORM SESSION IS DUE** — the 2026-07-19 feature slate completed 8/8 on
