@@ -6,7 +6,12 @@ var S = require('../src/schema-road.js');
 var U = require('./test-util.js');
 var eq = U.eq, ok = U.ok;
 
-var TODAY = new Date('2026-07-21T00:00:00Z');
+/* Live date, not a pinned constant — the same staleness fix test-schema-gravel.js
+   got 2026-07-22: real rows' lastChecked keeps advancing as sessions verify parts,
+   so a hardcoded past TODAY starts failing the positive tests the day after it's
+   written (workers were backdating lastChecked to dodge it — worse). Negative
+   tests are date-independent, so the live date is safe everywhere here. */
+var TODAY = new Date();
 
 /** @returns {any} */
 function aFrame(){
