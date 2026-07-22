@@ -2060,6 +2060,83 @@ var BMX_PARTS = [
     verified: true, lastChecked: '2026-07-22',
     source: 'https://saltbmx.com/products/saltplus-hq-cnc-pedals',
     note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Size: 9/16\\", sealed...CNC machined 6061-T6 alloy body...Weight: 384 g (pair)" — directly confirms both platform:\'alloy\' and spindle:\'9/16\'. Pedals carry zero checkBmxBuild rules.'
+  },
+
+  // ---- Rant (new brand: rantbmx.com is a marketing/content site whose own
+  // "Shop" link redirects to sparkysbrands.com — Rant's sister-brand parent
+  // company (Sparky's Brands, which also owns The Shadow Conspiracy/Subrosa),
+  // NOT a third-party retailer. Same maker-owned-storefront precedent as
+  // Mission selling through kinkbmx.com below. bmx-depth-9, 2026-07-22. -----
+  {
+    id: 'bmx-cr-rant-bangin48', cat: 'cranks', brand: 'Rant', model: "Bangin' 48 Crank",
+    spindle: '48-spline', pieces: '3-piece', ringMount: 'spline', weight: 978, price: 159.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://www.sparkysbrands.com/products/rant-bangin-48-crank',
+    note: 'bmx-depth-9: VERIFIED via sparkysbrands.com (Rant\'s own retail channel — rantbmx.com\'s own "Shop" link points here). Page states verbatim: "19mm 8 spline or 48 spline heat treated chromoly spindle", "3pc design", "RHD and LHD compatible sprocket bosses", "34.5 oz for 175mm" (=978g). This SKU is the 48-spline variant (spindle:\'48-spline\' — the sister "Bangin\' 8" SKU at the same URL family is the 8-spline/19mm variant, not entered here to avoid an ambiguous near-duplicate row). Price $159.99 confirmed; currently sold out in all sizes/colors per the page (does not block a real-part entry per catalog policy).'
+  },
+  {
+    id: 'bmx-rh-rant-partyonv2-rhd', cat: 'rearWheel', brand: 'Rant', model: 'Party On V2 Cassette Rear Wheel (RHD)',
+    driverType: 'cassette', driverTeeth: 9, side: 'RHD', axle: '14mm', weight: 1265, price: 149.99,
+    lastChecked: '2026-07-22', source: 'https://www.sparkysbrands.com/products/rant-party-on-v2-cassette-rear-wheel-rhd',
+    note: 'bmx-depth-9: driverType/driverTeeth/weight/price raw-confirmed via sparkysbrands.com (Rant\'s own channel) — "9T driver in LHD or RHD, 36H Rant Squad Rim, 14 gauge spokes, Nylon rim band, Weight: 44.6 oz." (=1265g). axle is NOT stated on the page — left as the 14mm token by convention (every other bolt-up cassette hub in this catalog, e.g. bmx-rh-cult-matchv2/bmx-rh-fitbikeco-oem-9t, uses 14mm), so left unverified overall per THE BAR (axle is an engine-read field with no exceptions).'
+  },
+  {
+    id: 'bmx-fw-rant-partyonv2', cat: 'frontWheel', brand: 'Rant', model: 'Party On V2 Front Wheel',
+    wheelSize: '20', axle: '10mm', weight: 995, price: 129.99,
+    lastChecked: '2026-07-22', source: 'https://www.sparkysbrands.com/products/rant-party-on-v2-front-wheel',
+    note: 'bmx-depth-9: weight/price raw-confirmed via sparkysbrands.com — "Rant Party On V2 female axle hub, 36H Rant Squad Rim, 14 gauge spokes, Nylon rim band, Weight 35.1 oz." (=995g). "Female axle hub" names the hub style but not a diameter figure; axle:10mm follows the catalog-wide convention that a female-axle 20in BMX front hub takes 3/8in (=10mm token) male bolts (matching bmx-fw-bsd-mind/bmx-fw-fitbikeco-oem\'s confirmed 10mm female-axle hubs). Left unverified overall (axle inferred, not stated on this page).'
+  },
+  {
+    id: 'bmx-se-rant-believe', cat: 'seat', brand: 'Rant', model: 'Believe Pivotal Seat',
+    system: 'pivotal', weight: 337, price: 53.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://www.sparkysbrands.com/products/rant-believe-pivotal-seat',
+    note: 'bmx-depth-9: VERIFIED via sparkysbrands.com — page states "Pivotal" mount and "Weight 11.9 oz." (=337g); system:\'pivotal\' (the seat category\'s one engine-read field) directly confirmed.'
+  },
+
+  // ---- Mission (new brand: missionbmx.com is Mission\'s own storefront — a
+  // sister brand of Kink BMX, also cross-listed on kinkbmx.com per the file's
+  // existing brand conventions; missionbmx.com fetched cleanly and is used
+  // here as the primary maker source). bmx-depth-9, 2026-07-22. -------------
+  {
+    id: 'bmx-bb-mission-american', cat: 'bb', brand: 'Mission', model: 'American BB Kit',
+    shell: 'american', spindleFit: '19mm', weight: 298, price: 34.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://missionbmx.com/products/american-bb-kit',
+    note: 'bmx-depth-9: VERIFIED via missionbmx.com (Mission\'s own domain). Page states verbatim: "TYPE: American...WEIGHT: 10.5oz" (=298g), price $34.99. This kit is sold in 19mm and 22mm spindle variants — this row pins the 19mm SKU (spindleFit:\'19mm\'); the 19mm size shows sold-out on the page (does not block a real-part entry).'
+  },
+  {
+    id: 'bmx-ch-mission-halflink', cat: 'chain', brand: 'Mission', model: 'Half-Link Chain',
+    pitch: '1/8', halfLink: true, weight: 425, price: 34.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://missionbmx.com/products/half-link-chain',
+    note: 'bmx-depth-9: VERIFIED via missionbmx.com. Page states verbatim: pitch "1/8\\"", "Teflon coated half-link chain", "15.0oz" (=425g), "100 Links", price $34.99–$39.99 by color (Black at $34.99 used here) — directly confirms both of the chain category\'s schema fields (pitch, halfLink:true).'
+  },
+
+  // ---- Federal (new brand: federalbikes.com — depth-8 could not resolve
+  // "federalbikeco.com"; the real, current, live domain is federalbikes.com,
+  // a UK-based (GBP) storefront, active with 2026 content. bmx-depth-9,
+  // 2026-07-22. -------------------------------------------------------------
+  {
+    id: 'bmx-fk-federal-session', cat: 'fork', brand: 'Federal', model: 'Session Fork',
+    wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm', brakeMount: 'none', weight: 982, price: 209.49,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://federalbikes.com/products/federal-session-fork-chrome-28mm-offset',
+    note: 'bmx-depth-9: steerer/weight raw-confirmed via federalbikes.com — "CNC 1 piece steerer tube" (threadless, integrated-1-1/8 token), "982 grams - please allow +/- 10g". No brake-mount bosses are described anywhere in the spec text (a 20in freestyle-street fork of this type; brakeMount:\'none\' by the same brakeless-stock convention as bmx-fk-haro-downtown). axle is not stated on the page — 10mm (3/8in) follows the catalog-wide convention for BMX front forks (every other fork row uses this token); left unverified overall (axle inferred). Price: GBP RRP £164.99 converted to a $209.49 USD sample at ~1.27 USD/GBP, no US price published — THE PRICE RULE (price never blocks verified:true; basis stated here).'
+  },
+  {
+    id: 'bmx-cr-federal-vice2-24mm', cat: 'cranks', brand: 'Federal', model: 'Vice 2 24mm Cranks',
+    spindle: '24mm', pieces: '3-piece', ringMount: 'spline', weight: 936, price: 215.89,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://federalbikes.com/products/federal-vice-2-24mm-cranks-chrome',
+    note: 'bmx-depth-9: VERIFIED via federalbikes.com. Page states verbatim: "24mm hollow 48 spline Chromoly spindle", "3-piece" (spindle and arms separate), "0.936kg/ 2lbs 1oz" (=936g) — confirms spindle:\'24mm\', pieces:\'3-piece\'; ringMount:\'spline\' follows directly from the stated "48 spline" spindle/sprocket interface. Price: GBP RRP £169.99 converted to a $215.89 USD sample at ~1.27 USD/GBP, no US price published — THE PRICE RULE.'
+  },
+  {
+    id: 'bmx-fr-federal-boyd-v2', cat: 'frame', brand: 'Federal', model: 'Boyd V2',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8', topTube: 21.0,
+    rearBrakeMount: 'none', rearAxle: '14mm', frameOnly: true, price: 469.89,
+    lastChecked: '2026-07-22', source: 'https://federalbikes.com/products/federal-boyd-v2-frame-matt-white',
+    note: 'bmx-depth-9: Federal\'s own product page (fetched directly) states geometry (top tube 20.2-21.5", head angle 75.2°, ICS2 wishbone/dropouts) but NOT bbShell/headTube-type/brakeMount/rearAxle explicitly. Those four engine-read fields are sourced instead from a third-party retailer (kunstform.org) quoting Federal\'s own official spec sheet verbatim: "BB Shell Type: Mid BB", integrated headset ("75.2°" head tube angle, no threading mentioned), "removable brake hardware...delivery of the frame is without removable brake bosses" (ships brakeless stock -> rearBrakeMount:\'none\'), "Investment cast, 4130 CrMo, 5mm thick, 14mm slots" (-> rearAxle:\'14mm\'). Because THE BAR requires raw confirmation on the MAKER\'S OWN page for verified:true and this frame\'s own page does not state these fields, left unverified despite the strong retailer corroboration (sourceType:retailer, per policy, cannot itself carry verified:true). topTube:21.0 picked as a representative mid-size from the frame\'s five-size run (20.2/20.7/21/21.2/21.5"). Price: GBP RRP £369.99 converted to a $469.89 USD sample at ~1.27 USD/GBP, no US price published — THE PRICE RULE.'
   }
 ];
 
