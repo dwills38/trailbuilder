@@ -21,7 +21,10 @@ unverified specs as real. See "Provenance" below.
    The ONLY e-bike surface is **BuildMyEMTB** (`data/emtb.js` + its own schema/validator + a future
    separate `emtb.html` page — the BuildMyBMX pattern), authorized reluctantly and explicitly by
    Douglas 2026-07-18, off-live until his flip word. Douglas dislikes this domain: keep every
-   e-MTB decision routed to him as a compact packet, never spec-level detail.
+   e-MTB decision routed to him as a compact packet, never spec-level detail. **That rule governs
+   COMMUNICATION ONLY (Douglas, 2026-07-22): the EMTB catalog gets EVEN WEIGHT with every other
+   category — same breadth, verification, and quality investment; never deprioritize its coverage
+   on his behalf. All categories are treated equally ("take out any bias i may have presented").**
 2. **NO POP-UP ADS / UNSOLICITED POP-UPS, EVER.** The site loads straight to the data — never an ad,
    newsletter/promo/cookie interstitial, or any auto-appearing pop-up, for any reason. Click-triggered
    cards/tabs/modals the user opens themselves (a part's spec card, the login dialog) are fine;
