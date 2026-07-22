@@ -2557,8 +2557,14 @@ var KIT_PARTS = [
   { id:'knp-bluegrass-skinny-d3o', cat:'kneepad', brand:'Bluegrass', model:'Skinny D3O Knee Pad', family:'bluegrass-skinny', price:100, weight:300,
     disciplines:['trail','enduro'], sizes:['S','M','L','XL'], status:'discontinued',
     desc:'CORRECTED to discontinued (2026-07-17): fetched met-helmets.com/en/shop/gravity/bluegrass-protections/ (the current Bluegrass protection catalog) - the "Skinny" line is absent; current knee pads are Aura Core/Aura/Arto/3Straps/Big Horn. The old skinny-knee/-d3o URL slugs 404. No successor SKU confirmed by name, so left as a documented discontinuation rather than guessing a replacement mapping.' },
-  { id:'knp-sweetprotection-bearsuit-light', cat:'kneepad', brand:'Sweet Protection', model:'Bearsuit Light Knee Pad', family:'sweetprotection-bearsuit', price:90, weight:330,
-    disciplines:['trail','enduro'], sizes:['S','M','L','XL'], desc:'SAS-TEC SCL-2 protector, maker-stated exceeds CE EN 1621-1. Weight per pair (approx). Checked 2026-07-16: the sweetprotection.com product URL found (846012.html, an old product-id pattern) 404s; could not fetch a live page to formally verify. Left as an unverified sample; the 330g weight matches a search-result snippet independently but is not a fetched-page confirmation.' },
+  { id:'knp-sweetprotection-bearsuit-light', cat:'kneepad', brand:'Sweet Protection', model:'Knee Pads', mfgPn:'835012BLACK', price:99.95, weight:180,
+    certs:['en1621-1-l2'], disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL'],
+    desc:'CORRECTED (kit-breadth-1, 2026-07-22): the sweetprotection.com/us/en/knee-pads-black/ product page is live under the current name "Knee Pads" (the old "Bearsuit Light Knee Pad" branding/product ID no longer exists on the maker site) - price is the listed 99.95 USD MSRP (99.95 also shown struck through an outlet 59.97 sale, not used per pricing policy), weight the maker-stated 180g, cert the maker-listed CE EN 1621-1:2012 Level 2.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.sweetprotection.com/us/en/knee-pads-black/' },
+  { id:'knp-sweetprotection-kneeguardspro', cat:'kneepad', brand:'Sweet Protection', model:'Knee Guards Pro', mfgPn:'860002BLACK', price:140, weight:355,
+    certs:['en1621-1-l1'], disciplines:['trail','enduro'],
+    desc:'More coverage/protection tier above the Knee Pads (removable Level 1 3S visco-elastic pad) - maker-stated for aggressive trail/enduro riding.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.sweetprotection.com/us/en/knee-guards-pro-black/' },
   { id:'knp-troyleedesigns-stage', cat:'kneepad', brand:'Troy Lee Designs', model:'Stage Knee Guard', family:'troyleedesigns-stage', price:112, weight:454,
     disciplines:['enduro','dh'], sizes:['XS/SM','M/L','XL/2XL'],
     verified:true, lastChecked:'2026-07-16', sourceType:'manufacturer',
@@ -2618,6 +2624,25 @@ var KIT_PARTS = [
     desc:'Pull-on soft-covered hard-shell gravity knee pad with an internal knee cup + compression-molded'
       + ' side panels; pairs with Kali\'s Casa shin guard for extended coverage. Price confirmed via the'
       + ' .js JSON endpoint ($88.00, price==compare_at_price). No weight or CE/EN1621 standard published.' },
+  /* -- kit-breadth-1 (2026-07-22): Scott had ZERO kneepad rows despite an active
+     current-season MTB protection line (scott-sports.com/us's Body Protection
+     category) - the first two below are its D3O LP1-plated guards (cert confirmed
+     off Scott's own PROTECTORS technical PDF); Mission Evo is Scott's strapless
+     EVA-pad tier, maker-stated PPE cat. I (below the EN1621-1 pass/fail bar, so no
+     certs token per the fetched-source-only rule). -- */
+  { id:'knp-scott-soldier', cat:'kneepad', brand:'Scott', model:'Soldier Knee Guard', mfgPn:'419976-0001', price:89.99, weight:328,
+    certs:['en1621-1-l1'], disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
+    desc:'Removable D3O LP1 flexible plate, strapless minimalist sleeve. Price/model USD-confirmed on the maker\'s current US Body Protection catalog; cert (EN1621-1:2012 Level 1, "LP1 L1 KNEE") confirmed on Scott\'s own PROTECTORS technical PDF. Weight (328g, size L pair) is a reviewer-measured figure, not maker-published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/products/apparel-equipment-mw-equipment-body-protection',
+    sourceType:'measured', weightSource:'https://www.bikeradar.com/reviews/clothing/armour-and-pads/knee-pads/scott-soldier-knee-guards-review' },
+  { id:'knp-scott-missionevo', cat:'kneepad', brand:'Scott', model:'Mission Evo Knee Pads', mfgPn:'274525', price:69.99,
+    disciplines:['trail'], sizes:['S','M','L','XL'],
+    desc:'Strapless stretch-mesh sleeve, EVA pad, no hard shell/plate - maker-stated PPE cat. I (below the EN1621-1 pass/fail threshold, so untagged rather than mis-certed). No weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.scott-sports.com/ca/en/product/scott-mission-evo-knee-pads' },
+  { id:'knp-tsg-joint-sleeve', cat:'kneepad', brand:'TSG', model:'Knee-Sleeve Joint', mfgPn:'71014', price:91.75, weight:520,
+    disciplines:['trail','enduro','dh'], sizes:['XXS/XS','S/M','L/XL','XXL'],
+    desc:'kit-breadth-1 (2026-07-22): TSG had zero kneepad rows despite this being the knee counterpart to its already-cataloged Joint Elbow Sleeve (elp-tsg-joint-sleeve) - slip-on softshell, articulated PU memory foam. Weight maker-stated ("520 g") on the fetched ridetsg.com product page. Price is EUR84.95 (VAT incl.) converted to a $91.75 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront - same disclosed-basis convention as the existing TSG rows) per THE PRICE RULE. Bike protocol PPETS0002 is only "partially based on" EN1621-1:2012 with no stated Level, so no cert token is tagged.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.ridetsg.com/shop/kneesleeve-joint/71014-25-102/' },
 
   /* -- Elbow pads (per pair) -- (grind/kit-elbowpad, expanded 2026-07-14: two rows
      fetch-verified against their own manufacturer product page - price, weight and
@@ -2749,6 +2774,22 @@ var KIT_PARTS = [
     disciplines:['trail'], sizes:['XXS/XS','S/M','L/XL','XXL'],
     desc:'Softshell slip-on sleeve, low-profile trail guard. Weight per pair, maker-stated ("291 g") on the fetched ridetsg.com product page; sizes corrected to add XXL. Price is EUR69.95 (VAT incl.) converted to a $75.55 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront, matching the catalog\'s existing EUR-conversion precedent for this class of source) -- basis disclosed per THE PRICE RULE. Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
     verified:true, lastChecked:'2026-07-20', source:'https://ridetsg.com/shop/elbowsleeve-joint/72014-25-102' },
+  { id:'elp-sweetprotection-elbowpads', cat:'elbowpad', brand:'Sweet Protection', model:'Elbow Pads', mfgPn:'835014BLACK', price:99.95, weight:155,
+    certs:['en1621-1-l2'], disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL'],
+    desc:'kit-breadth-1 (2026-07-22): low-volume multi-impact pad, 3D anatomical shape, the elbow counterpart to the Knee Pads (knp-sweetprotection-bearsuit-light).',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.sweetprotection.com/us/en/elbow-pads-black/' },
+  { id:'elp-sweetprotection-elbowguardspro', cat:'elbowpad', brand:'Sweet Protection', model:'Elbow Guards Pro', mfgPn:'860005BLACK', price:130, weight:285,
+    certs:['en1621-1-l1'], disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL'],
+    desc:'kit-breadth-1 (2026-07-22): removable Level 1 3S visco-elastic pad, the elbow counterpart to the Knee Guards Pro (knp-sweetprotection-kneeguardspro).',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.sweetprotection.com/us/en/elbow-guards-pro-black/' },
+  { id:'elp-scott-soldier', cat:'elbowpad', brand:'Scott', model:'Soldier Elbow Guard', mfgPn:'4199780001010', price:79.99,
+    certs:['en1621-1-l1'], disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
+    desc:'kit-breadth-1 (2026-07-22): removable D3O LP1 flexible plate, the elbow counterpart to the Soldier Knee Guard (knp-scott-soldier); cert confirmed on Scott\'s own PROTECTORS technical PDF ("LP1 L1 ELBOW"). No weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/products/apparel-equipment-mw-equipment-body-protection' },
+  { id:'elp-scott-missionevo', cat:'elbowpad', brand:'Scott', model:'Mission Evo Elbow Pads', mfgPn:'2745260001006', price:64.99,
+    disciplines:['trail'], sizes:['S','M','L','XL'],
+    desc:'kit-breadth-1 (2026-07-22): strapless stretch-mesh EVA pad, the elbow counterpart to the Mission Evo Knee Pads (knp-scott-missionevo) - same maker-stated PPE cat. I, untagged rather than mis-certed. No weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/products/apparel-equipment-mw-equipment-body-protection' },
 
   /* -- Body armor (coverage optional) -- */
   { id:'arm-fox-baseframe-pro', cat:'bodyarmor', brand:'Fox', model:'Baseframe Pro D3O', price:214.95, weight:640,
@@ -2939,6 +2980,15 @@ var KIT_PARTS = [
     coverage:'chest-back', disciplines:['enduro','dh'], sizes:['S','M','L','XL'],
     desc:'Fuller-coverage jacket version of the Airframe, with shoulder protection added. CORRECTED 2026-07-17: price is the fetched $329.95 list (was sample $260, an understatement; page currently on sale at $230.98, list used per policy). foxracing.com now catalogs this under Moto rather than MTB, but it remains a real, currently-sold crossover chest guard - kept, not removed.',
     verified:true, lastChecked:'2026-07-17', source:'https://www.foxracing.com/product/airframe-pro-jacket-ce-chest-guard/19909.html' },
+  { id:'arm-scott-airflow', cat:'bodyarmor', brand:'Scott', model:'Back Protector Airflow', mfgPn:'4206111007010', price:140, weight:486,
+    coverage:'back', certs:['en1621-2-l1'], disciplines:['trail','enduro'],
+    desc:'kit-breadth-1 (2026-07-22): D3O Airflow plate back-only protector - Scott had zero bodyarmor rows. Price USD-confirmed on the maker\'s current US Body Protection catalog; cert (EN1621-2:2014, Full Back, Level 1) confirmed on Scott\'s own PROTECTORS technical PDF. Weight (486g) is a third-party retailer-measured spec sheet figure, not maker-published on the US page.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/products/apparel-equipment-mw-equipment-body-protection',
+    sourceType:'measured', weightSource:'https://www.alpinstore.com/en/618114-scott-sco-back-protector-airflow-blackwhite.html' },
+  { id:'arm-scott-airflowpro', cat:'bodyarmor', brand:'Scott', model:'Back Protector Airflow Pro', mfgPn:'4206121007011', price:170,
+    coverage:'back', certs:['en1621-2-l2'], disciplines:['trail','enduro'],
+    desc:'kit-breadth-1 (2026-07-22): the higher-coverage tier above the Airflow (arm-scott-airflow) - maker copy states it is "designed for level 2" and Scott\'s own PROTECTORS PDF lists the AIRFLOW PRO B2502 plate at Level 2. No maker-published weight found.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/products/apparel-equipment-mw-equipment-body-protection' },
 
   /* -- Neck braces (niche; no universal cert standard - certs stay dormant).
      Comprehensive sweep of the 4 recognized market brands (Leatt, Alpinestars,
