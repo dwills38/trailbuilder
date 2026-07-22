@@ -999,6 +999,11 @@ var KIT_PARTS = [
       + ' Crus-r Flat BOA" or any plain men\'s "Sport Crus-r BOA" remains. Marked discontinued rather'
       + ' than guessing a re-scope onto a women\'s-fit SKU. Price/weight left as prior sample, not'
       + ' marked verified.' },
+  { id:'sho-giro-riela-r2', cat:'shoes', brand:'Giro', model:'Riela R II', price:99.95, mfgPn:'GR-7089932',
+    soleType:'clipless', fitCut:'womens', sizes:['36','37','38','39','40','41','42','43'],
+    disciplines:['xc','trail'],
+    verified:true, lastChecked:'2026-07-22', source:'https://www.giro.com/p/riela-r-ii-mountain-bike-shoes/GR-7089932.html',
+    desc:'Women\'s-specific XC/trail clipless (2-bolt) shoe - kit-breadth-2 pass (2026-07-22): the women\'s-fitCut shoe cell was almost empty (a single Ride Concepts row) before this addition. Fetched giro.com product page: style GR-7089932, list USD price $99.95 (currently $69.98 on a 29%-off sale, list price used per the MSRP pricing policy), EU sizes 36-43. No weight published on the page.' },
 
   /* -- Jerseys (all fields optional) -- */
   { id:'jsy-fox-flexair', cat:'jersey', brand:'Fox', model:'Flexair', price:104.95, weight:135,
