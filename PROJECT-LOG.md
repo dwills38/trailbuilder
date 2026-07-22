@@ -1,5 +1,19 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — mtb-forks-mw1: the fork-weight class stays honestly closed
+
+- **verify/mtb-forks-measured-1 merged (doc-only)**: the measured-weight policy sweep of
+  all 68 unverified fork rows found ZERO promotable figures — every candidate weight was
+  a maker-claimed number recycled verbatim by retailers/editorial (not an independent
+  scale), a validator-rejected retailer table, or an unattributed forum reading with no
+  config stated. Blister (the policy's best source class) 403s WebFetch — a browser-pane
+  retry is the one live lead (rendering ≠ circumvention). Fictitious-travel check ALL
+  CLEAR across every family (no Fox-38-150 recurrence); no interface contradictions.
+  Per-outlet breakdown in tools/verify-notes-forks-mw1.md so no future wave re-burns
+  this. Recommendation adopted: fork-weight passes deprioritized until a better source
+  route exists. Gates: 7 OK, 988/988, tsc clean (run by the coordinator; the worker's
+  doc-only commit had run validate only).
+
 ## 2026-07-22 — fixpacks land: bmx-fixpack-1 + gravel-fabfix-3 + mtb-tail-14
 
 - **fix/bmx-fixpack-1 merged (BMX 130/229)**: Vee Speedster retargeted to the real
