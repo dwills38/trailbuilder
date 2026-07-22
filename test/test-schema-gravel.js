@@ -27,8 +27,11 @@ test('the real gravel catalog validates clean', function(){
 });
 
 test('a valid real gravel part has no problems', function(){
+  // uses the live date, not the fixed TODAY below — same staleness fix as
+  // the catalog-wide test above: a real row's lastChecked keeps advancing
+  // as sessions verify parts, so a hardcoded past TODAY goes stale.
   var p = aFrame();
-  eq(S.validateGravelPart(p, TODAY).length, 0);
+  eq(S.validateGravelPart(p, new Date()).length, 0);
 });
 
 test('an out-of-vocab bb value is caught', function(){
