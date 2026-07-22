@@ -681,7 +681,8 @@ var BMX_PARTS = [
   },
   {
     id: 'bmx-ti-veetireco-speedster', cat: 'tire', brand: 'Vee Tire Co', model: 'Speedster 1-3/8"',
-    wheelSize: '20', width: 1.375, casing: 'race-slick', maxPsi: 110, price: 19.99
+    wheelSize: '20', width: 1.375, casing: 'race-slick', maxPsi: 110, price: 19.99,
+    note: 'FLAGGED FOR THE COORDINATOR (bmx-sweep-4, 2026-07-21), NOT RETARGETED per dispatch instruction: confirmed veetires.com\'s current "Speedster" (singular, no size suffix) is an e-bike/fat-tire product, a wrong-product match for this BMX row - see bmx-sweep-3\'s prior finding. The REAL current BMX-lineup product is "Speedster BMX" (veetires.com/products/speedster-bmx-1, under the site\'s BMX/Street discipline finder), which DOES list a 20x1 3/8 variant with a full tech-spec table: ETRTO 37-451, MPC compound, B-Proof (Aramid Belt), 27 TPI, wire bead, Max 100 PSI (not this row\'s 110), 385g +/-. Note this does NOT exactly match the lead\'s cited "VRB316 FB 90TPI SpeedSter LSG" clearance-listing spec either - the current 20x1 3/8 Speedster BMX SKU is 27 TPI/MPC, while 90TPI/LSG only appears on the 24in-wheel variants of the same product line on the current site; the 90TPI/LSG 20in SKU may itself be an older/retired running change. Leaving retargeting (new id vs. correcting this one, and which exact spec vintage) to the coordinator.'
   },
   {
     id: 'bmx-ti-odyssey-aitken', cat: 'tire', brand: 'Odyssey', model: 'Aitken Tire 2.45"',
