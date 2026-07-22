@@ -5133,3 +5133,47 @@ Residual real value from the audit: the 3 MERGED_DIRTY worktrees hold uncommitte
 look (tooling/mechanic-bootstrap has 5 modified + 1 new mechanic-corpus file), and the 90
 merged-clean removals + node_modules deletion are genuine disk wins pending Douglas's sign-off.
 Report: worktree-recovery-audit.md.
+
+
+## 2026-07-22 (night) — SEAT 19 wave 1: flat/post engine port, Vee price ruling, cleanup, 9 Douglas rulings
+
+MERGED + PUSHED (main 6ec30f3 -> f0eed23, all gates green at every step: 7 validators 0
+problems, 1,115 tests, tsc clean, verdict harness byte-identical):
+- engine/road-fm-pm-adapter (Douglas ruled A): R18 FM<->PM both directions now adapter-tier
+  warnings with maker-cited fixes (Shimano SM-MA /D line; Wolf Tooth +20mm/boss-clearance
+  caveats test-pinned); FM-on-I.S. stays an error. 118 flat-mount chassis x the Hope RX4+ went
+  red->yellow. Coordinator probed independently (checkRoadBuild, exact warning + fix confirmed).
+- fix/vee-price-family: 7 Vee rows demoted (EUR RRP typed into the USD field, no US SKU, no
+  disclosed conversion). COORDINATOR OVERRIDE on the 8th (crowngem-29-23-wirebead-mpc):
+  re-promoted at the fetched US $23.80 — exact-SKU match on veetires.com, independently
+  re-fetched at merge. The family clause guards against per-row GUESSES, not per-row FACTS.
+- kit rulings: Cairn Ride (junior) removed; O'Neal Park FR retargeted knee-only via KIT_ALIASES
+  (Douglas: "the knee/shin combo is what a retailer is doing themselves").
+- forum(reserved): +100% and +100Percent (NOT bare "100", his word); ProTeams tier stays
+  unreserved (delegated call: impersonation risk scales with fame; name-twin collision cost
+  dominates below WorldTour).
+
+STALE-QUEUE LESSON (new, for successors): FOUR of seat 18's seven queue chips (pb-mtb-b4,
+cb-11speed-1, road-vocab-map, emtb-haibike-allmtn, sc-bronson-trims — the last two re-verified
+identical) were ALREADY MERGED to main when re-dispatched. The STAND-DOWN clause absorbed all
+of them safely, but two workers skipped their stand-down report file. CONTENT-CHECK THE CHIP
+QUEUE against origin/main before dispatching, same as stale-branch verdicts.
+
+WORKTREE CLEANUP EXECUTED (Douglas's go): 175 -> 84 worktrees, ~1,344 MB reclaimed, zero
+forced deletions, nested pair + all 74 UNMERGED untouched. Its "rescued" detached commit
+830f00d (rule-8 IS-mount) content-checked as a STALE DUPLICATE of the already-live tier
+(fourth proof of the lesson) — kept as costless ref recover/rule8-is-mount, do not cherry-pick.
+The 21 -d-refused branch refs (HEAD-relativity artifact) deleted clean from a main-descended
+checkout. Follow-ups open: audit-record correction note, 6 kept legacy-strays to triage (4 look
+like harvestable provenance backlog).
+
+DOUGLAS RULINGS BANKED THIS WAVE (beyond the merges): rigid seatpost completes ANY bike — no
+frame ever requires a dropper (engine chip queued, supersedes the Propain 9d packet);
+pair-split-estimate priceBasis token ratified, wheel-scoped (9c); 99spokes allowed for
+UNVERIFIED sample rows only (9e); GCN roster: reserve ("ignore my biases... everyone treated
+fairly"). OPEN-QUESTIONS.pdf regenerated to open-items-only per his new word (answered items
+now REMOVED at regen; trail lives here + HANDOFF-CHIPS.md).
+
+Tooling: Supabase + Cloudflare(workers-flavor) connectors live and smoke-tested; Exa BACK
+(402 resolved, verified); the reserved-names SQL run itself stays BLOCKED by the harness
+permission classifier — Douglas runs it in the SQL editor or grants execute_sql.
