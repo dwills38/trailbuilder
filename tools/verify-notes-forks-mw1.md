@@ -104,3 +104,45 @@ the fetch-ethics doctrine's JS-rendering-is-not-circumvention allowance), which
 is the single most promising lead, or (b) accept that most forks in this
 catalog will stay sample-weight indefinitely and deprioritize further
 weight-hunting passes in favor of other verification categories.
+
+## Follow-up: blister-probe-1 (2026-07-22)
+
+**Recommendation (a) above tried and WORKS.** Opened blisterreview.com directly
+in the browser pane (not WebFetch) — it rendered normally, no challenge/CAPTCHA
+page, no bot wall. The site's own search (`?s=<query>`) and predictable
+`/gear-reviews/<slug>` URLs are both usable. Blister's spec boxes carry a
+labeled "Blister's Measured Weight" line with an explicit config
+(wheel/travel/damper), exactly as the mw1 sweep hoped.
+
+**1 promotion this pass:**
+- `fk-fox-36-factory-my27-29-160` (29" / 160mm / Grip X2, mfgPn 910-21-430):
+  fetched `blisterreview.com/gear-reviews/fox-36-36-sl` — "Blister's Measured
+  Weight: 2,134 g (29" | 160 mm travel | Grip X2 damper)", an EXACT config
+  match to this row (the Grip X2-SKU'd MY27 36 Factory). Weight corrected
+  1920g -> 2134g (`sourceType:'measured'` + `weightSource`); the old 1920g was
+  an unqualified nominal "STARTING WEIGHT" reference figure from Fox's own
+  page, now superseded by an independent scale reading. Interfaces stay on the
+  existing manufacturer source, untouched.
+
+**1 near-miss, correctly NOT promoted (PHANTOM-NUMBER guard):**
+- `blisterreview.com/gear-reviews/2025-fox-38-grip-x2` gives "Blister's
+  Measured Weight (29" | 170 mm travel | uncut steerer tube): 2,440 g" for the
+  "2025 Fox 38 Grip X2" review — but the review body prices BOTH the 38
+  Factory ($1,249) and 38 Performance Elite ($1,149) trims without stating
+  which trim the weighed test unit actually was. The catalog has separate rows
+  for `fk-fox-38-factory-29-170` and `fk-fox-38-performance-elite-29-170` at
+  this exact travel/wheel. Since the config match can't be pinned to one row
+  without guessing the trim, this was left alone — a blank beats an invented
+  value.
+
+**Net effect on the class-closed finding:** still mostly holds — this is a
+narrow crack, not a reopened class. Blister covers a small fraction of the
+68 originally-unverified fork rows (most are older/budget/off-brand forks
+Blister never reviewed), and even on rows they DO cover, many reviews report
+weight without a fully disambiguated config (as the 38 case shows). Future
+waves fetching MORE Blister review pages one-by-one via the browser pane
+could find a few more exact-match promotions, but this is a slow, narrow
+supplement to (not a wholesale reopening of) the mw1 finding.
+
+Route confirmed WORKING for future waves: browser pane (`preview_start` +
+`navigate` + `get_page_text`), not WebFetch, against blisterreview.com.
