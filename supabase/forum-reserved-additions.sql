@@ -1317,3 +1317,36 @@ insert into public.reserved_usernames (norm, label, kind, note) values
   (public.profile_norm('Yusuf Johnson'), 'Yusuf Johnson', 'held', 'Gravel racing (Life Time GP / UCI Gravel Worlds) pro — bikerumor.com, 2026 season'),
   (public.profile_norm('Gustave Orain'), 'Gustave Orain', 'held', 'Gravel racing (Life Time GP / UCI Gravel Worlds) pro — bikerumor.com, 2026 season')
 on conflict (norm) do nothing;
+
+-- 2026-07-21 — Douglas's order (pro-rider reservation pass): Cyclocross (UCI CX) World Cup, 29 riders.
+insert into public.reserved_usernames (norm, label, kind, note) values
+  (public.profile_norm('Niels Vandeputte'), 'Niels Vandeputte', 'held', 'Cyclocross (UCI CX) World Cup pro — alpecin-premiertech.com, 2026 season'),
+  (public.profile_norm('Michael Vanthourenhout'), 'Michael Vanthourenhout', 'held', 'Cyclocross (UCI CX) World Cup pro — pauwelssauzen-altezindustriebouw.be, 2026 season'),
+  (public.profile_norm('Laurens Sweeck'), 'Laurens Sweeck', 'held', 'Cyclocross (UCI CX) World Cup pro — crelan-corendon.be, 2026 season'),
+  (public.profile_norm('Mees Hendrikx'), 'Mees Hendrikx', 'held', 'Cyclocross (UCI CX) World Cup pro — en.wikipedia.org, 2026 season'),
+  (public.profile_norm('Joris Nieuwenhuis'), 'Joris Nieuwenhuis', 'held', 'Cyclocross (UCI CX) World Cup pro — en.wikipedia.org, 2026 season'),
+  (public.profile_norm('Joran Wyseure'), 'Joran Wyseure', 'held', 'Cyclocross (UCI CX) World Cup pro — crelan-corendon.be, 2026 season'),
+  (public.profile_norm('Lars van der Haar'), 'Lars van der Haar', 'held', 'Cyclocross (UCI CX) World Cup pro — baloiseverzekeringenhetpoetsbureaulions.be, 2026 season'),
+  (public.profile_norm('David Haverdings'), 'David Haverdings', 'held', 'Cyclocross (UCI CX) World Cup pro — baloiseverzekeringenhetpoetsbureaulions.be, 2026 season'),
+  (public.profile_norm('Ryan Kamp'), 'Ryan Kamp', 'held', 'Cyclocross (UCI CX) World Cup pro — en.wikipedia.org, 2026 season'),
+  (public.profile_norm('Toon Vandebosch'), 'Toon Vandebosch', 'held', 'Cyclocross (UCI CX) World Cup pro — crelan-corendon.be, 2026 season'),
+  (public.profile_norm('Felipe Orts'), 'Felipe Orts', 'held', 'Cyclocross (UCI CX) World Cup pro — en.wikipedia.org, 2026 season'),
+  (public.profile_norm('Pim Ronhaar'), 'Pim Ronhaar', 'held', 'Cyclocross (UCI CX) World Cup pro — baloiseverzekeringenhetpoetsbureaulions.be, 2026 season'),
+  (public.profile_norm('Jente Michels'), 'Jente Michels', 'held', 'Cyclocross (UCI CX) World Cup pro — alpecin-premiertech.com, 2026 season'),
+  (public.profile_norm('Cameron Mason'), 'Cameron Mason', 'held', 'Cyclocross (UCI CX) World Cup pro — en.wikipedia.org, 2026 season'),
+  (public.profile_norm('Kevin Kuhn'), 'Kevin Kuhn', 'held', 'Cyclocross (UCI CX) World Cup pro — en.wikipedia.org, 2026 season'),
+  (public.profile_norm('Victor Van de Putte'), 'Victor Van de Putte', 'held', 'Cyclocross (UCI CX) World Cup pro — cx.procyclingstats.com, 2026 season'),
+  (public.profile_norm('Michael Boros'), 'Michael Boros', 'held', 'Cyclocross (UCI CX) World Cup pro — en.wikipedia.org, 2026 season'),
+  (public.profile_norm('Witse Meeussen'), 'Witse Meeussen', 'held', 'Cyclocross (UCI CX) World Cup pro — crelan-corendon.be, 2026 season'),
+  (public.profile_norm('Eli Iserbyt'), 'Eli Iserbyt', 'held', 'Cyclocross (UCI CX) World Cup pro — pauwelssauzen-altezindustriebouw.be, 2026 season'),
+  (public.profile_norm('Gerben Kuypers'), 'Gerben Kuypers', 'held', 'Cyclocross (UCI CX) World Cup pro — pauwelssauzen-altezindustriebouw.be, 2026 season'),
+  (public.profile_norm('Amandine Fouquenet'), 'Amandine Fouquenet', 'held', 'Cyclocross (UCI CX) World Cup pro — pauwelssauzen-altezindustriebouw.be, 2026 season'),
+  (public.profile_norm('Kristyna Zemanova'), 'Kristyna Zemanova', 'held', 'Cyclocross (UCI CX) World Cup pro — en.wikipedia.org, 2026 season'),
+  (public.profile_norm('Leonie Bentveld'), 'Leonie Bentveld', 'held', 'Cyclocross (UCI CX) World Cup pro — pauwelssauzen-altezindustriebouw.be, 2026 season'),
+  (public.profile_norm('Lise Revol'), 'Lise Revol', 'held', 'Cyclocross (UCI CX) World Cup pro — en.wikipedia.org, 2026 season'),
+  (public.profile_norm('Manon Bakker'), 'Manon Bakker', 'held', 'Cyclocross (UCI CX) World Cup pro — crelan-corendon.be, 2026 season'),
+  (public.profile_norm('Marion Norbert-Riberolle'), 'Marion Norbert-Riberolle', 'held', 'Cyclocross (UCI CX) World Cup pro — crelan-corendon.be, 2026 season'),
+  (public.profile_norm('Julie Brouwers'), 'Julie Brouwers', 'held', 'Cyclocross (UCI CX) World Cup pro — cx.procyclingstats.com, 2026 season'),
+  (public.profile_norm('Sterre Vervloet'), 'Sterre Vervloet', 'held', 'Cyclocross (UCI CX) World Cup pro — cx.procyclingstats.com, 2026 season'),
+  (public.profile_norm('Amandine Muller'), 'Amandine Muller', 'held', 'Cyclocross (UCI CX) World Cup pro — cx.procyclingstats.com, 2026 season')
+on conflict (norm) do nothing;
