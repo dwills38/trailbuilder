@@ -5106,3 +5106,30 @@ is the fifth overbroad/naive-edit near-miss today, all caught by the gates. Exa 
 exhausted on first attempt. Resume: Goodyear, then alphabetically (Maxxis/RockShox included).
 All four gates + harness green.
 Report: pb-mtb-b4.md.
+
+## 2026-07-22 — worktree recovery audit harvested; ITS HEADLINE RECOVERY CLAIM DOES NOT SURVIVE REVIEW
+The audit itself is high quality: 171 worktrees classified (90 MERGED_CLEAN / 74 UNMERGED /
+3 MERGED_DIRTY / 3 detached), the nested-worktree hazard correctly diagnosed with the right
+removal ORDER (child verify/kit-parts-1 first, parent dreamy-cohen-d4bb74 second, never the
+reverse), honest disk figures (1,213 MB reclaimable from the merged set, stated separately
+from the 389 MB node_modules), and it deleted NOTHING as instructed.
+BUT ITS CENTRAL CLAIM — "the grind-6/grind-7 wave (41 branches) confirmed NEVER landed" —
+rests on a COMMIT-MESSAGE grep (`git log origin/main | grep grind-7` = 0), which is exactly
+the failure the live-lane precondition doctrine exists to prevent. Coordinator ran the CONTENT
+check instead and every sampled bike from those branches is ALREADY ON MAIN:
+cb-cannondale-scalpel-ht-carbon-2/-3, cb-cannondale-scalpel-4, cb-trek-supercaliber-slr-98-xt-
+gen2, cb-unno-dash-race, cb-airdrop-editmx-core, cb-rockymountain-altitude-a30, cb-privateer-
+161-g2/-141-g2. Same result for the kit tracks (sampled verify/kit-parts-1 ids all present in
+src/kit.js, which already carries 611 verified rows) and for road-grind-1-shimano (all 3
+headset rows present in data/road.js).
+CONCLUSION: these branches are STALE DUPLICATES whose content was re-entered by the later
+cb-sheets / grind-5w2 / kit-wave tracks under different branch names — not lost work. Acting
+on recommendation #2 (cherry-pick the individual commits) would have MANUFACTURED DUPLICATE
+ROWS, the exact defect the catalog fights. Nothing was cherry-picked.
+STANDING LESSON REINFORCED (third time this seat): unmerged-by-ancestry != unlanded-by-content.
+Any "recover this stale branch" verdict MUST content-grep specific ids against origin/main
+before it counts. Recorded for the successor.
+Residual real value from the audit: the 3 MERGED_DIRTY worktrees hold uncommitted work worth a
+look (tooling/mechanic-bootstrap has 5 modified + 1 new mechanic-corpus file), and the 90
+merged-clean removals + node_modules deletion are genuine disk wins pending Douglas's sign-off.
+Report: worktree-recovery-audit.md.
