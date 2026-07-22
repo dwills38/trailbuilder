@@ -1,5 +1,34 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — breadth wave 2: road-depth-2/3 + gravel-depth-1 + striders (road 240, gravel 288)
+
+- **catalog/road-depth-3 merged + coordinator completion**: first Cervélo (Caledonia-5)
+  and BMC (Teammachine SLR 01) road rows; mid-tier Canyon Ultimate CF SL + Giant TCR
+  Advanced Pro (the OverDrive per-trim lesson re-verified, not assumed). NEW ENGINE-VOCAB
+  TOKEN RATIFIED at merge: bmc-ics-flat (BMC's own manual verbatim: ICS-cockpit-only flat
+  steerer) on the Douglas-ruled per-system-token pattern + the rg-headset-proprietary info
+  rule extended. Coordinator added the missing fk-bmc-teammachine-slr01 PAIR row (frame+
+  fork precedent from cannondale-delta — an exact-match token without its pair = the
+  IS-mount unbuildable-frame trap; unverified, worker-fetched basis disclosed). NOTE:
+  test-schema-road.js has the same hardcoded-TODAY staleness bug gravel's test had (worker
+  backdated lastChecked to 2026-07-21 to pass) — apply the reviewed live-date fix pattern
+  in a small follow-up.
+- **catalog/road-depth-2 merged**: +9 wheel/tire rows all verified — first HUNT and
+  Reserve road pairs, the DT Swiss P 1800 alloy staple, GP5000 30c / P Zero 32c / Pro One
+  25c width fills. Driver-variant gaps (XDR/N3W siblings) disclosed, not silently modeled;
+  fulcrumwheels.com denied pane navigation after first load (documented). Road 240 parts
+  (203 verified).
+- **catalog/gravel-depth-1 merged**: the GRX Di2 RX825 2x12 group (closing a gap two
+  existing rows' notes explicitly flagged) + Zipp 101 XPLR, first Reserve gravel pair, and
+  the budget-alloy RX570 (honest unverified via retailer per the relaxed policy). NEW
+  VOCAB TALLY ITEM: no sram-eagle system token in gravel — mullet-build staples blocked
+  (joins the consolidated ruling). Gravel 288 parts (182 verified).
+- **catalog/striders-breadth-1 merged**: +2 (Trek Kickster, Joovy Bicycoo Mg — MSRP not
+  the $74.99 sale, per policy); brand coverage confirmed near-complete, Cleary correctly
+  excluded (its Gecko is a pedal bike, not a balance bike). Striders 38 bikes (33
+  verified). Remaining gap = size variants, not brands.
+- Gates after every merge: 7 OK, 988/988, tsc clean.
+
 ## 2026-07-22 — BREADTH WAVE begins: gravel-depth-2 lands first (gravel 278 parts)
 
 - **catalog/gravel-depth-2 merged** (+20 rows, 258→278, 174 verified): 8 sibling-tier
