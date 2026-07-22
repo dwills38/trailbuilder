@@ -298,6 +298,18 @@ var EMTB_PARTS = [
     desc: 'Verified vs the maker page. Gen/battery corrected verify/emtb-3 wave 3 phase 2 (Gen 5 CX confirmed, 800Wh -> 600Wh, drivetrain matched to the real TR mechanical build) — that reading holds and is now maker-page-confirmed exactly: SRAM Eagle 90 Transmission derailleur/shifter, SRAM Maven Base brakes/SRAM Centerline 220mm rotors, RockShox Lyrik Base 160mm fork, RockShox Super Deluxe Select+ 230x60mm shock, price $8,499 exact match. Torque corrected verify/emtb-4 wave 4 cluster B: 100 -> 120Nm ("up to 120 Nm" on the current bikes/oso-tr page — a firmware/torque update since an earlier 100Nm reading). Weight set to the maker-stated 22.77kg complete-build claimed figure (size XM, with frame protection + tire sealant, no pedals).',
     verified: true, lastChecked: '2026-07-20', source: 'https://www.ibiscycles.com/bikes/oso-tr'
   },
+  {
+    id: 'em-santa-cruz-vala-al-deore', cat: 'emtb', brand: 'Santa Cruz', model: 'Vala AL Deore 2026',
+    family: 'santa-cruz-vala', gen: '2026', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (BDU38, Gen 5 Smart System)', motorTorque: 85,
+    batteryWh: 600, batteryRemovable: false, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore M6100 12-speed', brakes: 'Shimano Deore 4-piston',
+    disciplines: ['e-trail'], weight: 24090, price: 5999,
+    note: "Brand-new model for the catalog (breadth-2): Santa Cruz's entirely new aluminum, full-power Bosch e-MTB line, entirely absent before this wave (only the Shimano-motor Bullit/Heckler existed). This is the base \"AL Deore\" build — RockShox Psylo Gold RC fork/Deluxe Select shock, Shimano Deore mechanical drivetrain, fixed (non-removable) 600Wh battery.",
+    desc: "Verified vs the fetched maker product page (Shopify .js variant JSON for price + the rendered product page for frame/motor/battery/travel/wheel/weight; the page's own \"See All Specs\" drawer did not render in the browser pane so brakes are the build-kit-callout Deore level, not a maker-confirmed exact SKU — left as a plain string, not a guessed model number). Weight 53.11 lb -> 24090g (maker-published, size S). Price: MSRP (\"Regular price\") is $5,999 — the page's headline $4,949 is a labeled sale price, never used per pricing policy. Motor torque (85Nm) is the standard published Bosch Performance Line CX Gen 5 spec (same figure already used for the Trek Rail+ Gen 5 CX row in this catalog) — the page names the drive unit (BDU38) but does not itself restate the torque number.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.santacruzbicycles.com/collections/vala/products/vala-al-deore-2026'
+  },
 
   // ---------------------------------------------------------------------------
   // Commencal depth (Meta Power 29 + Meta Power SX Signature)
