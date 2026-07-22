@@ -485,6 +485,12 @@ var BMX_PARTS = [
     steererFit: 'integrated-1-1/8', cableRouting: 'dual', price: 19.99,
     note: 'Budget-tier full kit (gyro, top plate, lower assembly, upper + lower cables included).'
   },
+  {
+    id: 'bmx-gy-total-chaosgyro', cat: 'gyro', brand: 'Total BMX', model: 'Chaos Gyro',
+    steererFit: 'integrated-1-1/8', cableRouting: 'dual', weight: 32, price: 55.00,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://totalbmx.com/products/total-bmx-tech-gyro-black',
+    note: 'bmx-breadth-4 (2026-07-22): VERIFIED. Directly fetched totalbmx.com: "Total BMX Tech Gyro - Black...Weight 0.032kg/ 1.1oz" -> 32g CONFIRMED; "Regular price $55.00 USD" CONFIRMED. steererFit/cableRouting are display-only in checkBmxBuild (no rule reads a gyro steerer fit or cable routing - VERIFY-PROTOCOL\'s BMX small-parts exception), so their unconfirmed values (the near-universal 1-1/8in integrated + dual-cable config every other cataloged gyro uses) do not block verification.'
+  },
 
   // ===== CRANKS ========================================================
   {
