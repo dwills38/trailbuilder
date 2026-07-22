@@ -869,6 +869,11 @@ var BMX_PARTS = [
     note: 'bmx-breadth-4 (2026-07-22): VERIFIED. Directly fetched saltbmx.com: described verbatim as an "extra-large u-brake for modern 2.40\\" tires" -> mount:\'u-brake\' CONFIRMED (the checkBmxBuild-read field); "189 g (6.7 oz)" -> weight CONFIRMED. Maker states price only in EUR (€24.99, rear-position XL u-brake) — converted at 1.1412 USD/EUR (the spot rate on 2026-07-22, per public FX quotes) = $28.52, disclosed as priceBasis:\'regional-conversion\' per schema-bmx.js LOCAL_VOCAB.'
   },
   {
+    id: 'bmx-br-shadow-sanov2featherweight', cat: 'brake', brand: 'The Shadow Conspiracy', model: 'Sano V2 Featherweight Brake',
+    mount: 'u-brake', weight: 147, price: 91.99,
+    note: 'bmx-breadth-4 (2026-07-22): real current product, directly fetched sparkysbrands.com/products/shadow-sano-v2-featherweight-brake ("Shadow Sano V2 Featherweight Brake...5.2 oz...$91.99") -> weight (147g) and price CONFIRMED off the maker page. mount:\'u-brake\' is NOT stated anywhere in the fetched page text itself (no breadcrumb/category names it), so verified:true is withheld even though it IS the checkBmxBuild-read field - "u-brake" is corroborated only by the product\'s own name as listed uniformly across 2+ independent retailers (Dan\'s Comp, Landry\'s Bicycles, Brands Cycle and Fitness all list it as "...Sano V2 Featherweight U-Brake"), satisfying the unverified-sample corroboration bar (DATA-ENTRY-TEMPLATE §7) but not the fetched-maker-page bar for verified:true. Distinct SKU from the already-cataloged bmx-gy-shadow-sanov2 (that is the Sano Detangler V2 gyro, not this brake caliper).'
+  },
+  {
     id: 'bmx-br-mankind-truth-ubrake', cat: 'brake', brand: 'Mankind', model: 'Truth V2 U-Brake',
     mount: 'u-brake', weight: 144, price: 74.99,
     verified: true, lastChecked: '2026-07-21', source: 'https://mankindbmx.com/produkte/truth-v2-u-bremse/',
