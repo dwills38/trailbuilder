@@ -4743,3 +4743,18 @@ AZF-675). Left honestly BLANK per doctrine (all six tokens require a real disclo
 figure). Worker correctly refused the near-miss AZF575 price (sibling-stamping trap).
 Gates green in the worker's worktree (7 OK / 1086 / tsc clean). Branch had 0 commits;
 worktree + branch removed. Report: .claude/worker-reports/pb-mtb-c2.md.
+
+## 2026-07-22 — pb-road-2 merged: road priceBasis burndown 155 -> 3
+Wave-2 backfill classified all 155 remaining road rows per-note (142 third-party-listed,
+8 msrp-confirmed, 5 regional-conversion; 26 per-brand commits; the worker also caught its
+own regex-applier bug via tsc). ADVERSARIAL CATCH at review: the 5 SRAM rows were stamped
+third-party-listed with NO note attestation — coordinator fetches proved sram.com publishes
+prices on all five model pages. Fixes on the branch: RED crank PRICE CORRECTED 700->770
+(msrp-confirmed), Force RD 500->415 (msrp-confirmed); RED XG-1290 ($430-515 range), RED
+chain ($110-120 range — stored $130 is ABOVE it, flagged), Force chain ($65-100 range)
+returned to honest blank with maker-range notes (a range is not a literal figure; the
+worker's other 137 third-party-listed calls rest on verbatim "no MSRP on page" notes from
+prior fetch waves and were spot-checked sound). Lesson for the standing set: THIRD-PARTY-
+LISTED ASSERTS "MAKER PUBLISHES NO PRICE" — for SRAM-sourced rows that claim is checkable
+and usually FALSE; never default it onto a sram.com-sourced row. Gates green post-merge.
+Report: .claude/worker-reports/pb-road-2.md.
