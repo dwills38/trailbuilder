@@ -2639,6 +2639,10 @@ var KIT_PARTS = [
     disciplines:['trail'], sizes:['S','M','L','XL'],
     desc:'Strapless stretch-mesh sleeve, EVA pad, no hard shell/plate - maker-stated PPE cat. I (below the EN1621-1 pass/fail threshold, so untagged rather than mis-certed). No weight published.',
     verified:true, lastChecked:'2026-07-22', source:'https://www.scott-sports.com/ca/en/product/scott-mission-evo-knee-pads' },
+  { id:'knp-tsg-joint-sleeve', cat:'kneepad', brand:'TSG', model:'Knee-Sleeve Joint', mfgPn:'71014', price:91.75, weight:520,
+    disciplines:['trail','enduro','dh'], sizes:['XXS/XS','S/M','L/XL','XXL'],
+    desc:'kit-breadth-1 (2026-07-22): TSG had zero kneepad rows despite this being the knee counterpart to its already-cataloged Joint Elbow Sleeve (elp-tsg-joint-sleeve) - slip-on softshell, articulated PU memory foam. Weight maker-stated ("520 g") on the fetched ridetsg.com product page. Price is EUR84.95 (VAT incl.) converted to a $91.75 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront - same disclosed-basis convention as the existing TSG rows) per THE PRICE RULE. Bike protocol PPETS0002 is only "partially based on" EN1621-1:2012 with no stated Level, so no cert token is tagged.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.ridetsg.com/shop/kneesleeve-joint/71014-25-102/' },
 
   /* -- Elbow pads (per pair) -- (grind/kit-elbowpad, expanded 2026-07-14: two rows
      fetch-verified against their own manufacturer product page - price, weight and
