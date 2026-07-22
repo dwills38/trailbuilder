@@ -77,7 +77,7 @@ test('an armset-only crank (ringStd:null, no ring) is valid data', function(){
   // not about whichever verification date the live row happens to carry (which
   // drifts as sessions verify parts with today's real date against the fixed TODAY above).
   var p = over('cr-canecreek-eewings-allmountain');
-  delete p.verified; delete p.lastChecked; delete p.source; delete p.sourceType; delete p.weightSource;
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.sourceType; delete p.weightSource; delete p.priceBasis;
   eq(probs(p).length, 0, 'eeWings row should validate');
 });
 test('a string chainline is caught (must be mm)', function(){
