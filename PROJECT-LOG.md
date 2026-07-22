@@ -1,5 +1,21 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — gravel-verify-4: every 429 wall falls, gravel 150/255
+
+- **verify/gravel-verify-4 merged**: all six of verify-3's rate-limit walls cleared via
+  Exa. Fox 32 Taper-Cast was wrong FOUR ways (700c-only not 700c/650b, maxRotorF 160→180,
+  weight 1350→1161g, price $949→$809 — all off Fox's own spec table); Vittoria Terreno Dry
+  + PRO Discover bar promoted; every fabfix-2 successor row promoted (Fulcrum Rapid Red
+  Carbon, HUNT 4Season + 650B Adventure, Teravail 700x56, Conti Terra Trail via the maker
+  PDF, 3T Fango via 3T's own leaflet PDF); Fox Transfer SL dropper corrected 385→327g.
+- **Fabfix-3 candidates surfaced (fresh maker data shows real mismatches, queued):**
+  Goodyear Connector (row's casing/compound tier appears retired/renamed), Vittoria
+  Terreno Mix (two current SKUs, neither matches, 200g apart), Terreno Zero (RENAMED to
+  Terreno T10; every real weight ~2x the row's 350g — strong fabrication candidate), 3T
+  Superergo (three-way spec disagreement). Next-biggest pool: the ~28 material-confirmed
+  but spec-unverified frames.
+- Gates: 7 OK (gravel 150), 988/988, tsc clean.
+
 ## 2026-07-22 — bmx-sweep-4: BMX 128 verified; two walls browser-confirmed
 
 - **verify/bmx-sweep-4 merged**: 4 promotions off maker pages — Mankind Truth V2 (weight
