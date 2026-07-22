@@ -1651,6 +1651,9 @@ var GRAVEL_PARTS = [
     family: 'esi-chunky', weight: 60, price: 20.99,
     note: 'gravel-verify-3 (2026-07-21): FETCHED esigrips.com/products/chunky directly — confirms real/current, states "Chunky ESI Grips are 60 Grams", 32mm installed diameter, price $20.99. WEIGHT CORRECTED 120->60 (catalog was ~2x too heavy), PRICE CORRECTED 30->20.99.',
     verified: true, lastChecked: '2026-07-21', source: 'https://esigrips.com/products/chunky' },
+  { id: 'gtp-silca-nastro-cuscino', cat: 'bartape', brand: 'Silca', model: 'Nastro Cuscino',
+    family: 'silca-nastro-cuscino', weight: 85, price: 50,
+    note: 'gravel-depth-5 new row (2026-07-22): bartape-depth pass — new brand (a premium padded/cushioned gravel-relevant tape, not yet in this file). FETCHED silca.cc/products/nastro-cuscino-bar-tape directly — confirms real/current, "3.75mm of cushion", "230cm +/- 10%" length, and states "NASTRO Bar Tape retails at $50usd" (price matches this row exactly). No weight is published anywhere on the page (only length/thickness) — weight stays an unsourced estimate scaled up from the thinner Fizik Vento Microtex sibling row\'s 41g given this tape\'s roughly 2x cushion thickness — not marked verified:true.' },
 
 ];
 
