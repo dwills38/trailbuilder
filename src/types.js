@@ -25,7 +25,7 @@
 /** @typedef {'29'|'275'|'26'|'24'} WheelSize */
 /** @typedef {'29'|'275'|'mullet'|'26'|'24'} WheelConfig */
 /** @typedef {'Boost148'|'SuperBoost157'|'142x12'|'150x12'|'10x135-bolt'|'Boost141'|'135x5-qr'|'9x135-bolt'} RearAxle */
-/** @typedef {'Boost110'|'20x110'|'20x110-nonboost'|'15x100'|'9x100-qr'} FrontAxle */
+/** @typedef {'Boost110'|'20x110'|'20x110-nonboost'|'15x100'|'9x100-qr'|'lefty-60'} FrontAxle */
 /** Wheel/hub-side driver interface. 'integrated' = the driver IS a built-in
  * cassette (e*thirteen LG1r DH rear), so no separate cassette mounts - legal
  * on rearwheel/rearhub rows only, never on a cassette (schema cross-rule;

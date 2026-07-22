@@ -84,7 +84,29 @@ var VOCAB = {
      model page. Entry-tier hardtails (Trek Marlin/X-Caliber) spec this
      option. Added cb-grind6-trek-giant-ht 2026-07-16 - genuinely different
      from '15x100' (that's a 15mm thru-axle, DJ-fork standard). */
-  frontAxle:    ['Boost110', '20x110', '20x110-nonboost', '15x100', '9x100-qr'],
+  /* 'lefty-60' = Cannondale's PROPRIETARY single-leg Lefty hub interface, the
+     ONE proprietary standard on the modern single-crown Lefty Ocho (schema/
+     lefty-vocab-1, 2026-07-22). Sourced from Cannondale's own Lefty Ocho Owner's
+     Manual Supplement (134923, cannondale.com/-/media/files/manual-uploads/
+     manuals/018_lefty ocho_134923_screen_en.pdf): "Hub Compatibility: Lefty 60"
+     - the fork has an INTEGRATED axle/spindle that the front hub bolts onto, so
+     a standard thru-axle hub cannot mount and a Lefty hub cannot mount a standard
+     fork. CRITICAL maker fact that shapes this token: the Ocho steerer is NOT
+     proprietary - it is a standard tapered 1.5"-1-1/8" (same manual: "Steerer:
+     Tapered 1.5"-1-1/8"/86mm"; the 2018 Ocho redesign deliberately "ditched the
+     proprietary steerer of old in favour of a regular 1-1/2in to 1-1/8in tapered
+     steerer", bikeradar.com/bikerumor). So the Lefty's proprietary-ness lives
+     ENTIRELY here, at the hub axle - NOT at the steerer (no new steerer token),
+     and a Lefty-era Cannondale XC frame (F-Si, Scalpel HT) is a normal tapered-
+     headset frame that also accepts standard forks (Cannondale ships some trims
+     with a standard 15x110 fork). Rule 2 (front-axle) is exact-match, so this
+     token needs ZERO engine change: fork.axle 'lefty-60' vs a standard hub, or a
+     standard fork.axle vs a 'lefty-60' hub, both error honestly; Lefty-on-Lefty
+     is silent. 'Lefty 60' is the current hub std (60mm flange spacing; Ocho /
+     Lefty 2.0 / SuperMax) - distinct from the older 'Lefty 50', which a future
+     row would carry as its own token, never conflated. Inert until the Lefty
+     rows below reference it. */
+  frontAxle:    ['Boost110', '20x110', '20x110-nonboost', '15x100', '9x100-qr', 'lefty-60'],
   /* 'integrated' = the driver IS a built-in cassette, no freehub body exposed
      (e*thirteen LG1r DH rear - "Freehub Mount: Integrated 7 Speed Cassette",
      fetched ethirteen.eu 2026-07-10), so NO separate cassette mounts and no
