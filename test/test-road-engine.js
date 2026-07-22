@@ -726,3 +726,105 @@ test('roadBuildTotals sums price/weight and flags a missing weight', function(){
   var t2 = ROAD.roadBuildTotals({ rearDerailleur: rp('rd-sram-red-axs') });
   eq(t2.missingWeight, true, 'the RED AXS rear derailleur row honestly omits weight');
 });
+
+/* =============================================================================
+   schema/vocab-widen-ab (2026-07-22) — ONE TEST PER RULE THAT READS A WIDENED
+   FIELD. The brief's bar: a token is not "added" until every rule reading its
+   field is audited and pinned in BOTH directions (fires when it should, stays
+   silent when it should). Four widened axes:
+     brakeMountRG += 'rim-caliper'          -> R17, R18, roadSlotRequired
+     crankBbRoad  += 'gxp'                  -> R11 (rg-bb-spindle), rg-bb-advisory
+     GRAVEL steerer += 'cervelo-d-shaped'   -> R4 (rg-steerer, rg-headset-steerer)
+     bbShell attribution of 't47a-bbright'  -> R11 (rg-bb-shell)
+   plus the two catalog corrections that MOVE live verdicts (Straggler split).
+   ========================================================================== */
+
+/* ---- rim-caliper: R17 (disc-vs-rim class) -------------------------------- */
+test('rim-caliper x R17: a rim caliper on a disc frame is a CLASS error (the true wont-fit)', function(){
+  var rim = rp('br-shimano-sora-r3000-caliper');
+  var discFrame = rp('fr-specialized-sworks-tarmac-sl8');
+  var r = ROAD.checkRoadBuild({ frame: discFrame, rearBrake: rim });
+  eq(errOf(r, 'rg-brake-system').length, 1, 'R17 must name the real problem: disc frame, rim caliper');
+  ok(/disc/.test(String(errOf(r, 'rg-brake-system')[0])) && /rim/.test(String(errOf(r, 'rg-brake-system')[0])),
+    'and must say which end is which: ' + errOf(r, 'rg-brake-system')[0]);
+
+  var rimFrame = syn(discFrame, { brakeSystem: 'rim-caliper', brakeMount: 'rim-caliper' });
+  eq(of(ROAD.checkRoadBuild({ frame: rimFrame, rearBrake: rim }), 'rg-brake-system').length, 0,
+    'rim frame + rim caliper is ONE class - the guard must not fire on agreement');
+});
+
+/* ---- rim-caliper: R18 (mount) + the new cross-class guard ----------------- */
+test('rim-caliper x R18: an exact match is silent; a cross-CLASS pair is left to R17, never restated as a mount error', function(){
+  var rim = rp('br-shimano-sora-r3000-caliper');
+  var discFrame = rp('fr-specialized-sworks-tarmac-sl8');
+
+  var rimFrame = syn(discFrame, { brakeSystem: 'rim-caliper', brakeMount: 'rim-caliper' });
+  eq(of(ROAD.checkRoadBuild({ frame: rimFrame, rearBrake: rim }), 'rg-brake-mount').length, 0,
+    'rim-caliper on rim-caliper: an exact match, no mount verdict');
+
+  /* THE CLASS GUARD, both directions. Without it R18 would add a second,
+     mount-shaped verdict ("rim-caliper vs flat-mount") that invites an adapter
+     reading where no adapter exists - R17 already errors, in the right words. */
+  var r = ROAD.checkRoadBuild({ frame: discFrame, rearBrake: rim });
+  eq(of(r, 'rg-brake-mount').length, 0, 'rim caliper vs flat-mount disc frame: R18 must stay out of it');
+  ok(errOf(r, 'rg-brake-system').length > 0, 'but the build is still RED - the guard suppresses a duplicate, never the error');
+
+  var r2 = ROAD.checkRoadBuild({ frame: rimFrame, rearBrake: rp('br-shimano-105-r7100') });
+  eq(of(r2, 'rg-brake-mount').length, 0, 'symmetrically: a disc caliper vs a rim frame is R17s, not R18s');
+  ok(errOf(r2, 'rg-brake-system').length > 0, 'still red');
+});
+
+test('rim-caliper x R18: the class guard did NOT weaken the same-class adapter tiers', function(){
+  /* REGRESSION: the guard keys on brakeSystem, so every disc-vs-disc pair must
+     behave exactly as it did before the guard existed. */
+  var r = ROAD.checkRoadBuild({ frame: gp('gfr-marin-nicasio-plus'), rearBrake: gp('gbr-hope-rx4-plus-postmount-min') });
+  eq(errOf(r, 'rg-brake-mount').length, 0, 'post-on-I.S. is still the adapter WARNING, not an error');
+  eq(warnOf(r, 'rg-brake-mount').length, 1, 'exactly one, unchanged');
+});
+
+/* ---- rim-caliper: completeness (roadSlotRequired) ------------------------ */
+test('rim-caliper x completeness: a rim caliper drops its OWN ends rotor slot', function(){
+  var rim = rp('br-shimano-sora-r3000-caliper');
+  /** @param {string} key @returns {any} */
+  function slot(key){
+    var s = ROAD.ROAD_SLOTS.filter(function(/** @type {any} */ x){ return x.key === key; })[0];
+    if(!s) throw new Error('no such road slot: ' + key);
+    return s;
+  }
+  var b = { rearBrake: rim };
+  eq(ROAD.roadSlotRequired(slot('rearRotor'), b), false, 'rim caliper at the rear: no rear rotor exists to buy');
+  eq(ROAD.roadSlotRequired(slot('frontRotor'), b), true, 'the FRONT end is untouched - it may still be disc');
+
+  var both = { frontBrake: rim, rearBrake: rim };
+  eq(ROAD.roadSlotRequired(slot('frontRotor'), both), false, 'both ends rim: both rotor slots drop');
+  eq(ROAD.roadSlotRequired(slot('rearRotor'), both), false);
+
+  var rimFrame = syn(rp('fr-specialized-sworks-tarmac-sl8'), { brakeSystem: 'rim-caliper', brakeMount: 'rim-caliper' });
+  eq(ROAD.roadSlotRequired(slot('frontRotor'), { frame: rimFrame }), false, 'the pre-existing frame route is unchanged');
+  eq(ROAD.roadSlotRequired(slot('frontRotor'), { frontBrake: rp('br-shimano-105-r7100') }), true, 'a DISC caliper still requires its rotor');
+  eq(ROAD.roadSlotRequired(slot('frontRotor'), {}), true, 'and the no-frame default still requires rotors (disc-only v1 data)');
+});
+
+/* ---- gxp: R11 rg-bb-spindle + the sold-separately advisory ---------------- */
+test('gxp x R11: a GXP crank errors against a non-GXP bottom bracket and is silent against its own', function(){
+  var gxpCrank = rp('cr-sram-rival22-gxp-5034');
+  eq(gxpCrank.bb, 'gxp', 'precondition: the row this token was added for');
+
+  var dubBb = rp('bb-sram-dub-bb86');
+  var e = errOf(ROAD.checkRoadBuild({ crankset: gxpCrank, bb: dubBb }), 'rg-bb-spindle');
+  eq(e.length, 1, 'a DUB bearing set does not take a GXP spindle');
+  ok(/gxp/i.test(String(e[0])), 'and the message names the spindle: ' + e[0]);
+
+  var gxpBb = syn(dubBb, { id: 'bb-synthetic-gxp', spindle: 'gxp' });
+  eq(of(ROAD.checkRoadBuild({ crankset: gxpCrank, bb: gxpBb }), 'rg-bb-spindle').length, 0, 'GXP crank + GXP BB: silent');
+
+  /* the trap this token exists to prevent: GXP is NOT Shimano 24mm */
+  eq(errOf(ROAD.checkRoadBuild({ crankset: gxpCrank, bb: rp('bb-shimano-smbb72-41') }), 'rg-bb-spindle').length, 1,
+    'a 24mm-road bearing set must NOT silently accept a GXP crank - that is the false-MATCH the separate token prevents');
+});
+
+test('gxp x rg-bb-advisory: the pick-a-BB info names the GXP spindle', function(){
+  var i = infoOf(ROAD.checkRoadBuild({ crankset: rp('cr-sram-rival22-gxp-5034'), frame: rp('fr-specialized-sworks-tarmac-sl8') }), 'rg-bb-advisory');
+  eq(i.length, 1, 'frame + crank + no BB = the sold-separately nudge');
+  ok(/gxp/i.test(String(i[0])), 'and it must name the spindle the rider has to match: ' + i[0]);
+});

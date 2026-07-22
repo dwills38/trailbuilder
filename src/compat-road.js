@@ -76,7 +76,17 @@ var ROAD_VOCAB = {
      it (post-mount caliper = adapter warning, flat-mount caliper = error). No token
      here claims it can appear on both sides: 'is-mount' is frame/fork-side only
      (no I.S. caliper is cataloged), exactly as R18's own note records. */
-  brakeMount:   ['flat-mount', 'post-mount', 'is-mount'],
+  /* 'rim-caliper' ADDED schema/vocab-widen-ab (2026-07-22, Douglas-ruled group A) —
+     the recessed-nut mount of a pre-disc road caliper. UNLIKE 'is-mount' it is a
+     BOTH-SIDES token by construction: the caliper side is live now (Shimano
+     BR-R3000, the row this pass unblocks), and the chassis side is dormant until
+     a rim-brake frame/fork is sourced (data/road.js's v1 decision is disc-only).
+     schema-road's new disc/rim cross-rule keeps the two halves from ever
+     disagreeing with their own brakeSystem. R18 never compares this token against
+     a disc mount: brakeMountCheck now returns early when the two ends are of
+     different brake CLASSES, because R17 already errors on that and "rim-caliper
+     vs flat-mount" is not an adapter question. */
+  brakeMount:   ['flat-mount', 'post-mount', 'is-mount', 'rim-caliper'],
   /* rearAxle carries BOTH sides of rule R2/R3's exact-match compare: a frame's
      `rearAxle` and a rear wheel's `hub`. RECONCILED engine/road-vocab-lint
      (2026-07-22): '12x148', '135x9-qr' and '135x10-qr' were live in
@@ -211,7 +221,14 @@ var ROAD_VOCAB = {
      key, so the crank-side attribution needs no guess. No cataloged gravel crank or
      BB uses it yet (schema-gravel landed it for shell/spindle-pair completeness);
      it is listed because this table documents what the validators ACCEPT. */
-  crankBb:      ['dub', 'dub-wide', '24mm-road', '30mm', 'ultra-torque', 'square-taper'],
+  /* 'gxp' ADDED schema/vocab-widen-ab (2026-07-22) alongside the schema-road
+     widening — SRAM's pre-DUB 24/22mm stepped spindle, backed by the Rival 22
+     GXP crank row this pass enters (sram.com FC-RIV-2X11-A1: spindle options
+     "30mm, GXP"). Never merge with '24mm-road': a GXP non-drive spindle end is
+     22mm and seats on the bearing inner race, so a Shimano 24mm BB does not
+     take it — merging them would be the pf86/bb86 false-MATCH shape, the
+     mirror of the false-mismatch one. */
+  crankBb:      ['dub', 'dub-wide', '24mm-road', '30mm', 'ultra-torque', 'square-taper', 'gxp'],
   /* seatpostDia = R12's bore axis, and R12 compares a FRAME's `seatpost` against a
      post's/dropper's `diameter`. 'proprietary' RECONCILED engine/road-vocab-map
      (2026-07-22) as the FRAME-SIDE SENTINEL for an aero/D-shaped bore (R12 branches
@@ -562,8 +579,21 @@ function roadSlotRequired(slot, build){
   var b = build || {};
   if(slot.key === 'frontDerailleur')
     return !!(b.crankset && b.crankset.chainrings === '2x');
-  if(slot.key === 'frontRotor' || slot.key === 'rearRotor')
-    return !(b.frame && typeof b.frame.brakeSystem === 'string' && b.frame.brakeSystem.indexOf('rim') === 0);
+  if(slot.key === 'frontRotor' || slot.key === 'rearRotor'){
+    if(b.frame && typeof b.frame.brakeSystem === 'string' && b.frame.brakeSystem.indexOf('rim') === 0) return false;
+    /* WIDENED schema/vocab-widen-ab (2026-07-22): the frame is not the only part
+       that can settle this. Once a RIM caliper is picked at an end, that end has
+       no rotor to buy — and with no rim-brake FRAME cataloged yet (data/road.js's
+       v1 disc-only decision), the frame test alone would have told a Sora
+       rim-brake build it was "incomplete" until it bought two rotors it can
+       never fit. Per-end, because the ends are independent slots.
+       Completeness only — never a fit verdict (the slotRequired contract); a
+       genuinely mixed disc/rim build is R17's ERROR, not this function's
+       business. */
+    var endBrake = b[slot.key === 'frontRotor' ? 'frontBrake' : 'rearBrake'];
+    if(endBrake && typeof endBrake.brakeSystem === 'string' && endBrake.brakeSystem.indexOf('rim') === 0) return false;
+    return true;
+  }
   if((slot.key === 'handlebar' || slot.key === 'stem') && b.cockpit) return false;
   if(slot.key === 'seatpost' && b.dropper) return false;
   return true;
@@ -1101,6 +1131,18 @@ function checkRoadBuild(build){
     if(!caliper || !mountPart) return;
     var cm = caliper.mount, pm = mountPart.brakeMount;
     if(cm == null || pm == null || cm === pm) return;   // dormant without either field
+    /* CLASS GUARD (schema/vocab-widen-ab, 2026-07-22, with the rim-caliper
+       widening). A disc caliper against a rim-brake chassis (or the reverse) is
+       not a MOUNT question at all — R17 already errors on the class mismatch in
+       the words that actually explain it, and "rim-caliper vs flat-mount" adds
+       only a second, mount-shaped restatement that invites an adapter reading
+       where no adapter exists. Both sides must state a known class for this to
+       bite, so an unknown/absent brakeSystem leaves the mount check exactly as
+       it was. NO EXISTING VERDICT CHANGES: every road/gravel frame, fork and
+       caliper cataloged before this pass is disc, so the two classes could not
+       differ. */
+    var ccls = roadBrakeClass(caliper.brakeSystem), mcls = roadBrakeClass(mountPart.brakeSystem);
+    if(ccls && mcls && ccls !== mcls) return;
     if(cm === 'post-mount' && pm === 'is-mount')
       warn('rg-brake-mount', [caliperSlot, mountSlot],
         endLabel + ' brake mount: ' + roadNameOf(caliper) + ' is a post-mount caliper and ' + roadNameOf(mountPart) + ' has an I.S. (International Standard) mount - fits with a size-specific I.S.-to-post-mount adapter (e.g. Shimano ' + adapterEg + ', or Hope HBIS20/HBIS40), matched to your rotor size.',
