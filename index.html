@@ -1453,7 +1453,11 @@
         <span><i class="w" aria-hidden="true"></i>Check first &mdash; adds a warning (open the part for why)</span>
         <span><i class="r" aria-hidden="true"></i>Won&rsquo;t fit (open the part for why)</span>
         <span><i class="n" aria-hidden="true"></i>Nothing selected yet &mdash; no data to judge</span>
-        <span><span style="color:var(--ok);font-weight:800">✓ Verified</span> = interfaces &amp; weight checked vs manufacturer spec; price may be a sample (else <span style="color:var(--ink-soft);font-weight:600">≈ estimate</span>)</span>
+        <!-- Kept in sync with tools/VERIFY-PROTOCOL.md's PRICE RULE, as that section requires.
+             Amended 2026-07-22 (Douglas: "verified means the pricing was verified too"): the badge
+             no longer leaves price to a blanket "may be a sample" — each part's own badge now states
+             its price basis (confirmed MSRP, a named disclosed exception, or sample). -->
+        <span><span style="color:var(--ok);font-weight:800">✓ Verified</span> = interfaces &amp; weight checked vs manufacturer spec; open a part to see whether its <em>price</em> is a confirmed MSRP or still a sample (else <span style="color:var(--ink-soft);font-weight:600">≈ estimate</span>)</span>
         <span class="muted">No ✓ usually means the maker doesn't publish the spec — not that the part is worse.</span>
   </div>
   <!-- bias-r3's cheapest high-value fix (2026-07-17): a green dot means no conflict was
@@ -2266,9 +2270,18 @@
 
   /* ---- provenance badge (esc + partVerified are shared from compat.js) ----
      `extra` (optional) is appended inline after the verified/estimate badge —
-     used by cardEl to add the owned badge on the same line. */
+     used by cardEl to add the owned badge on the same line.
+
+     Every branch's tooltip carries the PRICE clause too (Douglas's 2026-07-22
+     ruling: "verified means the pricing was verified too"). The badge used to
+     say only that the SPEC was checked, while the price could still be sample
+     data — priceBasisLabel() closes that by naming which case the row's price
+     is in. Wording lives in src/pricing.js so it's tested and identical on
+     every page; it rides existing hover titles and click-opened cards only,
+     never a popup (hard rule 2). */
   function provHtml(p, extra){
     var body;
+    var priceNote = window.priceBasisLabel(p);
     if(p.cat==='completebike'){
       // Distinct badge from the part-level "✓ Verified" (bias-r3 fix, 2026-07-17):
       // this claims the BUILD SHEET (which parts ship stock on this bike) was
@@ -2279,23 +2292,26 @@
         var cbWhen = p.lastChecked ? (' on '+esc(p.lastChecked)) : '';
         body = p.source
           ? '<a class="sheet-ver" href="'+esc(p.source)+'" target="_blank" rel="noopener noreferrer"'+
-            ' title="This bike\'s build sheet (which parts ship stock on it) was checked against the manufacturer'+cbWhen+' — click for the source">🧾 Build-sheet verified</a>'
-          : '<span class="sheet-ver" title="This bike\'s build sheet was checked against the manufacturer'+cbWhen+'">🧾 Build-sheet verified</span>';
+            ' title="This bike\'s build sheet (which parts ship stock on it) was checked against the manufacturer'+cbWhen+' ('+esc(priceNote)+') — click for the source">🧾 Build-sheet verified</a>'
+          : '<span class="sheet-ver" title="This bike\'s build sheet was checked against the manufacturer'+cbWhen+' ('+esc(priceNote)+')">🧾 Build-sheet verified</span>';
       } else {
-        body = '<span class="est" title="Sample data — this build sheet has not yet been checked against the manufacturer">≈ estimate</span>';
+        body = '<span class="est" title="Sample data — this build sheet has not yet been checked against the manufacturer ('+esc(priceNote)+')">≈ estimate</span>';
       }
     } else if(!p.fills && p.verified===true && p.source){
       var when = p.lastChecked ? (' on '+esc(p.lastChecked)) : '';
       var url = esc(p.source);
       body = '<a class="ver" href="'+url+'" target="_blank" rel="noopener noreferrer"'+
-        ' title="Spec checked against the manufacturer'+when+' — click for the source">✓ Verified</a>';
+        ' title="Spec checked against the manufacturer'+when+' ('+esc(priceNote)+') — click for the source">✓ Verified</a>';
     } else if(p.fills && partVerified(p)){
       // Honest badge for kits (REVIEW.md #11): the PARTS are verified and the
       // kit weight is derived from them, but the bundle PRICE is its own
-      // unverified number - never claim more than that.
+      // unverified number - never claim more than that. The bundle price is the
+      // preset's OWN number, so it is deliberately NOT described by
+      // priceBasisLabel (which reads the row's own priceBasis) - the existing
+      // "The bundle price is an estimate." sentence is already the honest one.
       body = '<span class="ver" title="Every part in this kit is verified against a manufacturer spec; kit weight is derived from those parts. The bundle price is an estimate.">✓ Parts verified</span>';
     } else {
-      body = '<span class="est" title="Sample data — approximate, not yet checked against a manufacturer spec">≈ estimate</span>';
+      body = '<span class="est" title="Sample data — approximate, not yet checked against a manufacturer spec ('+esc(priceNote)+')">≈ estimate</span>';
     }
     return '<div class="prov">'+body+(extra||'')+'</div>';
   }
@@ -3079,11 +3095,16 @@
     }
     var weightHtml = fm.weightLo!=null ? '<span class="wt">'+(fm.weightLo===fm.weightHi?fm.weightLo:fm.weightLo+'–'+fm.weightHi)+' g</span>' : '';
     var priceHtml = '<span class="price">'+(fm.lo===fm.hi?money(fm.lo):money(fm.lo)+'–'+money(fm.hi))+weightHtml+'</span>';
+    /* Family cards show ONE badge for several sizes, so the price clause is the
+       AGGREGATE (priceBasisSummary): uniform across the family => that phrase;
+       mixed => "varies by variant", never the best member's basis, which would
+       overclaim for the others. Same 2026-07-22 ruling as the per-part badge. */
+    var famPriceNote = esc(window.priceBasisSummary(fm.members));
     var provBody = fm.verifiedCount===0
-      ? '<span class="est" title="Sample data — approximate, not yet checked against a manufacturer spec">≈ estimate</span>'
+      ? '<span class="est" title="Sample data — approximate, not yet checked against a manufacturer spec ('+famPriceNote+')">≈ estimate</span>'
       : fm.verifiedCount===fm.members.length
-        ? '<span class="ver" title="Every size in this family is verified against a manufacturer spec">✓ Verified</span>'
-        : '<span class="ver" title="'+fm.verifiedCount+' of '+fm.members.length+' sizes are verified against a manufacturer spec">✓ '+fm.verifiedCount+'/'+fm.members.length+' verified</span>';
+        ? '<span class="ver" title="Every size in this family is verified against a manufacturer spec ('+famPriceNote+')">✓ Verified</span>'
+        : '<span class="ver" title="'+fm.verifiedCount+' of '+fm.members.length+' sizes are verified against a manufacturer spec ('+famPriceNote+')">✓ '+fm.verifiedCount+'/'+fm.members.length+' verified</span>';
     card.innerHTML =
       '<button type="button" class="dot '+fm.state+'" aria-label="Compatibility: '+esc(fm.reason)+'" title="'+esc(fm.reason)+'"></button>'+
       '<div class="pcard-head">'+thumbHtml+
@@ -3600,7 +3621,7 @@
         var altNote = slot.altOf ? ' (optional — or pick a complete wheel above)'
                     : altSlotsOf(slot.key).length ? (wheelPositionFilled(res,slot.key)?' (using hub + rim instead, below)':' (or build from hub + rim, below)')
                     : '';
-        var nm = p ? (esc(p.brand)+' '+esc(p.model) + (p.verified===true && p.source?' <span class="vchk" title="Verified against the manufacturer'+(p.lastChecked?' on '+esc(p.lastChecked):'')+'">✓</span>':''))
+        var nm = p ? (esc(p.brand)+' '+esc(p.model) + (p.verified===true && p.source?' <span class="vchk" title="Verified against the manufacturer'+(p.lastChecked?' on '+esc(p.lastChecked):'')+' ('+esc(window.priceBasisLabel(p))+')">✓</span>':''))
                    : (altNote ? ('— '+slot.label.toLowerCase()+altNote+' —')
                      : ('— '+slot.label.toLowerCase()+(slot.optional?' (optional)':(!slotRequired(slot,res.frame,eRW)?(slot.key==='cassette'?' (built into the rear wheel)':' (not needed for this frame)'):''))+' —'));
         row.innerHTML='<div class="sl-main"><div class="'+(p?'sl-part':'sl-part sl-empty')+'">'+nm+'</div></div>'+ right;
@@ -3817,7 +3838,7 @@
       g.slots.forEach(function(s){
         var p=res[s.key]; if(!p) return;
         rows+='<div class="bm-row"><span class="bl">'+esc(s.label)+'</span><span class="bp">'+esc(p.brand+' '+p.model)+
-          (partVerified(p)?' <span class="vchk" title="Verified against the manufacturer">✓</span>':'')+'</span><span class="br">'+
+          (partVerified(p)?' <span class="vchk" title="Verified against the manufacturer ('+esc(window.priceBasisLabel(p))+')">✓</span>':'')+'</span><span class="br">'+
           (bundle?'in kit':(money(p.price)+(typeof p.weight==='number'?' · '+p.weight+' g':'')))+'</span></div>';
       });
     });

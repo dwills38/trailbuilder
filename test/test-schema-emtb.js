@@ -113,3 +113,44 @@ test('an out-of-vocab status value is still caught', function(){
   var probs = S.validateEmtbPart(bad, TODAY);
   ok(probs.some(function(m){ return /status "banana" not in/.test(m); }), probs.join('\n'));
 });
+
+/* ---- priceBasis: price provenance (Douglas's 2026-07-22 ruling) -----------
+   "verified means the pricing was verified too". Same enum + same two-way
+   contract as src/schema.js — this pins that e-MTB didn't drift its own
+   variant. ('regional-conversion' matters most here: most e-MTB makers are
+   European and publish a EUR price only.) */
+
+/** @param {Object} [changes] @returns {any} */
+function emtbPbRow(changes){
+  var p = Object.assign({}, aBike(), { verified:true, source:'https://example.com/spec', lastChecked:'2026-06-01' });
+  delete p.sourceType; delete p.weightSource;
+  return Object.assign(p, changes || {});
+}
+
+test('every priceBasis vocab token is accepted on a verified emtb row', function(){
+  S.EMTB_VOCAB.priceBasis.forEach(function(token){
+    eq(S.validateEmtbPart(emtbPbRow({ priceBasis:token }), TODAY).length, 0, 'expected "' + token + '" to validate');
+  });
+});
+
+test('emtb priceBasis vocab is IDENTICAL to the live schema.js enum (one definition, mirrored)', function(){
+  var core = require('../src/schema.js').VOCAB.priceBasis;
+  eq(S.EMTB_VOCAB.priceBasis.join('|'), core.join('|'), 'emtb drifted its own priceBasis variant');
+});
+
+test('an out-of-vocab priceBasis is caught (emtb)', function(){
+  var probs = S.validateEmtbPart(emtbPbRow({ priceBasis:'msrp-probably' }), TODAY);
+  ok(probs.some(function(m){ return /priceBasis.*not in/.test(m); }), probs.join('\n'));
+});
+
+test('priceBasis on an UNVERIFIED emtb row is rejected (a basis is a claim, not decoration)', function(){
+  var p = emtbPbRow({ priceBasis:'msrp-confirmed' });
+  delete p.verified; delete p.source; delete p.lastChecked;
+  var probs = S.validateEmtbPart(p, TODAY);
+  ok(probs.some(function(m){ return /requires verified:true/.test(m); }), probs.join('\n'));
+});
+
+test('STAGED ROLLOUT: a verified emtb row with NO priceBasis stays legal while PRICE_BASIS_STRICT is false', function(){
+  eq(S.PRICE_BASIS_STRICT, false, 'PRICE_BASIS_STRICT flipped — the backfill must be complete in EVERY catalog first');
+  eq(S.validateEmtbPart(emtbPbRow(), TODAY).length, 0);
+});

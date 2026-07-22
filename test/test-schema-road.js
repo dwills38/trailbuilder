@@ -165,3 +165,44 @@ test('the real road catalog\'s discontinued rows resolve any supersededBy pointe
   var probs = S.validateRoadCatalog(D.ROAD_PARTS, new Date());
   eq(probs.filter(function(m){ return /supersededBy references unknown part/.test(m); }).length, 0, probs.join('\n'));
 });
+
+/* ---- priceBasis: price provenance (Douglas's 2026-07-22 ruling) -----------
+   "verified means the pricing was verified too". Same enum + same two-way
+   contract as src/schema.js — this pins that road didn't drift its own variant.
+   ('bundle-split-estimate' matters most here: STI/hydraulic shift-brake levers
+   are priced by the maker as one combined SKU.) */
+
+/** @param {Object} [changes] @returns {any} */
+function roadPbRow(changes){
+  var p = Object.assign({}, aFrame(), { verified:true, source:'https://example.com/spec', lastChecked:'2026-06-01' });
+  delete p.sourceType; delete p.weightSource;
+  return Object.assign(p, changes || {});
+}
+
+test('every priceBasis vocab token is accepted on a verified road row', function(){
+  S.LOCAL_VOCAB.priceBasis.forEach(function(token){
+    eq(S.validateRoadPart(roadPbRow({ priceBasis:token }), TODAY).length, 0, 'expected "' + token + '" to validate');
+  });
+});
+
+test('road priceBasis vocab is IDENTICAL to the live schema.js enum (one definition, mirrored)', function(){
+  var core = require('../src/schema.js').VOCAB.priceBasis;
+  eq(S.LOCAL_VOCAB.priceBasis.join('|'), core.join('|'), 'road drifted its own priceBasis variant');
+});
+
+test('an out-of-vocab priceBasis is caught (road)', function(){
+  var probs = S.validateRoadPart(roadPbRow({ priceBasis:'msrp-probably' }), TODAY);
+  ok(probs.some(function(m){ return /priceBasis.*not in/.test(m); }), probs.join('\n'));
+});
+
+test('priceBasis on an UNVERIFIED road row is rejected (a basis is a claim, not decoration)', function(){
+  var p = roadPbRow({ priceBasis:'msrp-confirmed' });
+  delete p.verified; delete p.source; delete p.lastChecked;
+  var probs = S.validateRoadPart(p, TODAY);
+  ok(probs.some(function(m){ return /requires verified:true/.test(m); }), probs.join('\n'));
+});
+
+test('STAGED ROLLOUT: a verified road row with NO priceBasis stays legal while PRICE_BASIS_STRICT is false', function(){
+  eq(S.PRICE_BASIS_STRICT, false, 'PRICE_BASIS_STRICT flipped — the backfill must be complete in EVERY catalog first');
+  eq(S.validateRoadPart(roadPbRow(), TODAY).length, 0);
+});

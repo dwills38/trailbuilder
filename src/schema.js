@@ -388,6 +388,33 @@ var VOCAB = {
      'retailer' exists so below-the-bar provenance can be stated honestly -
      the validator REJECTS it on verified rows. */
   sourceType:   ['manufacturer', 'manufacturer-doc', 'measured', 'retailer'],
+  /* PRICE PROVENANCE (Douglas's ruling 2026-07-22: "make it so verified means
+     the pricing was verified too"). `verified:true` historically only ever
+     asserted the SPEC was checked against the maker - the price could still be
+     a sample figure, which is exactly the overclaim this field closes.
+
+     ABSENT = the price is a SAMPLE figure (the honest default, and still the
+     state of most verified rows until the backfill grinds run). Present = a
+     positive, disclosed claim about where the number came from, so the field
+     may ONLY appear on a verified row (cross-rule below).
+
+     'msrp-confirmed'         the norm: the maker's own US MSRP, read off the
+                              same fetched page the spec was verified against.
+     The remaining four are the DISCLOSED EXCEPTION classes - a real price that
+     honestly is not a current maker MSRP. Each exists because the alternative
+     is either a silent overclaim or dropping a real part from the catalog:
+     'discontinued-no-msrp'   the maker no longer publishes a price for it.
+     'oe-only-no-msrp'        OE/OEM-only part, never sold at a consumer MSRP.
+     'regional-conversion'    the maker publishes a non-USD price only; the USD
+                              figure is a disclosed conversion, not a US MSRP.
+     'bundle-split-estimate'  the ratified shift-brake exception's shape: the
+                              maker prices only the combined SKU, so a
+                              single-side row carries a split estimate.
+     NEVER feeds checkBuild - price provenance is display/annotation only, the
+     same contract as `disciplines` (see PRICE_BASIS_STRICT below for the
+     staged rollout). */
+  priceBasis:   ['msrp-confirmed', 'discontinued-no-msrp', 'oe-only-no-msrp',
+                 'regional-conversion', 'bundle-split-estimate'],
   status:       ['current', 'discontinued', 'recalled'],   // absent = current
   soldWithout:  ['battery', 'charger', 'spring', 'rotor', 'mounting-hardware'],
 
@@ -747,7 +774,28 @@ var PRESET_CATS = ['groupset','wheelset','brakeset','cockpitset','completebike']
 var COMMON = ['id','cat','brand','model','price','weight','desc','verified','lastChecked','source',
   'family','gen','modelYear','mfgPn','disciplines',
   'sourceType','weightSource','archiveUrl','status','supersededBy','soldWithout',
-  'image','colors','retailerLinks'];
+  'priceBasis','image','colors','retailerLinks'];
+
+/* ===========================================================================
+   >>> PRICE_BASIS_STRICT - THE COORDINATOR'S ROLLOUT SWITCH. DO NOT FLIP <<<
+   ---------------------------------------------------------------------------
+   Douglas's 2026-07-22 ruling ("verified means the pricing was verified too")
+   lands in two stages, because ~3,300 MTB rows alone already carry
+   verified:true from before price provenance was a concept.
+
+     false (TODAY)  a verified row with NO priceBasis is a WARNING-tier lint -
+                    COUNTED and printed by validate.js, never a hard problem.
+                    The existing rows keep the gate green while the backfill
+                    grinds run.
+     true  (LATER)  the same row becomes a hard validator ERROR, so "verified"
+                    can never again silently mean "spec checked, price a guess".
+
+   FLIP THIS ONLY when the backfill is complete across EVERY catalog (this file
+   plus the five sibling validators, each of which carries its own copy of this
+   constant - grep PRICE_BASIS_STRICT). Flipping it early turns `node
+   validate.js` red for thousands of rows and blocks all catalog work.
+   =========================================================================== */
+var PRICE_BASIS_STRICT = false;
 
 /* Id convention (DATA-MODEL-REVIEW.md section 3.1): ids are APPEND-ONLY - never
    renamed, never reused; corrections retire the old id into ALIASES (compat.js).
@@ -930,6 +978,21 @@ function validatePart(p, ctx){
   }
   if('weightSource' in p && p.weightSource != null && !urlOk(p.weightSource)) bad('weightSource must be a valid http(s) URL');
   if('archiveUrl' in p && p.archiveUrl != null && !urlOk(p.archiveUrl)) bad('archiveUrl must be a valid http(s) URL');
+  /* priceBasis (2026-07-22 ruling - see VOCAB.priceBasis + PRICE_BASIS_STRICT).
+     Two directions, both about never letting the field become decorative:
+       - a stated basis is a CLAIM, so it may only ride on a verified row (and
+         verified:true already forces a real source URL + non-future date
+         above, which is what makes 'msrp-confirmed' mean "read off that page");
+       - once STRICT flips, a verified row must state its basis. Until then the
+         gap is counted by priceBasisAudit(), not failed. */
+  if('priceBasis' in p && p.priceBasis != null){
+    if(!isStr(p.priceBasis) || VOCAB.priceBasis.indexOf(p.priceBasis) < 0)
+      bad('priceBasis "' + p.priceBasis + '" not in [' + VOCAB.priceBasis.join(', ') + ']');
+    if(p.verified !== true)
+      bad('priceBasis "' + p.priceBasis + '" requires verified:true with a real source - an unverified row states no price provenance');
+  } else if(PRICE_BASIS_STRICT && p.verified === true){
+    bad('verified:true requires a priceBasis (see VOCAB.priceBasis) - "verified" must cover the price, not just the spec');
+  }
   if('status' in p && p.status != null && (!isStr(p.status) || VOCAB.status.indexOf(p.status) < 0))
     bad('status "' + p.status + '" not in [' + VOCAB.status.join(', ') + ']');
   if('supersededBy' in p && p.supersededBy != null){
@@ -1288,8 +1351,40 @@ function lintCatalog(C){
   return warnings;
 }
 
+/* Price-provenance rollout counter (2026-07-22 ruling). Deliberately NOT part
+   of lintCatalog: that returns one warning string per finding and the shipped
+   catalog is held lint-CLEAN by test-ids.js, so ~3,300 not-yet-backfilled rows
+   would either spam thousands of lines or force that guard to be weakened.
+   A count is the honest WARNING-tier signal instead - validate.js prints it
+   next to the verified counts, and it drops to 0 when the backfill completes
+   (the cue to flip PRICE_BASIS_STRICT). Takes a bare parts array so every
+   catalog - MTB, kit and the five siblings - can share this one counter. */
+/** @param {any[]|null|undefined} parts a catalog's rows; null/undefined is
+ * tolerated on purpose - this runs inside validate.js's output line, where
+ * throwing on a missing catalog would be a worse failure than reporting 0.
+ * @returns {{verified:number, withBasis:number, missing:number}} */
+function priceBasisAudit(parts){
+  var verified = 0, withBasis = 0;
+  (parts || []).forEach(function(p){
+    if(!p || p.verified !== true) return;
+    verified++;
+    if(p.priceBasis != null) withBasis++;
+  });
+  return { verified:verified, withBasis:withBasis, missing:verified - withBasis };
+}
+
+/* One-line WARNING-tier suffix for validate.js's per-catalog OK line. Empty
+   string once every verified row states a basis, so a green run stays quiet. */
+/** @param {any[]|null|undefined} parts @returns {string} */
+function priceBasisNote(parts){
+  var a = priceBasisAudit(parts);
+  return a.missing ? ', ' + a.missing + ' verified row(s) still lack priceBasis' : '';
+}
+
 if(typeof module !== 'undefined' && module.exports){
   module.exports = { VOCAB:VOCAB, SCHEMA:SCHEMA, PRESET_CATS:PRESET_CATS, ID_PREFIX:ID_PREFIX, KIT_CERTS:KIT_CERTS,
+    PRICE_BASIS_STRICT:PRICE_BASIS_STRICT,
     brandSlug:brandSlug, lintCatalog:lintCatalog,
+    priceBasisAudit:priceBasisAudit, priceBasisNote:priceBasisNote,
     validatePart:validatePart, validateCatalog:validateCatalog, _ctx:_ctx };
 }

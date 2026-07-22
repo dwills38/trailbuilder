@@ -84,6 +84,58 @@ a field the badge was never claiming would have destroyed far more truth than it
 badge no longer overclaims price to riders. Keep those two facts in sync — if this rule ever
 changes, the legend changes with it.
 
+### ★ `priceBasis` — STATE THE PRICE BASIS ON EVERY NEW VERIFIED ROW (Douglas, 2026-07-22)
+
+Douglas's ruling: **"make it so verified means the pricing was verified too."** This AMENDS the
+PRICE RULE above — it does not overturn it. The prose basis that rule already demands in `desc`
+becomes a **machine-readable field**, so the claim is checkable instead of buried in a sentence.
+
+**The field.** Optional `priceBasis` on every catalog's part shape (`src/schema.js` +
+`src/types.js`, mirrored into `schema-bmx/road/gravel/emtb/strider.js`; kit rides `schema.js`).
+One enum everywhere:
+
+| value | when to use it |
+|---|---|
+| `msrp-confirmed` | **the norm** — the maker's own US MSRP, read off the same fetched page you verified the spec against |
+| `discontinued-no-msrp` | the maker no longer publishes a price for it |
+| `oe-only-no-msrp` | OE/OEM-only part, never sold at a consumer MSRP |
+| `regional-conversion` | the maker publishes a non-USD price only; the USD figure is a disclosed conversion |
+| `bundle-split-estimate` | the maker prices only a combined SKU (the ratified shift-brake exception's shape) |
+
+The four non-`msrp-confirmed` values are the **disclosed exception classes** — they are exactly
+the cases the 2026-07-18 audit protected (EUR RRP with no US price, spec-only handbooks, OE parts).
+Those 1,000+ honestly-labeled rows get **backfilled to an exception token, never demoted**.
+
+**THE RULE FOR NEW WORK — from now on, every row you promote to `verified:true` MUST set
+`priceBasis`.** Pick `msrp-confirmed` when the fetched page shows a real US MSRP and you used it;
+otherwise pick the exception class that is actually true. Keep stating the basis in `desc` too —
+the prose carries the detail (the actual EUR figure, the conversion, which bundle), the field
+carries the class.
+
+**Validator behavior (staged — read this before you panic at a red gate):**
+
+* `priceBasis` on an **unverified** row is an **ERROR**. A basis is a claim; claims ride on
+  verified rows only. (`verified:true` already forces a real source URL + non-future date, which
+  is what makes `msrp-confirmed` mean "read off *that* page".)
+* An out-of-vocab value is an **ERROR**.
+* A **verified row with NO `priceBasis`** is, *for now*, a **WARNING-tier count**, printed by
+  `node validate.js` next to the verified counts:
+  `DATA OK - 5062 parts, 0 problems (3343 verified, 1719 unverified, 3343 verified row(s) still lack priceBasis).`
+  That trailing figure is the **backfill burndown**, one per catalog. It never fails the gate.
+* When every catalog's burndown reaches **0**, the coordinator flips `PRICE_BASIS_STRICT` (one
+  clearly-marked constant per validator — `grep PRICE_BASIS_STRICT`) and the missing case becomes
+  a hard error. **Do not flip it yourself**; flipping early turns `validate.js` red for thousands
+  of rows and blocks all catalog work.
+
+**`priceBasis` NEVER feeds a compatibility rule** in any engine — display/annotation only, the
+same contract as `disciplines`. A price fact must never move a fit verdict.
+
+**User-facing consequence (shipped with this change):** each part's ✓ badge tooltip now states its
+own price basis — "price: MSRP confirmed against the manufacturer", a named exception phrase, or
+"price: sample — not verified" (what nearly every verified row says until the backfill runs).
+Wording is centralized in `src/pricing.js` (`priceBasisLabel`) and shared by all six pages. The
+legend in `index.html` was amended to match — **same sync obligation as the rule above.**
+
 ### Interface verification — categories whose makers publish no per-SKU weights
 
 *(policy decided 2026-07-12, Douglas via coordinator; it formalizes the
