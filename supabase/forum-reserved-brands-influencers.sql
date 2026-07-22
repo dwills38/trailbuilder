@@ -424,3 +424,61 @@ insert into public.reserved_usernames (norm, label, kind, note) values
   (public.profile_norm('Zipp'), 'Zipp', 'held', 'manufacturer name — Gravel, MTB, Road catalogs'),
   (public.profile_norm('Zoic'), 'Zoic', 'held', 'manufacturer name — Kit catalog')
 on conflict (norm) do nothing;
+
+-- ===========================================================================
+-- BATCH 2 — 2026-07-21 (owner order): prominent MTB/cycling YouTube
+-- creators/influencers. Both the channel/brand name AND the person's real
+-- name are reserved separately when they differ; a self-titled channel (the
+-- creator's real name IS the channel name) gets one row. Every real name
+-- below was confirmed on a FETCHED page (channel/creator bio, an interview,
+-- a published profile, or the creator's own site/LinkedIn) — never guessed.
+--
+-- Starting points named by the owner: Berm Peak / Seth Alvo (+ the former
+-- channel name "Seth's Bike Hacks", shape-cleaned to "Seths Bike Hacks") and
+-- Skills With Phil / Phil Kmetz. Remaining names researched from that tier
+-- (Fabio Wibmer, Danny MacAskill, Sam Pilgrim, Matt Jones, Ben Cathro, Remy
+-- Metailler, BKXC/Brian Kennedy, Singletrack Sampler, Nate Hills, Rob
+-- Warner, Christina Chappetta, Eliot Jackson, The Loam Wolf/Drew Rohde, and
+-- GMBN's current official presenter roster).
+--
+-- Skipped (reported, not fabricated):
+--   * Singletrack Sampler's real name — search engines surfaced "Alexander
+--     Bowers" via an Instagram tag, but no page I could actually fetch
+--     (Instagram bio, the channel's Pinkbike page, its About page) confirmed
+--     it in his own words. Only the channel name is reserved.
+--   * GCN (Global Cycling Network) — the owner's "GMBN/GCN" note covered
+--     both; GCN is road-focused and its presenter roster wasn't researched
+--     for this pass, so only the "GCN" brand token itself is reserved here.
+--   * Rémy Métailler transliterated to "Remy Metailler" (diacritics are
+--     illegal in the profiles CHECK shape), same convention as batch 1.
+-- ===========================================================================
+insert into public.reserved_usernames (norm, label, kind, note) values
+  (public.profile_norm('Berm Peak'), 'Berm Peak', 'held', 'influencer — Berm Peak, freehub.com'),
+  (public.profile_norm('Seth Alvo'), 'Seth Alvo', 'held', 'influencer — Berm Peak, freehub.com'),
+  (public.profile_norm('Seths Bike Hacks'), 'Seths Bike Hacks', 'held', 'influencer — Berm Peak (former channel name, cleaned from ''Seth''''s Bike Hacks''), youthmotivator4life.com'),
+  (public.profile_norm('Skills With Phil'), 'Skills With Phil', 'held', 'influencer — Skills With Phil, philkmetz.com'),
+  (public.profile_norm('Phil Kmetz'), 'Phil Kmetz', 'held', 'influencer — Skills With Phil, philkmetz.com'),
+  (public.profile_norm('BKXC'), 'BKXC', 'held', 'influencer — BKXC, cyclinguptodate.com'),
+  (public.profile_norm('Brian Kennedy'), 'Brian Kennedy', 'held', 'influencer — BKXC, cyclinguptodate.com'),
+  (public.profile_norm('Fabio Wibmer'), 'Fabio Wibmer', 'held', 'influencer — Fabio Wibmer, en.wikipedia.org'),
+  (public.profile_norm('Danny MacAskill'), 'Danny MacAskill', 'held', 'influencer — Danny MacAskill, en.wikipedia.org'),
+  (public.profile_norm('Sam Pilgrim'), 'Sam Pilgrim', 'held', 'influencer — Sam Pilgrim, en.wikipedia.org'),
+  (public.profile_norm('Matt Jones'), 'Matt Jones', 'held', 'influencer — Matt Jones, muc-off.com'),
+  (public.profile_norm('Ben Cathro'), 'Ben Cathro', 'held', 'influencer — Ben Cathro, vitalmtb.com'),
+  (public.profile_norm('Remy Metailler'), 'Remy Metailler', 'held', 'influencer — Remy Metailler RAW (cleaned from ''Remy Metailler'' with accents), singletracks.com'),
+  (public.profile_norm('Nate Hills'), 'Nate Hills', 'held', 'influencer — Nate Hills, yeticycles.com'),
+  (public.profile_norm('Rob Warner'), 'Rob Warner', 'held', 'influencer — Rob Warner, en.wikipedia.org'),
+  (public.profile_norm('Christina Chappetta'), 'Christina Chappetta', 'held', 'influencer — Pinkbike presenter, tagcycling.com'),
+  (public.profile_norm('Eliot Jackson'), 'Eliot Jackson', 'held', 'influencer — Red Bull TV presenter, singletracks.com'),
+  (public.profile_norm('Singletrack Sampler'), 'Singletrack Sampler', 'held', 'influencer — The Singletrack Sampler, pinkbike.com (real name unconfirmed by any fetched page — see worker report)'),
+  (public.profile_norm('The Loam Wolf'), 'The Loam Wolf', 'held', 'influencer — The Loam Wolf, theloamwolf.com'),
+  (public.profile_norm('Drew Rohde'), 'Drew Rohde', 'held', 'influencer — The Loam Wolf founder, theloamwolf.com'),
+  (public.profile_norm('GMBN'), 'GMBN', 'held', 'influencer — Global Mountain Bike Network, gmbn.com'),
+  (public.profile_norm('Martyn Ashton'), 'Martyn Ashton', 'held', 'influencer — GMBN presenter, gmbn.com'),
+  (public.profile_norm('Rich Payne'), 'Rich Payne', 'held', 'influencer — GMBN presenter, gmbn.com'),
+  (public.profile_norm('Ferg Ryan'), 'Ferg Ryan', 'held', 'influencer — GMBN presenter, gmbn.com'),
+  (public.profile_norm('James Pickering'), 'James Pickering', 'held', 'influencer — GMBN presenter, gmbn.com'),
+  (public.profile_norm('Owen Coutts'), 'Owen Coutts', 'held', 'influencer — GMBN Tech presenter, gmbn.com'),
+  (public.profile_norm('Adam Scroxton'), 'Adam Scroxton', 'held', 'influencer — GMBN Tech presenter, gmbn.com'),
+  (public.profile_norm('GCN'), 'GCN', 'held', 'influencer — Global Cycling Network (brand token only; presenter roster not researched this pass)')
+on conflict (norm) do nothing;
