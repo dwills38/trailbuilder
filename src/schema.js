@@ -1359,7 +1359,10 @@ function lintCatalog(C){
    next to the verified counts, and it drops to 0 when the backfill completes
    (the cue to flip PRICE_BASIS_STRICT). Takes a bare parts array so every
    catalog - MTB, kit and the five siblings - can share this one counter. */
-/** @param {any[]} parts @returns {{verified:number, withBasis:number, missing:number}} */
+/** @param {any[]|null|undefined} parts a catalog's rows; null/undefined is
+ * tolerated on purpose - this runs inside validate.js's output line, where
+ * throwing on a missing catalog would be a worse failure than reporting 0.
+ * @returns {{verified:number, withBasis:number, missing:number}} */
 function priceBasisAudit(parts){
   var verified = 0, withBasis = 0;
   (parts || []).forEach(function(p){
@@ -1372,7 +1375,7 @@ function priceBasisAudit(parts){
 
 /* One-line WARNING-tier suffix for validate.js's per-catalog OK line. Empty
    string once every verified row states a basis, so a green run stays quiet. */
-/** @param {any[]} parts @returns {string} */
+/** @param {any[]|null|undefined} parts @returns {string} */
 function priceBasisNote(parts){
   var a = priceBasisAudit(parts);
   return a.missing ? ', ' + a.missing + ' verified row(s) still lack priceBasis' : '';

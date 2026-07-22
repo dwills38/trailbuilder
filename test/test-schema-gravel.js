@@ -121,3 +121,43 @@ test('a real dropper diameter still validates clean', function(){
   if(!dp) throw new Error('no gravel dropper row found');
   eq(S.validateGravelPart(dp, TODAY).length, 0);
 });
+
+/* ---- priceBasis: price provenance (Douglas's 2026-07-22 ruling) -----------
+   "verified means the pricing was verified too". Same enum + same two-way
+   contract as src/schema.js — this pins that gravel didn't drift its own
+   variant. */
+
+/** @param {Object} [changes] @returns {any} */
+function gravelPbRow(changes){
+  var p = Object.assign({}, aFrame(), { verified:true, source:'https://example.com/spec', lastChecked:'2026-06-01' });
+  delete p.sourceType; delete p.weightSource;
+  return Object.assign(p, changes || {});
+}
+
+test('every priceBasis vocab token is accepted on a verified gravel row', function(){
+  S.GRAVEL_VOCAB.priceBasis.forEach(function(token){
+    eq(S.validateGravelPart(gravelPbRow({ priceBasis:token }), TODAY).length, 0, 'expected "' + token + '" to validate');
+  });
+});
+
+test('gravel priceBasis vocab is IDENTICAL to the live schema.js enum (one definition, mirrored)', function(){
+  var core = require('../src/schema.js').VOCAB.priceBasis;
+  eq(S.GRAVEL_VOCAB.priceBasis.join('|'), core.join('|'), 'gravel drifted its own priceBasis variant');
+});
+
+test('an out-of-vocab priceBasis is caught (gravel)', function(){
+  var probs = S.validateGravelPart(gravelPbRow({ priceBasis:'msrp-probably' }), TODAY);
+  ok(probs.some(function(m){ return /priceBasis.*not in/.test(m); }), probs.join('\n'));
+});
+
+test('priceBasis on an UNVERIFIED gravel row is rejected (a basis is a claim, not decoration)', function(){
+  var p = gravelPbRow({ priceBasis:'msrp-confirmed' });
+  delete p.verified; delete p.source; delete p.lastChecked;
+  var probs = S.validateGravelPart(p, TODAY);
+  ok(probs.some(function(m){ return /requires verified:true/.test(m); }), probs.join('\n'));
+});
+
+test('STAGED ROLLOUT: a verified gravel row with NO priceBasis stays legal while PRICE_BASIS_STRICT is false', function(){
+  eq(S.PRICE_BASIS_STRICT, false, 'PRICE_BASIS_STRICT flipped — the backfill must be complete in EVERY catalog first');
+  eq(S.validateGravelPart(gravelPbRow(), TODAY).length, 0);
+});

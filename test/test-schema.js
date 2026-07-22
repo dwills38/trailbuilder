@@ -438,3 +438,93 @@ test('cross-rule: straight-dc headset with a /40 lower (tapered crown race) is c
 test('headset id must carry the hs- prefix', function(){
   some(probs(Object.assign(hsOk(), { id:'st-canecreek-40-zs44-zs56' })), 'prefix');
 });
+
+/* ---- priceBasis: price provenance (Douglas's 2026-07-22 ruling) -----------
+   "verified means the pricing was verified too". A stated basis is a CLAIM, so
+   the validator must bite in both directions: an unverified row may not state
+   one, and a stated one must be a real vocab token. The missing-on-verified
+   case is deliberately NOT an error yet — PRICE_BASIS_STRICT is false while the
+   backfill runs — and that staging is itself pinned below, so a premature flip
+   can't slip in unnoticed. */
+/** a verified row stripped to a known-good provenance baseline, so these tests
+ * don't drift with whatever lastChecked the live row happens to carry
+ * @param {Object} [changes] @returns {*} */
+function pbRow(changes){
+  var p = over('fr-santacruz-megatower-cc', { verified:true, source:'https://example.com/spec', lastChecked:'2026-06-01' });
+  delete p.sourceType; delete p.weightSource;
+  return Object.assign(p, changes || {});
+}
+test('every priceBasis vocab token is accepted on a verified row', function(){
+  S.VOCAB.priceBasis.forEach(function(token){
+    eq(probs(pbRow({ priceBasis:token })).length, 0, 'expected "' + token + '" to validate on a verified row');
+  });
+});
+test('an out-of-vocab priceBasis is caught', function(){
+  some(probs(pbRow({ priceBasis:'msrp-probably' })), 'priceBasis');
+  some(probs(pbRow({ priceBasis:'street-price' })), 'priceBasis');
+});
+test('priceBasis on an UNVERIFIED row is rejected (a basis is a claim, not decoration)', function(){
+  var p = pbRow({ priceBasis:'msrp-confirmed' });
+  delete p.verified; delete p.source; delete p.lastChecked;
+  some(probs(p), 'requires verified:true');
+});
+test('priceBasis with verified:false is rejected too (explicit false, not just absent)', function(){
+  var p = pbRow({ priceBasis:'msrp-confirmed', verified:false });
+  some(probs(p), 'requires verified:true');
+});
+test('msrp-confirmed cannot ride on a verified row lacking a real source (verified:true already forces one)', function(){
+  var p = pbRow({ priceBasis:'msrp-confirmed', source:'not-a-url' });
+  some(probs(p), 'source URL');
+});
+test('a non-string priceBasis is caught', function(){
+  some(probs(pbRow({ priceBasis:7 })), 'priceBasis');
+});
+test('STAGED ROLLOUT: a verified row with NO priceBasis is still legal while PRICE_BASIS_STRICT is false', function(){
+  // The whole point of the staging — ~3,300 verified rows predate the field and
+  // must not break the gate mid-backfill. If this ever fails, PRICE_BASIS_STRICT
+  // was flipped before the backfill finished (that is the coordinator's call,
+  // and this test is the tripwire, not an obstacle to be deleted).
+  eq(S.PRICE_BASIS_STRICT, false, 'PRICE_BASIS_STRICT flipped — the backfill must be complete in EVERY catalog first');
+  eq(probs(pbRow()).length, 0, 'a verified row without priceBasis must stay valid during the rollout');
+});
+test('priceBasisAudit counts only VERIFIED rows, and only their missing bases', function(){
+  var a = S.priceBasisAudit([
+    { verified:true,  priceBasis:'msrp-confirmed' },
+    { verified:true },                                  // verified, no basis -> missing
+    { verified:false, priceBasis:'msrp-confirmed' },    // unverified rows are not counted either way
+    { }                                                 // no provenance at all
+  ]);
+  eq(a.verified, 2); eq(a.withBasis, 1); eq(a.missing, 1);
+});
+test('priceBasisAudit is safe on empty/absent input (validate.js calls it on every catalog)', function(){
+  eq(S.priceBasisAudit([]).missing, 0);
+  eq(S.priceBasisAudit(null).verified, 0);
+});
+test('priceBasisNote is quiet when nothing is missing, and states the burndown when something is', function(){
+  eq(S.priceBasisNote([{ verified:true, priceBasis:'msrp-confirmed' }]), '');
+  eq(S.priceBasisNote([]), '');
+  eq(S.priceBasisNote([{ verified:true }]), ', 1 verified row(s) still lack priceBasis');
+});
+test('priceBasis NEVER feeds a compatibility verdict (display/annotation only)', function(){
+  /* The same contract as `disciplines`: a PRICE fact must never move a FIT
+     verdict. compatOf/placementDiff take a real part OBJECT, so this injects a
+     priceBasis-carrying clone of each part and requires byte-identical output —
+     a genuine guard, not a self-comparison. Every enum token is tried, so a
+     future rule keying off one specific basis can't hide. */
+  var build = U.B({ frame:'fr-santacruz-megatower-cc' });
+  [['sh-fox-float-x-230x60','shock'],                              // yellow (shorter stroke)
+   ['sh-rockshox-super-deluxe-ultimate-230x62p5','shock'],         // green
+   ['sh-rockshox-super-deluxe-205x65-trun','shock']                // red (trunnion)
+  ].forEach(function(pair){
+    var base = U.part(pair[0]);   // throws on a missing id — keeps tsc honest about Part|null
+    var plainDot  = JSON.stringify(C.compatOf(base, build));
+    var plainDiff = JSON.stringify(C.placementDiff(base, pair[1], build));
+    S.VOCAB.priceBasis.forEach(function(token){
+      var tagged = Object.assign({}, base, { priceBasis:token });
+      eq(JSON.stringify(C.compatOf(tagged, build)), plainDot,
+        pair[0] + ': the dot changed when priceBasis="' + token + '" was added');
+      eq(JSON.stringify(C.placementDiff(tagged, pair[1], build)), plainDiff,
+        pair[0] + ': placementDiff changed when priceBasis="' + token + '" was added');
+    });
+  });
+});

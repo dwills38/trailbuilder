@@ -123,3 +123,44 @@ test('a valid supersededBy pointing at a real BMX part passes', function(){
   var probs = S.validateBmxCatalog(D.BMX_PARTS.map(function(p){ return p.id === frame.id ? good : p; }), TODAY);
   ok(!probs.some(function(m){ return /supersededBy/.test(m); }), probs.join('\n'));
 });
+
+/* ---- priceBasis: price provenance (Douglas's 2026-07-22 ruling) -----------
+   "verified means the pricing was verified too". Same enum + same two-way
+   contract as src/schema.js — this pins that BMX didn't drift its own variant. */
+
+/** a verified baseline row, so these don't ride whatever provenance the live
+ * row happens to carry (which drifts with every verification wave) */
+/** @param {Object} [changes] @returns {any} */
+function bmxPbRow(changes){
+  var p = Object.assign({}, aFrame(), { verified:true, source:'https://example.com/spec', lastChecked:'2026-06-01' });
+  delete p.sourceType; delete p.weightSource;
+  return Object.assign(p, changes || {});
+}
+
+test('every priceBasis vocab token is accepted on a verified BMX row', function(){
+  S.LOCAL_VOCAB.priceBasis.forEach(function(token){
+    eq(S.validateBmxPart(bmxPbRow({ priceBasis:token }), TODAY).length, 0, 'expected "' + token + '" to validate');
+  });
+});
+
+test('BMX priceBasis vocab is IDENTICAL to the live schema.js enum (one definition, mirrored)', function(){
+  var core = require('../src/schema.js').VOCAB.priceBasis;
+  eq(S.LOCAL_VOCAB.priceBasis.join('|'), core.join('|'), 'BMX drifted its own priceBasis variant');
+});
+
+test('an out-of-vocab priceBasis is caught (BMX)', function(){
+  var probs = S.validateBmxPart(bmxPbRow({ priceBasis:'msrp-probably' }), TODAY);
+  ok(probs.some(function(m){ return /priceBasis.*not in/.test(m); }), probs.join('\n'));
+});
+
+test('priceBasis on an UNVERIFIED BMX row is rejected (a basis is a claim, not decoration)', function(){
+  var p = bmxPbRow({ priceBasis:'msrp-confirmed' });
+  delete p.verified; delete p.source; delete p.lastChecked;
+  var probs = S.validateBmxPart(p, TODAY);
+  ok(probs.some(function(m){ return /requires verified:true/.test(m); }), probs.join('\n'));
+});
+
+test('STAGED ROLLOUT: a verified BMX row with NO priceBasis stays legal while PRICE_BASIS_STRICT is false', function(){
+  eq(S.PRICE_BASIS_STRICT, false, 'PRICE_BASIS_STRICT flipped — the backfill must be complete in EVERY catalog first');
+  eq(S.validateBmxPart(bmxPbRow(), TODAY).length, 0);
+});
