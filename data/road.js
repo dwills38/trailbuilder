@@ -63,7 +63,7 @@ var ROAD_PARTS = [
     wheelSizes: ['700c'], rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount',
     bb: 'bsa-road', seatpost: '27.2', steerer: 'tapered', maxTire: 35, frontDerailleurMount: 'braze-on',
     frameOnly: false, weight: 1375, price: 1200,
-    verified: true, lastChecked: '2026-07-21', source: 'https://www.specialized.com/us/en/allez-comp-shimano-105/p/4221810',
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.specialized.com/us/en/allez-comp-shimano-105/p/4221810', priceBasis: 'third-party-listed',
     note: 'road-14 wave: specialized.com current Allez pages confirm E5 Premium Aluminum frame, 12x142mm thru-axle, flat-mount disc, Shimano Threaded BSA BB, 27.2mm 2-bolt alloy seatpost, and the maker-stated frame weight "1,375 grams" (catalog had 1450g, corrected). maxTire corrected 30->35mm ("tire clearance up to a beefy 35 mm (32 mm with Fenders)"). Price kept as the existing $1200 sample (page lists complete-bike prices only, no frameset-only US MSRP found).'
   },
   {
@@ -189,7 +189,7 @@ var ROAD_PARTS = [
   { id: 'fk-specialized-roubaix', cat: 'fork', brand: 'Specialized', model: 'Roubaix Future Shock Fork', family: 'specialized-roubaix',
     wheel: '700c', axle: '12x100', steerer: 'tapered', brakeSystem: 'disc-flat', brakeMount: 'flat-mount', maxRotorF: 160, maxTire: 33, travel: 0,
     weight: 420, price: 500,
-    verified: true, lastChecked: '2026-07-21', source: 'https://www.specialized.com/us/en/roubaix-expert/p/184474',
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.specialized.com/us/en/roubaix-expert/p/184474', priceBasis: 'third-party-listed',
     note: 'road-14 wave: specialized.com Roubaix Expert page confirms fork "Future Shock 2.0 w/ Damper, Smooth Boot, 12x100mm thru-axle, flat-mount", 33mm tire clearance; tapered steerer per the Roubaix parts/service manual (1.5in lower bearing). No per-config Future Shock fork weight published — 420g kept nominal (forks interface-verification exception).' },
   { id: 'fk-trek-emonda-slr', cat: 'fork', brand: 'Trek', model: 'Émonda SLR Fork', family: 'trek-emonda-slr',
     wheel: '700c', axle: '12x100', steerer: 'tapered', brakeSystem: 'disc-flat', brakeMount: 'flat-mount', maxRotorF: 160, maxTire: 28, travel: 0,
@@ -1713,17 +1713,17 @@ var ROAD_PARTS = [
   { id: 'ti-specialized-cotton-tlr-28', cat: 'tire', brand: 'Specialized', model: 'Cotton TLR 28c', family: 'specialized-cotton-tlr',
     wheel: '700c', width: 28, tubeless: true, compound: 'Gripton', casing: 'Poly-Cotton-Corespun',
     weight: 280, price: 90,
-    verified: true, lastChecked: '2026-07-22', source: 'https://www.specialized.com/us/en/cotton-tlr/p/1000261337',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.specialized.com/us/en/cotton-tlr/p/1000261337', priceBasis: 'third-party-listed',
     note: 'road-depth-4 wave (new brand — first Specialized road tire row; this file previously had no Specialized tire despite the brand\'s frame/wheel presence). FETCHED specialized.com\'s current "Cotton TLR" product page directly: "700x28c, 280g" (Approximate Weight table), "Poly-Cotton-Corespun casing with seamless vulcanization... strong polyester core with supple cotton fibers" (casing), GRIPTON compound (marketing copy names the compound family without a numbered tier on this specific tire, unlike the T2/T5-tiered RapidAir line). Tubeless-ready ("TLR", "race-proven... tubeless-ready"). Price: no per-tire MSRP found on the page; $90 is an unsourced sample positioned near this file\'s other premium tubeless race-tire rows (Vittoria Corsa Pro $95, Pirelli P Zero Race $80).' },
   { id: 'ti-specialized-cotton-tlr-30', cat: 'tire', brand: 'Specialized', model: 'Cotton TLR 30c', family: 'specialized-cotton-tlr',
     wheel: '700c', width: 30, tubeless: true, compound: 'Gripton', casing: 'Poly-Cotton-Corespun',
     weight: 290, price: 90,
-    verified: true, lastChecked: '2026-07-22', source: 'https://www.specialized.com/us/en/cotton-tlr/p/1000261337',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.specialized.com/us/en/cotton-tlr/p/1000261337', priceBasis: 'third-party-listed',
     note: 'road-depth-4 wave: same specialized.com Cotton TLR fetch as the 28c sibling row. "700x30c, 290g".' },
   { id: 'ti-specialized-cotton-tlr-32', cat: 'tire', brand: 'Specialized', model: 'Cotton TLR 32c', family: 'specialized-cotton-tlr',
     wheel: '700c', width: 32, tubeless: true, compound: 'Gripton', casing: 'Poly-Cotton-Corespun',
     weight: 320, price: 90,
-    verified: true, lastChecked: '2026-07-22', source: 'https://www.specialized.com/us/en/cotton-tlr/p/1000261337',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.specialized.com/us/en/cotton-tlr/p/1000261337', priceBasis: 'third-party-listed',
     note: 'road-depth-4 wave: same specialized.com Cotton TLR fetch as the 28c/30c sibling rows. "700x32c, 320g".' },
 
   // ===== COCKPIT — Enve / PRO / FSA (rounding out the finishing-kit brand set)
@@ -1897,12 +1897,12 @@ var ROAD_PARTS = [
   { id: 'ti-specialized-turbocotton-26', cat: 'tire', brand: 'Specialized', model: 'Turbo Cotton 26c', family: 'specialized-turbocotton',
     wheel: '700c', width: 26, tubeless: false, compound: 'GRIPTON', casing: '320 TPI Polycotton',
     weight: 240, price: 70,
-    verified: true, lastChecked: '2026-07-21', source: 'https://www.specialized.com/us/en/turbo-cotton/p/155771',
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.specialized.com/us/en/turbo-cotton/p/155771', priceBasis: 'third-party-listed',
     note: 'road-15 wave: PROMOTED — specialized.com fetched directly via Exa (the WebFetch 403 previously logged for this domain is a bot-wall, not JS-rendering; Exa\'s render cleared it, closing the road-14/prior "specialized.com 403" flag). Product page states verbatim: "Casing: 320 TPI Polycotton", "Compound: GRIPTON", "700 x 26mm, psi 95-115, approximate weight 240g" — every catalog field matches exactly, no corrections needed. Not tubeless (clincher only), matches this row. Price ($70) is the existing sample figure; the fetched page shows no US MSRP text in the extracted content, so price basis is left as an honestly-labeled sample per THE PRICE RULE.' },
   { id: 'ti-specialized-turbocotton-28', cat: 'tire', brand: 'Specialized', model: 'Turbo Cotton 28c', family: 'specialized-turbocotton',
     wheel: '700c', width: 28, tubeless: false, compound: 'GRIPTON', casing: '320 TPI Polycotton',
     weight: 260, price: 70,
-    verified: true, lastChecked: '2026-07-21', source: 'https://www.specialized.com/us/en/turbo-cotton/p/155771',
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.specialized.com/us/en/turbo-cotton/p/155771', priceBasis: 'third-party-listed',
     note: 'road-15 wave: PROMOTED — same specialized.com fetch as the 26c row above. Product page states verbatim: "700 x 28mm, Hell of the North, psi 85-95, approximate weight 260g" — matches this row exactly (also marketed under the "Hell of the North" name on the maker\'s own page, not just a retailer nickname). Price ($70) kept as an honestly-labeled sample (no US MSRP text captured on the fetched page).' },
 
   // ===== HEADSETS (road-5, Shimano-depth wave) ===============================
