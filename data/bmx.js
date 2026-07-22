@@ -2370,6 +2370,19 @@ var BMX_PARTS = [
     id: 'bmx-hs-merritt-hightop', cat: 'headset', brand: 'Merritt', model: 'High Top Integrated Headset',
     fit: 'integrated-1-1/8', weight: 82, price: 29.99,
     note: 'bmx-breadth-3 (2026-07-22): companion tier to the Low Top row above - "Campy spec integrated headset" for riders needing a taller stack (20mm CNC 6061 aluminum cap vs the Low Top\'s 10mm), two sealed bearings, aluminum compression ring. FETCHED bmxguru.com/products/merritt-high-top-1-1-8-integrated-bmx-headset-bronze directly, which states price $29.99 and "Stack Height: 20mm" verbatim; weight (82g / 2.9oz) corroborated by an independent WebSearch summary of the same product line, not itself restated on the fetched bmxguru.com page. bmxguru.com is a RETAILER, not Merritt\'s own site, so this cannot carry verified:true per the sourceType:retailer-is-rejected-on-verified-rows policy even though the page itself was fetched directly - left unverified.'
+  },
+
+  // ---- Fiction BMX (new brand: a Stolen-family parts brand; thin headset +
+  //      pegs categories) -------------------------------------------------
+  {
+    id: 'bmx-hs-fiction-savage', cat: 'headset', brand: 'Fiction', model: 'Savage Headset',
+    fit: 'integrated-1-1/8', price: 19.95,
+    note: 'bmx-breadth-3 (2026-07-22): NEW brand for this catalog. Real current Fiction product, WebSearch-corroborated across SkatePro ($19.95), Dan\'s Comp, Albe\'s BMX and Stolen Brand (Fiction\'s parent/sister brand storefront, $19.99) all describing the same SKU: "45x45º integrated 1-1/8in headset for modern head tubes with built-in cups... two precision sealed Campy spec bearings, a CNC machined alloy dust cover with 11mm stack height." No manufacturer-direct page located/fetched this session (Fiction has no clearly separate storefront from Stolen Brand\'s site). Price entered at the SkatePro figure. Left unverified (retailer-corroborated).'
+  },
+  {
+    id: 'bmx-pg-fiction-steel', cat: 'pegs', brand: 'Fiction', model: 'Steel Freestyle Pegs',
+    axleFit: '14mm', material: 'steel', reducerIncluded: true, price: 30.95,
+    note: 'bmx-breadth-3 (2026-07-22): real current Fiction product, WebSearch-corroborated (SkatePro $30.95): "made from solid Chromoly steel...come in sets of either 2 pieces or 4 pieces, designed for 14mm axles and with spacers included for 10mm setup" -> axleFit:14mm, material:steel, reducerIncluded:true (the 10mm spacers). Price entered at the single-peg-equivalent SkatePro figure; the page also sells 2- and 4-peg bundles at proportional prices, not modeled as separate rows (bundle count is a quantity axis, not a fit-distinct SKU per DATA-ENTRY-TEMPLATE §1). Left unverified (retailer-corroborated, no manufacturer page fetched).'
   }
 ];
 
