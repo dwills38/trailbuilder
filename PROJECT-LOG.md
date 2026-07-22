@@ -1,5 +1,22 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — blister-probe-1: the fork-weight wall cracks (narrowly)
+
+- **verify/blister-probe-1 merged**: blisterreview.com renders clean in the browser pane
+  (no challenge — WebFetch's 403 was a tooling gap, not a wall; rendering ≠
+  circumvention). Their "Blister's Measured Weight" lines carry explicit configs — exactly
+  the measured-weight policy's source class. Applied: Fox 36 Factory MY27 29/160 weight
+  1920→2134g (config-exact incl. Grip X2 damper, sourceType:'measured' + weightSource;
+  interfaces stay maker-sourced). Correctly refused: the 38 review's 2440g figure doesn't
+  say WHICH trim was weighed (Factory vs Performance Elite rows both exist) — not
+  promoted. Net: the mw1 class-closed finding mostly stands; Blister covers only the
+  premium fraction, but the route is now a confirmed reusable lead (noted in
+  verify-notes-forks-mw1.md).
+- **Process note**: the drivetrain-pricing-1 chip died mid-run (user-interrupted, 9 turns,
+  0 commits) — empty branch/worktree cleaned so a re-dispatch starts fresh; the chip
+  itself is unchanged and ready to re-paste.
+- Gates: 7 OK, 988/988, tsc clean.
+
 ## 2026-07-22 — propain-conflicts-1: generation conflict closed; the rigid-post gap goes to Douglas
 
 - **verify/propain-conflicts-1 merged**: the Spindrift CF Base "Eagle 70 Transmission vs
