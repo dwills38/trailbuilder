@@ -101,10 +101,18 @@ One enum everywhere:
 | `oe-only-no-msrp` | OE/OEM-only part, never sold at a consumer MSRP |
 | `regional-conversion` | the maker publishes a non-USD price only; the USD figure is a disclosed conversion |
 | `bundle-split-estimate` | the maker prices only a combined SKU (the ratified shift-brake exception's shape) |
+| `third-party-listed` | current product; the maker publishes no price anywhere; the stored figure is a disclosed third-party listing/estimate |
 
-The four non-`msrp-confirmed` values are the **disclosed exception classes** — they are exactly
+The five non-`msrp-confirmed` values are the **disclosed exception classes** — they are exactly
 the cases the 2026-07-18 audit protected (EUR RRP with no US price, spec-only handbooks, OE parts).
 Those 1,000+ honestly-labeled rows get **backfilled to an exception token, never demoted**.
+
+**Anti-pattern (Douglas, 2026-07-22): never use `discontinued-no-msrp` on a current product** —
+that mislabel caused a rejected branch 2026-07-22. `discontinued-no-msrp` means the part's
+lifecycle has ENDED; a current product whose maker simply never published a price at all is
+`third-party-listed`, and a current product priced only outside the US is `regional-conversion`.
+Check the row's own `status`/note before picking a token — don't infer lifecycle from "hard to find
+a price for."
 
 **THE RULE FOR NEW WORK — from now on, every row you promote to `verified:true` MUST set
 `priceBasis`.** Pick `msrp-confirmed` when the fetched page shows a real US MSRP and you used it;

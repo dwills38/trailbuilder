@@ -400,7 +400,7 @@ var VOCAB = {
 
      'msrp-confirmed'         the norm: the maker's own US MSRP, read off the
                               same fetched page the spec was verified against.
-     The remaining four are the DISCLOSED EXCEPTION classes - a real price that
+     The remaining five are the DISCLOSED EXCEPTION classes - a real price that
      honestly is not a current maker MSRP. Each exists because the alternative
      is either a silent overclaim or dropping a real part from the catalog:
      'discontinued-no-msrp'   the maker no longer publishes a price for it.
@@ -410,11 +410,17 @@ var VOCAB = {
      'bundle-split-estimate'  the ratified shift-brake exception's shape: the
                               maker prices only the combined SKU, so a
                               single-side row carries a split estimate.
+     'third-party-listed'     current product; the maker publishes no price
+                              anywhere; the stored figure is a disclosed
+                              third-party listing/estimate - distinct from
+                              discontinued-no-msrp (lifecycle-ended) and
+                              regional-conversion (a maker price exists, just
+                              not in USD).
      NEVER feeds checkBuild - price provenance is display/annotation only, the
      same contract as `disciplines` (see PRICE_BASIS_STRICT below for the
      staged rollout). */
   priceBasis:   ['msrp-confirmed', 'discontinued-no-msrp', 'oe-only-no-msrp',
-                 'regional-conversion', 'bundle-split-estimate'],
+                 'regional-conversion', 'bundle-split-estimate', 'third-party-listed'],
   status:       ['current', 'discontinued', 'recalled'],   // absent = current
   soldWithout:  ['battery', 'charger', 'spring', 'rotor', 'mounting-hardware'],
 
