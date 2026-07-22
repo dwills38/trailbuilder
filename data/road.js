@@ -2148,6 +2148,10 @@ var ROAD_PARTS = [
     shell: 't47-road', spindle: '24mm-road', weight: 104, price: 48,
     verified: true, lastChecked: '2026-07-22', source: 'https://praxiscycles.com/product/t47-eb-shimano/', priceBasis: 'third-party-listed',
     note: 'road-breadth-6 wave: FETCHED praxiscycles.com (Praxis\' own maker site) directly - a fourth bb-category brand alongside Shimano/SRAM/Wheels Manufacturing. Spec table: "T47 External Bearing BB for installing a Shimano Hollowtech II crank into a T47 68 Road or 73mm MTN frame", "AVG. WEIGHT 104g" (taken verbatim - the maker page itself carries no USD price). shell:"t47-road" (this catalog\'s existing 68mm-road-width T47 token - distinct from the file\'s two DUB-spindle T47 rows, this is the first T47-shell + 24mm-Shimano-spindle combo, closing a real interface gap), spindle:"24mm-road" (page states "24mm Drive and a 24mm NonDrive Bearing... for use with Shimano Hollowtech II crank spindles"). Price $48 (Universal Cycles, a US retailer of the same SKU 47-3001, whose own weight figure "104g" matches the maker page exactly - strong convergent confirmation) - priceBasis:"third-party-listed".' },
+  { id: 'bb-fsa-megaevo-bsa', cat: 'bb', brand: 'FSA', model: 'MegaEVO Threaded Bottom Bracket (BSA)', family: 'fsa-megaevo',
+    shell: 'bsa-road', spindle: '30mm', weight: 50, price: 71,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.fsaproshop.com/products/megaevo-threaded-bottom-bracket', priceBasis: 'msrp-confirmed',
+    note: 'road-breadth-6 wave: FETCHED fsaproshop.com (FSA\'s own storefront) directly - a fifth bb-category brand. Spec table: "For use with all BB386EVO road cranksets", "Frame Dimension: BSA Compatibility: BB386", "Weight: 50g", price "$71.00 USD" all taken verbatim - MegaEVO is FSA\'s own threaded adapter that lets a 30mm-spindle BB386EVO crank thread into a standard 68mm BSA shell, so shell:"bsa-road" (the frame-side standard) + spindle:"30mm" (the crank interface this catalog\'s crankBbRoad vocab already carries) is the correct pairing, distinct from this file\'s existing Shimano/SRAM 24mm-spindle BSA-adjacent rows.' },
 
 ];
 
