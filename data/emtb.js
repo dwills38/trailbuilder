@@ -1480,6 +1480,63 @@ var EMTB_PARTS = [
     note: 'US-priced Bosch-powered sibling to the T7E; ships mullet (29in front/27.5in rear per the tire spec), RockShox Lyrik/Super Deluxe suspension.',
     desc: 'Verified vs the fetched maker product page (polygonbikes.com/us/siskiu-te-with-bosch, via Exa fetch — full "Specification" table incl. USD $4,799.00 price, Bosch Performance Line CX motor stated "maximum torque of 85 Nm" and "up to 600 watts", Bosch PowerTube 625 Horizontal battery, SRAM GX Eagle rear derailleur, front/rear tire sizes confirming the mullet setup). The fetched page text ended before the Brake spec row, so brakes stays unset rather than guessed (no other maker source checked for this SKU). No maker-published weight found. USD-native price, no conversion needed.',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.polygonbikes.com/us/siskiu-te-with-bosch/'
+  },
+
+  // --- emtb-breadth-3b wave: next zero-coverage makers (Lapierre, BH, Polygon 2nd platform) ---
+  {
+    id: 'em-lapierre-overvolt-am-108', cat: 'emtb', brand: 'Lapierre', model: 'Overvolt AM 10.8',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX-R', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 800, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 165,
+    frameMaterial: 'carbon', drivetrain: 'Shimano Deore XT/XTR 12-speed', brakes: 'Shimano XTR BR-M9220',
+    disciplines: ['e-enduro'], weight: null, price: 11406.53,
+    note: 'Lapierre\'s carbon flagship gravity e-MTB (MY26 Overvolt AM CF platform), 29in wheels both ends, RockShox Super Deluxe Ultimate RC2T 205x60 trunnion shock.',
+    desc: 'Verified vs the fetched maker product page (lapierrebikes.com/en-int/products/overvolt-am-108-lorta — motor SKU "Bosch Performance Line CX-R", "Bosch PowerTube 800 Wh" battery, "170 mm" front travel, "HIGH Carbon Uni" frame, Shimano Deore XT/XTR 12-speed drivetrain, Shimano XTR BR-M9220 203mm brakes, EUR 10,000 price — the page names components but not torque/power/rear-travel/weight figures). Motor torque/power (100 Nm / 750 W) is Bosch\'s own published stock spec for the CX-R Gen5 unit (bosch-ebike.com/us/products/performance-line-cx-r) — not restated on the Lapierre page, which names only the motor SKU. Rear travel (165mm) is not stated on the maker page either (only the shock\'s 205x60mm eye-to-eye/stroke); cross-referenced against three independent MY26 Overvolt AM CF launch write-ups (road.cc, BikeBiz, Velomotion) that all cite the same "170mm front / 165mm rear" figure for this generation\'s carbon chassis, disclosed per the retailer-cross-reference policy already used in this file (the Ghost E-Riot precedent). No maker-published weight found. PRICE: EUR 10,000.00 maker RRP converted at the 2026-07-22 open.er-api.com rate (1.140653) -> $11,406.53 (regional-conversion) — Lapierre does not sell in the US, no USD MSRP exists.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://www.lapierrebikes.com/en-int/products/overvolt-am-108-lorta'
+  },
+  {
+    id: 'em-lapierre-overvolt-tr-78', cat: 'emtb', brand: 'Lapierre', model: 'Overvolt TR 7.8',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 800, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 140, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore 12-speed (wireless shifter)', brakes: 'Shimano Deore BR-MT420',
+    disciplines: ['e-trail'], weight: null, price: 6500.58,
+    note: 'Aluminum trail e-MTB, top of the Overvolt TR range; Lapierre Shock 185x50 trunnion, 800Wh PowerTube despite the mid-travel trail chassis.',
+    desc: 'Verified vs the fetched maker product page (lapierrebikes.com/en-int/products/overvolt-tr-78-loluc — motor SKU "Bosch Performance line CX", "Bosch Powertube 800 Wh" battery, "140mm" front travel, "HIGH Aluminium Uni" frame, Shimano Deore 12-speed w/ wireless shifter, Shimano Deore BR-MT420 203mm brakes, EUR 5,699 price — no torque/power/rear-travel/weight figures stated). Motor torque/power (85 Nm / 600 W) is Bosch\'s own published stock spec for the plain CX Gen5 (BDU384Y) unit (bosch-ebike.com/en/products/performance-line-cx) — not restated on the Lapierre page. Rear travel (160mm) is not stated on the maker page (only the shock\'s 185x50mm eye-to-eye/stroke); cross-referenced against independent French retailer listings (VeloBrival, My-velo, Cyclescesbron) that consistently cite "160mm" rear travel for this SKU, disclosed per the retailer-cross-reference policy already used in this file. No maker-published weight found. PRICE: EUR 5,699.00 maker RRP converted at the 2026-07-22 open.er-api.com rate (1.140653) -> $6,500.58 (regional-conversion) — Lapierre does not sell in the US, no USD MSRP exists.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://www.lapierrebikes.com/en-int/products/overvolt-tr-78-loluc'
+  },
+  {
+    id: 'em-bh-ilynx-dl-enduro-carbon-98', cat: 'emtb', brand: 'BH', model: 'iLynx+ DL Enduro Carbon 9.8',
+    motorBrand: 'avinox', motorModel: 'DJI Avinox M2S', motorTorque: 150, motorPowerPeak: 1300,
+    batteryWh: 800, batteryRemovable: false, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XTR Di2 12-speed', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-enduro'], weight: null, price: 10265.76,
+    note: 'BH\'s DJI Avinox-powered carbon enduro flagship (2027 iLynx+ DL platform) — FOX 38 FLOAT Factory 180mm / FOX FLOAT X2 Factory rear, "BCL" Ballistic Carbon Layup frame.',
+    desc: 'Verified vs the fetched maker product page (bhbikes.com, es_ES locale product page for SKU ED987 — Avinox M2S motor, "150 Nm" torque, "1300 W (peak in Turbo mode)" power, 800Wh non-removable battery, 180mm front / 170mm rear travel, carbon "BCL" frame, Shimano XTR Di2 12-speed, Shimano XT 4-piston 203mm brakes, EUR 8,999.90 regular price). bhbikes.com has no US market/site — reached the SKU via the brand\'s global bikes/ebikes listing (bhbikes.com/en_GB/bikes/ebikes), which surfaced the "ilynx-dl-enduro-carbon-9-8-ed987" slug; the working fetchable mirror is the es_ES locale (the en_GB/fr_INT locale paths for the same slug 404). No maker-published weight found. PRICE: EUR 8,999.90 maker RRP converted at the 2026-07-22 open.er-api.com rate (1.140653) -> $10,265.76 (regional-conversion) — BH has no US retail presence, no USD MSRP exists.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://www.bhbikes.com/es_ES/bicicletas-electricas/bicicletas-electricas-de-enduro/ilynx-dl-enduro-carbon-9-8-ed987'
+  },
+  {
+    id: 'em-bh-ilynx-nx-enduro-carbon-98', cat: 'emtb', brand: 'BH', model: 'iLynx+ NX Enduro Carbon 9.8',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen 5)', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 800, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT Di2 12-speed', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-enduro'], weight: null, price: 10836.09,
+    note: 'BH\'s Bosch-powered carbon enduro tier (iLynx+ NX platform, sibling chassis to the Avinox-powered DL line) — FOX 38 FLOAT Factory 170mm / FOX FLOAT DHX2 Factory rear, "Split Pivot" suspension layout.',
+    desc: 'Verified vs the fetched maker product page (bhbikes.com, es_ES locale product page for SKU EX986 — "Bosch Performance Line CX Gen 5" motor, "100 Nm" torque, 800Wh battery, 170mm front / 160mm rear travel, carbon "Hollow Core" frame, Shimano XT Di2 12-speed, Shimano XT 4-piston 203mm brakes; page shows a EUR 8,074.90 site-wide sale next to a EUR 9,499.90 regular price — the regular/MSRP figure is used per this catalog\'s MSRP-not-sale policy). Motor power (750 W peak) is Bosch\'s own published spec for the CX Gen5 unit run at the 100 Nm factory tune (bosch-ebike.com/us/products/performance-line-cx — the 750W/100Nm pairing matches the CX\'s documented Performance-Upgrade-tier output) — not separately restated on the BH page, which states only "100 Nm". Battery-removable claim not found on the page; left unset rather than guessed. No maker-published weight found. PRICE: EUR 9,499.90 maker regular price converted at the 2026-07-22 open.er-api.com rate (1.140653) -> $10,836.09 (regional-conversion) — BH has no US retail presence, no USD MSRP exists.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://www.bhbikes.com/es_ES/bicicletas-electricas/bicicletas-electricas-de-enduro/ilynx-nx-enduro-carbon-9-8-ex986'
+  },
+  {
+    id: 'em-polygon-collosus-n8e', cat: 'emtb', brand: 'Polygon', model: 'Collosus N8E',
+    motorBrand: 'shimano', motorModel: 'Shimano DU-EP801', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 160,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT SL-M8100-R 1x12-speed', brakes: 'Shimano XT M8120',
+    disciplines: ['e-enduro'], weight: null, price: 4699,
+    note: 'Polygon\'s gravity/enduro e-MTB platform (COLLOSUS NE series, "IFS" 6-bar suspension) — a different chassis from the already-cataloged Siskiu T7E/TE trail e-MTBs; 29in wheels both ends, FOX 38 FLOAT Performance 160mm fork / FOX FLOAT X2 rear.',
+    desc: 'Verified vs the fetched maker product page (polygonbikes.com/us/collosus-n8e/ — full "Specification" table incl. USD $4,699.00 price, Shimano DU-EP801 mid motor, Shimano BT-EN806 630Wh removable battery, FOX 38 FLOAT Performance 160mm fork, FOX FLOAT X2 205x65mm rear shock corresponding to the page\'s own "160mm Travel" frame callout, ALX aluminum enduro frame, Shimano XT SL-M8100-R 1x12-speed 10-51T drivetrain, Shimano XT M8120 203mm brakes). Motor torque/power (85 Nm / 600 W) is Shimano\'s own published DU-EP801 spec (bike.shimano.com/en-US/product/component/ep8-ep801/DU-EP801.html) — the Polygon page names only the motor SKU, not its Nm/W figures. No maker-published weight found. Page labels this the "2023 COLLOSUS N8E" (model year), still the current live US listing at fetch time. USD-native price, no conversion needed.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.polygonbikes.com/us/collosus-n8e/', modelYear: 2023
   }
 
 ];
