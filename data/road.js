@@ -2128,6 +2128,10 @@ var ROAD_PARTS = [
   { id: 'bt-pro-race-control', cat: 'bartape', brand: 'PRO', model: 'Race Control Tape', family: 'pro-race-control',
     weight: 50, price: 42,
     note: 'road-breadth-6 wave: FETCHED pro-bikegear.com/us (PRO/Shimano\'s own site) directly - product page confirms material "Microfiber", thickness "2.5mm", part numbers PRTA0002 (black)/PRTA0011 (white), but the maker page itemizes no weight or price. Weight (50g/pair incl. end plug) and price ($42, RA Cycles, a US retailer selling the white PRTA0011 SKU) cross-checked via independent third-party listings (Pushys, Jenson USA, R2-Bike all describing the same 2.5mm microfiber SKU) - not marked verified:true since neither figure came off the maker page itself, per this catalog\'s "verified:true requires the SOURCE page to confirm it" bar (distinct from the bt-supacaz row\'s same caveat).' },
+  { id: 'bt-cinelli-cork-ribbon', cat: 'bartape', brand: 'Cinelli', model: 'Cork Ribbon Bar Tape', family: 'cinelli-cork-ribbon',
+    weight: 68, price: 23,
+    verified: true, lastChecked: '2026-07-22', source: 'https://usa.cinelli-milano.com/products/cork-ribbon-bar-tape', priceBasis: 'msrp-confirmed',
+    note: 'road-breadth-6 wave: FETCHED usa.cinelli-milano.com (Cinelli\'s own US storefront) directly - price "$23.00" confirmed verbatim (real current USD MSRP, the original 1987 cork-blend EVA tape this catalog was still missing). The fetched page states composition "SYNTHETIC" in its own spec tab (not itemizing weight) - weight (68g) is a third-party figure (Tacoma Bike & Ski\'s current listing for the same SKU), kept as an unsourced sample per this catalog\'s "verified:true can coexist with a flagged sample weight" convention (same pattern as hs-canecreek-40-zs44-ec44 elsewhere in this file) rather than invented or over-claimed.' },
 
 ];
 
