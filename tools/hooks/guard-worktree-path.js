@@ -40,6 +40,7 @@ process.stdin.on('end', function () {
     if (!/^[a-z]:\\|^\\[a-z]\\/.test(n)) return false;           // not absolute
     if (n.indexOf('mtb bike builder') !== -1) return false;      // inside the project
     if (/\\temp\\claude\\/.test(n)) return false;                // harness scratchpad
+    if (/^c:\\users\\[^\\]+\\\.claude\\/.test(n)) return false;  // harness home (memory, config)
     // unquoted "D:\MTB Bike Builder\..." truncates at the space to "D:\MTB" —
     // a token that is a PREFIX of the project root is inside, not a stray
     if ('d:\\mtb bike builder'.indexOf(n) === 0) return false;
