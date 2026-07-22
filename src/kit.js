@@ -1567,14 +1567,18 @@ var KIT_PARTS = [
   { id:'sht-zoic-ether-liner', cat:'shorts', brand:'Zoic', model:'Ether Shorts + Essential Liner', price:95, weight:320,
     liner:true, disciplines:['trail'], sizes:['S','M','L','XL','XXL','XXXL'],
     desc:'Ripstop nylon outer + removable ZO-Tech chamois liner; sold as a shell+liner bundle. ATTEMPTED 2026-07-17: zoic.com rate-limited (429) every direct fetch this session; a collection-page banner cited a $38 sale price (not a reliable MSRP figure). Left unverified rather than using an unconfirmed sale price.' },
-  { id:'sht-zoic-blackmarket-liner', cat:'shorts', brand:'Zoic', model:'Black Market Short + Essential Liner', price:116, weight:454,
+  { id:'sht-zoic-blackmarket-liner', cat:'shorts', brand:'Zoic', model:'Guide Shorts + Liner', price:116, weight:454,
     liner:true, disciplines:['trail'], sizes:['S','M','L','XL','XXL','XXXL'],
     desc:'CORRECTED 2026-07-16: Zoic renamed the Black Market line to "Guide" (search-indexed'
-      + ' pages state the Guide Shorts were formerly the Black Market); fetched'
-      + ' zoic.com/guide-shorts-essential-liner: $116, 454g, S-3X, includes Essential Liner w/'
-      + ' ZOIC Comfort chamois - price/weight corrected here. Id/model text kept (id append-only;'
-      + ' the fetched page itself does not state the former name, so this stays a correction, not'
-      + ' a fetched verification of THIS row’s identity).' },
+      + ' pages state the Guide Shorts were formerly the Black Market). RE-VERIFIED kit-13'
+      + ' (2026-07-21): directly fetched zoic.com/products/guide-shorts-essential-liner via'
+      + ' browser pane (WebFetch 429-rate-limited this session) - confirms $116.00 regular price,'
+      + ' sizes S/M/L/XL/2X/3X, belted elastic waistband + hand & zippered pockets + fusion inseam'
+      + ' gusset, available in 9"/11.5" inseams; weight 454g cross-checked against zoic.com/products.json.'
+      + ' Model text updated to the current name (id kept append-only per convention). Currently'
+      + ' shown "Selection Sold Out" for the fetched color/size combo but the product itself is'
+      + ' live-for-sale at this MSRP, not discontinued.',
+    verified:true, lastChecked:'2026-07-21', source:'https://www.zoic.com/products/guide-shorts-essential-liner' },
   { id:'sht-7mesh-glidepath', cat:'shorts', brand:'7mesh', model:'Glidepath Short', price:102,
     liner:false, disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL','XXL'],
     verified:true, lastChecked:'2026-07-20',
@@ -1611,10 +1615,17 @@ var KIT_PARTS = [
     desc:'Price is a USD estimate converted from the GBP retail price (~GBP70) on Nukeproof\'s own site; left unverified. Cordura-reinforced 4-way-stretch fabric; a short-length version of the Nukeproof pants developed with Sam Hill.' },
   { id:'sht-nukeproof-outland', cat:'shorts', brand:'Nukeproof', model:'Outland Shorts', price:65, weight:270,
     liner:false, disciplines:['trail'], sizes:['S','M','L','XL','XXL'],
-    desc:'Casual trail short (100% polyester, DriRelease); price is a USD estimate converted from GBP50.' },
+    desc:'Casual trail short (100% polyester, DriRelease); price is a USD estimate converted from GBP50.'
+      + ' CHECKED kit-13 (2026-07-21): nukeproof.com/search/suggest.json?q=outland returns zero'
+      + ' matching products (empty resources block), and the direct product-slug URLs'
+      + ' (/products/outland-shorts, /products/outland-youth-liner-short) both 404. The entire'
+      + ' Outland ridewear line appears removed from the current site. Left unverified, no fields changed.' },
   { id:'sht-nukeproof-outlandtech', cat:'shorts', brand:'Nukeproof', model:'Outland Tech Shorts', price:85, weight:290,
     liner:false, disciplines:['trail'], sizes:['S','M','L','XL','XXL'],
-    desc:'Cordura-nylon step up from the base Outland short; price is a USD estimate converted from GBP65.' },
+    desc:'Cordura-nylon step up from the base Outland short; price is a USD estimate converted from GBP65.'
+      + ' CHECKED kit-13 (2026-07-21): see sht-nukeproof-outland - the whole Outland line is absent'
+      + ' from nukeproof.com\'s current site-search (zero results) and product-slug guesses 404.'
+      + ' Left unverified, no fields changed.' },
   { id:'sht-sweetprotection-hunter', cat:'shorts', brand:'Sweet Protection', model:'Hunter Shorts II', price:129, weight:246,
     liner:false, disciplines:['trail'], sizes:['S','M','L','XL'],
     desc:'Retargeted from the discontinued "Hunter Shorts" name to the current "Hunter Shorts II" SKU. Maker-stated weight (246g) confirmed; price is EUR129 converted at ~1.08 USD/EUR (no USD price shown on the EU page).',
@@ -1827,7 +1838,11 @@ var KIT_PARTS = [
     liner:false, disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
     // FLAG (2026-07-16): a Storm Pants page is indexed at royalracing.com/us/product/storm-pants/ and
     // /gb/product/storm-pants/ but both currently 404 on fetch; could not confirm current price/specs.
-    desc:'Thermal windproof/water-repellent outer with fleece inner face.' },
+    desc:'Thermal windproof/water-repellent outer with fleece inner face.'
+      + ' CHECKED kit-13 (2026-07-21): fetched royalracing.com/products.json (browser pane) - the'
+      + ' entire current catalog is 30 SKUs, all "Apex" line jerseys/pants/gloves + Core gloves +'
+      + ' headwear/accessories; no "Storm" product of any kind. Confirms a full lineup refresh, not'
+      + ' just a fetch issue with this one product. Left unverified, no fields changed.' },
   { id:'pnt-alpinestars-drop', cat:'pants', brand:'Alpinestars', model:'Drop Pants', price:149.95,
     liner:false, disciplines:['trail','enduro'], sizes:['28','30','32','34','36','38','40'],
     verified:true, lastChecked:'2026-07-16', source:'https://www.alpinestars.com/products/drop-pants',
@@ -1859,7 +1874,13 @@ var KIT_PARTS = [
     desc:'2.5-layer waterproof shell, 20,000mm rating. Checked 2026-07-16: confirmed as a real current product (norrona.com/en-GB/products/fjora/fjora-dri1-waterproof-pants-men/), but the fetched page only shows footer/nav content (no price/weight) and a retailer page (CampSaver) hit a bot CAPTCHA wall. Left as an unverified sample, price/weight unchanged.' },
   { id:'pnt-patagonia-dirtroamer-storm', cat:'pants', brand:'Patagonia', model:'Dirt Roamer Storm Bike Pants', price:299, weight:400,
     liner:false, disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
-    desc:'H2No fully waterproof shell, sealed seams, MTB-specific OppoSet waistband.' },
+    desc:'H2No fully waterproof shell, sealed seams, MTB-specific OppoSet waistband.'
+      + ' ATTEMPTED kit-13 (2026-07-21): patagonia.com/product/mens-dirt-roamer-storm-mountain-bike-pants/25030.html'
+      + ' serves an interstitial bot-queue page ("Hang Tight! Routing to checkout...") on both'
+      + ' WebFetch and Exa fetch - a genuine anti-bot wall per FETCH ETHICS, not JS-rendering (the'
+      + ' page never resolves to content on a non-interactive fetch). WebSearch corroborates $299'
+      + ' MSRP + H2No shell at both patagonia.com and eu.patagonia.com, but a search summary is a'
+      + ' lead, not a source (PHANTOM-NUMBER hazard) - not fetched, left unverified.' },
   { id:'pnt-sombrio-vanquish', cat:'pants', brand:'Sombrio', model:'Vanquish Pant', price:140, weight:420,
     liner:false, disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL','XXL'],
     desc:'Quattro Flex Dura water-resistant stretch fabric, relaxed fit. Checked 2026-07-16: no live Sombrio maker storefront remains to re-verify against (see jsy-sombrio-badass-ls for detail).' },
@@ -2289,10 +2310,27 @@ var KIT_PARTS = [
       + ' kept (browser-rendered specialized.com/us/en - WebFetch 403s on this domain). Weight'
       + ' not published, stays sample.',
     verified:true, lastChecked:'2026-07-19', source:'https://www.specialized.com/us/en/shop/cycling-clothing/cycling-gloves' },
-  { id:'glv-madison-dte', cat:'gloves', brand:'Madison', model:'DTE 4 Season DWR Glove', price:45, weight:110,
-    sizes:['S','M','L','XL','XXL'], desc:'Waterproof/windproof winter glove with Thinsulate insulation. Weight per pair (approx).' },
-  { id:'glv-madison-flux', cat:'gloves', brand:'Madison', model:'Flux Glove', price:25, weight:55,
-    sizes:['S','M','L','XL','XXL'], desc:'Weight per pair (approx).' },
+  { id:'glv-madison-dte', cat:'gloves', brand:'Madison', model:'DTE 4 Season DWR Glove', price:32, weight:110,
+    sizes:['XS','S','M','L','XL','XXL'],
+    desc:'Waterproof/windproof winter glove with Thinsulate insulation. Weight per pair (approx), no'
+      + ' maker weight published (kit weight policy: never blocks verification). VERIFIED kit-13'
+      + ' (2026-07-21): fetched madison.cc\'s own product page (browser pane) - confirms GBP24.99'
+      + ' regular price (was on a GBP19.99 sale at fetch time, MSRP used per pricing policy), sizes'
+      + ' XS-XXL (added XS, missing from the prior sample), windproof/DWR/touchscreen-compatible'
+      + ' features. Price is a USD estimate converted from the confirmed GBP24.99 MSRP.',
+    verified:true, lastChecked:'2026-07-21',
+    source:'https://www.madison.cc/product/madison-dte-4-season-dwr-gloves-varmcl23w63/VARMCL23W63/MCL23W6307' },
+  { id:'glv-madison-flux', cat:'gloves', brand:'Madison', model:'Flux Glove', price:32, weight:55,
+    sizes:['S','M','L','XL','XXL'],
+    desc:'Super-light mountain bike glove, perforated palm, silicone brake-lever grip. Weight per'
+      + ' pair (approx), no maker weight published. VERIFIED kit-13 (2026-07-21): fetched'
+      + ' madison.cc\'s own product page (browser pane) - confirms GBP24.99 regular price (was on a'
+      + ' GBP9.99 sale at fetch time, MSRP used per pricing policy) and the lightweight/perforated'
+      + ' description; only size S was shown selectable for the fetched color at this stock'
+      + ' snapshot, so the full S-XXL size range is carried forward unconfirmed rather than'
+      + ' re-asserted as fetched. Price is a USD estimate converted from the confirmed GBP24.99 MSRP.',
+    verified:true, lastChecked:'2026-07-21',
+    source:'https://www.madison.cc/product/madison-flux-gloves-varmcl22s82/VARMCL22S82/MCL22S8212' },
   { id:'glv-clubride-ladyfinger', cat:'gloves', brand:'Club Ride', model:'Lady Finger Glove', price:30, weight:55,
     fitCut:'womens', sizes:['S','M','L'],
     desc:'Price ($30) and current S/M/L size range re-confirmed on clubrideapparel.com 2026-07-20 (page no longer lists XS/XL); weight per pair remains an unconfirmed approx sample (not stated on the product page - kit apparel does not require it).',
@@ -2306,16 +2344,26 @@ var KIT_PARTS = [
     desc:'UNVERIFIED (2026-07-17): no "Trail Glove" SKU found on us.dharco.com - the current men\'s glove lineup is Race Glove and Gravity Gloves only. Left as an unverified sample rather than guessing which current SKU this maps to.' },
   { id:'glv-zoic-turnt', cat:'gloves', brand:'ZOIC', model:'Turnt Glove', price:35, weight:62,
     sizes:['S','M','L','XL','XXL'],
-    desc:'Weight per pair (approx). Price re-confirmed via retailer listings (unchanged) - zoic.com\'s product/category pages 404 or return nav-shell-only content on fetch (JS-rendered catalog, likely bot-walled) despite the homepage itself loading fine, so this stays unverified.' },
+    desc:'Weight per pair (approx). Price re-confirmed via retailer listings (unchanged) - zoic.com\'s product/category pages 404 or return nav-shell-only content on fetch (JS-rendered catalog, likely bot-walled) despite the homepage itself loading fine, so this stays unverified.'
+      + ' CHECKED kit-13 (2026-07-21): zoic.com now loads cleanly via browser pane (JS-rendered ≠'
+      + ' walled per doctrine) - fetched zoic.com/products.json (75 SKUs, the full current'
+      + ' catalog): zero products with "glove" in the title. ZOIC has exited the gloves category'
+      + ' entirely (only size-chart pages remain, orphaned). Confirmed discontinued. Left unverified, no fields changed.' },
   { id:'glv-zoic-ether', cat:'gloves', brand:'ZOIC', model:'Ether Glove', price:35, weight:58,
     sizes:['S','M','L','XL','XXL'],
-    desc:'Weight per pair (approx). Corrected price ($30 sample -> $35), consistent across multiple retailers (Jenson USA, Competitive Cyclist, Cambria Bike). zoic.com\'s own product pages 404/nav-shell-only on fetch, so this stays unverified (retailer-sourced, not manufacturer-fetched).' },
+    desc:'Weight per pair (approx). Corrected price ($30 sample -> $35), consistent across multiple retailers (Jenson USA, Competitive Cyclist, Cambria Bike). zoic.com\'s own product pages 404/nav-shell-only on fetch, so this stays unverified (retailer-sourced, not manufacturer-fetched).'
+      + ' CONFIRMED kit-13 (2026-07-21): see glv-zoic-turnt - zoic.com/products.json (75-SKU full'
+      + ' current catalog, browser pane) has zero glove products. Discontinued. Left unverified, no fields changed.' },
   { id:'glv-zoic-empire', cat:'gloves', brand:'ZOIC', model:'Empire Glove', price:35, weight:60,
     sizes:['S','M','L','XL','XXL'],
-    desc:'Weight per pair (approx). Corrected price ($32 sample -> $35), consistent across multiple retailers (Cambria Bike $35, Planet Cyclery $35 regular/$19.99 sale). zoic.com\'s own product pages 404/nav-shell-only on fetch, so this stays unverified.' },
+    desc:'Weight per pair (approx). Corrected price ($32 sample -> $35), consistent across multiple retailers (Cambria Bike $35, Planet Cyclery $35 regular/$19.99 sale). zoic.com\'s own product pages 404/nav-shell-only on fetch, so this stays unverified.'
+      + ' CONFIRMED kit-13 (2026-07-21): see glv-zoic-turnt - zoic.com/products.json has zero'
+      + ' glove products in its current 75-SKU catalog. Discontinued. Left unverified, no fields changed.' },
   { id:'glv-zoic-sarge', cat:'gloves', brand:'ZOIC', model:'Sarge Full-Finger Glove', price:35, weight:65,
     sizes:['S','M','L','XL','XXL'],
-    desc:'Weight per pair (approx). Corrected price ($28 sample -> $35), consistent across multiple retailers (Valley Bike & Ski Shop lists $35 regular/$20.97 sale). zoic.com\'s own product pages 404/nav-shell-only on fetch, so this stays unverified.' },
+    desc:'Weight per pair (approx). Corrected price ($28 sample -> $35), consistent across multiple retailers (Valley Bike & Ski Shop lists $35 regular/$20.97 sale). zoic.com\'s own product pages 404/nav-shell-only on fetch, so this stays unverified.'
+      + ' CONFIRMED kit-13 (2026-07-21): see glv-zoic-turnt - zoic.com/products.json has zero'
+      + ' glove products in its current 75-SKU catalog. Discontinued. Left unverified, no fields changed.' },
   { id:'glv-pearlizumi-elitegel-ff', cat:'gloves', brand:'Pearl Izumi', model:'Elite Gel Full Finger Glove', price:50, weight:91,
     sizes:['S','M','L','XL','XXL'], verified:true,
     desc:'3D gel padding relieves palm pressure. Price corrected 2026-07-16: fetched pearlizumi.com/products/mens-elite-gel-full-finger-gloves-14142003 lists $50.00 (catalog previously had $45); sizes S-XXL confirmed. RE-CONFIRMED 2026-07-17 via bdata re-fetch of the .js product JSON: price $50.00 flat (no sale), matches; per-glove weight is a flat 91g across all sizes S-XXL (accepted as the real figure, not a placeholder, per the glv-dakine-crossx precedent of a legitimate flat per-glove Shopify weight) - corrected from the prior 65g sample.', lastChecked:'2026-07-17', source:'https://www.pearlizumi.com/products/mens-elite-gel-full-finger-gloves-14142003' },
@@ -2827,9 +2875,19 @@ var KIT_PARTS = [
     certs:['en1621-2-l1'], coverage:'chest-back', disciplines:['enduro','dh'], sizes:['S/M','L/XL'],
     desc:'Fetched met-helmets.com (2026-07-17): the old "Armour B&S D3O" name/id is now sold as "Seamless B&S D3O" (€250 -> ~$270 at ~1.08 USD/EUR; the id kept for append-only continuity). Removable D3O BP4 L1 back protector + D3O T5 EVO X L1 shoulder shells, EN 1621-2:2014 Level 1, Dryarn microfiber, seamless construction. Weight = maker-published S/M figure (580g; L/XL is 660g).',
     verified:true, lastChecked:'2026-07-17', source:'https://www.met-helmets.com/en/shop/gravity/bluegrass-protections/seamless-bs-d3o/' },
-  { id:'arm-oneal-stv-long-sleeve', cat:'bodyarmor', brand:"O'Neal", model:'STV Long Sleeve Protector', price:140, weight:740,
+  { id:'arm-oneal-stv-long-sleeve', cat:'bodyarmor', brand:"O'Neal", model:'STV Long Sleeve Protector', price:184, weight:740,
     coverage:'chest-back', disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
-    desc:'Removable IPX shoulder/elbow foam, neck-brace compatible loops.' },
+    desc:'Removable IPX shoulder/elbow foam, neck-brace compatible loops. VERIFIED kit-13'
+      + ' (2026-07-21): fetched oneal.eu/en/products/oneal-stv-long-sleeve-protector-shirt-1'
+      + ' (browser pane; oneal.com US site does not list this SKU) - confirms SKU 0294-202,'
+      + ' EUR169.99, sizes S-XXL, EN1621-2 certified elastic-Lycra protector shirt covering'
+      + ' chest/back/kidneys with removable IPX soft shoulder/elbow protectors, neck-brace'
+      + ' compatible. The page states the EN1621-2 standard but not which protection level (L1 vs'
+      + ' L2), so no level-specific `certs` token is asserted (a real cert with no confirmed level'
+      + ' shouldn\'t be forced to one). Price is a USD estimate converted from the confirmed'
+      + ' EUR169.99 MSRP. Weight not published; kept as the existing sample per the kit weight policy.',
+    verified:true, lastChecked:'2026-07-21',
+    source:'https://www.oneal.eu/en/products/oneal-stv-long-sleeve-protector-shirt-1' },
   { id:'arm-demon-flexforce-x-v7', cat:'bodyarmor', brand:'Demon', model:'FlexForce X V7 D3O Impact Top', price:239.99,
     coverage:'chest-back', disciplines:['trail','enduro'], sizes:['S','M','L','XL','XXL'],
     verified:true, lastChecked:'2026-07-20',
@@ -2862,7 +2920,10 @@ var KIT_PARTS = [
     verified:true, lastChecked:'2026-07-17', source:'https://www.foxracing.com/product/baseframe-pro-sleeveless-chest-guard/26429.html' },
   { id:'arm-gform-pro-x3-vest', cat:'bodyarmor', brand:'G-Form', model:'Pro-X3 Vest', price:93,
     coverage:'chest-back', disciplines:['trail','enduro'], sizes:['S','M','L','XL'],
-    desc:'SmartFlex chest/rib/back/shoulder coverage; "CE Level 1" is stated without an EN1621 standard number, so no cert token applies.' },
+    desc:'SmartFlex chest/rib/back/shoulder coverage; "CE Level 1" is stated without an EN1621 standard number, so no cert token applies.'
+      + ' CHECKED kit-13 (2026-07-21): fetched g-form.com/products.json (129 SKUs, the full'
+      + ' current catalog) - zero "vest" products (the only Pro-X3 match is a youth short-sleeve'
+      + ' shirt, a different product). Appears discontinued/dropped from the current lineup. Left unverified, no fields changed.' },
 
   /* -- Body armor grind batch 4 (2026-07-14) -- */
   { id:'arm-poc-vpd-system-chest', cat:'bodyarmor', brand:'POC', model:'VPD System Chest', price:130,
@@ -3015,7 +3076,14 @@ var KIT_PARTS = [
     disciplines:['dh'], sizes:['S/M','L/XL','XXL'],
     desc:'5-pivot ergonomic hinge shin plate tracks front-to-back and side-to-side leg motion; per pair. Weight not published. Corrected price ($159.95 sample -> $99.95), confirmed consistently across multiple retailers (MotoSport, RevZilla, Cycle Gear) quoting the FLY Racing product copy verbatim; the flyracing.com product page itself (flyracing.com/5-pivot-knee-guards/) 404s on direct fetch. Retailers also repeat a CE EN1621-1 Level 1 claim, but per THE BAR that cert is intentionally NOT added here since it was not confirmed on a fetched maker page (retailer-mirrored text is not sufficient for a safety claim).' },
   { id:'shg-oneal-parkfr', cat:'shinguard', brand:'O\'Neal', model:'Park FR MTB Knee/Shin Guard', price:69.99,
-    disciplines:['trail','enduro'], sizes:['S/M','L/XL'], desc:'Lightweight elastic-Velcro slip-on with perforated foam; per pair. Weight not published.' },
+    disciplines:['trail','enduro'], sizes:['S/M','L/XL'],
+    desc:'Lightweight elastic-Velcro slip-on with perforated foam; per pair. Weight not published.'
+      + ' ATTEMPTED kit-13 (2026-07-21): oneal.eu/en/search?q=park+fr (browser pane) returns exactly'
+      + ' one current match - "O\'NEAL PARK FR Knee pads CARBON" (EUR69.99 regular price, knee-only,'
+      + ' no shin coverage) - a different SKU from this catalog row\'s knee/shin combo (the US-market'
+      + ' non-carbon knee/shin combo that RevZilla/Cycle Gear/BTO Sports carry as retailers). Could'
+      + ' not find the exact knee/shin combo on a maker page this pass; identity/current-availability'
+      + ' stays unconfirmed. Left unverified, no fields changed.' },
   { id:'shg-answer-apex', cat:'shinguard', brand:'Answer', model:'Apex Knee/Shin Guard', price:44.99,
     disciplines:['dh'], sizes:['One Size'], verified:true, lastChecked:'2026-07-20',
     desc:'Motocross-heritage injection-molded plastic knee/shin guard, DH crossover; per pair. Re-fetched answerracing.com/apex-knee-guards/ 2026-07-20: price $44.99 confirmed again (product currently shown out of stock, MSRP unaffected); page states no weight and no cert, so both stay omitted rather than guessed.',
@@ -3121,8 +3189,13 @@ var KIT_PARTS = [
     desc:'Corrected price ($100 sample -> $119, from an earlier fetch of dragonalliance.com/sunglasses/drac-dragon.html). Kit-5 (2026-07-20): re-checked dragonalliance.com fresh -- the Drac is gone; a site search for "drac" returns zero results and it does not appear among current sunglasses (Meridien/Dale/Blaise/Count/Thorn/Gatsby/Fin are the current lineup). Retired with no clean 1:1 successor -- tagged discontinued per the re-scope-vs-discontinued rule, stays unverified sample.' },
   { id:'ewr-leatt-velocity-40', cat:'eyewear', brand:'Leatt', model:'Velocity 4.0', price:60, weight:33, status:'discontinued',
     type:'goggles', sizes:['OSFA'],
-    desc:'CORRECTED 2026-07-16: this is Leatt\'s Velocity MTB goggle line (type glasses<-goggles) - us.leatt.com sells no product called "Velocity" sunglasses (their glasses lines are Sunglasses Core/TheViz/MadViz/RideViz/SpeedViz). Fetched page confirms the Velocity 4.0 MTB goggle is real but tags it Obsolete/clearance with no published weight and a price that varies by colorway ($24.99 sale seen), so price/weight stay prior sample.',
-    lastChecked:'2026-07-16', source:'https://us.leatt.com/products/goggle-velocity-4-0-mtb-sale' },
+    desc:'CORRECTED 2026-07-16: this is Leatt\'s Velocity MTB goggle line (type glasses<-goggles) - us.leatt.com sells no product called "Velocity" sunglasses (their glasses lines are Sunglasses Core/TheViz/MadViz/RideViz/SpeedViz). Fetched page confirms the Velocity 4.0 MTB goggle is real but tags it Obsolete/clearance with no published weight and a price that varies by colorway ($24.99 sale seen), so price/weight stay prior sample.'
+      + ' RE-CHECKED kit-13 (2026-07-21): re-fetched the same URL - the Chilli colorway SKU'
+      + ' (8021002501) now shows "This product is unavailable" (sold through), listed'
+      + ' $24.99/$49.99 (sale/was). A "Complete your setup" module on the same page cross-sells a'
+      + ' currently-stocked "Goggle Velocity 4.0 MTB" at $76.99 - likely a different colorway/SKU'
+      + ' of the same model, not confirmed as the same product. Still no clean single current MSRP'
+      + ' to pin. Left unverified, no fields changed.' },
   { id:'ewr-bliz-breeze', cat:'eyewear', brand:'Bliz', model:'Breeze', price:118, weight:29,
     type:'glasses', sizes:['OSFA'],
     desc:'Kit-6 (2026-07-20): re-fetched bliz.com/en-be/sunglasses/ZB7002-7318480115194 (browser pane) and inspected the raw price element (class "pdp-js-price") directly: EUR109.00, no strikethrough/discount markup despite an active perpetual "FLASH SALE" countdown banner (Bliz runs one continuously per Settings.FlashSales in the page script) -- this IS the standing price, not a temporary markdown. bliz.com/en-us shows no price at all for any product (storefront bug, "Price: Free" placeholder). Price is a EUR->USD sample ($118, basis disclosed) per THE PRICE RULE; no weight published, kept as sample.',
