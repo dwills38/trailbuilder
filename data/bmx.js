@@ -1553,13 +1553,514 @@ var BMX_PARTS = [
     length: 160, flangeless: false, price: 10.99, verified: true, lastChecked: '2026-07-21',
     source: 'https://shop.odysseybmx.com/products/odyssey-broc-grip-bright-red',
     note: 'bmx-depth-7 (2026-07-21): VERIFIED, upgrading from the prior danscomp.com retailer basis. Directly fetched shop.odysseybmx.com/products/odyssey-broc-grip-bright-red (the maker\'s own current listing, titled "Odyssey BROC Grip"): "Broc Raiford signature", "Comfortable ribbed design", "Par Ends included", "160mm length". length CORRECTED 158 -> 160mm to match the maker\'s own figure exactly (the retailer listing\'s 158mm was close but not exact). `grips` carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar regardless; flangeless left unchanged (not stated either way on the page, not fabricated).'
-  }
+  },
   // bmx-gr-odyssey-keyboard REMOVED 2026-07-17 (preflight audit fix): a near-duplicate of
   // bmx-gr-odyssey-aaronross (same real product - the Odyssey Keyboard v1 Grip, Aaron Ross's
   // signature colorway). aaronross was re-fetched against shop.odysseybmx.com directly
   // (length corrected to the maker-listed 158mm, price to $10.99); this row's 143mm/$11.99
   // figures came from an older danscomp.com listing and are superseded. Verified nothing else
   // in data/bmx.js, src/, or test/ referenced this id before removing.
+
+  // ===== BMX-DEPTH-8 ADDITIONS (2026-07-22) — breadth lane, small-parts long tail ==========
+  // Method: raw `curl -A "Mozilla/5.0"` of each brand's Shopify products.json + per-handle
+  // /products/<handle>.js (never a WebSearch/WebFetch summary — the wave-2 phantom-number
+  // doctrine). Every row below names a real, currently-listed product; a Shopify JSON `weight`
+  // field was DISCARDED (not carried into this row) whenever it repeated identically across
+  // clearly-unrelated products on the same store (the documented shipping-weight-bucket tell) —
+  // weight is then simply omitted rather than guessed. `mount:'spline'` on Odyssey sprockets
+  // follows the existing catalog convention already applied to the Utility Pro rows (every
+  // current Odyssey freestyle sprocket in this catalog uses that value; not independently
+  // re-confirmed per-row here either).
+
+  // --- Odyssey (shop.odysseybmx.com) ---
+  {
+    id: 'bmx-fk-odyssey-f32', cat: 'fork', brand: 'Odyssey', model: 'F32',
+    discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'u-brake', price: 189,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-f32-forks-gloss-black. Shopify tags state "Brake Mounts:990" (u-brake) and "Wheel Size:20\"" verbatim (raw JSON, not a search summary). The JSON weight field (2268g) is discarded — it recurs identically on the unrelated F25 fork below, the documented shipping-weight-bucket tell — so weight is left unset rather than guessed. Unverified sample.'
+  },
+  {
+    id: 'bmx-fk-odyssey-f25', cat: 'fork', brand: 'Odyssey', model: 'F25',
+    discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'u-brake', price: 189,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-f25-forks-gloss-black. Same F-Series line as the F32 above; tags state "Brake Mounts:990" and "Wheel Size:20\"". JSON weight (2268g) discarded as the same shipping-bucket figure as the F32 row. Unverified sample.'
+  },
+  {
+    id: 'bmx-fk-odyssey-r15', cat: 'fork', brand: 'Odyssey', model: 'R15',
+    discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'none', price: 169.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-r15-forks-gloss-black. Shopify tags state "Brake Mounts:None" and "Wheel Size:20\"" verbatim, same brakeless R-Series pattern as the catalog\'s existing R32 fork. JSON weight (3629g) discarded — an implausibly heavy figure for a brakeless BMX fork, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-rh-odyssey-hexagram', cat: 'rearWheel', brand: 'Odyssey', model: 'Hexagram Cassette Hub',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', weight: 626, price: 209.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-hexagram-cassette-hub-anodized-black. Description text states "All-new 9T driver design" and "RHD/LHD switchable"; "14mm" hollow-axle bore is a catalog-standard BMX rear axle (BMX-MODEL.md sec.5), not independently re-quoted per this row. 626g JSON weight kept (does not repeat elsewhere in this session\'s fetches, so not flagged as a bucket figure) but not description-text-confirmed — unverified sample.'
+  },
+  {
+    id: 'bmx-st-odyssey-boyd', cat: 'stem', brand: 'Odyssey', model: 'BOYD Stem',
+    clamp: '25.4mm', price: 89.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-boyd-stem-anodized-silver ("Boyd Hilder Signature", 6061-T6 aluminum). Tags state "Reach:52mm"/"Rise:30mm" but BMX_SCHEMA\'s stem category carries neither field (clamp only, display-only per checkBmxBuild), so they are not stored. JSON weight (454g) discarded — identical to the unrelated Grandstand v2 pedal row below, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-pd-odyssey-grandstandv2', cat: 'pedals', brand: 'Odyssey', model: 'Grandstand v2 Alloy Pedals',
+    platform: 'alloy', spindle: '9/16', price: 36.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-grandstand-v2-alloy-pedals-black. Description states "proprietary 14mm heat-treated chromoly spindle with 17mm wrench flats" driving a standard 9/16in pedal thread, and an alloy body ("Alloy" tag). JSON weight (454g) discarded — identical to the unrelated BOYD stem row above, the shipping-bucket tell. Pedals carry zero checkBmxBuild rules (platform/spindle are display-only), so this real, current product clears the interface bar regardless. Unverified sample (weight only).'
+  },
+  {
+    id: 'bmx-sp-odyssey-boydsprocket-28', cat: 'sprocket', brand: 'Odyssey', model: 'BOYD Sprocket 28T',
+    teeth: 28, mount: 'spline', pitch: '1/8', weight: 172, price: 56.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-boyd-sprocket-coffee ("Boyd Hilder\'s new signature sprocket", CNC 7075-T6 aluminum, sold in 25T/28T/30T — this row pins the 28T variant, JSON weight 172g consistent across all three tooth counts). mount:\'spline\' and pitch:\'1/8\' follow this catalog\'s existing convention for every other current Odyssey freestyle sprocket (not independently re-confirmed on this specific page, which does not state either field). Unverified sample.'
+  },
+  {
+    id: 'bmx-rh-odyssey-hazardlite-24', cat: 'rearWheel', brand: 'Odyssey', model: 'Hazard Lite Cassette 24in Wheel',
+    driverType: 'cassette', driverTeeth: 9, side: 'both', axle: '14mm', price: 279.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-hazard-lite-cassette-24-wheel-black — a 24" cruiser build wheel (C5 Cassette Hub laced to the Hazard Lite Rim). Description states "9T or 10T driver" (this row pins 9T) and "RHD/LHD switchable"; "14mm, 4130 chromoly hollow axle" stated explicitly. rearWheel\'s BMX_SCHEMA carries no wheelSize field (dormant for this category, same as every other rearWheel row) so the 24" size is name-only, matching BMX-MODEL.md sec.15 open-question 7\'s 24" cruiser scope. JSON weight (6350g) discarded — implausible for a 24" BMX wheel, the shipping-bucket tell (whole-box weight). Unverified sample.'
+  },
+  {
+    id: 'bmx-sp-odyssey-pivotalpost', cat: 'seatpost', brand: 'Odyssey', model: 'Pivotal Seat Post (High Polished)',
+    diameter: 25.4, system: 'pivotal', weight: 227, price: 44.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://shop.odysseybmx.com/products/odyssey-pivotal-seat-post-polished',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description text states, verbatim: "Diameter: 25.4mm Length: 200mm Weight: 5oz" (5oz = 227g, EXACT match to the JSON variant weight — a real per-SKU figure, not a shipping-bucket coincidence, since it is independently stated in ounces in the page\'s own spec list). "Compatible only with Pivotal style seats" confirms system:\'pivotal\'.'
+  },
+  {
+    id: 'bmx-se-odyssey-bigstitch-fat', cat: 'seat', brand: 'Odyssey', model: 'Big Stitch Fat Seat',
+    system: 'pivotal', weight: 386, price: 37.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-big-stitch-fat-seat-white. Description states "Available in Slim or Fat options. Black. Pivotal only" — confirms system:\'pivotal\'. JSON weight (386g) kept, not description-text-confirmed. Unverified sample.'
+  },
+  {
+    id: 'bmx-se-odyssey-bigstitch-slim', cat: 'seat', brand: 'Odyssey', model: 'Big Stitch Slim Seat',
+    system: 'pivotal', price: 39.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-big-stitch-slim-seat-black-denim-w-fluorescent-yellow-embroidery. Description states "Available in Slim or Fat options...Pivotal Only" — confirms system:\'pivotal\'. JSON weight (635g) discarded — identical across this handle and the unrelated Aitken/BROC seat rows below, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-se-odyssey-aitken-pivotal', cat: 'seat', brand: 'Odyssey', model: 'Aitken Pivotal Seat',
+    system: 'pivotal', price: 35.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-aitken-pivotal-seat-dark-brown — Mike Aitken signature seat, "Available in Pivotal or Railed" (this handle is the pivotal variant). JSON weight (635g) discarded as the same shipping-bucket figure shared with the Big Stitch Slim / BROC rows. Unverified sample (weight only).'
+  },
+  {
+    id: 'bmx-se-odyssey-aitken-railed', cat: 'seat', brand: 'Odyssey', model: 'Aitken Railed Seat',
+    system: 'standard', price: 35.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-aitken-railed-seat-dark-brown — same Mike Aitken signature seat, railed (system:\'standard\') variant of the pivotal row above. JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample (weight only).'
+  },
+  {
+    id: 'bmx-se-odyssey-broc-pivotal', cat: 'seat', brand: 'Odyssey', model: 'BROC Pivotal Seat',
+    system: 'pivotal', price: 37.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-broc-pivotal-seat-white-perforated — Broc Raiford signature seat, "Available in pivotal or cruiser railed" (this handle is the pivotal variant). JSON weight (635g) discarded as the same shipping-bucket figure shared with the Aitken/Big Stitch rows. Unverified sample (weight only).'
+  },
+  {
+    id: 'bmx-se-odyssey-broc-cruiser-railed', cat: 'seat', brand: 'Odyssey', model: 'BROC Cruiser Railed Seat',
+    system: 'standard', price: 32.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-broc-cruiser-railed-seat-white-perforated — same Broc Raiford seat, cruiser-railed (system:\'standard\') variant. JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample (weight only).'
+  },
+
+  // --- Cult (cultcrew.com) ---
+  {
+    id: 'bmx-fk-cult-race-20', cat: 'fork', brand: 'Cult', model: 'Race Fork 20in',
+    discipline: 'race', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'disc', price: 159.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/race-fork-20 ("1-pc machined steerer tube with an integrated bearing race...open 10mm dropouts", 20in). brakeMount:\'disc\' is NOT stated on this specific fork page (no brake-mount text at all) but follows this catalog\'s own already-verified sibling row bmx-fr-cult-race (Cult\'s "Race Frame", same product line, cultcrew.com/products/vick-behm-race-frame-black — its title and body copy explicitly confirm disk brakes), a same-brand same-platform cross-reference rather than a guess. JSON weight (3629g) discarded — identical to the unrelated Crew Front Wheel v2 row below, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-hb-cult-devon', cat: 'handlebar', brand: 'Cult', model: 'Devon Bars',
+    clamp: '25.4mm', rise: 9.5, width: 28, price: 74.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/devon-bars ("Devon Smillie signature bars...28\" wide, 10.5° backsweep, 3° upsweep", sold in 9.5in/9.75in rise; this row pins the 9.5in variant). JSON weight (6804g) discarded — identical across every rise/finish variant on this product AND shared with the unrelated Crew Bars row below, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-hb-cult-crew', cat: 'handlebar', brand: 'Cult', model: 'Crew Bars',
+    clamp: '25.4mm', rise: 9, width: 30, price: 74.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/crew-bars ("Classic feel good geometry...30\" width, 12° backsweep, 2° upsweep", sold in 9in/9.35in/9.65in rise; this row pins the 9in variant). JSON weight (6804g) discarded — identical across every rise/finish variant AND shared with the unrelated Devon Bars row above, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-gr-cult-solo', cat: 'grips', brand: 'Cult', model: 'Solo Grip',
+    length: 160, flangeless: true, price: 11.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/solo-grip (an ODI-made grip, Cult\'s current catalog copy: "Extra Long 160mm Length...Includes Push In Style end plugs" — push-in end plugs rather than a flanged lip, so flangeless:true). JSON weight (454g) discarded — the same figure seen recurring across unrelated products/brands this session, the shipping-bucket tell. grips carries no engine-read field (length/flangeless are display-only) so this real, current product clears the interface bar regardless. Unverified sample (weight only).'
+  },
+  {
+    id: 'bmx-se-cult-corduroy', cat: 'seat', brand: 'Cult', model: 'Corduroy Slim Seat',
+    system: 'pivotal', price: 44.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/corduroy-slim-seat-green — description states verbatim "only available in pivotal", confirming the one engine-read field (system). JSON weight (1361g) discarded — identical to the unrelated Dak Pedal row below, the shipping-bucket tell. Unverified sample (weight only).'
+  },
+  {
+    id: 'bmx-pd-cult-dak', cat: 'pedals', brand: 'Cult', model: 'Dak Pedal',
+    platform: 'alloy', spindle: '9/16', price: 16.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/dak-pedal ("Dakota Roche signature pedal...hefty heat treated 4130 spindle" — a standard 9/16in pedal thread; alloy body per the product\'s CNC-machined description). JSON weight (1361g) discarded — identical to the unrelated Corduroy Slim Seat row above, the shipping-bucket tell. Pedals carry zero checkBmxBuild rules (platform/spindle are display-only), so this real, current product clears the interface bar regardless. Unverified sample (weight only).'
+  },
+  {
+    id: 'bmx-fw-cult-crewv2', cat: 'frontWheel', brand: 'Cult', model: 'Crew Front Wheel v2',
+    wheelSize: '20', axle: '10mm', price: 169.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/crew-front-wheel-v2-1 ("NEW STRONGER AND WIDER MATCH V2 RIM...CREW Front hub laced to a...Match Rim"). wheelSize:20 per Cult\'s catalog-wide convention (every Cult row in this file is 20in, per the already-verified Race Frame row\'s own reasoning); axle:10mm is the BMX-universal front-axle standard (BMX-MODEL.md sec.5), not independently re-stated on this specific page. JSON weight (3629g) discarded — identical to the unrelated Race Fork row above, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-ch-cult-halflink', cat: 'chain', brand: 'Cult', model: 'Halflink Chain',
+    pitch: '1/8', halfLink: true, price: 11.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/chains-1 (the "HALFLINK" variant of Cult\'s three-way chain listing — "teflon coated with engraved cult logos and is designed to help dial in the rear end length on frames with short dropouts. rounded side plates are compatible with 8t and larger drivers"). pitch:\'1/8\' matches the sibling "410 CHAIN...1/8\" chain" copy on the same page (the whole three-chain lineup is one width class). JSON weight (907g) discarded — identical to the unrelated Counter Post seatpost SKU on this same store, the shipping-bucket tell. Unverified sample.'
+  },
+
+  // --- The Shadow Conspiracy (sold via sparkysbrands.com — theshadowconspiracy.com itself is a
+  // WordPress marketing site with no product pages; sparkysbrands.com is Shadow's real storefront,
+  // confirmed via the brand's own site nav) ---
+  {
+    id: 'bmx-fw-shadow-symbol', cat: 'frontWheel', brand: 'The Shadow Conspiracy', model: 'Symbol Front Hub',
+    wheelSize: '20', axle: '14mm', weight: 258, price: 94.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-symbol-front-hub. Description states, verbatim: "a stout 14mm inner axle...14mm chromoly center axle with 3/8\\" bolts" (an unusually beefy front-hub axle bore for BMX, but this is the maker\'s own literal spec, trusted over the domain-general 10mm-front convention) and "Weight: 9.1 oz" (9.1oz = 258g, an independently oz-stated figure, not the JSON shipping-weight field). wheelSize:\'20\' is Shadow\'s catalog-wide freestyle standard (not independently re-stated on this specific hub-only page, so left unverified on that basis alone).'
+  },
+  {
+    id: 'bmx-rh-shadow-symbolcassette-rhd', cat: 'rearWheel', brand: 'The Shadow Conspiracy', model: 'Symbol Cassette Hub (RHD)',
+    driverType: 'cassette', driverTeeth: 9, side: 'RHD', axle: '14mm', weight: 733, price: 171.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-symbol-cassette-hub-rhd. Description states, verbatim: "14mm solid cro-mo male axle 9T 1pc CNC cro-mo driver...Left or Right Hand Drive" (this handle is the RHD variant) and "Weight: 25.85 oz" (25.85oz = 733g, independently oz-stated, not the JSON shipping-weight field). Unverified sample (interfaces are real-page-sourced but not cross-checked against a second source).'
+  },
+  {
+    id: 'bmx-ti-shadow-serpent-23', cat: 'tire', brand: 'The Shadow Conspiracy', model: 'Serpent Tire 2.3in',
+    wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 110, weight: 474, price: 52.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-serpent-foldable-tyre. Description states, verbatim: "110 PSI Size 20\\" x 2.30\\"...Weight: 16.7 oz" (16.7oz = 474g, oz-stated, not the JSON shipping-weight field); tags confirm "TyreDia : 20". casing:\'park\' per the described "close course park and ramp riding" use case (not a literal page token, since BMX_SCHEMA\'s casing vocab is engine-external display-only). Unverified sample.'
+  },
+  {
+    id: 'bmx-ti-shadow-contender-235', cat: 'tire', brand: 'The Shadow Conspiracy', model: 'Contender Welterweight Tire 2.35in',
+    wheelSize: '20', width: 2.35, casing: 'park', maxPsi: 110, weight: 677, price: 42.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-contender-welterweight-tyre. Description states, verbatim: "20\\" x 2.35\\" 110 PSI...Weight: 23.9 oz" (23.9oz = 677g, oz-stated, not the JSON shipping-weight field, and the steel-bead Welterweight tier specifically — heavier than the folding-bead Featherweight tier mentioned in the same copy); tags confirm "TyreDia : 20". Unverified sample.'
+  },
+  {
+    id: 'bmx-st-shadow-odin', cat: 'stem', brand: 'The Shadow Conspiracy', model: 'Odin Top Load Stem',
+    clamp: '25.4mm', weight: 326, price: 40.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-odin-top-load-stem. Description states, verbatim: "Reach: 48mm Rise: 36mm Stack Height: 29mm Width: 48mm Weight: 11.5oz" (11.5oz = 326g, oz-stated, not the JSON shipping-weight field). clamp is display-only in checkBmxBuild (no rule reads it) so the 25.4mm sample value doesn\'t gate. Unverified sample.'
+  },
+  {
+    id: 'bmx-pd-shadow-metalunsealed', cat: 'pedals', brand: 'The Shadow Conspiracy', model: 'Metal Unsealed Alloy Pedals',
+    platform: 'alloy', spindle: '9/16', weight: 524, price: 54.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product (Trey Jones signature), sparkysbrands.com/products/shadow-metal-unsealed-alloy-pedals — a distinct SKU from this catalog\'s existing "Metal Sealed Alloy Pedals" row (sealed vs. unsealed bearings). Tags state "9/16 - 3pc" and description states "6061 alloy body...Weight: 18.5 oz" (18.5oz = 524g, oz-stated, not the JSON shipping-weight field). Note: this product carries a "REMOVED" internal tag (ambiguous — may mean a discontinued colorway rather than the whole SKU); flagged here rather than silently dropped, since the model itself, price and spec text are all real and current as fetched. Pedals carry zero checkBmxBuild rules. Unverified sample.'
+  },
+  {
+    id: 'bmx-sp-shadow-railed-200', cat: 'seatpost', brand: 'The Shadow Conspiracy', model: 'Railed Seatpost 200mm',
+    diameter: 25.4, system: 'standard', weight: 184, price: 62.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://www.sparkysbrands.com/products/shadow-railed-seatpost',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Classic alloy railed seat post...Length: 200mm Diameter: 25.4mm Weight: 6.5 oz" (6.5oz = 184g, independently oz-stated, not the JSON shipping-weight field of 250g which is discarded). "Railed" post confirms system:\'standard\' (the one engine-read seatpost field).'
+  },
+  {
+    id: 'bmx-sp-shadow-pivotal-135', cat: 'seatpost', brand: 'The Shadow Conspiracy', model: 'Pivotal Seatpost 135mm',
+    diameter: 25.4, system: 'pivotal', weight: 99, price: 49.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://www.sparkysbrands.com/products/shadow-pivotal-seatpost-135mm',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Shadow Pivotal posts...Size: 135mm length Diameter: 25.4mm Weight: 3.5 oz" (3.5oz = 99g, independently oz-stated, not the JSON shipping-weight field of 250g which is discarded). "Pivotal posts" confirms system:\'pivotal\'.'
+  },
+  {
+    id: 'bmx-se-shadow-heritage-railed', cat: 'seat', brand: 'The Shadow Conspiracy', model: 'Heritage Railed Seat',
+    system: 'standard', weight: 244, price: 30.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://www.sparkysbrands.com/products/shadow-heritage-railed-seat',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "A clean 2-panel railed seat with Cro-Mo Rails...Weight: 8.6 oz" (8.6oz = 244g, independently oz-stated, not the JSON shipping-weight field). "Railed seat" confirms system:\'standard\' (the one engine-read seat field).'
+  },
+  {
+    id: 'bmx-se-shadow-crowd-slim-pivotal', cat: 'seat', brand: 'The Shadow Conspiracy', model: "Crow'd Slim Pivotal Seat",
+    system: 'pivotal', weight: 275, price: 57.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://www.sparkysbrands.com/products/shadow-crowd-slim-pivotal-seat-black',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description\'s own structured spec block states, verbatim: "TYPE : Pivotal PADDING : Slim WEIGHT : 9.7 oz" (9.7oz = 275g, independently oz-stated, not the JSON shipping-weight field). "TYPE: Pivotal" directly confirms system:\'pivotal\'.'
+  },
+
+  // --- Eclat (eclatbmx.com, its own Shopify store) ---
+  {
+    id: 'bmx-hs-eclat-wave12', cat: 'headset', brand: 'Eclat', model: 'Wave 12 Headset',
+    fit: 'integrated-1-1/8', weight: 96, price: 36.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/wave-12-headset ("mid-stack 12mm top cap and x2 3mm spacers...6061-T6 alloy cnc machined, high-end sealed bearings"). JSON variant weight (96g) is real (not a bucket duplicate seen elsewhere this session) but plausibly the top-cap+spacer kit rather than the full bearing set — flagged, not silently trusted as the whole headset\'s mass. fit is display-only in checkBmxBuild (no rule reads it). Unverified sample.'
+  },
+  {
+    id: 'bmx-cr-eclat-tibiaxlt', cat: 'cranks', brand: 'Eclat', model: 'Tibia XLT Cranks',
+    spindle: '22mm', pieces: '3-piece', ringMount: 'spline', weight: 770, price: 259.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/eclat-tibia-xlt-crank-1. Description states, verbatim: "Spindle 22mm crmo ultra hollow XLT" and "3pc construction" and "Weight complete: 770g (160mm)" (a per-length, oz-cross-checked figure for the 160mm arm option this row pins). ringMount:\'spline\' follows this catalog\'s existing convention for every other current Eclat crank (Onyx Cranks, bmx-cr-eclat-onyx) — not independently re-confirmed on this specific page. Unverified sample.'
+  },
+  {
+    id: 'bmx-ch-eclat-4stroke', cat: 'chain', brand: 'Eclat', model: '4 Stroke Halflink Chain',
+    pitch: '1/8', halfLink: true, weight: 454, price: 27.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://eclatbmx.com/products/4-stroke-halflink-chain',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "half link chain...Size 1/2\\" x 1/8\\"...Weight 454g (16.2oz : 1lbs)" — an independently oz-cross-checked figure (454g = 16.02oz, matching the page\'s own dual-unit statement almost exactly), not the JSON shipping-weight field. "half link" confirms halfLink:true.'
+  },
+  {
+    id: 'bmx-se-eclat-complexcombo', cat: 'seat', brand: 'Eclat', model: 'Complex Combo Seat (Kevlar)',
+    system: 'pivotal', price: 38.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/eclat-complex-combo-seat — an integrated seat+post combo ("25.4mm seat post, 200mm long...Bios Pivotal seat inspired s[hape]", the description\'s own phrasing pointing at this catalog\'s existing Eclat Bios Pivotal Seat as its design basis). system:\'pivotal\' follows from that stated lineage; not independently re-confirmed as a standalone claim on this specific page. Unverified sample (no reliable weight figure — the JSON variant weight is 0 across all three padding options).'
+  },
+  {
+    id: 'bmx-gr-eclat-filter', cat: 'grips', brand: 'Eclat', model: 'Filter Grip',
+    length: 164, flangeless: true, price: 10.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/filter-grips. Description states, verbatim: "one long-lasting flangeless grip...Now longer at 164mm". grips carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar regardless. Unverified sample (no reliable weight figure — the JSON variant weight is 0 across every color).'
+  },
+  {
+    id: 'bmx-hb-eclat-dive', cat: 'handlebar', brand: 'Eclat', model: 'Dive Bar',
+    clamp: '22.2mm', rise: 9.25, width: 29.5, price: 64.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/dive-bar. Description states, verbatim: "Rise 9.25\\" / 9.5\\" / 10\\" Width 29.5\\" Backsweep 12° Upsweep 2.5°...Clamping 22.2mm" (this row pins the 9.25in rise option). clamp is display-only in checkBmxBuild (no rule reads it). Unverified sample (no reliable weight figure — the JSON variant weight is 0 across every rise option).'
+  },
+  {
+    id: 'bmx-st-eclat-onyx', cat: 'stem', brand: 'Eclat', model: 'Onyx Stem',
+    clamp: '25.4mm', price: 47.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/onyx-stem. Description states, verbatim: "Available in Oversize (OS) 25.4mm clamping to fit our Strangler, Chocolate, Dive and other 25.4mm bars...Clamping 25.4mm oversize (OS) or 22.2mm" (this row pins the 25.4mm OS variant). clamp is display-only in checkBmxBuild. Unverified sample (no reliable weight figure — the JSON variant weight is 0 across every color/clamp option).'
+  },
+  {
+    id: 'bmx-fw-eclat-cortexta', cat: 'frontWheel', brand: 'Eclat', model: 'Cortex TA Front Hub',
+    wheelSize: '20', axle: '14mm', weight: 382, price: 99.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, eclatbmx.com/products/eclat-cortex-ta-front-hub — a proprietary 14mm thru-axle (TA) front hub. Description states, verbatim: "14 mm thru-axle (TA) system...only compatible with 14 mm forks (check the Storm TA Fork)...Weight: 382 g (13.5 oz) – hub w/ thru-axle" (an oz-cross-checked figure independent of any Shopify shipping-weight field). axle:\'14mm\' is the maker\'s own literal spec, NOT the standard 10mm BMX front axle — this hub will only fit a fork of the same declared axle value in checkBmxBuild, so no false "fits" is created by cataloging it accurately even though no matching TA fork is in this catalog yet. wheelSize:\'20\' is Eclat\'s catalog-wide freestyle standard (not independently re-stated on this hub-only page). Unverified sample.'
+  },
+
+  // --- Kink (kinkbmx.com, its own Shopify store) ---
+  {
+    id: 'bmx-st-kink-brute', cat: 'stem', brand: 'Kink', model: 'Brute Stem',
+    clamp: '22.2mm', weight: 320, price: 29.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/brute-stem. Description states, verbatim: "48mm reach, 31.5mm rise...Weight 11.3oz" (11.3oz = 320g, independently oz-stated, not the JSON shipping-weight field of 363g which is discarded). Bar-clamp diameter is not stated anywhere on the page — clamp is display-only in checkBmxBuild (no rule reads it), so the 22.2mm sample value does not gate. Unverified sample.'
+  },
+  {
+    id: 'bmx-hs-kink-cascade', cat: 'headset', brand: 'Kink', model: 'Cascade Headset',
+    fit: 'integrated-1-1/8', weight: 85, price: 29.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/cascade-headset. Description states, verbatim: "two precision sealed bearings...Weight 3.0oz" (3.0oz = 85g, independently oz-stated, not the JSON shipping-weight field of 113g which is discarded). fit is display-only in checkBmxBuild. Unverified sample.'
+  },
+  {
+    id: 'bmx-hb-kink-union-95', cat: 'handlebar', brand: 'Kink', model: 'Union 4pc Bars 9.5in',
+    clamp: '22.2mm', rise: 9.5, width: 29.5, weight: 1168, price: 89.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/union-bars. Description states, verbatim: "Rise 9\\", 9.5\\" Width 29.5\\" Backsweep 12 Degrees Upsweep 1 Degree...Weight 41.2oz (9.5\\")" — this row pins the 9.5in rise variant the page\'s own weight figure names (41.2oz = 1168g, independently oz-stated and size-qualified, close to but not identical to the JSON per-variant weight of 1191g for the same size, which is discarded in favor of the page\'s own text). clamp is display-only. Unverified sample.'
+  },
+  {
+    id: 'bmx-gr-kink-form', cat: 'grips', brand: 'Kink', model: 'Form Grips',
+    length: 155, flangeless: true, price: 10.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/form-grips. Description states, verbatim: "Length 155mm...Rounded plug type barends come included" (plug-style end caps rather than an integrated flange, hence flangeless:true). grips carries no engine-read field (length/flangeless are display-only) so this real, current, maker-confirmed product clears the interface bar regardless. Unverified sample (no stated weight figure on the page).'
+  },
+  {
+    id: 'bmx-ti-kink-wake-245', cat: 'tire', brand: 'Kink', model: 'Wake Tire 2.45in',
+    wheelSize: '20', width: 2.45, casing: 'park', maxPsi: 60, weight: 700, price: 29.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/wake-tire. Description states, verbatim: "Sizes 2.45\\" Pressure 60psi Bead Wire Weight 24.7oz" (24.7oz = 700g, independently oz-stated, not the JSON shipping-weight field of 768g which is discarded); "great for a range of surfaces, from street to park to dirt" confirms casing:\'park\'. wheelSize:\'20\' is Kink\'s catalog-wide freestyle standard, NOT independently re-stated on this specific page (unlike Cult, no already-verified sibling row establishes "every Kink product is 20in" in this catalog), so the row stays unverified on that basis alone despite the otherwise-exact weight/PSI match.'
+  },
+  {
+    id: 'bmx-st-kink-gavel', cat: 'stem', brand: 'Kink', model: 'Gavel Topload Stem',
+    clamp: '22.2mm', weight: 323, price: 64.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, kinkbmx.com/products/gavel-stem. Description states, verbatim: "wide 50mm clamping area...Weight 11.4oz" (11.4oz = 323g, independently oz-stated, not the JSON shipping-weight field of 363g which is discarded). Bar-clamp diameter is not stated — clamp is display-only in checkBmxBuild. Unverified sample.'
+  },
+
+  // --- Sunday (shop.sundaybikes.com — same maker family/storefront pattern already verified
+  // for this brand's Soundwave V3/Nightshift/Park Ranger frames in earlier waves) ---
+  {
+    id: 'bmx-fk-sunday-darkwave', cat: 'fork', brand: 'Sunday', model: 'Darkwave Fork',
+    discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'none', weight: 1247, price: 219.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-darkwave-fork-gloss-black (Broc Raiford signature). Shopify tags state "Brake Mounts:None" verbatim; description states "Axle Slots: 3/8″" (= 10mm token) and "built-in, integrated, lower headset seat race" (integrated head tube). wheelSize:\'20\' is Sunday\'s catalog-wide freestyle standard (not independently re-stated on this fork-only page). JSON weight (1247g) kept — not obviously a shipping-bucket duplicate seen elsewhere this session, but not description-text-confirmed either. Unverified sample.'
+  },
+  {
+    id: 'bmx-fr-sunday-wavec-24', cat: 'frame', brand: 'Sunday', model: 'Wave C 24in',
+    discipline: 'freestyle', wheelSize: '24', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 22, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    weight: 2676, price: 549.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://shop.sundaybikes.com/products/sunday-wave-c-24-frame-gloss-black',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Shopify tags state "Wheel Size:24\\"" verbatim. Description states, verbatim: "Removable Brake Hardware...Top Tube Length: 22\\"...Weight: 5.9 lbs" (5.9lbs = 2676g, a genuine frame-only weight — this product\'s type is "Frames", distinct from any complete "Bikes" SKU under the Wave C name). bbShell:\'mid\' and headTube:\'integrated-1-1/8\' follow this catalog\'s already-verified sibling rows for this exact brand (bmx-fr-sunday-soundwavev3/nightshift/parkranger, wave 1: "Mid BB and Headtube...Removable Brake Hardware" is Sunday\'s own stated convention, spelled out as "removable u-brake hardware" across its whole freestyle line on this same storefront) — the identical "Removable Brake Hardware" phrase appears verbatim on this page too, so the cross-reference is to the SAME stated convention, not a guess. rearAxle:\'14mm\' is the BMX-universal rear-axle standard (BMX-MODEL.md sec.5), not independently re-stated on this specific page.'
+  },
+  {
+    id: 'bmx-fr-sunday-wavelength', cat: 'frame', brand: 'Sunday', model: 'Wavelength (Gary Young signature)',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    price: 449.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-wavelength-frame-matte-metallic-gold. Description states, verbatim: "Removable U-brake hardware and Gyro tabs" (directly confirms rearBrakeMount:\'u-brake\', no cross-reference needed) and "Top Tube Length: 20.75\\", 21\\", and 21.25\\"" (this row pins the 21in variant). bbShell:\'mid\' and headTube:\'integrated-1-1/8\' follow this catalog\'s already-verified Sunday sibling rows\' stated brand convention (not independently re-stated as "Mid BB" on this specific page, so left unverified on that basis). No frame weight stated on the page (frame-only SKU — this product\'s type is "Frames", no matching complete-bike SKU exists under the Wavelength name). Unverified sample.'
+  },
+  {
+    id: 'bmx-fr-sunday-silvawave', cat: 'frame', brand: 'Sunday', model: 'Silvawave (Brett Silva signature)',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 21, rearBrakeMount: 'u-brake', rearAxle: '14mm', frameOnly: true,
+    price: 469,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-silvawave-frame-metallic-seaweed-green. Description states, verbatim: "Removable U-brake hardware and Gyro tabs" (directly confirms rearBrakeMount:\'u-brake\') and "Top Tube: 20.5\\", 20.75\\", 21\\", or 21.25\\"" (this row pins the 21in variant). bbShell:\'mid\' and headTube:\'integrated-1-1/8\' follow this catalog\'s already-verified Sunday sibling rows\' stated brand convention (not independently re-stated on this specific page). No frame weight stated on the page (frame-only SKU, no matching complete-bike SKU under the Silvawave name). Unverified sample.'
+  },
+  {
+    id: 'bmx-se-sunday-blockhead-fat', cat: 'seat', brand: 'Sunday', model: 'Blockhead Fat Seat',
+    system: 'pivotal', price: 46.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-blockhead-fat-seat-black-w-berry-silver-embroidery. Description states, verbatim: "Available in Pivotal only" — confirms system:\'pivotal\' (the one engine-read seat field). JSON weight (635g) discarded — identical across every other Sunday seat SKU fetched this session, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-se-sunday-silvabrick-pivotal', cat: 'seat', brand: 'Sunday', model: 'Silva Brick Pivotal Seat',
+    system: 'pivotal', price: 42.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-silva-brick-pivotal-seat-black (Brett Silva signature). Description states, verbatim: "Available in pivotal only" — confirms system:\'pivotal\'. JSON weight (635g) discarded as the same shipping-bucket figure shared with the Blockhead Fat Seat above. Unverified sample.'
+  },
+  {
+    id: 'bmx-se-sunday-silvabrick-cruiser-railed', cat: 'seat', brand: 'Sunday', model: 'Silva Brick Cruiser Railed Seat',
+    system: 'standard', price: 32.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-silva-brick-cruiser-railed-seat-brown — the railed (system:\'standard\') variant of the same Silva Brick seat above ("Available in railed or pivotal versions"). JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample.'
+  },
+  {
+    id: 'bmx-se-sunday-wallflower-v1', cat: 'seat', brand: 'Sunday', model: 'Wallflower v1 Seat',
+    system: 'pivotal', weight: 386, price: 36.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-wallflower-v1-seat. Description states, verbatim: "Available in Pivotal only" — confirms system:\'pivotal\'. JSON weight (386g) kept — distinct from the 635g bucket figure shared by every other Sunday seat fetched this session, so not flagged as that specific tell, though still not description-text-confirmed. Unverified sample.'
+  },
+  {
+    id: 'bmx-se-sunday-scribblesv2-pivotal', cat: 'seat', brand: 'Sunday', model: 'Scribbles v2 Seat (Aaron Ross signature)',
+    system: 'pivotal', price: 46.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, shop.sundaybikes.com/products/sunday-scribbles-v2-seat-aaron-ross-signature-multicolor — this handle\'s variant is titled "Pivotal" (the page also separately offers a "Fat/Pivotal or Cruiser/Railed" split, matching this catalog\'s existing Silva Brick pattern above). JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample.'
+  },
+
+  // --- Fiend (fiendbmx.com, its own Shopify store — only 1 Fiend row existed before this pass) ---
+  {
+    id: 'bmx-hs-fiend-lowintegrated', cat: 'headset', brand: 'Fiend', model: 'Integrated Low Headset',
+    fit: 'integrated-1-1/8', price: 27.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/intergrated-low-headset ("integrated 45x45 headset...2 precision sealed cartridge bearings"). fit is display-only in checkBmxBuild. JSON weight (227g) discarded — identical to two other unrelated Fiend products fetched this session (the Belmont Peg, the Half Link Chain), the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-cr-fiend-teamv2', cat: 'cranks', brand: 'Fiend', model: 'Team V2 Cranks',
+    spindle: '22mm', pieces: '2-piece', ringMount: 'spline', weight: 964, price: 209.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/fiend-team-2-cranks. Description states, verbatim: "2pc design...48 spline 22mm hollow chromoly spindle...Weight:34ozs. @ 165mm" (34oz = 964g, independently oz-stated for the 165mm arm length this row pins, not the JSON shipping-weight field of 1361g which is discarded — that figure recurs identically on the unrelated Process Fork). ringMount:\'spline\' follows the "1pc spindle/sprocket boss" phrasing, matching this catalog\'s existing spline convention for splined-spindle cranks elsewhere. Unverified sample.'
+  },
+  {
+    id: 'bmx-bb-fiend-mid-19', cat: 'bb', brand: 'Fiend', model: 'Mid Bottom Bracket (19mm)',
+    shell: 'mid', spindleFit: '19mm', weight: 408, price: 27.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/mid-bottom-bracket ("Mid BB bearing kit...sealed bearings", sold in 19mm/22mm spindle variants — this row pins the 19mm option). JSON weight (408g) kept — not seen recurring elsewhere this session, but not description-text-confirmed either. Unverified sample.'
+  },
+  {
+    id: 'bmx-bb-fiend-mid-22', cat: 'bb', brand: 'Fiend', model: 'Mid Bottom Bracket (22mm)',
+    shell: 'mid', spindleFit: '22mm', weight: 408, price: 27.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/mid-bottom-bracket — same product as the 19mm row above, this row pins the 22mm spindle variant (matching this pass\'s own Team V2 Cranks\' 22mm spindle). Unverified sample.'
+  },
+  {
+    id: 'bmx-sp-fiend-reynolds-25', cat: 'sprocket', brand: 'Fiend', model: 'Reynolds Sprocket 25T',
+    teeth: 25, mount: 'spline', pitch: '1/8', weight: 272, price: 42.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/reynolds-sprocket ("CNC machined...offset teeth for better chain alignment. Includes 19mm & 22mm spindle adaptors"). mount:\'spline\' and pitch:\'1/8\' follow this catalog\'s existing convention for splined-spindle-adapter sprockets of this style (matching the Odyssey/Eclat precedent already in this catalog) — not independently re-confirmed on this specific page. Unverified sample.'
+  },
+  {
+    id: 'bmx-ch-fiend-halflink', cat: 'chain', brand: 'Fiend', model: 'PYC P121 Half Link Chain',
+    pitch: '1/8', halfLink: true, price: 29.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/pyc-p121-half-link-chain. Description states, verbatim: "1/2\\"x1/8\\" cromized steel heat-treated half link chain...90 links" — confirms both pitch:\'1/8\' and halfLink:true directly. JSON weight (227g) discarded — identical to the unrelated Integrated Low Headset row above, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-hb-fiend-team-925', cat: 'handlebar', brand: 'Fiend', model: 'Team Bars 9.25in',
+    clamp: '22.2mm', rise: 9.25, width: 29, price: 86.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/team-bars. Description states, verbatim: "All rises feature 12 degree backsweep and 1 degree upsweep. All rises are 29\\" wide" (sold in 9.25\\"/9.5\\"/9.75\\" rise; this row pins the 9.25in option). clamp is display-only in checkBmxBuild. JSON weight (907g) discarded — identical to the unrelated Cab V2 Freecoaster Hub row below, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-st-fiend-mills', cat: 'stem', brand: 'Fiend', model: 'Mills Stem',
+    clamp: '22.2mm', price: 49.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/fiend-mills-stem (Lew Mills signature — "48MM reach, 23MM rise"). clamp is display-only. JSON weight (454g) discarded — identical to two other unrelated Fiend products fetched this session (the Reynolds V2 Seat, the Reynolds Pedals), the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-se-fiend-reynoldsv2', cat: 'seat', brand: 'Fiend', model: 'Reynolds V2 Pivotal Seat',
+    system: 'pivotal', price: 49.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/reynolds-v2-seat (Garrett Reynolds signature). Description states, verbatim: "For use with Pivotal Technology seat posts only" — confirms system:\'pivotal\'. JSON weight (454g) discarded as the same shipping-bucket figure shared with the Mills Stem/Reynolds Pedals rows. Unverified sample.'
+  },
+  {
+    id: 'bmx-pd-fiend-reynolds', cat: 'pedals', brand: 'Fiend', model: 'Reynolds Pedals',
+    platform: 'plastic', spindle: '9/16', price: 24.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/reynolds-pedals. Description states, verbatim: "Nylon composite concave body...9/16\\" chromoly spindle" (nylon composite -> platform:\'plastic\'). Pedals carry zero checkBmxBuild rules. JSON weight (454g) discarded as the same shipping-bucket figure shared with the Mills Stem/Reynolds V2 Seat rows. Unverified sample.'
+  },
+  {
+    id: 'bmx-rh-fiend-cabv2freecoaster', cat: 'rearWheel', brand: 'Fiend', model: 'Cab V2 Freecoaster Hub',
+    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 588, price: 139.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, fiendbmx.com/products/cab-freecoaster. Description states, verbatim: "hollow chromoly 14mm axle, a 9 tooth driver...Weight 20.75ozs" (20.75oz = 588g, independently oz-stated, not the JSON shipping-weight field of 907g which is discarded — that figure recurs identically on the unrelated Team Bars row above); sold in LHD/RHD variants (side:\'both\'). Unverified sample.'
+  },
+
+  // --- Salt / SaltPlus (saltbmx.com, its own Shopify store — a full structured spec sheet in
+  // grams per product; the widest and cleanest single-brand source this pass found) ---
+  {
+    id: 'bmx-fk-saltplus-hq-ubrake', cat: 'fork', brand: 'Salt', model: 'SaltPlus HQ Fork (u-brake)',
+    discipline: 'freestyle', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'u-brake', weight: 1047, price: 124.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, saltbmx.com/products/saltplus-hq-fork — this row pins the "Brake Mounts" variant (a separate "Brakeless" variant also exists on the same page). Description states, verbatim: "Size: with u-brake mounts, 3/8\\" slots...Dropouts: 3/8\\" / 10 mm...designed for integrated 45° bearing...Weight 1047 g (36.93 oz : 2.30 lbs)". wheelSize:\'20\' is SaltPlus\'s catalog-wide freestyle standard, not independently re-stated as a wheel-size number on this specific page (the only field this row leaves unverified). Unverified sample.'
+  },
+  {
+    id: 'bmx-hs-saltplus-echo', cat: 'headset', brand: 'Salt', model: 'SaltPlus ECHO Headset',
+    fit: 'integrated-1-1/8', weight: 70, price: 26.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-echo-headset',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Size: Campagnolo (45° x 45°), 41.8 mm diameter...Weight: 70 g (2.46 oz)". fit is display-only in checkBmxBuild (no BMX headset rule fires), so this real, current, precisely-specced product clears the bar on its one schema field alone.'
+  },
+  {
+    id: 'bmx-rh-saltplus-vertex-freecoaster', cat: 'rearWheel', brand: 'Salt', model: 'SaltPlus VERTEX Freecoaster Hub',
+    driverType: 'freecoaster', driverTeeth: 9, side: 'both', axle: '14mm', weight: 671, price: 139.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-vertex-freecoaster-hub',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Axle : 14 mm male, CrMo...Size: RSD, LSD...Weight:671 g (23.6 oz)" — directly confirms axle:\'14mm\', side:\'both\' (RSD/LSD), and driverType:\'freecoaster\' (product name). driverTeeth:9 is the domain-wide de facto freestyle standard (BMX-MODEL.md sec.5) and is display-only in checkBmxBuild (no rule reads it), so it doesn\'t gate — every field the engine actually checks is directly page-confirmed.'
+  },
+  {
+    id: 'bmx-fw-saltplus-mesa', cat: 'frontWheel', brand: 'Salt', model: 'SaltPlus MESA Front Wheel',
+    wheelSize: '20', axle: '10mm', weight: 966, price: 149.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, saltbmx.com/products/saltplus-mesa-front-wheel. Description states, verbatim: "Size: 20\\"...Weight: 966 g (34.07 oz : 2.13 lbs)" (wheelSize directly confirmed). axle:\'10mm\' is inferred from "3/8\\" bolts" (peg-bolt terminology, not an independently-stated axle bore diameter — the same ambiguity flagged on other hubs this pass), so left unverified on that basis. Unverified sample.'
+  },
+  {
+    id: 'bmx-ti-saltplus-pitchmid-23', cat: 'tire', brand: 'Salt', model: 'SaltPlus PITCH MID Tire 2.3in',
+    wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 65, weight: 757, price: 26.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, saltbmx.com/products/saltplus-pitch-mid-tire. Description states, verbatim: "Perfect mixed tread for trails, transition or street...65psi rated...Weight: 2.3\\" – 757 g (26.70 oz : 1.66 lbs)" (this row pins the 2.3in variant the weight figure names). wheelSize:\'20\' is not independently re-stated as a number on this page (standard BMX freestyle default), so left unverified on that basis. Unverified sample.'
+  },
+  {
+    id: 'bmx-cr-saltplus-metron48-175', cat: 'cranks', brand: 'Salt', model: 'SaltPlus METRON48 Crank 175mm',
+    spindle: '19mm', pieces: '3-piece', ringMount: 'spline', weight: 952, price: 139.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, saltbmx.com/products/saltplus-metron-48-crank. Description states, verbatim: "48 spline 19 mm spindle...Weight: 952 g (33.58 oz : 2.09 lbs) – 175 mm" (this row pins the 175mm arm length). pieces:\'3-piece\' and ringMount:\'spline\' follow this catalog\'s universal pattern for every other 48-spline-spindle crank already cataloged (Cult/Odyssey/Fiend) — not independently re-stated as such on this specific page. Unverified sample.'
+  },
+  {
+    id: 'bmx-bb-saltplus-echo-mid-19', cat: 'bb', brand: 'Salt', model: 'SaltPlus ECHO Mid BB (19mm)',
+    shell: 'mid', spindleFit: '19mm', weight: 235, price: 22.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-echo-mid-bb',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Size: mid bb, for 19mm or 20 mm spindle...Weight: 235 g (8.29 oz : 0.52 lbs)"; this row pins the 19mm spindle variant (the page\'s own variant list is 19mm/22mm, not the "20mm" the prose loosely mentions). Both of the bb category\'s schema fields (shell, spindleFit) are directly page-confirmed.'
+  },
+  {
+    id: 'bmx-sp-saltplus-manta-25', cat: 'sprocket', brand: 'Salt', model: 'SaltPlus MANTA Sprocket 25T',
+    teeth: 25, mount: 'spline', pitch: '1/8', weight: 67, price: 32.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, saltbmx.com/products/saltplus-manta-sprocket. Description states, verbatim: "four sprocket bolt holes...incl. 19 mm & 22 mm spindle adapter...Weight 67 g (2.36 oz : 0.14 lb) – 25T". mount:\'spline\' follows this catalog\'s convention for spindle-adapter-equipped sprockets of this style (matching the Odyssey/Eclat/Fiend precedent already cataloged) — the page\'s own "bolt holes" phrasing is ambiguous against the plain spline/press-on vocab, so this is a convention match, not a direct statement, and the row stays unverified on that basis. pitch:\'1/8\' is the catalog-wide freestyle default. Unverified sample.'
+  },
+  {
+    id: 'bmx-ch-saltplus-warlock', cat: 'chain', brand: 'Salt', model: 'SaltPlus WARLOCK Half Link Chain',
+    pitch: '1/8', halfLink: true, weight: 447, price: 31.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-warlock-chain',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "A tough and dependable BMX half link chain...Size: 1/2\\" x 1/8\\"...Weight: 447 g (15.77 oz : 0.98 lbs) – 100 links" — directly confirms both of the chain category\'s schema fields (pitch, halfLink).'
+  },
+  {
+    id: 'bmx-pg-saltplus-hq', cat: 'pegs', brand: 'Salt', model: 'SaltPlus HQ Peg',
+    axleFit: '14mm', material: 'steel', reducerIncluded: true, weight: 189, price: 16.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-hq-peg',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Material: 4130 CrMo...Size: 14mm axle hole with 3/8\\" adapter...Weight: 189 g (6.67 oz : 0.42 lbs)" — directly confirms axleFit:\'14mm\' (native bore), material:\'steel\' (4130 CrMo), and reducerIncluded:true (the included 3/8" adapter), all three of the pegs category\'s schema fields.'
+  },
+  {
+    id: 'bmx-hb-saltplus-hq4pc-9', cat: 'handlebar', brand: 'Salt', model: 'SaltPlus HQ 4pc Handlebar 9in',
+    clamp: '22.2mm', rise: 9, width: 29.5, weight: 894, price: 62.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-hq-4pc-handlebar',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Width: 29.5\\" Back Sweep: 11.5° Up Sweep: 3° Clamping: 22.2 mm...Weight: 9\\" : 894 g (31.5 oz : 1.97 lbs)" (this row pins the 9in rise variant the weight figure names). handlebar carries zero checkBmxBuild rules (every field is display-only), so this real, current, precisely-specced product clears the bar.'
+  },
+  {
+    id: 'bmx-st-saltplus-manta', cat: 'stem', brand: 'Salt', model: 'SaltPlus MANTA Stem',
+    clamp: '22.2mm', weight: 340, price: 52.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-manta-stem',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Clamping: 22.2 mm...Weight: 340 g (11.99 oz : 0.75 lbs)". stem carries zero checkBmxBuild rules (clamp is display-only), so this real, current, precisely-specced product clears the bar.'
+  },
+  {
+    id: 'bmx-se-saltplus-pivotal-mid', cat: 'seat', brand: 'Salt', model: 'SaltPlus PIVOTAL Seat (Mid)',
+    system: 'pivotal', weight: 305, price: 29.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-pivotal-seat',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Only compatible with Pivotal seat posts...Mid – 305 g (10.76 oz)" (this row pins the Mid size). system:\'pivotal\' is the one engine-read seat field and is directly confirmed.'
+  },
+  {
+    id: 'bmx-sp-saltplus-hqcnc-rail', cat: 'seatpost', brand: 'Salt', model: 'SaltPlus HQ CNC Rail Seat Post',
+    diameter: 25.4, system: 'standard', weight: 180, price: 52.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-hq-cnc-rail-seat-post',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "25.4 mm micro-adjust seat post...only compatible with railed seats...Weight: 180 g (6.35 oz)" — directly confirms both of the seatpost category\'s schema fields (diameter, system:\'standard\').'
+  },
+  {
+    id: 'bmx-gr-saltplus-xl-flanged', cat: 'grips', brand: 'Salt', model: 'SaltPlus XL Grips (with flange)',
+    length: 155, flangeless: false, price: 10.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-xl-grips',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Length: 155 with flange 162 without flange...Micro flange (flanged version)" — this row pins the with-flange variant (flangeless:false). grips carries zero checkBmxBuild rules.'
+  },
+  {
+    id: 'bmx-gr-saltplus-xl-flangeless', cat: 'grips', brand: 'Salt', model: 'SaltPlus XL Grips (without flange)',
+    length: 162, flangeless: true, price: 10.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-xl-grips',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED — the flangeless variant of the same product above ("Length: 155 with flange 162 without flange"). grips carries zero checkBmxBuild rules.'
+  },
+  {
+    id: 'bmx-pd-saltplus-hqcnc', cat: 'pedals', brand: 'Salt', model: 'SaltPlus HQ CNC Pedals',
+    platform: 'alloy', spindle: '9/16', weight: 384, price: 94.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://saltbmx.com/products/saltplus-hq-cnc-pedals',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Size: 9/16\\", sealed...CNC machined 6061-T6 alloy body...Weight: 384 g (pair)" — directly confirms both platform:\'alloy\' and spindle:\'9/16\'. Pedals carry zero checkBmxBuild rules.'
+  }
 ];
 
 // Node/test consumption only — the browser path stays plain globals, matching
