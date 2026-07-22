@@ -2143,6 +2143,12 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-22', source: 'https://www.bike-components.de/en/PRO/Vibe-Evo-Handlebar-Stem-Unit-p249580/', priceBasis: 'third-party-listed',
     note: 'road-breadth-6 wave: a fifth cockpit-category brand - PRO (Shimano\'s finishing-kit brand). bike-components.de\'s own spec table (a large EU retailer, used as source since pro-bikegear.com\'s own product page did not surface a fetchable spec block this pass) states "Reach: 80 mm Flare: 5 Drop: 132 mm" and "stem clamp compatible with 1 1/4\" and 1 1/8\" diameters" (steerer modeled as "1-1-8", same narrower-token convention as the Vision row above). Weight (395g, 380mm width/115mm stem) and specs cross-corroborated identically across FIVE independent retailers (Freewheel, Full Cycle, evocycles.co.nz, Uprise Bikes, bicycleparts24.com - the last stating the exact per-size breakdown). Price $742 (Full Cycle, a US retailer selling this "From PRO Bike Gear" listing) - priceBasis:"third-party-listed" since no maker-own-store USD price was fetched this pass (pro-bikegear.com/us 404s or 429s on this SKU\'s URL pattern).' },
 
+  // --- bb (was 4) ---
+  { id: 'bb-praxis-t47-eb-shimano', cat: 'bb', brand: 'Praxis Works', model: 'T47 E.B. Shimano (68/73mm External)', family: 'praxis-t47-eb-shimano', mfgPn: '47-3001',
+    shell: 't47-road', spindle: '24mm-road', weight: 104, price: 48,
+    verified: true, lastChecked: '2026-07-22', source: 'https://praxiscycles.com/product/t47-eb-shimano/', priceBasis: 'third-party-listed',
+    note: 'road-breadth-6 wave: FETCHED praxiscycles.com (Praxis\' own maker site) directly - a fourth bb-category brand alongside Shimano/SRAM/Wheels Manufacturing. Spec table: "T47 External Bearing BB for installing a Shimano Hollowtech II crank into a T47 68 Road or 73mm MTN frame", "AVG. WEIGHT 104g" (taken verbatim - the maker page itself carries no USD price). shell:"t47-road" (this catalog\'s existing 68mm-road-width T47 token - distinct from the file\'s two DUB-spindle T47 rows, this is the first T47-shell + 24mm-Shimano-spindle combo, closing a real interface gap), spindle:"24mm-road" (page states "24mm Drive and a 24mm NonDrive Bearing... for use with Shimano Hollowtech II crank spindles"). Price $48 (Universal Cycles, a US retailer of the same SKU 47-3001, whose own weight figure "104g" matches the maker page exactly - strong convergent confirmation) - priceBasis:"third-party-listed".' },
+
 ];
 
 // ---------------------------------------------------------------------------
