@@ -4948,3 +4948,23 @@ overclaim. No pop-ups (diff reviewed). Gates green. NIT SPOTTED in the worker's 
 verification output: the Nicasio+ card also prints raw "square-taper shell" — the crankBb
 token has no pretty label; folded into the next gravel UI smalls pass.
 Report: gravel-ui-ismount.md.
+
+## 2026-07-22 — pb-gravel-3 merged: gravel 153 to 148 (small batch, real tooling walls)
+5 rows: Diverge Comp Carbon 3200->3599.99, Diverge E5 1500->1999.99, Grail CF SL 2800->3099
+(the page's own disclosed original-price behind a sale banner — correctly NOT called
+regional/third-party), + both Trek Checkpoints discontinued-no-msrp. THE DISCONTINUED CALL
+WAS COORDINATOR-VERIFIED IN THE PANE before merge (it is the rejection-class token and this
+morning's audit treated the SL 7 as current): trekbikes.com serves BOTH SKUs with a literal
+"ARCHIVED / 2025" (SL 7) and "ARCHIVED / 2024-2025" (ALR 5) badge plus "Sorry, we do not
+have a replacement available for this item" — the token is right; the model-year SKU is
+archived even though the platform continues. Coordinator ADDED status:'discontinued' to both
+(schema supports it, 27 gravel rows already carry it; a discontinued-no-msrp row without
+status is invisible to src/discontinued-archive.js — worth checking on every future
+discontinued stamp). 2 rows honestly left blank (Crux source is the FRAMESET page while the
+row prices a complete build; Grizl source is a geometry PDF with no price).
+WHY SMALL, and it is legitimate: Exa is OUT OF CREDITS (HTTP 402) — the doctrine's second
+tier is gone, so specialized.com (403) / trekbikes / canyon (JS buy-boxes) all demote to
+one-URL-at-a-time browser-pane work, ~3 rows per fetch round. 148 rows remain = a multi-
+session grind at that rate. TOP UP EXA before the next fetch-heavy chip. Resume:
+gfr-cannondale-topstone-carbon-4. Gates green.
+Report: pb-gravel-3.md.
