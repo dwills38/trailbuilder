@@ -1526,11 +1526,7 @@ var EMTB_PARTS = [
     note: 'BH\'s Bosch-powered carbon enduro tier (iLynx+ NX platform, sibling chassis to the Avinox-powered DL line) — FOX 38 FLOAT Factory 170mm / FOX FLOAT DHX2 Factory rear, "Split Pivot" suspension layout.',
     desc: 'Verified vs the fetched maker product page (bhbikes.com, es_ES locale product page for SKU EX986 — "Bosch Performance Line CX Gen 5" motor, "100 Nm" torque, 800Wh battery, 170mm front / 160mm rear travel, carbon "Hollow Core" frame, Shimano XT Di2 12-speed, Shimano XT 4-piston 203mm brakes; page shows a EUR 8,074.90 site-wide sale next to a EUR 9,499.90 regular price — the regular/MSRP figure is used per this catalog\'s MSRP-not-sale policy). Motor power (750 W peak) is Bosch\'s own published spec for the CX Gen5 unit run at the 100 Nm factory tune (bosch-ebike.com/us/products/performance-line-cx — the 750W/100Nm pairing matches the CX\'s documented Performance-Upgrade-tier output) — not separately restated on the BH page, which states only "100 Nm". Battery-removable claim not found on the page; left unset rather than guessed. No maker-published weight found. PRICE: EUR 9,499.90 maker regular price converted at the 2026-07-22 open.er-api.com rate (1.140653) -> $10,836.09 (regional-conversion) — BH has no US retail presence, no USD MSRP exists.',
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://www.bhbikes.com/es_ES/bicicletas-electricas/bicicletas-electricas-de-enduro/ilynx-nx-enduro-carbon-9-8-ex986'
-  }
-
-];
-
-/* __PLACEHOLDER_POLYGON__
+  },
   {
     id: 'em-polygon-collosus-n8e', cat: 'emtb', brand: 'Polygon', model: 'Collosus N8E',
     motorBrand: 'shimano', motorModel: 'Shimano DU-EP801', motorTorque: 85, motorPowerPeak: 600,
@@ -1542,7 +1538,8 @@ var EMTB_PARTS = [
     desc: 'Verified vs the fetched maker product page (polygonbikes.com/us/collosus-n8e/ — full "Specification" table incl. USD $4,699.00 price, Shimano DU-EP801 mid motor, Shimano BT-EN806 630Wh removable battery, FOX 38 FLOAT Performance 160mm fork, FOX FLOAT X2 205x65mm rear shock corresponding to the page\'s own "160mm Travel" frame callout, ALX aluminum enduro frame, Shimano XT SL-M8100-R 1x12-speed 10-51T drivetrain, Shimano XT M8120 203mm brakes). Motor torque/power (85 Nm / 600 W) is Shimano\'s own published DU-EP801 spec (bike.shimano.com/en-US/product/component/ep8-ep801/DU-EP801.html) — the Polygon page names only the motor SKU, not its Nm/W figures. No maker-published weight found. Page labels this the "2023 COLLOSUS N8E" (model year), still the current live US listing at fetch time. USD-native price, no conversion needed.',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.polygonbikes.com/us/collosus-n8e/', modelYear: 2023
   }
-*/
+
+];
 
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { EMTB_PARTS: EMTB_PARTS };
