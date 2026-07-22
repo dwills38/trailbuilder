@@ -1,5 +1,19 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — i9-hubtier-split: the ruling lands (MTB 5,088)
+
+- **catalog/i9-hubtier-split merged (Douglas's "each their own part" ruling)**: Deal/
+  Triad/Sector/Whisp split into premium (Hydra2/SOLiX Classic — existing append-only ids,
+  weights replaced with maker-stated per-tier figures) + NEW -oneone sibling rows (22
+  added). Key honest finds: price is FLAT across all three hub tiers ($1,549 — no
+  fabricated deltas); Whisp's premium tier is genuinely named SOLiX, labeled per I9's own
+  branding (uniform-"Hydra2" wording = Douglas's taste call if wanted); the stale $1,595
+  Triad preset prices were corrected BEFORE the ≤-sum lint could trip; Fuse (I9's e-bike
+  tier) hard-excluded; no CB fills referenced these ids (repointing was a no-op).
+  Judgment flags: only the carbon rim tier split (no -al rows exist to split); Wanderer/
+  Revive/Coup untouched (gravel/DJ scope). Gates: 7 OK (5,088 parts / 3,363 verified),
+  989/989, tsc clean, harness fully clean.
+
 ## 2026-07-22 — breadth round 3 begins: gravel 312 + kit 724
 
 - **catalog/gravel-depth-4 merged**: Ari Bikes debut (Fezzari REBRANDED — fezzari.com
