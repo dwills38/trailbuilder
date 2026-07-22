@@ -2177,6 +2177,10 @@ var ROAD_PARTS = [
     size: 160, mount: 'center-lock', weight: 139, price: 71,
     verified: true, lastChecked: '2026-07-22', source: 'https://trpcycling.com/products/tr25', priceBasis: 'msrp-confirmed',
     note: 'road-breadth-6 wave: FETCHED trpcycling.com (TRP\'s own current storefront) directly - a fourth rotor-category brand (SRAM/Shimano/Hope already cataloged). Spec table: "Two-piece center-lock disc rotor in 1.8mm thickness", "Weight: ... 160mm: 139 g" and price "$71.49" both taken verbatim from the live product page - an independent bike24.com listing of the same SKU (TRP160-25) confirms mount:"center-lock" and the identical 139g figure.' },
+  { id: 'ro-galfer-wave-160', cat: 'rotor', brand: 'Galfer', model: 'Wave DB102WCL 160mm', family: 'galfer-wave', mfgPn: 'DB102WCL',
+    size: 160, mount: 'center-lock', weight: 98, price: 77,
+    verified: true, lastChecked: '2026-07-22', source: 'https://galfer.com/bike/galfer-disc-wave-now-available-for-the-center-lock-system/', priceBasis: 'third-party-listed',
+    note: 'road-breadth-6 wave: FETCHED galfer.com (Galfer\'s own maker site) directly - a fifth rotor-category brand. Maker announcement page states verbatim "DB102WCL: Road model ø160mm (98g)" (weight taken exactly), Center-Lock mount, and a EUR ex-VAT maker price (not a confirmed US MSRP, hence not used directly). US price ($77, rounded from Performance Bicycle\'s $76.50 current listing of the identical DB102WCL SKU) independently confirms the identical "98g (160mm Rotor)" weight figure - a strong convergent match between the maker announcement and the US retail listing; priceBasis:"third-party-listed".' },
 
 ];
 
