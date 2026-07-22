@@ -18,13 +18,18 @@ function aBike(){
 }
 
 test('the real emtb catalog validates clean', function(){
-  var probs = S.validateEmtbCatalog(D.EMTB_PARTS, TODAY);
+  // live date, not the pinned TODAY below — the same staleness fix
+  // test-schema-gravel.js and test-schema-road.js carry: real rows'
+  // lastChecked keeps advancing, so a hardcoded past TODAY forces
+  // workers to backdate (emtb-breadth-1 had to). Pinned TODAY stays
+  // for the crafted negative cases below, which need a stable reference.
+  var probs = S.validateEmtbCatalog(D.EMTB_PARTS, new Date());
   eq(probs.length, 0, probs.join('\n'));
 });
 
 test('a valid real emtb bike has no problems', function(){
   var p = aBike();
-  eq(S.validateEmtbPart(p, TODAY).length, 0);
+  eq(S.validateEmtbPart(p, new Date()).length, 0);
 });
 
 test('an out-of-vocab motorBrand value is caught', function(){

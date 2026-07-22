@@ -1,5 +1,28 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — breadth wave 3: BMX over the bar, kit 716, EMTB 100
+
+- **catalog/bmx-depth-8 merged**: +84 rows, BMX 229→313 — BACK ABOVE Douglas's 300 flip
+  bar. Raw Shopify JSON method throughout; the shipping-weight-bucket tell caught on four
+  stores; SaltPlus emerged as the cleanest BMX source yet (structured gram sheets → 11
+  verified). Honest skips: Kink's "Stealth" one-bolt seats (a real third mechanism the
+  pivotal/standard binary can't represent — vocab tally), Cult Counter Post (no system
+  stated), Federal's domain unresolvable.
+- **catalog/kit-breadth-1 merged**: +10, kit 716 (559 verified) — Sweet Protection's
+  stale Bearsuit row corrected + full knee/elbow pairs, Scott's protection line 0→6
+  (PPE-cat-I Mission Evo correctly left uncerted), TSG knee counterpart. ★ ARCHITECTURE
+  QUESTION FLAGGED, correctly not decided by a worker: hydration/hip packs, socks, and
+  rain shells have NO kit category at all — adding them = schema/types/tests changes
+  (Douglas packet).
+- **catalog/emtb-breadth-1 merged (the full-equal lane's first wave)**: +8 all verified,
+  EMTB 92→100 — Kenevo SL tier pair, Torque:ON, Range VLT pair, Whyte E-160, RM Instinct
+  Powerplay SL, Cube hardtail e. MSRP-not-sale discipline held; unpublished weights left
+  blank. ~8 named brand/tier gaps remain for a follow-up wave.
+- **Coordinator fix**: test-schema-emtb.js positive tests moved to the live-date pattern
+  (third instance of the pinned-TODAY staleness bug; gravel/road already fixed; MTB+kit
+  pins verified harmless — negatives keep their stable pins).
+- Gates after every merge: 7 OK, 989/989, tsc clean.
+
 ## 2026-07-22 — road-depth-1: the mid-tier drivetrains land (road 263, suite 989)
 
 - **catalog/road-depth-1 merged**: +23 rows — Shimano 105 R7000 (full mechanical group,
