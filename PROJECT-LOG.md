@@ -4835,3 +4835,25 @@ the report exactly (3 commits, 134 insertions, compat.js only) before merging. F
 leads: the CenterLine price fix + the 4 QR gravel wheels + Cinelli re-fetch all queued in
 HANDOFF-CHIPS. Gates green post-merge.
 Report: .claude/worker-reports/pb-mtb-a2.md.
+
+## 2026-07-22 — CONTAINMENT HARDENED (Douglas all-caps order) + price-leads-1 & gravel-qr-wheels merged
+CONTAINMENT: third leak event (scratch files at D: root — script/redirect writes the old
+worktree/clone-only hook never covered) -> strays quarantined to .claude/legacy-strays/; hook
+hardened (guard-worktree-path.js): matcher now Bash|PowerShell|Write|Edit|NotebookEdit, denies
+outside Write/Edit file_paths + write-shaped shell commands with outside absolute paths;
+exemptions = harness Temp scratchpad + harness home; 12-case self-test at
+tools/hooks/test-guard.js (proven live — it denied the coordinator's own test command and a
+memory write before the home exemption); hourly cron now leak-sweeps D: root + home; CLAUDE.md
+rule 5 + chip boilerplate updated. PRICE-LEADS-1: CenterLine 200 keeps $45 sample with the
+fetched $50-65 range noted (no per-size figure exists); Cinelli King Zydeco II price narrowed
+to an honest open note (maker's own domain shows EUR 3.400 only — no USD conversion invented);
+ch-sram-red-flattop has no MTB twin; cb-kona-honzo REFUSED honestly — the fresh konaworld
+fetch reconfirmed $1,299 + the M5100 fills, but stock wheels (WTB ST i30/Shimano CL), tires
+(Vee Flow Snap/Crown Gem) and rotors (RT30) have no catalog rows and test-golden's completeness
+invariant forbids gaps — 3-row data chip queued. GRAVEL-QR-WHEELS: Hunt 4 Season 700c pair
+entered (maker axle table verbatim: "Quick Release 9x135mm"); Nicasio+ rear end UNBLOCKED
+(probe in report); rows stay unverified (pair weight split disclosed). Walls documented, not
+blurred: NO maker page states a 10x135 QR option (Kona Rove/Journeyman/Straggler-classic rears
+stay open) and 0 of 4 QR frames have a buildable FRONT (no QR fork token exists) — two
+follow-up chips queued. Gates green post-merge.
+Reports: price-leads-1-report.md, gravel-qr-wheels.md.
