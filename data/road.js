@@ -89,6 +89,22 @@ var ROAD_PARTS = [
     frameOnly: true, weight: 900, price: 4300
   },
   {
+    id: 'fr-trek-emonda-sl', cat: 'frame', brand: 'Trek', model: 'Émonda SL Frameset',
+    family: 'trek-emonda-sl', modelYear: 2024, disciplines: ['road'],
+    wheelSizes: ['700c'], rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount',
+    bb: 'bb90-road', seatpost: 'proprietary', steerer: 'tapered', maxTire: 28, frontDerailleurMount: 'braze-on',
+    frameOnly: true, weight: 1660, price: 2199,
+    note: 'road-depth-4 wave (the mid-tier sibling below fr-trek-emonda-slr). Multiple retailer spec republications of Trek\'s own Émonda SL Disc Frameset spec sheet (Wheel & Sprocket, Sigma Sports UK, Nevis Cycles, treknology3.com — all quoting Trek\'s tech-spec text verbatim, cross-checked against a live trekbikes.com Émonda SL 6 Disc complete-bike spec page fetched via Exa which confirms the same frame line "Ultralight 500 Series OCLV Carbon..., tapered head tube, BB90, flat mount disc brakes, 12mm thru axle... Ride Tuned seatmast") agree on: 500 Series OCLV Carbon (a lower carbon grade than the SLR\'s higher-grade layup, the real SL/SLR tier split), tapered head tube, BB90 (bb90-road), flat-mount disc, 12x142mm rear / 12x100mm front thru-axle, and a "Ride Tuned seatmast" integrated masthead (not a swappable post — seatpost:\'proprietary\' per the SLR sibling convention). Max tire 28mm and frame weight 1.66kg/1660g (56cm, painted) are the Wheel & Sprocket tech-spec republication\'s stated figures; frameset price $2,199 is 99spokes.com\'s listed US MSRP (crossed-out reference price on a $999 sale listing) which lines up with Sigma Sports UK\'s £1,975 RRP and Nevis Cycles\' £1,975 2024 listing at typical GBP/USD conversion. Not marked verified — no single clean trekbikes.com frameset-only product-page fetch with price was obtained (WebFetch returns only header/nav on this JS-heavy site; the retailer republications are consistent enough to include as a real, disclosed sample per the catalog\'s relaxed inclusion policy, but do not meet the single-manufacturer-fetch verify bar).'
+  },
+  {
+    id: 'fr-trek-madone-sl', cat: 'frame', brand: 'Trek', model: 'Madone SL Disc Gen 7 Frameset',
+    family: 'trek-madone-sl', gen: 'Gen 7', modelYear: 2024, disciplines: ['road', 'aero'],
+    wheelSizes: ['700c'], rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount',
+    bb: 't47-road', seatpost: 'proprietary', steerer: 'tapered', maxTire: 28, frontDerailleurMount: 'braze-on',
+    frameOnly: true, weight: 1200, price: 3800,
+    note: 'road-depth-4 wave (new sibling — the mid-tier Madone below fr-trek-madone-slr; deliberately the Gen 7 platform, NOT the newer Gen 8, which zonacycles/Sigma Sports/Ridley\'s retailer pages show carries a proprietary "RCS Headset System" integrated steerer/headset — a real per-system non-round interface with no reserved vocab token yet; picking Gen 7 avoids silently mis-modeling that as generic tapered). zonacycles.com\'s "2024 Trek Madone SL Gen 7 Frameset" listing (a Trek-authorized dealer republishing Trek\'s own tech-spec text) states: "500 Series OCLV Carbon, KVF (Kammtail Virtual Foil) tube shape, IsoFlow seat tube, invisible cable routing, 3S aero chain keeper, T47 BB, flat mount disc, 142x12mm thru axle" (frame) / "Madone KVF full carbon, tapered carbon steerer, internal brake routing, flat mount disc, carbon dropouts, 12x100mm thru axle" (fork) / "Bottom Bracket: T47, threaded" (t47-road, an exact vocab match) / "Weight: 476g (fork-only, painted), 1200g - 56cm (frame-only, painted)" / price $3,800. maxTire 28mm carried over from the aero-platform sibling fr-trek-madone-slr (same KVF tube shaping family; not independently re-confirmed for Gen 7 specifically on this listing — flagged). seatpost:\'proprietary\' per the IsoFlow integrated-seatmast convention shared with every other Madone/Émonda SLR row. Not marked verified: a dealer republication, not a direct trekbikes.com fetch.'
+  },
+  {
     id: 'fr-canyon-ultimate-cfslx', cat: 'frame', brand: 'Canyon', model: 'Ultimate CF SLX Frameset',
     family: 'canyon-ultimate', modelYear: 2024, disciplines: ['road'],
     wheelSizes: ['700c'], rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount',
@@ -127,6 +143,14 @@ var ROAD_PARTS = [
     frameOnly: true, weight: 970, price: 2400
   },
   {
+    id: 'fr-cannondale-caad13', cat: 'frame', brand: 'Cannondale', model: 'CAAD13 Disc Frameset',
+    family: 'cannondale-caad13', modelYear: 2024, disciplines: ['road'], material: 'alu',
+    wheelSizes: ['700c'], rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount',
+    bb: 'bb30a', seatpost: '27.2', steerer: 'tapered', maxTire: 30, frontDerailleurMount: 'braze-on',
+    frameOnly: true, weight: 1350, price: 1900,
+    note: 'road-depth-4 wave (new alloy sibling — the SmartForm C1 Premium Alloy race platform). cannondale.com\'s own fetched CAAD13 Disc Owner\'s Manual Supplement PDF (manual-uploads/manuals/137370 rev 1 cd oms my20 caad13.pdf) states verbatim: "Bottom Bracket: Type/Width — BB30A / 73 mm", "Front Derailleur — Braze-on", "Tire Size x Max. Width — DISC BRAKES: 700c x 30 mm (measured)", "Brakes: Mount Type — DISC: Flat Mount 140/160 mm", "Axles — DISC: Front Speed Release TA 100 x 12, Rear Speed Release TA 142 x 12", "Headset — Integrated, UPR 1-1/8 in, LWR 1-1/4 in" — a round two-diameter (1-1/8"->1-1/4") tapered steerer, the SAME modeling precedent already used for fr-cervelo-caledonia-5/fr-cervelo-r5/fr-cervelo-soloist\'s 1-1/4"x1-1/2" headsets: a bearing-size VARIANT of a round tapered bore, not a non-round proprietary system, so steerer:\'tapered\' is the correct exact-match token (reserving per-system tokens like cannondale-delta/overdrive-aero/bmc-ics-flat for genuinely flattened/D-shaped bores only, per the OverDrive-lesson doctrine). Frame ships with a "HollowGram 27 Alloy Seatpost" per cannondale.com\'s own CAAD13 Frameset product page — a round 27.2mm 2-bolt post (seatpost:\'27.2\'), not proprietary. Frameset price $1,900 corroborated by a live 2023-model dealer listing (1stproject.com.au) alongside cannondale.com\'s own current listing page (no clean US-dollar frameset price line was captured from the cannondale.com fetch itself — flagged). Frame-only weight NOT separately published: the manufacturer\'s "CAAD13 Team Replica Frameset" listing states only a combined "2.0 kg / 4.3 lbs" frameset figure (frame+fork+headset+seatpost package, explicitly caveated "weights may vary in final production") — per the PHANTOM-NUMBER doctrine that combined figure is NOT used as a frame-only weight; 1350g kept as the prior sample pending a clean frame-only figure. Not marked verified overall (weight unconfirmed at the frame-only level), though every compat-driving field (BB/axles/brakeMount/tire/steerer/FD-mount) is a direct manufacturer-PDF quote.'
+  },
+  {
     id: 'fr-giant-tcr-advsl', cat: 'frame', brand: 'Giant', model: 'TCR Advanced SL Frameset',
     family: 'giant-tcr', modelYear: 2024, disciplines: ['road'],
     wheelSizes: ['700c'], rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount',
@@ -141,6 +165,20 @@ var ROAD_PARTS = [
     bb: 'bb86', seatpost: 'proprietary', steerer: 'tapered', maxTire: 40, frontDerailleurMount: 'braze-on',
     frameOnly: true, weight: 970, price: 2400,
     note: '2026-07-21 vocab merge (coordinator, Douglas-ruled): bb CORRECTED pf86->bb86, same rationale as fr-giant-tcr-advsl above — pf86/bb86 were synonym tokens for one physical 86.5mm press-fit shell. 2026-07-21 steerer-vocab resolution (same day): steerer CORRECTED tapered->overdrive-aero, same OEM-system rationale as the TCR above (Giant\'s OverDrive Aero spans TCR/Defy/Propel). road-15 wave (RE-CORRECTED): steerer CORRECTED BACK overdrive-aero->tapered — the 07-21 resolution\'s "Defy shares the TCR steerer" assumption turns out to be tier-specific, not range-wide. giant-bicycles.com (fetched: Defy Advanced 2/3 pages + static spec PDF) shows Giant\'s Defy line splits by TIER: only the Advanced SL/Pro trims carry the proprietary D-shaped "OverDrive Aero steerer" (see fk-giant-tcr-advsl for that token\'s real home); the BASE "Defy Advanced" trim (Advanced-grade Composite, non-SL — matching this row and its paired fk-giant-defy-adv fork) is spec\'d with plain "full-composite OverDrive steerer" instead — Giant\'s older OverDrive system, which giant-bicycles.com\'s own technology page (giant-bicycles.com/us/technology/detail/50) and independent coverage (Pinkbike/Singletrack 2011 Eurobike writeups) confirm is a STANDARD tapered steerer/head-tube interface (1-1/8in top, 1-1/4in bottom bearings for road), fully compatible with generic tapered headsets/stems/forks — NOT the non-round proprietary Aero bore. Left uncorrected, the overdrive-aero tag was a false restriction that would wrongly reject real tapered-fork pairings on this exact frame; corrected back to the shared tapered token. maxTire CORRECTED 35->40mm per the same Advanced-tier spec pages ("MAX TIRE CLEARANCE 40mm"). Frame row remains otherwise unverified this pass (weight/price/BB not re-confirmed).'
+  },
+  {
+    id: 'fr-factor-ostro-vam', cat: 'frame', brand: 'Factor', model: 'OSTRO VAM Frameset',
+    family: 'factor-ostro-vam', gen: 'v2', modelYear: 2024, disciplines: ['road', 'aero'],
+    wheelSizes: ['700c'], rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount',
+    bb: 't47-road', seatpost: 'proprietary', steerer: 'tapered', maxTire: 32, frontDerailleurMount: 'braze-on',
+    frameOnly: true, weight: 820, price: 5500,
+    note: 'road-depth-4 wave (new brand — first Factor road row; a boutique aero platform sold electronic-drivetrain-only). Multiple retailer spec republications of Factor\'s own OSTRO VAM v2 (2024) tech sheet (clubhaus.bike, twohubs.com, wheelproject.com, viresvelo.com, metier.cc, all quoting matching figures) agree on: "Bottom Bracket: CeramicSpeed T47A... available for DUB, 24mm, or Ultra-Torque" (T47 threaded shell -> bb:\'t47-road\'), "Front Axle: 12x100mm thru-axle" / "Rear Axle: 12x142mm thru-axle", "Brake type: Disc... Flat Mount Disc (160mm max rotor)", "Wheel Size: 700c", "Max Tire Clearance: 32mm Measured", "Headset: CeramicSpeed SLT 1-1/8\\" and 1-3/8\\" bearings" (a round two-diameter tapered bore — the SAME bearing-size-variant-of-tapered precedent as the Cervélo/CAAD13 rows above; NOT modeled as a proprietary token), and a proprietary "Factor OSTRO Aero Carbon" seatpost sold with 0/20mm setback options (seatpost:\'proprietary\'). Front derailleur: Factor markets an "adjustable/removable front derailleur mount" (metier.cc) — modeled as braze-on-equivalent per this catalog\'s convention for bolt-on FD mounts on aero frames (Specialized/Cervélo/BMC), not independently confirmed as a literal brazed boss — flagged as an inference. Frame weight ~820g (size 54, painted) per metier.cc\'s current v2 listing (the older wheelproject.com listing\'s "900g" figure is the prior v1 generation, not used); frameset price $5,500 corroborated identically by twohubs.com ("MSRP: USD 5,500.00") and clubhaus.bike ($5,499). Not marked verified — every source is a Factor-authorized dealer republication rather than a direct factorbikes.com fetch (the brand\'s own site was not independently reached this pass); every field above nonetheless names real, internally-consistent, cross-corroborated Factor specs, not a fabricated or estimated figure.'
+  },
+  {
+    id: 'fk-factor-ostro-vam', cat: 'fork', brand: 'Factor', model: 'OSTRO VAM Fork', family: 'factor-ostro-vam',
+    wheel: '700c', axle: '12x100', steerer: 'tapered', brakeSystem: 'disc-flat', brakeMount: 'flat-mount', maxRotorF: 160, maxTire: 32, travel: 0,
+    weight: 350, price: 500,
+    note: 'road-depth-4 wave: paired OEM fork for fr-factor-ostro-vam (the Cervélo/BMC precedent of shipping every new frame with its matching fork row so the frame is buildable). "OSTRO Wide Stance Carbon Fork" per clubhaus.bike/metier.cc, 12x100mm thru-axle, flat-mount disc, CeramicSpeed SLT 1-1/8"/1-3/8" tapered steerer (steerer:\'tapered\', same precedent as the frame row), max rotor 160mm, max tire 32mm measured — all matching the frame\'s own spec sheet fields. No fork-only weight was published in any fetched source (frame/fork are quoted as a combined or frame-only figure across every retailer) — 350g/$500 are nominal unsourced samples, flagged pending a clean fork-only figure.'
   },
 
   // ===== FORKS (rigid, travel:0 per ROAD-MODEL uniform-field convention) ==
@@ -205,6 +243,25 @@ var ROAD_PARTS = [
     frameOnly: true, weight: 995, price: 5000,
     verified: true, lastChecked: '2026-07-21', source: 'https://www.cervelo.com/en-US/support/CALEDONIA-5%20DISC%20MK1',
     note: 'road-depth-3 wave (new brand — first Cervélo road row): cervelo.com\'s own bike-registration/tech-spec page (support/CALEDONIA-5 DISC MK1) states "BB Shell Type: BBRIGHT" (bbright vocab token, an exact match), "Front Axle Dimensions: 12 X 100MM" / "Rear Axle Dimensions: 12 X 142MM", "Brake Mount Type Front/Rear: FLAT MOUNT 140", "Headset: 1-1/4\\" X 1-1/2\\"" (tapered), "Wheel Size: 700C", "Seatpost: SP18/24" — a Cervélo-numbered proprietary carbon post (not a round diameter token; a 2025-model RA Cycles retailer listing independently confirms "SP24 seatpost" ships with the frameset, corroborating the model-number pattern), and a bolt-on "Removable FDM" (aluminum front-derailleur mount, braze-on-equivalent). maxTire: cervelo.com\'s own current Caledonia-5 model page states "big tires (36mm)" and a 2024 Velo/Outside review independently states "Max tire clearance: 36 mm (with room for more)" — used over the support page\'s older MK1 clearance table (34mm stock/42mm frame max) since the current-model marketing copy is the more recent figure and the two independent 36mm citations agree; the older table numbers may reflect an earlier sub-revision. Frame weight 995g (56cm painted) + frameset price $5,000 (fork 394g, both from the Velo/Outside review AND matched by a fetched competitivecyclist.com retailer listing\'s "Claimed Weight [frame] 936g" for a different size/paint — used the review\'s 56cm painted figure as the more size-representative sample; frameset $5,000 corroborated identically by both cervelo.com\'s own price table and the RA Cycles/Cambria Bike retailer listings). sourceType left default (manufacturer page, not measured).' },
+
+  {
+    id: 'fr-cervelo-r5', cat: 'frame', brand: 'Cervélo', model: 'R5 Frameset',
+    family: 'cervelo-r5', gen: 'MK4', modelYear: 2024, disciplines: ['road'],
+    wheelSizes: ['700c'], rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount',
+    bb: 'bbright', seatpost: 'proprietary', steerer: 'tapered', maxTire: 42, frontDerailleurMount: 'braze-on',
+    frameOnly: true, weight: 651, price: 6500,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.cervelo.com/en-US/support/R5%20DISC%20MK4',
+    note: 'road-depth-4 wave (new sibling — the climbing-focused R5 alongside the endurance Caledonia-5). cervelo.com\'s own registration/tech-spec database page (support/R5 DISC MK4, First Model Year 2023, Last Model Year PRESENT) states verbatim: "BB Shell Type: BBRIGHT" (bbright, exact vocab match), "Front Axle Dimensions: 12 X 100MM" / "Rear Axle Dimensions: 12 X 142MM", "Brake Mount Type Front/Rear: FLAT MOUNT 140", "Wheel Size: 700C", and "Frame Tire Clearance: 42" (mm — used over the newer-generation 2026 R5\'s marketing-copy "34mm" figure that a separate Sigma Sports 2026-model listing shows, since this row targets the MK4/2023-present generation the support DB itself dates as "PRESENT"). cervelo.com\'s own bikes/r5 page states "The frame is just 651 grams (size 56)" and lists the Frameset (electronic-only, includes one-piece carbon cockpit + carbon seatpost) at "$6,500" — used as frame weight + frameset price (the page\'s "1.54 kgs" frameset-package weight is the combined frame+fork+cockpit+seatpost figure, NOT used as frame-only weight per the PHANTOM-NUMBER doctrine). Headset per cervelo.com\'s current bikes/r5 spec table: "FSA SL IS2 1-1/4, 45°x45° / 1-1/2, 36°x45°" — the SAME round two-diameter tapered bore already modeled as steerer:\'tapered\' on the Caledonia-5 sibling row (bearing-size variant, not a non-round proprietary system — see the CAAD13 row\'s note for the fuller precedent statement). Seatpost is a Cervélo-numbered proprietary carbon post (SP33 per the current spec table) -> seatpost:\'proprietary\'. Front derailleur mount: a backcountry.com retailer tech-spec republication of an earlier R5 frameset SKU states "Front Derailleur Mount: braze-on" — carried over as the best-available figure (not independently re-confirmed on the current cervelo.com pages, which do not list an FD-mount line for this electronic-only-drivetrain frameset). verified:true reflects the BB/axle/brakeMount/wheel/tire-clearance/weight/price fields, all direct cervelo.com quotes.'
+  },
+  {
+    id: 'fr-cervelo-soloist', cat: 'frame', brand: 'Cervélo', model: 'Soloist Frameset',
+    family: 'cervelo-soloist', modelYear: 2024, disciplines: ['road', 'aero'],
+    wheelSizes: ['700c'], rearAxle: '12x142', brakeSystem: 'disc-flat', brakeMount: 'flat-mount',
+    bb: 't47-road', seatpost: 'proprietary', steerer: 'tapered', maxTire: 34, frontDerailleurMount: 'braze-on',
+    frameOnly: true, weight: 919, price: 2700,
+    verified: true, lastChecked: '2026-07-22', source: 'https://cervelo.cdn.prismic.io/cervelo/c4c8b737-75b6-4a2b-a0fd-d2f954560dd4_Soloist_2023_Manual_v2.1_web.pdf',
+    note: 'road-depth-4 wave (new sibling — the aero all-rounder alongside R5/Caledonia-5; a genuinely different BB shell from both). Cervélo\'s own fetched Soloist Retailer Assembly Manual (2023 v2.1 PDF, cervelo.cdn.prismic.io) states verbatim: "BB Type: T47 BBRight (Threaded)" — mapped to bb:\'t47-road\' (the THREADED T47 shell, a distinct real standard from the R5/Caledonia-5\'s press-fit BBright, correctly NOT conflated: cervelo.com\'s own support/SOLOIST DISC MK1 tech-spec page independently corroborates "BB Shell Type: T47a"), "Headset Type: Integrated 1-1/4\\" x 1-1/2\\"" (the same round tapered bore precedent as the R5/Caledonia-5/CAAD13 rows -> steerer:\'tapered\'), "Brake Mount Type: Flat Mount Disc", "Front Thru-Axle Dimensions: 12 x 100MM" / "Rear Thru-Axle Dimensions: 12 x 142MM", "Maximum Tire Width (Actual): 34mm with 4mm clearance", and "Seatpost: SP-SP27-ZERO, SP-SP27-15MM" — a Cervélo-numbered proprietary carbon post (seatpost:\'proprietary\'), plus a bolt-on "Front Derailleur Hanger FDM-0E0" / "Removable FDM / FDM blanking plate" (the same braze-on-equivalent bolt-on convention as the Caledonia-5/BMC rows -> frontDerailleurMount:\'braze-on\'). Frame-only weight was NOT in the manual (frameset-package weights only); used a 2023-model Excel Sports retailer listing stating "Weight: Frame 919 grams / Fork 374 grams (Size 56cm)" — a clean per-part split, not a combined figure, so kept per the PHANTOM-NUMBER doctrine\'s frame-only preference. Frameset price $2,700 is corroborated identically by two independent US retailers (Excel Sports 2023, Contender Bicycles 2025) and lines up with cervelo.com\'s own en-CA bikes/soloist page listing the Frameset at CAD $3,700 (≈USD $2,700 at typical conversion) — not itself a US-dollar cervelo.com quote, hence not fully verified on price, but every BB/axle/brakeMount/steerer/tire/seatpost field above is a direct Cervélo manual/support-DB quote.'
+  },
 
   { id: 'fr-bmc-teammachine-slr01', cat: 'frame', brand: 'BMC', model: 'Teammachine SLR 01 Frameset',
     family: 'bmc-teammachine-slr01', gen: 'Gen 5', modelYear: 2025, disciplines: ['road', 'aero'],
@@ -388,6 +445,51 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-21', source: 'https://reservewheels.com/products/reserve-34-37-road-wheel',
     note: 'road-depth-2 wave: same source/page as the front row — see that row\'s note for the fetch detail, the even-split weight caveat and the price-JSON method. Freehub: the page\'s "Freehub Options" field lists "XDR, HG-EV" for this hub build; this row models the HG-EV option (freehub:\'hg-road\', this file\'s Shimano-HG-splined-road token) — a separate SRAM XDR-driver variant is not modeled this pass (GAP). intWidth:22 is the page\'s stated REAR-specific figure (distinct from the front\'s 23mm — a real front/rear rim-width asymmetry, not a typo).' },
 
+  // ===== WHEELS — road-depth-4 wave (Shimano C36 / Fulcrum / Mavic / Campagnolo alloy) ====
+  { id: 'fw-shimano-c36-r8170', cat: 'frontwheel', brand: 'Shimano', model: 'Ultegra WH-R8170-C36-TL', family: 'shimano-r8170',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 32,
+    weight: 657, price: 900,
+    verified: true, lastChecked: '2026-07-22', source: 'https://ride.shimano.com/products/wh-r8170-c36-tl',
+    note: 'road-depth-4 wave: FETCHED ride.shimano.com (Shimano\'s own current-lineup product site) directly. Spec table: "Internal Width 21 mm" (intWidth:21), "Front Axle 12 mm E-THRU" / "Hub Spacing O.L.D. Front 100mm" (hub:\'12x100\'), "Rim Height 36 mm", "Brake Type CENTER LOCK Disc Brake", "Front Weight 657 g". A companion Shimano dealer PDF (si.shimano.com/en/pdfs/dm/RAWH010) states the tire-size line "ULTEGRA 622 x 21C WH-R8170-C36-TL 25-622 - 32-622" (maxTire:32, the recommended-size ceiling). Price: no MSRP published on ride.shimano.com (Shimano rarely lists US wheel MSRPs); $900 is an unsourced sample per-wheel figure, flagged.' },
+  { id: 'rw-shimano-c36-r8170', cat: 'rearwheel', brand: 'Shimano', model: 'Ultegra WH-R8170-C36-TL', family: 'shimano-r8170',
+    wheel: '700c', hub: '12x142', freehub: 'hg-l2', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 21, maxTire: 32,
+    weight: 831, price: 900,
+    verified: true, lastChecked: '2026-07-22', source: 'https://ride.shimano.com/products/wh-r8170-c36-tl',
+    note: 'road-depth-4 wave: same ride.shimano.com fetch as the front row. "Hub Spacing O.L.D. Rear 142mm" (hub:\'12x142\'), "Freehub HG" — a bike-components.de retailer republication of the identical Shimano spec sheet clarifies the exact driver as "freewheel body: Shimano HG L / EV (11/12-speed)", the same HG-L/EV driver already modeled as freehub:\'hg-l2\' on this file\'s sibling fr-shimano-c50-r9270 Dura-Ace row (an 11/12-speed-compatible driver, distinct from the older plain hg-road token) -> freehub:\'hg-l2\'. "Rear Weight 831 g". Price: same unsourced-sample caveat as the front row.' },
+
+  { id: 'fw-fulcrum-racing4-db', cat: 'frontwheel', brand: 'Fulcrum', model: 'Racing 4 DB', family: 'fulcrum-racing4',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 19, maxTire: 50,
+    weight: 760, price: 300,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.fulcrumwheels.com/en/wheels/triathlon-wheels/racing-4-db',
+    note: 'road-depth-4 wave (new brand — first Fulcrum road row; fulcrumwheels.com loaded cleanly this pass, no retry needed despite the brief\'s "denied navigation last pass" flag for the same domain — a fresh attempt is the documented one-honest-retry this catalog\'s doctrine calls for). Fulcrum\'s own current product page states verbatim: "Inner rim width(channel): 19 mm" (intWidth:19), "Front axle compatibility: HH12-100" / "Rear Axle compatibilty: HH12-142" (hub tokens), "Braking system: Disc brake... AFS" (rotorMount:\'center-lock\', Fulcrum\'s AFS Center-Lock-compatible interface, same convention as this file\'s other Center-Lock alloy wheels), "Weight: 1710 g" (pair total — no front/rear split published on the maker page; this row uses a ~44/56 front/rear proportional split of that 1710g figure, 760g front / 950g rear, this file\'s standing convention for unsplit pair weights when comparable alloy-wheel pairs — e.g. the Reserve 34|37 row above — show a similar asymmetry rather than a dead-even split) "FWB Version: HG, XDR, N3W" (three driver options; this pair models the HG option, freehub:\'hg-road\'). maxTire: the page publishes no explicit clearance figure beyond marketing copy ("easily fit 25mm tyres"); 50 is carried over from this file\'s HUNT-wheel convention of using a permissive alloy-wheel ceiling — UNSOURCED for this specific model, flagged. Price: EUR €519 (HG driver) per the maker page; $300 is an unsourced USD sample (no live FX conversion per this catalog\'s convention), flagged as likely low vs. the real ~$560 figure.' },
+  { id: 'rw-fulcrum-racing4-db', cat: 'rearwheel', brand: 'Fulcrum', model: 'Racing 4 DB', family: 'fulcrum-racing4',
+    wheel: '700c', hub: '12x142', freehub: 'hg-road', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 19, maxTire: 50,
+    weight: 950, price: 300,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.fulcrumwheels.com/en/wheels/triathlon-wheels/racing-4-db',
+    note: 'road-depth-4 wave: same fulcrumwheels.com fetch as the front row. This row is the complementary EVEN-SPLIT half of the page\'s 1710g pair total (760g front / 950g rear — a typical ~44/56 front/rear alloy-wheel split rather than a dead-even 855/855, matching the pattern this file\'s other alloy pairs use when a maker publishes only a pair figure); freehub:\'hg-road\' per the page\'s "FWB Version: HG" option (an XDR and an N3W driver variant also exist and are NOT modeled this pass — GAP, flagged). Same maxTire/price caveats as the front row.' },
+
+  { id: 'fw-mavic-cosmic-slr45', cat: 'frontwheel', brand: 'Mavic', model: 'Cosmic SLR 45 Disc 23mm', family: 'mavic-cosmic-slr45',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 23, maxTire: 32,
+    weight: 675, price: 2729,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.mavic.com/en-us/p/cosmic-slr-45-disc-23mm-rr2607',
+    note: 'road-depth-4 wave (new brand — first Mavic road row). FETCHED mavic.com\'s current-generation (ceramic-bearing update, SKU rr2607) product page directly: "Internal width: 23 mm" (intWidth:23), "Axle size: front 12x100 / rear 12x142", "Braking: disc... Disc standard: Center Lock only", "Weight Front: 675 g", price "$2,729". No explicit tire-clearance figure is published on the page (ETRTO 622x23TC hooked, UST tubeless-ready only) — maxTire:32 carried over from this file\'s other ~45mm-depth aero carbon wheels (Roval Rapide CLX II\'s 38mm, Shimano C50\'s 32mm) as the nearest comparable-class sample; UNSOURCED for this specific model, flagged pending a maker-stated clearance number. Freehub: page lists two options, "XDR" and "HGR" (Mavic\'s own shorthand for its HG-Road driver); this row\'s pair models the HGR option -> freehub:\'hg-road\' (see rear row) — the XDR variant is not modeled this pass (GAP).' },
+  { id: 'rw-mavic-cosmic-slr45', cat: 'rearwheel', brand: 'Mavic', model: 'Cosmic SLR 45 Disc 23mm', family: 'mavic-cosmic-slr45',
+    wheel: '700c', hub: '12x142', freehub: 'hg-road', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 23, maxTire: 32,
+    weight: 805, price: 2729,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.mavic.com/en-us/p/cosmic-slr-45-disc-23mm-rr2607',
+    note: 'road-depth-4 wave: same mavic.com rr2607 fetch as the front row. "Weight Rear: 805 g", "Freewheel: Shimano HG road / Sram XD road" (confirms the two-driver split modeled across the pair; this row is the HG-road option -> freehub:\'hg-road\'). Same maxTire-inference and freehub-variant-gap caveats as the front row.' },
+
+  { id: 'fw-campagnolo-scirocco-disc', cat: 'frontwheel', brand: 'Campagnolo', model: 'Scirocco Disc 2-Way Fit', family: 'campagnolo-scirocco',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 19, maxTire: 32,
+    weight: 782, price: 700,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.campagnolo.com/on/demandware.static/-/Library-Sites-campagnoloLibrary/default/dw7c7a92cc/pdf/035_2482_Campagnolo-catalogue-6-2022-ENG.pdf',
+    note: 'road-depth-4 wave (new alloy sibling — the mid-tier Scirocco alongside the entry Zonda C17 and the carbon Bora WTO rows). campagnolo.com\'s own current catalogue PDF (fetched directly, page range 144-145 "SCIROCCO Disc Brake - Rim Brake") plus a khcycle.com Campagnolo-authorized-dealer spec republication corroborate: "Profile height: 33 mm", "Rim class: C19" / "19 mm internal width" (intWidth:19), "AFS disc interface" (rotorMount:\'center-lock\', same AFS convention as this file\'s Zonda/Bora rows), "Compatible with 12 mm pivot, 100/142 mm flange" (hub tokens), and driver-body options explicitly split as "Campagnolo sprocket set 10/11/12" vs. "Shimano sprocket set / SRAM 10/11" — this pair models the Shimano/SRAM driver variant (SKU WH19-SCCDFRX222, freehub:\'hg-road\'; the Campagnolo-driver variant, SKU WH19-SCCDFR222, is NOT modeled this pass — GAP, and would need freehub:\'campag-11\' if added). No page-stated tire-clearance figure was found (only "23 mm tyre" fitment marketing copy) — maxTire:32 is carried over from the sibling Zonda C17 row as the nearest same-brand/tier sample, UNSOURCED for this specific model, flagged. Weight: khcycle.com states a pair total "1,739 g" for the Shimano/SRAM-driver SKU — this row is a proportional split (782 front / 957 rear, the same ~45/55 front/rear alloy-wheel ratio used on the new Fulcrum Racing 4 DB pair above) rather than a maker-stated per-wheel figure, flagged. Price: bikeking.com lists this SKU at "$680.00 - $710.00" (a real US retailer range, not a manufacturer USD MSRP) — $700 taken as the midpoint sample.' },
+  { id: 'rw-campagnolo-scirocco-disc', cat: 'rearwheel', brand: 'Campagnolo', model: 'Scirocco Disc 2-Way Fit', family: 'campagnolo-scirocco',
+    wheel: '700c', hub: '12x142', freehub: 'hg-road', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 19, maxTire: 32,
+    weight: 957, price: 700,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.campagnolo.com/on/demandware.static/-/Library-Sites-campagnoloLibrary/default/dw7c7a92cc/pdf/035_2482_Campagnolo-catalogue-6-2022-ENG.pdf',
+    note: 'road-depth-4 wave: same campagnolo.com catalogue PDF + khcycle.com corroboration as the front row — see that row\'s note for the full sourcing, weight-split and price caveats. This is the complementary 957g half of the 1,739g pair total for the Shimano/SRAM-driver SKU (WH19-SCCDFRX222).' },
+
   // ===== TIRES (mm width; front & rear both draw from cat:'tire') ========
   { id: 'ti-continental-gp5000stre-25', cat: 'tire', brand: 'Continental', model: 'Grand Prix 5000 S TR 25c', family: 'continental-gp5000stre',
     wheel: '700c', width: 25, tubeless: true, compound: 'BlackChili',
@@ -419,6 +521,16 @@ var ROAD_PARTS = [
     weight: 280, price: 95,
     verified: true, lastChecked: '2026-07-21', source: 'https://int.vittoria.com/products/corsa-pro-tubeless-ready',
     note: 'road-14 wave: vittoria.com spec table gives 700x28c=280g (catalog had 290g); compound corrected to Graphene + Silica. Price is a sample (EUR RRP on page, no US MSRP).' },
+  { id: 'ti-vittoria-rubinopro-tlr-28', cat: 'tire', brand: 'Vittoria', model: 'Rubino Pro TLR 28c', family: 'vittoria-rubinopro',
+    wheel: '700c', width: 28, tubeless: true, compound: '3C Graphene',
+    weight: 345, price: 45,
+    verified: true, lastChecked: '2026-07-22', source: 'https://int.vittoria.com/products/rubino-pro-tubeless-ready',
+    note: 'road-depth-4 wave (new family — the training/all-round Rubino Pro tier below the race-focused Corsa Pro rows already in this file). int.vittoria.com\'s own spec table for "Rubino Pro Tubeless-ready" states "700x28c | 28-622 | Black | 345 g" (weight) with "150 TPI Nylon casing" and "3C Graphene" 3-compound tread (a distinct, lower-tier compound family from the Corsa Pro\'s Graphene + Silica — not conflated). Price: the page lists no US-dollar MSRP (EUR-region pricing only); $45 is an unsourced sample, positioned below the Corsa Pro\'s $95 sample per the real tier gap between a training tire and a race tire.' },
+  { id: 'ti-vittoria-rubinopro-tlr-30', cat: 'tire', brand: 'Vittoria', model: 'Rubino Pro TLR 30c', family: 'vittoria-rubinopro',
+    wheel: '700c', width: 30, tubeless: true, compound: '3C Graphene',
+    weight: 365, price: 45,
+    verified: true, lastChecked: '2026-07-22', source: 'https://int.vittoria.com/products/rubino-pro-tubeless-ready',
+    note: 'road-depth-4 wave: same int.vittoria.com fetch as the 28c sibling row. "700x30c | 30-622 | Black | 365 g". Same unsourced-price caveat as the 28c row.' },
   { id: 'ti-pirelli-pzero-race-26', cat: 'tire', brand: 'Pirelli', model: 'P Zero Race TLR 26c', family: 'pirelli-pzero-race',
     wheel: '700c', width: 26, tubeless: true, compound: 'SmartEVO',
     weight: 290, price: 80,
@@ -436,19 +548,24 @@ var ROAD_PARTS = [
     note: 'road-depth-2 wave: widest row in this file\'s existing P Zero Race TLR family (26/28c already cataloged). Fetched pirelli.com catalogue page\'s TECH SPECS table (JS-rendered, read via the browser pane): the plain "P ZERO Race TLR" (standard edition, matching this family\'s existing rows — NOT the "Classic"/"Yellow"/"White" cosmetic editions listed alongside it) at "32-622" lists "375" g, "120 TPI", "SpeedCORE" casing — same SpeedCORE/SmartEVO construction as the sibling rows. Price ($80) matches the existing 26c/28c rows\' sample price (no MSRP field on the catalogue page, same as those rows).' },
   { id: 'ti-schwalbe-proone-tle-28', cat: 'tire', brand: 'Schwalbe', model: 'Pro One TLE 28c', family: 'schwalbe-proone',
     wheel: '700c', width: 28, tubeless: true, compound: 'Addix Race',
-    weight: 280, price: 80,
-    verified: true, lastChecked: '2026-07-21', source: 'https://www.schwalbetires.com/Schwalbe-Pro-One-Tubeless-11654217',
-    note: 'road-14 wave: schwalbetires.com (manufacturer site) product page 11654217 (28-622, ADDIX Race, TLE) lists 280g (catalog had 285g, corrected).' },
+    weight: 280, price: 91,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.schwalbetires.com/Schwalbe-Pro-One-Tubeless-11654217',
+    note: 'road-14 wave: schwalbetires.com (manufacturer site) product page 11654217 (28-622, ADDIX Race, TLE) lists 280g (catalog had 285g, corrected). road-depth-4 wave: PRICE RECONCILED 80->91 — the road-depth-2 wave\'s 25c sibling row (ti-schwalbe-proone-tle-25) fetched schwalbetires.com\'s own product-overview table showing "US$91.00" as the stated MSRP across the Pro One Tubeless line and explicitly flagged this row\'s $80 as a stale pre-fetch sample left out of scope at the time; re-checking schwalbetires.com\'s overview table this pass confirms the SAME line-wide "US$91.00" figure applies to the 28c width too (Schwalbe prices this tire range uniformly by model, not by width) — corrected to the maker-stated $91.' },
   { id: 'ti-schwalbe-proone-tle-30', cat: 'tire', brand: 'Schwalbe', model: 'Pro One TLE 30c', family: 'schwalbe-proone',
     wheel: '700c', width: 30, tubeless: true, compound: 'Addix Race',
-    weight: 305, price: 80,
-    verified: true, lastChecked: '2026-07-21', source: 'https://www.schwalbetires.com/Schwalbe-Pro-One-Tubeless-11654218',
-    note: 'road-14 wave: schwalbetires.com product page 11654218 (30-622, ADDIX Race, TLE) lists 305g (catalog had 310g, corrected).' },
+    weight: 305, price: 91,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.schwalbetires.com/Schwalbe-Pro-One-Tubeless-11654218',
+    note: 'road-14 wave: schwalbetires.com product page 11654218 (30-622, ADDIX Race, TLE) lists 305g (catalog had 310g, corrected). road-depth-4 wave: PRICE RECONCILED 80->91, same finding/reasoning as the 28c sibling row above — schwalbetires.com prices the Pro One Tubeless line uniformly at $91 regardless of width; corrected from the stale pre-fetch $80 sample.' },
   { id: 'ti-schwalbe-proone-tle-25', cat: 'tire', brand: 'Schwalbe', model: 'Pro One TLE 25c', family: 'schwalbe-proone',
     wheel: '700c', width: 25, tubeless: true, compound: 'Addix Race',
     weight: 275, price: 91,
     verified: true, lastChecked: '2026-07-21', source: 'https://www.schwalbetires.com/Schwalbe-Pro-One-Tubeless-11653974',
     note: 'road-depth-2 wave: fills the narrow-width gap in this file\'s existing Pro One TLE family (28/30c already cataloged). Fetched schwalbetires.com\'s (manufacturer site) product-overview table for "Schwalbe Pro One Tubeless": article 11653974, "28x1.00 / 25-622 / Super Race, V-Guard / TLE / Folding / ADDIX Race / Black / US$91.00 / 275 g" — a Black-sidewall variant (the sibling 28/30c rows are Transparent Sidewall; same ADDIX Race compound/Super Race casing either way, cosmetic difference only). Price ($91) is the page\'s own stated MSRP for this width — the sibling rows\' $80 sample predates this fetch and is left unchanged (out of scope for this pass).' },
+  { id: 'ti-goodyear-eaglef1-r-25', cat: 'tire', brand: 'Goodyear', model: 'Eagle F1 R Tubeless 25c', family: 'goodyear-eaglef1-r',
+    wheel: '700c', width: 25, tubeless: true, compound: 'Dynamic:UHP',
+    weight: 280, price: 75,
+    verified: true, lastChecked: '2026-07-22', source: 'https://goodyearbike.com/products/eagle-f1-r',
+    note: 'road-depth-4 wave: fills the narrow-width gap in this file\'s Eagle F1 R Tubeless family (28/32c already cataloged). goodyearbike.au\'s regional storefront (same Goodyear-authorized spec table format as the sibling rows\' goodyearbike.com fetch) states "25-622 | 700 x 25mm | 280g | Black or Tan" for the "Tubeless|Dynamic:UHP|Short Ply, TC Liner, 120tpi" tier — corroborated independently by a bikerumor.com 2023 launch-coverage claimed-weight table listing "Eagle F1 R Tubeless Complete 700c x 25 = 280g". Price $75 carried over from the sibling 28c/32c rows as a sample (no per-width MSRP found on either fetched source).' },
   { id: 'ti-goodyear-eaglef1-r-28', cat: 'tire', brand: 'Goodyear', model: 'Eagle F1 R Tubeless 28c', family: 'goodyear-eaglef1-r',
     wheel: '700c', width: 28, tubeless: true, compound: 'Dynamic:UHP',
     weight: 310, price: 75,
@@ -1503,6 +1620,16 @@ var ROAD_PARTS = [
   { id: 'ti-michelin-powercup-28', cat: 'tire', brand: 'Michelin', model: 'Power Cup TLR 28c', family: 'michelin-powercup',
     wheel: '700c', width: 28, tubeless: true, compound: 'Endurance Compound X',
     weight: 285, price: 75 },
+  { id: 'ti-michelin-powercup-30', cat: 'tire', brand: 'Michelin', model: 'Power Cup TLR 30c', family: 'michelin-powercup',
+    wheel: '700c', width: 30, tubeless: true, compound: 'Gum-X',
+    weight: 300, price: 75,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.bike24.com/p2581542.html',
+    note: 'road-depth-4 wave: fills the 30c gap in this file\'s Power Cup TLR family (25/28c already cataloged). A bike24.com retailer spec republication explicitly citing "Manufacturer: Michelin" and Michelin\'s own bike.michelin.com product page states "Weight (manufacturer\'s specification): approx. 300 g (28\\" black | width: 30 mm)", "carcass density: 120TPI/EPI", "tire compound: Gum-X, X-Race Compound" (compound corrected to Gum-X — the current-generation Power Cup TLR "Competition Line" naming, distinct from the older "Endurance Compound X" wording on this file\'s 25/28c sibling rows, which may reflect an earlier product revision; not reconciled across the family this pass, flagged). Price $75 carried over from the sibling rows as a sample (no per-width MSRP found).' },
+  { id: 'ti-michelin-powercup-32', cat: 'tire', brand: 'Michelin', model: 'Power Cup TLR 32c', family: 'michelin-powercup',
+    wheel: '700c', width: 32, tubeless: true, compound: 'Gum-X',
+    weight: 330, price: 75,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.bike24.com/p2581542.html',
+    note: 'road-depth-4 wave: same bike24.com/Michelin-spec source as the 30c sibling row — "approx. 330 g (28” | width 32 mm)". Same compound-wording and price caveats as the 30c row.' },
   // road-15 wave RETRY: Power Road does not appear anywhere in Michelin's current
   // lineup (michelin.com/michelinman.com/michelin.ca all searched) - independent
   // reporting (tradeinn.com customer review, road.cc's 2019/2020 launch coverage)
@@ -1513,6 +1640,23 @@ var ROAD_PARTS = [
     wheel: '700c', width: 28, tubeless: true, compound: '2X Endurance Compound',
     weight: 300, price: 65, status: 'discontinued', supersededBy: 'ti-michelin-powercup-28',
     note: 'status:\'discontinued\' added (schema-parity-1) per the road-15 retry finding above (Power Road absent from every current Michelin storefront, corroborated by independent reporting as replaced by Power Cup/Power Protection TLR); supersededBy points to the same-width Power Cup TLR 28c row already in this catalog.' },
+
+  // ===== TIRES — Specialized Cotton TLR (road-depth-4 wave: new brand tire line) ====
+  { id: 'ti-specialized-cotton-tlr-28', cat: 'tire', brand: 'Specialized', model: 'Cotton TLR 28c', family: 'specialized-cotton-tlr',
+    wheel: '700c', width: 28, tubeless: true, compound: 'Gripton', casing: 'Poly-Cotton-Corespun',
+    weight: 280, price: 90,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.specialized.com/us/en/cotton-tlr/p/1000261337',
+    note: 'road-depth-4 wave (new brand — first Specialized road tire row; this file previously had no Specialized tire despite the brand\'s frame/wheel presence). FETCHED specialized.com\'s current "Cotton TLR" product page directly: "700x28c, 280g" (Approximate Weight table), "Poly-Cotton-Corespun casing with seamless vulcanization... strong polyester core with supple cotton fibers" (casing), GRIPTON compound (marketing copy names the compound family without a numbered tier on this specific tire, unlike the T2/T5-tiered RapidAir line). Tubeless-ready ("TLR", "race-proven... tubeless-ready"). Price: no per-tire MSRP found on the page; $90 is an unsourced sample positioned near this file\'s other premium tubeless race-tire rows (Vittoria Corsa Pro $95, Pirelli P Zero Race $80).' },
+  { id: 'ti-specialized-cotton-tlr-30', cat: 'tire', brand: 'Specialized', model: 'Cotton TLR 30c', family: 'specialized-cotton-tlr',
+    wheel: '700c', width: 30, tubeless: true, compound: 'Gripton', casing: 'Poly-Cotton-Corespun',
+    weight: 290, price: 90,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.specialized.com/us/en/cotton-tlr/p/1000261337',
+    note: 'road-depth-4 wave: same specialized.com Cotton TLR fetch as the 28c sibling row. "700x30c, 290g".' },
+  { id: 'ti-specialized-cotton-tlr-32', cat: 'tire', brand: 'Specialized', model: 'Cotton TLR 32c', family: 'specialized-cotton-tlr',
+    wheel: '700c', width: 32, tubeless: true, compound: 'Gripton', casing: 'Poly-Cotton-Corespun',
+    weight: 320, price: 90,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.specialized.com/us/en/cotton-tlr/p/1000261337',
+    note: 'road-depth-4 wave: same specialized.com Cotton TLR fetch as the 28c/30c sibling rows. "700x32c, 320g".' },
 
   // ===== COCKPIT — Enve / PRO / FSA (rounding out the finishing-kit brand set)
   { id: 'hb-enve-ses-aerobar', cat: 'handlebar', brand: 'Enve', model: 'SES Aero Road Bar', family: 'enve-ses-aerobar',
