@@ -4785,3 +4785,19 @@ silently dormant for the live GRX-10 tier — extend the golden vocab pin + lint
 token has a chain entry (protects Q1's implementation too). All claims manufacturer-cited
 (12 sources; support.sram.com via the Exa lane). Gates green.
 Report: .claude/worker-reports/t2-drivetrain-design.md.
+
+## 2026-07-22 — pb-gravel-2 merged: gravel burndown 212 -> 153 (honest redo of the rejected branch)
+Per-row note reads, zero trust in the rejected diff: 49 msrp-confirmed + 5 regional-conversion
++ 4 bundle-split (Ekar correctly excluded — two real SKUs, nothing to re-split) + 1
+discontinued-no-msrp (Salsa Warbird, salsacycles.com's own "archived bike model" text — the
+ONLY one; the ~24 current frames the rejected branch had mislabeled all stay blank) + 1
+third-party-listed (Continental 650x47, real universalcycles.com transaction preferred over
+EUR conversion). All 3 flagged price leads confirmed + corrected (Rudy 999->929, Force FD
+425->270, XPLR chain 60->52.50) — each had the right figure ALREADY QUOTED in its own note
+from a prior pass that never updated the price field (recurring pattern worth watching).
+Coordinator fix at review: the XPLR chain's $52.50 is a range midpoint ($50-55 page), not a
+literal figure — msrp-confirmed reverted to unset, matching the pb-road-2 range ruling made
+the same hour. Worker flags for Douglas: wheel-PAIR split shape (Zipp/Fulcrum/Reserve/DT
+GRC) has no honest token — a pair-split-estimate token is a vocab-tier candidate; Cinelli
+King Zydeco price needs a cinelli-milano.com re-fetch. Full gates + verdict harness green.
+Report: .claude/worker-reports/pb-gravel-2.md.
