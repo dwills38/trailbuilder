@@ -4911,3 +4911,19 @@ figure). Unisex-pads wall re-confirmed (no women's-specific impact pads exist in
 Race Face lineup already fully covered (no padding); worker caught its own Cognito duplicate
 pre-commit. Cairn Ride + O'Neal Park FR untouched per the open-question fence. Gates green.
 Report: kit-breadth-4.md.
+
+## 2026-07-22 — mtb-cb-breadth-2 merged (5105 to 5116 parts) + the stale-vocab doc line fixed
+Kona Process 134: whole uncataloged short-travel carbon platform entered off Kona's own
+KN00140 tech-doc PDF (real text layer — every interface maker-quoted) — frame + CR/DL $4,899
++ CR $5,999 cb rows (CR priced ABOVE the flagship on Kona's live site, read verbatim, flagged
+as a changeover quirk) + DT350/KOM-Team OE wheel pair + a 31.6 TranzX dropper point. Marin
+Rift Zone XR AXS: zero new parts; two sharp calls — non-Transmission AXS group proven by the
+udh:false frame + cassette naming, and the page's "T-Type" chain wording treated as OE
+marketing looseness rather than fabricating a Transmission chain onto a frame that can't run
+one. Ragley Blue Pig Race + 3 OE part points (Lyrik 275/160, Horizon V2 pair). Santa Cruz:
+model-level coverage confirmed COMPLETE; Bronson trim gaps blocked by a real JS spec-table
+wall (flagged). COORDINATOR CATCH: the worker skipped the Ragley Big Al citing a 3-token
+system vocab — CLAUDE.md's data-model line was STALE (shimano-11/sram-11 live since 07-07/10;
+same artifact skipped the base Honzo in cb-breadth-1). Line fixed this merge; Big Al + Honzo
+cb entries now queued as genuinely unblocked. Gates green.
+Report: mtb-cb-breadth-2.md.
