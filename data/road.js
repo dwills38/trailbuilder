@@ -490,6 +490,62 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-22', source: 'https://www.campagnolo.com/on/demandware.static/-/Library-Sites-campagnoloLibrary/default/dw7c7a92cc/pdf/035_2482_Campagnolo-catalogue-6-2022-ENG.pdf',
     note: 'road-depth-4 wave: same campagnolo.com catalogue PDF + khcycle.com corroboration as the front row — see that row\'s note for the full sourcing, weight-split and price caveats. This is the complementary 957g half of the 1,739g pair total for the Shimano/SRAM-driver SKU (WH19-SCCDFRX222).' },
 
+  // ===== WHEELS — road-depth-5 wave (driver-variant siblings: closing GAPs flagged by
+  // road-depth-2/4's own notes above — real, separately-orderable freehub SKUs of wheels
+  // already in this file. Each new row is a REAR-wheel-only sibling: freehub is a rear-hub
+  // field only (frontwheel schema has none), so no matching front-wheel row is needed per
+  // this file's own existing front/rear split convention) ====
+  { id: 'rw-hunt-3434-aerodynamicist-xdr', cat: 'rearwheel', brand: 'HUNT', model: '34_34 Aerodynamicist Carbon Disc Wheelset (SRAM XD/XDR)', family: 'hunt-3434-aerodynamicist',
+    wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 22, maxTire: 50,
+    weight: 632, price: 1499,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.huntbikewheels.com/products/hunt-34_34-aerodynamicist-carbon-disc-wheelset',
+    note: 'road-depth-5 wave: closes the GAP flagged in this file\'s own rw-hunt-3434-aerodynamicist (hg-road) note. RE-FETCHED huntbikewheels.com\'s product page directly (Exa): the freehub selector reads verbatim "Choose an option Shimano/SRAM HG Splined SRAM XD/XDR Campagnolo N3W (Ekar) Shimano Microspline" — all four options list under the SAME £899 price with no separate weight shown (the page\'s only weight figure, "1264g", is the wheelset total regardless of driver choice). This row models the SRAM XD/XDR option (freehub:\'xdr\', this file\'s road-vocab token; the road catalog\'s freehub vocab has no separate bare "xd" token). Weight/price/maxTire/intWidth inherit the sibling hg-road rear row\'s figures unchanged (same rim/hub, same even-split convention, same GBP-to-USD price caveat) — only freehub differs, per this file\'s own split-policy doctrine.' },
+  { id: 'rw-hunt-3434-aerodynamicist-n3w', cat: 'rearwheel', brand: 'HUNT', model: '34_34 Aerodynamicist Carbon Disc Wheelset (Campagnolo N3W)', family: 'hunt-3434-aerodynamicist',
+    wheel: '700c', hub: '12x142', freehub: 'n3w', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 22, maxTire: 50,
+    weight: 632, price: 1499,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.huntbikewheels.com/products/hunt-34_34-aerodynamicist-carbon-disc-wheelset',
+    note: 'road-depth-5 wave: see the XDR sibling row\'s note for the full re-fetch detail (same page, same four-option selector: "Campagnolo N3W (Ekar)"). freehub:\'n3w\', this file\'s road-vocab token for Campagnolo\'s short N3W driver body (distinct from the classic-length campag-11 token used on this file\'s Campagnolo drivetrain cassette rows). Weight/price/maxTire/intWidth inherited unchanged from the hg-road sibling.' },
+  { id: 'rw-hunt-3434-aerodynamicist-microspline', cat: 'rearwheel', brand: 'HUNT', model: '34_34 Aerodynamicist Carbon Disc Wheelset (Shimano Microspline)', family: 'hunt-3434-aerodynamicist',
+    wheel: '700c', hub: '12x142', freehub: 'micro-spline-road', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 22, maxTire: 50,
+    weight: 632, price: 1499,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.huntbikewheels.com/products/hunt-34_34-aerodynamicist-carbon-disc-wheelset',
+    note: 'road-depth-5 wave: see the XDR sibling row\'s note for the full re-fetch detail (same page, same four-option selector: "Shimano Microspline"). freehub:\'micro-spline-road\', this file\'s road-vocab token. Weight/price/maxTire/intWidth inherited unchanged from the hg-road sibling. This wheelset\'s wide 22mm-internal alloy-adjacent carbon rim and 25-50mm tire range make Microspline (a mullet/1x-gravel-crossover driver) a genuinely plausible SKU here, not a mismatched pairing.' },
+
+  { id: 'rw-dtswiss-p1800-spline-xdr', cat: 'rearwheel', brand: 'DT Swiss', model: 'P 1800 SPLINE db 23 12/142 mm SRAM XDR', family: 'dtswiss-p1800-spline',
+    wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 20, maxTire: 32,
+    weight: 890, price: 654,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.dtswiss.com/en/support/product-support?matnr=W0P1800NID1SA21346',
+    note: 'road-depth-5 wave: closes the GAP flagged in this file\'s own rw-dtswiss-p1800-spline (hg-road, matnr W0P1800NIDMSA21345) note, which named this exact matnr as an unmodeled sibling. FETCHED dtswiss.com\'s own model-specific support page for matnr W0P1800NID1SA21346 directly: "P 1800 SPLINE db 23 12/142 mm Sram XDR", "Net weight 890 g" (a REAL, page-stated distinct weight from the hg-road sibling\'s 913g — not an inherited/split figure), "Inner Width 20 mm", "Rim Diameter 29\\" / 700C", hub spare-parts table confirms "Freehub body SRAM XDR RD. (AXDR)" -> freehub:\'xdr\'. maxTire/price inherit the sibling row\'s same-line ARC1100-proxy/from-MSRP caveats (see that row\'s note) — no new figures published for this specific driver SKU beyond weight.' },
+
+  { id: 'rw-reserve-3437-dt240-xdr', cat: 'rearwheel', brand: 'Reserve', model: '34|37 (DT 240, XDR/Centerlock)', family: 'reserve-3437',
+    wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 22, maxTire: 38,
+    weight: 677, price: 1599,
+    verified: true, lastChecked: '2026-07-22', source: 'https://reservewheels.com/products/reserve-34-37-road-wheel',
+    note: 'road-depth-5 wave: closes the GAP flagged in this file\'s own rw-reserve-3437-dt240 (HG-EV) note. RE-FETCHED reservewheels.com\'s product page directly (Exa): the Details tab lists verbatim "Freehub Options XDR, HG-EV" under the SAME per-hub-tier weight ("DT 240 - 1354g") with no separate per-driver weight or price split shown on the page. This row models the XDR option (freehub:\'xdr\'); weight/price/maxTire/intWidth inherit the sibling HG-EV rear row\'s figures unchanged (same even-split convention, same Shopify-variant-JSON price caveat) — only freehub differs.' },
+
+  { id: 'rw-fulcrum-racing4-db-xdr', cat: 'rearwheel', brand: 'Fulcrum', model: 'Racing 4 DB (XDR)', family: 'fulcrum-racing4',
+    wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 19, maxTire: 50,
+    weight: 950, price: 300,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.fulcrumwheels.com/en/wheels/triathlon-wheels/racing-4-db',
+    note: 'road-depth-5 wave: closes the GAP flagged in this file\'s own rw-fulcrum-racing4-db (hg-road) note. RE-FETCHED fulcrumwheels.com\'s product page directly: "FWB Version: HG, XDR, N3W" and "Price: EUR € 519,00 (HG), € 529,00 (XDR), € 525,00 (N3W)" — a real page-stated per-driver EUR price difference exists, but per this file\'s no-live-FX-conversion convention the existing $300 unsourced USD sample is carried across all three driver variants unchanged (flagged, same as the hg-road sibling). freehub:\'xdr\'; weight inherits the sibling\'s 44/56 front/rear split of the single page-stated 1710g pair total (no per-driver weight published).' },
+  { id: 'rw-fulcrum-racing4-db-n3w', cat: 'rearwheel', brand: 'Fulcrum', model: 'Racing 4 DB (N3W)', family: 'fulcrum-racing4',
+    wheel: '700c', hub: '12x142', freehub: 'n3w', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 19, maxTire: 50,
+    weight: 950, price: 300,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.fulcrumwheels.com/en/wheels/triathlon-wheels/racing-4-db',
+    note: 'road-depth-5 wave: see the XDR sibling row\'s note for the full re-fetch detail (same page, "FWB Version: HG, XDR, N3W", "€ 525,00 (N3W)"). freehub:\'n3w\'; weight/price inherited the same way as the XDR sibling.' },
+
+  { id: 'rw-mavic-cosmic-slr45-xdr', cat: 'rearwheel', brand: 'Mavic', model: 'Cosmic SLR 45 Disc 23mm (XDR)', family: 'mavic-cosmic-slr45',
+    wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 23, maxTire: 32,
+    weight: 805, price: 2729,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.mavic.com/en-us/p/cosmic-slr-45-disc-23mm-rr2607',
+    note: 'road-depth-5 wave: closes the GAP flagged in this file\'s own rw-mavic-cosmic-slr45 (hg-road) note. RE-FETCHED mavic.com\'s rr2607 product page directly: the "Roues libres" (freehub) selector lists "XDR" and "HGR" as the only two options, both under the SAME "Weight Rear : 805g" and the SAME "$2,729" price — confirming no price/weight split by driver on this SKU. freehub:\'xdr\'; maxTire inherits the sibling row\'s same-class-proxy caveat (see that row\'s note).' },
+
+  { id: 'rw-campagnolo-scirocco-disc-campag', cat: 'rearwheel', brand: 'Campagnolo', model: 'Scirocco Disc 2-Way Fit (Campagnolo driver)', family: 'campagnolo-scirocco',
+    wheel: '700c', hub: '12x142', freehub: 'campag-11', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 19, maxTire: 32,
+    weight: 957, price: 700,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.campagnolo.com/on/demandware.static/-/Library-Sites-campagnoloLibrary/default/dw7c7a92cc/pdf/035_2482_Campagnolo-catalogue-6-2022-ENG.pdf',
+    note: 'road-depth-5 wave: closes the GAP flagged in this file\'s own rw-campagnolo-scirocco-disc (hg-road, SKU WH19-SCCDFRX222) note, which already documents the paired Campagnolo-driver SKU WH19-SCCDFR222 from the SAME campagnolo.com catalogue PDF page range (144-145) that produced the hg-road row — that prior wave\'s fetch is what first read the driver split ("Campagnolo sprocket set 10/11/12" vs. "Shimano sprocket set / SRAM 10/11") off this exact source; this row completes the pair using freehub:\'campag-11\' (this file\'s classic-length Campagnolo driver token, matching the catalogue\'s "Campagnolo sprocket set" wording) rather than re-fetching the identical PDF a third time. Rim/hub/weight/price figures are the SAME physical wheel as the hg-road sibling (only the driver body differs) so they carry over unchanged, including that row\'s disclosed intWidth/weight-split/price-range caveats.' },
+
   // ===== TIRES (mm width; front & rear both draw from cat:'tire') ========
   { id: 'ti-continental-gp5000stre-25', cat: 'tire', brand: 'Continental', model: 'Grand Prix 5000 S TR 25c', family: 'continental-gp5000stre',
     wheel: '700c', width: 25, tubeless: true, compound: 'BlackChili',
