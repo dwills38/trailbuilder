@@ -1,5 +1,19 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — BREADTH WAVE begins: gravel-depth-2 lands first (gravel 278 parts)
+
+- **catalog/gravel-depth-2 merged** (+20 rows, 258→278, 174 verified): 8 sibling-tier
+  frames (Checkpoint SL6/ALR4, Diverge Expert, Grail/Grizl SLX 8, Topstone C3, Revolt
+  Adv 2 — interfaces carried from their platform siblings' maker fetches, per-tier
+  weights honest samples) + the new Lauf Seigla Rigid family verified off laufcycles.com;
+  8 vocab-clean tires (WTB Vulpine pair, René Herse Fleecer Ridge + Antelope Hill
+  verified; Teravail table-reads disclosed); 4 cockpit/saddle incl. verified Woodchipper
+  + PNW Coast. Vocab-gap discipline held: Cervélo Áspero-5's T47a "BBright asymmetric
+  threaded" is a REAL distinct standard (neither existing token fits — tallied for the
+  ruling), Pathfinder Pro's Gripton/2Bliss naming skipped, not mis-tokened. Worker
+  flagged its own single-commit deviation (brand enumeration preserved in the message).
+- Gates: 7 OK, 988/988, tsc clean.
+
 ## 2026-07-22 — mtb-tail-16: aftermarket punch list pays out (MTB 3,343)
 
 - **verify/mtb-tail-16 merged**: 14 promotions (all 4 X-Fusion Manic droppers, 3 Fizik,
