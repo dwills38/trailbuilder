@@ -1857,7 +1857,7 @@ var ROAD_PARTS = [
   { id: 'sp-thomson-elite-316', cat: 'seatpost', brand: 'Thomson', model: 'Elite Setback 31.6', family: 'thomson-elite',
     diameter: '31.6', setback: 16,
     weight: 201, price: 75,
-    verified: true, lastChecked: '2026-07-18', source: 'https://bikethomson.com/product/elite-seatpost/',
+    verified: true, lastChecked: '2026-07-18', source: 'https://bikethomson.com/product/elite-seatpost/', priceBasis: 'third-party-listed',
     note: 'Same fetched source/caveat as the 30.9 row above (31.6mm also in the page\'s published diameter list); this row uses the 16mm-setback config the same page names ("Straight / Setback(16mm)"). Price is a sample estimate within the page\'s quoted range.' },
   { id: 'sp-cannondale-c140aero-20', cat: 'seatpost', brand: 'Cannondale', model: 'C1 40 Aero Seatpost 20mm Offset', family: 'cannondale-c140aero',
     proprietary: true, forFrames: ['fr-cannondale-supersix-evo'], setback: 20,
