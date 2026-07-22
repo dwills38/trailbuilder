@@ -1,5 +1,20 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — road-depth-5: the driver matrix closes (road 307)
+
+- **catalog/road-depth-5-a7bead merged** (sandbox worktree collision honestly flagged and
+  worked around; report = ground truth): +22 rows. (a) EVERY flagged driver-variant gap
+  closed — 10 rear-wheel siblings (HUNT ×3, DT P1800 XDR with a real distinct 890g weight,
+  Reserve, Fulcrum ×2 incl. N3W, Mavic, Campagnolo campag-11) each off a fresh maker
+  fetch, no fabricated splits where makers publish none. (b) Cockpit/saddle depth: Zipp
+  Service Course/SL ×4 all verified with exact SKU weights; FSA Omega verified with a
+  disclosed maker-vs-retailer weight discrepancy; PRO Discover honestly unverified
+  (retailer-relayed weight fails the bar); Romin/Kappa/SLR Kit Carbonio/Novus; BMC
+  Teammachine seatpost closes the frame's missing proprietary-post pair via the 7th
+  exception; ENVE 27.2 fully verified the normal way. Rim-brake confirmed OUT of road.js
+  by design (DISC-ONLY v1 per ROAD-MODEL — the rim-caliper vocab question is gravel/
+  future-scope, not this file). Gates: 7 OK (road 307/266 verified), 989/989, tsc clean.
+
 ## 2026-07-22 — bmx-depth-10: the Supercross wall falls (BMX 338)
 
 - **catalog/bmx-depth-10 merged**: supercrossbmx.com renders clean in the browser pane
