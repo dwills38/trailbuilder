@@ -135,8 +135,25 @@ var LOCAL_VOCAB = {
   actuationBrake: ['hydraulic', 'mechanical'],
   // lifecycle (ported from src/schema.js — mirrors its frame lifecycle convention;
   // absent = current). Same 3-value vocab as the live catalog's VOCAB.status.
-  status: ['current', 'discontinued', 'recalled']
+  status: ['current', 'discontinued', 'recalled'],
+  /* Price provenance — mirrors src/schema.js's VOCAB.priceBasis VERBATIM
+     (Douglas's 2026-07-22 ruling: "verified means the pricing was verified
+     too"). Absent = a SAMPLE price; present = a disclosed claim, legal only on
+     a verified row. 'msrp-confirmed' is the norm; the other four are the
+     disclosed exception classes (discontinued / OE-only / non-USD conversion /
+     bundled-SKU split — the last being the ratified shift-brake case, which
+     road hits often since STI/hydraulic levers are priced as one SKU). Full
+     per-token rationale lives in schema.js — same enum, not a road variant.
+     Never feeds any compat rule. */
+  priceBasis: ['msrp-confirmed', 'discontinued-no-msrp', 'oe-only-no-msrp',
+               'regional-conversion', 'bundle-split-estimate']
 };
+
+/* >>> COORDINATOR ROLLOUT SWITCH — DO NOT FLIP. See the identical constant in
+   src/schema.js for the full contract. false = a verified row missing
+   priceBasis is a counted WARNING (validate.js prints the burndown); true =
+   it's a hard error. Flip only when the backfill is done in EVERY catalog. */
+var PRICE_BASIS_STRICT = false;
 
 /** @param {string} vocabKey @returns {any[]|undefined} */
 function vocabValues(vocabKey){ return LOCAL_VOCAB[vocabKey]; }
@@ -316,6 +333,20 @@ function validateRoadPart(p, today){
   } else {
     if('source' in p && p.source != null && typeof p.source !== 'string') bad('source must be a string');
     if('lastChecked' in p && p.lastChecked != null && !/^\d{4}-\d{2}-\d{2}$/.test(p.lastChecked)) bad('lastChecked must be YYYY-MM-DD');
+    /* NOTE: the priceBasis check below deliberately sits OUTSIDE this
+       verified/unverified split — it must fire in BOTH directions. */
+  }
+  // priceBasis — same contract as schema.js: a stated basis is a CLAIM, so it
+  // rides only on a verified row (which already forces a real source above);
+  // once STRICT flips, a verified row must state one.
+  if('priceBasis' in p && p.priceBasis != null){
+    var pbv = vocabValues('priceBasis');
+    if(!isStr(p.priceBasis) || (pbv && pbv.indexOf(p.priceBasis) < 0))
+      bad('priceBasis "' + p.priceBasis + '" not in [' + (pbv || []).join(', ') + ']');
+    if(p.verified !== true)
+      bad('priceBasis "' + p.priceBasis + '" requires verified:true with a real source - an unverified row states no price provenance');
+  } else if(PRICE_BASIS_STRICT && p.verified === true){
+    bad('verified:true requires a priceBasis - "verified" must cover the price, not just the spec');
   }
   if('family' in p && p.family != null && !(isStr(p.family) && /^[a-z0-9-]+$/.test(p.family))) bad('family must be a lowercase slug');
   if('modelYear' in p && p.modelYear != null && !(isNum(p.modelYear) && p.modelYear >= 1980 && p.modelYear <= 2100))
@@ -375,7 +406,7 @@ function validateRoadPart(p, today){
   /** @type {Object.<string, number>} */
   var COMMON = { id:1, cat:1, brand:1, model:1, price:1, weight:1, note:1, verified:1, lastChecked:1, source:1,
     family:1, gen:1, modelYear:1, mfgPn:1, sourceType:1, weightSource:1, archiveUrl:1, status:1, supersededBy:1,
-    disciplines:1, material:1 };
+    disciplines:1, material:1, priceBasis:1 };
   Object.keys(p).forEach(function(k){
     if(COMMON[k] || spec[k]) return;
     bad('unknown field "' + k + '" for category "' + p.cat + '"');
@@ -405,5 +436,6 @@ function validateRoadCatalog(parts, today){
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { ROAD_SCHEMA: ROAD_SCHEMA, LOCAL_VOCAB: LOCAL_VOCAB, validateRoadPart: validateRoadPart, validateRoadCatalog: validateRoadCatalog };
+  module.exports = { ROAD_SCHEMA: ROAD_SCHEMA, LOCAL_VOCAB: LOCAL_VOCAB, PRICE_BASIS_STRICT: PRICE_BASIS_STRICT,
+    validateRoadPart: validateRoadPart, validateRoadCatalog: validateRoadCatalog };
 }

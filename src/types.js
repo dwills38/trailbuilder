@@ -63,6 +63,9 @@
 /** Single-speed chain-tensioning dropout style; only 'vertical' feeds a
  * verdict (the ss-tension info). @typedef {'horizontal'|'sliding'|'ecc-bb'|'vertical'} DropoutType */
 /** @typedef {'manufacturer'|'manufacturer-doc'|'measured'|'retailer'} SourceType */
+/** Where a row's `price` actually came from (2026-07-22 ruling). Absent = a
+ * SAMPLE price; present = a disclosed claim, and only legal on a verified row.
+ * Mirrors schema.js's VOCAB.priceBasis - keep the two in step. @typedef {'msrp-confirmed'|'discontinued-no-msrp'|'oe-only-no-msrp'|'regional-conversion'|'bundle-split-estimate'} PriceBasis */
 /** @typedef {'current'|'discontinued'|'recalled'} PartStatus */
 /** @typedef {'battery'|'charger'|'spring'|'rotor'|'mounting-hardware'} SoldWithout */
 
@@ -90,6 +93,7 @@
  * @property {string} [mfgPn]      manufacturer part number / model code
  * @property {Discipline[]} [disciplines]  filter/annotation only — NEVER feeds checkBuild; absence = universal
  * @property {SourceType} [sourceType]     absent = manufacturer; 'measured' is weight-only (see schema.js)
+ * @property {PriceBasis} [priceBasis]     absent = sample price; only legal on verified:true — NEVER feeds checkBuild
  * @property {string} [weightSource]       URL of the measured-weight source (required when sourceType:'measured')
  * @property {string} [archiveUrl]         snapshot of the source page (source rot is real)
  * @property {PartStatus} [status]         absent = current
