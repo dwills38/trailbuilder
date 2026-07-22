@@ -123,6 +123,25 @@ var STRIDER_PARTS = [
     desc: 'Verified — prevelo.com Alpha Zero Mk III spec table (seat height 10.9-14in, weight 6.9lb, 6061 aluminum frame, rear hand brake, $259).'
   },
   {
+    id: 'sb-earlyrider-charger-12', cat: 'balancebike', brand: 'Early Rider', model: 'Charger 12',
+    wheel: '12', bikeWeight: 3400, tire: 'air', standover: 330,
+    brake: 'rear-hand', frameMaterial: 'aluminum', price: 209,
+    note: 'Distinct 12in aluminum sibling of Big Foot 12 — wider 2.0in tyres (Vee Speedster, vs Big Foot\'s 2.25in knobby Vee Crown Gem), low-slung frame, internal cable routing for a bolt-on brake upgrade kit (sold separately; the "incl Brake" SKU used here ships it fitted). Maker publishes standover height (33cm), not an adjustable seat-height range, same as the Big Foot 12 row in this file (Guardian-row "verified (partial)" precedent).',
+    verified: true, lastChecked: '2026-07-22', sourceType: 'maker',
+    source: 'https://earlyrider.com/products/charger-12-incl-brake',
+    desc: 'Verified (partial) — earlyrider.com "Charger 12 (incl Brake)" spec table (Exa-fetched 2026-07-22, cross-confirmed on the CH/EU/DE regional pages): AL6061 aluminum frame/fork, 12in pneumatic Vee Speedster 2.0in tyres, Tektro 837A V-brake w/ short-reach lever, Weight 3.4kg, standover 33cm, $209.00 (US price; EU EUR224.90). No adjustable seat-height range published (only standover).'
+  },
+  {
+    id: 'sb-earlyrider-lite-12', cat: 'balancebike', brand: 'Early Rider', model: 'Lite',
+    wheel: '12', bikeWeight: 3289, tire: 'air', standover: 300,
+    brake: 'none', frameMaterial: 'wood', price: 99,
+    note: 'Wooden balance bike (marine-grade Super Ply, WBP glue) — the smallest-standover model in the Early Rider lineup (11.75in/30cm), aimed at the youngest end of 2-4yr olds. Two-step steering limiter (restricted mode then released) — mapped to steeringLimiter. No brake (balance-only, brakeless by design).',
+    steeringLimiter: true,
+    verified: true, lastChecked: '2026-07-22', sourceType: 'maker',
+    source: 'https://us.earlyrider.com/products/lite-wooden-balance-bike-toddler',
+    desc: 'Verified — us.earlyrider.com Lite product page (Exa-fetched 2026-07-22): marine-grade Super Ply wood frame/fork, standover height 11.75in/30cm, weight 7.25lb/3289g, two-step (restricted/unrestricted) steering system, aluminum rims w/ pneumatic tires, $99.00. No seat-height range published (only standover).'
+  },
+  {
     id: 'sb-earlyrider-bigfoot-12', cat: 'balancebike', brand: 'Early Rider', model: 'Big Foot 12',
     wheel: '12', seatMin: 310, seatMax: 409, bikeWeight: 3750, tire: 'air',
     brake: 'rear-hand', steeringLimiter: true, frameMaterial: 'aluminum', price: 239,
@@ -190,6 +209,24 @@ var STRIDER_PARTS = [
     desc: 'Verified (measured weight) — puky.de LR M product page (Exa-fetched 2026-07-20): Seat height 30-43cm, EVA foam tires, height-adjustable saddle/handlebar, max load 25kg, EUR99.99. Weight per downtown-mag.com\'s balance-bike group test (3.56kg, exact match to the retained figure), the same measured-review source already accepted for this file\'s Moustache Mercredi 12 row.'
   },
   {
+    id: 'sb-puky-lr-1l-br', cat: 'balancebike', brand: 'Puky', model: 'LR 1L Br',
+    wheel: '12', bikeWeight: 3670, tire: 'air', standover: 340,
+    brake: 'rear-hand', frameMaterial: 'steel', weightLimit: 25, price: 119.99,
+    note: 'Step-up size from the LR M — same size class as the LR1 EVA / LR 1L (12.5in wheels; nearest catalog wheel vocab value "12" used) but adds a rear drum brake (the LR 1L and LR1 EVA are the same bike without one). puky.de\'s own product page states inseam range (34-47cm) and rider height (90-115cm) rather than an adjustable seat-height range, so seatMin/seatMax are left blank here per THE BAR — standover recorded instead (34cm, the inseam-range floor, used as the closest sourced fit figure). Weight not published on the fetched puky.de page; retained from kidsbikeshop.co.uk\'s independent size-guide figure for the LR 1L family pending a maker number.',
+    sourceType: 'maker',
+    source: 'https://www.puky.de/en/lr-1l-br-00003093.html',
+    desc: 'Unverified sample (weight not on the fetched maker page) — puky.de LR 1L Br product page (Exa-fetched 2026-07-22): 12.5in pneumatic tires, rear drum brake w/ child-sized lever, no steering limiter, inseam 34-47cm / rider height 90-115cm, max load 25kg. Weight basis: kidsbikeshop.co.uk PUKY sizing guide (LR 1L family). Price retained from the existing catalog\'s PUKY EUR-converted convention pending a confirmed EUR list price.'
+  },
+  {
+    id: 'sb-puky-lr-xl', cat: 'balancebike', brand: 'Puky', model: 'LR XL',
+    wheel: '16', bikeWeight: 5500, tire: 'air', standover: 400,
+    brake: 'rear-hand', frameMaterial: 'steel', weightLimit: 25, price: 139.99,
+    note: 'The largest PUKY balance bike — voluminous 2.4in tires on spoked wheels (16in wheel per velogrove.com\'s spec sheet; puky.de itself only states the ETRTO "62-203"/"12.5x2.40" tire code, not a wheel-inch figure), rear V-brake (vs the smaller LR 1L Br\'s drum). puky.de states inseam (40-53cm) and rider height (95-130cm), not an adjustable seat-height range — standover recorded instead (40cm, the inseam-range floor) per THE BAR. Weight and frame material not published on the fetched puky.de page; both cross-checked against velogrove.com\'s independent spec sheet (steel frame, ~5.5kg) pending an exact maker-page figure.',
+    sourceType: 'maker',
+    source: 'https://www.puky.de/en/lr-xl-00004078-1.html',
+    desc: 'Unverified sample (weight + frame material not on the fetched maker page) — puky.de LR XL product page (Exa-fetched 2026-07-22): voluminous 2.4in tires on spoked wheels, rear V-brake, no steering limiter, inseam 40-53cm / rider height 95-130cm, max load 25kg. Weight/frame basis: velogrove.com PUKY LR XL spec sheet (steel frame, 16in wheel, ~5.5kg).'
+  },
+  {
     id: 'sb-kokua-likeabike-jumper-12', cat: 'balancebike', brand: 'Kokua', model: 'LIKEaBIKE Jumper 12',
     wheel: '12', seatMin: 340, seatMax: 440, bikeWeight: 3400, tire: 'air',
     brake: 'none', frameMaterial: 'aluminum', steeringLimiter: true, price: 328,
@@ -197,6 +234,15 @@ var STRIDER_PARTS = [
     verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
     source: 'https://kokuabikesusa.com/products/like-a-bike-jumper-12',
     desc: 'Verified — kokuabikesusa.com LIKEaBIKE Jumper 12 product page (Exa-fetched 2026-07-20): 7005 aircraft-grade aluminum frame, adjustable seat height 340-440mm (two seat posts included), Schwalbe "Big Apple" air tires, steering damper, Weight 3400g (kokua-shop.com DE spec table), $328.00.'
+  },
+  {
+    id: 'sb-kokua-likeabike-jumper-14', cat: 'balancebike', brand: 'Kokua', model: 'LIKEaBIKE Jumper 14',
+    wheel: '14', seatMin: 440, seatMax: 555, bikeWeight: 4200, tire: 'air',
+    brake: 'rear-hand', frameMaterial: 'aluminum', steeringLimiter: true, price: 349,
+    note: 'Larger 14in-wheel sibling of the Jumper 12 (~3-8yr vs the 12\'s ~2-5yr), same 7005 aluminum frame/rear elastomer suspension (not modeled — schema has no suspension field)/steering-damper family, but adds Kokua\'s first-ever hand brake (rear V-brake) on this size. kokuabikesusa.com\'s own US product page currently renders a broken Japanese-yen price (a site display bug, not a real price) — price here is a converted-from-GBP sample (cyclesense.co.uk, a UK Kokua retailer, £249.95) pending a clean USD figure from the maker; every other field (frame, tires, brake, seat-height range, weight) is confirmed directly on kokuabikesusa.com.',
+    sourceType: 'maker',
+    source: 'https://kokuabikesusa.com/products/like-a-bike-jumper-14',
+    desc: 'Unverified sample (US price bugged on the maker page) — kokuabikesusa.com LIKEaBIKE Jumper 14 product page (Exa-fetched 2026-07-22): 7005 aircraft-grade aluminum frame, adjustable seat height 440-555mm, Schwalbe "Big Apple" air tires, V-brake (rear), ages ~3-8. Weight 4.2kg + price basis per cyclesense.co.uk (UK retailer, £249.95, Kokua\'s own kokua.de/kokua-shop.com confirm the same spec set in EUR).'
   },
   {
     id: 'sb-banwood-first-go', cat: 'balancebike', brand: 'Banwood', model: 'First Go',
@@ -267,6 +313,15 @@ var STRIDER_PARTS = [
     desc: 'Verified (partial) — yedoo.eu YooToo product page (Exa-fetched 2026-07-20): Aluminium frame with two-position rear fork, seat height 29-43cm, weight 3.4kg, Rear V-brake Tektro w/ junior lever, Headset bearing with steering limiters, EUR179.90. US price retained from twowheelingtots (yedoo.eu sells EUR-only).'
   },
   {
+    id: 'sb-yedoo-onetoo', cat: 'balancebike', brand: 'Yedoo', model: 'OneToo',
+    wheel: '12', seatMin: 300, seatMax: 410, bikeWeight: 3800, tire: 'air',
+    brake: 'rear-hand', steeringLimiter: false, frameMaterial: 'steel', price: 109,
+    note: 'Entry model of Yedoo\'s OOPS lineup, below TooToo/YooToo — hi-ten steel frame/fork/handlebar (TooToo/YooToo have aluminum handlebars), a rear mini-V brake with junior lever, and NO steering limiter (headset is "bearing without steering limiters" per the maker, unlike TooToo/YooToo\'s limited headsets). US price not published by yedoo.eu (EUR-only site, EUR99.90); converted-USD sample used here, same convention as the TooToo/YooToo rows in this file.',
+    verified: true, lastChecked: '2026-07-22', sourceType: 'maker',
+    source: 'https://www.yedoo.eu/en/product/onetoo-0dqifc',
+    desc: 'Verified (partial) — yedoo.eu OneToo product page (Exa-fetched 2026-07-22): Hi-ten steel frame/fork/handlebar, seat height 30-41cm, weight 3.8kg, rear mini-V brake w/ alloy lever, headset bearing WITHOUT steering limiters, EUR99.90. US price is a converted sample (yedoo.eu sells EUR-only, same as this file\'s TooToo/YooToo rows).'
+  },
+  {
     id: 'sb-giant-pre', cat: 'balancebike', brand: 'Giant', model: 'Pre',
     wheel: '12', seatMin: 310, seatMax: 430, bikeWeight: 4010, tire: 'air',
     brake: 'none', frameMaterial: 'aluminum', footrest: true, price: 130,
@@ -319,6 +374,15 @@ var STRIDER_PARTS = [
     brake: 'none', frameMaterial: 'steel', price: 110,
     note: 'Step-up size in the Bixe lineup for bigger kids (ages ~4-9); air tires, unlike the 12in model\'s foam. Corrected 2026-07-20 against twowheelingtots.com: frameMaterial was "aluminum", the maker text explicitly states "the Bixe 16 features a steel frame"; brake was "rear-hand", twowheelingtots\' own comparison table lists Bixe 16 Pro brakes as "None" ("we wish it had a hand brake" — it doesn\'t); price was a stale $90 sample, twowheelingtots states $110 MSRP. A separate "16 Pro" trim also exists at a lighter 14.9lb but wasn\'t pinned to a distinct sourced spec table this round.',
     desc: 'Unverified sample (no bixebalancebike.com spec table found — see Bixe 12 note) — spec basis: twowheelingtots.com Bixe review (seat height 18.25-22.4in, weight 12lb, steel frame, no brake, $110 MSRP), cross-checked against kiddingzone.com (same seat height/weight/frame figures).'
+  },
+  {
+    id: 'sb-strider-12-comp', cat: 'balancebike', brand: 'Strider', model: '12 Comp',
+    wheel: '12', seatMin: 279, seatMax: 381, bikeWeight: 2200, tire: 'foam',
+    brake: 'none', frameMaterial: 'composite', price: 139.99,
+    note: 'Strider\'s first-ever composite-frame 12in bike (nylon composite, not the classic\'s steel or Pro\'s aluminum) — the lightest current Strider 12 at 2.2kg. Same standing-footrest/adjustable-seat features as the rest of the 12in line; brakeless. Also compatible with the striderbikes.com "Rocking Base" accessory (a rocker stand a Strider 12 clips into) — not modeled as its own row here since it isn\'t a complete bike (no wheel/tire/seat fields the balancebike schema expects).',
+    verified: true, lastChecked: '2026-07-22', sourceType: 'maker',
+    source: 'https://striderbikes.com/balance-bikes/12-comp/',
+    desc: 'Verified — striderbikes.com 12 Comp product page (Exa-fetched 2026-07-22): Seat Height 27.9-38.1cm/11-15in, Assembled Weight 2.2kg/4.9lb, Nylon Composite Frame, Ultralight Flat-Free Foam Rubber 12in Tires, no brake, $139.99 (schema.org Offer price).'
   },
   {
     id: 'sb-strider-20x-sport', cat: 'balancebike', brand: 'Strider', model: '20x Sport',
