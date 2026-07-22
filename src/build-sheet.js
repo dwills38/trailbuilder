@@ -49,6 +49,8 @@
  * @property {function(Slot, (Part|null|undefined), (EffectiveWheel|null)):boolean} slotRequired
  * @property {function(Build, ('front'|'rear')):(EffectiveWheel|null)} effectiveWheel
  * @property {function(Build, string):boolean} wheelPositionFilled
+ * @property {function(*):string} priceBasisLabel      src/pricing.js — price-provenance wording per row
+ * @property {function(*):boolean} priceMsrpConfirmed  src/pricing.js — true only for a confirmed MSRP
  */
 
 /**
@@ -62,6 +64,10 @@
  * @property {number|null} weight   the part's own stored weight (null = sample gap)
  * @property {boolean} verified
  * @property {boolean} inBundle     true = billed inside the group's kit price
+ * @property {string} priceNote       price-provenance wording (priceBasisLabel) — spec verified
+ *   is not the same claim as price verified (Douglas's 2026-07-22 ruling); this rides the same
+ *   ✓ badge title the app's other pages use, never a separate claim.
+ * @property {boolean} priceConfirmed true only when priceMsrpConfirmed(part) is true
  */
 
 /**
@@ -83,6 +89,8 @@
  * @property {string[]} infos     checkBuild messages, verbatim
  * @property {number} verifiedCount  rows whose part is ✓ verified
  * @property {number} partCount      total picked rows
+ * @property {number} priceConfirmedCount  of the verified rows, how many ALSO carry a
+ *   confirmed MSRP (priceMsrpConfirmed) — a verified row can still be sample-priced.
  */
 
 /**
@@ -100,7 +108,7 @@ function buildSheetModel(res, presetBy, deps){
   var t = deps.buildTotals(res, presetBy);
   /** @type {BuildSheetGroup[]} */
   var groups = [];
-  var verifiedCount = 0, partCount = 0;
+  var verifiedCount = 0, partCount = 0, priceConfirmedCount = 0;
   deps.GROUPS.forEach(function(g){
     var bundle = (g.preset && deps.bundleActive(g, res, presetBy)) ? deps.byId(presetBy[g.key]) : null;
     /** @type {BuildSheetRow[]} */
@@ -109,14 +117,19 @@ function buildSheetModel(res, presetBy, deps){
       var p = res[s.key];
       if(!p) return;
       var ver = deps.partVerified(p);
-      if(ver) verifiedCount++;
+      var priceConfirmed = deps.priceMsrpConfirmed(p);
+      if(ver){
+        verifiedCount++;
+        if(priceConfirmed) priceConfirmedCount++;
+      }
       partCount++;
       rows.push({
         slotKey: s.key, slotLabel: s.label, id: p.id,
         brand: p.brand, model: p.model,
         price: (typeof p.price === 'number' ? p.price : 0),
         weight: (typeof p.weight === 'number' ? p.weight : null),
-        verified: ver, inBundle: !!bundle
+        verified: ver, inBundle: !!bundle,
+        priceNote: deps.priceBasisLabel(p), priceConfirmed: priceConfirmed
       });
     });
     if(!rows.length) return;
@@ -146,7 +159,7 @@ function buildSheetModel(res, presetBy, deps){
     totals: t,
     headline: headline,
     errors: r.errors.map(String), warnings: r.warnings.map(String), infos: r.infos.map(String),
-    verifiedCount: verifiedCount, partCount: partCount
+    verifiedCount: verifiedCount, partCount: partCount, priceConfirmedCount: priceConfirmedCount
   };
 }
 
@@ -197,7 +210,7 @@ function renderBuildSheetHtml(model, meta, helpers){
     g.rows.forEach(function(row){
       h += '<tr><td>'+esc(row.slotLabel)+'</td>'
          + '<td>'+esc(row.brand+' '+row.model)
-         + (row.verified ? ' <span class="bs-ver" title="Verified against the manufacturer">✓ verified</span>' : '')
+         + (row.verified ? ' <span class="bs-ver" title="Verified against the manufacturer ('+esc(row.priceNote)+')">✓ verified</span>' : '')
          + '</td>'
          + '<td class="bs-num">'+(row.inBundle ? 'in kit' : esc(money(row.price)))+'</td>'
          + '<td class="bs-num">'+(row.inBundle ? '—' : (row.weight!=null ? esc(row.weight.toLocaleString())+' g' : '—'))+'</td>'
@@ -235,6 +248,13 @@ function renderBuildSheetHtml(model, meta, helpers){
   h += '<p class="bs-disclosure">Specs are illustrative sample data unless a part shows ✓ Verified in the app.</p>';
   h += '<p class="bs-disclosure">Prototype · ✓ = verified vs manufacturer · the rest is sample data · '
      + esc(model.verifiedCount+' of '+model.partCount)+' picked parts verified</p>';
+  // Spec-verified is not the same claim as price-verified (Douglas's 2026-07-22
+  // ruling) — only spelled out once verified rows exist at all.
+  if(model.verifiedCount){
+    h += '<p class="bs-disclosure">Of those '+esc(model.verifiedCount)+' verified part'+(model.verifiedCount===1?'':'s')+', '
+       + esc(model.priceConfirmedCount)+' also carr'+(model.priceConfirmedCount===1?'ies':'y')
+       + ' a confirmed MSRP price — the rest show sample pricing despite verified specs.</p>';
+  }
   h += '</div>';
   return h;
 }

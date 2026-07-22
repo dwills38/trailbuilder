@@ -15,6 +15,7 @@ var U = require('./test-util.js');
 var C = U.C, B = U.B, part = U.part, eq = U.eq, ok = U.ok, some = U.some;
 var UP = require('../src/upgrade.js');
 var UO = require('../src/upgrade-optimizer.js');
+var P = require('../src/pricing.js');
 
 /** @typedef {import('../src/types.js').Part} Part */
 /** @typedef {import('../src/types.js').Build} Build */
@@ -26,7 +27,8 @@ function depsWith(parts){
   return { PARTS: parts, SLOTS: C.SLOTS,
     partVerified: C.partVerified, partWeight: C.partWeight,
     placementDiff: UP.upgradePlacementDiff,
-    checkBuild: C.checkBuild, verdictKey: C.verdictKey, altSlotsOf: C.altSlotsOf, byId: C.byId };
+    checkBuild: C.checkBuild, verdictKey: C.verdictKey, altSlotsOf: C.altSlotsOf, byId: C.byId,
+    priceBasisLabel: P.priceBasisLabel, priceMsrpConfirmed: P.priceMsrpConfirmed };
 }
 var REAL_DEPS = depsWith(C.PARTS);
 
@@ -189,6 +191,38 @@ test('model: pure — the build map and its parts are not mutated', function(){
   eq(JSON.stringify(bld), before);
 });
 
+/* ---- price-basis provenance (Douglas's 2026-07-22 ruling: a ✓ Verified spec
+   is not the same claim as a confirmed MSRP) — wording/marking only, the
+   ranking math and exclusion rules below are untouched. -------------------- */
+
+test('model: every ranked row carries the candidate\'s priceNote/priceConfirmed from pricing.js, verbatim', function(){
+  var confirmed = clone('ti-maxxis-aspen-29-24-exo-dual', { id: 'ti-test-pb-confirmed', priceBasis: 'msrp-confirmed' });
+  var m = UO.upgradeOptimizerModel(B(BENCH), depsWith([confirmed]));
+  eq(m.rows.length, 1);
+  eq(m.rows[0].priceNote, P.priceBasisLabel(confirmed));
+  eq(m.rows[0].priceConfirmed, true);
+});
+
+test('model: a ✓ Verified candidate with NO priceBasis ranks with a sample-price marker — spec-verified is not price-confirmed', function(){
+  var m = UO.upgradeOptimizerModel(B(BENCH), depsWith([part('ti-maxxis-aspen-29-24-exo-dual')]));
+  eq(m.rows.length, 1);
+  ok(!m.rows[0].priceConfirmed, 'no priceBasis on the real catalog row => sample price');
+  eq(m.rows[0].priceNote, P.priceBasisLabel({}));
+});
+
+test('model: priceBasis never changes ranking math, exclusion counts, or ordering', function(){
+  var plain = clone('ti-maxxis-aspen-29-24-exo-dual', { id: 'ti-test-pb-plain' });
+  var withBasis = clone('ti-maxxis-aspen-29-24-exo-dual', { id: 'ti-test-pb-withbasis', priceBasis: 'msrp-confirmed' });
+  var m1 = UO.upgradeOptimizerModel(B(BENCH), depsWith([plain]));
+  var m2 = UO.upgradeOptimizerModel(B(BENCH), depsWith([withBasis]));
+  eq(m2.rows[0].gramsSaved, m1.rows[0].gramsSaved);
+  eq(m2.rows[0].price, m1.rows[0].price);
+  eq(m2.rows[0].costPerGram, m1.rows[0].costPerGram);
+  eq(m2.rows[0].state, m1.rows[0].state);
+  eq(JSON.stringify(m2.excluded), JSON.stringify(m1.excluded));
+  eq(m2.rankableSlots, m1.rankableSlots);
+});
+
 /* ---- real-catalog invariant sweep (the golden Megatower build) ----------- */
 
 /** @type {Object.<string, string>} */
@@ -210,6 +244,8 @@ test('sweep: every ranked row over the real catalog satisfies every honesty and 
     ok(r.gramsSaved > 0, 'strictly lighter only');
     eq(r.costPerGram, r.price / r.gramsSaved);
     eq(r.price, cand.price, 'MSRP basis');
+    eq(r.priceNote, P.priceBasisLabel(cand), r.candidate.id + ': priceNote must be priceBasisLabel(candidate)');
+    eq(r.priceConfirmed, P.priceMsrpConfirmed(cand), r.candidate.id + ': priceConfirmed must be priceMsrpConfirmed(candidate)');
     // re-judge through the same injected diff: never a new error; 'g' really adds nothing
     var d = UP.upgradePlacementDiff(cand, r.slotKey, bld, REAL_DEPS);
     eq(d.newErrors.length, 0, r.candidate.id + ' must add no error');
@@ -289,6 +325,24 @@ test('render: warning rows carry the engine message; hostile strings are escaped
   var h2 = UO.renderUpgradeOptimizerHtml(m2, {}, HELPERS);
   ok(h2.indexOf('reducing shim') >= 0, 'the warning text rides along verbatim');
   ok(h2.indexOf('⚠') >= 0);
+});
+
+test('render: a sample-priced ranked row is marked † with the pricing.js wording, and the disclosure sentence names the split', function(){
+  var m = UO.upgradeOptimizerModel(B(BENCH), depsWith([part('ti-maxxis-aspen-29-24-exo-dual')]));
+  ok(!m.rows[0].priceConfirmed, 'fixture must actually be sample-priced');
+  var h = UO.renderUpgradeOptimizerHtml(m, {}, HELPERS);
+  ok(h.indexOf('uo-pnote') >= 0, 'the † marker renders for a sample-priced row');
+  ok(h.indexOf(C.esc(P.priceBasisLabel({}))) >= 0, 'the sample-price wording rides the marker\'s title');
+  ok(h.indexOf('1 of 1 ranked candidate price is sample data') >= 0, 'the disclosure sentence names the split');
+});
+
+test('render: a fully price-confirmed set of ranked rows shows no † marker and no sample-price disclosure', function(){
+  var confirmed = clone('ti-maxxis-aspen-29-24-exo-dual', { id: 'ti-test-render-all-confirmed', priceBasis: 'msrp-confirmed' });
+  var m = UO.upgradeOptimizerModel(B(BENCH), depsWith([confirmed]));
+  ok(m.rows[0].priceConfirmed);
+  var h = UO.renderUpgradeOptimizerHtml(m, {}, HELPERS);
+  eq(h.indexOf('uo-pnote'), -1, 'no † marker when the price is a confirmed MSRP');
+  eq(h.indexOf('ranked candidate price'), -1, 'nothing to disclose when every ranked price is confirmed');
 });
 
 test('render: no rows but a filled build — the hedged none-found sentence, never an all-clear', function(){

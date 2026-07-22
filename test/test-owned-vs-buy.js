@@ -14,6 +14,10 @@ var U = require('./test-util.js');
 var C = U.C, B = U.B, part = U.part, eq = U.eq, ok = U.ok, some = U.some;
 var OVB = require('../src/owned-vs-buy.js');
 var UP = require('../src/upgrade.js');
+var P = require('../src/pricing.js');
+
+/** @typedef {import('../src/types.js').Part} Part */
+/** @typedef {import('../src/types.js').Build} Build */
 
 /** The real engine pieces, injected the same way index.html injects them
  *  (placementDiff reads checkBuild/verdictKey/SLOTS/altSlotsOf off this
@@ -23,8 +27,24 @@ var DEPS = {
   buildTotals: C.buildTotals,
   byId: C.byId, canonicalId: C.canonicalId,
   placementDiff: UP.upgradePlacementDiff,
-  checkBuild: C.checkBuild, verdictKey: C.verdictKey, altSlotsOf: C.altSlotsOf
+  checkBuild: C.checkBuild, verdictKey: C.verdictKey, altSlotsOf: C.altSlotsOf,
+  priceBasisLabel: P.priceBasisLabel, priceMsrpConfirmed: P.priceMsrpConfirmed
 };
+
+/** Hand-built resolved build (mixing catalog parts and synthetic clones) —
+ * the test-upgrade-optimizer.js bl()/clone() convention.
+ * @param {Object.<string, Part>} o @returns {Build} */
+function bl(o){ return /** @type {Build} */ (/** @type {*} */ (o)); }
+/** @param {string} baseId @param {Object.<string, *>} patch @returns {Part} */
+function clone(baseId, patch){
+  var o = Object.assign({}, part(baseId));
+  Object.keys(patch).forEach(function(k){
+    var v = patch[k];
+    if(v === undefined){ delete (/** @type {*} */(o))[k]; }
+    else { (/** @type {*} */(o))[k] = v; }
+  });
+  return /** @type {Part} */ (o);
+}
 
 /** @param {number} n */
 function money(n){ return '$' + (n || 0).toLocaleString(); }
@@ -208,6 +228,48 @@ test('model: buildTotals passes through untouched', function(){
   eq(m.totals.build.weight, t.weight);
 });
 
+/* ---- price-basis provenance (Douglas's 2026-07-22 ruling: a ✓ Verified spec
+   is not the same claim as a confirmed MSRP) — the remaining-cost subtotal's
+   follow-up. Wording/marking only: the ownership split, allocation and
+   subtotal math above are untouched. -------------------------------------- */
+
+test('model: every row\'s part carries priceNote/priceConfirmed from pricing.js, verbatim', function(){
+  var m = model(GOOD, {});
+  m.rows.forEach(function(r){
+    var p = part(r.part.id);
+    eq(r.part.priceNote, P.priceBasisLabel(p), r.slotKey + ' priceNote must be priceBasisLabel(part)');
+    eq(r.part.priceConfirmed, P.priceMsrpConfirmed(p), r.slotKey + ' priceConfirmed must be priceMsrpConfirmed(part)');
+  });
+});
+
+test('model: toBuySamplePriced counts only to-buy rows whose price is NOT a confirmed MSRP', function(){
+  // Empty inventory -> every slot is to-buy, none of the real catalog parts carry priceBasis.
+  var m0 = model(GOOD, {});
+  eq(m0.toBuySamplePriced, m0.counts.toBuy, 'no priceBasis anywhere => every to-buy row is sample-priced');
+
+  // A synthetic confirmed-MSRP saddle, to-buy (nothing owned).
+  var confirmedSaddle = clone('sa-wtb-volt', { priceBasis: 'msrp-confirmed' });
+  var m1 = OVB.ownedVsBuyModel(bl(/** @type {*} */ (Object.assign({}, B(GOOD), { saddle: confirmedSaddle }))), {}, {}, DEPS);
+  eq(m1.toBuySamplePriced, m1.counts.toBuy - 1, 'the confirmed-MSRP saddle must not count toward the sample tally');
+
+  // An OWNED part is excluded from the to-buy subtotal entirely, so its price
+  // basis (confirmed or not) must never move toBuySamplePriced.
+  var m2 = model(GOOD, { 'sa-wtb-volt': 1 });
+  eq(m2.counts.toBuy, Object.keys(GOOD).length - 1);
+  eq(m2.toBuySamplePriced, m2.counts.toBuy, 'owning the saddle just shrinks the to-buy set; the rest are still all sample-priced');
+});
+
+test('model: priceBasis never changes ownership, allocation, or the subtotal totals', function(){
+  var plain = model(GOOD, { 'sa-wtb-volt': 1 });
+  var confirmedSaddle = clone('sa-wtb-volt', { priceBasis: 'msrp-confirmed' });
+  var withBasis = OVB.ownedVsBuyModel(bl(/** @type {*} */ (Object.assign({}, B(GOOD), { saddle: confirmedSaddle }))), {}, { 'sa-wtb-volt': 1 }, DEPS);
+  eq(withBasis.counts.owned, plain.counts.owned);
+  eq(withBasis.counts.toBuy, plain.counts.toBuy);
+  eq(withBasis.totals.ownedValue, plain.totals.ownedValue);
+  eq(withBasis.totals.toBuy, plain.totals.toBuy);
+  eq(withBasis.totals.kitGap, plain.totals.kitGap);
+});
+
 /* ---- purity / determinism ------------------------------------------------ */
 
 test('model: pure — does not mutate the build, the inventory map, or SLOTS; deterministic', function(){
@@ -280,6 +342,38 @@ test('render: qty-short, kit-gap, excluded-suggestion and unknown-item notes app
   ok(clean.indexOf('kit/bundle price') < 0);
   ok(clean.indexOf('would add a compatibility conflict') < 0);
   ok(clean.indexOf('no longer match') < 0);
+});
+
+test('render: a sample-priced to-buy row is marked † with the pricing.js wording, and the subtotal note names the split', function(){
+  var m = model(GOOD, {});   // empty inventory: every real catalog row here is sample-priced
+  ok(m.toBuySamplePriced > 0, 'fixture must actually have sample-priced to-buy rows');
+  var h = OVB.renderOwnedVsBuyHtml(m, HELPERS);
+  ok(h.indexOf('ovb-pnote') >= 0, 'the † marker renders for a sample-priced to-buy row');
+  ok(h.indexOf(C.esc(P.priceBasisLabel({}))) >= 0, 'the sample-price wording rides the marker\'s title');
+  ok(h.indexOf('to-buy price') >= 0 && h.indexOf('sample data') >= 0, 'the subtotal disclosure names the split');
+});
+
+test('render: an owned part\'s price basis never renders a † marker (it is out of the to-buy subtotal)', function(){
+  var m = model(GOOD, { 'sa-wtb-volt': 1 });
+  var h = OVB.renderOwnedVsBuyHtml(m, HELPERS);
+  var ownedRowHtml = h.split('ovb-r-owned')[1].split('</tr>')[0];
+  eq(ownedRowHtml.indexOf('ovb-pnote'), -1, 'owned rows never carry the to-buy price-basis marker');
+});
+
+test('render: when every to-buy row has a confirmed MSRP, no † marker and no sample-price note appear', function(){
+  /** @type {*} */
+  var allConfirmed = {
+    empty: false, inventoryCount: 0, unknownOwned: 0, altExcluded: 0,
+    rows: [{ slotKey: 'saddle', slotLabel: 'Saddle',
+      part: { id: 'x', brand: 'B', model: 'M', price: 40, priceNote: P.priceBasisLabel({ priceBasis:'msrp-confirmed' }), priceConfirmed: true },
+      owned: false, qtyShort: false, alternatives: [] }],
+    counts: { owned: 0, toBuy: 1 },
+    totals: { build: { price: 40, weight: 0, missingWeight: false }, ownedValue: 0, toBuy: 40, kitGap: false },
+    toBuySamplePriced: 0
+  };
+  var h = OVB.renderOwnedVsBuyHtml(allConfirmed, HELPERS);
+  eq(h.indexOf('ovb-pnote'), -1);
+  eq(h.indexOf('sample data, not a confirmed manufacturer MSRP'), -1);
 });
 
 test('render: empty inventory gets the add-parts nudge; a stocked one does not', function(){
