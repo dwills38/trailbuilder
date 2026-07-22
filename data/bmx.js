@@ -951,6 +951,18 @@ var BMX_PARTS = [
     note: 'vocab-tier1 (2026-07-22): closes the bmx-depth-9 flag ("Mission\'s Stealth-mechanism seats stayed skipped/tallied, the Kink precedent"). kinkbmx.com/products/global-stealth-seat itself did not render a usable spec table this session (JS-shell only via both WebFetch and Exa) — WebSearch-corroborated across 3+ independent retailers (Albe\'s BMX, SkatesUSA, Unleaded BMX) converging on "four panel design... The Stealth system installs with a 5mm allen key and allows for a clean looking seat without the need for a slotted top patch like traditional Pivotal systems" (confirms system:stealth — no top patch/slot, matching the Stealth seatpost row\'s own maker-page description of the same mechanism), price $34.95 (regular, Albe\'s BMX; $26.95 was a sale price, not used per THE PRICE RULE), weight ~11.9oz -> 337g. Retailer-corroborated, not a direct manufacturer fetch — stays unverified sample.'
   },
   {
+    id: 'bmx-se-kink-chinaski', cat: 'seat', brand: 'Kink', model: 'Chinaski Seat',
+    system: 'stealth', weight: 329, price: 39.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://kinkbmx.com/products/chinaski-seat',
+    note: 'pb-breadth-1 (2026-07-22): closes the depth-8 flag ("Kink Chinaski / Big Slim seats — real Stealth one-bolt system, structurally a 3rd mechanism the pivotal/standard binary vocab can\'t honestly represent"), now unblocked by the same-day seatSystem:stealth vocab widen (bmx-se-kink-global-stealth/bmx-sp-kink-stealth-post). FETCHED the Shopify product JSON directly (kinkbmx.com/products/chinaski-seat.js, same-origin fetch via the browser pane — kinkbmx.com WebFetches 429\'d this session) — its own Tech Specs table states verbatim "System: Stealth" (system:stealth CONFIRMED) and "Weight: 11.6oz" (329g, computed from the maker-stated ounces — the raw variant JSON weight field, 371g, is NOT used: it doesn\'t match the text-stated 11.6oz and fits this catalog\'s documented Shopify shipping-weight-bucket pattern). price:39.99 is the JSON compare_at_price (the maker\'s own regular/MSRP figure — the product is currently on sale at $30.00, a labeled promotional price per Douglas\'s pricing policy, not used as the stored MSRP). All engine-read fields maker-page-confirmed — promoted to verified:true.'
+  },
+  {
+    id: 'bmx-se-kink-bigslim', cat: 'seat', brand: 'Kink', model: 'Big Slim Seat',
+    system: 'stealth', weight: 238, price: 39.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://kinkbmx.com/products/big-slim-stealth-seat',
+    note: 'pb-breadth-1 (2026-07-22): closes the same depth-8 Big Slim flag as bmx-se-kink-chinaski (see that row for the vocab-unblock context). FETCHED kinkbmx.com/products/big-slim-stealth-seat.js directly — its Tech Specs table states verbatim "System: Stealth" (system:stealth CONFIRMED) and "Weight: 8.4 oz" (238g, computed from the maker-stated ounces — the raw variant JSON weight field, 283g, is NOT used, same discarded-shipping-bucket reasoning as the Chinaski row). price:39.99 is both the JSON price and compare_at_price fields (no active sale on this SKU, single literal MSRP figure). All engine-read fields maker-page-confirmed — promoted to verified:true.'
+  },
+  {
     id: 'bmx-se-mission-carrier-stealth', cat: 'seat', brand: 'Mission', model: 'Carrier Stealth Seat',
     system: 'stealth', price: 27.99,
     note: 'vocab-tier1 (2026-07-22): closes the bmx-depth-9 flag alongside the Kink row above. Mission BMX\'s real current product is the "Carrier Stealth Seat" (missionbmx.com/products/carrier-stealth-v2-seat-kit, sold as a seat+post kit; this row models the seat half) — WebSearch-corroborated across retailer listings (Source BMX, Albe\'s, BMXGuru, Tread Bike Shop) all naming the same product: "The Stealth system means there is no need for a patch in the top of the seat... works with both Pivotal and Stealth seat posts" (confirms system:stealth and the cross-compatibility this pass\'s bmx-seat-system rule now models). missionbmx.com itself not independently re-fetched this session — retailer-corroborated, not manufacturer-direct. Price is a same-tier sample matching this catalog\'s other budget-brand pivotal-class seats; not counted toward a verified claim. Left unverified.'
@@ -2234,6 +2246,13 @@ var BMX_PARTS = [
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
     source: 'https://missionbmx.com/products/half-link-chain',
     note: 'bmx-depth-9: VERIFIED via missionbmx.com. Page states verbatim: pitch "1/8\\"", "Teflon coated half-link chain", "15.0oz" (=425g), "100 Links", price $34.99–$39.99 by color (Black at $34.99 used here) — directly confirms both of the chain category\'s schema fields (pitch, halfLink:true).'
+  },
+  {
+    id: 'bmx-se-mission-carrier', cat: 'seat', brand: 'Mission', model: 'Carrier Seat',
+    system: 'stealth', weight: 343, price: 34.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
+    source: 'https://missionbmx.com/products/carrier-seat',
+    note: 'pb-breadth-1 (2026-07-22): closes the depth-9 flag ("Skipped Mission\'s Carrier Stealth/Carrier seats — same real Stealth one-bolt mechanism depth-8 flagged on Kink\'s seats"), now unblocked by the same-day seatSystem:stealth vocab widen. FETCHED missionbmx.com/products/carrier-seat.js directly (same-origin fetch via the browser pane, missionbmx.com WebFetches 429\'d this session) — its own spec block states verbatim "SYSTEM: Stealth" (system:stealth CONFIRMED; page copy also notes "Works with both Pivotal and Stealth seat posts") and "WEIGHT: 12.1oz" (343g, computed from the maker-stated ounces — the raw variant JSON weight field, 403g and IDENTICAL across all 9 color variants, is the documented Shopify shipping-weight-bucket trap and is NOT used). price:34.99 is the base/cheapest color (Black) — the SKU is priced per color ($34.99 for 6 colors, $39.99 for 3 camo/brown colors), this row models the base tier per this catalog\'s existing multi-color convention. All engine-read fields maker-page-confirmed — promoted to verified:true. (The companion "Carrier Stealth V2 Seat Kit" bundles a seat + a Stealth seatpost as one $54.99 SKU — a genuine split-policy judgment call left as a TRUE-GAP, not force-fit into either single-category row this pass.)'
   },
 
   // ---- Federal (new brand: federalbikes.com — depth-8 could not resolve
