@@ -1065,6 +1065,17 @@ var EMTB_PARTS = [
     desc: 'Verified vs the fetched maker page (cube.eu Stereo Hybrid ONE44 HPC SLX 800). CUBE renamed the "Stereo Hybrid 140" family to ONE44 for 2025-26 (same reason as the ONE77/Stereo Hybrid 160 correction on this branch) — retitled verify/emtb-4 wave 4 cluster A to the direct 140mm-rear successor, mid-tier SLX 800 trim. Battery/travel/frame/drivetrain/brakes corrected (625Wh -> 800Wh, 140mm front -> 150mm, aluminum -> carbon main triangle, Shimano Deore -> Shimano XT 1x12, Shimano MT420 -> Shimano XT M8220 4-piston). Weight left as an honest sample within the confirmed comparable-trim range (23.4-24.9kg across the ONE44 lineup) — the exact SLX-800 page did not display a standalone weight figure. Price is uncertain: community-sourced GBP figures for this trim conflict (a clean spec/price table showed GBP 5,199, a separate forum summary GBP 6,999); used the table figure converted to a ~$6,599 USD sample, stated here per THE PRICE RULE.',
     verified: true, lastChecked: '2026-07-20', source: 'https://www.cube.eu/cube-stereo-hybrid-one44-hpc-slx-800-slabgrey-n-orange/102500'
   },
+  {
+    id: 'em-cube-reaction-hybrid-pro-800', cat: 'emtb', brand: 'Cube', model: 'Reaction Hybrid Pro 800',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (BDU38)', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'hardtail', travelFront: 120, travelRear: 0,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT 12-speed', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-trail'], price: 3199,
+    note: "Cube's hardtail e-MTB — the brand gap covered here (only the full-suspension Stereo Hybrid line was in the catalog). Aluminium Superlite frame, PowerMore-ready 800Wh battery, air-sprung 120mm fork (100mm on small/Easy Entry frames), remote dropper.",
+    desc: "Verified vs the fetched maker product page (cube.eu Reaction Hybrid Pro 800: frame material, motor, battery, drivetrain, brakes, fork travel all maker-listed) plus the Cube Info Portal spec page. No bike weight is published on the fetched page — left blank rather than guessed. Price: EUR 3,199 SRP (cube.eu, Cube is a German/EU brand with no confirmed US retail page) used as the USD sample basis 1:1, mirroring the existing Stereo Hybrid rows' convention — basis disclosed.",
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.cube.eu/cube-reaction-hybrid-pro-800-blackline/108210'
+  },
 
   // ---------------------------------------------------------------------------
   // Wave 2 phase 2 re-entries (2026-07-20) — motor-brand platform switches found
