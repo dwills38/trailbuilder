@@ -191,6 +191,28 @@ var EMTB_PARTS = [
     desc: 'Verified vs the maker spec page (motor/battery/travel/frame/drivetrain/brakes/weight/price all confirmed). Brakes/weight corrected verify/emtb-4 wave 4 cluster E (SRAM Code RSC -> Maven Bronze, 19.2kg sample -> 20.32kg real size-S4 weight); price ($8,499.99) and 29in wheel config already matched exactly (wheel config was previously corrected verify/emtb-3, reconfirmed this pass).',
     verified: true, lastChecked: '2026-07-20', source: 'https://www.specialized.com/us/en/turbo-kenevo-sl-2-expert/p/4277407'
   },
+  {
+    id: 'em-specialized-turbo-kenevo-sl2-comp', cat: 'emtb', brand: 'Specialized', model: 'Turbo Kenevo SL 2 Comp',
+    motorBrand: 'specialized', motorModel: 'Specialized SL 1.2 Custom Rx Trail Tuned Motor', motorTorque: 50, motorPowerPeak: 320,
+    batteryWh: 320, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM S-1000 Eagle AXS Transmission', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-enduro'], weight: 20190, price: 8999.99,
+    note: 'Base-tier Kenevo SL 2: same FACT 11m carbon frame/motor/battery as the Expert, but RockShox Zeb Select/SuperDeluxe Select suspension instead of Fox/RockShox Ultimate-tier.',
+    desc: 'Verified vs the fetched maker product page (browser pane, full Technical Specifications table). Weight is the real 20.19kg production figure (weight basis matches the Expert row\'s size convention).',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.specialized.com/us/en/turbo-kenevo-sl-2-comp/p/4221334'
+  },
+  {
+    id: 'em-specialized-turbo-kenevo-sl2-ohlins-coil', cat: 'emtb', brand: 'Specialized', model: 'Turbo Kenevo SL 2 Öhlins Coil',
+    motorBrand: 'specialized', motorModel: 'Specialized 1.2 SL Custom Rx Trail Tuned Motor', motorTorque: 50, motorPowerPeak: 320,
+    batteryWh: 320, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'TRP DH-R Evo',
+    disciplines: ['e-enduro'], weight: 20490, price: 9999.99,
+    note: 'Top-tier Kenevo SL 2: Öhlins RXF38 m.2 fork + Öhlins TTX coil shock, TRP DH-R Evo 4-piston brakes (220mm rotors both ends) — the only Kenevo SL 2 build with coil suspension and TRP brakes.',
+    desc: 'Verified vs the fetched maker product page (browser pane, full Technical Specifications table incl. frame/suspension/brakes/drivetrain/wheels/weight/geometry).',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.specialized.com/us/en/turbo-kenevo-sl-2-ohlins-coil/p/4277428'
+  },
 
   // ---------------------------------------------------------------------------
   // Trek depth (Rail / Fuel EXe trims)
