@@ -1357,3 +1357,21 @@ insert into public.reserved_usernames (norm, label, kind, note) values
   (public.profile_norm('100%'), '100%', 'held', 'manufacturer (eyewear/apparel) — Douglas''s ruling 2026-07-22: reserve 100% and 100Percent, not bare "100"'),
   (public.profile_norm('100Percent'), '100Percent', 'held', 'manufacturer (eyewear/apparel) spelled-out form — Douglas''s ruling 2026-07-22')
 on conflict (norm) do nothing;
+
+-- 2026-07-22 — Douglas's ruling (forum roster reservation, "everyone treated fairly"):
+-- GCN (Global Cycling Network) current presenter roster, all language channels.
+insert into public.reserved_usernames (norm, label, kind, note) values
+  (public.profile_norm('Daniel Lloyd'), 'Daniel Lloyd', 'held', 'GCN (English) presenter — globalcyclingnetwork.com/presenters, cross-checked en.wikipedia.org, 2026-07-22'),
+  (public.profile_norm('Simon Richardson'), 'Simon Richardson', 'held', 'GCN (English) presenter — globalcyclingnetwork.com/presenters, cross-checked en.wikipedia.org, 2026-07-22'),
+  (public.profile_norm('Oliver Bridgewood'), 'Oliver Bridgewood', 'held', 'GCN (English) presenter — globalcyclingnetwork.com/presenters, cross-checked en.wikipedia.org, 2026-07-22'),
+  (public.profile_norm('Conor Dunne'), 'Conor Dunne', 'held', 'GCN (English) presenter — globalcyclingnetwork.com/presenters, cross-checked en.wikipedia.org, 2026-07-22'),
+  (public.profile_norm('Alex Paton'), 'Alex Paton', 'held', 'GCN (English/GCN Tech) presenter — globalcyclingnetwork.com/presenters, cross-checked en.wikipedia.org, 2026-07-22'),
+  (public.profile_norm('Severine Jouan'), 'Séverine Jouan', 'held', 'GCN (English) & GCN en Français presenter — globalcyclingnetwork.com/presenters, cross-checked en.wikipedia.org, 2026-07-22'),
+  (public.profile_norm('Maxime Prieur'), 'Maxime Prieur', 'held', 'GCN en Français presenter — globalcyclingnetwork.com/presenters, cross-checked en.wikipedia.org, 2026-07-22'),
+  (public.profile_norm('Alan Marangoni'), 'Alan Marangoni', 'held', 'GCN Italia presenter — globalcyclingnetwork.com/presenters, cross-checked en.wikipedia.org, 2026-07-22'),
+  (public.profile_norm('Giorgio Brambilla'), 'Giorgio Brambilla', 'held', 'GCN Italia presenter — globalcyclingnetwork.com/presenters, cross-checked en.wikipedia.org, 2026-07-22'),
+  (public.profile_norm('Sebastian Haedo'), 'Sebastian Haedo', 'held', 'GCN en Español presenter — globalcyclingnetwork.com/presenters, cross-checked en.wikipedia.org (Lucas Sebastian Haedo), 2026-07-22'),
+  (public.profile_norm('Bernat Font Mas'), 'Bernat Font Mas', 'held', 'GCN en Español presenter — globalcyclingnetwork.com/presenters, cross-checked en.wikipedia.org (Bernat Font), 2026-07-22'),
+  (public.profile_norm('Laurin Winter'), 'Laurin Winter', 'held', 'GCN auf Deutsch presenter — globalcyclingnetwork.com/presenters, cross-checked en.wikipedia.org, 2026-07-22'),
+  (public.profile_norm('Patrick Haller'), 'Patrick Haller', 'held', 'GCN auf Deutsch presenter — globalcyclingnetwork.com/presenters, cross-checked en.wikipedia.org, 2026-07-22')
+on conflict (norm) do nothing;
