@@ -130,6 +130,21 @@ test('an out-of-vocab bb value distinct from bsa-73 is still caught', function()
   ok(probs.some(function(m){ return /bb.*not in bb/.test(m); }), probs.join('\n'));
 });
 
+// vocab-tier1 (2026-07-22): ratified band-28.6 front-derailleur-mount token
+// (clamp-on, not brazed/bolted-boss) — positive + negative.
+test('band-28.6 frontDerailleurMount is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { frontDerailleurMount: 'band-28.6' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab frontDerailleurMount value is still caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { frontDerailleurMount: 'band-31.8' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /frontDerailleurMount.*not in frontDerailleurMount/.test(m); }), probs.join('\n'));
+});
+
 test('a missing required field is caught', function(){
   var frame = aFrame();
   var bad = Object.assign({}, frame); delete bad.rearAxle;

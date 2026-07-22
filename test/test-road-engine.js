@@ -408,6 +408,10 @@ test('rg-fd-mount errors an FD on a frame with no FD provision', function(){
   var r2 = ROAD.checkRoadBuild({ frame: rp('fr-specialized-sworks-tarmac-sl8'), frontDerailleur: gp('gfd-sram-force-axs-fd') });
   eq(of(r2, 'rg-fd-mount').length, 0, 'braze-on frame takes the FD');
 });
+test('rg-fd-mount: band-28.6 (vocab-tier1, 2026-07-22) takes an FD same as braze-on — presence-only, not exact-matched', function(){
+  var r = ROAD.checkRoadBuild({ frame: gp('gfr-bombtrack-hook-ext'), frontDerailleur: gp('gfd-sram-force-axs-fd') });
+  eq(of(r, 'rg-fd-mount').length, 0, 'band-28.6 frame takes the FD, same as braze-on');
+});
 test('rg-fd-capacity: warns only off a part-carried capacity + parseable ring pair', function(){
   var bigSpread = syn(rp('cr-sram-red-axs-crank'), { id: 'cr-syn-5334', ring: '53/34' });
   var r = ROAD.checkRoadBuild({ frontDerailleur: gp('gfd-sram-force-axs-fd'), crankset: bigSpread });

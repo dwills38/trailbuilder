@@ -64,7 +64,13 @@ var GRAVEL_VOCAB = {
   // ~31.75mm) seen stated verbatim on the Canyon Grizl CF SL fork spec ("Fork steer tube
   // diameter: 1 1/4\"") — the same class Wilier's own gravel-adjacent forks were logged
   // against in this file's header comment; never conflated with the narrower 1-1/8 token.
-  frontDerailleurMount: ['none', 'braze-on'],
+  frontDerailleurMount: ['none', 'braze-on', 'band-28.6'],
+  // 'band-28.6' added vocab-tier1 (2026-07-22) — a clamp-on (not brazed/bolted-boss) FD mount
+  // at the common 28.6mm seat-tube-adjacent diameter, real on two independently-fetched
+  // rows this file previously logged as vocab-blocked rather than force-fit as braze-on:
+  // the All-City Gorilla Monsoon ("Front Derailleur Type Band Clamp") and the Bombtrack
+  // Hook EXT ("Front derailleur clamp diameter: 28.6 mm", "Frame front derailleur
+  // compatible: yes").
   material:     ['alloy', 'steel', 'titanium'],
   freehub:      ['xdr', 'n3w', 'micro-spline-road', 'hg-road'],
   rotorMount:   ['center-lock'],
