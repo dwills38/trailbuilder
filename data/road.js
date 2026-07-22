@@ -752,6 +752,57 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/FC-R7000',
     note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Chainring combination 50-34T, 52-36T, 53-39T" (50-34T confirmed real), "Chain line (mm) 43.5", "HOLLOWTECH II ✔" / "Compatible bottom bracket type: Outboard" (bb:\'24mm-road\', matches catalog). Average weight (170mm, w/o BB): "713.4 (50-34T)" — rounded to 713g. Price unsourced sample.' },
 
+  // ===== DRIVETRAIN — Shimano Sora R3000 (2x9, mechanical, RIM BRAKE) =======
+  // road-depth-1 wave (2026-07-22): Sora is the entry tier below Tiagra 4700.
+  // Fetched via the browser pane, productinfo.shimano.com. IMPORTANT: Sora
+  // R3000's shift/brake lever (ST-R3000-R/-L) is an integrated RIM-BRAKE-ONLY
+  // dual-control lever — no ST-R3000 hydraulic-disc variant exists on
+  // productinfo (only -R/-L rim-brake SKUs are listed under the ST-R3000
+  // family; unlike Tiagra 4700/105, Sora never shipped a disc-hydraulic
+  // integrated lever of this generation). This catalog's brake schema
+  // (schema-road.js ROAD_SCHEMA.brake) requires `mount` (vocab
+  // brakeMountRG: flat-mount/post-mount only) and `pistons` — there is NO
+  // rim-caliper-shaped brake row possible in this schema, so BR-R3000 (the
+  // real NEW SUPER SLR dual-pivot rim caliper) is a genuine SCHEMA GAP, not
+  // fabricated or omitted by oversight: flagging for a future rim-brake
+  // vocab widening rather than forcing it into the disc-only brake shape.
+  // The six drivetrain rows below still enter cleanly (shifter.brakeSystem
+  // accepts 'rim-caliper' per LOCAL_VOCAB.brakeSystem) and are dormant
+  // against every current-catalog frame (all disc, per the road-4 v1
+  // decision) until a rim-brake frame is sourced — same real-part/dormant-
+  // compat pattern already used elsewhere in this file (e.g. the Cane Creek
+  // headset rows before any frame sourced headTubeUpper/Lower).
+  { id: 'sh-shimano-sora-r3000', cat: 'shifter', brand: 'Shimano', model: 'Sora ST-R3000 (pair)', family: 'shimano-sora-r3000',
+    system: 'shimano-road-11', speeds: 9, actuation: 'mechanical', brakeSystem: 'rim-caliper', side: 'pair', frontShift: true,
+    weight: 480, price: 130,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/ST-R3000-R',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Series SORA", "Rear speeds 9", "Shifter type DUAL CONTROL LEVER", rim-brake-integrated ("NEW SUPER SLR" caliper interface, no hydraulic hose fitting on this page — unlike ST-R7020/ST-4720 above). system:\'shimano-road-11\' reused per this catalog\'s established convention (Tiagra 4700\'s own trailing comment): systemRoad has no dedicated 9-speed token, and the independent speeds:9 check already reds out any cross-tier pairing on speed count alone (same reasoning, not re-litigated per row). Average weight not itemized on the fetched page ("Average weight (g) -"); 480g/pair is an unsourced sample estimate, flagged. Price unsourced sample.' },
+  { id: 'rd-shimano-sora-r3000', cat: 'rearderailleur', brand: 'Shimano', model: 'Sora RD-R3000-GS', family: 'shimano-sora-r3000',
+    system: 'shimano-road-11', speeds: 9, actuation: 'mechanical', maxCog: 34, cage: 'medium', mount: 'std-hanger',
+    weight: 240, price: 40,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/RD-R3000-GS',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Rear speeds 9", "Low sprocket Max. 34T / Min. 28T" (maxCog:34), "SHIMANO ROAD type: Direct attachment (conventional) ✔" (std-hanger), mechanical, "Total capacity 43T". Average weight not itemized on the fetched page ("Average weight (g) -"); 240g is an unsourced sample estimate, flagged. Price unsourced sample.' },
+  { id: 'fd-shimano-sora-r3000', cat: 'frontderailleur', brand: 'Shimano', model: 'Sora FD-R3000-F (braze-on)', family: 'shimano-sora-r3000',
+    system: 'shimano-road-11', speeds: 9, actuation: 'mechanical', mount: 'braze-on',
+    weight: 100, price: 25,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/FD-R3000-F',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Front speeds 2", "Rear speeds 9", "Brazed-on ✔" (mount:braze-on; the sibling FD-R3000-B band-type SKU not modeled, same one-mount-native-SKU convention as the 105 R7000 FD above), "Chain line (mm) 43.5", "Top gear teeth 46-52T". Average weight not itemized on the fetched page; 100g is an unsourced sample estimate, flagged. Price unsourced sample.' },
+  { id: 'cs-shimano-sora-r3000-1132', cat: 'cassette', brand: 'Shimano', model: 'Sora CS-HG400-9 11-32', family: 'shimano-sora-r3000-cass',
+    system: 'shimano-road-11', speeds: 9, freehub: 'hg-road', minCog: 11, maxCog: 32,
+    weight: 330, price: 35,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/CS-HG400-9',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Rear speeds 9", "Combination name (Group name) ...11-32T (ar)...", teeth "11-12-14-16-18-21-24-28-32T" — the 11-32T config confirmed real (this row\'s chosen combination among six the SKU offers). "HG spline M" ✔ (modeled as this catalog\'s existing generic \'hg-road\' token, same simplification as the 105 R7000 cassette above). Average weight not itemized on the fetched page; 330g is an unsourced sample estimate, flagged. Price unsourced sample.' },
+  { id: 'ch-shimano-sora-r3000', cat: 'chain', brand: 'Shimano', model: 'Sora CN-HG53', family: 'shimano-sora-r3000',
+    system: 'hg', speeds: 9,
+    weight: 299, price: 20,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/CN-HG53',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Type HG 9-speed". Average weight (g) (114 links) 299. Price unsourced sample.' },
+  { id: 'cr-shimano-sora-r3000', cat: 'crankset', brand: 'Shimano', model: 'Sora FC-R3000 Crankset', family: 'shimano-sora-r3000',
+    bb: '24mm-road', chainrings: '2x', ring: '50/34', ringStd: 'standard-12', speeds: 9, chainline: 43.5,
+    weight: 830, price: 65,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/FC-R3000',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Chainring combination 50-34T" (only combination offered — no 52/36 or 53/39 option at this tier, unlike 105/Tiagra above), "Chain line (mm) 43.5", "2-PIECE CRANKSET ✔" / "Compatible bottom bracket type: Outboard" (bb:\'24mm-road\', same interface family as Tiagra/105 despite the different construction name). Average weight not itemized on the fetched page ("Average weight (g)... -"); 830g is an unsourced sample estimate, flagged. Price unsourced sample.' },
+
 
   // ===== FRONT DERAILLEURS — Shimano road (R9200/R8100/R7100) + GRX ========
   // road-5 wave (Shimano depth): catalog previously had ZERO frontderailleur
