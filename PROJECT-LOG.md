@@ -1,5 +1,22 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — breadth round 3 begins: gravel 312 + kit 724
+
+- **catalog/gravel-depth-4 merged**: Ari Bikes debut (Fezzari REBRANDED — fezzari.com
+  301s to aribikes.com, live name used) + Devinci Hatchet Pro Carbon; ANOTHER fabrication
+  caught: the GravelKing SS 700x32 was never a real SKU (panaracer's own full size table:
+  30/35/40/45C only) — corrected to the real 30C + verified, 40C sibling added, id flagged
+  for the alias pass; gsp-zipp-scsl-272 is the SEVENTH EXCEPTION'S FIRST FIELD USE
+  (seatpost interfaces maker-confirmed, weight not engine-read → verified). crankbrothers
+  429 wall documented. Gravel 312 (201 verified).
+- **catalog/kit-breadth-2 merged**: the pre-work count found the REAL gaps weren't the
+  brief's guesses — Rapha had ZERO rows despite a current MTB Trail line (7 rows added,
+  6 verified; the women's Trail Pants price ambiguity honestly left unverified) and
+  women's-fitCut coverage is thin across 8 categories (first fill: Giro Riela R II shoe).
+  adidas.com (Five Ten) is a genuine bot-interstitial wall — dropped, not guessed. Kit
+  724 (566 verified).
+- Gates: 7 OK, 989/989, tsc clean.
+
 ## 2026-07-22 — breadth round 2 lands whole: road 286 · gravel 308 · EMTB 102 · MTB 5,062
 
 - **catalog/road-depth-4 merged**: +23 — Factor, Mavic, Fulcrum debut as brands (the
