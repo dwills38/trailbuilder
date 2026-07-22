@@ -258,6 +258,28 @@ test('an out-of-vocab dropoutType value is caught', function(){
   ok(probs.some(function(m){ return /dropoutType.*not in dropoutType/.test(m); }), probs.join('\n'));
 });
 
+// rg-smalls-1 (2026-07-22): udh field, GRAVEL_SCHEMA's own version of the MTB
+// udh bool — optional here (unlike MTB's required field), same
+// positive/negative/absent-safe pattern as dropoutType above.
+test('a frame with no udh is still valid (the field is optional)', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame); delete p.udh;
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('udh:true and udh:false are both valid gravel frame values', function(){
+  var frame = aFrame();
+  eq(S.validateGravelPart(Object.assign({}, frame, { udh: true }), new Date()).length, 0);
+  eq(S.validateGravelPart(Object.assign({}, frame, { udh: false }), new Date()).length, 0);
+});
+
+test('a non-bool udh value is caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { udh: 'yes' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /udh.*must be true\/false/.test(m); }), probs.join('\n'));
+});
+
 test('a missing required field is caught', function(){
   var frame = aFrame();
   var bad = Object.assign({}, frame); delete bad.rearAxle;

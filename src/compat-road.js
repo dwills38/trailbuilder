@@ -1198,9 +1198,10 @@ function checkRoadBuild(build){
   /* R20. SRAM full-mount (UDH) rear derailleur vs frame — the 13sp XPLR E1
         RDs bolt to a UDH dropout with no hanger ("Requires frame with UDH
         interface" on the fetched RD-FRC-1E-E1 / RD-RED-1E-E1 pages); the
-        direct analogue of the live MTB rule 4. HONESTY TIERS, because no
-        road/gravel frame row carries a udh field yet and inferring UDH
-        absence would repeat this week's Cannondale-UDH bug:
+        direct analogue of the live MTB rule 4. HONESTY TIERS — GRAVEL_SCHEMA.frame
+        gained an optional `udh` bool (rg-smalls-1, 2026-07-22; ROAD_SCHEMA still
+        carries none), and most rows still leave it unset, so the fallback below
+        still matters: inferring UDH absence would repeat this week's Cannondale-UDH bug:
         - frame.udh === false (sourced) -> ERROR;
         - frame.udh === true -> silent;
         - frame present, udh UNKNOWN -> INFO (the requirement is definitional

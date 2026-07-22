@@ -692,6 +692,18 @@ test('rg-xplr-udh honesty tiers: sourced false = error, true = silent, unknown =
   eq(of(r5, 'rg-xplr-udh').length, 0, 'a std-hanger RD never trips it');
 });
 
+// rg-smalls-1 (2026-07-22): GRAVEL_SCHEMA.frame gained an optional `udh` bool
+// this pass; the Aspero-5's manual-sourced udh:true is the first REAL gravel
+// row exercising the silent tier above (not a synthetic mutation) — a
+// regression pin that the field is actually attributed live, not just
+// engine-reachable.
+test('rg-xplr-udh on the real catalog: the maker-sourced Aspero-5 (udh:true) is silent against a full-mount XPLR RD', function(){
+  var frame = gp('gfr-cervelo-aspero-5');
+  eq(frame.udh, true, 'sanity: the row carries the sourced fact, not a guess');
+  var r = ROAD.checkRoadBuild({ frame: frame, rearDerailleur: gp('grd-sram-red-xplr-axs-rd') });
+  eq(of(r, 'rg-xplr-udh').length, 0, 'udh:true clears both the error and the "not recorded" info');
+});
+
 /* ---- roadSlotRequired ----------------------------------------------------------- */
 test('roadSlotRequired: FD only on a 2x crank; rotors dropped on rim frames; cockpit replaces bar+stem', function(){
   /** @param {string} key @returns {{key: string, label: string, cat: string, optional?: boolean, group: string}} */
