@@ -2981,6 +2981,10 @@ var KIT_PARTS = [
     disciplines:['trail','enduro'], sizes:['S','M','L'],
     desc:'Hybrid hard/soft-shell elbow guard, positioned between the soft Veda and the certified Mission/Strike lines. Fetched kaliprotectives.com product page: shown as "$10.00 $60.00" (a clearance sale price against the $60.00 regular/MSRP - this field stores the MSRP, not the sale price, per pricing policy). No cert standard stated on the page. No weight published. Added kit-breadth-6.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.kaliprotectives.com/products/kula-hard-elbow-guard' },
+  { id:'elp-demon-tactic', cat:'elbowpad', brand:'Demon', model:'Tactic Elbow/Forearm Guard', price:59.99,
+    disciplines:['trail','enduro'], sizes:['S/M','L/XL'],
+    desc:'Hard-shell alternative below the D3O-based Hyper X - articulating polypropylene shell over vented EVA padding, adjustable elastic straps, sold in pairs. No CE/EN1621 standard stated on the fetched page, so no `certs` token. MSRP $59.99 (page itself rendered in PLN on this fetch - 216.00 zl at the matching size-tier price - confirmed against a USD-denominated WebSearch snippet of the same product). No weight published. Added kit-breadth-6.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://demon-united.com/products/demon-tactic-elbow-forearm-guard' },
   { id:'elp-demon-hyperx-d3o', cat:'elbowpad', brand:'Demon', model:'Hyper X D3O Elbow', price:69.99, weight:190,
     disciplines:['trail','enduro'], sizes:['M','L','XL'],
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20',
@@ -3182,6 +3186,10 @@ var KIT_PARTS = [
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-20',
     source:'https://demon-united.com/products/demon-united-x-v7-d3o-mens-impact-padded-top',
     desc:'Six D3O pads at chest/back/shoulder/elbow; maker page certifies them "CE EN 1621-1" (the limb standard), not EN1621-2/3, so no bodyarmor cert token applies. Re-fetched 2026-07-20: price $239.99 and sizes S-XXL confirmed again, matching the 2026-07-16 pass exactly; no weight published on the page, so it stays omitted per the kit weight policy (never blocks verification).' },
+  { id:'arm-demon-flexforce-x-v7-womens', cat:'bodyarmor', brand:'Demon', model:'FlexForce X V7 D3O Impact Top - Women', price:199.99, fitCut:'womens',
+    coverage:'chest-back', disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL'],
+    desc:'The women\'s-cut counterpart to the men\'s V7 row above - same six-pad D3O chest/back/shoulder/elbow construction, own SKU and own MSRP (a real distinct row per the same reasoning already used elsewhere in this catalog for gendered variants, not a duplicate). Same "CE EN 1621-1" (limb standard) claim, no bodyarmor-tier cert token applies. MSRP $199.99 confirmed via a WebSearch snippet quoting the direct product page (the fetched page itself renders in EUR/discounted-variant pricing, so the confirmed USD figure is used per pricing policy). No weight published. Added kit-breadth-6.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://demon-united.com/products/demon-united-x-v7-d3o%C2%AE-womens-impact-padded-top' },
 
   /* -- Body armor grind batch 3 (2026-07-14) -- */
   { id:'arm-poc-vpd-system-back', cat:'bodyarmor', brand:'POC', model:'VPD System Back', price:200, weight:540,
