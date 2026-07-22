@@ -1695,6 +1695,68 @@ var BMX_PARTS = [
     id: 'bmx-ch-cult-halflink', cat: 'chain', brand: 'Cult', model: 'Halflink Chain',
     pitch: '1/8', halfLink: true, price: 11.99,
     note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/chains-1 (the "HALFLINK" variant of Cult\'s three-way chain listing — "teflon coated with engraved cult logos and is designed to help dial in the rear end length on frames with short dropouts. rounded side plates are compatible with 8t and larger drivers"). pitch:\'1/8\' matches the sibling "410 CHAIN...1/8\" chain" copy on the same page (the whole three-chain lineup is one width class). JSON weight (907g) discarded — identical to the unrelated Counter Post seatpost SKU on this same store, the shipping-bucket tell. Unverified sample.'
+  },
+
+  // --- The Shadow Conspiracy (sold via sparkysbrands.com — theshadowconspiracy.com itself is a
+  // WordPress marketing site with no product pages; sparkysbrands.com is Shadow's real storefront,
+  // confirmed via the brand's own site nav) ---
+  {
+    id: 'bmx-fw-shadow-symbol', cat: 'frontWheel', brand: 'The Shadow Conspiracy', model: 'Symbol Front Hub',
+    wheelSize: '20', axle: '14mm', weight: 258, price: 94.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-symbol-front-hub. Description states, verbatim: "a stout 14mm inner axle...14mm chromoly center axle with 3/8\\" bolts" (an unusually beefy front-hub axle bore for BMX, but this is the maker\'s own literal spec, trusted over the domain-general 10mm-front convention) and "Weight: 9.1 oz" (9.1oz = 258g, an independently oz-stated figure, not the JSON shipping-weight field). wheelSize:\'20\' is Shadow\'s catalog-wide freestyle standard (not independently re-stated on this specific hub-only page, so left unverified on that basis alone).'
+  },
+  {
+    id: 'bmx-rh-shadow-symbolcassette-rhd', cat: 'rearWheel', brand: 'The Shadow Conspiracy', model: 'Symbol Cassette Hub (RHD)',
+    driverType: 'cassette', driverTeeth: 9, side: 'RHD', axle: '14mm', weight: 733, price: 171.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-symbol-cassette-hub-rhd. Description states, verbatim: "14mm solid cro-mo male axle 9T 1pc CNC cro-mo driver...Left or Right Hand Drive" (this handle is the RHD variant) and "Weight: 25.85 oz" (25.85oz = 733g, independently oz-stated, not the JSON shipping-weight field). Unverified sample (interfaces are real-page-sourced but not cross-checked against a second source).'
+  },
+  {
+    id: 'bmx-ti-shadow-serpent-23', cat: 'tire', brand: 'The Shadow Conspiracy', model: 'Serpent Tire 2.3in',
+    wheelSize: '20', width: 2.3, casing: 'park', maxPsi: 110, weight: 474, price: 52.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-serpent-foldable-tyre. Description states, verbatim: "110 PSI Size 20\\" x 2.30\\"...Weight: 16.7 oz" (16.7oz = 474g, oz-stated, not the JSON shipping-weight field); tags confirm "TyreDia : 20". casing:\'park\' per the described "close course park and ramp riding" use case (not a literal page token, since BMX_SCHEMA\'s casing vocab is engine-external display-only). Unverified sample.'
+  },
+  {
+    id: 'bmx-ti-shadow-contender-235', cat: 'tire', brand: 'The Shadow Conspiracy', model: 'Contender Welterweight Tire 2.35in',
+    wheelSize: '20', width: 2.35, casing: 'park', maxPsi: 110, weight: 677, price: 42.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-contender-welterweight-tyre. Description states, verbatim: "20\\" x 2.35\\" 110 PSI...Weight: 23.9 oz" (23.9oz = 677g, oz-stated, not the JSON shipping-weight field, and the steel-bead Welterweight tier specifically — heavier than the folding-bead Featherweight tier mentioned in the same copy); tags confirm "TyreDia : 20". Unverified sample.'
+  },
+  {
+    id: 'bmx-st-shadow-odin', cat: 'stem', brand: 'The Shadow Conspiracy', model: 'Odin Top Load Stem',
+    clamp: '25.4mm', weight: 326, price: 40.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, sparkysbrands.com/products/shadow-odin-top-load-stem. Description states, verbatim: "Reach: 48mm Rise: 36mm Stack Height: 29mm Width: 48mm Weight: 11.5oz" (11.5oz = 326g, oz-stated, not the JSON shipping-weight field). clamp is display-only in checkBmxBuild (no rule reads it) so the 25.4mm sample value doesn\'t gate. Unverified sample.'
+  },
+  {
+    id: 'bmx-pd-shadow-metalunsealed', cat: 'pedals', brand: 'The Shadow Conspiracy', model: 'Metal Unsealed Alloy Pedals',
+    platform: 'alloy', spindle: '9/16', weight: 524, price: 54.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product (Trey Jones signature), sparkysbrands.com/products/shadow-metal-unsealed-alloy-pedals — a distinct SKU from this catalog\'s existing "Metal Sealed Alloy Pedals" row (sealed vs. unsealed bearings). Tags state "9/16 - 3pc" and description states "6061 alloy body...Weight: 18.5 oz" (18.5oz = 524g, oz-stated, not the JSON shipping-weight field). Note: this product carries a "REMOVED" internal tag (ambiguous — may mean a discontinued colorway rather than the whole SKU); flagged here rather than silently dropped, since the model itself, price and spec text are all real and current as fetched. Pedals carry zero checkBmxBuild rules. Unverified sample.'
+  },
+  {
+    id: 'bmx-sp-shadow-railed-200', cat: 'seatpost', brand: 'The Shadow Conspiracy', model: 'Railed Seatpost 200mm',
+    diameter: 25.4, system: 'standard', weight: 184, price: 62.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://www.sparkysbrands.com/products/shadow-railed-seatpost',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Classic alloy railed seat post...Length: 200mm Diameter: 25.4mm Weight: 6.5 oz" (6.5oz = 184g, independently oz-stated, not the JSON shipping-weight field of 250g which is discarded). "Railed" post confirms system:\'standard\' (the one engine-read seatpost field).'
+  },
+  {
+    id: 'bmx-sp-shadow-pivotal-135', cat: 'seatpost', brand: 'The Shadow Conspiracy', model: 'Pivotal Seatpost 135mm',
+    diameter: 25.4, system: 'pivotal', weight: 99, price: 49.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://www.sparkysbrands.com/products/shadow-pivotal-seatpost-135mm',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "Shadow Pivotal posts...Size: 135mm length Diameter: 25.4mm Weight: 3.5 oz" (3.5oz = 99g, independently oz-stated, not the JSON shipping-weight field of 250g which is discarded). "Pivotal posts" confirms system:\'pivotal\'.'
+  },
+  {
+    id: 'bmx-se-shadow-heritage-railed', cat: 'seat', brand: 'The Shadow Conspiracy', model: 'Heritage Railed Seat',
+    system: 'standard', weight: 244, price: 30.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://www.sparkysbrands.com/products/shadow-heritage-railed-seat',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description states, verbatim: "A clean 2-panel railed seat with Cro-Mo Rails...Weight: 8.6 oz" (8.6oz = 244g, independently oz-stated, not the JSON shipping-weight field). "Railed seat" confirms system:\'standard\' (the one engine-read seat field).'
+  },
+  {
+    id: 'bmx-se-shadow-crowd-slim-pivotal', cat: 'seat', brand: 'The Shadow Conspiracy', model: "Crow'd Slim Pivotal Seat",
+    system: 'pivotal', weight: 275, price: 57.99,
+    verified: true, lastChecked: '2026-07-22',
+    source: 'https://www.sparkysbrands.com/products/shadow-crowd-slim-pivotal-seat-black',
+    note: 'bmx-depth-8 (2026-07-22): VERIFIED. Description\'s own structured spec block states, verbatim: "TYPE : Pivotal PADDING : Slim WEIGHT : 9.7 oz" (9.7oz = 275g, independently oz-stated, not the JSON shipping-weight field). "TYPE: Pivotal" directly confirms system:\'pivotal\'.'
   }
 ];
 
