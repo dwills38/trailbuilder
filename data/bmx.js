@@ -1652,6 +1652,49 @@ var BMX_PARTS = [
     id: 'bmx-se-odyssey-broc-cruiser-railed', cat: 'seat', brand: 'Odyssey', model: 'BROC Cruiser Railed Seat',
     system: 'standard', price: 32.99,
     note: 'bmx-depth-8 (2026-07-22): real current product, shop.odysseybmx.com/products/odyssey-broc-cruiser-railed-seat-white-perforated — same Broc Raiford seat, cruiser-railed (system:\'standard\') variant. JSON weight (635g) discarded as the same shipping-bucket figure. Unverified sample (weight only).'
+  },
+
+  // --- Cult (cultcrew.com) ---
+  {
+    id: 'bmx-fk-cult-race-20', cat: 'fork', brand: 'Cult', model: 'Race Fork 20in',
+    discipline: 'race', wheelSize: '20', steerer: 'integrated-1-1/8', axle: '10mm',
+    brakeMount: 'disc', price: 159.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/race-fork-20 ("1-pc machined steerer tube with an integrated bearing race...open 10mm dropouts", 20in). brakeMount:\'disc\' is NOT stated on this specific fork page (no brake-mount text at all) but follows this catalog\'s own already-verified sibling row bmx-fr-cult-race (Cult\'s "Race Frame", same product line, cultcrew.com/products/vick-behm-race-frame-black — its title and body copy explicitly confirm disk brakes), a same-brand same-platform cross-reference rather than a guess. JSON weight (3629g) discarded — identical to the unrelated Crew Front Wheel v2 row below, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-hb-cult-devon', cat: 'handlebar', brand: 'Cult', model: 'Devon Bars',
+    clamp: '25.4mm', rise: 9.5, width: 28, price: 74.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/devon-bars ("Devon Smillie signature bars...28\" wide, 10.5° backsweep, 3° upsweep", sold in 9.5in/9.75in rise; this row pins the 9.5in variant). JSON weight (6804g) discarded — identical across every rise/finish variant on this product AND shared with the unrelated Crew Bars row below, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-hb-cult-crew', cat: 'handlebar', brand: 'Cult', model: 'Crew Bars',
+    clamp: '25.4mm', rise: 9, width: 30, price: 74.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/crew-bars ("Classic feel good geometry...30\" width, 12° backsweep, 2° upsweep", sold in 9in/9.35in/9.65in rise; this row pins the 9in variant). JSON weight (6804g) discarded — identical across every rise/finish variant AND shared with the unrelated Devon Bars row above, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-gr-cult-solo', cat: 'grips', brand: 'Cult', model: 'Solo Grip',
+    length: 160, flangeless: true, price: 11.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/solo-grip (an ODI-made grip, Cult\'s current catalog copy: "Extra Long 160mm Length...Includes Push In Style end plugs" — push-in end plugs rather than a flanged lip, so flangeless:true). JSON weight (454g) discarded — the same figure seen recurring across unrelated products/brands this session, the shipping-bucket tell. grips carries no engine-read field (length/flangeless are display-only) so this real, current product clears the interface bar regardless. Unverified sample (weight only).'
+  },
+  {
+    id: 'bmx-se-cult-corduroy', cat: 'seat', brand: 'Cult', model: 'Corduroy Slim Seat',
+    system: 'pivotal', price: 44.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/corduroy-slim-seat-green — description states verbatim "only available in pivotal", confirming the one engine-read field (system). JSON weight (1361g) discarded — identical to the unrelated Dak Pedal row below, the shipping-bucket tell. Unverified sample (weight only).'
+  },
+  {
+    id: 'bmx-pd-cult-dak', cat: 'pedals', brand: 'Cult', model: 'Dak Pedal',
+    platform: 'alloy', spindle: '9/16', price: 16.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/dak-pedal ("Dakota Roche signature pedal...hefty heat treated 4130 spindle" — a standard 9/16in pedal thread; alloy body per the product\'s CNC-machined description). JSON weight (1361g) discarded — identical to the unrelated Corduroy Slim Seat row above, the shipping-bucket tell. Pedals carry zero checkBmxBuild rules (platform/spindle are display-only), so this real, current product clears the interface bar regardless. Unverified sample (weight only).'
+  },
+  {
+    id: 'bmx-fw-cult-crewv2', cat: 'frontWheel', brand: 'Cult', model: 'Crew Front Wheel v2',
+    wheelSize: '20', axle: '10mm', price: 169.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/crew-front-wheel-v2-1 ("NEW STRONGER AND WIDER MATCH V2 RIM...CREW Front hub laced to a...Match Rim"). wheelSize:20 per Cult\'s catalog-wide convention (every Cult row in this file is 20in, per the already-verified Race Frame row\'s own reasoning); axle:10mm is the BMX-universal front-axle standard (BMX-MODEL.md sec.5), not independently re-stated on this specific page. JSON weight (3629g) discarded — identical to the unrelated Race Fork row above, the shipping-bucket tell. Unverified sample.'
+  },
+  {
+    id: 'bmx-ch-cult-halflink', cat: 'chain', brand: 'Cult', model: 'Halflink Chain',
+    pitch: '1/8', halfLink: true, price: 11.99,
+    note: 'bmx-depth-8 (2026-07-22): real current product, cultcrew.com/products/chains-1 (the "HALFLINK" variant of Cult\'s three-way chain listing — "teflon coated with engraved cult logos and is designed to help dial in the rear end length on frames with short dropouts. rounded side plates are compatible with 8t and larger drivers"). pitch:\'1/8\' matches the sibling "410 CHAIN...1/8\" chain" copy on the same page (the whole three-chain lineup is one width class). JSON weight (907g) discarded — identical to the unrelated Counter Post seatpost SKU on this same store, the shipping-bucket tell. Unverified sample.'
   }
 ];
 
