@@ -109,7 +109,7 @@ var STRIDER_PARTS = [
     wheel: '12', heightMin: 940, heightMax: 1070, bikeWeight: 3901, tire: 'air',
     brake: 'rear-hand', frameMaterial: 'aluminum', price: 180,
     note: 'Lil\' Lefty single-sided fork. Seat-height range not published by Cannondale — only a rider-height range (94-107cm); seatMin/seatMax intentionally left blank rather than derived/guessed (THE BAR). Boy\'s/girl\'s color variants publish slightly different weights (4.0kg/8.7lb boys, 3.9kg/8.6lb girls); bikeWeight uses the girls\' figure (near-identical, catalog row is the generic unisex platform). Price not shown on the maker page outside the buy flow; retailer prices for this exact model range $150-180, kept at the existing $180 sample pending a firmer MSRP.',
-    verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
+    verified: true,priceBasis:'third-party-listed',  lastChecked: '2026-07-20', sourceType: 'maker',
     source: 'https://www.cannondale.com/en-us/bikes/kids/1-to-4/kids-trail-1-to-4/kids-trail-balance',
     desc: 'Verified (partial) — cannondale.com Kids Trail Balance product page (Exa-fetched 2026-07-20): "Teaching balance fundamentals, Kids 3\'1"-3\'6" (94cm-107cm)", durable lightweight aluminum frame, Lil\' Lefty single-sided fork, rear hand brake sized for small hands. No seat-height range or on-page price published (confirmed via boy\'s/girl\'s variant pages: weight 4.0kg/3.9kg).'
   },
@@ -430,7 +430,7 @@ var STRIDER_PARTS = [
     wheel: '12', seatMin: 350, seatMax: 430, bikeWeight: 3970, tire: 'air',
     brake: 'none', steeringLimiter: true, frameMaterial: 'aluminum', price: 179.99,
     note: 'Trek\'s entry balance bike; Alpha Silver aluminum frame, high-tensile steel fork, ball-bearing headset with a steering limiter, no hand brake. trekbikes.com\'s own spec table (Exa-fetched 2026-07-22, direct WebFetch 404s on the current PDP) confirms frame/fork/wheel/weight but does not surface a US price on the JS-rendered page; price retained from bikeexchange.com\'s Trek Kickster listing ($179.99), cross-checked against ilovetoridemybike.com\'s independent review which states the same 3.97kg weight and a 35-43cm seat-height range.',
-    verified: true, lastChecked: '2026-07-22', sourceType: 'maker',
+    verified: true,priceBasis:'third-party-listed',  lastChecked: '2026-07-22', sourceType: 'maker',
     source: 'https://www.trekbikes.com/us/en_US/bikes/kids-bikes/kickster/p/15226/',
     desc: 'Verified (partial) — trekbikes.com Kickster spec table (Exa-fetched 2026-07-22): Aluminum frame, Dialed 12in high-tensile steel fork, Innovia 12x1.75in tires, Dialed headset w/steering limiter, Weight 3.97kg/8.75lb. Seat height (35-43cm) and US price ($179.99) retained from ilovetoridemybike.com\'s independent review and bikeexchange.com\'s listing (trekbikes.com\'s PDP does not surface either in static content).'
   },
