@@ -923,6 +923,17 @@ var EMTB_PARTS = [
     desc: 'Verified vs the fetched maker product page (whytebikes.com, via Exa fetch — full Specs table). Corrections verify/emtb-4 wave 4 cluster F: drivetrain "Shimano Deore" -> "SRAM GX Eagle AXS" (page spec table: REAR MECH/SHIFT LEVERS "SRAM GX AXS Eagle", CASSETTE "SRAM PG-1210 Eagle" 11-50T — a standard-hanger cassette, not T-Type direct-mount, so kept distinct from the RSX row\'s Transmission wording), brakes "Shimano MT420" -> "SRAM Code R", battery 720->750Wh, weight 26200->26400g (M), motorPowerPeak added (600W, stated in the page\'s own Highlights section for this motor). PRICE RULE: GBP 4,499.00 RRP (whytebikes.com, Whyte is UK-only, no US market) converted 1:1 as a $4,499 USD sample (mirrors the RSX row\'s existing convention) — basis disclosed.',
     verified: true, lastChecked: '2026-07-20', source: 'https://whytebikes.com/products/e-180-s-my24'
   },
+  {
+    id: 'em-whyte-e-160-rsx', cat: 'emtb', brand: 'Whyte', model: 'E-160 RSX',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 155,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle T-Type AXS Transmission', brakes: 'SRAM Code RSX',
+    disciplines: ['e-trail', 'e-enduro'], price: 6999,
+    note: "Whyte's shorter-travel trail/all-rounder e-bike — a distinct platform from the E-180 gravity rows above (29in wheels both ends vs the E-180's mullet, 160/155mm travel vs 180/170mm). Same Bosch Performance Line CX (Gen 4, BDU37) motor family.",
+    desc: "Verified vs the fetched maker product page (whytebikes.com, full Specifications table: frame/fork/shock/drivetrain/brakes/motor/battery/wheel all maker-listed). No bike weight is published on the page — left blank rather than guessed. PRICE RULE: GBP 6,999.00 RRP (whytebikes.com, Whyte is UK-only, no US market) used as the USD sample basis 1:1, mirroring the E-180 rows' existing convention — basis disclosed.",
+    verified: true, lastChecked: '2026-07-22', source: 'https://whytebikes.com/products/e-160-rsx-my24-1'
+  },
 
   // ---------------------------------------------------------------------------
   // Radon depth (Jealous 9.0)
