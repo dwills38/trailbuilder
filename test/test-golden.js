@@ -172,22 +172,32 @@ test('golden: every demo build fills every required slot (complete builds)', fun
    casing tires + the X01 DH 7-speed group. Locks the discipline-expansion
    vocab (20x110, straight-dc, sram-dh-7, SuperBoost157, PF107) together end-to-end.
    (Rear axle corrected 2026-07-08 to native SuperBoost157 - see the frame row desc.)
-   No dropper - the DH frame exempts it (slotRequired). Must stay green. */
+   RIGID post - the DH frame runs the Commencal Ride Alpha stock rigid post
+   (sp-commencal-ride-alpha-316, the exact 31.6 post cb-commencal-supreme-dh-v5-
+   rockshox ships), which fills the seat position DH bikes require just like a
+   dropper would. (Seat exemption RETIRED 2026-07-22 - Douglas: "every bike
+   requires some post and DH bikes often have rigid posts".) Must stay green. */
 var DH_BUILD = { frame:'fr-commencal-supreme-dh-v5', fork:'fk-rockshox-boxxer-ultimate-29-200', shock:'sh-rockshox-vivid-ultimate-dh-250x75',
   frontWheel:'fw-dtswiss-fr-1500-29', rearWheel:'rw-dtswiss-fr-1500-29-157',
   frontTire:'ti-maxxis-assegai-29-25-dh-mg', rearTire:'ti-maxxis-assegai-29-25-dh-mg',
   shifter:'sft-sram-x01-dh', derailleur:'dr-sram-x01-dh', cassette:'ca-sram-xg795', chain:'ch-sram-pc-xx1', crankset:'cr-sram-x01-dh',
   frontBrake:'bk-sram-maven-ultimate', rearBrake:'bk-sram-maven-ultimate', frontRotor:'ro-sram-hs2-220-6b', rearRotor:'ro-sram-hs2-220-6b',
-  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', saddle:'sa-wtb-volt', pedals:'pd-oneup-composite' };
-test('golden: a complete DH race build (dual-crown, 7-speed, no dropper) is fully compatible', function(){
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', seatpost:'sp-commencal-ride-alpha-316', saddle:'sa-wtb-volt', pedals:'pd-oneup-composite' };
+test('golden: a complete DH race build (dual-crown, 7-speed, rigid post) is fully compatible', function(){
   var r = chk(DH_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
 });
-test('golden: the DH build fills every required slot (dropper exempt via slotRequired)', function(){
+test('golden: the DH build fills every required slot (rigid post fills the now-required seat position)', function(){
+  // Seat-exemption retirement (Douglas 2026-07-22): a DH frame is no longer
+  // dropper-exempt — it requires SOME post, and the stock rigid Ride Alpha
+  // fills that one seat position (positionPeersOf), so completeness is met
+  // without a dropper. Checked position-aware, exactly as the app's own
+  // completeness math does (slotRequired for the denominator, wheelPositionFilled
+  // for the fill).
   var m = /** @type {Object.<string, string>} */ (DH_BUILD);
   var frame = C.byId(m.frame);
   var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
-  eq(required.some(function(s){ return s.key==='dropper'; }), false, 'dropper must be exempt on a DH frame');
-  required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
+  eq(required.some(function(s){ return s.key==='dropper'; }), true, 'the seat position (dropper slot) is now REQUIRED on a DH frame');
+  required.forEach(function(s){ eq(C.wheelPositionFilled(B(m), s.key), true, 'missing required position '+s.key); });
 });
 
 /* The first complete FULL-27.5 DH build (2026-07-08, pass 4): FRS (the only
@@ -200,15 +210,18 @@ var DH_275_BUILD = { frame:'fr-commencal-frs', fork:'fk-rockshox-boxxer-ultimate
   frontTire:'ti-maxxis-assegai-275-25-dh-mg', rearTire:'ti-maxxis-assegai-275-25-dh-mg',
   shifter:'sft-sram-x01-dh', derailleur:'dr-sram-x01-dh', cassette:'ca-sram-xg795', chain:'ch-sram-pc-xx1', crankset:'cr-sram-x01-dh',
   frontBrake:'bk-sram-maven-ultimate', rearBrake:'bk-sram-maven-ultimate', frontRotor:'ro-sram-hs2-200-6b', rearRotor:'ro-sram-hs2-200-6b',
-  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', saddle:'sa-wtb-volt', pedals:'pd-oneup-composite' };
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', seatpost:'sp-commencal-ride-alpha-316', saddle:'sa-wtb-volt', pedals:'pd-oneup-composite' };
+// Runs the Commencal Ride Alpha rigid post (31.6, exact match to the FRS seat
+// tube) — the DH seat exemption was retired 2026-07-22, so a DH frame now needs
+// some post and the stock rigid one fills that seat position.
 test('golden: a complete FULL-27.5 DH park build (FRS) is fully compatible', function(){
   var r = chk(DH_275_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
 });
-test('golden: the 27.5 DH build fills every required slot', function(){
+test('golden: the 27.5 DH build fills every required slot (rigid post fills the seat position)', function(){
   var m = /** @type {Object.<string, string>} */ (DH_275_BUILD);
   var frame = C.byId(m.frame);
   var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
-  required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
+  required.forEach(function(s){ eq(C.wheelPositionFilled(B(m), s.key), true, 'missing required position '+s.key); });
 });
 
 /* The first complete XC HARDTAIL race build (2026-07-08): Exceed CF (flat-mount
@@ -382,16 +395,19 @@ var MULLET_DH_BUILD = { frame:'fr-commencal-supreme-dh-v52', fork:'fk-rockshox-b
   frontTire:'ti-maxxis-assegai-29-25-dh-mg', rearTire:'ti-maxxis-assegai-275-25-dh-mg',
   shifter:'sft-sram-x01-dh', derailleur:'dr-sram-x01-dh', cassette:'ca-sram-xg795', chain:'ch-sram-pc-xx1', crankset:'cr-sram-x01-dh',
   frontBrake:'bk-sram-maven-ultimate', rearBrake:'bk-sram-maven-ultimate', frontRotor:'ro-sram-hs2-220-6b', rearRotor:'ro-sram-hs2-220-6b',
-  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', saddle:'sa-wtb-volt', pedals:'pd-oneup-composite' };
+  handlebar:'hb-renthal-fatbar-35', stem:'st-renthal-apex-35', grips:'gr-oneup-lockon', seatpost:'sp-commencal-ride-alpha-316', saddle:'sa-wtb-volt', pedals:'pd-oneup-composite' };
 test('golden: a complete MULLET DH build (Supreme DH V5.2, 29 front/27.5 rear) is fully compatible', function(){
   var r = chk(MULLET_DH_BUILD); eq(r.errors.length, 0); eq(r.warnings.length, 0);
 });
-test('golden: the mullet DH build fills every required slot (dropper exempt via slotRequired)', function(){
+test('golden: the mullet DH build fills every required slot (rigid post fills the now-required seat position)', function(){
+  // Seat-exemption retirement (Douglas 2026-07-22): the Supreme DH V5.2, like
+  // every frame, now requires some post; the stock Commencal Ride Alpha rigid
+  // post (31.6, exact to the V5.2 seat tube) fills that seat position.
   var m = /** @type {Object.<string, string>} */ (MULLET_DH_BUILD);
   var frame = C.byId(m.frame);
   var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, frame); });
-  eq(required.some(function(s){ return s.key==='dropper'; }), false, 'dropper must be exempt on a DH frame');
-  required.forEach(function(s){ eq(!!m[s.key], true, 'missing required slot '+s.key); });
+  eq(required.some(function(s){ return s.key==='dropper'; }), true, 'the seat position (dropper slot) is now REQUIRED on a DH frame');
+  required.forEach(function(s){ eq(C.wheelPositionFilled(B(m), s.key), true, 'missing required position '+s.key); });
 });
 
 test('slotRequired: hardtail frame exempts the shock slot (completeness only)', function(){
@@ -402,23 +418,28 @@ test('slotRequired: hardtail frame exempts the shock slot (completeness only)', 
   eq(C.slotRequired(shockSlot, frame), false, 'hardtail: shock not required');
   eq(C.slotRequired(dropperSlot, frame), true, 'hardtail: dropper still required');
 });
-test('slotRequired: DH-discipline frame exempts the dropper slot (completeness only)', function(){
+test('slotRequired: DH-discipline frame now REQUIRES the seat position (exemption retired 2026-07-22)', function(){
+  // Douglas 2026-07-22: "every bike requires some post and DH bikes often have
+  // rigid posts." The blanket DH dropper exemption was retired — a DH frame now
+  // requires the dropper slot (its one seat position), which a rigid post fills.
   var frame = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { disciplines:['dh'] }));
   var shockSlot = C.SLOTS.filter(function(s){ return s.key==='shock'; })[0];
   var dropperSlot = C.SLOTS.filter(function(s){ return s.key==='dropper'; })[0];
-  eq(C.slotRequired(dropperSlot, frame), false, 'DH: dropper not required');
+  eq(C.slotRequired(dropperSlot, frame), true, 'DH: seat position (dropper slot) now required');
   eq(C.slotRequired(shockSlot, frame), true, 'DH full-sus: shock still required');
 });
-test('slotRequired: frame.noStockDropper exempts the dropper slot on a non-DH frame (completeness only)', function(){
-  // e.g. an XC race hardtail whose maker page confirms it ships without a
-  // dropper - a per-frame sourced flag, not a blanket 'xc' discipline check
-  // (most xc-tagged frames are trail bikes that DO ship with a dropper).
-  var frame = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { disciplines:['xc'], noStockDropper:true }));
+test('slotRequired: the removed noStockDropper flag no longer exempts anything (retired 2026-07-22)', function(){
+  // noStockDropper was DELETED from the schema/type/catalog on Douglas's
+  // 2026-07-22 ruling. A frame formerly flagged (an XC race bike that ships a
+  // rigid post) now requires the seat position like any other bike — the real
+  // rigid post fills it. Even a synthetic frame still carrying the now-dead
+  // property must require the dropper slot (the engine no longer reads it).
+  var deadFlag = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { disciplines:['xc'], noStockDropper:true }));
   var dropperSlot = C.SLOTS.filter(function(s){ return s.key==='dropper'; })[0];
-  eq(C.slotRequired(dropperSlot, frame), false, 'noStockDropper: dropper not required');
+  eq(C.slotRequired(dropperSlot, deadFlag), true, 'the retired flag exempts nothing — seat position still required');
 
-  var xcWithDropper = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { disciplines:['xc'] }));
-  eq(C.slotRequired(dropperSlot, xcWithDropper), true, 'plain xc discipline (no noStockDropper flag): dropper still required');
+  var plainXc = /** @type {any} */ (Object.assign({}, C.byId('fr-santacruz-megatower-cc'), { disciplines:['xc'] }));
+  eq(C.slotRequired(dropperSlot, plainXc), true, 'a plain xc frame requires the seat position too');
 });
 test('slotRequired: no frame chosen = universal default (all non-optional, non-altOf required)', function(){
   // cog + seatpost are the inverted pattern (DJ go-live 2026-07-14): required
@@ -478,7 +499,11 @@ test('golden: every completebike row is checkBuild-clean (0 errors) and fills ev
     var required = C.SLOTS.filter(function(s){ return C.slotRequired(s, build.frame, eRW); });
     required.forEach(function(s){
       if(s.key==='pedals') return;   // decision #1: fills is ONLY what the bike ships with — pedals are the one commonly-absent exception
-      ok(!!cb.fills[s.key], cb.id+' missing required slot '+s.key);
+      // Position-aware fill (seat-exemption retirement, Douglas 2026-07-22): a
+      // DH / rigid-post bike fills the now-required seat position via its rigid
+      // seatpost, not the dropper slot — wheelPositionFilled counts EITHER, just
+      // as the app's completeness math does.
+      ok(C.wheelPositionFilled(build, s.key), cb.id+' missing required position '+s.key);
     });
   });
 });

@@ -84,10 +84,16 @@ test('mullet builds are 29 front / 27.5 rear', function(){
   }
 });
 
-test('DH builds skip the dropper (slotRequired exempts it)', function(){
+test('DH builds ship a rigid post, not a dropper (seat exemption retired 2026-07-22 — DH bikes run rigid posts)', function(){
+  // The seat position is now required on EVERY frame (Douglas 2026-07-22: "every
+  // bike requires some post and DH bikes often have rigid posts"). genOk already
+  // asserts the build is complete per slotRequired, so a filled seat is implied;
+  // this additionally pins that a DH frame ships the realistic RIGID post
+  // (defaultSeatpostCat = 'seatpost' for dh), not a dropper.
   for(var seed = 1; seed <= SEEDS; seed++){
     var g = genOk('dh', seed);
-    ok(!g.build.dropper, 'dh seed ' + seed + ' unexpectedly has a dropper');
+    ok(!!g.build.seatpost, 'dh seed ' + seed + ' must ship a rigid seatpost (the seat position is now required)');
+    ok(!g.build.dropper, 'dh seed ' + seed + ' should run a rigid post, not a dropper');
     var frame = B(g.build).frame;
     ok(!!frame && (frame.disciplines || []).indexOf('dh') >= 0, 'dh seed ' + seed + ' frame is not a DH frame');
   }
