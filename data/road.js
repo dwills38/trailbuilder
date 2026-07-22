@@ -2162,6 +2162,12 @@ var ROAD_PARTS = [
     style: 'road-clip', weight: 266, price: 125,
     note: 'road-breadth-6 wave: a sixth pedal-category brand (iSSi, a US-based clipless-pedal maker). issi-bike.com itself was not fetchable this pass (DNS did not resolve for the harness\'s fetch tools); weight (266g/pair) and "Look KeO"-compatible cleat interface (style:"road-clip") cross-checked identically across FOUR independent sources (Incycle, Total Cycling, The Ped, and a road.cc review measuring the same 266g figure) - a strong convergent signal. Price $125 (Marathon Bicycles\' current US listing, $124.99) - NOT marked verified:true since no maker-page fetch succeeded this pass, matching this catalog\'s pd-wahoo-speedplay-zero row\'s identical caveat and convention.' },
 
+  // --- headset (was 5) ---
+  { id: 'hs-whiteindustries-zs44-zs56', cat: 'headset', brand: 'White Industries', model: 'ZS44/ZS56 Headset', family: 'whiteindustries-zs44-zs56',
+    upper: 'ZS44/28.6', lower: 'ZS56/40', steerer: 'tapered', weight: 102, price: 169,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.whiteind.com/product/zs44-zs56/', priceBasis: 'third-party-listed',
+    note: 'road-breadth-6 wave: FETCHED whiteind.com (White Industries\' own maker site) directly - a fourth headset-category brand (FSA/Cane Creek/Ritchey already cataloged), and the file\'s first US-made headset. Spec/compatibility tab confirms verbatim: "SHIS specification - Upper: ZS44/28.6 - Lower: ZS5640" (upper/lower fields) and "tapered 1-1/2\" (40mm) fork steerers" (steerer:"tapered", same S.H.I.S.-bore-token convention used catalog-wide). The maker page\'s own price field did not render in the fetched text (JS variant picker); weight (102g) and price ($169) both taken from Performance Bicycle\'s current US listing of the identical SKU (HSZ4428Z5640, same ZS44/28.6|ZS56/40 S.H.I.S. codes) - a second independent retailer (bikeparts.com, 92g/$155.80) confirms the same product in the same range, so the figures are real-product-consistent even though they are not a single maker-confirmed pair; priceBasis:"third-party-listed".' },
+
 ];
 
 // ---------------------------------------------------------------------------
