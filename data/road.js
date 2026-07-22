@@ -1046,6 +1046,11 @@ var ROAD_PARTS = [
     weight: 109, price: 60,
     verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/pdfs/product/archive/2019-2020_Specifications_v034_en.pdf', priceBasis: 'third-party-listed',
     note: 'road-11 wave (Shimano archive chase): productinfo.shimano.com\'s live SKU search 404s "RT-MT800" (current edition dropped it, same wall this file already hit on CN-4600/BR-RX810/FC-RX600); resolved via /en/archive\'s 2019-2020 Specifications PDF (Ver.3.4, Feb 14 2020), rendered at 150dpi per the mtb-tail-4 doctrine (pdftotext -layout garbles these dense tables) — GENERAL section, "Disc Brake Rotor" table, printed p.209 (file p.212): RT-MT800 row confirms Center Lock ✓, ICE TECHNOLOGIES ✓, ICE TECHNOLOGIES FREEZA ✓, 203/180/160/140mm all ✓ (matches size:160, mount:\'center-lock\'), "Average Weight (w/o lock ring): 164g (203mm), 132g (180mm), 109g (160mm), 88g (140mm)" — this row\'s 160mm figure corrected 130(sample)->109 (w/o lock ring, matching this file\'s other Shimano rotor rows\' weight-basis convention). Cross-corroborated on the same archive PDF\'s BR-RX810 caliper page (printed p.125): "Recommended brake rotor: SM-RT800 / RT-MT800" — confirms this is a genuine GRX-recommended SKU, not a fabricated/duplicate one.' },
+  { id: 'ro-hope-floating-160-cl', cat: 'rotor', brand: 'Hope', model: 'Floating Centrelock Rotor 160mm', family: 'hope-floating',
+    size: 160, mount: 'center-lock',
+    price: 111,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.hopetech.com/products/brakes/discs/floating-centrelock-rotor/', priceBasis: 'regional-conversion',
+    note: 'road-breadth-5 wave: FETCHED hopetech.com own product page directly via the browser pane — a fourth rotor-category brand (Hope; previously only SRAM + Shimano). Page states verbatim: "FLOATING ROTOR Centrelock Fitment // 1.8mm Thick", "Available in: O140, O160, O180, O200, O203 and O220mm sizes" (size:160, mount:\'center-lock\' - this row uses the 140/160/180mm tier SKU), "two parts, an aluminium centre and stainless steel braking surface" (road/gravel/CX + MTB-shared hardware, the same cross-discipline convention as this file\'s existing SRAM/Shimano rotor rows). Weight is published ONLY for the 180mm size ("Weight 180mm: 146g") - the 160mm-specific weight is not itemized on the page, so the weight field is left OMITTED rather than guessed/scaled from the 180mm figure. Price: the page itself lists "RRP GBP85.00 / EUR106.80 / $111.19 (ex tax)" for the 140/160/180mm tier - a maker-published multi-currency display, not a confirmed US-market MSRP (UK site, ex-tax), hence priceBasis:\'regional-conversion\' rather than \'msrp-confirmed\'; $111 taken as the disclosed USD figure.' },
 
   // ===== DRIVETRAIN — Shimano 105 R7000 (2x11, mechanical) ==================
   // road-depth-1 wave (2026-07-22): fills the mechanical 11-speed 105 tier
@@ -1453,6 +1458,11 @@ var ROAD_PARTS = [
     price: 50,
     verified: true, lastChecked: '2026-07-20', source: 'https://www.sram.com/en/sram/models/bb-dub-pf-a1', priceBasis: 'msrp-confirmed',
     note: 'road-5: sram.com model page (BB-DUB-PF-A1, "DUB PressFit Bottom Bracket") fetched: one DUB-spindle SKU spans "PF 104.5, PF 107, PF 121, PF 86.5, PF 89.5, PF 92" shells (PF 86.5 = this row\'s bb86), price range "$50-$290" across the family (this row uses the $50 floor, the BB86/92 tier). Page states 72g "based on BB92 specification" — a different shell size in the same SKU family, so left the weight field blank rather than reuse a figure for a size this row is not (dropped the prior 80g sample).' },
+  { id: 'bb-wheelsmfg-pf30-outboard-24mm', cat: 'bb', brand: 'Wheels Manufacturing', model: 'PF30 Outboard ABEC-3 BB for 24mm Cranks', family: 'wheelsmfg-pf30-outboard',
+    shell: 'pf30', spindle: '24mm-road',
+    weight: 161, price: 138,
+    verified: true, lastChecked: '2026-07-22', source: 'https://wheelsmfg.com/pressfit-30-to-outboard-bottom-bracket-for-24mm-cranks-shimano-black.html', priceBasis: 'msrp-confirmed',
+    note: 'road-breadth-5 wave: FETCHED wheelsmfg.com own product page directly (via the browser pane — the domain 429\'d a plain WebFetch retry, resolved on a fresh navigation) — a third bb-category brand (Wheels Manufacturing, a specialist aftermarket BB maker), matching the task brief bb-category thinness gap (previously only Shimano + SRAM). Spec table: "Bottom Bracket/Frame Interface: PF30" (shell:\'pf30\'), "Crank Spindle Diameter: 24.00mm" (spindle:\'24mm-road\' — the page states this fits "Shimano, FSA, Etc." 24mm-spindle cranks, the same interface family as this file\'s existing Shimano rows), "Weight: 161g" and price "$138.00" both taken verbatim from the live product page (a real current MSRP, not a third-party listing). SKU: PF30-OUT-1 (the ABEC-3 bearing tier; the page also lists pricier Angular Contact/Ceramic Hybrid/ZERO-Ceramic bearing variants of the same shell/spindle interface — not modeled this pass, same-interface upsell only, no fit/price-distinct GAP).' },
 
   // ===== HEADSETS (complete upper+lower assemblies; tapered — every ROAD_PARTS
   //   frame in this file uses steerer:'tapered'. ZERO headset rows existed
@@ -1486,6 +1496,11 @@ var ROAD_PARTS = [
     style: 'road-clip',
     weight: 240, price: 195,
     note: 'road-13 wave: FETCHED lookcycle.com (WebFetch, no wall — note the maker\'s real domain is lookcycle.com, not look-cycle.com, which does not resolve) — Look currently sells 8 distinct Keo Blade SKUs (Ceramic Vision $325, Ceramic TI $400, two Ceramic Prisme/plain $275 tiers x 2 Q-factors, three base Chromoly $195 tiers x Q-factor/edition), none plainly named "Keo Blade Carbon". This row\'s model string doesn\'t match any current SKU exactly; renamed to the base-tier "Keo Blade – Q Factor 53mm" ($195, Chromoly+ axle, the closest non-ceramic/non-limited match to what a generic "Keo Blade Carbon" sample row likely meant — id kept, append-only). PRICE CORRECTED 180->195 (the base tier\'s real MSRP). NOT marked verified:true: the fetched page states weight "300 g" but EXPLICITLY "including cleats" — not comparable to this catalog\'s per-pair-pedal-only convention (DATA-ENTRY-TEMPLATE §5), so the existing 240g sample is left unverified/unconfirmed rather than replaced with a mismatched-basis figure.' },
+  { id: 'pd-time-xpro-12', cat: 'pedal', brand: 'Time', model: 'XPRO 12', family: 'time-xpro-12',
+    style: 'road-clip',
+    weight: 188, price: 335,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.sram.com/en/service/models/pd-xpro-12-a1', priceBasis: 'msrp-confirmed',
+    note: 'road-breadth-5 wave: FETCHED sram.com/en/service/models/pd-xpro-12-a1 via the browser pane (WebFetch 404\'d the URL — the service-models host needed the rendered page, same pattern as SRAM\'s /en/sram/models line) — a new pedal-category brand (Time, a SRAM-owned French road-pedal maker distinct from every existing pedal row: Shimano SPD-SL, Look Keo, Wahoo Speedplay). Model ID PD-XPRO-12-A1 spec table states verbatim: "CLEATS ICLIC", "INTENDED USE Road", "WEIGHT (PER PEDAL) 94g" (doubled to 188g for this catalog\'s per-pair pedal convention, basis disclosed, same doubling convention this file already applies to per-lever shifter weights), "THREADING 9/16 - 20 inch" (universal, no compat rule reads it), "PEDAL STACK HEIGHT 13.5mm". style:\'road-clip\' — ICLIC is a clipless road cleat system, the same vocab bucket as Look/Shimano SPD-SL rather than SPD. Price: FETCHED shop.sram.com/products/xpro-12 directly (SRAM own storefront) — "$335.00" confirmed real current US MSRP (the base Q-factor SKU; 51/53/57mm Q-factor variants share this one price, not separate SKUs on the storefront page, so modeled as one row per DATA-ENTRY-TEMPLATE\'s "no fit/price-distinct GAP" convention).' },
 
   // ===== DRIVETRAIN — Shimano Tiagra 4700 (2x10, mechanical) ===============
   // Rounds out the tier ladder below 105 per the road-2 brief. Tiagra 4700 is
@@ -2044,6 +2059,55 @@ var ROAD_PARTS = [
     weight: 265, price: 109.99,
     verified: true, lastChecked: '2026-07-22', source: 'https://www.selleitalia.com/novus-boost-evo-tm-superflow/', priceBasis: 'regional-conversion',
     note: 'road-depth-5 wave: FETCHED selleitalia.com own Novus Boost Evo TM Superflow product page directly - Selle Italia other mainline road saddle family (short-nose, wave-profile shape) distinct from this file existing SLR rows, matching the task brief Novus saddle tiers gap. This row uses the mid-tier manganese-rail SKU (the Novus range also includes lighter/pricier carbon and Ti316 rail options, e.g. Novus Boost Evo Kit Carbonio Superflow at 165g - not modeled this pass, GAP). Spec table: Weight 265g, Dimensions 145x245mm, Rail Manganese Tube 7mm, Family Novus. Price: the maker own EU site shows a discounted EUR figure (Now: e104,90), not a US MSRP; $109.99 is an unsourced USD sample in the same range as independent retailer listings (GBP99.99 UK, CAD$169.99) - flagged, no live FX conversion per this catalog convention.' },
+
+  // ---------------------------------------------------------------------------
+  // road-breadth-5 wave (2026-07-22): rim-caliper depth. The catalog's only
+  // rim-brake-era group so far was a single Shimano Sora R3000 set (7 rows,
+  // road-depth-1) plus a lone Campagnolo Centaur shifter+caliper pair (2 rows)
+  // — 4 rim-caliper-mount rows total against 313 disc rows. This wave adds
+  // Shimano's OTHER current rim-brake-only groupset (Claris R2000, one tier
+  // below Sora, still in current Shimano production/distribution as of this
+  // fetch) as a full 7-row group, all FETCHED via the browser pane from
+  // productinfo.shimano.com (WebFetch renders only the nav shell on this
+  // host, same wall every prior road wave's Shimano notes record).
+  // NEW ROWS ONLY in this file per the task's lane boundary — no existing
+  // row touched, including the Sora/Centaur rim rows that share this family.
+  // ---------------------------------------------------------------------------
+  { id: 'sh-shimano-claris-r2000', cat: 'shifter', brand: 'Shimano', model: 'Claris ST-R2000 (pair)', family: 'shimano-claris-r2000',
+    system: 'shimano-road-11', speeds: 8, actuation: 'mechanical', brakeSystem: 'rim-caliper', side: 'pair', frontShift: true,
+    price: 95,
+    verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/ST-R2000-R',
+    note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/ST-R2000-R via the browser pane. Spec table: "Series SHIMANO CLARIS", "Model no. ST-R2000-R", "Shifter type DUAL CONTROL LEVER", "Rear speeds 8", "NEW SUPER SLR ✔" (brakeSystem:rim-caliper - the same caliper interface family as the existing Sora ST-R3000 row, one tier down). system:"shimano-road-11" reused per this catalog established convention (the Sora/Tiagra rows own notes): systemRoad has no dedicated 8-speed token and the independent speeds:8 check already reds out any cross-tier pairing on speed count alone. Average weight not itemized on the fetched page ("Average weight (g) -") - omitted rather than guessed, per this wave data-discipline instruction. Price: no USD MSRP published on productinfo; $95/pair is an UNSOURCED SAMPLE estimate (one tier below the existing Sora ST-R3000 sample price of $130) - no priceBasis claimed.' },
+  { id: 'rd-shimano-claris-r2000', cat: 'rearderailleur', brand: 'Shimano', model: 'Claris RD-R2000-GS', family: 'shimano-claris-r2000',
+    system: 'shimano-road-11', speeds: 8, actuation: 'mechanical', maxCog: 34, cage: 'medium', mount: 'std-hanger',
+    price: 30,
+    verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/RD-R2000-GS',
+    note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/RD-R2000-GS via the browser pane. Spec table: "Rear speeds 8", "Low sprocket Max. 34T / Min. 28T" (maxCog:34), "SHIMANO ROAD type: Direct attachment (conventional) ✔" (mount:std-hanger), "Total capacity 43T". Average weight not itemized on the fetched page - omitted rather than guessed. Price: no MSRP published; $30 is an UNSOURCED SAMPLE estimate - no priceBasis claimed.' },
+  { id: 'fd-shimano-claris-r2000', cat: 'frontderailleur', brand: 'Shimano', model: 'Claris FD-R2000-F (braze-on)', family: 'shimano-claris-r2000',
+    system: 'shimano-road-11', speeds: 8, actuation: 'mechanical', mount: 'braze-on',
+    price: 20,
+    verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/FD-R2000-F',
+    note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/FD-R2000-F via the browser pane. Spec table: "Front speeds 2", "Rear speeds 8", "Brazed-on ✔" (mount:braze-on; the sibling FD-R2000-B band-type SKU not modeled, same one-mount-native-SKU convention as this file existing 105/Sora FD rows), "Chain line (mm) 43.5", "Top gear teeth 46-52T". Average weight not itemized on the fetched page - omitted rather than guessed. Price: no MSRP published; $20 is an UNSOURCED SAMPLE estimate - no priceBasis claimed.' },
+  { id: 'cs-shimano-claris-r2000-1132', cat: 'cassette', brand: 'Shimano', model: 'Claris CS-HG50-8 11-32', family: 'shimano-claris-r2000-cass',
+    system: 'shimano-road-11', speeds: 8, freehub: 'hg-road', minCog: 11, maxCog: 32,
+    price: 22,
+    verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/CS-HG50-8',
+    note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/CS-HG50-8 via the browser pane. Spec table: "Rear speeds 8", "Combination name (Group name)" lists "11-32T (aw)" verbatim among the six offered combinations - teeth "11-13-15-18-21-24-28-32T" (the row chosen combination). "HG spline M" ✔ - modeled as this catalog existing generic "hg-road" token, same simplification as the Sora/105 cassette rows. Average weight not itemized on the fetched page - omitted rather than guessed. Price: no MSRP published; $22 is an UNSOURCED SAMPLE estimate - no priceBasis claimed.' },
+  { id: 'ch-shimano-claris-r2000', cat: 'chain', brand: 'Shimano', model: 'Claris CN-HG40', family: 'shimano-claris-r2000',
+    system: 'hg', speeds: 8, weight: 324,
+    price: 15,
+    verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/CN-HG40',
+    note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/CN-HG40 via the browser pane. Spec table: "Type HG 8/7/6-speed", "Average weight (g) (114 links) 324" - a maker-published weight (not a sample), taken verbatim. Price: no MSRP published; $15 is an UNSOURCED SAMPLE estimate - no priceBasis claimed.' },
+  { id: 'cr-shimano-claris-r2000', cat: 'crankset', brand: 'Shimano', model: 'Claris FC-R2000 Crankset', family: 'shimano-claris-r2000',
+    bb: '24mm-road', chainrings: '2x', ring: '50/34', ringStd: 'standard-12', speeds: 8, chainline: 43.5,
+    price: 55,
+    verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/FC-R2000',
+    note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/FC-R2000 via the browser pane. Spec table: "Chainring combination 50-34T" (only combination offered, matching the existing Sora crank row own note that this tier offers no 52/36 or 53/39 option), "Chain line (mm) 43.5", "2-PIECE CRANKSET ✔", "Compatible bottom bracket type: Outboard ✔" (bb:"24mm-road", same interface family as the Sora/Tiagra/105 rows). ringStd:"standard-12" reused per this catalog established convention (the vocab token name is not literally 12-speed-specific; the Sora crank row applies the same reuse). Average weight not itemized on the fetched page - omitted rather than guessed. Price: no MSRP published; $55 is an UNSOURCED SAMPLE estimate - no priceBasis claimed.' },
+  { id: 'br-shimano-claris-r2000-caliper', cat: 'brake', brand: 'Shimano', model: 'Claris BR-R2000 Dual-Pivot Caliper (pair)', family: 'shimano-claris-r2000',
+    brakeSystem: 'rim-caliper', mount: 'rim-caliper', reach: 51, actuation: 'mechanical', leverPair: 'sh-shimano-claris-r2000',
+    price: 45,
+    verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/BR-R2000',
+    note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/BR-R2000 via the browser pane. Spec table: "Series SHIMANO CLARIS", "Type NEW SUPER SLR Dual pivot" (brakeSystem/mount rim-caliper, no pistons - same shape as the existing Sora BR-R3000 caliper row), "Reach (mm) 51" (reach:51, exact page figure), "Compatibility NEW SUPER SLR" (recorded as leverPair, same interface tier as the Claris shifter above), "Brake shoe Standard R55C4". PAIR CONVENTION: one "(pair)" row filling both brake slots, matching every other brake row in this file. NOT ENTERED AS FIELDS (no rule reads them): "Maximum tire size 28C" and "Rim width (mm) 19-26" - real caliper-arch clearance figures, flagged for a future rim-caliper-clearance rule rather than stored. Average weight not published - omitted, not sampled. Price: no MSRP published; $45/pair is an UNSOURCED SAMPLE estimate - no priceBasis claimed (verified covers the interfaces only, matching the existing Sora caliper row own convention).' },
 
 ];
 
