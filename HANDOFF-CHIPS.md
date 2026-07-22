@@ -29,60 +29,48 @@ are the enum, blank beats a wrong token.
 
 ---
 
-## Queue (dispatch when lanes free — the priceBasis FINISHING WAVE is the priority)
+## Queue (dispatch when lanes free — refreshed by seat 18 after the 2026-07-22 finishing-wave harvest)
 
-### 1. [Sonnet, medium] PB FINISHING — gravel redo (208)
-AFTER schema/pb-third-party-listed lands on main (check `git log origin/main` for it):
-redo the rejected gravel backfill. data/gravel.js verified rows lacking priceBasis. The
-rejected branch's 52 sound calls (43 msrp-confirmed incl. "PRICE CORRECTED..." notes, 5
-regional-conversion, 4 bundle-split on the SRAM shift-brake rows — Ekar EXPLICITLY not
-bundle-split, its own note says the exception doesn't apply) can be re-derived from the
-same notes; the ~156 remainder now classify honestly (third-party-listed where the note
-says maker-publishes-no-price; genuine discontinued rows keep discontinued-no-msrp; blank
-where no class fits). Its 3 price-mismatch leads (Rudy $999-vs-$929-page, Force FD
-$425-vs-$270, XPLR chain $60-vs-$50-55) are REAL — re-fetch and correct those three.
-Report: pb-gravel-2.md.
+Burndowns after the wave: **MTB 1,895 · gravel 153 · road 3 · BMX 34 · EMTB 9 · kit 0 · striders 0.**
+All seven wave chips harvested + merged (pb-gravel-2, pb-road-2, pb-mtb-a2/b2/c2,
+gravel-is-mount, t2-drivetrain-design). Lessons now standing: NEVER default third-party-listed
+onto a sram.com-sourced row (SRAM publishes prices — pb-road-2 catch); a maker price RANGE is
+not a literal figure (no msrp-confirmed, no midpoint inventions — two rulings same day).
 
-### 2. [Sonnet, medium] PB FINISHING — road wave 2 (163)
-After the token lands: the 163-row remainder per pb-road's report brand list (Shimano 69,
-Campagnolo 23, Zipp 9, DT Swiss 8…). Mostly third-party-listed per that report's own
-verified finding (Campagnolo pages carry no price at all); per-row note check, never
-bulk-stamp. Report: pb-road-2.md.
+### 1. [Sonnet, medium] PB FINISHING — MTB slice B3 (frames/forks/shocks/wheels/tires, resume at CST)
+Continue backfill/pb-mtb-b2's alphabetical grind from brand CST (then Cane Creek 77, RockShox
+519, Fox 149, Maxxis 99...). Same protocol as pb-mtb-b2 (real re-fetches of stored source
+URLs; the two range/SRAM lessons above; blank beats a wrong token). Branch backfill/pb-mtb-b3,
+report pb-mtb-b3.md.
 
-### 3-5. [Sonnet, medium ×3] PB FINISHING — MTB remainder (~2,000 rows, three slices)
-After the token lands. The remainder needs REAL RE-FETCHES of stored source URLs (the
-desc-disclosed shortcut is exhausted — pb-mtb-b's report explains). Slice by category as
-before (A: drivetrain/brakes remainder incl. the 150 productinfo-Shimano rows →
-third-party-listed unless a fetch finds a price; B: frames/forks/shocks/wheels/tires ~1,875;
-C: any slice-C leftovers + the KS/GT flagged 10). The pattern-trap lesson (keyword windows
-match SIBLING parts' basis language — read the full desc) is in pb-mtb-b's report. Reports:
-pb-mtb-a2/b2/c2.md.
+### 2. [Sonnet, low] Smalls fix-pack: flagged price leads
+One branch, four bounded items: (a) ro-sram-centerline-200-6b — stored $45 is BELOW the
+fetched $50-65 page range; re-fetch, decide honest price/basis per the range ruling (blank +
+note if no per-size figure). (b) gfr-cinelli-kingzydeco2 — re-fetch cinelli-milano.com's own
+price page to settle the mixed-domain provenance. (c) gch-sram-red-flattop's road sibling
+ch-sram-red-flattop — variant-exact re-fetch (stored $130 above the $110-120 range). (d) W2
+from the tier-2 packet: add cb-kona-honzo (base alloy $1,299) — RE-FETCH konaworld.com, never
+trust the 2026-07-16 desc. Branch fix/price-leads-1, report price-leads-1.md.
 
-### 6. [Opus, high] Tier-2 vocab: the gravel I.S. brake-mount engine port
-Engine change, adversarial review: add the I.S. mount token to gravel AND port the MTB
-engine's direction-aware PM-on-IS adapter warning into compat-road (the Nicasio+ is
-otherwise unbuildable — the IS-mount trap). Include the rule tests. Douglas ratified the
-direction (Tier-2 recommendation accepted by his "go with 1-3" + vocab rulings); the
-coordinator adversarially reviews at merge.
+### 3. [Sonnet, medium] Gravel QR rear wheels (unbreaks 4 frames)
+gravel-is-mount finding B: 4 QR gravel frames (Nicasio+ 135x9-qr, Kona Rove AL + 2 more
+135x10-qr) have ZERO compatible rear wheels — every gravel rearwheel is 12x142. Enter real
+QR-hub gravel/all-road wheelsets (maker-page-sourced; the pair-row doctrine). Also check
+front-wheel QR coverage while there. Branch catalog/gravel-qr-wheels, report gravel-qr-wheels.md.
 
-### 7. [Fable/Opus, high] Tier-2 design checks: sram-eagle gravel mullet + shimano-11 MTB
-A DESIGN DOC first (not implementation): how should gravel model mullet drivetrains
-(Eagle mech + road AXS shifter — cross-ecosystem rules) and how should MTB model the
-11-speed Shimano tier (Honzo's stock Deore M5100 has no system token)? Deliver options +
-blast radii; Douglas/coordinator pick before any implementation chip.
+### 4. [Opus, high] Road/gravel vocab-integrity hardening (t2 finding b)
+ROAD_VOCAB/ROAD_SYSTEM_CHAIN drift makes R15 SILENTLY DORMANT for the live GRX-10 tier (and
+rearAxle tokens 12x148/135x10-qr are undeclared). Extend test-road-golden's vocab pin to
+system (+ rearAxle), add a lint asserting every system token has a ROAD_SYSTEM_CHAIN entry,
+and add the missing entries. Also t2 finding (a): guard the sram-apex-mech-12 token (Flattop
+vs Apex-Eagle chain conflation) — split or a hard warning note at the token per the
+coordinator's pick at review. Adversarial review at merge. Branch engine/road-vocab-lint,
+report road-vocab-lint.md.
 
-### 8+. Breadth round 4 leads (each catalog's last report names them)
-Road: alloy-staple frames + remaining Vittoria/Kenda/Michelin tire widths + Fulcrum
-retry. Gravel: Vulpine-S/Terra widths, Kanzo Fast (needs D-steerer vocab), the
-data-blocked flared-bar widths if makers ever publish per-width weights. BMX: 451-size
-Killer Buzz, small-parts remainder, Kink/Sunday/Fit completes. Kit: glove depth, youth,
-remaining women's-fit cells. EMTB: Stance E+ (blocked on conflicting maker copy), the
-Pinion ALLMTN (blocked on unpublished travelRear). MTB: Norco Sight C2/C1 completebikes
-(blocked on the $463/$1,271 bundle-invariant gaps — needs a price-confirmation pass on
-the OE-only fills), cb breadth continuation (Ragley/Marin/Kona/SC trims), the ~50
-1-9-row cockpit brand tail (mostly house-brand walls per tail-17's judgment).
-
----
+### 5+. Breadth round 4 leads (unchanged — each catalog's last report names them)
+Road alloy staples/Fulcrum retry · gravel Vulpine-S/Kanzo-Fast · BMX 451 Killer Buzz/completes ·
+kit glove depth/youth · EMTB Stance E+/Pinion blocks · MTB Norco Sight bundle-gaps, cb breadth,
+the ~50-brand cockpit tail.
 
 **★ DOUGLAS'S FULL OPEN-QUESTION QUEUE (consolidated 2026-07-22 at seat-17 wrap per the
 standing rule — "make sure any outstanding questions for me will be saved for the next
@@ -118,6 +106,16 @@ unanswered question.)**
 9. **dp-specialized-command-post-349-160** — "suspected fictional combo" flag stands.
 10. **Audit M7** — wheel-size-aware rule-18 clearance (Surly 27.5x3.0 case; gravel's
     maxTireByWheel is the model). Engine change → adversarial review when picked up.
+10b. **GRAVEL MULLET MODELING (tier-2 packet, 2026-07-22)** — pick an option from
+    tools/TIER2-DRIVETRAIN-DESIGN.md: A cheap-but-false-error-on-M3 / B RECOMMENDED (Eagle
+    tokens + AXS exemption + sourced pullRatio, staged) / C pair table / D deliberate
+    exclusion. Blocks gravel complete-bikes with mullet builds; no false verdict today.
+10c. **Flat<->post adapter deferral (R18 vs MTB BRK-28/29)** — the two engines now disagree:
+    MTB warns both ways off Shimano SM-MA + Wolf Tooth; road/gravel R18 keeps the
+    [MECHANIC REVIEW] error. Close the divergence?
+10d. **Wheel-PAIR price-split token** — pb-gravel-2: Zipp/Fulcrum/Reserve/DT GRC pair MSRPs
+    split across front/rear rows have no honest token (bundle-split-estimate is scoped to
+    shift-brake systems). Ratify a pair-split-estimate token, or leave those rows blank?
 11. **Older tail** (carried): archive_session auto-approve hook (JSON in seat-16's
     transcript, he deferred) · Audit L4 verification round-robin (his nod = implement) ·
     "Sort: Random" wording nit · gallery six · reviews.sql levers + hardening-2.sql ·
