@@ -65,6 +65,16 @@
 //     GRAVEL_VOCAB's own header forbids ("Widening this needs a real new row backing the
 //     value"), and THE BAR forbids the row. REOPEN THIS the day a maker page naming a
 //     36.1mm post or seat tube is fetched — not before.
+//   - gravel-breadth-1 (2026-07-22) NEW FLAG: SRAM's current mechanical 2x Apex front
+//     derailleur (FD-APX-A1, 10-speed, braze-on/clamp/direct-high mounts, confirmed real
+//     and current via sram.com/en/sram/models/fd-apx-a1) has NO matching `system` token in
+//     GRAVEL_VOCAB — every existing token is either an XPLR/AXS 1x-wireless family or a
+//     Shimano/Campagnolo family; there is no generic "SRAM mechanical road/gravel 2x" system
+//     value the way schema.js's MTB vocab has 'sram-eagle'. Force-fitting an existing token
+//     (e.g. 'sram-axs-road', which is wireless-only) would fabricate an actuation/system
+//     pairing that can't exist. NOT entered this pass — flagged for a future data-entry pass
+//     to add the token (with a name reviewed against SRAM's other mechanical-tier lines)
+//     rather than force-fit.
 //   - Tumbleweed / Curve's "non-standard" axle spacings: CLOSED, NO TOKEN NEEDED — this
 //     was already refuted by vocab-tier1 (2026-07-22) and nothing here changes it. Curve's
 //     GMX+ is standard 12x148 Boost + T47; Tumbleweed's Prospector originally shipped a
@@ -1364,6 +1374,9 @@ var GRAVEL_PARTS = [
     system: 'hg', speeds: 10, weight: 280, price: 25,
     note: 'gravel-depth-3: NEW row — the chain component of the RX400 2x10 group (BIKE24\'s GRX RX400 fact sheet lists "CN-HG54 chain" as the groupset\'s stock chain). FETCHED bike.shimano.com/products/components/pdp.P-CN-HG54.html directly — confirms "DEORE MTB CHAIN 10s", "directional Super Narrow HG-X chain with a mud-shedding design" — a real, current 10-speed HG chain (cross-family with MTB Deore, same shared-SKU pattern as this file\'s other generic \'hg\'-system chains). No numeric weight rendered on the fetched page (JS-gated spec table) — weight stays a same-class sample (bracketed against the 11-speed CN-HG601 at 257g, one step lighter/fewer-speed chains typically run a few grams heavier); price is an unsourced sample.',
     verified: true, lastChecked: '2026-07-22', source: 'https://bike.shimano.com/products/components/pdp.P-CN-HG54.html' },
+  { id: 'gch-shimano-cn-hg701-11', cat: 'chain', brand: 'Shimano', model: 'CN-HG701', family: 'shimano-hg701',
+    system: 'hg', speeds: 11, weight: 257, price: 40,
+    note: 'gravel-breadth-1: NEW row — the Ultegra/XT-tier 11-speed chain (SIL-TEC-treated, directional HG-X construction), a real distinct current Shimano SKU one step above the catalog\'s existing CN-HG601 (Deore-tier, same 257g/11-speed spec but a different, cheaper SKU/price point — both are legitimately catalogable per the flat-SKU price-differs rule). bike.shimano.com\'s own SKU page returned HTTP 403 to a direct fetch this session (a known Shimano wall on some product pages); weight (257g) and price ($39.99 MSRP) are corroborated across multiple retailer listings (Jenson USA, REI, Excel Sports, Merlin Cycles) that reproduce Shimano\'s own published spec sheet — credible-source unverified sample per THE BAR/DATA-ENTRY-TEMPLATE §7, not independently fetched, so no verified:true.' },
 
   // ===== CRANKSET ===========================================================
   { id: 'gcr-shimano-grx-fc-rx820-1x', cat: 'crankset', brand: 'Shimano', model: 'GRX FC-RX820',
@@ -1430,6 +1443,9 @@ var GRAVEL_PARTS = [
   { id: 'gbb-wheelsmfg-t47-outboard', cat: 'bb', brand: 'Wheels Manufacturing', model: 'T47 Outboard', family: 'wheelsmfg-t47-outboard',
     shell: 't47-road', spindle: 'dub', weight: 75, price: 70,
     note: 'gravel-verify-2 (2026-07-21): PARTIAL — FETCHED wheelsmfg.com\'s own product page ("T47 Outboard ABEC-3 BB for 29mm SRAM DUB Compatible Cranks"). Confirms "T47 threaded BB cups for T47 frames and 29mm spindle diameter SRAM DUB compatible cranks" (shell=t47-road, spindle=dub — both stand). NOT marked verified: the page rendered its price in EUR (€120.95) rather than USD despite wheelsmfg.com being a US (Colorado) manufacturer — no confirmed US MSRP found this session — and no weight is published on the fetched page; both price and weight remain existing samples pending a session that can pull the USD storefront.' },
+  { id: 'gbb-sram-dub-t47-a1', cat: 'bb', brand: 'SRAM', model: 'DUB T47 Bottom Bracket', family: 'sram-dub-t47',
+    mfgPn: 'BB-DUB-T47-A1', shell: 't47-road', spindle: 'dub', weight: 120, price: 60,
+    note: 'gravel-breadth-1: NEW row — a real, distinct SRAM DUB SKU (Model ID BB-DUB-T47-A1) from the existing gbb-sram-dub-bsa row (threaded T47 shell, not BSA). FETCHED sram.com/en/sram/models/bb-dub-t47-a1 directly this session: confirms "T47" shell family (68/77/85.5mm cup options under one spindle interface, "One oversized spindle to work across every bottom bracket specification" = DUB) and states MSRP as a $60-$290 range (varies by shell width + standard-vs-ceramic bearing tier) — this row uses the $60 low end (standard steel-bearing, 68mm/T47-road shell) as a disclosed floor rather than an invented single figure. Weight (120g) not published on the fetched SRAM page; corroborated via retailer/forum citations (Weight Weenies, product listings) for the same BB-DUB-T47-A1 SKU — credible-source unverified sample per THE BAR/DATA-ENTRY-TEMPLATE §7, not independently confirmed on the manufacturer page, so no verified:true.' },
 
   // ===== HEADSET ==============================================================
   { id: 'ghs-canecreek-40-zs44-zs56', cat: 'headset', brand: 'Cane Creek', model: '40 Series',
@@ -1496,6 +1512,9 @@ var GRAVEL_PARTS = [
   { id: 'gro-campagnolo-afs-160-6b', cat: 'rotor', brand: 'Campagnolo', model: 'AFS Disc Rotor', family: 'campagnolo-afs',
     size: 160, mount: 'center-lock', weight: 155, price: 50,
     note: 'gravel-6 verification pass: FETCHED campagnolo.com/ro-en/campagnolo-rotor-03/CROSUPERRECORDDB12S.html ("Campagnolo Rotor 03", the current AFS-line rotor) — "Engineered to be installed on Centerlock or AFS systems" (multiple independent sources confirm AFS is Campagnolo\'s own name for its Center-Lock-interface spider mount, not a distinct bolt pattern; no 6-bolt Campagnolo AFS SKU exists). MOUNT CORRECTED 6-bolt->center-lock — the prior 6-bolt value was a fabricated SKU that does not exist (THE BAR catch, same pattern as the SRAM Paceline rotor this wave). The id token "-160-6b" is now stale after this correction (ids are append-only, never renamed) — flagged per the running precedent (FD-RX600/SM-BB72/Paceline). Weight: the fetched Rotor 03 page states only a 140mm figure (99g) in the captured spec table, not the 160mm this row models, and this row\'s exact "AFS Disc Rotor for EKAR" naming may be an earlier generation than "Rotor 03" — not a confident match, so weight stays the pre-existing sample and this row stays UNVERIFIED (mount corrected but not fully bar-cleared).' },
+  { id: 'gro-shimano-rt-mt900-160-cl', cat: 'rotor', brand: 'Shimano', model: 'RT-MT900', family: 'shimano-rt-mt900-xtr',
+    size: 160, mount: 'center-lock', weight: 108, price: 95,
+    note: 'gravel-breadth-1: NEW row — Shimano\'s XTR-tier rotor (Ice-Tec, external-tooth lock ring), a real, distinct, current SKU from the existing gro-shimano-rt-mt800-160-cl row (a lower Deore-XT-adjacent tier), same brand/mount class the catalog already carries a sibling of. bike.shimano.com\'s SKU page returned HTTP 403 to a direct fetch this session (the same Shimano fetch wall already logged on the sibling RT-MT800 row above). Weight (108g @ 160mm) and price ($95 MSRP) are corroborated across multiple independent retailer listings (CyclingUpgrades.com\'s own product title states "108 grams", Excel Sports and Competitive Cyclist both list the $95 MSRP) — credible-source unverified sample per THE BAR/DATA-ENTRY-TEMPLATE §7, not independently confirmed on the manufacturer page, so no verified:true.' },
 
   // ===== HANDLEBAR (flared) =====================================================
   { id: 'ghb-salsa-cowbell-318', cat: 'handlebar', brand: 'Salsa', model: 'Cowbell', family: 'salsa-cowbell',
@@ -1631,6 +1650,9 @@ var GRAVEL_PARTS = [
   { id: 'gdp-rockshox-reverb-axs-xplr-272-50', cat: 'dropper', brand: 'RockShox', model: 'Reverb AXS XPLR',
     family: 'rockshox-reverb-axs-xplr', diameter: '27.2', drop: 50, actuation: 'axs-wireless', weight: 480, price: 900,
     note: 'gravel-verify-4 (2026-07-21): FETCHED sram.com/en/rockshox/models/sp-rvb-xplr-a2 (current model) directly — confirms 27.2mm post diameter and 50mm/75mm travel options (50mm matches), AXS-controller wireless remote (actuation:axs-wireless matches), MSRP EUR 633 (no USD price on this page). No weight published on the current A2 page; the prior-generation SP-RVB-XPLR-A1 service-spec page states "Weight (g) 562" but explicitly "Based On 75mm Travel... W/O battery - Battery 25g" — a different travel point than this row\'s 50mm and an older SKU, so not a clean match. Interfaces confirmed manufacturer-side; weight stays the pre-existing unverified sample rather than force-matching a different travel/generation figure.' },
+  { id: 'gdp-rockshox-reverb-axs-xplr-272-75', cat: 'dropper', brand: 'RockShox', model: 'Reverb AXS XPLR (75mm)',
+    family: 'rockshox-reverb-axs-xplr', diameter: '27.2', drop: 75, actuation: 'axs-wireless', weight: 562, price: 633,
+    note: 'gravel-breadth-1: NEW row — the 75mm-travel config of the same Reverb AXS XPLR platform as the catalog\'s existing 50mm row, a distinct fit/weight SKU per the flat-SKU split policy (different drop). This is exactly the travel point the sibling 50mm row\'s own gravel-verify-4 note already flagged but did not enter: the prior-gen SP-RVB-XPLR-A1 service-spec page states "Weight (g) 562... Based On 75mm Travel... W/O battery", and this pass\'s retailer sweep (Cambria Bike, Worldwide Cyclery, Tree Fort Bikes, BikeRadar review) independently corroborates the same 562g-without-battery figure and a EUR633 street/MSRP price point for the 27.2/75mm/400 SKU. Not independently re-fetched from sram.com/rockshox this session (sp-rvb-a2 404\'d) — credible-source unverified sample per THE BAR/DATA-ENTRY-TEMPLATE §7, no verified:true.' },
   { id: 'gdp-oneup-v2-272-70', cat: 'dropper', brand: 'OneUp', model: 'V2 Dropper', family: 'oneup-v2',
     diameter: '27.2', drop: 70, actuation: 'mechanical', weight: 480, price: 259,
     note: 'gravel-grind-1 row: real product, not independently fetched this session — stays unverified sample.' },
