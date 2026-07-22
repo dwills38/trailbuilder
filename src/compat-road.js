@@ -139,7 +139,13 @@ var ROAD_VOCAB = {
                  // with zero engine changes. Precedent: gravel's 'lefty-proprietary' axle.
                  'cannondale-delta',   // Cannondale "Delta" 1-1/8→1-1/4 non-round (SuperSix EVO)
                  'overdrive-aero',     // Giant D-shaped "OverDrive Aero" (TCR/Defy/Propel)
-                 'bmc-ics-flat'],      // BMC ICS "flat steerer" — Teammachine SLR 01 owner's manual: ICS-cockpit-only, standard round stems explicitly incompatible
+                 'bmc-ics-flat',       // BMC ICS "flat steerer" — Teammachine SLR 01 owner's manual: ICS-cockpit-only, standard round stems explicitly incompatible
+                 /* 'cervelo-d-shaped' ADDED schema/vocab-widen-ab (2026-07-22), the FIRST
+                    per-system proprietary steerer on the GRAVEL side of this shared axis —
+                    Cervelo's own 2026 Aspero-5 service reference (Frame Code FM164) states
+                    "Fork Steerer Type: Cervelo D-Shaped". Same doctrine as the three road
+                    tokens above; full sourcing at GRAVEL_VOCAB.steerer in schema-gravel.js. */
+                 'cervelo-d-shaped'],
   system:       ['shimano-road-12', 'shimano-road-11', 'shimano-grx-12', 'shimano-grx-11',
                  /* 'shimano-grx-10' RECONCILED engine/road-vocab-lint (2026-07-22): the
                     RX400 2x10 tier landed in GRAVEL_VOCAB.system and on 4 data/gravel.js
@@ -208,14 +214,20 @@ var ROAD_VOCAB = {
      names the BB unit's SPINDLE interface; the frame's shell is threaded) — a
      catalog-data question, out of this pass's scope, so the token is documented as
      accepted-and-in-use rather than quietly dropped.
-     DELIBERATELY NOT RECONCILED: GRAVEL_VOCAB.bb also accepts 't47a-bbright', but
-     that key is MERGED (it vocabs frame.bb AND crankset.bb — shells and spindles in
-     one list) and NO row uses the token, so nothing in the schemas' own usage says
-     which side it belongs to. Attributing it by name alone would be exactly the
-     guess THE BAR forbids; the data lint will force the decision the day a row
-     lands. */
+     't47a-bbright' RESOLVED schema/vocab-widen-ab (2026-07-22) — EXACTLY as the
+     note it replaces predicted. It previously read: "DELIBERATELY NOT RECONCILED:
+     GRAVEL_VOCAB.bb also accepts 't47a-bbright', but that key is MERGED (it vocabs
+     frame.bb AND crankset.bb — shells and spindles in one list) and NO row uses the
+     token, so nothing in the schemas' own usage says which side it belongs to...
+     the data lint will force the decision the day a row lands." A row has now
+     landed: gfr-cervelo-aspero-5 carries it as frame.bb, so the token is
+     attributed to the SHELL side by usage rather than by name. Cervelo's own 2026
+     Aspero-5 service reference states it verbatim — "Bottom Bracket Type/Width:
+     T47 BBright (T47A) Left cup: Inboard T47, Right cup: Outboard T47" — i.e. an
+     asymmetric threaded SHELL standard, never a crank spindle, which is also why
+     it stays OUT of crankBb below. */
   bbShell:      ['bsa-road', 'bb86', 'bb386evo', 'bbright', 'pf30', 't47-road', 'italian',
-                 'bb90-road', 'bb30a', 't47-86', 'pf92', 'bsa-73', 'square-taper'],
+                 'bb90-road', 'bb30a', 't47-86', 'pf92', 'bsa-73', 'square-taper', 't47a-bbright'],
   /* 'square-taper' RECONCILED engine/road-vocab-map (2026-07-22) from
      GRAVEL_VOCAB.spindle, which vocabs bb.spindle ONLY — an unambiguous one-field
      key, so the crank-side attribution needs no guess. No cataloged gravel crank or
@@ -294,8 +306,10 @@ var ROAD_VOCAB = {
    `schemaGravel` name the keys whose token set belongs to this axis, and
    `schemaShared` names merged keys that only partly do; NOTHING here claims
    every token of a listed key is in the ROAD_VOCAB key (the deliberate
-   non-reconciliations are documented at the tokens above: gravel `axle`'s
-   '12x142', gravel `bb`'s 't47a-bbright'). It is also, like ROAD_VOCAB itself,
+   non-reconciliation still standing is documented at the token above: gravel
+   `axle`'s '12x142'. Gravel `bb`'s 't47a-bbright' USED to be the second one and
+   was resolved in schema/vocab-widen-ab, 2026-07-22, when a row finally forced
+   the shell-vs-spindle call). It is also, like ROAD_VOCAB itself,
    INERT AT RUNTIME: checkRoadBuild never reads it, so nothing here can change a
    verdict.
    ========================================================================== */
@@ -356,7 +370,7 @@ var ROAD_VOCAB_MAP = [
   { key: 'bbShell', schemaRoad: ['bbShellRoad'], schemaGravel: ['shell'], schemaShared: ['bb'], rules: 'R11 (rg-bb-shell)',
     rows: [ {cats: ['frame'], field: 'bb'},
             {cats: ['bb'], field: 'shell'} ],
-    why: 'The FRAME-shell half of R11. schema-road\'s bbShellRoad vocabs frame.bb + bb.shell together, and GRAVEL_VOCAB.shell vocabs bb.shell alone — both unambiguous. GRAVEL_VOCAB.bb is SHARED: it vocabs frame.bb (a shell) AND crankset.bb (a spindle) from one list holding both kinds, so its tokens can only be attributed by the row that uses them. That is why \'t47a-bbright\', which no row uses, is deliberately left unattributed.' },
+    why: 'The FRAME-shell half of R11. schema-road\'s bbShellRoad vocabs frame.bb + bb.shell together, and GRAVEL_VOCAB.shell vocabs bb.shell alone — both unambiguous. GRAVEL_VOCAB.bb is SHARED: it vocabs frame.bb (a shell) AND crankset.bb (a spindle) from one list holding both kinds, so its tokens can only be attributed by the row that uses them. That is exactly how \'t47a-bbright\' was resolved in schema/vocab-widen-ab (2026-07-22): it sat here unattributed for as long as no row used it, and became a SHELL token the moment gfr-cervelo-aspero-5 carried it as frame.bb — attribution by usage, never by name.' },
 
   { key: 'crankBb', schemaRoad: ['crankBbRoad'], schemaGravel: ['spindle'], schemaShared: ['bb'], rules: 'R11 (rg-bb-spindle), rg-bb-advisory',
     rows: [ {cats: ['crankset'], field: 'bb'},

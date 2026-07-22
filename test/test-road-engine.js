@@ -828,3 +828,67 @@ test('gxp x rg-bb-advisory: the pick-a-BB info names the GXP spindle', function(
   eq(i.length, 1, 'frame + crank + no BB = the sold-separately nudge');
   ok(/gxp/i.test(String(i[0])), 'and it must name the spindle the rider has to match: ' + i[0]);
 });
+
+/* ---- cervelo-d-shaped: R4 (rg-steerer, rg-headset-steerer) ---------------- */
+test('cervelo-d-shaped x R4: the Aspero-5 errors against a round fork/headset and is silent against its own', function(){
+  var frame = gp('gfr-cervelo-aspero-5');
+  eq(frame.steerer, 'cervelo-d-shaped', 'precondition: the row that forced this token');
+
+  var roundFork = gp('gfk-specialized-crux-carbon-rigid');
+  eq(roundFork.steerer, 'tapered', 'precondition: a genuinely round tapered fork');
+  eq(errOf(ROAD.checkRoadBuild({ frame: frame, fork: roundFork }), 'rg-steerer').length, 1,
+    'THE WHOLE POINT: a round tapered fork must NOT green against a D-shaped steerer tube');
+
+  eq(errOf(ROAD.checkRoadBuild({ fork: syn(roundFork, { steerer: 'cervelo-d-shaped' }), headset: gp('ghs-canecreek-40-zs44-zs56') }), 'rg-headset-steerer').length, 1,
+    'and a round headset cannot serve it either');
+
+  /* the same-system pair fits with ZERO engine changes - the per-system doctrine */
+  eq(of(ROAD.checkRoadBuild({ frame: frame, fork: syn(roundFork, { id: 'gfk-synthetic-cervelo-d', steerer: 'cervelo-d-shaped' }) }), 'rg-steerer').length, 0,
+    'D-shaped frame + D-shaped fork: silent');
+
+  /* and it must never collide with the OTHER proprietary systems */
+  eq(errOf(ROAD.checkRoadBuild({ frame: frame, fork: syn(roundFork, { id: 'gfk-synthetic-giant', steerer: 'overdrive-aero' }) }), 'rg-steerer').length, 1,
+    'ONE TOKEN PER SYSTEM: a Giant OverDrive Aero steerer must not fit a Cervelo D-shaped frame');
+});
+
+/* ---- t47a-bbright: R11 rg-bb-shell --------------------------------------- */
+test('t47a-bbright x R11: the Aspero-5 shell errors against a BSA bottom bracket and is silent against its own', function(){
+  var frame = gp('gfr-cervelo-aspero-5');
+  eq(frame.bb, 't47a-bbright', 'precondition: the row that attributed the token to the SHELL side');
+
+  var bsaBb = gp('gbb-sram-dub-bsa');
+  eq(errOf(ROAD.checkRoadBuild({ frame: frame, bb: bsaBb }), 'rg-bb-shell').length, 1,
+    'a BSA-shell bearing set does not thread into a T47a shell');
+
+  eq(of(ROAD.checkRoadBuild({ frame: frame, bb: syn(bsaBb, { id: 'gbb-synthetic-t47a', shell: 't47a-bbright' }) }), 'rg-bb-shell').length, 0,
+    'T47a shell + T47a BB: silent');
+
+  /* T47a is NOT plain T47 - the asymmetric cups are the whole reason for the token */
+  eq(errOf(ROAD.checkRoadBuild({ frame: frame, bb: gp('gbb-praxis-t47') }), 'rg-bb-shell').length, 1,
+    'a t47-road bearing set must not pass as T47a - the false-MATCH shape');
+});
+
+/* ---- the Straggler split: both corrections MOVE live verdicts ------------- */
+test('Straggler Classic x R18: its corrected I.S. mount now points riders at a post-mount caliper', function(){
+  var classic = gp('gfr-surly-straggler');
+  eq(classic.model, 'Straggler Classic', 'Douglas-ruled relabel; the id is unchanged (append-only)');
+  eq(classic.brakeMount, 'is-mount', 'the known-wrong flat-mount sample is gone');
+
+  var e = errOf(ROAD.checkRoadBuild({ frame: classic, rearBrake: gp('gbr-shimano-grx-br-rx820') }), 'rg-brake-mount');
+  eq(e.length, 1, 'a flat-mount caliper on an I.S. frame: an error where it used to be a silent green');
+  ok(/post-mount/i.test(String(e[0])), 'and it must say what DOES work: ' + e[0]);
+
+  eq(warnOf(ROAD.checkRoadBuild({ frame: classic, rearBrake: gp('gbr-hope-rx4-plus-postmount-min') }), 'rg-brake-mount').length, 1,
+    'a post-mount caliper is the documented adapter tier, not a wall');
+});
+
+test('Straggler 2025 x R4: the maker-sourced straight steerer reverses the fork verdicts', function(){
+  var s25 = gp('gfr-surly-straggler-2025');
+  eq(s25.steerer, 'straight-1-1-8', 'corrected off surlybikes.com (EC44/30 lower + a stated 28.6mm/1-1/8in steerer)');
+
+  var taperedFork = gp('gfk-specialized-crux-carbon-rigid');
+  eq(errOf(ROAD.checkRoadBuild({ frame: s25, fork: taperedFork }), 'rg-steerer').length, 1,
+    'a tapered fork no longer greens against this frame - the corrections whole point');
+  eq(of(ROAD.checkRoadBuild({ frame: s25, fork: syn(taperedFork, { id: 'gfk-synthetic-straight', steerer: 'straight-1-1-8' }) }), 'rg-steerer').length, 0,
+    'and the fork that actually fits is silent');
+});
