@@ -1,5 +1,18 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — SDG dedup + the backfill era opens (striders 37→2)
+
+- **Coordinator fix (tail-17's disposition applied)**: sa-sdg-belair-v3-lux-alloy retired
+  into ALIASES → sa-sdg-belair-v3 (sdgcomponents.com's own page proves them the same SKU;
+  the retired row carried stale figures), all 24 fill/desc references repointed, MTB 5,104
+  parts net. Gates + harness clean.
+- **backfill/pb-striders merged — the first priceBasis backfill**: 37→2 (28 msrp-confirmed
+  off maker pages, 7 regional-conversion per their own disclosed EUR bases). The 2
+  leftovers surface a REAL ENUM GAP: "current model, maker publishes no price at all,
+  stored figure is third-party" fits none of the 5 tokens — honestly left in the burndown
+  rather than mislabeled. Question for Douglas (first ask): add a 6th token for the
+  no-maker-price/third-party-listed class? The pattern will recur in other catalogs.
+
 ## 2026-07-22 — mtb-cb-breadth-1: three bikes done right (MTB 5,105 parts)
 
 - **catalog/mtb-cb-breadth-1 merged**: Commencal Meta V5 Essential, Vitus Escarpe 27 CRX
