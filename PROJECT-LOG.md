@@ -1,5 +1,35 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — breadth round 2 lands whole: road 286 · gravel 308 · EMTB 102 · MTB 5,062
+
+- **catalog/road-depth-4 merged**: +23 — Factor, Mavic, Fulcrum debut as brands (the
+  prior Fulcrum pane-denial didn't reproduce — walls stale again); Émonda/Madone SL,
+  CAAD13 (via Cannondale's own manual PDF), Cervélo R5/Soloist; Ultegra C36; Rubino/
+  Power Cup/Specialized Cotton/Eagle F1 width fills; the Schwalbe $80→$91 reconciliation
+  landed. Driver-variant matrix deliberately deferred, disclosed in-row.
+- **catalog/emtb-breadth-2 merged**: +2 both verified — Santa Cruz Vala AL Deore (a
+  whole missing model line; sale-price trap dodged, $5,999 regular used) and Mondraker
+  Level XR. Most of breadth-1's remainder list turned out already covered; the genuinely
+  blocked fetches (Giant search UI, YT slugs, Pivot's build-selector widget, Haibike
+  locale) documented as leads, not walls.
+- **catalog/gravel-depth-3 merged**: +20 — the full GRX RX400 2x10 group entered with a
+  RATIFIED vocab widening (shimano-grx-10 system + speeds:10 — backed by Shimano's own
+  current-lineup page; Merlin's discontinuation was retailer inventory, not end-of-line);
+  the Apex XPLR mech group finally gets its cassette (was unbuildable!); HUNT 35/40
+  Carbon tiers (a shared-Shopify-template phantom front-wheel weight CAUGHT and
+  refused), DT GRC 1400 DICUT 30, Roval Terra CL (real per-wheel split, genuinely
+  different stock freehub vs CLX), Fulcrum Rapid Red 500 (maker-confirmed rebadge).
+- **catalog/hardtail-breadth-2 merged**: +9 — Big Wig + Big Wig Race complete bikes
+  (crankset genuinely absent from Ragley's own sheet — same-family sample disclosed,
+  rows honestly unverified; rotor warning checkBuild-confirmed as the accepted family
+  pattern); the catalog's FIRST IS-mount DJ frames (Dartmoor Two6Player Pro with a
+  maker-stated 160mm rotor max, Identiti Dr Jekyll) — rule 9's IS logic now live on DJ;
+  the Kona Shonky cog lead RESOLVED via vitalmtb's own sheet (Joytech 14T); RST Dirt-T
+  budget DJ fork (needs a 26in 9x100-qr front wheel to pair — progressive-coverage
+  pattern). Scout 275 re-confirmed broken server-side (CloudFront 504). Flags: Mongoose
+  Fireball's 9x135 bolt dropout needs a vocab call; "Pride Street" likely doesn't exist.
+- Gates: 7 OK (totals above), 989/989, tsc clean, harness fully clean (344 assemblies).
+
 ## 2026-07-22 — bmx-depth-9: the missed brands land, the race side stays honest (BMX 322)
 
 - **catalog/bmx-depth-9 merged**: +9 rows — Rant (via sparkysbrands.com, correctly
