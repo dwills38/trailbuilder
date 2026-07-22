@@ -500,6 +500,7 @@
 
 <script src="../src/config.js"></script>
 <script src="../src/kit.js"></script>
+<script src="../src/pricing.js"></script>
 <script src="../src/discontinued-archive.js"></script>
 <script>
 /* ==========================================================================
@@ -679,8 +680,14 @@
   function provHtml(p){
     // kit uses the same provenance tiers as the bike catalog: a ✓ pill when
     // verified against a source, otherwise an honest "sample" note.
-    if(p.verified===true && p.source) return '<a class="ver" href="'+esc(p.source)+'" target="_blank" rel="noopener nofollow">✓ Verified</a>';
-    return '<span class="est">Sample spec (unverified)</span>';
+    // The title also carries the PRICE clause (Douglas's 2026-07-22 ruling:
+    // "verified means the pricing was verified too") — the ✓ used to speak
+    // only for the SPEC while the price could still be sample data. Wording is
+    // shared from src/pricing.js so every page says the identical thing; it
+    // rides a hover title only, never a popup (hard rule 2).
+    var priceNote = esc(window.priceBasisLabel(p));
+    if(p.verified===true && p.source) return '<a class="ver" href="'+esc(p.source)+'" target="_blank" rel="noopener nofollow" title="Spec checked against the manufacturer ('+priceNote+') — click for the source">✓ Verified</a>';
+    return '<span class="est" title="Sample data — not checked against a manufacturer spec ('+priceNote+')">Sample spec (unverified)</span>';
   }
   function chartHtml(p){
     if(!p.sizeChart) return '';

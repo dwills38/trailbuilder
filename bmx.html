@@ -522,6 +522,7 @@
 </dialog>
 
 <script src="src/compat.js"></script>
+<script src="src/pricing.js"></script>
 <script src="src/compat-bmx.js"></script>
 <script src="src/discontinued-archive.js"></script>
 <script src="data/bmx.js"></script>
@@ -716,9 +717,16 @@
     if(p.discipline) bits.push(p.discipline.charAt(0).toUpperCase()+p.discipline.slice(1));
     return bits.filter(Boolean).join(' · ');
   }
+  /* Provenance badge. The title carries the PRICE clause too (Douglas's
+     2026-07-22 ruling: "verified means the pricing was verified too") — the ✓
+     used to speak only for the SPEC, while the price could still be sample
+     data and nothing said so. Wording is shared from src/pricing.js so every
+     page says the identical thing; it rides a hover title and the
+     click-opened part card only, never a popup (hard rule 2). */
   function provHtml(p){
-    if(p.verified===true && p.source) return '<a class="ver" href="'+esc(p.source)+'" target="_blank" rel="noopener nofollow">✓ Verified</a>';
-    return '<span class="est">Sample spec (unverified)</span>';
+    var priceNote = esc(window.priceBasisLabel(p));
+    if(p.verified===true && p.source) return '<a class="ver" href="'+esc(p.source)+'" target="_blank" rel="noopener nofollow" title="Spec checked against the manufacturer ('+priceNote+') — click for the source">✓ Verified</a>';
+    return '<span class="est" title="Sample data — not checked against a manufacturer spec ('+priceNote+')">Sample spec (unverified)</span>';
   }
 
   /* ---- part detail dialog (phone-fix-3, 2026-07-18): the card dot's tap target.

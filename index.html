@@ -2266,9 +2266,18 @@
 
   /* ---- provenance badge (esc + partVerified are shared from compat.js) ----
      `extra` (optional) is appended inline after the verified/estimate badge —
-     used by cardEl to add the owned badge on the same line. */
+     used by cardEl to add the owned badge on the same line.
+
+     Every branch's tooltip carries the PRICE clause too (Douglas's 2026-07-22
+     ruling: "verified means the pricing was verified too"). The badge used to
+     say only that the SPEC was checked, while the price could still be sample
+     data — priceBasisLabel() closes that by naming which case the row's price
+     is in. Wording lives in src/pricing.js so it's tested and identical on
+     every page; it rides existing hover titles and click-opened cards only,
+     never a popup (hard rule 2). */
   function provHtml(p, extra){
     var body;
+    var priceNote = window.priceBasisLabel(p);
     if(p.cat==='completebike'){
       // Distinct badge from the part-level "✓ Verified" (bias-r3 fix, 2026-07-17):
       // this claims the BUILD SHEET (which parts ship stock on this bike) was
@@ -2279,23 +2288,26 @@
         var cbWhen = p.lastChecked ? (' on '+esc(p.lastChecked)) : '';
         body = p.source
           ? '<a class="sheet-ver" href="'+esc(p.source)+'" target="_blank" rel="noopener noreferrer"'+
-            ' title="This bike\'s build sheet (which parts ship stock on it) was checked against the manufacturer'+cbWhen+' — click for the source">🧾 Build-sheet verified</a>'
-          : '<span class="sheet-ver" title="This bike\'s build sheet was checked against the manufacturer'+cbWhen+'">🧾 Build-sheet verified</span>';
+            ' title="This bike\'s build sheet (which parts ship stock on it) was checked against the manufacturer'+cbWhen+' ('+esc(priceNote)+') — click for the source">🧾 Build-sheet verified</a>'
+          : '<span class="sheet-ver" title="This bike\'s build sheet was checked against the manufacturer'+cbWhen+' ('+esc(priceNote)+')">🧾 Build-sheet verified</span>';
       } else {
-        body = '<span class="est" title="Sample data — this build sheet has not yet been checked against the manufacturer">≈ estimate</span>';
+        body = '<span class="est" title="Sample data — this build sheet has not yet been checked against the manufacturer ('+esc(priceNote)+')">≈ estimate</span>';
       }
     } else if(!p.fills && p.verified===true && p.source){
       var when = p.lastChecked ? (' on '+esc(p.lastChecked)) : '';
       var url = esc(p.source);
       body = '<a class="ver" href="'+url+'" target="_blank" rel="noopener noreferrer"'+
-        ' title="Spec checked against the manufacturer'+when+' — click for the source">✓ Verified</a>';
+        ' title="Spec checked against the manufacturer'+when+' ('+esc(priceNote)+') — click for the source">✓ Verified</a>';
     } else if(p.fills && partVerified(p)){
       // Honest badge for kits (REVIEW.md #11): the PARTS are verified and the
       // kit weight is derived from them, but the bundle PRICE is its own
-      // unverified number - never claim more than that.
+      // unverified number - never claim more than that. The bundle price is the
+      // preset's OWN number, so it is deliberately NOT described by
+      // priceBasisLabel (which reads the row's own priceBasis) - the existing
+      // "The bundle price is an estimate." sentence is already the honest one.
       body = '<span class="ver" title="Every part in this kit is verified against a manufacturer spec; kit weight is derived from those parts. The bundle price is an estimate.">✓ Parts verified</span>';
     } else {
-      body = '<span class="est" title="Sample data — approximate, not yet checked against a manufacturer spec">≈ estimate</span>';
+      body = '<span class="est" title="Sample data — approximate, not yet checked against a manufacturer spec ('+esc(priceNote)+')">≈ estimate</span>';
     }
     return '<div class="prov">'+body+(extra||'')+'</div>';
   }
@@ -3817,7 +3829,7 @@
       g.slots.forEach(function(s){
         var p=res[s.key]; if(!p) return;
         rows+='<div class="bm-row"><span class="bl">'+esc(s.label)+'</span><span class="bp">'+esc(p.brand+' '+p.model)+
-          (partVerified(p)?' <span class="vchk" title="Verified against the manufacturer">✓</span>':'')+'</span><span class="br">'+
+          (partVerified(p)?' <span class="vchk" title="Verified against the manufacturer ('+esc(window.priceBasisLabel(p))+')">✓</span>':'')+'</span><span class="br">'+
           (bundle?'in kit':(money(p.price)+(typeof p.weight==='number'?' · '+p.weight+' g':'')))+'</span></div>';
       });
     });
