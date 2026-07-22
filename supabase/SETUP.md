@@ -163,6 +163,12 @@ values (public.profile_norm('Some Name'), 'Some Name', 'blocked') on conflict (n
 delete from public.reserved_usernames where norm = public.profile_norm('Some Name');
 ```
 
+Batch additions live in **`supabase/forum-reserved-additions.sql`** (idempotent — safe to re-run
+the whole file whenever a new dated batch is appended). Run it in the SQL editor after any
+update. First batch (2026-07-21): "Dirt Jesus" (`held`, owner order). A pro-rider-name batch
+(current pros' first+last names, `held` so the real rider can claim theirs through the
+verified-pro flow) is generated separately and appended to the same file.
+
 ## 10. Service log (Phase 5 — garage maintenance records)
 
 Signed-in riders can log service events ("fork lowers service", "new chain") against a saved
