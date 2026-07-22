@@ -482,3 +482,19 @@ insert into public.reserved_usernames (norm, label, kind, note) values
   (public.profile_norm('Adam Scroxton'), 'Adam Scroxton', 'held', 'influencer — GMBN Tech presenter, gmbn.com'),
   (public.profile_norm('GCN'), 'GCN', 'held', 'influencer — Global Cycling Network (brand token only; presenter roster not researched this pass)')
 on conflict (norm) do nothing;
+
+-- ===========================================================================
+-- BATCH 3 — 2026-07-21 (owner's local add): Sploosh MTB.
+--
+-- The rider's real name was NOT included: no page I could actually fetch
+-- (YouTube channel/about, Instagram bio, MBR's own MTB-YouTuber roundup)
+-- surfaced it — Sploosh MTB is a small local channel with a thin public
+-- footprint, and both the YouTube and Instagram pages returned JS shells
+-- with no bio text visible to a fetch. Per standing doctrine, a guessed
+-- real name is worse than a missing one, so it's skipped and reported
+-- rather than fabricated.
+-- ===========================================================================
+insert into public.reserved_usernames (norm, label, kind, note) values
+  (public.profile_norm('Sploosh MTB'), 'Sploosh MTB', 'held', 'influencer — Sploosh MTB, owner order'),
+  (public.profile_norm('Sploosh'), 'Sploosh', 'held', 'influencer — Sploosh MTB, owner order')
+on conflict (norm) do nothing;
