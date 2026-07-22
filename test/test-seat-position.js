@@ -161,13 +161,16 @@ test('rules 13 / 13c still fire on whichever post is picked', function(){
   some(shim.warnings, 'shim', 'a smaller rigid post still raises the reducing-shim warning');
 });
 
-test('the DH / noStockDropper seat exemptions are unchanged (postless complete bikes depend on them)', function(){
+test('the DH / noStockDropper seat exemptions are unchanged (any postless complete bikes still depend on them)', function(){
   // Pinned, not endorsed. These two flags now do only one thing: let a frame
-  // count complete with NO post at all. That is right for neither bike in the
-  // real world — both ship a rigid post — but 24 catalog complete-bike rows
-  // fill no post because those posts are not cataloged as `seatpost` rows yet.
-  // Closing that is a DATA task (flagged for Douglas); until then this pin
-  // keeps the behaviour deliberate.
+  // count complete with NO post at all. That was right for neither bike in the
+  // real world — both ship a rigid post — but as of catalog/cb-rigid-posts-1 +
+  // the marlin7-dropper fix (2026-07-22), every complete-bike row that used to
+  // rely on this exemption has since gained a real cataloged seatpost/dropper
+  // fill, closing the data gap this pin was guarding. The exemption mechanism
+  // itself stays pinned directly against `requiredSeatSlots` below (so a
+  // future frame relying on it is still caught); the postless-bikes loop is
+  // now a zero-or-more structural check, not an existence assertion.
   eq(requiredSeatSlots(part('fr-commencal-supreme-dh-v5')).length, 0, 'DH-discipline frame: seat position exempt');
   eq(requiredSeatSlots(part('fr-canyon-lux-world-cup-cf')).length, 0, 'noStockDropper frame: seat position exempt');
   /** @param {any} p @returns {Object.<string,string>} */
@@ -177,7 +180,6 @@ test('the DH / noStockDropper seat exemptions are unchanged (postless complete b
     var f = fillsOf(p);
     return !f.dropper && !f.seatpost;
   });
-  ok(postless.length > 0, 'the catalog does hold postless complete bikes');
   postless.forEach(function(cb){
     var frame = C.byId(fillsOf(cb).frame);
     ok(seatExempt(frame), cb.id + ' is postless and MUST sit on a seat-exempt frame (' +
