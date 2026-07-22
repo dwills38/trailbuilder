@@ -1,5 +1,15 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — striders-variants-1: the fit-guide rounds out (45 bikes)
+
+- **catalog/striders-variants-1 merged**: +7 real size variants (Early Rider Charger 12 +
+  Lite, Kokua Jumper 14 — kokuabikesusa.com's own US price renders as a broken JPY figure,
+  a genuine site bug, GBP-converted sample disclosed; Puky LR 1L Br + LR XL, Yedoo OneToo,
+  Strider 12 Comp). Discipline: Prevelo Alpha One+ correctly excluded (pedal bikes),
+  Strider Rocking Base is an accessory not a bike, the 2-in-1 bundles aren't spec-distinct
+  SKUs. Striders 45 (37 verified, 37/45 with seat-height range). Gates: 7 OK, 989/989,
+  tsc clean.
+
 ## 2026-07-22 — road-depth-5: the driver matrix closes (road 307)
 
 - **catalog/road-depth-5-a7bead merged** (sandbox worktree collision honestly flagged and
