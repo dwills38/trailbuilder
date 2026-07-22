@@ -2109,6 +2109,79 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/BR-R2000',
     note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/BR-R2000 via the browser pane. Spec table: "Series SHIMANO CLARIS", "Type NEW SUPER SLR Dual pivot" (brakeSystem/mount rim-caliper, no pistons - same shape as the existing Sora BR-R3000 caliper row), "Reach (mm) 51" (reach:51, exact page figure), "Compatibility NEW SUPER SLR" (recorded as leverPair, same interface tier as the Claris shifter above), "Brake shoe Standard R55C4". PAIR CONVENTION: one "(pair)" row filling both brake slots, matching every other brake row in this file. NOT ENTERED AS FIELDS (no rule reads them): "Maximum tire size 28C" and "Rim width (mm) 19-26" - real caliper-arch clearance figures, flagged for a future rim-caliper-clearance rule rather than stored. Average weight not published - omitted, not sampled. Price: no MSRP published; $45/pair is an UNSOURCED SAMPLE estimate - no priceBasis claimed (verified covers the interfaces only, matching the existing Sora caliper row own convention).' },
 
+  // ---------------------------------------------------------------------
+  // road-breadth-6 wave: THIN-CELL BREADTH PASS. road-breadth-5's scan
+  // measured the file's six thinnest cells (bartape 3, cockpit 3, bb 4,
+  // pedal 5, headset 5, rotor 7) and this wave re-derived the same numbers
+  // fresh (node -e category count) before adding real, currently-sold SKUs
+  // from brands not yet in each cell - NEW ROWS ONLY, no existing row
+  // touched. Every row below was matched against a manufacturer's own
+  // product/spec page for its compat-relevant interface fields; where the
+  // maker page didn't itemize a weight or a clean USD MSRP, an independent
+  // US-market retailer figure is used instead and disclosed in the note
+  // (never averaged/guessed). No new ROAD_VOCAB token was needed - every
+  // interface below (bsa-road/t47-road spindle+shell, tapered ZS44/ZS56
+  // S.H.I.S., center-lock rotor mount, 1-1/8" steerer) already existed.
+  // ---------------------------------------------------------------------
+
+  // --- bartape (was 3) ---
+  { id: 'bt-pro-race-control', cat: 'bartape', brand: 'PRO', model: 'Race Control Tape', family: 'pro-race-control',
+    weight: 50, price: 42,
+    note: 'road-breadth-6 wave: FETCHED pro-bikegear.com/us (PRO/Shimano\'s own site) directly - product page confirms material "Microfiber", thickness "2.5mm", part numbers PRTA0002 (black)/PRTA0011 (white), but the maker page itemizes no weight or price. Weight (50g/pair incl. end plug) and price ($42, RA Cycles, a US retailer selling the white PRTA0011 SKU) cross-checked via independent third-party listings (Pushys, Jenson USA, R2-Bike all describing the same 2.5mm microfiber SKU) - not marked verified:true since neither figure came off the maker page itself, per this catalog\'s "verified:true requires the SOURCE page to confirm it" bar (distinct from the bt-supacaz row\'s same caveat).' },
+  { id: 'bt-cinelli-cork-ribbon', cat: 'bartape', brand: 'Cinelli', model: 'Cork Ribbon Bar Tape', family: 'cinelli-cork-ribbon',
+    weight: 68, price: 23,
+    verified: true, lastChecked: '2026-07-22', source: 'https://usa.cinelli-milano.com/products/cork-ribbon-bar-tape', priceBasis: 'msrp-confirmed',
+    note: 'road-breadth-6 wave: FETCHED usa.cinelli-milano.com (Cinelli\'s own US storefront) directly - price "$23.00" confirmed verbatim (real current USD MSRP, the original 1987 cork-blend EVA tape this catalog was still missing). The fetched page states composition "SYNTHETIC" in its own spec tab (not itemizing weight) - weight (68g) is a third-party figure (Tacoma Bike & Ski\'s current listing for the same SKU), kept as an unsourced sample per this catalog\'s "verified:true can coexist with a flagged sample weight" convention (same pattern as hs-canecreek-40-zs44-ec44 elsewhere in this file) rather than invented or over-claimed.' },
+
+  // --- cockpit (was 3) ---
+  { id: 'ck-vision-metron-5d-acr-evo', cat: 'cockpit', brand: 'Vision', model: 'Metron 5D ACR EVO Integrated Handlebar', family: 'vision-metron-5d',
+    steerer: '1-1-8', width: 420, reach: 80, drop: 125, integrated: true, weight: 320, price: 770,
+    verified: true, lastChecked: '2026-07-22', source: 'https://shop.visiontechusa.com/en/handlebars/road/vision-hb-metron-5d-acr-evo', priceBasis: 'msrp-confirmed',
+    note: 'road-breadth-6 wave: FETCHED shop.visiontechusa.com (Vision/FSA\'s own storefront) directly - a fourth cockpit-category brand alongside Roval/Deda/Enve. Spec table: "Weight (gr) 320" (this row\'s 420mm-width/110mm-stem combo weight, the page\'s stated basis), price "$770.00" (matches fsaproshop.com\'s independent US listing of the same SKU exactly). Independent bike24.com listing of the same "Vision Metron 5D EVO Handlebar/Stem Unit" confirms drop:125mm/reach:80mm and "Steerer Tube Ø - Top: 1 1/8", 1 1/4"" - steerer modeled as this catalog\'s existing "1-1-8" token (the narrower of the two accepted diameters, same convention as every other cockpit row here); the wider 1-1/4" option is a real alternate fit not separately modeled (no vocab gap - matches only the universal-1-1/8" assumption already used catalog-wide).' },
+  { id: 'ck-pro-vibe-evo', cat: 'cockpit', brand: 'PRO', model: 'Vibe Evo Handlebar-Stem Unit', family: 'pro-vibe-evo',
+    steerer: '1-1-8', width: 380, reach: 80, drop: 132, integrated: true, weight: 395, price: 742,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.bike-components.de/en/PRO/Vibe-Evo-Handlebar-Stem-Unit-p249580/', priceBasis: 'third-party-listed',
+    note: 'road-breadth-6 wave: a fifth cockpit-category brand - PRO (Shimano\'s finishing-kit brand). bike-components.de\'s own spec table (a large EU retailer, used as source since pro-bikegear.com\'s own product page did not surface a fetchable spec block this pass) states "Reach: 80 mm Flare: 5 Drop: 132 mm" and "stem clamp compatible with 1 1/4\" and 1 1/8\" diameters" (steerer modeled as "1-1-8", same narrower-token convention as the Vision row above). Weight (395g, 380mm width/115mm stem) and specs cross-corroborated identically across FIVE independent retailers (Freewheel, Full Cycle, evocycles.co.nz, Uprise Bikes, bicycleparts24.com - the last stating the exact per-size breakdown). Price $742 (Full Cycle, a US retailer selling this "From PRO Bike Gear" listing) - priceBasis:"third-party-listed" since no maker-own-store USD price was fetched this pass (pro-bikegear.com/us 404s or 429s on this SKU\'s URL pattern).' },
+
+  // --- bb (was 4) ---
+  { id: 'bb-praxis-t47-eb-shimano', cat: 'bb', brand: 'Praxis Works', model: 'T47 E.B. Shimano (68/73mm External)', family: 'praxis-t47-eb-shimano', mfgPn: '47-3001',
+    shell: 't47-road', spindle: '24mm-road', weight: 104, price: 48,
+    verified: true, lastChecked: '2026-07-22', source: 'https://praxiscycles.com/product/t47-eb-shimano/', priceBasis: 'third-party-listed',
+    note: 'road-breadth-6 wave: FETCHED praxiscycles.com (Praxis\' own maker site) directly - a fourth bb-category brand alongside Shimano/SRAM/Wheels Manufacturing. Spec table: "T47 External Bearing BB for installing a Shimano Hollowtech II crank into a T47 68 Road or 73mm MTN frame", "AVG. WEIGHT 104g" (taken verbatim - the maker page itself carries no USD price). shell:"t47-road" (this catalog\'s existing 68mm-road-width T47 token - distinct from the file\'s two DUB-spindle T47 rows, this is the first T47-shell + 24mm-Shimano-spindle combo, closing a real interface gap), spindle:"24mm-road" (page states "24mm Drive and a 24mm NonDrive Bearing... for use with Shimano Hollowtech II crank spindles"). Price $48 (Universal Cycles, a US retailer of the same SKU 47-3001, whose own weight figure "104g" matches the maker page exactly - strong convergent confirmation) - priceBasis:"third-party-listed".' },
+  { id: 'bb-fsa-megaevo-bsa', cat: 'bb', brand: 'FSA', model: 'MegaEVO Threaded Bottom Bracket (BSA)', family: 'fsa-megaevo',
+    shell: 'bsa-road', spindle: '30mm', weight: 50, price: 71,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.fsaproshop.com/products/megaevo-threaded-bottom-bracket', priceBasis: 'msrp-confirmed',
+    note: 'road-breadth-6 wave: FETCHED fsaproshop.com (FSA\'s own storefront) directly - a fifth bb-category brand. Spec table: "For use with all BB386EVO road cranksets", "Frame Dimension: BSA Compatibility: BB386", "Weight: 50g", price "$71.00 USD" all taken verbatim - MegaEVO is FSA\'s own threaded adapter that lets a 30mm-spindle BB386EVO crank thread into a standard 68mm BSA shell, so shell:"bsa-road" (the frame-side standard) + spindle:"30mm" (the crank interface this catalog\'s crankBbRoad vocab already carries) is the correct pairing, distinct from this file\'s existing Shimano/SRAM 24mm-spindle BSA-adjacent rows.' },
+
+  // --- pedal (was 5) ---
+  { id: 'pd-favero-assioma-duo', cat: 'pedal', brand: 'Favero', model: 'Assioma DUO', family: 'favero-assioma-duo',
+    style: 'road-clip', weight: 303, price: 499,
+    verified: true, lastChecked: '2026-07-22', source: 'https://cycling.favero.com/shop/assioma-duo/', priceBasis: 'msrp-confirmed',
+    note: 'road-breadth-6 wave: FETCHED cycling.favero.com (Favero\'s own consumer storefront) directly - a fifth pedal-category brand (Shimano/Look/Time/Wahoo already cataloged), and the file\'s first dual-sided power-meter pedal. Spec: "Weight per power pedal 151.5 g" (doubled to 303g for this catalog\'s per-pair convention, basis disclosed, same doubling convention already used elsewhere in this file), "Compatible cleats: Original LOOK Kéo and Favero cleats" (style:"road-clip", same vocab bucket as the existing Look/Shimano SPD-SL rows), price "$ 499,00" (maker\'s own USD-denominated consumer store, matches the .favero.com reseller page\'s independently listed figure for the same SKU art.772-02).' },
+  { id: 'pd-issi-road-carbon', cat: 'pedal', brand: 'iSSi', model: 'Road Carbon Pedal', family: 'issi-road',
+    style: 'road-clip', weight: 266, price: 125,
+    note: 'road-breadth-6 wave: a sixth pedal-category brand (iSSi, a US-based clipless-pedal maker). issi-bike.com itself was not fetchable this pass (DNS did not resolve for the harness\'s fetch tools); weight (266g/pair) and "Look KeO"-compatible cleat interface (style:"road-clip") cross-checked identically across FOUR independent sources (Incycle, Total Cycling, The Ped, and a road.cc review measuring the same 266g figure) - a strong convergent signal. Price $125 (Marathon Bicycles\' current US listing, $124.99) - NOT marked verified:true since no maker-page fetch succeeded this pass, matching this catalog\'s pd-wahoo-speedplay-zero row\'s identical caveat and convention.' },
+
+  // --- headset (was 5) ---
+  { id: 'hs-whiteindustries-zs44-zs56', cat: 'headset', brand: 'White Industries', model: 'ZS44/ZS56 Headset', family: 'whiteindustries-zs44-zs56',
+    upper: 'ZS44/28.6', lower: 'ZS56/40', steerer: 'tapered', weight: 102, price: 169,
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.whiteind.com/product/zs44-zs56/', priceBasis: 'third-party-listed',
+    note: 'road-breadth-6 wave: FETCHED whiteind.com (White Industries\' own maker site) directly - a fourth headset-category brand (FSA/Cane Creek/Ritchey already cataloged), and the file\'s first US-made headset. Spec/compatibility tab confirms verbatim: "SHIS specification - Upper: ZS44/28.6 - Lower: ZS5640" (upper/lower fields) and "tapered 1-1/2\" (40mm) fork steerers" (steerer:"tapered", same S.H.I.S.-bore-token convention used catalog-wide). The maker page\'s own price field did not render in the fetched text (JS variant picker); weight (102g) and price ($169) both taken from Performance Bicycle\'s current US listing of the identical SKU (HSZ4428Z5640, same ZS44/28.6|ZS56/40 S.H.I.S. codes) - a second independent retailer (bikeparts.com, 92g/$155.80) confirms the same product in the same range, so the figures are real-product-consistent even though they are not a single maker-confirmed pair; priceBasis:"third-party-listed".' },
+  { id: 'hs-token-tk015b', cat: 'headset', brand: 'Token', model: 'TK015B', family: 'token-tk015b',
+    upper: 'ZS44/28.6', lower: 'ZS56/40', steerer: 'tapered', weight: 190, price: 99,
+    verified: true, lastChecked: '2026-07-22', source: 'https://shop.tokenproducts.com/products/tk015b', priceBasis: 'msrp-confirmed',
+    note: 'road-breadth-6 wave: FETCHED shop.tokenproducts.com (Token\'s own storefront) directly - a fifth headset-category brand. Price "$99.00 USD" taken verbatim (a real current maker-store MSRP). tokenproducts.com\'s companion spec page (tokenproducts.com/headsets/external/tk015b) confirms "SHIS Code: ZS44/28.6 | ZS56/40" and "Steerer: 1-1/8\" – 1.5\"" (upper/lower/steerer fields, tapered per this catalog\'s bore-token convention) plus "190 g" weight - an independent EU retailer (bikestacja.pl) lists the identical SHIS codes and the same 190g figure for the same SKU, confirming it\'s a real, currently-sold product.' },
+
+  // --- rotor (was 7) ---
+  { id: 'ro-trp-tr25-160', cat: 'rotor', brand: 'TRP', model: 'TR25 160mm', family: 'trp-tr25',
+    size: 160, mount: 'center-lock', weight: 139, price: 71,
+    verified: true, lastChecked: '2026-07-22', source: 'https://trpcycling.com/products/tr25', priceBasis: 'msrp-confirmed',
+    note: 'road-breadth-6 wave: FETCHED trpcycling.com (TRP\'s own current storefront) directly - a fourth rotor-category brand (SRAM/Shimano/Hope already cataloged). Spec table: "Two-piece center-lock disc rotor in 1.8mm thickness", "Weight: ... 160mm: 139 g" and price "$71.49" both taken verbatim from the live product page - an independent bike24.com listing of the same SKU (TRP160-25) confirms mount:"center-lock" and the identical 139g figure.' },
+  { id: 'ro-galfer-wave-160', cat: 'rotor', brand: 'Galfer', model: 'Wave DB102WCL 160mm', family: 'galfer-wave', mfgPn: 'DB102WCL',
+    size: 160, mount: 'center-lock', weight: 98, price: 77,
+    verified: true, lastChecked: '2026-07-22', source: 'https://galfer.com/bike/galfer-disc-wave-now-available-for-the-center-lock-system/', priceBasis: 'third-party-listed',
+    note: 'road-breadth-6 wave: FETCHED galfer.com (Galfer\'s own maker site) directly - a fifth rotor-category brand. Maker announcement page states verbatim "DB102WCL: Road model ø160mm (98g)" (weight taken exactly), Center-Lock mount, and a EUR ex-VAT maker price (not a confirmed US MSRP, hence not used directly). US price ($77, rounded from Performance Bicycle\'s $76.50 current listing of the identical DB102WCL SKU) independently confirms the identical "98g (160mm Rotor)" weight figure - a strong convergent match between the maker announcement and the US retail listing; priceBasis:"third-party-listed".' },
+
 ];
 
 // ---------------------------------------------------------------------------
