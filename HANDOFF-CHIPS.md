@@ -11,7 +11,10 @@ UNIQUE suffix off `origin/main` at `.claude/worktrees/<name>` INSIDE `D:\MTB Bik
 dumps, notes, reports — stays INSIDE the project (your worktree, or the harness Temp\claude
 scratchpad); the hardened hook (2026-07-22) now denies outside Writes/Edits and outside shell
 redirects/copies, and the coordinator leak-sweeps D:\ root hourly — a blocked call means FIX
-YOUR PATH, never work around it** · **if your exact branch already exists with
+YOUR PATH, never work around it** · **NO BROWSER DOWNLOADS, EVER**
+(Chrome download prompts land in Douglas's Downloads folder — a containment violation; read
+pages as text via get_page_text/read_page, fetch payloads via WebFetch/Exa/curl to a path
+INSIDE the project, and CANCEL any download prompt that appears) · **if your exact branch already exists with
 commits, STAND DOWN and report** · NEVER prompt Douglas · NEVER push — coordinator review
 is the gate · COMMIT PER BRAND/GROUP/BATCH · `tools/verification-job.json` is
 coordinator-only · gates = `node validate.js` (7 OK) + `npm test` + `npx tsc --noEmit`
