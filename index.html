@@ -1153,6 +1153,10 @@
   html.rad .pick.in{background:var(--brand);color:#150029}
   html.rad .chip.active:not(.sub){background:var(--brand);color:#150029}
   html.rad #rail .chip.active{background:var(--brand);color:#150029}
+  /* dark & loam both give the header search field a border; RAD never did, so it
+     was a card-coloured box on the near-black banner at 1.13:1 (its buttons are
+     rescued by rad's hot-pink --line border, the field had none). */
+  html.rad header input[type=search]{border:1px solid rgba(255,255,255,.5)}
   html.rad .honesty-strip{background:#1c0836}
 
   /* 🌙 Dark mode — a real theme, not an easter egg: the light palette re-derived
@@ -1181,8 +1185,36 @@
   html.dark .grow .gacts button,html.dark .svc-row .gacts button,html.dark .cmp-picks select{
     background:var(--card);color:var(--ink)}
   html.dark .vpro{color:var(--ok);border-color:var(--ok)}
+  /* Same specificity trap the .danger line below already guards against, but the
+     PRIMARY button lost its whole fill, not just a tint: `html.dark .btn` (0,2,1)
+     outranks `.btn.primary` (0,2,0), so every primary rendered card-on-card —
+     1.00:1 against a dialog surface, i.e. no longer readable AS a button (the
+     ☰ List view toggle, Share / save link, View complete build, the build
+     sheet's Print / save as PDF). RAD already carries its own
+     html.rad .btn.primary restore for exactly this reason; dark never got one.
+     The fill stays --brand (a brighter green would drop the white label below AA —
+     see the html.dark palette note); the RIM is lifted to #2f8f5c so the button's
+     boundary clears WCAG 1.4.11's 3:1 against --card (3.87:1 dark / 4.22:1 loam,
+     was 2.55 / 2.87 with a --brand rim). */
+  html.dark .btn.primary{background:var(--brand);border-color:#2f8f5c;color:#fff}
   html.dark .btn.danger{color:var(--err)}   /* keep the destructive tint red — the rule above would otherwise force default ink */
-  html.dark header input[type=search]{border:1px solid var(--line)}
+  /* Header chrome follows the BANNER, not the page surface. --hdr-bg stays a deep
+     green in every theme, so the blanket `html.dark .btn{background:var(--card)}`
+     was painting dark-card buttons onto a dark-green banner: every nav control
+     (Community / BuildMyBMX / BuildMyRideKit / Guides / About / Log in / ⋯ /
+     Compare / Save to garage / Archive) sat at 1.47:1 in dark and 1.19:1 in loam
+     — labels readable, button shape invisible. Light renders them white at
+     11.85:1. Restore a light-on-banner treatment using the same translucent-white
+     convention bmx.html/road/gravel/emtb already use as `.btn.ghost` (and that the
+     header .badge uses), which lands at 5.9:1 dark / 6.0:1 loam. Light is
+     deliberately untouched — it already passes. */
+  html.dark header .btn,html.loam header .btn{
+    background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.4);color:#fff}
+  html.dark header .btn:hover,html.loam header .btn:hover{
+    background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.55)}
+  /* the search field's --line border was only 1.47:1 / 1.19:1 on the banner too */
+  html.dark header input[type=search],html.loam header input[type=search]{
+    border:1px solid rgba(255,255,255,.5)}
   html.dark .honesty-strip{background:#0b1d13}
   html.dark .btn:hover{border-color:#4d5750}
   html.dark .chip.sub:hover{border-color:#4d5750}
@@ -1227,8 +1259,12 @@
   html.loam .grow .gacts button,html.loam .svc-row .gacts button,html.loam .cmp-picks select{
     background:var(--card);color:var(--ink)}
   html.loam .vpro{color:var(--ok);border-color:var(--ok)}
+  /* same primary-button restore as dark — see the comment there */
+  html.loam .btn.primary{background:var(--brand);border-color:#2f8f5c;color:#fff}
   html.loam .btn.danger{color:var(--err)}   /* keep the destructive tint red */
-  html.loam header input[type=search]{border:1px solid var(--line)}
+  /* border handled with dark's in the header-chrome block above (a --line border
+     was only 1.19:1 against the banner); this rule would otherwise win on source
+     order and put it back. */
   html.loam .honesty-strip{background:#140d08}
   html.loam .btn:hover{border-color:#5a4636}
   html.loam .chip.sub:hover{border-color:#5a4636}

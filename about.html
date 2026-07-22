@@ -86,6 +86,23 @@
   .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
   html.dark .btn,html.loam .btn{background:var(--card);color:var(--ink);border-color:var(--line)}
   html.rad .btn{background:var(--card);color:var(--ink);border-color:var(--line)}
+  /* The blanket rules above (0,2,1) outrank .btn.primary (0,2,0), which erased the
+     "Open the builder" CTA's brand fill in dark/loam — it rendered card-on-card.
+     RAD already has its own restore (see above); dark/loam never got one. */
+  html.dark .btn.primary,html.loam .btn.primary{background:var(--brand);border-color:#2f8f5c;color:#fff}
+  /* The .hero banner stays deep green in every theme, so its SECONDARY button
+     (📚 Guides) was a dark-card rectangle on dark green: 1.47:1 in dark, 1.19:1 in
+     loam, versus a crisp white 11.85:1 in light. Same translucent-white banner
+     convention index.html's header and bmx.html's .btn.ghost use. */
+  /* The primary CTA is --brand green sitting on the --hdr-bg green banner, which in
+     LIGHT is 1.94:1 — the button had no discernible edge. A light rim (the same one
+     the ghost button beside it uses) lifts it clear. Only light is affected: the
+     html.dark/.loam/.rad .btn.primary rules are more specific and already pass. */
+  .hero .btn.primary{border-color:rgba(255,255,255,.55)}
+  html.dark .hero .btn:not(.primary),html.loam .hero .btn:not(.primary){
+    background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.4);color:#fff}
+  html.dark .hero .btn:not(.primary):hover,html.loam .hero .btn:not(.primary):hover{
+    background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.55)}
   .badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:12px;padding:5px 10px;border-radius:999px}
   .honesty-strip{background:#10271b;color:#cfe8d8;font-size:12px;padding:7px 12px;text-align:center}
   html.rad .honesty-strip{background:#1c0836}
