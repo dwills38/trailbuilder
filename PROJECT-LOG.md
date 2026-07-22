@@ -4732,3 +4732,14 @@ All eight chips from the final dispatch round are now landed (main `e10dbc2`+). 
 - Gates green (validate 0 problems / 988 tests / tsc clean) at merge. **All ten grind chips
   from today's final rounds are now harvested. Fleet empty.**
 
+
+## 2026-07-22 — pb-mtb-c2 harvested (seat 18's first): zero-commit, scope already clear
+Slice C2 (handlebar/stem/grips/saddle/dropper/seatpost/pedal/headset + the 10 flagged
+KS/GT rows) was already cleared by pb-mtb-c (4b2ce9e) + the pb-token6 wave — all 9 KS Lev
+Integra droppers and the GT Zaskar carry third-party-listed on main (coordinator-verified).
+Sole remaining gap: hs-acros-icr-zs56-zs56 — its $65 is desc-disclosed as invented (Cube
+OE spec-line SKU; ACROS's own ZS catalog no longer lists any AZF-6xx; no retailer names
+AZF-675). Left honestly BLANK per doctrine (all six tokens require a real disclosed
+figure). Worker correctly refused the near-miss AZF575 price (sibling-stamping trap).
+Gates green in the worker's worktree (7 OK / 1086 / tsc clean). Branch had 0 commits;
+worktree + branch removed. Report: .claude/worker-reports/pb-mtb-c2.md.
