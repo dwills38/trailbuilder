@@ -113,6 +113,19 @@ test('rg-rear-axle errors a QR hub on a thru-axle frame', function(){
   eq(of(r2, 'rg-rear-axle').length, 0, '12x142 on 12x142');
 });
 
+test('rg-rear-axle: ratified QR tokens (vocab-tier1, 2026-07-22) match their own class, error against thru-axle and each other', function(){
+  var frame9 = gp('gfr-marin-nicasio-plus');   // real row, rearAxle:'135x9-qr'
+  var wheel9 = syn(gp('grw-dtswiss-g1800-650b'), { id: 'grw-syn-135x9', hub: '135x9-qr' });
+  var r = ROAD.checkRoadBuild({ frame: frame9, rearWheel: wheel9 });
+  eq(of(r, 'rg-rear-axle').length, 0, '135x9-qr frame + 135x9-qr wheel (matched class) fits');
+  var thruWheel = syn(gp('grw-dtswiss-g1800-650b'), { id: 'grw-syn-thru', hub: '12x142' });
+  var r2 = ROAD.checkRoadBuild({ frame: frame9, rearWheel: thruWheel });
+  eq(errOf(r2, 'rg-rear-axle').length, 1, 'thru-axle wheel in a 135x9-qr frame errors');
+  var wheel10 = syn(gp('grw-dtswiss-g1800-650b'), { id: 'grw-syn-135x10', hub: '135x10-qr' });
+  var r3 = ROAD.checkRoadBuild({ frame: frame9, rearWheel: wheel10 });
+  eq(errOf(r3, 'rg-rear-axle').length, 1, '135x10-qr wheel in a 135x9-qr frame errors — the two QR diameter classes are never interchangeable');
+});
+
 /* ---- R4 steerer ----------------------------------------------------------- */
 test('rg-steerer errors frame/fork and headset/fork mismatches, silent matched', function(){
   var straightFork = syn(rp('fk-canyon-ultimate-cfslx'), { id: 'fk-syn-straight', steerer: 'straight-1-1-8' });

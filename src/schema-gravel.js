@@ -43,7 +43,7 @@ function dateOk(v, today){
 /** @type {Object.<string, Array<string|number>>} */
 var GRAVEL_VOCAB = {
   wheel:        ['700c', '650b'],
-  rearAxle:     ['12x142', '12x148'],   // '12x148' (Boost, MTB-derived) added gravel-verify-1 (2026-07-21) — the Salsa Cutthroat's own frame-specs table states "Rear Spacing 148 x 12 mm Thru-axle" (a drop-bar-mountain-bike bikepacking platform, not a road-derived 142mm frame); a real, sourced value, not a guess.
+  rearAxle:     ['12x142', '12x148', '135x9-qr', '135x10-qr'],   // '12x148' (Boost, MTB-derived) added gravel-verify-1 (2026-07-21) — the Salsa Cutthroat's own frame-specs table states "Rear Spacing 148 x 12 mm Thru-axle" (a drop-bar-mountain-bike bikepacking platform, not a road-derived 142mm frame); a real, sourced value, not a guess. '135x9-qr'/'135x10-qr' added vocab-tier1 (2026-07-22) — QR (not thru-axle) rear spacing, real on several older/budget gravel platforms this file previously flagged rather than force-fit as 12x142: '135x9-qr' is the classic 9mm-skewer QR standard (a retailer spec table states the Marin Nicasio+'s rear axle verbatim as "135x9mm Quick-Release Axle"); '135x10-qr' is the wider 10mm-skewer class named on this file's Kona Rove AL ("10x135mm rear axle", Joytech-hub spec table) and Salsa Journeyman ("10 x 135mm, QR", Salsa's own archived spec page) rows — two independent makers naming the same 10mm/135mm QR combination, distinct from the narrower 9mm class.
   axle:         ['12x100', '12x142', 'lefty-proprietary', '15x100'],
   hub:          ['12x100', '12x142'],
   brakeMount:   ['flat-mount'],

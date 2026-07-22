@@ -64,6 +64,28 @@ test('an out-of-vocab steerer value is still caught', function(){
   ok(probs.some(function(m){ return /steerer.*not in steerer/.test(m); }), probs.join('\n'));
 });
 
+// vocab-tier1 (2026-07-22): ratified QR rear-axle tokens — 135x9-qr (the
+// classic 9mm-skewer class, Marin Nicasio+) and 135x10-qr (the wider
+// 10mm-skewer class, Kona Rove AL / Salsa Journeyman) — positive + negative.
+test('135x9-qr rear axle is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { rearAxle: '135x9-qr' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('135x10-qr rear axle is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { rearAxle: '135x10-qr' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab rearAxle value is still caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { rearAxle: '135x12-qr' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /rearAxle.*not in rearAxle/.test(m); }), probs.join('\n'));
+});
+
 test('a missing required field is caught', function(){
   var frame = aFrame();
   var bad = Object.assign({}, frame); delete bad.rearAxle;
