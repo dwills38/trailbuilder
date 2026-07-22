@@ -76,6 +76,20 @@ the 2 waiting posts. Gates: all four. Never push. Report to
 instruction — "make sure any outstanding questions for me will be saved for the next
 coordinator." Raise gently, never nag; items 1-2 are the freshest.)**
 
+0. **★ PENDING SUPABASE SQL RUNS (Douglas 2026-07-21: "remind me of the supabase step
+   later, i most likely wont do it the next time you ask" — so REMIND REPEATEDLY until he
+   confirms each ran; a single mention does not discharge this).** Reserved-username
+   seeds only exist in the DATABASE after he pastes them into the Supabase SQL editor —
+   the repo files alone change nothing live. Outstanding runs (all idempotent, safe to
+   re-run whole files; paste CONTENT from GitHub raw / chat, never the shared checkout):
+   a. `supabase/forum-reserved-additions.sql` — Dirt Jesus (held). Committed `d3e55ab`,
+      NOT yet run as of 2026-07-21 evening.
+   b. Same file, pro-rider batch — appended when the pro-riders-reserve chip lands.
+   c. `supabase/forum-reserved-brands-influencers.sql` — brands + influencers (Berm
+      Peak/Seth Alvo, Skills With Phil/Phil Kmetz, Sploosh MTB, …) — exists once the
+      brand-influencer-reserve chip lands.
+   Cross-seat rule: verify which have run (ask him / check the Table Editor counts)
+   before striking any sub-item; carry the rest forward.
 1. **THE RE-BRAINSTORM SESSION IS DUE** — the 2026-07-19 feature slate completed 8/8 on
    2026-07-21; his recorded words: "once we get closer to the end, I will want to run
    another brainstorming session." He asked to be reminded "a little later" — seat 16's
