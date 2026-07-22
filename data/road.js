@@ -1691,12 +1691,12 @@ var ROAD_PARTS = [
   { id: 'ti-michelin-powercup-30', cat: 'tire', brand: 'Michelin', model: 'Power Cup TLR 30c', family: 'michelin-powercup',
     wheel: '700c', width: 30, tubeless: true, compound: 'Gum-X',
     weight: 300, price: 75,
-    verified: true, lastChecked: '2026-07-22', source: 'https://www.bike24.com/p2581542.html',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.bike24.com/p2581542.html', priceBasis: 'third-party-listed',
     note: 'road-depth-4 wave: fills the 30c gap in this file\'s Power Cup TLR family (25/28c already cataloged). A bike24.com retailer spec republication explicitly citing "Manufacturer: Michelin" and Michelin\'s own bike.michelin.com product page states "Weight (manufacturer\'s specification): approx. 300 g (28\\" black | width: 30 mm)", "carcass density: 120TPI/EPI", "tire compound: Gum-X, X-Race Compound" (compound corrected to Gum-X — the current-generation Power Cup TLR "Competition Line" naming, distinct from the older "Endurance Compound X" wording on this file\'s 25/28c sibling rows, which may reflect an earlier product revision; not reconciled across the family this pass, flagged). Price $75 carried over from the sibling rows as a sample (no per-width MSRP found).' },
   { id: 'ti-michelin-powercup-32', cat: 'tire', brand: 'Michelin', model: 'Power Cup TLR 32c', family: 'michelin-powercup',
     wheel: '700c', width: 32, tubeless: true, compound: 'Gum-X',
     weight: 330, price: 75,
-    verified: true, lastChecked: '2026-07-22', source: 'https://www.bike24.com/p2581542.html',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.bike24.com/p2581542.html', priceBasis: 'third-party-listed',
     note: 'road-depth-4 wave: same bike24.com/Michelin-spec source as the 30c sibling row — "approx. 330 g (28” | width 32 mm)". Same compound-wording and price caveats as the 30c row.' },
   // road-15 wave RETRY: Power Road does not appear anywhere in Michelin's current
   // lineup (michelin.com/michelinman.com/michelin.ca all searched) - independent
