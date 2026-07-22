@@ -1197,6 +1197,30 @@ var BMX_PARTS = [
     note: 'Sold complete-bike-only (corrected frameOnly false; was true). bbShell corrected mid -> american ("Unsealed American 19mm" BB). rearBrakeMount corrected u-brake -> v-brake ("Mission Cease V2" V-brakes). topTube corrected 20.5 -> 20.0in. Price corrected 419.99 -> 399.99. headTube mapped from the page\'s "Standard 1 1/8in Threadless" (external, non-integrated cups) to the closest BMX_VOCAB token (mid) - PROVISIONAL mapping, headTube fires no rule. Complete-bike weight (27lb 2oz = ~12,300g) is NOT a frame weight, so omitted per the wethepeople-justice convention.'
   },
   {
+    id: 'bmx-fr-kink-switch', cat: 'frame', brand: 'Kink', model: 'Switch',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.75, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: false,
+    price: 599.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://kinkbmx.com/products/switch-2027',
+    note: 'pb-breadth-1 (2026-07-22): closes the depth-10 flag ("Kink, Sunday, Fit, GT, United Recruit: not reached this pass"). FETCHED kinkbmx.com/products/switch-2027.js directly (same-origin fetch via the browser pane) — its own Tech Specs table states verbatim "BOTTOM BRACKET Sealed Mid 19mm" (bbShell:mid), "HEADSET Mission Sealed Integrated (41.8 x 45)" (a standard 1-1/8in-bore integrated headset -> headTube:integrated-1-1/8, same 41.8mm-bore mapping this catalog already uses elsewhere), "REAR HUB Mission Engage Sealed Cassette 14mm" (rearAxle:14mm), "BRAKES Mission Cease V2 (Removable Mounts)" (v-brake per this catalog\'s existing Mission Cease V2 -> v-brake convention, bmx-fr-kink-curb), "Toptube Length 20.75\\"" (topTube exact), price "$599.99" exact. Sold complete-bike-only (no frame-only SKU found) -> frameOnly:false. Page\'s own copy: "Designed as a brakeless bike, the Switch also includes removable brake mounts and a full brake set for those wanting to ride with brakes" (ships with brakes installed per "Note: Optional brake set comes included" - brakeMount entered as the shipped v-brake config, not the brakeless-capable option). Complete-bike weight (27lb 9oz) is NOT a frame weight, omitted per the wethepeople-justice convention.'
+  },
+  {
+    id: 'bmx-fr-kink-whip', cat: 'frame', brand: 'Kink', model: 'Whip',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.5, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: false,
+    price: 549.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://kinkbmx.com/products/whip-2027',
+    note: 'pb-breadth-1 (2026-07-22): closes the same depth-10 Kink flag as bmx-fr-kink-switch. FETCHED kinkbmx.com/products/whip-2027.js directly — Tech Specs table states verbatim "BOTTOM BRACKET Sealed Mid 19mm" (bbShell:mid), "HEADSET Mission Sealed Integrated (41.8 x 45)" (headTube:integrated-1-1/8, same mapping), "REAR HUB Mission Engage Sealed Cassette 14mm" (rearAxle:14mm), "BRAKES Mission Cease V2" (v-brake, same Cease V2 convention), "Toptube Length 20.5\\"" (topTube exact), price "$549.99" exact. Sold complete-bike-only (also offered in a separate "Whip XL 2027" SKU, a genuinely distinct size not entered this batch) -> frameOnly:false. No frame-only weight published (complete-bike weight not stated on this page at all, unlike the Switch/Launch rows) - weight intentionally left unset.'
+  },
+  {
+    id: 'bmx-fr-kink-launch', cat: 'frame', brand: 'Kink', model: 'Launch',
+    discipline: 'freestyle', wheelSize: '20', bbShell: 'mid', headTube: 'integrated-1-1/8',
+    topTube: 20.25, rearBrakeMount: 'v-brake', rearAxle: '14mm', frameOnly: false,
+    price: 449.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://kinkbmx.com/products/launch-2027',
+    note: 'pb-breadth-1 (2026-07-22): closes the same depth-10 Kink flag as bmx-fr-kink-switch/whip. FETCHED kinkbmx.com/products/launch-2027.js directly — Tech Specs table states verbatim "FRAME Kink Launch 100% Hi-Ten Steel" (an entry-tier hi-ten frame, distinct material from the Switch/Whip/Curb\'s 4130 chromoly - not a schema field but disclosed here), "BOTTOM BRACKET Sealed Mid 19mm" (bbShell:mid), "HEADSET Mission Sealed Integrated (41.8 x 45)" (headTube:integrated-1-1/8, same mapping), "REAR HUB Mission Function Semi-Sealed Cassette 14mm" (rearAxle:14mm), "BRAKES Mission Cease V2" (v-brake, same Cease V2 convention), "Toptube Length 20.25\\"" (topTube exact), price "$449.99" exact (3 colorways, Black Gold/Retro Blue/Midnight Purple, all identically priced - no variant-price ambiguity). Sold complete-bike-only -> frameOnly:false. No frame-only weight published - weight intentionally left unset.'
+  },
+  {
     id: 'bmx-sp-kink-pivotal-post', cat: 'seatpost', brand: 'Kink', model: 'Pivotal Seatpost',
     diameter: 25.4, system: 'pivotal', weight: 125, price: 39.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-17', source: 'https://kinkbmx.com/products/pivotal-seat-post',
