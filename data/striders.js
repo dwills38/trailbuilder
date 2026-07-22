@@ -356,6 +356,28 @@ var STRIDER_PARTS = [
     verified: true, lastChecked: '2026-07-20', sourceType: 'maker',
     source: 'https://www.propain-bikes.com/en/product/bikes/kids/bambam/',
     desc: 'Verified — propain-bikes.com Bam Bam product page (Exa-fetched 2026-07-20): Aluminum frame, 14in wheels, disc-brake-mountable (not included), Bike weight 4.5kg, 90-110cm rider height, EUR179.00 ("From EUR179" list price); cross-checked against downtown-mag.com\'s independent measured test (4.44kg, EUR179, knobbly VEE Tires).'
+  },
+
+  // --- wave 4 (catalog/striders-breadth-1) — brand-breadth pass: two brands not yet
+  // represented in this file (Trek, Joovy) ---------------------------------------
+
+  {
+    id: 'sb-trek-kickster', cat: 'balancebike', brand: 'Trek', model: 'Kickster',
+    wheel: '12', seatMin: 350, seatMax: 430, bikeWeight: 3970, tire: 'air',
+    brake: 'none', steeringLimiter: true, frameMaterial: 'aluminum', price: 179.99,
+    note: 'Trek\'s entry balance bike; Alpha Silver aluminum frame, high-tensile steel fork, ball-bearing headset with a steering limiter, no hand brake. trekbikes.com\'s own spec table (Exa-fetched 2026-07-22, direct WebFetch 404s on the current PDP) confirms frame/fork/wheel/weight but does not surface a US price on the JS-rendered page; price retained from bikeexchange.com\'s Trek Kickster listing ($179.99), cross-checked against ilovetoridemybike.com\'s independent review which states the same 3.97kg weight and a 35-43cm seat-height range.',
+    verified: true, lastChecked: '2026-07-22', sourceType: 'maker',
+    source: 'https://www.trekbikes.com/us/en_US/bikes/kids-bikes/kickster/p/15226/',
+    desc: 'Verified (partial) — trekbikes.com Kickster spec table (Exa-fetched 2026-07-22): Aluminum frame, Dialed 12in high-tensile steel fork, Innovia 12x1.75in tires, Dialed headset w/steering limiter, Weight 3.97kg/8.75lb. Seat height (35-43cm) and US price ($179.99) retained from ilovetoridemybike.com\'s independent review and bikeexchange.com\'s listing (trekbikes.com\'s PDP does not surface either in static content).'
+  },
+  {
+    id: 'sb-joovy-bicycoo-mg', cat: 'balancebike', brand: 'Joovy', model: 'Bicycoo Mg',
+    wheel: '12', seatMin: 325, seatMax: 394, bikeWeight: 3039, tire: 'air',
+    brake: 'none', footrest: true, frameMaterial: 'magnesium', price: 199.99,
+    note: 'Magnesium-frame version of Joovy\'s Bicycoo (superseding the older aluminum Bicycoo/BicycooGT models); joovy.com\'s own product page states an "integrated footrest" and no brake — confirmed no-handbrake by kiddingzone.com\'s independent review. joovy.com states the weight two different ways in its own copy (a "7.7 lbs" bullet vs a "6.7 lbs" summary line); used the 6.7lb figure since kiddingzone.com\'s independent measured review corroborates it exactly. Seat height (12.8-15.5in) is not published on joovy.com\'s page — retained from kiddingzone.com\'s review (Guardian-row "verified (partial)" precedent). Price is joovy.com\'s own listed MSRP ($199.99, currently marked down to a $74.99 sale price on-site — pricing policy uses MSRP, not the sale price).',
+    verified: true, lastChecked: '2026-07-22', sourceType: 'maker',
+    source: 'https://www.joovy.com/products/bicycoo-mg-lightweight-eco-friendly-training-balance-bike',
+    desc: 'Verified (partial) — joovy.com Bicycoo Mg product page (Exa-fetched 2026-07-22): magnesium frame, pneumatic (air) 12in whitewall tires, integrated footrest, no brake, ages 18mo+/up to 55lb, weight 6.7lb (matches kiddingzone.com\'s independent review), MSRP $199.99. Seat height (12.8-15.5in) retained from kiddingzone.com (not published on joovy.com\'s page).'
   }
 
 ];
