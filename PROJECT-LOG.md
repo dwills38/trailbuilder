@@ -1,5 +1,23 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-21 — bmx-sweep-2: BMX 124 verified + a coordinator demotion on the review gate
+
+- **verify/bmx-sweep-2 merged (with one coordinator correction)**: Odyssey Evo 2.5 +
+  Springfield brakes promoted (mount page-confirmed; missing weight never blocks — THE
+  PRICE RULE), Utility Pro sprocket prices corrected to the current SKU family. NEW
+  STRUCTURAL WALL: subrosabrand.com's entire frame category resolves to a stale 2012
+  placeholder post — all three Subrosa frames stay retailer-sourced/unverified. Redline's
+  current 6-product Diamondback storefront confirms Proline base/Forklift/Roam retired.
+  Cult/Odyssey/Profile settled walls re-checked, not re-battered.
+- **Coordinator demotion (the review gate working as designed)**: the wave promoted the
+  Odyssey Vandero front hub on a brand-wide "Odyssey is 20in-only" inference for
+  wheelSize — the one engine-read field, NOT stated on the hub's page. The cited
+  cult-race precedent doesn't transfer: that frame's own size run corroborated 20in; a
+  bare hub is wheel-size-agnostic (laces into 22/24in), so wheelSize there is a modeling
+  choice, not a maker fact. Demoted back to unverified (page-sourced weight 317g + price
+  kept); the prior wave's explicit withholding stands. BMX 115→124 net this seat.
+- Gates: 7 OK, 988/988, tsc clean.
+
 ## 2026-07-21 — striders-4: close-out, 29→31 verified
 
 - **verify/striders-4 merged**: Bixe 12 promoted (the prior "no maker page exists" note
