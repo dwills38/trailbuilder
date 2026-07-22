@@ -1,7 +1,7 @@
 {
  "version": 1,
  "created": "2026-07-06T16:27:03.850Z",
- "updated": "2026-07-22T13:54:55.931Z",
+ "updated": "2026-07-22T14:12:53.656Z",
  "batchSize": 25,
  "lastCompleted": "rw-bontrager-connection-marlinoe-29",
  "currentCategory": "frame",
@@ -617,7 +617,6 @@
   "hb-bmc-mfb03-750-4",
   "hb-orbea-oc-mp30-alloy-760",
   "hb-pivot-phoenix-team-760",
-  "hb-burgtec-ridehigh-35",
   "st-sonder-piskie",
   "st-norco-alloy-35-40",
   "st-ocmountaincontrol-mc20-35",
@@ -747,7 +746,6 @@
   "gr-cotic-lockon",
   "gr-whyte-enduro-lockon",
   "gr-xlc-grs60-sport",
-  "gr-lizardskins-strata",
   "gr-sixpack-strix",
   "gr-orbea-oc-lockon",
   "gr-devinci-performance-lockon",
@@ -2404,10 +2402,10 @@
   },
   "gr-lizardskins-charger-evo": {
    "cat": "grips",
-   "status": "Skipped",
-   "updated": "2026-07-07T18:47:53.936Z",
+   "status": "Verified",
+   "updated": "2026-07-22T14:12:53.654Z",
    "error": null,
-   "source": null,
+   "source": "https://www.lizardskins.com/personalized-lock-on-handlebar-grips?h=single-sided-lock-on-charger-evo-jet-black&c=lock-on_handlebar_grips&v=0&t=Charger+Evo",
    "note": "lizardskins.com product pages don't yield usable spec content via fetch (nav/structure only, weight not extractable). Bar not met."
   },
   "gr-wtb-wafflegrip": {
@@ -32684,11 +32682,11 @@
   },
   "hb-burgtec-ridehigh-35": {
    "cat": "handlebar",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T14:12:53.654Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://burgtec-usa.com/products/burgtec-ride-high-josh-bryceland-signature-bar",
+   "note": "auto-promoted: already verified in catalog"
   },
   "st-sonder-piskie": {
    "cat": "stem",
@@ -33652,11 +33650,11 @@
   },
   "gr-lizardskins-strata": {
    "cat": "grips",
-   "status": "Pending",
-   "updated": "2026-07-17T14:04:42.920Z",
+   "status": "Verified",
+   "updated": "2026-07-22T14:12:53.654Z",
    "error": null,
-   "source": null,
-   "note": null
+   "source": "https://www.lizardskins.com/personalized-lock-on-handlebar-grips?h=strata-single-clamp-lock-on-jet-black&c=lock-on_handlebar_grips&v=0&t=Strata",
+   "note": "auto-promoted: already verified in catalog"
   },
   "gr-sixpack-strix": {
    "cat": "grips",
