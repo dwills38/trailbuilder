@@ -4995,3 +4995,23 @@ is Vee's single EUR RRP carried into a USD field with no disclosed conversion, m
 pre-existing Vee rows. QUEUED: one fetch+ruling for the whole 8-row Vee family, not per-row
 guesses. Gates green.
 Report: cb-11speed-1.md.
+
+## 2026-07-22 — road-breadth-4 merged: road 307 to 314 parts
+Giant Contend SL 1 (only the 2nd alloy road frame in the file; OverDrive-vs-overdrive-aero
+token call follows the file's own precedent), Fulcrum Soniq AL wheel pair (the earlier
+"navigation denied" wall did NOT recur — one honest retry, doctrine satisfied), Vittoria
+Corsa Pro 30/32c via the r.jina.ai proxy route, and Kenda Valkyrie TLR 28/30 — the road
+catalog's FIRST Kenda rows. Every new verified row carries an honest priceBasis (coordinator
+verified: the only road blanks left are the 3 SRAM range rows blanked at review this morning).
+Worker discipline worth noting: refused to add Trek Domane ALR off a 2018 ARCHIVED page rather
+than model a discontinued frame as current; excluded Fulcrum "Racing 600 DB" after proving it
+is retailer-repackaged rim-brake Racing 6 (this file is disc-only); flagged the Fulcrum page's
+literal "tyre width from 25 mm to 69 mm" in-row instead of smoothing it — COORDINATOR NOTE:
+that 69mm is almost certainly a maker-page error, and its only effect is to make the clearance
+check DORMANT for that wheel (too permissive, never a false error), so it stays as the sourced
+figure per "a missing check beats a wrong one"; revisit if Fulcrum corrects the page.
+WALL FOR THE NEXT WAVE: the browser pane returned an empty/0x0 viewport all session
+(screenshots error "pane is not displayed"), which is what actually blocked Trek Domane AL and
+Canyon Endurace AL — a TOOLING issue, not a site block. Both are real current products worth
+a retry once the pane renders (or via Trek's service-manual PDF route). Gates green.
+Report: road-breadth-4.md.
