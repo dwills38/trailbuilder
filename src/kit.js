@@ -2006,6 +2006,22 @@ var KIT_PARTS = [
     sizes:['XS','S','M','L','XL','XXL'],
     desc:'Lightweight race-fit glove. Weight per pair (approx). CORRECTED 2026-07-17: price is the fetched $44.95-49.95 range, base size $44.95 (was sample $35); sizes widened to include the fetched XS.',
     verified:true, lastChecked:'2026-07-17', source:'https://www.foxracing.com/product/flexair-gloves/31496.html' },
+  { id:'glv-fox-defend', cat:'gloves', brand:'Fox', model:'Defend Glove', price:44.95,
+    sizes:['S','M','L','XL','2XL'],
+    desc:'kit-breadth-3 (2026-07-22): durability-focused single-layer Clarino palm glove, list'
+      + ' price runs $44.95-$49.95 by colorway ($44.95 used as the base). No weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.foxracing.com/product/defend-gloves/33792.html' },
+  { id:'glv-fox-defend-d3o', cat:'gloves', brand:'Fox', model:'Defend D3O Glove', price:59.95,
+    sizes:['S','M','L','XL','2XL'],
+    desc:'kit-breadth-3 (2026-07-22): the D3O-impact-palm tier above the base Defend glove'
+      + ' (glv-fox-defend), same collection page. No weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.foxracing.com/gloves/mountain-bike/defend/' },
+  { id:'glv-fox-defend-youth', cat:'gloves', brand:'Fox', model:'Youth Defend Glove', price:39.95,
+    sizes:['Youth-S','Youth-M','Youth-L'],
+    desc:'kit-breadth-3 (2026-07-22): genuine youth-specific SKU (ages 6-14, its own Youth-S/M/L'
+      + ' size run distinct from the adult Defend chart), not an adult small worn by a kid. No'
+      + ' weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.foxracing.com/gloves/mountain-bike/defend/' },
   { id:'glv-100-airmatic', cat:'gloves', brand:'100%', model:'Airmatic Glove', price:44.95, weight:70,
     sizes:['S','M','L','XL'],
     desc:'Weight per pair (approx, unconfirmed - the manufacturer\'s own product-JSON weight field is a shipping/package weight, not a garment weight, confirmed unreliable via the eyewear batch where it read ~300g for ~30g sunglasses; kit weight policy: never blocks verification). Re-fetched 100percent.com product JSON (2026-07-17): confirmed compare-at $44.95, no XXL currently offered; a newer AIRMATIC 2 generation ($44.95) now sells alongside it.',
