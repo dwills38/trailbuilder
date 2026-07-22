@@ -41,6 +41,29 @@ test('an out-of-vocab bb value is caught', function(){
   ok(probs.some(function(m){ return /bb.*not in bb/.test(m); }), probs.join('\n'));
 });
 
+// vocab-tier1 (2026-07-22): ratified straight-steerer tokens (mirrors road's
+// existing straight-1-1-8; straight-1-1-4 is the wider Wilier-class gap) —
+// positive (each validates clean) + negative (still an exact-match vocab,
+// not a wildcard) coverage for both.
+test('straight-1-1-8 steerer is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { steerer: 'straight-1-1-8' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('straight-1-1-4 steerer is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { steerer: 'straight-1-1-4' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab steerer value is still caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { steerer: 'straight-1-inch' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /steerer.*not in steerer/.test(m); }), probs.join('\n'));
+});
+
 test('a missing required field is caught', function(){
   var frame = aFrame();
   var bad = Object.assign({}, frame); delete bad.rearAxle;

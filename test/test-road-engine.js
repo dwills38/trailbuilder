@@ -125,6 +125,19 @@ test('rg-steerer errors frame/fork and headset/fork mismatches, silent matched',
   eq(of(r3, 'rg-steerer').length + of(r3, 'rg-headset-steerer').length, 0, 'tapered end to end');
 });
 
+test('rg-steerer: straight-1-1-4 (vocab-tier1, 2026-07-22) fits its own class, errors against tapered and against straight-1-1-8', function(){
+  var frame114 = gp('gfr-canyon-grizl-cf-sl');   // real row, steerer:'straight-1-1-4'
+  var fork114 = syn(gp('gfk-cannondale-topstone-carbon'), { id: 'gfk-syn-114', steerer: 'straight-1-1-4' });
+  var r = ROAD.checkRoadBuild({ frame: frame114, fork: fork114 });
+  eq(of(r, 'rg-steerer').length, 0, 'straight-1-1-4 frame + straight-1-1-4 fork (matched class) fits');
+  var taperedFork = gp('gfk-cannondale-topstone-carbon');   // real row, steerer:'tapered'
+  var r2 = ROAD.checkRoadBuild({ frame: frame114, fork: taperedFork });
+  eq(errOf(r2, 'rg-steerer').length, 1, 'tapered fork in a straight-1-1-4 frame errors');
+  var fork118 = syn(gp('gfk-cannondale-topstone-carbon'), { id: 'gfk-syn-118', steerer: 'straight-1-1-8' });
+  var r3 = ROAD.checkRoadBuild({ frame: frame114, fork: fork118 });
+  eq(errOf(r3, 'rg-steerer').length, 1, 'straight-1-1-8 fork in a straight-1-1-4 frame errors — the two straight classes are never interchangeable');
+});
+
 test('proprietary steerer systems: same-system fits, cross-system and standard both error (Douglas-ruled 2026-07-21)', function(){
   // Real catalog rows: Giant OverDrive Aero (D-shaped) and Cannondale Delta are distinct
   // per-system tokens ON PURPOSE — a shared 'proprietary' token would let the exact-match

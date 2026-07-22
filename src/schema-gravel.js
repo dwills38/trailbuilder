@@ -56,7 +56,14 @@ var GRAVEL_VOCAB = {
   // always a real round tube (never the rigid-seatpost 'proprietary' token,
   // which would falsely validate a dropper diameter that can't exist).
   dropperDiameter: ['27.2', '31.6', '30.9'],
-  steerer:      ['tapered'],
+  steerer:      ['tapered', 'straight-1-1-8', 'straight-1-1-4'],
+  // 'straight-1-1-8' mirrors road's existing token (schema-road.js steererRG) — same
+  // 28.6mm/1-1/8in constant-diameter steer tube, now confirmed on multiple gravel rows
+  // (see GRAVEL_VOCAB usage sites below) rather than only a road-frame phenomenon.
+  // 'straight-1-1-4' is a genuinely different, wider constant-diameter tube (1-1/4in,
+  // ~31.75mm) seen stated verbatim on the Canyon Grizl CF SL fork spec ("Fork steer tube
+  // diameter: 1 1/4\"") — the same class Wilier's own gravel-adjacent forks were logged
+  // against in this file's header comment; never conflated with the narrower 1-1/8 token.
   frontDerailleurMount: ['none', 'braze-on'],
   material:     ['alloy', 'steel', 'titanium'],
   freehub:      ['xdr', 'n3w', 'micro-spline-road', 'hg-road'],

@@ -67,6 +67,7 @@ var ROAD_VOCAB = {
   rearAxle:     ['12x142', 'qr130', 'qr135'],
   frontAxle:    ['12x100', 'qr100'],
   steerer:      ['tapered', 'straight-1-1-8',
+                 'straight-1-1-4',     // wider constant-diameter (1-1/4in) tube — Canyon Grizl CF SL fork ("Fork steer tube diameter: 1 1/4\""), the Wilier-class gap this file's gravel header comment logged; never conflated with the narrower straight-1-1-8 token
                  // Proprietary non-round steerer SYSTEMS (Douglas-ruled 2026-07-21) — one
                  // token per system, NEVER one shared 'proprietary' token: the rg-steerer /
                  // rg-headset-steerer checks are exact-match, so a shared token would let a
