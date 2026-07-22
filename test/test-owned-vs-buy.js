@@ -256,11 +256,16 @@ test('model: toBuySamplePriced counts only to-buy rows whose price is NOT a conf
   var m0 = model(GOOD, {});
   eq(m0.toBuySamplePriced, expectedSample(m0), 'sample tally must equal the to-buy rows whose part lacks a confirmed MSRP');
 
-  // A synthetic confirmed-MSRP saddle, to-buy (nothing owned): the tally must
-  // drop by exactly one vs the same build with the plain (sample) saddle.
+  // Force the saddle to each basis state and assert the tally moves by exactly
+  // the delta vs the REAL catalog saddle's own current state — so this test
+  // stays true no matter which backfill wave has or hasn't touched sa-wtb-volt.
+  var realConfirmed = P.priceMsrpConfirmed(part('sa-wtb-volt'));
   var confirmedSaddle = clone('sa-wtb-volt', { priceBasis: 'msrp-confirmed' });
   var m1 = OVB.ownedVsBuyModel(bl(/** @type {*} */ (Object.assign({}, B(GOOD), { saddle: confirmedSaddle }))), {}, {}, DEPS);
-  eq(m1.toBuySamplePriced, m0.toBuySamplePriced - 1, 'the confirmed-MSRP saddle must not count toward the sample tally');
+  eq(m1.toBuySamplePriced, m0.toBuySamplePriced - (realConfirmed ? 0 : 1), 'a confirmed-MSRP saddle must not count toward the sample tally');
+  var sampleSaddle = clone('sa-wtb-volt', {}); delete sampleSaddle.priceBasis; delete sampleSaddle.verified; delete sampleSaddle.source; delete sampleSaddle.lastChecked;
+  var m1b = OVB.ownedVsBuyModel(bl(/** @type {*} */ (Object.assign({}, B(GOOD), { saddle: sampleSaddle }))), {}, {}, DEPS);
+  eq(m1b.toBuySamplePriced, m0.toBuySamplePriced + (realConfirmed ? 1 : 0), 'a sample-priced saddle must count toward the sample tally');
 
   // An OWNED part is excluded from the to-buy subtotal entirely, so its price
   // basis (confirmed or not) must never move toBuySamplePriced.
