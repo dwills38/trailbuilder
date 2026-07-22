@@ -4927,3 +4927,14 @@ system vocab — CLAUDE.md's data-model line was STALE (shimano-11/sram-11 live 
 same artifact skipped the base Honzo in cb-breadth-1). Line fixed this merge; Big Al + Honzo
 cb entries now queued as genuinely unblocked. Gates green.
 Report: mtb-cb-breadth-2.md.
+
+## 2026-07-22 — emtb-haibike-allmtn merged: EMTB 108 to 109, first Pinion-MGU bike
+Haibike ALLMTN CF 11 TRN/IQ entered off Haibike's own Shopify JSON + rendered page (the
+<handle>.js route from emtb-pb-clear), Pinion's partner page used for identity corroboration
+only — its stale weight/price figures (24.4kg / EUR 10k vs the live page's 27kg / EUR 9k)
+disclosed, not blended. Price $10,265.88 = EUR 9,000 x same-day disclosed rate
+(regional-conversion, the Vitus precedent; no US market exists for the model — both US routes
+dead-end). display/batteryRemovable honestly blank (Pinion's confirming page 404'd; naming
+implies but does not state). 'pinion' added to EMTB_VOCAB.motorBrand backed by the row.
+Gates green.
+Report: emtb-haibike-allmtn.md.
