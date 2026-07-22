@@ -999,6 +999,11 @@ var KIT_PARTS = [
       + ' Crus-r Flat BOA" or any plain men\'s "Sport Crus-r BOA" remains. Marked discontinued rather'
       + ' than guessing a re-scope onto a women\'s-fit SKU. Price/weight left as prior sample, not'
       + ' marked verified.' },
+  { id:'sho-giro-riela-r2', cat:'shoes', brand:'Giro', model:'Riela R II', price:99.95, mfgPn:'GR-7089932',
+    soleType:'clipless', fitCut:'womens', sizes:['36','37','38','39','40','41','42','43'],
+    disciplines:['xc','trail'],
+    verified:true, lastChecked:'2026-07-22', source:'https://www.giro.com/p/riela-r-ii-mountain-bike-shoes/GR-7089932.html',
+    desc:'Women\'s-specific XC/trail clipless (2-bolt) shoe - kit-breadth-2 pass (2026-07-22): the women\'s-fitCut shoe cell was almost empty (a single Ride Concepts row) before this addition. Fetched giro.com product page: style GR-7089932, list USD price $99.95 (currently $69.98 on a 29%-off sale, list price used per the MSRP pricing policy), EU sizes 36-43. No weight published on the page.' },
 
   /* -- Jerseys (all fields optional) -- */
   { id:'jsy-fox-flexair', cat:'jersey', brand:'Fox', model:'Flexair', price:104.95, weight:135,
@@ -1392,6 +1397,28 @@ var KIT_PARTS = [
   { id:'jsy-oneal-elementsquadron-ss', cat:'jersey', brand:"O'Neal", model:'Element Squadron Cotton Jersey', price:27.99, weight:230,
     sleeve:'short', sizes:['S','M','L','XL','XXL','3XL'], desc:'Fetched oneal.com: exact price match $27.99 (no discount active). 100% ringspun cotton, tagless neck label, screen-printed graphics confirmed. Weight not published; kept as the existing sample per the kit weight policy.',
     verified:true, lastChecked:'2026-07-17', source:'https://oneal.com/products/oneal-element-hexx-squadron-jersey-black-gray' },
+  /* Rapha Trail line (kit-breadth-2, 2026-07-22): brand had ZERO rows anywhere in the
+     kit catalog before this wave, despite rapha.cc running a real dedicated MTB "Trail"
+     collection alongside its road/gravel lines - a genuine brand gap the brief named
+     explicitly. family:'rapha-trail' groups this wave; mfgPn = the maker's own SKU code
+     (rapha.cc URLs use it directly, e.g. /product/TTQ01XX). Rapha does not publish
+     garment weights on any product page checked this pass - left absent per the kit
+     weight policy rather than guessed. */
+  { id:'jsy-rapha-trail-34-sleeve', cat:'jersey', brand:'Rapha', model:"Men's Trail 3/4 Sleeve Jersey",
+    price:77, family:'rapha-trail', mfgPn:'TTQ01XX',
+    sleeve:'long', fitCut:'mens', sizes:['XS','S','M','L','XL','XXL'], disciplines:['trail'],
+    verified:true, lastChecked:'2026-07-22', source:'https://www.rapha.cc/us/en/product/TTQ01XXPGO',
+    desc:'Fetched rapha.cc product page: list USD price $77.00 (site currently runs a $46 sale), sizes XS-XXL. Schema has no 3/4-sleeve token; stored as `sleeve:\'long\'` - the same closest-existing-value convention already used for the Specialized Grom 3/4 jersey row in this file (see jsy-specialized-enduro desc). Weight not published on the page.' },
+  { id:'jsy-rapha-trail-tech-tee', cat:'jersey', brand:'Rapha', model:"Men's Trail Technical T-Shirt II",
+    price:95, family:'rapha-trail', mfgPn:'TTT04XX',
+    sleeve:'short', fitCut:'mens', sizes:['XS','S','M','L','XL','XXL'], disciplines:['trail'],
+    verified:true, lastChecked:'2026-07-22', source:'https://www.rapha.cc/rd/en/product/TTT04XXDRG',
+    desc:'Fetched rapha.cc (regional edition serves GBP; USD $95 list / $71 sale price cross-confirmed via rapha.cc/us catalog listing). New-for-this-season short-sleeve tech tee for trail/enduro riding.' },
+  { id:'jsy-rapha-trail-tech-tee-womens', cat:'jersey', brand:'Rapha', model:"Women's Trail Technical T-Shirt",
+    price:95, family:'rapha-trail', mfgPn:'TWS01XX',
+    sleeve:'short', fitCut:'womens', sizes:['XXS','XS','S','M','L','XL'], disciplines:['trail'],
+    verified:true, lastChecked:'2026-07-22', source:'https://www.rapha.cc/us/en/product/womens-trail-technical-t-shirt/TWS01XXAMCXSM',
+    desc:'Fetched rapha.cc product page: list USD price $95.00 confirmed (site currently runs a $57 sale), sizes XXS-XL.' },
 
   /* -- Shorts (shorts + pants are SEPARATE cats; grind batch 2026-07-14, sht-shorts-grind) -- */
   { id:'sht-fox-flexair', cat:'shorts', brand:'Fox', model:'Flexair Short', price:129.95, weight:250,
@@ -1694,6 +1721,16 @@ var KIT_PARTS = [
     liner:false, disciplines:['trail'], sizes:['XS','S','M','L','XL','XXL','XXXL'],
     desc:'Re-fetched cube.eu/de-de/cube-trail-short-cmpt-tm/11151 kit-12 (2026-07-21): EUR49.95 UVP reconfirmed - the SAME maker list price as the base CMPT Trail Short above (a retailer page had shown a higher EUR59.95 "regular" price for the TM, but the maker\'s own page confirms both trims share one MSRP). USD figure is a converted ESTIMATE, basis disclosed per THE PRICE RULE (price never blocks verification). 100% polyester confirmed; sizes XS-XXXL reconfirmed exactly. Page publishes no weight - stays a sample per the kit-apparel weight-exemption policy.',
     verified:true, lastChecked:'2026-07-21', source:'https://www.cube.eu/de-de/cube-trail-short-cmpt-tm/11151' },
+  { id:'sht-rapha-trail-mens', cat:'shorts', brand:'Rapha', model:"Men's Trail Shorts",
+    price:165, family:'rapha-trail', mfgPn:'TOS01XX', liner:false,
+    fitCut:'mens', sizes:['XS','S','M','L','XL','XXL'], disciplines:['trail'],
+    verified:true, lastChecked:'2026-07-22', source:'https://www.rapha.cc/us/en_US/shop/mens-trail-shorts/product/TOS01XX',
+    desc:'Fetched rapha.cc product page: list USD price $165.00 confirmed (site currently runs a $99 sale), sizes XS-XXL. Fully featured trail short with a contoured, variable-width belt; no integrated liner (liner sold as a separate Trail Liner short in this same line). No weight published.' },
+  { id:'sht-rapha-trail-womens', cat:'shorts', brand:'Rapha', model:"Women's Trail Shorts",
+    price:160, family:'rapha-trail', mfgPn:'OSW01XX', liner:false,
+    fitCut:'womens', sizes:['XXS','XS','S','M','L','XL'], disciplines:['trail'],
+    verified:true, lastChecked:'2026-07-22', source:'https://www.rapha.cc/US/en_US/shop/womens-trail-shorts/product/OSW01XXPSUXSM',
+    desc:'Fetched rapha.cc product page: USD price $160.00 (no sale active at check time), sizes XXS-XL. Low-profile stretch waist, two zippered side pockets with integrated phone sleeves. No weight published.' },
 
   /* -- Pants (MTB pants only; shorts are a separate cat above) -- */
   { id:'pnt-fox-defend', cat:'pants', brand:'Fox', model:'Defend Pant', price:169.95, weight:430,
@@ -1900,6 +1937,16 @@ var KIT_PARTS = [
     liner:false, disciplines:['trail'], sizes:['26','28','30','32','34','36','38','40'],
     desc:'Re-fetched handupco.com/products/a-t-plus-pants-obsidian-1 kit-11 (2026-07-21): regular MSRP $64.00 reconfirmed (currently $39 on sale, sale price not used per MSRP-basis pricing policy), waist sizes 26-40 (also split by 30/32/34 inseam, not captured in the flat sizeList), no liner/chamois. 90% Nylon/10% Spandex, four-way stretch. No absolute weight published ("14% lighter" than prior year, no figure) - stays a sample per the kit-apparel weight-exemption policy.',
     verified:true, lastChecked:'2026-07-21', source:'https://www.handupco.com/products/a-t-plus-pants-obsidian-1' },
+  { id:'pnt-rapha-trail-mens', cat:'pants', brand:'Rapha', model:"Men's Trail Pants",
+    price:205, family:'rapha-trail', mfgPn:'TPA01XX', liner:false,
+    fitCut:'mens', sizes:['XS','S','M','L','XL','XXL'], disciplines:['trail'],
+    verified:true, lastChecked:'2026-07-22', source:'https://www.rapha.cc/us/en/product/mens-trail-pants/TPA01XX',
+    desc:'Fetched rapha.cc product page: list USD price $205.00 confirmed (site currently runs a $143 sale), sizes XS-XXL. Durable woven nylon, reinforced knees, adjustable anatomical waistband with camlocks, gusseted 4-way stretch construction (fits over knee pads). No weight published.' },
+  { id:'pnt-rapha-trail-womens', cat:'pants', brand:'Rapha', model:"Women's Trail Pants",
+    price:143, family:'rapha-trail', mfgPn:'WPA01XX', liner:false,
+    fitCut:'womens', sizes:['XXS','XS','S','M','L','XL'], disciplines:['trail'],
+    source:'https://www.rapha.cc/us/en/product/WPA01XX',
+    desc:'Fetched rapha.cc: the site\'s own MTB-collection overview page lists this SKU\'s USD range as $123.00-$143.00 across colorways; the direct product page returned $102.00 with no sale/list distinction stated, so the CATALOG-OVERVIEW top-of-range figure ($143, matching the men\'s-pants sibling\'s relative pricing) is used as the representative MSRP rather than the ambiguous single-page figure - left UNVERIFIED pending a cleaner per-colorway confirmation. Same construction as the men\'s Trail Pants (stretch waist, zip vertical pockets, gusseted 4-way stretch). No weight published.' },
 
   /* -- Gloves (all UNVERIFIED samples; weight is PER PAIR, approx USD MSRP) -- */
   { id:'glv-fox-dirtpaw', cat:'gloves', brand:'Fox', model:'Dirtpaw', price:39.95, weight:70, sizes:['S','M','L','XL','XXL','3XL','4XL'],
