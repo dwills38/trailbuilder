@@ -579,6 +579,18 @@ var EMTB_PARTS = [
     desc: "Verified vs the maker's own product page (motor/battery/travel/frame/wheel-config/drivetrain/brakes all confirmed; weight 59.3 lb = 26900g maker-published; MSRP $8,999 matches exactly). Drivetrain/brakes corrected wave 4 cluster C (SRAM X0 Eagle AXS -> the actual SRAM S1000 Eagle AXS T-Type derailleur; SRAM Maven Silver -> SRAM Maven Bronze, the real build-sheet brake); motorTorque corrected (85 -> 100Nm, matching the shipped 750W tune the page states, resolving the prior 85Nm+750W mismatched pair); weight corrected to the maker-published 26900g (was 24500g sample).",
     verified: true, lastChecked: '2026-07-20', source: 'https://mondraker.com/us/en/level-rr1750250055'
   },
+  {
+    id: 'em-mondraker-level-xr', cat: 'emtb', brand: 'Mondraker', model: 'Level XR',
+    family: 'mondraker-level', gen: 'Gen 5', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX Gen 5 SMART SYSTEM (BDU384Y)', motorTorque: 100, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-enduro'], weight: 25900, price: 9999,
+    note: "A tier above the already-cataloged Level RR (breadth-2): same 6061-alloy Level chassis/180-170mm travel/mullet layout and Bosch CX Gen 5 100Nm/750W tune, but a step up in suspension (Öhlins RXF 38 M.3 fork + Öhlins TTX22M.2 shock, vs the RR's build) and brakes (SRAM Maven Silver vs the RR's Maven Bronze) with the same GX Eagle AXS T-Type drivetrain.",
+    desc: "Verified vs the fetched maker product page (technical-specs table read directly, not the promo copy): frame/fork/shock/drivetrain/brakes/battery/weight/price all maker-stated. Weight 57.1 lb -> 25900g. Price $9,999, no sale pricing shown on the page.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://mondraker.com/us/en/level-xr1750249988'
+  },
 
   // ---------------------------------------------------------------------------
   // Haibike (new maker) — AllMtn (Yamaha) + Nduro (Bosch)
