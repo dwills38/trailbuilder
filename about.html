@@ -22,6 +22,12 @@
 <meta name="theme-color" id="metaThemeColor" content="#16523a" />
 <style>
   :root{
+    /* --brand used as TEXT. --brand itself is tuned to carry a WHITE label on a
+       filled button, so as a FOREGROUND it lands at 2.3-3.1:1 on every surface
+       token of the dark themes (--bg/--card/--chip/--ok-bg/--warn-bg/--err-bg) and
+       at 4.4:1 on rad's --chip/--warn-bg. This is the same hue re-derived for
+       reading on those surfaces (worst case 5.2:1). Light keeps --brand as-is. */
+    --brand-text:#1f6f4a;
     --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
     --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
     --ok:#166534; --ok-bg:#e7f5ec; --warn:#92400e; --warn-bg:#fdf3e1;
@@ -29,6 +35,8 @@
     --hdr-bg:#123f2b; --hdr-topo:rgba(255,255,255,.11);
   }
   html.dark{
+    /* brand-as-text; see the :root --brand-text note */
+    --brand-text:#6fcf97;
     color-scheme:dark;
     --ink:#e6ebe7; --ink-soft:#a8b3ab; --line:#3a423d; --bg:#161a18;
     --card:#1f2522; --brand:#1f6f4a; --brand-d:#123f2b; --accent:#e0703c;
@@ -37,6 +45,8 @@
     --hdr-bg:#0c2b1c; --hdr-topo:rgba(255,255,255,.09);
   }
   html.loam{
+    /* brand-as-text; see the :root --brand-text note */
+    --brand-text:#7ecb8e;
     color-scheme:dark;
     --ink:#f2e8d8; --ink-soft:#c2ad92; --line:#3c2e22; --bg:#1a1310;
     --card:#241a13; --brand:#2f7048; --brand-d:#1e4a30; --accent:#e2a94a;
@@ -45,6 +55,13 @@
     --hdr-bg:#14301f; --hdr-topo:rgba(242,232,216,.11);
   }
   html.rad{
+    /* brand-as-text; see the :root --brand-text note */
+    --brand-text:#ff5cd9;
+    /* RAD is a DARK theme too — dark & loam both declare this, rad never did, so
+       the UA kept light-scheme defaults under it: an unstyled link rendered #0000EE
+       on the near-black card (1.90:1, proven on home.html), and native select
+       popups / scrollbars / autofill / date pickers all painted light-on-light. */
+    color-scheme:dark;
     --ink:#f4eaff; --ink-soft:#c9a6ff; --line:#ff2fd0; --bg:#150029;
     --card:#22093f; --brand:#ff2fd0; --brand-d:#a3007f; --accent:#00e5ff;
     --ok:#39ff14; --ok-bg:#0a2e12; --warn:#ffe600; --warn-bg:#332b00;
@@ -63,7 +80,7 @@
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
        color:var(--ink);background:var(--bg);line-height:1.5}
-  a{color:var(--brand);font-weight:600}
+  a{color:var(--brand-text);font-weight:600}
   html.dark a,html.loam a{color:#6fcf97}
   html.rad a{color:var(--accent)}
   /* Hero: the topo header family (same SVG pattern as the app), just taller —
@@ -86,6 +103,23 @@
   .btn.primary{background:var(--brand);border-color:var(--brand);color:#fff}
   html.dark .btn,html.loam .btn{background:var(--card);color:var(--ink);border-color:var(--line)}
   html.rad .btn{background:var(--card);color:var(--ink);border-color:var(--line)}
+  /* The blanket rules above (0,2,1) outrank .btn.primary (0,2,0), which erased the
+     "Open the builder" CTA's brand fill in dark/loam — it rendered card-on-card.
+     RAD already has its own restore (see above); dark/loam never got one. */
+  html.dark .btn.primary,html.loam .btn.primary{background:var(--brand);border-color:#2f8f5c;color:#fff}
+  /* The primary CTA is --brand green sitting on the --hdr-bg green banner, which in
+     LIGHT is 1.94:1 — the button had no discernible edge. A light rim (the same one
+     the ghost button beside it uses) lifts it clear. Only light is affected: the
+     html.dark/.loam/.rad .btn.primary rules are more specific and already pass. */
+  .hero .btn.primary{border-color:rgba(255,255,255,.55)}
+  /* The .hero banner stays deep green in every theme, so its SECONDARY button
+     (📚 Guides) was a dark-card rectangle on dark green: 1.47:1 in dark, 1.19:1 in
+     loam, versus a crisp white 11.85:1 in light. Same translucent-white banner
+     convention index.html's header and bmx.html's .btn.ghost use. */
+  html.dark .hero .btn:not(.primary),html.loam .hero .btn:not(.primary){
+    background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.4);color:#fff}
+  html.dark .hero .btn:not(.primary):hover,html.loam .hero .btn:not(.primary):hover{
+    background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.55)}
   .badge{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;font-size:12px;padding:5px 10px;border-radius:999px}
   .honesty-strip{background:#10271b;color:#cfe8d8;font-size:12px;padding:7px 12px;text-align:center}
   html.rad .honesty-strip{background:#1c0836}
@@ -103,7 +137,7 @@
   footer{border-top:1px solid var(--line);margin-top:38px;padding:18px 24px 40px;font-size:12px;
     color:var(--ink-soft);text-align:center}
   footer a{color:inherit;text-decoration:underline;font-weight:600}
-  footer a:hover{color:var(--brand)}
+  footer a:hover{color:var(--brand-text)}
   footer .legal-links{margin:0 0 8px}
   @media (max-width:520px){ .hero h1{font-size:23px} .hero{padding:22px 18px 26px} main{padding:20px 18px 16px} }
 </style>

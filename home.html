@@ -21,6 +21,12 @@
    round, Douglas-approved 2026-07-20) so this page has zero src/ dependency and
    no external stylesheet request. ---- */
 :root{
+  /* --brand used as TEXT. --brand itself is tuned to carry a WHITE label on a
+     filled button, so as a FOREGROUND it lands at 2.3-3.1:1 on every surface
+     token of the dark themes (--bg/--card/--chip/--ok-bg/--warn-bg/--err-bg) and
+     at 4.4:1 on rad's --chip/--warn-bg. This is the same hue re-derived for
+     reading on those surfaces (worst case 5.2:1). Light keeps --brand as-is. */
+  --brand-text:#1f6f4a;
   --ink:#1c2321; --ink-soft:#566058; --line:#e3e6e2; --bg:#f6f7f4;
   --card:#ffffff; --brand:#1f6f4a; --brand-d:#16523a; --accent:#9a3412;
   --ok:#166534; --ok-bg:#e7f5ec; --warn:#92400e; --warn-bg:#fdf3e1;
@@ -41,6 +47,12 @@ body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Hel
 
 /* theme overrides — copied verbatim from the shipped themes (tokens.css) */
 html.rad{
+  /* brand-as-text; see the :root --brand-text note */
+  --brand-text:#ff5cd9;
+  /* RAD is a DARK theme too — dark & loam both declare this, rad never did, so the
+     UA kept light-scheme defaults under it: the "More about D-Dubs Works" link
+     rendered #0000EE on the near-black card at 1.90:1. */
+  color-scheme:dark;
   --ink:#f4eaff; --ink-soft:#c9a6ff; --line:#ff2fd0; --bg:#150029;
   --card:#22093f; --brand:#ff2fd0; --brand-d:#a3007f; --accent:#00e5ff;
   --ok:#39ff14; --ok-bg:#0a2e12; --warn:#ffe600; --warn-bg:#332b00;
@@ -61,6 +73,8 @@ html.rad .btn{background:var(--card);color:var(--ink)}
 html.rad .honesty-strip{background:#1c0836}
 
 html.dark{
+  /* brand-as-text; see the :root --brand-text note */
+  --brand-text:#6fcf97;
   color-scheme:dark;
   --ink:#e6ebe7; --ink-soft:#a8b3ab; --line:#3a423d; --bg:#161a18;
   --card:#1f2522; --brand:#1f6f4a; --brand-d:#123f2b; --accent:#e0703c;
@@ -73,6 +87,8 @@ html.dark .honesty-strip{background:#0b1d13}
 html.dark .btn:hover{border-color:#4d5750}
 
 html.loam{
+  /* brand-as-text; see the :root --brand-text note */
+  --brand-text:#7ecb8e;
   color-scheme:dark;
   --ink:#f2e8d8; --ink-soft:#c2ad92; --line:#3c2e22; --bg:#1a1310;
   --card:#241a13; --brand:#2f7048; --brand-d:#1e4a30; --accent:#e2a94a;
