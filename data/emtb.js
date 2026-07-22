@@ -501,6 +501,18 @@ var EMTB_PARTS = [
     desc: 'Verified vs bikes.com collection page + The Loam Wolf\'s as-tested review. Major trim correction verify/emtb-4 wave 4 cluster D: "Altitude Powerplay Carbon 90" is stale — the current Altitude Powerplay III lineup is only 3 SKUs (Carbon 70 / Alloy 50 / Alloy 30), no Carbon 90. Corrected model to the real current top/only-carbon SKU "Altitude Powerplay Carbon 70"; motor corrected Dyname 4.0 -> Dyname S4 Pro (108Nm, now 1000W peak); wheelConfig corrected mullet -> 29 (collection banner); drivetrain/brakes corrected to SRAM Eagle 90 Transmission / SRAM Maven Silver (The Loam Wolf\'s as-tested C70 build); weight corrected to the as-tested 25kg (55.3lb, size L, no maker per-size spec published); price $10,799 is the current bikes.com listing.',
     verified: true, lastChecked: '2026-07-20', source: 'https://bikes.com/collections/altitude-powerplay'
   },
+  {
+    id: 'em-rocky-mountain-instinct-powerplay-sl-c90', cat: 'emtb', brand: 'Rocky Mountain', model: 'Instinct Powerplay SL Carbon 90',
+    family: 'rocky-mountain-instinct-powerplay-sl', modelYear: 2025,
+    motorBrand: 'rocky-mountain', motorModel: 'Dyname S4 Lite', motorTorque: 75, motorPowerPeak: 700,
+    batteryWh: 480, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 145,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code Ultimate Stealth',
+    disciplines: ['e-trail'], price: 11999,
+    note: 'A distinct lightweight-SL platform from the full-power Instinct Powerplay row above — new Dyname S4 Lite motor (30% lighter than Dyname 4.0/S4 Pro), 480Wh removable battery, RIDE-4 adjustable MX (mullet) geometry.',
+    desc: 'Verified vs the fetched maker product page (bikes.com/products/instinct-pp-sl-c90-25: price, rear travel, wheel config, drivetrain/suspension component callout) plus the maker\'s own Instinct Powerplay SL overview/FAQ page (motor peak power 700W / torque 75Nm / 480Wh battery) and a third-party ride report (nsmb.com) corroborating the 150mm front / 145mm rear travel split and drivetrain tier. No bike weight is published by the maker — left blank rather than guessed.',
+    verified: true, lastChecked: '2026-07-22', source: 'https://bikes.com/products/instinct-pp-sl-c90-25'
+  },
 
   // ---------------------------------------------------------------------------
   // Transition depth (Relay Alloy XT + Relay Carbon X0 AXS)
