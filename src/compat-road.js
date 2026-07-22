@@ -64,7 +64,23 @@ var ROAD_VOCAB = {
      Rule R17 compares only the disc-vs-rim CLASS, never raw tokens. */
   brakeSystem:  ['disc-flat', 'disc-post', 'rim-caliper', 'disc-hydraulic', 'disc-mechanical', 'rim', 'disc'],
   brakeMount:   ['flat-mount', 'post-mount'],              // road/gravel meaning — NOT the MTB PM/FM tokens
-  rearAxle:     ['12x142', 'qr130', 'qr135'],
+  /* rearAxle carries BOTH sides of rule R2/R3's exact-match compare: a frame's
+     `rearAxle` and a rear wheel's `hub`. RECONCILED engine/road-vocab-lint
+     (2026-07-22): '12x148', '135x9-qr' and '135x10-qr' were live in
+     GRAVEL_VOCAB.rearAxle and on real data/gravel.js frame rows while this
+     union table still listed only the three road tokens — the same
+     documentation-vs-validator drift that made R15 silently dormant for
+     shimano-grx-10 (see the system note below). Sourcing for each lives at
+     GRAVEL_VOCAB.rearAxle in src/schema-gravel.js (Salsa Cutthroat's own
+     frame-specs table for 12x148; Marin Nicasio+ / Kona Rove AL / Salsa
+     Journeyman spec tables for the two QR classes). Adding them here changes
+     NO verdict — the engine compares part values directly and never gates on
+     this table — it only stops the table from lying about what the datasets
+     hold. NOTE (not this task's fix, flagged to the coordinator): no cataloged
+     rear wheel carries a QR `hub`, so a 135x*-qr frame still errors against
+     every wheel in R3. That is a TRUE won't-fit over a real catalog gap, not a
+     false verdict; the gravel-qr-wheels lane owns it. */
+  rearAxle:     ['12x142', 'qr130', 'qr135', '12x148', '135x9-qr', '135x10-qr'],
   frontAxle:    ['12x100', 'qr100'],
   steerer:      ['tapered', 'straight-1-1-8',
                  'straight-1-1-4',     // wider constant-diameter (1-1/4in) tube — Canyon Grizl CF SL fork ("Fork steer tube diameter: 1 1/4\""), the Wilier-class gap this file's gravel header comment logged; never conflated with the narrower straight-1-1-8 token
@@ -78,7 +94,34 @@ var ROAD_VOCAB = {
                  'overdrive-aero',     // Giant D-shaped "OverDrive Aero" (TCR/Defy/Propel)
                  'bmc-ics-flat'],      // BMC ICS "flat steerer" — Teammachine SLR 01 owner's manual: ICS-cockpit-only, standard round stems explicitly incompatible
   system:       ['shimano-road-12', 'shimano-road-11', 'shimano-grx-12', 'shimano-grx-11',
-                 'sram-axs-road', 'sram-xplr-12', 'sram-xplr-13', 'sram-apex-mech-12',
+                 /* 'shimano-grx-10' RECONCILED engine/road-vocab-lint (2026-07-22): the
+                    RX400 2x10 tier landed in GRAVEL_VOCAB.system and on 4 data/gravel.js
+                    rows (gravel-depth-3) but reached NEITHER this table NOR
+                    ROAD_SYSTEM_CHAIN below — so R15's `wantStd` was `undefined` and the
+                    chain-standard check did NOTHING for the whole live GRX-10 tier (a
+                    Flattop or Campagnolo chain on an RX400 drivetrain went green). That
+                    silent dormancy, not a wrong verdict, is the failure mode
+                    test-road-golden.js's vocab lint now guards. */
+                 'shimano-grx-10',
+                 'sram-axs-road', 'sram-xplr-12', 'sram-xplr-13',
+                 /* >>> HARD GUARD — 'sram-apex-mech-12' IS XPLR/FLATTOP ONLY. <<<
+                    ROAD_SYSTEM_CHAIN maps this token to 'flattop', which is correct for
+                    every row carrying it today (all SRAM Apex XPLR). But the token is
+                    NAMED for the whole mechanical Apex tier, and Apex EAGLE is the other
+                    half of that tier and takes an EAGLE chain, NOT Flattop — sram.com's
+                    own Apex Eagle rear-derailleur page (RD-APX-152-D1) specs
+                    "Chain Technology | Eagle" and its feature list says verbatim "Use with
+                    Eagle chain" (fetched 2026-07-22). The two tiers even SHARE the
+                    mechanical lever SD-APX-D1 ("Works with 12-speed mechanical Apex and
+                    Eagle shifters"), so the shifter alone cannot tell them apart — and R15
+                    falls back to the shifter when no cassette/RD is picked.
+                    THEREFORE: an Apex Eagle row REQUIRES ITS OWN system token (plus its own
+                    ROAD_SYSTEM_CHAIN entry and an 'eagle' chainStd token) BEFORE it is
+                    entered. Filing one under this token would produce a false "won't fit"
+                    against its correct Eagle chain AND a false "fits" for a Flattop chain.
+                    The split itself is a coordinator/Douglas call and is queued; until then
+                    test-road-golden.js pins that no row under this token is Eagle-tier. */
+                 'sram-apex-mech-12',
                  /* 'sram-rival22-11' ADDED road-depth-1 wave (2026-07-22): SRAM Rival 22, a
                     real, still-listed (sram.com/en/sram/road/series/sram-rival) 2x11
                     mechanical road groupset PRE-DATING Flattop — its own model pages
@@ -118,11 +161,34 @@ var ROAD_SRAM_AXS_SYSTEMS = ['sram-axs-road', 'sram-xplr-12', 'sram-xplr-13'];
      Compatibility PDF (fetched — analysis doc source list).
    - Campagnolo: its own chain standard; the fetched Campagnolo 12s/11s chain
      technical manual mandates Campagnolo-only pairing
-     (campagnolo.com Technical manual_11s_12s_chain, fetched 2026-07-18). */
+     (campagnolo.com Technical manual_11s_12s_chain, fetched 2026-07-18).
+
+   EVERY system token in ROAD_VOCAB.system / GRAVEL_VOCAB.system MUST have an
+   entry here, and every value must be a ROAD_VOCAB.chainStd token. A missing
+   entry does not fail loudly — R15 reads `ROAD_SYSTEM_CHAIN[ref.system]`, gets
+   `undefined`, and the whole chain-standard check goes SILENTLY DORMANT for
+   that tier (every chain, right or wrong, turns green). That is exactly how
+   shimano-grx-10 shipped inert. test-road-golden.js now lints both directions;
+   NEVER widen a system vocab without adding its entry in the SAME commit. */
 /** @type {Object.<string, string>} */
 var ROAD_SYSTEM_CHAIN = {
   'shimano-road-12': 'hg', 'shimano-road-11': 'hg',
   'shimano-grx-12': 'hg', 'shimano-grx-11': 'hg',
+  /* 'shimano-grx-10' (GRX RX400 2x10) -> 'hg', ADDED engine/road-vocab-lint
+     (2026-07-22), closing the silent-dormancy gap described above. Shimano's
+     OWN product page for the tier's rear derailleur states the chain family as
+     a spec field: bike.shimano.com/en-EU/product/component/grx-10-speed/RD-RX400.html
+     lists "SERIES | GRX 10-speed", "Rear speeds | 10" and
+     "Compatible chain | HG-X 10-speed" (fetched 2026-07-22 — bike.shimano.com
+     is WebFetch-403 walled, so this came through the Exa lane per the fetch
+     doctrine). HG-X is Shimano's HG chain family, so the coarse chainStd token
+     is 'hg' — the same value every other Shimano road/GRX tier carries.
+     Corroborated by productinfo.shimano.com/en/compatibility/C-454 (already
+     cited elsewhere in this repo), whose RD-RX400 row lists only CN-HG* chains
+     (CN-HG95 / CN-HG94 / CN-HG75 / CN-HG74 / CN-HG54). This engine's chainStd
+     axis is width-class only, never speed count — the 10-vs-11-vs-12-speed
+     distinction is R13's speed check, not R15's. */
+  'shimano-grx-10': 'hg',
   'sram-axs-road': 'flattop', 'sram-xplr-12': 'flattop', 'sram-xplr-13': 'flattop',
   'sram-apex-mech-12': 'flattop',
   'sram-rival22-11': 'hg',
