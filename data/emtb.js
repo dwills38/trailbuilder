@@ -670,14 +670,38 @@ var EMTB_PARTS = [
   },
   {
     id: 'em-yt-decoy-uncaged-8', cat: 'emtb', brand: 'YT', model: 'Decoy MX CORE 3 CF',
-    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 100, motorPowerPeak: 750,
+    motorBrand: 'bosch', motorModel: 'Performance Line CX Gen 5', motorTorque: 120, motorPowerPeak: 750,
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
     frameMaterial: 'carbon', drivetrain: 'SRAM S1000 Eagle Transmission', brakes: 'TRP EVO PRO',
     disciplines: ['e-trail', 'e-enduro'], weight: 23200, price: 7999,
     note: 'Top-tier carbon Decoy build. The whole "Uncaged" sub-brand naming and Shimano EP8 motor were retired — the current top-tier carbon Decoy runs a Bosch Performance Line CX motor on an all-new "Ultra Modulus Carbon" frame with 180mm front / 170mm rear travel.',
-    desc: 'Verified vs the fetched maker product page (yt-industries.com, via Exa fetch — full Tech & Spec table); front/rear travel split and motor torque/peak-power cross-checked against an independent MBR first-ride review of the same 2026 Decoy Core relaunch (the raw page badge order was ambiguous). Model/trim corrected verify/emtb-4 wave 4 cluster F: "Decoy Uncaged 8" (Shimano EP8, no such trim/naming currently sold) -> real current top-carbon trim "Decoy MX CORE 3 CF". All e-system/drivetrain/weight/price fields rewritten to match: motor Shimano EP8 85Nm -> Bosch Performance Line CX 100Nm/750W peak, battery 630->800Wh (removable PowerTube), drivetrain SRAM X0 Eagle Transmission -> SRAM S1000 Eagle Transmission (SRAM\'s newer S-series naming), brakes SRAM Code -> TRP EVO PRO, weight 22600->23200g, travel 160/150 -> 180/170mm. PRICE RULE: GBP 7,999.00 RRP (yt-industries.com UK pricing page) used as a $7,999 USD sample — no separate US price found; basis disclosed.',
-    verified: true, lastChecked: '2026-07-20', source: 'https://www.yt-industries.com/en-us/E-MTB/Bosch-Decoy/CORE-3/'
+    desc: 'Verified vs the fetched maker product page (yt-industries.com, via Exa fetch — full Tech & Spec table); front/rear travel split and motor torque/peak-power cross-checked against an independent MBR first-ride review of the same 2026 Decoy Core relaunch (the raw page badge order was ambiguous). Model/trim corrected verify/emtb-4 wave 4 cluster F: "Decoy Uncaged 8" (Shimano EP8, no such trim/naming currently sold) -> real current top-carbon trim "Decoy MX CORE 3 CF". All e-system/drivetrain/weight/price fields rewritten to match: motor Shimano EP8 85Nm -> Bosch Performance Line CX 100Nm/750W peak, battery 630->800Wh (removable PowerTube), drivetrain SRAM X0 Eagle Transmission -> SRAM S1000 Eagle Transmission (SRAM\'s newer S-series naming), brakes SRAM Code -> TRP EVO PRO, weight 22600->23200g, travel 160/150 -> 180/170mm. PRICE RULE: GBP 7,999.00 RRP (yt-industries.com UK pricing page) used as a $7,999 USD sample — no separate US price found; basis disclosed. CORRECTED breadth-3: motorTorque 100 -> 120Nm and motorModel -> "Performance Line CX Gen 5" — re-fetching the live yt-industries.com CORE-3 tech-spec table (navigating the site\'s own Bosch-Decoy family page rather than a guessed URL) shows the banner "BOSCH PERFORMANCE CX GEN 5 / 120NM | 750W | 600% YOU" verbatim; the prior wave\'s 100Nm figure does not match the current page.',
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.yt-industries.com/E-MTB/Bosch-Decoy/CORE-3/'
+  },
+  {
+    id: 'em-yt-decoy-bosch-core-4', cat: 'emtb', brand: 'YT', model: 'Decoy MX CORE 4 CF',
+    family: 'yt-decoy-bosch', modelYear: 2026,
+    motorBrand: 'bosch', motorModel: 'Performance Line CX Gen 5', motorTorque: 120, motorPowerPeak: 750,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-trail', 'e-enduro'], weight: 23200, price: 8999,
+    note: "Crowns the Bosch-powered Decoy family above the already-cataloged CORE 3 CF (em-yt-decoy-uncaged-8): FOX Factory suspension (38 Float Factory / X2 Factory) and carbon DT Swiss HXC 1500 wheels replace CORE 3's Öhlins suspension and Crankbrothers alloy wheels; SRAM X0 Eagle Transmission and SRAM Maven Silver brakes are one notch up from CORE 3's S1000/TRP EVO PRO.",
+    desc: "Reached via the site's own YT-Industries E-MTB navigation (Bikes > E-MTB > Bosch-Decoy family page, which lists CORE 4/CORE 3/CORE 2 as its own tier switcher — not a guessed URL) and the CORE-4 product page's own Tech & Spec accordion for every field. Weight (23.20kg) is the maker-stated page figure and happens to match the already-cataloged CORE 3 CF row's weight exactly — both pages state that number independently, not copy-paste; left as-is per THE BAR (no reason to distrust a maker-published figure just because it repeats). PRICE RULE: the page shows a €7,999 site-wide sale next to a €8,999 regular price — the regular/MSRP figure is used as an $8,999 USD sample (no separate US pricing page found; basis disclosed, EUR 1:1 sample convention matching this catalog's other YT Decoy rows).",
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.yt-industries.com/E-MTB/Bosch-Decoy/CORE-4/'
+  },
+  {
+    id: 'em-yt-decoy-sn-core-4', cat: 'emtb', brand: 'YT', model: 'Decoy SN MX CORE 4',
+    family: 'yt-decoy-sn', modelYear: 2026,
+    motorBrand: 'fazua', motorModel: 'Fazua Ride 60', motorTorque: 60, motorPowerPeak: 450,
+    batteryWh: 430, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'SRAM Maven Silver',
+    disciplines: ['e-enduro'], weight: 20600, price: 8499,
+    note: "Lightweight-class sibling to the full-power Decoy lines — a distinct \"Decoy SN\" sub-brand (not previously cataloged) on the Fazua Ride 60 motor (60Nm/450W peak, 430Wh), Ultra-Modulus carbon frame, mullet wheels, 170mm front/160mm rear. FAZUA's parent (Porsche eBike Performance) has announced it is closing, but YT's own product page states continued customer/dealer support for existing Decoy SN buyers — noted here as an honest caveat, not a reason to exclude a currently-sold model.",
+    desc: "Reached via the site's own YT-Industries E-MTB navigation (the Bosch-Decoy family page's \"YT Range\" switcher links to \"Fazua-Decoy SN\" as its own product line, not a guessed URL) and the CORE-4 tier's own Tech & Spec accordion for every field (motor/battery/travel/wheel/frame/drivetrain/brakes/weight all maker-stated). PRICE RULE: the page shows a steep €4,999 sale next to an €8,499 regular price (likely tied to the FAZUA-closure liquidation) — the regular/MSRP figure is used as an $8,499 USD sample per this catalog's MSRP-not-sale convention (no separate US pricing page found; basis disclosed).",
+    verified: true, lastChecked: '2026-07-22', source: 'https://www.yt-industries.com/E-MTB/Fazua-Decoy-SN/CORE-4/'
   },
 
   // ---------------------------------------------------------------------------
