@@ -468,7 +468,7 @@ test('roadSlotRequired: FD only on a 2x crank; rotors dropped on rim frames; coc
 /* ---- totals ---------------------------------------------------------------------- */
 test('roadBuildTotals sums price/weight and flags a missing weight', function(){
   var t = ROAD.roadBuildTotals({ frame: rp('fr-specialized-sworks-tarmac-sl8'), fork: rp('fk-specialized-tarmac-sl8') });
-  eq(t.price, 4700 + 450, 'price sum');
+  eq(t.price, 5499.99 + 450, 'price sum');
   eq(t.weight, 685 + 370, 'weight sum');
   eq(t.missingWeight, false, 'both weights known');
   var t2 = ROAD.roadBuildTotals({ rearDerailleur: rp('rd-sram-red-axs') });
