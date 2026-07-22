@@ -53,7 +53,7 @@ test('an HG cassette claiming a 10T cog is caught (HG floor is 11T)', function()
 });
 test('the real SRAM XS-1270 (integrated 10T-on-HG design) is a valid allowlisted exception', function(){
   var p = over('ca-sram-xs1270');
-  delete p.verified; delete p.lastChecked; delete p.source;
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.priceBasis;
   eq(probs(p).length, 0, 'XS-1270 row should validate despite freehub:HG + minCog:10');
 });
 test('the HG-10T exception is scoped to the real mfgPn, not a blanket loosening', function(){
@@ -99,17 +99,17 @@ test('a valid hardtail frame passes (hardtails are enterable now)', function(){
 });
 test('sram-dh-7 is valid system vocab (7-speed DH group enterable)', function(){
   var p = over('sft-sram-gx-eagle', { system:'sram-dh-7', speeds:7 });
-  delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise, same as the eeWings test
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.priceBasis;   // provenance-date noise, same as the eeWings test
   eq(probs(p).length, 0);
 });
 test('shimano-8 is valid system vocab (entry 8-speed group enterable)', function(){
   var p = over('sft-sram-gx-eagle', { system:'shimano-8', speeds:8 });
-  delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise, same as the sram-dh-7 test
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.priceBasis;   // provenance-date noise, same as the sram-dh-7 test
   eq(probs(p).length, 0);
 });
 test('trp-evo7-dh is valid system vocab (TRP EVO 7 DH group enterable)', function(){
   var p = over('sft-sram-gx-eagle', { system:'trp-evo7-dh', speeds:7 });
-  delete p.verified; delete p.lastChecked; delete p.source;   // provenance-date noise, same as the sram-dh-7 test
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.priceBasis;   // provenance-date noise, same as the sram-dh-7 test
   eq(probs(p).length, 0);
 });
 test('a 20x110 dual-crown DH front axle is valid vocab (fork + front hub)', function(){
@@ -381,7 +381,7 @@ test('a crankset with a spindle outside the crankBb vocab is caught', function()
   some(probs(over('cr-sram-gx-eagle', { bb:'square-tapre' })), 'bb');
 });
 test('a crankset with the square-taper crankBb spindle passes (2026-07-16 hardtail-depth vocab widening)', function(){
-  eq(probs(over('cr-sram-gx-eagle', { bb:'square-taper', verified:false, lastChecked:undefined, source:undefined })).length, 0);
+  eq(probs(over('cr-sram-gx-eagle', { bb:'square-taper', verified:false, lastChecked:undefined, source:undefined, priceBasis:undefined })).length, 0);
 });
 
 /* forkTravelHard cross-rule (engine-critical review C4, 2026-07-12): a hard
