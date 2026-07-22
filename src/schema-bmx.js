@@ -63,9 +63,13 @@ var LOCAL_VOCAB = {
      disclosed exception classes (discontinued / OE-only / non-USD conversion /
      bundled-SKU split / third-party-listed). The full rationale for each token
      lives in schema.js — this is the same enum, not a BMX variant. Never feeds
-     checkBmxBuild. */
+     checkBmxBuild.
+     'pair-split-estimate' (2026-07-22) is WHEEL-ONLY — frontWheel/rearWheel
+     (BMX's camelCase wheel categories) — a cross-rule below rejects it on any
+     other category. */
   priceBasis:  ['msrp-confirmed', 'discontinued-no-msrp', 'oe-only-no-msrp',
-                'regional-conversion', 'bundle-split-estimate', 'third-party-listed']
+                'regional-conversion', 'bundle-split-estimate', 'third-party-listed',
+                'pair-split-estimate']
 };
 
 /* >>> COORDINATOR ROLLOUT SWITCH — DO NOT FLIP. See the identical constant in
@@ -181,6 +185,8 @@ function validateBmxPart(p, today, idSet){
       bad('priceBasis "' + p.priceBasis + '" not in [' + LOCAL_VOCAB.priceBasis.join(', ') + ']');
     if(p.verified !== true)
       bad('priceBasis "' + p.priceBasis + '" requires verified:true with a real source - an unverified row states no price provenance');
+    if(p.priceBasis === 'pair-split-estimate' && ['frontWheel', 'rearWheel'].indexOf(p.cat) < 0)
+      bad('priceBasis "pair-split-estimate" is wheel-only (frontWheel/rearWheel) - "' + p.cat + '" is not a wheel category');
   } else if(PRICE_BASIS_STRICT && p.verified === true){
     bad('verified:true requires a priceBasis - "verified" must cover the price, not just the spec');
   }
