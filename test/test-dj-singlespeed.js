@@ -308,7 +308,10 @@ test('the DJ dataset is live: every row resolves in PARTS and carries the dj dis
     'hb-dmr-sect-bar','st-dmr-cnc-35','gr-dmr-sect-grips','sp-dmr-dj-272','sa-dmr-dj-saddle','pd-dmr-v6',
     'fw-syncros-md25-26-15x100','rw-syncros-md25-26-ss','bb-jienyuan-pf92-19mm',
     'cr-scott-crmo-170-25t','cg-scott-12t','ch-kmc-z510',
-    'hb-syncros-hixon2-318','st-syncros-xm15-318','gr-syncros-prodh','sp-syncros-dj15-316','sa-syncros-dj15','pd-wellgo-b107n'];
+    'hb-syncros-hixon2-318','st-syncros-xm15-318','gr-syncros-prodh','sp-syncros-dj15-316','sa-syncros-dj15','pd-wellgo-b107n',
+    // hardtail-breadth-2 (2026-07-22): two new DJ-frame brands, both IS-mount
+    // (first IS-mount DJ frames in the catalog - every prior row is PM).
+    'fr-dartmoor-two6player-pro','fr-identiti-drjekyll'];
   djIds.forEach(function(id){
     ok((part(id).disciplines || []).indexOf('dj') >= 0, id + ' is live and tagged dj');
   });
