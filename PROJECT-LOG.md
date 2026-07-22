@@ -1,5 +1,18 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — blister-sweep-1: 0 promotions, 2 guard-catches (the right kind of zero)
+
+- **verify/blister-sweep-1 merged (doc-only)**: the systematic Blister sweep of premium
+  forks yielded no promotions — every lead failed a SPECIFIC guard: EXT Era V2's measured
+  weight is exact but its interfaces are still vitalmtb-sourced (weight never promotes
+  ahead of maker interfaces; extusa.bike is 404 — EXT's current US page is the unblock);
+  EXT Vaia's would-be promotion was caught as a measurement-basis mismatch (catalog 3,195g
+  = maker CUT steerer, Blister 3,300g = UNCUT — not a re-measurement); DVO has zero
+  Blister coverage (closed for this outlet); Fox 32 SC's figure is stated-not-measured
+  and wrong wheel size. Open follow-ups: the ~56 unverified premium SHOCK rows (only
+  Float X2 spot-checked — and Blister's X2 reviews are the 2026 damper gen, mismatched),
+  EXT interface re-sourcing, Bikerumor/WeightWeenies for DVO. Gates: 7 OK, 988/988, tsc.
+
 ## 2026-07-22 — drivetrain-pricing-2: the pricing hypothesis dies honestly
 
 - **fix/drivetrain-pricing-2 merged (doc-only)**: all 25 SRAM Transmission-tier prices
