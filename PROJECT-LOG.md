@@ -1,5 +1,17 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — Pee Wee theme preservation deleted (Douglas's order)
+
+- Douglas 2026-07-21: kill the Pee Wee Herman theme entirely — the 2026-07-18 removal had
+  preserved it for re-add (branch ui/theme-peewee + tag keep/theme-peewee); both are now
+  DELETED (local + the remote tag), worktree removed. Any future novelty theme is a
+  from-scratch rebuild, per his word ("we will need to revisit entirely"). Live code was
+  already clean (the 4-theme registry light/dark/rad/loam never referenced it post-removal);
+  COORDINATOR-HANDOFF's preservation note updated. PROJECT-LOG history entries stand as
+  history. A "Roadie" theme was also ordered deleted but does NOT EXIST anywhere in the
+  repo (no file/branch/tag across 306 refs) — nothing to delete, recorded here so the
+  order is discharged honestly.
+
 ## 2026-07-22 — kit-13 + the reserved-username batches (1,709 names)
 
 - **verify/kit-13 merged**: kit 544→548. The 11 biggest unverified clusters (79 rows) are

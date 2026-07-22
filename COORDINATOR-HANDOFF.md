@@ -390,8 +390,8 @@ doc counts. State at drafting: **MTB 5,023 parts (3,014 verified, 60.0%) · Kit 
 61.1%) · BMX 225 LIVE (59) · Road 150 off-live (32) · Gravel 150 off-live (26) · Striders 36
 off-live (5) · EMTB 75 off-live (0) — SEVEN validators, one `node validate.js` gate; 757
 tests; tsc clean.** Live surfaces: index.html (MTB), KitBuilder (BuildMyKit), bmx.html
-(BuildMyBMX), guides (42), 4 themes (Pee Wee is PRESERVED-NOT-LIVE: branch ui/theme-peewee +
-tag keep/theme-peewee; re-add = revert-the-revert + browser pass).
+(BuildMyBMX), guides (42), 4 themes (light/dark/rad/loam — Pee Wee's preserved branch+tag were
+DELETED on Douglas's order 2026-07-21; any future novelty theme is a from-scratch rebuild).
 
 **★ ABSOLUTE RULES (Douglas, non-negotiable — read memory: parallel-work-delivery +
 workflow-preferences + hard-rules):** (1) the coordinator NEVER runs grind/build/research
