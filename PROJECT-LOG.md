@@ -5015,3 +5015,37 @@ WALL FOR THE NEXT WAVE: the browser pane returned an empty/0x0 viewport all sess
 Canyon Endurace AL — a TOOLING issue, not a site block. Both are real current products worth
 a retry once the pane renders (or via Trek's service-manual PDF route). Gates green.
 Report: road-breadth-4.md.
+
+## 2026-07-22 — road-vocab-map merged (suite 1103 to 1111): the drift CLASS is now closed
+The ratified ROAD_VOCAB<->schema field-key correspondence lives in compat-road.js as
+ROAD_VOCAB_MAP (18 engine axes, 23 documented exclusions, inert at runtime — checkRoadBuild
+never reads it). The blocker the prior pass named (ambiguous field-key mapping) was resolved
+by ONE rule: correspondence is decided by the SCHEMAS' OWN USAGE — which (category, field)
+pairs each vocab key actually validates — never by name similarity; merged keys (gravel's
+hub / bb / actuation) are mapped THROUGH THEIR ROWS, which is unambiguous. Where neither
+route justifies a mapping, the key is EXCLUDED with a written reason.
+Of the 8 reported gaps: 6 reconciled, and 2 correctly REFUSED — (a) 'hydraulic' was never
+missing (an artifact of gravel's merged actuation key; it already lives on actuationBrake,
+and adding it would have asserted a brifter can be hydraulic); (b) '1-1-8' EXCLUDED from the
+steerer axis — COORDINATOR-VERIFIED: all 14 carriers are stem/cockpit rows, ZERO frame/fork/
+headset, so admitting it would have put two spellings of one interface on an exact-match axis
+(the pf86/bb86 shape this repo already unwound once). 5 further tokens reconciled from later
+gravel waves, plus a NEW rotorMount axis: R7 has been live since this engine shipped with no
+map entry at all, and rearwheel.rotorMount was un-vocab'd in schema-road — 122 live rows now
+guarded (coordinator-verified both tokens in use).
+The lint now drives off the map, so the guarded surface GROWS with it; a new schema vocab key
+that nobody classifies FAILS THE SUITE — which is what makes the next silent-dormancy
+impossible rather than merely unlikely. Its map-completeness pin caught two defects in the
+worker's OWN work mid-pass (terse exclusion reasons, a mis-classified shared key).
+Every reconciled token proven load-bearing by dropping it in memory and re-running the lint
+against live rows (baseline 0 gaps; each drop named real rows).
+FLAGS QUEUED (none a live wrong verdict): steererRG's 1-1-8 should probably be retired and
+stems given their own vocab key (schema call); fdMount band vs band-28.6 two-spelling drift;
+gfr-marin-nicasio-plus's frame.bb 'square-taper' looks MIS-FIELDED (that names a spindle, not
+a shell — the frame is threaded); GRAVEL_VOCAB.axle's 12x142 is suspected dead vocab;
+t47a-bbright unattributable until a row lands; no ringStd rule exists in this engine while
+MTB has one (coverage note for the mechanic review).
+Worker tooling note propagated: backslashes do NOT survive this shell's heredocs — use the
+Edit tool for JS string literals (the coordinator hit the identical trap twice today).
+Gates + harness green.
+Report: road-vocab-map.md.
