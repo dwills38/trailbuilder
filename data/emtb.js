@@ -1537,6 +1537,39 @@ var EMTB_PARTS = [
     note: 'Polygon\'s gravity/enduro e-MTB platform (COLLOSUS NE series, "IFS" 6-bar suspension) — a different chassis from the already-cataloged Siskiu T7E/TE trail e-MTBs; 29in wheels both ends, FOX 38 FLOAT Performance 160mm fork / FOX FLOAT X2 rear.',
     desc: 'Verified vs the fetched maker product page (polygonbikes.com/us/collosus-n8e/ — full "Specification" table incl. USD $4,699.00 price, Shimano DU-EP801 mid motor, Shimano BT-EN806 630Wh removable battery, FOX 38 FLOAT Performance 160mm fork, FOX FLOAT X2 205x65mm rear shock corresponding to the page\'s own "160mm Travel" frame callout, ALX aluminum enduro frame, Shimano XT SL-M8100-R 1x12-speed 10-51T drivetrain, Shimano XT M8120 203mm brakes). Motor torque/power (85 Nm / 600 W) is Shimano\'s own published DU-EP801 spec (bike.shimano.com/en-US/product/component/ep8-ep801/DU-EP801.html) — the Polygon page names only the motor SKU, not its Nm/W figures. No maker-published weight found. Page labels this the "2023 COLLOSUS N8E" (model year), still the current live US listing at fetch time. USD-native price, no conversion needed.',
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.polygonbikes.com/us/collosus-n8e/', modelYear: 2023
+  },
+  {
+    id: 'em-gt-eforce-amp-plus', cat: 'emtb', brand: 'GT', model: 'eForce Amp+',
+    motorBrand: 'shimano', motorModel: 'Shimano DU-EP801', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 630, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM SX Eagle 12-speed', brakes: 'Slate T4 4-piston',
+    disciplines: ['e-enduro'], weight: null, price: 6000,
+    note: 'GT\'s alloy full-power enduro e-MTB (Force platform, "Linkage Tuned Suspension" 4-bar); RockShox Yari RC fork / RockShox Deluxe Select R shock, 29in-only chassis.',
+    desc: 'Verified vs the fetched maker product page (gtbicycles.com/products/eforce-amp-plus — motor "Shimano DU-EP801", "Shimano BT-E8036, 630Wh" battery, "150mm" front/rear travel via the RockShox Yari RC/Deluxe Select R spec, alloy frame, SRAM SX Eagle 12-speed 11-50T, Slate T4 203/203mm brakes) plus the product\'s Shopify .js JSON (price 600000 = $6,000.00 across all 8 size/color variants, price === compare_at_price so no active sale — the maker page itself lists no explicit price, this is the only source for it). Motor torque/power (85 Nm / 600 W) is Shimano\'s own published DU-EP801 spec (bike.shimano.com/en-US/product/component/ep8-ep801/DU-EP801.html) — not restated on the GT product page. Battery-removable claim and weight not stated on either source; left unset/null rather than guessed.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://gtbicycles.com/products/eforce-amp-plus'
+  },
+  {
+    id: 'em-gt-eforce-current', cat: 'emtb', brand: 'GT', model: 'eForce Current',
+    motorBrand: 'shimano', motorModel: 'Shimano DU-EP600', motorTorque: 85, assist: 'full-power',
+    batteryWh: 504,
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano CUES U6000 10-speed', brakes: 'Tektro M275 hydraulic disc',
+    disciplines: ['e-enduro'], weight: null, price: 4600,
+    note: 'Entry-tier stablemate to the eForce Amp+ on the same Force alloy chassis; smaller 504Wh battery, budget Shimano EP600 motor, coil SR Suntour Zeron 35 fork.',
+    desc: 'Verified vs the fetched maker product page (gtbicycles.com/products/eforce-current — motor "Shimano DU-EP600", "504Wh" battery (Shimano BT-EN805), "150mm" front/rear travel via the SR Suntour Zeron 35 (coil)/X-Fusion O2 Pro RL spec, alloy frame, Shimano CUES 10-speed w/ FSA CK-752 EP8 34T crank and Shimano LG400 10-45T cassette, Tektro M275 180/180mm brakes) plus the product\'s Shopify .js JSON (price 460000 = $4,600.00 across all 4 size variants, price === compare_at_price so no active sale — the maker page itself lists no explicit price, this is the only source for it). Motor torque (85 Nm) is Shimano\'s own published DU-EP600 spec (bike.shimano.com/en-US/product/component/ep6-ep600/DU-EP600.html, fetched via the browser pane after a direct WebFetch 403 — "Maximum torque: 85 N·m" verbatim); peak power is not stated on Shimano\'s page, left unset rather than guessed. Battery-removable claim and weight not stated on either source; left unset/null rather than guessed.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://gtbicycles.com/products/eforce-current'
+  },
+  {
+    id: 'em-rotwild-rx375-pro', cat: 'emtb', brand: 'Rotwild', model: 'R.X375 PRO',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8', motorTorque: 85, motorPowerPeak: 500,
+    batteryWh: 360, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'carbon', drivetrain: 'Shimano XT 8100 12-speed', brakes: 'Shimano XT 8120 hydraulic disc',
+    disciplines: ['e-trail'], weight: 19500, price: 8543.49,
+    note: 'German light e-MTB pioneer\'s "Action All Mountain" flagship — handmade high-modulus carbon frame + carbon linkage, IPU375 carbon quick-release battery (one of the lightest removable e-MTB packs on the market), FOX 36/Float DPS suspension.',
+    desc: 'Verified vs the fetched maker product page (rotwild.com/en/r.x375-pro/20614 — "Shimano EP8" motor, "85 Nm" torque, "500 W" peak power, "IPU375 Carbon, 360 Wh" removable battery, "150 mm" front / "140 mm" rear travel, high-modulus carbon frame, Shimano XT 8100 12-speed w/ e*thirteen Plus 34T crank and 10-51T cassette, Shimano XT 8120 203/180mm brakes, 19.5 kg bike weight, EUR 7,490.00 price). PRICE: EUR 7,490.00 maker RRP converted at the 2026-07-22 open.er-api.com rate (1.140653) -> $8,543.49 (regional-conversion, per this catalog\'s disclosed non-USD-market convention) — Rotwild has no US retail presence, no USD MSRP exists. Size M shown "Not available" on the page at fetch time; spec/price reflect the SKU\'s standard listing, not a stock state.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://www.rotwild.com/en/r.x375-pro/20614'
   }
 
 ];
