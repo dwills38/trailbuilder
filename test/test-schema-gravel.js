@@ -115,6 +115,21 @@ test('square-taper is a valid standalone bb-part spindle value', function(){
   eq(S.validateGravelPart(p, new Date()).length, 0);
 });
 
+// vocab-tier1 (2026-07-22): ratified bsa-73 shell token (Kona Sutra LTD) —
+// positive + negative.
+test('bsa-73 bb is a valid gravel frame value', function(){
+  var frame = aFrame();
+  var p = Object.assign({}, frame, { bb: 'bsa-73' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab bb value distinct from bsa-73 is still caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { bb: 'bsa-100' });
+  var probs = S.validateGravelPart(bad, TODAY);
+  ok(probs.some(function(m){ return /bb.*not in bb/.test(m); }), probs.join('\n'));
+});
+
 test('a missing required field is caught', function(){
   var frame = aFrame();
   var bad = Object.assign({}, frame); delete bad.rearAxle;
