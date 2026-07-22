@@ -49,9 +49,9 @@ var EMTB_PARTS = [
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
     frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Bronze',
-    disciplines: ['e-trail', 'e-enduro'], weight: 24180, price: 8499.97,
+    disciplines: ['e-trail', 'e-enduro'], weight: 24180, price: 10699.99,
     note: 'Bosch-powered full-power trail/enduro bike; big 800 Wh PowerTube. Line renamed Rail+ on Gen 5 CX (85Nm stock, app-tunable to 100Nm/750W).',
-    desc: 'Verified vs the fetched maker product page (browser pane, Specs tab). Model/trim corrected verify/emtb-4 wave 4 cluster F (generic "Rail+" -> real current mid-carbon trim "Rail+ 9.8 GX AXS T-Type Gen 5"; drivetrain X0->GX AXS T-Type Transmission, brakes Code->Maven Bronze, weight 23900->24180g (M, w/ TLR sealant no tubes), rear travel 150->160mm, price 8000->8499.97 sale price, US MSRP $10,699.99).',
+    desc: 'Verified vs the fetched maker product page (browser pane, Specs tab). Model/trim corrected verify/emtb-4 wave 4 cluster F (generic "Rail+" -> real current mid-carbon trim "Rail+ 9.8 GX AXS T-Type Gen 5"; drivetrain X0->GX AXS T-Type Transmission, brakes Code->Maven Bronze, weight 23900->24180g (M, w/ TLR sealant no tubes), rear travel 150->160mm, price 8000->8499.97 sale price, US MSRP $10,699.99). COORDINATOR PRICE FIX (2026-07-22, at the pb-emtb-2 merge): price corrected to the desc-disclosed $10,699.99 US MSRP — the stored $8,499.97 was the SALE price, violating the standing MSRP-not-sale ruling (pb-emtb-2 flagged it); priceBasis stays blank pending the finishing-wave fetch confirmation.',
     verified: true, lastChecked: '2026-07-20', source: 'https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/electric-mountain-bikes/rail/rail-9-8-gx-axs-t-type-gen-5/p/5328977/'
   },
   {
@@ -234,9 +234,9 @@ var EMTB_PARTS = [
     batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
     wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 160,
     frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle AXS T-Type Transmission', brakes: 'SRAM Maven Silver',
-    disciplines: ['e-trail', 'e-enduro'], weight: 23980, price: 9999.97,
+    disciplines: ['e-trail', 'e-enduro'], weight: 23980, price: 12299.99,
     note: 'Top-tier Rail+ carbon trim; SRAM X0 Transmission + Maven Silver brakes (real current top trim is X0, not XX — no XX-spec Rail+ is sold).',
-    desc: 'Verified vs the fetched maker product page (browser pane, Specs tab). Model/trim corrected verify/emtb-4 wave 4 cluster F ("Rail+ 9.9 XX AXS T-Type", no such trim -> real top-tier "Rail+ 9.9 X0 AXS T-Type Gen 5"; drivetrain XX->X0 Eagle AXS T-Type Transmission, weight 23400->23980g (M), rear travel 150->160mm, price 12500->9999.97 current sale price; US Comp. Value/original price $12,299.99, close to the prior sample).',
+    desc: 'Verified vs the fetched maker product page (browser pane, Specs tab). Model/trim corrected verify/emtb-4 wave 4 cluster F ("Rail+ 9.9 XX AXS T-Type", no such trim -> real top-tier "Rail+ 9.9 X0 AXS T-Type Gen 5"; drivetrain XX->X0 Eagle AXS T-Type Transmission, weight 23400->23980g (M), rear travel 150->160mm, price 12500->9999.97 current sale price; US Comp. Value/original price $12,299.99, close to the prior sample). COORDINATOR PRICE FIX (2026-07-22): price corrected to the disclosed $12,299.99 original/MSRP figure — the stored $9,999.97 was the sale price (MSRP-not-sale ruling); priceBasis stays blank pending fetch confirmation.',
     verified: true, lastChecked: '2026-07-20', source: 'https://www.trekbikes.com/us/en_US/bikes/mountain-bikes/electric-mountain-bikes/rail/rail-9-9-x0-axs-t-type-gen-5/p/48461/'
   },
   {
