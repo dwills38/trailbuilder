@@ -319,7 +319,7 @@ test('a retailerLinks entry with an unknown key is caught', function(){
 });
 test('pedalStyle vocab widened for real dual-sided pedals: hybrid is a valid style', function(){
   var p = over('pd-oneup-aluminum', { style:'hybrid' });
-  delete p.verified; delete p.lastChecked; delete p.source;
+  delete p.verified; delete p.lastChecked; delete p.source; delete p.priceBasis;
   eq(probs(p).length, 0, 'hybrid should validate now that real dual-sided flat/clip pedals (Double Shot 3, HT D1/GD1) are cataloged');
 });
 test('pedalStyle still rejects a value outside its (now 3-value) vocab', function(){
