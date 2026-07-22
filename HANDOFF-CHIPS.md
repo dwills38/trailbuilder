@@ -76,6 +76,12 @@ the 2 waiting posts. Gates: all four. Never push. Report to
 instruction — "make sure any outstanding questions for me will be saved for the next
 coordinator." Raise gently, never nag; items 1-2 are the freshest.)**
 
+**PDF MIRROR (Douglas 2026-07-21, cross-seat duty):** `_PDFs/OPEN-QUESTIONS.pdf` (regenerated
+from its sibling .html via headless Chrome) is his hard-reference copy of this queue. Lifecycle:
+a question enters the PDF only after TWO ignored asks (never on the first ask); once in, it is
+NEVER removed until he rules; regenerate in place on add/rule. Details: memory
+`open-questions-pdf.md`.
+
 0. **★ PENDING SUPABASE SQL RUNS (Douglas 2026-07-21: "remind me of the supabase step
    later, i most likely wont do it the next time you ask" — so REMIND REPEATEDLY until he
    confirms each ran; a single mention does not discharge this).** Reserved-username
