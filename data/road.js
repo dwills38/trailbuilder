@@ -442,7 +442,7 @@ var ROAD_PARTS = [
   { id: 'rw-reserve-3437-dt240', cat: 'rearwheel', brand: 'Reserve', model: '34|37 (DT 240, HG-EV/Centerlock)', family: 'reserve-3437',
     wheel: '700c', hub: '12x142', freehub: 'hg-road', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 22, maxTire: 38,
     weight: 677, price: 1599,
-    verified: true, lastChecked: '2026-07-21', source: 'https://reservewheels.com/products/reserve-34-37-road-wheel',
+    verified: true, lastChecked: '2026-07-21', source: 'https://reservewheels.com/products/reserve-34-37-road-wheel', priceBasis: 'msrp-confirmed',
     note: 'road-depth-2 wave: same source/page as the front row — see that row\'s note for the fetch detail, the even-split weight caveat and the price-JSON method. Freehub: the page\'s "Freehub Options" field lists "XDR, HG-EV" for this hub build; this row models the HG-EV option (freehub:\'hg-road\', this file\'s Shimano-HG-splined-road token) — a separate SRAM XDR-driver variant is not modeled this pass (GAP). intWidth:22 is the page\'s stated REAR-specific figure (distinct from the front\'s 23mm — a real front/rear rim-width asymmetry, not a typo).' },
 
   // ===== WHEELS — road-depth-4 wave (Shimano C36 / Fulcrum / Mavic / Campagnolo alloy) ====
@@ -520,7 +520,7 @@ var ROAD_PARTS = [
   { id: 'rw-reserve-3437-dt240-xdr', cat: 'rearwheel', brand: 'Reserve', model: '34|37 (DT 240, XDR/Centerlock)', family: 'reserve-3437',
     wheel: '700c', hub: '12x142', freehub: 'xdr', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 22, maxTire: 38,
     weight: 677, price: 1599,
-    verified: true, lastChecked: '2026-07-22', source: 'https://reservewheels.com/products/reserve-34-37-road-wheel',
+    verified: true, lastChecked: '2026-07-22', source: 'https://reservewheels.com/products/reserve-34-37-road-wheel', priceBasis: 'msrp-confirmed',
     note: 'road-depth-5 wave: closes the GAP flagged in this file\'s own rw-reserve-3437-dt240 (HG-EV) note. RE-FETCHED reservewheels.com\'s product page directly (Exa): the Details tab lists verbatim "Freehub Options XDR, HG-EV" under the SAME per-hub-tier weight ("DT 240 - 1354g") with no separate per-driver weight or price split shown on the page. This row models the XDR option (freehub:\'xdr\'); weight/price/maxTire/intWidth inherit the sibling HG-EV rear row\'s figures unchanged (same even-split convention, same Shopify-variant-JSON price caveat) — only freehub differs.' },
 
   { id: 'rw-fulcrum-racing4-db-xdr', cat: 'rearwheel', brand: 'Fulcrum', model: 'Racing 4 DB (XDR)', family: 'fulcrum-racing4',
