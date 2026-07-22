@@ -1,5 +1,19 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — Zipp 303 S both-ways fix + emtb close-out + forum reserved names
+
+- **fix/zipp-303s-disposition merged (Douglas's both-ways ruling)**: gravel's mislabeled
+  303 S pair retired (supersededBy) → real 303 XPLR S pair added verified off SRAM's own
+  model page (32mm internal, 40-61c, 1610g pair; split/price disclosed estimates per the
+  Firecrest precedent); road gets its FIRST Zipp 303 S pair with real per-wheel maker
+  weights (711/819g). Road 223 parts (187 verified) · gravel 255 (137).
+- **verify/emtb-5 closed, nothing to merge**: all 26 remaining unverified e-MTB rows are
+  confirmed discontinued/superseded SKUs — EMTB verification effectively complete at 66/92;
+  the tail is documented-dead. Future lead: searched-not-guessed URLs for two Marin 2026 rows.
+- **Forum reserved names**: new additive supabase/forum-reserved-additions.sql (idempotent)
+  — "Dirt Jesus" reserved (held) on Douglas's order; SETUP.md documents the file. Pro-rider
+  name batch chipped (held-kind so real riders can claim via the verified-pro flow).
+
 ## 2026-07-22 — Seat 17 wave 2 lands: tail-11 + cb-sheets-11 + oewheels-1 + gravel-fabfix-2
 
 - **verify/mtb-tail-11 merged**: Syncros cluster — 5 promotions with real corrections (AM
