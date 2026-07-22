@@ -1,5 +1,33 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — Seat 17 wave 3: tail-12 + bmx-sweep-3 + cb-sheets-12
+
+- **verify/mtb-tail-12 merged**: Pivot Phoenix grips verified (pivotcycles.com reachable
+  again); Newmen Evolution SL bar's material was flatly WRONG (carbon→aluminum, 230→340g,
+  two converging full-spec retailers; maker site still JS-walled so stays unverified). The
+  big result is a MAP, not promotions: ~110 rows across 8 house brands (Bontrager,
+  Cannondale, Specialized, PRO, Nukeproof, TranzX, Canyon, Marin) are OE-only cockpit
+  parts with NO published standalone weight anywhere — a structural wall, not a fetch
+  gap. PRO Koryak droppers: the maker spec table has no weight column, permanent. Leads:
+  99spokes may carry maker-sourced spec copy for the JS-walled brands (aggregator — policy
+  question before any use); dp-specialized-command-post-349-160 still carries its
+  suspected-fictional-combo flag (coordinator/Douglas data-integrity call).
+- **verify/bmx-sweep-3 merged**: zero promotions — the final leg confirmed the sweep is
+  EXHAUSTED (BSD already done; Fly/GT/Standard/Eclat/Shadow all at their documented
+  ceilings). Fresh walls dated: Haro Lineage Master/Downtown DLX/fork absent from the
+  live 10-product collection (Haro is complete-bikes-only now), Stranger Level and Colony
+  Sweet Tooth absent from current lineups. Alienation Sabbath wheels: first-ever maker
+  fetch corrected a wrong "race" intended-use claim (maker says STREET); load-bearing
+  fields still unstated, honestly unverified. ~30-row remainder queued with per-row leads
+  (KMC 403 needs its browser-pane check; the Vee "Speedster" catalog row may point at the
+  wrong product entirely — MTB fat tire vs the real BMX VRB316 SKU).
+- **verify/cb-sheets-12 merged**: YT Capra Core 2 AL had two REAL fill bugs (generic
+  Renthal substitute → the real hb-yt-780-35 row that now exists; a Center-Lock TRP rotor
+  id that contradicted the row's own 6-bolt desc → ro-trp-203-6b). Nukeproof: unwalled on
+  retry but re-platformed — the 2023 trims are retired snapshots (SB130 pattern), noted.
+  Chromag already exhaustive; its 429 wall re-confirmed both routes.
+- Gates: 7 OK (MTB 3,290 verified), 988/988, tsc clean, harness fully clean.
+
 ## 2026-07-22 — i9-wao-remodel: evidence beat the premise
 
 - **catalog/i9-wao-remodel merged**: the dispatch assumed all four old I9 lines died in
