@@ -3274,6 +3274,14 @@ var KIT_PARTS = [
       + ' price (colorways run $139.95-$189.95). Weight not published (shipping-weight caveat,'
       + ' see the S3 row), stays sample.',
     verified:true, lastChecked:'2026-07-19', source:'https://100percent.com/collections/speedcraft' },
+  { id:'ewr-100-speedcraft-xs', cat:'eyewear', brand:'100%', model:'Speedcraft XS', price:149.95,
+    type:'glasses', fitCut:'womens', sizes:['OSFA'],
+    desc:'kit-breadth-3 (2026-07-22): the eyewear cell had ZERO fitCut:\'womens\' rows. This is a genuinely'
+      + ' distinct small-scale frame, not a recolored Speedcraft - 100%\'s own copy: "the small-scale frame'
+      + ' Speedcraft XS is designed for smaller faces, uncompromising women and young athletes." List price'
+      + ' varies $129.95-$149.95 by lens tech across colorways; $149.95 (the HiPER Silver Mirror SKU) used'
+      + ' as the representative list price, matching the base Speedcraft SL\'s $149.95. No weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.100percent.com/products/speedcraft-xs-matte-white-hiper-silver-mirror-lens' },
   { id:'ewr-100-glendale', cat:'eyewear', brand:'100%', model:'Glendale', price:139.95, weight:30,
     type:'glasses', sizes:['OSFA'],
     desc:'Weight approx, unconfirmed (the product-JSON grams field is a shipping weight, not a frame weight - see the S3 row; kit weight policy: never blocks verification). Re-fetched 100percent.com product JSON (2026-07-17): confirmed $139.95.',
