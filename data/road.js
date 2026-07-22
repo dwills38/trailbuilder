@@ -2045,6 +2045,55 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-22', source: 'https://www.selleitalia.com/novus-boost-evo-tm-superflow/', priceBasis: 'regional-conversion',
     note: 'road-depth-5 wave: FETCHED selleitalia.com own Novus Boost Evo TM Superflow product page directly - Selle Italia other mainline road saddle family (short-nose, wave-profile shape) distinct from this file existing SLR rows, matching the task brief Novus saddle tiers gap. This row uses the mid-tier manganese-rail SKU (the Novus range also includes lighter/pricier carbon and Ti316 rail options, e.g. Novus Boost Evo Kit Carbonio Superflow at 165g - not modeled this pass, GAP). Spec table: Weight 265g, Dimensions 145x245mm, Rail Manganese Tube 7mm, Family Novus. Price: the maker own EU site shows a discounted EUR figure (Now: e104,90), not a US MSRP; $109.99 is an unsourced USD sample in the same range as independent retailer listings (GBP99.99 UK, CAD$169.99) - flagged, no live FX conversion per this catalog convention.' },
 
+  // ---------------------------------------------------------------------------
+  // road-breadth-5 wave (2026-07-22): rim-caliper depth. The catalog's only
+  // rim-brake-era group so far was a single Shimano Sora R3000 set (7 rows,
+  // road-depth-1) plus a lone Campagnolo Centaur shifter+caliper pair (2 rows)
+  // — 4 rim-caliper-mount rows total against 313 disc rows. This wave adds
+  // Shimano's OTHER current rim-brake-only groupset (Claris R2000, one tier
+  // below Sora, still in current Shimano production/distribution as of this
+  // fetch) as a full 7-row group, all FETCHED via the browser pane from
+  // productinfo.shimano.com (WebFetch renders only the nav shell on this
+  // host, same wall every prior road wave's Shimano notes record).
+  // NEW ROWS ONLY in this file per the task's lane boundary — no existing
+  // row touched, including the Sora/Centaur rim rows that share this family.
+  // ---------------------------------------------------------------------------
+  { id: 'sh-shimano-claris-r2000', cat: 'shifter', brand: 'Shimano', model: 'Claris ST-R2000 (pair)', family: 'shimano-claris-r2000',
+    system: 'shimano-road-11', speeds: 8, actuation: 'mechanical', brakeSystem: 'rim-caliper', side: 'pair', frontShift: true,
+    price: 95,
+    verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/ST-R2000-R',
+    note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/ST-R2000-R via the browser pane. Spec table: "Series SHIMANO CLARIS", "Model no. ST-R2000-R", "Shifter type DUAL CONTROL LEVER", "Rear speeds 8", "NEW SUPER SLR ✔" (brakeSystem:rim-caliper - the same caliper interface family as the existing Sora ST-R3000 row, one tier down). system:"shimano-road-11" reused per this catalog established convention (the Sora/Tiagra rows own notes): systemRoad has no dedicated 8-speed token and the independent speeds:8 check already reds out any cross-tier pairing on speed count alone. Average weight not itemized on the fetched page ("Average weight (g) -") - omitted rather than guessed, per this wave data-discipline instruction. Price: no USD MSRP published on productinfo; $95/pair is an UNSOURCED SAMPLE estimate (one tier below the existing Sora ST-R3000 sample price of $130) - no priceBasis claimed.' },
+  { id: 'rd-shimano-claris-r2000', cat: 'rearderailleur', brand: 'Shimano', model: 'Claris RD-R2000-GS', family: 'shimano-claris-r2000',
+    system: 'shimano-road-11', speeds: 8, actuation: 'mechanical', maxCog: 34, cage: 'medium', mount: 'std-hanger',
+    price: 30,
+    verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/RD-R2000-GS',
+    note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/RD-R2000-GS via the browser pane. Spec table: "Rear speeds 8", "Low sprocket Max. 34T / Min. 28T" (maxCog:34), "SHIMANO ROAD type: Direct attachment (conventional) ✔" (mount:std-hanger), "Total capacity 43T". Average weight not itemized on the fetched page - omitted rather than guessed. Price: no MSRP published; $30 is an UNSOURCED SAMPLE estimate - no priceBasis claimed.' },
+  { id: 'fd-shimano-claris-r2000', cat: 'frontderailleur', brand: 'Shimano', model: 'Claris FD-R2000-F (braze-on)', family: 'shimano-claris-r2000',
+    system: 'shimano-road-11', speeds: 8, actuation: 'mechanical', mount: 'braze-on',
+    price: 20,
+    verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/FD-R2000-F',
+    note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/FD-R2000-F via the browser pane. Spec table: "Front speeds 2", "Rear speeds 8", "Brazed-on ✔" (mount:braze-on; the sibling FD-R2000-B band-type SKU not modeled, same one-mount-native-SKU convention as this file existing 105/Sora FD rows), "Chain line (mm) 43.5", "Top gear teeth 46-52T". Average weight not itemized on the fetched page - omitted rather than guessed. Price: no MSRP published; $20 is an UNSOURCED SAMPLE estimate - no priceBasis claimed.' },
+  { id: 'cs-shimano-claris-r2000-1132', cat: 'cassette', brand: 'Shimano', model: 'Claris CS-HG50-8 11-32', family: 'shimano-claris-r2000-cass',
+    system: 'shimano-road-11', speeds: 8, freehub: 'hg-road', minCog: 11, maxCog: 32,
+    price: 22,
+    verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/CS-HG50-8',
+    note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/CS-HG50-8 via the browser pane. Spec table: "Rear speeds 8", "Combination name (Group name)" lists "11-32T (aw)" verbatim among the six offered combinations - teeth "11-13-15-18-21-24-28-32T" (the row chosen combination). "HG spline M" ✔ - modeled as this catalog existing generic "hg-road" token, same simplification as the Sora/105 cassette rows. Average weight not itemized on the fetched page - omitted rather than guessed. Price: no MSRP published; $22 is an UNSOURCED SAMPLE estimate - no priceBasis claimed.' },
+  { id: 'ch-shimano-claris-r2000', cat: 'chain', brand: 'Shimano', model: 'Claris CN-HG40', family: 'shimano-claris-r2000',
+    system: 'hg', speeds: 8, weight: 324,
+    price: 15,
+    verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/CN-HG40',
+    note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/CN-HG40 via the browser pane. Spec table: "Type HG 8/7/6-speed", "Average weight (g) (114 links) 324" - a maker-published weight (not a sample), taken verbatim. Price: no MSRP published; $15 is an UNSOURCED SAMPLE estimate - no priceBasis claimed.' },
+  { id: 'cr-shimano-claris-r2000', cat: 'crankset', brand: 'Shimano', model: 'Claris FC-R2000 Crankset', family: 'shimano-claris-r2000',
+    bb: '24mm-road', chainrings: '2x', ring: '50/34', ringStd: 'standard-12', speeds: 8, chainline: 43.5,
+    price: 55,
+    verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/FC-R2000',
+    note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/FC-R2000 via the browser pane. Spec table: "Chainring combination 50-34T" (only combination offered, matching the existing Sora crank row own note that this tier offers no 52/36 or 53/39 option), "Chain line (mm) 43.5", "2-PIECE CRANKSET ✔", "Compatible bottom bracket type: Outboard ✔" (bb:"24mm-road", same interface family as the Sora/Tiagra/105 rows). ringStd:"standard-12" reused per this catalog established convention (the vocab token name is not literally 12-speed-specific; the Sora crank row applies the same reuse). Average weight not itemized on the fetched page - omitted rather than guessed. Price: no MSRP published; $55 is an UNSOURCED SAMPLE estimate - no priceBasis claimed.' },
+  { id: 'br-shimano-claris-r2000-caliper', cat: 'brake', brand: 'Shimano', model: 'Claris BR-R2000 Dual-Pivot Caliper (pair)', family: 'shimano-claris-r2000',
+    brakeSystem: 'rim-caliper', mount: 'rim-caliper', reach: 51, actuation: 'mechanical', leverPair: 'sh-shimano-claris-r2000',
+    price: 45,
+    verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/BR-R2000',
+    note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/BR-R2000 via the browser pane. Spec table: "Series SHIMANO CLARIS", "Type NEW SUPER SLR Dual pivot" (brakeSystem/mount rim-caliper, no pistons - same shape as the existing Sora BR-R3000 caliper row), "Reach (mm) 51" (reach:51, exact page figure), "Compatibility NEW SUPER SLR" (recorded as leverPair, same interface tier as the Claris shifter above), "Brake shoe Standard R55C4". PAIR CONVENTION: one "(pair)" row filling both brake slots, matching every other brake row in this file. NOT ENTERED AS FIELDS (no rule reads them): "Maximum tire size 28C" and "Rim width (mm) 19-26" - real caliper-arch clearance figures, flagged for a future rim-caliper-clearance rule rather than stored. Average weight not published - omitted, not sampled. Price: no MSRP published; $45/pair is an UNSOURCED SAMPLE estimate - no priceBasis claimed (verified covers the interfaces only, matching the existing Sora caliper row own convention).' },
+
 ];
 
 // ---------------------------------------------------------------------------
