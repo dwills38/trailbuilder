@@ -181,10 +181,29 @@ function bmxPbRow(changes){
   return Object.assign(p, changes || {});
 }
 
+function aFrontWheel(){
+  var p = D.BMX_PARTS.find(function(x){ return x.cat === 'frontWheel'; });
+  if(!p) throw new Error('no BMX frontWheel row found in data/bmx.js');
+  return p;
+}
+/** @param {Object} [changes] @returns {any} */
+function bmxPbWheelRow(changes){
+  /** @type {any} */
+  var p = Object.assign({}, aFrontWheel(), { verified:true, source:'https://example.com/spec', lastChecked:'2026-06-01' });
+  delete p.sourceType; delete p.weightSource;
+  return Object.assign(p, changes || {});
+}
 test('every priceBasis vocab token is accepted on a verified BMX row', function(){
   S.LOCAL_VOCAB.priceBasis.forEach(function(token){
-    eq(S.validateBmxPart(bmxPbRow({ priceBasis:token }), TODAY).length, 0, 'expected "' + token + '" to validate');
+    // pair-split-estimate is wheel-only (frontWheel/rearWheel) — bmxPbRow's base part is a frame.
+    var row = token === 'pair-split-estimate' ? bmxPbWheelRow({ priceBasis:token }) : bmxPbRow({ priceBasis:token });
+    eq(S.validateBmxPart(row, TODAY).length, 0, 'expected "' + token + '" to validate');
   });
+});
+test('pair-split-estimate validates clean on a BMX frontWheel/rearWheel row, rejected on a frame', function(){
+  eq(S.validateBmxPart(bmxPbWheelRow({ priceBasis:'pair-split-estimate' }), TODAY).length, 0);
+  var probs = S.validateBmxPart(bmxPbRow({ priceBasis:'pair-split-estimate' }), TODAY);
+  ok(probs.some(function(m){ return /pair-split-estimate.*wheel category/.test(m); }), probs.join('\n'));
 });
 
 test('BMX priceBasis vocab is IDENTICAL to the live schema.js enum (one definition, mirrored)', function(){

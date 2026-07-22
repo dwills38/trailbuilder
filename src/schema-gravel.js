@@ -163,9 +163,12 @@ var GRAVEL_VOCAB = {
      disclosed exception classes (discontinued / OE-only / non-USD conversion /
      bundled-SKU split, the ratified shift-brake case / third-party-listed).
      Full per-token rationale lives in schema.js — same enum, not a gravel
-     variant. Never feeds any compat rule. */
+     variant. Never feeds any compat rule.
+     'pair-split-estimate' (2026-07-22) is WHEEL-ONLY — frontwheel/rearwheel —
+     a cross-rule below rejects it on any other category. */
   priceBasis:   ['msrp-confirmed', 'discontinued-no-msrp', 'oe-only-no-msrp',
-                 'regional-conversion', 'bundle-split-estimate', 'third-party-listed']
+                 'regional-conversion', 'bundle-split-estimate', 'third-party-listed',
+                 'pair-split-estimate']
 };
 
 /* >>> COORDINATOR ROLLOUT SWITCH — DO NOT FLIP. See the identical constant in
@@ -320,6 +323,8 @@ function validateGravelPart(p, today){
       bad('priceBasis "' + p.priceBasis + '" not in [' + (pbv || []).join(', ') + ']');
     if(p.verified !== true)
       bad('priceBasis "' + p.priceBasis + '" requires verified:true with a real source - an unverified row states no price provenance');
+    if(p.priceBasis === 'pair-split-estimate' && ['frontwheel', 'rearwheel'].indexOf(p.cat) < 0)
+      bad('priceBasis "pair-split-estimate" is wheel-only (frontwheel/rearwheel) - "' + p.cat + '" is not a wheel category');
   } else if(PRICE_BASIS_STRICT && p.verified === true){
     bad('verified:true requires a priceBasis - "verified" must cover the price, not just the spec');
   }

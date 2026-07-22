@@ -85,6 +85,8 @@ function priceBasisLabel(p){
       return 'price: converted from the maker\'s non-USD price — not a US MSRP';
     case 'bundle-split-estimate':
       return 'price: an estimated split of a bundled SKU — the maker prices only the combined part';
+    case 'pair-split-estimate':
+      return 'price: an estimated split of the wheelset\'s pair MSRP — the maker prices only the pair';
     case 'third-party-listed':
       return 'price: no maker price exists — shown price is from a third-party listing';
     default:

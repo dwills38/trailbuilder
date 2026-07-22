@@ -351,10 +351,28 @@ function gravelPbRow(changes){
   return Object.assign(p, changes || {});
 }
 
+function aFrontWheel(){
+  var p = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'frontwheel'; });
+  if(!p) throw new Error('no gravel frontwheel row found in data/gravel.js');
+  return p;
+}
+/** @param {Object} [changes] @returns {any} */
+function gravelPbWheelRow(changes){
+  var p = Object.assign({}, aFrontWheel(), { verified:true, source:'https://example.com/spec', lastChecked:'2026-06-01' });
+  delete p.sourceType; delete p.weightSource;
+  return Object.assign(p, changes || {});
+}
 test('every priceBasis vocab token is accepted on a verified gravel row', function(){
   S.GRAVEL_VOCAB.priceBasis.forEach(function(token){
-    eq(S.validateGravelPart(gravelPbRow({ priceBasis:token }), TODAY).length, 0, 'expected "' + token + '" to validate');
+    // pair-split-estimate is wheel-only — gravelPbRow's base part is a frame.
+    var row = token === 'pair-split-estimate' ? gravelPbWheelRow({ priceBasis:token }) : gravelPbRow({ priceBasis:token });
+    eq(S.validateGravelPart(row, TODAY).length, 0, 'expected "' + token + '" to validate');
   });
+});
+test('pair-split-estimate validates clean on a gravel frontwheel/rearwheel row, rejected on a frame', function(){
+  eq(S.validateGravelPart(gravelPbWheelRow({ priceBasis:'pair-split-estimate' }), TODAY).length, 0);
+  var probs = S.validateGravelPart(gravelPbRow({ priceBasis:'pair-split-estimate' }), TODAY);
+  ok(probs.some(function(m){ return /pair-split-estimate.*wheel category/.test(m); }), probs.join('\n'));
 });
 
 test('gravel priceBasis vocab is IDENTICAL to the live schema.js enum (one definition, mirrored)', function(){

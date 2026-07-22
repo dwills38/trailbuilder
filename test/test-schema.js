@@ -462,8 +462,28 @@ function pbRow(changes){
 }
 test('every priceBasis vocab token is accepted on a verified row', function(){
   S.VOCAB.priceBasis.forEach(function(token){
-    eq(probs(pbRow({ priceBasis:token })).length, 0, 'expected "' + token + '" to validate on a verified row');
+    // pair-split-estimate is wheel-only (see the dedicated tests below) -
+    // pbRow's base part is a frame, so it needs a wheel-category row instead.
+    var row = token === 'pair-split-estimate' ? pbWheelRow({ priceBasis:token }) : pbRow({ priceBasis:token });
+    eq(probs(row).length, 0, 'expected "' + token + '" to validate on a verified row');
   });
+});
+/* ---- pair-split-estimate: wheel-only scoping (2026-07-22, "split the price") --- */
+/** @param {Object} [changes] @returns {any} */
+function pbWheelRow(changes){
+  var p = over('fw-raceface-ar30-factor-29', { verified:true, source:'https://example.com/spec', lastChecked:'2026-06-01' });
+  delete p.sourceType; delete p.weightSource;
+  return Object.assign(p, changes || {});
+}
+test('pair-split-estimate validates clean on a frontwheel/rearwheel row', function(){
+  eq(probs(pbWheelRow({ priceBasis:'pair-split-estimate' })).length, 0);
+  var rw = over('rw-raceface-ar30-factor-29-sb157-hg', { verified:true, source:'https://example.com/spec', lastChecked:'2026-06-01', priceBasis:'pair-split-estimate' });
+  delete rw.sourceType; delete rw.weightSource;
+  eq(probs(rw).length, 0);
+});
+test('pair-split-estimate is rejected on a non-wheel category (e.g. a frame)', function(){
+  some(probs(pbRow({ priceBasis:'pair-split-estimate' })), 'pair-split-estimate');
+  some(probs(pbRow({ priceBasis:'pair-split-estimate' })), 'wheel category');
 });
 test('an out-of-vocab priceBasis is caught', function(){
   some(probs(pbRow({ priceBasis:'msrp-probably' })), 'priceBasis');

@@ -233,3 +233,29 @@ concentrated on whichever makers we'd cataloged 6-bolt-first.
   page; `archiveUrl` a Wayback snapshot for load-bearing sources.
 - New parts enter as **unverified sample data** unless verified in the same
   sitting; they join the verify-job queue automatically (`npm run verify:status`).
+- **`priceBasis` (Douglas's 2026-07-22 ruling: "verified means the pricing was verified too")**
+  — only legal on a `verified:true` row (a stated basis is a claim, not decoration);
+  absent = the price is a SAMPLE figure. Same enum across every catalog (`schema.js` +
+  the road/gravel/BMX/e-MTB/strider counterparts — keep them mirrored):
+  - `msrp-confirmed` — the norm: the maker's own US MSRP, read off the same page
+    the spec was verified against.
+  - `discontinued-no-msrp` — maker no longer publishes a price.
+  - `oe-only-no-msrp` — OE/OEM-only, never sold at a consumer MSRP.
+  - `regional-conversion` — maker publishes a non-USD price only; the USD figure
+    is a disclosed conversion, not a US MSRP.
+  - `bundle-split-estimate` — the maker prices only a combined SKU across
+    **different slots** (the ratified shift-brake exception); a single-side row
+    carries a split estimate.
+  - `pair-split-estimate` (2026-07-22, "split the price") — **wheel-only**
+    (`frontwheel`/`rearwheel` and the road/gravel/BMX camelCase equivalents —
+    a validator cross-rule rejects it on any other category): the maker prices
+    only the wheel**set** (front+rear as one pair MSRP), never a per-wheel
+    price. Split the confirmed pair MSRP evenly across the front/rear rows
+    unless the maker itemizes a per-wheel price — the two halves must sum
+    back to the exact confirmed pair figure. Distinct from
+    `bundle-split-estimate`: this is the SAME-category front/rear pair case,
+    not a cross-slot combo. **A pair MSRP that isn't literally stated on a
+    fetched maker page stays undocumented** — leave `priceBasis` off and the
+    price as the pre-existing sample rather than inventing a split.
+  - `third-party-listed` — current product, no maker price anywhere; the
+    stored figure is a disclosed third-party listing/estimate.

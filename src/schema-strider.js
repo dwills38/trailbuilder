@@ -36,9 +36,14 @@ var STRIDER_VOCAB = {
      a verified row. 'msrp-confirmed' is the norm; the other five are the
      disclosed exception classes (discontinued / OE-only / non-USD conversion /
      bundled-SKU split / third-party-listed). Full per-token rationale lives in
-     schema.js — same enum, not a strider variant. Never feeds any fit logic. */
+     schema.js — same enum, not a strider variant. Never feeds any fit logic.
+     'pair-split-estimate' (2026-07-22) is WHEEL-ONLY — this catalog is a
+     single cat:'balancebike' category (no separate wheel category), so the
+     cross-rule below rejects it unconditionally here; the token exists only
+     for enum agreement with schema.js. */
   priceBasis: ['msrp-confirmed', 'discontinued-no-msrp', 'oe-only-no-msrp',
-               'regional-conversion', 'bundle-split-estimate', 'third-party-listed']
+               'regional-conversion', 'bundle-split-estimate', 'third-party-listed',
+               'pair-split-estimate']
 };
 
 /* >>> COORDINATOR ROLLOUT SWITCH — DO NOT FLIP. See the identical constant in
@@ -132,6 +137,8 @@ function validateStriderPart(p, today){
       bad('priceBasis "' + p.priceBasis + '" not in [' + (pbv || []).join(', ') + ']');
     if(p.verified !== true)
       bad('priceBasis "' + p.priceBasis + '" requires verified:true with a real source - an unverified row states no price provenance');
+    if(p.priceBasis === 'pair-split-estimate')
+      bad('priceBasis "pair-split-estimate" is wheel-only (frontwheel/rearwheel) - this catalog has no wheel category');
   } else if(PRICE_BASIS_STRICT && p.verified === true){
     bad('verified:true requires a priceBasis - "verified" must cover the price, not just the spec');
   }

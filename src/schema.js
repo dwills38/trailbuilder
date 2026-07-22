@@ -424,11 +424,24 @@ var VOCAB = {
                               discontinued-no-msrp (lifecycle-ended) and
                               regional-conversion (a maker price exists, just
                               not in USD).
+     'pair-split-estimate'    WHEEL-ONLY (frontwheel/rearwheel and their road/
+                              gravel/BMX equivalents - cross-rule below rejects
+                              it on any other category): the maker publishes
+                              only a per-PAIR MSRP for the wheelset, never a
+                              per-wheel price, so each wheel-slot row carries a
+                              split of that confirmed pair figure - even
+                              unless the maker itemizes front vs rear
+                              (Douglas's ruling 2026-07-22, "split the price").
+                              Distinct from bundle-split-estimate (a combined
+                              SKU split across DIFFERENT slots, e.g. a shift-
+                              brake lever) - this is the SAME-category front/
+                              rear pair case.
      NEVER feeds checkBuild - price provenance is display/annotation only, the
      same contract as `disciplines` (see PRICE_BASIS_STRICT below for the
      staged rollout). */
   priceBasis:   ['msrp-confirmed', 'discontinued-no-msrp', 'oe-only-no-msrp',
-                 'regional-conversion', 'bundle-split-estimate', 'third-party-listed'],
+                 'regional-conversion', 'bundle-split-estimate', 'third-party-listed',
+                 'pair-split-estimate'],
   status:       ['current', 'discontinued', 'recalled'],   // absent = current
   soldWithout:  ['battery', 'charger', 'spring', 'rotor', 'mounting-hardware'],
 
@@ -1004,6 +1017,8 @@ function validatePart(p, ctx){
       bad('priceBasis "' + p.priceBasis + '" not in [' + VOCAB.priceBasis.join(', ') + ']');
     if(p.verified !== true)
       bad('priceBasis "' + p.priceBasis + '" requires verified:true with a real source - an unverified row states no price provenance');
+    if(p.priceBasis === 'pair-split-estimate' && ['frontwheel', 'rearwheel'].indexOf(p.cat) < 0)
+      bad('priceBasis "pair-split-estimate" is wheel-only (frontwheel/rearwheel) - "' + p.cat + '" is not a wheel category');
   } else if(PRICE_BASIS_STRICT && p.verified === true){
     bad('verified:true requires a priceBasis (see VOCAB.priceBasis) - "verified" must cover the price, not just the spec');
   }

@@ -179,10 +179,28 @@ function roadPbRow(changes){
   return Object.assign(p, changes || {});
 }
 
+function aFrontWheel(){
+  var p = D.ROAD_PARTS.find(function(x){ return x.cat === 'frontwheel'; });
+  if(!p) throw new Error('no road frontwheel row found in data/road.js');
+  return p;
+}
+/** @param {Object} [changes] @returns {any} */
+function roadPbWheelRow(changes){
+  var p = Object.assign({}, aFrontWheel(), { verified:true, source:'https://example.com/spec', lastChecked:'2026-06-01' });
+  delete p.sourceType; delete p.weightSource;
+  return Object.assign(p, changes || {});
+}
 test('every priceBasis vocab token is accepted on a verified road row', function(){
   S.LOCAL_VOCAB.priceBasis.forEach(function(token){
-    eq(S.validateRoadPart(roadPbRow({ priceBasis:token }), TODAY).length, 0, 'expected "' + token + '" to validate');
+    // pair-split-estimate is wheel-only — roadPbRow's base part is a frame.
+    var row = token === 'pair-split-estimate' ? roadPbWheelRow({ priceBasis:token }) : roadPbRow({ priceBasis:token });
+    eq(S.validateRoadPart(row, TODAY).length, 0, 'expected "' + token + '" to validate');
   });
+});
+test('pair-split-estimate validates clean on a road frontwheel/rearwheel row, rejected on a frame', function(){
+  eq(S.validateRoadPart(roadPbWheelRow({ priceBasis:'pair-split-estimate' }), TODAY).length, 0);
+  var probs = S.validateRoadPart(roadPbRow({ priceBasis:'pair-split-estimate' }), TODAY);
+  ok(probs.some(function(m){ return /pair-split-estimate.*wheel category/.test(m); }), probs.join('\n'));
 });
 
 test('road priceBasis vocab is IDENTICAL to the live schema.js enum (one definition, mirrored)', function(){

@@ -53,10 +53,15 @@ function striderPbRow(changes){
   return Object.assign(p, changes || {});
 }
 
-test('every priceBasis vocab token is accepted on a verified strider row', function(){
+test('every priceBasis vocab token is accepted on a verified strider row, except the wheel-only pair-split-estimate', function(){
   S.STRIDER_VOCAB.priceBasis.forEach(function(token){
+    if(token === 'pair-split-estimate') return; // this catalog has no wheel category — see the dedicated rejection test below
     eq(S.validateStriderPart(striderPbRow({ priceBasis:token }), TODAY).length, 0, 'expected "' + token + '" to validate');
   });
+});
+test('pair-split-estimate is rejected on every strider row (no wheel category exists in this catalog)', function(){
+  var probs = S.validateStriderPart(striderPbRow({ priceBasis:'pair-split-estimate' }), TODAY);
+  ok(probs.some(function(m){ return /pair-split-estimate.*wheel category/.test(m); }), probs.join('\n'));
 });
 
 test('strider priceBasis vocab is IDENTICAL to the live schema.js enum (one definition, mirrored)', function(){
