@@ -86,8 +86,21 @@ var GRAVEL_VOCAB = {
   dropoutType:  ['sliding'],
   freehub:      ['xdr', 'n3w', 'micro-spline-road', 'hg-road'],
   rotorMount:   ['center-lock'],
-  casing:       ['tcs-light', 'tcs-tough', 'zsg', 'shieldwall', 'protection', 'hardwall', 'super-ground', 'exo', 'tubeless-complete', 'trail', 'standard', 'extralight', 'endurance'],
-  compound:     ['fast-rolling', 'high-grip', 'std', 'blackchili', 'smartnet', 'addix-speedgrip', 'addix', 'dual', 'dynamic-rs', 'g2'],
+  casing:       ['tcs-light', 'tcs-tough', 'zsg', 'shieldwall', 'protection', 'hardwall', 'super-ground', 'exo', 'tubeless-complete', 'trail', 'standard', 'extralight', 'endurance', 'light-supple'],
+  compound:     ['fast-rolling', 'high-grip', 'std', 'blackchili', 'smartnet', 'addix-speedgrip', 'addix', 'dual', 'dynamic-rs', 'g2', 'puregrip'],
+  // Display-only casing/compound SKU-axis tokens ratified vocab-tier1 (2026-07-22) —
+  // brand-native names, never feed checkBuild: 'light-supple' is Teravail's own casing-
+  // tier name ("Light & Supple, Black" on the Sparwood 700x56 row's own fetched page,
+  // teravail.com/products/sparwood-tire — the row previously fell back to the closest
+  // approximation, 'extralight'). 'puregrip' is Continental's own compound name ("PureGrip
+  // Compound" on the Terra Trail ShieldWall 650x47 row's own fetched Tire Range PDF — the
+  // row previously fell back to 'std'). WTB's own casing-tier naming (TCS Light/TCS Tough,
+  // seen on its Breakout MTB tire and used identically across its gravel line) was
+  // investigated for a matching gap and found to be FULLY covered already by the existing
+  // tcs-light/tcs-tough tokens — no new token added, not a real gap. Specialized's
+  // "GRIPTON"/"2Bliss Ready" naming is real (directly fetched on this catalog's road.js
+  // Cotton TLR rows) but no gravel Specialized tire is cataloged yet to carry it — deferred
+  // to a future data-entry pass rather than adding an unused token with no backing row.
   actuation:    ['di2-wired', 'mechanical', 'axs-wireless', 'hydraulic'],
   side:         ['pair'],
   system:       ['shimano-grx-12', 'shimano-grx-11', 'shimano-grx-10', 'sram-xplr-12', 'sram-xplr-13', 'sram-apex-mech-12',

@@ -145,6 +145,36 @@ test('an out-of-vocab bb value distinct from t47a-bbright is still caught', func
   ok(probs.some(function(m){ return /bb.*not in bb/.test(m); }), probs.join('\n'));
 });
 
+// vocab-tier1 (2026-07-22): ratified display-only casing/compound SKU-axis
+// tokens (never feed checkBuild) — puregrip (Continental) + light-supple
+// (Teravail) — positive + negative.
+/** @returns {any} */
+function aTire(){
+  var p = D.GRAVEL_PARTS.find(function(x){ return x.cat === 'tire'; });
+  if(!p) throw new Error('no gravel tire row found in data/gravel.js');
+  return p;
+}
+
+test('puregrip compound is a valid gravel tire value', function(){
+  var tire = aTire();
+  var p = Object.assign({}, tire, { compound: 'puregrip' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('light-supple casing is a valid gravel tire value', function(){
+  var tire = aTire();
+  var p = Object.assign({}, tire, { casing: 'light-supple' });
+  eq(S.validateGravelPart(p, new Date()).length, 0);
+});
+
+test('an out-of-vocab compound/casing value is still caught', function(){
+  var tire = aTire();
+  var badCompound = Object.assign({}, tire, { compound: 'ultragrip' });
+  ok(S.validateGravelPart(badCompound, TODAY).some(function(m){ return /compound.*not in compound/.test(m); }));
+  var badCasing = Object.assign({}, tire, { casing: 'super-supple' });
+  ok(S.validateGravelPart(badCasing, TODAY).some(function(m){ return /casing.*not in casing/.test(m); }));
+});
+
 // vocab-tier1 (2026-07-22): ratified band-28.6 front-derailleur-mount token
 // (clamp-on, not brazed/bolted-boss) — positive + negative.
 test('band-28.6 frontDerailleurMount is a valid gravel frame value', function(){
