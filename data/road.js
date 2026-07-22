@@ -648,6 +648,57 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/sram/models/db-apx-d1',
     note: 'road-10 wave (BUNDLED SHIFT-BRAKE SKU EXCEPTION): re-fetched sram.com/en/sram/models/db-apx-d1 (browser pane spec table) this session alongside sram.com/en/sram/models/sd-apx-d1 — "Apex Disc Brake" (DB-APX-D1), $225 MSRP, flat-mount hydraulic disc, "BRACKET (DISC BRAKE) Flat Mount 20mm offset" matching this row\'s mount/actuation exactly; this is the left-hand brake-only lever+caliper unit that pairs with SD-APX-D1\'s right-hand shift-brake unit — see sh-sram-apex-mech\'s note for the full per-side shape (SRAM prices this system per SIDE, not per shifter/brake SLOT). UPGRADES to verified:true under the 2026-07-21 bundled-shift-brake-SKU exception, extended to this per-side-bundle shape. PRICE is re-split proportionally to the prior 300:120 sample ratio: 141 + sh-sram-apex-mech\'s 354 = 495, the real two-lever total (270 SD-APX-D1 shift-brake + 225 DB-APX-D1 brake-only = 495) — replaces the prior unsourced 300+120=420. Honest per-slot ESTIMATE only, never a per-unit MSRP claim (THE PRICE RULE). Weight (380g) stays a nominal per-slot SAMPLE — neither page publishes any weight figure.' },
 
+  // ===== DRIVETRAIN — SRAM Rival 22 (2x11, mechanical, pre-Flattop) =========
+  // road-depth-1 wave (2026-07-22): SRAM Rival 22 is a real, STILL-LISTED
+  // 2x11 mechanical groupset (sram.com/en/sram/road/series/sram-rival —
+  // live product listing, unlike the plain "SRAM Apex" 2x mechanical series
+  // page, which returns "0 Products" / no live SKUs and was NOT added here
+  // per THE BAR: no plausible current spec exists for it). All rows fetched
+  // via WebFetch from individual sram.com/en/sram/models/<slug> pages.
+  // NEW VOCAB: 'sram-rival22-11' added to schema-road.js/compat-road.js this
+  // wave (ROAD_SYSTEM_CHAIN: 'hg') — Rival 22 predates SRAM's Flattop chain
+  // standard and uses a standard HG-compatible 11-speed driver/chain
+  // interface (CS-PG-1130 "compatible with non-XD driver bodies"; CN-1170-A1
+  // "11-speed powerchain", not Flattop) — genuinely distinct from
+  // sram-apex-mech-12 (T-Type/Flattop, 12-speed), never conflated.
+  // No brake caliper row: SB-RIV-HRD-A1's own product description already
+  // states "Two-piston hydraulic calipers with steel-backed organic pads" as
+  // part of the shifter SKU's bundled function (same BUNDLED SHIFT-BRAKE SKU
+  // shape as RED/Rival AXS elsewhere in this file) and no separate
+  // caliper-only SKU/price was found this pass (time-boxed) — flagged as a
+  // GAP, not a compat gap (the shifter's own brakeSystem/actuation fields
+  // already carry the real interface).
+  { id: 'sh-sram-rival22-hrd', cat: 'shifter', brand: 'SRAM', model: 'Rival 22 Shifters / Hydraulic Disc Brake (pair)', family: 'sram-rival22-hrd',
+    system: 'sram-rival22-11', speeds: 11, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
+    weight: 620, price: 355,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/sram/models/sb-riv-hrd-a1',
+    note: 'road-depth-1 wave: sram.com model page (SB-RIV-HRD-A1) confirms "SRAM Road EXACT ACTUATION 11-speed system", "Two-piston hydraulic calipers with steel-backed organic pads", DoubleTap mechanical shift, "2x drivetrain configuration", "Direct Mount or Flat Mount (no offset)" caliper brackets, $345-$365 MSRP (355 used as the midpoint). No weight published on the fetched page — 620g/pair is an unsourced sample estimate, flagged.' },
+  { id: 'rd-sram-rival22', cat: 'rearderailleur', brand: 'SRAM', model: 'Rival 22 Rear Derailleur', family: 'sram-rival22',
+    system: 'sram-rival22-11', speeds: 11, actuation: 'mechanical', maxCog: 32, cage: 'medium', mount: 'std-hanger',
+    weight: 250, price: 72,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/sram/models/rd-riv-b1',
+    note: 'road-depth-1 wave: sram.com model page (RD-RIV-B1) confirms "11-speed", "Cage Options: Medium and Short" (this row: medium), "Maximum Cog: 28T or 32T" (this row: the 32T config, matching the CS-PG-1130 cassette below), "Exact Actuation (1:1 ratio)" mechanical, WiFLi-compatible. $65-$80 MSRP (72 used as the midpoint). No weight published — 250g is an unsourced sample estimate, flagged.' },
+  { id: 'fd-sram-rival22', cat: 'frontderailleur', brand: 'SRAM', model: 'Rival 22 Yaw Front Derailleur', family: 'sram-rival22',
+    system: 'sram-rival22-11', speeds: 11, actuation: 'mechanical', mount: 'braze-on',
+    weight: 95, price: 50,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/sram/models/fd-riv-b1',
+    note: 'road-depth-1 wave: sram.com model page (FD-RIV-B1) confirms "11-speed compatible", "Mount Type: Braze-on (clamp styles also available)" (braze-on modeled per this catalog\'s one-mount-native-SKU convention), "Chainline: 45.0mm", "Yaw" cage rotation technology, $50 MSRP. No weight published — 95g is an unsourced sample estimate, flagged.' },
+  { id: 'cs-sram-rival22-1132', cat: 'cassette', brand: 'SRAM', model: 'Rival 22 PG-1130 11-32', family: 'sram-rival22-cass',
+    system: 'sram-rival22-11', speeds: 11, freehub: 'hg-road', minCog: 11, maxCog: 32,
+    weight: 300, price: 90,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/sram/models/cs-pg-1130-a1',
+    note: 'road-depth-1 wave: sram.com model page (PG-1130) confirms "11-28t / 11-32t / 11-36t / 11-42t" gearing options (this row: the 11-32T config, matching rd-sram-rival22\'s 32T max capacity), "Compatible with non-XD driver bodies" (freehub:\'hg-road\', the catalog\'s existing generic standard-HG-driver token — matches Apex\'s own cs-sram-apex-xg1231-1144 correction elsewhere in this file), PowerGlide II. $75-$105 MSRP (90 used as the midpoint). No weight published — 300g is an unsourced sample estimate, flagged.' },
+  { id: 'ch-sram-rival22', cat: 'chain', brand: 'SRAM', model: 'Rival 22 PC-1170 Chain', family: 'sram-rival22',
+    system: 'hg', speeds: 11,
+    weight: 256, price: 55,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/sram/models/cn-1170-a1',
+    note: 'road-depth-1 wave: sram.com model page (CN-1170-A1) confirms "11-speed", "114 links or 120 links", "Weight: 256g (based on 114 links)" (matches this row exactly, a real fetched figure — not a sample), PowerLock connector, "11-speed powerchain" (a standard HG-class chain, NOT Flattop — matches this row\'s system:\'hg\' and the ROAD_SYSTEM_CHAIN[\'sram-rival22-11\']=\'hg\' mapping added this wave). $55 MSRP.' },
+  { id: 'cr-sram-rival22-3011', cat: 'crankset', brand: 'SRAM', model: 'Rival 22 Crankset (BB30, 50/34)', family: 'sram-rival22-crank',
+    bb: '30mm', chainrings: '2x', ring: '50/34', ringStd: 'standard-12', speeds: 11, chainline: 45,
+    weight: 700, price: 205,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.sram.com/en/sram/models/fc-riv-2x11-a1',
+    note: 'road-depth-1 wave: sram.com model page (FC-RIV-2X11-A1) confirms "11-speed", "50/34T or 52/36T" chainring options (this row: the 50/34T SKU), "BB30/PF30-68mm and GXP/PF GXP 68mm" — TWO spindle-interface SKUs exist; this row models the BB30 variant (bb:\'30mm\', matching this catalog\'s existing crankBbRoad vocab exactly — the GXP variant was NOT modeled this pass since GXP has no matching token in crankBbRoad, a real vocab gap flagged rather than mis-mapped to \'24mm-road\'/\'30mm\'), "Chainline: 45.0mm". $195-$215 MSRP (205 used as the midpoint). No weight published — 700g is an unsourced sample estimate, flagged.' },
+
   // ===== ROTORS — SRAM Paceline / Paceline X depth (road-grind-1-sram wave) =
   // Rotor coverage was thin catalog-wide (3 rows total) before this pass.
   // The existing 'ro-sram-paceline-160' row (mount:'center-lock') maps to
@@ -787,6 +838,105 @@ var ROAD_PARTS = [
     weight: 109, price: 60,
     verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/pdfs/product/archive/2019-2020_Specifications_v034_en.pdf',
     note: 'road-11 wave (Shimano archive chase): productinfo.shimano.com\'s live SKU search 404s "RT-MT800" (current edition dropped it, same wall this file already hit on CN-4600/BR-RX810/FC-RX600); resolved via /en/archive\'s 2019-2020 Specifications PDF (Ver.3.4, Feb 14 2020), rendered at 150dpi per the mtb-tail-4 doctrine (pdftotext -layout garbles these dense tables) — GENERAL section, "Disc Brake Rotor" table, printed p.209 (file p.212): RT-MT800 row confirms Center Lock ✓, ICE TECHNOLOGIES ✓, ICE TECHNOLOGIES FREEZA ✓, 203/180/160/140mm all ✓ (matches size:160, mount:\'center-lock\'), "Average Weight (w/o lock ring): 164g (203mm), 132g (180mm), 109g (160mm), 88g (140mm)" — this row\'s 160mm figure corrected 130(sample)->109 (w/o lock ring, matching this file\'s other Shimano rotor rows\' weight-basis convention). Cross-corroborated on the same archive PDF\'s BR-RX810 caliper page (printed p.125): "Recommended brake rotor: SM-RT800 / RT-MT800" — confirms this is a genuine GRX-recommended SKU, not a fabricated/duplicate one.' },
+
+  // ===== DRIVETRAIN — Shimano 105 R7000 (2x11, mechanical) ==================
+  // road-depth-1 wave (2026-07-22): fills the mechanical 11-speed 105 tier
+  // BELOW the catalog's existing 105 R7100 (2x12, Di2-only) family — a
+  // real, distinct, still-widely-sold Shimano generation (105 R7000 shipped
+  // mechanical-only, hydraulic-disc-capable via ST-R7020). All interface
+  // fields + weights below are FETCHED live via the browser pane from
+  // productinfo.shimano.com (WebFetch renders this host empty, the catalog's
+  // known limitation). Brake caliper: ST-R7020's own page states "Recommended
+  // brake caliper BR-R7070, BR-R7170" — BR-R7170 is already this catalog's
+  // 105-R7100-tier caliper (br-shimano-105-r7100, verified); BR-R7070 itself
+  // 404s on productinfo (dropped-from-current-edition, same wall this file
+  // already hit on RT-MT800/CN-4600/BR-RX810/FC-RX600) and was not chased
+  // into the archive PDFs this pass (time-boxed) — no new brake row added for
+  // this tier; a 105 R7000 build pairs correctly with the existing
+  // br-shimano-105-r7100 caliper row (same maker-documented cross-tier
+  // recommendation), so this is a labeling GAP, not a compat gap.
+  { id: 'sh-shimano-105-r7000', cat: 'shifter', brand: 'Shimano', model: '105 ST-R7020 (pair)', family: 'shimano-105-r7000',
+    system: 'shimano-road-11', speeds: 11, actuation: 'mechanical', brakeSystem: 'disc-hydraulic', side: 'pair', frontShift: true,
+    weight: 610, price: 400,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/ST-R7020-R',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Series SHIMANO 105", "Rear speeds 11", mechanical dual-control lever (cable shift, OT-SP41/OT-RS900 outer casing) with hydraulic disc brake (SM-BH90 hose kit, SHIMANO Mineral oil), "Recommended brake caliper BR-R7070, BR-R7170" (see section note above). "Average weight (g) 610 ( /pair)" — a genuine pair figure (not doubled from a single-side spec like several sibling rows). Price ($400) is an unsourced estimate — Shimano does not publish consumer MSRP on productinfo.' },
+  { id: 'rd-shimano-105-r7000', cat: 'rearderailleur', brand: 'Shimano', model: '105 RD-R7000-GS', family: 'shimano-105-r7000',
+    system: 'shimano-road-11', speeds: 11, actuation: 'mechanical', maxCog: 34, cage: 'medium', mount: 'std-hanger',
+    weight: 232, price: 90,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/RD-R7000-GS',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Rear speeds 11", "Low sprocket Max. 34T / Min. 28T" (maxCog:34), "SHIMANO ROAD type: Direct attachment (conventional) ✔" (std-hanger, no UDH), "Total capacity 39T", mechanical cable-actuated (no Di2 fields on this page). Average weight (g) 232 (GS/medium-cage). Price unsourced sample.' },
+  { id: 'fd-shimano-105-r7000', cat: 'frontderailleur', brand: 'Shimano', model: '105 FD-R7000-F (braze-on)', family: 'shimano-105-r7000',
+    system: 'shimano-road-11', speeds: 11, actuation: 'mechanical', mount: 'braze-on',
+    weight: 96, price: 45,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/FD-R7000-F',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Front speeds 2", "Rear speeds 11", "Brazed-on ✔" (mount:braze-on; the sibling FD-R7000-B band-type SKU exists for frames without a braze-on tab, not modeled as a separate row per this catalog\'s one-mount-native-SKU convention), "Chain line (mm) 43.5", "Top gear teeth 46-53T". Average weight (g) (band type: L size, direct type w/ screw) 96. Price unsourced sample.' },
+  { id: 'cs-shimano-105-r7000-1134', cat: 'cassette', brand: 'Shimano', model: '105 CS-HG700-11 11-34', family: 'shimano-105-r7000-cass',
+    system: 'shimano-road-11', speeds: 11, freehub: 'hg-road', minCog: 11, maxCog: 34,
+    weight: 379, price: 65,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/CS-HG700-11',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Rear speeds 11", "Combination name (Group name) 11-34T", teeth "11-13-15-17-19-21-23-25-27-30-34T", "HG spline M (10/9/8-speed, MTB 11-speed, 7-speed CS-HG400/HG210) ✔" — the standard pre-12-speed HG freehub body, modeled as this catalog\'s existing generic \'hg-road\' token (same simplification already used by the verified 12-speed cs-shimano-105-r7100 row — this catalog does not split the HG-M/HG-L spline distinction into separate freehub vocab values). Average weight (g) 379. Price unsourced sample.' },
+  { id: 'ch-shimano-105-r7000', cat: 'chain', brand: 'Shimano', model: '105 CN-HG601-11', family: 'shimano-105-r7000',
+    system: 'hg', speeds: 11,
+    weight: 257, price: 25,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/CN-HG601-11',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Type LINKGLIDE, HG 11-speed", "E-BIKE rear derailleur system compatible ✔". Average weight (g) (114 links) 257. Price unsourced sample.' },
+  { id: 'cr-shimano-105-r7000', cat: 'crankset', brand: 'Shimano', model: '105 FC-R7000 Crankset', family: 'shimano-105-r7000',
+    bb: '24mm-road', chainrings: '2x', ring: '50/34', ringStd: 'standard-12', speeds: 11, chainline: 43.5,
+    weight: 713, price: 160,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/FC-R7000',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Chainring combination 50-34T, 52-36T, 53-39T" (50-34T confirmed real), "Chain line (mm) 43.5", "HOLLOWTECH II ✔" / "Compatible bottom bracket type: Outboard" (bb:\'24mm-road\', matches catalog). Average weight (170mm, w/o BB): "713.4 (50-34T)" — rounded to 713g. Price unsourced sample.' },
+
+  // ===== DRIVETRAIN — Shimano Sora R3000 (2x9, mechanical, RIM BRAKE) =======
+  // road-depth-1 wave (2026-07-22): Sora is the entry tier below Tiagra 4700.
+  // Fetched via the browser pane, productinfo.shimano.com. IMPORTANT: Sora
+  // R3000's shift/brake lever (ST-R3000-R/-L) is an integrated RIM-BRAKE-ONLY
+  // dual-control lever — no ST-R3000 hydraulic-disc variant exists on
+  // productinfo (only -R/-L rim-brake SKUs are listed under the ST-R3000
+  // family; unlike Tiagra 4700/105, Sora never shipped a disc-hydraulic
+  // integrated lever of this generation). This catalog's brake schema
+  // (schema-road.js ROAD_SCHEMA.brake) requires `mount` (vocab
+  // brakeMountRG: flat-mount/post-mount only) and `pistons` — there is NO
+  // rim-caliper-shaped brake row possible in this schema, so BR-R3000 (the
+  // real NEW SUPER SLR dual-pivot rim caliper) is a genuine SCHEMA GAP, not
+  // fabricated or omitted by oversight: flagging for a future rim-brake
+  // vocab widening rather than forcing it into the disc-only brake shape.
+  // The six drivetrain rows below still enter cleanly (shifter.brakeSystem
+  // accepts 'rim-caliper' per LOCAL_VOCAB.brakeSystem) and are dormant
+  // against every current-catalog frame (all disc, per the road-4 v1
+  // decision) until a rim-brake frame is sourced — same real-part/dormant-
+  // compat pattern already used elsewhere in this file (e.g. the Cane Creek
+  // headset rows before any frame sourced headTubeUpper/Lower).
+  { id: 'sh-shimano-sora-r3000', cat: 'shifter', brand: 'Shimano', model: 'Sora ST-R3000 (pair)', family: 'shimano-sora-r3000',
+    system: 'shimano-road-11', speeds: 9, actuation: 'mechanical', brakeSystem: 'rim-caliper', side: 'pair', frontShift: true,
+    weight: 480, price: 130,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/ST-R3000-R',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Series SORA", "Rear speeds 9", "Shifter type DUAL CONTROL LEVER", rim-brake-integrated ("NEW SUPER SLR" caliper interface, no hydraulic hose fitting on this page — unlike ST-R7020/ST-4720 above). system:\'shimano-road-11\' reused per this catalog\'s established convention (Tiagra 4700\'s own trailing comment): systemRoad has no dedicated 9-speed token, and the independent speeds:9 check already reds out any cross-tier pairing on speed count alone (same reasoning, not re-litigated per row). Average weight not itemized on the fetched page ("Average weight (g) -"); 480g/pair is an unsourced sample estimate, flagged. Price unsourced sample.' },
+  { id: 'rd-shimano-sora-r3000', cat: 'rearderailleur', brand: 'Shimano', model: 'Sora RD-R3000-GS', family: 'shimano-sora-r3000',
+    system: 'shimano-road-11', speeds: 9, actuation: 'mechanical', maxCog: 34, cage: 'medium', mount: 'std-hanger',
+    weight: 240, price: 40,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/RD-R3000-GS',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Rear speeds 9", "Low sprocket Max. 34T / Min. 28T" (maxCog:34), "SHIMANO ROAD type: Direct attachment (conventional) ✔" (std-hanger), mechanical, "Total capacity 43T". Average weight not itemized on the fetched page ("Average weight (g) -"); 240g is an unsourced sample estimate, flagged. Price unsourced sample.' },
+  { id: 'fd-shimano-sora-r3000', cat: 'frontderailleur', brand: 'Shimano', model: 'Sora FD-R3000-F (braze-on)', family: 'shimano-sora-r3000',
+    system: 'shimano-road-11', speeds: 9, actuation: 'mechanical', mount: 'braze-on',
+    weight: 100, price: 25,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/FD-R3000-F',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Front speeds 2", "Rear speeds 9", "Brazed-on ✔" (mount:braze-on; the sibling FD-R3000-B band-type SKU not modeled, same one-mount-native-SKU convention as the 105 R7000 FD above), "Chain line (mm) 43.5", "Top gear teeth 46-52T". Average weight not itemized on the fetched page; 100g is an unsourced sample estimate, flagged. Price unsourced sample.' },
+  { id: 'cs-shimano-sora-r3000-1132', cat: 'cassette', brand: 'Shimano', model: 'Sora CS-HG400-9 11-32', family: 'shimano-sora-r3000-cass',
+    system: 'shimano-road-11', speeds: 9, freehub: 'hg-road', minCog: 11, maxCog: 32,
+    weight: 330, price: 35,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/CS-HG400-9',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Rear speeds 9", "Combination name (Group name) ...11-32T (ar)...", teeth "11-12-14-16-18-21-24-28-32T" — the 11-32T config confirmed real (this row\'s chosen combination among six the SKU offers). "HG spline M" ✔ (modeled as this catalog\'s existing generic \'hg-road\' token, same simplification as the 105 R7000 cassette above). Average weight not itemized on the fetched page; 330g is an unsourced sample estimate, flagged. Price unsourced sample.' },
+  { id: 'ch-shimano-sora-r3000', cat: 'chain', brand: 'Shimano', model: 'Sora CN-HG53', family: 'shimano-sora-r3000',
+    system: 'hg', speeds: 9,
+    weight: 299, price: 20,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/CN-HG53',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Type HG 9-speed". Average weight (g) (114 links) 299. Price unsourced sample.' },
+  { id: 'cr-shimano-sora-r3000', cat: 'crankset', brand: 'Shimano', model: 'Sora FC-R3000 Crankset', family: 'shimano-sora-r3000',
+    bb: '24mm-road', chainrings: '2x', ring: '50/34', ringStd: 'standard-12', speeds: 9, chainline: 43.5,
+    weight: 830, price: 65,
+    verified: true, lastChecked: '2026-07-21', source: 'https://productinfo.shimano.com/en/product/FC-R3000',
+    note: 'road-depth-1 wave: productinfo.shimano.com spec table: "Chainring combination 50-34T" (only combination offered — no 52/36 or 53/39 option at this tier, unlike 105/Tiagra above), "Chain line (mm) 43.5", "2-PIECE CRANKSET ✔" / "Compatible bottom bracket type: Outboard" (bb:\'24mm-road\', same interface family as Tiagra/105 despite the different construction name). Average weight not itemized on the fetched page ("Average weight (g)... -"); 830g is an unsourced sample estimate, flagged. Price unsourced sample.' },
+
 
   // ===== FRONT DERAILLEURS — Shimano road (R9200/R8100/R7100) + GRX ========
   // road-5 wave (Shimano depth): catalog previously had ZERO frontderailleur
@@ -1275,6 +1425,50 @@ var ROAD_PARTS = [
     brakeSystem: 'disc-flat', mount: 'flat-mount', pistons: 2, actuation: 'hydraulic', leverPair: 'sh-campagnolo-chorus-mech',
     weight: 350, price: 180,
     note: 'road-14 wave: same single-caliper-vs-pair-weight problem road-13 documented for br-campagnolo-record-wrl, confirmed here too. Campagnolo publishes one shared 140mm caliper across the Chorus/Record/Super Record 12s tiers - a Chorus-specific listing (e-bike.ee, quoting Campagnolo\'s own spec) states "Caliper weight 118g (140mm, 1 pz - pads included)", the identical figure Record and Super Record Wireless carry. No pair total is published, so not promoting to verified: doubling would be an invented number, not a sourced one. Interfaces (flat-mount, hydraulic, 2-piston) are unambiguous and unaffected.' },
+
+  // ===== DRIVETRAIN — Campagnolo Centaur (2x11, mechanical, RIM BRAKE) ======
+  // road-depth-1 wave (2026-07-22): Centaur is Campagnolo's entry tier below
+  // Chorus — no longer listed on campagnolo.com's current road groupset page
+  // (Record 13/Super Record 13/Chorus only), but its individual product
+  // pages ARE still live and fetchable (campagnolo.com/us-en/centaur-*),
+  // confirming it's a real, still-sold component line, not a discontinued
+  // one — fetched directly via WebFetch, no wall. Like Sora above, Centaur's
+  // Ergopower lever is RIM-BRAKE ONLY (no disc-hydraulic Centaur lever
+  // exists — confirmed by an explicit "centaur disc" search on
+  // campagnolo.com returning no dedicated disc product); same schema gap as
+  // Sora applies (ROAD_SCHEMA.brake has no rim-caliper shape), so no brake
+  // caliper row this tier either. system:'campag-11'/freehub:'campag-11'
+  // reuse this catalog's existing tokens (already used by the Record/Chorus
+  // 12s cassettes' shared classic-ED-driver freehub — Centaur mounts the
+  // same body). NOT added: a frontderailleur row — the fetched page states
+  // no mount type (braze-on vs clamp/band) anywhere and no second source was
+  // found this pass (time-boxed); a real GAP, not a fabricated 'braze-on'
+  // guess (the FD schema field has no safe default).
+  { id: 'sh-campagnolo-centaur-mech', cat: 'shifter', brand: 'Campagnolo', model: 'Centaur Ergopower (pair)', family: 'campagnolo-centaur-mech',
+    system: 'campag-11', speeds: 11, actuation: 'mechanical', brakeSystem: 'rim-caliper', side: 'pair', frontShift: true,
+    weight: 746, price: 250,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/centaur-ergopower-controls/CCLCENTAURBLACK11S.html',
+    note: 'road-depth-1 wave: campagnolo.com product page confirms "11-speed", rim brake (mechanical, PowerShift "1-lever-1-action"), "Weight: 373 grams" — per-lever figure, doubled to 746g for this catalog\'s per-pair shifter convention (basis disclosed, not a page-stated pair total). Price not published on the fetched page — 250 is an unsourced estimate.' },
+  { id: 'rd-campagnolo-centaur-mech', cat: 'rearderailleur', brand: 'Campagnolo', model: 'Centaur Rear Derailleur', family: 'campagnolo-centaur-mech',
+    system: 'campag-11', speeds: 11, actuation: 'mechanical', maxCog: 32, cage: 'medium', mount: 'std-hanger',
+    weight: 230, price: 90,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/centaur-rear-derailleur/CRDCENTAURBLACK11S.html',
+    note: 'road-depth-1 wave: campagnolo.com product page confirms "11-speed (mechanical)", "compatible with cassettes up to 32 teeth" (maxCog:32, matching the cassette row below), "Weight: 230 grams" (matches this row exactly, a real fetched figure — not a sample). Cage length and mount not itemized on the page; mount:\'std-hanger\' + cage:\'medium\' follow this catalog\'s existing Campagnolo convention (rd-campagnolo-chorus-mech). Price not published — 90 is an unsourced estimate.' },
+  { id: 'cs-campagnolo-centaur-1132', cat: 'cassette', brand: 'Campagnolo', model: 'Centaur Sprockets 11-32', family: 'campagnolo-centaur-cass',
+    system: 'campag-11', speeds: 11, freehub: 'campag-11', minCog: 11, maxCog: 32,
+    weight: 291, price: 75,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/centaur-sprockets/CCSCENTAURBLACK11S.html',
+    note: 'road-depth-1 wave: campagnolo.com product page confirms "11-speed", "Cog Range Options: 11-29, 11-32, 12-32" (this row: the 11-32T config, matching rd-campagnolo-centaur-mech\'s 32T max capacity), example teeth "11-12-13-14-15-17-19-22-25-28-32" cross-checks the 11-32T range. freehub:\'campag-11\' reused per this catalog\'s existing classic-ED-driver convention (cs-campagnolo-record-1129/cs-campagnolo-chorus-1129 — not independently re-confirmed on this specific page, which itemizes no driver-body field, but Centaur has never shipped an N3W-only cassette). "Weight: 291 g" matches this row exactly. Price not published — 75 is an unsourced estimate.' },
+  { id: 'ch-campagnolo-centaur-c11', cat: 'chain', brand: 'Campagnolo', model: 'Centaur 11s Chain', family: 'campagnolo-centaur-chain',
+    system: 'campag', speeds: 11,
+    weight: 269, price: 30,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/centaur-chain/CCNCENTAURBLACK11S.html',
+    note: 'road-depth-1 wave: campagnolo.com product page confirms "11-speed" (compatible 11/12-speed per the technical-manual reference), HD-Link fastening, "5.9mm special steel links". Weight stated on the page as "2.36 grams per link" — DERIVED to a 114-link total (this catalog\'s established Campagnolo weight-basis convention, e.g. Super Record/Record/Chorus chains above) as 2.36 x 114 = 269g; basis disclosed, not a page-stated pair/total figure. Price not published — 30 is an unsourced estimate.' },
+  { id: 'cr-campagnolo-centaur-crank', cat: 'crankset', brand: 'Campagnolo', model: 'Centaur Crankset', family: 'campagnolo-centaur-crank',
+    bb: 'ultra-torque', chainrings: '2x', ring: '50/34', ringStd: null, speeds: 11, chainline: 43.5,
+    weight: 875, price: 220,
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.campagnolo.com/us-en/centaur-crankset/CFCCENTAURBLACK11S.html',
+    note: 'road-depth-1 wave: campagnolo.com product page confirms "Campagnolo Ultra-Torque BB cups required" (bb:\'ultra-torque\', matching this catalog\'s existing Record/Chorus crankset convention), "52/36 and 50/34 tooth combinations" (this row: the 50/34T config), four-arm design, "a single crank works with both chainring combinations" (ringStd:null, same sold-separately-rings convention as the Chorus crankset above). "Weight: 875 grams" matches this row exactly. Chainline and price not published on the fetched page — 43.5mm/220 are unsourced estimates (chainline matches this catalog\'s other 2x mechanical road cranksets).' },
 
   // ===== WHEELS — Campagnolo Bora WTO (N3W freehub) =========================
   { id: 'fw-campagnolo-bora-wto-45', cat: 'frontwheel', brand: 'Campagnolo', model: 'Bora WTO 45 C23 Disc Brake', family: 'campagnolo-bora-wto',
