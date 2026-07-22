@@ -59,7 +59,17 @@ var BMX_VOCAB = {
      / bmx-front-brake-mount exact-match rules already enforce this once the token exists; no
      rule changes needed, only the vocab widen + data. */
   brakeMount:  ['u-brake', 'v-brake', 'caliper', 'disc', 'none'],  // frame/fork bosses AND brake type share the token set
-  headTube:    ['integrated-1-1/8', 'mid', 'threaded'],    // display-only per the analysis doc's Q9 lean (PROVISIONAL) — no headset rule fires
+  headTube:    ['integrated-1-1/8', 'mid', 'threaded', 'integrated-1', 'integrated-tapered-1-1/8-1.5'],    // display-only per the analysis doc's Q9 lean (PROVISIONAL) — no headset rule fires
+  // 'integrated-1' and 'integrated-tapered-1-1/8-1.5' added vocab-tier1 (2026-07-22) —
+  // real, maker-sourced integrated head tube classes distinct from the existing plain
+  // 'integrated-1-1/8' token, both directly FETCHED off Speedline Parts' own product
+  // pages (supercrossbmx.com, the brand's authorized storefront): the "1\" Mini Headsets"
+  // page states this bore is "typically used on Micro, Mini, Junior, Expert, or Any Campy
+  // Style Integrated Frame you wish to use a 1\" Fork and Stem on" (bare 1in, no taper);
+  // the "Tapered Sealed Bearing Integrated BMX Racing Headset" page states verbatim
+  // "designed to work with all 'Campy' style integrated headtube frames that taper from
+  // 1 1/8\" on the top to 1.5\" on the bottom" (a genuinely wider class than the plain
+  // 1-1/8in token — never conflated).
   seatSystem:  ['pivotal', 'standard', 'stealth'],
   // 'stealth' added vocab-tier1 (2026-07-22) — the Kink/Mission one-bolt mechanism: no
   // top slotted patch on the seat, the anchoring bolt threads from the bottom through a

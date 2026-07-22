@@ -66,6 +66,29 @@ test('an out-of-vocab seatSystem value is still caught', function(){
   ok(probs.some(function(m){ return /system.*not in seatSystem/.test(m); }), probs.join('\n'));
 });
 
+// vocab-tier1 (2026-07-22): ratified headTube tokens — integrated-1 (bare
+// 1in bore) and integrated-tapered-1-1/8-1.5 (the wider tapered class) —
+// positive + negative, on both the frame/fork steerer field and the
+// standalone headset's fit field (both share the headTube vocab).
+test('integrated-1 and integrated-tapered-1-1/8-1.5 are valid frame headTube values', function(){
+  var frame = aFrame();
+  eq(S.validateBmxPart(Object.assign({}, frame, { headTube: 'integrated-1' }), TODAY).length, 0);
+  eq(S.validateBmxPart(Object.assign({}, frame, { headTube: 'integrated-tapered-1-1/8-1.5' }), TODAY).length, 0);
+});
+
+test('integrated-1 is a valid headset fit value', function(){
+  var hs = D.BMX_PARTS.find(function(x){ return x.cat === 'headset'; });
+  if(!hs) throw new Error('no BMX headset row found in data/bmx.js');
+  eq(S.validateBmxPart(Object.assign({}, hs, { fit: 'integrated-1' }), TODAY).length, 0);
+});
+
+test('an out-of-vocab headTube value is still caught', function(){
+  var frame = aFrame();
+  var bad = Object.assign({}, frame, { headTube: 'integrated-1-1/4' });
+  var probs = S.validateBmxPart(bad, TODAY);
+  ok(probs.some(function(m){ return /headTube.*not in headTube/.test(m); }), probs.join('\n'));
+});
+
 test('an unknown category is rejected', function(){
   var frame = aFrame();
   var bad = Object.assign({}, frame, { cat: 'e-motor' });
