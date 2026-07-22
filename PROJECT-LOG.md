@@ -4900,3 +4900,14 @@ stray; LESSON: a bare /tmp resolves to TWO different out-of-bounds places (Windo
 parent under Bash, a drive-root tmp under Node) — always write the scratchpad path
 explicitly. Gates + harness green.
 Reports: emtb-pb-clear.md, road-vocab-lint.md.
+
+## 2026-07-22 — kit-breadth-4 merged: kit 736 to 749, priceBasis burndown holds at 0
+Leatt's real dedicated youth line (8 rows across gloves/helmet/chest/elbow/knee; the existing
+GPX 1.5 Mini neck brace correctly not re-added) + 5 genuine women's-SKU gloves: Fox Ranger
+(first Fox womens row), 100% Ridecamp, Dakine Cross-X + Thrillium (a women's-ONLY signature
+model; Dakine had zero womens glove rows despite a 14-SKU line), TLD Ace 2.0 (Luxe/Gambit
+skipped — live storefront shows inconsistent per-colorway regular prices, no honest single
+figure). Unisex-pads wall re-confirmed (no women's-specific impact pads exist industry-wide);
+Race Face lineup already fully covered (no padding); worker caught its own Cognito duplicate
+pre-commit. Cairn Ride + O'Neal Park FR untouched per the open-question fence. Gates green.
+Report: kit-breadth-4.md.
