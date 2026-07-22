@@ -1,5 +1,24 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — propain-conflicts-1: generation conflict closed; the rigid-post gap goes to Douglas
+
+- **verify/propain-conflicts-1 merged**: the Spindrift CF Base "Eagle 70 Transmission vs
+  mechanical GX" conflict is a GENUINE RUNNING CHANGE, not an error — Pinkbike's dated
+  2024 launch article confirms mechanical GX at the same price tier, and Eagle 70
+  Transmission didn't exist at launch. The row's modelYear:2024 pin makes its current
+  fills correct; finding recorded in-desc. A separate later-generation row is flagged as
+  future data entry (needs its own freehub-driver derivation), not started.
+- **The rigid-seatpost-vs-dropper completeness gap is now a Douglas decision packet**
+  (in the report + summarized in the queue): dropper completeness keys off the FRAME, but
+  the same frame carries both a rigid-post Base build and a dropper-equipped sibling —
+  three remedies scoped with blast radii: (1) per-completebike slot override (most
+  general; engine+schema+tests), (2) a frame-level boolean on the DJ driveMode pattern
+  (smaller but mints near-duplicate frame ids and doesn't generalize), (3) accept-and-
+  document (zero risk; two fully-sourced rows stay permanently unverified). Recurs for
+  any brand with the rigid-base/dropper-upgrade pattern. Engine change = adversarial
+  review whenever picked up.
+- Gates: 7 OK, 988/988, tsc clean (no fill changes, harness not required).
+
 ## 2026-07-22 — cb-sheets-14: Norco+Propain grind (MTB 3,325) + two honest refusals
 
 - **verify/cb-sheets-14 merged**: Norco — 6 more verified incl. the same-generation
