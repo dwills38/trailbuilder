@@ -1,5 +1,23 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — hardtail-breadth-1: the live-priority lane gets its first wave (MTB 5,053)
+
+- **catalog/hardtail-breadth-1-alt merged** (agent-sandboxed worktree — the report is
+  ground truth, harvested from the branch it names, the proven pattern): 4 new hardtail
+  frames (Chromag Primer steel 29er, Commencal Meta HT V2 with REAL V3 differences
+  confirmed — non-UDH, I.S. mount, 200mm cap; Ragley Mmmbop + Big Wig closing that
+  brand's last frame gaps) + the Ragley Mmmbop 2.0 complete bike (every fill exact-match;
+  one new KMC X11-EPT chain row; its 180mm-rotor-vs-160-native warning manually
+  checkBuild-confirmed as the accepted Big Al pattern). All honestly unverified (each has
+  one flagged inference/estimate). Discipline: El Roy + Chromag Surface confirmed
+  discontinued and skipped; Cotic's hardtail range confirmed fully covered; no forced
+  rows where one frame covers all trims.
+- **Flags queued**: Big Wig's "EX44/40" headset suffix is a real S.H.I.S. code outside
+  the ZS/IS/EC vocab (mechanic/vocab follow-up); Nukeproof Scout 275's spec pages are
+  genuinely broken server-side (retry later); DJ breadth found no fetchable gap this
+  pass (Kona Shonky cog dead-ended on a Jenson bot-block — dedicated follow-up needed).
+- Gates: 7 OK (MTB 5,053 parts), 989/989, tsc clean, harness fully clean.
+
 ## 2026-07-22 — breadth wave 3: BMX over the bar, kit 716, EMTB 100
 
 - **catalog/bmx-depth-8 merged**: +84 rows, BMX 229→313 — BACK ABOVE Douglas's 300 flip
