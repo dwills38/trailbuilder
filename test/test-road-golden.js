@@ -139,7 +139,12 @@ function dataTokenGaps(rows, field, allowed, label){
   return gaps;
 }
 
-/** @param {Array<string|number>} a @returns {string[]} */
+/** Narrow a vocab array to its string tokens. The three vocab tables have three
+ *  different element types — ROAD_VOCAB is strings, GRAVEL_VOCAB is
+ *  Array<string|number> (speeds/minCog are numeric), schema-road's LOCAL_VOCAB
+ *  is Array<string|null> (ringStdRG carries a real null) — so the parameter
+ *  spans all three and the non-strings are dropped rather than coerced.
+ *  @param {Array<string|number|null>} a @returns {string[]} */
 function strs(a){
   return /** @type {string[]} */ (a.filter(function(v){ return typeof v === 'string'; }));
 }
