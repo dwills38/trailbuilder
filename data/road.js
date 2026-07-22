@@ -1749,7 +1749,7 @@ var ROAD_PARTS = [
   { id: 'hb-fsa-kforce-compact', cat: 'handlebar', brand: 'FSA', model: 'K-Force Compact', family: 'fsa-kforce-compact',
     clamp: '31.8', dropBar: true, reach: 80, drop: 125, width: 400,
     weight: 180, price: 220,
-    verified: true, lastChecked: '2026-07-21', source: 'https://www.fsaproshop.com/products/k-force-compact-handlebar',
+    verified: true, lastChecked: '2026-07-21', source: 'https://www.fsaproshop.com/products/k-force-compact-handlebar', priceBasis: 'third-party-listed',
     note: 'road-12 wave: FETCHED fsaproshop.com directly. Spec table: "Ø31.8mm" clamp (confirmed), "80mm reach" (CORRECTED 75->80), "125mm drop" (CORRECTED 123->125), "W400, 420, 440mm" (confirms width:400 is a real SKU), weight "180 grams (400mm)" (CORRECTED 195->180, exact same width this row models).' },
   { id: 'st-fsa-kforce', cat: 'stem', brand: 'FSA', model: 'K-Force 2.0', family: 'fsa-kforce-stem',
     clamp: '31.8', steerer: '1-1-8', length: 100,
