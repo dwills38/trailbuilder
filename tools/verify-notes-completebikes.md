@@ -347,3 +347,83 @@ warning on the bike's own stock build, now zero warnings). 1 new completebike ro
 re-verified as genuine sourced findings, correctly left as-is. `tools/
 verification-job.json` untouched (out of scope, tracks individual parts not
 completebikes).
+
+## Wave 6 / cb-sheets-11 (2026-07-21, `verify/cb-sheets-11`): Pivot drift-check + Orbea wall break
+
+Brief asked for Pivot (14 rows) and Orbea (13 rows). Both brands were already
+sheet-verified in prior waves (Pivot: Round 2 above, 2026-07-18; Orbea: Wave 4 above,
+2026-07-18) — per the brief's own instruction, ran a fresh **drift-check** on each rather
+than a full redo.
+
+**Pivot (14/14 drift-checked, 0 changes):** re-fetched pivotcycles.com's live Enduro/
+Trail/XC collection pages via the browser pane (Shopify SSR, same route as Round 2).
+Confirmed Round 2's finding still holds 3 days later: Trail 429 and Mach 6 remain absent
+from every current collection (both platforms discontinued from the live lineup), and the
+"Ride SLX/XT" / "Ride GX/X01" trim naming used by every other cataloged Pivot row has
+been fully replaced by "Ride GX Eagle Transmission" / "Ride Eagle 70/90" naming across
+Firebird/Switchblade/Mach 4 SL/Shadowcat/LES SL — no live page exists to conflict-check
+any of the 14 rows against under their cataloged trim names. No changes made; all 14 left
+snapshotted as already-documented legacy vitalmtb/99spokes sourcing, same disposition as
+the Yeti SB130/SB150 pattern (retired platform, no live comparison possible, not a gap).
+
+**Orbea (13/13 drift-checked, 9 real price corrections, 4 confirmed-retired):** the
+documented orbea.com WAF-403 wall (blocking every prior session including Wave 4, 3 days
+ago) is **now passable** — `en-us/catalog/bikes-mountain-<model>` list pages and
+`en-us/<model-slug>` per-trim configurator pages both load cleanly via the browser pane
+(no bdata/unblocker needed, no CAPTCHA hit; the earlier `us-en/...` locale path used by
+prior sessions 404s, but `en-us/...` — discovered via the root nav's own outbound links —
+works). This is a genuine wall-status change worth flagging to the coordinator, not just
+this wave's own finding.
+
+- **9 rows RE-SOURCED price directly off orbea.com** (real manufacturer MSRP, replacing
+  third-party vitalmtb/99spokes sourcing): `cb-orbea-oiz-m10` ($5,999→$6,614),
+  `cb-orbea-oiz-mteam-factory` ($8,599→$10,473, a real $1,874 jump — not a rounding
+  drift), `cb-orbea-oiz-mltd` ($10,999→$12,127), `cb-orbea-oiz-m30` ($3,999→$4,189),
+  `cb-orbea-occam-lt-m10` ($6,499→$6,718.95), `cb-orbea-occam-lt-m30`
+  ($4,999→$4,933.95), `cb-orbea-occam-lt-mteam` ($8,599→$8,608.95, negligible),
+  `cb-orbea-occam-sl-h10` ($4,399→$3,883.95, a real $515 downward drift), `cb-orbea-
+  laufey-h30` ($1,899→$1,783.95). Each row's `lastChecked`/`source` updated to the live
+  orbea.com URL and its `desc` appended with a `cb-sheets-11 drift-check` note. **Fills
+  (fork/shock/drivetrain/wheels/tires/cockpit) were NOT re-verified this pass** — the
+  live configurator renders its standard-configuration build list inside a WebGL/canvas
+  view with no accessible text (read_page/get_page_text return nothing useful past the
+  chrome), so component-level sheet-verification of these 9 rows is still open, flagged
+  in each desc for a future session with either a canvas-reading approach or a
+  print/share-link route that might expose text.
+- **4 Rallon rows confirmed-retired, left snapshotted (no data change):**
+  `cb-orbea-rallon-mteam`/`m20`/`m10`/`mltd` all use MY2024 "M-Team/M20/M10/M-LTD" trim
+  names that no longer exist on orbea.com. The live Rallon lineup has been restructured
+  to a single acoustic trim ("Rallon Enduro", $4,513.95, currently out of stock) plus an
+  **electric-only** "Rallon E" line (E-LTD/E-TEAM/E10) — confirmed by trim name alone
+  (`rallon-e-ltd`/`rallon-e-team`/`rallon-en-10-2026` URLs) and NOT investigated further
+  or fetched in any depth, per hard rule 1 (no e-bike data in the MTB catalog, ever).
+  None of the 4 cataloged trims match either the acoustic "Rallon Enduro" or (out of
+  scope) any Rallon E trim, so all 4 rows are genuinely retired-platform snapshots with
+  no live comparison possible — same disposition as the Pivot Trail 429/Mach 6 rows and
+  the Yeti SB130/SB150 precedent. Left untouched.
+- **Occam LT vs SL naming note:** the family catalog list page
+  (`catalog/bikes-mountain-occam`) defaults to showing only "Occam SL" trims; an in-page
+  "Occam Lt" toggle exists in the DOM but did not re-render its trim list under this
+  session's browser-pane interaction (Alpine.js client routing, not a hard wall) — the 3
+  cataloged Occam LT rows were instead reached directly by guessing the
+  `en-us/occam-lt-<trim>` URL pattern (worked cleanly), so this is a UI-interaction gap,
+  not a data gap.
+
+### Wave 6 gates
+
+- `node validate.js`: `DATA OK - 5040 parts, 0 problems (3258 verified, 1782 unverified)`
+  (+ KIT/BMX/STRIDER/ROAD/GRAVEL/EMTB all OK — 7/7)
+- `npm test`: 988/988 passed (41 files)
+- `npx tsc --noEmit`: clean, no output
+
+### Wave 6 tally
+
+27 rows drift-checked (Pivot 14, Orbea 13). Pivot: 0 changes (prior finding re-confirmed
+stable). Orbea: 9 price corrections sourced directly off orbea.com (the documented WAF
+wall is now passable for pricing/list pages, though not yet for build-kit text
+extraction), 4 rows confirmed-retired and left as-is. No new completebike rows, no ids
+changed, no e-bike data touched or fetched in depth (Rallon E-line explicitly avoided
+per hard rule 1). `tools/verification-job.json` untouched (out of scope). **Flagged for
+the coordinator:** the orbea.com wall status should be updated in institutional memory —
+it's passable via `en-us/...` locale paths through the browser pane as of this session;
+full build-kit component text extraction from the live configurator remains unsolved.
