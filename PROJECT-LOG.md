@@ -1,5 +1,17 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — mtb-tail-16: aftermarket punch list pays out (MTB 3,343)
+
+- **verify/mtb-tail-16 merged**: 14 promotions (all 4 X-Fusion Manic droppers, 3 Fizik,
+  2 SDG, 2 Prologo, 2 Title — one overturning a prior session's wrong CAD-only assumption
+  about titlemtb.com — Selle Italia Model X, KS LEV Ci, Renthal Traction) + 5 honest
+  corrections without promotion. Discipline catches: KS "Rage-i" is now only sold as the
+  shorter/lighter "Rage-i 2.0" — NOT force-matched; Spank + Deity confirmed already 100%
+  verified. Flags: sa-sdg-belair-v3-lux-alloy is a likely duplicate of the verified
+  belair-v3 (same source URL — data-hygiene pass); hb-burgtec-ridehigh-35 promotes
+  instantly if the row gains a rise value (maker publishes a per-rise weight table). ~50
+  1-9-row brands remain in the notes for a future tail. Gates: 7 OK (3,343), 988/988, tsc.
+
 ## 2026-07-22 — sight160-entry: 6 rows minted, the bike stays honestly unminted
 
 - **catalog/sight160-entry merged (MTB 5,047 parts)**: the Sight 160's missing fills are
