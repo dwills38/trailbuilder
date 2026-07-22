@@ -74,7 +74,8 @@ var ROAD_VOCAB = {
                  // tokens make same-system pairs fit and everything else error, truthfully,
                  // with zero engine changes. Precedent: gravel's 'lefty-proprietary' axle.
                  'cannondale-delta',   // Cannondale "Delta" 1-1/8→1-1/4 non-round (SuperSix EVO)
-                 'overdrive-aero'],    // Giant D-shaped "OverDrive Aero" (TCR/Defy/Propel)
+                 'overdrive-aero',     // Giant D-shaped "OverDrive Aero" (TCR/Defy/Propel)
+                 'bmc-ics-flat'],      // BMC ICS "flat steerer" — Teammachine SLR 01 owner's manual: ICS-cockpit-only, standard round stems explicitly incompatible
   system:       ['shimano-road-12', 'shimano-road-11', 'shimano-grx-12', 'shimano-grx-11',
                  'sram-axs-road', 'sram-xplr-12', 'sram-xplr-13', 'sram-apex-mech-12',
                  'campag-ekar-13', 'campag-12', 'campag-11'],
@@ -346,7 +347,7 @@ function checkRoadBuild(build){
      every cataloged headset shows red rather than reading it as a catalog
      gap. */
   if(frame && fork && !hset && frame.steerer != null && frame.steerer === fork.steerer &&
-     (frame.steerer === 'cannondale-delta' || frame.steerer === 'overdrive-aero'))
+     (frame.steerer === 'cannondale-delta' || frame.steerer === 'overdrive-aero' || frame.steerer === 'bmc-ics-flat'))
     info('rg-headset-proprietary', ['frame', 'fork'], roadNameOf(frame) + ' uses the maker\'s own integrated headset for its proprietary steerer (serviced via bearing kits); aftermarket complete headsets do not fit, so no cataloged headset will show as compatible.');
 
   /* R5. Freehub body vs cassette — the highest-value drop-bar rule (Shimano

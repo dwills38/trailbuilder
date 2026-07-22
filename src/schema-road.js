@@ -78,7 +78,20 @@ var LOCAL_VOCAB = {
                     exact-match steerer checks would otherwise green a cross-brand pairing
                     of two different proprietary systems (false fits). See compat-road.js's
                     steerer vocab comment; precedent: gravel's 'lefty-proprietary' axle. */
-                 'cannondale-delta', 'overdrive-aero'],
+                 'cannondale-delta', 'overdrive-aero',
+                 /* 'bmc-ics-flat' ADDED road-depth-3 wave: BMC's ICS (Integrated Cockpit
+                    System) uses a genuinely non-round, flattened steerer profile — BMC's
+                    own fetched Teammachine SLR 01 Gen 5 owner's manual states verbatim
+                    "Teammachine SLR 01 (flat steerer fork)" and that the frame "is only
+                    compatible with ICS type cockpits and stem for internal brake cable
+                    routing" (a standard round 1-1/8" stem is explicitly listed as
+                    incompatible: "1"1/8 stems external cables [X]"). This is a distinct
+                    real standard from every other steererRG token — never conflate with
+                    'tapered' (which BMC frames are NOT: a round tapered stem/fork will
+                    not clamp a flat steerer). Follows this vocab's own per-system-token
+                    rule; flagged here for the coordinator per the "vocab gaps -> flag,
+                    never silently reuse a token" doctrine rather than added silently.*/
+                 'bmc-ics-flat'],
   systemRoad:   ['shimano-road-12', 'shimano-road-11', 'shimano-grx-12', 'shimano-grx-11',
                  'sram-axs-road', 'sram-xplr-12', 'sram-xplr-13', 'sram-apex-mech-12',
                  'campag-ekar-13', 'campag-12', 'campag-11', 'flattop', 'hg', 'campag'],
