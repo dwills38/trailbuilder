@@ -1,5 +1,38 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — PRICE-BASIS PROVENANCE SHIPS + gravel-5 + emtb-3
+
+- **schema/price-basis-provenance merged (Douglas's "verified means the pricing was
+  verified too" ruling — the mechanism)**: optional priceBasis enum (msrp-confirmed + 4
+  disclosed exception classes) across all 7 catalogs, schema.js+types.js together, sibling
+  validators drift-pinned to the core enum by test; staged cross-rules (basis-on-unverified
+  = ERROR; verified-without-basis = a WARNING-TIER BURNDOWN COUNT per catalog in validate's
+  output, never a gate failure, until PRICE_BASIS_STRICT flips — six pinned-false constants,
+  coordinator flips when every burndown hits 0). UI: one shared tested wording in pricing.js
+  across all six pages; the badge now says whether the PRICE was verified; absent = "price:
+  sample — not verified" (silence is not confirmation). THE KEY RECONCILIATION: the
+  2026-07-18 PRICE RULE's 1,000+ protected rows get backfilled to exception tokens, NEVER
+  demoted — stated in VERIFY-PROTOCOL as an amendment, not an overturn. +49 tests incl. the
+  first-ever test-schema-strider.js; verdict harness byte-identical (priceBasis feeds no
+  engine, proven twice). Flags: build-sheet/optimizer/owned-vs-buy disclosure wording is a
+  scoped follow-up; every new promotion from now on MUST set priceBasis (in the workers'
+  standing doctrine from the next chip on).
+- **catalog/gravel-depth-5 merged**: all 4 seatpost candidates promoted via the 7th
+  exception (Easton EC70 weight 200→223 maker-published, EA70 setback 15→20 — no 15mm SKU
+  exists); Eggbeater 3 verified via Exa's raw spec-table fetch; PNW Coast per-width rows
+  added off a REAL weight table while Salsa/Easton/Zipp width rows were REFUSED (one
+  weight per model = fabricated precision); Vulpine 45 + Terra Speed 45; Silca Nastro.
+  Gravel 317 (208).
+- **catalog/emtb-breadth-3 merged**: all four blocked fetches cracked with legitimate
+  interaction (Giant's own category listing — Trance X E+ is GONE from the live lineup;
+  YT's tier-switcher; Pivot's Radix accordion needed a real pointer-event sequence;
+  Haibike's locale switcher — no US market exists). +6 verified (Reign E+ 2, both Decoy
+  CORE 4s incl. the uncataloged Fazua SN line, both Shuttle Ride tiers, Nduro 7) AND four
+  corrections on EXISTING rows (YT + 2 Pivot torques 100→120Nm off the pages' own banners;
+  Nduro 8's phantom mullet → same-size 29). A self-caught CX-vs-CX-R mixup fixed pre-
+  delivery; the Pinion-gearbox Haibike honestly refused (travelRear unpublished). EMTB 108
+  (83). Gates: 7 OK, 1038/1038, tsc clean, harness clean.
+
 ## 2026-07-22 — striders-variants-1: the fit-guide rounds out (45 bikes)
 
 - **catalog/striders-variants-1 merged**: +7 real size variants (Early Rider Charger 12 +
