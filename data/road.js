@@ -2167,6 +2167,10 @@ var ROAD_PARTS = [
     upper: 'ZS44/28.6', lower: 'ZS56/40', steerer: 'tapered', weight: 102, price: 169,
     verified: true, lastChecked: '2026-07-22', source: 'https://www.whiteind.com/product/zs44-zs56/', priceBasis: 'third-party-listed',
     note: 'road-breadth-6 wave: FETCHED whiteind.com (White Industries\' own maker site) directly - a fourth headset-category brand (FSA/Cane Creek/Ritchey already cataloged), and the file\'s first US-made headset. Spec/compatibility tab confirms verbatim: "SHIS specification - Upper: ZS44/28.6 - Lower: ZS5640" (upper/lower fields) and "tapered 1-1/2\" (40mm) fork steerers" (steerer:"tapered", same S.H.I.S.-bore-token convention used catalog-wide). The maker page\'s own price field did not render in the fetched text (JS variant picker); weight (102g) and price ($169) both taken from Performance Bicycle\'s current US listing of the identical SKU (HSZ4428Z5640, same ZS44/28.6|ZS56/40 S.H.I.S. codes) - a second independent retailer (bikeparts.com, 92g/$155.80) confirms the same product in the same range, so the figures are real-product-consistent even though they are not a single maker-confirmed pair; priceBasis:"third-party-listed".' },
+  { id: 'hs-token-tk015b', cat: 'headset', brand: 'Token', model: 'TK015B', family: 'token-tk015b',
+    upper: 'ZS44/28.6', lower: 'ZS56/40', steerer: 'tapered', weight: 190, price: 99,
+    verified: true, lastChecked: '2026-07-22', source: 'https://shop.tokenproducts.com/products/tk015b', priceBasis: 'msrp-confirmed',
+    note: 'road-breadth-6 wave: FETCHED shop.tokenproducts.com (Token\'s own storefront) directly - a fifth headset-category brand. Price "$99.00 USD" taken verbatim (a real current maker-store MSRP). tokenproducts.com\'s companion spec page (tokenproducts.com/headsets/external/tk015b) confirms "SHIS Code: ZS44/28.6 | ZS56/40" and "Steerer: 1-1/8\" – 1.5\"" (upper/lower/steerer fields, tapered per this catalog\'s bore-token convention) plus "190 g" weight - an independent EU retailer (bikestacja.pl) lists the identical SHIS codes and the same 190g figure for the same SKU, confirming it\'s a real, currently-sold product.' },
 
 ];
 
