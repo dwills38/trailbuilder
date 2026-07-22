@@ -3362,6 +3362,10 @@ var KIT_PARTS = [
   { id:'shg-tsg-tempera2', cat:'shinguard', brand:'TSG', model:'Temper A 2.0 Knee-Shinguard', price:145.75, weight:524,
     disciplines:['dh'], sizes:['S','M','L','XL'], desc:'Arti-Lage impact knee pad + removable hard-shell shin guard, Kevlar-stretch panel; per pair. Weight maker-stated ("524 g") on the fetched ridetsg.com product page. Price is EUR134.95 (VAT incl.) converted to a $145.75 USD sample at ~1.08 USD/EUR (no confirmed US-dollar storefront) -- basis disclosed per THE PRICE RULE. Cert protocol (PPE TS0002, based on EN1621-1:2012) does not state a Level, so no cert token is tagged.',
     verified:true, priceBasis:'regional-conversion', lastChecked:'2026-07-20', source:'https://ridetsg.com/shop/kneeshinguard-temper-a-20/7102801-40-030' },
+  { id:'shg-ixs-cleaver', cat:'shinguard', brand:'iXS', model:'Cleaver Knee-Shin Guards', price:124.90,
+    disciplines:['enduro','dh'],
+    desc:'ArmadilloDuo hard-shell knee/shin combo, AeroMesh moisture-wicking sleeve, race-oriented; per pair. ixs.com (fetch attempted twice, both 429 rate-limited) could not be confirmed directly -- price is Vital MTB\'s listed $124.90 (a Walmart retailer listing showed $115.95 on sale, same product). A third-party retailer figure cites 550 g per pair but that is unconfirmed against any maker page, so weight is left unset rather than carried forward on a shaky basis. Kit gap-fill: brand had zero prior shinguard rows.',
+    sourceType:'retailer' },
 
   /* -- Eyewear (type required: glasses / goggles) -- */
   { id:'ewr-oakley-sutro', cat:'eyewear', brand:'Oakley', model:'Sutro', price:203, weight:32,
