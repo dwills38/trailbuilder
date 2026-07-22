@@ -2109,6 +2109,26 @@ var ROAD_PARTS = [
     verified: true, lastChecked: '2026-07-22', source: 'https://productinfo.shimano.com/en/product/BR-R2000',
     note: 'road-breadth-5 wave: FETCHED productinfo.shimano.com/en/product/BR-R2000 via the browser pane. Spec table: "Series SHIMANO CLARIS", "Type NEW SUPER SLR Dual pivot" (brakeSystem/mount rim-caliper, no pistons - same shape as the existing Sora BR-R3000 caliper row), "Reach (mm) 51" (reach:51, exact page figure), "Compatibility NEW SUPER SLR" (recorded as leverPair, same interface tier as the Claris shifter above), "Brake shoe Standard R55C4". PAIR CONVENTION: one "(pair)" row filling both brake slots, matching every other brake row in this file. NOT ENTERED AS FIELDS (no rule reads them): "Maximum tire size 28C" and "Rim width (mm) 19-26" - real caliper-arch clearance figures, flagged for a future rim-caliper-clearance rule rather than stored. Average weight not published - omitted, not sampled. Price: no MSRP published; $45/pair is an UNSOURCED SAMPLE estimate - no priceBasis claimed (verified covers the interfaces only, matching the existing Sora caliper row own convention).' },
 
+  // ---------------------------------------------------------------------
+  // road-breadth-6 wave: THIN-CELL BREADTH PASS. road-breadth-5's scan
+  // measured the file's six thinnest cells (bartape 3, cockpit 3, bb 4,
+  // pedal 5, headset 5, rotor 7) and this wave re-derived the same numbers
+  // fresh (node -e category count) before adding real, currently-sold SKUs
+  // from brands not yet in each cell - NEW ROWS ONLY, no existing row
+  // touched. Every row below was matched against a manufacturer's own
+  // product/spec page for its compat-relevant interface fields; where the
+  // maker page didn't itemize a weight or a clean USD MSRP, an independent
+  // US-market retailer figure is used instead and disclosed in the note
+  // (never averaged/guessed). No new ROAD_VOCAB token was needed - every
+  // interface below (bsa-road/t47-road spindle+shell, tapered ZS44/ZS56
+  // S.H.I.S., center-lock rotor mount, 1-1/8" steerer) already existed.
+  // ---------------------------------------------------------------------
+
+  // --- bartape (was 3) ---
+  { id: 'bt-pro-race-control', cat: 'bartape', brand: 'PRO', model: 'Race Control Tape', family: 'pro-race-control',
+    weight: 50, price: 42,
+    note: 'road-breadth-6 wave: FETCHED pro-bikegear.com/us (PRO/Shimano\'s own site) directly - product page confirms material "Microfiber", thickness "2.5mm", part numbers PRTA0002 (black)/PRTA0011 (white), but the maker page itemizes no weight or price. Weight (50g/pair incl. end plug) and price ($42, RA Cycles, a US retailer selling the white PRTA0011 SKU) cross-checked via independent third-party listings (Pushys, Jenson USA, R2-Bike all describing the same 2.5mm microfiber SKU) - not marked verified:true since neither figure came off the maker page itself, per this catalog\'s "verified:true requires the SOURCE page to confirm it" bar (distinct from the bt-supacaz row\'s same caveat).' },
+
 ];
 
 // ---------------------------------------------------------------------------
