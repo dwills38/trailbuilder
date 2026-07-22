@@ -311,7 +311,10 @@ test('the DJ dataset is live: every row resolves in PARTS and carries the dj dis
     'hb-syncros-hixon2-318','st-syncros-xm15-318','gr-syncros-prodh','sp-syncros-dj15-316','sa-syncros-dj15','pd-wellgo-b107n',
     // hardtail-breadth-2 (2026-07-22): two new DJ-frame brands, both IS-mount
     // (first IS-mount DJ frames in the catalog - every prior row is PM).
-    'fr-dartmoor-two6player-pro','fr-identiti-drjekyll'];
+    'fr-dartmoor-two6player-pro','fr-identiti-drjekyll',
+    // hardtail-breadth-2 DJ parts-gap pass: the Kona Shonky cog lead
+    // (resolved via Vital MTB, non-Jenson) + a new budget DJ fork brand.
+    'cg-joytech-14t','fk-rst-dirt-t-26-80'];
   djIds.forEach(function(id){
     ok((part(id).disciplines || []).indexOf('dj') >= 0, id + ' is live and tagged dj');
   });
