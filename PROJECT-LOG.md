@@ -1,5 +1,22 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — i9-wao-remodel: evidence beat the premise
+
+- **catalog/i9-wao-remodel merged**: the dispatch assumed all four old I9 lines died in
+  the I9/We Are One merger — the worker re-fetched each and found it HALF WRONG: **Enduro
+  S is alive** (current "1/1 Enduro S V2"/"Hydra2 Enduro S V2" on industrynine.com — the
+  old URL 404 was a reorg, not a discontinuation) and was correctly left untouched.
+  Retired with evidence: Hydra2 DH (14 rows → superseded to the Deal family, the Union→
+  Triad freehub-variant convention for uncataloged MS/HG combos), 1/1 Enduro (2 rows →
+  superseded to the cataloged Enduro S per I9's own "discontinued in your region" page),
+  and Hydra/Reynolds Blacklabel (2 rows, supersededBy DELIBERATELY OMITTED — Reynolds now
+  lives under Hayes and dropped the I9-hub option entirely; no genuine successor exists).
+  No new rows, no deletions, hub category + Bomber 58 pairing untouched (harness C2 5/5).
+- Flags recorded: I9's 2026 lines all split into parallel Hydra2/1-1 hub tiers the
+  catalog collapses into single rows (a bigger remodel, Douglas's call if wanted);
+  **Fuse is I9's E-BIKE tier** — never pull it into the MTB catalog (hard rule 1).
+- Gates: 7 OK, 988/988, tsc clean, harness fully clean.
+
 ## 2026-07-22 — Zipp 303 S both-ways fix + emtb close-out + forum reserved names
 
 - **fix/zipp-303s-disposition merged (Douglas's both-ways ruling)**: gravel's mislabeled
