@@ -60,7 +60,16 @@ var BMX_VOCAB = {
      rule changes needed, only the vocab widen + data. */
   brakeMount:  ['u-brake', 'v-brake', 'caliper', 'disc', 'none'],  // frame/fork bosses AND brake type share the token set
   headTube:    ['integrated-1-1/8', 'mid', 'threaded'],    // display-only per the analysis doc's Q9 lean (PROVISIONAL) — no headset rule fires
-  seatSystem:  ['pivotal', 'standard'],
+  seatSystem:  ['pivotal', 'standard', 'stealth'],
+  // 'stealth' added vocab-tier1 (2026-07-22) — the Kink/Mission one-bolt mechanism: no
+  // top slotted patch on the seat, the anchoring bolt threads from the bottom through a
+  // Stealth-specific post (a long Allen wrench can still reach a Pivotal post from the
+  // top instead, just less conveniently). Kink's own product page states verbatim
+  // "System | Stealth" (a named third system, distinct from Pivotal) AND "You can also
+  // use traditional Pivotal seats with Stealth seat posts"; Mission's own Carrier Stealth
+  // seat page confirms the reverse too. See the bmx-seat-system rule below for how the
+  // real cross-compatibility with 'pivotal' is modeled — a plain exact-match would
+  // false-error a fit that actually works both directions.
   clamp:       ['22.2mm', '25.4mm'],               // BMX bar clamp: 22.2 standard, 25.4 "oversized" — display-only per section 2b (no clamp rule)
   side:        ['RHD', 'LHD', 'both']              // hub drive side — rider preference, display-only
 };
@@ -346,9 +355,22 @@ function checkBmxBuild(build){
         bolts onto a pivotal post's serrated head; a standard rail seat clamps
         a railed head - neither mounts the other way). PROVISIONAL: modeled as
         a real rule per section 2b's "arguably a real small rule", awaiting
-        Douglas/mechanic confirmation on Q7. */
-  if(seat && post && seat.system && post.system && seat.system !== post.system)
-    err('bmx-seat-system', ['seat', 'seatpost'], 'Seat/post mismatch: ' + bmxNameOf(seat) + ' is a ' + seat.system + ' seat and ' + bmxNameOf(post) + ' is a ' + post.system + ' post - pivotal and standard (railed) systems do not interchange.');
+        Douglas/mechanic confirmation on Q7.
+        vocab-tier1 (2026-07-22) 'stealth' <-> 'pivotal' CROSS-COMPATIBLE, both
+        directions: Kink's own Stealth seat post page states verbatim "You can also
+        use traditional Pivotal seats with Stealth seat posts", and Mission's own
+        Carrier Stealth seat page confirms the reverse too - "works with both Pivotal
+        and Stealth seat posts (Pivotal posts require a long Allen wrench, so Stealth
+        posts are recommended for easiest installation)" - a real fit either way, just
+        a tool-length convenience difference, not a hard incompatibility. 'standard'
+        (railed) stays genuinely incompatible with both - a railed seat has no
+        serrated head for either pivotal-style post to bolt into. */
+  if(seat && post && seat.system && post.system && seat.system !== post.system){
+    var pivotalStealthCross = (seat.system === 'stealth' && post.system === 'pivotal') ||
+                               (seat.system === 'pivotal' && post.system === 'stealth');
+    if(!pivotalStealthCross)
+      err('bmx-seat-system', ['seat', 'seatpost'], 'Seat/post mismatch: ' + bmxNameOf(seat) + ' is a ' + seat.system + ' seat and ' + bmxNameOf(post) + ' is a ' + post.system + ' post - these systems do not interchange.');
+  }
 
   /* BMX-8. Tire width vs rim / frame / fork clearance — DORMANT (rule-18
         template): fires only off a maker-published maxTire field, which no

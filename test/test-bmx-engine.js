@@ -191,6 +191,14 @@ test('a pivotal seat errors on a standard post, and matches are silent', functio
   var r2 = BMX.checkBmxBuild({ seat: bp('bmx-se-cult-pivotal'), seatpost: bp('bmx-sp-cult-pivotal-post') });
   eq(of(r2, 'bmx-seat-system').length, 0);
 });
+test('stealth <-> pivotal (vocab-tier1, 2026-07-22) cross-compatible both directions; stealth vs standard still errors', function(){
+  var stealthSeatOnPivotalPost = BMX.checkBmxBuild({ seat: bp('bmx-se-kink-global-stealth'), seatpost: bp('bmx-sp-cult-pivotal-post') });
+  eq(of(stealthSeatOnPivotalPost, 'bmx-seat-system').length, 0, 'a Stealth seat fits a Pivotal post (Mission\'s own page)');
+  var pivotalSeatOnStealthPost = BMX.checkBmxBuild({ seat: bp('bmx-se-cult-pivotal'), seatpost: bp('bmx-sp-kink-stealth-post') });
+  eq(of(pivotalSeatOnStealthPost, 'bmx-seat-system').length, 0, 'a Pivotal seat fits a Stealth post (Kink\'s own page)');
+  var stealthSeatOnStandardPost = BMX.checkBmxBuild({ seat: bp('bmx-se-kink-global-stealth'), seatpost: bp('bmx-sp-odyssey-standard-post') });
+  eq(stealthSeatOnStandardPost.errors.filter(function(v){ return v.ruleId === 'bmx-seat-system'; }).length, 1, 'a Stealth seat still does not fit a railed standard post');
+});
 
 /* ---- BMX-8 tire clearance: dormant until sourced ------------------------------ */
 test('tire clearance warns off a sourced maxTire and stays dormant without one', function(){

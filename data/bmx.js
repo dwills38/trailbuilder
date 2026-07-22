@@ -927,7 +927,24 @@ var BMX_PARTS = [
     note: 'No standalone "Slim Pivotal Seat" found for Total BMX; closest real products are the "Logo Slim Combo Seat" and "Killabee Slim Combo Bee Seat" (seat+post combo units, not sold as a bare seat). system:pivotal is plausible (Total\'s combo seats use pivotal-style mounting) but not confirmed against an exact matching SKU, so left unverified. RECONFIRMED 2026-07-21 (bmx-sweep-3): totalbmx.com/collections/seats (maker\'s own current 2-product collection) still lists only those same two Combo Seat SKUs ($52.00 each) - no bare pivotal seat sold separately. Left unverified/unchanged.'
   },
 
+  {
+    id: 'bmx-se-kink-global-stealth', cat: 'seat', brand: 'Kink', model: 'Global Stealth Seat',
+    system: 'stealth', weight: 337, price: 34.95,
+    note: 'vocab-tier1 (2026-07-22): closes the bmx-depth-9 flag ("Mission\'s Stealth-mechanism seats stayed skipped/tallied, the Kink precedent"). kinkbmx.com/products/global-stealth-seat itself did not render a usable spec table this session (JS-shell only via both WebFetch and Exa) — WebSearch-corroborated across 3+ independent retailers (Albe\'s BMX, SkatesUSA, Unleaded BMX) converging on "four panel design... The Stealth system installs with a 5mm allen key and allows for a clean looking seat without the need for a slotted top patch like traditional Pivotal systems" (confirms system:stealth — no top patch/slot, matching the Stealth seatpost row\'s own maker-page description of the same mechanism), price $34.95 (regular, Albe\'s BMX; $26.95 was a sale price, not used per THE PRICE RULE), weight ~11.9oz -> 337g. Retailer-corroborated, not a direct manufacturer fetch — stays unverified sample.'
+  },
+  {
+    id: 'bmx-se-mission-carrier-stealth', cat: 'seat', brand: 'Mission', model: 'Carrier Stealth Seat',
+    system: 'stealth', price: 27.99,
+    note: 'vocab-tier1 (2026-07-22): closes the bmx-depth-9 flag alongside the Kink row above. Mission BMX\'s real current product is the "Carrier Stealth Seat" (missionbmx.com/products/carrier-stealth-v2-seat-kit, sold as a seat+post kit; this row models the seat half) — WebSearch-corroborated across retailer listings (Source BMX, Albe\'s, BMXGuru, Tread Bike Shop) all naming the same product: "The Stealth system means there is no need for a patch in the top of the seat... works with both Pivotal and Stealth seat posts" (confirms system:stealth and the cross-compatibility this pass\'s bmx-seat-system rule now models). missionbmx.com itself not independently re-fetched this session — retailer-corroborated, not manufacturer-direct. Price is a same-tier sample matching this catalog\'s other budget-brand pivotal-class seats; not counted toward a verified claim. Left unverified.'
+  },
+
   // ===== SEATPOST =======================================================
+  {
+    id: 'bmx-sp-kink-stealth-post', cat: 'seatpost', brand: 'Kink', model: 'Stealth Seat Post',
+    diameter: 25.4, system: 'stealth', weight: 116, price: 39.99,
+    verified: true, lastChecked: '2026-07-22', source: 'https://kinkbmx.com/products/stealth-seat-post',
+    note: 'vocab-tier1 (2026-07-22): closes the bmx-depth-9 flag ("Mission\'s Stealth-mechanism seats stayed skipped/tallied, the Kink precedent"). FETCHED kinkbmx.com/products/stealth-seat-post directly — its own Tech Specs table states verbatim "Diameter 25.4mm", "System Stealth", "Length Small 75mm, Medium 180mm, Large 330mm", "Weight Small 2.0oz, Medium 4.1oz, Large 6.8oz" (this row models the Medium: 4.1oz = 116g), "$39.99". Page copy: "Leap frogging off the original Pivotal seat system, the Stealth system offers a way to install your seat without fishing an allen key through the top patch... the anchoring seat bolt can be threaded from the bottom... Note: You can also use traditional Pivotal seats with Stealth seat posts" — the real cross-compatibility fact this pass\'s bmx-seat-system rule now models. All engine-read fields maker-page-confirmed — promoted to verified:true.'
+  },
   {
     id: 'bmx-sp-cult-pivotal-post', cat: 'seatpost', brand: 'Cult', model: 'Pivotal Seatpost',
     diameter: 25.4, system: 'pivotal', price: 29.99,

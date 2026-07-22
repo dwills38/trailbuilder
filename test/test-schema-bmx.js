@@ -45,6 +45,27 @@ test('a missing required field is caught', function(){
   ok(probs.some(function(m){ return /missing required field "bbShell"/.test(m); }), probs.join('\n'));
 });
 
+// vocab-tier1 (2026-07-22): ratified 'stealth' seatSystem token (the
+// Kink/Mission one-bolt mechanism) — positive + negative.
+/** @returns {any} */
+function aSeatpost(){
+  var p = D.BMX_PARTS.find(function(x){ return x.cat === 'seatpost'; });
+  if(!p) throw new Error('no BMX seatpost row found in data/bmx.js');
+  return p;
+}
+
+test('stealth is a valid BMX seatSystem value (seat and seatpost both)', function(){
+  var post = aSeatpost();
+  eq(S.validateBmxPart(Object.assign({}, post, { system: 'stealth' }), TODAY).length, 0);
+});
+
+test('an out-of-vocab seatSystem value is still caught', function(){
+  var post = aSeatpost();
+  var bad = Object.assign({}, post, { system: 'quick-release' });
+  var probs = S.validateBmxPart(bad, TODAY);
+  ok(probs.some(function(m){ return /system.*not in seatSystem/.test(m); }), probs.join('\n'));
+});
+
 test('an unknown category is rejected', function(){
   var frame = aFrame();
   var bad = Object.assign({}, frame, { cat: 'e-motor' });
