@@ -1412,6 +1412,74 @@ var EMTB_PARTS = [
     note: 'The Pinion-MGU flagship: gearbox+motor integrated unit (no derailleur/cassette), Gates carbon belt drive, RockShox ZEB Ultimate/Super Deluxe Ultimate suspension, mullet wheels. requires added motorBrand vocab value \'pinion\' (src/schema-emtb.js) — a real, established gearbox/motor maker (Pinion GmbH), not fabricated.',
     desc: "Verified vs the maker's own Shopify product JSON (haibike.com/de-de/products/allmtn-cf-11-trniq-hmft2.js — the <handle>.js route that resolved the prior session's travelRear wall) plus the rendered de-de product page (browser-pane-equivalent fetch of the same URL without .js) for the fields the JSON omits: motor 'Pinion E1.12 MGU, 600W, 85Nm'; brakes 'Magura MT5, 4 pistons, 203mm front/rear'; drivetrain 'Pinion Motor-Gearbox-Unit, 12-speed' + Gates Carbon Drive CDX 120T belt; wheels 29in front/27.5in rear (mullet); frame carbon w/ Post Mount disc. pinion.eu's own bike-selection page (pinion.eu/en/bike_selection/haibike-allmtn-cf-11-trn-iq) independently corroborates the Pinion MGU E1.12/Smart.Shift/belt-drive identity and 160mm travel, though it shows a different weight (24.4kg) and price (EUR 10,000) than the Haibike page — likely a stale/different-market snapshot; the Haibike maker page for THIS exact SKU (weight 27000g across all 4 size variants, price EUR 9,000) is used as the primary source over the secondary corroborating page. PRICE: no US-market Haibike listing exists (haibike.com/en-us and haibike.com/us both dead-end to the EUR de-de page or 404 — Haibike appears EU-only for this model), so the EUR 9,000 maker price is converted at the EUR/USD rate fetched same-day from open.er-api.com (1.140653, 2026-07-22) -> $10,265.88 (regional-conversion, disclosed rate + date, no invented figure). batteryRemovable and display left unset — the 'InTube 800Wh' battery's removability and the Pinion FIT Master Node display's mount location (top-tube vs a dedicated controller) are not confirmed by any fetched source, and EMTB_VOCAB's 'display' enum (top-tube/system-controller) has no value that's a confident match, so both stay blank rather than guessed.",
     verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://www.haibike.com/de-de/products/allmtn-cf-11-trniq-hmft2'
+  },
+
+  // --- emtb-breadth-2 wave: zero-coverage makers (Intense, Ghost, Polygon) ---
+  {
+    id: 'em-intense-tazer-mx-pro-alloy', cat: 'emtb', brand: 'Intense', model: 'Tazer MX Pro Alloy',
+    motorBrand: 'shimano', motorModel: 'Shimano EP800 STEPS', motorTorque: 85,
+    batteryWh: 630, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 155,
+    frameMaterial: 'aluminum', drivetrain: 'TRP EVO 12-speed', brakes: 'TRP Trail EVO',
+    disciplines: ['e-enduro'], weight: 26025, price: 7184.97,
+    note: 'Alloy Öhlins-suspended enduro e-MTB, 29in front/27.5in+ rear (mullet); sold exclusively through Parts Europe (EU/UK market, no US listing).',
+    desc: 'Verified vs the fetched maker product page (eu.intensecycles.com/pages/tazer-mx-alloy, via Exa fetch — full build-spec sheet). Motor torque (85 Nm) is Shimano\'s own published EP800 spec (bike.shimano.com/en-EU/product/component/ep8-ep800/DU-EP800.html) — not restated on the Intense page, which names only the motor/battery/display SKUs. Weight is the maker-stated SM/MD figure (57.6lb/26.025kg, no pedals, not tubeless); LG/XL runs 0.34kg heavier per the same page. PRICE: EUR 6,299.00 maker RRP converted at the EUR/USD rate fetched same-day from open.er-api.com (1.140653, 2026-07-22) -> $7,184.97 (regional-conversion, disclosed rate + date) — Intense is US-based but this Öhlins/TRP build is EU-market-only, no US MSRP exists to cite instead.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://eu.intensecycles.com/pages/tazer-mx-alloy'
+  },
+  {
+    id: 'em-intense-tazer-mx-carbon-pro', cat: 'emtb', brand: 'Intense', model: 'Tazer MX Carbon Pro',
+    motorBrand: 'shimano', motorModel: 'Shimano EP800 STEPS', motorTorque: 85,
+    batteryWh: 504, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 155,
+    frameMaterial: 'carbon', drivetrain: 'Shimano SLX 12-speed', brakes: 'Magura MT7 Pro',
+    disciplines: ['e-enduro'], weight: 24109, price: 7413.10,
+    note: 'Lighter carbon Tazer MX build (smaller 504Wh battery than the alloy Pro), Öhlins DH38 dual-crown fork + TTX22M coil shock; also EU/UK-only through Parts Europe.',
+    desc: 'Verified vs the fetched maker product page (eu.intensecycles.com/pages/tazer-mx-carbon-pro, via Exa fetch — full build-spec sheet). Motor torque (85 Nm) is Shimano\'s own published EP800 spec, same as the alloy build — the two Tazer MX trims share the identical EP800 drive unit, only the battery capacity differs (504Wh carbon vs 630Wh alloy, both maker-stated). Weight is the maker-stated SM/MD figure (52lb 11oz, tubeless, with pedals -> 24.109kg). PRICE: EUR 6,499.00 maker RRP converted at the same 2026-07-22 open.er-api.com rate (1.140653) -> $7,413.10 (regional-conversion) — no US MSRP exists for this EU-exclusive build.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://eu.intensecycles.com/pages/tazer-mx-carbon-pro'
+  },
+  {
+    id: 'em-ghost-e-asx-advanced', cat: 'emtb', brand: 'Ghost', model: 'E-ASX Advanced',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85,
+    batteryWh: 800, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 160, travelRear: 150,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano Deore/Deore XT 12-speed', brakes: 'Shimano Deore 4-piston',
+    disciplines: ['e-trail', 'e-enduro'], weight: null, price: 6842.78,
+    note: 'Aluminum full-power trail/all-mountain e-MTB, mullet wheels (29in front/27.5in rear per the German spec page), Bosch 800Wh InTube battery + Kiox 300 display.',
+    desc: 'Verified vs the fetched maker product page (ghost-bikes.com/at-de/p/e-asx-advanced-gbct1, via Exa fetch — full "Spezifikationen" table, motor torque explicitly listed 85 Nm) plus the ghost-bikes.com/en-int SKU page (48AS1016, EUR 5,999.00 price) and the bosch-ebike.com/us third-party-hosted spec confirmation (frame material, 160/150mm travel, "Full suspension eMTB" category). No maker-published weight found on any of the three fetched pages, so weight stays blank rather than guessed. PRICE: EUR 5,999.00 maker RRP converted at the 2026-07-22 open.er-api.com rate (1.140653) -> $6,842.78 (regional-conversion) — Ghost has no US retail presence, no USD MSRP exists to cite instead.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://www.ghost-bikes.com/at-de/p/e-asx-advanced-gbct1/'
+  },
+  {
+    id: 'em-ghost-e-riot-cf-advanced', cat: 'emtb', brand: 'Ghost', model: 'E-Riot CF Advanced',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Gen5)', motorTorque: 100,
+    batteryWh: 800, assist: 'full-power', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 170, travelRear: 160,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle T-Type Transmission', brakes: 'SRAM Maven Base',
+    disciplines: ['e-enduro'], weight: null, price: 7413.10,
+    note: 'Ghost\'s carbon gravity/enduro e-MTB flagship — RockShox Domain/Vivid suspension, SRAM Eagle 70 T-Type Transmission wireless drivetrain.',
+    desc: 'Verified vs the fetched maker product page (ghost-bikes.com/en-int/products/e-riot-advanced-gedu2, via Exa fetch — EUR 6,499.00 price, "170mm travel up front, 160mm travel at the rear", carbon frame, Bosch Performance CX 800Wh) plus a UK retailer\'s (Triton Cycles) full spec table sourced from the same maker feed, which is the only place a torque figure (100 Nm, Gen5 CX tuned above the stock-85Nm Gen4 unit) and drivetrain/brake component names (SRAM Eagle 70 T-Type derailleur/chain, DB Maven Base brakes) were found — Ghost\'s own page text doesn\'t restate them, so this one field set leans on a retailer mirror rather than the maker page directly (disclosed per policy). No maker-published weight found. PRICE: EUR 6,499.00 maker RRP (ghost-bikes.com) converted at the 2026-07-22 open.er-api.com rate (1.140653) -> $7,413.10 (regional-conversion) — no US MSRP exists.',
+    verified: true, priceBasis: 'regional-conversion', lastChecked: '2026-07-22', source: 'https://ghost-bikes.com/en-int/products/e-riot-advanced-gedu2'
+  },
+  {
+    id: 'em-polygon-siskiu-t7e', cat: 'emtb', brand: 'Polygon', model: 'Siskiu T7E',
+    motorBrand: 'shimano', motorModel: 'Shimano DU-EP801', motorTorque: 85,
+    batteryWh: 630, batteryRemovable: true, assist: 'full-power',
+    wheelConfig: '29', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano SLX 12-speed', brakes: 'SRAM Code R',
+    disciplines: ['e-trail'], weight: null, price: 3999,
+    note: 'US-priced aluminum trail e-MTB on Shimano EP801, straight 29in wheels (not mulleted as shipped, though the frame\'s flip-chip supports a 27.5in rear swap).',
+    desc: 'Verified vs the fetched maker product page (polygonbikes.com/us/siskiu-t7e, via Exa fetch — full "Specification" table incl. USD $3,999.00 price, Shimano DU-EP801 motor, SRAM Code R brakes, SR Suntour Aion 150mm fork). Battery capacity (630Wh, Shimano BT-EN806) and "Removable battery" claim taken from the companion polygonbikes.com/siskiu-te-with-bosch comparison page, which states the T7E shares the same BT-EN806 pack. No maker-published weight found. USD-native price, no conversion needed.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.polygonbikes.com/us/siskiu-t7e/'
+  },
+  {
+    id: 'em-polygon-siskiu-te-bosch', cat: 'emtb', brand: 'Polygon', model: 'Siskiu TE with Bosch',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX', motorTorque: 85,
+    batteryWh: 625, assist: 'full-power',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 140,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle 12-speed', brakes: null,
+    disciplines: ['e-trail'], weight: null, price: 4799,
+    note: 'US-priced Bosch-powered sibling to the T7E; ships mullet (29in front/27.5in rear per the tire spec), RockShox Lyrik/Super Deluxe suspension.',
+    desc: 'Verified vs the fetched maker product page (polygonbikes.com/us/siskiu-te-with-bosch, via Exa fetch — full "Specification" table incl. USD $4,799.00 price, Bosch Performance Line CX motor stated "maximum torque of 85 Nm" and "up to 600 watts", Bosch PowerTube 625 Horizontal battery, SRAM GX Eagle rear derailleur, front/rear tire sizes confirming the mullet setup). The fetched page text ended before the Brake spec row, so brakes stays unset rather than guessed (no other maker source checked for this SKU). No maker-published weight found. USD-native price, no conversion needed.',
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22', source: 'https://www.polygonbikes.com/us/siskiu-te-with-bosch/'
   }
 
 ];
