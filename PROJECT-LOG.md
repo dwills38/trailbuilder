@@ -1,5 +1,21 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — drivetrain-pricing-2: the pricing hypothesis dies honestly
+
+- **fix/drivetrain-pricing-2 merged (doc-only)**: all 25 SRAM Transmission-tier prices
+  re-fetched against sram.com model pages — EVERY one already exact current MSRP (a
+  2026-07-14 wave had verified them; zero drift since), including the two ids cb-sheets-14
+  called "implausibly low." The under-priced speculation is DISPROVEN and the stale
+  comment corrected in-file so no future pass re-chases it. The REAL Sight 160 blockers:
+  (1) cb-sheets-14's uniform-Eagle-90 fill assumption was wrong — the live build sheet is
+  MIXED-TIER (GX AXS T-Type mech + Eagle 90 crank + XS-1275 cassette + GX chain); (2) 5+
+  fills have no exact catalog row yet (Fox DHX2 205x65 trunnion, OneUp 42mm stem, TranzX
+  YSI160 RAD+ adjustable dropper, FSA No.57 headset, the RaceFace AR30/DT350 mixed-spec
+  wheels). Needs a dedicated data-entry pass, not pricing fixes. Habit HT 2 CLOSED
+  definitively: cannondale.com's own live page shows $1,299/XCM34 — the $1,499/Judy claim
+  from cb-sheets-13 was retailer noise, no mint.
+- Gates: 7 OK, 988/988, tsc clean.
+
 ## 2026-07-22 — blister-probe-1: the fork-weight wall cracks (narrowly)
 
 - **verify/blister-probe-1 merged**: blisterreview.com renders clean in the browser pane
