@@ -106,10 +106,6 @@ unanswered question.)**
 9. **dp-specialized-command-post-349-160** — "suspected fictional combo" flag stands.
 10. **Audit M7** — wheel-size-aware rule-18 clearance (Surly 27.5x3.0 case; gravel's
     maxTireByWheel is the model). Engine change → adversarial review when picked up.
-10b. **GRAVEL MULLET MODELING (tier-2 packet, 2026-07-22)** — pick an option from
-    tools/TIER2-DRIVETRAIN-DESIGN.md: A cheap-but-false-error-on-M3 / B RECOMMENDED (Eagle
-    tokens + AXS exemption + sourced pullRatio, staged) / C pair table / D deliberate
-    exclusion. Blocks gravel complete-bikes with mullet builds; no false verdict today.
 10c. **Flat<->post adapter deferral (R18 vs MTB BRK-28/29)** — the two engines now disagree:
     MTB warns both ways off Shimano SM-MA + Wolf Tooth; road/gravel R18 keeps the
     [MECHANIC REVIEW] error. Close the divergence?
@@ -122,6 +118,12 @@ unanswered question.)**
     Supabase MFA/CAPTCHA check · Cloudflare Vitals read · Finder two · recall-badge
     scoping · fitter paywalls · the empty D:\mtb-worktrees shell folder (one manual
     right-click).
+
+**GRAVEL MULLET: RULED 2026-07-22 (Douglas: "no gravel mullet option") — option D, deliberate
+exclusion. Gravel stays drivetrain-frozen at road parity; no Eagle tokens, no xd freehub, no
+pullRatio field. tools/TIER2-DRIVETRAIN-DESIGN.md stands as the record; revisit ONLY if
+Douglas re-opens (e.g. at gravel complete-bikes). A mullet build stays inexpressible, which
+is honest — no false verdict either way.**
 
 **RESOLVED THIS SEAT (for the record, don't re-ask):** seatpost interface exception
 (YES, 7th class, applied) · I9 hub tiers (SPLIT, applied) · vocab Tier-1 (ratified,
