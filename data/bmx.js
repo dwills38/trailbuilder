@@ -2299,6 +2299,20 @@ var BMX_PARTS = [
     note: 'bmx-depth-9: VERIFIED via missionbmx.com. Page states verbatim: pitch "1/8\\"", "Teflon coated half-link chain", "15.0oz" (=425g), "100 Links", price $34.99–$39.99 by color (Black at $34.99 used here) — directly confirms both of the chain category\'s schema fields (pitch, halfLink:true).'
   },
   {
+    id: 'bmx-ch-mission-410', cat: 'chain', brand: 'Mission', model: '410 Chain',
+    pitch: '1/8', halfLink: true, weight: 312, price: 12.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
+    source: 'https://missionbmx.com/products/410-chain',
+    note: 'bmx-breadth-4 (2026-07-22): VERIFIED via missionbmx.com. Page states verbatim: "SIZE: 1/8\\"", "Features a factory-installed master-link and half-link", "WEIGHT: 11.0oz" (=312g), "Regular price $12.99" — directly confirms both chain schema fields (pitch, halfLink:true — the chain ships with a half-link installed) plus price. Distinct budget-tier SKU from the existing bmx-ch-mission-halflink row (different name, weight, price).'
+  },
+  {
+    id: 'bmx-ch-mission-510', cat: 'chain', brand: 'Mission', model: '510 Chain',
+    pitch: '1/8', halfLink: true, weight: 397, price: 19.99,
+    verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
+    source: 'https://missionbmx.com/products/510-chain',
+    note: 'bmx-breadth-4 (2026-07-22): VERIFIED via missionbmx.com. Page states verbatim: "SIZE: 1/8\\"", "Features a factory-installed half-link and master link", "WEIGHT: 14.0oz" (=397g), "Regular price $19.99" — directly confirms both chain schema fields (pitch, halfLink:true) plus price. Mid-tier SKU (heat-treated pins, thicker side plates) between 410 and Half-Link Chain in Mission\'s own lineup.'
+  },
+  {
     id: 'bmx-se-mission-carrier', cat: 'seat', brand: 'Mission', model: 'Carrier Seat',
     system: 'stealth', weight: 343, price: 34.99,
     verified: true, priceBasis: 'msrp-confirmed', lastChecked: '2026-07-22',
