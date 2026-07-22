@@ -2158,6 +2158,9 @@ var ROAD_PARTS = [
     style: 'road-clip', weight: 303, price: 499,
     verified: true, lastChecked: '2026-07-22', source: 'https://cycling.favero.com/shop/assioma-duo/', priceBasis: 'msrp-confirmed',
     note: 'road-breadth-6 wave: FETCHED cycling.favero.com (Favero\'s own consumer storefront) directly - a fifth pedal-category brand (Shimano/Look/Time/Wahoo already cataloged), and the file\'s first dual-sided power-meter pedal. Spec: "Weight per power pedal 151.5 g" (doubled to 303g for this catalog\'s per-pair convention, basis disclosed, same doubling convention already used elsewhere in this file), "Compatible cleats: Original LOOK Kéo and Favero cleats" (style:"road-clip", same vocab bucket as the existing Look/Shimano SPD-SL rows), price "$ 499,00" (maker\'s own USD-denominated consumer store, matches the .favero.com reseller page\'s independently listed figure for the same SKU art.772-02).' },
+  { id: 'pd-issi-road-carbon', cat: 'pedal', brand: 'iSSi', model: 'Road Carbon Pedal', family: 'issi-road',
+    style: 'road-clip', weight: 266, price: 125,
+    note: 'road-breadth-6 wave: a sixth pedal-category brand (iSSi, a US-based clipless-pedal maker). issi-bike.com itself was not fetchable this pass (DNS did not resolve for the harness\'s fetch tools); weight (266g/pair) and "Look KeO"-compatible cleat interface (style:"road-clip") cross-checked identically across FOUR independent sources (Incycle, Total Cycling, The Ped, and a road.cc review measuring the same 266g figure) - a strong convergent signal. Price $125 (Marathon Bicycles\' current US listing, $124.99) - NOT marked verified:true since no maker-page fetch succeeded this pass, matching this catalog\'s pd-wahoo-speedplay-zero row\'s identical caveat and convention.' },
 
 ];
 
