@@ -1,5 +1,27 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — sight160-entry: 6 rows minted, the bike stays honestly unminted
+
+- **catalog/sight160-entry merged (MTB 5,047 parts)**: the Sight 160's missing fills are
+  now real rows — Fox DHX2 205x65 trunnion (OE-only, no retail SKU at that size — the
+  Tracer 279 pattern, bundledShock wired), OneUp 42/35 stem VERIFIED (and a stale "OneUp
+  sells no 42mm stem" note elsewhere corrected — it ships 35/42/50 now), the TranzX
+  YSI160 RAD+ adjustable dropper entered at the maker's real S3/S4 200mm point (the
+  single-drop schema can't hold a range — representative-point convention, not a
+  fabricated midpoint), the real MX wheelset pair (Norco's own DT350 spec, NOT Jenson's
+  different DT370 OE package), a VERIFIED Maxxis DHR II 27.5x2.4 DD MaxxGrip. FSA No.57
+  headset = the already-cataloged Orbit 1.5 ZS under FSA's other name — near-duplicate
+  correctly avoided.
+- **The C1 complete bike stays unminted for a NEW reason**: with the full corrected
+  mixed-tier fill set, the parts sum is $9,228 vs the $10,499 MSRP — a $1,271 gap the
+  bundle invariant rightly rejects and nobody price-tuned away. Either Norco's frameset
+  $3,999 sample is low, some OE fills' samples are low, or the bike genuinely prices
+  above its parts sum — needs a targeted price-confirmation pass on the 6 sample-priced
+  rows + the frame. C2 needs 5 additional tier rows (38 Perf Elite, Maven Base,
+  Centerline S2, Eagle 70 chain, cable Eagle 90 pair) — flagged.
+- Gates: 7 OK (5,047 parts / 3,327 verified), 988/988, tsc clean, harness fully clean
+  (338/338 assemblies).
+
 ## 2026-07-22 — blister-sweep-1: 0 promotions, 2 guard-catches (the right kind of zero)
 
 - **verify/blister-sweep-1 merged (doc-only)**: the systematic Blister sweep of premium
