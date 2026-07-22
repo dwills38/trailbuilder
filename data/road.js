@@ -341,6 +341,16 @@ var ROAD_PARTS = [
     weight: 913, price: 654,
     verified: true, lastChecked: '2026-07-21', source: 'https://www.dtswiss.com/en/support/product-support?matnr=W0P1800NIDMSA21345',
     note: 'road-depth-2 wave: fetched dtswiss.com/en/support/product-support?matnr=W0P1800NIDMSA21345 (disc/12x142/Shimano rear variant, via the same "Choose model" dropdown as the front row): "NET WEIGHT 913 g", "INNER WIDTH 20 mm", freehub body "Shim. RD. 11SP Forged (ASF11)" (this file\'s hg-road token — NOT xdr; a separate SRAM XDR-driver variant (matnr W0P1800NID1SA21346) also exists on this line and is not modeled this pass, GAP). maxTire/price caveats same as the front row — see that row\'s note.' },
+  { id: 'fw-reserve-3437-dt240', cat: 'frontwheel', brand: 'Reserve', model: '34|37 (DT 240, HG-EV/Centerlock)', family: 'reserve-3437',
+    wheel: '700c', hub: '12x100', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 23, maxTire: 38,
+    weight: 677, price: 1599,
+    verified: true, lastChecked: '2026-07-21', source: 'https://reservewheels.com/products/reserve-34-37-road-wheel',
+    note: 'road-depth-2 wave: first Reserve-brand row in the road catalog (task brief\'s "Reserve road" gap). Fetched reservewheels.com product page directly: "Inner Width 23mm Front, 22mm Rear", "External Width 30mm Front, 29mm Rear", "Depth 34mm Front, 37mm Rear", "Recommended Tire Dimensions 25 to 38mm" (maxTire:38, a real page-stated figure — not an estimate), "Hub Spacing 12X100mm/12X142mm", "Disc Style Option Centerlock", "Wheelset Weight ... DT 240 - 1354g". Price fetched via the Shopify products/<handle>.js JSON endpoint (browser pane; the same Shopify-variant-JSON trick used elsewhere in this catalog\'s headset rows): the "700c / DT 240 / HG-EV / Centerlock" variant lists price 159900 (cents) = $1599.00 for the pair, applied to both wheels per this file\'s pair-price convention. Weight: the page gives ONE total wheelset figure per hub tier (no front/rear split) — this row is an EVEN SPLIT (677/677) of the DT240 build\'s 1354g, same convention as the Zipp 303 Firecrest pair.' },
+  { id: 'rw-reserve-3437-dt240', cat: 'rearwheel', brand: 'Reserve', model: '34|37 (DT 240, HG-EV/Centerlock)', family: 'reserve-3437',
+    wheel: '700c', hub: '12x142', freehub: 'hg-road', brakeSystem: 'disc', rotorMount: 'center-lock', intWidth: 22, maxTire: 38,
+    weight: 677, price: 1599,
+    verified: true, lastChecked: '2026-07-21', source: 'https://reservewheels.com/products/reserve-34-37-road-wheel',
+    note: 'road-depth-2 wave: same source/page as the front row — see that row\'s note for the fetch detail, the even-split weight caveat and the price-JSON method. Freehub: the page\'s "Freehub Options" field lists "XDR, HG-EV" for this hub build; this row models the HG-EV option (freehub:\'hg-road\', this file\'s Shimano-HG-splined-road token) — a separate SRAM XDR-driver variant is not modeled this pass (GAP). intWidth:22 is the page\'s stated REAR-specific figure (distinct from the front\'s 23mm — a real front/rear rim-width asymmetry, not a typo).' },
 
   // ===== TIRES (mm width; front & rear both draw from cat:'tire') ========
   { id: 'ti-continental-gp5000stre-25', cat: 'tire', brand: 'Continental', model: 'Grand Prix 5000 S TR 25c', family: 'continental-gp5000stre',
