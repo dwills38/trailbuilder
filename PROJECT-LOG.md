@@ -1,5 +1,17 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — mtb-tail-15: the Syncros cluster closes (MTB 3,315)
+
+- **verify/mtb-tail-15 merged**: all 22 remaining Syncros cockpit/saddle rows
+  dispositioned — 3 promoted (XC 2.0 stem + the Fraser iC SL pair, whole-unit weight
+  split per the existing cockpit-half convention), 16 marked status:'discontinued' after
+  direct current-lineup fetches (Hixon 2.0/iC, Kaslo 2.0, the DJ/DH 1.5-2.5 generation
+  tail…) with NO supersededBy anywhere — a generation-number change alone isn't rename
+  evidence, and none had an unambiguous Syncros-named successor. 3 honest ambiguities
+  stay open (XR 1.5 length-mismatched weight, Fraser 2.0-vs-1.0, Tofino Ti rail match).
+  The Syncros generation-drift arc (tail-13→14→15) is now fully mapped: no never-reached
+  rows remain in this brand+category set. Gates: 7 OK (MTB 3,315), 988/988, tsc clean.
+
 ## 2026-07-22 — mtb-forks-mw1: the fork-weight class stays honestly closed
 
 - **verify/mtb-forks-measured-1 merged (doc-only)**: the measured-weight policy sweep of
