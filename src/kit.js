@@ -572,6 +572,22 @@ var KIT_PARTS = [
     desc:'Page cites a Virginia Tech 5-star rating; no CPSC/EN/ASTM standard code stated, so no `certs` asserted.',
     verified:true, lastChecked:'2026-07-14', source:'https://troyleedesigns.com/products/sp25-flowline-helmet-w-mips-point-black-charcoal' },
 
+  /* -- Helmets, women's fit (kit-breadth-3, 2026-07-22): the helmet cell had ZERO fitCut:'womens'
+     rows. Giro's own Women's Series copy states plainly "they do not feature a unique women's
+     fit" (just style/color range) — a shrink-it-and-pink-it line, so it is deliberately excluded.
+     Liv (Giant's women's-specific brand) is different: both pages below state the shell is
+     "created with an all-new, rounder head form" — a genuine sourced anatomical-fit claim, not
+     just colorways — so these are the real inclusion. Neither Liv page publishes a helmet weight
+     or a CPSC/EN/ASTM code, so both stay weightless/cert-free rather than guessed. -- */
+  { id:'hm-liv-rail-mips', cat:'helmet', brand:'Liv', model:'Rail MIPS', price:189.99,
+    type:'half-shell', rotational:'mips', fitCut:'womens', disciplines:['trail','enduro'], sizes:['S','M'],
+    desc:'Women\'s-specific trail/enduro helmet, "created with an all-new, rounder head form for increased fit range" (Liv\'s own copy) — a genuine fit claim, not a recolored unisex shell. No weight or CPSC/EN/ASTM code published on the page.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.liv-cycling.com/us/liv-rail-womens-helmet-liv-2023' },
+  { id:'hm-liv-roost-mips', cat:'helmet', brand:'Liv', model:'Roost MIPS', price:109.99,
+    type:'half-shell', rotational:'mips', fitCut:'womens', disciplines:['trail'], sizes:['S','M'],
+    desc:'Budget-tier women\'s-specific trail helmet, same "all-new, rounder head form" fit claim as the Rail. No weight or CPSC/EN/ASTM code published on the page.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.liv-cycling.com/us/roost-helmet-liv-2023?partnumber=800002698' },
+
   /* -- Shoes (soleType required: flat / clipless) -- */
   { id:'sho-fiveten-freerider-pro', cat:'shoes', brand:'Five Ten', model:'Freerider Pro', price:160, weight:696,
     soleType:'flat', closure:'lace', disciplines:['trail','enduro'], sizes:['40','41','42','43','44','45','46','47'],
@@ -676,6 +692,13 @@ var KIT_PARTS = [
     sizes:['5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13','13.5','14','14.5','15'],
     desc:'MC2 rubber flat sole tuned for Crankbrothers Stamp pedals (fits any flat pedal), BOA L6 dial. Weight = 384g/shoe (US9/EU42) x2.',
     verified:true, lastChecked:'2026-07-16', source:'https://www.crankbrothers.com/products/stamp-boa' },
+  { id:'sho-crankbrothers-stamp-lace', cat:'shoes', brand:'Crankbrothers', model:'Stamp Lace', price:139.99,
+    soleType:'flat', closure:'lace', disciplines:['trail','enduro'],
+    sizes:['3','4','5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13','14'],
+    desc:'kit-breadth-3 (2026-07-22): the entry lace-closure tier below the Stamp BOA/Speedlace'
+      + ' (sho-crankbrothers-stamp-boa / -speedlace) — same MC2 flat-sole family, classic lace'
+      + ' closure. List $139.99 confirmed across colorways. No weight published on the page.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.crankbrothers.com/products/stamp-lace-black-gum' },
   { id:'sho-crankbrothers-mallet-lace', cat:'shoes', brand:'Crankbrothers', model:'Mallet Lace', price:159.99, weight:830,
     soleType:'clipless', closure:'lace', disciplines:['enduro','dh'],
     sizes:['5','5.5','6','6.5','7','7.5','8','8.5','9','9.5','10','10.5','11','11.5','12','12.5','13','13.5','14'],
@@ -882,6 +905,16 @@ var KIT_PARTS = [
     desc:'SPD-compatible lace-up gravity/enduro shoe — corrected from a flat-pedal row (GE700 is clipless). ride.shimano.com publishes no per-SKU weight; ~400g/shoe (800g/pair) is Shimano’s own reported figure per an NSMB review, size unspecified.',
     sourceType:'measured', weightSource:'https://nsmb.com/articles/shimano-ge7-gravity-spd-shoes/',
     verified:true, lastChecked:'2026-07-19', source:'https://ride.shimano.com/products/sh-ge700' },
+  { id:'sho-shimano-ge900', cat:'shoes', brand:'Shimano', model:'GE9 (SH-GE900)', price:250, weight:846,
+    soleType:'clipless', closure:'boa', disciplines:['enduro','dh'], sizes:['38','39','40','41','42','43','44','45','46','47','48'],
+    desc:'kit-breadth-3 (2026-07-22): the flagship tier above GE7/GE5 - "Shimano\'s benchmark,'
+      + ' high-end gravity shoe" per ride.shimano.com, TORBAL 2.0 midsole + ULTREAD GE outsole,'
+      + ' BOA dial + bash guard + instep strap, carbon-reinforced nylon midsole. Price $250 exact'
+      + ' match on ride.shimano.com. Shimano does not publish per-shoe weight; ~423g/shoe (846g/pair,'
+      + ' size 42) is a third-party retailer-measured figure, kept sourceType:measured per the'
+      + ' Shimano-rotor-class weight policy.',
+    sourceType:'measured', weightSource:'https://www.bike-discount.de/en/shimano-sh-ge900-mtb-gravity-enduro-shoes',
+    verified:true, lastChecked:'2026-07-22', source:'https://ride.shimano.com/products/sh-ge900' },
   { id:'sho-shimano-gr9', cat:'shoes', brand:'Shimano', model:'GR9 (SH-GF800)', price:200, weight:800,
     soleType:'flat', closure:'boa', disciplines:['enduro','dh'], sizes:['38','39','40','41','42','43','44','45','46','47','48'],
     desc:'Premium gravity flat shoe, BOA closure. The GR line (SH-GR901) was retired in favor of the GF (Gravity Flat) line on ride.shimano.com; row re-scoped to the live flagship SH-GF800. ride.shimano.com publishes no per-SKU weight — weight kept as the prior sample figure. Kit-6 (2026-07-20): price $200 re-confirmed exactly via ride.shimano.com/collections/mountain; formalizing verified:true (weight not required for kit apparel).',
@@ -1763,6 +1796,21 @@ var KIT_PARTS = [
       + ' live 2026-07-19 as "Trail Pants" (currently on $119.99 sale, MSRP-basis kept). Weight'
       + ' not published, stays sample.',
     verified:true, lastChecked:'2026-07-19', source:'https://www.specialized.com/us/en/search?q=trail%20pant' },
+  { id:'pnt-specialized-traction-womens', cat:'pants', brand:'Specialized', model:"Women's Traction Pant", price:149.99,
+    liner:false, fitCut:'womens', disciplines:['trail','enduro'], sizes:['XXS','XS','S','M','L','XL','XXL'],
+    desc:'kit-breadth-3 (2026-07-22): its own women\'s-specific line, not a Trail Pant recolor -'
+      + ' Specialized\'s copy: "takes everything that made our iconic Demo Pants legendary - and'
+      + ' makes it better," developed with input from women riders, own fabric (88% recycled'
+      + ' polyester/12% spandex) and its own size run (XXS-XXL). No weight published on the page.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.specialized.com/us/en/womens-traction-pant/p/1000195134' },
+  { id:'pnt-leatt-trail-2-womens', cat:'pants', brand:'Leatt', model:'MTB Trail 2.0 Pant - Women', price:129,
+    liner:true, fitCut:'womens', disciplines:['trail'], sizes:['XS','S','M','L','XL','XXL'],
+    desc:'kit-breadth-3 (2026-07-22): genuinely distinct from the men\'s Trail 2.0 (pnt-leatt-trail-2)'
+      + ' - Leatt\'s own copy: a removable liner with a "dual high-density BERENIS chamois'
+      + ' specifically designed for women" and "design and ergonomics specific to ladies," not a'
+      + ' recolored men\'s cut. List $129.00 (currently on a $83.85 sale, list used per policy). No'
+      + ' weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://us.leatt.com/products/pant-mtb-trail-20-women-sale' },
   { id:'pnt-leatt-mtb-trail-3', cat:'pants', brand:'Leatt', model:'MTB Trail 3.0 Pant', price:131,
     liner:true, disciplines:['trail','enduro'], sizes:['XS','S','M','L','XL','XXL'],
     desc:'CORRECTED 2026-07-16: fetched us.leatt.com matches this to the current (non-Obsolete) "Pants MTB Trail 3.0 Liner" - $131-134 by colorway, sizes XS-XXL, and it ships with a removable chamois liner short (liner false->true). No trustworthy weight published (only an XS-only 360g figure that repeats identically across unrelated pant models, smelling like a Shopify placeholder, not a measured spec), so weight omitted rather than guessed. Re-confirmed via .js product JSON (price 13100 cents).',
@@ -1781,6 +1829,13 @@ var KIT_PARTS = [
     liner:false, disciplines:['trail'], sizes:['28','30','32','34','36','38'],
     desc:'CORRECTED 2026-07-17: price is the fetched $119.95 list (was sample $100; page currently on sale at $83.99, list used per policy). No weight published on the fetched page, stays prior sample.',
     verified:true, lastChecked:'2026-07-17', source:'https://www.foxracing.com/product/ranger-pants/33698.html' },
+  { id:'pnt-fox-ranger-womens', cat:'pants', brand:'Fox', model:"Women's Ranger Pant", price:139.95,
+    liner:false, fitCut:'womens', disciplines:['trail'], sizes:['0/2','4/6','8/10','12/14','16','18'],
+    desc:'kit-breadth-3 (2026-07-22): pants had only 1 fitCut:\'womens\' row before this. Genuinely'
+      + ' distinct from the men\'s Ranger, not a recolor: Fox\'s own copy calls out "Women\'s specific'
+      + ' stretch panels at the hip for comfort", and it ships on its own women\'s numeric size chart'
+      + ' (0/2-18) rather than the men\'s waist-inch chart. No weight published on the page.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.foxracing.com/product/womens-ranger-pants/33459.html' },
   { id:'pnt-troyleedesigns-ruckus', cat:'pants', brand:'Troy Lee Designs', model:'Ruckus Cargo Pant', price:210, weight:380,
     liner:false, disciplines:['trail'], sizes:['30','32','34','36','38'], verified:true, lastChecked:'2026-07-17',
     source:'https://troyleedesigns.com/products/sp23-ruckus-cargo-pant-mono-sienna',
@@ -1968,6 +2023,22 @@ var KIT_PARTS = [
     sizes:['XS','S','M','L','XL','XXL'],
     desc:'Lightweight race-fit glove. Weight per pair (approx). CORRECTED 2026-07-17: price is the fetched $44.95-49.95 range, base size $44.95 (was sample $35); sizes widened to include the fetched XS.',
     verified:true, lastChecked:'2026-07-17', source:'https://www.foxracing.com/product/flexair-gloves/31496.html' },
+  { id:'glv-fox-defend', cat:'gloves', brand:'Fox', model:'Defend Glove', price:44.95,
+    sizes:['S','M','L','XL','2XL'],
+    desc:'kit-breadth-3 (2026-07-22): durability-focused single-layer Clarino palm glove, list'
+      + ' price runs $44.95-$49.95 by colorway ($44.95 used as the base). No weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.foxracing.com/product/defend-gloves/33792.html' },
+  { id:'glv-fox-defend-d3o', cat:'gloves', brand:'Fox', model:'Defend D3O Glove', price:59.95,
+    sizes:['S','M','L','XL','2XL'],
+    desc:'kit-breadth-3 (2026-07-22): the D3O-impact-palm tier above the base Defend glove'
+      + ' (glv-fox-defend), same collection page. No weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.foxracing.com/gloves/mountain-bike/defend/' },
+  { id:'glv-fox-defend-youth', cat:'gloves', brand:'Fox', model:'Youth Defend Glove', price:39.95,
+    sizes:['Youth-S','Youth-M','Youth-L'],
+    desc:'kit-breadth-3 (2026-07-22): genuine youth-specific SKU (ages 6-14, its own Youth-S/M/L'
+      + ' size run distinct from the adult Defend chart), not an adult small worn by a kid. No'
+      + ' weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.foxracing.com/gloves/mountain-bike/defend/' },
   { id:'glv-100-airmatic', cat:'gloves', brand:'100%', model:'Airmatic Glove', price:44.95, weight:70,
     sizes:['S','M','L','XL'],
     desc:'Weight per pair (approx, unconfirmed - the manufacturer\'s own product-JSON weight field is a shipping/package weight, not a garment weight, confirmed unreliable via the eyewear batch where it read ~300g for ~30g sunglasses; kit weight policy: never blocks verification). Re-fetched 100percent.com product JSON (2026-07-17): confirmed compare-at $44.95, no XXL currently offered; a newer AIRMATIC 2 generation ($44.95) now sells alongside it.',
@@ -3036,6 +3107,15 @@ var KIT_PARTS = [
     coverage:'back', certs:['en1621-2-l2'], disciplines:['trail','enduro'],
     desc:'kit-breadth-1 (2026-07-22): the higher-coverage tier above the Airflow (arm-scott-airflow) - maker copy states it is "designed for level 2" and Scott\'s own PROTECTORS PDF lists the AIRFLOW PRO B2502 plate at Level 2. No maker-published weight found.',
     verified:true, lastChecked:'2026-07-22', source:'https://www.scott-sports.com/us/en/products/apparel-equipment-mw-equipment-body-protection' },
+  { id:'arm-leatt-reaflex-womens', cat:'bodyarmor', brand:'Leatt', model:'ReaFlex Body Protector - Women', price:384, weight:1064,
+    coverage:'chest-back', certs:['en1621-2-l1','en1621-3'], fitCut:'womens', disciplines:['enduro','dh'], sizes:['XXS','XS','S','M','L'],
+    desc:'kit-breadth-3 (2026-07-22): bodyarmor had ZERO fitCut:\'womens\' rows. Genuinely distinct'
+      + ' from Leatt\'s men\'s ReaFlex, not a recolor - "3D pre-curved designed specifically for the'
+      + ' female form" with its own slimmer BraceOn neck-brace interface and its own size run'
+      + ' (XXS-L, 148-178cm). CE certified front EN1621-3 Level 1, back EN1621-2 Level 1 (also'
+      + ' carries EN1621-1 Level 1 on the elbow/shoulder sleeve, which has no bodyarmor cert vocab'
+      + ' token so is left unstated). Weight "from 1.064kg" (US product page) — the lightest listed spec.',
+    verified:true, lastChecked:'2026-07-22', source:'https://us.leatt.com/products/body-protector-reaflex-women' },
 
   /* -- Neck braces (niche; no universal cert standard - certs stay dormant).
      Comprehensive sweep of the 4 recognized market brands (Leatt, Alpinestars,
@@ -3258,6 +3338,14 @@ var KIT_PARTS = [
       + ' price (colorways run $139.95-$189.95). Weight not published (shipping-weight caveat,'
       + ' see the S3 row), stays sample.',
     verified:true, lastChecked:'2026-07-19', source:'https://100percent.com/collections/speedcraft' },
+  { id:'ewr-100-speedcraft-xs', cat:'eyewear', brand:'100%', model:'Speedcraft XS', price:149.95,
+    type:'glasses', fitCut:'womens', sizes:['OSFA'],
+    desc:'kit-breadth-3 (2026-07-22): the eyewear cell had ZERO fitCut:\'womens\' rows. This is a genuinely'
+      + ' distinct small-scale frame, not a recolored Speedcraft - 100%\'s own copy: "the small-scale frame'
+      + ' Speedcraft XS is designed for smaller faces, uncompromising women and young athletes." List price'
+      + ' varies $129.95-$149.95 by lens tech across colorways; $149.95 (the HiPER Silver Mirror SKU) used'
+      + ' as the representative list price, matching the base Speedcraft SL\'s $149.95. No weight published.',
+    verified:true, lastChecked:'2026-07-22', source:'https://www.100percent.com/products/speedcraft-xs-matte-white-hiper-silver-mirror-lens' },
   { id:'ewr-100-glendale', cat:'eyewear', brand:'100%', model:'Glendale', price:139.95, weight:30,
     type:'glasses', sizes:['OSFA'],
     desc:'Weight approx, unconfirmed (the product-JSON grams field is a shipping weight, not a frame weight - see the S3 row; kit weight policy: never blocks verification). Re-fetched 100percent.com product JSON (2026-07-17): confirmed $139.95.',
