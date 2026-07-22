@@ -585,7 +585,7 @@ var ROAD_PARTS = [
   { id: 'ti-vittoria-rubinopro-tlr-30', cat: 'tire', brand: 'Vittoria', model: 'Rubino Pro TLR 30c', family: 'vittoria-rubinopro',
     wheel: '700c', width: 30, tubeless: true, compound: '3C Graphene',
     weight: 365, price: 45,
-    verified: true, lastChecked: '2026-07-22', source: 'https://int.vittoria.com/products/rubino-pro-tubeless-ready',
+    verified: true, lastChecked: '2026-07-22', source: 'https://int.vittoria.com/products/rubino-pro-tubeless-ready', priceBasis: 'regional-conversion',
     note: 'road-depth-4 wave: same int.vittoria.com fetch as the 28c sibling row. "700x30c | 30-622 | Black | 365 g". Same unsourced-price caveat as the 28c row.' },
   { id: 'ti-pirelli-pzero-race-26', cat: 'tire', brand: 'Pirelli', model: 'P Zero Race TLR 26c', family: 'pirelli-pzero-race',
     wheel: '700c', width: 26, tubeless: true, compound: 'SmartEVO',
