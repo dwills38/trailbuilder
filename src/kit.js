@@ -2043,6 +2043,10 @@ var KIT_PARTS = [
       + ' size run distinct from the adult Defend chart), not an adult small worn by a kid. No'
       + ' weight published.',
     verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.foxracing.com/gloves/mountain-bike/defend/' },
+  { id:'glv-fox-ranger-womens', cat:'gloves', brand:'Fox', model:'Womens Ranger Gloves', price:29.95,
+    fitCut:'womens', sizes:['S','M','L'],
+    desc:'Genuine women\'s-specific SKU (style #27383, own product page), not a men\'s Ranger resize: compression-molded cuff, absorbent micro-suede thumb, touchscreen-compatible index/thumb threads. Browser-pane fetch (WebFetch rendered the page without price data): list price $29.95, currently on a 29% sale to $20.99 - list price used per pricing policy. Weight not published.',
+    verified:true, priceBasis:'msrp-confirmed', lastChecked:'2026-07-22', source:'https://www.foxracing.com/product/womens-ranger-gloves/27383.html' },
   { id:'glv-100-airmatic', cat:'gloves', brand:'100%', model:'Airmatic Glove', price:44.95, weight:70,
     sizes:['S','M','L','XL'],
     desc:'Weight per pair (approx, unconfirmed - the manufacturer\'s own product-JSON weight field is a shipping/package weight, not a garment weight, confirmed unreliable via the eyewear batch where it read ~300g for ~30g sunglasses; kit weight policy: never blocks verification). Re-fetched 100percent.com product JSON (2026-07-17): confirmed compare-at $44.95, no XXL currently offered; a newer AIRMATIC 2 generation ($44.95) now sells alongside it.',
