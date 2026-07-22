@@ -191,6 +191,28 @@ var EMTB_PARTS = [
     desc: 'Verified vs the maker spec page (motor/battery/travel/frame/drivetrain/brakes/weight/price all confirmed). Brakes/weight corrected verify/emtb-4 wave 4 cluster E (SRAM Code RSC -> Maven Bronze, 19.2kg sample -> 20.32kg real size-S4 weight); price ($8,499.99) and 29in wheel config already matched exactly (wheel config was previously corrected verify/emtb-3, reconfirmed this pass).',
     verified: true, lastChecked: '2026-07-20', source: 'https://www.specialized.com/us/en/turbo-kenevo-sl-2-expert/p/4277407'
   },
+  {
+    id: 'em-specialized-turbo-kenevo-sl2-comp', cat: 'emtb', brand: 'Specialized', model: 'Turbo Kenevo SL 2 Comp',
+    motorBrand: 'specialized', motorModel: 'Specialized SL 1.2 Custom Rx Trail Tuned Motor', motorTorque: 50, motorPowerPeak: 320,
+    batteryWh: 320, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM S-1000 Eagle AXS Transmission', brakes: 'SRAM Maven Bronze',
+    disciplines: ['e-enduro'], weight: 20190, price: 8999.99,
+    note: 'Base-tier Kenevo SL 2: same FACT 11m carbon frame/motor/battery as the Expert, but RockShox Zeb Select/SuperDeluxe Select suspension instead of Fox/RockShox Ultimate-tier.',
+    desc: 'Verified vs the fetched maker product page (browser pane, full Technical Specifications table). Weight is the real 20.19kg production figure (weight basis matches the Expert row\'s size convention).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.specialized.com/us/en/turbo-kenevo-sl-2-comp/p/4221334'
+  },
+  {
+    id: 'em-specialized-turbo-kenevo-sl2-ohlins-coil', cat: 'emtb', brand: 'Specialized', model: 'Turbo Kenevo SL 2 Öhlins Coil',
+    motorBrand: 'specialized', motorModel: 'Specialized 1.2 SL Custom Rx Trail Tuned Motor', motorTorque: 50, motorPowerPeak: 320,
+    batteryWh: 320, batteryRemovable: true, rangeExtender: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 170, travelRear: 170,
+    frameMaterial: 'carbon', drivetrain: 'SRAM GX Eagle Transmission', brakes: 'TRP DH-R Evo',
+    disciplines: ['e-enduro'], weight: 20490, price: 9999.99,
+    note: 'Top-tier Kenevo SL 2: Öhlins RXF38 m.2 fork + Öhlins TTX coil shock, TRP DH-R Evo 4-piston brakes (220mm rotors both ends) — the only Kenevo SL 2 build with coil suspension and TRP brakes.',
+    desc: 'Verified vs the fetched maker product page (browser pane, full Technical Specifications table incl. frame/suspension/brakes/drivetrain/wheels/weight/geometry).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.specialized.com/us/en/turbo-kenevo-sl-2-ohlins-coil/p/4277428'
+  },
 
   // ---------------------------------------------------------------------------
   // Trek depth (Rail / Fuel EXe trims)
@@ -379,6 +401,17 @@ var EMTB_PARTS = [
     desc: 'Verified vs the fetched maker page (canyon.com Neuron:ON AL 9) plus Canyon\'s own 2025 launch press release. Motor brand corrected verify/emtb-4 wave 4 cluster A (Shimano EP8 -> Bosch Performance Line CX — another wrong-motor-maker catch) plus battery/travel/drivetrain/brakes (630Wh -> 800Wh, 140/130mm -> 150/145mm travel, Shimano XT -> SRAM S1000 Eagle AXS Transmission, Shimano XT 4-piston -> SRAM DB8 Stealth 4-piston) and model retitled Neuron:ON -> Neuron:ON AL 9 to name the real top-tier SKU actually matching the drivetrain/brake spec. Weight (24.9kg) is maker-page-listed. Price: no US canyon.com listing found; EU RRP is EUR 5,499 (GBP 5,149) — used a US retailer (thebicyclesshops.com) selling the same SKU at $6,439 as the USD sample basis, stated here per THE PRICE RULE.',
     verified: true, lastChecked: '2026-07-20', source: 'https://www.canyon.com/en-gb/electric-bikes/electric-mountain-bikes/neuron-on/al/neuron-on-al-9/4059.html'
   },
+  {
+    id: 'em-canyon-torque-on-cf-8', cat: 'emtb', brand: 'Canyon', model: 'Torque:ON CF 8',
+    motorBrand: 'shimano', motorModel: 'Shimano EP8 (EP801)', motorTorque: 85, motorPowerPeak: 250,
+    batteryWh: 800, batteryRemovable: true, assist: 'full-power', display: 'top-tube',
+    wheelConfig: '29', suspension: 'full', travelFront: 180, travelRear: 175,
+    frameMaterial: 'carbon', drivetrain: 'Shimano SLX', brakes: 'Shimano SLX',
+    disciplines: ['e-dh'], weight: 24845, price: 5799,
+    note: "Canyon's gravity/bike-park e-MTB — the brand's gap covered here (no other Torque:ON trim was in the catalog). Full carbon frame, 800Wh removable aluminum battery.",
+    desc: 'Verified vs the fetched maker page (canyon.com/en-us Torque:ON CF 8 product page + the Torque:ON category page bullets for rear travel). Weight from the maker-listed 54.77 lb size-M spec. Price is the $5,799 US MSRP (page currently shows a $4,299 sale).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.canyon.com/en-us/electric-bikes/electric-mountain-bikes/torque-on/torque-on-cf/torque-on-cf-8/3387.html'
+  },
 
   // ---------------------------------------------------------------------------
   // Giant (new maker) — Trance X E+ / Reign E+
@@ -467,6 +500,18 @@ var EMTB_PARTS = [
     note: 'Top-tier Altitude Powerplay carbon build — the "Carbon 90" tier no longer exists; Carbon 70 is now the only/top carbon trim.',
     desc: 'Verified vs bikes.com collection page + The Loam Wolf\'s as-tested review. Major trim correction verify/emtb-4 wave 4 cluster D: "Altitude Powerplay Carbon 90" is stale — the current Altitude Powerplay III lineup is only 3 SKUs (Carbon 70 / Alloy 50 / Alloy 30), no Carbon 90. Corrected model to the real current top/only-carbon SKU "Altitude Powerplay Carbon 70"; motor corrected Dyname 4.0 -> Dyname S4 Pro (108Nm, now 1000W peak); wheelConfig corrected mullet -> 29 (collection banner); drivetrain/brakes corrected to SRAM Eagle 90 Transmission / SRAM Maven Silver (The Loam Wolf\'s as-tested C70 build); weight corrected to the as-tested 25kg (55.3lb, size L, no maker per-size spec published); price $10,799 is the current bikes.com listing.',
     verified: true, lastChecked: '2026-07-20', source: 'https://bikes.com/collections/altitude-powerplay'
+  },
+  {
+    id: 'em-rocky-mountain-instinct-powerplay-sl-c90', cat: 'emtb', brand: 'Rocky Mountain', model: 'Instinct Powerplay SL Carbon 90',
+    family: 'rocky-mountain-instinct-powerplay-sl', modelYear: 2025,
+    motorBrand: 'rocky-mountain', motorModel: 'Dyname S4 Lite', motorTorque: 75, motorPowerPeak: 700,
+    batteryWh: 480, batteryRemovable: true, assist: 'lightweight', display: 'top-tube',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 150, travelRear: 145,
+    frameMaterial: 'carbon', drivetrain: 'SRAM X0 Eagle Transmission', brakes: 'SRAM Code Ultimate Stealth',
+    disciplines: ['e-trail'], price: 11999,
+    note: 'A distinct lightweight-SL platform from the full-power Instinct Powerplay row above — new Dyname S4 Lite motor (30% lighter than Dyname 4.0/S4 Pro), 480Wh removable battery, RIDE-4 adjustable MX (mullet) geometry.',
+    desc: 'Verified vs the fetched maker product page (bikes.com/products/instinct-pp-sl-c90-25: price, rear travel, wheel config, drivetrain/suspension component callout) plus the maker\'s own Instinct Powerplay SL overview/FAQ page (motor peak power 700W / torque 75Nm / 480Wh battery) and a third-party ride report (nsmb.com) corroborating the 150mm front / 145mm rear travel split and drivetrain tier. No bike weight is published by the maker — left blank rather than guessed.',
+    verified: true, lastChecked: '2026-07-20', source: 'https://bikes.com/products/instinct-pp-sl-c90-25'
   },
 
   // ---------------------------------------------------------------------------
@@ -890,6 +935,17 @@ var EMTB_PARTS = [
     desc: 'Verified vs the fetched maker product page (whytebikes.com, via Exa fetch — full Specs table). Corrections verify/emtb-4 wave 4 cluster F: drivetrain "Shimano Deore" -> "SRAM GX Eagle AXS" (page spec table: REAR MECH/SHIFT LEVERS "SRAM GX AXS Eagle", CASSETTE "SRAM PG-1210 Eagle" 11-50T — a standard-hanger cassette, not T-Type direct-mount, so kept distinct from the RSX row\'s Transmission wording), brakes "Shimano MT420" -> "SRAM Code R", battery 720->750Wh, weight 26200->26400g (M), motorPowerPeak added (600W, stated in the page\'s own Highlights section for this motor). PRICE RULE: GBP 4,499.00 RRP (whytebikes.com, Whyte is UK-only, no US market) converted 1:1 as a $4,499 USD sample (mirrors the RSX row\'s existing convention) — basis disclosed.',
     verified: true, lastChecked: '2026-07-20', source: 'https://whytebikes.com/products/e-180-s-my24'
   },
+  {
+    id: 'em-whyte-e-160-rsx', cat: 'emtb', brand: 'Whyte', model: 'E-160 RSX',
+    motorBrand: 'bosch', motorModel: 'Performance Line CX', motorTorque: 85, motorPowerPeak: 600,
+    batteryWh: 750, batteryRemovable: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'full', travelFront: 160, travelRear: 155,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM GX Eagle T-Type AXS Transmission', brakes: 'SRAM Code RSX',
+    disciplines: ['e-trail', 'e-enduro'], price: 6999,
+    note: "Whyte's shorter-travel trail/all-rounder e-bike — a distinct platform from the E-180 gravity rows above (29in wheels both ends vs the E-180's mullet, 160/155mm travel vs 180/170mm). Same Bosch Performance Line CX (Gen 4, BDU37) motor family.",
+    desc: "Verified vs the fetched maker product page (whytebikes.com, full Specifications table: frame/fork/shock/drivetrain/brakes/motor/battery/wheel all maker-listed). No bike weight is published on the page — left blank rather than guessed. PRICE RULE: GBP 6,999.00 RRP (whytebikes.com, Whyte is UK-only, no US market) used as the USD sample basis 1:1, mirroring the E-180 rows' existing convention — basis disclosed.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://whytebikes.com/products/e-160-rsx-my24-1'
+  },
 
   // ---------------------------------------------------------------------------
   // Radon depth (Jealous 9.0)
@@ -1008,6 +1064,17 @@ var EMTB_PARTS = [
     note: 'Shorter-travel, more XC/trail-leaning sibling to the Stereo Hybrid ONE77; mid-tier SLX 800 build of the renamed ONE44 platform.',
     desc: 'Verified vs the fetched maker page (cube.eu Stereo Hybrid ONE44 HPC SLX 800). CUBE renamed the "Stereo Hybrid 140" family to ONE44 for 2025-26 (same reason as the ONE77/Stereo Hybrid 160 correction on this branch) — retitled verify/emtb-4 wave 4 cluster A to the direct 140mm-rear successor, mid-tier SLX 800 trim. Battery/travel/frame/drivetrain/brakes corrected (625Wh -> 800Wh, 140mm front -> 150mm, aluminum -> carbon main triangle, Shimano Deore -> Shimano XT 1x12, Shimano MT420 -> Shimano XT M8220 4-piston). Weight left as an honest sample within the confirmed comparable-trim range (23.4-24.9kg across the ONE44 lineup) — the exact SLX-800 page did not display a standalone weight figure. Price is uncertain: community-sourced GBP figures for this trim conflict (a clean spec/price table showed GBP 5,199, a separate forum summary GBP 6,999); used the table figure converted to a ~$6,599 USD sample, stated here per THE PRICE RULE.',
     verified: true, lastChecked: '2026-07-20', source: 'https://www.cube.eu/cube-stereo-hybrid-one44-hpc-slx-800-slabgrey-n-orange/102500'
+  },
+  {
+    id: 'em-cube-reaction-hybrid-pro-800', cat: 'emtb', brand: 'Cube', model: 'Reaction Hybrid Pro 800',
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (BDU38)', motorTorque: 85,
+    batteryWh: 800, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: '29', suspension: 'hardtail', travelFront: 120, travelRear: 0,
+    frameMaterial: 'aluminum', drivetrain: 'Shimano XT 12-speed', brakes: 'Shimano XT 4-piston',
+    disciplines: ['e-trail'], price: 3199,
+    note: "Cube's hardtail e-MTB — the brand gap covered here (only the full-suspension Stereo Hybrid line was in the catalog). Aluminium Superlite frame, PowerMore-ready 800Wh battery, air-sprung 120mm fork (100mm on small/Easy Entry frames), remote dropper.",
+    desc: "Verified vs the fetched maker product page (cube.eu Reaction Hybrid Pro 800: frame material, motor, battery, drivetrain, brakes, fork travel all maker-listed) plus the Cube Info Portal spec page. No bike weight is published on the fetched page — left blank rather than guessed. Price: EUR 3,199 SRP (cube.eu, Cube is a German/EU brand with no confirmed US retail page) used as the USD sample basis 1:1, mirroring the existing Stereo Hybrid rows' convention — basis disclosed.",
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.cube.eu/cube-reaction-hybrid-pro-800-blackline/108210'
   },
 
   // ---------------------------------------------------------------------------
@@ -1176,6 +1243,35 @@ var EMTB_PARTS = [
     note: 'Top-tier Sight VLT CX Gen 4 build; Bosch Performance Line CX replaces the prior Shimano EP8 generation. Ships at 85Nm/600W stock, app-unlockable to 120Nm/750W (Bosch Performance Upgrade 2.0).',
     desc: "Verified vs the maker's own product page (motor/battery/travel/frame/drivetrain/brakes/weight all confirmed; MSRP $9,999 US price matches 'In Shops' tier exactly, 21.7kg S3 weight maker-published). motorTorque/motorPowerPeak corrected wave 4 cluster C (100/750 -> 85/600, the shipped stock tune, not the app-unlocked figure); batteryRemovable corrected (false -> true, Bosch PowerTube is removable); rangeExtender added (Bosch PowerMore 250 compatible); drivetrain corrected (SRAM X0 Eagle AXS -> the actual SRAM GX Eagle AXS T-Type derailleur per the spec sheet); weight corrected (22600g sample -> 21700g maker-published).",
     verified: true, lastChecked: '2026-07-20', source: 'https://www.norco.com/bikes/e-mountain/e-all-mountain/sight-vlt-cx/25-sight-vlt-cx-c1/'
+  },
+
+  // ---------------------------------------------------------------------------
+  // Norco Range VLT — brand gap (no Range VLT tier was in the catalog; e-enduro
+  // gravity platform, distinct from the Sight VLT trail/AM line above).
+  // ---------------------------------------------------------------------------
+  {
+    id: 'em-norco-range-vlt-a1', cat: 'emtb', brand: 'Norco', model: 'Range VLT A1',
+    family: 'norco-range-vlt', gen: 'Gen 3', modelYear: 2024,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Smart System)', motorTorque: 85,
+    batteryWh: 750, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'aluminum', drivetrain: 'SRAM NX Eagle', brakes: 'SRAM DB8',
+    disciplines: ['e-enduro'], price: 8999,
+    note: "Base alloy tier of Norco's VPS-HP (high-pivot Horst-link) gravity-enduro e-bike; mullet wheels, Bosch PowerMore 250 range-extender compatible (S3-S5 only).",
+    desc: 'Verified vs the fetched maker product page (browser pane, full Specs table: frame/fork/shock/drivetrain/brakes/motor/battery/geometry all maker-listed). No bike weight is published on the page — left blank rather than guessed. Price is the $8,999 US MSRP (page currently shows a $6,499 sale).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.norco.com/bikes/e-mountain/e-enduro/range-vlt/2024-range-vlt-a1/'
+  },
+  {
+    id: 'em-norco-range-vlt-c1', cat: 'emtb', brand: 'Norco', model: 'Range VLT C1',
+    family: 'norco-range-vlt', gen: 'Gen 3', modelYear: 2024,
+    motorBrand: 'bosch', motorModel: 'Bosch Performance Line CX (Smart System)', motorTorque: 85,
+    batteryWh: 750, batteryRemovable: true, rangeExtender: true, assist: 'full-power', display: 'system-controller',
+    wheelConfig: 'mullet', suspension: 'full', travelFront: 180, travelRear: 170,
+    frameMaterial: 'mixed', drivetrain: 'SRAM GX Eagle AXS T-Type Transmission', brakes: 'SRAM Code RSC',
+    disciplines: ['e-enduro'], price: 11999,
+    note: 'Top-tier Range VLT: carbon front triangle / aluminum chainstay-seatstay, RockShox Zeb Ultimate + Vivid Select+, SRAM HS2 220/200mm rotors. The Loam Wolf named this build 2024\'s "Best eMTB for Downhill".',
+    desc: 'Verified vs the fetched maker product page (browser pane, full Specs table: frame/fork/shock/drivetrain/brakes/motor/battery/geometry all maker-listed). No bike weight is published on the page — left blank rather than guessed. Price is the $11,999 US MSRP (page currently shows an $8,799 sale).',
+    verified: true, lastChecked: '2026-07-20', source: 'https://www.norco.com/bikes/e-mountain/e-enduro/range-vlt/2024-range-vlt-c1/'
   },
   {
     id: 'em-scott-genius-eride-910-bosch-cx-gen4', cat: 'emtb', brand: 'Scott', model: 'Genius eRide 910',
