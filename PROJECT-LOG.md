@@ -1,5 +1,23 @@
 # BuildMyMTB — Project Log
 
+## 2026-07-22 — bmx-sweep-4: BMX 128 verified; two walls browser-confirmed
+
+- **verify/bmx-sweep-4 merged**: 4 promotions off maker pages — Mankind Truth V2 (weight
+  168→144g per the maker's German storefront), Dia-Compe 990 (the Taiwan HQ site, 280g/
+  wheel added), Primo Remix V3 (price $89.99→$151 maker-listed; 14mm axle convention
+  cross-checked against the 17mm-barrel wording), WeThePeople Trust (bbShell + rearAxle
+  page-confirmed; frameOnly corrected true→false — complete-bike-only now; topTube
+  20.75→21). Two walls upgraded from single-403 to browser-pane-CONFIRMED: kmcchain.us
+  sells no full Z410/S1 chains (spares only), duobrand.com is a dead Shopify storefront.
+  United Supreme + Stolen Team cranks + Tektro "Race V-Brake" confirmed
+  discontinued/phantom names (flagged, unverified).
+- **Queued fixes for the next BMX chip (coordinator-ratified, data ready in the report):**
+  (1) Vee "Speedster" retarget — the row points at an MTB/e-bike fat tire; the real BMX
+  SKU is "Speedster BMX" 20x1-3/8 (ETRTO 37-451, 27 TPI, 100 PSI, 385g — full spec table
+  fetched); (2) United Supreme → status:'discontinued' tag; (3) WTP "OEM Cassette Hub" id/
+  brand mismatch (really Salt Pro / Eclat Cortex OE hubs — may need retire+re-id).
+- Gates: 7 OK, 988/988, tsc clean.
+
 ## 2026-07-22 — mtb-tail-13: Giant falls (MTB 3,297)
 
 - **verify/mtb-tail-13 merged**: Giant fully worked, 16/16 — giant-bicycles.com serves
