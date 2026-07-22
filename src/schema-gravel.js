@@ -65,13 +65,20 @@ var GRAVEL_VOCAB = {
   compound:     ['fast-rolling', 'high-grip', 'std', 'blackchili', 'smartnet', 'addix-speedgrip', 'addix', 'dual', 'dynamic-rs', 'g2'],
   actuation:    ['di2-wired', 'mechanical', 'axs-wireless', 'hydraulic'],
   side:         ['pair'],
-  system:       ['shimano-grx-12', 'shimano-grx-11', 'sram-xplr-12', 'sram-xplr-13', 'sram-apex-mech-12',
+  system:       ['shimano-grx-12', 'shimano-grx-11', 'shimano-grx-10', 'sram-xplr-12', 'sram-xplr-13', 'sram-apex-mech-12',
                   'campag-ekar-13', 'sram-axs-road', 'hg', 'flattop', 'campag'],
+  // 'shimano-grx-10' added gravel-depth-3 (2026-07-22) — the RX400 2x10 tier,
+  // confirmed still a current Shimano product line (bike.shimano.com's own GRX
+  // series page lists "GRX RX400 10-Speed Mechanical Shifting Options" among
+  // its live tiers), was previously unbuildable: no 10-speed system token
+  // existed. Real product line, not a force-fit.
   cage:         ['gs', 'sgs', 'xplr'],
   mount:        ['flat-mount', 'center-lock', '6-bolt'],
   mountRD:      ['std-hanger', 'udh-fullmount'],
   minCog:       [9, 10, 11],
-  speeds:       [11, 12, 13],
+  speeds:       [10, 11, 12, 13],
+  // 10 added gravel-depth-3 (2026-07-22) alongside 'shimano-grx-10' above —
+  // same RX400 tier real-product justification, not a guess.
   chainrings:   ['1x', '2x'],
   ringStd:      ['t-type'],
   clamp:        ['31.8'],
