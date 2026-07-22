@@ -65,7 +65,7 @@
 /** @typedef {'manufacturer'|'manufacturer-doc'|'measured'|'retailer'} SourceType */
 /** Where a row's `price` actually came from (2026-07-22 ruling). Absent = a
  * SAMPLE price; present = a disclosed claim, and only legal on a verified row.
- * Mirrors schema.js's VOCAB.priceBasis - keep the two in step. @typedef {'msrp-confirmed'|'discontinued-no-msrp'|'oe-only-no-msrp'|'regional-conversion'|'bundle-split-estimate'} PriceBasis */
+ * Mirrors schema.js's VOCAB.priceBasis - keep the two in step. @typedef {'msrp-confirmed'|'discontinued-no-msrp'|'oe-only-no-msrp'|'regional-conversion'|'bundle-split-estimate'|'third-party-listed'} PriceBasis */
 /** @typedef {'current'|'discontinued'|'recalled'} PartStatus */
 /** @typedef {'battery'|'charger'|'spring'|'rotor'|'mounting-hardware'} SoldWithout */
 

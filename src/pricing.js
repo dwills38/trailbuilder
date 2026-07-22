@@ -49,7 +49,7 @@ function msrpCompareDesc(a, b){ return (b.price||0) - (a.price||0); }
    row's price is in.
 
      price: MSRP confirmed      priceBasis:'msrp-confirmed'
-     a disclosed exception      the other four tokens — a REAL price that
+     a disclosed exception      the other five tokens — a REAL price that
                                 honestly isn't a current maker MSRP, each
                                 naming its own reason
      price: sample              no priceBasis (the honest default, and still
@@ -85,6 +85,8 @@ function priceBasisLabel(p){
       return 'price: converted from the maker\'s non-USD price — not a US MSRP';
     case 'bundle-split-estimate':
       return 'price: an estimated split of a bundled SKU — the maker prices only the combined part';
+    case 'third-party-listed':
+      return 'price: no maker price exists — shown price is from a third-party listing';
     default:
       /* Deliberately short and contrastive: this phrase sits INSIDE a badge
          title that has just said the SPEC was checked against the manufacturer

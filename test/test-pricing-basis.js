@@ -81,7 +81,7 @@ test('NO priceBasis reads as "sample" — silence is never confirmation', functi
 });
 
 test('each disclosed exception class gets its OWN wording, and none claims to be an MSRP', function(){
-  var exceptions = ['discontinued-no-msrp','oe-only-no-msrp','regional-conversion','bundle-split-estimate'];
+  var exceptions = ['discontinued-no-msrp','oe-only-no-msrp','regional-conversion','bundle-split-estimate','third-party-listed'];
   /** @type {Object.<string, boolean>} */ var seen = {};
   exceptions.forEach(function(token){
     var label = P.priceBasisLabel({ priceBasis:token });

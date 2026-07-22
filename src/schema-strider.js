@@ -33,12 +33,12 @@ var STRIDER_VOCAB = {
   /* Price provenance — mirrors src/schema.js's VOCAB.priceBasis VERBATIM
      (Douglas's 2026-07-22 ruling: "verified means the pricing was verified
      too"). Absent = a SAMPLE price; present = a disclosed claim, legal only on
-     a verified row. 'msrp-confirmed' is the norm; the other four are the
+     a verified row. 'msrp-confirmed' is the norm; the other five are the
      disclosed exception classes (discontinued / OE-only / non-USD conversion /
-     bundled-SKU split). Full per-token rationale lives in schema.js — same
-     enum, not a strider variant. Never feeds any fit logic. */
+     bundled-SKU split / third-party-listed). Full per-token rationale lives in
+     schema.js — same enum, not a strider variant. Never feeds any fit logic. */
   priceBasis: ['msrp-confirmed', 'discontinued-no-msrp', 'oe-only-no-msrp',
-               'regional-conversion', 'bundle-split-estimate']
+               'regional-conversion', 'bundle-split-estimate', 'third-party-listed']
 };
 
 /* >>> COORDINATOR ROLLOUT SWITCH — DO NOT FLIP. See the identical constant in
